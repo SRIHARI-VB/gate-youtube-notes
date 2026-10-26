@@ -946,8 +946,8 @@
     },
     {
       "kind": "notes",
-      "placement": "operating-systems > process-scheduling",
-      "detail": "gate-cse-mocks/operating-systems/question-bank/master_bank.json units 1 and 2 serve no notes card; the notes repo has no operating-systems subject"
+      "placement": "operating-systems > process-scheduling and synchronization-ipc",
+      "detail": "gate-cse-mocks/operating-systems/question-bank/master_bank.json unit 1 process-scheduling holds 50 questions; unit 2 Inter-Process Communication & Synchronization (synchronization-ipc) opened 2026-10-26 with 25 questions in semaphores-binary-counting 8, hardware-primitives-test-and-set 6, classic-problems-dining-philosophers-producer-consumer 6 and critical-section-problem-peterson 5, paper operating-systems/synchronization-ipc/gate_os_mock_2_2026-10-26.html. Neither unit serves a notes card: the notes repo has 27 cards, all discrete-mathematics, and no operating-systems subject. Next notes build: content/subjects/operating-systems/synchronization-ipc/ as the first card of that subject."
     },
     {
       "kind": "visual",
@@ -968,6 +968,11 @@
       "kind": "notes",
       "placement": "discrete-mathematics > combinatorics > recurrences-and-compositions",
       "detail": "the card is a flagged playlist gap with no videoRefs; recurrence-relations covers the recurrence half and generating-functions the 1/(1-x-x^2) form, but nothing in the playlist teaches compositions"
+    },
+    {
+      "kind": "notes",
+      "placement": "digital-logic > boolean-algebra > boolean-algebra-and-minimisation",
+      "detail": "gate-visual-explainer lesson boolean-algebra-and-minimisation (topics.json title \"Boolean Algebra and Minimisation\", syllabus-coverage.json Digital Logic > Boolean algebra > Boolean algebra and minimisation, coverage_status PUBLISHED, 9 subtopics, 29 microtopics, 10 scenes in transcript.md) serves no notes card: the notes repo's 27 cards are all discrete-mathematics combinatorics and propositional-logic, and it has no digital-logic subject. Next notes build: content/subjects/digital-logic/boolean-algebra/boolean-algebra-and-minimisation.json, fed by the lesson's Karnaugh-map and tabular-method scenes."
     }
   ]
 }
