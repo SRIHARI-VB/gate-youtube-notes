@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Combinatorics revision - GATE CSE</title>
+<link rel="stylesheet" href="src/styles/design-tokens.css">
+<link rel="stylesheet" href="src/styles/app.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+</head>
+<body>
+<div class="layout">
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-mark">C</div>
+      <div>
+        <div class="brand-text">Combinatorics</div>
+        <div class="brand-sub">GATE CSE revision</div>
+      </div>
+    </div>
+    <nav class="nav">
+      <div class="nav-group">Study</div>
+      <a href="#/">Dashboard</a>
+      <a href="#/topics">Topics <span class="count" id="navTopicCount"></span></a>
+      <a href="#/pyqs">Verified PYQs</a>
+      <a href="#/last-minute">Last-minute sheet</a>
+      <div class="nav-group">Sources</div>
+      <a href="#/playlist">Playlist <span class="count">14</span></a>
+      <a href="#/visuals">Visual lessons <span class="count">4</span></a>
+    </nav>
+  </aside>
+  <div class="main">
+    <div class="topbar">
+      <button class="chip menu-btn" id="menuBtn">Menu</button>
+      <div class="search-wrap">
+        <input id="searchInput" type="search" placeholder="Search topics, formulas, PYQs...  (press Enter)" aria-label="Search">
+      </div>
+    </div>
+    <main class="content" id="view"></main>
+  </div>
+</div>
+<script src="src/data/content.js"></script>
+<script src="src/app/app.js"></script>
+</body>
+</html>
