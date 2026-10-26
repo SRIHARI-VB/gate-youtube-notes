@@ -1,0 +1,13 @@
+{
+  "exam": "GATE CSE 2027",
+  "section": "Discrete Mathematics",
+  "line": "Combinatorics: Counting, recurrence relations, generating functions.",
+  "covered_by_playlist": [
+    "Counting"
+  ],
+  "not_covered_by_playlist": [
+    "recurrence relations (solving)",
+    "generating functions (as a technique)"
+  ],
+  "note": "The official GATE CSE syllabus line for this area is short. The playlist teaches the counting half in depth; recurrences and generating functions appear only as tools inside examples."
+}
