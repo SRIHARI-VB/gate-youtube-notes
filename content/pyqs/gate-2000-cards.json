@@ -1,0 +1,21 @@
+{
+  "id": "gate-2000-cards",
+  "year": "2000",
+  "paper": "GATE CS 2000",
+  "question_ref": "Q.1 (paper numbering)",
+  "type": "MCQ",
+  "marks": "1",
+  "topic": "pigeonhole",
+  "text": "The minimum number of cards to be dealt from an arbitrarily shuffled deck of 52 cards to guarantee that three cards are from some same suit is",
+  "options": [
+    "3",
+    "8",
+    "9",
+    "12"
+  ],
+  "answer": "Option (C) 9",
+  "solution": "Worst case before the guarantee: 2 cards from each of the 4 suits = 8 cards, with no suit yet holding 3. The 9th card must join one of those suits, giving 3 of a suit. Generalised pigeonhole: to force r in some box out of k boxes you need k(r-1)+1 = 4(2)+1 = 9.",
+  "source_url": "https://solutionsadda.in/2023/12/30/question-9809-gate-2000/",
+  "source_label": "GATE 2000 solutions (solutionsadda); also Garg's Academy GATE combinatorics solutions",
+  "verification": "SOURCED"
+}
