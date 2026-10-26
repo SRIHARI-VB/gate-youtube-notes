@@ -1,0 +1,16 @@
+{
+  "id": "gate-2014-1-49",
+  "year": "2014",
+  "paper": "GATE CS 2014 Set 1",
+  "question_ref": "Q.49",
+  "type": "NAT",
+  "marks": "2",
+  "topic": "recurrences-and-compositions",
+  "text": "A pennant is a sequence of numbers, each number being 1 or 2. An n-pennant is a sequence of numbers with sum equal to n. For example, (1,1,2) is a 4-pennant. The set of all possible 1-pennants is {(1)}, the set of all possible 2-pennants is {(2), (1,1)} and the set of all possible 3-pennants is {(2,1),(1,1,1),(1,2)}. Note that the pennant (1,2) is not the same as the pennant (2,1). The number of 10-pennants is ______.",
+  "options": [],
+  "answer": "89",
+  "solution": "Let f(n) be the number of n-pennants. Every n-pennant ends in a 1 (delete it: an (n-1)-pennant) or a 2 (delete it: an (n-2)-pennant), so f(n) = f(n-1) + f(n-2) with f(1) = 1, f(2) = 2. The sequence is 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, so f(10) = 89. Cross-check by counting compositions of 10 into parts 1 and 2: 1 + 9 + 28 + 35 + 15 + 1 = 89.",
+  "source_url": "https://gateforumonline.com/wp-content/uploads/2021/09/CS-Gate-2014-Set-1.pdf",
+  "source_label": "GATE 2014 CS Set 1 paper with answer key (answer printed as 89); discussion at gateoverflow.in/1929",
+  "verification": "OFFICIAL_KEY"
+}
