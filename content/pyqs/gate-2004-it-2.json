@@ -1,0 +1,21 @@
+{
+  "id": "gate-2004-it-2",
+  "year": "2004",
+  "paper": "GATE IT 2004",
+  "question_ref": "Q.2",
+  "type": "MCQ",
+  "marks": "2",
+  "topic": "inclusion-exclusion",
+  "text": "In a class of 200 students, 125 have taken Programming Language, 85 Data Structures, 65 Computer Organization; 50 have taken both PL and DS, 35 both PL and CO, 30 both DS and CO, and 15 all three. How many students have not taken any of the three courses?",
+  "options": [
+    "15",
+    "20",
+    "25",
+    "30"
+  ],
+  "answer": "Option (C) 25",
+  "solution": "|A u B u C| = 125 + 85 + 65 - 50 - 35 - 30 + 15 = 175. So 200 - 175 = 25 took none. The question paper itself has a misprint in one of the pairwise figures; the version above (PL and CO = 35, DS and CO = 30) is the one the answer key matches. This question appears in the IT paper and is indexed under CSE 2004 by some repositories.",
+  "source_url": "https://gateoverflow.in/3643/gate-it-2004-question-2",
+  "source_label": "GATE Overflow discussion of GATE IT 2004 Q.2",
+  "verification": "SOURCED"
+}
