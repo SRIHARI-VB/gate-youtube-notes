@@ -998,6 +998,16 @@
       "kind": "notes",
       "placement": "programming-data-structures > programming-in-c > functions-scope-and-preprocessor",
       "detail": "gate-visual-explainer lesson functions-scope-and-preprocessor (topics.json title \"Functions, Scope, Lifetime and the Preprocessor\"; syllabus-coverage.json Programming and Data Structures > Programming in C > Functions, scope, lifetime and the preprocessor, coverage_status PUBLISHED, 7 subtopics and 23 microtopics, topics/functions-scope-and-preprocessor/transcript.md) published 2026-10-26 and serves no notes card: the notes repo has no programming-data-structures subject. The mock side already exists: gate-cse-mocks/programming-data-structures/question-bank/master_bank.json unit 1 c-programming-core carries the subtopic_label Functions & parameter passing 6, which is the lesson's prototype and pass-by-value ground. Next notes build: content/subjects/programming-data-structures/c-programming-core/functions-scope-and-preprocessor.json, extending the subject the c-fundamentals card started."
+    },
+    {
+      "kind": "notes",
+      "placement": "algorithms > asymptotic-analysis (unit 1)",
+      "detail": "gate-cse-mocks/algorithms/question-bank/master_bank.json unit 1 Asymptotic Analysis & Recurrences (unit_slug asymptotic-analysis) reached the 50-question cap on 2026-10-26 with runs 1 and 2 (Set 1 of 2, Set 2 of 2), both filing paper algorithms/asymptotic-analysis/gate_algo_mock_1_2026-10-26.html, Set 1 archived at algorithms/asymptotic-analysis/archive/gate_algo_mock_1_2026-10-26_run1.html. Grouping the 50 records by their subtopic field (the records carry subtopic, not subtopic_label): big-o-omega-theta 15, master-theorem-cases 14, recursion-tree-method 13, substitution-method 8. Serves no notes card: all 27 cards are discrete-mathematics combinatorics and propositional-logic, and recurrences-and-compositions counts compositions by recurrence, not algorithm run-time recurrences. MOCK_CAPPED. Next notes build: content/subjects/algorithms/asymptotic-analysis/asymptotic-analysis-and-recurrences.json, fed by the master-theorem-cases and recursion-tree-method groups."
+    },
+    {
+      "kind": "notes",
+      "placement": "programming-data-structures > programming-in-c > recursion",
+      "detail": "gate-visual-explainer lesson recursion (topics.json title \"Recursion\", syllabus-coverage.json Programming and Data Structures > Programming in C > Recursion, coverage_status PUBLISHED 2026-10-26, 10 subtopics, 34 microtopics, 10 scenes in topics/recursion/transcript.md from 'a recursive call is the same problem, smaller' through 'the procedure, and the two questions GATE asks') serves no notes card: the notes repo has no programming-data-structures subject. The mock side already exists: gate-cse-mocks/programming-data-structures/question-bank/master_bank.json unit 1 c-programming-core carries the subtopic_label Recursion & stack execution 6 of 25, paper programming-data-structures/c-programming-core/gate_ds_mock_1_2026-10-26.html. Next notes build: content/subjects/programming-data-structures/programming-in-c/recursion.json, extending the c-fundamentals and functions-scope-and-preprocessor builds."
     }
   ]
 }
