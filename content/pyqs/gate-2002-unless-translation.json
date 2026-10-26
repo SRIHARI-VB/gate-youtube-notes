@@ -1,0 +1,21 @@
+{
+  "id": "gate-2002-unless-translation",
+  "year": "2002",
+  "paper": "GATE CS 2002",
+  "question_ref": "Q.1.8",
+  "type": "MCQ",
+  "topic": "propositions-and-connectives",
+  "text": "\"If X then Y unless Z\" is represented by which of the following formulas in propositional logic? (~ is negation, ∧ is conjunction, and → is implication)",
+  "options": [
+    "(X ∧ ¬Z) → Y",
+    "(X ∧ Y) → ¬Z",
+    "X → (Y ∧ ¬Z)",
+    "(X → Y) ∧ ¬Z"
+  ],
+  "answer": "Option (A): (X ∧ ¬Z) → Y",
+  "solution": "P→Q ≡ \"Q unless ¬P\". Reading \"if X then Y unless Z\" as (X→Y) unless Z gives ¬Z→(X→Y) ≡ Z∨¬X∨Y ≡ ¬(X∧¬Z)∨Y ≡ (X∧¬Z)→Y.",
+  "source_url": "https://gateoverflow.in/812/gate-cse-2002-question-1-8",
+  "source_label": "GATE Overflow question page - GATE CSE 2002 Q.1.8 with community solutions",
+  "verification": "SOURCED",
+  "answer_evidence": "Answer is a) $(X \\land \\lnot Z)\\to Y$"
+}

@@ -1,0 +1,16 @@
+{
+  "id": "gate-2016-set2-logically-implied-count",
+  "year": "2016",
+  "paper": "GATE CS 2016 Set 2",
+  "question_ref": "Q.1 (CS section)",
+  "type": "NAT",
+  "topic": "logical-entailment-and-models",
+  "text": "Consider the following expressions: (i) false (ii) Q (iii) true (iv) P∨Q (v) ¬Q∨P. The number of expressions given above that are logically implied by P ∧ (P ⇒ Q) is ______.",
+  "options": [],
+  "answer": "4",
+  "solution": "P∧(P⇒Q) ≡ P∧(¬P∨Q) ≡ P∧Q, which is true only in the row P=T, Q=T. In that row Q, true, P∨Q and ¬Q∨P are all true, while false is not. So 4 of the 5 expressions are logically implied.",
+  "source_url": "https://gateoverflow.in/39568/gate-cse-2016-set-2-question-01",
+  "source_label": "GATE Overflow question page for GATE CS 2016 Set 2 Q.1 (NAT), numbered within the CS section",
+  "verification": "SOURCED",
+  "answer_evidence": "4 should be the correct answer."
+}

@@ -1,0 +1,21 @@
+{
+  "id": "gate-2015-set2-inference-corrupt-kind",
+  "year": "2015",
+  "paper": "GATE CS 2015 Set 2",
+  "question_ref": "Q.3",
+  "type": "MCQ",
+  "topic": "rules-of-inference",
+  "text": "Consider the following two statements. S1: If a candidate is known to be corrupt, then he will not be elected. S2: If a candidate is kind, he will be elected. Which one of the following statements follows from S1 and S2 as per sound inference rules of logic?",
+  "options": [
+    "If a person is known to be corrupt, he is kind",
+    "If a person is not known to be corrupt, he is not kind",
+    "If a person is kind, he is not known to be corrupt",
+    "If a person is not kind, he is not known to be corrupt"
+  ],
+  "answer": "Option (C)",
+  "solution": "Write C = known to be corrupt, K = kind, E = elected. S1: C→¬E, S2: K→E. Contrapositive of S1 is E→¬C, so by hypothetical syllogism K→E→¬C, i.e. K→¬C. Equivalently, resolution on (¬C∨¬E) and (¬K∨E) gives ¬C∨¬K.",
+  "source_url": "https://gateoverflow.in/8049/gate-cse-2015-set-2-question-3",
+  "source_label": "GATE Overflow question page - GATE CSE 2015 Set 2 Q.3 with community solutions",
+  "verification": "SOURCED",
+  "answer_evidence": "Only option C matches."
+}

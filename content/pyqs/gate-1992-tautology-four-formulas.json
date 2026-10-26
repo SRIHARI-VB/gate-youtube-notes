@@ -1,0 +1,21 @@
+{
+  "id": "gate-1992-tautology-four-formulas",
+  "year": "1992",
+  "paper": "GATE CS 1992",
+  "question_ref": "Q.2(xvi)",
+  "type": "MCQ",
+  "topic": "truth-tables-and-tautology",
+  "text": "Which of the following is/are a tautology? (a) (a or b) -> (b and c)  (b) (a and b) -> (b or c)  (c) (a or b) -> (b -> c)  (d) a -> b -> (b -> c)",
+  "options": [
+    "(a or b) -> (b and c)",
+    "(a and b) -> (b or c)",
+    "(a or b) -> (b -> c)",
+    "a -> b -> (b -> c)"
+  ],
+  "answer": "Option (B): a ∧ b → b ∨ c",
+  "solution": "(a∧b)→(b∨c) ≡ ¬(a∧b)∨b∨c ≡ ¬a∨¬b∨b∨c ≡ T. (A) fails when c=F; (C) fails when b=T, c=F; (D), read right-associatively, fails when a=T, b=T, c=F. Option (d) is read right-associatively, a -> (b -> (b -> c)); under a left-associative reading it would be ((a -> b) -> (b -> c)), which is also not a tautology, so the answer does not depend on the convention.",
+  "source_url": "https://gateoverflow.in/574/gate-cse-1992-question-02-xvi",
+  "source_label": "GATE Overflow question page for GATE CS 1992 Q.2(xvi) with community solutions; question and options read off that page",
+  "verification": "SOURCED",
+  "answer_evidence": "Option B is Tautology."
+}

@@ -1,0 +1,21 @@
+{
+  "id": "gate-1998-converse-only-if",
+  "year": "1998",
+  "paper": "GATE CS 1998",
+  "question_ref": "Q.1.5",
+  "type": "MCQ",
+  "topic": "implication-converse-contrapositive",
+  "text": "What is the converse of the following assertion? \"I stay only if you go\"",
+  "options": [
+    "If I do not stay then you go",
+    "If you do not go then I do not stay",
+    "If I stay then you go",
+    "I stay if you go"
+  ],
+  "answer": "\"I stay if you go\" (i.e. Q→P, the converse of P→Q) - recorded on GATE Overflow as option (A) of the paper",
+  "solution": "Let P = \"I stay\", Q = \"you go\". \"P only if Q\" ≡ P→Q. The converse of P→Q is Q→P = \"If you go then I stay\" = \"I stay if you go\". Caution: the option list mirrored on GATE Overflow places this text as its fourth item while the accepted answer calls it option (A); match by content, not by position.",
+  "source_url": "https://gateoverflow.in/1642/gate-cse-1998-question-1-5",
+  "source_label": "GATE Overflow question page for GATE CS 1998 Q.1.5 with community solutions. The accepted answer names the option letter; the option list on that page orders the text differently, so the answer here is recorded by content",
+  "verification": "SOURCED",
+  "answer_evidence": "Converse (A→B)=B→A \"If you go then I stay\" Answer is (A)."
+}

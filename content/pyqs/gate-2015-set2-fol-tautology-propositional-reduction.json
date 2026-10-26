@@ -1,0 +1,21 @@
+{
+  "id": "gate-2015-set2-fol-tautology-propositional-reduction",
+  "year": "2015",
+  "paper": "GATE CS 2015 Set 2",
+  "question_ref": "Q.55",
+  "type": "MCQ",
+  "topic": "quantifiers-and-scope",
+  "text": "Which one of the following well-formed formulae is a tautology? (A) ∀x∃y R(x,y) ↔ ∃y∀x R(x,y) (B) (∀x[∃y R(x,y) → S(x,y)]) → ∀x∃y S(x,y) (C) [∀x∃y(P(x,y)→R(x,y))] ↔ [∀x∃y(¬P(x,y)∨R(x,y))] (D) ∀x∀y P(x,y) → ∀x∀y P(y,x)",
+  "options": [
+    "∀x ∃y R(x,y) ↔ ∃y ∀x R(x,y)",
+    "(∀x [∃y R(x,y) → S(x,y)]) → ∀x ∃y S(x,y)",
+    "[∀x ∃y (P(x,y) → R(x,y))] ↔ [∀x ∃y (¬P(x,y) ∨ R(x,y))]",
+    "∀x ∀y P(x,y) → ∀x ∀y P(y,x)"
+  ],
+  "answer": "Option (C)",
+  "solution": "The propositional part of this first-order question is that P→R ≡ ¬P∨R inside the quantifier scope. Replacing P(x,y)→R(x,y) by ¬P(x,y)∨R(x,y) on the left makes both sides literally identical, so the formula has the propositional form A↔A, a tautology in PL. Options (A) and (D) swap/permute quantifiers and predicate arguments; (B) fails when R and S are both false everywhere.",
+  "source_url": "https://gateoverflow.in/8259/gate-cse-2015-set-2-question-55",
+  "source_label": "GATE Overflow question page for GATE CS 2015 Set 2 Q.55 with the accepted solution by Deepak Poonia, which reduces the first-order formula to the propositional tautology A <-> A",
+  "verification": "SOURCED",
+  "answer_evidence": "Now, we can take $A = [\\forall x \\exists y( \\neg P(x,y) \\vee R(x,y))]$ and so $A \\leftrightarrow A$ is tautology in PL."
+}

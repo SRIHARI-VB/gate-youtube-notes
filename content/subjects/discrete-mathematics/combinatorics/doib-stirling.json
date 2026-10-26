@@ -1,0 +1,45 @@
+{
+  "id": "doib-stirling",
+  "title": "DOIB: Distinct Objects, Identical Boxes (Stirling Numbers)",
+  "priority": "P2",
+  "order": 9,
+  "unit": "Balls and boxes",
+  "quickIdea": "Splitting a set into unlabelled non-empty blocks. The count is the Stirling number of the second kind S(n,k).",
+  "remember": [
+    "S(n,k) = number of ways to partition an n-set into k non-empty unlabelled blocks.",
+    "Recurrence: S(n,k) = k S(n-1,k) + S(n-1,k-1).",
+    "S(n,1) = S(n,n) = 1; S(4,2) = 7; S(5,3) = 25.",
+    "Empty boxes allowed: sum S(n,j) for j = 1..k, which is a Bell number when k = n."
+  ],
+  "example": {
+    "prompt": "Partition {1,2,3,4} into 2 non-empty blocks.",
+    "work": "The block containing 1 has 1, 2 or 3 partners: 1 + 3 + 3.",
+    "answer": "S(4,2) = 7"
+  },
+  "gateAngle": "'Set partition', 'groups of students', 'teams' with no names are all DOIB. The recurrence is the fastest hand computation when n and k are small.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "In how many ways can 4 distinct books be put into 2 identical bags, neither empty?",
+      "answer": "7",
+      "why": "Same as S(4,2). If the bags were distinct the answer would be 2! x 7 = 14."
+    }
+  ],
+  "trap": {
+    "what": "Replacing S(n,k) by C(n,k).",
+    "why": "C(n,k) chooses k elements out of n; it does not partition anything. A partition into k blocks assigns every element to one of k unlabelled groups.",
+    "counterexample": "S(4,2) = 7 while C(4,2) = 6. The seven partitions of {1,2,3,4} into two blocks are 1|234, 2|134, 3|124, 4|123, 12|34, 13|24, 14|23."
+  },
+  "check": {
+    "question": "What is S(4,2)?",
+    "answer": "7",
+    "explanation": "Block sizes 1+3 (4 ways) or 2+2 (3 ways): 4 + 3 = 7."
+  },
+  "pyqIds": [],
+  "videoRefs": [
+    "dfYkiuplKkw"
+  ],
+  "prereqs": [
+    "distribution-templates"
+  ]
+}

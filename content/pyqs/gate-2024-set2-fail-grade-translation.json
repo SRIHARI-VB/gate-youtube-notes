@@ -1,0 +1,22 @@
+{
+  "id": "gate-2024-set2-fail-grade-translation",
+  "year": "2024",
+  "paper": "GATE CS 2024 Set 2",
+  "question_ref": "Q.12",
+  "type": "MCQ",
+  "topic": "implication-converse-contrapositive",
+  "text": "Let p and q be the following propositions: p: Fail grade can be given. q: Student scores more than 50% marks. Consider the statement: \"Fail grade cannot be given when student scores more than 50% marks.\" Which one of the following is the CORRECT representation of the above statement in propositional logic?",
+  "options": [
+    "q → ¬p",
+    "q → p",
+    "p → q",
+    "¬p → q"
+  ],
+  "answer": "Option (A): q → ¬p",
+  "solution": "\"P when Q\" means Q→P. Here the claim is P = ¬p (fail grade cannot be given) and the condition Q = q (student scores more than 50%), so the statement is q→¬p. Scoring above 50% is a sufficient condition for not being given a fail grade.",
+  "source_url": "https://gate2025.iitr.ac.in/doc/download/2024/CS224S6.pdf",
+  "source_label": "Official GATE 2024 CS Set 2 master question paper (CS224S6) hosted on the official GATE site; answer confirmed against the official answer key table",
+  "verification": "OFFICIAL_KEY",
+  "marks": "1",
+  "answer_evidence": "12 6 MCQ CS-2 A 1"
+}

@@ -1,0 +1,21 @@
+{
+  "id": "gate-2003-resolution-rule-false-statement",
+  "year": "2003",
+  "paper": "GATE CS 2003",
+  "question_ref": "Q.72",
+  "type": "MCQ",
+  "topic": "resolution-refutation",
+  "text": "The following resolution rule is used in logic programming. Derive clause (P ∨ Q) from clauses (P ∨ R), (Q ∨ ¬R). Which of the following statements related to this rule is FALSE?",
+  "options": [
+    "((P ∨ R) ∧ (Q ∨ ¬R)) ⇒ (P ∨ Q) is logically valid",
+    "(P ∨ Q) ⇒ ((P ∨ R) ∧ (Q ∨ ¬R)) is logically valid",
+    "(P ∨ Q) is satisfiable if and only if (P ∨ R) ∧ (Q ∨ ¬R) is satisfiable",
+    "(P ∨ Q) ⇒ FALSE if and only if both P and Q are unsatisfiable"
+  ],
+  "answer": "Option (B)",
+  "solution": "(A) is exactly the resolution rule and simplifies to 1, so it is valid. (B) simplifies to (¬P∧¬Q) ∨ (P∧Q) ∨ (P∧¬R) ∨ (Q∧R), a contingency, so it is not logically valid - hence the FALSE statement. (C) and (D) both hold.",
+  "source_url": "https://gateoverflow.in/959/gate-cse-2003-question-72",
+  "source_label": "GATE Overflow question page - GATE CSE 2003 Q.72 with community solutions",
+  "verification": "SOURCED",
+  "answer_evidence": "which is a contingency $($can be TRUE or FALSE depending on values of $P,Q$ and $R)$ and hence not logically valid. Answer B."
+}

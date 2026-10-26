@@ -1,0 +1,21 @@
+{
+  "id": "gate-2015-set1-not-equivalent-biconditional",
+  "year": "2015",
+  "paper": "GATE CS 2015 Set 1",
+  "question_ref": "Q.14",
+  "type": "MCQ",
+  "topic": "logical-equivalence-laws",
+  "text": "Which one of the following is NOT equivalent to p ↔ q?",
+  "options": [
+    "(¬p ∨ q) ∧ (p ∨ ¬q)",
+    "(¬p ∨ q) ∧ (q → p)",
+    "(¬p ∧ q) ∨ (p ∧ ¬q)",
+    "(¬p ∧ ¬q) ∨ (p ∧ q)"
+  ],
+  "answer": "Option (C)",
+  "solution": "p↔q ≡ (p→q)∧(q→p) ≡ (¬p∨q)∧(¬q∨p), which is (A); it equals (B) since ¬q∨p ≡ q→p; and it equals the XNOR form (D). Option (C) is (p∧¬q)∨(¬p∧q) = p⊕q, the negation of p↔q.",
+  "source_url": "https://gateoverflow.in/8209/gate-cse-2015-set-1-question-1-4",
+  "source_label": "GATE Overflow question page - GATE CSE 2015 Set 1 Q.14 with community solutions",
+  "verification": "SOURCED",
+  "answer_evidence": "So, answer C is not equivanet to $p \\iff q$ and is the answer."
+}

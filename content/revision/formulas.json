@@ -143,5 +143,215 @@
         "note": "coefficient extraction"
       }
     ]
+  },
+  {
+    "group": "Propositional connectives",
+    "items": [
+      {
+        "name": "Implication",
+        "latex": "p \\to q \\;\\equiv\\; \\lnot p \\lor q",
+        "note": "false only at p=T, q=F"
+      },
+      {
+        "name": "Contrapositive",
+        "latex": "p \\to q \\;\\equiv\\; \\lnot q \\to \\lnot p",
+        "note": "the only equivalent rewrite of the three"
+      },
+      {
+        "name": "Converse / inverse",
+        "latex": "q \\to p, \\quad \\lnot p \\to \\lnot q",
+        "note": "equivalent to each other, not to p -> q"
+      },
+      {
+        "name": "Biconditional",
+        "latex": "p \\leftrightarrow q \\;\\equiv\\; (p \\to q) \\land (q \\to p)",
+        "note": "true when p and q agree"
+      },
+      {
+        "name": "Negation of implication",
+        "latex": "\\lnot (p \\to q) \\;\\equiv\\; p \\land \\lnot q",
+        "note": "the one falsifying row"
+      },
+      {
+        "name": "English map",
+        "latex": "p \\text{ only if } q \\equiv p \\to q, \\quad p \\text{ unless } q \\equiv \\lnot q \\to p",
+        "note": "'if' points the other way"
+      }
+    ]
+  },
+  {
+    "group": "Equivalence laws",
+    "items": [
+      {
+        "name": "De Morgan",
+        "latex": "\\lnot (p \\land q) \\equiv \\lnot p \\lor \\lnot q",
+        "note": "flip the connective too"
+      },
+      {
+        "name": "Distributive",
+        "latex": "p \\land (q \\lor r) \\equiv (p \\land q) \\lor (p \\land r)",
+        "note": ""
+      },
+      {
+        "name": "Absorption",
+        "latex": "p \\lor (p \\land q) \\equiv p",
+        "note": ""
+      },
+      {
+        "name": "Exportation",
+        "latex": "(p \\land q) \\to r \\equiv p \\to (q \\to r)",
+        "note": "implication is not associative"
+      },
+      {
+        "name": "Negation laws",
+        "latex": "p \\lor \\lnot p \\equiv T, \\quad p \\land \\lnot p \\equiv F",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "group": "Normal forms",
+    "items": [
+      {
+        "name": "PDNF",
+        "latex": "\\bigvee_{F=1} m_j",
+        "note": "one minterm per true row"
+      },
+      {
+        "name": "PCNF",
+        "latex": "\\bigwedge_{F=0} M_j",
+        "note": "one maxterm per false row"
+      },
+      {
+        "name": "Maxterm vs minterm",
+        "latex": "M_j \\equiv \\lnot m_j",
+        "note": "same index, flipped literals"
+      },
+      {
+        "name": "Counts",
+        "latex": "2^n \\text{ minterms}, \\; 2^n \\text{ maxterms}, \\; 2^{2^n} \\text{ functions}",
+        "note": "n = number of variables"
+      }
+    ]
+  },
+  {
+    "group": "Semantics",
+    "items": [
+      {
+        "name": "Interpretations",
+        "latex": "2^n",
+        "note": "rows of the truth table"
+      },
+      {
+        "name": "Entailment",
+        "latex": "F_1, \\dots, F_n \\models G",
+        "note": "every model of the premises is a model of G"
+      },
+      {
+        "name": "Deduction theorem",
+        "latex": "F_1 \\land \\cdots \\land F_n \\models G \\iff (F_1 \\land \\cdots \\land F_n) \\to G \\text{ valid}",
+        "note": ""
+      },
+      {
+        "name": "Refutation form",
+        "latex": "F_1 \\land \\cdots \\land F_n \\land \\lnot G \\text{ unsatisfiable}",
+        "note": ""
+      },
+      {
+        "name": "Validity vs satisfiability",
+        "latex": "F \\text{ valid} \\iff \\lnot F \\text{ unsatisfiable}",
+        "note": "not valid is not the same as contradiction"
+      }
+    ]
+  },
+  {
+    "group": "Inference and resolution",
+    "items": [
+      {
+        "name": "Modus ponens",
+        "latex": "p, \\; p \\to q \\;\\vdash\\; q",
+        "note": ""
+      },
+      {
+        "name": "Modus tollens",
+        "latex": "\\lnot q, \\; p \\to q \\;\\vdash\\; \\lnot p",
+        "note": ""
+      },
+      {
+        "name": "Hypothetical syllogism",
+        "latex": "p \\to q, \\; q \\to r \\;\\vdash\\; p \\to r",
+        "note": ""
+      },
+      {
+        "name": "Disjunctive syllogism",
+        "latex": "p \\lor q, \\; \\lnot p \\;\\vdash\\; q",
+        "note": ""
+      },
+      {
+        "name": "Resolution",
+        "latex": "(p \\lor r), \\; (q \\lor \\lnot r) \\;\\vdash\\; (p \\lor q)",
+        "note": "one direction only"
+      },
+      {
+        "name": "Refutation",
+        "latex": "KB \\models \\alpha \\iff KB \\land \\lnot \\alpha \\vdash \\square",
+        "note": "empty clause = contradiction"
+      }
+    ]
+  },
+  {
+    "group": "Complete connective sets",
+    "items": [
+      {
+        "name": "NAND",
+        "latex": "p \\uparrow q \\equiv \\lnot (p \\land q)",
+        "note": "{NAND} is functionally complete"
+      },
+      {
+        "name": "NOR",
+        "latex": "p \\downarrow q \\equiv \\lnot (p \\lor q)",
+        "note": "{NOR} is functionally complete"
+      },
+      {
+        "name": "Negation from NAND",
+        "latex": "\\lnot p \\equiv p \\uparrow p",
+        "note": ""
+      },
+      {
+        "name": "Negation from NOR",
+        "latex": "\\lnot p \\equiv p \\downarrow p",
+        "note": ""
+      },
+      {
+        "name": "Not complete",
+        "latex": "\\{\\land, \\lor\\}, \\; \\{\\oplus, \\land\\}",
+        "note": "monotone / 0-preserving, so no negation"
+      }
+    ]
+  },
+  {
+    "group": "Quantifiers",
+    "items": [
+      {
+        "name": "Quantifier negation",
+        "latex": "\\lnot \\forall x P(x) \\equiv \\exists x \\lnot P(x)",
+        "note": "and the dual"
+      },
+      {
+        "name": "Restricted universal",
+        "latex": "\\forall x (S(x) \\to P(x))",
+        "note": "implication, not conjunction"
+      },
+      {
+        "name": "Restricted existential",
+        "latex": "\\exists x (S(x) \\land P(x))",
+        "note": "conjunction, not implication"
+      },
+      {
+        "name": "Order matters",
+        "latex": "\\forall x \\exists y R(x,y) \\not\\equiv \\exists y \\forall x R(x,y)",
+        "note": "the second is stronger"
+      }
+    ]
   }
 ]

@@ -1,0 +1,21 @@
+{
+  "id": "gate-2015-set1-functional-completeness",
+  "year": "2015",
+  "paper": "GATE CS 2015 Set 1",
+  "question_ref": "Q.39",
+  "type": "MCQ",
+  "topic": "functional-completeness",
+  "text": "Consider the operations f(X,Y,Z) = X'YZ + XY' + Y'Z' and g(X,Y,Z) = X'YZ + X'YZ' + XY. Which one of the following is correct?",
+  "options": [
+    "Both {f} and {g} are functionally complete",
+    "Only {f} is functionally complete",
+    "Only {g} is functionally complete",
+    "Neither {f} nor {g} is functionally complete"
+  ],
+  "answer": "Option (B) - only {f} is functionally complete",
+  "solution": "Setting X=Y in f gives f(X,X,Z) = X'XZ + XX' + X'Z' = X'Z' = X NOR Z, and NOR is functionally complete, so {f} is functionally complete. For g, g(1,1,1) = 1 and g(0,0,0) = 0, so g preserves both 0 and 1 and by Post's criterion {g} cannot be functionally complete.",
+  "source_url": "https://gateoverflow.in/8294/gate-cse-2015-set-1-question-39",
+  "source_label": "GATE Overflow question page for GATE CS 2015 Set 1 Q.39. GATE Overflow files this item under Digital Logic; the reasoning is functional completeness of a connective set",
+  "verification": "SOURCED",
+  "answer_evidence": "So, $f$ satisfies all $5$ conditions required for functional completeness."
+}

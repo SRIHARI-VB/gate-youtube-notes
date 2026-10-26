@@ -1,0 +1,21 @@
+{
+  "id": "gate-2021-set1-s1-tautology",
+  "year": "2021",
+  "paper": "GATE CS 2021 Set 1",
+  "question_ref": "Q.7",
+  "type": "MCQ",
+  "topic": "truth-tables-and-tautology",
+  "text": "Let p and q be two propositions. Consider the following two formulae in propositional logic. S1: (¬p∧(p∨q))→q and S2: q→(¬p∧(p∨q)). Which one of the following choices is correct?",
+  "options": [
+    "Both S1 and S2 are tautologies.",
+    "S1 is a tautology but S2 is not a tautology",
+    "S1 is not a tautology but S2 is a tautology",
+    "Neither S1 nor S2 is a tautology"
+  ],
+  "answer": "Option (B)",
+  "solution": "S1: ¬p∧(p∨q) ≡ ¬p∧q, so S1 ≡ (¬p∧q)→q ≡ p∨¬q∨q ≡ T. S2: q→(¬p∧q) ≡ ¬q∨(¬p∧q) ≡ ¬q∨¬p, which is false when p=q=T. So S1 is a tautology and S2 is not.",
+  "source_url": "https://gateoverflow.in/357445/gate-cse-2021-set-1-question-7",
+  "source_label": "GATE Overflow question page - GATE CSE 2021 Set 1 Q.7 with community solutions",
+  "verification": "SOURCED",
+  "answer_evidence": "Correct Option: B"
+}

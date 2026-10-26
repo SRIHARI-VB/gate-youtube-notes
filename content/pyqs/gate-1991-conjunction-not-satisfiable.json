@@ -1,0 +1,22 @@
+{
+  "id": "gate-1991-conjunction-not-satisfiable",
+  "year": "1991",
+  "paper": "GATE CS 1991",
+  "question_ref": "Q.3(xii)",
+  "type": "MCQ",
+  "topic": "satisfiability-and-validity",
+  "text": "If F1, F2 and F3 are propositional formulae such that F1∧F2→F3 and F1∧F2→~F3 are both tautologies, then which of the following is true:",
+  "options": [
+    "Both F1 and F2 are tautologies",
+    "The conjunction F1∧F2 is not satisfiable",
+    "Neither is tautologous",
+    "Neither is satisfiable",
+    "None of the above"
+  ],
+  "answer": "Option (B) - the conjunction F1∧F2 is not satisfiable",
+  "solution": "F1∧F2→F3 and F1∧F2→~F3 are both tautologies. Taking contrapositives gives ~F3→~(F1∧F2) and F3→~(F1∧F2); resolving these on F3 yields ~(F1∧F2), i.e. F1∧F2 is a contradiction and hence unsatisfiable. Note F1,F2,F3 are formulae, not propositional variables.",
+  "source_url": "https://gateoverflow.in/526/gate-cse-1991-question-03-xii",
+  "source_label": "GATE Overflow question page - GATE CSE 1991 Q.3(xii) with community solutions (accepted answer by Deepak Poonia)",
+  "verification": "SOURCED",
+  "answer_evidence": "So, for this GATE 1991 question, the answer will be Option B But the method of some students is Not correct."
+}

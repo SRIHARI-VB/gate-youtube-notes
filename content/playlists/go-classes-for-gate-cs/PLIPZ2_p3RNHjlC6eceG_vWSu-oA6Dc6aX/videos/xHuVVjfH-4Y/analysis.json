@@ -1,0 +1,14 @@
+{
+  "video_id": "xHuVVjfH-4Y",
+  "coverage_note": "A 12-person committee from 10 men and 10 women: parts (a), (b) and the five cases of (c) were readable. Parts (d) and (e) were past the cut and are not described anywhere in this repository.",
+  "topics": [
+    "combinations"
+  ],
+  "concepts": [
+    "C(20,12) = 125970 for no restriction.",
+    "Exactly 6 men and 6 women: C(10,6) x C(10,6) = 44100 - independent choices multiply.",
+    "Even number of women: sum over disjoint cases k = 2,4,6,8,10 giving 63090; k = 0 is infeasible because 12 men do not exist.",
+    "Check disjointness and feasibility before adding cases."
+  ],
+  "gate_claims": []
+}

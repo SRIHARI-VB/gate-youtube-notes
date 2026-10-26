@@ -1,0 +1,21 @@
+{
+  "id": "gate-2004-satisfiable-but-not-valid",
+  "year": "2004",
+  "paper": "GATE CS 2004",
+  "question_ref": "Q.70",
+  "type": "MCQ",
+  "topic": "satisfiability-and-validity",
+  "text": "The following propositional statement is (P ⇒ (Q ∨ R)) ⇒ ((P ∧ Q) ⇒ R)",
+  "options": [
+    "satisfiable but not valid",
+    "valid",
+    "a contradiction",
+    "None of the above"
+  ],
+  "answer": "Option (A): satisfiable but not valid",
+  "solution": "It is false when P=T, Q=T, R=F, so it cannot be valid. It is true when P=T, Q=T, R=T, so it is satisfiable. Simplifying, the formula reduces to ¬Q ∨ (¬P ∨ R), a contingency.",
+  "source_url": "https://gateoverflow.in/1064/gate-cse-2004-question-70",
+  "source_label": "GATE Overflow question page - GATE CSE 2004 Q.70 with community solutions",
+  "verification": "SOURCED",
+  "answer_evidence": "Answer a It is false when P = T, Q = T, R = F and hence cannot be valid."
+}
