@@ -1,0 +1,15 @@
+{
+  "video_id": "4m80SNCfxno",
+  "coverage_note": "The four-template taxonomy (DODB, IODB, DOIB, IOIB) and the opening DODB illustration were readable. The DODB counting formula itself was past the cut.",
+  "topics": [
+    "distribution-templates",
+    "dodb"
+  ],
+  "concepts": [
+    "Classify every distribution question on two axes: objects distinguishable or identical, boxes distinguishable or identical.",
+    "'Distinguishable' simply means different.",
+    "In DODB, exchanging the same object-sets between two different boxes gives a different distribution.",
+    "Template names are abbreviations of those two adjectives."
+  ],
+  "gate_claims": []
+}
