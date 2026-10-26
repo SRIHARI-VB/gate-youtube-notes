@@ -49,8 +49,8 @@
     var verified = pyqs.filter(function (p) { return p.verification === 'OFFICIAL_KEY' || p.verification === 'SOURCED'; }).length;
     var p1 = topics.filter(function (t) { return t.priority === 'P1'; });
     return h(
-      '<h1>Combinatorics revision dashboard</h1>' +
-      '<p class="lead">Built from the GO Classes combinatorics playlist, mapped to the GATE CSE syllabus line: ' +
+      '<h1>GATE CSE revision dashboard</h1>' +
+      '<p class="lead">Built from ' + (D.playlists && D.playlists.length ? D.playlists.length + ' GO Classes playlists' : 'the GO Classes playlist') + ', mapped to the GATE CSE syllabus line: ' +
       '<em>' + esc(syllabus.line) + '</em> These are recall cards, not a textbook.</p>' +
       '<div class="grid cols-3" style="margin:18px 0 6px">' +
         statCard(topics.length, 'revision topics') +
@@ -77,7 +77,7 @@
 
   function viewTopics() {
     var rows = topics.slice().sort(function (a, b) { return a.order - b.order; });
-    var html = '<h1>Topics</h1><p class="lead">Fifteen canonical topics. Videos map into these; the notes live here once, not once per video.</p>';
+    var html = '<h1>Topics</h1><p class="lead">' + topics.length + ' canonical topic cards. Videos map into these; the notes live here once, not once per video.</p>';
     html += '<div class="pill-row" id="topicFilter">' +
       ['all', 'P1', 'P2', 'P3'].map(function (p) {
         return '<button class="chip" data-p="' + p + '" aria-pressed="' + (p === 'all') + '">' + p + '</button>';
@@ -186,8 +186,9 @@
   }
 
   function viewPlaylist() {
+    var pls = (D.playlists && D.playlists.length) ? D.playlists : [playlist];
     var html = '<h1>Playlist inventory</h1>' +
-      '<p class="lead">' + esc(playlist.title) + ' - ' + esc(playlist.channel) + '. ' +
+      '<p class="lead">' + pls.map(function (p) { return esc(p.title) + ' - ' + esc(p.channel); }).join(' &middot; ') + '. ' +
       'Every video has an explicit processing status. Where only the opening of a lecture was retrievable, that is stated instead of being hidden.</p>';
     html += '<div class="card"><table><thead><tr><th>#</th><th>Video</th><th>Length</th><th>Status</th><th>Topics</th></tr></thead><tbody>';
     videos.forEach(function (v) {
@@ -213,7 +214,9 @@
       { slug: 'stars-and-bars', title: 'Stars and Bars (IODB)', why: 'See why n identical objects in k distinct boxes is C(n+k-1, k-1), and what the bars actually are.' },
       { slug: 'inclusion-exclusion', title: 'Inclusion-Exclusion and Derangements', why: 'Watch the alternating add/subtract pattern fix double counting, then count derangements with it.' },
       { slug: 'pigeonhole', title: 'Pigeonhole: Guarantees, not Odds', why: 'The worst-case construction that turns "probably" into "must".' },
-      { slug: 'distribution-grid', title: 'The 2x2 Distribution Grid', why: 'Decide between DODB, IODB, DOIB and IOIB before you write a single formula.' }
+      { slug: 'distribution-grid', title: 'The 2x2 Distribution Grid', why: 'Decide between DODB, IODB, DOIB and IOIB before you write a single formula.' },
+      { slug: 'discrete-mathematics/propositional-logic/truth-tables', title: 'Truth Tables: Implication and Its Converse', why: 'See why p -> q is false in exactly one row, and why the converse is a different column.' },
+      { slug: 'discrete-mathematics/propositional-logic/implication-contrapositive', title: 'Converse, Inverse and Contrapositive', why: 'Three rewrites of p -> q, and the only one that is actually equivalent.' }
     ];
     return h('<h1>Visual lessons</h1><p class="lead">Each lesson runs in the browser with play, pause, step and speed controls, and a static explanation underneath so it is still useful with animation off.</p>' +
       '<div class="grid cols-2">' + vids.map(function (v) {
