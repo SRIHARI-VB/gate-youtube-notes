@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pigeonhole: Guarantees, not Odds - Combinatorics visual lesson</title>
+<link rel="stylesheet" href="../lesson.css">
+<script src="https://cdn.jsdelivr.net/npm/p5@1.9.4/lib/p5.min.js"></script>
+</head>
+<body>
+<div class="wrap">
+  <p class="small"><a href="../../index.html">&larr; back to the revision site</a></p>
+  <h1>Pigeonhole: Guarantees, not Odds</h1>
+  <div class="objective"><strong>Objective.</strong> Turn a probabilistic-sounding question into a certain one by constructing the worst case.</div>
+
+  <div class="canvas-wrap"><div id="canvas-holder"></div></div>
+  <div class="caption" id="caption" aria-live="polite"></div>
+
+  <div class="controls">
+    <button id="play" class="primary">Play</button>
+    <button id="prev">&larr; Prev</button>
+    <button id="next">Next &rarr;</button>
+    <button id="restart">Restart</button>
+    <span class="speed"><label for="speed">Speed</label>
+      <input id="speed" type="range" min="0.25" max="2" step="0.25" value="1">
+      <span id="speedLabel">1.00x</span></span>
+    <span class="counter" id="counter"></span>
+  </div>
+
+  <h2>Static explanation</h2>
+  <p>The pigeonhole principle answers "must this happen", not "is it likely". If N objects sit in k boxes, some box holds at least ceil(N/k). To force r objects into some one box you need <strong>k(r - 1) + 1</strong> objects.</p>
+<p>For the classic card question: 4 suits, force 3 of one suit, so 4 x (3 - 1) + 1 = <strong>9</strong> cards. The proof is the worst case - put 2 cards in each suit, which uses 8 cards and still fails the claim; the next card cannot avoid creating a three.</p>
+<p>The exam-safe procedure is to negate the claim and try to realise the negation. If the negation can be built, the claim is false. If it cannot, the claim is guaranteed.</p>
+<p>Useful negations: not(x &gt;= n) is x &lt;= n - 1, and not(x &lt;= n) is x &gt;= n + 1.</p>
+
+  <div class="card warn"><div class="label">Common misconception</div><p><strong>&ldquo;At least&rdquo; and &ldquo;exactly&rdquo; are different guarantees.</strong> Nine cards guarantee that some suit has at least three, but they do not guarantee any suit has exactly three - the split could be 4, 2, 2, 1. Reading &ldquo;exactly&rdquo; into a pigeonhole conclusion is the most common lost mark in this topic.</p></div>
+  <div class="card ok"><div class="label">Quick check</div><p>How many people must be in a room to guarantee two share a birth month?</p><details><summary>Answer</summary><p><strong>13.</strong> Twelve months are the boxes; 12 people could all be born in different months, and the 13th must repeat one.</p></details></div>
+  <p class="small">Topic: pigeonhole principle. Playlist video: Part 10 (xocsjqBkQaE). Verified PYQ: GATE CS 2000 (minimum cards, answer 9).</p>
+</div>
+<script src="lesson.js"></script>
+<script src="sketch.js"></script>
+<script>
+/* p5.js is loaded from a CDN. If it is unreachable, say so plainly instead of showing an empty box. */
+window.addEventListener('load', function () {
+  if (window.p5) { return; }
+  var holder = document.getElementById('canvas-holder');
+  if (holder) {
+    holder.innerHTML = '<div style="padding:22px 18px;font-size:14.5px;color:#4a5260">' +
+      'The animation needs p5.js, which this page loads from a CDN, and the request failed (offline, or the CDN is blocked). ' +
+      'Everything below still works: the static explanation, the misconception and the quick check.</div>';
+  }
+  var cap = document.getElementById('caption');
+  if (cap && window.LESSON && window.LESSON.steps && window.LESSON.steps[0]) {
+    cap.innerHTML = window.LESSON.steps[0].caption;
+  }
+  ['play', 'prev', 'next', 'restart', 'speed'].forEach(function (id) {
+    var el = document.getElementById(id);
+    if (el) { el.disabled = true; }
+  });
+});
+</script>
+</body>
+</html>
