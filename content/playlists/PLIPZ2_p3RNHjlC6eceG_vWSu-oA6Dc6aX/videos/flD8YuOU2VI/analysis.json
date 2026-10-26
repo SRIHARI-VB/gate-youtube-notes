@@ -1,0 +1,13 @@
+{
+  "video_id": "flD8YuOU2VI",
+  "coverage_note": "Intro and the 'five problems, one solution' framing were readable; the worked multiset and composition examples were past the cut.",
+  "topics": [
+    "iodb-stars-and-bars"
+  ],
+  "concepts": [
+    "Five wordings, one template: combinations with repetition, non-negative integer solutions, multisets, non-decreasing sequences, integer compositions.",
+    "A question that never mentions boxes can still be an IODB question.",
+    "Do not treat the five wordings as five techniques."
+  ],
+  "gate_claims": []
+}
