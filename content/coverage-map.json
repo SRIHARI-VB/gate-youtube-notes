@@ -1013,6 +1013,16 @@
       "kind": "notes",
       "placement": "programming-data-structures > data-structures > arrays-stacks-queues",
       "detail": "gate-visual-explainer lesson arrays-stacks-queues (topics.json title \"Arrays, Stacks and Queues\", syllabus-coverage.json Programming and Data Structures > Data structures > Arrays, stacks and queues, coverage_status PUBLISHED, 9 subtopics and 38 microtopics, 10 scenes in transcript.md from index arithmetic through circular-queue full/empty) published 2026-10-26 and serves no notes card: the notes repo has 27 cards, all discrete-mathematics. No mock unit matches either: gate-cse-mocks/programming-data-structures/question-bank/master_bank.json unit 1 holds C programming labels only, and unit 2 Pointers, Memory & Preprocessors is the next rotation. Next notes build: content/subjects/programming-data-structures/data-structures/arrays-stacks-queues.json."
+    },
+    {
+      "kind": "notes",
+      "placement": "databases > er-relational-algebra (no notes subject exists)",
+      "detail": "gate-cse-mocks/databases/question-bank/master_bank.json unit 1 ER Models & Relational Algebra (unit_slug er-relational-algebra) reached the 50-question cap on 2026-10-26 with four subtopic groups: relational-algebra-select-project-join-division 16, er-diagrams-cardinality-weak-entities 12, relational-model-constraints 12, tuple-and-domain-relational-calculus 10. The bank carries no subtopic_label field, so the label is the subtopic slug. The notes repo holds 27 cards, all discrete-mathematics, and has no databases subject, so no card serves this unit. README rotation: the next Databases run advances to Unit 2."
+    },
+    {
+      "kind": "notes",
+      "placement": "programming-and-data-structures > data-structures > linked-lists",
+      "detail": "gate-visual-explainer lesson linked-lists (topics.json title \"Linked Lists\", category programming-and-data-structures; syllabus-coverage.json Programming and Data Structures > Data structures > Linked lists, coverage_status PUBLISHED, lesson_slug linked-lists) published 2026-10-26 with 10 scenes in topics/linked-lists/transcript.md covering the node and stored address, insert-after/delete-after pointer surgery, the head pointer and by-value head, array-versus-list costs, the doubly linked invariant, circular lists with one rear pointer, reversal with three cursors, merging two sorted lists and tortoise-hare cycle detection. The notes repo has no programming-and-data-structures subject, so no card serves this lesson."
     }
   ]
 }
