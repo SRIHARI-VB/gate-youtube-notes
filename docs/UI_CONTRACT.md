@@ -1,0 +1,27 @@
+# UI contract
+
+The shell is protected. A content run must not change it.
+
+## Frozen
+
+- `src/styles/design-tokens.css` - colours, radii, shadows, spacing scale, type stack.
+- The layout skeleton: sidebar (264px) + main column, sticky topbar, `.content` max width 1060px.
+- Navigation labels and routes.
+- Component classes: `.card`, `.notecard`, `.field`, `.badge`, `.q`, `.chip`, `.trap`, `.example`, `.empty`.
+
+## Allowed
+
+- New content in `content/`.
+- New topics, PYQs, variations and checks, rendered through the existing components.
+- New visual lessons under `visuals/`, reusing `lesson.css` and `lesson.js`.
+
+## Regression check
+
+`scripts/validate.py` verifies the shell files exist and that no generated file carries citation markers or
+versioned filenames. Visual changes to tokens or layout require an explicit user request and a separate commit.
+
+## Accessibility
+
+- Every control is a real button; the search input is labelled; lessons respond to arrow keys and space.
+- Captions in lessons are `aria-live="polite"`.
+- `prefers-reduced-motion` slows lesson playback; dark mode follows the OS preference.
