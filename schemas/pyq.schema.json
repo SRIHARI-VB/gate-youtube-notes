@@ -1,0 +1,76 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Previous-year question record",
+  "type": "object",
+  "required": [
+    "id",
+    "year",
+    "paper",
+    "question_ref",
+    "type",
+    "topic",
+    "text",
+    "answer",
+    "solution",
+    "source_url",
+    "source_label",
+    "verification"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "year": {
+      "type": "string",
+      "pattern": "^(19|20)\\d\\d$"
+    },
+    "paper": {
+      "type": "string"
+    },
+    "question_ref": {
+      "type": "string"
+    },
+    "type": {
+      "enum": [
+        "MCQ",
+        "MSQ",
+        "NAT"
+      ]
+    },
+    "marks": {
+      "type": "string"
+    },
+    "topic": {
+      "type": "string"
+    },
+    "text": {
+      "type": "string"
+    },
+    "options": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "answer": {
+      "type": "string"
+    },
+    "solution": {
+      "type": "string"
+    },
+    "source_url": {
+      "type": "string",
+      "format": "uri"
+    },
+    "source_label": {
+      "type": "string"
+    },
+    "verification": {
+      "enum": [
+        "OFFICIAL_KEY",
+        "SOURCED",
+        "UNVERIFIED"
+      ]
+    }
+  }
+}
