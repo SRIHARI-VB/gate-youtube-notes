@@ -1,0 +1,221 @@
+{
+  "generated_by": "scripts/build-index.py",
+  "playlist_id": "PLIPZ2_p3RNHjlC6eceG_vWSu-oA6Dc6aX",
+  "counts": {
+    "topics": 15,
+    "pyqs": 13,
+    "videos": 14
+  },
+  "map": [
+    {
+      "topic": "basic-counting-rules",
+      "title": "Basic Counting Rules",
+      "unit": "Counting foundations",
+      "priority": "P1",
+      "videos": [
+        "D4wbOYlL8Gs",
+        "UJF9vHQc3gk"
+      ],
+      "pyqs": [
+        "gate-2001-2-1",
+        "gate-2021-2-50",
+        "gate-2025-1-30"
+      ],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "permutations",
+      "title": "Permutations (order matters)",
+      "unit": "Counting foundations",
+      "priority": "P1",
+      "videos": [
+        "UJF9vHQc3gk",
+        "NAKpzn7afRk"
+      ],
+      "pyqs": [],
+      "visual": null,
+      "variations": 1
+    },
+    {
+      "topic": "combinations",
+      "title": "Combinations (order does not matter)",
+      "unit": "Counting foundations",
+      "priority": "P1",
+      "videos": [
+        "UJF9vHQc3gk",
+        "xHuVVjfH-4Y",
+        "uUtpCdkQV9g"
+      ],
+      "pyqs": [
+        "gate-1999-1-3"
+      ],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "binomial-theorem",
+      "title": "Binomial Theorem and Coefficient Extraction",
+      "unit": "Algebraic counting",
+      "priority": "P2",
+      "videos": [
+        "NAKpzn7afRk"
+      ],
+      "pyqs": [
+        "gate-2016-1-26"
+      ],
+      "visual": null,
+      "variations": 1
+    },
+    {
+      "topic": "permutation-with-repetition",
+      "title": "Permutation with Repetition and Multinomials",
+      "unit": "Counting foundations",
+      "priority": "P2",
+      "videos": [
+        "NAKpzn7afRk"
+      ],
+      "pyqs": [],
+      "visual": null,
+      "variations": 1
+    },
+    {
+      "topic": "distribution-templates",
+      "title": "Distribution Templates: the 2x2 Grid",
+      "unit": "Balls and boxes",
+      "priority": "P1",
+      "videos": [
+        "4m80SNCfxno",
+        "gYS1Ui0cJF0",
+        "dfYkiuplKkw"
+      ],
+      "pyqs": [
+        "gate-2022-32"
+      ],
+      "visual": "distribution-grid",
+      "variations": 1
+    },
+    {
+      "topic": "dodb",
+      "title": "DODB: Distinct Objects, Distinct Boxes",
+      "unit": "Balls and boxes",
+      "priority": "P2",
+      "videos": [
+        "4m80SNCfxno"
+      ],
+      "pyqs": [],
+      "visual": null,
+      "variations": 1
+    },
+    {
+      "topic": "iodb-stars-and-bars",
+      "title": "IODB: Stars and Bars",
+      "unit": "Balls and boxes",
+      "priority": "P1",
+      "videos": [
+        "gYS1Ui0cJF0",
+        "flD8YuOU2VI"
+      ],
+      "pyqs": [
+        "gate-2003-34",
+        "gate-2015-3-5"
+      ],
+      "visual": "stars-and-bars",
+      "variations": 2
+    },
+    {
+      "topic": "doib-stirling",
+      "title": "DOIB: Distinct Objects, Identical Boxes (Stirling Numbers)",
+      "unit": "Balls and boxes",
+      "priority": "P2",
+      "videos": [
+        "dfYkiuplKkw"
+      ],
+      "pyqs": [],
+      "visual": null,
+      "variations": 1
+    },
+    {
+      "topic": "ioib-partitions",
+      "title": "IOIB: Integer Partitions",
+      "unit": "Balls and boxes",
+      "priority": "P3",
+      "videos": [
+        "dfYkiuplKkw"
+      ],
+      "pyqs": [
+        "gate-2022-32"
+      ],
+      "visual": null,
+      "variations": 1
+    },
+    {
+      "topic": "inclusion-exclusion",
+      "title": "Inclusion-Exclusion",
+      "unit": "Counting with constraints",
+      "priority": "P1",
+      "videos": [
+        "jMUlizAcSRo",
+        "lblWHVLJc0A"
+      ],
+      "pyqs": [
+        "gate-2017-1-47",
+        "gate-2004-it-2"
+      ],
+      "visual": null,
+      "variations": 1
+    },
+    {
+      "topic": "derangements",
+      "title": "Derangements",
+      "unit": "Counting with constraints",
+      "priority": "P2",
+      "videos": [
+        "lblWHVLJc0A"
+      ],
+      "pyqs": [
+        "gate-2020-42"
+      ],
+      "visual": "inclusion-exclusion",
+      "variations": 1
+    },
+    {
+      "topic": "onto-functions",
+      "title": "Onto (Surjective) Functions",
+      "unit": "Counting with constraints",
+      "priority": "P2",
+      "videos": [
+        "lblWHVLJc0A"
+      ],
+      "pyqs": [],
+      "visual": null,
+      "variations": 1
+    },
+    {
+      "topic": "pigeonhole",
+      "title": "Pigeonhole Principle",
+      "unit": "Guarantees",
+      "priority": "P1",
+      "videos": [
+        "xocsjqBkQaE"
+      ],
+      "pyqs": [
+        "gate-2000-cards"
+      ],
+      "visual": "pigeonhole",
+      "variations": 2
+    },
+    {
+      "topic": "recurrences-and-compositions",
+      "title": "Recurrences and Compositions (playlist gap)",
+      "unit": "Supplementary",
+      "priority": "P2",
+      "videos": [],
+      "pyqs": [
+        "gate-2014-1-49"
+      ],
+      "visual": null,
+      "variations": 1
+    }
+  ]
+}
