@@ -1,0 +1,21 @@
+{
+  "video_id": "gYS1Ui0cJF0",
+  "coverage_note": "Template recap, 'IODB is the star-bar problem' and the count (n+m)!/(n!m!) were readable; empty-boxes-allowed/not and the Stirling/Bell material were past the cut.",
+  "topics": [
+    "iodb-stars-and-bars",
+    "distribution-templates"
+  ],
+  "concepts": [
+    "IODB is the stars-and-bars problem: n identical stars, m identical bars, counted as (n+m)!/(n!m!).",
+    "5 stars and 3 bars: C(8,5) = 56.",
+    "Both groups are internally identical, so both factorials go in the denominator.",
+    "The instructor calls this the highest-yield combinatorics template for GATE (his words, not a verified claim about the exam)."
+  ],
+  "gate_claims": [
+    {
+      "claim": "A large number of GATE questions come from the IODB / stars-and-bars template.",
+      "stated_as": "instructor's emphasis",
+      "verifiable": false
+    }
+  ]
+}
