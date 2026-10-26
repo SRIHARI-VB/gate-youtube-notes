@@ -17,10 +17,27 @@ The shell is protected. A content run must not change it.
 - Factual text and count updates where a hardcoded number or playlist name in the shell has become untrue. These go
   in their own `chore(ui)` commit, never mixed with content, and never touch tokens, layout or routes.
 
-## Known stale labels
+## Collapsible folder tree (added on explicit request, 2026-10-26)
 
-The sidebar brand text and browser title still read "Combinatorics" while the site now serves two subjects. Renaming
-the brand is a UI change and needs an explicit request; it is deliberately not folded into a content run.
+The sidebar and the Topics tab both show the content as folders: **subject > topic > subtopic**. Every level is
+closed by default and the reader opens what they need; the open state is remembered in `localStorage` under
+`gate-open-state-v1`, keyed `nav:s:<subject>`, `nav:t:<subject>/<topic>`, `topics:s:<subject>`, `topics:t:<subject>/<topic>`.
+
+New classes, now part of the contract and safe to reuse:
+
+- `.nav-tree`, `.nav-subject`, `.nav-topic`, `.nav-sub`, `.nav-label`, `.caret` — the sidebar tree.
+- `.topic-group`, `.subtopic-group`, `.group-title`, `.group-count`, `.group-caret` — the Topics tab folders.
+- `.search-group`, `.pyq-hit` — grouped search results, filtered by `#searchKindFilter` and `#searchSubjectFilter`.
+
+Still frozen: design tokens, the sidebar width and layout skeleton, the existing route table, and the existing
+component classes. Adding a class is allowed; restyling an existing one is not.
+
+A priority filter that matches cards inside closed folders opens those folders, so a filter never hides its own results.
+
+## Brand labels
+
+The sidebar brand and browser title read "GATE CSE" rather than "Combinatorics", on the same explicit request, so the
+shell no longer claims to be a single-subject site.
 
 ## Regression check
 

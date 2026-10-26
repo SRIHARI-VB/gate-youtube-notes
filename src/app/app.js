@@ -31,6 +31,61 @@
     return c ? '<div class="muted" style="font-size:12.5px">' + esc(c) + '</div>' : '';
   }
 
+  /* subject -> topic -> [cards], used by the sidebar tree and the Topics tab */
+  function groupTopics() {
+    var bySubject = {};
+    topics.forEach(function (t) {
+      var s = t.subject || 'unfiled', tp = t.topic || 'unfiled';
+      bySubject[s] = bySubject[s] || {};
+      (bySubject[s][tp] = bySubject[s][tp] || []).push(t);
+    });
+    return bySubject;
+  }
+  /* which groups the reader has opened. Collapsed is the default. */
+  var openState = {
+    key: 'gate-open-state-v1',
+    read: function () { try { return JSON.parse(localStorage.getItem(this.key) || '{}'); } catch (e) { return {}; } },
+    set: function (k, on) {
+      var s = this.read(); if (on) { s[k] = 1; } else { delete s[k]; }
+      try { localStorage.setItem(this.key, JSON.stringify(s)); } catch (e) {}
+    }
+  };
+  function wireDetails(root, prefix) {
+    if (!root) { return; }
+    var open = openState.read();
+    root.querySelectorAll('details').forEach(function (d) {
+      var k = prefix + d.getAttribute('data-key');
+      if (open[k]) { d.open = true; }
+      d.addEventListener('toggle', function () { openState.set(k, d.open); });
+    });
+  }
+  /* sidebar tree: subject > topic > subtopic, every level closed until opened */
+  function renderNavTree() {
+    var host = document.getElementById('navTree');
+    if (!host) { return; }
+    var g = groupTopics(), html = '';
+    Object.keys(g).sort().forEach(function (s) {
+      var inSubject = g[s], count = 0;
+      Object.keys(inSubject).forEach(function (tp) { count += inSubject[tp].length; });
+      html += '<details class="nav-subject" data-key="s:' + esc(s) + '">' +
+        '<summary><span class="caret">&#9656;</span><span class="nav-label">' + esc(subjectName(s)) + '</span>' +
+        '<span class="count">' + count + '</span></summary>';
+      Object.keys(inSubject).sort().forEach(function (tp) {
+        var cards = inSubject[tp].slice().sort(function (a, b) { return (a.order || 0) - (b.order || 0); });
+        html += '<details class="nav-topic" data-key="t:' + esc(s) + '/' + esc(tp) + '">' +
+          '<summary><span class="caret">&#9656;</span><span class="nav-label">' + esc(topicName(s, tp)) + '</span>' +
+          '<span class="count">' + cards.length + '</span></summary>';
+        cards.forEach(function (t) {
+          html += '<a class="nav-sub" href="#/topic/' + esc(t.id) + '">' + esc(t.title) + '</a>';
+        });
+        html += '</details>';
+      });
+      html += '</details>';
+    });
+    host.innerHTML = html;
+    wireDetails(host, 'nav:');
+  }
+
   var store = {
     key: 'gate-revision-progress-v1',
     read: function () { try { return JSON.parse(localStorage.getItem(this.key) || '{}'); } catch (e) { return {}; } },
@@ -102,13 +157,8 @@
   function statCard(n, l) { return '<div class="card tight"><div class="stat">' + esc(n) + '</div><div class="stat-label">' + esc(l) + '</div></div>'; }
 
   function viewTopics() {
-    var bySubject = {};
-    topics.forEach(function (t) {
-      var s = t.subject || 'unfiled', tp = t.topic || 'unfiled';
-      bySubject[s] = bySubject[s] || {};
-      (bySubject[s][tp] = bySubject[s][tp] || []).push(t);
-    });
-    var html = '<h1>Topics</h1><p class="lead">' + topics.length + ' canonical topic cards, grouped subject \u2192 topic \u2192 subtopic. Videos map into these; the notes live here once, not once per video.</p>';
+    var bySubject = groupTopics();
+    var html = '<h1>Topics</h1><p class="lead">' + topics.length + ' canonical topic cards, grouped subject \u2192 topic \u2192 subtopic. Each folder is closed until you open it. Videos map into these; the notes live here once, not once per video.</p>';
     html += '<div class="pill-row" id="topicFilter">' +
       ['all', 'P1', 'P2', 'P3'].map(function (p) {
         return '<button class="chip" data-p="' + p + '" aria-pressed="' + (p === 'all') + '">' + p + '</button>';
@@ -118,23 +168,23 @@
       var inSubject = bySubject[s];
       var subjectCount = 0;
       Object.keys(inSubject).forEach(function (tp) { subjectCount += inSubject[tp].length; });
-      html += '<section class="topic-group" data-subject="' + esc(s) + '">';
-      html += '<h2>' + esc(subjectName(s)) +
-        ' <span class="muted" style="font-size:13px;font-weight:400">' + subjectCount + ' cards</span></h2>';
+      html += '<details class="topic-group" data-key="s:' + esc(s) + '">' +
+        '<summary><span class="group-caret">&#9656;</span><span class="group-title">' + esc(subjectName(s)) + '</span>' +
+        '<span class="muted group-count">' + subjectCount + ' cards</span></summary>';
       Object.keys(inSubject).sort().forEach(function (tp) {
         var cards = inSubject[tp].slice().sort(function (a, b) { return (a.order || 0) - (b.order || 0); });
-        html += '<div class="subtopic-group" data-topic="' + esc(tp) + '">';
-        html += '<h3>' + esc(topicName(s, tp)) +
-          ' <span class="muted" style="font-size:13px;font-weight:400">' + cards.length + ' subtopics</span></h3>';
+        html += '<details class="subtopic-group" data-key="t:' + esc(s) + '/' + esc(tp) + '">' +
+          '<summary><span class="group-caret">&#9656;</span><span class="group-title">' + esc(topicName(s, tp)) + '</span>' +
+          '<span class="muted group-count">' + cards.length + ' subtopics</span></summary>';
         var units = {};
         cards.forEach(function (t) { var u = t.unit || 'Other'; (units[u] = units[u] || []).push(t); });
         Object.keys(units).forEach(function (u) {
           html += '<div class="unit-group">' + label(u) +
             units[u].map(function (t) { return topicRow(t, false); }).join('') + '</div>';
         });
-        html += '</div>';
+        html += '</details>';
       });
-      html += '</section>';
+      html += '</details>';
     });
     html += '</div>';
     return h(html);
@@ -316,13 +366,66 @@
     var term = (q || '').toLowerCase();
     if (!term) { return h('<h1>Search</h1><div class="empty">Type in the search box above.</div>'); }
     function hit(text) { return String(text || '').toLowerCase().indexOf(term) >= 0; }
-    var tHits = topics.filter(function (t) {
-      return hit(t.title) || hit(t.quickIdea) || (t.remember || []).some(hit) || hit(t.gateAngle);
-    });
-    var pHits = pyqs.filter(function (p) { return hit(p.text) || hit(p.paper) || hit(p.solution); });
+    function topicHit(t) {
+      return hit(t.title) || hit(t.quickIdea) || hit(t.unit) || hit(t.id) ||
+        hit(subjectName(t.subject)) || hit(topicName(t.subject, t.topic)) ||
+        (t.remember || []).some(hit) || hit(t.gateAngle) ||
+        (t.trap && (hit(t.trap.what) || hit(t.trap.why))) ||
+        (t.check && hit(t.check.question));
+    }
+    function pyqHit(p) {
+      var t = byId[p.topic];
+      return hit(p.text) || hit(p.paper) || hit(p.solution) || hit(p.question_ref) ||
+        (t && (hit(t.title) || hit(topicName(t.subject, t.topic)) || hit(subjectName(t.subject))));
+    }
+    var tHits = topics.filter(topicHit);
+    var pHits = pyqs.filter(pyqHit);
+    var subjectsSeen = {};
+    tHits.forEach(function (t) { subjectsSeen[t.subject || 'unfiled'] = 1; });
+    pHits.forEach(function (p) { var t = byId[p.topic]; if (t) { subjectsSeen[t.subject || 'unfiled'] = 1; } });
+    var subjectList = Object.keys(subjectsSeen).sort();
+
     var html = '<h1>Results for "' + esc(q) + '"</h1>';
-    html += '<h2>Topics (' + tHits.length + ')</h2>' + (tHits.length ? tHits.map(topicRow).join('') : '<div class="empty">No topic matched.</div>');
-    html += '<h2>PYQs (' + pHits.length + ')</h2>' + (pHits.length ? pHits.map(pyqCard).join('') : '<div class="empty">No PYQ matched.</div>');
+    html += '<div class="pill-row" id="searchKindFilter">' +
+      [['all', 'Everything'], ['topics', 'Topics only'], ['pyqs', 'PYQs only']].map(function (k) {
+        return '<button class="chip" data-kind="' + k[0] + '" aria-pressed="' + (k[0] === 'all') + '">' + k[1] + '</button>';
+      }).join('') + '</div>';
+    if (subjectList.length > 1) {
+      html += '<div class="pill-row" id="searchSubjectFilter">' +
+        '<button class="chip" data-subject="all" aria-pressed="true">All subjects</button>' +
+        subjectList.map(function (s) {
+          return '<button class="chip" data-subject="' + esc(s) + '" aria-pressed="false">' + esc(subjectName(s)) + '</button>';
+        }).join('') + '</div>';
+    }
+    html += '<div id="searchResults">';
+    html += '<h2 data-kind="topics">Topics (' + tHits.length + ')</h2>';
+    if (tHits.length) {
+      var byTopic = {};
+      tHits.forEach(function (t) {
+        var k = (t.subject || 'unfiled') + '|' + (t.topic || 'unfiled');
+        (byTopic[k] = byTopic[k] || []).push(t);
+      });
+      Object.keys(byTopic).sort().forEach(function (k) {
+        var parts = k.split('|');
+        html += '<div class="search-group" data-kind="topics" data-subject="' + esc(parts[0]) + '">' +
+          '<h3>' + esc(subjectName(parts[0]) + ' \u203a ' + topicName(parts[0], parts[1])) + '</h3>' +
+          byTopic[k].sort(function (a, b) { return (a.order || 0) - (b.order || 0); })
+            .map(function (t) { return topicRow(t, false); }).join('') + '</div>';
+      });
+    } else {
+      html += '<div class="empty" data-kind="topics">No topic matched.</div>';
+    }
+    html += '<h2 data-kind="pyqs">PYQs (' + pHits.length + ')</h2>';
+    if (pHits.length) {
+      html += pHits.map(function (p) {
+        var t = byId[p.topic];
+        return '<div class="pyq-hit" data-kind="pyqs" data-subject="' + esc((t && t.subject) || 'unfiled') + '">' +
+          crumbLine(t) + pyqCard(p) + '</div>';
+      }).join('');
+    } else {
+      html += '<div class="empty" data-kind="pyqs">No PYQ matched.</div>';
+    }
+    html += '</div>';
     return h(html);
   }
 
@@ -382,7 +485,35 @@
           document.querySelectorAll(sel).forEach(function (g) {
             var any = g.querySelector('.card:not([style*="display: none"])');
             g.style.display = any ? '' : 'none';
+            /* a filter that finds a match opens the folder holding it */
+            if (any && g.tagName === 'DETAILS' && p !== 'all') { g.open = true; }
           });
+        });
+      });
+    }
+    var tl = document.getElementById('topicList');
+    if (tl) { wireDetails(tl, 'topics:'); }
+    var kindFilter = document.getElementById('searchKindFilter');
+    var subjectFilter = document.getElementById('searchSubjectFilter');
+    if (kindFilter || subjectFilter) {
+      var applySearchFilter = function () {
+        var kind = 'all', subj = 'all';
+        var kb = kindFilter && kindFilter.querySelector('.chip[aria-pressed="true"]');
+        var sb = subjectFilter && subjectFilter.querySelector('.chip[aria-pressed="true"]');
+        if (kb) { kind = kb.getAttribute('data-kind'); }
+        if (sb) { subj = sb.getAttribute('data-subject'); }
+        document.querySelectorAll('#searchResults [data-kind]').forEach(function (el) {
+          var okKind = (kind === 'all' || el.getAttribute('data-kind') === kind);
+          var okSubj = (subj === 'all' || !el.hasAttribute('data-subject') || el.getAttribute('data-subject') === subj);
+          el.style.display = (okKind && okSubj) ? '' : 'none';
+        });
+      };
+      [kindFilter, subjectFilter].forEach(function (row) {
+        if (!row) { return; }
+        row.addEventListener('click', function (e) {
+          var b = e.target.closest('.chip'); if (!b) { return; }
+          row.querySelectorAll('.chip').forEach(function (c) { c.setAttribute('aria-pressed', String(c === b)); });
+          applySearchFilter();
         });
       });
     }
@@ -411,6 +542,7 @@
     }
     var mb = document.getElementById('menuBtn');
     if (mb) { mb.addEventListener('click', function () { document.body.classList.toggle('nav-open'); }); }
+    renderNavTree();
     route();
   });
 })();

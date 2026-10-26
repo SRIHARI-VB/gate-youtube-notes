@@ -31,6 +31,44 @@ a:hover { text-decoration: underline; }
 .nav a:hover { background: var(--surface-2); color: var(--ink); text-decoration: none; }
 .nav a.active { background: var(--accent-soft); color: var(--accent); font-weight: 600; }
 .nav .count { font-size: 11.5px; color: var(--ink-faint); font-variant-numeric: tabular-nums; }
+
+/* ---- collapsible folder tree: subject > topic > subtopic ---- */
+.nav-tree { margin: 2px 0 8px; }
+.nav-tree details { margin: 0; }
+.nav-tree summary,
+details.topic-group > summary,
+details.subtopic-group > summary {
+  display: flex; align-items: center; gap: 7px; cursor: pointer; list-style: none;
+  border-radius: var(--radius-sm);
+}
+.nav-tree summary::-webkit-details-marker,
+details.topic-group > summary::-webkit-details-marker,
+details.subtopic-group > summary::-webkit-details-marker { display: none; }
+.nav-tree summary { padding: 6px 10px; color: var(--ink-soft); font-size: 13.5px; }
+.nav-tree summary:hover { background: var(--surface-2); color: var(--ink); }
+.nav-tree .nav-subject > summary { font-weight: 600; color: var(--ink); }
+.nav-tree .nav-topic > summary { padding-left: 20px; font-size: 13px; }
+.nav-tree .nav-label { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.nav-tree .caret { font-size: 10px; color: var(--ink-faint); transition: transform .15s ease; }
+.nav-tree details[open] > summary .caret { transform: rotate(90deg); }
+.nav-tree .nav-sub {
+  display: block; padding: 5px 10px 5px 34px; font-size: 13px; color: var(--ink-soft);
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.nav-tree .nav-sub:hover { background: var(--surface-2); color: var(--ink); text-decoration: none; }
+.nav-tree .nav-sub.active { color: var(--accent); font-weight: 600; }
+
+/* ---- the same folders on the Topics tab ---- */
+details.topic-group > summary { margin: 26px 0 10px; }
+details.subtopic-group > summary { margin: 16px 0 8px; }
+details.topic-group > summary:hover .group-title,
+details.subtopic-group > summary:hover .group-title { color: var(--accent); }
+.group-caret { font-size: 11px; color: var(--ink-faint); transition: transform .15s ease; }
+details[open] > summary .group-caret { transform: rotate(90deg); }
+.group-title { font-size: 18px; font-weight: 650; letter-spacing: -.005em; }
+details.subtopic-group .group-title { font-size: 15px; }
+.group-count { font-size: 13px; font-weight: 400; }
+details.subtopic-group { padding-left: 2px; }
 .main { flex: 1; min-width: 0; }
 .topbar {
   position: sticky; top: 0; z-index: 5; background: color-mix(in srgb, var(--bg) 88%, transparent);
