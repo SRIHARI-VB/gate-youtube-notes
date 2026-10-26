@@ -1,0 +1,21 @@
+{
+  "id": "gate-2003-34",
+  "year": "2003",
+  "paper": "GATE CS 2003",
+  "question_ref": "Q.34",
+  "type": "MCQ",
+  "marks": "2",
+  "topic": "iodb-stars-and-bars",
+  "text": "m identical balls are to be placed in n distinct bags. You are given that m >= kn, where k is a natural number >= 1. In how many ways can the balls be placed in the bags if each bag must contain at least k balls?",
+  "options": [
+    "C(m-k, n-1)",
+    "C(m-kn+n-1, n-1)",
+    "C(m-1, n-k)",
+    "C(m-kn+n+k-2, n-k)"
+  ],
+  "answer": "Option (B) C(m-kn+n-1, n-1)",
+  "solution": "Give k balls to every bag first, using kn balls. The remaining m-kn identical balls go into n distinct bags with no lower bound, which is stars and bars: C((m-kn)+n-1, n-1).",
+  "source_url": "https://www.cse.iitd.ac.in/~mittal/gate/gate_math_2003.html",
+  "source_label": "IIT Delhi GATE mathematics solutions (cse.iitd.ac.in/~mittal)",
+  "verification": "SOURCED"
+}
