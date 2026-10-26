@@ -1,0 +1,46 @@
+{
+  "id": "onto-functions",
+  "title": "Onto (Surjective) Functions",
+  "priority": "P2",
+  "order": 13,
+  "unit": "Counting with constraints",
+  "quickIdea": "Count all functions, then remove those that miss at least one target element - an inclusion-exclusion over the missed elements.",
+  "remember": [
+    "All functions from an m-set to an n-set: n^m.",
+    "Onto: sum over k of (-1)^k C(n,k) (n-k)^m, which equals n! S(m,n).",
+    "Onto is impossible when m < n.",
+    "One-to-one from an m-set to an n-set: P(n,m)."
+  ],
+  "example": {
+    "prompt": "Onto functions from a 5-element set to a 3-element set.",
+    "work": "3^5 - 3 x 2^5 + 3 x 1^5 = 243 - 96 + 3, and 3! S(5,3) = 6 x 25.",
+    "answer": "150"
+  },
+  "gateAngle": "Two independent methods (inclusion-exclusion and Stirling) must agree - that agreement is the fastest self-check available in the exam.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "How many onto functions from a 4-element set to a 2-element set?",
+      "answer": "14",
+      "why": "2^4 - 2 x 1^4 = 16 - 2 = 14, and 2! S(4,2) = 2 x 7 = 14."
+    }
+  ],
+  "trap": {
+    "what": "Forgetting the alternating signs when more than two targets can be missed.",
+    "why": "With three targets, functions missing one target are subtracted three times, then functions missing two targets must be added back.",
+    "counterexample": "3^5 - 3 x 2^5 = 147 is not the onto count; the +3 correction gives 150."
+  },
+  "check": {
+    "question": "How many onto functions are there from a 3-element set to a 2-element set?",
+    "answer": "6",
+    "explanation": "2^3 - 2 = 6, and 2! S(3,2) = 2 x 3 = 6."
+  },
+  "pyqIds": [],
+  "videoRefs": [
+    "lblWHVLJc0A"
+  ],
+  "prereqs": [
+    "inclusion-exclusion",
+    "dodb"
+  ]
+}
