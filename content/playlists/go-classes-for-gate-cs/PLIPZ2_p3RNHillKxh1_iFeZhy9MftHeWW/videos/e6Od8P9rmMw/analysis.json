@@ -1,0 +1,12 @@
+{
+  "video_id": "e6Od8P9rmMw",
+  "coverage_note": "The caption track for this lecture is Hindi auto-speech-recognition written in Devanagari, and the fetch returned only its opening. The readable fragments are about logical arguments and invalidity, which matches the lecture's position after Part 2. No formula or example from this lecture is quoted in the notes, because the transcript is not reliable enough to quote.",
+  "topics": [
+    "rules-of-inference"
+  ],
+  "concepts": [
+    "Part 3 of the summary continues into propositional arguments and when an argument fails (invalidity).",
+    "Nothing beyond that framing is claimed here: the Devanagari ASR text is not reliable enough to extract formulas or examples from."
+  ],
+  "gate_claims": []
+}

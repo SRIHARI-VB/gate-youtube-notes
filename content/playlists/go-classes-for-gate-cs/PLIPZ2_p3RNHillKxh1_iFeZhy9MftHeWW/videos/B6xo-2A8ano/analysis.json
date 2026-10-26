@@ -1,0 +1,18 @@
+{
+  "video_id": "B6xo-2A8ano",
+  "coverage_note": "The readable opening solves the first question, which the instructor identifies as GATE CSE 2012, as a propositional-logic argument. The rest of the PYQ set in this lecture was past the cut, so only that one question is recorded here.",
+  "topics": [
+    "rules-of-inference",
+    "logical-entailment-and-models"
+  ],
+  "concepts": [
+    "First step on any argument question: translate the English argument into argument form, giving every premise and the conclusion a variable.",
+    "Worked opening question: 'it rains' = R, 'the cricket match will not be played' = not P; premises R -> not P and P, conclusion not R.",
+    "Validity test taught here: make the conclusion false, then try to make every premise true. If that is impossible, the argument is valid; if it is possible, the argument is invalid.",
+    "In the worked question, making the conclusion false forces R true, and then premise R -> not P with P true cannot both hold, so the argument is valid (this is modus tollens).",
+    "Premises are also called hypotheses or antecedents."
+  ],
+  "gate_claims": [
+    "Instructor states the opening question is GATE CSE 2012. This repository did not open the 2012 paper, so no PYQ record is created from it."
+  ]
+}

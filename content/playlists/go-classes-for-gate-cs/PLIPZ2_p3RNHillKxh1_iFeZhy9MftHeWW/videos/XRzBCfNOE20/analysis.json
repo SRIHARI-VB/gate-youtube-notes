@@ -1,0 +1,14 @@
+{
+  "video_id": "XRzBCfNOE20",
+  "coverage_note": "Single-question video on a GATE CSE 2006 question about a binary operator defined by a table. The caption track is Devanagari ASR of Hindi and is too noisy to quote, so the question text and answer are not recorded as a PYQ here.",
+  "topics": [
+    "functional-completeness"
+  ],
+  "concepts": [
+    "A binary operator given by a two-row table is being tested for which algebraic properties it satisfies (commutativity, associativity and the like).",
+    "The readable fragments are about checking a property of the operator by substituting values, which is the functional-completeness style of reasoning used in this topic."
+  ],
+  "gate_claims": [
+    "The video title names GATE CSE 2006. The paper was not opened for this run, so no PYQ record is created from it."
+  ]
+}

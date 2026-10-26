@@ -1,0 +1,14 @@
+{
+  "video_id": "cvLQLKgt1Vc",
+  "coverage_note": "The readable opening works the question in full detail: 'if Oscar eats Chinese food then he drinks milk' is written as C -> M, its converse as M -> C, and its contrapositive as not M -> not C. The last part of the video, which asks whether the contrapositive can be false, was past the cut.",
+  "topics": [
+    "implication-converse-contrapositive"
+  ],
+  "concepts": [
+    "Rename each atomic sentence with a variable before writing anything: C = 'Oscar eats Chinese food', M = 'Oscar drinks milk'.",
+    "The given conditional C -> M has converse M -> C ('if Oscar drinks milk then he eats Chinese food').",
+    "Its contrapositive is not M -> not C ('if Oscar does not drink milk then he does not eat Chinese food').",
+    "Converse and contrapositive are different objects: only the contrapositive is logically equivalent to the original."
+  ],
+  "gate_claims": []
+}

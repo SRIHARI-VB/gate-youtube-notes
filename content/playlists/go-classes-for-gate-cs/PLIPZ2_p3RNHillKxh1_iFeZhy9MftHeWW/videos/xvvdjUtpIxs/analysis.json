@@ -1,0 +1,14 @@
+{
+  "video_id": "xvvdjUtpIxs",
+  "coverage_note": "The readable opening sets up the question - 'if you win the lottery then you will be rich' as L -> R, with converse R -> L - and begins matching a list of English statements (a to i) against the implication and its converse. Most of the statement-by-statement matching was past the cut.",
+  "topics": [
+    "implication-converse-contrapositive",
+    "logical-equivalence-laws"
+  ],
+  "concepts": [
+    "Set the given implication and its converse side by side before comparing anything: L -> R versus R -> L.",
+    "Each candidate English statement is translated and then compared with the two formulas.",
+    "'Either you win the lottery or you will not be rich' is read as 'if you do not win the lottery then you will not be rich', i.e. as a restatement of L -> R."
+  ],
+  "gate_claims": []
+}

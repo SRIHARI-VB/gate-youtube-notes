@@ -1,0 +1,13 @@
+{
+  "video_id": "JOcMlqVt4K4",
+  "coverage_note": "Complete captions. A 41-second prompt video naming the source (Oscar Levin, 3rd edition, Exercise 0.2.11) and the topic as the different interpretations of the implication operator. The question is on screen only.",
+  "topics": [
+    "implication-converse-contrapositive",
+    "propositions-and-connectives"
+  ],
+  "concepts": [
+    "Practice prompt on the different English readings of implication (if, only if, unless, when).",
+    "Source is named in the video: Oscar Levin, Discrete Mathematics, 3rd edition, Exercise 0.2.11."
+  ],
+  "gate_claims": []
+}

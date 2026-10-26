@@ -1,0 +1,13 @@
+{
+  "video_id": "iiOasUljxKw",
+  "coverage_note": "Complete captions. This is a 40-second prompt video: it names the source (Oscar Levin, Discrete Mathematics, 3rd edition, Exercise 0.2.7), states the topic as converse and contrapositive, and asks the viewer to answer in the comments. The question text itself is shown on screen and is not spoken, so it is not reproduced here.",
+  "topics": [
+    "implication-converse-contrapositive"
+  ],
+  "concepts": [
+    "Practice prompt on converse and contrapositive.",
+    "Source is named in the video: Oscar Levin, Discrete Mathematics, 3rd edition, Exercise 0.2.7.",
+    "The question statement is on screen only, so this repository does not quote it."
+  ],
+  "gate_claims": []
+}

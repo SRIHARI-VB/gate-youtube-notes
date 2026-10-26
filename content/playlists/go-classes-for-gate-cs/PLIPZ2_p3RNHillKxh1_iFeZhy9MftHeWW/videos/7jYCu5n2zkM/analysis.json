@@ -1,0 +1,17 @@
+{
+  "video_id": "7jYCu5n2zkM",
+  "coverage_note": "The readable opening sets up how to attack 'which implication is not true' questions and identifies the first question as GATE 1996, with option A (X and (X -> Y)) -> Y recognised as modus ponens and hence a tautology. The remaining options and the rest of the lecture were past the cut.",
+  "topics": [
+    "implication-converse-contrapositive",
+    "rules-of-inference"
+  ],
+  "concepts": [
+    "An implication alpha -> beta is false exactly when alpha is true and beta is false at the same time; if such an assignment exists the implication is not a tautology.",
+    "Every implication option in a 'which is not true' question is checked by hunting for that single falsifying assignment.",
+    "Modus ponens, (X and (X -> Y)) -> Y, is identified as a tautology.",
+    "The instructor's everyday test for a false implication: 'if you are Indian then you are Rajasthani' is false because the antecedent can hold while the consequent fails."
+  ],
+  "gate_claims": [
+    "Instructor states the opening question is GATE 1996. This repository did not open the 1996 paper, so no PYQ record is created from it."
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "video_id": "pILBvElgICI",
+  "coverage_note": "The caption track is Devanagari ASR of Hindi and the fetch returned only its opening. The readable fragments confirm the topic is converse and contrapositive of a conditional. No worked line is quoted, because the ASR is not reliable enough.",
+  "topics": [
+    "implication-converse-contrapositive"
+  ],
+  "concepts": [
+    "Solution walkthrough for Exercise 0.2.7, on writing the converse and the contrapositive of a given conditional statement.",
+    "No formula is quoted from this video: the ASR text is too noisy to be used as evidence."
+  ],
+  "gate_claims": []
+}

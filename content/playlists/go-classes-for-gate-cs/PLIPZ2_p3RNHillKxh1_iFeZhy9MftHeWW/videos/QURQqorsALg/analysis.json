@@ -1,0 +1,14 @@
+{
+  "video_id": "QURQqorsALg",
+  "coverage_note": "Single-question video on a GATE CSE 2015 question about a binary operator defined by a truth table, with the answer stated at the end of the readable fragment. The Devanagari ASR is too noisy to quote the question verbatim, so no PYQ record is built from it.",
+  "topics": [
+    "functional-completeness"
+  ],
+  "concepts": [
+    "When an operator is defined by a truth table, each candidate property is checked by substituting truth values into the definition.",
+    "The lecture closes by naming a single option as the answer, which is the pattern of a one-question PYQ video."
+  ],
+  "gate_claims": [
+    "The video title names GATE CSE 2015 Q28. The paper was not opened for this run, so no PYQ record is created from it."
+  ]
+}

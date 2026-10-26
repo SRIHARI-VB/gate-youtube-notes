@@ -1,0 +1,13 @@
+{
+  "video_id": "8g6mpVBziJQ",
+  "coverage_note": "A 61-second prompt video; the caption track is Devanagari ASR. The readable fragments name the source (Ralph Grimaldi, Discrete Mathematics) and ask the viewer to verify a statement is a tautology. The question statement is on screen only.",
+  "topics": [
+    "truth-tables-and-tautology",
+    "fast-methods-by-case-and-simplification"
+  ],
+  "concepts": [
+    "Practice prompt: verify that a given compound statement is a tautology.",
+    "Source is named in the video: Ralph Grimaldi, Discrete Mathematics."
+  ],
+  "gate_claims": []
+}
