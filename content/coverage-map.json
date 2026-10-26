@@ -983,6 +983,16 @@
       "kind": "notes",
       "placement": "digital-logic > number-representation > number-representation-and-arithmetic",
       "detail": "gate-visual-explainer lesson number-representation-and-arithmetic (topics.json title \"Number Representation and Arithmetic\"; syllabus-coverage.json Digital Logic > Number representation > Number representation and arithmetic, coverage_status PUBLISHED, 4 subtopics, 35 microtopics, 10 scenes in transcript.md) published 2026-10-26 and serves no notes card: the notes repo has no digital-logic subject. Next notes build: content/subjects/digital-logic/number-representation/number-representation-and-arithmetic.json, fed by the two's-complement wheel and IEEE 754 scenes."
+    },
+    {
+      "kind": "notes",
+      "placement": "digital-logic > number-systems (unit 1)",
+      "detail": "gate-cse-mocks/digital-logic/question-bank/master_bank.json unit 1 Number Systems & Representation (unit_slug number-systems) opened 2026-10-26 with 25 questions grouped by subtopic_label: Base conversions 8, One's & two's complement 7, Range & overflow 5, Floating point & IEEE 754 5; paper digital-logic/number-systems/gate_dl_mock_1_2026-10-26.html, taken from the unit's runs[0].file. Serves no notes card: all 27 cards are discrete-mathematics combinatorics and propositional-logic. The visual side already exists: gate-visual-explainer lesson number-representation-and-arithmetic, coverage_status PUBLISHED, 4 subtopics and 35 microtopics, whose two's-complement, overflow and IEEE 754 scenes teach these same subtopics. Next notes build: content/subjects/digital-logic/number-systems/number-systems.json as the first card of that subject."
+    },
+    {
+      "kind": "notes",
+      "placement": "programming-data-structures > c-programming-core (unit 1)",
+      "detail": "gate-visual-explainer lesson c-fundamentals (topics.json title \"C Fundamentals: Types, Operators and Control Flow\"; syllabus-coverage.json Programming and Data Structures > Programming in C > C fundamentals, coverage_status PUBLISHED, 8 subtopics and 44 microtopics, 10 scenes in transcript.md, from type widths through switch fallthrough) published 2026-10-26 and serves no notes card: the notes repo has no programming-data-structures subject. The matching mock unit already exists: gate-cse-mocks/programming-data-structures/question-bank/master_bank.json unit 1 C Programming Foundations (unit_slug c-programming-core), 25 questions on Data types & operators 7, Control structures 6, Functions & parameter passing 6, Recursion & stack execution 6, paper programming-data-structures/c-programming-core/gate_ds_mock_1_2026-10-26.html. Next notes build: content/subjects/programming-data-structures/c-programming-core/c-fundamentals.json."
     }
   ]
 }
