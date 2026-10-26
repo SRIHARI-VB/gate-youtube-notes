@@ -6,6 +6,31 @@
   var pyqById = {}; pyqs.forEach(function (p) { pyqById[p.id] = p; });
   var vidById = {}; videos.forEach(function (v) { vidById[v.video_id] = v; });
 
+  /* subject -> topic display names, from content/syllabus.json */
+  var sylByName = {};
+  (syllabus.subjects || []).forEach(function (s) {
+    var tmap = {};
+    (s.topics || []).forEach(function (t) { tmap[t.slug] = t.name; });
+    sylByName[s.slug] = { name: s.name, topics: tmap };
+  });
+  function titleCase(slug) {
+    return String(slug || '').replace(/[-_]+/g, ' ').replace(/\b[a-z]/g, function (c) { return c.toUpperCase(); });
+  }
+  function subjectName(slug) { return (sylByName[slug] && sylByName[slug].name) || titleCase(slug); }
+  function topicName(subject, topic) {
+    var s = sylByName[subject];
+    return (s && s.topics[topic]) || titleCase(topic);
+  }
+  /* the full path a card sits on: "Discrete Mathematics > Propositional Logic" */
+  function crumbOf(t) {
+    if (!t || (!t.subject && !t.topic)) { return ''; }
+    return subjectName(t.subject) + ' \u203a ' + topicName(t.subject, t.topic);
+  }
+  function crumbLine(t) {
+    var c = crumbOf(t);
+    return c ? '<div class="muted" style="font-size:12.5px">' + esc(c) + '</div>' : '';
+  }
+
   var store = {
     key: 'gate-revision-progress-v1',
     read: function () { try { return JSON.parse(localStorage.getItem(this.key) || '{}'); } catch (e) { return {}; } },
@@ -62,7 +87,8 @@
       '<div class="grid cols-2">' +
         '<div class="card"><h3>P1 topics first</h3><p class="muted">These carry the highest exam value and everything else depends on them.</p>' +
           '<ul class="tight">' + p1.map(function (t) {
-            return '<li><a href="#/topic/' + t.id + '">' + esc(t.title) + '</a></li>';
+            return '<li><a href="#/topic/' + t.id + '">' + esc(t.title) + '</a>' +
+              '<div class="muted" style="font-size:12.5px">' + esc(crumbOf(t)) + '</div></li>';
           }).join('') + '</ul></div>' +
         '<div class="card"><h3>Last-minute sheet</h3><p class="muted">Every formula in one screen, grouped by the decision you are actually making.</p>' +
           '<div class="link-row"><a href="#/last-minute">Open formula sheet</a><a href="#/pyqs">Browse PYQs</a><a href="#/visuals">Visual lessons</a></div></div>' +
@@ -76,20 +102,50 @@
   function statCard(n, l) { return '<div class="card tight"><div class="stat">' + esc(n) + '</div><div class="stat-label">' + esc(l) + '</div></div>'; }
 
   function viewTopics() {
-    var rows = topics.slice().sort(function (a, b) { return a.order - b.order; });
-    var html = '<h1>Topics</h1><p class="lead">' + topics.length + ' canonical topic cards. Videos map into these; the notes live here once, not once per video.</p>';
+    var bySubject = {};
+    topics.forEach(function (t) {
+      var s = t.subject || 'unfiled', tp = t.topic || 'unfiled';
+      bySubject[s] = bySubject[s] || {};
+      (bySubject[s][tp] = bySubject[s][tp] || []).push(t);
+    });
+    var html = '<h1>Topics</h1><p class="lead">' + topics.length + ' canonical topic cards, grouped subject \u2192 topic \u2192 subtopic. Videos map into these; the notes live here once, not once per video.</p>';
     html += '<div class="pill-row" id="topicFilter">' +
       ['all', 'P1', 'P2', 'P3'].map(function (p) {
         return '<button class="chip" data-p="' + p + '" aria-pressed="' + (p === 'all') + '">' + p + '</button>';
       }).join('') + '</div>';
-    html += '<div id="topicList">' + rows.map(topicRow).join('') + '</div>';
+    html += '<div id="topicList">';
+    Object.keys(bySubject).sort().forEach(function (s) {
+      var inSubject = bySubject[s];
+      var subjectCount = 0;
+      Object.keys(inSubject).forEach(function (tp) { subjectCount += inSubject[tp].length; });
+      html += '<section class="topic-group" data-subject="' + esc(s) + '">';
+      html += '<h2>' + esc(subjectName(s)) +
+        ' <span class="muted" style="font-size:13px;font-weight:400">' + subjectCount + ' cards</span></h2>';
+      Object.keys(inSubject).sort().forEach(function (tp) {
+        var cards = inSubject[tp].slice().sort(function (a, b) { return (a.order || 0) - (b.order || 0); });
+        html += '<div class="subtopic-group" data-topic="' + esc(tp) + '">';
+        html += '<h3>' + esc(topicName(s, tp)) +
+          ' <span class="muted" style="font-size:13px;font-weight:400">' + cards.length + ' subtopics</span></h3>';
+        var units = {};
+        cards.forEach(function (t) { var u = t.unit || 'Other'; (units[u] = units[u] || []).push(t); });
+        Object.keys(units).forEach(function (u) {
+          html += '<div class="unit-group">' + label(u) +
+            units[u].map(function (t) { return topicRow(t, false); }).join('') + '</div>';
+        });
+        html += '</div>';
+      });
+      html += '</section>';
+    });
+    html += '</div>';
     return h(html);
   }
-  function topicRow(t) {
+  function topicRow(t, showCrumb) {
     var revised = store.isRevised(t.id);
+    var crumb = (showCrumb === false) ? '' : crumbLine(t);
     return '<div class="card tight" data-prio="' + t.priority + '" style="margin-bottom:10px">' +
       '<div class="card-head"><div><a href="#/topic/' + t.id + '"><strong>' + esc(t.title) + '</strong></a>' +
       (revised ? ' <span class="revised">&#10003; revised</span>' : '') + '</div>' + prio(t.priority) + '</div>' +
+      crumb +
       '<div class="muted" style="margin-top:4px">' + esc(t.quickIdea) + '</div></div>';
   }
 
@@ -97,9 +153,11 @@
     var t = byId[id];
     if (!t) { return h('<div class="empty">Unknown topic.</div>'); }
     var revised = store.isRevised(t.id);
-    var html = '<div class="crumbs"><a href="#/topics">Topics</a> / ' + esc(t.unit) + '</div>';
+    var trail = crumbOf(t);
+    var html = '<div class="crumbs"><a href="#/topics">Topics</a>' +
+      (trail ? ' / ' + esc(trail) : '') + ' / ' + esc(t.title) + '</div>';
     html += '<h1>' + esc(t.title) + ' ' + prio(t.priority) + '</h1>';
-    html += '<p class="lead">' + esc(t.unit) + (t.prereqs && t.prereqs.length ? ' &middot; builds on ' + esc(t.prereqs.map(function (p) { var pt = byId[p]; return pt ? pt.title : p; }).join(', ')) : '') + '</p>';
+    html += '<p class="lead">' + esc(t.unit) + (t.prereqs && t.prereqs.length ? ' &middot; builds on ' + t.prereqs.map(function (p) { var pt = byId[p]; return pt ? esc(crumbOf(pt) + ' \u203a ' + pt.title) : esc(p); }).join(', ') : '') + '</p>';
     html += '<div class="pill-row"><button class="chip" id="markRevised" aria-pressed="' + (revised ? 'true' : 'false') + '">' +
       (revised ? 'Marked revised' : 'Mark as revised') + '</button></div>';
 
@@ -144,7 +202,8 @@
     }
     if (t.prereqs && t.prereqs.length) {
       html += '<h2>Prerequisites</h2><div class="link-row">' + t.prereqs.map(function (p) {
-        var pt = byId[p]; return pt ? '<a href="#/topic/' + p + '">' + esc(pt.title) + '</a>' : '';
+        var pt = byId[p];
+        return pt ? '<a href="#/topic/' + p + '">' + esc(crumbOf(pt) + ' \u203a ' + pt.title) + '</a>' : '';
       }).join('') + '</div>';
     }
     if (t.visual) {
@@ -188,20 +247,30 @@
   function viewPlaylist() {
     var pls = (D.playlists && D.playlists.length) ? D.playlists : [playlist];
     var html = '<h1>Playlist inventory</h1>' +
-      '<p class="lead">' + pls.map(function (p) { return esc(p.title) + ' - ' + esc(p.channel); }).join(' &middot; ') + '. ' +
+      '<p class="lead">' + pls.length + ' playlists, each inventoried on its own so position numbers are never mixed across playlists. ' +
       'Every video has an explicit processing status. Where only the opening of a lecture was retrievable, that is stated instead of being hidden.</p>';
-    html += '<div class="card"><table><thead><tr><th>#</th><th>Video</th><th>Length</th><th>Status</th><th>Topics</th></tr></thead><tbody>';
-    videos.forEach(function (v) {
-      html += '<tr><td>' + v.position + '</td>' +
-        '<td><a href="' + esc(v.url) + '" target="_blank" rel="noopener">' + esc(v.title) + '</a>' +
-        '<div class="muted" style="margin-top:4px">' + esc(v.coverage_note) + '</div></td>' +
-        '<td class="muted">' + fmtDur(v.duration_seconds) + '</td>' +
-        '<td><span class="badge warn">' + esc(v.transcript_status.split(' - ')[0]) + '</span></td>' +
-        '<td class="muted">' + (v.topics || []).map(function (tid) {
-          var t = byId[tid]; return t ? '<a href="#/topic/' + tid + '">' + esc(t.title) + '</a>' : esc(tid);
-        }).join('<br>') + '</td></tr>';
+    pls.forEach(function (pl) {
+      var vids = videos.filter(function (v) { return v.playlist_id === pl.playlist_id; });
+      html += '<h2>' + esc(pl.title) + '</h2>';
+      html += '<p class="muted" style="margin:-4px 0 10px">' + esc(pl.channel) +
+        (pl.subject ? ' &middot; ' + esc(pl.subject) : '') +
+        (pl.unit ? ' &middot; ' + esc(pl.unit) : '') +
+        ' &middot; ' + vids.length + ' videos &middot; ' +
+        '<a href="' + esc(pl.url) + '" target="_blank" rel="noopener">open on YouTube</a></p>';
+      html += '<div class="card"><table><thead><tr><th>#</th><th>Video</th><th>Length</th><th>Status</th><th>Topics</th></tr></thead><tbody>';
+      vids.forEach(function (v) {
+        html += '<tr><td>' + v.position + '</td>' +
+          '<td><a href="' + esc(v.url) + '" target="_blank" rel="noopener">' + esc(v.title) + '</a>' +
+          '<div class="muted" style="margin-top:4px">' + esc(v.coverage_note) + '</div></td>' +
+          '<td class="muted">' + fmtDur(v.duration_seconds) + '</td>' +
+          '<td><span class="badge warn">' + esc(v.transcript_status.split(' - ')[0]) + '</span></td>' +
+          '<td class="muted">' + (v.topics || []).map(function (tid) {
+            var t = byId[tid];
+            return t ? '<a href="#/topic/' + esc(tid) + '">' + esc(topicName(t.subject, t.topic) + ' \u203a ' + t.title) + '</a>' : esc(tid);
+          }).join('<br>') + '</td></tr>';
+      });
+      html += '</tbody></table></div>';
     });
-    html += '</tbody></table></div>';
     return h(html);
   }
   function fmtDur(s) {
@@ -236,7 +305,10 @@
       html += '</tbody></table></div>';
     });
     html += '<h2>Traps worth one more look</h2><div class="card">' + list(topics.filter(function (t) { return t.priority === 'P1'; })
-      .map(function (t) { return '<a href="#/topic/' + t.id + '">' + esc(t.title) + '</a>: ' + esc(t.trap.what); })) + '</div>';
+      .map(function (t) {
+        return '<a href="#/topic/' + t.id + '">' + esc(t.title) + '</a> ' +
+          '<span class="muted" style="font-size:12.5px">(' + esc(crumbOf(t)) + ')</span>: ' + esc(t.trap.what);
+      })) + '</div>';
     return h(html);
   }
 
@@ -258,7 +330,7 @@
   function route() {
     var hash = location.hash.replace(/^#/, '') || '/';
     var main = document.getElementById('view');
-    var title = 'Combinatorics revision';
+    var title = 'GATE CSE revision';
     var out;
     if (hash === '/' || hash === '') { out = viewDashboard(); }
     else if (hash.indexOf('/topics') === 0) { out = viewTopics(); title = 'Topics'; }
@@ -273,7 +345,7 @@
     else if (hash.indexOf('/search') === 0) { out = viewSearch(qs('q')); title = 'Search'; }
     else { out = h('<div class="empty">Not found. <a href="#/">Go to dashboard</a></div>'); }
     main.innerHTML = out;
-    document.title = title + ' - Combinatorics revision';
+    document.title = title + ' - GATE CSE revision';
     document.querySelectorAll('.nav a').forEach(function (a) {
       var target = a.getAttribute('href').replace('#', '');
       a.classList.toggle('active', target === hash || (target !== '/' && hash.indexOf(target) === 0));
@@ -303,6 +375,14 @@
         tf.querySelectorAll('.chip').forEach(function (c) { c.setAttribute('aria-pressed', String(c === b)); });
         document.querySelectorAll('#topicList .card').forEach(function (card) {
           card.style.display = (p === 'all' || card.getAttribute('data-prio') === p) ? '' : 'none';
+        });
+        /* a group with nothing visible under the filter hides itself, so the
+           hierarchy never shows an empty heading */
+        ['#topicList .unit-group', '#topicList .subtopic-group', '#topicList .topic-group'].forEach(function (sel) {
+          document.querySelectorAll(sel).forEach(function (g) {
+            var any = g.querySelector('.card:not([style*="display: none"])');
+            g.style.display = any ? '' : 'none';
+          });
         });
       });
     }
