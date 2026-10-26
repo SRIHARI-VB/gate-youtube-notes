@@ -49,5 +49,8 @@
     "fol-validity-and-implication",
     "rules-of-inference"
   ],
-  "videoRefs": []
+  "videoRefs": [],
+  "links": {
+    "mapped_at": "2026-10-26"
+  }
 }

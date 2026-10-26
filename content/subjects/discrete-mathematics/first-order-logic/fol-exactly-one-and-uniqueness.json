@@ -50,5 +50,8 @@
   "prereqs": [
     "english-to-fol-translation-templates"
   ],
-  "videoRefs": []
+  "videoRefs": [],
+  "links": {
+    "mapped_at": "2026-10-26"
+  }
 }

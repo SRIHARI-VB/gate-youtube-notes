@@ -11,6 +11,11 @@
       "playlist_id": "PLIPZ2_p3RNHjlC6eceG_vWSu-oA6Dc6aX",
       "title": "Combinatorics - Complete Summary, All GATE PYQs, Revision & Practice Questions | Discrete Mathematics",
       "videos": 14
+    },
+    {
+      "playlist_id": "PLIPZ2_p3RNHidhFvyKH4U_VE1rFAyvG8U",
+      "title": "First Order Logic - Complete Summary, All GATE PYQs & Practice Questions | Predicate Logic | Discrete Mathematics",
+      "videos": 8
     }
   ],
   "topics": [
@@ -487,6 +492,366 @@
         "gate-visual-explainer/topics.json slug \"recurrence-relations\" title \"Recurrence Relations\", syllabus-coverage.json coverage_status PUBLISHED, lesson_slug \"recurrence-relations\"; Scene 2 'Building a recurrence from a constraint' and Scene 4 the characteristic equation; the compositions half is not covered (the lesson's constraint is n-bit strings), and generating-functions covers only the 1/(1-x-x^2) form; rung 3"
       ],
       "row_verdict": "VISUAL_ONLY"
+    },
+    {
+      "subject": "discrete-mathematics",
+      "group": "first-order-logic",
+      "topic": "fol-syntax-predicates-and-quantifiers",
+      "title": "Predicates, Variables and Quantifiers",
+      "priority": "P1",
+      "path": "subjects/discrete-mathematics/first-order-logic/fol-syntax-predicates-and-quantifiers.json",
+      "transcript_status": "PARTIAL",
+      "mock": {
+        "subject": "discrete-mathematics",
+        "unit_slug": "predicate-logic",
+        "unit_name": "Predicate & First-Order Logic",
+        "unit_number": 2,
+        "question_count": 50,
+        "subtopic_labels": [
+          "Predicates & domain",
+          "Universal & existential quantifiers",
+          "Negation of nested quantifiers",
+          "Scope & order of quantifiers",
+          "English to FOL translation"
+        ],
+        "verdict": "MOCK_READY"
+      },
+      "visual": {
+        "slug": "first-order-logic",
+        "title": "First-Order Logic",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json: unit 2 \"Predicate & First-Order Logic\" (unit_slug \"predicate-logic\") holds 50 questions, subtopic_label groups Predicates & domain=10, Universal & existential quantifiers=10, Negation of nested quantifiers=10, Scope & order of quantifiers=10, English to FOL translation=10; unit 2 is closed at the 50-question cap and its last runs[] entry is run 2, file discrete-mathematics/predicate-logic/gate_dm_mock_2_2026-10-25.html; rung 4",
+        "gate-visual-explainer/topics.json slug \"first-order-logic\" title \"First-Order Logic\"; syllabus-coverage.json coverage_status PUBLISHED, subject Discrete Mathematics, unit Logic, topic \"First-order logic\"; scene coverage checked against topics/first-order-logic/transcript.md (10 scenes), not the alias list; rung 3"
+      ],
+      "row_verdict": "BOTH"
+    },
+    {
+      "subject": "discrete-mathematics",
+      "group": "first-order-logic",
+      "topic": "english-to-fol-translation-templates",
+      "title": "English to First-Order Logic: the Sentence Templates",
+      "priority": "P1",
+      "path": "subjects/discrete-mathematics/first-order-logic/english-to-fol-translation-templates.json",
+      "transcript_status": "PARTIAL",
+      "mock": {
+        "subject": "discrete-mathematics",
+        "unit_slug": "predicate-logic",
+        "unit_name": "Predicate & First-Order Logic",
+        "unit_number": 2,
+        "question_count": 50,
+        "subtopic_labels": [
+          "Predicates & domain",
+          "Universal & existential quantifiers",
+          "Negation of nested quantifiers",
+          "Scope & order of quantifiers",
+          "English to FOL translation"
+        ],
+        "verdict": "MOCK_READY"
+      },
+      "visual": {
+        "slug": "first-order-logic",
+        "title": "First-Order Logic",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json: unit 2 \"Predicate & First-Order Logic\" (unit_slug \"predicate-logic\") holds 50 questions, subtopic_label groups Predicates & domain=10, Universal & existential quantifiers=10, Negation of nested quantifiers=10, Scope & order of quantifiers=10, English to FOL translation=10; unit 2 is closed at the 50-question cap and its last runs[] entry is run 2, file discrete-mathematics/predicate-logic/gate_dm_mock_2_2026-10-25.html; rung 4",
+        "gate-visual-explainer/topics.json slug \"first-order-logic\" title \"First-Order Logic\"; syllabus-coverage.json coverage_status PUBLISHED, subject Discrete Mathematics, unit Logic, topic \"First-order logic\"; scene coverage checked against topics/first-order-logic/transcript.md (10 scenes), not the alias list; rung 3"
+      ],
+      "row_verdict": "BOTH"
+    },
+    {
+      "subject": "discrete-mathematics",
+      "group": "first-order-logic",
+      "topic": "quantifier-order-and-nesting",
+      "title": "Quantifier Order: for all x there exists y versus there exists y for all x",
+      "priority": "P1",
+      "path": "subjects/discrete-mathematics/first-order-logic/quantifier-order-and-nesting.json",
+      "transcript_status": "PARTIAL",
+      "mock": {
+        "subject": "discrete-mathematics",
+        "unit_slug": "predicate-logic",
+        "unit_name": "Predicate & First-Order Logic",
+        "unit_number": 2,
+        "question_count": 50,
+        "subtopic_labels": [
+          "Predicates & domain",
+          "Universal & existential quantifiers",
+          "Negation of nested quantifiers",
+          "Scope & order of quantifiers",
+          "English to FOL translation"
+        ],
+        "verdict": "MOCK_READY"
+      },
+      "visual": {
+        "slug": "first-order-logic",
+        "title": "First-Order Logic",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json: unit 2 \"Predicate & First-Order Logic\" (unit_slug \"predicate-logic\") holds 50 questions, subtopic_label groups Predicates & domain=10, Universal & existential quantifiers=10, Negation of nested quantifiers=10, Scope & order of quantifiers=10, English to FOL translation=10; unit 2 is closed at the 50-question cap and its last runs[] entry is run 2, file discrete-mathematics/predicate-logic/gate_dm_mock_2_2026-10-25.html; rung 4",
+        "gate-visual-explainer/topics.json slug \"first-order-logic\" title \"First-Order Logic\"; syllabus-coverage.json coverage_status PUBLISHED, subject Discrete Mathematics, unit Logic, topic \"First-order logic\"; scene coverage checked against topics/first-order-logic/transcript.md (10 scenes), not the alias list; rung 3"
+      ],
+      "row_verdict": "BOTH"
+    },
+    {
+      "subject": "discrete-mathematics",
+      "group": "first-order-logic",
+      "topic": "fol-interpretation-model-and-validity",
+      "title": "Interpretation, Model and Validity",
+      "priority": "P1",
+      "path": "subjects/discrete-mathematics/first-order-logic/fol-interpretation-model-and-validity.json",
+      "transcript_status": "PARTIAL",
+      "mock": {
+        "subject": "discrete-mathematics",
+        "unit_slug": "predicate-logic",
+        "unit_name": "Predicate & First-Order Logic",
+        "unit_number": 2,
+        "question_count": 50,
+        "subtopic_labels": [
+          "Predicates & domain",
+          "Universal & existential quantifiers",
+          "Negation of nested quantifiers",
+          "Scope & order of quantifiers",
+          "English to FOL translation"
+        ],
+        "verdict": "MOCK_UNIT_MISSING"
+      },
+      "visual": {
+        "slug": "first-order-logic",
+        "title": "First-Order Logic",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json: unit 2 exists with 50 questions but none of its five subtopic_labels (Predicates & domain, Universal & existential quantifiers, Negation of nested quantifiers, Scope & order of quantifiers, English to FOL translation) holds a question on this card's subtopic, so no mock mapping is claimed; rung 4 failed",
+        "gate-visual-explainer/topics.json slug \"first-order-logic\" title \"First-Order Logic\"; syllabus-coverage.json coverage_status PUBLISHED, subject Discrete Mathematics, unit Logic, topic \"First-order logic\"; scene coverage checked against topics/first-order-logic/transcript.md (10 scenes), not the alias list; rung 3"
+      ],
+      "row_verdict": "VISUAL_ONLY"
+    },
+    {
+      "subject": "discrete-mathematics",
+      "group": "first-order-logic",
+      "topic": "quantifier-negation-and-equivalence",
+      "title": "Negating Quantifiers and Null Quantification",
+      "priority": "P1",
+      "path": "subjects/discrete-mathematics/first-order-logic/quantifier-negation-and-equivalence.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "discrete-mathematics",
+        "unit_slug": "predicate-logic",
+        "unit_name": "Predicate & First-Order Logic",
+        "unit_number": 2,
+        "question_count": 50,
+        "subtopic_labels": [
+          "Predicates & domain",
+          "Universal & existential quantifiers",
+          "Negation of nested quantifiers",
+          "Scope & order of quantifiers",
+          "English to FOL translation"
+        ],
+        "verdict": "MOCK_READY"
+      },
+      "visual": {
+        "slug": "first-order-logic",
+        "title": "First-Order Logic",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json: unit 2 \"Predicate & First-Order Logic\" (unit_slug \"predicate-logic\") holds 50 questions, subtopic_label groups Predicates & domain=10, Universal & existential quantifiers=10, Negation of nested quantifiers=10, Scope & order of quantifiers=10, English to FOL translation=10; unit 2 is closed at the 50-question cap and its last runs[] entry is run 2, file discrete-mathematics/predicate-logic/gate_dm_mock_2_2026-10-25.html; rung 4",
+        "gate-visual-explainer/topics.json slug \"first-order-logic\" title \"First-Order Logic\"; syllabus-coverage.json coverage_status PUBLISHED, subject Discrete Mathematics, unit Logic, topic \"First-order logic\"; scene coverage checked against topics/first-order-logic/transcript.md (10 scenes), not the alias list; rung 3"
+      ],
+      "row_verdict": "BOTH"
+    },
+    {
+      "subject": "discrete-mathematics",
+      "group": "first-order-logic",
+      "topic": "fol-validity-and-implication",
+      "title": "Validity, Implication and the Two-Element Countermodel",
+      "priority": "P1",
+      "path": "subjects/discrete-mathematics/first-order-logic/fol-validity-and-implication.json",
+      "transcript_status": "PARTIAL",
+      "mock": {
+        "subject": "discrete-mathematics",
+        "unit_slug": "predicate-logic",
+        "unit_name": "Predicate & First-Order Logic",
+        "unit_number": 2,
+        "question_count": 50,
+        "subtopic_labels": [
+          "Predicates & domain",
+          "Universal & existential quantifiers",
+          "Negation of nested quantifiers",
+          "Scope & order of quantifiers",
+          "English to FOL translation"
+        ],
+        "verdict": "MOCK_UNIT_MISSING"
+      },
+      "visual": {
+        "slug": "first-order-logic",
+        "title": "First-Order Logic",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json: unit 2 exists with 50 questions but none of its five subtopic_labels (Predicates & domain, Universal & existential quantifiers, Negation of nested quantifiers, Scope & order of quantifiers, English to FOL translation) holds a question on this card's subtopic, so no mock mapping is claimed; rung 4 failed",
+        "gate-visual-explainer/topics.json slug \"first-order-logic\" title \"First-Order Logic\"; syllabus-coverage.json coverage_status PUBLISHED, subject Discrete Mathematics, unit Logic, topic \"First-order logic\"; scene coverage checked against topics/first-order-logic/transcript.md (10 scenes), not the alias list; rung 3"
+      ],
+      "row_verdict": "VISUAL_ONLY"
+    },
+    {
+      "subject": "discrete-mathematics",
+      "group": "first-order-logic",
+      "topic": "fol-tautology-vs-validity",
+      "title": "Tautology versus Validity in First-Order Logic",
+      "priority": "P2",
+      "path": "subjects/discrete-mathematics/first-order-logic/fol-tautology-vs-validity.json",
+      "transcript_status": "PARTIAL",
+      "mock": {
+        "subject": "discrete-mathematics",
+        "unit_slug": "predicate-logic",
+        "unit_name": "Predicate & First-Order Logic",
+        "unit_number": 2,
+        "question_count": 50,
+        "subtopic_labels": [
+          "Predicates & domain",
+          "Universal & existential quantifiers",
+          "Negation of nested quantifiers",
+          "Scope & order of quantifiers",
+          "English to FOL translation"
+        ],
+        "verdict": "MOCK_UNIT_MISSING"
+      },
+      "visual": {
+        "slug": null,
+        "title": null,
+        "coverage_status": null,
+        "level": null,
+        "verdict": "VISUAL_MISSING"
+      },
+      "evidence": [
+        "gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json: unit 2 exists with 50 questions but none of its five subtopic_labels (Predicates & domain, Universal & existential quantifiers, Negation of nested quantifiers, Scope & order of quantifiers, English to FOL translation) holds a question on this card's subtopic, so no mock mapping is claimed; rung 4 failed",
+        "gate-visual-explainer/topics/first-order-logic/transcript.md (10 scenes) contains no scene on this card's subject matter (grep for the card vocabulary returns 0 hits), so no visual mapping is claimed; the syllabus-coverage.json microtopic list promises more than the published lesson covers; rung 3 failed"
+      ],
+      "row_verdict": "NEITHER"
+    },
+    {
+      "subject": "discrete-mathematics",
+      "group": "first-order-logic",
+      "topic": "fol-exactly-one-and-uniqueness",
+      "title": "Exactly One, At Most One and Uniqueness",
+      "priority": "P2",
+      "path": "subjects/discrete-mathematics/first-order-logic/fol-exactly-one-and-uniqueness.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "discrete-mathematics",
+        "unit_slug": "predicate-logic",
+        "unit_name": "Predicate & First-Order Logic",
+        "unit_number": 2,
+        "question_count": 50,
+        "subtopic_labels": [
+          "Predicates & domain",
+          "Universal & existential quantifiers",
+          "Negation of nested quantifiers",
+          "Scope & order of quantifiers",
+          "English to FOL translation"
+        ],
+        "verdict": "MOCK_UNIT_MISSING"
+      },
+      "visual": {
+        "slug": null,
+        "title": null,
+        "coverage_status": null,
+        "level": null,
+        "verdict": "VISUAL_MISSING"
+      },
+      "evidence": [
+        "gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json: unit 2 exists with 50 questions but none of its five subtopic_labels (Predicates & domain, Universal & existential quantifiers, Negation of nested quantifiers, Scope & order of quantifiers, English to FOL translation) holds a question on this card's subtopic, so no mock mapping is claimed; rung 4 failed",
+        "gate-visual-explainer/topics/first-order-logic/transcript.md (10 scenes) contains no scene on this card's subject matter (grep for the card vocabulary returns 0 hits), so no visual mapping is claimed; the syllabus-coverage.json microtopic list promises more than the published lesson covers; rung 3 failed"
+      ],
+      "row_verdict": "NEITHER"
+    },
+    {
+      "subject": "discrete-mathematics",
+      "group": "first-order-logic",
+      "topic": "fol-model-size-and-countermodels",
+      "title": "Model Size and Small Countermodels",
+      "priority": "P2",
+      "path": "subjects/discrete-mathematics/first-order-logic/fol-model-size-and-countermodels.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "discrete-mathematics",
+        "unit_slug": "predicate-logic",
+        "unit_name": "Predicate & First-Order Logic",
+        "unit_number": 2,
+        "question_count": 50,
+        "subtopic_labels": [
+          "Predicates & domain",
+          "Universal & existential quantifiers",
+          "Negation of nested quantifiers",
+          "Scope & order of quantifiers",
+          "English to FOL translation"
+        ],
+        "verdict": "MOCK_UNIT_MISSING"
+      },
+      "visual": {
+        "slug": null,
+        "title": null,
+        "coverage_status": null,
+        "level": null,
+        "verdict": "VISUAL_MISSING"
+      },
+      "evidence": [
+        "gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json: unit 2 exists with 50 questions but none of its five subtopic_labels (Predicates & domain, Universal & existential quantifiers, Negation of nested quantifiers, Scope & order of quantifiers, English to FOL translation) holds a question on this card's subtopic, so no mock mapping is claimed; rung 4 failed",
+        "gate-visual-explainer/topics/first-order-logic/transcript.md (10 scenes) contains no scene on this card's subject matter (grep for the card vocabulary returns 0 hits), so no visual mapping is claimed; the syllabus-coverage.json microtopic list promises more than the published lesson covers; rung 3 failed"
+      ],
+      "row_verdict": "NEITHER"
+    },
+    {
+      "subject": "discrete-mathematics",
+      "group": "first-order-logic",
+      "topic": "fol-quantifier-inference-rules",
+      "title": "Quantifier Inference Rules and their Side Conditions",
+      "priority": "P2",
+      "path": "subjects/discrete-mathematics/first-order-logic/fol-quantifier-inference-rules.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "discrete-mathematics",
+        "unit_slug": "predicate-logic",
+        "unit_name": "Predicate & First-Order Logic",
+        "unit_number": 2,
+        "question_count": 50,
+        "subtopic_labels": [
+          "Predicates & domain",
+          "Universal & existential quantifiers",
+          "Negation of nested quantifiers",
+          "Scope & order of quantifiers",
+          "English to FOL translation"
+        ],
+        "verdict": "MOCK_UNIT_MISSING"
+      },
+      "visual": {
+        "slug": null,
+        "title": null,
+        "coverage_status": null,
+        "level": null,
+        "verdict": "VISUAL_MISSING"
+      },
+      "evidence": [
+        "gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json: unit 2 exists with 50 questions but none of its five subtopic_labels (Predicates & domain, Universal & existential quantifiers, Negation of nested quantifiers, Scope & order of quantifiers, English to FOL translation) holds a question on this card's subtopic, so no mock mapping is claimed; rung 4 failed",
+        "gate-visual-explainer/topics/first-order-logic/transcript.md (10 scenes) contains no scene on this card's subject matter (grep for the card vocabulary returns 0 hits), so no visual mapping is claimed; the syllabus-coverage.json microtopic list promises more than the published lesson covers; rung 3 failed"
+      ],
+      "row_verdict": "NEITHER"
     },
     {
       "subject": "discrete-mathematics",
@@ -1033,6 +1398,26 @@
       "kind": "notes",
       "placement": "programming-data-structures > data-structures > trees-bst-and-heaps",
       "detail": "gate-visual-explainer lesson trees-bst-and-heaps (topics.json title \"Trees, Binary Search Trees and Heaps\", category programming-and-data-structures; syllabus-coverage.json Programming and Data Structures > Data structures > Trees, binary search trees and heaps, coverage_status PUBLISHED 2026-10-26, 5 subtopics and 47 microtopics, 10 scenes in topics/trees-bst-and-heaps/transcript.md from 'A tree is a chain that branches' through 'Three promises, one table') published 2026-10-26 and serves no notes card: the notes repo has 27 cards, all discrete-mathematics, and no programming-data-structures subject. No mock unit matches either: gate-cse-mocks/programming-data-structures/question-bank/master_bank.json unit 1 c-programming-core is closed at 50 questions with labels Data types & operators 14, Control structures 12, Functions & parameter passing 12, Recursion & stack execution 12, and the README rotation advances to Unit 2. Next notes build: content/subjects/programming-data-structures/data-structures/trees-bst-and-heaps.json, fed by the traversal-reconstruction, Catalan-counting and heap-sift scenes."
+    },
+    {
+      "kind": "mock",
+      "placement": "discrete-mathematics > first-order-logic",
+      "detail": "Unit 2 predicate-logic is closed at the 50-question cap and holds no label for validity/implication, tautology versus validity, exactly-one/uniqueness, model size or quantifier inference rules, so fol-tautology-vs-validity, fol-exactly-one-and-uniqueness, fol-model-size-and-countermodels and fol-quantifier-inference-rules are NEITHER. The bank's own run note says the next discrete-mathematics run advances to unit 3, Set Theory."
+    },
+    {
+      "kind": "notes",
+      "placement": "databases > sql-querying",
+      "detail": "gate-cse-mocks/databases/question-bank/master_bank.json unit 2 'SQL & Advanced Querying' (unit_slug sql-querying) opened 2026-10-26 with 25 questions over ddl-dml-dcl 5, nested-and-correlated-subqueries 5, aggregate-functions-group-by-having 5, joins-outer-joins 5, views-triggers-constraints 5; no notes card exists - the notes repo's syllabus.json lists discrete-mathematics as its only subject."
+    },
+    {
+      "kind": "notes",
+      "placement": "algorithms > asymptotic-analysis",
+      "detail": "gate-visual-explainer lesson asymptotic-complexity (PUBLISHED 2026-10-26, subject Algorithms, unit Analysis) serves no notes card; the notes repo has no algorithms subject. gate-cse-mocks/algorithms/asymptotic-analysis holds 50 questions on the same material and is likewise unmapped."
+    },
+    {
+      "kind": "notes",
+      "placement": "discrete-mathematics > first-order-logic (upstream)",
+      "detail": "6 of the 8 first-order-logic videos are PARTIAL and zdeKQ-nABtk is NONE (no caption text retrievable), so the four cards with no video of their own (quantifier-negation-and-equivalence, fol-exactly-one-and-uniqueness, fol-model-size-and-countermodels, fol-quantifier-inference-rules) rest on PYQs only. Video ids: Fp3hl9AprLU, puvQs-gBxO4, s41PLmHGf08, sj7qdCCK-IY, tK8382YdZLs, wzVFO4hyVfo (PARTIAL), zdeKQ-nABtk (NONE)."
     }
   ]
 }

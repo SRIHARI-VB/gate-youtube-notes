@@ -50,5 +50,50 @@
   "videoRefs": [
     "Fp3hl9AprLU",
     "puvQs-gBxO4"
-  ]
+  ],
+  "links": {
+    "mock": {
+      "subject": "discrete-mathematics",
+      "unit_slug": "predicate-logic",
+      "unit_name": "Predicate & First-Order Logic",
+      "unit_number": 2,
+      "question_count": 50,
+      "subtopics": [
+        {
+          "label": "Predicates & domain",
+          "questions": 10
+        },
+        {
+          "label": "Universal & existential quantifiers",
+          "questions": 10
+        },
+        {
+          "label": "Negation of nested quantifiers",
+          "questions": 10
+        },
+        {
+          "label": "Scope & order of quantifiers",
+          "questions": 10
+        },
+        {
+          "label": "English to FOL translation",
+          "questions": 10
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/predicate-logic/gate_dm_mock_2_2026-10-25.html"
+    },
+    "visual": {
+      "slug": "first-order-logic",
+      "title": "First-Order Logic",
+      "level": "topic-level",
+      "url": "https://gate-visual-explainer.vercel.app/topics/first-order-logic/index.html",
+      "covers": [
+        "predicate vs proposition; the domain as part of the meaning",
+        "for-all as a conjunction over the domain; vacuous truth on the empty domain",
+        "there-exists as a disjunction; the witness; exists is false on the empty domain",
+        "free and bound variables; scope; the definition of a sentence"
+      ]
+    },
+    "mapped_at": "2026-10-26"
+  }
 }

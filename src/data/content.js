@@ -2868,6 +2868,51 @@ window.GATE_DATA = {
     "Fp3hl9AprLU",
     "puvQs-gBxO4"
    ],
+   "links": {
+    "mock": {
+     "subject": "discrete-mathematics",
+     "unit_slug": "predicate-logic",
+     "unit_name": "Predicate & First-Order Logic",
+     "unit_number": 2,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Predicates & domain",
+       "questions": 10
+      },
+      {
+       "label": "Universal & existential quantifiers",
+       "questions": 10
+      },
+      {
+       "label": "Negation of nested quantifiers",
+       "questions": 10
+      },
+      {
+       "label": "Scope & order of quantifiers",
+       "questions": 10
+      },
+      {
+       "label": "English to FOL translation",
+       "questions": 10
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/predicate-logic/gate_dm_mock_2_2026-10-25.html"
+    },
+    "visual": {
+     "slug": "first-order-logic",
+     "title": "First-Order Logic",
+     "level": "topic-level",
+     "url": "https://gate-visual-explainer.vercel.app/topics/first-order-logic/index.html",
+     "covers": [
+      "predicate vs proposition; the domain as part of the meaning",
+      "for-all as a conjunction over the domain; vacuous truth on the empty domain",
+      "there-exists as a disjunction; the witness; exists is false on the empty domain",
+      "free and bound variables; scope; the definition of a sentence"
+     ]
+    },
+    "mapped_at": "2026-10-26"
+   },
    "subject": "discrete-mathematics",
    "topic": "first-order-logic",
    "path": "subjects/discrete-mathematics/first-order-logic/fol-syntax-predicates-and-quantifiers.json"
@@ -2938,6 +2983,48 @@ window.GATE_DATA = {
     "s41PLmHGf08",
     "60kicY3otM0"
    ],
+   "links": {
+    "mock": {
+     "subject": "discrete-mathematics",
+     "unit_slug": "predicate-logic",
+     "unit_name": "Predicate & First-Order Logic",
+     "unit_number": 2,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Predicates & domain",
+       "questions": 10
+      },
+      {
+       "label": "Universal & existential quantifiers",
+       "questions": 10
+      },
+      {
+       "label": "Negation of nested quantifiers",
+       "questions": 10
+      },
+      {
+       "label": "Scope & order of quantifiers",
+       "questions": 10
+      },
+      {
+       "label": "English to FOL translation",
+       "questions": 10
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/predicate-logic/gate_dm_mock_2_2026-10-25.html"
+    },
+    "visual": {
+     "slug": "first-order-logic",
+     "title": "First-Order Logic",
+     "level": "topic-level",
+     "url": "https://gate-visual-explainer.vercel.app/topics/first-order-logic/index.html",
+     "covers": [
+      "implication for a restricted for-all, conjunction for a restricted there-exists"
+     ]
+    },
+    "mapped_at": "2026-10-26"
+   },
    "subject": "discrete-mathematics",
    "topic": "first-order-logic",
    "path": "subjects/discrete-mathematics/first-order-logic/english-to-fol-translation-templates.json"
@@ -2996,6 +3083,49 @@ window.GATE_DATA = {
    "videoRefs": [
     "wzVFO4hyVfo"
    ],
+   "links": {
+    "mock": {
+     "subject": "discrete-mathematics",
+     "unit_slug": "predicate-logic",
+     "unit_name": "Predicate & First-Order Logic",
+     "unit_number": 2,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Predicates & domain",
+       "questions": 10
+      },
+      {
+       "label": "Universal & existential quantifiers",
+       "questions": 10
+      },
+      {
+       "label": "Negation of nested quantifiers",
+       "questions": 10
+      },
+      {
+       "label": "Scope & order of quantifiers",
+       "questions": 10
+      },
+      {
+       "label": "English to FOL translation",
+       "questions": 10
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/predicate-logic/gate_dm_mock_2_2026-10-25.html"
+    },
+    "visual": {
+     "slug": "first-order-logic",
+     "title": "First-Order Logic",
+     "level": "topic-level",
+     "url": "https://gate-visual-explainer.vercel.app/topics/first-order-logic/index.html",
+     "covers": [
+      "order of unlike quantifiers; for-all-there-exists vs there-exists-for-all",
+      "same-kind quantifiers commute; mixed ones do not"
+     ]
+    },
+    "mapped_at": "2026-10-26"
+   },
    "subject": "discrete-mathematics",
    "topic": "first-order-logic",
    "path": "subjects/discrete-mathematics/first-order-logic/quantifier-order-and-nesting.json"
@@ -3057,6 +3187,18 @@ window.GATE_DATA = {
     "sj7qdCCK-IY",
     "tK8382YdZLs"
    ],
+   "links": {
+    "visual": {
+     "slug": "first-order-logic",
+     "title": "First-Order Logic",
+     "level": "topic-level",
+     "url": "https://gate-visual-explainer.vercel.app/topics/first-order-logic/index.html",
+     "covers": [
+      "same formula, different domains, different truth value"
+     ]
+    },
+    "mapped_at": "2026-10-26"
+   },
    "subject": "discrete-mathematics",
    "topic": "first-order-logic",
    "path": "subjects/discrete-mathematics/first-order-logic/fol-interpretation-model-and-validity.json"
@@ -3116,6 +3258,48 @@ window.GATE_DATA = {
     "logical-equivalence-laws"
    ],
    "videoRefs": [],
+   "links": {
+    "mock": {
+     "subject": "discrete-mathematics",
+     "unit_slug": "predicate-logic",
+     "unit_name": "Predicate & First-Order Logic",
+     "unit_number": 2,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Predicates & domain",
+       "questions": 10
+      },
+      {
+       "label": "Universal & existential quantifiers",
+       "questions": 10
+      },
+      {
+       "label": "Negation of nested quantifiers",
+       "questions": 10
+      },
+      {
+       "label": "Scope & order of quantifiers",
+       "questions": 10
+      },
+      {
+       "label": "English to FOL translation",
+       "questions": 10
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/predicate-logic/gate_dm_mock_2_2026-10-25.html"
+    },
+    "visual": {
+     "slug": "first-order-logic",
+     "title": "First-Order Logic",
+     "level": "topic-level",
+     "url": "https://gate-visual-explainer.vercel.app/topics/first-order-logic/index.html",
+     "covers": [
+      "not-for-all is exists-not; not-exists is for-all-not"
+     ]
+    },
+    "mapped_at": "2026-10-26"
+   },
    "subject": "discrete-mathematics",
    "topic": "first-order-logic",
    "path": "subjects/discrete-mathematics/first-order-logic/quantifier-negation-and-equivalence.json"
@@ -3186,6 +3370,18 @@ window.GATE_DATA = {
     "sj7qdCCK-IY",
     "tK8382YdZLs"
    ],
+   "links": {
+    "visual": {
+     "slug": "first-order-logic",
+     "title": "First-Order Logic",
+     "level": "topic-level",
+     "url": "https://gate-visual-explainer.vercel.app/topics/first-order-logic/index.html",
+     "covers": [
+      "there-exists-for-all implies for-all-there-exists, never the reverse"
+     ]
+    },
+    "mapped_at": "2026-10-26"
+   },
    "subject": "discrete-mathematics",
    "topic": "first-order-logic",
    "path": "subjects/discrete-mathematics/first-order-logic/fol-validity-and-implication.json"
@@ -3246,6 +3442,9 @@ window.GATE_DATA = {
    "videoRefs": [
     "wzVFO4hyVfo"
    ],
+   "links": {
+    "mapped_at": "2026-10-26"
+   },
    "subject": "discrete-mathematics",
    "topic": "first-order-logic",
    "path": "subjects/discrete-mathematics/first-order-logic/fol-tautology-vs-validity.json"
@@ -3303,6 +3502,9 @@ window.GATE_DATA = {
     "english-to-fol-translation-templates"
    ],
    "videoRefs": [],
+   "links": {
+    "mapped_at": "2026-10-26"
+   },
    "subject": "discrete-mathematics",
    "topic": "first-order-logic",
    "path": "subjects/discrete-mathematics/first-order-logic/fol-exactly-one-and-uniqueness.json"
@@ -3359,6 +3561,9 @@ window.GATE_DATA = {
     "fol-interpretation-model-and-validity"
    ],
    "videoRefs": [],
+   "links": {
+    "mapped_at": "2026-10-26"
+   },
    "subject": "discrete-mathematics",
    "topic": "first-order-logic",
    "path": "subjects/discrete-mathematics/first-order-logic/fol-model-size-and-countermodels.json"
@@ -3415,6 +3620,9 @@ window.GATE_DATA = {
     "rules-of-inference"
    ],
    "videoRefs": [],
+   "links": {
+    "mapped_at": "2026-10-26"
+   },
    "subject": "discrete-mathematics",
    "topic": "first-order-logic",
    "path": "subjects/discrete-mathematics/first-order-logic/fol-quantifier-inference-rules.json"

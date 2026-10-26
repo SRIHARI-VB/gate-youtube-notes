@@ -54,5 +54,17 @@
     "wzVFO4hyVfo",
     "sj7qdCCK-IY",
     "tK8382YdZLs"
-  ]
+  ],
+  "links": {
+    "visual": {
+      "slug": "first-order-logic",
+      "title": "First-Order Logic",
+      "level": "topic-level",
+      "url": "https://gate-visual-explainer.vercel.app/topics/first-order-logic/index.html",
+      "covers": [
+        "same formula, different domains, different truth value"
+      ]
+    },
+    "mapped_at": "2026-10-26"
+  }
 }
