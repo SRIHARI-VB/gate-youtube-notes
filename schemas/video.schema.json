@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Video metadata and analysis",
+  "type": "object",
+  "required": [
+    "video_id",
+    "playlist_position",
+    "video_title",
+    "video_url",
+    "duration_seconds",
+    "transcript_status",
+    "analysis_status"
+  ],
+  "properties": {
+    "video_id": {
+      "type": "string",
+      "minLength": 6
+    },
+    "playlist_position": {
+      "type": "integer"
+    },
+    "video_title": {
+      "type": "string"
+    },
+    "video_url": {
+      "type": "string"
+    },
+    "duration_seconds": {
+      "type": "integer"
+    },
+    "transcript_status": {
+      "type": "string"
+    },
+    "analysis_status": {
+      "type": "string"
+    }
+  }
+}
