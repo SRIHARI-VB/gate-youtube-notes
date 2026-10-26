@@ -142,6 +142,54 @@
         "string",
         "null"
       ]
+    },
+    "links": {
+      "type": "object",
+      "properties": {
+        "mock": {
+          "type": "object",
+          "required": [
+            "unit_name",
+            "question_count",
+            "url"
+          ],
+          "properties": {
+            "subject": { "type": "string" },
+            "unit_slug": { "type": "string" },
+            "unit_name": { "type": "string" },
+            "unit_number": { "type": "integer" },
+            "question_count": { "type": "integer" },
+            "subtopics": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": ["label", "questions"],
+                "properties": {
+                  "label": { "type": "string" },
+                  "questions": { "type": "integer" }
+                }
+              }
+            },
+            "url": { "type": "string" }
+          }
+        },
+        "visual": {
+          "type": "object",
+          "required": [
+            "slug",
+            "title",
+            "url"
+          ],
+          "properties": {
+            "slug": { "type": "string" },
+            "title": { "type": "string" },
+            "level": { "enum": ["topic-level", "subtopic-level"] },
+            "covers": { "type": "array", "items": { "type": "string" } },
+            "url": { "type": "string" }
+          }
+        },
+        "mapped_at": { "type": "string" }
+      }
     }
   }
 }

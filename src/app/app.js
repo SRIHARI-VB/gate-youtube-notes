@@ -260,6 +260,29 @@
       html += '<h2>Visual lesson</h2><div class="card"><p style="margin-bottom:10px">Animated walkthrough for this topic.</p>' +
         '<a href="visuals/' + t.visual + '/index.html" target="_blank" rel="noopener">Open the lesson &#8599;</a></div>';
     }
+    if (t.links && (t.links.mock || t.links.visual)) {
+      html += '<h2>Practice and explainer</h2>';
+      var mk = t.links.mock;
+      if (mk) {
+        var sub = (mk.subtopics && mk.subtopics.length) ? mk.subtopics.map(function (s) {
+          return esc(s.label) + ' (' + esc(String(s.questions)) + ')';
+        }).join(' \u00b7 ') : '';
+        html += '<div class="card"><div style="font-weight:650;margin-bottom:4px">Mock test &#183; ' +
+          esc(mk.unit_name) + ' (Unit ' + esc(String(mk.unit_number)) + ')</div>' +
+          '<div class="muted" style="margin-bottom:8px">' + esc(String(mk.question_count)) + ' questions banked' +
+          (sub ? ' &#183; ' + sub : '') + '</div>' +
+          '<a href="' + esc(mk.url) + '" target="_blank" rel="noopener">Open the mock series &#8599;</a></div>';
+      }
+      var vs = t.links.visual;
+      if (vs) {
+        html += '<div class="card" style="margin-top:12px"><div style="font-weight:650;margin-bottom:4px">Visual explainer &#183; ' +
+          esc(vs.title) + '</div>' +
+          '<div class="muted" style="margin-bottom:8px">' +
+          esc(vs.level === 'topic-level' ? 'Covers this topic, not this subtopic alone' : 'Covers this subtopic') +
+          ((vs.covers && vs.covers.length) ? ' &#183; ' + vs.covers.map(esc).join(' \u00b7 ') : '') + '</div>' +
+          '<a href="' + esc(vs.url) + '" target="_blank" rel="noopener">Open the lesson &#8599;</a></div>';
+      }
+    }
     return h(html);
   }
 
