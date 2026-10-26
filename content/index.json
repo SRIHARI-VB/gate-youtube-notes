@@ -1,17 +1,40 @@
 {
   "generated_by": "scripts/build-index.py",
-  "playlist_id": "PLIPZ2_p3RNHjlC6eceG_vWSu-oA6Dc6aX",
+  "playlist_id": "PLIPZ2_p3RNHillKxh1_iFeZhy9MftHeWW",
+  "playlists": [
+    {
+      "playlist_id": "PLIPZ2_p3RNHillKxh1_iFeZhy9MftHeWW",
+      "title": "Propositional Logic - Complete Summary, All GATE PYQs & Practice Questions | Discrete Mathematics",
+      "channel": "GO Classes for GATE CS",
+      "channel_slug": "go-classes-for-gate-cs",
+      "path": "playlists/go-classes-for-gate-cs/PLIPZ2_p3RNHillKxh1_iFeZhy9MftHeWW",
+      "videos": 17
+    },
+    {
+      "playlist_id": "PLIPZ2_p3RNHjlC6eceG_vWSu-oA6Dc6aX",
+      "title": "Combinatorics - Complete Summary, All GATE PYQs, Revision & Practice Questions | Discrete Mathematics",
+      "channel": "GO Classes for GATE CS",
+      "channel_slug": "go-classes-for-gate-cs",
+      "path": "playlists/go-classes-for-gate-cs/PLIPZ2_p3RNHjlC6eceG_vWSu-oA6Dc6aX",
+      "videos": 14
+    }
+  ],
   "counts": {
-    "topics": 15,
-    "pyqs": 13,
-    "videos": 14
+    "subjects": 1,
+    "topics": 27,
+    "pyqs": 27,
+    "videos": 31,
+    "playlists": 2
   },
   "map": [
     {
       "topic": "basic-counting-rules",
       "title": "Basic Counting Rules",
+      "subject": "discrete-mathematics",
+      "group": "combinatorics",
       "unit": "Counting foundations",
       "priority": "P1",
+      "path": "subjects/discrete-mathematics/combinatorics/basic-counting-rules.json",
       "videos": [
         "D4wbOYlL8Gs",
         "UJF9vHQc3gk"
@@ -27,8 +50,11 @@
     {
       "topic": "permutations",
       "title": "Permutations (order matters)",
+      "subject": "discrete-mathematics",
+      "group": "combinatorics",
       "unit": "Counting foundations",
       "priority": "P1",
+      "path": "subjects/discrete-mathematics/combinatorics/permutations.json",
       "videos": [
         "UJF9vHQc3gk",
         "NAKpzn7afRk"
@@ -40,8 +66,11 @@
     {
       "topic": "combinations",
       "title": "Combinations (order does not matter)",
+      "subject": "discrete-mathematics",
+      "group": "combinatorics",
       "unit": "Counting foundations",
       "priority": "P1",
+      "path": "subjects/discrete-mathematics/combinatorics/combinations.json",
       "videos": [
         "UJF9vHQc3gk",
         "xHuVVjfH-4Y",
@@ -56,8 +85,11 @@
     {
       "topic": "binomial-theorem",
       "title": "Binomial Theorem and Coefficient Extraction",
+      "subject": "discrete-mathematics",
+      "group": "combinatorics",
       "unit": "Algebraic counting",
       "priority": "P2",
+      "path": "subjects/discrete-mathematics/combinatorics/binomial-theorem.json",
       "videos": [
         "NAKpzn7afRk"
       ],
@@ -70,8 +102,11 @@
     {
       "topic": "permutation-with-repetition",
       "title": "Permutation with Repetition and Multinomials",
+      "subject": "discrete-mathematics",
+      "group": "combinatorics",
       "unit": "Counting foundations",
       "priority": "P2",
+      "path": "subjects/discrete-mathematics/combinatorics/permutation-with-repetition.json",
       "videos": [
         "NAKpzn7afRk"
       ],
@@ -82,8 +117,11 @@
     {
       "topic": "distribution-templates",
       "title": "Distribution Templates: the 2x2 Grid",
+      "subject": "discrete-mathematics",
+      "group": "combinatorics",
       "unit": "Balls and boxes",
       "priority": "P1",
+      "path": "subjects/discrete-mathematics/combinatorics/distribution-templates.json",
       "videos": [
         "4m80SNCfxno",
         "gYS1Ui0cJF0",
@@ -98,8 +136,11 @@
     {
       "topic": "dodb",
       "title": "DODB: Distinct Objects, Distinct Boxes",
+      "subject": "discrete-mathematics",
+      "group": "combinatorics",
       "unit": "Balls and boxes",
       "priority": "P2",
+      "path": "subjects/discrete-mathematics/combinatorics/dodb.json",
       "videos": [
         "4m80SNCfxno"
       ],
@@ -110,8 +151,11 @@
     {
       "topic": "iodb-stars-and-bars",
       "title": "IODB: Stars and Bars",
+      "subject": "discrete-mathematics",
+      "group": "combinatorics",
       "unit": "Balls and boxes",
       "priority": "P1",
+      "path": "subjects/discrete-mathematics/combinatorics/iodb-stars-and-bars.json",
       "videos": [
         "gYS1Ui0cJF0",
         "flD8YuOU2VI"
@@ -126,8 +170,11 @@
     {
       "topic": "doib-stirling",
       "title": "DOIB: Distinct Objects, Identical Boxes (Stirling Numbers)",
+      "subject": "discrete-mathematics",
+      "group": "combinatorics",
       "unit": "Balls and boxes",
       "priority": "P2",
+      "path": "subjects/discrete-mathematics/combinatorics/doib-stirling.json",
       "videos": [
         "dfYkiuplKkw"
       ],
@@ -138,8 +185,11 @@
     {
       "topic": "ioib-partitions",
       "title": "IOIB: Integer Partitions",
+      "subject": "discrete-mathematics",
+      "group": "combinatorics",
       "unit": "Balls and boxes",
       "priority": "P3",
+      "path": "subjects/discrete-mathematics/combinatorics/ioib-partitions.json",
       "videos": [
         "dfYkiuplKkw"
       ],
@@ -152,8 +202,11 @@
     {
       "topic": "inclusion-exclusion",
       "title": "Inclusion-Exclusion",
+      "subject": "discrete-mathematics",
+      "group": "combinatorics",
       "unit": "Counting with constraints",
       "priority": "P1",
+      "path": "subjects/discrete-mathematics/combinatorics/inclusion-exclusion.json",
       "videos": [
         "jMUlizAcSRo",
         "lblWHVLJc0A"
@@ -168,8 +221,11 @@
     {
       "topic": "derangements",
       "title": "Derangements",
+      "subject": "discrete-mathematics",
+      "group": "combinatorics",
       "unit": "Counting with constraints",
       "priority": "P2",
+      "path": "subjects/discrete-mathematics/combinatorics/derangements.json",
       "videos": [
         "lblWHVLJc0A"
       ],
@@ -182,8 +238,11 @@
     {
       "topic": "onto-functions",
       "title": "Onto (Surjective) Functions",
+      "subject": "discrete-mathematics",
+      "group": "combinatorics",
       "unit": "Counting with constraints",
       "priority": "P2",
+      "path": "subjects/discrete-mathematics/combinatorics/onto-functions.json",
       "videos": [
         "lblWHVLJc0A"
       ],
@@ -194,8 +253,11 @@
     {
       "topic": "pigeonhole",
       "title": "Pigeonhole Principle",
+      "subject": "discrete-mathematics",
+      "group": "combinatorics",
       "unit": "Guarantees",
       "priority": "P1",
+      "path": "subjects/discrete-mathematics/combinatorics/pigeonhole.json",
       "videos": [
         "xocsjqBkQaE"
       ],
@@ -208,14 +270,239 @@
     {
       "topic": "recurrences-and-compositions",
       "title": "Recurrences and Compositions (playlist gap)",
+      "subject": "discrete-mathematics",
+      "group": "combinatorics",
       "unit": "Supplementary",
       "priority": "P2",
+      "path": "subjects/discrete-mathematics/combinatorics/recurrences-and-compositions.json",
       "videos": [],
       "pyqs": [
         "gate-2014-1-49"
       ],
       "visual": null,
       "variations": 1
+    },
+    {
+      "topic": "propositions-and-connectives",
+      "title": "Propositions and Connectives",
+      "subject": "discrete-mathematics",
+      "group": "propositional-logic",
+      "unit": "Foundations",
+      "priority": "P1",
+      "path": "subjects/discrete-mathematics/propositional-logic/propositions-and-connectives.json",
+      "videos": [
+        "JnsT3ezRzuo"
+      ],
+      "pyqs": [
+        "gate-2002-unless-translation"
+      ],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "truth-tables-and-tautology",
+      "title": "Truth Tables, Tautology and Contradiction",
+      "subject": "discrete-mathematics",
+      "group": "propositional-logic",
+      "unit": "Foundations",
+      "priority": "P1",
+      "path": "subjects/discrete-mathematics/propositional-logic/truth-tables-and-tautology.json",
+      "videos": [
+        "JnsT3ezRzuo",
+        "SRiIR-taO5k"
+      ],
+      "pyqs": [
+        "gate-2021-set1-s1-tautology",
+        "gate-1992-tautology-four-formulas"
+      ],
+      "visual": "discrete-mathematics/propositional-logic/truth-tables",
+      "variations": 2
+    },
+    {
+      "topic": "implication-converse-contrapositive",
+      "title": "Implication, Converse and Contrapositive",
+      "subject": "discrete-mathematics",
+      "group": "propositional-logic",
+      "unit": "Equivalence",
+      "priority": "P1",
+      "path": "subjects/discrete-mathematics/propositional-logic/implication-converse-contrapositive.json",
+      "videos": [
+        "SRiIR-taO5k",
+        "cvLQLKgt1Vc",
+        "xvvdjUtpIxs",
+        "7jYCu5n2zkM",
+        "iiOasUljxKw",
+        "pILBvElgICI",
+        "yD5QOOYnX3w",
+        "JOcMlqVt4K4"
+      ],
+      "pyqs": [
+        "gate-1998-converse-only-if",
+        "gate-2024-set2-fail-grade-translation"
+      ],
+      "visual": "discrete-mathematics/propositional-logic/implication-contrapositive",
+      "variations": 2
+    },
+    {
+      "topic": "logical-equivalence-laws",
+      "title": "Logical Equivalence and the Law List",
+      "subject": "discrete-mathematics",
+      "group": "propositional-logic",
+      "unit": "Equivalence",
+      "priority": "P1",
+      "path": "subjects/discrete-mathematics/propositional-logic/logical-equivalence-laws.json",
+      "videos": [
+        "SRiIR-taO5k",
+        "XkARI5U7gjI"
+      ],
+      "pyqs": [
+        "gate-2015-set1-not-equivalent-biconditional"
+      ],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "cnf-dnf-normal-forms",
+      "title": "CNF, DNF and Canonical Forms",
+      "subject": "discrete-mathematics",
+      "group": "propositional-logic",
+      "unit": "Normal forms",
+      "priority": "P2",
+      "path": "subjects/discrete-mathematics/propositional-logic/cnf-dnf-normal-forms.json",
+      "videos": [
+        "JnsT3ezRzuo",
+        "e6Od8P9rmMw"
+      ],
+      "pyqs": [
+        "gate-2007-cnf-half-clauses-true"
+      ],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "satisfiability-and-validity",
+      "title": "Satisfiability, Validity and Falsifiability",
+      "subject": "discrete-mathematics",
+      "group": "propositional-logic",
+      "unit": "Semantics",
+      "priority": "P1",
+      "path": "subjects/discrete-mathematics/propositional-logic/satisfiability-and-validity.json",
+      "videos": [
+        "85YwyEd_iaI",
+        "12lUdO2mOp4"
+      ],
+      "pyqs": [
+        "gate-2004-satisfiable-but-not-valid",
+        "gate-1991-conjunction-not-satisfiable"
+      ],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "logical-entailment-and-models",
+      "title": "Interpretations, Models and Logical Entailment",
+      "subject": "discrete-mathematics",
+      "group": "propositional-logic",
+      "unit": "Semantics",
+      "priority": "P1",
+      "path": "subjects/discrete-mathematics/propositional-logic/logical-entailment-and-models.json",
+      "videos": [
+        "12lUdO2mOp4",
+        "85YwyEd_iaI"
+      ],
+      "pyqs": [
+        "gate-2016-set2-logically-implied-count"
+      ],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "rules-of-inference",
+      "title": "Rules of Inference and Argument Validity",
+      "subject": "discrete-mathematics",
+      "group": "propositional-logic",
+      "unit": "Proof",
+      "priority": "P1",
+      "path": "subjects/discrete-mathematics/propositional-logic/rules-of-inference.json",
+      "videos": [
+        "e6Od8P9rmMw",
+        "B6xo-2A8ano",
+        "7jYCu5n2zkM"
+      ],
+      "pyqs": [
+        "gate-2015-set2-inference-corrupt-kind"
+      ],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "resolution-refutation",
+      "title": "Resolution and Proof by Refutation",
+      "subject": "discrete-mathematics",
+      "group": "propositional-logic",
+      "unit": "Proof",
+      "priority": "P2",
+      "path": "subjects/discrete-mathematics/propositional-logic/resolution-refutation.json",
+      "videos": [
+        "7jYCu5n2zkM"
+      ],
+      "pyqs": [
+        "gate-2003-resolution-rule-false-statement"
+      ],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "functional-completeness",
+      "title": "Functional Completeness of Connectives",
+      "subject": "discrete-mathematics",
+      "group": "propositional-logic",
+      "unit": "Connectives",
+      "priority": "P2",
+      "path": "subjects/discrete-mathematics/propositional-logic/functional-completeness.json",
+      "videos": [
+        "XRzBCfNOE20",
+        "QURQqorsALg"
+      ],
+      "pyqs": [
+        "gate-2015-set1-functional-completeness"
+      ],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "quantifiers-and-scope",
+      "title": "Quantifiers, Scope and Translation",
+      "subject": "discrete-mathematics",
+      "group": "propositional-logic",
+      "unit": "First-order",
+      "priority": "P2",
+      "path": "subjects/discrete-mathematics/propositional-logic/quantifiers-and-scope.json",
+      "videos": [
+        "JnsT3ezRzuo"
+      ],
+      "pyqs": [
+        "gate-2015-set2-fol-tautology-propositional-reduction"
+      ],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "fast-methods-by-case-and-simplification",
+      "title": "By-Case and Simplification Methods",
+      "subject": "discrete-mathematics",
+      "group": "propositional-logic",
+      "unit": "Methods",
+      "priority": "P1",
+      "path": "subjects/discrete-mathematics/propositional-logic/fast-methods-by-case-and-simplification.json",
+      "videos": [
+        "SRiIR-taO5k",
+        "XkARI5U7gjI",
+        "8g6mpVBziJQ"
+      ],
+      "pyqs": [],
+      "visual": null,
+      "variations": 2
     }
   ]
 }
