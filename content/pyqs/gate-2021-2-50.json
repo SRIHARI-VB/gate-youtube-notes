@@ -1,0 +1,16 @@
+{
+  "id": "gate-2021-2-50",
+  "year": "2021",
+  "paper": "GATE CS 2021 Set 2",
+  "question_ref": "Q.50 (numbered Q.41 in some solution sets)",
+  "type": "NAT",
+  "marks": "2",
+  "topic": "basic-counting-rules",
+  "text": "Let S be a set consisting of 10 elements. The number of tuples of the form (A, B) such that A and B are subsets of S, and A is a subset of B is ______.",
+  "options": [],
+  "answer": "59049",
+  "solution": "Decide independently for each of the 10 elements: in both A and B, only in B, or in neither. The fourth combination (in A but not in B) is forbidden by A subset of B. So the count is 3^10 = 59049.",
+  "source_url": "https://gateforum.com/wp-content/uploads/2021/03/CS-Gate-2021-Paper-II_Formatted.pdf",
+  "source_label": "GATE 2021 CS Paper II solution set with key printed as 59049",
+  "verification": "OFFICIAL_KEY"
+}
