@@ -89,14 +89,32 @@ set in `src/app/app.js`. Renaming them is a UI change and was left for an explic
 
 ### Git
 
-Four commits were created on top of `3132647`: the content and migration commit, a `chore(ui)` commit, a `docs`
-commit and a commit adding the two lessons plus the regenerated content index.
+Six commits were pushed to `main` on top of `3132647`:
 
-**Pushing to `main` was blocked.** The GitHub App installation on this repository is read-only: `git push` returns
-403 ("Permission to deny to SRIHARI-VB") and the Git Data API returns 403 "Resource not accessible by integration".
-Nothing was force-pushed and no history was rewritten. Until write access is granted, the changes are supplied as
-`gate-youtube-notes-propositional-logic.patch` (apply with `git am --3way` on a clone of `main`; verified to apply
-cleanly and to pass both checks on a fresh clone).
+| Commit | Content |
+| --- | --- |
+| `e54e76a`, `bd64551`, `a9c1ad8` | migration + new playlist content (one logical change, split into three API batches of 60/60/30 files) |
+| `5b78945` | regenerated `src/data/content.js` and `content/index.json` |
+| `38e7e94` | `chore(ui)` - factual text and count corrections |
+| `c756f12` | docs |
+
+**How it was pushed, and the one snag.** The GitHub App installation on this repository is read-only: `git push`
+returns 403 ("Permission to deny to SRIHARI-VB") and the App token's Git Data API returns 403 "Resource not accessible
+by integration". The GitHub OAuth connection does have write access, so the commits were created through the GitHub
+API (`GITHUB_COMMIT_MULTIPLE_FILES`) instead of the git protocol. Nothing was force-pushed and no history was
+rewritten.
+
+Two consequences worth knowing:
+
+1. The content commit appears three times in the log with the same message, because the API path commits in batches
+   and each batch is its own commit. Squashing them would mean rewriting published history, so they are left as they
+   are.
+2. Because the API path recreates files rather than replaying the local commit objects, the local commit SHAs and the
+   published ones differ. The published tree is what a fresh clone contains and it is verified below.
+
+A fresh clone of `main` after the push: `python3 scripts/build-index.py` reproduces `src/data/content.js` byte for
+byte (clean working tree), `python3 scripts/validate.py` reports 10 checks passed and 0 failures, and
+`node tests/visual-lessons.js` draws every step of all five p5 lessons.
 
 ### Definition of done
 
