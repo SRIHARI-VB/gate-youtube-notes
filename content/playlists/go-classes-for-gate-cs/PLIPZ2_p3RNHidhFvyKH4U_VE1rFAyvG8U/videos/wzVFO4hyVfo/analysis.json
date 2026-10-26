@@ -1,0 +1,22 @@
+{
+  "video_id": "wzVFO4hyVfo",
+  "coverage_note": "The readable opening recaps the three question types already finished in part one - English conversion, negation of quantifiers and nested quantifiers - then starts question type four, validity, satisfiability and tautology, and defines an interpretation. It stops while the first example interpretation is being set up, before any verdict or GATE question is reached.",
+  "topics": [
+    "fol-interpretation-model-and-validity",
+    "fol-validity-and-implication",
+    "fol-tautology-vs-validity",
+    "quantifier-order-and-nesting"
+  ],
+  "concepts": [
+    "Part one of the series finished three question types: converting between English and first-order logic, negation of quantifiers, and nested quantifiers.",
+    "Part two takes up the fourth question type: validity, satisfiability and tautology in first-order logic.",
+    "The instructor marks validity and satisfiability as five-star, saying many GATE questions come from it.",
+    "An interpretation is all the information needed to fix the truth value of a first-order expression.",
+    "Concretely, an interpretation is a domain together with the truth value of every predicate on the elements of that domain.",
+    "Before asking whether 'for all x, P(x)' is true you must know the domain and what P(x) means.",
+    "Interpretation one in the worked example takes the domain to be the natural numbers and the predicate P(x) to be 'x is prime'.",
+    "He revises the ideas of a model and of an interpretation before starting the questions.",
+    "He asks the viewer to solve along with a copy and pen instead of watching passively."
+  ],
+  "gate_claims": []
+}

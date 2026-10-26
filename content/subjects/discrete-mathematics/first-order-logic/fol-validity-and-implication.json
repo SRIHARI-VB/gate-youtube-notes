@@ -1,0 +1,67 @@
+{
+  "id": "fol-validity-and-implication",
+  "title": "Validity, Implication and the Two-Element Countermodel",
+  "priority": "P1",
+  "order": 45,
+  "unit": "Semantics",
+  "quickIdea": "A implies B in first-order logic when every interpretation that makes A true makes B true. One small countermodel kills an option, so domains of size two decide most GATE questions.",
+  "remember": [
+    "A implies B is valid exactly when A and not B is unsatisfiable, and exactly when the formula A implies B is valid.",
+    "Valid schemas: (for all x P(x)) implies there exists x P(x) over a non-empty domain; (there exists y for all x R(x, y)) implies (for all x there exists y R(x, y)); for all x (P(x) implies Q(x)) implies ((for all x P(x)) implies (for all x Q(x))); there exists x (P(x) and Q(x)) implies (there exists x P(x) and there exists x Q(x)).",
+    "Invalid schemas: ((for all x P(x)) implies (for all x Q(x))) does not imply for all x (P(x) implies Q(x)); for all x (P(x) or Q(x)) does not imply (for all x P(x) or for all x Q(x)); (there exists x P(x) and there exists x Q(x)) does not imply there exists x (P(x) and Q(x)); for all x there exists y R(x, y) does not imply there exists y for all x R(x, y).",
+    "The universal distributes over and, the existential over or; the other two combinations fail.",
+    "To refute an option, build one interpretation: choose a small domain, then assign the predicates so the premise is true and the conclusion false.",
+    "A disjunction is false only when both parts are false; that single fact drives the falsification method."
+  ],
+  "example": {
+    "prompt": "Show that for all x (p(x) or q(x)) does not imply (for all x p(x) or for all x q(x)).",
+    "work": "Domain {1, 2}. Make p true only at 1 and q true only at 2. Then every element satisfies p or q, so the premise is true; but p fails at 2 and q fails at 1, so neither universal on the right holds.",
+    "answer": "The premise is true and the conclusion false, so the implication is invalid."
+  },
+  "gateAngle": "GATE CS 2003 Q.32 asks which formula is valid (answer D), GATE CS 2016 Set 2 Q.27 asks which is NOT valid (answer D, refuted by even and odd numbers), and GATE CS 2023 Q.16 asks which options imply a conjecture (B and C). All three are settled by two-element or integer countermodels.",
+  "variations": [
+    {
+      "label": "VERIFIED PYQ",
+      "question": "See the three linked PYQs: GATE 2003 Q.32, GATE 2016 Set 2 Q.27 and GATE 2023 Q.16.",
+      "answer": "2003: (D). 2016 Set 2: (D). 2023: (B) and (C).",
+      "why": "Each distractor is a swapped distribution or a swapped quantifier order, which a single small model refutes."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Does (there exists x p(x) and there exists x q(x)) imply there exists x (p(x) and q(x))?",
+      "answer": "No.",
+      "why": "Domain {1, 2} with p true only at 1 and q true only at 2 makes the premise true and the conclusion false: the two witnesses can be different elements."
+    },
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "Is (there exists y for all x R(x, y)) implies (for all x there exists y R(x, y)) valid?",
+      "answer": "Yes.",
+      "why": "If one y is related to every x, then for each x that same y is a witness for the existential, so the conclusion holds in every interpretation."
+    }
+  ],
+  "trap": {
+    "what": "Reading for all x (p(x) or q(x)) as (for all x p(x)) or (for all x q(x)).",
+    "why": "The premise lets each element choose a different disjunct; the conclusion forces one disjunct to hold for all elements.",
+    "counterexample": "Domain {1, 2}, p true only at 1, q true only at 2: the premise is true, the conclusion false."
+  },
+  "check": {
+    "question": "Does for all x (P(x) implies Q(x)) imply ((for all x P(x)) implies (for all x Q(x)))?",
+    "answer": "Yes.",
+    "explanation": "If P implies Q pointwise and P holds everywhere, then Q holds everywhere. The converse fails, which is what GATE 2003 Q.32 option (A) tests."
+  },
+  "pyqIds": [
+    "gate-2003-valid-first-order-formula",
+    "gate-2016-set2-not-valid-predicate-wff",
+    "gate-2023-conjecture-implied-by"
+  ],
+  "prereqs": [
+    "fol-interpretation-model-and-validity"
+  ],
+  "videoRefs": [
+    "zdeKQ-nABtk",
+    "s41PLmHGf08",
+    "wzVFO4hyVfo",
+    "sj7qdCCK-IY",
+    "tK8382YdZLs"
+  ]
+}

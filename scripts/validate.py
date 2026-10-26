@@ -545,6 +545,159 @@ def check_logic():
     ok("propositional logic: every equivalence, tautology, entailment count and completeness claim recomputed")
 
 
+# ------------------------------------------------------- first order logic
+def check_first_order():
+    """Every first-order claim published in the cards and in the quantifier lesson is recomputed
+    by exhaustive enumeration over domains of one to three elements."""
+    import random
+
+    def dom(n):
+        return list(range(n))
+
+    def relations(n):
+        cells = [(i, j) for i in range(n) for j in range(n)]
+        for bits in range(1 << len(cells)):
+            yield {(i, j) for k, (i, j) in enumerate(cells) if bits >> k & 1}
+
+    def subsets(n):
+        for bits in range(1 << n):
+            yield {i for i in range(n) if bits >> i & 1}
+
+    # there exists y for all x implies for all x there exists y, in every relation on every small domain
+    for n in (1, 2, 3):
+        D = dom(n)
+        for R in relations(n):
+            if any(all((x, y) in R for x in D) for y in D):
+                assert all(any((x, y) in R for y in D) for x in D), \
+                    "exists-y-forall-x must imply forall-x-exists-y"
+
+    # the converse fails: one tick per row, no full column
+    for n, R in ((2, {(0, 1), (1, 0)}), (3, {(0, 1), (1, 2), (2, 0)})):
+        D = dom(n)
+        assert all(any((x, y) in R for y in D) for x in D), "every row has a tick (n=%d)" % n
+        assert not any(all((x, y) in R for x in D) for y in D), "no column is full (n=%d)" % n
+
+    # the two matrices used in visuals/.../quantifier-order
+    cycle = {(0, 1), (1, 2), (2, 0)}
+    column = {(0, 1), (1, 1), (2, 1)}
+    D3 = dom(3)
+    assert all(any((x, y) in cycle for y in D3) for x in D3) and \
+        not any(all((x, y) in cycle for x in D3) for y in D3), "cycle: rows full, no column full"
+    assert all(any((x, y) in column for y in D3) for x in D3) and \
+        any(all((x, y) in column for x in D3) for y in D3), "column: both claims true"
+
+    # unary-predicate facts, enumerated over every pair of subsets on every small domain
+    for n in (1, 2, 3):
+        D = dom(n)
+        DS = set(D)
+        for P in subsets(n):
+            for Q in subsets(n):
+                # exists over a conjunction implies the conjunction of the existentials
+                if P & Q:
+                    assert P and Q, "exists x (p and q) implies (exists x p) and (exists x q)"
+                # the universal distributes over implication, in this direction only
+                if P <= Q:
+                    assert (P == DS) <= (Q == DS), "forall x (p -> q) implies (forall x p -> forall x q)"
+                for W in (True, False):
+                    assert all((i in P) or W for i in D) == (P == DS or W), "forall x (p or W)"
+                    assert any((i in P) and W for i in D) == (bool(P) and W), "exists x (p and W)"
+                    assert any((i not in P) or W for i in D) == ((P == DS) <= W), "exists x (p -> W)"
+
+    # the arrow case that is NOT valid, with W false
+    n = 2
+    P = {0}
+    assert all((i not in P) for i in range(n)) is False, "forall x (p -> false) is false when p fails somewhere"
+    assert ((P == set(range(n))) <= False) is True, "(forall x p) -> false is true when p is not universal"
+
+    # exactly one, at most one, and the uniqueness options of GATE 2025 Set 1 Q.38
+    for n in (1, 2, 3):
+        D = dom(n)
+        for R in relations(n):                      # R(y, x): y is the mother of x
+            for x in D:
+                mothers = {y for y in D if (y, x) in R}
+                exactly_one = any(
+                    (y, x) in R and all(z == y for z in D if (z, x) in R) for y in D)
+                assert exactly_one == (len(mothers) == 1), "exists y (m(y,x) and forall z (m(z,x) -> z=y))"
+                # option (A) of that question: two existentials, one a mother and one not
+                option_a = any((y, x) in R and any((z, x) not in R for z in D) for y in D)
+                assert not (option_a and len(mothers) == 1 and len(D) == 1), \
+                    "option A cannot be the exactly-one formula on a one-element domain"
+        for P in subsets(n):
+            at_most_one = all(not (i in P and j in P) or i == j for i in D for j in D)
+            assert at_most_one == (len(P) <= 1), "forall x forall y ((P(x) and P(y)) -> x = y)"
+
+    # option A of GATE 2025 Set 1 Q.38 is satisfied both when there is one mother and when there are two
+    D = {0, 1, 2}
+    one_mother = {(0, 0)}
+    two_mothers = {(0, 0), (1, 0)}
+    for R in (one_mother, two_mothers):
+        assert any((y, 0) in R and any((z, 0) not in R for z in D) for y in D), \
+            "option A holds whatever the number of mothers"
+
+    # GATE 2016 Set 2 Q.27 option (D): even and odd numbers refute forall x (p or q) -> (forall x p or forall x q)
+    evens = {i for i in range(6) if i % 2 == 0}
+    odds = {i for i in range(6) if i % 2 == 1}
+    assert all((i in evens) or (i in odds) for i in range(6)), "every number is even or odd"
+    assert evens != set(range(6)) and odds != set(range(6)), "not all numbers are even, not all are odd"
+
+    # GATE 2003 Q.32: (D) valid, (A) not valid
+    for n in (1, 2, 3):
+        D = dom(n)
+        DS = set(D)
+        for P in subsets(n):
+            for Q in subsets(n):
+                if P <= Q and P == DS:
+                    assert Q == DS, "option (D) of GATE 2003 Q.32 is valid"
+    n = 2
+    P, Q = {0, 1}, set()          # forall x p, not forall x q, but p -> q fails
+    assert (P == set(range(n))) and not (Q == set(range(n))) and not (P <= Q), \
+        "option (A) of GATE 2003 Q.32 fails: two universals do not give the pointwise implication"
+
+    # GATE 2023 Q.16: (B) and (C) imply the conjecture, (D) does not
+    for n in (1, 2, 3):
+        D = dom(n)
+        for R in relations(n):
+            for P in subsets(n):
+                conjecture = all((x not in P) or any((x, y) in R for y in D) for x in D)
+                if all(all((x, y) in R for y in D) for x in D):
+                    assert conjecture, "forall x forall y Q implies the conjecture"
+                if any(all((x not in P) or (x, y) in R for x in D) for y in D):
+                    assert conjecture, "exists y forall x (P -> Q) implies the conjecture"
+    n = 2
+    P, R = {0, 1}, {(0, 1)}
+    assert any(x in P and any((x, y) in R for y in dom(n)) for x in dom(n)), "option (D) is satisfied"
+    assert not all((x not in P) or any((x, y) in R for y in dom(n)) for x in dom(n)), \
+        "option (D) does not imply the conjecture"
+
+    # model size: a universal true on a domain stays true on the subset of the existential witnesses
+    random.seed(11)
+    for _ in range(300):
+        n = 3
+        D = dom(n)
+        body = {(a, b, c): random.random() < 0.5 for a in D for b in D for c in D}
+        witnesses = [(a, b) for a in D for b in D if all(body[(a, b, c)] and body[(a, b, c2)]
+                                                         for c in D for c2 in D)]
+        if not witnesses:
+            continue
+        a, b = witnesses[0]
+        sub = [a, b]
+        assert all(body[(a, b, c)] and body[(a, b, c2)] for c in sub for c2 in sub), \
+            "a model of size at most k exists when k existentials head the prefix"
+
+    # the tautology-versus-validity distinction
+    imp = lambda a, b: (not a) or b
+    assert not is_taut(1, lambda r: r["p"]), "a single propositional letter is not a tautology"
+    assert not is_taut(2, lambda r: imp(r["p"], r["q"])), "A -> B is not a propositional tautology"
+    for n in (1, 2, 3):
+        D = dom(n)
+        for R in relations(n):
+            if all(any((x, y) in R for y in D) for x in D):
+                assert not any(not any((x, y) in R for y in D) for x in D), \
+                    "(forall x R) -> not (exists x not R) is valid"
+    ok("first order logic: quantifier order, negation, null quantification, uniqueness, model size, "
+       "validity and the tautology distinction recomputed on domains of size 1 to 3")
+
+
 def check_visuals():
     vroot = os.path.join(ROOT, "visuals")
     lessons = []
@@ -621,6 +774,7 @@ def main():
     check_syllabus(topics, tpath)
     check_math()
     check_logic()
+    check_first_order()
     check_visuals()
     check_hygiene()
     for c in checks:

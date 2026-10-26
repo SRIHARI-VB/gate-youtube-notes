@@ -1,0 +1,21 @@
+{
+  "id": "gate-2018-model-size-upper-bound",
+  "year": "2018",
+  "paper": "GATE CS 2018",
+  "question_ref": "Q.28",
+  "type": "MCQ",
+  "topic": "fol-model-size-and-countermodels",
+  "text": "Consider the first-order logic sentence phi = (there exists s)(there exists t)(there exists u)(for all v)(for all w)(for all x)(for all y) psi(s, t, u, v, w, x, y), where psi is a quantifier-free first-order formula using only predicate symbols and possibly equality, but no function symbols. Suppose phi has a model with a universe containing 7 elements. Which one of the following statements is necessarily true?",
+  "options": [
+    "There exists at least one model of phi with universe of size less than or equal to 3",
+    "There exists no model of phi with universe of size less than or equal to 3",
+    "There exists no model of phi with universe size greater than 7",
+    "Every model of phi has a universe of size equal to 7"
+  ],
+  "answer": "Option (A)",
+  "solution": "In the 7-element model, pick the three elements that witness s, t and u. Keep only those, giving a universe of size at most 3. The quantifier-free body is unchanged on the kept elements and the universal part now ranges over a subset of the original universe, where it stays true. Without function symbols nothing becomes undefined, so this smaller universe is still a model. Nothing forbids larger models, so (C) and (D) do not follow.",
+  "source_url": "https://gateoverflow.in/204102/gate-cse-2018-question-28",
+  "source_label": "GATE Overflow question page for GATE CS 2018 Q.28 with published solutions on the small-model argument",
+  "verification": "SOURCED",
+  "answer_evidence": "The accepted answer is (A): a model of size at most 3 always exists, obtained by keeping the three existential witnesses."
+}

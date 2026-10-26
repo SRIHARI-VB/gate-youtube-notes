@@ -1,0 +1,18 @@
+{
+  "video_id": "sj7qdCCK-IY",
+  "coverage_note": "The readable opening is the session introduction and the start of one GATE 2026 question that defines entailment. It establishes that X entails Y means X implies Y is true, lists the allowed truth-value combinations and rules out the fourth, then stops while the options are being checked.",
+  "topics": [
+    "fol-interpretation-model-and-validity",
+    "fol-validity-and-implication"
+  ],
+  "concepts": [
+    "The session covers mathematical logic previous-year questions from GATE 2026, for both the CS and the DA papers.",
+    "The question supplies its own definition: sentence X entails sentence Y if whenever X is true, Y must be true.",
+    "X entails Y is the same as saying X implies Y is true.",
+    "If X implies Y is true, the possible combinations of truth values are (true, true), (false, true) and (false, false).",
+    "The combination X true with Y false is the only one ruled out.",
+    "So X entails Y can be restated as: X is false or Y is true.",
+    "In that question, X entails Y is given information, not something to be proved."
+  ],
+  "gate_claims": []
+}

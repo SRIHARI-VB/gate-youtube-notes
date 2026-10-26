@@ -1,0 +1,54 @@
+{
+  "id": "fol-exactly-one-and-uniqueness",
+  "title": "Exactly One, At Most One and Uniqueness",
+  "priority": "P2",
+  "order": 47,
+  "unit": "Translation",
+  "quickIdea": "Exactly one is 'at least one' plus 'at most one': there exists x with P(x), and every y with P(y) must equal x. Uniqueness always needs a second variable and equality.",
+  "remember": [
+    "At least one: there exists x P(x).",
+    "At most one: for all x for all y ((P(x) and P(y)) implies x = y), equivalently not (there exists x there exists y (P(x) and P(y) and x is not y)).",
+    "Exactly one: there exists x (P(x) and for all y (P(y) implies y = x)).",
+    "With a two-place predicate: 'x has exactly one mother' is there exists y (mother(y, x) and for all z (mother(z, x) implies z = y)).",
+    "Writing two existentials side by side does not express uniqueness: there exists y there exists z (mother(y, x) and not mother(z, x)) is satisfied by taking z to be any non-mother, so it says nothing about how many mothers x has.",
+    "When the language has no equality symbol, GATE supplies a noteq predicate; not noteq(z, y) then plays the role of z = y.",
+    "'Everyone has exactly one mother' is the uniqueness pattern inside a universal over people: for all x, the exactly-one formula for x."
+  ],
+  "example": {
+    "prompt": "Write 'every student has exactly one roll number', with roll(r, s): r is the roll number of s.",
+    "work": "Outer universal over students; inside, one witness r with roll(r, s), and every other roll number of s must be that same r.",
+    "answer": "For all s there exists r (roll(r, s) and for all t (roll(t, s) implies t = r))."
+  },
+  "gateAngle": "GATE CS 2025 Set 1 Q.38 gives four formulas for 'everyone has exactly one mother' and the correct ones are the two that pair the witness with a universal forcing every other candidate to be that witness.",
+  "variations": [
+    {
+      "label": "VERIFIED PYQ",
+      "question": "See GATE CS 2025 Set 1 Q.38 in the linked PYQs.",
+      "answer": "Options (B) and (D).",
+      "why": "Both say: there is a mother y of x, and any z that is a mother of x is y. The other options either force two different people or do not exclude a second mother."
+    },
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "Write 'at most one person is a ruler', with ruler(x).",
+      "answer": "For all x for all y ((ruler(x) and ruler(y)) implies x = y).",
+      "why": "At most one allows zero; the formula forbids two distinct rulers without asserting that one exists."
+    }
+  ],
+  "trap": {
+    "what": "Using two existentials to express uniqueness.",
+    "why": "Two existentials can be witnessed by unrelated elements; uniqueness needs a universal that forces every candidate to coincide with the witness.",
+    "counterexample": "Domain {a, b, c} with mother only a of x. There exists y there exists z (mother(y, x) and not mother(z, x)) is true with y = a and z = b, yet there is exactly one mother; the formula does not capture the count at all."
+  },
+  "check": {
+    "question": "Write 'there is exactly one prime number' over the integers, with prime(x).",
+    "answer": "There exists x (prime(x) and for all y (prime(y) implies y = x)).",
+    "explanation": "The witness is the prime; the universal forces every prime to be that same element. (The sentence is in fact false over the integers, which is a separate matter.)"
+  },
+  "pyqIds": [
+    "gate-2025-set1-exactly-one-mother"
+  ],
+  "prereqs": [
+    "english-to-fol-translation-templates"
+  ],
+  "videoRefs": []
+}

@@ -1,0 +1,21 @@
+{
+  "id": "gate-2023-conjecture-implied-by",
+  "year": "2023",
+  "paper": "GATE CS 2023",
+  "question_ref": "Q.16",
+  "type": "MSQ",
+  "topic": "fol-validity-and-implication",
+  "text": "Geetha has a conjecture about integers, of the form for all x (P(x) implies there exists y Q(x, y)), where P is a statement about integers and Q is a statement about pairs of integers. Which of the following option(s) would imply Geetha's conjecture?",
+  "options": [
+    "there exists x (P(x) and for all y Q(x, y))",
+    "for all x for all y Q(x, y)",
+    "there exists y for all x (P(x) implies Q(x, y))",
+    "there exists x (P(x) and there exists y Q(x, y))"
+  ],
+  "answer": "Options (B) and (C)",
+  "solution": "(B) makes Q true for every pair, so for any x with P(x) a y can be chosen. (C) gives one y that works for every x, so for each x the same y witnesses the existential: the order there exists y for all x is stronger than for all x there exists y. (A) and (D) only supply a witness for one particular x, which says nothing about the other integers that satisfy P.",
+  "source_url": "https://gateoverflow.in/399295/gate-cse-2023-question-16",
+  "source_label": "GATE Overflow question page for GATE CS 2023 Q.16 with two independent published solutions",
+  "verification": "SOURCED",
+  "answer_evidence": "The accepted solutions conclude (B) and (C), using for all x for all y Q implies the conjecture, and there exists y for all x R implies for all x there exists y R."
+}

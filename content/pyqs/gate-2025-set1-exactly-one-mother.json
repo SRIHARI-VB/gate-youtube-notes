@@ -1,0 +1,21 @@
+{
+  "id": "gate-2025-set1-exactly-one-mother",
+  "year": "2025",
+  "paper": "GATE CS 2025 Set 1",
+  "question_ref": "Q.38",
+  "type": "MSQ",
+  "topic": "fol-exactly-one-and-uniqueness",
+  "text": "Which of the following predicate logic formulae is/are CORRECT representation(s) of the statement: \"Everyone has exactly one mother\"? The meanings of the predicates used are: mother(y, x): y is the mother of x; noteq(x, y): x and y are not equal.",
+  "options": [
+    "(for all x)(there exists y)(there exists z)(mother(y, x) and not mother(z, x))",
+    "(for all x)(there exists y)[mother(y, x) and (for all z)(noteq(z, y) implies not mother(z, x))]",
+    "(for all x)(for all y)[mother(y, x) implies (there exists z)(mother(z, x) and not noteq(z, y))]",
+    "(for all x)(there exists y)[mother(y, x) and not (there exists z)(noteq(z, y) and mother(z, x))]"
+  ],
+  "answer": "Options (B) and (D)",
+  "solution": "(B) and (D) say the same thing: there is a mother y of x, and any z that is a mother of x is not different from y, that is z = y. (A) merely asserts that some y is a mother and some z is not, which holds in almost any class and says nothing about uniqueness. (C) demands, for every mother y of x, a further mother z different from y, which forces at least two mothers.",
+  "source_url": "https://gateoverflow.in/460042/gate-cse-2025-set-1-question-38",
+  "source_label": "GATE Overflow question page for GATE CS 2025 Set 1 Q.38 with the accepted answer",
+  "verification": "SOURCED",
+  "answer_evidence": "The accepted answer states 'B & D matches', after rewriting (B) into the equivalent form of (D)."
+}

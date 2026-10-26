@@ -1,0 +1,21 @@
+{
+  "id": "gate-2020-not-valid-predicate-formula",
+  "year": "2020",
+  "paper": "GATE CS 2020",
+  "question_ref": "Q.39",
+  "type": "MCQ",
+  "topic": "quantifier-negation-and-equivalence",
+  "text": "Which one of the following predicate formulae is NOT logically valid? Note that W is a predicate formula without any free occurrence of x.",
+  "options": [
+    "(for all x)(p(x) or W) is equivalent to (for all x p(x)) or W",
+    "(there exists x)(p(x) and W) is equivalent to (there exists x p(x)) and W",
+    "(for all x)(p(x) implies W) is equivalent to (for all x p(x)) implies W",
+    "(there exists x)(p(x) implies W) is equivalent to (for all x p(x)) implies W"
+  ],
+  "answer": "Option (C)",
+  "solution": "W has no free x, so the quantifier slides past it for and and or: (A) and (B) are valid. For (C), rewrite p implies W as not p or W. Then (for all x)(not p(x) or W) is (for all x not p(x)) or W, that is not (there exists x p(x)) or W - the existential, not the universal. Option (D) is the valid arrow case: (there exists x)(not p(x) or W) is (there exists x not p(x)) or W, which is (for all x p(x)) implies W.",
+  "source_url": "https://gateoverflow.in/333192/gate-cse-2020-question-39",
+  "source_label": "GATE Overflow question page for GATE CS 2020 Q.39 with the accepted solution",
+  "verification": "SOURCED",
+  "answer_evidence": "The accepted answer rewrites (C) as (there exists x P(x)) implies W and concludes (C) is not logically valid, while (D) is valid."
+}

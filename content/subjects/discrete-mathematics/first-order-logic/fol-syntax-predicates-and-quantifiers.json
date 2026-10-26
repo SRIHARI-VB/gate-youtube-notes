@@ -1,0 +1,54 @@
+{
+  "id": "fol-syntax-predicates-and-quantifiers",
+  "title": "Predicates, Variables and Quantifiers",
+  "priority": "P1",
+  "order": 40,
+  "unit": "Syntax",
+  "quickIdea": "A predicate is a property or relation with a fixed number of slots; a quantifier binds a variable over a domain. Together they turn the open statement P(x) into a sentence that has a truth value.",
+  "remember": [
+    "A predicate such as P(x) or R(x, y) is a statement about objects; its arity is the number of arguments it takes.",
+    "The domain (universe of discourse) is the non-empty set the variables range over. Unless a question says otherwise, all variables in one formula share the same domain.",
+    "Universal quantifier: for all x, P(x) is true when P holds for every element of the domain. Existential: there exists x with P(x) is true when it holds for at least one element.",
+    "An atomic formula is a predicate applied to terms. A well-formed formula is built from atomic formulas with not, and, or, implies, if-and-only-if and quantifiers.",
+    "A variable is bound inside the scope of its quantifier and free outside it. A sentence (closed formula) has no free variables, so it alone is true or false.",
+    "In propositional logic a variable ranges over {true, false}. In first-order logic it ranges over a domain of objects, and the predicate decides which objects satisfy it."
+  ],
+  "example": {
+    "prompt": "Domain: all students. S(x): x is a student. P(x): x passed. Is S(x) implies P(x) a sentence?",
+    "work": "x occurs free, so the expression has no truth value until x is given a value or bound by a quantifier.",
+    "answer": "No. Binding it gives a sentence: for all x (S(x) implies P(x))."
+  },
+  "gateAngle": "Every first-order question starts here: decide what the domain is, what each predicate means and which variables are bound. GATE 2020 Q.39, for instance, is decided by the scope of x inside each option.",
+  "variations": [
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "How many free variables does the formula (for all x R(x, y)) and Q(z) have?",
+      "answer": "Two: y and z.",
+      "why": "x is bound by the universal quantifier; y and z are not bound by any quantifier in the formula."
+    },
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "With domain the integers, is the sentence 'for all x (x + 1 > x)' true, and does its truth depend on the domain?",
+      "answer": "True over the integers; and yes, the domain matters.",
+      "why": "Over the integers x + 1 > x always holds. The same formula read over a finite set with a greatest element would fail there, which is why the domain is part of the meaning."
+    }
+  ],
+  "trap": {
+    "what": "Treating a predicate as if it were a proposition with a truth value.",
+    "why": "P(x) has a truth value only once x is fixed or bound; P alone is a property, not a claim.",
+    "counterexample": "Domain {1, 2}, P(x): x is even. P(1) is false and P(2) is true, so 'P(x)' on its own is neither."
+  },
+  "check": {
+    "question": "How many free variables are there in (for all x R(x, y))?",
+    "answer": "One, namely y.",
+    "explanation": "x is bound by the universal quantifier; y appears outside any quantifier that mentions it, so it stays free."
+  },
+  "pyqIds": [],
+  "prereqs": [
+    "propositions-and-connectives"
+  ],
+  "videoRefs": [
+    "Fp3hl9AprLU",
+    "puvQs-gBxO4"
+  ]
+}

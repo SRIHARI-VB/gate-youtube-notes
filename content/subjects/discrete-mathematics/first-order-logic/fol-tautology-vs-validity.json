@@ -1,0 +1,57 @@
+{
+  "id": "fol-tautology-vs-validity",
+  "title": "Tautology versus Validity in First-Order Logic",
+  "priority": "P2",
+  "order": 46,
+  "unit": "Semantics",
+  "quickIdea": "A first-order tautology is a propositional tautology with each propositional letter replaced by a first-order formula. Every tautology is valid, but many valid formulas are not tautologies.",
+  "remember": [
+    "A first-order tautology is obtained from a propositional tautology by uniformly replacing each propositional variable with a first-order formula, one formula per letter.",
+    "Only propositional rewriting is allowed when checking the tautology test; rewriting quantifiers is a first-order step and takes you outside it.",
+    "Every first-order tautology is valid, but not every valid first-order formula is a tautology.",
+    "For all x (P(x) implies P(x)) is valid yet not a tautology: its propositional skeleton is the single letter A, which is not a tautology.",
+    "(for all x R(x)) implies not (there exists x not R(x)) is valid, but its skeleton is A implies B, again not a tautology.",
+    "Fast test: replace each maximal quantified block by a letter, then check the resulting propositional formula. If that skeleton is a tautology, the original is a first-order tautology.",
+    "If a formula is not valid then it is certainly not a tautology."
+  ],
+  "example": {
+    "prompt": "Is [for all x there exists y (P(x, y) implies R(x, y))] if and only if [for all x there exists y (not P(x, y) or R(x, y))] a tautology?",
+    "work": "Inside the quantifiers, P implies R is rewritten as not P or R using a propositional law only. Both sides then read as the same quantified block, call it A, and A if and only if A is a propositional tautology.",
+    "answer": "Yes - a first-order tautology, and therefore valid."
+  },
+  "gateAngle": "This is GATE CS 2015 Set 2 Q.55, where the correct option is the one whose two sides differ only by the propositional rewrite of the inner implication. The other options swap quantifiers or predicate arguments, which no propositional law can justify.",
+  "variations": [
+    {
+      "label": "VERIFIED PYQ",
+      "question": "See GATE CS 2015 Set 2 Q.55 in the linked PYQs.",
+      "answer": "Option (C).",
+      "why": "Its two sides become literally identical after one propositional rewrite, so it has the form A if and only if A."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Is for all x (P(x) implies P(x)) a first-order tautology?",
+      "answer": "No, though it is valid.",
+      "why": "Replacing the whole quantified formula by a single letter gives A, which is not a propositional tautology; validity comes from the meaning of the quantifier, not from the propositional skeleton."
+    }
+  ],
+  "trap": {
+    "what": "Assuming every valid first-order formula is a tautology.",
+    "why": "Tautology is a syntactic notion - substitution into a propositional tautology - while validity is semantic. The first set is a proper subset of the second.",
+    "counterexample": "For all x (P(x) implies P(x)) is true in every interpretation, so valid; its skeleton is the letter A, so it is not a tautology."
+  },
+  "check": {
+    "question": "A first-order formula has propositional skeleton A or not A. Is it a tautology?",
+    "answer": "Yes.",
+    "explanation": "A or not A is a propositional tautology, and substituting any first-order formula for A preserves the tautology property."
+  },
+  "pyqIds": [
+    "gate-2015-set2-fol-tautology-propositional-reduction"
+  ],
+  "prereqs": [
+    "fol-validity-and-implication",
+    "truth-tables-and-tautology"
+  ],
+  "videoRefs": [
+    "wzVFO4hyVfo"
+  ]
+}

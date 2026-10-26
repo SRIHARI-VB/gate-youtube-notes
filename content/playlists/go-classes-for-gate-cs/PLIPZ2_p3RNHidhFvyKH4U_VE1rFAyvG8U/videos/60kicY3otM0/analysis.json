@@ -1,0 +1,17 @@
+{
+  "video_id": "60kicY3otM0",
+  "coverage_note": "The whole four-minute video is readable: it translates 'some boys in the class are taller than all the girls', writes the formula, notes that pulling the universal quantifier outside the existential is equally correct, and gives the answer as option D.",
+  "topics": [
+    "english-to-fol-translation-templates"
+  ],
+  "concepts": [
+    "taller(x, y) means x is taller than y.",
+    "'Some boys' means at least one boy, so the outer quantifier is existential.",
+    "The domain is the set of all students in the class, containing boys and girls.",
+    "The translation is: there exists x such that x is a boy and for all y, if y is a girl then taller(x, y).",
+    "The 'for all y' can sit inside the existential, conjoined with the 'x is a boy' condition.",
+    "It can also sit outside the existential; the instructor says both forms are correct, and the inside form is more readable.",
+    "Reading the formula back: there is someone who is a boy, and for every girl that boy is taller than her."
+  ],
+  "gate_claims": []
+}

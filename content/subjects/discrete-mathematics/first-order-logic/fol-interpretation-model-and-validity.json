@@ -1,0 +1,58 @@
+{
+  "id": "fol-interpretation-model-and-validity",
+  "title": "Interpretation, Model and Validity",
+  "priority": "P1",
+  "order": 43,
+  "unit": "Semantics",
+  "quickIdea": "An interpretation fixes a domain and a truth value for every predicate on it. A sentence is valid when every interpretation makes it true, satisfiable when at least one does, and a model is an interpretation that does make it true.",
+  "remember": [
+    "An interpretation is a non-empty domain plus, for every predicate symbol, which tuples of elements satisfy it.",
+    "A model of a sentence is an interpretation in which the sentence is true; a countermodel is one in which it is false.",
+    "Valid (logically true): true in every interpretation. Unsatisfiable: true in none. Satisfiable but not valid: true in some, false in others.",
+    "Validity is a property of closed formulas; a formula with free variables is evaluated only after an assignment to those variables.",
+    "First-order validity quantifies over all interpretations, not over the rows of one truth table, which is why a propositional truth table cannot settle a first-order question.",
+    "One countermodel is enough to show a formula is not valid; showing validity needs an argument that covers every domain.",
+    "A formula is valid exactly when its negation is unsatisfiable."
+  ],
+  "example": {
+    "prompt": "Is for all x P(x) implies there exists x P(x) valid?",
+    "work": "Domains in first-order logic are non-empty. If P holds for every element then some element satisfies it.",
+    "answer": "Valid over every non-empty domain. Over an empty domain the implication would also hold vacuously, which is why some texts avoid empty domains altogether."
+  },
+  "gateAngle": "GATE CS 2016 Set 2 Q.27 asks which formula is NOT valid; one countermodel settles it - domain the natural numbers, p(x) 'x is even', q(x) 'x is odd', so every number is one or the other but not all are even and not all are odd.",
+  "variations": [
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Is for all x P(x) satisfiable? Is it valid?",
+      "answer": "Satisfiable, not valid.",
+      "why": "Take a non-empty domain with P true everywhere: true. Take P false at one element: false. So it is true in some interpretations and false in others."
+    },
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "Give an interpretation in which there exists x P(x) is false.",
+      "answer": "Any non-empty domain with P empty, for example {1} with P(1) false.",
+      "why": "The existential is false exactly when no element satisfies P."
+    }
+  ],
+  "trap": {
+    "what": "Declaring a formula false because it fails in the one interpretation you happened to try, or true because it held in a few.",
+    "why": "Validity is about every interpretation; satisfiability is about at least one. The two questions are different and the same example answers only one of them.",
+    "counterexample": "For all x there exists y (y < x) is true over the integers but false over the natural numbers, so it is satisfiable and not valid."
+  },
+  "check": {
+    "question": "A sentence is false in exactly one interpretation and true in all others. Is it valid?",
+    "answer": "No.",
+    "explanation": "Valid means true in every interpretation; one countermodel is enough to deny validity. It is still satisfiable, because it is true in the others."
+  },
+  "pyqIds": [],
+  "prereqs": [
+    "fol-syntax-predicates-and-quantifiers",
+    "satisfiability-and-validity"
+  ],
+  "videoRefs": [
+    "Fp3hl9AprLU",
+    "wzVFO4hyVfo",
+    "sj7qdCCK-IY",
+    "tK8382YdZLs"
+  ]
+}

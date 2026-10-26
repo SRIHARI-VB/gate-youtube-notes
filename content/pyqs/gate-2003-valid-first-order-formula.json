@@ -1,0 +1,21 @@
+{
+  "id": "gate-2003-valid-first-order-formula",
+  "year": "2003",
+  "paper": "GATE CS 2003",
+  "question_ref": "Q.32",
+  "type": "MCQ",
+  "topic": "fol-validity-and-implication",
+  "text": "Which of the following is a valid first order formula? Here alpha and beta are first order formulae with x as their only free variable.",
+  "options": [
+    "((for all x)[alpha] implies (for all x)[beta]) implies (for all x)[alpha implies beta]",
+    "(for all x)[alpha] implies (there exists x)[alpha and beta]",
+    "(((for all x)[alpha or beta]) implies (there exists x)[alpha]) implies (for all x)[alpha]",
+    "(for all x)[alpha implies beta] implies (((for all x)[alpha]) implies (for all x)[beta])"
+  ],
+  "answer": "Option (D)",
+  "solution": "(D) says: if beta holds wherever alpha holds, and alpha holds everywhere, then beta holds everywhere. That is valid. (A) reverses the direction: from the two universal statements you cannot conclude the pointwise implication. (B) fails when alpha holds everywhere but beta holds nowhere. (C) fails when alpha or beta holds at every element, alpha holds somewhere, but alpha fails somewhere.",
+  "source_url": "https://gateoverflow.in/922/gate-cse-2003-question-32",
+  "source_label": "GATE Overflow question page for GATE CS 2003 Q.32 with counterexamples for every wrong option",
+  "verification": "SOURCED",
+  "answer_evidence": "The accepted answer is (D), with explicit countermodels for options (A), (B) and (C)."
+}

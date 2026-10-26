@@ -1,0 +1,53 @@
+{
+  "id": "fol-model-size-and-countermodels",
+  "title": "Model Size and Small Countermodels",
+  "priority": "P2",
+  "order": 48,
+  "unit": "Semantics",
+  "quickIdea": "The quantifier prefix decides how large a model needs to be: every existential needs a witness, and a universal that held over a big domain still holds over the part you keep.",
+  "remember": [
+    "If a sentence with k leading existentials and no function symbols has a model at all, it has one with at most k elements.",
+    "Reason: keep only the elements that witness the leading existentials. A universal that was true over the whole domain stays true over a subset of it.",
+    "Function symbols break the argument, because deleting an element can leave f(a) with no value; that is why the question states that no function symbols occur.",
+    "A given model size is never forced: a sentence with a 7-element model may also have models of size 1, 3 or 100.",
+    "To refute a sentence, a domain of two elements is usually enough; a single countermodel is enough to deny validity.",
+    "Concrete example: there exists s there exists t there exists u for all v psi(s, t, u, v) with a 7-element model also has a model of size at most 3, and possibly of size 1 if the three witnesses coincide."
+  ],
+  "example": {
+    "prompt": "The sentence there exists s there exists t there exists u for all v psi(s, t, u, v) has a model with a 7-element universe. Must it have a model with at most 3 elements?",
+    "work": "In the 7-element model take the three witnesses s, t, u and drop the other four elements. The universal now ranges over a subset, and a universal true on a set is true on any subset.",
+    "answer": "Yes - a model of size at most 3 always exists. It may be smaller still if two witnesses are the same element."
+  },
+  "gateAngle": "This is GATE CS 2018 Q.28: three leading existentials and no function symbols force a model of size at most three, and the other options claim things the hypotheses never guarantee, such as no small model or a forced size of exactly seven.",
+  "variations": [
+    {
+      "label": "VERIFIED PYQ",
+      "question": "See GATE CS 2018 Q.28 in the linked PYQs.",
+      "answer": "Option (A): there exists a model with universe of size at most 3.",
+      "why": "Keep the three existential witnesses; the universal part is inherited by the subset."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "There exists x for all y R(x, y) has a model of size 5. Is there a model of size 1?",
+      "answer": "Yes.",
+      "why": "Keep only the witness x. The universal then ranges over {x} alone, and R(x, x) already holds in the 5-element model."
+    }
+  ],
+  "trap": {
+    "what": "Reading the given model size as a bound in both directions.",
+    "why": "The hypothesis says a model of that size exists; it says nothing about models of other sizes unless the prefix forces a bound.",
+    "counterexample": "There exists x for all y R(x, y) has models of size 1, 2, 5 and 100 at once, by taking R to be the full relation on each domain."
+  },
+  "check": {
+    "question": "A sentence has prefix there exists x there exists y for all z. Its smallest model has how many elements at most?",
+    "answer": "At most two.",
+    "explanation": "Two existential witnesses are needed, so a model with at most two elements exists whenever any model exists, provided no function symbols occur."
+  },
+  "pyqIds": [
+    "gate-2018-model-size-upper-bound"
+  ],
+  "prereqs": [
+    "fol-interpretation-model-and-validity"
+  ],
+  "videoRefs": []
+}

@@ -1,0 +1,55 @@
+{
+  "id": "quantifier-order-and-nesting",
+  "title": "Quantifier Order: for all x there exists y versus there exists y for all x",
+  "priority": "P1",
+  "order": 42,
+  "unit": "Semantics",
+  "quickIdea": "For all x there exists y lets y depend on x. There exists y for all x needs one fixed y that works for every x. The second implies the first, never the reverse.",
+  "remember": [
+    "There exists y for all x R(x, y) implies for all x there exists y R(x, y): valid.",
+    "For all x there exists y R(x, y) does not imply there exists y for all x R(x, y): invalid.",
+    "Quantifiers of the same kind commute: for all x for all y is the same as for all y for all x, and the same for two existentials.",
+    "Mixed quantifiers do not commute; the order is part of the meaning.",
+    "Read for all x there exists y as 'choose y after seeing x'; read there exists y for all x as 'one y serves every x'.",
+    "Over the integers, for all x there exists y (x < y) is true (take y = x + 1) but there exists y for all x (x < y) is false (no greatest integer).",
+    "Negating a nested prefix flips every quantifier and negates the body: not (for all x there exists y R(x, y)) is there exists x for all y not R(x, y)."
+  ],
+  "example": {
+    "prompt": "Over the natural numbers, compare for all x there exists y (y > x) with there exists y for all x (y > x).",
+    "work": "For the first, given any x take y = x + 1. For the second, some single y would have to exceed every natural number, including y itself plus one.",
+    "answer": "The first is true and the second is false."
+  },
+  "gateAngle": "GATE CS 2023 Q.16 turns on exactly this: option (C), there exists y for all x (P(x) implies Q(x, y)), implies the conjecture for all x (P(x) implies there exists y Q(x, y)), because a single y that works for every x certainly works for each x.",
+  "variations": [
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "On the domain {1, 2} with R = {(1, 2), (2, 1)}, which of for all x there exists y R(x, y) and there exists y for all x R(x, y) hold?",
+      "answer": "The first holds, the second does not.",
+      "why": "Each x has a partner (1 goes to 2, 2 goes to 1), so every row has a pair. No single y is related to both 1 and 2, so no column is full."
+    },
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "Does there exists x for all y R(x, y) imply for all y there exists x R(x, y)?",
+      "answer": "Yes.",
+      "why": "If one x is related to every y, then for each y that same x is a witness, so the weaker statement holds."
+    }
+  ],
+  "trap": {
+    "what": "Reading for all x there exists y as though one y had to serve every x.",
+    "why": "The order decides whether y may depend on x. Swapping a universal and an existential changes the claim from 'a matching column exists' to 'every row has a matching entry'.",
+    "counterexample": "Domain {1, 2}, R = {(1, 2), (2, 1)}. For all x there exists y R(x, y) is true; there exists y for all x R(x, y) is false."
+  },
+  "check": {
+    "question": "Does for all x there exists y R(x, y) imply there exists y for all x R(x, y)? Give the one-line reason.",
+    "answer": "No.",
+    "explanation": "On {1, 2} with R = {(1, 2), (2, 1)} every row has an entry but no column is full, so the first is true and the second is false."
+  },
+  "pyqIds": [],
+  "prereqs": [
+    "english-to-fol-translation-templates"
+  ],
+  "visual": "discrete-mathematics/first-order-logic/quantifier-order",
+  "videoRefs": [
+    "wzVFO4hyVfo"
+  ]
+}

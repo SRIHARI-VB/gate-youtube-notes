@@ -1,0 +1,67 @@
+{
+  "id": "english-to-fol-translation-templates",
+  "title": "English to First-Order Logic: the Sentence Templates",
+  "priority": "P1",
+  "order": 41,
+  "unit": "Translation",
+  "quickIdea": "Every GATE translation question is one of a handful of sentence shapes. The rule that decides all of them: implication inside a universal, conjunction inside an existential.",
+  "remember": [
+    "All A's are B's: for all x (A(x) implies B(x)).",
+    "Some A is B: there exists x (A(x) and B(x)).",
+    "No A's are B's: for all x (A(x) implies not B(x)), equivalently not (there exists x (A(x) and B(x))).",
+    "Some A's are not B's: there exists x (A(x) and not B(x)). This is exactly the negation of 'all A's are B's'.",
+    "Only A's are B's: for all x (not A(x) implies not B(x)), which by contraposition is the same as for all x (B(x) implies A(x)).",
+    "All and only A's are B's: for all x (A(x) if and only if B(x)) - both directions are needed.",
+    "Not all A's are B's: there exists x (A(x) and not B(x)).",
+    "The quantifier ranges over the whole domain, so the noun condition is written inside it: implication for the universal, conjunction for the existential.",
+    "More than one formula can be correct. 'Some boy is taller than all the girls' can put the universal inside or outside the existential."
+  ],
+  "example": {
+    "prompt": "Domain: the class. boy(x), girl(x), taller(x, y). Translate: some boys are taller than all the girls.",
+    "work": "Outer quantifier is existential with a conjunction, because at least one boy must exist. Inside, the girls are described with a universal and an implication, because not everyone in the domain is a girl.",
+    "answer": "There exists x (boy(x) and for all y (girl(y) implies taller(x, y)))."
+  },
+  "gateAngle": "GATE CS 2004 Q.23 is this sentence, and the four options differ only in where the arrow and the and sit. GATE CS 2026 Set 2 Q.1 asks the same skill with a 'knows' relation, where the quantifier order also has to be right.",
+  "variations": [
+    {
+      "label": "VERIFIED PYQ",
+      "question": "See GATE CS 2004 Q.23 and GATE CS 2026 Set 2 Q.1 under this card's linked PYQs: both are translation questions where the wrong options differ only in the connective.",
+      "answer": "2004: option (D). 2026 Set 2: option (A).",
+      "why": "In both, the existential carries a conjunction (the witness must be a boy, or a person) and the universal carries an implication."
+    },
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "Translate 'only students may enter the library', with S(x): x is a student and E(x): x may enter the library.",
+      "answer": "For all x (not S(x) implies not E(x)), equivalently for all x (E(x) implies S(x)).",
+      "why": "'Only A's are B's' is the reverse implication, not the forward one. Reading it as for all x (S(x) implies E(x)) would say every student enters, which the sentence does not claim."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "Translate 'some students did not submit every assignment'.",
+      "answer": "There exists x (student(x) and there exists y (assignment(y) and not submitted(x, y))).",
+      "why": "'Did not submit every' is the negation of a universal, so it becomes an existential over a failing case; the outer 'some students' keeps its conjunction."
+    }
+  ],
+  "trap": {
+    "what": "Using the arrow with the existential, or the and with the universal.",
+    "why": "For all x (A(x) and B(x)) claims everything in the domain is an A, which is far stronger than 'all A's are B's'. There exists x (A(x) implies B(x)) is true as soon as one element is not an A, so it does not assert that any A exists.",
+    "counterexample": "Domain {1}, with A empty and B empty. 'All A's are B's' is vacuously true and is written with an implication; for all x (A(x) and B(x)) is false. And there exists x (A(x) implies B(x)) is true here, although 'some A is B' is false."
+  },
+  "check": {
+    "question": "Translate 'no student failed' with S(x) and F(x).",
+    "answer": "For all x (S(x) implies not F(x)), equivalently not (there exists x (S(x) and F(x))).",
+    "explanation": "'No A's are B's' is a universal with a negated consequent; the two forms are equivalent by the quantifier De Morgan law."
+  },
+  "pyqIds": [
+    "gate-2004-some-boys-taller-than-all-girls",
+    "gate-2026-set2-knows-nobody"
+  ],
+  "prereqs": [
+    "fol-syntax-predicates-and-quantifiers"
+  ],
+  "videoRefs": [
+    "puvQs-gBxO4",
+    "s41PLmHGf08",
+    "60kicY3otM0"
+  ]
+}

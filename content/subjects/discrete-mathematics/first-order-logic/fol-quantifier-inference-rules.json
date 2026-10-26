@@ -1,0 +1,53 @@
+{
+  "id": "fol-quantifier-inference-rules",
+  "title": "Quantifier Inference Rules and their Side Conditions",
+  "priority": "P2",
+  "order": 49,
+  "unit": "Proof",
+  "quickIdea": "Four rules move quantifiers in and out of a proof. The side conditions - arbitrary name versus fresh name - are where the marks are lost.",
+  "remember": [
+    "Universal instantiation: from for all x P(x) infer P(c) for any name c that denotes an element of the domain.",
+    "Universal generalisation: from P(c) for an arbitrary c infer for all x P(x). The name must be arbitrary, not one introduced by an existential assumption.",
+    "Existential instantiation: from there exists x P(x) infer P(c) for a fresh name c that has not been used before.",
+    "Existential generalisation: from P(c) infer there exists x P(x).",
+    "You may not generalise over a name introduced by existential instantiation, and you may not instantiate a universal with a name outside the domain.",
+    "Apply existential instantiation before universal instantiation when both are needed, so the fresh name stays fresh.",
+    "These rules justify each step of the falsification and derivation arguments used elsewhere; they are the proof-theoretic counterpart of the semantic validity tests."
+  ],
+  "example": {
+    "prompt": "From for all x (P(x) implies Q(x)) and there exists x P(x), derive there exists x Q(x).",
+    "work": "Existential instantiation gives P(c) with c fresh. Universal instantiation on the first premise gives P(c) implies Q(c). Modus ponens gives Q(c). Existential generalisation gives there exists x Q(x).",
+    "answer": "There exists x Q(x), derived with a name that is fresh and then discharged."
+  },
+  "gateAngle": "No verified PYQ in this repository turns on a named inference rule; the rules matter because they justify every step of the validity arguments the other first-order cards use, and a wrong option in a validity question is usually a step that breaks one of the side conditions.",
+  "variations": [
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "From there exists x P(x), may you infer for all x P(x)?",
+      "answer": "No.",
+      "why": "The witness is one element. Universal generalisation needs a name that was arbitrary, and an existential witness is not arbitrary."
+    },
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "From for all x (P(x) implies Q(x)) and not Q(c), what follows about P(c)?",
+      "answer": "Not P(c), by universal instantiation and modus tollens.",
+      "why": "Instantiating the universal at c gives P(c) implies Q(c); with not Q(c), modus tollens yields not P(c)."
+    }
+  ],
+  "trap": {
+    "what": "Generalising from an existential witness.",
+    "why": "The witness was chosen to satisfy P; it is not an arbitrary element, so what holds for it need not hold for the whole domain.",
+    "counterexample": "Domain the integers, P(x): x is prime. There exists x P(x) is true and P(2) is true, but for all x P(x) is false."
+  },
+  "check": {
+    "question": "Why must the name introduced by existential instantiation be fresh?",
+    "answer": "Because the witness is an arbitrary element known only to satisfy the predicate; reusing an existing name would import facts already known about that element.",
+    "explanation": "Freshness keeps the assumption tied to the existential alone, so the conclusion does not depend on anything else known about the named object."
+  },
+  "pyqIds": [],
+  "prereqs": [
+    "fol-validity-and-implication",
+    "rules-of-inference"
+  ],
+  "videoRefs": []
+}

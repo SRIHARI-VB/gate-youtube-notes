@@ -1,0 +1,21 @@
+{
+  "id": "gate-2016-set2-not-valid-predicate-wff",
+  "year": "2016",
+  "paper": "GATE CS 2016 Set 2",
+  "question_ref": "Q.27",
+  "type": "MCQ",
+  "topic": "fol-validity-and-implication",
+  "text": "Which one of the following well-formed formulae in predicate calculus is NOT valid?",
+  "options": [
+    "((for all x p(x)) implies (for all x q(x))) implies ((there exists x not p(x)) or (for all x q(x)))",
+    "((there exists x p(x)) or (there exists x q(x))) implies (there exists x (p(x) or q(x)))",
+    "(there exists x (p(x) and q(x))) implies ((there exists x p(x)) and (there exists x q(x)))",
+    "(for all x (p(x) or q(x))) implies ((for all x p(x)) or (for all x q(x)))"
+  ],
+  "answer": "Option (D)",
+  "solution": "Take the natural numbers, p(x) as 'x is even' and q(x) as 'x is odd'. Every number is even or odd, so the left side is true, but it is false that all numbers are even and false that all numbers are odd, so the right side is false. The other three are valid: (A) is the propositional law A implies B, therefore not A or B; (B) distributes an existential over a disjunction; (C) distributes an existential over a conjunction in the safe direction.",
+  "source_url": "https://gateoverflow.in/39618/gate-cse-2016-set-2-question-27",
+  "source_label": "GATE Overflow question page for GATE CS 2016 Set 2 Q.27 with the even/odd counterexample",
+  "verification": "SOURCED",
+  "answer_evidence": "The accepted answer is (D), refuted by taking p as 'even' and q as 'odd' over the natural numbers."
+}

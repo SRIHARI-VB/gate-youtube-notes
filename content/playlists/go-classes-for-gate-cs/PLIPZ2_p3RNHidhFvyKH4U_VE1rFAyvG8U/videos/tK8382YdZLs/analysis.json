@@ -1,0 +1,22 @@
+{
+  "video_id": "tK8382YdZLs",
+  "coverage_note": "The readable opening gives the session plan and the whole statement of the first worked question, an MIT question on entailment, plus the first step of the falsification method. It stops mid-step, before any verdict.",
+  "topics": [
+    "fol-validity-and-implication",
+    "fol-interpretation-model-and-validity"
+  ],
+  "concepts": [
+    "The session solves practice questions from standard resources and top universities.",
+    "'Entailed' means the same as implied, inferred or logically implied.",
+    "A question that asks you to prove a conclusion is entailed is an argument question: premises are given and a conclusion must follow.",
+    "An argument is valid when, if all the premises are true, the conclusion must be true.",
+    "The first question's premises are 'P or Q', 'P implies R' and 'Q implies S', and its conclusion is 'R or S'.",
+    "Method one for checking validity is the formal method.",
+    "Step one: make the conclusion false.",
+    "Step two: try to make every premise true at the same time.",
+    "If all the premises can be true while the conclusion is false, the argument is invalid.",
+    "If the premises cannot all be made true once the conclusion is false, the argument is valid.",
+    "A disjunction such as 'R or S' is false in exactly one way: R false and S false."
+  ],
+  "gate_claims": []
+}

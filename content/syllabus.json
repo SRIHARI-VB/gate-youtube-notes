@@ -20,18 +20,26 @@
           "covered_by_playlists": [
             "PLIPZ2_p3RNHjlC6eceG_vWSu-oA6Dc6aX"
           ]
+        },
+        {
+          "slug": "first-order-logic",
+          "name": "First Order Logic",
+          "covered_by_playlists": [
+            "PLIPZ2_p3RNHidhFvyKH4U_VE1rFAyvG8U"
+          ]
         }
       ]
     }
   ],
   "covered_by_playlist": [
     "Counting",
-    "Propositional Logic (connectives, equivalence, normal forms, inference, resolution, functional completeness)"
+    "Propositional Logic (connectives, equivalence, normal forms, inference, resolution, functional completeness)",
+    "First Order Logic (predicates and quantifiers, English translation, quantifier order and negation, validity and tautology, uniqueness, model size)"
   ],
   "not_covered_by_playlist": [
-    "recurrence relations (solving) - combinatorics playlist",
-    "generating functions (as a technique) - combinatorics playlist",
-    "first-order logic beyond quantifier translation - propositional logic playlist stops at propositional logic; the quantifier card is a bridge, not a full treatment"
+    "resolution and prenex normal form in first order logic - not taught by any processed playlist",
+    "first-order theories with function symbols and arithmetic - outside the GATE CSE discrete mathematics line",
+    "soundness and completeness of first-order proof systems - named by the lectures only in passing"
   ],
-  "note": "The official GATE CSE Discrete Mathematics line is short. Each playlist teaches one half of it in depth; the cards record which playlist covers which part, and the gaps are named rather than filled by guesswork."
+  "note": "The official GATE CSE Discrete Mathematics line names propositional logic; first-order (predicate) logic is examined under mathematical logic, and the papers 2004, 2013, 2016, 2018, 2020, 2023, 2025 and 2026 all contain first-order questions, so the topic is included with those PYQs as its evidence. Each playlist teaches one part of the line in depth; the cards record which playlist covers which part, and the gaps are named rather than filled by guesswork."
 }

@@ -1,6 +1,24 @@
 # Processing status
 
-Two playlists, both from GO Classes for GATE CS (instructor: Deepak Poonia). 31 videos, about 38 hours.
+Three playlists, all from GO Classes for GATE CS (instructor: Deepak Poonia). 39 videos, about 53 hours.
+
+## Playlist 3 - First Order Logic (8 videos, 14h 49m)
+
+`PLIPZ2_p3RNHidhFvyKH4U_VE1rFAyvG8U`
+
+| # | Video | Length | Transcript | Analysis |
+| --- | --- | --- | --- | --- |
+| 1 | Complete Summary Part 1 | 2h 30m | PARTIAL (opening, 4,663 chars) | analysed, opening only |
+| 2 | Practice Questions (standard resources) | 1h 56m | NONE - nothing retrievable | not analysed, title only |
+| 3 | Complete Summary Part 2 | 3h 33m | PARTIAL (Devanagari ASR, opening, 4,663 chars) | analysed, opening only |
+| 4 | GATE PYQs Part 1 | 1h 29m | PARTIAL (Devanagari ASR, opening, 4,670 chars) | analysed, opening only |
+| 5 | GATE PYQs Part 2 | 2h 24m | PARTIAL (opening, 4,667 chars) | analysed, opening only |
+| 6 | GATE CSE 2004 - some boys taller than all girls | 4m 45s | FULL (Devanagari ASR) | analysed |
+| 7 | Mathematical Logic - GATE 2026 PYQs | 1h 06m | PARTIAL (opening, 4,687 chars) | analysed, opening only |
+| 8 | Practice Questions (standard resources) | 1h 48m | PARTIAL (opening, 4,687 chars) | analysed, opening only |
+
+Video 2 returned an empty page on every attempt, including an alternate transcript host, so it carries an
+explicit `NONE` status and an empty concept list rather than a guess. Its topic mapping comes from its title alone.
 
 ## Playlist 2 - Propositional Logic (17 videos, 13h 12m)
 
@@ -33,20 +51,21 @@ Two playlists, both from GO Classes for GATE CS (instructor: Deepak Poonia). 31 
 
 ## Why partial
 
-YouTube blocks caption requests from this build environment's IP ("sign in to confirm you're not a bot"), so captions
-were retrieved through a page-fetch route instead. That route returns caption text through a document-extraction
+YouTube blocks caption requests from this build environment's IP (an IP-blocked response from the caption API and
+HTTP 403 from the player API on every player client tried), so captions were retrieved through a page-fetch route instead. That route returns caption text through a document-extraction
 service, which truncates long documents: English tracks arrived as roughly the first 5,000 characters, which is the
 opening minutes of a two-to-three hour lecture. Short videos (under about ten minutes) therefore arrived complete;
 long ones did not.
 
-Four videos in this playlist have only a Hindi auto-generated caption track, written in Devanagari script. Those
-tracks are noisy speech recognition of Hinglish and are not reliable enough to quote, so those videos carry a
-fragments-only analysis and no formula is attributed to them.
+Several videos have only a Hindi auto-generated caption track, written in Devanagari script. Those tracks are noisy
+speech recognition of Hinglish and are not reliable enough to quote, so the meaning is translated and paraphrased in
+the analysis, never quoted, and the status line of each such video says so.
 
 ## What this means for the notes
 
 The topic structure is reliable: the instructor states it explicitly in the readable openings (propositions,
 connectives, the by-case method, arguments, interpretation and models), and the playlist titles name the rest. Every
 formula, equivalence, tautology and count published in the cards is recomputed from scratch by
-`scripts/validate.py` (`check_logic`), and every PYQ answer is checked against an official key or a named published
-solution. Anything that depended on a segment that was not readable is either omitted or named as a gap.
+`scripts/validate.py` (`check_logic` for propositional logic, `check_first_order` for first-order logic, which
+enumerates every interpretation on domains of one to three elements), and every PYQ answer is checked against an
+official key or a named published solution. Anything that depended on a segment that was not readable is either omitted or named as a gap.

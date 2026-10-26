@@ -1,0 +1,12 @@
+{
+  "slug": "quantifier-order",
+  "topic": "quantifier-order-and-nesting",
+  "engine": "p5.js",
+  "steps": 4,
+  "example": {
+    "domain": "{1, 2, 3}",
+    "relation": "R = {(1,2), (2,3), (3,1)}",
+    "forall_exists": true,
+    "exists_forall": false
+  }
+}

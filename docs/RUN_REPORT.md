@@ -1,5 +1,83 @@
 # Run report
 
+## Run 3 - first order logic playlist added
+
+### Playlist
+
+GO Classes for GATE CS, *First Order Logic - Complete Summary, All GATE PYQs & Practice Questions*
+(`PLIPZ2_p3RNHidhFvyKH4U_VE1rFAyvG8U`), 8 videos, 14h 49m.
+
+### Processing summary
+
+| | |
+| --- | --- |
+| Videos discovered | 8 |
+| Videos with complete captions | 1 |
+| Videos with partial captions (opening only) | 6 |
+| Videos with no retrievable caption text | 1 (`zdeKQ-nABtk`) |
+| Videos inaccessible or removed | 0 |
+| Videos skipped silently | 0 |
+
+Captions were not retrievable through the YouTube caption API at all: the API reported an IP block and the player
+API returned HTTP 403 for every player client tried. They were fetched instead through a page-fetch route that
+truncates documents at about five thousand characters, so each long lecture yielded only its opening. The character
+count actually read is recorded in every video's `transcript_status`. See `docs/PROCESSING_STATUS.md`.
+
+### Content added
+
+| Item | Added this run | Total in repository |
+| --- | --- | --- |
+| Revision cards | 10 | 37 |
+| Verified PYQs | 9 | 36 |
+| Question variations | 22 | 65 |
+| Quick checks with answers | 10 | 37 |
+| Visual lessons | 1 | 7 |
+| Formula-sheet groups | 1 (8 formulas) | 12 (68 formulas) |
+| Videos inventoried with status | 8 | 39 |
+| Playlists | 1 | 3 |
+
+New topic: **First Order Logic** (`first-order-logic`) under Discrete Mathematics, registered in
+`content/syllabus.json` with its covering playlist. New PYQ years: 2003, 2004, 2013, 2016, 2018, 2020, 2023, 2025,
+2026.
+
+### Validation performed
+
+- `python3 scripts/validate.py` - 11 checks passed, 0 failures, 8 warnings (all pre-existing: seven PYQs labelled
+  `OFFICIAL_KEY` without an evidence line, and two combinatorics videos not referenced by any card).
+- New check added to `scripts/validate.py`: `check_first_order()`. It recomputes every first-order claim published in
+  the cards and in the quantifier lesson by exhaustive enumeration over domains of one, two and three elements -
+  quantifier order and its one-way implication, quantifier negation, the four null-quantification laws and the arrow
+  case that fails, the distribution laws in their valid directions only, the exactly-one and at-most-one patterns,
+  the small-model argument for a three-existential prefix, the option verdicts of GATE 2003 Q.32, 2016 Set 2 Q.27,
+  2020 Q.39, 2023 Q.16 and 2025 Set 1 Q.38, and the tautology-versus-validity distinction.
+- `node tests/visual-lessons.js` - all six p5 sketches load and draw every step at three progress values, including
+  the new `discrete-mathematics/first-order-logic/quantifier-order` lesson.
+- Headless Chromium `--dump-dom` over the dashboard, topics, a new topic page, PYQs, playlist, last-minute and a
+  search for "quantifier": every route renders, the Topics tab shows the new subject > topic > subtopic grouping,
+  the playlist view lists three playlists, and the card breadcrumb reads
+  `Topics / Discrete Mathematics > First Order Logic / <card>`.
+
+### UI
+
+No change. `src/styles/design-tokens.css`, the shell layout, the navigation labels, the routes and the component
+classes are untouched; the new content renders through the existing components. The sidebar tree and the Topics tab
+pick the new subject and topic up from the generated data with no code change.
+
+### Limitations
+
+1. **Lecture coverage is partial**, as in the earlier runs. Only the opening of each long lecture was readable, so
+   later worked examples and any timestamped detail are absent rather than guessed. The topic structure is reliable:
+   the instructor names the four question types of the series in the readable part of the PYQ lectures
+   (translation, negation of quantifiers, nested quantifiers, validity and satisfiability).
+2. **One video has no content at all.** `zdeKQ-nABtk` returned no caption text on any route tried. It is inventoried
+   with status `NONE`, an empty concept list and a coverage note saying so, and its topic mapping is taken from its
+   title alone.
+3. **All nine new PYQs are `SOURCED`, not key-verified.** Each answer is confirmed against a named GATE Overflow
+   question page with its accepted solution, not against the official answer key document. The 2004 question is
+   additionally covered by a dedicated video in the playlist, which reaches the same answer.
+4. **`content/coverage-map.json` was not updated.** It is produced by a separate mapping tool and is not read by the
+   site; the ten new cards and the new playlist are therefore absent from it until that tool is run again.
+
 ## Run 2 - propositional logic playlist added, repository migrated
 
 ### Playlist

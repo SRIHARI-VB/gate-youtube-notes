@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quantifier Order - First Order Logic visual lesson</title>
+<link rel="stylesheet" href="../../../lesson.css">
+<script src="https://cdn.jsdelivr.net/npm/p5@1.9.4/lib/p5.min.js"></script>
+</head>
+<body>
+<div class="wrap">
+  <p class="small"><a href="../../../../index.html">&larr; back to the revision site</a></p>
+  <h1>Quantifier Order: for all x there exists y versus there exists y for all x</h1>
+  <div class="objective"><strong>Objective.</strong> See on one table why <em>for all x there exists y</em> and <em>there exists y for all x</em> are different claims, and why only one of them implies the other.</div>
+
+  <div class="canvas-wrap"><div id="canvas-holder"></div></div>
+  <div class="caption" id="caption" aria-live="polite"></div>
+
+  <div class="controls">
+    <button id="play" class="primary">Play</button>
+    <button id="prev">&larr; Prev</button>
+    <button id="next">Next &rarr;</button>
+    <button id="restart">Restart</button>
+    <span class="speed"><label for="speed">Speed</label>
+      <input id="speed" type="range" min="0.25" max="2" step="0.25" value="1">
+      <span id="speedLabel">1.00x</span></span>
+    <span class="counter" id="counter"></span>
+  </div>
+
+  <h2>Static explanation</h2>
+<p>A two-place relation R on a domain is a table: rows are the first argument x, columns are the second argument y, and a tick at row x, column y means R(x, y) is true.</p>
+<p><em>For all x there exists y R(x, y)</em> says every row has at least one tick. The y is chosen after x is known, so different rows may use different columns. <em>There exists y for all x R(x, y)</em> says some column is completely full: one fixed y that works for every x.</p>
+<p>On the domain {1, 2, 3} with R = {(1,2), (2,3), (3,1)} every row has exactly one tick, so the first claim is true, while no column has three ticks, so the second is false. That single table is the standard counterexample.</p>
+<p>The implication runs one way only. If a full column exists then every row has a tick in it, so <em>there exists y for all x R(x, y)</em> implies <em>for all x there exists y R(x, y)</em>. The reverse fails, as the table shows. Quantifiers of the same kind do commute: <em>for all x for all y</em> is the same as <em>for all y for all x</em>, and likewise for two existentials.</p>
+
+  <div class="card warn"><div class="label">Common misconception</div><p>Reading <em>for all x there exists y</em> as though one y had to serve every x. The order decides whether y may depend on x; swapping a universal and an existential changes the claim. GATE CS 2023 Q.16 rewards the correct direction: a single y that works for all x is the stronger statement.</p></div>
+  <div class="card ok"><div class="label">Quick check</div><p>On the domain {1, 2} with R = {(1,2), (2,1)}, which of the two claims hold?</p><details><summary>Answer</summary><p><strong>For all x there exists y R(x, y) holds; there exists y for all x R(x, y) does not.</strong> Row 1 ticks column 2 and row 2 ticks column 1, so both rows have a tick. Column 1 is missing row 1 and column 2 is missing row 2, so no column is full.</p></details></div>
+  <p class="small">Topic: quantifier order and nesting (Discrete Mathematics, First Order Logic). Playlist video: GATE PYQs Part 2 (wzVFO4hyVfo), which names nested quantifiers as the third question type of the series. Verified PYQ: GATE CS 2023 Q.16.</p>
+</div>
+<script src="../../../lesson.js"></script>
+<script src="sketch.js"></script>
+<script>
+/* p5.js is loaded from a CDN. If it is unreachable, say so plainly instead of showing an empty box. */
+window.addEventListener('load', function () {
+  if (window.p5) { return; }
+  var holder = document.getElementById('canvas-holder');
+  if (holder) {
+    holder.innerHTML = '<div style="padding:22px 18px;font-size:14.5px;color:#4a5260">' +
+      'The animation needs p5.js, which this page loads from a CDN, and the request failed (offline, or the CDN is blocked). ' +
+      'Everything below still works: the static explanation, the misconception and the quick check.</div>';
+  }
+  var cap = document.getElementById('caption');
+  if (cap && window.LESSON && window.LESSON.steps && window.LESSON.steps[0]) {
+    cap.innerHTML = window.LESSON.steps[0].caption;
+  }
+  ['play', 'prev', 'next', 'restart', 'speed'].forEach(function (id) {
+    var el = document.getElementById(id);
+    if (el) { el.disabled = true; }
+  });
+});
+</script>
+</body>
+</html>

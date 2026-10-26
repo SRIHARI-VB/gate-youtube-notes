@@ -1,0 +1,56 @@
+{
+  "id": "quantifier-negation-and-equivalence",
+  "title": "Negating Quantifiers and Null Quantification",
+  "priority": "P1",
+  "order": 44,
+  "unit": "Equivalences",
+  "quickIdea": "Negation flips the quantifier: not for all becomes there exists not, and not there exists becomes for all not. A quantifier may slide past a subformula only when that subformula does not use its variable.",
+  "remember": [
+    "not (for all x P(x)) is equivalent to there exists x (not P(x)).",
+    "not (there exists x P(x)) is equivalent to for all x (not P(x)).",
+    "Null quantification - W has no free x: for all x (P(x) or W) is equivalent to for all x P(x) or W, and there exists x (P(x) and W) is equivalent to there exists x P(x) and W.",
+    "Same restriction for and under the universal and or under the existential: the quantifier slides past W only because W does not mention x.",
+    "The arrow case is the trap: for all x (P(x) implies W) is NOT equivalent to (for all x P(x)) implies W. What is equivalent is there exists x (P(x) implies W).",
+    "Reason: P implies W is not P or W, and not (there exists x P(x)) is for all x (not P(x)).",
+    "Distribution: the universal distributes over and, the existential over or. Neither distributes over the other connective."
+  ],
+  "example": {
+    "prompt": "Negate: there exists x (for all y alpha(x, y) and for all z beta(x, z)).",
+    "work": "not there exists becomes for all not; then De Morgan turns the and into an or of negations; then each negated universal becomes an existential with a negated body.",
+    "answer": "For all x (there exists y not alpha(x, y) or there exists z not beta(x, z))."
+  },
+  "gateAngle": "GATE CS 2020 Q.39 asks which of four null-quantification laws is NOT valid, and the answer is the arrow one, for all x (p(x) implies W) versus (for all x p(x)) implies W. GATE CS 2013 Q.47 asks which formulas are not equivalent to a negated existential, and GATE awarded marks to all because two options were wrong.",
+  "variations": [
+    {
+      "label": "VERIFIED PYQ",
+      "question": "See GATE CS 2020 Q.39 and GATE CS 2013 Q.47 in the linked PYQs: one tests the arrow case, the other tests pushing a negation through two nested universals.",
+      "answer": "2020: option (C) is not valid. 2013: options (A) and (D) are not equivalent.",
+      "why": "Both are decided by rewriting with not (for all x P) = there exists x (not P) and then applying propositional laws inside the scope."
+    },
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "Simplify: not (there exists x for all y R(x, y)).",
+      "answer": "For all x there exists y (not R(x, y)).",
+      "why": "Each negation flips one quantifier and moves inward: not exists gives for all, and not for all gives exists."
+    }
+  ],
+  "trap": {
+    "what": "Assuming for all x (P(x) implies W) is the same as (for all x P(x)) implies W.",
+    "why": "The implication is a disjunction in disguise, and the negation that a disjunction carries moves the quantifier the other way.",
+    "counterexample": "Domain {1, 2}, P(1) true, P(2) false, W false. Left side: for all x (P(x) implies W) is (false) and (true implies false) - false. Right side: (for all x P(x)) implies W is false implies false - true. They differ."
+  },
+  "check": {
+    "question": "Negate for all x there exists y R(x, y).",
+    "answer": "There exists x for all y (not R(x, y)).",
+    "explanation": "The negation flips both quantifiers in order and negates the body."
+  },
+  "pyqIds": [
+    "gate-2020-not-valid-predicate-formula",
+    "gate-2013-not-equivalent-negated-exists"
+  ],
+  "prereqs": [
+    "quantifier-order-and-nesting",
+    "logical-equivalence-laws"
+  ],
+  "videoRefs": []
+}

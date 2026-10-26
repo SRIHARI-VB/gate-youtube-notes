@@ -1,0 +1,21 @@
+{
+  "id": "gate-2013-not-equivalent-negated-exists",
+  "year": "2013",
+  "paper": "GATE CS 2013",
+  "question_ref": "Q.47",
+  "type": "MCQ",
+  "topic": "quantifier-negation-and-equivalence",
+  "text": "Which one of the following is NOT logically equivalent to not (there exists x ((for all y alpha) and (for all z beta)))? Here alpha and beta are formulas whose only free variable is x, with y and z bound as shown.",
+  "options": [
+    "(for all x)((there exists z (not beta)) implies (for all y alpha))",
+    "(for all x)((for all z beta) implies (there exists y (not alpha)))",
+    "(for all x)((for all y alpha) implies (there exists z (not beta)))",
+    "(for all x)((there exists y (not alpha)) implies (there exists z (not beta)))"
+  ],
+  "answer": "Options (A) and (D) are not equivalent; GATE awarded marks to all candidates for this question.",
+  "solution": "Push the negation in: not (there exists x) becomes for all x, and the negated conjunction becomes a disjunction of negations, giving for all x ((there exists y not alpha) or (there exists z not beta)). As an implication that is (for all z beta) implies (there exists y not alpha), which is option (B), and by contraposition also option (C). Option (A) has the two sides swapped in the wrong direction, and option (D) reverses the implication as well. Two options are therefore not equivalent, and the key accepted both A and D.",
+  "source_url": "https://gateoverflow.in/80/gate-cse-2013-question-47",
+  "source_label": "GATE Overflow question page for GATE CS 2013 Q.47, whose accepted solutions note that marks were given to all",
+  "verification": "SOURCED",
+  "answer_evidence": "The accepted solutions show (B) and (C) match the given formula and (A) and (D) do not, and record that GATE awarded marks to all for the question."
+}

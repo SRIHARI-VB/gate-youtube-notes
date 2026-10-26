@@ -1,0 +1,21 @@
+{
+  "id": "gate-2026-set2-knows-nobody",
+  "year": "2026",
+  "paper": "GATE CS 2026 Set 2",
+  "question_ref": "Q.1",
+  "type": "MCQ",
+  "topic": "english-to-fol-translation-templates",
+  "text": "For two different persons x and y, the predicate M(x, y) denotes that x knows y. Consider the statement: \"There is a person who does not know anyone else, but that person is known by everyone else.\" Which one of the following expressions represents the statement?",
+  "options": [
+    "(there exists y)(for all x)((x is not y) implies (M(x, y) and not M(y, x)))",
+    "(for all y)(there exists x)((x is not y) implies (M(x, y) and not M(y, x)))",
+    "(there exists y)(there exists x)((x is not y) implies (M(x, y) and not M(y, x)))",
+    "(for all y)(for all x)((x is not y) implies (M(x, y) and not M(y, x)))"
+  ],
+  "answer": "Option (A)",
+  "solution": "\"There is a person\" fixes the outer quantifier as an existential over y. Inside, for every other person x, that person is known by x but does not know x: M(x, y) and not M(y, x), guarded by x not equal to y. The three wrong options weaken the leading existential to a universal or a second existential, which says every person, or merely some pair, rather than one person.",
+  "source_url": "https://gateoverflow.in/523146/gate-cse-2026-set-2-question-1",
+  "source_label": "GATE Overflow question page for GATE CSE 2026 Set 2 Q.1, with a published option-by-option reading",
+  "verification": "SOURCED",
+  "answer_evidence": "The page's accepted answers read option (A) as 'there is a person y such that every other person x knows y and y does not know x', and reject the other three quantifier patterns."
+}

@@ -353,5 +353,50 @@
         "note": "the second is stronger"
       }
     ]
+  },
+  {
+    "group": "First order logic",
+    "items": [
+      {
+        "name": "Quantifier negation",
+        "latex": "\\neg \\forall x\\, P(x) \\equiv \\exists x\\, \\neg P(x)",
+        "note": "and dually for the existential"
+      },
+      {
+        "name": "Universal instantiation",
+        "latex": "\\forall x\\, P(x) \\vdash P(c)",
+        "note": "c in the domain"
+      },
+      {
+        "name": "Null quantification",
+        "latex": "\\forall x (P(x) \\lor W) \\equiv \\forall x P(x) \\lor W",
+        "note": "W has no free x"
+      },
+      {
+        "name": "Arrow case",
+        "latex": "\\exists x (P(x) \\to W) \\equiv \\forall x P(x) \\to W",
+        "note": "the universal form is not valid"
+      },
+      {
+        "name": "Distribution",
+        "latex": "\\forall x (P \\land Q) \\equiv \\forall x P \\land \\forall x Q",
+        "note": "and dually exists over or"
+      },
+      {
+        "name": "Quantifier order",
+        "latex": "\\exists y \\forall x R(x,y) \\Rightarrow \\forall x \\exists y R(x,y)",
+        "note": "never the converse"
+      },
+      {
+        "name": "Exactly one",
+        "latex": "\\exists x (P(x) \\land \\forall y (P(y) \\to y = x))",
+        "note": "uniqueness needs equality"
+      },
+      {
+        "name": "Model size",
+        "latex": "\\exists^{k} \\forall^{m} \\psi \\text{ has a model of size} \\le k",
+        "note": "no function symbols"
+      }
+    ]
   }
 ]

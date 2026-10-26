@@ -1,7 +1,15 @@
 {
   "generated_by": "scripts/build-index.py",
-  "playlist_id": "PLIPZ2_p3RNHillKxh1_iFeZhy9MftHeWW",
+  "playlist_id": "PLIPZ2_p3RNHidhFvyKH4U_VE1rFAyvG8U",
   "playlists": [
+    {
+      "playlist_id": "PLIPZ2_p3RNHidhFvyKH4U_VE1rFAyvG8U",
+      "title": "First Order Logic - Complete Summary, All GATE PYQs & Practice Questions | Predicate Logic | Discrete Mathematics",
+      "channel": "GO Classes for GATE CS",
+      "channel_slug": "go-classes-for-gate-cs",
+      "path": "playlists/go-classes-for-gate-cs/PLIPZ2_p3RNHidhFvyKH4U_VE1rFAyvG8U",
+      "videos": 8
+    },
     {
       "playlist_id": "PLIPZ2_p3RNHillKxh1_iFeZhy9MftHeWW",
       "title": "Propositional Logic - Complete Summary, All GATE PYQs & Practice Questions | Discrete Mathematics",
@@ -21,10 +29,10 @@
   ],
   "counts": {
     "subjects": 1,
-    "topics": 27,
-    "pyqs": 27,
-    "videos": 31,
-    "playlists": 2
+    "topics": 37,
+    "pyqs": 36,
+    "videos": 39,
+    "playlists": 3
   },
   "map": [
     {
@@ -500,6 +508,174 @@
         "XkARI5U7gjI",
         "8g6mpVBziJQ"
       ],
+      "pyqs": [],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "fol-syntax-predicates-and-quantifiers",
+      "title": "Predicates, Variables and Quantifiers",
+      "subject": "discrete-mathematics",
+      "group": "first-order-logic",
+      "unit": "Syntax",
+      "priority": "P1",
+      "path": "subjects/discrete-mathematics/first-order-logic/fol-syntax-predicates-and-quantifiers.json",
+      "videos": [
+        "Fp3hl9AprLU",
+        "puvQs-gBxO4"
+      ],
+      "pyqs": [],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "english-to-fol-translation-templates",
+      "title": "English to First-Order Logic: the Sentence Templates",
+      "subject": "discrete-mathematics",
+      "group": "first-order-logic",
+      "unit": "Translation",
+      "priority": "P1",
+      "path": "subjects/discrete-mathematics/first-order-logic/english-to-fol-translation-templates.json",
+      "videos": [
+        "puvQs-gBxO4",
+        "s41PLmHGf08",
+        "60kicY3otM0"
+      ],
+      "pyqs": [
+        "gate-2004-some-boys-taller-than-all-girls",
+        "gate-2026-set2-knows-nobody"
+      ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "quantifier-order-and-nesting",
+      "title": "Quantifier Order: for all x there exists y versus there exists y for all x",
+      "subject": "discrete-mathematics",
+      "group": "first-order-logic",
+      "unit": "Semantics",
+      "priority": "P1",
+      "path": "subjects/discrete-mathematics/first-order-logic/quantifier-order-and-nesting.json",
+      "videos": [
+        "wzVFO4hyVfo"
+      ],
+      "pyqs": [],
+      "visual": "discrete-mathematics/first-order-logic/quantifier-order",
+      "variations": 2
+    },
+    {
+      "topic": "fol-interpretation-model-and-validity",
+      "title": "Interpretation, Model and Validity",
+      "subject": "discrete-mathematics",
+      "group": "first-order-logic",
+      "unit": "Semantics",
+      "priority": "P1",
+      "path": "subjects/discrete-mathematics/first-order-logic/fol-interpretation-model-and-validity.json",
+      "videos": [
+        "Fp3hl9AprLU",
+        "wzVFO4hyVfo",
+        "sj7qdCCK-IY",
+        "tK8382YdZLs"
+      ],
+      "pyqs": [],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "quantifier-negation-and-equivalence",
+      "title": "Negating Quantifiers and Null Quantification",
+      "subject": "discrete-mathematics",
+      "group": "first-order-logic",
+      "unit": "Equivalences",
+      "priority": "P1",
+      "path": "subjects/discrete-mathematics/first-order-logic/quantifier-negation-and-equivalence.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2020-not-valid-predicate-formula",
+        "gate-2013-not-equivalent-negated-exists"
+      ],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "fol-validity-and-implication",
+      "title": "Validity, Implication and the Two-Element Countermodel",
+      "subject": "discrete-mathematics",
+      "group": "first-order-logic",
+      "unit": "Semantics",
+      "priority": "P1",
+      "path": "subjects/discrete-mathematics/first-order-logic/fol-validity-and-implication.json",
+      "videos": [
+        "zdeKQ-nABtk",
+        "s41PLmHGf08",
+        "wzVFO4hyVfo",
+        "sj7qdCCK-IY",
+        "tK8382YdZLs"
+      ],
+      "pyqs": [
+        "gate-2003-valid-first-order-formula",
+        "gate-2016-set2-not-valid-predicate-wff",
+        "gate-2023-conjecture-implied-by"
+      ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "fol-tautology-vs-validity",
+      "title": "Tautology versus Validity in First-Order Logic",
+      "subject": "discrete-mathematics",
+      "group": "first-order-logic",
+      "unit": "Semantics",
+      "priority": "P2",
+      "path": "subjects/discrete-mathematics/first-order-logic/fol-tautology-vs-validity.json",
+      "videos": [
+        "wzVFO4hyVfo"
+      ],
+      "pyqs": [
+        "gate-2015-set2-fol-tautology-propositional-reduction"
+      ],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "fol-exactly-one-and-uniqueness",
+      "title": "Exactly One, At Most One and Uniqueness",
+      "subject": "discrete-mathematics",
+      "group": "first-order-logic",
+      "unit": "Translation",
+      "priority": "P2",
+      "path": "subjects/discrete-mathematics/first-order-logic/fol-exactly-one-and-uniqueness.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2025-set1-exactly-one-mother"
+      ],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "fol-model-size-and-countermodels",
+      "title": "Model Size and Small Countermodels",
+      "subject": "discrete-mathematics",
+      "group": "first-order-logic",
+      "unit": "Semantics",
+      "priority": "P2",
+      "path": "subjects/discrete-mathematics/first-order-logic/fol-model-size-and-countermodels.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2018-model-size-upper-bound"
+      ],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "fol-quantifier-inference-rules",
+      "title": "Quantifier Inference Rules and their Side Conditions",
+      "subject": "discrete-mathematics",
+      "group": "first-order-logic",
+      "unit": "Proof",
+      "priority": "P2",
+      "path": "subjects/discrete-mathematics/first-order-logic/fol-quantifier-inference-rules.json",
+      "videos": [],
       "pyqs": [],
       "visual": null,
       "variations": 2
