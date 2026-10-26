@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Stars and Bars (IODB) - Combinatorics visual lesson</title>
+<link rel="stylesheet" href="../lesson.css">
+<script src="https://cdn.jsdelivr.net/npm/p5@1.9.4/lib/p5.min.js"></script>
+</head>
+<body>
+<div class="wrap">
+  <p class="small"><a href="../../index.html">&larr; back to the revision site</a></p>
+  <h1>Stars and Bars (IODB)</h1>
+  <div class="objective"><strong>Objective.</strong> See why n identical objects in k distinct boxes is C(n+k-1, k-1) = C(n+k-1, n), and what the bars physically are.</div>
+
+  <div class="canvas-wrap"><div id="canvas-holder"></div></div>
+  <div class="caption" id="caption" aria-live="polite"></div>
+
+  <div class="controls">
+    <button id="play" class="primary">Play</button>
+    <button id="prev">&larr; Prev</button>
+    <button id="next">Next &rarr;</button>
+    <button id="restart">Restart</button>
+    <span class="speed"><label for="speed">Speed</label>
+      <input id="speed" type="range" min="0.25" max="2" step="0.25" value="1">
+      <span id="speedLabel">1.00x</span></span>
+    <span class="counter" id="counter"></span>
+  </div>
+
+  <h2>Static explanation</h2>
+  <p>Five identical sweets, three children. Because the sweets are identical, a distribution is fixed by the three counts (a, b, c) with a + b + c = 5 and each count at least 0.</p>
+<p>Draw the five sweets as stars in a row, then put k - 1 = 2 bars somewhere in the row to separate child A's sweets from B's from C's. The arrangement <span class="mono">**|***|</span> is the distribution (2, 3, 0).</p>
+<p>Every distribution gives exactly one arrangement of 5 stars and 2 bars, and every such arrangement gives exactly one distribution, so the counts are equal. The number of arrangements is the number of ways to choose which 2 of the 5 + 2 = 7 positions hold bars: <strong>C(7, 2) = 21</strong>.</p>
+<p>If every child must get at least one sweet, hand out one sweet each first and distribute the remaining 2 freely: <strong>C(2 + 3 - 1, 3 - 1) = C(4, 2) = 6</strong>.</p>
+
+  <div class="card warn"><div class="label">Common misconception</div><p><strong>Stars and bars does not handle upper bounds.</strong> If the question caps each box (say every child gets at most 2), the formula silently over-counts. For 5 sweets, 3 children, each at most 2, the answer is not 21 and not 6 - you need a substitution or an inclusion-exclusion correction. A cap always means the plain template no longer applies.</p></div>
+  <div class="card ok"><div class="label">Quick check</div><p>How many ways can 5 identical sweets be distributed among 3 children if a child may receive nothing?</p><details><summary>Answer</summary><p><strong>21</strong>, from C(5 + 3 - 1, 3 - 1) = C(7, 2). If instead the sweets were 5 <em>distinct</em> sweets the answer would be 3^5 = 243, which is the DODB template.</p></details></div>
+  <p class="small">Topic: IODB / stars and bars. Playlist videos: Part 5 (gYS1Ui0cJF0) and Part 6 (flD8YuOU2VI). Verified PYQ: GATE CS 2003 Q.34 (lower-bound form).</p>
+</div>
+<script src="lesson.js"></script>
+<script src="sketch.js"></script>
+<script>
+/* p5.js is loaded from a CDN. If it is unreachable, say so plainly instead of showing an empty box. */
+window.addEventListener('load', function () {
+  if (window.p5) { return; }
+  var holder = document.getElementById('canvas-holder');
+  if (holder) {
+    holder.innerHTML = '<div style="padding:22px 18px;font-size:14.5px;color:#4a5260">' +
+      'The animation needs p5.js, which this page loads from a CDN, and the request failed (offline, or the CDN is blocked). ' +
+      'Everything below still works: the static explanation, the misconception and the quick check.</div>';
+  }
+  var cap = document.getElementById('caption');
+  if (cap && window.LESSON && window.LESSON.steps && window.LESSON.steps[0]) {
+    cap.innerHTML = window.LESSON.steps[0].caption;
+  }
+  ['play', 'prev', 'next', 'restart', 'speed'].forEach(function (id) {
+    var el = document.getElementById(id);
+    if (el) { el.disabled = true; }
+  });
+});
+</script>
+</body>
+</html>
