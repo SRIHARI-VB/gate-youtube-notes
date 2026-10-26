@@ -1,0 +1,44 @@
+{
+  "id": "dodb",
+  "title": "DODB: Distinct Objects, Distinct Boxes",
+  "priority": "P2",
+  "order": 7,
+  "unit": "Balls and boxes",
+  "quickIdea": "Each distinct object independently picks a box, so k choices per object. Boxes are labelled, so swapping contents between boxes gives a new distribution.",
+  "remember": [
+    "Empty boxes allowed: k^n for n objects into k boxes.",
+    "No empty box: k! S(n,k), equivalently the inclusion-exclusion sum.",
+    "This is exactly the number of functions from an n-set to a k-set."
+  ],
+  "example": {
+    "prompt": "5 distinct balls into 3 distinct boxes, no box empty.",
+    "work": "3! x S(5,3) = 6 x 25.",
+    "answer": "150"
+  },
+  "gateAngle": "Recognise it as 'functions from a set to a set'. GATE's favourite twist is the onto condition, which converts 3^n into an inclusion-exclusion sum.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "How many functions from a 4-element set to a 3-element set are onto?",
+      "answer": "36",
+      "why": "3^4 - 3 x 2^4 + 3 x 1^4 = 81 - 48 + 3 = 36, and 3! S(4,3) = 6 x 6 = 36. The two methods must agree - always check them against each other."
+    }
+  ],
+  "trap": {
+    "what": "Dividing k^n by k! to 'remove box labels'.",
+    "why": "k^n counts labelled-box distributions. Dividing by k! is only valid when all boxes hold the same number of objects; in general it over-divides.",
+    "counterexample": "3 distinct balls into 3 identical boxes: the labelled count is 3^3 = 27, and 27/3! = 4.5 is not even an integer, while the true unlabelled count is S(3,1) + S(3,2) + S(3,3) = 1 + 3 + 1 = 5. Dividing works only in the two-box case by accident."
+  },
+  "check": {
+    "question": "How many functions are there from a 4-element set to a 3-element set?",
+    "answer": "81",
+    "explanation": "Each of the 4 inputs picks one of 3 outputs: 3^4 = 81."
+  },
+  "pyqIds": [],
+  "videoRefs": [
+    "4m80SNCfxno"
+  ],
+  "prereqs": [
+    "distribution-templates"
+  ]
+}
