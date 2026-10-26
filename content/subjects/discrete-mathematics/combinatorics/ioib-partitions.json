@@ -44,5 +44,8 @@
   "prereqs": [
     "distribution-templates",
     "doib-stirling"
-  ]
+  ],
+  "links": {
+    "mapped_at": "2026-10-26"
+  }
 }

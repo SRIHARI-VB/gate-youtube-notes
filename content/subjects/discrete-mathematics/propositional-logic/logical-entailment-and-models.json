@@ -53,5 +53,51 @@
   ],
   "prereqs": [
     "satisfiability-and-validity"
-  ]
+  ],
+  "links": {
+    "mock": {
+      "subject": "discrete-mathematics",
+      "unit_slug": "propositional-logic",
+      "unit_name": "Propositional Logic",
+      "unit_number": 1,
+      "question_count": 50,
+      "subtopics": [
+        {
+          "label": "Propositions & connectives",
+          "questions": 9
+        },
+        {
+          "label": "Truth tables",
+          "questions": 9
+        },
+        {
+          "label": "Implications & inference",
+          "questions": 9
+        },
+        {
+          "label": "CNF / DNF",
+          "questions": 8
+        },
+        {
+          "label": "Validity & satisfiability",
+          "questions": 8
+        },
+        {
+          "label": "Logical equivalences",
+          "questions": 7
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/propositional-logic/gate_dm_mock_1_2026-10-25.html"
+    },
+    "visual": {
+      "slug": "propositional-logic",
+      "title": "Propositional Logic",
+      "level": "topic-level",
+      "covers": [
+        "valid argument forms"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/propositional-logic/index.html"
+    },
+    "mapped_at": "2026-10-26"
+  }
 }

@@ -41,5 +41,18 @@
   "videoRefs": [],
   "prereqs": [
     "basic-counting-rules"
-  ]
+  ],
+  "links": {
+    "visual": {
+      "slug": "recurrence-relations",
+      "title": "Recurrence Relations",
+      "level": "topic-level",
+      "covers": [
+        "linear homogeneous recurrences",
+        "characteristic roots and repeated roots"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/recurrence-relations/index.html"
+    },
+    "mapped_at": "2026-10-26"
+  }
 }

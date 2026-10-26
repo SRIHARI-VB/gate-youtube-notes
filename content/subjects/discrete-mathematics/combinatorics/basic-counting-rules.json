@@ -51,5 +51,17 @@
     "D4wbOYlL8Gs",
     "UJF9vHQc3gk"
   ],
-  "prereqs": []
+  "prereqs": [],
+  "links": {
+    "visual": {
+      "slug": "counting-and-combinatorics",
+      "title": "Counting and Combinatorics",
+      "level": "topic-level",
+      "covers": [
+        "sum and product rules"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/counting-and-combinatorics/index.html"
+    },
+    "mapped_at": "2026-10-26"
+  }
 }

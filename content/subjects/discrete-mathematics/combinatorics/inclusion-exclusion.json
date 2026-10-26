@@ -46,5 +46,47 @@
   ],
   "prereqs": [
     "basic-counting-rules"
-  ]
+  ],
+  "links": {
+    "mock": {
+      "subject": "discrete-mathematics",
+      "unit_slug": "set-theory",
+      "unit_name": "Set Theory",
+      "unit_number": 3,
+      "question_count": 50,
+      "subtopics": [
+        {
+          "label": "Subsets & power sets",
+          "questions": 10
+        },
+        {
+          "label": "Cardinality",
+          "questions": 10
+        },
+        {
+          "label": "Set algebra & De Morgan",
+          "questions": 10
+        },
+        {
+          "label": "Inclusion-exclusion",
+          "questions": 10
+        },
+        {
+          "label": "Partitions & Cartesian products",
+          "questions": 10
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/set-theory/gate_dm_mock_3_2026-10-25.html"
+    },
+    "visual": {
+      "slug": "counting-and-combinatorics",
+      "title": "Counting and Combinatorics",
+      "level": "topic-level",
+      "covers": [
+        "inclusion-exclusion"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/counting-and-combinatorics/index.html"
+    },
+    "mapped_at": "2026-10-26"
+  }
 }

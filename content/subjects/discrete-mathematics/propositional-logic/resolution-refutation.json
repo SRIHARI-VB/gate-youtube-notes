@@ -52,5 +52,8 @@
   "prereqs": [
     "cnf-dnf-normal-forms",
     "rules-of-inference"
-  ]
+  ],
+  "links": {
+    "mapped_at": "2026-10-26"
+  }
 }

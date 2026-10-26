@@ -51,5 +51,52 @@
   ],
   "prereqs": [
     "truth-tables-and-tautology"
-  ]
+  ],
+  "links": {
+    "mock": {
+      "subject": "discrete-mathematics",
+      "unit_slug": "predicate-logic",
+      "unit_name": "Predicate & First-Order Logic",
+      "unit_number": 2,
+      "question_count": 50,
+      "subtopics": [
+        {
+          "label": "Predicates & domain",
+          "questions": 10
+        },
+        {
+          "label": "Universal & existential quantifiers",
+          "questions": 10
+        },
+        {
+          "label": "Negation of nested quantifiers",
+          "questions": 10
+        },
+        {
+          "label": "Scope & order of quantifiers",
+          "questions": 10
+        },
+        {
+          "label": "English to FOL translation",
+          "questions": 10
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/predicate-logic/gate_dm_mock_2_2026-10-25.html"
+    },
+    "visual": {
+      "slug": "first-order-logic",
+      "title": "First-Order Logic",
+      "level": "topic-level",
+      "covers": [
+        "predicates and the domain of discourse",
+        "universal and existential quantifiers",
+        "nested quantifiers and order",
+        "quantifier negation",
+        "translating English into quantified formulas",
+        "free and bound variables"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/first-order-logic/index.html"
+    },
+    "mapped_at": "2026-10-26"
+  }
 }

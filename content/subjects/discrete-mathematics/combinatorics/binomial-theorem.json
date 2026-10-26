@@ -43,5 +43,18 @@
   ],
   "prereqs": [
     "combinations"
-  ]
+  ],
+  "links": {
+    "visual": {
+      "slug": "generating-functions",
+      "title": "Generating Functions",
+      "level": "topic-level",
+      "covers": [
+        "coefficient extraction",
+        "the shift rule [x^n] x^k G = [x^(n-k)] G"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/generating-functions/index.html"
+    },
+    "mapped_at": "2026-10-26"
+  }
 }

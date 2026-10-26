@@ -52,5 +52,8 @@
   ],
   "prereqs": [
     "truth-tables-and-tautology"
-  ]
+  ],
+  "links": {
+    "mapped_at": "2026-10-26"
+  }
 }

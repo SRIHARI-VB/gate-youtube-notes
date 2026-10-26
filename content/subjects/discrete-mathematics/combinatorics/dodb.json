@@ -40,5 +40,17 @@
   ],
   "prereqs": [
     "distribution-templates"
-  ]
+  ],
+  "links": {
+    "visual": {
+      "slug": "functions-and-their-properties",
+      "title": "Functions and Their Properties",
+      "level": "topic-level",
+      "covers": [
+        "counting functions, injections, surjections and bijections"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/functions-and-their-properties/index.html"
+    },
+    "mapped_at": "2026-10-26"
+  }
 }

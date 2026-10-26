@@ -54,5 +54,17 @@
     "distribution-templates",
     "combinations"
   ],
-  "visual": "stars-and-bars"
+  "visual": "stars-and-bars",
+  "links": {
+    "visual": {
+      "slug": "counting-and-combinatorics",
+      "title": "Counting and Combinatorics",
+      "level": "topic-level",
+      "covers": [
+        "stars and bars"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/counting-and-combinatorics/index.html"
+    },
+    "mapped_at": "2026-10-26"
+  }
 }

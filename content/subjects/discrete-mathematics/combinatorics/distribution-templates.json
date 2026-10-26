@@ -47,5 +47,8 @@
   "prereqs": [
     "basic-counting-rules"
   ],
-  "visual": "distribution-grid"
+  "visual": "distribution-grid",
+  "links": {
+    "mapped_at": "2026-10-26"
+  }
 }
