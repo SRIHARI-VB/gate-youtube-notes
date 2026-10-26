@@ -1,0 +1,16 @@
+{
+  "id": "gate-2017-1-47",
+  "year": "2017",
+  "paper": "GATE CS 2017 Set 1",
+  "question_ref": "Q.47",
+  "type": "NAT",
+  "marks": "2",
+  "topic": "inclusion-exclusion",
+  "text": "The number of integers between 1 and 500 (both inclusive) that are divisible by 3 or 5 or 7 is ______.",
+  "options": [],
+  "answer": "271",
+  "solution": "|A| = floor(500/3) = 166, |B| = 100, |C| = 71; |A n B| = floor(500/15) = 33, |A n C| = floor(500/21) = 23, |B n C| = floor(500/35) = 14; |A n B n C| = floor(500/105) = 4. So 166+100+71-33-23-14+4 = 271.",
+  "source_url": "https://questions.examside.com/past-years/gate/question/pthe-number-of-integers-between-1-and-500-both-inclusive-gate-cse-discrete-mathematics-u87ugkllm2bnbwxh",
+  "source_label": "ExamSIDE solution for GATE CS 2017 Set 1 Q.47; official answer key 271",
+  "verification": "OFFICIAL_KEY"
+}
