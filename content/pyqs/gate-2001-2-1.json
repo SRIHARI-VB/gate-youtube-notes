@@ -1,0 +1,21 @@
+{
+  "id": "gate-2001-2-1",
+  "year": "2001",
+  "paper": "GATE CS 2001",
+  "question_ref": "Q.2.1",
+  "type": "MCQ",
+  "marks": "2",
+  "topic": "basic-counting-rules",
+  "text": "How many 4-digit even numbers have all 4 digits distinct?",
+  "options": [
+    "2240",
+    "2296",
+    "2620",
+    "4536"
+  ],
+  "answer": "Option (B) 2296",
+  "solution": "Split on the units digit. If it is 0: 1 x 9 x 8 x 7 = 504. If it is 2, 4, 6 or 8: 4 choices for the units digit, then 8 for the leading digit (not 0, not the units digit), then 8, then 7, giving 4 x 8 x 8 x 7 = 1792. Total 504 + 1792 = 2296. The most restricted position here is the units digit, not the leading digit.",
+  "source_url": "https://www.cse.iitd.ac.in/~mittal/gate/gate_math_2001.html",
+  "source_label": "IIT Delhi GATE mathematics solutions (cse.iitd.ac.in/~mittal)",
+  "verification": "SOURCED"
+}
