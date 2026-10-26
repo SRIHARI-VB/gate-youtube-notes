@@ -86,14 +86,12 @@
       "slug": "first-order-logic",
       "title": "First-Order Logic",
       "level": "topic-level",
-      "url": "https://gate-visual-explainer.vercel.app/topics/first-order-logic/index.html",
       "covers": [
-        "predicate vs proposition; the domain as part of the meaning",
-        "for-all as a conjunction over the domain; vacuous truth on the empty domain",
-        "there-exists as a disjunction; the witness; exists is false on the empty domain",
-        "free and bound variables; scope; the definition of a sentence"
-      ]
+        "predicates and the domain of discourse",
+        "universal and existential quantifiers"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/first-order-logic/index.html"
     },
-    "mapped_at": "2026-10-26"
+    "mapped_at": "2026-10-27"
   }
 }

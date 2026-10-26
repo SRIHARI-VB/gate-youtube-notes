@@ -88,15 +88,11 @@
       "title": "First-Order Logic",
       "level": "topic-level",
       "covers": [
-        "predicates and the domain of discourse",
-        "universal and existential quantifiers",
-        "nested quantifiers and order",
-        "quantifier negation",
-        "translating English into quantified formulas",
+        "scope of a quantifier",
         "free and bound variables"
       ],
       "url": "https://gate-visual-explainer.vercel.app/topics/first-order-logic/index.html"
     },
-    "mapped_at": "2026-10-26"
+    "mapped_at": "2026-10-27"
   }
 }

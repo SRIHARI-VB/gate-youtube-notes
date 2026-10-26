@@ -87,12 +87,12 @@
       "slug": "first-order-logic",
       "title": "First-Order Logic",
       "level": "topic-level",
-      "url": "https://gate-visual-explainer.vercel.app/topics/first-order-logic/index.html",
       "covers": [
-        "order of unlike quantifiers; for-all-there-exists vs there-exists-for-all",
+        "nested quantifiers and order",
         "same-kind quantifiers commute; mixed ones do not"
-      ]
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/first-order-logic/index.html"
     },
-    "mapped_at": "2026-10-26"
+    "mapped_at": "2026-10-27"
   }
 }

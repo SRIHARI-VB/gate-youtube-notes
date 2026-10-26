@@ -78,6 +78,10 @@
           "questions": 9
         },
         {
+          "label": "Logical equivalences",
+          "questions": 7
+        },
+        {
           "label": "Implications & inference",
           "questions": 9
         },
@@ -88,10 +92,6 @@
         {
           "label": "Validity & satisfiability",
           "questions": 8
-        },
-        {
-          "label": "Logical equivalences",
-          "questions": 7
         }
       ],
       "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/propositional-logic/gate_dm_mock_1_2026-10-25.html"
@@ -101,11 +101,11 @@
       "title": "Propositional Logic",
       "level": "topic-level",
       "covers": [
-        "implication and its single false row",
-        "converse, inverse, contrapositive"
+        "converse, inverse, contrapositive",
+        "implication and its single false row"
       ],
       "url": "https://gate-visual-explainer.vercel.app/topics/propositional-logic/index.html"
     },
-    "mapped_at": "2026-10-26"
+    "mapped_at": "2026-10-27"
   }
 }

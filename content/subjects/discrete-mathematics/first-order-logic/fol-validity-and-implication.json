@@ -69,11 +69,11 @@
       "slug": "first-order-logic",
       "title": "First-Order Logic",
       "level": "topic-level",
-      "url": "https://gate-visual-explainer.vercel.app/topics/first-order-logic/index.html",
       "covers": [
-        "there-exists-for-all implies for-all-there-exists, never the reverse"
-      ]
+        "validity and countermodels"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/first-order-logic/index.html"
     },
-    "mapped_at": "2026-10-26"
+    "mapped_at": "2026-10-27"
   }
 }

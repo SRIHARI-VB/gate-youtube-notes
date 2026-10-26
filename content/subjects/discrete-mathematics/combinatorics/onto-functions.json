@@ -75,14 +75,14 @@
       "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/functions/gate_dm_mock_5_2026-10-26.html"
     },
     "visual": {
-      "slug": "functions-and-their-properties",
-      "title": "Functions and Their Properties",
+      "slug": "counting-and-combinatorics",
+      "title": "Counting and Combinatorics",
       "level": "topic-level",
       "covers": [
-        "counting functions, injections, surjections and bijections"
+        "counting functions between finite sets"
       ],
-      "url": "https://gate-visual-explainer.vercel.app/topics/functions-and-their-properties/index.html"
+      "url": "https://gate-visual-explainer.vercel.app/topics/counting-and-combinatorics/index.html"
     },
-    "mapped_at": "2026-10-26"
+    "mapped_at": "2026-10-27"
   }
 }

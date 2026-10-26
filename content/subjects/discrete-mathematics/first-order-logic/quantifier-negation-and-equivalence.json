@@ -88,11 +88,12 @@
       "slug": "first-order-logic",
       "title": "First-Order Logic",
       "level": "topic-level",
-      "url": "https://gate-visual-explainer.vercel.app/topics/first-order-logic/index.html",
       "covers": [
-        "not-for-all is exists-not; not-exists is for-all-not"
-      ]
+        "quantifier negation",
+        "not-for-all is exists-not"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/first-order-logic/index.html"
     },
-    "mapped_at": "2026-10-26"
+    "mapped_at": "2026-10-27"
   }
 }

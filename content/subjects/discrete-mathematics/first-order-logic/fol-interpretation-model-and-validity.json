@@ -60,11 +60,11 @@
       "slug": "first-order-logic",
       "title": "First-Order Logic",
       "level": "topic-level",
-      "url": "https://gate-visual-explainer.vercel.app/topics/first-order-logic/index.html",
       "covers": [
-        "same formula, different domains, different truth value"
-      ]
+        "model, validity, satisfiability"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/first-order-logic/index.html"
     },
-    "mapped_at": "2026-10-26"
+    "mapped_at": "2026-10-27"
   }
 }

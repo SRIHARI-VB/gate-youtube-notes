@@ -51,6 +51,16 @@
   ],
   "videoRefs": [],
   "links": {
-    "mapped_at": "2026-10-26"
+    "visual": {
+      "slug": "first-order-logic",
+      "title": "First-Order Logic",
+      "level": "topic-level",
+      "covers": [
+        "countermodels on two elements",
+        "model size"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/first-order-logic/index.html"
+    },
+    "mapped_at": "2026-10-27"
   }
 }

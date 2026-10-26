@@ -61,10 +61,11 @@
       "title": "Counting and Combinatorics",
       "level": "topic-level",
       "covers": [
-        "stars and bars"
+        "stars and bars",
+        "combinations with repetition"
       ],
       "url": "https://gate-visual-explainer.vercel.app/topics/counting-and-combinatorics/index.html"
     },
-    "mapped_at": "2026-10-26"
+    "mapped_at": "2026-10-27"
   }
 }

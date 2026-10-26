@@ -69,6 +69,10 @@
           "questions": 9
         },
         {
+          "label": "Logical equivalences",
+          "questions": 7
+        },
+        {
           "label": "Implications & inference",
           "questions": 9
         },
@@ -79,14 +83,10 @@
         {
           "label": "Validity & satisfiability",
           "questions": 8
-        },
-        {
-          "label": "Logical equivalences",
-          "questions": 7
         }
       ],
       "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/propositional-logic/gate_dm_mock_1_2026-10-25.html"
     },
-    "mapped_at": "2026-10-26"
+    "mapped_at": "2026-10-27"
   }
 }

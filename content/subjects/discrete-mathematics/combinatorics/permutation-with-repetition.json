@@ -49,10 +49,10 @@
       "level": "topic-level",
       "covers": [
         "permutations and combinations",
-        "circular permutations"
+        "over-counting by symmetry"
       ],
       "url": "https://gate-visual-explainer.vercel.app/topics/counting-and-combinatorics/index.html"
     },
-    "mapped_at": "2026-10-26"
+    "mapped_at": "2026-10-27"
   }
 }
