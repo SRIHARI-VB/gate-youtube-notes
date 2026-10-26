@@ -1,0 +1,7 @@
+{
+  "slug": "distribution-grid",
+  "topic": "distribution-templates",
+  "engine": "html",
+  "interactive": "two toggles (objects distinct/identical, boxes distinct/identical)",
+  "cells": 4
+}
