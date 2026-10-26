@@ -1,0 +1,16 @@
+{
+  "id": "gate-2025-1-30",
+  "year": "2025",
+  "paper": "GATE CS 2025 Set 1",
+  "question_ref": "Q.30 (numbered Q.20 in some repositories)",
+  "type": "NAT",
+  "marks": "1",
+  "topic": "basic-counting-rules",
+  "text": "Let S be the set of all ternary strings defined over the alphabet {a, b, c}. Consider all strings in S that contain at least one occurrence of two consecutive symbols, that is, 'aa', 'bb' or 'cc'. The number of such strings of length 5 that are possible is ______.",
+  "options": [],
+  "answer": "195",
+  "solution": "Count the complement. Total strings 3^5 = 243. A string avoids all three patterns exactly when each symbol differs from its predecessor: 3 x 2^4 = 48. Answer 243 - 48 = 195. Adding the three pattern counts directly would double count strings such as 'aabbc'.",
+  "source_url": "https://www.trygateai.com/pyq/engineering-mathematics/combinatorics/gate-cse-2025-set-1-q30",
+  "source_label": "GATE CSE 2025 Set 1 Q.30 solution stating official answer 195 (also iaeacademy.in, citing the IIT Roorkee key)",
+  "verification": "OFFICIAL_KEY"
+}
