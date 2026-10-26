@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The 2x2 Distribution Grid - Combinatorics visual lesson</title>
+<link rel="stylesheet" href="../lesson.css">
+<style>
+  .toggles { display: grid; gap: 12px; grid-template-columns: 1fr 1fr; margin: 16px 0; }
+  .toggle { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 12px 14px; }
+  .seg { display: flex; gap: 6px; margin-top: 8px; }
+  .seg button { flex: 1; }
+  .seg button[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .out { background: var(--accent-soft); border-radius: var(--radius); padding: 16px 18px; margin-top: 14px; }
+  .out h3 { margin: 0 0 6px; font-size: 18px; }
+  .formula { font-family: var(--mono); font-size: 17px; color: var(--ink); }
+  .grid2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin: 10px 0 4px; }
+  .cell { border: 1px solid var(--line); border-radius: 8px; padding: 10px; font-size: 13px; background: var(--surface); }
+  .cell.on { border-color: var(--accent); box-shadow: 0 0 0 2px var(--accent-soft); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <p class="small"><a href="../../index.html">&larr; back to the revision site</a></p>
+  <h1>The 2x2 Distribution Grid</h1>
+  <div class="objective"><strong>Objective.</strong> Classify a distribution question before writing a formula: are the objects distinct or identical, and are the boxes distinct or identical?</div>
+
+  <div class="toggles">
+    <div class="toggle">
+      <div class="label">Objects</div>
+      <div class="seg" id="objSeg">
+        <button data-v="D" aria-pressed="true">Distinct</button>
+        <button data-v="I" aria-pressed="false">Identical</button>
+      </div>
+    </div>
+    <div class="toggle">
+      <div class="label">Boxes</div>
+      <div class="seg" id="boxSeg">
+        <button data-v="D" aria-pressed="true">Distinct</button>
+        <button data-v="I" aria-pressed="false">Identical</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid2">
+    <div class="cell" id="c-DD"><strong>DODB</strong><br>distinct objects, distinct boxes<br><span class="mono">k^n</span></div>
+    <div class="cell" id="c-ID"><strong>IODB</strong><br>identical objects, distinct boxes<br><span class="mono">C(n+k-1, k-1)</span></div>
+    <div class="cell" id="c-DI"><strong>DOIB</strong><br>distinct objects, identical boxes<br><span class="mono">S(n,k)</span></div>
+    <div class="cell" id="c-II"><strong>IOIB</strong><br>identical objects, identical boxes<br><span class="mono">p(n)</span></div>
+  </div>
+
+  <div class="out" id="out"></div>
+
+  <h2>Static explanation</h2>
+  <p>Every balls-into-boxes question in the GATE syllabus sits in exactly one of these four cells, and each cell has one method. Decide the two axes first, then write the formula - the wording of the question is what tells you which cell you are in.</p>
+  <ul>
+    <li><strong>Distinct objects</strong> means the objects can be told apart (different balls, different people, different digits in fixed roles). <strong>Identical objects</strong> means only counts matter (identical sweets, identical balls, repeated letters of one kind).</li>
+    <li><strong>Distinct boxes</strong> means the containers are labelled (children A, B, C; bags 1 to n; distinct bins). <strong>Identical boxes</strong> means they are not (groups, teams, unlabelled bins).</li>
+    <li><strong>Default rule:</strong> if the question names no containers, they are identical. "Split 6 students into 3 groups" is DOIB, not DODB.</li>
+  </ul>
+
+  <div class="card warn"><div class="label">Common misconception</div>
+  <p>Assuming boxes are labelled because they are mentioned, or assuming objects are distinct because the sentence uses the plural. Six identical balls into three identical bins is <strong>7</strong> (GATE CS 2022 Q.32); the same balls into three distinct bins would be C(8,2) = <strong>28</strong>.</p></div>
+
+  <div class="card ok"><div class="label">Quick check</div>
+  <p>Three identical chocolates into two named children, a child may get none. Which cell and what count?</p>
+  <details><summary>Answer</summary><p><strong>IODB, 4 ways</strong>: (3,0), (2,1), (1,2), (0,3) - that is C(3 + 2 - 1, 2 - 1) = C(4,1) = 4. If the chocolates were distinct it would be DODB: 2^3 = 8.</p></details></div>
+
+  <p class="small">Topic: distribution templates. Playlist videos: Part 4 (4m80SNCfxno), Part 5 (gYS1Ui0cJF0), Part 7 (dfYkiuplKkw). Verified PYQ: GATE CS 2022 Q.32 (7).</p>
+</div>
+<script>
+(function () {
+  var obj = 'D', box = 'D';
+  var DATA = {
+    DD: { name: 'DODB', formula: 'k^n', cond: 'empty boxes allowed; if every box must be non-empty use k! S(n,k)',
+          example: '3 distinct balls into 2 distinct boxes = 2^3 = 8',
+          when: 'Objects are distinguishable and the boxes are labelled.' },
+    ID: { name: 'IODB (stars and bars)', formula: 'C(n + k - 1, k - 1)', cond: 'empty allowed; each box at least one -> C(n - 1, k - 1)',
+          example: '5 identical sweets, 3 named children = C(7,2) = 21',
+          when: 'Only counts matter and the boxes are labelled.' },
+    DI: { name: 'DOIB (Stirling numbers)', formula: 'S(n, k)', cond: 'blocks must be non-empty; sum S(n,j) over j <= k if empty boxes allowed',
+          example: '4 distinct students into 2 unnamed groups = S(4,2) = 7',
+          when: 'Objects are distinguishable and the containers are unlabelled.' },
+    II: { name: 'IOIB (integer partitions)', formula: 'p(n) into at most k parts', cond: 'no closed formula - enumerate systematically',
+          example: '6 identical balls into 3 identical bins = 7',
+          when: 'Only counts matter and the containers are unlabelled.' }
+  };
+  function render() {
+    var key = obj + box, d = DATA[key];
+    ['DD', 'ID', 'DI', 'II'].forEach(function (k) {
+      document.getElementById('c-' + k).classList.toggle('on', k === key);
+    });
+    document.getElementById('out').innerHTML =
+      '<h3>' + d.name + '</h3>' +
+      '<div class="formula">' + d.formula + '</div>' +
+      '<p style="margin:8px 0 0"><strong>When:</strong> ' + d.when + '</p>' +
+      '<p style="margin:4px 0 0"><strong>Conditions:</strong> ' + d.cond + '</p>' +
+      '<p style="margin:4px 0 0"><strong>Example:</strong> ' + d.example + '</p>';
+  }
+  function bind(id, setter) {
+    document.getElementById(id).addEventListener('click', function (e) {
+      var b = e.target.closest('button'); if (!b) return;
+      this.querySelectorAll('button').forEach(function (x) { x.setAttribute('aria-pressed', String(x === b)); });
+      setter(b.getAttribute('data-v')); render();
+    });
+  }
+  bind('objSeg', function (v) { obj = v; });
+  bind('boxSeg', function (v) { box = v; });
+  render();
+})();
+</script>
+</body>
+</html>
