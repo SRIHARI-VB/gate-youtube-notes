@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Inclusion-Exclusion and Derangements - Combinatorics visual lesson</title>
+<link rel="stylesheet" href="../lesson.css">
+<script src="https://cdn.jsdelivr.net/npm/p5@1.9.4/lib/p5.min.js"></script>
+</head>
+<body>
+<div class="wrap">
+  <p class="small"><a href="../../index.html">&larr; back to the revision site</a></p>
+  <h1>Inclusion-Exclusion and Derangements</h1>
+  <div class="objective"><strong>Objective.</strong> Watch the alternating add/subtract pattern repair double counting, then use it to count derangements.</div>
+
+  <div class="canvas-wrap"><div id="canvas-holder"></div></div>
+  <div class="caption" id="caption" aria-live="polite"></div>
+
+  <div class="controls">
+    <button id="play" class="primary">Play</button>
+    <button id="prev">&larr; Prev</button>
+    <button id="next">Next &rarr;</button>
+    <button id="restart">Restart</button>
+    <span class="speed"><label for="speed">Speed</label>
+      <input id="speed" type="range" min="0.25" max="2" step="0.25" value="1">
+      <span id="speedLabel">1.00x</span></span>
+    <span class="counter" id="counter"></span>
+  </div>
+
+  <h2>Static explanation</h2>
+  <p>For two finite sets, |A| + |B| counts every element of the overlap twice. Subtracting the overlap once gives each element exactly one count: <strong>|A u B| = |A| + |B| - |A n B|</strong>. With |A| = 6, |B| = 5 and |A n B| = 2 the union is 9.</p>
+<p>For three sets the signs alternate: add the three singles, subtract the three pairwise overlaps, add the triple overlap back. An element in all three sets was added three times and subtracted three times, so without the final term it would be missing.</p>
+<p>A derangement is a permutation with no fixed point, and it is counted by inclusion-exclusion: start from n!, subtract the permutations fixing each element, add back those fixing two elements, and so on. That gives <strong>!n = n! (1 - 1/1! + 1/2! - ... + (-1)^n/n!)</strong>.</p>
+<p>For three letters: 3! = 6 permutations, and only BCA and CAB have no fixed point, so <strong>!3 = 2</strong>. The values continue !4 = 9, !5 = 44, !6 = 265.</p>
+
+  <div class="card warn"><div class="label">Common misconception</div><p><strong>You cannot divide a derangement count by the factorial of repeated letters.</strong> For the word LILAC the shortcut !5 / 2! gives 22, but the correct answer is 12, because each copy of L has its own forbidden original position, so the two copies are not interchangeable in the way the division assumes. Do a case analysis instead (GATE CS 2020 Q.42).</p></div>
+  <div class="card ok"><div class="label">Quick check</div><p>How many derangements does a 4-element set have?</p><details><summary>Answer</summary><p><strong>9</strong>, from !4 = 4! (1 - 1 + 1/2 - 1/6 + 1/24) = 24 - 24 + 12 - 4 + 1 = 9, or from the recurrence !n = (n-1)(!(n-1) + !(n-2)) with !2 = 1, !3 = 2.</p></details></div>
+  <p class="small">Topics: inclusion-exclusion, derangements. Playlist videos: Part 8 (jMUlizAcSRo), Part 9 (lblWHVLJc0A). Verified PYQs: GATE CS 2017 Set 1 Q.47 (271), GATE CS 2020 Q.42 (12).</p>
+</div>
+<script src="lesson.js"></script>
+<script src="sketch.js"></script>
+<script>
+/* p5.js is loaded from a CDN. If it is unreachable, say so plainly instead of showing an empty box. */
+window.addEventListener('load', function () {
+  if (window.p5) { return; }
+  var holder = document.getElementById('canvas-holder');
+  if (holder) {
+    holder.innerHTML = '<div style="padding:22px 18px;font-size:14.5px;color:#4a5260">' +
+      'The animation needs p5.js, which this page loads from a CDN, and the request failed (offline, or the CDN is blocked). ' +
+      'Everything below still works: the static explanation, the misconception and the quick check.</div>';
+  }
+  var cap = document.getElementById('caption');
+  if (cap && window.LESSON && window.LESSON.steps && window.LESSON.steps[0]) {
+    cap.innerHTML = window.LESSON.steps[0].caption;
+  }
+  ['play', 'prev', 'next', 'restart', 'speed'].forEach(function (id) {
+    var el = document.getElementById(id);
+    if (el) { el.disabled = true; }
+  });
+});
+</script>
+</body>
+</html>
