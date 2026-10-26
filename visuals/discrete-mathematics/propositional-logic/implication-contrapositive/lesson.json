@@ -1,0 +1,11 @@
+{
+  "slug": "implication-contrapositive",
+  "topic": "implication-converse-contrapositive",
+  "engine": "p5.js",
+  "steps": 4,
+  "example": {
+    "statement": "p -> q",
+    "equivalent": "not q -> not p",
+    "differing_rows": 2
+  }
+}

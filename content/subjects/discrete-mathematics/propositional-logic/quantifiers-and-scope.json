@@ -1,0 +1,55 @@
+{
+  "id": "quantifiers-and-scope",
+  "title": "Quantifiers, Scope and Translation",
+  "priority": "P2",
+  "order": 26,
+  "unit": "First-order",
+  "quickIdea": "Propositional logic cannot say 'all' or 'some'. Quantifiers add that, and the rules for negating and reordering them are what GATE tests alongside propositional tautologies.",
+  "remember": [
+    "Universal quantifier: for all x, P(x). Existential: there exists x with P(x). Both range over a stated domain.",
+    "Negation: not (for all x P(x)) = there exists x with not P(x); not (there exists x P(x)) = for all x not P(x).",
+    "Quantifier order matters: for all x there exists y R(x,y) does not imply there exists y such that for all x R(x,y).",
+    "Restricted domains are written with implication for universal and conjunction for existential: 'all students pass' is for all x (student(x) -> pass(x)); 'some student passes' is there exists x (student(x) and pass(x)).",
+    "A variable is bound inside the scope of its quantifier and free outside it; a formula with free variables has no truth value until they are assigned.",
+    "A closed formula is a tautology when it is true in every domain and every interpretation of its predicates."
+  ],
+  "example": {
+    "prompt": "Negate: for all x (P(x) -> there exists y Q(x,y)).",
+    "work": "The outer negation turns for all into there exists and negates the body; then not (A -> B) = A and not B, and the inner negation turns there exists into for all.",
+    "answer": "there exists x (P(x) and for all y not Q(x,y))"
+  },
+  "gateAngle": "GATE 2015 Set 2 Q.55 asks which first-order formula is a tautology. The answer is the one whose two sides differ only by rewriting P(x,y) -> R(x,y) as not P(x,y) or R(x,y), giving the propositional shape A <-> A. Spot the propositional skeleton first.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "Over the integers, which of these hold: for all x there exists y (x < y), or there exists y for all x (x < y)?",
+      "answer": "The first holds; the second does not",
+      "why": "For any integer x, y = x + 1 is larger, so the first is true. No single integer exceeds all integers, so the second fails. Swapping quantifiers of different kinds changes meaning."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "Translate 'every student likes some teacher' and 'some teacher is liked by every student' into quantifiers over students S and teachers T.",
+      "answer": "for all s there exists t L(s,t); versus there exists t for all s L(s,t)",
+      "why": "The two differ only in quantifier order, and the second is strictly stronger: one teacher must serve every student."
+    }
+  ],
+  "trap": {
+    "what": "Using AND with a universal quantifier, or OR with an existential one, when translating from English.",
+    "why": "'All students pass' is not for all x (student(x) and pass(x)) - that claims everything in the domain is a passing student. The universal needs implication, the existential needs conjunction.",
+    "counterexample": "Domain {a teacher}, nobody is a student. for all x (student(x) -> pass(x)) is vacuously true, while for all x (student(x) and pass(x)) is false."
+  },
+  "check": {
+    "question": "Negate: there exists x (P(x) and Q(x)).",
+    "answer": "for all x (not P(x) or not Q(x))",
+    "explanation": "The quantifier flips and the body is negated; De Morgan turns the conjunction into a disjunction of negations."
+  },
+  "pyqIds": [
+    "gate-2015-set2-fol-tautology-propositional-reduction"
+  ],
+  "videoRefs": [
+    "JnsT3ezRzuo"
+  ],
+  "prereqs": [
+    "truth-tables-and-tautology"
+  ]
+}

@@ -5,8 +5,7 @@
   "required": [
     "slug",
     "topic",
-    "engine",
-    "steps"
+    "engine"
   ],
   "properties": {
     "slug": {
@@ -27,6 +26,49 @@
     },
     "example": {
       "type": "object"
+    },
+    "cells": {
+      "type": "integer",
+      "minimum": 1
     }
-  }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "engine": {
+            "const": "p5.js"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "steps"
+        ]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "engine": {
+            "const": "html"
+          }
+        }
+      },
+      "then": {
+        "anyOf": [
+          {
+            "required": [
+              "steps"
+            ]
+          },
+          {
+            "required": [
+              "cells"
+            ]
+          }
+        ]
+      }
+    }
+  ]
 }

@@ -1,0 +1,57 @@
+{
+  "id": "satisfiability-and-validity",
+  "title": "Satisfiability, Validity and Falsifiability",
+  "priority": "P1",
+  "order": 21,
+  "unit": "Semantics",
+  "quickIdea": "Satisfiable means some interpretation makes the formula true; valid means every interpretation does. The two are related by negation, and neither implies the other.",
+  "remember": [
+    "Satisfiable: at least one model exists. Unsatisfiable (a contradiction): no model exists.",
+    "Valid (a tautology): true in every interpretation. Falsifiable: false in at least one interpretation.",
+    "Valid is the same as not falsifiable. Unsatisfiable is the same as not satisfiable.",
+    "F is valid exactly when not F is unsatisfiable; F is satisfiable exactly when not F is not valid.",
+    "A formula can be satisfiable and not valid - the ordinary case - but no formula is both valid and unsatisfiable.",
+    "Checking satisfiability means hunting for one true row; checking validity means hunting for one false row. The second is usually faster."
+  ],
+  "example": {
+    "prompt": "Classify (P -> (Q or R)) -> ((P and Q) -> R).",
+    "work": "At P = true, Q = true, R = false the left side is true -> true = true and the right side is (true) -> false = false, so the formula is false there. At P = Q = R = true it is true.",
+    "answer": "Satisfiable but not valid - it has both a true row and a false row."
+  },
+  "gateAngle": "GATE 2004 Q.70 is exactly this formula, answered 'satisfiable but not valid' from the single falsifying row. GATE 1991 Q.3(xii) goes the other way: two tautologies force a conjunction to be unsatisfiable.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "Is (p -> q) and (q -> p) and (p xor q) satisfiable?",
+      "answer": "No, it is unsatisfiable",
+      "why": "(p -> q) and (q -> p) is p <-> q, which is true exactly when p and q agree. p xor q is true exactly when they differ. No row satisfies both, so the conjunction has no model."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "You show that F is not valid. Does that prove not F is satisfiable?",
+      "answer": "Yes",
+      "why": "Not valid means some interpretation makes F false, and in that same interpretation not F is true. So not F has a model, which is what satisfiable means."
+    }
+  ],
+  "trap": {
+    "what": "Treating 'not valid' as 'contradiction', or reading a single true row as proof of validity.",
+    "why": "Validity is a statement about all rows and satisfiability about at least one. A formula that is false in one row is not valid even if it is true in seven.",
+    "counterexample": "The 2004 formula is true at P = Q = R = true, so it is satisfiable, yet it is not valid because of the row P = Q = true, R = false."
+  },
+  "check": {
+    "question": "Is a contradiction satisfiable?",
+    "answer": "No",
+    "explanation": "A contradiction is false in every interpretation, so it has no model at all. Satisfiability asks for at least one true row."
+  },
+  "pyqIds": [
+    "gate-2004-satisfiable-but-not-valid",
+    "gate-1991-conjunction-not-satisfiable"
+  ],
+  "videoRefs": [
+    "85YwyEd_iaI",
+    "12lUdO2mOp4"
+  ],
+  "prereqs": [
+    "truth-tables-and-tautology"
+  ]
+}

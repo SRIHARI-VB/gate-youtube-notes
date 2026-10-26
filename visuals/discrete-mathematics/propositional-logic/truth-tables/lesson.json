@@ -1,0 +1,11 @@
+{
+  "slug": "truth-tables",
+  "topic": "truth-tables-and-tautology",
+  "engine": "p5.js",
+  "steps": 4,
+  "example": {
+    "variables": 2,
+    "rows": 4,
+    "false_rows_of_implication": 1
+  }
+}

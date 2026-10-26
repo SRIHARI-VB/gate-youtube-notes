@@ -1,0 +1,64 @@
+{
+  "id": "implication-converse-contrapositive",
+  "title": "Implication, Converse and Contrapositive",
+  "priority": "P1",
+  "order": 18,
+  "unit": "Equivalence",
+  "quickIdea": "p -> q is false only when p is true and q is false. Its contrapositive not q -> not p is equivalent to it; its converse q -> p and its inverse not p -> not q are not.",
+  "remember": [
+    "Implication p -> q is false in exactly one row: p true, q false. That row is the whole truth table.",
+    "Vacuous truth: when p is false, p -> q is true whatever q is.",
+    "Converse of p -> q is q -> p. Inverse is not p -> not q. Contrapositive is not q -> not p.",
+    "Only the contrapositive is equivalent to the original. Converse and inverse are equivalent to each other, not to the original.",
+    "English map: 'p only if q' = p -> q; 'p if q' = q -> p; 'p unless q' = not q -> p; 'p when q' = q -> p; 'q is necessary for p' = p -> q; 'q is sufficient for p' = q -> p.",
+    "Biconditional p <-> q is (p -> q) and (q -> p); it is true exactly when p and q agree."
+  ],
+  "example": {
+    "prompt": "Write the converse, inverse and contrapositive of 'if it is raining then the ground is wet', and say which is equivalent to it.",
+    "work": "Converse: if the ground is wet then it is raining. Inverse: if it is not raining then the ground is not wet. Contrapositive: if the ground is not wet then it is not raining.",
+    "answer": "Only the contrapositive is equivalent to the original. The converse fails when the ground is wet for another reason."
+  },
+  "gateAngle": "Two shapes recur. Translation: 'fail grade cannot be given when the student scores more than 50%' is q -> not p (2024 Set 2 Q.12, official key). Naming: 'converse of I stay only if you go' is 'I stay if you go' (1998 Q.1.5).",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "Write the contrapositive of 'if a graph is a tree then it has no cycle', and state whether it is equivalent to the original.",
+      "answer": "If a graph has a cycle then it is not a tree - equivalent",
+      "why": "The contrapositive swaps and negates both parts: not (no cycle) -> not (tree). Swapping and negating both sides preserves truth in every row, so the two are equivalent."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "How many of the four rows of p -> q and q -> p differ?",
+      "answer": "Two rows: (p, q) = (true, false) and (false, true)",
+      "why": "Both are true at (true, true) and (false, false) and both are false in the swapped rows. Two differing rows is exactly why the converse is not equivalent."
+    }
+  ],
+  "trap": {
+    "what": "Assuming the converse, or treating 'only if' as 'if'.",
+    "why": "p -> q says nothing about what happens when q is true. Using the converse is the single most common lost mark in this topic.",
+    "counterexample": "'If a number is divisible by 4 then it is even' is true. Its converse, 'if a number is even then it is divisible by 4', fails at 6. Yet its contrapositive, 'if a number is odd then it is not divisible by 4', is true."
+  },
+  "check": {
+    "question": "'I stay only if you go.' What does that forbid?",
+    "answer": "It forbids 'I stay and you do not go'.",
+    "explanation": "P -> Q is false only in the row P true, Q false. So staying while you do not go is the one situation the assertion rules out."
+  },
+  "pyqIds": [
+    "gate-1998-converse-only-if",
+    "gate-2024-set2-fail-grade-translation"
+  ],
+  "videoRefs": [
+    "SRiIR-taO5k",
+    "cvLQLKgt1Vc",
+    "xvvdjUtpIxs",
+    "7jYCu5n2zkM",
+    "iiOasUljxKw",
+    "pILBvElgICI",
+    "yD5QOOYnX3w",
+    "JOcMlqVt4K4"
+  ],
+  "prereqs": [
+    "propositions-and-connectives"
+  ],
+  "visual": "discrete-mathematics/propositional-logic/implication-contrapositive"
+}

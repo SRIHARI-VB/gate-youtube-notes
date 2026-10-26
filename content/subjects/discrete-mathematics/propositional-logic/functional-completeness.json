@@ -1,0 +1,56 @@
+{
+  "id": "functional-completeness",
+  "title": "Functional Completeness of Connectives",
+  "priority": "P2",
+  "order": 25,
+  "unit": "Connectives",
+  "quickIdea": "A set of connectives is functionally complete when every truth function can be built from it. NAND alone and NOR alone are complete; {and, or} is not, because it cannot express negation.",
+  "remember": [
+    "A set S of connectives is functionally complete when every Boolean function is expressible as a formula using only connectives from S.",
+    "{not, and}, {not, or}, {not, implies}, {NAND} and {NOR} are each functionally complete.",
+    "{and, or} and {and, or, implies, iff} are not complete: every formula they build is monotone, so negation is out of reach.",
+    "{xor} and {xor, and} are not complete: every formula they build is 0-preserving, so negation is again out of reach.",
+    "NAND builds negation as p NAND p, and then AND as not (p NAND q). NOR builds negation as p NOR p, and OR as not (p NOR q).",
+    "Post's criterion: a single connective is complete only if it is not 0-preserving, not 1-preserving, not monotone, not self-dual and not affine."
+  ],
+  "example": {
+    "prompt": "Build not p and p and q using only NAND.",
+    "work": "p NAND p is not (p and p) = not p. Then p NAND q is not (p and q), so (p NAND q) NAND (p NAND q) = not not (p and q) = p and q.",
+    "answer": "not p = p NAND p; p and q = (p NAND q) NAND (p NAND q)"
+  },
+  "gateAngle": "GATE 2015 Set 1 Q.39 gives f(X,Y,Z) = X'YZ + XY' + Y'Z' and g(X,Y,Z) = X'YZ + X'YZ' + XY and asks which singleton is complete. Setting Y = X in f gives f(X,X,Z) = X'Z', which is NOR, so {f} is complete; g preserves 0 and 1, so it cannot be.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "Is {xor, and} functionally complete?",
+      "answer": "No",
+      "why": "Both connectives return false when every input is false, so every formula built from them is 0-preserving: at all-false input the value is false. Negation must map false to true, so it cannot be expressed."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Why is {and, or} not functionally complete?",
+      "answer": "Every formula built from and and or is monotone, so negation cannot be expressed",
+      "why": "Raising a variable from false to true can never turn a monotone formula from true to false. Negation does exactly that, so it lies outside the set."
+    }
+  ],
+  "trap": {
+    "what": "Assuming any set of connectives is complete, or checking completeness by trying a few examples.",
+    "why": "Completeness is a claim about all Boolean functions. Either exhibit a known complete set (such as NAND) built from the candidate, or use an invariant such as 0-preservation that rules it out.",
+    "counterexample": "{and, or} looks rich - it has two connectives and builds all monotone functions - yet not p is not monotone, so the set fails."
+  },
+  "check": {
+    "question": "Express not p using NOR only.",
+    "answer": "p NOR p",
+    "explanation": "p NOR p is not (p or p) = not p. NOR is complete, so everything else can then be built from it."
+  },
+  "pyqIds": [
+    "gate-2015-set1-functional-completeness"
+  ],
+  "videoRefs": [
+    "XRzBCfNOE20",
+    "QURQqorsALg"
+  ],
+  "prereqs": [
+    "truth-tables-and-tautology"
+  ]
+}

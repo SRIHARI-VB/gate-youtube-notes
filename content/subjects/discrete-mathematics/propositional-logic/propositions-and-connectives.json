@@ -1,0 +1,54 @@
+{
+  "id": "propositions-and-connectives",
+  "title": "Propositions and Connectives",
+  "priority": "P1",
+  "order": 16,
+  "unit": "Foundations",
+  "quickIdea": "A proposition is a declarative statement that is either true or false, never both. Connectives join propositions into compound propositions whose truth value depends only on the parts.",
+  "remember": [
+    "Proposition = declarative statement with exactly one truth value. 'Statement' is a synonym.",
+    "Not propositions: questions, commands, exclamations, paradoxes, and sentences with a free variable such as 'x > 5'.",
+    "Context must be fixed first: 'this rose is white' is a proposition once the rose is fixed.",
+    "Basic connectives: not, and, or, implies, iff. Exclusive or is derived: p xor q = (p or q) and not (p and q).",
+    "'but', 'although', 'yet' all translate to AND.",
+    "Precedence, tightest first: not, and, or, implies, iff. Bracket when unsure - precedence is a trap, not a shortcut.",
+    "AND is true only when both parts are true; OR is true unless both parts are false; XOR is true when exactly one part is true."
+  ],
+  "example": {
+    "prompt": "Which of these are propositions? (a) 6 < 24  (b) triangles have four vertices  (c) close the door  (d) x + 1 = 3",
+    "work": "(a) is declarative and true, so it is a proposition. (b) is declarative and false - still a proposition, because false is a truth value. (c) is a command with no truth value, so it is not a proposition. (d) contains a free variable, so it becomes a proposition only after x is fixed.",
+    "answer": "Propositions: (a) and (b). Not propositions: (c) and (d)."
+  },
+  "gateAngle": "GATE tests translation, not definitions. Two patterns recur: turn an English sentence into symbols (2024 Set 2 Q.12: 'fail grade cannot be given when the student scores more than 50%' is q -> not p), and pick the one formula that is not equivalent to the rest.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "Let p: the file is corrupted, q: the backup exists. Write 'the file is not corrupted unless the backup does not exist' in symbols.",
+      "answer": "q -> not p",
+      "why": "'A unless B' means 'if not B then A'. Here A = not p and B = not q, so not (not q) -> not p, that is q -> not p. Reading 'unless' as plain AND is the standard error."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Which of these are not propositions: (i) 7 is prime  (ii) x is prime  (iii) 7 is prime, isn't it?  (iv) 2 + 2 = 5",
+      "answer": "(ii) and (iii)",
+      "why": "(ii) has a free variable, so it has no truth value until x is fixed. (iii) is a question, not a declaration. (i) is true and (iv) is false, so both are propositions - being false does not stop something being a proposition."
+    }
+  ],
+  "trap": {
+    "what": "Reading 'only if', 'if', 'when' and 'unless' backwards, and assuming the converse is the same statement.",
+    "why": "'p only if q' is p -> q, but 'p if q' is q -> p. The two directions are different statements, and only the contrapositive is equivalent to the original.",
+    "counterexample": "GATE 1998 Q.1.5 asks for the converse of 'I stay only if you go'. The assertion is P -> Q with P = 'I stay', Q = 'you go'; its converse is Q -> P, 'I stay if you go', not the original."
+  },
+  "check": {
+    "question": "Are 'if it rains, the match is not played' and 'it rains only if the match is not played' the same formula?",
+    "answer": "Yes, both are R -> not P.",
+    "explanation": "'if R then S' is R -> S, and 'R only if S' is also R -> S. What differs is 'R if S', which is S -> R."
+  },
+  "pyqIds": [
+    "gate-2002-unless-translation"
+  ],
+  "videoRefs": [
+    "JnsT3ezRzuo"
+  ],
+  "prereqs": []
+}

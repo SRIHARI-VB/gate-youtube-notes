@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Converse, Inverse and Contrapositive - Propositional Logic visual lesson</title>
+<link rel="stylesheet" href="../../../lesson.css">
+<script src="https://cdn.jsdelivr.net/npm/p5@1.9.4/lib/p5.min.js"></script>
+</head>
+<body>
+<div class="wrap">
+  <p class="small"><a href="../../../../index.html">&larr; back to the revision site</a></p>
+  <h1>Converse, Inverse and Contrapositive</h1>
+  <div class="objective"><strong>Objective.</strong> Tell apart the three rewrites of p -&gt; q, and see from the columns which one is actually equivalent.</div>
+
+  <div class="canvas-wrap"><div id="canvas-holder"></div></div>
+  <div class="caption" id="caption" aria-live="polite"></div>
+
+  <div class="controls">
+    <button id="play" class="primary">Play</button>
+    <button id="prev">&larr; Prev</button>
+    <button id="next">Next &rarr;</button>
+    <button id="restart">Restart</button>
+    <span class="speed"><label for="speed">Speed</label>
+      <input id="speed" type="range" min="0.25" max="2" step="0.25" value="1">
+      <span id="speedLabel">1.00x</span></span>
+    <span class="counter" id="counter"></span>
+  </div>
+
+  <h2>Static explanation</h2>
+<p>Four statements are built from p -&gt; q. The original is p -&gt; q. The converse swaps the parts: q -&gt; p. The inverse negates both parts: not p -&gt; not q. The contrapositive swaps and negates: not q -&gt; not p.</p>
+<p>Only the contrapositive is logically equivalent to the original, and the truth table shows it directly: the two columns are identical in all four rows. Converse and inverse are equivalent to each other, because each is the contrapositive of the other, but neither is equivalent to the original.</p>
+<p>This matters in English. &ldquo;If it is raining then the ground is wet&rdquo; is true, and so is its contrapositive &ldquo;if the ground is not wet then it is not raining&rdquo;. Its converse, &ldquo;if the ground is wet then it is raining&rdquo;, can be false - a sprinkler also wets the ground.</p>
+<p>Translation rules worth keeping beside this lesson: p only if q is p -&gt; q; p if q is q -&gt; p; p unless q is not q -&gt; p; q is necessary for p is p -&gt; q.</p>
+
+  <div class="card warn"><div class="label">Common misconception</div><p>The converse error: assuming q -&gt; p from p -&gt; q. In the table the two columns disagree at (p true, q false) and (p false, q true). A statement and its converse are two different claims, and only one of them was given to you.</p></div>
+  <div class="card ok"><div class="label">Quick check</div><p>Which of the four statements is equivalent to p -&gt; q?</p><details><summary>Answer</summary><p><strong>The contrapositive, not q -&gt; not p.</strong> Its column matches p -&gt; q in every row. The converse and the inverse each differ in two rows.</p></details></div>
+  <p class="small">Topic: implication, converse and contrapositive. Playlist videos: Part 2 (SRiIR-taO5k), Practice Q2 solution (cvLQLKgt1Vc), Practice Q3 solution (xvvdjUtpIxs). Verified PYQs: GATE CS 1998 Q.1.5, GATE CS 2024 Set 2 Q.12.</p>
+</div>
+<script src="../../../lesson.js"></script>
+<script src="sketch.js"></script>
+<script>
+/* p5.js is loaded from a CDN. If it is unreachable, say so plainly instead of showing an empty box. */
+window.addEventListener('load', function () {
+  if (window.p5) { return; }
+  var holder = document.getElementById('canvas-holder');
+  if (holder) {
+    holder.innerHTML = '<div style="padding:22px 18px;font-size:14.5px;color:#4a5260">' +
+      'The animation needs p5.js, which this page loads from a CDN, and the request failed (offline, or the CDN is blocked). ' +
+      'Everything below still works: the static explanation, the misconception and the quick check.</div>';
+  }
+  var cap = document.getElementById('caption');
+  if (cap && window.LESSON && window.LESSON.steps && window.LESSON.steps[0]) {
+    cap.innerHTML = window.LESSON.steps[0].caption;
+  }
+  ['play', 'prev', 'next', 'restart', 'speed'].forEach(function (id) {
+    var el = document.getElementById(id);
+    if (el) { el.disabled = true; }
+  });
+});
+</script>
+</body>
+</html>

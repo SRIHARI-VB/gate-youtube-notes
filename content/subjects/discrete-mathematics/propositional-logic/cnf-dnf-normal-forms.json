@@ -1,0 +1,57 @@
+{
+  "id": "cnf-dnf-normal-forms",
+  "title": "CNF, DNF and Canonical Forms",
+  "priority": "P2",
+  "order": 20,
+  "unit": "Normal forms",
+  "quickIdea": "DNF is an OR of ANDs; CNF is an AND of ORs. The canonical versions read minterms off the true rows and maxterms off the false rows, so a truth table converts mechanically.",
+  "remember": [
+    "Literal = a variable or its negation. Minterm = AND of all n literals (one per variable). Maxterm = OR of all n literals.",
+    "DNF = OR of AND-terms. CNF = AND of OR-clauses. Neither is unique.",
+    "PDNF (sum of minterms) takes the rows where the formula is true; PCNF (product of maxterms) takes the rows where it is false.",
+    "For n variables there are 2^n minterms and 2^n maxterms, and maxterm M_j is the negation of minterm m_j.",
+    "PCNF of F = the PDNF of not F with every literal flipped, so the two index sets partition all 2^n rows.",
+    "Any formula can be converted either by reading its truth table or algebraically: remove <-> and ->, push negations in with De Morgan, then distribute.",
+    "A CNF formula is a conjunction of clauses, so it is true only when every clause has at least one true literal."
+  ],
+  "example": {
+    "prompt": "Write the PDNF and PCNF of p -> q.",
+    "work": "p -> q is false only at p = true, q = false. Its true rows are (false, false), (false, true) and (true, true), giving the minterms not p and not q, not p and q, and p and q.",
+    "answer": "PDNF = (not p and not q) or (not p and q) or (p and q). PCNF = not p or q, a single maxterm from the one false row."
+  },
+  "gateAngle": "GATE 2007 Q.48 asks what is true about CNF formulas and is answered with a counting argument: a random assignment falsifies a k-literal clause with probability 2^(-k) <= 1/2, so by linearity some assignment satisfies at least half the clauses. Canonical-form questions ask you to read minterms from rows without arithmetic.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "Write the PDNF and PCNF of p <-> q.",
+      "answer": "PDNF = (p and q) or (not p and not q); PCNF = (not p or q) and (p or not q)",
+      "why": "p <-> q is true at (true, true) and (false, false), giving two minterms; it is false at (true, false) and (false, true), giving two maxterms. Two plus two covers all four rows."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "What are the truth values of the empty clause and the empty conjunction, and why does it matter?",
+      "answer": "The empty clause is false; the empty conjunction is true",
+      "why": "An OR with no disjunct has nothing to make it true, and an AND with no conjunct has nothing to make it false. This is why resolution stops when the empty clause appears: deriving it means the clause set is unsatisfiable."
+    }
+  ],
+  "trap": {
+    "what": "Building the PDNF from the false rows, or forgetting that a clause is true when any single literal is true.",
+    "why": "Minterms are conjunctions of literals that are all true in exactly one row, so they belong to the rows where the formula holds. Mixing up true and false rows gives the negation of the right formula.",
+    "counterexample": "p -> q has three true rows and one false row. Taking the false row for the PDNF gives p and not q, which is not p -> q but its negation."
+  },
+  "check": {
+    "question": "How many minterms appear in the PDNF of a formula in three variables that is true in exactly two rows?",
+    "answer": "Two",
+    "explanation": "One minterm per true row, so the count of minterms equals the number of true rows - here 2 out of 8."
+  },
+  "pyqIds": [
+    "gate-2007-cnf-half-clauses-true"
+  ],
+  "videoRefs": [
+    "JnsT3ezRzuo",
+    "e6Od8P9rmMw"
+  ],
+  "prereqs": [
+    "logical-equivalence-laws"
+  ]
+}

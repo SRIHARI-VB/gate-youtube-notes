@@ -1,0 +1,57 @@
+{
+  "id": "logical-entailment-and-models",
+  "title": "Interpretations, Models and Logical Entailment",
+  "priority": "P1",
+  "order": 22,
+  "unit": "Semantics",
+  "quickIdea": "An interpretation is one truth assignment; a model is an interpretation that makes the formula true. A set of premises entails a conclusion when every model of the premises is a model of the conclusion.",
+  "remember": [
+    "Interpretation = assignment of true or false to every variable. Each row of the truth table is one interpretation.",
+    "A sentence with n variables has exactly 2^n interpretations.",
+    "A model of F is an interpretation under which F is true. F is satisfiable when it has at least one model.",
+    "Premises entail G (written premises |= G) when every model of all premises together is also a model of G.",
+    "Deduction theorem: premises |= G exactly when (premise1 and ... and premisen) -> G is valid.",
+    "Refutation form: premises |= G exactly when (premise1 and ... and premisen and not G) is unsatisfiable.",
+    "So an entailment question is a validity question in disguise - pick whichever form needs fewer rows."
+  ],
+  "example": {
+    "prompt": "P and (P -> Q) entails which of these: false, Q, true, P or Q, not Q or P?",
+    "work": "P and (P -> Q) = P and (not P or Q) = P and Q, which is true only in the row P = true, Q = true. In that row Q, true, P or Q and not Q or P are all true, and false is not.",
+    "answer": "Four of the five - everything except false."
+  },
+  "gateAngle": "GATE 2016 Set 2 Q.1 is this question with the answer 4. The efficient method is to simplify the premise set to its single model and then test each candidate in that one row.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "Does {p -> q, q -> r} entail p -> r, and how many models does the premise set have?",
+      "answer": "Yes; 4 models",
+      "why": "The premises fail only at (p true, q false) and at (q true, r false), which leaves four of the eight rows. In every surviving row, if p is true then q is true and then r is true, so p -> r holds in all four models."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "A formula has 4 variables. How many interpretations exist, and how many are models of p or q or r or s?",
+      "answer": "16 interpretations; 15 models",
+      "why": "2^4 = 16 rows, and the disjunction fails only in the single row where all four are false."
+    }
+  ],
+  "trap": {
+    "what": "Confusing entailment (a claim about models) with implication (a formula), and checking entailment in one convenient row.",
+    "why": "Premises |= G is false if even one model of the premises fails G. Testing a single row can only disprove entailment, never prove it.",
+    "counterexample": "{p or q} does not entail p: the row p = false, q = true is a model of the premise but not of p."
+  },
+  "check": {
+    "question": "How many interpretations does a formula in p, q, r have, and how many of them are models of p and q?",
+    "answer": "8 interpretations; 2 models",
+    "explanation": "2^3 = 8 rows. p and q is true when both are true, and r is then free, so exactly 2 rows are models."
+  },
+  "pyqIds": [
+    "gate-2016-set2-logically-implied-count"
+  ],
+  "videoRefs": [
+    "12lUdO2mOp4",
+    "85YwyEd_iaI"
+  ],
+  "prereqs": [
+    "satisfiability-and-validity"
+  ]
+}

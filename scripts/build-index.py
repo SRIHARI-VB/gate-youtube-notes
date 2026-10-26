@@ -1,9 +1,14 @@
 #!/usr/bin/env python3
 """Regenerate src/data/content.js and content/index.json from content/**/*.json.
 
+Layout (see docs/ARCHITECTURE.md):
+  content/subjects/<subject>/<topic>/<subtopic>.json   revision cards
+  content/playlists/<channel>/<playlist-id>/...        playlist material
+  content/pyqs/*.json                                  previous-year questions
+
 Run after adding or editing content:  python3 scripts/build-index.py
 """
-import json, os, sys
+import json, os
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CONTENT = os.path.join(ROOT, "content")
@@ -14,48 +19,86 @@ def load(path):
         return json.load(f)
 
 
+def walk_json(root):
+    """Every .json file under root, recursively, in a stable order."""
+    out = []
+    for base, dirs, files in os.walk(root):
+        dirs.sort()
+        for name in sorted(files):
+            if name.endswith(".json"):
+                out.append(os.path.join(base, name))
+    return out
+
+
+def rel(path):
+    return os.path.relpath(path, CONTENT).replace(os.sep, "/")
+
+
 def main():
-    topics, pyqs, videos = [], [], []
+    topics, pyqs, videos, playlists = [], [], [], []
 
-    tdir = os.path.join(CONTENT, "topics")
-    for name in sorted(os.listdir(tdir)):
-        if name.endswith(".json"):
-            topics.append(load(os.path.join(tdir, name)))
+    sroot = os.path.join(CONTENT, "subjects")
+    for path in walk_json(sroot):
+        parts = rel(path).split("/")
+        # subjects/<subject>/<topic>/<subtopic>.json
+        if len(parts) != 4:
+            continue
+        card = load(path)
+        card["subject"] = parts[1]
+        card["topic"] = parts[2]
+        card["path"] = rel(path)
+        topics.append(card)
 
-    pdir = os.path.join(CONTENT, "pyqs")
-    for name in sorted(os.listdir(pdir)):
-        if name.endswith(".json"):
-            pyqs.append(load(os.path.join(pdir, name)))
+    for path in walk_json(os.path.join(CONTENT, "pyqs")):
+        pyqs.append(load(path))
 
     plroot = os.path.join(CONTENT, "playlists")
-    playlist = {}
-    for pid in sorted(os.listdir(plroot)):
-        plpath = os.path.join(plroot, pid, "playlist.json")
-        if not os.path.isfile(plpath):
+    for channel in sorted(os.listdir(plroot)) if os.path.isdir(plroot) else []:
+        cdir = os.path.join(plroot, channel)
+        if not os.path.isdir(cdir):
             continue
-        playlist = load(plpath)
-        vroot = os.path.join(plroot, pid, "videos")
-        for vid in sorted(os.listdir(vroot)):
-            mpath = os.path.join(vroot, vid, "metadata.json")
-            apath = os.path.join(vroot, vid, "analysis.json")
-            if not (os.path.isfile(mpath) and os.path.isfile(apath)):
+        for pid in sorted(os.listdir(cdir)):
+            plpath = os.path.join(cdir, pid, "playlist.json")
+            if not os.path.isfile(plpath):
                 continue
-            m, a = load(mpath), load(apath)
-            videos.append({
-                "video_id": m["video_id"], "position": m["playlist_position"],
-                "title": m["video_title"], "url": m["video_url"],
-                "duration_seconds": m["duration_seconds"],
-                "transcript_status": m["transcript_status"],
-                "analysis_status": m["analysis_status"],
-                "coverage_note": a["coverage_note"], "topics": a["topics"],
-                "concepts": a["concepts"], "gate_claims": a["gate_claims"],
-            })
+            pl = load(plpath)
+            pl["channel_slug"] = channel
+            pl["path"] = rel(os.path.dirname(plpath))
+            pl["videos"] = []
+            vroot = os.path.join(cdir, pid, "videos")
+            vids = []
+            for vid in sorted(os.listdir(vroot)) if os.path.isdir(vroot) else []:
+                mpath = os.path.join(vroot, vid, "metadata.json")
+                apath = os.path.join(vroot, vid, "analysis.json")
+                if not (os.path.isfile(mpath) and os.path.isfile(apath)):
+                    continue
+                m, a = load(mpath), load(apath)
+                v = {
+                    "video_id": m["video_id"], "position": m["playlist_position"],
+                    "title": m["video_title"], "url": m["video_url"],
+                    "duration_seconds": m["duration_seconds"],
+                    "transcript_status": m["transcript_status"],
+                    "analysis_status": m["analysis_status"],
+                    "channel": m.get("channel_name", pl.get("channel", "")),
+                    "playlist_id": pl["playlist_id"], "playlist_title": pl["title"],
+                    "coverage_note": a["coverage_note"], "topics": a["topics"],
+                    "concepts": a["concepts"], "gate_claims": a["gate_claims"],
+                }
+                vids.append(v)
+            vids.sort(key=lambda v: v["position"])
+            pl["videos"] = [v["video_id"] for v in vids]
+            playlists.append(pl)
+            videos.extend(vids)
 
-    videos.sort(key=lambda v: v["position"])
-    topics.sort(key=lambda t: t["order"])
+    topics.sort(key=lambda t: (t.get("order", 999), t["id"]))
+    pyqs.sort(key=lambda p: (p["year"], p["id"]))
 
+    # The shell still reads a single `playlist` object; keep that field for the
+    # first playlist and publish the full list separately.
+    primary = playlists[0] if playlists else {}
     data = {
-        "playlist": playlist,
+        "playlist": primary,
+        "playlists": playlists,
         "syllabus": load(os.path.join(CONTENT, "syllabus.json")),
         "formulas": load(os.path.join(CONTENT, "revision", "formulas.json")),
         "topics": topics,
@@ -73,10 +116,19 @@ def main():
 
     index = {
         "generated_by": "scripts/build-index.py",
-        "playlist_id": playlist.get("playlist_id"),
-        "counts": {"topics": len(topics), "pyqs": len(pyqs), "videos": len(videos)},
+        "playlist_id": primary.get("playlist_id"),
+        "playlists": [
+            {"playlist_id": p["playlist_id"], "title": p["title"], "channel": p["channel"],
+             "channel_slug": p["channel_slug"], "path": p["path"], "videos": len(p["videos"])}
+            for p in playlists
+        ],
+        "counts": {"subjects": len({t["subject"] for t in topics}),
+                   "topics": len(topics), "pyqs": len(pyqs), "videos": len(videos),
+                   "playlists": len(playlists)},
         "map": [{
-            "topic": t["id"], "title": t["title"], "unit": t["unit"], "priority": t["priority"],
+            "topic": t["id"], "title": t["title"], "subject": t["subject"],
+            "group": t.get("topic"), "unit": t["unit"], "priority": t["priority"],
+            "path": t["path"],
             "videos": t.get("videoRefs", []), "pyqs": t.get("pyqIds", []),
             "visual": t.get("visual"), "variations": len(t.get("variations", [])),
         } for t in topics],
@@ -85,8 +137,8 @@ def main():
         json.dump(index, f, indent=2)
         f.write("\n")
 
-    print("indexed %d topics, %d pyqs, %d videos -> src/data/content.js"
-          % (len(topics), len(pyqs), len(videos)))
+    print("indexed %d playlists, %d videos, %d topics, %d pyqs -> src/data/content.js"
+          % (len(playlists), len(videos), len(topics), len(pyqs)))
 
 
 if __name__ == "__main__":

@@ -1,0 +1,58 @@
+{
+  "id": "rules-of-inference",
+  "title": "Rules of Inference and Argument Validity",
+  "priority": "P1",
+  "order": 23,
+  "unit": "Proof",
+  "quickIdea": "An argument is valid when the premises cannot all be true while the conclusion is false. A short list of inference rules covers almost every GATE argument question.",
+  "remember": [
+    "Argument form: premises above the line, conclusion below. It is valid when (premise1 and ... and premisen) -> conclusion is a tautology.",
+    "Modus ponens: p, p -> q, therefore q. Modus tollens: not q, p -> q, therefore not p.",
+    "Hypothetical syllogism: p -> q, q -> r, therefore p -> r.",
+    "Disjunctive syllogism: p or q, not p, therefore q. Addition: p, therefore p or q. Simplification: p and q, therefore p.",
+    "Resolution: p or r, q or not r, therefore p or q.",
+    "Fastest test: make the conclusion false, then try to satisfy every premise. If you cannot, the argument is valid.",
+    "Two named fallacies: affirming the consequent (p -> q, q, therefore p) and denying the antecedent (p -> q, not p, therefore not q). Both are invalid."
+  ],
+  "example": {
+    "prompt": "Premises: if it rains the match is not played; it rains. What follows, and is the argument valid?",
+    "work": "R = it rains, P = the match is played. Premises are R -> not P and R; the conclusion not P follows by modus ponens. Making not P false forces P true, and then R -> not P is false while R is true, so no model makes the premises true and the conclusion false.",
+    "answer": "Conclusion: the match is not played. The argument is valid."
+  },
+  "gateAngle": "GATE 2015 Set 2 Q.3 gives two statements and asks what follows by sound inference: from C -> not E and K -> E, the contrapositive E -> not C chains with K -> E to give K -> not C. The answer is the statement 'if a person is kind, he is not known to be corrupt'.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "Premises: p -> q and not q. What follows?",
+      "answer": "not p, by modus tollens",
+      "why": "If p were true, modus ponens would give q, contradicting not q. So p must be false. This is the contrapositive of the premise applied to not q."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Name the fallacy in: p -> q, q, therefore p.",
+      "answer": "Affirming the consequent - invalid",
+      "why": "The row p = false, q = true makes both premises true and the conclusion false, so the argument has a counterexample model and is invalid."
+    }
+  ],
+  "trap": {
+    "what": "Using the converse of a premise as if it were the premise.",
+    "why": "p -> q allows q to be true while p is false. Anything that assumes q forces p is an invalid step.",
+    "counterexample": "From 'if a candidate is corrupt then he is not elected' and 'this candidate was not elected' you cannot conclude he is corrupt - he may simply have lost."
+  },
+  "check": {
+    "question": "Which rule turns 'p or q' and 'not p' into 'q'?",
+    "answer": "Disjunctive syllogism",
+    "explanation": "One disjunct is ruled out, so the other must hold. It is valid in every row where both premises are true."
+  },
+  "pyqIds": [
+    "gate-2015-set2-inference-corrupt-kind"
+  ],
+  "videoRefs": [
+    "e6Od8P9rmMw",
+    "B6xo-2A8ano",
+    "7jYCu5n2zkM"
+  ],
+  "prereqs": [
+    "logical-entailment-and-models"
+  ]
+}

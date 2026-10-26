@@ -1,0 +1,45 @@
+{
+  "id": "recurrences-and-compositions",
+  "title": "Recurrences and Compositions (playlist gap)",
+  "priority": "P2",
+  "order": 15,
+  "unit": "Supplementary",
+  "quickIdea": "When a structure is built by adding one step to a smaller structure, count by a recurrence. This topic is in the GATE syllabus but is not taught by this playlist.",
+  "remember": [
+    "Compositions of n into 1s and 2s satisfy f(n) = f(n-1) + f(n-2) with f(1) = 1, f(2) = 2 - the Fibonacci shift.",
+    "Number of compositions of n into parts 1 and 2 is F(n+1) with F(1) = F(2) = 1.",
+    "All compositions of n (any part sizes) number 2^(n-1).",
+    "Generating function for compositions into 1s and 2s: 1/(1 - x - x^2)."
+  ],
+  "example": {
+    "prompt": "Number of 10-pennants (sequences of 1s and 2s summing to 10).",
+    "work": "f(10) = f(9) + f(8) with the sequence 1, 2, 3, 5, 8, 13, 21, 34, 55, 89.",
+    "answer": "89"
+  },
+  "gateAngle": "GATE CS 2014 Set 1 Q.49 (answer 89) is this exact computation. Because the playlist does not teach recurrences, treat this as a flagged gap and revise it separately.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "How many compositions of 6 use only the parts 1 and 2?",
+      "answer": "13",
+      "why": "f(6) = 13 from the same recurrence. Cross-check by the stars-and-bars style count: compositions with j twos contribute C(6-j, j) and summing over j = 0..3 gives 1 + 5 + 6 + 1 = 13."
+    }
+  ],
+  "trap": {
+    "what": "Using 2^(n-1) when the allowed parts are restricted.",
+    "why": "2^(n-1) counts compositions with any part sizes. Restricting the parts to 1 and 2 gives Fibonacci growth instead.",
+    "counterexample": "For n = 5: all compositions = 16, compositions using only 1 and 2 = 8."
+  },
+  "check": {
+    "question": "How many compositions of 5 use only 1s and 2s?",
+    "answer": "8",
+    "explanation": "The sequence is 1, 2, 3, 5, 8 for n = 1..5."
+  },
+  "pyqIds": [
+    "gate-2014-1-49"
+  ],
+  "videoRefs": [],
+  "prereqs": [
+    "basic-counting-rules"
+  ]
+}

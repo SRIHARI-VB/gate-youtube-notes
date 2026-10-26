@@ -1,0 +1,46 @@
+{
+  "id": "permutations",
+  "title": "Permutations (order matters)",
+  "priority": "P1",
+  "order": 2,
+  "unit": "Counting foundations",
+  "quickIdea": "Arrangements where position matters. If objects repeat, divide by the factorial of each repeat count.",
+  "remember": [
+    "n distinct objects in n places: n!.",
+    "Choose and arrange r of n: P(n,r) = n!/(n-r)!.",
+    "n objects around a circle: (n-1)! (rotations are the same seating).",
+    "With repeats n1, n2, ...: n! / (n1! n2! ...)."
+  ],
+  "example": {
+    "prompt": "Arrange the letters of BOOK.",
+    "work": "4 letters with O twice: 4!/2! = 12.",
+    "answer": "12 distinct words"
+  },
+  "gateAngle": "Order questions usually hide inside strings. The gap template - arrange the fixed symbols, then choose gaps for the others - turns a hard arrangement into one binomial (GATE 1999 Q.1.3).",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "In how many ways can 5 people sit at a round table if two particular people refuse to sit together?",
+      "answer": "12",
+      "why": "Total circular seatings: (5-1)! = 24. Seatings with the pair together: glue them into one block, giving (4-1)! = 6 orders of the four units, times 2 internal orders of the pair = 12. Subtract: 24 - 12 = 12."
+    }
+  ],
+  "trap": {
+    "what": "Treating reflections like rotations in a circular arrangement.",
+    "why": "A round table identifies rotations only. A necklace or bracelet also identifies reflections, which halves the count again.",
+    "counterexample": "4 people at a round table: (4-1)! = 6. As a bracelet it is 6/2 = 3, because mirror images are then the same object."
+  },
+  "check": {
+    "question": "How many distinct arrangements of the letters of LEVEL are there?",
+    "answer": "30",
+    "explanation": "5 letters with L twice and E twice: 5!/(2!2!) = 120/4 = 30."
+  },
+  "pyqIds": [],
+  "videoRefs": [
+    "UJF9vHQc3gk",
+    "NAKpzn7afRk"
+  ],
+  "prereqs": [
+    "basic-counting-rules"
+  ]
+}

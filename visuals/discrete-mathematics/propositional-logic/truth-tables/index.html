@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Truth Tables: Implication and Its Converse - Propositional Logic visual lesson</title>
+<link rel="stylesheet" href="../../../lesson.css">
+<script src="https://cdn.jsdelivr.net/npm/p5@1.9.4/lib/p5.min.js"></script>
+</head>
+<body>
+<div class="wrap">
+  <p class="small"><a href="../../../../index.html">&larr; back to the revision site</a></p>
+  <h1>Truth Tables: Implication and Its Converse</h1>
+  <div class="objective"><strong>Objective.</strong> See why p -&gt; q is false in exactly one row, why not p or q is the same column, and why the converse is not.</div>
+
+  <div class="canvas-wrap"><div id="canvas-holder"></div></div>
+  <div class="caption" id="caption" aria-live="polite"></div>
+
+  <div class="controls">
+    <button id="play" class="primary">Play</button>
+    <button id="prev">&larr; Prev</button>
+    <button id="next">Next &rarr;</button>
+    <button id="restart">Restart</button>
+    <span class="speed"><label for="speed">Speed</label>
+      <input id="speed" type="range" min="0.25" max="2" step="0.25" value="1">
+      <span id="speedLabel">1.00x</span></span>
+    <span class="counter" id="counter"></span>
+  </div>
+
+  <h2>Static explanation</h2>
+<p>A truth table lists every interpretation of a formula. With n variables there are 2<sup>n</sup> rows, so two variables give 4 rows and three give 8. Each row is one interpretation: one complete assignment of true and false to the variables.</p>
+<p>The implication p -&gt; q is false in exactly one row, where p is true and q is false. Everywhere else it is true, including both rows where p is false - that is vacuous truth, and it is the part beginners find strangest. Because only one row can break it, checking an implication usually means checking one row.</p>
+<p>not p or q has the same four values as p -&gt; q. Two formulas are logically equivalent exactly when their columns match in every row, so this single table proves the implication law.</p>
+<p>The converse q -&gt; p is a different column. It disagrees with the original in the two rows where p and q differ, which is why the converse of a true statement can be false: a wet ground does not have to mean rain.</p>
+
+  <div class="card warn"><div class="label">Common misconception</div><p>&ldquo;p implies q&rdquo; is often read as &ldquo;p and q rise and fall together&rdquo;, which is the biconditional. Implication allows q to be true while p is false. At p = false, q = true the formula p -&gt; q is true, and so is q -&gt; p; they disagree only when exactly one of them is false.</p></div>
+  <div class="card ok"><div class="label">Quick check</div><p>In which single row is p -&gt; q false?</p><details><summary>Answer</summary><p><strong>p = true, q = false.</strong> That is the only row where an implication fails, which is why a falsifying assignment is the fastest disproof of any implication-shaped claim.</p></details></div>
+  <p class="small">Topic: truth tables and tautologies. Playlist videos: Part 1 (JnsT3ezRzuo) and Part 2 (SRiIR-taO5k). Verified PYQs: GATE CS 2021 Set 1 Q.7, GATE CS 1992 Q.2(xvi).</p>
+</div>
+<script src="../../../lesson.js"></script>
+<script src="sketch.js"></script>
+<script>
+/* p5.js is loaded from a CDN. If it is unreachable, say so plainly instead of showing an empty box. */
+window.addEventListener('load', function () {
+  if (window.p5) { return; }
+  var holder = document.getElementById('canvas-holder');
+  if (holder) {
+    holder.innerHTML = '<div style="padding:22px 18px;font-size:14.5px;color:#4a5260">' +
+      'The animation needs p5.js, which this page loads from a CDN, and the request failed (offline, or the CDN is blocked). ' +
+      'Everything below still works: the static explanation, the misconception and the quick check.</div>';
+  }
+  var cap = document.getElementById('caption');
+  if (cap && window.LESSON && window.LESSON.steps && window.LESSON.steps[0]) {
+    cap.innerHTML = window.LESSON.steps[0].caption;
+  }
+  ['play', 'prev', 'next', 'restart', 'speed'].forEach(function (id) {
+    var el = document.getElementById(id);
+    if (el) { el.disabled = true; }
+  });
+});
+</script>
+</body>
+</html>

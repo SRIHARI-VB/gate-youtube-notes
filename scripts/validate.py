@@ -2,18 +2,27 @@
 """Validate the repository content, references, mathematics and hygiene.
 
 Run: python3 scripts/validate.py    (exit code 1 on failure)
+
+Content layout:
+  content/subjects/<subject>/<topic>/<subtopic>.json
+  content/playlists/<channel>/<playlist-id>/{playlist.json,videos/<video-id>/*}
+  content/pyqs/*.json
+  visuals/<...>/lesson.json + index.html
 """
-import json, os, re, sys
+import itertools, json, os, re, sys
 from math import comb, factorial
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CONTENT = os.path.join(ROOT, "content")
 PRIORITIES = {"P1", "P2", "P3"}
 VERIFICATION = {"OFFICIAL_KEY", "SOURCED", "UNVERIFIED"}
+LABELS = {"VERIFIED PYQ", "ORIGINAL PYQ-STYLE QUESTION",
+          "CONCEPTUAL PRACTICE QUESTION", "PREDICTED VARIATION"}
 REQUIRED_TOPIC = ["id", "title", "priority", "unit", "quickIdea", "remember",
                   "example", "gateAngle", "trap", "check", "pyqIds", "videoRefs", "prereqs"]
 REQUIRED_PYQ = ["id", "year", "paper", "question_ref", "type", "topic", "text",
                 "answer", "solution", "source_url", "source_label", "verification"]
+SLUG = re.compile(r"^[a-z0-9]+(-[a-z0-9]+)*$")
 
 errors, warnings, checks = [], [], []
 
@@ -26,43 +35,116 @@ def fail(msg):
     errors.append(msg)
 
 
+def warn(msg):
+    warnings.append(msg)
+
+
+def rel(path):
+    return os.path.relpath(path, ROOT).replace(os.sep, "/")
+
+
+def walk(root, suffix=".json"):
+    out = []
+    for base, dirs, files in os.walk(root):
+        dirs.sort()
+        for n in sorted(files):
+            if n.endswith(suffix):
+                out.append(os.path.join(base, n))
+    return out
+
+
+def load(path):
+    with open(path, encoding="utf-8") as f:
+        return json.load(f)
+
+
+# ---------------------------------------------------------------- loading
 def load_all():
-    topics = {}
-    tdir = os.path.join(CONTENT, "topics")
-    for n in sorted(os.listdir(tdir)):
-        if n.endswith(".json"):
-            t = json.load(open(os.path.join(tdir, n), encoding="utf-8"))
-            if t["id"] in topics:
-                fail("duplicate topic id: " + t["id"])
-            topics[t["id"]] = t
-    pyqs = {}
-    pdir = os.path.join(CONTENT, "pyqs")
-    for n in sorted(os.listdir(pdir)):
-        if n.endswith(".json"):
-            p = json.load(open(os.path.join(pdir, n), encoding="utf-8"))
-            if p["id"] in pyqs:
-                fail("duplicate pyq id: " + p["id"])
-            pyqs[p["id"]] = p
-    videos = {}
-    plroot = os.path.join(CONTENT, "playlists")
-    for pid in sorted(os.listdir(plroot)):
-        vroot = os.path.join(plroot, pid, "videos")
-        if not os.path.isdir(vroot):
+    topics, tpath = {}, {}
+    sroot = os.path.join(CONTENT, "subjects")
+    for path in walk(sroot):
+        parts = rel(path).split("/")
+        if len(parts) != 5:          # content/subjects/<s>/<t>/<card>.json
+            fail("%s: card is not at content/subjects/<subject>/<topic>/<card>.json" % rel(path))
             continue
-        for vid in sorted(os.listdir(vroot)):
-            m = json.load(open(os.path.join(vroot, vid, "metadata.json"), encoding="utf-8"))
-            a = json.load(open(os.path.join(vroot, vid, "analysis.json"), encoding="utf-8"))
-            videos[m["video_id"]] = (m, a)
-    return topics, pyqs, videos
+        t = load(path)
+        tid = t.get("id")
+        if tid in topics:
+            fail("duplicate topic id %s at %s and %s" % (tid, tpath[tid], rel(path)))
+        topics[tid] = t
+        tpath[tid] = rel(path)
+
+    pyqs = {}
+    for path in walk(os.path.join(CONTENT, "pyqs")):
+        p = load(path)
+        if p.get("id") in pyqs:
+            fail("duplicate pyq id: " + str(p.get("id")))
+        pyqs[p.get("id")] = p
+
+    videos, playlists = {}, {}
+    plroot = os.path.join(CONTENT, "playlists")
+    for channel in sorted(os.listdir(plroot)) if os.path.isdir(plroot) else []:
+        cdir = os.path.join(plroot, channel)
+        if not os.path.isdir(cdir):
+            continue
+        for pid in sorted(os.listdir(cdir)):
+            plpath = os.path.join(cdir, pid, "playlist.json")
+            if not os.path.isfile(plpath):
+                fail("playlist folder %s/%s has no playlist.json" % (channel, pid))
+                continue
+            pl = load(plpath)
+            playlists[pid] = pl
+            if pl.get("playlist_id") != pid:
+                fail("%s: playlist_id %r does not match its folder name" % (rel(plpath), pl.get("playlist_id")))
+            if channel_slug(pl.get("channel", "")) != channel:
+                fail("%s: channel folder %r is not the slug of %r" % (rel(plpath), channel, pl.get("channel")))
+            vroot = os.path.join(cdir, pid, "videos")
+            if not os.path.isdir(vroot):
+                fail("%s: no videos/ directory" % rel(plpath))
+                continue
+            for vid in sorted(os.listdir(vroot)):
+                vdir = os.path.join(vroot, vid)
+                if not os.path.isdir(vdir):
+                    continue
+                mpath = os.path.join(vdir, "metadata.json")
+                apath = os.path.join(vdir, "analysis.json")
+                npath = os.path.join(vdir, "notes.md")
+                if not (os.path.isfile(mpath) and os.path.isfile(apath)):
+                    fail("video %s is missing metadata.json or analysis.json" % vid)
+                    continue
+                if not os.path.isfile(npath):
+                    fail("video %s has no notes.md" % vid)
+                m, a = load(mpath), load(apath)
+                if m.get("video_id") != vid:
+                    fail("%s: video_id %r does not match its folder name" % (rel(mpath), m.get("video_id")))
+                videos[m["video_id"]] = (m, a, rel(vdir))
+    return topics, tpath, pyqs, videos, playlists
 
 
-def check_topics(topics, pyqs, videos):
+def channel_slug(name):
+    s = name.lower()
+    s = re.sub(r"[^a-z0-9]+", "-", s)
+    return s.strip("-")
+
+
+# ---------------------------------------------------------------- checks
+def check_topics(topics, tpath, pyqs, videos):
     for tid, t in topics.items():
+        where = tpath[tid]
         for f in REQUIRED_TOPIC:
             if f not in t:
                 fail("%s: missing field %s" % (tid, f))
+        if not SLUG.match(str(tid)):
+            fail("%s: id is not a lowercase hyphenated slug" % tid)
+        parts = where.split("/")
+        if not SLUG.match(parts[2]) or not SLUG.match(parts[3]):
+            fail("%s: subject/topic folder names must be lowercase hyphenated slugs" % where)
+        if os.path.basename(where) != str(tid) + ".json":
+            fail("%s: file name must equal the card id (%s.json)" % (where, tid))
         if t.get("priority") not in PRIORITIES:
             fail("%s: invalid priority %r" % (tid, t.get("priority")))
+        if not isinstance(t.get("order"), int):
+            fail("%s: missing integer order" % tid)
         if not t.get("remember"):
             fail("%s: no remember items" % tid)
         ex = t.get("example") or {}
@@ -84,11 +166,33 @@ def check_topics(topics, pyqs, videos):
         for pre in t.get("prereqs", []):
             if pre not in topics:
                 fail("%s: broken prerequisite %s" % (tid, pre))
+            if pre == tid:
+                fail("%s: lists itself as a prerequisite" % tid)
         for v in t.get("variations", []):
-            if v.get("label") not in {"VERIFIED PYQ", "ORIGINAL PYQ-STYLE QUESTION",
-                                     "CONCEPTUAL PRACTICE QUESTION", "PREDICTED VARIATION"}:
+            if v.get("label") not in LABELS:
                 fail("%s: variation has invalid label %r" % (tid, v.get("label")))
-    ok("%d topics: required fields, priorities, examples, traps, checks, references" % len(topics))
+            for f in ("question", "answer", "why"):
+                if not v.get(f):
+                    fail("%s: variation missing %s" % (tid, f))
+        vis = t.get("visual")
+        if vis:
+            vdir = os.path.join(ROOT, "visuals", vis)
+            for f in ("index.html", "lesson.json"):
+                if not os.path.isfile(os.path.join(vdir, f)):
+                    fail("%s: visual %r has no %s" % (tid, vis, f))
+    # one card, one path
+    ids = [t["id"] for t in topics.values()]
+    if len(ids) != len(set(ids)):
+        fail("a card id appears at more than one path")
+    ok("%d cards across %d subject(s): required fields, slugs, examples, traps, checks, references"
+       % (len(topics), len({tpath[t].split('/')[2] for t in topics})))
+
+    orders = {}
+    for tid, t in topics.items():
+        orders.setdefault(t.get("order"), []).append(tid)
+    dup = {o: v for o, v in orders.items() if len(v) > 1}
+    if dup:
+        fail("cards share an order value: %s" % dup)
 
 
 def check_pyqs(topics, pyqs):
@@ -106,23 +210,84 @@ def check_pyqs(topics, pyqs):
             fail("%s: pyq topic %r does not exist" % (pid, p.get("topic")))
         if p.get("type") not in {"MCQ", "MSQ", "NAT"}:
             fail("%s: invalid question type %r" % (pid, p.get("type")))
+        if p.get("type") == "MCQ" and not p.get("options"):
+            fail("%s: MCQ without options" % pid)
+        if not p.get("question_ref"):
+            fail("%s: no question reference" % pid)
         if p.get("verification") == "UNVERIFIED":
-            warnings.append("%s is labelled UNVERIFIED and must not be presented as an official PYQ" % pid)
-    ok("%d PYQ records: required fields, years, types, sources, topic links" % len(pyqs))
+            warn("%s is labelled UNVERIFIED and must not be presented as an official PYQ" % pid)
+        if p.get("verification") == "OFFICIAL_KEY" and not p.get("answer_evidence"):
+            warn("%s claims OFFICIAL_KEY but records no answer evidence" % pid)
+    ok("%d PYQ records: fields, years, types, options, sources, topic links" % len(pyqs))
+    used = set()
+    for t in topics.values():
+        used.update(t.get("pyqIds", []))
+    orphan = sorted(set(pyqs) - used)
+    if orphan:
+        warn("PYQs not linked from any card: %s" % ", ".join(orphan))
 
 
-def check_videos(videos):
-    for vid, (m, a) in videos.items():
+def check_videos(topics, videos):
+    for vid, (m, a, where) in videos.items():
         if not m.get("transcript_status"):
             fail("%s: no transcript status" % vid)
         if not a.get("coverage_note"):
             fail("%s: no coverage note" % vid)
+        if not m.get("analysis_status"):
+            fail("%s: no analysis status" % vid)
         if not m.get("video_url", "").startswith("https://www.youtube.com/watch?v="):
             fail("%s: bad video url" % vid)
-    ok("%d videos: every video carries an explicit transcript and coverage status" % len(videos))
+        if not isinstance(m.get("duration_seconds"), int):
+            fail("%s: bad duration" % vid)
+        if not a.get("topics"):
+            fail("%s: no topics mapped" % vid)
+        for tid in a.get("topics", []):
+            if tid not in topics:
+                fail("%s: analysis maps to unknown topic %s" % (vid, tid))
+    ok("%d videos: transcript status, analysis status, coverage note, topic mapping" % len(videos))
+    used = set()
+    for t in topics.values():
+        used.update(t.get("videoRefs", []))
+    orphan = sorted(set(videos) - used)
+    if orphan:
+        warn("videos not referenced by any card: %s" % ", ".join(orphan))
 
 
-# Every published numeric claim that can be recomputed is recomputed here.
+def check_playlists(playlists, videos):
+    for pid, pl in playlists.items():
+        for f in ("playlist_id", "title", "channel", "url", "subject", "exam"):
+            if not pl.get(f):
+                fail("%s: playlist.json missing %s" % (pid, f))
+        if pl.get("video_count") is not None:
+            have = sum(1 for v in videos.values() if v[0].get("playlist_id") == pid)
+            if pl["video_count"] != have:
+                fail("%s: video_count says %r but %d video folders exist" % (pid, pl["video_count"], have))
+        if pl.get("total_duration_seconds") is not None:
+            have = sum(v[0]["duration_seconds"] for v in videos.values()
+                       if v[0].get("playlist_id") == pid)
+            if pl["total_duration_seconds"] != have:
+                fail("%s: total_duration_seconds says %r but folders sum to %d"
+                     % (pid, pl["total_duration_seconds"], have))
+    ok("%d playlists: manifest fields, video counts, duration totals" % len(playlists))
+
+
+def check_syllabus(topics, tpath):
+    syl = load(os.path.join(CONTENT, "syllabus.json"))
+    if not syl.get("line"):
+        fail("syllabus.json has no line")
+    subjects = {tpath[t].split("/")[2] for t in topics}
+    declared = {s["slug"] for s in syl.get("subjects", [])}
+    for s in subjects - declared:
+        fail("subject folder %r is not declared in syllabus.json" % s)
+    for s in syl.get("subjects", []):
+        for tp in s.get("topics", []):
+            d = os.path.join(CONTENT, "subjects", s["slug"], tp["slug"])
+            if not os.path.isdir(d):
+                fail("syllabus.json names %s/%s but the folder is missing" % (s["slug"], tp["slug"]))
+    ok("syllabus declares every subject and topic folder that exists")
+
+
+# ---------------------------------------------------------------- mathematics
 MATH = [
     ("4-digit numbers, distinct digits", 9 * 9 * 8 * 7, 4536),
     ("4-digit PINs", 10 ** 4, 10000),
@@ -175,6 +340,12 @@ MATH = [
     ("S(5,3)", 25, 25),
     ("partitions of 5", 7, 7),
     ("full house", 13 * comb(4, 3) * 12 * comb(4, 2), 3744),
+    # propositional logic
+    ("truth-table rows, 3 variables", 2 ** 3, 8),
+    ("interpretations, 2 variables", 2 ** 2, 4),
+    ("truth functions of 2 variables", 2 ** (2 ** 2), 16),
+    ("truth functions of 3 variables", 2 ** (2 ** 3), 256),
+    ("minterms of 3 variables", 2 ** 3, 8),
 ]
 
 
@@ -185,10 +356,227 @@ def check_math():
     ok("%d published numeric claims recomputed" % len(MATH))
 
 
+# ---------------------------------------------- propositional logic truth tables
+VARS = "pqrs"
+
+
+def rows(n):
+    for bits in itertools.product([False, True], repeat=n):
+        yield dict(zip(VARS[:n], bits))
+
+
+def F(expr):
+    """Evaluate a boolean expression over the variables in its dict."""
+    return expr
+
+
+def tt(n, fn):
+    return [fn(r) for r in rows(n)]
+
+
+def is_taut(n, fn):
+    return all(tt(n, fn))
+
+
+def is_unsat(n, fn):
+    return not any(tt(n, fn))
+
+
+def equiv(n, f, g):
+    return all(a == b for a, b in zip(tt(n, f), tt(n, g)))
+
+
+def nmodels(n, fn):
+    return sum(1 for v in tt(n, fn) if v)
+
+
+def check_logic():
+    """Every equivalence, tautology and count published in the notes is recomputed."""
+    imp = lambda a, b: (not a) or b
+    iff = lambda a, b: a == b
+    xor = lambda a, b: a != b
+    nand = lambda a, b: not (a and b)
+    nor = lambda a, b: not (a or b)
+
+    # connectives and their rewrites
+    assert equiv(2, lambda r: imp(r["p"], r["q"]), lambda r: (not r["p"]) or r["q"]), "implication law"
+    assert equiv(2, lambda r: imp(r["p"], r["q"]), lambda r: imp(not r["q"], not r["p"])), "contrapositive"
+    assert equiv(2, lambda r: not imp(r["p"], r["q"]), lambda r: r["p"] and not r["q"]), "negated implication"
+    assert equiv(2, lambda r: iff(r["p"], r["q"]),
+                 lambda r: imp(r["p"], r["q"]) and imp(r["q"], r["p"])), "biconditional as two implications"
+    assert equiv(2, lambda r: iff(r["p"], r["q"]),
+                 lambda r: (r["p"] and r["q"]) or (not r["p"] and not r["q"])), "biconditional as agreement"
+    assert equiv(2, lambda r: not iff(r["p"], r["q"]), lambda r: xor(r["p"], r["q"])), "negated biconditional is xor"
+    assert equiv(2, lambda r: not (r["p"] and r["q"]),
+                 lambda r: (not r["p"]) or (not r["q"])), "De Morgan and"
+    assert equiv(2, lambda r: not (r["p"] or r["q"]),
+                 lambda r: (not r["p"]) and (not r["q"])), "De Morgan or"
+    assert equiv(3, lambda r: r["p"] and (r["q"] or r["r"]),
+                 lambda r: (r["p"] and r["q"]) or (r["p"] and r["r"])), "distributive and over or"
+    assert equiv(2, lambda r: r["p"] or (r["p"] and r["q"]), lambda r: r["p"]), "absorption"
+    assert equiv(3, lambda r: imp(r["p"] and r["q"], r["r"]),
+                 lambda r: imp(r["p"], imp(r["q"], r["r"]))), "exportation"
+    # implication is not associative
+    assert not equiv(3, lambda r: imp(r["p"], imp(r["q"], r["r"])),
+                     lambda r: imp(imp(r["p"], r["q"]), r["r"])), "implication not associative"
+    # the 2015 Set 1 Q.14 options
+    assert equiv(2, lambda r: iff(r["p"], r["q"]),
+                 lambda r: (imp(r["p"], r["q"]) and imp(r["q"], r["p"]))), "option A"
+    assert equiv(2, lambda r: iff(r["p"], r["q"]),
+                 lambda r: ((not r["p"]) or r["q"]) and imp(r["q"], r["p"])), "option B"
+    assert not equiv(2, lambda r: iff(r["p"], r["q"]),
+                     lambda r: ((not r["p"]) and r["q"]) or (r["p"] and not r["q"])), "option C is not iff"
+    assert equiv(2, lambda r: iff(r["p"], r["q"]),
+                 lambda r: ((not r["p"]) and (not r["q"])) or (r["p"] and r["q"])), "option D"
+
+    # tautologies claimed in the cards
+    assert is_taut(2, lambda r: imp(not r["p"] and (r["p"] or r["q"]), r["q"])), "2021 S1 tautology"
+    assert not is_taut(2, lambda r: imp(r["q"], not r["p"] and (r["p"] or r["q"]))), "2021 S2 not a tautology"
+    assert is_taut(2, lambda r: (imp(r["p"], r["q"])) or (imp(r["q"], r["p"]))), "(p->q) or (q->p)"
+    assert is_taut(2, lambda r: imp(r["p"], imp(r["q"], r["p"] and r["q"]))), "by-case worked example"
+    assert not is_taut(2, lambda r: imp(imp(r["p"], r["q"]), imp(r["q"], r["p"]))), "(p->q)->(q->p) fails"
+    assert is_taut(3, lambda r: imp(r["p"] and r["q"], r["q"] or r["r"])), "1992 option (b) as written"
+    assert not is_taut(3, lambda r: imp(r["p"] or r["q"], r["q"] and r["r"])), "1992 option (a) fails"
+    assert not is_taut(3, lambda r: imp(r["p"] or r["q"], imp(r["q"], r["r"]))), "1992 option (c) fails"
+    assert not is_taut(3, lambda r: imp(r["p"], imp(r["q"], imp(r["q"], r["r"])))), "1992 option (d) fails"
+    assert is_taut(3, lambda r: iff(r["p"], r["p"])), "A <-> A tautology (2015 Set 2 Q.55 skeleton)"
+    assert is_taut(3, lambda r: imp(r["q"], imp(r["p"], r["q"]))), "modus ponens form"
+
+    # satisfiability / validity
+    q2004 = lambda r: imp(imp(r["p"], r["q"] or r["r"]), imp(r["p"] and r["q"], r["r"]))
+    assert not is_taut(3, q2004) and nmodels(3, q2004) > 0, "2004 formula satisfiable but not valid"
+    assert nmodels(3, q2004) == 7, "2004 formula true in 7 of 8 rows"
+    # 1991: both implications tautologies force F1 and F2 jointly unsatisfiable
+    # 1991 Q.3(xii): for every assignment, both implications being true forces
+    # F1 and F2 to be jointly false, so their conjunction is unsatisfiable.
+    for f1, f2, f3 in itertools.product([False, True], repeat=3):
+        a = imp(f1 and f2, f3)
+        b = imp(f1 and f2, not f3)
+        if a and b and f1 and f2:
+            fail("1991: an assignment makes both tautologies true while F1 and F2 are both true")
+    assert is_unsat(3, lambda r: r["p"] and r["q"] and imp(r["p"] and r["q"], r["r"])
+                    and imp(r["p"] and r["q"], not r["r"])), "1991 conjunction unsatisfiable"
+    assert is_unsat(2, lambda r: (imp(r["p"], r["q"]) and imp(r["q"], r["p"])) and xor(r["p"], r["q"])), \
+        "(p<->q) and (p xor q) unsatisfiable"
+    # 2015 Set 2 Q.3 inference chain
+    assert is_taut(3, lambda r: imp(imp(r["p"], not r["q"]) and imp(r["r"], r["q"]), imp(r["r"], not r["p"]))), \
+        "C->not E, K->E entails K->not C"
+    # 2016 Set 2 Q.1
+    assert equiv(2, lambda r: r["p"] and imp(r["p"], r["q"]), lambda r: r["p"] and r["q"]), "P and (P->Q) = P and Q"
+    premise = lambda r: r["p"] and imp(r["p"], r["q"])
+    implied = [lambda r: False, lambda r: r["q"], lambda r: True,
+               lambda r: r["p"] or r["q"], lambda r: (not r["q"]) or r["p"]]
+    count = sum(1 for e in implied if all((not premise(r)) or e(r) for r in rows(2)))
+    assert count == 4, "2016 count of implied expressions"
+
+    # entailment and models
+    prem = lambda r: imp(r["p"], r["q"]) and imp(r["q"], r["r"])
+    assert nmodels(3, prem) == 4, "models of {p->q, q->r}"
+    assert all((not prem(r)) or imp(r["p"], r["r"]) for r in rows(3)), "hypothetical syllogism entails"
+    assert nmodels(4, lambda r: any(r.values())) == 15, "models of p or q or r or s"
+    assert nmodels(2, lambda r: r["p"] or r["q"]) == 3, "models of p or q"
+    assert nmodels(3, lambda r: r["p"] and r["q"]) == 2, "models of p and q"
+    assert not all((not (r["p"] or r["q"])) or r["p"] for r in rows(2)), "{p or q} does not entail p"
+
+    # resolution
+    assert is_taut(3, lambda r: imp((r["p"] or r["r"]) and (r["q"] or not r["r"]), r["p"] or r["q"])), "resolution valid"
+    assert not is_taut(3, lambda r: imp(r["p"] or r["q"], (r["p"] or r["r"]) and (r["q"] or not r["r"]))), \
+        "resolution converse not valid"
+    assert is_unsat(3, lambda r: (r["p"] or r["q"]) and (not r["p"]) and (not r["q"])), "resolution reaches empty clause"
+
+    # functional completeness
+    for a in (False, True):
+        assert nand(a, a) == (not a), "NAND builds negation"
+        assert nor(a, a) == (not a), "NOR builds negation"
+    for a, b in itertools.product([False, True], repeat=2):
+        assert nand(nand(a, b), nand(a, b)) == (a and b), "NAND builds conjunction"
+        assert nor(nor(a, b), nor(a, b)) == (a or b), "NOR builds disjunction"
+    monotone_ok = True
+    for f in (lambda a, b: a and b, lambda a, b: a or b, lambda a, b: (a and b) or a):
+        if f(False, False) > f(True, False) or f(False, False) > f(False, True):
+            monotone_ok = False
+    assert monotone_ok, "and/or formulas are monotone"
+    # {xor, and} is 0-preserving
+    for f in (lambda a, b: a and b, lambda a, b: xor(a, b)):
+        assert f(False, False) is False, "{xor, and} is 0-preserving"
+    # 2015 Set 1 Q.39
+    f = lambda x, y, z: ((not x) and y and z) or (x and (not y)) or ((not y) and (not z))
+    for x in (False, True):
+        for z in (False, True):
+            assert f(x, x, z) == nor(x, z), "f(X,X,Z) = NOR(X,Z)"
+    g = lambda x, y, z: ((not x) and y and z) or ((not x) and y and (not z)) or (x and y)
+    assert g(False, False, False) is False and g(True, True, True) is True, "g preserves 0 and 1"
+
+    # 2002 unless
+    assert equiv(3, lambda r: imp(not r["r"], imp(r["p"], r["q"])),
+                 lambda r: imp(r["p"] and not r["r"], r["q"])), "unless translation"
+
+    # normal forms: p -> q has 3 true rows and 1 false row; p <-> q has 2 and 2
+    assert nmodels(2, lambda r: imp(r["p"], r["q"])) == 3, "PDNF minterms of p->q"
+    assert nmodels(2, lambda r: not imp(r["p"], r["q"])) == 1, "PCNF maxterms of p->q"
+    assert nmodels(2, lambda r: iff(r["p"], r["q"])) == 2, "PDNF minterms of p<->q"
+    assert nmodels(2, lambda r: not iff(r["p"], r["q"])) == 2, "PCNF maxterms of p<->q"
+
+    # quantifier facts over a bounded integer domain
+    dom = range(-50, 51)
+    # "for all x there exists y with x < y" holds on the integers; the top of a
+    # bounded test domain is the only place a finite check can fail, so it is skipped.
+    assert all(x == max(dom) or any(x < y for y in dom) for x in dom), "for all x exists y x<y"
+    # "there exists y such that for all x, x < y" fails on the integers: no greatest integer.
+    assert not any(all(x < y for x in dom) for y in dom), "exists y for all x x<y is false"
+
+    # 2007 CNF clause counting: some assignment satisfies at least half the clauses
+    import random
+    random.seed(7)
+    for _ in range(200):
+        m, n = random.randint(1, 6), 3
+        clauses = []
+        for _ in range(m):
+            lits = [(random.randrange(n), random.random() < 0.5) for _ in range(random.randint(1, 3))]
+            clauses.append(lits)
+        best = 0
+        for bits in itertools.product([False, True], repeat=n):
+            s = sum(1 for c in clauses
+                    if any(bits[i] if pos else not bits[i] for i, pos in c))
+            best = max(best, s)
+        if best * 2 < m:
+            fail("2007 CNF claim failed on a random formula")
+            break
+    ok("propositional logic: every equivalence, tautology, entailment count and completeness claim recomputed")
+
+
+def check_visuals():
+    vroot = os.path.join(ROOT, "visuals")
+    lessons = []
+    for path in walk(vroot, "lesson.json"):
+        d = os.path.dirname(path)
+        L = load(path)
+        for f in ("slug", "topic", "engine"):
+            if f not in L:
+                fail("%s: lesson.json missing %s" % (rel(path), f))
+        if L.get("engine") not in {"p5.js", "html"}:
+            fail("%s: invalid engine %r" % (rel(path), L.get("engine")))
+        if L.get("engine") == "p5.js":
+            if not isinstance(L.get("steps"), int) or L.get("steps", 0) < 1:
+                fail("%s: p5 lesson needs a positive integer steps count" % rel(path))
+        elif not (isinstance(L.get("steps"), int) and L.get("steps", 0) >= 1
+                  or isinstance(L.get("cells"), int) and L.get("cells", 0) >= 1):
+            fail("%s: html lesson needs steps or cells" % rel(path))
+        if not os.path.isfile(os.path.join(d, "index.html")):
+            fail("%s: no index.html" % rel(d))
+        if L.get("engine") == "p5.js" and not os.path.isfile(os.path.join(d, "sketch.js")):
+            fail("%s: p5 lesson without sketch.js" % rel(d))
+        lessons.append(rel(d))
+    for f in ("lesson.css", "lesson.js"):
+        if not os.path.isfile(os.path.join(vroot, f)):
+            fail("visuals/%s is missing" % f)
+    ok("%d visual lessons: metadata, index.html, sketch, shared harness" % len(lessons))
+
+
 def check_hygiene():
     bad = []
     for base, _, files in os.walk(ROOT):
-        if "/.git" in base:
+        if "/.git" in base or "/node_modules" in base:
             continue
         for f in files:
             if not f.endswith((".md", ".json", ".js", ".html", ".css", ".py")):
@@ -200,38 +588,45 @@ def check_hygiene():
                 continue
             marker = "[" + "cite" + ":"
             if marker in text:
-                bad.append(path + " contains a citation marker")
+                bad.append(rel(path) + " contains a citation marker")
             if re.search(r"_v\d+\.|_final\.", f):
-                bad.append(path + " uses a versioned filename")
+                bad.append(rel(path) + " uses a versioned filename")
     for b in bad:
         fail(b)
     if not bad:
         ok("no citation markers or versioned filenames in generated files")
 
-    for rel in ("index.html", "src/styles/design-tokens.css", "src/styles/app.css",
-                "src/app/app.js", "src/data/content.js"):
-        if not os.path.isfile(os.path.join(ROOT, rel)):
-            fail("missing site file: " + rel)
-    for slug in ("stars-and-bars", "inclusion-exclusion", "pigeonhole", "distribution-grid"):
-        for f in ("index.html", "lesson.json"):
-            if not os.path.isfile(os.path.join(ROOT, "visuals", slug, f)):
-                fail("missing visual file: visuals/%s/%s" % (slug, f))
-        if slug != "distribution-grid" and not os.path.isfile(os.path.join(ROOT, "visuals", slug, "sketch.js")):
-            fail("missing sketch: visuals/%s/sketch.js" % slug)
-    ok("site shell and visual lesson files present")
+    for r in ("index.html", "src/styles/design-tokens.css", "src/styles/app.css",
+              "src/app/app.js", "src/app/routes.js", "src/data/content.js"):
+        if not os.path.isfile(os.path.join(ROOT, r)):
+            fail("missing site file: " + r)
+    ok("site shell files present")
+
+    # generated data must exist and agree with content
+    cj = os.path.join(ROOT, "src", "data", "content.js")
+    if os.path.isfile(cj):
+        text = open(cj, encoding="utf-8").read()
+        if "window.GATE_DATA" not in text:
+            fail("src/data/content.js does not define window.GATE_DATA")
+        if '"playlists"' not in text:
+            warn("src/data/content.js predates the multi-playlist shape; rerun build-index.py")
 
 
 def main():
-    topics, pyqs, videos = load_all()
-    check_topics(topics, pyqs, videos)
+    topics, tpath, pyqs, videos, playlists = load_all()
+    check_topics(topics, tpath, pyqs, videos)
     check_pyqs(topics, pyqs)
-    check_videos(videos)
+    check_videos(topics, videos)
+    check_playlists(playlists, videos)
+    check_syllabus(topics, tpath)
     check_math()
+    check_logic()
+    check_visuals()
     check_hygiene()
     for c in checks:
         print("  ok   " + c)
-    for wmsg in warnings:
-        print("  warn " + wmsg)
+    for w in warnings:
+        print("  warn " + w)
     for e in errors:
         print("  FAIL " + e)
     print("\n%d checks passed, %d warnings, %d failures" % (len(checks), len(warnings), len(errors)))

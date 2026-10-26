@@ -1,13 +1,37 @@
 {
   "exam": "GATE CSE 2027",
   "section": "Discrete Mathematics",
-  "line": "Combinatorics: Counting, recurrence relations, generating functions.",
+  "line": "Propositional Logic; Sets, Relations, Functions; Partial Orders and Lattices; Monoids and Groups; Graphs: Connectivity, Matching, Colouring; Combinatorics: Counting, Recurrence Relations, Generating Functions.",
+  "subjects": [
+    {
+      "slug": "discrete-mathematics",
+      "name": "Discrete Mathematics",
+      "topics": [
+        {
+          "slug": "propositional-logic",
+          "name": "Propositional Logic",
+          "covered_by_playlists": [
+            "PLIPZ2_p3RNHillKxh1_iFeZhy9MftHeWW"
+          ]
+        },
+        {
+          "slug": "combinatorics",
+          "name": "Combinatorics (Counting)",
+          "covered_by_playlists": [
+            "PLIPZ2_p3RNHjlC6eceG_vWSu-oA6Dc6aX"
+          ]
+        }
+      ]
+    }
+  ],
   "covered_by_playlist": [
-    "Counting"
+    "Counting",
+    "Propositional Logic (connectives, equivalence, normal forms, inference, resolution, functional completeness)"
   ],
   "not_covered_by_playlist": [
-    "recurrence relations (solving)",
-    "generating functions (as a technique)"
+    "recurrence relations (solving) - combinatorics playlist",
+    "generating functions (as a technique) - combinatorics playlist",
+    "first-order logic beyond quantifier translation - propositional logic playlist stops at propositional logic; the quantifier card is a bridge, not a full treatment"
   ],
-  "note": "The official GATE CSE syllabus line for this area is short. The playlist teaches the counting half in depth; recurrences and generating functions appear only as tools inside examples."
+  "note": "The official GATE CSE Discrete Mathematics line is short. Each playlist teaches one half of it in depth; the cards record which playlist covers which part, and the gaps are named rather than filled by guesswork."
 }

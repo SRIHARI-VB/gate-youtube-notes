@@ -1,0 +1,56 @@
+{
+  "id": "resolution-refutation",
+  "title": "Resolution and Proof by Refutation",
+  "priority": "P2",
+  "order": 24,
+  "unit": "Proof",
+  "quickIdea": "Resolution cancels a variable that appears negated in one clause and plain in another. Proof by refutation adds the negation of the goal to the clause set and resolves until the empty clause appears.",
+  "remember": [
+    "Resolution rule: from clauses (P or R) and (Q or not R), derive (P or Q). The variable R is resolved away.",
+    "Both parent clauses must be in clause form - a disjunction of literals - so convert to CNF first.",
+    "CNF conversion: eliminate <->, eliminate ->, push negations inward with De Morgan, distribute OR over AND.",
+    "To prove KB |= alpha: add not alpha to the clause set, resolve, and derive the empty clause. The empty clause is false, so the set is unsatisfiable, so KB |= alpha.",
+    "Resolution is refutation-complete for propositional logic: if the clause set is unsatisfiable, the empty clause is derivable.",
+    "Resolution is not a way to prove satisfiability: a set can be satisfiable and still allow many resolvents."
+  ],
+  "example": {
+    "prompt": "Resolve (p or q or r) with (not q or s).",
+    "work": "The variable q appears plain in the first clause and negated in the second, so it is cancelled and the remaining literals are unioned.",
+    "answer": "p or r or s"
+  },
+  "gateAngle": "GATE 2003 Q.72 asks which statement about the resolution rule is FALSE. The rule itself, (P or R) and (Q or not R) implies (P or Q), is valid; its converse is not, because P = true, Q = false, R = true satisfies P or Q but falsifies the conjunction. The FALSE statement is the converse one.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "Show that (P or Q) does not entail (P or R) and (Q or not R).",
+      "answer": "Counterexample: P = true, Q = false, R = true",
+      "why": "P or Q is true there, but Q or not R is false or false = false, so the conjunction is false. Resolution only runs in one direction: resolvents are entailed, the parents are not."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "To prove KB |= alpha by refutation, what do you add to the clause set, and what do you look for?",
+      "answer": "Add not alpha in clause form; look for the empty clause",
+      "why": "KB |= alpha exactly when KB and not alpha has no model. The empty clause is the syntactic witness that no model exists."
+    }
+  ],
+  "trap": {
+    "what": "Resolving two clauses on a variable that is not complementary, or resolving on more than one variable at a time.",
+    "why": "Exactly one variable must appear negated in one parent and plain in the other. Resolving on two variables at once is not sound.",
+    "counterexample": "From (p or q) and (p or not q) you may resolve on q to get p or p, which is p. You may not 'cancel' p as well to get the empty clause - the pair is satisfiable at p = true."
+  },
+  "check": {
+    "question": "What does deriving the empty clause prove?",
+    "answer": "That the clause set is unsatisfiable",
+    "explanation": "The empty clause is a disjunction with no literals, hence false in every interpretation. If it is derivable, no interpretation satisfies the set."
+  },
+  "pyqIds": [
+    "gate-2003-resolution-rule-false-statement"
+  ],
+  "videoRefs": [
+    "7jYCu5n2zkM"
+  ],
+  "prereqs": [
+    "cnf-dnf-normal-forms",
+    "rules-of-inference"
+  ]
+}

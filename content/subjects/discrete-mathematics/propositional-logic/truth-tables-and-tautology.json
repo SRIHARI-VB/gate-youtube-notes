@@ -1,0 +1,58 @@
+{
+  "id": "truth-tables-and-tautology",
+  "title": "Truth Tables, Tautology and Contradiction",
+  "priority": "P1",
+  "order": 17,
+  "unit": "Foundations",
+  "quickIdea": "A truth table lists every interpretation. If every row is true the formula is a tautology, if every row is false it is a contradiction, and anything else is a contingency.",
+  "remember": [
+    "A formula with n variables has 2^n rows: 4 for two variables, 8 for three.",
+    "Tautology: true in every row. Contradiction: false in every row. Contingency (satisfiable and falsifiable): true in some rows and false in others.",
+    "There are 2^(2^n) distinct truth functions of n variables: 16 of two variables, 256 of three.",
+    "To prove a tautology, every row must be true - one falsifying row is enough to disprove it.",
+    "Two formulas are equivalent exactly when they have identical columns, so one truth table settles an equivalence question.",
+    "Column order: build innermost brackets first, then work outwards."
+  ],
+  "example": {
+    "prompt": "Is (not p and (p or q)) -> q a tautology?",
+    "work": "not p and (p or q) simplifies to not p and q. Then (not p and q) -> q is equivalent to p or not q or q, which is true regardless of p and q.",
+    "answer": "Yes, a tautology. Both rows that could falsify it fail: the antecedent is true only when p is false and q is true, and there q is true."
+  },
+  "gateAngle": "GATE 2021 Set 1 Q.7 gives two formulas and asks which is a tautology: S1 = (not p and (p or q)) -> q is one, S2 = q -> (not p and (p or q)) is not, because it fails at p = q = true. The exam wants the falsifying row, not a full table.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "How many rows does the truth table of a formula in p, q, r, s have, and how many distinct truth functions of three variables exist?",
+      "answer": "16 rows; 256 truth functions",
+      "why": "Rows = 2^4 = 16. Truth functions of n variables = 2^(2^n), so for n = 3 that is 2^8 = 256."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "Is (p -> q) or (q -> p) a tautology?",
+      "answer": "Yes",
+      "why": "If p is false then p -> q is true. If p is true then q -> p is q -> true, which is true. So one disjunct is always true, and a disjunction with a true disjunct is true."
+    }
+  ],
+  "trap": {
+    "what": "Treating implication as 'both sides equal', or assuming a formula is a tautology because it looks balanced.",
+    "why": "Implication is false in exactly one row: antecedent true and consequent false. Every other row is true, including rows where the antecedent is false.",
+    "counterexample": "q -> (not p and (p or q)) looks like the tautology above but is false at p = true, q = true: the right side becomes (false and true) = false, so true -> false = false."
+  },
+  "check": {
+    "question": "A formula in three variables is false in exactly one row. Is it a tautology, a contradiction, or a contingency?",
+    "answer": "A contingency",
+    "explanation": "Seven of the eight rows are true and one is false, so it is neither always true nor always false."
+  },
+  "pyqIds": [
+    "gate-2021-set1-s1-tautology",
+    "gate-1992-tautology-four-formulas"
+  ],
+  "videoRefs": [
+    "JnsT3ezRzuo",
+    "SRiIR-taO5k"
+  ],
+  "prereqs": [
+    "propositions-and-connectives"
+  ],
+  "visual": "discrete-mathematics/propositional-logic/truth-tables"
+}

@@ -1,0 +1,58 @@
+{
+  "id": "logical-equivalence-laws",
+  "title": "Logical Equivalence and the Law List",
+  "priority": "P1",
+  "order": 19,
+  "unit": "Equivalence",
+  "quickIdea": "Two formulas are logically equivalent when they agree in every row. A small list of laws rewrites almost any GATE expression without a truth table.",
+  "remember": [
+    "Identity: p and T = p; p or F = p. Domination: p or T = T; p and F = F.",
+    "Idempotent: p or p = p; p and p = p. Double negation: not not p = p.",
+    "Commutative and associative laws hold for and, or, xor - not for implies.",
+    "Distributive: p and (q or r) = (p and q) or (p and r); p or (q and r) = (p or q) and (p or r).",
+    "De Morgan: not (p and q) = not p or not q; not (p or q) = not p and not q.",
+    "Absorption: p or (p and q) = p; p and (p or q) = p.",
+    "Implication: p -> q = not p or q. Contrapositive: p -> q = not q -> not p. Exportation: (p and q) -> r = p -> (q -> r).",
+    "Biconditional: p <-> q = (p -> q) and (q -> p) = (p and q) or (not p and not q). Negation of biconditional: not (p <-> q) = p xor q."
+  ],
+  "example": {
+    "prompt": "Simplify not (p -> q).",
+    "work": "p -> q = not p or q, so not (p -> q) = not (not p or q) = p and not q by De Morgan.",
+    "answer": "p and not q - 'p happens and q does not'."
+  },
+  "gateAngle": "GATE 2015 Set 1 Q.14 asks which formula is NOT equivalent to p <-> q. Three options are rewrites of the biconditional; the odd one, (not p and q) or (p and not q), is p xor q, its negation. Equivalence questions are answered by rewriting, not by eight rows.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "Simplify not (not p and q) or (p and q).",
+      "answer": "p or not q",
+      "why": "De Morgan turns not (not p and q) into p or not q. The whole expression becomes (p or not q) or (p and q); by absorption the (p and q) term adds nothing, leaving p or not q."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Is p -> (q -> r) equivalent to (p -> q) -> r?",
+      "answer": "No",
+      "why": "At p = false, q = false, r = false the left side is false -> (false -> false) = false -> true = true, while the right side is (false -> false) -> false = true -> false = false. Implication is not associative."
+    }
+  ],
+  "trap": {
+    "what": "Pushing a negation through a bracket without flipping the connective, and assuming implication is associative.",
+    "why": "De Morgan flips AND to OR and OR to AND. Distributing a negation like a multiplier gives a wrong formula in most rows.",
+    "counterexample": "not (p and q) is not equal to not p and not q. At p = true, q = false the left side is true and the right side is false."
+  },
+  "check": {
+    "question": "Rewrite p -> q using only not and or.",
+    "answer": "not p or q",
+    "explanation": "These two agree in all four rows: both are false only when p is true and q is false."
+  },
+  "pyqIds": [
+    "gate-2015-set1-not-equivalent-biconditional"
+  ],
+  "videoRefs": [
+    "SRiIR-taO5k",
+    "XkARI5U7gjI"
+  ],
+  "prereqs": [
+    "truth-tables-and-tautology"
+  ]
+}

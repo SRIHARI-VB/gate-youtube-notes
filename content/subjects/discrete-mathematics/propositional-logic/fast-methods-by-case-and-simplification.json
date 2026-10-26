@@ -1,0 +1,55 @@
+{
+  "id": "fast-methods-by-case-and-simplification",
+  "title": "By-Case and Simplification Methods",
+  "priority": "P1",
+  "order": 27,
+  "unit": "Methods",
+  "quickIdea": "Truth tables are correct but slow. Splitting on one variable into two cases, or rewriting with the law list, gets to the answer in a fraction of the rows.",
+  "remember": [
+    "Three methods for any propositional question: full truth table (2^n rows), by-case on one variable (2 cases), algebraic simplification.",
+    "By-case is complete because a variable is either true or false, so the two cases cover every interpretation.",
+    "Split on a variable that appears in a position that simplifies: if the formula is F -> anything and F is false, the whole thing is true.",
+    "Shortcuts worth memorising: false -> A is true; true -> A is A; A -> A is true; A or not A is true; A and not A is false.",
+    "To disprove a tautology, produce one falsifying assignment - that is a complete proof of non-tautology.",
+    "To prove an equivalence, either show both columns match or rewrite one side into the other with the laws."
+  ],
+  "example": {
+    "prompt": "Prove by cases that p -> (q -> (p and q)) is a tautology.",
+    "work": "Case p = true: the formula becomes true -> (q -> q), and q -> q is true, so the whole is true. Case p = false: false -> anything is true.",
+    "answer": "True in both cases, and the cases cover every interpretation, so it is a tautology."
+  },
+  "gateAngle": "The instructor in Part 2 explicitly drops the truth table in favour of these two methods. On GATE questions such as 2021 Set 1 Q.7, one falsifying row or one simplification decides the answer in under a minute.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "Is (p -> q) -> (q -> p) a tautology?",
+      "answer": "No",
+      "why": "At p = false, q = true the antecedent p -> q is true and the consequent q -> p is false, so the implication is false. One row settles it."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Why is splitting on one variable enough to settle a formula in three variables?",
+      "answer": "Because the two cases partition all eight rows",
+      "why": "Fixing one variable to true covers the four rows where it is true and fixing it to false covers the other four. Every row falls in exactly one case, so agreement in both cases is agreement everywhere."
+    }
+  ],
+  "trap": {
+    "what": "Splitting on a variable and silently assuming the other variables keep one value, or checking only one case.",
+    "why": "Inside a case the other variables are still free, so the case is proved only when the expression reduces to something true for every value of the remaining variables.",
+    "counterexample": "In case p = true, p -> (q -> (p and q)) reduces to q -> q, which is true for both values of q - that is what makes the case work. If it had reduced to q, the case would not be settled."
+  },
+  "check": {
+    "question": "Which single row disproves the claim that (p -> q) is a tautology?",
+    "answer": "p = true, q = false",
+    "explanation": "That is the only row where an implication is false, so it is the only candidate falsifier of any implication-shaped claim."
+  },
+  "pyqIds": [],
+  "videoRefs": [
+    "SRiIR-taO5k",
+    "XkARI5U7gjI",
+    "8g6mpVBziJQ"
+  ],
+  "prereqs": [
+    "truth-tables-and-tautology"
+  ]
+}
