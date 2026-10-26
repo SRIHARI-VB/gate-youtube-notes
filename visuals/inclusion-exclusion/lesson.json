@@ -1,0 +1,13 @@
+{
+  "slug": "inclusion-exclusion",
+  "topic": "derangements",
+  "engine": "p5.js",
+  "example": {
+    "A": 6,
+    "B": 5,
+    "intersection": 2,
+    "union": 9,
+    "derangement_3": 2
+  },
+  "steps": 5
+}
