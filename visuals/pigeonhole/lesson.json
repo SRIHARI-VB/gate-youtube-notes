@@ -1,0 +1,11 @@
+{
+  "slug": "pigeonhole",
+  "topic": "pigeonhole",
+  "engine": "p5.js",
+  "example": {
+    "boxes": 4,
+    "r": 3,
+    "answer": 9
+  },
+  "steps": 4
+}
