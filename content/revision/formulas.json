@@ -1,0 +1,147 @@
+[
+  {
+    "group": "Foundations",
+    "items": [
+      {
+        "name": "Product rule",
+        "latex": "|A_1| \\times |A_2| \\times \\cdots \\times |A_k|",
+        "note": "independent stages"
+      },
+      {
+        "name": "Sum rule",
+        "latex": "|A| + |B|",
+        "note": "disjoint cases only"
+      },
+      {
+        "name": "Subtraction",
+        "latex": "|A \\setminus B| = |A| - |A \\cap B|",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "group": "Arrangements and selections",
+    "items": [
+      {
+        "name": "Factorial",
+        "latex": "n!",
+        "note": "arrangements of n distinct objects"
+      },
+      {
+        "name": "Permutation",
+        "latex": "P(n,r) = \\dfrac{n!}{(n-r)!}",
+        "note": "ordered selection"
+      },
+      {
+        "name": "Combination",
+        "latex": "C(n,r) = \\dfrac{n!}{r!(n-r)!}",
+        "note": "unordered selection"
+      },
+      {
+        "name": "Circular",
+        "latex": "(n-1)!",
+        "note": "rotations identified"
+      },
+      {
+        "name": "Multiset",
+        "latex": "\\dfrac{n!}{n_1! n_2! \\cdots n_k!}",
+        "note": "repeated symbols"
+      },
+      {
+        "name": "Strings",
+        "latex": "n^k",
+        "note": "length k over n symbols, reuse allowed"
+      }
+    ]
+  },
+  {
+    "group": "Balls and boxes",
+    "items": [
+      {
+        "name": "DODB",
+        "latex": "k^n",
+        "note": "empty boxes allowed"
+      },
+      {
+        "name": "DODB onto",
+        "latex": "k!\\,S(n,k)",
+        "note": "no empty box"
+      },
+      {
+        "name": "IODB",
+        "latex": "C(n+k-1,\\,k-1)",
+        "note": "empty allowed"
+      },
+      {
+        "name": "IODB positive",
+        "latex": "C(n-1,\\,k-1)",
+        "note": "each box at least one"
+      },
+      {
+        "name": "IODB lower bound r",
+        "latex": "C(n-kr+k-1,\\,k-1)",
+        "note": "each box at least r"
+      },
+      {
+        "name": "DOIB",
+        "latex": "S(n,k)",
+        "note": "Stirling second kind"
+      },
+      {
+        "name": "Stirling recurrence",
+        "latex": "S(n,k) = k\\,S(n-1,k) + S(n-1,k-1)",
+        "note": ""
+      },
+      {
+        "name": "IOIB",
+        "latex": "p(n)",
+        "note": "partitions into at most k parts, enumerate"
+      }
+    ]
+  },
+  {
+    "group": "Constraints",
+    "items": [
+      {
+        "name": "Two sets",
+        "latex": "|A \\cup B| = |A| + |B| - |A \\cap B|",
+        "note": ""
+      },
+      {
+        "name": "Three sets",
+        "latex": "\\sum |A_i| - \\sum |A_i \\cap A_j| + |A_1 \\cap A_2 \\cap A_3|",
+        "note": "alternating"
+      },
+      {
+        "name": "Derangement",
+        "latex": "!n = n!\\sum_{k=0}^{n} \\dfrac{(-1)^k}{k!}",
+        "note": "nearest integer to n!/e"
+      },
+      {
+        "name": "Derangement recurrence",
+        "latex": "!n = (n-1)(!(n-1) + !(n-2))",
+        "note": "!1=0, !2=1"
+      },
+      {
+        "name": "Onto functions",
+        "latex": "\\sum_{k=0}^{n} (-1)^k C(n,k)(n-k)^m = n!\\,S(m,n)",
+        "note": "m-set onto n-set"
+      },
+      {
+        "name": "Pigeonhole",
+        "latex": "k(r-1)+1",
+        "note": "objects to force r in some box"
+      },
+      {
+        "name": "Binomial",
+        "latex": "(x+y)^n = \\sum_{k=0}^{n} C(n,k)x^{n-k}y^k",
+        "note": ""
+      },
+      {
+        "name": "Negative binomial",
+        "latex": "[x^r]\\,(1-x)^{-n} = C(n+r-1,\\,r)",
+        "note": "coefficient extraction"
+      }
+    ]
+  }
+]
