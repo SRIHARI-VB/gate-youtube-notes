@@ -1,0 +1,12 @@
+{
+  "slug": "stars-and-bars",
+  "topic": "iodb-stars-and-bars",
+  "engine": "p5.js",
+  "example": {
+    "n": 5,
+    "k": 3,
+    "answer": 21,
+    "positive_answer": 6
+  },
+  "steps": 5
+}
