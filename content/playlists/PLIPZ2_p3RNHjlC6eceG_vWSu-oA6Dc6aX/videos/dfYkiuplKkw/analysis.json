@@ -1,0 +1,14 @@
+{
+  "video_id": "dfYkiuplKkw",
+  "coverage_note": "The DOIB analogy (friends into identical hotel rooms) and the default-unlabelled rule were readable; the Stirling and partition formulas were past the cut.",
+  "topics": [
+    "doib-stirling",
+    "ioib-partitions"
+  ],
+  "concepts": [
+    "Default-unlabelled rule: if the question names no boxes, groups or teams, the containers are identical - DOIB or IOIB, not DODB or IODB.",
+    "'Identical', 'indistinguishable' and 'unlabelled' mean the same thing in question wording.",
+    "Partitioning a set = DOIB. Partitioning an integer = IOIB."
+  ],
+  "gate_claims": []
+}
