@@ -1,59 +1,105 @@
-# Run report - combinatorics playlist
+# Run report
 
-## Playlist
+## Run 2 - propositional logic playlist added, repository migrated
 
-GO Classes for GATE CS, *Combinatorics - Complete Summary, All GATE PYQs, Revision & Practice Questions*.
-14 videos, about 25 hours, `PLIPZ2_p3RNHjlC6eceG_vWSu-oA6Dc6aX`.
+### Playlist
 
-## Processing summary
+GO Classes for GATE CS, *Propositional Logic - Complete Summary, All GATE PYQs & Practice Questions*
+(`PLIPZ2_p3RNHillKxh1_iFeZhy9MftHeWW`), 17 videos, 13h 12m.
+
+### Processing summary
 
 | | |
 | --- | --- |
-| Videos discovered | 14 |
-| Videos with a readable transcript segment | 14 (opening minutes only) |
-| Videos fully analysed | 0 |
-| Videos analysed in part | 14 |
+| Videos discovered | 17 |
+| Videos with readable captions (complete) | 3 |
+| Videos with readable captions (partial) | 14 |
+| Videos with Devanagari (Hindi ASR) captions only | 4 |
 | Videos inaccessible | 0 |
 | Videos skipped | 0 |
 
-Full captions were not retrievable: YouTube refused direct caption requests from the build environment and the one
-working transcript service returns a length-capped slice of each track. See `docs/PROCESSING_STATUS.md`.
+Full captions were not retrievable for the long lectures: YouTube refuses caption requests from this build
+environment's IP and the working fetch route truncates documents at about 5,000 characters. See
+`docs/PROCESSING_STATUS.md`.
 
-## Learning materials created
+### Repository migration (completed first, as required)
 
-| Item | Count |
-| --- | --- |
-| Canonical topics | 15 |
-| Verified PYQs | 13 (7 `OFFICIAL_KEY`, 6 `SOURCED`) |
-| Original variations and practice questions | 19 (12 original PYQ-style, 4 predicted, 3 conceptual) |
-| Quick checks with answers | 15 (one per topic) plus 4 inside lessons |
-| Visual lessons | 4 (3 p5.js, 1 HTML decision aid) |
-| Videos inventoried with status | 14 |
+- 15 combinatorics cards moved from `content/topics/` to
+  `content/subjects/discrete-mathematics/combinatorics/`; `content/topics/` retired.
+- The combinatorics playlist moved under the channel folder
+  `content/playlists/go-classes-for-gate-cs/`.
+- `scripts/build-index.py` and `scripts/validate.py` rewritten to walk the tree recursively, to carry every playlist
+  (`playlists` array, `playlist` kept for the single-playlist fields the shell reads), and to validate the new layout.
+- Both scripts pass on the migrated content before any new content was added.
 
-## Validation performed
+### Learning materials created
 
-- `python3 scripts/validate.py` - 6 checks passed, 0 failures: schema fields, priorities, variation labels,
-  PYQ required fields and years, video statuses, 51 recomputed numeric claims, internal reference integrity,
-  hygiene.
-- `node tests/visual-lessons.js` - all three p5 sketches load and draw every step at three progress values.
-- Headless Chromium (`--dump-dom`) against `index.html` for every route: dashboard, topics, two topic pages, PYQs,
-  playlist, last-minute sheet, visuals index and search. All rendered the expected view with 13 PYQ cards on the PYQ
-  page and 25 formulas on the last-minute sheet.
-- One screenshot review of the dashboard and of a lesson page for layout sanity.
+| Item | Added this run | Total in repository |
+| --- | --- | --- |
+| Revision cards | 12 | 27 |
+| Verified PYQs | 14 | 27 |
+| Question variations | 24 | 43 |
+| Quick checks with answers | 12 | 27 |
+| Visual lessons | 2 | 6 |
+| Formula-sheet groups | 6 | 11 (60 formulas) |
+| Videos inventoried with status | 17 | 31 |
 
-## Limitations
+New PYQ years: 1991, 1992, 1998, 2002, 2003, 2004, 2007, 2015 (three papers), 2016, 2021, 2024.
 
-1. **Lecture coverage is partial.** Only the opening minutes of each lecture were readable. The topic structure is
-   reliable because the instructor states it explicitly, but later worked examples and any timestamped detail are
-   absent rather than guessed.
-2. **Six PYQ answers are `SOURCED`, not key-verified** (GATE 1999 Q.1.3, 2000 cards, 2001 Q.2.1, 2003 Q.34,
-   2004 IT Q.2, 2015 Set 3 Q.5): the answer is confirmed by a named published solution, but the official key document
-   itself was not opened. The other seven carry `OFFICIAL_KEY`.
-3. **Question numbering differs between repositories** for a few papers (2021 Set 2, 2022, 2025 Set 1). Both numbers
-   are recorded in the `question_ref` field.
-4. **One topic is a playlist gap**: recurrences and compositions are in the GATE syllabus and appear in a verified
-   PYQ (2014 Set 1 Q.49) but this playlist does not teach them; the note says so.
-5. **No git commit was made.** The repository is prepared and git-ready, but committing or pushing requires the
-   user's authorisation.
-6. Visual lessons load p5.js and the site loads KaTeX from a CDN. Without internet the animations do not run (the
+### Validation performed
+
+- `python3 scripts/validate.py` - 10 checks passed, 0 failures: card schema and slugs, PYQ fields and sources, video
+  statuses, playlist manifests (video counts and duration totals), syllabus coverage, 56 recomputed numeric claims,
+  every propositional equivalence/tautology/entailment count recomputed by exhaustive truth table, visual lesson
+  metadata, hygiene.
+- `node tests/visual-lessons.js` - all five p5 sketches (three existing, two new) load and draw every step at three
+  progress values. The test now discovers lessons by walking `visuals/`.
+- Headless Chromium `--dump-dom` over the dashboard, topics, a new topic page, PYQs, playlist, last-minute and
+  visuals routes: every route rendered with the new data and no script error.
+
+### UI
+
+Design tokens, layout skeleton, navigation labels and routes are untouched. Three factual text/count updates were
+made, in a separate `chore(ui)` commit, because the numbers and playlist names they printed were no longer true:
+the topics-page count, the playlist-inventory lead (now names every processed playlist), the visuals index (now lists
+the two new lessons) and the two static counts in `index.html`.
+
+Still saying "Combinatorics": the sidebar brand text and the browser title in `index.html`, and the `document.title`
+set in `src/app/app.js`. Renaming them is a UI change and was left for an explicit request.
+
+### Limitations
+
+1. **Lecture coverage is partial.** Only the opening minutes of the long lectures were readable. The topic structure
+   is reliable because the instructor states it explicitly and the titles name the rest, but later worked examples
+   and any timestamped detail are absent rather than guessed.
+2. **Four videos have only Devanagari (Hindi ASR) captions.** They are marked as fragments-only; no formula is
+   attributed to them, and two of the three GATE questions those videos cover (2006, 2015 Q28) are therefore not in
+   the PYQ set.
+3. **Nineteen of 27 PYQs are `SOURCED`, not key-verified.** Their answers are confirmed by a named published
+   solution (mostly GATE Overflow question pages), not by opening the official key document. Only the GATE 2024
+   Set 2 question is `OFFICIAL_KEY` from this run.
+4. **Marks are recorded for one question only.** GATE Overflow does not display per-question marks and the older
+   papers' key documents were not opened, so no marks were inferred.
+5. **Question numbering** for 2003, 2004, 2007, 2015, 2016 and 2021 follows the numbering on GATE Overflow; the
+   reference is recorded as printed there.
+6. Two of the 14 new PYQs are filed under Digital Logic on GATE Overflow (2007 Q.48 on CNF, 2015 Set 1 Q.39 on
+   functional completeness). Both are genuine GATE CSE questions on these topics and the label says so.
+7. Visual lessons load p5.js and the site loads KaTeX from a CDN. Without internet the animations do not run (the
    page says so) and formulas fall back to readable monospace LaTeX.
+
+### Git
+
+Four commits were created on top of `3132647`: the content and migration commit, a `chore(ui)` commit, a `docs`
+commit and a commit adding the two lessons plus the regenerated content index.
+
+**Pushing to `main` was blocked.** The GitHub App installation on this repository is read-only: `git push` returns
+403 ("Permission to deny to SRIHARI-VB") and the Git Data API returns 403 "Resource not accessible by integration".
+Nothing was force-pushed and no history was rewritten. Until write access is granted, the changes are supplied as
+`gate-youtube-notes-propositional-logic.patch` (apply with `git am --3way` on a clone of `main`; verified to apply
+cleanly and to pass both checks on a fresh clone).
+
+### Definition of done
+
+Met for this playlist except where the limitations above apply: every video has an explicit processing status, every
+card carries sources and a quick check, every PYQ carries a year, a question reference and a source URL, and no
+question is presented as a previous-year question without one.
