@@ -1,0 +1,14 @@
+{
+  "video_id": "D4wbOYlL8Gs",
+  "coverage_note": "Roughly the first few minutes of a 2h54m lecture were readable: the definition of combinatorics, the ATM-PIN motivation and the syllabus list of counting techniques. The teaching of the individual rules was past the retrieval cut.",
+  "topics": [
+    "basic-counting-rules"
+  ],
+  "concepts": [
+    "Combinatorics is 'the art of counting' - count how many objects have a property without enumerating them.",
+    "Motivating example: 4-digit ATM PINs = 10 x 10 x 10 x 10 = 10000.",
+    "The course's technique list: sum rule, product rule, subtraction rule, bijection rule, pigeonhole, permutations and combinations, balls-into-boxes, binomial theorem, inclusion-exclusion, generating functions, recurrences.",
+    "Enumeration is explicitly rejected as a method."
+  ],
+  "gate_claims": []
+}
