@@ -973,6 +973,16 @@
       "kind": "notes",
       "placement": "digital-logic > boolean-algebra > boolean-algebra-and-minimisation",
       "detail": "gate-visual-explainer lesson boolean-algebra-and-minimisation (topics.json title \"Boolean Algebra and Minimisation\", syllabus-coverage.json Digital Logic > Boolean algebra > Boolean algebra and minimisation, coverage_status PUBLISHED, 9 subtopics, 29 microtopics, 10 scenes in transcript.md) serves no notes card: the notes repo's 27 cards are all discrete-mathematics combinatorics and propositional-logic, and it has no digital-logic subject. Next notes build: content/subjects/digital-logic/boolean-algebra/boolean-algebra-and-minimisation.json, fed by the lesson's Karnaugh-map and tabular-method scenes."
+    },
+    {
+      "kind": "notes",
+      "placement": "theory-of-computation > regular-languages-fa (unit 1)",
+      "detail": "gate-cse-mocks/theory-of-computation/question-bank/master_bank.json unit 1 Regular Languages & Finite Automata (unit_slug regular-languages-fa) opened 2026-10-26 with 25 questions grouped by subtopic_label: DFA construction & minimisation 7, NFA to DFA: subset construction 6, Regular expressions 6, Pumping lemma for regular languages 6; paper theory-of-computation/regular-languages-fa/gate_toc_mock_1_2026-10-26.html. Serves no notes card: all 27 cards are discrete-mathematics. Next notes build: content/subjects/theory-of-computation/regular-languages-fa/ as the first card of that subject."
+    },
+    {
+      "kind": "notes",
+      "placement": "digital-logic > number-representation > number-representation-and-arithmetic",
+      "detail": "gate-visual-explainer lesson number-representation-and-arithmetic (topics.json title \"Number Representation and Arithmetic\"; syllabus-coverage.json Digital Logic > Number representation > Number representation and arithmetic, coverage_status PUBLISHED, 4 subtopics, 35 microtopics, 10 scenes in transcript.md) published 2026-10-26 and serves no notes card: the notes repo has no digital-logic subject. Next notes build: content/subjects/digital-logic/number-representation/number-representation-and-arithmetic.json, fed by the two's-complement wheel and IEEE 754 scenes."
     }
   ]
 }
