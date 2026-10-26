@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Visual lesson",
+  "type": "object",
+  "required": [
+    "slug",
+    "topic",
+    "engine",
+    "steps"
+  ],
+  "properties": {
+    "slug": {
+      "type": "string"
+    },
+    "topic": {
+      "type": "string"
+    },
+    "engine": {
+      "enum": [
+        "p5.js",
+        "html"
+      ]
+    },
+    "steps": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "example": {
+      "type": "object"
+    }
+  }
+}
