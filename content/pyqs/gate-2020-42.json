@@ -1,0 +1,16 @@
+{
+  "id": "gate-2020-42",
+  "year": "2020",
+  "paper": "GATE CS 2020",
+  "question_ref": "Q.42",
+  "type": "NAT",
+  "marks": "2",
+  "topic": "derangements",
+  "text": "The number of permutations of the characters in LILAC so that no character appears in its original position, if the two L's are indistinguishable, is ______.",
+  "options": [],
+  "answer": "12",
+  "solution": "L occupies positions 1 and 3 originally, so both L's must go into two of {2, 4, 5}: C(3,2) = 3 choices. In each choice exactly one of I, A, C keeps a restriction, and the other two are free: 3! - 2! = 4 arrangements. Total 3 x 4 = 12. Dividing the derangement number !5 = 44 by 2! is wrong here because the two L's are not symmetric.",
+  "source_url": "https://gateoverflow.in/333189/gate-cse-2020-question-42",
+  "source_label": "GATE Overflow discussion of GATE CS 2020 Q.42 (official key 12)",
+  "verification": "OFFICIAL_KEY"
+}
