@@ -977,7 +977,7 @@
     {
       "kind": "notes",
       "placement": "theory-of-computation > regular-languages-fa (unit 1)",
-      "detail": "gate-cse-mocks/theory-of-computation/question-bank/master_bank.json unit 1 Regular Languages & Finite Automata (unit_slug regular-languages-fa) opened 2026-10-26 with 25 questions grouped by subtopic_label: DFA construction & minimisation 7, NFA to DFA: subset construction 6, Regular expressions 6, Pumping lemma for regular languages 6; paper theory-of-computation/regular-languages-fa/gate_toc_mock_1_2026-10-26.html. Serves no notes card: all 27 cards are discrete-mathematics. Next notes build: content/subjects/theory-of-computation/regular-languages-fa/ as the first card of that subject."
+      "detail": "gate-cse-mocks/theory-of-computation/question-bank/master_bank.json unit 1 Regular Languages & Finite Automata (unit_slug regular-languages-fa) closed 2026-10-26 at the 50-question cap after Set 2 of 2; grouped by subtopic_label it holds DFA construction & minimisation 14, NFA to DFA: subset construction 6, NFA to DFA (subset construction) 6 (one subtopic under two spellings), Regular expressions 12 and Pumping lemma for regular languages 12; paper theory-of-computation/regular-languages-fa/gate_toc_mock_1_2026-10-26.html, the unit's last runs[] entry file. Serves no notes card: all 27 cards are discrete-mathematics. Next notes build: content/subjects/theory-of-computation/regular-languages-fa/ as the first card of that subject. The next Theory of Computation run advances to unit 2, Grammars & Context-Free Languages, which has no card either."
     },
     {
       "kind": "notes",
@@ -993,6 +993,11 @@
       "kind": "notes",
       "placement": "programming-data-structures > c-programming-core (unit 1)",
       "detail": "gate-visual-explainer lesson c-fundamentals (topics.json title \"C Fundamentals: Types, Operators and Control Flow\"; syllabus-coverage.json Programming and Data Structures > Programming in C > C fundamentals, coverage_status PUBLISHED, 8 subtopics and 44 microtopics, 10 scenes in transcript.md, from type widths through switch fallthrough) published 2026-10-26 and serves no notes card: the notes repo has no programming-data-structures subject. The matching mock unit already exists: gate-cse-mocks/programming-data-structures/question-bank/master_bank.json unit 1 C Programming Foundations (unit_slug c-programming-core), 25 questions on Data types & operators 7, Control structures 6, Functions & parameter passing 6, Recursion & stack execution 6, paper programming-data-structures/c-programming-core/gate_ds_mock_1_2026-10-26.html. Next notes build: content/subjects/programming-data-structures/c-programming-core/c-fundamentals.json."
+    },
+    {
+      "kind": "notes",
+      "placement": "programming-data-structures > programming-in-c > functions-scope-and-preprocessor",
+      "detail": "gate-visual-explainer lesson functions-scope-and-preprocessor (topics.json title \"Functions, Scope, Lifetime and the Preprocessor\"; syllabus-coverage.json Programming and Data Structures > Programming in C > Functions, scope, lifetime and the preprocessor, coverage_status PUBLISHED, 7 subtopics and 23 microtopics, topics/functions-scope-and-preprocessor/transcript.md) published 2026-10-26 and serves no notes card: the notes repo has no programming-data-structures subject. The mock side already exists: gate-cse-mocks/programming-data-structures/question-bank/master_bank.json unit 1 c-programming-core carries the subtopic_label Functions & parameter passing 6, which is the lesson's prototype and pass-by-value ground. Next notes build: content/subjects/programming-data-structures/c-programming-core/functions-scope-and-preprocessor.json, extending the subject the c-fundamentals card started."
     }
   ]
 }
