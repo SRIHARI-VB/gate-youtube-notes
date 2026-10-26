@@ -1023,6 +1023,16 @@
       "kind": "notes",
       "placement": "programming-and-data-structures > data-structures > linked-lists",
       "detail": "gate-visual-explainer lesson linked-lists (topics.json title \"Linked Lists\", category programming-and-data-structures; syllabus-coverage.json Programming and Data Structures > Data structures > Linked lists, coverage_status PUBLISHED, lesson_slug linked-lists) published 2026-10-26 with 10 scenes in topics/linked-lists/transcript.md covering the node and stored address, insert-after/delete-after pointer surgery, the head pointer and by-value head, array-versus-list costs, the doubly linked invariant, circular lists with one rear pointer, reversal with three cursors, merging two sorted lists and tortoise-hare cycle detection. The notes repo has no programming-and-data-structures subject, so no card serves this lesson."
+    },
+    {
+      "kind": "notes",
+      "placement": "engineering-mathematics > linear-algebra-matrices (unit 1)",
+      "detail": "gate-cse-mocks/engineering-mathematics/question-bank/master_bank.json unit 1 Linear Algebra: Matrices & Systems (unit_slug linear-algebra-matrices) closed at the 50-question cap on 2026-10-26 with Set 2 of 2; paper engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html, the unit's last runs[] entry file. The records carry subtopic, not subtopic_label, so the groups are matrix-operations 15, rank-nullity 14, systems-of-linear-equations 12, gauss-elimination 9. Serves no notes card: the notes repo has 27 cards, all discrete-mathematics combinatorics and propositional-logic, and no engineering-mathematics subject. MOCK_CAPPED. README rotation: the next Engineering Mathematics run advances to Unit 2. Next notes build: content/subjects/engineering-mathematics/linear-algebra-matrices/linear-algebra-matrices.json as the first card of that subject, fed by the rank-nullity and gauss-elimination groups."
+    },
+    {
+      "kind": "notes",
+      "placement": "programming-data-structures > data-structures > trees-bst-and-heaps",
+      "detail": "gate-visual-explainer lesson trees-bst-and-heaps (topics.json title \"Trees, Binary Search Trees and Heaps\", category programming-and-data-structures; syllabus-coverage.json Programming and Data Structures > Data structures > Trees, binary search trees and heaps, coverage_status PUBLISHED 2026-10-26, 5 subtopics and 47 microtopics, 10 scenes in topics/trees-bst-and-heaps/transcript.md from 'A tree is a chain that branches' through 'Three promises, one table') published 2026-10-26 and serves no notes card: the notes repo has 27 cards, all discrete-mathematics, and no programming-data-structures subject. No mock unit matches either: gate-cse-mocks/programming-data-structures/question-bank/master_bank.json unit 1 c-programming-core is closed at 50 questions with labels Data types & operators 14, Control structures 12, Functions & parameter passing 12, Recursion & stack execution 12, and the README rotation advances to Unit 2. Next notes build: content/subjects/programming-data-structures/data-structures/trees-bst-and-heaps.json, fed by the traversal-reconstruction, Catalan-counting and heap-sift scenes."
     }
   ]
 }
