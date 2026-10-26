@@ -1,0 +1,14 @@
+{
+  "video_id": "xocsjqBkQaE",
+  "coverage_note": "Guarantee-vs-probability framing, the four techniques and the negation procedure were readable; the generalised statement and every worked example were past the cut.",
+  "topics": [
+    "pigeonhole"
+  ],
+  "concepts": [
+    "Pigeonhole questions are guarantee questions: a 99% probability is not a guarantee.",
+    "Method: negate the claim; if the negation is realisable the claim fails, if not it is guaranteed.",
+    "Negation rules: not(x >= n) is x <= n-1; not(x <= n) is x >= n+1.",
+    "'Some box has exactly k' is generally false even when 'some box has at least k' is guaranteed."
+  ],
+  "gate_claims": []
+}
