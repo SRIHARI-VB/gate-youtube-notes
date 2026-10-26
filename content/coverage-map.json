@@ -1,6 +1,6 @@
 {
   "generated_by": "gate-content-mapper",
-  "generated_at": "2026-10-26",
+  "generated_at": "2026-10-27",
   "playlists": [
     {
       "playlist_id": "PLIPZ2_p3RNHillKxh1_iFeZhy9MftHeWW",
@@ -1353,6 +1353,11 @@
       "kind": "notes",
       "placement": "digital-logic > number-systems (unit 1)",
       "detail": "gate-cse-mocks/digital-logic/question-bank/master_bank.json unit 1 Number Systems & Representation (unit_slug number-systems) reached the 50-question cap on 2026-10-27 with Set 2 of 2; grouped by subtopic_label the 50 records are Base conversions 15, One's & two's complement 13, Range & overflow 11, Floating point & IEEE 754 11. Current paper digital-logic/number-systems/gate_dl_mock_1_2026-10-27.html, the unit's last runs[] entry file; Set 1 of 2 (2026-10-26) sits at digital-logic/number-systems/gate_dl_mock_1_2026-10-26.html and is not archived, since the run note calls it a different question set rather than a superseded run. MOCK_CAPPED; the bank's own run note advances the next Digital Logic run to unit 2, Combinational Circuit Design. Serves no notes card: all 37 cards are discrete-mathematics combinatorics, propositional-logic and first-order-logic. The visual side already exists: gate-visual-explainer lesson number-representation-and-arithmetic, coverage_status PUBLISHED, whose two's-complement, overflow and IEEE 754 scenes teach these same subtopics. Next notes build: content/subjects/digital-logic/number-systems/number-systems.json as the first card of that subject."
+    },
+    {
+      "kind": "notes",
+      "placement": "digital-logic > combinational-circuits (unit 2)",
+      "detail": "gate-cse-mocks/digital-logic/question-bank/master_bank.json runs[] run 3 (2026-10-27) opened unit 2 Combinational Circuit Design (unit_slug combinational-circuits) as Set 1 of 2 with 25 questions; grouped by subtopic_label the 25 records are Adders & subtractors 5, Multiplexers & demultiplexers 5, Decoders & encoders 5, Code converters 5, Hazards & glitches 5. The unit's last runs[] file is digital-logic/combinational-circuits/gate_dl_mock_2_2026-10-27.html, which is the deep URL for any card that serves it. It serves no notes card: all 37 cards are discrete-mathematics combinatorics, propositional-logic and first-order-logic, and content/syllabus.json declares discrete-mathematics only. The visual side is plan-only: gate-visual-explainer syllabus-coverage.json Digital Logic > Circuits > 'Combinational and sequential circuits', coverage_status NOT_STARTED, lesson_slug null, so VISUAL_SYLLABUS_ONLY. Next notes build: content/subjects/digital-logic/combinational-circuits/combinational-circuits.json, fed by the adders/subtractors and multiplexers/decoders subtopics."
     },
     {
       "kind": "notes",
