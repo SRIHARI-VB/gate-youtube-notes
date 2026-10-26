@@ -1428,6 +1428,16 @@
       "kind": "notes",
       "placement": "algorithms > searching-and-sorting > binary-search-and-variants",
       "detail": "gate-visual-explainer lesson binary-search-and-variants (topics.json title \"Binary Search and Its Variants\", category algorithms, created and updated 2026-10-26, topics/binary-search-and-variants/index.html plus timeline.js, lesson.js, captions.vtt, captions.srt, transcript.md) serves no notes card: the notes repo has no algorithms subject and no searching card. Content checked against topics/binary-search-and-variants/transcript.md, 10 scenes: the halving move and the [lo, hi] invariant, the floor(log2 n) + 1 comparison count with the +1 last probe, the two loop shapes with the lo = mid stall and the (lo + hi) overflow, lower_bound/upper_bound on duplicates, rotated sorted arrays, bitonic peak then two searches, binary search on a monotone predicate, and the decision-tree lower bound. Two registry notes: syllabus-coverage.json still records the topic 'Searching, sorting and hashing' as coverage_status NOT_STARTED with lesson_slug null, so the plan has not been advanced to match the published lesson; and no mock unit serves it, gate-cse-mocks/algorithms/question-bank/master_bank.json holding asymptotic-analysis labels only. Next notes build: content/subjects/algorithms/searching-and-sorting/binary-search-and-variants.json."
+    },
+    {
+      "kind": "notes",
+      "placement": "engineering-mathematics > linear-algebra > eigenvalues-eigenvectors",
+      "detail": "gate-cse-mocks engineering-mathematics/question-bank/master_bank.json run 3 (2026-10-26) opened unit 2 Linear Algebra: Eigenvalues & Vectors (unit_slug eigenvalues-eigenvectors, 25 questions: characteristic-equations 6, eigenvalue-properties 7, cayley-hamilton-theorem 5, diagonalization 7; paper engineering-mathematics/eigenvalues-eigenvectors/gate_em_mock_2_2026-10-26.html). The notes repo holds only discrete-mathematics cards (37 of 37), so no card serves this unit. Next notes build: content/subjects/engineering-mathematics/linear-algebra/eigenvalues-eigenvectors.json."
+    },
+    {
+      "kind": "notes",
+      "placement": "algorithms > searching-and-sorting > sorting-algorithms",
+      "detail": "gate-visual-explainer lesson sorting-algorithms (topics.json title 'Sorting Algorithms and the Comparison Lower Bound', category algorithms; syllabus-coverage.json coverage_status PUBLISHED, lesson_slug sorting-algorithms; topics/sorting-algorithms/transcript.md has 10 scenes, Scene 1 'A sort makes two promises, not one' to Scene 10 'The master table') serves no notes card, because the notes repo holds only discrete-mathematics cards. Next notes build: content/subjects/algorithms/searching-and-sorting/sorting-algorithms.json."
     }
   ]
 }
