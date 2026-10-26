@@ -1,0 +1,147 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Revision topic card",
+  "type": "object",
+  "required": [
+    "id",
+    "title",
+    "priority",
+    "unit",
+    "quickIdea",
+    "remember",
+    "example",
+    "gateAngle",
+    "trap",
+    "check",
+    "pyqIds",
+    "videoRefs",
+    "prereqs"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9-]+$"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 3
+    },
+    "priority": {
+      "enum": [
+        "P1",
+        "P2",
+        "P3"
+      ]
+    },
+    "unit": {
+      "type": "string"
+    },
+    "order": {
+      "type": "integer"
+    },
+    "quickIdea": {
+      "type": "string",
+      "minLength": 10
+    },
+    "remember": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    },
+    "example": {
+      "type": "object",
+      "required": [
+        "prompt",
+        "work",
+        "answer"
+      ],
+      "properties": {
+        "prompt": {
+          "type": "string"
+        },
+        "work": {
+          "type": "string"
+        },
+        "answer": {
+          "type": "string"
+        }
+      }
+    },
+    "gateAngle": {
+      "type": "string"
+    },
+    "variations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "label",
+          "question",
+          "answer",
+          "why"
+        ],
+        "properties": {
+          "label": {
+            "enum": [
+              "VERIFIED PYQ",
+              "ORIGINAL PYQ-STYLE QUESTION",
+              "CONCEPTUAL PRACTICE QUESTION",
+              "PREDICTED VARIATION"
+            ]
+          },
+          "question": {
+            "type": "string"
+          },
+          "answer": {
+            "type": "string"
+          },
+          "why": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "trap": {
+      "type": "object",
+      "required": [
+        "what",
+        "why",
+        "counterexample"
+      ]
+    },
+    "check": {
+      "type": "object",
+      "required": [
+        "question",
+        "answer",
+        "explanation"
+      ]
+    },
+    "pyqIds": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "videoRefs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "prereqs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "visual": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  }
+}
