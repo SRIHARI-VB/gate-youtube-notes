@@ -51,23 +51,23 @@
       "question_count": 50,
       "subtopics": [
         {
-          "label": "subsets-and-power-sets",
+          "label": "Subsets & power sets",
           "questions": 10
         },
         {
-          "label": "cardinality",
+          "label": "Cardinality",
           "questions": 10
         },
         {
-          "label": "set-algebra-de-morgan",
+          "label": "Set algebra & De Morgan",
           "questions": 10
         },
         {
-          "label": "inclusion-exclusion",
+          "label": "Inclusion-exclusion",
           "questions": 10
         },
         {
-          "label": "partitions-and-cartesian-products",
+          "label": "Partitions & Cartesian products",
           "questions": 10
         }
       ],

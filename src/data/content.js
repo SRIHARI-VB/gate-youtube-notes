@@ -696,8 +696,7 @@ window.GATE_DATA = {
      "title": "Counting and Combinatorics",
      "level": "topic-level",
      "covers": [
-      "permutations and combinations",
-      "circular permutations"
+      "permutations and combinations"
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/counting-and-combinatorics/index.html"
     },
@@ -891,8 +890,7 @@ window.GATE_DATA = {
      "title": "Counting and Combinatorics",
      "level": "topic-level",
      "covers": [
-      "permutations with repeated elements",
-      "circular permutations"
+      "permutations with repeated elements"
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/counting-and-combinatorics/index.html"
     },
@@ -1021,23 +1019,23 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "types-injective-surjective-bijective",
+       "label": "Injective / surjective / bijective",
        "questions": 10
       },
       {
-       "label": "composition-and-inverses",
+       "label": "Composition & inverses",
        "questions": 10
       },
       {
-       "label": "counting-functions",
+       "label": "Counting functions",
        "questions": 10
       },
       {
-       "label": "pigeonhole-principle",
+       "label": "Pigeonhole principle",
        "questions": 10
       },
       {
-       "label": "floor-ceiling-recursion",
+       "label": "Floor, ceiling & recursion",
        "questions": 10
       }
      ],
@@ -1184,23 +1182,23 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "subsets-and-power-sets",
+       "label": "Subsets & power sets",
        "questions": 10
       },
       {
-       "label": "cardinality",
+       "label": "Cardinality",
        "questions": 10
       },
       {
-       "label": "set-algebra-de-morgan",
+       "label": "Set algebra & De Morgan",
        "questions": 10
       },
       {
-       "label": "inclusion-exclusion",
+       "label": "Inclusion-exclusion",
        "questions": 10
       },
       {
-       "label": "partitions-and-cartesian-products",
+       "label": "Partitions & Cartesian products",
        "questions": 10
       }
      ],
@@ -1324,23 +1322,23 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "subsets-and-power-sets",
+       "label": "Subsets & power sets",
        "questions": 10
       },
       {
-       "label": "cardinality",
+       "label": "Cardinality",
        "questions": 10
       },
       {
-       "label": "set-algebra-de-morgan",
+       "label": "Set algebra & De Morgan",
        "questions": 10
       },
       {
-       "label": "inclusion-exclusion",
+       "label": "Inclusion-exclusion",
        "questions": 10
       },
       {
-       "label": "partitions-and-cartesian-products",
+       "label": "Partitions & Cartesian products",
        "questions": 10
       }
      ],
@@ -1480,23 +1478,23 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "types-injective-surjective-bijective",
+       "label": "Injective / surjective / bijective",
        "questions": 10
       },
       {
-       "label": "composition-and-inverses",
+       "label": "Composition & inverses",
        "questions": 10
       },
       {
-       "label": "counting-functions",
+       "label": "Counting functions",
        "questions": 10
       },
       {
-       "label": "pigeonhole-principle",
+       "label": "Pigeonhole principle",
        "questions": 10
       },
       {
-       "label": "floor-ceiling-recursion",
+       "label": "Floor, ceiling & recursion",
        "questions": 10
       }
      ],
@@ -1581,23 +1579,23 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "types-injective-surjective-bijective",
+       "label": "Injective / surjective / bijective",
        "questions": 10
       },
       {
-       "label": "composition-and-inverses",
+       "label": "Composition & inverses",
        "questions": 10
       },
       {
-       "label": "counting-functions",
+       "label": "Counting functions",
        "questions": 10
       },
       {
-       "label": "pigeonhole-principle",
+       "label": "Pigeonhole principle",
        "questions": 10
       },
       {
-       "label": "floor-ceiling-recursion",
+       "label": "Floor, ceiling & recursion",
        "questions": 10
       }
      ],
@@ -1741,27 +1739,27 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "propositions-and-connectives",
+       "label": "Propositions & connectives",
        "questions": 9
       },
       {
-       "label": "truth-tables",
+       "label": "Truth tables",
        "questions": 9
       },
       {
-       "label": "logical-equivalences",
+       "label": "Logical equivalences",
        "questions": 7
       },
       {
-       "label": "implications-and-inference",
+       "label": "Implications & inference",
        "questions": 9
       },
       {
-       "label": "cnf-dnf",
+       "label": "CNF / DNF",
        "questions": 8
       },
       {
-       "label": "validity-and-satisfiability",
+       "label": "Validity & satisfiability",
        "questions": 8
       }
      ],
@@ -1849,27 +1847,27 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "propositions-and-connectives",
+       "label": "Propositions & connectives",
        "questions": 9
       },
       {
-       "label": "truth-tables",
+       "label": "Truth tables",
        "questions": 9
       },
       {
-       "label": "logical-equivalences",
+       "label": "Logical equivalences",
        "questions": 7
       },
       {
-       "label": "implications-and-inference",
+       "label": "Implications & inference",
        "questions": 9
       },
       {
-       "label": "cnf-dnf",
+       "label": "CNF / DNF",
        "questions": 8
       },
       {
-       "label": "validity-and-satisfiability",
+       "label": "Validity & satisfiability",
        "questions": 8
       }
      ],
@@ -1963,27 +1961,27 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "propositions-and-connectives",
+       "label": "Propositions & connectives",
        "questions": 9
       },
       {
-       "label": "truth-tables",
+       "label": "Truth tables",
        "questions": 9
       },
       {
-       "label": "logical-equivalences",
+       "label": "Logical equivalences",
        "questions": 7
       },
       {
-       "label": "implications-and-inference",
+       "label": "Implications & inference",
        "questions": 9
       },
       {
-       "label": "cnf-dnf",
+       "label": "CNF / DNF",
        "questions": 8
       },
       {
-       "label": "validity-and-satisfiability",
+       "label": "Validity & satisfiability",
        "questions": 8
       }
      ],
@@ -2071,27 +2069,27 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "propositions-and-connectives",
+       "label": "Propositions & connectives",
        "questions": 9
       },
       {
-       "label": "truth-tables",
+       "label": "Truth tables",
        "questions": 9
       },
       {
-       "label": "logical-equivalences",
+       "label": "Logical equivalences",
        "questions": 7
       },
       {
-       "label": "implications-and-inference",
+       "label": "Implications & inference",
        "questions": 9
       },
       {
-       "label": "cnf-dnf",
+       "label": "CNF / DNF",
        "questions": 8
       },
       {
-       "label": "validity-and-satisfiability",
+       "label": "Validity & satisfiability",
        "questions": 8
       }
      ],
@@ -2177,27 +2175,27 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "propositions-and-connectives",
+       "label": "Propositions & connectives",
        "questions": 9
       },
       {
-       "label": "truth-tables",
+       "label": "Truth tables",
        "questions": 9
       },
       {
-       "label": "logical-equivalences",
+       "label": "Logical equivalences",
        "questions": 7
       },
       {
-       "label": "implications-and-inference",
+       "label": "Implications & inference",
        "questions": 9
       },
       {
-       "label": "cnf-dnf",
+       "label": "CNF / DNF",
        "questions": 8
       },
       {
-       "label": "validity-and-satisfiability",
+       "label": "Validity & satisfiability",
        "questions": 8
       }
      ],
@@ -2274,27 +2272,27 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "propositions-and-connectives",
+       "label": "Propositions & connectives",
        "questions": 9
       },
       {
-       "label": "truth-tables",
+       "label": "Truth tables",
        "questions": 9
       },
       {
-       "label": "logical-equivalences",
+       "label": "Logical equivalences",
        "questions": 7
       },
       {
-       "label": "implications-and-inference",
+       "label": "Implications & inference",
        "questions": 9
       },
       {
-       "label": "cnf-dnf",
+       "label": "CNF / DNF",
        "questions": 8
       },
       {
-       "label": "validity-and-satisfiability",
+       "label": "Validity & satisfiability",
        "questions": 8
       }
      ],
@@ -2381,27 +2379,27 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "propositions-and-connectives",
+       "label": "Propositions & connectives",
        "questions": 9
       },
       {
-       "label": "truth-tables",
+       "label": "Truth tables",
        "questions": 9
       },
       {
-       "label": "logical-equivalences",
+       "label": "Logical equivalences",
        "questions": 7
       },
       {
-       "label": "implications-and-inference",
+       "label": "Implications & inference",
        "questions": 9
       },
       {
-       "label": "cnf-dnf",
+       "label": "CNF / DNF",
        "questions": 8
       },
       {
-       "label": "validity-and-satisfiability",
+       "label": "Validity & satisfiability",
        "questions": 8
       }
      ],
@@ -2489,27 +2487,27 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "propositions-and-connectives",
+       "label": "Propositions & connectives",
        "questions": 9
       },
       {
-       "label": "truth-tables",
+       "label": "Truth tables",
        "questions": 9
       },
       {
-       "label": "logical-equivalences",
+       "label": "Logical equivalences",
        "questions": 7
       },
       {
-       "label": "implications-and-inference",
+       "label": "Implications & inference",
        "questions": 9
       },
       {
-       "label": "cnf-dnf",
+       "label": "CNF / DNF",
        "questions": 8
       },
       {
-       "label": "validity-and-satisfiability",
+       "label": "Validity & satisfiability",
        "questions": 8
       }
      ],
@@ -2595,27 +2593,27 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "propositions-and-connectives",
+       "label": "Propositions & connectives",
        "questions": 9
       },
       {
-       "label": "truth-tables",
+       "label": "Truth tables",
        "questions": 9
       },
       {
-       "label": "logical-equivalences",
+       "label": "Logical equivalences",
        "questions": 7
       },
       {
-       "label": "implications-and-inference",
+       "label": "Implications & inference",
        "questions": 9
       },
       {
-       "label": "cnf-dnf",
+       "label": "CNF / DNF",
        "questions": 8
       },
       {
-       "label": "validity-and-satisfiability",
+       "label": "Validity & satisfiability",
        "questions": 8
       }
      ],
@@ -2691,27 +2689,27 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "propositions-and-connectives",
+       "label": "Propositions & connectives",
        "questions": 9
       },
       {
-       "label": "truth-tables",
+       "label": "Truth tables",
        "questions": 9
       },
       {
-       "label": "logical-equivalences",
+       "label": "Logical equivalences",
        "questions": 7
       },
       {
-       "label": "implications-and-inference",
+       "label": "Implications & inference",
        "questions": 9
       },
       {
-       "label": "cnf-dnf",
+       "label": "CNF / DNF",
        "questions": 8
       },
       {
-       "label": "validity-and-satisfiability",
+       "label": "Validity & satisfiability",
        "questions": 8
       }
      ],
@@ -2786,23 +2784,23 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "predicates-and-domain",
+       "label": "Predicates & domain",
        "questions": 10
       },
       {
-       "label": "quantifiers-universal-existential",
+       "label": "Universal & existential quantifiers",
        "questions": 10
       },
       {
-       "label": "negation-nested-quantifiers",
+       "label": "Negation of nested quantifiers",
        "questions": 10
       },
       {
-       "label": "scope-and-order",
+       "label": "Scope & order of quantifiers",
        "questions": 10
       },
       {
-       "label": "english-to-fol-translation",
+       "label": "English to FOL translation",
        "questions": 10
       }
      ],
@@ -2887,27 +2885,27 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "propositions-and-connectives",
+       "label": "Propositions & connectives",
        "questions": 9
       },
       {
-       "label": "truth-tables",
+       "label": "Truth tables",
        "questions": 9
       },
       {
-       "label": "logical-equivalences",
+       "label": "Logical equivalences",
        "questions": 7
       },
       {
-       "label": "implications-and-inference",
+       "label": "Implications & inference",
        "questions": 9
       },
       {
-       "label": "cnf-dnf",
+       "label": "CNF / DNF",
        "questions": 8
       },
       {
-       "label": "validity-and-satisfiability",
+       "label": "Validity & satisfiability",
        "questions": 8
       }
      ],
@@ -2991,23 +2989,23 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "predicates-and-domain",
+       "label": "Predicates & domain",
        "questions": 10
       },
       {
-       "label": "quantifiers-universal-existential",
+       "label": "Universal & existential quantifiers",
        "questions": 10
       },
       {
-       "label": "negation-nested-quantifiers",
+       "label": "Negation of nested quantifiers",
        "questions": 10
       },
       {
-       "label": "scope-and-order",
+       "label": "Scope & order of quantifiers",
        "questions": 10
       },
       {
-       "label": "english-to-fol-translation",
+       "label": "English to FOL translation",
        "questions": 10
       }
      ],
@@ -3104,23 +3102,23 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "predicates-and-domain",
+       "label": "Predicates & domain",
        "questions": 10
       },
       {
-       "label": "quantifiers-universal-existential",
+       "label": "Universal & existential quantifiers",
        "questions": 10
       },
       {
-       "label": "negation-nested-quantifiers",
+       "label": "Negation of nested quantifiers",
        "questions": 10
       },
       {
-       "label": "scope-and-order",
+       "label": "Scope & order of quantifiers",
        "questions": 10
       },
       {
-       "label": "english-to-fol-translation",
+       "label": "English to FOL translation",
        "questions": 10
       }
      ],
@@ -3204,23 +3202,23 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "predicates-and-domain",
+       "label": "Predicates & domain",
        "questions": 10
       },
       {
-       "label": "quantifiers-universal-existential",
+       "label": "Universal & existential quantifiers",
        "questions": 10
       },
       {
-       "label": "negation-nested-quantifiers",
+       "label": "Negation of nested quantifiers",
        "questions": 10
       },
       {
-       "label": "scope-and-order",
+       "label": "Scope & order of quantifiers",
        "questions": 10
       },
       {
-       "label": "english-to-fol-translation",
+       "label": "English to FOL translation",
        "questions": 10
       }
      ],
@@ -3308,23 +3306,23 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "predicates-and-domain",
+       "label": "Predicates & domain",
        "questions": 10
       },
       {
-       "label": "quantifiers-universal-existential",
+       "label": "Universal & existential quantifiers",
        "questions": 10
       },
       {
-       "label": "negation-nested-quantifiers",
+       "label": "Negation of nested quantifiers",
        "questions": 10
       },
       {
-       "label": "scope-and-order",
+       "label": "Scope & order of quantifiers",
        "questions": 10
       },
       {
-       "label": "english-to-fol-translation",
+       "label": "English to FOL translation",
        "questions": 10
       }
      ],
@@ -3409,23 +3407,23 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "predicates-and-domain",
+       "label": "Predicates & domain",
        "questions": 10
       },
       {
-       "label": "quantifiers-universal-existential",
+       "label": "Universal & existential quantifiers",
        "questions": 10
       },
       {
-       "label": "negation-nested-quantifiers",
+       "label": "Negation of nested quantifiers",
        "questions": 10
       },
       {
-       "label": "scope-and-order",
+       "label": "Scope & order of quantifiers",
        "questions": 10
       },
       {
-       "label": "english-to-fol-translation",
+       "label": "English to FOL translation",
        "questions": 10
       }
      ],
@@ -3521,23 +3519,23 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "predicates-and-domain",
+       "label": "Predicates & domain",
        "questions": 10
       },
       {
-       "label": "quantifiers-universal-existential",
+       "label": "Universal & existential quantifiers",
        "questions": 10
       },
       {
-       "label": "negation-nested-quantifiers",
+       "label": "Negation of nested quantifiers",
        "questions": 10
       },
       {
-       "label": "scope-and-order",
+       "label": "Scope & order of quantifiers",
        "questions": 10
       },
       {
-       "label": "english-to-fol-translation",
+       "label": "English to FOL translation",
        "questions": 10
       }
      ],
@@ -3623,23 +3621,23 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "predicates-and-domain",
+       "label": "Predicates & domain",
        "questions": 10
       },
       {
-       "label": "quantifiers-universal-existential",
+       "label": "Universal & existential quantifiers",
        "questions": 10
       },
       {
-       "label": "negation-nested-quantifiers",
+       "label": "Negation of nested quantifiers",
        "questions": 10
       },
       {
-       "label": "scope-and-order",
+       "label": "Scope & order of quantifiers",
        "questions": 10
       },
       {
-       "label": "english-to-fol-translation",
+       "label": "English to FOL translation",
        "questions": 10
       }
      ],
@@ -3713,23 +3711,23 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "predicates-and-domain",
+       "label": "Predicates & domain",
        "questions": 10
       },
       {
-       "label": "quantifiers-universal-existential",
+       "label": "Universal & existential quantifiers",
        "questions": 10
       },
       {
-       "label": "negation-nested-quantifiers",
+       "label": "Negation of nested quantifiers",
        "questions": 10
       },
       {
-       "label": "scope-and-order",
+       "label": "Scope & order of quantifiers",
        "questions": 10
       },
       {
-       "label": "english-to-fol-translation",
+       "label": "English to FOL translation",
        "questions": 10
       }
      ],
@@ -3802,23 +3800,23 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "predicates-and-domain",
+       "label": "Predicates & domain",
        "questions": 10
       },
       {
-       "label": "quantifiers-universal-existential",
+       "label": "Universal & existential quantifiers",
        "questions": 10
       },
       {
-       "label": "negation-nested-quantifiers",
+       "label": "Negation of nested quantifiers",
        "questions": 10
       },
       {
-       "label": "scope-and-order",
+       "label": "Scope & order of quantifiers",
        "questions": 10
       },
       {
-       "label": "english-to-fol-translation",
+       "label": "English to FOL translation",
        "questions": 10
       }
      ],
@@ -3900,23 +3898,23 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "predicates-and-domain",
+       "label": "Predicates & domain",
        "questions": 10
       },
       {
-       "label": "quantifiers-universal-existential",
+       "label": "Universal & existential quantifiers",
        "questions": 10
       },
       {
-       "label": "negation-nested-quantifiers",
+       "label": "Negation of nested quantifiers",
        "questions": 10
       },
       {
-       "label": "scope-and-order",
+       "label": "Scope & order of quantifiers",
        "questions": 10
       },
       {
-       "label": "english-to-fol-translation",
+       "label": "English to FOL translation",
        "questions": 10
       }
      ],

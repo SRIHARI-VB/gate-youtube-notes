@@ -48,8 +48,7 @@
       "title": "Counting and Combinatorics",
       "level": "topic-level",
       "covers": [
-        "permutations with repeated elements",
-        "circular permutations"
+        "permutations with repeated elements"
       ],
       "url": "https://gate-visual-explainer.vercel.app/topics/counting-and-combinatorics/index.html"
     },

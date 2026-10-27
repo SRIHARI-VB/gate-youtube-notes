@@ -52,23 +52,23 @@
       "question_count": 50,
       "subtopics": [
         {
-          "label": "types-injective-surjective-bijective",
+          "label": "Injective / surjective / bijective",
           "questions": 10
         },
         {
-          "label": "composition-and-inverses",
+          "label": "Composition & inverses",
           "questions": 10
         },
         {
-          "label": "counting-functions",
+          "label": "Counting functions",
           "questions": 10
         },
         {
-          "label": "pigeonhole-principle",
+          "label": "Pigeonhole principle",
           "questions": 10
         },
         {
-          "label": "floor-ceiling-recursion",
+          "label": "Floor, ceiling & recursion",
           "questions": 10
         }
       ],

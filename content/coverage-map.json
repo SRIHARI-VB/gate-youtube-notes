@@ -38,7 +38,7 @@
       "evidence": [
         "notes content/index.json -> map[].path = subjects/discrete-mathematics/combinatorics/basic-counting-rules.json",
         "mock: no unit in discrete-mathematics master_bank.json carries this card's vocabulary",
-        "visual: /scratch/repos/gate-visual-explainer/topics/counting-and-combinatorics/transcript.md scene list"
+        "visual: topics/counting-and-combinatorics/transcript.md scene list, covers checked against transcript text"
       ],
       "row_verdict": "VISUAL_ONLY"
     },
@@ -61,7 +61,7 @@
       "evidence": [
         "notes content/index.json -> map[].path = subjects/discrete-mathematics/combinatorics/permutations.json",
         "mock: no unit in discrete-mathematics master_bank.json carries this card's vocabulary",
-        "visual: /scratch/repos/gate-visual-explainer/topics/counting-and-combinatorics/transcript.md scene list"
+        "visual: topics/counting-and-combinatorics/transcript.md scene list, covers checked against transcript text"
       ],
       "row_verdict": "VISUAL_ONLY"
     },
@@ -84,7 +84,7 @@
       "evidence": [
         "notes content/index.json -> map[].path = subjects/discrete-mathematics/combinatorics/combinations.json",
         "mock: no unit in discrete-mathematics master_bank.json carries this card's vocabulary",
-        "visual: /scratch/repos/gate-visual-explainer/topics/counting-and-combinatorics/transcript.md scene list"
+        "visual: topics/counting-and-combinatorics/transcript.md scene list, covers checked against transcript text"
       ],
       "row_verdict": "VISUAL_ONLY"
     },
@@ -107,7 +107,7 @@
       "evidence": [
         "notes content/index.json -> map[].path = subjects/discrete-mathematics/combinatorics/binomial-theorem.json",
         "mock: no unit in discrete-mathematics master_bank.json carries this card's vocabulary",
-        "visual: /scratch/repos/gate-visual-explainer/topics/counting-and-combinatorics/transcript.md scene list"
+        "visual: topics/counting-and-combinatorics/transcript.md scene list, covers checked against transcript text"
       ],
       "row_verdict": "VISUAL_ONLY"
     },
@@ -130,7 +130,7 @@
       "evidence": [
         "notes content/index.json -> map[].path = subjects/discrete-mathematics/combinatorics/permutation-with-repetition.json",
         "mock: no unit in discrete-mathematics master_bank.json carries this card's vocabulary",
-        "visual: /scratch/repos/gate-visual-explainer/topics/counting-and-combinatorics/transcript.md scene list"
+        "visual: topics/counting-and-combinatorics/transcript.md scene list, covers checked against transcript text"
       ],
       "row_verdict": "VISUAL_ONLY"
     },
@@ -153,7 +153,7 @@
       "evidence": [
         "notes content/index.json -> map[].path = subjects/discrete-mathematics/combinatorics/distribution-templates.json",
         "mock: no unit in discrete-mathematics master_bank.json carries this card's vocabulary",
-        "visual: /scratch/repos/gate-visual-explainer/topics/counting-and-combinatorics/transcript.md scene list"
+        "visual: topics/counting-and-combinatorics/transcript.md scene list, covers checked against transcript text"
       ],
       "row_verdict": "VISUAL_ONLY"
     },
@@ -172,11 +172,11 @@
         "unit_number": 5,
         "question_count": 50,
         "subtopic_labels": [
-          "types-injective-surjective-bijective",
-          "composition-and-inverses",
-          "counting-functions",
-          "pigeonhole-principle",
-          "floor-ceiling-recursion"
+          "Injective / surjective / bijective",
+          "Composition & inverses",
+          "Counting functions",
+          "Pigeonhole principle",
+          "Floor, ceiling & recursion"
         ],
         "verdict": "MOCK_READY"
       },
@@ -189,8 +189,8 @@
       },
       "evidence": [
         "notes content/index.json -> map[].path = subjects/discrete-mathematics/combinatorics/dodb.json",
-        "mock: /scratch/repos/gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json -> questions[] grouped by unit_slug/subtopic",
-        "visual: /scratch/repos/gate-visual-explainer/topics/functions-and-their-properties/transcript.md scene list"
+        "mock: discrete-mathematics/question-bank/master_bank.json -> questions[] grouped by unit_slug/subtopic_label, count 50",
+        "visual: topics/functions-and-their-properties/transcript.md scene list, covers checked against transcript text"
       ],
       "row_verdict": "BOTH"
     },
@@ -213,7 +213,7 @@
       "evidence": [
         "notes content/index.json -> map[].path = subjects/discrete-mathematics/combinatorics/iodb-stars-and-bars.json",
         "mock: no unit in discrete-mathematics master_bank.json carries this card's vocabulary",
-        "visual: /scratch/repos/gate-visual-explainer/topics/counting-and-combinatorics/transcript.md scene list"
+        "visual: topics/counting-and-combinatorics/transcript.md scene list, covers checked against transcript text"
       ],
       "row_verdict": "VISUAL_ONLY"
     },
@@ -232,19 +232,19 @@
         "unit_number": 3,
         "question_count": 50,
         "subtopic_labels": [
-          "subsets-and-power-sets",
-          "cardinality",
-          "set-algebra-de-morgan",
-          "inclusion-exclusion",
-          "partitions-and-cartesian-products"
+          "Subsets & power sets",
+          "Cardinality",
+          "Set algebra & De Morgan",
+          "Inclusion-exclusion",
+          "Partitions & Cartesian products"
         ],
         "verdict": "MOCK_READY"
       },
       "visual": null,
       "evidence": [
         "notes content/index.json -> map[].path = subjects/discrete-mathematics/combinatorics/doib-stirling.json",
-        "mock: /scratch/repos/gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json -> questions[] grouped by unit_slug/subtopic",
-        "visual: no published lesson covers this card's content"
+        "mock: discrete-mathematics/question-bank/master_bank.json -> questions[] grouped by unit_slug/subtopic_label, count 50",
+        "visual: no published lesson transcript covers this subtopic"
       ],
       "row_verdict": "MOCK_ONLY"
     },
@@ -261,7 +261,7 @@
       "evidence": [
         "notes content/index.json -> map[].path = subjects/discrete-mathematics/combinatorics/ioib-partitions.json",
         "mock: no unit in discrete-mathematics master_bank.json carries this card's vocabulary",
-        "visual: no published lesson covers this card's content"
+        "visual: no published lesson transcript covers this subtopic"
       ],
       "row_verdict": "NEITHER"
     },
@@ -280,11 +280,11 @@
         "unit_number": 3,
         "question_count": 50,
         "subtopic_labels": [
-          "subsets-and-power-sets",
-          "cardinality",
-          "set-algebra-de-morgan",
-          "inclusion-exclusion",
-          "partitions-and-cartesian-products"
+          "Subsets & power sets",
+          "Cardinality",
+          "Set algebra & De Morgan",
+          "Inclusion-exclusion",
+          "Partitions & Cartesian products"
         ],
         "verdict": "MOCK_READY"
       },
@@ -297,8 +297,8 @@
       },
       "evidence": [
         "notes content/index.json -> map[].path = subjects/discrete-mathematics/combinatorics/inclusion-exclusion.json",
-        "mock: /scratch/repos/gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json -> questions[] grouped by unit_slug/subtopic",
-        "visual: /scratch/repos/gate-visual-explainer/topics/counting-and-combinatorics/transcript.md scene list"
+        "mock: discrete-mathematics/question-bank/master_bank.json -> questions[] grouped by unit_slug/subtopic_label, count 50",
+        "visual: topics/counting-and-combinatorics/transcript.md scene list, covers checked against transcript text"
       ],
       "row_verdict": "BOTH"
     },
@@ -321,7 +321,7 @@
       "evidence": [
         "notes content/index.json -> map[].path = subjects/discrete-mathematics/combinatorics/derangements.json",
         "mock: no unit in discrete-mathematics master_bank.json carries this card's vocabulary",
-        "visual: /scratch/repos/gate-visual-explainer/topics/counting-and-combinatorics/transcript.md scene list"
+        "visual: topics/counting-and-combinatorics/transcript.md scene list, covers checked against transcript text"
       ],
       "row_verdict": "VISUAL_ONLY"
     },
@@ -340,11 +340,11 @@
         "unit_number": 5,
         "question_count": 50,
         "subtopic_labels": [
-          "types-injective-surjective-bijective",
-          "composition-and-inverses",
-          "counting-functions",
-          "pigeonhole-principle",
-          "floor-ceiling-recursion"
+          "Injective / surjective / bijective",
+          "Composition & inverses",
+          "Counting functions",
+          "Pigeonhole principle",
+          "Floor, ceiling & recursion"
         ],
         "verdict": "MOCK_READY"
       },
@@ -357,8 +357,8 @@
       },
       "evidence": [
         "notes content/index.json -> map[].path = subjects/discrete-mathematics/combinatorics/onto-functions.json",
-        "mock: /scratch/repos/gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json -> questions[] grouped by unit_slug/subtopic",
-        "visual: /scratch/repos/gate-visual-explainer/topics/functions-and-their-properties/transcript.md scene list"
+        "mock: discrete-mathematics/question-bank/master_bank.json -> questions[] grouped by unit_slug/subtopic_label, count 50",
+        "visual: topics/functions-and-their-properties/transcript.md scene list, covers checked against transcript text"
       ],
       "row_verdict": "BOTH"
     },
@@ -377,11 +377,11 @@
         "unit_number": 5,
         "question_count": 50,
         "subtopic_labels": [
-          "types-injective-surjective-bijective",
-          "composition-and-inverses",
-          "counting-functions",
-          "pigeonhole-principle",
-          "floor-ceiling-recursion"
+          "Injective / surjective / bijective",
+          "Composition & inverses",
+          "Counting functions",
+          "Pigeonhole principle",
+          "Floor, ceiling & recursion"
         ],
         "verdict": "MOCK_READY"
       },
@@ -394,8 +394,8 @@
       },
       "evidence": [
         "notes content/index.json -> map[].path = subjects/discrete-mathematics/combinatorics/pigeonhole.json",
-        "mock: /scratch/repos/gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json -> questions[] grouped by unit_slug/subtopic",
-        "visual: /scratch/repos/gate-visual-explainer/topics/counting-and-combinatorics/transcript.md scene list"
+        "mock: discrete-mathematics/question-bank/master_bank.json -> questions[] grouped by unit_slug/subtopic_label, count 50",
+        "visual: topics/counting-and-combinatorics/transcript.md scene list, covers checked against transcript text"
       ],
       "row_verdict": "BOTH"
     },
@@ -418,7 +418,7 @@
       "evidence": [
         "notes content/index.json -> map[].path = subjects/discrete-mathematics/combinatorics/recurrences-and-compositions.json",
         "mock: no unit in discrete-mathematics master_bank.json carries this card's vocabulary",
-        "visual: /scratch/repos/gate-visual-explainer/topics/recurrence-relations/transcript.md scene list"
+        "visual: topics/recurrence-relations/transcript.md scene list, covers checked against transcript text"
       ],
       "row_verdict": "VISUAL_ONLY"
     },
@@ -437,12 +437,12 @@
         "unit_number": 1,
         "question_count": 50,
         "subtopic_labels": [
-          "propositions-and-connectives",
-          "truth-tables",
-          "logical-equivalences",
-          "implications-and-inference",
-          "cnf-dnf",
-          "validity-and-satisfiability"
+          "Propositions & connectives",
+          "Truth tables",
+          "Logical equivalences",
+          "Implications & inference",
+          "CNF / DNF",
+          "Validity & satisfiability"
         ],
         "verdict": "MOCK_READY"
       },
@@ -455,8 +455,8 @@
       },
       "evidence": [
         "notes content/index.json -> map[].path = subjects/discrete-mathematics/propositional-logic/propositions-and-connectives.json",
-        "mock: /scratch/repos/gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json -> questions[] grouped by unit_slug/subtopic",
-        "visual: /scratch/repos/gate-visual-explainer/topics/propositional-logic/transcript.md scene list"
+        "mock: discrete-mathematics/question-bank/master_bank.json -> questions[] grouped by unit_slug/subtopic_label, count 50",
+        "visual: topics/propositional-logic/transcript.md scene list, covers checked against transcript text"
       ],
       "row_verdict": "BOTH"
     },
@@ -475,12 +475,12 @@
         "unit_number": 1,
         "question_count": 50,
         "subtopic_labels": [
-          "propositions-and-connectives",
-          "truth-tables",
-          "logical-equivalences",
-          "implications-and-inference",
-          "cnf-dnf",
-          "validity-and-satisfiability"
+          "Propositions & connectives",
+          "Truth tables",
+          "Logical equivalences",
+          "Implications & inference",
+          "CNF / DNF",
+          "Validity & satisfiability"
         ],
         "verdict": "MOCK_READY"
       },
@@ -493,8 +493,8 @@
       },
       "evidence": [
         "notes content/index.json -> map[].path = subjects/discrete-mathematics/propositional-logic/truth-tables-and-tautology.json",
-        "mock: /scratch/repos/gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json -> questions[] grouped by unit_slug/subtopic",
-        "visual: /scratch/repos/gate-visual-explainer/topics/propositional-logic/transcript.md scene list"
+        "mock: discrete-mathematics/question-bank/master_bank.json -> questions[] grouped by unit_slug/subtopic_label, count 50",
+        "visual: topics/propositional-logic/transcript.md scene list, covers checked against transcript text"
       ],
       "row_verdict": "BOTH"
     },
@@ -513,12 +513,12 @@
         "unit_number": 1,
         "question_count": 50,
         "subtopic_labels": [
-          "propositions-and-connectives",
-          "truth-tables",
-          "logical-equivalences",
-          "implications-and-inference",
-          "cnf-dnf",
-          "validity-and-satisfiability"
+          "Propositions & connectives",
+          "Truth tables",
+          "Logical equivalences",
+          "Implications & inference",
+          "CNF / DNF",
+          "Validity & satisfiability"
         ],
         "verdict": "MOCK_READY"
       },
@@ -531,8 +531,8 @@
       },
       "evidence": [
         "notes content/index.json -> map[].path = subjects/discrete-mathematics/propositional-logic/implication-converse-contrapositive.json",
-        "mock: /scratch/repos/gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json -> questions[] grouped by unit_slug/subtopic",
-        "visual: /scratch/repos/gate-visual-explainer/topics/propositional-logic/transcript.md scene list"
+        "mock: discrete-mathematics/question-bank/master_bank.json -> questions[] grouped by unit_slug/subtopic_label, count 50",
+        "visual: topics/propositional-logic/transcript.md scene list, covers checked against transcript text"
       ],
       "row_verdict": "BOTH"
     },
@@ -551,12 +551,12 @@
         "unit_number": 1,
         "question_count": 50,
         "subtopic_labels": [
-          "propositions-and-connectives",
-          "truth-tables",
-          "logical-equivalences",
-          "implications-and-inference",
-          "cnf-dnf",
-          "validity-and-satisfiability"
+          "Propositions & connectives",
+          "Truth tables",
+          "Logical equivalences",
+          "Implications & inference",
+          "CNF / DNF",
+          "Validity & satisfiability"
         ],
         "verdict": "MOCK_READY"
       },
@@ -569,8 +569,8 @@
       },
       "evidence": [
         "notes content/index.json -> map[].path = subjects/discrete-mathematics/propositional-logic/logical-equivalence-laws.json",
-        "mock: /scratch/repos/gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json -> questions[] grouped by unit_slug/subtopic",
-        "visual: /scratch/repos/gate-visual-explainer/topics/propositional-logic/transcript.md scene list"
+        "mock: discrete-mathematics/question-bank/master_bank.json -> questions[] grouped by unit_slug/subtopic_label, count 50",
+        "visual: topics/propositional-logic/transcript.md scene list, covers checked against transcript text"
       ],
       "row_verdict": "BOTH"
     },
@@ -589,20 +589,20 @@
         "unit_number": 1,
         "question_count": 50,
         "subtopic_labels": [
-          "propositions-and-connectives",
-          "truth-tables",
-          "logical-equivalences",
-          "implications-and-inference",
-          "cnf-dnf",
-          "validity-and-satisfiability"
+          "Propositions & connectives",
+          "Truth tables",
+          "Logical equivalences",
+          "Implications & inference",
+          "CNF / DNF",
+          "Validity & satisfiability"
         ],
         "verdict": "MOCK_READY"
       },
       "visual": null,
       "evidence": [
         "notes content/index.json -> map[].path = subjects/discrete-mathematics/propositional-logic/cnf-dnf-normal-forms.json",
-        "mock: /scratch/repos/gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json -> questions[] grouped by unit_slug/subtopic",
-        "visual: no published lesson covers this card's content"
+        "mock: discrete-mathematics/question-bank/master_bank.json -> questions[] grouped by unit_slug/subtopic_label, count 50",
+        "visual: no published lesson transcript covers this subtopic"
       ],
       "row_verdict": "MOCK_ONLY"
     },
@@ -621,12 +621,12 @@
         "unit_number": 1,
         "question_count": 50,
         "subtopic_labels": [
-          "propositions-and-connectives",
-          "truth-tables",
-          "logical-equivalences",
-          "implications-and-inference",
-          "cnf-dnf",
-          "validity-and-satisfiability"
+          "Propositions & connectives",
+          "Truth tables",
+          "Logical equivalences",
+          "Implications & inference",
+          "CNF / DNF",
+          "Validity & satisfiability"
         ],
         "verdict": "MOCK_READY"
       },
@@ -639,8 +639,8 @@
       },
       "evidence": [
         "notes content/index.json -> map[].path = subjects/discrete-mathematics/propositional-logic/satisfiability-and-validity.json",
-        "mock: /scratch/repos/gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json -> questions[] grouped by unit_slug/subtopic",
-        "visual: /scratch/repos/gate-visual-explainer/topics/propositional-logic/transcript.md scene list"
+        "mock: discrete-mathematics/question-bank/master_bank.json -> questions[] grouped by unit_slug/subtopic_label, count 50",
+        "visual: topics/propositional-logic/transcript.md scene list, covers checked against transcript text"
       ],
       "row_verdict": "BOTH"
     },
@@ -659,12 +659,12 @@
         "unit_number": 1,
         "question_count": 50,
         "subtopic_labels": [
-          "propositions-and-connectives",
-          "truth-tables",
-          "logical-equivalences",
-          "implications-and-inference",
-          "cnf-dnf",
-          "validity-and-satisfiability"
+          "Propositions & connectives",
+          "Truth tables",
+          "Logical equivalences",
+          "Implications & inference",
+          "CNF / DNF",
+          "Validity & satisfiability"
         ],
         "verdict": "MOCK_READY"
       },
@@ -677,8 +677,8 @@
       },
       "evidence": [
         "notes content/index.json -> map[].path = subjects/discrete-mathematics/propositional-logic/logical-entailment-and-models.json",
-        "mock: /scratch/repos/gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json -> questions[] grouped by unit_slug/subtopic",
-        "visual: /scratch/repos/gate-visual-explainer/topics/propositional-logic/transcript.md scene list"
+        "mock: discrete-mathematics/question-bank/master_bank.json -> questions[] grouped by unit_slug/subtopic_label, count 50",
+        "visual: topics/propositional-logic/transcript.md scene list, covers checked against transcript text"
       ],
       "row_verdict": "BOTH"
     },
@@ -697,12 +697,12 @@
         "unit_number": 1,
         "question_count": 50,
         "subtopic_labels": [
-          "propositions-and-connectives",
-          "truth-tables",
-          "logical-equivalences",
-          "implications-and-inference",
-          "cnf-dnf",
-          "validity-and-satisfiability"
+          "Propositions & connectives",
+          "Truth tables",
+          "Logical equivalences",
+          "Implications & inference",
+          "CNF / DNF",
+          "Validity & satisfiability"
         ],
         "verdict": "MOCK_READY"
       },
@@ -715,8 +715,8 @@
       },
       "evidence": [
         "notes content/index.json -> map[].path = subjects/discrete-mathematics/propositional-logic/rules-of-inference.json",
-        "mock: /scratch/repos/gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json -> questions[] grouped by unit_slug/subtopic",
-        "visual: /scratch/repos/gate-visual-explainer/topics/propositional-logic/transcript.md scene list"
+        "mock: discrete-mathematics/question-bank/master_bank.json -> questions[] grouped by unit_slug/subtopic_label, count 50",
+        "visual: topics/propositional-logic/transcript.md scene list, covers checked against transcript text"
       ],
       "row_verdict": "BOTH"
     },
@@ -735,20 +735,20 @@
         "unit_number": 1,
         "question_count": 50,
         "subtopic_labels": [
-          "propositions-and-connectives",
-          "truth-tables",
-          "logical-equivalences",
-          "implications-and-inference",
-          "cnf-dnf",
-          "validity-and-satisfiability"
+          "Propositions & connectives",
+          "Truth tables",
+          "Logical equivalences",
+          "Implications & inference",
+          "CNF / DNF",
+          "Validity & satisfiability"
         ],
         "verdict": "MOCK_READY"
       },
       "visual": null,
       "evidence": [
         "notes content/index.json -> map[].path = subjects/discrete-mathematics/propositional-logic/resolution-refutation.json",
-        "mock: /scratch/repos/gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json -> questions[] grouped by unit_slug/subtopic",
-        "visual: no published lesson covers this card's content"
+        "mock: discrete-mathematics/question-bank/master_bank.json -> questions[] grouped by unit_slug/subtopic_label, count 50",
+        "visual: no published lesson transcript covers this subtopic"
       ],
       "row_verdict": "MOCK_ONLY"
     },
@@ -767,20 +767,20 @@
         "unit_number": 1,
         "question_count": 50,
         "subtopic_labels": [
-          "propositions-and-connectives",
-          "truth-tables",
-          "logical-equivalences",
-          "implications-and-inference",
-          "cnf-dnf",
-          "validity-and-satisfiability"
+          "Propositions & connectives",
+          "Truth tables",
+          "Logical equivalences",
+          "Implications & inference",
+          "CNF / DNF",
+          "Validity & satisfiability"
         ],
         "verdict": "MOCK_READY"
       },
       "visual": null,
       "evidence": [
         "notes content/index.json -> map[].path = subjects/discrete-mathematics/propositional-logic/functional-completeness.json",
-        "mock: /scratch/repos/gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json -> questions[] grouped by unit_slug/subtopic",
-        "visual: no published lesson covers this card's content"
+        "mock: discrete-mathematics/question-bank/master_bank.json -> questions[] grouped by unit_slug/subtopic_label, count 50",
+        "visual: no published lesson transcript covers this subtopic"
       ],
       "row_verdict": "MOCK_ONLY"
     },
@@ -799,11 +799,11 @@
         "unit_number": 2,
         "question_count": 50,
         "subtopic_labels": [
-          "predicates-and-domain",
-          "quantifiers-universal-existential",
-          "negation-nested-quantifiers",
-          "scope-and-order",
-          "english-to-fol-translation"
+          "Predicates & domain",
+          "Universal & existential quantifiers",
+          "Negation of nested quantifiers",
+          "Scope & order of quantifiers",
+          "English to FOL translation"
         ],
         "verdict": "MOCK_READY"
       },
@@ -816,8 +816,8 @@
       },
       "evidence": [
         "notes content/index.json -> map[].path = subjects/discrete-mathematics/propositional-logic/quantifiers-and-scope.json",
-        "mock: /scratch/repos/gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json -> questions[] grouped by unit_slug/subtopic",
-        "visual: /scratch/repos/gate-visual-explainer/topics/first-order-logic/transcript.md scene list"
+        "mock: discrete-mathematics/question-bank/master_bank.json -> questions[] grouped by unit_slug/subtopic_label, count 50",
+        "visual: topics/first-order-logic/transcript.md scene list, covers checked against transcript text"
       ],
       "row_verdict": "BOTH"
     },
@@ -836,12 +836,12 @@
         "unit_number": 1,
         "question_count": 50,
         "subtopic_labels": [
-          "propositions-and-connectives",
-          "truth-tables",
-          "logical-equivalences",
-          "implications-and-inference",
-          "cnf-dnf",
-          "validity-and-satisfiability"
+          "Propositions & connectives",
+          "Truth tables",
+          "Logical equivalences",
+          "Implications & inference",
+          "CNF / DNF",
+          "Validity & satisfiability"
         ],
         "verdict": "MOCK_READY"
       },
@@ -854,8 +854,8 @@
       },
       "evidence": [
         "notes content/index.json -> map[].path = subjects/discrete-mathematics/propositional-logic/fast-methods-by-case-and-simplification.json",
-        "mock: /scratch/repos/gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json -> questions[] grouped by unit_slug/subtopic",
-        "visual: /scratch/repos/gate-visual-explainer/topics/propositional-logic/transcript.md scene list"
+        "mock: discrete-mathematics/question-bank/master_bank.json -> questions[] grouped by unit_slug/subtopic_label, count 50",
+        "visual: topics/propositional-logic/transcript.md scene list, covers checked against transcript text"
       ],
       "row_verdict": "BOTH"
     },
@@ -874,11 +874,11 @@
         "unit_number": 2,
         "question_count": 50,
         "subtopic_labels": [
-          "predicates-and-domain",
-          "quantifiers-universal-existential",
-          "negation-nested-quantifiers",
-          "scope-and-order",
-          "english-to-fol-translation"
+          "Predicates & domain",
+          "Universal & existential quantifiers",
+          "Negation of nested quantifiers",
+          "Scope & order of quantifiers",
+          "English to FOL translation"
         ],
         "verdict": "MOCK_READY"
       },
@@ -891,8 +891,8 @@
       },
       "evidence": [
         "notes content/index.json -> map[].path = subjects/discrete-mathematics/first-order-logic/fol-syntax-predicates-and-quantifiers.json",
-        "mock: /scratch/repos/gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json -> questions[] grouped by unit_slug/subtopic",
-        "visual: /scratch/repos/gate-visual-explainer/topics/first-order-logic/transcript.md scene list"
+        "mock: discrete-mathematics/question-bank/master_bank.json -> questions[] grouped by unit_slug/subtopic_label, count 50",
+        "visual: topics/first-order-logic/transcript.md scene list, covers checked against transcript text"
       ],
       "row_verdict": "BOTH"
     },
@@ -911,11 +911,11 @@
         "unit_number": 2,
         "question_count": 50,
         "subtopic_labels": [
-          "predicates-and-domain",
-          "quantifiers-universal-existential",
-          "negation-nested-quantifiers",
-          "scope-and-order",
-          "english-to-fol-translation"
+          "Predicates & domain",
+          "Universal & existential quantifiers",
+          "Negation of nested quantifiers",
+          "Scope & order of quantifiers",
+          "English to FOL translation"
         ],
         "verdict": "MOCK_READY"
       },
@@ -928,8 +928,8 @@
       },
       "evidence": [
         "notes content/index.json -> map[].path = subjects/discrete-mathematics/first-order-logic/english-to-fol-translation-templates.json",
-        "mock: /scratch/repos/gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json -> questions[] grouped by unit_slug/subtopic",
-        "visual: /scratch/repos/gate-visual-explainer/topics/first-order-logic/transcript.md scene list"
+        "mock: discrete-mathematics/question-bank/master_bank.json -> questions[] grouped by unit_slug/subtopic_label, count 50",
+        "visual: topics/first-order-logic/transcript.md scene list, covers checked against transcript text"
       ],
       "row_verdict": "BOTH"
     },
@@ -948,11 +948,11 @@
         "unit_number": 2,
         "question_count": 50,
         "subtopic_labels": [
-          "predicates-and-domain",
-          "quantifiers-universal-existential",
-          "negation-nested-quantifiers",
-          "scope-and-order",
-          "english-to-fol-translation"
+          "Predicates & domain",
+          "Universal & existential quantifiers",
+          "Negation of nested quantifiers",
+          "Scope & order of quantifiers",
+          "English to FOL translation"
         ],
         "verdict": "MOCK_READY"
       },
@@ -965,8 +965,8 @@
       },
       "evidence": [
         "notes content/index.json -> map[].path = subjects/discrete-mathematics/first-order-logic/quantifier-order-and-nesting.json",
-        "mock: /scratch/repos/gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json -> questions[] grouped by unit_slug/subtopic",
-        "visual: /scratch/repos/gate-visual-explainer/topics/first-order-logic/transcript.md scene list"
+        "mock: discrete-mathematics/question-bank/master_bank.json -> questions[] grouped by unit_slug/subtopic_label, count 50",
+        "visual: topics/first-order-logic/transcript.md scene list, covers checked against transcript text"
       ],
       "row_verdict": "BOTH"
     },
@@ -985,11 +985,11 @@
         "unit_number": 2,
         "question_count": 50,
         "subtopic_labels": [
-          "predicates-and-domain",
-          "quantifiers-universal-existential",
-          "negation-nested-quantifiers",
-          "scope-and-order",
-          "english-to-fol-translation"
+          "Predicates & domain",
+          "Universal & existential quantifiers",
+          "Negation of nested quantifiers",
+          "Scope & order of quantifiers",
+          "English to FOL translation"
         ],
         "verdict": "MOCK_READY"
       },
@@ -1002,8 +1002,8 @@
       },
       "evidence": [
         "notes content/index.json -> map[].path = subjects/discrete-mathematics/first-order-logic/fol-interpretation-model-and-validity.json",
-        "mock: /scratch/repos/gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json -> questions[] grouped by unit_slug/subtopic",
-        "visual: /scratch/repos/gate-visual-explainer/topics/first-order-logic/transcript.md scene list"
+        "mock: discrete-mathematics/question-bank/master_bank.json -> questions[] grouped by unit_slug/subtopic_label, count 50",
+        "visual: topics/first-order-logic/transcript.md scene list, covers checked against transcript text"
       ],
       "row_verdict": "BOTH"
     },
@@ -1022,11 +1022,11 @@
         "unit_number": 2,
         "question_count": 50,
         "subtopic_labels": [
-          "predicates-and-domain",
-          "quantifiers-universal-existential",
-          "negation-nested-quantifiers",
-          "scope-and-order",
-          "english-to-fol-translation"
+          "Predicates & domain",
+          "Universal & existential quantifiers",
+          "Negation of nested quantifiers",
+          "Scope & order of quantifiers",
+          "English to FOL translation"
         ],
         "verdict": "MOCK_READY"
       },
@@ -1039,8 +1039,8 @@
       },
       "evidence": [
         "notes content/index.json -> map[].path = subjects/discrete-mathematics/first-order-logic/quantifier-negation-and-equivalence.json",
-        "mock: /scratch/repos/gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json -> questions[] grouped by unit_slug/subtopic",
-        "visual: /scratch/repos/gate-visual-explainer/topics/first-order-logic/transcript.md scene list"
+        "mock: discrete-mathematics/question-bank/master_bank.json -> questions[] grouped by unit_slug/subtopic_label, count 50",
+        "visual: topics/first-order-logic/transcript.md scene list, covers checked against transcript text"
       ],
       "row_verdict": "BOTH"
     },
@@ -1059,11 +1059,11 @@
         "unit_number": 2,
         "question_count": 50,
         "subtopic_labels": [
-          "predicates-and-domain",
-          "quantifiers-universal-existential",
-          "negation-nested-quantifiers",
-          "scope-and-order",
-          "english-to-fol-translation"
+          "Predicates & domain",
+          "Universal & existential quantifiers",
+          "Negation of nested quantifiers",
+          "Scope & order of quantifiers",
+          "English to FOL translation"
         ],
         "verdict": "MOCK_READY"
       },
@@ -1076,8 +1076,8 @@
       },
       "evidence": [
         "notes content/index.json -> map[].path = subjects/discrete-mathematics/first-order-logic/fol-validity-and-implication.json",
-        "mock: /scratch/repos/gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json -> questions[] grouped by unit_slug/subtopic",
-        "visual: /scratch/repos/gate-visual-explainer/topics/first-order-logic/transcript.md scene list"
+        "mock: discrete-mathematics/question-bank/master_bank.json -> questions[] grouped by unit_slug/subtopic_label, count 50",
+        "visual: topics/first-order-logic/transcript.md scene list, covers checked against transcript text"
       ],
       "row_verdict": "BOTH"
     },
@@ -1096,19 +1096,19 @@
         "unit_number": 2,
         "question_count": 50,
         "subtopic_labels": [
-          "predicates-and-domain",
-          "quantifiers-universal-existential",
-          "negation-nested-quantifiers",
-          "scope-and-order",
-          "english-to-fol-translation"
+          "Predicates & domain",
+          "Universal & existential quantifiers",
+          "Negation of nested quantifiers",
+          "Scope & order of quantifiers",
+          "English to FOL translation"
         ],
         "verdict": "MOCK_READY"
       },
       "visual": null,
       "evidence": [
         "notes content/index.json -> map[].path = subjects/discrete-mathematics/first-order-logic/fol-tautology-vs-validity.json",
-        "mock: /scratch/repos/gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json -> questions[] grouped by unit_slug/subtopic",
-        "visual: no published lesson covers this card's content"
+        "mock: discrete-mathematics/question-bank/master_bank.json -> questions[] grouped by unit_slug/subtopic_label, count 50",
+        "visual: no published lesson transcript covers this subtopic"
       ],
       "row_verdict": "MOCK_ONLY"
     },
@@ -1127,19 +1127,19 @@
         "unit_number": 2,
         "question_count": 50,
         "subtopic_labels": [
-          "predicates-and-domain",
-          "quantifiers-universal-existential",
-          "negation-nested-quantifiers",
-          "scope-and-order",
-          "english-to-fol-translation"
+          "Predicates & domain",
+          "Universal & existential quantifiers",
+          "Negation of nested quantifiers",
+          "Scope & order of quantifiers",
+          "English to FOL translation"
         ],
         "verdict": "MOCK_READY"
       },
       "visual": null,
       "evidence": [
         "notes content/index.json -> map[].path = subjects/discrete-mathematics/first-order-logic/fol-exactly-one-and-uniqueness.json",
-        "mock: /scratch/repos/gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json -> questions[] grouped by unit_slug/subtopic",
-        "visual: no published lesson covers this card's content"
+        "mock: discrete-mathematics/question-bank/master_bank.json -> questions[] grouped by unit_slug/subtopic_label, count 50",
+        "visual: no published lesson transcript covers this subtopic"
       ],
       "row_verdict": "MOCK_ONLY"
     },
@@ -1158,11 +1158,11 @@
         "unit_number": 2,
         "question_count": 50,
         "subtopic_labels": [
-          "predicates-and-domain",
-          "quantifiers-universal-existential",
-          "negation-nested-quantifiers",
-          "scope-and-order",
-          "english-to-fol-translation"
+          "Predicates & domain",
+          "Universal & existential quantifiers",
+          "Negation of nested quantifiers",
+          "Scope & order of quantifiers",
+          "English to FOL translation"
         ],
         "verdict": "MOCK_READY"
       },
@@ -1175,8 +1175,8 @@
       },
       "evidence": [
         "notes content/index.json -> map[].path = subjects/discrete-mathematics/first-order-logic/fol-model-size-and-countermodels.json",
-        "mock: /scratch/repos/gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json -> questions[] grouped by unit_slug/subtopic",
-        "visual: /scratch/repos/gate-visual-explainer/topics/first-order-logic/transcript.md scene list"
+        "mock: discrete-mathematics/question-bank/master_bank.json -> questions[] grouped by unit_slug/subtopic_label, count 50",
+        "visual: topics/first-order-logic/transcript.md scene list, covers checked against transcript text"
       ],
       "row_verdict": "BOTH"
     },
@@ -1195,24 +1195,34 @@
         "unit_number": 2,
         "question_count": 50,
         "subtopic_labels": [
-          "predicates-and-domain",
-          "quantifiers-universal-existential",
-          "negation-nested-quantifiers",
-          "scope-and-order",
-          "english-to-fol-translation"
+          "Predicates & domain",
+          "Universal & existential quantifiers",
+          "Negation of nested quantifiers",
+          "Scope & order of quantifiers",
+          "English to FOL translation"
         ],
         "verdict": "MOCK_READY"
       },
       "visual": null,
       "evidence": [
         "notes content/index.json -> map[].path = subjects/discrete-mathematics/first-order-logic/fol-quantifier-inference-rules.json",
-        "mock: /scratch/repos/gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json -> questions[] grouped by unit_slug/subtopic",
-        "visual: no published lesson covers this card's content"
+        "mock: discrete-mathematics/question-bank/master_bank.json -> questions[] grouped by unit_slug/subtopic_label, count 50",
+        "visual: no published lesson transcript covers this subtopic"
       ],
       "row_verdict": "MOCK_ONLY"
     }
   ],
   "gaps": [
+    {
+      "kind": "notes",
+      "placement": "algorithms › sorting-divide-conquer › (no card)",
+      "detail": "New mock set, Algorithms Unit 2 'Divide and Conquer & Sorting' (run 3, 2026-10-27, paper algorithms/sorting-divide-conquer/gate_algo_mock_2_2026-10-27.html), holds 25 questions over 4 subtopic groups (merge-sort-quick-sort 7, linear-time-sorts-counting-radix 6, selection-kth-element 6, inversion-counting 6). The notes repo covers discrete mathematics only, so no card serves them."
+    },
+    {
+      "kind": "notes",
+      "placement": "operating-systems › synchronisation-and-deadlock › (no card)",
+      "detail": "New lesson topics/synchronisation-and-deadlock (added 2026-10-27, PUBLISHED, 55 aliases) serves no notes card; the notes repo has no operating-systems subject yet."
+    },
     {
       "kind": "notes",
       "placement": "engineering-mathematics › calculus-limits-derivatives › (no card)",
@@ -1224,19 +1234,29 @@
       "detail": "Lesson topics/cpu-scheduling (PUBLISHED 2026-10-27, 26 microtopics from FCFS/SJF/SRTF/round robin to MLFQ) serves no notes card; the notes repo has no operating-systems subject yet."
     },
     {
-      "kind": "mock",
-      "placement": "discrete-mathematics › combinatorics › (no unit)",
-      "detail": "14 combinatorics cards carry no mock unit: the discrete-mathematics bank has units 1-6 and 16 (propositional-logic, predicate-logic, set-theory, relations, functions, induction-recursion, proof-techniques) and none covers counting."
-    },
-    {
-      "kind": "visual",
-      "placement": "discrete-mathematics › combinatorics › doib-stirling, ioib-partitions",
-      "detail": "No published lesson covers Stirling numbers of the second kind or integer partitions; counting-and-combinatorics stops at stars and bars, inclusion-exclusion, surjections and derangements."
-    },
-    {
       "kind": "notes",
       "placement": "digital-logic › sequential-flipflops › (no card)",
       "detail": "New mock set, Digital Logic Unit 3 'Sequential Circuits: Flip-Flops & Registers' (run 5, 2026-10-27, paper gate_dl_mock_3_2026-10-27.html), holds 25 questions over 4 subtopic_label groups (Latches vs flip-flops 8, Shift registers 6, Setup &amp; hold times 6, Characteristic equations 5). The notes repo covers discrete mathematics only, so no card serves any of them. Lesson topics/sequential-circuits (PUBLISHED 2026-10-27, topic-level) already covers all four subtopics, so the missing piece is the notes card."
+    },
+    {
+      "kind": "mock",
+      "placement": "discrete-mathematics › combinatorics › (no unit)",
+      "detail": "12 combinatorics cards carry no mock unit: the discrete-mathematics bank has units 1-6 and 16 (propositional-logic, predicate-logic, set-theory, relations, functions, induction-recursion, proof-techniques) and none covers counting, stars and bars or derangements."
+    },
+    {
+      "kind": "visual",
+      "placement": "discrete-mathematics › combinatorics › doib-stirling, ioib-partitions, binomial-theorem",
+      "detail": "No published lesson covers Stirling numbers of the second kind, integer partitions or binomial-theorem coefficient extraction; counting-and-combinatorics stops at stars and bars, inclusion-exclusion, surjections and derangements."
+    },
+    {
+      "kind": "visual",
+      "placement": "discrete-mathematics › propositional-logic › cnf-dnf-normal-forms, resolution-refutation, functional-completeness",
+      "detail": "topics/propositional-logic has no scene on CNF/DNF, resolution or NAND completeness; its 10 scenes stop at equivalence, valid arguments and satisfiability."
+    },
+    {
+      "kind": "visual",
+      "placement": "discrete-mathematics › first-order-logic › fol-validity-and-implication, fol-tautology-vs-validity, fol-exactly-one-and-uniqueness, fol-model-size-and-countermodels, fol-quantifier-inference-rules",
+      "detail": "topics/first-order-logic covers predicates, both quantifiers, the domain, quantifier negation, quantifier order and free/bound variables only; validity, uniqueness, countermodels and quantifier inference rules are absent from its transcript."
     }
   ]
 }

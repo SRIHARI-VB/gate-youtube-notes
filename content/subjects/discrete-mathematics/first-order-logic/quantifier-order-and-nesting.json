@@ -61,23 +61,23 @@
       "question_count": 50,
       "subtopics": [
         {
-          "label": "predicates-and-domain",
+          "label": "Predicates & domain",
           "questions": 10
         },
         {
-          "label": "quantifiers-universal-existential",
+          "label": "Universal & existential quantifiers",
           "questions": 10
         },
         {
-          "label": "negation-nested-quantifiers",
+          "label": "Negation of nested quantifiers",
           "questions": 10
         },
         {
-          "label": "scope-and-order",
+          "label": "Scope & order of quantifiers",
           "questions": 10
         },
         {
-          "label": "english-to-fol-translation",
+          "label": "English to FOL translation",
           "questions": 10
         }
       ],
