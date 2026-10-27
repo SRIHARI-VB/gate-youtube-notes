@@ -1594,7 +1594,7 @@
     {
       "kind": "mock",
       "placement": "discrete-mathematics > combinatorics",
-      "detail": "10 of 15 combinatorics cards are MOCK_UNIT_MISSING: basic-counting-rules, permutations, combinations, binomial-theorem, permutation-with-repetition, distribution-templates, iodb-stars-and-bars, ioib-partitions, derangements, recurrences-and-compositions. The bank holds units 1-5 and 16 only; no combinatorics unit exists in gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json"
+      "detail": "10 of 15 combinatorics cards are MOCK_UNIT_MISSING: basic-counting-rules, permutations, combinations, binomial-theorem, permutation-with-repetition, distribution-templates, iodb-stars-and-bars, ioib-partitions, derangements, recurrences-and-compositions. The bank now holds units 1, 2, 3, 4, 5, 6, 16 (350 questions) and still no combinatorics unit; no combinatorics unit exists in gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json"
     },
     {
       "kind": "mock",
@@ -1805,6 +1805,16 @@
       "kind": "visual",
       "placement": "computer-organization-and-architecture > memory > memory-interfacing-and-interleaving",
       "detail": "gate-visual-explainer syllabus-coverage.json changed on 2026-10-27 in two ways that need no card yet. The memory-hierarchy-and-cache entry was trimmed from 7 subtopics to 4 (locality, address fields, miss classification and multi-level cache removed) and its importance_evidence shortened, while coverage_status stays PUBLISHED with lesson_slug memory-hierarchy-and-cache; the published lesson was not re-checked this run, so the trimmed plan and the lesson transcript now disagree. A new entry \"Memory interfacing and interleaving\" was added with coverage_status NOT_STARTED, lesson_slug null and an empty microtopics[] - VISUAL_SYLLABUS_ONLY. Neither serves a notes card: the notes repo has no computer-organization-and-architecture subject. Next build: topics/memory-interfacing-and-interleaving/ when the cache lesson's own gap is closed, otherwise leave it plan-only."
+    },
+    {
+      "kind": "notes",
+      "placement": "computer-networks > data-link-mac (no notes subject exists)",
+      "detail": "gate-cse-mocks/computer-networks/question-bank/master_bank.json unit 2 'Data Link Protocols & MAC' (data-link-mac) was published this run as run 3 (2026-10-27) with 25 questions over 5 subtopic_label groups: Stop-and-wait ARQ (5), Go-back-N & selective repeat (5), Pure & slotted ALOHA (5), CSMA/CD, CSMA/CA & backoff (5), Ethernet, switches & bridges (5). gate-youtube-notes has no computer-networks subject and no card for ARQ, ALOHA, CSMA/CD or Ethernet switching, so the set maps to no card. Paper: computer-networks/data-link-mac/gate_cn_mock_2_2026-10-27.html."
+    },
+    {
+      "kind": "notes",
+      "placement": "algorithms > searching-and-sorting > hashing (no notes subject exists)",
+      "detail": "gate-visual-explainer lesson hashing (syllabus-coverage.json topic 35, Algorithms > Searching and sorting, PUBLISHED 2026-10-27, transcript.md scenes 1-10: hash functions, chaining, open addressing, linear/quadratic/double probing, clustering, tombstones, expected probe costs) serves no notes card: gate-youtube-notes holds only discrete-mathematics cards. The lesson's prerequisites also point at arrays-stacks-queues and asymptotic-complexity, which the notes likewise do not cover."
     }
   ]
 }
