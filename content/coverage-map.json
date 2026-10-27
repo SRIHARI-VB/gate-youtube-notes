@@ -1820,6 +1820,16 @@
       "kind": "notes",
       "placement": "algorithms > searching-and-sorting > hashing (no notes subject exists)",
       "detail": "gate-visual-explainer lesson hashing (syllabus-coverage.json topic 35, Algorithms > Searching and sorting, PUBLISHED 2026-10-27, transcript.md scenes 1-10: hash functions, chaining, open addressing, linear/quadratic/double probing, clustering, tombstones, expected probe costs) serves no notes card: gate-youtube-notes holds only discrete-mathematics cards. The lesson's prerequisites also point at arrays-stacks-queues and asymptotic-complexity, which the notes likewise do not cover."
+    },
+    {
+      "kind": "notes",
+      "placement": "compiler-design > syntax-analysis > top-down-parsing (no notes subject exists)",
+      "detail": "gate-cse-mocks/compiler-design/question-bank/master_bank.json run 3 (2026-10-27) opened unit 2 Syntax Analysis: Top-Down Parsing (unit_slug top-down-parsing) with 25 questions, paper compiler-design/top-down-parsing/gate_cd_mock_2_2026-10-27.html. Grouped by the bank's subtopic field (no record in this bank carries a subtopic_label): first-and-follow-sets 7, left-recursion-and-factoring 6, ll1-parsing-tables 6, recursive-descent-parsers 6; 15 MCQ / 5 MSQ / 5 NAT. It serves no notes card: the notes hold 37 cards, all discrete-mathematics, and no compiler-design subject exists. Write a Compiler Design card set starting at top-down-parsing, subtopic first-and-follow-sets, before the unit reaches its 50-question cap at Set 2 of 2."
+    },
+    {
+      "kind": "notes",
+      "placement": "computer-organization-and-architecture > I/O > io-interface-interrupts-dma",
+      "detail": "gate-visual-explainer lesson io-interface-interrupts-dma (topics.json title 'I/O Interface, Interrupts and DMA', category computer-organization-and-architecture, created and updated 2026-10-27) is PUBLISHED in syllabus-coverage.json with 9 subtopics and 22 microtopics; transcript.md holds 10 scenes and the content was checked, not just the alias list: scene 2 names memory-mapped versus isolated I/O and works 2^k - p to 65280 at 16 bits and 256 ports, scene 5 covers daisy chaining, vectored versus non-vectored and maskable versus non-maskable, scene 7 covers burst, cycle stealing and transparent DMA, scenes 8-9 carry the CPU-fraction and count-register arithmetic. It serves no notes card: the notes hold 37 cards, all discrete-mathematics, and no computer-organization-and-architecture subject exists."
     }
   ]
 }
