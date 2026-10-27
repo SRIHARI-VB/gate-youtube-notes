@@ -1232,6 +1232,11 @@
       "kind": "visual",
       "placement": "discrete-mathematics › combinatorics › doib-stirling, ioib-partitions",
       "detail": "No published lesson covers Stirling numbers of the second kind or integer partitions; counting-and-combinatorics stops at stars and bars, inclusion-exclusion, surjections and derangements."
+    },
+    {
+      "kind": "notes",
+      "placement": "digital-logic › sequential-flipflops › (no card)",
+      "detail": "New mock set, Digital Logic Unit 3 'Sequential Circuits: Flip-Flops & Registers' (run 5, 2026-10-27, paper gate_dl_mock_3_2026-10-27.html), holds 25 questions over 4 subtopic_label groups (Latches vs flip-flops 8, Shift registers 6, Setup &amp; hold times 6, Characteristic equations 5). The notes repo covers discrete mathematics only, so no card serves any of them. Lesson topics/sequential-circuits (PUBLISHED 2026-10-27, topic-level) already covers all four subtopics, so the missing piece is the notes card."
     }
   ]
 }
