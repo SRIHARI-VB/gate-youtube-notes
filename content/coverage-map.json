@@ -1054,12 +1054,37 @@
       "transcript_status": "PARTIAL",
       "mock": {
         "subject": "discrete-mathematics",
-        "unit_slug": null,
-        "unit_name": null,
-        "unit_number": null,
-        "question_count": 0,
-        "subtopic_labels": [],
-        "verdict": "MOCK_UNIT_MISSING"
+        "unit_slug": "propositional-logic",
+        "unit_name": "Propositional Logic",
+        "unit_number": 1,
+        "question_count": 50,
+        "subtopic_labels": [
+          {
+            "label": "Propositions & connectives",
+            "questions": 9
+          },
+          {
+            "label": "Truth tables",
+            "questions": 9
+          },
+          {
+            "label": "Logical equivalences",
+            "questions": 7
+          },
+          {
+            "label": "Implications & inference",
+            "questions": 9
+          },
+          {
+            "label": "CNF / DNF",
+            "questions": 8
+          },
+          {
+            "label": "Validity & satisfiability",
+            "questions": 8
+          }
+        ],
+        "verdict": "MOCK_READY"
       },
       "visual": {
         "slug": null,
@@ -1069,10 +1094,10 @@
         "verdict": "VISUAL_MISSING"
       },
       "evidence": [
-        "gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json: no subtopic_label or unit serves this card; unit 1 holds no label on connectives or functional completeness",
+        "gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json: unit 1 \"Propositional Logic\" (unit_slug \"propositional-logic\") holds 50 questions, subtopic_label groups Propositions & connectives=9, Truth tables=9, Logical equivalences=7, Implications & inference=9, CNF / DNF=8, Validity & satisfiability=8; two of the 9 questions in the group 'Propositions & connectives' test functional completeness directly - DM-PL1-Q11 (which set of connectives is functionally complete) and DM-PL2-Q16 (which statements about functionally complete sets are true); rung 4",
         "gate-visual-explainer: no lesson_slug serves this card; no published lesson covers functional completeness - 0 mentions of NAND or functionally complete in propositional-logic/transcript.md"
       ],
-      "row_verdict": "NEITHER"
+      "row_verdict": "MOCK_ONLY"
     },
     {
       "subject": "discrete-mathematics",
@@ -1574,7 +1599,7 @@
     {
       "kind": "mock",
       "placement": "discrete-mathematics > propositional-logic > resolution-refutation",
-      "detail": "unit 1 propositional-logic is closed at the 50-question cap and holds no resolution label, so resolution-refutation and functional-completeness have no mock questions; the bank's own run note says the next discrete-mathematics run advances to unit 6, Mathematical Induction & Recursion"
+      "detail": "unit 1 propositional-logic is closed at the 50-question cap and holds no resolution or refutation question (0 of its 50 records mention resolution or the empty clause), so resolution-refutation has no mock questions; functional-completeness does have 2 in the 'Propositions & connectives' group and is now mapped there. The bank's own run note says the next discrete-mathematics run advances to unit 6, Mathematical Induction & Recursion"
     },
     {
       "kind": "notes",
@@ -1709,7 +1734,7 @@
     {
       "kind": "notes",
       "placement": "theory-of-computation > cfl-grammars (unit 2)",
-      "detail": "gate-cse-mocks/theory-of-computation/question-bank/master_bank.json unit 2 Grammars & Context-Free Languages (unit_slug cfl-grammars) opened 2026-10-26 as Set 1 of 2 with 25 questions, paper theory-of-computation/cfl-grammars/gate_toc_mock_2_2026-10-26.html (the unit's last runs[] entry file). Grouped by subtopic_label the 25 records are CFG derivation trees 7, Ambiguity in grammars 6, CNF & GNF normal forms 6, Closure properties of CFLs 6. Serves no notes card: the notes repo's 37 cards are all discrete-mathematics and it has no theory-of-computation subject. Next notes build: content/subjects/theory-of-computation/cfl-grammars/cfl-grammars.json as the first card of that subject, fed by the ambiguity and CNF/GNF groups."
+      "detail": "gate-cse-mocks/theory-of-computation/question-bank/master_bank.json unit 2 Grammars & Context-Free Languages (unit_slug cfl-grammars) now holds 50 questions and is MOCK_CAPPED: Set 1 of 2 (2026-10-26) plus Set 2 of 2 (2026-10-27), the unit's last runs[] entry file being theory-of-computation/cfl-grammars/gate_toc_mock_2_2026-10-27.html. Grouped by subtopic_label the 50 records are CFG derivation trees 13, Ambiguity in grammars 12, CNF & GNF normal forms 13, Closure properties of CFLs 12. Serves no notes card: the notes repo's 37 cards are all discrete-mathematics and it has no theory-of-computation subject. The rotation advances to unit 3 Pushdown Automata on the next Theory of Computation run. Next notes build: content/subjects/theory-of-computation/grammars-and-cfl/cfg-derivation-trees.json, fed by the ambiguity and CNF/GNF groups."
     },
     {
       "kind": "notes",
@@ -1750,6 +1775,11 @@
       "kind": "notes",
       "placement": "computer-architecture > datapath-and-control > alu-and-control-unit-design",
       "detail": "gate-visual-explainer lesson alu-and-control-unit-design (topics.json title 'ALU and Control Unit Design: Datapath, Hardwired and Microprogrammed Control'; syllabus-coverage.json Computer Organization and Architecture > Datapath and control > ALU and control unit design, coverage_status PUBLISHED 2026-10-27, 18 microtopics) covers ALU function select and flags, the carry chain, single-bus datapath micro-operation ordering, hardwired control and horizontal versus vertical microprogramming across 10 transcript scenes. The notes repo has no computer-architecture subject, so no card serves it."
+    },
+    {
+      "kind": "notes",
+      "placement": "computer-organization-and-architecture > pipelining > pipelining-and-hazards",
+      "detail": "gate-visual-explainer lesson pipelining-and-hazards (topics.json title \"Pipelining and Hazards\", created 2026-10-27) is PUBLISHED with 32 microtopics across four subtopics - pipeline performance, structural, data and control hazards, forwarding and stalling, speedup and efficiency calculations; transcript.md runs 10 scenes, Scene 1 'Two clocks: latency and throughput' through Scene 10, and the lesson carries the k + n - 1 cycle count, the max-stage-plus-latch clock period, RAW/WAR/WAW, the load-use stall and branch penalty. It serves no notes card: the notes repo has no computer-organization-and-architecture subject at all. Next notes build: content/subjects/computer-organization-and-architecture/pipelining/pipelining-and-hazards.json, fed by the load-use-stall and clock-period material, with an upstream video gap to record since no playlist covers COA."
     }
   ]
 }
