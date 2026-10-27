@@ -1267,6 +1267,21 @@
       "kind": "notes",
       "placement": "operating-systems › memory › file-systems",
       "detail": "New lesson topics/file-systems (added 2026-10-27, PUBLISHED, 10 scenes, 29 microtopics in syllabus-coverage.json) covers file and directory structure, contiguous, linked and indexed allocation, FAT and inode pointer trees, free space management, hard and symbolic links, and the disk-access counts of an open and an insert. The notes repo has no operating-systems subject, so no card serves it."
+    },
+    {
+      "kind": "notes",
+      "placement": "programming-data-structures › pointers-memory › (no card)",
+      "detail": "New mock set, Programming and Data Structures Unit 2 'Pointers, Memory & Preprocessors' Set 2 of 2 (run 4, 2026-10-27, paper programming-data-structures/pointers-memory/gate_ds_mock_2_2026-10-27.html); the unit now holds 50 questions, at the 50-question cap, over 4 subtopic_label groups (Pointer arithmetic 14, Pointers to functions 12, Dynamic memory allocation 12, Macro expansion, scope & lifetime 12). The notes repo covers discrete mathematics only, so no card serves them."
+    },
+    {
+      "kind": "notes",
+      "placement": "operating-systems › scheduling › disk-scheduling",
+      "detail": "New lesson topics/disk-scheduling (added 2026-10-27, PUBLISHED, 10 scenes) covers FCFS, SSTF, SCAN, C-SCAN, LOOK and C-LOOK, head movement arithmetic and the seek/rotational-latency/transfer cost model, and serves no notes card; the notes repo has no operating-systems subject yet."
+    },
+    {
+      "kind": "visual",
+      "placement": "programming-data-structures › pointers-memory › pointers-to-functions, dynamic-memory-allocation",
+      "detail": "No published lesson covers function pointers or dynamic memory allocation: the topics/pointers-in-c transcript contains no mention of either, and its subtopics stop at pointer arithmetic, array decay, sizeof semantics, pointer to pointer and dangling pointers. Unit 2's other two groups are served by pointers-in-c (Pointer arithmetic) and functions-scope-and-preprocessor (Macro expansion, scope & lifetime)."
     }
   ]
 }
