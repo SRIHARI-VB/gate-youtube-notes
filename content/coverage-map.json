@@ -1740,6 +1740,16 @@
       "kind": "notes",
       "placement": "digital-logic > sequential-design > design-of-sequential-circuits",
       "detail": "gate-visual-explainer lesson sequential-circuits (PUBLISHED, 4 subtopics: latches and flip-flops, registers and counters, finite state machines, timing behaviour and clocking) serves no notes card; the notes hold no digital-logic subject."
+    },
+    {
+      "kind": "notes",
+      "placement": "computer-networks > network-fundamentals-framing (unit 1)",
+      "detail": "gate-cse-mocks/computer-networks/question-bank/master_bank.json unit 1 'Layering, Physical & Framing' (unit_slug network-fundamentals-framing) reached 50 questions with run 2 (Set 2 of 2, paper computer-networks/network-fundamentals-framing/gate_cn_mock_1_2026-10-27.html) on 2026-10-27; grouped by subtopic_label it covers OSI & TCP/IP models 13, Delays & bandwidth-delay product 12, Framing: bit & byte stuffing 12, CRC, checksum & Hamming 13. The notes repo holds one subject only (content/syllabus.json subjects: discrete-mathematics, 37 cards), so no card serves any of these four subtopics. The unit is at the 50-question cap, so the next computer-networks set advances to unit 2."
+    },
+    {
+      "kind": "notes",
+      "placement": "computer-architecture > datapath-and-control > alu-and-control-unit-design",
+      "detail": "gate-visual-explainer lesson alu-and-control-unit-design (topics.json title 'ALU and Control Unit Design: Datapath, Hardwired and Microprogrammed Control'; syllabus-coverage.json Computer Organization and Architecture > Datapath and control > ALU and control unit design, coverage_status PUBLISHED 2026-10-27, 18 microtopics) covers ALU function select and flags, the carry chain, single-bus datapath micro-operation ordering, hardwired control and horizontal versus vertical microprogramming across 10 transcript scenes. The notes repo has no computer-architecture subject, so no card serves it."
     }
   ]
 }
