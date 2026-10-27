@@ -1302,6 +1302,16 @@
       "kind": "notes",
       "placement": "databases › design › functional-dependencies-and-normal-forms",
       "detail": "New lesson topics/functional-dependencies-and-normal-forms (added 2026-10-27, syllabus-coverage.json subject Databases, unit Design, coverage_status PUBLISHED, 10 scenes / 40 caption segments) covers FDs and attribute closure, Armstrong's axioms, candidate keys, 1NF to BCNF, lossless join decomposition and dependency preservation. The notes repo has no databases subject, so no card serves it."
+    },
+    {
+      "kind": "notes",
+      "placement": "databases › sql-querying › (no card)",
+      "detail": "New mock set, Databases Unit 2 'SQL & Advanced Querying' Set 2 of 2 (run 3, 2026-10-28, paper databases/sql-querying/gate_db_mock_2_2026-10-28.html), holds 50 questions over 5 subtopic groups of 10 each: ddl-dml-dcl, nested-and-correlated-subqueries, aggregate-functions-group-by-having, joins-outer-joins, views-triggers-constraints. That reaches the 50-question cap, so the next Databases run advances to Unit 3, Database Normalization (unit slug normalization). The notes repo has no databases subject, so no card serves it."
+    },
+    {
+      "kind": "notes",
+      "placement": "theory-of-computation › regular-languages › regular-expressions-and-finite-automata",
+      "detail": "New lesson topics/regular-expressions-and-finite-automata (added 2026-10-28; topics.json entry created/updated 2026-10-28; syllabus-coverage.json subject Theory of Computation, unit Regular languages, coverage_status PUBLISHED, 5 subtopics, 22 microtopics). Its transcript.md was read: 10 scenes covering alphabet/Sigma-star, the five-tuple, nondeterminism and epsilon-closure, subset construction against the 2^n bound, distinguishability and table filling, counters modulo m with the lcm rule, Thompson's construction, state elimination and closure properties, and the pumping lemma. The notes repo has no theory-of-computation subject, so no card serves it."
     }
   ]
 }
