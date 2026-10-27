@@ -1,6 +1,6 @@
 {
   "generated_by": "gate-content-mapper",
-  "generated_at": "2026-10-27",
+  "generated_at": "2026-10-28",
   "playlists": [
     {
       "playlist_id": "PLIPZ2_p3RNHidhFvyKH4U_VE1rFAyvG8U",
@@ -1292,6 +1292,16 @@
       "kind": "notes",
       "placement": "databases › relational-model › relational-algebra-and-sql",
       "detail": "New lesson topics/relational-algebra-and-sql (registered 2026-10-27; syllabus-coverage.json coverage_status PUBLISHED, lesson_slug relational-algebra-and-sql, 4 subtopics: relational algebra operators, tuple relational calculus, SQL queries/joins/subqueries, ER to relational mapping). Its transcript.md was read: 10 scenes covering the six primitives, projection against SELECT DISTINCT, joins and relational division. The notes repo has no databases subject, so no card serves it. The databases bank already holds unit 1 er-relational-algebra with 50 questions (relational-algebra-select-project-join-division 16, er-diagrams-cardinality-weak-entities 12, relational-model-constraints 12, tuple-and-domain-relational-calculus 10), so only the notes card is missing."
+    },
+    {
+      "kind": "notes",
+      "placement": "discrete-mathematics › induction-recursion › (no card)",
+      "detail": "Mock unit 6 'Mathematical Induction & Recursion' (unit_slug induction-recursion) reached 50 questions on 2026-10-27 (run 5, Set 2 of 2, paper discrete-mathematics/induction-recursion/gate_dm_mock_6_2026-10-27.html) over 4 subtopic groups: Weak & strong induction 14, Structural induction 12, Well-ordering principle 12, Proof techniques & errors 12. No notes card carries induction, well-ordering or structural induction - content/subjects/ holds 37 cards, all combinatorics, propositional-logic and first-order-logic, with zero occurrences of 'induction'."
+    },
+    {
+      "kind": "notes",
+      "placement": "databases › design › functional-dependencies-and-normal-forms",
+      "detail": "New lesson topics/functional-dependencies-and-normal-forms (added 2026-10-27, syllabus-coverage.json subject Databases, unit Design, coverage_status PUBLISHED, 10 scenes / 40 caption segments) covers FDs and attribute closure, Armstrong's axioms, candidate keys, 1NF to BCNF, lossless join decomposition and dependency preservation. The notes repo has no databases subject, so no card serves it."
     }
   ]
 }
