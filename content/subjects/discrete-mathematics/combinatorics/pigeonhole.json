@@ -61,23 +61,23 @@
       "question_count": 50,
       "subtopics": [
         {
-          "label": "Injective / surjective / bijective",
+          "label": "types-injective-surjective-bijective",
           "questions": 10
         },
         {
-          "label": "Composition & inverses",
+          "label": "composition-and-inverses",
           "questions": 10
         },
         {
-          "label": "Counting functions",
+          "label": "counting-functions",
           "questions": 10
         },
         {
-          "label": "Pigeonhole principle",
+          "label": "pigeonhole-principle",
           "questions": 10
         },
         {
-          "label": "Floor, ceiling & recursion",
+          "label": "floor-ceiling-recursion",
           "questions": 10
         }
       ],
@@ -88,8 +88,7 @@
       "title": "Counting and Combinatorics",
       "level": "topic-level",
       "covers": [
-        "pigeonhole principle",
-        "generalised pigeonhole"
+        "the pigeonhole principle"
       ],
       "url": "https://gate-visual-explainer.vercel.app/topics/counting-and-combinatorics/index.html"
     },

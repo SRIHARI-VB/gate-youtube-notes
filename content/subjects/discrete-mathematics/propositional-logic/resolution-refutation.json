@@ -54,6 +54,40 @@
     "rules-of-inference"
   ],
   "links": {
-    "mapped_at": "2026-10-26"
+    "mock": {
+      "subject": "discrete-mathematics",
+      "unit_slug": "propositional-logic",
+      "unit_name": "Propositional Logic",
+      "unit_number": 1,
+      "question_count": 50,
+      "subtopics": [
+        {
+          "label": "propositions-and-connectives",
+          "questions": 9
+        },
+        {
+          "label": "truth-tables",
+          "questions": 9
+        },
+        {
+          "label": "logical-equivalences",
+          "questions": 7
+        },
+        {
+          "label": "implications-and-inference",
+          "questions": 9
+        },
+        {
+          "label": "cnf-dnf",
+          "questions": 8
+        },
+        {
+          "label": "validity-and-satisfiability",
+          "questions": 8
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/propositional-logic/gate_dm_mock_1_2026-10-25.html"
+    },
+    "mapped_at": "2026-10-27"
   }
 }

@@ -60,27 +60,27 @@
       "question_count": 50,
       "subtopics": [
         {
-          "label": "Propositions & connectives",
+          "label": "propositions-and-connectives",
           "questions": 9
         },
         {
-          "label": "Truth tables",
+          "label": "truth-tables",
           "questions": 9
         },
         {
-          "label": "Logical equivalences",
+          "label": "logical-equivalences",
           "questions": 7
         },
         {
-          "label": "Implications & inference",
+          "label": "implications-and-inference",
           "questions": 9
         },
         {
-          "label": "CNF / DNF",
+          "label": "cnf-dnf",
           "questions": 8
         },
         {
-          "label": "Validity & satisfiability",
+          "label": "validity-and-satisfiability",
           "questions": 8
         }
       ],

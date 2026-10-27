@@ -634,7 +634,8 @@ window.GATE_DATA = {
      "title": "Counting and Combinatorics",
      "level": "topic-level",
      "covers": [
-      "sum and product rules"
+      "sum and product rules",
+      "the four counting boxes"
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/counting-and-combinatorics/index.html"
     },
@@ -768,8 +769,7 @@ window.GATE_DATA = {
      "title": "Counting and Combinatorics",
      "level": "topic-level",
      "covers": [
-      "permutations and combinations",
-      "binomial coefficients"
+      "permutations and combinations"
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/counting-and-combinatorics/index.html"
     },
@@ -827,14 +827,13 @@ window.GATE_DATA = {
    ],
    "links": {
     "visual": {
-     "slug": "generating-functions",
-     "title": "Generating Functions",
+     "slug": "counting-and-combinatorics",
+     "title": "Counting and Combinatorics",
      "level": "topic-level",
      "covers": [
-      "binomial coefficients",
-      "coefficient extraction"
+      "binomial coefficients"
      ],
-     "url": "https://gate-visual-explainer.vercel.app/topics/generating-functions/index.html"
+     "url": "https://gate-visual-explainer.vercel.app/topics/counting-and-combinatorics/index.html"
     },
     "mapped_at": "2026-10-27"
    },
@@ -892,8 +891,8 @@ window.GATE_DATA = {
      "title": "Counting and Combinatorics",
      "level": "topic-level",
      "covers": [
-      "permutations and combinations",
-      "over-counting by symmetry"
+      "permutations with repeated elements",
+      "circular permutations"
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/counting-and-combinatorics/index.html"
     },
@@ -959,8 +958,8 @@ window.GATE_DATA = {
      "title": "Counting and Combinatorics",
      "level": "topic-level",
      "covers": [
-      "stars and bars",
-      "combinations with repetition"
+      "the four counting boxes",
+      "stars and bars"
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/counting-and-combinatorics/index.html"
     },
@@ -1022,23 +1021,23 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "Injective / surjective / bijective",
+       "label": "types-injective-surjective-bijective",
        "questions": 10
       },
       {
-       "label": "Composition & inverses",
+       "label": "composition-and-inverses",
        "questions": 10
       },
       {
-       "label": "Counting functions",
+       "label": "counting-functions",
        "questions": 10
       },
       {
-       "label": "Pigeonhole principle",
+       "label": "pigeonhole-principle",
        "questions": 10
       },
       {
-       "label": "Floor, ceiling & recursion",
+       "label": "floor-ceiling-recursion",
        "questions": 10
       }
      ],
@@ -1049,7 +1048,7 @@ window.GATE_DATA = {
      "title": "Functions and Their Properties",
      "level": "topic-level",
      "covers": [
-      "counting functions, injections, surjections and bijections"
+      "counting functions"
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/functions-and-their-properties/index.html"
     },
@@ -1122,8 +1121,7 @@ window.GATE_DATA = {
      "title": "Counting and Combinatorics",
      "level": "topic-level",
      "covers": [
-      "stars and bars",
-      "combinations with repetition"
+      "stars and bars"
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/counting-and-combinatorics/index.html"
     },
@@ -1186,23 +1184,23 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "Subsets & power sets",
+       "label": "subsets-and-power-sets",
        "questions": 10
       },
       {
-       "label": "Cardinality",
+       "label": "cardinality",
        "questions": 10
       },
       {
-       "label": "Set algebra & De Morgan",
+       "label": "set-algebra-de-morgan",
        "questions": 10
       },
       {
-       "label": "Inclusion-exclusion",
+       "label": "inclusion-exclusion",
        "questions": 10
       },
       {
-       "label": "Partitions & Cartesian products",
+       "label": "partitions-and-cartesian-products",
        "questions": 10
       }
      ],
@@ -1262,7 +1260,7 @@ window.GATE_DATA = {
     "doib-stirling"
    ],
    "links": {
-    "mapped_at": "2026-10-26"
+    "mapped_at": "2026-10-27"
    },
    "subject": "discrete-mathematics",
    "topic": "combinatorics",
@@ -1326,23 +1324,23 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "Subsets & power sets",
+       "label": "subsets-and-power-sets",
        "questions": 10
       },
       {
-       "label": "Cardinality",
+       "label": "cardinality",
        "questions": 10
       },
       {
-       "label": "Set algebra & De Morgan",
+       "label": "set-algebra-de-morgan",
        "questions": 10
       },
       {
-       "label": "Inclusion-exclusion",
+       "label": "inclusion-exclusion",
        "questions": 10
       },
       {
-       "label": "Partitions & Cartesian products",
+       "label": "partitions-and-cartesian-products",
        "questions": 10
       }
      ],
@@ -1418,8 +1416,7 @@ window.GATE_DATA = {
      "title": "Counting and Combinatorics",
      "level": "topic-level",
      "covers": [
-      "derangements",
-      "inclusion-exclusion"
+      "derangements"
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/counting-and-combinatorics/index.html"
     },
@@ -1483,36 +1480,37 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "Injective / surjective / bijective",
+       "label": "types-injective-surjective-bijective",
        "questions": 10
       },
       {
-       "label": "Composition & inverses",
+       "label": "composition-and-inverses",
        "questions": 10
       },
       {
-       "label": "Counting functions",
+       "label": "counting-functions",
        "questions": 10
       },
       {
-       "label": "Pigeonhole principle",
+       "label": "pigeonhole-principle",
        "questions": 10
       },
       {
-       "label": "Floor, ceiling & recursion",
+       "label": "floor-ceiling-recursion",
        "questions": 10
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/functions/gate_dm_mock_5_2026-10-26.html"
     },
     "visual": {
-     "slug": "counting-and-combinatorics",
-     "title": "Counting and Combinatorics",
+     "slug": "functions-and-their-properties",
+     "title": "Functions and Their Properties",
      "level": "topic-level",
      "covers": [
-      "counting functions between finite sets"
+      "surjective functions",
+      "counting surjections by inclusion-exclusion"
      ],
-     "url": "https://gate-visual-explainer.vercel.app/topics/counting-and-combinatorics/index.html"
+     "url": "https://gate-visual-explainer.vercel.app/topics/functions-and-their-properties/index.html"
     },
     "mapped_at": "2026-10-27"
    },
@@ -1583,23 +1581,23 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "Injective / surjective / bijective",
+       "label": "types-injective-surjective-bijective",
        "questions": 10
       },
       {
-       "label": "Composition & inverses",
+       "label": "composition-and-inverses",
        "questions": 10
       },
       {
-       "label": "Counting functions",
+       "label": "counting-functions",
        "questions": 10
       },
       {
-       "label": "Pigeonhole principle",
+       "label": "pigeonhole-principle",
        "questions": 10
       },
       {
-       "label": "Floor, ceiling & recursion",
+       "label": "floor-ceiling-recursion",
        "questions": 10
       }
      ],
@@ -1610,8 +1608,7 @@ window.GATE_DATA = {
      "title": "Counting and Combinatorics",
      "level": "topic-level",
      "covers": [
-      "pigeonhole principle",
-      "generalised pigeonhole"
+      "the pigeonhole principle"
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/counting-and-combinatorics/index.html"
     },
@@ -1671,8 +1668,8 @@ window.GATE_DATA = {
      "title": "Recurrence Relations",
      "level": "topic-level",
      "covers": [
-      "linear homogeneous recurrences",
-      "characteristic roots and repeated roots"
+      "building a recurrence from a constraint",
+      "linear homogeneous recurrences"
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/recurrence-relations/index.html"
     },
@@ -1744,27 +1741,27 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "Propositions & connectives",
+       "label": "propositions-and-connectives",
        "questions": 9
       },
       {
-       "label": "Truth tables",
+       "label": "truth-tables",
        "questions": 9
       },
       {
-       "label": "Logical equivalences",
+       "label": "logical-equivalences",
        "questions": 7
       },
       {
-       "label": "Implications & inference",
+       "label": "implications-and-inference",
        "questions": 9
       },
       {
-       "label": "CNF / DNF",
+       "label": "cnf-dnf",
        "questions": 8
       },
       {
-       "label": "Validity & satisfiability",
+       "label": "validity-and-satisfiability",
        "questions": 8
       }
      ],
@@ -1852,27 +1849,27 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "Propositions & connectives",
+       "label": "propositions-and-connectives",
        "questions": 9
       },
       {
-       "label": "Truth tables",
+       "label": "truth-tables",
        "questions": 9
       },
       {
-       "label": "Logical equivalences",
+       "label": "logical-equivalences",
        "questions": 7
       },
       {
-       "label": "Implications & inference",
+       "label": "implications-and-inference",
        "questions": 9
       },
       {
-       "label": "CNF / DNF",
+       "label": "cnf-dnf",
        "questions": 8
       },
       {
-       "label": "Validity & satisfiability",
+       "label": "validity-and-satisfiability",
        "questions": 8
       }
      ],
@@ -1966,27 +1963,27 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "Propositions & connectives",
+       "label": "propositions-and-connectives",
        "questions": 9
       },
       {
-       "label": "Truth tables",
+       "label": "truth-tables",
        "questions": 9
       },
       {
-       "label": "Logical equivalences",
+       "label": "logical-equivalences",
        "questions": 7
       },
       {
-       "label": "Implications & inference",
+       "label": "implications-and-inference",
        "questions": 9
       },
       {
-       "label": "CNF / DNF",
+       "label": "cnf-dnf",
        "questions": 8
       },
       {
-       "label": "Validity & satisfiability",
+       "label": "validity-and-satisfiability",
        "questions": 8
       }
      ],
@@ -1997,8 +1994,8 @@ window.GATE_DATA = {
      "title": "Propositional Logic",
      "level": "topic-level",
      "covers": [
-      "converse, inverse, contrapositive",
-      "implication and its single false row"
+      "implication and its single false row",
+      "converse, inverse, contrapositive"
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/propositional-logic/index.html"
     },
@@ -2074,27 +2071,27 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "Propositions & connectives",
+       "label": "propositions-and-connectives",
        "questions": 9
       },
       {
-       "label": "Truth tables",
+       "label": "truth-tables",
        "questions": 9
       },
       {
-       "label": "Logical equivalences",
+       "label": "logical-equivalences",
        "questions": 7
       },
       {
-       "label": "Implications & inference",
+       "label": "implications-and-inference",
        "questions": 9
       },
       {
-       "label": "CNF / DNF",
+       "label": "cnf-dnf",
        "questions": 8
       },
       {
-       "label": "Validity & satisfiability",
+       "label": "validity-and-satisfiability",
        "questions": 8
       }
      ],
@@ -2105,8 +2102,7 @@ window.GATE_DATA = {
      "title": "Propositional Logic",
      "level": "topic-level",
      "covers": [
-      "logical equivalence",
-      "De Morgan's two laws"
+      "logical equivalence and De Morgan"
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/propositional-logic/index.html"
     },
@@ -2181,27 +2177,27 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "Propositions & connectives",
+       "label": "propositions-and-connectives",
        "questions": 9
       },
       {
-       "label": "Truth tables",
+       "label": "truth-tables",
        "questions": 9
       },
       {
-       "label": "Logical equivalences",
+       "label": "logical-equivalences",
        "questions": 7
       },
       {
-       "label": "Implications & inference",
+       "label": "implications-and-inference",
        "questions": 9
       },
       {
-       "label": "CNF / DNF",
+       "label": "cnf-dnf",
        "questions": 8
       },
       {
-       "label": "Validity & satisfiability",
+       "label": "validity-and-satisfiability",
        "questions": 8
       }
      ],
@@ -2278,27 +2274,27 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "Propositions & connectives",
+       "label": "propositions-and-connectives",
        "questions": 9
       },
       {
-       "label": "Truth tables",
+       "label": "truth-tables",
        "questions": 9
       },
       {
-       "label": "Logical equivalences",
+       "label": "logical-equivalences",
        "questions": 7
       },
       {
-       "label": "Implications & inference",
+       "label": "implications-and-inference",
        "questions": 9
       },
       {
-       "label": "CNF / DNF",
+       "label": "cnf-dnf",
        "questions": 8
       },
       {
-       "label": "Validity & satisfiability",
+       "label": "validity-and-satisfiability",
        "questions": 8
       }
      ],
@@ -2385,27 +2381,27 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "Propositions & connectives",
+       "label": "propositions-and-connectives",
        "questions": 9
       },
       {
-       "label": "Truth tables",
+       "label": "truth-tables",
        "questions": 9
       },
       {
-       "label": "Logical equivalences",
+       "label": "logical-equivalences",
        "questions": 7
       },
       {
-       "label": "Implications & inference",
+       "label": "implications-and-inference",
        "questions": 9
       },
       {
-       "label": "CNF / DNF",
+       "label": "cnf-dnf",
        "questions": 8
       },
       {
-       "label": "Validity & satisfiability",
+       "label": "validity-and-satisfiability",
        "questions": 8
       }
      ],
@@ -2416,8 +2412,8 @@ window.GATE_DATA = {
      "title": "Propositional Logic",
      "level": "topic-level",
      "covers": [
-      "valid argument forms",
-      "satisfiability"
+      "satisfiability",
+      "validity as a tautology test"
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/propositional-logic/index.html"
     },
@@ -2493,27 +2489,27 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "Propositions & connectives",
+       "label": "propositions-and-connectives",
        "questions": 9
       },
       {
-       "label": "Truth tables",
+       "label": "truth-tables",
        "questions": 9
       },
       {
-       "label": "Logical equivalences",
+       "label": "logical-equivalences",
        "questions": 7
       },
       {
-       "label": "Implications & inference",
+       "label": "implications-and-inference",
        "questions": 9
       },
       {
-       "label": "CNF / DNF",
+       "label": "cnf-dnf",
        "questions": 8
       },
       {
-       "label": "Validity & satisfiability",
+       "label": "validity-and-satisfiability",
        "questions": 8
       }
      ],
@@ -2524,8 +2520,8 @@ window.GATE_DATA = {
      "title": "Propositional Logic",
      "level": "topic-level",
      "covers": [
-      "valid argument forms",
-      "modus ponens and modus tollens"
+      "modus ponens and modus tollens",
+      "valid argument forms"
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/propositional-logic/index.html"
     },
@@ -2591,7 +2587,41 @@ window.GATE_DATA = {
     "rules-of-inference"
    ],
    "links": {
-    "mapped_at": "2026-10-26"
+    "mock": {
+     "subject": "discrete-mathematics",
+     "unit_slug": "propositional-logic",
+     "unit_name": "Propositional Logic",
+     "unit_number": 1,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "propositions-and-connectives",
+       "questions": 9
+      },
+      {
+       "label": "truth-tables",
+       "questions": 9
+      },
+      {
+       "label": "logical-equivalences",
+       "questions": 7
+      },
+      {
+       "label": "implications-and-inference",
+       "questions": 9
+      },
+      {
+       "label": "cnf-dnf",
+       "questions": 8
+      },
+      {
+       "label": "validity-and-satisfiability",
+       "questions": 8
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/propositional-logic/gate_dm_mock_1_2026-10-25.html"
+    },
+    "mapped_at": "2026-10-27"
    },
    "subject": "discrete-mathematics",
    "topic": "propositional-logic",
@@ -2661,27 +2691,27 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "Propositions & connectives",
+       "label": "propositions-and-connectives",
        "questions": 9
       },
       {
-       "label": "Truth tables",
+       "label": "truth-tables",
        "questions": 9
       },
       {
-       "label": "Logical equivalences",
+       "label": "logical-equivalences",
        "questions": 7
       },
       {
-       "label": "Implications & inference",
+       "label": "implications-and-inference",
        "questions": 9
       },
       {
-       "label": "CNF / DNF",
+       "label": "cnf-dnf",
        "questions": 8
       },
       {
-       "label": "Validity & satisfiability",
+       "label": "validity-and-satisfiability",
        "questions": 8
       }
      ],
@@ -2756,23 +2786,23 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "Predicates & domain",
+       "label": "predicates-and-domain",
        "questions": 10
       },
       {
-       "label": "Universal & existential quantifiers",
+       "label": "quantifiers-universal-existential",
        "questions": 10
       },
       {
-       "label": "Negation of nested quantifiers",
+       "label": "negation-nested-quantifiers",
        "questions": 10
       },
       {
-       "label": "Scope & order of quantifiers",
+       "label": "scope-and-order",
        "questions": 10
       },
       {
-       "label": "English to FOL translation",
+       "label": "english-to-fol-translation",
        "questions": 10
       }
      ],
@@ -2783,8 +2813,8 @@ window.GATE_DATA = {
      "title": "First-Order Logic",
      "level": "topic-level",
      "covers": [
-      "scope of a quantifier",
-      "free and bound variables"
+      "universal and existential quantifiers",
+      "free and bound variables; scope"
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/first-order-logic/index.html"
     },
@@ -2857,31 +2887,41 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "Propositions & connectives",
+       "label": "propositions-and-connectives",
        "questions": 9
       },
       {
-       "label": "Truth tables",
+       "label": "truth-tables",
        "questions": 9
       },
       {
-       "label": "Logical equivalences",
+       "label": "logical-equivalences",
        "questions": 7
       },
       {
-       "label": "Implications & inference",
+       "label": "implications-and-inference",
        "questions": 9
       },
       {
-       "label": "CNF / DNF",
+       "label": "cnf-dnf",
        "questions": 8
       },
       {
-       "label": "Validity & satisfiability",
+       "label": "validity-and-satisfiability",
        "questions": 8
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/propositional-logic/gate_dm_mock_1_2026-10-25.html"
+    },
+    "visual": {
+     "slug": "propositional-logic",
+     "title": "Propositional Logic",
+     "level": "topic-level",
+     "covers": [
+      "logical equivalence and De Morgan",
+      "valid argument forms"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/propositional-logic/index.html"
     },
     "mapped_at": "2026-10-27"
    },
@@ -2951,23 +2991,23 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "Predicates & domain",
+       "label": "predicates-and-domain",
        "questions": 10
       },
       {
-       "label": "Universal & existential quantifiers",
+       "label": "quantifiers-universal-existential",
        "questions": 10
       },
       {
-       "label": "Negation of nested quantifiers",
+       "label": "negation-nested-quantifiers",
        "questions": 10
       },
       {
-       "label": "Scope & order of quantifiers",
+       "label": "scope-and-order",
        "questions": 10
       },
       {
-       "label": "English to FOL translation",
+       "label": "english-to-fol-translation",
        "questions": 10
       }
      ],
@@ -2978,7 +3018,7 @@ window.GATE_DATA = {
      "title": "First-Order Logic",
      "level": "topic-level",
      "covers": [
-      "predicates and the domain of discourse",
+      "predicate vs proposition; the domain as part of the meaning",
       "universal and existential quantifiers"
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/first-order-logic/index.html"
@@ -3064,23 +3104,23 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "Predicates & domain",
+       "label": "predicates-and-domain",
        "questions": 10
       },
       {
-       "label": "Universal & existential quantifiers",
+       "label": "quantifiers-universal-existential",
        "questions": 10
       },
       {
-       "label": "Negation of nested quantifiers",
+       "label": "negation-nested-quantifiers",
        "questions": 10
       },
       {
-       "label": "Scope & order of quantifiers",
+       "label": "scope-and-order",
        "questions": 10
       },
       {
-       "label": "English to FOL translation",
+       "label": "english-to-fol-translation",
        "questions": 10
       }
      ],
@@ -3091,8 +3131,7 @@ window.GATE_DATA = {
      "title": "First-Order Logic",
      "level": "topic-level",
      "covers": [
-      "translating English into quantified formulas",
-      "implication for ALL, conjunction for SOME"
+      "translating restricted English sentences into the correct shape"
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/first-order-logic/index.html"
     },
@@ -3165,23 +3204,23 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "Predicates & domain",
+       "label": "predicates-and-domain",
        "questions": 10
       },
       {
-       "label": "Universal & existential quantifiers",
+       "label": "quantifiers-universal-existential",
        "questions": 10
       },
       {
-       "label": "Negation of nested quantifiers",
+       "label": "negation-nested-quantifiers",
        "questions": 10
       },
       {
-       "label": "Scope & order of quantifiers",
+       "label": "scope-and-order",
        "questions": 10
       },
       {
-       "label": "English to FOL translation",
+       "label": "english-to-fol-translation",
        "questions": 10
       }
      ],
@@ -3192,8 +3231,8 @@ window.GATE_DATA = {
      "title": "First-Order Logic",
      "level": "topic-level",
      "covers": [
-      "nested quantifiers and order",
-      "same-kind quantifiers commute; mixed ones do not"
+      "order of unlike quantifiers; for-all-there-exists vs there-exists-for-all",
+      "there-exists-for-all implies for-all-there-exists, never the reverse"
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/first-order-logic/index.html"
     },
@@ -3261,12 +3300,42 @@ window.GATE_DATA = {
     "tK8382YdZLs"
    ],
    "links": {
+    "mock": {
+     "subject": "discrete-mathematics",
+     "unit_slug": "predicate-logic",
+     "unit_name": "Predicate & First-Order Logic",
+     "unit_number": 2,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "predicates-and-domain",
+       "questions": 10
+      },
+      {
+       "label": "quantifiers-universal-existential",
+       "questions": 10
+      },
+      {
+       "label": "negation-nested-quantifiers",
+       "questions": 10
+      },
+      {
+       "label": "scope-and-order",
+       "questions": 10
+      },
+      {
+       "label": "english-to-fol-translation",
+       "questions": 10
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/predicate-logic/gate_dm_mock_2_2026-10-25.html"
+    },
     "visual": {
      "slug": "first-order-logic",
      "title": "First-Order Logic",
      "level": "topic-level",
      "covers": [
-      "model, validity, satisfiability"
+      "same formula, different domains, different truth value"
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/first-order-logic/index.html"
     },
@@ -3340,23 +3409,23 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "Predicates & domain",
+       "label": "predicates-and-domain",
        "questions": 10
       },
       {
-       "label": "Universal & existential quantifiers",
+       "label": "quantifiers-universal-existential",
        "questions": 10
       },
       {
-       "label": "Negation of nested quantifiers",
+       "label": "negation-nested-quantifiers",
        "questions": 10
       },
       {
-       "label": "Scope & order of quantifiers",
+       "label": "scope-and-order",
        "questions": 10
       },
       {
-       "label": "English to FOL translation",
+       "label": "english-to-fol-translation",
        "questions": 10
       }
      ],
@@ -3367,8 +3436,7 @@ window.GATE_DATA = {
      "title": "First-Order Logic",
      "level": "topic-level",
      "covers": [
-      "quantifier negation",
-      "not-for-all is exists-not"
+      "quantifier negation: not-for-all is exists-not; not-exists is for-all-not"
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/first-order-logic/index.html"
     },
@@ -3445,12 +3513,42 @@ window.GATE_DATA = {
     "tK8382YdZLs"
    ],
    "links": {
+    "mock": {
+     "subject": "discrete-mathematics",
+     "unit_slug": "predicate-logic",
+     "unit_name": "Predicate & First-Order Logic",
+     "unit_number": 2,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "predicates-and-domain",
+       "questions": 10
+      },
+      {
+       "label": "quantifiers-universal-existential",
+       "questions": 10
+      },
+      {
+       "label": "negation-nested-quantifiers",
+       "questions": 10
+      },
+      {
+       "label": "scope-and-order",
+       "questions": 10
+      },
+      {
+       "label": "english-to-fol-translation",
+       "questions": 10
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/predicate-logic/gate_dm_mock_2_2026-10-25.html"
+    },
     "visual": {
      "slug": "first-order-logic",
      "title": "First-Order Logic",
      "level": "topic-level",
      "covers": [
-      "validity and countermodels"
+      "there-exists-for-all implies for-all-there-exists, never the reverse"
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/first-order-logic/index.html"
     },
@@ -3517,14 +3615,35 @@ window.GATE_DATA = {
     "wzVFO4hyVfo"
    ],
    "links": {
-    "visual": {
-     "slug": "first-order-logic",
-     "title": "First-Order Logic",
-     "level": "topic-level",
-     "covers": [
-      "tautology vs validity in FOL"
+    "mock": {
+     "subject": "discrete-mathematics",
+     "unit_slug": "predicate-logic",
+     "unit_name": "Predicate & First-Order Logic",
+     "unit_number": 2,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "predicates-and-domain",
+       "questions": 10
+      },
+      {
+       "label": "quantifiers-universal-existential",
+       "questions": 10
+      },
+      {
+       "label": "negation-nested-quantifiers",
+       "questions": 10
+      },
+      {
+       "label": "scope-and-order",
+       "questions": 10
+      },
+      {
+       "label": "english-to-fol-translation",
+       "questions": 10
+      }
      ],
-     "url": "https://gate-visual-explainer.vercel.app/topics/first-order-logic/index.html"
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/predicate-logic/gate_dm_mock_2_2026-10-25.html"
     },
     "mapped_at": "2026-10-27"
    },
@@ -3586,14 +3705,35 @@ window.GATE_DATA = {
    ],
    "videoRefs": [],
    "links": {
-    "visual": {
-     "slug": "first-order-logic",
-     "title": "First-Order Logic",
-     "level": "topic-level",
-     "covers": [
-      "unique existence"
+    "mock": {
+     "subject": "discrete-mathematics",
+     "unit_slug": "predicate-logic",
+     "unit_name": "Predicate & First-Order Logic",
+     "unit_number": 2,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "predicates-and-domain",
+       "questions": 10
+      },
+      {
+       "label": "quantifiers-universal-existential",
+       "questions": 10
+      },
+      {
+       "label": "negation-nested-quantifiers",
+       "questions": 10
+      },
+      {
+       "label": "scope-and-order",
+       "questions": 10
+      },
+      {
+       "label": "english-to-fol-translation",
+       "questions": 10
+      }
      ],
-     "url": "https://gate-visual-explainer.vercel.app/topics/first-order-logic/index.html"
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/predicate-logic/gate_dm_mock_2_2026-10-25.html"
     },
     "mapped_at": "2026-10-27"
    },
@@ -3654,13 +3794,42 @@ window.GATE_DATA = {
    ],
    "videoRefs": [],
    "links": {
+    "mock": {
+     "subject": "discrete-mathematics",
+     "unit_slug": "predicate-logic",
+     "unit_name": "Predicate & First-Order Logic",
+     "unit_number": 2,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "predicates-and-domain",
+       "questions": 10
+      },
+      {
+       "label": "quantifiers-universal-existential",
+       "questions": 10
+      },
+      {
+       "label": "negation-nested-quantifiers",
+       "questions": 10
+      },
+      {
+       "label": "scope-and-order",
+       "questions": 10
+      },
+      {
+       "label": "english-to-fol-translation",
+       "questions": 10
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/predicate-logic/gate_dm_mock_2_2026-10-25.html"
+    },
     "visual": {
      "slug": "first-order-logic",
      "title": "First-Order Logic",
      "level": "topic-level",
      "covers": [
-      "countermodels on two elements",
-      "model size"
+      "model counts for mixed quantifiers"
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/first-order-logic/index.html"
     },
@@ -3723,7 +3892,37 @@ window.GATE_DATA = {
    ],
    "videoRefs": [],
    "links": {
-    "mapped_at": "2026-10-26"
+    "mock": {
+     "subject": "discrete-mathematics",
+     "unit_slug": "predicate-logic",
+     "unit_name": "Predicate & First-Order Logic",
+     "unit_number": 2,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "predicates-and-domain",
+       "questions": 10
+      },
+      {
+       "label": "quantifiers-universal-existential",
+       "questions": 10
+      },
+      {
+       "label": "negation-nested-quantifiers",
+       "questions": 10
+      },
+      {
+       "label": "scope-and-order",
+       "questions": 10
+      },
+      {
+       "label": "english-to-fol-translation",
+       "questions": 10
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/predicate-logic/gate_dm_mock_2_2026-10-25.html"
+    },
+    "mapped_at": "2026-10-27"
    },
    "subject": "discrete-mathematics",
    "topic": "first-order-logic",

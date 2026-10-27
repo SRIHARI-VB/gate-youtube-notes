@@ -60,8 +60,7 @@
       "title": "Counting and Combinatorics",
       "level": "topic-level",
       "covers": [
-        "permutations and combinations",
-        "binomial coefficients"
+        "permutations and combinations"
       ],
       "url": "https://gate-visual-explainer.vercel.app/topics/counting-and-combinatorics/index.html"
     },

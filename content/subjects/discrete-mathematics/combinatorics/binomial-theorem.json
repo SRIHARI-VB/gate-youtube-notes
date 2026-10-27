@@ -46,14 +46,13 @@
   ],
   "links": {
     "visual": {
-      "slug": "generating-functions",
-      "title": "Generating Functions",
+      "slug": "counting-and-combinatorics",
+      "title": "Counting and Combinatorics",
       "level": "topic-level",
       "covers": [
-        "binomial coefficients",
-        "coefficient extraction"
+        "binomial coefficients"
       ],
-      "url": "https://gate-visual-explainer.vercel.app/topics/generating-functions/index.html"
+      "url": "https://gate-visual-explainer.vercel.app/topics/counting-and-combinatorics/index.html"
     },
     "mapped_at": "2026-10-27"
   }

@@ -53,8 +53,7 @@
       "title": "Counting and Combinatorics",
       "level": "topic-level",
       "covers": [
-        "derangements",
-        "inclusion-exclusion"
+        "derangements"
       ],
       "url": "https://gate-visual-explainer.vercel.app/topics/counting-and-combinatorics/index.html"
     },

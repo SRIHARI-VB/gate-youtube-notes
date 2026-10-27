@@ -48,8 +48,8 @@
       "title": "Recurrence Relations",
       "level": "topic-level",
       "covers": [
-        "linear homogeneous recurrences",
-        "characteristic roots and repeated roots"
+        "building a recurrence from a constraint",
+        "linear homogeneous recurrences"
       ],
       "url": "https://gate-visual-explainer.vercel.app/topics/recurrence-relations/index.html"
     },

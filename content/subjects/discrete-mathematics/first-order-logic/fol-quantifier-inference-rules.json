@@ -51,6 +51,36 @@
   ],
   "videoRefs": [],
   "links": {
-    "mapped_at": "2026-10-26"
+    "mock": {
+      "subject": "discrete-mathematics",
+      "unit_slug": "predicate-logic",
+      "unit_name": "Predicate & First-Order Logic",
+      "unit_number": 2,
+      "question_count": 50,
+      "subtopics": [
+        {
+          "label": "predicates-and-domain",
+          "questions": 10
+        },
+        {
+          "label": "quantifiers-universal-existential",
+          "questions": 10
+        },
+        {
+          "label": "negation-nested-quantifiers",
+          "questions": 10
+        },
+        {
+          "label": "scope-and-order",
+          "questions": 10
+        },
+        {
+          "label": "english-to-fol-translation",
+          "questions": 10
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/predicate-logic/gate_dm_mock_2_2026-10-25.html"
+    },
+    "mapped_at": "2026-10-27"
   }
 }

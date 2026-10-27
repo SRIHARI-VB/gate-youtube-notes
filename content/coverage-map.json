@@ -3,6 +3,11 @@
   "generated_at": "2026-10-27",
   "playlists": [
     {
+      "playlist_id": "PLIPZ2_p3RNHidhFvyKH4U_VE1rFAyvG8U",
+      "title": "First Order Logic - Complete Summary, All GATE PYQs & Practice Questions | Predicate Logic | Discrete Mathematics",
+      "videos": 8
+    },
+    {
       "playlist_id": "PLIPZ2_p3RNHillKxh1_iFeZhy9MftHeWW",
       "title": "Propositional Logic - Complete Summary, All GATE PYQs & Practice Questions | Discrete Mathematics",
       "videos": 17
@@ -11,11 +16,6 @@
       "playlist_id": "PLIPZ2_p3RNHjlC6eceG_vWSu-oA6Dc6aX",
       "title": "Combinatorics - Complete Summary, All GATE PYQs, Revision & Practice Questions | Discrete Mathematics",
       "videos": 14
-    },
-    {
-      "playlist_id": "PLIPZ2_p3RNHidhFvyKH4U_VE1rFAyvG8U",
-      "title": "First Order Logic - Complete Summary, All GATE PYQs & Practice Questions | Predicate Logic | Discrete Mathematics",
-      "videos": 8
     }
   ],
   "topics": [
@@ -27,15 +27,7 @@
       "priority": "P1",
       "path": "subjects/discrete-mathematics/combinatorics/basic-counting-rules.json",
       "transcript_status": "PARTIAL",
-      "mock": {
-        "subject": "discrete-mathematics",
-        "unit_slug": null,
-        "unit_name": null,
-        "unit_number": null,
-        "question_count": 0,
-        "subtopic_labels": [],
-        "verdict": "MOCK_UNIT_MISSING"
-      },
+      "mock": null,
       "visual": {
         "slug": "counting-and-combinatorics",
         "title": "Counting and Combinatorics",
@@ -44,8 +36,9 @@
         "verdict": "VISUAL_LESSON"
       },
       "evidence": [
-        "gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json: no subtopic_label or unit serves this card; the bank has no combinatorics unit (units 1-5, 16 hold logic, sets, relations, functions, proofs only)",
-        "gate-visual-explainer/topics.json slug \"counting-and-combinatorics\" title \"Counting and Combinatorics\", syllabus-coverage.json coverage_status PUBLISHED, lesson_slug \"counting-and-combinatorics\"; Scene 1 'Two rules, and nothing else' states the sum and product rules and the disjointness condition; rung 3"
+        "notes content/index.json -> map[].path = subjects/discrete-mathematics/combinatorics/basic-counting-rules.json",
+        "mock: no unit in discrete-mathematics master_bank.json carries this card's vocabulary",
+        "visual: /scratch/repos/gate-visual-explainer/topics/counting-and-combinatorics/transcript.md scene list"
       ],
       "row_verdict": "VISUAL_ONLY"
     },
@@ -57,15 +50,7 @@
       "priority": "P1",
       "path": "subjects/discrete-mathematics/combinatorics/permutations.json",
       "transcript_status": "PARTIAL",
-      "mock": {
-        "subject": "discrete-mathematics",
-        "unit_slug": null,
-        "unit_name": null,
-        "unit_number": null,
-        "question_count": 0,
-        "subtopic_labels": [],
-        "verdict": "MOCK_UNIT_MISSING"
-      },
+      "mock": null,
       "visual": {
         "slug": "counting-and-combinatorics",
         "title": "Counting and Combinatorics",
@@ -74,8 +59,9 @@
         "verdict": "VISUAL_LESSON"
       },
       "evidence": [
-        "gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json: no subtopic_label or unit serves this card; the bank has no combinatorics unit",
-        "gate-visual-explainer/topics.json slug \"counting-and-combinatorics\" title \"Counting and Combinatorics\", syllabus-coverage.json coverage_status PUBLISHED, lesson_slug \"counting-and-combinatorics\"; Scene 2 box 2 (P(n,r)) and Scene 4 circular permutations; rung 3"
+        "notes content/index.json -> map[].path = subjects/discrete-mathematics/combinatorics/permutations.json",
+        "mock: no unit in discrete-mathematics master_bank.json carries this card's vocabulary",
+        "visual: /scratch/repos/gate-visual-explainer/topics/counting-and-combinatorics/transcript.md scene list"
       ],
       "row_verdict": "VISUAL_ONLY"
     },
@@ -87,15 +73,7 @@
       "priority": "P1",
       "path": "subjects/discrete-mathematics/combinatorics/combinations.json",
       "transcript_status": "PARTIAL",
-      "mock": {
-        "subject": "discrete-mathematics",
-        "unit_slug": null,
-        "unit_name": null,
-        "unit_number": null,
-        "question_count": 0,
-        "subtopic_labels": [],
-        "verdict": "MOCK_UNIT_MISSING"
-      },
+      "mock": null,
       "visual": {
         "slug": "counting-and-combinatorics",
         "title": "Counting and Combinatorics",
@@ -104,8 +82,9 @@
         "verdict": "VISUAL_LESSON"
       },
       "evidence": [
-        "gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json: no subtopic_label or unit serves this card; the bank has no combinatorics unit",
-        "gate-visual-explainer/topics.json slug \"counting-and-combinatorics\" title \"Counting and Combinatorics\", syllabus-coverage.json coverage_status PUBLISHED, lesson_slug \"counting-and-combinatorics\"; Scene 3 'Divide out the order' derives C(n,r); rung 3"
+        "notes content/index.json -> map[].path = subjects/discrete-mathematics/combinatorics/combinations.json",
+        "mock: no unit in discrete-mathematics master_bank.json carries this card's vocabulary",
+        "visual: /scratch/repos/gate-visual-explainer/topics/counting-and-combinatorics/transcript.md scene list"
       ],
       "row_verdict": "VISUAL_ONLY"
     },
@@ -117,25 +96,18 @@
       "priority": "P2",
       "path": "subjects/discrete-mathematics/combinatorics/binomial-theorem.json",
       "transcript_status": "PARTIAL",
-      "mock": {
-        "subject": "discrete-mathematics",
-        "unit_slug": null,
-        "unit_name": null,
-        "unit_number": null,
-        "question_count": 0,
-        "subtopic_labels": [],
-        "verdict": "MOCK_UNIT_MISSING"
-      },
+      "mock": null,
       "visual": {
-        "slug": "generating-functions",
-        "title": "Generating Functions",
+        "slug": "counting-and-combinatorics",
+        "title": "Counting and Combinatorics",
         "coverage_status": "PUBLISHED",
         "level": "topic-level",
         "verdict": "VISUAL_LESSON"
       },
       "evidence": [
-        "gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json: no subtopic_label or unit serves this card; the bank has no combinatorics unit",
-        "gate-visual-explainer/topics.json slug \"generating-functions\" title \"Generating Functions\", syllabus-coverage.json coverage_status PUBLISHED, lesson_slug \"generating-functions\"; Scene 2 atom 1/(1-x)^k and Scene 10 trap 'n choose k where it should be n plus k minus one choose k'; coefficient extraction is the lesson's terminal operation; rung 3"
+        "notes content/index.json -> map[].path = subjects/discrete-mathematics/combinatorics/binomial-theorem.json",
+        "mock: no unit in discrete-mathematics master_bank.json carries this card's vocabulary",
+        "visual: /scratch/repos/gate-visual-explainer/topics/counting-and-combinatorics/transcript.md scene list"
       ],
       "row_verdict": "VISUAL_ONLY"
     },
@@ -147,15 +119,7 @@
       "priority": "P2",
       "path": "subjects/discrete-mathematics/combinatorics/permutation-with-repetition.json",
       "transcript_status": "PARTIAL",
-      "mock": {
-        "subject": "discrete-mathematics",
-        "unit_slug": null,
-        "unit_name": null,
-        "unit_number": null,
-        "question_count": 0,
-        "subtopic_labels": [],
-        "verdict": "MOCK_UNIT_MISSING"
-      },
+      "mock": null,
       "visual": {
         "slug": "counting-and-combinatorics",
         "title": "Counting and Combinatorics",
@@ -164,8 +128,9 @@
         "verdict": "VISUAL_LESSON"
       },
       "evidence": [
-        "gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json: no subtopic_label or unit serves this card; the bank has no combinatorics unit",
-        "gate-visual-explainer/topics.json slug \"counting-and-combinatorics\" title \"Counting and Combinatorics\", syllabus-coverage.json coverage_status PUBLISHED, lesson_slug \"counting-and-combinatorics\"; Scene 2 box 1 (n^r) and Scene 4 repeated-letter division (LILAC, 5!/2!); rung 3"
+        "notes content/index.json -> map[].path = subjects/discrete-mathematics/combinatorics/permutation-with-repetition.json",
+        "mock: no unit in discrete-mathematics master_bank.json carries this card's vocabulary",
+        "visual: /scratch/repos/gate-visual-explainer/topics/counting-and-combinatorics/transcript.md scene list"
       ],
       "row_verdict": "VISUAL_ONLY"
     },
@@ -177,15 +142,7 @@
       "priority": "P1",
       "path": "subjects/discrete-mathematics/combinatorics/distribution-templates.json",
       "transcript_status": "PARTIAL",
-      "mock": {
-        "subject": "discrete-mathematics",
-        "unit_slug": null,
-        "unit_name": null,
-        "unit_number": null,
-        "question_count": 0,
-        "subtopic_labels": [],
-        "verdict": "MOCK_UNIT_MISSING"
-      },
+      "mock": null,
       "visual": {
         "slug": "counting-and-combinatorics",
         "title": "Counting and Combinatorics",
@@ -194,8 +151,9 @@
         "verdict": "VISUAL_LESSON"
       },
       "evidence": [
-        "gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json: no subtopic_label or unit serves this card; the bank has no combinatorics unit",
-        "gate-visual-explainer: no lesson_slug serves this card; no published lesson covers the objects/boxes 2x2; counting-and-combinatorics Scene 2 is the order/repetition grid instead"
+        "notes content/index.json -> map[].path = subjects/discrete-mathematics/combinatorics/distribution-templates.json",
+        "mock: no unit in discrete-mathematics master_bank.json carries this card's vocabulary",
+        "visual: /scratch/repos/gate-visual-explainer/topics/counting-and-combinatorics/transcript.md scene list"
       ],
       "row_verdict": "VISUAL_ONLY"
     },
@@ -214,26 +172,11 @@
         "unit_number": 5,
         "question_count": 50,
         "subtopic_labels": [
-          {
-            "label": "Injective / surjective / bijective",
-            "questions": 10
-          },
-          {
-            "label": "Composition & inverses",
-            "questions": 10
-          },
-          {
-            "label": "Counting functions",
-            "questions": 10
-          },
-          {
-            "label": "Pigeonhole principle",
-            "questions": 10
-          },
-          {
-            "label": "Floor, ceiling & recursion",
-            "questions": 10
-          }
+          "types-injective-surjective-bijective",
+          "composition-and-inverses",
+          "counting-functions",
+          "pigeonhole-principle",
+          "floor-ceiling-recursion"
         ],
         "verdict": "MOCK_READY"
       },
@@ -245,8 +188,9 @@
         "verdict": "VISUAL_LESSON"
       },
       "evidence": [
-        "gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json: no subtopic_label or unit serves this card; the bank has no combinatorics unit",
-        "gate-visual-explainer/topics.json slug \"functions-and-their-properties\" title \"Functions and Their Properties\", syllabus-coverage.json coverage_status PUBLISHED, lesson_slug \"functions-and-their-properties\"; Scene 6 'Four counts' counts n^m and the onto case; the card reduces DODB to functions n->k; rung 3"
+        "notes content/index.json -> map[].path = subjects/discrete-mathematics/combinatorics/dodb.json",
+        "mock: /scratch/repos/gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json -> questions[] grouped by unit_slug/subtopic",
+        "visual: /scratch/repos/gate-visual-explainer/topics/functions-and-their-properties/transcript.md scene list"
       ],
       "row_verdict": "BOTH"
     },
@@ -258,15 +202,7 @@
       "priority": "P1",
       "path": "subjects/discrete-mathematics/combinatorics/iodb-stars-and-bars.json",
       "transcript_status": "PARTIAL",
-      "mock": {
-        "subject": "discrete-mathematics",
-        "unit_slug": null,
-        "unit_name": null,
-        "unit_number": null,
-        "question_count": 0,
-        "subtopic_labels": [],
-        "verdict": "MOCK_UNIT_MISSING"
-      },
+      "mock": null,
       "visual": {
         "slug": "counting-and-combinatorics",
         "title": "Counting and Combinatorics",
@@ -275,8 +211,9 @@
         "verdict": "VISUAL_LESSON"
       },
       "evidence": [
-        "gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json: no subtopic_label or unit serves this card; the bank has no combinatorics unit",
-        "gate-visual-explainer/topics.json slug \"counting-and-combinatorics\" title \"Counting and Combinatorics\", syllabus-coverage.json coverage_status PUBLISHED, lesson_slug \"counting-and-combinatorics\"; Scene 5 'Stars and bars', including the at-least-one-per-box condition; rung 3"
+        "notes content/index.json -> map[].path = subjects/discrete-mathematics/combinatorics/iodb-stars-and-bars.json",
+        "mock: no unit in discrete-mathematics master_bank.json carries this card's vocabulary",
+        "visual: /scratch/repos/gate-visual-explainer/topics/counting-and-combinatorics/transcript.md scene list"
       ],
       "row_verdict": "VISUAL_ONLY"
     },
@@ -295,39 +232,19 @@
         "unit_number": 3,
         "question_count": 50,
         "subtopic_labels": [
-          {
-            "label": "Subsets & power sets",
-            "questions": 10
-          },
-          {
-            "label": "Cardinality",
-            "questions": 10
-          },
-          {
-            "label": "Set algebra & De Morgan",
-            "questions": 10
-          },
-          {
-            "label": "Inclusion-exclusion",
-            "questions": 10
-          },
-          {
-            "label": "Partitions & Cartesian products",
-            "questions": 10
-          }
+          "subsets-and-power-sets",
+          "cardinality",
+          "set-algebra-de-morgan",
+          "inclusion-exclusion",
+          "partitions-and-cartesian-products"
         ],
         "verdict": "MOCK_READY"
       },
-      "visual": {
-        "slug": null,
-        "title": null,
-        "coverage_status": null,
-        "level": null,
-        "verdict": "VISUAL_MISSING"
-      },
+      "visual": null,
       "evidence": [
-        "gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json: unit 3 \"Set Theory\" (unit_slug \"set-theory\") holds 50 questions, subtopic_label groups Subsets & power sets=10, Cardinality=10, Set algebra & De Morgan=10, Inclusion-exclusion=10, Partitions & Cartesian products=10; unit 3 label 'Partitions & Cartesian products' holds DM-ST2-Q14 'How many partitions of {1,2,3,4,5,6} have exactly three blocks?', i.e. S(n,k); partial - the group also counts Cartesian products; rung 4",
-        "gate-visual-explainer: no lesson_slug serves this card; no published lesson covers set partitions or Stirling numbers of the second kind"
+        "notes content/index.json -> map[].path = subjects/discrete-mathematics/combinatorics/doib-stirling.json",
+        "mock: /scratch/repos/gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json -> questions[] grouped by unit_slug/subtopic",
+        "visual: no published lesson covers this card's content"
       ],
       "row_verdict": "MOCK_ONLY"
     },
@@ -339,25 +256,12 @@
       "priority": "P3",
       "path": "subjects/discrete-mathematics/combinatorics/ioib-partitions.json",
       "transcript_status": "PARTIAL",
-      "mock": {
-        "subject": "discrete-mathematics",
-        "unit_slug": null,
-        "unit_name": null,
-        "unit_number": null,
-        "question_count": 0,
-        "subtopic_labels": [],
-        "verdict": "MOCK_UNIT_MISSING"
-      },
-      "visual": {
-        "slug": null,
-        "title": null,
-        "coverage_status": null,
-        "level": null,
-        "verdict": "VISUAL_MISSING"
-      },
+      "mock": null,
+      "visual": null,
       "evidence": [
-        "gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json: no subtopic_label or unit serves this card; the bank has no combinatorics unit; no subtopic_label counts integer partitions",
-        "gate-visual-explainer: no lesson_slug serves this card; no published lesson covers integer partitions"
+        "notes content/index.json -> map[].path = subjects/discrete-mathematics/combinatorics/ioib-partitions.json",
+        "mock: no unit in discrete-mathematics master_bank.json carries this card's vocabulary",
+        "visual: no published lesson covers this card's content"
       ],
       "row_verdict": "NEITHER"
     },
@@ -376,26 +280,11 @@
         "unit_number": 3,
         "question_count": 50,
         "subtopic_labels": [
-          {
-            "label": "Subsets & power sets",
-            "questions": 10
-          },
-          {
-            "label": "Cardinality",
-            "questions": 10
-          },
-          {
-            "label": "Set algebra & De Morgan",
-            "questions": 10
-          },
-          {
-            "label": "Inclusion-exclusion",
-            "questions": 10
-          },
-          {
-            "label": "Partitions & Cartesian products",
-            "questions": 10
-          }
+          "subsets-and-power-sets",
+          "cardinality",
+          "set-algebra-de-morgan",
+          "inclusion-exclusion",
+          "partitions-and-cartesian-products"
         ],
         "verdict": "MOCK_READY"
       },
@@ -407,8 +296,9 @@
         "verdict": "VISUAL_LESSON"
       },
       "evidence": [
-        "gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json: unit 3 \"Set Theory\" (unit_slug \"set-theory\") holds 50 questions, subtopic_label groups Subsets & power sets=10, Cardinality=10, Set algebra & De Morgan=10, Inclusion-exclusion=10, Partitions & Cartesian products=10; unit 3 label 'Inclusion-exclusion' holds DM-ST1-Q12 and DM-ST2-Q12, the divisible-by count the card's example uses; rung 4",
-        "gate-visual-explainer/topics.json slug \"counting-and-combinatorics\" title \"Counting and Combinatorics\", syllabus-coverage.json coverage_status PUBLISHED, lesson_slug \"counting-and-combinatorics\"; Scene 6 'Inclusion and exclusion' works the 1..500 divisibility count; rung 3"
+        "notes content/index.json -> map[].path = subjects/discrete-mathematics/combinatorics/inclusion-exclusion.json",
+        "mock: /scratch/repos/gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json -> questions[] grouped by unit_slug/subtopic",
+        "visual: /scratch/repos/gate-visual-explainer/topics/counting-and-combinatorics/transcript.md scene list"
       ],
       "row_verdict": "BOTH"
     },
@@ -420,15 +310,7 @@
       "priority": "P2",
       "path": "subjects/discrete-mathematics/combinatorics/derangements.json",
       "transcript_status": "PARTIAL",
-      "mock": {
-        "subject": "discrete-mathematics",
-        "unit_slug": null,
-        "unit_name": null,
-        "unit_number": null,
-        "question_count": 0,
-        "subtopic_labels": [],
-        "verdict": "MOCK_UNIT_MISSING"
-      },
+      "mock": null,
       "visual": {
         "slug": "counting-and-combinatorics",
         "title": "Counting and Combinatorics",
@@ -437,8 +319,9 @@
         "verdict": "VISUAL_LESSON"
       },
       "evidence": [
-        "gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json: no subtopic_label or unit serves this card; the bank has no combinatorics unit; no subtopic_label counts derangements",
-        "gate-visual-explainer/topics.json slug \"counting-and-combinatorics\" title \"Counting and Combinatorics\", syllabus-coverage.json coverage_status PUBLISHED, lesson_slug \"counting-and-combinatorics\"; Scene 9 'Derangements' incl. the repeated-letter case; rung 3"
+        "notes content/index.json -> map[].path = subjects/discrete-mathematics/combinatorics/derangements.json",
+        "mock: no unit in discrete-mathematics master_bank.json carries this card's vocabulary",
+        "visual: /scratch/repos/gate-visual-explainer/topics/counting-and-combinatorics/transcript.md scene list"
       ],
       "row_verdict": "VISUAL_ONLY"
     },
@@ -457,39 +340,25 @@
         "unit_number": 5,
         "question_count": 50,
         "subtopic_labels": [
-          {
-            "label": "Injective / surjective / bijective",
-            "questions": 10
-          },
-          {
-            "label": "Composition & inverses",
-            "questions": 10
-          },
-          {
-            "label": "Counting functions",
-            "questions": 10
-          },
-          {
-            "label": "Pigeonhole principle",
-            "questions": 10
-          },
-          {
-            "label": "Floor, ceiling & recursion",
-            "questions": 10
-          }
+          "types-injective-surjective-bijective",
+          "composition-and-inverses",
+          "counting-functions",
+          "pigeonhole-principle",
+          "floor-ceiling-recursion"
         ],
         "verdict": "MOCK_READY"
       },
       "visual": {
-        "slug": "counting-and-combinatorics",
-        "title": "Counting and Combinatorics",
+        "slug": "functions-and-their-properties",
+        "title": "Functions and Their Properties",
         "coverage_status": "PUBLISHED",
         "level": "topic-level",
         "verdict": "VISUAL_LESSON"
       },
       "evidence": [
-        "gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json: unit 5 \"Functions\" (unit_slug \"functions\") holds 50 questions, subtopic_label groups Injective / surjective / bijective=10, Composition & inverses=10, Counting functions=10, Pigeonhole principle=10, Floor, ceiling & recursion=10; unit 5 label 'Counting functions' holds DM-FUN1-Q14 and DM-FUN2-Q14, the surjection counts; rung 4",
-        "gate-visual-explainer/topics.json slug \"functions-and-their-properties\" title \"Functions and Their Properties\", syllabus-coverage.json coverage_status PUBLISHED, lesson_slug \"functions-and-their-properties\"; Scene 4 and Scene 6 count onto functions by inclusion-exclusion; rung 3"
+        "notes content/index.json -> map[].path = subjects/discrete-mathematics/combinatorics/onto-functions.json",
+        "mock: /scratch/repos/gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json -> questions[] grouped by unit_slug/subtopic",
+        "visual: /scratch/repos/gate-visual-explainer/topics/functions-and-their-properties/transcript.md scene list"
       ],
       "row_verdict": "BOTH"
     },
@@ -508,26 +377,11 @@
         "unit_number": 5,
         "question_count": 50,
         "subtopic_labels": [
-          {
-            "label": "Injective / surjective / bijective",
-            "questions": 10
-          },
-          {
-            "label": "Composition & inverses",
-            "questions": 10
-          },
-          {
-            "label": "Counting functions",
-            "questions": 10
-          },
-          {
-            "label": "Pigeonhole principle",
-            "questions": 10
-          },
-          {
-            "label": "Floor, ceiling & recursion",
-            "questions": 10
-          }
+          "types-injective-surjective-bijective",
+          "composition-and-inverses",
+          "counting-functions",
+          "pigeonhole-principle",
+          "floor-ceiling-recursion"
         ],
         "verdict": "MOCK_READY"
       },
@@ -539,8 +393,9 @@
         "verdict": "VISUAL_LESSON"
       },
       "evidence": [
-        "gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json: unit 5 \"Functions\" (unit_slug \"functions\") holds 50 questions, subtopic_label groups Injective / surjective / bijective=10, Composition & inverses=10, Counting functions=10, Pigeonhole principle=10, Floor, ceiling & recursion=10; unit 5 label 'Pigeonhole principle' = 10 records (DM-FUN1-Q16..Q20, DM-FUN2-Q16..Q20); the label names the card verbatim; rung 4",
-        "gate-visual-explainer/topics.json slug \"counting-and-combinatorics\" title \"Counting and Combinatorics\", syllabus-coverage.json coverage_status PUBLISHED, lesson_slug \"counting-and-combinatorics\"; Scene 7 'The pigeonhole principle', including the generalised ceiling form; rung 3"
+        "notes content/index.json -> map[].path = subjects/discrete-mathematics/combinatorics/pigeonhole.json",
+        "mock: /scratch/repos/gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json -> questions[] grouped by unit_slug/subtopic",
+        "visual: /scratch/repos/gate-visual-explainer/topics/counting-and-combinatorics/transcript.md scene list"
       ],
       "row_verdict": "BOTH"
     },
@@ -551,16 +406,8 @@
       "title": "Recurrences and Compositions (playlist gap)",
       "priority": "P2",
       "path": "subjects/discrete-mathematics/combinatorics/recurrences-and-compositions.json",
-      "transcript_status": "no videos (not stated)",
-      "mock": {
-        "subject": "discrete-mathematics",
-        "unit_slug": null,
-        "unit_name": null,
-        "unit_number": null,
-        "question_count": 0,
-        "subtopic_labels": [],
-        "verdict": "MOCK_UNIT_MISSING"
-      },
+      "transcript_status": "not stated",
+      "mock": null,
       "visual": {
         "slug": "recurrence-relations",
         "title": "Recurrence Relations",
@@ -569,8 +416,9 @@
         "verdict": "VISUAL_LESSON"
       },
       "evidence": [
-        "gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json: no subtopic_label or unit serves this card; the bank has no combinatorics unit; no subtopic_label counts recurrences or compositions",
-        "gate-visual-explainer/topics.json slug \"recurrence-relations\" title \"Recurrence Relations\", syllabus-coverage.json coverage_status PUBLISHED, lesson_slug \"recurrence-relations\"; Scene 2 'Building a recurrence from a constraint' and Scene 4 the characteristic equation; the compositions half is not covered (the lesson's constraint is n-bit strings), and generating-functions covers only the 1/(1-x-x^2) form; rung 3"
+        "notes content/index.json -> map[].path = subjects/discrete-mathematics/combinatorics/recurrences-and-compositions.json",
+        "mock: no unit in discrete-mathematics master_bank.json carries this card's vocabulary",
+        "visual: /scratch/repos/gate-visual-explainer/topics/recurrence-relations/transcript.md scene list"
       ],
       "row_verdict": "VISUAL_ONLY"
     },
@@ -589,30 +437,12 @@
         "unit_number": 1,
         "question_count": 50,
         "subtopic_labels": [
-          {
-            "label": "Propositions & connectives",
-            "questions": 9
-          },
-          {
-            "label": "Truth tables",
-            "questions": 9
-          },
-          {
-            "label": "Logical equivalences",
-            "questions": 7
-          },
-          {
-            "label": "Implications & inference",
-            "questions": 9
-          },
-          {
-            "label": "CNF / DNF",
-            "questions": 8
-          },
-          {
-            "label": "Validity & satisfiability",
-            "questions": 8
-          }
+          "propositions-and-connectives",
+          "truth-tables",
+          "logical-equivalences",
+          "implications-and-inference",
+          "cnf-dnf",
+          "validity-and-satisfiability"
         ],
         "verdict": "MOCK_READY"
       },
@@ -624,8 +454,9 @@
         "verdict": "VISUAL_LESSON"
       },
       "evidence": [
-        "gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json: unit 1 \"Propositional Logic\" (unit_slug \"propositional-logic\") holds 50 questions, subtopic_label groups Propositions & connectives=9, Truth tables=9, Implications & inference=9, CNF / DNF=8, Validity & satisfiability=8, Logical equivalences=7; unit 1 label 'Propositions & connectives' = 9 records; the label names the card verbatim; rung 4",
-        "gate-visual-explainer/topics.json slug \"propositional-logic\" title \"Propositional Logic\", syllabus-coverage.json coverage_status PUBLISHED, lesson_slug \"propositional-logic\"; Scene 1 'A proposition is true or false' and Scene 2 'Negation, and, or'; rung 3"
+        "notes content/index.json -> map[].path = subjects/discrete-mathematics/propositional-logic/propositions-and-connectives.json",
+        "mock: /scratch/repos/gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json -> questions[] grouped by unit_slug/subtopic",
+        "visual: /scratch/repos/gate-visual-explainer/topics/propositional-logic/transcript.md scene list"
       ],
       "row_verdict": "BOTH"
     },
@@ -644,30 +475,12 @@
         "unit_number": 1,
         "question_count": 50,
         "subtopic_labels": [
-          {
-            "label": "Propositions & connectives",
-            "questions": 9
-          },
-          {
-            "label": "Truth tables",
-            "questions": 9
-          },
-          {
-            "label": "Logical equivalences",
-            "questions": 7
-          },
-          {
-            "label": "Implications & inference",
-            "questions": 9
-          },
-          {
-            "label": "CNF / DNF",
-            "questions": 8
-          },
-          {
-            "label": "Validity & satisfiability",
-            "questions": 8
-          }
+          "propositions-and-connectives",
+          "truth-tables",
+          "logical-equivalences",
+          "implications-and-inference",
+          "cnf-dnf",
+          "validity-and-satisfiability"
         ],
         "verdict": "MOCK_READY"
       },
@@ -679,8 +492,9 @@
         "verdict": "VISUAL_LESSON"
       },
       "evidence": [
-        "gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json: unit 1 \"Propositional Logic\" (unit_slug \"propositional-logic\") holds 50 questions, subtopic_label groups Propositions & connectives=9, Truth tables=9, Implications & inference=9, CNF / DNF=8, Validity & satisfiability=8, Logical equivalences=7; unit 1 label 'Truth tables' = 9 records; the label names the card verbatim; rung 4",
-        "gate-visual-explainer/topics.json slug \"propositional-logic\" title \"Propositional Logic\", syllabus-coverage.json coverage_status PUBLISHED, lesson_slug \"propositional-logic\"; Scene 6 'Tautology, contradiction, contingency' and Scene 9 'Satisfiable, and how many rows'; rung 3"
+        "notes content/index.json -> map[].path = subjects/discrete-mathematics/propositional-logic/truth-tables-and-tautology.json",
+        "mock: /scratch/repos/gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json -> questions[] grouped by unit_slug/subtopic",
+        "visual: /scratch/repos/gate-visual-explainer/topics/propositional-logic/transcript.md scene list"
       ],
       "row_verdict": "BOTH"
     },
@@ -699,30 +513,12 @@
         "unit_number": 1,
         "question_count": 50,
         "subtopic_labels": [
-          {
-            "label": "Propositions & connectives",
-            "questions": 9
-          },
-          {
-            "label": "Truth tables",
-            "questions": 9
-          },
-          {
-            "label": "Logical equivalences",
-            "questions": 7
-          },
-          {
-            "label": "Implications & inference",
-            "questions": 9
-          },
-          {
-            "label": "CNF / DNF",
-            "questions": 8
-          },
-          {
-            "label": "Validity & satisfiability",
-            "questions": 8
-          }
+          "propositions-and-connectives",
+          "truth-tables",
+          "logical-equivalences",
+          "implications-and-inference",
+          "cnf-dnf",
+          "validity-and-satisfiability"
         ],
         "verdict": "MOCK_READY"
       },
@@ -734,8 +530,9 @@
         "verdict": "VISUAL_LESSON"
       },
       "evidence": [
-        "gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json: unit 1 \"Propositional Logic\" (unit_slug \"propositional-logic\") holds 50 questions, subtopic_label groups Propositions & connectives=9, Truth tables=9, Implications & inference=9, CNF / DNF=8, Validity & satisfiability=8, Logical equivalences=7; unit 1 label 'Implications & inference' holds DM-PL1-Q04 'The contrapositive of ...' and DM-PL2-Q04 (only if); rung 4",
-        "gate-visual-explainer/topics.json slug \"propositional-logic\" title \"Propositional Logic\", syllabus-coverage.json coverage_status PUBLISHED, lesson_slug \"propositional-logic\"; Scene 3 'Implication: one false row out of four' and Scene 4 'Converse, inverse, contrapositive'; rung 3"
+        "notes content/index.json -> map[].path = subjects/discrete-mathematics/propositional-logic/implication-converse-contrapositive.json",
+        "mock: /scratch/repos/gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json -> questions[] grouped by unit_slug/subtopic",
+        "visual: /scratch/repos/gate-visual-explainer/topics/propositional-logic/transcript.md scene list"
       ],
       "row_verdict": "BOTH"
     },
@@ -754,30 +551,12 @@
         "unit_number": 1,
         "question_count": 50,
         "subtopic_labels": [
-          {
-            "label": "Propositions & connectives",
-            "questions": 9
-          },
-          {
-            "label": "Truth tables",
-            "questions": 9
-          },
-          {
-            "label": "Logical equivalences",
-            "questions": 7
-          },
-          {
-            "label": "Implications & inference",
-            "questions": 9
-          },
-          {
-            "label": "CNF / DNF",
-            "questions": 8
-          },
-          {
-            "label": "Validity & satisfiability",
-            "questions": 8
-          }
+          "propositions-and-connectives",
+          "truth-tables",
+          "logical-equivalences",
+          "implications-and-inference",
+          "cnf-dnf",
+          "validity-and-satisfiability"
         ],
         "verdict": "MOCK_READY"
       },
@@ -789,8 +568,9 @@
         "verdict": "VISUAL_LESSON"
       },
       "evidence": [
-        "gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json: unit 1 \"Propositional Logic\" (unit_slug \"propositional-logic\") holds 50 questions, subtopic_label groups Propositions & connectives=9, Truth tables=9, Implications & inference=9, CNF / DNF=8, Validity & satisfiability=8, Logical equivalences=7; unit 1 label 'Logical equivalences' = 7 records; the label names the card verbatim; rung 4",
-        "gate-visual-explainer/topics.json slug \"propositional-logic\" title \"Propositional Logic\", syllabus-coverage.json coverage_status PUBLISHED, lesson_slug \"propositional-logic\"; Scene 7 'Logical equivalence, and De Morgan'; rung 3"
+        "notes content/index.json -> map[].path = subjects/discrete-mathematics/propositional-logic/logical-equivalence-laws.json",
+        "mock: /scratch/repos/gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json -> questions[] grouped by unit_slug/subtopic",
+        "visual: /scratch/repos/gate-visual-explainer/topics/propositional-logic/transcript.md scene list"
       ],
       "row_verdict": "BOTH"
     },
@@ -809,43 +589,20 @@
         "unit_number": 1,
         "question_count": 50,
         "subtopic_labels": [
-          {
-            "label": "Propositions & connectives",
-            "questions": 9
-          },
-          {
-            "label": "Truth tables",
-            "questions": 9
-          },
-          {
-            "label": "Logical equivalences",
-            "questions": 7
-          },
-          {
-            "label": "Implications & inference",
-            "questions": 9
-          },
-          {
-            "label": "CNF / DNF",
-            "questions": 8
-          },
-          {
-            "label": "Validity & satisfiability",
-            "questions": 8
-          }
+          "propositions-and-connectives",
+          "truth-tables",
+          "logical-equivalences",
+          "implications-and-inference",
+          "cnf-dnf",
+          "validity-and-satisfiability"
         ],
         "verdict": "MOCK_READY"
       },
-      "visual": {
-        "slug": null,
-        "title": null,
-        "coverage_status": null,
-        "level": null,
-        "verdict": "VISUAL_MISSING"
-      },
+      "visual": null,
       "evidence": [
-        "gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json: unit 1 \"Propositional Logic\" (unit_slug \"propositional-logic\") holds 50 questions, subtopic_label groups Propositions & connectives=9, Truth tables=9, Implications & inference=9, CNF / DNF=8, Validity & satisfiability=8, Logical equivalences=7; unit 1 label 'CNF / DNF' = 8 records; the label names the card verbatim; rung 4",
-        "gate-visual-explainer: no lesson_slug serves this card; no published lesson covers normal forms - propositional-logic has no CNF or DNF scene (0 mentions in transcript.md)"
+        "notes content/index.json -> map[].path = subjects/discrete-mathematics/propositional-logic/cnf-dnf-normal-forms.json",
+        "mock: /scratch/repos/gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json -> questions[] grouped by unit_slug/subtopic",
+        "visual: no published lesson covers this card's content"
       ],
       "row_verdict": "MOCK_ONLY"
     },
@@ -864,30 +621,12 @@
         "unit_number": 1,
         "question_count": 50,
         "subtopic_labels": [
-          {
-            "label": "Propositions & connectives",
-            "questions": 9
-          },
-          {
-            "label": "Truth tables",
-            "questions": 9
-          },
-          {
-            "label": "Logical equivalences",
-            "questions": 7
-          },
-          {
-            "label": "Implications & inference",
-            "questions": 9
-          },
-          {
-            "label": "CNF / DNF",
-            "questions": 8
-          },
-          {
-            "label": "Validity & satisfiability",
-            "questions": 8
-          }
+          "propositions-and-connectives",
+          "truth-tables",
+          "logical-equivalences",
+          "implications-and-inference",
+          "cnf-dnf",
+          "validity-and-satisfiability"
         ],
         "verdict": "MOCK_READY"
       },
@@ -899,8 +638,9 @@
         "verdict": "VISUAL_LESSON"
       },
       "evidence": [
-        "gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json: unit 1 \"Propositional Logic\" (unit_slug \"propositional-logic\") holds 50 questions, subtopic_label groups Propositions & connectives=9, Truth tables=9, Implications & inference=9, CNF / DNF=8, Validity & satisfiability=8, Logical equivalences=7; unit 1 label 'Validity & satisfiability' = 8 records; the label names the card verbatim; rung 4",
-        "gate-visual-explainer/topics.json slug \"propositional-logic\" title \"Propositional Logic\", syllabus-coverage.json coverage_status PUBLISHED, lesson_slug \"propositional-logic\"; Scene 9 'Satisfiable, and how many rows'; rung 3"
+        "notes content/index.json -> map[].path = subjects/discrete-mathematics/propositional-logic/satisfiability-and-validity.json",
+        "mock: /scratch/repos/gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json -> questions[] grouped by unit_slug/subtopic",
+        "visual: /scratch/repos/gate-visual-explainer/topics/propositional-logic/transcript.md scene list"
       ],
       "row_verdict": "BOTH"
     },
@@ -919,30 +659,12 @@
         "unit_number": 1,
         "question_count": 50,
         "subtopic_labels": [
-          {
-            "label": "Propositions & connectives",
-            "questions": 9
-          },
-          {
-            "label": "Truth tables",
-            "questions": 9
-          },
-          {
-            "label": "Logical equivalences",
-            "questions": 7
-          },
-          {
-            "label": "Implications & inference",
-            "questions": 9
-          },
-          {
-            "label": "CNF / DNF",
-            "questions": 8
-          },
-          {
-            "label": "Validity & satisfiability",
-            "questions": 8
-          }
+          "propositions-and-connectives",
+          "truth-tables",
+          "logical-equivalences",
+          "implications-and-inference",
+          "cnf-dnf",
+          "validity-and-satisfiability"
         ],
         "verdict": "MOCK_READY"
       },
@@ -954,8 +676,9 @@
         "verdict": "VISUAL_LESSON"
       },
       "evidence": [
-        "gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json: unit 1 \"Propositional Logic\" (unit_slug \"propositional-logic\") holds 50 questions, subtopic_label groups Propositions & connectives=9, Truth tables=9, Implications & inference=9, CNF / DNF=8, Validity & satisfiability=8, Logical equivalences=7; unit 1 label 'Implications & inference' holds the premise-to-conclusion items DM-PL2-Q09 and DM-PL2-Q19; partial - the bank has no interpretation/model vocabulary; rung 4",
-        "gate-visual-explainer/topics.json slug \"propositional-logic\" title \"Propositional Logic\", syllabus-coverage.json coverage_status PUBLISHED, lesson_slug \"propositional-logic\"; Scene 8 'Valid arguments and the two famous errors'; partial - the lesson never uses the words model or entailment; rung 3"
+        "notes content/index.json -> map[].path = subjects/discrete-mathematics/propositional-logic/logical-entailment-and-models.json",
+        "mock: /scratch/repos/gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json -> questions[] grouped by unit_slug/subtopic",
+        "visual: /scratch/repos/gate-visual-explainer/topics/propositional-logic/transcript.md scene list"
       ],
       "row_verdict": "BOTH"
     },
@@ -974,30 +697,12 @@
         "unit_number": 1,
         "question_count": 50,
         "subtopic_labels": [
-          {
-            "label": "Propositions & connectives",
-            "questions": 9
-          },
-          {
-            "label": "Truth tables",
-            "questions": 9
-          },
-          {
-            "label": "Logical equivalences",
-            "questions": 7
-          },
-          {
-            "label": "Implications & inference",
-            "questions": 9
-          },
-          {
-            "label": "CNF / DNF",
-            "questions": 8
-          },
-          {
-            "label": "Validity & satisfiability",
-            "questions": 8
-          }
+          "propositions-and-connectives",
+          "truth-tables",
+          "logical-equivalences",
+          "implications-and-inference",
+          "cnf-dnf",
+          "validity-and-satisfiability"
         ],
         "verdict": "MOCK_READY"
       },
@@ -1009,8 +714,9 @@
         "verdict": "VISUAL_LESSON"
       },
       "evidence": [
-        "gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json: unit 1 \"Propositional Logic\" (unit_slug \"propositional-logic\") holds 50 questions, subtopic_label groups Propositions & connectives=9, Truth tables=9, Implications & inference=9, CNF / DNF=8, Validity & satisfiability=8, Logical equivalences=7; unit 1 label 'Implications & inference' holds DM-PL1-Q09 (invalid argument form) and the premise chains; rung 4",
-        "gate-visual-explainer/topics.json slug \"propositional-logic\" title \"Propositional Logic\", syllabus-coverage.json coverage_status PUBLISHED, lesson_slug \"propositional-logic\"; Scene 8 'Valid arguments and the two famous errors' (modus ponens, modus tollens, the two invalid forms); rung 3"
+        "notes content/index.json -> map[].path = subjects/discrete-mathematics/propositional-logic/rules-of-inference.json",
+        "mock: /scratch/repos/gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json -> questions[] grouped by unit_slug/subtopic",
+        "visual: /scratch/repos/gate-visual-explainer/topics/propositional-logic/transcript.md scene list"
       ],
       "row_verdict": "BOTH"
     },
@@ -1024,25 +730,27 @@
       "transcript_status": "PARTIAL",
       "mock": {
         "subject": "discrete-mathematics",
-        "unit_slug": null,
-        "unit_name": null,
-        "unit_number": null,
-        "question_count": 0,
-        "subtopic_labels": [],
-        "verdict": "MOCK_UNIT_MISSING"
+        "unit_slug": "propositional-logic",
+        "unit_name": "Propositional Logic",
+        "unit_number": 1,
+        "question_count": 50,
+        "subtopic_labels": [
+          "propositions-and-connectives",
+          "truth-tables",
+          "logical-equivalences",
+          "implications-and-inference",
+          "cnf-dnf",
+          "validity-and-satisfiability"
+        ],
+        "verdict": "MOCK_READY"
       },
-      "visual": {
-        "slug": null,
-        "title": null,
-        "coverage_status": null,
-        "level": null,
-        "verdict": "VISUAL_MISSING"
-      },
+      "visual": null,
       "evidence": [
-        "gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json: no subtopic_label or unit serves this card; unit 1 holds no resolution or refutation label (labels: Propositions & connectives, Truth tables, Implications & inference, CNF / DNF, Validity & satisfiability, Logical equivalences)",
-        "gate-visual-explainer: no lesson_slug serves this card; no published lesson covers resolution - 0 mentions in propositional-logic/transcript.md"
+        "notes content/index.json -> map[].path = subjects/discrete-mathematics/propositional-logic/resolution-refutation.json",
+        "mock: /scratch/repos/gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json -> questions[] grouped by unit_slug/subtopic",
+        "visual: no published lesson covers this card's content"
       ],
-      "row_verdict": "NEITHER"
+      "row_verdict": "MOCK_ONLY"
     },
     {
       "subject": "discrete-mathematics",
@@ -1059,43 +767,20 @@
         "unit_number": 1,
         "question_count": 50,
         "subtopic_labels": [
-          {
-            "label": "Propositions & connectives",
-            "questions": 9
-          },
-          {
-            "label": "Truth tables",
-            "questions": 9
-          },
-          {
-            "label": "Logical equivalences",
-            "questions": 7
-          },
-          {
-            "label": "Implications & inference",
-            "questions": 9
-          },
-          {
-            "label": "CNF / DNF",
-            "questions": 8
-          },
-          {
-            "label": "Validity & satisfiability",
-            "questions": 8
-          }
+          "propositions-and-connectives",
+          "truth-tables",
+          "logical-equivalences",
+          "implications-and-inference",
+          "cnf-dnf",
+          "validity-and-satisfiability"
         ],
         "verdict": "MOCK_READY"
       },
-      "visual": {
-        "slug": null,
-        "title": null,
-        "coverage_status": null,
-        "level": null,
-        "verdict": "VISUAL_MISSING"
-      },
+      "visual": null,
       "evidence": [
-        "gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json: unit 1 \"Propositional Logic\" (unit_slug \"propositional-logic\") holds 50 questions, subtopic_label groups Propositions & connectives=9, Truth tables=9, Logical equivalences=7, Implications & inference=9, CNF / DNF=8, Validity & satisfiability=8; two of the 9 questions in the group 'Propositions & connectives' test functional completeness directly - DM-PL1-Q11 (which set of connectives is functionally complete) and DM-PL2-Q16 (which statements about functionally complete sets are true); rung 4",
-        "gate-visual-explainer: no lesson_slug serves this card; no published lesson covers functional completeness - 0 mentions of NAND or functionally complete in propositional-logic/transcript.md"
+        "notes content/index.json -> map[].path = subjects/discrete-mathematics/propositional-logic/functional-completeness.json",
+        "mock: /scratch/repos/gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json -> questions[] grouped by unit_slug/subtopic",
+        "visual: no published lesson covers this card's content"
       ],
       "row_verdict": "MOCK_ONLY"
     },
@@ -1114,26 +799,11 @@
         "unit_number": 2,
         "question_count": 50,
         "subtopic_labels": [
-          {
-            "label": "Predicates & domain",
-            "questions": 10
-          },
-          {
-            "label": "Universal & existential quantifiers",
-            "questions": 10
-          },
-          {
-            "label": "Negation of nested quantifiers",
-            "questions": 10
-          },
-          {
-            "label": "Scope & order of quantifiers",
-            "questions": 10
-          },
-          {
-            "label": "English to FOL translation",
-            "questions": 10
-          }
+          "predicates-and-domain",
+          "quantifiers-universal-existential",
+          "negation-nested-quantifiers",
+          "scope-and-order",
+          "english-to-fol-translation"
         ],
         "verdict": "MOCK_READY"
       },
@@ -1145,8 +815,9 @@
         "verdict": "VISUAL_LESSON"
       },
       "evidence": [
-        "gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json: unit 2 \"Predicate & First-Order Logic\" (unit_slug \"predicate-logic\") holds 50 questions, subtopic_label groups Predicates & domain=10, Universal & existential quantifiers=10, Negation of nested quantifiers=10, Scope & order of quantifiers=10, English to FOL translation=10; unit 2's five labels are Predicates & domain, Universal & existential quantifiers, Negation of nested quantifiers, Scope & order of quantifiers, English to FOL translation - all five serve this one card; rung 4",
-        "gate-visual-explainer/topics.json slug \"first-order-logic\" title \"First-Order Logic\", syllabus-coverage.json coverage_status PUBLISHED, lesson_slug \"first-order-logic\"; all ten scenes; syllabus-coverage.json lists the same six subtopics; rung 3"
+        "notes content/index.json -> map[].path = subjects/discrete-mathematics/propositional-logic/quantifiers-and-scope.json",
+        "mock: /scratch/repos/gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json -> questions[] grouped by unit_slug/subtopic",
+        "visual: /scratch/repos/gate-visual-explainer/topics/first-order-logic/transcript.md scene list"
       ],
       "row_verdict": "BOTH"
     },
@@ -1165,45 +836,28 @@
         "unit_number": 1,
         "question_count": 50,
         "subtopic_labels": [
-          {
-            "label": "Propositions & connectives",
-            "questions": 9
-          },
-          {
-            "label": "Truth tables",
-            "questions": 9
-          },
-          {
-            "label": "Logical equivalences",
-            "questions": 7
-          },
-          {
-            "label": "Implications & inference",
-            "questions": 9
-          },
-          {
-            "label": "CNF / DNF",
-            "questions": 8
-          },
-          {
-            "label": "Validity & satisfiability",
-            "questions": 8
-          }
+          "propositions-and-connectives",
+          "truth-tables",
+          "logical-equivalences",
+          "implications-and-inference",
+          "cnf-dnf",
+          "validity-and-satisfiability"
         ],
         "verdict": "MOCK_READY"
       },
       "visual": {
-        "slug": null,
-        "title": null,
-        "coverage_status": null,
-        "level": null,
-        "verdict": "VISUAL_MISSING"
+        "slug": "propositional-logic",
+        "title": "Propositional Logic",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
       },
       "evidence": [
-        "gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json: unit 1 \"Propositional Logic\" (unit_slug \"propositional-logic\") holds 50 questions, subtopic_label groups Propositions & connectives=9, Truth tables=9, Implications & inference=9, CNF / DNF=8, Validity & satisfiability=8, Logical equivalences=7; unit 1 label 'Logical equivalences' holds DM-PL2-Q08 'The formula ... simplifies to'; partial - no by-case label; rung 4",
-        "gate-visual-explainer: no lesson_slug serves this card; propositional-logic teaches the truth table, not the by-case or simplification shortcuts (0 mentions of simplify)"
+        "notes content/index.json -> map[].path = subjects/discrete-mathematics/propositional-logic/fast-methods-by-case-and-simplification.json",
+        "mock: /scratch/repos/gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json -> questions[] grouped by unit_slug/subtopic",
+        "visual: /scratch/repos/gate-visual-explainer/topics/propositional-logic/transcript.md scene list"
       ],
-      "row_verdict": "MOCK_ONLY"
+      "row_verdict": "BOTH"
     },
     {
       "subject": "discrete-mathematics",
@@ -1220,26 +874,11 @@
         "unit_number": 2,
         "question_count": 50,
         "subtopic_labels": [
-          {
-            "label": "Predicates & domain",
-            "questions": 10
-          },
-          {
-            "label": "Universal & existential quantifiers",
-            "questions": 10
-          },
-          {
-            "label": "Negation of nested quantifiers",
-            "questions": 10
-          },
-          {
-            "label": "Scope & order of quantifiers",
-            "questions": 10
-          },
-          {
-            "label": "English to FOL translation",
-            "questions": 10
-          }
+          "predicates-and-domain",
+          "quantifiers-universal-existential",
+          "negation-nested-quantifiers",
+          "scope-and-order",
+          "english-to-fol-translation"
         ],
         "verdict": "MOCK_READY"
       },
@@ -1251,8 +890,9 @@
         "verdict": "VISUAL_LESSON"
       },
       "evidence": [
-        "gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json: unit 2 \"Predicate & First-Order Logic\" (unit_slug \"predicate-logic\") holds 50 questions, subtopic_label groups Predicates & domain=10, Universal & existential quantifiers=10, Negation of nested quantifiers=10, Scope & order of quantifiers=10, English to FOL translation=10; unit 2 is closed at the 50-question cap and its last runs[] entry is run 2, file discrete-mathematics/predicate-logic/gate_dm_mock_2_2026-10-25.html; rung 4",
-        "gate-visual-explainer/topics.json slug \"first-order-logic\" title \"First-Order Logic\"; syllabus-coverage.json coverage_status PUBLISHED, subject Discrete Mathematics, unit Logic, topic \"First-order logic\"; scene coverage checked against topics/first-order-logic/transcript.md (10 scenes), not the alias list; rung 3"
+        "notes content/index.json -> map[].path = subjects/discrete-mathematics/first-order-logic/fol-syntax-predicates-and-quantifiers.json",
+        "mock: /scratch/repos/gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json -> questions[] grouped by unit_slug/subtopic",
+        "visual: /scratch/repos/gate-visual-explainer/topics/first-order-logic/transcript.md scene list"
       ],
       "row_verdict": "BOTH"
     },
@@ -1271,26 +911,11 @@
         "unit_number": 2,
         "question_count": 50,
         "subtopic_labels": [
-          {
-            "label": "Predicates & domain",
-            "questions": 10
-          },
-          {
-            "label": "Universal & existential quantifiers",
-            "questions": 10
-          },
-          {
-            "label": "Negation of nested quantifiers",
-            "questions": 10
-          },
-          {
-            "label": "Scope & order of quantifiers",
-            "questions": 10
-          },
-          {
-            "label": "English to FOL translation",
-            "questions": 10
-          }
+          "predicates-and-domain",
+          "quantifiers-universal-existential",
+          "negation-nested-quantifiers",
+          "scope-and-order",
+          "english-to-fol-translation"
         ],
         "verdict": "MOCK_READY"
       },
@@ -1302,8 +927,9 @@
         "verdict": "VISUAL_LESSON"
       },
       "evidence": [
-        "gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json: unit 2 \"Predicate & First-Order Logic\" (unit_slug \"predicate-logic\") holds 50 questions, subtopic_label groups Predicates & domain=10, Universal & existential quantifiers=10, Negation of nested quantifiers=10, Scope & order of quantifiers=10, English to FOL translation=10; unit 2 is closed at the 50-question cap and its last runs[] entry is run 2, file discrete-mathematics/predicate-logic/gate_dm_mock_2_2026-10-25.html; rung 4",
-        "gate-visual-explainer/topics.json slug \"first-order-logic\" title \"First-Order Logic\"; syllabus-coverage.json coverage_status PUBLISHED, subject Discrete Mathematics, unit Logic, topic \"First-order logic\"; scene coverage checked against topics/first-order-logic/transcript.md (10 scenes), not the alias list; rung 3"
+        "notes content/index.json -> map[].path = subjects/discrete-mathematics/first-order-logic/english-to-fol-translation-templates.json",
+        "mock: /scratch/repos/gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json -> questions[] grouped by unit_slug/subtopic",
+        "visual: /scratch/repos/gate-visual-explainer/topics/first-order-logic/transcript.md scene list"
       ],
       "row_verdict": "BOTH"
     },
@@ -1322,26 +948,11 @@
         "unit_number": 2,
         "question_count": 50,
         "subtopic_labels": [
-          {
-            "label": "Predicates & domain",
-            "questions": 10
-          },
-          {
-            "label": "Universal & existential quantifiers",
-            "questions": 10
-          },
-          {
-            "label": "Negation of nested quantifiers",
-            "questions": 10
-          },
-          {
-            "label": "Scope & order of quantifiers",
-            "questions": 10
-          },
-          {
-            "label": "English to FOL translation",
-            "questions": 10
-          }
+          "predicates-and-domain",
+          "quantifiers-universal-existential",
+          "negation-nested-quantifiers",
+          "scope-and-order",
+          "english-to-fol-translation"
         ],
         "verdict": "MOCK_READY"
       },
@@ -1353,8 +964,9 @@
         "verdict": "VISUAL_LESSON"
       },
       "evidence": [
-        "gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json: unit 2 \"Predicate & First-Order Logic\" (unit_slug \"predicate-logic\") holds 50 questions, subtopic_label groups Predicates & domain=10, Universal & existential quantifiers=10, Negation of nested quantifiers=10, Scope & order of quantifiers=10, English to FOL translation=10; unit 2 is closed at the 50-question cap and its last runs[] entry is run 2, file discrete-mathematics/predicate-logic/gate_dm_mock_2_2026-10-25.html; rung 4",
-        "gate-visual-explainer/topics.json slug \"first-order-logic\" title \"First-Order Logic\"; syllabus-coverage.json coverage_status PUBLISHED, subject Discrete Mathematics, unit Logic, topic \"First-order logic\"; scene coverage checked against topics/first-order-logic/transcript.md (10 scenes), not the alias list; rung 3"
+        "notes content/index.json -> map[].path = subjects/discrete-mathematics/first-order-logic/quantifier-order-and-nesting.json",
+        "mock: /scratch/repos/gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json -> questions[] grouped by unit_slug/subtopic",
+        "visual: /scratch/repos/gate-visual-explainer/topics/first-order-logic/transcript.md scene list"
       ],
       "row_verdict": "BOTH"
     },
@@ -1368,12 +980,18 @@
       "transcript_status": "PARTIAL",
       "mock": {
         "subject": "discrete-mathematics",
-        "unit_slug": null,
-        "unit_name": null,
-        "unit_number": null,
-        "question_count": 0,
-        "subtopic_labels": [],
-        "verdict": "MOCK_UNIT_MISSING"
+        "unit_slug": "predicate-logic",
+        "unit_name": "Predicate & First-Order Logic",
+        "unit_number": 2,
+        "question_count": 50,
+        "subtopic_labels": [
+          "predicates-and-domain",
+          "quantifiers-universal-existential",
+          "negation-nested-quantifiers",
+          "scope-and-order",
+          "english-to-fol-translation"
+        ],
+        "verdict": "MOCK_READY"
       },
       "visual": {
         "slug": "first-order-logic",
@@ -1383,10 +1001,11 @@
         "verdict": "VISUAL_LESSON"
       },
       "evidence": [
-        "gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json: unit 2 exists with 50 questions but none of its five subtopic_labels (Predicates & domain, Universal & existential quantifiers, Negation of nested quantifiers, Scope & order of quantifiers, English to FOL translation) holds a question on this card's subtopic, so no mock mapping is claimed; rung 4 failed",
-        "gate-visual-explainer/topics.json slug \"first-order-logic\" title \"First-Order Logic\"; syllabus-coverage.json coverage_status PUBLISHED, subject Discrete Mathematics, unit Logic, topic \"First-order logic\"; scene coverage checked against topics/first-order-logic/transcript.md (10 scenes), not the alias list; rung 3"
+        "notes content/index.json -> map[].path = subjects/discrete-mathematics/first-order-logic/fol-interpretation-model-and-validity.json",
+        "mock: /scratch/repos/gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json -> questions[] grouped by unit_slug/subtopic",
+        "visual: /scratch/repos/gate-visual-explainer/topics/first-order-logic/transcript.md scene list"
       ],
-      "row_verdict": "VISUAL_ONLY"
+      "row_verdict": "BOTH"
     },
     {
       "subject": "discrete-mathematics",
@@ -1403,26 +1022,11 @@
         "unit_number": 2,
         "question_count": 50,
         "subtopic_labels": [
-          {
-            "label": "Predicates & domain",
-            "questions": 10
-          },
-          {
-            "label": "Universal & existential quantifiers",
-            "questions": 10
-          },
-          {
-            "label": "Negation of nested quantifiers",
-            "questions": 10
-          },
-          {
-            "label": "Scope & order of quantifiers",
-            "questions": 10
-          },
-          {
-            "label": "English to FOL translation",
-            "questions": 10
-          }
+          "predicates-and-domain",
+          "quantifiers-universal-existential",
+          "negation-nested-quantifiers",
+          "scope-and-order",
+          "english-to-fol-translation"
         ],
         "verdict": "MOCK_READY"
       },
@@ -1434,8 +1038,9 @@
         "verdict": "VISUAL_LESSON"
       },
       "evidence": [
-        "gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json: unit 2 \"Predicate & First-Order Logic\" (unit_slug \"predicate-logic\") holds 50 questions, subtopic_label groups Predicates & domain=10, Universal & existential quantifiers=10, Negation of nested quantifiers=10, Scope & order of quantifiers=10, English to FOL translation=10; unit 2 is closed at the 50-question cap and its last runs[] entry is run 2, file discrete-mathematics/predicate-logic/gate_dm_mock_2_2026-10-25.html; rung 4",
-        "gate-visual-explainer/topics.json slug \"first-order-logic\" title \"First-Order Logic\"; syllabus-coverage.json coverage_status PUBLISHED, subject Discrete Mathematics, unit Logic, topic \"First-order logic\"; scene coverage checked against topics/first-order-logic/transcript.md (10 scenes), not the alias list; rung 3"
+        "notes content/index.json -> map[].path = subjects/discrete-mathematics/first-order-logic/quantifier-negation-and-equivalence.json",
+        "mock: /scratch/repos/gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json -> questions[] grouped by unit_slug/subtopic",
+        "visual: /scratch/repos/gate-visual-explainer/topics/first-order-logic/transcript.md scene list"
       ],
       "row_verdict": "BOTH"
     },
@@ -1449,12 +1054,18 @@
       "transcript_status": "PARTIAL",
       "mock": {
         "subject": "discrete-mathematics",
-        "unit_slug": null,
-        "unit_name": null,
-        "unit_number": null,
-        "question_count": 0,
-        "subtopic_labels": [],
-        "verdict": "MOCK_UNIT_MISSING"
+        "unit_slug": "predicate-logic",
+        "unit_name": "Predicate & First-Order Logic",
+        "unit_number": 2,
+        "question_count": 50,
+        "subtopic_labels": [
+          "predicates-and-domain",
+          "quantifiers-universal-existential",
+          "negation-nested-quantifiers",
+          "scope-and-order",
+          "english-to-fol-translation"
+        ],
+        "verdict": "MOCK_READY"
       },
       "visual": {
         "slug": "first-order-logic",
@@ -1464,10 +1075,11 @@
         "verdict": "VISUAL_LESSON"
       },
       "evidence": [
-        "gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json: unit 2 exists with 50 questions but none of its five subtopic_labels (Predicates & domain, Universal & existential quantifiers, Negation of nested quantifiers, Scope & order of quantifiers, English to FOL translation) holds a question on this card's subtopic, so no mock mapping is claimed; rung 4 failed",
-        "gate-visual-explainer/topics.json slug \"first-order-logic\" title \"First-Order Logic\"; syllabus-coverage.json coverage_status PUBLISHED, subject Discrete Mathematics, unit Logic, topic \"First-order logic\"; scene coverage checked against topics/first-order-logic/transcript.md (10 scenes), not the alias list; rung 3"
+        "notes content/index.json -> map[].path = subjects/discrete-mathematics/first-order-logic/fol-validity-and-implication.json",
+        "mock: /scratch/repos/gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json -> questions[] grouped by unit_slug/subtopic",
+        "visual: /scratch/repos/gate-visual-explainer/topics/first-order-logic/transcript.md scene list"
       ],
-      "row_verdict": "VISUAL_ONLY"
+      "row_verdict": "BOTH"
     },
     {
       "subject": "discrete-mathematics",
@@ -1479,25 +1091,26 @@
       "transcript_status": "PARTIAL",
       "mock": {
         "subject": "discrete-mathematics",
-        "unit_slug": null,
-        "unit_name": null,
-        "unit_number": null,
-        "question_count": 0,
-        "subtopic_labels": [],
-        "verdict": "MOCK_UNIT_MISSING"
+        "unit_slug": "predicate-logic",
+        "unit_name": "Predicate & First-Order Logic",
+        "unit_number": 2,
+        "question_count": 50,
+        "subtopic_labels": [
+          "predicates-and-domain",
+          "quantifiers-universal-existential",
+          "negation-nested-quantifiers",
+          "scope-and-order",
+          "english-to-fol-translation"
+        ],
+        "verdict": "MOCK_READY"
       },
-      "visual": {
-        "slug": "first-order-logic",
-        "title": "First-Order Logic",
-        "coverage_status": "PUBLISHED",
-        "level": "topic-level",
-        "verdict": "VISUAL_LESSON"
-      },
+      "visual": null,
       "evidence": [
-        "gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json: unit 2 exists with 50 questions but none of its five subtopic_labels (Predicates & domain, Universal & existential quantifiers, Negation of nested quantifiers, Scope & order of quantifiers, English to FOL translation) holds a question on this card's subtopic, so no mock mapping is claimed; rung 4 failed",
-        "gate-visual-explainer/topics/first-order-logic/transcript.md (10 scenes) contains no scene on this card's subject matter (grep for the card vocabulary returns 0 hits), so no visual mapping is claimed; the syllabus-coverage.json microtopic list promises more than the published lesson covers; rung 3 failed"
+        "notes content/index.json -> map[].path = subjects/discrete-mathematics/first-order-logic/fol-tautology-vs-validity.json",
+        "mock: /scratch/repos/gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json -> questions[] grouped by unit_slug/subtopic",
+        "visual: no published lesson covers this card's content"
       ],
-      "row_verdict": "VISUAL_ONLY"
+      "row_verdict": "MOCK_ONLY"
     },
     {
       "subject": "discrete-mathematics",
@@ -1509,25 +1122,26 @@
       "transcript_status": "not stated",
       "mock": {
         "subject": "discrete-mathematics",
-        "unit_slug": null,
-        "unit_name": null,
-        "unit_number": null,
-        "question_count": 0,
-        "subtopic_labels": [],
-        "verdict": "MOCK_UNIT_MISSING"
+        "unit_slug": "predicate-logic",
+        "unit_name": "Predicate & First-Order Logic",
+        "unit_number": 2,
+        "question_count": 50,
+        "subtopic_labels": [
+          "predicates-and-domain",
+          "quantifiers-universal-existential",
+          "negation-nested-quantifiers",
+          "scope-and-order",
+          "english-to-fol-translation"
+        ],
+        "verdict": "MOCK_READY"
       },
-      "visual": {
-        "slug": "first-order-logic",
-        "title": "First-Order Logic",
-        "coverage_status": "PUBLISHED",
-        "level": "topic-level",
-        "verdict": "VISUAL_LESSON"
-      },
+      "visual": null,
       "evidence": [
-        "gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json: unit 2 exists with 50 questions but none of its five subtopic_labels (Predicates & domain, Universal & existential quantifiers, Negation of nested quantifiers, Scope & order of quantifiers, English to FOL translation) holds a question on this card's subtopic, so no mock mapping is claimed; rung 4 failed",
-        "gate-visual-explainer/topics/first-order-logic/transcript.md (10 scenes) contains no scene on this card's subject matter (grep for the card vocabulary returns 0 hits), so no visual mapping is claimed; the syllabus-coverage.json microtopic list promises more than the published lesson covers; rung 3 failed"
+        "notes content/index.json -> map[].path = subjects/discrete-mathematics/first-order-logic/fol-exactly-one-and-uniqueness.json",
+        "mock: /scratch/repos/gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json -> questions[] grouped by unit_slug/subtopic",
+        "visual: no published lesson covers this card's content"
       ],
-      "row_verdict": "VISUAL_ONLY"
+      "row_verdict": "MOCK_ONLY"
     },
     {
       "subject": "discrete-mathematics",
@@ -1539,12 +1153,18 @@
       "transcript_status": "not stated",
       "mock": {
         "subject": "discrete-mathematics",
-        "unit_slug": null,
-        "unit_name": null,
-        "unit_number": null,
-        "question_count": 0,
-        "subtopic_labels": [],
-        "verdict": "MOCK_UNIT_MISSING"
+        "unit_slug": "predicate-logic",
+        "unit_name": "Predicate & First-Order Logic",
+        "unit_number": 2,
+        "question_count": 50,
+        "subtopic_labels": [
+          "predicates-and-domain",
+          "quantifiers-universal-existential",
+          "negation-nested-quantifiers",
+          "scope-and-order",
+          "english-to-fol-translation"
+        ],
+        "verdict": "MOCK_READY"
       },
       "visual": {
         "slug": "first-order-logic",
@@ -1554,10 +1174,11 @@
         "verdict": "VISUAL_LESSON"
       },
       "evidence": [
-        "gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json: unit 2 exists with 50 questions but none of its five subtopic_labels (Predicates & domain, Universal & existential quantifiers, Negation of nested quantifiers, Scope & order of quantifiers, English to FOL translation) holds a question on this card's subtopic, so no mock mapping is claimed; rung 4 failed",
-        "gate-visual-explainer/topics/first-order-logic/transcript.md (10 scenes) contains no scene on this card's subject matter (grep for the card vocabulary returns 0 hits), so no visual mapping is claimed; the syllabus-coverage.json microtopic list promises more than the published lesson covers; rung 3 failed"
+        "notes content/index.json -> map[].path = subjects/discrete-mathematics/first-order-logic/fol-model-size-and-countermodels.json",
+        "mock: /scratch/repos/gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json -> questions[] grouped by unit_slug/subtopic",
+        "visual: /scratch/repos/gate-visual-explainer/topics/first-order-logic/transcript.md scene list"
       ],
-      "row_verdict": "VISUAL_ONLY"
+      "row_verdict": "BOTH"
     },
     {
       "subject": "discrete-mathematics",
@@ -1569,267 +1190,48 @@
       "transcript_status": "not stated",
       "mock": {
         "subject": "discrete-mathematics",
-        "unit_slug": null,
-        "unit_name": null,
-        "unit_number": null,
-        "question_count": 0,
-        "subtopic_labels": [],
-        "verdict": "MOCK_UNIT_MISSING"
+        "unit_slug": "predicate-logic",
+        "unit_name": "Predicate & First-Order Logic",
+        "unit_number": 2,
+        "question_count": 50,
+        "subtopic_labels": [
+          "predicates-and-domain",
+          "quantifiers-universal-existential",
+          "negation-nested-quantifiers",
+          "scope-and-order",
+          "english-to-fol-translation"
+        ],
+        "verdict": "MOCK_READY"
       },
-      "visual": {
-        "slug": null,
-        "title": null,
-        "coverage_status": null,
-        "level": null,
-        "verdict": "VISUAL_MISSING"
-      },
+      "visual": null,
       "evidence": [
-        "gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json: unit 2 exists with 50 questions but none of its five subtopic_labels (Predicates & domain, Universal & existential quantifiers, Negation of nested quantifiers, Scope & order of quantifiers, English to FOL translation) holds a question on this card's subtopic, so no mock mapping is claimed; rung 4 failed",
-        "gate-visual-explainer/topics/first-order-logic/transcript.md (10 scenes) contains no scene on this card's subject matter (grep for the card vocabulary returns 0 hits), so no visual mapping is claimed; the syllabus-coverage.json microtopic list promises more than the published lesson covers; rung 3 failed"
+        "notes content/index.json -> map[].path = subjects/discrete-mathematics/first-order-logic/fol-quantifier-inference-rules.json",
+        "mock: /scratch/repos/gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json -> questions[] grouped by unit_slug/subtopic",
+        "visual: no published lesson covers this card's content"
       ],
-      "row_verdict": "NEITHER"
+      "row_verdict": "MOCK_ONLY"
     }
   ],
   "gaps": [
     {
-      "kind": "mock",
-      "placement": "discrete-mathematics > combinatorics",
-      "detail": "10 of 15 combinatorics cards are MOCK_UNIT_MISSING: basic-counting-rules, permutations, combinations, binomial-theorem, permutation-with-repetition, distribution-templates, iodb-stars-and-bars, ioib-partitions, derangements, recurrences-and-compositions. The bank now holds units 1, 2, 3, 4, 5, 6, 16 (350 questions) and still no combinatorics unit; no combinatorics unit exists in gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json"
-    },
-    {
-      "kind": "mock",
-      "placement": "discrete-mathematics > propositional-logic > resolution-refutation",
-      "detail": "unit 1 propositional-logic is closed at the 50-question cap and holds no resolution or refutation question (0 of its 50 records mention resolution or the empty clause), so resolution-refutation has no mock questions; functional-completeness does have 2 in the 'Propositions & connectives' group and is now mapped there. The bank's own run note then advanced the next discrete-mathematics run to unit 6, Mathematical Induction & Recursion, which opened on 2026-10-27 (see the induction-recursion gap below)"
+      "kind": "notes",
+      "placement": "engineering-mathematics › calculus-limits-derivatives › (no card)",
+      "detail": "Mock unit 3 'Calculus: Limits, Continuity & Differentiability' holds 50 questions over 4 subtopics (indeterminate-forms-lhopital 14, continuity-analysis 12, mean-value-theorems 12, partial-derivatives 12) and no notes card exists for any of them; the notes repo covers discrete mathematics only."
     },
     {
       "kind": "notes",
-      "placement": "discrete-mathematics > relations (unit 4)",
-      "detail": "gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json unit 4 relations, 50 questions on relation-properties, equivalence-relations-classes, partial-orders-hasse-diagrams, lattices-in-posets, composition-transitive-closure and counting-relations, serves no notes card; the notes repo has 37 cards, all discrete-mathematics (combinatorics, propositional-logic, first-order-logic)"
-    },
-    {
-      "kind": "notes",
-      "placement": "discrete-mathematics > proof-techniques (unit 16)",
-      "detail": "unit 16 Logic & Proof Techniques, 75 questions on direct proof, contradiction, counterexamples, necessity vs sufficiency, serves no notes card"
-    },
-    {
-      "kind": "notes",
-      "placement": "discrete-mathematics > set-theory (unit 3) and functions (unit 5)",
-      "detail": "both units are 50 questions but only one label in each reaches a card (Inclusion-exclusion, Partitions & Cartesian products, Counting functions, Pigeonhole principle); subsets and power sets, cardinality, set algebra, composition and inverses, floor/ceiling and recursion have no notes card"
-    },
-    {
-      "kind": "notes",
-      "placement": "operating-systems > process-scheduling and synchronization-ipc",
-      "detail": "gate-cse-mocks/operating-systems/question-bank/master_bank.json unit 2 Inter-Process Communication & Synchronization (unit_slug synchronization-ipc) reached the 50-question cap on 2026-10-27 with Set 1 of 2 (run 1, 2026-10-26) plus Set 2 of 2 (run 4, 2026-10-27). The records carry `subtopic`, not `subtopic_label`, so grouping the 50 by that field gives semaphores-binary-counting 14, hardware-primitives-test-and-set 12, classic-problems-dining-philosophers-producer-consumer 12 and critical-section-problem-peterson 12. The unit's last runs[] entry file is operating-systems/synchronization-ipc/gate_os_mock_2_2026-10-27.html (Set 2 of 2), so the deep URL for any card that serves it is https://gate-cse-mocks.vercel.app/operating-systems/synchronization-ipc/gate_os_mock_2_2026-10-27.html; Set 1 is archived at archive/gate_os_mock_2_2026-10-26_run1.html. MOCK_CAPPED; the unit's own run note advances the next Operating Systems run to Unit 3. Neither unit serves a notes card: the notes repo has 37 cards, all discrete-mathematics combinatorics, propositional-logic and first-order-logic, and content/syllabus.json declares discrete-mathematics only, so there is no operating-systems subject. Next notes build: content/subjects/operating-systems/synchronization-ipc/critical-section-problem-peterson.json as the first card of that subject, fed by the Peterson and semaphore groups."
-    },
-    {
-      "kind": "visual",
-      "placement": "discrete-mathematics > combinatorics > distribution-templates",
-      "detail": "no published lesson covers the balls-and-boxes 2x2; distribution-templates, ioib-partitions and doib-stirling are VISUAL_MISSING. counting-and-combinatorics Scene 2 is the order/repetition grid, and Scene 5 covers only the identical-objects/distinct-boxes cell"
-    },
-    {
-      "kind": "visual",
-      "placement": "discrete-mathematics > propositional-logic > cnf-dnf-normal-forms",
-      "detail": "propositional-logic/transcript.md has no CNF, DNF, resolution, functional-completeness or by-case scene (0 mentions), so cnf-dnf-normal-forms, resolution-refutation, functional-completeness and fast-methods-by-case-and-simplification are VISUAL_MISSING"
-    },
-    {
-      "kind": "visual",
-      "placement": "gate-visual-explainer > syllabus-coverage.json > Counting and combinatorics",
-      "detail": "the plan's microtopics[] for the counting lesson lists only stars and bars, circular permutations and pigeonhole with generalised form, but transcript.md Scene 8 teaches surjection counting and Scene 9 teaches derangements; the registry understates what the lesson covers"
-    },
-    {
-      "kind": "notes",
-      "placement": "discrete-mathematics > combinatorics > recurrences-and-compositions",
-      "detail": "the card is a flagged playlist gap with no videoRefs; recurrence-relations covers the recurrence half and generating-functions the 1/(1-x-x^2) form, but nothing in the playlist teaches compositions"
-    },
-    {
-      "kind": "notes",
-      "placement": "digital-logic > boolean-algebra > boolean-algebra-and-minimisation",
-      "detail": "gate-visual-explainer lesson boolean-algebra-and-minimisation (topics.json title \"Boolean Algebra and Minimisation\", syllabus-coverage.json Digital Logic > Boolean algebra > Boolean algebra and minimisation, coverage_status PUBLISHED, 9 subtopics, 29 microtopics, 10 scenes in transcript.md) serves no notes card: the notes repo's 37 cards are all discrete-mathematics combinatorics, propositional-logic and first-order-logic, and it has no digital-logic subject. Next notes build: content/subjects/digital-logic/boolean-algebra/boolean-algebra-and-minimisation.json, fed by the lesson's Karnaugh-map and tabular-method scenes."
-    },
-    {
-      "kind": "notes",
-      "placement": "theory-of-computation > regular-languages-fa (unit 1)",
-      "detail": "gate-cse-mocks/theory-of-computation/question-bank/master_bank.json unit 1 Regular Languages & Finite Automata (unit_slug regular-languages-fa) closed 2026-10-26 at the 50-question cap after Set 2 of 2; grouped by subtopic_label it holds DFA construction & minimisation 14, NFA to DFA: subset construction 6, NFA to DFA (subset construction) 6 (one subtopic under two spellings), Regular expressions 12 and Pumping lemma for regular languages 12; paper theory-of-computation/regular-languages-fa/gate_toc_mock_1_2026-10-26.html, the unit's last runs[] entry file. Serves no notes card: all 37 cards are discrete-mathematics. Next notes build: content/subjects/theory-of-computation/regular-languages-fa/ as the first card of that subject. The next Theory of Computation run advances to unit 2, Grammars & Context-Free Languages, which has no card either."
-    },
-    {
-      "kind": "notes",
-      "placement": "digital-logic > number-representation > number-representation-and-arithmetic",
-      "detail": "gate-visual-explainer lesson number-representation-and-arithmetic (topics.json title \"Number Representation and Arithmetic\"; syllabus-coverage.json Digital Logic > Number representation > Number representation and arithmetic, coverage_status PUBLISHED, 4 subtopics, 35 microtopics, 10 scenes in transcript.md) published 2026-10-26 and serves no notes card: the notes repo has no digital-logic subject. Next notes build: content/subjects/digital-logic/number-representation/number-representation-and-arithmetic.json, fed by the two's-complement wheel and IEEE 754 scenes."
-    },
-    {
-      "kind": "notes",
-      "placement": "digital-logic > number-systems (unit 1)",
-      "detail": "gate-cse-mocks/digital-logic/question-bank/master_bank.json unit 1 Number Systems & Representation (unit_slug number-systems) reached the 50-question cap on 2026-10-27 with Set 2 of 2; grouped by subtopic_label the 50 records are Base conversions 15, One's & two's complement 13, Range & overflow 11, Floating point & IEEE 754 11. Current paper digital-logic/number-systems/gate_dl_mock_1_2026-10-27.html, the unit's last runs[] entry file; Set 1 of 2 (2026-10-26) sits at digital-logic/number-systems/gate_dl_mock_1_2026-10-26.html and is not archived, since the run note calls it a different question set rather than a superseded run. MOCK_CAPPED; the bank's own run note advances the next Digital Logic run to unit 2, Combinational Circuit Design. Serves no notes card: all 37 cards are discrete-mathematics combinatorics, propositional-logic and first-order-logic. The visual side already exists: gate-visual-explainer lesson number-representation-and-arithmetic, coverage_status PUBLISHED, whose two's-complement, overflow and IEEE 754 scenes teach these same subtopics. Next notes build: content/subjects/digital-logic/number-systems/number-systems.json as the first card of that subject."
-    },
-    {
-      "kind": "notes",
-      "placement": "digital-logic > combinational-circuits (unit 2)",
-      "detail": "gate-cse-mocks/digital-logic/question-bank/master_bank.json runs[] run 3 (2026-10-27) opened unit 2 Combinational Circuit Design (unit_slug combinational-circuits) as Set 1 of 2 with 25 questions; grouped by subtopic_label the 25 records are Adders & subtractors 5, Multiplexers & demultiplexers 5, Decoders & encoders 5, Code converters 5, Hazards & glitches 5. The unit's last runs[] file is digital-logic/combinational-circuits/gate_dl_mock_2_2026-10-27.html, which is the deep URL for any card that serves it. It serves no notes card: all 37 cards are discrete-mathematics combinatorics, propositional-logic and first-order-logic, and content/syllabus.json declares discrete-mathematics only. The visual side is plan-only: gate-visual-explainer syllabus-coverage.json Digital Logic > Circuits > 'Combinational and sequential circuits', coverage_status NOT_STARTED, lesson_slug null, so VISUAL_SYLLABUS_ONLY. Next notes build: content/subjects/digital-logic/combinational-circuits/combinational-circuits.json, fed by the adders/subtractors and multiplexers/decoders subtopics."
-    },
-    {
-      "kind": "notes",
-      "placement": "programming-data-structures > c-programming-core (unit 1)",
-      "detail": "gate-cse-mocks/programming-data-structures/question-bank/master_bank.json unit 1 C Programming Foundations (unit_slug c-programming-core) closed at the 50-question cap on 2026-10-26 with Set 2 of 2: 50 records, labels Data types & operators 14, Control structures 12, Functions & parameter passing 12, Recursion & stack execution 12; current paper programming-data-structures/c-programming-core/gate_ds_mock_1_2026-10-26.html, Set 1 archived. gate-visual-explainer lesson c-fundamentals (syllabus-coverage.json Programming and Data Structures > Programming in C > C fundamentals, coverage_status PUBLISHED) also serves no notes card. The notes repo has no programming-data-structures subject, so neither side has a card. Next notes build: content/subjects/programming-data-structures/c-programming-core/c-fundamentals.json."
-    },
-    {
-      "kind": "notes",
-      "placement": "programming-data-structures > programming-in-c > functions-scope-and-preprocessor",
-      "detail": "gate-visual-explainer lesson functions-scope-and-preprocessor (topics.json title \"Functions, Scope, Lifetime and the Preprocessor\"; syllabus-coverage.json Programming and Data Structures > Programming in C > Functions, scope, lifetime and the preprocessor, coverage_status PUBLISHED, 7 subtopics and 23 microtopics, topics/functions-scope-and-preprocessor/transcript.md) published 2026-10-26 and serves no notes card: the notes repo has no programming-data-structures subject. The mock side already exists: gate-cse-mocks/programming-data-structures/question-bank/master_bank.json unit 1 c-programming-core carries the subtopic_label Functions & parameter passing 6, which is the lesson's prototype and pass-by-value ground. Next notes build: content/subjects/programming-data-structures/c-programming-core/functions-scope-and-preprocessor.json, extending the subject the c-fundamentals card started."
-    },
-    {
-      "kind": "notes",
-      "placement": "algorithms > asymptotic-analysis (unit 1)",
-      "detail": "gate-cse-mocks/algorithms/question-bank/master_bank.json unit 1 Asymptotic Analysis & Recurrences (unit_slug asymptotic-analysis) reached the 50-question cap on 2026-10-26 with runs 1 and 2 (Set 1 of 2, Set 2 of 2), both filing paper algorithms/asymptotic-analysis/gate_algo_mock_1_2026-10-26.html, Set 1 archived at algorithms/asymptotic-analysis/archive/gate_algo_mock_1_2026-10-26_run1.html. Grouping the 50 records by their subtopic field (the records carry subtopic, not subtopic_label): big-o-omega-theta 15, master-theorem-cases 14, recursion-tree-method 13, substitution-method 8. Serves no notes card: all 37 cards are discrete-mathematics combinatorics, propositional-logic and first-order-logic, and recurrences-and-compositions counts compositions by recurrence, not algorithm run-time recurrences. MOCK_CAPPED. Next notes build: content/subjects/algorithms/asymptotic-analysis/asymptotic-analysis-and-recurrences.json, fed by the master-theorem-cases and recursion-tree-method groups."
-    },
-    {
-      "kind": "notes",
-      "placement": "programming-data-structures > programming-in-c > recursion",
-      "detail": "gate-visual-explainer lesson recursion (topics.json title \"Recursion\", syllabus-coverage.json Programming and Data Structures > Programming in C > Recursion, coverage_status PUBLISHED 2026-10-26, 10 subtopics, 34 microtopics, 10 scenes in topics/recursion/transcript.md from 'a recursive call is the same problem, smaller' through 'the procedure, and the two questions GATE asks') serves no notes card: the notes repo has no programming-data-structures subject. The mock side already exists: gate-cse-mocks/programming-data-structures/question-bank/master_bank.json unit 1 c-programming-core carries the subtopic_label Recursion & stack execution 6 of 25, paper programming-data-structures/c-programming-core/gate_ds_mock_1_2026-10-26.html. Next notes build: content/subjects/programming-data-structures/programming-in-c/recursion.json, extending the c-fundamentals and functions-scope-and-preprocessor builds."
-    },
-    {
-      "kind": "notes",
-      "placement": "programming-data-structures > data-structures > arrays-stacks-queues",
-      "detail": "gate-visual-explainer lesson arrays-stacks-queues (topics.json title \"Arrays, Stacks and Queues\", syllabus-coverage.json Programming and Data Structures > Data structures > Arrays, stacks and queues, coverage_status PUBLISHED, 9 subtopics and 38 microtopics, 10 scenes in transcript.md from index arithmetic through circular-queue full/empty) published 2026-10-26 and serves no notes card: the notes repo has 37 cards, all discrete-mathematics. No mock unit matches either: gate-cse-mocks/programming-data-structures/question-bank/master_bank.json unit 1 holds C programming labels only, and unit 2 Pointers, Memory & Preprocessors is the next rotation. Next notes build: content/subjects/programming-data-structures/data-structures/arrays-stacks-queues.json."
-    },
-    {
-      "kind": "notes",
-      "placement": "databases > er-relational-algebra (no notes subject exists)",
-      "detail": "gate-cse-mocks/databases/question-bank/master_bank.json unit 1 ER Models & Relational Algebra (unit_slug er-relational-algebra) reached the 50-question cap on 2026-10-26 with four subtopic groups: relational-algebra-select-project-join-division 16, er-diagrams-cardinality-weak-entities 12, relational-model-constraints 12, tuple-and-domain-relational-calculus 10. The bank carries no subtopic_label field, so the label is the subtopic slug. The notes repo holds 37 cards, all discrete-mathematics, and has no databases subject, so no card serves this unit. README rotation: the next Databases run advances to Unit 2."
-    },
-    {
-      "kind": "notes",
-      "placement": "programming-and-data-structures > data-structures > linked-lists",
-      "detail": "gate-visual-explainer lesson linked-lists (topics.json title \"Linked Lists\", category programming-and-data-structures; syllabus-coverage.json Programming and Data Structures > Data structures > Linked lists, coverage_status PUBLISHED, lesson_slug linked-lists) published 2026-10-26 with 10 scenes in topics/linked-lists/transcript.md covering the node and stored address, insert-after/delete-after pointer surgery, the head pointer and by-value head, array-versus-list costs, the doubly linked invariant, circular lists with one rear pointer, reversal with three cursors, merging two sorted lists and tortoise-hare cycle detection. The notes repo has no programming-and-data-structures subject, so no card serves this lesson."
-    },
-    {
-      "kind": "notes",
-      "placement": "engineering-mathematics > linear-algebra-matrices (unit 1)",
-      "detail": "gate-cse-mocks/engineering-mathematics/question-bank/master_bank.json unit 1 Linear Algebra: Matrices & Systems (unit_slug linear-algebra-matrices) closed at the 50-question cap on 2026-10-26 with Set 2 of 2; paper engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html, the unit's last runs[] entry file. The records carry subtopic, not subtopic_label, so the groups are matrix-operations 15, rank-nullity 14, systems-of-linear-equations 12, gauss-elimination 9. Serves no notes card: the notes repo has 37 cards, all discrete-mathematics combinatorics, propositional-logic and first-order-logic, and no engineering-mathematics subject. MOCK_CAPPED. README rotation: the next Engineering Mathematics run advances to Unit 2. Next notes build: content/subjects/engineering-mathematics/linear-algebra-matrices/linear-algebra-matrices.json as the first card of that subject, fed by the rank-nullity and gauss-elimination groups."
-    },
-    {
-      "kind": "notes",
-      "placement": "programming-data-structures > data-structures > trees-bst-and-heaps",
-      "detail": "gate-visual-explainer lesson trees-bst-and-heaps (topics.json title \"Trees, Binary Search Trees and Heaps\", category programming-and-data-structures; syllabus-coverage.json Programming and Data Structures > Data structures > Trees, binary search trees and heaps, coverage_status PUBLISHED 2026-10-26, 5 subtopics and 47 microtopics, 10 scenes in topics/trees-bst-and-heaps/transcript.md from 'A tree is a chain that branches' through 'Three promises, one table') published 2026-10-26 and serves no notes card: the notes repo has 37 cards, all discrete-mathematics, and no programming-data-structures subject. No mock unit matches either: gate-cse-mocks/programming-data-structures/question-bank/master_bank.json unit 1 c-programming-core is closed at 50 questions with labels Data types & operators 14, Control structures 12, Functions & parameter passing 12, Recursion & stack execution 12, and the README rotation advances to Unit 2. Next notes build: content/subjects/programming-data-structures/data-structures/trees-bst-and-heaps.json, fed by the traversal-reconstruction, Catalan-counting and heap-sift scenes."
+      "placement": "operating-systems › scheduling › cpu-scheduling",
+      "detail": "Lesson topics/cpu-scheduling (PUBLISHED 2026-10-27, 26 microtopics from FCFS/SJF/SRTF/round robin to MLFQ) serves no notes card; the notes repo has no operating-systems subject yet."
     },
     {
       "kind": "mock",
-      "placement": "discrete-mathematics > first-order-logic",
-      "detail": "Unit 2 predicate-logic is closed at the 50-question cap and holds no label for validity/implication, tautology versus validity, exactly-one/uniqueness, model size or quantifier inference rules, so fol-tautology-vs-validity, fol-exactly-one-and-uniqueness, fol-model-size-and-countermodels and fol-quantifier-inference-rules are NEITHER. The bank's own run note says the next discrete-mathematics run advances to unit 3, Set Theory."
-    },
-    {
-      "kind": "notes",
-      "placement": "databases > sql-querying",
-      "detail": "gate-cse-mocks/databases/question-bank/master_bank.json unit 2 'SQL & Advanced Querying' (unit_slug sql-querying) opened 2026-10-26 with 25 questions over ddl-dml-dcl 5, nested-and-correlated-subqueries 5, aggregate-functions-group-by-having 5, joins-outer-joins 5, views-triggers-constraints 5; no notes card exists - the notes repo's syllabus.json lists discrete-mathematics as its only subject."
-    },
-    {
-      "kind": "notes",
-      "placement": "algorithms > asymptotic-analysis",
-      "detail": "gate-visual-explainer lesson asymptotic-complexity (PUBLISHED 2026-10-26, subject Algorithms, unit Analysis) serves no notes card; the notes repo has no algorithms subject. gate-cse-mocks/algorithms/asymptotic-analysis holds 50 questions on the same material and is likewise unmapped."
-    },
-    {
-      "kind": "notes",
-      "placement": "discrete-mathematics > first-order-logic (upstream)",
-      "detail": "6 of the 8 first-order-logic videos are PARTIAL and zdeKQ-nABtk is NONE (no caption text retrievable), so the four cards with no video of their own (quantifier-negation-and-equivalence, fol-exactly-one-and-uniqueness, fol-model-size-and-countermodels, fol-quantifier-inference-rules) rest on PYQs only. Video ids: Fp3hl9AprLU, puvQs-gBxO4, s41PLmHGf08, sj7qdCCK-IY, tK8382YdZLs, wzVFO4hyVfo (PARTIAL), zdeKQ-nABtk (NONE)."
-    },
-    {
-      "kind": "notes",
-      "placement": "theory-of-computation > cfl-grammars (unit 2)",
-      "detail": "gate-cse-mocks/theory-of-computation/question-bank/master_bank.json unit 2 Grammars & Context-Free Languages (unit_slug cfl-grammars) now holds 50 questions and is MOCK_CAPPED: Set 1 of 2 (2026-10-26) plus Set 2 of 2 (2026-10-27), the unit's last runs[] entry file being theory-of-computation/cfl-grammars/gate_toc_mock_2_2026-10-27.html. Grouped by subtopic_label the 50 records are CFG derivation trees 13, Ambiguity in grammars 12, CNF & GNF normal forms 13, Closure properties of CFLs 12. Serves no notes card: the notes repo's 37 cards are all discrete-mathematics and it has no theory-of-computation subject. The rotation advances to unit 3 Pushdown Automata on the next Theory of Computation run. Next notes build: content/subjects/theory-of-computation/grammars-and-cfl/cfg-derivation-trees.json, fed by the ambiguity and CNF/GNF groups."
-    },
-    {
-      "kind": "notes",
-      "placement": "algorithms > searching-and-sorting > binary-search-and-variants",
-      "detail": "gate-visual-explainer lesson binary-search-and-variants (topics.json title \"Binary Search and Its Variants\", category algorithms, created and updated 2026-10-26, topics/binary-search-and-variants/index.html plus timeline.js, lesson.js, captions.vtt, captions.srt, transcript.md) serves no notes card: the notes repo has no algorithms subject and no searching card. Content checked against topics/binary-search-and-variants/transcript.md, 10 scenes: the halving move and the [lo, hi] invariant, the floor(log2 n) + 1 comparison count with the +1 last probe, the two loop shapes with the lo = mid stall and the (lo + hi) overflow, lower_bound/upper_bound on duplicates, rotated sorted arrays, bitonic peak then two searches, binary search on a monotone predicate, and the decision-tree lower bound. Two registry notes: syllabus-coverage.json still records the topic 'Searching, sorting and hashing' as coverage_status NOT_STARTED with lesson_slug null, so the plan has not been advanced to match the published lesson; and no mock unit serves it, gate-cse-mocks/algorithms/question-bank/master_bank.json holding asymptotic-analysis labels only. Next notes build: content/subjects/algorithms/searching-and-sorting/binary-search-and-variants.json."
-    },
-    {
-      "kind": "notes",
-      "placement": "engineering-mathematics > linear-algebra > eigenvalues-eigenvectors",
-      "detail": "gate-cse-mocks engineering-mathematics/question-bank/master_bank.json unit 2 Linear Algebra: Eigenvalues & Vectors (unit_slug eigenvalues-eigenvectors) closed at the 50-question cap on 2026-10-27 with Set 2 of 2 (run 4). The records carry subtopic, not subtopic_label, so grouping the 50 by that field gives eigenvalue-properties 16, characteristic-equations 12, diagonalization 12, cayley-hamilton-theorem 10. The unit's last runs[] entry file is engineering-mathematics/eigenvalues-eigenvectors/gate_em_mock_2_2026-10-27.html (Set 2 of 2, current paper); Set 1 of 2 was archived at engineering-mathematics/eigenvalues-eigenvectors/archive/gate_em_mock_2_2026-10-26_run1.html. MOCK_CAPPED; the unit's own run note advances the next Engineering Mathematics run to Unit 3, Calculus: Limits, Continuity & Differentiability, which holds no questions yet. It serves no notes card: all 37 cards are discrete-mathematics combinatorics, propositional-logic and first-order-logic, and content/syllabus.json declares discrete-mathematics only, so there is no engineering-mathematics subject. Next notes build: content/subjects/engineering-mathematics/linear-algebra/eigenvalues-eigenvectors.json, fed by the eigenvalue-properties and characteristic-equations groups."
-    },
-    {
-      "kind": "notes",
-      "placement": "algorithms > searching-and-sorting > sorting-algorithms",
-      "detail": "gate-visual-explainer lesson sorting-algorithms (topics.json title 'Sorting Algorithms and the Comparison Lower Bound', category algorithms; syllabus-coverage.json coverage_status PUBLISHED, lesson_slug sorting-algorithms; topics/sorting-algorithms/transcript.md has 10 scenes, Scene 1 'A sort makes two promises, not one' to Scene 10 'The master table') serves no notes card, because the notes repo holds only discrete-mathematics cards. Next notes build: content/subjects/algorithms/searching-and-sorting/sorting-algorithms.json."
-    },
-    {
-      "kind": "notes",
-      "placement": "algorithms > design-techniques > greedy-algorithms",
-      "detail": "gate-visual-explainer lesson greedy-algorithms (topics.json title \"Greedy Algorithms: Choice, Exchange and Counterexample\", category algorithms, created and updated 2026-10-26; syllabus-coverage.json Algorithms > Design techniques > Greedy algorithms and exchange arguments, coverage_status PUBLISHED, 6 subtopics and 23 microtopics; topics/greedy-algorithms/transcript.md, 10 scenes from \"What greedy promises, and what it does not\" to \"One table to hold: problem, criterion, cost, proof\") serves no notes card: the notes repo's 37 cards are all discrete-mathematics combinatorics, propositional-logic and first-order-logic, and it has no algorithms subject. Content checked against the transcript, not the alias list: greedy-choice property against optimal substructure, the exchange argument in four moves, activity selection sorted by finish time, fractional against 0/1 knapsack, Huffman coding and optimal merge patterns, the coin-change counterexample, and a five-question decision procedure. Unit-time job sequencing and matroids appear only in passing (one Kruskal/matroid remark in Scene 9 and one cost line), so the plan's job-sequencing subtopic is not taught. No mock unit serves it either: gate-cse-mocks/algorithms/question-bank/master_bank.json holds unit 1 asymptotic-analysis labels only. Next notes build: content/subjects/algorithms/design-techniques/greedy-algorithms.json, fed by the exchange-argument and Huffman scenes."
-    },
-    {
-      "kind": "notes",
-      "placement": "programming-data-structures > programming-in-c > pointers-in-c",
-      "detail": "gate-cse-mocks programming-data-structures/pointers-memory unit 2 (gate_ds_mock_2_2026-10-27.html) serves a subtopic the notes do not hold: the notes cover discrete-mathematics only (37 cards, 1 subject). Write a Pointers in C card before the next pointers-memory set, or accept the set as unmapped."
-    },
-    {
-      "kind": "notes",
-      "placement": "digital-logic > sequential-design > design-of-sequential-circuits",
-      "detail": "gate-visual-explainer lesson sequential-circuits (PUBLISHED, 4 subtopics: latches and flip-flops, registers and counters, finite state machines, timing behaviour and clocking) serves no notes card; the notes hold no digital-logic subject."
-    },
-    {
-      "kind": "notes",
-      "placement": "computer-networks > network-fundamentals-framing (unit 1)",
-      "detail": "gate-cse-mocks/computer-networks/question-bank/master_bank.json unit 1 'Layering, Physical & Framing' (unit_slug network-fundamentals-framing) reached 50 questions with run 2 (Set 2 of 2, paper computer-networks/network-fundamentals-framing/gate_cn_mock_1_2026-10-27.html) on 2026-10-27; grouped by subtopic_label it covers OSI & TCP/IP models 13, Delays & bandwidth-delay product 12, Framing: bit & byte stuffing 12, CRC, checksum & Hamming 13. The notes repo holds one subject only (content/syllabus.json subjects: discrete-mathematics, 37 cards), so no card serves any of these four subtopics. The unit is at the 50-question cap, so the next computer-networks set advances to unit 2."
-    },
-    {
-      "kind": "notes",
-      "placement": "computer-architecture > datapath-and-control > alu-and-control-unit-design",
-      "detail": "gate-visual-explainer lesson alu-and-control-unit-design (topics.json title 'ALU and Control Unit Design: Datapath, Hardwired and Microprogrammed Control'; syllabus-coverage.json Computer Organization and Architecture > Datapath and control > ALU and control unit design, coverage_status PUBLISHED 2026-10-27, 18 microtopics) covers ALU function select and flags, the carry chain, single-bus datapath micro-operation ordering, hardwired control and horizontal versus vertical microprogramming across 10 transcript scenes. The notes repo has no computer-architecture subject, so no card serves it."
-    },
-    {
-      "kind": "notes",
-      "placement": "computer-organization-and-architecture > pipelining > pipelining-and-hazards",
-      "detail": "gate-visual-explainer lesson pipelining-and-hazards (topics.json title \"Pipelining and Hazards\", created 2026-10-27) is PUBLISHED with 32 microtopics across four subtopics - pipeline performance, structural, data and control hazards, forwarding and stalling, speedup and efficiency calculations; transcript.md runs 10 scenes, Scene 1 'Two clocks: latency and throughput' through Scene 10, and the lesson carries the k + n - 1 cycle count, the max-stage-plus-latch clock period, RAW/WAR/WAW, the load-use stall and branch penalty. It serves no notes card: the notes repo has no computer-organization-and-architecture subject at all. Next notes build: content/subjects/computer-organization-and-architecture/pipelining/pipelining-and-hazards.json, fed by the load-use-stall and clock-period material, with an upstream video gap to record since no playlist covers COA."
-    },
-    {
-      "kind": "notes",
-      "placement": "theory-of-computation > pushdown-automata (unit 3)",
-      "detail": "gate-cse-mocks/theory-of-computation/question-bank/master_bank.json unit 3 Pushdown Automata (unit_slug pushdown-automata) closed at the 50-question cap on 2026-10-27: Set 1 of 2 (run 5) plus Set 2 of 2 (run 6), 50 records grouped by subtopic_label as Deterministic PDA 14, Nondeterministic PDA 12, Acceptance: empty store vs final state 12, Equivalence with CFG 12. The unit's last runs[] entry file is theory-of-computation/pushdown-automata/gate_toc_mock_3_2026-10-27.html (Set 2 of 2, the current paper; Set 1 archived at archive/gate_toc_mock_3_2026-10-27_run1.html), so the deep URL for any card that serves it is https://gate-cse-mocks.vercel.app/theory-of-computation/pushdown-automata/gate_toc_mock_3_2026-10-27.html. MOCK_CAPPED; the README rotation advances (index_of(pushdown-automata) + 1) mod 4 = 3 -> Unit 4, Turing Machines & Decidability. It serves no notes card: all 37 cards are discrete-mathematics and content/syllabus.json declares discrete-mathematics only. Visual side is plan-only: gate-visual-explainer syllabus-coverage.json Theory of Computation > Context-free languages > 'CFG, PDA and pumping lemma', coverage_status NOT_STARTED, lesson_slug null, so VISUAL_SYLLABUS_ONLY. Next notes build: content/subjects/theory-of-computation/pushdown-automata/pushdown-automata.json, fed by the deterministic-PDA and equivalence-with-CFG groups."
-    },
-    {
-      "kind": "notes",
-      "placement": "computer-organization-and-architecture > memory > memory-hierarchy-and-cache",
-      "detail": "gate-visual-explainer lesson memory-hierarchy-and-cache (topics.json title 'Memory Hierarchy and Cache') published 2026-10-27: syllabus-coverage.json Computer Organization and Architecture > Memory > Memory hierarchy and cache, coverage_status PUBLISHED, lesson_slug memory-hierarchy-and-cache, 8 subtopics and 21 microtopics, topics/memory-hierarchy-and-cache/transcript.md running 10 scenes from Scene 1 'Why a small fast memory helps at all' to Scene 10 'The procedure, and five traps'. Checked against the transcript, not the alias list: the address split into offset/index/tag, direct vs set-associative vs fully associative, associativity trading log2(k) index bits for tag bits, LRU/FIFO/random/optimal with the Belady anomaly, compulsory/conflict/capacity misses, write-through vs write-back with the dirty bit, two-level AMAT and global vs local hit rate, and stall cycles per instruction into CPI. It serves no notes card: the notes repo has no computer-organization-and-architecture subject. No mock unit matches either: gate-cse-mocks/computer-architecture/question-bank/master_bank.json holds 25 questions on unit 2 datapath-control-unit only (Hardwired control 7, Microprogrammed control 6, ALU & datapath timing 6, Bus architectures 6), so the cache side is VISUAL_ONLY. Next notes build: content/subjects/computer-organization-and-architecture/memory/memory-hierarchy-and-cache.json, fed by the address-split and AMAT scenes."
-    },
-    {
-      "kind": "mock",
-      "placement": "discrete-mathematics > induction-recursion (unit 6)",
-      "detail": "gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json runs[] run 4 (2026-10-27, Set 1 of 2) opened unit 6 Mathematical Induction & Recursion (unit_slug induction-recursion) with 25 questions; grouped by subtopic_label the records are Weak & strong induction 7, Structural induction 6, Well-ordering principle 6, Proof techniques & errors 6. The unit's last runs[] entry file is discrete-mathematics/induction-recursion/gate_dm_mock_6_2026-10-27.html, so the deep URL for any card that serves it is https://gate-cse-mocks.vercel.app/discrete-mathematics/induction-recursion/gate_dm_mock_6_2026-10-27.html. It serves no notes card: the 37 cards are combinatorics, propositional-logic and first-order-logic only, and content/syllabus.json lists Counting, Propositional Logic and First Order Logic as its three topics, none of them induction. recurrences-and-compositions is not a match - its content is counting compositions by recurrence (f(n) = f(n-1) + f(n-2)), not induction proofs, structural induction or well-ordering. Next notes build: content/subjects/discrete-mathematics/induction-recursion/weak-strong-induction.json as the first card of that group, fed by the weak/strong and structural-induction groups; the well-ordering and proof-errors groups become the following two cards. This unit is at 25 of the 50-question cap, so the next discrete-mathematics run re-selects unit 6."
-    },
-    {
-      "kind": "notes",
-      "placement": "algorithms > design-techniques > dynamic-programming",
-      "detail": "gate-visual-explainer lesson dynamic-programming (topics.json title \"Dynamic Programming: Formulation, Tables and Classic Problems\", created and updated 2026-10-27; syllabus-coverage.json Algorithms > Design techniques > Dynamic programming: formulation, tables and classic problems, coverage_status PUBLISHED, 4 subtopics and 25 microtopics, last_execution_status \"published 2026-10-27 - 11 scenes, 330s, 44 caption cues, 30/30 model checks passed\") published 2026-10-27 and serves no notes card: the notes repo has 37 cards, all discrete-mathematics, and no algorithms subject. Checked against topics/dynamic-programming/transcript.md, not the alias list: 11 scenes, the repeated-subproblem count on fib(6), the five parts of a recurrence (state, choice, transition, base case, fill order), 0/1 knapsack with the descending-capacity one-row trick, LCS with reconstruction, fill order by increasing subproblem size, matrix chain as interval DP, LIS over suffixes, Floyd-Warshall over intermediate vertices, and the greedy/divide-and-conquer/DP decision test. The transcript does not reach edit distance, coin change or subset sum beyond passing mentions, so those plan subtopics are intent rather than taught content. No mock unit serves it either: gate-cse-mocks/algorithms/question-bank/master_bank.json holds unit 1 asymptotic-analysis labels only. Next notes build: content/subjects/algorithms/design-techniques/dynamic-programming.json, fed by the knapsack, LCS and fill-order scenes."
+      "placement": "discrete-mathematics › combinatorics › (no unit)",
+      "detail": "14 combinatorics cards carry no mock unit: the discrete-mathematics bank has units 1-6 and 16 (propositional-logic, predicate-logic, set-theory, relations, functions, induction-recursion, proof-techniques) and none covers counting."
     },
     {
       "kind": "visual",
-      "placement": "computer-organization-and-architecture > memory > memory-interfacing-and-interleaving",
-      "detail": "gate-visual-explainer syllabus-coverage.json changed on 2026-10-27 in two ways that need no card yet. The memory-hierarchy-and-cache entry was trimmed from 7 subtopics to 4 (locality, address fields, miss classification and multi-level cache removed) and its importance_evidence shortened, while coverage_status stays PUBLISHED with lesson_slug memory-hierarchy-and-cache; the published lesson was not re-checked this run, so the trimmed plan and the lesson transcript now disagree. A new entry \"Memory interfacing and interleaving\" was added with coverage_status NOT_STARTED, lesson_slug null and an empty microtopics[] - VISUAL_SYLLABUS_ONLY. Neither serves a notes card: the notes repo has no computer-organization-and-architecture subject. Next build: topics/memory-interfacing-and-interleaving/ when the cache lesson's own gap is closed, otherwise leave it plan-only."
-    },
-    {
-      "kind": "notes",
-      "placement": "computer-organization-and-architecture > instruction-set > instruction-set-and-addressing-modes",
-      "detail": "gate-visual-explainer lesson instruction-set-and-addressing-modes (topics.json title 'Instruction Set and Addressing Modes', category computer-organization-and-architecture, created and updated 2026-10-27; syllabus-coverage.json Computer Organization and Architecture > Instruction set > 'Instruction set and addressing modes', coverage_status PUBLISHED, lesson_slug instruction-set-and-addressing-modes, 9 subtopics and 30 microtopics, last_execution_status 'published 2026-10-27') serves no notes card: the notes repo holds 37 cards, all discrete-mathematics, and content/syllabus.json declares discrete-mathematics only, so it has no computer-organization-and-architecture subject. Checked against topics/instruction-set-and-addressing-modes/transcript.md, not the alias list: 10 scenes from 'What the instruction set architecture is, and what it is not' to 'The procedure, and five traps', covering the ISA/microarchitecture split, the bit-budget format equation, expanding opcodes with the escape code and the Kraft prefix rule, the 3/2/1/0-address instruction counts, eight addressing modes and their effective addresses, memory-access cost per mode, the mode-to-construct mapping, PC-relative signed branch offsets and relocatable code, and load-store/RISC against CISC. No mock unit serves it either: gate-cse-mocks/computer-architecture/question-bank/master_bank.json holds only unit 2 datapath-control-unit (25 questions), and operating-systems unit 2 is synchronization-ipc. Next notes build: content/subjects/computer-organization-and-architecture/instruction-set/instruction-set-and-addressing-modes.json, fed by the expanding-opcode and addressing-mode scenes."
-    },
-    {
-      "kind": "notes",
-      "placement": "computer-networks > data-link-mac (no notes subject exists)",
-      "detail": "gate-cse-mocks/computer-networks/question-bank/master_bank.json unit 2 'Data Link Protocols & MAC' (data-link-mac) was published this run as run 3 (2026-10-27) with 25 questions over 5 subtopic_label groups: Stop-and-wait ARQ (5), Go-back-N & selective repeat (5), Pure & slotted ALOHA (5), CSMA/CD, CSMA/CA & backoff (5), Ethernet, switches & bridges (5). gate-youtube-notes has no computer-networks subject and no card for ARQ, ALOHA, CSMA/CD or Ethernet switching, so the set maps to no card. Paper: computer-networks/data-link-mac/gate_cn_mock_2_2026-10-27.html."
-    },
-    {
-      "kind": "notes",
-      "placement": "algorithms > searching-and-sorting > hashing (no notes subject exists)",
-      "detail": "gate-visual-explainer lesson hashing (syllabus-coverage.json topic 35, Algorithms > Searching and sorting, PUBLISHED 2026-10-27, transcript.md scenes 1-10: hash functions, chaining, open addressing, linear/quadratic/double probing, clustering, tombstones, expected probe costs) serves no notes card: gate-youtube-notes holds only discrete-mathematics cards. The lesson's prerequisites also point at arrays-stacks-queues and asymptotic-complexity, which the notes likewise do not cover."
-    },
-    {
-      "kind": "notes",
-      "placement": "compiler-design > syntax-analysis > top-down-parsing (no notes subject exists)",
-      "detail": "gate-cse-mocks/compiler-design/question-bank/master_bank.json run 3 (2026-10-27) opened unit 2 Syntax Analysis: Top-Down Parsing (unit_slug top-down-parsing) with 25 questions, paper compiler-design/top-down-parsing/gate_cd_mock_2_2026-10-27.html. Grouped by the bank's subtopic field (no record in this bank carries a subtopic_label): first-and-follow-sets 7, left-recursion-and-factoring 6, ll1-parsing-tables 6, recursive-descent-parsers 6; 15 MCQ / 5 MSQ / 5 NAT. It serves no notes card: the notes hold 37 cards, all discrete-mathematics, and no compiler-design subject exists. Write a Compiler Design card set starting at top-down-parsing, subtopic first-and-follow-sets, before the unit reaches its 50-question cap at Set 2 of 2."
-    },
-    {
-      "kind": "notes",
-      "placement": "computer-organization-and-architecture > I/O > io-interface-interrupts-dma",
-      "detail": "gate-visual-explainer lesson io-interface-interrupts-dma (topics.json title 'I/O Interface, Interrupts and DMA', category computer-organization-and-architecture, created and updated 2026-10-27) is PUBLISHED in syllabus-coverage.json with 9 subtopics and 22 microtopics; transcript.md holds 10 scenes and the content was checked, not just the alias list: scene 2 names memory-mapped versus isolated I/O and works 2^k - p to 65280 at 16 bits and 256 ports, scene 5 covers daisy chaining, vectored versus non-vectored and maskable versus non-maskable, scene 7 covers burst, cycle stealing and transparent DMA, scenes 8-9 carry the CPU-fraction and count-register arithmetic. It serves no notes card: the notes hold 37 cards, all discrete-mathematics, and no computer-organization-and-architecture subject exists."
+      "placement": "discrete-mathematics › combinatorics › doib-stirling, ioib-partitions",
+      "detail": "No published lesson covers Stirling numbers of the second kind or integer partitions; counting-and-combinatorics stops at stars and bars, inclusion-exclusion, surjections and derangements."
     }
   ]
 }

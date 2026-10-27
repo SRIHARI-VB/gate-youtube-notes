@@ -58,7 +58,8 @@
       "title": "Counting and Combinatorics",
       "level": "topic-level",
       "covers": [
-        "sum and product rules"
+        "sum and product rules",
+        "the four counting boxes"
       ],
       "url": "https://gate-visual-explainer.vercel.app/topics/counting-and-combinatorics/index.html"
     },

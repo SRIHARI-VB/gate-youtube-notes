@@ -50,23 +50,23 @@
       "question_count": 50,
       "subtopics": [
         {
-          "label": "Injective / surjective / bijective",
+          "label": "types-injective-surjective-bijective",
           "questions": 10
         },
         {
-          "label": "Composition & inverses",
+          "label": "composition-and-inverses",
           "questions": 10
         },
         {
-          "label": "Counting functions",
+          "label": "counting-functions",
           "questions": 10
         },
         {
-          "label": "Pigeonhole principle",
+          "label": "pigeonhole-principle",
           "questions": 10
         },
         {
-          "label": "Floor, ceiling & recursion",
+          "label": "floor-ceiling-recursion",
           "questions": 10
         }
       ],
@@ -77,7 +77,7 @@
       "title": "Functions and Their Properties",
       "level": "topic-level",
       "covers": [
-        "counting functions, injections, surjections and bijections"
+        "counting functions"
       ],
       "url": "https://gate-visual-explainer.vercel.app/topics/functions-and-their-properties/index.html"
     },

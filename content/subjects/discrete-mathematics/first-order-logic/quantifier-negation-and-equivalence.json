@@ -62,23 +62,23 @@
       "question_count": 50,
       "subtopics": [
         {
-          "label": "Predicates & domain",
+          "label": "predicates-and-domain",
           "questions": 10
         },
         {
-          "label": "Universal & existential quantifiers",
+          "label": "quantifiers-universal-existential",
           "questions": 10
         },
         {
-          "label": "Negation of nested quantifiers",
+          "label": "negation-nested-quantifiers",
           "questions": 10
         },
         {
-          "label": "Scope & order of quantifiers",
+          "label": "scope-and-order",
           "questions": 10
         },
         {
-          "label": "English to FOL translation",
+          "label": "english-to-fol-translation",
           "questions": 10
         }
       ],
@@ -89,8 +89,7 @@
       "title": "First-Order Logic",
       "level": "topic-level",
       "covers": [
-        "quantifier negation",
-        "not-for-all is exists-not"
+        "quantifier negation: not-for-all is exists-not; not-exists is for-all-not"
       ],
       "url": "https://gate-visual-explainer.vercel.app/topics/first-order-logic/index.html"
     },

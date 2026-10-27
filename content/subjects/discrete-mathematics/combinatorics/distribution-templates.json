@@ -54,8 +54,8 @@
       "title": "Counting and Combinatorics",
       "level": "topic-level",
       "covers": [
-        "stars and bars",
-        "combinations with repetition"
+        "the four counting boxes",
+        "stars and bars"
       ],
       "url": "https://gate-visual-explainer.vercel.app/topics/counting-and-combinatorics/index.html"
     },
