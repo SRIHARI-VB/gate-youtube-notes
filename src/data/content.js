@@ -691,6 +691,36 @@ window.GATE_DATA = {
     "basic-counting-rules"
    ],
    "links": {
+    "mock": {
+     "subject": "discrete-mathematics",
+     "unit_slug": "combinatorics",
+     "unit_name": "Counting & Combinatorics",
+     "unit_number": 7,
+     "question_count": 25,
+     "subtopics": [
+      {
+       "label": "Permutations & combinations",
+       "questions": 5
+      },
+      {
+       "label": "Binomial & multinomial coefficients",
+       "questions": 5
+      },
+      {
+       "label": "Double counting",
+       "questions": 5
+      },
+      {
+       "label": "Stars and bars",
+       "questions": 5
+      },
+      {
+       "label": "Inclusion-exclusion counting",
+       "questions": 5
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/combinatorics/gate_dm_mock_7_2026-10-28.html"
+    },
     "visual": {
      "slug": "counting-and-combinatorics",
      "title": "Counting and Combinatorics",
@@ -700,7 +730,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/counting-and-combinatorics/index.html"
     },
-    "mapped_at": "2026-10-27"
+    "mapped_at": "2026-10-28"
    },
    "subject": "discrete-mathematics",
    "topic": "combinatorics",
@@ -763,6 +793,36 @@ window.GATE_DATA = {
     "permutations"
    ],
    "links": {
+    "mock": {
+     "subject": "discrete-mathematics",
+     "unit_slug": "combinatorics",
+     "unit_name": "Counting & Combinatorics",
+     "unit_number": 7,
+     "question_count": 25,
+     "subtopics": [
+      {
+       "label": "Permutations & combinations",
+       "questions": 5
+      },
+      {
+       "label": "Binomial & multinomial coefficients",
+       "questions": 5
+      },
+      {
+       "label": "Double counting",
+       "questions": 5
+      },
+      {
+       "label": "Stars and bars",
+       "questions": 5
+      },
+      {
+       "label": "Inclusion-exclusion counting",
+       "questions": 5
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/combinatorics/gate_dm_mock_7_2026-10-28.html"
+    },
     "visual": {
      "slug": "counting-and-combinatorics",
      "title": "Counting and Combinatorics",
@@ -772,7 +832,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/counting-and-combinatorics/index.html"
     },
-    "mapped_at": "2026-10-27"
+    "mapped_at": "2026-10-28"
    },
    "subject": "discrete-mathematics",
    "topic": "combinatorics",
@@ -825,6 +885,36 @@ window.GATE_DATA = {
     "combinations"
    ],
    "links": {
+    "mock": {
+     "subject": "discrete-mathematics",
+     "unit_slug": "combinatorics",
+     "unit_name": "Counting & Combinatorics",
+     "unit_number": 7,
+     "question_count": 25,
+     "subtopics": [
+      {
+       "label": "Permutations & combinations",
+       "questions": 5
+      },
+      {
+       "label": "Binomial & multinomial coefficients",
+       "questions": 5
+      },
+      {
+       "label": "Double counting",
+       "questions": 5
+      },
+      {
+       "label": "Stars and bars",
+       "questions": 5
+      },
+      {
+       "label": "Inclusion-exclusion counting",
+       "questions": 5
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/combinatorics/gate_dm_mock_7_2026-10-28.html"
+    },
     "visual": {
      "slug": "counting-and-combinatorics",
      "title": "Counting and Combinatorics",
@@ -834,7 +924,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/counting-and-combinatorics/index.html"
     },
-    "mapped_at": "2026-10-27"
+    "mapped_at": "2026-10-28"
    },
    "subject": "discrete-mathematics",
    "topic": "combinatorics",
@@ -885,6 +975,36 @@ window.GATE_DATA = {
     "permutations"
    ],
    "links": {
+    "mock": {
+     "subject": "discrete-mathematics",
+     "unit_slug": "combinatorics",
+     "unit_name": "Counting & Combinatorics",
+     "unit_number": 7,
+     "question_count": 25,
+     "subtopics": [
+      {
+       "label": "Permutations & combinations",
+       "questions": 5
+      },
+      {
+       "label": "Binomial & multinomial coefficients",
+       "questions": 5
+      },
+      {
+       "label": "Double counting",
+       "questions": 5
+      },
+      {
+       "label": "Stars and bars",
+       "questions": 5
+      },
+      {
+       "label": "Inclusion-exclusion counting",
+       "questions": 5
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/combinatorics/gate_dm_mock_7_2026-10-28.html"
+    },
     "visual": {
      "slug": "counting-and-combinatorics",
      "title": "Counting and Combinatorics",
@@ -894,7 +1014,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/counting-and-combinatorics/index.html"
     },
-    "mapped_at": "2026-10-27"
+    "mapped_at": "2026-10-28"
    },
    "subject": "discrete-mathematics",
    "topic": "combinatorics",
@@ -951,6 +1071,36 @@ window.GATE_DATA = {
    ],
    "visual": "distribution-grid",
    "links": {
+    "mock": {
+     "subject": "discrete-mathematics",
+     "unit_slug": "combinatorics",
+     "unit_name": "Counting & Combinatorics",
+     "unit_number": 7,
+     "question_count": 25,
+     "subtopics": [
+      {
+       "label": "Permutations & combinations",
+       "questions": 5
+      },
+      {
+       "label": "Binomial & multinomial coefficients",
+       "questions": 5
+      },
+      {
+       "label": "Double counting",
+       "questions": 5
+      },
+      {
+       "label": "Stars and bars",
+       "questions": 5
+      },
+      {
+       "label": "Inclusion-exclusion counting",
+       "questions": 5
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/combinatorics/gate_dm_mock_7_2026-10-28.html"
+    },
     "visual": {
      "slug": "counting-and-combinatorics",
      "title": "Counting and Combinatorics",
@@ -961,7 +1111,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/counting-and-combinatorics/index.html"
     },
-    "mapped_at": "2026-10-27"
+    "mapped_at": "2026-10-28"
    },
    "subject": "discrete-mathematics",
    "topic": "combinatorics",
@@ -1114,6 +1264,36 @@ window.GATE_DATA = {
    ],
    "visual": "stars-and-bars",
    "links": {
+    "mock": {
+     "subject": "discrete-mathematics",
+     "unit_slug": "combinatorics",
+     "unit_name": "Counting & Combinatorics",
+     "unit_number": 7,
+     "question_count": 25,
+     "subtopics": [
+      {
+       "label": "Permutations & combinations",
+       "questions": 5
+      },
+      {
+       "label": "Binomial & multinomial coefficients",
+       "questions": 5
+      },
+      {
+       "label": "Double counting",
+       "questions": 5
+      },
+      {
+       "label": "Stars and bars",
+       "questions": 5
+      },
+      {
+       "label": "Inclusion-exclusion counting",
+       "questions": 5
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/combinatorics/gate_dm_mock_7_2026-10-28.html"
+    },
     "visual": {
      "slug": "counting-and-combinatorics",
      "title": "Counting and Combinatorics",
@@ -1123,7 +1303,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/counting-and-combinatorics/index.html"
     },
-    "mapped_at": "2026-10-27"
+    "mapped_at": "2026-10-28"
    },
    "subject": "discrete-mathematics",
    "topic": "combinatorics",
@@ -1316,33 +1496,33 @@ window.GATE_DATA = {
    "links": {
     "mock": {
      "subject": "discrete-mathematics",
-     "unit_slug": "set-theory",
-     "unit_name": "Set Theory",
-     "unit_number": 3,
-     "question_count": 50,
+     "unit_slug": "combinatorics",
+     "unit_name": "Counting & Combinatorics",
+     "unit_number": 7,
+     "question_count": 25,
      "subtopics": [
       {
-       "label": "Subsets & power sets",
-       "questions": 10
+       "label": "Permutations & combinations",
+       "questions": 5
       },
       {
-       "label": "Cardinality",
-       "questions": 10
+       "label": "Binomial & multinomial coefficients",
+       "questions": 5
       },
       {
-       "label": "Set algebra & De Morgan",
-       "questions": 10
+       "label": "Double counting",
+       "questions": 5
       },
       {
-       "label": "Inclusion-exclusion",
-       "questions": 10
+       "label": "Stars and bars",
+       "questions": 5
       },
       {
-       "label": "Partitions & Cartesian products",
-       "questions": 10
+       "label": "Inclusion-exclusion counting",
+       "questions": 5
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/set-theory/gate_dm_mock_3_2026-10-25.html"
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/combinatorics/gate_dm_mock_7_2026-10-28.html"
     },
     "visual": {
      "slug": "counting-and-combinatorics",
@@ -1353,7 +1533,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/counting-and-combinatorics/index.html"
     },
-    "mapped_at": "2026-10-27"
+    "mapped_at": "2026-10-28"
    },
    "subject": "discrete-mathematics",
    "topic": "combinatorics",

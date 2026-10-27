@@ -50,7 +50,21 @@
       "priority": "P1",
       "path": "subjects/discrete-mathematics/combinatorics/permutations.json",
       "transcript_status": "PARTIAL",
-      "mock": null,
+      "mock": {
+        "subject": "discrete-mathematics",
+        "unit_slug": "combinatorics",
+        "unit_name": "Counting & Combinatorics",
+        "unit_number": 7,
+        "question_count": 25,
+        "subtopic_labels": [
+          "Permutations & combinations",
+          "Binomial & multinomial coefficients",
+          "Double counting",
+          "Stars and bars",
+          "Inclusion-exclusion counting"
+        ],
+        "verdict": "MOCK_READY"
+      },
       "visual": {
         "slug": "counting-and-combinatorics",
         "title": "Counting and Combinatorics",
@@ -60,10 +74,10 @@
       },
       "evidence": [
         "notes content/index.json -> map[].path = subjects/discrete-mathematics/combinatorics/permutations.json",
-        "mock: no unit in discrete-mathematics master_bank.json carries this card's vocabulary",
+        "mock: discrete-mathematics/question-bank/master_bank.json -> questions[] with unit 7 grouped by subtopic_label, count 25, paper from runs[] file discrete-mathematics/combinatorics/gate_dm_mock_7_2026-10-28.html",
         "visual: topics/counting-and-combinatorics/transcript.md scene list, covers checked against transcript text"
       ],
-      "row_verdict": "VISUAL_ONLY"
+      "row_verdict": "BOTH"
     },
     {
       "subject": "discrete-mathematics",
@@ -73,7 +87,21 @@
       "priority": "P1",
       "path": "subjects/discrete-mathematics/combinatorics/combinations.json",
       "transcript_status": "PARTIAL",
-      "mock": null,
+      "mock": {
+        "subject": "discrete-mathematics",
+        "unit_slug": "combinatorics",
+        "unit_name": "Counting & Combinatorics",
+        "unit_number": 7,
+        "question_count": 25,
+        "subtopic_labels": [
+          "Permutations & combinations",
+          "Binomial & multinomial coefficients",
+          "Double counting",
+          "Stars and bars",
+          "Inclusion-exclusion counting"
+        ],
+        "verdict": "MOCK_READY"
+      },
       "visual": {
         "slug": "counting-and-combinatorics",
         "title": "Counting and Combinatorics",
@@ -83,10 +111,10 @@
       },
       "evidence": [
         "notes content/index.json -> map[].path = subjects/discrete-mathematics/combinatorics/combinations.json",
-        "mock: no unit in discrete-mathematics master_bank.json carries this card's vocabulary",
+        "mock: discrete-mathematics/question-bank/master_bank.json -> questions[] with unit 7 grouped by subtopic_label, count 25, paper from runs[] file discrete-mathematics/combinatorics/gate_dm_mock_7_2026-10-28.html",
         "visual: topics/counting-and-combinatorics/transcript.md scene list, covers checked against transcript text"
       ],
-      "row_verdict": "VISUAL_ONLY"
+      "row_verdict": "BOTH"
     },
     {
       "subject": "discrete-mathematics",
@@ -96,7 +124,21 @@
       "priority": "P2",
       "path": "subjects/discrete-mathematics/combinatorics/binomial-theorem.json",
       "transcript_status": "PARTIAL",
-      "mock": null,
+      "mock": {
+        "subject": "discrete-mathematics",
+        "unit_slug": "combinatorics",
+        "unit_name": "Counting & Combinatorics",
+        "unit_number": 7,
+        "question_count": 25,
+        "subtopic_labels": [
+          "Permutations & combinations",
+          "Binomial & multinomial coefficients",
+          "Double counting",
+          "Stars and bars",
+          "Inclusion-exclusion counting"
+        ],
+        "verdict": "MOCK_READY"
+      },
       "visual": {
         "slug": "counting-and-combinatorics",
         "title": "Counting and Combinatorics",
@@ -106,10 +148,10 @@
       },
       "evidence": [
         "notes content/index.json -> map[].path = subjects/discrete-mathematics/combinatorics/binomial-theorem.json",
-        "mock: no unit in discrete-mathematics master_bank.json carries this card's vocabulary",
+        "mock: discrete-mathematics/question-bank/master_bank.json -> questions[] with unit 7 grouped by subtopic_label, count 25, paper from runs[] file discrete-mathematics/combinatorics/gate_dm_mock_7_2026-10-28.html",
         "visual: topics/counting-and-combinatorics/transcript.md scene list, covers checked against transcript text"
       ],
-      "row_verdict": "VISUAL_ONLY"
+      "row_verdict": "BOTH"
     },
     {
       "subject": "discrete-mathematics",
@@ -119,7 +161,21 @@
       "priority": "P2",
       "path": "subjects/discrete-mathematics/combinatorics/permutation-with-repetition.json",
       "transcript_status": "PARTIAL",
-      "mock": null,
+      "mock": {
+        "subject": "discrete-mathematics",
+        "unit_slug": "combinatorics",
+        "unit_name": "Counting & Combinatorics",
+        "unit_number": 7,
+        "question_count": 25,
+        "subtopic_labels": [
+          "Permutations & combinations",
+          "Binomial & multinomial coefficients",
+          "Double counting",
+          "Stars and bars",
+          "Inclusion-exclusion counting"
+        ],
+        "verdict": "MOCK_READY"
+      },
       "visual": {
         "slug": "counting-and-combinatorics",
         "title": "Counting and Combinatorics",
@@ -129,10 +185,10 @@
       },
       "evidence": [
         "notes content/index.json -> map[].path = subjects/discrete-mathematics/combinatorics/permutation-with-repetition.json",
-        "mock: no unit in discrete-mathematics master_bank.json carries this card's vocabulary",
+        "mock: discrete-mathematics/question-bank/master_bank.json -> questions[] with unit 7 grouped by subtopic_label, count 25, paper from runs[] file discrete-mathematics/combinatorics/gate_dm_mock_7_2026-10-28.html",
         "visual: topics/counting-and-combinatorics/transcript.md scene list, covers checked against transcript text"
       ],
-      "row_verdict": "VISUAL_ONLY"
+      "row_verdict": "BOTH"
     },
     {
       "subject": "discrete-mathematics",
@@ -142,7 +198,21 @@
       "priority": "P1",
       "path": "subjects/discrete-mathematics/combinatorics/distribution-templates.json",
       "transcript_status": "PARTIAL",
-      "mock": null,
+      "mock": {
+        "subject": "discrete-mathematics",
+        "unit_slug": "combinatorics",
+        "unit_name": "Counting & Combinatorics",
+        "unit_number": 7,
+        "question_count": 25,
+        "subtopic_labels": [
+          "Permutations & combinations",
+          "Binomial & multinomial coefficients",
+          "Double counting",
+          "Stars and bars",
+          "Inclusion-exclusion counting"
+        ],
+        "verdict": "MOCK_READY"
+      },
       "visual": {
         "slug": "counting-and-combinatorics",
         "title": "Counting and Combinatorics",
@@ -152,10 +222,10 @@
       },
       "evidence": [
         "notes content/index.json -> map[].path = subjects/discrete-mathematics/combinatorics/distribution-templates.json",
-        "mock: no unit in discrete-mathematics master_bank.json carries this card's vocabulary",
+        "mock: discrete-mathematics/question-bank/master_bank.json -> questions[] with unit 7 grouped by subtopic_label, count 25, paper from runs[] file discrete-mathematics/combinatorics/gate_dm_mock_7_2026-10-28.html",
         "visual: topics/counting-and-combinatorics/transcript.md scene list, covers checked against transcript text"
       ],
-      "row_verdict": "VISUAL_ONLY"
+      "row_verdict": "BOTH"
     },
     {
       "subject": "discrete-mathematics",
@@ -202,7 +272,21 @@
       "priority": "P1",
       "path": "subjects/discrete-mathematics/combinatorics/iodb-stars-and-bars.json",
       "transcript_status": "PARTIAL",
-      "mock": null,
+      "mock": {
+        "subject": "discrete-mathematics",
+        "unit_slug": "combinatorics",
+        "unit_name": "Counting & Combinatorics",
+        "unit_number": 7,
+        "question_count": 25,
+        "subtopic_labels": [
+          "Permutations & combinations",
+          "Binomial & multinomial coefficients",
+          "Double counting",
+          "Stars and bars",
+          "Inclusion-exclusion counting"
+        ],
+        "verdict": "MOCK_READY"
+      },
       "visual": {
         "slug": "counting-and-combinatorics",
         "title": "Counting and Combinatorics",
@@ -212,10 +296,10 @@
       },
       "evidence": [
         "notes content/index.json -> map[].path = subjects/discrete-mathematics/combinatorics/iodb-stars-and-bars.json",
-        "mock: no unit in discrete-mathematics master_bank.json carries this card's vocabulary",
+        "mock: discrete-mathematics/question-bank/master_bank.json -> questions[] with unit 7 grouped by subtopic_label, count 25, paper from runs[] file discrete-mathematics/combinatorics/gate_dm_mock_7_2026-10-28.html",
         "visual: topics/counting-and-combinatorics/transcript.md scene list, covers checked against transcript text"
       ],
-      "row_verdict": "VISUAL_ONLY"
+      "row_verdict": "BOTH"
     },
     {
       "subject": "discrete-mathematics",
@@ -275,16 +359,16 @@
       "transcript_status": "PARTIAL",
       "mock": {
         "subject": "discrete-mathematics",
-        "unit_slug": "set-theory",
-        "unit_name": "Set Theory",
-        "unit_number": 3,
-        "question_count": 50,
+        "unit_slug": "combinatorics",
+        "unit_name": "Counting & Combinatorics",
+        "unit_number": 7,
+        "question_count": 25,
         "subtopic_labels": [
-          "Subsets & power sets",
-          "Cardinality",
-          "Set algebra & De Morgan",
-          "Inclusion-exclusion",
-          "Partitions & Cartesian products"
+          "Permutations & combinations",
+          "Binomial & multinomial coefficients",
+          "Double counting",
+          "Stars and bars",
+          "Inclusion-exclusion counting"
         ],
         "verdict": "MOCK_READY"
       },
@@ -297,7 +381,7 @@
       },
       "evidence": [
         "notes content/index.json -> map[].path = subjects/discrete-mathematics/combinatorics/inclusion-exclusion.json",
-        "mock: discrete-mathematics/question-bank/master_bank.json -> questions[] grouped by unit_slug/subtopic_label, count 50",
+        "mock: discrete-mathematics/question-bank/master_bank.json -> questions[] with unit 7 grouped by subtopic_label, count 25, paper from runs[] file discrete-mathematics/combinatorics/gate_dm_mock_7_2026-10-28.html",
         "visual: topics/counting-and-combinatorics/transcript.md scene list, covers checked against transcript text"
       ],
       "row_verdict": "BOTH"
@@ -1240,8 +1324,8 @@
     },
     {
       "kind": "mock",
-      "placement": "discrete-mathematics › combinatorics › (no unit)",
-      "detail": "12 combinatorics cards carry no mock unit: the discrete-mathematics bank has units 1-6 and 16 (propositional-logic, predicate-logic, set-theory, relations, functions, induction-recursion, proof-techniques) and none covers counting, stars and bars or derangements."
+      "placement": "discrete-mathematics › combinatorics › basic-counting-rules, derangements, ioib-partitions, recurrences-and-compositions",
+      "detail": "Unit 7 'Counting & Combinatorics' (unit_slug combinatorics, run 6, 2026-10-28) now holds 25 questions over 5 subtopic_label groups of 5 each: Permutations & combinations, Binomial & multinomial coefficients, Double counting, Stars and bars, Inclusion-exclusion counting. The remaining combinatorics cards above have no group in the unit that matches their subtopic: DODB (k^n), IOIB partitions, derangements and the playlist-gap recurrence card are not represented in the bank."
     },
     {
       "kind": "visual",
@@ -1312,6 +1396,16 @@
       "kind": "notes",
       "placement": "theory-of-computation › regular-languages › regular-expressions-and-finite-automata",
       "detail": "New lesson topics/regular-expressions-and-finite-automata (added 2026-10-28; topics.json entry created/updated 2026-10-28; syllabus-coverage.json subject Theory of Computation, unit Regular languages, coverage_status PUBLISHED, 5 subtopics, 22 microtopics). Its transcript.md was read: 10 scenes covering alphabet/Sigma-star, the five-tuple, nondeterminism and epsilon-closure, subset construction against the 2^n bound, distinguishability and table filling, counters modulo m with the lcm rule, Thompson's construction, state elimination and closure properties, and the pumping lemma. The notes repo has no theory-of-computation subject, so no card serves it."
+    },
+    {
+      "kind": "notes",
+      "placement": "databases › transactions › transactions-and-concurrency-control",
+      "detail": "New lesson topics/transactions-and-concurrency-control (added 2026-10-27, syllabus-coverage.json subject Databases, unit Transactions, coverage_status PUBLISHED, 8 subtopics, 21 microtopics) serves no notes card: the notes repo has only the discrete-mathematics subject. Covers ACID, conflict and view serialisability, precedence graphs, recoverability, 2PL, timestamp ordering and the Thomas write rule."
+    },
+    {
+      "kind": "notes",
+      "placement": "discrete-mathematics › combinatorics › double-counting",
+      "detail": "Mock unit 7 group 'Double counting' (5 questions: handshakes, cards sent, sum k*C(10,k)) matches no card. The nearest card is basic-counting-rules, whose sum/product/subtraction/bijection rules do not include counting one set two ways, so no link was written."
     }
   ]
 }
