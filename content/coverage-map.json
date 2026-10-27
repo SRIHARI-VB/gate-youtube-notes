@@ -1411,6 +1411,11 @@
       "kind": "notes",
       "placement": "computer-networks › fundamentals › layering-switching-and-performance-metrics",
       "detail": "New lesson topics/layering-switching-and-performance-metrics (added 2026-10-27, PUBLISHED, 10 scenes in transcript.md, 7 subtopics and 20 microtopics in syllabus-coverage.json) covers layering principles, OSI and TCP/IP stacks, encapsulation and per-hop versus end-to-end addressing, circuit/packet/virtual-circuit switching, store-and-forward against cut-through, transmission, propagation and queuing delay, pipelined end-to-end delay over N links, throughput as the bottleneck and the bandwidth-delay product; checked against transcript.md, not the alias list. The notes repo has no computer-networks subject, so no card serves it. The mock unit on the same ground is computer-networks/network-fundamentals-framing (50 questions: osi-and-tcp-ip-models 13, transmission-delays-bandwidth-delay-product 12, framing-bit-byte-stuffing 12, error-detection-crc-checksum-hamming 13)."
+    },
+    {
+      "kind": "notes",
+      "placement": "theory-of-computation › turing-machines-decidability › (no card)",
+      "detail": "Mock unit 4 'Turing Machines & Decidability' (unit_slug turing-machines-decidability) closed Set 2 of 2 on 2026-10-28 (run 8, paper theory-of-computation/turing-machines-decidability/gate_toc_mock_4_2026-10-28.html, Set 1 archived) and now holds 50 questions, at the 50-question cap, over 5 subtopic_label groups of 10 each: Standard TM models & variants 10, Recursive vs recursively enumerable 10, Halting problem & undecidability 10, Rice’s theorem & reductions 10, Chomsky hierarchy summary 10. The notes repo has no theory-of-computation subject, so no card serves any of them. No published lesson covers them either: syllabus-coverage.json places them under Theory of Computation › Computability › Turing machines and undecidability with coverage_status NOT_STARTED and lesson_slug null."
     }
   ]
 }
