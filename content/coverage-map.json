@@ -1282,6 +1282,16 @@
       "kind": "visual",
       "placement": "programming-data-structures › pointers-memory › pointers-to-functions, dynamic-memory-allocation",
       "detail": "No published lesson covers function pointers or dynamic memory allocation: the topics/pointers-in-c transcript contains no mention of either, and its subtopics stop at pointer arithmetic, array decay, sizeof semantics, pointer to pointer and dangling pointers. Unit 2's other two groups are served by pointers-in-c (Pointer arithmetic) and functions-scope-and-preprocessor (Macro expansion, scope & lifetime)."
+    },
+    {
+      "kind": "notes",
+      "placement": "compiler-design › bottom-up-parsing › (no card)",
+      "detail": "New mock set, Compiler Design Unit 3 'Syntax Analysis: Bottom-Up Parsing' (run 5, 2026-10-27, paper compiler-design/bottom-up-parsing/gate_cd_mock_3_2026-10-27.html), holds 25 questions over 4 subtopic groups: lr0-items-parsing 7, slr1-parsing-conflicts 7, lr1-and-lalr1-parsers 6, operator-precedence-parsing 5. Every compiler-design record carries subtopic_label null, so the grouping is by the subtopic slug field; no label is stated. The notes repo covers discrete mathematics only, so no card serves any of them."
+    },
+    {
+      "kind": "notes",
+      "placement": "databases › relational-model › relational-algebra-and-sql",
+      "detail": "New lesson topics/relational-algebra-and-sql (registered 2026-10-27; syllabus-coverage.json coverage_status PUBLISHED, lesson_slug relational-algebra-and-sql, 4 subtopics: relational algebra operators, tuple relational calculus, SQL queries/joins/subqueries, ER to relational mapping). Its transcript.md was read: 10 scenes covering the six primitives, projection against SELECT DISTINCT, joins and relational division. The notes repo has no databases subject, so no card serves it. The databases bank already holds unit 1 er-relational-algebra with 50 questions (relational-algebra-select-project-join-division 16, er-diagrams-cardinality-weak-entities 12, relational-model-constraints 12, tuple-and-domain-relational-calculus 10), so only the notes card is missing."
     }
   ]
 }
