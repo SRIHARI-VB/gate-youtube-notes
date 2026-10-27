@@ -1257,6 +1257,16 @@
       "kind": "visual",
       "placement": "discrete-mathematics › first-order-logic › fol-validity-and-implication, fol-tautology-vs-validity, fol-exactly-one-and-uniqueness, fol-model-size-and-countermodels, fol-quantifier-inference-rules",
       "detail": "topics/first-order-logic covers predicates, both quantifiers, the domain, quantifier negation, quantifier order and free/bound variables only; validity, uniqueness, countermodels and quantifier inference rules are absent from its transcript."
+    },
+    {
+      "kind": "notes",
+      "placement": "compiler-design › top-down-parsing › (no card)",
+      "detail": "New mock set, Compiler Design Unit 2 'Syntax Analysis: Top-Down Parsing' (runs 3 and 4, 2026-10-27, paper compiler-design/top-down-parsing/gate_cd_mock_2_2026-10-27.html), holds 50 questions, at the unit cap, over 4 groups counted from the bank's subtopic field (first-and-follow-sets 15, left-recursion-and-factoring 12, recursive-descent-parsers 12, ll1-parsing-tables 11). This bank carries no subtopic_label field, so the subtopic field is the grouping. The notes repo covers discrete mathematics only, so no card serves any of them."
+    },
+    {
+      "kind": "notes",
+      "placement": "operating-systems › memory › file-systems",
+      "detail": "New lesson topics/file-systems (added 2026-10-27, PUBLISHED, 10 scenes, 29 microtopics in syllabus-coverage.json) covers file and directory structure, contiguous, linked and indexed allocation, FAT and inode pointer trees, free space management, hard and symbolic links, and the disk-access counts of an open and an insert. The notes repo has no operating-systems subject, so no card serves it."
     }
   ]
 }
