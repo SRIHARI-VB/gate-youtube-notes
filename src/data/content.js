@@ -198,7 +198,7 @@ window.GATE_DATA = {
      {
       "slug": "eigenvalues-and-eigenvectors",
       "name": "Eigenvalues and Eigenvectors",
-      "material": "planned"
+      "material": "cards"
      },
      {
       "slug": "lu-decomposition",
@@ -12692,6 +12692,939 @@ window.GATE_DATA = {
    "subject": "linear-algebra",
    "topic": "system-of-linear-equations",
    "path": "subjects/linear-algebra/system-of-linear-equations/no-solution-versus-infinite.json"
+  },
+  {
+   "id": "eigenvalue-and-eigenvector-definition",
+   "title": "Eigenvalue and Eigenvector: Av = lambda v",
+   "priority": "P1",
+   "order": 132,
+   "unit": "The eigenpair",
+   "quickIdea": "An eigenvector is a nonzero vector that the matrix only stretches, shrinks or flips, never turns; the factor it is multiplied by is its eigenvalue.",
+   "remember": [
+    "The definition is Av = lambda v with v not equal to 0. The zero vector is excluded because A0 = 0 = lambda 0 holds for every lambda, which would make every number an eigenvalue.",
+    "The eigenvalue may be 0. A singular matrix has 0 as an eigenvalue, and its eigenvectors for 0 are the nonzero vectors of the null space of A.",
+    "The eigenvector is not unique: if v is an eigenvector for lambda then so is every nonzero multiple c v. Only the line through v is determined, not the vector.",
+    "Av parallel to v includes the antiparallel case, so lambda may be negative; lambda = 0 collapses the vector onto the origin.",
+    "A real matrix may have complex eigenvalues, and the eigenvectors for them are then complex vectors."
+   ],
+   "example": {
+    "prompt": "For A = [[2,1],[1,2]], test x = (1,1) and y = (1,0).",
+    "work": "Ax = (2+1, 1+2) = (3,3) = 3 (1,1), so x keeps its line and is scaled by 3. Ay = (2,1), which is not a multiple of (1,0), so y does not keep its line.",
+    "answer": "x is an eigenvector with eigenvalue 3; y is not an eigenvector. The other eigenvalue of A is 1, with eigenvector (1,-1)."
+   },
+   "gateAngle": "GATE rarely asks for the definition. It hands you a matrix and a vector and asks whether the vector is an eigenvector, as in 2015 Set 3 Q.15, or it states an eigenpair and asks what follows. Substituting into Av = lambda v is faster and safer than expanding a characteristic equation, and it also tells you which eigenvalue the vector belongs to.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "A = [[1,1],[1,-1]] and v = (1,0). Is v an eigenvector of A?",
+     "answer": "No. Av = (1,1), and (1,1) is not a multiple of (1,0).",
+     "why": "The definition is checked by one matrix-vector product, not by solving the characteristic equation; the eigenvectors of this A are (1,1+sqrt2) and (1,1-sqrt2) up to scale, and neither lies on the x axis."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why does the definition insist that the eigenvector is nonzero, when the equation Av = lambda v would still be true for v = 0?",
+     "answer": "Because A0 = 0 = lambda 0 for every lambda and every A, so allowing v = 0 would make every scalar an eigenvalue of every matrix and the concept would carry no information.",
+     "why": "The definition has to pin down a property of A, and only nonzero v can do that."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "A is 3x3 and A v = -2v for v = (1,0,1). What is the eigenvalue, and is (3,0,3) also an eigenvector?",
+     "answer": "The eigenvalue is -2, and (3,0,3) = 3v is also an eigenvector for -2.",
+     "why": "The sign of the eigenvalue is read off the equation directly, and eigenvectors come in whole lines: every nonzero multiple works."
+    }
+   ],
+   "trap": {
+    "what": "Reading 'parallel' as 'pointing the same way', so a negative eigenvalue is missed, and counting v = 0 as an eigenvector because the equation holds.",
+    "why": "Av = lambda v permits lambda < 0, which reverses the vector while keeping its line, and it excludes v = 0 by definition.",
+    "counterexample": "A = [[0,1],[1,0]] sends (1,-1) to (-1,1) = -1 times (1,-1), so -1 is an eigenvalue even though the vector turns round. And A0 = 0 for this A and for every other matrix, so 0 cannot be counted."
+   },
+   "check": {
+    "question": "A = [[3,0],[0,3]]. How many distinct eigenvalues does A have, and which vectors are its eigenvectors?",
+    "answer": "One distinct eigenvalue, 3, and every nonzero vector in the plane is an eigenvector for it.",
+    "explanation": "A = 3I multiplies every vector by 3, so every line is kept. This is the extreme case behind GATE CSE 2026 Set 1 Q.3, where the maximum multiplicity of an eigenvalue of an n x n matrix is n."
+   },
+   "pyqIds": [
+    "gate-2015-set3-15-eigenvector-for-lambda-1"
+   ],
+   "prereqs": [
+    "matrix-multiplication-and-noncommutativity"
+   ],
+   "videoRefs": [],
+   "sources": [
+    {
+     "kind": "lecture",
+     "title": "Lecture 46: Eigenvalues and Eigenvectors",
+     "channel": "NPTEL, IIT Kharagpur (Prof. Jitendra Kumar, Engineering Mathematics I)",
+     "url": "https://www.youtube.com/watch?v=h5urBuE4Xhg",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "the definition with v nonzero, the geometric reading, the characteristic equation, the eigenspace, a 2x2 worked example with eigenvalues 3 and -2, the repeated-root example whose eigenvalue 1 has only one eigenvector, and Cayley-Hamilton with the inverse from it"
+    },
+    {
+     "kind": "lecture",
+     "title": "Lec 6.1 Eigenvalues and Eigenvectors (CS7015 Deep Learning)",
+     "channel": "NPTEL-NOC IIT Madras (Prof. Mitesh Khapra)",
+     "url": "https://www.youtube.com/watch?v=BTzz3BuYuM8",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "the opening: what a matrix does to a vector, eigenvectors as the vectors that keep their line, the dominant eigenvalue, and the two-restaurant steady-state motivation; read to the point where the lecture moves into PCA"
+    },
+    {
+     "kind": "lecture",
+     "title": "Eigen Value Eigen Vector | Engineering Mathematics ONESHOT (Hindi)",
+     "channel": "GanitAnk (Hindi engineering mathematics)",
+     "url": "https://www.youtube.com/watch?v=qeZ7oW-Jrnc",
+     "language": "hi",
+     "transcript": "PARTIAL",
+     "translated": true,
+     "note": "the characteristic equation written as lambda^3 - s1 lambda^2 + s2 lambda - det = 0, eigenvectors from Cramer's rule, the repeated-eigenvalue case, and the inverse from Cayley-Hamilton; read in part, the last third of the stream not read"
+    }
+   ],
+   "sourceLine": "NPTEL IIT Kharagpur Lecture 46, 'Eigenvalues and Eigenvectors' (English, read in full) for the definition with v nonzero, the geometric reading and the worked 2x2 example. NPTEL-NOC IIT Madras CS7015 Lec 6.1 (English, read in part) for the 'what a matrix does to a vector' framing. GanitAnk's Hindi one-shot (Hindi, read in part, translated) for the phrasing of the nonzero condition; the sentences taken from it are translated. Every eigenpair printed on this card is rechecked by A v = lambda v in scripts/validate.py.",
+   "visual": "linear-algebra/eigenvalues-and-eigenvectors/eigen-directions",
+   "subject": "linear-algebra",
+   "topic": "eigenvalues-and-eigenvectors",
+   "path": "subjects/linear-algebra/eigenvalues-and-eigenvectors/eigenvalue-and-eigenvector-definition.json"
+  },
+  {
+   "id": "characteristic-equation-and-roots",
+   "title": "Characteristic Equation and Its Roots",
+   "priority": "P1",
+   "order": 133,
+   "unit": "The eigenpair",
+   "quickIdea": "det(A - lambda I) = 0 is a polynomial equation of degree n; its n roots, counted with multiplicity and over the complex numbers, are exactly the eigenvalues.",
+   "remember": [
+    "det(A - lambda I) and det(lambda I - A) differ only by the factor (-1)^n, so they have the same roots; either form is safe.",
+    "2x2 shortcut: lambda^2 - (tr A) lambda + det A = 0.",
+    "3x3: lambda^3 - s1 lambda^2 + s2 lambda - det A = 0, where s1 = tr A and s2 is the sum of the three principal 2x2 minors.",
+    "An n x n matrix has n eigenvalues counted with multiplicity, but it may have fewer than n distinct real eigenvalues, and over the reals it may have none at all.",
+    "The coefficient of lambda^(n-1) is -tr A and the constant term is (-1)^n det A, which is exactly where sum = trace and product = determinant come from."
+   ],
+   "example": {
+    "prompt": "Find the characteristic polynomial of A = [[1,2,3],[0,4,5],[0,0,6]] and read off its eigenvalues.",
+    "work": "A is upper triangular, so det(A - lambda I) = (1-lambda)(4-lambda)(6-lambda). Expanding: tr A = 11, det A = 24, and the principal minors are 1x4 = 4, 1x6 = 6, 4x6 = 24, so s2 = 34. The polynomial is lambda^3 - 11 lambda^2 + 34 lambda - 24.",
+    "answer": "Eigenvalues 1, 4, 6. Check: 1+4+6 = 11 = tr A and 1x4x6 = 24 = det A."
+   },
+   "gateAngle": "Almost no GATE question needs the full cubic. 2016 Set 1 Q.5 and 2024 Set 1 Q.2 are settled by the product of the eigenvalues alone, 2025 Set 1 Q.31 by the 2x2 quadratic, and a triangular matrix by its diagonal. Build the polynomial only when the matrix is small and has no visible structure.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "A is 3x3 with tr A = 6, det A = 6, and one eigenvalue equal to 1. Find the other two.",
+     "answer": "2 and 3.",
+     "why": "The other two satisfy lambda2 + lambda3 = 6 - 1 = 5 and lambda2 lambda3 = 6/1 = 6, so they are the roots of t^2 - 5t + 6, namely 2 and 3. No cubic needs to be written."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why does every real 3x3 matrix have at least one real eigenvalue?",
+     "answer": "Its characteristic polynomial has degree 3 with real coefficients, and a real polynomial of odd degree takes both signs at infinity, so it has a real root by the intermediate value theorem.",
+     "why": "This is the reason a real matrix of odd order can never have all its eigenvalues non-real, which is the argument GATE CSE 2016 Set 1 Q.5 relies on."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "A 4x4 real matrix has characteristic polynomial lambda^4 - 5 lambda^3 + 7 lambda^2 - 3 lambda. What follows at once?",
+     "answer": "0 is an eigenvalue and A is singular, because the constant term is 0 and the constant term is det A.",
+     "why": "The constant term of the characteristic polynomial of an n x n matrix is (-1)^n det A, so a zero constant term means a zero determinant."
+    }
+   ],
+   "trap": {
+    "what": "Assuming an n x n real matrix has n real eigenvalues, or that a repeated root of the polynomial is somehow not a separate eigenvalue.",
+    "why": "The polynomial has degree n over the complex numbers, so it always has n roots there, but a real matrix can have non-real roots, and multiplicity counts.",
+    "counterexample": "A = [[0,-1],[1,0]] gives lambda^2 + 1 = 0, so the eigenvalues are i and -i: two eigenvalues, no real one. A = [[2,1],[0,2]] gives (2-lambda)^2 = 0, so 2 is an eigenvalue of multiplicity 2."
+   },
+   "check": {
+    "question": "A is 2x2 with tr A = 7 and det A = 12. What are its eigenvalues?",
+    "answer": "3 and 4.",
+    "explanation": "lambda^2 - 7 lambda + 12 = (lambda-3)(lambda-4) = 0. Sum 7 and product 12 agree with the trace and determinant, which is the check that the answer is right."
+   },
+   "pyqIds": [
+    "gate-2016-set1-05-determinant-from-eigenvalues",
+    "gate-2024-set1-2-product-of-eigenvalues"
+   ],
+   "prereqs": [
+    "determinant-definition-and-cofactor-expansion"
+   ],
+   "videoRefs": [],
+   "sources": [
+    {
+     "kind": "lecture",
+     "title": "Lecture 46: Eigenvalues and Eigenvectors",
+     "channel": "NPTEL, IIT Kharagpur (Prof. Jitendra Kumar, Engineering Mathematics I)",
+     "url": "https://www.youtube.com/watch?v=h5urBuE4Xhg",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "the definition with v nonzero, the geometric reading, the characteristic equation, the eigenspace, a 2x2 worked example with eigenvalues 3 and -2, the repeated-root example whose eigenvalue 1 has only one eigenvector, and Cayley-Hamilton with the inverse from it"
+    },
+    {
+     "kind": "lecture",
+     "title": "Eigen Value Eigen Vector | Engineering Mathematics ONESHOT (Hindi)",
+     "channel": "GanitAnk (Hindi engineering mathematics)",
+     "url": "https://www.youtube.com/watch?v=qeZ7oW-Jrnc",
+     "language": "hi",
+     "transcript": "PARTIAL",
+     "translated": true,
+     "note": "the characteristic equation written as lambda^3 - s1 lambda^2 + s2 lambda - det = 0, eigenvectors from Cramer's rule, the repeated-eigenvalue case, and the inverse from Cayley-Hamilton; read in part, the last third of the stream not read"
+    }
+   ],
+   "sourceLine": "NPTEL IIT Kharagpur Lecture 46 (English, read in full) for the characteristic equation, the degree-n reading and the worked 2x2 example. GanitAnk's Hindi one-shot (Hindi, read in part, translated) for the 3x3 form lambda^3 - s1 lambda^2 + s2 lambda - det = 0 and the principal-minor reading of s2; the sentences taken from it are translated. The 3x3 example's trace, determinant, principal minors and polynomial are recomputed in scripts/validate.py.",
+   "subject": "linear-algebra",
+   "topic": "eigenvalues-and-eigenvectors",
+   "path": "subjects/linear-algebra/eigenvalues-and-eigenvectors/characteristic-equation-and-roots.json"
+  },
+  {
+   "id": "eigenspace-and-computing-eigenvectors",
+   "title": "Eigenspace: the Eigenvectors of a Known Eigenvalue",
+   "priority": "P1",
+   "order": 134,
+   "unit": "The eigenpair",
+   "quickIdea": "Once an eigenvalue is known, its eigenvectors are the nonzero solutions of (A - lambda I)x = 0; that null space is the eigenspace, and its dimension is the geometric multiplicity.",
+   "remember": [
+    "Eigenspace E_lambda = null(A - lambda I). It always contains the zero vector; the eigenvectors are its nonzero vectors.",
+    "dim E_lambda = n - rank(A - lambda I), where n is the order of A.",
+    "Eigenspaces of distinct eigenvalues meet only at 0, so eigenvectors for different eigenvalues are linearly independent.",
+    "An eigenvector is a line, not a point: write the answer as alpha times a basis vector with alpha not 0, never as one chosen multiple.",
+    "Computing the eigenspace is just solving a homogeneous system, so every earlier fact about null space and free variables applies unchanged."
+   ],
+   "example": {
+    "prompt": "A = [[1,-1,2],[0,1,0],[1,2,1]] has eigenvalue 1. Find its eigenvectors.",
+    "work": "A - I = [[0,-1,2],[0,0,0],[1,2,0]]. The equations are -y + 2z = 0 and x + 2y = 0, so y = 2z and x = -4z. With z = alpha, x = -4 alpha and y = 2 alpha. The middle row is entirely zero, so rank(A - I) = 2 and the nullity is 3 - 2 = 1.",
+    "answer": "The eigenspace is { alpha (-4, 2, 1) : alpha not 0 }, one line through the origin. Check: A(-4,2,1) = (-4+ -2 + 2, 2, -4+4+1) = (-4,2,1)."
+   },
+   "gateAngle": "2015 Set 3 Q.15 gives this matrix, states that 1 is an eigenvalue, and asks for the eigenvector set. Two routes work: row-reduce A - I, or substitute each offered vector into Av = v. The second is faster under time pressure and is the one to fall back on when the options are already in the alpha-times-a-vector form.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "A = [[2,1],[0,2]]. Find the eigenspace for lambda = 2 and its dimension.",
+     "answer": "E_2 = { alpha (1,0) : alpha not 0 }, of dimension 1.",
+     "why": "A - 2I = [[0,1],[0,0]] has rank 1, so the nullity is 2 - 1 = 1 even though the algebraic multiplicity of 2 is 2. That difference is the whole subject of the multiplicity card."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why can two eigenspaces of different eigenvalues never share a nonzero vector?",
+     "answer": "If x were nonzero in both, Ax = lambda x and Ax = mu x, so (lambda - mu) x = 0; since x is nonzero, lambda = mu.",
+     "why": "This one-line argument is also the proof that eigenvectors for distinct eigenvalues are independent, which the diagonalisability card uses."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "For the same 3x3 matrix, rank(A - I) = 2. How many independent eigenvectors does the eigenvalue 1 have?",
+     "answer": "One.",
+     "why": "Geometric multiplicity is n - rank(A - lambda I) = 3 - 2 = 1, so the eigenspace is a single line whatever the algebraic multiplicity of 1 turns out to be."
+    }
+   ],
+   "trap": {
+    "what": "Reporting a single numeric vector such as (-4,2,1) as the answer, or forgetting the alpha not equal to 0 condition and including the zero vector.",
+    "why": "Every nonzero multiple is an eigenvector, so the answer is a set of vectors, not one vector; and 0 lies in the eigenspace but is excluded from the eigenvectors by definition.",
+    "counterexample": "For A = [[2,1],[0,2]], both (1,0) and (7,0) satisfy Av = 2v, while (0,0) satisfies the equation and is still not an eigenvector."
+   },
+   "check": {
+    "question": "A is 4x4 and lambda = 5 is an eigenvalue with rank(A - 5I) = 3. How many independent eigenvectors does 5 have?",
+    "answer": "One.",
+    "explanation": "dim E_5 = n - rank(A - 5I) = 4 - 3 = 1, so the eigenspace is a line and the geometric multiplicity is 1."
+   },
+   "pyqIds": [
+    "gate-2015-set3-15-eigenvector-for-lambda-1"
+   ],
+   "prereqs": [
+    "homogeneous-systems",
+    "eigenvalue-and-eigenvector-definition"
+   ],
+   "videoRefs": [],
+   "sources": [
+    {
+     "kind": "lecture",
+     "title": "Lecture 46: Eigenvalues and Eigenvectors",
+     "channel": "NPTEL, IIT Kharagpur (Prof. Jitendra Kumar, Engineering Mathematics I)",
+     "url": "https://www.youtube.com/watch?v=h5urBuE4Xhg",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "the definition with v nonzero, the geometric reading, the characteristic equation, the eigenspace, a 2x2 worked example with eigenvalues 3 and -2, the repeated-root example whose eigenvalue 1 has only one eigenvector, and Cayley-Hamilton with the inverse from it"
+    },
+    {
+     "kind": "lecture",
+     "title": "Eigen Value Eigen Vector | Engineering Mathematics ONESHOT (Hindi)",
+     "channel": "GanitAnk (Hindi engineering mathematics)",
+     "url": "https://www.youtube.com/watch?v=qeZ7oW-Jrnc",
+     "language": "hi",
+     "transcript": "PARTIAL",
+     "translated": true,
+     "note": "the characteristic equation written as lambda^3 - s1 lambda^2 + s2 lambda - det = 0, eigenvectors from Cramer's rule, the repeated-eigenvalue case, and the inverse from Cayley-Hamilton; read in part, the last third of the stream not read"
+    }
+   ],
+   "sourceLine": "NPTEL IIT Kharagpur Lecture 46 (English, read in full) for the eigenspace as the null space of A - lambda I and the worked example with eigenvalues 3 and -2. GanitAnk's Hindi one-shot (Hindi, read in part, translated) for computing eigenvectors by Cramer's rule on A - lambda I; the sentences taken from it are translated. The 2015 Set 3 matrix, its eigenvector and the rank of A - I are recomputed in scripts/validate.py.",
+   "subject": "linear-algebra",
+   "topic": "eigenvalues-and-eigenvectors",
+   "path": "subjects/linear-algebra/eigenvalues-and-eigenvectors/eigenspace-and-computing-eigenvectors.json"
+  },
+  {
+   "id": "eigenvalue-properties-of-matrix-functions",
+   "title": "Eigenvalues of A^k, A^-1, A^T and Polynomials in A",
+   "priority": "P1",
+   "order": 135,
+   "unit": "Eigenvalue properties and structure",
+   "quickIdea": "If Av = lambda v then the same v is an eigenvector of A^k, of A^-1, of A^T, of A + cI and of any polynomial p(A), with eigenvalue lambda^k, 1/lambda, lambda, lambda + c and p(lambda).",
+   "remember": [
+    "Sum of the eigenvalues = tr A and product of the eigenvalues = det A, both counted with multiplicity. These two identities answer most GATE eigenvalue questions.",
+    "A^k has eigenvalues lambda^k with the same eigenvectors; A^-1 has eigenvalues 1/lambda, defined only when A is invertible.",
+    "A^T has the same eigenvalues as A, but its eigenvectors are generally different.",
+    "p(A) has eigenvalues p(lambda) for the same eigenvectors, so A^2 + 3A has eigenvalues lambda^2 + 3 lambda, and A + cI shifts every eigenvalue by c.",
+    "det(A^k) = (det A)^k and det(A^-1) = 1/det A, because the determinant is the product of the eigenvalues."
+   ],
+   "example": {
+    "prompt": "A = [[1,1],[1,-1]]. Find the eigenvalues of A^13.",
+    "work": "lambda^2 - (tr A) lambda + det A = lambda^2 - 0 lambda - 2 = 0, so lambda = sqrt2 and -sqrt2. A^13 has eigenvalues (sqrt2)^13 and (-sqrt2)^13. Since (sqrt2)^12 = 2^6 = 64, these are 64 sqrt2 and -64 sqrt2. Direct check: A^2 = 2I, so A^13 = (A^2)^6 A = 64A = [[64,64],[64,-64]], whose eigenvalues are 64 sqrt2 and -64 sqrt2.",
+    "answer": "64 sqrt2 and -64 sqrt2, option D of GATE CSE 2025 Set 1 Q.31."
+   },
+   "gateAngle": "2025 Set 1 Q.31 asks for the eigenvalues of A^13 and 2016 Set 2 Q.6 for det((A^-1)^T). Neither needs an eigenvector: the first is the power rule, the second is the product rule followed by det(A^-1) = 1/det A and det(A^T) = det A.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "The eigenvalues of A are 1, 2 and 4. What are the eigenvalues of A^2 + 3A?",
+     "answer": "4, 10 and 28.",
+     "why": "Apply p(lambda) = lambda^2 + 3 lambda to each eigenvalue: 1+3 = 4, 4+6 = 10, 16+12 = 28. The eigenvectors stay the same, which is why the rule is safe."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why does A^T have the same eigenvalues as A?",
+     "answer": "Because det(A^T - lambda I) = det((A - lambda I)^T) = det(A - lambda I), so the two matrices have identical characteristic polynomials.",
+     "why": "This is a determinant identity, not a statement about eigenvectors, and the eigenvectors of A^T really can differ from those of A."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "A is 3x3 with eigenvalues 2, -1 and 3. What is det(A^2)?",
+     "answer": "36.",
+     "why": "det(A^2) = (det A)^2 = (2 x -1 x 3)^2 = 36, or equivalently the product 4 x 1 x 9 of the squared eigenvalues."
+    }
+   ],
+   "trap": {
+    "what": "Assuming eigenvalues add or subtract under A + B, or that A and A^T share eigenvectors.",
+    "why": "The eigenvalue rules are one-matrix rules: they hold for powers, inverses, transposes and polynomials of a single A, and there is no rule at all for a sum of two matrices.",
+    "counterexample": "A = [[0,1],[0,0]] and B = [[0,0],[1,0]] both have eigenvalues 0, 0, but A + B = [[0,1],[1,0]] has eigenvalues 1 and -1, not 0 and 0."
+   },
+   "check": {
+    "question": "The eigenvalues of A are 3 and 5. What are the eigenvalues of A^-1, and of A^2 - I?",
+    "answer": "A^-1 has 1/3 and 1/5; A^2 - I has 8 and 24.",
+    "explanation": "The inverse rule gives 1/lambda, and the polynomial rule with p(t) = t^2 - 1 gives 9-1 = 8 and 25-1 = 24. Both hold only because A is invertible, which det A = 15 confirms."
+   },
+   "pyqIds": [
+    "gate-2025-set1-31-eigenvalues-of-a13",
+    "gate-2016-set2-06-determinant-of-inverse-transpose"
+   ],
+   "prereqs": [
+    "eigenvalue-and-eigenvector-definition",
+    "matrix-powers-and-special-matrices"
+   ],
+   "videoRefs": [],
+   "sources": [
+    {
+     "kind": "lecture",
+     "title": "Lecture 46: Eigenvalues and Eigenvectors",
+     "channel": "NPTEL, IIT Kharagpur (Prof. Jitendra Kumar, Engineering Mathematics I)",
+     "url": "https://www.youtube.com/watch?v=h5urBuE4Xhg",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "the definition with v nonzero, the geometric reading, the characteristic equation, the eigenspace, a 2x2 worked example with eigenvalues 3 and -2, the repeated-root example whose eigenvalue 1 has only one eigenvector, and Cayley-Hamilton with the inverse from it"
+    },
+    {
+     "kind": "text",
+     "title": "Linear Algebra subject notes and revision notes",
+     "channel": "GATE Overflow",
+     "url": "https://gateoverflow.in/subject/mathematics/linear-algebra?tab=notes",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "the algebraic and geometric multiplicity definitions and the property list; the fetched body was cut off at the determinant section, so the eigenvalue section was read only through its search extract"
+    }
+   ],
+   "sourceLine": "NPTEL IIT Kharagpur Lecture 46 (English, read in full) for the eigenvalue relations that follow from the characteristic polynomial. GATE Overflow Linear Algebra notes (English, read in part) for the property list: sum is the trace, product is the determinant, powers and inverses carry the eigenvalue to the same power and reciprocal. Every value printed here, including A^13 = 64A, is recomputed in scripts/validate.py.",
+   "subject": "linear-algebra",
+   "topic": "eigenvalues-and-eigenvectors",
+   "path": "subjects/linear-algebra/eigenvalues-and-eigenvectors/eigenvalue-properties-of-matrix-functions.json"
+  },
+  {
+   "id": "algebraic-and-geometric-multiplicity",
+   "title": "Algebraic and Geometric Multiplicity",
+   "priority": "P1",
+   "order": 136,
+   "unit": "Eigenvalue properties and structure",
+   "quickIdea": "Algebraic multiplicity counts how often lambda is a root of the characteristic polynomial; geometric multiplicity counts the independent eigenvectors available for it; and 1 <= GM <= AM always.",
+   "remember": [
+    "AM is the multiplicity of lambda as a root of det(A - lambda I) = 0. GM is dim null(A - lambda I) = n - rank(A - lambda I).",
+    "1 <= GM <= AM for every eigenvalue, and the algebraic multiplicities of all the eigenvalues add up to n.",
+    "GM < AM exactly when there are too few eigenvectors, which is exactly when the matrix cannot be diagonalised.",
+    "The maximum algebraic multiplicity of any eigenvalue of an n x n matrix is n, attained by the identity; the minimum is 1.",
+    "For a real symmetric matrix AM = GM for every eigenvalue, so a symmetric matrix is never defective."
+   ],
+   "example": {
+    "prompt": "A = [[2,1],[0,2]]. Compare the algebraic and geometric multiplicity of 2.",
+    "work": "det(A - lambda I) = (2-lambda)^2, so lambda = 2 is a double root and AM = 2. A - 2I = [[0,1],[0,0]] has rank 1, so GM = 2 - 1 = 1: the only eigenvectors are the nonzero multiples of (1,0).",
+    "answer": "AM = 2 but GM = 1, so A is defective and not diagonalisable."
+   },
+   "gateAngle": "2026 Set 1 Q.3 asks for the maximum multiplicity of any eigenvalue of an n x n real matrix, which is n, and the identity matrix is the one-line proof that n is attained. 2018 Q.26 describes a matrix all of whose eigenvectors lie on a single line, which says GM = 1 while the matrix is 2 x 2, so the eigenvalue must repeat and the matrix cannot be diagonalised.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "A 5x5 matrix has characteristic polynomial lambda^3 (lambda - 4)^2. What are the possible values of rank(A)?",
+     "answer": "2, 3 or 4.",
+     "why": "GM(0) lies between 1 and AM(0) = 3, and rank(A) = 5 - dim null(A) = 5 - GM(0), so the rank is 5-3, 5-2 or 5-1."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Does a repeated eigenvalue force a matrix to be non-diagonalisable?",
+     "answer": "No. The identity 2x2 has the eigenvalue 1 with AM = 2 and GM = 2 and is already diagonal; repetition only creates the risk that GM falls short.",
+     "why": "The criterion is GM = AM for every eigenvalue, not distinctness of the eigenvalues."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "A is 4x4 with eigenvalues 3, 3, 3, -1, and rank(A - 3I) = 2. What is the geometric multiplicity of 3?",
+     "answer": "2, so A is not diagonalisable.",
+     "why": "GM = 4 - 2 = 2 while AM = 3, and a shortfall of even one makes the matrix defective."
+    }
+   ],
+   "trap": {
+    "what": "Equating the two multiplicities, or concluding from a repeated eigenvalue that the matrix cannot be diagonalised.",
+    "why": "AM counts polynomial roots and GM counts dimensions of a null space; they agree for symmetric matrices and for matrices with distinct eigenvalues, but not in general.",
+    "counterexample": "A = [[2,1],[0,2]] has AM = 2 and GM = 1, while [[2,0],[0,2]] has AM = GM = 2. Both have the repeated eigenvalue 2, so repetition alone decides nothing."
+   },
+   "check": {
+    "question": "A is 3x3 with characteristic polynomial (lambda - 1)^2 (lambda - 2) and rank(A - I) = 2. Is A diagonalisable?",
+    "answer": "No.",
+    "explanation": "GM(1) = 3 - 2 = 1 while AM(1) = 2, so the matrix is short of one eigenvector and cannot be diagonalised. The eigenvalue 2 has AM = GM = 1, but one defective eigenvalue is enough."
+   },
+   "pyqIds": [
+    "gate-2026-set1-3-maximum-multiplicity",
+    "gate-2018-26-single-eigenvector-direction"
+   ],
+   "prereqs": [
+    "characteristic-equation-and-roots",
+    "rank-and-its-bounds"
+   ],
+   "videoRefs": [],
+   "sources": [
+    {
+     "kind": "lecture",
+     "title": "Lecture 46: Eigenvalues and Eigenvectors",
+     "channel": "NPTEL, IIT Kharagpur (Prof. Jitendra Kumar, Engineering Mathematics I)",
+     "url": "https://www.youtube.com/watch?v=h5urBuE4Xhg",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "the definition with v nonzero, the geometric reading, the characteristic equation, the eigenspace, a 2x2 worked example with eigenvalues 3 and -2, the repeated-root example whose eigenvalue 1 has only one eigenvector, and Cayley-Hamilton with the inverse from it"
+    },
+    {
+     "kind": "text",
+     "title": "Linear Algebra subject notes and revision notes",
+     "channel": "GATE Overflow",
+     "url": "https://gateoverflow.in/subject/mathematics/linear-algebra?tab=notes",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "the algebraic and geometric multiplicity definitions and the property list; the fetched body was cut off at the determinant section, so the eigenvalue section was read only through its search extract"
+    }
+   ],
+   "sourceLine": "GATE Overflow Linear Algebra notes (English, read in part) for the algebraic and geometric multiplicity definitions and the AM >= GM statement. NPTEL IIT Kharagpur Lecture 46 (English, read in full) for the repeated-root example in which a double eigenvalue yields only one eigenvector direction. The multiplicity pairs on this card are recomputed in scripts/validate.py.",
+   "subject": "linear-algebra",
+   "topic": "eigenvalues-and-eigenvectors",
+   "path": "subjects/linear-algebra/eigenvalues-and-eigenvectors/algebraic-and-geometric-multiplicity.json"
+  },
+  {
+   "id": "diagonalisability-criterion",
+   "title": "Diagonalisability: When A = P D P^-1",
+   "priority": "P2",
+   "order": 137,
+   "unit": "Eigenvalue properties and structure",
+   "quickIdea": "A is diagonalisable exactly when it has n linearly independent eigenvectors; put them in the columns of P and the eigenvalues on the diagonal of D.",
+   "remember": [
+    "A is diagonalisable if and only if it has n linearly independent eigenvectors, that is, if and only if GM = AM for every eigenvalue.",
+    "n distinct eigenvalues are enough, because eigenvectors for distinct eigenvalues are independent; they are not necessary.",
+    "With A = P D P^-1, every power is A^k = P D^k P^-1, which is why diagonalisation makes powers cheap.",
+    "A real symmetric matrix is always diagonalisable, and orthogonally so: A = Q Lambda Q^T with Q orthogonal.",
+    "Similar matrices P^-1 A P have the same characteristic polynomial, hence the same eigenvalues, trace and determinant."
+   ],
+   "example": {
+    "prompt": "Diagonalise A = [[2,1],[1,2]].",
+    "work": "Eigenvalues 3 and 1, with eigenvectors (1,1) and (1,-1). Take P = [[1,1],[1,-1]] and D = diag(3,1). Since det P = -2, P^-1 = (1/2)[[1,1],[1,-1]]. Then P D = [[3,1],[3,-1]], and (P D) P^-1 = (1/2)[[3+1, 3-1],[3-1, 3+1]] = (1/2)[[4,2],[2,4]] = [[2,1],[1,2]].",
+    "answer": "A = P diag(3,1) P^-1 with P = [[1,1],[1,-1]]. The two eigenvalues are distinct, so independence was guaranteed before any computation."
+   },
+   "gateAngle": "2018 Q.26 is this card in one line: if every eigenvector lies on a single line, the matrix has fewer than n independent eigenvectors, so it cannot be diagonalised and its eigenvalue must repeat. The option that also claims it has no inverse is the trap, because a matrix can be non-diagonalisable and still invertible.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "Is A = [[1,2],[0,1]] diagonalisable?",
+     "answer": "No.",
+     "why": "det(A - lambda I) = (1-lambda)^2 gives AM = 2, while A - I = [[0,2],[0,0]] has rank 1 so GM = 1. With only one eigenvector direction there is no invertible P."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why do n distinct eigenvalues guarantee n independent eigenvectors?",
+     "answer": "If c1 v1 + ... + ck vk = 0 were a shortest dependence among eigenvectors of distinct eigenvalues, applying A gives c1 lambda1 v1 + ... + ck lambdak vk = 0, and subtracting lambda_k times the first relation leaves a shorter dependence, which is impossible.",
+     "why": "This is the standard induction argument, and it is why the distinct case never needs the AM = GM test."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "A is 3x3 with eigenvalues 1, 1 and 2, and rank(A - I) = 1. Is A diagonalisable?",
+     "answer": "Yes.",
+     "why": "GM(1) = 3 - 1 = 2 = AM(1), and the eigenvalue 2 has AM = GM = 1, so there are three independent eigenvectors in total."
+    }
+   ],
+   "trap": {
+    "what": "Thinking a repeated eigenvalue blocks diagonalisation, or that a non-diagonalisable matrix must be singular.",
+    "why": "Diagonalisability is about having enough independent eigenvectors, which is independent of whether the determinant is zero.",
+    "counterexample": "A = [[2,1],[0,2]] is not diagonalisable and yet det A = 4, so it is invertible. Conversely [[2,0],[0,2]] has the same repeated eigenvalue and is already diagonal."
+   },
+   "check": {
+    "question": "A is 2x2 with eigenvalues 4 and 4, and A is not a multiple of the identity. Is A diagonalisable?",
+    "answer": "No.",
+    "explanation": "A 2x2 with a double eigenvalue 4 either is 4I, which is diagonal, or has A - 4I of rank 1, giving GM = 1 against AM = 2. Since A is not 4I, it is defective."
+   },
+   "pyqIds": [
+    "gate-2018-26-single-eigenvector-direction"
+   ],
+   "prereqs": [
+    "algebraic-and-geometric-multiplicity"
+   ],
+   "videoRefs": [],
+   "sources": [
+    {
+     "kind": "lecture",
+     "title": "Lecture 46: Eigenvalues and Eigenvectors",
+     "channel": "NPTEL, IIT Kharagpur (Prof. Jitendra Kumar, Engineering Mathematics I)",
+     "url": "https://www.youtube.com/watch?v=h5urBuE4Xhg",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "the definition with v nonzero, the geometric reading, the characteristic equation, the eigenspace, a 2x2 worked example with eigenvalues 3 and -2, the repeated-root example whose eigenvalue 1 has only one eigenvector, and Cayley-Hamilton with the inverse from it"
+    },
+    {
+     "kind": "lecture",
+     "title": "Eigen Value Eigen Vector | Engineering Mathematics ONESHOT (Hindi)",
+     "channel": "GanitAnk (Hindi engineering mathematics)",
+     "url": "https://www.youtube.com/watch?v=qeZ7oW-Jrnc",
+     "language": "hi",
+     "transcript": "PARTIAL",
+     "translated": true,
+     "note": "the characteristic equation written as lambda^3 - s1 lambda^2 + s2 lambda - det = 0, eigenvectors from Cramer's rule, the repeated-eigenvalue case, and the inverse from Cayley-Hamilton; read in part, the last third of the stream not read"
+    }
+   ],
+   "sourceLine": "NPTEL IIT Kharagpur Lecture 46 (English, read in full) for the statement that distinct eigenvalues give independent eigenvectors, which the lecture proves later in the course. GanitAnk's Hindi one-shot (Hindi, read in part, translated) for the repeated-eigenvalue discussion that separates diagonalisable from defective cases; the sentences taken from it are translated. The factorisation P diag(3,1) P^-1 is multiplied back out in scripts/validate.py.",
+   "subject": "linear-algebra",
+   "topic": "eigenvalues-and-eigenvectors",
+   "path": "subjects/linear-algebra/eigenvalues-and-eigenvectors/diagonalisability-criterion.json"
+  },
+  {
+   "id": "symmetric-matrices-and-orthogonal-eigenvectors",
+   "title": "Real Symmetric Matrices: Real Eigenvalues, Orthogonal Eigenvectors",
+   "priority": "P1",
+   "order": 138,
+   "unit": "Eigenvalue properties and structure",
+   "quickIdea": "A real symmetric matrix has only real eigenvalues, eigenvectors for different eigenvalues are orthogonal, and it always factors as Q Lambda Q^T with Q orthogonal.",
+   "remember": [
+    "A^T = A forces every eigenvalue to be real, and forces AM = GM for each eigenvalue, so a real symmetric matrix is always diagonalisable.",
+    "Eigenvectors of a symmetric matrix that belong to different eigenvalues are orthogonal: x^T y = 0.",
+    "For symmetric A, the sum of the squares of all entries equals tr(A^T A) = tr(A^2) = the sum of the squares of the eigenvalues.",
+    "Rank equals the number of nonzero eigenvalues, and nullity equals the multiplicity of 0.",
+    "A real symmetric matrix with a repeated eigenvalue may have non-orthogonal eigenvectors inside that eigenspace, but they can always be replaced by an orthogonal basis of it."
+   ],
+   "example": {
+    "prompt": "Verify the symmetric-matrix facts on A = [[2,1],[1,2]].",
+    "work": "Eigenvalues 3 and 1 with eigenvectors (1,1) and (1,-1). Their dot product is 1x1 + 1x(-1) = 0, so they are orthogonal. tr A = 4 = 3 + 1 and det A = 3 = 3 x 1. Sum of squares of the entries is 4+1+1+4 = 10, and the sum of squares of the eigenvalues is 9+1 = 10.",
+    "answer": "Real eigenvalues, orthogonal eigenvectors, and the entry-square identity all hold, as the theorems promise for a symmetric matrix."
+   },
+   "gateAngle": "2017 Set 1 Q.31 gives a real symmetric matrix of rank 2 with the sum of the squares of its entries equal to 50 and asks which statements about its eigenvalues must hold. The bridge is tr(A^2) = sum of squared eigenvalues = 50 with n - 2 eigenvalues equal to 0, which forces at least one eigenvalue into [-5,5] but allows the largest magnitude to be exactly 5.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "A is a 3x3 real symmetric matrix of rank 1 whose entries satisfy the sum of squares = 18. What are its eigenvalues?",
+     "answer": "One eigenvalue equal to 3 sqrt2 or to -3 sqrt2, and 0 twice.",
+     "why": "Rank 1 leaves exactly one nonzero eigenvalue, and the sum of squared eigenvalues is 18, so lambda^2 = 18. The sign is not determined by the data, which is exactly why 2017 Set 1 Q.31 asks what must hold rather than what is."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why does a real symmetric matrix have real eigenvalues?",
+     "answer": "For a complex eigenpair with Ax = lambda x, take the conjugate transpose: x* A x = lambda x* x. The left side is real because A is real symmetric, and x* x is real and positive, so lambda is real.",
+     "why": "The argument uses symmetry in an essential way, which is why it fails for the rotation [[0,-1],[1,0]] whose eigenvalues are i and -i."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "A real 3x3 symmetric matrix has eigenvalues 1, 1 and -3. What is tr(A^2)?",
+     "answer": "11.",
+     "why": "tr(A^2) is the sum of the squared eigenvalues: 1 + 1 + 9 = 11. For a symmetric matrix this also equals the sum of the squares of all nine entries."
+    }
+   ],
+   "trap": {
+    "what": "Using the orthogonality of eigenvectors on a matrix that is not symmetric.",
+    "why": "The theorem needs A^T = A; without symmetry, eigenvectors of distinct eigenvalues are still independent but generally not perpendicular.",
+    "counterexample": "A = [[1,1],[0,2]] has eigenvalues 1 and 2 with eigenvectors (1,0) and (1,1), and (1,0) dot (1,1) = 1, not 0."
+   },
+   "check": {
+    "question": "A is a real 2x2 symmetric matrix with trace 6 and determinant 5. Find its eigenvalues and say whether its eigenvectors are orthogonal.",
+    "answer": "5 and 1, and yes, the eigenvectors are orthogonal.",
+    "explanation": "lambda^2 - 6 lambda + 5 = 0 gives 5 and 1. The eigenvalues are distinct and A is symmetric, so the two eigenvectors are perpendicular."
+   },
+   "pyqIds": [
+    "gate-2017-set1-31-symmetric-rank2-squares"
+   ],
+   "prereqs": [
+    "transpose-symmetric-and-skew-symmetric",
+    "eigenvalue-and-eigenvector-definition"
+   ],
+   "videoRefs": [],
+   "sources": [
+    {
+     "kind": "lecture",
+     "title": "Lecture 46: Eigenvalues and Eigenvectors",
+     "channel": "NPTEL, IIT Kharagpur (Prof. Jitendra Kumar, Engineering Mathematics I)",
+     "url": "https://www.youtube.com/watch?v=h5urBuE4Xhg",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "the definition with v nonzero, the geometric reading, the characteristic equation, the eigenspace, a 2x2 worked example with eigenvalues 3 and -2, the repeated-root example whose eigenvalue 1 has only one eigenvector, and Cayley-Hamilton with the inverse from it"
+    },
+    {
+     "kind": "text",
+     "title": "Linear Algebra subject notes and revision notes",
+     "channel": "GATE Overflow",
+     "url": "https://gateoverflow.in/subject/mathematics/linear-algebra?tab=notes",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "the algebraic and geometric multiplicity definitions and the property list; the fetched body was cut off at the determinant section, so the eigenvalue section was read only through its search extract"
+    }
+   ],
+   "sourceLine": "Standard references for the spectral theorem for real symmetric matrices: Lay, Linear Algebra and Its Applications, chapter 7, and Hoffman and Kunze, Linear Algebra, chapter 6. GATE Overflow Linear Algebra notes (English, read in part) for the property list used here. NPTEL IIT Kharagpur Lecture 46 (English, read in full) for the real-eigenvalue examples. The orthogonality, the trace and determinant values and the entry-square identity are recomputed in scripts/validate.py, including over every small integer symmetric matrix.",
+   "subject": "linear-algebra",
+   "topic": "eigenvalues-and-eigenvectors",
+   "path": "subjects/linear-algebra/eigenvalues-and-eigenvectors/symmetric-matrices-and-orthogonal-eigenvectors.json"
+  },
+  {
+   "id": "complex-eigenvalues-of-real-matrices",
+   "title": "Complex Eigenvalues of a Real Matrix",
+   "priority": "P2",
+   "order": 139,
+   "unit": "Eigenvalue properties and structure",
+   "quickIdea": "A real matrix has non-real eigenvalues only in conjugate pairs, so an odd-order real matrix always has at least one real eigenvalue and the pair multiplies to a positive real number.",
+   "remember": [
+    "If a + bi is an eigenvalue of a real matrix then a - bi is too, with the same algebraic multiplicity.",
+    "The pair multiplies to a^2 + b^2, which is positive, so a conjugate pair contributes a positive factor to the determinant.",
+    "A real 2x2 has complex eigenvalues exactly when (tr A)^2 < 4 det A.",
+    "A real matrix with a non-real eigenvalue has no real eigenvector for it; the eigenvector is complex.",
+    "The rotation [[0,-1],[1,0]] is the model case: eigenvalues i and -i, trace 0 and determinant 1."
+   ],
+   "example": {
+    "prompt": "Two eigenvalues of a real 3x3 matrix P are 2 + sqrt(-1) and 3. Find det P.",
+    "work": "A real matrix has real coefficients in its characteristic polynomial, so a non-real root forces its conjugate to be a root as well. The third eigenvalue is therefore 2 - sqrt(-1). The determinant is the product: (2+i)(2-i) x 3 = (4+1) x 3 = 15.",
+    "answer": "det P = 15, which is GATE CSE 2016 Set 1 Q.5."
+   },
+   "gateAngle": "2016 Set 1 Q.5 is the whole pattern: an odd-order real matrix, one non-real eigenvalue given, the conjugate inferred, the determinant taken as the product. The distractors come from multiplying only the two given eigenvalues, or from treating the missing eigenvalue as free.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "A real 2x2 matrix has trace 4 and determinant 13. Are its eigenvalues real?",
+     "answer": "No: they are 2 + 3i and 2 - 3i.",
+     "why": "The discriminant is (tr)^2 - 4 det = 16 - 52 = -36 < 0, so the quadratic lambda^2 - 4 lambda + 13 has a conjugate complex pair with real part tr/2 = 2."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why can a real matrix never have exactly one non-real eigenvalue?",
+     "answer": "Its characteristic polynomial has real coefficients, and a real polynomial's non-real roots occur in conjugate pairs because conjugation fixes the coefficients.",
+     "why": "This is why the count of non-real eigenvalues of a real matrix is always even, and why an odd-order real matrix must have a real eigenvalue."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "A real 4x4 matrix has eigenvalues 1, 3 and 2 + i among its four. What is the fourth, and what is det A?",
+     "answer": "The fourth is 2 - i, and det A = 1 x 3 x (2+i)(2-i) = 15.",
+     "why": "The conjugate fills the missing slot, and the determinant is the product of all four, with the pair contributing 5."
+    }
+   ],
+   "trap": {
+    "what": "Treating the eigenvalue that was not listed as free, or forgetting that the determinant is the product over all n eigenvalues including the conjugate.",
+    "why": "A real matrix has a fixed multiset of n eigenvalues counted with multiplicity; a non-real one pins down its partner, so the set is complete once one of the pair is known.",
+    "counterexample": "For a real 3x3 with 2+i and 3 given, taking det = (2+i) x 3 = 6 + 3i is impossible for a real matrix, and the true value is 15."
+   },
+   "check": {
+    "question": "A real 2x2 matrix has determinant 1 and trace 0. What are its eigenvalues?",
+    "answer": "i and -i.",
+    "explanation": "lambda^2 + 1 = 0. The matrix is a rotation by 90 degrees, which turns every real vector, so it has no real eigenvector at all."
+   },
+   "pyqIds": [
+    "gate-2016-set1-05-determinant-from-eigenvalues"
+   ],
+   "prereqs": [
+    "characteristic-equation-and-roots"
+   ],
+   "videoRefs": [],
+   "sources": [
+    {
+     "kind": "lecture",
+     "title": "Lecture 46: Eigenvalues and Eigenvectors",
+     "channel": "NPTEL, IIT Kharagpur (Prof. Jitendra Kumar, Engineering Mathematics I)",
+     "url": "https://www.youtube.com/watch?v=h5urBuE4Xhg",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "the definition with v nonzero, the geometric reading, the characteristic equation, the eigenspace, a 2x2 worked example with eigenvalues 3 and -2, the repeated-root example whose eigenvalue 1 has only one eigenvector, and Cayley-Hamilton with the inverse from it"
+    }
+   ],
+   "sourceLine": "NPTEL IIT Kharagpur Lecture 46 (English, read in full) for the statement that a matrix may have complex eigenvalues and complex eigenvectors, with the complex example whose characteristic equation has a repeated real root. The conjugate-pair fact and the discriminant test are standard results, recorded in the standard references for this topic, and every product printed here is recomputed in scripts/validate.py.",
+   "subject": "linear-algebra",
+   "topic": "eigenvalues-and-eigenvectors",
+   "path": "subjects/linear-algebra/eigenvalues-and-eigenvectors/complex-eigenvalues-of-real-matrices.json"
+  },
+  {
+   "id": "eigenvalues-of-special-structured-matrices",
+   "title": "Shortcuts: Triangular, Row-Sum, All-Ones and Rank-One Matrices",
+   "priority": "P1",
+   "order": 140,
+   "unit": "Eigenvalue properties and structure",
+   "quickIdea": "Recognising structure beats expanding a determinant: a triangular matrix reads its eigenvalues off the diagonal, a constant row sum is an eigenvalue, and J - I has n-1 once and -1 with multiplicity n-1.",
+   "remember": [
+    "Triangular or diagonal: the eigenvalues are exactly the diagonal entries, repeated as often as they appear.",
+    "If every row of A sums to c then c is an eigenvalue with eigenvector (1,1,...,1); the same holds for columns.",
+    "The all-ones matrix J of order n has eigenvalues n once and 0 with multiplicity n-1, because its rank is 1.",
+    "J - I therefore has eigenvalues n-1 once and -1 with multiplicity n-1. For n = 4 that is 3, -1, -1, -1.",
+    "A rank-one matrix u v^T has eigenvalues v^T u once and 0 with multiplicity n-1.",
+    "0 is an eigenvalue exactly when det A = 0; 1 is an eigenvalue exactly when det(A - I) = 0."
+   ],
+   "example": {
+    "prompt": "Find the largest eigenvalue of the 4x4 matrix with 0 on the diagonal and 1 everywhere else.",
+    "work": "The matrix is J - I with n = 4. Every row sums to 3, so 3 is an eigenvalue with eigenvector (1,1,1,1). J has rank 1 and trace 4, so its eigenvalues are 4, 0, 0, 0; subtracting I shifts each one by -1, giving 3, -1, -1, -1. The trace check holds: 3 - 1 - 1 - 1 = 0 = trace(J - I).",
+    "answer": "The eigenvalues are 3, -1, -1, -1, so the largest is 3, the answer to GATE CSE 2021 Set 1 Q.52."
+   },
+   "gateAngle": "2021 Set 1 Q.52 is J - I and is one line once the structure is seen. 2014 Set 2 Q.47 has rank 2 and trace 5, and the two nonzero eigenvalues are pinned by trace(A^2) = 13, giving 2 and 3 and a product of 6. Both are structure questions, not expansion questions.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "Every row of a 5x5 matrix sums to 4. Name one eigenvalue and one eigenvector.",
+     "answer": "4, with eigenvector (1,1,1,1,1).",
+     "why": "A(1,...,1)^T has i-th entry equal to the sum of row i, which is 4, so the all-ones vector is an eigenvector with eigenvalue 4."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why does a rank-one matrix u v^T have n-1 eigenvalues equal to 0?",
+     "answer": "Its image is the single line spanned by u, so its null space has dimension n-1, which is the geometric multiplicity of the eigenvalue 0.",
+     "why": "The remaining eigenvalue is the trace, v^T u, because the trace is the sum of all eigenvalues and the other n-1 are zero."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "A = J - I of order 5. What is det A?",
+     "answer": "4.",
+     "why": "The eigenvalues are 4 once and -1 four times, so the determinant is 4 x (-1)^4 = 4. The count of -1 eigenvalues is n-1 = 4, which is even here, so the sign is positive."
+    }
+   ],
+   "trap": {
+    "what": "Reading the eigenvalues off the diagonal of a matrix that is not triangular.",
+    "why": "The diagonal-reading rule depends on the matrix being triangular, which makes the characteristic determinant a product of diagonal terms; without that structure the off-diagonal entries change the roots.",
+    "counterexample": "A = [[1,2],[3,4]] has diagonal entries 1 and 4, but its eigenvalues are (5 + sqrt33)/2 and (5 - sqrt33)/2, about 5.372 and -0.372."
+   },
+   "check": {
+    "question": "A is 4x4 and rank one, of the form u v^T with v^T u = 7. What are its eigenvalues?",
+    "answer": "7, 0, 0, 0.",
+    "explanation": "The trace is v^T u = 7, the nullity is 3, so one eigenvalue is 7 and the other three are 0. The sum 7 matches the trace, which is the check."
+   },
+   "pyqIds": [
+    "gate-2021-set1-52-largest-eigenvalue",
+    "gate-2014-set2-47-product-of-nonzero-eigenvalues"
+   ],
+   "prereqs": [
+    "characteristic-equation-and-roots",
+    "rank-and-its-bounds"
+   ],
+   "videoRefs": [],
+   "sources": [
+    {
+     "kind": "lecture",
+     "title": "Lecture 46: Eigenvalues and Eigenvectors",
+     "channel": "NPTEL, IIT Kharagpur (Prof. Jitendra Kumar, Engineering Mathematics I)",
+     "url": "https://www.youtube.com/watch?v=h5urBuE4Xhg",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "the definition with v nonzero, the geometric reading, the characteristic equation, the eigenspace, a 2x2 worked example with eigenvalues 3 and -2, the repeated-root example whose eigenvalue 1 has only one eigenvector, and Cayley-Hamilton with the inverse from it"
+    },
+    {
+     "kind": "text",
+     "title": "Linear Algebra subject notes and revision notes",
+     "channel": "GATE Overflow",
+     "url": "https://gateoverflow.in/subject/mathematics/linear-algebra?tab=notes",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "the algebraic and geometric multiplicity definitions and the property list; the fetched body was cut off at the determinant section, so the eigenvalue section was read only through its search extract"
+    }
+   ],
+   "sourceLine": "NPTEL IIT Kharagpur Lecture 46 (English, read in full) for the triangular reading of eigenvalues and the trace-sum check. GATE Overflow Linear Algebra notes (English, read in part) for the property list behind the row-sum and rank-one shortcuts. The 2021 Set 1 Q.52 and 2014 Set 2 Q.47 matrices are recomputed in scripts/validate.py: ranks, traces, trace(A^2) and the resulting eigenvalues.",
+   "subject": "linear-algebra",
+   "topic": "eigenvalues-and-eigenvectors",
+   "path": "subjects/linear-algebra/eigenvalues-and-eigenvectors/eigenvalues-of-special-structured-matrices.json"
+  },
+  {
+   "id": "similar-matrices-and-what-preserves-eigenvalues",
+   "title": "What Preserves Eigenvalues: Similarity, Transpose, and the Row-Operation Trap",
+   "priority": "P2",
+   "order": 141,
+   "unit": "Eigenvalue properties and structure",
+   "quickIdea": "Similar matrices P^-1 A P and the transpose A^T have the same eigenvalues as A; elementary row operations generally do not.",
+   "remember": [
+    "det(P^-1 A P - lambda I) = det(P^-1 (A - lambda I) P) = det(A - lambda I), so similarity preserves the entire characteristic polynomial.",
+    "Similar matrices therefore share trace, determinant, rank and eigenvalues, but not eigenvectors.",
+    "A^T has the same characteristic polynomial as A, because det(A^T - lambda I) = det(A - lambda I).",
+    "Elementary row operations change eigenvalues in general: elimination is safe for solving Ax = 0 and Ax = b, not for finding eigenvalues.",
+    "Multiplying one row by k multiplies det A by k, and the eigenvalues move with it."
+   ],
+   "example": {
+    "prompt": "Compare the eigenvalues of A = [[1,2],[3,4]] and of the matrix obtained by the row operation R2 <- R2 - 3 R1.",
+    "work": "For A, lambda^2 - 5 lambda - 2 = 0, so the eigenvalues are (5 + sqrt33)/2 and (5 - sqrt33)/2, about 5.372 and -0.372. The row operation R2 <- R2 - 3 R1 gives B = [[1,2],[0,-2]], whose eigenvalues are 1 and -2. The trace moved from 5 to -1, so the eigenvalues moved with it; the determinant happens to stay at -2 here, which is a coincidence of this example, not a rule.",
+    "answer": "Row operations change the eigenvalues, which is why elimination must never be used to find them."
+   },
+   "gateAngle": "GATE tests this as a statement question: which operations leave the eigenvalues, the determinant or the rank unchanged. The recorded GATE CSE 2024 Set 2 Q.37 on row swaps, kept in the Matrices and Determinants topic, is settled by det(B - lambda I) = -det(A - lambda I) after a single swap: the eigenvalues survive and the determinant changes sign.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "A has eigenvalues 1, 2, 3. What are the eigenvalues of A^T, and of 2A?",
+     "answer": "A^T has 1, 2, 3; 2A has 2, 4, 6.",
+     "why": "Transposition preserves the characteristic polynomial, while scaling by 2 scales the characteristic polynomial's roots by 2, since det(2A - lambda I) = 2^n det(A - (lambda/2) I)."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why does similarity preserve the characteristic polynomial?",
+     "answer": "P^-1 A P - lambda I = P^-1 (A - lambda I) P, and the determinant of a product is the product of the determinants, so det(P^-1) det(A - lambda I) det(P) = det(A - lambda I).",
+     "why": "The same computation gives the trace and determinant invariance, because those are coefficients of the characteristic polynomial."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "B is obtained from A by swapping two rows. A has trace 6 and determinant 6. What are tr B and det B?",
+     "answer": "det B = -6, and the eigenvalues of B are the eigenvalues of A.",
+     "why": "A row swap multiplies the determinant by -1 and multiplies the characteristic polynomial by -1, so the roots are unchanged while det flips sign. The trace need not be preserved: a swap changes which entries sit on the diagonal."
+    }
+   ],
+   "trap": {
+    "what": "Row-reducing a matrix and then reading the eigenvalues off the resulting triangular matrix.",
+    "why": "Row operations preserve the solution set of Ax = 0 but not the characteristic polynomial, so the triangular matrix has different eigenvalues from the original.",
+    "counterexample": "A = [[1,2],[3,4]] has eigenvalues about 5.372 and -0.372, while its row-reduced form [[1,2],[0,-2]] has eigenvalues 1 and -2."
+   },
+   "check": {
+    "question": "A and B are similar, and A has eigenvalues 2, 2 and 5 with trace 9. What are the eigenvalues and trace of B?",
+    "answer": "2, 2 and 5, and trace 9.",
+    "explanation": "Similarity preserves the characteristic polynomial, so every coefficient is preserved: eigenvalues, trace, determinant and rank all agree."
+   },
+   "pyqIds": [],
+   "prereqs": [
+    "diagonalisability-criterion",
+    "transpose-symmetric-and-skew-symmetric"
+   ],
+   "videoRefs": [],
+   "sources": [
+    {
+     "kind": "lecture",
+     "title": "Lecture 46: Eigenvalues and Eigenvectors",
+     "channel": "NPTEL, IIT Kharagpur (Prof. Jitendra Kumar, Engineering Mathematics I)",
+     "url": "https://www.youtube.com/watch?v=h5urBuE4Xhg",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "the definition with v nonzero, the geometric reading, the characteristic equation, the eigenspace, a 2x2 worked example with eigenvalues 3 and -2, the repeated-root example whose eigenvalue 1 has only one eigenvector, and Cayley-Hamilton with the inverse from it"
+    },
+    {
+     "kind": "text",
+     "title": "Linear Algebra subject notes and revision notes",
+     "channel": "GATE Overflow",
+     "url": "https://gateoverflow.in/subject/mathematics/linear-algebra?tab=notes",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "the algebraic and geometric multiplicity definitions and the property list; the fetched body was cut off at the determinant section, so the eigenvalue section was read only through its search extract"
+    }
+   ],
+   "sourceLine": "NPTEL IIT Kharagpur Lecture 46 (English, read in full) for the characteristic-polynomial route to the eigenvalue rules. GATE Overflow Linear Algebra notes (English, read in part) for the property list. The row-operation counterexample, both characteristic quadratics and the two eigenvalue pairs are recomputed in scripts/validate.py, and the row-operation claim is also checked against every small integer 2x2 matrix in range.",
+   "subject": "linear-algebra",
+   "topic": "eigenvalues-and-eigenvectors",
+   "path": "subjects/linear-algebra/eigenvalues-and-eigenvectors/similar-matrices-and-what-preserves-eigenvalues.json"
+  },
+  {
+   "id": "cayley-hamilton-and-matrix-inverse",
+   "title": "Cayley-Hamilton Theorem and the Inverse From It",
+   "priority": "P3",
+   "order": 142,
+   "unit": "Eigenvalue properties and structure",
+   "quickIdea": "Every square matrix satisfies its own characteristic equation, which turns a high power of A into a combination of lower powers and gives A^-1 without adjoints.",
+   "remember": [
+    "If p(lambda) = det(lambda I - A) then p(A) = 0, the zero matrix, not the scalar 0.",
+    "For 2x2 this reads A^2 - (tr A) A + (det A) I = 0, so A^2 is a combination of A and I.",
+    "If A is invertible, multiplying p(A) = 0 by A^-1 expresses A^-1 as a polynomial in A of degree n-1.",
+    "The theorem holds for every square matrix over any field, and needs no eigenvalues to be distinct or real.",
+    "The minimal polynomial divides the characteristic polynomial; the theorem alone does not identify the minimal one."
+   ],
+   "example": {
+    "prompt": "Use Cayley-Hamilton to invert A = [[2,1],[1,2]].",
+    "work": "p(lambda) = lambda^2 - 4 lambda + 3, so A^2 - 4A + 3I = 0. Multiply by A^-1: A - 4I + 3A^-1 = 0, hence A^-1 = (4I - A)/3 = (1/3)[[2,-1],[-1,2]]. Check: A times that is (1/3)[[4-1, -2+2],[2-2, -1+4]] = (1/3)[[3,0],[0,3]] = I.",
+    "answer": "A^-1 = (1/3)[[2,-1],[-1,2]], obtained without any adjoint or cofactor."
+   },
+   "gateAngle": "No GATE CSE question recorded in this repository uses Cayley-Hamilton directly, which is why this card is P3. It earns its place because it shortens the power and inverse computations that do appear, and because GATE-level teaching of this topic covers it: the NPTEL lecture used here closes on it, and the Hindi one-shot gives GATE questions on it.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "A = [[2,4],[3,5]]. Find A^-1 using Cayley-Hamilton.",
+     "answer": "A^-1 = (1/2)(A - 7I) = [[-5/2, 2],[3/2, -1]].",
+     "why": "p(lambda) = lambda^2 - 7 lambda - 2, so A^2 - 7A - 2I = 0 and A(A - 7I) = 2I. This is the example worked in the Hindi one-shot used for this topic, translated into English and re-derived here; the determinant check det A = -2 confirms the result."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why must A be checked invertible before Cayley-Hamilton is used to find A^-1?",
+     "answer": "The step multiplies p(A) = 0 by A^-1, which exists only when det A is not 0; when det A = 0 the constant term of p vanishes and the manipulation loses its meaning.",
+     "why": "The theorem itself holds for every square matrix, but the derivation of an inverse needs an inverse to begin with."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "A is 2x2 with trace 5 and determinant 6. Write A^2 in terms of A and I.",
+     "answer": "A^2 = 5A - 6I.",
+     "why": "Cayley-Hamilton gives A^2 - 5A + 6I = 0 directly from the trace and determinant, with no need to know the entries."
+    }
+   ],
+   "trap": {
+    "what": "Writing p(A) = 0 as the scalar zero, or cancelling A without checking that A is invertible.",
+    "why": "p(A) is a matrix equation whose right side is the zero matrix of the same order, and cancelling A is only legal when A is invertible.",
+    "counterexample": "For A = [[1,1],[0,1]], p(lambda) = (lambda-1)^2 and A^2 - 2A + I = 0 holds as a matrix identity, while the scalar statement 1 - 2 + 1 = 0 says nothing about A. And det A = 1 there, so the inverse exists; for A = [[1,1],[1,1]] it does not, and no inverse can be produced."
+   },
+   "check": {
+    "question": "A is 3x3 with characteristic polynomial lambda^3 - 6 lambda^2 + 11 lambda - 6. Write A^3 in terms of lower powers of A.",
+    "answer": "A^3 = 6A^2 - 11A + 6I.",
+    "explanation": "Cayley-Hamilton sets the polynomial evaluated at A to the zero matrix, and solving for A^3 gives the expression. The eigenvalues are 1, 2 and 3, which sum to 6 and multiply to 6, matching the coefficients."
+   },
+   "pyqIds": [],
+   "prereqs": [
+    "characteristic-equation-and-roots",
+    "adjoint-inverse-and-invertibility"
+   ],
+   "videoRefs": [],
+   "sources": [
+    {
+     "kind": "lecture",
+     "title": "Lecture 46: Eigenvalues and Eigenvectors",
+     "channel": "NPTEL, IIT Kharagpur (Prof. Jitendra Kumar, Engineering Mathematics I)",
+     "url": "https://www.youtube.com/watch?v=h5urBuE4Xhg",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "the definition with v nonzero, the geometric reading, the characteristic equation, the eigenspace, a 2x2 worked example with eigenvalues 3 and -2, the repeated-root example whose eigenvalue 1 has only one eigenvector, and Cayley-Hamilton with the inverse from it"
+    },
+    {
+     "kind": "lecture",
+     "title": "Eigen Value Eigen Vector | Engineering Mathematics ONESHOT (Hindi)",
+     "channel": "GanitAnk (Hindi engineering mathematics)",
+     "url": "https://www.youtube.com/watch?v=qeZ7oW-Jrnc",
+     "language": "hi",
+     "transcript": "PARTIAL",
+     "translated": true,
+     "note": "the characteristic equation written as lambda^3 - s1 lambda^2 + s2 lambda - det = 0, eigenvectors from Cramer's rule, the repeated-eigenvalue case, and the inverse from Cayley-Hamilton; read in part, the last third of the stream not read"
+    }
+   ],
+   "sourceLine": "NPTEL IIT Kharagpur Lecture 46 (English, read in full) for the statement and proof-free use of the theorem, with the worked inverse from it. GanitAnk's Hindi one-shot (Hindi, read in part, translated) for the 2x2 inverse example and the GATE-question framing; the sentences taken from it are translated into English. Both inverse examples are multiplied back to the identity in scripts/validate.py, and the theorem is checked against every small integer 2x2 matrix.",
+   "subject": "linear-algebra",
+   "topic": "eigenvalues-and-eigenvectors",
+   "path": "subjects/linear-algebra/eigenvalues-and-eigenvectors/cayley-hamilton-and-matrix-inverse.json"
   }
  ],
  "pyqs": [
@@ -13479,6 +14412,21 @@ window.GATE_DATA = {
    "answer_evidence": "Accepted answer: 'all the rows of A are linearly dependent, so A is singular and |A| = 0'."
   },
   {
+   "id": "gate-2014-set2-47-product-of-nonzero-eigenvalues",
+   "year": "2014",
+   "paper": "GATE CS 2014 Set 2",
+   "question_ref": "Q.47",
+   "type": "NAT",
+   "topic": "eigenvalues-of-special-structured-matrices",
+   "text": "The product of the non-zero eigenvalues of the 5 x 5 matrix whose first and last rows are (1,0,0,0,1) and whose three middle rows are (0,1,1,1,0) is ______.",
+   "answer": "6",
+   "solution": "Rows 2, 3 and 4 are identical and row 5 equals row 1, so the rank is 2 and exactly two eigenvalues are nonzero, with three zeros. The trace is 1 + 1 + 1 + 1 + 1 = 5, so the two nonzero eigenvalues sum to 5. The trace of A^2 is 13, so their squares sum to 13. Solving gives the pair 2 and 3, whose product is 6. scripts/validate.py computes the rank, the trace, the trace of A^2 and the two eigenvalues of this matrix.",
+   "source_url": "https://gateoverflow.in/2013/gate-cse-2014-set-2-question-47",
+   "source_label": "GATE Overflow question page - GATE CSE 2014 Set 2 Q.47 with the accepted answer (6)",
+   "verification": "SOURCED",
+   "answer_evidence": "Accepted answer: 6, from the nonzero eigenvalues 2 and 3. One reply on the thread argues for 1 by reading eigenvalues off a row-reduced triangular matrix, which is exactly the row-operation error the similarity card warns about; the accepted answer and the trace-of-A-squared derivation agree on 6."
+  },
+  {
    "id": "gate-2014-set3-3-subgroup-size-5",
    "year": "2014",
    "paper": "GATE CS 2014 Set 3",
@@ -13664,6 +14612,27 @@ window.GATE_DATA = {
    "answer_evidence": "The accepted answer on the GATE Overflow page states 2048 and explains that the set has 11 elements."
   },
   {
+   "id": "gate-2015-set3-15-eigenvector-for-lambda-1",
+   "year": "2015",
+   "paper": "GATE CS 2015 Set 3",
+   "question_ref": "Q.15 (GATE Overflow numbering; the same question is numbered Q.23 by some solution sites)",
+   "type": "MCQ",
+   "topic": "eigenspace-and-computing-eigenvectors",
+   "text": "In the matrix [[1,-1,2],[0,1,0],[1,2,1]], one of the eigenvalues is 1. The eigenvectors corresponding to the eigenvalue 1 are:",
+   "options": [
+    "{ alpha (4,2,1) : alpha not 0, alpha real }",
+    "{ alpha (-4,2,1) : alpha not 0, alpha real }",
+    "{ alpha (sqrt2,0,1) : alpha not 0, alpha real }",
+    "{ alpha (-sqrt2,0,1) : alpha not 0, alpha real }"
+   ],
+   "answer": "Option 2: { alpha (-4,2,1) : alpha not 0, alpha real }",
+   "solution": "A - I = [[0,-1,2],[0,0,0],[1,2,0]]. The rows give -y + 2z = 0 and x + 2y = 0, so y = 2z and x = -4z, giving alpha(-4,2,1). The rank of A - I is 2, so the eigenspace is one line. Direct check: A(-4,2,1) = (-4-2+2, 2, -4+4+1) = (-4,2,1). scripts/validate.py recomputes the product and the rank.",
+   "source_url": "https://gateoverflow.in/8411/gate-cse-2015-set-3-question-15",
+   "source_label": "GATE Overflow question page - GATE CSE 2015 Set 3 Q.15 with the accepted answer (option B, alpha(-4,2,1))",
+   "verification": "SOURCED",
+   "answer_evidence": "Accepted answer on the GATE Overflow page: option B, { alpha(-4,2,1) }. Corroborated by the GateAI PYQ page for GATE CSE 2015 Set 3 Q.15 and by the PYQBox paper page, which both record option B as the answer."
+  },
+  {
    "id": "gate-2015-set3-33-nontrivial-p-q-r",
    "year": "2015",
    "paper": "GATE CS 2015 Set 3",
@@ -13720,6 +14689,36 @@ window.GATE_DATA = {
    "source_url": "https://gateoverflow.in/39693/gate-cse-2016-set-1-question-26",
    "source_label": "GATE Overflow discussion of GATE CS 2016 Set 1 Q.26 (official key 10)",
    "verification": "OFFICIAL_KEY"
+  },
+  {
+   "id": "gate-2016-set1-05-determinant-from-eigenvalues",
+   "year": "2016",
+   "paper": "GATE CS 2016 Set 1",
+   "question_ref": "Q.5",
+   "type": "NAT",
+   "topic": "complex-eigenvalues-of-real-matrices",
+   "text": "Two eigenvalues of a 3 x 3 real matrix P are (2 + sqrt(-1)) and 3. The determinant of P is ______.",
+   "answer": "15",
+   "solution": "P is real, so its characteristic polynomial has real coefficients and a non-real root forces its conjugate: the third eigenvalue is 2 - sqrt(-1). The determinant is the product of the eigenvalues, (2+i)(2-i) x 3 = (4+1) x 3 = 15. scripts/validate.py recomputes the product over the complex numbers.",
+   "source_url": "https://gateoverflow.in/39634/gate-cse-2016-set-1-question-05",
+   "source_label": "GATE Overflow question page - GATE CSE 2016 Set 1 Q.5 with the accepted answer (15)",
+   "verification": "SOURCED",
+   "answer_evidence": "Accepted answer: 15, from (2+i)(2-i)(3) = 15. Corroborated by the official GATE 2016 CS Set 1 paper as reproduced by the pyqonline PDF, which carries the same question as Q.5."
+  },
+  {
+   "id": "gate-2016-set2-06-determinant-of-inverse-transpose",
+   "year": "2016",
+   "paper": "GATE CS 2016 Set 2",
+   "question_ref": "Q.6",
+   "type": "NAT",
+   "topic": "eigenvalue-properties-of-matrix-functions",
+   "text": "Suppose that the eigenvalues of matrix A are 1, 2, 4. The determinant of (A^-1)^T is ______.",
+   "answer": "0.125",
+   "solution": "det A = 1 x 2 x 4 = 8, so det(A^-1) = 1/8. Transposition does not change the determinant, so det((A^-1)^T) = 1/8 = 0.125. scripts/validate.py recomputes the product and the reciprocal.",
+   "source_url": "https://gateoverflow.in/39549/gate-cse-2016-set-2-question-06",
+   "source_label": "GATE Overflow question page - GATE CSE 2016 Set 2 Q.6 with the accepted answer (1/8 = 0.125)",
+   "verification": "SOURCED",
+   "answer_evidence": "Accepted answer: 0.125. Corroborated by the gateforum reproduction of the GATE 2016 CS Set 2 paper, which prints Q.6 with answer (0.125)."
   },
   {
    "id": "gate-2016-set2-4-m-n-statements",
@@ -13838,6 +14837,27 @@ window.GATE_DATA = {
    "answer_evidence": "Accepted answer: 'a n-dimensional vector of all 1 is a solution of Ax = b. Hence Ax = b will have infinitely many solutions. The correct answer is (C).'"
   },
   {
+   "id": "gate-2017-set1-31-symmetric-rank2-squares",
+   "year": "2017",
+   "paper": "GATE CS 2017 Set 1",
+   "question_ref": "Q.31",
+   "type": "MCQ",
+   "topic": "symmetric-matrices-and-orthogonal-eigenvectors",
+   "text": "Let A be an n x n real valued square symmetric matrix of rank 2 with the sum of A_ij^2 over all i and j equal to 50. Consider the statements: I. One eigenvalue must be in [-5,5]. II. The eigenvalue with the largest magnitude must be strictly greater than 5. Which of the above statements about eigenvalues of A is/are necessarily correct?",
+   "options": [
+    "Both I and II",
+    "I only",
+    "II only",
+    "Neither I nor II"
+   ],
+   "answer": "Option 2: I only",
+   "solution": "For a symmetric matrix the sum of the squares of the entries is tr(A^T A) = tr(A^2), which is the sum of the squared eigenvalues. Rank 2 leaves at most two nonzero eigenvalues, so lambda1^2 + lambda2^2 = 50. If both had magnitude above 5 their squares would sum to more than 50, so at least one lies in [-5,5] and I is true. II fails: A = [[5,0],[0,5]] has entries squaring to 50 and largest eigenvalue exactly 5, not strictly greater. scripts/validate.py recomputes the entry-square sum, the trace of A^2 and both eigenvalues for that counterexample.",
+   "source_url": "https://gateoverflow.in/118312/gate-cse-2017-set-1-question-31",
+   "source_label": "GATE Overflow question page - GATE CSE 2017 Set 1 Q.31 with the accepted answer (option B, I only)",
+   "verification": "SOURCED",
+   "answer_evidence": "Accepted answer: option B, I only, with the 2 x 2 counterexample [[5,0],[0,5]] refuting statement II."
+  },
+  {
    "id": "gate-2017-set2-21-lattice-pairs-to-add",
    "year": "2017",
    "paper": "GATE CS 2017, Set 2",
@@ -13868,6 +14888,27 @@ window.GATE_DATA = {
    "source_label": "GATE Overflow question page - GATE CSE 2018 Q.19 with the accepted solution (42)",
    "verification": "SOURCED",
    "answer_evidence": "Accepted answer: 'Proper Subgroup of Group having order 84 would have one of the order (proper factors of 84) ... So the largest order would be 42.'"
+  },
+  {
+   "id": "gate-2018-26-single-eigenvector-direction",
+   "year": "2018",
+   "paper": "GATE CS 2018",
+   "question_ref": "Q.26 (GATE Overflow numbering; ExamSIDE lists the same question as Q.31 of the 2018 paper)",
+   "type": "MCQ",
+   "topic": "diagonalisability-criterion",
+   "text": "Consider a matrix P whose only eigenvectors are the multiples of (1,4)^T. Consider the statements: I. P does not have an inverse. II. P has a repeated eigenvalue. III. P cannot be diagonalised. Which one of the following options is correct?",
+   "options": [
+    "Only I and III are necessarily true",
+    "Only II is necessarily true",
+    "Only I and II are necessarily true",
+    "Only II and III are necessarily true"
+   ],
+   "answer": "Option 4: only II and III are necessarily true",
+   "solution": "All eigenvectors lie on one line, so P is 2 x 2 with only one independent eigenvector: the geometric multiplicity of its eigenvalue is 1, which forces the algebraic multiplicity to be 2, so the eigenvalue is repeated (II). With fewer than two independent eigenvectors P cannot be diagonalised (III). Nothing forces singularity: [[-2,1],[-16,6]] has the single eigenvector direction (1,4), eigenvalue 2 twice, and determinant 4. scripts/validate.py checks that matrix's characteristic polynomial, its eigenvector and its determinant.",
+   "source_url": "https://gateoverflow.in/204100/gate-cse-2018-question-26",
+   "source_label": "GATE Overflow question page - GATE CSE 2018 Q.26 with the accepted answer (option D, II and III)",
+   "verification": "SOURCED",
+   "answer_evidence": "Accepted answer: only II and III are necessarily true, because diagonalisability needs n independent eigenvectors and the single-direction condition forces a repeated eigenvalue. Corroborated by the ExamSIDE 2018 paper page, which lists the question as Q.31 of that paper."
   },
   {
    "id": "gate-2018-model-size-upper-bound",
@@ -14022,6 +15063,21 @@ window.GATE_DATA = {
    "source_label": "GATE Overflow question page - GATE CSE 2021 Set 1 Q.41 with the accepted answer (option B only)",
    "verification": "SOURCED",
    "answer_evidence": "Accepted answer: 'Only B is Correct', proving both directions of the two-children criterion and giving counterexamples for the other options."
+  },
+  {
+   "id": "gate-2021-set1-52-largest-eigenvalue",
+   "year": "2021",
+   "paper": "GATE CS 2021 Set 1",
+   "question_ref": "Q.52",
+   "type": "NAT",
+   "topic": "eigenvalues-of-special-structured-matrices",
+   "text": "Consider the 4 x 4 matrix with 0 on the diagonal and 1 in every off-diagonal position. The largest eigenvalue of the above matrix is ______.",
+   "answer": "3",
+   "solution": "The matrix is J - I where J is the all-ones 4 x 4 matrix. J has rank 1 and trace 4, so its eigenvalues are 4, 0, 0, 0; subtracting I shifts them to 3, -1, -1, -1. The largest is 3, and the trace check 3 - 1 - 1 - 1 = 0 matches the zero diagonal. scripts/validate.py verifies the eigenvalues by applying the matrix to (1,1,1,1) and by computing the rank of A + I.",
+   "source_url": "https://gateoverflow.in/357399/gate-cse-2021-set-1-question-52",
+   "source_label": "GATE Overflow question page - GATE CSE 2021 Set 1 Q.52 with the accepted answer (3)",
+   "verification": "SOURCED",
+   "answer_evidence": "Accepted answer: 3, from the characteristic polynomial (3-lambda)(-1-lambda)^3. Corroborated by the gateforum reproduction of the GATE 2021 CS Set 1 paper, whose key for this question is (3)."
   },
   {
    "id": "gate-2021-set1-s1-tautology",
@@ -14204,6 +15260,27 @@ window.GATE_DATA = {
    "answer_evidence": "The accepted solutions conclude (B) and (C), using for all x for all y Q implies the conjecture, and there exists y for all x R implies for all x there exists y R."
   },
   {
+   "id": "gate-2024-set1-2-product-of-eigenvalues",
+   "year": "2024",
+   "paper": "GATE CS 2024 Set 1",
+   "question_ref": "Q.2",
+   "type": "MCQ",
+   "topic": "characteristic-equation-and-roots",
+   "text": "The product of all eigenvalues of the matrix [[1,2,3],[4,5,6],[7,8,9]] is:",
+   "options": [
+    "-1",
+    "0",
+    "1",
+    "2"
+   ],
+   "answer": "Option 2: 0",
+   "solution": "The product of the eigenvalues is the determinant, and the determinant is 0 because the third column is twice the second minus the first: C3 = 2 C2 - C1. So one eigenvalue is 0 and the product is 0. scripts/validate.py computes the determinant and the eigenvalues of this matrix exactly.",
+   "source_url": "https://gateoverflow.in/422840/gate-cse-2024-set-1-question-2",
+   "source_label": "GATE Overflow question page - GATE CSE 2024 Set 1 Q.2 with the accepted answer (option B, 0)",
+   "verification": "SOURCED",
+   "answer_evidence": "Accepted answer: option B, 0, because the columns are linearly dependent so the determinant vanishes. Corroborated by the same question appearing as Q.2 of the GATE 2024 CS Set 1 paper."
+  },
+  {
    "id": "gate-2024-set1-39-homogeneous-nxm",
    "year": "2024",
    "paper": "GATE CS 2024 Set 1",
@@ -14380,6 +15457,27 @@ window.GATE_DATA = {
    "answer_evidence": "Accepted answer: 'The answers are A and D', with the reduction R2 <- R2 - k R1 giving the last row (0, k^2 - 1 | k + 1). Corroborated by Quorank, which records the official answer as A, D."
   },
   {
+   "id": "gate-2025-set1-31-eigenvalues-of-a13",
+   "year": "2025",
+   "paper": "GATE CS 2025 Set 1",
+   "question_ref": "Q.31",
+   "type": "MCQ",
+   "topic": "eigenvalue-properties-of-matrix-functions",
+   "text": "Let A be the 2 x 2 matrix [[1,1],[1,-1]]. What are the eigenvalues of the matrix A^13?",
+   "options": [
+    "1, -1",
+    "2 sqrt2, -2 sqrt2",
+    "4 sqrt2, -4 sqrt2",
+    "64 sqrt2, -64 sqrt2"
+   ],
+   "answer": "Option 4: 64 sqrt2 and -64 sqrt2",
+   "solution": "lambda^2 - (tr A) lambda + det A = lambda^2 - 2 = 0, so the eigenvalues of A are sqrt2 and -sqrt2. The eigenvalues of A^13 are their 13th powers: (sqrt2)^13 = 2^6 sqrt2 = 64 sqrt2 and -64 sqrt2. Direct check: A^2 = 2I, so A^13 = (A^2)^6 A = 64A, whose eigenvalues are 64 sqrt2 and -64 sqrt2. scripts/validate.py multiplies A by itself twelve times exactly and confirms 64A.",
+   "source_url": "https://gateoverflow.in/460049/gate-cse-2025-set-1-question-31",
+   "source_label": "GATE Overflow question page - GATE CSE 2025 Set 1 Q.31 with the accepted answer (option D)",
+   "verification": "SOURCED",
+   "answer_evidence": "Accepted answer: option D, 64 sqrt2 and -64 sqrt2, from (sqrt2)^13 and (-sqrt2)^13."
+  },
+  {
    "id": "gate-2025-set1-39-functions-abelian-monoid",
    "year": "2025",
    "paper": "GATE CS 2025 Set 1",
@@ -14485,6 +15583,27 @@ window.GATE_DATA = {
    "source_label": "GATE Overflow question page - GATE CSE 2025 Set 2 Q.4 with the accepted answer (0)",
    "verification": "SOURCED",
    "answer_evidence": "Accepted answer: 'L^3 = I, so L^8 = L^2 = N, hence M - N = O and its determinant is 0', option A."
+  },
+  {
+   "id": "gate-2026-set1-3-maximum-multiplicity",
+   "year": "2026",
+   "paper": "GATE CS 2026 Set 1",
+   "question_ref": "Q.3 (GATE Overflow numbering; the same question is numbered Q.13 by Quorank)",
+   "type": "MCQ",
+   "topic": "algebraic-and-geometric-multiplicity",
+   "text": "For n > 1, the maximum multiplicity of any eigenvalue of an n x n matrix with elements from R is:",
+   "options": [
+    "n",
+    "n-1",
+    "1",
+    "n+1"
+   ],
+   "answer": "Option 1: n",
+   "solution": "The characteristic polynomial has degree n, so by the fundamental theorem of algebra no root can repeat more than n times. The bound is attained: the identity matrix I_n has the single eigenvalue 1 with multiplicity n. scripts/validate.py confirms the identity case for n = 5 and checks that the characteristic polynomial degree equals n.",
+   "source_url": "https://gateoverflow.in/523077/gate-cse-2026-set-1-question-3",
+   "source_label": "GATE Overflow question page - GATE CSE 2026 Set 1 Q.3 with the accepted answer (option A, n)",
+   "verification": "SOURCED",
+   "answer_evidence": "Accepted answer: option A, n, argued from the degree of the characteristic polynomial and the identity matrix. Corroborated by Quorank's GATE 2026 CSE Set 1 page, which records the same question (numbered Q.13 there) with answer A."
   },
   {
    "id": "gate-2026-set1-37-vertex-cover-degree",

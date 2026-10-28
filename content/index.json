@@ -29,8 +29,8 @@
   ],
   "counts": {
     "subjects": 2,
-    "topics": 104,
-    "pyqs": 96,
+    "topics": 115,
+    "pyqs": 106,
     "videos": 39,
     "playlists": 3
   },
@@ -1671,6 +1671,171 @@
       ],
       "visual": null,
       "variations": 2
+    },
+    {
+      "topic": "eigenvalue-and-eigenvector-definition",
+      "title": "Eigenvalue and Eigenvector: Av = lambda v",
+      "subject": "linear-algebra",
+      "group": "eigenvalues-and-eigenvectors",
+      "unit": "The eigenpair",
+      "priority": "P1",
+      "path": "subjects/linear-algebra/eigenvalues-and-eigenvectors/eigenvalue-and-eigenvector-definition.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2015-set3-15-eigenvector-for-lambda-1"
+      ],
+      "visual": "linear-algebra/eigenvalues-and-eigenvectors/eigen-directions",
+      "variations": 3
+    },
+    {
+      "topic": "characteristic-equation-and-roots",
+      "title": "Characteristic Equation and Its Roots",
+      "subject": "linear-algebra",
+      "group": "eigenvalues-and-eigenvectors",
+      "unit": "The eigenpair",
+      "priority": "P1",
+      "path": "subjects/linear-algebra/eigenvalues-and-eigenvectors/characteristic-equation-and-roots.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2016-set1-05-determinant-from-eigenvalues",
+        "gate-2024-set1-2-product-of-eigenvalues"
+      ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "eigenspace-and-computing-eigenvectors",
+      "title": "Eigenspace: the Eigenvectors of a Known Eigenvalue",
+      "subject": "linear-algebra",
+      "group": "eigenvalues-and-eigenvectors",
+      "unit": "The eigenpair",
+      "priority": "P1",
+      "path": "subjects/linear-algebra/eigenvalues-and-eigenvectors/eigenspace-and-computing-eigenvectors.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2015-set3-15-eigenvector-for-lambda-1"
+      ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "eigenvalue-properties-of-matrix-functions",
+      "title": "Eigenvalues of A^k, A^-1, A^T and Polynomials in A",
+      "subject": "linear-algebra",
+      "group": "eigenvalues-and-eigenvectors",
+      "unit": "Eigenvalue properties and structure",
+      "priority": "P1",
+      "path": "subjects/linear-algebra/eigenvalues-and-eigenvectors/eigenvalue-properties-of-matrix-functions.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2025-set1-31-eigenvalues-of-a13",
+        "gate-2016-set2-06-determinant-of-inverse-transpose"
+      ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "algebraic-and-geometric-multiplicity",
+      "title": "Algebraic and Geometric Multiplicity",
+      "subject": "linear-algebra",
+      "group": "eigenvalues-and-eigenvectors",
+      "unit": "Eigenvalue properties and structure",
+      "priority": "P1",
+      "path": "subjects/linear-algebra/eigenvalues-and-eigenvectors/algebraic-and-geometric-multiplicity.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2026-set1-3-maximum-multiplicity",
+        "gate-2018-26-single-eigenvector-direction"
+      ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "diagonalisability-criterion",
+      "title": "Diagonalisability: When A = P D P^-1",
+      "subject": "linear-algebra",
+      "group": "eigenvalues-and-eigenvectors",
+      "unit": "Eigenvalue properties and structure",
+      "priority": "P2",
+      "path": "subjects/linear-algebra/eigenvalues-and-eigenvectors/diagonalisability-criterion.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2018-26-single-eigenvector-direction"
+      ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "symmetric-matrices-and-orthogonal-eigenvectors",
+      "title": "Real Symmetric Matrices: Real Eigenvalues, Orthogonal Eigenvectors",
+      "subject": "linear-algebra",
+      "group": "eigenvalues-and-eigenvectors",
+      "unit": "Eigenvalue properties and structure",
+      "priority": "P1",
+      "path": "subjects/linear-algebra/eigenvalues-and-eigenvectors/symmetric-matrices-and-orthogonal-eigenvectors.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2017-set1-31-symmetric-rank2-squares"
+      ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "complex-eigenvalues-of-real-matrices",
+      "title": "Complex Eigenvalues of a Real Matrix",
+      "subject": "linear-algebra",
+      "group": "eigenvalues-and-eigenvectors",
+      "unit": "Eigenvalue properties and structure",
+      "priority": "P2",
+      "path": "subjects/linear-algebra/eigenvalues-and-eigenvectors/complex-eigenvalues-of-real-matrices.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2016-set1-05-determinant-from-eigenvalues"
+      ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "eigenvalues-of-special-structured-matrices",
+      "title": "Shortcuts: Triangular, Row-Sum, All-Ones and Rank-One Matrices",
+      "subject": "linear-algebra",
+      "group": "eigenvalues-and-eigenvectors",
+      "unit": "Eigenvalue properties and structure",
+      "priority": "P1",
+      "path": "subjects/linear-algebra/eigenvalues-and-eigenvectors/eigenvalues-of-special-structured-matrices.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2021-set1-52-largest-eigenvalue",
+        "gate-2014-set2-47-product-of-nonzero-eigenvalues"
+      ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "similar-matrices-and-what-preserves-eigenvalues",
+      "title": "What Preserves Eigenvalues: Similarity, Transpose, and the Row-Operation Trap",
+      "subject": "linear-algebra",
+      "group": "eigenvalues-and-eigenvectors",
+      "unit": "Eigenvalue properties and structure",
+      "priority": "P2",
+      "path": "subjects/linear-algebra/eigenvalues-and-eigenvectors/similar-matrices-and-what-preserves-eigenvalues.json",
+      "videos": [],
+      "pyqs": [],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "cayley-hamilton-and-matrix-inverse",
+      "title": "Cayley-Hamilton Theorem and the Inverse From It",
+      "subject": "linear-algebra",
+      "group": "eigenvalues-and-eigenvectors",
+      "unit": "Eigenvalue properties and structure",
+      "priority": "P3",
+      "path": "subjects/linear-algebra/eigenvalues-and-eigenvectors/cayley-hamilton-and-matrix-inverse.json",
+      "videos": [],
+      "pyqs": [],
+      "visual": null,
+      "variations": 3
     }
   ]
 }
