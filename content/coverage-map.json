@@ -1300,7 +1300,7 @@
     {
       "kind": "notes",
       "placement": "algorithms › sorting-divide-conquer › (no card)",
-      "detail": "New mock set, Algorithms Unit 2 'Divide and Conquer & Sorting' (run 3, 2026-10-27, paper algorithms/sorting-divide-conquer/gate_algo_mock_2_2026-10-27.html), holds 25 questions over 4 subtopic groups (merge-sort-quick-sort 7, linear-time-sorts-counting-radix 6, selection-kth-element 6, inversion-counting 6). The notes repo covers discrete mathematics only, so no card serves them."
+      "detail": "Mock set, Algorithms Unit 2 'Divide and Conquer & Sorting' (run 4, Set 2 of 2, 2026-10-28, paper algorithms/sorting-divide-conquer/gate_algo_mock_2_2026-10-28.html) now holds 50 questions over 4 subtopic groups (merge-sort-quick-sort 14, linear-time-sorts-counting-radix 12, selection-kth-element 12, inversion-counting 12) and sits at the 50-question cap (MOCK_CAPPED), so the rotation moves on to Algorithms Unit 3. Records carry subtopic slugs rather than subtopic_label text. The notes repo covers discrete mathematics only, so no card serves them."
     },
     {
       "kind": "notes",
@@ -1451,6 +1451,11 @@
       "kind": "notes",
       "placement": "theory-of-computation › context-free languages › (no card)",
       "detail": "New lesson topics/context-free-grammars-and-pushdown-automata (added 2026-10-28, PUBLISHED, 52 aliases, 25 microtopics) serves no notes card; the notes repo has no theory-of-computation subject. Its syllabus-coverage entry places it at Theory of Computation › Context-free languages › 'CFG, PDA and pumping lemma' with subtopics grammars and derivations, ambiguity, pushdown automata, CFL closure properties, pumping lemma for CFLs."
+    },
+    {
+      "kind": "notes",
+      "placement": "theory-of-computation › computability › turing-machines-and-undecidability",
+      "detail": "New lesson topics/turing-machines-and-undecidability (added 2026-10-28; syllabus-coverage.json subject Theory of Computation, unit Computability, coverage_status PUBLISHED, lesson_slug turing-machines-and-undecidability, 10 scenes in transcript.md, 22 microtopics) serves no notes card: content/syllabus.json subjects[] holds only discrete-mathematics."
     }
   ]
 }
