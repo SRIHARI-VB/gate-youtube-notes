@@ -111,7 +111,7 @@
     },
     "visual": {
       "slug": "sets-and-set-operations",
-      "title": "Sets and set operations",
+      "title": "Sets and Set Operations",
       "level": "topic-level",
       "covers": [
         "the power set and its size 2^n",

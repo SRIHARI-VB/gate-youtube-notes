@@ -115,7 +115,7 @@
     },
     "visual": {
       "slug": "relations-and-their-properties",
-      "title": "Relations and their properties",
+      "title": "Relations and Their Properties",
       "level": "topic-level",
       "covers": [
         "transitive closes a two-step path with a one-step shortcut",

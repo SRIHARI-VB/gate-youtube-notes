@@ -4807,7 +4807,7 @@ window.GATE_DATA = {
     },
     "visual": {
      "slug": "sets-and-set-operations",
-     "title": "Sets and set operations",
+     "title": "Sets and Set Operations",
      "level": "topic-level",
      "covers": [
       "membership, roster and set-builder form",
@@ -4935,7 +4935,7 @@ window.GATE_DATA = {
     },
     "visual": {
      "slug": "sets-and-set-operations",
-     "title": "Sets and set operations",
+     "title": "Sets and Set Operations",
      "level": "topic-level",
      "covers": [
       "the power set and its size 2^n",
@@ -5060,7 +5060,7 @@ window.GATE_DATA = {
     },
     "visual": {
      "slug": "sets-and-set-operations",
-     "title": "Sets and set operations",
+     "title": "Sets and Set Operations",
      "level": "topic-level",
      "covers": [
       "union, intersection, difference, symmetric difference, complement",
@@ -5186,7 +5186,7 @@ window.GATE_DATA = {
     },
     "visual": {
      "slug": "sets-and-set-operations",
-     "title": "Sets and set operations",
+     "title": "Sets and Set Operations",
      "level": "topic-level",
      "covers": [
       "the Cartesian product is a set of ordered pairs"
@@ -5438,7 +5438,7 @@ window.GATE_DATA = {
     },
     "visual": {
      "slug": "relations-and-their-properties",
-     "title": "Relations and their properties",
+     "title": "Relations and Their Properties",
      "level": "topic-level",
      "covers": [
       "a relation is a set of ordered pairs, and nothing more",
@@ -5581,7 +5581,7 @@ window.GATE_DATA = {
     },
     "visual": {
      "slug": "relations-and-their-properties",
-     "title": "Relations and their properties",
+     "title": "Relations and Their Properties",
      "level": "topic-level",
      "covers": [
       "reflexive and irreflexive are about the diagonal",
@@ -5713,7 +5713,7 @@ window.GATE_DATA = {
     },
     "visual": {
      "slug": "relations-and-their-properties",
-     "title": "Relations and their properties",
+     "title": "Relations and Their Properties",
      "level": "topic-level",
      "covers": [
       "transitive closes a two-step path with a one-step shortcut",
@@ -5844,7 +5844,7 @@ window.GATE_DATA = {
     },
     "visual": {
      "slug": "relations-and-their-properties",
-     "title": "Relations and their properties",
+     "title": "Relations and Their Properties",
      "level": "topic-level",
      "covers": [
       "reflexive, symmetric and transitive together make a partition"
@@ -5972,7 +5972,7 @@ window.GATE_DATA = {
     },
     "visual": {
      "slug": "functions-and-their-properties",
-     "title": "Functions and their properties",
+     "title": "Functions and Their Properties",
      "level": "topic-level",
      "covers": [
       "injective means no two elements share an image",
@@ -6099,7 +6099,7 @@ window.GATE_DATA = {
     },
     "visual": {
      "slug": "functions-and-their-properties",
-     "title": "Functions and their properties",
+     "title": "Functions and Their Properties",
      "level": "topic-level",
      "covers": [
       "composition: what survives, and only in one direction",

@@ -2019,7 +2019,7 @@
       },
       "visual": {
         "slug": "sets-and-set-operations",
-        "title": "Sets and set operations",
+        "title": "Sets and Set Operations",
         "coverage_status": "PUBLISHED",
         "level": "topic-level",
         "verdict": "VISUAL_LESSON"
@@ -2056,7 +2056,7 @@
       },
       "visual": {
         "slug": "sets-and-set-operations",
-        "title": "Sets and set operations",
+        "title": "Sets and Set Operations",
         "coverage_status": "PUBLISHED",
         "level": "topic-level",
         "verdict": "VISUAL_LESSON"
@@ -2093,7 +2093,7 @@
       },
       "visual": {
         "slug": "sets-and-set-operations",
-        "title": "Sets and set operations",
+        "title": "Sets and Set Operations",
         "coverage_status": "PUBLISHED",
         "level": "topic-level",
         "verdict": "VISUAL_LESSON"
@@ -2130,7 +2130,7 @@
       },
       "visual": {
         "slug": "sets-and-set-operations",
-        "title": "Sets and set operations",
+        "title": "Sets and Set Operations",
         "coverage_status": "PUBLISHED",
         "level": "topic-level",
         "verdict": "VISUAL_LESSON"
@@ -2199,7 +2199,7 @@
       },
       "visual": {
         "slug": "relations-and-their-properties",
-        "title": "Relations and their properties",
+        "title": "Relations and Their Properties",
         "coverage_status": "PUBLISHED",
         "level": "topic-level",
         "verdict": "VISUAL_LESSON"
@@ -2237,7 +2237,7 @@
       },
       "visual": {
         "slug": "relations-and-their-properties",
-        "title": "Relations and their properties",
+        "title": "Relations and Their Properties",
         "coverage_status": "PUBLISHED",
         "level": "topic-level",
         "verdict": "VISUAL_LESSON"
@@ -2275,7 +2275,7 @@
       },
       "visual": {
         "slug": "relations-and-their-properties",
-        "title": "Relations and their properties",
+        "title": "Relations and Their Properties",
         "coverage_status": "PUBLISHED",
         "level": "topic-level",
         "verdict": "VISUAL_LESSON"
@@ -2313,7 +2313,7 @@
       },
       "visual": {
         "slug": "relations-and-their-properties",
-        "title": "Relations and their properties",
+        "title": "Relations and Their Properties",
         "coverage_status": "PUBLISHED",
         "level": "topic-level",
         "verdict": "VISUAL_LESSON"
@@ -2350,7 +2350,7 @@
       },
       "visual": {
         "slug": "functions-and-their-properties",
-        "title": "Functions and their properties",
+        "title": "Functions and Their Properties",
         "coverage_status": "PUBLISHED",
         "level": "topic-level",
         "verdict": "VISUAL_LESSON"
@@ -2387,7 +2387,7 @@
       },
       "visual": {
         "slug": "functions-and-their-properties",
-        "title": "Functions and their properties",
+        "title": "Functions and Their Properties",
         "coverage_status": "PUBLISHED",
         "level": "topic-level",
         "verdict": "VISUAL_LESSON"
@@ -2670,6 +2670,16 @@
       "kind": "notes",
       "placement": "general-aptitude › aptitude › quantitative-aptitude",
       "detail": "New lesson topics/quantitative-aptitude (added 2026-10-28; syllabus-coverage.json subject General Aptitude, unit Aptitude, topic 'Quantitative aptitude', coverage_status PUBLISHED, 5 subtopics and 32 microtopics) serves no notes card: content/syllabus.json enumerates 13 CS subjects and carries no General Aptitude subject, so nothing covers ratios and percentages, data interpretation, logarithms, mensuration, or elementary statistics and probability. Next build: the card belongs at content/subjects/general-aptitude/aptitude/quantitative-aptitude.json."
+    },
+    {
+      "kind": "notes",
+      "placement": "theory-of-computation › context-free-grammars-and-pda › (no card)",
+      "detail": "Mock unit 2 'Grammars & Context-Free Languages' (unit_slug cfl-grammars) opened Set 1 of 2 of its second pass on 2026-10-28 (run 10, paper theory-of-computation/cfl-grammars/gate_toc_mock_2_2026-10-28.html; the earlier paper was archived to archive/gate_toc_mock_2_2026-10-27_run2.html) and now holds 75 questions, above the 50-question cap, over 4 subtopics: CFG derivation trees 20, CNF & GNF normal forms 19, Ambiguity in grammars 18, Closure properties of CFLs 18. The 25 records of the new set carry the subtopic slug only, with no subtopic_label text. content/syllabus.json lists theory-of-computation with the topic context-free-grammars-and-pda marked material 'planned', and content/index.json map[] carries cards for discrete-mathematics only (counts.subjects 1), so no card serves any of these subtopics. Lesson topics/context-free-grammars-and-pushdown-automata (PUBLISHED) already covers this vocabulary, so the missing piece is the notes card set at content/subjects/theory-of-computation/context-free-grammars-and-pda/."
+    },
+    {
+      "kind": "notes",
+      "placement": "general-aptitude › aptitude › (no card)",
+      "detail": "New lesson topics/verbal-aptitude (added 2026-10-28; syllabus-coverage.json subject General Aptitude, unit Aptitude, topic 'Verbal aptitude', coverage_status PUBLISHED, 4 subtopics and 18 microtopics; topics.json 50 aliases; transcript.md 10 scenes) covers agreement by the head noun and the nearest-noun attraction error, a/an by first sound, prepositions of time (for a length, since a point, within a deadline), idioms and phrasal verbs as fixed particles, vocabulary by intensity ladder and clue polarity, comprehension entailment with the absolute-word test, and narrative sequencing as a topological order with determiners and connectors. It serves no notes card: content/syllabus.json carries no General Aptitude subject. Next build: cards at content/subjects/general-aptitude/aptitude/, one per scene group (agreement, articles, prepositions of time, idioms, vocabulary in context, comprehension, sequencing)."
     }
   ]
 }
