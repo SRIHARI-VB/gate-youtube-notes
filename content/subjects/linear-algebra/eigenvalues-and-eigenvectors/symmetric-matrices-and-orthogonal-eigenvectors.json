@@ -1,0 +1,82 @@
+{
+  "id": "symmetric-matrices-and-orthogonal-eigenvectors",
+  "title": "Real Symmetric Matrices: Real Eigenvalues, Orthogonal Eigenvectors",
+  "priority": "P1",
+  "order": 138,
+  "unit": "Eigenvalue properties and structure",
+  "quickIdea": "A real symmetric matrix has only real eigenvalues, eigenvectors for different eigenvalues are orthogonal, and it always factors as Q Lambda Q^T with Q orthogonal.",
+  "remember": [
+    "A^T = A forces every eigenvalue to be real, and forces AM = GM for each eigenvalue, so a real symmetric matrix is always diagonalisable.",
+    "Eigenvectors of a symmetric matrix that belong to different eigenvalues are orthogonal: x^T y = 0.",
+    "For symmetric A, the sum of the squares of all entries equals tr(A^T A) = tr(A^2) = the sum of the squares of the eigenvalues.",
+    "Rank equals the number of nonzero eigenvalues, and nullity equals the multiplicity of 0.",
+    "A real symmetric matrix with a repeated eigenvalue may have non-orthogonal eigenvectors inside that eigenspace, but they can always be replaced by an orthogonal basis of it."
+  ],
+  "example": {
+    "prompt": "Verify the symmetric-matrix facts on A = [[2,1],[1,2]].",
+    "work": "Eigenvalues 3 and 1 with eigenvectors (1,1) and (1,-1). Their dot product is 1x1 + 1x(-1) = 0, so they are orthogonal. tr A = 4 = 3 + 1 and det A = 3 = 3 x 1. Sum of squares of the entries is 4+1+1+4 = 10, and the sum of squares of the eigenvalues is 9+1 = 10.",
+    "answer": "Real eigenvalues, orthogonal eigenvectors, and the entry-square identity all hold, as the theorems promise for a symmetric matrix."
+  },
+  "gateAngle": "2017 Set 1 Q.31 gives a real symmetric matrix of rank 2 with the sum of the squares of its entries equal to 50 and asks which statements about its eigenvalues must hold. The bridge is tr(A^2) = sum of squared eigenvalues = 50 with n - 2 eigenvalues equal to 0, which forces at least one eigenvalue into [-5,5] but allows the largest magnitude to be exactly 5.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "A is a 3x3 real symmetric matrix of rank 1 whose entries satisfy the sum of squares = 18. What are its eigenvalues?",
+      "answer": "One eigenvalue equal to 3 sqrt2 or to -3 sqrt2, and 0 twice.",
+      "why": "Rank 1 leaves exactly one nonzero eigenvalue, and the sum of squared eigenvalues is 18, so lambda^2 = 18. The sign is not determined by the data, which is exactly why 2017 Set 1 Q.31 asks what must hold rather than what is."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Why does a real symmetric matrix have real eigenvalues?",
+      "answer": "For a complex eigenpair with Ax = lambda x, take the conjugate transpose: x* A x = lambda x* x. The left side is real because A is real symmetric, and x* x is real and positive, so lambda is real.",
+      "why": "The argument uses symmetry in an essential way, which is why it fails for the rotation [[0,-1],[1,0]] whose eigenvalues are i and -i."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "A real 3x3 symmetric matrix has eigenvalues 1, 1 and -3. What is tr(A^2)?",
+      "answer": "11.",
+      "why": "tr(A^2) is the sum of the squared eigenvalues: 1 + 1 + 9 = 11. For a symmetric matrix this also equals the sum of the squares of all nine entries."
+    }
+  ],
+  "trap": {
+    "what": "Using the orthogonality of eigenvectors on a matrix that is not symmetric.",
+    "why": "The theorem needs A^T = A; without symmetry, eigenvectors of distinct eigenvalues are still independent but generally not perpendicular.",
+    "counterexample": "A = [[1,1],[0,2]] has eigenvalues 1 and 2 with eigenvectors (1,0) and (1,1), and (1,0) dot (1,1) = 1, not 0."
+  },
+  "check": {
+    "question": "A is a real 2x2 symmetric matrix with trace 6 and determinant 5. Find its eigenvalues and say whether its eigenvectors are orthogonal.",
+    "answer": "5 and 1, and yes, the eigenvectors are orthogonal.",
+    "explanation": "lambda^2 - 6 lambda + 5 = 0 gives 5 and 1. The eigenvalues are distinct and A is symmetric, so the two eigenvectors are perpendicular."
+  },
+  "pyqIds": [
+    "gate-2017-set1-31-symmetric-rank2-squares"
+  ],
+  "prereqs": [
+    "transpose-symmetric-and-skew-symmetric",
+    "eigenvalue-and-eigenvector-definition"
+  ],
+  "videoRefs": [],
+  "sources": [
+    {
+      "kind": "lecture",
+      "title": "Lecture 46: Eigenvalues and Eigenvectors",
+      "channel": "NPTEL, IIT Kharagpur (Prof. Jitendra Kumar, Engineering Mathematics I)",
+      "url": "https://www.youtube.com/watch?v=h5urBuE4Xhg",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "the definition with v nonzero, the geometric reading, the characteristic equation, the eigenspace, a 2x2 worked example with eigenvalues 3 and -2, the repeated-root example whose eigenvalue 1 has only one eigenvector, and Cayley-Hamilton with the inverse from it"
+    },
+    {
+      "kind": "text",
+      "title": "Linear Algebra subject notes and revision notes",
+      "channel": "GATE Overflow",
+      "url": "https://gateoverflow.in/subject/mathematics/linear-algebra?tab=notes",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "the algebraic and geometric multiplicity definitions and the property list; the fetched body was cut off at the determinant section, so the eigenvalue section was read only through its search extract"
+    }
+  ],
+  "sourceLine": "Standard references for the spectral theorem for real symmetric matrices: Lay, Linear Algebra and Its Applications, chapter 7, and Hoffman and Kunze, Linear Algebra, chapter 6. GATE Overflow Linear Algebra notes (English, read in part) for the property list used here. NPTEL IIT Kharagpur Lecture 46 (English, read in full) for the real-eigenvalue examples. The orthogonality, the trace and determinant values and the entry-square identity are recomputed in scripts/validate.py, including over every small integer symmetric matrix."
+}

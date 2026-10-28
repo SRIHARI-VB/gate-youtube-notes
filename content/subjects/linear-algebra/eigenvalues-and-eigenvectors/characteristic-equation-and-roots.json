@@ -1,0 +1,82 @@
+{
+  "id": "characteristic-equation-and-roots",
+  "title": "Characteristic Equation and Its Roots",
+  "priority": "P1",
+  "order": 133,
+  "unit": "The eigenpair",
+  "quickIdea": "det(A - lambda I) = 0 is a polynomial equation of degree n; its n roots, counted with multiplicity and over the complex numbers, are exactly the eigenvalues.",
+  "remember": [
+    "det(A - lambda I) and det(lambda I - A) differ only by the factor (-1)^n, so they have the same roots; either form is safe.",
+    "2x2 shortcut: lambda^2 - (tr A) lambda + det A = 0.",
+    "3x3: lambda^3 - s1 lambda^2 + s2 lambda - det A = 0, where s1 = tr A and s2 is the sum of the three principal 2x2 minors.",
+    "An n x n matrix has n eigenvalues counted with multiplicity, but it may have fewer than n distinct real eigenvalues, and over the reals it may have none at all.",
+    "The coefficient of lambda^(n-1) is -tr A and the constant term is (-1)^n det A, which is exactly where sum = trace and product = determinant come from."
+  ],
+  "example": {
+    "prompt": "Find the characteristic polynomial of A = [[1,2,3],[0,4,5],[0,0,6]] and read off its eigenvalues.",
+    "work": "A is upper triangular, so det(A - lambda I) = (1-lambda)(4-lambda)(6-lambda). Expanding: tr A = 11, det A = 24, and the principal minors are 1x4 = 4, 1x6 = 6, 4x6 = 24, so s2 = 34. The polynomial is lambda^3 - 11 lambda^2 + 34 lambda - 24.",
+    "answer": "Eigenvalues 1, 4, 6. Check: 1+4+6 = 11 = tr A and 1x4x6 = 24 = det A."
+  },
+  "gateAngle": "Almost no GATE question needs the full cubic. 2016 Set 1 Q.5 and 2024 Set 1 Q.2 are settled by the product of the eigenvalues alone, 2025 Set 1 Q.31 by the 2x2 quadratic, and a triangular matrix by its diagonal. Build the polynomial only when the matrix is small and has no visible structure.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "A is 3x3 with tr A = 6, det A = 6, and one eigenvalue equal to 1. Find the other two.",
+      "answer": "2 and 3.",
+      "why": "The other two satisfy lambda2 + lambda3 = 6 - 1 = 5 and lambda2 lambda3 = 6/1 = 6, so they are the roots of t^2 - 5t + 6, namely 2 and 3. No cubic needs to be written."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Why does every real 3x3 matrix have at least one real eigenvalue?",
+      "answer": "Its characteristic polynomial has degree 3 with real coefficients, and a real polynomial of odd degree takes both signs at infinity, so it has a real root by the intermediate value theorem.",
+      "why": "This is the reason a real matrix of odd order can never have all its eigenvalues non-real, which is the argument GATE CSE 2016 Set 1 Q.5 relies on."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "A 4x4 real matrix has characteristic polynomial lambda^4 - 5 lambda^3 + 7 lambda^2 - 3 lambda. What follows at once?",
+      "answer": "0 is an eigenvalue and A is singular, because the constant term is 0 and the constant term is det A.",
+      "why": "The constant term of the characteristic polynomial of an n x n matrix is (-1)^n det A, so a zero constant term means a zero determinant."
+    }
+  ],
+  "trap": {
+    "what": "Assuming an n x n real matrix has n real eigenvalues, or that a repeated root of the polynomial is somehow not a separate eigenvalue.",
+    "why": "The polynomial has degree n over the complex numbers, so it always has n roots there, but a real matrix can have non-real roots, and multiplicity counts.",
+    "counterexample": "A = [[0,-1],[1,0]] gives lambda^2 + 1 = 0, so the eigenvalues are i and -i: two eigenvalues, no real one. A = [[2,1],[0,2]] gives (2-lambda)^2 = 0, so 2 is an eigenvalue of multiplicity 2."
+  },
+  "check": {
+    "question": "A is 2x2 with tr A = 7 and det A = 12. What are its eigenvalues?",
+    "answer": "3 and 4.",
+    "explanation": "lambda^2 - 7 lambda + 12 = (lambda-3)(lambda-4) = 0. Sum 7 and product 12 agree with the trace and determinant, which is the check that the answer is right."
+  },
+  "pyqIds": [
+    "gate-2016-set1-05-determinant-from-eigenvalues",
+    "gate-2024-set1-2-product-of-eigenvalues"
+  ],
+  "prereqs": [
+    "determinant-definition-and-cofactor-expansion"
+  ],
+  "videoRefs": [],
+  "sources": [
+    {
+      "kind": "lecture",
+      "title": "Lecture 46: Eigenvalues and Eigenvectors",
+      "channel": "NPTEL, IIT Kharagpur (Prof. Jitendra Kumar, Engineering Mathematics I)",
+      "url": "https://www.youtube.com/watch?v=h5urBuE4Xhg",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "the definition with v nonzero, the geometric reading, the characteristic equation, the eigenspace, a 2x2 worked example with eigenvalues 3 and -2, the repeated-root example whose eigenvalue 1 has only one eigenvector, and Cayley-Hamilton with the inverse from it"
+    },
+    {
+      "kind": "lecture",
+      "title": "Eigen Value Eigen Vector | Engineering Mathematics ONESHOT (Hindi)",
+      "channel": "GanitAnk (Hindi engineering mathematics)",
+      "url": "https://www.youtube.com/watch?v=qeZ7oW-Jrnc",
+      "language": "hi",
+      "transcript": "PARTIAL",
+      "translated": true,
+      "note": "the characteristic equation written as lambda^3 - s1 lambda^2 + s2 lambda - det = 0, eigenvectors from Cramer's rule, the repeated-eigenvalue case, and the inverse from Cayley-Hamilton; read in part, the last third of the stream not read"
+    }
+  ],
+  "sourceLine": "NPTEL IIT Kharagpur Lecture 46 (English, read in full) for the characteristic equation, the degree-n reading and the worked 2x2 example. GanitAnk's Hindi one-shot (Hindi, read in part, translated) for the 3x3 form lambda^3 - s1 lambda^2 + s2 lambda - det = 0 and the principal-minor reading of s2; the sentences taken from it are translated. The 3x3 example's trace, determinant, principal minors and polynomial are recomputed in scripts/validate.py."
+}

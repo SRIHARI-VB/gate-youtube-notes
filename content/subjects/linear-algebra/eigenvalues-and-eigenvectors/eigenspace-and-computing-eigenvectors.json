@@ -1,0 +1,82 @@
+{
+  "id": "eigenspace-and-computing-eigenvectors",
+  "title": "Eigenspace: the Eigenvectors of a Known Eigenvalue",
+  "priority": "P1",
+  "order": 134,
+  "unit": "The eigenpair",
+  "quickIdea": "Once an eigenvalue is known, its eigenvectors are the nonzero solutions of (A - lambda I)x = 0; that null space is the eigenspace, and its dimension is the geometric multiplicity.",
+  "remember": [
+    "Eigenspace E_lambda = null(A - lambda I). It always contains the zero vector; the eigenvectors are its nonzero vectors.",
+    "dim E_lambda = n - rank(A - lambda I), where n is the order of A.",
+    "Eigenspaces of distinct eigenvalues meet only at 0, so eigenvectors for different eigenvalues are linearly independent.",
+    "An eigenvector is a line, not a point: write the answer as alpha times a basis vector with alpha not 0, never as one chosen multiple.",
+    "Computing the eigenspace is just solving a homogeneous system, so every earlier fact about null space and free variables applies unchanged."
+  ],
+  "example": {
+    "prompt": "A = [[1,-1,2],[0,1,0],[1,2,1]] has eigenvalue 1. Find its eigenvectors.",
+    "work": "A - I = [[0,-1,2],[0,0,0],[1,2,0]]. The equations are -y + 2z = 0 and x + 2y = 0, so y = 2z and x = -4z. With z = alpha, x = -4 alpha and y = 2 alpha. The middle row is entirely zero, so rank(A - I) = 2 and the nullity is 3 - 2 = 1.",
+    "answer": "The eigenspace is { alpha (-4, 2, 1) : alpha not 0 }, one line through the origin. Check: A(-4,2,1) = (-4+ -2 + 2, 2, -4+4+1) = (-4,2,1)."
+  },
+  "gateAngle": "2015 Set 3 Q.15 gives this matrix, states that 1 is an eigenvalue, and asks for the eigenvector set. Two routes work: row-reduce A - I, or substitute each offered vector into Av = v. The second is faster under time pressure and is the one to fall back on when the options are already in the alpha-times-a-vector form.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "A = [[2,1],[0,2]]. Find the eigenspace for lambda = 2 and its dimension.",
+      "answer": "E_2 = { alpha (1,0) : alpha not 0 }, of dimension 1.",
+      "why": "A - 2I = [[0,1],[0,0]] has rank 1, so the nullity is 2 - 1 = 1 even though the algebraic multiplicity of 2 is 2. That difference is the whole subject of the multiplicity card."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Why can two eigenspaces of different eigenvalues never share a nonzero vector?",
+      "answer": "If x were nonzero in both, Ax = lambda x and Ax = mu x, so (lambda - mu) x = 0; since x is nonzero, lambda = mu.",
+      "why": "This one-line argument is also the proof that eigenvectors for distinct eigenvalues are independent, which the diagonalisability card uses."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "For the same 3x3 matrix, rank(A - I) = 2. How many independent eigenvectors does the eigenvalue 1 have?",
+      "answer": "One.",
+      "why": "Geometric multiplicity is n - rank(A - lambda I) = 3 - 2 = 1, so the eigenspace is a single line whatever the algebraic multiplicity of 1 turns out to be."
+    }
+  ],
+  "trap": {
+    "what": "Reporting a single numeric vector such as (-4,2,1) as the answer, or forgetting the alpha not equal to 0 condition and including the zero vector.",
+    "why": "Every nonzero multiple is an eigenvector, so the answer is a set of vectors, not one vector; and 0 lies in the eigenspace but is excluded from the eigenvectors by definition.",
+    "counterexample": "For A = [[2,1],[0,2]], both (1,0) and (7,0) satisfy Av = 2v, while (0,0) satisfies the equation and is still not an eigenvector."
+  },
+  "check": {
+    "question": "A is 4x4 and lambda = 5 is an eigenvalue with rank(A - 5I) = 3. How many independent eigenvectors does 5 have?",
+    "answer": "One.",
+    "explanation": "dim E_5 = n - rank(A - 5I) = 4 - 3 = 1, so the eigenspace is a line and the geometric multiplicity is 1."
+  },
+  "pyqIds": [
+    "gate-2015-set3-15-eigenvector-for-lambda-1"
+  ],
+  "prereqs": [
+    "homogeneous-systems",
+    "eigenvalue-and-eigenvector-definition"
+  ],
+  "videoRefs": [],
+  "sources": [
+    {
+      "kind": "lecture",
+      "title": "Lecture 46: Eigenvalues and Eigenvectors",
+      "channel": "NPTEL, IIT Kharagpur (Prof. Jitendra Kumar, Engineering Mathematics I)",
+      "url": "https://www.youtube.com/watch?v=h5urBuE4Xhg",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "the definition with v nonzero, the geometric reading, the characteristic equation, the eigenspace, a 2x2 worked example with eigenvalues 3 and -2, the repeated-root example whose eigenvalue 1 has only one eigenvector, and Cayley-Hamilton with the inverse from it"
+    },
+    {
+      "kind": "lecture",
+      "title": "Eigen Value Eigen Vector | Engineering Mathematics ONESHOT (Hindi)",
+      "channel": "GanitAnk (Hindi engineering mathematics)",
+      "url": "https://www.youtube.com/watch?v=qeZ7oW-Jrnc",
+      "language": "hi",
+      "transcript": "PARTIAL",
+      "translated": true,
+      "note": "the characteristic equation written as lambda^3 - s1 lambda^2 + s2 lambda - det = 0, eigenvectors from Cramer's rule, the repeated-eigenvalue case, and the inverse from Cayley-Hamilton; read in part, the last third of the stream not read"
+    }
+  ],
+  "sourceLine": "NPTEL IIT Kharagpur Lecture 46 (English, read in full) for the eigenspace as the null space of A - lambda I and the worked example with eigenvalues 3 and -2. GanitAnk's Hindi one-shot (Hindi, read in part, translated) for computing eigenvectors by Cramer's rule on A - lambda I; the sentences taken from it are translated. The 2015 Set 3 matrix, its eigenvector and the rank of A - I are recomputed in scripts/validate.py."
+}

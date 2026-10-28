@@ -1,0 +1,80 @@
+{
+  "id": "similar-matrices-and-what-preserves-eigenvalues",
+  "title": "What Preserves Eigenvalues: Similarity, Transpose, and the Row-Operation Trap",
+  "priority": "P2",
+  "order": 141,
+  "unit": "Eigenvalue properties and structure",
+  "quickIdea": "Similar matrices P^-1 A P and the transpose A^T have the same eigenvalues as A; elementary row operations generally do not.",
+  "remember": [
+    "det(P^-1 A P - lambda I) = det(P^-1 (A - lambda I) P) = det(A - lambda I), so similarity preserves the entire characteristic polynomial.",
+    "Similar matrices therefore share trace, determinant, rank and eigenvalues, but not eigenvectors.",
+    "A^T has the same characteristic polynomial as A, because det(A^T - lambda I) = det(A - lambda I).",
+    "Elementary row operations change eigenvalues in general: elimination is safe for solving Ax = 0 and Ax = b, not for finding eigenvalues.",
+    "Multiplying one row by k multiplies det A by k, and the eigenvalues move with it."
+  ],
+  "example": {
+    "prompt": "Compare the eigenvalues of A = [[1,2],[3,4]] and of the matrix obtained by the row operation R2 <- R2 - 3 R1.",
+    "work": "For A, lambda^2 - 5 lambda - 2 = 0, so the eigenvalues are (5 + sqrt33)/2 and (5 - sqrt33)/2, about 5.372 and -0.372. The row operation R2 <- R2 - 3 R1 gives B = [[1,2],[0,-2]], whose eigenvalues are 1 and -2. The trace moved from 5 to -1, so the eigenvalues moved with it; the determinant happens to stay at -2 here, which is a coincidence of this example, not a rule.",
+    "answer": "Row operations change the eigenvalues, which is why elimination must never be used to find them."
+  },
+  "gateAngle": "GATE tests this as a statement question: which operations leave the eigenvalues, the determinant or the rank unchanged. The recorded GATE CSE 2024 Set 2 Q.37 on row swaps, kept in the Matrices and Determinants topic, is settled by det(B - lambda I) = -det(A - lambda I) after a single swap: the eigenvalues survive and the determinant changes sign.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "A has eigenvalues 1, 2, 3. What are the eigenvalues of A^T, and of 2A?",
+      "answer": "A^T has 1, 2, 3; 2A has 2, 4, 6.",
+      "why": "Transposition preserves the characteristic polynomial, while scaling by 2 scales the characteristic polynomial's roots by 2, since det(2A - lambda I) = 2^n det(A - (lambda/2) I)."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Why does similarity preserve the characteristic polynomial?",
+      "answer": "P^-1 A P - lambda I = P^-1 (A - lambda I) P, and the determinant of a product is the product of the determinants, so det(P^-1) det(A - lambda I) det(P) = det(A - lambda I).",
+      "why": "The same computation gives the trace and determinant invariance, because those are coefficients of the characteristic polynomial."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "B is obtained from A by swapping two rows. A has trace 6 and determinant 6. What are tr B and det B?",
+      "answer": "det B = -6, and the eigenvalues of B are the eigenvalues of A.",
+      "why": "A row swap multiplies the determinant by -1 and multiplies the characteristic polynomial by -1, so the roots are unchanged while det flips sign. The trace need not be preserved: a swap changes which entries sit on the diagonal."
+    }
+  ],
+  "trap": {
+    "what": "Row-reducing a matrix and then reading the eigenvalues off the resulting triangular matrix.",
+    "why": "Row operations preserve the solution set of Ax = 0 but not the characteristic polynomial, so the triangular matrix has different eigenvalues from the original.",
+    "counterexample": "A = [[1,2],[3,4]] has eigenvalues about 5.372 and -0.372, while its row-reduced form [[1,2],[0,-2]] has eigenvalues 1 and -2."
+  },
+  "check": {
+    "question": "A and B are similar, and A has eigenvalues 2, 2 and 5 with trace 9. What are the eigenvalues and trace of B?",
+    "answer": "2, 2 and 5, and trace 9.",
+    "explanation": "Similarity preserves the characteristic polynomial, so every coefficient is preserved: eigenvalues, trace, determinant and rank all agree."
+  },
+  "pyqIds": [],
+  "prereqs": [
+    "diagonalisability-criterion",
+    "transpose-symmetric-and-skew-symmetric"
+  ],
+  "videoRefs": [],
+  "sources": [
+    {
+      "kind": "lecture",
+      "title": "Lecture 46: Eigenvalues and Eigenvectors",
+      "channel": "NPTEL, IIT Kharagpur (Prof. Jitendra Kumar, Engineering Mathematics I)",
+      "url": "https://www.youtube.com/watch?v=h5urBuE4Xhg",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "the definition with v nonzero, the geometric reading, the characteristic equation, the eigenspace, a 2x2 worked example with eigenvalues 3 and -2, the repeated-root example whose eigenvalue 1 has only one eigenvector, and Cayley-Hamilton with the inverse from it"
+    },
+    {
+      "kind": "text",
+      "title": "Linear Algebra subject notes and revision notes",
+      "channel": "GATE Overflow",
+      "url": "https://gateoverflow.in/subject/mathematics/linear-algebra?tab=notes",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "the algebraic and geometric multiplicity definitions and the property list; the fetched body was cut off at the determinant section, so the eigenvalue section was read only through its search extract"
+    }
+  ],
+  "sourceLine": "NPTEL IIT Kharagpur Lecture 46 (English, read in full) for the characteristic-polynomial route to the eigenvalue rules. GATE Overflow Linear Algebra notes (English, read in part) for the property list. The row-operation counterexample, both characteristic quadratics and the two eigenvalue pairs are recomputed in scripts/validate.py, and the row-operation claim is also checked against every small integer 2x2 matrix in range."
+}

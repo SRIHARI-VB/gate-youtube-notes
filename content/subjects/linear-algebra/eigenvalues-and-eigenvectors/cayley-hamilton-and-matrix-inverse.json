@@ -1,0 +1,80 @@
+{
+  "id": "cayley-hamilton-and-matrix-inverse",
+  "title": "Cayley-Hamilton Theorem and the Inverse From It",
+  "priority": "P3",
+  "order": 142,
+  "unit": "Eigenvalue properties and structure",
+  "quickIdea": "Every square matrix satisfies its own characteristic equation, which turns a high power of A into a combination of lower powers and gives A^-1 without adjoints.",
+  "remember": [
+    "If p(lambda) = det(lambda I - A) then p(A) = 0, the zero matrix, not the scalar 0.",
+    "For 2x2 this reads A^2 - (tr A) A + (det A) I = 0, so A^2 is a combination of A and I.",
+    "If A is invertible, multiplying p(A) = 0 by A^-1 expresses A^-1 as a polynomial in A of degree n-1.",
+    "The theorem holds for every square matrix over any field, and needs no eigenvalues to be distinct or real.",
+    "The minimal polynomial divides the characteristic polynomial; the theorem alone does not identify the minimal one."
+  ],
+  "example": {
+    "prompt": "Use Cayley-Hamilton to invert A = [[2,1],[1,2]].",
+    "work": "p(lambda) = lambda^2 - 4 lambda + 3, so A^2 - 4A + 3I = 0. Multiply by A^-1: A - 4I + 3A^-1 = 0, hence A^-1 = (4I - A)/3 = (1/3)[[2,-1],[-1,2]]. Check: A times that is (1/3)[[4-1, -2+2],[2-2, -1+4]] = (1/3)[[3,0],[0,3]] = I.",
+    "answer": "A^-1 = (1/3)[[2,-1],[-1,2]], obtained without any adjoint or cofactor."
+  },
+  "gateAngle": "No GATE CSE question recorded in this repository uses Cayley-Hamilton directly, which is why this card is P3. It earns its place because it shortens the power and inverse computations that do appear, and because GATE-level teaching of this topic covers it: the NPTEL lecture used here closes on it, and the Hindi one-shot gives GATE questions on it.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "A = [[2,4],[3,5]]. Find A^-1 using Cayley-Hamilton.",
+      "answer": "A^-1 = (1/2)(A - 7I) = [[-5/2, 2],[3/2, -1]].",
+      "why": "p(lambda) = lambda^2 - 7 lambda - 2, so A^2 - 7A - 2I = 0 and A(A - 7I) = 2I. This is the example worked in the Hindi one-shot used for this topic, translated into English and re-derived here; the determinant check det A = -2 confirms the result."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Why must A be checked invertible before Cayley-Hamilton is used to find A^-1?",
+      "answer": "The step multiplies p(A) = 0 by A^-1, which exists only when det A is not 0; when det A = 0 the constant term of p vanishes and the manipulation loses its meaning.",
+      "why": "The theorem itself holds for every square matrix, but the derivation of an inverse needs an inverse to begin with."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "A is 2x2 with trace 5 and determinant 6. Write A^2 in terms of A and I.",
+      "answer": "A^2 = 5A - 6I.",
+      "why": "Cayley-Hamilton gives A^2 - 5A + 6I = 0 directly from the trace and determinant, with no need to know the entries."
+    }
+  ],
+  "trap": {
+    "what": "Writing p(A) = 0 as the scalar zero, or cancelling A without checking that A is invertible.",
+    "why": "p(A) is a matrix equation whose right side is the zero matrix of the same order, and cancelling A is only legal when A is invertible.",
+    "counterexample": "For A = [[1,1],[0,1]], p(lambda) = (lambda-1)^2 and A^2 - 2A + I = 0 holds as a matrix identity, while the scalar statement 1 - 2 + 1 = 0 says nothing about A. And det A = 1 there, so the inverse exists; for A = [[1,1],[1,1]] it does not, and no inverse can be produced."
+  },
+  "check": {
+    "question": "A is 3x3 with characteristic polynomial lambda^3 - 6 lambda^2 + 11 lambda - 6. Write A^3 in terms of lower powers of A.",
+    "answer": "A^3 = 6A^2 - 11A + 6I.",
+    "explanation": "Cayley-Hamilton sets the polynomial evaluated at A to the zero matrix, and solving for A^3 gives the expression. The eigenvalues are 1, 2 and 3, which sum to 6 and multiply to 6, matching the coefficients."
+  },
+  "pyqIds": [],
+  "prereqs": [
+    "characteristic-equation-and-roots",
+    "adjoint-inverse-and-invertibility"
+  ],
+  "videoRefs": [],
+  "sources": [
+    {
+      "kind": "lecture",
+      "title": "Lecture 46: Eigenvalues and Eigenvectors",
+      "channel": "NPTEL, IIT Kharagpur (Prof. Jitendra Kumar, Engineering Mathematics I)",
+      "url": "https://www.youtube.com/watch?v=h5urBuE4Xhg",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "the definition with v nonzero, the geometric reading, the characteristic equation, the eigenspace, a 2x2 worked example with eigenvalues 3 and -2, the repeated-root example whose eigenvalue 1 has only one eigenvector, and Cayley-Hamilton with the inverse from it"
+    },
+    {
+      "kind": "lecture",
+      "title": "Eigen Value Eigen Vector | Engineering Mathematics ONESHOT (Hindi)",
+      "channel": "GanitAnk (Hindi engineering mathematics)",
+      "url": "https://www.youtube.com/watch?v=qeZ7oW-Jrnc",
+      "language": "hi",
+      "transcript": "PARTIAL",
+      "translated": true,
+      "note": "the characteristic equation written as lambda^3 - s1 lambda^2 + s2 lambda - det = 0, eigenvectors from Cramer's rule, the repeated-eigenvalue case, and the inverse from Cayley-Hamilton; read in part, the last third of the stream not read"
+    }
+  ],
+  "sourceLine": "NPTEL IIT Kharagpur Lecture 46 (English, read in full) for the statement and proof-free use of the theorem, with the worked inverse from it. GanitAnk's Hindi one-shot (Hindi, read in part, translated) for the 2x2 inverse example and the GATE-question framing; the sentences taken from it are translated into English. Both inverse examples are multiplied back to the identity in scripts/validate.py, and the theorem is checked against every small integer 2x2 matrix."
+}

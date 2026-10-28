@@ -1,0 +1,83 @@
+{
+  "id": "eigenvalue-properties-of-matrix-functions",
+  "title": "Eigenvalues of A^k, A^-1, A^T and Polynomials in A",
+  "priority": "P1",
+  "order": 135,
+  "unit": "Eigenvalue properties and structure",
+  "quickIdea": "If Av = lambda v then the same v is an eigenvector of A^k, of A^-1, of A^T, of A + cI and of any polynomial p(A), with eigenvalue lambda^k, 1/lambda, lambda, lambda + c and p(lambda).",
+  "remember": [
+    "Sum of the eigenvalues = tr A and product of the eigenvalues = det A, both counted with multiplicity. These two identities answer most GATE eigenvalue questions.",
+    "A^k has eigenvalues lambda^k with the same eigenvectors; A^-1 has eigenvalues 1/lambda, defined only when A is invertible.",
+    "A^T has the same eigenvalues as A, but its eigenvectors are generally different.",
+    "p(A) has eigenvalues p(lambda) for the same eigenvectors, so A^2 + 3A has eigenvalues lambda^2 + 3 lambda, and A + cI shifts every eigenvalue by c.",
+    "det(A^k) = (det A)^k and det(A^-1) = 1/det A, because the determinant is the product of the eigenvalues."
+  ],
+  "example": {
+    "prompt": "A = [[1,1],[1,-1]]. Find the eigenvalues of A^13.",
+    "work": "lambda^2 - (tr A) lambda + det A = lambda^2 - 0 lambda - 2 = 0, so lambda = sqrt2 and -sqrt2. A^13 has eigenvalues (sqrt2)^13 and (-sqrt2)^13. Since (sqrt2)^12 = 2^6 = 64, these are 64 sqrt2 and -64 sqrt2. Direct check: A^2 = 2I, so A^13 = (A^2)^6 A = 64A = [[64,64],[64,-64]], whose eigenvalues are 64 sqrt2 and -64 sqrt2.",
+    "answer": "64 sqrt2 and -64 sqrt2, option D of GATE CSE 2025 Set 1 Q.31."
+  },
+  "gateAngle": "2025 Set 1 Q.31 asks for the eigenvalues of A^13 and 2016 Set 2 Q.6 for det((A^-1)^T). Neither needs an eigenvector: the first is the power rule, the second is the product rule followed by det(A^-1) = 1/det A and det(A^T) = det A.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "The eigenvalues of A are 1, 2 and 4. What are the eigenvalues of A^2 + 3A?",
+      "answer": "4, 10 and 28.",
+      "why": "Apply p(lambda) = lambda^2 + 3 lambda to each eigenvalue: 1+3 = 4, 4+6 = 10, 16+12 = 28. The eigenvectors stay the same, which is why the rule is safe."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Why does A^T have the same eigenvalues as A?",
+      "answer": "Because det(A^T - lambda I) = det((A - lambda I)^T) = det(A - lambda I), so the two matrices have identical characteristic polynomials.",
+      "why": "This is a determinant identity, not a statement about eigenvectors, and the eigenvectors of A^T really can differ from those of A."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "A is 3x3 with eigenvalues 2, -1 and 3. What is det(A^2)?",
+      "answer": "36.",
+      "why": "det(A^2) = (det A)^2 = (2 x -1 x 3)^2 = 36, or equivalently the product 4 x 1 x 9 of the squared eigenvalues."
+    }
+  ],
+  "trap": {
+    "what": "Assuming eigenvalues add or subtract under A + B, or that A and A^T share eigenvectors.",
+    "why": "The eigenvalue rules are one-matrix rules: they hold for powers, inverses, transposes and polynomials of a single A, and there is no rule at all for a sum of two matrices.",
+    "counterexample": "A = [[0,1],[0,0]] and B = [[0,0],[1,0]] both have eigenvalues 0, 0, but A + B = [[0,1],[1,0]] has eigenvalues 1 and -1, not 0 and 0."
+  },
+  "check": {
+    "question": "The eigenvalues of A are 3 and 5. What are the eigenvalues of A^-1, and of A^2 - I?",
+    "answer": "A^-1 has 1/3 and 1/5; A^2 - I has 8 and 24.",
+    "explanation": "The inverse rule gives 1/lambda, and the polynomial rule with p(t) = t^2 - 1 gives 9-1 = 8 and 25-1 = 24. Both hold only because A is invertible, which det A = 15 confirms."
+  },
+  "pyqIds": [
+    "gate-2025-set1-31-eigenvalues-of-a13",
+    "gate-2016-set2-06-determinant-of-inverse-transpose"
+  ],
+  "prereqs": [
+    "eigenvalue-and-eigenvector-definition",
+    "matrix-powers-and-special-matrices"
+  ],
+  "videoRefs": [],
+  "sources": [
+    {
+      "kind": "lecture",
+      "title": "Lecture 46: Eigenvalues and Eigenvectors",
+      "channel": "NPTEL, IIT Kharagpur (Prof. Jitendra Kumar, Engineering Mathematics I)",
+      "url": "https://www.youtube.com/watch?v=h5urBuE4Xhg",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "the definition with v nonzero, the geometric reading, the characteristic equation, the eigenspace, a 2x2 worked example with eigenvalues 3 and -2, the repeated-root example whose eigenvalue 1 has only one eigenvector, and Cayley-Hamilton with the inverse from it"
+    },
+    {
+      "kind": "text",
+      "title": "Linear Algebra subject notes and revision notes",
+      "channel": "GATE Overflow",
+      "url": "https://gateoverflow.in/subject/mathematics/linear-algebra?tab=notes",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "the algebraic and geometric multiplicity definitions and the property list; the fetched body was cut off at the determinant section, so the eigenvalue section was read only through its search extract"
+    }
+  ],
+  "sourceLine": "NPTEL IIT Kharagpur Lecture 46 (English, read in full) for the eigenvalue relations that follow from the characteristic polynomial. GATE Overflow Linear Algebra notes (English, read in part) for the property list: sum is the trace, product is the determinant, powers and inverses carry the eigenvalue to the same power and reciprocal. Every value printed here, including A^13 = 64A, is recomputed in scripts/validate.py."
+}

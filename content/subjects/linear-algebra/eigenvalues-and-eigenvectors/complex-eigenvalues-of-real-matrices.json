@@ -1,0 +1,71 @@
+{
+  "id": "complex-eigenvalues-of-real-matrices",
+  "title": "Complex Eigenvalues of a Real Matrix",
+  "priority": "P2",
+  "order": 139,
+  "unit": "Eigenvalue properties and structure",
+  "quickIdea": "A real matrix has non-real eigenvalues only in conjugate pairs, so an odd-order real matrix always has at least one real eigenvalue and the pair multiplies to a positive real number.",
+  "remember": [
+    "If a + bi is an eigenvalue of a real matrix then a - bi is too, with the same algebraic multiplicity.",
+    "The pair multiplies to a^2 + b^2, which is positive, so a conjugate pair contributes a positive factor to the determinant.",
+    "A real 2x2 has complex eigenvalues exactly when (tr A)^2 < 4 det A.",
+    "A real matrix with a non-real eigenvalue has no real eigenvector for it; the eigenvector is complex.",
+    "The rotation [[0,-1],[1,0]] is the model case: eigenvalues i and -i, trace 0 and determinant 1."
+  ],
+  "example": {
+    "prompt": "Two eigenvalues of a real 3x3 matrix P are 2 + sqrt(-1) and 3. Find det P.",
+    "work": "A real matrix has real coefficients in its characteristic polynomial, so a non-real root forces its conjugate to be a root as well. The third eigenvalue is therefore 2 - sqrt(-1). The determinant is the product: (2+i)(2-i) x 3 = (4+1) x 3 = 15.",
+    "answer": "det P = 15, which is GATE CSE 2016 Set 1 Q.5."
+  },
+  "gateAngle": "2016 Set 1 Q.5 is the whole pattern: an odd-order real matrix, one non-real eigenvalue given, the conjugate inferred, the determinant taken as the product. The distractors come from multiplying only the two given eigenvalues, or from treating the missing eigenvalue as free.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "A real 2x2 matrix has trace 4 and determinant 13. Are its eigenvalues real?",
+      "answer": "No: they are 2 + 3i and 2 - 3i.",
+      "why": "The discriminant is (tr)^2 - 4 det = 16 - 52 = -36 < 0, so the quadratic lambda^2 - 4 lambda + 13 has a conjugate complex pair with real part tr/2 = 2."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Why can a real matrix never have exactly one non-real eigenvalue?",
+      "answer": "Its characteristic polynomial has real coefficients, and a real polynomial's non-real roots occur in conjugate pairs because conjugation fixes the coefficients.",
+      "why": "This is why the count of non-real eigenvalues of a real matrix is always even, and why an odd-order real matrix must have a real eigenvalue."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "A real 4x4 matrix has eigenvalues 1, 3 and 2 + i among its four. What is the fourth, and what is det A?",
+      "answer": "The fourth is 2 - i, and det A = 1 x 3 x (2+i)(2-i) = 15.",
+      "why": "The conjugate fills the missing slot, and the determinant is the product of all four, with the pair contributing 5."
+    }
+  ],
+  "trap": {
+    "what": "Treating the eigenvalue that was not listed as free, or forgetting that the determinant is the product over all n eigenvalues including the conjugate.",
+    "why": "A real matrix has a fixed multiset of n eigenvalues counted with multiplicity; a non-real one pins down its partner, so the set is complete once one of the pair is known.",
+    "counterexample": "For a real 3x3 with 2+i and 3 given, taking det = (2+i) x 3 = 6 + 3i is impossible for a real matrix, and the true value is 15."
+  },
+  "check": {
+    "question": "A real 2x2 matrix has determinant 1 and trace 0. What are its eigenvalues?",
+    "answer": "i and -i.",
+    "explanation": "lambda^2 + 1 = 0. The matrix is a rotation by 90 degrees, which turns every real vector, so it has no real eigenvector at all."
+  },
+  "pyqIds": [
+    "gate-2016-set1-05-determinant-from-eigenvalues"
+  ],
+  "prereqs": [
+    "characteristic-equation-and-roots"
+  ],
+  "videoRefs": [],
+  "sources": [
+    {
+      "kind": "lecture",
+      "title": "Lecture 46: Eigenvalues and Eigenvectors",
+      "channel": "NPTEL, IIT Kharagpur (Prof. Jitendra Kumar, Engineering Mathematics I)",
+      "url": "https://www.youtube.com/watch?v=h5urBuE4Xhg",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "the definition with v nonzero, the geometric reading, the characteristic equation, the eigenspace, a 2x2 worked example with eigenvalues 3 and -2, the repeated-root example whose eigenvalue 1 has only one eigenvector, and Cayley-Hamilton with the inverse from it"
+    }
+  ],
+  "sourceLine": "NPTEL IIT Kharagpur Lecture 46 (English, read in full) for the statement that a matrix may have complex eigenvalues and complex eigenvectors, with the complex example whose characteristic equation has a repeated real root. The conjugate-pair fact and the discriminant test are standard results, recorded in the standard references for this topic, and every product printed here is recomputed in scripts/validate.py."
+}

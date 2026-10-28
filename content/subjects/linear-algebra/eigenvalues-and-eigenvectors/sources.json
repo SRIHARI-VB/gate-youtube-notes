@@ -1,0 +1,165 @@
+{
+  "subject": "linear-algebra",
+  "topic": "eigenvalues-and-eigenvectors",
+  "exam": "GATE CSE 2027",
+  "retrieved_at": "2026-10-29",
+  "subtopics": [
+    "the definition Av = lambda v with v non-zero, and the geometric reading of an eigenvector as a direction the matrix only scales",
+    "the characteristic equation det(A - lambda I) = 0, its degree n, and its n roots over the complex numbers counted with multiplicity",
+    "the eigenspace null(A - lambda I) for a known eigenvalue, and computing eigenvectors by solving that homogeneous system",
+    "the identities sum of eigenvalues = trace and product of eigenvalues = determinant",
+    "eigenvalues of A^k, A^-1, A^T, cA, A + cI and polynomials p(A), with the eigenvectors left unchanged",
+    "algebraic against geometric multiplicity, the bound 1 <= GM <= AM, and what a shortfall means",
+    "diagonalisability, the criterion of n independent eigenvectors, A = P D P^-1 and the power shortcut",
+    "real symmetric matrices: real eigenvalues, orthogonal eigenvectors for distinct eigenvalues, and AM = GM",
+    "complex eigenvalues of a real matrix: conjugate pairs, the discriminant test, and the absence of real eigenvectors",
+    "eigenvalue shortcuts for triangular, constant-row-sum, all-ones J, J - I and rank-one matrices",
+    "what preserves eigenvalues: similarity P^-1 A P and transposition, and the fact that elementary row operations do not",
+    "the Cayley-Hamilton theorem and the inverse obtained from it"
+  ],
+  "chosen": [
+    {
+      "id": "nptel-iit-kharagpur-lecture-46",
+      "kind": "lecture",
+      "channel": "NPTEL, IIT Kharagpur (Prof. Jitendra Kumar, Engineering Mathematics I)",
+      "title": "Lecture 46: Eigenvalues and Eigenvectors",
+      "url": "https://www.youtube.com/watch?v=h5urBuE4Xhg",
+      "language": "en",
+      "covers": [
+        "the definition with the vector non-zero, and the two readings of an eigenvector: parallel vectors, and non-trivial null vectors of A - lambda I",
+        "the characteristic equation of degree n and the reading of its roots as eigenvalues counted with multiplicity",
+        "the eigenspace as the null space of A - lambda I, including the zero vector",
+        "a worked 2x2 example with eigenvalues 3 and -2, and the repeated-root example whose double eigenvalue yields one eigenvector direction",
+        "the statement that distinct eigenvalues give linearly independent eigenvectors",
+        "Cayley-Hamilton and the inverse of a 2x2 obtained from it"
+      ],
+      "transcript": "FULL",
+      "why": "The one source this run whose teaching could be read from beginning to end, and the only readable lecture that takes the topic from the definition through the characteristic equation and the eigenspace to Cayley-Hamilton in one pass, at exactly the level a beginner needs. Its worked examples were re-derived independently before being used, and its characteristic equation of the 2x2 example matches the values recomputed in scripts/validate.py. Read in full: the transcript text ran from the opening greeting to the closing references, so no part of the lecture is reconstructed from its title."
+    },
+    {
+      "id": "nptel-noc-iitm-deep-learning-6-1",
+      "kind": "lecture",
+      "channel": "NPTEL-NOC IIT Madras (Prof. Mitesh Khapra, CS7015 Deep Learning)",
+      "title": "Lec 6.1 Eigenvalues and Eigenvectors",
+      "url": "https://www.youtube.com/watch?v=BTzz3BuYuM8",
+      "language": "en",
+      "covers": [
+        "the 'what happens when a matrix hits a vector' framing, which is the clearest statement of the geometric idea found this run",
+        "eigenvectors as the vectors that refuse to leave their line, with the eigenvalue as the scale factor",
+        "the dominant eigenvalue defined by magnitude rather than sign",
+        "the two-restaurant transition matrix as a reason eigenvalues matter: repeated application of a matrix and the steady state"
+      ],
+      "transcript": "PARTIAL",
+      "why": "Chosen for the geometric intuition and for the one application that makes the topic feel motivated, not for the mechanics, which the NPTEL Kharagpur lecture covers better. It is a computer-science lecture, so the framing matches a GATE CSE reader. Read in part: the transcript text returned covered the opening through the stochastic-matrix and steady-state discussion; the later PCA and SVD sections of the lecture were not read."
+    },
+    {
+      "id": "ganitank-hindi-eigen-oneshot",
+      "kind": "lecture",
+      "channel": "GanitAnk (Hindi engineering mathematics)",
+      "title": "Eigen Value Eigen Vector | Engineering Mathematics ONESHOT (Hindi)",
+      "url": "https://www.youtube.com/watch?v=qeZ7oW-Jrnc",
+      "language": "hi",
+      "translated": true,
+      "covers": [
+        "the characteristic equation of a 3x3 matrix written as lambda^3 - s1 lambda^2 + s2 lambda - det = 0, with s1 the trace and s2 the sum of the principal 2x2 minors",
+        "computing eigenvectors by Cramer's rule on A - lambda I, with the working shown for a 3x3 matrix",
+        "the repeated-eigenvalue case and how many eigenvectors to expect",
+        "the inverse of a 2x2 obtained from Cayley-Hamilton, worked on A = [[2,4],[3,5]]"
+      ],
+      "transcript": "PARTIAL",
+      "why": "Chosen deliberately so that this topic is not built from English sources alone, and it is the only non-English lecture whose transcript could be read this run. It is also the only readable source that gives the 3x3 characteristic polynomial in the principal-minor form, and its Cayley-Hamilton inverse example was re-derived independently before use. Every sentence taken from it is translated from Hindi into English and the cards say so. Read in part: the transcript covered the opening, the characteristic-equation and eigenvector methods, the repeated-eigenvalue discussion and the Cayley-Hamilton section; the closing practice questions were not read."
+    },
+    {
+      "id": "gateoverflow-linear-algebra-notes",
+      "kind": "text",
+      "channel": "GATE Overflow",
+      "title": "Linear Algebra subject notes and revision notes",
+      "url": "https://gateoverflow.in/subject/mathematics/linear-algebra?tab=notes",
+      "language": "en",
+      "covers": [
+        "the algebraic multiplicity as the multiplicity of a root of det(A - lambda I) = 0, and the geometric multiplicity as the dimension of the eigenspace",
+        "the property list: sum of eigenvalues is the trace, product is the determinant, powers and inverses carry the eigenvalue to the same power and the reciprocal",
+        "the row-sum, rank-one and all-ones shortcuts used on the structured-matrix card"
+      ],
+      "transcript": "PARTIAL",
+      "why": "A GATE-oriented note set written for CSE readers, and the only readable English source that states the AM and GM definitions in the form the 2026 question needs. It is used for definitions and the property list only; every property is then re-derived and recomputed. Read in part: the fetched page body was cut off in the determinant section, so the eigenvalue notes were read through the search extract and the mark-distribution table, not end to end."
+    },
+    {
+      "id": "nptel-course-outline-111105121",
+      "kind": "course-outline",
+      "channel": "NPTEL, IIT Kharagpur (Engineering Mathematics I, course index)",
+      "title": "Course index showing lectures 46 to 49 on eigenvalues and eigenvectors",
+      "url": "https://nptel.ac.in/courses/111105121",
+      "language": "en",
+      "covers": [
+        "the teaching order of the topic, and the confirmation that eigenvalues and eigenvectors occupy four lectures of a standard engineering-mathematics course",
+        "confirmation that Cayley-Hamilton belongs to this topic rather than to a separate one"
+      ],
+      "transcript": "UNAVAILABLE",
+      "why": "Recorded because it fixes the subtopic order used here and because it shows where the readable lecture sits in the sequence. No card quotes it and no claim rests on it, since only the index was readable; the continuation lecture 49, which would have covered diagonalisation and symmetric matrices, had no retrievable transcript this run."
+    }
+  ],
+  "rejected": [
+    {
+      "id": "mit-ocw-18-06-lecture-21",
+      "kind": "lecture",
+      "channel": "MIT OpenCourseWare (Gilbert Strang, 18.06 Linear Algebra)",
+      "title": "Lecture 21: Eigenvalues and eigenvectors",
+      "url": "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/resources/lecture-21-eigenvalues-and-eigenvectors/",
+      "language": "en",
+      "why": "The canonical English treatment and the strongest single candidate found on reputation. Rejected for access: the fetched page carried a one-sentence summary and a transcript link, and the transcript body itself was not retrievable this run, so not one sentence of the lecture could be read. A later run with a working transcript route should retry it."
+    },
+    {
+      "id": "nptel-iit-kharagpur-lecture-49",
+      "kind": "lecture",
+      "channel": "NPTEL, IIT Kharagpur (Prof. Jitendra Kumar, Engineering Mathematics I)",
+      "title": "Lecture 49: Eigenvalues and Eigenvectors (Continued)",
+      "url": "http://www.digimat.in/nptel/courses/video/111105121/L49.html",
+      "language": "en",
+      "why": "The continuation that would have covered the diagonalisation and symmetric-matrix material in the lecturer's own voice. Rejected for access: only the index page listing the lecture title was readable, with no transcript, so the symmetric-matrix card rests on the standard references instead."
+    },
+    {
+      "id": "unacademy-hindi-linear-algebra-eigen",
+      "kind": "lesson-series",
+      "channel": "Unacademy (GATE Iconic Pro, All About Linear Algebra)",
+      "title": "Eigen Values Parts 1 and 2, Eigen Vectors, and Property of Eigen Values (in Hindi), lessons 4 to 7 of 14",
+      "url": "https://unacademy.com/lesson/eigen-vectors-in-hindi/NKHT2JCM",
+      "language": "hi",
+      "why": "The best-matched Hindi GATE course found: lessons 4 to 8 map one-to-one onto this topic, including Cayley-Hamilton with GATE questions. Rejected for access: the lessons are paywalled and carry no transcript, so not one sentence could be read or translated. The Hindi source that was used came from a free stream with a readable transcript instead."
+    },
+    {
+      "id": "formula-list-pages",
+      "kind": "text",
+      "channel": "AlmaBetter, KnowledgeCubs, BYJU'S and similar GATE formula pages",
+      "title": "Eigenvalues and Eigenvectors for GATE, and GATE linear algebra question lists",
+      "url": "https://www.almabetter.com/bytes/tutorials/gate-data-science-and-ai/eigenvalues-eigenvectors-for-gate",
+      "language": "en",
+      "why": "Read through their search extracts. Rejected as sources because they list properties without derivation or proof, several of them repeat each other word for word, and at least one states the eigenvalue facts only for symmetric matrices as though they held in general. They were used to check which properties GATE-level material habitually lists, and nothing on a card rests on them: every property was re-derived and recomputed in scripts/validate.py."
+    },
+    {
+      "id": "go-classes-dpp-eigen-questions",
+      "kind": "question-bank",
+      "channel": "GO Classes (Daily Practice Problems, Linear Algebra)",
+      "title": "DPP questions tagged eigen-value, eigen-vector, multiplicity",
+      "url": "https://gateoverflow.in/tag/eigen-value",
+      "language": "en",
+      "why": "Several practice questions on this tag are exactly the patterns this topic needs. Rejected as PYQ sources because they are institute practice problems, not previous-year GATE questions, and presenting any of them as a PYQ would be false. Their question patterns informed the original variations, which are labelled as original."
+    },
+    {
+      "id": "answer-aggregators-eigen",
+      "kind": "answer-aggregator",
+      "channel": "ExamSIDE, GateAI, PYQBox, Quorank, Success Tracker",
+      "title": "Secondary GATE question and answer sites",
+      "url": "https://questions.examside.com/past-years/gate/gate-cse/discrete-mathematics/linear-algebra",
+      "language": "en",
+      "why": "Used only to corroborate answers and to locate questions, never as the authority. They disagree on numbering: the 2026 Set 1 multiplicity question is Q.3 on GATE Overflow and Q.13 on Quorank, and the 2015 Set 3 eigenvector question is Q.15 on GATE Overflow and Q.23 on Success Tracker. Each PYQ record here says which numbering it follows and which site numbers it differently."
+    }
+  ],
+  "standard_refs": [
+    "Strang, Introduction to Linear Algebra (eigenvalues and eigenvectors, diagonalisation, powers of a matrix)",
+    "Lay, Linear Algebra and Its Applications (the characteristic equation, multiplicity, and the spectral theorem for symmetric matrices)",
+    "Hoffman and Kunze, Linear Algebra (eigenvalues, the characteristic polynomial, Cayley-Hamilton, and the real symmetric case)",
+    "Kolman and Hill, Elementary Linear Algebra with Applications (the 2x2 and 3x3 characteristic polynomial, and diagonalisation tests)"
+  ],
+  "note": "Every eigenvalue, eigenvector, multiplicity, trace, determinant and power published in this topic is recomputed by check_eigenvalues_and_eigenvectors() in scripts/validate.py, in exact rational arithmetic: the characteristic polynomial coefficients of each published matrix, the eigenpairs by A v = lambda v, the multiplicity pairs, the A^k and A^-1 and A^T relations, the symmetric orthogonality and entry-square identity over every small integer symmetric matrix, the Cayley-Hamilton identity over every small integer 2x2 matrix, and the row-operation counterexample. No source is quoted; each card paraphrases and then re-derives. The one non-English source is Hindi, read in part, and every sentence taken from it is translated and marked as translated on the cards that use it. The one English lecture that could be read end to end is recorded as FULL; every other source is PARTIAL or UNAVAILABLE and says exactly what was and was not read."
+}

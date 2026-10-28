@@ -1,0 +1,92 @@
+{
+  "id": "eigenvalue-and-eigenvector-definition",
+  "title": "Eigenvalue and Eigenvector: Av = lambda v",
+  "priority": "P1",
+  "order": 132,
+  "unit": "The eigenpair",
+  "quickIdea": "An eigenvector is a nonzero vector that the matrix only stretches, shrinks or flips, never turns; the factor it is multiplied by is its eigenvalue.",
+  "remember": [
+    "The definition is Av = lambda v with v not equal to 0. The zero vector is excluded because A0 = 0 = lambda 0 holds for every lambda, which would make every number an eigenvalue.",
+    "The eigenvalue may be 0. A singular matrix has 0 as an eigenvalue, and its eigenvectors for 0 are the nonzero vectors of the null space of A.",
+    "The eigenvector is not unique: if v is an eigenvector for lambda then so is every nonzero multiple c v. Only the line through v is determined, not the vector.",
+    "Av parallel to v includes the antiparallel case, so lambda may be negative; lambda = 0 collapses the vector onto the origin.",
+    "A real matrix may have complex eigenvalues, and the eigenvectors for them are then complex vectors."
+  ],
+  "example": {
+    "prompt": "For A = [[2,1],[1,2]], test x = (1,1) and y = (1,0).",
+    "work": "Ax = (2+1, 1+2) = (3,3) = 3 (1,1), so x keeps its line and is scaled by 3. Ay = (2,1), which is not a multiple of (1,0), so y does not keep its line.",
+    "answer": "x is an eigenvector with eigenvalue 3; y is not an eigenvector. The other eigenvalue of A is 1, with eigenvector (1,-1)."
+  },
+  "gateAngle": "GATE rarely asks for the definition. It hands you a matrix and a vector and asks whether the vector is an eigenvector, as in 2015 Set 3 Q.15, or it states an eigenpair and asks what follows. Substituting into Av = lambda v is faster and safer than expanding a characteristic equation, and it also tells you which eigenvalue the vector belongs to.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "A = [[1,1],[1,-1]] and v = (1,0). Is v an eigenvector of A?",
+      "answer": "No. Av = (1,1), and (1,1) is not a multiple of (1,0).",
+      "why": "The definition is checked by one matrix-vector product, not by solving the characteristic equation; the eigenvectors of this A are (1,1+sqrt2) and (1,1-sqrt2) up to scale, and neither lies on the x axis."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Why does the definition insist that the eigenvector is nonzero, when the equation Av = lambda v would still be true for v = 0?",
+      "answer": "Because A0 = 0 = lambda 0 for every lambda and every A, so allowing v = 0 would make every scalar an eigenvalue of every matrix and the concept would carry no information.",
+      "why": "The definition has to pin down a property of A, and only nonzero v can do that."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "A is 3x3 and A v = -2v for v = (1,0,1). What is the eigenvalue, and is (3,0,3) also an eigenvector?",
+      "answer": "The eigenvalue is -2, and (3,0,3) = 3v is also an eigenvector for -2.",
+      "why": "The sign of the eigenvalue is read off the equation directly, and eigenvectors come in whole lines: every nonzero multiple works."
+    }
+  ],
+  "trap": {
+    "what": "Reading 'parallel' as 'pointing the same way', so a negative eigenvalue is missed, and counting v = 0 as an eigenvector because the equation holds.",
+    "why": "Av = lambda v permits lambda < 0, which reverses the vector while keeping its line, and it excludes v = 0 by definition.",
+    "counterexample": "A = [[0,1],[1,0]] sends (1,-1) to (-1,1) = -1 times (1,-1), so -1 is an eigenvalue even though the vector turns round. And A0 = 0 for this A and for every other matrix, so 0 cannot be counted."
+  },
+  "check": {
+    "question": "A = [[3,0],[0,3]]. How many distinct eigenvalues does A have, and which vectors are its eigenvectors?",
+    "answer": "One distinct eigenvalue, 3, and every nonzero vector in the plane is an eigenvector for it.",
+    "explanation": "A = 3I multiplies every vector by 3, so every line is kept. This is the extreme case behind GATE CSE 2026 Set 1 Q.3, where the maximum multiplicity of an eigenvalue of an n x n matrix is n."
+  },
+  "pyqIds": [
+    "gate-2015-set3-15-eigenvector-for-lambda-1"
+  ],
+  "prereqs": [
+    "matrix-multiplication-and-noncommutativity"
+  ],
+  "videoRefs": [],
+  "sources": [
+    {
+      "kind": "lecture",
+      "title": "Lecture 46: Eigenvalues and Eigenvectors",
+      "channel": "NPTEL, IIT Kharagpur (Prof. Jitendra Kumar, Engineering Mathematics I)",
+      "url": "https://www.youtube.com/watch?v=h5urBuE4Xhg",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "the definition with v nonzero, the geometric reading, the characteristic equation, the eigenspace, a 2x2 worked example with eigenvalues 3 and -2, the repeated-root example whose eigenvalue 1 has only one eigenvector, and Cayley-Hamilton with the inverse from it"
+    },
+    {
+      "kind": "lecture",
+      "title": "Lec 6.1 Eigenvalues and Eigenvectors (CS7015 Deep Learning)",
+      "channel": "NPTEL-NOC IIT Madras (Prof. Mitesh Khapra)",
+      "url": "https://www.youtube.com/watch?v=BTzz3BuYuM8",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "the opening: what a matrix does to a vector, eigenvectors as the vectors that keep their line, the dominant eigenvalue, and the two-restaurant steady-state motivation; read to the point where the lecture moves into PCA"
+    },
+    {
+      "kind": "lecture",
+      "title": "Eigen Value Eigen Vector | Engineering Mathematics ONESHOT (Hindi)",
+      "channel": "GanitAnk (Hindi engineering mathematics)",
+      "url": "https://www.youtube.com/watch?v=qeZ7oW-Jrnc",
+      "language": "hi",
+      "transcript": "PARTIAL",
+      "translated": true,
+      "note": "the characteristic equation written as lambda^3 - s1 lambda^2 + s2 lambda - det = 0, eigenvectors from Cramer's rule, the repeated-eigenvalue case, and the inverse from Cayley-Hamilton; read in part, the last third of the stream not read"
+    }
+  ],
+  "sourceLine": "NPTEL IIT Kharagpur Lecture 46, 'Eigenvalues and Eigenvectors' (English, read in full) for the definition with v nonzero, the geometric reading and the worked 2x2 example. NPTEL-NOC IIT Madras CS7015 Lec 6.1 (English, read in part) for the 'what a matrix does to a vector' framing. GanitAnk's Hindi one-shot (Hindi, read in part, translated) for the phrasing of the nonzero condition; the sentences taken from it are translated. Every eigenpair printed on this card is rechecked by A v = lambda v in scripts/validate.py.",
+  "visual": "linear-algebra/eigenvalues-and-eigenvectors/eigen-directions"
+}

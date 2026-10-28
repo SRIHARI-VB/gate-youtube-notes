@@ -1,0 +1,81 @@
+{
+  "id": "diagonalisability-criterion",
+  "title": "Diagonalisability: When A = P D P^-1",
+  "priority": "P2",
+  "order": 137,
+  "unit": "Eigenvalue properties and structure",
+  "quickIdea": "A is diagonalisable exactly when it has n linearly independent eigenvectors; put them in the columns of P and the eigenvalues on the diagonal of D.",
+  "remember": [
+    "A is diagonalisable if and only if it has n linearly independent eigenvectors, that is, if and only if GM = AM for every eigenvalue.",
+    "n distinct eigenvalues are enough, because eigenvectors for distinct eigenvalues are independent; they are not necessary.",
+    "With A = P D P^-1, every power is A^k = P D^k P^-1, which is why diagonalisation makes powers cheap.",
+    "A real symmetric matrix is always diagonalisable, and orthogonally so: A = Q Lambda Q^T with Q orthogonal.",
+    "Similar matrices P^-1 A P have the same characteristic polynomial, hence the same eigenvalues, trace and determinant."
+  ],
+  "example": {
+    "prompt": "Diagonalise A = [[2,1],[1,2]].",
+    "work": "Eigenvalues 3 and 1, with eigenvectors (1,1) and (1,-1). Take P = [[1,1],[1,-1]] and D = diag(3,1). Since det P = -2, P^-1 = (1/2)[[1,1],[1,-1]]. Then P D = [[3,1],[3,-1]], and (P D) P^-1 = (1/2)[[3+1, 3-1],[3-1, 3+1]] = (1/2)[[4,2],[2,4]] = [[2,1],[1,2]].",
+    "answer": "A = P diag(3,1) P^-1 with P = [[1,1],[1,-1]]. The two eigenvalues are distinct, so independence was guaranteed before any computation."
+  },
+  "gateAngle": "2018 Q.26 is this card in one line: if every eigenvector lies on a single line, the matrix has fewer than n independent eigenvectors, so it cannot be diagonalised and its eigenvalue must repeat. The option that also claims it has no inverse is the trap, because a matrix can be non-diagonalisable and still invertible.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "Is A = [[1,2],[0,1]] diagonalisable?",
+      "answer": "No.",
+      "why": "det(A - lambda I) = (1-lambda)^2 gives AM = 2, while A - I = [[0,2],[0,0]] has rank 1 so GM = 1. With only one eigenvector direction there is no invertible P."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Why do n distinct eigenvalues guarantee n independent eigenvectors?",
+      "answer": "If c1 v1 + ... + ck vk = 0 were a shortest dependence among eigenvectors of distinct eigenvalues, applying A gives c1 lambda1 v1 + ... + ck lambdak vk = 0, and subtracting lambda_k times the first relation leaves a shorter dependence, which is impossible.",
+      "why": "This is the standard induction argument, and it is why the distinct case never needs the AM = GM test."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "A is 3x3 with eigenvalues 1, 1 and 2, and rank(A - I) = 1. Is A diagonalisable?",
+      "answer": "Yes.",
+      "why": "GM(1) = 3 - 1 = 2 = AM(1), and the eigenvalue 2 has AM = GM = 1, so there are three independent eigenvectors in total."
+    }
+  ],
+  "trap": {
+    "what": "Thinking a repeated eigenvalue blocks diagonalisation, or that a non-diagonalisable matrix must be singular.",
+    "why": "Diagonalisability is about having enough independent eigenvectors, which is independent of whether the determinant is zero.",
+    "counterexample": "A = [[2,1],[0,2]] is not diagonalisable and yet det A = 4, so it is invertible. Conversely [[2,0],[0,2]] has the same repeated eigenvalue and is already diagonal."
+  },
+  "check": {
+    "question": "A is 2x2 with eigenvalues 4 and 4, and A is not a multiple of the identity. Is A diagonalisable?",
+    "answer": "No.",
+    "explanation": "A 2x2 with a double eigenvalue 4 either is 4I, which is diagonal, or has A - 4I of rank 1, giving GM = 1 against AM = 2. Since A is not 4I, it is defective."
+  },
+  "pyqIds": [
+    "gate-2018-26-single-eigenvector-direction"
+  ],
+  "prereqs": [
+    "algebraic-and-geometric-multiplicity"
+  ],
+  "videoRefs": [],
+  "sources": [
+    {
+      "kind": "lecture",
+      "title": "Lecture 46: Eigenvalues and Eigenvectors",
+      "channel": "NPTEL, IIT Kharagpur (Prof. Jitendra Kumar, Engineering Mathematics I)",
+      "url": "https://www.youtube.com/watch?v=h5urBuE4Xhg",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "the definition with v nonzero, the geometric reading, the characteristic equation, the eigenspace, a 2x2 worked example with eigenvalues 3 and -2, the repeated-root example whose eigenvalue 1 has only one eigenvector, and Cayley-Hamilton with the inverse from it"
+    },
+    {
+      "kind": "lecture",
+      "title": "Eigen Value Eigen Vector | Engineering Mathematics ONESHOT (Hindi)",
+      "channel": "GanitAnk (Hindi engineering mathematics)",
+      "url": "https://www.youtube.com/watch?v=qeZ7oW-Jrnc",
+      "language": "hi",
+      "transcript": "PARTIAL",
+      "translated": true,
+      "note": "the characteristic equation written as lambda^3 - s1 lambda^2 + s2 lambda - det = 0, eigenvectors from Cramer's rule, the repeated-eigenvalue case, and the inverse from Cayley-Hamilton; read in part, the last third of the stream not read"
+    }
+  ],
+  "sourceLine": "NPTEL IIT Kharagpur Lecture 46 (English, read in full) for the statement that distinct eigenvalues give independent eigenvectors, which the lecture proves later in the course. GanitAnk's Hindi one-shot (Hindi, read in part, translated) for the repeated-eigenvalue discussion that separates diagonalisable from defective cases; the sentences taken from it are translated. The factorisation P diag(3,1) P^-1 is multiplied back out in scripts/validate.py."
+}
