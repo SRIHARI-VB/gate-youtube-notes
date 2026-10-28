@@ -1515,6 +1515,16 @@
       "kind": "notes",
       "placement": "programming-data-structures › trees-traversals › (no card)",
       "detail": "New mock set, Programming and Data Structures Unit 4 'Binary Trees & Tree Traversals' (unit_slug trees-traversals, run 7, Set 1 of 2, 2026-10-28, paper programming-data-structures/trees-traversals/gate_ds_mock_4_2026-10-28.html) holds 25 questions over 4 subtopic_label groups: Binary tree properties 7, Inorder, preorder & postorder 6, Threaded binary trees 6, Expression trees 6. Unit 4 sits below the 50-question cap, so the next Programming and Data Structures run re-selects it. content/syllabus.json lists discrete-mathematics as the only notes subject, so no card serves any of the four groups. Visual side: topics/trees-bst-and-heaps covers traversals (scene 2) and binary tree counting (scene 5) but its transcript never mentions threaded binary trees or expression trees, so two of the four groups have no lesson either. Recommendation: write the first programming-data-structures card at content/subjects/programming-data-structures/trees-traversals/binary-tree-traversals.json, the ground topics/trees-bst-and-heaps already teaches."
+    },
+    {
+      "kind": "notes",
+      "placement": "computer-networks › network-layer › (no card)",
+      "detail": "New mock set, Computer Networks Unit 3 'Network Layer: IP Addressing & Subnetting' (unit_slug ipv4-subnetting, run 5, Set 1 of 2, 2026-10-28, paper computer-networks/ipv4-subnetting/gate_cn_mock_3_2026-10-28.html), holds 25 questions in 4 subtopic_label groups: IPv4 header & fragmentation 7, Classful vs classless & CIDR 6, Subnet masking & supernetting 7, IPv6 basics & differences 5. The notes repo holds only the discrete-mathematics subject, so no card serves this unit; the lesson topics/ip-fragmentation-cidr-and-nat already covers the same syllabus line and carries its own gap. Recommendation: write the first computer-networks card at content/subjects/computer-networks/network-layer/ipv4-subnetting.json, the ground topics/ip-fragmentation-cidr-and-nat already teaches."
+    },
+    {
+      "kind": "notes",
+      "placement": "engineering-mathematics › linear-algebra › (no card)",
+      "detail": "New lesson topics/matrices-systems-and-eigenvalues (added 2026-10-28, syllabus-coverage.json coverage_status PUBLISHED, 7 subtopics and 25 microtopics, 10 scenes in transcript.md) covers determinants, rank and nullity, systems decided by rank comparison, LU and PA=LU, and eigenvalues with diagonalisation. It serves no notes card: the notes repo has no engineering-mathematics subject, and no discrete-mathematics card matches its vocabulary. Placement: engineering-mathematics › linear-algebra › matrices-systems-and-eigenvalues. Recommendation: write the first engineering-mathematics card at content/subjects/engineering-mathematics/linear-algebra/matrices-systems-and-eigenvalues.json, paired with mock unit linear-algebra-matrices (50 records in master_bank.json) and the lesson that already exists."
     }
   ]
 }
