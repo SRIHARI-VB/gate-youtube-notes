@@ -1,0 +1,81 @@
+{
+  "id": "equivalence-relations-and-partitions",
+  "title": "Equivalence Relations, Classes and Partitions",
+  "priority": "P1",
+  "order": 58,
+  "unit": "Relations",
+  "quickIdea": "An equivalence relation is reflexive, symmetric and transitive, and it is the same object as a partition of the set. Counting equivalence relations is counting partitions, which is the Bell number.",
+  "remember": [
+    "An equivalence relation is a relation that is reflexive, symmetric and transitive.",
+    "The equivalence class of a is the set of all elements related to a; classes are non-empty and any two are either identical or disjoint.",
+    "The classes of an equivalence relation partition the set: every element lies in exactly one class.",
+    "Conversely, every partition of A defines exactly one equivalence relation, namely 'lies in the same block'. So equivalence relations on A and partitions of A are in bijection.",
+    "The number of equivalence relations on an n-element set is the Bell number B(n): 1, 1, 2, 5, 15, 52 for n = 0 to 5.",
+    "The number with exactly k classes is the Stirling number of the second kind S(n, k), and the Bell number is the sum of S(n, k) over k.",
+    "Congruence modulo m on the integers is the standard example: the classes are the m residue classes.",
+    "Refining a partition means splitting blocks, and the corresponding equivalence relations are nested; this is how GATE phrases questions about refinement.",
+    "The union of two equivalence relations is generally not an equivalence relation, but their intersection always is."
+  ],
+  "example": {
+    "prompt": "A = {1, 2, 3, 4}. How many equivalence relations are there, and how many have exactly two classes?",
+    "work": "Count the partitions by block sizes: 4 gives 1; 3+1 gives 4; 2+2 gives 3; 2+1+1 gives 6; 1+1+1+1 gives 1. The total is 15, which is B(4). Two-class partitions are the 3+1 and 2+2 shapes, so 4 + 3 = 7, which is S(4, 2).",
+    "answer": "15 equivalence relations, of which 7 have exactly two classes."
+  },
+  "gateAngle": "GATE CS 1997 Q.6.3 asks for the number of equivalence relations on {1, 2, 3, 4} and the options include 15, which is the Bell number B(4) built from the five partition shapes.",
+  "variations": [
+    {
+      "label": "VERIFIED PYQ",
+      "question": "See GATE CS 1997 Q.6.3 in the linked PYQs.",
+      "answer": "Option (A) 15.",
+      "why": "Equivalence relations correspond to partitions, and {1,2,3,4} has 1 + 4 + 3 + 6 + 1 = 15 partitions."
+    },
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "Is the union of two equivalence relations on the same set always an equivalence relation?",
+      "answer": "No. The intersection always is; the union need not be.",
+      "why": "Take the partitions {{1,2},{3}} and {{1},{2,3}}. The union of the two relations contains (1,2) and (2,3) but not (1,3), so it is not transitive."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "How many equivalence relations on a 3-element set have exactly two classes?",
+      "answer": "3.",
+      "why": "The two-class shapes are 2+1, and choosing the block of size 2 from 3 elements gives C(3,2) = 3. The Bell number 5 splits as 1 (one class) + 3 (two classes) + 1 (three classes)."
+    }
+  ],
+  "trap": {
+    "what": "Forgetting that the classes must cover the whole set, or treating a symmetric transitive relation as an equivalence relation without checking the diagonal.",
+    "why": "A partition has no empty block and no missing element. A relation that is symmetric and transitive but not reflexive leaves elements outside every class, so it corresponds to a partition of a proper subset, not of the set.",
+    "counterexample": "A = {1, 2, 3}, R = {(1,2), (2,1), (1,1), (2,2)}. Symmetric and transitive, but 3 is related to nothing, not even itself, so the 'classes' {1, 2} and nothing for 3 do not partition A."
+  },
+  "check": {
+    "question": "How many partitions does a 3-element set have, and what is the equivalence relation with the fewest classes?",
+    "answer": "5 partitions; the relation with one class is the universal relation A x A.",
+    "explanation": "The shapes are 3, 2+1 (three of them) and 1+1+1, giving 1 + 3 + 1 = 5. One class means every pair is related, which is the whole product."
+  },
+  "pyqIds": [
+    "gate-1997-6-3"
+  ],
+  "prereqs": [
+    "transitivity-and-closure"
+  ],
+  "videoRefs": [],
+  "sources": [
+    {
+      "kind": "video",
+      "title": "Lec 02 - Set identities, Cartesian product, relations and functions",
+      "channel": "IIT lecture (NPTEL-style discrete mathematics lecture)",
+      "video_id": "7djvJetFiSY",
+      "url": "https://www.youtube.com/watch?v=7djvJetFiSY",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false
+    },
+    {
+      "kind": "text",
+      "title": "Rosen, Discrete Mathematics and Its Applications, ch. 9 (relations, closures, equivalence relations)",
+      "language": "en",
+      "transcript": "N/A"
+    }
+  ],
+  "sourceLine": "Equivalence relation definition and its link to partitions: IIT lecture Lec 02 (English, full transcript). Counting by partitions, Bell and Stirling numbers: Rosen ch. 9.5, verified against GATE CS 1997 Q.6.3."
+}

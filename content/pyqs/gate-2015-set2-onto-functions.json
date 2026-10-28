@@ -1,0 +1,16 @@
+{
+  "id": "gate-2015-set2-onto-functions",
+  "year": "2015",
+  "paper": "GATE CS 2015 Set 2",
+  "question_ref": "Q.40",
+  "type": "NAT",
+  "topic": "functions-counting-injective-surjective",
+  "text": "The number of onto functions (surjective functions) from set X = {1, 2, 3, 4} to set Y = {a, b, c} is ______.",
+  "options": [],
+  "answer": "36",
+  "solution": "By inclusion-exclusion the count is 3 to the 4 minus C(3,1) times 2 to the 4 plus C(3,2) times 1 to the 4 = 81 - 48 + 3 = 36. Equivalently it is 3! times the Stirling number S(4,3) = 6 times 6 = 36.",
+  "source_url": "https://gateoverflow.in/8212/gate-cse-2015-set-2-question-40",
+  "source_label": "GATE Overflow question page for GATE CS 2015 Set 2 Q.40 with the accepted answer",
+  "verification": "SOURCED",
+  "answer_evidence": "The accepted answer on the GATE Overflow page computes 36 by both the inclusion-exclusion sum and 3! S(4,3)."
+}

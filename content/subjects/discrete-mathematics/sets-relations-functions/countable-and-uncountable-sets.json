@@ -1,0 +1,75 @@
+{
+  "id": "countable-and-uncountable-sets",
+  "title": "Countable and Uncountable Sets",
+  "priority": "P2",
+  "order": 54,
+  "unit": "Sets",
+  "quickIdea": "A set is countable when its elements can be listed in a sequence, which is the same as a bijection with the natural numbers. The integers and the rationals can be listed; the reals cannot.",
+  "remember": [
+    "A set is countable if it is finite or there is a bijection between it and the natural numbers. Countably infinite means infinite and countable.",
+    "The integers are countable: list 0, 1, -1, 2, -2, ... so that every integer appears at a finite position.",
+    "The rationals are countable: write the positive rationals in a grid of numerator against denominator and walk the diagonals, skipping repeats.",
+    "A countable union of countable sets is countable, and a finite product of countable sets is countable. In particular the set of pairs of natural numbers is countable.",
+    "Every subset of a countable set is countable; a superset of an uncountable set is uncountable.",
+    "The reals are uncountable (Cantor's diagonal argument): any listing of reals can be defeated by changing the diagonal digit.",
+    "The power set of the natural numbers is uncountable and has the same cardinality as the reals.",
+    "The set of all finite subsets of the natural numbers is countable, but the set of all infinite subsets is uncountable.",
+    "Density is not cardinality: the rationals are dense in the reals and still countable, so 'there is one between any two' proves nothing about size."
+  ],
+  "example": {
+    "prompt": "Is the set of all ordered pairs of natural numbers countable? Is the set of all subsets of the natural numbers countable?",
+    "work": "For pairs, walk the anti-diagonals of the grid: (0,0), then (1,0), (0,1), then (2,0), (1,1), (0,2), and so on. Every pair sits on exactly one diagonal, so the walk lists them all, which gives a bijection with the naturals. For subsets, apply the diagonal argument to the characteristic functions: no listing of all 0/1 sequences can be complete.",
+    "answer": "The pairs are countable; the set of all subsets of the naturals is uncountable."
+  },
+  "gateAngle": "GATE has tested countability inside Theory of Computation rather than inside sets: questions about the set of all Turing machines, of all C programs, or of all recursively enumerable languages are countability questions in disguise. This card supplies the set-theoretic argument those questions rely on.",
+  "variations": [
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Which of these are countable: the integers, the rationals, the reals, the set of all finite strings over {0,1}, the set of all infinite 0/1 sequences?",
+      "answer": "The integers, the rationals and the finite strings are countable. The reals and the infinite 0/1 sequences are not.",
+      "why": "Finite strings over a finite alphabet are a countable union of finite sets, one set per length. Infinite 0/1 sequences correspond to subsets of the naturals, which are uncountable."
+    },
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "Is an arbitrary union of countable sets always countable?",
+      "answer": "No. A countable union of countable sets is countable, but an arbitrary union need not be.",
+      "why": "Each real number is a countable (singleton) set, and the union of these sets over all reals is the set of reals, which is uncountable. The hypothesis 'countably many' is doing real work."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "Is the set of all functions from the natural numbers to {0, 1} countable?",
+      "answer": "No, it is uncountable.",
+      "why": "Such a function is an infinite 0/1 sequence, and the diagonal argument shows that no listing of all sequences can exist. This is the same argument that makes the power set of the naturals uncountable."
+    }
+  ],
+  "trap": {
+    "what": "Assuming a set is uncountable because it is dense or infinite, or assuming that a subset of a countable set might be uncountable.",
+    "why": "Cardinality is decided by the existence of a listing, not by density or by how many elements sit between two given ones. Subsets cannot be larger than their supersets, so a subset of a countable set is always countable.",
+    "counterexample": "The rationals are countable although between any two rationals there is another; the interval of reals between 0 and 1 is uncountable although it is a subset of the reals, showing that the direction of the subset relation matters."
+  },
+  "check": {
+    "question": "Is the set of all finite subsets of the natural numbers countable?",
+    "answer": "Yes.",
+    "explanation": "For each k the k-element subsets form a countable set, and the whole collection is the countable union over k of those sets, which is countable. The infinite subsets, by contrast, are uncountable."
+  },
+  "pyqIds": [],
+  "prereqs": [
+    "power-set-and-its-size"
+  ],
+  "videoRefs": [],
+  "sources": [
+    {
+      "kind": "text",
+      "title": "Rosen, Discrete Mathematics and Its Applications, ch. 2 (basic structures: sets, set operations, functions)",
+      "language": "en",
+      "transcript": "N/A"
+    },
+    {
+      "kind": "text",
+      "title": "Grimaldi, Discrete and Combinatorial Mathematics, ch. 3 and ch. 5 (sets, relations, functions)",
+      "language": "en",
+      "transcript": "N/A"
+    }
+  ],
+  "sourceLine": "Countability, the diagonal argument and the countable-union rule: Rosen ch. 2 (cardinality of sets) and Grimaldi ch. 3. No lecture transcript on countability was readable in this run, so this card rests on the standard references alone - recorded as a gap."
+}

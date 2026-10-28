@@ -1,0 +1,79 @@
+{
+  "id": "set-operations-and-identities",
+  "title": "Set Operations and Set Identities",
+  "priority": "P1",
+  "order": 52,
+  "unit": "Sets",
+  "quickIdea": "Every set identity is proved the same way: take an arbitrary element of the left side, rewrite membership step by step, and land on the right side. Do it in both directions for equality.",
+  "remember": [
+    "Union, intersection, difference and complement are all defined by membership: x in A union B means x in A or x in B; x in A minus B means x in A and x not in B.",
+    "The symmetric difference A triangle B is (A minus B) union (B minus A): the elements in exactly one of the two sets.",
+    "De Morgan within a universe U: the complement of A union B is the intersection of the complements, and the complement of A intersect B is the union of the complements.",
+    "Distributive laws: A intersect (B union C) = (A intersect B) union (A intersect C), and the dual with union outside.",
+    "To prove X subset Y, take an arbitrary element x of X and derive x in Y. To prove X = Y, do this in both directions.",
+    "A minus B and B minus A are different sets in general; they are equal only when A = B.",
+    "A minus B = A intersect (complement of B), which is why the identities for difference follow from De Morgan.",
+    "The cardinality of a union is not the sum of cardinalities unless the sets are disjoint; |A union B| = |A| + |B| - |A intersect B| is proved in the combinatorics inclusion-exclusion card.",
+    "Membership proofs never need a Venn diagram; a diagram only suggests which identity to try."
+  ],
+  "example": {
+    "prompt": "Prove that the complement of A union B equals the intersection of the complements, inside a universe U.",
+    "work": "Take x in U. Then x is in the complement of A union B exactly when x is not in A union B, which holds exactly when x is not in A and x is not in B, which holds exactly when x is in the complement of A and in the complement of B, that is x is in the intersection of the complements. Every step is an equivalence, so both inclusions hold at once.",
+    "answer": "The two sets contain the same elements, so they are equal. This is De Morgan's law for sets, and its dual for intersection is proved the same way."
+  },
+  "gateAngle": "Set identities are rarely asked as a bare identity; they appear as the first step of a counting question or of a relation question, and the option that survives is the one that respects De Morgan.",
+  "variations": [
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "U = {1, 2, 3, 4, 5}, A = {1, 2, 3}, B = {3, 4}. Compute A union B, A intersect B, A minus B, B minus A and the symmetric difference.",
+      "answer": "A union B = {1, 2, 3, 4}; A intersect B = {3}; A minus B = {1, 2}; B minus A = {4}; symmetric difference = {1, 2, 4}.",
+      "why": "Each operation is read off the membership definition; the symmetric difference is the union of the two differences, so it holds exactly the elements in one set but not both."
+    },
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "Is it true that (A minus B) union B = A for all sets A and B? Justify.",
+      "answer": "No. The identity that always holds is (A minus B) union B = A union B.",
+      "why": "Elements of B that are not in A appear on the left but not on the right. With A = {1} and B = {2} the left side is {1, 2} and the right side is {1}."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "Simplify (A union B) intersect (A union complement of B).",
+      "answer": "A.",
+      "why": "Distribute the union over the intersection: (A union B) intersect (A union B complement) = A union (B intersect B complement) = A union empty = A. This is the absorption pattern GATE hides inside simplification questions."
+    }
+  ],
+  "trap": {
+    "what": "Applying De Morgan with the wrong connective, or assuming difference commutes.",
+    "why": "The complement turns union into intersection and intersection into union; keeping the same connective is the single most common error. Difference is not symmetric because membership in the first set is required.",
+    "counterexample": "U = {1, 2, 3}, A = {1}, B = {2}. The complement of A union B is {3}, while the union of the complements is {2, 3} union {1, 3} = {1, 2, 3}. The two differ, so the wrong De Morgan is visibly false."
+  },
+  "check": {
+    "question": "|A| = 5, |B| = 4 and |A intersect B| = 2. Give |A union B| and the cardinality of the symmetric difference.",
+    "answer": "|A union B| = 7 and the symmetric difference has 5 elements.",
+    "explanation": "Inclusion-exclusion gives 5 + 4 - 2 = 7. The symmetric difference holds the 3 elements of A only and the 2 elements of B only, so 5 in total."
+  },
+  "pyqIds": [],
+  "prereqs": [
+    "sets-elements-subsets-cardinality"
+  ],
+  "videoRefs": [],
+  "sources": [
+    {
+      "kind": "video",
+      "title": "Lec 02 - Set identities, Cartesian product, relations and functions",
+      "channel": "IIT lecture (NPTEL-style discrete mathematics lecture)",
+      "video_id": "7djvJetFiSY",
+      "url": "https://www.youtube.com/watch?v=7djvJetFiSY",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false
+    },
+    {
+      "kind": "text",
+      "title": "Rosen, Discrete Mathematics and Its Applications, ch. 2 (basic structures: sets, set operations, functions)",
+      "language": "en",
+      "transcript": "N/A"
+    }
+  ],
+  "sourceLine": "Element-chasing proofs of De Morgan's and the distributive laws, with the difference and symmetric-difference definitions: IIT lecture Lec 02 (English, full transcript). Cardinality of a union is counted in the combinatorics inclusion-exclusion card."
+}

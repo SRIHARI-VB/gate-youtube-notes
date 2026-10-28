@@ -1,0 +1,16 @@
+{
+  "slug": "relation-matrix-properties",
+  "topic": "relation-properties-reflexive-symmetric-antisymmetric",
+  "engine": "p5.js",
+  "steps": 6,
+  "example": {
+    "domain": "{1, 2, 3}",
+    "grid": "9 cells, row = first coordinate, column = second coordinate",
+    "total_relations": 512,
+    "reflexive": 64,
+    "symmetric": 64,
+    "antisymmetric": 216,
+    "equivalence_relations": 5,
+    "chain_counterexample": "R = {(1,2), (2,3)} is not transitive; its closure adds (1,3)"
+  }
+}

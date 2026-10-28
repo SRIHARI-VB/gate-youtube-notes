@@ -1,0 +1,22 @@
+{
+  "id": "gate-1993-8-4",
+  "year": "1993",
+  "paper": "GATE CS 1993",
+  "question_ref": "Q.8.4",
+  "type": "MCQ",
+  "topic": "power-set-and-its-size",
+  "text": "Let A be a finite set of size n. The number of elements in the power set of A x A is:",
+  "options": [
+    "2 to the (2 to the n)",
+    "2 to the (n squared)",
+    "(2 to the n) squared",
+    "(2 squared) to the n",
+    "None of the above"
+  ],
+  "answer": "Option (B) 2 to the (n squared)",
+  "solution": "A x A has n squared ordered pairs, so its power set has 2 to the (n squared) elements. Since a relation on A is exactly a subset of A x A, this is also the number of binary relations on A.",
+  "source_url": "https://gateoverflow.in/2302/gate-cse-1993-question-8-4",
+  "source_label": "GATE Overflow question page for GATE CS 1993 Q.8.4 with the accepted answer",
+  "verification": "SOURCED",
+  "answer_evidence": "The accepted answer on the GATE Overflow page gives 2 to the (n squared), option (B), and notes the identity with the number of relations on A."
+}

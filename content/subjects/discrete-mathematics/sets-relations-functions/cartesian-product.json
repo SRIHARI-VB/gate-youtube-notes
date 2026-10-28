@@ -1,0 +1,79 @@
+{
+  "id": "cartesian-product",
+  "title": "Ordered Pairs and the Cartesian Product",
+  "priority": "P1",
+  "order": 53,
+  "unit": "Sets",
+  "quickIdea": "A x B is the set of ordered pairs with first coordinate from A and second from B. Order matters inside a pair, so A x B and B x A are different sets of the same size.",
+  "remember": [
+    "A x B = {(a, b) : a in A and b in B}. The pair (a, b) is ordered: (a, b) = (c, d) exactly when a = c and b = d.",
+    "The cardinality is the product: |A x B| = |A| times |B|.",
+    "A x B and B x A have the same cardinality but are different sets unless A = B or one of them is empty.",
+    "The product with the empty set is empty: A x empty = empty, so the product has no elements even though the empty set is a set.",
+    "The product is not commutative but is associative up to the natural identification: (A x B) x C and A x (B x C) both consist of triples.",
+    "An ordered pair (a, b) is a set of sets, {a} and {a, b}, so a product lives inside P(P(A union B)). The construction is why a product can be built from the ZF axioms at all.",
+    "A relation from A to B is exactly a subset of A x B; a function from A to B is a relation in which every a in A appears exactly once as a first coordinate.",
+    "A subset of A x B need not be a product of a subset of A with a subset of B: the diagonal of a square is not a rectangle.",
+    "The number of elements of P(A x B) is 2 to the (|A| |B|), which is the number of relations from A to B."
+  ],
+  "example": {
+    "prompt": "A = {1, 2} and B = {a, b, c}. List A x B, give |A x B|, and say whether A x B = B x A.",
+    "work": "Pair each element of A with each element of B: (1,a), (1,b), (1,c), (2,a), (2,b), (2,c). That is 2 times 3 = 6 pairs. B x A contains (a,1), which is not in A x B.",
+    "answer": "|A x B| = 6, and A x B is not equal to B x A, although both have 6 elements."
+  },
+  "gateAngle": "GATE CS 1993 Q.8.4 is a product question in disguise: the power set of A x A has 2 to the (n squared) elements, which is also the number of relations on A.",
+  "variations": [
+    {
+      "label": "VERIFIED PYQ",
+      "question": "See GATE CS 1993 Q.8.4 in the linked PYQs of the power-set card: |A| = n, find the number of elements of P(A x A).",
+      "answer": "2 to the (n squared), option (B).",
+      "why": "The product A x A has n squared ordered pairs, and the power set of a set with k elements has 2 to the k."
+    },
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "A has 3 elements and B has 4. How many relations from A to B are there, and how many of them contain exactly one pair?",
+      "answer": "2 to the 12 relations in total, and 12 of them contain exactly one pair.",
+      "why": "A relation is a subset of the 12-element product; the subsets of size 1 are the 12 singletons."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "Is every subset of A x B of the form X x Y with X subset A and Y subset B?",
+      "answer": "No.",
+      "why": "The diagonal {(1,1), (2,2)} of {1, 2} x {1, 2} is a subset that is not a product: any product containing (1,1) and (2,2) also contains (1,2)."
+    }
+  ],
+  "trap": {
+    "what": "Treating the product as commutative, or assuming every subset of a product is a product.",
+    "why": "Ordered pairs remember which coordinate came first, and a product of subsets is a very special kind of subset - a rectangle in the grid picture.",
+    "counterexample": "A = B = {1, 2}. The subset {(1,2), (2,1)} is not a product X x Y: a product containing both pairs also contains (1,1) and (2,2)."
+  },
+  "check": {
+    "question": "|A| = 3, |B| = 4. How many elements does P(A x B) have?",
+    "answer": "2 to the 12 = 4096.",
+    "explanation": "The product has 12 elements, and the power set of a 12-element set has 2 to the 12 elements. This is also the number of relations from A to B."
+  },
+  "pyqIds": [],
+  "prereqs": [
+    "sets-elements-subsets-cardinality"
+  ],
+  "videoRefs": [],
+  "sources": [
+    {
+      "kind": "video",
+      "title": "Lec 02 - Set identities, Cartesian product, relations and functions",
+      "channel": "IIT lecture (NPTEL-style discrete mathematics lecture)",
+      "video_id": "7djvJetFiSY",
+      "url": "https://www.youtube.com/watch?v=7djvJetFiSY",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false
+    },
+    {
+      "kind": "text",
+      "title": "Rosen, Discrete Mathematics and Its Applications, ch. 2 (basic structures: sets, set operations, functions)",
+      "language": "en",
+      "transcript": "N/A"
+    }
+  ],
+  "sourceLine": "Ordered pairs, the ZF construction of the product, and the rectangle picture: IIT lecture Lec 02 (English, full transcript). Definitions and cardinality: Rosen ch. 2."
+}

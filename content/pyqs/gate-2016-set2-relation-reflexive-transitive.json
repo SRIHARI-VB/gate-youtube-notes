@@ -1,0 +1,21 @@
+{
+  "id": "gate-2016-set2-relation-reflexive-transitive",
+  "year": "2016",
+  "paper": "GATE CS 2016 Set 2",
+  "question_ref": "Q.26",
+  "type": "MCQ",
+  "topic": "transitivity-and-closure",
+  "text": "A binary relation R on N x N is defined as follows: (a, b) R (c, d) if a <= c or b <= d. Consider the following propositions: P: R is reflexive. Q: R is transitive. Which one of the following statements is TRUE?",
+  "options": [
+    "Both P and Q are true",
+    "P is true and Q is false",
+    "P is false and Q is true",
+    "Both P and Q are false"
+  ],
+  "answer": "Option (B): P is true and Q is false",
+  "solution": "Reflexive: (a, b) R (a, b) holds because a <= a. Transitive: (2, 10) R (3, 1) holds because 2 <= 3, and (3, 1) R (1, 2) holds because 1 <= 2, but (2, 10) R (1, 2) fails because 2 <= 1 is false and 10 <= 2 is false. So R is reflexive and not transitive. The 'or' is what breaks transitivity; with 'and' the relation would be transitive.",
+  "source_url": "https://gateoverflow.in/39603/gate-cse-2016-set-2-question-26",
+  "source_label": "GATE Overflow question page for GATE CS 2016 Set 2 Q.26 with the accepted answer",
+  "verification": "SOURCED",
+  "answer_evidence": "The accepted answer on the GATE Overflow page gives option (B), 'Reflexive, but not transitive', with a counterexample chain."
+}

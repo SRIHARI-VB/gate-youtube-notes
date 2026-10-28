@@ -1,0 +1,81 @@
+{
+  "id": "power-set-and-its-size",
+  "title": "Power Set and Counting Subsets",
+  "priority": "P1",
+  "order": 51,
+  "unit": "Sets",
+  "quickIdea": "Each element is either in or out, so an n-element set has 2 to the n subsets. Applied to a Cartesian product, the same rule counts relations.",
+  "remember": [
+    "The power set of S is the set of all subsets of S, written P(S).",
+    "If S has n elements then P(S) has 2 to the n elements, because each element makes one independent in-or-out decision.",
+    "The empty set has one subset (itself) and the set {empty} has two, so P(empty) = {empty} and P({empty}) = {empty, {empty}}.",
+    "Subsets of a fixed size k are counted by C(n, k), so the sizes of the parts of P(S) add up to 2 to the n.",
+    "If A has m elements and B has n, then A x B has m n elements and P(A x B) has 2 to the (m n) elements.",
+    "Because a relation from A to B is a subset of A x B, the number of relations from A to B is exactly the cardinality of P(A x B).",
+    "The number of relations on an n-element set is 2 to the (n squared), which is the count GATE asks for most often.",
+    "P(S) always has more elements than S, for finite S, because 2 to the n is greater than n.",
+    "A subset of a subset is a subset: if X subset Y and Y subset S then X is an element of P(S)."
+  ],
+  "example": {
+    "prompt": "S = {0, 1, 2, ..., 10}. Find the cardinality of P(S), and the number of subsets of S with exactly 3 elements.",
+    "work": "S has 11 elements (0 through 10 inclusive), so P(S) has 2 to the 11 elements. The subsets of size 3 are counted by C(11, 3) = 165.",
+    "answer": "P(S) has 2048 elements, and 165 of them are subsets of size 3."
+  },
+  "gateAngle": "GATE CS 2015 Set 2 Q.18 is the plain cardinality of a power set (2048), and GATE CS 1993 Q.8.4 asks for the power set of A x A, which is 2 to the (n squared) - the same number as the relations on A.",
+  "variations": [
+    {
+      "label": "VERIFIED PYQ",
+      "question": "See GATE CS 2015 Set 2 Q.18 in the linked PYQs: the cardinality of the power set of {0, 1, 2, ..., 10}.",
+      "answer": "2048.",
+      "why": "The set has 11 elements, and 2 to the 11 is 2048. The same rule applied to a product gives 2 to the (n squared) for the power set of A x A, which GATE CS 1993 Q.8.4 asks for and the relations card carries."
+    },
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "A is a set with 4 elements. How many elements does P(P(A)) have, and how many subsets of A have odd cardinality?",
+      "answer": "P(P(A)) has 2 to the 16 = 65536 elements, and 8 subsets of A have odd cardinality.",
+      "why": "P(A) has 16 elements, so P(P(A)) has 2 to the 16. Exactly half of the 16 subsets of a 4-element set have odd size: sizes 1 and 3 contribute 4 + 4 = 8."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "How many subsets of a 6-element set have cardinality at most 2?",
+      "answer": "1 + 6 + 15 = 22.",
+      "why": "Sizes 0, 1 and 2 contribute C(6,0) + C(6,1) + C(6,2). GATE likes to add a condition on the size rather than ask for all subsets."
+    }
+  ],
+  "trap": {
+    "what": "Writing 2 to the n as the number of subsets of A x B, or forgetting that the power set counts subsets and not ordered pairs.",
+    "why": "The exponent is the number of elements of the set whose power set is taken. For A x B that is m n, not m + n, and for A x A it is n squared.",
+    "counterexample": "A = {1, 2}, B = {a, b, c}. A x B has 6 elements, so P(A x B) has 64 elements. Using 2 to the (2 + 3) = 32 is wrong, and 32 is not even the count of relations from A to B."
+  },
+  "check": {
+    "question": "A and B are sets with 3 and 5 elements. How many relations are there from A to B?",
+    "answer": "2 to the 15 = 32768.",
+    "explanation": "A relation from A to B is a subset of A x B, which has 3 times 5 = 15 elements, so there are 2 to the 15 such subsets."
+  },
+  "pyqIds": [
+    "gate-2015-set2-power-set-cardinality"
+  ],
+  "prereqs": [
+    "sets-elements-subsets-cardinality"
+  ],
+  "videoRefs": [],
+  "sources": [
+    {
+      "kind": "text",
+      "title": "Rosen, Discrete Mathematics and Its Applications, ch. 2 (basic structures: sets, set operations, functions)",
+      "language": "en",
+      "transcript": "N/A"
+    },
+    {
+      "kind": "video",
+      "title": "Lec 02 - Set identities, Cartesian product, relations and functions",
+      "channel": "IIT lecture (NPTEL-style discrete mathematics lecture)",
+      "video_id": "7djvJetFiSY",
+      "url": "https://www.youtube.com/watch?v=7djvJetFiSY",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false
+    }
+  ],
+  "sourceLine": "Power-set counting: Rosen ch. 2 (section on sets and their cardinalities) and the power-set remark in the IIT lecture (English, full transcript). Verified against GATE CS 2015 Set 2 Q.18 and GATE CS 1993 Q.8.4."
+}

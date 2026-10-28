@@ -1,0 +1,92 @@
+{
+  "id": "relation-definition-and-counting",
+  "title": "Relations as Subsets, and Counting Them",
+  "priority": "P1",
+  "order": 55,
+  "unit": "Relations",
+  "quickIdea": "A relation from A to B is just a subset of A x B, so counting relations is counting subsets of a product: 2 to the (m n) for different sets and 2 to the (n squared) on one set.",
+  "remember": [
+    "A relation from A to B is any subset of A x B. Writing a R b is shorthand for (a, b) in R.",
+    "A relation on A means a relation from A to A, that is a subset of A x A.",
+    "The empty relation and the universal relation (the whole product) are relations; the universal one is the only relation that is reflexive and symmetric on every set.",
+    "With |A| = m and |B| = n there are 2 to the (m n) relations from A to B; on an n-element set there are 2 to the (n squared).",
+    "A ternary relation on A is a subset of A x A x A, so there are 2 to the (n cubed) of them - the natural variation on the binary count.",
+    "The matrix representation puts a 1 in row a and column b exactly when (a, b) is in R, so a relation on an n-element set is an n by n 0/1 matrix.",
+    "The digraph representation draws an arc from a to b for each pair in R, and a loop at a when (a, a) is in R.",
+    "The inverse relation is the mirror image: (b, a) is in the inverse exactly when (a, b) is in R. The complement is the relation to the complement of the product.",
+    "A relation from A to B need not touch every element of A, which is exactly what separates a relation from a function."
+  ],
+  "example": {
+    "prompt": "A = {1, 2, 3} and R = {(1,1), (1,2), (2,3)}. Write the matrix of R, and decide whether R is reflexive, symmetric or transitive.",
+    "work": "The matrix has a 1 at (1,1), (1,2) and (2,3) and 0 elsewhere. Reflexivity needs all three diagonal cells, and (2,2) and (3,3) are 0. Symmetry needs the mirror cell of (1,2), namely (2,1), which is 0. Transitivity needs (1,3) because (1,2) and (2,3) are present, and (1,3) is 0.",
+    "answer": "R is none of the three: not reflexive, not symmetric, not transitive. It has 3 of the 9 possible pairs, and there are 2 to the 9 = 512 relations on this set."
+  },
+  "gateAngle": "GATE CS 1993 Q.8.4 is the counting identity in disguise: the number of elements of the power set of A x A is 2 to the (n squared), which is exactly the number of relations on A.",
+  "variations": [
+    {
+      "label": "VERIFIED PYQ",
+      "question": "See GATE CS 1993 Q.8.4 in the linked PYQs: |A| = n, find the number of elements of P(A x A).",
+      "answer": "2 to the (n squared), option (B).",
+      "why": "A x A has n squared pairs, so its power set has 2 to the (n squared) elements - and each of those elements is a relation on A. The relation count and the power-set count are the same number."
+    },
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "|A| = 3. How many relations on A are there in total, and how many ternary relations on A?",
+      "answer": "2 to the 9 = 512 binary relations and 2 to the 27 ternary relations.",
+      "why": "A binary relation is a subset of the 9-element product A x A; a ternary relation is a subset of the 27-element product A x A x A."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "How many relations are there from a 2-element set to a 4-element set, and how many of them are functions?",
+      "answer": "2 to the 8 = 256 relations, of which 4 to the 2 = 16 are functions.",
+      "why": "The product has 8 pairs, so there are 256 subsets. A function must use each of the 2 domain elements exactly once, and each has 4 choices, so 16."
+    }
+  ],
+  "trap": {
+    "what": "Counting relations on a set as 2 to the n, or assuming a relation must relate every element of its domain.",
+    "why": "The exponent is the size of the product, not the size of the set: n squared for a relation on A, m n for a relation from A to B. And a relation is allowed to leave elements untouched, which is why there are far more relations than functions.",
+    "counterexample": "On a 3-element set there are 512 relations but only 27 functions: 27 is 3 to the 3, the functions, while the other 485 relations either leave an element out or give it two images."
+  },
+  "check": {
+    "question": "A has 3 elements and B has 5. How many relations are there from A to B?",
+    "answer": "2 to the 15 = 32768.",
+    "explanation": "The product A x B has 15 pairs and a relation is any subset of it, so there are 2 to the 15 relations. Of these, 5 to the 3 = 125 are functions."
+  },
+  "pyqIds": [
+    "gate-1993-8-4"
+  ],
+  "prereqs": [
+    "cartesian-product"
+  ],
+  "videoRefs": [],
+  "sources": [
+    {
+      "kind": "video",
+      "title": "Lec 02 - Set identities, Cartesian product, relations and functions",
+      "channel": "IIT lecture (NPTEL-style discrete mathematics lecture)",
+      "video_id": "7djvJetFiSY",
+      "url": "https://www.youtube.com/watch?v=7djvJetFiSY",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false
+    },
+    {
+      "kind": "video",
+      "title": "Relations - GATE PYQs - Part 2 (counting relations)",
+      "channel": "GO Classes for GATE CS",
+      "video_id": "Z9khyLCt2-I",
+      "url": "https://www.youtube.com/watch?v=Z9khyLCt2-I",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "transcript_note": "readable opening only: the 2^(n^2) count and the ternary-relation variation",
+      "translated": false
+    },
+    {
+      "kind": "text",
+      "title": "Rosen, Discrete Mathematics and Its Applications, ch. 9 (relations and their properties)",
+      "language": "en",
+      "transcript": "N/A"
+    }
+  ],
+  "sourceLine": "Relation as a subset of a product, with matrix and digraph representations: IIT lecture Lec 02 (English, full transcript). The counting question type and the ternary-relation variation: GO Classes Relations GATE PYQs Part 2 (English, opening readable only). Rosen ch. 9.1."
+}

@@ -1,0 +1,93 @@
+{
+  "id": "relation-properties-reflexive-symmetric-antisymmetric",
+  "title": "Reflexive, Symmetric, Antisymmetric and Asymmetric Relations",
+  "priority": "P1",
+  "order": 56,
+  "unit": "Relations",
+  "quickIdea": "Read the four properties off the 0/1 matrix: reflexive is a full diagonal, symmetric is a mirror-symmetric matrix, antisymmetric forbids both cells of a mirror pair, asymmetric also forbids the diagonal.",
+  "remember": [
+    "A relation R on A is reflexive when (a, a) is in R for every a in A; it is irreflexive when (a, a) is in R for no a.",
+    "R is symmetric when (a, b) in R implies (b, a) in R, and antisymmetric when (a, b) and (b, a) both in R forces a = b.",
+    "Asymmetric means (a, b) in R implies (b, a) not in R; on a set this is exactly irreflexive plus antisymmetric.",
+    "Antisymmetric is not the negation of symmetric. The identity relation is both symmetric and antisymmetric, and a relation can be neither.",
+    "Symmetric and antisymmetric together force R to be a subset of the identity relation, so there are 2 to the n such relations on an n-element set.",
+    "On an n-element set: all relations 2 to the (n squared); reflexive and irreflexive 2 to the (n squared minus n); symmetric 2 to the n(n+1)/2; antisymmetric 2 to the n times 3 to the n(n-1)/2; asymmetric 3 to the n(n-1)/2; reflexive and symmetric 2 to the n(n-1)/2.",
+    "Neither reflexive nor irreflexive is 2 to the (n squared) minus 2 times 2 to the (n squared minus n), because the reflexive and irreflexive relations are disjoint.",
+    "The matrix picture is the fastest route in the exam: the diagonal has n cells, the cells off the diagonal form n(n-1)/2 mirror pairs.",
+    "For a relation between different sets A and B only symmetry-type questions make sense with care; reflexivity needs a relation from A to A."
+  ],
+  "example": {
+    "prompt": "A = {1, 2, 3} and R = {(1,1), (2,2), (3,3), (1,2), (2,1)}. Decide reflexivity, symmetry, antisymmetry and transitivity.",
+    "work": "All three diagonal pairs are present, so R is reflexive. (1,2) is accompanied by (2,1), and no other off-diagonal pair exists, so R is symmetric. Because (1,2) and (2,1) are both present with 1 not equal to 2, R is not antisymmetric. For transitivity, (1,2) and (2,1) force (1,1), which is present, and (2,1) and (1,2) force (2,2), which is present, so R is transitive.",
+    "answer": "R is reflexive, symmetric and transitive, not antisymmetric: it is the equivalence relation whose classes are {1, 2} and {3}."
+  },
+  "gateAngle": "GATE CS 2015 Set 3 Q.41 defines a relation on ordered pairs by p - s = q - r and asks which pair of properties holds; the answer is that it is symmetric but not reflexive, and the reflexivity check is the whole question.",
+  "variations": [
+    {
+      "label": "VERIFIED PYQ",
+      "question": "See GATE CS 2015 Set 3 Q.41 in the linked PYQs: R on ordered pairs of positive integers with (p,q) R (r,s) when p - s = q - r.",
+      "answer": "Option (C): not reflexive but symmetric.",
+      "why": "Reflexivity would need p - q = q - p, that is p = q, which fails for (1,2). Symmetry follows because p - s = q - r is the same equation as r - q = s - p."
+    },
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "On A = {1, 2, 3}, how many relations are symmetric and antisymmetric, and how many are antisymmetric in total?",
+      "answer": "8 symmetric and antisymmetric, 216 antisymmetric.",
+      "why": "Symmetric and antisymmetric relations are the subsets of the identity relation, so 2 cubed = 8. Antisymmetric relations are 2 cubed times 3 cubed = 8 times 27 = 216, because each of the three mirror pairs has three allowed states."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "On a 4-element set, how many relations are reflexive and symmetric but not antisymmetric?",
+      "answer": "2 to the 6 minus 1 = 63.",
+      "why": "Reflexive and symmetric relations number 2 to the n(n-1)/2 = 2 to the 6 = 64; exactly one of them, the identity, is also antisymmetric, so 63 remain."
+    }
+  ],
+  "trap": {
+    "what": "Treating antisymmetric as 'not symmetric', or forgetting that a relation may be neither reflexive nor irreflexive.",
+    "why": "The two properties constrain different things: symmetry forbids one-sided pairs being absent, antisymmetry forbids two-sided pairs between distinct elements. A relation can satisfy both (identity), neither (a single off-diagonal pair with no diagonal), or one only.",
+    "counterexample": "On A = {1, 2} take R = {(1,1), (1,2)}. It has one diagonal pair but not the other, so it is neither reflexive nor irreflexive; it is antisymmetric and transitive, and not symmetric. On the same set R' = {(1,2)} is irreflexive, antisymmetric and transitive, so a single off-diagonal pair satisfies three of the four properties at once."
+  },
+  "check": {
+    "question": "On a 3-element set, how many relations are symmetric and how many are reflexive?",
+    "answer": "64 symmetric and 64 reflexive.",
+    "explanation": "Symmetric relations are 2 to the n(n+1)/2 = 2 to the 6 = 64, choosing freely on the diagonal and on each of the three mirror pairs. Reflexive relations are 2 to the n(n-1) = 2 to the 6 = 64, with the diagonal forced and the six off-diagonal cells free. The equality of the two numbers here is a coincidence of n = 3."
+  },
+  "pyqIds": [
+    "gate-2015-set3-relation-p-s-q-r"
+  ],
+  "prereqs": [
+    "relation-definition-and-counting"
+  ],
+  "videoRefs": [],
+  "sources": [
+    {
+      "kind": "video",
+      "title": "Lec 02 - Set identities, Cartesian product, relations and functions",
+      "channel": "IIT lecture (NPTEL-style discrete mathematics lecture)",
+      "video_id": "7djvJetFiSY",
+      "url": "https://www.youtube.com/watch?v=7djvJetFiSY",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false
+    },
+    {
+      "kind": "video",
+      "title": "Relations - GATE PYQs - Part 2 (counting relations)",
+      "channel": "GO Classes for GATE CS",
+      "video_id": "Z9khyLCt2-I",
+      "url": "https://www.youtube.com/watch?v=Z9khyLCt2-I",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "transcript_note": "readable opening only: the 2^(n^2) count and the ternary-relation variation",
+      "translated": false
+    },
+    {
+      "kind": "text",
+      "title": "Rosen, Discrete Mathematics and Its Applications, ch. 9 (relations, closures, equivalence relations)",
+      "language": "en",
+      "transcript": "N/A"
+    }
+  ],
+  "sourceLine": "The four property definitions, with the division and congruence examples: IIT lecture Lec 02 (English, full transcript). Counting formulas and the matrix method: GO Classes Relations GATE PYQs Part 2 (English, opening readable only) and Rosen ch. 9.1.",
+  "visual": "discrete-mathematics/sets-relations-functions/relation-matrix-properties"
+}

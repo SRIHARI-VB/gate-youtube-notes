@@ -1,0 +1,79 @@
+{
+  "id": "composition-and-inverse-functions",
+  "title": "Composition and Inverse Functions",
+  "priority": "P2",
+  "order": 60,
+  "unit": "Functions",
+  "quickIdea": "Compose right to left: (g of f)(x) = g(f(x)). An inverse exists exactly when the function is a bijection, and the inverse of a composite reverses the order.",
+  "remember": [
+    "The composite g after f is defined by (g of f)(x) = g(f(x)), and it is defined only when the image of f lies inside the domain of g.",
+    "Composition is associative: h of (g of f) = (h of g) of f. It is not commutative, and g of f and f of g usually differ.",
+    "If g of f is injective then f is injective; if g of f is surjective then g is surjective. The other two conclusions do not follow.",
+    "A function has an inverse exactly when it is a bijection, and then the inverse is unique.",
+    "For a bijection f, f inverse of f is the identity on the domain, and f of f inverse is the identity on the codomain.",
+    "The inverse of a composite reverses the order: the inverse of g of f is f inverse of g inverse.",
+    "Injectivity of f alone does not give an inverse from B to A; the inverse is defined on the image of f, and it is a function on the codomain only when f is onto.",
+    "The identity function is the unit of composition: f of identity = identity of f = f.",
+    "A function that is not injective cannot have an inverse, because some output would need two preimages."
+  ],
+  "example": {
+    "prompt": "f: {1, 2, 3} to {a, b} with f(1) = a, f(2) = a, f(3) = b; g: {a, b} to {x, y} with g(a) = x, g(b) = y. Describe g of f and decide whether f has an inverse.",
+    "work": "Apply f then g: 1 goes to a then x; 2 goes to a then x; 3 goes to b then y. So g of f sends 1 and 2 to x and 3 to y. It is onto {x, y} but not injective. f itself is not injective, because 1 and 2 share the image a.",
+    "answer": "g of f is surjective but not injective, and f has no inverse from {a, b} back to {1, 2, 3}."
+  },
+  "gateAngle": "Composition questions in GATE are usually decided by cardinality and by the two implication rules: a composite that is injective forces the first function to be injective, and a composite that is onto forces the second to be onto.",
+  "variations": [
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "f(x) = x + 1 and g(x) = 2x on the integers. Find g of f and its inverse, and check the reversal rule.",
+      "answer": "(g of f)(x) = 2x + 2 with inverse (y - 2)/2, and f inverse of g inverse gives y/2 - 1 = (y - 2)/2.",
+      "why": "The composite is a bijection of the integers, so it has an inverse. Computing the two inverses separately and composing them in reverse order reproduces the same map."
+    },
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "If g of f is injective, must g be injective?",
+      "answer": "No. f must be injective, but g may collapse elements that f never produces.",
+      "why": "With A = {1}, B = {a, b}, C = {x}: f(1) = a and g(a) = g(b) = x. Then g of f is injective on the single element, yet g is not injective."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "A function f from a 3-element set to a 3-element set is injective. Must it be surjective, and does it have an inverse?",
+      "answer": "Yes to both.",
+      "why": "On a finite set of equal size an injection uses three distinct images out of three elements, so it is onto, hence bijective, hence invertible."
+    }
+  ],
+  "trap": {
+    "what": "Writing the inverse of a composite in the same order, or assuming that an injective function is invertible on the whole codomain.",
+    "why": "Undoing a composite means undoing the last step first, which reverses the order of the inverses. And injectivity only makes the map invertible onto its image; surjectivity is what extends the inverse to the codomain.",
+    "counterexample": "f: {1, 2} to {a, b, c} with f(1) = a, f(2) = b. It is injective, but no inverse function from {a, b, c} to {1, 2} exists, because c has no preimage to send anywhere."
+  },
+  "check": {
+    "question": "f and g are bijections on a set A. What is the inverse of g of f?",
+    "answer": "f inverse of g inverse.",
+    "explanation": "Composing g of f with f inverse of g inverse returns the identity, because the middle maps cancel: g of (f of f inverse) of g inverse = g of identity of g inverse = identity."
+  },
+  "pyqIds": [],
+  "prereqs": [
+    "functions-counting-injective-surjective"
+  ],
+  "videoRefs": [],
+  "sources": [
+    {
+      "kind": "video",
+      "title": "Injective, Surjective and Bijective Functions - Discrete Mathematics",
+      "channel": "TrevTutor",
+      "video_id": "PpA4LWPh40M",
+      "url": "https://www.youtube.com/watch?v=PpA4LWPh40M",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false
+    },
+    {
+      "kind": "text",
+      "title": "Rosen, Discrete Mathematics and Its Applications, ch. 2 (sets, functions, cardinality)",
+      "language": "en",
+      "transcript": "N/A"
+    }
+  ],
+  "sourceLine": "Inverse functions and why bijectivity is required: TrevTutor (English, full transcript). Composition laws: Rosen ch. 2.3."
+}

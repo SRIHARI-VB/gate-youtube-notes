@@ -1,0 +1,83 @@
+{
+  "id": "functions-counting-injective-surjective",
+  "title": "Functions: Counting, Injections, Surjections and Bijections",
+  "priority": "P1",
+  "order": 59,
+  "unit": "Functions",
+  "quickIdea": "Total functions are n to the m. Injections are falling factorials, surjections are inclusion-exclusion or n! times a Stirling number, and bijections exist only when the sizes match.",
+  "remember": [
+    "A function from A to B assigns to every a in A exactly one b in B; the set of such functions has cardinality |B| to the |A|.",
+    "A function is injective (one-to-one) when different inputs have different outputs; it is surjective (onto) when every element of the codomain is hit; bijective when both.",
+    "The number of injections from an m-element set to an n-element set is n(n-1)...(n-m+1) = n!/(n-m)!, and 0 when m > n.",
+    "The number of surjections from m elements onto n elements is the alternating sum of C(n,k)(n-k)^m over k, which equals n! times S(m, n), and 0 when m < n.",
+    "The number of bijections from an n-element set to itself is n!.",
+    "Cardinality decides possibility: an injection needs m <= n, a surjection needs m >= n, and a bijection needs m = n.",
+    "The image of a function is a subset of the codomain, and surjective means image equals codomain. Confusing range with codomain is the classic error.",
+    "A function from A to B is a relation from A to B in which every element of A appears exactly once as a first coordinate, so the n to the m count is a subset of the 2 to the (m n) relations.",
+    "Proving injectivity is usually done in the contrapositive form: assume f(x) = f(y) and derive x = y."
+  ],
+  "example": {
+    "prompt": "How many functions are there from a 4-element set to a 3-element set, how many are injective, how many surjective, how many bijective?",
+    "work": "Total is 3 to the 4 = 81. Injective is 0 because 4 > 3. Surjective is 81 - 3 times 16 + 3 times 1 - 0 = 81 - 48 + 3 = 36. Bijective is 0 because the sizes differ.",
+    "answer": "81 functions, 0 injective, 36 surjective, 0 bijective."
+  },
+  "gateAngle": "GATE CS 2015 Set 2 Q.40 is exactly this count: the number of onto functions from {1,2,3,4} to {a,b,c} is 36, and the two standard routes are inclusion-exclusion and 3! times S(4,3).",
+  "variations": [
+    {
+      "label": "VERIFIED PYQ",
+      "question": "See GATE CS 2015 Set 2 Q.40 in the linked PYQs.",
+      "answer": "36.",
+      "why": "Inclusion-exclusion gives 81 - 48 + 3 = 36, and the same number comes from 3! times S(4,3) = 6 times 6."
+    },
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "How many injective functions are there from a 4-element set to a 6-element set, and how many from a 6-element set to a 4-element set?",
+      "answer": "6 times 5 times 4 times 3 = 360, and 0.",
+      "why": "The first is a falling factorial with four factors. The second is impossible because an injection cannot exist from a larger set into a smaller one."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "How many functions from a 3-element set to a 3-element set are neither injective nor surjective?",
+      "answer": "21.",
+      "why": "The total is 3 to the 3 = 27. Injections number 3 times 2 times 1 = 6 and surjections also number 6, and on equal finite sets those two classes coincide (they are the 6 bijections). So the functions that are neither are 27 - 6 = 21."
+    }
+  ],
+  "trap": {
+    "what": "Using |B| to the |A| for onto functions, or forgetting that a surjection is impossible when the domain is smaller than the codomain.",
+    "why": "The power counts all functions, most of which miss elements. Surjectivity needs inclusion-exclusion (or Stirling numbers) because the condition is 'no element of B is missed', which is a union of bad events.",
+    "counterexample": "From a 2-element set to a 3-element set there are 9 functions and none is onto: two inputs can hit at most two of the three outputs."
+  },
+  "check": {
+    "question": "How many bijections are there from a 5-element set to itself?",
+    "answer": "120.",
+    "explanation": "A bijection is a permutation of the set, so the count is 5! = 120."
+  },
+  "pyqIds": [
+    "gate-2015-set2-onto-functions"
+  ],
+  "prereqs": [
+    "power-set-and-its-size",
+    "basic-counting-rules",
+    "inclusion-exclusion"
+  ],
+  "videoRefs": [],
+  "sources": [
+    {
+      "kind": "video",
+      "title": "Injective, Surjective and Bijective Functions - Discrete Mathematics",
+      "channel": "TrevTutor",
+      "video_id": "PpA4LWPh40M",
+      "url": "https://www.youtube.com/watch?v=PpA4LWPh40M",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false
+    },
+    {
+      "kind": "text",
+      "title": "Rosen, Discrete Mathematics and Its Applications, ch. 2 (sets, functions, cardinality)",
+      "language": "en",
+      "transcript": "N/A"
+    }
+  ],
+  "sourceLine": "Injectivity, surjectivity, bijectivity, the proof technique and the cardinality conditions: TrevTutor (English, full transcript). The counting formulas: Rosen ch. 2 and ch. 6, verified against GATE CS 2015 Set 2 Q.40."
+}

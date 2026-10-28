@@ -1,0 +1,79 @@
+{
+  "id": "sets-elements-subsets-cardinality",
+  "title": "Sets, Elements, Subsets and Cardinality",
+  "priority": "P1",
+  "order": 50,
+  "unit": "Sets",
+  "quickIdea": "A set is fixed by membership alone. Count the commas at the top level to get the cardinality, and never read a nested set as its contents.",
+  "remember": [
+    "A set is a collection of distinct objects; order and repetition are irrelevant, so {1, 2, 2, 3} and {3, 2, 1} are the same set and both have cardinality 3.",
+    "x in A says x is an element of A. A is a subset of B (A subset B) says every element of A is also an element of B.",
+    "A = B exactly when A subset B and B subset A. This is the standard way to prove two sets are equal.",
+    "The empty set has no elements: its cardinality is 0. It is a subset of every set, and it is the only set with cardinality 0.",
+    "The empty set and the set containing the empty set are different objects: the first has 0 elements, the second has 1 element, namely the empty set.",
+    "Nesting is not membership. If {2, 3} is an element of S then 2 is not an element of S unless S also lists 2 separately.",
+    "Every set is a subset of itself, and the empty set has exactly one subset, itself.",
+    "Set-builder notation {x in U : P(x)} is a rule, not a list; two different rules can describe the same set.",
+    "An element is not a subset of the set that contains it, and a subset is not an element unless it is listed as one."
+  ],
+  "example": {
+    "prompt": "S = {{empty}, 1, {2, 3}}. Find the cardinality of S, decide whether the empty set is an element of S, and decide whether {2, 3} is a subset of S.",
+    "work": "Look at the top-level commas: there are three items, so the cardinality is 3. The first item is a set that contains the empty set, not the empty set itself, so the empty set is not an element of S. The third item is the set {2, 3}, whose elements are 2 and 3, and neither of those is in S.",
+    "answer": "The cardinality of S is 3. The empty set is not an element of S. {2, 3} is an element of S but not a subset of S, because 2 and 3 are not elements of S."
+  },
+  "gateAngle": "GATE CS 1995 Q.1.20 gives exactly this shape and asks for the number of elements of the power set: the answer is 2 to the power of the number of top-level items.",
+  "variations": [
+    {
+      "label": "VERIFIED PYQ",
+      "question": "See GATE CS 1995 Q.1.20 in the linked PYQs: the set is {{empty}, 1, {2, 3}} and the options are 2, 4, 8 and none of the above.",
+      "answer": "8, option (C).",
+      "why": "Three top-level elements, so the power set has 2 cubed elements. Counting 2, 3 and the empty set as separate top-level items would give a wrong power."
+    },
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "Let T = {empty, {empty}, {{empty}}}. Give the cardinality of T, and say whether the empty set is an element of T and whether {{empty}} is a subset of T.",
+      "answer": "Cardinality 3. The empty set is an element of T. {{empty}} is a subset of T, because its only element {empty} is in T.",
+      "why": "All three items are distinct objects: the empty set, a set containing it, and a set containing that. The third item is also a subset because its element is listed at the top level."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "How many subsets of {1, {2, 3}} contain 1?",
+      "answer": "Two: {1} and {1, {2, 3}}.",
+      "why": "The set has two elements, so it has four subsets; exactly half of them contain the element 1, because each subset is decided by two independent in-or-out choices."
+    }
+  ],
+  "trap": {
+    "what": "Reading a nested set as if its contents were elements of the outer set, or confusing 'is an element of' with 'is a subset of'.",
+    "why": "Membership looks only one level deep. A set inside a set is one object, whatever it contains, and the empty set is a subset of everything while being an element of almost nothing.",
+    "counterexample": "For A = {{empty}}, the empty set is a subset of A but not an element of A: the only element of A is the set {empty}. For B = {empty} the empty set is both a subset and an element, which is why B cannot be used to tell the two relations apart."
+  },
+  "check": {
+    "question": "S = {empty, {empty}}. Give the cardinality of S, the cardinality of its power set, and say whether {{empty}} is a subset of S.",
+    "answer": "Cardinality 2, power set cardinality 4, and yes, {{empty}} is a subset of S.",
+    "explanation": "The two elements are the empty set and the set containing the empty set. The power set of a 2-element set has 4 elements. The set {{empty}} has the single element {empty}, which is in S, so it is a subset."
+  },
+  "pyqIds": [
+    "gate-1995-1-20"
+  ],
+  "prereqs": [],
+  "videoRefs": [],
+  "sources": [
+    {
+      "kind": "video",
+      "title": "Introduction to Set Theory - Discrete Mathematics",
+      "channel": "TrevTutor",
+      "video_id": "tyDKR4FG3Yw",
+      "url": "https://www.youtube.com/watch?v=tyDKR4FG3Yw",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false
+    },
+    {
+      "kind": "text",
+      "title": "Rosen, Discrete Mathematics and Its Applications, ch. 2 (basic structures: sets, set operations, functions)",
+      "language": "en",
+      "transcript": "N/A"
+    }
+  ],
+  "sourceLine": "Set basics, cardinality and the empty-set distinction: TrevTutor, Introduction to Set Theory (English, full transcript). Nested-set discipline and subset proofs: Rosen ch. 2."
+}

@@ -1,0 +1,16 @@
+{
+  "id": "gate-2015-set2-power-set-cardinality",
+  "year": "2015",
+  "paper": "GATE CS 2015 Set 2",
+  "question_ref": "Q.18",
+  "type": "NAT",
+  "topic": "power-set-and-its-size",
+  "text": "The cardinality of the power set of {0, 1, 2, ..., 10} is ______.",
+  "options": [],
+  "answer": "2048",
+  "solution": "The set contains the eleven integers 0 through 10, so its power set has 2 to the 11 = 2048 elements. The usual slip is to count ten elements by forgetting that the range starts at 0, which gives 1024.",
+  "source_url": "https://gateoverflow.in/8092/gate-cse-2015-set-2-question-18",
+  "source_label": "GATE Overflow question page for GATE CS 2015 Set 2 Q.18 with the accepted answer",
+  "verification": "SOURCED",
+  "answer_evidence": "The accepted answer on the GATE Overflow page states 2048 and explains that the set has 11 elements."
+}

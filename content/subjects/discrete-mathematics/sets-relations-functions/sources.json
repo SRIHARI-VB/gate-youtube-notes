@@ -1,0 +1,142 @@
+{
+  "subject": "discrete-mathematics",
+  "topic": "sets-relations-functions",
+  "exam": "GATE CSE 2027",
+  "subtopics": [
+    "sets, elements, subsets, cardinality and the empty set",
+    "power sets and counting subsets",
+    "set operations, De Morgan's laws, distributive laws and element-chasing proofs",
+    "ordered pairs and the Cartesian product",
+    "countable and uncountable sets",
+    "relations: definition, matrix and digraph representation, counting",
+    "reflexive, symmetric, antisymmetric and asymmetric relations and their counts",
+    "transitivity, transitive closure and Warshall",
+    "equivalence relations, classes and partitions (Bell and Stirling numbers)",
+    "functions: total, injective, surjective, bijective and their counts",
+    "composition and inverse functions"
+  ],
+  "chosen": [
+    {
+      "id": "7djvJetFiSY",
+      "kind": "video",
+      "channel": "IIT lecture (NPTEL-style discrete mathematics lecture)",
+      "title": "Lec 02 - Set identities, Cartesian product, relations and functions",
+      "language": "en",
+      "covers": [
+        "set identities",
+        "De Morgan",
+        "distributive laws",
+        "element-chasing proofs",
+        "ordered pairs",
+        "Cartesian product",
+        "relation definition",
+        "reflexive/symmetric/antisymmetric/transitive",
+        "equivalence relation"
+      ],
+      "transcript": "FULL",
+      "why": "The only lecture found that proves the set identities by element chasing and then defines all four relation properties in one continuous argument, which is exactly the order the GATE syllabus lists them. Transcript readable in full."
+    },
+    {
+      "id": "tyDKR4FG3Yw",
+      "kind": "video",
+      "channel": "TrevTutor",
+      "title": "Introduction to Set Theory - Discrete Mathematics",
+      "language": "en",
+      "covers": [
+        "sets",
+        "elements",
+        "cardinality",
+        "empty set versus set containing the empty set",
+        "set-builder notation",
+        "finite and infinite sets"
+      ],
+      "transcript": "FULL",
+      "why": "The clearest beginner treatment of the empty-set and nesting distinction, which is where GATE's power-set questions are lost. Full transcript, 16 minutes, no time wasted."
+    },
+    {
+      "id": "PpA4LWPh40M",
+      "kind": "video",
+      "channel": "TrevTutor",
+      "title": "Injective, Surjective and Bijective Functions - Discrete Mathematics",
+      "language": "en",
+      "covers": [
+        "injectivity",
+        "surjectivity",
+        "bijectivity",
+        "cardinality conditions",
+        "inverse functions"
+      ],
+      "transcript": "FULL",
+      "why": "Covers the three function properties, the cardinality conditions and why an inverse needs a bijection, in 15 minutes and with a full transcript. The counting formulas come from the standard reference."
+    },
+    {
+      "id": "Z9khyLCt2-I",
+      "kind": "video",
+      "channel": "GO Classes for GATE CS",
+      "title": "Relations - GATE PYQs - Part 2 (counting relations)",
+      "language": "en",
+      "covers": [
+        "number of relations 2^(n^2)",
+        "ternary relations",
+        "counting question types"
+      ],
+      "playlist": "PLIPZ2_p3RNHjHnhdkPWFAlcizVQJ8w4TX",
+      "transcript": "PARTIAL",
+      "transcript_note": "readable opening only: the 2^(n^2) count and the ternary-relation variation; later question types were past the truncation point",
+      "why": "The only GATE-specific source found that states the counting question types explicitly. Read only in its opening, so nothing beyond the opening is claimed."
+    }
+  ],
+  "rejected": [
+    {
+      "id": "PLEAYkSg4uSQ2Wfc_l4QEZUSRdx2ZcFziO",
+      "kind": "playlist",
+      "channel": "NPTEL, IIT Ropar (Prof. Sudarshan Iyengar)",
+      "title": "Discrete Mathematics - SRS Iyengar, 460 videos",
+      "why": "Every concept is split into three-to-five minute fragments (Week 2 alone has 29 parts, Week 4 has 44, Week 5 has 41), so no single video covers a subtopic and per-card attribution would be guesswork. Its lecture list was used only to confirm the subtopic scope of Week 2 (sets), Week 4 (relations) and Week 5 (functions)."
+    },
+    {
+      "id": "noc25_ma53",
+      "kind": "course",
+      "channel": "NPTEL, IIT Kanpur (Prof. Amit Kuber)",
+      "title": "Set Theory and Mathematical Logic",
+      "why": "ZFC axioms, ordinals, cardinal arithmetic, ultraproducts and Lowenheim-Skolem: correct and rigorous, but most of it is outside the GATE line, and the parts inside it are buried in material the exam never asks. Rejected as a poor use of the run."
+    },
+    {
+      "id": "cs103-winter2026-set-theory-slides",
+      "kind": "slides",
+      "channel": "Stanford CS103",
+      "title": "Lecture 00: Intro to Set Theory (slides)",
+      "why": "Slides only, with no video or transcript, and aimed at a theory course (Cantor's theorem and its implications) rather than at GATE question patterns. Good on power sets and cardinality, but a transcript is needed to attribute claims to a lecture."
+    },
+    {
+      "id": "PLxCzCOWd7aiH2wwES9vPWsEL6ipTaUSl3",
+      "kind": "playlist",
+      "channel": "Hindi GATE preparation channel (Discrete Mathematics playlist)",
+      "title": "Discrete Mathematics (Hindi)",
+      "why": "A Hindi-language candidate was searched for deliberately, because the concept is often explained more simply in Hindi. Only the playlist page was retrievable and no lecture transcript could be read, so nothing could be verified, quoted or translated. Recorded as a language gap rather than used."
+    },
+    {
+      "id": "unacademy-hindi-types-of-relation",
+      "kind": "course",
+      "channel": "Unacademy (Hindi)",
+      "title": "Types of Relation - Empty, full, Reflexive (Hindi), lesson 64 of 80",
+      "why": "The lessons are listed but not readable without an account, and only the lesson titles were retrievable. No transcript, so no claim could be checked."
+    },
+    {
+      "id": "neso-types-of-relations",
+      "kind": "series",
+      "channel": "Neso Academy-style series (listed in a GATE crash-course index)",
+      "title": "Types of Relations, Closure of Relations, Warshall's Algorithm",
+      "why": "The series covers exactly the right operations, but the lectures are fragmented per operation and no transcript was retrievable in this run, so the closure card rests on the standard reference instead."
+    }
+  ],
+  "standard_refs": [
+    "Rosen, Discrete Mathematics and Its Applications, ch. 2 (sets, set operations, functions, cardinality of sets)",
+    "Rosen, Discrete Mathematics and Its Applications, ch. 6 (counting, onto functions by inclusion-exclusion)",
+    "Rosen, Discrete Mathematics and Its Applications, ch. 9 (relations, their properties, closures, equivalence relations)",
+    "Grimaldi, Discrete and Combinatorial Mathematics, ch. 3 and ch. 5 (sets, relations, functions)",
+    "GATE 2027 CS syllabus, IIT Madras (the line 'Sets, relations, functions' under Discrete Mathematics)"
+  ],
+  "language_note": "Every published card, caption and check is in English. No card draws on a non-English source: the Hindi candidates were searched for but no transcript could be read, so nothing is translated in this run.",
+  "retrieved_at": "2026-10-28"
+}

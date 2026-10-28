@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Relations as Matrices - Sets, Relations, Functions visual lesson</title>
+<link rel="stylesheet" href="../../../lesson.css">
+<script src="https://cdn.jsdelivr.net/npm/p5@1.9.4/lib/p5.min.js"></script>
+</head>
+<body>
+<div class="wrap">
+  <p class="small"><a href="../../../../index.html">&larr; back to the revision site</a></p>
+  <h1>One Grid, Five Properties: Reading a Relation as a Matrix</h1>
+  <div class="objective"><strong>Objective.</strong> Read reflexivity, symmetry, antisymmetry, transitivity and equivalence straight off a 3 by 3 grid, and see where the counting formulas 2 to the 9, 2 to the 6, 2 to the 6 and 2 cubed times 3 cubed come from.</div>
+
+  <div class="canvas-wrap"><div id="canvas-holder"></div></div>
+  <div class="caption" id="caption" aria-live="polite"></div>
+
+  <div class="controls">
+    <button id="play" class="primary">Play</button>
+    <button id="prev">&larr; Prev</button>
+    <button id="next">Next &rarr;</button>
+    <button id="restart">Restart</button>
+    <span class="speed"><label for="speed">Speed</label>
+      <input id="speed" type="range" min="0.25" max="2" step="0.25" value="1">
+      <span id="speedLabel">1.00x</span></span>
+    <span class="counter" id="counter"></span>
+  </div>
+
+  <h2>Static explanation</h2>
+<p>A relation on the set {1, 2, 3} is a subset of the nine ordered pairs. Draw a 3 by 3 grid with rows indexed by the first coordinate and columns by the second: a tick at row a, column b means the pair (a, b) belongs to the relation. Because each of the nine cells is either ticked or not, there are 2 to the 9 = 512 relations in total.</p>
+<p>Each property is a constraint on that grid. <em>Reflexive</em> forces the three diagonal cells to be ticked, leaving the six off-diagonal cells free: 2 to the 6 = 64. <em>Irreflexive</em> forces the diagonal to be empty, which is also 2 to the 6 = 64, and no relation is both unless the set is empty. <em>Symmetric</em> makes each mirror pair of off-diagonal cells all-or-nothing, so the three diagonal cells and the three pairs give six free decisions: 2 to the 6 = 64. <em>Antisymmetric</em> forbids ticking both cells of a mirror pair, so each of the three pairs has three states (neither, one way, the other way) and the diagonal is free: 2 cubed times 3 cubed = 216.</p>
+<p><em>Transitive</em> is the only property that looks at three cells at once: if (a, b) and (b, c) are ticked then (a, c) must be ticked. On the grid, a tick at (1, 2) and a tick at (2, 3) force a tick at (1, 3). Adding every forced tick, and repeating, gives the transitive closure; Warshall's algorithm computes it in cubic time by allowing one intermediate vertex at a time.</p>
+<p>An <em>equivalence relation</em> is reflexive, symmetric and transitive together, and then the ticks form square blocks along the diagonal. Each block is one equivalence class, the blocks partition the set, and the number of equivalence relations on an n-element set is the number of partitions of it: 5 for three elements and 15 for four.</p>
+
+  <div class="card warn"><div class="label">Common misconception</div><p>Reading antisymmetric as "not symmetric". The identity relation is both symmetric and antisymmetric at once, so neither property excludes the other. On {1, 2} the relation {(1,1), (1,2)} is antisymmetric and not symmetric. The relation {(1,2)} shows the neighbouring trap: it is irreflexive rather than reflexive, and reflexive plus symmetric is a separate condition again. Symmetric plus antisymmetric is exactly a subset of the identity relation, so there are 2 to the n of those on an n-element set, not zero.</p></div>
+  <div class="card ok"><div class="label">Quick check</div><p>On a 4-element set, how many relations are symmetric, how many are reflexive, and how many are symmetric and antisymmetric?</p><details><summary>Answer</summary><p><strong>1024 symmetric, 4096 reflexive, 16 symmetric and antisymmetric.</strong> Symmetric: the 4 diagonal cells plus the 6 mirror pairs are free decisions, so 2 to the 10 = 1024. Reflexive: the diagonal is forced and the 12 off-diagonal cells are free, so 2 to the 12 = 4096. Symmetric and antisymmetric: the relation is a subset of the identity, so 2 to the 4 = 16.</p></details></div>
+  <p class="small">Topic: relations and their properties (Discrete Mathematics, Sets, Relations, Functions). Sources: the IIT lecture Lec 02 on set identities, Cartesian product and relations (English, full transcript), GO Classes for GATE CS on counting relations (English, opening readable only), and Rosen ch. 9. Verified PYQs behind this lesson: GATE CS 2015 Set 3 Q.41 and GATE CS 1997 Q.6.3.</p>
+</div>
+<script src="../../../lesson.js"></script>
+<script src="sketch.js"></script>
+<script>
+/* p5.js is loaded from a CDN. If it is unreachable, say so plainly instead of showing an empty box. */
+window.addEventListener('load', function () {
+  if (window.p5) { return; }
+  var holder = document.getElementById('canvas-holder');
+  if (holder) {
+    holder.innerHTML = '<div style="padding:22px 18px;font-size:14.5px;color:#4a5260">' +
+      'The animation needs p5.js, which this page loads from a CDN, and the request failed (offline, or the CDN is blocked). ' +
+      'Everything below still works: the static explanation, the misconception and the quick check.</div>';
+  }
+  var cap = document.getElementById('caption');
+  if (cap && window.LESSON && window.LESSON.steps && window.LESSON.steps[0]) {
+    cap.innerHTML = window.LESSON.steps[0].caption;
+  }
+  ['play', 'prev', 'next', 'restart', 'speed'].forEach(function (id) {
+    var el = document.getElementById(id);
+    if (el) { el.disabled = true; }
+  });
+});
+</script>
+</body>
+</html>
