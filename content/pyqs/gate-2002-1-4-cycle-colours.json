@@ -1,0 +1,21 @@
+{
+  "id": "gate-2002-1-4-cycle-colours",
+  "year": "2002",
+  "paper": "GATE CS 2002",
+  "question_ref": "Q.1.4",
+  "type": "MCQ",
+  "topic": "chromatic-number-and-greedy-bounds",
+  "text": "The minimum number of colours required to colour the vertices of a cycle with n nodes in such a way that no two adjacent nodes have the same colour is",
+  "options": [
+    "2",
+    "3",
+    "4",
+    "n - 2 floor(n/2) + 2"
+  ],
+  "answer": "Option 4: n - 2 floor(n/2) + 2",
+  "solution": "For even n the expression is n - n + 2 = 2 and for odd n it is n - (n-1) + 2 = 3, which are exactly the chromatic numbers of even and odd cycles; options 1, 2 and 3 are constants and each fails for one parity. scripts/validate.py evaluates the expression against the chromatic number of C_n for n from 3 to 10.",
+  "source_url": "https://gateoverflow.in/808/gate-cse-2002-question-1-4",
+  "source_label": "GATE Overflow question page - GATE CSE 2002 Q.1.4 with the accepted answer (option D)",
+  "verification": "SOURCED",
+  "answer_evidence": "Accepted answer: 'Chromatic number will be 3 for when n is odd and will be 2 when n is even. Option (D) is a representation for this, hence the correct answer'."
+}

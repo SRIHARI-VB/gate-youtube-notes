@@ -1,0 +1,71 @@
+{
+  "id": "vertex-and-edge-connectivity",
+  "title": "Vertex and Edge Connectivity",
+  "priority": "P2",
+  "order": 93,
+  "unit": "Connectivity",
+  "quickIdea": "Vertex connectivity and edge connectivity measure how many failures a network survives, and the only inequality GATE needs is kappa at most lambda at most delta.",
+  "remember": [
+    "lambda(G), the edge connectivity, is the size of a smallest set of edges whose removal disconnects G; kappa(G), the vertex connectivity, is the size of a smallest such vertex set.",
+    "For a complete graph kappa(K_n) = n-1, because every set of n-2 vertices leaves two vertices that are still adjacent.",
+    "kappa(G) is at most lambda(G) is at most delta(G), where delta is the minimum degree, so a graph with a bridge has lambda = 1.",
+    "A connected graph is 2-connected exactly when it has no cut vertex, which is exactly when kappa is at least 2; kappa = 1 marks a connected graph that is separable.",
+    "For a simple graph on n at least 2 vertices, kappa is at most floor(2|E| / n), since the average degree bounds the minimum degree.",
+    "kappa(K_{m,n}) = lambda(K_{m,n}) = min(m, n).",
+    "Menger's theorem: for non-adjacent u and v the smallest vertex cut separating them equals the largest number of internally vertex-disjoint u-v paths."
+  ],
+  "example": {
+    "prompt": "Two triangles abc and cde share only the vertex c. Find kappa, lambda and delta.",
+    "work": "delta = 2, since a, b, d and e have degree 2 while c has degree 4. Removing c separates the two triangles, so kappa = 1. No single edge removal disconnects the graph, so lambda is at least 2; deleting ab and ac isolates a, so lambda = 2. The chain 1 at most 2 at most 2 holds with the first inequality strict.",
+    "answer": "kappa = 1, lambda = 2, delta = 2."
+  },
+  "gateAngle": "Connectivity numbers appear as one-line questions: 'the vertex connectivity of this graph is', or an upper bound through delta. The exam never asks for a proof of Menger's theorem, only for the ordering kappa at most lambda at most delta.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "A connected graph has 10 vertices, 15 edges and no cut vertex. What is the largest possible value of lambda?",
+      "answer": "3, reached by the Petersen graph.",
+      "why": "The average degree is 2 x 15 / 10 = 3, so delta is at most 3 and lambda is at most delta; the Petersen graph is 3-regular and 3-edge-connected."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Why can lambda never exceed delta?",
+      "answer": "Delete all edges at a vertex of minimum degree and that vertex becomes isolated, so some edge cut has size at most delta.",
+      "why": "Isolating one vertex is always a legal way to disconnect a connected graph on at least 2 vertices."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "A graph is 2-connected on 8 vertices with 12 edges. What is the largest possible kappa?",
+      "answer": "At most 3, since kappa is at most floor(2 x 12 / 8) = 3.",
+      "why": "The 2|E|/n bound comes from the average degree, and it applies to kappa before lambda and delta."
+    }
+  ],
+  "trap": {
+    "what": "Reading the chain backwards, for example claiming lambda at most kappa, or giving kappa = 2 for a graph that has a bridge.",
+    "why": "A bridge is a one-edge cut, so lambda = 1, and then kappa is at most 1 as well. The chain runs kappa at most lambda at most delta, never the other way.",
+    "counterexample": "The bowtie of two triangles sharing a vertex has kappa = 1 and lambda = 2, so kappa and lambda are genuinely different numbers."
+  },
+  "check": {
+    "question": "What are kappa and lambda of K_4?",
+    "answer": "kappa = 3 and lambda = 3, and delta = 3, so the whole chain is tight.",
+    "explanation": "Removing any two vertices of K_4 leaves two adjacent vertices, so no 2-vertex cut exists; removing the three edges at one vertex isolates it, so lambda is at most 3 and at least delta by the chain, hence exactly 3."
+  },
+  "pyqIds": [],
+  "prereqs": [
+    "cut-vertices-bridges-and-blocks"
+  ],
+  "videoRefs": [],
+  "sources": [
+    {
+      "kind": "slides",
+      "title": "Graph Theory: Connectivity, Coloring, Matching - GO Classroom slide deck",
+      "channel": "GATE Overflow (Arjun Suresh, GO Classroom)",
+      "url": "https://gateoverflow.in/?qa=blob&qa_blobid=659724806035278755",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "slide text read through graph basics, walk/path/circuit, Euler and Hamiltonian, cut-set and cut-vertex, edge and vertex connectivity, colouring, bipartite, independent set, matching and Hall's theorem; the fetch was truncated after the Havel-Hakimi example, so the later matching pages were read only as excerpts"
+    }
+  ],
+  "sourceLine": "Vertex and edge connectivity, the kappa-lambda-delta chain and the 2|E|/n bound: GATE Overflow GO Classroom deck (English, read in part) for the edge-connectivity and vertex-connectivity definitions and the two upper bounds; Menger from Diestel. Standard references used to verify, never copied: Rosen, Discrete Mathematics and Its Applications, ch. 10; West, Introduction to Graph Theory (Brooks, Dirac, Koenig, chromatic polynomial); CLRS ch. 22 (articulation points, bridges) and ch. 26 (bipartite matching); Diestel, Graph Theory (Menger). kappa and lambda are recomputed by brute force over vertex and edge subsets in scripts/validate.py."
+}

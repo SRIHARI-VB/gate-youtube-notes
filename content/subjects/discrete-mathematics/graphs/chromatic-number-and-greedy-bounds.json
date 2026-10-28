@@ -1,0 +1,75 @@
+{
+  "id": "chromatic-number-and-greedy-bounds",
+  "title": "Chromatic Number, Greedy Bounds and Brooks' Theorem",
+  "priority": "P1",
+  "order": 99,
+  "unit": "Colouring",
+  "quickIdea": "The chromatic number is the fewest colours in a proper colouring; a clique gives only a lower bound and greedy gives an upper bound that depends on the order vertices are taken.",
+  "remember": [
+    "chi(G) is the least k such that V splits into k independent colour classes, and chi = 1 exactly when G has no edge.",
+    "chi = 2 exactly for bipartite graphs with at least one edge, so chi is at least 3 exactly when G has an odd cycle.",
+    "chi(K_n) = n, chi(C_n) = 2 for even n and 3 for odd n, and every tree with at least one edge has chi = 2.",
+    "The clique number omega and the maximum degree Delta bracket the answer: omega is at most chi, and chi is at most Delta + 1 by greedy colouring.",
+    "Brooks sharpens the upper bound to chi at most Delta unless G is complete or an odd cycle, where chi = Delta + 1.",
+    "chi is at least n / alpha, since with k colour classes one class holds at least n/k vertices, and a k-chromatic graph has at least k(k-1)/2 edges because every two colour classes must be joined by an edge.",
+    "A k-chromatic graph need not contain K_k: C_5 and the Petersen graph both have omega = 2 and chi = 3, and deciding chi is NP-hard."
+  ],
+  "example": {
+    "prompt": "For the Petersen graph give chi, omega and alpha.",
+    "work": "Petersen has 10 vertices and is 3-regular, and it contains 5-cycles, so chi is at least 3; a 3-colouring exists, so chi = 3. It has no triangle, so omega = 2. Its largest independent set has 4 vertices, so alpha = 4, and indeed chi is at least 10/4.",
+    "answer": "chi = 3, omega = 2 and alpha = 4."
+  },
+  "gateAngle": "Three verified patterns: the formula n - 2 floor(n/2) + 2 for cycles (GATE CSE 2002 Q.1.4), the counting bounds on a k-chromatic graph (GATE CSE 2024 Set 1 Q.41), and the Petersen graph's chi = 3 with alpha = 4 (GATE CSE 2022 Q.40).",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "A graph has 20 vertices and chromatic number 4. What is the least possible number of edges?",
+      "answer": "6, which is C(4,2), reached by K_4 together with 16 isolated vertices.",
+      "why": "Each pair of the 4 colour classes needs an edge between them, and K_4 realises exactly one edge per pair."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Does chi(G) = 3 force G to contain a triangle?",
+      "answer": "No. C_5 and the Petersen graph are triangle-free with chromatic number 3.",
+      "why": "Odd cycles and odd-cycle-rich graphs raise the chromatic number without creating cliques, so omega is only a lower bound."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "A graph has maximum degree 4 and is neither complete nor an odd cycle. What is the largest possible chromatic number?",
+      "answer": "4, by Brooks' theorem.",
+      "why": "Greedy already gives 5, and Brooks removes one colour except in the two excluded families."
+    }
+  ],
+  "trap": {
+    "what": "Equating chi with the clique number omega, and forgetting that a graph with no edges has chromatic number 1.",
+    "why": "omega is only a lower bound: C_5 has omega = 2 and chi = 3. At the other end, 100 isolated vertices need one colour, not zero.",
+    "counterexample": "C_5 has omega = 2 and chi = 3; the Petersen graph has omega = 2 and chi = 3; a graph of 100 isolated vertices has chi = 1."
+  },
+  "check": {
+    "question": "A graph has 12 vertices and chromatic number 4. What is the guaranteed size of an independent set?",
+    "answer": "At least 3, since 12 / 4 = 3.",
+    "explanation": "Four colour classes partition 12 vertices, so by the pigeonhole principle one class holds at least 3 vertices, and a colour class is an independent set. This is the second statement of GATE CSE 2024 Set 1 Q.41."
+  },
+  "pyqIds": [
+    "gate-2024-set1-41-chromatic-statements",
+    "gate-2002-1-4-cycle-colours",
+    "gate-2022-40-petersen"
+  ],
+  "prereqs": [
+    "bipartite-graphs-and-odd-cycles"
+  ],
+  "videoRefs": [],
+  "sources": [
+    {
+      "kind": "slides",
+      "title": "Graph Theory: Connectivity, Coloring, Matching - GO Classroom slide deck",
+      "channel": "GATE Overflow (Arjun Suresh, GO Classroom)",
+      "url": "https://gateoverflow.in/?qa=blob&qa_blobid=659724806035278755",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "slide text read through graph basics, walk/path/circuit, Euler and Hamiltonian, cut-set and cut-vertex, edge and vertex connectivity, colouring, bipartite, independent set, matching and Hall's theorem; the fetch was truncated after the Havel-Hakimi example, so the later matching pages were read only as excerpts"
+    }
+  ],
+  "sourceLine": "Chromatic number, the standard families, the independent-set and edge-count bounds: GATE Overflow GO Classroom deck (English, read in part) for the colouring and independent-set statements; Brooks and Dirac from West. Standard references used to verify, never copied: Rosen, Discrete Mathematics and Its Applications, ch. 10; West, Introduction to Graph Theory (Brooks, Dirac, Koenig, chromatic polynomial); CLRS ch. 22 (articulation points, bridges) and ch. 26 (bipartite matching); Diestel, Graph Theory (Menger). Every chromatic number, clique number, independence number and bound in this card is recomputed in scripts/validate.py."
+}

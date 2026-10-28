@@ -1,0 +1,95 @@
+{
+  "slug": "bipartite-matching-augmenting-path",
+  "topic": "matching-maximal-maximum-perfect",
+  "engine": "p5.js",
+  "steps": 6,
+  "example": {
+    "graph": {
+      "left": [
+        "a",
+        "b",
+        "c"
+      ],
+      "right": [
+        "1",
+        "2",
+        "3"
+      ],
+      "edges": [
+        [
+          "a",
+          "1"
+        ],
+        [
+          "a",
+          "2"
+        ],
+        [
+          "b",
+          "1"
+        ],
+        [
+          "b",
+          "2"
+        ],
+        [
+          "c",
+          "2"
+        ],
+        [
+          "c",
+          "3"
+        ]
+      ]
+    },
+    "maximal_matching": [
+      [
+        "a",
+        "1"
+      ],
+      [
+        "c",
+        "2"
+      ]
+    ],
+    "maximal_matching_size": 2,
+    "maximum_matching": [
+      [
+        "a",
+        "2"
+      ],
+      [
+        "b",
+        "1"
+      ],
+      [
+        "c",
+        "3"
+      ]
+    ],
+    "maximum_matching_size": 3,
+    "augmenting_path": [
+      "b",
+      "1",
+      "a",
+      "2",
+      "c",
+      "3"
+    ],
+    "minimum_vertex_cover": [
+      "1",
+      "2",
+      "c"
+    ],
+    "minimum_vertex_cover_size": 3,
+    "hall_subset": [
+      "a",
+      "b"
+    ],
+    "hall_neighbourhood": [
+      "1",
+      "2"
+    ],
+    "hall_holds": true
+  }
+}

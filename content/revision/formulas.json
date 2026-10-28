@@ -518,5 +518,75 @@
         "note": "decides cyclicity of G x H"
       }
     ]
+  },
+  {
+    "group": "Graphs",
+    "items": [
+      {
+        "name": "Handshake lemma",
+        "latex": "\\sum_{v \\in V} \\deg(v) = 2|E|",
+        "note": "so the number of odd-degree vertices is even"
+      },
+      {
+        "name": "Edges in a simple graph",
+        "latex": "|E| \\le \\binom{n}{2}, \\quad |E(K_n)| = \\frac{n(n-1)}{2}",
+        "note": "equality only for the complete graph"
+      },
+      {
+        "name": "Edges with k components",
+        "latex": "n-k \\le |E| \\le \\binom{n-k+1}{2}",
+        "note": "left equality exactly for forests"
+      },
+      {
+        "name": "Bipartite edge bound",
+        "latex": "|E| \\le \\left\\lfloor \\frac{n^2}{4} \\right\\rfloor",
+        "note": "attained by K_{floor(n/2), ceil(n/2)}"
+      },
+      {
+        "name": "Connectivity chain",
+        "latex": "\\kappa(G) \\le \\lambda(G) \\le \\delta(G)",
+        "note": "and kappa <= floor(2|E|/n)"
+      },
+      {
+        "name": "Euler criterion",
+        "latex": "\\text{circuit} \\iff \\text{all degrees even}; \\quad \\text{path} \\iff 0 \\text{ or } 2 \\text{ odd}",
+        "note": "connectivity assumed"
+      },
+      {
+        "name": "Dirac (sufficient)",
+        "latex": "\\delta(G) \\ge n/2 \\implies \\text{Hamiltonian}",
+        "note": "not necessary: C_5 violates it"
+      },
+      {
+        "name": "Matchings of a path",
+        "latex": "M(P_n) = M(P_{n-1}) + M(P_{n-2}) = F_{n+1}",
+        "note": "34 for n = 8, empty matching counted"
+      },
+      {
+        "name": "Hall's condition",
+        "latex": "\\text{saturating } L \\iff |N(S)| \\ge |S| \\ \\forall S \\subseteq L",
+        "note": "defect form: unmatched <= max(|S| - |N(S)|)"
+      },
+      {
+        "name": "Koenig (bipartite only)",
+        "latex": "\\nu(G) = \\tau(G), \\quad \\alpha(G) = n - \\nu(G)",
+        "note": "fails for a triangle: nu = 1, tau = 2"
+      },
+      {
+        "name": "Chromatic bounds",
+        "latex": "\\omega \\le \\chi \\le \\Delta + 1, \\quad \\chi \\ge n/\\alpha",
+        "note": "Brooks: chi <= Delta unless complete or odd cycle"
+      },
+      {
+        "name": "Chromatic number of a cycle",
+        "latex": "\\chi(C_n) = n - 2\\left\\lfloor n/2 \\right\\rfloor + 2",
+        "note": "2 for even n, 3 for odd n"
+      },
+      {
+        "name": "Chromatic polynomial",
+        "latex": "\\chi_G(k) = \\chi_{G-e}(k) - \\chi_{G/e}(k)",
+        "note": "tree: k(k-1)^{n-1}; cycle: (k-1)^n + (-1)^n (k-1)"
+      }
+    ]
   }
 ]

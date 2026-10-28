@@ -1,0 +1,70 @@
+{
+  "id": "paths-cycles-and-components",
+  "title": "Paths, Cycles and Connected Components",
+  "priority": "P1",
+  "order": 91,
+  "unit": "Connectivity",
+  "quickIdea": "Being connected by a path is an equivalence relation, so a graph falls apart into components, and the component count fixes both the fewest edges a graph can have and the most.",
+  "remember": [
+    "Two vertices are connected when some path joins them; this relation is reflexive, symmetric and transitive, and its classes are the connected components.",
+    "A graph on n vertices with k components has at least n - k edges, with equality exactly when it is a forest.",
+    "A simple graph on n vertices with k components has at most C(n-k+1, 2) edges: put n-k+1 vertices in one complete component and leave the other k-1 vertices isolated.",
+    "The cyclomatic number |E| - n + k counts the independent cycles, and it is 0 exactly for forests.",
+    "Deleting one edge raises the component count by at most 1, and by exactly 1 exactly when that edge is a bridge; deleting one vertex raises it by at most its degree.",
+    "A connected graph on n at least 2 vertices has at least n-1 edges, and a connected graph with exactly n-1 edges is a tree."
+  ],
+  "example": {
+    "prompt": "A simple graph on 9 vertices has 3 components. What are the smallest and largest numbers of edges it can have?",
+    "work": "Fewest: n - k = 9 - 3 = 6, reached by three trees covering the 9 vertices between them. Most: give one component 9 - 3 + 1 = 7 vertices and make it complete, which gives C(7,2) = 21 edges, and leave 2 isolated vertices.",
+    "answer": "At least 6 edges and at most 21."
+  },
+  "gateAngle": "The maximum C(n-k+1, 2) is a standing GATE NAT question, and the minimum n-k is the half students forget. Together they decide every 'forest with k components' and 'how many edges must be deleted' question.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "What is the maximum number of edges in a simple graph on 10 vertices with 4 components?",
+      "answer": "C(7,2) = 21, from one complete component on 10 - 4 + 1 = 7 vertices and 3 isolated vertices.",
+      "why": "Concentrating vertices maximises edges, so all spare vertices go into one component."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "A graph on 6 vertices has 2 components and 6 edges. Must it contain a cycle?",
+      "answer": "Yes. A forest with 2 components on 6 vertices has exactly 4 edges, so 2 edges are extra and the cyclomatic number is 6 - 6 + 2 = 2.",
+      "why": "Each edge beyond n - k creates one independent cycle."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "A connected graph on 7 vertices has 9 edges. How many edges must be deleted to obtain a spanning tree?",
+      "answer": "2, because a spanning tree has n-1 = 6 edges and 9 - 6 = 2.",
+      "why": "Every spanning tree of a connected graph has exactly n-1 edges."
+    }
+  ],
+  "trap": {
+    "what": "Using C(n-k, 2) instead of C(n-k+1, 2) for the maximum number of edges with k components.",
+    "why": "The k-1 isolated vertices are components too, so only one vertex is 'spent' per extra component; the complete component keeps n-k+1 vertices.",
+    "counterexample": "For n = 6 and k = 3 the maximum is C(4,2) = 6, reached by K_4 plus two isolated vertices, not C(3,2) = 3."
+  },
+  "check": {
+    "question": "A simple graph on 8 vertices has 2 components. What is the maximum number of edges, and is that graph connected?",
+    "answer": "C(7,2) = 21, and the extremal graph is not connected: it is K_7 plus one isolated vertex.",
+    "explanation": "With k = 2 the complete component may hold 8 - 2 + 1 = 7 vertices, giving 21 edges, and the eighth vertex is isolated, which is exactly what makes the graph have two components."
+  },
+  "pyqIds": [],
+  "prereqs": [
+    "graph-vocabulary-and-degree-sum"
+  ],
+  "videoRefs": [],
+  "sources": [
+    {
+      "kind": "slides",
+      "title": "Graph Theory: Connectivity, Coloring, Matching - GO Classroom slide deck",
+      "channel": "GATE Overflow (Arjun Suresh, GO Classroom)",
+      "url": "https://gateoverflow.in/?qa=blob&qa_blobid=659724806035278755",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "slide text read through graph basics, walk/path/circuit, Euler and Hamiltonian, cut-set and cut-vertex, edge and vertex connectivity, colouring, bipartite, independent set, matching and Hall's theorem; the fetch was truncated after the Havel-Hakimi example, so the later matching pages were read only as excerpts"
+    }
+  ],
+  "sourceLine": "Components, the n-k and C(n-k+1,2) edge bounds and the cyclomatic count: GATE Overflow GO Classroom deck (English, read in part) for the component, cut-set and tree definitions; the bounds themselves are standard (Rosen ch. 10) and every instance is recomputed in scripts/validate.py. Standard references used to verify, never copied: Rosen, Discrete Mathematics and Its Applications, ch. 10; West, Introduction to Graph Theory (Brooks, Dirac, Koenig, chromatic polynomial); CLRS ch. 22 (articulation points, bridges) and ch. 26 (bipartite matching); Diestel, Graph Theory (Menger)."
+}

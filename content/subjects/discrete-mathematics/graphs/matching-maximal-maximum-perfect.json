@@ -1,0 +1,88 @@
+{
+  "id": "matching-maximal-maximum-perfect",
+  "title": "Matching: Maximal, Maximum, Perfect and Augmenting Paths",
+  "priority": "P1",
+  "order": 96,
+  "unit": "Matching",
+  "quickIdea": "A matching pairs vertices through disjoint edges; maximal and maximum are different words, and flipping one augmenting path is the entire proof that a matching is not the largest.",
+  "remember": [
+    "A matching M is a set of edges no two of which share a vertex, and a vertex is saturated by M when it is an endpoint of an edge of M.",
+    "Maximal means no edge can be added to M; maximum means no matching is larger. Every maximum matching is maximal, and a maximal matching can be half the size of the maximum.",
+    "Berge's theorem: M is maximum exactly when there is no M-augmenting path, meaning a path that alternates outside and inside M and starts and ends at unsaturated vertices.",
+    "Flipping an augmenting path, that is taking the symmetric difference with it, raises the size of the matching by exactly 1, which is the augmenting-path algorithm.",
+    "A perfect matching saturates every vertex, so n must be even; in a bipartite graph it also needs the two sides to be equal.",
+    "The number of matchings of a path on n vertices is the Fibonacci number F(n+1): 1, 2, 3, 5, 8, 13, 21, 34 for n = 1 to 8.",
+    "Every maximal matching has at least half as many edges as a maximum matching, since each matching edge can block at most two edges of the larger one."
+  ],
+  "example": {
+    "prompt": "How many matchings does a path on 8 vertices have?",
+    "work": "Let M(n) be the count for a path on n vertices, with M(0) = M(1) = 1. Either the last edge is unused, giving M(n-1) matchings, or it is used, which forbids the edge before it and leaves M(n-2). So M(n) = M(n-1) + M(n-2), giving 1, 1, 2, 3, 5, 8, 13, 21, 34.",
+    "answer": "34, which is F(9), and the empty matching is counted."
+  },
+  "gateAngle": "GATE CSE 2026 Set 1 Q.47 asked this count as a NAT. Older papers ask 'maximal but not maximum' on a drawn graph. The recurrence and the two definitions are the whole question.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "How many perfect matchings does K_{n,n} have?",
+      "answer": "n factorial: assign the n left vertices to the n right vertices in every possible order.",
+      "why": "Every bijection between the two sides is exactly one perfect matching, and each pair of matched vertices has an edge in K_{n,n}."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "A matching M has 2 edges in a graph whose maximum matching has 3 edges. What must exist?",
+      "answer": "An M-augmenting path, by Berge's theorem.",
+      "why": "If no augmenting path existed, M would already be maximum, contradicting the larger matching."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "How many matchings does a cycle on 5 vertices have?",
+      "answer": "11: the empty matching, 5 single edges, and 5 pairs of non-adjacent edges.",
+      "why": "Of the C(5,2) = 10 pairs of edges, the 5 adjacent pairs are not matchings, leaving 5 valid pairs."
+    }
+  ],
+  "trap": {
+    "what": "Treating 'maximal' as 'maximum', and forgetting that the empty set is a matching in counting questions.",
+    "why": "Maximal is a local statement about one matching; a larger matching can sit elsewhere in the same graph. And a matching need not contain any edge, which shifts every count by one.",
+    "counterexample": "On the path a-b-c-d the single edge bc is maximal, since every other edge shares b or c, yet the maximum matching {ab, cd} has 2 edges."
+  },
+  "check": {
+    "question": "How many matchings does a path on 5 vertices have, and what is its maximum matching size?",
+    "answer": "8 matchings, which is F(6), and the maximum matching size is 2.",
+    "explanation": "The recurrence gives M(5) = M(4) + M(3) = 5 + 3 = 8. A path on 5 vertices has 4 edges in a line, so at most 2 disjoint edges fit, and edges 1 and 3 or 1 and 4 or 2 and 4 achieve 2."
+  },
+  "pyqIds": [
+    "gate-2026-set1-47-matchings-path-8"
+  ],
+  "prereqs": [
+    "bipartite-graphs-and-odd-cycles"
+  ],
+  "videoRefs": [],
+  "sources": [
+    {
+      "kind": "slides",
+      "title": "Graph Theory: Connectivity, Coloring, Matching - GO Classroom slide deck",
+      "channel": "GATE Overflow (Arjun Suresh, GO Classroom)",
+      "url": "https://gateoverflow.in/?qa=blob&qa_blobid=659724806035278755",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "slide text read through graph basics, walk/path/circuit, Euler and Hamiltonian, cut-set and cut-vertex, edge and vertex connectivity, colouring, bipartite, independent set, matching and Hall's theorem; the fetch was truncated after the Havel-Hakimi example, so the later matching pages were read only as excerpts"
+    }
+  ],
+  "sourceLine": "Matchings, maximal versus maximum, Berge's augmenting-path criterion and Hall's complete-matching condition: GATE Overflow GO Classroom deck (English, read in part) for the matching vocabulary; CLRS ch. 26 for augmenting paths. Standard references used to verify, never copied: Rosen, Discrete Mathematics and Its Applications, ch. 10; West, Introduction to Graph Theory (Brooks, Dirac, Koenig, chromatic polynomial); CLRS ch. 22 (articulation points, bridges) and ch. 26 (bipartite matching); Diestel, Graph Theory (Menger). The path counts, the maximal-versus-maximum example and the half-size bound are recomputed in scripts/validate.py, and the augmenting-path flip is the subject of the lesson.",
+  "visual": "discrete-mathematics/graphs/bipartite-matching-augmenting-path",
+  "links": {
+    "visual": {
+      "slug": "graphs",
+      "title": "Graphs: Connectivity, Matching, Colouring",
+      "level": "topic-level",
+      "url": "https://gate-visual-explainer.vercel.app/topics/graphs/index.html",
+      "covers": [
+        "maximal versus maximum matching",
+        "the augmenting path and the flip that grows the matching",
+        "Koenig: maximum matching equals minimum vertex cover in a bipartite graph"
+      ]
+    },
+    "mapped_at": "2026-10-28"
+  }
+}

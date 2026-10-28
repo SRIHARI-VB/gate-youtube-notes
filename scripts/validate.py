@@ -1922,6 +1922,807 @@ def _table_order(T, a):
     return k
 
 
+# ---------------------------------------------------------------- graphs
+# Everything published in content/subjects/discrete-mathematics/graphs is recomputed here.
+# The sweeps enumerate every simple graph on up to 5 vertices, every graph on 6 vertices where an
+# edge or component bound is at stake, and every DFS tree of every connected small graph.
+
+
+def _g_pairs(n):
+    return [(i, j) for i in range(n) for j in range(i + 1, n)]
+
+
+def _g_edges(n, mask):
+    P = _g_pairs(n)
+    return [P[k] for k in range(len(P)) if (mask >> k) & 1]
+
+
+def _g_all(n):
+    for mask in range(1 << len(_g_pairs(n))):
+        yield _g_edges(n, mask)
+
+
+def _g_adj(n, edges):
+    A = [set() for _ in range(n)]
+    for u, v in edges:
+        A[u].add(v)
+        A[v].add(u)
+    return A
+
+
+def _g_comps(n, edges, removed=()):
+    """Component count of the graph induced on the vertices outside `removed`."""
+    keep = [v for v in range(n) if v not in removed]
+    idx = {v: i for i, v in enumerate(keep)}
+    A = _g_adj(len(keep), [(idx[u], idx[v]) for u, v in edges if u in idx and v in idx])
+    seen, k = set(), 0
+    for s in range(len(keep)):
+        if s in seen:
+            continue
+        k += 1
+        stack = [s]
+        seen.add(s)
+        while stack:
+            x = stack.pop()
+            for y in A[x]:
+                if y not in seen:
+                    seen.add(y)
+                    stack.append(y)
+    return k
+
+
+def _g_connected(n, edges):
+    return n <= 1 or _g_comps(n, edges) == 1
+
+
+def _g_bipartite(n, edges):
+    A = _g_adj(n, edges)
+    col = [-1] * n
+    for s in range(n):
+        if col[s] >= 0:
+            continue
+        col[s] = 0
+        stack = [s]
+        while stack:
+            x = stack.pop()
+            for y in A[x]:
+                if col[y] < 0:
+                    col[y] = 1 - col[x]
+                    stack.append(y)
+                elif col[y] == col[x]:
+                    return False
+    return True
+
+
+def _g_chromatic(n, edges):
+    A = _g_adj(n, edges)
+    if n == 0:
+        return 0
+    for k in range(1, n + 1):
+        cols = [-1] * n
+
+        def rec(i):
+            if i == n:
+                return True
+            for c in range(k):
+                if all(cols[y] != c for y in A[i]):
+                    cols[i] = c
+                    if rec(i + 1):
+                        return True
+                    cols[i] = -1
+            return False
+
+        if rec(0):
+            return k
+    return n
+
+
+def _g_matchings(n, edges):
+    out = []
+    for r in range(len(edges) + 1):
+        for comb in itertools.combinations(edges, r):
+            used, good = set(), True
+            for u, v in comb:
+                if u in used or v in used:
+                    good = False
+                    break
+                used.add(u)
+                used.add(v)
+            if good:
+                out.append(list(comb))
+    return out
+
+
+def _g_max_matching(n, edges):
+    for r in range(len(edges), -1, -1):
+        for comb in itertools.combinations(edges, r):
+            used, good = set(), True
+            for u, v in comb:
+                if u in used or v in used:
+                    good = False
+                    break
+                used.add(u)
+                used.add(v)
+            if good:
+                return r
+    return 0
+
+
+def _g_min_cover(n, edges):
+    for r in range(n + 1):
+        for S in itertools.combinations(range(n), r):
+            Sset = set(S)
+            if all(u in Sset or v in Sset for u, v in edges):
+                return r
+    return n
+
+
+def _g_min_covers(n, edges):
+    k = _g_min_cover(n, edges)
+    out = []
+    for S in itertools.combinations(range(n), k):
+        Sset = set(S)
+        if all(u in Sset or v in Sset for u, v in edges):
+            out.append(Sset)
+    return out
+
+
+def _g_alpha(n, edges):
+    A = _g_adj(n, edges)
+    for r in range(n, -1, -1):
+        for S in itertools.combinations(range(n), r):
+            if all(v not in A[u] for u, v in itertools.combinations(S, 2)):
+                return r
+    return 0
+
+
+def _g_omega(n, edges):
+    A = _g_adj(n, edges)
+    for r in range(n, 0, -1):
+        for S in itertools.combinations(range(n), r):
+            if all(v in A[u] for u, v in itertools.combinations(S, 2)):
+                return r
+    return 0
+
+
+def _g_articulation(n, edges):
+    base = _g_comps(n, edges)
+    return {v for v in range(n) if _g_comps(n, edges, (v,)) > base}
+
+
+def _g_bridges(n, edges):
+    out = set()
+    base = _g_comps(n, edges)
+    for i in range(len(edges)):
+        if _g_comps(n, edges[:i] + edges[i + 1:]) > base:
+            out.add(edges[i])
+    return out
+
+
+def _g_kappa(n, edges):
+    """Vertex connectivity; kappa(K_n) = n-1, kappa of a disconnected graph = 0."""
+    if n <= 1:
+        return 0
+    for r in range(0, n):
+        for S in itertools.combinations(range(n), r):
+            if n - r <= 1 or _g_comps(n, edges, set(S)) >= 2:
+                return r
+    return n - 1
+
+
+def _g_lambda(n, edges):
+    if _g_comps(n, edges) >= 2:
+        return 0
+    for r in range(1, len(edges) + 1):
+        for comb in itertools.combinations(range(len(edges)), r):
+            drop = set(comb)
+            if _g_comps(n, [e for i, e in enumerate(edges) if i not in drop]) >= 2:
+                return r
+    return 0
+
+
+def _g_graphic(seq):
+    """Havel-Hakimi."""
+    seq = sorted(seq, reverse=True)
+    while seq:
+        d = seq[0]
+        rest = seq[1:]
+        if d < 0 or d > len(rest):
+            return False
+        if d == 0:
+            return True
+        rest = [x - 1 for x in rest[:d]] + rest[d:]
+        if any(x < 0 for x in rest):
+            return False
+        seq = sorted(rest, reverse=True)
+    return True
+
+
+def _g_dfs_tree(n, edges, order):
+    rank = {v: i for i, v in enumerate(order)}
+    A = [sorted(a, key=lambda x: rank[x]) for a in _g_adj(n, edges)]
+    disc, low, parent = [-1] * n, [0] * n, [-1] * n
+    children = [[] for _ in range(n)]
+    t = [0]
+
+    def visit(u):
+        disc[u] = low[u] = t[0]
+        t[0] += 1
+        for w in A[u]:
+            if disc[w] < 0:
+                parent[w] = u
+                children[u].append(w)
+                visit(w)
+                low[u] = min(low[u], low[w])
+            elif w != parent[u]:
+                low[u] = min(low[u], disc[w])
+
+    visit(order[0])
+    return disc, low, parent, children
+
+
+def _g_hamiltonian(n, edges, want_cycle):
+    A = _g_adj(n, edges)
+    if n == 0:
+        return True
+
+    def go(start, v, seen, length):
+        if length == n:
+            return (not want_cycle) or (start in A[v])
+        for w in A[v]:
+            if w not in seen:
+                seen.add(w)
+                if go(start, w, seen, length + 1):
+                    return True
+                seen.discard(w)
+        return False
+
+    return any(go(s, s, {s}, 1) for s in range(n))
+
+
+def _g_chi_poly(n, edges):
+    """Chromatic polynomial by deletion-contraction, as a dict power -> coefficient."""
+    memo = {}
+
+    def poly(nn, es):
+        es = tuple(sorted(set(es)))
+        key = (nn, es)
+        if key in memo:
+            return memo[key]
+        if not es:
+            memo[key] = {nn: 1}
+            return memo[key]
+        u, v = es[0]
+        rest = [e for e in es[1:]]
+        p_del = poly(nn, tuple(rest))
+
+        def relabel(x):
+            if x == v:
+                return u
+            return x if x < v else x - 1
+
+        con = set()
+        for a, b in rest:
+            a2, b2 = relabel(a), relabel(b)
+            if a2 != b2:
+                con.add((min(a2, b2), max(a2, b2)))
+        p_con = poly(nn - 1, tuple(sorted(con)))
+
+        out = {}
+        for p, c in p_del.items():
+            out[p] = out.get(p, 0) + c
+        for p, c in p_con.items():
+            out[p] = out.get(p, 0) - c
+        memo[key] = {p: c for p, c in out.items() if c}
+        return memo[key]
+
+    return poly(n, [tuple(sorted(e)) for e in edges])
+
+
+def _g_poly_eval(poly, k):
+    return sum(c * (k ** p) for p, c in poly.items())
+
+
+def _g_colour_count(n, edges, k):
+    A = _g_adj(n, edges)
+    cols = [-1] * n
+    total = [0]
+
+    def rec(i):
+        if i == n:
+            total[0] += 1
+            return
+        for c in range(k):
+            if all(cols[y] != c for y in A[i]):
+                cols[i] = c
+                rec(i + 1)
+                cols[i] = -1
+
+    rec(0)
+    return total[0]
+
+
+def _g_petersen():
+    edges = []
+    for i in range(5):
+        edges.append((i, (i + 1) % 5))
+        edges.append((5 + i, 5 + (i + 2) % 5))
+        edges.append((i, 5 + i))
+    return 10, [tuple(sorted(e)) for e in edges]
+
+
+def _g_complete(n):
+    return n, _g_pairs(n)
+
+
+def _g_complete_bipartite(a, b):
+    return a + b, [(i, a + j) for i in range(a) for j in range(b)]
+
+
+def _g_cycle(n):
+    return n, [(i, (i + 1) % n) for i in range(n)]
+
+
+def _g_path(n):
+    return n, [(i, i + 1) for i in range(n - 1)]
+
+
+def _g_euler_circuit(n, edges):
+    degs = [len(a) for a in _g_adj(n, edges)]
+    if not any(degs):
+        return True
+    removed = tuple(v for v in range(n) if not degs[v])
+    return _g_comps(n, edges, removed) == 1 and all(d % 2 == 0 for d in degs)
+
+
+def _g_euler_path(n, edges):
+    degs = [len(a) for a in _g_adj(n, edges)]
+    if not any(degs):
+        return True
+    removed = tuple(v for v in range(n) if not degs[v])
+    return _g_comps(n, edges, removed) == 1 and sum(1 for d in degs if d % 2) in (0, 2)
+
+
+def check_graphs():
+    """Recompute every graph claim published in the Graphs topic."""
+    # --- the lesson graph: a maximal matching that is not maximum
+    names = ["a", "b", "c", "1", "2", "3"]
+    li = {v: i for i, v in enumerate(names)}
+    raw = [("a", "1"), ("a", "2"), ("b", "1"), ("b", "2"), ("c", "2"), ("c", "3")]
+    ln, le = 6, [tuple(sorted((li[u], li[v]))) for u, v in raw]
+    maximal = [tuple(sorted((li["a"], li["1"]))), tuple(sorted((li["c"], li["2"])))]
+    maximum = [tuple(sorted((li["a"], li["2"]))), tuple(sorted((li["b"], li["1"]))),
+               tuple(sorted((li["c"], li["3"])))]
+    if not _g_bipartite(ln, le) or _g_comps(ln, le) != 1:
+        fail("math: the lesson graph should be a connected bipartite graph")
+    if len(le) - ln + _g_comps(ln, le) != 1:
+        fail("math: the lesson graph should have exactly one independent cycle")
+    used = set()
+    for u, v in maximal:
+        if u in used or v in used:
+            fail("math: the lesson's matching shares a vertex")
+        used.update((u, v))
+    if len(maximal) != 2 or len(set(maximal)) != 2:
+        fail("math: the lesson's matching should have 2 distinct edges")
+    for e in le:
+        if e in maximal or e[0] in used or e[1] in used:
+            continue
+        fail("math: the lesson's matching is not maximal, %r can be added" % (e,))
+    if _g_max_matching(ln, le) != 3 or len(maximum) != 3:
+        fail("math: the lesson graph's maximum matching should have 3 edges")
+    path = ["b", "1", "a", "2", "c", "3"]
+    pedges = [tuple(sorted((li[path[i]], li[path[i + 1]]))) for i in range(len(path) - 1)]
+    if len(set(pedges)) != 5 or any(e not in le for e in pedges):
+        fail("math: the lesson's augmenting path uses a non-edge or repeats an edge")
+    for i, e in enumerate(pedges):
+        if (i % 2 == 0) == (e in maximal):
+            fail("math: the lesson's augmenting path does not alternate at step %d" % i)
+    if li[path[0]] in used or li[path[-1]] in used:
+        fail("math: the lesson's augmenting path should start and end at free vertices")
+    flipped = [e for e in pedges if e not in maximal] + [e for e in maximal if e not in pedges]
+    if sorted(flipped) != sorted(maximum):
+        fail("math: flipping the lesson's augmenting path should give the maximum matching")
+    if len(flipped) != len(maximal) + 1:
+        fail("math: flipping an augmenting path should add exactly one edge")
+    cover = {li["1"], li["2"], li["c"]}
+    if not all(u in cover or v in cover for u, v in le):
+        fail("math: the lesson's vertex cover does not touch every edge")
+    if len(cover) != 3 or _g_min_cover(ln, le) != 3:
+        fail("math: the lesson's minimum vertex cover should have 3 vertices")
+    for S in itertools.combinations(range(ln), 2):
+        if all(u in S or v in S for u, v in le):
+            fail("math: the lesson graph should have no vertex cover of size 2")
+    if _g_alpha(ln, le) != 3:
+        fail("math: the lesson graph's independence number should be 3")
+
+    # --- degree sums, edge bounds and components
+    for n in range(1, 7):
+        for edges in _g_all(n):
+            degs = [len(a) for a in _g_adj(n, edges)]
+            if sum(degs) != 2 * len(edges):
+                fail("math: the handshake lemma fails on a graph with %d vertices" % n)
+            if sum(1 for d in degs if d % 2) % 2:
+                fail("math: odd-degree vertices are not even in number (n=%d)" % n)
+            k = _g_comps(n, edges)
+            if len(edges) < n - k:
+                fail("math: fewer than n-k edges with %d components (n=%d)" % (k, n))
+            if len(edges) > (n - k + 1) * (n - k) // 2:
+                fail("math: more than C(n-k+1,2) edges with %d components (n=%d)" % (k, n))
+    for n in (2, 3, 4, 5, 6):
+        if len(_g_pairs(n)) != n * (n - 1) // 2:
+            fail("math: K_%d should have n(n-1)/2 edges" % n)
+    if not _g_graphic([3, 3, 2, 2, 2, 2]):
+        fail("math: the sequence 3,3,2,2,2,2 should be graphic")
+    if _g_graphic([3, 3, 3, 1]):
+        fail("math: the sequence 3,3,3,1 should not be graphic")
+    if sum([6, 6, 5, 4, 3, 2, 1]) % 2 == 0:
+        fail("math: 6,6,5,4,3,2,1 should have an odd sum")
+    if (9 - 3) != 6 or (9 - 3 + 1) * (9 - 3) // 2 != 21:
+        fail("math: the 9-vertex 3-component bounds should be 6 and 21")
+    if (10 - 4 + 1) * (10 - 4) // 2 != 21:
+        fail("math: the 10-vertex 4-component maximum should be 21")
+    if (8 - 2 + 1) * (8 - 2) // 2 != 21:
+        fail("math: the 8-vertex 2-component maximum should be 21")
+    if (6 - 3 + 1) * (6 - 3) // 2 != 6:
+        fail("math: the 6-vertex 3-component maximum should be 6")
+    if (7 * 6) // 2 != 21 or (4 * 3) // 2 != 6:
+        fail("math: the component examples do not recompute")
+    cyc_e = [(0, 1), (1, 2), (2, 3), (3, 0), (0, 2), (4, 5)]
+    if len(cyc_e) - 6 + _g_comps(6, cyc_e) != 2:
+        fail("math: the cyclomatic example should have 2 independent cycles")
+
+    # --- cut vertices, bridges and the DFS rules
+    p4n, p4e = _g_path(4)
+    if _g_articulation(p4n, p4e) != {1, 2}:
+        fail("math: the path on 4 vertices should have cut vertices 1 and 2")
+    if _g_bridges(p4n, p4e) != set(p4e):
+        fail("math: every edge of a path should be a bridge")
+    te = [(0, 1), (1, 2), (0, 2), (2, 3)]
+    if _g_articulation(4, te) != {2} or _g_bridges(4, te) != {(2, 3)}:
+        fail("math: the triangle with a pendant edge should have one cut vertex and one bridge")
+    be = [(0, 1), (1, 2), (0, 2), (2, 3), (3, 4), (2, 4)]
+    if _g_articulation(5, be) != {2}:
+        fail("math: the bowtie should have exactly one cut vertex")
+    if _g_bridges(5, be):
+        fail("math: the bowtie should have no bridge")
+    if (_g_kappa(5, be), _g_lambda(5, be)) != (1, 2):
+        fail("math: the bowtie should have kappa 1 and lambda 2")
+    if (min(len(a) for a in _g_adj(5, be)), max(len(a) for a in _g_adj(5, be))) != (2, 4):
+        fail("math: the bowtie should have minimum degree 2 and maximum degree 4")
+    if _g_bridges(2, [(0, 1)]) != {(0, 1)} or _g_articulation(2, [(0, 1)]):
+        fail("math: K_2 should have a bridge and no cut vertex")
+    c6 = [(i, (i + 1) % 6) for i in range(6)] + [(0, 3)]
+    if _g_articulation(6, c6):
+        fail("math: C_6 with a chord between opposite vertices should have no cut vertex")
+    for n in range(2, 6):
+        for edges in _g_all(n):
+            br = _g_bridges(n, edges)
+            for e in edges:
+                rest = list(edges)
+                rest.remove(e)
+                A = _g_adj(n, rest)
+                seen, stack = {e[0]}, [e[0]]
+                while stack:
+                    x = stack.pop()
+                    for y in A[x]:
+                        if y not in seen:
+                            seen.add(y)
+                            stack.append(y)
+                on_cycle = e[1] in seen
+                if on_cycle == (e in br):
+                    fail("math: an edge is a bridge exactly when it lies on no cycle (n=%d)" % n)
+            if not _g_connected(n, edges):
+                continue
+            ap = _g_articulation(n, edges)
+            if len(ap) > max(0, n - 2):
+                fail("math: a connected graph on %d vertices has more than n-2 cut vertices" % n)
+            for order in itertools.permutations(range(n)):
+                disc, low, parent, children = _g_dfs_tree(n, edges, order)
+                root = order[0]
+                if (len(children[root]) >= 2) != (root in ap):
+                    fail("math: the DFS root rule fails on a graph with %d vertices" % n)
+                for v in range(n):
+                    if v == root:
+                        continue
+                    if not children[v] and v in ap:
+                        fail("math: a leaf of a DFS tree is never a cut vertex")
+                    if any(low[s] >= disc[v] for s in children[v]) != (v in ap):
+                        fail("math: the DFS low-value rule fails on a graph with %d vertices" % n)
+
+    # --- connectivity numbers
+    if (_g_kappa(*_g_complete(5)), _g_lambda(*_g_complete(5))) != (4, 4):
+        fail("math: K_5 should have kappa = lambda = 4")
+    if (_g_kappa(*_g_complete(4)), _g_lambda(*_g_complete(4))) != (3, 3):
+        fail("math: K_4 should have kappa = lambda = 3")
+    k33n, k33e = _g_complete_bipartite(3, 3)
+    if (_g_kappa(k33n, k33e), _g_lambda(k33n, k33e)) != (3, 3):
+        fail("math: K_3,3 should have kappa = lambda = 3")
+    for n in range(2, 5):
+        for edges in _g_all(n):
+            if not _g_connected(n, edges):
+                continue
+            kap, lam = _g_kappa(n, edges), _g_lambda(n, edges)
+            delta = min(len(a) for a in _g_adj(n, edges))
+            if not (kap <= lam <= delta):
+                fail("math: kappa <= lambda <= delta fails on a connected graph with %d vertices" % n)
+            if kap > (2 * len(edges)) // n:
+                fail("math: kappa exceeds floor(2|E|/n) on a graph with %d vertices" % n)
+
+    # --- Euler and Hamilton
+    for n in range(1, 5):
+        for edges in _g_all(n):
+            if not _g_connected(n, edges):
+                continue
+            degs = [len(a) for a in _g_adj(n, edges)]
+            if _g_euler_circuit(n, edges) != all(d % 2 == 0 for d in degs):
+                fail("math: the Euler-circuit parity criterion fails (n=%d)" % n)
+            if _g_euler_path(n, edges) != (sum(1 for d in degs if d % 2) in (0, 2)):
+                fail("math: the Euler-path parity criterion fails (n=%d)" % n)
+    k23n, k23e = _g_complete_bipartite(2, 3)
+    if _g_euler_circuit(k23n, k23e) or not _g_euler_path(k23n, k23e):
+        fail("math: K_2,3 should have an Euler path and no Euler circuit")
+    if _g_euler_path(k33n, k33e):
+        fail("math: K_3,3 has six odd-degree vertices and should have no Euler path")
+    k4p = (5, [(0, 1), (0, 2), (0, 3), (1, 2), (1, 3), (2, 3), (0, 4)])
+    if sum(1 for d in (len(a) for a in _g_adj(*k4p)) if d % 2) != 4 or _g_euler_path(*k4p):
+        fail("math: K_4 with a pendant edge should have four odd vertices and no Euler path")
+    c5n, c5e = _g_cycle(5)
+    if not _g_hamiltonian(c5n, c5e, True):
+        fail("math: C_5 should be Hamiltonian")
+    if 2 * min(len(a) for a in _g_adj(c5n, c5e)) >= c5n:
+        fail("math: C_5 should violate Dirac's degree condition")
+    for a in (2, 3):
+        for b in (2, 3):
+            nn, ee = _g_complete_bipartite(a, b)
+            if _g_hamiltonian(nn, ee, True) != (a == b):
+                fail("math: K_%d,%d Hamiltonicity is wrong" % (a, b))
+    pn, pe = _g_petersen()
+    if not _g_hamiltonian(pn, pe, False):
+        fail("math: the Petersen graph should have a Hamiltonian path")
+    if _g_hamiltonian(pn, pe, True):
+        fail("math: the Petersen graph should have no Hamiltonian cycle")
+    kn, ke = _g_complete(5)
+    split = False
+    for perm in itertools.permutations(range(1, 5)):
+        cyc = (0,) + perm
+        ce = [tuple(sorted((cyc[i], cyc[(i + 1) % 5]))) for i in range(5)]
+        rest = [e for e in ke if e not in ce]
+        for perm2 in itertools.permutations(range(1, 5)):
+            cyc2 = (0,) + perm2
+            ce2 = [tuple(sorted((cyc2[i], cyc2[(i + 1) % 5]))) for i in range(5)]
+            if sorted(ce + ce2) == sorted(ke) and not (set(ce) & set(ce2)):
+                split = True
+                break
+        if split:
+            break
+    if not split:
+        fail("math: K_5 should split into two edge-disjoint Hamiltonian cycles")
+
+    # --- bipartite graphs and the odd-cycle criterion
+    for n in range(1, 6):
+        for edges in _g_all(n):
+            if _g_bipartite(n, edges) != (_g_chromatic(n, edges) <= 2):
+                fail("math: bipartite should equal chromatic number at most 2 (n=%d)" % n)
+    for n in (3, 5, 7):
+        if _g_bipartite(*_g_cycle(n)):
+            fail("math: the odd cycle C_%d should not be bipartite" % n)
+    for n in (4, 6, 8):
+        if not _g_bipartite(*_g_cycle(n)):
+            fail("math: the even cycle C_%d should be bipartite" % n)
+    if _g_bipartite(pn, pe):
+        fail("math: the Petersen graph should not be bipartite")
+    if not _g_bipartite(6, c6):
+        fail("math: C_6 with a chord between opposite vertices should be bipartite")
+    if _g_bipartite(6, [(i, (i + 1) % 6) for i in range(6)] + [(0, 2)]):
+        fail("math: C_6 with a chord between vertices at distance 2 should not be bipartite")
+    for n in (7, 9, 12):
+        if max(p * (n - p) for p in range(n + 1)) != (n * n) // 4:
+            fail("math: floor(n^2/4) is wrong for n = %d" % n)
+    if max(p * (12 - p) for p in range(13)) != 36:
+        fail("math: the 12-vertex bipartite maximum should be 36")
+    if (9 * 9) // 4 != 20 or (7 * 7) // 4 != 12:
+        fail("math: the 9-vertex and 7-vertex bipartite maxima should be 20 and 12")
+
+    # --- matchings
+    fib = [1, 1]
+    for _ in range(9):
+        fib.append(fib[-1] + fib[-2])
+    for n in range(1, 9):
+        nn, ee = _g_path(n)
+        if len(_g_matchings(nn, ee)) != fib[n]:
+            fail("math: the path on %d vertices should have %d matchings" % (n, fib[n]))
+    if len(_g_matchings(*_g_path(8))) != 34:
+        fail("math: the path on 8 vertices should have 34 matchings")
+    if len(_g_matchings(*_g_cycle(5))) != 11:
+        fail("math: C_5 should have 11 matchings")
+    for n in range(1, 5):
+        nn, ee = _g_complete_bipartite(n, n)
+        perfect = sum(1 for M in _g_matchings(nn, ee) if len(M) == n)
+        if perfect != factorial(n):
+            fail("math: K_%d,%d should have %d perfect matchings" % (n, n, factorial(n)))
+    for n in range(1, 5):
+        for edges in _g_all(n):
+            ms = _g_matchings(n, edges)
+            mx = max((len(M) for M in ms), default=0)
+            for M in ms:
+                used = set()
+                for u, v in M:
+                    used.update((u, v))
+                maximal_here = all(u in used or v in used for u, v in edges)
+                if maximal_here and 2 * len(M) < mx:
+                    fail("math: a maximal matching is smaller than half the maximum (n=%d)" % n)
+    if max(len(M) for M in _g_matchings(p4n, p4e)) != 2:
+        fail("math: P_4 should have maximum matching 2")
+    mid = [M for M in _g_matchings(p4n, p4e) if M == [(1, 2)]]
+    if not mid:
+        fail("math: the middle edge of P_4 should be a matching of size 1")
+
+    # --- Hall and its defect form
+    for a in (1, 2, 3):
+        for b in (1, 2, 3):
+            for mask in range(1 << (a * b)):
+                edges = [(i, a + j) for i in range(a) for j in range(b) if (mask >> (i * b + j)) & 1]
+                nu = _g_max_matching(a + b, edges)
+                defect = 0
+                for r in range(a + 1):
+                    for S in itertools.combinations(range(a), r):
+                        N = {v for u, v in edges if u in S}
+                        defect = max(defect, len(S) - len(N))
+                if nu != a - defect:
+                    fail("math: the Hall defect form fails on a %d by %d bipartite graph" % (a, b))
+    for d in (1, 2, 3):
+        for mask in range(1 << 16):
+            edges = [(i, 4 + j) for i in range(4) for j in range(4) if (mask >> (i * 4 + j)) & 1]
+            deg = [0] * 8
+            for u, v in edges:
+                deg[u] += 1
+                deg[v] += 1
+            if any(x != d for x in deg):
+                continue
+            if _g_max_matching(8, edges) != 4:
+                fail("math: a %d-regular bipartite graph should have a perfect matching" % d)
+            if d == 2:
+                M = next(M for M in _g_matchings(8, edges) if len(M) == 4)
+                rest = [e for e in edges if e not in M]
+                if len(rest) != 4 or _g_max_matching(8, rest) != 4:
+                    fail("math: a 2-regular bipartite graph should split into two perfect matchings")
+
+    # --- vertex cover, independent set and Koenig
+    for n in range(1, 6):
+        for edges in _g_all(n):
+            nu, tau, al = _g_max_matching(n, edges), _g_min_cover(n, edges), _g_alpha(n, edges)
+            if al + tau != n:
+                fail("math: alpha + tau should equal n (n=%d)" % n)
+            if nu > tau:
+                fail("math: the matching number should not exceed the cover number (n=%d)" % n)
+            if _g_bipartite(n, edges) and nu != tau:
+                fail("math: Koenig should hold on every bipartite graph (n=%d)" % n)
+            degs = [len(a) for a in _g_adj(n, edges)]
+            covers = _g_min_covers(n, edges)
+            for v in range(n):
+                if degs[v] >= tau + 1 and any(v not in C for C in covers):
+                    fail("math: a vertex of degree at least k+1 must lie in every minimum cover")
+    if (_g_max_matching(*_g_complete(3)), _g_min_cover(*_g_complete(3))) != (1, 2):
+        fail("math: the triangle should have nu = 1 and tau = 2")
+    if (_g_max_matching(c5n, c5e), _g_min_cover(c5n, c5e), _g_alpha(c5n, c5e)) != (2, 3, 2):
+        fail("math: C_5 should have nu = 2, tau = 3 and alpha = 2")
+    if (_g_max_matching(k33n, k33e), _g_min_cover(k33n, k33e), _g_alpha(k33n, k33e)) != (3, 3, 3):
+        fail("math: K_3,3 should have nu = tau = 3 and alpha = 3")
+    if _g_max_matching(p4n, p4e) != 2 or _g_min_cover(p4n, p4e) != 2:
+        fail("math: P_4 should have nu = tau = 2")
+    if not any(0 not in C for C in _g_min_covers(p4n, p4e)):
+        fail("math: P_4 should have a minimum cover that omits vertex 0")
+    if not any(0 not in C for C in _g_min_covers(*_g_complete(3))):
+        fail("math: the triangle should have a minimum cover that omits vertex 0")
+    if _g_min_cover(*_g_complete(4)) != 3:
+        fail("math: K_4 should have minimum vertex cover 3")
+    if 10 - 4 != 6 or 8 - 3 != 5:
+        fail("math: the alpha = n - tau examples are wrong")
+
+    # --- chromatic number and the bounds
+    if _g_chromatic(*_g_complete(4)) != 4 or _g_chromatic(*_g_complete(5)) != 5:
+        fail("math: K_n should have chromatic number n")
+    for n in range(3, 11):
+        nn, ee = _g_cycle(n)
+        if _g_chromatic(nn, ee) != (2 if n % 2 == 0 else 3):
+            fail("math: C_%d has the wrong chromatic number" % n)
+        if n - 2 * (n // 2) + 2 != _g_chromatic(nn, ee):
+            fail("math: the 2002 formula is wrong for n = %d" % n)
+    if _g_chromatic(*_g_path(5)) != 2:
+        fail("math: a tree with an edge should have chromatic number 2")
+    if (_g_chromatic(pn, pe), _g_omega(pn, pe), _g_alpha(pn, pe)) != (3, 2, 4):
+        fail("math: the Petersen graph should have chi = 3, omega = 2 and alpha = 4")
+    if (_g_kappa(pn, pe), _g_lambda(pn, pe), len(pe)) != (3, 3, 15):
+        fail("math: the Petersen graph should be 3-connected with 15 edges")
+    if (_g_omega(c5n, c5e), _g_chromatic(c5n, c5e)) != (2, 3):
+        fail("math: C_5 should have omega = 2 and chi = 3")
+    for n in range(1, 6):
+        for edges in _g_all(n):
+            chi, om, al = _g_chromatic(n, edges), _g_omega(n, edges), _g_alpha(n, edges)
+            delta = max((len(a) for a in _g_adj(n, edges)), default=0)
+            if not (om <= chi <= delta + 1):
+                fail("math: omega <= chi <= Delta+1 fails (n=%d)" % n)
+            if chi * al < n:
+                fail("math: chi should be at least n/alpha (n=%d)" % n)
+            if len(edges) < chi * (chi - 1) // 2:
+                fail("math: a k-chromatic graph needs at least C(k,2) edges (n=%d)" % n)
+            if _g_connected(n, edges) and n >= 3 and chi > delta:
+                degs = [len(a) for a in _g_adj(n, edges)]
+                complete = len(edges) == n * (n - 1) // 2
+                odd_cycle = n % 2 == 1 and all(d == 2 for d in degs)
+                if not (complete or odd_cycle):
+                    fail("math: Brooks' theorem fails on a connected graph with %d vertices" % n)
+    if _g_chromatic(*_g_complete(3)) != 3 or max(len(a) for a in _g_adj(3, _g_pairs(3))) != 2:
+        fail("math: K_3 should have chi = 3 and maximum degree 2")
+    if 12 // 4 != 3 or 4 * 3 // 2 != 6:
+        fail("math: the 2024 bounds examples are wrong")
+
+    # --- chromatic polynomial
+    for n in range(2, 5):
+        nn, ee = _g_complete(n)
+        poly = _g_chi_poly(nn, ee)
+        for k in range(1, 6):
+            want = 1
+            for i in range(n):
+                want *= (k - i)
+            if _g_poly_eval(poly, k) != want or _g_colour_count(nn, ee, k) != want:
+                fail("math: the chromatic polynomial of K_%d is wrong at k = %d" % (n, k))
+    for n in range(2, 7):
+        nn, ee = _g_path(n)
+        poly = _g_chi_poly(nn, ee)
+        for k in range(1, 5):
+            want = k * (k - 1) ** (n - 1)
+            if _g_poly_eval(poly, k) != want or _g_colour_count(nn, ee, k) != want:
+                fail("math: the tree formula fails for a path on %d vertices at k = %d" % (n, k))
+    for n in range(3, 8):
+        nn, ee = _g_cycle(n)
+        poly = _g_chi_poly(nn, ee)
+        for k in range(1, 6):
+            want = (k - 1) ** n + (-1) ** n * (k - 1)
+            if _g_poly_eval(poly, k) != want or _g_colour_count(nn, ee, k) != want:
+                fail("math: the cycle formula fails for C_%d at k = %d" % (n, k))
+    c4n, c4e = _g_cycle(4)
+    c4poly = _g_chi_poly(c4n, c4e)
+    if c4poly != {4: 1, 3: -4, 2: 6, 1: -3}:
+        fail("math: the chromatic polynomial of C_4 should be k^4 - 4k^3 + 6k^2 - 3k, got %s" % c4poly)
+    if _g_poly_eval(c4poly, 3) != 18 or _g_colour_count(c4n, c4e, 3) != 18:
+        fail("math: C_4 should have 18 proper 3-colourings")
+    if _g_poly_eval(c4poly, 1) != 0 or _g_poly_eval(c4poly, 2) != 2:
+        fail("math: C_4 should have 0 colourings with 1 colour and 2 with 2 colours")
+    for n in range(2, 6):
+        for edges in _g_all(n):
+            poly = _g_chi_poly(n, edges)
+            if max(poly) != n or poly.get(n, 0) != 1:
+                fail("math: the chromatic polynomial should be monic of degree n (n=%d)" % n)
+            if poly.get(n - 1, 0) != -len(edges):
+                fail("math: the k^(n-1) coefficient should be -|E| (n=%d)" % n)
+            if edges and poly.get(0, 0) != 0:
+                fail("math: the constant term should be 0 when there are edges (n=%d)" % n)
+            for k in range(1, 4):
+                if _g_poly_eval(poly, k) != _g_colour_count(n, edges, k):
+                    fail("math: the polynomial disagrees with direct counting (n=%d, k=%d)" % (n, k))
+            smallest = next((k for k in range(1, n + 1) if _g_poly_eval(poly, k) > 0), None)
+            if smallest != _g_chromatic(n, edges):
+                fail("math: chi should be the smallest k with a positive count (n=%d)" % n)
+    if _g_colour_count(*_g_complete(3), 3) != 6:
+        fail("math: K_3 should have 6 proper 3-colourings")
+    if _g_colour_count(*_g_complete_bipartite(2, 3), 2) != 2:
+        fail("math: K_2,3 should have exactly 2 proper 2-colourings")
+    if 3 * 2 ** 5 != 96:
+        fail("math: a tree on 6 vertices should have 96 proper 3-colourings")
+
+    ok("Graphs: the handshake lemma, the edge bounds and the n-k / C(n-k+1,2) component bounds over "
+       "every graph on up to 6 vertices; bridges, cut vertices and both DFS rules over every DFS tree "
+       "of every connected graph on up to 5 vertices; kappa, lambda and delta on the standard graphs "
+       "and every connected graph on up to 4 vertices; Euler parity, Dirac, the Petersen graph and the "
+       "K_5 Hamiltonian split; the odd-cycle criterion and floor(n^2/4); the matching counts for paths, "
+       "C_5 and K_n,n and the half-size bound; Hall's condition and its defect form on every bipartite "
+       "graph up to 3 by 3 and every d-regular bipartite graph on 4 plus 4 vertices; Koenig, "
+       "alpha + tau = n and the 2026 forced-vertex claim by enumeration; the chromatic numbers, the "
+       "2002 cycle formula, Brooks and the 2024 bounds; and every chromatic polynomial coefficient, "
+       "value and count")
+
+
 def main():
     topics, tpath, pyqs, videos, playlists, sources = load_all()
     check_topics(topics, tpath, pyqs, videos)
@@ -1937,6 +2738,7 @@ def main():
     check_sets_relations_functions()
     check_lattices()
     check_monoids_and_groups()
+    check_graphs()
     check_visuals()
     check_hygiene()
     for c in checks:

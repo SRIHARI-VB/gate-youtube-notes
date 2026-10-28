@@ -1,0 +1,137 @@
+{
+  "subject": "discrete-mathematics",
+  "topic": "graphs",
+  "exam": "GATE CSE 2027",
+  "retrieved_at": "2026-10-28",
+  "subtopics": [
+    "graph vocabulary, degree and the handshake lemma",
+    "paths, cycles, connected components and the edge bounds n-k and C(n-k+1,2)",
+    "cut vertices, bridges, biconnected components and the two DFS criteria",
+    "vertex and edge connectivity, and the chain kappa <= lambda <= delta",
+    "Eulerian and Hamiltonian graphs, including Dirac's sufficient condition",
+    "bipartite graphs, the odd-cycle criterion and the floor(n^2/4) edge bound",
+    "matching: maximal, maximum, perfect, and augmenting paths",
+    "Hall's marriage theorem and complete matching",
+    "vertex cover, independent set, clique and Koenig's theorem",
+    "chromatic number, greedy bounds, Brooks' theorem and the standard families",
+    "chromatic polynomial and counting proper colourings"
+  ],
+  "chosen": [
+    {
+      "id": "go-classroom-graph-theory-deck",
+      "kind": "slides",
+      "channel": "GATE Overflow (Arjun Suresh, GO Classroom)",
+      "title": "Graph Theory: Connectivity, Coloring, Matching",
+      "url": "https://gateoverflow.in/?qa=blob&qa_blobid=659724806035278755",
+      "language": "en",
+      "covers": [
+        "graph, simple graph, degree, complete graph, walk, path and circuit",
+        "Euler line and the all-even-degree criterion, Hamiltonian circuits and the degree n/2 sufficient condition",
+        "Havel-Hakimi and graphic sequences",
+        "cut-set, cut-vertex, edge connectivity and vertex connectivity, with the two upper bounds",
+        "chromatic number, chromatic partitioning, the cycle and complete-graph values, bipartite as 2-chromatic",
+        "independent set, the n/k bound and the matching vocabulary",
+        "complete matching and the r-subset form of Hall's theorem"
+      ],
+      "transcript": "PARTIAL",
+      "why": "The only GATE-oriented source found whose text matches this syllabus line word for word - its title is the syllabus line - and whose pages could actually be read in this run. It states the definitions in the vocabulary GATE uses, gives the counterexamples the exam reuses, and its later pages cover matching and Hall. Chosen for fit and readability, not for size. The fetch was truncated after the Havel-Hakimi example, so the matching pages were read only as excerpts, which is why the status is PARTIAL."
+    },
+    {
+      "id": "go-graph-theory-subject-notes",
+      "kind": "text",
+      "channel": "GATE Overflow",
+      "title": "Graph Theory subject notes, Volume 1 chapter",
+      "url": "https://gateoverflow.in/subject/mathematics/discrete-mathematics/graph-theory?tab=notes",
+      "language": "en",
+      "covers": [
+        "the GATE weightage table for this topic from 2010 to 2026",
+        "counting formulas: 2^(C(n,2)) labelled graphs, n^(n-2) spanning trees, adjacency-matrix path counts",
+        "BFS and DFS purposes, including bridges and articulation points"
+      ],
+      "transcript": "PARTIAL",
+      "why": "Used to confirm the subtopic enumeration against GATE's own question record and to check the counting formulas that border this topic. It was not used as a teaching source for any card claim: it is a compressed revision sheet that assumes the material. Read in part, because the fetch was truncated in the graph-algorithm section."
+    },
+    {
+      "id": "nptel-iiitb-discrete-mathematics-graph-theory-44-52",
+      "kind": "course-outline",
+      "channel": "NPTEL, IIIT Bangalore (Prof. Ashish Choudhury)",
+      "title": "Discrete Mathematics, Graph Theory lectures 44-52: Graph Theory Basics, Matching, Proof of Hall's Marriage Theorem, Various Operations on Graphs, Vertex and Edge Connectivity, Euler Path and Euler Circuit, Hamiltonian Circuit, Vertex and Edge Coloring",
+      "url": "https://archive.nptel.ac.in/courses/106/108/106108227/",
+      "language": "en",
+      "covers": [
+        "lecture 44 graph theory basics",
+        "lecture 45 matching",
+        "lecture 46 proof of Hall's marriage theorem",
+        "lecture 48 vertex and edge connectivity",
+        "lecture 50 Euler path and Euler circuit",
+        "lecture 51 Hamiltonian circuit",
+        "lecture 52 vertex and edge coloring"
+      ],
+      "transcript": "UNAVAILABLE",
+      "why": "The published lecture sequence is the closest map of this topic in teaching order, and it was used to confirm that the eleven subtopics are complete rather than to source any statement. Recorded as structure only: the transcript PDFs could not be fetched in this run, so no card quotes or timestamps it."
+    }
+  ],
+  "rejected": [
+    {
+      "id": "nptel-graph-theory-soumen-maity",
+      "kind": "lecture-series",
+      "channel": "NPTEL (Prof. Soumen Maity, IISER Pune)",
+      "title": "Graph Theory, 8 weeks: paths, cycles, Eulerian and Hamiltonian graphs, bipartite graphs, matching and covers, maximum matching in bipartite graphs, cuts and connectivity, 2-connected graphs, network flow, planar graphs, colouring",
+      "url": "https://onlinecourses.nptel.ac.in/noc22_ma10/preview",
+      "language": "en",
+      "why": "The best-scoped alternative found: its week-by-week layout covers every subtopic of this line and more. Rejected for access and depth, not quality - its videos sit behind the same YouTube consent wall that blocked every other video this run, no transcript could be read, and the course runs into network flow and planarity, which this three-word syllabus line does not ask for."
+    },
+    {
+      "id": "geeksforgeeks-gate-notes",
+      "kind": "text",
+      "channel": "GeeksforGeeks",
+      "title": "GATE-oriented graph theory notes",
+      "url": "",
+      "language": "en",
+      "why": "The written source that carried the previous topic in this repository. Every geeksforgeeks.org request failed from the sandbox in this run (no response at all), so no page could be read and nothing here rests on it. Recorded so that a later run retries it rather than assuming it was considered."
+    },
+    {
+      "id": "gate-vidyalay-bipartite",
+      "kind": "text",
+      "channel": "Gate Vidyalay",
+      "title": "Bipartite Graph - properties and maximum number of edges",
+      "url": "https://www.gatevidyalay.com/bipartite-graphs/",
+      "language": "en",
+      "why": "Only a search snippet could be read, and it restates the n^2/4 bound without a derivation. Rejected as a teaching source: it adds nothing the GO deck does not state more carefully, and it could not be read in full."
+    },
+    {
+      "id": "knowledge-gate-ai-graph-colouring-blog",
+      "kind": "blog",
+      "channel": "Knowledge Gate AI",
+      "title": "Graph Coloring MCQs: 10 solved GATE questions",
+      "url": "https://www.knowledgegate.ai/blog/graph-coloring-vertex-coloring-edge-coloring-chromatic-numbe",
+      "language": "en",
+      "why": "It reproduces GATE 2026 Set 1 Q.45 and agrees with the accepted answer, which is useful as a cross-check, but it is a question dump rather than teaching and numbers its questions by its own order, not by the paper. Used only to confirm one answer, never as a source of content."
+    },
+    {
+      "id": "answer-aggregators-graph-theory",
+      "kind": "answer-aggregator",
+      "channel": "ExamSIDE / GateAI / EduRev / Testbook / Zollege",
+      "title": "Secondary GATE question and answer sites",
+      "url": "https://questions.examside.com/past-years/gate/gate-cse/discrete-mathematics/graph-theory",
+      "language": "en",
+      "why": "Used only to confirm that a question exists in a given paper. They disagree on numbering - GATE CSE 2026 Set 1 Q.37 is printed as Question 47 by one site - so no question reference in this topic is taken from them; every reference is the paper numbering shown on the GATE Overflow question page, and every answer is recomputed."
+    },
+    {
+      "id": "video-sources-this-run",
+      "kind": "video",
+      "channel": "Any YouTube channel (GO Classes, Knowledge Gate Hindi, Gajendra Purohit, Gate Smashers and others)",
+      "title": "Graph theory lecture videos in English and Hindi",
+      "url": "",
+      "language": "en",
+      "why": "No video could supply a sentence this run: YouTube watch pages returned a consent wall with no caption tracks, so both English and Hindi lecture material was unreadable. Rejected for access only. No translated material therefore appears in this topic, and no card quotes a timestamp."
+    }
+  ],
+  "standard_refs": [
+    "Rosen, Discrete Mathematics and Its Applications, ch. 10 (graphs, connectivity, Euler and Hamilton, colouring, chromatic polynomial)",
+    "West, Introduction to Graph Theory (Brooks' theorem, Dirac's theorem, Koenig's theorem, matching)",
+    "CLRS, ch. 22 problem 22-2 (articulation points and bridges by DFS) and ch. 26 (maximum bipartite matching as flow)",
+    "Diestel, Graph Theory (Menger's theorem)"
+  ],
+  "note": "Every numeric, chromatic, matching and cover claim published in this topic is recomputed by check_graphs() in scripts/validate.py, including by exhaustive enumeration over every graph on up to 5 vertices. No source was quoted; each card paraphrases and then re-derives."
+}

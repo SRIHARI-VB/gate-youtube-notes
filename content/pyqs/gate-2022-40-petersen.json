@@ -1,0 +1,21 @@
+{
+  "id": "gate-2022-40-petersen",
+  "year": "2022",
+  "paper": "GATE CS 2022",
+  "question_ref": "Q.40",
+  "type": "MSQ",
+  "topic": "chromatic-number-and-greedy-bounds",
+  "text": "The following simple undirected graph is referred to as the Petersen graph. Which of the following statements is/are TRUE? (The graph itself is printed in the paper and is not reproduced here; options 1, 2 and 4 are answerable from the graph's definition, and option 3 asks whether a second drawn graph is isomorphic to it.)",
+  "options": [
+    "The chromatic number of the graph is 3",
+    "The graph has a Hamiltonian path",
+    "The graph drawn in the option is isomorphic to the Petersen graph",
+    "The size of the largest independent set of the given graph is 3"
+  ],
+  "answer": "Options 1, 2 and 3",
+  "solution": "The Petersen graph has chromatic number 3, and a 3-colouring exists, so option 1 is true. It has a Hamiltonian path and no Hamiltonian cycle, so option 2 is true. Option 3 compares two drawings and is true in the paper. Option 4 is false: the largest independent set has 4 vertices, not 3. scripts/validate.py rebuilds the Petersen graph, computes its chromatic number, its clique and independence numbers and searches for a Hamiltonian path and cycle.",
+  "source_url": "https://gateoverflow.in/371896/gate-cse-2022-question-40",
+  "source_label": "GATE Overflow question page - GATE CSE 2022 Q.40 with the accepted answer (options 1, 2 and 3)",
+  "verification": "SOURCED",
+  "answer_evidence": "Accepted answer: 'Option A,B and C are TRUE', noting 'Hamiltonian path exists in Peterson graph but not Hamiltonian cycle' and that the largest independent set has size 4."
+}

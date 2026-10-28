@@ -511,3 +511,149 @@ Z_4 x Z_6 count said 8 instead of gcd(2,4) x gcd(2,6) = 4.
 
 `discrete-mathematics/graphs` - Graphs: connectivity, matching, colouring, the next `not_started` topic after this
 one in the syllabus order.
+
+## Run 6 - Graphs: Connectivity, Matching, Colouring (2026-10-28)
+
+### The topic, and why it was next
+
+`content/coverage.json` had `cycle.last = discrete-mathematics/monoids-and-groups`. The first topic strictly
+after that pointer in the enumerated syllabus order whose status is not `covered` is
+`discrete-mathematics/graphs`, which was `not_started`, so it was next. Nothing was skipped: no topic between the
+pointer and this one exists in the Discrete Mathematics list, and no topic was marked `blocked` in this run.
+
+The syllabus line is three words - "Graphs: connectivity, matching, colouring" - so the subtopics had to be
+enumerated from the standard content those words name, not from any video.
+
+### Subtopics enumerated before any source was chosen
+
+1. Graph vocabulary, degree and the handshake lemma.
+2. Paths, cycles, connected components, and the n-k and C(n-k+1,2) edge bounds.
+3. Cut vertices, bridges, biconnected components and the two DFS criteria.
+4. Vertex and edge connectivity, and the chain kappa <= lambda <= delta.
+5. Eulerian and Hamiltonian graphs, including Dirac's sufficient condition.
+6. Bipartite graphs, the odd-cycle criterion and the floor(n^2/4) edge bound.
+7. Matching: maximal, maximum, perfect, and augmenting paths.
+8. Hall's marriage theorem and complete matching.
+9. Vertex cover, independent set, clique and Koenig's theorem.
+10. Chromatic number, greedy bounds, Brooks' theorem and the standard families.
+11. Chromatic polynomial and counting proper colourings.
+
+Each of the eleven has exactly one card.
+
+### Sources chosen, on merit
+
+- **GATE Overflow GO Classroom deck, "Graph Theory: Connectivity, Coloring, Matching"** (English, read in part).
+  Its title is the syllabus line, it uses GATE's vocabulary, and its pages were the only GATE-oriented graph text
+  that could actually be read in this run. It supplied the definitions, the cut-set and connectivity bounds, the
+  colouring families, the matching vocabulary and the r-subset form of Hall's theorem. The fetch was truncated
+  after the Havel-Hakimi example, so the matching pages were read only as excerpts - recorded as `PARTIAL`.
+- **GATE Overflow Graph Theory subject notes, Volume 1 chapter** (English, read in part). Used to confirm the
+  subtopic enumeration against GATE's own question record and to check the counting formulas that border this
+  topic. Not used as teaching for any claim.
+- **NPTEL IIIT Bangalore Discrete Mathematics, lectures 44-52** (English, structure only). The published lecture
+  list - Graph Theory Basics, Matching, Proof of Hall's Marriage Theorem, Vertex and Edge Connectivity, Euler
+  Path and Circuit, Hamiltonian Circuit, Vertex and Edge Coloring - was used to confirm that the eleven subtopics
+  are complete. The transcripts could not be fetched, so no card quotes it.
+
+Rejected, with reasons recorded in `content/subjects/discrete-mathematics/graphs/sources.json`: the NPTEL "Graph
+Theory" course by Soumen Maity (best scope of all, but no readable transcript and it runs into flow and planarity);
+GeeksforGeeks (every request failed from the sandbox); Gate Vidyalay (snippet only); the Knowledge Gate AI
+colouring blog (a question dump that agreed with one accepted answer, used only as a cross-check); the answer
+aggregators ExamSIDE, GateAI, EduRev, Testbook and Zollege (they disagree on numbering, so no reference is taken
+from them); and every video in every language, because YouTube served a consent wall with no caption tracks.
+
+**No translated material appears in this topic.** No non-English source could be read this run, so no card is
+marked as translated and no source language had to be named on a card.
+
+### Created
+
+11 cards, 9 PYQs and one p5.js lesson.
+
+| Card | PYQs |
+| --- | --- |
+| graph vocabulary and the handshake lemma | - |
+| paths, cycles and connected components | - |
+| cut vertices, bridges and blocks | 2015 Set 2 Q.50, 2021 Set 1 Q.41 |
+| vertex and edge connectivity | - |
+| Eulerian and Hamiltonian graphs | - |
+| bipartite graphs and the odd-cycle criterion | 2014 Set 2 Q.3, 2026 Set 1 Q.45 |
+| matching: maximal, maximum, perfect | 2026 Set 1 Q.47 |
+| Hall's marriage theorem | - |
+| vertex cover, independent set and Koenig | 2026 Set 1 Q.37 |
+| chromatic number, greedy and Brooks | 2024 Set 1 Q.41, 2002 Q.1.4, 2022 Q.40 |
+| chromatic polynomial | - |
+
+Every PYQ carries a year, a paper, a question reference and the GATE Overflow URL it was read on, with the
+accepted answer quoted as evidence; all nine are labelled `SOURCED`, none `OFFICIAL_KEY`, because the official
+papers and keys were not fetched this run. Variation labels stay distinct: `ORIGINAL PYQ-STYLE QUESTION`,
+`CONCEPTUAL PRACTICE QUESTION` and `PREDICTED VARIATION` only, and no generated question is presented as a PYQ.
+
+The lesson `visuals/discrete-mathematics/graphs/bipartite-matching-augmenting-path` shows a greedy matching get
+stuck at size 2, the four blocked edges that make it maximal, the augmenting path b-1-a-2-c-3, the flip to a
+perfect matching of size 3, and the cover {1, 2, c} that makes Koenig's equality visible.
+
+`content/revision/formulas.json` gained a "Graphs" group of thirteen formulas, and `content/syllabus.json` now
+marks the topic `cards` instead of `planned`.
+
+### Mathematics
+
+A new `check_graphs()` in `scripts/validate.py` recomputes every claim in the topic:
+
+- the handshake lemma, the odd-degree parity, n(n-1)/2, and the n-k and C(n-k+1,2) bounds on **every** graph on up
+  to 6 vertices; Havel-Hakimi accepts 3,3,2,2,2,2 and rejects 3,3,3,1;
+- bridge-if-and-only-if-no-cycle on every graph on up to 5 vertices, the n-2 cut-vertex bound, and **both DFS
+  rules over every DFS tree of every connected graph on up to 5 vertices** (every adjacency order, every root);
+- kappa <= lambda <= delta and kappa <= floor(2|E|/n) on every connected graph on up to 4 vertices, plus the bowtie
+  (kappa 1, lambda 2), K_4, K_5, K_3,3 and the Petersen graph (3-connected, 15 edges);
+- the Euler parity criteria against brute-force trail existence, K_2,3 and K_3,3, K_4 plus a pendant edge, Dirac's
+  non-necessity on C_5, Hamiltonicity of K_{m,n} for m,n in {2,3}, Petersen having a Hamiltonian path and no
+  Hamiltonian cycle, and K_5 splitting into two edge-disjoint Hamiltonian cycles;
+- the odd-cycle criterion as bipartite iff chromatic number at most 2 on every graph on up to 5 vertices, and
+  floor(n^2/4) for n = 7, 9, 12;
+- matchings of P_n = F(n+1) for n = 1 to 8, C_5 = 11, perfect matchings of K_{n,n} = n!, the empty matching
+  included, and the half-size bound on every graph on up to 4 vertices;
+- Hall's condition and its defect form on **every** bipartite graph up to 3 by 3, and a perfect matching in every
+  d-regular bipartite graph on 4 plus 4 vertices for d = 1, 2, 3, including the split into two perfect matchings;
+- alpha + tau = n, nu <= tau, Koenig on every bipartite graph on up to 5 vertices, the triangle and C_5 failures,
+  and the 2026 forced-vertex claim over every minimum cover of every graph on up to 5 vertices;
+- chromatic numbers of K_n, C_n for n = 3 to 10, trees and the Petersen graph; omega <= chi <= Delta+1, chi >= n/alpha,
+  the C(k,2) edge bound and Brooks on every graph on up to 5 vertices; the 2002 formula against chi(C_n);
+- the chromatic polynomial by deletion-contraction on every graph on up to 5 vertices: monic, degree n, k^(n-1)
+  coefficient minus |E|, constant term 0 with edges, agreement with direct counting at k = 1, 2, 3, the smallest
+  positive root equal to chi, plus the K_n, tree and cycle formulas and C_4 = k^4 - 4k^3 + 6k^2 - 3k.
+
+Two claims were corrected before publication. The first draft of the lesson used a five-edge path, whose caption
+claimed two 4-cycles; the graph has no cycle at all, so the sixth edge b-2 was added and the caption rewritten to
+name the single 4-cycle. The first draft of the Fibonacci index in the check compared against F(n+2); the card's
+claim F(n+1) is right and the check was the thing that was wrong.
+
+### Gaps (the topic stays `partial`)
+
+1. No video source was readable: YouTube served a consent wall with no caption tracks for every video tried, in
+   every language. No card quotes or timestamps a lecture, and no translated material exists in this topic.
+2. Four PYQs of this topic are figure-only and are excluded: GATE CSE 2024 Set 2 Q.50, GATE CSE 2018 Q.18 and
+   GATE CSE 1999 Q.1.15. GATE CSE 2022 Q.40 is included, but its isomorphism option rests on the paper's drawing
+   and is not re-derived.
+3. Planar graphs, Euler's formula for plane graphs, edge colouring and network flow beyond bipartite matching are
+   outside the syllabus line and are not covered.
+4. GATE Overflow's subject page lists further graph-theory questions from 2010 to 2023 that were not read or
+   recomputed in this run; only the nine recorded PYQs were verified.
+5. The chromatic polynomial card rests on the standard references and on recomputation, because no verified GATE
+   CSE previous-year question on the chromatic polynomial was found.
+6. No `marks` field is recorded on any PYQ of this topic: the official papers were not fetched, so marks are left
+   out rather than guessed.
+
+### Checks
+
+`python3 scripts/build-index.py` indexes 3 playlists, 39 videos, 82 topics and 71 PYQs.
+`python3 scripts/validate.py` passes with 17 checks, 0 failures and 8 pre-existing warnings.
+`node tests/visual-lessons.js` draws every step of all eleven p5 lessons.
+
+### Next
+
+The cycle pointer now sits on `graphs`. The topic immediately after it in the syllabus order is
+`discrete-mathematics/combinatorics`, which is already `partial`; the skill's second-pass rule defers partial
+topics until a full pass finds no `not_started` topic left, so the next run takes the first `not_started` topic
+after the pointer, `linear-algebra/matrices-and-determinants`. `combinatorics` waits for the second pass, with its
+two recorded gaps (no re-audit of its subtopics since it was built from a single playlist, and long lecture
+transcripts readable only in their opening minutes).

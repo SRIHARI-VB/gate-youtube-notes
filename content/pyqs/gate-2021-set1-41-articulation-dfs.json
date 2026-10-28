@@ -1,0 +1,21 @@
+{
+  "id": "gate-2021-set1-41-articulation-dfs",
+  "year": "2021",
+  "paper": "GATE CS 2021 Set 1",
+  "question_ref": "Q.41",
+  "type": "MSQ",
+  "topic": "cut-vertices-bridges-and-blocks",
+  "text": "An articulation point in a connected graph is a vertex such that removing the vertex and its incident edges disconnects the graph into two or more connected components. Let T be a DFS tree obtained by doing DFS in a connected undirected graph G. Which of the following options is/are correct?",
+  "options": [
+    "Root of T can never be an articulation point in G",
+    "Root of T is an articulation point in G if and only if it has 2 or more children",
+    "A leaf of T can be an articulation point in G",
+    "If u is an articulation point in G such that x is an ancestor of u in T and y is a descendant of u in T, then all paths from x to y in G must pass through u"
+  ],
+  "answer": "Option 2",
+  "solution": "Each child subtree of the root is reached from the root alone, so the root is an articulation point exactly when it has at least two children, which makes option 2 correct and option 1 false. A leaf of a DFS tree has all its neighbours already discovered, so its removal cannot disconnect the graph and option 3 is false. Option 4 fails when a back edge from y's subtree reaches x, which bypasses u even though u is an articulation point for some other subtree. scripts/validate.py enumerates DFS trees of every connected graph on up to 5 vertices and checks both DFS criteria.",
+  "source_url": "https://gateoverflow.in/357410/gate-cse-2021-set-1-question-41",
+  "source_label": "GATE Overflow question page - GATE CSE 2021 Set 1 Q.41 with the accepted answer (option B only)",
+  "verification": "SOURCED",
+  "answer_evidence": "Accepted answer: 'Only B is Correct', proving both directions of the two-children criterion and giving counterexamples for the other options."
+}

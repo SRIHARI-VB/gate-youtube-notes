@@ -3,7 +3,7 @@
   "updated_at": "2026-10-28",
   "cycle": {
     "last_subject": "discrete-mathematics",
-    "last_topic": "monoids-and-groups",
+    "last_topic": "graphs",
     "updated_at": "2026-10-28",
     "rule": "Next topic is the first topic strictly after cycle.last in the enumerated syllabus order whose status is not covered, wrapping at the end. not_started and partial topics are candidates; blocked topics are skipped while their blocker stands."
   },
@@ -138,10 +138,30 @@
         {
           "slug": "graphs",
           "name": "Graphs: Connectivity, Matching, Colouring",
-          "status": "not_started",
-          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
-          "runs": [],
-          "gaps": []
+          "status": "partial",
+          "coverage_note": "11 subtopics, 11 cards (graph vocabulary and the handshake lemma, paths/cycles/components and the n-k and C(n-k+1,2) bounds, cut vertices and bridges with both DFS rules, vertex and edge connectivity, Eulerian and Hamiltonian graphs, bipartite graphs and the odd-cycle criterion, matching maximal versus maximum with augmenting paths, Hall's marriage theorem, vertex cover/independent set/Koenig, chromatic number with greedy and Brooks bounds, chromatic polynomial), 9 verified PYQs and 1 p5.js lesson. Partial because five gaps remain, named below.",
+          "runs": [
+            {
+              "date": "2026-10-28",
+              "sources": [
+                "go-classroom-graph-theory-deck",
+                "go-graph-theory-subject-notes",
+                "nptel-iiitb-discrete-mathematics-graph-theory-44-52"
+              ],
+              "cards": 11,
+              "pyqs": 9,
+              "lesson": "discrete-mathematics/graphs/bipartite-matching-augmenting-path",
+              "note": "Sources chosen on merit: the GATE Overflow GO Classroom deck 'Graph Theory: Connectivity, Coloring, Matching' (English, read in part) because its title is the syllabus line and its pages were the only GATE-oriented graph text readable this run; the GATE Overflow subject notes (English, read in part) to confirm the subtopic enumeration against GATE's own question record; the NPTEL IIITB lectures 44-52 (English, structure only) to confirm the teaching order. Rejected with reasons in sources.json: the NPTEL 'Graph Theory' course by Soumen Maity (right scope, no readable transcript), GeeksforGeeks (host unreachable), Gate Vidyalay (snippet only), the Knowledge Gate AI colouring blog (a question dump), the answer aggregators (numbering disagreements) and every video in every language (YouTube consent wall, no caption tracks). No translated material appears: no non-English source was readable, so no card is marked as translated."
+            }
+          ],
+          "gaps": [
+            "no video source was readable this run - YouTube served a consent wall with no caption tracks for every video tried, so no English, Hindi, Tamil, Telugu or Bengali lecture supplied a single sentence and no card quotes or timestamps one",
+            "four PYQs of this topic are figure-only in the papers and are therefore not in the PYQ set: GATE CSE 2024 Set 2 Q.50 (chromatic number of a drawn graph), GATE CSE 2018 Q.18 (chromatic number of a drawn graph) and GATE CSE 1999 Q.1.15 (number of articulation points of a drawn graph); GATE CSE 2022 Q.40 is included but its isomorphism option rests on the paper's drawing, which is not re-derived here",
+            "planar graphs, Euler's formula for plane graphs, edge colouring and network flow beyond bipartite matching are outside the three words of this syllabus line and are not covered at all",
+            "GATE Overflow's subject page lists further graph-theory questions from 2010 to 2023 (for example 2012 Q.38, 2016 Set 2 Q.3, 2019 Q.38, 2020 Q.52, 2023 Q.45) that were not individually read or recomputed in this run; only the nine recorded PYQs were verified",
+            "the chromatic polynomial card rests on the standard references and on recomputation, because no verified GATE CSE previous-year question on the chromatic polynomial was found in this run",
+            "no marks field is recorded on any PYQ of this topic: the official papers were not fetched, so question numbers follow the GATE Overflow paper numbering and marks are left out rather than guessed"
+          ]
         },
         {
           "slug": "combinatorics",

@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Augmenting Paths and Koenig's Theorem - Graphs visual lesson</title>
+<link rel="stylesheet" href="../../../lesson.css">
+<script src="https://cdn.jsdelivr.net/npm/p5@1.9.4/lib/p5.min.js"></script>
+</head>
+<body>
+<div class="wrap">
+  <p class="small"><a href="../../../../index.html">&larr; back to the revision site</a></p>
+  <h1>Augmenting Paths, Maximal versus Maximum, and Koenig's Theorem</h1>
+  <div class="objective"><strong>Objective.</strong> Watch a greedy matching get stuck at size 2, watch one alternating path prove that a matching of size 3 exists, flip it, and then see the maximum matching and the minimum vertex cover land on the same number - the equality Koenig's theorem promises in every bipartite graph.</div>
+
+  <div class="canvas-wrap"><div id="canvas-holder"></div></div>
+  <div class="caption" id="caption" aria-live="polite"></div>
+
+  <div class="controls">
+    <button id="play" class="primary">Play</button>
+    <button id="prev">&larr; Prev</button>
+    <button id="next">Next &rarr;</button>
+    <button id="restart">Restart</button>
+    <span class="speed"><label for="speed">Speed</label>
+      <input id="speed" type="range" min="0.25" max="2" step="0.25" value="1">
+      <span id="speedLabel">1.00x</span></span>
+    <span class="counter" id="counter"></span>
+  </div>
+
+  <h2>Static explanation</h2>
+<p>The graph has the left side {a, b, c} and the right side {1, 2, 3}, with the six edges a-1, a-2, b-1, b-2, c-2 and c-3. Every edge crosses between the sides, and the only cycle is a-1-b-2-a, of length 4, so the graph is bipartite and needs exactly two colours.</p>
+<p>A matching is a set of edges that share no vertex. Take a-1 first, then c-2. Neither edge touches the other, so this is a matching of size 2, and it is <em>maximal</em>: a-2 is blocked because a and 2 are both matched, b-1 because 1 is matched, b-2 because 2 is matched, and c-3 because c is matched. Nothing more can be added. But maximal is not maximum, and the difference is not a technicality - the maximum here has 3 edges.</p>
+<p>The proof is a single path. Start at the free vertex b, walk along b-1 (not in the matching), then 1-a (in the matching), then a-2 (not in the matching), then 2-c (in the matching), then c-3 (not in the matching), and stop at the free vertex 3. The edges alternate outside and inside the matching, and both endpoints are unmatched, so this is an augmenting path. Taking the symmetric difference with it - keeping the edges that were outside the matching and dropping those that were inside - leaves a matching again, and raises its size by exactly one, to 3. That is Berge's theorem in action: a matching is maximum exactly when no augmenting path exists, and repeatedly flipping augmenting paths is the augmenting-path algorithm.</p>
+<p>The final matching b-1, a-2, c-3 saturates all six vertices, so it is also a perfect matching. Koenig's theorem then closes the loop: the smallest vertex cover is {1, 2, c}, of size 3, which equals the maximum matching size. That equality holds in every bipartite graph, and it is what makes "find the maximum matching" and "find the minimum vertex cover" the same question there. Hall's condition points at the same thing from the other side: every subset of the left vertices has at least as many neighbours as members, so a matching saturating the left side exists.</p>
+
+  <div class="card warn"><div class="label">Common misconception</div><p>Reading "maximal" as "maximum". A maximal matching is one you cannot extend by adding an edge <em>right now</em>, which is a local statement; a maximum matching is the largest in the whole graph, which is global. The matching {a-1, c-2} above is genuinely maximal and genuinely has size 2 while a matching of size 3 sits in the same graph. The second half of the misconception is applying Koenig outside its hypothesis: the equality of maximum matching and minimum vertex cover is a bipartite guarantee only. In a triangle the maximum matching has 1 edge but the minimum vertex cover has 2 vertices, and in C<sub>5</sub> the two numbers are 2 and 3.</p></div>
+  <div class="card ok"><div class="label">Quick check</div><p>In the graph above, how many vertices does the smallest vertex cover need, and what does the answer tell you about the maximum matching?</p><details><summary>Answer</summary><p><strong>Three, and therefore the maximum matching has three edges.</strong> The set {1, 2, c} touches every edge, and no pair of vertices does - the validator checks all pairs and each one leaves an edge uncovered. Because the graph is bipartite, Koenig's theorem says the minimum cover size equals the maximum matching size, so the matching b-1, a-2, c-3 of size 3 is maximum - and it is perfect, since all six vertices are saturated.</p></details></div>
+  <p class="small">Topic: matching, maximal versus maximum, augmenting paths and Koenig's theorem (Discrete Mathematics, Graphs: connectivity, matching, colouring). Sources: GATE Overflow GO Classroom deck "Graph Theory: Connectivity, Coloring, Matching" (English, read in part) for the matching vocabulary, the complete-matching condition and the independent-set bound; CLRS ch. 26 for augmenting paths and the symmetric-difference argument. The graph, both matchings, the augmenting path and the cover in this lesson are recomputed by brute force in scripts/validate.py. Related verified PYQs: GATE CSE 2026 Set 1 Q.47 on counting matchings of a path, and GATE CSE 2026 Set 1 Q.37 on forced vertices in a minimum vertex cover.</p>
+</div>
+<script src="../../../lesson.js"></script>
+<script src="sketch.js"></script>
+<script>
+/* p5.js is loaded from a CDN. If it is unreachable, say so plainly instead of showing an empty box. */
+window.addEventListener('load', function () {
+  if (window.p5) { return; }
+  var holder = document.getElementById('canvas-holder');
+  if (holder) {
+    holder.innerHTML = '<div style="padding:22px 18px;font-size:14.5px;color:#4a5260">' +
+      'The animation needs p5.js, which this page loads from a CDN, and the request failed (offline, or the CDN is blocked). ' +
+      'Everything below still works: the static explanation, the misconception and the quick check.</div>';
+  }
+  var cap = document.getElementById('caption');
+  if (cap && window.LESSON && window.LESSON.steps && window.LESSON.steps[0]) {
+    cap.innerHTML = window.LESSON.steps[0].caption;
+  }
+  ['play', 'prev', 'next', 'restart', 'speed'].forEach(function (id) {
+    var el = document.getElementById(id);
+    if (el) { el.disabled = true; }
+  });
+});
+</script>
+</body>
+</html>

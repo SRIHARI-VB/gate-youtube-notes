@@ -1,0 +1,71 @@
+{
+  "id": "eulerian-and-hamiltonian-graphs",
+  "title": "Eulerian and Hamiltonian Graphs",
+  "priority": "P2",
+  "order": 94,
+  "unit": "Traversals",
+  "quickIdea": "Euler is a degree-parity question with a complete answer, while Hamilton has no usable criterion, so GATE asks only the sufficient conditions and the standard counterexamples.",
+  "remember": [
+    "An Euler circuit uses every edge exactly once and returns to its start; it exists exactly when the graph is connected after isolated vertices are ignored and every degree is even.",
+    "An Euler path uses every edge exactly once without returning; it exists exactly when there are 0 or 2 vertices of odd degree, and the odd vertices are then its endpoints.",
+    "A connected graph is Eulerian exactly when its edge set splits into edge-disjoint cycles.",
+    "A Hamiltonian cycle visits every vertex exactly once; no simple necessary and sufficient condition is known, and deciding Hamiltonicity is NP-complete.",
+    "Dirac's condition: if n is at least 3 and every degree is at least n/2 then the graph is Hamiltonian. It is sufficient but not necessary, since C_5 is Hamiltonian with all degrees 2.",
+    "K_{m,n} has a Hamiltonian cycle exactly when m = n is at least 2, and K_n for odd n splits into (n-1)/2 edge-disjoint Hamiltonian cycles.",
+    "The Petersen graph has a Hamiltonian path and no Hamiltonian cycle, which is the standard example separating the two."
+  ],
+  "example": {
+    "prompt": "Does K_{2,3} have an Euler circuit, an Euler path, or neither?",
+    "work": "The degrees are 3, 3 for the two vertices on the small side and 2, 2, 2 for the other side. Exactly two vertices have odd degree, and the graph is connected, so an Euler path exists; an Euler circuit needs all degrees even, which fails.",
+    "answer": "An Euler path but no Euler circuit."
+  },
+  "gateAngle": "GATE asks Euler parity as a one-liner and uses K_{3,3} or the Petersen graph as the 'path but no cycle' example, which is exactly how GATE CSE 2022 Q.40 used Petersen.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "Does K_{3,3} have an Euler path?",
+      "answer": "No. All six vertices have degree 3, so there are six odd-degree vertices, and an Euler path allows at most two.",
+      "why": "The parity test rules out both the circuit (all even) and the path (exactly two odd)."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Can a graph have a Hamiltonian path but no Hamiltonian cycle?",
+      "answer": "Yes. The Petersen graph has a Hamiltonian path and no Hamiltonian cycle.",
+      "why": "Deleting one edge of a Hamiltonian cycle leaves a Hamiltonian path, but the converse fails, and there is no parity-style test for cycles."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "Into how many edge-disjoint Hamiltonian cycles does K_5 split?",
+      "answer": "2, which is (5-1)/2; K_5 has 10 edges and each Hamiltonian cycle uses 5 of them.",
+      "why": "For odd n the complete graph K_n decomposes into (n-1)/2 edge-disjoint Hamiltonian cycles."
+    }
+  ],
+  "trap": {
+    "what": "Treating Dirac's degree condition as necessary, or assuming that an Euler path needs all degrees even.",
+    "why": "Dirac only guarantees a Hamiltonian cycle; C_5 is Hamiltonian and violates it. An Euler path needs at most two odd-degree vertices, because every time the walk passes through a vertex it uses two edges.",
+    "counterexample": "C_5 is Hamiltonian with delta = 2 and n/2 = 2.5, so Dirac's hypothesis fails; K_{2,3} has an Euler path and two odd-degree vertices."
+  },
+  "check": {
+    "question": "K_4 with one pendant edge attached has how many odd-degree vertices, and does it have an Euler path?",
+    "answer": "Four odd-degree vertices, so it has neither an Euler path nor an Euler circuit.",
+    "explanation": "The four K_4 vertices have degree 3 each, and attaching the pendant edge raises the attachment vertex to degree 4 and gives the pendant vertex degree 1, leaving odd degrees 4, 3, 3, 3, 1. Four odd vertices exceed the two an Euler path allows."
+  },
+  "pyqIds": [],
+  "prereqs": [
+    "paths-cycles-and-components"
+  ],
+  "videoRefs": [],
+  "sources": [
+    {
+      "kind": "slides",
+      "title": "Graph Theory: Connectivity, Coloring, Matching - GO Classroom slide deck",
+      "channel": "GATE Overflow (Arjun Suresh, GO Classroom)",
+      "url": "https://gateoverflow.in/?qa=blob&qa_blobid=659724806035278755",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "slide text read through graph basics, walk/path/circuit, Euler and Hamiltonian, cut-set and cut-vertex, edge and vertex connectivity, colouring, bipartite, independent set, matching and Hall's theorem; the fetch was truncated after the Havel-Hakimi example, so the later matching pages were read only as excerpts"
+    }
+  ],
+  "sourceLine": "Euler and Hamiltonian definitions, the parity criterion and the edge-disjoint Hamiltonian decomposition of K_n for odd n: GATE Overflow GO Classroom deck (English, read in part). Dirac and the Petersen counterexample from West. Standard references used to verify, never copied: Rosen, Discrete Mathematics and Its Applications, ch. 10; West, Introduction to Graph Theory (Brooks, Dirac, Koenig, chromatic polynomial); CLRS ch. 22 (articulation points, bridges) and ch. 26 (bipartite matching); Diestel, Graph Theory (Menger). Every parity claim and the K_5 decomposition are recomputed in scripts/validate.py."
+}

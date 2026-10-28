@@ -1,0 +1,80 @@
+{
+  "id": "graph-vocabulary-and-degree-sum",
+  "title": "Graphs, Degrees and the Handshake Lemma",
+  "priority": "P1",
+  "order": 90,
+  "unit": "Graph basics",
+  "quickIdea": "A graph is dots and lines; the degrees of its vertices add to twice the number of lines, and that one identity carries most of the counting questions in this topic.",
+  "remember": [
+    "A simple graph has no loop and no repeated edge between the same pair; a multigraph may have both, and a loop adds 2 to the degree of its vertex.",
+    "Handshake lemma: the degrees of all vertices sum to 2|E|, so the number of odd-degree vertices is always even.",
+    "A simple graph on n vertices has at most n(n-1)/2 edges, reached only by the complete graph K_n, in which every vertex has degree n-1.",
+    "The complement of G has the same vertices and an edge exactly where G has none, so |E(G)| + |E(complement of G)| = n(n-1)/2.",
+    "A walk may repeat vertices and edges, a trail repeats no edge, a path repeats no vertex, and a cycle is a closed path of length at least 3.",
+    "A k-regular graph on n vertices has nk/2 edges, so nk must be even before such a graph can exist."
+  ],
+  "example": {
+    "prompt": "A simple graph has degree sequence 3, 3, 2, 2, 2, 2. How many edges does it have, and how many of its vertices have odd degree?",
+    "work": "The degrees sum to 3 + 3 + 2 + 2 + 2 + 2 = 14, and the handshake lemma says the sum is 2|E|, so |E| = 7. The odd degrees are the two 3s, so exactly 2 vertices have odd degree, which is an even count as the lemma requires.",
+    "answer": "7 edges and 2 odd-degree vertices."
+  },
+  "gateAngle": "GATE uses this as the first step of counting questions: the maximum number of edges in a simple graph on n vertices with k components, C(n-k+1, 2), and whether a degree sequence can be realised. Both are one-line consequences of the handshake lemma and the edge bound.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "A simple graph on 8 vertices has 25 edges. What is the minimum number of edges in its complement?",
+      "answer": "3, because K_8 has 28 edges and 28 - 25 = 3.",
+      "why": "The complement's edge count is forced by the total n(n-1)/2, not by the structure of G."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Can a simple graph have exactly five vertices of odd degree?",
+      "answer": "No. Odd-degree vertices come in pairs, so their number is always even.",
+      "why": "The degree sum is 2|E|, an even number, and only the odd degrees contribute to its parity."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "Does a 3-regular graph on 7 vertices exist?",
+      "answer": "No. 3 x 7 = 21 is odd, so no graph, not even a multigraph, is 3-regular on 7 vertices.",
+      "why": "A k-regular graph on n vertices has nk/2 edges, which must be a whole number."
+    }
+  ],
+  "trap": {
+    "what": "Accepting a degree sequence as realisable because its sum is even.",
+    "why": "An even sum is necessary but not sufficient. The sequence 3, 3, 3, 1 sums to 10 and still cannot be drawn: the three vertices of degree 3 would each need every other vertex as a neighbour, which forces degree 3 on the last vertex.",
+    "counterexample": "The sequence 3, 3, 3, 1 on 4 vertices is not graphic, although its sum is even."
+  },
+  "check": {
+    "question": "Is 6, 6, 5, 4, 3, 2, 1 the degree sequence of a simple graph on 7 vertices?",
+    "answer": "No. The sum is 27, which is odd, so no graph has this sequence.",
+    "explanation": "The handshake lemma forbids it outright: 27 is not 2|E| for any whole number |E|. A second reason points the same way, because a vertex of degree 6 in a 7-vertex simple graph is adjacent to all six others, so the other six vertices all have degree at least 1 and one of them would need degree 7."
+  },
+  "pyqIds": [],
+  "prereqs": [
+    "relation-definition-and-counting"
+  ],
+  "videoRefs": [],
+  "sources": [
+    {
+      "kind": "slides",
+      "title": "Graph Theory: Connectivity, Coloring, Matching - GO Classroom slide deck",
+      "channel": "GATE Overflow (Arjun Suresh, GO Classroom)",
+      "url": "https://gateoverflow.in/?qa=blob&qa_blobid=659724806035278755",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "slide text read through graph basics, walk/path/circuit, Euler and Hamiltonian, cut-set and cut-vertex, edge and vertex connectivity, colouring, bipartite, independent set, matching and Hall's theorem; the fetch was truncated after the Havel-Hakimi example, so the later matching pages were read only as excerpts"
+    },
+    {
+      "kind": "text",
+      "title": "Graph Theory - GATE Overflow subject notes, Volume 1 chapter",
+      "channel": "GATE Overflow",
+      "url": "https://gateoverflow.in/subject/mathematics/discrete-mathematics/graph-theory?tab=notes",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read through the counting and graph-algorithm sections before the fetch was truncated; used for the topic's GATE weightage table and the counting formulas, not for any card claim"
+    }
+  ],
+  "sourceLine": "Graph vocabulary, the handshake lemma and the edge bound: GATE Overflow GO Classroom deck 'Graph Theory: Connectivity, Coloring, Matching' (English, read in part) for the definitions, degrees, complete graphs and Havel-Hakimi. Standard references used to verify, never copied: Rosen, Discrete Mathematics and Its Applications, ch. 10; West, Introduction to Graph Theory (Brooks, Dirac, Koenig, chromatic polynomial); CLRS ch. 22 (articulation points, bridges) and ch. 26 (bipartite matching); Diestel, Graph Theory (Menger). Every count in this card is recomputed in scripts/validate.py."
+}

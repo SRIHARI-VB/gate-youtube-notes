@@ -1,0 +1,74 @@
+{
+  "id": "cut-vertices-bridges-and-blocks",
+  "title": "Cut Vertices, Bridges and Blocks",
+  "priority": "P1",
+  "order": 92,
+  "unit": "Connectivity",
+  "quickIdea": "A cut vertex or a bridge is a single point of failure, and two DFS rules find all of them in linear time; a bridge is exactly an edge that lies on no cycle.",
+  "remember": [
+    "v is a cut vertex (articulation point) when G - v has more components than G; e is a bridge when G - e does.",
+    "An edge is a bridge if and only if it lies on no simple cycle, so every edge of a tree is a bridge and no edge of a cycle is.",
+    "In a connected graph on n at least 3 vertices the endpoints of a bridge are cut vertices, so a cut edge forces a cut vertex; the converse fails, since two triangles sharing one vertex have a cut vertex and no bridge.",
+    "A connected graph on n vertices has at most n-2 cut vertices, reached by a path on n vertices.",
+    "DFS rule for the root: the root of a DFS tree is a cut vertex if and only if it has at least two children.",
+    "DFS rule for other vertices: v is a cut vertex if and only if some child subtree of v has no back edge to a proper ancestor of v, that is low[child] is at least disc[v].",
+    "A leaf of a DFS tree is never a cut vertex, and the biconnected components (blocks) of a graph share only cut vertices."
+  ],
+  "example": {
+    "prompt": "Take a triangle abc with a pendant edge cd hanging from c. List the cut vertices and the bridges.",
+    "work": "Deleting c isolates d, so the graph splits and c is a cut vertex. Deleting a, b or d leaves the rest connected, so none of them is a cut vertex. Deleting edge cd isolates d, so cd is a bridge. Deleting ab, bc or ca leaves the triangle connected through its other two sides, so none of those three is a bridge.",
+    "answer": "One cut vertex, c, and one bridge, cd."
+  },
+  "gateAngle": "GATE CSE 2021 Set 1 Q.41 asked exactly the two DFS rules and GATE CSE 2015 Set 2 Q.50 asked the bridge-on-a-cycle fact. Both are definition questions worth marks per option, not coding questions.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "A connected graph on 6 vertices has 5 edges. How many bridges does it have?",
+      "answer": "5. A connected graph with n-1 edges is a tree, and every edge of a tree is a bridge.",
+      "why": "Connected plus n-1 edges forces a tree, and deleting any tree edge separates the tree into two parts."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Can a graph have a cut vertex but no bridge?",
+      "answer": "Yes. Two triangles sharing exactly one vertex: removing the shared vertex disconnects the graph, but no single edge does.",
+      "why": "Cut vertices are about vertices and bridges about edges; only the direction 'bridge implies cut vertex' holds, and only for n at least 3."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "In a DFS tree of a connected graph the root has one child, and every other vertex has a child subtree with a back edge to a proper ancestor. How many cut vertices does the graph have?",
+      "answer": "None. A root with one child is not a cut vertex, and every other vertex has a low value below its own discovery time, so none of them is a cut vertex either.",
+      "why": "Both DFS rules must fail for a vertex to be safe; here both do."
+    }
+  ],
+  "trap": {
+    "what": "Saying 'a cut edge always gives a cut vertex' without the n at least 3 condition, and calling a leaf of a DFS tree a cut vertex.",
+    "why": "In K_2, removing either endpoint leaves a single vertex, which is connected, so the bridge has no cut vertex at all. A DFS leaf has no descendant to be cut off from the rest.",
+    "counterexample": "K_2 has a bridge and no cut vertex; in the triangle with pendant edge cd, the pendant vertex d is a leaf of a DFS tree rooted at a and is not a cut vertex."
+  },
+  "check": {
+    "question": "A cycle C_6 has one chord joining two opposite vertices. How many cut vertices does the resulting graph have?",
+    "answer": "None.",
+    "explanation": "The chord splits C_6 into two cycles of length 4 that share only the chord's endpoints, and each of those endpoints still has two independent routes into the other cycle. Removing any vertex leaves a path plus a chord, which stays connected, so no vertex is a cut vertex; scripts/validate.py checks this by removing each vertex in turn."
+  },
+  "pyqIds": [
+    "gate-2015-set2-50-bridge",
+    "gate-2021-set1-41-articulation-dfs"
+  ],
+  "prereqs": [
+    "paths-cycles-and-components"
+  ],
+  "videoRefs": [],
+  "sources": [
+    {
+      "kind": "slides",
+      "title": "Graph Theory: Connectivity, Coloring, Matching - GO Classroom slide deck",
+      "channel": "GATE Overflow (Arjun Suresh, GO Classroom)",
+      "url": "https://gateoverflow.in/?qa=blob&qa_blobid=659724806035278755",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "slide text read through graph basics, walk/path/circuit, Euler and Hamiltonian, cut-set and cut-vertex, edge and vertex connectivity, colouring, bipartite, independent set, matching and Hall's theorem; the fetch was truncated after the Havel-Hakimi example, so the later matching pages were read only as excerpts"
+    }
+  ],
+  "sourceLine": "Cut vertices, bridges, the DFS rules and biconnected components: GATE Overflow GO Classroom deck (English, read in part) for the cut-set, cut-vertex and edge/vertex-connectivity definitions; CLRS ch. 22 problem 22-2 for the two DFS rules. Standard references used to verify, never copied: Rosen, Discrete Mathematics and Its Applications, ch. 10; West, Introduction to Graph Theory (Brooks, Dirac, Koenig, chromatic polynomial); CLRS ch. 22 (articulation points, bridges) and ch. 26 (bipartite matching); Diestel, Graph Theory (Menger). The bridge-on-a-cycle equivalence, the n-2 bound and the DFS rules are all recomputed in scripts/validate.py over every graph on up to 5 vertices."
+}

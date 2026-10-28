@@ -1,0 +1,21 @@
+{
+  "id": "gate-2015-set2-50-bridge",
+  "year": "2015",
+  "paper": "GATE CS 2015 Set 2",
+  "question_ref": "Q.50",
+  "type": "MCQ",
+  "topic": "cut-vertices-bridges-and-blocks",
+  "text": "In a connected graph, a bridge is an edge whose removal disconnects the graph. Which one of the following statements is true?",
+  "options": [
+    "A tree has no bridges",
+    "A bridge cannot be part of a simple cycle",
+    "Every edge of a clique with size at least 3 is a bridge (a clique is any complete subgraph of a graph)",
+    "A graph with bridges cannot have a cycle"
+  ],
+  "answer": "Option 2: a bridge cannot be part of a simple cycle",
+  "solution": "If an edge lies on a simple cycle, its endpoints stay connected along the rest of the cycle after the edge is deleted, so the edge is not a bridge; conversely an edge that lies on no cycle is a bridge. Every edge of a tree is a bridge, so option 1 is false. Every edge of a clique of size at least 3 lies on a triangle, so option 3 is false. A graph can have a bridge and a cycle at the same time, so option 4 is false. scripts/validate.py checks the bridge-iff-no-cycle equivalence on every graph on up to 5 vertices.",
+  "source_url": "https://gateoverflow.in/8252/gate-cse-2015-set-2-question-50",
+  "source_label": "GATE Overflow question page - GATE CSE 2015 Set 2 Q.50 with the accepted answer (option B)",
+  "verification": "SOURCED",
+  "answer_evidence": "Accepted answer: 'Correct Answer: B', with the reasoning that removing an edge of a cycle leaves the graph connected."
+}

@@ -1,0 +1,70 @@
+{
+  "id": "halls-marriage-theorem",
+  "title": "Hall's Marriage Theorem",
+  "priority": "P1",
+  "order": 97,
+  "unit": "Matching",
+  "quickIdea": "Hall's condition is a counting guarantee: a matching that covers all of one side exists exactly when no group of vertices on that side is short of distinct neighbours.",
+  "remember": [
+    "Hall's theorem: a matching saturating every vertex of L exists if and only if |N(S)| is at least |S| for every subset S of L.",
+    "The failure witness is one subset: if some S has fewer than |S| neighbours, those vertices must share too few partners, so one of them is left unmatched.",
+    "Defect form: the largest matching leaves at most max over S of (|S| - |N(S)|) vertices of L unmatched.",
+    "Checking every subset is exponential, but finding the matching is polynomial, by augmenting paths or by maximum flow with unit capacities.",
+    "A d-regular bipartite graph satisfies Hall, so it has a perfect matching, and its edges split into d perfect matchings.",
+    "Hall saturates one side; a perfect matching additionally needs the two sides to have equal size and Hall to hold in both directions."
+  ],
+  "example": {
+    "prompt": "L = {a, b, c}, R = {1, 2, 3}, with edges a-1, a-2, b-2, c-2, c-3. Is there a matching saturating L?",
+    "work": "Check the tight subsets. N({a,b}) = {1,2} has size 2, N({b,c}) = {2,3} has size 2, N({a,c}) = {1,2,3} has size 3, and N(L) has size 3. Every subset meets Hall's bound, so a saturating matching exists: a-1, b-2, c-3.",
+    "answer": "Yes: Hall's condition holds and a-1, b-2, c-3 saturates all of L."
+  },
+  "gateAngle": "GATE states Hall in words ('a complete matching exists if and only if every r vertices have at least r neighbours') and tests it through d-regular graphs. The exam form is almost always: find the one subset that breaks the condition.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "L = {a, b, c, d}, R = {1, 2, 3}, with edges a-1, b-1, c-2, d-2, d-3. Can a matching saturate L?",
+      "answer": "No. N({a,b}) = {1} has size 1, which is less than 2.",
+      "why": "Two left vertices have a single shared neighbour, so one of them must stay unmatched."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Why is checking only |N(L)| at least |L| not enough?",
+      "answer": "A smaller subset can be starved while the whole of L is not.",
+      "why": "Hall quantifies over every subset, and a small bottleneck inside L is invisible at the level of all of L."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "A 4-regular bipartite graph has 20 vertices in total. How many edges does it have, and what matching is guaranteed?",
+      "answer": "40 edges, from 20 x 4 / 2, and a perfect matching of 10 edges is guaranteed.",
+      "why": "A d-regular bipartite graph satisfies Hall, and with equal sides a saturating matching is perfect."
+    }
+  ],
+  "trap": {
+    "what": "Concluding 'no perfect matching' when the real failure is a Hall violation, or checking Hall only for the whole of L.",
+    "why": "Hall is an if-and-only-if for saturating L; a failure on a proper subset is the usual GATE trap, and it is also what the defect form measures.",
+    "counterexample": "L = {a,b,c}, R = {1,2,3} with a-1, b-1, c-1, c-2, c-3 has |N(L)| = 3 = |L| yet fails at S = {a,b}, where |N(S)| = 1."
+  },
+  "check": {
+    "question": "L = {a, b, c}, R = {1, 2, 3}, with edges a-1, b-1, c-2, c-3. Does Hall's condition hold, and what is the maximum matching size?",
+    "answer": "Hall fails at S = {a, b}, and the maximum matching has 2 edges.",
+    "explanation": "N({a,b}) = {1} has size 1 against |S| = 2, so a and b cannot both be matched; the best is to match one of them to 1 and c to 2 or 3, giving 2 edges, and the defect form also reports 1 unmatched left vertex."
+  },
+  "pyqIds": [],
+  "prereqs": [
+    "matching-maximal-maximum-perfect"
+  ],
+  "videoRefs": [],
+  "sources": [
+    {
+      "kind": "slides",
+      "title": "Graph Theory: Connectivity, Coloring, Matching - GO Classroom slide deck",
+      "channel": "GATE Overflow (Arjun Suresh, GO Classroom)",
+      "url": "https://gateoverflow.in/?qa=blob&qa_blobid=659724806035278755",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "slide text read through graph basics, walk/path/circuit, Euler and Hamiltonian, cut-set and cut-vertex, edge and vertex connectivity, colouring, bipartite, independent set, matching and Hall's theorem; the fetch was truncated after the Havel-Hakimi example, so the later matching pages were read only as excerpts"
+    }
+  ],
+  "sourceLine": "Hall's marriage theorem, the complete-matching condition and the d-regular corollary: GATE Overflow GO Classroom deck (English, read in part) for the complete-matching theorem in its r-subset form; West and the NPTEL IIITB lecture sequence (structure only) for the standard proof. Standard references used to verify, never copied: Rosen, Discrete Mathematics and Its Applications, ch. 10; West, Introduction to Graph Theory (Brooks, Dirac, Koenig, chromatic polynomial); CLRS ch. 22 (articulation points, bridges) and ch. 26 (bipartite matching); Diestel, Graph Theory (Menger). Hall's condition, the defect form and both examples are recomputed by brute force in scripts/validate.py."
+}

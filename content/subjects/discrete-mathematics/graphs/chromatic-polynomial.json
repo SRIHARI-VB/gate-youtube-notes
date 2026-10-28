@@ -1,0 +1,70 @@
+{
+  "id": "chromatic-polynomial",
+  "title": "The Chromatic Polynomial",
+  "priority": "P2",
+  "order": 100,
+  "unit": "Colouring",
+  "quickIdea": "Count colourings instead of minimising them: the chromatic polynomial is a monic polynomial of degree n, and the chromatic number is the smallest positive integer where it stops being zero.",
+  "remember": [
+    "chi_G(k) counts the proper colourings of G with k labelled colours, and it is a monic polynomial of degree n = |V|.",
+    "chi_{K_n}(k) = k(k-1)(k-2)...(k-n+1), and chi_G(k) = 0 for every k smaller than chi(G).",
+    "For a tree on n vertices chi_G(k) = k(k-1)^(n-1), and for a cycle chi_{C_n}(k) = (k-1)^n + (-1)^n (k-1).",
+    "Deletion and contraction: chi_G(k) = chi_{G-e}(k) - chi_{G/e}(k), which computes the polynomial one edge at a time.",
+    "The coefficient of k^(n-1) is minus |E|, and the constant term is 0 whenever G has at least one edge.",
+    "chi(G) is the smallest positive k with chi_G(k) greater than 0; the polynomial counts colourings, it does not produce a colouring."
+  ],
+  "example": {
+    "prompt": "Find the chromatic polynomial of C_4 and read off chi(C_4).",
+    "work": "(k-1)^4 + (k-1) = k^4 - 4k^3 + 6k^2 - 3k. At k = 1 it is 0, and at k = 2 it is 1 + 1 = 2, which is greater than 0, so the smallest positive k that admits a colouring is 2. The k^3 coefficient is -4, matching minus the number of edges.",
+    "answer": "chi_{C_4}(k) = k^4 - 4k^3 + 6k^2 - 3k, and chi(C_4) = 2."
+  },
+  "gateAngle": "Colouring questions in GATE usually ask for a count at a small k, such as the number of proper 3-colourings, which the polynomial answers at once; if the formula is forgotten, deletion and contraction derives it safely.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "How many proper 3-colourings does K_3 have?",
+      "answer": "6, which is 3 x 2 x 1.",
+      "why": "The three vertices must receive three different colours, so any assignment of distinct colours works."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Why is chi_G(1) = 0 for any graph with at least one edge?",
+      "answer": "One colour cannot give two adjacent vertices different colours.",
+      "why": "A proper colouring needs c(u) different from c(v) on every edge, which is impossible with a single colour."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "A tree has 6 vertices. How many proper 3-colourings does it have?",
+      "answer": "3 x 2^5 = 96.",
+      "why": "Root the tree, colour the root in 3 ways, and each of the other 5 vertices in 2 ways, since only its parent's colour is forbidden."
+    }
+  ],
+  "trap": {
+    "what": "Forgetting that colours are labelled, so that swapping two colours counts as a different colouring.",
+    "why": "chi_G(k) counts functions from V to a fixed k-element set, so C_4 with 3 colours has 18 colourings, not 18/3! = 3.",
+    "counterexample": "C_4 with 3 colours: 3^4 - 4 x 27 + 6 x 9 - 3 x 3 = 18, while the number of colourings up to renaming the colours is 18/6 = 3."
+  },
+  "check": {
+    "question": "How many proper 2-colourings does K_{2,3} have?",
+    "answer": "2, one for each way of assigning the two colours to the two sides.",
+    "explanation": "K_{2,3} is connected and bipartite with at least one edge, so any proper 2-colouring is forced once the colour of one vertex is fixed, and the two choices of that colour give exactly 2 colourings."
+  },
+  "pyqIds": [],
+  "prereqs": [
+    "chromatic-number-and-greedy-bounds"
+  ],
+  "videoRefs": [],
+  "sources": [
+    {
+      "kind": "text",
+      "title": "Graph Theory - GATE Overflow subject notes, Volume 1 chapter",
+      "channel": "GATE Overflow",
+      "url": "https://gateoverflow.in/subject/mathematics/discrete-mathematics/graph-theory?tab=notes",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read through the counting and graph-algorithm sections before the fetch was truncated; used for the topic's GATE weightage table and the counting formulas, not for any card claim"
+    }
+  ],
+  "sourceLine": "The chromatic polynomial, its values on complete graphs, trees and cycles, and the deletion-contraction identity: Rosen ch. 10 and West (standard references; no lecture transcript was readable for this subtopic). Standard references used to verify, never copied: Rosen, Discrete Mathematics and Its Applications, ch. 10; West, Introduction to Graph Theory (Brooks, Dirac, Koenig, chromatic polynomial); CLRS ch. 22 (articulation points, bridges) and ch. 26 (bipartite matching); Diestel, Graph Theory (Menger). Every polynomial value, coefficient and count in this card is recomputed in scripts/validate.py by counting colourings directly."
+}

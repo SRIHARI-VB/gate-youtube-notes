@@ -1,0 +1,74 @@
+{
+  "id": "vertex-cover-independent-set-konig",
+  "title": "Vertex Cover, Independent Set and Koenig's Theorem",
+  "priority": "P1",
+  "order": 98,
+  "unit": "Matching",
+  "quickIdea": "A vertex cover pays one vertex per edge, and in a bipartite graph its cheapest price equals the largest matching, which is Koenig's theorem.",
+  "remember": [
+    "A vertex cover C touches every edge; alpha(G) is the size of the largest independent set and tau(G) the size of the smallest vertex cover.",
+    "Independent sets are exactly the complements of vertex covers, so alpha + tau = n for every graph.",
+    "The matching number nu is at most tau, because each edge of a matching needs its own cover vertex since matching edges share no endpoint.",
+    "Koenig: in a bipartite graph nu = tau, so a maximum matching and a minimum vertex cover have the same size; consequently alpha = n - nu there.",
+    "Koenig fails outside bipartite graphs: in a triangle nu = 1 but tau = 2.",
+    "A vertex of degree at least k+1 must lie in every vertex cover of size k, because leaving it out would force all its neighbours in.",
+    "A maximum matching in a bipartite graph is a maximum flow with unit capacities, and a minimum cover is read off the final level graph."
+  ],
+  "example": {
+    "prompt": "For K_{3,3} give nu, tau and alpha.",
+    "work": "A matching has at most 3 edges and a1-b1, a2-b2, a3-b3 has 3, so nu = 3. K_{3,3} is bipartite, so tau = nu = 3 by Koenig, and indeed either whole side is a cover of size 3 while no 2 vertices touch all 9 edges. Finally alpha = 6 - 3 = 3.",
+    "answer": "nu = 3, tau = 3 and alpha = 3."
+  },
+  "gateAngle": "Koenig turns a search into a count: in a bipartite graph you compute whichever of the matching or the cover is easier and read the other off. GATE CSE 2026 Set 1 Q.37 tests the cover side, the fact that a high-degree vertex is forced into every minimum cover.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "For the 5-cycle give nu, tau and alpha.",
+      "answer": "nu = 2, tau = 3 and alpha = 2, and nu is less than tau because C_5 is not bipartite.",
+      "why": "Two disjoint edges fit but three cannot, while covering all five edges needs three vertices."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Why can one vertex of a vertex cover cover at most one edge of a matching?",
+      "answer": "Because the edges of a matching are disjoint, so no vertex is an endpoint of two of them.",
+      "why": "That is exactly the injection that proves nu is at most tau in every graph."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "A bipartite graph on 10 vertices has maximum matching of size 4. What are tau and alpha?",
+      "answer": "tau = 4 by Koenig, and alpha = 10 - 4 = 6.",
+      "why": "Koenig gives the cover, and the complement of a minimum cover is a maximum independent set."
+    }
+  ],
+  "trap": {
+    "what": "Applying Koenig to a graph that is not bipartite, or using alpha = n - nu where nu is the matching number but treating it as if it were tau.",
+    "why": "Koenig's equality is a bipartite-only guarantee, and the identity alpha + tau = n uses the cover number, not the matching number.",
+    "counterexample": "The triangle has nu = 1 and tau = 2, so nu = tau fails, and its alpha = 1 while n - nu = 2, so alpha = n - nu fails as well."
+  },
+  "check": {
+    "question": "A bipartite graph on 8 vertices has a minimum vertex cover of size 3. What are its maximum matching size and its independence number?",
+    "answer": "3 and 5.",
+    "explanation": "Koenig makes the maximum matching equal to the minimum cover, so nu = 3, and alpha = n - tau = 8 - 3 = 5 because the complement of a minimum cover is a maximum independent set."
+  },
+  "pyqIds": [
+    "gate-2026-set1-37-vertex-cover-degree"
+  ],
+  "prereqs": [
+    "matching-maximal-maximum-perfect",
+    "halls-marriage-theorem"
+  ],
+  "videoRefs": [],
+  "sources": [
+    {
+      "kind": "slides",
+      "title": "Graph Theory: Connectivity, Coloring, Matching - GO Classroom slide deck",
+      "channel": "GATE Overflow (Arjun Suresh, GO Classroom)",
+      "url": "https://gateoverflow.in/?qa=blob&qa_blobid=659724806035278755",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "slide text read through graph basics, walk/path/circuit, Euler and Hamiltonian, cut-set and cut-vertex, edge and vertex connectivity, colouring, bipartite, independent set, matching and Hall's theorem; the fetch was truncated after the Havel-Hakimi example, so the later matching pages were read only as excerpts"
+    }
+  ],
+  "sourceLine": "Vertex cover, independent set, the alpha + tau identity and Koenig's theorem: GATE Overflow GO Classroom deck (English, read in part) for the independent-set bound and the complete-matching theorem; West for Koenig. Standard references used to verify, never copied: Rosen, Discrete Mathematics and Its Applications, ch. 10; West, Introduction to Graph Theory (Brooks, Dirac, Koenig, chromatic polynomial); CLRS ch. 22 (articulation points, bridges) and ch. 26 (bipartite matching); Diestel, Graph Theory (Menger). nu, tau and alpha are recomputed by brute force for every graph on up to 5 vertices and every bipartite graph on up to 6 vertices in scripts/validate.py, including the 2026 forced-vertex claim."
+}

@@ -1,0 +1,73 @@
+{
+  "id": "bipartite-graphs-and-odd-cycles",
+  "title": "Bipartite Graphs and the Odd-Cycle Criterion",
+  "priority": "P1",
+  "order": 95,
+  "unit": "Colouring",
+  "quickIdea": "Two colours suffice exactly when no cycle has odd length, and that one criterion decides bipartiteness, the chromatic number of 2, and the maximum-edge formula n squared over 4.",
+  "remember": [
+    "G is bipartite when V splits into two parts and every edge crosses between them; equivalently G has no cycle of odd length.",
+    "A bipartite graph with at least one edge has chromatic number 2; with no edges it has chromatic number 1.",
+    "Bipartiteness is decided by one BFS or DFS pass: colour the source 0, alternate colours, and report failure when an edge joins two vertices of the same colour, which is Theta(|V| + |E|) on an adjacency list and optimal.",
+    "K_{m,n} has mn edges, so a bipartite graph on n vertices has at most floor(n squared / 4) edges, reached by K_{floor(n/2), ceil(n/2)}.",
+    "Every tree is bipartite, and so is every acyclic graph; a graph may have cycles and still be bipartite, as long as every cycle is even.",
+    "A d-regular bipartite graph has a perfect matching, and its edges split into d perfect matchings."
+  ],
+  "example": {
+    "prompt": "A bipartite graph has 12 vertices. What is the maximum number of edges, and can the extremal graph contain an odd cycle?",
+    "work": "floor(12 squared / 4) = 36, reached by K_{6,6} with 6 x 6 = 36 edges. K_{6,6} is bipartite by construction, so every cycle alternates between the two sides and has even length.",
+    "answer": "36 edges, and the extremal graph has no odd cycle."
+  },
+  "gateAngle": "GATE CSE 2014 Set 2 Q.3 is the n squared over 4 formula as a NAT, and GATE CSE 2026 Set 1 Q.45 pairs the odd-cycle criterion with the Theta(V+E) test. Both follow from the same theorem, so one card covers both.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "What is the maximum number of edges in a bipartite graph on 9 vertices?",
+      "answer": "floor(81/4) = 20, reached by K_{4,5}.",
+      "why": "The parts must be as equal as possible, so they have 4 and 5 vertices and the edge count is 4 x 5."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "A graph on 8 vertices has 16 edges and no triangle. Must it be bipartite?",
+      "answer": "No. Being triangle-free is weaker than having no odd cycle.",
+      "why": "A 5-cycle is triangle-free and not bipartite, and the Petersen graph is triangle-free on 10 vertices with 15 edges and is not bipartite."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "A connected bipartite simple graph on 7 vertices has 12 edges. Is that possible, and what is it?",
+      "answer": "Yes, and only as K_{3,4}: floor(49/4) = 12 is the maximum, and a bipartite graph that attains it must be complete bipartite.",
+      "why": "Any missing edge between the two sides could be added, so an extremal bipartite graph is complete bipartite."
+    }
+  ],
+  "trap": {
+    "what": "Calling a graph bipartite because it has no triangle, and answering 1 for the chromatic number of a bipartite graph that has edges.",
+    "why": "Odd cycles of length 5, 7 and beyond also break 2-colourability, and a single edge already forces two colours.",
+    "counterexample": "The Petersen graph is triangle-free and has 5-cycles, so it is not bipartite; K_{2,2} has edges and chromatic number 2."
+  },
+  "check": {
+    "question": "Is a 6-cycle with one chord joining opposite vertices bipartite?",
+    "answer": "Yes. The chord splits the cycle into two cycles of length 4.",
+    "explanation": "Label the cycle 1 to 6 and add the chord 1-4. The two cycles are 1-2-3-4-1 and 1-4-5-6-1, both of length 4, so every cycle is even and a 2-colouring exists: 0, 1, 0, 1, 0, 1 around the cycle still separates the ends of the chord."
+  },
+  "pyqIds": [
+    "gate-2014-set2-3-max-edges-bipartite",
+    "gate-2026-set1-45-2-colorable"
+  ],
+  "prereqs": [
+    "paths-cycles-and-components"
+  ],
+  "videoRefs": [],
+  "sources": [
+    {
+      "kind": "slides",
+      "title": "Graph Theory: Connectivity, Coloring, Matching - GO Classroom slide deck",
+      "channel": "GATE Overflow (Arjun Suresh, GO Classroom)",
+      "url": "https://gateoverflow.in/?qa=blob&qa_blobid=659724806035278755",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "slide text read through graph basics, walk/path/circuit, Euler and Hamiltonian, cut-set and cut-vertex, edge and vertex connectivity, colouring, bipartite, independent set, matching and Hall's theorem; the fetch was truncated after the Havel-Hakimi example, so the later matching pages were read only as excerpts"
+    }
+  ],
+  "sourceLine": "Bipartite graphs, the odd-cycle criterion, the 2-colouring test and the n squared over 4 bound: GATE Overflow GO Classroom deck (English, read in part) for the bipartite and 2-chromatic statements; Rosen ch. 10 for the extremal formula. Standard references used to verify, never copied: Rosen, Discrete Mathematics and Its Applications, ch. 10; West, Introduction to Graph Theory (Brooks, Dirac, Koenig, chromatic polynomial); CLRS ch. 22 (articulation points, bridges) and ch. 26 (bipartite matching); Diestel, Graph Theory (Menger). The odd-cycle criterion and the edge bound are recomputed in scripts/validate.py over every graph on up to 5 vertices."
+}

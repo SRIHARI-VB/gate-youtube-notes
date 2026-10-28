@@ -1,0 +1,21 @@
+{
+  "id": "gate-2024-set1-41-chromatic-statements",
+  "year": "2024",
+  "paper": "GATE CS 2024 Set 1",
+  "question_ref": "Q.41",
+  "type": "MSQ",
+  "topic": "chromatic-number-and-greedy-bounds",
+  "text": "The chromatic number of a graph is the minimum number of colours used in a proper colouring of the graph. Let G be any graph with n vertices and chromatic number k. Which of the following statements is/are always TRUE?",
+  "options": [
+    "G contains a complete subgraph with k vertices",
+    "G contains an independent set of size at least n/k",
+    "G contains at least k(k-1)/2 edges",
+    "G contains a vertex of degree at least k"
+  ],
+  "answer": "Options 2 and 3",
+  "solution": "Option 1 fails on C_5, which has chromatic number 3 and no triangle. Option 2 holds because the k colour classes partition n vertices, so one class has at least n/k vertices and a colour class is an independent set. Option 3 holds because each pair of colour classes must be joined by an edge, otherwise the two classes could be merged and one colour saved, so there are at least C(k,2) edges. Option 4 fails on C_5, where every degree is 2 while k = 3. scripts/validate.py verifies all four verdicts on every graph on up to 5 vertices.",
+  "source_url": "https://gateoverflow.in/422801/gate-cse-2024-set-1-question-41",
+  "source_label": "GATE Overflow question page - GATE CSE 2024 Set 1 Q.41 with the accepted answer (options 2 and 3)",
+  "verification": "SOURCED",
+  "answer_evidence": "Accepted answer: 'The correct statements are B and C', with C_5 as the counterexample to options A and D and the colour-class argument for B and C."
+}

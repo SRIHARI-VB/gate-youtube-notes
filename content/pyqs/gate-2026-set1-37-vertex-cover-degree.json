@@ -1,0 +1,21 @@
+{
+  "id": "gate-2026-set1-37-vertex-cover-degree",
+  "year": "2026",
+  "paper": "GATE CS 2026 Set 1",
+  "question_ref": "Q.37",
+  "type": "MCQ",
+  "topic": "vertex-cover-independent-set-konig",
+  "text": "Let G(V, E) be a simple, undirected graph. A vertex cover of G is a subset V' of V such that for every (u, v) in E, u is in V' or v is in V'. Let the size of the smallest vertex cover in G be k. Let S be any vertex cover of size k. For a vertex v in V, which of the following constraints will always ensure that v is in S?",
+  "options": [
+    "The degree of v is at least k + 1",
+    "The vertex v is on a path of length k + 1",
+    "The vertex v is on a cycle of length k + 1",
+    "The vertex v is a part of a clique of size k"
+  ],
+  "answer": "Option 1: the degree of v is at least k + 1",
+  "solution": "If v has at least k+1 neighbours and v is not in S, then every neighbour of v must be in S to cover the edges at v, so S has at least k+1 vertices, contradicting |S| = k. The other three conditions fail on small examples: a path on 4 vertices has a minimum cover of size 2 that omits an end vertex, a triangle has three minimum covers of size 2 so any one vertex is omitted by some of them, and a clique of size k has minimum cover k-1 so no particular vertex is forced. scripts/validate.py checks the forcing claim on every graph on up to 5 vertices and reproduces the three counterexamples.",
+  "source_url": "https://gateoverflow.in/523043/gate-cse-2026-set-1-question-37",
+  "source_label": "GATE Overflow question page - GATE CSE 2026 Set 1 Q.37 with the accepted answer (degree at least k+1)",
+  "verification": "SOURCED",
+  "answer_evidence": "Accepted answer: 'Correct Answer: A. The degree of v is at least k+1', with the contradiction proof and counterexamples for the other three options."
+}

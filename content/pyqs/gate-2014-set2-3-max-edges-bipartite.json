@@ -1,0 +1,15 @@
+{
+  "id": "gate-2014-set2-3-max-edges-bipartite",
+  "year": "2014",
+  "paper": "GATE CS 2014 Set 2",
+  "question_ref": "Q.3",
+  "type": "NAT",
+  "topic": "bipartite-graphs-and-odd-cycles",
+  "text": "The maximum number of edges in a bipartite graph on 12 vertices is ______.",
+  "answer": "36",
+  "solution": "If the two sides hold p and q vertices with p + q = 12, the edge count is at most pq, which is largest at p = q = 6, giving 36, and K_{6,6} attains it. In general a bipartite graph on n vertices has at most floor(n squared / 4) edges. scripts/validate.py maximises p(12-p) over all splits and checks that no bipartite graph on 12 vertices exceeds 36.",
+  "source_url": "https://gateoverflow.in/1955/gate-cse-2014-set-2-question-3",
+  "source_label": "GATE Overflow question page - GATE CSE 2014 Set 2 Q.3 with the accepted answer (36)",
+  "verification": "SOURCED",
+  "answer_evidence": "Accepted answer: 'Maximum number of edges in a bipartite graph with n vertices = floor(n^2/4)', giving 36 for n = 12."
+}
