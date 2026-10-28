@@ -66,5 +66,17 @@
       "note": "slide text read through graph basics, walk/path/circuit, Euler and Hamiltonian, cut-set and cut-vertex, edge and vertex connectivity, colouring, bipartite, independent set, matching and Hall's theorem; the fetch was truncated after the Havel-Hakimi example, so the later matching pages were read only as excerpts"
     }
   ],
-  "sourceLine": "Hall's marriage theorem, the complete-matching condition and the d-regular corollary: GATE Overflow GO Classroom deck (English, read in part) for the complete-matching theorem in its r-subset form; West and the NPTEL IIITB lecture sequence (structure only) for the standard proof. Standard references used to verify, never copied: Rosen, Discrete Mathematics and Its Applications, ch. 10; West, Introduction to Graph Theory (Brooks, Dirac, Koenig, chromatic polynomial); CLRS ch. 22 (articulation points, bridges) and ch. 26 (bipartite matching); Diestel, Graph Theory (Menger). Hall's condition, the defect form and both examples are recomputed by brute force in scripts/validate.py."
+  "sourceLine": "Hall's marriage theorem, the complete-matching condition and the d-regular corollary: GATE Overflow GO Classroom deck (English, read in part) for the complete-matching theorem in its r-subset form; West and the NPTEL IIITB lecture sequence (structure only) for the standard proof. Standard references used to verify, never copied: Rosen, Discrete Mathematics and Its Applications, ch. 10; West, Introduction to Graph Theory (Brooks, Dirac, Koenig, chromatic polynomial); CLRS ch. 22 (articulation points, bridges) and ch. 26 (bipartite matching); Diestel, Graph Theory (Menger). Hall's condition, the defect form and both examples are recomputed by brute force in scripts/validate.py.",
+  "links": {
+    "visual": {
+      "slug": "matching-and-colouring",
+      "title": "Graphs: Matching and Colouring",
+      "level": "topic-level",
+      "covers": [
+        "Hall's condition as a necessary and sufficient test for a matching saturating one side"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/matching-and-colouring/index.html"
+    },
+    "mapped_at": "2026-10-28"
+  }
 }

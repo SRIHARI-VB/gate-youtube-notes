@@ -70,5 +70,17 @@
       "note": "slide text read through graph basics, walk/path/circuit, Euler and Hamiltonian, cut-set and cut-vertex, edge and vertex connectivity, colouring, bipartite, independent set, matching and Hall's theorem; the fetch was truncated after the Havel-Hakimi example, so the later matching pages were read only as excerpts"
     }
   ],
-  "sourceLine": "Vertex cover, independent set, the alpha + tau identity and Koenig's theorem: GATE Overflow GO Classroom deck (English, read in part) for the independent-set bound and the complete-matching theorem; West for Koenig. Standard references used to verify, never copied: Rosen, Discrete Mathematics and Its Applications, ch. 10; West, Introduction to Graph Theory (Brooks, Dirac, Koenig, chromatic polynomial); CLRS ch. 22 (articulation points, bridges) and ch. 26 (bipartite matching); Diestel, Graph Theory (Menger). nu, tau and alpha are recomputed by brute force for every graph on up to 5 vertices and every bipartite graph on up to 6 vertices in scripts/validate.py, including the 2026 forced-vertex claim."
+  "sourceLine": "Vertex cover, independent set, the alpha + tau identity and Koenig's theorem: GATE Overflow GO Classroom deck (English, read in part) for the independent-set bound and the complete-matching theorem; West for Koenig. Standard references used to verify, never copied: Rosen, Discrete Mathematics and Its Applications, ch. 10; West, Introduction to Graph Theory (Brooks, Dirac, Koenig, chromatic polynomial); CLRS ch. 22 (articulation points, bridges) and ch. 26 (bipartite matching); Diestel, Graph Theory (Menger). nu, tau and alpha are recomputed by brute force for every graph on up to 5 vertices and every bipartite graph on up to 6 vertices in scripts/validate.py, including the 2026 forced-vertex claim.",
+  "links": {
+    "visual": {
+      "slug": "matching-and-colouring",
+      "title": "Graphs: Matching and Colouring",
+      "level": "topic-level",
+      "covers": [
+        "Konig's theorem, the constructive cover, and its failure on an odd cycle"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/matching-and-colouring/index.html"
+    },
+    "mapped_at": "2026-10-28"
+  }
 }

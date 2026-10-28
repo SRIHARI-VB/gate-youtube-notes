@@ -76,5 +76,19 @@
       "note": "read through the counting and graph-algorithm sections before the fetch was truncated; used for the topic's GATE weightage table and the counting formulas, not for any card claim"
     }
   ],
-  "sourceLine": "Graph vocabulary, the handshake lemma and the edge bound: GATE Overflow GO Classroom deck 'Graph Theory: Connectivity, Coloring, Matching' (English, read in part) for the definitions, degrees, complete graphs and Havel-Hakimi. Standard references used to verify, never copied: Rosen, Discrete Mathematics and Its Applications, ch. 10; West, Introduction to Graph Theory (Brooks, Dirac, Koenig, chromatic polynomial); CLRS ch. 22 (articulation points, bridges) and ch. 26 (bipartite matching); Diestel, Graph Theory (Menger). Every count in this card is recomputed in scripts/validate.py."
+  "sourceLine": "Graph vocabulary, the handshake lemma and the edge bound: GATE Overflow GO Classroom deck 'Graph Theory: Connectivity, Coloring, Matching' (English, read in part) for the definitions, degrees, complete graphs and Havel-Hakimi. Standard references used to verify, never copied: Rosen, Discrete Mathematics and Its Applications, ch. 10; West, Introduction to Graph Theory (Brooks, Dirac, Koenig, chromatic polynomial); CLRS ch. 22 (articulation points, bridges) and ch. 26 (bipartite matching); Diestel, Graph Theory (Menger). Every count in this card is recomputed in scripts/validate.py.",
+  "links": {
+    "visual": {
+      "slug": "graphs-connectivity",
+      "title": "Graphs: Connectivity and Structure",
+      "level": "topic-level",
+      "covers": [
+        "graph as two sets, adjacency matrix and adjacency list",
+        "degree sum equals twice the edge count",
+        "handshake lemma and the parity of odd-degree vertices"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/graphs-connectivity/index.html"
+    },
+    "mapped_at": "2026-10-28"
+  }
 }

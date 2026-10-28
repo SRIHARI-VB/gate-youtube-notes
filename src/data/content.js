@@ -8972,6 +8972,20 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "Graph vocabulary, the handshake lemma and the edge bound: GATE Overflow GO Classroom deck 'Graph Theory: Connectivity, Coloring, Matching' (English, read in part) for the definitions, degrees, complete graphs and Havel-Hakimi. Standard references used to verify, never copied: Rosen, Discrete Mathematics and Its Applications, ch. 10; West, Introduction to Graph Theory (Brooks, Dirac, Koenig, chromatic polynomial); CLRS ch. 22 (articulation points, bridges) and ch. 26 (bipartite matching); Diestel, Graph Theory (Menger). Every count in this card is recomputed in scripts/validate.py.",
+   "links": {
+    "visual": {
+     "slug": "graphs-connectivity",
+     "title": "Graphs: Connectivity and Structure",
+     "level": "topic-level",
+     "covers": [
+      "graph as two sets, adjacency matrix and adjacency list",
+      "degree sum equals twice the edge count",
+      "handshake lemma and the parity of odd-degree vertices"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/graphs-connectivity/index.html"
+    },
+    "mapped_at": "2026-10-28"
+   },
    "subject": "discrete-mathematics",
    "topic": "graphs",
    "path": "subjects/discrete-mathematics/graphs/graph-vocabulary-and-degree-sum.json"
@@ -9045,6 +9059,18 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "Components, the n-k and C(n-k+1,2) edge bounds and the cyclomatic count: GATE Overflow GO Classroom deck (English, read in part) for the component, cut-set and tree definitions; the bounds themselves are standard (Rosen ch. 10) and every instance is recomputed in scripts/validate.py. Standard references used to verify, never copied: Rosen, Discrete Mathematics and Its Applications, ch. 10; West, Introduction to Graph Theory (Brooks, Dirac, Koenig, chromatic polynomial); CLRS ch. 22 (articulation points, bridges) and ch. 26 (bipartite matching); Diestel, Graph Theory (Menger).",
+   "links": {
+    "visual": {
+     "slug": "graphs-connectivity",
+     "title": "Graphs: Connectivity and Structure",
+     "level": "topic-level",
+     "covers": [
+      "walks, trails, paths, cycles, components and distance"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/graphs-connectivity/index.html"
+    },
+    "mapped_at": "2026-10-28"
+   },
    "subject": "discrete-mathematics",
    "topic": "graphs",
    "path": "subjects/discrete-mathematics/graphs/paths-cycles-and-components.json"
@@ -9122,6 +9148,18 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "Cut vertices, bridges, the DFS rules and biconnected components: GATE Overflow GO Classroom deck (English, read in part) for the cut-set, cut-vertex and edge/vertex-connectivity definitions; CLRS ch. 22 problem 22-2 for the two DFS rules. Standard references used to verify, never copied: Rosen, Discrete Mathematics and Its Applications, ch. 10; West, Introduction to Graph Theory (Brooks, Dirac, Koenig, chromatic polynomial); CLRS ch. 22 (articulation points, bridges) and ch. 26 (bipartite matching); Diestel, Graph Theory (Menger). The bridge-on-a-cycle equivalence, the n-2 bound and the DFS rules are all recomputed in scripts/validate.py over every graph on up to 5 vertices.",
+   "links": {
+    "visual": {
+     "slug": "graphs-connectivity",
+     "title": "Graphs: Connectivity and Structure",
+     "level": "topic-level",
+     "covers": [
+      "cut vertex vs bridge"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/graphs-connectivity/index.html"
+    },
+    "mapped_at": "2026-10-28"
+   },
    "subject": "discrete-mathematics",
    "topic": "graphs",
    "path": "subjects/discrete-mathematics/graphs/cut-vertices-bridges-and-blocks.json"
@@ -9196,6 +9234,19 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "Vertex and edge connectivity, the kappa-lambda-delta chain and the 2|E|/n bound: GATE Overflow GO Classroom deck (English, read in part) for the edge-connectivity and vertex-connectivity definitions and the two upper bounds; Menger from Diestel. Standard references used to verify, never copied: Rosen, Discrete Mathematics and Its Applications, ch. 10; West, Introduction to Graph Theory (Brooks, Dirac, Koenig, chromatic polynomial); CLRS ch. 22 (articulation points, bridges) and ch. 26 (bipartite matching); Diestel, Graph Theory (Menger). kappa and lambda are recomputed by brute force over vertex and edge subsets in scripts/validate.py.",
+   "links": {
+    "visual": {
+     "slug": "graphs-connectivity",
+     "title": "Graphs: Connectivity and Structure",
+     "level": "topic-level",
+     "covers": [
+      "kappa <= lambda <= delta (Whitney)",
+      "kappa of a complete graph is n - 1 by convention"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/graphs-connectivity/index.html"
+    },
+    "mapped_at": "2026-10-28"
+   },
    "subject": "discrete-mathematics",
    "topic": "graphs",
    "path": "subjects/discrete-mathematics/graphs/vertex-and-edge-connectivity.json"
@@ -9270,6 +9321,19 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "Euler and Hamiltonian definitions, the parity criterion and the edge-disjoint Hamiltonian decomposition of K_n for odd n: GATE Overflow GO Classroom deck (English, read in part). Dirac and the Petersen counterexample from West. Standard references used to verify, never copied: Rosen, Discrete Mathematics and Its Applications, ch. 10; West, Introduction to Graph Theory (Brooks, Dirac, Koenig, chromatic polynomial); CLRS ch. 22 (articulation points, bridges) and ch. 26 (bipartite matching); Diestel, Graph Theory (Menger). Every parity claim and the K_5 decomposition are recomputed in scripts/validate.py.",
+   "links": {
+    "visual": {
+     "slug": "graphs-connectivity",
+     "title": "Graphs: Connectivity and Structure",
+     "level": "topic-level",
+     "covers": [
+      "Euler criterion and its one-component condition",
+      "Euler and Hamiltonian are independent"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/graphs-connectivity/index.html"
+    },
+    "mapped_at": "2026-10-28"
+   },
    "subject": "discrete-mathematics",
    "topic": "graphs",
    "path": "subjects/discrete-mathematics/graphs/eulerian-and-hamiltonian-graphs.json"
@@ -9346,6 +9410,18 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "Bipartite graphs, the odd-cycle criterion, the 2-colouring test and the n squared over 4 bound: GATE Overflow GO Classroom deck (English, read in part) for the bipartite and 2-chromatic statements; Rosen ch. 10 for the extremal formula. Standard references used to verify, never copied: Rosen, Discrete Mathematics and Its Applications, ch. 10; West, Introduction to Graph Theory (Brooks, Dirac, Koenig, chromatic polynomial); CLRS ch. 22 (articulation points, bridges) and ch. 26 (bipartite matching); Diestel, Graph Theory (Menger). The odd-cycle criterion and the edge bound are recomputed in scripts/validate.py over every graph on up to 5 vertices.",
+   "links": {
+    "visual": {
+     "slug": "graphs-connectivity",
+     "title": "Graphs: Connectivity and Structure",
+     "level": "topic-level",
+     "covers": [
+      "bipartite iff no odd cycle, decided by BFS parity"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/graphs-connectivity/index.html"
+    },
+    "mapped_at": "2026-10-28"
+   },
    "subject": "discrete-mathematics",
    "topic": "graphs",
    "path": "subjects/discrete-mathematics/graphs/bipartite-graphs-and-odd-cycles.json"
@@ -9425,15 +9501,14 @@ window.GATE_DATA = {
    "visual": "discrete-mathematics/graphs/bipartite-matching-augmenting-path",
    "links": {
     "visual": {
-     "slug": "graphs",
-     "title": "Graphs: Connectivity, Matching, Colouring",
+     "slug": "matching-and-colouring",
+     "title": "Graphs: Matching and Colouring",
      "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/graphs/index.html",
      "covers": [
-      "maximal versus maximum matching",
-      "the augmenting path and the flip that grows the matching",
-      "Koenig: maximum matching equals minimum vertex cover in a bipartite graph"
-     ]
+      "matching, saturated, free, maximal, maximum, perfect, near-perfect, matching number",
+      "Berge's theorem and the augmenting-path algorithm"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/matching-and-colouring/index.html"
     },
     "mapped_at": "2026-10-28"
    },
@@ -9510,6 +9585,18 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "Hall's marriage theorem, the complete-matching condition and the d-regular corollary: GATE Overflow GO Classroom deck (English, read in part) for the complete-matching theorem in its r-subset form; West and the NPTEL IIITB lecture sequence (structure only) for the standard proof. Standard references used to verify, never copied: Rosen, Discrete Mathematics and Its Applications, ch. 10; West, Introduction to Graph Theory (Brooks, Dirac, Koenig, chromatic polynomial); CLRS ch. 22 (articulation points, bridges) and ch. 26 (bipartite matching); Diestel, Graph Theory (Menger). Hall's condition, the defect form and both examples are recomputed by brute force in scripts/validate.py.",
+   "links": {
+    "visual": {
+     "slug": "matching-and-colouring",
+     "title": "Graphs: Matching and Colouring",
+     "level": "topic-level",
+     "covers": [
+      "Hall's condition as a necessary and sufficient test for a matching saturating one side"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/matching-and-colouring/index.html"
+    },
+    "mapped_at": "2026-10-28"
+   },
    "subject": "discrete-mathematics",
    "topic": "graphs",
    "path": "subjects/discrete-mathematics/graphs/halls-marriage-theorem.json"
@@ -9587,6 +9674,18 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "Vertex cover, independent set, the alpha + tau identity and Koenig's theorem: GATE Overflow GO Classroom deck (English, read in part) for the independent-set bound and the complete-matching theorem; West for Koenig. Standard references used to verify, never copied: Rosen, Discrete Mathematics and Its Applications, ch. 10; West, Introduction to Graph Theory (Brooks, Dirac, Koenig, chromatic polynomial); CLRS ch. 22 (articulation points, bridges) and ch. 26 (bipartite matching); Diestel, Graph Theory (Menger). nu, tau and alpha are recomputed by brute force for every graph on up to 5 vertices and every bipartite graph on up to 6 vertices in scripts/validate.py, including the 2026 forced-vertex claim.",
+   "links": {
+    "visual": {
+     "slug": "matching-and-colouring",
+     "title": "Graphs: Matching and Colouring",
+     "level": "topic-level",
+     "covers": [
+      "Konig's theorem, the constructive cover, and its failure on an odd cycle"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/matching-and-colouring/index.html"
+    },
+    "mapped_at": "2026-10-28"
+   },
    "subject": "discrete-mathematics",
    "topic": "graphs",
    "path": "subjects/discrete-mathematics/graphs/vertex-cover-independent-set-konig.json"
@@ -9665,6 +9764,21 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "Chromatic number, the standard families, the independent-set and edge-count bounds: GATE Overflow GO Classroom deck (English, read in part) for the colouring and independent-set statements; Brooks and Dirac from West. Standard references used to verify, never copied: Rosen, Discrete Mathematics and Its Applications, ch. 10; West, Introduction to Graph Theory (Brooks, Dirac, Koenig, chromatic polynomial); CLRS ch. 22 (articulation points, bridges) and ch. 26 (bipartite matching); Diestel, Graph Theory (Menger). Every chromatic number, clique number, independence number and bound in this card is recomputed in scripts/validate.py.",
+   "links": {
+    "visual": {
+     "slug": "matching-and-colouring",
+     "title": "Graphs: Matching and Colouring",
+     "level": "topic-level",
+     "covers": [
+      "chromatic number of common families (cycles, complete graphs, bipartite graphs, trees)",
+      "clique number as a lower bound, and the Mycielskian gap",
+      "first-fit greedy, order dependence, chromatic number at most maximum degree plus one",
+      "Brooks' theorem and its two exceptions"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/matching-and-colouring/index.html"
+    },
+    "mapped_at": "2026-10-28"
+   },
    "subject": "discrete-mathematics",
    "topic": "graphs",
    "path": "subjects/discrete-mathematics/graphs/chromatic-number-and-greedy-bounds.json"

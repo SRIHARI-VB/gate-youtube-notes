@@ -67,5 +67,18 @@
       "note": "slide text read through graph basics, walk/path/circuit, Euler and Hamiltonian, cut-set and cut-vertex, edge and vertex connectivity, colouring, bipartite, independent set, matching and Hall's theorem; the fetch was truncated after the Havel-Hakimi example, so the later matching pages were read only as excerpts"
     }
   ],
-  "sourceLine": "Vertex and edge connectivity, the kappa-lambda-delta chain and the 2|E|/n bound: GATE Overflow GO Classroom deck (English, read in part) for the edge-connectivity and vertex-connectivity definitions and the two upper bounds; Menger from Diestel. Standard references used to verify, never copied: Rosen, Discrete Mathematics and Its Applications, ch. 10; West, Introduction to Graph Theory (Brooks, Dirac, Koenig, chromatic polynomial); CLRS ch. 22 (articulation points, bridges) and ch. 26 (bipartite matching); Diestel, Graph Theory (Menger). kappa and lambda are recomputed by brute force over vertex and edge subsets in scripts/validate.py."
+  "sourceLine": "Vertex and edge connectivity, the kappa-lambda-delta chain and the 2|E|/n bound: GATE Overflow GO Classroom deck (English, read in part) for the edge-connectivity and vertex-connectivity definitions and the two upper bounds; Menger from Diestel. Standard references used to verify, never copied: Rosen, Discrete Mathematics and Its Applications, ch. 10; West, Introduction to Graph Theory (Brooks, Dirac, Koenig, chromatic polynomial); CLRS ch. 22 (articulation points, bridges) and ch. 26 (bipartite matching); Diestel, Graph Theory (Menger). kappa and lambda are recomputed by brute force over vertex and edge subsets in scripts/validate.py.",
+  "links": {
+    "visual": {
+      "slug": "graphs-connectivity",
+      "title": "Graphs: Connectivity and Structure",
+      "level": "topic-level",
+      "covers": [
+        "kappa <= lambda <= delta (Whitney)",
+        "kappa of a complete graph is n - 1 by convention"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/graphs-connectivity/index.html"
+    },
+    "mapped_at": "2026-10-28"
+  }
 }

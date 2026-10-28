@@ -66,5 +66,17 @@
       "note": "slide text read through graph basics, walk/path/circuit, Euler and Hamiltonian, cut-set and cut-vertex, edge and vertex connectivity, colouring, bipartite, independent set, matching and Hall's theorem; the fetch was truncated after the Havel-Hakimi example, so the later matching pages were read only as excerpts"
     }
   ],
-  "sourceLine": "Components, the n-k and C(n-k+1,2) edge bounds and the cyclomatic count: GATE Overflow GO Classroom deck (English, read in part) for the component, cut-set and tree definitions; the bounds themselves are standard (Rosen ch. 10) and every instance is recomputed in scripts/validate.py. Standard references used to verify, never copied: Rosen, Discrete Mathematics and Its Applications, ch. 10; West, Introduction to Graph Theory (Brooks, Dirac, Koenig, chromatic polynomial); CLRS ch. 22 (articulation points, bridges) and ch. 26 (bipartite matching); Diestel, Graph Theory (Menger)."
+  "sourceLine": "Components, the n-k and C(n-k+1,2) edge bounds and the cyclomatic count: GATE Overflow GO Classroom deck (English, read in part) for the component, cut-set and tree definitions; the bounds themselves are standard (Rosen ch. 10) and every instance is recomputed in scripts/validate.py. Standard references used to verify, never copied: Rosen, Discrete Mathematics and Its Applications, ch. 10; West, Introduction to Graph Theory (Brooks, Dirac, Koenig, chromatic polynomial); CLRS ch. 22 (articulation points, bridges) and ch. 26 (bipartite matching); Diestel, Graph Theory (Menger).",
+  "links": {
+    "visual": {
+      "slug": "graphs-connectivity",
+      "title": "Graphs: Connectivity and Structure",
+      "level": "topic-level",
+      "covers": [
+        "walks, trails, paths, cycles, components and distance"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/graphs-connectivity/index.html"
+    },
+    "mapped_at": "2026-10-28"
+  }
 }

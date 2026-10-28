@@ -69,5 +69,17 @@
       "note": "slide text read through graph basics, walk/path/circuit, Euler and Hamiltonian, cut-set and cut-vertex, edge and vertex connectivity, colouring, bipartite, independent set, matching and Hall's theorem; the fetch was truncated after the Havel-Hakimi example, so the later matching pages were read only as excerpts"
     }
   ],
-  "sourceLine": "Bipartite graphs, the odd-cycle criterion, the 2-colouring test and the n squared over 4 bound: GATE Overflow GO Classroom deck (English, read in part) for the bipartite and 2-chromatic statements; Rosen ch. 10 for the extremal formula. Standard references used to verify, never copied: Rosen, Discrete Mathematics and Its Applications, ch. 10; West, Introduction to Graph Theory (Brooks, Dirac, Koenig, chromatic polynomial); CLRS ch. 22 (articulation points, bridges) and ch. 26 (bipartite matching); Diestel, Graph Theory (Menger). The odd-cycle criterion and the edge bound are recomputed in scripts/validate.py over every graph on up to 5 vertices."
+  "sourceLine": "Bipartite graphs, the odd-cycle criterion, the 2-colouring test and the n squared over 4 bound: GATE Overflow GO Classroom deck (English, read in part) for the bipartite and 2-chromatic statements; Rosen ch. 10 for the extremal formula. Standard references used to verify, never copied: Rosen, Discrete Mathematics and Its Applications, ch. 10; West, Introduction to Graph Theory (Brooks, Dirac, Koenig, chromatic polynomial); CLRS ch. 22 (articulation points, bridges) and ch. 26 (bipartite matching); Diestel, Graph Theory (Menger). The odd-cycle criterion and the edge bound are recomputed in scripts/validate.py over every graph on up to 5 vertices.",
+  "links": {
+    "visual": {
+      "slug": "graphs-connectivity",
+      "title": "Graphs: Connectivity and Structure",
+      "level": "topic-level",
+      "covers": [
+        "bipartite iff no odd cycle, decided by BFS parity"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/graphs-connectivity/index.html"
+    },
+    "mapped_at": "2026-10-28"
+  }
 }

@@ -874,6 +874,341 @@
     },
     {
       "subject": "discrete-mathematics",
+      "group": "graphs",
+      "topic": "graph-vocabulary-and-degree-sum",
+      "title": "Graphs, Degrees and the Handshake Lemma",
+      "priority": "P1",
+      "path": "subjects/discrete-mathematics/graphs/graph-vocabulary-and-degree-sum.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "discrete-mathematics",
+        "unit_slug": "graph-theory-fundamentals",
+        "unit_name": "Graph Theory Fundamentals",
+        "unit_number": 9,
+        "question_count": 0,
+        "subtopic_labels": [],
+        "verdict": "MOCK_UNIT_EMPTY"
+      },
+      "visual": {
+        "slug": "graphs-connectivity",
+        "title": "Graphs: Connectivity and Structure",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/discrete-mathematics/graphs/graph-vocabulary-and-degree-sum.json",
+        "mock: discrete-mathematics/question-bank/master_bank.json holds records for units 1-7 and 16 only; README.md syllabus table declares unit 9 'graph-theory-fundamentals' at 0 questions, so no question can be counted against this card",
+        "visual: syllabus-coverage.json lesson_slug graphs-connectivity (coverage_status PUBLISHED); covers checked against topics/graphs-connectivity/transcript.md scene list"
+      ],
+      "row_verdict": "VISUAL_ONLY"
+    },
+    {
+      "subject": "discrete-mathematics",
+      "group": "graphs",
+      "topic": "paths-cycles-and-components",
+      "title": "Paths, Cycles and Connected Components",
+      "priority": "P1",
+      "path": "subjects/discrete-mathematics/graphs/paths-cycles-and-components.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "discrete-mathematics",
+        "unit_slug": "graph-theory-fundamentals",
+        "unit_name": "Graph Theory Fundamentals",
+        "unit_number": 9,
+        "question_count": 0,
+        "subtopic_labels": [],
+        "verdict": "MOCK_UNIT_EMPTY"
+      },
+      "visual": {
+        "slug": "graphs-connectivity",
+        "title": "Graphs: Connectivity and Structure",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/discrete-mathematics/graphs/paths-cycles-and-components.json",
+        "mock: discrete-mathematics/question-bank/master_bank.json holds records for units 1-7 and 16 only; README.md syllabus table declares unit 9 'graph-theory-fundamentals' at 0 questions, so no question can be counted against this card",
+        "visual: syllabus-coverage.json lesson_slug graphs-connectivity (coverage_status PUBLISHED); covers checked against topics/graphs-connectivity/transcript.md scene list"
+      ],
+      "row_verdict": "VISUAL_ONLY"
+    },
+    {
+      "subject": "discrete-mathematics",
+      "group": "graphs",
+      "topic": "cut-vertices-bridges-and-blocks",
+      "title": "Cut Vertices, Bridges and Blocks",
+      "priority": "P1",
+      "path": "subjects/discrete-mathematics/graphs/cut-vertices-bridges-and-blocks.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "discrete-mathematics",
+        "unit_slug": "graph-theory-fundamentals",
+        "unit_name": "Graph Theory Fundamentals",
+        "unit_number": 9,
+        "question_count": 0,
+        "subtopic_labels": [],
+        "verdict": "MOCK_UNIT_EMPTY"
+      },
+      "visual": {
+        "slug": "graphs-connectivity",
+        "title": "Graphs: Connectivity and Structure",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/discrete-mathematics/graphs/cut-vertices-bridges-and-blocks.json",
+        "mock: discrete-mathematics/question-bank/master_bank.json holds records for units 1-7 and 16 only; README.md syllabus table declares unit 9 'graph-theory-fundamentals' at 0 questions, so no question can be counted against this card",
+        "visual: syllabus-coverage.json lesson_slug graphs-connectivity (coverage_status PUBLISHED); covers checked against topics/graphs-connectivity/transcript.md scene list"
+      ],
+      "row_verdict": "VISUAL_ONLY"
+    },
+    {
+      "subject": "discrete-mathematics",
+      "group": "graphs",
+      "topic": "vertex-and-edge-connectivity",
+      "title": "Vertex and Edge Connectivity",
+      "priority": "P2",
+      "path": "subjects/discrete-mathematics/graphs/vertex-and-edge-connectivity.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "discrete-mathematics",
+        "unit_slug": "graph-theory-fundamentals",
+        "unit_name": "Graph Theory Fundamentals",
+        "unit_number": 9,
+        "question_count": 0,
+        "subtopic_labels": [],
+        "verdict": "MOCK_UNIT_EMPTY"
+      },
+      "visual": {
+        "slug": "graphs-connectivity",
+        "title": "Graphs: Connectivity and Structure",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/discrete-mathematics/graphs/vertex-and-edge-connectivity.json",
+        "mock: discrete-mathematics/question-bank/master_bank.json holds records for units 1-7 and 16 only; README.md syllabus table declares unit 9 'graph-theory-fundamentals' at 0 questions, so no question can be counted against this card",
+        "visual: syllabus-coverage.json lesson_slug graphs-connectivity (coverage_status PUBLISHED); covers checked against topics/graphs-connectivity/transcript.md scene list"
+      ],
+      "row_verdict": "VISUAL_ONLY"
+    },
+    {
+      "subject": "discrete-mathematics",
+      "group": "graphs",
+      "topic": "eulerian-and-hamiltonian-graphs",
+      "title": "Eulerian and Hamiltonian Graphs",
+      "priority": "P2",
+      "path": "subjects/discrete-mathematics/graphs/eulerian-and-hamiltonian-graphs.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "discrete-mathematics",
+        "unit_slug": "graph-theory-fundamentals",
+        "unit_name": "Graph Theory Fundamentals",
+        "unit_number": 9,
+        "question_count": 0,
+        "subtopic_labels": [],
+        "verdict": "MOCK_UNIT_EMPTY"
+      },
+      "visual": {
+        "slug": "graphs-connectivity",
+        "title": "Graphs: Connectivity and Structure",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/discrete-mathematics/graphs/eulerian-and-hamiltonian-graphs.json",
+        "mock: discrete-mathematics/question-bank/master_bank.json holds records for units 1-7 and 16 only; README.md syllabus table declares unit 9 'graph-theory-fundamentals' at 0 questions, so no question can be counted against this card",
+        "visual: syllabus-coverage.json lesson_slug graphs-connectivity (coverage_status PUBLISHED); covers checked against topics/graphs-connectivity/transcript.md scene list"
+      ],
+      "row_verdict": "VISUAL_ONLY"
+    },
+    {
+      "subject": "discrete-mathematics",
+      "group": "graphs",
+      "topic": "bipartite-graphs-and-odd-cycles",
+      "title": "Bipartite Graphs and the Odd-Cycle Criterion",
+      "priority": "P1",
+      "path": "subjects/discrete-mathematics/graphs/bipartite-graphs-and-odd-cycles.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "discrete-mathematics",
+        "unit_slug": "graph-theory-fundamentals",
+        "unit_name": "Graph Theory Fundamentals",
+        "unit_number": 9,
+        "question_count": 0,
+        "subtopic_labels": [],
+        "verdict": "MOCK_UNIT_EMPTY"
+      },
+      "visual": {
+        "slug": "graphs-connectivity",
+        "title": "Graphs: Connectivity and Structure",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/discrete-mathematics/graphs/bipartite-graphs-and-odd-cycles.json",
+        "mock: discrete-mathematics/question-bank/master_bank.json holds records for units 1-7 and 16 only; README.md syllabus table declares unit 9 'graph-theory-fundamentals' at 0 questions, so no question can be counted against this card",
+        "visual: syllabus-coverage.json lesson_slug graphs-connectivity (coverage_status PUBLISHED); covers checked against topics/graphs-connectivity/transcript.md scene list"
+      ],
+      "row_verdict": "VISUAL_ONLY"
+    },
+    {
+      "subject": "discrete-mathematics",
+      "group": "graphs",
+      "topic": "matching-maximal-maximum-perfect",
+      "title": "Matching: Maximal, Maximum, Perfect and Augmenting Paths",
+      "priority": "P1",
+      "path": "subjects/discrete-mathematics/graphs/matching-maximal-maximum-perfect.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "discrete-mathematics",
+        "unit_slug": "graph-theory-advanced",
+        "unit_name": "Graph Theory Advanced",
+        "unit_number": 10,
+        "question_count": 0,
+        "subtopic_labels": [],
+        "verdict": "MOCK_UNIT_EMPTY"
+      },
+      "visual": {
+        "slug": "matching-and-colouring",
+        "title": "Graphs: Matching and Colouring",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/discrete-mathematics/graphs/matching-maximal-maximum-perfect.json",
+        "mock: discrete-mathematics/question-bank/master_bank.json holds records for units 1-7 and 16 only; README.md syllabus table declares unit 10 'graph-theory-advanced' at 0 questions, so no question can be counted against this card",
+        "visual: syllabus-coverage.json lesson_slug matching-and-colouring (coverage_status PUBLISHED); covers checked against topics/matching-and-colouring/transcript.md scene list"
+      ],
+      "row_verdict": "VISUAL_ONLY"
+    },
+    {
+      "subject": "discrete-mathematics",
+      "group": "graphs",
+      "topic": "halls-marriage-theorem",
+      "title": "Hall's Marriage Theorem",
+      "priority": "P1",
+      "path": "subjects/discrete-mathematics/graphs/halls-marriage-theorem.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "discrete-mathematics",
+        "unit_slug": "graph-theory-advanced",
+        "unit_name": "Graph Theory Advanced",
+        "unit_number": 10,
+        "question_count": 0,
+        "subtopic_labels": [],
+        "verdict": "MOCK_UNIT_EMPTY"
+      },
+      "visual": {
+        "slug": "matching-and-colouring",
+        "title": "Graphs: Matching and Colouring",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/discrete-mathematics/graphs/halls-marriage-theorem.json",
+        "mock: discrete-mathematics/question-bank/master_bank.json holds records for units 1-7 and 16 only; README.md syllabus table declares unit 10 'graph-theory-advanced' at 0 questions, so no question can be counted against this card",
+        "visual: syllabus-coverage.json lesson_slug matching-and-colouring (coverage_status PUBLISHED); covers checked against topics/matching-and-colouring/transcript.md scene list"
+      ],
+      "row_verdict": "VISUAL_ONLY"
+    },
+    {
+      "subject": "discrete-mathematics",
+      "group": "graphs",
+      "topic": "vertex-cover-independent-set-konig",
+      "title": "Vertex Cover, Independent Set and Koenig's Theorem",
+      "priority": "P1",
+      "path": "subjects/discrete-mathematics/graphs/vertex-cover-independent-set-konig.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "discrete-mathematics",
+        "unit_slug": "graph-theory-advanced",
+        "unit_name": "Graph Theory Advanced",
+        "unit_number": 10,
+        "question_count": 0,
+        "subtopic_labels": [],
+        "verdict": "MOCK_UNIT_EMPTY"
+      },
+      "visual": {
+        "slug": "matching-and-colouring",
+        "title": "Graphs: Matching and Colouring",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/discrete-mathematics/graphs/vertex-cover-independent-set-konig.json",
+        "mock: discrete-mathematics/question-bank/master_bank.json holds records for units 1-7 and 16 only; README.md syllabus table declares unit 10 'graph-theory-advanced' at 0 questions, so no question can be counted against this card",
+        "visual: syllabus-coverage.json lesson_slug matching-and-colouring (coverage_status PUBLISHED); covers checked against topics/matching-and-colouring/transcript.md scene list"
+      ],
+      "row_verdict": "VISUAL_ONLY"
+    },
+    {
+      "subject": "discrete-mathematics",
+      "group": "graphs",
+      "topic": "chromatic-number-and-greedy-bounds",
+      "title": "Chromatic Number, Greedy Bounds and Brooks' Theorem",
+      "priority": "P1",
+      "path": "subjects/discrete-mathematics/graphs/chromatic-number-and-greedy-bounds.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "discrete-mathematics",
+        "unit_slug": "graph-theory-advanced",
+        "unit_name": "Graph Theory Advanced",
+        "unit_number": 10,
+        "question_count": 0,
+        "subtopic_labels": [],
+        "verdict": "MOCK_UNIT_EMPTY"
+      },
+      "visual": {
+        "slug": "matching-and-colouring",
+        "title": "Graphs: Matching and Colouring",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/discrete-mathematics/graphs/chromatic-number-and-greedy-bounds.json",
+        "mock: discrete-mathematics/question-bank/master_bank.json holds records for units 1-7 and 16 only; README.md syllabus table declares unit 10 'graph-theory-advanced' at 0 questions, so no question can be counted against this card",
+        "visual: syllabus-coverage.json lesson_slug matching-and-colouring (coverage_status PUBLISHED); covers checked against topics/matching-and-colouring/transcript.md scene list"
+      ],
+      "row_verdict": "VISUAL_ONLY"
+    },
+    {
+      "subject": "discrete-mathematics",
+      "group": "graphs",
+      "topic": "chromatic-polynomial",
+      "title": "The Chromatic Polynomial",
+      "priority": "P2",
+      "path": "subjects/discrete-mathematics/graphs/chromatic-polynomial.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "discrete-mathematics",
+        "unit_slug": "graph-theory-advanced",
+        "unit_name": "Graph Theory Advanced",
+        "unit_number": 10,
+        "question_count": 0,
+        "subtopic_labels": [],
+        "verdict": "MOCK_UNIT_EMPTY"
+      },
+      "visual": null,
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/discrete-mathematics/graphs/chromatic-polynomial.json",
+        "mock: discrete-mathematics/question-bank/master_bank.json holds records for units 1-7 and 16 only; README.md syllabus table declares unit 10 'graph-theory-advanced' at 0 questions, so no question can be counted against this card",
+        "visual: grep of topics/ finds no 'chromatic polynomial' or 'deletion-contraction' content in any published lesson, so no lesson covers this card"
+      ],
+      "row_verdict": "NEITHER"
+    },
+    {
+      "subject": "discrete-mathematics",
       "group": "monoids-and-groups",
       "topic": "algebraic-structure-ladder",
       "title": "The Algebraic-Structure Ladder: Semigroup, Monoid, Group",
@@ -2680,6 +3015,26 @@
       "kind": "notes",
       "placement": "general-aptitude › aptitude › (no card)",
       "detail": "New lesson topics/verbal-aptitude (added 2026-10-28; syllabus-coverage.json subject General Aptitude, unit Aptitude, topic 'Verbal aptitude', coverage_status PUBLISHED, 4 subtopics and 18 microtopics; topics.json 50 aliases; transcript.md 10 scenes) covers agreement by the head noun and the nearest-noun attraction error, a/an by first sound, prepositions of time (for a length, since a point, within a deadline), idioms and phrasal verbs as fixed particles, vocabulary by intensity ladder and clue polarity, comprehension entailment with the absolute-word test, and narrative sequencing as a topological order with determiners and connectors. It serves no notes card: content/syllabus.json carries no General Aptitude subject. Next build: cards at content/subjects/general-aptitude/aptitude/, one per scene group (agreement, articles, prepositions of time, idioms, vocabulary in context, comprehension, sequencing)."
+    },
+    {
+      "kind": "mock",
+      "placement": "discrete-mathematics › graphs › all 11 cards",
+      "detail": "11 new notes cards under content/subjects/discrete-mathematics/graphs/ have no questions to sit a mock on. discrete-mathematics/question-bank/master_bank.json holds records for units 1-7 and 16 only; README.md's syllabus table declares unit 9 'Graph Theory Fundamentals' (graph-theory-fundamentals) and unit 10 'Graph Theory Advanced' (graph-theory-advanced), both at 0 questions. Build the first set in discrete-mathematics/graph-theory-fundamentals/ (25 questions, 15 MCQ / 5 MSQ / 5 NAT, 10 easy / 10 medium / 5 hard) covering handshake lemma, cut vertices and bridges, kappa/lambda/delta, bipartite-iff-no-odd-cycle and Euler/Hamilton, then the matching-and-colouring set in discrete-mathematics/graph-theory-advanced/."
+    },
+    {
+      "kind": "visual",
+      "placement": "discrete-mathematics › graphs › chromatic-polynomial",
+      "detail": "No published lesson covers the chromatic polynomial: grep for 'chromatic polynomial' and 'deletion-contraction' across gate-visual-explainer/topics/ returns 0 hits, and topics/matching-and-colouring spends its 11 scenes on matchings, Hall, Konig, chromatic number, greedy, Brooks, edge colouring and planarity. Extend topics/matching-and-colouring/ with a chromatic-polynomial scene (P(G,k) by deletion-contraction, P = k(k-1)^(n-1) for trees, the cycle formula) rather than starting a new lesson."
+    },
+    {
+      "kind": "visual",
+      "placement": "discrete-mathematics › graphs › cut-vertices-bridges-and-blocks",
+      "detail": "topics/graphs-connectivity Scene 6 ('Cut vertices and bridges') defines both objects and their counterexamples, but the word 'block' does not appear anywhere in its transcript.md, so the card's blocks / biconnected-component half is uncovered. Add a blocks scene to topics/graphs-connectivity/."
+    },
+    {
+      "kind": "notes",
+      "placement": "theory-of-computation › pushdown-automata › (no card)",
+      "detail": "Mock unit 3 'Pushdown Automata' (unit_slug pushdown-automata) opened Set 1 of 2 of its second pass on 2026-10-28 (paper theory-of-computation/pushdown-automata/gate_toc_mock_3_2026-10-28.html) and now holds 75 questions over 4 subtopic_label groups: Deterministic PDA 21, Nondeterministic PDA 18, Acceptance: empty store vs final state 17, Equivalence with CFG 19. The notes repo covers discrete mathematics only (content/index.json counts.subjects = 1), so no card serves any of the four groups; content/syllabus.json lists 'every subject outside Discrete Mathematics - enumerated here, not yet processed' under not_covered_by_playlist."
     }
   ]
 }

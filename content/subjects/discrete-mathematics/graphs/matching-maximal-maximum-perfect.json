@@ -73,15 +73,14 @@
   "visual": "discrete-mathematics/graphs/bipartite-matching-augmenting-path",
   "links": {
     "visual": {
-      "slug": "graphs",
-      "title": "Graphs: Connectivity, Matching, Colouring",
+      "slug": "matching-and-colouring",
+      "title": "Graphs: Matching and Colouring",
       "level": "topic-level",
-      "url": "https://gate-visual-explainer.vercel.app/topics/graphs/index.html",
       "covers": [
-        "maximal versus maximum matching",
-        "the augmenting path and the flip that grows the matching",
-        "Koenig: maximum matching equals minimum vertex cover in a bipartite graph"
-      ]
+        "matching, saturated, free, maximal, maximum, perfect, near-perfect, matching number",
+        "Berge's theorem and the augmenting-path algorithm"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/matching-and-colouring/index.html"
     },
     "mapped_at": "2026-10-28"
   }
