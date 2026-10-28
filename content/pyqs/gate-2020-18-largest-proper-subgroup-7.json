@@ -1,0 +1,16 @@
+{
+  "id": "gate-2020-18-largest-proper-subgroup-7",
+  "year": "2020",
+  "paper": "GATE CS 2020",
+  "question_ref": "Q.18",
+  "type": "NAT",
+  "marks": "1",
+  "topic": "cosets-and-lagrange",
+  "text": "Let G be a group of 35 elements. Then the largest possible size of a subgroup of G other than G itself is ______.",
+  "answer": "7",
+  "solution": "By Lagrange's theorem the order of a subgroup divides 35 = 5 x 7, so the possible sizes are 1, 5, 7 and 35. Excluding the group itself leaves 1, 5 and 7, and the largest is 7, which the cyclic group Z_35 attains. Recomputed in scripts/validate.py: the divisors of 35 are 1, 5, 7, 35 and Z_35 has a subgroup of order 7.",
+  "source_url": "https://gateoverflow.in/333213/gate-cse-2020-question-18",
+  "source_label": "GATE Overflow question page - GATE CSE 2020 Q.18 with the accepted solution (7)",
+  "verification": "SOURCED",
+  "answer_evidence": "Accepted answer: 'Order of the largest possible proper subgroup = 7.'"
+}

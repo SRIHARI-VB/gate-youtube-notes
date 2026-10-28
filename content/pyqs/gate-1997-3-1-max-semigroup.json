@@ -1,0 +1,22 @@
+{
+  "id": "gate-1997-3-1-max-semigroup",
+  "year": "1997",
+  "paper": "GATE CS 1997",
+  "question_ref": "Q.3.1 (GATE Overflow numbering); secondary answer sites number it Q.26",
+  "type": "MCQ",
+  "marks": "1",
+  "topic": "monoid-identity-and-examples",
+  "text": "Let (Z, *) be an algebraic structure where Z is the set of integers and the operation * is defined by n * m = max(n, m). Which of the following statements is true for (Z, *)?",
+  "options": [
+    "(Z, *) is a monoid",
+    "(Z, *) is an Abelian group",
+    "(Z, *) is a group",
+    "None of the above"
+  ],
+  "answer": "Option 4 - none of the above: (Z, max) is a commutative semigroup and not a monoid",
+  "solution": "Closure holds, because max(n, m) is either n or m and both are integers. Associativity holds, because both (n * m) * k and n * (m * k) equal the largest of n, m and k. An identity would need max(m, e) = m for every integer m, that is e <= m for every integer m, and no integer is below all integers. So there is no identity, the structure is not a monoid, and therefore it is not a group either. Recomputed in scripts/validate.py: for every candidate identity e in -50..50 there is an integer m with max(e, m) != m.",
+  "source_url": "https://gateoverflow.in/2232/gate-cse-1997-question-3-1",
+  "source_label": "GATE Overflow question page - GATE CSE 1997 Q.3.1 with the accepted solution (option 4)",
+  "verification": "SOURCED",
+  "answer_evidence": "Accepted answer: 'we don't have a single unique element for all the elements which is less than all the elements ... Hence, this is just a semigroup - D option.'"
+}

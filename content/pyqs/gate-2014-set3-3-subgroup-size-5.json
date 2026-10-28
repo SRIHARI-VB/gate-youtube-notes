@@ -1,0 +1,16 @@
+{
+  "id": "gate-2014-set3-3-subgroup-size-5",
+  "year": "2014",
+  "paper": "GATE CS 2014 Set 3",
+  "question_ref": "Q.3",
+  "type": "NAT",
+  "marks": "1",
+  "topic": "cosets-and-lagrange",
+  "text": "Let G be a group with 15 elements. Let L be a subgroup of G. It is known that L is not G and that the size of L is at least 4. The size of L is ______.",
+  "answer": "5",
+  "solution": "By Lagrange's theorem the order of a subgroup divides the order of the group, and 15 = 3 x 5 has divisors 1, 3, 5 and 15. The condition L not equal to G removes 15, and the condition |L| >= 4 removes 1 and 3, leaving 5. Recomputed in scripts/validate.py: the divisors of 15 are 1, 3, 5, 15 and only 5 survives both conditions; the cyclic group Z_15 does have a subgroup of order 5.",
+  "source_url": "https://gateoverflow.in/2037/gate-cse-2014-set-3-question-3",
+  "source_label": "GATE Overflow question page - GATE CSE 2014 Set 3 Q.3 with the accepted solution (5)",
+  "verification": "SOURCED",
+  "answer_evidence": "Accepted answer: 'Since, the given size of L is at least 4 (1 and 3 eliminated) and not equal to G (15 eliminated), the only size left is 5. Size of L is 5.'"
+}

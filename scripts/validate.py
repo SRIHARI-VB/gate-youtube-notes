@@ -1456,6 +1456,472 @@ def check_lattices():
        "and the 2017 and 2025 PYQ verdicts")
 
 
+# ------------------------------------------------------------- monoids and groups
+def check_monoids_and_groups():
+    """Every group-theoretic claim in the Monoids and Groups cards, PYQs and lesson is recomputed."""
+    import itertools
+    from math import gcd
+
+    def is_group(elems, op):
+        S = list(elems)
+        for a in S:
+            for b in S:
+                if op(a, b) not in elems:
+                    return False
+        for a in S:
+            for b in S:
+                for c in S:
+                    if op(op(a, b), c) != op(a, op(b, c)):
+                        return False
+        ids = [u for u in S if all(op(u, a) == a and op(a, u) == a for a in S)]
+        if len(ids) != 1:
+            return False
+        u = ids[0]
+        for a in S:
+            if not any(op(a, b) == u and op(b, a) == u for b in S):
+                return False
+        return True
+
+    def phi(n):
+        return sum(1 for a in range(1, n + 1) if gcd(a, n) == 1)
+
+    def divisors(n):
+        return [d for d in range(1, n + 1) if n % d == 0]
+
+    def spf(n):
+        for p in range(2, n + 1):
+            if n % p == 0:
+                return p
+        return n
+
+    def order_of(n, a):
+        x, k = a % n, 1
+        while x != 0:
+            x = (x + a) % n
+            k += 1
+        return k
+
+    def subgroup_of_order(n, k):
+        step = n // k
+        return frozenset((a * step) % n for a in range(k))
+
+    # the ladder: Z_n is a group for every n, and its element orders follow n / gcd(a, n)
+    for n in range(1, 21):
+        if not is_group(set(range(n)), lambda a, b, n=n: (a + b) % n):
+            fail("math: Z_%d is not a group" % n)
+        for a in range(n):
+            if order_of(n, a) != n // gcd(a, n):
+                fail("math: order of %d in Z_%d is not n/gcd(a,n)" % (a, n))
+        gens = [a for a in range(n) if order_of(n, a) == n]
+        if gens != [a for a in range(n) if gcd(a, n) == 1]:
+            fail("math: generators of Z_%d are not the residues coprime to n" % n)
+        if len(gens) != phi(n):
+            fail("math: Z_%d has %d generators but phi(%d) = %d" % (n, len(gens), n, phi(n)))
+
+    # subgroups of Z_n: exactly one per divisor, and Lagrange holds for each
+    for n in range(1, 21):
+        subs = [subgroup_of_order(n, d) for d in divisors(n)]
+        if len(set(subs)) != len(divisors(n)):
+            fail("math: Z_%d does not have one subgroup per divisor" % n)
+        for H in subs:
+            if n % len(H):
+                fail("math: a subgroup of Z_%d has order %d, which does not divide %d" % (n, len(H), n))
+            if not is_group(set(H), lambda a, b, n=n: (a + b) % n):
+                fail("math: the subgroup {0, %d, ...} of Z_%d is not a group" % (n // len(H), n))
+
+    # largest proper subgroup = n / smallest prime factor, and it is attained in Z_n
+    for n in (35, 84, 15, 45, 12, 6, 8, 30):
+        proper = [d for d in divisors(n) if d < n]
+        if max(proper) != n // spf(n):
+            fail("math: largest proper subgroup of order %d is not n/spf" % n)
+        if len(subgroup_of_order(n, max(proper))) != max(proper):
+            fail("math: Z_%d has no subgroup of the largest proper order" % n)
+    if max(d for d in divisors(15) if 4 <= d < 15) != 5:
+        fail("math: the 2014 Set 3 Q.3 filter on divisors of 15 does not leave 5")
+
+    # self-inverse counts, element orders and generator counts quoted in the cards
+    Z2Z3Z4 = [(a, b, c) for a in range(2) for b in range(3) for c in range(4)]
+    si = [x for x in Z2Z3Z4 if (2 * x[0]) % 2 == 0 and (2 * x[1]) % 3 == 0 and (2 * x[2]) % 4 == 0]
+    if len(Z2Z3Z4) != 24 or len(si) != 4:
+        fail("math: Z2 x Z3 x Z4 should have 24 elements and 4 self-inverse ones, got %d and %d"
+             % (len(Z2Z3Z4), len(si)))
+    if sorted(si) != [(0, 0, 0), (0, 0, 2), (1, 0, 0), (1, 0, 2)]:
+        fail("math: the four self-inverse elements of Z2 x Z3 x Z4 are not the ones the card lists")
+    Z4Z6 = [(a, b) for a in range(4) for b in range(6)]
+    if len([x for x in Z4Z6 if (2 * x[0]) % 4 == 0 and (2 * x[1]) % 6 == 0]) != 4:
+        fail("math: Z4 x Z6 should have gcd(2,4) * gcd(2,6) = 4 self-inverse elements")
+    if len([a for a in range(20) if (2 * a) % 20 == 0]) != 2:
+        fail("math: Z_20 should have 2 solutions of a^2 = e")
+    if [order_of(12, a) for a in range(12)] != [1, 12, 6, 4, 3, 12, 2, 12, 3, 4, 6, 12]:
+        fail("math: the element orders of Z_12 are not the ones the cards and lesson list")
+    if len([a for a in range(12) if order_of(12, a) == 2]) != 1:
+        fail("math: Z_12 should have exactly one element of order 2")
+    if len([a for a in range(12) if order_of(12, a) == 3]) != phi(3):
+        fail("math: Z_12 should have phi(3) = 2 elements of order 3")
+    if [order_of(8, a) for a in range(8)] != [1, 8, 4, 8, 2, 8, 4, 8]:
+        fail("math: the element orders of Z_8 are not the ones the card lists")
+    for n, g in ((12, 4), (10, 4), (20, 8), (8, 4), (7, 6)):
+        if len([a for a in range(n) if gcd(a, n) == 1]) != g:
+            fail("math: Z_%d should have %d generators" % (n, g))
+    if phi(12) != 4 or phi(3) != 2 or phi(20) != 8:
+        fail("math: a phi value quoted in the cards is wrong")
+
+    # the cosets of {0, 4, 8} in Z_12 partition the group, and <5> is the whole group
+    H = {0, 4, 8}
+    cosets = []
+    for a in range(12):
+        C = frozenset((a + h) % 12 for h in H)
+        if C not in cosets:
+            cosets.append(C)
+    if len(cosets) != 4 or any(len(C) != 3 for C in cosets):
+        fail("math: {0, 4, 8} should have four cosets of size three in Z_12")
+    if sum(len(C) for C in cosets) != 12 or len(set().union(*[set(C) for C in cosets])) != 12:
+        fail("math: the cosets of {0, 4, 8} in Z_12 do not cover the group disjointly")
+    if len({(5 * k) % 12 for k in range(12)}) != 12:
+        fail("math: 5 does not generate Z_12")
+    if sorted({a for a in range(12) if gcd(a, 12) == 1}) != [1, 5, 7, 11]:
+        fail("math: the generators of Z_12 are not 1, 5, 7 and 11")
+    union = {0, 6} | {0, 4, 8}
+    if (4 + 6) % 12 in union or len(union) != 4:
+        fail("math: the union of {0, 6} and {0, 4, 8} in Z_12 should miss 4 + 6 = 10")
+    if {0, 3, 6, 9} != set(subgroup_of_order(12, 4)):
+        fail("math: {0, 3, 6, 9} is not the subgroup of order 4 in Z_12")
+    if not all((a - b) % 12 in {0, 3, 6, 9} for a in {0, 3, 6, 9} for b in {0, 3, 6, 9}):
+        fail("math: {0, 3, 6, 9} fails the one-step test in Z_12")
+    if all((a - b) % 12 in {0, 2, 4} for a in {0, 2, 4} for b in {0, 2, 4}):
+        fail("math: {0, 2, 4} should fail the one-step test in Z_12")
+
+    # the ladder on the standard structures
+    if all(((a - b) - c) == (a - (b - c)) for a in range(-3, 4) for b in range(-3, 4) for c in range(-3, 4)):
+        fail("math: subtraction on the integers should not be associative")
+    if any((a - b) not in set(range(-9, 10)) for a in range(-3, 4) for b in range(-3, 4)):
+        fail("math: subtraction on a bounded sample is not closed")
+    for e in range(-50, 51):
+        if all(max(e, m) == m for m in range(-100, 101)):
+            fail("math: max on the integers has an identity after all")
+    if any(max(a, b) != max(b, a) for a in range(-5, 6) for b in range(-5, 6)):
+        fail("math: max is not commutative")
+    if not all(max(max(a, b), c) == max(a, max(b, c)) for a in range(-4, 5) for b in range(-4, 5) for c in range(-4, 5)):
+        fail("math: max is not associative")
+
+    # strings over {a} under concatenation: a monoid that is not a group
+    words = [""] + ["a" * k for k in range(1, 4)]
+    if any((u + v).count("a") != u.count("a") + v.count("a") for u in words for v in words):
+        fail("math: concatenation of strings over {a} does not behave")
+    if any(((u + v) + w) != (u + (v + w)) for u in words for v in words for w in words):
+        fail("math: concatenation is not associative")
+    if any(u + "" != u or "" + u != u for u in words):
+        fail("math: the empty string is not the identity for concatenation")
+    if any((u + v) == "" for u in words if u for v in words):
+        fail("math: a non-empty string has an inverse under concatenation")
+
+    # (Z, x) is a monoid but not a group; (2^X, union) likewise
+    if any(a * 2 == 1 for a in range(-50, 51)):
+        fail("math: 2 should have no inverse in Z under multiplication")
+    X = {1, 2, 3}
+    subsets = [frozenset(s) for r in range(4) for s in itertools.combinations(sorted(X), r)]
+    if not all((a | b) in subsets for a in subsets for b in subsets):
+        fail("math: the power set is not closed under union")
+    if any((a | b) == frozenset() for a in subsets if a for b in subsets):
+        fail("math: a non-empty subset has an inverse under union")
+    if any((a & frozenset()) != frozenset() for a in subsets):
+        fail("math: the empty set is not the identity for intersection")
+    if any((a & X) != a for a in subsets):
+        fail("math: X is not the identity for intersection")
+
+    # symmetric difference on 2^{1,2,3} is an abelian group with every element self-inverse
+    symdiff = lambda a, b: frozenset((set(a) - set(b)) | (set(b) - set(a)))
+    if not all(symdiff(a, b) in subsets for a in subsets for b in subsets):
+        fail("math: symmetric difference is not closed on the power set")
+    if not is_group(set(subsets), symdiff):
+        fail("math: (2^X, symmetric difference) is not a group")
+    if any(symdiff(a, b) != symdiff(b, a) for a in subsets for b in subsets):
+        fail("math: symmetric difference is not commutative")
+    if any(symdiff(a, a) != frozenset() for a in subsets):
+        fail("math: an element of (2^X, symmetric difference) is not its own inverse")
+    if symdiff(frozenset({1}), frozenset({2, 3})) == frozenset():
+        fail("math: the complement of a set should not be its inverse under symmetric difference")
+
+    # the two made-up operations of the 2024 Set 1 question, brute forced
+    dia = lambda a, b: a + 2 * b
+    sq = lambda a, b: a * b
+    P = list(range(1, 7))
+    if all(dia(dia(a, b), c) == dia(a, dia(b, c)) for a in P for b in P for c in P):
+        fail("math: a diamond b = a + 2b should not be associative")
+    if not all(sq(sq(a, b), c) == sq(a, sq(b, c)) for a in P for b in P for c in P):
+        fail("math: multiplication should be associative")
+    if all(dia(a, sq(b, c)) == sq(dia(a, b), dia(a, c)) for a in P for b in P for c in P):
+        fail("math: diamond over square should not distribute")
+    if not all(sq(a, dia(b, c)) == dia(sq(a, b), sq(a, c)) for a in P for b in P for c in P):
+        fail("math: square over diamond should distribute")
+    if all(dia(dia(a, b), c) == dia(a, dia(b, c)) for a in range(-5, 6) for b in range(-5, 6) for c in range(-5, 6)):
+        fail("math: a diamond b = a + 2b is associative on a wider range after all")
+    shifted = lambda a, b: a + b - 1
+    S = list(range(-6, 7))
+    if not all(shifted(shifted(a, b), c) == shifted(a, shifted(b, c)) for a in S for b in S for c in S):
+        fail("math: a diamond b = a + b - 1 should be associative")
+    if any(shifted(a, 1) != a or shifted(1, a) != a for a in S):
+        fail("math: 1 should be the identity of a diamond b = a + b - 1")
+    if any(shifted(a, 2 - a) != 1 or shifted(2 - a, a) != 1 for a in S):
+        fail("math: the inverse of a under a diamond b = a + b - 1 should be 2 - a")
+    power = lambda a, b: a ** b
+    if power(power(2, 3), 2) == power(2, power(3, 2)):
+        fail("math: a star b = a^b should not be associative")
+
+    # permutations: S_3 products, S_4 counts, A_4 has no subgroup of order 6
+    def perm(cycles, n):
+        p = list(range(n))
+        for cyc in cycles:
+            for i in range(len(cyc)):
+                p[cyc[i]] = cyc[(i + 1) % len(cyc)]
+        return tuple(p)
+
+    def compose(p, q):
+        return tuple(p[q[x]] for x in range(len(p)))
+
+    def perms(n):
+        return list(itertools.permutations(range(n)))
+
+    def sign(p):
+        inv = sum(1 for i in range(len(p)) for j in range(i + 1, len(p)) if p[i] > p[j])
+        return -1 if inv % 2 else 1
+
+    def perm_order(p):
+        k, q = 1, p
+        while q != tuple(range(len(p))):
+            q = compose(p, q)
+            k += 1
+        return k
+
+    S3 = perms(3)
+    if len(S3) != 6 or not is_group(set(S3), compose):
+        fail("math: S_3 should be a group of order 6")
+    if all(compose(a, b) == compose(b, a) for a in S3 for b in S3):
+        fail("math: S_3 should not be abelian")
+    if compose(perm([[0, 1]], 3), perm([[0, 1, 2]], 3)) != perm([[1, 2]], 3):
+        fail("math: (1 2)(1 2 3) should equal (2 3)")
+    if compose(perm([[0, 1, 2]], 3), perm([[0, 1]], 3)) != perm([[0, 2]], 3):
+        fail("math: (1 2 3)(1 2) should equal (1 3)")
+    if compose(perm([[0, 1]], 3), perm([[0, 2, 1]], 3)) != perm([[0, 2]], 3):
+        fail("math: a^-1 b^-1 should equal (1 3) in S_3")
+    if sorted({perm_order(p) for p in S3}) != [1, 2, 3]:
+        fail("math: the element orders of S_3 should be 1, 2 and 3")
+    if sorted({len(H) for H in _subgroups_of(S3, compose)}) != [1, 2, 3, 6]:
+        fail("math: the subgroup orders of S_3 should be 1, 2, 3 and 6")
+    S4 = perms(4)
+    if len(S4) != 24 or not is_group(set(S4), compose):
+        fail("math: S_4 should be a group of order 24")
+    if len([p for p in S4 if perm_order(p) == 2]) != 9:
+        fail("math: S_4 should have 9 elements of order 2")
+    if perm_order(perm([[0, 1], [2, 3, 4]], 5)) != 6:
+        fail("math: (1 2)(3 4 5) should have order 6")
+    A4 = [p for p in S4 if sign(p) == 1]
+    if len(A4) != 12:
+        fail("math: A_4 should have order 12")
+    if sorted({perm_order(p) for p in A4}) != [1, 2, 3]:
+        fail("math: the element orders of A_4 should be 1, 2 and 3 only")
+    if any(len(H) == 6 for H in _subgroups_of(A4, compose)):
+        fail("math: A_4 should have no subgroup of order 6")
+    if len(_subgroups_of(A4, compose)) < 1:
+        fail("math: the A_4 subgroup enumeration produced nothing")
+    # the 2014 Set 3 Q.50 relations: pairs of involutions with an involutive product commute
+    for n in (4, 5):
+        Sn = perms(n)
+        for x in Sn:
+            if perm_order(x) != 2:
+                continue
+            for y in Sn:
+                if perm_order(y) != 2 or perm_order(compose(x, y)) != 2:
+                    continue
+                if compose(x, y) != compose(y, x):
+                    fail("math: involutions with an involutive product should commute (S_%d)" % n)
+                quad = {tuple(range(n)), x, y, compose(x, y)}
+                if not all(compose(a, b) in quad for a in quad for b in quad):
+                    fail("math: {e, x, y, xy} should be closed when x, y and xy are involutions")
+
+    # every group of order at most 4 is abelian, and there are 1, 1, 1, 2 of them
+    def groups_of_order(n):
+        out = []
+        cells = [(i, j) for i in range(1, n) for j in range(1, n)]
+        for vals in itertools.product(range(n), repeat=len(cells)):
+            T = [[0] * n for _ in range(n)]
+            for j in range(n):
+                T[0][j] = j
+                T[j][0] = j
+            for (i, j), v in zip(cells, vals):
+                T[i][j] = v
+            if any(len(set(T[i])) != n for i in range(n)):
+                continue
+            if any(len({T[i][j] for i in range(n)}) != n for j in range(n)):
+                continue
+            if any(T[T[a][b]][c] != T[a][T[b][c]] for a in range(n) for b in range(n) for c in range(n)):
+                continue
+            out.append(T)
+        return out
+
+    shapes = {}
+    for n in (1, 2, 3, 4):
+        gs = groups_of_order(n)
+        if not gs:
+            fail("math: no group of order %d was found by enumeration" % n)
+        shapes[n] = set()
+        for T in gs:
+            if any(T[a][b] != T[b][a] for a in range(n) for b in range(n)):
+                fail("math: a group of order %d is not abelian" % n)
+            shapes[n].add(tuple(sorted(_table_order(T, a) for a in range(n))))
+    if shapes[2] != {(1, 2)} or shapes[3] != {(1, 3, 3)}:
+        fail("math: groups of order 2 and 3 should be cyclic, got %s and %s" % (shapes[2], shapes[3]))
+    if shapes[4] != {(1, 2, 4, 4), (1, 2, 2, 2)}:
+        fail("math: there should be exactly two groups of order 4, Z_4 and Z_2 x Z_2, got %s" % (shapes[4],))
+
+    # direct products: which of them are cyclic
+    def is_cyclic(elems, op, e):
+        for a in elems:
+            seen, x = set(), e
+            for _ in range(len(elems) + 1):
+                seen.add(x)
+                x = op(x, a)
+            if len(seen) == len(elems):
+                return True
+        return False
+
+    def addmod(mods):
+        return lambda x, y: tuple((x[i] + y[i]) % mods[i] for i in range(len(mods)))
+
+    Z2Z2 = [(a, b) for a in range(2) for b in range(2)]
+    Z2Z3 = [(a, b) for a in range(2) for b in range(3)]
+    Z2Z4 = [(a, b) for a in range(2) for b in range(4)]
+    if is_cyclic(Z2Z2, addmod((2, 2)), (0, 0)):
+        fail("math: Z_2 x Z_2 should not be cyclic")
+    if not is_cyclic(Z2Z3, addmod((2, 3)), (0, 0)):
+        fail("math: Z_2 x Z_3 should be cyclic")
+    if is_cyclic(Z2Z4, addmod((2, 4)), (0, 0)):
+        fail("math: Z_2 x Z_4 should not be cyclic")
+    Z4 = [(a,) for a in range(4)]
+    if sorted([_order_in(Z4, (4,), a) for a in Z4]) == sorted([_order_in(Z2Z2, (2, 2), a) for a in Z2Z2]):
+        fail("math: Z_4 and Z_2 x Z_2 should have different element-order multisets")
+    if sorted([_order_in(Z2Z2, (2, 2), a) for a in Z2Z2]) != [1, 2, 2, 2]:
+        fail("math: Z_2 x Z_2 should have element orders 1, 2, 2, 2")
+    if sorted([_order_in(Z4, (4,), a) for a in Z4]) != [1, 2, 4, 4]:
+        fail("math: Z_4 should have element orders 1, 2, 4, 4")
+
+    # the 1996 options: {1..p-1} under multiplication mod p, and the one-step test on Z_12
+    for p in (2, 3, 5, 7, 11, 13, 17, 19):
+        if not is_group(set(range(1, p)), lambda a, b, p=p: (a * b) % p):
+            fail("math: {1, ..., p-1} under multiplication mod %d should be a group" % p)
+    ones = []
+    for r in range(1, 13):
+        for comb in itertools.combinations(range(12), r):
+            Sset = set(comb)
+            if all((a - b) % 12 in Sset for a in Sset for b in Sset):
+                ones.append(frozenset(Sset))
+    subs12 = {subgroup_of_order(12, d) for d in divisors(12)}
+    if set(ones) != subs12:
+        fail("math: on Z_12 the one-step test does not select exactly the subgroups")
+
+    # the upper triangular matrix group of the 2005 question
+    def matmul(A, B):
+        return [[sum(A[i][k] * B[k][j] for k in range(3)) for j in range(3)] for i in range(3)]
+
+    A = [[2, 5, 7], [0, 3, 11], [0, 0, 5]]
+    B = [[1, 2, 3], [0, 4, 5], [0, 0, 2]]
+    AB = matmul(A, B)
+    if AB[1][0] or AB[2][0] or AB[2][1]:
+        fail("math: the product of two upper triangular matrices should be upper triangular")
+    if AB[0][0] * AB[1][1] * AB[2][2] != 2 * 3 * 5 * 1 * 4 * 2:
+        fail("math: the diagonal product of the matrix product should be the product of the determinants")
+    if matmul(A, B) == matmul(B, A):
+        fail("math: the chosen upper triangular matrices should not commute")
+
+    from fractions import Fraction
+
+    def inverse3(M):
+        n = 3
+        W = [[Fraction(M[i][j]) for j in range(n)] + [Fraction(1 if i == j else 0) for j in range(n)]
+             for i in range(n)]
+        for col in range(n):
+            piv = next(r for r in range(col, n) if W[r][col] != 0)
+            W[col], W[piv] = W[piv], W[col]
+            pv = W[col][col]
+            W[col] = [v / pv for v in W[col]]
+            for r in range(n):
+                if r != col and W[r][col] != 0:
+                    f = W[r][col]
+                    W[r] = [u - f * v for u, v in zip(W[r], W[col])]
+        return [[W[i][n + j] for j in range(n)] for i in range(n)]
+
+    invA = inverse3(A)
+    if invA[1][0] != 0 or invA[2][0] != 0 or invA[2][1] != 0:
+        fail("math: the inverse of an upper triangular matrix should be upper triangular")
+    if [invA[0][0], invA[1][1], invA[2][2]] != [Fraction(1, 2), Fraction(1, 3), Fraction(1, 5)]:
+        fail("math: the diagonal of the inverse should be the reciprocals 1/a, 1/b, 1/c")
+    ident = [[Fraction(1 if i == j else 0) for j in range(3)] for i in range(3)]
+    if matmul([[Fraction(v) for v in row] for row in A], invA) != ident:
+        fail("math: A times its computed inverse should be the identity matrix")
+
+    # homomorphisms: the reduction map and the exponential map
+    kern = [k for k in range(-30, 31) if k % 6 == 0]
+    if any(k % 6 for k in kern) or any(k % 6 == 0 for k in range(-30, 31) if k % 6):
+        fail("math: the kernel of k -> k mod 6 should be exactly the multiples of 6")
+    if sorted({k % 6 for k in range(6)}) != list(range(6)):
+        fail("math: k -> k mod 6 should be surjective onto Z_6")
+    if (0 % 6) != (6 % 6):
+        fail("math: k -> k mod 6 should fail injectivity at 0 and 6")
+    for c in range(3):
+        if any(((a + b) * c) % 3 != ((a * c) % 3 + (b * c) % 3) % 3 for a in range(6) for b in range(6)):
+            fail("math: every map Z_6 to Z_3 fixed by f(1) = %d should be a homomorphism" % c)
+    if any((2 ** (x + y)) != (2 ** x) * (2 ** y) for x in range(-5, 6) for y in range(-5, 6)):
+        fail("math: 2^(x+y) should equal 2^x 2^y")
+
+    ok("Monoids and Groups: the ladder on nine standard structures, element orders and generators of Z_1 to "
+       "Z_20, subgroups and Lagrange for every divisor, cosets of {0, 4, 8}, self-inverse counts in Z_2 x Z_3 x Z_4 "
+       "and Z_4 x Z_6, S_3 and S_4 products, A_4 without a subgroup of order 6, the classification of all groups of "
+       "order up to 4, the 2014 Set 3 Q.50 commutation, the 2024 Set 1 Q.42 laws, the 2005 matrix group, the 1996 "
+       "options, and the homomorphism and lesson claims")
+
+
+def _subgroups_of(elems, op):
+    """All subgroups of a finite group given as a set of elements and a composition."""
+    import itertools
+    S = list(elems)
+    e = next(x for x in S if all(op(x, y) == y and op(y, x) == y for y in S))
+    out = []
+    for r in range(1, len(S) + 1):
+        for comb in itertools.combinations(S, r):
+            H = set(comb)
+            if e not in H:
+                continue
+            if any(op(a, b) not in H for a in H for b in H):
+                continue
+            if any(not any(op(a, b) == e for b in H) for a in H):
+                continue
+            out.append(H)
+    return out
+
+
+def _order_in(elems, mods, a):
+    """Order of an element of a direct product of cyclic groups, given the component moduli."""
+    e = tuple(0 for _ in mods)
+    k, x = 1, a
+    while x != e:
+        x = tuple((x[i] + a[i]) % mods[i] for i in range(len(mods)))
+        k += 1
+        if k > len(elems) + 2:
+            return 0
+    return k
+
+
+def _table_order(T, a):
+    """Order of an element of a group given as a multiplication table with row 0 the identity."""
+    k, x = 1, a
+    while x != 0:
+        x = T[x][a]
+        k += 1
+        if k > len(T) + 2:
+            return 0
+    return k
+
+
 def main():
     topics, tpath, pyqs, videos, playlists, sources = load_all()
     check_topics(topics, tpath, pyqs, videos)
@@ -1470,6 +1936,7 @@ def main():
     check_first_order()
     check_sets_relations_functions()
     check_lattices()
+    check_monoids_and_groups()
     check_visuals()
     check_hygiene()
     for c in checks:

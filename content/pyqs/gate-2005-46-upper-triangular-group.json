@@ -1,0 +1,22 @@
+{
+  "id": "gate-2005-46-upper-triangular-group",
+  "year": "2005",
+  "paper": "GATE CS 2005",
+  "question_ref": "Q.46 (GATE Overflow numbering); secondary answer sites number it Q.19",
+  "type": "MCQ",
+  "marks": "2",
+  "topic": "finite-group-examples-gate-uses",
+  "text": "Consider the set H of all 3 x 3 matrices of the type [[a, f, e], [0, b, d], [0, 0, c]] where a, b, c, d, e and f are real numbers and abc is not 0. Under the matrix multiplication operation, the set H is:",
+  "options": [
+    "a group",
+    "a monoid but not a group",
+    "a semigroup but not a monoid",
+    "neither a group nor a semigroup"
+  ],
+  "answer": "Option 1 - a group",
+  "solution": "The product of two upper triangular matrices is upper triangular, and the determinant of such a matrix is the product abc of its diagonal entries, so every element of H has non-zero determinant and is invertible. The inverse is again upper triangular with diagonal entries 1/a, 1/b, 1/c, which are non-zero, so the inverse stays in H. The identity matrix is in H, and matrix multiplication is associative. Hence H is a group; it is not abelian, since matrix multiplication does not commute. Recomputed in scripts/validate.py on explicit matrices: the product and the inverse stay upper triangular with non-zero diagonal product, and a chosen pair fails to commute.",
+  "source_url": "https://gateoverflow.in/1171/gate-cse-2005-question-46",
+  "source_label": "GATE Overflow question page - GATE CSE 2005 Q.46 with the accepted solution (option 1)",
+  "verification": "SOURCED",
+  "answer_evidence": "Accepted answer: 'So, it is group. Correct Answer: A', with the inverse matrix written out and the diagonal entries 1/a, 1/b, 1/c shown non-zero."
+}

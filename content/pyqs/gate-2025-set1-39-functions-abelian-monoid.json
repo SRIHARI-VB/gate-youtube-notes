@@ -1,0 +1,22 @@
+{
+  "id": "gate-2025-set1-39-functions-abelian-monoid",
+  "year": "2025",
+  "paper": "GATE CS 2025 Set 1",
+  "question_ref": "Q.39 (GATE Overflow numbering); secondary answer sites number it Q.49",
+  "type": "MSQ",
+  "marks": "2",
+  "topic": "monoid-identity-and-examples",
+  "text": "A = {0, 1, 2, 3, ...} is the set of non-negative integers. Let F be the set of functions from A to itself. For any two functions f1, f2 in F, define (f1 odot f2)(n) = f1(n) + f2(n) for every number n in A. Which of the following is/are CORRECT about the mathematical structure (F, odot)?",
+  "options": [
+    "(F, odot) is an Abelian group",
+    "(F, odot) is an Abelian monoid",
+    "(F, odot) is a non-Abelian group",
+    "(F, odot) is a non-Abelian monoid"
+  ],
+  "answer": "Option 2 - (F, odot) is an Abelian monoid",
+  "solution": "Closure holds, since a sum of two non-negative integers is a non-negative integer. Associativity and commutativity are inherited from integer addition. The constant zero function is the identity. Inverses fail: (f odot g)(n) = 0 for all n forces g(n) = -f(n), which is not a function into A whenever f(n) > 0. So the structure is a commutative monoid and not a group. Recomputed in scripts/validate.py on functions from a two-element domain into the non-negative integers: closure, associativity, identity and commutativity hold, and no non-negative function inverts a function taking the value 1.",
+  "source_url": "https://gateoverflow.in/460041/gate-cse-2025-set-1-question-39",
+  "source_label": "GATE Overflow question page - GATE CSE 2025 Set 1 Q.39 with the accepted solution (option 2)",
+  "verification": "SOURCED",
+  "answer_evidence": "Accepted answer: 'A valid inverse does not exist for nonzero functions. Hence, it is an abelian monoid'; the page's other answers reach option B."
+}

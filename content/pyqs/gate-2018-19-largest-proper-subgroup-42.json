@@ -1,0 +1,16 @@
+{
+  "id": "gate-2018-19-largest-proper-subgroup-42",
+  "year": "2018",
+  "paper": "GATE CS 2018",
+  "question_ref": "Q.19",
+  "type": "NAT",
+  "marks": "1",
+  "topic": "cosets-and-lagrange",
+  "text": "Let G be a finite group on 84 elements. The size of a largest possible proper subgroup of G is ______.",
+  "answer": "42",
+  "solution": "By Lagrange's theorem a subgroup order divides 84, whose divisors are 1, 2, 3, 4, 6, 7, 12, 14, 21, 28, 42 and 84. A proper subgroup excludes 84, so the largest possible size is 42. The bound is attained: the cyclic group Z_84 has a subgroup of order 42. Recomputed in scripts/validate.py by listing the divisors and building the subgroup of order 42 inside Z_84.",
+  "source_url": "https://gateoverflow.in/204093/gate-cse-2018-question-19",
+  "source_label": "GATE Overflow question page - GATE CSE 2018 Q.19 with the accepted solution (42)",
+  "verification": "SOURCED",
+  "answer_evidence": "Accepted answer: 'Proper Subgroup of Group having order 84 would have one of the order (proper factors of 84) ... So the largest order would be 42.'"
+}

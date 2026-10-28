@@ -1,0 +1,87 @@
+{
+  "id": "cosets-and-lagrange",
+  "title": "Cosets and Lagrange's Theorem",
+  "priority": "P1",
+  "order": 80,
+  "unit": "Algebras",
+  "quickIdea": "The cosets of a subgroup are equal-sized blocks that tile the group, which is exactly why the subgroup's order must divide the group's order.",
+  "remember": [
+    "For H a subgroup of G and a in G, the left coset is aH = {a h : h in H}; the right coset Ha is defined the same way on the other side.",
+    "Every coset has the same size as H, since h maps to a h bijectively, and two cosets are either identical or disjoint. The cosets therefore partition G into |G| / |H| blocks.",
+    "Lagrange's theorem: for a finite group, |H| divides |G|, and |G| = [G : H] |H|, where the index [G : H] is the number of distinct cosets.",
+    "Corollary: the order of every element divides |G|, so a^|G| = e for every a in G.",
+    "The largest possible proper subgroup of a group of order n has size n / p, where p is the smallest prime factor of n: 84 gives 42, 35 gives 7, 45 gives 15, 12 gives 6.",
+    "The converse of Lagrange is false. A4 has order 12 and no subgroup of order 6; cyclic groups realise every divisor, which is the friendly case and not the general rule.",
+    "A group of prime order has no proper non-trivial subgroup at all, so every element other than the identity generates it."
+  ],
+  "example": {
+    "prompt": "In Z_12 take H = {0, 4, 8}. List the cosets and the index.",
+    "work": "0 + H = {0, 4, 8}; 1 + H = {1, 5, 9}; 2 + H = {2, 6, 10}; 3 + H = {3, 7, 11}; and 4 + H returns to {0, 4, 8}. Four disjoint blocks of three covering all twelve residues, so the index is 12 / 3 = 4.",
+    "answer": "Four cosets, index 4, and 3 x 4 = 12 exactly as Lagrange requires."
+  },
+  "gateAngle": "Lagrange appears in GATE as a counting question almost every other year: 'largest possible proper subgroup' in 2018 and 2020, 'the size of L is' in 2014 Set 3. Divide by the smallest prime factor and never assume the answer is half.",
+  "variations": [
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Can a group of order 12 have a subgroup of order 5?",
+      "answer": "No: 5 does not divide 12, so Lagrange forbids it outright.",
+      "why": "Divisibility is a necessary condition, not a sufficient one; the next trap is assuming that every divisor does occur."
+    },
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "A group has order 45. What is the largest possible size of a proper subgroup?",
+      "answer": "15, which is 45 / 3, and it is attained in the cyclic group Z_45.",
+      "why": "45 = 3^2 x 5, so the smallest prime factor is 3 and the largest proper divisor is 15."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "A group G of order 30 has a subgroup H of order 6. How many cosets does H have, and does Lagrange tell you whether a subgroup of order 10 exists?",
+      "answer": "Five cosets, since 30 / 6 = 5. Lagrange says nothing about a subgroup of order 10: it only says that any subgroup order must divide 30, not that each divisor occurs.",
+      "why": "This separates the two directions cleanly; only the cyclic group promises a subgroup for every divisor."
+    }
+  ],
+  "trap": {
+    "what": "Answering |G| / 2 for 'largest proper subgroup' without checking whether 2 is the smallest prime factor, and assuming every divisor of |G| is realised.",
+    "why": "For odd |G| the answer is |G| / p with p the smallest odd prime, so a group of order 35 has 7 and not 17.5 or 5. And A4 of order 12 has no subgroup of order 6 at all.",
+    "counterexample": "A group of order 35 has divisors 1, 5, 7, 35, so the largest proper subgroup has size 7; A4 has order 12 and no subgroup of order 6."
+  },
+  "check": {
+    "question": "A group G has 84 elements. What is the largest possible size of a proper subgroup, and is that size actually achieved?",
+    "answer": "42, which is 84 / 2, and it is achieved by the cyclic group Z_84, whose subgroup of order 42 exists.",
+    "explanation": "The divisors of 84 are 1, 2, 3, 4, 6, 7, 12, 14, 21, 28, 42 and 84, so the largest proper divisor is 42. Because Z_84 is cyclic it has a subgroup of every divisor order, so the bound is attained, not merely permitted."
+  },
+  "pyqIds": [
+    "gate-2018-19-largest-proper-subgroup-42",
+    "gate-2020-18-largest-proper-subgroup-7",
+    "gate-2014-set3-3-subgroup-size-5"
+  ],
+  "prereqs": [
+    "subgroups-and-tests",
+    "order-of-group-and-element"
+  ],
+  "videoRefs": [],
+  "sources": [
+    {
+      "kind": "text",
+      "title": "Group theory Notes for GATE Exams",
+      "channel": "GeeksforGeeks",
+      "url": "https://www.geeksforgeeks.org/engineering-mathematics/group-theory-notes-for-gate-exams/",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "GATE-oriented note set; article text read in full"
+    },
+    {
+      "kind": "course-outline",
+      "title": "Discrete Mathematics, Module 7 Group Theory - lecture sequence (Lectures 4-40: binary operation, monoid, group properties, order of an element, cyclic group, Lagrange's theorem, alternative definitions)",
+      "channel": "GO Classes for GATE CS (Deepak Poonia)",
+      "url": "https://www.goclasses.in/courses/63f9aa9be4b0a8a370cfb0ad",
+      "language": "en",
+      "transcript": "UNAVAILABLE",
+      "translated": false,
+      "note": "published lecture list read; the video captions themselves could not be retrieved in this run, so this is a structure reference only and no card quotes it"
+    }
+  ],
+  "sourceLine": "Cosets, the index and Lagrange's theorem: GeeksforGeeks GATE group-theory notes (English, read in full). The 'Lagrange's theorem' and 'summary - groups of specific orders' lecture positions: GO Classes Module 7 lecture list (structure only, captions unavailable). The coset partition and every index in this card are recomputed in scripts/validate.py and shown in the lesson cyclic-subgroup-and-lagrange.",
+  "visual": "discrete-mathematics/monoids-and-groups/cyclic-subgroup-and-lagrange"
+}

@@ -1,0 +1,22 @@
+{
+  "id": "gate-1996-2-4-concatenation-monoid",
+  "year": "1996",
+  "paper": "GATE CS 1996",
+  "question_ref": "Q.2.4",
+  "type": "MCQ",
+  "marks": "1",
+  "topic": "monoid-identity-and-examples",
+  "text": "Which one of the following is false?",
+  "options": [
+    "The set of all bijective functions on a finite set forms a group under function composition",
+    "The set {1, 2, ..., p-1} forms a group under multiplication mod p, where p is a prime number",
+    "The set of all strings over a finite alphabet forms a group under concatenation",
+    "A non-empty subset S of G is a subgroup of the group (G, *) if and only if for any pair of elements a, b in S, a * b^-1 is in S"
+  ],
+  "answer": "Option 3 - the set of all strings over a finite alphabet forms a monoid, not a group, under concatenation",
+  "solution": "Option 1 is true: composition of bijections is a bijection, the identity map is the identity, and the inverse map is the inverse. Option 2 is true: the residues 1 to p-1 are closed under multiplication mod p, the product is associative, 1 is the identity, and every residue coprime to the prime p has an inverse by Euclid's lemma. Option 3 is false: concatenation is closed and associative and the empty string is the identity, but a non-empty string w has no inverse, because |w v| = |w| + |v| > 0 while the empty string has length 0. Option 4 is true and is the one-step subgroup test: taking b = a gives the identity, then taking a = e gives inverses, then a * (b^-1)^-1 = a * b gives closure. Recomputed in scripts/validate.py: strings over {a} up to length 3 under concatenation satisfy closure, associativity and identity and no non-empty string has an inverse; {1, 3} mod 5 closes into a group for every prime tested.",
+  "source_url": "https://gateoverflow.in/2733/gate-cse-1996-question-2-4",
+  "source_label": "GATE Overflow question page - GATE CSE 1996 Q.2.4 with the accepted solution (option 3 is false)",
+  "verification": "SOURCED",
+  "answer_evidence": "Accepted answer: '(c) is false as string concatenation operation is a monoid (doesn't have inverse to become a group)'; the page's other answers prove options 1, 2 and 4 true."
+}

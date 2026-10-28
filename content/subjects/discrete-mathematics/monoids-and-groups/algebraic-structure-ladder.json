@@ -1,0 +1,94 @@
+{
+  "id": "algebraic-structure-ladder",
+  "title": "The Algebraic-Structure Ladder: Semigroup, Monoid, Group",
+  "priority": "P1",
+  "order": 73,
+  "unit": "Algebras",
+  "quickIdea": "One set, one operation, five rungs: closure, associativity, identity, inverses, commutativity. GATE's group questions almost always ask which rung a structure stands on.",
+  "remember": [
+    "A binary operation on S is a rule that takes two elements of S to one element of S; closure is the demand that the answer stays inside S.",
+    "Semigroup = closure + associativity. Monoid = semigroup + a two-sided identity. Group = monoid + an inverse for every element. Abelian group = group + commutativity.",
+    "The rungs are cumulative and each is strictly stronger than the one below it, so a counterexample at one rung settles every rung above it.",
+    "Closure never implies associativity: subtraction on the integers is closed, and (5 - 3) - 1 = 1 while 5 - (3 - 1) = 3, so (Z, -) is not even a semigroup.",
+    "A semigroup can lack an identity without being strange: ({1, 2, 3, ...}, +) has no identity inside the set, because 0 is missing. Add 0 and it becomes a monoid.",
+    "Distributivity is not a group axiom. It is the extra law that ties two operations together, which is why it appears only when a question defines two operators at once.",
+    "The ladder is about which axioms hold, not about size: (Z_n, +) is a group for every n >= 1, including the two-element set {0, 1} with addition mod 2."
+  ],
+  "example": {
+    "prompt": "Classify (Z, diamond) where a diamond b = a + 2b.",
+    "work": "Closure: a + 2b is an integer whenever a and b are, so the structure is closed. Associativity: (a diamond b) diamond c = (a + 2b) + 2c = a + 2b + 2c, but a diamond (b diamond c) = a + 2(b + 2c) = a + 2b + 4c. With a = 0, b = 0, c = 1 the two sides are 2 and 4, so associativity fails and no higher rung is reached.",
+    "answer": "A closed algebraic structure that is not a semigroup, hence not a monoid and not a group."
+  },
+  "gateAngle": "Classification questions hand you a made-up operation (a diamond b = a + 2b in 2024 Set 1, pointwise addition of functions in 2025 Set 1, symmetric difference in 2023). Two well-chosen numbers that separate the two sides of associativity, plus one element with no inverse inside the set, decide the whole question.",
+  "variations": [
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Is (Z, -) a semigroup?",
+      "answer": "No. It is closed, but it is not associative: (5 - 3) - 1 = 1 while 5 - (3 - 1) = 3.",
+      "why": "Closure is the first rung and the cheapest to check, which is exactly why people stop there. The ladder is climbed in order, not sampled."
+    },
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "On the positive integers define a star b = a^b. Which rung does (Z+, star) reach?",
+      "answer": "Closure only. It is not associative: (2 star 3) star 2 = 8^2 = 64, while 2 star (3 star 2) = 2^9 = 512.",
+      "why": "A made-up operation is normally settled by one triple that breaks associativity; nothing above closure needs to be checked afterwards."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "On the integers define a diamond b = a + b - 1. Which rung does (Z, diamond) reach?",
+      "answer": "An abelian group: (a + b - 1) + c - 1 = a + (b + c - 1) - 1, the identity is 1, the inverse of a is 2 - a, and the operation is commutative.",
+      "why": "A shifted addition like this is GATE's favourite disguise for (Z, +). Subtract 1 from every element and it becomes ordinary addition."
+    }
+  ],
+  "trap": {
+    "what": "Treating 'closed under the operation' as 'a group', and assuming associativity comes free with a formula.",
+    "why": "Closure is one line to check and it is the weakest rung. Both the 2024 Set 1 and the 2025 Set 1 group questions turn on associativity or on inverses, never on closure.",
+    "counterexample": "a diamond b = a + 2b is closed on the integers and not associative, so it is not a semigroup; a diamond b = a + b - 1 is a group on the same set."
+  },
+  "check": {
+    "question": "Which rung does ({1, 2, 3, ...}, +) reach, and what changes when 0 is included?",
+    "answer": "It is a semigroup without 0 and a monoid with 0; it is never a group, because 1 has no inverse among the non-negative integers.",
+    "explanation": "Addition of positive integers is closed and associative, so the semigroup rung is reached. An identity must be an element of the set, and the only candidate is 0, so without 0 there is no monoid. Adding 0 gives the monoid, and the inverse axiom still fails for every element other than 0, because -1 is not a non-negative integer."
+  },
+  "pyqIds": [
+    "gate-2024-set1-42-associativity-distributivity"
+  ],
+  "prereqs": [
+    "sets-elements-subsets-cardinality"
+  ],
+  "videoRefs": [],
+  "sources": [
+    {
+      "kind": "text",
+      "title": "Group theory Notes for GATE Exams",
+      "channel": "GeeksforGeeks",
+      "url": "https://www.geeksforgeeks.org/engineering-mathematics/group-theory-notes-for-gate-exams/",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "GATE-oriented note set; article text read in full"
+    },
+    {
+      "kind": "video",
+      "title": "Algebraic Structure | Group Theory | Discrete Mathematics | Lecture 01",
+      "channel": "Pradeep Giri Academy (Hindi)",
+      "video_id": "UP2SX1aLJ60",
+      "url": "https://www.youtube.com/watch?v=UP2SX1aLJ60",
+      "language": "hi",
+      "transcript": "PARTIAL",
+      "translated": true,
+      "note": "Hindi auto-captions (Devanagari ASR) read in part; every published sentence derived from this lecture was translated into English and is marked as translated"
+    },
+    {
+      "kind": "course-outline",
+      "title": "Discrete Mathematics, Module 7 Group Theory - lecture sequence (Lectures 4-40: binary operation, monoid, group properties, order of an element, cyclic group, Lagrange's theorem, alternative definitions)",
+      "channel": "GO Classes for GATE CS (Deepak Poonia)",
+      "url": "https://www.goclasses.in/courses/63f9aa9be4b0a8a370cfb0ad",
+      "language": "en",
+      "transcript": "UNAVAILABLE",
+      "translated": false,
+      "note": "published lecture list read; the video captions themselves could not be retrieved in this run, so this is a structure reference only and no card quotes it"
+    }
+  ],
+  "sourceLine": "The rung-by-rung definitions and the closure/associativity distinction: GeeksforGeeks GATE group-theory notes (English, read in full) and the Pradeep Giri 'Algebraic Structure' lecture (Hindi auto-captions, read in part; translated into English for this card, source language Hindi). The lecture sequence that puts these rungs in GATE order: GO Classes Module 7 lecture list (structure only, captions unavailable)."
+}

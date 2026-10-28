@@ -1,0 +1,22 @@
+{
+  "id": "gate-2023-41-symmetric-difference-group",
+  "year": "2023",
+  "paper": "GATE CS 2023",
+  "question_ref": "Q.41 (GATE Overflow numbering); secondary answer sites number it Q.51",
+  "type": "MSQ",
+  "marks": "2",
+  "topic": "finite-group-examples-gate-uses",
+  "text": "Let X be a set and 2^X denote the power set of X. Define a binary operation delta on 2^X by A delta B = (A - B) union (B - A). Let H = (2^X, delta). Which of the following statements about H is/are correct?",
+  "options": [
+    "H is a group",
+    "Every element in H has an inverse, but H is not a group",
+    "For every A in 2^X, the inverse of A is the complement of A",
+    "For every A in 2^X, the inverse of A is A"
+  ],
+  "answer": "Options 1 and 4",
+  "solution": "The operation is symmetric difference, which is closed on the power set and associative, with identity the empty set. Since A delta A = empty for every A, every element is its own inverse, so H is a group and the inverse of A is A, not the complement. The complement fails because A delta A' = X, which is the identity only when X is empty. Recomputed in scripts/validate.py by building the whole operation table on 2^{1,2,3}: closure, associativity, identity, inverses and commutativity all hold, every element squares to the identity, and the complement of a proper non-empty subset is not an inverse.",
+  "source_url": "https://gateoverflow.in/399270/gate-cse-2023-question-41",
+  "source_label": "GATE Overflow question page - GATE CSE 2023 Q.41 with the accepted solution (options 1 and 4)",
+  "verification": "SOURCED",
+  "answer_evidence": "Accepted answer: 'So, every element in 2^X is its own inverse. Therefore (A), (D)'; the page's other answers reach the same pair."
+}

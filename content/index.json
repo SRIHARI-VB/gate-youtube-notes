@@ -29,8 +29,8 @@
   ],
   "counts": {
     "subjects": 1,
-    "topics": 60,
-    "pyqs": 49,
+    "topics": 71,
+    "pyqs": 62,
     "videos": 39,
     "playlists": 3
   },
@@ -1000,6 +1000,172 @@
       "videos": [],
       "pyqs": [
         "gate-2004-73-complete-lattice"
+      ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "algebraic-structure-ladder",
+      "title": "The Algebraic-Structure Ladder: Semigroup, Monoid, Group",
+      "subject": "discrete-mathematics",
+      "group": "monoids-and-groups",
+      "unit": "Algebras",
+      "priority": "P1",
+      "path": "subjects/discrete-mathematics/monoids-and-groups/algebraic-structure-ladder.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2024-set1-42-associativity-distributivity"
+      ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "monoid-identity-and-examples",
+      "title": "Monoids: Identity, Uniqueness and the Standard Examples",
+      "subject": "discrete-mathematics",
+      "group": "monoids-and-groups",
+      "unit": "Algebras",
+      "priority": "P1",
+      "path": "subjects/discrete-mathematics/monoids-and-groups/monoid-identity-and-examples.json",
+      "videos": [],
+      "pyqs": [
+        "gate-1996-2-4-concatenation-monoid",
+        "gate-1997-3-1-max-semigroup",
+        "gate-2025-set1-39-functions-abelian-monoid"
+      ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "group-axioms-and-uniqueness",
+      "title": "Group Axioms, Uniqueness and the Reversal Rule",
+      "subject": "discrete-mathematics",
+      "group": "monoids-and-groups",
+      "unit": "Algebras",
+      "priority": "P1",
+      "path": "subjects/discrete-mathematics/monoids-and-groups/group-axioms-and-uniqueness.json",
+      "videos": [],
+      "pyqs": [],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "order-of-group-and-element",
+      "title": "Order of a Group and Order of an Element",
+      "subject": "discrete-mathematics",
+      "group": "monoids-and-groups",
+      "unit": "Algebras",
+      "priority": "P1",
+      "path": "subjects/discrete-mathematics/monoids-and-groups/order-of-group-and-element.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2024-set2-53-self-inverse-z2-z3-z4",
+        "gate-2014-set3-50-two-involutions-four-elements"
+      ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "abelian-groups-and-commutativity-tests",
+      "title": "Abelian Groups and the Two Commutativity Tests",
+      "subject": "discrete-mathematics",
+      "group": "monoids-and-groups",
+      "unit": "Algebras",
+      "priority": "P1",
+      "path": "subjects/discrete-mathematics/monoids-and-groups/abelian-groups-and-commutativity-tests.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2022-27-group-commutativity-tests"
+      ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "subgroups-and-tests",
+      "title": "Subgroups and the One-Step Test",
+      "subject": "discrete-mathematics",
+      "group": "monoids-and-groups",
+      "unit": "Algebras",
+      "priority": "P1",
+      "path": "subjects/discrete-mathematics/monoids-and-groups/subgroups-and-tests.json",
+      "videos": [],
+      "pyqs": [],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "cyclic-groups-and-generators",
+      "title": "Cyclic Groups, Generators and Prime Order",
+      "subject": "discrete-mathematics",
+      "group": "monoids-and-groups",
+      "unit": "Algebras",
+      "priority": "P1",
+      "path": "subjects/discrete-mathematics/monoids-and-groups/cyclic-groups-and-generators.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2021-set1-34-order-6-subgroup-cyclic"
+      ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "cosets-and-lagrange",
+      "title": "Cosets and Lagrange's Theorem",
+      "subject": "discrete-mathematics",
+      "group": "monoids-and-groups",
+      "unit": "Algebras",
+      "priority": "P1",
+      "path": "subjects/discrete-mathematics/monoids-and-groups/cosets-and-lagrange.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2018-19-largest-proper-subgroup-42",
+        "gate-2020-18-largest-proper-subgroup-7",
+        "gate-2014-set3-3-subgroup-size-5"
+      ],
+      "visual": "discrete-mathematics/monoids-and-groups/cyclic-subgroup-and-lagrange",
+      "variations": 3
+    },
+    {
+      "topic": "finite-group-examples-gate-uses",
+      "title": "The Small Cast of Groups GATE Reuses",
+      "subject": "discrete-mathematics",
+      "group": "monoids-and-groups",
+      "unit": "Algebras",
+      "priority": "P2",
+      "path": "subjects/discrete-mathematics/monoids-and-groups/finite-group-examples-gate-uses.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2023-41-symmetric-difference-group",
+        "gate-2005-46-upper-triangular-group",
+        "gate-2024-set2-53-self-inverse-z2-z3-z4"
+      ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "group-homomorphism-and-kernel",
+      "title": "Group Homomorphisms and the Kernel",
+      "subject": "discrete-mathematics",
+      "group": "monoids-and-groups",
+      "unit": "Algebras",
+      "priority": "P3",
+      "path": "subjects/discrete-mathematics/monoids-and-groups/group-homomorphism-and-kernel.json",
+      "videos": [],
+      "pyqs": [],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "permutation-groups-and-symmetry",
+      "title": "Permutation Groups and the Symmetric Group",
+      "subject": "discrete-mathematics",
+      "group": "monoids-and-groups",
+      "unit": "Algebras",
+      "priority": "P3",
+      "path": "subjects/discrete-mathematics/monoids-and-groups/permutation-groups-and-symmetry.json",
+      "videos": [],
+      "pyqs": [
+        "gate-1996-2-4-concatenation-monoid"
       ],
       "visual": null,
       "variations": 3

@@ -1,0 +1,96 @@
+{
+  "id": "monoid-identity-and-examples",
+  "title": "Monoids: Identity, Uniqueness and the Standard Examples",
+  "priority": "P1",
+  "order": 74,
+  "unit": "Algebras",
+  "quickIdea": "A monoid is a semigroup that owns an identity element. It is the exact home of string concatenation and the classic 'monoid but not a group' answer in GATE.",
+  "remember": [
+    "A monoid is a set with an associative binary operation and a two-sided identity e: a e = e a = a for every a in the set.",
+    "The identity of a monoid is unique: if e and e' both fix everything then e = e e' = e'.",
+    "(Sigma*, concatenation) is the standard monoid: closed, associative, identity is the empty string, and no non-empty string has an inverse, so it is not a group. GATE CSE 1996 Q.2.4 asks exactly this.",
+    "(N0, +) with 0 included is an abelian monoid; without 0 the same set is only a semigroup. (Z, x) is an abelian monoid with identity 1 that is not a group, because 2 has no inverse in Z.",
+    "(2^X, union) is an abelian monoid with identity the empty set; (2^X, intersection) is an abelian monoid with identity X. Neither is a group when X is non-empty.",
+    "(Z, max) is a semigroup and not a monoid: max(m, e) = m for every integer m would need an e below every integer, and Z has no least element. GATE CSE 1997 Q.3.1 is this question.",
+    "A monoid in which every element cancels is a group when the monoid is finite, but not in general: (N0, +) cancels and is not a group."
+  ],
+  "example": {
+    "prompt": "Take Sigma = {a} and the set Sigma* of all finite strings over it. Which rungs does (Sigma*, concatenation) reach?",
+    "work": "Closure: concatenating two finite strings gives a finite string. Associativity: (uv)w and u(vw) are both the string u followed by v followed by w. Identity: the empty string eps satisfies eps u = u eps = u. Inverses: if a v = eps then the length equation 1 + |v| = 0 has no solution, so a has no inverse.",
+    "answer": "An abelian monoid that is not a group; every non-empty string fails the inverse axiom."
+  },
+  "gateAngle": "GATE gives a monoid and asks whether it is a group. After closure, associativity and identity, the only live question is whether each element has an inverse inside the set, and the answer usually turns on the set being cut short: N, Sigma*, Z under multiplication, matrices with integer entries.",
+  "variations": [
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Is (2^X, union) a group?",
+      "answer": "No. It is an abelian monoid: the identity is the empty set, and A union B = empty forces both A and B empty, so only the empty set has an inverse.",
+      "why": "Commutativity and identity are easy to confirm and people stop there. The inverse axiom is the one that fails."
+    },
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "How many elements of (Z_10, x) have a multiplicative inverse?",
+      "answer": "Four: the units 1, 3, 7 and 9, counted by phi(10) = 4.",
+      "why": "The units of Z_n form the group U(n) of size phi(n); the rest of Z_10 is only a monoid, which is why the count is not 10."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "On the integers define a star b = min(a, b). Which rung does (Z, star) reach?",
+      "answer": "A commutative semigroup only. An identity would have to be at least as large as every element, and Z has no largest element. On a finite set {1, ..., n} the same operation is a monoid with identity n.",
+      "why": "The same formula lands on different rungs depending on the set, so the set is part of the question, not background."
+    }
+  ],
+  "trap": {
+    "what": "Taking the empty set as the identity for intersection, or 0 as the identity for max.",
+    "why": "The identity must fix every element, not merely look neutral: A intersection empty = empty, which is not A, and max(0, -5) = 0, which is not -5.",
+    "counterexample": "In (2^X, intersection) with X = {1, 2} the identity is X, since A intersection X = A; the empty set fails because {1} intersection empty = empty."
+  },
+  "check": {
+    "question": "Is (Z, x) a monoid, and is it a group?",
+    "answer": "An abelian monoid, not a group: the identity is 1, but 2 has no multiplicative inverse in Z.",
+    "explanation": "Multiplication of integers is closed and associative, and 1 fixes every integer, so the monoid rung is reached. The inverse of 2 would have to satisfy 2b = 1, and no integer b does, so the inverse axiom fails for every element other than 1 and -1."
+  },
+  "pyqIds": [
+    "gate-1996-2-4-concatenation-monoid",
+    "gate-1997-3-1-max-semigroup",
+    "gate-2025-set1-39-functions-abelian-monoid"
+  ],
+  "prereqs": [
+    "algebraic-structure-ladder"
+  ],
+  "videoRefs": [],
+  "sources": [
+    {
+      "kind": "text",
+      "title": "Group theory Notes for GATE Exams",
+      "channel": "GeeksforGeeks",
+      "url": "https://www.geeksforgeeks.org/engineering-mathematics/group-theory-notes-for-gate-exams/",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "GATE-oriented note set; article text read in full"
+    },
+    {
+      "kind": "video",
+      "title": "Algebraic Structure | Group Theory | Discrete Mathematics | Lecture 01",
+      "channel": "Pradeep Giri Academy (Hindi)",
+      "video_id": "UP2SX1aLJ60",
+      "url": "https://www.youtube.com/watch?v=UP2SX1aLJ60",
+      "language": "hi",
+      "transcript": "PARTIAL",
+      "translated": true,
+      "note": "Hindi auto-captions (Devanagari ASR) read in part; every published sentence derived from this lecture was translated into English and is marked as translated"
+    },
+    {
+      "kind": "course-outline",
+      "title": "Discrete Mathematics, Module 7 Group Theory - lecture sequence (Lectures 4-40: binary operation, monoid, group properties, order of an element, cyclic group, Lagrange's theorem, alternative definitions)",
+      "channel": "GO Classes for GATE CS (Deepak Poonia)",
+      "url": "https://www.goclasses.in/courses/63f9aa9be4b0a8a370cfb0ad",
+      "language": "en",
+      "transcript": "UNAVAILABLE",
+      "translated": false,
+      "note": "published lecture list read; the video captions themselves could not be retrieved in this run, so this is a structure reference only and no card quotes it"
+    }
+  ],
+  "sourceLine": "Monoid definition, uniqueness of the identity and the concatenation example: GeeksforGeeks GATE group-theory notes (English, read in full) and the Pradeep Giri 'Algebraic Structure' lecture (Hindi auto-captions, read in part; translated into English, source language Hindi). Question patterns: GATE CSE 1996 Q.2.4, 1997 Q.3.1 and 2025 Set 1 Q.39."
+}

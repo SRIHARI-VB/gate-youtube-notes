@@ -405,3 +405,109 @@ Set 1 Q.34. Birkhoff's forbidden-sublattice characterisation is stated from the 
 
 **Checks.** `python3 scripts/build-index.py` and `python3 scripts/validate.py` pass (15 checks, 0 failures, 8 pre-existing
 warnings), and `node tests/visual-lessons.js` draws every step of all nine p5 lessons.
+
+## Run 5 - Monoids and Groups (2026-10-28)
+
+### The topic, and why it was next
+
+**Discrete Mathematics > Monoids and Groups** (`monoids-and-groups`), the fifth topic of the GATE 2027 Discrete
+Mathematics line: *"Propositional and first order logic. Sets, relations, functions, partial orders and lattices.
+Monoids, Groups. ..."*
+
+The ledger's cycle pointer stood at `discrete-mathematics/partial-orders-and-lattices` after the previous run, and
+that topic is `partial`. The first topic strictly after it, in syllabus order, whose status is not `covered`, is
+`monoids-and-groups`, which was `not_started`. Nothing was skipped and nothing was `blocked`: the three earlier
+`partial` topics (propositional logic, first order logic, combinatorics) are not candidates yet, because the cycle
+takes a second pass over partial topics only after a full pass finds no `not_started` topic left.
+
+Status before this run: `not_started`. Status after: `partial`, with five named gaps.
+
+### Subtopics enumerated before any source was chosen
+
+Eleven, from the GATE line plus the standard treatment of groups, checked for completeness against the published
+GO Classes Module 7 lecture sequence:
+
+1. binary operation, closure and the algebraic-structure ladder
+2. monoids: identity, uniqueness of the identity, standard examples
+3. group axioms, uniqueness of identity and inverse, cancellation and `(ab)^-1 = b^-1 a^-1`
+4. order of a group and order of an element, and the divisibility corollary
+5. abelian groups and the conditions that force commutativity
+6. subgroups and the one-step and two-step tests
+7. cyclic groups, generators and groups of prime order
+8. cosets, the index and Lagrange's theorem
+9. the small cast of groups GATE reuses: Z_n, direct products, matrix groups, power sets under symmetric difference
+10. group homomorphism, kernel and isomorphism
+11. permutation groups and the symmetric group
+
+### Sources chosen, on merit
+
+- **GeeksforGeeks, "Group theory Notes for GATE Exams"** (English, article text read in full) - the ladder, the group
+  properties, the subgroup tests, cyclic groups and Lagrange's theorem. Chosen because it was the only GATE-oriented
+  written source whose whole text could be read in this run, and because its vocabulary is the one GATE uses.
+- **Pradeep Giri Academy, "Algebraic Structure | Group Theory | Discrete Mathematics | Lecture 01"** (Hindi
+  auto-captions, read in part) - the rung-by-rung construction of the ladder with one worked example per rung. This
+  is the only non-English source used, and **every sentence taken from it is translated into English and marked as
+  translated, with the source language named (Hindi)**. It appears on the ladder and monoid cards.
+- **GO Classes for GATE CS, Discrete Mathematics Module 7 lecture list** (English, structure only) - used to check
+  that the subtopic enumeration is complete and in GATE order, not to source any statement. Its captions were not
+  retrievable, so it is recorded as `UNAVAILABLE` and no card quotes it.
+
+Rejected, with reasons in `sources.json`: the NPTEL IIT Madras "Algebras" lectures 35-37 (the same course that
+supplied the full-text Lecture 40 for the previous topic - the transcript PDFs could not be fetched this run, so
+nothing could be read); the NPTEL "Introduction to Abstract Group Theory" series (right topic, wrong depth, and
+unreadable here); the Knowledge Gate Hindi playlist (a serious competitor, but no caption text retrievable); the
+Dr. Gajendra Purohit playlist (large and complete, but an engineering-mathematics sequence with no GATE question
+work and no readable captions); and the GATE answer aggregators (GateAI, Success Tracker, Testbook, EduRev,
+BattleExam), which disagree with each other and were used only to cross-check paper numbering.
+
+### Created
+
+11 cards, one per subtopic; 13 verified PYQs (GATE CSE 1996 Q.2.4, 1997 Q.3.1, 2005 Q.46, 2014 Set 3 Q.3,
+2014 Set 3 Q.50, 2018 Q.19, 2020 Q.18, 2021 Set 1 Q.34, 2022 Q.27, 2023 Q.41, 2024 Set 1 Q.42, 2024 Set 2 Q.53,
+2025 Set 1 Q.39), each with its year, its question reference as the paper numbers it where the numbering is
+disputed, a GATE Overflow URL and the accepted answer quoted in `answer_evidence`; one p5.js lesson
+`cyclic-subgroup-and-lagrange`; and a "Monoids and groups" group in `content/revision/formulas.json`.
+
+### Mathematics
+
+`scripts/validate.py` gains `check_monoids_and_groups`, which: checks that Z_n is a group and that its element
+orders are n/gcd(a,n) for every n up to 20; verifies that the generators of Z_n are the residues coprime to n and
+that there are phi(n) of them; enumerates the subgroups of Z_n and checks Lagrange for each; recomputes every
+"largest possible proper subgroup" claim (84 -> 42, 35 -> 7, 45 -> 15, and the 2014 Set 3 filter on 15 -> 5);
+counts self-inverse elements in Z_2 x Z_3 x Z_4 and Z_4 x Z_6; rebuilds the cosets of {0, 4, 8} in Z_12 and checks
+that they partition the group; checks the two made-up operations of the 2024 Set 1 question by brute force; verifies
+S_3 and S_4 products, the nine elements of order 2 in S_4, and that A_4 of order 12 has no subgroup of order 6;
+classifies every group of order up to 4 from reduced multiplication tables and confirms all four are abelian and
+that order 4 has exactly two groups; checks the 2014 Set 3 Q.50 step (every pair of involutions with an involutive
+product commutes, and {e, x, y, xy} is closed) over S_4 and S_5; verifies the 2005 upper-triangular matrix group by
+exact-fraction inversion; verifies the 1996 options including the one-step test on all 4095 subsets of Z_12; and
+checks the homomorphism and exponential-map claims.
+
+Two claims were corrected by these checks before publication: the first draft of the S_3 example in the group-axioms
+card computed `b^-1 a^-1` wrongly (it is `(2 3)`, not `(1 3)`; `(1 3)` is `a^-1 b^-1`), and the first draft of the
+Z_4 x Z_6 count said 8 instead of gcd(2,4) x gcd(2,6) = 4.
+
+### Gaps (the topic stays `partial`)
+
+1. Video captions could not be retrieved in this run: YouTube watch pages carried no caption tracks and the
+   timedtext endpoint returned an empty body. The GO Classes sequence is therefore structure-only.
+2. The NPTEL IIT Madras "Algebras" transcripts (lectures 35-37) could not be fetched - the host refused the request
+   from the sandbox. No claim rests on them; a later run should retry, since this course's published transcripts
+   carried the previous topic.
+3. Quotient groups, normal subgroups, Cauchy's and Sylow's theorems and group actions are outside the GATE line and
+   are not covered at all; the homomorphism card is the only material beyond the two words "Monoids, Groups".
+4. GATE CSE 1999 Q.4, the three-part descriptive question that derives Lagrange from cosets, is excluded because the
+   PYQ schema holds only MCQ, MSQ and NAT records; the cosets card covers the same content.
+5. Only one non-English source was readable (Hindi auto-captions), and its contribution is the structure ladder
+   alone. No Tamil, Telugu or Bengali group-theory lecture could be read this run.
+
+### Checks
+
+`python3 scripts/build-index.py` indexes 3 playlists, 39 videos, 71 topics and 62 PYQs.
+`python3 scripts/validate.py` passes with 16 checks, 0 failures and 8 pre-existing warnings.
+`node tests/visual-lessons.js` draws every step of all ten p5 lessons.
+
+### Next
+
+`discrete-mathematics/graphs` - Graphs: connectivity, matching, colouring, the next `not_started` topic after this
+one in the syllabus order.

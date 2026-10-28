@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cyclic Subgroups and Lagrange's Theorem - Monoids and Groups visual lesson</title>
+<link rel="stylesheet" href="../../../lesson.css">
+<script src="https://cdn.jsdelivr.net/npm/p5@1.9.4/lib/p5.min.js"></script>
+</head>
+<body>
+<div class="wrap">
+  <p class="small"><a href="../../../../index.html">&larr; back to the revision site</a></p>
+  <h1>Cyclic Subgroups and Lagrange's Theorem in Z<sub>12</sub></h1>
+  <div class="objective"><strong>Objective.</strong> Watch one element generate a subgroup, watch the cosets of that subgroup tile the group, and see why every subgroup order must divide the group order - the counting argument behind GATE's "largest possible proper subgroup" questions.</div>
+
+  <div class="canvas-wrap"><div id="canvas-holder"></div></div>
+  <div class="caption" id="caption" aria-live="polite"></div>
+
+  <div class="controls">
+    <button id="play" class="primary">Play</button>
+    <button id="prev">&larr; Prev</button>
+    <button id="next">Next &rarr;</button>
+    <button id="restart">Restart</button>
+    <span class="speed"><label for="speed">Speed</label>
+      <input id="speed" type="range" min="0.25" max="2" step="0.25" value="1">
+      <span id="speedLabel">1.00x</span></span>
+    <span class="counter" id="counter"></span>
+  </div>
+
+  <h2>Static explanation</h2>
+<p>Z<sub>12</sub> is the set {0, 1, ..., 11} with addition modulo 12. It is a group of order 12: the identity is 0 and the inverse of a is 12 - a. Start at 0 and keep adding 4. The walk goes 0, 4, 8 and then back to 0, because 8 + 4 = 12 is 0 modulo 12. The three residues reached form the cyclic subgroup &lt;4&gt;, and the number of steps needed to return to the identity is the order of the element 4, which is 3.</p>
+<p>A subgroup of order 3 inside a group of order 12 leaves room for exactly 12 / 3 = 4 shifted copies: {0, 4, 8}, {1, 5, 9}, {2, 6, 10} and {3, 7, 11}. Each copy has three elements, the copies never overlap, and together they cover all twelve residues. That is the coset partition, and it is the entire proof of Lagrange's theorem: the group is a union of equal-sized blocks, so the block size divides the group size.</p>
+<p>The element 5 behaves differently. Its multiples are 5, 10, 3, 8, 1, 6, 11, 4, 9, 2, 7 and only then 0, so it reaches every residue and generates the whole group. The generators of Z<sub>12</sub> are the residues coprime to 12 - namely 1, 5, 7 and 11 - and there are phi(12) = 4 of them. An element whose order equals the group order always generates the group, and that is what "cyclic" means.</p>
+<p>The last step collects the subgroups of Z<sub>12</sub> by order: 1, 2, 3, 4, 6 and 12. There are exactly six, one per divisor of 12, and no others. The largest proper one has order 6. Contrast this with a group of order 35: its divisors are 1, 5, 7 and 35, so the largest proper subgroup has order 7, not 35 / 2. That contrast is what GATE CSE 2018 Q.19 and 2020 Q.18 test.</p>
+
+  <div class="card warn"><div class="label">Common misconception</div><p>Reading Lagrange backwards. The theorem says a subgroup order must divide the group order; it does not say every divisor is realised. Z<sub>12</sub> is the friendly case, because cyclic groups do realise every divisor, which is exactly why this example can mislead. In the alternating group A<sub>4</sub>, of order 12, there is no subgroup of order 6 at all, even though 6 divides 12. The second half of the misconception is arithmetic: "largest proper subgroup" is |G| divided by the <em>smallest prime factor</em> of |G|, which gives 42 for 84, 7 for 35 and 15 for 45 - never |G| / 2 unless 2 divides |G|.</p></div>
+  <div class="card ok"><div class="label">Quick check</div><p>In Z<sub>12</sub>, how many elements generate the group, and what is the index of the subgroup &lt;4&gt;?</p><details><summary>Answer</summary><p><strong>Four generators (1, 5, 7, 11) and index 4.</strong> A residue a generates Z<sub>12</sub> exactly when gcd(a, 12) = 1, and phi(12) = 4 counts them. The subgroup &lt;4&gt; has order 3, so it has 12 / 3 = 4 cosets, and the index is 4 - the same number, for a different reason: the index is the number of blocks, the generator count is the number of coprime residues.</p></details></div>
+  <p class="small">Topic: cosets and Lagrange's theorem (Discrete Mathematics, Monoids and Groups). Sources: GeeksforGeeks GATE group-theory notes (English, read in full) for the coset partition, the index and Lagrange's theorem; the GO Classes Module 7 lecture list (English, structure only - captions unavailable in this run) for the lecture order that puts order of an element before Lagrange's theorem. Verified PYQs behind this lesson: GATE CSE 2018 Q.19 and GATE CSE 2020 Q.18.</p>
+</div>
+<script src="../../../lesson.js"></script>
+<script src="sketch.js"></script>
+<script>
+/* p5.js is loaded from a CDN. If it is unreachable, say so plainly instead of showing an empty box. */
+window.addEventListener('load', function () {
+  if (window.p5) { return; }
+  var holder = document.getElementById('canvas-holder');
+  if (holder) {
+    holder.innerHTML = '<div style="padding:22px 18px;font-size:14.5px;color:#4a5260">' +
+      'The animation needs p5.js, which this page loads from a CDN, and the request failed (offline, or the CDN is blocked). ' +
+      'Everything below still works: the static explanation, the misconception and the quick check.</div>';
+  }
+  var cap = document.getElementById('caption');
+  if (cap && window.LESSON && window.LESSON.steps && window.LESSON.steps[0]) {
+    cap.innerHTML = window.LESSON.steps[0].caption;
+  }
+  ['play', 'prev', 'next', 'restart', 'speed'].forEach(function (id) {
+    var el = document.getElementById(id);
+    if (el) { el.disabled = true; }
+  });
+});
+</script>
+</body>
+</html>

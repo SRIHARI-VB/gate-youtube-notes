@@ -453,5 +453,70 @@
         "note": "Dilworth is the dual statement"
       }
     ]
+  },
+  {
+    "group": "Monoids and groups",
+    "items": [
+      {
+        "name": "Group axioms",
+        "latex": "a(bc)=(ab)c,\\quad ae=ea=a,\\quad aa^{-1}=a^{-1}a=e",
+        "note": "closure, associativity, identity, inverses"
+      },
+      {
+        "name": "Reversal rule",
+        "latex": "(ab)^{-1}=b^{-1}a^{-1}",
+        "note": "order reverses; collapses only when abelian"
+      },
+      {
+        "name": "Order of an element",
+        "latex": "|a|=n \\iff a^{n}=e \\text{ and } a^{k}\\ne e \\ (0<k<n)",
+        "note": "equals the order of <a>"
+      },
+      {
+        "name": "Order divides order",
+        "latex": "|a| \\mid |G|",
+        "note": "corollary of Lagrange"
+      },
+      {
+        "name": "Commutativity test 1",
+        "latex": "(ab)^2=a^2b^2\\ \\forall a,b \\iff G \\text{ abelian}",
+        "note": "cancel a on the left, b on the right"
+      },
+      {
+        "name": "Commutativity test 2",
+        "latex": "a^2=e\\ \\forall a \\iff G \\text{ abelian}",
+        "note": "every element self-inverse"
+      },
+      {
+        "name": "Lagrange",
+        "latex": "|G|=[G:H]\\,|H|",
+        "note": "index times subgroup order"
+      },
+      {
+        "name": "Largest proper subgroup",
+        "latex": "\\max |H|=\\frac{|G|}{p_{\\min}}",
+        "note": "p_min = smallest prime factor of |G|"
+      },
+      {
+        "name": "Generators of Z_n",
+        "latex": "\\#\\{a: \\langle a\\rangle=Z_n\\}=\\varphi(n)",
+        "note": "residues coprime to n"
+      },
+      {
+        "name": "Prime order",
+        "latex": "|G|=p \\Rightarrow G \\text{ cyclic, hence abelian}",
+        "note": "p prime"
+      },
+      {
+        "name": "Self-inverse in Z_2 x Z_3 x Z_4",
+        "latex": "\\gcd(2,2)\\cdot\\gcd(2,3)\\cdot\\gcd(2,4)=4",
+        "note": "solve 2x=0 componentwise"
+      },
+      {
+        "name": "Element order in a direct product",
+        "latex": "|(a,b)|=\\operatorname{lcm}(|a|,|b|)",
+        "note": "decides cyclicity of G x H"
+      }
+    ]
   }
 ]

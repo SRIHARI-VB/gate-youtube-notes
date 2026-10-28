@@ -1,0 +1,16 @@
+{
+  "id": "gate-2014-set3-50-two-involutions-four-elements",
+  "year": "2014",
+  "paper": "GATE CS 2014 Set 3",
+  "question_ref": "Q.50",
+  "type": "NAT",
+  "marks": "2",
+  "topic": "order-of-group-and-element",
+  "text": "There are two elements x, y in a group (G, *) such that every element in the group can be written as a product of some number of x's and y's in some order. It is known that x * x = y * y = x * y * x * y = y * x * y * x = e, where e is the identity element. The maximum number of elements in such a group is ______.",
+  "answer": "4",
+  "solution": "The relation x y x y = e says (x y)^2 = e, so x y is its own inverse, and (x y)^-1 = y^-1 x^-1 = y x because x and y are their own inverses. Hence x y = y x and the group is abelian. Every element is a word in x and y, and in an abelian group with x^2 = y^2 = e every word reduces to one of e, x, y, x y: appending an x or a y either cancels the last letter or returns a word already listed. So at most four elements are possible, and four are attained by the Klein four group. Recomputed in scripts/validate.py: over the symmetric groups S_4 and S_5 every pair of involutions whose product is again an involution commutes, and the four-element set {e, x, y, x y} is closed under composition in every such pair, which is the step the bound depends on.",
+  "source_url": "https://gateoverflow.in/2084/gate-cse-2014-set-3-question-50",
+  "source_label": "GATE Overflow question page - GATE CSE 2014 Set 3 Q.50 with the accepted solution (4)",
+  "verification": "SOURCED",
+  "answer_evidence": "Accepted answer by Sachin Mittal: 'This turns out to be abelian group ... only four element can be there at max. {x, y, x*y, e}'. The repository recomputes the reduction independently, since some answer aggregator sites print 8 for this question."
+}

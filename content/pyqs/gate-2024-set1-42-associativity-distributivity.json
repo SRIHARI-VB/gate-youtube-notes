@@ -1,0 +1,22 @@
+{
+  "id": "gate-2024-set1-42-associativity-distributivity",
+  "year": "2024",
+  "paper": "GATE CS 2024 Set 1",
+  "question_ref": "Q.42",
+  "type": "MSQ",
+  "marks": "2",
+  "topic": "algebraic-structure-ladder",
+  "text": "Consider the operators diamond and square defined by a diamond b = a + 2b and a square b = a b, for positive integers. Which of the following statements is/are TRUE?",
+  "options": [
+    "Operator diamond obeys the associative law",
+    "Operator square obeys the associative law",
+    "Operator diamond over the operator square obeys the distributive law",
+    "Operator square over the operator diamond obeys the distributive law"
+  ],
+  "answer": "Options 2 and 4",
+  "solution": "Associativity: (a diamond b) diamond c = a + 2b + 2c while a diamond (b diamond c) = a + 2b + 4c, so option 1 fails. For square, both (a b) c and a (b c) equal a b c, so option 2 holds. Distributivity: a diamond (b square c) = a + 2bc while (a diamond b) square (a diamond c) = (a + 2b)(a + 2c), which differ, so option 3 fails. In the other direction a square (b diamond c) = a(b + 2c) = ab + 2ac = (a square b) diamond (a square c), so option 4 holds. Recomputed in scripts/validate.py by brute force over positive integers up to 6 for all four laws.",
+  "source_url": "https://gateoverflow.in/422800/gate-cse-2024-set-1-question-42",
+  "source_label": "GATE Overflow question page - GATE CSE 2024 Set 1 Q.42 with the accepted solution (options 2 and 4)",
+  "verification": "SOURCED",
+  "answer_evidence": "Accepted answer: 'So, Option B and Option D are the Correct Answers.'"
+}

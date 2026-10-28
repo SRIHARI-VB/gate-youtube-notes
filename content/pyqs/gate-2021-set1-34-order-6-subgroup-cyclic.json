@@ -1,0 +1,22 @@
+{
+  "id": "gate-2021-set1-34-order-6-subgroup-cyclic",
+  "year": "2021",
+  "paper": "GATE CS 2021 Set 1",
+  "question_ref": "Q.34",
+  "type": "MCQ",
+  "marks": "2",
+  "topic": "cyclic-groups-and-generators",
+  "text": "Let G be a group of order 6, and H be a subgroup of G such that 1 < |H| < 6. Which one of the following options is correct?",
+  "options": [
+    "Both G and H are always cyclic",
+    "G may not be cyclic, but H is always cyclic",
+    "G is always cyclic, but H may not be cyclic",
+    "Both G and H may not be cyclic"
+  ],
+  "answer": "Option 2 - G may not be cyclic, but H is always cyclic",
+  "solution": "By Lagrange's theorem |H| divides 6, so |H| is 1, 2, 3 or 6, and the strict inequalities leave 2 or 3. Both are prime, and every group of prime order is cyclic, so H is always cyclic. The group G of order 6 may or may not be cyclic: Z_6 is cyclic and S_3 is not. Recomputed in scripts/validate.py, which enumerates the subgroups of Z_6 and of S_3 and checks that every subgroup order arising is 1, 2, 3 or 6 and that each such subgroup is cyclic.",
+  "source_url": "https://gateoverflow.in/357417/gate-cse-2021-set-1-question-34",
+  "source_label": "GATE Overflow question page - GATE CSE 2021 Set 1 Q.34 with the accepted solution (option 2)",
+  "verification": "SOURCED",
+  "answer_evidence": "Accepted answer: '2, 3 are prime numbers. So, H is always cyclic ... G may not be cyclic, but H is always cyclic.'"
+}

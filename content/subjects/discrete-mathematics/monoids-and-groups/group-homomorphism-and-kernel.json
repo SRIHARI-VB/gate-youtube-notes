@@ -1,0 +1,82 @@
+{
+  "id": "group-homomorphism-and-kernel",
+  "title": "Group Homomorphisms and the Kernel",
+  "priority": "P3",
+  "order": 82,
+  "unit": "Algebras",
+  "quickIdea": "A homomorphism is a map between groups that respects the operation; its kernel measures what the map loses, and the kernel is always a subgroup.",
+  "remember": [
+    "f from G to H is a homomorphism when f(a b) = f(a) f(b) for all a and b. It follows that f(e_G) = e_H and f(a^-1) = f(a)^-1.",
+    "The kernel, the set of g with f(g) = e_H, is a subgroup of G; the image of f is a subgroup of H.",
+    "f is injective exactly when the kernel is {e_G}. An isomorphism is a bijective homomorphism, and isomorphic groups have the same order and the same multiset of element orders.",
+    "Example: f(k) = k mod n from (Z, +) to (Z_n, +) is a homomorphism whose kernel is the multiples of n.",
+    "Example: the map x to 2^x from (R, +) to the positive reals under multiplication is an isomorphism, because 2^(x+y) = 2^x 2^y.",
+    "Equal order does not mean isomorphic: Z_4 and Z_2 x Z_2 both have order 4 and have different element orders.",
+    "This card sits beyond the two words 'Monoids, Groups' in the GATE line. It is included because standard treatments place homomorphisms with groups, and no verified GATE CSE question in this repository asks for them."
+  ],
+  "example": {
+    "prompt": "Find the kernel of f(k) = k mod 6 from Z to Z_6 and decide whether f is injective.",
+    "work": "f(k) = 0 in Z_6 exactly when 6 divides k, so the kernel is the set of multiples of 6, written 6Z, which is a subgroup of index 6. Since the kernel contains more than 0, f is not injective: f(0) = f(6) = 0. Every residue is hit, so f is surjective.",
+    "answer": "The kernel is 6Z, so f is not injective, but it is surjective onto Z_6."
+  },
+  "gateAngle": "If this appears at all, it is one of three one-liners: f(e) = e, the kernel is a subgroup, and f is injective exactly when the kernel is trivial. The kernel is always found by solving f(g) = e.",
+  "variations": [
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Can a homomorphism send the identity to something other than the identity?",
+      "answer": "No: f(e) = f(e e) = f(e) f(e), and cancelling gives f(e) = e_H.",
+      "why": "One line with cancellation, and a favourite true-or-false item because it feels like an extra axiom."
+    },
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "How many homomorphisms are there from Z_6 to Z_3?",
+      "answer": "Three. A homomorphism out of Z_6 is fixed by the image of 1, and the only condition is 6 f(1) = 0 in Z_3, which every residue satisfies.",
+      "why": "A homomorphism out of a cyclic group is determined by one value, subject to the relation that holds in the domain."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "Two finite groups have the same order. Must they be isomorphic?",
+      "answer": "No: Z_4 and Z_2 x Z_2 both have order 4, and Z_4 has an element of order 4 while Z_2 x Z_2 does not.",
+      "why": "Order is preserved by isomorphism, so it is a necessary condition; it is far from sufficient."
+    }
+  ],
+  "trap": {
+    "what": "Believing any bijection between groups of the same size is an isomorphism, and that a homomorphism must be injective to be useful.",
+    "why": "The map must respect the operation, so a bijection that scrambles products is not an isomorphism; and the non-injective case is the normal one, as k mod 6 shows.",
+    "counterexample": "Z_4 and Z_2 x Z_2 have equal order and different element orders, so no isomorphism exists between them."
+  },
+  "check": {
+    "question": "Is f(x) = 2^x from (R, +) to the positive reals under multiplication a homomorphism, and is it an isomorphism?",
+    "answer": "Yes to both: 2^(x+y) = 2^x 2^y, and the map is bijective onto the positive reals with inverse log base 2.",
+    "explanation": "The law of exponents is exactly the homomorphism condition, and the exponential is a bijection between the reals and the positive reals, so it is an isomorphism."
+  },
+  "pyqIds": [],
+  "prereqs": [
+    "group-axioms-and-uniqueness",
+    "cyclic-groups-and-generators"
+  ],
+  "videoRefs": [],
+  "sources": [
+    {
+      "kind": "text",
+      "title": "Group theory Notes for GATE Exams",
+      "channel": "GeeksforGeeks",
+      "url": "https://www.geeksforgeeks.org/engineering-mathematics/group-theory-notes-for-gate-exams/",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "GATE-oriented note set; article text read in full"
+    },
+    {
+      "kind": "course-outline",
+      "title": "Discrete Mathematics, Module 7 Group Theory - lecture sequence (Lectures 4-40: binary operation, monoid, group properties, order of an element, cyclic group, Lagrange's theorem, alternative definitions)",
+      "channel": "GO Classes for GATE CS (Deepak Poonia)",
+      "url": "https://www.goclasses.in/courses/63f9aa9be4b0a8a370cfb0ad",
+      "language": "en",
+      "transcript": "UNAVAILABLE",
+      "translated": false,
+      "note": "published lecture list read; the video captions themselves could not be retrieved in this run, so this is a structure reference only and no card quotes it"
+    }
+  ],
+  "sourceLine": "Homomorphism, kernel and isomorphism statements: GeeksforGeeks GATE group-theory notes (English, read in full) for the group vocabulary, with every claim here recomputed in scripts/validate.py on the reduction map Z to Z_6 and on the exponential map. This material is outside the two-word GATE line and no verified PYQ in the repository tests it."
+}

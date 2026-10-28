@@ -1,0 +1,84 @@
+{
+  "id": "permutation-groups-and-symmetry",
+  "title": "Permutation Groups and the Symmetric Group",
+  "priority": "P3",
+  "order": 83,
+  "unit": "Algebras",
+  "quickIdea": "The bijections of a set form a group under composition, the symmetric group S_n of order n!, and it is the standard source of non-abelian examples.",
+  "remember": [
+    "For a set A the bijections from A to itself form a group under composition: the composition of bijections is a bijection, the identity map is the identity, and the inverse map is the inverse. GATE CSE 1996 Q.2.4 uses this as one of its true options.",
+    "For A = {1, ..., n} this is the symmetric group S_n and |S_n| = n!: 2, 6, 24 and 120 for n = 2, 3, 4, 5.",
+    "S_1 and S_2 are abelian; S_n is non-abelian for every n >= 3, since (1 2)(1 2 3) = (2 3) while (1 2 3)(1 2) = (1 3).",
+    "Permutations are written in cycle notation, disjoint cycles commute, and a cycle of length k has order k.",
+    "The order of a permutation is the lcm of its disjoint cycle lengths, so (1 2)(3 4 5) has order 6.",
+    "S_3 has six elements: the identity, three transpositions of order 2 and two 3-cycles of order 3; its subgroup orders are 1, 2, 3 and 6, all divisors of 6.",
+    "The even permutations form the alternating group A_n of order n!/2, the kernel of the sign homomorphism."
+  ],
+  "example": {
+    "prompt": "In S_3 compute (1 2)(1 2 3) and (1 2 3)(1 2), reading right to left.",
+    "work": "(1 2)(1 2 3): 1 goes to 2 then to 1, 2 goes to 3 and stays at 3, 3 goes to 1 then to 2, giving (2 3). (1 2 3)(1 2): 1 goes to 2 then to 3, 2 goes to 1 and stays at 1, 3 goes to 3 then to 2, giving (1 3).",
+    "answer": "The two products are (2 3) and (1 3), which differ, so composition in S_3 is not commutative."
+  },
+  "gateAngle": "Reach for S_3 whenever a question needs a small non-abelian group: it has order 6, so it is the smallest one, and it is the standard counterexample to 'small order means abelian' beyond order 5.",
+  "variations": [
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "What is the order of the permutation (1 2 3 4)(5 6) in S_6?",
+      "answer": "4, the lcm of the cycle lengths 4 and 2.",
+      "why": "The order is the lcm of the disjoint cycle lengths, never their sum or their product."
+    },
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "How many elements of S_4 have order 2?",
+      "answer": "Nine: the six transpositions plus the three double transpositions such as (1 2)(3 4).",
+      "why": "Order 2 means a product of disjoint transpositions, so the count is by cycle shape, not by trying elements one at a time."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "Do the permutations of {1, ..., n} that fix the element 1 form a subgroup?",
+      "answer": "Yes: they are exactly the permutations of the remaining n - 1 elements, so they form a copy of S_(n-1) inside S_n, of order (n - 1)!.",
+      "why": "The set of permutations fixing a point is the stabiliser of that point, the smallest instance of a group acting on a set."
+    }
+  ],
+  "trap": {
+    "what": "Assuming composition commutes because it looks like multiplication, and assuming |S_n| = n.",
+    "why": "The group of permutations of n objects has n! elements, and it is non-abelian from n = 3, so the order of the two factors in a product matters.",
+    "counterexample": "(1 2)(1 2 3) = (2 3) but (1 2 3)(1 2) = (1 3) in S_3."
+  },
+  "check": {
+    "question": "How many elements does S_4 have, and is it abelian?",
+    "answer": "24 = 4!, and it is not abelian, because the two products of (1 2) and (1 2 3) differ.",
+    "explanation": "The bijections of a 4-element set are 4! = 24, and the pair of permutations above gives a counterexample to commutativity. In general S_n is non-abelian for every n >= 3, and S_3 already shows it."
+  },
+  "pyqIds": [
+    "gate-1996-2-4-concatenation-monoid"
+  ],
+  "prereqs": [
+    "group-axioms-and-uniqueness",
+    "composition-and-inverse-functions"
+  ],
+  "videoRefs": [],
+  "sources": [
+    {
+      "kind": "text",
+      "title": "Group theory Notes for GATE Exams",
+      "channel": "GeeksforGeeks",
+      "url": "https://www.geeksforgeeks.org/engineering-mathematics/group-theory-notes-for-gate-exams/",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "GATE-oriented note set; article text read in full"
+    },
+    {
+      "kind": "course-outline",
+      "title": "Discrete Mathematics, Module 7 Group Theory - lecture sequence (Lectures 4-40: binary operation, monoid, group properties, order of an element, cyclic group, Lagrange's theorem, alternative definitions)",
+      "channel": "GO Classes for GATE CS (Deepak Poonia)",
+      "url": "https://www.goclasses.in/courses/63f9aa9be4b0a8a370cfb0ad",
+      "language": "en",
+      "transcript": "UNAVAILABLE",
+      "translated": false,
+      "note": "published lecture list read; the video captions themselves could not be retrieved in this run, so this is a structure reference only and no card quotes it"
+    }
+  ],
+  "sourceLine": "The permutation group as a standard example: GeeksforGeeks GATE group-theory notes (English, read in full) and the bijection option of GATE CSE 1996 Q.2.4. Every product and order in this card is recomputed on the six elements of S_3 and the twenty-four of S_4 in scripts/validate.py."
+}

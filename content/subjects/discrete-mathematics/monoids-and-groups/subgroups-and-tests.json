@@ -1,0 +1,81 @@
+{
+  "id": "subgroups-and-tests",
+  "title": "Subgroups and the One-Step Test",
+  "priority": "P1",
+  "order": 78,
+  "unit": "Algebras",
+  "quickIdea": "A subgroup is a subset that is a group under the same operation. The one-step test, a b^-1 in H for all a and b in H, settles it in a single line.",
+  "remember": [
+    "H is a subgroup of G when H is a non-empty subset and is itself a group under the operation of G; associativity is inherited and never rechecked.",
+    "One-step test: non-empty H is a subgroup if and only if a b^-1 is in H for every a, b in H. Additively, a - b in H. Two-step version: a b in H and a^-1 in H.",
+    "Every subgroup contains the identity; {e} and G are the trivial subgroups; any other is proper, and |H| = 1 forces H = {e}.",
+    "The intersection of any collection of subgroups is a subgroup. The union of two subgroups is a subgroup only when one of them contains the other.",
+    "For a finite group, closure alone already gives a subgroup: the powers of an element eventually repeat and the repeat supplies the inverse. For an infinite group closure is not enough.",
+    "Every subgroup of a cyclic group is cyclic, and every subgroup of an abelian group is abelian.",
+    "The order of a subgroup divides the order of the group, by Lagrange; the converse of that statement is false."
+  ],
+  "example": {
+    "prompt": "Which of {0, 3, 6, 9} and {0, 2, 4} are subgroups of (Z_12, +)?",
+    "work": "In additive notation the one-step test is a - b in H. In {0, 3, 6, 9} every difference lands back in the set: 3 - 9 = -6 = 6, 9 - 3 = 6, 6 - 3 = 3, 9 - 6 = 3. So it is a subgroup of order 4. In {0, 2, 4}, the difference 2 - 4 = -2 = 10 is not in the set, and neither is the sum 4 + 4 = 8, so it is not closed.",
+    "answer": "{0, 3, 6, 9} is a subgroup of order 4; {0, 2, 4} is not a subgroup, because it is not closed under addition."
+  },
+  "gateAngle": "Subgroup questions are decided by a counterexample or by Lagrange. If the question asks how many subgroups a small group has, list the divisors of |G| first and then test each candidate size with a - b in H.",
+  "variations": [
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Is the union of two subgroups always a subgroup?",
+      "answer": "No: in Z_12 the union of {0, 6} and {0, 4, 8} is {0, 4, 6, 8}, and 4 + 6 = 10 is missing.",
+      "why": "Unions break closure; intersections never do. This is the single most common false statement about subgroups."
+    },
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "How many subgroups does Z_12 have?",
+      "answer": "Six, one for each divisor of 12: orders 1, 2, 3, 4, 6 and 12.",
+      "why": "A cyclic group has exactly one subgroup per divisor. That reverse direction is special to cyclic groups and is exactly what Lagrange does not give you in general."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "In an abelian group, is the set of all elements of finite order a subgroup?",
+      "answer": "Yes. If a^m = e and b^n = e then (a b^-1)^(m n) = e, so the one-step test passes.",
+      "why": "The one-step test is built for closure arguments of exactly this shape, where the group is infinite and listing elements is impossible."
+    }
+  ],
+  "trap": {
+    "what": "Using closure as the whole subgroup test on an infinite group, or 'proving' a subgroup by checking three example pairs.",
+    "why": "In an infinite group closure can hold while inverses are missing, and a test is a statement about every pair, not a sample.",
+    "counterexample": "In (Z, +) the set {0, 1, 2, 3, ...} is closed under addition but is not a subgroup, because -1 is missing."
+  },
+  "check": {
+    "question": "Show that H = {0, 4, 8} is a subgroup of Z_12 and give its index.",
+    "answer": "Differences of elements of H stay in H, so H is a subgroup; |H| = 3 and |G| = 12, so the index is 4.",
+    "explanation": "0 - 4 = 8, 4 - 8 = 8, 8 - 0 = 8 and the like all land in {0, 4, 8}, so the one-step test passes. The index is the number of cosets, |G| / |H| = 12 / 3 = 4."
+  },
+  "pyqIds": [],
+  "prereqs": [
+    "group-axioms-and-uniqueness"
+  ],
+  "videoRefs": [],
+  "sources": [
+    {
+      "kind": "text",
+      "title": "Group theory Notes for GATE Exams",
+      "channel": "GeeksforGeeks",
+      "url": "https://www.geeksforgeeks.org/engineering-mathematics/group-theory-notes-for-gate-exams/",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "GATE-oriented note set; article text read in full"
+    },
+    {
+      "kind": "course-outline",
+      "title": "Discrete Mathematics, Module 7 Group Theory - lecture sequence (Lectures 4-40: binary operation, monoid, group properties, order of an element, cyclic group, Lagrange's theorem, alternative definitions)",
+      "channel": "GO Classes for GATE CS (Deepak Poonia)",
+      "url": "https://www.goclasses.in/courses/63f9aa9be4b0a8a370cfb0ad",
+      "language": "en",
+      "transcript": "UNAVAILABLE",
+      "translated": false,
+      "note": "published lecture list read; the video captions themselves could not be retrieved in this run, so this is a structure reference only and no card quotes it"
+    }
+  ],
+  "sourceLine": "Subgroup definition, the one-step and two-step tests and the intersection fact: GeeksforGeeks GATE group-theory notes (English, read in full). The 'subgroup' and 'alternative definitions of subgroup' lecture positions: GO Classes Module 7 lecture list (structure only, captions unavailable). Every subgroup claim is recomputed in scripts/validate.py."
+}

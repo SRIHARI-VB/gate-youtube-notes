@@ -1,0 +1,81 @@
+{
+  "id": "group-axioms-and-uniqueness",
+  "title": "Group Axioms, Uniqueness and the Reversal Rule",
+  "priority": "P1",
+  "order": 75,
+  "unit": "Algebras",
+  "quickIdea": "A group is an associative operation with an identity and an inverse for every element. The identity and each inverse are unique, and inverses reverse the order of a product.",
+  "remember": [
+    "Group axioms: closure, associativity, a two-sided identity e, and for each a an element a^-1 with a a^-1 = a^-1 a = e. Commutativity is not required.",
+    "The identity is unique: if e and e' are both identities then e = e e' = e'. Each inverse is unique: if b and c both invert a then b = b e = b (a c) = (b a) c = c.",
+    "(a b)^-1 = b^-1 a^-1: the order reverses. It collapses to a^-1 b^-1 only in an abelian group, which is why the mistake survives every abelian example.",
+    "Cancellation holds in every group: a b = a c implies b = c, by multiplying on the left by a^-1. This one move is the whole proof of the 2022 commutativity question.",
+    "The equation a x = b has exactly one solution, x = a^-1 b; the equation x a = b has exactly one, x = b a^-1. In a non-abelian group the two answers differ.",
+    "A group in which every element is its own inverse is abelian: a b = (a b)^-1 = b^-1 a^-1 = b a.",
+    "Finite shortcut: for a finite set with an associative operation, the two cancellation laws already force a group, so no separate inverse check is needed."
+  ],
+  "example": {
+    "prompt": "In S3, the six permutations of {1, 2, 3} under composition, verify (a b)^-1 = b^-1 a^-1 for a = (1 2) and b = (1 2 3).",
+    "work": "Composition is read right to left. a b applies b then a: 1 goes to 2 then to 1, 2 goes to 3 then stays at 3, 3 goes to 1 then to 2, so a b = (2 3), whose inverse is itself. On the other side b^-1 = (1 3 2) and a^-1 = (1 2), so b^-1 a^-1 applies (1 2) first: 1 goes to 2 then to 1, 2 goes to 1 then to 3, 3 goes to 3 then to 2, giving (2 3) again.",
+    "answer": "Both sides equal (2 3), which is its own inverse; the reversal b^-1 a^-1 is exactly what reproduces (a b)^-1."
+  },
+  "gateAngle": "GATE rarely asks for the axioms; it asks whether a structure is a group, or which manipulation is legal. When a question multiplies on both sides, the legal moves are left and right multiplication by an inverse, cancellation, and the reversal rule for products.",
+  "variations": [
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "In a group, if a b = e, what is b?",
+      "answer": "b = a^-1, by multiplying a b = e on the left by a^-1.",
+      "why": "The inverse is unique, so exhibiting one element that works identifies it; this is the shortest possible proof of an inverse claim."
+    },
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "In a group, solve a x b = c for x.",
+      "answer": "x = a^-1 c b^-1.",
+      "why": "Multiply by a^-1 on the left and by b^-1 on the right. The x is trapped between two elements, which is exactly why the order matters in a non-abelian group."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "A finite set S carries an associative operation in which both cancellation laws hold. Must it be a group?",
+      "answer": "Yes. In a finite table, cancellation makes every row and column a permutation of S, so an identity appears and every element has an inverse.",
+      "why": "This is the finite shortcut GATE can exploit; for infinite sets it fails, since (N, +) cancels and is not a group."
+    }
+  ],
+  "trap": {
+    "what": "Writing (a b)^-1 = a^-1 b^-1.",
+    "why": "Inverses reverse order. The swap is invisible in every abelian example, so the error survives practice and then breaks the first time a permutation group appears.",
+    "counterexample": "In S3 with a = (1 2) and b = (1 2 3): (a b)^-1 = (2 3), while a^-1 b^-1 = (1 2)(1 3 2) = (1 3)."
+  },
+  "check": {
+    "question": "In a group, simplify (a b c)^-1.",
+    "answer": "c^-1 b^-1 a^-1.",
+    "explanation": "Apply the reversal rule twice: (a (b c))^-1 = (b c)^-1 a^-1 = c^-1 b^-1 a^-1. Each factor keeps its own inverse and the order of the factors is reversed, which is the statement to remember."
+  },
+  "pyqIds": [],
+  "prereqs": [
+    "algebraic-structure-ladder"
+  ],
+  "videoRefs": [],
+  "sources": [
+    {
+      "kind": "text",
+      "title": "Group theory Notes for GATE Exams",
+      "channel": "GeeksforGeeks",
+      "url": "https://www.geeksforgeeks.org/engineering-mathematics/group-theory-notes-for-gate-exams/",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "GATE-oriented note set; article text read in full"
+    },
+    {
+      "kind": "course-outline",
+      "title": "Discrete Mathematics, Module 7 Group Theory - lecture sequence (Lectures 4-40: binary operation, monoid, group properties, order of an element, cyclic group, Lagrange's theorem, alternative definitions)",
+      "channel": "GO Classes for GATE CS (Deepak Poonia)",
+      "url": "https://www.goclasses.in/courses/63f9aa9be4b0a8a370cfb0ad",
+      "language": "en",
+      "transcript": "UNAVAILABLE",
+      "translated": false,
+      "note": "published lecture list read; the video captions themselves could not be retrieved in this run, so this is a structure reference only and no card quotes it"
+    }
+  ],
+  "sourceLine": "Group axioms, uniqueness of identity and inverse, cancellation and the reversal rule: GeeksforGeeks GATE group-theory notes (English, read in full). Lecture position of 'group properties' and 'alternative definitions of subgroup': GO Classes Module 7 lecture list (structure only, captions unavailable). Every identity is recomputed on S3, Z_n and the Klein four group in scripts/validate.py."
+}

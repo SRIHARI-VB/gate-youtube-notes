@@ -1,0 +1,16 @@
+{
+  "id": "gate-2024-set2-53-self-inverse-z2-z3-z4",
+  "year": "2024",
+  "paper": "GATE CS 2024 Set 2",
+  "question_ref": "Q.53 (GATE Overflow numbering); secondary answer sites number it Q.63",
+  "type": "NAT",
+  "marks": "2",
+  "topic": "order-of-group-and-element",
+  "text": "Let Z_n be the group of integers {0, 1, 2, ..., n-1} with addition modulo n as the group operation. The number of elements in the group Z_2 x Z_3 x Z_4 that are their own inverses is ______.",
+  "answer": "4",
+  "solution": "An element (a, b, c) is its own inverse exactly when (2a, 2b, 2c) = (0, 0, 0) in the three components. In Z_2 the congruence 2a = 0 holds for a = 0 and a = 1, giving 2 solutions; in Z_3 only a = 0 works, since gcd(2, 3) = 1; in Z_4 both 0 and 2 work. The count multiplies to 2 x 1 x 2 = 4, and the elements are (0,0,0), (1,0,0), (0,0,2) and (1,0,2). Recomputed in scripts/validate.py by enumerating all 24 elements of the product.",
+  "source_url": "https://gateoverflow.in/422844/gate-cse-2024-set-2-question-53",
+  "source_label": "GATE Overflow question page - GATE CSE 2024 Set 2 Q.53 with the accepted solution (4)",
+  "verification": "SOURCED",
+  "answer_evidence": "Accepted answer: 'Z2 has 2 inverses (0 and 1) Z3 has 1 inverse (0) Z4 has 2 inverses (0 and 2) ... will give 4 elements having own inverses.'"
+}

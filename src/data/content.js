@@ -166,7 +166,7 @@ window.GATE_DATA = {
      {
       "slug": "monoids-and-groups",
       "name": "Monoids and Groups",
-      "material": "planned"
+      "material": "cards"
      },
      {
       "slug": "graphs",
@@ -1067,6 +1067,71 @@ window.GATE_DATA = {
      "name": "Mirsky",
      "latex": "\\text{longest chain} = n \\Rightarrow n \\text{ antichains}",
      "note": "Dilworth is the dual statement"
+    }
+   ]
+  },
+  {
+   "group": "Monoids and groups",
+   "items": [
+    {
+     "name": "Group axioms",
+     "latex": "a(bc)=(ab)c,\\quad ae=ea=a,\\quad aa^{-1}=a^{-1}a=e",
+     "note": "closure, associativity, identity, inverses"
+    },
+    {
+     "name": "Reversal rule",
+     "latex": "(ab)^{-1}=b^{-1}a^{-1}",
+     "note": "order reverses; collapses only when abelian"
+    },
+    {
+     "name": "Order of an element",
+     "latex": "|a|=n \\iff a^{n}=e \\text{ and } a^{k}\\ne e \\ (0<k<n)",
+     "note": "equals the order of <a>"
+    },
+    {
+     "name": "Order divides order",
+     "latex": "|a| \\mid |G|",
+     "note": "corollary of Lagrange"
+    },
+    {
+     "name": "Commutativity test 1",
+     "latex": "(ab)^2=a^2b^2\\ \\forall a,b \\iff G \\text{ abelian}",
+     "note": "cancel a on the left, b on the right"
+    },
+    {
+     "name": "Commutativity test 2",
+     "latex": "a^2=e\\ \\forall a \\iff G \\text{ abelian}",
+     "note": "every element self-inverse"
+    },
+    {
+     "name": "Lagrange",
+     "latex": "|G|=[G:H]\\,|H|",
+     "note": "index times subgroup order"
+    },
+    {
+     "name": "Largest proper subgroup",
+     "latex": "\\max |H|=\\frac{|G|}{p_{\\min}}",
+     "note": "p_min = smallest prime factor of |G|"
+    },
+    {
+     "name": "Generators of Z_n",
+     "latex": "\\#\\{a: \\langle a\\rangle=Z_n\\}=\\varphi(n)",
+     "note": "residues coprime to n"
+    },
+    {
+     "name": "Prime order",
+     "latex": "|G|=p \\Rightarrow G \\text{ cyclic, hence abelian}",
+     "note": "p prime"
+    },
+    {
+     "name": "Self-inverse in Z_2 x Z_3 x Z_4",
+     "latex": "\\gcd(2,2)\\cdot\\gcd(2,3)\\cdot\\gcd(2,4)=4",
+     "note": "solve 2x=0 componentwise"
+    },
+    {
+     "name": "Element order in a direct product",
+     "latex": "|(a,b)|=\\operatorname{lcm}(|a|,|b|)",
+     "note": "decides cyclicity of G x H"
     }
    ]
   }
@@ -7653,6 +7718,980 @@ window.GATE_DATA = {
    "subject": "discrete-mathematics",
    "topic": "partial-orders-and-lattices",
    "path": "subjects/discrete-mathematics/partial-orders-and-lattices/complete-lattices.json"
+  },
+  {
+   "id": "algebraic-structure-ladder",
+   "title": "The Algebraic-Structure Ladder: Semigroup, Monoid, Group",
+   "priority": "P1",
+   "order": 73,
+   "unit": "Algebras",
+   "quickIdea": "One set, one operation, five rungs: closure, associativity, identity, inverses, commutativity. GATE's group questions almost always ask which rung a structure stands on.",
+   "remember": [
+    "A binary operation on S is a rule that takes two elements of S to one element of S; closure is the demand that the answer stays inside S.",
+    "Semigroup = closure + associativity. Monoid = semigroup + a two-sided identity. Group = monoid + an inverse for every element. Abelian group = group + commutativity.",
+    "The rungs are cumulative and each is strictly stronger than the one below it, so a counterexample at one rung settles every rung above it.",
+    "Closure never implies associativity: subtraction on the integers is closed, and (5 - 3) - 1 = 1 while 5 - (3 - 1) = 3, so (Z, -) is not even a semigroup.",
+    "A semigroup can lack an identity without being strange: ({1, 2, 3, ...}, +) has no identity inside the set, because 0 is missing. Add 0 and it becomes a monoid.",
+    "Distributivity is not a group axiom. It is the extra law that ties two operations together, which is why it appears only when a question defines two operators at once.",
+    "The ladder is about which axioms hold, not about size: (Z_n, +) is a group for every n >= 1, including the two-element set {0, 1} with addition mod 2."
+   ],
+   "example": {
+    "prompt": "Classify (Z, diamond) where a diamond b = a + 2b.",
+    "work": "Closure: a + 2b is an integer whenever a and b are, so the structure is closed. Associativity: (a diamond b) diamond c = (a + 2b) + 2c = a + 2b + 2c, but a diamond (b diamond c) = a + 2(b + 2c) = a + 2b + 4c. With a = 0, b = 0, c = 1 the two sides are 2 and 4, so associativity fails and no higher rung is reached.",
+    "answer": "A closed algebraic structure that is not a semigroup, hence not a monoid and not a group."
+   },
+   "gateAngle": "Classification questions hand you a made-up operation (a diamond b = a + 2b in 2024 Set 1, pointwise addition of functions in 2025 Set 1, symmetric difference in 2023). Two well-chosen numbers that separate the two sides of associativity, plus one element with no inverse inside the set, decide the whole question.",
+   "variations": [
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Is (Z, -) a semigroup?",
+     "answer": "No. It is closed, but it is not associative: (5 - 3) - 1 = 1 while 5 - (3 - 1) = 3.",
+     "why": "Closure is the first rung and the cheapest to check, which is exactly why people stop there. The ladder is climbed in order, not sampled."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "On the positive integers define a star b = a^b. Which rung does (Z+, star) reach?",
+     "answer": "Closure only. It is not associative: (2 star 3) star 2 = 8^2 = 64, while 2 star (3 star 2) = 2^9 = 512.",
+     "why": "A made-up operation is normally settled by one triple that breaks associativity; nothing above closure needs to be checked afterwards."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "On the integers define a diamond b = a + b - 1. Which rung does (Z, diamond) reach?",
+     "answer": "An abelian group: (a + b - 1) + c - 1 = a + (b + c - 1) - 1, the identity is 1, the inverse of a is 2 - a, and the operation is commutative.",
+     "why": "A shifted addition like this is GATE's favourite disguise for (Z, +). Subtract 1 from every element and it becomes ordinary addition."
+    }
+   ],
+   "trap": {
+    "what": "Treating 'closed under the operation' as 'a group', and assuming associativity comes free with a formula.",
+    "why": "Closure is one line to check and it is the weakest rung. Both the 2024 Set 1 and the 2025 Set 1 group questions turn on associativity or on inverses, never on closure.",
+    "counterexample": "a diamond b = a + 2b is closed on the integers and not associative, so it is not a semigroup; a diamond b = a + b - 1 is a group on the same set."
+   },
+   "check": {
+    "question": "Which rung does ({1, 2, 3, ...}, +) reach, and what changes when 0 is included?",
+    "answer": "It is a semigroup without 0 and a monoid with 0; it is never a group, because 1 has no inverse among the non-negative integers.",
+    "explanation": "Addition of positive integers is closed and associative, so the semigroup rung is reached. An identity must be an element of the set, and the only candidate is 0, so without 0 there is no monoid. Adding 0 gives the monoid, and the inverse axiom still fails for every element other than 0, because -1 is not a non-negative integer."
+   },
+   "pyqIds": [
+    "gate-2024-set1-42-associativity-distributivity"
+   ],
+   "prereqs": [
+    "sets-elements-subsets-cardinality"
+   ],
+   "videoRefs": [],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "Group theory Notes for GATE Exams",
+     "channel": "GeeksforGeeks",
+     "url": "https://www.geeksforgeeks.org/engineering-mathematics/group-theory-notes-for-gate-exams/",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "GATE-oriented note set; article text read in full"
+    },
+    {
+     "kind": "video",
+     "title": "Algebraic Structure | Group Theory | Discrete Mathematics | Lecture 01",
+     "channel": "Pradeep Giri Academy (Hindi)",
+     "video_id": "UP2SX1aLJ60",
+     "url": "https://www.youtube.com/watch?v=UP2SX1aLJ60",
+     "language": "hi",
+     "transcript": "PARTIAL",
+     "translated": true,
+     "note": "Hindi auto-captions (Devanagari ASR) read in part; every published sentence derived from this lecture was translated into English and is marked as translated"
+    },
+    {
+     "kind": "course-outline",
+     "title": "Discrete Mathematics, Module 7 Group Theory - lecture sequence (Lectures 4-40: binary operation, monoid, group properties, order of an element, cyclic group, Lagrange's theorem, alternative definitions)",
+     "channel": "GO Classes for GATE CS (Deepak Poonia)",
+     "url": "https://www.goclasses.in/courses/63f9aa9be4b0a8a370cfb0ad",
+     "language": "en",
+     "transcript": "UNAVAILABLE",
+     "translated": false,
+     "note": "published lecture list read; the video captions themselves could not be retrieved in this run, so this is a structure reference only and no card quotes it"
+    }
+   ],
+   "sourceLine": "The rung-by-rung definitions and the closure/associativity distinction: GeeksforGeeks GATE group-theory notes (English, read in full) and the Pradeep Giri 'Algebraic Structure' lecture (Hindi auto-captions, read in part; translated into English for this card, source language Hindi). The lecture sequence that puts these rungs in GATE order: GO Classes Module 7 lecture list (structure only, captions unavailable).",
+   "subject": "discrete-mathematics",
+   "topic": "monoids-and-groups",
+   "path": "subjects/discrete-mathematics/monoids-and-groups/algebraic-structure-ladder.json"
+  },
+  {
+   "id": "monoid-identity-and-examples",
+   "title": "Monoids: Identity, Uniqueness and the Standard Examples",
+   "priority": "P1",
+   "order": 74,
+   "unit": "Algebras",
+   "quickIdea": "A monoid is a semigroup that owns an identity element. It is the exact home of string concatenation and the classic 'monoid but not a group' answer in GATE.",
+   "remember": [
+    "A monoid is a set with an associative binary operation and a two-sided identity e: a e = e a = a for every a in the set.",
+    "The identity of a monoid is unique: if e and e' both fix everything then e = e e' = e'.",
+    "(Sigma*, concatenation) is the standard monoid: closed, associative, identity is the empty string, and no non-empty string has an inverse, so it is not a group. GATE CSE 1996 Q.2.4 asks exactly this.",
+    "(N0, +) with 0 included is an abelian monoid; without 0 the same set is only a semigroup. (Z, x) is an abelian monoid with identity 1 that is not a group, because 2 has no inverse in Z.",
+    "(2^X, union) is an abelian monoid with identity the empty set; (2^X, intersection) is an abelian monoid with identity X. Neither is a group when X is non-empty.",
+    "(Z, max) is a semigroup and not a monoid: max(m, e) = m for every integer m would need an e below every integer, and Z has no least element. GATE CSE 1997 Q.3.1 is this question.",
+    "A monoid in which every element cancels is a group when the monoid is finite, but not in general: (N0, +) cancels and is not a group."
+   ],
+   "example": {
+    "prompt": "Take Sigma = {a} and the set Sigma* of all finite strings over it. Which rungs does (Sigma*, concatenation) reach?",
+    "work": "Closure: concatenating two finite strings gives a finite string. Associativity: (uv)w and u(vw) are both the string u followed by v followed by w. Identity: the empty string eps satisfies eps u = u eps = u. Inverses: if a v = eps then the length equation 1 + |v| = 0 has no solution, so a has no inverse.",
+    "answer": "An abelian monoid that is not a group; every non-empty string fails the inverse axiom."
+   },
+   "gateAngle": "GATE gives a monoid and asks whether it is a group. After closure, associativity and identity, the only live question is whether each element has an inverse inside the set, and the answer usually turns on the set being cut short: N, Sigma*, Z under multiplication, matrices with integer entries.",
+   "variations": [
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Is (2^X, union) a group?",
+     "answer": "No. It is an abelian monoid: the identity is the empty set, and A union B = empty forces both A and B empty, so only the empty set has an inverse.",
+     "why": "Commutativity and identity are easy to confirm and people stop there. The inverse axiom is the one that fails."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "How many elements of (Z_10, x) have a multiplicative inverse?",
+     "answer": "Four: the units 1, 3, 7 and 9, counted by phi(10) = 4.",
+     "why": "The units of Z_n form the group U(n) of size phi(n); the rest of Z_10 is only a monoid, which is why the count is not 10."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "On the integers define a star b = min(a, b). Which rung does (Z, star) reach?",
+     "answer": "A commutative semigroup only. An identity would have to be at least as large as every element, and Z has no largest element. On a finite set {1, ..., n} the same operation is a monoid with identity n.",
+     "why": "The same formula lands on different rungs depending on the set, so the set is part of the question, not background."
+    }
+   ],
+   "trap": {
+    "what": "Taking the empty set as the identity for intersection, or 0 as the identity for max.",
+    "why": "The identity must fix every element, not merely look neutral: A intersection empty = empty, which is not A, and max(0, -5) = 0, which is not -5.",
+    "counterexample": "In (2^X, intersection) with X = {1, 2} the identity is X, since A intersection X = A; the empty set fails because {1} intersection empty = empty."
+   },
+   "check": {
+    "question": "Is (Z, x) a monoid, and is it a group?",
+    "answer": "An abelian monoid, not a group: the identity is 1, but 2 has no multiplicative inverse in Z.",
+    "explanation": "Multiplication of integers is closed and associative, and 1 fixes every integer, so the monoid rung is reached. The inverse of 2 would have to satisfy 2b = 1, and no integer b does, so the inverse axiom fails for every element other than 1 and -1."
+   },
+   "pyqIds": [
+    "gate-1996-2-4-concatenation-monoid",
+    "gate-1997-3-1-max-semigroup",
+    "gate-2025-set1-39-functions-abelian-monoid"
+   ],
+   "prereqs": [
+    "algebraic-structure-ladder"
+   ],
+   "videoRefs": [],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "Group theory Notes for GATE Exams",
+     "channel": "GeeksforGeeks",
+     "url": "https://www.geeksforgeeks.org/engineering-mathematics/group-theory-notes-for-gate-exams/",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "GATE-oriented note set; article text read in full"
+    },
+    {
+     "kind": "video",
+     "title": "Algebraic Structure | Group Theory | Discrete Mathematics | Lecture 01",
+     "channel": "Pradeep Giri Academy (Hindi)",
+     "video_id": "UP2SX1aLJ60",
+     "url": "https://www.youtube.com/watch?v=UP2SX1aLJ60",
+     "language": "hi",
+     "transcript": "PARTIAL",
+     "translated": true,
+     "note": "Hindi auto-captions (Devanagari ASR) read in part; every published sentence derived from this lecture was translated into English and is marked as translated"
+    },
+    {
+     "kind": "course-outline",
+     "title": "Discrete Mathematics, Module 7 Group Theory - lecture sequence (Lectures 4-40: binary operation, monoid, group properties, order of an element, cyclic group, Lagrange's theorem, alternative definitions)",
+     "channel": "GO Classes for GATE CS (Deepak Poonia)",
+     "url": "https://www.goclasses.in/courses/63f9aa9be4b0a8a370cfb0ad",
+     "language": "en",
+     "transcript": "UNAVAILABLE",
+     "translated": false,
+     "note": "published lecture list read; the video captions themselves could not be retrieved in this run, so this is a structure reference only and no card quotes it"
+    }
+   ],
+   "sourceLine": "Monoid definition, uniqueness of the identity and the concatenation example: GeeksforGeeks GATE group-theory notes (English, read in full) and the Pradeep Giri 'Algebraic Structure' lecture (Hindi auto-captions, read in part; translated into English, source language Hindi). Question patterns: GATE CSE 1996 Q.2.4, 1997 Q.3.1 and 2025 Set 1 Q.39.",
+   "subject": "discrete-mathematics",
+   "topic": "monoids-and-groups",
+   "path": "subjects/discrete-mathematics/monoids-and-groups/monoid-identity-and-examples.json"
+  },
+  {
+   "id": "group-axioms-and-uniqueness",
+   "title": "Group Axioms, Uniqueness and the Reversal Rule",
+   "priority": "P1",
+   "order": 75,
+   "unit": "Algebras",
+   "quickIdea": "A group is an associative operation with an identity and an inverse for every element. The identity and each inverse are unique, and inverses reverse the order of a product.",
+   "remember": [
+    "Group axioms: closure, associativity, a two-sided identity e, and for each a an element a^-1 with a a^-1 = a^-1 a = e. Commutativity is not required.",
+    "The identity is unique: if e and e' are both identities then e = e e' = e'. Each inverse is unique: if b and c both invert a then b = b e = b (a c) = (b a) c = c.",
+    "(a b)^-1 = b^-1 a^-1: the order reverses. It collapses to a^-1 b^-1 only in an abelian group, which is why the mistake survives every abelian example.",
+    "Cancellation holds in every group: a b = a c implies b = c, by multiplying on the left by a^-1. This one move is the whole proof of the 2022 commutativity question.",
+    "The equation a x = b has exactly one solution, x = a^-1 b; the equation x a = b has exactly one, x = b a^-1. In a non-abelian group the two answers differ.",
+    "A group in which every element is its own inverse is abelian: a b = (a b)^-1 = b^-1 a^-1 = b a.",
+    "Finite shortcut: for a finite set with an associative operation, the two cancellation laws already force a group, so no separate inverse check is needed."
+   ],
+   "example": {
+    "prompt": "In S3, the six permutations of {1, 2, 3} under composition, verify (a b)^-1 = b^-1 a^-1 for a = (1 2) and b = (1 2 3).",
+    "work": "Composition is read right to left. a b applies b then a: 1 goes to 2 then to 1, 2 goes to 3 then stays at 3, 3 goes to 1 then to 2, so a b = (2 3), whose inverse is itself. On the other side b^-1 = (1 3 2) and a^-1 = (1 2), so b^-1 a^-1 applies (1 2) first: 1 goes to 2 then to 1, 2 goes to 1 then to 3, 3 goes to 3 then to 2, giving (2 3) again.",
+    "answer": "Both sides equal (2 3), which is its own inverse; the reversal b^-1 a^-1 is exactly what reproduces (a b)^-1."
+   },
+   "gateAngle": "GATE rarely asks for the axioms; it asks whether a structure is a group, or which manipulation is legal. When a question multiplies on both sides, the legal moves are left and right multiplication by an inverse, cancellation, and the reversal rule for products.",
+   "variations": [
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "In a group, if a b = e, what is b?",
+     "answer": "b = a^-1, by multiplying a b = e on the left by a^-1.",
+     "why": "The inverse is unique, so exhibiting one element that works identifies it; this is the shortest possible proof of an inverse claim."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "In a group, solve a x b = c for x.",
+     "answer": "x = a^-1 c b^-1.",
+     "why": "Multiply by a^-1 on the left and by b^-1 on the right. The x is trapped between two elements, which is exactly why the order matters in a non-abelian group."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "A finite set S carries an associative operation in which both cancellation laws hold. Must it be a group?",
+     "answer": "Yes. In a finite table, cancellation makes every row and column a permutation of S, so an identity appears and every element has an inverse.",
+     "why": "This is the finite shortcut GATE can exploit; for infinite sets it fails, since (N, +) cancels and is not a group."
+    }
+   ],
+   "trap": {
+    "what": "Writing (a b)^-1 = a^-1 b^-1.",
+    "why": "Inverses reverse order. The swap is invisible in every abelian example, so the error survives practice and then breaks the first time a permutation group appears.",
+    "counterexample": "In S3 with a = (1 2) and b = (1 2 3): (a b)^-1 = (2 3), while a^-1 b^-1 = (1 2)(1 3 2) = (1 3)."
+   },
+   "check": {
+    "question": "In a group, simplify (a b c)^-1.",
+    "answer": "c^-1 b^-1 a^-1.",
+    "explanation": "Apply the reversal rule twice: (a (b c))^-1 = (b c)^-1 a^-1 = c^-1 b^-1 a^-1. Each factor keeps its own inverse and the order of the factors is reversed, which is the statement to remember."
+   },
+   "pyqIds": [],
+   "prereqs": [
+    "algebraic-structure-ladder"
+   ],
+   "videoRefs": [],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "Group theory Notes for GATE Exams",
+     "channel": "GeeksforGeeks",
+     "url": "https://www.geeksforgeeks.org/engineering-mathematics/group-theory-notes-for-gate-exams/",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "GATE-oriented note set; article text read in full"
+    },
+    {
+     "kind": "course-outline",
+     "title": "Discrete Mathematics, Module 7 Group Theory - lecture sequence (Lectures 4-40: binary operation, monoid, group properties, order of an element, cyclic group, Lagrange's theorem, alternative definitions)",
+     "channel": "GO Classes for GATE CS (Deepak Poonia)",
+     "url": "https://www.goclasses.in/courses/63f9aa9be4b0a8a370cfb0ad",
+     "language": "en",
+     "transcript": "UNAVAILABLE",
+     "translated": false,
+     "note": "published lecture list read; the video captions themselves could not be retrieved in this run, so this is a structure reference only and no card quotes it"
+    }
+   ],
+   "sourceLine": "Group axioms, uniqueness of identity and inverse, cancellation and the reversal rule: GeeksforGeeks GATE group-theory notes (English, read in full). Lecture position of 'group properties' and 'alternative definitions of subgroup': GO Classes Module 7 lecture list (structure only, captions unavailable). Every identity is recomputed on S3, Z_n and the Klein four group in scripts/validate.py.",
+   "subject": "discrete-mathematics",
+   "topic": "monoids-and-groups",
+   "path": "subjects/discrete-mathematics/monoids-and-groups/group-axioms-and-uniqueness.json"
+  },
+  {
+   "id": "order-of-group-and-element",
+   "title": "Order of a Group and Order of an Element",
+   "priority": "P1",
+   "order": 76,
+   "unit": "Algebras",
+   "quickIdea": "The order of a group is how many elements it has; the order of an element is how many copies of it you need to reach the identity. The second always divides the first.",
+   "remember": [
+    "|G| is the order of the group. The order of a in G is the least n >= 1 with a^n = e; if there is no such n the order is infinite.",
+    "The subgroup generated by a is {e, a, a^2, ..., a^(n-1)} when |a| = n, so the order of an element equals the order of the cyclic subgroup it generates.",
+    "Lagrange's corollary: in a finite group |a| divides |G| for every a, hence a^|G| = e for every a.",
+    "In a cyclic group of order n the number of elements of order d is phi(d) when d divides n, and 0 otherwise.",
+    "The elements with a^2 = e are exactly the elements of order 1 or 2, that is, the elements that equal their own inverse.",
+    "In Z_12 the element 4 has order 3, because 4 + 4 + 4 = 12 = 0, and the elements of order 3 are 4 and 8, which is phi(3) = 2 of them.",
+    "The converse of Lagrange fails: a divisor of |G| need not be the order of any element. A4 has order 12 and no element of order 6."
+   ],
+   "example": {
+    "prompt": "Find the order of every element of Z_8 and count the generators.",
+    "work": "In Z_n the order of a is n / gcd(a, n). For a = 0 to 7 with n = 8 that gives 1, 8, 4, 8, 2, 8, 4, 8. The elements of order 8 are 1, 3, 5 and 7, and there are phi(8) = 4 of them.",
+    "answer": "Orders 1, 8, 4, 8, 2, 8, 4, 8 for a = 0, ..., 7; four generators, namely 1, 3, 5 and 7."
+   },
+   "gateAngle": "When a question hands you relations such as x^2 = e or (x y)^2 = e, translate them into statements about orders before doing any algebra: x^2 = e says the order of x is 1 or 2. GATE CSE 2014 Set 3 Q.50 is solved exactly that way.",
+   "variations": [
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "How many elements of order 2 does Z_12 have?",
+     "answer": "One: the element 6, since 6 + 6 = 0 and 6 is not 0.",
+     "why": "In Z_n the element n/2 is self-inverse exactly when n is even, and there is only one of them, unlike Z_2 x Z_2 which has three."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "How many elements a of Z_20 satisfy a^2 = e?",
+     "answer": "Two: 0 and 10.",
+     "why": "The congruence 2a = 0 (mod 20) has gcd(2, 20) = 2 solutions, which is the same count as the number of self-inverse elements."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "Every element of a group G satisfies x^2 = e. What are the possible values of |G|?",
+     "answer": "The powers of 2. Such a group is abelian and is a direct product of copies of Z_2, so |G| = 2^k.",
+     "why": "x^2 = e for all x forces commutativity, after which G is a vector space over the two-element field and its order is 2 to the dimension."
+    }
+   ],
+   "trap": {
+    "what": "Confusing the order of an element with the order of the group, and assuming every divisor of |G| is the order of some element.",
+    "why": "|a| divides |G|, never the other way round. A4 has order 12 and its element orders are only 1, 2 and 3, so the divisor 6 is simply absent.",
+    "counterexample": "In Z_12 the element orders are 1, 2, 3, 4, 6 and 12; 8 does not divide 12 so it cannot occur, and in A4 the divisor 6 divides 12 but still occurs as no element order."
+   },
+   "check": {
+    "question": "In Z_12, what is the order of 8, and how many elements generate Z_12?",
+    "answer": "The order of 8 is 3, since 8 + 8 + 8 = 24 = 0, and four elements generate Z_12: 1, 5, 7 and 11.",
+    "explanation": "The order is 12 / gcd(8, 12) = 12 / 4 = 3. The generators are the residues coprime to 12, and there are phi(12) = 4 of them."
+   },
+   "pyqIds": [
+    "gate-2024-set2-53-self-inverse-z2-z3-z4",
+    "gate-2014-set3-50-two-involutions-four-elements"
+   ],
+   "prereqs": [
+    "group-axioms-and-uniqueness"
+   ],
+   "videoRefs": [],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "Group theory Notes for GATE Exams",
+     "channel": "GeeksforGeeks",
+     "url": "https://www.geeksforgeeks.org/engineering-mathematics/group-theory-notes-for-gate-exams/",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "GATE-oriented note set; article text read in full"
+    },
+    {
+     "kind": "course-outline",
+     "title": "Discrete Mathematics, Module 7 Group Theory - lecture sequence (Lectures 4-40: binary operation, monoid, group properties, order of an element, cyclic group, Lagrange's theorem, alternative definitions)",
+     "channel": "GO Classes for GATE CS (Deepak Poonia)",
+     "url": "https://www.goclasses.in/courses/63f9aa9be4b0a8a370cfb0ad",
+     "language": "en",
+     "transcript": "UNAVAILABLE",
+     "translated": false,
+     "note": "published lecture list read; the video captions themselves could not be retrieved in this run, so this is a structure reference only and no card quotes it"
+    }
+   ],
+   "sourceLine": "Order of a group, order of an element and the divisibility corollary: GeeksforGeeks GATE group-theory notes (English, read in full). The 'power of an element' and 'order of an element' lecture positions: GO Classes Module 7 lecture list (structure only, captions unavailable). Every order in this card is recomputed in scripts/validate.py.",
+   "subject": "discrete-mathematics",
+   "topic": "monoids-and-groups",
+   "path": "subjects/discrete-mathematics/monoids-and-groups/order-of-group-and-element.json"
+  },
+  {
+   "id": "abelian-groups-and-commutativity-tests",
+   "title": "Abelian Groups and the Two Commutativity Tests",
+   "priority": "P1",
+   "order": 77,
+   "unit": "Algebras",
+   "quickIdea": "An abelian group is a group whose operation commutes. GATE's 2022 question is a four-item checklist of conditions that force, or fail to force, commutativity.",
+   "remember": [
+    "G is abelian when a b = b a for all a and b in G. Every cyclic group is abelian, and the converse fails: Z_2 x Z_2 is abelian and not cyclic.",
+    "Test 1: if (a b)^2 = a^2 b^2 for all a, b then G is abelian. Proof: a b a b = a a b b, cancel a on the left and b on the right, get b a = a b.",
+    "Test 2: if a^2 = e for all a then G is abelian. Proof: a b = (a b)^-1 = b^-1 a^-1 = b a.",
+    "Every group of prime order is abelian, and so is every group of order at most 5. Order 6 is the first order at which a non-abelian group appears, namely S3.",
+    "A subgroup of an abelian group is abelian: commutativity is inherited and can never be lost, so 'G commutative but a subgroup need not be' is always false.",
+    "Non-abelian does not mean nothing commutes: S3 contains commuting pairs, and its centre contains the identity.",
+    "Both tests are equivalences, not just implications: in an abelian group the two identities hold for all a and b."
+   ],
+   "example": {
+    "prompt": "Show that every group of order 4 is abelian.",
+    "work": "If some element has order 4 the group is generated by it and is cyclic, hence abelian. Otherwise every non-identity element has order 2, so a^2 = e for every a, and Test 2 applies.",
+    "answer": "Every group of order 4 is abelian; there are exactly two of them, Z_4 and Z_2 x Z_2."
+   },
+   "gateAngle": "Two-line proofs with cancellation are the whole of GATE CSE 2022 Q.27. When the hypothesis reads 'for all x, y', expand both sides and cancel; when it reads 'for all x, x^2 = e', replace each element by its own inverse.",
+   "variations": [
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Does (a b)^2 = a^2 b^2 hold for all a, b in S3?",
+     "answer": "No: with a = (1 2) and b = (1 2 3), a b = (2 3) has square e, while a^2 b^2 = e (1 3 2) = (1 3 2), which is not e.",
+     "why": "One counterexample shows the hypothesis of the 2022 question is not vacuous, which is what makes the implication worth proving."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "If G is abelian and H is a subgroup of G, must H be abelian?",
+     "answer": "Yes: for a, b in H we also have a, b in G, so a b = b a inside G and therefore inside H.",
+     "why": "This is option (D) of GATE CSE 2022 Q.27, which is false precisely because commutativity is inherited downward."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "If (a b)^3 = a^3 b^3 for all a, b, must G be abelian?",
+     "answer": "No. Any group of exponent 3 satisfies it trivially, because a^3 = b^3 = (a b)^3 = e, and there are non-abelian groups of exponent 3, such as the Heisenberg group of order 27 over the three-element field.",
+     "why": "Only the square test is an equivalence. A cube test can hold for a reason that says nothing about commutativity."
+    }
+   ],
+   "trap": {
+    "what": "Concluding 'G is commutative' from an identity that holds for some pairs, and assuming every abelian group has all elements of order 2.",
+    "why": "The 2022 hypotheses say 'for all x, y'. One violating pair refutes the hypothesis, not the conclusion; and (Z, +) is abelian with elements of infinite order.",
+    "counterexample": "S3 satisfies (a b)^2 = a^2 b^2 for a = b = (1 2) but not for a = (1 2), b = (1 2 3)."
+   },
+   "check": {
+    "question": "A group G satisfies x^2 = e for every element x. Prove in one line that G is abelian.",
+    "answer": "For any a and b, a b = (a b)^-1 = b^-1 a^-1 = b a, because every element is its own inverse.",
+    "explanation": "The first equality uses the hypothesis on the element a b, the second is the reversal rule, and the third applies the hypothesis to a and to b. This is option (B) of GATE CSE 2022 Q.27."
+   },
+   "pyqIds": [
+    "gate-2022-27-group-commutativity-tests"
+   ],
+   "prereqs": [
+    "group-axioms-and-uniqueness"
+   ],
+   "videoRefs": [],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "Group theory Notes for GATE Exams",
+     "channel": "GeeksforGeeks",
+     "url": "https://www.geeksforgeeks.org/engineering-mathematics/group-theory-notes-for-gate-exams/",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "GATE-oriented note set; article text read in full"
+    },
+    {
+     "kind": "course-outline",
+     "title": "Discrete Mathematics, Module 7 Group Theory - lecture sequence (Lectures 4-40: binary operation, monoid, group properties, order of an element, cyclic group, Lagrange's theorem, alternative definitions)",
+     "channel": "GO Classes for GATE CS (Deepak Poonia)",
+     "url": "https://www.goclasses.in/courses/63f9aa9be4b0a8a370cfb0ad",
+     "language": "en",
+     "transcript": "UNAVAILABLE",
+     "translated": false,
+     "note": "published lecture list read; the video captions themselves could not be retrieved in this run, so this is a structure reference only and no card quotes it"
+    }
+   ],
+   "sourceLine": "Commutativity, the two tests and the inheritance by subgroups: GeeksforGeeks GATE group-theory notes (English, read in full) and the accepted solutions on the GATE Overflow page for GATE CSE 2022 Q.27. The 'alternative definitions of abelian group' lecture position: GO Classes Module 7 lecture list (structure only, captions unavailable).",
+   "subject": "discrete-mathematics",
+   "topic": "monoids-and-groups",
+   "path": "subjects/discrete-mathematics/monoids-and-groups/abelian-groups-and-commutativity-tests.json"
+  },
+  {
+   "id": "subgroups-and-tests",
+   "title": "Subgroups and the One-Step Test",
+   "priority": "P1",
+   "order": 78,
+   "unit": "Algebras",
+   "quickIdea": "A subgroup is a subset that is a group under the same operation. The one-step test, a b^-1 in H for all a and b in H, settles it in a single line.",
+   "remember": [
+    "H is a subgroup of G when H is a non-empty subset and is itself a group under the operation of G; associativity is inherited and never rechecked.",
+    "One-step test: non-empty H is a subgroup if and only if a b^-1 is in H for every a, b in H. Additively, a - b in H. Two-step version: a b in H and a^-1 in H.",
+    "Every subgroup contains the identity; {e} and G are the trivial subgroups; any other is proper, and |H| = 1 forces H = {e}.",
+    "The intersection of any collection of subgroups is a subgroup. The union of two subgroups is a subgroup only when one of them contains the other.",
+    "For a finite group, closure alone already gives a subgroup: the powers of an element eventually repeat and the repeat supplies the inverse. For an infinite group closure is not enough.",
+    "Every subgroup of a cyclic group is cyclic, and every subgroup of an abelian group is abelian.",
+    "The order of a subgroup divides the order of the group, by Lagrange; the converse of that statement is false."
+   ],
+   "example": {
+    "prompt": "Which of {0, 3, 6, 9} and {0, 2, 4} are subgroups of (Z_12, +)?",
+    "work": "In additive notation the one-step test is a - b in H. In {0, 3, 6, 9} every difference lands back in the set: 3 - 9 = -6 = 6, 9 - 3 = 6, 6 - 3 = 3, 9 - 6 = 3. So it is a subgroup of order 4. In {0, 2, 4}, the difference 2 - 4 = -2 = 10 is not in the set, and neither is the sum 4 + 4 = 8, so it is not closed.",
+    "answer": "{0, 3, 6, 9} is a subgroup of order 4; {0, 2, 4} is not a subgroup, because it is not closed under addition."
+   },
+   "gateAngle": "Subgroup questions are decided by a counterexample or by Lagrange. If the question asks how many subgroups a small group has, list the divisors of |G| first and then test each candidate size with a - b in H.",
+   "variations": [
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Is the union of two subgroups always a subgroup?",
+     "answer": "No: in Z_12 the union of {0, 6} and {0, 4, 8} is {0, 4, 6, 8}, and 4 + 6 = 10 is missing.",
+     "why": "Unions break closure; intersections never do. This is the single most common false statement about subgroups."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "How many subgroups does Z_12 have?",
+     "answer": "Six, one for each divisor of 12: orders 1, 2, 3, 4, 6 and 12.",
+     "why": "A cyclic group has exactly one subgroup per divisor. That reverse direction is special to cyclic groups and is exactly what Lagrange does not give you in general."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "In an abelian group, is the set of all elements of finite order a subgroup?",
+     "answer": "Yes. If a^m = e and b^n = e then (a b^-1)^(m n) = e, so the one-step test passes.",
+     "why": "The one-step test is built for closure arguments of exactly this shape, where the group is infinite and listing elements is impossible."
+    }
+   ],
+   "trap": {
+    "what": "Using closure as the whole subgroup test on an infinite group, or 'proving' a subgroup by checking three example pairs.",
+    "why": "In an infinite group closure can hold while inverses are missing, and a test is a statement about every pair, not a sample.",
+    "counterexample": "In (Z, +) the set {0, 1, 2, 3, ...} is closed under addition but is not a subgroup, because -1 is missing."
+   },
+   "check": {
+    "question": "Show that H = {0, 4, 8} is a subgroup of Z_12 and give its index.",
+    "answer": "Differences of elements of H stay in H, so H is a subgroup; |H| = 3 and |G| = 12, so the index is 4.",
+    "explanation": "0 - 4 = 8, 4 - 8 = 8, 8 - 0 = 8 and the like all land in {0, 4, 8}, so the one-step test passes. The index is the number of cosets, |G| / |H| = 12 / 3 = 4."
+   },
+   "pyqIds": [],
+   "prereqs": [
+    "group-axioms-and-uniqueness"
+   ],
+   "videoRefs": [],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "Group theory Notes for GATE Exams",
+     "channel": "GeeksforGeeks",
+     "url": "https://www.geeksforgeeks.org/engineering-mathematics/group-theory-notes-for-gate-exams/",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "GATE-oriented note set; article text read in full"
+    },
+    {
+     "kind": "course-outline",
+     "title": "Discrete Mathematics, Module 7 Group Theory - lecture sequence (Lectures 4-40: binary operation, monoid, group properties, order of an element, cyclic group, Lagrange's theorem, alternative definitions)",
+     "channel": "GO Classes for GATE CS (Deepak Poonia)",
+     "url": "https://www.goclasses.in/courses/63f9aa9be4b0a8a370cfb0ad",
+     "language": "en",
+     "transcript": "UNAVAILABLE",
+     "translated": false,
+     "note": "published lecture list read; the video captions themselves could not be retrieved in this run, so this is a structure reference only and no card quotes it"
+    }
+   ],
+   "sourceLine": "Subgroup definition, the one-step and two-step tests and the intersection fact: GeeksforGeeks GATE group-theory notes (English, read in full). The 'subgroup' and 'alternative definitions of subgroup' lecture positions: GO Classes Module 7 lecture list (structure only, captions unavailable). Every subgroup claim is recomputed in scripts/validate.py.",
+   "subject": "discrete-mathematics",
+   "topic": "monoids-and-groups",
+   "path": "subjects/discrete-mathematics/monoids-and-groups/subgroups-and-tests.json"
+  },
+  {
+   "id": "cyclic-groups-and-generators",
+   "title": "Cyclic Groups, Generators and Prime Order",
+   "priority": "P1",
+   "order": 79,
+   "unit": "Algebras",
+   "quickIdea": "A cyclic group is generated by one element: every element is a power of it. Z_n is the model, phi(n) counts its generators, and every group of prime order is cyclic.",
+   "remember": [
+    "G is cyclic when G is the set of all powers of one element a, written G = <a>; a is then called a generator. Cyclic groups are abelian, and every subgroup of a cyclic group is cyclic.",
+    "(Z_n, +) is cyclic, generated by 1. Its generators are the residues a with gcd(a, n) = 1, so there are phi(n) of them.",
+    "A group of prime order p is cyclic, and every element other than the identity generates it. This is why groups of order 2, 3, 5 or 7 are automatically abelian.",
+    "A cyclic group of order n has exactly one subgroup of order d for each divisor d of n, and no other subgroups; so Z_12 has six subgroups.",
+    "Z_2 x Z_2 has order 4 and is not cyclic: every element other than (0, 0) has order 2, so no single element generates the group.",
+    "Z_2 x Z_3 is isomorphic to Z_6 and is cyclic, because gcd(2, 3) = 1. In general Z_m x Z_n is cyclic exactly when gcd(m, n) = 1.",
+    "The number of elements of order d in a cyclic group of order n is phi(d) for each divisor d of n, and 0 otherwise."
+   ],
+   "example": {
+    "prompt": "List the generators of Z_12 and show that 5 generates the whole group.",
+    "work": "gcd(a, 12) = 1 for a = 1, 5, 7 and 11, so exactly these four generate. The multiples of 5 mod 12 are 5, 10, 3, 8, 1, 6, 11, 4, 9, 2, 7, 0: all twelve residues appear before 5 returns to 0.",
+    "answer": "The generators are 1, 5, 7 and 11, which is phi(12) = 4 of them, and <5> = Z_12."
+   },
+   "gateAngle": "GATE CSE 2021 Set 1 Q.34 is the whole pattern: a group of composite order may or may not be cyclic, but a group of prime order always is. Any proper non-trivial subgroup of a group of order 6 has order 2 or 3, and both are prime.",
+   "variations": [
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Is every abelian group cyclic?",
+     "answer": "No: Z_2 x Z_2 is abelian of order 4 and is not cyclic, because every non-identity element has order 2.",
+     "why": "Cyclic implies abelian is one direction only, and Z_2 x Z_2 is the smallest counterexample to the converse."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "How many generators does Z_20 have?",
+     "answer": "phi(20) = 8: the residues coprime to 20, namely 1, 3, 7, 9, 11, 13, 17 and 19.",
+     "why": "phi(20) = 20 (1 - 1/2)(1 - 1/5) = 8, and each of these residues generates the group."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "G is a group of order 6 containing an element of order 6. What is G?",
+     "answer": "G is isomorphic to Z_6, hence cyclic and abelian; the other group of order 6, namely S3, has no element of order 6.",
+     "why": "An element of order equal to |G| generates the whole group, so the group is determined up to isomorphism."
+    }
+   ],
+   "trap": {
+    "what": "Assuming a group of composite order is cyclic, or that every abelian group is cyclic.",
+    "why": "Order 6 splits into Z_6 (cyclic) and S3 (not); order 4 splits into Z_4 (cyclic) and Z_2 x Z_2 (not). Compositeness alone decides nothing.",
+    "counterexample": "Z_2 x Z_2 has order 4, is abelian, and has no element of order 4, so it is not cyclic."
+   },
+   "check": {
+    "question": "Is Z_2 x Z_3 cyclic, and is Z_2 x Z_4 cyclic?",
+    "answer": "Z_2 x Z_3 is cyclic because gcd(2, 3) = 1 and it is isomorphic to Z_6; Z_2 x Z_4 is not cyclic, since the largest element order is lcm(2, 4) = 4, which is less than 8.",
+    "explanation": "In a direct product the order of an element is the lcm of the component orders. A cyclic group of order n must contain an element of order n, so comparing the largest element order with |G| decides cyclicity in one line."
+   },
+   "pyqIds": [
+    "gate-2021-set1-34-order-6-subgroup-cyclic"
+   ],
+   "prereqs": [
+    "order-of-group-and-element",
+    "subgroups-and-tests"
+   ],
+   "videoRefs": [],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "Group theory Notes for GATE Exams",
+     "channel": "GeeksforGeeks",
+     "url": "https://www.geeksforgeeks.org/engineering-mathematics/group-theory-notes-for-gate-exams/",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "GATE-oriented note set; article text read in full"
+    },
+    {
+     "kind": "course-outline",
+     "title": "Discrete Mathematics, Module 7 Group Theory - lecture sequence (Lectures 4-40: binary operation, monoid, group properties, order of an element, cyclic group, Lagrange's theorem, alternative definitions)",
+     "channel": "GO Classes for GATE CS (Deepak Poonia)",
+     "url": "https://www.goclasses.in/courses/63f9aa9be4b0a8a370cfb0ad",
+     "language": "en",
+     "transcript": "UNAVAILABLE",
+     "translated": false,
+     "note": "published lecture list read; the video captions themselves could not be retrieved in this run, so this is a structure reference only and no card quotes it"
+    }
+   ],
+   "sourceLine": "Cyclic groups, generators, the phi(n) count and the subgroup-per-divisor fact: GeeksforGeeks GATE group-theory notes (English, read in full). The 'cyclic group' and 'Lagrange's theorem' lecture positions: GO Classes Module 7 lecture list (structure only, captions unavailable). Generator counts are recomputed in scripts/validate.py.",
+   "subject": "discrete-mathematics",
+   "topic": "monoids-and-groups",
+   "path": "subjects/discrete-mathematics/monoids-and-groups/cyclic-groups-and-generators.json"
+  },
+  {
+   "id": "cosets-and-lagrange",
+   "title": "Cosets and Lagrange's Theorem",
+   "priority": "P1",
+   "order": 80,
+   "unit": "Algebras",
+   "quickIdea": "The cosets of a subgroup are equal-sized blocks that tile the group, which is exactly why the subgroup's order must divide the group's order.",
+   "remember": [
+    "For H a subgroup of G and a in G, the left coset is aH = {a h : h in H}; the right coset Ha is defined the same way on the other side.",
+    "Every coset has the same size as H, since h maps to a h bijectively, and two cosets are either identical or disjoint. The cosets therefore partition G into |G| / |H| blocks.",
+    "Lagrange's theorem: for a finite group, |H| divides |G|, and |G| = [G : H] |H|, where the index [G : H] is the number of distinct cosets.",
+    "Corollary: the order of every element divides |G|, so a^|G| = e for every a in G.",
+    "The largest possible proper subgroup of a group of order n has size n / p, where p is the smallest prime factor of n: 84 gives 42, 35 gives 7, 45 gives 15, 12 gives 6.",
+    "The converse of Lagrange is false. A4 has order 12 and no subgroup of order 6; cyclic groups realise every divisor, which is the friendly case and not the general rule.",
+    "A group of prime order has no proper non-trivial subgroup at all, so every element other than the identity generates it."
+   ],
+   "example": {
+    "prompt": "In Z_12 take H = {0, 4, 8}. List the cosets and the index.",
+    "work": "0 + H = {0, 4, 8}; 1 + H = {1, 5, 9}; 2 + H = {2, 6, 10}; 3 + H = {3, 7, 11}; and 4 + H returns to {0, 4, 8}. Four disjoint blocks of three covering all twelve residues, so the index is 12 / 3 = 4.",
+    "answer": "Four cosets, index 4, and 3 x 4 = 12 exactly as Lagrange requires."
+   },
+   "gateAngle": "Lagrange appears in GATE as a counting question almost every other year: 'largest possible proper subgroup' in 2018 and 2020, 'the size of L is' in 2014 Set 3. Divide by the smallest prime factor and never assume the answer is half.",
+   "variations": [
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Can a group of order 12 have a subgroup of order 5?",
+     "answer": "No: 5 does not divide 12, so Lagrange forbids it outright.",
+     "why": "Divisibility is a necessary condition, not a sufficient one; the next trap is assuming that every divisor does occur."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "A group has order 45. What is the largest possible size of a proper subgroup?",
+     "answer": "15, which is 45 / 3, and it is attained in the cyclic group Z_45.",
+     "why": "45 = 3^2 x 5, so the smallest prime factor is 3 and the largest proper divisor is 15."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "A group G of order 30 has a subgroup H of order 6. How many cosets does H have, and does Lagrange tell you whether a subgroup of order 10 exists?",
+     "answer": "Five cosets, since 30 / 6 = 5. Lagrange says nothing about a subgroup of order 10: it only says that any subgroup order must divide 30, not that each divisor occurs.",
+     "why": "This separates the two directions cleanly; only the cyclic group promises a subgroup for every divisor."
+    }
+   ],
+   "trap": {
+    "what": "Answering |G| / 2 for 'largest proper subgroup' without checking whether 2 is the smallest prime factor, and assuming every divisor of |G| is realised.",
+    "why": "For odd |G| the answer is |G| / p with p the smallest odd prime, so a group of order 35 has 7 and not 17.5 or 5. And A4 of order 12 has no subgroup of order 6 at all.",
+    "counterexample": "A group of order 35 has divisors 1, 5, 7, 35, so the largest proper subgroup has size 7; A4 has order 12 and no subgroup of order 6."
+   },
+   "check": {
+    "question": "A group G has 84 elements. What is the largest possible size of a proper subgroup, and is that size actually achieved?",
+    "answer": "42, which is 84 / 2, and it is achieved by the cyclic group Z_84, whose subgroup of order 42 exists.",
+    "explanation": "The divisors of 84 are 1, 2, 3, 4, 6, 7, 12, 14, 21, 28, 42 and 84, so the largest proper divisor is 42. Because Z_84 is cyclic it has a subgroup of every divisor order, so the bound is attained, not merely permitted."
+   },
+   "pyqIds": [
+    "gate-2018-19-largest-proper-subgroup-42",
+    "gate-2020-18-largest-proper-subgroup-7",
+    "gate-2014-set3-3-subgroup-size-5"
+   ],
+   "prereqs": [
+    "subgroups-and-tests",
+    "order-of-group-and-element"
+   ],
+   "videoRefs": [],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "Group theory Notes for GATE Exams",
+     "channel": "GeeksforGeeks",
+     "url": "https://www.geeksforgeeks.org/engineering-mathematics/group-theory-notes-for-gate-exams/",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "GATE-oriented note set; article text read in full"
+    },
+    {
+     "kind": "course-outline",
+     "title": "Discrete Mathematics, Module 7 Group Theory - lecture sequence (Lectures 4-40: binary operation, monoid, group properties, order of an element, cyclic group, Lagrange's theorem, alternative definitions)",
+     "channel": "GO Classes for GATE CS (Deepak Poonia)",
+     "url": "https://www.goclasses.in/courses/63f9aa9be4b0a8a370cfb0ad",
+     "language": "en",
+     "transcript": "UNAVAILABLE",
+     "translated": false,
+     "note": "published lecture list read; the video captions themselves could not be retrieved in this run, so this is a structure reference only and no card quotes it"
+    }
+   ],
+   "sourceLine": "Cosets, the index and Lagrange's theorem: GeeksforGeeks GATE group-theory notes (English, read in full). The 'Lagrange's theorem' and 'summary - groups of specific orders' lecture positions: GO Classes Module 7 lecture list (structure only, captions unavailable). The coset partition and every index in this card are recomputed in scripts/validate.py and shown in the lesson cyclic-subgroup-and-lagrange.",
+   "visual": "discrete-mathematics/monoids-and-groups/cyclic-subgroup-and-lagrange",
+   "subject": "discrete-mathematics",
+   "topic": "monoids-and-groups",
+   "path": "subjects/discrete-mathematics/monoids-and-groups/cosets-and-lagrange.json"
+  },
+  {
+   "id": "finite-group-examples-gate-uses",
+   "title": "The Small Cast of Groups GATE Reuses",
+   "priority": "P2",
+   "order": 81,
+   "unit": "Algebras",
+   "quickIdea": "GATE recycles a short list of groups: Z_n under addition, direct products, matrix groups, power sets under symmetric difference and permutations. Recognising them is faster than testing axioms from scratch.",
+   "remember": [
+    "(Z_n, +) has order n and is cyclic; its self-inverse elements are 0 and, when n is even, n/2.",
+    "In a direct product G x H the order is |G| |H| and the order of an element is the lcm of its component orders. Z_2 x Z_3 x Z_4 has order 24.",
+    "Self-inverse elements of Z_2 x Z_3 x Z_4 are those with 2a = 0 in every component: 2 choices in Z_2, 1 in Z_3, 2 in Z_4, so 2 x 1 x 2 = 4. That is GATE CSE 2024 Set 2 Q.53.",
+    "(2^X, symmetric difference) is an abelian group: the identity is the empty set and every element is its own inverse, so the inverse of A is A and not the complement of A. That is GATE CSE 2023 Q.41.",
+    "Upper triangular 3 x 3 matrices with abc not 0 form a group under multiplication: the determinant abc is non-zero so inverses exist, the identity matrix is present, multiplication is associative but not commutative. That is GATE CSE 2005 Q.46.",
+    "The invertible n x n matrices form the general linear group GL(n, R); the bijections of a set form the symmetric group S_n of order n!.",
+    "Matrix groups are the standard non-abelian example: GL(n, R) is a group in which A B and B A differ, so it is never abelian for n >= 2."
+   ],
+   "example": {
+    "prompt": "How many elements of Z_2 x Z_3 x Z_4 are their own inverses?",
+    "work": "An element (a, b, c) is self-inverse exactly when (2a, 2b, 2c) = (0, 0, 0) in the three components. In Z_2 both 0 and 1 work; in Z_3 only 0 works, since gcd(2, 3) = 1; in Z_4 both 0 and 2 work. Multiplying the counts gives 2 x 1 x 2 = 4, namely (0,0,0), (1,0,0), (0,0,2) and (1,0,2).",
+    "answer": "Four elements."
+   },
+   "gateAngle": "Two reusable shortcuts: count self-inverse elements componentwise and multiply the counts, and when a set-with-an-operation question appears, look for the identity first. If the obvious candidate lies outside the set, the structure is not even a monoid.",
+   "variations": [
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Is (2^X, union) a group, and is (2^X, symmetric difference) a group?",
+     "answer": "No for union, since only the empty set has an inverse; yes for symmetric difference, an abelian group in which every element is its own inverse.",
+     "why": "The same set with two different operations lands on two different rungs, so the operation and not the set decides the answer."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "How many elements of Z_4 x Z_6 are their own inverses?",
+     "answer": "Four: gcd(2, 4) x gcd(2, 6) = 2 x 2, namely (0,0), (2,0), (0,3) and (2,3).",
+     "why": "The number of solutions of 2x = 0 in Z_n is gcd(2, n), so the count multiplies across components."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "Do the invertible 2 x 2 matrices with integer entries form a group under multiplication?",
+     "answer": "No. They form a monoid: the product of invertible integer matrices is invertible, the identity is present, but the inverse of the matrix with rows (2, 0) and (0, 1) is the matrix with rows (1/2, 0) and (0, 1), which has a non-integer entry.",
+     "why": "This is the matrix twin of (Z, x): a non-zero determinant is not enough, because the inverse must also stay inside the set."
+    }
+   ],
+   "trap": {
+    "what": "Taking the complement as the inverse under symmetric difference, and assuming a direct product of cyclic groups is cyclic.",
+    "why": "A symmetric difference with the complement of A gives X, which is the identity only when X is empty; and Z_2 x Z_2 is not cyclic although both factors are.",
+    "counterexample": "In 2^X with X = {1, 2}: {1} symmetric difference {1} = empty, so {1} is its own inverse, while {1} symmetric difference {2} = {1, 2} is not the identity."
+   },
+   "check": {
+    "question": "Is Z_2 x Z_4 cyclic?",
+    "answer": "No: every element order divides lcm(2, 4) = 4, and 4 is less than |G| = 8, so no element generates the group.",
+    "explanation": "A cyclic group of order 8 must contain an element of order 8. In a direct product the order of (a, b) is lcm(|a|, |b|), and here that is at most 4, so the group is abelian but not cyclic."
+   },
+   "pyqIds": [
+    "gate-2023-41-symmetric-difference-group",
+    "gate-2005-46-upper-triangular-group",
+    "gate-2024-set2-53-self-inverse-z2-z3-z4"
+   ],
+   "prereqs": [
+    "cyclic-groups-and-generators"
+   ],
+   "videoRefs": [],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "Group theory Notes for GATE Exams",
+     "channel": "GeeksforGeeks",
+     "url": "https://www.geeksforgeeks.org/engineering-mathematics/group-theory-notes-for-gate-exams/",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "GATE-oriented note set; article text read in full"
+    },
+    {
+     "kind": "course-outline",
+     "title": "Discrete Mathematics, Module 7 Group Theory - lecture sequence (Lectures 4-40: binary operation, monoid, group properties, order of an element, cyclic group, Lagrange's theorem, alternative definitions)",
+     "channel": "GO Classes for GATE CS (Deepak Poonia)",
+     "url": "https://www.goclasses.in/courses/63f9aa9be4b0a8a370cfb0ad",
+     "language": "en",
+     "transcript": "UNAVAILABLE",
+     "translated": false,
+     "note": "published lecture list read; the video captions themselves could not be retrieved in this run, so this is a structure reference only and no card quotes it"
+    }
+   ],
+   "sourceLine": "Standard groups and their properties: GeeksforGeeks GATE group-theory notes (English, read in full). The 'addition modulo n group' and 'nth roots of unity' lecture positions: GO Classes Module 7 lecture list (structure only, captions unavailable). Every count in this card is recomputed in scripts/validate.py.",
+   "subject": "discrete-mathematics",
+   "topic": "monoids-and-groups",
+   "path": "subjects/discrete-mathematics/monoids-and-groups/finite-group-examples-gate-uses.json"
+  },
+  {
+   "id": "group-homomorphism-and-kernel",
+   "title": "Group Homomorphisms and the Kernel",
+   "priority": "P3",
+   "order": 82,
+   "unit": "Algebras",
+   "quickIdea": "A homomorphism is a map between groups that respects the operation; its kernel measures what the map loses, and the kernel is always a subgroup.",
+   "remember": [
+    "f from G to H is a homomorphism when f(a b) = f(a) f(b) for all a and b. It follows that f(e_G) = e_H and f(a^-1) = f(a)^-1.",
+    "The kernel, the set of g with f(g) = e_H, is a subgroup of G; the image of f is a subgroup of H.",
+    "f is injective exactly when the kernel is {e_G}. An isomorphism is a bijective homomorphism, and isomorphic groups have the same order and the same multiset of element orders.",
+    "Example: f(k) = k mod n from (Z, +) to (Z_n, +) is a homomorphism whose kernel is the multiples of n.",
+    "Example: the map x to 2^x from (R, +) to the positive reals under multiplication is an isomorphism, because 2^(x+y) = 2^x 2^y.",
+    "Equal order does not mean isomorphic: Z_4 and Z_2 x Z_2 both have order 4 and have different element orders.",
+    "This card sits beyond the two words 'Monoids, Groups' in the GATE line. It is included because standard treatments place homomorphisms with groups, and no verified GATE CSE question in this repository asks for them."
+   ],
+   "example": {
+    "prompt": "Find the kernel of f(k) = k mod 6 from Z to Z_6 and decide whether f is injective.",
+    "work": "f(k) = 0 in Z_6 exactly when 6 divides k, so the kernel is the set of multiples of 6, written 6Z, which is a subgroup of index 6. Since the kernel contains more than 0, f is not injective: f(0) = f(6) = 0. Every residue is hit, so f is surjective.",
+    "answer": "The kernel is 6Z, so f is not injective, but it is surjective onto Z_6."
+   },
+   "gateAngle": "If this appears at all, it is one of three one-liners: f(e) = e, the kernel is a subgroup, and f is injective exactly when the kernel is trivial. The kernel is always found by solving f(g) = e.",
+   "variations": [
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Can a homomorphism send the identity to something other than the identity?",
+     "answer": "No: f(e) = f(e e) = f(e) f(e), and cancelling gives f(e) = e_H.",
+     "why": "One line with cancellation, and a favourite true-or-false item because it feels like an extra axiom."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "How many homomorphisms are there from Z_6 to Z_3?",
+     "answer": "Three. A homomorphism out of Z_6 is fixed by the image of 1, and the only condition is 6 f(1) = 0 in Z_3, which every residue satisfies.",
+     "why": "A homomorphism out of a cyclic group is determined by one value, subject to the relation that holds in the domain."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "Two finite groups have the same order. Must they be isomorphic?",
+     "answer": "No: Z_4 and Z_2 x Z_2 both have order 4, and Z_4 has an element of order 4 while Z_2 x Z_2 does not.",
+     "why": "Order is preserved by isomorphism, so it is a necessary condition; it is far from sufficient."
+    }
+   ],
+   "trap": {
+    "what": "Believing any bijection between groups of the same size is an isomorphism, and that a homomorphism must be injective to be useful.",
+    "why": "The map must respect the operation, so a bijection that scrambles products is not an isomorphism; and the non-injective case is the normal one, as k mod 6 shows.",
+    "counterexample": "Z_4 and Z_2 x Z_2 have equal order and different element orders, so no isomorphism exists between them."
+   },
+   "check": {
+    "question": "Is f(x) = 2^x from (R, +) to the positive reals under multiplication a homomorphism, and is it an isomorphism?",
+    "answer": "Yes to both: 2^(x+y) = 2^x 2^y, and the map is bijective onto the positive reals with inverse log base 2.",
+    "explanation": "The law of exponents is exactly the homomorphism condition, and the exponential is a bijection between the reals and the positive reals, so it is an isomorphism."
+   },
+   "pyqIds": [],
+   "prereqs": [
+    "group-axioms-and-uniqueness",
+    "cyclic-groups-and-generators"
+   ],
+   "videoRefs": [],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "Group theory Notes for GATE Exams",
+     "channel": "GeeksforGeeks",
+     "url": "https://www.geeksforgeeks.org/engineering-mathematics/group-theory-notes-for-gate-exams/",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "GATE-oriented note set; article text read in full"
+    },
+    {
+     "kind": "course-outline",
+     "title": "Discrete Mathematics, Module 7 Group Theory - lecture sequence (Lectures 4-40: binary operation, monoid, group properties, order of an element, cyclic group, Lagrange's theorem, alternative definitions)",
+     "channel": "GO Classes for GATE CS (Deepak Poonia)",
+     "url": "https://www.goclasses.in/courses/63f9aa9be4b0a8a370cfb0ad",
+     "language": "en",
+     "transcript": "UNAVAILABLE",
+     "translated": false,
+     "note": "published lecture list read; the video captions themselves could not be retrieved in this run, so this is a structure reference only and no card quotes it"
+    }
+   ],
+   "sourceLine": "Homomorphism, kernel and isomorphism statements: GeeksforGeeks GATE group-theory notes (English, read in full) for the group vocabulary, with every claim here recomputed in scripts/validate.py on the reduction map Z to Z_6 and on the exponential map. This material is outside the two-word GATE line and no verified PYQ in the repository tests it.",
+   "subject": "discrete-mathematics",
+   "topic": "monoids-and-groups",
+   "path": "subjects/discrete-mathematics/monoids-and-groups/group-homomorphism-and-kernel.json"
+  },
+  {
+   "id": "permutation-groups-and-symmetry",
+   "title": "Permutation Groups and the Symmetric Group",
+   "priority": "P3",
+   "order": 83,
+   "unit": "Algebras",
+   "quickIdea": "The bijections of a set form a group under composition, the symmetric group S_n of order n!, and it is the standard source of non-abelian examples.",
+   "remember": [
+    "For a set A the bijections from A to itself form a group under composition: the composition of bijections is a bijection, the identity map is the identity, and the inverse map is the inverse. GATE CSE 1996 Q.2.4 uses this as one of its true options.",
+    "For A = {1, ..., n} this is the symmetric group S_n and |S_n| = n!: 2, 6, 24 and 120 for n = 2, 3, 4, 5.",
+    "S_1 and S_2 are abelian; S_n is non-abelian for every n >= 3, since (1 2)(1 2 3) = (2 3) while (1 2 3)(1 2) = (1 3).",
+    "Permutations are written in cycle notation, disjoint cycles commute, and a cycle of length k has order k.",
+    "The order of a permutation is the lcm of its disjoint cycle lengths, so (1 2)(3 4 5) has order 6.",
+    "S_3 has six elements: the identity, three transpositions of order 2 and two 3-cycles of order 3; its subgroup orders are 1, 2, 3 and 6, all divisors of 6.",
+    "The even permutations form the alternating group A_n of order n!/2, the kernel of the sign homomorphism."
+   ],
+   "example": {
+    "prompt": "In S_3 compute (1 2)(1 2 3) and (1 2 3)(1 2), reading right to left.",
+    "work": "(1 2)(1 2 3): 1 goes to 2 then to 1, 2 goes to 3 and stays at 3, 3 goes to 1 then to 2, giving (2 3). (1 2 3)(1 2): 1 goes to 2 then to 3, 2 goes to 1 and stays at 1, 3 goes to 3 then to 2, giving (1 3).",
+    "answer": "The two products are (2 3) and (1 3), which differ, so composition in S_3 is not commutative."
+   },
+   "gateAngle": "Reach for S_3 whenever a question needs a small non-abelian group: it has order 6, so it is the smallest one, and it is the standard counterexample to 'small order means abelian' beyond order 5.",
+   "variations": [
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "What is the order of the permutation (1 2 3 4)(5 6) in S_6?",
+     "answer": "4, the lcm of the cycle lengths 4 and 2.",
+     "why": "The order is the lcm of the disjoint cycle lengths, never their sum or their product."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "How many elements of S_4 have order 2?",
+     "answer": "Nine: the six transpositions plus the three double transpositions such as (1 2)(3 4).",
+     "why": "Order 2 means a product of disjoint transpositions, so the count is by cycle shape, not by trying elements one at a time."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "Do the permutations of {1, ..., n} that fix the element 1 form a subgroup?",
+     "answer": "Yes: they are exactly the permutations of the remaining n - 1 elements, so they form a copy of S_(n-1) inside S_n, of order (n - 1)!.",
+     "why": "The set of permutations fixing a point is the stabiliser of that point, the smallest instance of a group acting on a set."
+    }
+   ],
+   "trap": {
+    "what": "Assuming composition commutes because it looks like multiplication, and assuming |S_n| = n.",
+    "why": "The group of permutations of n objects has n! elements, and it is non-abelian from n = 3, so the order of the two factors in a product matters.",
+    "counterexample": "(1 2)(1 2 3) = (2 3) but (1 2 3)(1 2) = (1 3) in S_3."
+   },
+   "check": {
+    "question": "How many elements does S_4 have, and is it abelian?",
+    "answer": "24 = 4!, and it is not abelian, because the two products of (1 2) and (1 2 3) differ.",
+    "explanation": "The bijections of a 4-element set are 4! = 24, and the pair of permutations above gives a counterexample to commutativity. In general S_n is non-abelian for every n >= 3, and S_3 already shows it."
+   },
+   "pyqIds": [
+    "gate-1996-2-4-concatenation-monoid"
+   ],
+   "prereqs": [
+    "group-axioms-and-uniqueness",
+    "composition-and-inverse-functions"
+   ],
+   "videoRefs": [],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "Group theory Notes for GATE Exams",
+     "channel": "GeeksforGeeks",
+     "url": "https://www.geeksforgeeks.org/engineering-mathematics/group-theory-notes-for-gate-exams/",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "GATE-oriented note set; article text read in full"
+    },
+    {
+     "kind": "course-outline",
+     "title": "Discrete Mathematics, Module 7 Group Theory - lecture sequence (Lectures 4-40: binary operation, monoid, group properties, order of an element, cyclic group, Lagrange's theorem, alternative definitions)",
+     "channel": "GO Classes for GATE CS (Deepak Poonia)",
+     "url": "https://www.goclasses.in/courses/63f9aa9be4b0a8a370cfb0ad",
+     "language": "en",
+     "transcript": "UNAVAILABLE",
+     "translated": false,
+     "note": "published lecture list read; the video captions themselves could not be retrieved in this run, so this is a structure reference only and no card quotes it"
+    }
+   ],
+   "sourceLine": "The permutation group as a standard example: GeeksforGeeks GATE group-theory notes (English, read in full) and the bijection option of GATE CSE 1996 Q.2.4. Every product and order in this card is recomputed on the six elements of S_3 and the twenty-four of S_4 in scripts/validate.py.",
+   "subject": "discrete-mathematics",
+   "topic": "monoids-and-groups",
+   "path": "subjects/discrete-mathematics/monoids-and-groups/permutation-groups-and-symmetry.json"
   }
  ],
  "pyqs": [
@@ -7763,6 +8802,50 @@ window.GATE_DATA = {
    "source_label": "GATE Overflow question page - GATE CSE 1996 Q.1.2 with community solutions (answer recorded as option B, 4)",
    "verification": "SOURCED",
    "answer_evidence": "The accepted answer on the page records 'Answer: B' and the comment thread counts the four covering edges; the count is independently recomputed by scripts/validate.py."
+  },
+  {
+   "id": "gate-1996-2-4-concatenation-monoid",
+   "year": "1996",
+   "paper": "GATE CS 1996",
+   "question_ref": "Q.2.4",
+   "type": "MCQ",
+   "marks": "1",
+   "topic": "monoid-identity-and-examples",
+   "text": "Which one of the following is false?",
+   "options": [
+    "The set of all bijective functions on a finite set forms a group under function composition",
+    "The set {1, 2, ..., p-1} forms a group under multiplication mod p, where p is a prime number",
+    "The set of all strings over a finite alphabet forms a group under concatenation",
+    "A non-empty subset S of G is a subgroup of the group (G, *) if and only if for any pair of elements a, b in S, a * b^-1 is in S"
+   ],
+   "answer": "Option 3 - the set of all strings over a finite alphabet forms a monoid, not a group, under concatenation",
+   "solution": "Option 1 is true: composition of bijections is a bijection, the identity map is the identity, and the inverse map is the inverse. Option 2 is true: the residues 1 to p-1 are closed under multiplication mod p, the product is associative, 1 is the identity, and every residue coprime to the prime p has an inverse by Euclid's lemma. Option 3 is false: concatenation is closed and associative and the empty string is the identity, but a non-empty string w has no inverse, because |w v| = |w| + |v| > 0 while the empty string has length 0. Option 4 is true and is the one-step subgroup test: taking b = a gives the identity, then taking a = e gives inverses, then a * (b^-1)^-1 = a * b gives closure. Recomputed in scripts/validate.py: strings over {a} up to length 3 under concatenation satisfy closure, associativity and identity and no non-empty string has an inverse; {1, 3} mod 5 closes into a group for every prime tested.",
+   "source_url": "https://gateoverflow.in/2733/gate-cse-1996-question-2-4",
+   "source_label": "GATE Overflow question page - GATE CSE 1996 Q.2.4 with the accepted solution (option 3 is false)",
+   "verification": "SOURCED",
+   "answer_evidence": "Accepted answer: '(c) is false as string concatenation operation is a monoid (doesn't have inverse to become a group)'; the page's other answers prove options 1, 2 and 4 true."
+  },
+  {
+   "id": "gate-1997-3-1-max-semigroup",
+   "year": "1997",
+   "paper": "GATE CS 1997",
+   "question_ref": "Q.3.1 (GATE Overflow numbering); secondary answer sites number it Q.26",
+   "type": "MCQ",
+   "marks": "1",
+   "topic": "monoid-identity-and-examples",
+   "text": "Let (Z, *) be an algebraic structure where Z is the set of integers and the operation * is defined by n * m = max(n, m). Which of the following statements is true for (Z, *)?",
+   "options": [
+    "(Z, *) is a monoid",
+    "(Z, *) is an Abelian group",
+    "(Z, *) is a group",
+    "None of the above"
+   ],
+   "answer": "Option 4 - none of the above: (Z, max) is a commutative semigroup and not a monoid",
+   "solution": "Closure holds, because max(n, m) is either n or m and both are integers. Associativity holds, because both (n * m) * k and n * (m * k) equal the largest of n, m and k. An identity would need max(m, e) = m for every integer m, that is e <= m for every integer m, and no integer is below all integers. So there is no identity, the structure is not a monoid, and therefore it is not a group either. Recomputed in scripts/validate.py: for every candidate identity e in -50..50 there is an integer m with max(e, m) != m.",
+   "source_url": "https://gateoverflow.in/2232/gate-cse-1997-question-3-1",
+   "source_label": "GATE Overflow question page - GATE CSE 1997 Q.3.1 with the accepted solution (option 4)",
+   "verification": "SOURCED",
+   "answer_evidence": "Accepted answer: 'we don't have a single unique element for all the elements which is less than all the elements ... Hence, this is just a semigroup - D option.'"
   },
   {
    "id": "gate-1997-6-1-total-orders-n-factorial",
@@ -8061,6 +9144,28 @@ window.GATE_DATA = {
    "answer_evidence": "The page's accepted analysis eliminates (A) and (C) for using an implication under the existential, and (B) for claiming everyone is a girl, leaving (D)."
   },
   {
+   "id": "gate-2005-46-upper-triangular-group",
+   "year": "2005",
+   "paper": "GATE CS 2005",
+   "question_ref": "Q.46 (GATE Overflow numbering); secondary answer sites number it Q.19",
+   "type": "MCQ",
+   "marks": "2",
+   "topic": "finite-group-examples-gate-uses",
+   "text": "Consider the set H of all 3 x 3 matrices of the type [[a, f, e], [0, b, d], [0, 0, c]] where a, b, c, d, e and f are real numbers and abc is not 0. Under the matrix multiplication operation, the set H is:",
+   "options": [
+    "a group",
+    "a monoid but not a group",
+    "a semigroup but not a monoid",
+    "neither a group nor a semigroup"
+   ],
+   "answer": "Option 1 - a group",
+   "solution": "The product of two upper triangular matrices is upper triangular, and the determinant of such a matrix is the product abc of its diagonal entries, so every element of H has non-zero determinant and is invertible. The inverse is again upper triangular with diagonal entries 1/a, 1/b, 1/c, which are non-zero, so the inverse stays in H. The identity matrix is in H, and matrix multiplication is associative. Hence H is a group; it is not abelian, since matrix multiplication does not commute. Recomputed in scripts/validate.py on explicit matrices: the product and the inverse stay upper triangular with non-zero diagonal product, and a chosen pair fails to commute.",
+   "source_url": "https://gateoverflow.in/1171/gate-cse-2005-question-46",
+   "source_label": "GATE Overflow question page - GATE CSE 2005 Q.46 with the accepted solution (option 1)",
+   "verification": "SOURCED",
+   "answer_evidence": "Accepted answer: 'So, it is group. Correct Answer: A', with the inverse matrix written out and the diagonal entries 1/a, 1/b, 1/c shown non-zero."
+  },
+  {
    "id": "gate-2007-cnf-half-clauses-true",
    "year": "2007",
    "paper": "GATE CS 2007",
@@ -8117,6 +9222,38 @@ window.GATE_DATA = {
    "source_url": "https://gateforumonline.com/wp-content/uploads/2021/09/CS-Gate-2014-Set-1.pdf",
    "source_label": "GATE 2014 CS Set 1 paper with answer key (answer printed as 89); discussion at gateoverflow.in/1929",
    "verification": "OFFICIAL_KEY"
+  },
+  {
+   "id": "gate-2014-set3-3-subgroup-size-5",
+   "year": "2014",
+   "paper": "GATE CS 2014 Set 3",
+   "question_ref": "Q.3",
+   "type": "NAT",
+   "marks": "1",
+   "topic": "cosets-and-lagrange",
+   "text": "Let G be a group with 15 elements. Let L be a subgroup of G. It is known that L is not G and that the size of L is at least 4. The size of L is ______.",
+   "answer": "5",
+   "solution": "By Lagrange's theorem the order of a subgroup divides the order of the group, and 15 = 3 x 5 has divisors 1, 3, 5 and 15. The condition L not equal to G removes 15, and the condition |L| >= 4 removes 1 and 3, leaving 5. Recomputed in scripts/validate.py: the divisors of 15 are 1, 3, 5, 15 and only 5 survives both conditions; the cyclic group Z_15 does have a subgroup of order 5.",
+   "source_url": "https://gateoverflow.in/2037/gate-cse-2014-set-3-question-3",
+   "source_label": "GATE Overflow question page - GATE CSE 2014 Set 3 Q.3 with the accepted solution (5)",
+   "verification": "SOURCED",
+   "answer_evidence": "Accepted answer: 'Since, the given size of L is at least 4 (1 and 3 eliminated) and not equal to G (15 eliminated), the only size left is 5. Size of L is 5.'"
+  },
+  {
+   "id": "gate-2014-set3-50-two-involutions-four-elements",
+   "year": "2014",
+   "paper": "GATE CS 2014 Set 3",
+   "question_ref": "Q.50",
+   "type": "NAT",
+   "marks": "2",
+   "topic": "order-of-group-and-element",
+   "text": "There are two elements x, y in a group (G, *) such that every element in the group can be written as a product of some number of x's and y's in some order. It is known that x * x = y * y = x * y * x * y = y * x * y * x = e, where e is the identity element. The maximum number of elements in such a group is ______.",
+   "answer": "4",
+   "solution": "The relation x y x y = e says (x y)^2 = e, so x y is its own inverse, and (x y)^-1 = y^-1 x^-1 = y x because x and y are their own inverses. Hence x y = y x and the group is abelian. Every element is a word in x and y, and in an abelian group with x^2 = y^2 = e every word reduces to one of e, x, y, x y: appending an x or a y either cancels the last letter or returns a word already listed. So at most four elements are possible, and four are attained by the Klein four group. Recomputed in scripts/validate.py: over the symmetric groups S_4 and S_5 every pair of involutions whose product is again an involution commutes, and the four-element set {e, x, y, x y} is closed under composition in every such pair, which is the step the bound depends on.",
+   "source_url": "https://gateoverflow.in/2084/gate-cse-2014-set-3-question-50",
+   "source_label": "GATE Overflow question page - GATE CSE 2014 Set 3 Q.50 with the accepted solution (4)",
+   "verification": "SOURCED",
+   "answer_evidence": "Accepted answer by Sachin Mittal: 'This turns out to be abelian group ... only four element can be there at max. {x, y, x*y, e}'. The repository recomputes the reduction independently, since some answer aggregator sites print 8 for this question."
   },
   {
    "id": "gate-2015-3-5",
@@ -8378,6 +9515,22 @@ window.GATE_DATA = {
    "answer_evidence": "The accepted answer states 'LUB and GLB exist for every two elements ... Hence, the Minimum number of ordered pairs that need to be added = 0'; the lattice test is recomputed by scripts/validate.py."
   },
   {
+   "id": "gate-2018-19-largest-proper-subgroup-42",
+   "year": "2018",
+   "paper": "GATE CS 2018",
+   "question_ref": "Q.19",
+   "type": "NAT",
+   "marks": "1",
+   "topic": "cosets-and-lagrange",
+   "text": "Let G be a finite group on 84 elements. The size of a largest possible proper subgroup of G is ______.",
+   "answer": "42",
+   "solution": "By Lagrange's theorem a subgroup order divides 84, whose divisors are 1, 2, 3, 4, 6, 7, 12, 14, 21, 28, 42 and 84. A proper subgroup excludes 84, so the largest possible size is 42. The bound is attained: the cyclic group Z_84 has a subgroup of order 42. Recomputed in scripts/validate.py by listing the divisors and building the subgroup of order 42 inside Z_84.",
+   "source_url": "https://gateoverflow.in/204093/gate-cse-2018-question-19",
+   "source_label": "GATE Overflow question page - GATE CSE 2018 Q.19 with the accepted solution (42)",
+   "verification": "SOURCED",
+   "answer_evidence": "Accepted answer: 'Proper Subgroup of Group having order 84 would have one of the order (proper factors of 84) ... So the largest order would be 42.'"
+  },
+  {
    "id": "gate-2018-model-size-upper-bound",
    "year": "2018",
    "paper": "GATE CS 2018",
@@ -8397,6 +9550,22 @@ window.GATE_DATA = {
    "source_label": "GATE Overflow question page for GATE CS 2018 Q.28 with published solutions on the small-model argument",
    "verification": "SOURCED",
    "answer_evidence": "The accepted answer is (A): a model of size at most 3 always exists, obtained by keeping the three existential witnesses."
+  },
+  {
+   "id": "gate-2020-18-largest-proper-subgroup-7",
+   "year": "2020",
+   "paper": "GATE CS 2020",
+   "question_ref": "Q.18",
+   "type": "NAT",
+   "marks": "1",
+   "topic": "cosets-and-lagrange",
+   "text": "Let G be a group of 35 elements. Then the largest possible size of a subgroup of G other than G itself is ______.",
+   "answer": "7",
+   "solution": "By Lagrange's theorem the order of a subgroup divides 35 = 5 x 7, so the possible sizes are 1, 5, 7 and 35. Excluding the group itself leaves 1, 5 and 7, and the largest is 7, which the cyclic group Z_35 attains. Recomputed in scripts/validate.py: the divisors of 35 are 1, 5, 7, 35 and Z_35 has a subgroup of order 7.",
+   "source_url": "https://gateoverflow.in/333213/gate-cse-2020-question-18",
+   "source_label": "GATE Overflow question page - GATE CSE 2020 Q.18 with the accepted solution (7)",
+   "verification": "SOURCED",
+   "answer_evidence": "Accepted answer: 'Order of the largest possible proper subgroup = 7.'"
   },
   {
    "id": "gate-2020-42",
@@ -8452,6 +9621,28 @@ window.GATE_DATA = {
    "verification": "OFFICIAL_KEY"
   },
   {
+   "id": "gate-2021-set1-34-order-6-subgroup-cyclic",
+   "year": "2021",
+   "paper": "GATE CS 2021 Set 1",
+   "question_ref": "Q.34",
+   "type": "MCQ",
+   "marks": "2",
+   "topic": "cyclic-groups-and-generators",
+   "text": "Let G be a group of order 6, and H be a subgroup of G such that 1 < |H| < 6. Which one of the following options is correct?",
+   "options": [
+    "Both G and H are always cyclic",
+    "G may not be cyclic, but H is always cyclic",
+    "G is always cyclic, but H may not be cyclic",
+    "Both G and H may not be cyclic"
+   ],
+   "answer": "Option 2 - G may not be cyclic, but H is always cyclic",
+   "solution": "By Lagrange's theorem |H| divides 6, so |H| is 1, 2, 3 or 6, and the strict inequalities leave 2 or 3. Both are prime, and every group of prime order is cyclic, so H is always cyclic. The group G of order 6 may or may not be cyclic: Z_6 is cyclic and S_3 is not. Recomputed in scripts/validate.py, which enumerates the subgroups of Z_6 and of S_3 and checks that every subgroup order arising is 1, 2, 3 or 6 and that each such subgroup is cyclic.",
+   "source_url": "https://gateoverflow.in/357417/gate-cse-2021-set-1-question-34",
+   "source_label": "GATE Overflow question page - GATE CSE 2021 Set 1 Q.34 with the accepted solution (option 2)",
+   "verification": "SOURCED",
+   "answer_evidence": "Accepted answer: '2, 3 are prime numbers. So, H is always cyclic ... G may not be cyclic, but H is always cyclic.'"
+  },
+  {
    "id": "gate-2021-set1-s1-tautology",
    "year": "2021",
    "paper": "GATE CS 2021 Set 1",
@@ -8473,6 +9664,28 @@ window.GATE_DATA = {
    "answer_evidence": "Correct Option: B"
   },
   {
+   "id": "gate-2022-27-group-commutativity-tests",
+   "year": "2022",
+   "paper": "GATE CS 2022",
+   "question_ref": "Q.27 in the paper; GATE Overflow numbers it Q.17",
+   "type": "MSQ",
+   "marks": "2",
+   "topic": "abelian-groups-and-commutativity-tests",
+   "text": "Which of the following statements is/are TRUE for a group G?",
+   "options": [
+    "If for all x, y in G, (x y)^2 = x^2 y^2, then G is commutative",
+    "If for all x in G, x^2 = 1, then G is commutative, where 1 is the identity element of G",
+    "If the order of G is 2, then G is commutative",
+    "If G is commutative, then a subgroup of G need not be commutative"
+   ],
+   "answer": "Options 1, 2 and 3",
+   "solution": "Option 1: x y x y = x x y y, cancel x on the left and y on the right, giving y x = x y. Option 2: every element equals its own inverse, so x y = (x y)^-1 = y^-1 x^-1 = y x. Option 3: a group of order 2 is generated by its non-identity element and is cyclic, hence abelian. Option 4 is false: if a, b lie in a subgroup of a commutative group then a b = b a already holds in G. Recomputed in scripts/validate.py: S_3 violates the hypothesis of option 1 for a = (1 2), b = (1 2 3); Z_2 x Z_2 satisfies x^2 = e for all x and is abelian; every subgroup of Z_6 and of Z_2 x Z_2 is abelian.",
+   "source_url": "https://gateoverflow.in/371919/gate-cse-2022-question-17",
+   "source_label": "GATE Overflow question page - GATE CSE 2022 Q.17 (Q.27 in the paper) with the accepted solution (options 1, 2, 3); the official-paper numbering is confirmed by the GATE 2022 CS solution booklet published by Made Easy",
+   "verification": "SOURCED",
+   "answer_evidence": "Accepted answer on the GATE Overflow page: 'Answer : A,B,C'; the Made Easy GATE 2022 CS booklet prints 'Q.27 ... Ans. (a, b, c)'."
+  },
+  {
    "id": "gate-2022-32",
    "year": "2022",
    "paper": "GATE CS 2022",
@@ -8487,6 +9700,28 @@ window.GATE_DATA = {
    "source_url": "https://gateforumonline.com/wp-content/uploads/2022/03/CS-GATE-2022-Final.pdf",
    "source_label": "GATE 2022 CS solution set with key printed as 7; question also in the official paper at gate2026.iitg.ac.in",
    "verification": "OFFICIAL_KEY"
+  },
+  {
+   "id": "gate-2023-41-symmetric-difference-group",
+   "year": "2023",
+   "paper": "GATE CS 2023",
+   "question_ref": "Q.41 (GATE Overflow numbering); secondary answer sites number it Q.51",
+   "type": "MSQ",
+   "marks": "2",
+   "topic": "finite-group-examples-gate-uses",
+   "text": "Let X be a set and 2^X denote the power set of X. Define a binary operation delta on 2^X by A delta B = (A - B) union (B - A). Let H = (2^X, delta). Which of the following statements about H is/are correct?",
+   "options": [
+    "H is a group",
+    "Every element in H has an inverse, but H is not a group",
+    "For every A in 2^X, the inverse of A is the complement of A",
+    "For every A in 2^X, the inverse of A is A"
+   ],
+   "answer": "Options 1 and 4",
+   "solution": "The operation is symmetric difference, which is closed on the power set and associative, with identity the empty set. Since A delta A = empty for every A, every element is its own inverse, so H is a group and the inverse of A is A, not the complement. The complement fails because A delta A' = X, which is the identity only when X is empty. Recomputed in scripts/validate.py by building the whole operation table on 2^{1,2,3}: closure, associativity, identity, inverses and commutativity all hold, every element squares to the identity, and the complement of a proper non-empty subset is not an inverse.",
+   "source_url": "https://gateoverflow.in/399270/gate-cse-2023-question-41",
+   "source_label": "GATE Overflow question page - GATE CSE 2023 Q.41 with the accepted solution (options 1 and 4)",
+   "verification": "SOURCED",
+   "answer_evidence": "Accepted answer: 'So, every element in 2^X is its own inverse. Therefore (A), (D)'; the page's other answers reach the same pair."
   },
   {
    "id": "gate-2023-conjecture-implied-by",
@@ -8510,6 +9745,28 @@ window.GATE_DATA = {
    "answer_evidence": "The accepted solutions conclude (B) and (C), using for all x for all y Q implies the conjecture, and there exists y for all x R implies for all x there exists y R."
   },
   {
+   "id": "gate-2024-set1-42-associativity-distributivity",
+   "year": "2024",
+   "paper": "GATE CS 2024 Set 1",
+   "question_ref": "Q.42",
+   "type": "MSQ",
+   "marks": "2",
+   "topic": "algebraic-structure-ladder",
+   "text": "Consider the operators diamond and square defined by a diamond b = a + 2b and a square b = a b, for positive integers. Which of the following statements is/are TRUE?",
+   "options": [
+    "Operator diamond obeys the associative law",
+    "Operator square obeys the associative law",
+    "Operator diamond over the operator square obeys the distributive law",
+    "Operator square over the operator diamond obeys the distributive law"
+   ],
+   "answer": "Options 2 and 4",
+   "solution": "Associativity: (a diamond b) diamond c = a + 2b + 2c while a diamond (b diamond c) = a + 2b + 4c, so option 1 fails. For square, both (a b) c and a (b c) equal a b c, so option 2 holds. Distributivity: a diamond (b square c) = a + 2bc while (a diamond b) square (a diamond c) = (a + 2b)(a + 2c), which differ, so option 3 fails. In the other direction a square (b diamond c) = a(b + 2c) = ab + 2ac = (a square b) diamond (a square c), so option 4 holds. Recomputed in scripts/validate.py by brute force over positive integers up to 6 for all four laws.",
+   "source_url": "https://gateoverflow.in/422800/gate-cse-2024-set-1-question-42",
+   "source_label": "GATE Overflow question page - GATE CSE 2024 Set 1 Q.42 with the accepted solution (options 2 and 4)",
+   "verification": "SOURCED",
+   "answer_evidence": "Accepted answer: 'So, Option B and Option D are the Correct Answers.'"
+  },
+  {
    "id": "gate-2024-set2-24-total-orders",
    "year": "2024",
    "paper": "GATE CS 2024, Set 2",
@@ -8524,6 +9781,22 @@ window.GATE_DATA = {
    "source_label": "GATE Overflow question page - GATE CSE 2024 Set 2 Q.24 with the accepted answer (5) and a GO Classes video solution reference",
    "verification": "SOURCED",
    "answer_evidence": "The accepted answer lists the five total orders and concludes 'the number of total order on {1,2,3,4} that contain P is 5'; recomputed by enumeration in scripts/validate.py."
+  },
+  {
+   "id": "gate-2024-set2-53-self-inverse-z2-z3-z4",
+   "year": "2024",
+   "paper": "GATE CS 2024 Set 2",
+   "question_ref": "Q.53 (GATE Overflow numbering); secondary answer sites number it Q.63",
+   "type": "NAT",
+   "marks": "2",
+   "topic": "order-of-group-and-element",
+   "text": "Let Z_n be the group of integers {0, 1, 2, ..., n-1} with addition modulo n as the group operation. The number of elements in the group Z_2 x Z_3 x Z_4 that are their own inverses is ______.",
+   "answer": "4",
+   "solution": "An element (a, b, c) is its own inverse exactly when (2a, 2b, 2c) = (0, 0, 0) in the three components. In Z_2 the congruence 2a = 0 holds for a = 0 and a = 1, giving 2 solutions; in Z_3 only a = 0 works, since gcd(2, 3) = 1; in Z_4 both 0 and 2 work. The count multiplies to 2 x 1 x 2 = 4, and the elements are (0,0,0), (1,0,0), (0,0,2) and (1,0,2). Recomputed in scripts/validate.py by enumerating all 24 elements of the product.",
+   "source_url": "https://gateoverflow.in/422844/gate-cse-2024-set-2-question-53",
+   "source_label": "GATE Overflow question page - GATE CSE 2024 Set 2 Q.53 with the accepted solution (4)",
+   "verification": "SOURCED",
+   "answer_evidence": "Accepted answer: 'Z2 has 2 inverses (0 and 1) Z3 has 1 inverse (0) Z4 has 2 inverses (0 and 2) ... will give 4 elements having own inverses.'"
   },
   {
    "id": "gate-2024-set2-fail-grade-translation",
@@ -8562,6 +9835,28 @@ window.GATE_DATA = {
    "source_url": "https://www.trygateai.com/pyq/engineering-mathematics/combinatorics/gate-cse-2025-set-1-q30",
    "source_label": "GATE CSE 2025 Set 1 Q.30 solution stating official answer 195 (also iaeacademy.in, citing the IIT Roorkee key)",
    "verification": "OFFICIAL_KEY"
+  },
+  {
+   "id": "gate-2025-set1-39-functions-abelian-monoid",
+   "year": "2025",
+   "paper": "GATE CS 2025 Set 1",
+   "question_ref": "Q.39 (GATE Overflow numbering); secondary answer sites number it Q.49",
+   "type": "MSQ",
+   "marks": "2",
+   "topic": "monoid-identity-and-examples",
+   "text": "A = {0, 1, 2, 3, ...} is the set of non-negative integers. Let F be the set of functions from A to itself. For any two functions f1, f2 in F, define (f1 odot f2)(n) = f1(n) + f2(n) for every number n in A. Which of the following is/are CORRECT about the mathematical structure (F, odot)?",
+   "options": [
+    "(F, odot) is an Abelian group",
+    "(F, odot) is an Abelian monoid",
+    "(F, odot) is a non-Abelian group",
+    "(F, odot) is a non-Abelian monoid"
+   ],
+   "answer": "Option 2 - (F, odot) is an Abelian monoid",
+   "solution": "Closure holds, since a sum of two non-negative integers is a non-negative integer. Associativity and commutativity are inherited from integer addition. The constant zero function is the identity. Inverses fail: (f odot g)(n) = 0 for all n forces g(n) = -f(n), which is not a function into A whenever f(n) > 0. So the structure is a commutative monoid and not a group. Recomputed in scripts/validate.py on functions from a two-element domain into the non-negative integers: closure, associativity, identity and commutativity hold, and no non-negative function inverts a function taking the value 1.",
+   "source_url": "https://gateoverflow.in/460041/gate-cse-2025-set-1-question-39",
+   "source_label": "GATE Overflow question page - GATE CSE 2025 Set 1 Q.39 with the accepted solution (option 2)",
+   "verification": "SOURCED",
+   "answer_evidence": "Accepted answer: 'A valid inverse does not exist for nonzero functions. Hence, it is an abelian monoid'; the page's other answers reach option B."
   },
   {
    "id": "gate-2025-set1-exactly-one-mother",

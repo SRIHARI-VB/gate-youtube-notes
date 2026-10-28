@@ -1,0 +1,56 @@
+{
+  "slug": "cyclic-subgroup-and-lagrange",
+  "topic": "cosets-and-lagrange",
+  "engine": "p5.js",
+  "steps": 6,
+  "example": {
+    "group": "Z_12 under addition modulo 12, order 12",
+    "element": 4,
+    "element_order": 3,
+    "cyclic_subgroup": [
+      0,
+      4,
+      8
+    ],
+    "cosets": [
+      [
+        0,
+        4,
+        8
+      ],
+      [
+        1,
+        5,
+        9
+      ],
+      [
+        2,
+        6,
+        10
+      ],
+      [
+        3,
+        7,
+        11
+      ]
+    ],
+    "index": 4,
+    "generator": 5,
+    "generators_of_z12": [
+      1,
+      5,
+      7,
+      11
+    ],
+    "euler_phi_12": 4,
+    "subgroup_orders": [
+      1,
+      2,
+      3,
+      4,
+      6,
+      12
+    ],
+    "largest_proper_subgroup_order": 6
+  }
+}

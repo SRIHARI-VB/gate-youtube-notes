@@ -1,0 +1,85 @@
+{
+  "id": "finite-group-examples-gate-uses",
+  "title": "The Small Cast of Groups GATE Reuses",
+  "priority": "P2",
+  "order": 81,
+  "unit": "Algebras",
+  "quickIdea": "GATE recycles a short list of groups: Z_n under addition, direct products, matrix groups, power sets under symmetric difference and permutations. Recognising them is faster than testing axioms from scratch.",
+  "remember": [
+    "(Z_n, +) has order n and is cyclic; its self-inverse elements are 0 and, when n is even, n/2.",
+    "In a direct product G x H the order is |G| |H| and the order of an element is the lcm of its component orders. Z_2 x Z_3 x Z_4 has order 24.",
+    "Self-inverse elements of Z_2 x Z_3 x Z_4 are those with 2a = 0 in every component: 2 choices in Z_2, 1 in Z_3, 2 in Z_4, so 2 x 1 x 2 = 4. That is GATE CSE 2024 Set 2 Q.53.",
+    "(2^X, symmetric difference) is an abelian group: the identity is the empty set and every element is its own inverse, so the inverse of A is A and not the complement of A. That is GATE CSE 2023 Q.41.",
+    "Upper triangular 3 x 3 matrices with abc not 0 form a group under multiplication: the determinant abc is non-zero so inverses exist, the identity matrix is present, multiplication is associative but not commutative. That is GATE CSE 2005 Q.46.",
+    "The invertible n x n matrices form the general linear group GL(n, R); the bijections of a set form the symmetric group S_n of order n!.",
+    "Matrix groups are the standard non-abelian example: GL(n, R) is a group in which A B and B A differ, so it is never abelian for n >= 2."
+  ],
+  "example": {
+    "prompt": "How many elements of Z_2 x Z_3 x Z_4 are their own inverses?",
+    "work": "An element (a, b, c) is self-inverse exactly when (2a, 2b, 2c) = (0, 0, 0) in the three components. In Z_2 both 0 and 1 work; in Z_3 only 0 works, since gcd(2, 3) = 1; in Z_4 both 0 and 2 work. Multiplying the counts gives 2 x 1 x 2 = 4, namely (0,0,0), (1,0,0), (0,0,2) and (1,0,2).",
+    "answer": "Four elements."
+  },
+  "gateAngle": "Two reusable shortcuts: count self-inverse elements componentwise and multiply the counts, and when a set-with-an-operation question appears, look for the identity first. If the obvious candidate lies outside the set, the structure is not even a monoid.",
+  "variations": [
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Is (2^X, union) a group, and is (2^X, symmetric difference) a group?",
+      "answer": "No for union, since only the empty set has an inverse; yes for symmetric difference, an abelian group in which every element is its own inverse.",
+      "why": "The same set with two different operations lands on two different rungs, so the operation and not the set decides the answer."
+    },
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "How many elements of Z_4 x Z_6 are their own inverses?",
+      "answer": "Four: gcd(2, 4) x gcd(2, 6) = 2 x 2, namely (0,0), (2,0), (0,3) and (2,3).",
+      "why": "The number of solutions of 2x = 0 in Z_n is gcd(2, n), so the count multiplies across components."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "Do the invertible 2 x 2 matrices with integer entries form a group under multiplication?",
+      "answer": "No. They form a monoid: the product of invertible integer matrices is invertible, the identity is present, but the inverse of the matrix with rows (2, 0) and (0, 1) is the matrix with rows (1/2, 0) and (0, 1), which has a non-integer entry.",
+      "why": "This is the matrix twin of (Z, x): a non-zero determinant is not enough, because the inverse must also stay inside the set."
+    }
+  ],
+  "trap": {
+    "what": "Taking the complement as the inverse under symmetric difference, and assuming a direct product of cyclic groups is cyclic.",
+    "why": "A symmetric difference with the complement of A gives X, which is the identity only when X is empty; and Z_2 x Z_2 is not cyclic although both factors are.",
+    "counterexample": "In 2^X with X = {1, 2}: {1} symmetric difference {1} = empty, so {1} is its own inverse, while {1} symmetric difference {2} = {1, 2} is not the identity."
+  },
+  "check": {
+    "question": "Is Z_2 x Z_4 cyclic?",
+    "answer": "No: every element order divides lcm(2, 4) = 4, and 4 is less than |G| = 8, so no element generates the group.",
+    "explanation": "A cyclic group of order 8 must contain an element of order 8. In a direct product the order of (a, b) is lcm(|a|, |b|), and here that is at most 4, so the group is abelian but not cyclic."
+  },
+  "pyqIds": [
+    "gate-2023-41-symmetric-difference-group",
+    "gate-2005-46-upper-triangular-group",
+    "gate-2024-set2-53-self-inverse-z2-z3-z4"
+  ],
+  "prereqs": [
+    "cyclic-groups-and-generators"
+  ],
+  "videoRefs": [],
+  "sources": [
+    {
+      "kind": "text",
+      "title": "Group theory Notes for GATE Exams",
+      "channel": "GeeksforGeeks",
+      "url": "https://www.geeksforgeeks.org/engineering-mathematics/group-theory-notes-for-gate-exams/",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "GATE-oriented note set; article text read in full"
+    },
+    {
+      "kind": "course-outline",
+      "title": "Discrete Mathematics, Module 7 Group Theory - lecture sequence (Lectures 4-40: binary operation, monoid, group properties, order of an element, cyclic group, Lagrange's theorem, alternative definitions)",
+      "channel": "GO Classes for GATE CS (Deepak Poonia)",
+      "url": "https://www.goclasses.in/courses/63f9aa9be4b0a8a370cfb0ad",
+      "language": "en",
+      "transcript": "UNAVAILABLE",
+      "translated": false,
+      "note": "published lecture list read; the video captions themselves could not be retrieved in this run, so this is a structure reference only and no card quotes it"
+    }
+  ],
+  "sourceLine": "Standard groups and their properties: GeeksforGeeks GATE group-theory notes (English, read in full). The 'addition modulo n group' and 'nth roots of unity' lecture positions: GO Classes Module 7 lecture list (structure only, captions unavailable). Every count in this card is recomputed in scripts/validate.py."
+}

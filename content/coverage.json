@@ -3,7 +3,7 @@
   "updated_at": "2026-10-28",
   "cycle": {
     "last_subject": "discrete-mathematics",
-    "last_topic": "partial-orders-and-lattices",
+    "last_topic": "monoids-and-groups",
     "updated_at": "2026-10-28",
     "rule": "Next topic is the first topic strictly after cycle.last in the enumerated syllabus order whose status is not covered, wrapping at the end. not_started and partial topics are candidates; blocked topics are skipped while their blocker stands."
   },
@@ -111,10 +111,29 @@
         {
           "slug": "monoids-and-groups",
           "name": "Monoids and Groups",
-          "status": "not_started",
-          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
-          "runs": [],
-          "gaps": []
+          "status": "partial",
+          "coverage_note": "11 subtopics, 11 cards (the algebraic-structure ladder, monoids and the identity, group axioms and the reversal rule, order of a group and of an element, abelian groups and the two commutativity tests, subgroups and the one-step test, cyclic groups and generators, cosets and Lagrange's theorem, the small cast of groups GATE reuses, group homomorphisms and the kernel, permutation groups), 13 verified PYQs and 1 p5.js lesson. Partial because four gaps remain, named below.",
+          "runs": [
+            {
+              "date": "2026-10-28",
+              "sources": [
+                "gfg-group-theory-notes-gate",
+                "pradeep-giri-algebraic-structure-hindi",
+                "go-classes-group-theory-module-7"
+              ],
+              "cards": 11,
+              "pyqs": 13,
+              "lesson": "discrete-mathematics/monoids-and-groups/cyclic-subgroup-and-lagrange",
+              "note": "Sources chosen on merit across two languages: the GeeksforGeeks GATE group-theory notes (English) for the ladder, the group properties, the subgroup tests and Lagrange's theorem, because it was the only GATE-oriented written source whose full text could be read this run; the Pradeep Giri 'Algebraic Structure' lecture (Hindi auto-captions, read in part) for the rung-by-rung construction, the only non-English source used and the only translated material in the topic; the GO Classes Module 7 lecture list (structure only) to confirm the subtopic enumeration is complete. The NPTEL IIT Madras 'Algebras' lectures 35-37, the NPTEL Introduction to Abstract Group Theory, the Knowledge Gate Hindi playlist, the Dr. Gajendra Purohit playlist and several GATE answer aggregators were considered and rejected, with reasons in sources.json."
+            }
+          ],
+          "gaps": [
+            "video captions could not be retrieved in this run (YouTube watch pages carried no caption tracks and the timedtext endpoint returned an empty body), so the GO Classes lecture sequence is recorded as structure-only and no card quotes or timestamps a lecture",
+            "the NPTEL IIT Madras 'Algebras' transcripts (lectures 35-37) - the same course that supplied the full-text Lecture 40 used for the previous topic - could not be fetched, because the host refused the request from the sandbox; no claim rests on them and a later run should retry",
+            "quotient groups, normal subgroups, Cauchy's and Sylow's theorems and group actions are outside the GATE line and are not covered at all; the homomorphism card is the only material beyond the two words 'Monoids, Groups'",
+            "GATE CSE 1999 Q.4 (the three-part descriptive question that proves Lagrange from cosets) is excluded because the repository's PYQ schema holds only MCQ, MSQ and NAT records; the cosets card covers the same content",
+            "only one non-English source was readable (Hindi auto-captions) and its contribution is the structure ladder alone; no Tamil, Telugu or Bengali group-theory lecture could be read this run"
+          ]
         },
         {
           "slug": "graphs",
