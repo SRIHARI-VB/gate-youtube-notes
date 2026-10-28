@@ -29,8 +29,8 @@
   ],
   "counts": {
     "subjects": 1,
-    "topics": 71,
-    "pyqs": 62,
+    "topics": 82,
+    "pyqs": 71,
     "videos": 39,
     "playlists": 3
   },
@@ -1167,6 +1167,163 @@
       "pyqs": [
         "gate-1996-2-4-concatenation-monoid"
       ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "graph-vocabulary-and-degree-sum",
+      "title": "Graphs, Degrees and the Handshake Lemma",
+      "subject": "discrete-mathematics",
+      "group": "graphs",
+      "unit": "Graph basics",
+      "priority": "P1",
+      "path": "subjects/discrete-mathematics/graphs/graph-vocabulary-and-degree-sum.json",
+      "videos": [],
+      "pyqs": [],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "paths-cycles-and-components",
+      "title": "Paths, Cycles and Connected Components",
+      "subject": "discrete-mathematics",
+      "group": "graphs",
+      "unit": "Connectivity",
+      "priority": "P1",
+      "path": "subjects/discrete-mathematics/graphs/paths-cycles-and-components.json",
+      "videos": [],
+      "pyqs": [],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "cut-vertices-bridges-and-blocks",
+      "title": "Cut Vertices, Bridges and Blocks",
+      "subject": "discrete-mathematics",
+      "group": "graphs",
+      "unit": "Connectivity",
+      "priority": "P1",
+      "path": "subjects/discrete-mathematics/graphs/cut-vertices-bridges-and-blocks.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2015-set2-50-bridge",
+        "gate-2021-set1-41-articulation-dfs"
+      ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "vertex-and-edge-connectivity",
+      "title": "Vertex and Edge Connectivity",
+      "subject": "discrete-mathematics",
+      "group": "graphs",
+      "unit": "Connectivity",
+      "priority": "P2",
+      "path": "subjects/discrete-mathematics/graphs/vertex-and-edge-connectivity.json",
+      "videos": [],
+      "pyqs": [],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "eulerian-and-hamiltonian-graphs",
+      "title": "Eulerian and Hamiltonian Graphs",
+      "subject": "discrete-mathematics",
+      "group": "graphs",
+      "unit": "Traversals",
+      "priority": "P2",
+      "path": "subjects/discrete-mathematics/graphs/eulerian-and-hamiltonian-graphs.json",
+      "videos": [],
+      "pyqs": [],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "bipartite-graphs-and-odd-cycles",
+      "title": "Bipartite Graphs and the Odd-Cycle Criterion",
+      "subject": "discrete-mathematics",
+      "group": "graphs",
+      "unit": "Colouring",
+      "priority": "P1",
+      "path": "subjects/discrete-mathematics/graphs/bipartite-graphs-and-odd-cycles.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2014-set2-3-max-edges-bipartite",
+        "gate-2026-set1-45-2-colorable"
+      ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "matching-maximal-maximum-perfect",
+      "title": "Matching: Maximal, Maximum, Perfect and Augmenting Paths",
+      "subject": "discrete-mathematics",
+      "group": "graphs",
+      "unit": "Matching",
+      "priority": "P1",
+      "path": "subjects/discrete-mathematics/graphs/matching-maximal-maximum-perfect.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2026-set1-47-matchings-path-8"
+      ],
+      "visual": "discrete-mathematics/graphs/bipartite-matching-augmenting-path",
+      "variations": 3
+    },
+    {
+      "topic": "halls-marriage-theorem",
+      "title": "Hall's Marriage Theorem",
+      "subject": "discrete-mathematics",
+      "group": "graphs",
+      "unit": "Matching",
+      "priority": "P1",
+      "path": "subjects/discrete-mathematics/graphs/halls-marriage-theorem.json",
+      "videos": [],
+      "pyqs": [],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "vertex-cover-independent-set-konig",
+      "title": "Vertex Cover, Independent Set and Koenig's Theorem",
+      "subject": "discrete-mathematics",
+      "group": "graphs",
+      "unit": "Matching",
+      "priority": "P1",
+      "path": "subjects/discrete-mathematics/graphs/vertex-cover-independent-set-konig.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2026-set1-37-vertex-cover-degree"
+      ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "chromatic-number-and-greedy-bounds",
+      "title": "Chromatic Number, Greedy Bounds and Brooks' Theorem",
+      "subject": "discrete-mathematics",
+      "group": "graphs",
+      "unit": "Colouring",
+      "priority": "P1",
+      "path": "subjects/discrete-mathematics/graphs/chromatic-number-and-greedy-bounds.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2024-set1-41-chromatic-statements",
+        "gate-2002-1-4-cycle-colours",
+        "gate-2022-40-petersen"
+      ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "chromatic-polynomial",
+      "title": "The Chromatic Polynomial",
+      "subject": "discrete-mathematics",
+      "group": "graphs",
+      "unit": "Colouring",
+      "priority": "P2",
+      "path": "subjects/discrete-mathematics/graphs/chromatic-polynomial.json",
+      "videos": [],
+      "pyqs": [],
       "visual": null,
       "variations": 3
     }

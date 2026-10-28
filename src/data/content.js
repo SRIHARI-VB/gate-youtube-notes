@@ -171,7 +171,7 @@ window.GATE_DATA = {
      {
       "slug": "graphs",
       "name": "Graphs: Connectivity, Matching, Colouring",
-      "material": "planned"
+      "material": "cards"
      },
      {
       "slug": "combinatorics",
@@ -1132,6 +1132,76 @@ window.GATE_DATA = {
      "name": "Element order in a direct product",
      "latex": "|(a,b)|=\\operatorname{lcm}(|a|,|b|)",
      "note": "decides cyclicity of G x H"
+    }
+   ]
+  },
+  {
+   "group": "Graphs",
+   "items": [
+    {
+     "name": "Handshake lemma",
+     "latex": "\\sum_{v \\in V} \\deg(v) = 2|E|",
+     "note": "so the number of odd-degree vertices is even"
+    },
+    {
+     "name": "Edges in a simple graph",
+     "latex": "|E| \\le \\binom{n}{2}, \\quad |E(K_n)| = \\frac{n(n-1)}{2}",
+     "note": "equality only for the complete graph"
+    },
+    {
+     "name": "Edges with k components",
+     "latex": "n-k \\le |E| \\le \\binom{n-k+1}{2}",
+     "note": "left equality exactly for forests"
+    },
+    {
+     "name": "Bipartite edge bound",
+     "latex": "|E| \\le \\left\\lfloor \\frac{n^2}{4} \\right\\rfloor",
+     "note": "attained by K_{floor(n/2), ceil(n/2)}"
+    },
+    {
+     "name": "Connectivity chain",
+     "latex": "\\kappa(G) \\le \\lambda(G) \\le \\delta(G)",
+     "note": "and kappa <= floor(2|E|/n)"
+    },
+    {
+     "name": "Euler criterion",
+     "latex": "\\text{circuit} \\iff \\text{all degrees even}; \\quad \\text{path} \\iff 0 \\text{ or } 2 \\text{ odd}",
+     "note": "connectivity assumed"
+    },
+    {
+     "name": "Dirac (sufficient)",
+     "latex": "\\delta(G) \\ge n/2 \\implies \\text{Hamiltonian}",
+     "note": "not necessary: C_5 violates it"
+    },
+    {
+     "name": "Matchings of a path",
+     "latex": "M(P_n) = M(P_{n-1}) + M(P_{n-2}) = F_{n+1}",
+     "note": "34 for n = 8, empty matching counted"
+    },
+    {
+     "name": "Hall's condition",
+     "latex": "\\text{saturating } L \\iff |N(S)| \\ge |S| \\ \\forall S \\subseteq L",
+     "note": "defect form: unmatched <= max(|S| - |N(S)|)"
+    },
+    {
+     "name": "Koenig (bipartite only)",
+     "latex": "\\nu(G) = \\tau(G), \\quad \\alpha(G) = n - \\nu(G)",
+     "note": "fails for a triangle: nu = 1, tau = 2"
+    },
+    {
+     "name": "Chromatic bounds",
+     "latex": "\\omega \\le \\chi \\le \\Delta + 1, \\quad \\chi \\ge n/\\alpha",
+     "note": "Brooks: chi <= Delta unless complete or odd cycle"
+    },
+    {
+     "name": "Chromatic number of a cycle",
+     "latex": "\\chi(C_n) = n - 2\\left\\lfloor n/2 \\right\\rfloor + 2",
+     "note": "2 for even n, 3 for odd n"
+    },
+    {
+     "name": "Chromatic polynomial",
+     "latex": "\\chi_G(k) = \\chi_{G-e}(k) - \\chi_{G/e}(k)",
+     "note": "tree: k(k-1)^{n-1}; cycle: (k-1)^n + (-1)^n (k-1)"
     }
    ]
   }
@@ -8822,6 +8892,855 @@ window.GATE_DATA = {
    "subject": "discrete-mathematics",
    "topic": "monoids-and-groups",
    "path": "subjects/discrete-mathematics/monoids-and-groups/permutation-groups-and-symmetry.json"
+  },
+  {
+   "id": "graph-vocabulary-and-degree-sum",
+   "title": "Graphs, Degrees and the Handshake Lemma",
+   "priority": "P1",
+   "order": 90,
+   "unit": "Graph basics",
+   "quickIdea": "A graph is dots and lines; the degrees of its vertices add to twice the number of lines, and that one identity carries most of the counting questions in this topic.",
+   "remember": [
+    "A simple graph has no loop and no repeated edge between the same pair; a multigraph may have both, and a loop adds 2 to the degree of its vertex.",
+    "Handshake lemma: the degrees of all vertices sum to 2|E|, so the number of odd-degree vertices is always even.",
+    "A simple graph on n vertices has at most n(n-1)/2 edges, reached only by the complete graph K_n, in which every vertex has degree n-1.",
+    "The complement of G has the same vertices and an edge exactly where G has none, so |E(G)| + |E(complement of G)| = n(n-1)/2.",
+    "A walk may repeat vertices and edges, a trail repeats no edge, a path repeats no vertex, and a cycle is a closed path of length at least 3.",
+    "A k-regular graph on n vertices has nk/2 edges, so nk must be even before such a graph can exist."
+   ],
+   "example": {
+    "prompt": "A simple graph has degree sequence 3, 3, 2, 2, 2, 2. How many edges does it have, and how many of its vertices have odd degree?",
+    "work": "The degrees sum to 3 + 3 + 2 + 2 + 2 + 2 = 14, and the handshake lemma says the sum is 2|E|, so |E| = 7. The odd degrees are the two 3s, so exactly 2 vertices have odd degree, which is an even count as the lemma requires.",
+    "answer": "7 edges and 2 odd-degree vertices."
+   },
+   "gateAngle": "GATE uses this as the first step of counting questions: the maximum number of edges in a simple graph on n vertices with k components, C(n-k+1, 2), and whether a degree sequence can be realised. Both are one-line consequences of the handshake lemma and the edge bound.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "A simple graph on 8 vertices has 25 edges. What is the minimum number of edges in its complement?",
+     "answer": "3, because K_8 has 28 edges and 28 - 25 = 3.",
+     "why": "The complement's edge count is forced by the total n(n-1)/2, not by the structure of G."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Can a simple graph have exactly five vertices of odd degree?",
+     "answer": "No. Odd-degree vertices come in pairs, so their number is always even.",
+     "why": "The degree sum is 2|E|, an even number, and only the odd degrees contribute to its parity."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "Does a 3-regular graph on 7 vertices exist?",
+     "answer": "No. 3 x 7 = 21 is odd, so no graph, not even a multigraph, is 3-regular on 7 vertices.",
+     "why": "A k-regular graph on n vertices has nk/2 edges, which must be a whole number."
+    }
+   ],
+   "trap": {
+    "what": "Accepting a degree sequence as realisable because its sum is even.",
+    "why": "An even sum is necessary but not sufficient. The sequence 3, 3, 3, 1 sums to 10 and still cannot be drawn: the three vertices of degree 3 would each need every other vertex as a neighbour, which forces degree 3 on the last vertex.",
+    "counterexample": "The sequence 3, 3, 3, 1 on 4 vertices is not graphic, although its sum is even."
+   },
+   "check": {
+    "question": "Is 6, 6, 5, 4, 3, 2, 1 the degree sequence of a simple graph on 7 vertices?",
+    "answer": "No. The sum is 27, which is odd, so no graph has this sequence.",
+    "explanation": "The handshake lemma forbids it outright: 27 is not 2|E| for any whole number |E|. A second reason points the same way, because a vertex of degree 6 in a 7-vertex simple graph is adjacent to all six others, so the other six vertices all have degree at least 1 and one of them would need degree 7."
+   },
+   "pyqIds": [],
+   "prereqs": [
+    "relation-definition-and-counting"
+   ],
+   "videoRefs": [],
+   "sources": [
+    {
+     "kind": "slides",
+     "title": "Graph Theory: Connectivity, Coloring, Matching - GO Classroom slide deck",
+     "channel": "GATE Overflow (Arjun Suresh, GO Classroom)",
+     "url": "https://gateoverflow.in/?qa=blob&qa_blobid=659724806035278755",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "slide text read through graph basics, walk/path/circuit, Euler and Hamiltonian, cut-set and cut-vertex, edge and vertex connectivity, colouring, bipartite, independent set, matching and Hall's theorem; the fetch was truncated after the Havel-Hakimi example, so the later matching pages were read only as excerpts"
+    },
+    {
+     "kind": "text",
+     "title": "Graph Theory - GATE Overflow subject notes, Volume 1 chapter",
+     "channel": "GATE Overflow",
+     "url": "https://gateoverflow.in/subject/mathematics/discrete-mathematics/graph-theory?tab=notes",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read through the counting and graph-algorithm sections before the fetch was truncated; used for the topic's GATE weightage table and the counting formulas, not for any card claim"
+    }
+   ],
+   "sourceLine": "Graph vocabulary, the handshake lemma and the edge bound: GATE Overflow GO Classroom deck 'Graph Theory: Connectivity, Coloring, Matching' (English, read in part) for the definitions, degrees, complete graphs and Havel-Hakimi. Standard references used to verify, never copied: Rosen, Discrete Mathematics and Its Applications, ch. 10; West, Introduction to Graph Theory (Brooks, Dirac, Koenig, chromatic polynomial); CLRS ch. 22 (articulation points, bridges) and ch. 26 (bipartite matching); Diestel, Graph Theory (Menger). Every count in this card is recomputed in scripts/validate.py.",
+   "subject": "discrete-mathematics",
+   "topic": "graphs",
+   "path": "subjects/discrete-mathematics/graphs/graph-vocabulary-and-degree-sum.json"
+  },
+  {
+   "id": "paths-cycles-and-components",
+   "title": "Paths, Cycles and Connected Components",
+   "priority": "P1",
+   "order": 91,
+   "unit": "Connectivity",
+   "quickIdea": "Being connected by a path is an equivalence relation, so a graph falls apart into components, and the component count fixes both the fewest edges a graph can have and the most.",
+   "remember": [
+    "Two vertices are connected when some path joins them; this relation is reflexive, symmetric and transitive, and its classes are the connected components.",
+    "A graph on n vertices with k components has at least n - k edges, with equality exactly when it is a forest.",
+    "A simple graph on n vertices with k components has at most C(n-k+1, 2) edges: put n-k+1 vertices in one complete component and leave the other k-1 vertices isolated.",
+    "The cyclomatic number |E| - n + k counts the independent cycles, and it is 0 exactly for forests.",
+    "Deleting one edge raises the component count by at most 1, and by exactly 1 exactly when that edge is a bridge; deleting one vertex raises it by at most its degree.",
+    "A connected graph on n at least 2 vertices has at least n-1 edges, and a connected graph with exactly n-1 edges is a tree."
+   ],
+   "example": {
+    "prompt": "A simple graph on 9 vertices has 3 components. What are the smallest and largest numbers of edges it can have?",
+    "work": "Fewest: n - k = 9 - 3 = 6, reached by three trees covering the 9 vertices between them. Most: give one component 9 - 3 + 1 = 7 vertices and make it complete, which gives C(7,2) = 21 edges, and leave 2 isolated vertices.",
+    "answer": "At least 6 edges and at most 21."
+   },
+   "gateAngle": "The maximum C(n-k+1, 2) is a standing GATE NAT question, and the minimum n-k is the half students forget. Together they decide every 'forest with k components' and 'how many edges must be deleted' question.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "What is the maximum number of edges in a simple graph on 10 vertices with 4 components?",
+     "answer": "C(7,2) = 21, from one complete component on 10 - 4 + 1 = 7 vertices and 3 isolated vertices.",
+     "why": "Concentrating vertices maximises edges, so all spare vertices go into one component."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "A graph on 6 vertices has 2 components and 6 edges. Must it contain a cycle?",
+     "answer": "Yes. A forest with 2 components on 6 vertices has exactly 4 edges, so 2 edges are extra and the cyclomatic number is 6 - 6 + 2 = 2.",
+     "why": "Each edge beyond n - k creates one independent cycle."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "A connected graph on 7 vertices has 9 edges. How many edges must be deleted to obtain a spanning tree?",
+     "answer": "2, because a spanning tree has n-1 = 6 edges and 9 - 6 = 2.",
+     "why": "Every spanning tree of a connected graph has exactly n-1 edges."
+    }
+   ],
+   "trap": {
+    "what": "Using C(n-k, 2) instead of C(n-k+1, 2) for the maximum number of edges with k components.",
+    "why": "The k-1 isolated vertices are components too, so only one vertex is 'spent' per extra component; the complete component keeps n-k+1 vertices.",
+    "counterexample": "For n = 6 and k = 3 the maximum is C(4,2) = 6, reached by K_4 plus two isolated vertices, not C(3,2) = 3."
+   },
+   "check": {
+    "question": "A simple graph on 8 vertices has 2 components. What is the maximum number of edges, and is that graph connected?",
+    "answer": "C(7,2) = 21, and the extremal graph is not connected: it is K_7 plus one isolated vertex.",
+    "explanation": "With k = 2 the complete component may hold 8 - 2 + 1 = 7 vertices, giving 21 edges, and the eighth vertex is isolated, which is exactly what makes the graph have two components."
+   },
+   "pyqIds": [],
+   "prereqs": [
+    "graph-vocabulary-and-degree-sum"
+   ],
+   "videoRefs": [],
+   "sources": [
+    {
+     "kind": "slides",
+     "title": "Graph Theory: Connectivity, Coloring, Matching - GO Classroom slide deck",
+     "channel": "GATE Overflow (Arjun Suresh, GO Classroom)",
+     "url": "https://gateoverflow.in/?qa=blob&qa_blobid=659724806035278755",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "slide text read through graph basics, walk/path/circuit, Euler and Hamiltonian, cut-set and cut-vertex, edge and vertex connectivity, colouring, bipartite, independent set, matching and Hall's theorem; the fetch was truncated after the Havel-Hakimi example, so the later matching pages were read only as excerpts"
+    }
+   ],
+   "sourceLine": "Components, the n-k and C(n-k+1,2) edge bounds and the cyclomatic count: GATE Overflow GO Classroom deck (English, read in part) for the component, cut-set and tree definitions; the bounds themselves are standard (Rosen ch. 10) and every instance is recomputed in scripts/validate.py. Standard references used to verify, never copied: Rosen, Discrete Mathematics and Its Applications, ch. 10; West, Introduction to Graph Theory (Brooks, Dirac, Koenig, chromatic polynomial); CLRS ch. 22 (articulation points, bridges) and ch. 26 (bipartite matching); Diestel, Graph Theory (Menger).",
+   "subject": "discrete-mathematics",
+   "topic": "graphs",
+   "path": "subjects/discrete-mathematics/graphs/paths-cycles-and-components.json"
+  },
+  {
+   "id": "cut-vertices-bridges-and-blocks",
+   "title": "Cut Vertices, Bridges and Blocks",
+   "priority": "P1",
+   "order": 92,
+   "unit": "Connectivity",
+   "quickIdea": "A cut vertex or a bridge is a single point of failure, and two DFS rules find all of them in linear time; a bridge is exactly an edge that lies on no cycle.",
+   "remember": [
+    "v is a cut vertex (articulation point) when G - v has more components than G; e is a bridge when G - e does.",
+    "An edge is a bridge if and only if it lies on no simple cycle, so every edge of a tree is a bridge and no edge of a cycle is.",
+    "In a connected graph on n at least 3 vertices the endpoints of a bridge are cut vertices, so a cut edge forces a cut vertex; the converse fails, since two triangles sharing one vertex have a cut vertex and no bridge.",
+    "A connected graph on n vertices has at most n-2 cut vertices, reached by a path on n vertices.",
+    "DFS rule for the root: the root of a DFS tree is a cut vertex if and only if it has at least two children.",
+    "DFS rule for other vertices: v is a cut vertex if and only if some child subtree of v has no back edge to a proper ancestor of v, that is low[child] is at least disc[v].",
+    "A leaf of a DFS tree is never a cut vertex, and the biconnected components (blocks) of a graph share only cut vertices."
+   ],
+   "example": {
+    "prompt": "Take a triangle abc with a pendant edge cd hanging from c. List the cut vertices and the bridges.",
+    "work": "Deleting c isolates d, so the graph splits and c is a cut vertex. Deleting a, b or d leaves the rest connected, so none of them is a cut vertex. Deleting edge cd isolates d, so cd is a bridge. Deleting ab, bc or ca leaves the triangle connected through its other two sides, so none of those three is a bridge.",
+    "answer": "One cut vertex, c, and one bridge, cd."
+   },
+   "gateAngle": "GATE CSE 2021 Set 1 Q.41 asked exactly the two DFS rules and GATE CSE 2015 Set 2 Q.50 asked the bridge-on-a-cycle fact. Both are definition questions worth marks per option, not coding questions.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "A connected graph on 6 vertices has 5 edges. How many bridges does it have?",
+     "answer": "5. A connected graph with n-1 edges is a tree, and every edge of a tree is a bridge.",
+     "why": "Connected plus n-1 edges forces a tree, and deleting any tree edge separates the tree into two parts."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Can a graph have a cut vertex but no bridge?",
+     "answer": "Yes. Two triangles sharing exactly one vertex: removing the shared vertex disconnects the graph, but no single edge does.",
+     "why": "Cut vertices are about vertices and bridges about edges; only the direction 'bridge implies cut vertex' holds, and only for n at least 3."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "In a DFS tree of a connected graph the root has one child, and every other vertex has a child subtree with a back edge to a proper ancestor. How many cut vertices does the graph have?",
+     "answer": "None. A root with one child is not a cut vertex, and every other vertex has a low value below its own discovery time, so none of them is a cut vertex either.",
+     "why": "Both DFS rules must fail for a vertex to be safe; here both do."
+    }
+   ],
+   "trap": {
+    "what": "Saying 'a cut edge always gives a cut vertex' without the n at least 3 condition, and calling a leaf of a DFS tree a cut vertex.",
+    "why": "In K_2, removing either endpoint leaves a single vertex, which is connected, so the bridge has no cut vertex at all. A DFS leaf has no descendant to be cut off from the rest.",
+    "counterexample": "K_2 has a bridge and no cut vertex; in the triangle with pendant edge cd, the pendant vertex d is a leaf of a DFS tree rooted at a and is not a cut vertex."
+   },
+   "check": {
+    "question": "A cycle C_6 has one chord joining two opposite vertices. How many cut vertices does the resulting graph have?",
+    "answer": "None.",
+    "explanation": "The chord splits C_6 into two cycles of length 4 that share only the chord's endpoints, and each of those endpoints still has two independent routes into the other cycle. Removing any vertex leaves a path plus a chord, which stays connected, so no vertex is a cut vertex; scripts/validate.py checks this by removing each vertex in turn."
+   },
+   "pyqIds": [
+    "gate-2015-set2-50-bridge",
+    "gate-2021-set1-41-articulation-dfs"
+   ],
+   "prereqs": [
+    "paths-cycles-and-components"
+   ],
+   "videoRefs": [],
+   "sources": [
+    {
+     "kind": "slides",
+     "title": "Graph Theory: Connectivity, Coloring, Matching - GO Classroom slide deck",
+     "channel": "GATE Overflow (Arjun Suresh, GO Classroom)",
+     "url": "https://gateoverflow.in/?qa=blob&qa_blobid=659724806035278755",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "slide text read through graph basics, walk/path/circuit, Euler and Hamiltonian, cut-set and cut-vertex, edge and vertex connectivity, colouring, bipartite, independent set, matching and Hall's theorem; the fetch was truncated after the Havel-Hakimi example, so the later matching pages were read only as excerpts"
+    }
+   ],
+   "sourceLine": "Cut vertices, bridges, the DFS rules and biconnected components: GATE Overflow GO Classroom deck (English, read in part) for the cut-set, cut-vertex and edge/vertex-connectivity definitions; CLRS ch. 22 problem 22-2 for the two DFS rules. Standard references used to verify, never copied: Rosen, Discrete Mathematics and Its Applications, ch. 10; West, Introduction to Graph Theory (Brooks, Dirac, Koenig, chromatic polynomial); CLRS ch. 22 (articulation points, bridges) and ch. 26 (bipartite matching); Diestel, Graph Theory (Menger). The bridge-on-a-cycle equivalence, the n-2 bound and the DFS rules are all recomputed in scripts/validate.py over every graph on up to 5 vertices.",
+   "subject": "discrete-mathematics",
+   "topic": "graphs",
+   "path": "subjects/discrete-mathematics/graphs/cut-vertices-bridges-and-blocks.json"
+  },
+  {
+   "id": "vertex-and-edge-connectivity",
+   "title": "Vertex and Edge Connectivity",
+   "priority": "P2",
+   "order": 93,
+   "unit": "Connectivity",
+   "quickIdea": "Vertex connectivity and edge connectivity measure how many failures a network survives, and the only inequality GATE needs is kappa at most lambda at most delta.",
+   "remember": [
+    "lambda(G), the edge connectivity, is the size of a smallest set of edges whose removal disconnects G; kappa(G), the vertex connectivity, is the size of a smallest such vertex set.",
+    "For a complete graph kappa(K_n) = n-1, because every set of n-2 vertices leaves two vertices that are still adjacent.",
+    "kappa(G) is at most lambda(G) is at most delta(G), where delta is the minimum degree, so a graph with a bridge has lambda = 1.",
+    "A connected graph is 2-connected exactly when it has no cut vertex, which is exactly when kappa is at least 2; kappa = 1 marks a connected graph that is separable.",
+    "For a simple graph on n at least 2 vertices, kappa is at most floor(2|E| / n), since the average degree bounds the minimum degree.",
+    "kappa(K_{m,n}) = lambda(K_{m,n}) = min(m, n).",
+    "Menger's theorem: for non-adjacent u and v the smallest vertex cut separating them equals the largest number of internally vertex-disjoint u-v paths."
+   ],
+   "example": {
+    "prompt": "Two triangles abc and cde share only the vertex c. Find kappa, lambda and delta.",
+    "work": "delta = 2, since a, b, d and e have degree 2 while c has degree 4. Removing c separates the two triangles, so kappa = 1. No single edge removal disconnects the graph, so lambda is at least 2; deleting ab and ac isolates a, so lambda = 2. The chain 1 at most 2 at most 2 holds with the first inequality strict.",
+    "answer": "kappa = 1, lambda = 2, delta = 2."
+   },
+   "gateAngle": "Connectivity numbers appear as one-line questions: 'the vertex connectivity of this graph is', or an upper bound through delta. The exam never asks for a proof of Menger's theorem, only for the ordering kappa at most lambda at most delta.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "A connected graph has 10 vertices, 15 edges and no cut vertex. What is the largest possible value of lambda?",
+     "answer": "3, reached by the Petersen graph.",
+     "why": "The average degree is 2 x 15 / 10 = 3, so delta is at most 3 and lambda is at most delta; the Petersen graph is 3-regular and 3-edge-connected."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why can lambda never exceed delta?",
+     "answer": "Delete all edges at a vertex of minimum degree and that vertex becomes isolated, so some edge cut has size at most delta.",
+     "why": "Isolating one vertex is always a legal way to disconnect a connected graph on at least 2 vertices."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "A graph is 2-connected on 8 vertices with 12 edges. What is the largest possible kappa?",
+     "answer": "At most 3, since kappa is at most floor(2 x 12 / 8) = 3.",
+     "why": "The 2|E|/n bound comes from the average degree, and it applies to kappa before lambda and delta."
+    }
+   ],
+   "trap": {
+    "what": "Reading the chain backwards, for example claiming lambda at most kappa, or giving kappa = 2 for a graph that has a bridge.",
+    "why": "A bridge is a one-edge cut, so lambda = 1, and then kappa is at most 1 as well. The chain runs kappa at most lambda at most delta, never the other way.",
+    "counterexample": "The bowtie of two triangles sharing a vertex has kappa = 1 and lambda = 2, so kappa and lambda are genuinely different numbers."
+   },
+   "check": {
+    "question": "What are kappa and lambda of K_4?",
+    "answer": "kappa = 3 and lambda = 3, and delta = 3, so the whole chain is tight.",
+    "explanation": "Removing any two vertices of K_4 leaves two adjacent vertices, so no 2-vertex cut exists; removing the three edges at one vertex isolates it, so lambda is at most 3 and at least delta by the chain, hence exactly 3."
+   },
+   "pyqIds": [],
+   "prereqs": [
+    "cut-vertices-bridges-and-blocks"
+   ],
+   "videoRefs": [],
+   "sources": [
+    {
+     "kind": "slides",
+     "title": "Graph Theory: Connectivity, Coloring, Matching - GO Classroom slide deck",
+     "channel": "GATE Overflow (Arjun Suresh, GO Classroom)",
+     "url": "https://gateoverflow.in/?qa=blob&qa_blobid=659724806035278755",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "slide text read through graph basics, walk/path/circuit, Euler and Hamiltonian, cut-set and cut-vertex, edge and vertex connectivity, colouring, bipartite, independent set, matching and Hall's theorem; the fetch was truncated after the Havel-Hakimi example, so the later matching pages were read only as excerpts"
+    }
+   ],
+   "sourceLine": "Vertex and edge connectivity, the kappa-lambda-delta chain and the 2|E|/n bound: GATE Overflow GO Classroom deck (English, read in part) for the edge-connectivity and vertex-connectivity definitions and the two upper bounds; Menger from Diestel. Standard references used to verify, never copied: Rosen, Discrete Mathematics and Its Applications, ch. 10; West, Introduction to Graph Theory (Brooks, Dirac, Koenig, chromatic polynomial); CLRS ch. 22 (articulation points, bridges) and ch. 26 (bipartite matching); Diestel, Graph Theory (Menger). kappa and lambda are recomputed by brute force over vertex and edge subsets in scripts/validate.py.",
+   "subject": "discrete-mathematics",
+   "topic": "graphs",
+   "path": "subjects/discrete-mathematics/graphs/vertex-and-edge-connectivity.json"
+  },
+  {
+   "id": "eulerian-and-hamiltonian-graphs",
+   "title": "Eulerian and Hamiltonian Graphs",
+   "priority": "P2",
+   "order": 94,
+   "unit": "Traversals",
+   "quickIdea": "Euler is a degree-parity question with a complete answer, while Hamilton has no usable criterion, so GATE asks only the sufficient conditions and the standard counterexamples.",
+   "remember": [
+    "An Euler circuit uses every edge exactly once and returns to its start; it exists exactly when the graph is connected after isolated vertices are ignored and every degree is even.",
+    "An Euler path uses every edge exactly once without returning; it exists exactly when there are 0 or 2 vertices of odd degree, and the odd vertices are then its endpoints.",
+    "A connected graph is Eulerian exactly when its edge set splits into edge-disjoint cycles.",
+    "A Hamiltonian cycle visits every vertex exactly once; no simple necessary and sufficient condition is known, and deciding Hamiltonicity is NP-complete.",
+    "Dirac's condition: if n is at least 3 and every degree is at least n/2 then the graph is Hamiltonian. It is sufficient but not necessary, since C_5 is Hamiltonian with all degrees 2.",
+    "K_{m,n} has a Hamiltonian cycle exactly when m = n is at least 2, and K_n for odd n splits into (n-1)/2 edge-disjoint Hamiltonian cycles.",
+    "The Petersen graph has a Hamiltonian path and no Hamiltonian cycle, which is the standard example separating the two."
+   ],
+   "example": {
+    "prompt": "Does K_{2,3} have an Euler circuit, an Euler path, or neither?",
+    "work": "The degrees are 3, 3 for the two vertices on the small side and 2, 2, 2 for the other side. Exactly two vertices have odd degree, and the graph is connected, so an Euler path exists; an Euler circuit needs all degrees even, which fails.",
+    "answer": "An Euler path but no Euler circuit."
+   },
+   "gateAngle": "GATE asks Euler parity as a one-liner and uses K_{3,3} or the Petersen graph as the 'path but no cycle' example, which is exactly how GATE CSE 2022 Q.40 used Petersen.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "Does K_{3,3} have an Euler path?",
+     "answer": "No. All six vertices have degree 3, so there are six odd-degree vertices, and an Euler path allows at most two.",
+     "why": "The parity test rules out both the circuit (all even) and the path (exactly two odd)."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Can a graph have a Hamiltonian path but no Hamiltonian cycle?",
+     "answer": "Yes. The Petersen graph has a Hamiltonian path and no Hamiltonian cycle.",
+     "why": "Deleting one edge of a Hamiltonian cycle leaves a Hamiltonian path, but the converse fails, and there is no parity-style test for cycles."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "Into how many edge-disjoint Hamiltonian cycles does K_5 split?",
+     "answer": "2, which is (5-1)/2; K_5 has 10 edges and each Hamiltonian cycle uses 5 of them.",
+     "why": "For odd n the complete graph K_n decomposes into (n-1)/2 edge-disjoint Hamiltonian cycles."
+    }
+   ],
+   "trap": {
+    "what": "Treating Dirac's degree condition as necessary, or assuming that an Euler path needs all degrees even.",
+    "why": "Dirac only guarantees a Hamiltonian cycle; C_5 is Hamiltonian and violates it. An Euler path needs at most two odd-degree vertices, because every time the walk passes through a vertex it uses two edges.",
+    "counterexample": "C_5 is Hamiltonian with delta = 2 and n/2 = 2.5, so Dirac's hypothesis fails; K_{2,3} has an Euler path and two odd-degree vertices."
+   },
+   "check": {
+    "question": "K_4 with one pendant edge attached has how many odd-degree vertices, and does it have an Euler path?",
+    "answer": "Four odd-degree vertices, so it has neither an Euler path nor an Euler circuit.",
+    "explanation": "The four K_4 vertices have degree 3 each, and attaching the pendant edge raises the attachment vertex to degree 4 and gives the pendant vertex degree 1, leaving odd degrees 4, 3, 3, 3, 1. Four odd vertices exceed the two an Euler path allows."
+   },
+   "pyqIds": [],
+   "prereqs": [
+    "paths-cycles-and-components"
+   ],
+   "videoRefs": [],
+   "sources": [
+    {
+     "kind": "slides",
+     "title": "Graph Theory: Connectivity, Coloring, Matching - GO Classroom slide deck",
+     "channel": "GATE Overflow (Arjun Suresh, GO Classroom)",
+     "url": "https://gateoverflow.in/?qa=blob&qa_blobid=659724806035278755",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "slide text read through graph basics, walk/path/circuit, Euler and Hamiltonian, cut-set and cut-vertex, edge and vertex connectivity, colouring, bipartite, independent set, matching and Hall's theorem; the fetch was truncated after the Havel-Hakimi example, so the later matching pages were read only as excerpts"
+    }
+   ],
+   "sourceLine": "Euler and Hamiltonian definitions, the parity criterion and the edge-disjoint Hamiltonian decomposition of K_n for odd n: GATE Overflow GO Classroom deck (English, read in part). Dirac and the Petersen counterexample from West. Standard references used to verify, never copied: Rosen, Discrete Mathematics and Its Applications, ch. 10; West, Introduction to Graph Theory (Brooks, Dirac, Koenig, chromatic polynomial); CLRS ch. 22 (articulation points, bridges) and ch. 26 (bipartite matching); Diestel, Graph Theory (Menger). Every parity claim and the K_5 decomposition are recomputed in scripts/validate.py.",
+   "subject": "discrete-mathematics",
+   "topic": "graphs",
+   "path": "subjects/discrete-mathematics/graphs/eulerian-and-hamiltonian-graphs.json"
+  },
+  {
+   "id": "bipartite-graphs-and-odd-cycles",
+   "title": "Bipartite Graphs and the Odd-Cycle Criterion",
+   "priority": "P1",
+   "order": 95,
+   "unit": "Colouring",
+   "quickIdea": "Two colours suffice exactly when no cycle has odd length, and that one criterion decides bipartiteness, the chromatic number of 2, and the maximum-edge formula n squared over 4.",
+   "remember": [
+    "G is bipartite when V splits into two parts and every edge crosses between them; equivalently G has no cycle of odd length.",
+    "A bipartite graph with at least one edge has chromatic number 2; with no edges it has chromatic number 1.",
+    "Bipartiteness is decided by one BFS or DFS pass: colour the source 0, alternate colours, and report failure when an edge joins two vertices of the same colour, which is Theta(|V| + |E|) on an adjacency list and optimal.",
+    "K_{m,n} has mn edges, so a bipartite graph on n vertices has at most floor(n squared / 4) edges, reached by K_{floor(n/2), ceil(n/2)}.",
+    "Every tree is bipartite, and so is every acyclic graph; a graph may have cycles and still be bipartite, as long as every cycle is even.",
+    "A d-regular bipartite graph has a perfect matching, and its edges split into d perfect matchings."
+   ],
+   "example": {
+    "prompt": "A bipartite graph has 12 vertices. What is the maximum number of edges, and can the extremal graph contain an odd cycle?",
+    "work": "floor(12 squared / 4) = 36, reached by K_{6,6} with 6 x 6 = 36 edges. K_{6,6} is bipartite by construction, so every cycle alternates between the two sides and has even length.",
+    "answer": "36 edges, and the extremal graph has no odd cycle."
+   },
+   "gateAngle": "GATE CSE 2014 Set 2 Q.3 is the n squared over 4 formula as a NAT, and GATE CSE 2026 Set 1 Q.45 pairs the odd-cycle criterion with the Theta(V+E) test. Both follow from the same theorem, so one card covers both.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "What is the maximum number of edges in a bipartite graph on 9 vertices?",
+     "answer": "floor(81/4) = 20, reached by K_{4,5}.",
+     "why": "The parts must be as equal as possible, so they have 4 and 5 vertices and the edge count is 4 x 5."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "A graph on 8 vertices has 16 edges and no triangle. Must it be bipartite?",
+     "answer": "No. Being triangle-free is weaker than having no odd cycle.",
+     "why": "A 5-cycle is triangle-free and not bipartite, and the Petersen graph is triangle-free on 10 vertices with 15 edges and is not bipartite."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "A connected bipartite simple graph on 7 vertices has 12 edges. Is that possible, and what is it?",
+     "answer": "Yes, and only as K_{3,4}: floor(49/4) = 12 is the maximum, and a bipartite graph that attains it must be complete bipartite.",
+     "why": "Any missing edge between the two sides could be added, so an extremal bipartite graph is complete bipartite."
+    }
+   ],
+   "trap": {
+    "what": "Calling a graph bipartite because it has no triangle, and answering 1 for the chromatic number of a bipartite graph that has edges.",
+    "why": "Odd cycles of length 5, 7 and beyond also break 2-colourability, and a single edge already forces two colours.",
+    "counterexample": "The Petersen graph is triangle-free and has 5-cycles, so it is not bipartite; K_{2,2} has edges and chromatic number 2."
+   },
+   "check": {
+    "question": "Is a 6-cycle with one chord joining opposite vertices bipartite?",
+    "answer": "Yes. The chord splits the cycle into two cycles of length 4.",
+    "explanation": "Label the cycle 1 to 6 and add the chord 1-4. The two cycles are 1-2-3-4-1 and 1-4-5-6-1, both of length 4, so every cycle is even and a 2-colouring exists: 0, 1, 0, 1, 0, 1 around the cycle still separates the ends of the chord."
+   },
+   "pyqIds": [
+    "gate-2014-set2-3-max-edges-bipartite",
+    "gate-2026-set1-45-2-colorable"
+   ],
+   "prereqs": [
+    "paths-cycles-and-components"
+   ],
+   "videoRefs": [],
+   "sources": [
+    {
+     "kind": "slides",
+     "title": "Graph Theory: Connectivity, Coloring, Matching - GO Classroom slide deck",
+     "channel": "GATE Overflow (Arjun Suresh, GO Classroom)",
+     "url": "https://gateoverflow.in/?qa=blob&qa_blobid=659724806035278755",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "slide text read through graph basics, walk/path/circuit, Euler and Hamiltonian, cut-set and cut-vertex, edge and vertex connectivity, colouring, bipartite, independent set, matching and Hall's theorem; the fetch was truncated after the Havel-Hakimi example, so the later matching pages were read only as excerpts"
+    }
+   ],
+   "sourceLine": "Bipartite graphs, the odd-cycle criterion, the 2-colouring test and the n squared over 4 bound: GATE Overflow GO Classroom deck (English, read in part) for the bipartite and 2-chromatic statements; Rosen ch. 10 for the extremal formula. Standard references used to verify, never copied: Rosen, Discrete Mathematics and Its Applications, ch. 10; West, Introduction to Graph Theory (Brooks, Dirac, Koenig, chromatic polynomial); CLRS ch. 22 (articulation points, bridges) and ch. 26 (bipartite matching); Diestel, Graph Theory (Menger). The odd-cycle criterion and the edge bound are recomputed in scripts/validate.py over every graph on up to 5 vertices.",
+   "subject": "discrete-mathematics",
+   "topic": "graphs",
+   "path": "subjects/discrete-mathematics/graphs/bipartite-graphs-and-odd-cycles.json"
+  },
+  {
+   "id": "matching-maximal-maximum-perfect",
+   "title": "Matching: Maximal, Maximum, Perfect and Augmenting Paths",
+   "priority": "P1",
+   "order": 96,
+   "unit": "Matching",
+   "quickIdea": "A matching pairs vertices through disjoint edges; maximal and maximum are different words, and flipping one augmenting path is the entire proof that a matching is not the largest.",
+   "remember": [
+    "A matching M is a set of edges no two of which share a vertex, and a vertex is saturated by M when it is an endpoint of an edge of M.",
+    "Maximal means no edge can be added to M; maximum means no matching is larger. Every maximum matching is maximal, and a maximal matching can be half the size of the maximum.",
+    "Berge's theorem: M is maximum exactly when there is no M-augmenting path, meaning a path that alternates outside and inside M and starts and ends at unsaturated vertices.",
+    "Flipping an augmenting path, that is taking the symmetric difference with it, raises the size of the matching by exactly 1, which is the augmenting-path algorithm.",
+    "A perfect matching saturates every vertex, so n must be even; in a bipartite graph it also needs the two sides to be equal.",
+    "The number of matchings of a path on n vertices is the Fibonacci number F(n+1): 1, 2, 3, 5, 8, 13, 21, 34 for n = 1 to 8.",
+    "Every maximal matching has at least half as many edges as a maximum matching, since each matching edge can block at most two edges of the larger one."
+   ],
+   "example": {
+    "prompt": "How many matchings does a path on 8 vertices have?",
+    "work": "Let M(n) be the count for a path on n vertices, with M(0) = M(1) = 1. Either the last edge is unused, giving M(n-1) matchings, or it is used, which forbids the edge before it and leaves M(n-2). So M(n) = M(n-1) + M(n-2), giving 1, 1, 2, 3, 5, 8, 13, 21, 34.",
+    "answer": "34, which is F(9), and the empty matching is counted."
+   },
+   "gateAngle": "GATE CSE 2026 Set 1 Q.47 asked this count as a NAT. Older papers ask 'maximal but not maximum' on a drawn graph. The recurrence and the two definitions are the whole question.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "How many perfect matchings does K_{n,n} have?",
+     "answer": "n factorial: assign the n left vertices to the n right vertices in every possible order.",
+     "why": "Every bijection between the two sides is exactly one perfect matching, and each pair of matched vertices has an edge in K_{n,n}."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "A matching M has 2 edges in a graph whose maximum matching has 3 edges. What must exist?",
+     "answer": "An M-augmenting path, by Berge's theorem.",
+     "why": "If no augmenting path existed, M would already be maximum, contradicting the larger matching."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "How many matchings does a cycle on 5 vertices have?",
+     "answer": "11: the empty matching, 5 single edges, and 5 pairs of non-adjacent edges.",
+     "why": "Of the C(5,2) = 10 pairs of edges, the 5 adjacent pairs are not matchings, leaving 5 valid pairs."
+    }
+   ],
+   "trap": {
+    "what": "Treating 'maximal' as 'maximum', and forgetting that the empty set is a matching in counting questions.",
+    "why": "Maximal is a local statement about one matching; a larger matching can sit elsewhere in the same graph. And a matching need not contain any edge, which shifts every count by one.",
+    "counterexample": "On the path a-b-c-d the single edge bc is maximal, since every other edge shares b or c, yet the maximum matching {ab, cd} has 2 edges."
+   },
+   "check": {
+    "question": "How many matchings does a path on 5 vertices have, and what is its maximum matching size?",
+    "answer": "8 matchings, which is F(6), and the maximum matching size is 2.",
+    "explanation": "The recurrence gives M(5) = M(4) + M(3) = 5 + 3 = 8. A path on 5 vertices has 4 edges in a line, so at most 2 disjoint edges fit, and edges 1 and 3 or 1 and 4 or 2 and 4 achieve 2."
+   },
+   "pyqIds": [
+    "gate-2026-set1-47-matchings-path-8"
+   ],
+   "prereqs": [
+    "bipartite-graphs-and-odd-cycles"
+   ],
+   "videoRefs": [],
+   "sources": [
+    {
+     "kind": "slides",
+     "title": "Graph Theory: Connectivity, Coloring, Matching - GO Classroom slide deck",
+     "channel": "GATE Overflow (Arjun Suresh, GO Classroom)",
+     "url": "https://gateoverflow.in/?qa=blob&qa_blobid=659724806035278755",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "slide text read through graph basics, walk/path/circuit, Euler and Hamiltonian, cut-set and cut-vertex, edge and vertex connectivity, colouring, bipartite, independent set, matching and Hall's theorem; the fetch was truncated after the Havel-Hakimi example, so the later matching pages were read only as excerpts"
+    }
+   ],
+   "sourceLine": "Matchings, maximal versus maximum, Berge's augmenting-path criterion and Hall's complete-matching condition: GATE Overflow GO Classroom deck (English, read in part) for the matching vocabulary; CLRS ch. 26 for augmenting paths. Standard references used to verify, never copied: Rosen, Discrete Mathematics and Its Applications, ch. 10; West, Introduction to Graph Theory (Brooks, Dirac, Koenig, chromatic polynomial); CLRS ch. 22 (articulation points, bridges) and ch. 26 (bipartite matching); Diestel, Graph Theory (Menger). The path counts, the maximal-versus-maximum example and the half-size bound are recomputed in scripts/validate.py, and the augmenting-path flip is the subject of the lesson.",
+   "visual": "discrete-mathematics/graphs/bipartite-matching-augmenting-path",
+   "links": {
+    "visual": {
+     "slug": "graphs",
+     "title": "Graphs: Connectivity, Matching, Colouring",
+     "level": "topic-level",
+     "url": "https://gate-visual-explainer.vercel.app/topics/graphs/index.html",
+     "covers": [
+      "maximal versus maximum matching",
+      "the augmenting path and the flip that grows the matching",
+      "Koenig: maximum matching equals minimum vertex cover in a bipartite graph"
+     ]
+    },
+    "mapped_at": "2026-10-28"
+   },
+   "subject": "discrete-mathematics",
+   "topic": "graphs",
+   "path": "subjects/discrete-mathematics/graphs/matching-maximal-maximum-perfect.json"
+  },
+  {
+   "id": "halls-marriage-theorem",
+   "title": "Hall's Marriage Theorem",
+   "priority": "P1",
+   "order": 97,
+   "unit": "Matching",
+   "quickIdea": "Hall's condition is a counting guarantee: a matching that covers all of one side exists exactly when no group of vertices on that side is short of distinct neighbours.",
+   "remember": [
+    "Hall's theorem: a matching saturating every vertex of L exists if and only if |N(S)| is at least |S| for every subset S of L.",
+    "The failure witness is one subset: if some S has fewer than |S| neighbours, those vertices must share too few partners, so one of them is left unmatched.",
+    "Defect form: the largest matching leaves at most max over S of (|S| - |N(S)|) vertices of L unmatched.",
+    "Checking every subset is exponential, but finding the matching is polynomial, by augmenting paths or by maximum flow with unit capacities.",
+    "A d-regular bipartite graph satisfies Hall, so it has a perfect matching, and its edges split into d perfect matchings.",
+    "Hall saturates one side; a perfect matching additionally needs the two sides to have equal size and Hall to hold in both directions."
+   ],
+   "example": {
+    "prompt": "L = {a, b, c}, R = {1, 2, 3}, with edges a-1, a-2, b-2, c-2, c-3. Is there a matching saturating L?",
+    "work": "Check the tight subsets. N({a,b}) = {1,2} has size 2, N({b,c}) = {2,3} has size 2, N({a,c}) = {1,2,3} has size 3, and N(L) has size 3. Every subset meets Hall's bound, so a saturating matching exists: a-1, b-2, c-3.",
+    "answer": "Yes: Hall's condition holds and a-1, b-2, c-3 saturates all of L."
+   },
+   "gateAngle": "GATE states Hall in words ('a complete matching exists if and only if every r vertices have at least r neighbours') and tests it through d-regular graphs. The exam form is almost always: find the one subset that breaks the condition.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "L = {a, b, c, d}, R = {1, 2, 3}, with edges a-1, b-1, c-2, d-2, d-3. Can a matching saturate L?",
+     "answer": "No. N({a,b}) = {1} has size 1, which is less than 2.",
+     "why": "Two left vertices have a single shared neighbour, so one of them must stay unmatched."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why is checking only |N(L)| at least |L| not enough?",
+     "answer": "A smaller subset can be starved while the whole of L is not.",
+     "why": "Hall quantifies over every subset, and a small bottleneck inside L is invisible at the level of all of L."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "A 4-regular bipartite graph has 20 vertices in total. How many edges does it have, and what matching is guaranteed?",
+     "answer": "40 edges, from 20 x 4 / 2, and a perfect matching of 10 edges is guaranteed.",
+     "why": "A d-regular bipartite graph satisfies Hall, and with equal sides a saturating matching is perfect."
+    }
+   ],
+   "trap": {
+    "what": "Concluding 'no perfect matching' when the real failure is a Hall violation, or checking Hall only for the whole of L.",
+    "why": "Hall is an if-and-only-if for saturating L; a failure on a proper subset is the usual GATE trap, and it is also what the defect form measures.",
+    "counterexample": "L = {a,b,c}, R = {1,2,3} with a-1, b-1, c-1, c-2, c-3 has |N(L)| = 3 = |L| yet fails at S = {a,b}, where |N(S)| = 1."
+   },
+   "check": {
+    "question": "L = {a, b, c}, R = {1, 2, 3}, with edges a-1, b-1, c-2, c-3. Does Hall's condition hold, and what is the maximum matching size?",
+    "answer": "Hall fails at S = {a, b}, and the maximum matching has 2 edges.",
+    "explanation": "N({a,b}) = {1} has size 1 against |S| = 2, so a and b cannot both be matched; the best is to match one of them to 1 and c to 2 or 3, giving 2 edges, and the defect form also reports 1 unmatched left vertex."
+   },
+   "pyqIds": [],
+   "prereqs": [
+    "matching-maximal-maximum-perfect"
+   ],
+   "videoRefs": [],
+   "sources": [
+    {
+     "kind": "slides",
+     "title": "Graph Theory: Connectivity, Coloring, Matching - GO Classroom slide deck",
+     "channel": "GATE Overflow (Arjun Suresh, GO Classroom)",
+     "url": "https://gateoverflow.in/?qa=blob&qa_blobid=659724806035278755",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "slide text read through graph basics, walk/path/circuit, Euler and Hamiltonian, cut-set and cut-vertex, edge and vertex connectivity, colouring, bipartite, independent set, matching and Hall's theorem; the fetch was truncated after the Havel-Hakimi example, so the later matching pages were read only as excerpts"
+    }
+   ],
+   "sourceLine": "Hall's marriage theorem, the complete-matching condition and the d-regular corollary: GATE Overflow GO Classroom deck (English, read in part) for the complete-matching theorem in its r-subset form; West and the NPTEL IIITB lecture sequence (structure only) for the standard proof. Standard references used to verify, never copied: Rosen, Discrete Mathematics and Its Applications, ch. 10; West, Introduction to Graph Theory (Brooks, Dirac, Koenig, chromatic polynomial); CLRS ch. 22 (articulation points, bridges) and ch. 26 (bipartite matching); Diestel, Graph Theory (Menger). Hall's condition, the defect form and both examples are recomputed by brute force in scripts/validate.py.",
+   "subject": "discrete-mathematics",
+   "topic": "graphs",
+   "path": "subjects/discrete-mathematics/graphs/halls-marriage-theorem.json"
+  },
+  {
+   "id": "vertex-cover-independent-set-konig",
+   "title": "Vertex Cover, Independent Set and Koenig's Theorem",
+   "priority": "P1",
+   "order": 98,
+   "unit": "Matching",
+   "quickIdea": "A vertex cover pays one vertex per edge, and in a bipartite graph its cheapest price equals the largest matching, which is Koenig's theorem.",
+   "remember": [
+    "A vertex cover C touches every edge; alpha(G) is the size of the largest independent set and tau(G) the size of the smallest vertex cover.",
+    "Independent sets are exactly the complements of vertex covers, so alpha + tau = n for every graph.",
+    "The matching number nu is at most tau, because each edge of a matching needs its own cover vertex since matching edges share no endpoint.",
+    "Koenig: in a bipartite graph nu = tau, so a maximum matching and a minimum vertex cover have the same size; consequently alpha = n - nu there.",
+    "Koenig fails outside bipartite graphs: in a triangle nu = 1 but tau = 2.",
+    "A vertex of degree at least k+1 must lie in every vertex cover of size k, because leaving it out would force all its neighbours in.",
+    "A maximum matching in a bipartite graph is a maximum flow with unit capacities, and a minimum cover is read off the final level graph."
+   ],
+   "example": {
+    "prompt": "For K_{3,3} give nu, tau and alpha.",
+    "work": "A matching has at most 3 edges and a1-b1, a2-b2, a3-b3 has 3, so nu = 3. K_{3,3} is bipartite, so tau = nu = 3 by Koenig, and indeed either whole side is a cover of size 3 while no 2 vertices touch all 9 edges. Finally alpha = 6 - 3 = 3.",
+    "answer": "nu = 3, tau = 3 and alpha = 3."
+   },
+   "gateAngle": "Koenig turns a search into a count: in a bipartite graph you compute whichever of the matching or the cover is easier and read the other off. GATE CSE 2026 Set 1 Q.37 tests the cover side, the fact that a high-degree vertex is forced into every minimum cover.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "For the 5-cycle give nu, tau and alpha.",
+     "answer": "nu = 2, tau = 3 and alpha = 2, and nu is less than tau because C_5 is not bipartite.",
+     "why": "Two disjoint edges fit but three cannot, while covering all five edges needs three vertices."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why can one vertex of a vertex cover cover at most one edge of a matching?",
+     "answer": "Because the edges of a matching are disjoint, so no vertex is an endpoint of two of them.",
+     "why": "That is exactly the injection that proves nu is at most tau in every graph."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "A bipartite graph on 10 vertices has maximum matching of size 4. What are tau and alpha?",
+     "answer": "tau = 4 by Koenig, and alpha = 10 - 4 = 6.",
+     "why": "Koenig gives the cover, and the complement of a minimum cover is a maximum independent set."
+    }
+   ],
+   "trap": {
+    "what": "Applying Koenig to a graph that is not bipartite, or using alpha = n - nu where nu is the matching number but treating it as if it were tau.",
+    "why": "Koenig's equality is a bipartite-only guarantee, and the identity alpha + tau = n uses the cover number, not the matching number.",
+    "counterexample": "The triangle has nu = 1 and tau = 2, so nu = tau fails, and its alpha = 1 while n - nu = 2, so alpha = n - nu fails as well."
+   },
+   "check": {
+    "question": "A bipartite graph on 8 vertices has a minimum vertex cover of size 3. What are its maximum matching size and its independence number?",
+    "answer": "3 and 5.",
+    "explanation": "Koenig makes the maximum matching equal to the minimum cover, so nu = 3, and alpha = n - tau = 8 - 3 = 5 because the complement of a minimum cover is a maximum independent set."
+   },
+   "pyqIds": [
+    "gate-2026-set1-37-vertex-cover-degree"
+   ],
+   "prereqs": [
+    "matching-maximal-maximum-perfect",
+    "halls-marriage-theorem"
+   ],
+   "videoRefs": [],
+   "sources": [
+    {
+     "kind": "slides",
+     "title": "Graph Theory: Connectivity, Coloring, Matching - GO Classroom slide deck",
+     "channel": "GATE Overflow (Arjun Suresh, GO Classroom)",
+     "url": "https://gateoverflow.in/?qa=blob&qa_blobid=659724806035278755",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "slide text read through graph basics, walk/path/circuit, Euler and Hamiltonian, cut-set and cut-vertex, edge and vertex connectivity, colouring, bipartite, independent set, matching and Hall's theorem; the fetch was truncated after the Havel-Hakimi example, so the later matching pages were read only as excerpts"
+    }
+   ],
+   "sourceLine": "Vertex cover, independent set, the alpha + tau identity and Koenig's theorem: GATE Overflow GO Classroom deck (English, read in part) for the independent-set bound and the complete-matching theorem; West for Koenig. Standard references used to verify, never copied: Rosen, Discrete Mathematics and Its Applications, ch. 10; West, Introduction to Graph Theory (Brooks, Dirac, Koenig, chromatic polynomial); CLRS ch. 22 (articulation points, bridges) and ch. 26 (bipartite matching); Diestel, Graph Theory (Menger). nu, tau and alpha are recomputed by brute force for every graph on up to 5 vertices and every bipartite graph on up to 6 vertices in scripts/validate.py, including the 2026 forced-vertex claim.",
+   "subject": "discrete-mathematics",
+   "topic": "graphs",
+   "path": "subjects/discrete-mathematics/graphs/vertex-cover-independent-set-konig.json"
+  },
+  {
+   "id": "chromatic-number-and-greedy-bounds",
+   "title": "Chromatic Number, Greedy Bounds and Brooks' Theorem",
+   "priority": "P1",
+   "order": 99,
+   "unit": "Colouring",
+   "quickIdea": "The chromatic number is the fewest colours in a proper colouring; a clique gives only a lower bound and greedy gives an upper bound that depends on the order vertices are taken.",
+   "remember": [
+    "chi(G) is the least k such that V splits into k independent colour classes, and chi = 1 exactly when G has no edge.",
+    "chi = 2 exactly for bipartite graphs with at least one edge, so chi is at least 3 exactly when G has an odd cycle.",
+    "chi(K_n) = n, chi(C_n) = 2 for even n and 3 for odd n, and every tree with at least one edge has chi = 2.",
+    "The clique number omega and the maximum degree Delta bracket the answer: omega is at most chi, and chi is at most Delta + 1 by greedy colouring.",
+    "Brooks sharpens the upper bound to chi at most Delta unless G is complete or an odd cycle, where chi = Delta + 1.",
+    "chi is at least n / alpha, since with k colour classes one class holds at least n/k vertices, and a k-chromatic graph has at least k(k-1)/2 edges because every two colour classes must be joined by an edge.",
+    "A k-chromatic graph need not contain K_k: C_5 and the Petersen graph both have omega = 2 and chi = 3, and deciding chi is NP-hard."
+   ],
+   "example": {
+    "prompt": "For the Petersen graph give chi, omega and alpha.",
+    "work": "Petersen has 10 vertices and is 3-regular, and it contains 5-cycles, so chi is at least 3; a 3-colouring exists, so chi = 3. It has no triangle, so omega = 2. Its largest independent set has 4 vertices, so alpha = 4, and indeed chi is at least 10/4.",
+    "answer": "chi = 3, omega = 2 and alpha = 4."
+   },
+   "gateAngle": "Three verified patterns: the formula n - 2 floor(n/2) + 2 for cycles (GATE CSE 2002 Q.1.4), the counting bounds on a k-chromatic graph (GATE CSE 2024 Set 1 Q.41), and the Petersen graph's chi = 3 with alpha = 4 (GATE CSE 2022 Q.40).",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "A graph has 20 vertices and chromatic number 4. What is the least possible number of edges?",
+     "answer": "6, which is C(4,2), reached by K_4 together with 16 isolated vertices.",
+     "why": "Each pair of the 4 colour classes needs an edge between them, and K_4 realises exactly one edge per pair."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Does chi(G) = 3 force G to contain a triangle?",
+     "answer": "No. C_5 and the Petersen graph are triangle-free with chromatic number 3.",
+     "why": "Odd cycles and odd-cycle-rich graphs raise the chromatic number without creating cliques, so omega is only a lower bound."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "A graph has maximum degree 4 and is neither complete nor an odd cycle. What is the largest possible chromatic number?",
+     "answer": "4, by Brooks' theorem.",
+     "why": "Greedy already gives 5, and Brooks removes one colour except in the two excluded families."
+    }
+   ],
+   "trap": {
+    "what": "Equating chi with the clique number omega, and forgetting that a graph with no edges has chromatic number 1.",
+    "why": "omega is only a lower bound: C_5 has omega = 2 and chi = 3. At the other end, 100 isolated vertices need one colour, not zero.",
+    "counterexample": "C_5 has omega = 2 and chi = 3; the Petersen graph has omega = 2 and chi = 3; a graph of 100 isolated vertices has chi = 1."
+   },
+   "check": {
+    "question": "A graph has 12 vertices and chromatic number 4. What is the guaranteed size of an independent set?",
+    "answer": "At least 3, since 12 / 4 = 3.",
+    "explanation": "Four colour classes partition 12 vertices, so by the pigeonhole principle one class holds at least 3 vertices, and a colour class is an independent set. This is the second statement of GATE CSE 2024 Set 1 Q.41."
+   },
+   "pyqIds": [
+    "gate-2024-set1-41-chromatic-statements",
+    "gate-2002-1-4-cycle-colours",
+    "gate-2022-40-petersen"
+   ],
+   "prereqs": [
+    "bipartite-graphs-and-odd-cycles"
+   ],
+   "videoRefs": [],
+   "sources": [
+    {
+     "kind": "slides",
+     "title": "Graph Theory: Connectivity, Coloring, Matching - GO Classroom slide deck",
+     "channel": "GATE Overflow (Arjun Suresh, GO Classroom)",
+     "url": "https://gateoverflow.in/?qa=blob&qa_blobid=659724806035278755",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "slide text read through graph basics, walk/path/circuit, Euler and Hamiltonian, cut-set and cut-vertex, edge and vertex connectivity, colouring, bipartite, independent set, matching and Hall's theorem; the fetch was truncated after the Havel-Hakimi example, so the later matching pages were read only as excerpts"
+    }
+   ],
+   "sourceLine": "Chromatic number, the standard families, the independent-set and edge-count bounds: GATE Overflow GO Classroom deck (English, read in part) for the colouring and independent-set statements; Brooks and Dirac from West. Standard references used to verify, never copied: Rosen, Discrete Mathematics and Its Applications, ch. 10; West, Introduction to Graph Theory (Brooks, Dirac, Koenig, chromatic polynomial); CLRS ch. 22 (articulation points, bridges) and ch. 26 (bipartite matching); Diestel, Graph Theory (Menger). Every chromatic number, clique number, independence number and bound in this card is recomputed in scripts/validate.py.",
+   "subject": "discrete-mathematics",
+   "topic": "graphs",
+   "path": "subjects/discrete-mathematics/graphs/chromatic-number-and-greedy-bounds.json"
+  },
+  {
+   "id": "chromatic-polynomial",
+   "title": "The Chromatic Polynomial",
+   "priority": "P2",
+   "order": 100,
+   "unit": "Colouring",
+   "quickIdea": "Count colourings instead of minimising them: the chromatic polynomial is a monic polynomial of degree n, and the chromatic number is the smallest positive integer where it stops being zero.",
+   "remember": [
+    "chi_G(k) counts the proper colourings of G with k labelled colours, and it is a monic polynomial of degree n = |V|.",
+    "chi_{K_n}(k) = k(k-1)(k-2)...(k-n+1), and chi_G(k) = 0 for every k smaller than chi(G).",
+    "For a tree on n vertices chi_G(k) = k(k-1)^(n-1), and for a cycle chi_{C_n}(k) = (k-1)^n + (-1)^n (k-1).",
+    "Deletion and contraction: chi_G(k) = chi_{G-e}(k) - chi_{G/e}(k), which computes the polynomial one edge at a time.",
+    "The coefficient of k^(n-1) is minus |E|, and the constant term is 0 whenever G has at least one edge.",
+    "chi(G) is the smallest positive k with chi_G(k) greater than 0; the polynomial counts colourings, it does not produce a colouring."
+   ],
+   "example": {
+    "prompt": "Find the chromatic polynomial of C_4 and read off chi(C_4).",
+    "work": "(k-1)^4 + (k-1) = k^4 - 4k^3 + 6k^2 - 3k. At k = 1 it is 0, and at k = 2 it is 1 + 1 = 2, which is greater than 0, so the smallest positive k that admits a colouring is 2. The k^3 coefficient is -4, matching minus the number of edges.",
+    "answer": "chi_{C_4}(k) = k^4 - 4k^3 + 6k^2 - 3k, and chi(C_4) = 2."
+   },
+   "gateAngle": "Colouring questions in GATE usually ask for a count at a small k, such as the number of proper 3-colourings, which the polynomial answers at once; if the formula is forgotten, deletion and contraction derives it safely.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "How many proper 3-colourings does K_3 have?",
+     "answer": "6, which is 3 x 2 x 1.",
+     "why": "The three vertices must receive three different colours, so any assignment of distinct colours works."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why is chi_G(1) = 0 for any graph with at least one edge?",
+     "answer": "One colour cannot give two adjacent vertices different colours.",
+     "why": "A proper colouring needs c(u) different from c(v) on every edge, which is impossible with a single colour."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "A tree has 6 vertices. How many proper 3-colourings does it have?",
+     "answer": "3 x 2^5 = 96.",
+     "why": "Root the tree, colour the root in 3 ways, and each of the other 5 vertices in 2 ways, since only its parent's colour is forbidden."
+    }
+   ],
+   "trap": {
+    "what": "Forgetting that colours are labelled, so that swapping two colours counts as a different colouring.",
+    "why": "chi_G(k) counts functions from V to a fixed k-element set, so C_4 with 3 colours has 18 colourings, not 18/3! = 3.",
+    "counterexample": "C_4 with 3 colours: 3^4 - 4 x 27 + 6 x 9 - 3 x 3 = 18, while the number of colourings up to renaming the colours is 18/6 = 3."
+   },
+   "check": {
+    "question": "How many proper 2-colourings does K_{2,3} have?",
+    "answer": "2, one for each way of assigning the two colours to the two sides.",
+    "explanation": "K_{2,3} is connected and bipartite with at least one edge, so any proper 2-colouring is forced once the colour of one vertex is fixed, and the two choices of that colour give exactly 2 colourings."
+   },
+   "pyqIds": [],
+   "prereqs": [
+    "chromatic-number-and-greedy-bounds"
+   ],
+   "videoRefs": [],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "Graph Theory - GATE Overflow subject notes, Volume 1 chapter",
+     "channel": "GATE Overflow",
+     "url": "https://gateoverflow.in/subject/mathematics/discrete-mathematics/graph-theory?tab=notes",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read through the counting and graph-algorithm sections before the fetch was truncated; used for the topic's GATE weightage table and the counting formulas, not for any card claim"
+    }
+   ],
+   "sourceLine": "The chromatic polynomial, its values on complete graphs, trees and cycles, and the deletion-contraction identity: Rosen ch. 10 and West (standard references; no lecture transcript was readable for this subtopic). Standard references used to verify, never copied: Rosen, Discrete Mathematics and Its Applications, ch. 10; West, Introduction to Graph Theory (Brooks, Dirac, Koenig, chromatic polynomial); CLRS ch. 22 (articulation points, bridges) and ch. 26 (bipartite matching); Diestel, Graph Theory (Menger). Every polynomial value, coefficient and count in this card is recomputed in scripts/validate.py by counting colourings directly.",
+   "subject": "discrete-mathematics",
+   "topic": "graphs",
+   "path": "subjects/discrete-mathematics/graphs/chromatic-polynomial.json"
   }
  ],
  "pyqs": [
@@ -9105,6 +10024,27 @@ window.GATE_DATA = {
    "verification": "SOURCED"
   },
   {
+   "id": "gate-2002-1-4-cycle-colours",
+   "year": "2002",
+   "paper": "GATE CS 2002",
+   "question_ref": "Q.1.4",
+   "type": "MCQ",
+   "topic": "chromatic-number-and-greedy-bounds",
+   "text": "The minimum number of colours required to colour the vertices of a cycle with n nodes in such a way that no two adjacent nodes have the same colour is",
+   "options": [
+    "2",
+    "3",
+    "4",
+    "n - 2 floor(n/2) + 2"
+   ],
+   "answer": "Option 4: n - 2 floor(n/2) + 2",
+   "solution": "For even n the expression is n - n + 2 = 2 and for odd n it is n - (n-1) + 2 = 3, which are exactly the chromatic numbers of even and odd cycles; options 1, 2 and 3 are constants and each fails for one parity. scripts/validate.py evaluates the expression against the chromatic number of C_n for n from 3 to 10.",
+   "source_url": "https://gateoverflow.in/808/gate-cse-2002-question-1-4",
+   "source_label": "GATE Overflow question page - GATE CSE 2002 Q.1.4 with the accepted answer (option D)",
+   "verification": "SOURCED",
+   "answer_evidence": "Accepted answer: 'Chromatic number will be 3 for when n is odd and will be 2 when n is even. Option (D) is a representation for this, hence the correct answer'."
+  },
+  {
    "id": "gate-2002-unless-translation",
    "year": "2002",
    "paper": "GATE CS 2002",
@@ -9354,6 +10294,21 @@ window.GATE_DATA = {
    "verification": "OFFICIAL_KEY"
   },
   {
+   "id": "gate-2014-set2-3-max-edges-bipartite",
+   "year": "2014",
+   "paper": "GATE CS 2014 Set 2",
+   "question_ref": "Q.3",
+   "type": "NAT",
+   "topic": "bipartite-graphs-and-odd-cycles",
+   "text": "The maximum number of edges in a bipartite graph on 12 vertices is ______.",
+   "answer": "36",
+   "solution": "If the two sides hold p and q vertices with p + q = 12, the edge count is at most pq, which is largest at p = q = 6, giving 36, and K_{6,6} attains it. In general a bipartite graph on n vertices has at most floor(n squared / 4) edges. scripts/validate.py maximises p(12-p) over all splits and checks that no bipartite graph on 12 vertices exceeds 36.",
+   "source_url": "https://gateoverflow.in/1955/gate-cse-2014-set-2-question-3",
+   "source_label": "GATE Overflow question page - GATE CSE 2014 Set 2 Q.3 with the accepted answer (36)",
+   "verification": "SOURCED",
+   "answer_evidence": "Accepted answer: 'Maximum number of edges in a bipartite graph with n vertices = floor(n^2/4)', giving 36 for n = 12."
+  },
+  {
    "id": "gate-2014-set3-3-subgroup-size-5",
    "year": "2014",
    "paper": "GATE CS 2014 Set 3",
@@ -9442,6 +10397,27 @@ window.GATE_DATA = {
    "source_label": "GATE Overflow question page - GATE CSE 2015 Set 1 Q.14 with community solutions",
    "verification": "SOURCED",
    "answer_evidence": "So, answer C is not equivanet to $p \\iff q$ and is the answer."
+  },
+  {
+   "id": "gate-2015-set2-50-bridge",
+   "year": "2015",
+   "paper": "GATE CS 2015 Set 2",
+   "question_ref": "Q.50",
+   "type": "MCQ",
+   "topic": "cut-vertices-bridges-and-blocks",
+   "text": "In a connected graph, a bridge is an edge whose removal disconnects the graph. Which one of the following statements is true?",
+   "options": [
+    "A tree has no bridges",
+    "A bridge cannot be part of a simple cycle",
+    "Every edge of a clique with size at least 3 is a bridge (a clique is any complete subgraph of a graph)",
+    "A graph with bridges cannot have a cycle"
+   ],
+   "answer": "Option 2: a bridge cannot be part of a simple cycle",
+   "solution": "If an edge lies on a simple cycle, its endpoints stay connected along the rest of the cycle after the edge is deleted, so the edge is not a bridge; conversely an edge that lies on no cycle is a bridge. Every edge of a tree is a bridge, so option 1 is false. Every edge of a clique of size at least 3 lies on a triangle, so option 3 is false. A graph can have a bridge and a cycle at the same time, so option 4 is false. scripts/validate.py checks the bridge-iff-no-cycle equivalence on every graph on up to 5 vertices.",
+   "source_url": "https://gateoverflow.in/8252/gate-cse-2015-set-2-question-50",
+   "source_label": "GATE Overflow question page - GATE CSE 2015 Set 2 Q.50 with the accepted answer (option B)",
+   "verification": "SOURCED",
+   "answer_evidence": "Accepted answer: 'Correct Answer: B', with the reasoning that removing an edge of a cycle leaves the graph connected."
   },
   {
    "id": "gate-2015-set2-fol-tautology-propositional-reduction",
@@ -9773,6 +10749,27 @@ window.GATE_DATA = {
    "answer_evidence": "Accepted answer: '2, 3 are prime numbers. So, H is always cyclic ... G may not be cyclic, but H is always cyclic.'"
   },
   {
+   "id": "gate-2021-set1-41-articulation-dfs",
+   "year": "2021",
+   "paper": "GATE CS 2021 Set 1",
+   "question_ref": "Q.41",
+   "type": "MSQ",
+   "topic": "cut-vertices-bridges-and-blocks",
+   "text": "An articulation point in a connected graph is a vertex such that removing the vertex and its incident edges disconnects the graph into two or more connected components. Let T be a DFS tree obtained by doing DFS in a connected undirected graph G. Which of the following options is/are correct?",
+   "options": [
+    "Root of T can never be an articulation point in G",
+    "Root of T is an articulation point in G if and only if it has 2 or more children",
+    "A leaf of T can be an articulation point in G",
+    "If u is an articulation point in G such that x is an ancestor of u in T and y is a descendant of u in T, then all paths from x to y in G must pass through u"
+   ],
+   "answer": "Option 2",
+   "solution": "Each child subtree of the root is reached from the root alone, so the root is an articulation point exactly when it has at least two children, which makes option 2 correct and option 1 false. A leaf of a DFS tree has all its neighbours already discovered, so its removal cannot disconnect the graph and option 3 is false. Option 4 fails when a back edge from y's subtree reaches x, which bypasses u even though u is an articulation point for some other subtree. scripts/validate.py enumerates DFS trees of every connected graph on up to 5 vertices and checks both DFS criteria.",
+   "source_url": "https://gateoverflow.in/357410/gate-cse-2021-set-1-question-41",
+   "source_label": "GATE Overflow question page - GATE CSE 2021 Set 1 Q.41 with the accepted answer (option B only)",
+   "verification": "SOURCED",
+   "answer_evidence": "Accepted answer: 'Only B is Correct', proving both directions of the two-children criterion and giving counterexamples for the other options."
+  },
+  {
    "id": "gate-2021-set1-s1-tautology",
    "year": "2021",
    "paper": "GATE CS 2021 Set 1",
@@ -9832,6 +10829,27 @@ window.GATE_DATA = {
    "verification": "OFFICIAL_KEY"
   },
   {
+   "id": "gate-2022-40-petersen",
+   "year": "2022",
+   "paper": "GATE CS 2022",
+   "question_ref": "Q.40",
+   "type": "MSQ",
+   "topic": "chromatic-number-and-greedy-bounds",
+   "text": "The following simple undirected graph is referred to as the Petersen graph. Which of the following statements is/are TRUE? (The graph itself is printed in the paper and is not reproduced here; options 1, 2 and 4 are answerable from the graph's definition, and option 3 asks whether a second drawn graph is isomorphic to it.)",
+   "options": [
+    "The chromatic number of the graph is 3",
+    "The graph has a Hamiltonian path",
+    "The graph drawn in the option is isomorphic to the Petersen graph",
+    "The size of the largest independent set of the given graph is 3"
+   ],
+   "answer": "Options 1, 2 and 3",
+   "solution": "The Petersen graph has chromatic number 3, and a 3-colouring exists, so option 1 is true. It has a Hamiltonian path and no Hamiltonian cycle, so option 2 is true. Option 3 compares two drawings and is true in the paper. Option 4 is false: the largest independent set has 4 vertices, not 3. scripts/validate.py rebuilds the Petersen graph, computes its chromatic number, its clique and independence numbers and searches for a Hamiltonian path and cycle.",
+   "source_url": "https://gateoverflow.in/371896/gate-cse-2022-question-40",
+   "source_label": "GATE Overflow question page - GATE CSE 2022 Q.40 with the accepted answer (options 1, 2 and 3)",
+   "verification": "SOURCED",
+   "answer_evidence": "Accepted answer: 'Option A,B and C are TRUE', noting 'Hamiltonian path exists in Peterson graph but not Hamiltonian cycle' and that the largest independent set has size 4."
+  },
+  {
    "id": "gate-2023-41-symmetric-difference-group",
    "year": "2023",
    "paper": "GATE CS 2023",
@@ -9873,6 +10891,27 @@ window.GATE_DATA = {
    "source_label": "GATE Overflow question page for GATE CS 2023 Q.16 with two independent published solutions",
    "verification": "SOURCED",
    "answer_evidence": "The accepted solutions conclude (B) and (C), using for all x for all y Q implies the conjecture, and there exists y for all x R implies for all x there exists y R."
+  },
+  {
+   "id": "gate-2024-set1-41-chromatic-statements",
+   "year": "2024",
+   "paper": "GATE CS 2024 Set 1",
+   "question_ref": "Q.41",
+   "type": "MSQ",
+   "topic": "chromatic-number-and-greedy-bounds",
+   "text": "The chromatic number of a graph is the minimum number of colours used in a proper colouring of the graph. Let G be any graph with n vertices and chromatic number k. Which of the following statements is/are always TRUE?",
+   "options": [
+    "G contains a complete subgraph with k vertices",
+    "G contains an independent set of size at least n/k",
+    "G contains at least k(k-1)/2 edges",
+    "G contains a vertex of degree at least k"
+   ],
+   "answer": "Options 2 and 3",
+   "solution": "Option 1 fails on C_5, which has chromatic number 3 and no triangle. Option 2 holds because the k colour classes partition n vertices, so one class has at least n/k vertices and a colour class is an independent set. Option 3 holds because each pair of colour classes must be joined by an edge, otherwise the two classes could be merged and one colour saved, so there are at least C(k,2) edges. Option 4 fails on C_5, where every degree is 2 while k = 3. scripts/validate.py verifies all four verdicts on every graph on up to 5 vertices.",
+   "source_url": "https://gateoverflow.in/422801/gate-cse-2024-set-1-question-41",
+   "source_label": "GATE Overflow question page - GATE CSE 2024 Set 1 Q.41 with the accepted answer (options 2 and 3)",
+   "verification": "SOURCED",
+   "answer_evidence": "Accepted answer: 'The correct statements are B and C', with C_5 as the counterexample to options A and D and the colour-class argument for B and C."
   },
   {
    "id": "gate-2024-set1-42-associativity-distributivity",
@@ -10030,6 +11069,63 @@ window.GATE_DATA = {
    "source_label": "GATE Overflow question page - GATE CSE 2025 Set 2 Q.32 with community solutions (answer B and C)",
    "verification": "SOURCED",
    "answer_evidence": "The page's solutions conclude 'The correct options are: (B) and (C)'; the pointwise-order claims are recomputed by enumeration in scripts/validate.py."
+  },
+  {
+   "id": "gate-2026-set1-37-vertex-cover-degree",
+   "year": "2026",
+   "paper": "GATE CS 2026 Set 1",
+   "question_ref": "Q.37",
+   "type": "MCQ",
+   "topic": "vertex-cover-independent-set-konig",
+   "text": "Let G(V, E) be a simple, undirected graph. A vertex cover of G is a subset V' of V such that for every (u, v) in E, u is in V' or v is in V'. Let the size of the smallest vertex cover in G be k. Let S be any vertex cover of size k. For a vertex v in V, which of the following constraints will always ensure that v is in S?",
+   "options": [
+    "The degree of v is at least k + 1",
+    "The vertex v is on a path of length k + 1",
+    "The vertex v is on a cycle of length k + 1",
+    "The vertex v is a part of a clique of size k"
+   ],
+   "answer": "Option 1: the degree of v is at least k + 1",
+   "solution": "If v has at least k+1 neighbours and v is not in S, then every neighbour of v must be in S to cover the edges at v, so S has at least k+1 vertices, contradicting |S| = k. The other three conditions fail on small examples: a path on 4 vertices has a minimum cover of size 2 that omits an end vertex, a triangle has three minimum covers of size 2 so any one vertex is omitted by some of them, and a clique of size k has minimum cover k-1 so no particular vertex is forced. scripts/validate.py checks the forcing claim on every graph on up to 5 vertices and reproduces the three counterexamples.",
+   "source_url": "https://gateoverflow.in/523043/gate-cse-2026-set-1-question-37",
+   "source_label": "GATE Overflow question page - GATE CSE 2026 Set 1 Q.37 with the accepted answer (degree at least k+1)",
+   "verification": "SOURCED",
+   "answer_evidence": "Accepted answer: 'Correct Answer: A. The degree of v is at least k+1', with the contradiction proof and counterexamples for the other three options."
+  },
+  {
+   "id": "gate-2026-set1-45-2-colorable",
+   "year": "2026",
+   "paper": "GATE CS 2026 Set 1",
+   "question_ref": "Q.45",
+   "type": "MSQ",
+   "topic": "bipartite-graphs-and-odd-cycles",
+   "text": "An undirected, unweighted, simple graph G(V, E) is said to be 2-colorable if there exists a function c from V to {0, 1} such that for every (u, v) in E, c(u) is not equal to c(v). Which of the following statements about 2-colorable graphs is/are true?",
+   "options": [
+    "If G is 2-colorable, then G may contain cycles of odd length",
+    "If G is 2-colorable, then G may contain cycles of even length",
+    "An optimal algorithm for testing whether G is 2-colorable runs in time Theta(|V| + |E|), if G is represented as an adjacency list",
+    "An optimal algorithm for testing whether G is 2-colorable runs in time Theta(|E| log |V|), if G is represented as an adjacency list"
+   ],
+   "answer": "Options 2 and 3",
+   "solution": "2-colorable is exactly bipartite, which by the odd-cycle criterion forbids odd cycles and allows even ones, so option 1 is false and option 2 is true. A BFS or DFS colouring pass reads every vertex and every edge a constant number of times, which is Theta(|V| + |E|) on an adjacency list, and no correct test can do better because it must read the input, so option 3 is true and option 4 is false. scripts/validate.py checks the odd-cycle criterion and the even-cycle example by enumerating colourings.",
+   "source_url": "https://gateoverflow.in/523035/gate-cse-2026-set-1-question-45",
+   "source_label": "GATE Overflow question page - GATE CSE 2026 Set 1 Q.45 with the accepted answer (options 2 and 3)",
+   "verification": "SOURCED",
+   "answer_evidence": "Accepted answer: 'Option B and Option C are the true statements', with the triangle and square colouring arguments and the Theta(|V|+|E|) lower bound."
+  },
+  {
+   "id": "gate-2026-set1-47-matchings-path-8",
+   "year": "2026",
+   "paper": "GATE CS 2026 Set 1",
+   "question_ref": "Q.47",
+   "type": "NAT",
+   "topic": "matching-maximal-maximum-perfect",
+   "text": "Let G be an undirected graph, which is a path on 8 vertices. The number of matchings in G is ______. (answer in integer)",
+   "answer": "34",
+   "solution": "Let M(n) be the number of matchings of a path on n vertices, counting the empty matching. The last edge is either unused, leaving a path on n-1 vertices, or used, which forbids the edge before it and leaves a path on n-2 vertices, so M(n) = M(n-1) + M(n-2) with M(0) = M(1) = 1. The values are 1, 1, 2, 3, 5, 8, 13, 21, 34, so M(8) = 34 = F(9). scripts/validate.py enumerates every subset of the 7 edges of P_8 and counts the 34 matchings.",
+   "source_url": "https://gateoverflow.in/523033/gate-cse-2026-set-1-question-47",
+   "source_label": "GATE Overflow question page - GATE CSE 2026 Set 1 Q.47 with the accepted answer (34)",
+   "verification": "SOURCED",
+   "answer_evidence": "Accepted answer: 'Answer: 34', via the Fibonacci recurrence with the empty matching counted."
   },
   {
    "id": "gate-2026-set2-knows-nobody",
