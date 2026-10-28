@@ -1420,7 +1420,7 @@
     {
       "kind": "notes",
       "placement": "programming-data-structures › linear-data-structures › (no card)",
-      "detail": "Mock set, Programming and Data Structures Unit 3 'Linear Data Structures' (run 3, 2026-10-28, paper programming-data-structures/linear-data-structures/gate_ds_mock_3_2026-10-28.html), holds 25 questions over 4 subtopic_label groups: 'Arrays & multidimensional arrays' 7, 'Singly, doubly & circular linked lists' 6, 'Stacks: infix, postfix & applications' 6, 'Queues, circular queues & deques' 6. The notes repo covers discrete mathematics only (content/syllabus.json lists one subject), so no card serves any of them."
+      "detail": "Mock set, Programming and Data Structures Unit 3 'Linear Data Structures' closed at the cap on 2026-10-28 (run 6, Set 2 of 2, paper programming-data-structures/linear-data-structures/gate_ds_mock_3_2026-10-28.html; run 3, Set 1 of 2, was archived to programming-data-structures/linear-data-structures/archive/gate_ds_mock_3_2026-10-28_run1.html). The unit now holds 50 questions over 4 subtopic_label groups: 'Arrays & multidimensional arrays' 13, 'Singly, doubly & circular linked lists' 12, 'Stacks: infix, postfix & applications' 13, 'Queues, circular queues & deques' 12. MOCK_CAPPED: the rotation advances to (2 + 1) mod 7 = 3, Unit 4, Binary Trees & Tree Traversals. The notes repo covers discrete mathematics only (content/syllabus.json lists one subject), so no card serves any of the four groups; the visual side already holds topics/arrays-stacks-queues and topics/linked-lists."
     },
     {
       "kind": "notes",
@@ -1491,6 +1491,11 @@
       "kind": "visual",
       "placement": "databases › design › multivalued-dependencies-4nf",
       "detail": "topics/functional-dependencies-and-normal-forms covers FDs, Armstrong's axioms, attribute closure, candidate keys, 1NF to BCNF, lossless join and dependency preservation, but its transcript.md never mentions multivalued dependencies or 4NF, one of the five subtopic_label groups in Databases Unit 3. Recommendation: extend topics/functional-dependencies-and-normal-forms with a scene on multivalued dependencies and 4NF rather than build a new lesson, then regenerate captions with node tools/gen-captions.mjs functional-dependencies-and-normal-forms."
+    },
+    {
+      "kind": "notes",
+      "placement": "engineering-mathematics › probability-and-statistics › probability-and-random-variables",
+      "detail": "New lesson topics/probability-and-random-variables (topics.json slug probability-and-random-variables, title 'Probability, Random Variables and Distributions'; syllabus-coverage.json subject Engineering Mathematics, unit 'Probability and statistics', coverage_status PUBLISHED, 7 subtopics, 33 microtopics, transcript.md 10 scenes, last_execution_status 'published 2026-10-28'). Coverage was read from transcript.md, not from the alias list: scene 1 opens on outcomes, events and the three axioms, then conditional probability and independence, Bayes with a two-part partition, random variables, expectation and linearity, variance, and the binomial, Poisson, exponential, uniform and normal distributions. No notes card serves it: the notes repo has no engineering-mathematics subject. Its stated prerequisite 'counting and combinatorics' is carded (discrete-mathematics › combinatorics) but that is a prerequisite, not coverage."
     }
   ]
 }
