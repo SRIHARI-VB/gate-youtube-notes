@@ -398,5 +398,60 @@
         "note": "no function symbols"
       }
     ]
+  },
+  {
+    "group": "Partial orders and lattices",
+    "items": [
+      {
+        "name": "Partial order",
+        "latex": "\\text{reflexive} \\wedge \\text{antisymmetric} \\wedge \\text{transitive}",
+        "note": "then (A, R) is a poset"
+      },
+      {
+        "name": "Join",
+        "latex": "a \\vee b = \\mathrm{lub}(a, b)",
+        "note": "must lie in the poset"
+      },
+      {
+        "name": "Meet",
+        "latex": "a \\wedge b = \\mathrm{glb}(a, b)",
+        "note": "must lie in the poset"
+      },
+      {
+        "name": "Lattice",
+        "latex": "\\forall a, b:\\ a \\vee b \\text{ and } a \\wedge b \\text{ exist}",
+        "note": "pairwise test, not subsetwise"
+      },
+      {
+        "name": "Absorption",
+        "latex": "a \\vee (a \\wedge b) = a, \\quad a \\wedge (a \\vee b) = a",
+        "note": "holds in every lattice"
+      },
+      {
+        "name": "Distributive",
+        "latex": "a \\wedge (b \\vee c) = (a \\wedge b) \\vee (a \\wedge c)",
+        "note": "fails in M3 and N5 only"
+      },
+      {
+        "name": "Complement",
+        "latex": "a \\wedge a' = 0, \\quad a \\vee a' = 1",
+        "note": "unique in a distributive lattice"
+      },
+      {
+        "name": "Boolean lattice",
+        "latex": "|B_n| = 2^n, \\quad \\text{covering pairs} = n \\, 2^{n-1}",
+        "note": "bounded + complemented + distributive"
+      },
+      {
+        "name": "Divisor lattice",
+        "latex": "a \\vee b = \\mathrm{lcm}(a,b),\\ a \\wedge b = \\gcd(a,b)",
+        "note": "Boolean iff n is squarefree"
+      },
+      {
+        "name": "Mirsky",
+        "latex": "\\text{longest chain} = n \\Rightarrow n \\text{ antichains}",
+        "note": "Dilworth is the dual statement"
+      }
+    ]
   }
 ]

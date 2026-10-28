@@ -1,0 +1,91 @@
+{
+  "id": "lattice-definition-and-pairwise-test",
+  "title": "Lattices and the Pairwise Test",
+  "priority": "P1",
+  "order": 66,
+  "unit": "Lattices",
+  "quickIdea": "A lattice is a poset in which every pair of elements has both a join and a meet. One pair without a LUB is enough to say no.",
+  "remember": [
+    "A poset (L, <=) is a lattice when every two elements a, b in L have a LUB (written a v b) and a GLB (written a ^ b), both belonging to L.",
+    "The test is pairwise, not subset-wise. A lattice can fail completeness for larger subsets while every pair has a join and a meet.",
+    "Checking a diagram: for each pair, look at the elements above both, and ask whether one of them is below all the others. The diamond M3, the square B2 and every chain are lattices; a diagram with two incomparable upper bounds for some pair is not.",
+    "Adding the missing element fixes a non-lattice: GATE CSE 2017 Set 2 Q.21 gave a poset that was already a lattice, so the number of pairs to add was 0.",
+    "Every chain is a lattice: of two comparable elements the larger is the join and the smaller the meet. Every total order is therefore a distributive lattice.",
+    "Every finite lattice has a least and a greatest element: the meet of all elements and the join of all elements. So a finite lattice is always bounded.",
+    "The divisor poset of a positive integer is always a lattice, with join lcm and meet gcd, because the lcm and gcd of two divisors are divisors of the same integer."
+  ],
+  "example": {
+    "prompt": "X = {a, b, c, d, e} with the partial order {(a,a),(a,b),(a,c),(a,d),(a,e),(b,b),(b,c),(b,e),(c,c),(c,e),(d,d),(d,e),(e,e)}. Is it a lattice? How many pairs must be added to make it one?",
+    "work": "a is below everything, e is above everything. The pairs to test are the incomparable ones: b and d, c and d, b and c. For b and d the upper bounds are e only, so the LUB is e; the lower bound is a only. For c and d the LUB is e and the GLB is a. For b and c the LUB is c and the GLB is a. Every other pair is comparable. So every pair has both bounds.",
+    "answer": "It is already a lattice, so the minimum number of ordered pairs to add is 0 - the answer to GATE CSE 2017 Set 2 Q.21."
+  },
+  "gateAngle": "Two verified shapes: 'is this diagram a lattice' (find a pair with two incomparable upper bounds) and 'how many pairs must be added to make it a lattice' (answer 0 when the test passes). Both are decided by the same pairwise sweep.",
+  "variations": [
+    {
+      "label": "VERIFIED PYQ",
+      "question": "GATE CSE 2017 Set 2 Q.21: for the poset above, the minimum number of ordered pairs that must be added to make it a lattice is ___.",
+      "answer": "0.",
+      "why": "Every pair already has a join and a meet inside X, so no pair is needed; the question tests whether you check the incomparable pairs rather than assuming a diagram with five elements is missing something."
+    },
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "Take the same set X and delete the element c, keeping the order restricted. Is the result a lattice?",
+      "answer": "Yes. What is left is {a, b, d, e} with a below b and d, and both below e, which is the diamond-shaped 4-element lattice B2.",
+      "why": "Deleting an element can only remove bounds, so the test must be rerun: here it still passes, but deleting a instead would leave b and d with no lower bound."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "On {x, y, z} put x < z and y < z, with x and y incomparable. Does every pair have a join? Is this a lattice?",
+      "answer": "Every pair has a join, but x and y have no meet, so it is a join-semilattice and not a lattice.",
+      "why": "The upper bounds of x and y are z alone, so the join exists; the lower bounds of x and y are none, so the meet does not. Having all joins is only half of the lattice condition."
+    }
+  ],
+  "trap": {
+    "what": "Deciding lattice-hood from the shape of the picture - 'it looks like a lattice' - or checking only the pairs that are visibly unrelated.",
+    "why": "The property is about every pair, and the failure is always a pair with two incomparable upper bounds. A diagram with a 'diamond' in the middle is a lattice; a diagram with two separate peaks above a pair is not.",
+    "counterexample": "The poset with a < c, b < c, a < d, b < d has c and d incomparable as upper bounds of {a, b}, so no LUB: not a lattice, even though it looks symmetric and tidy."
+  },
+  "check": {
+    "question": "Is the poset of divisors of 18 under divisibility a lattice, and if so what is 6 v 9 and 6 ^ 9?",
+    "answer": "Yes, it is a lattice. 6 v 9 = 18 and 6 ^ 9 = 3.",
+    "explanation": "lcm(6, 9) = 18 and gcd(6, 9) = 3, both divisors of 18. The divisor poset of any n is a lattice because lcm and gcd of divisors of n are again divisors of n."
+  },
+  "pyqIds": [
+    "gate-2017-set2-21-lattice-pairs-to-add"
+  ],
+  "prereqs": [
+    "upper-lower-bounds-lub-glb"
+  ],
+  "videoRefs": [],
+  "sources": [
+    {
+      "kind": "lecture",
+      "title": "Lecture 40 - Lattices (Discrete Mathematical Structures)",
+      "channel": "NPTEL, IIT Madras (Dr. Kamala Krithivasan)",
+      "url": "http://elearn.psgcas.ac.in/nptel/courses/video/106106094/lec40.pdf",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "published lecture transcript (27 pages), read in full"
+    },
+    {
+      "kind": "playlist",
+      "title": "Discrete Mathematics (NOC), Lec 21 Partially ordering relations, Lec 22 Natural numbers and divisors, Lec 23 Lattices",
+      "channel": "NPTEL IIT Guwahati",
+      "playlist_id": "PLwdnzlV3ogoVxVxCTlI45pDVM1aoYoMHf",
+      "url": "https://www.youtube.com/playlist?list=PLwdnzlV3ogoVxVxCTlI45pDVM1aoYoMHf",
+      "language": "en",
+      "transcript": "UNAVAILABLE",
+      "translated": false,
+      "note": "the three lectures are identified from the published NPTEL chapter list; captions could not be retrieved in this run"
+    },
+    {
+      "kind": "text",
+      "title": "Rosen, Discrete Mathematics and Its Applications, ch. 9.6 (partial orderings) and ch. 9.5 (lattices in the Boolean-algebra sense)",
+      "language": "en",
+      "transcript": "N/A"
+    }
+  ],
+  "sourceLine": "The definition, and the worked check of several diagrams including M3, the 2-cube and a non-lattice: NPTEL IIT Madras Lecture 40 (English, full transcript). The poset-to-lattice sequence (Hasse diagram, LUB-GLB, lattice, sublattice): NPTEL IIT Guwahati Lec 21-23 (English, captions unavailable in this run).",
+  "visual": "discrete-mathematics/partial-orders-and-lattices/poset-to-lattice-pair-test"
+}

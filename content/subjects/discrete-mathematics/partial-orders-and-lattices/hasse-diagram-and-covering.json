@@ -1,0 +1,91 @@
+{
+  "id": "hasse-diagram-and-covering",
+  "title": "Covering Relation and the Hasse Diagram",
+  "priority": "P1",
+  "order": 62,
+  "unit": "Posets",
+  "quickIdea": "The Hasse diagram drops the self-loops and every arrow that transitivity can rebuild. What is left is the covering relation, and it is a complete picture of the poset.",
+  "remember": [
+    "b covers a when a < b and no element lies strictly between them. The Hasse diagram draws one upward segment for each covering pair.",
+    "Edges of the Hasse diagram = covering pairs. The full relation is the reflexive transitive closure of those edges, so no information is lost.",
+    "To read the diagram: a <= b exactly when some upward path runs from a to b. Unrelated elements simply have no path in either direction.",
+    "A diagram is a Hasse diagram only if it is drawn so that a covering pair is one segment with no element in between - a diagram that hides a covering pair behind a vertex is unreadable, not wrong.",
+    "For divisibility on {2, 3, 6, 12, 24} the covering pairs are (2,6), (3,6), (6,12), (12,24): four edges, while the relation itself has 14 pairs.",
+    "For divisibility on the eight divisors {1, 2, 3, 4, 6, 8, 12, 24} there are 10 covering pairs.",
+    "The number of edges is not the number of pairs: |R| - |A| counts the non-reflexive pairs, and the diagram usually shows far fewer."
+  ],
+  "example": {
+    "prompt": "X = {2, 3, 6, 12, 24} ordered by divisibility. Draw the Hasse diagram, count its edges, and count the pairs of the relation.",
+    "work": "2 and 3 are incomparable, both divide 6, 6 divides 12, 12 divides 24. Covering pairs: (2,6), (3,6), (6,12), (12,24) - four edges. The full relation: 2 relates to 2, 6, 12, 24 (4 pairs); 3 relates to 3, 6, 12, 24 (4); 6 to 6, 12, 24 (3); 12 to 12, 24 (2); 24 to 24 (1).",
+    "answer": "4 edges in the Hasse diagram and 14 ordered pairs in the relation."
+  },
+  "gateAngle": "GATE CSE 1996 asked for exactly this edge count on this set. The two-step method - find covering pairs, then count by multiples - answers both the edge question and its common variation, the cardinality of the relation.",
+  "variations": [
+    {
+      "label": "VERIFIED PYQ",
+      "question": "GATE CSE 1996: X = {2, 3, 6, 12, 24} with x <= y when x divides y. The number of edges in the Hasse diagram is 3, 4, 9, or none of these.",
+      "answer": "4, option (B).",
+      "why": "Only the four covering pairs are drawn; the transitive pairs 2-12, 2-24, 3-12, 3-24 and 6-24 are recoverable from the paths and are not edges."
+    },
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "For the same poset, what is the cardinality of the relation, and how many of its pairs are not shown as edges?",
+      "answer": "14 pairs in the relation; 10 of them are not edges.",
+      "why": "14 pairs minus the 4 edges. The 10 are the 5 reflexive pairs plus the 5 transitive shortcuts - the count GATE asks when it varies the question."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "A Hasse diagram has 7 vertices and 8 edges and is drawn with no self-loops. What is the smallest possible cardinality of the underlying relation?",
+      "answer": "At least 15 pairs, because the 7 reflexive pairs are always in the relation.",
+      "why": "The diagram shows only the 8 covering pairs; the relation must also contain all 7 reflexive pairs and every transitive shortcut, so 15 is a floor, not the answer in general."
+    }
+  ],
+  "trap": {
+    "what": "Counting the edges of the Hasse diagram as if they were the relation, or drawing a transitive edge.",
+    "why": "The diagram is the covering relation: transitivity is applied by the reader, not drawn. Reading a diagram, students also forget that a path of length two already means a <= b.",
+    "counterexample": "In the 4-element chain a < b < c < d the relation has 10 pairs but the diagram has only 3 edges; drawing the pair (a, c) as an edge would be a drawing error, not a different poset."
+  },
+  "check": {
+    "question": "In the Hasse diagram of the divisors of 12 ordered by divisibility, how many edges are there?",
+    "answer": "7 edges.",
+    "explanation": "The divisors are 1, 2, 3, 4, 6, 12. Covering pairs: 1-2, 1-3, 2-4, 2-6, 3-6, 4-12, 6-12. That is 7. The pair 2-12 is not an edge because 2 < 6 < 12."
+  },
+  "pyqIds": [
+    "gate-1996-1-2-hasse-edges-divides"
+  ],
+  "prereqs": [
+    "poset-and-partial-order-axioms",
+    "transitivity-and-closure"
+  ],
+  "videoRefs": [],
+  "sources": [
+    {
+      "kind": "video",
+      "title": "Lattice, POSET - GATE PYQs - Part 1",
+      "channel": "GO Classes for GATE CS (Deepak Poonia)",
+      "video_id": "3chjsP_NNnY",
+      "url": "https://www.youtube.com/watch?v=3chjsP_NNnY",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "auto-caption text read for the GATE 1993, 1996 and 2003 segments only"
+    },
+    {
+      "kind": "lecture",
+      "title": "Lecture 40 - Lattices (Discrete Mathematical Structures)",
+      "channel": "NPTEL, IIT Madras (Dr. Kamala Krithivasan)",
+      "url": "http://elearn.psgcas.ac.in/nptel/courses/video/106106094/lec40.pdf",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "published lecture transcript (27 pages), read in full"
+    },
+    {
+      "kind": "text",
+      "title": "Rosen, Discrete Mathematics and Its Applications, ch. 9.6 (partial orderings) and ch. 9.5 (lattices in the Boolean-algebra sense)",
+      "language": "en",
+      "transcript": "N/A"
+    }
+  ],
+  "sourceLine": "Hasse diagram as the poset diagram with self-loops and transitive arrows removed: NPTEL IIT Madras Lecture 40 (English, full transcript). The GATE 1996 edge count and the cardinality variation: GO Classes for GATE CS, 'Lattice, POSET - GATE PYQs - Part 1' (English, auto-caption excerpt read for the 1996 segment)."
+}

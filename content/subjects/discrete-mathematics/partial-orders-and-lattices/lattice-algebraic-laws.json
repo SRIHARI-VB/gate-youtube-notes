@@ -1,0 +1,77 @@
+{
+  "id": "lattice-algebraic-laws",
+  "title": "The Lattice Laws: Idempotent, Commutative, Associative, Absorption",
+  "priority": "P1",
+  "order": 67,
+  "unit": "Lattices",
+  "quickIdea": "Once joins and meets exist, four laws come for free: idempotent, commutative, associative and absorption. They are what makes a lattice an algebraic structure and not just a picture.",
+  "remember": [
+    "Idempotent: a v a = a and a ^ a = a. Commutative: a v b = b v a and a ^ b = b ^ a.",
+    "Associative: (a v b) v c = a v (b v c), and the same for meet. Absorption: a v (a ^ b) = a and a ^ (a v b) = a.",
+    "All four follow from the poset definition and hold in every lattice, distributive or not. Distributivity is a fifth, optional law.",
+    "Duality: swap v with ^, swap <= with >=, swap the least element with the greatest, and a true statement stays true. Every proof has a free dual.",
+    "Because of associativity, a v b v c is unambiguous, which is what lets a finite join be written as a single operation over a set.",
+    "The semi-distributive inequality a v (b ^ c) <= (a v b) ^ (a v c) holds in every lattice; equality is exactly distributivity, and it can fail.",
+    "A lattice can be defined algebraically instead: a set with two binary operations satisfying the four laws and the absorption identities, with a <= b defined as a ^ b = a. The two definitions give the same objects."
+  ],
+  "example": {
+    "prompt": "In the divisors of 12 under divisibility, verify absorption for a = 4 and b = 6.",
+    "work": "4 v (4 ^ 6): the meet is gcd(4,6) = 2, and the join is lcm(4,2) = 4. So 4 v (4 ^ 6) = 4. Other way: 4 ^ (4 v 6) = 4 ^ 12 = gcd(4,12) = 4.",
+    "answer": "Both absorption identities give 4, as they must."
+  },
+  "gateAngle": "GATE uses the laws indirectly: a question that says 'for all x, y in L, x v (x ^ y) = x' is testing whether you recognise absorption, and a question offering '(a v b) ^ c = (a ^ c) v (b ^ c)' is testing distributivity, which is not one of the four laws.",
+  "variations": [
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Does every lattice satisfy a v (b ^ c) = (a v b) ^ (a v c)?",
+      "answer": "No. The inequality <= always holds, but equality is distributivity and fails in the diamond M3 and in the pentagon N5.",
+      "why": "This is the single most examinable confusion in the topic: the four lattice laws hold everywhere, the distributive law does not."
+    },
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "In a lattice, simplify (a ^ b) v (a ^ b).",
+      "answer": "a ^ b, by idempotence.",
+      "why": "Idempotence of join collapses the duplicate; students often try to expand instead of applying the law."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "Suppose a ^ b = a. What is a v b?",
+      "answer": "b.",
+      "why": "a ^ b = a means a <= b, so the join of a and b is the larger element b. This is the bridge between the order definition and the algebraic one."
+    }
+  ],
+  "trap": {
+    "what": "Assuming distributivity holds in every lattice, or assuming associativity needs proof in each example.",
+    "why": "Associativity and the other three laws are theorems about all lattices. Distributivity is an extra condition, and the diamond and the pentagon are the standard counterexamples.",
+    "counterexample": "M3 with 0 < a, b, c < 1: a v (b ^ c) = a v 0 = a, while (a v b) ^ (a v c) = 1 ^ 1 = 1. Different answers, so the lattice is not distributive."
+  },
+  "check": {
+    "question": "In any lattice, what is (a ^ b) v b?",
+    "answer": "b, by absorption.",
+    "explanation": "Absorption says (a ^ b) v b = b, since a ^ b <= b. The dual form a ^ (a v b) = a is the other absorption identity."
+  },
+  "pyqIds": [],
+  "prereqs": [
+    "lattice-definition-and-pairwise-test"
+  ],
+  "videoRefs": [],
+  "sources": [
+    {
+      "kind": "lecture",
+      "title": "Lecture 40 - Lattices (Discrete Mathematical Structures)",
+      "channel": "NPTEL, IIT Madras (Dr. Kamala Krithivasan)",
+      "url": "http://elearn.psgcas.ac.in/nptel/courses/video/106106094/lec40.pdf",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "published lecture transcript (27 pages), read in full"
+    },
+    {
+      "kind": "text",
+      "title": "Rosen, Discrete Mathematics and Its Applications, ch. 9.6 (partial orderings) and ch. 9.5 (lattices in the Boolean-algebra sense)",
+      "language": "en",
+      "transcript": "N/A"
+    }
+  ],
+  "sourceLine": "The four lattice laws, stated as the laws every lattice satisfies, and the separate treatment of the distributive laws: NPTEL IIT Madras Lecture 40 (English, full transcript). Algebraic formulation cross-checked against Rosen ch. 9.6."
+}

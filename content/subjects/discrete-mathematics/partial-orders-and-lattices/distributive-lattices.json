@@ -1,0 +1,78 @@
+{
+  "id": "distributive-lattices",
+  "title": "Distributive Lattices and the Two Forbidden Shapes",
+  "priority": "P2",
+  "order": 70,
+  "unit": "Lattices",
+  "quickIdea": "A lattice is distributive when join distributes over meet and meet over join. The diamond M3 and the pentagon N5 are the two shapes that break it, and they are the only ones.",
+  "remember": [
+    "Distributive means a ^ (b v c) = (a ^ b) v (a ^ c) and its dual a v (b ^ c) = (a v b) ^ (a v c), for all elements.",
+    "Every chain, every power set lattice and every divisor lattice is distributive. The diamond M3 and the pentagon N5 are not.",
+    "Birkhoff's theorem: a lattice is distributive exactly when it contains no sublattice isomorphic to M3 or to N5. One forbidden shape inside is enough to refute distributivity.",
+    "The counterexample in M3: a ^ (b v c) = a ^ 1 = a, while (a ^ b) v (a ^ c) = 0 v 0 = 0. Since a is not 0, the law fails.",
+    "The counterexample in N5 (0 < a < c < 1, 0 < b < 1): a v (b ^ c) = a v 0 = a, while (a v b) ^ (a v c) = 1 ^ c = c. Since a is not c, the join-over-meet form of the law fails. The meet-over-join form a ^ (b v c) = a ^ 1 = a also fails, because (a ^ b) v (a ^ c) = 0 v a = a is equal - so it is the dual form that exposes N5.",
+    "In a distributive lattice: complements are unique, and the complemented elements form a sublattice. Both facts fail in M3.",
+    "Distributivity is hereditary to sublattices, so proving a lattice is not distributive is usually done by exhibiting a diamond or a pentagon inside it."
+  ],
+  "example": {
+    "prompt": "Show that the diamond M3 = {0, a, b, c, 1} with 0 < each atom < 1 is not distributive.",
+    "work": "Take x = a, y = b, z = c. Left side: b v c = 1, so a ^ 1 = a. Right side: a ^ b = 0 and a ^ c = 0, so 0 v 0 = 0. The two sides are a and 0, and a is not 0.",
+    "answer": "The distributive law fails at (a, b, c), so M3 is a lattice but not a distributive lattice."
+  },
+  "gateAngle": "The standard one-mark question is 'the poset shown is (A) not a lattice (B) a lattice but not distributive (C) distributive but not Boolean (D) Boolean'. Answer it in that order: lattice first, then distributivity via a diamond or pentagon, then Boolean via complements.",
+  "variations": [
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Is every sublattice of a distributive lattice distributive?",
+      "answer": "Yes - distributivity is hereditary, which is why M3 or N5 appearing anywhere inside settles the question.",
+      "why": "The distributive identities involve only the elements and the join and meet operations, so they survive restriction to a closed subset."
+    },
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "The divisor lattice of 12 is bounded but not complemented. Is it distributive?",
+      "answer": "Yes, it is distributive - every divisor lattice is. Distributive does not imply complemented.",
+      "why": "The divisor lattice of n is a product of chains, one chain per prime, and a product of chains is distributive. It is complemented only when n is squarefree."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "A lattice has 6 elements, is bounded, and some element has two complements. Is it distributive?",
+      "answer": "No.",
+      "why": "Two complements for one element contradicts uniqueness of complements, which holds in every distributive lattice."
+    }
+  ],
+  "trap": {
+    "what": "Assuming a lattice is distributive because it is bounded and complemented-looking, or testing distributivity by checking only comparable triples.",
+    "why": "The law fails only at triples where the elements are incomparable in a specific pattern. Comparable triples always satisfy it, so a check that stays inside a chain proves nothing.",
+    "counterexample": "In N5 the failing triple is (a, b, c) with 0 < a < c < 1 and 0 < b < 1: a v (b ^ c) = a but (a v b) ^ (a v c) = c. Check the other form and you will find it accidentally holds there, which is exactly the mistake to avoid - test both distributive laws, not one."
+  },
+  "check": {
+    "question": "Is the power set of a 3-element set a distributive lattice?",
+    "answer": "Yes. It is the cube B3, and intersection distributes over union.",
+    "explanation": "A ^ (B v C) = A n (B u C) = (A n B) u (A n C), which is the distributive law in set language. Every power set lattice is distributive and complemented, hence Boolean."
+  },
+  "pyqIds": [],
+  "prereqs": [
+    "sublattices",
+    "bounded-and-complemented-lattices"
+  ],
+  "videoRefs": [],
+  "sources": [
+    {
+      "kind": "lecture",
+      "title": "Lecture 40 - Lattices (Discrete Mathematical Structures)",
+      "channel": "NPTEL, IIT Madras (Dr. Kamala Krithivasan)",
+      "url": "http://elearn.psgcas.ac.in/nptel/courses/video/106106094/lec40.pdf",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "published lecture transcript (27 pages), read in full"
+    },
+    {
+      "kind": "text",
+      "title": "Rosen, Discrete Mathematics and Its Applications, ch. 9.6 (partial orderings) and ch. 9.5 (lattices in the Boolean-algebra sense)",
+      "language": "en",
+      "transcript": "N/A"
+    }
+  ],
+  "sourceLine": "The two distributive laws, the worked M3 and N5 counterexamples, heredity to sublattices and uniqueness of complements: NPTEL IIT Madras Lecture 40 (English, full transcript). Birkhoff's forbidden-sublattice characterisation is taken from the standard reference (Rosen ch. 9.6 / Grimaldi) rather than recomputed."
+}

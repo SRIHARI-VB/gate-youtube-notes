@@ -29,8 +29,8 @@
   ],
   "counts": {
     "subjects": 1,
-    "topics": 48,
-    "pyqs": 43,
+    "topics": 60,
+    "pyqs": 49,
     "videos": 39,
     "playlists": 3
   },
@@ -834,6 +834,173 @@
       "path": "subjects/discrete-mathematics/sets-relations-functions/composition-and-inverse-functions.json",
       "videos": [],
       "pyqs": [],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "poset-and-partial-order-axioms",
+      "title": "Partial Orders and Posets",
+      "subject": "discrete-mathematics",
+      "group": "partial-orders-and-lattices",
+      "unit": "Posets",
+      "priority": "P1",
+      "path": "subjects/discrete-mathematics/partial-orders-and-lattices/poset-and-partial-order-axioms.json",
+      "videos": [],
+      "pyqs": [],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "hasse-diagram-and-covering",
+      "title": "Covering Relation and the Hasse Diagram",
+      "subject": "discrete-mathematics",
+      "group": "partial-orders-and-lattices",
+      "unit": "Posets",
+      "priority": "P1",
+      "path": "subjects/discrete-mathematics/partial-orders-and-lattices/hasse-diagram-and-covering.json",
+      "videos": [],
+      "pyqs": [
+        "gate-1996-1-2-hasse-edges-divides"
+      ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "comparability-chains-and-antichains",
+      "title": "Comparable Pairs, Chains, Antichains and Total Orders",
+      "subject": "discrete-mathematics",
+      "group": "partial-orders-and-lattices",
+      "unit": "Posets",
+      "priority": "P2",
+      "path": "subjects/discrete-mathematics/partial-orders-and-lattices/comparability-chains-and-antichains.json",
+      "videos": [],
+      "pyqs": [
+        "gate-1997-6-1-total-orders-n-factorial",
+        "gate-2024-set2-24-total-orders"
+      ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "minimal-maximal-least-greatest",
+      "title": "Minimal, Maximal, Least and Greatest Elements",
+      "subject": "discrete-mathematics",
+      "group": "partial-orders-and-lattices",
+      "unit": "Posets",
+      "priority": "P1",
+      "path": "subjects/discrete-mathematics/partial-orders-and-lattices/minimal-maximal-least-greatest.json",
+      "videos": [],
+      "pyqs": [],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "upper-lower-bounds-lub-glb",
+      "title": "Upper Bounds, Lower Bounds, LUB and GLB",
+      "subject": "discrete-mathematics",
+      "group": "partial-orders-and-lattices",
+      "unit": "Posets",
+      "priority": "P1",
+      "path": "subjects/discrete-mathematics/partial-orders-and-lattices/upper-lower-bounds-lub-glb.json",
+      "videos": [],
+      "pyqs": [],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "lattice-definition-and-pairwise-test",
+      "title": "Lattices and the Pairwise Test",
+      "subject": "discrete-mathematics",
+      "group": "partial-orders-and-lattices",
+      "unit": "Lattices",
+      "priority": "P1",
+      "path": "subjects/discrete-mathematics/partial-orders-and-lattices/lattice-definition-and-pairwise-test.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2017-set2-21-lattice-pairs-to-add"
+      ],
+      "visual": "discrete-mathematics/partial-orders-and-lattices/poset-to-lattice-pair-test",
+      "variations": 3
+    },
+    {
+      "topic": "lattice-algebraic-laws",
+      "title": "The Lattice Laws: Idempotent, Commutative, Associative, Absorption",
+      "subject": "discrete-mathematics",
+      "group": "partial-orders-and-lattices",
+      "unit": "Lattices",
+      "priority": "P1",
+      "path": "subjects/discrete-mathematics/partial-orders-and-lattices/lattice-algebraic-laws.json",
+      "videos": [],
+      "pyqs": [],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "sublattices",
+      "title": "Sublattices",
+      "subject": "discrete-mathematics",
+      "group": "partial-orders-and-lattices",
+      "unit": "Lattices",
+      "priority": "P2",
+      "path": "subjects/discrete-mathematics/partial-orders-and-lattices/sublattices.json",
+      "videos": [],
+      "pyqs": [],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "bounded-and-complemented-lattices",
+      "title": "Bounded and Complemented Lattices",
+      "subject": "discrete-mathematics",
+      "group": "partial-orders-and-lattices",
+      "unit": "Lattices",
+      "priority": "P2",
+      "path": "subjects/discrete-mathematics/partial-orders-and-lattices/bounded-and-complemented-lattices.json",
+      "videos": [],
+      "pyqs": [],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "distributive-lattices",
+      "title": "Distributive Lattices and the Two Forbidden Shapes",
+      "subject": "discrete-mathematics",
+      "group": "partial-orders-and-lattices",
+      "unit": "Lattices",
+      "priority": "P2",
+      "path": "subjects/discrete-mathematics/partial-orders-and-lattices/distributive-lattices.json",
+      "videos": [],
+      "pyqs": [],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "boolean-lattices-and-examples",
+      "title": "Boolean Lattices, Power Sets and Divisor Lattices",
+      "subject": "discrete-mathematics",
+      "group": "partial-orders-and-lattices",
+      "unit": "Lattices",
+      "priority": "P2",
+      "path": "subjects/discrete-mathematics/partial-orders-and-lattices/boolean-lattices-and-examples.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2025-set2-32-function-poset"
+      ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "complete-lattices",
+      "title": "Complete Lattices",
+      "subject": "discrete-mathematics",
+      "group": "partial-orders-and-lattices",
+      "unit": "Lattices",
+      "priority": "P3",
+      "path": "subjects/discrete-mathematics/partial-orders-and-lattices/complete-lattices.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2004-73-complete-lattice"
+      ],
       "visual": null,
       "variations": 3
     }

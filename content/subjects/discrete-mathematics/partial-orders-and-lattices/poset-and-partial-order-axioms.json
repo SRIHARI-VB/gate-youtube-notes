@@ -1,0 +1,88 @@
+{
+  "id": "poset-and-partial-order-axioms",
+  "title": "Partial Orders and Posets",
+  "priority": "P1",
+  "order": 61,
+  "unit": "Posets",
+  "quickIdea": "A partial order is a relation that is reflexive, antisymmetric and transitive. It ranks some pairs of a set without ever forcing a choice between the rest, which is why it is called partial.",
+  "remember": [
+    "A relation R on a set A is a partial order when it is reflexive (aRa for every a), antisymmetric (aRb and bRa together force a = b) and transitive (aRb and bRc force aRc). The pair (A, R) is then a poset.",
+    "Antisymmetric is not 'not symmetric': the identity relation is both at once. It only forbids two different elements pointing at each other.",
+    "The four standing examples: divisibility on the positive integers, subset inclusion on a power set, 'less than or equal to' on the reals, and the pointwise order on functions into {0, 1}.",
+    "'Less than' on the reals is transitive and antisymmetric but not reflexive, so it is not a partial order - a favourite one-mark distractor.",
+    "Write a <= b instead of aRb once the relation is known to be a partial order. A total order is the special case where every two elements are comparable.",
+    "Every partial order on a finite set is its own transitive closure of the covering pairs, which is exactly why the Hasse diagram loses no information.",
+    "Counting: there are 19 partial orders on a 3-element set and 219 on a 4-element set, so brute-force enumeration is not a GATE method - use the axioms."
+  ],
+  "example": {
+    "prompt": "Show that divisibility on {1, 2, 3, 4, 6, 12} is a partial order, and name one pair that is incomparable.",
+    "work": "Reflexive: every number divides itself. Antisymmetric: if a divides b and b divides a then a = b, for positive integers. Transitive: if a divides b and b divides c then a divides c. So it is a partial order. Now 4 and 6: neither divides the other, and 4 does not appear among the multiples of 6 either, so the pair (4, 6) is incomparable.",
+    "answer": "Divisibility is a partial order on these six numbers, and 4 and 6 are incomparable, so the order is partial and not total."
+  },
+  "gateAngle": "GATE almost never asks you to prove the axioms; it asks which of several relations is a partial order, or how many pairs must be added to reach a total order. Test the three axioms in the cheapest order: reflexivity first (one counterexample kills it), then antisymmetry, then transitivity.",
+  "variations": [
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Is the relation 'a divides b' a partial order on the set of all integers, including 0 and the negatives?",
+      "answer": "No. On all the integers antisymmetry fails, because 2 divides -2 and -2 divides 2 while 2 is not -2.",
+      "why": "The divisibility order is a partial order on the positive integers only. Extending the set to all integers breaks antisymmetry, which is the axiom students check last and forget."
+    },
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "There are 19 partial orders on the set {1, 2, 3}. How many of them are total orders?",
+      "answer": "6 - one for each ordering of the three elements.",
+      "why": "A total order on a finite set is a linear arrangement, so the total orders are in bijection with the 3! permutations. The other 13 partial orders leave at least one pair incomparable."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "A relation on a 3-element set is reflexive, antisymmetric and transitive except that one element is not related to itself. Is it a partial order, and what is the cheapest repair?",
+      "answer": "Not a partial order; adding that one pair (a, a) makes it one, because reflexivity is the only missing axiom.",
+      "why": "A relation missing one diagonal pair can still be antisymmetric and transitive. GATE tests exactly this gap: name the axiom, not the property list."
+    }
+  ],
+  "trap": {
+    "what": "Treating 'antisymmetric' as the negation of 'symmetric', and treating a partial order as a ranking with no ties.",
+    "why": "Antisymmetry forbids a two-way arrow between different elements; symmetry requires it. The identity relation satisfies both. And a partial order leaves whole pairs unranked - that is the 'partial' in the name.",
+    "counterexample": "On {1, 2}, the relation {(1,1), (2,2)} is symmetric, antisymmetric and a partial order. The relation {(1,1), (2,2), (1,2), (2,1)} is symmetric but not antisymmetric, so it is not a partial order."
+  },
+  "check": {
+    "question": "How many partial orders are there on a 2-element set {a, b}, and how many of them are total orders?",
+    "answer": "3 partial orders, of which 2 are total orders.",
+    "explanation": "Both reflexive pairs are forced. The pair (a,b) is in or out and the pair (b,a) is in or out, but antisymmetry forbids both: so neither (the identity, a partial order that is not total), (a,b) only, or (b,a) only. That is 3 partial orders and 2 total orders."
+  },
+  "pyqIds": [],
+  "prereqs": [
+    "relation-properties-reflexive-symmetric-antisymmetric"
+  ],
+  "videoRefs": [],
+  "sources": [
+    {
+      "kind": "lecture",
+      "title": "Lecture 40 - Lattices (Discrete Mathematical Structures)",
+      "channel": "NPTEL, IIT Madras (Dr. Kamala Krithivasan)",
+      "url": "http://elearn.psgcas.ac.in/nptel/courses/video/106106094/lec40.pdf",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "published lecture transcript (27 pages), read in full"
+    },
+    {
+      "kind": "playlist",
+      "title": "Discrete Mathematics (NOC), Lec 21 Partially ordering relations, Lec 22 Natural numbers and divisors, Lec 23 Lattices",
+      "channel": "NPTEL IIT Guwahati",
+      "playlist_id": "PLwdnzlV3ogoVxVxCTlI45pDVM1aoYoMHf",
+      "url": "https://www.youtube.com/playlist?list=PLwdnzlV3ogoVxVxCTlI45pDVM1aoYoMHf",
+      "language": "en",
+      "transcript": "UNAVAILABLE",
+      "translated": false,
+      "note": "the three lectures are identified from the published NPTEL chapter list; captions could not be retrieved in this run"
+    },
+    {
+      "kind": "text",
+      "title": "Rosen, Discrete Mathematics and Its Applications, ch. 9.6 (partial orderings) and ch. 9.5 (lattices in the Boolean-algebra sense)",
+      "language": "en",
+      "transcript": "N/A"
+    }
+  ],
+  "sourceLine": "Axioms, the four standard examples and the incomparable-pair picture: NPTEL IIT Madras Lecture 40 (English, full transcript). Lecture list and the poset-to-lattice sequence: NPTEL IIT Guwahati Lec 21-23 (English, captions unavailable in this run). Definitions checked against Rosen ch. 9.6."
+}

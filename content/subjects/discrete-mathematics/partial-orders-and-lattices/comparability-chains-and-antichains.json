@@ -1,0 +1,102 @@
+{
+  "id": "comparability-chains-and-antichains",
+  "title": "Comparable Pairs, Chains, Antichains and Total Orders",
+  "priority": "P2",
+  "order": 63,
+  "unit": "Posets",
+  "quickIdea": "A chain is a subset in which every two elements are comparable; an antichain is a subset in which no two are. A total order that contains the poset is exactly a way of breaking every antichain by ordering its elements.",
+  "remember": [
+    "Two elements are comparable when a <= b or b <= a; otherwise they are incomparable. A chain is a subset of pairwise comparable elements, an antichain a subset of pairwise incomparable ones.",
+    "The length of a chain is its number of elements. A total order is a chain that uses the whole set.",
+    "Mirsky's theorem: if the longest chain of a finite poset has n elements, the poset splits into n antichains. Proof sketch: put each element at its height, the length of the longest chain ending there; each height class is an antichain.",
+    "Dilworth's theorem is the dual statement: the smallest number of chains needed to cover the poset equals the size of its largest antichain. The two theorems are not the same statement and GATE has tested the confusion.",
+    "A total order T contains the partial order P when P is a subset of T. Such a T is also called a linear extension, and a topological sort of the Hasse diagram is exactly one of them.",
+    "Counting linear extensions: with x below all of a1..an and all of them below y, every arrangement of the a's gives a total order, so there are n! of them.",
+    "For P = {(x,x)} on {1,2,3,4} plus (1,2), (3,2), (3,4) there are exactly 5 total orders containing P: 1 3 2 4, 1 3 4 2, 3 1 2 4, 3 1 4 2, 3 4 1 2."
+  ],
+  "example": {
+    "prompt": "For the poset with 1 < 2, 3 < 2, 3 < 4 on {1, 2, 3, 4}, list the total orders that contain it.",
+    "work": "The constraints are 1 before 2, 3 before 2 and 3 before 4. The only free pair is 1 against 3, and then 2 against 4. Enumerating the arrangements that respect the constraints gives 1 3 2 4, 1 3 4 2, 3 1 2 4, 3 1 4 2 and 3 4 1 2. The arrangement 1 2 3 4 is excluded because it puts 2 before 3.",
+    "answer": "Five total orders, which is the answer to GATE CSE 2024 Set 2 Q.24."
+  },
+  "gateAngle": "GATE reuses this poset twice: GATE CSE 1997 asked for the count when a bottom and a top element sandwich n incomparable elements (answer n!), and GATE CSE 2024 Set 2 Q.24 asked the same question for a 4-element poset (answer 5). The method is always to count linear extensions, never to guess.",
+  "variations": [
+    {
+      "label": "VERIFIED PYQ",
+      "question": "GATE CSE 2024 Set 2 Q.24: P on {1,2,3,4} is {(x,x)} union {(1,2), (3,2), (3,4)}. The number of total orders on {1,2,3,4} that contain P is ___.",
+      "answer": "5.",
+      "why": "Only 1 and 3, and 2 and 4, are free; respecting 1 < 2, 3 < 2 and 3 < 4 leaves exactly five arrangements."
+    },
+    {
+      "label": "VERIFIED PYQ",
+      "question": "GATE CSE 1997 Q.6.1: the partial order on S = {x, a1, ..., an, y} has x <= ai and ai <= y for every i, n >= 1. The number of total orders on S containing it is (A) n! (B) n (C) 2n (D) none.",
+      "answer": "n!, option (A).",
+      "why": "x must come first and y last; the a's are mutually incomparable, so each of the n! orderings of the a's gives one total order."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "For the 2024 poset, what is the size of the largest antichain, and what is the smallest number of chains that covers the poset?",
+      "answer": "The largest antichain has 2 elements ({1, 3} or {2, 4}), and 2 chains suffice, for example {1, 3, 2} and {4}.",
+      "why": "Dilworth's theorem says the two numbers agree. Here the answer 2 also matches Mirsky's count of height classes, which is a coincidence of this small poset, not a general rule."
+    }
+  ],
+  "trap": {
+    "what": "Confusing 'chain' with 'maximal chain', or quoting Dilworth where Mirsky applies.",
+    "why": "A chain need not be maximal, and the two theorems point in opposite directions: the longest chain bounds the number of antichains (Mirsky), the largest antichain bounds the number of chains (Dilworth).",
+    "counterexample": "In the 4-element chain, the longest chain has 4 elements so Mirsky splits the set into 4 antichains, each a singleton; the largest antichain has 1 element so Dilworth needs 1 chain. Reading either theorem backwards gives the wrong count."
+  },
+  "check": {
+    "question": "A poset has 6 elements and its longest chain has 3 elements. What can you say about the number of antichains needed to partition it?",
+    "answer": "Exactly 3, by Mirsky's theorem - no more and no fewer.",
+    "explanation": "Mirsky's theorem makes the partition into height classes, one per level of the longest chain. Fewer than 3 antichains would put two comparable elements together, contradicting the definition of an antichain."
+  },
+  "pyqIds": [
+    "gate-1997-6-1-total-orders-n-factorial",
+    "gate-2024-set2-24-total-orders"
+  ],
+  "prereqs": [
+    "hasse-diagram-and-covering"
+  ],
+  "videoRefs": [],
+  "sources": [
+    {
+      "kind": "lecture",
+      "title": "Lecture 40 - Lattices (Discrete Mathematical Structures)",
+      "channel": "NPTEL, IIT Madras (Dr. Kamala Krithivasan)",
+      "url": "http://elearn.psgcas.ac.in/nptel/courses/video/106106094/lec40.pdf",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "published lecture transcript (27 pages), read in full"
+    },
+    {
+      "kind": "video",
+      "title": "Constructing Total Order from Partial Order - GATE 2024, 1997",
+      "channel": "GO Classes for GATE CS (Deepak Poonia)",
+      "video_id": "WyV6YtqCvGE",
+      "url": "https://www.youtube.com/watch?v=WyV6YtqCvGE",
+      "language": "en",
+      "transcript": "UNAVAILABLE",
+      "translated": false,
+      "note": "title and channel confirmed; captions could not be retrieved"
+    },
+    {
+      "kind": "video",
+      "title": "Lattice, POSET - GATE PYQs - Part 1",
+      "channel": "GO Classes for GATE CS (Deepak Poonia)",
+      "video_id": "3chjsP_NNnY",
+      "url": "https://www.youtube.com/watch?v=3chjsP_NNnY",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "auto-caption text read for the GATE 1993, 1996 and 2003 segments only"
+    },
+    {
+      "kind": "text",
+      "title": "Rosen, Discrete Mathematics and Its Applications, ch. 9.6 (partial orderings) and ch. 9.5 (lattices in the Boolean-algebra sense)",
+      "language": "en",
+      "transcript": "N/A"
+    }
+  ],
+  "sourceLine": "Chain, antichain, length and the decomposition theorem: NPTEL IIT Madras Lecture 40 (English, full transcript), which states and proves the antichain partition. The total-order constructions for GATE 2024 and 1997: GO Classes for GATE CS 'Constructing Total Order from Partial Order' (English, captions unavailable in this run; the construction is recomputed here)."
+}

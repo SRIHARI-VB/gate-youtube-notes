@@ -1,0 +1,22 @@
+{
+  "id": "gate-1996-1-2-hasse-edges-divides",
+  "year": "1996",
+  "paper": "GATE CS 1996",
+  "question_ref": "Q.1.2 (GATE Overflow numbering; some year-wise mirrors list it as Q.45)",
+  "type": "MCQ",
+  "marks": "1",
+  "topic": "hasse-diagram-and-covering",
+  "text": "Let X = {2, 3, 6, 12, 24}. Let <= be the partial order defined by x <= y if x divides y. The number of edges in the Hasse diagram of (X, <=) is",
+  "options": [
+    "3",
+    "4",
+    "9",
+    "None of the above"
+  ],
+  "answer": "Option (B) - 4",
+  "solution": "The edges are the covering pairs: (2,6), (3,6), (6,12), (12,24). The pair 2 and 3 are incomparable, 6 covers 2 and 3, 12 covers 6 and 24 covers 12. The transitive pairs (2,12), (2,24), (3,12), (3,24) and (6,24) are not drawn, and the five reflexive pairs are omitted. Recomputed by enumeration: 4 covering pairs, 14 ordered pairs in the relation.",
+  "source_url": "https://gateoverflow.in/2706/gate-cse-1996-question-1-2",
+  "source_label": "GATE Overflow question page - GATE CSE 1996 Q.1.2 with community solutions (answer recorded as option B, 4)",
+  "verification": "SOURCED",
+  "answer_evidence": "The accepted answer on the page records 'Answer: B' and the comment thread counts the four covering edges; the count is independently recomputed by scripts/validate.py."
+}

@@ -1,0 +1,77 @@
+{
+  "id": "upper-lower-bounds-lub-glb",
+  "title": "Upper Bounds, Lower Bounds, LUB and GLB",
+  "priority": "P1",
+  "order": 65,
+  "unit": "Posets",
+  "quickIdea": "An upper bound of a set is an element above all of it; the least upper bound is the smallest such element, and it may not exist even when upper bounds do.",
+  "remember": [
+    "u is an upper bound of S when s <= u for every s in S. The least upper bound (LUB, supremum, join) is the upper bound that lies below every other upper bound. Lower bounds and the greatest lower bound (GLB, infimum, meet) are the mirror images.",
+    "A LUB, when it exists, is unique; an upper bound need not be unique and need not belong to S.",
+    "Upper bounds can exist with no LUB: in the poset {a, b, c, d} with a < c, b < c, a < d, b < d, the pair {a, b} has two upper bounds c and d and they are incomparable, so no LUB.",
+    "Bounds are taken with respect to the whole poset, not the subset: the LUB of a pair in a sublattice is computed in the larger lattice, which is why a subset can be a lattice without being a sublattice.",
+    "For divisibility the join is the least common multiple and the meet is the greatest common divisor; for set inclusion the join is the union and the meet is the intersection - provided those sets are in the poset.",
+    "In the divisors of 12, lcm(4, 6) = 12 is the LUB and gcd(4, 6) = 2 the GLB. In the divisors of 18, the pair 6 and 9 has GLB 3 but its LUB 18 is absent, so that pair has no LUB inside the poset.",
+    "A pair can have a GLB and no LUB, or the reverse. Lattices are exactly the posets where this never happens for any pair."
+  ],
+  "example": {
+    "prompt": "In the poset of divisors of 12 under divisibility, find the upper bounds, the LUB, the lower bounds and the GLB of {4, 6}.",
+    "work": "Multiples of both 4 and 6 inside the set: only 12. So the upper bounds are {12} and the LUB is 12. Common divisors: 1 and 2. The largest is 2, so the GLB is 2.",
+    "answer": "Upper bounds {12} with LUB 12; lower bounds {1, 2} with GLB 2."
+  },
+  "gateAngle": "The LUB-GLB test is the whole of the lattice question: GATE hands over a Hasse diagram and asks whether it is a lattice. Look for a pair with two incomparable upper bounds - that single pair refutes the lattice property faster than checking all pairs.",
+  "variations": [
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Can a pair have two different least upper bounds?",
+      "answer": "No. Two least upper bounds u and v would each be below the other, so u = v by antisymmetry.",
+      "why": "Uniqueness follows from antisymmetry alone, which is why the join is a well-defined operation on a lattice."
+    },
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "In the poset {1, 2, 3, 6, 9, 18} under divisibility, which pairs have no LUB?",
+      "answer": "Pairs whose least common multiple is outside the set - for example 4 is not in the set at all, but 12 is: take 6 and 9, whose lcm is 18, which is present, so that pair is fine; the pair 2 and 9 has lcm 18, present. In fact every pair here has an LUB, so the poset is a lattice.",
+      "why": "The check is mechanical: compute lcm, test membership. This is exactly the arithmetic that makes the divisor poset the standard lattice example."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "A poset has a greatest element. Which sets automatically have a LUB?",
+      "answer": "Every subset does - the greatest element is an upper bound of everything, so the LUB exists and is at most the greatest element.",
+      "why": "This is the half of the boundedness argument that students miss: a greatest element gives LUBs for free but says nothing about GLBs."
+    }
+  ],
+  "trap": {
+    "what": "Computing the LUB or GLB outside the poset, and confusing 'an upper bound' with 'the least upper bound'.",
+    "why": "The LUB must be an element of the poset. Students compute the lcm of 4 and 6 as 12 and accept it even when 12 was not among the given elements.",
+    "counterexample": "The divisors of 18 ordered by divisibility: the lcm of 6 and 9 is 18, which is present, so that pair is fine; but the lcm of 2 and 9 is 18, also present. Remove 18 and both pairs lose their LUB while keeping their GLB 1 and 3 - the poset is then not a lattice."
+  },
+  "check": {
+    "question": "In the poset of divisors of 30 under divisibility, what is the LUB of 6 and 10, and the GLB of 6 and 10?",
+    "answer": "LUB 30, GLB 2.",
+    "explanation": "lcm(6, 10) = 30 and gcd(6, 10) = 2, and both 30 and 2 are divisors of 30, so both bounds exist inside the poset."
+  },
+  "pyqIds": [],
+  "prereqs": [
+    "minimal-maximal-least-greatest"
+  ],
+  "videoRefs": [],
+  "sources": [
+    {
+      "kind": "lecture",
+      "title": "Lecture 40 - Lattices (Discrete Mathematical Structures)",
+      "channel": "NPTEL, IIT Madras (Dr. Kamala Krithivasan)",
+      "url": "http://elearn.psgcas.ac.in/nptel/courses/video/106106094/lec40.pdf",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "published lecture transcript (27 pages), read in full"
+    },
+    {
+      "kind": "text",
+      "title": "Rosen, Discrete Mathematics and Its Applications, ch. 9.6 (partial orderings) and ch. 9.5 (lattices in the Boolean-algebra sense)",
+      "language": "en",
+      "transcript": "N/A"
+    }
+  ],
+  "sourceLine": "Bounds, meet and join defined as greatest lower and least upper bounds, with the divisibility example: NPTEL IIT Madras Lecture 40 (English, full transcript). Notation and the lcm/gcd correspondence checked against Rosen ch. 9.6."
+}

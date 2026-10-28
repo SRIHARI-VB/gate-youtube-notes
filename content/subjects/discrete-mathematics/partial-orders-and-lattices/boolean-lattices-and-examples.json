@@ -1,0 +1,92 @@
+{
+  "id": "boolean-lattices-and-examples",
+  "title": "Boolean Lattices, Power Sets and Divisor Lattices",
+  "priority": "P2",
+  "order": 71,
+  "unit": "Lattices",
+  "quickIdea": "A Boolean lattice is a complemented distributive lattice, and the power set lattice is the model for all of them. The divisor lattice of n is Boolean exactly when n is squarefree.",
+  "remember": [
+    "A Boolean lattice is a lattice that is bounded, complemented and distributive. Meet is AND, join is OR, complement is NOT - the same three operations as Boolean algebra.",
+    "The power set of an n-element set, ordered by inclusion, is a Boolean lattice with 2^n elements; its atoms are the singletons, and A' is the set complement of A.",
+    "The number of elements of the Boolean lattice B_n is 2^n, and the number of its covering pairs is n times 2^(n-1) - each subset is covered by adding one element.",
+    "The divisor lattice D_n ordered by divisibility has join lcm and meet gcd. It is Boolean exactly when n is squarefree, and then it has 2^(number of primes) elements.",
+    "D_6 = {1, 2, 3, 6} is the 4-element Boolean lattice. D_12 is a lattice but not Boolean, because 2 has no complement.",
+    "The functions from {1, ..., n} to {0, 1} under the pointwise order form a Boolean lattice isomorphic to B_n, with join the pointwise maximum and meet the pointwise minimum - the shape of GATE CSE 2025 Set 2 Q.32.",
+    "Every finite Boolean lattice is isomorphic to a power set lattice, so counting subsets answers every question about it."
+  ],
+  "example": {
+    "prompt": "How many elements and how many covering pairs does the Boolean lattice B_4 have, and what is the complement of {1, 2}?",
+    "work": "B_4 is the power set of a 4-element set, so 2^4 = 16 elements. Covering pairs: each of the 16 subsets is covered by adding one of the missing elements, and summing the missing elements over all subsets gives 4 times 2^3 = 32. The complement of {1, 2} is {3, 4}.",
+    "answer": "16 elements, 32 covering pairs, and {1, 2}' = {3, 4}."
+  },
+  "gateAngle": "GATE CSE 2025 Set 2 Q.32 turned the pointwise order on {0,1}-valued functions into a Boolean lattice question: the relation is a partial order and a lattice, with join max and meet min. Recognising the shape as B_n answers 'is it a lattice' and 'is it distributive' in one step.",
+  "variations": [
+    {
+      "label": "VERIFIED PYQ",
+      "question": "GATE CSE 2025 Set 2 Q.32: F is the set of all functions from {1, ..., n} to {0, 1}, and f <= g when f(x) <= g(x) for every x. Which are true? (A) <= is symmetric (B) (F, <=) is a partial order (C) (F, <=) is a lattice (D) <= is an equivalence relation.",
+      "answer": "(B) and (C).",
+      "why": "Reflexive, antisymmetric and transitive give a partial order; join is the pointwise maximum and meet the pointwise minimum, both inside F, so it is a lattice - in fact the Boolean lattice B_n. Symmetry fails because 0 <= 1 but not 1 <= 0, which also kills (D)."
+    },
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "Is the divisor lattice of 30 Boolean? How many elements does it have?",
+      "answer": "Yes. 30 = 2 x 3 x 5 is squarefree, so the lattice is Boolean with 2^3 = 8 elements.",
+      "why": "Each divisor is a subset of {2, 3, 5}, and divisibility becomes inclusion, so the lattice is the power set of a 3-element set."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "In the Boolean lattice B3, how many elements lie strictly below the element {1, 2}?",
+      "answer": "3 - namely the empty set, {1} and {2}.",
+      "why": "An element of B3 is a subset and the order is inclusion, so the elements below {1,2} are its subsets. A 2-element set has 2^2 = 4 subsets, one of which is itself."
+    }
+  ],
+  "trap": {
+    "what": "Assuming every complemented lattice is Boolean, or that every divisor lattice is Boolean.",
+    "why": "Boolean needs all three conditions. D_12 is distributive and bounded but not complemented; M3 is complemented and bounded but not distributive. Neither is Boolean.",
+    "counterexample": "D_12 = {1, 2, 3, 4, 6, 12}: 2 has no complement, so it is not complemented, hence not Boolean - although it is distributive. M3 is complemented but not distributive, so it is not Boolean either."
+  },
+  "check": {
+    "question": "How many elements does the Boolean lattice of the divisors of 210 have?",
+    "answer": "16.",
+    "explanation": "210 = 2 x 3 x 5 x 7 has four distinct primes, so the divisor lattice is the power set of a 4-element set: 2^4 = 16 divisors, all of them squarefree."
+  },
+  "pyqIds": [
+    "gate-2025-set2-32-function-poset"
+  ],
+  "prereqs": [
+    "distributive-lattices",
+    "bounded-and-complemented-lattices",
+    "power-set-and-its-size"
+  ],
+  "videoRefs": [],
+  "sources": [
+    {
+      "kind": "lecture",
+      "title": "Lecture 40 - Lattices (Discrete Mathematical Structures)",
+      "channel": "NPTEL, IIT Madras (Dr. Kamala Krithivasan)",
+      "url": "http://elearn.psgcas.ac.in/nptel/courses/video/106106094/lec40.pdf",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "published lecture transcript (27 pages), read in full"
+    },
+    {
+      "kind": "video",
+      "title": "Lattice, POSET - GATE PYQs - Part 1",
+      "channel": "GO Classes for GATE CS (Deepak Poonia)",
+      "video_id": "3chjsP_NNnY",
+      "url": "https://www.youtube.com/watch?v=3chjsP_NNnY",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "auto-caption text read for the GATE 1993, 1996 and 2003 segments only"
+    },
+    {
+      "kind": "text",
+      "title": "Rosen, Discrete Mathematics and Its Applications, ch. 9.6 (partial orderings) and ch. 9.5 (lattices in the Boolean-algebra sense)",
+      "language": "en",
+      "transcript": "N/A"
+    }
+  ],
+  "sourceLine": "The correspondence between a complemented distributive lattice and a Boolean algebra, and the power-set complements: NPTEL IIT Madras Lecture 40 (English, full transcript). Divisor-lattice practice (D_n analysis) sits in the NPTEL IIT Guwahati Lec 22 and the GO Classes Set Theory lectures 61-62, whose captions were unavailable in this run; the counts are recomputed here."
+}

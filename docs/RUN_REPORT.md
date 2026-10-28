@@ -356,3 +356,52 @@ byte (clean working tree), `python3 scripts/validate.py` reports 10 checks passe
 Met for this playlist except where the limitations above apply: every video has an explicit processing status, every
 card carries sources and a quick check, every PYQ carries a year, a question reference and a source URL, and no
 question is presented as a previous-year question without one.
+
+---
+
+## Run 4 - Partial Orders and Lattices (2026-10-28)
+
+**Why this topic.** `content/coverage.json` pointed at `discrete-mathematics/sets-relations-functions` after run 3. The
+first topic strictly after that pointer in syllabus order whose status is not `covered` is
+`discrete-mathematics/partial-orders-and-lattices`, which was `not_started`. Nothing was skipped: `partial-orders-and-lattices`
+was the first candidate and it was processed.
+
+**Subtopics enumerated first**, from the GATE 2027 CS line "partial orders and lattices": poset axioms; covering relation and
+Hasse diagrams; comparability, chains and antichains; minimal/maximal/least/greatest elements; bounds, LUB and GLB; the lattice
+test; the lattice laws; sublattices; bounded and complemented lattices; distributive lattices; Boolean lattices; complete
+lattices.
+
+**Sources chosen on merit** (full ledger in `content/subjects/discrete-mathematics/partial-orders-and-lattices/sources.json`):
+
+- NPTEL IIT Madras, Lecture 40 "Lattices" - read in full from its published transcript PDF. It carries the lattice laws, the
+  M3 and pentagon counterexamples, uniqueness of complements in a distributive lattice, and the chain/antichain decomposition
+  theorem, all of which the cards use.
+- NPTEL IIT Guwahati, NOC Discrete Mathematics Lec 21-23 - structure only; captions could not be retrieved in this run.
+- GO Classes for GATE CS, "Lattice, POSET - GATE PYQs - Part 1" - auto-caption excerpt read for the GATE 1993, 1996 and 2003
+  segments, which the Hasse-diagram and minimal/maximal cards draw on.
+- GO Classes for GATE CS, "Constructing Total Order from Partial Order" (GATE 2024, 1997) - captions unavailable; both counts
+  are recomputed instead.
+
+Rejected, with reasons in the ledger: the Sandeep Kumar Gour Hindi playlist (16 videos, no readable content - rejected for
+access, not for language), the NPTEL IIT Roorkee 2015 chapters 30-32 (all transcripts marked unavailable), the Neso Academy
+sequence (complete but proof-free and unreadable here), and IIT Madras Lecture 39 (an automata lecture, read and discarded).
+
+**Created.** 12 cards, one per subtopic; 6 verified PYQs (GATE CSE 1996 Q.1.2, 1997 Q.6.1, 2004 Q.73, 2017 Set 2 Q.21,
+2024 Set 2 Q.24, 2025 Set 2 Q.32); one p5.js lesson `poset-to-lattice-pair-test`; a "Partial orders and lattices" group in
+`content/revision/formulas.json`.
+
+**Mathematics.** `scripts/validate.py` gains `check_lattices`, which counts the posets on 2, 3 and 4 elements (3, 19, 219),
+recomputes every Hasse edge and relation count, verifies Mirsky's antichain partition on every poset up to four elements,
+recomputes both linear-extension counts, checks the four lattice laws and the semi-distributive inequality on six lattices,
+reproduces the M3 and N5 counterexamples, and decides every sublattice, complement, Boolean and completeness claim in the
+cards and the lesson. Two claims were wrong on first draft and were corrected by these checks: the pentagon counterexample
+(the meet-over-join form happens to hold in N5; it is the join-over-meet form that fails) and the complements in D12 (3 and 4
+do complement each other; 2 and 6 do not).
+
+**Gaps (topic stays `partial`).** Video captions were not retrievable in this run (YouTube answered `LOGIN_REQUIRED`, the
+third-party transcript service was blocked), so four chosen video sources are structure-only and no card quotes or timestamps
+them. Three figure-only PYQs could not be recomputed from text and are excluded: GATE CSE 1997 Q.3.3, 2005 Q.9 and 2015
+Set 1 Q.34. Birkhoff's forbidden-sublattice characterisation is stated from the standard reference only.
+
+**Checks.** `python3 scripts/build-index.py` and `python3 scripts/validate.py` pass (15 checks, 0 failures, 8 pre-existing
+warnings), and `node tests/visual-lessons.js` draws every step of all nine p5 lessons.

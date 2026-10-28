@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>From Poset to Lattice - Partial Orders and Lattices visual lesson</title>
+<link rel="stylesheet" href="../../../lesson.css">
+<script src="https://cdn.jsdelivr.net/npm/p5@1.9.4/lib/p5.min.js"></script>
+</head>
+<body>
+<div class="wrap">
+  <p class="small"><a href="../../../../index.html">&larr; back to the revision site</a></p>
+  <h1>From Poset to Lattice: One Pair at a Time</h1>
+  <div class="objective"><strong>Objective.</strong> Decide whether a five-element poset is a lattice by sweeping its pairs, see why only the incomparable pairs can fail, and see how deleting one covering pair breaks the lattice property and how adding it back repairs it.</div>
+
+  <div class="canvas-wrap"><div id="canvas-holder"></div></div>
+  <div class="caption" id="caption" aria-live="polite"></div>
+
+  <div class="controls">
+    <button id="play" class="primary">Play</button>
+    <button id="prev">&larr; Prev</button>
+    <button id="next">Next &rarr;</button>
+    <button id="restart">Restart</button>
+    <span class="speed"><label for="speed">Speed</label>
+      <input id="speed" type="range" min="0.25" max="2" step="0.25" value="1">
+      <span id="speedLabel">1.00x</span></span>
+    <span class="counter" id="counter"></span>
+  </div>
+
+  <h2>Static explanation</h2>
+<p>The poset is the one from GATE CSE 2017 Set 2 Q.21: X = {a, b, c, d, e} with a below every element, e above every element, b below c, and a below d below e. Its Hasse diagram has five covering pairs - a-b, a-d, b-c, c-e, d-e - and the relation itself has thirteen pairs, because transitivity supplies a-c, b-e and a-e as well as the five reflexive pairs.</p>
+<p>A poset is a lattice when every pair of elements has a least upper bound and a greatest lower bound inside the poset. Comparable pairs are free: if b &lt; c then the join of b and c is c and the meet is b. Only the incomparable pairs need work, and here there are just two, {b, d} and {c, d}.</p>
+<p>For {b, d} the elements above both are e alone, so the join is e; the elements below both are a alone, so the meet is a. For {c, d} the same two elements answer: join e, meet a. Every pair is settled, so the poset is already a lattice and the minimum number of ordered pairs that must be added is 0.</p>
+<p>The last step deletes the covering pair d &lt; e. Now d is maximal, nothing lies above both b and d, and the pair has no join: one missing bound is enough to refute the lattice property, and adding that single pair back restores it. That is the shape of the question when the answer is not zero.</p>
+
+  <div class="card warn"><div class="label">Common misconception</div><p>Judging lattice-hood from the picture - "it has a single top vertex, so it must be a lattice". A single top vertex does not help: the failure is always a pair with two incomparable upper bounds, or no upper bound at all. In the broken variant the top vertex e is still there, and the poset is still not a lattice, because e is not above d. The reliable test is the pair sweep, and the fast version checks only the incomparable pairs.</p></div>
+  <div class="card ok"><div class="label">Quick check</div><p>In the broken variant (the covering pair d &lt; e deleted), which pairs lose a bound, and how many ordered pairs must be added to make it a lattice again?</p><details><summary>Answer</summary><p><strong>The pairs {b, d} and {c, d} lose their join, and adding the single pair (d, e) repairs both.</strong> With d &lt; e restored, d is below e, so e is above b and d and above c and d, and the joins return. Adding the single pair (d, e) restores both joins, and the relation grows by exactly one pair - the pairs (b, e) and (a, e) never left, because the chain a &lt; b &lt; c &lt; e still carries them.</p></details></div>
+  <p class="small">Topic: lattices and the pairwise join/meet test (Discrete Mathematics, Partial Orders and Lattices). Sources: NPTEL IIT Madras Lecture 40 "Lattices" (English, full transcript) for the lattice definition and the diagram checks; GO Classes for GATE CS "Lattice, POSET - GATE PYQs - Part 1" (English, auto-caption excerpt read) for the GATE question pattern. Verified PYQ behind this lesson: GATE CSE 2017 Set 2 Q.21.</p>
+</div>
+<script src="../../../lesson.js"></script>
+<script src="sketch.js"></script>
+<script>
+/* p5.js is loaded from a CDN. If it is unreachable, say so plainly instead of showing an empty box. */
+window.addEventListener('load', function () {
+  if (window.p5) { return; }
+  var holder = document.getElementById('canvas-holder');
+  if (holder) {
+    holder.innerHTML = '<div style="padding:22px 18px;font-size:14.5px;color:#4a5260">' +
+      'The animation needs p5.js, which this page loads from a CDN, and the request failed (offline, or the CDN is blocked). ' +
+      'Everything below still works: the static explanation, the misconception and the quick check.</div>';
+  }
+  var cap = document.getElementById('caption');
+  if (cap && window.LESSON && window.LESSON.steps && window.LESSON.steps[0]) {
+    cap.innerHTML = window.LESSON.steps[0].caption;
+  }
+  ['play', 'prev', 'next', 'restart', 'speed'].forEach(function (id) {
+    var el = document.getElementById(id);
+    if (el) { el.disabled = true; }
+  });
+});
+</script>
+</body>
+</html>

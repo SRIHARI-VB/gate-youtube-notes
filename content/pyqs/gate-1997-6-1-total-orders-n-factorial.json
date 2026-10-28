@@ -1,0 +1,22 @@
+{
+  "id": "gate-1997-6-1-total-orders-n-factorial",
+  "year": "1997",
+  "paper": "GATE CS 1997",
+  "question_ref": "Q.6.1",
+  "type": "MCQ",
+  "marks": "2",
+  "topic": "comparability-chains-and-antichains",
+  "text": "A partial order <= is defined on the set S = {x, a1, a2, ..., an, y} as x <= ai for all i and ai <= y for all i, where n >= 1. The number of total orders on the set S which contain the partial order <= is",
+  "options": [
+    "n!",
+    "n",
+    "2n",
+    "None of the above"
+  ],
+  "answer": "Option (A) - n!",
+  "solution": "x is below every ai and every ai is below y, so x is first and y is last in any total order extending the poset. The ai are mutually incomparable, so any of the n! arrangements of them between x and y gives a total order, and different arrangements give different total orders. Recomputed by enumeration for n = 1, 2, 3, 4: 1, 2, 6, 24 total orders.",
+  "source_url": "https://gateoverflow.in/2257/gate-cse-1997-question-6-1",
+  "source_label": "GATE Overflow question page - GATE CSE 1997 Q.6.1 with two community solutions (answer recorded as option A, n!)",
+  "verification": "SOURCED",
+  "answer_evidence": "The accepted answer states 'this translates to giving an ordering for n elements between x and y, which can be done in n! ways. So, answer is (a)'; the count is recomputed by scripts/validate.py for n = 1 to 4."
+}

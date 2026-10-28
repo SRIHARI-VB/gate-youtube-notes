@@ -1,0 +1,127 @@
+{
+  "subject": "discrete-mathematics",
+  "topic": "partial-orders-and-lattices",
+  "exam": "GATE CSE 2027",
+  "subtopics": [
+    "partial orders: reflexivity, antisymmetry, transitivity, and posets",
+    "covering relation, Hasse diagrams and reading the relation back from a diagram",
+    "comparability, chains, antichains, length and total orders (linear extensions)",
+    "minimal, maximal, least and greatest elements",
+    "upper and lower bounds, LUB and GLB",
+    "lattices: the pairwise join/meet test and sublattices",
+    "lattice laws (idempotent, commutative, associative, absorption) and duality",
+    "bounded and complemented lattices, uniqueness of complements",
+    "distributive lattices and the forbidden M3 and N5 sublattices",
+    "Boolean lattices: power sets and divisor lattices",
+    "complete lattices"
+  ],
+  "chosen": [
+    {
+      "id": "lec40-iitm-lattices",
+      "kind": "lecture",
+      "channel": "NPTEL, IIT Madras (Dr. Kamala Krithivasan, Discrete Mathematical Structures)",
+      "title": "Lecture 40 - Lattices (published transcript PDF)",
+      "url": "http://elearn.psgcas.in/nptel/courses/video/106106094/lec40.pdf",
+      "language": "en",
+      "covers": [
+        "poset definition",
+        "meet and join",
+        "lattice definition",
+        "M3 and the 2-cube",
+        "the four lattice laws",
+        "sublattice",
+        "distributive and non-distributive lattices",
+        "complement and Boolean algebra",
+        "chain",
+        "antichain",
+        "decomposition into antichains"
+      ],
+      "transcript": "FULL",
+      "why": "The only source found whose full transcript is readable: 27 pages of verified lecture text that states the lattice laws, works the M3 and pentagon counterexamples to distributivity, proves uniqueness of complements in a distributive lattice, and states and proves the antichain decomposition theorem. Chosen for correctness of argument, not for popularity."
+    },
+    {
+      "id": "PLwdnzlV3ogoVxVxCTlI45pDVM1aoYoMHf",
+      "kind": "playlist",
+      "channel": "NPTEL IIT Guwahati",
+      "title": "Discrete Mathematics (NOC): Lec 21 Partially ordering relations, Lec 22 Natural numbers and divisors, Lec 23 Lattices",
+      "language": "en",
+      "covers": [
+        "partial ordering relations",
+        "divisor posets",
+        "lattices"
+      ],
+      "transcript": "UNAVAILABLE",
+      "why": "The lecture sequence matches the GATE syllabus order exactly and pairs the poset lectures with the divisor-lattice lecture, which is the example GATE actually uses. Recorded as a structure reference only: captions could not be retrieved in this run, so no claim rests on its spoken content."
+    },
+    {
+      "id": "3chjsP_NNnY",
+      "kind": "video",
+      "channel": "GO Classes for GATE CS (Deepak Poonia)",
+      "title": "Lattice, POSET - GATE PYQs - Part 1",
+      "language": "en",
+      "covers": [
+        "GATE 1993 less-than on the reals",
+        "GATE 1996 Hasse diagram edge count",
+        "GATE 2003 minimal and maximal elements",
+        "cardinality of a divisibility relation"
+      ],
+      "transcript": "PARTIAL",
+      "why": "The only source found that works real GATE poset questions end to end and names the question years; the auto-caption text was readable for the 1993, 1996 and 2003 segments, which is what the Hasse-diagram and minimal/maximal cards draw on."
+    },
+    {
+      "id": "WyV6YtqCvGE",
+      "kind": "video",
+      "channel": "GO Classes for GATE CS (Deepak Poonia)",
+      "title": "Constructing Total Order from Partial Order | Compatible Total Ordering | POSET | GATE 2024, 1997",
+      "language": "en",
+      "covers": [
+        "total orders containing a partial order",
+        "GATE 2024 Set 2 Q.24",
+        "GATE 1997 Q.6.1"
+      ],
+      "transcript": "UNAVAILABLE",
+      "why": "It is the source GATE Overflow itself points to for the two linear-extension questions, and its title names both years, so its scope is checkable even though its captions were not retrievable here. The two counts are recomputed independently, so no claim depends on the video."
+    }
+  ],
+  "rejected": [
+    {
+      "id": "PLEjRWorvdxL5-D6xREVQ7a-EZMJLO7N8j",
+      "kind": "playlist",
+      "channel": "Sandeep Kumar Gour",
+      "title": "Poset | Hasse | Lattice playlist in Hindi",
+      "language": "hi",
+      "why": "A 16-video Hindi playlist whose scope fits the topic, and language is not the reason for rejection: the playlist page exposes no lecture-level structure and the captions were not retrievable in this run, so nothing could be attributed to it. Kept on the record as the best non-English candidate and the first thing to revisit when captions are reachable."
+    },
+    {
+      "id": "111107058",
+      "kind": "course",
+      "channel": "NPTEL, IIT Roorkee",
+      "title": "Discrete Mathematics (2015), chapters 30-32: Partially ordered relation, Partially ordered sets, Lattices",
+      "language": "en",
+      "why": "The chapter list covers the topic, but every chapter's transcript is marked 'PDF unavailable' on the NPTEL archive page, so it offers nothing checkable that the IIT Madras lecture does not already give."
+    },
+    {
+      "id": "neso-discrete-mathematics",
+      "kind": "playlist",
+      "channel": "Neso Academy",
+      "title": "Discrete Mathematics (chapter 6: partial ordering, Hasse diagrams, poset elements, semilattices, lattices, complemented and distributive lattices)",
+      "language": "en",
+      "why": "The most complete short-video sequence found for the topic, but it is built as a solve-the-example course with no proofs of the lattice laws or the antichain decomposition, and its transcripts were not retrievable here. Rejected in favour of a readable full lecture plus verified PYQs."
+    },
+    {
+      "id": "106106094-lec39",
+      "kind": "lecture",
+      "channel": "NPTEL, IIT Madras",
+      "title": "Lecture 39 - Finite State Automaton (contd.)",
+      "language": "en",
+      "why": "Downloaded while checking the IIT Madras series and read in full: it is an automata lecture, not a poset lecture, so it is out of scope for this topic."
+    }
+  ],
+  "standard_refs": [
+    "Rosen, Discrete Mathematics and Its Applications, ch. 9.6 (partial orderings), ch. 9.5-9.6 for lattices and Boolean algebras",
+    "Grimaldi, Discrete and Combinatorial Mathematics, ch. 7 (relations, partial orders, lattices) - used only for the Birkhoff forbidden-sublattice statement"
+  ],
+  "language_note": "No card is translated: every chosen source with readable text is English. The Hindi candidate was rejected for lack of readable content, not for its language, and is recorded above so the decision is reviewable.",
+  "transcript_note": "Video captions could not be retrieved in this run: YouTube's caption endpoints answered with LOGIN_REQUIRED and the third-party transcript service was blocked. Lecture 40 exists as a published transcript PDF and was read in full; the GO Classes PYQ video was readable only through its indexed auto-caption excerpt. No card claims a timestamp or a phrase from any source that was not read.",
+  "retrieved_at": "2026-10-28"
+}

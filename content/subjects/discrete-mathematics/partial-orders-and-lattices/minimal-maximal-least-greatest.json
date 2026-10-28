@@ -1,0 +1,88 @@
+{
+  "id": "minimal-maximal-least-greatest",
+  "title": "Minimal, Maximal, Least and Greatest Elements",
+  "priority": "P1",
+  "order": 64,
+  "unit": "Posets",
+  "quickIdea": "Minimal means nothing lies below it; least means it lies below everything. A poset can have several minimal elements but at most one least element.",
+  "remember": [
+    "a is minimal when no element is strictly below it: there is no b with b < a. a is maximal when no element is strictly above it.",
+    "a is the least element when a <= x for every x in the poset; the greatest element when x <= a for every x.",
+    "Least implies minimal, but minimal does not imply least. The least element, when it exists, is unique, because two elements each below the other are equal by antisymmetry.",
+    "In the divisors of 12 the least element is 1 and the greatest is 12. In the divisors of 12 without 12, 4 and 6 are both maximal and there is no greatest element.",
+    "A finite poset always has at least one minimal and at least one maximal element; a poset can have neither a least nor a greatest element.",
+    "In a Hasse diagram, minimal elements are the vertices with no segment below them, maximal elements those with no segment above them - never 'the bottom vertex', because there may be several.",
+    "A least element, if present, is the meet of everything; this is why a lattice with a least and a greatest element is called bounded."
+  ],
+  "example": {
+    "prompt": "Poset: divisors of 12 under divisibility, {1, 2, 3, 4, 6, 12}. Find the minimal, maximal, least and greatest elements.",
+    "work": "1 divides everything, so 1 is the least element and the only minimal one. 12 is divisible by everything, so 12 is the greatest and the only maximal one. Remove 12: now nothing is divisible by everything, so 4 and 6 are both maximal and there is no greatest element; 1 is still the least.",
+    "answer": "With 12 present: least 1, greatest 12, both unique. Without 12: minimal 1, maximal 4 and 6, no greatest element."
+  },
+  "gateAngle": "A one-mark question usually hands you a Hasse diagram and asks which elements are minimal, or how many maximal elements exist. Count vertices with nothing below them, not vertices at the bottom of the drawing.",
+  "variations": [
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "In a finite poset, does a unique minimal element have to be the least element?",
+      "answer": "Yes.",
+      "why": "If a is the only minimal element, take any b in the poset: walking downwards from b through finitely many strictly smaller elements must stop at a minimal element, which must be a. So a <= b for every b. In an infinite poset the answer is no: add an element below an infinite descending chain and it is the only minimal element without being least."
+    },
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "A poset has 5 minimal elements and 2 maximal elements. What are the smallest possible and largest possible sizes of the set?",
+      "answer": "At least 5 elements (the minimal ones can also be maximal) and at most 7 if the minimal and maximal sets are disjoint.",
+      "why": "An element can be both minimal and maximal - exactly the isolated points of the poset. In the 2024 GATE poset, 1 and 3 are minimal and 2 and 4 maximal, with nothing shared."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "In a finite poset with a least element, how many minimal elements are there?",
+      "answer": "Exactly one - the least element itself.",
+      "why": "If a is least then a <= b for every b, so no b can lie strictly below a, and every other element has a below it, so is not minimal."
+    }
+  ],
+  "trap": {
+    "what": "Reading 'maximal' as 'greatest', and assuming a poset has a least element because the picture has a bottom vertex.",
+    "why": "Maximal is a local condition - nothing above - while greatest is global - everything below. A diagram can have two bottom vertices, and then there is no least element.",
+    "counterexample": "In the 5-element poset with a < c, b < c, c < d, b < e, the elements a and b are minimal but neither is least, because a is not below b and b is not below a."
+  },
+  "check": {
+    "question": "In the poset {2, 3, 4, 6, 12} under divisibility, how many maximal elements are there?",
+    "answer": "One, namely 12.",
+    "explanation": "4 divides 12, 6 divides 12, 2 and 3 divide 12, so every element is below 12 and 12 is the greatest as well as the only maximal element. The absence of 1 does not matter here."
+  },
+  "pyqIds": [],
+  "prereqs": [
+    "hasse-diagram-and-covering"
+  ],
+  "videoRefs": [],
+  "sources": [
+    {
+      "kind": "lecture",
+      "title": "Lecture 40 - Lattices (Discrete Mathematical Structures)",
+      "channel": "NPTEL, IIT Madras (Dr. Kamala Krithivasan)",
+      "url": "http://elearn.psgcas.ac.in/nptel/courses/video/106106094/lec40.pdf",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "published lecture transcript (27 pages), read in full"
+    },
+    {
+      "kind": "video",
+      "title": "Lattice, POSET - GATE PYQs - Part 1",
+      "channel": "GO Classes for GATE CS (Deepak Poonia)",
+      "video_id": "3chjsP_NNnY",
+      "url": "https://www.youtube.com/watch?v=3chjsP_NNnY",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "auto-caption text read for the GATE 1993, 1996 and 2003 segments only"
+    },
+    {
+      "kind": "text",
+      "title": "Rosen, Discrete Mathematics and Its Applications, ch. 9.6 (partial orderings) and ch. 9.5 (lattices in the Boolean-algebra sense)",
+      "language": "en",
+      "transcript": "N/A"
+    }
+  ],
+  "sourceLine": "Minimal, maximal, least and greatest elements, and the distinction between them, are worked through in GO Classes for GATE CS 'Lattice, POSET - GATE PYQs - Part 1' (English, auto-caption excerpt read for the GATE 2003 segment); definitions checked against Rosen ch. 9.6 and the poset vocabulary of NPTEL IIT Madras Lecture 40."
+}

@@ -1,0 +1,88 @@
+{
+  "id": "sublattices",
+  "title": "Sublattices",
+  "priority": "P2",
+  "order": 68,
+  "unit": "Lattices",
+  "quickIdea": "A subset is a sublattice when it is closed under the joins and meets computed in the whole lattice. A subset that is a lattice on its own need not be a sublattice.",
+  "remember": [
+    "S is a sublattice of L when S is a subset of L and, for all a, b in S, the join a v b and the meet a ^ b computed in L both lie in S.",
+    "The bounds are computed in L, not in S. That is the whole difference between 'S is a lattice' and 'S is a sublattice'.",
+    "Every sublattice is a lattice; the converse fails. In the cube B3 = power set of {1,2,3}, the subset {empty, {1}, {2}, {1,2}, {3}, {1,2,3}} is a lattice on its own, but the join of {1} and {3} computed in B3 is {1,3}, which is outside the subset, so it is not a sublattice.",
+    "A sublattice of a distributive lattice is distributive: distributivity is hereditary. This is the quickest way to prove a lattice is not distributive - exhibit M3 or N5 inside it.",
+    "In the divisors of 12, {1, 2, 4} is a sublattice: lcm and gcd of 2 and 4 stay inside. {1, 2, 3, 4} is not, because lcm(3, 4) = 12 is missing.",
+    "A chain in a lattice is a sublattice: the join and meet of comparable elements are the elements themselves.",
+    "In a distributive lattice the complemented elements form a sublattice - a result worth remembering for Boolean-algebra questions."
+  ],
+  "example": {
+    "prompt": "In the divisors of 12 under divisibility, test S = {1, 2, 3, 4} for sublattice and for lattice.",
+    "work": "As a poset with the restricted order, S is a lattice: 2 and 3 have upper bounds 4? No - 4 is not a multiple of 3. The upper bounds of 2 and 3 inside S are none, since 6 and 12 are excluded, so S is not even a lattice. In the whole lattice, 2 v 3 = 6, which is outside S, so S is not a sublattice either.",
+    "answer": "S is neither a lattice nor a sublattice; the failing pair is 2 and 3."
+  },
+  "gateAngle": "GATE asks 'which of these subsets is a sublattice' with four subsets of a small lattice. The reliable method is to test only the pairs whose join or meet might leave the subset - usually pairs of elements that were unrelated in the subset.",
+  "variations": [
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Is every subset that is a chain a sublattice?",
+      "answer": "Yes, in any lattice.",
+      "why": "For comparable a <= b, the join is b and the meet is a, and both are in the chain. This is the one case where the lattice/sublattice distinction disappears."
+    },
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "In the divisors of 30 under divisibility, is {1, 2, 3, 5, 6} a sublattice?",
+      "answer": "No: lcm(5, 6) = 30 is outside the subset.",
+      "why": "Only one failing pair is needed. The join of 5 and 6 is computed in the whole divisor lattice and is 30, which the subset omits."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "If a lattice L contains a sublattice isomorphic to N5, what can you conclude about L?",
+      "answer": "L is not distributive.",
+      "why": "By Birkhoff's theorem, a lattice is distributive exactly when it has no sublattice isomorphic to M3 (the diamond) or N5 (the pentagon). One such sublattice settles non-distributivity."
+    }
+  ],
+  "trap": {
+    "what": "Declaring a subset a sublattice because it happens to be a lattice under the restricted order.",
+    "why": "The restricted order changes which upper bounds exist, so joins can appear or vanish. A sublattice must agree with the parent lattice on every join and meet it uses.",
+    "counterexample": "In the diamond M3 = {0, a, b, c, 1} the subset {0, a, b} is a poset whose elements are pairwise comparable in one case only (a and b are incomparable), and the join of a and b computed in M3 is 1, which the subset omits. So the subset is not a sublattice. Contrast {0, a, b, 1}, which contains that join and is a sublattice - it is the square B2."
+  },
+  "check": {
+    "question": "In the divisors of 12, is {1, 2, 6} a sublattice?",
+    "answer": "Yes.",
+    "explanation": "The elements form a chain 1 < 2 < 6, and a chain is always a sublattice: lcm and gcd of two comparable divisors are the larger and the smaller of the two."
+  },
+  "pyqIds": [],
+  "prereqs": [
+    "lattice-algebraic-laws"
+  ],
+  "videoRefs": [],
+  "sources": [
+    {
+      "kind": "lecture",
+      "title": "Lecture 40 - Lattices (Discrete Mathematical Structures)",
+      "channel": "NPTEL, IIT Madras (Dr. Kamala Krithivasan)",
+      "url": "http://elearn.psgcas.ac.in/nptel/courses/video/106106094/lec40.pdf",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "published lecture transcript (27 pages), read in full"
+    },
+    {
+      "kind": "playlist",
+      "title": "Discrete Mathematics (NOC), Lec 21 Partially ordering relations, Lec 22 Natural numbers and divisors, Lec 23 Lattices",
+      "channel": "NPTEL IIT Guwahati",
+      "playlist_id": "PLwdnzlV3ogoVxVxCTlI45pDVM1aoYoMHf",
+      "url": "https://www.youtube.com/playlist?list=PLwdnzlV3ogoVxVxCTlI45pDVM1aoYoMHf",
+      "language": "en",
+      "transcript": "UNAVAILABLE",
+      "translated": false,
+      "note": "the three lectures are identified from the published NPTEL chapter list; captions could not be retrieved in this run"
+    },
+    {
+      "kind": "text",
+      "title": "Rosen, Discrete Mathematics and Its Applications, ch. 9.6 (partial orderings) and ch. 9.5 (lattices in the Boolean-algebra sense)",
+      "language": "en",
+      "transcript": "N/A"
+    }
+  ],
+  "sourceLine": "Sublattice defined in the lecture's own sequence (lattice, sublattice, then heredity of distributivity): NPTEL IIT Madras Lecture 40 (English, full transcript); the sublattice lecture in the NPTEL IIT Guwahati series (Lec 45) is recorded in the NPTEL chapter list, captions unavailable in this run."
+}

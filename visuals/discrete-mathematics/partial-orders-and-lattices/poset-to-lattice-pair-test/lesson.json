@@ -1,0 +1,16 @@
+{
+  "slug": "poset-to-lattice-pair-test",
+  "topic": "lattice-definition-and-pairwise-test",
+  "engine": "p5.js",
+  "steps": 6,
+  "example": {
+    "poset": "X = {a, b, c, d, e}, a least, e greatest, b < c, a < d < e",
+    "covering_pairs": 5,
+    "relation_pairs": 13,
+    "incomparable_pairs": 2,
+    "joins": {"b,d": "e", "c,d": "e"},
+    "meets": {"b,d": "a", "c,d": "a"},
+    "pairs_to_add": 0,
+    "broken_variant": "remove the covering pair d < e and {b, d} has no upper bound, so 1 pair must be added"
+  }
+}

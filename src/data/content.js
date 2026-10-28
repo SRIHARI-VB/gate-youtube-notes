@@ -161,7 +161,7 @@ window.GATE_DATA = {
      {
       "slug": "partial-orders-and-lattices",
       "name": "Partial Orders and Lattices",
-      "material": "planned"
+      "material": "cards"
      },
      {
       "slug": "monoids-and-groups",
@@ -1012,6 +1012,61 @@ window.GATE_DATA = {
      "name": "Model size",
      "latex": "\\exists^{k} \\forall^{m} \\psi \\text{ has a model of size} \\le k",
      "note": "no function symbols"
+    }
+   ]
+  },
+  {
+   "group": "Partial orders and lattices",
+   "items": [
+    {
+     "name": "Partial order",
+     "latex": "\\text{reflexive} \\wedge \\text{antisymmetric} \\wedge \\text{transitive}",
+     "note": "then (A, R) is a poset"
+    },
+    {
+     "name": "Join",
+     "latex": "a \\vee b = \\mathrm{lub}(a, b)",
+     "note": "must lie in the poset"
+    },
+    {
+     "name": "Meet",
+     "latex": "a \\wedge b = \\mathrm{glb}(a, b)",
+     "note": "must lie in the poset"
+    },
+    {
+     "name": "Lattice",
+     "latex": "\\forall a, b:\\ a \\vee b \\text{ and } a \\wedge b \\text{ exist}",
+     "note": "pairwise test, not subsetwise"
+    },
+    {
+     "name": "Absorption",
+     "latex": "a \\vee (a \\wedge b) = a, \\quad a \\wedge (a \\vee b) = a",
+     "note": "holds in every lattice"
+    },
+    {
+     "name": "Distributive",
+     "latex": "a \\wedge (b \\vee c) = (a \\wedge b) \\vee (a \\wedge c)",
+     "note": "fails in M3 and N5 only"
+    },
+    {
+     "name": "Complement",
+     "latex": "a \\wedge a' = 0, \\quad a \\vee a' = 1",
+     "note": "unique in a distributive lattice"
+    },
+    {
+     "name": "Boolean lattice",
+     "latex": "|B_n| = 2^n, \\quad \\text{covering pairs} = n \\, 2^{n-1}",
+     "note": "bounded + complemented + distributive"
+    },
+    {
+     "name": "Divisor lattice",
+     "latex": "a \\vee b = \\mathrm{lcm}(a,b),\\ a \\wedge b = \\gcd(a,b)",
+     "note": "Boolean iff n is squarefree"
+    },
+    {
+     "name": "Mirsky",
+     "latex": "\\text{longest chain} = n \\Rightarrow n \\text{ antichains}",
+     "note": "Dilworth is the dual statement"
     }
    ]
   }
@@ -5992,6 +6047,1081 @@ window.GATE_DATA = {
    "subject": "discrete-mathematics",
    "topic": "sets-relations-functions",
    "path": "subjects/discrete-mathematics/sets-relations-functions/composition-and-inverse-functions.json"
+  },
+  {
+   "id": "poset-and-partial-order-axioms",
+   "title": "Partial Orders and Posets",
+   "priority": "P1",
+   "order": 61,
+   "unit": "Posets",
+   "quickIdea": "A partial order is a relation that is reflexive, antisymmetric and transitive. It ranks some pairs of a set without ever forcing a choice between the rest, which is why it is called partial.",
+   "remember": [
+    "A relation R on a set A is a partial order when it is reflexive (aRa for every a), antisymmetric (aRb and bRa together force a = b) and transitive (aRb and bRc force aRc). The pair (A, R) is then a poset.",
+    "Antisymmetric is not 'not symmetric': the identity relation is both at once. It only forbids two different elements pointing at each other.",
+    "The four standing examples: divisibility on the positive integers, subset inclusion on a power set, 'less than or equal to' on the reals, and the pointwise order on functions into {0, 1}.",
+    "'Less than' on the reals is transitive and antisymmetric but not reflexive, so it is not a partial order - a favourite one-mark distractor.",
+    "Write a <= b instead of aRb once the relation is known to be a partial order. A total order is the special case where every two elements are comparable.",
+    "Every partial order on a finite set is its own transitive closure of the covering pairs, which is exactly why the Hasse diagram loses no information.",
+    "Counting: there are 19 partial orders on a 3-element set and 219 on a 4-element set, so brute-force enumeration is not a GATE method - use the axioms."
+   ],
+   "example": {
+    "prompt": "Show that divisibility on {1, 2, 3, 4, 6, 12} is a partial order, and name one pair that is incomparable.",
+    "work": "Reflexive: every number divides itself. Antisymmetric: if a divides b and b divides a then a = b, for positive integers. Transitive: if a divides b and b divides c then a divides c. So it is a partial order. Now 4 and 6: neither divides the other, and 4 does not appear among the multiples of 6 either, so the pair (4, 6) is incomparable.",
+    "answer": "Divisibility is a partial order on these six numbers, and 4 and 6 are incomparable, so the order is partial and not total."
+   },
+   "gateAngle": "GATE almost never asks you to prove the axioms; it asks which of several relations is a partial order, or how many pairs must be added to reach a total order. Test the three axioms in the cheapest order: reflexivity first (one counterexample kills it), then antisymmetry, then transitivity.",
+   "variations": [
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Is the relation 'a divides b' a partial order on the set of all integers, including 0 and the negatives?",
+     "answer": "No. On all the integers antisymmetry fails, because 2 divides -2 and -2 divides 2 while 2 is not -2.",
+     "why": "The divisibility order is a partial order on the positive integers only. Extending the set to all integers breaks antisymmetry, which is the axiom students check last and forget."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "There are 19 partial orders on the set {1, 2, 3}. How many of them are total orders?",
+     "answer": "6 - one for each ordering of the three elements.",
+     "why": "A total order on a finite set is a linear arrangement, so the total orders are in bijection with the 3! permutations. The other 13 partial orders leave at least one pair incomparable."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "A relation on a 3-element set is reflexive, antisymmetric and transitive except that one element is not related to itself. Is it a partial order, and what is the cheapest repair?",
+     "answer": "Not a partial order; adding that one pair (a, a) makes it one, because reflexivity is the only missing axiom.",
+     "why": "A relation missing one diagonal pair can still be antisymmetric and transitive. GATE tests exactly this gap: name the axiom, not the property list."
+    }
+   ],
+   "trap": {
+    "what": "Treating 'antisymmetric' as the negation of 'symmetric', and treating a partial order as a ranking with no ties.",
+    "why": "Antisymmetry forbids a two-way arrow between different elements; symmetry requires it. The identity relation satisfies both. And a partial order leaves whole pairs unranked - that is the 'partial' in the name.",
+    "counterexample": "On {1, 2}, the relation {(1,1), (2,2)} is symmetric, antisymmetric and a partial order. The relation {(1,1), (2,2), (1,2), (2,1)} is symmetric but not antisymmetric, so it is not a partial order."
+   },
+   "check": {
+    "question": "How many partial orders are there on a 2-element set {a, b}, and how many of them are total orders?",
+    "answer": "3 partial orders, of which 2 are total orders.",
+    "explanation": "Both reflexive pairs are forced. The pair (a,b) is in or out and the pair (b,a) is in or out, but antisymmetry forbids both: so neither (the identity, a partial order that is not total), (a,b) only, or (b,a) only. That is 3 partial orders and 2 total orders."
+   },
+   "pyqIds": [],
+   "prereqs": [
+    "relation-properties-reflexive-symmetric-antisymmetric"
+   ],
+   "videoRefs": [],
+   "sources": [
+    {
+     "kind": "lecture",
+     "title": "Lecture 40 - Lattices (Discrete Mathematical Structures)",
+     "channel": "NPTEL, IIT Madras (Dr. Kamala Krithivasan)",
+     "url": "http://elearn.psgcas.ac.in/nptel/courses/video/106106094/lec40.pdf",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "published lecture transcript (27 pages), read in full"
+    },
+    {
+     "kind": "playlist",
+     "title": "Discrete Mathematics (NOC), Lec 21 Partially ordering relations, Lec 22 Natural numbers and divisors, Lec 23 Lattices",
+     "channel": "NPTEL IIT Guwahati",
+     "playlist_id": "PLwdnzlV3ogoVxVxCTlI45pDVM1aoYoMHf",
+     "url": "https://www.youtube.com/playlist?list=PLwdnzlV3ogoVxVxCTlI45pDVM1aoYoMHf",
+     "language": "en",
+     "transcript": "UNAVAILABLE",
+     "translated": false,
+     "note": "the three lectures are identified from the published NPTEL chapter list; captions could not be retrieved in this run"
+    },
+    {
+     "kind": "text",
+     "title": "Rosen, Discrete Mathematics and Its Applications, ch. 9.6 (partial orderings) and ch. 9.5 (lattices in the Boolean-algebra sense)",
+     "language": "en",
+     "transcript": "N/A"
+    }
+   ],
+   "sourceLine": "Axioms, the four standard examples and the incomparable-pair picture: NPTEL IIT Madras Lecture 40 (English, full transcript). Lecture list and the poset-to-lattice sequence: NPTEL IIT Guwahati Lec 21-23 (English, captions unavailable in this run). Definitions checked against Rosen ch. 9.6.",
+   "subject": "discrete-mathematics",
+   "topic": "partial-orders-and-lattices",
+   "path": "subjects/discrete-mathematics/partial-orders-and-lattices/poset-and-partial-order-axioms.json"
+  },
+  {
+   "id": "hasse-diagram-and-covering",
+   "title": "Covering Relation and the Hasse Diagram",
+   "priority": "P1",
+   "order": 62,
+   "unit": "Posets",
+   "quickIdea": "The Hasse diagram drops the self-loops and every arrow that transitivity can rebuild. What is left is the covering relation, and it is a complete picture of the poset.",
+   "remember": [
+    "b covers a when a < b and no element lies strictly between them. The Hasse diagram draws one upward segment for each covering pair.",
+    "Edges of the Hasse diagram = covering pairs. The full relation is the reflexive transitive closure of those edges, so no information is lost.",
+    "To read the diagram: a <= b exactly when some upward path runs from a to b. Unrelated elements simply have no path in either direction.",
+    "A diagram is a Hasse diagram only if it is drawn so that a covering pair is one segment with no element in between - a diagram that hides a covering pair behind a vertex is unreadable, not wrong.",
+    "For divisibility on {2, 3, 6, 12, 24} the covering pairs are (2,6), (3,6), (6,12), (12,24): four edges, while the relation itself has 14 pairs.",
+    "For divisibility on the eight divisors {1, 2, 3, 4, 6, 8, 12, 24} there are 10 covering pairs.",
+    "The number of edges is not the number of pairs: |R| - |A| counts the non-reflexive pairs, and the diagram usually shows far fewer."
+   ],
+   "example": {
+    "prompt": "X = {2, 3, 6, 12, 24} ordered by divisibility. Draw the Hasse diagram, count its edges, and count the pairs of the relation.",
+    "work": "2 and 3 are incomparable, both divide 6, 6 divides 12, 12 divides 24. Covering pairs: (2,6), (3,6), (6,12), (12,24) - four edges. The full relation: 2 relates to 2, 6, 12, 24 (4 pairs); 3 relates to 3, 6, 12, 24 (4); 6 to 6, 12, 24 (3); 12 to 12, 24 (2); 24 to 24 (1).",
+    "answer": "4 edges in the Hasse diagram and 14 ordered pairs in the relation."
+   },
+   "gateAngle": "GATE CSE 1996 asked for exactly this edge count on this set. The two-step method - find covering pairs, then count by multiples - answers both the edge question and its common variation, the cardinality of the relation.",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 1996: X = {2, 3, 6, 12, 24} with x <= y when x divides y. The number of edges in the Hasse diagram is 3, 4, 9, or none of these.",
+     "answer": "4, option (B).",
+     "why": "Only the four covering pairs are drawn; the transitive pairs 2-12, 2-24, 3-12, 3-24 and 6-24 are recoverable from the paths and are not edges."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "For the same poset, what is the cardinality of the relation, and how many of its pairs are not shown as edges?",
+     "answer": "14 pairs in the relation; 10 of them are not edges.",
+     "why": "14 pairs minus the 4 edges. The 10 are the 5 reflexive pairs plus the 5 transitive shortcuts - the count GATE asks when it varies the question."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "A Hasse diagram has 7 vertices and 8 edges and is drawn with no self-loops. What is the smallest possible cardinality of the underlying relation?",
+     "answer": "At least 15 pairs, because the 7 reflexive pairs are always in the relation.",
+     "why": "The diagram shows only the 8 covering pairs; the relation must also contain all 7 reflexive pairs and every transitive shortcut, so 15 is a floor, not the answer in general."
+    }
+   ],
+   "trap": {
+    "what": "Counting the edges of the Hasse diagram as if they were the relation, or drawing a transitive edge.",
+    "why": "The diagram is the covering relation: transitivity is applied by the reader, not drawn. Reading a diagram, students also forget that a path of length two already means a <= b.",
+    "counterexample": "In the 4-element chain a < b < c < d the relation has 10 pairs but the diagram has only 3 edges; drawing the pair (a, c) as an edge would be a drawing error, not a different poset."
+   },
+   "check": {
+    "question": "In the Hasse diagram of the divisors of 12 ordered by divisibility, how many edges are there?",
+    "answer": "7 edges.",
+    "explanation": "The divisors are 1, 2, 3, 4, 6, 12. Covering pairs: 1-2, 1-3, 2-4, 2-6, 3-6, 4-12, 6-12. That is 7. The pair 2-12 is not an edge because 2 < 6 < 12."
+   },
+   "pyqIds": [
+    "gate-1996-1-2-hasse-edges-divides"
+   ],
+   "prereqs": [
+    "poset-and-partial-order-axioms",
+    "transitivity-and-closure"
+   ],
+   "videoRefs": [],
+   "sources": [
+    {
+     "kind": "video",
+     "title": "Lattice, POSET - GATE PYQs - Part 1",
+     "channel": "GO Classes for GATE CS (Deepak Poonia)",
+     "video_id": "3chjsP_NNnY",
+     "url": "https://www.youtube.com/watch?v=3chjsP_NNnY",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "auto-caption text read for the GATE 1993, 1996 and 2003 segments only"
+    },
+    {
+     "kind": "lecture",
+     "title": "Lecture 40 - Lattices (Discrete Mathematical Structures)",
+     "channel": "NPTEL, IIT Madras (Dr. Kamala Krithivasan)",
+     "url": "http://elearn.psgcas.ac.in/nptel/courses/video/106106094/lec40.pdf",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "published lecture transcript (27 pages), read in full"
+    },
+    {
+     "kind": "text",
+     "title": "Rosen, Discrete Mathematics and Its Applications, ch. 9.6 (partial orderings) and ch. 9.5 (lattices in the Boolean-algebra sense)",
+     "language": "en",
+     "transcript": "N/A"
+    }
+   ],
+   "sourceLine": "Hasse diagram as the poset diagram with self-loops and transitive arrows removed: NPTEL IIT Madras Lecture 40 (English, full transcript). The GATE 1996 edge count and the cardinality variation: GO Classes for GATE CS, 'Lattice, POSET - GATE PYQs - Part 1' (English, auto-caption excerpt read for the 1996 segment).",
+   "subject": "discrete-mathematics",
+   "topic": "partial-orders-and-lattices",
+   "path": "subjects/discrete-mathematics/partial-orders-and-lattices/hasse-diagram-and-covering.json"
+  },
+  {
+   "id": "comparability-chains-and-antichains",
+   "title": "Comparable Pairs, Chains, Antichains and Total Orders",
+   "priority": "P2",
+   "order": 63,
+   "unit": "Posets",
+   "quickIdea": "A chain is a subset in which every two elements are comparable; an antichain is a subset in which no two are. A total order that contains the poset is exactly a way of breaking every antichain by ordering its elements.",
+   "remember": [
+    "Two elements are comparable when a <= b or b <= a; otherwise they are incomparable. A chain is a subset of pairwise comparable elements, an antichain a subset of pairwise incomparable ones.",
+    "The length of a chain is its number of elements. A total order is a chain that uses the whole set.",
+    "Mirsky's theorem: if the longest chain of a finite poset has n elements, the poset splits into n antichains. Proof sketch: put each element at its height, the length of the longest chain ending there; each height class is an antichain.",
+    "Dilworth's theorem is the dual statement: the smallest number of chains needed to cover the poset equals the size of its largest antichain. The two theorems are not the same statement and GATE has tested the confusion.",
+    "A total order T contains the partial order P when P is a subset of T. Such a T is also called a linear extension, and a topological sort of the Hasse diagram is exactly one of them.",
+    "Counting linear extensions: with x below all of a1..an and all of them below y, every arrangement of the a's gives a total order, so there are n! of them.",
+    "For P = {(x,x)} on {1,2,3,4} plus (1,2), (3,2), (3,4) there are exactly 5 total orders containing P: 1 3 2 4, 1 3 4 2, 3 1 2 4, 3 1 4 2, 3 4 1 2."
+   ],
+   "example": {
+    "prompt": "For the poset with 1 < 2, 3 < 2, 3 < 4 on {1, 2, 3, 4}, list the total orders that contain it.",
+    "work": "The constraints are 1 before 2, 3 before 2 and 3 before 4. The only free pair is 1 against 3, and then 2 against 4. Enumerating the arrangements that respect the constraints gives 1 3 2 4, 1 3 4 2, 3 1 2 4, 3 1 4 2 and 3 4 1 2. The arrangement 1 2 3 4 is excluded because it puts 2 before 3.",
+    "answer": "Five total orders, which is the answer to GATE CSE 2024 Set 2 Q.24."
+   },
+   "gateAngle": "GATE reuses this poset twice: GATE CSE 1997 asked for the count when a bottom and a top element sandwich n incomparable elements (answer n!), and GATE CSE 2024 Set 2 Q.24 asked the same question for a 4-element poset (answer 5). The method is always to count linear extensions, never to guess.",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2024 Set 2 Q.24: P on {1,2,3,4} is {(x,x)} union {(1,2), (3,2), (3,4)}. The number of total orders on {1,2,3,4} that contain P is ___.",
+     "answer": "5.",
+     "why": "Only 1 and 3, and 2 and 4, are free; respecting 1 < 2, 3 < 2 and 3 < 4 leaves exactly five arrangements."
+    },
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 1997 Q.6.1: the partial order on S = {x, a1, ..., an, y} has x <= ai and ai <= y for every i, n >= 1. The number of total orders on S containing it is (A) n! (B) n (C) 2n (D) none.",
+     "answer": "n!, option (A).",
+     "why": "x must come first and y last; the a's are mutually incomparable, so each of the n! orderings of the a's gives one total order."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "For the 2024 poset, what is the size of the largest antichain, and what is the smallest number of chains that covers the poset?",
+     "answer": "The largest antichain has 2 elements ({1, 3} or {2, 4}), and 2 chains suffice, for example {1, 3, 2} and {4}.",
+     "why": "Dilworth's theorem says the two numbers agree. Here the answer 2 also matches Mirsky's count of height classes, which is a coincidence of this small poset, not a general rule."
+    }
+   ],
+   "trap": {
+    "what": "Confusing 'chain' with 'maximal chain', or quoting Dilworth where Mirsky applies.",
+    "why": "A chain need not be maximal, and the two theorems point in opposite directions: the longest chain bounds the number of antichains (Mirsky), the largest antichain bounds the number of chains (Dilworth).",
+    "counterexample": "In the 4-element chain, the longest chain has 4 elements so Mirsky splits the set into 4 antichains, each a singleton; the largest antichain has 1 element so Dilworth needs 1 chain. Reading either theorem backwards gives the wrong count."
+   },
+   "check": {
+    "question": "A poset has 6 elements and its longest chain has 3 elements. What can you say about the number of antichains needed to partition it?",
+    "answer": "Exactly 3, by Mirsky's theorem - no more and no fewer.",
+    "explanation": "Mirsky's theorem makes the partition into height classes, one per level of the longest chain. Fewer than 3 antichains would put two comparable elements together, contradicting the definition of an antichain."
+   },
+   "pyqIds": [
+    "gate-1997-6-1-total-orders-n-factorial",
+    "gate-2024-set2-24-total-orders"
+   ],
+   "prereqs": [
+    "hasse-diagram-and-covering"
+   ],
+   "videoRefs": [],
+   "sources": [
+    {
+     "kind": "lecture",
+     "title": "Lecture 40 - Lattices (Discrete Mathematical Structures)",
+     "channel": "NPTEL, IIT Madras (Dr. Kamala Krithivasan)",
+     "url": "http://elearn.psgcas.ac.in/nptel/courses/video/106106094/lec40.pdf",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "published lecture transcript (27 pages), read in full"
+    },
+    {
+     "kind": "video",
+     "title": "Constructing Total Order from Partial Order - GATE 2024, 1997",
+     "channel": "GO Classes for GATE CS (Deepak Poonia)",
+     "video_id": "WyV6YtqCvGE",
+     "url": "https://www.youtube.com/watch?v=WyV6YtqCvGE",
+     "language": "en",
+     "transcript": "UNAVAILABLE",
+     "translated": false,
+     "note": "title and channel confirmed; captions could not be retrieved"
+    },
+    {
+     "kind": "video",
+     "title": "Lattice, POSET - GATE PYQs - Part 1",
+     "channel": "GO Classes for GATE CS (Deepak Poonia)",
+     "video_id": "3chjsP_NNnY",
+     "url": "https://www.youtube.com/watch?v=3chjsP_NNnY",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "auto-caption text read for the GATE 1993, 1996 and 2003 segments only"
+    },
+    {
+     "kind": "text",
+     "title": "Rosen, Discrete Mathematics and Its Applications, ch. 9.6 (partial orderings) and ch. 9.5 (lattices in the Boolean-algebra sense)",
+     "language": "en",
+     "transcript": "N/A"
+    }
+   ],
+   "sourceLine": "Chain, antichain, length and the decomposition theorem: NPTEL IIT Madras Lecture 40 (English, full transcript), which states and proves the antichain partition. The total-order constructions for GATE 2024 and 1997: GO Classes for GATE CS 'Constructing Total Order from Partial Order' (English, captions unavailable in this run; the construction is recomputed here).",
+   "subject": "discrete-mathematics",
+   "topic": "partial-orders-and-lattices",
+   "path": "subjects/discrete-mathematics/partial-orders-and-lattices/comparability-chains-and-antichains.json"
+  },
+  {
+   "id": "minimal-maximal-least-greatest",
+   "title": "Minimal, Maximal, Least and Greatest Elements",
+   "priority": "P1",
+   "order": 64,
+   "unit": "Posets",
+   "quickIdea": "Minimal means nothing lies below it; least means it lies below everything. A poset can have several minimal elements but at most one least element.",
+   "remember": [
+    "a is minimal when no element is strictly below it: there is no b with b < a. a is maximal when no element is strictly above it.",
+    "a is the least element when a <= x for every x in the poset; the greatest element when x <= a for every x.",
+    "Least implies minimal, but minimal does not imply least. The least element, when it exists, is unique, because two elements each below the other are equal by antisymmetry.",
+    "In the divisors of 12 the least element is 1 and the greatest is 12. In the divisors of 12 without 12, 4 and 6 are both maximal and there is no greatest element.",
+    "A finite poset always has at least one minimal and at least one maximal element; a poset can have neither a least nor a greatest element.",
+    "In a Hasse diagram, minimal elements are the vertices with no segment below them, maximal elements those with no segment above them - never 'the bottom vertex', because there may be several.",
+    "A least element, if present, is the meet of everything; this is why a lattice with a least and a greatest element is called bounded."
+   ],
+   "example": {
+    "prompt": "Poset: divisors of 12 under divisibility, {1, 2, 3, 4, 6, 12}. Find the minimal, maximal, least and greatest elements.",
+    "work": "1 divides everything, so 1 is the least element and the only minimal one. 12 is divisible by everything, so 12 is the greatest and the only maximal one. Remove 12: now nothing is divisible by everything, so 4 and 6 are both maximal and there is no greatest element; 1 is still the least.",
+    "answer": "With 12 present: least 1, greatest 12, both unique. Without 12: minimal 1, maximal 4 and 6, no greatest element."
+   },
+   "gateAngle": "A one-mark question usually hands you a Hasse diagram and asks which elements are minimal, or how many maximal elements exist. Count vertices with nothing below them, not vertices at the bottom of the drawing.",
+   "variations": [
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "In a finite poset, does a unique minimal element have to be the least element?",
+     "answer": "Yes.",
+     "why": "If a is the only minimal element, take any b in the poset: walking downwards from b through finitely many strictly smaller elements must stop at a minimal element, which must be a. So a <= b for every b. In an infinite poset the answer is no: add an element below an infinite descending chain and it is the only minimal element without being least."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "A poset has 5 minimal elements and 2 maximal elements. What are the smallest possible and largest possible sizes of the set?",
+     "answer": "At least 5 elements (the minimal ones can also be maximal) and at most 7 if the minimal and maximal sets are disjoint.",
+     "why": "An element can be both minimal and maximal - exactly the isolated points of the poset. In the 2024 GATE poset, 1 and 3 are minimal and 2 and 4 maximal, with nothing shared."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "In a finite poset with a least element, how many minimal elements are there?",
+     "answer": "Exactly one - the least element itself.",
+     "why": "If a is least then a <= b for every b, so no b can lie strictly below a, and every other element has a below it, so is not minimal."
+    }
+   ],
+   "trap": {
+    "what": "Reading 'maximal' as 'greatest', and assuming a poset has a least element because the picture has a bottom vertex.",
+    "why": "Maximal is a local condition - nothing above - while greatest is global - everything below. A diagram can have two bottom vertices, and then there is no least element.",
+    "counterexample": "In the 5-element poset with a < c, b < c, c < d, b < e, the elements a and b are minimal but neither is least, because a is not below b and b is not below a."
+   },
+   "check": {
+    "question": "In the poset {2, 3, 4, 6, 12} under divisibility, how many maximal elements are there?",
+    "answer": "One, namely 12.",
+    "explanation": "4 divides 12, 6 divides 12, 2 and 3 divide 12, so every element is below 12 and 12 is the greatest as well as the only maximal element. The absence of 1 does not matter here."
+   },
+   "pyqIds": [],
+   "prereqs": [
+    "hasse-diagram-and-covering"
+   ],
+   "videoRefs": [],
+   "sources": [
+    {
+     "kind": "lecture",
+     "title": "Lecture 40 - Lattices (Discrete Mathematical Structures)",
+     "channel": "NPTEL, IIT Madras (Dr. Kamala Krithivasan)",
+     "url": "http://elearn.psgcas.ac.in/nptel/courses/video/106106094/lec40.pdf",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "published lecture transcript (27 pages), read in full"
+    },
+    {
+     "kind": "video",
+     "title": "Lattice, POSET - GATE PYQs - Part 1",
+     "channel": "GO Classes for GATE CS (Deepak Poonia)",
+     "video_id": "3chjsP_NNnY",
+     "url": "https://www.youtube.com/watch?v=3chjsP_NNnY",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "auto-caption text read for the GATE 1993, 1996 and 2003 segments only"
+    },
+    {
+     "kind": "text",
+     "title": "Rosen, Discrete Mathematics and Its Applications, ch. 9.6 (partial orderings) and ch. 9.5 (lattices in the Boolean-algebra sense)",
+     "language": "en",
+     "transcript": "N/A"
+    }
+   ],
+   "sourceLine": "Minimal, maximal, least and greatest elements, and the distinction between them, are worked through in GO Classes for GATE CS 'Lattice, POSET - GATE PYQs - Part 1' (English, auto-caption excerpt read for the GATE 2003 segment); definitions checked against Rosen ch. 9.6 and the poset vocabulary of NPTEL IIT Madras Lecture 40.",
+   "subject": "discrete-mathematics",
+   "topic": "partial-orders-and-lattices",
+   "path": "subjects/discrete-mathematics/partial-orders-and-lattices/minimal-maximal-least-greatest.json"
+  },
+  {
+   "id": "upper-lower-bounds-lub-glb",
+   "title": "Upper Bounds, Lower Bounds, LUB and GLB",
+   "priority": "P1",
+   "order": 65,
+   "unit": "Posets",
+   "quickIdea": "An upper bound of a set is an element above all of it; the least upper bound is the smallest such element, and it may not exist even when upper bounds do.",
+   "remember": [
+    "u is an upper bound of S when s <= u for every s in S. The least upper bound (LUB, supremum, join) is the upper bound that lies below every other upper bound. Lower bounds and the greatest lower bound (GLB, infimum, meet) are the mirror images.",
+    "A LUB, when it exists, is unique; an upper bound need not be unique and need not belong to S.",
+    "Upper bounds can exist with no LUB: in the poset {a, b, c, d} with a < c, b < c, a < d, b < d, the pair {a, b} has two upper bounds c and d and they are incomparable, so no LUB.",
+    "Bounds are taken with respect to the whole poset, not the subset: the LUB of a pair in a sublattice is computed in the larger lattice, which is why a subset can be a lattice without being a sublattice.",
+    "For divisibility the join is the least common multiple and the meet is the greatest common divisor; for set inclusion the join is the union and the meet is the intersection - provided those sets are in the poset.",
+    "In the divisors of 12, lcm(4, 6) = 12 is the LUB and gcd(4, 6) = 2 the GLB. In the divisors of 18, the pair 6 and 9 has GLB 3 but its LUB 18 is absent, so that pair has no LUB inside the poset.",
+    "A pair can have a GLB and no LUB, or the reverse. Lattices are exactly the posets where this never happens for any pair."
+   ],
+   "example": {
+    "prompt": "In the poset of divisors of 12 under divisibility, find the upper bounds, the LUB, the lower bounds and the GLB of {4, 6}.",
+    "work": "Multiples of both 4 and 6 inside the set: only 12. So the upper bounds are {12} and the LUB is 12. Common divisors: 1 and 2. The largest is 2, so the GLB is 2.",
+    "answer": "Upper bounds {12} with LUB 12; lower bounds {1, 2} with GLB 2."
+   },
+   "gateAngle": "The LUB-GLB test is the whole of the lattice question: GATE hands over a Hasse diagram and asks whether it is a lattice. Look for a pair with two incomparable upper bounds - that single pair refutes the lattice property faster than checking all pairs.",
+   "variations": [
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Can a pair have two different least upper bounds?",
+     "answer": "No. Two least upper bounds u and v would each be below the other, so u = v by antisymmetry.",
+     "why": "Uniqueness follows from antisymmetry alone, which is why the join is a well-defined operation on a lattice."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "In the poset {1, 2, 3, 6, 9, 18} under divisibility, which pairs have no LUB?",
+     "answer": "Pairs whose least common multiple is outside the set - for example 4 is not in the set at all, but 12 is: take 6 and 9, whose lcm is 18, which is present, so that pair is fine; the pair 2 and 9 has lcm 18, present. In fact every pair here has an LUB, so the poset is a lattice.",
+     "why": "The check is mechanical: compute lcm, test membership. This is exactly the arithmetic that makes the divisor poset the standard lattice example."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "A poset has a greatest element. Which sets automatically have a LUB?",
+     "answer": "Every subset does - the greatest element is an upper bound of everything, so the LUB exists and is at most the greatest element.",
+     "why": "This is the half of the boundedness argument that students miss: a greatest element gives LUBs for free but says nothing about GLBs."
+    }
+   ],
+   "trap": {
+    "what": "Computing the LUB or GLB outside the poset, and confusing 'an upper bound' with 'the least upper bound'.",
+    "why": "The LUB must be an element of the poset. Students compute the lcm of 4 and 6 as 12 and accept it even when 12 was not among the given elements.",
+    "counterexample": "The divisors of 18 ordered by divisibility: the lcm of 6 and 9 is 18, which is present, so that pair is fine; but the lcm of 2 and 9 is 18, also present. Remove 18 and both pairs lose their LUB while keeping their GLB 1 and 3 - the poset is then not a lattice."
+   },
+   "check": {
+    "question": "In the poset of divisors of 30 under divisibility, what is the LUB of 6 and 10, and the GLB of 6 and 10?",
+    "answer": "LUB 30, GLB 2.",
+    "explanation": "lcm(6, 10) = 30 and gcd(6, 10) = 2, and both 30 and 2 are divisors of 30, so both bounds exist inside the poset."
+   },
+   "pyqIds": [],
+   "prereqs": [
+    "minimal-maximal-least-greatest"
+   ],
+   "videoRefs": [],
+   "sources": [
+    {
+     "kind": "lecture",
+     "title": "Lecture 40 - Lattices (Discrete Mathematical Structures)",
+     "channel": "NPTEL, IIT Madras (Dr. Kamala Krithivasan)",
+     "url": "http://elearn.psgcas.ac.in/nptel/courses/video/106106094/lec40.pdf",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "published lecture transcript (27 pages), read in full"
+    },
+    {
+     "kind": "text",
+     "title": "Rosen, Discrete Mathematics and Its Applications, ch. 9.6 (partial orderings) and ch. 9.5 (lattices in the Boolean-algebra sense)",
+     "language": "en",
+     "transcript": "N/A"
+    }
+   ],
+   "sourceLine": "Bounds, meet and join defined as greatest lower and least upper bounds, with the divisibility example: NPTEL IIT Madras Lecture 40 (English, full transcript). Notation and the lcm/gcd correspondence checked against Rosen ch. 9.6.",
+   "subject": "discrete-mathematics",
+   "topic": "partial-orders-and-lattices",
+   "path": "subjects/discrete-mathematics/partial-orders-and-lattices/upper-lower-bounds-lub-glb.json"
+  },
+  {
+   "id": "lattice-definition-and-pairwise-test",
+   "title": "Lattices and the Pairwise Test",
+   "priority": "P1",
+   "order": 66,
+   "unit": "Lattices",
+   "quickIdea": "A lattice is a poset in which every pair of elements has both a join and a meet. One pair without a LUB is enough to say no.",
+   "remember": [
+    "A poset (L, <=) is a lattice when every two elements a, b in L have a LUB (written a v b) and a GLB (written a ^ b), both belonging to L.",
+    "The test is pairwise, not subset-wise. A lattice can fail completeness for larger subsets while every pair has a join and a meet.",
+    "Checking a diagram: for each pair, look at the elements above both, and ask whether one of them is below all the others. The diamond M3, the square B2 and every chain are lattices; a diagram with two incomparable upper bounds for some pair is not.",
+    "Adding the missing element fixes a non-lattice: GATE CSE 2017 Set 2 Q.21 gave a poset that was already a lattice, so the number of pairs to add was 0.",
+    "Every chain is a lattice: of two comparable elements the larger is the join and the smaller the meet. Every total order is therefore a distributive lattice.",
+    "Every finite lattice has a least and a greatest element: the meet of all elements and the join of all elements. So a finite lattice is always bounded.",
+    "The divisor poset of a positive integer is always a lattice, with join lcm and meet gcd, because the lcm and gcd of two divisors are divisors of the same integer."
+   ],
+   "example": {
+    "prompt": "X = {a, b, c, d, e} with the partial order {(a,a),(a,b),(a,c),(a,d),(a,e),(b,b),(b,c),(b,e),(c,c),(c,e),(d,d),(d,e),(e,e)}. Is it a lattice? How many pairs must be added to make it one?",
+    "work": "a is below everything, e is above everything. The pairs to test are the incomparable ones: b and d, c and d, b and c. For b and d the upper bounds are e only, so the LUB is e; the lower bound is a only. For c and d the LUB is e and the GLB is a. For b and c the LUB is c and the GLB is a. Every other pair is comparable. So every pair has both bounds.",
+    "answer": "It is already a lattice, so the minimum number of ordered pairs to add is 0 - the answer to GATE CSE 2017 Set 2 Q.21."
+   },
+   "gateAngle": "Two verified shapes: 'is this diagram a lattice' (find a pair with two incomparable upper bounds) and 'how many pairs must be added to make it a lattice' (answer 0 when the test passes). Both are decided by the same pairwise sweep.",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2017 Set 2 Q.21: for the poset above, the minimum number of ordered pairs that must be added to make it a lattice is ___.",
+     "answer": "0.",
+     "why": "Every pair already has a join and a meet inside X, so no pair is needed; the question tests whether you check the incomparable pairs rather than assuming a diagram with five elements is missing something."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "Take the same set X and delete the element c, keeping the order restricted. Is the result a lattice?",
+     "answer": "Yes. What is left is {a, b, d, e} with a below b and d, and both below e, which is the diamond-shaped 4-element lattice B2.",
+     "why": "Deleting an element can only remove bounds, so the test must be rerun: here it still passes, but deleting a instead would leave b and d with no lower bound."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "On {x, y, z} put x < z and y < z, with x and y incomparable. Does every pair have a join? Is this a lattice?",
+     "answer": "Every pair has a join, but x and y have no meet, so it is a join-semilattice and not a lattice.",
+     "why": "The upper bounds of x and y are z alone, so the join exists; the lower bounds of x and y are none, so the meet does not. Having all joins is only half of the lattice condition."
+    }
+   ],
+   "trap": {
+    "what": "Deciding lattice-hood from the shape of the picture - 'it looks like a lattice' - or checking only the pairs that are visibly unrelated.",
+    "why": "The property is about every pair, and the failure is always a pair with two incomparable upper bounds. A diagram with a 'diamond' in the middle is a lattice; a diagram with two separate peaks above a pair is not.",
+    "counterexample": "The poset with a < c, b < c, a < d, b < d has c and d incomparable as upper bounds of {a, b}, so no LUB: not a lattice, even though it looks symmetric and tidy."
+   },
+   "check": {
+    "question": "Is the poset of divisors of 18 under divisibility a lattice, and if so what is 6 v 9 and 6 ^ 9?",
+    "answer": "Yes, it is a lattice. 6 v 9 = 18 and 6 ^ 9 = 3.",
+    "explanation": "lcm(6, 9) = 18 and gcd(6, 9) = 3, both divisors of 18. The divisor poset of any n is a lattice because lcm and gcd of divisors of n are again divisors of n."
+   },
+   "pyqIds": [
+    "gate-2017-set2-21-lattice-pairs-to-add"
+   ],
+   "prereqs": [
+    "upper-lower-bounds-lub-glb"
+   ],
+   "videoRefs": [],
+   "sources": [
+    {
+     "kind": "lecture",
+     "title": "Lecture 40 - Lattices (Discrete Mathematical Structures)",
+     "channel": "NPTEL, IIT Madras (Dr. Kamala Krithivasan)",
+     "url": "http://elearn.psgcas.ac.in/nptel/courses/video/106106094/lec40.pdf",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "published lecture transcript (27 pages), read in full"
+    },
+    {
+     "kind": "playlist",
+     "title": "Discrete Mathematics (NOC), Lec 21 Partially ordering relations, Lec 22 Natural numbers and divisors, Lec 23 Lattices",
+     "channel": "NPTEL IIT Guwahati",
+     "playlist_id": "PLwdnzlV3ogoVxVxCTlI45pDVM1aoYoMHf",
+     "url": "https://www.youtube.com/playlist?list=PLwdnzlV3ogoVxVxCTlI45pDVM1aoYoMHf",
+     "language": "en",
+     "transcript": "UNAVAILABLE",
+     "translated": false,
+     "note": "the three lectures are identified from the published NPTEL chapter list; captions could not be retrieved in this run"
+    },
+    {
+     "kind": "text",
+     "title": "Rosen, Discrete Mathematics and Its Applications, ch. 9.6 (partial orderings) and ch. 9.5 (lattices in the Boolean-algebra sense)",
+     "language": "en",
+     "transcript": "N/A"
+    }
+   ],
+   "sourceLine": "The definition, and the worked check of several diagrams including M3, the 2-cube and a non-lattice: NPTEL IIT Madras Lecture 40 (English, full transcript). The poset-to-lattice sequence (Hasse diagram, LUB-GLB, lattice, sublattice): NPTEL IIT Guwahati Lec 21-23 (English, captions unavailable in this run).",
+   "visual": "discrete-mathematics/partial-orders-and-lattices/poset-to-lattice-pair-test",
+   "subject": "discrete-mathematics",
+   "topic": "partial-orders-and-lattices",
+   "path": "subjects/discrete-mathematics/partial-orders-and-lattices/lattice-definition-and-pairwise-test.json"
+  },
+  {
+   "id": "lattice-algebraic-laws",
+   "title": "The Lattice Laws: Idempotent, Commutative, Associative, Absorption",
+   "priority": "P1",
+   "order": 67,
+   "unit": "Lattices",
+   "quickIdea": "Once joins and meets exist, four laws come for free: idempotent, commutative, associative and absorption. They are what makes a lattice an algebraic structure and not just a picture.",
+   "remember": [
+    "Idempotent: a v a = a and a ^ a = a. Commutative: a v b = b v a and a ^ b = b ^ a.",
+    "Associative: (a v b) v c = a v (b v c), and the same for meet. Absorption: a v (a ^ b) = a and a ^ (a v b) = a.",
+    "All four follow from the poset definition and hold in every lattice, distributive or not. Distributivity is a fifth, optional law.",
+    "Duality: swap v with ^, swap <= with >=, swap the least element with the greatest, and a true statement stays true. Every proof has a free dual.",
+    "Because of associativity, a v b v c is unambiguous, which is what lets a finite join be written as a single operation over a set.",
+    "The semi-distributive inequality a v (b ^ c) <= (a v b) ^ (a v c) holds in every lattice; equality is exactly distributivity, and it can fail.",
+    "A lattice can be defined algebraically instead: a set with two binary operations satisfying the four laws and the absorption identities, with a <= b defined as a ^ b = a. The two definitions give the same objects."
+   ],
+   "example": {
+    "prompt": "In the divisors of 12 under divisibility, verify absorption for a = 4 and b = 6.",
+    "work": "4 v (4 ^ 6): the meet is gcd(4,6) = 2, and the join is lcm(4,2) = 4. So 4 v (4 ^ 6) = 4. Other way: 4 ^ (4 v 6) = 4 ^ 12 = gcd(4,12) = 4.",
+    "answer": "Both absorption identities give 4, as they must."
+   },
+   "gateAngle": "GATE uses the laws indirectly: a question that says 'for all x, y in L, x v (x ^ y) = x' is testing whether you recognise absorption, and a question offering '(a v b) ^ c = (a ^ c) v (b ^ c)' is testing distributivity, which is not one of the four laws.",
+   "variations": [
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Does every lattice satisfy a v (b ^ c) = (a v b) ^ (a v c)?",
+     "answer": "No. The inequality <= always holds, but equality is distributivity and fails in the diamond M3 and in the pentagon N5.",
+     "why": "This is the single most examinable confusion in the topic: the four lattice laws hold everywhere, the distributive law does not."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "In a lattice, simplify (a ^ b) v (a ^ b).",
+     "answer": "a ^ b, by idempotence.",
+     "why": "Idempotence of join collapses the duplicate; students often try to expand instead of applying the law."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "Suppose a ^ b = a. What is a v b?",
+     "answer": "b.",
+     "why": "a ^ b = a means a <= b, so the join of a and b is the larger element b. This is the bridge between the order definition and the algebraic one."
+    }
+   ],
+   "trap": {
+    "what": "Assuming distributivity holds in every lattice, or assuming associativity needs proof in each example.",
+    "why": "Associativity and the other three laws are theorems about all lattices. Distributivity is an extra condition, and the diamond and the pentagon are the standard counterexamples.",
+    "counterexample": "M3 with 0 < a, b, c < 1: a v (b ^ c) = a v 0 = a, while (a v b) ^ (a v c) = 1 ^ 1 = 1. Different answers, so the lattice is not distributive."
+   },
+   "check": {
+    "question": "In any lattice, what is (a ^ b) v b?",
+    "answer": "b, by absorption.",
+    "explanation": "Absorption says (a ^ b) v b = b, since a ^ b <= b. The dual form a ^ (a v b) = a is the other absorption identity."
+   },
+   "pyqIds": [],
+   "prereqs": [
+    "lattice-definition-and-pairwise-test"
+   ],
+   "videoRefs": [],
+   "sources": [
+    {
+     "kind": "lecture",
+     "title": "Lecture 40 - Lattices (Discrete Mathematical Structures)",
+     "channel": "NPTEL, IIT Madras (Dr. Kamala Krithivasan)",
+     "url": "http://elearn.psgcas.ac.in/nptel/courses/video/106106094/lec40.pdf",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "published lecture transcript (27 pages), read in full"
+    },
+    {
+     "kind": "text",
+     "title": "Rosen, Discrete Mathematics and Its Applications, ch. 9.6 (partial orderings) and ch. 9.5 (lattices in the Boolean-algebra sense)",
+     "language": "en",
+     "transcript": "N/A"
+    }
+   ],
+   "sourceLine": "The four lattice laws, stated as the laws every lattice satisfies, and the separate treatment of the distributive laws: NPTEL IIT Madras Lecture 40 (English, full transcript). Algebraic formulation cross-checked against Rosen ch. 9.6.",
+   "subject": "discrete-mathematics",
+   "topic": "partial-orders-and-lattices",
+   "path": "subjects/discrete-mathematics/partial-orders-and-lattices/lattice-algebraic-laws.json"
+  },
+  {
+   "id": "sublattices",
+   "title": "Sublattices",
+   "priority": "P2",
+   "order": 68,
+   "unit": "Lattices",
+   "quickIdea": "A subset is a sublattice when it is closed under the joins and meets computed in the whole lattice. A subset that is a lattice on its own need not be a sublattice.",
+   "remember": [
+    "S is a sublattice of L when S is a subset of L and, for all a, b in S, the join a v b and the meet a ^ b computed in L both lie in S.",
+    "The bounds are computed in L, not in S. That is the whole difference between 'S is a lattice' and 'S is a sublattice'.",
+    "Every sublattice is a lattice; the converse fails. In the cube B3 = power set of {1,2,3}, the subset {empty, {1}, {2}, {1,2}, {3}, {1,2,3}} is a lattice on its own, but the join of {1} and {3} computed in B3 is {1,3}, which is outside the subset, so it is not a sublattice.",
+    "A sublattice of a distributive lattice is distributive: distributivity is hereditary. This is the quickest way to prove a lattice is not distributive - exhibit M3 or N5 inside it.",
+    "In the divisors of 12, {1, 2, 4} is a sublattice: lcm and gcd of 2 and 4 stay inside. {1, 2, 3, 4} is not, because lcm(3, 4) = 12 is missing.",
+    "A chain in a lattice is a sublattice: the join and meet of comparable elements are the elements themselves.",
+    "In a distributive lattice the complemented elements form a sublattice - a result worth remembering for Boolean-algebra questions."
+   ],
+   "example": {
+    "prompt": "In the divisors of 12 under divisibility, test S = {1, 2, 3, 4} for sublattice and for lattice.",
+    "work": "As a poset with the restricted order, S is a lattice: 2 and 3 have upper bounds 4? No - 4 is not a multiple of 3. The upper bounds of 2 and 3 inside S are none, since 6 and 12 are excluded, so S is not even a lattice. In the whole lattice, 2 v 3 = 6, which is outside S, so S is not a sublattice either.",
+    "answer": "S is neither a lattice nor a sublattice; the failing pair is 2 and 3."
+   },
+   "gateAngle": "GATE asks 'which of these subsets is a sublattice' with four subsets of a small lattice. The reliable method is to test only the pairs whose join or meet might leave the subset - usually pairs of elements that were unrelated in the subset.",
+   "variations": [
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Is every subset that is a chain a sublattice?",
+     "answer": "Yes, in any lattice.",
+     "why": "For comparable a <= b, the join is b and the meet is a, and both are in the chain. This is the one case where the lattice/sublattice distinction disappears."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "In the divisors of 30 under divisibility, is {1, 2, 3, 5, 6} a sublattice?",
+     "answer": "No: lcm(5, 6) = 30 is outside the subset.",
+     "why": "Only one failing pair is needed. The join of 5 and 6 is computed in the whole divisor lattice and is 30, which the subset omits."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "If a lattice L contains a sublattice isomorphic to N5, what can you conclude about L?",
+     "answer": "L is not distributive.",
+     "why": "By Birkhoff's theorem, a lattice is distributive exactly when it has no sublattice isomorphic to M3 (the diamond) or N5 (the pentagon). One such sublattice settles non-distributivity."
+    }
+   ],
+   "trap": {
+    "what": "Declaring a subset a sublattice because it happens to be a lattice under the restricted order.",
+    "why": "The restricted order changes which upper bounds exist, so joins can appear or vanish. A sublattice must agree with the parent lattice on every join and meet it uses.",
+    "counterexample": "In the diamond M3 = {0, a, b, c, 1} the subset {0, a, b} is a poset whose elements are pairwise comparable in one case only (a and b are incomparable), and the join of a and b computed in M3 is 1, which the subset omits. So the subset is not a sublattice. Contrast {0, a, b, 1}, which contains that join and is a sublattice - it is the square B2."
+   },
+   "check": {
+    "question": "In the divisors of 12, is {1, 2, 6} a sublattice?",
+    "answer": "Yes.",
+    "explanation": "The elements form a chain 1 < 2 < 6, and a chain is always a sublattice: lcm and gcd of two comparable divisors are the larger and the smaller of the two."
+   },
+   "pyqIds": [],
+   "prereqs": [
+    "lattice-algebraic-laws"
+   ],
+   "videoRefs": [],
+   "sources": [
+    {
+     "kind": "lecture",
+     "title": "Lecture 40 - Lattices (Discrete Mathematical Structures)",
+     "channel": "NPTEL, IIT Madras (Dr. Kamala Krithivasan)",
+     "url": "http://elearn.psgcas.ac.in/nptel/courses/video/106106094/lec40.pdf",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "published lecture transcript (27 pages), read in full"
+    },
+    {
+     "kind": "playlist",
+     "title": "Discrete Mathematics (NOC), Lec 21 Partially ordering relations, Lec 22 Natural numbers and divisors, Lec 23 Lattices",
+     "channel": "NPTEL IIT Guwahati",
+     "playlist_id": "PLwdnzlV3ogoVxVxCTlI45pDVM1aoYoMHf",
+     "url": "https://www.youtube.com/playlist?list=PLwdnzlV3ogoVxVxCTlI45pDVM1aoYoMHf",
+     "language": "en",
+     "transcript": "UNAVAILABLE",
+     "translated": false,
+     "note": "the three lectures are identified from the published NPTEL chapter list; captions could not be retrieved in this run"
+    },
+    {
+     "kind": "text",
+     "title": "Rosen, Discrete Mathematics and Its Applications, ch. 9.6 (partial orderings) and ch. 9.5 (lattices in the Boolean-algebra sense)",
+     "language": "en",
+     "transcript": "N/A"
+    }
+   ],
+   "sourceLine": "Sublattice defined in the lecture's own sequence (lattice, sublattice, then heredity of distributivity): NPTEL IIT Madras Lecture 40 (English, full transcript); the sublattice lecture in the NPTEL IIT Guwahati series (Lec 45) is recorded in the NPTEL chapter list, captions unavailable in this run.",
+   "subject": "discrete-mathematics",
+   "topic": "partial-orders-and-lattices",
+   "path": "subjects/discrete-mathematics/partial-orders-and-lattices/sublattices.json"
+  },
+  {
+   "id": "bounded-and-complemented-lattices",
+   "title": "Bounded and Complemented Lattices",
+   "priority": "P2",
+   "order": 69,
+   "unit": "Lattices",
+   "quickIdea": "A bounded lattice has a bottom 0 and a top 1. A complement of a is an element a' with a ^ a' = 0 and a v a' = 1, and in a distributive lattice there is at most one.",
+   "remember": [
+    "A lattice is bounded when it has a least element 0 and a greatest element 1. Every finite lattice is bounded.",
+    "a' is a complement of a when a ^ a' = 0 and a v a' = 1. Both conditions are needed: meet alone or join alone is not enough.",
+    "In a distributive lattice each element has at most one complement; in a general lattice an element can have several.",
+    "In the diamond M3, each atom has exactly two complements - the other two atoms. In the power set lattice, the complement of A is its set complement, and it is unique.",
+    "A lattice is complemented when it is bounded and every element has at least one complement. Distributive plus complemented is exactly the Boolean-lattice condition.",
+    "A complement, if it exists, must be incomparable with a unless a is 0 or 1: if a <= a' then a v a' = a' = 1, forcing a' = 1.",
+    "In the divisors of 12, 2 has no complement: a complement x would need gcd(2, x) = 1 and lcm(2, x) = 12, and x = 3 gives lcm 6 while x = 1 gives lcm 2. So that lattice is bounded but not complemented."
+   ],
+   "example": {
+    "prompt": "In the divisors of 6 under divisibility, find the complements of 2 and of 3.",
+    "work": "The lattice is {1, 2, 3, 6}, whose bottom element is the number 1 and whose top element is 6. For a = 2 we need an x with gcd(2, x) = 1 and lcm(2, x) = 6, so x = 3. For a = 3, by symmetry, x = 2. The bottom and the top are complements of each other.",
+    "answer": "2' = 3, 3' = 2, and 1' = 6, 6' = 1. Every element has exactly one complement, and the lattice is the 4-element Boolean lattice."
+   },
+   "gateAngle": "GATE CSE 1997 Q.3.3 asked how many complements an element has in a five-element lattice; the answer there was three, which by itself proves the lattice is not distributive. Counting complements is therefore a two-purpose tool: answer the question, then diagnose distributivity.",
+   "variations": [
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "If an element has two different complements, what does that tell you about the lattice?",
+     "answer": "That the lattice is not distributive.",
+     "why": "A distributive lattice gives at most one complement per element. Two complements is a certificate of non-distributivity, and it always comes with a copy of M3 or N5 inside."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "In the divisors of 30 under divisibility, how many complements does 6 have?",
+     "answer": "One, namely 5.",
+     "why": "Need gcd(6, x) = 1 and lcm(6, x) = 30. The only divisor of 30 coprime to 6 and completing the lcm is 5. The divisor lattice of a squarefree number is a Boolean lattice, so complements are unique."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "Can a lattice have a complement for every element except the top?",
+     "answer": "No. The top 1 is complemented by 0 and 0 by 1 in any bounded lattice, so 0 and 1 always have complements.",
+     "why": "0 ^ 1 = 0 and 0 v 1 = 1 by definition of the bounds. The elements that fail to be complemented are always in the middle."
+    }
+   ],
+   "trap": {
+    "what": "Checking only one of the two complement conditions, or looking for a complement among the elements comparable with a.",
+    "why": "A complement must reach both bounds. A comparable element can never do that unless a is itself a bound, so the search space is the incomparable elements only.",
+    "counterexample": "In the 5-element lattice with 0 < a < c < 1 and 0 < b < 1, the element c: candidates are b, since only b is incomparable with c. c ^ b = 0 and c v b = 1, so b is a complement - but a is not, because a v c = c, not 1."
+   },
+   "check": {
+    "question": "In the divisors of 12 under divisibility, which elements have a complement?",
+    "answer": "1, 3, 4 and 12: 1' = 12, 12' = 1, 3' = 4, 4' = 3. The elements 2 and 6 have no complement.",
+    "explanation": "gcd(3, 4) = 1 and lcm(3, 4) = 12, so 3 and 4 complement each other, and 1 and 12 are complements. For 2 a complement would need gcd(2, x) = 1 and lcm(2, x) = 12; x must then be divisible by 4 and by 3, so x = 12, but gcd(2, 12) = 2. For 6 the same obstruction appears. Since not every element has a complement, the lattice is bounded but not complemented."
+   },
+   "pyqIds": [],
+   "prereqs": [
+    "lattice-algebraic-laws"
+   ],
+   "videoRefs": [],
+   "sources": [
+    {
+     "kind": "lecture",
+     "title": "Lecture 40 - Lattices (Discrete Mathematical Structures)",
+     "channel": "NPTEL, IIT Madras (Dr. Kamala Krithivasan)",
+     "url": "http://elearn.psgcas.ac.in/nptel/courses/video/106106094/lec40.pdf",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "published lecture transcript (27 pages), read in full"
+    },
+    {
+     "kind": "video",
+     "title": "Lattice, POSET - GATE PYQs - Part 1",
+     "channel": "GO Classes for GATE CS (Deepak Poonia)",
+     "video_id": "3chjsP_NNnY",
+     "url": "https://www.youtube.com/watch?v=3chjsP_NNnY",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "auto-caption text read for the GATE 1993, 1996 and 2003 segments only"
+    },
+    {
+     "kind": "text",
+     "title": "Rosen, Discrete Mathematics and Its Applications, ch. 9.6 (partial orderings) and ch. 9.5 (lattices in the Boolean-algebra sense)",
+     "language": "en",
+     "transcript": "N/A"
+    }
+   ],
+   "sourceLine": "Complement defined by the two bound conditions, uniqueness in a distributive lattice, and the power-set complements: NPTEL IIT Madras Lecture 40 (English, full transcript). The complement-counting question pattern and its answer of three complements for GATE CSE 1997 Q.3.3: GATE Overflow's community solutions for that question (the Hasse diagram itself is a figure in the paper, so the count is quoted, not recomputed here).",
+   "subject": "discrete-mathematics",
+   "topic": "partial-orders-and-lattices",
+   "path": "subjects/discrete-mathematics/partial-orders-and-lattices/bounded-and-complemented-lattices.json"
+  },
+  {
+   "id": "distributive-lattices",
+   "title": "Distributive Lattices and the Two Forbidden Shapes",
+   "priority": "P2",
+   "order": 70,
+   "unit": "Lattices",
+   "quickIdea": "A lattice is distributive when join distributes over meet and meet over join. The diamond M3 and the pentagon N5 are the two shapes that break it, and they are the only ones.",
+   "remember": [
+    "Distributive means a ^ (b v c) = (a ^ b) v (a ^ c) and its dual a v (b ^ c) = (a v b) ^ (a v c), for all elements.",
+    "Every chain, every power set lattice and every divisor lattice is distributive. The diamond M3 and the pentagon N5 are not.",
+    "Birkhoff's theorem: a lattice is distributive exactly when it contains no sublattice isomorphic to M3 or to N5. One forbidden shape inside is enough to refute distributivity.",
+    "The counterexample in M3: a ^ (b v c) = a ^ 1 = a, while (a ^ b) v (a ^ c) = 0 v 0 = 0. Since a is not 0, the law fails.",
+    "The counterexample in N5 (0 < a < c < 1, 0 < b < 1): a v (b ^ c) = a v 0 = a, while (a v b) ^ (a v c) = 1 ^ c = c. Since a is not c, the join-over-meet form of the law fails. The meet-over-join form a ^ (b v c) = a ^ 1 = a also fails, because (a ^ b) v (a ^ c) = 0 v a = a is equal - so it is the dual form that exposes N5.",
+    "In a distributive lattice: complements are unique, and the complemented elements form a sublattice. Both facts fail in M3.",
+    "Distributivity is hereditary to sublattices, so proving a lattice is not distributive is usually done by exhibiting a diamond or a pentagon inside it."
+   ],
+   "example": {
+    "prompt": "Show that the diamond M3 = {0, a, b, c, 1} with 0 < each atom < 1 is not distributive.",
+    "work": "Take x = a, y = b, z = c. Left side: b v c = 1, so a ^ 1 = a. Right side: a ^ b = 0 and a ^ c = 0, so 0 v 0 = 0. The two sides are a and 0, and a is not 0.",
+    "answer": "The distributive law fails at (a, b, c), so M3 is a lattice but not a distributive lattice."
+   },
+   "gateAngle": "The standard one-mark question is 'the poset shown is (A) not a lattice (B) a lattice but not distributive (C) distributive but not Boolean (D) Boolean'. Answer it in that order: lattice first, then distributivity via a diamond or pentagon, then Boolean via complements.",
+   "variations": [
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Is every sublattice of a distributive lattice distributive?",
+     "answer": "Yes - distributivity is hereditary, which is why M3 or N5 appearing anywhere inside settles the question.",
+     "why": "The distributive identities involve only the elements and the join and meet operations, so they survive restriction to a closed subset."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "The divisor lattice of 12 is bounded but not complemented. Is it distributive?",
+     "answer": "Yes, it is distributive - every divisor lattice is. Distributive does not imply complemented.",
+     "why": "The divisor lattice of n is a product of chains, one chain per prime, and a product of chains is distributive. It is complemented only when n is squarefree."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "A lattice has 6 elements, is bounded, and some element has two complements. Is it distributive?",
+     "answer": "No.",
+     "why": "Two complements for one element contradicts uniqueness of complements, which holds in every distributive lattice."
+    }
+   ],
+   "trap": {
+    "what": "Assuming a lattice is distributive because it is bounded and complemented-looking, or testing distributivity by checking only comparable triples.",
+    "why": "The law fails only at triples where the elements are incomparable in a specific pattern. Comparable triples always satisfy it, so a check that stays inside a chain proves nothing.",
+    "counterexample": "In N5 the failing triple is (a, b, c) with 0 < a < c < 1 and 0 < b < 1: a v (b ^ c) = a but (a v b) ^ (a v c) = c. Check the other form and you will find it accidentally holds there, which is exactly the mistake to avoid - test both distributive laws, not one."
+   },
+   "check": {
+    "question": "Is the power set of a 3-element set a distributive lattice?",
+    "answer": "Yes. It is the cube B3, and intersection distributes over union.",
+    "explanation": "A ^ (B v C) = A n (B u C) = (A n B) u (A n C), which is the distributive law in set language. Every power set lattice is distributive and complemented, hence Boolean."
+   },
+   "pyqIds": [],
+   "prereqs": [
+    "sublattices",
+    "bounded-and-complemented-lattices"
+   ],
+   "videoRefs": [],
+   "sources": [
+    {
+     "kind": "lecture",
+     "title": "Lecture 40 - Lattices (Discrete Mathematical Structures)",
+     "channel": "NPTEL, IIT Madras (Dr. Kamala Krithivasan)",
+     "url": "http://elearn.psgcas.ac.in/nptel/courses/video/106106094/lec40.pdf",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "published lecture transcript (27 pages), read in full"
+    },
+    {
+     "kind": "text",
+     "title": "Rosen, Discrete Mathematics and Its Applications, ch. 9.6 (partial orderings) and ch. 9.5 (lattices in the Boolean-algebra sense)",
+     "language": "en",
+     "transcript": "N/A"
+    }
+   ],
+   "sourceLine": "The two distributive laws, the worked M3 and N5 counterexamples, heredity to sublattices and uniqueness of complements: NPTEL IIT Madras Lecture 40 (English, full transcript). Birkhoff's forbidden-sublattice characterisation is taken from the standard reference (Rosen ch. 9.6 / Grimaldi) rather than recomputed.",
+   "subject": "discrete-mathematics",
+   "topic": "partial-orders-and-lattices",
+   "path": "subjects/discrete-mathematics/partial-orders-and-lattices/distributive-lattices.json"
+  },
+  {
+   "id": "boolean-lattices-and-examples",
+   "title": "Boolean Lattices, Power Sets and Divisor Lattices",
+   "priority": "P2",
+   "order": 71,
+   "unit": "Lattices",
+   "quickIdea": "A Boolean lattice is a complemented distributive lattice, and the power set lattice is the model for all of them. The divisor lattice of n is Boolean exactly when n is squarefree.",
+   "remember": [
+    "A Boolean lattice is a lattice that is bounded, complemented and distributive. Meet is AND, join is OR, complement is NOT - the same three operations as Boolean algebra.",
+    "The power set of an n-element set, ordered by inclusion, is a Boolean lattice with 2^n elements; its atoms are the singletons, and A' is the set complement of A.",
+    "The number of elements of the Boolean lattice B_n is 2^n, and the number of its covering pairs is n times 2^(n-1) - each subset is covered by adding one element.",
+    "The divisor lattice D_n ordered by divisibility has join lcm and meet gcd. It is Boolean exactly when n is squarefree, and then it has 2^(number of primes) elements.",
+    "D_6 = {1, 2, 3, 6} is the 4-element Boolean lattice. D_12 is a lattice but not Boolean, because 2 has no complement.",
+    "The functions from {1, ..., n} to {0, 1} under the pointwise order form a Boolean lattice isomorphic to B_n, with join the pointwise maximum and meet the pointwise minimum - the shape of GATE CSE 2025 Set 2 Q.32.",
+    "Every finite Boolean lattice is isomorphic to a power set lattice, so counting subsets answers every question about it."
+   ],
+   "example": {
+    "prompt": "How many elements and how many covering pairs does the Boolean lattice B_4 have, and what is the complement of {1, 2}?",
+    "work": "B_4 is the power set of a 4-element set, so 2^4 = 16 elements. Covering pairs: each of the 16 subsets is covered by adding one of the missing elements, and summing the missing elements over all subsets gives 4 times 2^3 = 32. The complement of {1, 2} is {3, 4}.",
+    "answer": "16 elements, 32 covering pairs, and {1, 2}' = {3, 4}."
+   },
+   "gateAngle": "GATE CSE 2025 Set 2 Q.32 turned the pointwise order on {0,1}-valued functions into a Boolean lattice question: the relation is a partial order and a lattice, with join max and meet min. Recognising the shape as B_n answers 'is it a lattice' and 'is it distributive' in one step.",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2025 Set 2 Q.32: F is the set of all functions from {1, ..., n} to {0, 1}, and f <= g when f(x) <= g(x) for every x. Which are true? (A) <= is symmetric (B) (F, <=) is a partial order (C) (F, <=) is a lattice (D) <= is an equivalence relation.",
+     "answer": "(B) and (C).",
+     "why": "Reflexive, antisymmetric and transitive give a partial order; join is the pointwise maximum and meet the pointwise minimum, both inside F, so it is a lattice - in fact the Boolean lattice B_n. Symmetry fails because 0 <= 1 but not 1 <= 0, which also kills (D)."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "Is the divisor lattice of 30 Boolean? How many elements does it have?",
+     "answer": "Yes. 30 = 2 x 3 x 5 is squarefree, so the lattice is Boolean with 2^3 = 8 elements.",
+     "why": "Each divisor is a subset of {2, 3, 5}, and divisibility becomes inclusion, so the lattice is the power set of a 3-element set."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "In the Boolean lattice B3, how many elements lie strictly below the element {1, 2}?",
+     "answer": "3 - namely the empty set, {1} and {2}.",
+     "why": "An element of B3 is a subset and the order is inclusion, so the elements below {1,2} are its subsets. A 2-element set has 2^2 = 4 subsets, one of which is itself."
+    }
+   ],
+   "trap": {
+    "what": "Assuming every complemented lattice is Boolean, or that every divisor lattice is Boolean.",
+    "why": "Boolean needs all three conditions. D_12 is distributive and bounded but not complemented; M3 is complemented and bounded but not distributive. Neither is Boolean.",
+    "counterexample": "D_12 = {1, 2, 3, 4, 6, 12}: 2 has no complement, so it is not complemented, hence not Boolean - although it is distributive. M3 is complemented but not distributive, so it is not Boolean either."
+   },
+   "check": {
+    "question": "How many elements does the Boolean lattice of the divisors of 210 have?",
+    "answer": "16.",
+    "explanation": "210 = 2 x 3 x 5 x 7 has four distinct primes, so the divisor lattice is the power set of a 4-element set: 2^4 = 16 divisors, all of them squarefree."
+   },
+   "pyqIds": [
+    "gate-2025-set2-32-function-poset"
+   ],
+   "prereqs": [
+    "distributive-lattices",
+    "bounded-and-complemented-lattices",
+    "power-set-and-its-size"
+   ],
+   "videoRefs": [],
+   "sources": [
+    {
+     "kind": "lecture",
+     "title": "Lecture 40 - Lattices (Discrete Mathematical Structures)",
+     "channel": "NPTEL, IIT Madras (Dr. Kamala Krithivasan)",
+     "url": "http://elearn.psgcas.ac.in/nptel/courses/video/106106094/lec40.pdf",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "published lecture transcript (27 pages), read in full"
+    },
+    {
+     "kind": "video",
+     "title": "Lattice, POSET - GATE PYQs - Part 1",
+     "channel": "GO Classes for GATE CS (Deepak Poonia)",
+     "video_id": "3chjsP_NNnY",
+     "url": "https://www.youtube.com/watch?v=3chjsP_NNnY",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "auto-caption text read for the GATE 1993, 1996 and 2003 segments only"
+    },
+    {
+     "kind": "text",
+     "title": "Rosen, Discrete Mathematics and Its Applications, ch. 9.6 (partial orderings) and ch. 9.5 (lattices in the Boolean-algebra sense)",
+     "language": "en",
+     "transcript": "N/A"
+    }
+   ],
+   "sourceLine": "The correspondence between a complemented distributive lattice and a Boolean algebra, and the power-set complements: NPTEL IIT Madras Lecture 40 (English, full transcript). Divisor-lattice practice (D_n analysis) sits in the NPTEL IIT Guwahati Lec 22 and the GO Classes Set Theory lectures 61-62, whose captions were unavailable in this run; the counts are recomputed here.",
+   "subject": "discrete-mathematics",
+   "topic": "partial-orders-and-lattices",
+   "path": "subjects/discrete-mathematics/partial-orders-and-lattices/boolean-lattices-and-examples.json"
+  },
+  {
+   "id": "complete-lattices",
+   "title": "Complete Lattices",
+   "priority": "P3",
+   "order": 72,
+   "unit": "Lattices",
+   "quickIdea": "A complete lattice has a join and a meet for every subset, not just every pair. Every finite lattice is complete, and every complete lattice is bounded.",
+   "remember": [
+    "A lattice is complete when every subset - including the empty set and the whole set - has a LUB and a GLB in the lattice.",
+    "Every finite lattice is complete: joins and meets of finite subsets are built pair by pair, and the empty subset has the least and greatest elements as its bounds.",
+    "Every complete lattice is bounded: the join of the empty set is the least element and its meet is the greatest element.",
+    "The converse fails: the set of rationals under the usual order has no greatest element, so the join of the whole set does not exist and the poset is not complete.",
+    "A subset lattice (a family of sets closed under union and intersection) is a lattice of sets, and it is complete exactly when it is closed under arbitrary unions and intersections.",
+    "GATE CSE 2004 Q.73 is the canonical completeness question: with S = {{1,2}, {1,2,3}, {1,3,5}, {1,2,4}, {1,2,3,4,5}} under set containment, adding {1} alone makes the family complete.",
+    "Why {1} suffices: for the pair {1,2,3} and {1,3,5} no member of S is contained in both, so the pair has no meet; once {1} is added it becomes the meet of that pair, and {1} is likewise the meet of {1,3,5} and {1,2,4}. Adding {1} also gives the family a least element, since {1} is contained in every member."
+   ],
+   "example": {
+    "prompt": "For S = {{1,2}, {1,2,3}, {1,3,5}, {1,2,4}, {1,2,3,4,5}} under containment, find a subset with no greatest lower bound, and the smallest set to add.",
+    "work": "The meet of a family is its intersection when that intersection is a member of S. The pair {1,2,3} and {1,3,5}: no member of S is contained in both, so there is no meet. The pair {1,3,5} and {1,2,4}: again no member is contained in both. Adding the set {1} gives both pairs the meet {1}, and {1} is contained in every member, so it is also the least element. Every pair of members now has a meet and a join inside the family.",
+    "answer": "Add {1} - the answer to GATE CSE 2004 Q.73, option (A)."
+   },
+   "gateAngle": "Completeness questions are answered by listing the intersections (for meets) and unions (for joins) that the family is missing. On set-containment posets the join is the union and the meet the intersection, so the check is set arithmetic, not a diagram sweep.",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2004 Q.73: which sets must be added to S to make it a complete lattice under containment? (A) {1} (B) {1}, {2,3} (C) {1}, {1,3} (D) {1}, {1,3}, {1,2,3,4}, {1,2,3,5}.",
+     "answer": "Option (A), {1} alone.",
+     "why": "The only missing meet is {1}; once it is added, every subset of the family has both a union and an intersection inside the family, so it is complete. Options C and D add sets that are not needed, and B adds a set that does not help."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "Is the family {{2}, {2,3}, {2,4}, {2,3,4}} under set containment a complete lattice?",
+     "answer": "Yes. It is a lattice, and every finite lattice is complete.",
+     "why": "The meets are intersections: {2,3} n {2,4} = {2}, which is present. The joins are unions: {2,3} u {2,4} = {2,3,4}, which is present. So every pair has both bounds and the family is a 4-element lattice; finiteness makes it complete. This is the trap in the other direction - on a finite family, complete adds nothing."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "Why is every finite lattice complete, while not every lattice is finite?",
+     "answer": "In a finite lattice, any subset is finite, and its join is the finite join of its elements, built two at a time by associativity; the empty subset is handled by the least and greatest elements.",
+     "why": "Completeness only adds power for infinite subsets, which is why the theory of complete lattices matters for infinite posets and not for the finite ones GATE draws."
+    }
+   ],
+   "trap": {
+    "what": "Treating 'complete lattice' as a stronger-sounding synonym for 'lattice' in a finite diagram, or forgetting the empty subset.",
+    "why": "For finite posets the two coincide, so the word 'complete' is a hint that the poset is a family of sets and the real question is whether it is closed under union and intersection.",
+    "counterexample": "The family {{1,2}, {1,2,3}, {1,3,5}, {1,2,4}, {1,2,3,4,5}} is not a lattice at all, because {1,3,5} and {1,2,4} have no meet in the family. Calling it an incomplete lattice would be the wrong diagnosis."
+   },
+   "check": {
+    "question": "Is the divisor lattice of 12 complete?",
+    "answer": "Yes - it is finite, so it is complete.",
+    "explanation": "Every subset of the six divisors has an lcm and a gcd that are again divisors of 12, and the empty subset is handled by 1 and 12. Finiteness is the whole argument."
+   },
+   "pyqIds": [
+    "gate-2004-73-complete-lattice"
+   ],
+   "prereqs": [
+    "lattice-definition-and-pairwise-test"
+   ],
+   "videoRefs": [],
+   "sources": [
+    {
+     "kind": "lecture",
+     "title": "Lecture 40 - Lattices (Discrete Mathematical Structures)",
+     "channel": "NPTEL, IIT Madras (Dr. Kamala Krithivasan)",
+     "url": "http://elearn.psgcas.ac.in/nptel/courses/video/106106094/lec40.pdf",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "published lecture transcript (27 pages), read in full"
+    },
+    {
+     "kind": "text",
+     "title": "Rosen, Discrete Mathematics and Its Applications, ch. 9.6 (partial orderings) and ch. 9.5 (lattices in the Boolean-algebra sense)",
+     "language": "en",
+     "transcript": "N/A"
+    }
+   ],
+   "sourceLine": "The definition of a lattice via pairwise joins and meets and the union/intersection reading of a lattice of sets: NPTEL IIT Madras Lecture 40 (English, full transcript). The completeness criterion and the GATE 2004 argument are recomputed from the set arithmetic and checked against Rosen ch. 9.6.",
+   "subject": "discrete-mathematics",
+   "topic": "partial-orders-and-lattices",
+   "path": "subjects/discrete-mathematics/partial-orders-and-lattices/complete-lattices.json"
   }
  ],
  "pyqs": [
@@ -6080,6 +7210,50 @@ window.GATE_DATA = {
    "source_label": "GATE Overflow question page for GATE CS 1995 Q.1.20 with the accepted answer",
    "verification": "SOURCED",
    "answer_evidence": "The accepted answer on the GATE Overflow page gives 2 to the 3 = 8 and lists the eight subsets explicitly."
+  },
+  {
+   "id": "gate-1996-1-2-hasse-edges-divides",
+   "year": "1996",
+   "paper": "GATE CS 1996",
+   "question_ref": "Q.1.2 (GATE Overflow numbering; some year-wise mirrors list it as Q.45)",
+   "type": "MCQ",
+   "marks": "1",
+   "topic": "hasse-diagram-and-covering",
+   "text": "Let X = {2, 3, 6, 12, 24}. Let <= be the partial order defined by x <= y if x divides y. The number of edges in the Hasse diagram of (X, <=) is",
+   "options": [
+    "3",
+    "4",
+    "9",
+    "None of the above"
+   ],
+   "answer": "Option (B) - 4",
+   "solution": "The edges are the covering pairs: (2,6), (3,6), (6,12), (12,24). The pair 2 and 3 are incomparable, 6 covers 2 and 3, 12 covers 6 and 24 covers 12. The transitive pairs (2,12), (2,24), (3,12), (3,24) and (6,24) are not drawn, and the five reflexive pairs are omitted. Recomputed by enumeration: 4 covering pairs, 14 ordered pairs in the relation.",
+   "source_url": "https://gateoverflow.in/2706/gate-cse-1996-question-1-2",
+   "source_label": "GATE Overflow question page - GATE CSE 1996 Q.1.2 with community solutions (answer recorded as option B, 4)",
+   "verification": "SOURCED",
+   "answer_evidence": "The accepted answer on the page records 'Answer: B' and the comment thread counts the four covering edges; the count is independently recomputed by scripts/validate.py."
+  },
+  {
+   "id": "gate-1997-6-1-total-orders-n-factorial",
+   "year": "1997",
+   "paper": "GATE CS 1997",
+   "question_ref": "Q.6.1",
+   "type": "MCQ",
+   "marks": "2",
+   "topic": "comparability-chains-and-antichains",
+   "text": "A partial order <= is defined on the set S = {x, a1, a2, ..., an, y} as x <= ai for all i and ai <= y for all i, where n >= 1. The number of total orders on the set S which contain the partial order <= is",
+   "options": [
+    "n!",
+    "n",
+    "2n",
+    "None of the above"
+   ],
+   "answer": "Option (A) - n!",
+   "solution": "x is below every ai and every ai is below y, so x is first and y is last in any total order extending the poset. The ai are mutually incomparable, so any of the n! arrangements of them between x and y gives a total order, and different arrangements give different total orders. Recomputed by enumeration for n = 1, 2, 3, 4: 1, 2, 6, 24 total orders.",
+   "source_url": "https://gateoverflow.in/2257/gate-cse-1997-question-6-1",
+   "source_label": "GATE Overflow question page - GATE CSE 1997 Q.6.1 with two community solutions (answer recorded as option A, n!)",
+   "verification": "SOURCED",
+   "answer_evidence": "The accepted answer states 'this translates to giving an ordering for n elements between x and y, which can be done in n! ways. So, answer is (a)'; the count is recomputed by scripts/validate.py for n = 1 to 4."
   },
   {
    "id": "gate-1997-6-3",
@@ -6269,6 +7443,28 @@ window.GATE_DATA = {
    "source_label": "GATE Overflow question page for GATE CS 2003 Q.32 with counterexamples for every wrong option",
    "verification": "SOURCED",
    "answer_evidence": "The accepted answer is (D), with explicit countermodels for options (A), (B) and (C)."
+  },
+  {
+   "id": "gate-2004-73-complete-lattice",
+   "year": "2004",
+   "paper": "GATE CS 2004",
+   "question_ref": "Q.73",
+   "type": "MCQ",
+   "marks": "1",
+   "topic": "complete-lattices",
+   "text": "The inclusion of which of the following sets into S = {{1,2}, {1,2,3}, {1,3,5}, {1,2,4}, {1,2,3,4,5}} is necessary and sufficient to make S a complete lattice under the partial order defined by set containment?",
+   "options": [
+    "{1}",
+    "{1}, {2,3}",
+    "{1}, {1,3}",
+    "{1}, {1,3}, {1,2,3,4}, {1,2,3,5}"
+   ],
+   "answer": "Option (A) - {1} alone",
+   "solution": "Under containment the meet of a family is its intersection, and the meet must itself be a member of the family. The pair {1,2,3} and {1,3,5} has no member of S contained in both, so it has no meet; the pair {1,3,5} and {1,2,4} likewise. Adding {1} gives both pairs the meet {1}, and since {1} is contained in every member it is also the least element. Recomputed by exhaustive check of every subset of the family: with {1} added, every subset has a least upper bound and a greatest lower bound inside the family, and no smaller addition does.",
+   "source_url": "https://gateoverflow.in/1067/gate-cse-2004-question-73",
+   "source_label": "GATE Overflow question page - GATE CSE 2004 Q.73 with the accepted solution (answer A); the same answer is given in the IIT Delhi course solutions page for GATE 2004",
+   "verification": "SOURCED",
+   "answer_evidence": "The accepted answer concludes 'adding {1} is necessary and sufficient condition for S to be complete lattice. Thus, option (A) is correct.' Recomputed by enumeration in scripts/validate.py."
   },
   {
    "id": "gate-2004-it-2",
@@ -6635,6 +7831,22 @@ window.GATE_DATA = {
    "verification": "OFFICIAL_KEY"
   },
   {
+   "id": "gate-2017-set2-21-lattice-pairs-to-add",
+   "year": "2017",
+   "paper": "GATE CS 2017, Set 2",
+   "question_ref": "Q.21 (GATE Overflow numbering; some paper mirrors list it as Q.27)",
+   "type": "NAT",
+   "marks": "1",
+   "topic": "lattice-definition-and-pairwise-test",
+   "text": "Consider the set X = {a, b, c, d, e} under the partial ordering R = {(a,a), (a,b), (a,c), (a,d), (a,e), (b,b), (b,c), (b,e), (c,c), (c,e), (d,d), (d,e), (e,e)}. The Hasse diagram of the partial order (X, R) is shown below. The minimum number of ordered pairs that need to be added to R to make (X, R) a lattice is ____.",
+   "answer": "0",
+   "solution": "a is the least element and e the greatest, so every pair involving them has both bounds. The only incomparable pairs are {b, d} and {c, d}: for {b, d} the upper bounds are {e} so the join is e, and the lower bounds are {a} so the meet is a; the same holds for {c, d}. The pair {b, c} is comparable. Every pair therefore already has a join and a meet inside X, so the poset is already a lattice and nothing must be added. Recomputed by enumeration: the relation is reflexive, antisymmetric and transitive, and every pair has a unique least upper bound and greatest lower bound in X.",
+   "source_url": "https://gateoverflow.in/118278/gate-cse-2017-set-2-question-21",
+   "source_label": "GATE Overflow question page - GATE CSE 2017 Set 2 Q.21 with seven community answers (answer recorded as 0)",
+   "verification": "SOURCED",
+   "answer_evidence": "The accepted answer states 'LUB and GLB exist for every two elements ... Hence, the Minimum number of ordered pairs that need to be added = 0'; the lattice test is recomputed by scripts/validate.py."
+  },
+  {
    "id": "gate-2018-model-size-upper-bound",
    "year": "2018",
    "paper": "GATE CS 2018",
@@ -6767,6 +7979,22 @@ window.GATE_DATA = {
    "answer_evidence": "The accepted solutions conclude (B) and (C), using for all x for all y Q implies the conjecture, and there exists y for all x R implies for all x there exists y R."
   },
   {
+   "id": "gate-2024-set2-24-total-orders",
+   "year": "2024",
+   "paper": "GATE CS 2024, Set 2",
+   "question_ref": "Q.24",
+   "type": "NAT",
+   "marks": "2",
+   "topic": "comparability-chains-and-antichains",
+   "text": "Let P be the partial order defined on the set {1,2,3,4} as follows: P = {(x,x) : x in {1,2,3,4}} union {(1,2), (3,2), (3,4)}. The number of total orders on {1,2,3,4} that contain P is ____.",
+   "answer": "5",
+   "solution": "A total order containing P must place 1 before 2, 3 before 2 and 3 before 4. The only free comparisons are 1 against 3 and 2 against 4. Enumerating all 24 arrangements and keeping those that respect the three constraints leaves 1-3-2-4, 1-3-4-2, 3-1-2-4, 3-1-4-2 and 3-4-1-2. Recomputed by enumeration: exactly 5.",
+   "source_url": "https://gateoverflow.in/422873/gate-cse-2024-set-2-question-24",
+   "source_label": "GATE Overflow question page - GATE CSE 2024 Set 2 Q.24 with the accepted answer (5) and a GO Classes video solution reference",
+   "verification": "SOURCED",
+   "answer_evidence": "The accepted answer lists the five total orders and concludes 'the number of total order on {1,2,3,4} that contain P is 5'; recomputed by enumeration in scripts/validate.py."
+  },
+  {
    "id": "gate-2024-set2-fail-grade-translation",
    "year": "2024",
    "paper": "GATE CS 2024 Set 2",
@@ -6824,6 +8052,28 @@ window.GATE_DATA = {
    "source_label": "GATE Overflow question page for GATE CS 2025 Set 1 Q.38 with the accepted answer",
    "verification": "SOURCED",
    "answer_evidence": "The accepted answer states 'B & D matches', after rewriting (B) into the equivalent form of (D)."
+  },
+  {
+   "id": "gate-2025-set2-32-function-poset",
+   "year": "2025",
+   "paper": "GATE CS 2025, Set 2",
+   "question_ref": "Q.32 (GATE Overflow numbering; at least one mirror lists it as Q.42)",
+   "type": "MSQ",
+   "marks": "2",
+   "topic": "boolean-lattices-and-examples",
+   "text": "Let F be the set of all functions from {1, ..., n} to {0, 1}. Define the binary relation <= on F as follows: for all f, g in F, f <= g if and only if for all x in {1, ..., n}, f(x) <= g(x), where 0 <= 1. Which of the following statement(s) is/are TRUE?",
+   "options": [
+    "<= is a symmetric relation",
+    "(F, <=) is a partial order",
+    "(F, <=) is a lattice",
+    "<= is an equivalence relation"
+   ],
+   "answer": "Options (B) and (C)",
+   "solution": "Reflexive because f(x) <= f(x); antisymmetric because f(x) <= g(x) and g(x) <= f(x) force f = g pointwise; transitive because the pointwise order on {0,1} is. So (B) holds. Symmetry fails - 0 <= 1 but not 1 <= 0 - which also rules out (D). For any two functions the pointwise maximum is their join and the pointwise minimum is their meet, and both are functions in F, so (C) holds; the poset is in fact the Boolean lattice on n generators, isomorphic to the power set of {1, ..., n}. Recomputed by enumeration for n = 1, 2, 3: the relation is a partial order and a lattice, and is not symmetric.",
+   "source_url": "https://gateoverflow.in/460803/gate-cse-2025-set-2-question-32",
+   "source_label": "GATE Overflow question page - GATE CSE 2025 Set 2 Q.32 with community solutions (answer B and C)",
+   "verification": "SOURCED",
+   "answer_evidence": "The page's solutions conclude 'The correct options are: (B) and (C)'; the pointwise-order claims are recomputed by enumeration in scripts/validate.py."
   },
   {
    "id": "gate-2026-set2-knows-nobody",

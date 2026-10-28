@@ -1,0 +1,22 @@
+{
+  "id": "gate-2025-set2-32-function-poset",
+  "year": "2025",
+  "paper": "GATE CS 2025, Set 2",
+  "question_ref": "Q.32 (GATE Overflow numbering; at least one mirror lists it as Q.42)",
+  "type": "MSQ",
+  "marks": "2",
+  "topic": "boolean-lattices-and-examples",
+  "text": "Let F be the set of all functions from {1, ..., n} to {0, 1}. Define the binary relation <= on F as follows: for all f, g in F, f <= g if and only if for all x in {1, ..., n}, f(x) <= g(x), where 0 <= 1. Which of the following statement(s) is/are TRUE?",
+  "options": [
+    "<= is a symmetric relation",
+    "(F, <=) is a partial order",
+    "(F, <=) is a lattice",
+    "<= is an equivalence relation"
+  ],
+  "answer": "Options (B) and (C)",
+  "solution": "Reflexive because f(x) <= f(x); antisymmetric because f(x) <= g(x) and g(x) <= f(x) force f = g pointwise; transitive because the pointwise order on {0,1} is. So (B) holds. Symmetry fails - 0 <= 1 but not 1 <= 0 - which also rules out (D). For any two functions the pointwise maximum is their join and the pointwise minimum is their meet, and both are functions in F, so (C) holds; the poset is in fact the Boolean lattice on n generators, isomorphic to the power set of {1, ..., n}. Recomputed by enumeration for n = 1, 2, 3: the relation is a partial order and a lattice, and is not symmetric.",
+  "source_url": "https://gateoverflow.in/460803/gate-cse-2025-set-2-question-32",
+  "source_label": "GATE Overflow question page - GATE CSE 2025 Set 2 Q.32 with community solutions (answer B and C)",
+  "verification": "SOURCED",
+  "answer_evidence": "The page's solutions conclude 'The correct options are: (B) and (C)'; the pointwise-order claims are recomputed by enumeration in scripts/validate.py."
+}

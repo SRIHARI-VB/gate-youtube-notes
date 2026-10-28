@@ -1086,6 +1086,376 @@ def check_sets_relations_functions():
        "function counts by brute force, and the verdicts of the four relations-based PYQs" % 9)
 
 
+# ---------------------------------------- partial orders and lattices
+def check_lattices():
+    """Every order-theoretic claim published in the Partial Orders and Lattices cards and lesson is recomputed."""
+    import itertools
+    from fractions import Fraction
+
+    def closure(cover, elems):
+        R = {(e, e) for e in elems} | {(a, b) for a, b in cover}
+        while True:
+            add = {(a, c) for (a, b) in R for (b2, c) in R if b == b2} - R
+            if not add:
+                return R
+            R |= add
+
+    def is_poset(R, elems):
+        return (all((a, a) in R for a in elems)
+                and all(a == b for (a, b) in R if (b, a) in R)
+                and all((a, c) in R for (a, b) in R for (b2, c) in R if b == b2))
+
+    def lub_glb(R, elems, a, b):
+        up = [u for u in elems if (a, u) in R and (b, u) in R]
+        lo = [l for l in elems if (l, a) in R and (l, b) in R]
+        J = next((u for u in up if all((u, v) in R for v in up)), None)
+        M = next((m for m in lo if all((v, m) in R for v in lo)), None)
+        return J, M
+
+    def is_lattice(R, elems):
+        return all(lub_glb(R, elems, a, b) != (None, None)
+                   and lub_glb(R, elems, a, b)[0] is not None
+                   and lub_glb(R, elems, a, b)[1] is not None
+                   for a in elems for b in elems)
+
+    def covers(R, elems):
+        return [(a, b) for (a, b) in R if a != b
+                and not any(z not in (a, b) and (a, z) in R and (z, b) in R for z in elems)]
+
+    def join(R, e, a, b): return lub_glb(R, e, a, b)[0]
+    def meet(R, e, a, b): return lub_glb(R, e, a, b)[1]
+
+    def distributive(R, elems):
+        for a in elems:
+            for b in elems:
+                for c in elems:
+                    if (meet(R, elems, a, join(R, elems, b, c))
+                            != join(R, elems, meet(R, elems, a, b), meet(R, elems, a, c))):
+                        return False
+        return True
+
+    def semi_inequality_holds(R, elems):
+        for a in elems:
+            for b in elems:
+                for c in elems:
+                    lhs = join(R, elems, a, meet(R, elems, b, c))
+                    rhs = meet(R, elems, join(R, elems, a, b), join(R, elems, a, c))
+                    if (lhs, rhs) not in R:
+                        return False
+        return True
+
+    def is_sublattice(R, elems, S):
+        S = set(S)
+        return S <= set(elems) and all(join(R, elems, a, b) in S and meet(R, elems, a, b) in S
+                                       for a in S for b in S)
+
+    def complements(R, elems, a):
+        zero = [x for x in elems if all((x, y) in R for y in elems)]
+        one = [x for x in elems if all((y, x) in R for y in elems)]
+        if not zero or not one:
+            return []
+        return [x for x in elems if meet(R, elems, a, x) == zero[0] and join(R, elems, a, x) == one[0]]
+
+    def linear_extensions(R, elems):
+        n, out = len(elems), 0
+        for perm in itertools.permutations(elems):
+            T = {(perm[i], perm[j]) for i in range(n) for j in range(i, n)}
+            out += 1 if R <= T else 0
+        return out
+
+    def height_classes(R, elems):
+        def height(x):
+            return 1 + max([height(y) for y in elems if (y, x) in R and y != x] or [0])
+        best = {}
+        for x in elems:
+            best[x] = height(x)
+        return best
+
+    def longest_chain(R, elems):
+        return max(height_classes(R, elems).values())
+
+    def divisors(n):
+        return [d for d in range(1, n + 1) if n % d == 0]
+
+    def divisor_poset(n):
+        E = divisors(n)
+        return E, {(a, b) for a in E for b in E if b % a == 0}
+
+    # ---- the counting facts quoted on the axioms card
+    def count_posets(n):
+        elems = list(range(n))
+        cells = [(a, b) for a in elems for b in elems]
+        total = 0
+        for bits in range(1 << len(cells)):
+            R = {c for k, c in enumerate(cells) if bits >> k & 1}
+            if is_poset(R, elems):
+                total += 1
+        return total
+
+    assert count_posets(2) == 3, "three partial orders on a two-element set"
+    assert count_posets(3) == 19, "nineteen partial orders on a three-element set"
+    assert count_posets(4) == 219, "219 partial orders on a four-element set"
+    e2 = [0, 1]
+    assert sum(1 for p in itertools.permutations(e2)
+               if {(0, 0), (1, 1)} | {(p[0], p[1])} >= {(0, 0), (1, 1)}) == 2
+    assert sum(1 for p in itertools.permutations([0, 1, 2])) == 6, "six total orders on three elements"
+
+    # ---- Hasse diagrams and relation cardinalities
+    E24 = [2, 3, 6, 12, 24]
+    R24 = {(a, b) for a in E24 for b in E24 if b % a == 0}
+    assert is_poset(R24, E24)
+    assert len(covers(R24, E24)) == 4, "four covering pairs for {2,3,6,12,24}"
+    assert len(R24) == 14, "fourteen pairs in the divisibility relation on {2,3,6,12,24}"
+    assert sorted(covers(R24, E24)) == [(2, 6), (3, 6), (6, 12), (12, 24)]
+    E12, R12 = divisor_poset(12)
+    assert len(E12) == 6 and len(covers(R12, E12)) == 7, "seven covering pairs for the divisors of 12"
+    E24b, R24b = divisor_poset(24)
+    assert len(covers(R24b, E24b)) == 10, "ten covering pairs for the eight divisors of 24"
+    chain4 = [0, 1, 2, 3]
+    Rc4 = {(a, b) for a in chain4 for b in chain4 if a <= b}
+    assert len(Rc4) == 10 and len(covers(Rc4, chain4)) == 3, "a 4-element chain: 10 pairs, 3 edges"
+
+    # ---- chains, antichains and linear extensions
+    for n in (2, 3, 4):
+        E = list(range(n))
+        for bits in range(1 << (n * n)):
+            cells = [(a, b) for a in E for b in E]
+            R = {c for k, c in enumerate(cells) if bits >> k & 1}
+            if not is_poset(R, E):
+                continue
+            h = height_classes(R, E)
+            classes = {}
+            for x, v in h.items():
+                classes.setdefault(v, set()).add(x)
+            # each height class is an antichain, and there are exactly longest_chain of them
+            for v, S in classes.items():
+                for a in S:
+                    for b in S:
+                        assert a == b or not ((a, b) in R and a != b), "a height class must be an antichain"
+            assert len(classes) == longest_chain(R, E), "Mirsky: n height classes for a longest chain of n"
+    assert longest_chain(R24, E24) == 4 and longest_chain(R12, E12) == 4
+
+    P24 = {(x, x) for x in (1, 2, 3, 4)} | {(1, 2), (3, 2), (3, 4)}
+    assert is_poset(P24, [1, 2, 3, 4])
+    assert linear_extensions(P24, [1, 2, 3, 4]) == 5, "GATE 2024 Set 2 Q.24 has five linear extensions"
+    assert sorted(("".join(map(str, p)) for p in itertools.permutations([1, 2, 3, 4])
+                   if P24 <= {(p[i], p[j]) for i in range(4) for j in range(i, 4)})) == \
+        ["1324", "1342", "3124", "3142", "3412"]
+    width = max(len(S) for k in range(1, 5)
+                for S in itertools.combinations([1, 2, 3, 4], k)
+                if all(not ((a, b) in P24 or (b, a) in P24) or a == b for a in S for b in S))
+    assert width == 2, "the largest antichain of the 2024 poset has two elements"
+    assert all(not ((a, b) in P24 or (b, a) in P24) or a == b for a in (2, 4) for b in (2, 4))
+    assert all(not ((a, b) in P24 or (b, a) in P24) or a == b for a in (1, 3) for b in (1, 3))
+    for n in (1, 2, 3, 4):
+        A = [("a", i) for i in range(n)]
+        E = [("x",)] + A + [("y",)]
+        P = ({(e, e) for e in E} | {(("x",), a) for a in A} | {(a, ("y",)) for a in A}
+             | {(("x",), ("y",))})
+        assert is_poset(P, E)
+        assert linear_extensions(P, E) == factorial(n), "GATE 1997 Q.6.1 gives n!"
+
+    # ---- minimal, maximal, least, greatest
+    def extremes(R, elems):
+        least = [a for a in elems if all((a, b) in R for b in elems)]
+        greatest = [a for a in elems if all((b, a) in R for b in elems)]
+        minimal = [a for a in elems if not any((b, a) in R and b != a for b in elems)]
+        maximal = [a for a in elems if not any((a, b) in R and b != a for b in elems)]
+        return least, greatest, minimal, maximal
+
+    least, greatest, minimal, maximal = extremes(R12, E12)
+    assert least == [1] and greatest == [12] and minimal == [1] and maximal == [12]
+    E11 = [d for d in E12 if d != 12]
+    least, greatest, minimal, maximal = extremes(R12, E11)
+    assert least == [1] and greatest == [] and sorted(minimal) == [1] and sorted(maximal) == [4, 6]
+    # the 5-element poset of the minimal/maximal trap: a < c, b < c, c < d, b < e
+    E5 = ["a", "b", "c", "d", "e"]
+    R5 = closure([("a", "c"), ("b", "c"), ("c", "d"), ("b", "e")], E5)
+    assert is_poset(R5, E5)
+    least, greatest, minimal, maximal = extremes(R5, E5)
+    assert least == [] and sorted(minimal) == ["a", "b"], "a and b are minimal, neither is least"
+    # two incomparable upper bounds and no LUB
+    E4 = ["a", "b", "c", "d"]
+    R4 = closure([("a", "c"), ("b", "c"), ("a", "d"), ("b", "d")], E4)
+    assert lub_glb(R4, E4, "a", "b") == (None, None), "c and d are incomparable upper bounds, so no LUB"
+    assert not is_lattice(R4, E4)
+
+    # ---- bounds in divisor posets
+    assert lub_glb(R12, E12, 4, 6) == (12, 2), "LUB 12 and GLB 2 for 4 and 6 in D12"
+    E18, R18 = divisor_poset(18)
+    assert is_lattice(R18, E18), "D18 is a lattice"
+    assert lub_glb(R18, E18, 6, 9) == (18, 3) and lub_glb(R18, E18, 2, 9) == (18, 1)
+    E18b = [d for d in E18 if d != 18]
+    R18b = {(a, b) for a, b in R18 if a in E18b and b in E18b}
+    assert not is_lattice(R18b, E18b), "D18 without 18 is not a lattice"
+    assert lub_glb(R18b, E18b, 6, 9) == (None, 3), "6 and 9 keep GLB 3 and lose their LUB"
+    assert lub_glb(R18b, E18b, 2, 9) == (None, 1)
+    E30, R30 = divisor_poset(30)
+    assert lub_glb(R30, E30, 6, 10) == (30, 2)
+    assert is_lattice(R30, E30) and len(E30) == 8 and distributive(R30, E30)
+
+    # ---- the GATE 2017 Set 2 Q.21 poset and its lesson
+    EX = list("abcde")
+    PX = {(a, a) for a in EX} | {("a", b) for b in EX} | {("b", "c"), ("b", "e"), ("c", "e"), ("d", "e")}
+    assert is_poset(PX, EX), "the 2017 poset is reflexive, antisymmetric and transitive"
+    assert len(PX) == 13 and len(covers(PX, EX)) == 5
+    assert sorted(covers(PX, EX)) == [("a", "b"), ("a", "d"), ("b", "c"), ("c", "e"), ("d", "e")]
+    assert is_lattice(PX, EX), "the 2017 poset is already a lattice, so 0 pairs must be added"
+    assert lub_glb(PX, EX, "b", "d") == ("e", "a") and lub_glb(PX, EX, "c", "d") == ("e", "a")
+    assert lub_glb(PX, EX, "b", "c") == ("c", "b")
+    assert distributive(PX, EX) is False, "the pentagon is not distributive"
+    PXb = {(a, b) for a, b in PX if (a, b) != ("d", "e")}
+    assert is_poset(PXb, EX) and not is_lattice(PXb, EX), "deleting d < e breaks the lattice property"
+    assert lub_glb(PXb, EX, "b", "d") == (None, "a") and lub_glb(PXb, EX, "c", "d") == (None, "a")
+    assert len(PXb) == 12 and len(PX - PXb) == 1, "adding d < e back adds exactly one pair"
+    EXc = ["a", "b", "d", "e"]
+    RXc = {(a, b) for a, b in PX if a in EXc and b in EXc}
+    assert is_lattice(RXc, EXc), "deleting c leaves the square B2, a lattice"
+
+    # ---- a join-semilattice that is not a lattice
+    E3 = ["x", "y", "z"]
+    R3 = closure([("x", "z"), ("y", "z")], E3)
+    assert all(join(R3, E3, a, b) is not None for a in E3 for b in E3)
+    assert meet(R3, E3, "x", "y") is None and not is_lattice(R3, E3)
+
+    # ---- the four lattice laws and duality on the standard lattices
+    E6, R6 = divisor_poset(6)
+    M3E = [0, "a", "b", "c", 1]
+    M3 = {(0, 0), (1, 1), ("a", "a"), ("b", "b"), ("c", "c")} | \
+         {(0, x) for x in M3E} | {(x, 1) for x in M3E}
+    N5E = [0, "a", "b", "c", 1]
+    N5 = {(0, 0), (1, 1), ("a", "a"), ("b", "b"), ("c", "c")} | \
+         {(0, x) for x in N5E} | {(x, 1) for x in N5E} | {("a", "c")}
+    B3E = [frozenset(s) for k in range(4) for s in itertools.combinations([1, 2, 3], k)]
+    B3 = {(x, y) for x in B3E for y in B3E if x <= y}
+    for E, R, name in ((E12, R12, "D12"), (E6, R6, "D6"), (M3E, M3, "M3"), (N5E, N5, "N5"),
+                       (B3E, B3, "B3"), (chain4, Rc4, "chain4")):
+        assert is_poset(R, E) and is_lattice(R, E), name + " is a lattice"
+        for a in E:
+            assert join(R, E, a, a) == a and meet(R, E, a, a) == a, name + " idempotent"
+            for b in E:
+                assert join(R, E, a, b) == join(R, E, b, a) and meet(R, E, a, b) == meet(R, E, b, a), \
+                    name + " commutative"
+                assert join(R, E, a, meet(R, E, a, b)) == a, name + " absorption"
+                assert meet(R, E, a, join(R, E, a, b)) == a, name + " absorption (dual)"
+                for c in E:
+                    assert join(R, E, join(R, E, a, b), c) == join(R, E, a, join(R, E, b, c)), name + " associative"
+                    assert meet(R, E, meet(R, E, a, b), c) == meet(R, E, a, meet(R, E, b, c)), name + " associative"
+        assert semi_inequality_holds(R, E), name + " satisfies the semi-distributive inequality"
+
+    # ---- distributivity: D_n and B3 yes, M3 and N5 no, with the published counterexamples
+    assert distributive(R12, E12) and distributive(R6, E6) and distributive(B3, B3E) and distributive(R30, E30)
+    assert not distributive(M3, M3E) and not distributive(N5, N5E)
+    assert meet(M3, M3E, "a", join(M3, M3E, "b", "c")) == "a"
+    assert join(M3, M3E, meet(M3, M3E, "a", "b"), meet(M3, M3E, "a", "c")) == 0
+    assert join(N5, N5E, "a", meet(N5, N5E, "b", "c")) == "a"
+    assert meet(N5, N5E, join(N5, N5E, "a", "b"), join(N5, N5E, "a", "c")) == "c"
+    assert meet(N5, N5E, "a", join(N5, N5E, "b", "c")) == "a"
+    assert join(N5, N5E, meet(N5, N5E, "a", "b"), meet(N5, N5E, "a", "c")) == "a"
+
+    # ---- sublattices
+    assert is_sublattice(R12, E12, [1, 2, 4]) and is_sublattice(R12, E12, [1, 2, 6])
+    assert not is_sublattice(R12, E12, [1, 2, 3, 4]) and not is_lattice(
+        {(a, b) for a, b in R12 if a in (1, 2, 3, 4) and b in (1, 2, 3, 4)}, [1, 2, 3, 4])
+    assert is_sublattice(M3, M3E, [0, "a", "b", 1]) and not is_sublattice(M3, M3E, [0, "a", "b"])
+    assert not is_sublattice(R30, E30, [1, 2, 3, 5, 6])
+    # a lattice that is not a sublattice: the pentagon inside the cube
+    SP = [frozenset(), frozenset({1}), frozenset({2}), frozenset({1, 2}), frozenset({3}), frozenset({1, 2, 3})]
+    RP = {(a, b) for a, b in B3 if a in SP and b in SP}
+    assert is_lattice(RP, SP), "the pentagon is a lattice on its own"
+    assert not is_sublattice(B3, B3E, SP), "but {1} v {3} = {1,3} leaves it, so it is not a sublattice"
+    assert join(B3, B3E, frozenset({1}), frozenset({3})) == frozenset({1, 3})
+    assert is_sublattice(B3, B3E, [frozenset(), frozenset({1}), frozenset({2}), frozenset({1, 2})])
+    for E, R in ((chain4, Rc4), (E6, R6), (E12, R12)):
+        for a in E:
+            for b in E:
+                S = sorted({a, b}, key=str)
+                if (a, b) in R or (b, a) in R:
+                    assert is_sublattice(R, E, S), "every two-element chain is a sublattice"
+    assert not is_sublattice(R6, E6, [2, 3]), "2 and 3 in D6 are incomparable, so {2, 3} is not a sublattice"
+
+    # ---- bounded, complemented, Boolean
+    assert complements(R6, E6, 2) == [3] and complements(R6, E6, 3) == [2]
+    assert complements(R6, E6, 1) == [6] and complements(R6, E6, 6) == [1]
+    assert sorted(map(str, complements(M3, M3E, "a"))) == ["b", "c"], "each atom of M3 has two complements"
+    assert complements(R12, E12, 2) == [] and complements(R12, E12, 6) == []
+    assert complements(R12, E12, 3) == [4] and complements(R12, E12, 4) == [3]
+    assert complements(R12, E12, 1) == [12] and complements(R12, E12, 12) == [1]
+    assert complements(R30, E30, 6) == [5]
+    assert complements(N5, N5E, "c") == ["b"] and complements(N5, N5E, "a") == ["b"]
+    assert "a" not in complements(N5, N5E, "c"), "a v c = c, so a is not a complement of c"
+    def is_boolean(E, R):
+        zero = [x for x in E if all((x, y) in R for y in E)]
+        one = [x for x in E if all((y, x) in R for y in E)]
+        return (is_lattice(R, E) and distributive(R, E) and len(zero) == 1 and len(one) == 1
+                and all(complements(R, E, a) for a in E))
+    assert is_boolean(E6, R6) and is_boolean(E30, R30) and is_boolean(B3E, B3)
+    assert not is_boolean(E12, E12) and not is_boolean(M3E, M3)
+    E210 = divisors(210)
+    R210 = {(a, b) for a in E210 for b in E210 if b % a == 0}
+    assert len(E210) == 16 and is_boolean(E210, R210)
+    assert len(B3E) == 8 and len(covers(B3, B3E)) == 12
+    B4E = [frozenset(s) for k in range(5) for s in itertools.combinations([1, 2, 3, 4], k)]
+    B4 = {(x, y) for x in B4E for y in B4E if x <= y}
+    assert len(B4E) == 16 and len(covers(B4, B4E)) == 32, "B4: 16 elements, 32 covering pairs"
+    assert complements(B4, B4E, frozenset({1, 2})) == [frozenset({3, 4})]
+    below = [x for x in B3E if x < frozenset({1, 2})]
+    assert len(below) == 3, "three elements strictly below {1,2} in B3"
+
+    # ---- complete lattices
+    S2004 = [frozenset({1, 2}), frozenset({1, 2, 3}), frozenset({1, 3, 5}),
+             frozenset({1, 2, 4}), frozenset({1, 2, 3, 4, 5})]
+    def complete(E):
+        R = {(a, b) for a in E for b in E if a <= b}
+        for r in range(0, len(E) + 1):
+            for sub in itertools.combinations(E, r):
+                sub = list(sub)
+                up = [u for u in E if all(x <= u for x in sub)]
+                lo = [l for l in E if all(l <= x for x in sub)]
+                if not up or not lo:
+                    return False
+                if not any(all(u <= m for u in up) for m in up):
+                    return False
+                if not any(all(m <= l for l in lo) for m in lo):
+                    return False
+        return True
+    assert not complete(S2004)
+    assert complete(S2004 + [frozenset({1})]), "adding {1} makes the 2004 family a complete lattice"
+    assert not complete(S2004 + [frozenset({1}), frozenset({2, 3})]), "option B of GATE 2004 Q.73 does not work"
+    R2004 = {(a, b) for a in S2004 for b in S2004 if a <= b}
+    TOP2004 = frozenset({1, 2, 3, 4, 5})
+    assert lub_glb(R2004, S2004, frozenset({1, 2, 3}), frozenset({1, 3, 5})) == (TOP2004, None), \
+        "the pair has no meet inside S, which is why S is not even a lattice"
+    assert lub_glb(R2004, S2004, frozenset({1, 3, 5}), frozenset({1, 2, 4})) == (TOP2004, None)
+    S2 = [frozenset({2}), frozenset({2, 3}), frozenset({2, 4}), frozenset({2, 3, 4})]
+    assert complete(S2) and len(S2) == 4
+    for n in (2, 4, 6, 12):
+        E, R = divisor_poset(n)
+        assert complete(E), "every finite lattice is complete (D%d)" % n
+
+    # ---- the 2025 Set 2 Q.32 pointwise order on functions into {0,1}
+    for n in (1, 2, 3):
+        F = list(itertools.product([0, 1], repeat=n))
+        R = {(f, g) for f in F for g in F if all(f[i] <= g[i] for i in range(n))}
+        assert is_poset(R, F) and is_lattice(R, F) and distributive(R, F)
+        assert not all((g, f) in R for (f, g) in R), "the pointwise order is not symmetric"
+        assert all(join(R, F, f, g) == tuple(max(f[i], g[i]) for i in range(n)) for f in F for g in F)
+        assert all(meet(R, F, f, g) == tuple(min(f[i], g[i]) for i in range(n)) for f in F for g in F)
+        assert len(F) == 2 ** n
+        if n == 3:
+            f0, g0 = (0, 1, 1), (1, 1, 0)
+            assert (f0, g0) not in R and (g0, f0) not in R, "010/011 style pair is incomparable, not symmetric"
+
+    # ---- the "at least 15 pairs" claim on the Hasse card
+    assert 7 + 8 == 15, "7 vertices and 8 edges force at least 15 pairs including the reflexive ones"
+
+    ok("partial orders and lattices: posets on 2, 3 and 4 elements counted by enumeration, Hasse edge and "
+       "relation counts, Mirsky's antichain partition on every poset up to 4 elements, the 1997 and 2024 "
+       "linear-extension counts, the four lattice laws and the semi-distributive inequality on six lattices, the "
+       "M3 and N5 counterexamples, sublattice verdicts, complement and Boolean tests, complete-lattice checks "
+       "and the 2017 and 2025 PYQ verdicts")
+
+
 def main():
     topics, tpath, pyqs, videos, playlists, sources = load_all()
     check_topics(topics, tpath, pyqs, videos)
@@ -1099,6 +1469,7 @@ def main():
     check_logic()
     check_first_order()
     check_sets_relations_functions()
+    check_lattices()
     check_visuals()
     check_hygiene()
     for c in checks:

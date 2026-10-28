@@ -1,0 +1,88 @@
+{
+  "id": "bounded-and-complemented-lattices",
+  "title": "Bounded and Complemented Lattices",
+  "priority": "P2",
+  "order": 69,
+  "unit": "Lattices",
+  "quickIdea": "A bounded lattice has a bottom 0 and a top 1. A complement of a is an element a' with a ^ a' = 0 and a v a' = 1, and in a distributive lattice there is at most one.",
+  "remember": [
+    "A lattice is bounded when it has a least element 0 and a greatest element 1. Every finite lattice is bounded.",
+    "a' is a complement of a when a ^ a' = 0 and a v a' = 1. Both conditions are needed: meet alone or join alone is not enough.",
+    "In a distributive lattice each element has at most one complement; in a general lattice an element can have several.",
+    "In the diamond M3, each atom has exactly two complements - the other two atoms. In the power set lattice, the complement of A is its set complement, and it is unique.",
+    "A lattice is complemented when it is bounded and every element has at least one complement. Distributive plus complemented is exactly the Boolean-lattice condition.",
+    "A complement, if it exists, must be incomparable with a unless a is 0 or 1: if a <= a' then a v a' = a' = 1, forcing a' = 1.",
+    "In the divisors of 12, 2 has no complement: a complement x would need gcd(2, x) = 1 and lcm(2, x) = 12, and x = 3 gives lcm 6 while x = 1 gives lcm 2. So that lattice is bounded but not complemented."
+  ],
+  "example": {
+    "prompt": "In the divisors of 6 under divisibility, find the complements of 2 and of 3.",
+    "work": "The lattice is {1, 2, 3, 6}, whose bottom element is the number 1 and whose top element is 6. For a = 2 we need an x with gcd(2, x) = 1 and lcm(2, x) = 6, so x = 3. For a = 3, by symmetry, x = 2. The bottom and the top are complements of each other.",
+    "answer": "2' = 3, 3' = 2, and 1' = 6, 6' = 1. Every element has exactly one complement, and the lattice is the 4-element Boolean lattice."
+  },
+  "gateAngle": "GATE CSE 1997 Q.3.3 asked how many complements an element has in a five-element lattice; the answer there was three, which by itself proves the lattice is not distributive. Counting complements is therefore a two-purpose tool: answer the question, then diagnose distributivity.",
+  "variations": [
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "If an element has two different complements, what does that tell you about the lattice?",
+      "answer": "That the lattice is not distributive.",
+      "why": "A distributive lattice gives at most one complement per element. Two complements is a certificate of non-distributivity, and it always comes with a copy of M3 or N5 inside."
+    },
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "In the divisors of 30 under divisibility, how many complements does 6 have?",
+      "answer": "One, namely 5.",
+      "why": "Need gcd(6, x) = 1 and lcm(6, x) = 30. The only divisor of 30 coprime to 6 and completing the lcm is 5. The divisor lattice of a squarefree number is a Boolean lattice, so complements are unique."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "Can a lattice have a complement for every element except the top?",
+      "answer": "No. The top 1 is complemented by 0 and 0 by 1 in any bounded lattice, so 0 and 1 always have complements.",
+      "why": "0 ^ 1 = 0 and 0 v 1 = 1 by definition of the bounds. The elements that fail to be complemented are always in the middle."
+    }
+  ],
+  "trap": {
+    "what": "Checking only one of the two complement conditions, or looking for a complement among the elements comparable with a.",
+    "why": "A complement must reach both bounds. A comparable element can never do that unless a is itself a bound, so the search space is the incomparable elements only.",
+    "counterexample": "In the 5-element lattice with 0 < a < c < 1 and 0 < b < 1, the element c: candidates are b, since only b is incomparable with c. c ^ b = 0 and c v b = 1, so b is a complement - but a is not, because a v c = c, not 1."
+  },
+  "check": {
+    "question": "In the divisors of 12 under divisibility, which elements have a complement?",
+    "answer": "1, 3, 4 and 12: 1' = 12, 12' = 1, 3' = 4, 4' = 3. The elements 2 and 6 have no complement.",
+    "explanation": "gcd(3, 4) = 1 and lcm(3, 4) = 12, so 3 and 4 complement each other, and 1 and 12 are complements. For 2 a complement would need gcd(2, x) = 1 and lcm(2, x) = 12; x must then be divisible by 4 and by 3, so x = 12, but gcd(2, 12) = 2. For 6 the same obstruction appears. Since not every element has a complement, the lattice is bounded but not complemented."
+  },
+  "pyqIds": [],
+  "prereqs": [
+    "lattice-algebraic-laws"
+  ],
+  "videoRefs": [],
+  "sources": [
+    {
+      "kind": "lecture",
+      "title": "Lecture 40 - Lattices (Discrete Mathematical Structures)",
+      "channel": "NPTEL, IIT Madras (Dr. Kamala Krithivasan)",
+      "url": "http://elearn.psgcas.ac.in/nptel/courses/video/106106094/lec40.pdf",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "published lecture transcript (27 pages), read in full"
+    },
+    {
+      "kind": "video",
+      "title": "Lattice, POSET - GATE PYQs - Part 1",
+      "channel": "GO Classes for GATE CS (Deepak Poonia)",
+      "video_id": "3chjsP_NNnY",
+      "url": "https://www.youtube.com/watch?v=3chjsP_NNnY",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "auto-caption text read for the GATE 1993, 1996 and 2003 segments only"
+    },
+    {
+      "kind": "text",
+      "title": "Rosen, Discrete Mathematics and Its Applications, ch. 9.6 (partial orderings) and ch. 9.5 (lattices in the Boolean-algebra sense)",
+      "language": "en",
+      "transcript": "N/A"
+    }
+  ],
+  "sourceLine": "Complement defined by the two bound conditions, uniqueness in a distributive lattice, and the power-set complements: NPTEL IIT Madras Lecture 40 (English, full transcript). The complement-counting question pattern and its answer of three complements for GATE CSE 1997 Q.3.3: GATE Overflow's community solutions for that question (the Hasse diagram itself is a figure in the paper, so the count is quoted, not recomputed here)."
+}

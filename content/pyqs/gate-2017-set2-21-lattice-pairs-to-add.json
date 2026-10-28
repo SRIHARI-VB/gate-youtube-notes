@@ -1,0 +1,16 @@
+{
+  "id": "gate-2017-set2-21-lattice-pairs-to-add",
+  "year": "2017",
+  "paper": "GATE CS 2017, Set 2",
+  "question_ref": "Q.21 (GATE Overflow numbering; some paper mirrors list it as Q.27)",
+  "type": "NAT",
+  "marks": "1",
+  "topic": "lattice-definition-and-pairwise-test",
+  "text": "Consider the set X = {a, b, c, d, e} under the partial ordering R = {(a,a), (a,b), (a,c), (a,d), (a,e), (b,b), (b,c), (b,e), (c,c), (c,e), (d,d), (d,e), (e,e)}. The Hasse diagram of the partial order (X, R) is shown below. The minimum number of ordered pairs that need to be added to R to make (X, R) a lattice is ____.",
+  "answer": "0",
+  "solution": "a is the least element and e the greatest, so every pair involving them has both bounds. The only incomparable pairs are {b, d} and {c, d}: for {b, d} the upper bounds are {e} so the join is e, and the lower bounds are {a} so the meet is a; the same holds for {c, d}. The pair {b, c} is comparable. Every pair therefore already has a join and a meet inside X, so the poset is already a lattice and nothing must be added. Recomputed by enumeration: the relation is reflexive, antisymmetric and transitive, and every pair has a unique least upper bound and greatest lower bound in X.",
+  "source_url": "https://gateoverflow.in/118278/gate-cse-2017-set-2-question-21",
+  "source_label": "GATE Overflow question page - GATE CSE 2017 Set 2 Q.21 with seven community answers (answer recorded as 0)",
+  "verification": "SOURCED",
+  "answer_evidence": "The accepted answer states 'LUB and GLB exist for every two elements ... Hence, the Minimum number of ordered pairs that need to be added = 0'; the lattice test is recomputed by scripts/validate.py."
+}

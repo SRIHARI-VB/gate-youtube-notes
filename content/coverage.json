@@ -3,7 +3,7 @@
   "updated_at": "2026-10-28",
   "cycle": {
     "last_subject": "discrete-mathematics",
-    "last_topic": "sets-relations-functions",
+    "last_topic": "partial-orders-and-lattices",
     "updated_at": "2026-10-28",
     "rule": "Next topic is the first topic strictly after cycle.last in the enumerated syllabus order whose status is not covered, wrapping at the end. not_started and partial topics are candidates; blocked topics are skipped while their blocker stands."
   },
@@ -85,10 +85,28 @@
         {
           "slug": "partial-orders-and-lattices",
           "name": "Partial Orders and Lattices",
-          "status": "not_started",
-          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
-          "runs": [],
-          "gaps": []
+          "status": "partial",
+          "coverage_note": "11 subtopics, 12 cards (poset axioms, Hasse diagram and covering, chains/antichains and total orders, minimal/maximal/least/greatest, bounds and LUB/GLB, the lattice test, the lattice laws, sublattices, bounded and complemented lattices, distributive lattices, Boolean and divisor lattices, complete lattices), 6 verified PYQs and 1 p5.js lesson. Partial because three gaps remain, named below.",
+          "runs": [
+            {
+              "date": "2026-10-28",
+              "sources": [
+                "lec40-iitm-lattices",
+                "PLwdnzlV3ogoVxVxCTlI45pDVM1aoYoMHf",
+                "3chjsP_NNnY",
+                "WyV6YtqCvGE"
+              ],
+              "cards": 12,
+              "pyqs": 6,
+              "lesson": "discrete-mathematics/partial-orders-and-lattices/poset-to-lattice-pair-test",
+              "note": "Sources chosen on merit across three channels: the IIT Madras Lecture 40 transcript (English, read in full) for the lattice laws, the M3 and pentagon counterexamples, complements and the antichain decomposition; NPTEL IIT Guwahati Lec 21-23 for the poset-to-lattice sequence and the divisor example (captions unavailable); GO Classes for the GATE question patterns (1993, 1996, 2003 readable as an auto-caption excerpt; 2017, 2024, 1997 video captions unavailable). A 16-video Hindi playlist by Sandeep Kumar Gour, the NPTEL IIT Roorkee 2015 chapters and the Neso Academy sequence were considered and rejected, with reasons in sources.json. No card is translated: no readable source was non-English."
+            }
+          ],
+          "gaps": [
+            "video captions could not be retrieved in this run (YouTube caption endpoints answered LOGIN_REQUIRED and the third-party transcript service was blocked), so four chosen video sources are recorded as structure-only and no card quotes or timestamps them; Lecture 40 exists as a published transcript PDF and was read in full",
+            "three Hasse-diagram PYQs are figure-only in the papers and could not be recomputed from text, so they are not in the PYQ set: GATE CSE 1997 Q.3.3 (complements of an element, quoted from GATE Overflow as three), GATE CSE 2005 Q.9 (lattice but not distributive) and GATE CSE 2015 Set 1 Q.34 (probability that the distributive law holds in a five-element lattice)",
+            "Birkhoff's forbidden-sublattice characterisation (distributive iff no M3 or N5 sublattice) is stated from the standard reference only - it is not recomputed by enumeration in scripts/validate.py, which checks only the one direction on the two counterexamples"
+          ]
         },
         {
           "slug": "monoids-and-groups",
