@@ -28,9 +28,9 @@
     }
   ],
   "counts": {
-    "subjects": 1,
-    "topics": 82,
-    "pyqs": 71,
+    "subjects": 2,
+    "topics": 93,
+    "pyqs": 84,
     "videos": 39,
     "playlists": 3
   },
@@ -1324,6 +1324,168 @@
       "path": "subjects/discrete-mathematics/graphs/chromatic-polynomial.json",
       "videos": [],
       "pyqs": [],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "matrix-vocabulary-and-types",
+      "title": "Matrix Vocabulary, Order and the Standard Types",
+      "subject": "linear-algebra",
+      "group": "matrices-and-determinants",
+      "unit": "Matrices",
+      "priority": "P1",
+      "path": "subjects/linear-algebra/matrices-and-determinants/matrix-vocabulary-and-types.json",
+      "videos": [],
+      "pyqs": [],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "matrix-addition-and-scalar-multiplication",
+      "title": "Addition, Scalar Multiplication and Their Laws",
+      "subject": "linear-algebra",
+      "group": "matrices-and-determinants",
+      "unit": "Matrices",
+      "priority": "P2",
+      "path": "subjects/linear-algebra/matrices-and-determinants/matrix-addition-and-scalar-multiplication.json",
+      "videos": [],
+      "pyqs": [],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "matrix-multiplication-and-noncommutativity",
+      "title": "Matrix Multiplication: The Conformability Rule",
+      "subject": "linear-algebra",
+      "group": "matrices-and-determinants",
+      "unit": "Matrices",
+      "priority": "P1",
+      "path": "subjects/linear-algebra/matrices-and-determinants/matrix-multiplication-and-noncommutativity.json",
+      "videos": [],
+      "pyqs": [],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "transpose-symmetric-and-skew-symmetric",
+      "title": "Transpose, Symmetric and Skew-Symmetric Matrices",
+      "subject": "linear-algebra",
+      "group": "matrices-and-determinants",
+      "unit": "Matrices",
+      "priority": "P1",
+      "path": "subjects/linear-algebra/matrices-and-determinants/transpose-symmetric-and-skew-symmetric.json",
+      "videos": [],
+      "pyqs": [],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "matrix-powers-and-special-matrices",
+      "title": "Powers, Idempotent, Involutory, Nilpotent and Orthogonal Matrices",
+      "subject": "linear-algebra",
+      "group": "matrices-and-determinants",
+      "unit": "Matrices",
+      "priority": "P1",
+      "path": "subjects/linear-algebra/matrices-and-determinants/matrix-powers-and-special-matrices.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2025-set2-1-matrix-powers-a8",
+        "gate-2025-set2-4-det-of-matrix-powers"
+      ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "trace-and-its-properties",
+      "title": "Trace: Definition and the Cyclic Law",
+      "subject": "linear-algebra",
+      "group": "matrices-and-determinants",
+      "unit": "Matrices",
+      "priority": "P2",
+      "path": "subjects/linear-algebra/matrices-and-determinants/trace-and-its-properties.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2022-10-trace-cyclic"
+      ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "determinant-definition-and-cofactor-expansion",
+      "title": "The Determinant: Minors, Cofactors and Expansion",
+      "subject": "linear-algebra",
+      "group": "matrices-and-determinants",
+      "unit": "Determinants and rank",
+      "priority": "P1",
+      "path": "subjects/linear-algebra/matrices-and-determinants/determinant-definition-and-cofactor-expansion.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2000-1-3-determinant-expansion"
+      ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "determinant-row-column-operations",
+      "title": "How Row and Column Operations Change a Determinant",
+      "subject": "linear-algebra",
+      "group": "matrices-and-determinants",
+      "unit": "Determinants and rank",
+      "priority": "P1",
+      "path": "subjects/linear-algebra/matrices-and-determinants/determinant-row-column-operations.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2026-set2-52-det-2a",
+        "gate-2023-8-determinant-row-interchange",
+        "gate-2024-set2-37-row-swap-statements",
+        "gate-2020-27-rank-det-statements"
+      ],
+      "visual": "linear-algebra/matrices-and-determinants/determinant-as-area-scaling",
+      "variations": 3
+    },
+    {
+      "topic": "adjoint-inverse-and-invertibility",
+      "title": "Cofactor Matrix, Adjoint and Inverse",
+      "subject": "linear-algebra",
+      "group": "matrices-and-determinants",
+      "unit": "Determinants and rank",
+      "priority": "P1",
+      "path": "subjects/linear-algebra/matrices-and-determinants/adjoint-inverse-and-invertibility.json",
+      "videos": [],
+      "pyqs": [],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "rank-and-its-bounds",
+      "title": "Rank: Definitions, Computation and Inequalities",
+      "subject": "linear-algebra",
+      "group": "matrices-and-determinants",
+      "unit": "Determinants and rank",
+      "priority": "P1",
+      "path": "subjects/linear-algebra/matrices-and-determinants/rank-and-its-bounds.json",
+      "videos": [],
+      "pyqs": [
+        "gate-1998-2-1-rank-4x4",
+        "gate-1994-1-9-rank-3x3",
+        "gate-2002-1-1-rank-2x2",
+        "gate-2021-set2-24-rank-from-nullity"
+      ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "singular-and-equivalent-conditions",
+      "title": "Singular Matrices and the Equivalence List",
+      "subject": "linear-algebra",
+      "group": "matrices-and-determinants",
+      "unit": "Determinants and rank",
+      "priority": "P2",
+      "path": "subjects/linear-algebra/matrices-and-determinants/singular-and-equivalent-conditions.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2014-set2-4-column-times-row-singular"
+      ],
       "visual": null,
       "variations": 3
     }

@@ -188,7 +188,7 @@ window.GATE_DATA = {
      {
       "slug": "matrices-and-determinants",
       "name": "Matrices and Determinants",
-      "material": "planned"
+      "material": "cards"
      },
      {
       "slug": "system-of-linear-equations",
@@ -1202,6 +1202,76 @@ window.GATE_DATA = {
      "name": "Chromatic polynomial",
      "latex": "\\chi_G(k) = \\chi_{G-e}(k) - \\chi_{G/e}(k)",
      "note": "tree: k(k-1)^{n-1}; cycle: (k-1)^n + (-1)^n (k-1)"
+    }
+   ]
+  },
+  {
+   "group": "Matrices and determinants",
+   "items": [
+    {
+     "name": "Matrix product",
+     "latex": "(AB)_{ij} = \\sum_{k=1}^{n} a_{ik} b_{kj}",
+     "note": "defined only when cols(A) = rows(B)"
+    },
+    {
+     "name": "Transpose of a product",
+     "latex": "(AB)^{T} = B^{T} A^{T}",
+     "note": "the order reverses"
+    },
+    {
+     "name": "Symmetric plus skew-symmetric part",
+     "latex": "A = \\dfrac{A + A^{T}}{2} + \\dfrac{A - A^{T}}{2}",
+     "note": "unique for every square matrix"
+    },
+    {
+     "name": "Trace of a product",
+     "latex": "\\operatorname{tr}(AB) = \\operatorname{tr}(BA)",
+     "note": "holds for rectangular factors too"
+    },
+    {
+     "name": "2 x 2 determinant",
+     "latex": "\\begin{vmatrix} a & b \\\\ c & d \\end{vmatrix} = ad - bc",
+     "note": "signed area of the two columns"
+    },
+    {
+     "name": "Laplace expansion",
+     "latex": "|A| = \\sum_{j} a_{ij} C_{ij}, \\quad C_{ij} = (-1)^{i+j} M_{ij}",
+     "note": "any row or column"
+    },
+    {
+     "name": "Scalar rule for determinants",
+     "latex": "\\det(kA) = k^{n} \\det(A)",
+     "note": "n x n matrix: k multiplies n rows"
+    },
+    {
+     "name": "Product rule for determinants",
+     "latex": "\\det(AB) = \\det(A) \\det(B)",
+     "note": "and det(A^{-1}) = 1/det(A)"
+    },
+    {
+     "name": "Adjoint identity",
+     "latex": "A \\operatorname{adj}(A) = \\operatorname{adj}(A) A = |A| I_n",
+     "note": "adj is the transposed cofactor matrix"
+    },
+    {
+     "name": "Determinant of the adjoint",
+     "latex": "|\\operatorname{adj} A| = |A|^{n-1}",
+     "note": "and adj(adj A) = |A|^{n-2} A"
+    },
+    {
+     "name": "Inverse from the adjoint",
+     "latex": "A^{-1} = \\dfrac{\\operatorname{adj}(A)}{|A|}",
+     "note": "exists exactly when |A| is not 0"
+    },
+    {
+     "name": "Rank bounds",
+     "latex": "\\operatorname{rank}(AB) \\le \\min(\\operatorname{rank} A, \\operatorname{rank} B), \\quad \\operatorname{rank}(A+B) \\le \\operatorname{rank} A + \\operatorname{rank} B",
+     "note": "Sylvester: rank(AB) >= rank A + rank B - n"
+    },
+    {
+     "name": "Rank and nullity",
+     "latex": "\\operatorname{rank}(A) + \\operatorname{nullity}(A) = n",
+     "note": "A is m x n"
     }
    ]
   }
@@ -8972,20 +9042,6 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "Graph vocabulary, the handshake lemma and the edge bound: GATE Overflow GO Classroom deck 'Graph Theory: Connectivity, Coloring, Matching' (English, read in part) for the definitions, degrees, complete graphs and Havel-Hakimi. Standard references used to verify, never copied: Rosen, Discrete Mathematics and Its Applications, ch. 10; West, Introduction to Graph Theory (Brooks, Dirac, Koenig, chromatic polynomial); CLRS ch. 22 (articulation points, bridges) and ch. 26 (bipartite matching); Diestel, Graph Theory (Menger). Every count in this card is recomputed in scripts/validate.py.",
-   "links": {
-    "visual": {
-     "slug": "graphs-connectivity",
-     "title": "Graphs: Connectivity and Structure",
-     "level": "topic-level",
-     "covers": [
-      "graph as two sets, adjacency matrix and adjacency list",
-      "degree sum equals twice the edge count",
-      "handshake lemma and the parity of odd-degree vertices"
-     ],
-     "url": "https://gate-visual-explainer.vercel.app/topics/graphs-connectivity/index.html"
-    },
-    "mapped_at": "2026-10-28"
-   },
    "subject": "discrete-mathematics",
    "topic": "graphs",
    "path": "subjects/discrete-mathematics/graphs/graph-vocabulary-and-degree-sum.json"
@@ -9059,18 +9115,6 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "Components, the n-k and C(n-k+1,2) edge bounds and the cyclomatic count: GATE Overflow GO Classroom deck (English, read in part) for the component, cut-set and tree definitions; the bounds themselves are standard (Rosen ch. 10) and every instance is recomputed in scripts/validate.py. Standard references used to verify, never copied: Rosen, Discrete Mathematics and Its Applications, ch. 10; West, Introduction to Graph Theory (Brooks, Dirac, Koenig, chromatic polynomial); CLRS ch. 22 (articulation points, bridges) and ch. 26 (bipartite matching); Diestel, Graph Theory (Menger).",
-   "links": {
-    "visual": {
-     "slug": "graphs-connectivity",
-     "title": "Graphs: Connectivity and Structure",
-     "level": "topic-level",
-     "covers": [
-      "walks, trails, paths, cycles, components and distance"
-     ],
-     "url": "https://gate-visual-explainer.vercel.app/topics/graphs-connectivity/index.html"
-    },
-    "mapped_at": "2026-10-28"
-   },
    "subject": "discrete-mathematics",
    "topic": "graphs",
    "path": "subjects/discrete-mathematics/graphs/paths-cycles-and-components.json"
@@ -9148,18 +9192,6 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "Cut vertices, bridges, the DFS rules and biconnected components: GATE Overflow GO Classroom deck (English, read in part) for the cut-set, cut-vertex and edge/vertex-connectivity definitions; CLRS ch. 22 problem 22-2 for the two DFS rules. Standard references used to verify, never copied: Rosen, Discrete Mathematics and Its Applications, ch. 10; West, Introduction to Graph Theory (Brooks, Dirac, Koenig, chromatic polynomial); CLRS ch. 22 (articulation points, bridges) and ch. 26 (bipartite matching); Diestel, Graph Theory (Menger). The bridge-on-a-cycle equivalence, the n-2 bound and the DFS rules are all recomputed in scripts/validate.py over every graph on up to 5 vertices.",
-   "links": {
-    "visual": {
-     "slug": "graphs-connectivity",
-     "title": "Graphs: Connectivity and Structure",
-     "level": "topic-level",
-     "covers": [
-      "cut vertex vs bridge"
-     ],
-     "url": "https://gate-visual-explainer.vercel.app/topics/graphs-connectivity/index.html"
-    },
-    "mapped_at": "2026-10-28"
-   },
    "subject": "discrete-mathematics",
    "topic": "graphs",
    "path": "subjects/discrete-mathematics/graphs/cut-vertices-bridges-and-blocks.json"
@@ -9234,19 +9266,6 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "Vertex and edge connectivity, the kappa-lambda-delta chain and the 2|E|/n bound: GATE Overflow GO Classroom deck (English, read in part) for the edge-connectivity and vertex-connectivity definitions and the two upper bounds; Menger from Diestel. Standard references used to verify, never copied: Rosen, Discrete Mathematics and Its Applications, ch. 10; West, Introduction to Graph Theory (Brooks, Dirac, Koenig, chromatic polynomial); CLRS ch. 22 (articulation points, bridges) and ch. 26 (bipartite matching); Diestel, Graph Theory (Menger). kappa and lambda are recomputed by brute force over vertex and edge subsets in scripts/validate.py.",
-   "links": {
-    "visual": {
-     "slug": "graphs-connectivity",
-     "title": "Graphs: Connectivity and Structure",
-     "level": "topic-level",
-     "covers": [
-      "kappa <= lambda <= delta (Whitney)",
-      "kappa of a complete graph is n - 1 by convention"
-     ],
-     "url": "https://gate-visual-explainer.vercel.app/topics/graphs-connectivity/index.html"
-    },
-    "mapped_at": "2026-10-28"
-   },
    "subject": "discrete-mathematics",
    "topic": "graphs",
    "path": "subjects/discrete-mathematics/graphs/vertex-and-edge-connectivity.json"
@@ -9321,19 +9340,6 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "Euler and Hamiltonian definitions, the parity criterion and the edge-disjoint Hamiltonian decomposition of K_n for odd n: GATE Overflow GO Classroom deck (English, read in part). Dirac and the Petersen counterexample from West. Standard references used to verify, never copied: Rosen, Discrete Mathematics and Its Applications, ch. 10; West, Introduction to Graph Theory (Brooks, Dirac, Koenig, chromatic polynomial); CLRS ch. 22 (articulation points, bridges) and ch. 26 (bipartite matching); Diestel, Graph Theory (Menger). Every parity claim and the K_5 decomposition are recomputed in scripts/validate.py.",
-   "links": {
-    "visual": {
-     "slug": "graphs-connectivity",
-     "title": "Graphs: Connectivity and Structure",
-     "level": "topic-level",
-     "covers": [
-      "Euler criterion and its one-component condition",
-      "Euler and Hamiltonian are independent"
-     ],
-     "url": "https://gate-visual-explainer.vercel.app/topics/graphs-connectivity/index.html"
-    },
-    "mapped_at": "2026-10-28"
-   },
    "subject": "discrete-mathematics",
    "topic": "graphs",
    "path": "subjects/discrete-mathematics/graphs/eulerian-and-hamiltonian-graphs.json"
@@ -9410,18 +9416,6 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "Bipartite graphs, the odd-cycle criterion, the 2-colouring test and the n squared over 4 bound: GATE Overflow GO Classroom deck (English, read in part) for the bipartite and 2-chromatic statements; Rosen ch. 10 for the extremal formula. Standard references used to verify, never copied: Rosen, Discrete Mathematics and Its Applications, ch. 10; West, Introduction to Graph Theory (Brooks, Dirac, Koenig, chromatic polynomial); CLRS ch. 22 (articulation points, bridges) and ch. 26 (bipartite matching); Diestel, Graph Theory (Menger). The odd-cycle criterion and the edge bound are recomputed in scripts/validate.py over every graph on up to 5 vertices.",
-   "links": {
-    "visual": {
-     "slug": "graphs-connectivity",
-     "title": "Graphs: Connectivity and Structure",
-     "level": "topic-level",
-     "covers": [
-      "bipartite iff no odd cycle, decided by BFS parity"
-     ],
-     "url": "https://gate-visual-explainer.vercel.app/topics/graphs-connectivity/index.html"
-    },
-    "mapped_at": "2026-10-28"
-   },
    "subject": "discrete-mathematics",
    "topic": "graphs",
    "path": "subjects/discrete-mathematics/graphs/bipartite-graphs-and-odd-cycles.json"
@@ -9501,14 +9495,15 @@ window.GATE_DATA = {
    "visual": "discrete-mathematics/graphs/bipartite-matching-augmenting-path",
    "links": {
     "visual": {
-     "slug": "matching-and-colouring",
-     "title": "Graphs: Matching and Colouring",
+     "slug": "graphs",
+     "title": "Graphs: Connectivity, Matching, Colouring",
      "level": "topic-level",
+     "url": "https://gate-visual-explainer.vercel.app/topics/graphs/index.html",
      "covers": [
-      "matching, saturated, free, maximal, maximum, perfect, near-perfect, matching number",
-      "Berge's theorem and the augmenting-path algorithm"
-     ],
-     "url": "https://gate-visual-explainer.vercel.app/topics/matching-and-colouring/index.html"
+      "maximal versus maximum matching",
+      "the augmenting path and the flip that grows the matching",
+      "Koenig: maximum matching equals minimum vertex cover in a bipartite graph"
+     ]
     },
     "mapped_at": "2026-10-28"
    },
@@ -9585,18 +9580,6 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "Hall's marriage theorem, the complete-matching condition and the d-regular corollary: GATE Overflow GO Classroom deck (English, read in part) for the complete-matching theorem in its r-subset form; West and the NPTEL IIITB lecture sequence (structure only) for the standard proof. Standard references used to verify, never copied: Rosen, Discrete Mathematics and Its Applications, ch. 10; West, Introduction to Graph Theory (Brooks, Dirac, Koenig, chromatic polynomial); CLRS ch. 22 (articulation points, bridges) and ch. 26 (bipartite matching); Diestel, Graph Theory (Menger). Hall's condition, the defect form and both examples are recomputed by brute force in scripts/validate.py.",
-   "links": {
-    "visual": {
-     "slug": "matching-and-colouring",
-     "title": "Graphs: Matching and Colouring",
-     "level": "topic-level",
-     "covers": [
-      "Hall's condition as a necessary and sufficient test for a matching saturating one side"
-     ],
-     "url": "https://gate-visual-explainer.vercel.app/topics/matching-and-colouring/index.html"
-    },
-    "mapped_at": "2026-10-28"
-   },
    "subject": "discrete-mathematics",
    "topic": "graphs",
    "path": "subjects/discrete-mathematics/graphs/halls-marriage-theorem.json"
@@ -9674,18 +9657,6 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "Vertex cover, independent set, the alpha + tau identity and Koenig's theorem: GATE Overflow GO Classroom deck (English, read in part) for the independent-set bound and the complete-matching theorem; West for Koenig. Standard references used to verify, never copied: Rosen, Discrete Mathematics and Its Applications, ch. 10; West, Introduction to Graph Theory (Brooks, Dirac, Koenig, chromatic polynomial); CLRS ch. 22 (articulation points, bridges) and ch. 26 (bipartite matching); Diestel, Graph Theory (Menger). nu, tau and alpha are recomputed by brute force for every graph on up to 5 vertices and every bipartite graph on up to 6 vertices in scripts/validate.py, including the 2026 forced-vertex claim.",
-   "links": {
-    "visual": {
-     "slug": "matching-and-colouring",
-     "title": "Graphs: Matching and Colouring",
-     "level": "topic-level",
-     "covers": [
-      "Konig's theorem, the constructive cover, and its failure on an odd cycle"
-     ],
-     "url": "https://gate-visual-explainer.vercel.app/topics/matching-and-colouring/index.html"
-    },
-    "mapped_at": "2026-10-28"
-   },
    "subject": "discrete-mathematics",
    "topic": "graphs",
    "path": "subjects/discrete-mathematics/graphs/vertex-cover-independent-set-konig.json"
@@ -9764,21 +9735,6 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "Chromatic number, the standard families, the independent-set and edge-count bounds: GATE Overflow GO Classroom deck (English, read in part) for the colouring and independent-set statements; Brooks and Dirac from West. Standard references used to verify, never copied: Rosen, Discrete Mathematics and Its Applications, ch. 10; West, Introduction to Graph Theory (Brooks, Dirac, Koenig, chromatic polynomial); CLRS ch. 22 (articulation points, bridges) and ch. 26 (bipartite matching); Diestel, Graph Theory (Menger). Every chromatic number, clique number, independence number and bound in this card is recomputed in scripts/validate.py.",
-   "links": {
-    "visual": {
-     "slug": "matching-and-colouring",
-     "title": "Graphs: Matching and Colouring",
-     "level": "topic-level",
-     "covers": [
-      "chromatic number of common families (cycles, complete graphs, bipartite graphs, trees)",
-      "clique number as a lower bound, and the Mycielskian gap",
-      "first-fit greedy, order dependence, chromatic number at most maximum degree plus one",
-      "Brooks' theorem and its two exceptions"
-     ],
-     "url": "https://gate-visual-explainer.vercel.app/topics/matching-and-colouring/index.html"
-    },
-    "mapped_at": "2026-10-28"
-   },
    "subject": "discrete-mathematics",
    "topic": "graphs",
    "path": "subjects/discrete-mathematics/graphs/chromatic-number-and-greedy-bounds.json"
@@ -9855,6 +9811,1036 @@ window.GATE_DATA = {
    "subject": "discrete-mathematics",
    "topic": "graphs",
    "path": "subjects/discrete-mathematics/graphs/chromatic-polynomial.json"
+  },
+  {
+   "id": "matrix-vocabulary-and-types",
+   "title": "Matrix Vocabulary, Order and the Standard Types",
+   "priority": "P1",
+   "order": 101,
+   "unit": "Matrices",
+   "quickIdea": "A matrix is a rectangular array of numbers; its order is rows by columns, and GATE names a short list of shapes by which entries are forced to zero.",
+   "remember": [
+    "An m x n matrix has m rows and n columns; a_ij is the entry in row i and column j, and the order is always written rows first, so a 2 x 3 matrix has 6 entries.",
+    "Two matrices are equal exactly when they have the same order and every corresponding entry agrees.",
+    "Square means m = n. Diagonal means square with every off-diagonal entry zero. Scalar means diagonal with all diagonal entries equal. Identity I_n is the scalar matrix with every diagonal entry 1. Zero matrix O has every entry 0.",
+    "Row matrix: order 1 x n. Column matrix: order m x 1. Only a square matrix is called diagonal, even though the entries a_ii of a rectangular matrix exist.",
+    "A diagonal n x n matrix is fixed by its diagonal, so there are k^n of them over a k-element set, and 2^n of them with entries 0 or 1."
+   ],
+   "example": {
+    "prompt": "A is 2 x 3 and B is 3 x 2. Are A and B equal, and how many entries does each have?",
+    "work": "Each has 2 x 3 = 6 entries. Equality of matrices needs the same order first and identical entries second; 2 x 3 and 3 x 2 are different orders, so no entry-by-entry comparison is even defined.",
+    "answer": "Not equal. Both have six entries, but their orders differ."
+   },
+   "gateAngle": "GATE rarely asks what a matrix is, but every later question leans on the vocabulary: 'A is a 3 x 3 matrix' fixes n = 3 in det(kA) = k^n det A, and 'skew-symmetric' already forces the whole diagonal to zero.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "How many 3 x 3 diagonal matrices are there with entries from {0, 1, 2}?",
+     "answer": "27, which is 3^3.",
+     "why": "The three diagonal entries are free and every off-diagonal entry is fixed at 0, so the count is k^n with k = 3 and n = 3."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Is a 2 x 3 matrix with zeros everywhere except a_11 and a_22 a diagonal matrix?",
+     "answer": "No.",
+     "why": "Diagonal is defined only for square matrices; the phrase you want is 'the entries on the main diagonal are the only non-zero ones', which is a weaker statement."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "A is 4 x 4, B is 4 x 4 and A + B = A. What is B?",
+     "answer": "The 4 x 4 zero matrix.",
+     "why": "Subtract A from both sides entry by entry, which is legal because the orders match: B = O."
+    }
+   ],
+   "trap": {
+    "what": "Treating a rectangular matrix as if it had the properties of a diagonal or triangular matrix, or treating two zero matrices of different orders as the same matrix.",
+    "why": "Diagonal, triangular and symmetric are all square-only words, and matrix equality includes the order, not just the entries.",
+    "counterexample": "A = [[1,0],[0,2]] is 2 x 2 and diagonal; B = [[1,0,0],[0,2,0]] is 2 x 3 and is not called diagonal, although its entries a_11 and a_22 sit on a diagonal."
+   },
+   "check": {
+    "question": "How many entries does a 3 x 4 matrix have, and how many of them lie on the main diagonal?",
+    "answer": "12 entries, and 3 of them lie on the main diagonal.",
+    "explanation": "The order gives 3 x 4 = 12 entries, and the main diagonal runs a_11, a_22, a_33, so it has min(3, 4) = 3 entries."
+   },
+   "pyqIds": [],
+   "prereqs": [],
+   "videoRefs": [],
+   "sources": [
+    {
+     "kind": "slides",
+     "title": "CS6015 Linear Algebra and Random Processes, LARP 2018 lecture slides",
+     "channel": "IIT Madras (cse.iitm.ac.in, Prof. Vineeth Balaji's course page)",
+     "url": "https://www.cse.iitm.ac.in/~vplab/LARP.html",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "the deck 'Matrices' defines a matrix, its size m x n, the entry notation a_ij, row and column vectors, and the square and diagonal vocabulary; read in full"
+    },
+    {
+     "kind": "video",
+     "title": "Mega OneShot | Ch - Aavyuh tatha Sarnik (Matrices And Determinants) | 12th Maths Hindi Medium",
+     "channel": "ashish singh lectures (Vikram Sir)",
+     "url": "https://www.youtube.com/watch?v=m-yjFO_-VFk",
+     "language": "hi",
+     "transcript": "PARTIAL",
+     "translated": true,
+     "note": "translated from Hindi: the lecture opens by defining a matrix as a rectangular arrangement of elements, then fixes the order, the column matrix, row matrix, square, diagonal, scalar, identity and zero matrices, and the equality rule"
+    },
+    {
+     "kind": "text",
+     "title": "Matrices and Determinant Notes for GATE CSE and DA",
+     "channel": "GeeksforGeeks",
+     "url": "https://www.geeksforgeeks.org/maths/matrices-and-determinant-notes-for-gate-cse-and-da/",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "the 'Types of Matrices' section confirms the list of named types and the singular and non-singular distinction"
+    }
+   ],
+   "sourceLine": "IIT Madras CS6015 (LARP 2018) lecture slides, deck 1 'Matrices' (English, read in full) for the definition, the order and the entry notation. Ashish Singh Lectures, 'Mega One Shot: Matrices and Determinants' (Hindi, opening read only, translated into English here and marked as translated) for the order and the list of named types. GeeksforGeeks 'Matrices and Determinant Notes for GATE CSE and DA' (English, read in part) to confirm the type list. Every count on this card is recomputed in scripts/validate.py.",
+   "subject": "linear-algebra",
+   "topic": "matrices-and-determinants",
+   "path": "subjects/linear-algebra/matrices-and-determinants/matrix-vocabulary-and-types.json"
+  },
+  {
+   "id": "matrix-addition-and-scalar-multiplication",
+   "title": "Addition, Scalar Multiplication and Their Laws",
+   "priority": "P2",
+   "order": 102,
+   "unit": "Matrices",
+   "quickIdea": "Addition and scalar multiplication act entry by entry and need matching orders; every law you expect from ordinary numbers survives, and division does not exist.",
+   "remember": [
+    "A + B is defined only when A and B have the same order, and then (A + B)_ij = a_ij + b_ij.",
+    "A + B = B + A, (A + B) + C = A + (B + C), A + O = A and A + (-A) = O.",
+    "(kA)_ij = k a_ij, with k(A + B) = kA + kB, (k + l)A = kA + lA, k(lA) = (kl)A, 1A = A and 0A = O.",
+    "Transpose commutes with both: (A + B)^T = A^T + B^T and (kA)^T = kA^T. It does not commute with products, where (AB)^T = B^T A^T.",
+    "There is no division by a matrix. 'A/B' would mean A B^-1 or B^-1 A, and those two are different matrices unless A and B commute."
+   ],
+   "example": {
+    "prompt": "A is 2 x 3 and B is 3 x 2. Which of A + B, 2A and A + A^T exist?",
+    "work": "A + B fails because the orders differ. 2A doubles every entry and always exists. A^T is 3 x 2 while A is 2 x 3, so A + A^T fails as well.",
+    "answer": "Only 2A exists among the three."
+   },
+   "gateAngle": "Scalar multiplication is where det(kA) = k^n det A comes from: the scalar touches all n rows, which is exactly why the exponent appears in GATE CSE 2026 Set 2 Q.52.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "A is 3 x 3. Simplify (2A + 3A)^T.",
+     "answer": "5A^T.",
+     "why": "2A + 3A = 5A by the distributive law, and (kA)^T = kA^T."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Is A + 1 defined for a matrix A?",
+     "answer": "No.",
+     "why": "A scalar is added to a matrix only through a matrix of the same order, such as kI; writing A + 1 has no entry-by-entry meaning."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "A is 2 x 2 with A + A^T = O. What does that tell you about A?",
+     "answer": "A is skew-symmetric.",
+     "why": "A + A^T = O rearranges to A^T = -A, which is the definition of skew-symmetric, and it forces both diagonal entries to be zero."
+    }
+   ],
+   "trap": {
+    "what": "Adding matrices of different orders, or adding a bare scalar to a matrix.",
+    "why": "Entry-by-entry addition is only defined when the two arrays line up, and a scalar enters a matrix through multiplication or through a scaled identity.",
+    "counterexample": "A = [[1,2],[3,4]]: 2A = [[2,4],[6,8]] exists, A + 2 does not, and A + 2I = [[3,2],[3,6]] only because 2I has the same order as A."
+   },
+   "check": {
+    "question": "A is 4 x 4 with A + A^T = 2A. What kind of matrix is A?",
+    "answer": "Symmetric.",
+    "explanation": "A + A^T = 2A rearranges to A^T = A, which is the definition of a symmetric matrix."
+   },
+   "pyqIds": [],
+   "prereqs": [
+    "matrix-vocabulary-and-types"
+   ],
+   "videoRefs": [],
+   "sources": [
+    {
+     "kind": "video",
+     "title": "Mega OneShot | Ch - Aavyuh tatha Sarnik (Matrices And Determinants) | 12th Maths Hindi Medium",
+     "channel": "ashish singh lectures (Vikram Sir)",
+     "url": "https://www.youtube.com/watch?v=m-yjFO_-VFk",
+     "language": "hi",
+     "transcript": "PARTIAL",
+     "translated": true,
+     "note": "translated from Hindi: the lecture gives the same-order condition for addition, elementwise addition, the commutative, associative, additive-identity and additive-inverse laws, and the scalar multiplication laws"
+    },
+    {
+     "kind": "text",
+     "title": "Matrices and Determinant Notes for GATE CSE and DA",
+     "channel": "GeeksforGeeks",
+     "url": "https://www.geeksforgeeks.org/maths/matrices-and-determinant-notes-for-gate-cse-and-da/",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "the 'Matrix Addition' section states the same-order requirement and the commutative and associative laws"
+    }
+   ],
+   "sourceLine": "Ashish Singh Lectures, 'Mega One Shot: Matrices and Determinants' (Hindi, opening read only; every sentence taken from it is translated into English and marked as translated, source language Hindi) for the addition and scalar-multiplication laws. GeeksforGeeks 'Matrices and Determinant Notes for GATE CSE and DA' (English, read in part) to confirm the same-order requirement. Standard reference used to verify, never copied: Strang, Introduction to Linear Algebra, ch. 1.",
+   "subject": "linear-algebra",
+   "topic": "matrices-and-determinants",
+   "path": "subjects/linear-algebra/matrices-and-determinants/matrix-addition-and-scalar-multiplication.json"
+  },
+  {
+   "id": "matrix-multiplication-and-noncommutativity",
+   "title": "Matrix Multiplication: The Conformability Rule",
+   "priority": "P1",
+   "order": 103,
+   "unit": "Matrices",
+   "quickIdea": "AB exists only when the columns of A match the rows of B; each entry is a row of A dotted with a column of B, and AB is not BA.",
+   "remember": [
+    "AB is defined if and only if cols(A) = rows(B). If A is m x n and B is n x p then AB is m x p: the outer dimensions survive and the shared inner dimension disappears.",
+    "(AB)_ij is row i of A times column j of B, that is the sum of a_ik b_kj over k.",
+    "AB is not equal to BA in general, AB = O does not force A = O or B = O, and cancellation fails: AB = AC with A non-zero does not give B = C.",
+    "(AB)C = A(BC), A(B + C) = AB + AC, (A + B)C = AC + BC, and AI = IA = A.",
+    "A column u (n x 1) times a row v (1 x n) gives an n x n matrix of rank 1 whenever u and v are both non-zero, and of rank 0 otherwise.",
+    "Counting cost: multiplying an m x n by an n x p matrix takes m n p scalar multiplications."
+   ],
+   "example": {
+    "prompt": "A = [[1,2],[3,4]] and B = [[0,1],[0,0]]. Compute AB and BA.",
+    "work": "AB: row 1 of A is (1,2), and the columns of B are (0,0) and (1,0), so AB = [[0,1],[0,3]]. BA: row 1 of B is (0,1), giving BA = [[3,4],[0,0]].",
+    "answer": "AB = [[0,1],[0,3]] and BA = [[3,4],[0,0]]: different products, and neither is the zero matrix although B is not invertible."
+   },
+   "gateAngle": "Every question that writes A^2 or A^n assumes this rule. GATE CSE 2025 Set 2 Q.1 is a chain of 2 x 2 products, and GATE CSE 2020 Q.27 contrasts rank(AB) with det(AB) = det(A) det(B).",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "How many scalar multiplications does the product of a 3 x 4 matrix with a 4 x 2 matrix take, and what is the order of the answer?",
+     "answer": "24 scalar multiplications, and the product is 3 x 2.",
+     "why": "The cost is m n p = 3 x 4 x 2, and the outer dimensions give the order."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Can a 2 x 3 matrix A and a 3 x 2 matrix B satisfy AB = I_2 while BA is not I_3?",
+     "answer": "Yes.",
+     "why": "Take A = [[1,0,0],[0,1,0]] and B = [[1,0],[0,1],[0,0]]: AB = I_2, but BA has a zero third row and third column, so BA is not I_3."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "A is 3 x 3 with A^2 = A and A not equal to I. Must A be singular?",
+     "answer": "Yes.",
+     "why": "If A were invertible, multiplying A^2 = A on the left by A^-1 gives A = I, contradicting A not equal to I; so det(A) = 0."
+    }
+   ],
+   "trap": {
+    "what": "Assuming AB = BA, or expanding (AB)^2 as A^2 B^2.",
+    "why": "(AB)^2 means ABAB, which collapses to A^2 B^2 only when A and B commute.",
+    "counterexample": "A = [[0,1],[0,0]] and B = [[0,0],[1,0]]: AB = [[1,0],[0,0]] so (AB)^2 = AB, while A^2 = O and B^2 = O so A^2 B^2 = O."
+   },
+   "check": {
+    "question": "A is 1 x 3 and B is 3 x 1. What are the orders of AB and BA?",
+    "answer": "AB is 1 x 1, a single number; BA is 3 x 3.",
+    "explanation": "The inner dimension is 3 for both products, so AB is (1 x 1) and BA is (3 x 3), and BA has rank 1 because it is a column times a row."
+   },
+   "pyqIds": [],
+   "prereqs": [
+    "matrix-vocabulary-and-types",
+    "matrix-addition-and-scalar-multiplication"
+   ],
+   "videoRefs": [],
+   "sources": [
+    {
+     "kind": "slides",
+     "title": "CS6015 Linear Algebra and Random Processes, LARP 2018 lecture slides",
+     "channel": "IIT Madras (cse.iitm.ac.in, Prof. Vineeth Balaji's course page)",
+     "url": "https://www.cse.iitm.ac.in/~vplab/LARP.html",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "the deck 'Matrix multiplication' gives the inner-dimension rule, the row-times-column formula, the outer-dimension result, the warning that AB differs from BA, and worked conformance examples; read in full"
+    },
+    {
+     "kind": "video",
+     "title": "Mega OneShot | Ch - Aavyuh tatha Sarnik (Matrices And Determinants) | 12th Maths Hindi Medium",
+     "channel": "ashish singh lectures (Vikram Sir)",
+     "url": "https://www.youtube.com/watch?v=m-yjFO_-VFk",
+     "language": "hi",
+     "transcript": "PARTIAL",
+     "translated": true,
+     "note": "translated from Hindi: the lecture derives the multiplication condition (columns of the first factor equal rows of the second) and shows that the product is generally not commutative"
+    },
+    {
+     "kind": "text",
+     "title": "Matrices and Determinant Notes for GATE CSE and DA",
+     "channel": "GeeksforGeeks",
+     "url": "https://www.geeksforgeeks.org/maths/matrices-and-determinant-notes-for-gate-cse-and-da/",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "the 'Matrix Multiplication' section states the same rule and the transpose law (AB)^T = B^T A^T"
+    }
+   ],
+   "sourceLine": "IIT Madras CS6015 (LARP 2018) slides, deck 2 'Matrix multiplication' (English, read in full) for the conformability rule, the entry formula and the worked products. Ashish Singh Lectures, 'Mega One Shot: Matrices and Determinants' (Hindi, opening read only, translated and marked as translated, source language Hindi) for the multiplication condition and non-commutativity. Every product and count on this card is recomputed in scripts/validate.py.",
+   "subject": "linear-algebra",
+   "topic": "matrices-and-determinants",
+   "path": "subjects/linear-algebra/matrices-and-determinants/matrix-multiplication-and-noncommutativity.json"
+  },
+  {
+   "id": "transpose-symmetric-and-skew-symmetric",
+   "title": "Transpose, Symmetric and Skew-Symmetric Matrices",
+   "priority": "P1",
+   "order": 104,
+   "unit": "Matrices",
+   "quickIdea": "Transposing reflects a matrix in its main diagonal and reverses products; symmetric means A^T = A, skew-symmetric means A^T = -A, and every square matrix splits uniquely into one of each.",
+   "remember": [
+    "(A^T)_ij = a_ji; (A^T)^T = A; (A + B)^T = A^T + B^T; (kA)^T = kA^T; (AB)^T = B^T A^T; (A^-1)^T = (A^T)^-1.",
+    "Symmetric: A^T = A. Skew-symmetric: A^T = -A, which forces every diagonal entry to be 0 and forces a_ij = -a_ji off the diagonal.",
+    "Every square matrix splits uniquely as A = (A + A^T)/2 + (A - A^T)/2, a symmetric part plus a skew-symmetric part.",
+    "A^T A and A A^T are always symmetric, even when A is rectangular.",
+    "A skew-symmetric matrix of odd order has determinant 0, so it is singular; of even order it can be non-singular, for example [[0,1],[-1,0]].",
+    "The rank of a skew-symmetric matrix is never 1: it is 0 or at least 2."
+   ],
+   "example": {
+    "prompt": "A = [[1,2,3],[4,5,6]]. Compute A^T A and explain why it must be symmetric.",
+    "work": "A^T is 3 x 2, so A^T A is 3 x 3 with (A^T A)_ij equal to column i of A dotted with column j of A: 17, 22, 27 on the first row; 22, 29, 36 on the second; 27, 36, 45 on the third.",
+    "answer": "A^T A = [[17,22,27],[22,29,36],[27,36,45]], symmetric because a dot product does not care about the order of its two factors."
+   },
+   "gateAngle": "GATE CSE 2024 Set 2 Q.37 asks which properties survive swapping two rows of a square matrix: the determinant changes sign and invertibility survives, but symmetry and the trace do not.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "How many 3 x 3 symmetric matrices are there with every entry 0 or 1?",
+     "answer": "64, which is 2^6.",
+     "why": "The three diagonal entries and the three entries above the diagonal are free, and the entries below the diagonal are then forced, so the count is 2^(3 x 4 / 2)."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why must a skew-symmetric matrix of odd order be singular?",
+     "answer": "Because det(A) = det(A^T) = det(-A) = (-1)^n det(A), and for odd n that reads det(A) = -det(A), so det(A) = 0.",
+     "why": "The three steps are the transpose law, the definition of skew-symmetric, and the scalar law det(kA) = k^n det(A) with k = -1."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "A and B are symmetric matrices of the same order. When is AB symmetric?",
+     "answer": "Exactly when AB = BA.",
+     "why": "(AB)^T = B^T A^T = BA, so AB equals its own transpose if and only if AB = BA."
+    }
+   ],
+   "trap": {
+    "what": "Writing (AB)^T = A^T B^T.",
+    "why": "The order of the factors reverses. The wrong version agrees with the right one only when AB = BA.",
+    "counterexample": "A = [[0,1],[0,0]] and B = [[0,0],[1,0]]: AB = [[1,0],[0,0]] is already symmetric, but A^T B^T = [[0,0],[0,1]], which is a different matrix."
+   },
+   "check": {
+    "question": "A is 3 x 3 and skew-symmetric. What is det(A)?",
+    "answer": "0.",
+    "explanation": "For odd order, det(A) = det(A^T) = det(-A) = (-1)^3 det(A) = -det(A), so det(A) = 0; a 3 x 3 skew-symmetric matrix is always singular."
+   },
+   "pyqIds": [],
+   "prereqs": [
+    "matrix-multiplication-and-noncommutativity"
+   ],
+   "videoRefs": [],
+   "sources": [
+    {
+     "kind": "slides",
+     "title": "CS6015 Linear Algebra and Random Processes, LARP 2018 lecture slides",
+     "channel": "IIT Madras (cse.iitm.ac.in, Prof. Vineeth Balaji's course page)",
+     "url": "https://www.cse.iitm.ac.in/~vplab/LARP.html",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "the deck 'Inverses and Transposes' covers the transpose, its laws and the inverse-transpose identity; read in full"
+    },
+    {
+     "kind": "text",
+     "title": "Matrices and Determinant Notes for GATE CSE and DA",
+     "channel": "GeeksforGeeks",
+     "url": "https://www.geeksforgeeks.org/maths/matrices-and-determinant-notes-for-gate-cse-and-da/",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "the 'Transpose of a Matrix' section lists the transpose laws including (AB)^T = B^T A^T, and the type list defines symmetric, skew-symmetric and orthogonal matrices"
+    },
+    {
+     "kind": "text",
+     "title": "Linear Algebra subject page and revision notes",
+     "channel": "GATE Overflow",
+     "url": "https://gateoverflow.in/subject/mathematics/linear-algebra",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "the determinant section states that a skew-symmetric matrix of odd order has determinant zero"
+    }
+   ],
+   "sourceLine": "IIT Madras CS6015 (LARP 2018) slides, deck 6 'Inverses and Transposes' (English, read in full) for the transpose laws. GeeksforGeeks 'Matrices and Determinant Notes for GATE CSE and DA' (English, read in part) for the symmetric, skew-symmetric and orthogonal definitions and the transpose properties. GATE Overflow Linear Algebra notes (English, read in part) for the odd-order skew-symmetric determinant. The counts and counterexamples are recomputed in scripts/validate.py.",
+   "subject": "linear-algebra",
+   "topic": "matrices-and-determinants",
+   "path": "subjects/linear-algebra/matrices-and-determinants/transpose-symmetric-and-skew-symmetric.json"
+  },
+  {
+   "id": "matrix-powers-and-special-matrices",
+   "title": "Powers, Idempotent, Involutory, Nilpotent and Orthogonal Matrices",
+   "priority": "P1",
+   "order": 105,
+   "unit": "Matrices",
+   "quickIdea": "Powers exist only for square matrices, and four named identities turn a high power into a one-line answer.",
+   "remember": [
+    "A^0 = I, A^1 = A, A^(k+m) = A^k A^m and (A^k)^m = A^(km), all for square A only.",
+    "Idempotent: A^2 = A. Involutory: A^2 = I. Nilpotent: A^k = O for some k at least 1, the least such k being the index. Orthogonal: A A^T = A^T A = I, equivalently A^-1 = A^T, and then det(A) is 1 or -1.",
+    "If A^2 = cI for a scalar c, then A^(2m) = c^m I: every even power collapses to a multiple of the identity.",
+    "A^2 = A together with A invertible forces A = I; a nilpotent matrix is singular and its only eigenvalue is 0.",
+    "Orthogonal matrices preserve length: |Av| = |v| for every vector v, and the product of two orthogonal matrices is orthogonal.",
+    "Rectangular matrices have no powers; only products such as A A^T and A^T A are defined."
+   ],
+   "example": {
+    "prompt": "A = [[1,2],[2,-1]]. Find A^8.",
+    "work": "A^2 = [[1 + 4, 2 - 2],[2 - 2, 4 + 1]] = [[5,0],[0,5]] = 5I. Then A^4 = (5I)^2 = 25I and A^8 = (25I)^2 = 625I.",
+    "answer": "A^8 = [[625,0],[0,625]]. This is GATE CSE 2025 Set 2 Q.1."
+   },
+   "gateAngle": "GATE CSE 2025 Set 2 Q.1 is exactly this collapse. GATE CSE 2025 Set 2 Q.4 uses L^2 = L^-1 to get L^3 = I, hence M = L^8 = L^2 = N and det(M - N) = 0.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "A is a square matrix with A^2 = I. What is A^2027?",
+     "answer": "A.",
+     "why": "A^2 = I makes the powers periodic with period 2, and 2027 is odd, so A^2027 = A."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Show that an idempotent matrix other than I must be singular.",
+     "answer": "A^2 = A gives A(A - I) = O. If A were invertible, multiplying by A^-1 would give A - I = O, that is A = I.",
+     "why": "The only way out is that A has no inverse, so det(A) = 0."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "A is a 4 x 4 nilpotent matrix with index 3. What are det(A) and the eigenvalues?",
+     "answer": "det(A) = 0 and every eigenvalue is 0.",
+     "why": "A^3 = O gives lambda^3 = 0 for every eigenvalue, so all eigenvalues vanish and the determinant, their product, is 0."
+    }
+   ],
+   "trap": {
+    "what": "Expanding (A + B)^2 as A^2 + 2AB + B^2, or (A - B)(A + B) as A^2 - B^2.",
+    "why": "Both expansions need AB = BA, because the cross terms 2AB and -BA have to combine.",
+    "counterexample": "A = [[0,1],[0,0]] and B = [[0,0],[1,0]]: (A + B)^2 = I_2, while A^2 + 2AB + B^2 = [[2,0],[0,0]]."
+   },
+   "check": {
+    "question": "A is 3 x 3 with A^2 = 4I. What is A^6?",
+    "answer": "64I.",
+    "explanation": "A^6 = (A^2)^3 = (4I)^3 = 4^3 I = 64I, by the power rule for powers of a power."
+   },
+   "pyqIds": [
+    "gate-2025-set2-1-matrix-powers-a8",
+    "gate-2025-set2-4-det-of-matrix-powers"
+   ],
+   "prereqs": [
+    "matrix-multiplication-and-noncommutativity"
+   ],
+   "videoRefs": [],
+   "sources": [
+    {
+     "kind": "slides",
+     "title": "CS6015 Linear Algebra and Random Processes, LARP 2018 lecture slides",
+     "channel": "IIT Madras (cse.iitm.ac.in, Prof. Vineeth Balaji's course page)",
+     "url": "https://www.cse.iitm.ac.in/~vplab/LARP.html",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "the deck 'Inverses and Transposes' gives the inverse laws and the identity that a matrix squaring to a multiple of I collapses high powers; read in full"
+    },
+    {
+     "kind": "text",
+     "title": "Matrices and Determinant Notes for GATE CSE and DA",
+     "channel": "GeeksforGeeks",
+     "url": "https://www.geeksforgeeks.org/maths/matrices-and-determinant-notes-for-gate-cse-and-da/",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "the type list defines idempotent, involutory, nilpotent and orthogonal matrices with examples"
+    },
+    {
+     "kind": "text",
+     "title": "Linear Algebra subject page and revision notes",
+     "channel": "GATE Overflow",
+     "url": "https://gateoverflow.in/subject/mathematics/linear-algebra",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "the notes record the determinant and eigenvalue consequences of the orthogonal, idempotent and nilpotent definitions"
+    }
+   ],
+   "sourceLine": "IIT Madras CS6015 (LARP 2018) slides, deck 6 (English, read in full) for the power and inverse laws. GeeksforGeeks 'Matrices and Determinant Notes for GATE CSE and DA' (English, read in part) for the four special-matrix definitions. GATE Overflow Linear Algebra notes (English, read in part) for the determinant consequences. Every power, product and verdict on this card is recomputed in scripts/validate.py.",
+   "subject": "linear-algebra",
+   "topic": "matrices-and-determinants",
+   "path": "subjects/linear-algebra/matrices-and-determinants/matrix-powers-and-special-matrices.json"
+  },
+  {
+   "id": "trace-and-its-properties",
+   "title": "Trace: Definition and the Cyclic Law",
+   "priority": "P2",
+   "order": 106,
+   "unit": "Matrices",
+   "quickIdea": "The trace is the sum of the diagonal entries of a square matrix; it is linear, it survives transposition, and it obeys the cyclic law tr(AB) = tr(BA) even for rectangular factors.",
+   "remember": [
+    "tr(A) is the sum a_11 + a_22 + ... + a_nn, defined for square matrices only.",
+    "tr(A + B) = tr(A) + tr(B), tr(kA) = k tr(A), tr(A^T) = tr(A).",
+    "tr(AB) = tr(BA) whenever both products exist, even when A is m x n and B is n x m, so the two traces come from matrices of different orders.",
+    "Only cyclic shifts are allowed: tr(ABC) = tr(CAB) = tr(BCA), but tr(ABC) and tr(ACB) can differ.",
+    "tr(A) equals the sum of the eigenvalues of A, counted with multiplicity, which is why tr(A^k) is the sum of the k-th powers of the eigenvalues."
+   ],
+   "example": {
+    "prompt": "A = [[1,2],[3,4]] and B = [[0,1],[1,0]]. Compare tr(AB), tr(BA) and tr(A) tr(B).",
+    "work": "AB = [[2,1],[4,3]] so tr(AB) = 5. BA = [[3,4],[1,2]] so tr(BA) = 5. tr(A) tr(B) = 5 x 0 = 0.",
+    "answer": "tr(AB) = tr(BA) = 5, while tr(A) tr(B) = 0: the trace of a product is not the product of the traces."
+   },
+   "gateAngle": "GATE CSE 2022 Q.10 asks whether tr(AB) = tr(BA) still holds for rectangular A and B; both of its statements are true, and the reason is the double-sum identity rather than eigenvalues.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "A is 2 x 3, B is 3 x 2 and tr(AB) = 7. What is tr(BA)?",
+     "answer": "7.",
+     "why": "The cyclic law holds for any conformable pair, so the trace of the 2 x 2 product equals the trace of the 3 x 3 product."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why is tr(AB) = tr(BA) true when A and B are not square?",
+     "answer": "tr(AB) is the sum over i and k of a_ik b_ki, and tr(BA) is the sum over k and i of b_ki a_ik; the same products are added in a different order.",
+     "why": "A finite sum of scalars does not depend on the order of summation, and no other term appears in either sum."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "A is 3 x 3 with eigenvalues 1, 2 and 3. What is tr(A^2)?",
+     "answer": "14.",
+     "why": "The eigenvalues of A^2 are the squares 1, 4 and 9, and the trace of A^2 is their sum."
+    }
+   ],
+   "trap": {
+    "what": "Assuming the trace survives any reordering of three factors, so that tr(ABC) = tr(ACB).",
+    "why": "The trace law only permits cyclic shifts; swapping two factors changes the product itself.",
+    "counterexample": "A = [[0,1],[0,0]], B = [[0,0],[1,0]] and C = [[1,0],[0,0]]: tr(ABC) = 1 while tr(ACB) = 0."
+   },
+   "check": {
+    "question": "A is 4 x 4 with tr(A) = 3. What is tr(2A^T)?",
+    "answer": "6.",
+    "explanation": "tr(2A^T) = 2 tr(A^T) = 2 tr(A) = 6, using linearity and then the transpose law."
+   },
+   "pyqIds": [
+    "gate-2022-10-trace-cyclic"
+   ],
+   "prereqs": [
+    "matrix-multiplication-and-noncommutativity"
+   ],
+   "videoRefs": [],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "Matrices and Determinant Notes for GATE CSE and DA",
+     "channel": "GeeksforGeeks",
+     "url": "https://www.geeksforgeeks.org/maths/matrices-and-determinant-notes-for-gate-cse-and-da/",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "the 'Trace of a Matrix' section gives the definition, the linearity laws and the eigenvalue link"
+    },
+    {
+     "kind": "text",
+     "title": "Linear Algebra subject page and revision notes",
+     "channel": "GATE Overflow",
+     "url": "https://gateoverflow.in/subject/mathematics/linear-algebra",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "the notes state tr(AB) = tr(BA) as a standard property and record the eigenvalue interpretation"
+    },
+    {
+     "kind": "slides",
+     "title": "CS6015 Linear Algebra and Random Processes, LARP 2018 lecture slides",
+     "channel": "IIT Madras (cse.iitm.ac.in, Prof. Vineeth Balaji's course page)",
+     "url": "https://www.cse.iitm.ac.in/~vplab/LARP.html",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "the trace appears in the determinant and inverse decks as the sum of the diagonal, which is the definition used here"
+    }
+   ],
+   "sourceLine": "GeeksforGeeks 'Matrices and Determinant Notes for GATE CSE and DA' (English, read in part) for the trace definition and its laws. GATE Overflow Linear Algebra notes (English, read in part) for the cyclic law. IIT Madras CS6015 (LARP 2018) slides (English, read in full) for the diagonal-sum definition. The counterexample to the non-cyclic order is recomputed in scripts/validate.py.",
+   "subject": "linear-algebra",
+   "topic": "matrices-and-determinants",
+   "path": "subjects/linear-algebra/matrices-and-determinants/trace-and-its-properties.json"
+  },
+  {
+   "id": "determinant-definition-and-cofactor-expansion",
+   "title": "The Determinant: Minors, Cofactors and Expansion",
+   "priority": "P1",
+   "order": 107,
+   "unit": "Determinants and rank",
+   "quickIdea": "The determinant is one number attached to a square matrix; compute it by expanding along a row or column with alternating signs, choosing the line with the most zeros.",
+   "remember": [
+    "The determinant is defined for square matrices only. For 2 x 2, |[[a,b],[c,d]]| = ad - bc.",
+    "The minor M_ij is the determinant left after deleting row i and column j; the cofactor is C_ij = (-1)^(i+j) M_ij.",
+    "Laplace expansion along row i: |A| = sum over j of a_ij C_ij, and the same works along any column; the value does not depend on which line you pick.",
+    "A triangular matrix, upper or lower, including diagonal, has determinant equal to the product of its diagonal entries; |I| = 1 and |O| = 0.",
+    "|A| is the signed volume scaling of the map x -> Ax: zero means the map squashes space into a lower dimension, which is exactly singularity."
+   ],
+   "example": {
+    "prompt": "Find the determinant of [[2,0,0,0],[8,1,7,2],[2,0,2,0],[9,0,6,1]].",
+    "work": "Expand along the first row, where only a_11 = 2 survives: |A| = 2 x |[[1,7,2],[0,2,0],[0,6,1]]|. Expand that along its first row: 1 x |[[2,0],[6,1]]| = 2. So |A| = 2 x 1 x 2 = 4.",
+    "answer": "4. This is GATE CSE 2000 Q.1.3."
+   },
+   "gateAngle": "GATE CSE 2000 Q.1.3 is a one-mark question solved by two expansions because the first row is mostly zeros; choosing the sparse line is the whole technique.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "Compute the determinant of [[3,0,0],[5,2,0],[1,7,4]].",
+     "answer": "24.",
+     "why": "The matrix is lower triangular, so the determinant is the product of the diagonal, 3 x 2 x 4."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why does expanding along a different row give the same determinant?",
+     "answer": "Because the determinant is a single number defined by the signed volume of the image of the unit cube, and each expansion is a different way of computing that same alternating sum.",
+     "why": "The expansion is a theorem about the determinant, not its definition, so the value cannot depend on the line chosen."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "A is 4 x 4 with exactly one non-zero entry in its second column. Which line should you expand along, and how many 3 x 3 minors do you evaluate?",
+     "answer": "The second column, and just one minor.",
+     "why": "Every other term of that expansion is multiplied by a zero entry, so only the single non-zero term survives."
+    }
+   ],
+   "trap": {
+    "what": "Dropping the alternating sign, or using a minor where a cofactor is needed.",
+    "why": "The sign (-1)^(i+j) alternates in a checkerboard, and both the expansion and the adjoint are built from cofactors, not from minors.",
+    "counterexample": "For A = [[1,2],[3,4]] the minor M_12 is 3 but the cofactor C_12 is -3; using minors throughout would give adj(A) = [[4,2],[3,1]] instead of the correct [[4,-2],[-3,1]]."
+   },
+   "check": {
+    "question": "What is the determinant of [[2,5],[1,3]]?",
+    "answer": "1.",
+    "explanation": "ad - bc = 2 x 3 - 5 x 1 = 1, so the matrix is non-singular."
+   },
+   "pyqIds": [
+    "gate-2000-1-3-determinant-expansion"
+   ],
+   "prereqs": [
+    "matrix-vocabulary-and-types"
+   ],
+   "videoRefs": [],
+   "sources": [
+    {
+     "kind": "slides",
+     "title": "CS6015 Linear Algebra and Random Processes, LARP 2018 lecture slides",
+     "channel": "IIT Madras (cse.iitm.ac.in, Prof. Vineeth Balaji's course page)",
+     "url": "https://www.cse.iitm.ac.in/~vplab/LARP.html",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "the deck 'Determinants' gives the four uses of the determinant, the cofactor and expansion machinery and the volume interpretation; read in full"
+    },
+    {
+     "kind": "text",
+     "title": "Linear Algebra subject page and revision notes",
+     "channel": "GATE Overflow",
+     "url": "https://gateoverflow.in/subject/mathematics/linear-algebra",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "the determinant section gives the 2 x 2 and 3 x 3 formulas, the Laplace expansion and the triangular-matrix rule, and warns about sign errors in cofactor expansion"
+    },
+    {
+     "kind": "text",
+     "title": "Matrices and Determinant Notes for GATE CSE and DA",
+     "channel": "GeeksforGeeks",
+     "url": "https://www.geeksforgeeks.org/maths/matrices-and-determinant-notes-for-gate-cse-and-da/",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "the determinant section restates the expansion formula and the minor and cofactor definitions"
+    }
+   ],
+   "sourceLine": "IIT Madras CS6015 (LARP 2018) slides, deck 4 'Determinants' (English, read in full) for the determinant as a volume scaling and its uses. GATE Overflow Linear Algebra notes (English, read in part) for the expansion formulas and the common sign error. GeeksforGeeks (English, read in part) for the minor and cofactor definitions. Every expansion on this card is recomputed in scripts/validate.py.",
+   "subject": "linear-algebra",
+   "topic": "matrices-and-determinants",
+   "path": "subjects/linear-algebra/matrices-and-determinants/determinant-definition-and-cofactor-expansion.json"
+  },
+  {
+   "id": "determinant-row-column-operations",
+   "title": "How Row and Column Operations Change a Determinant",
+   "priority": "P1",
+   "order": 108,
+   "unit": "Determinants and rank",
+   "quickIdea": "Most determinant questions are property questions: swapping rows flips the sign, scaling one row scales the determinant, adding a multiple of a row changes nothing, and det(AB) = det(A) det(B).",
+   "remember": [
+    "Interchanging two rows, or two columns, multiplies the determinant by -1.",
+    "Multiplying one row by k multiplies the determinant by k. Hence det(kA) = k^n det(A) for an n x n A, because the scalar multiplies all n rows.",
+    "Adding a multiple of one row to another row leaves the determinant unchanged, which is why row reduction to triangular form preserves the value.",
+    "If two rows, or two columns, are identical or proportional, the determinant is 0.",
+    "det(A^T) = det(A), det(AB) = det(A) det(B), det(A^-1) = 1/det(A) and det(A^k) = det(A)^k.",
+    "det(A + B) has no law: it is neither det(A) + det(B) nor anything else predictable, and det(A) = 0 does not follow from det(A + B) = det(B)."
+   ],
+   "example": {
+    "prompt": "A = [[2,1],[0,3]]. Relate det(A), the determinant of A with its two rows swapped, and det(2A).",
+    "work": "det(A) = 2 x 3 - 1 x 0 = 6. Swapping the rows gives [[0,3],[2,1]] with determinant 0 x 1 - 3 x 2 = -6. Doubling gives 2A = [[4,2],[0,6]] with determinant 24.",
+    "answer": "The swap gives -6 = -det(A), and doubling gives 24 = 2^2 det(A) with n = 2."
+   },
+   "gateAngle": "GATE CSE 2026 Set 2 Q.52 asks det(2A) for a 4 x 4 with det 3, answer 48; GATE CSE 2023 Q.8 is a single row interchange, answer -det(A); GATE CSE 2020 Q.27 confirms det(AB) = det(A) det(B) while rejecting rank(AB) = rank(A) rank(B).",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "A is 3 x 3 with det(A) = 5. What is det(-2A)?",
+     "answer": "-40.",
+     "why": "det(-2A) = (-2)^3 det(A) = -8 x 5, because the scalar multiplies all three rows."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why does adding a multiple of one row to another leave the determinant unchanged?",
+     "answer": "The operation replaces row i by row i + c row j. Expanding by linearity in row i splits the determinant into det(A) plus c times a determinant with two equal rows, and that second determinant is 0.",
+     "why": "Linearity in a single row plus the vanishing of a determinant with a repeated row gives the rule."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "A and B are 3 x 3 with det(A) = 2 and det(B) = 3. What is det(A^2 B^-1 A^T)?",
+     "answer": "8/3.",
+     "why": "The determinants multiply: det(A^2) = 4, det(B^-1) = 1/3 and det(A^T) = 2, so the product is 4 x (1/3) x 2."
+    }
+   ],
+   "trap": {
+    "what": "Applying det(kA) = k det(A) to an n x n matrix.",
+    "why": "The scalar multiplies every one of the n rows, so it leaves the determinant n times, not once.",
+    "counterexample": "For A = I_3, det(2I_3) = 8, while 2 det(I_3) = 2."
+   },
+   "check": {
+    "question": "A is 4 x 4 with det(A) = 6. What is det(A^T A^-1)?",
+    "answer": "1.",
+    "explanation": "det(A^T) = 6 and det(A^-1) = 1/6, so the product of the determinants is 1."
+   },
+   "pyqIds": [
+    "gate-2026-set2-52-det-2a",
+    "gate-2023-8-determinant-row-interchange",
+    "gate-2024-set2-37-row-swap-statements",
+    "gate-2020-27-rank-det-statements"
+   ],
+   "prereqs": [
+    "determinant-definition-and-cofactor-expansion"
+   ],
+   "videoRefs": [],
+   "visual": "linear-algebra/matrices-and-determinants/determinant-as-area-scaling",
+   "sources": [
+    {
+     "kind": "slides",
+     "title": "CS6015 Linear Algebra and Random Processes, LARP 2018 lecture slides",
+     "channel": "IIT Madras (cse.iitm.ac.in, Prof. Vineeth Balaji's course page)",
+     "url": "https://www.cse.iitm.ac.in/~vplab/LARP.html",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "the 'Determinants' deck states the three row-operation effects, the product rule and the pivot-product interpretation, and treats the determinant as a signed volume; read in full"
+    },
+    {
+     "kind": "text",
+     "title": "Linear Algebra subject page and revision notes",
+     "channel": "GATE Overflow",
+     "url": "https://gateoverflow.in/subject/mathematics/linear-algebra",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "the determinant section lists every row and column property used here and names det(A + B) = det(A) + det(B) as a common pitfall"
+    },
+    {
+     "kind": "text",
+     "title": "Matrices and Determinant Notes for GATE CSE and DA",
+     "channel": "GeeksforGeeks",
+     "url": "https://www.geeksforgeeks.org/maths/matrices-and-determinant-notes-for-gate-cse-and-da/",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "the determinant properties list confirms det(kA) = k^n det(A), the sign change on interchange, the product rule and the identical-rows rule"
+    }
+   ],
+   "sourceLine": "IIT Madras CS6015 (LARP 2018) slides, deck 4 'Determinants' (English, read in full) for the row-operation effects and the signed-volume reading. GATE Overflow Linear Algebra notes (English, read in part) for the property list and the det(A + B) pitfall. GeeksforGeeks (English, read in part) for the scalar and product rules. Every property is exercised over exhaustive small cases in scripts/validate.py, and the lesson in visuals/linear-algebra/matrices-and-determinants/determinant-as-area-scaling draws the same four rules as areas.",
+   "subject": "linear-algebra",
+   "topic": "matrices-and-determinants",
+   "path": "subjects/linear-algebra/matrices-and-determinants/determinant-row-column-operations.json"
+  },
+  {
+   "id": "adjoint-inverse-and-invertibility",
+   "title": "Cofactor Matrix, Adjoint and Inverse",
+   "priority": "P1",
+   "order": 109,
+   "unit": "Determinants and rank",
+   "quickIdea": "The adjoint is the transposed cofactor matrix; it exists for every square matrix and manufactures the inverse exactly when the determinant is not zero.",
+   "remember": [
+    "adj(A) is the transpose of the cofactor matrix: adj(A)_ij = C_ji. The transpose is part of the definition, not an afterthought.",
+    "A adj(A) = adj(A) A = |A| I_n. When |A| = 0 this reads A adj(A) = O, so the adjoint still exists.",
+    "A^-1 = adj(A)/|A| exists exactly when |A| is not 0; the inverse is unique, (AB)^-1 = B^-1 A^-1 and (A^T)^-1 = (A^-1)^T.",
+    "|adj A| = |A|^(n-1), adj(adj A) = |A|^(n-2) A, adj(AB) = adj(B) adj(A) and adj(kA) = k^(n-1) adj(A).",
+    "For 2 x 2: if A = [[a,b],[c,d]] then adj(A) = [[d,-b],[-c,a]] and A^-1 = adj(A)/(ad - bc).",
+    "An orthogonal matrix is its own adjoint up to sign: adj(A) = det(A) A^T when A is orthogonal."
+   ],
+   "example": {
+    "prompt": "A = [[3,1],[2,4]]. Find adj(A), verify A adj(A) = |A| I, and write A^-1.",
+    "work": "|A| = 12 - 2 = 10. adj(A) = [[4,-1],[-2,3]]. Then A adj(A) = [[12 - 2, -3 + 3],[8 - 8, -2 + 12]] = [[10,0],[0,10]] = 10 I. Dividing by 10 gives A^-1 = [[2/5,-1/10],[-1/5,3/10]].",
+    "answer": "adj(A) = [[4,-1],[-2,3]] and A^-1 = (1/10)[[4,-1],[-2,3]], with A adj(A) = 10 I."
+   },
+   "gateAngle": "GATE prefers the identities |adj A| = |A|^(n-1) and A adj(A) = |A| I to a full inverse computation. The only inverse question found in this topic, GATE CSE 1994 Q.3.12, is descriptive and is recorded as a gap rather than forced into the MCQ schema.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "A is 3 x 3 with |A| = 2. Find |adj(A)| and |adj(adj A)|.",
+     "answer": "|adj A| = 4 and |adj(adj A)| = 16.",
+     "why": "|adj A| = |A|^(n-1) = 2^2 = 4, and applying the same rule twice gives |adj(adj A)| = |A|^((n-1)^2) = 2^4."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why is adj(A) defined even when A is singular?",
+     "answer": "Because it is built from cofactors, which are determinants of (n-1) x (n-1) submatrices and always exist; only the step A^-1 = adj(A)/|A| needs |A| to be non-zero.",
+     "why": "The adjoint is a matrix of numbers; the inverse is the adjoint divided by a number that may be zero."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "A is 2 x 2 with adj(A) = [[2,3],[4,5]]. What is A?",
+     "answer": "A = [[5,-3],[-4,2]].",
+     "why": "|adj A| = |A|^(2-1) = |A| = 2 x 5 - 3 x 4 = -2, and A = |A| adj(A)^-1 = -2 x (1/-2)[[5,-3],[-4,2]]."
+    }
+   ],
+   "trap": {
+    "what": "Forgetting to transpose the cofactor matrix, or writing |adj A| = |A|.",
+    "why": "adj(A) is the transposed cofactor matrix, and each of the n cofactors carries one factor of |A|, so the determinant of the adjoint is |A|^(n-1).",
+    "counterexample": "For A = [[3,1],[2,4]] the cofactor matrix is [[4,-2],[-1,3]] but adj(A) = [[4,-1],[-2,3]]; and for a 3 x 3 with |A| = 3, |adj A| = 9, not 3."
+   },
+   "check": {
+    "question": "A is 3 x 3 with |A| = 5. What is |A adj(A)|?",
+    "answer": "125.",
+    "explanation": "A adj(A) = |A| I_3 = 5 I_3, and the determinant of 5 I_3 is 5^3 = 125."
+   },
+   "pyqIds": [],
+   "prereqs": [
+    "determinant-definition-and-cofactor-expansion",
+    "determinant-row-column-operations"
+   ],
+   "videoRefs": [],
+   "sources": [
+    {
+     "kind": "slides",
+     "title": "CS6015 Linear Algebra and Random Processes, LARP 2018 lecture slides",
+     "channel": "IIT Madras (cse.iitm.ac.in, Prof. Vineeth Balaji's course page)",
+     "url": "https://www.cse.iitm.ac.in/~vplab/LARP.html",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "the 'Inverses and Transposes' deck defines the inverse, proves the inverse-transpose and reversal laws and explains which matrices have no inverse; read in full"
+    },
+    {
+     "kind": "text",
+     "title": "Linear Algebra subject page and revision notes",
+     "channel": "GATE Overflow",
+     "url": "https://gateoverflow.in/subject/mathematics/linear-algebra",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "the determinant section records adj(A) = |A|^(n-1) and the cofactor-matrix construction"
+    },
+    {
+     "kind": "text",
+     "title": "Matrices and Determinant Notes for GATE CSE and DA",
+     "channel": "GeeksforGeeks",
+     "url": "https://www.geeksforgeeks.org/maths/matrices-and-determinant-notes-for-gate-cse-and-da/",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "the 'Adjoint of a Matrix' and 'Inverse of a Matrix' sections give the full property list, including adj(adj A) = |A|^(n-2) A and adj(kA) = k^(n-1) adj(A)"
+    }
+   ],
+   "sourceLine": "IIT Madras CS6015 (LARP 2018) slides, deck 6 'Inverses and Transposes' (English, read in full) for the inverse laws and the non-invertibility discussion. GeeksforGeeks 'Matrices and Determinant Notes for GATE CSE and DA' (English, read in part) for the adjoint property list. GATE Overflow Linear Algebra notes (English, read in part) for |adj A| = |A|^(n-1). Every adjoint, inverse and determinant on this card is recomputed in scripts/validate.py, including by exact rational arithmetic.",
+   "subject": "linear-algebra",
+   "topic": "matrices-and-determinants",
+   "path": "subjects/linear-algebra/matrices-and-determinants/adjoint-inverse-and-invertibility.json"
+  },
+  {
+   "id": "rank-and-its-bounds",
+   "title": "Rank: Definitions, Computation and Inequalities",
+   "priority": "P1",
+   "order": 110,
+   "unit": "Determinants and rank",
+   "quickIdea": "The rank is the number of independent rows, which equals the number of independent columns, the number of pivots, and the largest order of a non-zero minor.",
+   "remember": [
+    "rank(A) is the number of pivots in a row echelon form, equivalently the number of non-zero rows there; row rank always equals column rank.",
+    "rank(A) is the largest r with some r x r minor non-zero; every minor of order r+1 is then zero.",
+    "0 <= rank(A) <= min(m, n), and for an n x n A, rank(A) = n exactly when |A| is not 0.",
+    "rank(A^T) = rank(A); rank(AB) <= min(rank A, rank B); rank(A + B) <= rank A + rank B.",
+    "Sylvester's inequality: if A is m x n and B is n x p then rank(AB) >= rank(A) + rank(B) - n.",
+    "Multiplying by invertible matrices does not change the rank: rank(PAQ) = rank(A) for invertible P and Q.",
+    "For an m x n A, rank(A) + nullity(A) = n, where the nullity is the dimension of the solutions of Ax = 0."
+   ],
+   "example": {
+    "prompt": "Find the rank of [[1,4,8,7],[0,0,3,0],[4,2,3,1],[3,12,24,21]].",
+    "work": "Row 4 is exactly 3 times row 1, so the rows are dependent and the rank is at most 3. The 3 x 3 minor on rows 1 to 3 and columns 1 to 3 is |[[1,4,8],[0,0,3],[4,2,3]]| = 1(0 - 6) - 4(0 - 12) + 8(0 - 0) = 42, which is not 0.",
+    "answer": "rank = 3. This is GATE CSE 1998 Q.2.1."
+   },
+   "gateAngle": "GATE CSE 1994 Q.1.9, 1998 Q.2.1 and 2002 Q.1.1 are pure rank computations, while 2020 Q.27 checks the bounds and 2021 Set 2 Q.24 reads the rank off the nullity.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "A is 3 x 4 with rank 2 and P is a 4 x 4 invertible matrix. What is rank(AP)?",
+     "answer": "2.",
+     "why": "Right multiplication by an invertible matrix does not change the rank, because it only changes the basis of the column space."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why is rank(A + B) at most rank(A) + rank(B)?",
+     "answer": "Each column of A + B is the sum of a column of A and the matching column of B, so all columns of A + B lie in the span of the columns of A and of B, whose dimension is at most rank(A) + rank(B).",
+     "why": "A span argument bounds the dimension of the column space, and the rank is that dimension."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "A is 3 x 3 with rank 2. What is rank(adj A)?",
+     "answer": "1.",
+     "why": "Some 2 x 2 cofactor is non-zero, so adj(A) is not the zero matrix; and A adj(A) = |A| I = O forces every column of adj(A) into the null space of A, which has dimension 1."
+    }
+   ],
+   "trap": {
+    "what": "Writing rank(AB) = rank(A) rank(B), or assuming rank(A + B) is the sum of the ranks.",
+    "why": "Rank is bounded by products and sums, never multiplied by them.",
+    "counterexample": "A = B = I_3 gives rank(AB) = 3 while rank(A) rank(B) = 9; and A = [[1,0],[0,0]] with B = [[0,0],[1,0]] gives rank(A + B) = 1 although both ranks are 1."
+   },
+   "check": {
+    "question": "A is 4 x 5 with rank 4. What is the dimension of the solution space of Ax = 0?",
+    "answer": "1.",
+    "explanation": "rank + nullity = number of columns = 5, so the nullity is 1."
+   },
+   "pyqIds": [
+    "gate-1998-2-1-rank-4x4",
+    "gate-1994-1-9-rank-3x3",
+    "gate-2002-1-1-rank-2x2",
+    "gate-2021-set2-24-rank-from-nullity"
+   ],
+   "prereqs": [
+    "determinant-definition-and-cofactor-expansion"
+   ],
+   "videoRefs": [],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "Linear Algebra subject page and revision notes",
+     "channel": "GATE Overflow",
+     "url": "https://gateoverflow.in/subject/mathematics/linear-algebra",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "the rank section defines rank by non-zero minors and by echelon form, and lists the bounds used here"
+    },
+    {
+     "kind": "text",
+     "title": "Matrices and Determinant Notes for GATE CSE and DA",
+     "channel": "GeeksforGeeks",
+     "url": "https://www.geeksforgeeks.org/maths/matrices-and-determinant-notes-for-gate-cse-and-da/",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "the 'Rank of a Matrix' section gives the minor definition, rank(A) <= min(m,n), rank(AB) <= min and Sylvester's inequality"
+    },
+    {
+     "kind": "slides",
+     "title": "CS6015 Linear Algebra and Random Processes, LARP 2018 lecture slides",
+     "channel": "IIT Madras (cse.iitm.ac.in, Prof. Vineeth Balaji's course page)",
+     "url": "https://www.cse.iitm.ac.in/~vplab/LARP.html",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "the 'Gaussian Elimination' deck produces the pivot count that the echelon definition uses; read in full"
+    }
+   ],
+   "sourceLine": "GATE Overflow Linear Algebra notes (English, read in part) for the rank definitions and bounds. GeeksforGeeks 'Matrices and Determinant Notes for GATE CSE and DA' (English, read in part) for the rank property list. IIT Madras CS6015 (LARP 2018) slides, deck 5 'Gaussian Elimination' (English, read in full) for the pivot count. Every rank, minor and bound on this card is recomputed in scripts/validate.py, and the inequalities are checked over exhaustive small integer matrices.",
+   "subject": "linear-algebra",
+   "topic": "matrices-and-determinants",
+   "path": "subjects/linear-algebra/matrices-and-determinants/rank-and-its-bounds.json"
+  },
+  {
+   "id": "singular-and-equivalent-conditions",
+   "title": "Singular Matrices and the Equivalence List",
+   "priority": "P2",
+   "order": 111,
+   "unit": "Determinants and rank",
+   "quickIdea": "For a square matrix, singular, determinant zero, not invertible, rank below n, dependent rows and a zero eigenvalue are six names for one condition.",
+   "remember": [
+    "A square matrix A is singular when |A| = 0 and non-singular when |A| is not 0.",
+    "For an n x n A these are all equivalent: |A| = 0; rank(A) < n; A has no inverse; the rows are linearly dependent; the columns are linearly dependent; 0 is an eigenvalue; Ax = 0 has a non-zero solution.",
+    "A product u v^T of a non-zero column and a non-zero row has rank 1, so for n at least 2 it is singular however large its entries are.",
+    "The sum of two singular matrices can be non-singular, and the sum of two non-singular matrices can be singular: [[1,0],[0,0]] + [[0,0],[0,1]] = I_2, and I_2 + (-I_2) = O.",
+    "det(A + B) is unrelated to det(A) + det(B) in either direction, so no conclusion about A can be drawn from det(A + B) = det(B) alone."
+   ],
+   "example": {
+    "prompt": "A is the product of the column [[2],[-4],[7]] with the row [[1,9,5]]. Find |A| without computing all nine entries.",
+    "work": "The product is 3 x 3 and every row is a multiple of (1,9,5), namely 2 times it, -4 times it and 7 times it, so the rows are dependent and the determinant is 0. Equivalently A = u v^T has rank 1, which is below 3.",
+    "answer": "|A| = 0. This is GATE CSE 2014 Set 2 Q.4."
+   },
+   "gateAngle": "GATE CSE 2014 Set 2 Q.4 is this one-line argument, and GATE CSE 2020 Q.27 tests whether you know that the sum of two singular matrices may be non-singular while det(A + B) has no law.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "Give two singular 2 x 2 matrices whose sum is non-singular.",
+     "answer": "[[1,0],[0,0]] and [[0,0],[0,1]], whose sum is I_2.",
+     "why": "Each has determinant 0, and the sum is the identity with determinant 1, so singularity is not preserved by addition."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why does a zero eigenvalue make a matrix singular?",
+     "answer": "Av = 0 with v non-zero means A sends a non-zero vector to zero, so A cannot be inverted; equivalently the columns are dependent and |A| = 0.",
+     "why": "A zero eigenvalue is exactly the existence of a non-zero vector in the null space."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "A is 5 x 5 with rank(A) = 3. Is A invertible, and how many of its eigenvalues must be 0?",
+     "answer": "Not invertible, and at least two eigenvalues are 0.",
+     "why": "The nullity is 5 - 3 = 2, and every null vector is an eigenvector for the eigenvalue 0, so 0 has geometric multiplicity at least 2."
+    }
+   ],
+   "trap": {
+    "what": "Concluding that a matrix with no zero entries is non-singular, or that det(A) = 0 follows from det(A + B) = det(B).",
+    "why": "Determinant zero is a statement about linear dependence, not about how many zero entries appear, and the determinant is not additive.",
+    "counterexample": "[[1,2],[2,4]] has no zero entry and determinant 0, while [[0,1],[1,0]] has two zero entries and determinant -1."
+   },
+   "check": {
+    "question": "A is 3 x 3 with rank 2. What is |A|?",
+    "answer": "0.",
+    "explanation": "rank < 3 means the three rows are dependent, and a dependent set of n rows in an n x n matrix forces the determinant to vanish."
+   },
+   "pyqIds": [
+    "gate-2014-set2-4-column-times-row-singular"
+   ],
+   "prereqs": [
+    "rank-and-its-bounds",
+    "adjoint-inverse-and-invertibility"
+   ],
+   "videoRefs": [],
+   "sources": [
+    {
+     "kind": "slides",
+     "title": "CS6015 Linear Algebra and Random Processes, LARP 2018 lecture slides",
+     "channel": "IIT Madras (cse.iitm.ac.in, Prof. Vineeth Balaji's course page)",
+     "url": "https://www.cse.iitm.ac.in/~vplab/LARP.html",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "the 'Inverses and Transposes' deck explains exactly which matrices have no inverse, through Ax = 0 with x non-zero; read in full"
+    },
+    {
+     "kind": "text",
+     "title": "Linear Algebra subject page and revision notes",
+     "channel": "GATE Overflow",
+     "url": "https://gateoverflow.in/subject/mathematics/linear-algebra",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "the determinant section lists the equivalence of det 0, singularity and non-invertibility, and names det(A + B) as a pitfall"
+    },
+    {
+     "kind": "text",
+     "title": "Matrices and Determinant Notes for GATE CSE and DA",
+     "channel": "GeeksforGeeks",
+     "url": "https://www.geeksforgeeks.org/maths/matrices-and-determinant-notes-for-gate-cse-and-da/",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "the singular and non-singular definitions and the rank section supply the equivalence list"
+    }
+   ],
+   "sourceLine": "IIT Madras CS6015 (LARP 2018) slides, deck 6 (English, read in full) for the Ax = 0 characterisation of non-invertibility. GATE Overflow Linear Algebra notes (English, read in part) for the equivalence list and the det(A + B) warning. GeeksforGeeks (English, read in part) for the singular and non-singular definitions. Every equivalence and counterexample is recomputed in scripts/validate.py.",
+   "subject": "linear-algebra",
+   "topic": "matrices-and-determinants",
+   "path": "subjects/linear-algebra/matrices-and-determinants/singular-and-equivalent-conditions.json"
   }
  ],
  "pyqs": [
@@ -9922,6 +10908,27 @@ window.GATE_DATA = {
    "source_label": "GATE Overflow question page for GATE CS 1993 Q.8.4 with the accepted answer",
    "verification": "SOURCED",
    "answer_evidence": "The accepted answer on the GATE Overflow page gives 2 to the (n squared), option (B), and notes the identity with the number of relations on A."
+  },
+  {
+   "id": "gate-1994-1-9-rank-3x3",
+   "year": "1994",
+   "paper": "GATE CS 1994",
+   "question_ref": "Q.1.9",
+   "type": "MCQ",
+   "topic": "rank-and-its-bounds",
+   "text": "The rank of the matrix [[0,0,-3],[9,3,5],[3,1,1]] is",
+   "options": [
+    "0",
+    "1",
+    "2",
+    "3"
+   ],
+   "answer": "Option 3: 2",
+   "solution": "The determinant is 0 (row 2 is 3 times row 3 plus a multiple of the first row after the row operation R2 -> R2 - 3R3 gives the second row (0,0,2), which is a multiple of the first row (0,0,-3)), so the rank is below 3. The 2 x 2 minor [[3,5],[1,1]] has determinant -2, which is non-zero, so the rank is 2. scripts/validate.py computes the rank by exact elimination and finds 2.",
+   "source_url": "https://gateoverflow.in/2446/gate-cse-1994-question-1-9",
+   "source_label": "GATE Overflow question page - GATE CSE 1994 Q.1.9 with the accepted answer (2)",
+   "verification": "SOURCED",
+   "answer_evidence": "Accepted answer: 'The determinant is 0, and the minor [[3,5],[1,1]] is non-zero, so the rank is 2', option C."
   },
   {
    "id": "gate-1995-1-20",
@@ -10054,6 +11061,27 @@ window.GATE_DATA = {
    "answer_evidence": "The accepted answer on the GATE Overflow page states 15 (option A) and derives it from the Bell number B(4)."
   },
   {
+   "id": "gate-1998-2-1-rank-4x4",
+   "year": "1998",
+   "paper": "GATE CS 1998",
+   "question_ref": "Q.2.1",
+   "type": "MCQ",
+   "topic": "rank-and-its-bounds",
+   "text": "The rank of the matrix [[1,4,8,7],[0,0,3,0],[4,2,3,1],[3,12,24,21]] is",
+   "options": [
+    "3",
+    "1",
+    "2",
+    "4"
+   ],
+   "answer": "Option 1: 3",
+   "solution": "Row 4 is 3 times row 1, so the four rows are dependent and the rank is at most 3. The 3 x 3 minor formed by rows 1 to 3 and columns 1 to 3 is |[[1,4,8],[0,0,3],[4,2,3]]| = 1(0 - 6) - 4(0 - 12) + 8(0 - 0) = -6 + 48 = 42, which is non-zero, so the rank is exactly 3. scripts/validate.py computes the rank by exact elimination and finds 3.",
+   "source_url": "https://gateoverflow.in/1673/gate-cse-1998-question-2-1",
+   "source_label": "GATE Overflow question page - GATE CSE 1998 Q.2.1 with the accepted answer (3)",
+   "verification": "SOURCED",
+   "answer_evidence": "Accepted answer: 'R4 = 3R1, so the rank is less than 4, and the remaining three rows are independent, so the rank is 3', option A."
+  },
+  {
    "id": "gate-1998-converse-only-if",
    "year": "1998",
    "paper": "GATE CS 1998",
@@ -10096,6 +11124,27 @@ window.GATE_DATA = {
    "verification": "SOURCED"
   },
   {
+   "id": "gate-2000-1-3-determinant-expansion",
+   "year": "2000",
+   "paper": "GATE CS 2000",
+   "question_ref": "Q.1.3",
+   "type": "MCQ",
+   "topic": "determinant-definition-and-cofactor-expansion",
+   "text": "The determinant of the matrix [[2,0,0,0],[8,1,7,2],[2,0,2,0],[9,0,6,1]] is",
+   "options": [
+    "4",
+    "0",
+    "15",
+    "20"
+   ],
+   "answer": "Option 1: 4",
+   "solution": "Expand along the first row, where only a_11 = 2 is non-zero: |A| = 2 x |[[1,7,2],[0,2,0],[0,6,1]]|. Expand that along its first row: 1 x |[[2,0],[6,1]]| = 2 x 1 - 0 x 6 = 2. So |A| = 2 x 2 = 4. scripts/validate.py evaluates the determinant by exact rational cofactor expansion and by elimination and gets 4 both ways.",
+   "source_url": "https://gateoverflow.in/626/gate-cse-2000-question-1-3",
+   "source_label": "GATE Overflow question page - GATE CSE 2000 Q.1.3 with the accepted answer (4)",
+   "verification": "SOURCED",
+   "answer_evidence": "Accepted answer: '|A| = 2 x 1 x (2 - 0) = 4', option A."
+  },
+  {
    "id": "gate-2000-cards",
    "year": "2000",
    "paper": "GATE CS 2000",
@@ -10136,6 +11185,27 @@ window.GATE_DATA = {
    "source_url": "https://www.cse.iitd.ac.in/~mittal/gate/gate_math_2001.html",
    "source_label": "IIT Delhi GATE mathematics solutions (cse.iitd.ac.in/~mittal)",
    "verification": "SOURCED"
+  },
+  {
+   "id": "gate-2002-1-1-rank-2x2",
+   "year": "2002",
+   "paper": "GATE CS 2002",
+   "question_ref": "Q.1.1",
+   "type": "MCQ",
+   "topic": "rank-and-its-bounds",
+   "text": "The rank of the matrix [[1,1],[0,0]] is",
+   "options": [
+    "4",
+    "2",
+    "1",
+    "0"
+   ],
+   "answer": "Option 3: 1",
+   "solution": "The 2 x 2 determinant is 0 but the 1 x 1 minor (1) is non-zero, so the rank is 1. Equivalently, only one of the two rows is non-zero after elimination. scripts/validate.py computes the rank by exact elimination and finds 1.",
+   "source_url": "https://gateoverflow.in/805/gate-cse-2002-question-1-1",
+   "source_label": "GATE Overflow question page - GATE CSE 2002 Q.1.1 with the accepted answer (1)",
+   "verification": "SOURCED",
+   "answer_evidence": "Accepted answer: 'Rank is 1, since only one column is linearly independent', option C."
   },
   {
    "id": "gate-2002-1-4-cycle-colours",
@@ -10421,6 +11491,21 @@ window.GATE_DATA = {
    "source_label": "GATE Overflow question page - GATE CSE 2014 Set 2 Q.3 with the accepted answer (36)",
    "verification": "SOURCED",
    "answer_evidence": "Accepted answer: 'Maximum number of edges in a bipartite graph with n vertices = floor(n^2/4)', giving 36 for n = 12."
+  },
+  {
+   "id": "gate-2014-set2-4-column-times-row-singular",
+   "year": "2014",
+   "paper": "GATE CS 2014 Set 2",
+   "question_ref": "Q.4",
+   "type": "NAT",
+   "topic": "singular-and-equivalent-conditions",
+   "text": "If the matrix A is such that A = [[2],[-4],[7]] x [[1,9,5]], then the determinant of A is equal to ____.",
+   "answer": "0",
+   "solution": "A is 3 x 3 and its rows are 2, -4 and 7 times the row (1,9,5), so the rows are linearly dependent and |A| = 0. Equivalently A = u v^T with both factors non-zero, so A has rank 1 < 3. scripts/validate.py multiplies the two factors exactly, confirms rank 1 and confirms the determinant is 0.",
+   "source_url": "https://gateoverflow.in/1956/gate-cse-2014-set-2-question-4",
+   "source_label": "GATE Overflow question page - GATE CSE 2014 Set 2 Q.4 with the accepted answer (0)",
+   "verification": "SOURCED",
+   "answer_evidence": "Accepted answer: 'all the rows of A are linearly dependent, so A is singular and |A| = 0'."
   },
   {
    "id": "gate-2014-set3-3-subgroup-size-5",
@@ -10788,6 +11873,27 @@ window.GATE_DATA = {
    "answer_evidence": "Accepted answer: 'Order of the largest possible proper subgroup = 7.'"
   },
   {
+   "id": "gate-2020-27-rank-det-statements",
+   "year": "2020",
+   "paper": "GATE CS 2020",
+   "question_ref": "Q.27",
+   "type": "MCQ",
+   "topic": "determinant-row-column-operations",
+   "text": "Let A and B be two n x n matrices over real numbers. Consider the statements: I. rank(AB) = rank(A) rank(B). II. det(AB) = det(A) det(B). III. rank(A + B) <= rank(A) + rank(B). IV. det(A + B) <= det(A) + det(B). Which of the above statements are TRUE?",
+   "options": [
+    "I and II only",
+    "I and IV only",
+    "II and III only",
+    "III and IV only"
+   ],
+   "answer": "Option 3: II and III only",
+   "solution": "Statement I fails for A = B = I_3, where rank(AB) = 3 but rank(A) rank(B) = 9. Statement II is the multiplicative law for determinants and holds. Statement III holds because the column space of A + B lies in the span of the two column spaces. Statement IV has no law at all: for A = I_2 and B = -I_2 the left side is det(O) = 0 while the right side is 1 + 1 = 2, and for singular A and B the left side can exceed the right. scripts/validate.py checks II and III on exhaustive small matrices and produces a counterexample for each of I and IV.",
+   "source_url": "https://gateoverflow.in/333204/gate-cse-2020-question-27",
+   "source_label": "GATE Overflow question page - GATE CSE 2020 Q.27 with the accepted answer (options II and III)",
+   "verification": "SOURCED",
+   "answer_evidence": "Accepted answer: 'Statements II and III are correct', option C."
+  },
+  {
    "id": "gate-2020-42",
    "year": "2020",
    "paper": "GATE CS 2020",
@@ -10905,6 +12011,42 @@ window.GATE_DATA = {
    "answer_evidence": "Correct Option: B"
   },
   {
+   "id": "gate-2021-set2-24-rank-from-nullity",
+   "year": "2021",
+   "paper": "GATE CS 2021 Set 2",
+   "question_ref": "Q.24",
+   "type": "NAT",
+   "topic": "rank-and-its-bounds",
+   "text": "Suppose that P is a 4 x 5 matrix such that every solution of the equation Px = 0 is a scalar multiple of [2 5 4 3 1]^T. The rank of P is ____.",
+   "answer": "4",
+   "solution": "The solution space of Px = 0 is one-dimensional, spanned by that single vector, so the nullity is 1. For a 4 x 5 matrix the rank-nullity theorem reads rank(P) + nullity = 5, so rank(P) = 4, which is also consistent with rank <= min(4, 5) = 4. scripts/validate.py builds such a matrix of rank 4 and confirms the null space is exactly that line.",
+   "source_url": "https://gateoverflow.in/357516/gate-cse-2021-set-2-question-24",
+   "source_label": "GATE Overflow question page - GATE CSE 2021 Set 2 Q.24 with the accepted answer (4)",
+   "verification": "SOURCED",
+   "answer_evidence": "Accepted answer: 'nullity = 1 by rank-nullity rank + 1 = 5, so rank = 4'."
+  },
+  {
+   "id": "gate-2022-10-trace-cyclic",
+   "year": "2022",
+   "paper": "GATE CS 2022",
+   "question_ref": "Q.10",
+   "type": "MCQ",
+   "topic": "trace-and-its-properties",
+   "text": "Consider the following two statements with respect to the matrices A (m x n), B (n x m), C (n x n) and D (n x n). Statement 1: tr(AB) = tr(BA). Statement 2: tr(CD) = tr(DC). Which one of the following holds?",
+   "options": [
+    "Statement 1 is correct and Statement 2 is wrong",
+    "Statement 1 is wrong and Statement 2 is correct",
+    "Both Statement 1 and Statement 2 are correct",
+    "Both Statement 1 and Statement 2 are wrong"
+   ],
+   "answer": "Option 3: both statements are correct",
+   "solution": "tr(AB) is the double sum over i and k of a_ik b_ki, and tr(BA) is the same double sum with the indices exchanged, so they agree even though AB is m x m and BA is n x n. Statement 2 is the square case of the same identity. scripts/validate.py checks the identity over every pair of small integer matrices of every compatible shape.",
+   "source_url": "https://gateoverflow.in/371926/gate-cse-2022-question-10",
+   "source_label": "GATE Overflow question page - GATE CSE 2022 Q.10 with the accepted answer (both statements correct)",
+   "verification": "SOURCED",
+   "answer_evidence": "Accepted answer: 'Both statements are correct', option C; corroborated by the GeeksforGeeks GATE CSE engineering-mathematics answer key and by the GateAI PYQ page, which both record option C as the official answer."
+  },
+  {
    "id": "gate-2022-27-group-commutativity-tests",
    "year": "2022",
    "paper": "GATE CS 2022",
@@ -10986,6 +12128,27 @@ window.GATE_DATA = {
    "answer_evidence": "Accepted answer: 'So, every element in 2^X is its own inverse. Therefore (A), (D)'; the page's other answers reach the same pair."
   },
   {
+   "id": "gate-2023-8-determinant-row-interchange",
+   "year": "2023",
+   "paper": "GATE CS 2023",
+   "question_ref": "Q.8",
+   "type": "MCQ",
+   "topic": "determinant-row-column-operations",
+   "text": "Let A = [[1,2,3,4],[4,1,2,3],[3,4,1,2],[2,3,4,1]] and B = [[3,4,1,2],[4,1,2,3],[1,2,3,4],[2,3,4,1]]. Which one of the options is TRUE?",
+   "options": [
+    "det(A) = det(B)",
+    "det(B) = -det(A)",
+    "det(A) = 0",
+    "det(AB) = det(A) + det(B)"
+   ],
+   "answer": "Option 2: det(B) = -det(A)",
+   "solution": "B is obtained from A by interchanging rows 1 and 3, and one interchange multiplies the determinant by -1. Computing directly, det(A) = -160 and det(B) = 160, so det(B) = -det(A); det(A) is not 0, and det(AB) = det(A) det(B) = -25600, not det(A) + det(B) = 0. scripts/validate.py recomputes both determinants and both products.",
+   "source_url": "https://gateoverflow.in/399304/gate-cse-2023-question-8",
+   "source_label": "GATE Overflow question page - GATE CSE 2023 Q.8 with the accepted answer (option B)",
+   "verification": "SOURCED",
+   "answer_evidence": "Accepted answer: 'R1 and R3 are interchanged, so det(B) = -det(A)', option B."
+  },
+  {
    "id": "gate-2023-conjecture-implied-by",
    "year": "2023",
    "paper": "GATE CS 2023",
@@ -11064,6 +12227,27 @@ window.GATE_DATA = {
    "source_label": "GATE Overflow question page - GATE CSE 2024 Set 2 Q.24 with the accepted answer (5) and a GO Classes video solution reference",
    "verification": "SOURCED",
    "answer_evidence": "The accepted answer lists the five total orders and concludes 'the number of total order on {1,2,3,4} that contain P is 5'; recomputed by enumeration in scripts/validate.py."
+  },
+  {
+   "id": "gate-2024-set2-37-row-swap-statements",
+   "year": "2024",
+   "paper": "GATE CS 2024 Set 2",
+   "question_ref": "Q.37",
+   "type": "MSQ",
+   "topic": "determinant-row-column-operations",
+   "text": "Let A be an n x n matrix over the set of all real numbers. Let B be a matrix obtained from A by swapping two rows. Which of the following statements is/are TRUE?",
+   "options": [
+    "The determinant of B is the negative of the determinant of A",
+    "If A is invertible, then B is also invertible",
+    "If A is symmetric, then B is also symmetric",
+    "If the trace of A is zero, then the trace of B is also zero"
+   ],
+   "answer": "Options 1 and 2",
+   "solution": "A single row interchange multiplies the determinant by -1, so option 1 holds. det(B) = -det(A) is non-zero whenever det(A) is, so invertibility survives and option 2 holds. Symmetry does not survive: [[1,2],[2,3]] becomes [[2,3],[1,2]] after swapping the rows. The trace does not survive either: A = [[1,-1,0],[-1,-2,1],[0,1,1]] has trace 0 while the same matrix with rows 1 and 2 swapped has trace -1. scripts/validate.py checks all four verdicts by enumeration over small integer matrices.",
+   "source_url": "https://gateoverflow.in/422860/gate-cse-2024-set-2-question-37",
+   "source_label": "GATE Overflow question page - GATE CSE 2024 Set 2 Q.37 with the accepted answer (A and B true)",
+   "verification": "SOURCED",
+   "answer_evidence": "Accepted answer: 'Options A and B are True', with the symmetric 2 x 2 counterexample for C and a trace counterexample for D."
   },
   {
    "id": "gate-2024-set2-53-self-inverse-z2-z3-z4",
@@ -11163,6 +12347,27 @@ window.GATE_DATA = {
    "answer_evidence": "The accepted answer states 'B & D matches', after rewriting (B) into the equivalent form of (D)."
   },
   {
+   "id": "gate-2025-set2-1-matrix-powers-a8",
+   "year": "2025",
+   "paper": "GATE CS 2025 Set 2",
+   "question_ref": "Q.1",
+   "type": "MCQ",
+   "topic": "matrix-powers-and-special-matrices",
+   "text": "If A = [[1,2],[2,-1]], then which ONE of the following is A^8?",
+   "options": [
+    "[[25,0],[0,25]]",
+    "[[125,0],[0,125]]",
+    "[[625,0],[0,625]]",
+    "[[3125,0],[0,3125]]"
+   ],
+   "answer": "Option 3: [[625,0],[0,625]]",
+   "solution": "A^2 = [[1x1 + 2x2, 1x2 + 2x(-1)],[2x1 + (-1)x2, 2x2 + (-1)(-1)]] = [[5,0],[0,5]] = 5I. Then A^4 = 25I and A^8 = (A^4)^2 = 625I. scripts/validate.py multiplies the matrix out by repeated exact multiplication and confirms 625I.",
+   "source_url": "https://gateoverflow.in/460834/gate-cse-2025-set-2-question-1",
+   "source_label": "GATE Overflow question page - GATE CSE 2025 Set 2 Q.1 with the accepted answer (option C, 625I)",
+   "verification": "SOURCED",
+   "answer_evidence": "Accepted answer: 'A^2 = 5I, so A^4 = 25I and A^8 = 625I', option C."
+  },
+  {
    "id": "gate-2025-set2-32-function-poset",
    "year": "2025",
    "paper": "GATE CS 2025, Set 2",
@@ -11183,6 +12388,27 @@ window.GATE_DATA = {
    "source_label": "GATE Overflow question page - GATE CSE 2025 Set 2 Q.32 with community solutions (answer B and C)",
    "verification": "SOURCED",
    "answer_evidence": "The page's solutions conclude 'The correct options are: (B) and (C)'; the pointwise-order claims are recomputed by enumeration in scripts/validate.py."
+  },
+  {
+   "id": "gate-2025-set2-4-det-of-matrix-powers",
+   "year": "2025",
+   "paper": "GATE CS 2025 Set 2",
+   "question_ref": "Q.4",
+   "type": "MCQ",
+   "topic": "matrix-powers-and-special-matrices",
+   "text": "Let L, M and N be non-singular matrices of order 3 satisfying L^2 = L^-1, M = L^8 and N = L^2. Which ONE of the following is the value of the determinant of (M - N)?",
+   "options": [
+    "0",
+    "1",
+    "2",
+    "3"
+   ],
+   "answer": "Option 1: 0",
+   "solution": "L^2 = L^-1 gives L^3 = I. Then L^8 = L^(6+2) = (L^3)^2 L^2 = L^2, so M = N and M - N is the zero matrix, whose determinant is 0. scripts/validate.py repeats the argument on concrete order-3 matrices satisfying L^3 = I.",
+   "source_url": "https://gateoverflow.in/460831/gate-cse-2025-set-2-question-4",
+   "source_label": "GATE Overflow question page - GATE CSE 2025 Set 2 Q.4 with the accepted answer (0)",
+   "verification": "SOURCED",
+   "answer_evidence": "Accepted answer: 'L^3 = I, so L^8 = L^2 = N, hence M - N = O and its determinant is 0', option A."
   },
   {
    "id": "gate-2026-set1-37-vertex-cover-degree",
@@ -11240,6 +12466,21 @@ window.GATE_DATA = {
    "source_label": "GATE Overflow question page - GATE CSE 2026 Set 1 Q.47 with the accepted answer (34)",
    "verification": "SOURCED",
    "answer_evidence": "Accepted answer: 'Answer: 34', via the Fibonacci recurrence with the empty matching counted."
+  },
+  {
+   "id": "gate-2026-set2-52-det-2a",
+   "year": "2026",
+   "paper": "GATE CS 2026 Set 2",
+   "question_ref": "Q.52",
+   "type": "NAT",
+   "topic": "determinant-row-column-operations",
+   "text": "The determinant of a 4 x 4 matrix A is 3. The value of the determinant of 2A is ____. (answer in integer)",
+   "answer": "48",
+   "solution": "det(kA) = k^n det(A) for an n x n matrix, because multiplying by k scales each of the n rows. With k = 2, n = 4 and det(A) = 3, det(2A) = 2^4 x 3 = 16 x 3 = 48. scripts/validate.py checks the row-scaling law on every 2 x 2 and 3 x 3 integer matrix with entries in a small range.",
+   "source_url": "https://gateoverflow.in/523094/gate-cse-2026-set-2-question-52",
+   "source_label": "GATE Overflow question page - GATE CSE 2026 Set 2 Q.52 with the accepted answer (48)",
+   "verification": "SOURCED",
+   "answer_evidence": "Accepted answer: '|2A| = 2^4 x 3 = 48', applying |kA| = k^n |A|."
   },
   {
    "id": "gate-2026-set2-knows-nobody",
