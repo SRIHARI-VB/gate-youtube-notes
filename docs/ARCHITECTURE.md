@@ -16,6 +16,8 @@ Content is filed on exactly one axis per kind. Do not mix them.
 | Playlists, video inventory, per-video analysis | channel -> playlist -> video | `content/playlists/<channel>/<playlist-id>/videos/<video-id>/` |
 | Canonical revision cards | subject -> topic -> subtopic | `content/subjects/<subject>/<topic>/<subtopic>.json` |
 | PYQs, formula sheet, syllabus | flat, referenced by id | `content/pyqs/`, `content/revision/`, `content/syllabus.json` |
+| Coverage ledger (the cycle) | one file, one entry per syllabus topic | `content/coverage.json` |
+| Topic source ledger (chosen and rejected sources) | subject -> topic | `content/subjects/<subject>/<topic>/sources.json` |
 
 The channel axis keeps one instructor's material together. The subject axis keeps one concept in one place: if two
 channels teach the same idea, both videos point at the same card and only `videoRefs` grows.

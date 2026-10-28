@@ -28,7 +28,8 @@ content/
   playlists/<channel>/<playlist-id>/           playlist.json + videos/<video-id>/{metadata,analysis}.json + notes.md
   pyqs/                                        one file per verified PYQ
   revision/formulas.json                       last-minute sheet
-  syllabus.json                                syllabus mapping, per subject and topic
+  syllabus.json                                the full GATE CSE 2027 syllabus, every subject and topic
+  coverage.json                                the coverage ledger: status, runs and gaps per topic
 src/                site shell: styles, app, generated data
 visuals/            p5.js and HTML lessons (visuals/<subject>/<topic>/<subtopic>/)
 scripts/            build-index.py, validate.py

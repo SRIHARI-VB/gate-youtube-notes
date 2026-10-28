@@ -1,5 +1,140 @@
 # Run report
 
+## Run 4 - sets, relations, functions; the syllabus cycle and the ledger start here
+
+### The topic, and why it was next
+
+**Discrete Mathematics > Sets, Relations, Functions** (`sets-relations-functions`), the third topic of the
+GATE 2027 Discrete Mathematics line: *"Propositional and first order logic. Sets, relations, functions,
+partial orders and lattices. Monoids, Groups. ..."*
+
+This run began by doing what `references/topic-queue.md` asks of the first run: it enumerated the whole
+official GATE 2027 CS syllabus (13 subjects, 74 topics, in official order, cited to the IIT Madras GATE 2027
+CS syllabus document) into `content/syllabus.json`, and seeded `content/coverage.json` as the ledger. Until
+that existed the cycle had nothing to walk over.
+
+The ledger was seeded so that the cycle continues rather than restarting:
+
+- `combinatorics`, `propositional-logic` and `first-order-logic` are `partial` - each was built from a single
+  GO Classes playlist in runs 1 to 3, and none has been re-audited against the 2027 line.
+- `cycle.last` was set to `discrete-mathematics/first-order-logic`, the last topic the repository actually
+  covers (run 3).
+- The next topic after that pointer, in official order, whose status is not `covered`, is
+  **sets-relations-functions**. First order logic sits second in the enumeration because the GATE 2027 line
+  reads "Propositional and first order logic", where earlier wording named propositional logic only.
+
+**Skipped, and why.** The three `partial` topics were skipped because the cycle takes a second pass over
+partial topics only after a full pass finds no `not_started` topic left; nothing was `blocked`. No topic was
+skipped silently.
+
+### Subtopics enumerated before any source was chosen
+
+Sets: sets, elements, subsets, cardinality and the empty set; power sets and counting subsets; set operations,
+De Morgan, distributive laws and element-chasing proofs; ordered pairs and the Cartesian product; countable and
+uncountable sets. Relations: definition, matrix and digraph representation, counting; reflexive, symmetric,
+antisymmetric and asymmetric relations and their counts; transitivity, transitive closure and Warshall;
+equivalence relations, classes and partitions. Functions: total, injective, surjective and bijective functions
+and their counts; composition and inverse functions. Eleven subtopics, one card each.
+
+### Sources chosen, on merit
+
+| Source | Channel | Language | Transcript | What it carries |
+| --- | --- | --- | --- | --- |
+| Lec 02 - Set identities, Cartesian product, relations and functions (`7djvJetFiSY`) | IIT lecture (NPTEL-style) | English | FULL | Set identities by element chasing, ordered pairs and the ZF construction of the product, the relation definition, all four relation properties, equivalence relations |
+| Introduction to Set Theory (`tyDKR4FG3Yw`) | TrevTutor | English | FULL | Elements, cardinality, the empty set versus the set containing it, set-builder notation |
+| Injective, Surjective and Bijective Functions (`PpA4LWPh40M`) | TrevTutor | English | FULL | The three function properties, the cardinality conditions, why an inverse needs a bijection |
+| Relations - GATE PYQs - Part 2 (`Z9khyLCt2-I`) | GO Classes for GATE CS | English | PARTIAL (opening) | The 2^(n^2) count and the ternary-relation variation; the question types of the GATE series |
+
+**Chosen and rejected, with reasons** are recorded in
+`content/subjects/discrete-mathematics/sets-relations-functions/sources.json`: five rejected candidates,
+including the 460-video NPTEL IIT Ropar playlist (every concept split into three-to-five minute fragments, so
+no video covers a subtopic), the NPTEL IIT Kanpur *Set Theory and Mathematical Logic* course (ZFC, ordinals,
+ultrafilters - mostly outside the GATE line), the Stanford CS103 set-theory slides (no video or transcript),
+and two Hindi-language candidates searched for deliberately (no readable transcript, so nothing could be
+verified or translated).
+
+### Content added
+
+| Item | Added this run | Total in repository |
+| --- | --- | --- |
+| Revision cards | 11 | 48 |
+| Verified PYQs | 7 | 43 |
+| Question variations | 33 (8 VERIFIED PYQ, 11 ORIGINAL PYQ-STYLE, 6 CONCEPTUAL PRACTICE, 8 PREDICTED VARIATION) | 98 |
+| Quick checks with answers | 11 | 48 |
+| Traps with counterexamples | 11 | 48 |
+| Visual lessons | 1 (`sets-relations-functions/relation-matrix-properties`, 6 steps) | 8 |
+| Topic source ledgers | 1 | 1 |
+
+The seven PYQs are GATE CS 1995 Q.1.20 (power set of a nested set), 2015 Set 2 Q.18 (power-set cardinality),
+1993 Q.8.4 (power set of A x A), 2015 Set 3 Q.41 (a relation that is symmetric but not reflexive), 2016 Set 2
+Q.26 (a relation that is reflexive but not transitive), 1997 Q.6.3 (equivalence relations on four elements) and
+2015 Set 2 Q.40 (onto functions from four elements to three). Each carries a year, a question reference, a
+source URL and an `answer_evidence` line; all seven are `SOURCED` against the named GATE Overflow page with its
+accepted answer, not against an official key document.
+
+### The visual lesson
+
+`visuals/discrete-mathematics/sets-relations-functions/relation-matrix-properties/` shows one 3 by 3 grid of
+ordered pairs and reads five properties off it: the 2^9 total, reflexive as a full diagonal (2^6), symmetric as
+mirror pairs that agree (2^6), antisymmetric as mirror pairs that never both appear (2^3 x 3^3), transitivity as
+the missing shortcut (1,3) with its closure, and equivalence relations as blocks on the diagonal.
+
+### Validation performed
+
+- `python3 scripts/validate.py` - 14 checks passed, 0 failures, 8 warnings, all eight pre-existing (seven PYQs
+  labelled `OFFICIAL_KEY` without an evidence line, two combinatorics videos not referenced by any card).
+- Two new checks and one extended check in `scripts/validate.py`:
+  - `check_sets_relations_functions()` enumerates all 512 relations on a 3-element set (and all on 1 and 2
+    elements) and tallies reflexive, irreflexive, symmetric, antisymmetric, asymmetric, reflexive-and-symmetric,
+    symmetric-and-antisymmetric, neither-reflexive-nor-irreflexive and equivalence relations, checking each
+    against its closed formula; it also recomputes Bell and Stirling numbers, brute-forces the function counts
+    (81 total, 36 onto, 0 injective for 4 to 3; 360 injective for 4 to 6; 21 neither for 3 to 3), the transitive
+    closures used in the cards, the union-of-equivalence-relations counterexample, and the verdicts of the four
+    relations-based PYQs by direct computation over small ranges.
+  - `check_coverage()` holds the ledger to the syllabus: every enumerated topic appears exactly once, statuses
+    are legal, a `partial` topic names its gaps, a `covered` topic names none, a topic with cards is never
+    `not_started`, a topic claiming material has a card, and `cycle.last` points at a real topic that is not
+    `not_started`.
+  - `check_sources()` requires each topic ledger to record chosen sources with language and transcript status,
+    rejected candidates with reasons, and no source both chosen and rejected.
+  - `check_syllabus()` now accepts enumerated topics that have no cards yet (`material: planned`) and requires a
+    folder for every topic marked `material: cards`, and requires the syllabus document to be cited.
+- `python3 scripts/build-index.py` regenerates `content/index.json` and `src/data/content.js`: 48 topics, 43
+  PYQs, 3 playlists, 39 videos.
+- `node tests/visual-lessons.js` - all seven p5 sketches load and draw every step at three progress values,
+  including the new six-step lesson.
+
+### UI
+
+No change to design tokens, shell layout, navigation labels, routes or component classes. The new cards render
+through the existing components; the sidebar tree and the Topics tab pick up the new topic, its three units
+(Sets, Relations, Functions) and its eleven subtopics from the generated data with no code change. Two scripts
+learned to ignore `sources.json`, which is a content file at card depth, not a card.
+
+### Limitations
+
+1. **The GO Classes lecture used for GATE question patterns is only partly readable.** Its opening gives the
+   2^(n^2) count and the ternary-relation variation; the later question types are past the truncation point and
+   are not recorded.
+2. **Countability has no lecture behind it.** No transcript on countable and uncountable sets was readable, so
+   that card rests on Rosen and Grimaldi alone and is flagged in the card's source line and in the ledger's gaps.
+3. **Closures rest on the standard reference.** Transitive closure and Warshall are taught from Rosen ch. 9.4;
+   no lecture transcript for closures was readable.
+4. **No verified PYQ exists in this topic for countability.** GATE tests countability inside Theory of
+   Computation (for example GATE CS 2019 Q.34 on recursively enumerable languages), which belongs to that topic,
+   so nothing was borrowed into this one.
+5. **No playlist manifest was added for the GO Classes Set Theory playlist.** Its full video list could not be
+   enumerated and verified, so inventing a `video_count` for it would have been a false statement. The four
+   videos used are recorded in the topic's `sources.json` and on each card's `sourceLine` instead.
+6. **All seven PYQs are `SOURCED`, not key-verified.** Answers come from the accepted answer on the named GATE
+   Overflow page. Question numbering follows GATE Overflow.
+
+### Git
+
+Commits on `main` (see the log for the SHAs): one content commit for the cards, PYQs, lesson and source ledger;
+one for the syllabus enumeration and the coverage ledger; one `fix(scripts)` for the validators; one `docs`.
+No force-push, no history rewrite, no deletion of unrelated files.
+
 ## Run 3 - first order logic playlist added
 
 ### Playlist

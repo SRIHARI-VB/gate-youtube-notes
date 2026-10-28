@@ -69,3 +69,20 @@ formula, equivalence, tautology and count published in the cards is recomputed f
 `scripts/validate.py` (`check_logic` for propositional logic, `check_first_order` for first-order logic, which
 enumerates every interpretation on domains of one to three elements), and every PYQ answer is checked against an
 official key or a named published solution. Anything that depended on a segment that was not readable is either omitted or named as a gap.
+
+## Run 4 - Sets, Relations, Functions (four sources, three read in full)
+
+| Source | Channel | Length | Transcript | Analysis |
+| --- | --- | --- | --- | --- |
+| Lec 02 - Set identities, Cartesian product, relations and functions (`7djvJetFiSY`) | IIT lecture (NPTEL-style) | about 1h | FULL | analysed in full |
+| Introduction to Set Theory (`tyDKR4FG3Yw`) | TrevTutor | 16m 38s | FULL | analysed in full |
+| Injective, Surjective and Bijective Functions (`PpA4LWPh40M`) | TrevTutor | 15m 00s | FULL | analysed in full |
+| Relations - GATE PYQs - Part 2 (`Z9khyLCt2-I`) | GO Classes for GATE CS | 1h 35m | PARTIAL (opening) | analysed, opening only |
+
+Unlike runs 1 to 3, three of the four transcripts arrived complete: the page-fetch route returned whole
+documents for these lectures, so nothing in those three cards depends on an unread segment. The long GO Classes
+lecture still arrived as its opening only, which is why the counting question types it names are recorded and the
+rest are not.
+
+No Hindi-language source could be read: two candidates were searched for and only their playlist or lesson pages
+were retrievable, so nothing is translated in this run and no card draws on a non-English source.
