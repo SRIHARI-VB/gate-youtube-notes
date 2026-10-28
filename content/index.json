@@ -29,8 +29,8 @@
   ],
   "counts": {
     "subjects": 1,
-    "topics": 37,
-    "pyqs": 36,
+    "topics": 48,
+    "pyqs": 43,
     "videos": 39,
     "playlists": 3
   },
@@ -679,6 +679,163 @@
       "pyqs": [],
       "visual": null,
       "variations": 2
+    },
+    {
+      "topic": "sets-elements-subsets-cardinality",
+      "title": "Sets, Elements, Subsets and Cardinality",
+      "subject": "discrete-mathematics",
+      "group": "sets-relations-functions",
+      "unit": "Sets",
+      "priority": "P1",
+      "path": "subjects/discrete-mathematics/sets-relations-functions/sets-elements-subsets-cardinality.json",
+      "videos": [],
+      "pyqs": [
+        "gate-1995-1-20"
+      ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "power-set-and-its-size",
+      "title": "Power Set and Counting Subsets",
+      "subject": "discrete-mathematics",
+      "group": "sets-relations-functions",
+      "unit": "Sets",
+      "priority": "P1",
+      "path": "subjects/discrete-mathematics/sets-relations-functions/power-set-and-its-size.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2015-set2-power-set-cardinality"
+      ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "set-operations-and-identities",
+      "title": "Set Operations and Set Identities",
+      "subject": "discrete-mathematics",
+      "group": "sets-relations-functions",
+      "unit": "Sets",
+      "priority": "P1",
+      "path": "subjects/discrete-mathematics/sets-relations-functions/set-operations-and-identities.json",
+      "videos": [],
+      "pyqs": [],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "cartesian-product",
+      "title": "Ordered Pairs and the Cartesian Product",
+      "subject": "discrete-mathematics",
+      "group": "sets-relations-functions",
+      "unit": "Sets",
+      "priority": "P1",
+      "path": "subjects/discrete-mathematics/sets-relations-functions/cartesian-product.json",
+      "videos": [],
+      "pyqs": [],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "countable-and-uncountable-sets",
+      "title": "Countable and Uncountable Sets",
+      "subject": "discrete-mathematics",
+      "group": "sets-relations-functions",
+      "unit": "Sets",
+      "priority": "P2",
+      "path": "subjects/discrete-mathematics/sets-relations-functions/countable-and-uncountable-sets.json",
+      "videos": [],
+      "pyqs": [],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "relation-definition-and-counting",
+      "title": "Relations as Subsets, and Counting Them",
+      "subject": "discrete-mathematics",
+      "group": "sets-relations-functions",
+      "unit": "Relations",
+      "priority": "P1",
+      "path": "subjects/discrete-mathematics/sets-relations-functions/relation-definition-and-counting.json",
+      "videos": [],
+      "pyqs": [
+        "gate-1993-8-4"
+      ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "relation-properties-reflexive-symmetric-antisymmetric",
+      "title": "Reflexive, Symmetric, Antisymmetric and Asymmetric Relations",
+      "subject": "discrete-mathematics",
+      "group": "sets-relations-functions",
+      "unit": "Relations",
+      "priority": "P1",
+      "path": "subjects/discrete-mathematics/sets-relations-functions/relation-properties-reflexive-symmetric-antisymmetric.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2015-set3-relation-p-s-q-r"
+      ],
+      "visual": "discrete-mathematics/sets-relations-functions/relation-matrix-properties",
+      "variations": 3
+    },
+    {
+      "topic": "transitivity-and-closure",
+      "title": "Transitivity, Transitive Closure and Warshall",
+      "subject": "discrete-mathematics",
+      "group": "sets-relations-functions",
+      "unit": "Relations",
+      "priority": "P1",
+      "path": "subjects/discrete-mathematics/sets-relations-functions/transitivity-and-closure.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2016-set2-relation-reflexive-transitive"
+      ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "equivalence-relations-and-partitions",
+      "title": "Equivalence Relations, Classes and Partitions",
+      "subject": "discrete-mathematics",
+      "group": "sets-relations-functions",
+      "unit": "Relations",
+      "priority": "P1",
+      "path": "subjects/discrete-mathematics/sets-relations-functions/equivalence-relations-and-partitions.json",
+      "videos": [],
+      "pyqs": [
+        "gate-1997-6-3"
+      ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "functions-counting-injective-surjective",
+      "title": "Functions: Counting, Injections, Surjections and Bijections",
+      "subject": "discrete-mathematics",
+      "group": "sets-relations-functions",
+      "unit": "Functions",
+      "priority": "P1",
+      "path": "subjects/discrete-mathematics/sets-relations-functions/functions-counting-injective-surjective.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2015-set2-onto-functions"
+      ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "composition-and-inverse-functions",
+      "title": "Composition and Inverse Functions",
+      "subject": "discrete-mathematics",
+      "group": "sets-relations-functions",
+      "unit": "Functions",
+      "priority": "P2",
+      "path": "subjects/discrete-mathematics/sets-relations-functions/composition-and-inverse-functions.json",
+      "videos": [],
+      "pyqs": [],
+      "visual": null,
+      "variations": 3
     }
   ]
 }

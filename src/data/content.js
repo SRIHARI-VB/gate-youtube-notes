@@ -128,48 +128,491 @@ window.GATE_DATA = {
  ],
  "syllabus": {
   "exam": "GATE CSE 2027",
-  "section": "Discrete Mathematics",
-  "line": "Propositional Logic; Sets, Relations, Functions; Partial Orders and Lattices; Monoids and Groups; Graphs: Connectivity, Matching, Colouring; Combinatorics: Counting, Recurrence Relations, Generating Functions.",
+  "section": "Section 1: Engineering Mathematics - Discrete Mathematics",
+  "source": {
+   "title": "GATE 2027 Computer Science and Information Technology syllabus",
+   "organizing_institute": "IIT Madras",
+   "url": "https://gate2027.iitm.ac.in/static/doc/GATE2027_Syllabus/CS_GATE2027_Syllabus.pdf",
+   "retrieved_at": "2026-10-28",
+   "note": "The GATE 2027 syllabi were revised; this enumeration follows the GATE 2027 CS document, not the earlier GATE 2026 wording."
+  },
+  "line": "Propositional and first order logic. Sets, relations, functions, partial orders and lattices. Monoids, Groups. Graphs: connectivity, matching, colouring. Combinatorics: counting, recurrence relations, generating functions.",
   "subjects": [
    {
     "slug": "discrete-mathematics",
     "name": "Discrete Mathematics",
+    "line": "Propositional and first order logic. Sets, relations, functions, partial orders and lattices. Monoids, Groups. Graphs: connectivity, matching, colouring. Combinatorics: counting, recurrence relations, generating functions.",
     "topics": [
      {
       "slug": "propositional-logic",
       "name": "Propositional Logic",
-      "covered_by_playlists": [
-       "PLIPZ2_p3RNHillKxh1_iFeZhy9MftHeWW"
-      ]
-     },
-     {
-      "slug": "combinatorics",
-      "name": "Combinatorics (Counting)",
-      "covered_by_playlists": [
-       "PLIPZ2_p3RNHjlC6eceG_vWSu-oA6Dc6aX"
-      ]
+      "material": "cards"
      },
      {
       "slug": "first-order-logic",
       "name": "First Order Logic",
-      "covered_by_playlists": [
-       "PLIPZ2_p3RNHidhFvyKH4U_VE1rFAyvG8U"
-      ]
+      "material": "cards"
+     },
+     {
+      "slug": "sets-relations-functions",
+      "name": "Sets, Relations, Functions",
+      "material": "cards"
+     },
+     {
+      "slug": "partial-orders-and-lattices",
+      "name": "Partial Orders and Lattices",
+      "material": "planned"
+     },
+     {
+      "slug": "monoids-and-groups",
+      "name": "Monoids and Groups",
+      "material": "planned"
+     },
+     {
+      "slug": "graphs",
+      "name": "Graphs: Connectivity, Matching, Colouring",
+      "material": "planned"
+     },
+     {
+      "slug": "combinatorics",
+      "name": "Combinatorics: Counting, Recurrence Relations, Generating Functions",
+      "material": "cards"
+     }
+    ]
+   },
+   {
+    "slug": "linear-algebra",
+    "name": "Linear Algebra",
+    "line": "Matrices, determinants, system of linear equations, eigenvalues and eigenvectors, LU decomposition.",
+    "topics": [
+     {
+      "slug": "matrices-and-determinants",
+      "name": "Matrices and Determinants",
+      "material": "planned"
+     },
+     {
+      "slug": "system-of-linear-equations",
+      "name": "System of Linear Equations",
+      "material": "planned"
+     },
+     {
+      "slug": "eigenvalues-and-eigenvectors",
+      "name": "Eigenvalues and Eigenvectors",
+      "material": "planned"
+     },
+     {
+      "slug": "lu-decomposition",
+      "name": "LU Decomposition",
+      "material": "planned"
+     }
+    ]
+   },
+   {
+    "slug": "calculus",
+    "name": "Calculus",
+    "line": "Limits, continuity and differentiability. Maxima and minima. Mean value theorem. Integration.",
+    "topics": [
+     {
+      "slug": "limits-continuity-differentiability",
+      "name": "Limits, Continuity and Differentiability",
+      "material": "planned"
+     },
+     {
+      "slug": "maxima-and-minima",
+      "name": "Maxima and Minima",
+      "material": "planned"
+     },
+     {
+      "slug": "mean-value-theorem",
+      "name": "Mean Value Theorem",
+      "material": "planned"
+     },
+     {
+      "slug": "integration",
+      "name": "Integration",
+      "material": "planned"
+     }
+    ]
+   },
+   {
+    "slug": "probability-and-statistics",
+    "name": "Probability and Statistics",
+    "line": "Random variables. Uniform, normal, exponential, Poisson and binomial distributions. Mean, median, mode and standard deviation. Conditional probability and Bayes theorem.",
+    "topics": [
+     {
+      "slug": "random-variables-and-distributions",
+      "name": "Random Variables and Distributions",
+      "material": "planned"
+     },
+     {
+      "slug": "mean-median-mode-standard-deviation",
+      "name": "Mean, Median, Mode and Standard Deviation",
+      "material": "planned"
+     },
+     {
+      "slug": "conditional-probability-and-bayes",
+      "name": "Conditional Probability and Bayes Theorem",
+      "material": "planned"
+     }
+    ]
+   },
+   {
+    "slug": "digital-logic",
+    "name": "Digital Logic",
+    "line": "Boolean algebra and minimization - algebraic technique, Karnaugh map, tabular method. Design of combinational and sequential circuits. Number representation and arithmetic (fixed and floating point).",
+    "topics": [
+     {
+      "slug": "number-systems-and-representation",
+      "name": "Number Systems and Number Representation",
+      "material": "planned"
+     },
+     {
+      "slug": "boolean-algebra-and-minimization",
+      "name": "Boolean Algebra and Minimization",
+      "material": "planned"
+     },
+     {
+      "slug": "combinational-circuits",
+      "name": "Combinational Circuits",
+      "material": "planned"
+     },
+     {
+      "slug": "sequential-circuits",
+      "name": "Sequential Circuits",
+      "material": "planned"
+     },
+     {
+      "slug": "computer-arithmetic",
+      "name": "Computer Arithmetic: Fixed and Floating Point",
+      "material": "planned"
+     }
+    ]
+   },
+   {
+    "slug": "computer-organization-and-architecture",
+    "name": "Computer Organization and Architecture",
+    "line": "Instruction set and addressing modes. Design of arithmetic and logic unit (ALU). Design of control unit - hardwired and microprogrammed. Memory interfacing and hierarchy: performance, cache memory mapping. I/O interface (interrupt and DMA). Instruction pipelining, pipeline hazards.",
+    "topics": [
+     {
+      "slug": "instruction-set-and-addressing-modes",
+      "name": "Instruction Set and Addressing Modes",
+      "material": "planned"
+     },
+     {
+      "slug": "alu-design",
+      "name": "Design of the Arithmetic and Logic Unit",
+      "material": "planned"
+     },
+     {
+      "slug": "control-unit-design",
+      "name": "Design of the Control Unit",
+      "material": "planned"
+     },
+     {
+      "slug": "memory-hierarchy-and-cache",
+      "name": "Memory Interfacing, Hierarchy and Cache Mapping",
+      "material": "planned"
+     },
+     {
+      "slug": "io-interface",
+      "name": "I/O Interface: Interrupt and DMA",
+      "material": "planned"
+     },
+     {
+      "slug": "instruction-pipelining-and-hazards",
+      "name": "Instruction Pipelining and Pipeline Hazards",
+      "material": "planned"
+     }
+    ]
+   },
+   {
+    "slug": "programming-and-data-structures",
+    "name": "Programming and Data Structures",
+    "line": "Programming in C. Recursion. Arrays, stacks, queues, linked lists, trees, binary search trees, binary heaps, graphs.",
+    "topics": [
+     {
+      "slug": "programming-in-c",
+      "name": "Programming in C",
+      "material": "planned"
+     },
+     {
+      "slug": "recursion",
+      "name": "Recursion",
+      "material": "planned"
+     },
+     {
+      "slug": "arrays-stacks-queues",
+      "name": "Arrays, Stacks and Queues",
+      "material": "planned"
+     },
+     {
+      "slug": "linked-lists",
+      "name": "Linked Lists",
+      "material": "planned"
+     },
+     {
+      "slug": "trees-and-binary-search-trees",
+      "name": "Trees and Binary Search Trees",
+      "material": "planned"
+     },
+     {
+      "slug": "binary-heaps",
+      "name": "Binary Heaps",
+      "material": "planned"
+     },
+     {
+      "slug": "graphs-data-structure",
+      "name": "Graphs as a Data Structure",
+      "material": "planned"
+     }
+    ]
+   },
+   {
+    "slug": "algorithms",
+    "name": "Algorithms",
+    "line": "Searching, sorting, hashing. Asymptotic worst case time and space complexity. Algorithm design techniques: greedy, dynamic programming and divide-and-conquer. Graph traversals, minimum spanning trees, shortest paths.",
+    "topics": [
+     {
+      "slug": "searching-sorting-hashing",
+      "name": "Searching, Sorting and Hashing",
+      "material": "planned"
+     },
+     {
+      "slug": "asymptotic-complexity",
+      "name": "Asymptotic Worst Case Time and Space Complexity",
+      "material": "planned"
+     },
+     {
+      "slug": "greedy-algorithms",
+      "name": "Greedy Algorithms",
+      "material": "planned"
+     },
+     {
+      "slug": "dynamic-programming",
+      "name": "Dynamic Programming",
+      "material": "planned"
+     },
+     {
+      "slug": "divide-and-conquer",
+      "name": "Divide and Conquer",
+      "material": "planned"
+     },
+     {
+      "slug": "graph-traversals",
+      "name": "Graph Traversals",
+      "material": "planned"
+     },
+     {
+      "slug": "minimum-spanning-trees",
+      "name": "Minimum Spanning Trees",
+      "material": "planned"
+     },
+     {
+      "slug": "shortest-paths",
+      "name": "Shortest Paths",
+      "material": "planned"
+     }
+    ]
+   },
+   {
+    "slug": "theory-of-computation",
+    "name": "Theory of Computation",
+    "line": "Regular expressions and finite automata. Context-free grammars and push-down automata. Regular and context-free languages, pumping lemma. Turing machines and undecidability.",
+    "topics": [
+     {
+      "slug": "regular-expressions-and-finite-automata",
+      "name": "Regular Expressions and Finite Automata",
+      "material": "planned"
+     },
+     {
+      "slug": "context-free-grammars-and-pda",
+      "name": "Context-Free Grammars and Push-Down Automata",
+      "material": "planned"
+     },
+     {
+      "slug": "pumping-lemma",
+      "name": "Pumping Lemma",
+      "material": "planned"
+     },
+     {
+      "slug": "turing-machines-and-undecidability",
+      "name": "Turing Machines and Undecidability",
+      "material": "planned"
+     }
+    ]
+   },
+   {
+    "slug": "compiler-design",
+    "name": "Compiler Design",
+    "line": "Lexical analysis, parsing, syntax-directed translation. Runtime environments. Intermediate code generation. Local optimisation, Data flow analyses: constant propagation, liveness analysis, common subexpression elimination.",
+    "topics": [
+     {
+      "slug": "lexical-analysis",
+      "name": "Lexical Analysis",
+      "material": "planned"
+     },
+     {
+      "slug": "parsing",
+      "name": "Parsing",
+      "material": "planned"
+     },
+     {
+      "slug": "syntax-directed-translation",
+      "name": "Syntax-Directed Translation",
+      "material": "planned"
+     },
+     {
+      "slug": "runtime-environments",
+      "name": "Runtime Environments",
+      "material": "planned"
+     },
+     {
+      "slug": "intermediate-code-generation",
+      "name": "Intermediate Code Generation",
+      "material": "planned"
+     },
+     {
+      "slug": "local-optimisation",
+      "name": "Local Optimisation",
+      "material": "planned"
+     },
+     {
+      "slug": "data-flow-analysis",
+      "name": "Data Flow Analyses",
+      "material": "planned"
+     }
+    ]
+   },
+   {
+    "slug": "operating-system",
+    "name": "Operating System",
+    "line": "System calls, processes, threads, inter-process communication, concurrency and synchronization. Deadlock. CPU and I/O scheduling. Memory management and virtual memory. File systems.",
+    "topics": [
+     {
+      "slug": "processes-and-threads",
+      "name": "System Calls, Processes and Threads",
+      "material": "planned"
+     },
+     {
+      "slug": "ipc-and-synchronization",
+      "name": "Inter-Process Communication and Synchronization",
+      "material": "planned"
+     },
+     {
+      "slug": "deadlock",
+      "name": "Deadlock",
+      "material": "planned"
+     },
+     {
+      "slug": "cpu-and-io-scheduling",
+      "name": "CPU and I/O Scheduling",
+      "material": "planned"
+     },
+     {
+      "slug": "memory-management-and-virtual-memory",
+      "name": "Memory Management and Virtual Memory",
+      "material": "planned"
+     },
+     {
+      "slug": "file-systems",
+      "name": "File Systems",
+      "material": "planned"
+     }
+    ]
+   },
+   {
+    "slug": "databases",
+    "name": "Databases",
+    "line": "ER-model. Relational model: relational algebra, tuple calculus, SQL. Integrity constraints, normal forms. File organization, indexing (e.g., B and B+ trees). Transactions and concurrency control.",
+    "topics": [
+     {
+      "slug": "er-model",
+      "name": "ER Model",
+      "material": "planned"
+     },
+     {
+      "slug": "relational-algebra-and-tuple-calculus",
+      "name": "Relational Model: Algebra and Tuple Calculus",
+      "material": "planned"
+     },
+     {
+      "slug": "sql",
+      "name": "SQL",
+      "material": "planned"
+     },
+     {
+      "slug": "integrity-constraints-and-normal-forms",
+      "name": "Integrity Constraints and Normal Forms",
+      "material": "planned"
+     },
+     {
+      "slug": "file-organization-and-indexing",
+      "name": "File Organization and Indexing",
+      "material": "planned"
+     },
+     {
+      "slug": "transactions-and-concurrency-control",
+      "name": "Transactions and Concurrency Control",
+      "material": "planned"
+     }
+    ]
+   },
+   {
+    "slug": "computer-networks",
+    "name": "Computer Networks",
+    "line": "Principles of Layering; Basics of switching (circuit, packet and virtual circuit) and performance metrics; Data link layer: error detection, Medium Access Control, Ethernet; Distance vector and link state routing; IPv4 - Fragmentation, CIDR Notation, Network Address Translation; TCP - flow control and congestion control, socket API; DNS and HTTP.",
+    "topics": [
+     {
+      "slug": "principles-of-layering",
+      "name": "Principles of Layering",
+      "material": "planned"
+     },
+     {
+      "slug": "switching-and-performance-metrics",
+      "name": "Switching and Performance Metrics",
+      "material": "planned"
+     },
+     {
+      "slug": "data-link-layer",
+      "name": "Data Link Layer: Error Detection and MAC",
+      "material": "planned"
+     },
+     {
+      "slug": "routing-algorithms",
+      "name": "Distance Vector and Link State Routing",
+      "material": "planned"
+     },
+     {
+      "slug": "ipv4-addressing",
+      "name": "IPv4: Fragmentation, CIDR and NAT",
+      "material": "planned"
+     },
+     {
+      "slug": "tcp-and-congestion-control",
+      "name": "TCP: Flow Control and Congestion Control",
+      "material": "planned"
+     },
+     {
+      "slug": "application-layer-protocols",
+      "name": "Application Layer Protocols: DNS and HTTP",
+      "material": "planned"
      }
     ]
    }
   ],
   "covered_by_playlist": [
-   "Counting",
+   "Counting (Combinatorics: counting, distributions, pigeonhole, inclusion-exclusion)",
    "Propositional Logic (connectives, equivalence, normal forms, inference, resolution, functional completeness)",
-   "First Order Logic (predicates and quantifiers, English translation, quantifier order and negation, validity and tautology, uniqueness, model size)"
+   "First Order Logic (predicates and quantifiers, English translation, quantifier order and negation, validity, uniqueness, model size)",
+   "Sets, Relations, Functions (set basics and power sets, set identities, Cartesian product, relation properties and counting, equivalence relations and partitions, function counting, composition and inverse, countability)"
   ],
   "not_covered_by_playlist": [
-   "resolution and prenex normal form in first order logic - not taught by any processed playlist",
-   "first-order theories with function symbols and arithmetic - outside the GATE CSE discrete mathematics line",
-   "soundness and completeness of first-order proof systems - named by the lectures only in passing"
+   "relation closures (reflexive, symmetric, transitive closure, Warshall) - taught here from the standard reference only",
+   "partial orders and lattices - the next topic in the cycle, deliberately not covered by this run",
+   "monoids and groups, graphs - not yet processed",
+   "every subject outside Discrete Mathematics - enumerated here, not yet processed"
   ],
-  "note": "The official GATE CSE Discrete Mathematics line names propositional logic; first-order (predicate) logic is examined under mathematical logic, and the papers 2004, 2013, 2016, 2018, 2020, 2023, 2025 and 2026 all contain first-order questions, so the topic is included with those PYQs as its evidence. Each playlist teaches one part of the line in depth; the cards record which playlist covers which part, and the gaps are named rather than filled by guesswork."
+  "note": "Every subject and topic of the GATE 2027 CS syllabus is enumerated in official order, cited to the GATE 2027 syllabus document of IIT Madras. A topic carries material='cards' when cards exist under content/subjects/<subject>/<topic>/ and 'planned' when the topic is enumerated but no card has been written yet; the site only ever renders topics that have cards. First order logic is enumerated immediately after propositional logic because the GATE 2027 line reads 'Propositional and first order logic'."
  },
  "formulas": [
   {
@@ -4132,6 +4575,941 @@ window.GATE_DATA = {
    "subject": "discrete-mathematics",
    "topic": "first-order-logic",
    "path": "subjects/discrete-mathematics/first-order-logic/fol-quantifier-inference-rules.json"
+  },
+  {
+   "id": "sets-elements-subsets-cardinality",
+   "title": "Sets, Elements, Subsets and Cardinality",
+   "priority": "P1",
+   "order": 50,
+   "unit": "Sets",
+   "quickIdea": "A set is fixed by membership alone. Count the commas at the top level to get the cardinality, and never read a nested set as its contents.",
+   "remember": [
+    "A set is a collection of distinct objects; order and repetition are irrelevant, so {1, 2, 2, 3} and {3, 2, 1} are the same set and both have cardinality 3.",
+    "x in A says x is an element of A. A is a subset of B (A subset B) says every element of A is also an element of B.",
+    "A = B exactly when A subset B and B subset A. This is the standard way to prove two sets are equal.",
+    "The empty set has no elements: its cardinality is 0. It is a subset of every set, and it is the only set with cardinality 0.",
+    "The empty set and the set containing the empty set are different objects: the first has 0 elements, the second has 1 element, namely the empty set.",
+    "Nesting is not membership. If {2, 3} is an element of S then 2 is not an element of S unless S also lists 2 separately.",
+    "Every set is a subset of itself, and the empty set has exactly one subset, itself.",
+    "Set-builder notation {x in U : P(x)} is a rule, not a list; two different rules can describe the same set.",
+    "An element is not a subset of the set that contains it, and a subset is not an element unless it is listed as one."
+   ],
+   "example": {
+    "prompt": "S = {{empty}, 1, {2, 3}}. Find the cardinality of S, decide whether the empty set is an element of S, and decide whether {2, 3} is a subset of S.",
+    "work": "Look at the top-level commas: there are three items, so the cardinality is 3. The first item is a set that contains the empty set, not the empty set itself, so the empty set is not an element of S. The third item is the set {2, 3}, whose elements are 2 and 3, and neither of those is in S.",
+    "answer": "The cardinality of S is 3. The empty set is not an element of S. {2, 3} is an element of S but not a subset of S, because 2 and 3 are not elements of S."
+   },
+   "gateAngle": "GATE CS 1995 Q.1.20 gives exactly this shape and asks for the number of elements of the power set: the answer is 2 to the power of the number of top-level items.",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "See GATE CS 1995 Q.1.20 in the linked PYQs: the set is {{empty}, 1, {2, 3}} and the options are 2, 4, 8 and none of the above.",
+     "answer": "8, option (C).",
+     "why": "Three top-level elements, so the power set has 2 cubed elements. Counting 2, 3 and the empty set as separate top-level items would give a wrong power."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "Let T = {empty, {empty}, {{empty}}}. Give the cardinality of T, and say whether the empty set is an element of T and whether {{empty}} is a subset of T.",
+     "answer": "Cardinality 3. The empty set is an element of T. {{empty}} is a subset of T, because its only element {empty} is in T.",
+     "why": "All three items are distinct objects: the empty set, a set containing it, and a set containing that. The third item is also a subset because its element is listed at the top level."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "How many subsets of {1, {2, 3}} contain 1?",
+     "answer": "Two: {1} and {1, {2, 3}}.",
+     "why": "The set has two elements, so it has four subsets; exactly half of them contain the element 1, because each subset is decided by two independent in-or-out choices."
+    }
+   ],
+   "trap": {
+    "what": "Reading a nested set as if its contents were elements of the outer set, or confusing 'is an element of' with 'is a subset of'.",
+    "why": "Membership looks only one level deep. A set inside a set is one object, whatever it contains, and the empty set is a subset of everything while being an element of almost nothing.",
+    "counterexample": "For A = {{empty}}, the empty set is a subset of A but not an element of A: the only element of A is the set {empty}. For B = {empty} the empty set is both a subset and an element, which is why B cannot be used to tell the two relations apart."
+   },
+   "check": {
+    "question": "S = {empty, {empty}}. Give the cardinality of S, the cardinality of its power set, and say whether {{empty}} is a subset of S.",
+    "answer": "Cardinality 2, power set cardinality 4, and yes, {{empty}} is a subset of S.",
+    "explanation": "The two elements are the empty set and the set containing the empty set. The power set of a 2-element set has 4 elements. The set {{empty}} has the single element {empty}, which is in S, so it is a subset."
+   },
+   "pyqIds": [
+    "gate-1995-1-20"
+   ],
+   "prereqs": [],
+   "videoRefs": [],
+   "sources": [
+    {
+     "kind": "video",
+     "title": "Introduction to Set Theory - Discrete Mathematics",
+     "channel": "TrevTutor",
+     "video_id": "tyDKR4FG3Yw",
+     "url": "https://www.youtube.com/watch?v=tyDKR4FG3Yw",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false
+    },
+    {
+     "kind": "text",
+     "title": "Rosen, Discrete Mathematics and Its Applications, ch. 2 (basic structures: sets, set operations, functions)",
+     "language": "en",
+     "transcript": "N/A"
+    }
+   ],
+   "sourceLine": "Set basics, cardinality and the empty-set distinction: TrevTutor, Introduction to Set Theory (English, full transcript). Nested-set discipline and subset proofs: Rosen ch. 2.",
+   "subject": "discrete-mathematics",
+   "topic": "sets-relations-functions",
+   "path": "subjects/discrete-mathematics/sets-relations-functions/sets-elements-subsets-cardinality.json"
+  },
+  {
+   "id": "power-set-and-its-size",
+   "title": "Power Set and Counting Subsets",
+   "priority": "P1",
+   "order": 51,
+   "unit": "Sets",
+   "quickIdea": "Each element is either in or out, so an n-element set has 2 to the n subsets. Applied to a Cartesian product, the same rule counts relations.",
+   "remember": [
+    "The power set of S is the set of all subsets of S, written P(S).",
+    "If S has n elements then P(S) has 2 to the n elements, because each element makes one independent in-or-out decision.",
+    "The empty set has one subset (itself) and the set {empty} has two, so P(empty) = {empty} and P({empty}) = {empty, {empty}}.",
+    "Subsets of a fixed size k are counted by C(n, k), so the sizes of the parts of P(S) add up to 2 to the n.",
+    "If A has m elements and B has n, then A x B has m n elements and P(A x B) has 2 to the (m n) elements.",
+    "Because a relation from A to B is a subset of A x B, the number of relations from A to B is exactly the cardinality of P(A x B).",
+    "The number of relations on an n-element set is 2 to the (n squared), which is the count GATE asks for most often.",
+    "P(S) always has more elements than S, for finite S, because 2 to the n is greater than n.",
+    "A subset of a subset is a subset: if X subset Y and Y subset S then X is an element of P(S)."
+   ],
+   "example": {
+    "prompt": "S = {0, 1, 2, ..., 10}. Find the cardinality of P(S), and the number of subsets of S with exactly 3 elements.",
+    "work": "S has 11 elements (0 through 10 inclusive), so P(S) has 2 to the 11 elements. The subsets of size 3 are counted by C(11, 3) = 165.",
+    "answer": "P(S) has 2048 elements, and 165 of them are subsets of size 3."
+   },
+   "gateAngle": "GATE CS 2015 Set 2 Q.18 is the plain cardinality of a power set (2048), and GATE CS 1993 Q.8.4 asks for the power set of A x A, which is 2 to the (n squared) - the same number as the relations on A.",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "See GATE CS 2015 Set 2 Q.18 in the linked PYQs: the cardinality of the power set of {0, 1, 2, ..., 10}.",
+     "answer": "2048.",
+     "why": "The set has 11 elements, and 2 to the 11 is 2048. The same rule applied to a product gives 2 to the (n squared) for the power set of A x A, which GATE CS 1993 Q.8.4 asks for and the relations card carries."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "A is a set with 4 elements. How many elements does P(P(A)) have, and how many subsets of A have odd cardinality?",
+     "answer": "P(P(A)) has 2 to the 16 = 65536 elements, and 8 subsets of A have odd cardinality.",
+     "why": "P(A) has 16 elements, so P(P(A)) has 2 to the 16. Exactly half of the 16 subsets of a 4-element set have odd size: sizes 1 and 3 contribute 4 + 4 = 8."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "How many subsets of a 6-element set have cardinality at most 2?",
+     "answer": "1 + 6 + 15 = 22.",
+     "why": "Sizes 0, 1 and 2 contribute C(6,0) + C(6,1) + C(6,2). GATE likes to add a condition on the size rather than ask for all subsets."
+    }
+   ],
+   "trap": {
+    "what": "Writing 2 to the n as the number of subsets of A x B, or forgetting that the power set counts subsets and not ordered pairs.",
+    "why": "The exponent is the number of elements of the set whose power set is taken. For A x B that is m n, not m + n, and for A x A it is n squared.",
+    "counterexample": "A = {1, 2}, B = {a, b, c}. A x B has 6 elements, so P(A x B) has 64 elements. Using 2 to the (2 + 3) = 32 is wrong, and 32 is not even the count of relations from A to B."
+   },
+   "check": {
+    "question": "A and B are sets with 3 and 5 elements. How many relations are there from A to B?",
+    "answer": "2 to the 15 = 32768.",
+    "explanation": "A relation from A to B is a subset of A x B, which has 3 times 5 = 15 elements, so there are 2 to the 15 such subsets."
+   },
+   "pyqIds": [
+    "gate-2015-set2-power-set-cardinality"
+   ],
+   "prereqs": [
+    "sets-elements-subsets-cardinality"
+   ],
+   "videoRefs": [],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "Rosen, Discrete Mathematics and Its Applications, ch. 2 (basic structures: sets, set operations, functions)",
+     "language": "en",
+     "transcript": "N/A"
+    },
+    {
+     "kind": "video",
+     "title": "Lec 02 - Set identities, Cartesian product, relations and functions",
+     "channel": "IIT lecture (NPTEL-style discrete mathematics lecture)",
+     "video_id": "7djvJetFiSY",
+     "url": "https://www.youtube.com/watch?v=7djvJetFiSY",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false
+    }
+   ],
+   "sourceLine": "Power-set counting: Rosen ch. 2 (section on sets and their cardinalities) and the power-set remark in the IIT lecture (English, full transcript). Verified against GATE CS 2015 Set 2 Q.18 and GATE CS 1993 Q.8.4.",
+   "subject": "discrete-mathematics",
+   "topic": "sets-relations-functions",
+   "path": "subjects/discrete-mathematics/sets-relations-functions/power-set-and-its-size.json"
+  },
+  {
+   "id": "set-operations-and-identities",
+   "title": "Set Operations and Set Identities",
+   "priority": "P1",
+   "order": 52,
+   "unit": "Sets",
+   "quickIdea": "Every set identity is proved the same way: take an arbitrary element of the left side, rewrite membership step by step, and land on the right side. Do it in both directions for equality.",
+   "remember": [
+    "Union, intersection, difference and complement are all defined by membership: x in A union B means x in A or x in B; x in A minus B means x in A and x not in B.",
+    "The symmetric difference A triangle B is (A minus B) union (B minus A): the elements in exactly one of the two sets.",
+    "De Morgan within a universe U: the complement of A union B is the intersection of the complements, and the complement of A intersect B is the union of the complements.",
+    "Distributive laws: A intersect (B union C) = (A intersect B) union (A intersect C), and the dual with union outside.",
+    "To prove X subset Y, take an arbitrary element x of X and derive x in Y. To prove X = Y, do this in both directions.",
+    "A minus B and B minus A are different sets in general; they are equal only when A = B.",
+    "A minus B = A intersect (complement of B), which is why the identities for difference follow from De Morgan.",
+    "The cardinality of a union is not the sum of cardinalities unless the sets are disjoint; |A union B| = |A| + |B| - |A intersect B| is proved in the combinatorics inclusion-exclusion card.",
+    "Membership proofs never need a Venn diagram; a diagram only suggests which identity to try."
+   ],
+   "example": {
+    "prompt": "Prove that the complement of A union B equals the intersection of the complements, inside a universe U.",
+    "work": "Take x in U. Then x is in the complement of A union B exactly when x is not in A union B, which holds exactly when x is not in A and x is not in B, which holds exactly when x is in the complement of A and in the complement of B, that is x is in the intersection of the complements. Every step is an equivalence, so both inclusions hold at once.",
+    "answer": "The two sets contain the same elements, so they are equal. This is De Morgan's law for sets, and its dual for intersection is proved the same way."
+   },
+   "gateAngle": "Set identities are rarely asked as a bare identity; they appear as the first step of a counting question or of a relation question, and the option that survives is the one that respects De Morgan.",
+   "variations": [
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "U = {1, 2, 3, 4, 5}, A = {1, 2, 3}, B = {3, 4}. Compute A union B, A intersect B, A minus B, B minus A and the symmetric difference.",
+     "answer": "A union B = {1, 2, 3, 4}; A intersect B = {3}; A minus B = {1, 2}; B minus A = {4}; symmetric difference = {1, 2, 4}.",
+     "why": "Each operation is read off the membership definition; the symmetric difference is the union of the two differences, so it holds exactly the elements in one set but not both."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "Is it true that (A minus B) union B = A for all sets A and B? Justify.",
+     "answer": "No. The identity that always holds is (A minus B) union B = A union B.",
+     "why": "Elements of B that are not in A appear on the left but not on the right. With A = {1} and B = {2} the left side is {1, 2} and the right side is {1}."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "Simplify (A union B) intersect (A union complement of B).",
+     "answer": "A.",
+     "why": "Distribute the union over the intersection: (A union B) intersect (A union B complement) = A union (B intersect B complement) = A union empty = A. This is the absorption pattern GATE hides inside simplification questions."
+    }
+   ],
+   "trap": {
+    "what": "Applying De Morgan with the wrong connective, or assuming difference commutes.",
+    "why": "The complement turns union into intersection and intersection into union; keeping the same connective is the single most common error. Difference is not symmetric because membership in the first set is required.",
+    "counterexample": "U = {1, 2, 3}, A = {1}, B = {2}. The complement of A union B is {3}, while the union of the complements is {2, 3} union {1, 3} = {1, 2, 3}. The two differ, so the wrong De Morgan is visibly false."
+   },
+   "check": {
+    "question": "|A| = 5, |B| = 4 and |A intersect B| = 2. Give |A union B| and the cardinality of the symmetric difference.",
+    "answer": "|A union B| = 7 and the symmetric difference has 5 elements.",
+    "explanation": "Inclusion-exclusion gives 5 + 4 - 2 = 7. The symmetric difference holds the 3 elements of A only and the 2 elements of B only, so 5 in total."
+   },
+   "pyqIds": [],
+   "prereqs": [
+    "sets-elements-subsets-cardinality"
+   ],
+   "videoRefs": [],
+   "sources": [
+    {
+     "kind": "video",
+     "title": "Lec 02 - Set identities, Cartesian product, relations and functions",
+     "channel": "IIT lecture (NPTEL-style discrete mathematics lecture)",
+     "video_id": "7djvJetFiSY",
+     "url": "https://www.youtube.com/watch?v=7djvJetFiSY",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false
+    },
+    {
+     "kind": "text",
+     "title": "Rosen, Discrete Mathematics and Its Applications, ch. 2 (basic structures: sets, set operations, functions)",
+     "language": "en",
+     "transcript": "N/A"
+    }
+   ],
+   "sourceLine": "Element-chasing proofs of De Morgan's and the distributive laws, with the difference and symmetric-difference definitions: IIT lecture Lec 02 (English, full transcript). Cardinality of a union is counted in the combinatorics inclusion-exclusion card.",
+   "subject": "discrete-mathematics",
+   "topic": "sets-relations-functions",
+   "path": "subjects/discrete-mathematics/sets-relations-functions/set-operations-and-identities.json"
+  },
+  {
+   "id": "cartesian-product",
+   "title": "Ordered Pairs and the Cartesian Product",
+   "priority": "P1",
+   "order": 53,
+   "unit": "Sets",
+   "quickIdea": "A x B is the set of ordered pairs with first coordinate from A and second from B. Order matters inside a pair, so A x B and B x A are different sets of the same size.",
+   "remember": [
+    "A x B = {(a, b) : a in A and b in B}. The pair (a, b) is ordered: (a, b) = (c, d) exactly when a = c and b = d.",
+    "The cardinality is the product: |A x B| = |A| times |B|.",
+    "A x B and B x A have the same cardinality but are different sets unless A = B or one of them is empty.",
+    "The product with the empty set is empty: A x empty = empty, so the product has no elements even though the empty set is a set.",
+    "The product is not commutative but is associative up to the natural identification: (A x B) x C and A x (B x C) both consist of triples.",
+    "An ordered pair (a, b) is a set of sets, {a} and {a, b}, so a product lives inside P(P(A union B)). The construction is why a product can be built from the ZF axioms at all.",
+    "A relation from A to B is exactly a subset of A x B; a function from A to B is a relation in which every a in A appears exactly once as a first coordinate.",
+    "A subset of A x B need not be a product of a subset of A with a subset of B: the diagonal of a square is not a rectangle.",
+    "The number of elements of P(A x B) is 2 to the (|A| |B|), which is the number of relations from A to B."
+   ],
+   "example": {
+    "prompt": "A = {1, 2} and B = {a, b, c}. List A x B, give |A x B|, and say whether A x B = B x A.",
+    "work": "Pair each element of A with each element of B: (1,a), (1,b), (1,c), (2,a), (2,b), (2,c). That is 2 times 3 = 6 pairs. B x A contains (a,1), which is not in A x B.",
+    "answer": "|A x B| = 6, and A x B is not equal to B x A, although both have 6 elements."
+   },
+   "gateAngle": "GATE CS 1993 Q.8.4 is a product question in disguise: the power set of A x A has 2 to the (n squared) elements, which is also the number of relations on A.",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "See GATE CS 1993 Q.8.4 in the linked PYQs of the power-set card: |A| = n, find the number of elements of P(A x A).",
+     "answer": "2 to the (n squared), option (B).",
+     "why": "The product A x A has n squared ordered pairs, and the power set of a set with k elements has 2 to the k."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "A has 3 elements and B has 4. How many relations from A to B are there, and how many of them contain exactly one pair?",
+     "answer": "2 to the 12 relations in total, and 12 of them contain exactly one pair.",
+     "why": "A relation is a subset of the 12-element product; the subsets of size 1 are the 12 singletons."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "Is every subset of A x B of the form X x Y with X subset A and Y subset B?",
+     "answer": "No.",
+     "why": "The diagonal {(1,1), (2,2)} of {1, 2} x {1, 2} is a subset that is not a product: any product containing (1,1) and (2,2) also contains (1,2)."
+    }
+   ],
+   "trap": {
+    "what": "Treating the product as commutative, or assuming every subset of a product is a product.",
+    "why": "Ordered pairs remember which coordinate came first, and a product of subsets is a very special kind of subset - a rectangle in the grid picture.",
+    "counterexample": "A = B = {1, 2}. The subset {(1,2), (2,1)} is not a product X x Y: a product containing both pairs also contains (1,1) and (2,2)."
+   },
+   "check": {
+    "question": "|A| = 3, |B| = 4. How many elements does P(A x B) have?",
+    "answer": "2 to the 12 = 4096.",
+    "explanation": "The product has 12 elements, and the power set of a 12-element set has 2 to the 12 elements. This is also the number of relations from A to B."
+   },
+   "pyqIds": [],
+   "prereqs": [
+    "sets-elements-subsets-cardinality"
+   ],
+   "videoRefs": [],
+   "sources": [
+    {
+     "kind": "video",
+     "title": "Lec 02 - Set identities, Cartesian product, relations and functions",
+     "channel": "IIT lecture (NPTEL-style discrete mathematics lecture)",
+     "video_id": "7djvJetFiSY",
+     "url": "https://www.youtube.com/watch?v=7djvJetFiSY",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false
+    },
+    {
+     "kind": "text",
+     "title": "Rosen, Discrete Mathematics and Its Applications, ch. 2 (basic structures: sets, set operations, functions)",
+     "language": "en",
+     "transcript": "N/A"
+    }
+   ],
+   "sourceLine": "Ordered pairs, the ZF construction of the product, and the rectangle picture: IIT lecture Lec 02 (English, full transcript). Definitions and cardinality: Rosen ch. 2.",
+   "subject": "discrete-mathematics",
+   "topic": "sets-relations-functions",
+   "path": "subjects/discrete-mathematics/sets-relations-functions/cartesian-product.json"
+  },
+  {
+   "id": "countable-and-uncountable-sets",
+   "title": "Countable and Uncountable Sets",
+   "priority": "P2",
+   "order": 54,
+   "unit": "Sets",
+   "quickIdea": "A set is countable when its elements can be listed in a sequence, which is the same as a bijection with the natural numbers. The integers and the rationals can be listed; the reals cannot.",
+   "remember": [
+    "A set is countable if it is finite or there is a bijection between it and the natural numbers. Countably infinite means infinite and countable.",
+    "The integers are countable: list 0, 1, -1, 2, -2, ... so that every integer appears at a finite position.",
+    "The rationals are countable: write the positive rationals in a grid of numerator against denominator and walk the diagonals, skipping repeats.",
+    "A countable union of countable sets is countable, and a finite product of countable sets is countable. In particular the set of pairs of natural numbers is countable.",
+    "Every subset of a countable set is countable; a superset of an uncountable set is uncountable.",
+    "The reals are uncountable (Cantor's diagonal argument): any listing of reals can be defeated by changing the diagonal digit.",
+    "The power set of the natural numbers is uncountable and has the same cardinality as the reals.",
+    "The set of all finite subsets of the natural numbers is countable, but the set of all infinite subsets is uncountable.",
+    "Density is not cardinality: the rationals are dense in the reals and still countable, so 'there is one between any two' proves nothing about size."
+   ],
+   "example": {
+    "prompt": "Is the set of all ordered pairs of natural numbers countable? Is the set of all subsets of the natural numbers countable?",
+    "work": "For pairs, walk the anti-diagonals of the grid: (0,0), then (1,0), (0,1), then (2,0), (1,1), (0,2), and so on. Every pair sits on exactly one diagonal, so the walk lists them all, which gives a bijection with the naturals. For subsets, apply the diagonal argument to the characteristic functions: no listing of all 0/1 sequences can be complete.",
+    "answer": "The pairs are countable; the set of all subsets of the naturals is uncountable."
+   },
+   "gateAngle": "GATE has tested countability inside Theory of Computation rather than inside sets: questions about the set of all Turing machines, of all C programs, or of all recursively enumerable languages are countability questions in disguise. This card supplies the set-theoretic argument those questions rely on.",
+   "variations": [
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Which of these are countable: the integers, the rationals, the reals, the set of all finite strings over {0,1}, the set of all infinite 0/1 sequences?",
+     "answer": "The integers, the rationals and the finite strings are countable. The reals and the infinite 0/1 sequences are not.",
+     "why": "Finite strings over a finite alphabet are a countable union of finite sets, one set per length. Infinite 0/1 sequences correspond to subsets of the naturals, which are uncountable."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "Is an arbitrary union of countable sets always countable?",
+     "answer": "No. A countable union of countable sets is countable, but an arbitrary union need not be.",
+     "why": "Each real number is a countable (singleton) set, and the union of these sets over all reals is the set of reals, which is uncountable. The hypothesis 'countably many' is doing real work."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "Is the set of all functions from the natural numbers to {0, 1} countable?",
+     "answer": "No, it is uncountable.",
+     "why": "Such a function is an infinite 0/1 sequence, and the diagonal argument shows that no listing of all sequences can exist. This is the same argument that makes the power set of the naturals uncountable."
+    }
+   ],
+   "trap": {
+    "what": "Assuming a set is uncountable because it is dense or infinite, or assuming that a subset of a countable set might be uncountable.",
+    "why": "Cardinality is decided by the existence of a listing, not by density or by how many elements sit between two given ones. Subsets cannot be larger than their supersets, so a subset of a countable set is always countable.",
+    "counterexample": "The rationals are countable although between any two rationals there is another; the interval of reals between 0 and 1 is uncountable although it is a subset of the reals, showing that the direction of the subset relation matters."
+   },
+   "check": {
+    "question": "Is the set of all finite subsets of the natural numbers countable?",
+    "answer": "Yes.",
+    "explanation": "For each k the k-element subsets form a countable set, and the whole collection is the countable union over k of those sets, which is countable. The infinite subsets, by contrast, are uncountable."
+   },
+   "pyqIds": [],
+   "prereqs": [
+    "power-set-and-its-size"
+   ],
+   "videoRefs": [],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "Rosen, Discrete Mathematics and Its Applications, ch. 2 (basic structures: sets, set operations, functions)",
+     "language": "en",
+     "transcript": "N/A"
+    },
+    {
+     "kind": "text",
+     "title": "Grimaldi, Discrete and Combinatorial Mathematics, ch. 3 and ch. 5 (sets, relations, functions)",
+     "language": "en",
+     "transcript": "N/A"
+    }
+   ],
+   "sourceLine": "Countability, the diagonal argument and the countable-union rule: Rosen ch. 2 (cardinality of sets) and Grimaldi ch. 3. No lecture transcript on countability was readable in this run, so this card rests on the standard references alone - recorded as a gap.",
+   "subject": "discrete-mathematics",
+   "topic": "sets-relations-functions",
+   "path": "subjects/discrete-mathematics/sets-relations-functions/countable-and-uncountable-sets.json"
+  },
+  {
+   "id": "relation-definition-and-counting",
+   "title": "Relations as Subsets, and Counting Them",
+   "priority": "P1",
+   "order": 55,
+   "unit": "Relations",
+   "quickIdea": "A relation from A to B is just a subset of A x B, so counting relations is counting subsets of a product: 2 to the (m n) for different sets and 2 to the (n squared) on one set.",
+   "remember": [
+    "A relation from A to B is any subset of A x B. Writing a R b is shorthand for (a, b) in R.",
+    "A relation on A means a relation from A to A, that is a subset of A x A.",
+    "The empty relation and the universal relation (the whole product) are relations; the universal one is the only relation that is reflexive and symmetric on every set.",
+    "With |A| = m and |B| = n there are 2 to the (m n) relations from A to B; on an n-element set there are 2 to the (n squared).",
+    "A ternary relation on A is a subset of A x A x A, so there are 2 to the (n cubed) of them - the natural variation on the binary count.",
+    "The matrix representation puts a 1 in row a and column b exactly when (a, b) is in R, so a relation on an n-element set is an n by n 0/1 matrix.",
+    "The digraph representation draws an arc from a to b for each pair in R, and a loop at a when (a, a) is in R.",
+    "The inverse relation is the mirror image: (b, a) is in the inverse exactly when (a, b) is in R. The complement is the relation to the complement of the product.",
+    "A relation from A to B need not touch every element of A, which is exactly what separates a relation from a function."
+   ],
+   "example": {
+    "prompt": "A = {1, 2, 3} and R = {(1,1), (1,2), (2,3)}. Write the matrix of R, and decide whether R is reflexive, symmetric or transitive.",
+    "work": "The matrix has a 1 at (1,1), (1,2) and (2,3) and 0 elsewhere. Reflexivity needs all three diagonal cells, and (2,2) and (3,3) are 0. Symmetry needs the mirror cell of (1,2), namely (2,1), which is 0. Transitivity needs (1,3) because (1,2) and (2,3) are present, and (1,3) is 0.",
+    "answer": "R is none of the three: not reflexive, not symmetric, not transitive. It has 3 of the 9 possible pairs, and there are 2 to the 9 = 512 relations on this set."
+   },
+   "gateAngle": "GATE CS 1993 Q.8.4 is the counting identity in disguise: the number of elements of the power set of A x A is 2 to the (n squared), which is exactly the number of relations on A.",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "See GATE CS 1993 Q.8.4 in the linked PYQs: |A| = n, find the number of elements of P(A x A).",
+     "answer": "2 to the (n squared), option (B).",
+     "why": "A x A has n squared pairs, so its power set has 2 to the (n squared) elements - and each of those elements is a relation on A. The relation count and the power-set count are the same number."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "|A| = 3. How many relations on A are there in total, and how many ternary relations on A?",
+     "answer": "2 to the 9 = 512 binary relations and 2 to the 27 ternary relations.",
+     "why": "A binary relation is a subset of the 9-element product A x A; a ternary relation is a subset of the 27-element product A x A x A."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "How many relations are there from a 2-element set to a 4-element set, and how many of them are functions?",
+     "answer": "2 to the 8 = 256 relations, of which 4 to the 2 = 16 are functions.",
+     "why": "The product has 8 pairs, so there are 256 subsets. A function must use each of the 2 domain elements exactly once, and each has 4 choices, so 16."
+    }
+   ],
+   "trap": {
+    "what": "Counting relations on a set as 2 to the n, or assuming a relation must relate every element of its domain.",
+    "why": "The exponent is the size of the product, not the size of the set: n squared for a relation on A, m n for a relation from A to B. And a relation is allowed to leave elements untouched, which is why there are far more relations than functions.",
+    "counterexample": "On a 3-element set there are 512 relations but only 27 functions: 27 is 3 to the 3, the functions, while the other 485 relations either leave an element out or give it two images."
+   },
+   "check": {
+    "question": "A has 3 elements and B has 5. How many relations are there from A to B?",
+    "answer": "2 to the 15 = 32768.",
+    "explanation": "The product A x B has 15 pairs and a relation is any subset of it, so there are 2 to the 15 relations. Of these, 5 to the 3 = 125 are functions."
+   },
+   "pyqIds": [
+    "gate-1993-8-4"
+   ],
+   "prereqs": [
+    "cartesian-product"
+   ],
+   "videoRefs": [],
+   "sources": [
+    {
+     "kind": "video",
+     "title": "Lec 02 - Set identities, Cartesian product, relations and functions",
+     "channel": "IIT lecture (NPTEL-style discrete mathematics lecture)",
+     "video_id": "7djvJetFiSY",
+     "url": "https://www.youtube.com/watch?v=7djvJetFiSY",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false
+    },
+    {
+     "kind": "video",
+     "title": "Relations - GATE PYQs - Part 2 (counting relations)",
+     "channel": "GO Classes for GATE CS",
+     "video_id": "Z9khyLCt2-I",
+     "url": "https://www.youtube.com/watch?v=Z9khyLCt2-I",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "transcript_note": "readable opening only: the 2^(n^2) count and the ternary-relation variation",
+     "translated": false
+    },
+    {
+     "kind": "text",
+     "title": "Rosen, Discrete Mathematics and Its Applications, ch. 9 (relations and their properties)",
+     "language": "en",
+     "transcript": "N/A"
+    }
+   ],
+   "sourceLine": "Relation as a subset of a product, with matrix and digraph representations: IIT lecture Lec 02 (English, full transcript). The counting question type and the ternary-relation variation: GO Classes Relations GATE PYQs Part 2 (English, opening readable only). Rosen ch. 9.1.",
+   "subject": "discrete-mathematics",
+   "topic": "sets-relations-functions",
+   "path": "subjects/discrete-mathematics/sets-relations-functions/relation-definition-and-counting.json"
+  },
+  {
+   "id": "relation-properties-reflexive-symmetric-antisymmetric",
+   "title": "Reflexive, Symmetric, Antisymmetric and Asymmetric Relations",
+   "priority": "P1",
+   "order": 56,
+   "unit": "Relations",
+   "quickIdea": "Read the four properties off the 0/1 matrix: reflexive is a full diagonal, symmetric is a mirror-symmetric matrix, antisymmetric forbids both cells of a mirror pair, asymmetric also forbids the diagonal.",
+   "remember": [
+    "A relation R on A is reflexive when (a, a) is in R for every a in A; it is irreflexive when (a, a) is in R for no a.",
+    "R is symmetric when (a, b) in R implies (b, a) in R, and antisymmetric when (a, b) and (b, a) both in R forces a = b.",
+    "Asymmetric means (a, b) in R implies (b, a) not in R; on a set this is exactly irreflexive plus antisymmetric.",
+    "Antisymmetric is not the negation of symmetric. The identity relation is both symmetric and antisymmetric, and a relation can be neither.",
+    "Symmetric and antisymmetric together force R to be a subset of the identity relation, so there are 2 to the n such relations on an n-element set.",
+    "On an n-element set: all relations 2 to the (n squared); reflexive and irreflexive 2 to the (n squared minus n); symmetric 2 to the n(n+1)/2; antisymmetric 2 to the n times 3 to the n(n-1)/2; asymmetric 3 to the n(n-1)/2; reflexive and symmetric 2 to the n(n-1)/2.",
+    "Neither reflexive nor irreflexive is 2 to the (n squared) minus 2 times 2 to the (n squared minus n), because the reflexive and irreflexive relations are disjoint.",
+    "The matrix picture is the fastest route in the exam: the diagonal has n cells, the cells off the diagonal form n(n-1)/2 mirror pairs.",
+    "For a relation between different sets A and B only symmetry-type questions make sense with care; reflexivity needs a relation from A to A."
+   ],
+   "example": {
+    "prompt": "A = {1, 2, 3} and R = {(1,1), (2,2), (3,3), (1,2), (2,1)}. Decide reflexivity, symmetry, antisymmetry and transitivity.",
+    "work": "All three diagonal pairs are present, so R is reflexive. (1,2) is accompanied by (2,1), and no other off-diagonal pair exists, so R is symmetric. Because (1,2) and (2,1) are both present with 1 not equal to 2, R is not antisymmetric. For transitivity, (1,2) and (2,1) force (1,1), which is present, and (2,1) and (1,2) force (2,2), which is present, so R is transitive.",
+    "answer": "R is reflexive, symmetric and transitive, not antisymmetric: it is the equivalence relation whose classes are {1, 2} and {3}."
+   },
+   "gateAngle": "GATE CS 2015 Set 3 Q.41 defines a relation on ordered pairs by p - s = q - r and asks which pair of properties holds; the answer is that it is symmetric but not reflexive, and the reflexivity check is the whole question.",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "See GATE CS 2015 Set 3 Q.41 in the linked PYQs: R on ordered pairs of positive integers with (p,q) R (r,s) when p - s = q - r.",
+     "answer": "Option (C): not reflexive but symmetric.",
+     "why": "Reflexivity would need p - q = q - p, that is p = q, which fails for (1,2). Symmetry follows because p - s = q - r is the same equation as r - q = s - p."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "On A = {1, 2, 3}, how many relations are symmetric and antisymmetric, and how many are antisymmetric in total?",
+     "answer": "8 symmetric and antisymmetric, 216 antisymmetric.",
+     "why": "Symmetric and antisymmetric relations are the subsets of the identity relation, so 2 cubed = 8. Antisymmetric relations are 2 cubed times 3 cubed = 8 times 27 = 216, because each of the three mirror pairs has three allowed states."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "On a 4-element set, how many relations are reflexive and symmetric but not antisymmetric?",
+     "answer": "2 to the 6 minus 1 = 63.",
+     "why": "Reflexive and symmetric relations number 2 to the n(n-1)/2 = 2 to the 6 = 64; exactly one of them, the identity, is also antisymmetric, so 63 remain."
+    }
+   ],
+   "trap": {
+    "what": "Treating antisymmetric as 'not symmetric', or forgetting that a relation may be neither reflexive nor irreflexive.",
+    "why": "The two properties constrain different things: symmetry forbids one-sided pairs being absent, antisymmetry forbids two-sided pairs between distinct elements. A relation can satisfy both (identity), neither (a single off-diagonal pair with no diagonal), or one only.",
+    "counterexample": "On A = {1, 2} take R = {(1,1), (1,2)}. It has one diagonal pair but not the other, so it is neither reflexive nor irreflexive; it is antisymmetric and transitive, and not symmetric. On the same set R' = {(1,2)} is irreflexive, antisymmetric and transitive, so a single off-diagonal pair satisfies three of the four properties at once."
+   },
+   "check": {
+    "question": "On a 3-element set, how many relations are symmetric and how many are reflexive?",
+    "answer": "64 symmetric and 64 reflexive.",
+    "explanation": "Symmetric relations are 2 to the n(n+1)/2 = 2 to the 6 = 64, choosing freely on the diagonal and on each of the three mirror pairs. Reflexive relations are 2 to the n(n-1) = 2 to the 6 = 64, with the diagonal forced and the six off-diagonal cells free. The equality of the two numbers here is a coincidence of n = 3."
+   },
+   "pyqIds": [
+    "gate-2015-set3-relation-p-s-q-r"
+   ],
+   "prereqs": [
+    "relation-definition-and-counting"
+   ],
+   "videoRefs": [],
+   "sources": [
+    {
+     "kind": "video",
+     "title": "Lec 02 - Set identities, Cartesian product, relations and functions",
+     "channel": "IIT lecture (NPTEL-style discrete mathematics lecture)",
+     "video_id": "7djvJetFiSY",
+     "url": "https://www.youtube.com/watch?v=7djvJetFiSY",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false
+    },
+    {
+     "kind": "video",
+     "title": "Relations - GATE PYQs - Part 2 (counting relations)",
+     "channel": "GO Classes for GATE CS",
+     "video_id": "Z9khyLCt2-I",
+     "url": "https://www.youtube.com/watch?v=Z9khyLCt2-I",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "transcript_note": "readable opening only: the 2^(n^2) count and the ternary-relation variation",
+     "translated": false
+    },
+    {
+     "kind": "text",
+     "title": "Rosen, Discrete Mathematics and Its Applications, ch. 9 (relations, closures, equivalence relations)",
+     "language": "en",
+     "transcript": "N/A"
+    }
+   ],
+   "sourceLine": "The four property definitions, with the division and congruence examples: IIT lecture Lec 02 (English, full transcript). Counting formulas and the matrix method: GO Classes Relations GATE PYQs Part 2 (English, opening readable only) and Rosen ch. 9.1.",
+   "visual": "discrete-mathematics/sets-relations-functions/relation-matrix-properties",
+   "subject": "discrete-mathematics",
+   "topic": "sets-relations-functions",
+   "path": "subjects/discrete-mathematics/sets-relations-functions/relation-properties-reflexive-symmetric-antisymmetric.json"
+  },
+  {
+   "id": "transitivity-and-closure",
+   "title": "Transitivity, Transitive Closure and Warshall",
+   "priority": "P1",
+   "order": 57,
+   "unit": "Relations",
+   "quickIdea": "Transitivity is a closure condition on chains of length two. The transitive closure adds exactly the pairs forced by longer and longer chains, and it is what Warshall computes.",
+   "remember": [
+    "R is transitive when (a, b) in R and (b, c) in R implies (a, c) in R, for all a, b, c.",
+    "Equivalently R is transitive exactly when the composite R composed with R is a subset of R.",
+    "Transitivity is not implied by reflexivity or symmetry, and it does not imply either: the empty relation is transitive but not reflexive.",
+    "The transitive closure of R is the smallest transitive relation containing R; it equals the union of R, R squared, R cubed, ... over all positive lengths.",
+    "The reflexive-transitive closure adds the diagonal pairs to the transitive closure, and it is what reachability in a directed graph means.",
+    "Warshall's algorithm computes the transitive closure in time cubic in the number of elements, by repeatedly allowing one more intermediate vertex.",
+    "A relation can be symmetric and transitive without being reflexive: the empty relation on a non-empty set is the simplest example, and on {1, 2, 3} the relation {(1,1), (2,2), (1,2), (2,1)} is symmetric and transitive while (3,3) is missing.",
+    "Transitivity is the property that fails when a question writes 'or' where it should write 'and': a disjunctive condition on two coordinates usually loses transitivity.",
+    "Checking transitivity by hand means looking for a chain whose shortcut is missing; one missing shortcut is enough to refute it."
+   ],
+   "example": {
+    "prompt": "A = {1, 2, 3}, R = {(1,2), (2,3)}. Is R transitive? Give its transitive closure.",
+    "work": "The chain (1,2) then (2,3) forces (1,3), which is not in R, so R is not transitive. R squared contains (1,3) and nothing else new, and R cubed is empty, so the process stops.",
+    "answer": "R is not transitive; its transitive closure is {(1,2), (2,3), (1,3)}."
+   },
+   "gateAngle": "GATE CS 2016 Set 2 Q.26 defines R on pairs of naturals by a <= c or b <= d and asks about reflexivity and transitivity: reflexivity holds, transitivity fails, and a single chain refutes it.",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "See GATE CS 2016 Set 2 Q.26 in the linked PYQs.",
+     "answer": "Option (B): P is true and Q is false.",
+     "why": "a <= a is always true, so every pair is related to itself. For transitivity, (2,10) R (3,1) holds because 2 <= 3 and (3,1) R (1,2) holds because 1 <= 2, but (2,10) R (1,2) fails because 2 <= 1 is false and 10 <= 2 is false."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "On A = {1, 2, 3, 4} let R = {(1,2), (2,3), (3,4)}. How many pairs does the transitive closure add?",
+     "answer": "Three pairs: (1,3), (2,4) and (1,4).",
+     "why": "Chains of length two give (1,3) and (2,4); the chain of length three 1 to 2 to 3 to 4 gives (1,4). Chains of length four do not exist, so the closure has six pairs in all."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Is a symmetric and transitive relation necessarily reflexive?",
+     "answer": "No.",
+     "why": "Reflexivity needs a diagonal pair for every element. With A = {1, 2, 3} the relation {(1,2), (2,1), (1,1), (2,2)} is symmetric and transitive, yet (3,3) is missing, so it is not reflexive."
+    }
+   ],
+   "trap": {
+    "what": "Checking transitivity only on the pairs you happened to write down, or assuming that a symmetric transitive relation must be reflexive.",
+    "why": "Transitivity quantifies over every chain, including chains built from pairs you did not list; and reflexivity is an independent condition that symmetry plus transitivity does not supply.",
+    "counterexample": "A = {1, 2, 3}, R = {(1,1), (2,2), (1,2), (2,1)}. It is symmetric and transitive, yet (3,3) is not in R, so it is not reflexive. Note that {(1,2), (2,1)} alone is not even transitive: it forces (1,1)."
+   },
+   "check": {
+    "question": "R = {(1,1), (1,2), (2,2)} on {1, 2}. Is R transitive? Is it symmetric?",
+    "answer": "Transitive, not symmetric.",
+    "explanation": "The only chain is (1,1) then (1,2), which forces (1,2) - present. Symmetry fails because (1,2) is in R while (2,1) is not."
+   },
+   "pyqIds": [
+    "gate-2016-set2-relation-reflexive-transitive"
+   ],
+   "prereqs": [
+    "relation-properties-reflexive-symmetric-antisymmetric"
+   ],
+   "videoRefs": [],
+   "sources": [
+    {
+     "kind": "video",
+     "title": "Lec 02 - Set identities, Cartesian product, relations and functions",
+     "channel": "IIT lecture (NPTEL-style discrete mathematics lecture)",
+     "video_id": "7djvJetFiSY",
+     "url": "https://www.youtube.com/watch?v=7djvJetFiSY",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false
+    },
+    {
+     "kind": "text",
+     "title": "Rosen, Discrete Mathematics and Its Applications, ch. 9 (relations, closures, equivalence relations)",
+     "language": "en",
+     "transcript": "N/A"
+    }
+   ],
+   "sourceLine": "Transitivity as a chain condition: IIT lecture Lec 02 (English, full transcript). Transitive closure, paths of length k and Warshall: Rosen ch. 9.4, the only source used for closures - recorded as a gap.",
+   "subject": "discrete-mathematics",
+   "topic": "sets-relations-functions",
+   "path": "subjects/discrete-mathematics/sets-relations-functions/transitivity-and-closure.json"
+  },
+  {
+   "id": "equivalence-relations-and-partitions",
+   "title": "Equivalence Relations, Classes and Partitions",
+   "priority": "P1",
+   "order": 58,
+   "unit": "Relations",
+   "quickIdea": "An equivalence relation is reflexive, symmetric and transitive, and it is the same object as a partition of the set. Counting equivalence relations is counting partitions, which is the Bell number.",
+   "remember": [
+    "An equivalence relation is a relation that is reflexive, symmetric and transitive.",
+    "The equivalence class of a is the set of all elements related to a; classes are non-empty and any two are either identical or disjoint.",
+    "The classes of an equivalence relation partition the set: every element lies in exactly one class.",
+    "Conversely, every partition of A defines exactly one equivalence relation, namely 'lies in the same block'. So equivalence relations on A and partitions of A are in bijection.",
+    "The number of equivalence relations on an n-element set is the Bell number B(n): 1, 1, 2, 5, 15, 52 for n = 0 to 5.",
+    "The number with exactly k classes is the Stirling number of the second kind S(n, k), and the Bell number is the sum of S(n, k) over k.",
+    "Congruence modulo m on the integers is the standard example: the classes are the m residue classes.",
+    "Refining a partition means splitting blocks, and the corresponding equivalence relations are nested; this is how GATE phrases questions about refinement.",
+    "The union of two equivalence relations is generally not an equivalence relation, but their intersection always is."
+   ],
+   "example": {
+    "prompt": "A = {1, 2, 3, 4}. How many equivalence relations are there, and how many have exactly two classes?",
+    "work": "Count the partitions by block sizes: 4 gives 1; 3+1 gives 4; 2+2 gives 3; 2+1+1 gives 6; 1+1+1+1 gives 1. The total is 15, which is B(4). Two-class partitions are the 3+1 and 2+2 shapes, so 4 + 3 = 7, which is S(4, 2).",
+    "answer": "15 equivalence relations, of which 7 have exactly two classes."
+   },
+   "gateAngle": "GATE CS 1997 Q.6.3 asks for the number of equivalence relations on {1, 2, 3, 4} and the options include 15, which is the Bell number B(4) built from the five partition shapes.",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "See GATE CS 1997 Q.6.3 in the linked PYQs.",
+     "answer": "Option (A) 15.",
+     "why": "Equivalence relations correspond to partitions, and {1,2,3,4} has 1 + 4 + 3 + 6 + 1 = 15 partitions."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "Is the union of two equivalence relations on the same set always an equivalence relation?",
+     "answer": "No. The intersection always is; the union need not be.",
+     "why": "Take the partitions {{1,2},{3}} and {{1},{2,3}}. The union of the two relations contains (1,2) and (2,3) but not (1,3), so it is not transitive."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "How many equivalence relations on a 3-element set have exactly two classes?",
+     "answer": "3.",
+     "why": "The two-class shapes are 2+1, and choosing the block of size 2 from 3 elements gives C(3,2) = 3. The Bell number 5 splits as 1 (one class) + 3 (two classes) + 1 (three classes)."
+    }
+   ],
+   "trap": {
+    "what": "Forgetting that the classes must cover the whole set, or treating a symmetric transitive relation as an equivalence relation without checking the diagonal.",
+    "why": "A partition has no empty block and no missing element. A relation that is symmetric and transitive but not reflexive leaves elements outside every class, so it corresponds to a partition of a proper subset, not of the set.",
+    "counterexample": "A = {1, 2, 3}, R = {(1,2), (2,1), (1,1), (2,2)}. Symmetric and transitive, but 3 is related to nothing, not even itself, so the 'classes' {1, 2} and nothing for 3 do not partition A."
+   },
+   "check": {
+    "question": "How many partitions does a 3-element set have, and what is the equivalence relation with the fewest classes?",
+    "answer": "5 partitions; the relation with one class is the universal relation A x A.",
+    "explanation": "The shapes are 3, 2+1 (three of them) and 1+1+1, giving 1 + 3 + 1 = 5. One class means every pair is related, which is the whole product."
+   },
+   "pyqIds": [
+    "gate-1997-6-3"
+   ],
+   "prereqs": [
+    "transitivity-and-closure"
+   ],
+   "videoRefs": [],
+   "sources": [
+    {
+     "kind": "video",
+     "title": "Lec 02 - Set identities, Cartesian product, relations and functions",
+     "channel": "IIT lecture (NPTEL-style discrete mathematics lecture)",
+     "video_id": "7djvJetFiSY",
+     "url": "https://www.youtube.com/watch?v=7djvJetFiSY",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false
+    },
+    {
+     "kind": "text",
+     "title": "Rosen, Discrete Mathematics and Its Applications, ch. 9 (relations, closures, equivalence relations)",
+     "language": "en",
+     "transcript": "N/A"
+    }
+   ],
+   "sourceLine": "Equivalence relation definition and its link to partitions: IIT lecture Lec 02 (English, full transcript). Counting by partitions, Bell and Stirling numbers: Rosen ch. 9.5, verified against GATE CS 1997 Q.6.3.",
+   "subject": "discrete-mathematics",
+   "topic": "sets-relations-functions",
+   "path": "subjects/discrete-mathematics/sets-relations-functions/equivalence-relations-and-partitions.json"
+  },
+  {
+   "id": "functions-counting-injective-surjective",
+   "title": "Functions: Counting, Injections, Surjections and Bijections",
+   "priority": "P1",
+   "order": 59,
+   "unit": "Functions",
+   "quickIdea": "Total functions are n to the m. Injections are falling factorials, surjections are inclusion-exclusion or n! times a Stirling number, and bijections exist only when the sizes match.",
+   "remember": [
+    "A function from A to B assigns to every a in A exactly one b in B; the set of such functions has cardinality |B| to the |A|.",
+    "A function is injective (one-to-one) when different inputs have different outputs; it is surjective (onto) when every element of the codomain is hit; bijective when both.",
+    "The number of injections from an m-element set to an n-element set is n(n-1)...(n-m+1) = n!/(n-m)!, and 0 when m > n.",
+    "The number of surjections from m elements onto n elements is the alternating sum of C(n,k)(n-k)^m over k, which equals n! times S(m, n), and 0 when m < n.",
+    "The number of bijections from an n-element set to itself is n!.",
+    "Cardinality decides possibility: an injection needs m <= n, a surjection needs m >= n, and a bijection needs m = n.",
+    "The image of a function is a subset of the codomain, and surjective means image equals codomain. Confusing range with codomain is the classic error.",
+    "A function from A to B is a relation from A to B in which every element of A appears exactly once as a first coordinate, so the n to the m count is a subset of the 2 to the (m n) relations.",
+    "Proving injectivity is usually done in the contrapositive form: assume f(x) = f(y) and derive x = y."
+   ],
+   "example": {
+    "prompt": "How many functions are there from a 4-element set to a 3-element set, how many are injective, how many surjective, how many bijective?",
+    "work": "Total is 3 to the 4 = 81. Injective is 0 because 4 > 3. Surjective is 81 - 3 times 16 + 3 times 1 - 0 = 81 - 48 + 3 = 36. Bijective is 0 because the sizes differ.",
+    "answer": "81 functions, 0 injective, 36 surjective, 0 bijective."
+   },
+   "gateAngle": "GATE CS 2015 Set 2 Q.40 is exactly this count: the number of onto functions from {1,2,3,4} to {a,b,c} is 36, and the two standard routes are inclusion-exclusion and 3! times S(4,3).",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "See GATE CS 2015 Set 2 Q.40 in the linked PYQs.",
+     "answer": "36.",
+     "why": "Inclusion-exclusion gives 81 - 48 + 3 = 36, and the same number comes from 3! times S(4,3) = 6 times 6."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "How many injective functions are there from a 4-element set to a 6-element set, and how many from a 6-element set to a 4-element set?",
+     "answer": "6 times 5 times 4 times 3 = 360, and 0.",
+     "why": "The first is a falling factorial with four factors. The second is impossible because an injection cannot exist from a larger set into a smaller one."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "How many functions from a 3-element set to a 3-element set are neither injective nor surjective?",
+     "answer": "21.",
+     "why": "The total is 3 to the 3 = 27. Injections number 3 times 2 times 1 = 6 and surjections also number 6, and on equal finite sets those two classes coincide (they are the 6 bijections). So the functions that are neither are 27 - 6 = 21."
+    }
+   ],
+   "trap": {
+    "what": "Using |B| to the |A| for onto functions, or forgetting that a surjection is impossible when the domain is smaller than the codomain.",
+    "why": "The power counts all functions, most of which miss elements. Surjectivity needs inclusion-exclusion (or Stirling numbers) because the condition is 'no element of B is missed', which is a union of bad events.",
+    "counterexample": "From a 2-element set to a 3-element set there are 9 functions and none is onto: two inputs can hit at most two of the three outputs."
+   },
+   "check": {
+    "question": "How many bijections are there from a 5-element set to itself?",
+    "answer": "120.",
+    "explanation": "A bijection is a permutation of the set, so the count is 5! = 120."
+   },
+   "pyqIds": [
+    "gate-2015-set2-onto-functions"
+   ],
+   "prereqs": [
+    "power-set-and-its-size",
+    "basic-counting-rules",
+    "inclusion-exclusion"
+   ],
+   "videoRefs": [],
+   "sources": [
+    {
+     "kind": "video",
+     "title": "Injective, Surjective and Bijective Functions - Discrete Mathematics",
+     "channel": "TrevTutor",
+     "video_id": "PpA4LWPh40M",
+     "url": "https://www.youtube.com/watch?v=PpA4LWPh40M",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false
+    },
+    {
+     "kind": "text",
+     "title": "Rosen, Discrete Mathematics and Its Applications, ch. 2 (sets, functions, cardinality)",
+     "language": "en",
+     "transcript": "N/A"
+    }
+   ],
+   "sourceLine": "Injectivity, surjectivity, bijectivity, the proof technique and the cardinality conditions: TrevTutor (English, full transcript). The counting formulas: Rosen ch. 2 and ch. 6, verified against GATE CS 2015 Set 2 Q.40.",
+   "subject": "discrete-mathematics",
+   "topic": "sets-relations-functions",
+   "path": "subjects/discrete-mathematics/sets-relations-functions/functions-counting-injective-surjective.json"
+  },
+  {
+   "id": "composition-and-inverse-functions",
+   "title": "Composition and Inverse Functions",
+   "priority": "P2",
+   "order": 60,
+   "unit": "Functions",
+   "quickIdea": "Compose right to left: (g of f)(x) = g(f(x)). An inverse exists exactly when the function is a bijection, and the inverse of a composite reverses the order.",
+   "remember": [
+    "The composite g after f is defined by (g of f)(x) = g(f(x)), and it is defined only when the image of f lies inside the domain of g.",
+    "Composition is associative: h of (g of f) = (h of g) of f. It is not commutative, and g of f and f of g usually differ.",
+    "If g of f is injective then f is injective; if g of f is surjective then g is surjective. The other two conclusions do not follow.",
+    "A function has an inverse exactly when it is a bijection, and then the inverse is unique.",
+    "For a bijection f, f inverse of f is the identity on the domain, and f of f inverse is the identity on the codomain.",
+    "The inverse of a composite reverses the order: the inverse of g of f is f inverse of g inverse.",
+    "Injectivity of f alone does not give an inverse from B to A; the inverse is defined on the image of f, and it is a function on the codomain only when f is onto.",
+    "The identity function is the unit of composition: f of identity = identity of f = f.",
+    "A function that is not injective cannot have an inverse, because some output would need two preimages."
+   ],
+   "example": {
+    "prompt": "f: {1, 2, 3} to {a, b} with f(1) = a, f(2) = a, f(3) = b; g: {a, b} to {x, y} with g(a) = x, g(b) = y. Describe g of f and decide whether f has an inverse.",
+    "work": "Apply f then g: 1 goes to a then x; 2 goes to a then x; 3 goes to b then y. So g of f sends 1 and 2 to x and 3 to y. It is onto {x, y} but not injective. f itself is not injective, because 1 and 2 share the image a.",
+    "answer": "g of f is surjective but not injective, and f has no inverse from {a, b} back to {1, 2, 3}."
+   },
+   "gateAngle": "Composition questions in GATE are usually decided by cardinality and by the two implication rules: a composite that is injective forces the first function to be injective, and a composite that is onto forces the second to be onto.",
+   "variations": [
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "f(x) = x + 1 and g(x) = 2x on the integers. Find g of f and its inverse, and check the reversal rule.",
+     "answer": "(g of f)(x) = 2x + 2 with inverse (y - 2)/2, and f inverse of g inverse gives y/2 - 1 = (y - 2)/2.",
+     "why": "The composite is a bijection of the integers, so it has an inverse. Computing the two inverses separately and composing them in reverse order reproduces the same map."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "If g of f is injective, must g be injective?",
+     "answer": "No. f must be injective, but g may collapse elements that f never produces.",
+     "why": "With A = {1}, B = {a, b}, C = {x}: f(1) = a and g(a) = g(b) = x. Then g of f is injective on the single element, yet g is not injective."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "A function f from a 3-element set to a 3-element set is injective. Must it be surjective, and does it have an inverse?",
+     "answer": "Yes to both.",
+     "why": "On a finite set of equal size an injection uses three distinct images out of three elements, so it is onto, hence bijective, hence invertible."
+    }
+   ],
+   "trap": {
+    "what": "Writing the inverse of a composite in the same order, or assuming that an injective function is invertible on the whole codomain.",
+    "why": "Undoing a composite means undoing the last step first, which reverses the order of the inverses. And injectivity only makes the map invertible onto its image; surjectivity is what extends the inverse to the codomain.",
+    "counterexample": "f: {1, 2} to {a, b, c} with f(1) = a, f(2) = b. It is injective, but no inverse function from {a, b, c} to {1, 2} exists, because c has no preimage to send anywhere."
+   },
+   "check": {
+    "question": "f and g are bijections on a set A. What is the inverse of g of f?",
+    "answer": "f inverse of g inverse.",
+    "explanation": "Composing g of f with f inverse of g inverse returns the identity, because the middle maps cancel: g of (f of f inverse) of g inverse = g of identity of g inverse = identity."
+   },
+   "pyqIds": [],
+   "prereqs": [
+    "functions-counting-injective-surjective"
+   ],
+   "videoRefs": [],
+   "sources": [
+    {
+     "kind": "video",
+     "title": "Injective, Surjective and Bijective Functions - Discrete Mathematics",
+     "channel": "TrevTutor",
+     "video_id": "PpA4LWPh40M",
+     "url": "https://www.youtube.com/watch?v=PpA4LWPh40M",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false
+    },
+    {
+     "kind": "text",
+     "title": "Rosen, Discrete Mathematics and Its Applications, ch. 2 (sets, functions, cardinality)",
+     "language": "en",
+     "transcript": "N/A"
+    }
+   ],
+   "sourceLine": "Inverse functions and why bijectivity is required: TrevTutor (English, full transcript). Composition laws: Rosen ch. 2.3.",
+   "subject": "discrete-mathematics",
+   "topic": "sets-relations-functions",
+   "path": "subjects/discrete-mathematics/sets-relations-functions/composition-and-inverse-functions.json"
   }
  ],
  "pyqs": [
@@ -4177,6 +5555,70 @@ window.GATE_DATA = {
    "source_label": "GATE Overflow question page for GATE CS 1992 Q.2(xvi) with community solutions; question and options read off that page",
    "verification": "SOURCED",
    "answer_evidence": "Option B is Tautology."
+  },
+  {
+   "id": "gate-1993-8-4",
+   "year": "1993",
+   "paper": "GATE CS 1993",
+   "question_ref": "Q.8.4",
+   "type": "MCQ",
+   "topic": "power-set-and-its-size",
+   "text": "Let A be a finite set of size n. The number of elements in the power set of A x A is:",
+   "options": [
+    "2 to the (2 to the n)",
+    "2 to the (n squared)",
+    "(2 to the n) squared",
+    "(2 squared) to the n",
+    "None of the above"
+   ],
+   "answer": "Option (B) 2 to the (n squared)",
+   "solution": "A x A has n squared ordered pairs, so its power set has 2 to the (n squared) elements. Since a relation on A is exactly a subset of A x A, this is also the number of binary relations on A.",
+   "source_url": "https://gateoverflow.in/2302/gate-cse-1993-question-8-4",
+   "source_label": "GATE Overflow question page for GATE CS 1993 Q.8.4 with the accepted answer",
+   "verification": "SOURCED",
+   "answer_evidence": "The accepted answer on the GATE Overflow page gives 2 to the (n squared), option (B), and notes the identity with the number of relations on A."
+  },
+  {
+   "id": "gate-1995-1-20",
+   "year": "1995",
+   "paper": "GATE CS 1995",
+   "question_ref": "Q.1.20",
+   "type": "MCQ",
+   "topic": "sets-elements-subsets-cardinality",
+   "text": "The number of elements in the power set P(S) of the set S = {{empty set}, 1, {2, 3}} is:",
+   "options": [
+    "2",
+    "4",
+    "8",
+    "None of the above"
+   ],
+   "answer": "Option (C) 8",
+   "solution": "The set S has three elements: the set containing the empty set, the number 1, and the set {2, 3}. The power set of an n-element set has 2 to the n elements, so P(S) has 2 to the 3 = 8 elements. The trap is to count the empty set, 2 and 3 as extra elements; they are nested inside the three top-level items and are not elements of S.",
+   "source_url": "https://gateoverflow.in/2607/gate-cse-1995-question-1-20",
+   "source_label": "GATE Overflow question page for GATE CS 1995 Q.1.20 with the accepted answer",
+   "verification": "SOURCED",
+   "answer_evidence": "The accepted answer on the GATE Overflow page gives 2 to the 3 = 8 and lists the eight subsets explicitly."
+  },
+  {
+   "id": "gate-1997-6-3",
+   "year": "1997",
+   "paper": "GATE CS 1997",
+   "question_ref": "Q.6.3",
+   "type": "MCQ",
+   "topic": "equivalence-relations-and-partitions",
+   "text": "The number of equivalence relations of the set {1, 2, 3, 4} is:",
+   "options": [
+    "15",
+    "16",
+    "24",
+    "4"
+   ],
+   "answer": "Option (A) 15",
+   "solution": "Equivalence relations on a set are in bijection with its partitions, so the count is the Bell number B(4). By block shapes: 4 gives 1, 3+1 gives 4, 2+2 gives 3, 2+1+1 gives 6, 1+1+1+1 gives 1; total 15.",
+   "source_url": "https://gateoverflow.in/2259/gate-cse-1997-question-6-3",
+   "source_label": "GATE Overflow question page for GATE CS 1997 Q.6.3 with the accepted answer",
+   "verification": "SOURCED",
+   "answer_evidence": "The accepted answer on the GATE Overflow page states 15 (option A) and derives it from the Bell number B(4)."
   },
   {
    "id": "gate-1998-converse-only-if",
@@ -4568,6 +6010,59 @@ window.GATE_DATA = {
    "answer_evidence": "Only option C matches."
   },
   {
+   "id": "gate-2015-set2-onto-functions",
+   "year": "2015",
+   "paper": "GATE CS 2015 Set 2",
+   "question_ref": "Q.40",
+   "type": "NAT",
+   "topic": "functions-counting-injective-surjective",
+   "text": "The number of onto functions (surjective functions) from set X = {1, 2, 3, 4} to set Y = {a, b, c} is ______.",
+   "options": [],
+   "answer": "36",
+   "solution": "By inclusion-exclusion the count is 3 to the 4 minus C(3,1) times 2 to the 4 plus C(3,2) times 1 to the 4 = 81 - 48 + 3 = 36. Equivalently it is 3! times the Stirling number S(4,3) = 6 times 6 = 36.",
+   "source_url": "https://gateoverflow.in/8212/gate-cse-2015-set-2-question-40",
+   "source_label": "GATE Overflow question page for GATE CS 2015 Set 2 Q.40 with the accepted answer",
+   "verification": "SOURCED",
+   "answer_evidence": "The accepted answer on the GATE Overflow page computes 36 by both the inclusion-exclusion sum and 3! S(4,3)."
+  },
+  {
+   "id": "gate-2015-set2-power-set-cardinality",
+   "year": "2015",
+   "paper": "GATE CS 2015 Set 2",
+   "question_ref": "Q.18",
+   "type": "NAT",
+   "topic": "power-set-and-its-size",
+   "text": "The cardinality of the power set of {0, 1, 2, ..., 10} is ______.",
+   "options": [],
+   "answer": "2048",
+   "solution": "The set contains the eleven integers 0 through 10, so its power set has 2 to the 11 = 2048 elements. The usual slip is to count ten elements by forgetting that the range starts at 0, which gives 1024.",
+   "source_url": "https://gateoverflow.in/8092/gate-cse-2015-set-2-question-18",
+   "source_label": "GATE Overflow question page for GATE CS 2015 Set 2 Q.18 with the accepted answer",
+   "verification": "SOURCED",
+   "answer_evidence": "The accepted answer on the GATE Overflow page states 2048 and explains that the set has 11 elements."
+  },
+  {
+   "id": "gate-2015-set3-relation-p-s-q-r",
+   "year": "2015",
+   "paper": "GATE CS 2015 Set 3",
+   "question_ref": "Q.41",
+   "type": "MCQ",
+   "topic": "relation-properties-reflexive-symmetric-antisymmetric",
+   "text": "Let R be a relation on the set of ordered pairs of positive integers such that ((p, q), (r, s)) is in R if and only if p - s = q - r. Which one of the following is true about R?",
+   "options": [
+    "Both reflexive and symmetric",
+    "Reflexive but not symmetric",
+    "Not reflexive but symmetric",
+    "Neither reflexive nor symmetric"
+   ],
+   "answer": "Option (C): not reflexive but symmetric",
+   "solution": "Reflexivity would need ((p,q),(p,q)) in R, that is p - q = q - p, which forces p = q and so fails for the pair (1, 2). Symmetry: if p - s = q - r then rearranging gives r - q = s - p, which is exactly ((r,s),(p,q)) in R. Hence R is symmetric and not reflexive. It is also not transitive, which the options do not ask about.",
+   "source_url": "https://gateoverflow.in/8500/gate-cse-2015-set-3-question-41",
+   "source_label": "GATE Overflow question page for GATE CS 2015 Set 3 Q.41 with the accepted answer",
+   "verification": "SOURCED",
+   "answer_evidence": "The accepted answer on the GATE Overflow page concludes option (C) 'not reflexive but symmetric' after checking both properties."
+  },
+  {
    "id": "gate-2016-1-26",
    "year": "2016",
    "paper": "GATE CS 2016 Set 1",
@@ -4619,6 +6114,27 @@ window.GATE_DATA = {
    "source_label": "GATE Overflow question page for GATE CS 2016 Set 2 Q.27 with the even/odd counterexample",
    "verification": "SOURCED",
    "answer_evidence": "The accepted answer is (D), refuted by taking p as 'even' and q as 'odd' over the natural numbers."
+  },
+  {
+   "id": "gate-2016-set2-relation-reflexive-transitive",
+   "year": "2016",
+   "paper": "GATE CS 2016 Set 2",
+   "question_ref": "Q.26",
+   "type": "MCQ",
+   "topic": "transitivity-and-closure",
+   "text": "A binary relation R on N x N is defined as follows: (a, b) R (c, d) if a <= c or b <= d. Consider the following propositions: P: R is reflexive. Q: R is transitive. Which one of the following statements is TRUE?",
+   "options": [
+    "Both P and Q are true",
+    "P is true and Q is false",
+    "P is false and Q is true",
+    "Both P and Q are false"
+   ],
+   "answer": "Option (B): P is true and Q is false",
+   "solution": "Reflexive: (a, b) R (a, b) holds because a <= a. Transitive: (2, 10) R (3, 1) holds because 2 <= 3, and (3, 1) R (1, 2) holds because 1 <= 2, but (2, 10) R (1, 2) fails because 2 <= 1 is false and 10 <= 2 is false. So R is reflexive and not transitive. The 'or' is what breaks transitivity; with 'and' the relation would be transitive.",
+   "source_url": "https://gateoverflow.in/39603/gate-cse-2016-set-2-question-26",
+   "source_label": "GATE Overflow question page for GATE CS 2016 Set 2 Q.26 with the accepted answer",
+   "verification": "SOURCED",
+   "answer_evidence": "The accepted answer on the GATE Overflow page gives option (B), 'Reflexive, but not transitive', with a counterexample chain."
   },
   {
    "id": "gate-2017-1-47",
