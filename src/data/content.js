@@ -1437,9 +1437,6 @@ window.GATE_DATA = {
     "distribution-templates",
     "doib-stirling"
    ],
-   "links": {
-    "mapped_at": "2026-10-27"
-   },
    "subject": "discrete-mathematics",
    "topic": "combinatorics",
    "path": "subjects/discrete-mathematics/combinatorics/ioib-partitions.json"
@@ -1589,6 +1586,36 @@ window.GATE_DATA = {
    ],
    "visual": "inclusion-exclusion",
    "links": {
+    "mock": {
+     "subject": "discrete-mathematics",
+     "unit_slug": "combinatorics",
+     "unit_name": "Counting & Combinatorics",
+     "unit_number": 7,
+     "question_count": 25,
+     "subtopics": [
+      {
+       "label": "Permutations & combinations",
+       "questions": 5
+      },
+      {
+       "label": "Binomial & multinomial coefficients",
+       "questions": 5
+      },
+      {
+       "label": "Double counting",
+       "questions": 5
+      },
+      {
+       "label": "Stars and bars",
+       "questions": 5
+      },
+      {
+       "label": "Inclusion-exclusion counting",
+       "questions": 5
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/combinatorics/gate_dm_mock_7_2026-10-28.html"
+    },
     "visual": {
      "slug": "counting-and-combinatorics",
      "title": "Counting and Combinatorics",
@@ -1598,7 +1625,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/counting-and-combinatorics/index.html"
     },
-    "mapped_at": "2026-10-27"
+    "mapped_at": "2026-10-28"
    },
    "subject": "discrete-mathematics",
    "topic": "combinatorics",

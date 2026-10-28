@@ -344,8 +344,8 @@
       "visual": null,
       "evidence": [
         "notes content/index.json -> map[].path = subjects/discrete-mathematics/combinatorics/ioib-partitions.json",
-        "mock: no unit in discrete-mathematics master_bank.json carries this card's vocabulary",
-        "visual: no published lesson transcript covers this subtopic"
+        "mock: no unit in discrete-mathematics master_bank.json carries a partition-counting group; unit 7 combinatorics groups are Permutations & combinations, Binomial & multinomial coefficients, Double counting, Stars and bars, Inclusion-exclusion counting",
+        "visual: no published lesson transcript covers integer partitions (counting-and-combinatorics and generating-functions transcripts read this run)"
       ],
       "row_verdict": "NEITHER"
     },
@@ -394,7 +394,21 @@
       "priority": "P2",
       "path": "subjects/discrete-mathematics/combinatorics/derangements.json",
       "transcript_status": "PARTIAL",
-      "mock": null,
+      "mock": {
+        "subject": "discrete-mathematics",
+        "unit_slug": "combinatorics",
+        "unit_name": "Counting & Combinatorics",
+        "unit_number": 7,
+        "question_count": 25,
+        "subtopic_labels": [
+          "Permutations & combinations",
+          "Binomial & multinomial coefficients",
+          "Double counting",
+          "Stars and bars",
+          "Inclusion-exclusion counting"
+        ],
+        "verdict": "MOCK_READY"
+      },
       "visual": {
         "slug": "counting-and-combinatorics",
         "title": "Counting and Combinatorics",
@@ -404,10 +418,10 @@
       },
       "evidence": [
         "notes content/index.json -> map[].path = subjects/discrete-mathematics/combinatorics/derangements.json",
-        "mock: no unit in discrete-mathematics master_bank.json carries this card's vocabulary",
-        "visual: topics/counting-and-combinatorics/transcript.md scene list, covers checked against transcript text"
+        "mock: discrete-mathematics/question-bank/master_bank.json questions[] unit_slug combinatorics, 25 records, subtopic_label 'Inclusion-exclusion counting' 5; DM-CB7-Q23 asks for the permutations of {1,2,3,4,5} that leave no element in its own position",
+        "visual: topics/counting-and-combinatorics/transcript.md scene 9 'Derangements'"
       ],
-      "row_verdict": "VISUAL_ONLY"
+      "row_verdict": "BOTH"
     },
     {
       "subject": "discrete-mathematics",
@@ -1324,8 +1338,8 @@
     },
     {
       "kind": "mock",
-      "placement": "discrete-mathematics › combinatorics › basic-counting-rules, derangements, ioib-partitions, recurrences-and-compositions",
-      "detail": "Unit 7 'Counting & Combinatorics' (unit_slug combinatorics, run 6, 2026-10-28) now holds 25 questions over 5 subtopic_label groups of 5 each: Permutations & combinations, Binomial & multinomial coefficients, Double counting, Stars and bars, Inclusion-exclusion counting. The remaining combinatorics cards above have no group in the unit that matches their subtopic: DODB (k^n), IOIB partitions, derangements and the playlist-gap recurrence card are not represented in the bank."
+      "placement": "discrete-mathematics › combinatorics › basic-counting-rules, ioib-partitions, recurrences-and-compositions",
+      "detail": "Unit 7 'Counting & Combinatorics' (unit_slug combinatorics, run 7, 2026-10-28, 25 questions) holds 5 subtopic_label groups of 5: Permutations & combinations, Binomial & multinomial coefficients, Double counting, Stars and bars, Inclusion-exclusion counting. derangements is now linked to the unit through 'Inclusion-exclusion counting' (DM-CB7-Q23). Still unrepresented: the sum/product/subtraction rules card (basic-counting-rules), integer partitions (ioib-partitions) and the playlist-gap recurrence card (recurrences-and-compositions). Recommendation: add a group to discrete-mathematics/combinatorics before the unit reaches its 50-question cap."
     },
     {
       "kind": "visual",
@@ -1496,6 +1510,11 @@
       "kind": "notes",
       "placement": "engineering-mathematics › probability-and-statistics › probability-and-random-variables",
       "detail": "New lesson topics/probability-and-random-variables (topics.json slug probability-and-random-variables, title 'Probability, Random Variables and Distributions'; syllabus-coverage.json subject Engineering Mathematics, unit 'Probability and statistics', coverage_status PUBLISHED, 7 subtopics, 33 microtopics, transcript.md 10 scenes, last_execution_status 'published 2026-10-28'). Coverage was read from transcript.md, not from the alias list: scene 1 opens on outcomes, events and the three axioms, then conditional probability and independence, Bayes with a two-part partition, random variables, expectation and linearity, variance, and the binomial, Poisson, exponential, uniform and normal distributions. No notes card serves it: the notes repo has no engineering-mathematics subject. Its stated prerequisite 'counting and combinatorics' is carded (discrete-mathematics › combinatorics) but that is a prerequisite, not coverage."
+    },
+    {
+      "kind": "notes",
+      "placement": "programming-data-structures › trees-traversals › (no card)",
+      "detail": "New mock set, Programming and Data Structures Unit 4 'Binary Trees & Tree Traversals' (unit_slug trees-traversals, run 7, Set 1 of 2, 2026-10-28, paper programming-data-structures/trees-traversals/gate_ds_mock_4_2026-10-28.html) holds 25 questions over 4 subtopic_label groups: Binary tree properties 7, Inorder, preorder & postorder 6, Threaded binary trees 6, Expression trees 6. Unit 4 sits below the 50-question cap, so the next Programming and Data Structures run re-selects it. content/syllabus.json lists discrete-mathematics as the only notes subject, so no card serves any of the four groups. Visual side: topics/trees-bst-and-heaps covers traversals (scene 2) and binary tree counting (scene 5) but its transcript never mentions threaded binary trees or expression trees, so two of the four groups have no lesson either. Recommendation: write the first programming-data-structures card at content/subjects/programming-data-structures/trees-traversals/binary-tree-traversals.json, the ground topics/trees-bst-and-heaps already teaches."
     }
   ]
 }
