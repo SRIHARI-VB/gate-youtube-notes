@@ -83,5 +83,18 @@
     }
   ],
   "sourceLine": "Cosets, the index and Lagrange's theorem: GeeksforGeeks GATE group-theory notes (English, read in full). The 'Lagrange's theorem' and 'summary - groups of specific orders' lecture positions: GO Classes Module 7 lecture list (structure only, captions unavailable). The coset partition and every index in this card are recomputed in scripts/validate.py and shown in the lesson cyclic-subgroup-and-lagrange.",
-  "visual": "discrete-mathematics/monoids-and-groups/cyclic-subgroup-and-lagrange"
+  "visual": "discrete-mathematics/monoids-and-groups/cyclic-subgroup-and-lagrange",
+  "links": {
+    "visual": {
+      "slug": "monoids-and-groups",
+      "title": "Monoids and Groups",
+      "level": "topic-level",
+      "url": "https://gate-visual-explainer.vercel.app/topics/monoids-and-groups/index.html",
+      "covers": [
+        "subgroups and the coset split",
+        "Lagrange's theorem and the A4 counterexample"
+      ]
+    },
+    "mapped_at": "2026-10-28"
+  }
 }

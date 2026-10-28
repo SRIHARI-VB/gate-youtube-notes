@@ -80,5 +80,18 @@
       "note": "published lecture list read; the video captions themselves could not be retrieved in this run, so this is a structure reference only and no card quotes it"
     }
   ],
-  "sourceLine": "Cyclic groups, generators, the phi(n) count and the subgroup-per-divisor fact: GeeksforGeeks GATE group-theory notes (English, read in full). The 'cyclic group' and 'Lagrange's theorem' lecture positions: GO Classes Module 7 lecture list (structure only, captions unavailable). Generator counts are recomputed in scripts/validate.py."
+  "sourceLine": "Cyclic groups, generators, the phi(n) count and the subgroup-per-divisor fact: GeeksforGeeks GATE group-theory notes (English, read in full). The 'cyclic group' and 'Lagrange's theorem' lecture positions: GO Classes Module 7 lecture list (structure only, captions unavailable). Generator counts are recomputed in scripts/validate.py.",
+  "links": {
+    "visual": {
+      "slug": "monoids-and-groups",
+      "title": "Monoids and Groups",
+      "level": "topic-level",
+      "url": "https://gate-visual-explainer.vercel.app/topics/monoids-and-groups/index.html",
+      "covers": [
+        "cyclic groups and generators",
+        "one subgroup per divisor"
+      ]
+    },
+    "mapped_at": "2026-10-28"
+  }
 }

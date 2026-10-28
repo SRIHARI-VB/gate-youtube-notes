@@ -61,27 +61,27 @@
       "unit_slug": "combinatorics",
       "unit_name": "Counting & Combinatorics",
       "unit_number": 7,
-      "question_count": 25,
+      "question_count": 50,
       "subtopics": [
         {
           "label": "Permutations & combinations",
-          "questions": 5
+          "questions": 10
         },
         {
           "label": "Binomial & multinomial coefficients",
-          "questions": 5
+          "questions": 10
         },
         {
           "label": "Double counting",
-          "questions": 5
+          "questions": 10
         },
         {
           "label": "Stars and bars",
-          "questions": 5
+          "questions": 10
         },
         {
           "label": "Inclusion-exclusion counting",
-          "questions": 5
+          "questions": 10
         }
       ],
       "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/combinatorics/gate_dm_mock_7_2026-10-28.html"

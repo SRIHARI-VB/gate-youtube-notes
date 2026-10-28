@@ -79,5 +79,18 @@
       "note": "published lecture list read; the video captions themselves could not be retrieved in this run, so this is a structure reference only and no card quotes it"
     }
   ],
-  "sourceLine": "Commutativity, the two tests and the inheritance by subgroups: GeeksforGeeks GATE group-theory notes (English, read in full) and the accepted solutions on the GATE Overflow page for GATE CSE 2022 Q.27. The 'alternative definitions of abelian group' lecture position: GO Classes Module 7 lecture list (structure only, captions unavailable)."
+  "sourceLine": "Commutativity, the two tests and the inheritance by subgroups: GeeksforGeeks GATE group-theory notes (English, read in full) and the accepted solutions on the GATE Overflow page for GATE CSE 2022 Q.27. The 'alternative definitions of abelian group' lecture position: GO Classes Module 7 lecture list (structure only, captions unavailable).",
+  "links": {
+    "visual": {
+      "slug": "monoids-and-groups",
+      "title": "Monoids and Groups",
+      "level": "topic-level",
+      "url": "https://gate-visual-explainer.vercel.app/topics/monoids-and-groups/index.html",
+      "covers": [
+        "Z6 against S3 on commutativity",
+        "the (xy)^2 = x^2y^2 test"
+      ]
+    },
+    "mapped_at": "2026-10-28"
+  }
 }

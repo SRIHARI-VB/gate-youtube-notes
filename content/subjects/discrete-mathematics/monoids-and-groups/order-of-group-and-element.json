@@ -80,5 +80,18 @@
       "note": "published lecture list read; the video captions themselves could not be retrieved in this run, so this is a structure reference only and no card quotes it"
     }
   ],
-  "sourceLine": "Order of a group, order of an element and the divisibility corollary: GeeksforGeeks GATE group-theory notes (English, read in full). The 'power of an element' and 'order of an element' lecture positions: GO Classes Module 7 lecture list (structure only, captions unavailable). Every order in this card is recomputed in scripts/validate.py."
+  "sourceLine": "Order of a group, order of an element and the divisibility corollary: GeeksforGeeks GATE group-theory notes (English, read in full). The 'power of an element' and 'order of an element' lecture positions: GO Classes Module 7 lecture list (structure only, captions unavailable). Every order in this card is recomputed in scripts/validate.py.",
+  "links": {
+    "visual": {
+      "slug": "monoids-and-groups",
+      "title": "Monoids and Groups",
+      "level": "topic-level",
+      "url": "https://gate-visual-explainer.vercel.app/topics/monoids-and-groups/index.html",
+      "covers": [
+        "order of an element",
+        "order divides group order"
+      ]
+    },
+    "mapped_at": "2026-10-28"
+  }
 }

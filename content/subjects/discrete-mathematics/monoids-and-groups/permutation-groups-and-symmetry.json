@@ -80,5 +80,18 @@
       "note": "published lecture list read; the video captions themselves could not be retrieved in this run, so this is a structure reference only and no card quotes it"
     }
   ],
-  "sourceLine": "The permutation group as a standard example: GeeksforGeeks GATE group-theory notes (English, read in full) and the bijection option of GATE CSE 1996 Q.2.4. Every product and order in this card is recomputed on the six elements of S_3 and the twenty-four of S_4 in scripts/validate.py."
+  "sourceLine": "The permutation group as a standard example: GeeksforGeeks GATE group-theory notes (English, read in full) and the bijection option of GATE CSE 1996 Q.2.4. Every product and order in this card is recomputed on the six elements of S_3 and the twenty-four of S_4 in scripts/validate.py.",
+  "links": {
+    "visual": {
+      "slug": "monoids-and-groups",
+      "title": "Monoids and Groups",
+      "level": "topic-level",
+      "url": "https://gate-visual-explainer.vercel.app/topics/monoids-and-groups/index.html",
+      "covers": [
+        "S3 as the symmetric group",
+        "S3 is not abelian"
+      ]
+    },
+    "mapped_at": "2026-10-28"
+  }
 }

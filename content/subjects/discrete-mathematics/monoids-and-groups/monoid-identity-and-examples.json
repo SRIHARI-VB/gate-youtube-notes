@@ -92,5 +92,18 @@
       "note": "published lecture list read; the video captions themselves could not be retrieved in this run, so this is a structure reference only and no card quotes it"
     }
   ],
-  "sourceLine": "Monoid definition, uniqueness of the identity and the concatenation example: GeeksforGeeks GATE group-theory notes (English, read in full) and the Pradeep Giri 'Algebraic Structure' lecture (Hindi auto-captions, read in part; translated into English, source language Hindi). Question patterns: GATE CSE 1996 Q.2.4, 1997 Q.3.1 and 2025 Set 1 Q.39."
+  "sourceLine": "Monoid definition, uniqueness of the identity and the concatenation example: GeeksforGeeks GATE group-theory notes (English, read in full) and the Pradeep Giri 'Algebraic Structure' lecture (Hindi auto-captions, read in part; translated into English, source language Hindi). Question patterns: GATE CSE 1996 Q.2.4, 1997 Q.3.1 and 2025 Set 1 Q.39.",
+  "links": {
+    "visual": {
+      "slug": "monoids-and-groups",
+      "title": "Monoids and Groups",
+      "level": "topic-level",
+      "url": "https://gate-visual-explainer.vercel.app/topics/monoids-and-groups/index.html",
+      "covers": [
+        "identity and its uniqueness",
+        "multiplication modulo 6 as a monoid that is not a group"
+      ]
+    },
+    "mapped_at": "2026-10-28"
+  }
 }

@@ -1259,27 +1259,27 @@ window.GATE_DATA = {
      "unit_slug": "combinatorics",
      "unit_name": "Counting & Combinatorics",
      "unit_number": 7,
-     "question_count": 25,
+     "question_count": 50,
      "subtopics": [
       {
        "label": "Permutations & combinations",
-       "questions": 5
+       "questions": 10
       },
       {
        "label": "Binomial & multinomial coefficients",
-       "questions": 5
+       "questions": 10
       },
       {
        "label": "Double counting",
-       "questions": 5
+       "questions": 10
       },
       {
        "label": "Stars and bars",
-       "questions": 5
+       "questions": 10
       },
       {
        "label": "Inclusion-exclusion counting",
-       "questions": 5
+       "questions": 10
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/combinatorics/gate_dm_mock_7_2026-10-28.html"
@@ -1361,27 +1361,27 @@ window.GATE_DATA = {
      "unit_slug": "combinatorics",
      "unit_name": "Counting & Combinatorics",
      "unit_number": 7,
-     "question_count": 25,
+     "question_count": 50,
      "subtopics": [
       {
        "label": "Permutations & combinations",
-       "questions": 5
+       "questions": 10
       },
       {
        "label": "Binomial & multinomial coefficients",
-       "questions": 5
+       "questions": 10
       },
       {
        "label": "Double counting",
-       "questions": 5
+       "questions": 10
       },
       {
        "label": "Stars and bars",
-       "questions": 5
+       "questions": 10
       },
       {
        "label": "Inclusion-exclusion counting",
-       "questions": 5
+       "questions": 10
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/combinatorics/gate_dm_mock_7_2026-10-28.html"
@@ -1453,27 +1453,27 @@ window.GATE_DATA = {
      "unit_slug": "combinatorics",
      "unit_name": "Counting & Combinatorics",
      "unit_number": 7,
-     "question_count": 25,
+     "question_count": 50,
      "subtopics": [
       {
        "label": "Permutations & combinations",
-       "questions": 5
+       "questions": 10
       },
       {
        "label": "Binomial & multinomial coefficients",
-       "questions": 5
+       "questions": 10
       },
       {
        "label": "Double counting",
-       "questions": 5
+       "questions": 10
       },
       {
        "label": "Stars and bars",
-       "questions": 5
+       "questions": 10
       },
       {
        "label": "Inclusion-exclusion counting",
-       "questions": 5
+       "questions": 10
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/combinatorics/gate_dm_mock_7_2026-10-28.html"
@@ -1543,27 +1543,27 @@ window.GATE_DATA = {
      "unit_slug": "combinatorics",
      "unit_name": "Counting & Combinatorics",
      "unit_number": 7,
-     "question_count": 25,
+     "question_count": 50,
      "subtopics": [
       {
        "label": "Permutations & combinations",
-       "questions": 5
+       "questions": 10
       },
       {
        "label": "Binomial & multinomial coefficients",
-       "questions": 5
+       "questions": 10
       },
       {
        "label": "Double counting",
-       "questions": 5
+       "questions": 10
       },
       {
        "label": "Stars and bars",
-       "questions": 5
+       "questions": 10
       },
       {
        "label": "Inclusion-exclusion counting",
-       "questions": 5
+       "questions": 10
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/combinatorics/gate_dm_mock_7_2026-10-28.html"
@@ -1639,27 +1639,27 @@ window.GATE_DATA = {
      "unit_slug": "combinatorics",
      "unit_name": "Counting & Combinatorics",
      "unit_number": 7,
-     "question_count": 25,
+     "question_count": 50,
      "subtopics": [
       {
        "label": "Permutations & combinations",
-       "questions": 5
+       "questions": 10
       },
       {
        "label": "Binomial & multinomial coefficients",
-       "questions": 5
+       "questions": 10
       },
       {
        "label": "Double counting",
-       "questions": 5
+       "questions": 10
       },
       {
        "label": "Stars and bars",
-       "questions": 5
+       "questions": 10
       },
       {
        "label": "Inclusion-exclusion counting",
-       "questions": 5
+       "questions": 10
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/combinatorics/gate_dm_mock_7_2026-10-28.html"
@@ -1832,27 +1832,27 @@ window.GATE_DATA = {
      "unit_slug": "combinatorics",
      "unit_name": "Counting & Combinatorics",
      "unit_number": 7,
-     "question_count": 25,
+     "question_count": 50,
      "subtopics": [
       {
        "label": "Permutations & combinations",
-       "questions": 5
+       "questions": 10
       },
       {
        "label": "Binomial & multinomial coefficients",
-       "questions": 5
+       "questions": 10
       },
       {
        "label": "Double counting",
-       "questions": 5
+       "questions": 10
       },
       {
        "label": "Stars and bars",
-       "questions": 5
+       "questions": 10
       },
       {
        "label": "Inclusion-exclusion counting",
-       "questions": 5
+       "questions": 10
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/combinatorics/gate_dm_mock_7_2026-10-28.html"
@@ -2059,27 +2059,27 @@ window.GATE_DATA = {
      "unit_slug": "combinatorics",
      "unit_name": "Counting & Combinatorics",
      "unit_number": 7,
-     "question_count": 25,
+     "question_count": 50,
      "subtopics": [
       {
        "label": "Permutations & combinations",
-       "questions": 5
+       "questions": 10
       },
       {
        "label": "Binomial & multinomial coefficients",
-       "questions": 5
+       "questions": 10
       },
       {
        "label": "Double counting",
-       "questions": 5
+       "questions": 10
       },
       {
        "label": "Stars and bars",
-       "questions": 5
+       "questions": 10
       },
       {
        "label": "Inclusion-exclusion counting",
-       "questions": 5
+       "questions": 10
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/combinatorics/gate_dm_mock_7_2026-10-28.html"
@@ -2154,27 +2154,27 @@ window.GATE_DATA = {
      "unit_slug": "combinatorics",
      "unit_name": "Counting & Combinatorics",
      "unit_number": 7,
-     "question_count": 25,
+     "question_count": 50,
      "subtopics": [
       {
        "label": "Permutations & combinations",
-       "questions": 5
+       "questions": 10
       },
       {
        "label": "Binomial & multinomial coefficients",
-       "questions": 5
+       "questions": 10
       },
       {
        "label": "Double counting",
-       "questions": 5
+       "questions": 10
       },
       {
        "label": "Stars and bars",
-       "questions": 5
+       "questions": 10
       },
       {
        "label": "Inclusion-exclusion counting",
-       "questions": 5
+       "questions": 10
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/combinatorics/gate_dm_mock_7_2026-10-28.html"
@@ -7812,6 +7812,19 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "The rung-by-rung definitions and the closure/associativity distinction: GeeksforGeeks GATE group-theory notes (English, read in full) and the Pradeep Giri 'Algebraic Structure' lecture (Hindi auto-captions, read in part; translated into English for this card, source language Hindi). The lecture sequence that puts these rungs in GATE order: GO Classes Module 7 lecture list (structure only, captions unavailable).",
+   "links": {
+    "visual": {
+     "slug": "monoids-and-groups",
+     "title": "Monoids and Groups",
+     "level": "topic-level",
+     "url": "https://gate-visual-explainer.vercel.app/topics/monoids-and-groups/index.html",
+     "covers": [
+      "closure and associativity",
+      "the semigroup-monoid-group ladder"
+     ]
+    },
+    "mapped_at": "2026-10-28"
+   },
    "subject": "discrete-mathematics",
    "topic": "monoids-and-groups",
    "path": "subjects/discrete-mathematics/monoids-and-groups/algebraic-structure-ladder.json"
@@ -7911,6 +7924,19 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "Monoid definition, uniqueness of the identity and the concatenation example: GeeksforGeeks GATE group-theory notes (English, read in full) and the Pradeep Giri 'Algebraic Structure' lecture (Hindi auto-captions, read in part; translated into English, source language Hindi). Question patterns: GATE CSE 1996 Q.2.4, 1997 Q.3.1 and 2025 Set 1 Q.39.",
+   "links": {
+    "visual": {
+     "slug": "monoids-and-groups",
+     "title": "Monoids and Groups",
+     "level": "topic-level",
+     "url": "https://gate-visual-explainer.vercel.app/topics/monoids-and-groups/index.html",
+     "covers": [
+      "identity and its uniqueness",
+      "multiplication modulo 6 as a monoid that is not a group"
+     ]
+    },
+    "mapped_at": "2026-10-28"
+   },
    "subject": "discrete-mathematics",
    "topic": "monoids-and-groups",
    "path": "subjects/discrete-mathematics/monoids-and-groups/monoid-identity-and-examples.json"
@@ -7995,6 +8021,19 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "Group axioms, uniqueness of identity and inverse, cancellation and the reversal rule: GeeksforGeeks GATE group-theory notes (English, read in full). Lecture position of 'group properties' and 'alternative definitions of subgroup': GO Classes Module 7 lecture list (structure only, captions unavailable). Every identity is recomputed on S3, Z_n and the Klein four group in scripts/validate.py.",
+   "links": {
+    "visual": {
+     "slug": "monoids-and-groups",
+     "title": "Monoids and Groups",
+     "level": "topic-level",
+     "url": "https://gate-visual-explainer.vercel.app/topics/monoids-and-groups/index.html",
+     "covers": [
+      "checking the four group axioms",
+      "inverses in a group"
+     ]
+    },
+    "mapped_at": "2026-10-28"
+   },
    "subject": "discrete-mathematics",
    "topic": "monoids-and-groups",
    "path": "subjects/discrete-mathematics/monoids-and-groups/group-axioms-and-uniqueness.json"
@@ -8082,6 +8121,19 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "Order of a group, order of an element and the divisibility corollary: GeeksforGeeks GATE group-theory notes (English, read in full). The 'power of an element' and 'order of an element' lecture positions: GO Classes Module 7 lecture list (structure only, captions unavailable). Every order in this card is recomputed in scripts/validate.py.",
+   "links": {
+    "visual": {
+     "slug": "monoids-and-groups",
+     "title": "Monoids and Groups",
+     "level": "topic-level",
+     "url": "https://gate-visual-explainer.vercel.app/topics/monoids-and-groups/index.html",
+     "covers": [
+      "order of an element",
+      "order divides group order"
+     ]
+    },
+    "mapped_at": "2026-10-28"
+   },
    "subject": "discrete-mathematics",
    "topic": "monoids-and-groups",
    "path": "subjects/discrete-mathematics/monoids-and-groups/order-of-group-and-element.json"
@@ -8168,6 +8220,19 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "Commutativity, the two tests and the inheritance by subgroups: GeeksforGeeks GATE group-theory notes (English, read in full) and the accepted solutions on the GATE Overflow page for GATE CSE 2022 Q.27. The 'alternative definitions of abelian group' lecture position: GO Classes Module 7 lecture list (structure only, captions unavailable).",
+   "links": {
+    "visual": {
+     "slug": "monoids-and-groups",
+     "title": "Monoids and Groups",
+     "level": "topic-level",
+     "url": "https://gate-visual-explainer.vercel.app/topics/monoids-and-groups/index.html",
+     "covers": [
+      "Z6 against S3 on commutativity",
+      "the (xy)^2 = x^2y^2 test"
+     ]
+    },
+    "mapped_at": "2026-10-28"
+   },
    "subject": "discrete-mathematics",
    "topic": "monoids-and-groups",
    "path": "subjects/discrete-mathematics/monoids-and-groups/abelian-groups-and-commutativity-tests.json"
@@ -8252,6 +8317,19 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "Subgroup definition, the one-step and two-step tests and the intersection fact: GeeksforGeeks GATE group-theory notes (English, read in full). The 'subgroup' and 'alternative definitions of subgroup' lecture positions: GO Classes Module 7 lecture list (structure only, captions unavailable). Every subgroup claim is recomputed in scripts/validate.py.",
+   "links": {
+    "visual": {
+     "slug": "monoids-and-groups",
+     "title": "Monoids and Groups",
+     "level": "topic-level",
+     "url": "https://gate-visual-explainer.vercel.app/topics/monoids-and-groups/index.html",
+     "covers": [
+      "subgroup tests",
+      "counting the subgroups of Z6"
+     ]
+    },
+    "mapped_at": "2026-10-28"
+   },
    "subject": "discrete-mathematics",
    "topic": "monoids-and-groups",
    "path": "subjects/discrete-mathematics/monoids-and-groups/subgroups-and-tests.json"
@@ -8339,6 +8417,19 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "Cyclic groups, generators, the phi(n) count and the subgroup-per-divisor fact: GeeksforGeeks GATE group-theory notes (English, read in full). The 'cyclic group' and 'Lagrange's theorem' lecture positions: GO Classes Module 7 lecture list (structure only, captions unavailable). Generator counts are recomputed in scripts/validate.py.",
+   "links": {
+    "visual": {
+     "slug": "monoids-and-groups",
+     "title": "Monoids and Groups",
+     "level": "topic-level",
+     "url": "https://gate-visual-explainer.vercel.app/topics/monoids-and-groups/index.html",
+     "covers": [
+      "cyclic groups and generators",
+      "one subgroup per divisor"
+     ]
+    },
+    "mapped_at": "2026-10-28"
+   },
    "subject": "discrete-mathematics",
    "topic": "monoids-and-groups",
    "path": "subjects/discrete-mathematics/monoids-and-groups/cyclic-groups-and-generators.json"
@@ -8429,6 +8520,19 @@ window.GATE_DATA = {
    ],
    "sourceLine": "Cosets, the index and Lagrange's theorem: GeeksforGeeks GATE group-theory notes (English, read in full). The 'Lagrange's theorem' and 'summary - groups of specific orders' lecture positions: GO Classes Module 7 lecture list (structure only, captions unavailable). The coset partition and every index in this card are recomputed in scripts/validate.py and shown in the lesson cyclic-subgroup-and-lagrange.",
    "visual": "discrete-mathematics/monoids-and-groups/cyclic-subgroup-and-lagrange",
+   "links": {
+    "visual": {
+     "slug": "monoids-and-groups",
+     "title": "Monoids and Groups",
+     "level": "topic-level",
+     "url": "https://gate-visual-explainer.vercel.app/topics/monoids-and-groups/index.html",
+     "covers": [
+      "subgroups and the coset split",
+      "Lagrange's theorem and the A4 counterexample"
+     ]
+    },
+    "mapped_at": "2026-10-28"
+   },
    "subject": "discrete-mathematics",
    "topic": "monoids-and-groups",
    "path": "subjects/discrete-mathematics/monoids-and-groups/cosets-and-lagrange.json"
@@ -8517,6 +8621,19 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "Standard groups and their properties: GeeksforGeeks GATE group-theory notes (English, read in full). The 'addition modulo n group' and 'nth roots of unity' lecture positions: GO Classes Module 7 lecture list (structure only, captions unavailable). Every count in this card is recomputed in scripts/validate.py.",
+   "links": {
+    "visual": {
+     "slug": "monoids-and-groups",
+     "title": "Monoids and Groups",
+     "level": "topic-level",
+     "url": "https://gate-visual-explainer.vercel.app/topics/monoids-and-groups/index.html",
+     "covers": [
+      "Z6, S3, Z4 and U(8) as worked examples",
+      "same order, different group"
+     ]
+    },
+    "mapped_at": "2026-10-28"
+   },
    "subject": "discrete-mathematics",
    "topic": "monoids-and-groups",
    "path": "subjects/discrete-mathematics/monoids-and-groups/finite-group-examples-gate-uses.json"
@@ -8689,6 +8806,19 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "The permutation group as a standard example: GeeksforGeeks GATE group-theory notes (English, read in full) and the bijection option of GATE CSE 1996 Q.2.4. Every product and order in this card is recomputed on the six elements of S_3 and the twenty-four of S_4 in scripts/validate.py.",
+   "links": {
+    "visual": {
+     "slug": "monoids-and-groups",
+     "title": "Monoids and Groups",
+     "level": "topic-level",
+     "url": "https://gate-visual-explainer.vercel.app/topics/monoids-and-groups/index.html",
+     "covers": [
+      "S3 as the symmetric group",
+      "S3 is not abelian"
+     ]
+    },
+    "mapped_at": "2026-10-28"
+   },
    "subject": "discrete-mathematics",
    "topic": "monoids-and-groups",
    "path": "subjects/discrete-mathematics/monoids-and-groups/permutation-groups-and-symmetry.json"

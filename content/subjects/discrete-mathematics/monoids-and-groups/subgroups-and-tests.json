@@ -77,5 +77,18 @@
       "note": "published lecture list read; the video captions themselves could not be retrieved in this run, so this is a structure reference only and no card quotes it"
     }
   ],
-  "sourceLine": "Subgroup definition, the one-step and two-step tests and the intersection fact: GeeksforGeeks GATE group-theory notes (English, read in full). The 'subgroup' and 'alternative definitions of subgroup' lecture positions: GO Classes Module 7 lecture list (structure only, captions unavailable). Every subgroup claim is recomputed in scripts/validate.py."
+  "sourceLine": "Subgroup definition, the one-step and two-step tests and the intersection fact: GeeksforGeeks GATE group-theory notes (English, read in full). The 'subgroup' and 'alternative definitions of subgroup' lecture positions: GO Classes Module 7 lecture list (structure only, captions unavailable). Every subgroup claim is recomputed in scripts/validate.py.",
+  "links": {
+    "visual": {
+      "slug": "monoids-and-groups",
+      "title": "Monoids and Groups",
+      "level": "topic-level",
+      "url": "https://gate-visual-explainer.vercel.app/topics/monoids-and-groups/index.html",
+      "covers": [
+        "subgroup tests",
+        "counting the subgroups of Z6"
+      ]
+    },
+    "mapped_at": "2026-10-28"
+  }
 }

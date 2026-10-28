@@ -90,5 +90,18 @@
       "note": "published lecture list read; the video captions themselves could not be retrieved in this run, so this is a structure reference only and no card quotes it"
     }
   ],
-  "sourceLine": "The rung-by-rung definitions and the closure/associativity distinction: GeeksforGeeks GATE group-theory notes (English, read in full) and the Pradeep Giri 'Algebraic Structure' lecture (Hindi auto-captions, read in part; translated into English for this card, source language Hindi). The lecture sequence that puts these rungs in GATE order: GO Classes Module 7 lecture list (structure only, captions unavailable)."
+  "sourceLine": "The rung-by-rung definitions and the closure/associativity distinction: GeeksforGeeks GATE group-theory notes (English, read in full) and the Pradeep Giri 'Algebraic Structure' lecture (Hindi auto-captions, read in part; translated into English for this card, source language Hindi). The lecture sequence that puts these rungs in GATE order: GO Classes Module 7 lecture list (structure only, captions unavailable).",
+  "links": {
+    "visual": {
+      "slug": "monoids-and-groups",
+      "title": "Monoids and Groups",
+      "level": "topic-level",
+      "url": "https://gate-visual-explainer.vercel.app/topics/monoids-and-groups/index.html",
+      "covers": [
+        "closure and associativity",
+        "the semigroup-monoid-group ladder"
+      ]
+    },
+    "mapped_at": "2026-10-28"
+  }
 }

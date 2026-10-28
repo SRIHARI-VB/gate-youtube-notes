@@ -77,5 +77,18 @@
       "note": "published lecture list read; the video captions themselves could not be retrieved in this run, so this is a structure reference only and no card quotes it"
     }
   ],
-  "sourceLine": "Group axioms, uniqueness of identity and inverse, cancellation and the reversal rule: GeeksforGeeks GATE group-theory notes (English, read in full). Lecture position of 'group properties' and 'alternative definitions of subgroup': GO Classes Module 7 lecture list (structure only, captions unavailable). Every identity is recomputed on S3, Z_n and the Klein four group in scripts/validate.py."
+  "sourceLine": "Group axioms, uniqueness of identity and inverse, cancellation and the reversal rule: GeeksforGeeks GATE group-theory notes (English, read in full). Lecture position of 'group properties' and 'alternative definitions of subgroup': GO Classes Module 7 lecture list (structure only, captions unavailable). Every identity is recomputed on S3, Z_n and the Klein four group in scripts/validate.py.",
+  "links": {
+    "visual": {
+      "slug": "monoids-and-groups",
+      "title": "Monoids and Groups",
+      "level": "topic-level",
+      "url": "https://gate-visual-explainer.vercel.app/topics/monoids-and-groups/index.html",
+      "covers": [
+        "checking the four group axioms",
+        "inverses in a group"
+      ]
+    },
+    "mapped_at": "2026-10-28"
+  }
 }

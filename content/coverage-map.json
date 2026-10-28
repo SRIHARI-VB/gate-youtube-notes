@@ -55,7 +55,7 @@
         "unit_slug": "combinatorics",
         "unit_name": "Counting & Combinatorics",
         "unit_number": 7,
-        "question_count": 25,
+        "question_count": 50,
         "subtopic_labels": [
           "Permutations & combinations",
           "Binomial & multinomial coefficients",
@@ -74,7 +74,7 @@
       },
       "evidence": [
         "notes content/index.json -> map[].path = subjects/discrete-mathematics/combinatorics/permutations.json",
-        "mock: discrete-mathematics master_bank.json unit 7 (combinatorics), 25 records grouped by subtopic_label; paper https://gate-cse-mocks.vercel.app/discrete-mathematics/combinatorics/gate_dm_mock_7_2026-10-28.html",
+        "mock: discrete-mathematics master_bank.json unit 7 (combinatorics), 50 records grouped by subtopic_label; paper https://gate-cse-mocks.vercel.app/discrete-mathematics/combinatorics/gate_dm_mock_7_2026-10-28.html",
         "visual: syllabus-coverage.json lesson_slug counting-and-combinatorics (PUBLISHED); covers checked against topics/counting-and-combinatorics/transcript.md scene list"
       ],
       "row_verdict": "BOTH"
@@ -92,7 +92,7 @@
         "unit_slug": "combinatorics",
         "unit_name": "Counting & Combinatorics",
         "unit_number": 7,
-        "question_count": 25,
+        "question_count": 50,
         "subtopic_labels": [
           "Permutations & combinations",
           "Binomial & multinomial coefficients",
@@ -111,7 +111,7 @@
       },
       "evidence": [
         "notes content/index.json -> map[].path = subjects/discrete-mathematics/combinatorics/combinations.json",
-        "mock: discrete-mathematics master_bank.json unit 7 (combinatorics), 25 records grouped by subtopic_label; paper https://gate-cse-mocks.vercel.app/discrete-mathematics/combinatorics/gate_dm_mock_7_2026-10-28.html",
+        "mock: discrete-mathematics master_bank.json unit 7 (combinatorics), 50 records grouped by subtopic_label; paper https://gate-cse-mocks.vercel.app/discrete-mathematics/combinatorics/gate_dm_mock_7_2026-10-28.html",
         "visual: syllabus-coverage.json lesson_slug counting-and-combinatorics (PUBLISHED); covers checked against topics/counting-and-combinatorics/transcript.md scene list"
       ],
       "row_verdict": "BOTH"
@@ -129,7 +129,7 @@
         "unit_slug": "combinatorics",
         "unit_name": "Counting & Combinatorics",
         "unit_number": 7,
-        "question_count": 25,
+        "question_count": 50,
         "subtopic_labels": [
           "Permutations & combinations",
           "Binomial & multinomial coefficients",
@@ -148,7 +148,7 @@
       },
       "evidence": [
         "notes content/index.json -> map[].path = subjects/discrete-mathematics/combinatorics/binomial-theorem.json",
-        "mock: discrete-mathematics master_bank.json unit 7 (combinatorics), 25 records grouped by subtopic_label; paper https://gate-cse-mocks.vercel.app/discrete-mathematics/combinatorics/gate_dm_mock_7_2026-10-28.html",
+        "mock: discrete-mathematics master_bank.json unit 7 (combinatorics), 50 records grouped by subtopic_label; paper https://gate-cse-mocks.vercel.app/discrete-mathematics/combinatorics/gate_dm_mock_7_2026-10-28.html",
         "visual: syllabus-coverage.json lesson_slug counting-and-combinatorics (PUBLISHED); covers checked against topics/counting-and-combinatorics/transcript.md scene list"
       ],
       "row_verdict": "BOTH"
@@ -166,7 +166,7 @@
         "unit_slug": "combinatorics",
         "unit_name": "Counting & Combinatorics",
         "unit_number": 7,
-        "question_count": 25,
+        "question_count": 50,
         "subtopic_labels": [
           "Permutations & combinations",
           "Binomial & multinomial coefficients",
@@ -185,7 +185,7 @@
       },
       "evidence": [
         "notes content/index.json -> map[].path = subjects/discrete-mathematics/combinatorics/permutation-with-repetition.json",
-        "mock: discrete-mathematics master_bank.json unit 7 (combinatorics), 25 records grouped by subtopic_label; paper https://gate-cse-mocks.vercel.app/discrete-mathematics/combinatorics/gate_dm_mock_7_2026-10-28.html",
+        "mock: discrete-mathematics master_bank.json unit 7 (combinatorics), 50 records grouped by subtopic_label; paper https://gate-cse-mocks.vercel.app/discrete-mathematics/combinatorics/gate_dm_mock_7_2026-10-28.html",
         "visual: syllabus-coverage.json lesson_slug counting-and-combinatorics (PUBLISHED); covers checked against topics/counting-and-combinatorics/transcript.md scene list"
       ],
       "row_verdict": "BOTH"
@@ -203,7 +203,7 @@
         "unit_slug": "combinatorics",
         "unit_name": "Counting & Combinatorics",
         "unit_number": 7,
-        "question_count": 25,
+        "question_count": 50,
         "subtopic_labels": [
           "Permutations & combinations",
           "Binomial & multinomial coefficients",
@@ -222,7 +222,7 @@
       },
       "evidence": [
         "notes content/index.json -> map[].path = subjects/discrete-mathematics/combinatorics/distribution-templates.json",
-        "mock: discrete-mathematics master_bank.json unit 7 (combinatorics), 25 records grouped by subtopic_label; paper https://gate-cse-mocks.vercel.app/discrete-mathematics/combinatorics/gate_dm_mock_7_2026-10-28.html",
+        "mock: discrete-mathematics master_bank.json unit 7 (combinatorics), 50 records grouped by subtopic_label; paper https://gate-cse-mocks.vercel.app/discrete-mathematics/combinatorics/gate_dm_mock_7_2026-10-28.html",
         "visual: syllabus-coverage.json lesson_slug counting-and-combinatorics (PUBLISHED); covers checked against topics/counting-and-combinatorics/transcript.md scene list"
       ],
       "row_verdict": "BOTH"
@@ -277,7 +277,7 @@
         "unit_slug": "combinatorics",
         "unit_name": "Counting & Combinatorics",
         "unit_number": 7,
-        "question_count": 25,
+        "question_count": 50,
         "subtopic_labels": [
           "Permutations & combinations",
           "Binomial & multinomial coefficients",
@@ -296,7 +296,7 @@
       },
       "evidence": [
         "notes content/index.json -> map[].path = subjects/discrete-mathematics/combinatorics/iodb-stars-and-bars.json",
-        "mock: discrete-mathematics master_bank.json unit 7 (combinatorics), 25 records grouped by subtopic_label; paper https://gate-cse-mocks.vercel.app/discrete-mathematics/combinatorics/gate_dm_mock_7_2026-10-28.html",
+        "mock: discrete-mathematics master_bank.json unit 7 (combinatorics), 50 records grouped by subtopic_label; paper https://gate-cse-mocks.vercel.app/discrete-mathematics/combinatorics/gate_dm_mock_7_2026-10-28.html",
         "visual: syllabus-coverage.json lesson_slug counting-and-combinatorics (PUBLISHED); covers checked against topics/counting-and-combinatorics/transcript.md scene list"
       ],
       "row_verdict": "BOTH"
@@ -362,7 +362,7 @@
         "unit_slug": "combinatorics",
         "unit_name": "Counting & Combinatorics",
         "unit_number": 7,
-        "question_count": 25,
+        "question_count": 50,
         "subtopic_labels": [
           "Permutations & combinations",
           "Binomial & multinomial coefficients",
@@ -381,7 +381,7 @@
       },
       "evidence": [
         "notes content/index.json -> map[].path = subjects/discrete-mathematics/combinatorics/inclusion-exclusion.json",
-        "mock: discrete-mathematics master_bank.json unit 7 (combinatorics), 25 records grouped by subtopic_label; paper https://gate-cse-mocks.vercel.app/discrete-mathematics/combinatorics/gate_dm_mock_7_2026-10-28.html",
+        "mock: discrete-mathematics master_bank.json unit 7 (combinatorics), 50 records grouped by subtopic_label; paper https://gate-cse-mocks.vercel.app/discrete-mathematics/combinatorics/gate_dm_mock_7_2026-10-28.html",
         "visual: syllabus-coverage.json lesson_slug counting-and-combinatorics (PUBLISHED); covers checked against topics/counting-and-combinatorics/transcript.md scene list"
       ],
       "row_verdict": "BOTH"
@@ -399,7 +399,7 @@
         "unit_slug": "combinatorics",
         "unit_name": "Counting & Combinatorics",
         "unit_number": 7,
-        "question_count": 25,
+        "question_count": 50,
         "subtopic_labels": [
           "Permutations & combinations",
           "Binomial & multinomial coefficients",
@@ -418,7 +418,7 @@
       },
       "evidence": [
         "notes content/index.json -> map[].path = subjects/discrete-mathematics/combinatorics/derangements.json",
-        "mock: discrete-mathematics master_bank.json unit 7 (combinatorics), 25 records grouped by subtopic_label; paper https://gate-cse-mocks.vercel.app/discrete-mathematics/combinatorics/gate_dm_mock_7_2026-10-28.html",
+        "mock: discrete-mathematics master_bank.json unit 7 (combinatorics), 50 records grouped by subtopic_label; paper https://gate-cse-mocks.vercel.app/discrete-mathematics/combinatorics/gate_dm_mock_7_2026-10-28.html",
         "visual: syllabus-coverage.json lesson_slug counting-and-combinatorics (PUBLISHED); covers checked against topics/counting-and-combinatorics/transcript.md scene list"
       ],
       "row_verdict": "BOTH"
@@ -519,6 +519,1043 @@
         "visual: syllabus-coverage.json lesson_slug recurrence-relations (PUBLISHED); covers checked against topics/recurrence-relations/transcript.md scene list"
       ],
       "row_verdict": "VISUAL_ONLY"
+    },
+    {
+      "subject": "discrete-mathematics",
+      "group": "first-order-logic",
+      "topic": "fol-syntax-predicates-and-quantifiers",
+      "title": "Predicates, Variables and Quantifiers",
+      "priority": "P1",
+      "path": "subjects/discrete-mathematics/first-order-logic/fol-syntax-predicates-and-quantifiers.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "discrete-mathematics",
+        "unit_slug": "predicate-logic",
+        "unit_name": "Predicate & First-Order Logic",
+        "unit_number": 2,
+        "question_count": 50,
+        "subtopic_labels": [
+          "Predicates & domain",
+          "Universal & existential quantifiers",
+          "Negation of nested quantifiers",
+          "Scope & order of quantifiers",
+          "English to FOL translation"
+        ],
+        "verdict": "MOCK_READY"
+      },
+      "visual": {
+        "slug": "first-order-logic",
+        "title": "First-Order Logic",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/discrete-mathematics/first-order-logic/fol-syntax-predicates-and-quantifiers.json",
+        "mock: discrete-mathematics master_bank.json unit 2 (predicate-logic), 50 records grouped by subtopic_label; paper https://gate-cse-mocks.vercel.app/discrete-mathematics/predicate-logic/gate_dm_mock_2_2026-10-25.html",
+        "visual: syllabus-coverage.json lesson_slug first-order-logic (PUBLISHED); covers checked against topics/first-order-logic/transcript.md scene list"
+      ],
+      "row_verdict": "BOTH"
+    },
+    {
+      "subject": "discrete-mathematics",
+      "group": "first-order-logic",
+      "topic": "english-to-fol-translation-templates",
+      "title": "English to First-Order Logic: the Sentence Templates",
+      "priority": "P1",
+      "path": "subjects/discrete-mathematics/first-order-logic/english-to-fol-translation-templates.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "discrete-mathematics",
+        "unit_slug": "predicate-logic",
+        "unit_name": "Predicate & First-Order Logic",
+        "unit_number": 2,
+        "question_count": 50,
+        "subtopic_labels": [
+          "Predicates & domain",
+          "Universal & existential quantifiers",
+          "Negation of nested quantifiers",
+          "Scope & order of quantifiers",
+          "English to FOL translation"
+        ],
+        "verdict": "MOCK_READY"
+      },
+      "visual": {
+        "slug": "first-order-logic",
+        "title": "First-Order Logic",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/discrete-mathematics/first-order-logic/english-to-fol-translation-templates.json",
+        "mock: discrete-mathematics master_bank.json unit 2 (predicate-logic), 50 records grouped by subtopic_label; paper https://gate-cse-mocks.vercel.app/discrete-mathematics/predicate-logic/gate_dm_mock_2_2026-10-25.html",
+        "visual: syllabus-coverage.json lesson_slug first-order-logic (PUBLISHED); covers checked against topics/first-order-logic/transcript.md scene list"
+      ],
+      "row_verdict": "BOTH"
+    },
+    {
+      "subject": "discrete-mathematics",
+      "group": "first-order-logic",
+      "topic": "quantifier-order-and-nesting",
+      "title": "Quantifier Order: for all x there exists y versus there exists y for all x",
+      "priority": "P1",
+      "path": "subjects/discrete-mathematics/first-order-logic/quantifier-order-and-nesting.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "discrete-mathematics",
+        "unit_slug": "predicate-logic",
+        "unit_name": "Predicate & First-Order Logic",
+        "unit_number": 2,
+        "question_count": 50,
+        "subtopic_labels": [
+          "Predicates & domain",
+          "Universal & existential quantifiers",
+          "Negation of nested quantifiers",
+          "Scope & order of quantifiers",
+          "English to FOL translation"
+        ],
+        "verdict": "MOCK_READY"
+      },
+      "visual": {
+        "slug": "first-order-logic",
+        "title": "First-Order Logic",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/discrete-mathematics/first-order-logic/quantifier-order-and-nesting.json",
+        "mock: discrete-mathematics master_bank.json unit 2 (predicate-logic), 50 records grouped by subtopic_label; paper https://gate-cse-mocks.vercel.app/discrete-mathematics/predicate-logic/gate_dm_mock_2_2026-10-25.html",
+        "visual: syllabus-coverage.json lesson_slug first-order-logic (PUBLISHED); covers checked against topics/first-order-logic/transcript.md scene list"
+      ],
+      "row_verdict": "BOTH"
+    },
+    {
+      "subject": "discrete-mathematics",
+      "group": "first-order-logic",
+      "topic": "fol-interpretation-model-and-validity",
+      "title": "Interpretation, Model and Validity",
+      "priority": "P1",
+      "path": "subjects/discrete-mathematics/first-order-logic/fol-interpretation-model-and-validity.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "discrete-mathematics",
+        "unit_slug": "predicate-logic",
+        "unit_name": "Predicate & First-Order Logic",
+        "unit_number": 2,
+        "question_count": 50,
+        "subtopic_labels": [
+          "Predicates & domain",
+          "Universal & existential quantifiers",
+          "Negation of nested quantifiers",
+          "Scope & order of quantifiers",
+          "English to FOL translation"
+        ],
+        "verdict": "MOCK_READY"
+      },
+      "visual": {
+        "slug": "first-order-logic",
+        "title": "First-Order Logic",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/discrete-mathematics/first-order-logic/fol-interpretation-model-and-validity.json",
+        "mock: discrete-mathematics master_bank.json unit 2 (predicate-logic), 50 records grouped by subtopic_label; paper https://gate-cse-mocks.vercel.app/discrete-mathematics/predicate-logic/gate_dm_mock_2_2026-10-25.html",
+        "visual: syllabus-coverage.json lesson_slug first-order-logic (PUBLISHED); covers checked against topics/first-order-logic/transcript.md scene list"
+      ],
+      "row_verdict": "BOTH"
+    },
+    {
+      "subject": "discrete-mathematics",
+      "group": "first-order-logic",
+      "topic": "quantifier-negation-and-equivalence",
+      "title": "Negating Quantifiers and Null Quantification",
+      "priority": "P1",
+      "path": "subjects/discrete-mathematics/first-order-logic/quantifier-negation-and-equivalence.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "discrete-mathematics",
+        "unit_slug": "predicate-logic",
+        "unit_name": "Predicate & First-Order Logic",
+        "unit_number": 2,
+        "question_count": 50,
+        "subtopic_labels": [
+          "Predicates & domain",
+          "Universal & existential quantifiers",
+          "Negation of nested quantifiers",
+          "Scope & order of quantifiers",
+          "English to FOL translation"
+        ],
+        "verdict": "MOCK_READY"
+      },
+      "visual": {
+        "slug": "first-order-logic",
+        "title": "First-Order Logic",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/discrete-mathematics/first-order-logic/quantifier-negation-and-equivalence.json",
+        "mock: discrete-mathematics master_bank.json unit 2 (predicate-logic), 50 records grouped by subtopic_label; paper https://gate-cse-mocks.vercel.app/discrete-mathematics/predicate-logic/gate_dm_mock_2_2026-10-25.html",
+        "visual: syllabus-coverage.json lesson_slug first-order-logic (PUBLISHED); covers checked against topics/first-order-logic/transcript.md scene list"
+      ],
+      "row_verdict": "BOTH"
+    },
+    {
+      "subject": "discrete-mathematics",
+      "group": "first-order-logic",
+      "topic": "fol-validity-and-implication",
+      "title": "Validity, Implication and the Two-Element Countermodel",
+      "priority": "P1",
+      "path": "subjects/discrete-mathematics/first-order-logic/fol-validity-and-implication.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "discrete-mathematics",
+        "unit_slug": "predicate-logic",
+        "unit_name": "Predicate & First-Order Logic",
+        "unit_number": 2,
+        "question_count": 50,
+        "subtopic_labels": [
+          "Predicates & domain",
+          "Universal & existential quantifiers",
+          "Negation of nested quantifiers",
+          "Scope & order of quantifiers",
+          "English to FOL translation"
+        ],
+        "verdict": "MOCK_READY"
+      },
+      "visual": {
+        "slug": "first-order-logic",
+        "title": "First-Order Logic",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/discrete-mathematics/first-order-logic/fol-validity-and-implication.json",
+        "mock: discrete-mathematics master_bank.json unit 2 (predicate-logic), 50 records grouped by subtopic_label; paper https://gate-cse-mocks.vercel.app/discrete-mathematics/predicate-logic/gate_dm_mock_2_2026-10-25.html",
+        "visual: syllabus-coverage.json lesson_slug first-order-logic (PUBLISHED); covers checked against topics/first-order-logic/transcript.md scene list"
+      ],
+      "row_verdict": "BOTH"
+    },
+    {
+      "subject": "discrete-mathematics",
+      "group": "first-order-logic",
+      "topic": "fol-tautology-vs-validity",
+      "title": "Tautology versus Validity in First-Order Logic",
+      "priority": "P2",
+      "path": "subjects/discrete-mathematics/first-order-logic/fol-tautology-vs-validity.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "discrete-mathematics",
+        "unit_slug": "predicate-logic",
+        "unit_name": "Predicate & First-Order Logic",
+        "unit_number": 2,
+        "question_count": 50,
+        "subtopic_labels": [
+          "Predicates & domain",
+          "Universal & existential quantifiers",
+          "Negation of nested quantifiers",
+          "Scope & order of quantifiers",
+          "English to FOL translation"
+        ],
+        "verdict": "MOCK_READY"
+      },
+      "visual": null,
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/discrete-mathematics/first-order-logic/fol-tautology-vs-validity.json",
+        "mock: discrete-mathematics master_bank.json unit 2 (predicate-logic), 50 records grouped by subtopic_label; paper https://gate-cse-mocks.vercel.app/discrete-mathematics/predicate-logic/gate_dm_mock_2_2026-10-25.html",
+        "visual: no published lesson covers this card at subtopic level"
+      ],
+      "row_verdict": "MOCK_ONLY"
+    },
+    {
+      "subject": "discrete-mathematics",
+      "group": "first-order-logic",
+      "topic": "fol-exactly-one-and-uniqueness",
+      "title": "Exactly One, At Most One and Uniqueness",
+      "priority": "P2",
+      "path": "subjects/discrete-mathematics/first-order-logic/fol-exactly-one-and-uniqueness.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "discrete-mathematics",
+        "unit_slug": "predicate-logic",
+        "unit_name": "Predicate & First-Order Logic",
+        "unit_number": 2,
+        "question_count": 50,
+        "subtopic_labels": [
+          "Predicates & domain",
+          "Universal & existential quantifiers",
+          "Negation of nested quantifiers",
+          "Scope & order of quantifiers",
+          "English to FOL translation"
+        ],
+        "verdict": "MOCK_READY"
+      },
+      "visual": null,
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/discrete-mathematics/first-order-logic/fol-exactly-one-and-uniqueness.json",
+        "mock: discrete-mathematics master_bank.json unit 2 (predicate-logic), 50 records grouped by subtopic_label; paper https://gate-cse-mocks.vercel.app/discrete-mathematics/predicate-logic/gate_dm_mock_2_2026-10-25.html",
+        "visual: no published lesson covers this card at subtopic level"
+      ],
+      "row_verdict": "MOCK_ONLY"
+    },
+    {
+      "subject": "discrete-mathematics",
+      "group": "first-order-logic",
+      "topic": "fol-model-size-and-countermodels",
+      "title": "Model Size and Small Countermodels",
+      "priority": "P2",
+      "path": "subjects/discrete-mathematics/first-order-logic/fol-model-size-and-countermodels.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "discrete-mathematics",
+        "unit_slug": "predicate-logic",
+        "unit_name": "Predicate & First-Order Logic",
+        "unit_number": 2,
+        "question_count": 50,
+        "subtopic_labels": [
+          "Predicates & domain",
+          "Universal & existential quantifiers",
+          "Negation of nested quantifiers",
+          "Scope & order of quantifiers",
+          "English to FOL translation"
+        ],
+        "verdict": "MOCK_READY"
+      },
+      "visual": {
+        "slug": "first-order-logic",
+        "title": "First-Order Logic",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/discrete-mathematics/first-order-logic/fol-model-size-and-countermodels.json",
+        "mock: discrete-mathematics master_bank.json unit 2 (predicate-logic), 50 records grouped by subtopic_label; paper https://gate-cse-mocks.vercel.app/discrete-mathematics/predicate-logic/gate_dm_mock_2_2026-10-25.html",
+        "visual: syllabus-coverage.json lesson_slug first-order-logic (PUBLISHED); covers checked against topics/first-order-logic/transcript.md scene list"
+      ],
+      "row_verdict": "BOTH"
+    },
+    {
+      "subject": "discrete-mathematics",
+      "group": "first-order-logic",
+      "topic": "fol-quantifier-inference-rules",
+      "title": "Quantifier Inference Rules and their Side Conditions",
+      "priority": "P2",
+      "path": "subjects/discrete-mathematics/first-order-logic/fol-quantifier-inference-rules.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "discrete-mathematics",
+        "unit_slug": "predicate-logic",
+        "unit_name": "Predicate & First-Order Logic",
+        "unit_number": 2,
+        "question_count": 50,
+        "subtopic_labels": [
+          "Predicates & domain",
+          "Universal & existential quantifiers",
+          "Negation of nested quantifiers",
+          "Scope & order of quantifiers",
+          "English to FOL translation"
+        ],
+        "verdict": "MOCK_READY"
+      },
+      "visual": null,
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/discrete-mathematics/first-order-logic/fol-quantifier-inference-rules.json",
+        "mock: discrete-mathematics master_bank.json unit 2 (predicate-logic), 50 records grouped by subtopic_label; paper https://gate-cse-mocks.vercel.app/discrete-mathematics/predicate-logic/gate_dm_mock_2_2026-10-25.html",
+        "visual: no published lesson covers this card at subtopic level"
+      ],
+      "row_verdict": "MOCK_ONLY"
+    },
+    {
+      "subject": "discrete-mathematics",
+      "group": "monoids-and-groups",
+      "topic": "algebraic-structure-ladder",
+      "title": "The Algebraic-Structure Ladder: Semigroup, Monoid, Group",
+      "priority": "P1",
+      "path": "subjects/discrete-mathematics/monoids-and-groups/algebraic-structure-ladder.json",
+      "transcript_status": "not stated",
+      "mock": null,
+      "visual": {
+        "slug": "monoids-and-groups",
+        "title": "Monoids and Groups",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/discrete-mathematics/monoids-and-groups/algebraic-structure-ladder.json",
+        "mock: discrete-mathematics master_bank.json holds units 1-7 and 16 only; none is an algebraic-structures unit",
+        "visual: syllabus-coverage.json lesson_slug monoids-and-groups (PUBLISHED); covers checked against topics/monoids-and-groups/transcript.md, 11 scenes"
+      ],
+      "row_verdict": "VISUAL_ONLY"
+    },
+    {
+      "subject": "discrete-mathematics",
+      "group": "monoids-and-groups",
+      "topic": "monoid-identity-and-examples",
+      "title": "Monoids: Identity, Uniqueness and the Standard Examples",
+      "priority": "P1",
+      "path": "subjects/discrete-mathematics/monoids-and-groups/monoid-identity-and-examples.json",
+      "transcript_status": "not stated",
+      "mock": null,
+      "visual": {
+        "slug": "monoids-and-groups",
+        "title": "Monoids and Groups",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/discrete-mathematics/monoids-and-groups/monoid-identity-and-examples.json",
+        "mock: discrete-mathematics master_bank.json holds units 1-7 and 16 only; none is an algebraic-structures unit",
+        "visual: syllabus-coverage.json lesson_slug monoids-and-groups (PUBLISHED); covers checked against topics/monoids-and-groups/transcript.md, 11 scenes"
+      ],
+      "row_verdict": "VISUAL_ONLY"
+    },
+    {
+      "subject": "discrete-mathematics",
+      "group": "monoids-and-groups",
+      "topic": "group-axioms-and-uniqueness",
+      "title": "Group Axioms, Uniqueness and the Reversal Rule",
+      "priority": "P1",
+      "path": "subjects/discrete-mathematics/monoids-and-groups/group-axioms-and-uniqueness.json",
+      "transcript_status": "not stated",
+      "mock": null,
+      "visual": {
+        "slug": "monoids-and-groups",
+        "title": "Monoids and Groups",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/discrete-mathematics/monoids-and-groups/group-axioms-and-uniqueness.json",
+        "mock: discrete-mathematics master_bank.json holds units 1-7 and 16 only; none is an algebraic-structures unit",
+        "visual: syllabus-coverage.json lesson_slug monoids-and-groups (PUBLISHED); covers checked against topics/monoids-and-groups/transcript.md, 11 scenes"
+      ],
+      "row_verdict": "VISUAL_ONLY"
+    },
+    {
+      "subject": "discrete-mathematics",
+      "group": "monoids-and-groups",
+      "topic": "order-of-group-and-element",
+      "title": "Order of a Group and Order of an Element",
+      "priority": "P1",
+      "path": "subjects/discrete-mathematics/monoids-and-groups/order-of-group-and-element.json",
+      "transcript_status": "not stated",
+      "mock": null,
+      "visual": {
+        "slug": "monoids-and-groups",
+        "title": "Monoids and Groups",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/discrete-mathematics/monoids-and-groups/order-of-group-and-element.json",
+        "mock: discrete-mathematics master_bank.json holds units 1-7 and 16 only; none is an algebraic-structures unit",
+        "visual: syllabus-coverage.json lesson_slug monoids-and-groups (PUBLISHED); covers checked against topics/monoids-and-groups/transcript.md, 11 scenes"
+      ],
+      "row_verdict": "VISUAL_ONLY"
+    },
+    {
+      "subject": "discrete-mathematics",
+      "group": "monoids-and-groups",
+      "topic": "abelian-groups-and-commutativity-tests",
+      "title": "Abelian Groups and the Two Commutativity Tests",
+      "priority": "P1",
+      "path": "subjects/discrete-mathematics/monoids-and-groups/abelian-groups-and-commutativity-tests.json",
+      "transcript_status": "not stated",
+      "mock": null,
+      "visual": {
+        "slug": "monoids-and-groups",
+        "title": "Monoids and Groups",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/discrete-mathematics/monoids-and-groups/abelian-groups-and-commutativity-tests.json",
+        "mock: discrete-mathematics master_bank.json holds units 1-7 and 16 only; none is an algebraic-structures unit",
+        "visual: syllabus-coverage.json lesson_slug monoids-and-groups (PUBLISHED); covers checked against topics/monoids-and-groups/transcript.md, 11 scenes"
+      ],
+      "row_verdict": "VISUAL_ONLY"
+    },
+    {
+      "subject": "discrete-mathematics",
+      "group": "monoids-and-groups",
+      "topic": "subgroups-and-tests",
+      "title": "Subgroups and the One-Step Test",
+      "priority": "P1",
+      "path": "subjects/discrete-mathematics/monoids-and-groups/subgroups-and-tests.json",
+      "transcript_status": "not stated",
+      "mock": null,
+      "visual": {
+        "slug": "monoids-and-groups",
+        "title": "Monoids and Groups",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/discrete-mathematics/monoids-and-groups/subgroups-and-tests.json",
+        "mock: discrete-mathematics master_bank.json holds units 1-7 and 16 only; none is an algebraic-structures unit",
+        "visual: syllabus-coverage.json lesson_slug monoids-and-groups (PUBLISHED); covers checked against topics/monoids-and-groups/transcript.md, 11 scenes"
+      ],
+      "row_verdict": "VISUAL_ONLY"
+    },
+    {
+      "subject": "discrete-mathematics",
+      "group": "monoids-and-groups",
+      "topic": "cyclic-groups-and-generators",
+      "title": "Cyclic Groups, Generators and Prime Order",
+      "priority": "P1",
+      "path": "subjects/discrete-mathematics/monoids-and-groups/cyclic-groups-and-generators.json",
+      "transcript_status": "not stated",
+      "mock": null,
+      "visual": {
+        "slug": "monoids-and-groups",
+        "title": "Monoids and Groups",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/discrete-mathematics/monoids-and-groups/cyclic-groups-and-generators.json",
+        "mock: discrete-mathematics master_bank.json holds units 1-7 and 16 only; none is an algebraic-structures unit",
+        "visual: syllabus-coverage.json lesson_slug monoids-and-groups (PUBLISHED); covers checked against topics/monoids-and-groups/transcript.md, 11 scenes"
+      ],
+      "row_verdict": "VISUAL_ONLY"
+    },
+    {
+      "subject": "discrete-mathematics",
+      "group": "monoids-and-groups",
+      "topic": "cosets-and-lagrange",
+      "title": "Cosets and Lagrange's Theorem",
+      "priority": "P1",
+      "path": "subjects/discrete-mathematics/monoids-and-groups/cosets-and-lagrange.json",
+      "transcript_status": "not stated",
+      "mock": null,
+      "visual": {
+        "slug": "monoids-and-groups",
+        "title": "Monoids and Groups",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/discrete-mathematics/monoids-and-groups/cosets-and-lagrange.json",
+        "mock: discrete-mathematics master_bank.json holds units 1-7 and 16 only; none is an algebraic-structures unit",
+        "visual: syllabus-coverage.json lesson_slug monoids-and-groups (PUBLISHED); covers checked against topics/monoids-and-groups/transcript.md, 11 scenes"
+      ],
+      "row_verdict": "VISUAL_ONLY"
+    },
+    {
+      "subject": "discrete-mathematics",
+      "group": "monoids-and-groups",
+      "topic": "finite-group-examples-gate-uses",
+      "title": "The Small Cast of Groups GATE Reuses",
+      "priority": "P2",
+      "path": "subjects/discrete-mathematics/monoids-and-groups/finite-group-examples-gate-uses.json",
+      "transcript_status": "not stated",
+      "mock": null,
+      "visual": {
+        "slug": "monoids-and-groups",
+        "title": "Monoids and Groups",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/discrete-mathematics/monoids-and-groups/finite-group-examples-gate-uses.json",
+        "mock: discrete-mathematics master_bank.json holds units 1-7 and 16 only; none is an algebraic-structures unit",
+        "visual: syllabus-coverage.json lesson_slug monoids-and-groups (PUBLISHED); covers checked against topics/monoids-and-groups/transcript.md, 11 scenes"
+      ],
+      "row_verdict": "VISUAL_ONLY"
+    },
+    {
+      "subject": "discrete-mathematics",
+      "group": "monoids-and-groups",
+      "topic": "group-homomorphism-and-kernel",
+      "title": "Group Homomorphisms and the Kernel",
+      "priority": "P3",
+      "path": "subjects/discrete-mathematics/monoids-and-groups/group-homomorphism-and-kernel.json",
+      "transcript_status": "not stated",
+      "mock": null,
+      "visual": null,
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/discrete-mathematics/monoids-and-groups/group-homomorphism-and-kernel.json",
+        "mock: discrete-mathematics master_bank.json holds units 1-7 and 16 only; none is an algebraic-structures unit",
+        "visual: topics/monoids-and-groups/transcript.md has no homomorphism or kernel content (grep: 0 hits), so no lesson covers this card"
+      ],
+      "row_verdict": "NEITHER"
+    },
+    {
+      "subject": "discrete-mathematics",
+      "group": "monoids-and-groups",
+      "topic": "permutation-groups-and-symmetry",
+      "title": "Permutation Groups and the Symmetric Group",
+      "priority": "P3",
+      "path": "subjects/discrete-mathematics/monoids-and-groups/permutation-groups-and-symmetry.json",
+      "transcript_status": "not stated",
+      "mock": null,
+      "visual": {
+        "slug": "monoids-and-groups",
+        "title": "Monoids and Groups",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/discrete-mathematics/monoids-and-groups/permutation-groups-and-symmetry.json",
+        "mock: discrete-mathematics master_bank.json holds units 1-7 and 16 only; none is an algebraic-structures unit",
+        "visual: syllabus-coverage.json lesson_slug monoids-and-groups (PUBLISHED); covers checked against topics/monoids-and-groups/transcript.md, 11 scenes"
+      ],
+      "row_verdict": "VISUAL_ONLY"
+    },
+    {
+      "subject": "discrete-mathematics",
+      "group": "partial-orders-and-lattices",
+      "topic": "poset-and-partial-order-axioms",
+      "title": "Partial Orders and Posets",
+      "priority": "P1",
+      "path": "subjects/discrete-mathematics/partial-orders-and-lattices/poset-and-partial-order-axioms.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "discrete-mathematics",
+        "unit_slug": "relations",
+        "unit_name": "Relations",
+        "unit_number": 4,
+        "question_count": 50,
+        "subtopic_labels": [
+          "Relation properties",
+          "Equivalence relations & classes",
+          "Partial orders & Hasse diagrams",
+          "Lattices in posets",
+          "Composition & transitive closure",
+          "Counting relations"
+        ],
+        "verdict": "MOCK_READY"
+      },
+      "visual": {
+        "slug": "partial-orders-and-lattices",
+        "title": "Partial Orders, Hasse Diagrams and Lattices",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/discrete-mathematics/partial-orders-and-lattices/poset-and-partial-order-axioms.json",
+        "mock: discrete-mathematics master_bank.json unit 4 (relations), 50 records grouped by subtopic_label (Relation properties 9, Equivalence relations & classes 9, Partial orders & Hasse diagrams 8, Lattices in posets 8, Composition & transitive closure 8, Counting relations 8); matched labels [\"Partial orders & Hasse diagrams\", \"Lattices in posets\"]; paper from runs[] run 2 file https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html; unit at the 50-question cap (MOCK_CAPPED)",
+        "visual: syllabus-coverage.json lesson_slug partial-orders-and-lattices (PUBLISHED); covers [\"a partial order as three separate promises\", \"divisibility as a partial order\"] checked against topics/partial-orders-and-lattices/transcript.md scenes 1-10"
+      ],
+      "row_verdict": "BOTH"
+    },
+    {
+      "subject": "discrete-mathematics",
+      "group": "partial-orders-and-lattices",
+      "topic": "hasse-diagram-and-covering",
+      "title": "Covering Relation and the Hasse Diagram",
+      "priority": "P1",
+      "path": "subjects/discrete-mathematics/partial-orders-and-lattices/hasse-diagram-and-covering.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "discrete-mathematics",
+        "unit_slug": "relations",
+        "unit_name": "Relations",
+        "unit_number": 4,
+        "question_count": 50,
+        "subtopic_labels": [
+          "Relation properties",
+          "Equivalence relations & classes",
+          "Partial orders & Hasse diagrams",
+          "Lattices in posets",
+          "Composition & transitive closure",
+          "Counting relations"
+        ],
+        "verdict": "MOCK_READY"
+      },
+      "visual": {
+        "slug": "partial-orders-and-lattices",
+        "title": "Partial Orders, Hasse Diagrams and Lattices",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/discrete-mathematics/partial-orders-and-lattices/hasse-diagram-and-covering.json",
+        "mock: discrete-mathematics master_bank.json unit 4 (relations), 50 records grouped by subtopic_label (Relation properties 9, Equivalence relations & classes 9, Partial orders & Hasse diagrams 8, Lattices in posets 8, Composition & transitive closure 8, Counting relations 8); matched labels [\"Partial orders & Hasse diagrams\", \"Lattices in posets\"]; paper from runs[] run 2 file https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html; unit at the 50-question cap (MOCK_CAPPED)",
+        "visual: syllabus-coverage.json lesson_slug partial-orders-and-lattices (PUBLISHED); covers [\"the covering relation and transitive reduction\", \"drawing the Hasse diagram\"] checked against topics/partial-orders-and-lattices/transcript.md scenes 1-10"
+      ],
+      "row_verdict": "BOTH"
+    },
+    {
+      "subject": "discrete-mathematics",
+      "group": "partial-orders-and-lattices",
+      "topic": "comparability-chains-and-antichains",
+      "title": "Comparable Pairs, Chains, Antichains and Total Orders",
+      "priority": "P2",
+      "path": "subjects/discrete-mathematics/partial-orders-and-lattices/comparability-chains-and-antichains.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "discrete-mathematics",
+        "unit_slug": "relations",
+        "unit_name": "Relations",
+        "unit_number": 4,
+        "question_count": 50,
+        "subtopic_labels": [
+          "Relation properties",
+          "Equivalence relations & classes",
+          "Partial orders & Hasse diagrams",
+          "Lattices in posets",
+          "Composition & transitive closure",
+          "Counting relations"
+        ],
+        "verdict": "MOCK_READY"
+      },
+      "visual": {
+        "slug": "partial-orders-and-lattices",
+        "title": "Partial Orders, Hasse Diagrams and Lattices",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/discrete-mathematics/partial-orders-and-lattices/comparability-chains-and-antichains.json",
+        "mock: discrete-mathematics master_bank.json unit 4 (relations), 50 records grouped by subtopic_label (Relation properties 9, Equivalence relations & classes 9, Partial orders & Hasse diagrams 8, Lattices in posets 8, Composition & transitive closure 8, Counting relations 8); matched labels [\"Partial orders & Hasse diagrams\", \"Lattices in posets\"]; paper from runs[] run 2 file https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html; unit at the 50-question cap (MOCK_CAPPED)",
+        "visual: syllabus-coverage.json lesson_slug partial-orders-and-lattices (PUBLISHED); covers [\"comparable pairs, chains and antichains\"] checked against topics/partial-orders-and-lattices/transcript.md scenes 1-10"
+      ],
+      "row_verdict": "BOTH"
+    },
+    {
+      "subject": "discrete-mathematics",
+      "group": "partial-orders-and-lattices",
+      "topic": "minimal-maximal-least-greatest",
+      "title": "Minimal, Maximal, Least and Greatest Elements",
+      "priority": "P1",
+      "path": "subjects/discrete-mathematics/partial-orders-and-lattices/minimal-maximal-least-greatest.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "discrete-mathematics",
+        "unit_slug": "relations",
+        "unit_name": "Relations",
+        "unit_number": 4,
+        "question_count": 50,
+        "subtopic_labels": [
+          "Relation properties",
+          "Equivalence relations & classes",
+          "Partial orders & Hasse diagrams",
+          "Lattices in posets",
+          "Composition & transitive closure",
+          "Counting relations"
+        ],
+        "verdict": "MOCK_READY"
+      },
+      "visual": {
+        "slug": "partial-orders-and-lattices",
+        "title": "Partial Orders, Hasse Diagrams and Lattices",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/discrete-mathematics/partial-orders-and-lattices/minimal-maximal-least-greatest.json",
+        "mock: discrete-mathematics master_bank.json unit 4 (relations), 50 records grouped by subtopic_label (Relation properties 9, Equivalence relations & classes 9, Partial orders & Hasse diagrams 8, Lattices in posets 8, Composition & transitive closure 8, Counting relations 8); matched labels [\"Partial orders & Hasse diagrams\", \"Lattices in posets\"]; paper from runs[] run 2 file https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html; unit at the 50-question cap (MOCK_CAPPED)",
+        "visual: syllabus-coverage.json lesson_slug partial-orders-and-lattices (PUBLISHED); covers [\"maximal versus greatest\", \"minimal versus least\"] checked against topics/partial-orders-and-lattices/transcript.md scenes 1-10"
+      ],
+      "row_verdict": "BOTH"
+    },
+    {
+      "subject": "discrete-mathematics",
+      "group": "partial-orders-and-lattices",
+      "topic": "upper-lower-bounds-lub-glb",
+      "title": "Upper Bounds, Lower Bounds, LUB and GLB",
+      "priority": "P1",
+      "path": "subjects/discrete-mathematics/partial-orders-and-lattices/upper-lower-bounds-lub-glb.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "discrete-mathematics",
+        "unit_slug": "relations",
+        "unit_name": "Relations",
+        "unit_number": 4,
+        "question_count": 50,
+        "subtopic_labels": [
+          "Relation properties",
+          "Equivalence relations & classes",
+          "Partial orders & Hasse diagrams",
+          "Lattices in posets",
+          "Composition & transitive closure",
+          "Counting relations"
+        ],
+        "verdict": "MOCK_READY"
+      },
+      "visual": {
+        "slug": "partial-orders-and-lattices",
+        "title": "Partial Orders, Hasse Diagrams and Lattices",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/discrete-mathematics/partial-orders-and-lattices/upper-lower-bounds-lub-glb.json",
+        "mock: discrete-mathematics master_bank.json unit 4 (relations), 50 records grouped by subtopic_label (Relation properties 9, Equivalence relations & classes 9, Partial orders & Hasse diagrams 8, Lattices in posets 8, Composition & transitive closure 8, Counting relations 8); matched labels [\"Partial orders & Hasse diagrams\", \"Lattices in posets\"]; paper from runs[] run 2 file https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html; unit at the 50-question cap (MOCK_CAPPED)",
+        "visual: syllabus-coverage.json lesson_slug partial-orders-and-lattices (PUBLISHED); covers [\"upper and lower bounds\", \"lub and glb as join and meet\"] checked against topics/partial-orders-and-lattices/transcript.md scenes 1-10"
+      ],
+      "row_verdict": "BOTH"
+    },
+    {
+      "subject": "discrete-mathematics",
+      "group": "partial-orders-and-lattices",
+      "topic": "lattice-definition-and-pairwise-test",
+      "title": "Lattices and the Pairwise Test",
+      "priority": "P1",
+      "path": "subjects/discrete-mathematics/partial-orders-and-lattices/lattice-definition-and-pairwise-test.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "discrete-mathematics",
+        "unit_slug": "relations",
+        "unit_name": "Relations",
+        "unit_number": 4,
+        "question_count": 50,
+        "subtopic_labels": [
+          "Relation properties",
+          "Equivalence relations & classes",
+          "Partial orders & Hasse diagrams",
+          "Lattices in posets",
+          "Composition & transitive closure",
+          "Counting relations"
+        ],
+        "verdict": "MOCK_READY"
+      },
+      "visual": {
+        "slug": "partial-orders-and-lattices",
+        "title": "Partial Orders, Hasse Diagrams and Lattices",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/discrete-mathematics/partial-orders-and-lattices/lattice-definition-and-pairwise-test.json",
+        "mock: discrete-mathematics master_bank.json unit 4 (relations), 50 records grouped by subtopic_label (Relation properties 9, Equivalence relations & classes 9, Partial orders & Hasse diagrams 8, Lattices in posets 8, Composition & transitive closure 8, Counting relations 8); matched labels [\"Partial orders & Hasse diagrams\", \"Lattices in posets\"]; paper from runs[] run 2 file https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html; unit at the 50-question cap (MOCK_CAPPED)",
+        "visual: syllabus-coverage.json lesson_slug partial-orders-and-lattices (PUBLISHED); covers [\"a lattice needs a join and a meet for every pair\", \"the pairwise lattice test\"] checked against topics/partial-orders-and-lattices/transcript.md scenes 1-10"
+      ],
+      "row_verdict": "BOTH"
+    },
+    {
+      "subject": "discrete-mathematics",
+      "group": "partial-orders-and-lattices",
+      "topic": "lattice-algebraic-laws",
+      "title": "The Lattice Laws: Idempotent, Commutative, Associative, Absorption",
+      "priority": "P1",
+      "path": "subjects/discrete-mathematics/partial-orders-and-lattices/lattice-algebraic-laws.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "discrete-mathematics",
+        "unit_slug": "relations",
+        "unit_name": "Relations",
+        "unit_number": 4,
+        "question_count": 50,
+        "subtopic_labels": [
+          "Relation properties",
+          "Equivalence relations & classes",
+          "Partial orders & Hasse diagrams",
+          "Lattices in posets",
+          "Composition & transitive closure",
+          "Counting relations"
+        ],
+        "verdict": "MOCK_READY"
+      },
+      "visual": null,
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/discrete-mathematics/partial-orders-and-lattices/lattice-algebraic-laws.json",
+        "mock: discrete-mathematics master_bank.json unit 4 (relations), 50 records grouped by subtopic_label (Relation properties 9, Equivalence relations & classes 9, Partial orders & Hasse diagrams 8, Lattices in posets 8, Composition & transitive closure 8, Counting relations 8); matched labels [\"Partial orders & Hasse diagrams\", \"Lattices in posets\"]; paper from runs[] run 2 file https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html; unit at the 50-question cap (MOCK_CAPPED)",
+        "visual: syllabus-coverage.json lesson_slug partial-orders-and-lattices (PUBLISHED) but topics/partial-orders-and-lattices/transcript.md does not cover this subtopic; no lesson dedicated to it"
+      ],
+      "row_verdict": "MOCK_ONLY"
+    },
+    {
+      "subject": "discrete-mathematics",
+      "group": "partial-orders-and-lattices",
+      "topic": "sublattices",
+      "title": "Sublattices",
+      "priority": "P2",
+      "path": "subjects/discrete-mathematics/partial-orders-and-lattices/sublattices.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "discrete-mathematics",
+        "unit_slug": "relations",
+        "unit_name": "Relations",
+        "unit_number": 4,
+        "question_count": 50,
+        "subtopic_labels": [
+          "Relation properties",
+          "Equivalence relations & classes",
+          "Partial orders & Hasse diagrams",
+          "Lattices in posets",
+          "Composition & transitive closure",
+          "Counting relations"
+        ],
+        "verdict": "MOCK_READY"
+      },
+      "visual": null,
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/discrete-mathematics/partial-orders-and-lattices/sublattices.json",
+        "mock: discrete-mathematics master_bank.json unit 4 (relations), 50 records grouped by subtopic_label (Relation properties 9, Equivalence relations & classes 9, Partial orders & Hasse diagrams 8, Lattices in posets 8, Composition & transitive closure 8, Counting relations 8); matched labels [\"Partial orders & Hasse diagrams\", \"Lattices in posets\"]; paper from runs[] run 2 file https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html; unit at the 50-question cap (MOCK_CAPPED)",
+        "visual: syllabus-coverage.json lesson_slug partial-orders-and-lattices (PUBLISHED) but topics/partial-orders-and-lattices/transcript.md does not cover this subtopic; no lesson dedicated to it"
+      ],
+      "row_verdict": "MOCK_ONLY"
+    },
+    {
+      "subject": "discrete-mathematics",
+      "group": "partial-orders-and-lattices",
+      "topic": "bounded-and-complemented-lattices",
+      "title": "Bounded and Complemented Lattices",
+      "priority": "P2",
+      "path": "subjects/discrete-mathematics/partial-orders-and-lattices/bounded-and-complemented-lattices.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "discrete-mathematics",
+        "unit_slug": "relations",
+        "unit_name": "Relations",
+        "unit_number": 4,
+        "question_count": 50,
+        "subtopic_labels": [
+          "Relation properties",
+          "Equivalence relations & classes",
+          "Partial orders & Hasse diagrams",
+          "Lattices in posets",
+          "Composition & transitive closure",
+          "Counting relations"
+        ],
+        "verdict": "MOCK_READY"
+      },
+      "visual": {
+        "slug": "partial-orders-and-lattices",
+        "title": "Partial Orders, Hasse Diagrams and Lattices",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/discrete-mathematics/partial-orders-and-lattices/bounded-and-complemented-lattices.json",
+        "mock: discrete-mathematics master_bank.json unit 4 (relations), 50 records grouped by subtopic_label (Relation properties 9, Equivalence relations & classes 9, Partial orders & Hasse diagrams 8, Lattices in posets 8, Composition & transitive closure 8, Counting relations 8); matched labels [\"Partial orders & Hasse diagrams\", \"Lattices in posets\"]; paper from runs[] run 2 file https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html; unit at the 50-question cap (MOCK_CAPPED)",
+        "visual: syllabus-coverage.json lesson_slug partial-orders-and-lattices (PUBLISHED); covers [\"complements and counting them\"] checked against topics/partial-orders-and-lattices/transcript.md scenes 1-10"
+      ],
+      "row_verdict": "BOTH"
+    },
+    {
+      "subject": "discrete-mathematics",
+      "group": "partial-orders-and-lattices",
+      "topic": "distributive-lattices",
+      "title": "Distributive Lattices and the Two Forbidden Shapes",
+      "priority": "P2",
+      "path": "subjects/discrete-mathematics/partial-orders-and-lattices/distributive-lattices.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "discrete-mathematics",
+        "unit_slug": "relations",
+        "unit_name": "Relations",
+        "unit_number": 4,
+        "question_count": 50,
+        "subtopic_labels": [
+          "Relation properties",
+          "Equivalence relations & classes",
+          "Partial orders & Hasse diagrams",
+          "Lattices in posets",
+          "Composition & transitive closure",
+          "Counting relations"
+        ],
+        "verdict": "MOCK_READY"
+      },
+      "visual": {
+        "slug": "partial-orders-and-lattices",
+        "title": "Partial Orders, Hasse Diagrams and Lattices",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/discrete-mathematics/partial-orders-and-lattices/distributive-lattices.json",
+        "mock: discrete-mathematics master_bank.json unit 4 (relations), 50 records grouped by subtopic_label (Relation properties 9, Equivalence relations & classes 9, Partial orders & Hasse diagrams 8, Lattices in posets 8, Composition & transitive closure 8, Counting relations 8); matched labels [\"Partial orders & Hasse diagrams\", \"Lattices in posets\"]; paper from runs[] run 2 file https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html; unit at the 50-question cap (MOCK_CAPPED)",
+        "visual: syllabus-coverage.json lesson_slug partial-orders-and-lattices (PUBLISHED); covers [\"distributivity tested on one triple\", \"M3 and N5 as the two obstructions\"] checked against topics/partial-orders-and-lattices/transcript.md scenes 1-10"
+      ],
+      "row_verdict": "BOTH"
+    },
+    {
+      "subject": "discrete-mathematics",
+      "group": "partial-orders-and-lattices",
+      "topic": "boolean-lattices-and-examples",
+      "title": "Boolean Lattices, Power Sets and Divisor Lattices",
+      "priority": "P2",
+      "path": "subjects/discrete-mathematics/partial-orders-and-lattices/boolean-lattices-and-examples.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "discrete-mathematics",
+        "unit_slug": "relations",
+        "unit_name": "Relations",
+        "unit_number": 4,
+        "question_count": 50,
+        "subtopic_labels": [
+          "Relation properties",
+          "Equivalence relations & classes",
+          "Partial orders & Hasse diagrams",
+          "Lattices in posets",
+          "Composition & transitive closure",
+          "Counting relations"
+        ],
+        "verdict": "MOCK_READY"
+      },
+      "visual": {
+        "slug": "partial-orders-and-lattices",
+        "title": "Partial Orders, Hasse Diagrams and Lattices",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/discrete-mathematics/partial-orders-and-lattices/boolean-lattices-and-examples.json",
+        "mock: discrete-mathematics master_bank.json unit 4 (relations), 50 records grouped by subtopic_label (Relation properties 9, Equivalence relations & classes 9, Partial orders & Hasse diagrams 8, Lattices in posets 8, Composition & transitive closure 8, Counting relations 8); matched labels [\"Partial orders & Hasse diagrams\", \"Lattices in posets\"]; paper from runs[] run 2 file https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html; unit at the 50-question cap (MOCK_CAPPED)",
+        "visual: syllabus-coverage.json lesson_slug partial-orders-and-lattices (PUBLISHED); covers [\"the power set as a distributive lattice with unique complements\"] checked against topics/partial-orders-and-lattices/transcript.md scenes 1-10"
+      ],
+      "row_verdict": "BOTH"
+    },
+    {
+      "subject": "discrete-mathematics",
+      "group": "partial-orders-and-lattices",
+      "topic": "complete-lattices",
+      "title": "Complete Lattices",
+      "priority": "P3",
+      "path": "subjects/discrete-mathematics/partial-orders-and-lattices/complete-lattices.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "discrete-mathematics",
+        "unit_slug": "relations",
+        "unit_name": "Relations",
+        "unit_number": 4,
+        "question_count": 50,
+        "subtopic_labels": [
+          "Relation properties",
+          "Equivalence relations & classes",
+          "Partial orders & Hasse diagrams",
+          "Lattices in posets",
+          "Composition & transitive closure",
+          "Counting relations"
+        ],
+        "verdict": "MOCK_READY"
+      },
+      "visual": null,
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/discrete-mathematics/partial-orders-and-lattices/complete-lattices.json",
+        "mock: discrete-mathematics master_bank.json unit 4 (relations), 50 records grouped by subtopic_label (Relation properties 9, Equivalence relations & classes 9, Partial orders & Hasse diagrams 8, Lattices in posets 8, Composition & transitive closure 8, Counting relations 8); matched labels [\"Partial orders & Hasse diagrams\", \"Lattices in posets\"]; paper from runs[] run 2 file https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html; unit at the 50-question cap (MOCK_CAPPED)",
+        "visual: syllabus-coverage.json lesson_slug partial-orders-and-lattices (PUBLISHED) but topics/partial-orders-and-lattices/transcript.md does not cover this subtopic; no lesson dedicated to it"
+      ],
+      "row_verdict": "MOCK_ONLY"
     },
     {
       "subject": "discrete-mathematics",
@@ -959,358 +1996,6 @@
     },
     {
       "subject": "discrete-mathematics",
-      "group": "first-order-logic",
-      "topic": "fol-syntax-predicates-and-quantifiers",
-      "title": "Predicates, Variables and Quantifiers",
-      "priority": "P1",
-      "path": "subjects/discrete-mathematics/first-order-logic/fol-syntax-predicates-and-quantifiers.json",
-      "transcript_status": "not stated",
-      "mock": {
-        "subject": "discrete-mathematics",
-        "unit_slug": "predicate-logic",
-        "unit_name": "Predicate & First-Order Logic",
-        "unit_number": 2,
-        "question_count": 50,
-        "subtopic_labels": [
-          "Predicates & domain",
-          "Universal & existential quantifiers",
-          "Negation of nested quantifiers",
-          "Scope & order of quantifiers",
-          "English to FOL translation"
-        ],
-        "verdict": "MOCK_READY"
-      },
-      "visual": {
-        "slug": "first-order-logic",
-        "title": "First-Order Logic",
-        "coverage_status": "PUBLISHED",
-        "level": "topic-level",
-        "verdict": "VISUAL_LESSON"
-      },
-      "evidence": [
-        "notes content/index.json -> map[].path = subjects/discrete-mathematics/first-order-logic/fol-syntax-predicates-and-quantifiers.json",
-        "mock: discrete-mathematics master_bank.json unit 2 (predicate-logic), 50 records grouped by subtopic_label; paper https://gate-cse-mocks.vercel.app/discrete-mathematics/predicate-logic/gate_dm_mock_2_2026-10-25.html",
-        "visual: syllabus-coverage.json lesson_slug first-order-logic (PUBLISHED); covers checked against topics/first-order-logic/transcript.md scene list"
-      ],
-      "row_verdict": "BOTH"
-    },
-    {
-      "subject": "discrete-mathematics",
-      "group": "first-order-logic",
-      "topic": "english-to-fol-translation-templates",
-      "title": "English to First-Order Logic: the Sentence Templates",
-      "priority": "P1",
-      "path": "subjects/discrete-mathematics/first-order-logic/english-to-fol-translation-templates.json",
-      "transcript_status": "not stated",
-      "mock": {
-        "subject": "discrete-mathematics",
-        "unit_slug": "predicate-logic",
-        "unit_name": "Predicate & First-Order Logic",
-        "unit_number": 2,
-        "question_count": 50,
-        "subtopic_labels": [
-          "Predicates & domain",
-          "Universal & existential quantifiers",
-          "Negation of nested quantifiers",
-          "Scope & order of quantifiers",
-          "English to FOL translation"
-        ],
-        "verdict": "MOCK_READY"
-      },
-      "visual": {
-        "slug": "first-order-logic",
-        "title": "First-Order Logic",
-        "coverage_status": "PUBLISHED",
-        "level": "topic-level",
-        "verdict": "VISUAL_LESSON"
-      },
-      "evidence": [
-        "notes content/index.json -> map[].path = subjects/discrete-mathematics/first-order-logic/english-to-fol-translation-templates.json",
-        "mock: discrete-mathematics master_bank.json unit 2 (predicate-logic), 50 records grouped by subtopic_label; paper https://gate-cse-mocks.vercel.app/discrete-mathematics/predicate-logic/gate_dm_mock_2_2026-10-25.html",
-        "visual: syllabus-coverage.json lesson_slug first-order-logic (PUBLISHED); covers checked against topics/first-order-logic/transcript.md scene list"
-      ],
-      "row_verdict": "BOTH"
-    },
-    {
-      "subject": "discrete-mathematics",
-      "group": "first-order-logic",
-      "topic": "quantifier-order-and-nesting",
-      "title": "Quantifier Order: for all x there exists y versus there exists y for all x",
-      "priority": "P1",
-      "path": "subjects/discrete-mathematics/first-order-logic/quantifier-order-and-nesting.json",
-      "transcript_status": "not stated",
-      "mock": {
-        "subject": "discrete-mathematics",
-        "unit_slug": "predicate-logic",
-        "unit_name": "Predicate & First-Order Logic",
-        "unit_number": 2,
-        "question_count": 50,
-        "subtopic_labels": [
-          "Predicates & domain",
-          "Universal & existential quantifiers",
-          "Negation of nested quantifiers",
-          "Scope & order of quantifiers",
-          "English to FOL translation"
-        ],
-        "verdict": "MOCK_READY"
-      },
-      "visual": {
-        "slug": "first-order-logic",
-        "title": "First-Order Logic",
-        "coverage_status": "PUBLISHED",
-        "level": "topic-level",
-        "verdict": "VISUAL_LESSON"
-      },
-      "evidence": [
-        "notes content/index.json -> map[].path = subjects/discrete-mathematics/first-order-logic/quantifier-order-and-nesting.json",
-        "mock: discrete-mathematics master_bank.json unit 2 (predicate-logic), 50 records grouped by subtopic_label; paper https://gate-cse-mocks.vercel.app/discrete-mathematics/predicate-logic/gate_dm_mock_2_2026-10-25.html",
-        "visual: syllabus-coverage.json lesson_slug first-order-logic (PUBLISHED); covers checked against topics/first-order-logic/transcript.md scene list"
-      ],
-      "row_verdict": "BOTH"
-    },
-    {
-      "subject": "discrete-mathematics",
-      "group": "first-order-logic",
-      "topic": "fol-interpretation-model-and-validity",
-      "title": "Interpretation, Model and Validity",
-      "priority": "P1",
-      "path": "subjects/discrete-mathematics/first-order-logic/fol-interpretation-model-and-validity.json",
-      "transcript_status": "not stated",
-      "mock": {
-        "subject": "discrete-mathematics",
-        "unit_slug": "predicate-logic",
-        "unit_name": "Predicate & First-Order Logic",
-        "unit_number": 2,
-        "question_count": 50,
-        "subtopic_labels": [
-          "Predicates & domain",
-          "Universal & existential quantifiers",
-          "Negation of nested quantifiers",
-          "Scope & order of quantifiers",
-          "English to FOL translation"
-        ],
-        "verdict": "MOCK_READY"
-      },
-      "visual": {
-        "slug": "first-order-logic",
-        "title": "First-Order Logic",
-        "coverage_status": "PUBLISHED",
-        "level": "topic-level",
-        "verdict": "VISUAL_LESSON"
-      },
-      "evidence": [
-        "notes content/index.json -> map[].path = subjects/discrete-mathematics/first-order-logic/fol-interpretation-model-and-validity.json",
-        "mock: discrete-mathematics master_bank.json unit 2 (predicate-logic), 50 records grouped by subtopic_label; paper https://gate-cse-mocks.vercel.app/discrete-mathematics/predicate-logic/gate_dm_mock_2_2026-10-25.html",
-        "visual: syllabus-coverage.json lesson_slug first-order-logic (PUBLISHED); covers checked against topics/first-order-logic/transcript.md scene list"
-      ],
-      "row_verdict": "BOTH"
-    },
-    {
-      "subject": "discrete-mathematics",
-      "group": "first-order-logic",
-      "topic": "quantifier-negation-and-equivalence",
-      "title": "Negating Quantifiers and Null Quantification",
-      "priority": "P1",
-      "path": "subjects/discrete-mathematics/first-order-logic/quantifier-negation-and-equivalence.json",
-      "transcript_status": "not stated",
-      "mock": {
-        "subject": "discrete-mathematics",
-        "unit_slug": "predicate-logic",
-        "unit_name": "Predicate & First-Order Logic",
-        "unit_number": 2,
-        "question_count": 50,
-        "subtopic_labels": [
-          "Predicates & domain",
-          "Universal & existential quantifiers",
-          "Negation of nested quantifiers",
-          "Scope & order of quantifiers",
-          "English to FOL translation"
-        ],
-        "verdict": "MOCK_READY"
-      },
-      "visual": {
-        "slug": "first-order-logic",
-        "title": "First-Order Logic",
-        "coverage_status": "PUBLISHED",
-        "level": "topic-level",
-        "verdict": "VISUAL_LESSON"
-      },
-      "evidence": [
-        "notes content/index.json -> map[].path = subjects/discrete-mathematics/first-order-logic/quantifier-negation-and-equivalence.json",
-        "mock: discrete-mathematics master_bank.json unit 2 (predicate-logic), 50 records grouped by subtopic_label; paper https://gate-cse-mocks.vercel.app/discrete-mathematics/predicate-logic/gate_dm_mock_2_2026-10-25.html",
-        "visual: syllabus-coverage.json lesson_slug first-order-logic (PUBLISHED); covers checked against topics/first-order-logic/transcript.md scene list"
-      ],
-      "row_verdict": "BOTH"
-    },
-    {
-      "subject": "discrete-mathematics",
-      "group": "first-order-logic",
-      "topic": "fol-validity-and-implication",
-      "title": "Validity, Implication and the Two-Element Countermodel",
-      "priority": "P1",
-      "path": "subjects/discrete-mathematics/first-order-logic/fol-validity-and-implication.json",
-      "transcript_status": "not stated",
-      "mock": {
-        "subject": "discrete-mathematics",
-        "unit_slug": "predicate-logic",
-        "unit_name": "Predicate & First-Order Logic",
-        "unit_number": 2,
-        "question_count": 50,
-        "subtopic_labels": [
-          "Predicates & domain",
-          "Universal & existential quantifiers",
-          "Negation of nested quantifiers",
-          "Scope & order of quantifiers",
-          "English to FOL translation"
-        ],
-        "verdict": "MOCK_READY"
-      },
-      "visual": {
-        "slug": "first-order-logic",
-        "title": "First-Order Logic",
-        "coverage_status": "PUBLISHED",
-        "level": "topic-level",
-        "verdict": "VISUAL_LESSON"
-      },
-      "evidence": [
-        "notes content/index.json -> map[].path = subjects/discrete-mathematics/first-order-logic/fol-validity-and-implication.json",
-        "mock: discrete-mathematics master_bank.json unit 2 (predicate-logic), 50 records grouped by subtopic_label; paper https://gate-cse-mocks.vercel.app/discrete-mathematics/predicate-logic/gate_dm_mock_2_2026-10-25.html",
-        "visual: syllabus-coverage.json lesson_slug first-order-logic (PUBLISHED); covers checked against topics/first-order-logic/transcript.md scene list"
-      ],
-      "row_verdict": "BOTH"
-    },
-    {
-      "subject": "discrete-mathematics",
-      "group": "first-order-logic",
-      "topic": "fol-tautology-vs-validity",
-      "title": "Tautology versus Validity in First-Order Logic",
-      "priority": "P2",
-      "path": "subjects/discrete-mathematics/first-order-logic/fol-tautology-vs-validity.json",
-      "transcript_status": "not stated",
-      "mock": {
-        "subject": "discrete-mathematics",
-        "unit_slug": "predicate-logic",
-        "unit_name": "Predicate & First-Order Logic",
-        "unit_number": 2,
-        "question_count": 50,
-        "subtopic_labels": [
-          "Predicates & domain",
-          "Universal & existential quantifiers",
-          "Negation of nested quantifiers",
-          "Scope & order of quantifiers",
-          "English to FOL translation"
-        ],
-        "verdict": "MOCK_READY"
-      },
-      "visual": null,
-      "evidence": [
-        "notes content/index.json -> map[].path = subjects/discrete-mathematics/first-order-logic/fol-tautology-vs-validity.json",
-        "mock: discrete-mathematics master_bank.json unit 2 (predicate-logic), 50 records grouped by subtopic_label; paper https://gate-cse-mocks.vercel.app/discrete-mathematics/predicate-logic/gate_dm_mock_2_2026-10-25.html",
-        "visual: no published lesson covers this card at subtopic level"
-      ],
-      "row_verdict": "MOCK_ONLY"
-    },
-    {
-      "subject": "discrete-mathematics",
-      "group": "first-order-logic",
-      "topic": "fol-exactly-one-and-uniqueness",
-      "title": "Exactly One, At Most One and Uniqueness",
-      "priority": "P2",
-      "path": "subjects/discrete-mathematics/first-order-logic/fol-exactly-one-and-uniqueness.json",
-      "transcript_status": "not stated",
-      "mock": {
-        "subject": "discrete-mathematics",
-        "unit_slug": "predicate-logic",
-        "unit_name": "Predicate & First-Order Logic",
-        "unit_number": 2,
-        "question_count": 50,
-        "subtopic_labels": [
-          "Predicates & domain",
-          "Universal & existential quantifiers",
-          "Negation of nested quantifiers",
-          "Scope & order of quantifiers",
-          "English to FOL translation"
-        ],
-        "verdict": "MOCK_READY"
-      },
-      "visual": null,
-      "evidence": [
-        "notes content/index.json -> map[].path = subjects/discrete-mathematics/first-order-logic/fol-exactly-one-and-uniqueness.json",
-        "mock: discrete-mathematics master_bank.json unit 2 (predicate-logic), 50 records grouped by subtopic_label; paper https://gate-cse-mocks.vercel.app/discrete-mathematics/predicate-logic/gate_dm_mock_2_2026-10-25.html",
-        "visual: no published lesson covers this card at subtopic level"
-      ],
-      "row_verdict": "MOCK_ONLY"
-    },
-    {
-      "subject": "discrete-mathematics",
-      "group": "first-order-logic",
-      "topic": "fol-model-size-and-countermodels",
-      "title": "Model Size and Small Countermodels",
-      "priority": "P2",
-      "path": "subjects/discrete-mathematics/first-order-logic/fol-model-size-and-countermodels.json",
-      "transcript_status": "not stated",
-      "mock": {
-        "subject": "discrete-mathematics",
-        "unit_slug": "predicate-logic",
-        "unit_name": "Predicate & First-Order Logic",
-        "unit_number": 2,
-        "question_count": 50,
-        "subtopic_labels": [
-          "Predicates & domain",
-          "Universal & existential quantifiers",
-          "Negation of nested quantifiers",
-          "Scope & order of quantifiers",
-          "English to FOL translation"
-        ],
-        "verdict": "MOCK_READY"
-      },
-      "visual": {
-        "slug": "first-order-logic",
-        "title": "First-Order Logic",
-        "coverage_status": "PUBLISHED",
-        "level": "topic-level",
-        "verdict": "VISUAL_LESSON"
-      },
-      "evidence": [
-        "notes content/index.json -> map[].path = subjects/discrete-mathematics/first-order-logic/fol-model-size-and-countermodels.json",
-        "mock: discrete-mathematics master_bank.json unit 2 (predicate-logic), 50 records grouped by subtopic_label; paper https://gate-cse-mocks.vercel.app/discrete-mathematics/predicate-logic/gate_dm_mock_2_2026-10-25.html",
-        "visual: syllabus-coverage.json lesson_slug first-order-logic (PUBLISHED); covers checked against topics/first-order-logic/transcript.md scene list"
-      ],
-      "row_verdict": "BOTH"
-    },
-    {
-      "subject": "discrete-mathematics",
-      "group": "first-order-logic",
-      "topic": "fol-quantifier-inference-rules",
-      "title": "Quantifier Inference Rules and their Side Conditions",
-      "priority": "P2",
-      "path": "subjects/discrete-mathematics/first-order-logic/fol-quantifier-inference-rules.json",
-      "transcript_status": "not stated",
-      "mock": {
-        "subject": "discrete-mathematics",
-        "unit_slug": "predicate-logic",
-        "unit_name": "Predicate & First-Order Logic",
-        "unit_number": 2,
-        "question_count": 50,
-        "subtopic_labels": [
-          "Predicates & domain",
-          "Universal & existential quantifiers",
-          "Negation of nested quantifiers",
-          "Scope & order of quantifiers",
-          "English to FOL translation"
-        ],
-        "verdict": "MOCK_READY"
-      },
-      "visual": null,
-      "evidence": [
-        "notes content/index.json -> map[].path = subjects/discrete-mathematics/first-order-logic/fol-quantifier-inference-rules.json",
-        "mock: discrete-mathematics master_bank.json unit 2 (predicate-logic), 50 records grouped by subtopic_label; paper https://gate-cse-mocks.vercel.app/discrete-mathematics/predicate-logic/gate_dm_mock_2_2026-10-25.html",
-        "visual: no published lesson covers this card at subtopic level"
-      ],
-      "row_verdict": "MOCK_ONLY"
-    },
-    {
-      "subject": "discrete-mathematics",
       "group": "sets-relations-functions",
       "topic": "sets-elements-subsets-cardinality",
       "title": "Sets, Elements, Subsets and Cardinality",
@@ -1713,444 +2398,6 @@
         "visual: syllabus-coverage.json lesson_slug functions-and-their-properties (PUBLISHED); covers checked against topics/functions-and-their-properties/transcript.md scene list"
       ],
       "row_verdict": "BOTH"
-    },
-    {
-      "subject": "discrete-mathematics",
-      "group": "partial-orders-and-lattices",
-      "topic": "poset-and-partial-order-axioms",
-      "title": "Partial Orders and Posets",
-      "priority": "P1",
-      "path": "subjects/discrete-mathematics/partial-orders-and-lattices/poset-and-partial-order-axioms.json",
-      "transcript_status": "not stated",
-      "mock": {
-        "subject": "discrete-mathematics",
-        "unit_slug": "relations",
-        "unit_name": "Relations",
-        "unit_number": 4,
-        "question_count": 50,
-        "subtopic_labels": [
-          "Relation properties",
-          "Equivalence relations & classes",
-          "Partial orders & Hasse diagrams",
-          "Lattices in posets",
-          "Composition & transitive closure",
-          "Counting relations"
-        ],
-        "verdict": "MOCK_READY"
-      },
-      "visual": {
-        "slug": "partial-orders-and-lattices",
-        "title": "Partial Orders, Hasse Diagrams and Lattices",
-        "coverage_status": "PUBLISHED",
-        "level": "topic-level",
-        "verdict": "VISUAL_LESSON"
-      },
-      "evidence": [
-        "notes content/index.json -> map[].path = subjects/discrete-mathematics/partial-orders-and-lattices/poset-and-partial-order-axioms.json",
-        "mock: discrete-mathematics master_bank.json unit 4 (relations), 50 records grouped by subtopic_label (Relation properties 9, Equivalence relations & classes 9, Partial orders & Hasse diagrams 8, Lattices in posets 8, Composition & transitive closure 8, Counting relations 8); matched labels [\"Partial orders & Hasse diagrams\", \"Lattices in posets\"]; paper from runs[] run 2 file https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html; unit at the 50-question cap (MOCK_CAPPED)",
-        "visual: syllabus-coverage.json lesson_slug partial-orders-and-lattices (PUBLISHED); covers [\"a partial order as three separate promises\", \"divisibility as a partial order\"] checked against topics/partial-orders-and-lattices/transcript.md scenes 1-10"
-      ],
-      "row_verdict": "BOTH"
-    },
-    {
-      "subject": "discrete-mathematics",
-      "group": "partial-orders-and-lattices",
-      "topic": "hasse-diagram-and-covering",
-      "title": "Covering Relation and the Hasse Diagram",
-      "priority": "P1",
-      "path": "subjects/discrete-mathematics/partial-orders-and-lattices/hasse-diagram-and-covering.json",
-      "transcript_status": "not stated",
-      "mock": {
-        "subject": "discrete-mathematics",
-        "unit_slug": "relations",
-        "unit_name": "Relations",
-        "unit_number": 4,
-        "question_count": 50,
-        "subtopic_labels": [
-          "Relation properties",
-          "Equivalence relations & classes",
-          "Partial orders & Hasse diagrams",
-          "Lattices in posets",
-          "Composition & transitive closure",
-          "Counting relations"
-        ],
-        "verdict": "MOCK_READY"
-      },
-      "visual": {
-        "slug": "partial-orders-and-lattices",
-        "title": "Partial Orders, Hasse Diagrams and Lattices",
-        "coverage_status": "PUBLISHED",
-        "level": "topic-level",
-        "verdict": "VISUAL_LESSON"
-      },
-      "evidence": [
-        "notes content/index.json -> map[].path = subjects/discrete-mathematics/partial-orders-and-lattices/hasse-diagram-and-covering.json",
-        "mock: discrete-mathematics master_bank.json unit 4 (relations), 50 records grouped by subtopic_label (Relation properties 9, Equivalence relations & classes 9, Partial orders & Hasse diagrams 8, Lattices in posets 8, Composition & transitive closure 8, Counting relations 8); matched labels [\"Partial orders & Hasse diagrams\", \"Lattices in posets\"]; paper from runs[] run 2 file https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html; unit at the 50-question cap (MOCK_CAPPED)",
-        "visual: syllabus-coverage.json lesson_slug partial-orders-and-lattices (PUBLISHED); covers [\"the covering relation and transitive reduction\", \"drawing the Hasse diagram\"] checked against topics/partial-orders-and-lattices/transcript.md scenes 1-10"
-      ],
-      "row_verdict": "BOTH"
-    },
-    {
-      "subject": "discrete-mathematics",
-      "group": "partial-orders-and-lattices",
-      "topic": "comparability-chains-and-antichains",
-      "title": "Comparable Pairs, Chains, Antichains and Total Orders",
-      "priority": "P2",
-      "path": "subjects/discrete-mathematics/partial-orders-and-lattices/comparability-chains-and-antichains.json",
-      "transcript_status": "not stated",
-      "mock": {
-        "subject": "discrete-mathematics",
-        "unit_slug": "relations",
-        "unit_name": "Relations",
-        "unit_number": 4,
-        "question_count": 50,
-        "subtopic_labels": [
-          "Relation properties",
-          "Equivalence relations & classes",
-          "Partial orders & Hasse diagrams",
-          "Lattices in posets",
-          "Composition & transitive closure",
-          "Counting relations"
-        ],
-        "verdict": "MOCK_READY"
-      },
-      "visual": {
-        "slug": "partial-orders-and-lattices",
-        "title": "Partial Orders, Hasse Diagrams and Lattices",
-        "coverage_status": "PUBLISHED",
-        "level": "topic-level",
-        "verdict": "VISUAL_LESSON"
-      },
-      "evidence": [
-        "notes content/index.json -> map[].path = subjects/discrete-mathematics/partial-orders-and-lattices/comparability-chains-and-antichains.json",
-        "mock: discrete-mathematics master_bank.json unit 4 (relations), 50 records grouped by subtopic_label (Relation properties 9, Equivalence relations & classes 9, Partial orders & Hasse diagrams 8, Lattices in posets 8, Composition & transitive closure 8, Counting relations 8); matched labels [\"Partial orders & Hasse diagrams\", \"Lattices in posets\"]; paper from runs[] run 2 file https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html; unit at the 50-question cap (MOCK_CAPPED)",
-        "visual: syllabus-coverage.json lesson_slug partial-orders-and-lattices (PUBLISHED); covers [\"comparable pairs, chains and antichains\"] checked against topics/partial-orders-and-lattices/transcript.md scenes 1-10"
-      ],
-      "row_verdict": "BOTH"
-    },
-    {
-      "subject": "discrete-mathematics",
-      "group": "partial-orders-and-lattices",
-      "topic": "minimal-maximal-least-greatest",
-      "title": "Minimal, Maximal, Least and Greatest Elements",
-      "priority": "P1",
-      "path": "subjects/discrete-mathematics/partial-orders-and-lattices/minimal-maximal-least-greatest.json",
-      "transcript_status": "not stated",
-      "mock": {
-        "subject": "discrete-mathematics",
-        "unit_slug": "relations",
-        "unit_name": "Relations",
-        "unit_number": 4,
-        "question_count": 50,
-        "subtopic_labels": [
-          "Relation properties",
-          "Equivalence relations & classes",
-          "Partial orders & Hasse diagrams",
-          "Lattices in posets",
-          "Composition & transitive closure",
-          "Counting relations"
-        ],
-        "verdict": "MOCK_READY"
-      },
-      "visual": {
-        "slug": "partial-orders-and-lattices",
-        "title": "Partial Orders, Hasse Diagrams and Lattices",
-        "coverage_status": "PUBLISHED",
-        "level": "topic-level",
-        "verdict": "VISUAL_LESSON"
-      },
-      "evidence": [
-        "notes content/index.json -> map[].path = subjects/discrete-mathematics/partial-orders-and-lattices/minimal-maximal-least-greatest.json",
-        "mock: discrete-mathematics master_bank.json unit 4 (relations), 50 records grouped by subtopic_label (Relation properties 9, Equivalence relations & classes 9, Partial orders & Hasse diagrams 8, Lattices in posets 8, Composition & transitive closure 8, Counting relations 8); matched labels [\"Partial orders & Hasse diagrams\", \"Lattices in posets\"]; paper from runs[] run 2 file https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html; unit at the 50-question cap (MOCK_CAPPED)",
-        "visual: syllabus-coverage.json lesson_slug partial-orders-and-lattices (PUBLISHED); covers [\"maximal versus greatest\", \"minimal versus least\"] checked against topics/partial-orders-and-lattices/transcript.md scenes 1-10"
-      ],
-      "row_verdict": "BOTH"
-    },
-    {
-      "subject": "discrete-mathematics",
-      "group": "partial-orders-and-lattices",
-      "topic": "upper-lower-bounds-lub-glb",
-      "title": "Upper Bounds, Lower Bounds, LUB and GLB",
-      "priority": "P1",
-      "path": "subjects/discrete-mathematics/partial-orders-and-lattices/upper-lower-bounds-lub-glb.json",
-      "transcript_status": "not stated",
-      "mock": {
-        "subject": "discrete-mathematics",
-        "unit_slug": "relations",
-        "unit_name": "Relations",
-        "unit_number": 4,
-        "question_count": 50,
-        "subtopic_labels": [
-          "Relation properties",
-          "Equivalence relations & classes",
-          "Partial orders & Hasse diagrams",
-          "Lattices in posets",
-          "Composition & transitive closure",
-          "Counting relations"
-        ],
-        "verdict": "MOCK_READY"
-      },
-      "visual": {
-        "slug": "partial-orders-and-lattices",
-        "title": "Partial Orders, Hasse Diagrams and Lattices",
-        "coverage_status": "PUBLISHED",
-        "level": "topic-level",
-        "verdict": "VISUAL_LESSON"
-      },
-      "evidence": [
-        "notes content/index.json -> map[].path = subjects/discrete-mathematics/partial-orders-and-lattices/upper-lower-bounds-lub-glb.json",
-        "mock: discrete-mathematics master_bank.json unit 4 (relations), 50 records grouped by subtopic_label (Relation properties 9, Equivalence relations & classes 9, Partial orders & Hasse diagrams 8, Lattices in posets 8, Composition & transitive closure 8, Counting relations 8); matched labels [\"Partial orders & Hasse diagrams\", \"Lattices in posets\"]; paper from runs[] run 2 file https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html; unit at the 50-question cap (MOCK_CAPPED)",
-        "visual: syllabus-coverage.json lesson_slug partial-orders-and-lattices (PUBLISHED); covers [\"upper and lower bounds\", \"lub and glb as join and meet\"] checked against topics/partial-orders-and-lattices/transcript.md scenes 1-10"
-      ],
-      "row_verdict": "BOTH"
-    },
-    {
-      "subject": "discrete-mathematics",
-      "group": "partial-orders-and-lattices",
-      "topic": "lattice-definition-and-pairwise-test",
-      "title": "Lattices and the Pairwise Test",
-      "priority": "P1",
-      "path": "subjects/discrete-mathematics/partial-orders-and-lattices/lattice-definition-and-pairwise-test.json",
-      "transcript_status": "not stated",
-      "mock": {
-        "subject": "discrete-mathematics",
-        "unit_slug": "relations",
-        "unit_name": "Relations",
-        "unit_number": 4,
-        "question_count": 50,
-        "subtopic_labels": [
-          "Relation properties",
-          "Equivalence relations & classes",
-          "Partial orders & Hasse diagrams",
-          "Lattices in posets",
-          "Composition & transitive closure",
-          "Counting relations"
-        ],
-        "verdict": "MOCK_READY"
-      },
-      "visual": {
-        "slug": "partial-orders-and-lattices",
-        "title": "Partial Orders, Hasse Diagrams and Lattices",
-        "coverage_status": "PUBLISHED",
-        "level": "topic-level",
-        "verdict": "VISUAL_LESSON"
-      },
-      "evidence": [
-        "notes content/index.json -> map[].path = subjects/discrete-mathematics/partial-orders-and-lattices/lattice-definition-and-pairwise-test.json",
-        "mock: discrete-mathematics master_bank.json unit 4 (relations), 50 records grouped by subtopic_label (Relation properties 9, Equivalence relations & classes 9, Partial orders & Hasse diagrams 8, Lattices in posets 8, Composition & transitive closure 8, Counting relations 8); matched labels [\"Partial orders & Hasse diagrams\", \"Lattices in posets\"]; paper from runs[] run 2 file https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html; unit at the 50-question cap (MOCK_CAPPED)",
-        "visual: syllabus-coverage.json lesson_slug partial-orders-and-lattices (PUBLISHED); covers [\"a lattice needs a join and a meet for every pair\", \"the pairwise lattice test\"] checked against topics/partial-orders-and-lattices/transcript.md scenes 1-10"
-      ],
-      "row_verdict": "BOTH"
-    },
-    {
-      "subject": "discrete-mathematics",
-      "group": "partial-orders-and-lattices",
-      "topic": "lattice-algebraic-laws",
-      "title": "The Lattice Laws: Idempotent, Commutative, Associative, Absorption",
-      "priority": "P1",
-      "path": "subjects/discrete-mathematics/partial-orders-and-lattices/lattice-algebraic-laws.json",
-      "transcript_status": "not stated",
-      "mock": {
-        "subject": "discrete-mathematics",
-        "unit_slug": "relations",
-        "unit_name": "Relations",
-        "unit_number": 4,
-        "question_count": 50,
-        "subtopic_labels": [
-          "Relation properties",
-          "Equivalence relations & classes",
-          "Partial orders & Hasse diagrams",
-          "Lattices in posets",
-          "Composition & transitive closure",
-          "Counting relations"
-        ],
-        "verdict": "MOCK_READY"
-      },
-      "visual": null,
-      "evidence": [
-        "notes content/index.json -> map[].path = subjects/discrete-mathematics/partial-orders-and-lattices/lattice-algebraic-laws.json",
-        "mock: discrete-mathematics master_bank.json unit 4 (relations), 50 records grouped by subtopic_label (Relation properties 9, Equivalence relations & classes 9, Partial orders & Hasse diagrams 8, Lattices in posets 8, Composition & transitive closure 8, Counting relations 8); matched labels [\"Partial orders & Hasse diagrams\", \"Lattices in posets\"]; paper from runs[] run 2 file https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html; unit at the 50-question cap (MOCK_CAPPED)",
-        "visual: syllabus-coverage.json lesson_slug partial-orders-and-lattices (PUBLISHED) but topics/partial-orders-and-lattices/transcript.md does not cover this subtopic; no lesson dedicated to it"
-      ],
-      "row_verdict": "MOCK_ONLY"
-    },
-    {
-      "subject": "discrete-mathematics",
-      "group": "partial-orders-and-lattices",
-      "topic": "sublattices",
-      "title": "Sublattices",
-      "priority": "P2",
-      "path": "subjects/discrete-mathematics/partial-orders-and-lattices/sublattices.json",
-      "transcript_status": "not stated",
-      "mock": {
-        "subject": "discrete-mathematics",
-        "unit_slug": "relations",
-        "unit_name": "Relations",
-        "unit_number": 4,
-        "question_count": 50,
-        "subtopic_labels": [
-          "Relation properties",
-          "Equivalence relations & classes",
-          "Partial orders & Hasse diagrams",
-          "Lattices in posets",
-          "Composition & transitive closure",
-          "Counting relations"
-        ],
-        "verdict": "MOCK_READY"
-      },
-      "visual": null,
-      "evidence": [
-        "notes content/index.json -> map[].path = subjects/discrete-mathematics/partial-orders-and-lattices/sublattices.json",
-        "mock: discrete-mathematics master_bank.json unit 4 (relations), 50 records grouped by subtopic_label (Relation properties 9, Equivalence relations & classes 9, Partial orders & Hasse diagrams 8, Lattices in posets 8, Composition & transitive closure 8, Counting relations 8); matched labels [\"Partial orders & Hasse diagrams\", \"Lattices in posets\"]; paper from runs[] run 2 file https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html; unit at the 50-question cap (MOCK_CAPPED)",
-        "visual: syllabus-coverage.json lesson_slug partial-orders-and-lattices (PUBLISHED) but topics/partial-orders-and-lattices/transcript.md does not cover this subtopic; no lesson dedicated to it"
-      ],
-      "row_verdict": "MOCK_ONLY"
-    },
-    {
-      "subject": "discrete-mathematics",
-      "group": "partial-orders-and-lattices",
-      "topic": "bounded-and-complemented-lattices",
-      "title": "Bounded and Complemented Lattices",
-      "priority": "P2",
-      "path": "subjects/discrete-mathematics/partial-orders-and-lattices/bounded-and-complemented-lattices.json",
-      "transcript_status": "not stated",
-      "mock": {
-        "subject": "discrete-mathematics",
-        "unit_slug": "relations",
-        "unit_name": "Relations",
-        "unit_number": 4,
-        "question_count": 50,
-        "subtopic_labels": [
-          "Relation properties",
-          "Equivalence relations & classes",
-          "Partial orders & Hasse diagrams",
-          "Lattices in posets",
-          "Composition & transitive closure",
-          "Counting relations"
-        ],
-        "verdict": "MOCK_READY"
-      },
-      "visual": {
-        "slug": "partial-orders-and-lattices",
-        "title": "Partial Orders, Hasse Diagrams and Lattices",
-        "coverage_status": "PUBLISHED",
-        "level": "topic-level",
-        "verdict": "VISUAL_LESSON"
-      },
-      "evidence": [
-        "notes content/index.json -> map[].path = subjects/discrete-mathematics/partial-orders-and-lattices/bounded-and-complemented-lattices.json",
-        "mock: discrete-mathematics master_bank.json unit 4 (relations), 50 records grouped by subtopic_label (Relation properties 9, Equivalence relations & classes 9, Partial orders & Hasse diagrams 8, Lattices in posets 8, Composition & transitive closure 8, Counting relations 8); matched labels [\"Partial orders & Hasse diagrams\", \"Lattices in posets\"]; paper from runs[] run 2 file https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html; unit at the 50-question cap (MOCK_CAPPED)",
-        "visual: syllabus-coverage.json lesson_slug partial-orders-and-lattices (PUBLISHED); covers [\"complements and counting them\"] checked against topics/partial-orders-and-lattices/transcript.md scenes 1-10"
-      ],
-      "row_verdict": "BOTH"
-    },
-    {
-      "subject": "discrete-mathematics",
-      "group": "partial-orders-and-lattices",
-      "topic": "distributive-lattices",
-      "title": "Distributive Lattices and the Two Forbidden Shapes",
-      "priority": "P2",
-      "path": "subjects/discrete-mathematics/partial-orders-and-lattices/distributive-lattices.json",
-      "transcript_status": "not stated",
-      "mock": {
-        "subject": "discrete-mathematics",
-        "unit_slug": "relations",
-        "unit_name": "Relations",
-        "unit_number": 4,
-        "question_count": 50,
-        "subtopic_labels": [
-          "Relation properties",
-          "Equivalence relations & classes",
-          "Partial orders & Hasse diagrams",
-          "Lattices in posets",
-          "Composition & transitive closure",
-          "Counting relations"
-        ],
-        "verdict": "MOCK_READY"
-      },
-      "visual": {
-        "slug": "partial-orders-and-lattices",
-        "title": "Partial Orders, Hasse Diagrams and Lattices",
-        "coverage_status": "PUBLISHED",
-        "level": "topic-level",
-        "verdict": "VISUAL_LESSON"
-      },
-      "evidence": [
-        "notes content/index.json -> map[].path = subjects/discrete-mathematics/partial-orders-and-lattices/distributive-lattices.json",
-        "mock: discrete-mathematics master_bank.json unit 4 (relations), 50 records grouped by subtopic_label (Relation properties 9, Equivalence relations & classes 9, Partial orders & Hasse diagrams 8, Lattices in posets 8, Composition & transitive closure 8, Counting relations 8); matched labels [\"Partial orders & Hasse diagrams\", \"Lattices in posets\"]; paper from runs[] run 2 file https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html; unit at the 50-question cap (MOCK_CAPPED)",
-        "visual: syllabus-coverage.json lesson_slug partial-orders-and-lattices (PUBLISHED); covers [\"distributivity tested on one triple\", \"M3 and N5 as the two obstructions\"] checked against topics/partial-orders-and-lattices/transcript.md scenes 1-10"
-      ],
-      "row_verdict": "BOTH"
-    },
-    {
-      "subject": "discrete-mathematics",
-      "group": "partial-orders-and-lattices",
-      "topic": "boolean-lattices-and-examples",
-      "title": "Boolean Lattices, Power Sets and Divisor Lattices",
-      "priority": "P2",
-      "path": "subjects/discrete-mathematics/partial-orders-and-lattices/boolean-lattices-and-examples.json",
-      "transcript_status": "not stated",
-      "mock": {
-        "subject": "discrete-mathematics",
-        "unit_slug": "relations",
-        "unit_name": "Relations",
-        "unit_number": 4,
-        "question_count": 50,
-        "subtopic_labels": [
-          "Relation properties",
-          "Equivalence relations & classes",
-          "Partial orders & Hasse diagrams",
-          "Lattices in posets",
-          "Composition & transitive closure",
-          "Counting relations"
-        ],
-        "verdict": "MOCK_READY"
-      },
-      "visual": {
-        "slug": "partial-orders-and-lattices",
-        "title": "Partial Orders, Hasse Diagrams and Lattices",
-        "coverage_status": "PUBLISHED",
-        "level": "topic-level",
-        "verdict": "VISUAL_LESSON"
-      },
-      "evidence": [
-        "notes content/index.json -> map[].path = subjects/discrete-mathematics/partial-orders-and-lattices/boolean-lattices-and-examples.json",
-        "mock: discrete-mathematics master_bank.json unit 4 (relations), 50 records grouped by subtopic_label (Relation properties 9, Equivalence relations & classes 9, Partial orders & Hasse diagrams 8, Lattices in posets 8, Composition & transitive closure 8, Counting relations 8); matched labels [\"Partial orders & Hasse diagrams\", \"Lattices in posets\"]; paper from runs[] run 2 file https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html; unit at the 50-question cap (MOCK_CAPPED)",
-        "visual: syllabus-coverage.json lesson_slug partial-orders-and-lattices (PUBLISHED); covers [\"the power set as a distributive lattice with unique complements\"] checked against topics/partial-orders-and-lattices/transcript.md scenes 1-10"
-      ],
-      "row_verdict": "BOTH"
-    },
-    {
-      "subject": "discrete-mathematics",
-      "group": "partial-orders-and-lattices",
-      "topic": "complete-lattices",
-      "title": "Complete Lattices",
-      "priority": "P3",
-      "path": "subjects/discrete-mathematics/partial-orders-and-lattices/complete-lattices.json",
-      "transcript_status": "not stated",
-      "mock": {
-        "subject": "discrete-mathematics",
-        "unit_slug": "relations",
-        "unit_name": "Relations",
-        "unit_number": 4,
-        "question_count": 50,
-        "subtopic_labels": [
-          "Relation properties",
-          "Equivalence relations & classes",
-          "Partial orders & Hasse diagrams",
-          "Lattices in posets",
-          "Composition & transitive closure",
-          "Counting relations"
-        ],
-        "verdict": "MOCK_READY"
-      },
-      "visual": null,
-      "evidence": [
-        "notes content/index.json -> map[].path = subjects/discrete-mathematics/partial-orders-and-lattices/complete-lattices.json",
-        "mock: discrete-mathematics master_bank.json unit 4 (relations), 50 records grouped by subtopic_label (Relation properties 9, Equivalence relations & classes 9, Partial orders & Hasse diagrams 8, Lattices in posets 8, Composition & transitive closure 8, Counting relations 8); matched labels [\"Partial orders & Hasse diagrams\", \"Lattices in posets\"]; paper from runs[] run 2 file https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html; unit at the 50-question cap (MOCK_CAPPED)",
-        "visual: syllabus-coverage.json lesson_slug partial-orders-and-lattices (PUBLISHED) but topics/partial-orders-and-lattices/transcript.md does not cover this subtopic; no lesson dedicated to it"
-      ],
-      "row_verdict": "MOCK_ONLY"
     }
   ],
   "gaps": [
@@ -2408,6 +2655,16 @@
       "kind": "mock",
       "placement": "discrete-mathematics › combinatorics › ioib-partitions",
       "detail": "Card IOIB: Integer Partitions still has no links. Combinatorics unit 7 'Counting & Combinatorics' holds 25 questions over 5 subtopic_label groups, but its 'Stars and bars' group is 5 questions on non-negative integer solutions (identical objects into distinct boxes), not integer partitions; no unit in discrete-mathematics master_bank.json carries partition counts. Visual: the counting-and-combinatorics transcript covers stars and bars, not integer partitions. Next build: add an integer-partitions set to discrete-mathematics/combinatorics/ once unit 7 passes the 50-question cap, or extend topics/counting-and-combinatorics/ with a partition scene."
+    },
+    {
+      "kind": "mock",
+      "placement": "discrete-mathematics › monoids-and-groups › (no unit)",
+      "detail": "11 new notes cards under content/subjects/discrete-mathematics/monoids-and-groups/ have no mock unit: discrete-mathematics/question-bank/master_bank.json holds units 1-7 and 16, none of them algebraic structures (monoids, groups, subgroups, cyclic groups, cosets, Lagrange). A new set belongs in discrete-mathematics/monoids-and-groups/."
+    },
+    {
+      "kind": "visual",
+      "placement": "discrete-mathematics › monoids-and-groups › group-homomorphism-and-kernel",
+      "detail": "topics/monoids-and-groups/index.html covers 11 scenes on axioms, order, cyclic groups, subgroups, cosets and Lagrange, and none mentions homomorphisms or kernels (0 hits in transcript.md). Extend that lesson with a homomorphism scene rather than build topics/group-homomorphisms."
     }
   ]
 }
