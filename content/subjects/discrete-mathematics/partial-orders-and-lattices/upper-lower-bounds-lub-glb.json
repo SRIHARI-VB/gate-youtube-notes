@@ -73,5 +73,52 @@
       "transcript": "N/A"
     }
   ],
-  "sourceLine": "Bounds, meet and join defined as greatest lower and least upper bounds, with the divisibility example: NPTEL IIT Madras Lecture 40 (English, full transcript). Notation and the lcm/gcd correspondence checked against Rosen ch. 9.6."
+  "sourceLine": "Bounds, meet and join defined as greatest lower and least upper bounds, with the divisibility example: NPTEL IIT Madras Lecture 40 (English, full transcript). Notation and the lcm/gcd correspondence checked against Rosen ch. 9.6.",
+  "links": {
+    "mock": {
+      "subject": "discrete-mathematics",
+      "unit_slug": "relations",
+      "unit_name": "Relations",
+      "unit_number": 4,
+      "question_count": 50,
+      "subtopics": [
+        {
+          "label": "Relation properties",
+          "questions": 9
+        },
+        {
+          "label": "Equivalence relations & classes",
+          "questions": 9
+        },
+        {
+          "label": "Partial orders & Hasse diagrams",
+          "questions": 8
+        },
+        {
+          "label": "Lattices in posets",
+          "questions": 8
+        },
+        {
+          "label": "Composition & transitive closure",
+          "questions": 8
+        },
+        {
+          "label": "Counting relations",
+          "questions": 8
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html"
+    },
+    "visual": {
+      "slug": "partial-orders-and-lattices",
+      "title": "Partial Orders, Hasse Diagrams and Lattices",
+      "level": "topic-level",
+      "covers": [
+        "upper and lower bounds",
+        "lub and glb as join and meet"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/partial-orders-and-lattices/index.html"
+    },
+    "mapped_at": "2026-10-28"
+  }
 }

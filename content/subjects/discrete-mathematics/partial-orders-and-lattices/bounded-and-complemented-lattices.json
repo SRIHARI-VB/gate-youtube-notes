@@ -84,5 +84,51 @@
       "transcript": "N/A"
     }
   ],
-  "sourceLine": "Complement defined by the two bound conditions, uniqueness in a distributive lattice, and the power-set complements: NPTEL IIT Madras Lecture 40 (English, full transcript). The complement-counting question pattern and its answer of three complements for GATE CSE 1997 Q.3.3: GATE Overflow's community solutions for that question (the Hasse diagram itself is a figure in the paper, so the count is quoted, not recomputed here)."
+  "sourceLine": "Complement defined by the two bound conditions, uniqueness in a distributive lattice, and the power-set complements: NPTEL IIT Madras Lecture 40 (English, full transcript). The complement-counting question pattern and its answer of three complements for GATE CSE 1997 Q.3.3: GATE Overflow's community solutions for that question (the Hasse diagram itself is a figure in the paper, so the count is quoted, not recomputed here).",
+  "links": {
+    "mock": {
+      "subject": "discrete-mathematics",
+      "unit_slug": "relations",
+      "unit_name": "Relations",
+      "unit_number": 4,
+      "question_count": 50,
+      "subtopics": [
+        {
+          "label": "Relation properties",
+          "questions": 9
+        },
+        {
+          "label": "Equivalence relations & classes",
+          "questions": 9
+        },
+        {
+          "label": "Partial orders & Hasse diagrams",
+          "questions": 8
+        },
+        {
+          "label": "Lattices in posets",
+          "questions": 8
+        },
+        {
+          "label": "Composition & transitive closure",
+          "questions": 8
+        },
+        {
+          "label": "Counting relations",
+          "questions": 8
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html"
+    },
+    "visual": {
+      "slug": "partial-orders-and-lattices",
+      "title": "Partial Orders, Hasse Diagrams and Lattices",
+      "level": "topic-level",
+      "covers": [
+        "complements and counting them"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/partial-orders-and-lattices/index.html"
+    },
+    "mapped_at": "2026-10-28"
+  }
 }

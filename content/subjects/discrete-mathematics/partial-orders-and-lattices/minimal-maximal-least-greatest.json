@@ -84,5 +84,52 @@
       "transcript": "N/A"
     }
   ],
-  "sourceLine": "Minimal, maximal, least and greatest elements, and the distinction between them, are worked through in GO Classes for GATE CS 'Lattice, POSET - GATE PYQs - Part 1' (English, auto-caption excerpt read for the GATE 2003 segment); definitions checked against Rosen ch. 9.6 and the poset vocabulary of NPTEL IIT Madras Lecture 40."
+  "sourceLine": "Minimal, maximal, least and greatest elements, and the distinction between them, are worked through in GO Classes for GATE CS 'Lattice, POSET - GATE PYQs - Part 1' (English, auto-caption excerpt read for the GATE 2003 segment); definitions checked against Rosen ch. 9.6 and the poset vocabulary of NPTEL IIT Madras Lecture 40.",
+  "links": {
+    "mock": {
+      "subject": "discrete-mathematics",
+      "unit_slug": "relations",
+      "unit_name": "Relations",
+      "unit_number": 4,
+      "question_count": 50,
+      "subtopics": [
+        {
+          "label": "Relation properties",
+          "questions": 9
+        },
+        {
+          "label": "Equivalence relations & classes",
+          "questions": 9
+        },
+        {
+          "label": "Partial orders & Hasse diagrams",
+          "questions": 8
+        },
+        {
+          "label": "Lattices in posets",
+          "questions": 8
+        },
+        {
+          "label": "Composition & transitive closure",
+          "questions": 8
+        },
+        {
+          "label": "Counting relations",
+          "questions": 8
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html"
+    },
+    "visual": {
+      "slug": "partial-orders-and-lattices",
+      "title": "Partial Orders, Hasse Diagrams and Lattices",
+      "level": "topic-level",
+      "covers": [
+        "maximal versus greatest",
+        "minimal versus least"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/partial-orders-and-lattices/index.html"
+    },
+    "mapped_at": "2026-10-28"
+  }
 }

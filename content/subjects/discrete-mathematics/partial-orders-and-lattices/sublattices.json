@@ -84,5 +84,42 @@
       "transcript": "N/A"
     }
   ],
-  "sourceLine": "Sublattice defined in the lecture's own sequence (lattice, sublattice, then heredity of distributivity): NPTEL IIT Madras Lecture 40 (English, full transcript); the sublattice lecture in the NPTEL IIT Guwahati series (Lec 45) is recorded in the NPTEL chapter list, captions unavailable in this run."
+  "sourceLine": "Sublattice defined in the lecture's own sequence (lattice, sublattice, then heredity of distributivity): NPTEL IIT Madras Lecture 40 (English, full transcript); the sublattice lecture in the NPTEL IIT Guwahati series (Lec 45) is recorded in the NPTEL chapter list, captions unavailable in this run.",
+  "links": {
+    "mock": {
+      "subject": "discrete-mathematics",
+      "unit_slug": "relations",
+      "unit_name": "Relations",
+      "unit_number": 4,
+      "question_count": 50,
+      "subtopics": [
+        {
+          "label": "Relation properties",
+          "questions": 9
+        },
+        {
+          "label": "Equivalence relations & classes",
+          "questions": 9
+        },
+        {
+          "label": "Partial orders & Hasse diagrams",
+          "questions": 8
+        },
+        {
+          "label": "Lattices in posets",
+          "questions": 8
+        },
+        {
+          "label": "Composition & transitive closure",
+          "questions": 8
+        },
+        {
+          "label": "Counting relations",
+          "questions": 8
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html"
+    },
+    "mapped_at": "2026-10-28"
+  }
 }

@@ -84,5 +84,52 @@
       "transcript": "N/A"
     }
   ],
-  "sourceLine": "Axioms, the four standard examples and the incomparable-pair picture: NPTEL IIT Madras Lecture 40 (English, full transcript). Lecture list and the poset-to-lattice sequence: NPTEL IIT Guwahati Lec 21-23 (English, captions unavailable in this run). Definitions checked against Rosen ch. 9.6."
+  "sourceLine": "Axioms, the four standard examples and the incomparable-pair picture: NPTEL IIT Madras Lecture 40 (English, full transcript). Lecture list and the poset-to-lattice sequence: NPTEL IIT Guwahati Lec 21-23 (English, captions unavailable in this run). Definitions checked against Rosen ch. 9.6.",
+  "links": {
+    "mock": {
+      "subject": "discrete-mathematics",
+      "unit_slug": "relations",
+      "unit_name": "Relations",
+      "unit_number": 4,
+      "question_count": 50,
+      "subtopics": [
+        {
+          "label": "Relation properties",
+          "questions": 9
+        },
+        {
+          "label": "Equivalence relations & classes",
+          "questions": 9
+        },
+        {
+          "label": "Partial orders & Hasse diagrams",
+          "questions": 8
+        },
+        {
+          "label": "Lattices in posets",
+          "questions": 8
+        },
+        {
+          "label": "Composition & transitive closure",
+          "questions": 8
+        },
+        {
+          "label": "Counting relations",
+          "questions": 8
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html"
+    },
+    "visual": {
+      "slug": "partial-orders-and-lattices",
+      "title": "Partial Orders, Hasse Diagrams and Lattices",
+      "level": "topic-level",
+      "covers": [
+        "a partial order as three separate promises",
+        "divisibility as a partial order"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/partial-orders-and-lattices/index.html"
+    },
+    "mapped_at": "2026-10-28"
+  }
 }

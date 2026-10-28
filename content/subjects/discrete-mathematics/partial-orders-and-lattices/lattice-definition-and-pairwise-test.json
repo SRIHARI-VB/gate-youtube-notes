@@ -87,5 +87,52 @@
     }
   ],
   "sourceLine": "The definition, and the worked check of several diagrams including M3, the 2-cube and a non-lattice: NPTEL IIT Madras Lecture 40 (English, full transcript). The poset-to-lattice sequence (Hasse diagram, LUB-GLB, lattice, sublattice): NPTEL IIT Guwahati Lec 21-23 (English, captions unavailable in this run).",
-  "visual": "discrete-mathematics/partial-orders-and-lattices/poset-to-lattice-pair-test"
+  "visual": "discrete-mathematics/partial-orders-and-lattices/poset-to-lattice-pair-test",
+  "links": {
+    "mock": {
+      "subject": "discrete-mathematics",
+      "unit_slug": "relations",
+      "unit_name": "Relations",
+      "unit_number": 4,
+      "question_count": 50,
+      "subtopics": [
+        {
+          "label": "Relation properties",
+          "questions": 9
+        },
+        {
+          "label": "Equivalence relations & classes",
+          "questions": 9
+        },
+        {
+          "label": "Partial orders & Hasse diagrams",
+          "questions": 8
+        },
+        {
+          "label": "Lattices in posets",
+          "questions": 8
+        },
+        {
+          "label": "Composition & transitive closure",
+          "questions": 8
+        },
+        {
+          "label": "Counting relations",
+          "questions": 8
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html"
+    },
+    "visual": {
+      "slug": "partial-orders-and-lattices",
+      "title": "Partial Orders, Hasse Diagrams and Lattices",
+      "level": "topic-level",
+      "covers": [
+        "a lattice needs a join and a meet for every pair",
+        "the pairwise lattice test"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/partial-orders-and-lattices/index.html"
+    },
+    "mapped_at": "2026-10-28"
+  }
 }

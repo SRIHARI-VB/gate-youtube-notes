@@ -88,5 +88,51 @@
       "transcript": "N/A"
     }
   ],
-  "sourceLine": "The correspondence between a complemented distributive lattice and a Boolean algebra, and the power-set complements: NPTEL IIT Madras Lecture 40 (English, full transcript). Divisor-lattice practice (D_n analysis) sits in the NPTEL IIT Guwahati Lec 22 and the GO Classes Set Theory lectures 61-62, whose captions were unavailable in this run; the counts are recomputed here."
+  "sourceLine": "The correspondence between a complemented distributive lattice and a Boolean algebra, and the power-set complements: NPTEL IIT Madras Lecture 40 (English, full transcript). Divisor-lattice practice (D_n analysis) sits in the NPTEL IIT Guwahati Lec 22 and the GO Classes Set Theory lectures 61-62, whose captions were unavailable in this run; the counts are recomputed here.",
+  "links": {
+    "mock": {
+      "subject": "discrete-mathematics",
+      "unit_slug": "relations",
+      "unit_name": "Relations",
+      "unit_number": 4,
+      "question_count": 50,
+      "subtopics": [
+        {
+          "label": "Relation properties",
+          "questions": 9
+        },
+        {
+          "label": "Equivalence relations & classes",
+          "questions": 9
+        },
+        {
+          "label": "Partial orders & Hasse diagrams",
+          "questions": 8
+        },
+        {
+          "label": "Lattices in posets",
+          "questions": 8
+        },
+        {
+          "label": "Composition & transitive closure",
+          "questions": 8
+        },
+        {
+          "label": "Counting relations",
+          "questions": 8
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html"
+    },
+    "visual": {
+      "slug": "partial-orders-and-lattices",
+      "title": "Partial Orders, Hasse Diagrams and Lattices",
+      "level": "topic-level",
+      "covers": [
+        "the power set as a distributive lattice with unique complements"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/partial-orders-and-lattices/index.html"
+    },
+    "mapped_at": "2026-10-28"
+  }
 }

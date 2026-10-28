@@ -6135,6 +6135,53 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "Axioms, the four standard examples and the incomparable-pair picture: NPTEL IIT Madras Lecture 40 (English, full transcript). Lecture list and the poset-to-lattice sequence: NPTEL IIT Guwahati Lec 21-23 (English, captions unavailable in this run). Definitions checked against Rosen ch. 9.6.",
+   "links": {
+    "mock": {
+     "subject": "discrete-mathematics",
+     "unit_slug": "relations",
+     "unit_name": "Relations",
+     "unit_number": 4,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Relation properties",
+       "questions": 9
+      },
+      {
+       "label": "Equivalence relations & classes",
+       "questions": 9
+      },
+      {
+       "label": "Partial orders & Hasse diagrams",
+       "questions": 8
+      },
+      {
+       "label": "Lattices in posets",
+       "questions": 8
+      },
+      {
+       "label": "Composition & transitive closure",
+       "questions": 8
+      },
+      {
+       "label": "Counting relations",
+       "questions": 8
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html"
+    },
+    "visual": {
+     "slug": "partial-orders-and-lattices",
+     "title": "Partial Orders, Hasse Diagrams and Lattices",
+     "level": "topic-level",
+     "covers": [
+      "a partial order as three separate promises",
+      "divisibility as a partial order"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/partial-orders-and-lattices/index.html"
+    },
+    "mapped_at": "2026-10-28"
+   },
    "subject": "discrete-mathematics",
    "topic": "partial-orders-and-lattices",
    "path": "subjects/discrete-mathematics/partial-orders-and-lattices/poset-and-partial-order-axioms.json"
@@ -6229,6 +6276,53 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "Hasse diagram as the poset diagram with self-loops and transitive arrows removed: NPTEL IIT Madras Lecture 40 (English, full transcript). The GATE 1996 edge count and the cardinality variation: GO Classes for GATE CS, 'Lattice, POSET - GATE PYQs - Part 1' (English, auto-caption excerpt read for the 1996 segment).",
+   "links": {
+    "mock": {
+     "subject": "discrete-mathematics",
+     "unit_slug": "relations",
+     "unit_name": "Relations",
+     "unit_number": 4,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Relation properties",
+       "questions": 9
+      },
+      {
+       "label": "Equivalence relations & classes",
+       "questions": 9
+      },
+      {
+       "label": "Partial orders & Hasse diagrams",
+       "questions": 8
+      },
+      {
+       "label": "Lattices in posets",
+       "questions": 8
+      },
+      {
+       "label": "Composition & transitive closure",
+       "questions": 8
+      },
+      {
+       "label": "Counting relations",
+       "questions": 8
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html"
+    },
+    "visual": {
+     "slug": "partial-orders-and-lattices",
+     "title": "Partial Orders, Hasse Diagrams and Lattices",
+     "level": "topic-level",
+     "covers": [
+      "the covering relation and transitive reduction",
+      "drawing the Hasse diagram"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/partial-orders-and-lattices/index.html"
+    },
+    "mapped_at": "2026-10-28"
+   },
    "subject": "discrete-mathematics",
    "topic": "partial-orders-and-lattices",
    "path": "subjects/discrete-mathematics/partial-orders-and-lattices/hasse-diagram-and-covering.json"
@@ -6334,6 +6428,52 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "Chain, antichain, length and the decomposition theorem: NPTEL IIT Madras Lecture 40 (English, full transcript), which states and proves the antichain partition. The total-order constructions for GATE 2024 and 1997: GO Classes for GATE CS 'Constructing Total Order from Partial Order' (English, captions unavailable in this run; the construction is recomputed here).",
+   "links": {
+    "mock": {
+     "subject": "discrete-mathematics",
+     "unit_slug": "relations",
+     "unit_name": "Relations",
+     "unit_number": 4,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Relation properties",
+       "questions": 9
+      },
+      {
+       "label": "Equivalence relations & classes",
+       "questions": 9
+      },
+      {
+       "label": "Partial orders & Hasse diagrams",
+       "questions": 8
+      },
+      {
+       "label": "Lattices in posets",
+       "questions": 8
+      },
+      {
+       "label": "Composition & transitive closure",
+       "questions": 8
+      },
+      {
+       "label": "Counting relations",
+       "questions": 8
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html"
+    },
+    "visual": {
+     "slug": "partial-orders-and-lattices",
+     "title": "Partial Orders, Hasse Diagrams and Lattices",
+     "level": "topic-level",
+     "covers": [
+      "comparable pairs, chains and antichains"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/partial-orders-and-lattices/index.html"
+    },
+    "mapped_at": "2026-10-28"
+   },
    "subject": "discrete-mathematics",
    "topic": "partial-orders-and-lattices",
    "path": "subjects/discrete-mathematics/partial-orders-and-lattices/comparability-chains-and-antichains.json"
@@ -6425,6 +6565,53 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "Minimal, maximal, least and greatest elements, and the distinction between them, are worked through in GO Classes for GATE CS 'Lattice, POSET - GATE PYQs - Part 1' (English, auto-caption excerpt read for the GATE 2003 segment); definitions checked against Rosen ch. 9.6 and the poset vocabulary of NPTEL IIT Madras Lecture 40.",
+   "links": {
+    "mock": {
+     "subject": "discrete-mathematics",
+     "unit_slug": "relations",
+     "unit_name": "Relations",
+     "unit_number": 4,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Relation properties",
+       "questions": 9
+      },
+      {
+       "label": "Equivalence relations & classes",
+       "questions": 9
+      },
+      {
+       "label": "Partial orders & Hasse diagrams",
+       "questions": 8
+      },
+      {
+       "label": "Lattices in posets",
+       "questions": 8
+      },
+      {
+       "label": "Composition & transitive closure",
+       "questions": 8
+      },
+      {
+       "label": "Counting relations",
+       "questions": 8
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html"
+    },
+    "visual": {
+     "slug": "partial-orders-and-lattices",
+     "title": "Partial Orders, Hasse Diagrams and Lattices",
+     "level": "topic-level",
+     "covers": [
+      "maximal versus greatest",
+      "minimal versus least"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/partial-orders-and-lattices/index.html"
+    },
+    "mapped_at": "2026-10-28"
+   },
    "subject": "discrete-mathematics",
    "topic": "partial-orders-and-lattices",
    "path": "subjects/discrete-mathematics/partial-orders-and-lattices/minimal-maximal-least-greatest.json"
@@ -6505,6 +6692,53 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "Bounds, meet and join defined as greatest lower and least upper bounds, with the divisibility example: NPTEL IIT Madras Lecture 40 (English, full transcript). Notation and the lcm/gcd correspondence checked against Rosen ch. 9.6.",
+   "links": {
+    "mock": {
+     "subject": "discrete-mathematics",
+     "unit_slug": "relations",
+     "unit_name": "Relations",
+     "unit_number": 4,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Relation properties",
+       "questions": 9
+      },
+      {
+       "label": "Equivalence relations & classes",
+       "questions": 9
+      },
+      {
+       "label": "Partial orders & Hasse diagrams",
+       "questions": 8
+      },
+      {
+       "label": "Lattices in posets",
+       "questions": 8
+      },
+      {
+       "label": "Composition & transitive closure",
+       "questions": 8
+      },
+      {
+       "label": "Counting relations",
+       "questions": 8
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html"
+    },
+    "visual": {
+     "slug": "partial-orders-and-lattices",
+     "title": "Partial Orders, Hasse Diagrams and Lattices",
+     "level": "topic-level",
+     "covers": [
+      "upper and lower bounds",
+      "lub and glb as join and meet"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/partial-orders-and-lattices/index.html"
+    },
+    "mapped_at": "2026-10-28"
+   },
    "subject": "discrete-mathematics",
    "topic": "partial-orders-and-lattices",
    "path": "subjects/discrete-mathematics/partial-orders-and-lattices/upper-lower-bounds-lub-glb.json"
@@ -6599,6 +6833,53 @@ window.GATE_DATA = {
    ],
    "sourceLine": "The definition, and the worked check of several diagrams including M3, the 2-cube and a non-lattice: NPTEL IIT Madras Lecture 40 (English, full transcript). The poset-to-lattice sequence (Hasse diagram, LUB-GLB, lattice, sublattice): NPTEL IIT Guwahati Lec 21-23 (English, captions unavailable in this run).",
    "visual": "discrete-mathematics/partial-orders-and-lattices/poset-to-lattice-pair-test",
+   "links": {
+    "mock": {
+     "subject": "discrete-mathematics",
+     "unit_slug": "relations",
+     "unit_name": "Relations",
+     "unit_number": 4,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Relation properties",
+       "questions": 9
+      },
+      {
+       "label": "Equivalence relations & classes",
+       "questions": 9
+      },
+      {
+       "label": "Partial orders & Hasse diagrams",
+       "questions": 8
+      },
+      {
+       "label": "Lattices in posets",
+       "questions": 8
+      },
+      {
+       "label": "Composition & transitive closure",
+       "questions": 8
+      },
+      {
+       "label": "Counting relations",
+       "questions": 8
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html"
+    },
+    "visual": {
+     "slug": "partial-orders-and-lattices",
+     "title": "Partial Orders, Hasse Diagrams and Lattices",
+     "level": "topic-level",
+     "covers": [
+      "a lattice needs a join and a meet for every pair",
+      "the pairwise lattice test"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/partial-orders-and-lattices/index.html"
+    },
+    "mapped_at": "2026-10-28"
+   },
    "subject": "discrete-mathematics",
    "topic": "partial-orders-and-lattices",
    "path": "subjects/discrete-mathematics/partial-orders-and-lattices/lattice-definition-and-pairwise-test.json"
@@ -6679,6 +6960,43 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "The four lattice laws, stated as the laws every lattice satisfies, and the separate treatment of the distributive laws: NPTEL IIT Madras Lecture 40 (English, full transcript). Algebraic formulation cross-checked against Rosen ch. 9.6.",
+   "links": {
+    "mock": {
+     "subject": "discrete-mathematics",
+     "unit_slug": "relations",
+     "unit_name": "Relations",
+     "unit_number": 4,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Relation properties",
+       "questions": 9
+      },
+      {
+       "label": "Equivalence relations & classes",
+       "questions": 9
+      },
+      {
+       "label": "Partial orders & Hasse diagrams",
+       "questions": 8
+      },
+      {
+       "label": "Lattices in posets",
+       "questions": 8
+      },
+      {
+       "label": "Composition & transitive closure",
+       "questions": 8
+      },
+      {
+       "label": "Counting relations",
+       "questions": 8
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html"
+    },
+    "mapped_at": "2026-10-28"
+   },
    "subject": "discrete-mathematics",
    "topic": "partial-orders-and-lattices",
    "path": "subjects/discrete-mathematics/partial-orders-and-lattices/lattice-algebraic-laws.json"
@@ -6770,6 +7088,43 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "Sublattice defined in the lecture's own sequence (lattice, sublattice, then heredity of distributivity): NPTEL IIT Madras Lecture 40 (English, full transcript); the sublattice lecture in the NPTEL IIT Guwahati series (Lec 45) is recorded in the NPTEL chapter list, captions unavailable in this run.",
+   "links": {
+    "mock": {
+     "subject": "discrete-mathematics",
+     "unit_slug": "relations",
+     "unit_name": "Relations",
+     "unit_number": 4,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Relation properties",
+       "questions": 9
+      },
+      {
+       "label": "Equivalence relations & classes",
+       "questions": 9
+      },
+      {
+       "label": "Partial orders & Hasse diagrams",
+       "questions": 8
+      },
+      {
+       "label": "Lattices in posets",
+       "questions": 8
+      },
+      {
+       "label": "Composition & transitive closure",
+       "questions": 8
+      },
+      {
+       "label": "Counting relations",
+       "questions": 8
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html"
+    },
+    "mapped_at": "2026-10-28"
+   },
    "subject": "discrete-mathematics",
    "topic": "partial-orders-and-lattices",
    "path": "subjects/discrete-mathematics/partial-orders-and-lattices/sublattices.json"
@@ -6861,6 +7216,52 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "Complement defined by the two bound conditions, uniqueness in a distributive lattice, and the power-set complements: NPTEL IIT Madras Lecture 40 (English, full transcript). The complement-counting question pattern and its answer of three complements for GATE CSE 1997 Q.3.3: GATE Overflow's community solutions for that question (the Hasse diagram itself is a figure in the paper, so the count is quoted, not recomputed here).",
+   "links": {
+    "mock": {
+     "subject": "discrete-mathematics",
+     "unit_slug": "relations",
+     "unit_name": "Relations",
+     "unit_number": 4,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Relation properties",
+       "questions": 9
+      },
+      {
+       "label": "Equivalence relations & classes",
+       "questions": 9
+      },
+      {
+       "label": "Partial orders & Hasse diagrams",
+       "questions": 8
+      },
+      {
+       "label": "Lattices in posets",
+       "questions": 8
+      },
+      {
+       "label": "Composition & transitive closure",
+       "questions": 8
+      },
+      {
+       "label": "Counting relations",
+       "questions": 8
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html"
+    },
+    "visual": {
+     "slug": "partial-orders-and-lattices",
+     "title": "Partial Orders, Hasse Diagrams and Lattices",
+     "level": "topic-level",
+     "covers": [
+      "complements and counting them"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/partial-orders-and-lattices/index.html"
+    },
+    "mapped_at": "2026-10-28"
+   },
    "subject": "discrete-mathematics",
    "topic": "partial-orders-and-lattices",
    "path": "subjects/discrete-mathematics/partial-orders-and-lattices/bounded-and-complemented-lattices.json"
@@ -6942,6 +7343,53 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "The two distributive laws, the worked M3 and N5 counterexamples, heredity to sublattices and uniqueness of complements: NPTEL IIT Madras Lecture 40 (English, full transcript). Birkhoff's forbidden-sublattice characterisation is taken from the standard reference (Rosen ch. 9.6 / Grimaldi) rather than recomputed.",
+   "links": {
+    "mock": {
+     "subject": "discrete-mathematics",
+     "unit_slug": "relations",
+     "unit_name": "Relations",
+     "unit_number": 4,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Relation properties",
+       "questions": 9
+      },
+      {
+       "label": "Equivalence relations & classes",
+       "questions": 9
+      },
+      {
+       "label": "Partial orders & Hasse diagrams",
+       "questions": 8
+      },
+      {
+       "label": "Lattices in posets",
+       "questions": 8
+      },
+      {
+       "label": "Composition & transitive closure",
+       "questions": 8
+      },
+      {
+       "label": "Counting relations",
+       "questions": 8
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html"
+    },
+    "visual": {
+     "slug": "partial-orders-and-lattices",
+     "title": "Partial Orders, Hasse Diagrams and Lattices",
+     "level": "topic-level",
+     "covers": [
+      "distributivity tested on one triple",
+      "M3 and N5 as the two obstructions"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/partial-orders-and-lattices/index.html"
+    },
+    "mapped_at": "2026-10-28"
+   },
    "subject": "discrete-mathematics",
    "topic": "partial-orders-and-lattices",
    "path": "subjects/discrete-mathematics/partial-orders-and-lattices/distributive-lattices.json"
@@ -7037,6 +7485,52 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "The correspondence between a complemented distributive lattice and a Boolean algebra, and the power-set complements: NPTEL IIT Madras Lecture 40 (English, full transcript). Divisor-lattice practice (D_n analysis) sits in the NPTEL IIT Guwahati Lec 22 and the GO Classes Set Theory lectures 61-62, whose captions were unavailable in this run; the counts are recomputed here.",
+   "links": {
+    "mock": {
+     "subject": "discrete-mathematics",
+     "unit_slug": "relations",
+     "unit_name": "Relations",
+     "unit_number": 4,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Relation properties",
+       "questions": 9
+      },
+      {
+       "label": "Equivalence relations & classes",
+       "questions": 9
+      },
+      {
+       "label": "Partial orders & Hasse diagrams",
+       "questions": 8
+      },
+      {
+       "label": "Lattices in posets",
+       "questions": 8
+      },
+      {
+       "label": "Composition & transitive closure",
+       "questions": 8
+      },
+      {
+       "label": "Counting relations",
+       "questions": 8
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html"
+    },
+    "visual": {
+     "slug": "partial-orders-and-lattices",
+     "title": "Partial Orders, Hasse Diagrams and Lattices",
+     "level": "topic-level",
+     "covers": [
+      "the power set as a distributive lattice with unique complements"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/partial-orders-and-lattices/index.html"
+    },
+    "mapped_at": "2026-10-28"
+   },
    "subject": "discrete-mathematics",
    "topic": "partial-orders-and-lattices",
    "path": "subjects/discrete-mathematics/partial-orders-and-lattices/boolean-lattices-and-examples.json"
@@ -7119,6 +7613,43 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "The definition of a lattice via pairwise joins and meets and the union/intersection reading of a lattice of sets: NPTEL IIT Madras Lecture 40 (English, full transcript). The completeness criterion and the GATE 2004 argument are recomputed from the set arithmetic and checked against Rosen ch. 9.6.",
+   "links": {
+    "mock": {
+     "subject": "discrete-mathematics",
+     "unit_slug": "relations",
+     "unit_name": "Relations",
+     "unit_number": 4,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Relation properties",
+       "questions": 9
+      },
+      {
+       "label": "Equivalence relations & classes",
+       "questions": 9
+      },
+      {
+       "label": "Partial orders & Hasse diagrams",
+       "questions": 8
+      },
+      {
+       "label": "Lattices in posets",
+       "questions": 8
+      },
+      {
+       "label": "Composition & transitive closure",
+       "questions": 8
+      },
+      {
+       "label": "Counting relations",
+       "questions": 8
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html"
+    },
+    "mapped_at": "2026-10-28"
+   },
    "subject": "discrete-mathematics",
    "topic": "partial-orders-and-lattices",
    "path": "subjects/discrete-mathematics/partial-orders-and-lattices/complete-lattices.json"

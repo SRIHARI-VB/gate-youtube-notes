@@ -98,5 +98,51 @@
       "transcript": "N/A"
     }
   ],
-  "sourceLine": "Chain, antichain, length and the decomposition theorem: NPTEL IIT Madras Lecture 40 (English, full transcript), which states and proves the antichain partition. The total-order constructions for GATE 2024 and 1997: GO Classes for GATE CS 'Constructing Total Order from Partial Order' (English, captions unavailable in this run; the construction is recomputed here)."
+  "sourceLine": "Chain, antichain, length and the decomposition theorem: NPTEL IIT Madras Lecture 40 (English, full transcript), which states and proves the antichain partition. The total-order constructions for GATE 2024 and 1997: GO Classes for GATE CS 'Constructing Total Order from Partial Order' (English, captions unavailable in this run; the construction is recomputed here).",
+  "links": {
+    "mock": {
+      "subject": "discrete-mathematics",
+      "unit_slug": "relations",
+      "unit_name": "Relations",
+      "unit_number": 4,
+      "question_count": 50,
+      "subtopics": [
+        {
+          "label": "Relation properties",
+          "questions": 9
+        },
+        {
+          "label": "Equivalence relations & classes",
+          "questions": 9
+        },
+        {
+          "label": "Partial orders & Hasse diagrams",
+          "questions": 8
+        },
+        {
+          "label": "Lattices in posets",
+          "questions": 8
+        },
+        {
+          "label": "Composition & transitive closure",
+          "questions": 8
+        },
+        {
+          "label": "Counting relations",
+          "questions": 8
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html"
+    },
+    "visual": {
+      "slug": "partial-orders-and-lattices",
+      "title": "Partial Orders, Hasse Diagrams and Lattices",
+      "level": "topic-level",
+      "covers": [
+        "comparable pairs, chains and antichains"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/partial-orders-and-lattices/index.html"
+    },
+    "mapped_at": "2026-10-28"
+  }
 }
