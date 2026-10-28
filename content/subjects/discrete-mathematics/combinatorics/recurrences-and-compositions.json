@@ -43,16 +43,47 @@
     "basic-counting-rules"
   ],
   "links": {
+    "mock": {
+      "subject": "discrete-mathematics",
+      "unit_slug": "recurrence-generating-functions",
+      "unit_name": "Recurrence Relations & Generating Functions",
+      "unit_number": 8,
+      "question_count": 25,
+      "subtopics": [
+        {
+          "label": "Characteristic equations",
+          "questions": 6
+        },
+        {
+          "label": "Homogeneous & non-homogeneous",
+          "questions": 5
+        },
+        {
+          "label": "Ordinary generating functions",
+          "questions": 5
+        },
+        {
+          "label": "Coefficient extraction",
+          "questions": 5
+        },
+        {
+          "label": "Divide-and-conquer recurrences",
+          "questions": 4
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/recurrence-generating-functions/gate_dm_mock_8_2026-10-29.html"
+    },
     "visual": {
       "slug": "recurrence-relations",
       "title": "Recurrence Relations",
       "level": "topic-level",
       "covers": [
         "building a recurrence from a constraint",
-        "linear homogeneous recurrences"
+        "characteristic equations and repeated roots",
+        "master theorem and divide-and-conquer recurrences"
       ],
       "url": "https://gate-visual-explainer.vercel.app/topics/recurrence-relations/index.html"
     },
-    "mapped_at": "2026-10-27"
+    "mapped_at": "2026-10-29"
   }
 }

@@ -505,7 +505,21 @@
       "priority": "P2",
       "path": "subjects/discrete-mathematics/combinatorics/recurrences-and-compositions.json",
       "transcript_status": "not stated",
-      "mock": null,
+      "mock": {
+        "subject": "discrete-mathematics",
+        "unit_slug": "recurrence-generating-functions",
+        "unit_name": "Recurrence Relations & Generating Functions",
+        "unit_number": 8,
+        "question_count": 25,
+        "subtopic_labels": [
+          "Characteristic equations",
+          "Homogeneous & non-homogeneous",
+          "Ordinary generating functions",
+          "Coefficient extraction",
+          "Divide-and-conquer recurrences"
+        ],
+        "verdict": "MOCK_READY"
+      },
       "visual": {
         "slug": "recurrence-relations",
         "title": "Recurrence Relations",
@@ -515,10 +529,10 @@
       },
       "evidence": [
         "notes content/index.json -> map[].path = subjects/discrete-mathematics/combinatorics/recurrences-and-compositions.json",
-        "mock: no unit in discrete-mathematics master_bank.json carries this card's vocabulary",
-        "visual: syllabus-coverage.json lesson_slug recurrence-relations (PUBLISHED); covers checked against topics/recurrence-relations/transcript.md scene list"
+        "mock: discrete-mathematics master_bank.json unit 8 (recurrence-generating-functions), 25 records grouped by subtopic_label; paper https://gate-cse-mocks.vercel.app/discrete-mathematics/recurrence-generating-functions/gate_dm_mock_8_2026-10-29.html",
+        "visual: syllabus-coverage.json lesson_slug recurrence-relations (PUBLISHED); covers checked against topics/recurrence-relations/transcript.md scenes 2, 4, 5, 8"
       ],
-      "row_verdict": "VISUAL_ONLY"
+      "row_verdict": "BOTH"
     },
     {
       "subject": "discrete-mathematics",
@@ -4675,6 +4689,11 @@
       "kind": "visual",
       "placement": "linear-algebra › lu-decomposition › doolittle-crout-and-ldu, ldlt-and-cholesky, inverse-and-repeated-solves, reading-lu-entries-in-gate-questions",
       "detail": "The matrices-systems-and-eigenvalues lesson (PUBLISHED) scene 5 covers the A = LU definition, existence by leading principal minors, PA = LU, the pivot-product determinant and forward/back substitution; its transcript says nothing about the Doolittle/Crout/LDU conventions, LDL^T and Cholesky, computing the inverse through LU, or reading single L and U entries in an exam. Recommendation: extend topics/matrices-systems-and-eigenvalues/ with one scene rather than publishing a new lesson."
+    },
+    {
+      "kind": "notes",
+      "placement": "discrete-mathematics › combinatorics › (no card)",
+      "detail": "Mock set, Discrete Mathematics Unit 8 'Recurrence Relations & Generating Functions' (run 8, Set 1 of 2, 2026-10-29, paper discrete-mathematics/recurrence-generating-functions/gate_dm_mock_8_2026-10-29.html) holds 25 questions over 5 subtopic_label groups (Characteristic equations 6, Homogeneous & non-homogeneous 5, Ordinary generating functions 5, Coefficient extraction 5, Divide-and-conquer recurrences 4). The 'Divide-and-conquer recurrences' group (4 questions, master-theorem style) is served by no notes card: the notes repo has no algorithms subject, and the nearest card recurrences-and-compositions covers compositions and the Fibonacci recurrence only. 'Ordinary generating functions' and 'Coefficient extraction' have no dedicated card either; binomial-theorem touches coefficient extraction at subtopic level but its nearer mock remains Unit 7."
     }
   ]
 }
