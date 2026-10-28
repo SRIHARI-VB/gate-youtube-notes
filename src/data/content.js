@@ -14124,6 +14124,44 @@ window.GATE_DATA = {
    ],
    "sourceLine": "The Double Vibe's worked LU factorization (English, read in full) for the definition, the unit lower triangular shape and the entry-by-entry comparison. Engineering Wing's Lec23 (English, read in full) for the multipliers being collected into L as elimination proceeds. StatLect's LU decomposition page (English, read in part) for the formal definition and the statement that the factorization is not unique without a normalisation. Every matrix printed on this card is recomputed in exact rational arithmetic in scripts/validate.py.",
    "visual": "linear-algebra/lu-decomposition/elimination-multipliers",
+   "links": {
+    "mock": {
+     "subject": "engineering-mathematics",
+     "unit_slug": "linear-algebra-matrices",
+     "unit_name": "Linear Algebra: Matrices & Systems",
+     "unit_number": 1,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "matrix-operations",
+       "questions": 15
+      },
+      {
+       "label": "rank-nullity",
+       "questions": 14
+      },
+      {
+       "label": "systems-of-linear-equations",
+       "questions": 12
+      },
+      {
+       "label": "gauss-elimination",
+       "questions": 9
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
+    },
+    "visual": {
+     "slug": "matrices-systems-and-eigenvalues",
+     "title": "Matrices, Systems and Eigenvalues",
+     "level": "topic-level",
+     "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html",
+     "covers": [
+      "LU: L unit lower triangular, U upper, multipliers and pivots"
+     ]
+    },
+    "mapped_at": "2026-10-29"
+   },
    "subject": "linear-algebra",
    "topic": "lu-decomposition",
    "path": "subjects/linear-algebra/lu-decomposition/lu-factorisation-definition.json"
@@ -14209,6 +14247,44 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "Engineering Wing's Lec23 (English, read in full) for the recipe of recording the multiplying factor at the position being cleared, and for the three-step 3x3 that supplies this card's quick check. The Double Vibe's lecture (English, read in full) for the same arithmetic read as a comparison of entries. Both worked examples were recomputed in exact arithmetic in scripts/validate.py before publication.",
+   "links": {
+    "mock": {
+     "subject": "engineering-mathematics",
+     "unit_slug": "linear-algebra-matrices",
+     "unit_name": "Linear Algebra: Matrices & Systems",
+     "unit_number": 1,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "matrix-operations",
+       "questions": 15
+      },
+      {
+       "label": "rank-nullity",
+       "questions": 14
+      },
+      {
+       "label": "systems-of-linear-equations",
+       "questions": 12
+      },
+      {
+       "label": "gauss-elimination",
+       "questions": 9
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
+    },
+    "visual": {
+     "slug": "matrices-systems-and-eigenvalues",
+     "title": "Matrices, Systems and Eigenvalues",
+     "level": "topic-level",
+     "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html",
+     "covers": [
+      "LU: L unit lower triangular, U upper, multipliers and pivots"
+     ]
+    },
+    "mapped_at": "2026-10-29"
+   },
    "subject": "linear-algebra",
    "topic": "lu-decomposition",
    "path": "subjects/linear-algebra/lu-decomposition/multipliers-from-elimination.json"
@@ -14304,6 +14380,35 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "Dheeraj Mishra's GATE lecture (English, read in part) for the deliberate choice between a unit diagonal in L and a unit diagonal in U, and for the warning to check the first diagonal entry before starting. StatLect (English, read in part) for the proof that the factorization is not unique without a normalisation. The Double Vibe's lecture (English, read in full) for the meaning of 'unit'. Both factorizations of [[2,2],[4,9]] and the LDU product are recomputed in scripts/validate.py.",
+   "links": {
+    "mock": {
+     "subject": "engineering-mathematics",
+     "unit_slug": "linear-algebra-matrices",
+     "unit_name": "Linear Algebra: Matrices & Systems",
+     "unit_number": 1,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "matrix-operations",
+       "questions": 15
+      },
+      {
+       "label": "rank-nullity",
+       "questions": 14
+      },
+      {
+       "label": "systems-of-linear-equations",
+       "questions": 12
+      },
+      {
+       "label": "gauss-elimination",
+       "questions": 9
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
+    },
+    "mapped_at": "2026-10-29"
+   },
    "subject": "linear-algebra",
    "topic": "lu-decomposition",
    "path": "subjects/linear-algebra/lu-decomposition/doolittle-crout-and-ldu.json"
@@ -14389,6 +14494,44 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "StatLect's LU decomposition page (English, read in part) for the counterexample to existence and for the sufficient condition of elimination without row interchanges. Dheeraj Mishra's GATE lecture (English, read in part) for the practical habit of checking the first diagonal entry before starting; his phrasing is 'principal minors' where the standard statement is 'leading principal minors', and this card uses the standard wording. The 2x2 impossibility argument and the singular example are recomputed in scripts/validate.py.",
+   "links": {
+    "mock": {
+     "subject": "engineering-mathematics",
+     "unit_slug": "linear-algebra-matrices",
+     "unit_name": "Linear Algebra: Matrices & Systems",
+     "unit_number": 1,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "matrix-operations",
+       "questions": 15
+      },
+      {
+       "label": "rank-nullity",
+       "questions": 14
+      },
+      {
+       "label": "systems-of-linear-equations",
+       "questions": 12
+      },
+      {
+       "label": "gauss-elimination",
+       "questions": 9
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
+    },
+    "visual": {
+     "slug": "matrices-systems-and-eigenvalues",
+     "title": "Matrices, Systems and Eigenvalues",
+     "level": "topic-level",
+     "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html",
+     "covers": [
+      "existence by leading principal minors; PA = LU with a permutation"
+     ]
+    },
+    "mapped_at": "2026-10-29"
+   },
    "subject": "linear-algebra",
    "topic": "lu-decomposition",
    "path": "subjects/linear-algebra/lu-decomposition/existence-and-leading-minors.json"
@@ -14461,6 +14604,45 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "StatLect's LU decomposition page (English, read in part) for the PA = LU theorem, the permutation matrix as an orthogonal matrix, and the observation that the elementary matrices of elimination are lower triangular. The worked 3x3, its permutation, its factors and both determinants are recomputed in exact arithmetic in scripts/validate.py. No readable lecture this run covered pivoting, so nothing on this card is quoted from a lecture.",
+   "links": {
+    "mock": {
+     "subject": "engineering-mathematics",
+     "unit_slug": "linear-algebra-matrices",
+     "unit_name": "Linear Algebra: Matrices & Systems",
+     "unit_number": 1,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "matrix-operations",
+       "questions": 15
+      },
+      {
+       "label": "rank-nullity",
+       "questions": 14
+      },
+      {
+       "label": "systems-of-linear-equations",
+       "questions": 12
+      },
+      {
+       "label": "gauss-elimination",
+       "questions": 9
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
+    },
+    "visual": {
+     "slug": "matrices-systems-and-eigenvalues",
+     "title": "Matrices, Systems and Eigenvalues",
+     "level": "topic-level",
+     "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html",
+     "covers": [
+      "existence by leading principal minors; PA = LU with a permutation",
+      "det A = (-1)^swaps times the pivot product"
+     ]
+    },
+    "mapped_at": "2026-10-29"
+   },
    "subject": "linear-algebra",
    "topic": "lu-decomposition",
    "path": "subjects/linear-algebra/lu-decomposition/pivoting-and-pa-equals-lu.json"
@@ -14547,6 +14729,44 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "The Double Vibe's lecture (English, read in full) for the reduction of Ax = b to Ly = b and Ux = y, which is how it closes. Engineering Wing's Lec23 (English, read in full) for the elimination half of the same walk. The 2022 system is solved in exact rational arithmetic in scripts/validate.py, including the check that the answer satisfies all three original equations.",
+   "links": {
+    "mock": {
+     "subject": "engineering-mathematics",
+     "unit_slug": "linear-algebra-matrices",
+     "unit_name": "Linear Algebra: Matrices & Systems",
+     "unit_number": 1,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "matrix-operations",
+       "questions": 15
+      },
+      {
+       "label": "rank-nullity",
+       "questions": 14
+      },
+      {
+       "label": "systems-of-linear-equations",
+       "questions": 12
+      },
+      {
+       "label": "gauss-elimination",
+       "questions": 9
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
+    },
+    "visual": {
+     "slug": "matrices-systems-and-eigenvalues",
+     "title": "Matrices, Systems and Eigenvalues",
+     "level": "topic-level",
+     "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html",
+     "covers": [
+      "forward and back substitution through L then U, each pass quadratic"
+     ]
+    },
+    "mapped_at": "2026-10-29"
+   },
    "subject": "linear-algebra",
    "topic": "lu-decomposition",
    "path": "subjects/linear-algebra/lu-decomposition/solving-ax-equals-b-with-lu.json"
@@ -14622,6 +14842,44 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "StatLect (English, read in part) for the multiplicative property of the determinant on which the identity rests, and for the elementary-matrix proof that elimination leaves the determinant unchanged. Every determinant and pivot product printed here is recomputed in scripts/validate.py.",
+   "links": {
+    "mock": {
+     "subject": "engineering-mathematics",
+     "unit_slug": "linear-algebra-matrices",
+     "unit_name": "Linear Algebra: Matrices & Systems",
+     "unit_number": 1,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "matrix-operations",
+       "questions": 15
+      },
+      {
+       "label": "rank-nullity",
+       "questions": 14
+      },
+      {
+       "label": "systems-of-linear-equations",
+       "questions": 12
+      },
+      {
+       "label": "gauss-elimination",
+       "questions": 9
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
+    },
+    "visual": {
+     "slug": "matrices-systems-and-eigenvalues",
+     "title": "Matrices, Systems and Eigenvalues",
+     "level": "topic-level",
+     "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html",
+     "covers": [
+      "det A = (-1)^swaps times the pivot product"
+     ]
+    },
+    "mapped_at": "2026-10-29"
+   },
    "subject": "linear-algebra",
    "topic": "lu-decomposition",
    "path": "subjects/linear-algebra/lu-decomposition/determinant-from-lu.json"
@@ -14697,6 +14955,44 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "StatLect (English, read in part) for the triangular-determinant fact and the non-existence proof that turns on a zero diagonal entry. The four statements of GATE CSE 2025 Set 2 Q.34 are checked against the determinant identity in scripts/validate.py, together with a symmetric matrix whose L and U are both asymmetric.",
+   "links": {
+    "mock": {
+     "subject": "engineering-mathematics",
+     "unit_slug": "linear-algebra-matrices",
+     "unit_name": "Linear Algebra: Matrices & Systems",
+     "unit_number": 1,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "matrix-operations",
+       "questions": 15
+      },
+      {
+       "label": "rank-nullity",
+       "questions": 14
+      },
+      {
+       "label": "systems-of-linear-equations",
+       "questions": 12
+      },
+      {
+       "label": "gauss-elimination",
+       "questions": 9
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
+    },
+    "visual": {
+     "slug": "matrices-systems-and-eigenvalues",
+     "title": "Matrices, Systems and Eigenvalues",
+     "level": "topic-level",
+     "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html",
+     "covers": [
+      "rank as a pivot count; elimination preserves it"
+     ]
+    },
+    "mapped_at": "2026-10-29"
+   },
    "subject": "linear-algebra",
    "topic": "lu-decomposition",
    "path": "subjects/linear-algebra/lu-decomposition/rank-and-singularity-from-u.json"
@@ -14769,6 +15065,44 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "The operation counts are the standard ones from Golub and Van Loan, Matrix Computations, section 3.2, and Strang's account of elimination as factorization; no readable lecture this run gave them, so no lecture is cited for the constants. Every arithmetic claim on this card is recomputed in scripts/validate.py.",
+   "links": {
+    "mock": {
+     "subject": "engineering-mathematics",
+     "unit_slug": "linear-algebra-matrices",
+     "unit_name": "Linear Algebra: Matrices & Systems",
+     "unit_number": 1,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "matrix-operations",
+       "questions": 15
+      },
+      {
+       "label": "rank-nullity",
+       "questions": 14
+      },
+      {
+       "label": "systems-of-linear-equations",
+       "questions": 12
+      },
+      {
+       "label": "gauss-elimination",
+       "questions": 9
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
+    },
+    "visual": {
+     "slug": "matrices-systems-and-eigenvalues",
+     "title": "Matrices, Systems and Eigenvalues",
+     "level": "topic-level",
+     "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html",
+     "covers": [
+      "each triangular pass is quadratic, so factor once for several right-hand sides"
+     ]
+    },
+    "mapped_at": "2026-10-29"
+   },
    "subject": "linear-algebra",
    "topic": "lu-decomposition",
    "path": "subjects/linear-algebra/lu-decomposition/cost-of-factorisation.json"
@@ -14842,6 +15176,35 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "The Double Vibe's lecture (English, read in full) for the substitution method that this card repeats once per column of the identity; the inverse itself is not worked in any readable source this run, so both columns, the adjugate cross-check and the reversal-order counterexample are computed in scripts/validate.py.",
+   "links": {
+    "mock": {
+     "subject": "engineering-mathematics",
+     "unit_slug": "linear-algebra-matrices",
+     "unit_name": "Linear Algebra: Matrices & Systems",
+     "unit_number": 1,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "matrix-operations",
+       "questions": 15
+      },
+      {
+       "label": "rank-nullity",
+       "questions": 14
+      },
+      {
+       "label": "systems-of-linear-equations",
+       "questions": 12
+      },
+      {
+       "label": "gauss-elimination",
+       "questions": 9
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
+    },
+    "mapped_at": "2026-10-29"
+   },
    "subject": "linear-algebra",
    "topic": "lu-decomposition",
    "path": "subjects/linear-algebra/lu-decomposition/inverse-and-repeated-solves.json"
@@ -14917,6 +15280,35 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "StatLect (English, read in part) for the factorization definitions and the elementary-matrix argument; the LDL^T and Cholesky forms themselves come from the standard references (Golub and Van Loan, sections 4.1 and 4.2). Every product on this card, including the asymmetric L and U of the symmetric counterexample, is recomputed in scripts/validate.py.",
+   "links": {
+    "mock": {
+     "subject": "engineering-mathematics",
+     "unit_slug": "linear-algebra-matrices",
+     "unit_name": "Linear Algebra: Matrices & Systems",
+     "unit_number": 1,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "matrix-operations",
+       "questions": 15
+      },
+      {
+       "label": "rank-nullity",
+       "questions": 14
+      },
+      {
+       "label": "systems-of-linear-equations",
+       "questions": 12
+      },
+      {
+       "label": "gauss-elimination",
+       "questions": 9
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
+    },
+    "mapped_at": "2026-10-29"
+   },
    "subject": "linear-algebra",
    "topic": "lu-decomposition",
    "path": "subjects/linear-algebra/lu-decomposition/ldlt-and-cholesky.json"
@@ -15003,6 +15395,35 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "The Double Vibe's lecture (English, read in full) for the entry-by-entry comparison that this card turns into a single-dot-product check, and for the 3x3 used as the worked example. Dheeraj Mishra's GATE lecture (English, read in part) for the habit of checking the convention before computing. Both factorizations, the dot products and the determinant are recomputed in scripts/validate.py.",
+   "links": {
+    "mock": {
+     "subject": "engineering-mathematics",
+     "unit_slug": "linear-algebra-matrices",
+     "unit_name": "Linear Algebra: Matrices & Systems",
+     "unit_number": 1,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "matrix-operations",
+       "questions": 15
+      },
+      {
+       "label": "rank-nullity",
+       "questions": 14
+      },
+      {
+       "label": "systems-of-linear-equations",
+       "questions": 12
+      },
+      {
+       "label": "gauss-elimination",
+       "questions": 9
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
+    },
+    "mapped_at": "2026-10-29"
+   },
    "subject": "linear-algebra",
    "topic": "lu-decomposition",
    "path": "subjects/linear-algebra/lu-decomposition/reading-lu-entries-in-gate-questions.json"

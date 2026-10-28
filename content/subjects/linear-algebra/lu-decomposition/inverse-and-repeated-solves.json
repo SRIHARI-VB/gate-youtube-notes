@@ -66,5 +66,34 @@
       "note": "the meaning of 'unit lower triangular', the symbolic product L times U compared entry by entry with A, the worked 3x3 whose L and U are the ones used on the exam-reading card, and the Ly = b then Ux = y conclusion"
     }
   ],
-  "sourceLine": "The Double Vibe's lecture (English, read in full) for the substitution method that this card repeats once per column of the identity; the inverse itself is not worked in any readable source this run, so both columns, the adjugate cross-check and the reversal-order counterexample are computed in scripts/validate.py."
+  "sourceLine": "The Double Vibe's lecture (English, read in full) for the substitution method that this card repeats once per column of the identity; the inverse itself is not worked in any readable source this run, so both columns, the adjugate cross-check and the reversal-order counterexample are computed in scripts/validate.py.",
+  "links": {
+    "mock": {
+      "subject": "engineering-mathematics",
+      "unit_slug": "linear-algebra-matrices",
+      "unit_name": "Linear Algebra: Matrices & Systems",
+      "unit_number": 1,
+      "question_count": 50,
+      "subtopics": [
+        {
+          "label": "matrix-operations",
+          "questions": 15
+        },
+        {
+          "label": "rank-nullity",
+          "questions": 14
+        },
+        {
+          "label": "systems-of-linear-equations",
+          "questions": 12
+        },
+        {
+          "label": "gauss-elimination",
+          "questions": 9
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
+    },
+    "mapped_at": "2026-10-29"
+  }
 }

@@ -68,5 +68,34 @@
       "note": "the definition, the proof that not every invertible matrix has a factorization, the proof that a factorization is never unique without a normalisation, the sufficient condition of elimination without row interchanges, and the PA = LU statement; the page body was cut off inside the PA = LU proof"
     }
   ],
-  "sourceLine": "StatLect (English, read in part) for the factorization definitions and the elementary-matrix argument; the LDL^T and Cholesky forms themselves come from the standard references (Golub and Van Loan, sections 4.1 and 4.2). Every product on this card, including the asymmetric L and U of the symmetric counterexample, is recomputed in scripts/validate.py."
+  "sourceLine": "StatLect (English, read in part) for the factorization definitions and the elementary-matrix argument; the LDL^T and Cholesky forms themselves come from the standard references (Golub and Van Loan, sections 4.1 and 4.2). Every product on this card, including the asymmetric L and U of the symmetric counterexample, is recomputed in scripts/validate.py.",
+  "links": {
+    "mock": {
+      "subject": "engineering-mathematics",
+      "unit_slug": "linear-algebra-matrices",
+      "unit_name": "Linear Algebra: Matrices & Systems",
+      "unit_number": 1,
+      "question_count": 50,
+      "subtopics": [
+        {
+          "label": "matrix-operations",
+          "questions": 15
+        },
+        {
+          "label": "rank-nullity",
+          "questions": 14
+        },
+        {
+          "label": "systems-of-linear-equations",
+          "questions": 12
+        },
+        {
+          "label": "gauss-elimination",
+          "questions": 9
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
+    },
+    "mapped_at": "2026-10-29"
+  }
 }

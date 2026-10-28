@@ -3126,6 +3126,422 @@
     },
     {
       "subject": "linear-algebra",
+      "group": "lu-decomposition",
+      "topic": "cost-of-factorisation",
+      "title": "What LU Costs, and Why You Factor Once",
+      "priority": "P3",
+      "path": "subjects/linear-algebra/lu-decomposition/cost-of-factorisation.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "engineering-mathematics",
+        "unit_slug": "linear-algebra-matrices",
+        "unit_name": "Linear Algebra: Matrices & Systems",
+        "unit_number": 1,
+        "question_count": 50,
+        "subtopic_labels": [
+          "matrix-operations",
+          "rank-nullity",
+          "systems-of-linear-equations",
+          "gauss-elimination"
+        ],
+        "verdict": "MOCK_CAPPED"
+      },
+      "visual": {
+        "slug": "matrices-systems-and-eigenvalues",
+        "title": "Matrices, Systems and Eigenvalues",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/linear-algebra/lu-decomposition/cost-of-factorisation.json",
+        "mock: engineering-mathematics/question-bank/master_bank.json unit 1 holds 50 records grouped by the `subtopic` field (this bank carries no subtopic_label): matrix-operations 15, rank-nullity 14, systems-of-linear-equations 12, gauss-elimination 9; paper from runs[] file engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html. Unit-level only: no group names LU decomposition, EM-U1-Q19 is the only banked item that touches factorisation.",
+        "visual: syllabus-coverage.json lesson_slug matrices-systems-and-eigenvalues (PUBLISHED); covers checked against topics/matrices-systems-and-eigenvalues/transcript.md scene 5 'LU decomposition: elimination written down'"
+      ],
+      "row_verdict": "PARTIAL"
+    },
+    {
+      "subject": "linear-algebra",
+      "group": "lu-decomposition",
+      "topic": "determinant-from-lu",
+      "title": "The Determinant From the Pivots",
+      "priority": "P2",
+      "path": "subjects/linear-algebra/lu-decomposition/determinant-from-lu.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "engineering-mathematics",
+        "unit_slug": "linear-algebra-matrices",
+        "unit_name": "Linear Algebra: Matrices & Systems",
+        "unit_number": 1,
+        "question_count": 50,
+        "subtopic_labels": [
+          "matrix-operations",
+          "rank-nullity",
+          "systems-of-linear-equations",
+          "gauss-elimination"
+        ],
+        "verdict": "MOCK_CAPPED"
+      },
+      "visual": {
+        "slug": "matrices-systems-and-eigenvalues",
+        "title": "Matrices, Systems and Eigenvalues",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/linear-algebra/lu-decomposition/determinant-from-lu.json",
+        "mock: engineering-mathematics/question-bank/master_bank.json unit 1 holds 50 records grouped by the `subtopic` field (this bank carries no subtopic_label): matrix-operations 15, rank-nullity 14, systems-of-linear-equations 12, gauss-elimination 9; paper from runs[] file engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html. Unit-level only: no group names LU decomposition, EM-U1-Q19 is the only banked item that touches factorisation.",
+        "visual: syllabus-coverage.json lesson_slug matrices-systems-and-eigenvalues (PUBLISHED); covers checked against topics/matrices-systems-and-eigenvalues/transcript.md scene 5 'LU decomposition: elimination written down'"
+      ],
+      "row_verdict": "PARTIAL"
+    },
+    {
+      "subject": "linear-algebra",
+      "group": "lu-decomposition",
+      "topic": "doolittle-crout-and-ldu",
+      "title": "Doolittle, Crout and LDU: Which Diagonal Is 1",
+      "priority": "P1",
+      "path": "subjects/linear-algebra/lu-decomposition/doolittle-crout-and-ldu.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "engineering-mathematics",
+        "unit_slug": "linear-algebra-matrices",
+        "unit_name": "Linear Algebra: Matrices & Systems",
+        "unit_number": 1,
+        "question_count": 50,
+        "subtopic_labels": [
+          "matrix-operations",
+          "rank-nullity",
+          "systems-of-linear-equations",
+          "gauss-elimination"
+        ],
+        "verdict": "MOCK_CAPPED"
+      },
+      "visual": {
+        "verdict": "VISUAL_MISSING"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/linear-algebra/lu-decomposition/doolittle-crout-and-ldu.json",
+        "mock: engineering-mathematics/question-bank/master_bank.json unit 1 holds 50 records grouped by the `subtopic` field (this bank carries no subtopic_label): matrix-operations 15, rank-nullity 14, systems-of-linear-equations 12, gauss-elimination 9; paper from runs[] file engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html. Unit-level only: no group names LU decomposition, EM-U1-Q19 is the only banked item that touches factorisation.",
+        "visual: the matrices-systems-and-eigenvalues lesson (PUBLISHED) scene 5 does not reach this case; checked against its transcript.md"
+      ],
+      "row_verdict": "PARTIAL"
+    },
+    {
+      "subject": "linear-algebra",
+      "group": "lu-decomposition",
+      "topic": "existence-and-leading-minors",
+      "title": "When an LU Factorization Exists",
+      "priority": "P1",
+      "path": "subjects/linear-algebra/lu-decomposition/existence-and-leading-minors.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "engineering-mathematics",
+        "unit_slug": "linear-algebra-matrices",
+        "unit_name": "Linear Algebra: Matrices & Systems",
+        "unit_number": 1,
+        "question_count": 50,
+        "subtopic_labels": [
+          "matrix-operations",
+          "rank-nullity",
+          "systems-of-linear-equations",
+          "gauss-elimination"
+        ],
+        "verdict": "MOCK_CAPPED"
+      },
+      "visual": {
+        "slug": "matrices-systems-and-eigenvalues",
+        "title": "Matrices, Systems and Eigenvalues",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/linear-algebra/lu-decomposition/existence-and-leading-minors.json",
+        "mock: engineering-mathematics/question-bank/master_bank.json unit 1 holds 50 records grouped by the `subtopic` field (this bank carries no subtopic_label): matrix-operations 15, rank-nullity 14, systems-of-linear-equations 12, gauss-elimination 9; paper from runs[] file engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html. Unit-level only: no group names LU decomposition, EM-U1-Q19 is the only banked item that touches factorisation.",
+        "visual: syllabus-coverage.json lesson_slug matrices-systems-and-eigenvalues (PUBLISHED); covers checked against topics/matrices-systems-and-eigenvalues/transcript.md scene 5 'LU decomposition: elimination written down'"
+      ],
+      "row_verdict": "PARTIAL"
+    },
+    {
+      "subject": "linear-algebra",
+      "group": "lu-decomposition",
+      "topic": "inverse-and-repeated-solves",
+      "title": "The Inverse, and Many Right-Hand Sides",
+      "priority": "P3",
+      "path": "subjects/linear-algebra/lu-decomposition/inverse-and-repeated-solves.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "engineering-mathematics",
+        "unit_slug": "linear-algebra-matrices",
+        "unit_name": "Linear Algebra: Matrices & Systems",
+        "unit_number": 1,
+        "question_count": 50,
+        "subtopic_labels": [
+          "matrix-operations",
+          "rank-nullity",
+          "systems-of-linear-equations",
+          "gauss-elimination"
+        ],
+        "verdict": "MOCK_CAPPED"
+      },
+      "visual": {
+        "verdict": "VISUAL_MISSING"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/linear-algebra/lu-decomposition/inverse-and-repeated-solves.json",
+        "mock: engineering-mathematics/question-bank/master_bank.json unit 1 holds 50 records grouped by the `subtopic` field (this bank carries no subtopic_label): matrix-operations 15, rank-nullity 14, systems-of-linear-equations 12, gauss-elimination 9; paper from runs[] file engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html. Unit-level only: no group names LU decomposition, EM-U1-Q19 is the only banked item that touches factorisation.",
+        "visual: the matrices-systems-and-eigenvalues lesson (PUBLISHED) scene 5 does not reach this case; checked against its transcript.md"
+      ],
+      "row_verdict": "PARTIAL"
+    },
+    {
+      "subject": "linear-algebra",
+      "group": "lu-decomposition",
+      "topic": "ldlt-and-cholesky",
+      "title": "Symmetric Matrices: LDL^T and Cholesky",
+      "priority": "P3",
+      "path": "subjects/linear-algebra/lu-decomposition/ldlt-and-cholesky.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "engineering-mathematics",
+        "unit_slug": "linear-algebra-matrices",
+        "unit_name": "Linear Algebra: Matrices & Systems",
+        "unit_number": 1,
+        "question_count": 50,
+        "subtopic_labels": [
+          "matrix-operations",
+          "rank-nullity",
+          "systems-of-linear-equations",
+          "gauss-elimination"
+        ],
+        "verdict": "MOCK_CAPPED"
+      },
+      "visual": {
+        "verdict": "VISUAL_MISSING"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/linear-algebra/lu-decomposition/ldlt-and-cholesky.json",
+        "mock: engineering-mathematics/question-bank/master_bank.json unit 1 holds 50 records grouped by the `subtopic` field (this bank carries no subtopic_label): matrix-operations 15, rank-nullity 14, systems-of-linear-equations 12, gauss-elimination 9; paper from runs[] file engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html. Unit-level only: no group names LU decomposition, EM-U1-Q19 is the only banked item that touches factorisation.",
+        "visual: the matrices-systems-and-eigenvalues lesson (PUBLISHED) scene 5 does not reach this case; checked against its transcript.md"
+      ],
+      "row_verdict": "PARTIAL"
+    },
+    {
+      "subject": "linear-algebra",
+      "group": "lu-decomposition",
+      "topic": "lu-factorisation-definition",
+      "title": "A = LU: Two Triangular Factors and What They Hold",
+      "priority": "P1",
+      "path": "subjects/linear-algebra/lu-decomposition/lu-factorisation-definition.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "engineering-mathematics",
+        "unit_slug": "linear-algebra-matrices",
+        "unit_name": "Linear Algebra: Matrices & Systems",
+        "unit_number": 1,
+        "question_count": 50,
+        "subtopic_labels": [
+          "matrix-operations",
+          "rank-nullity",
+          "systems-of-linear-equations",
+          "gauss-elimination"
+        ],
+        "verdict": "MOCK_CAPPED"
+      },
+      "visual": {
+        "slug": "matrices-systems-and-eigenvalues",
+        "title": "Matrices, Systems and Eigenvalues",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/linear-algebra/lu-decomposition/lu-factorisation-definition.json",
+        "mock: engineering-mathematics/question-bank/master_bank.json unit 1 holds 50 records grouped by the `subtopic` field (this bank carries no subtopic_label): matrix-operations 15, rank-nullity 14, systems-of-linear-equations 12, gauss-elimination 9; paper from runs[] file engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html. Unit-level only: no group names LU decomposition, EM-U1-Q19 is the only banked item that touches factorisation.",
+        "visual: syllabus-coverage.json lesson_slug matrices-systems-and-eigenvalues (PUBLISHED); covers checked against topics/matrices-systems-and-eigenvalues/transcript.md scene 5 'LU decomposition: elimination written down'"
+      ],
+      "row_verdict": "PARTIAL"
+    },
+    {
+      "subject": "linear-algebra",
+      "group": "lu-decomposition",
+      "topic": "multipliers-from-elimination",
+      "title": "Where L Comes From: the Multipliers of Elimination",
+      "priority": "P1",
+      "path": "subjects/linear-algebra/lu-decomposition/multipliers-from-elimination.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "engineering-mathematics",
+        "unit_slug": "linear-algebra-matrices",
+        "unit_name": "Linear Algebra: Matrices & Systems",
+        "unit_number": 1,
+        "question_count": 50,
+        "subtopic_labels": [
+          "matrix-operations",
+          "rank-nullity",
+          "systems-of-linear-equations",
+          "gauss-elimination"
+        ],
+        "verdict": "MOCK_CAPPED"
+      },
+      "visual": {
+        "slug": "matrices-systems-and-eigenvalues",
+        "title": "Matrices, Systems and Eigenvalues",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/linear-algebra/lu-decomposition/multipliers-from-elimination.json",
+        "mock: engineering-mathematics/question-bank/master_bank.json unit 1 holds 50 records grouped by the `subtopic` field (this bank carries no subtopic_label): matrix-operations 15, rank-nullity 14, systems-of-linear-equations 12, gauss-elimination 9; paper from runs[] file engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html. Unit-level only: no group names LU decomposition, EM-U1-Q19 is the only banked item that touches factorisation.",
+        "visual: syllabus-coverage.json lesson_slug matrices-systems-and-eigenvalues (PUBLISHED); covers checked against topics/matrices-systems-and-eigenvalues/transcript.md scene 5 'LU decomposition: elimination written down'"
+      ],
+      "row_verdict": "PARTIAL"
+    },
+    {
+      "subject": "linear-algebra",
+      "group": "lu-decomposition",
+      "topic": "pivoting-and-pa-equals-lu",
+      "title": "Zero Pivot: PA = LU with a Row Exchange",
+      "priority": "P2",
+      "path": "subjects/linear-algebra/lu-decomposition/pivoting-and-pa-equals-lu.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "engineering-mathematics",
+        "unit_slug": "linear-algebra-matrices",
+        "unit_name": "Linear Algebra: Matrices & Systems",
+        "unit_number": 1,
+        "question_count": 50,
+        "subtopic_labels": [
+          "matrix-operations",
+          "rank-nullity",
+          "systems-of-linear-equations",
+          "gauss-elimination"
+        ],
+        "verdict": "MOCK_CAPPED"
+      },
+      "visual": {
+        "slug": "matrices-systems-and-eigenvalues",
+        "title": "Matrices, Systems and Eigenvalues",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/linear-algebra/lu-decomposition/pivoting-and-pa-equals-lu.json",
+        "mock: engineering-mathematics/question-bank/master_bank.json unit 1 holds 50 records grouped by the `subtopic` field (this bank carries no subtopic_label): matrix-operations 15, rank-nullity 14, systems-of-linear-equations 12, gauss-elimination 9; paper from runs[] file engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html. Unit-level only: no group names LU decomposition, EM-U1-Q19 is the only banked item that touches factorisation.",
+        "visual: syllabus-coverage.json lesson_slug matrices-systems-and-eigenvalues (PUBLISHED); covers checked against topics/matrices-systems-and-eigenvalues/transcript.md scene 5 'LU decomposition: elimination written down'"
+      ],
+      "row_verdict": "PARTIAL"
+    },
+    {
+      "subject": "linear-algebra",
+      "group": "lu-decomposition",
+      "topic": "rank-and-singularity-from-u",
+      "title": "Zero Pivots, Rank and Singularity",
+      "priority": "P2",
+      "path": "subjects/linear-algebra/lu-decomposition/rank-and-singularity-from-u.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "engineering-mathematics",
+        "unit_slug": "linear-algebra-matrices",
+        "unit_name": "Linear Algebra: Matrices & Systems",
+        "unit_number": 1,
+        "question_count": 50,
+        "subtopic_labels": [
+          "matrix-operations",
+          "rank-nullity",
+          "systems-of-linear-equations",
+          "gauss-elimination"
+        ],
+        "verdict": "MOCK_CAPPED"
+      },
+      "visual": {
+        "slug": "matrices-systems-and-eigenvalues",
+        "title": "Matrices, Systems and Eigenvalues",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/linear-algebra/lu-decomposition/rank-and-singularity-from-u.json",
+        "mock: engineering-mathematics/question-bank/master_bank.json unit 1 holds 50 records grouped by the `subtopic` field (this bank carries no subtopic_label): matrix-operations 15, rank-nullity 14, systems-of-linear-equations 12, gauss-elimination 9; paper from runs[] file engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html. Unit-level only: no group names LU decomposition, EM-U1-Q19 is the only banked item that touches factorisation.",
+        "visual: syllabus-coverage.json lesson_slug matrices-systems-and-eigenvalues (PUBLISHED); covers checked against topics/matrices-systems-and-eigenvalues/transcript.md scene 5 'LU decomposition: elimination written down'"
+      ],
+      "row_verdict": "PARTIAL"
+    },
+    {
+      "subject": "linear-algebra",
+      "group": "lu-decomposition",
+      "topic": "reading-lu-entries-in-gate-questions",
+      "title": "Reading L and U Entries Under Exam Conditions",
+      "priority": "P2",
+      "path": "subjects/linear-algebra/lu-decomposition/reading-lu-entries-in-gate-questions.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "engineering-mathematics",
+        "unit_slug": "linear-algebra-matrices",
+        "unit_name": "Linear Algebra: Matrices & Systems",
+        "unit_number": 1,
+        "question_count": 50,
+        "subtopic_labels": [
+          "matrix-operations",
+          "rank-nullity",
+          "systems-of-linear-equations",
+          "gauss-elimination"
+        ],
+        "verdict": "MOCK_CAPPED"
+      },
+      "visual": {
+        "verdict": "VISUAL_MISSING"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/linear-algebra/lu-decomposition/reading-lu-entries-in-gate-questions.json",
+        "mock: engineering-mathematics/question-bank/master_bank.json unit 1 holds 50 records grouped by the `subtopic` field (this bank carries no subtopic_label): matrix-operations 15, rank-nullity 14, systems-of-linear-equations 12, gauss-elimination 9; paper from runs[] file engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html. Unit-level only: no group names LU decomposition, EM-U1-Q19 is the only banked item that touches factorisation.",
+        "visual: the matrices-systems-and-eigenvalues lesson (PUBLISHED) scene 5 does not reach this case; checked against its transcript.md"
+      ],
+      "row_verdict": "PARTIAL"
+    },
+    {
+      "subject": "linear-algebra",
+      "group": "lu-decomposition",
+      "topic": "solving-ax-equals-b-with-lu",
+      "title": "Solving Ax = b: Forward, Then Back Substitution",
+      "priority": "P1",
+      "path": "subjects/linear-algebra/lu-decomposition/solving-ax-equals-b-with-lu.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "engineering-mathematics",
+        "unit_slug": "linear-algebra-matrices",
+        "unit_name": "Linear Algebra: Matrices & Systems",
+        "unit_number": 1,
+        "question_count": 50,
+        "subtopic_labels": [
+          "matrix-operations",
+          "rank-nullity",
+          "systems-of-linear-equations",
+          "gauss-elimination"
+        ],
+        "verdict": "MOCK_CAPPED"
+      },
+      "visual": {
+        "slug": "matrices-systems-and-eigenvalues",
+        "title": "Matrices, Systems and Eigenvalues",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/linear-algebra/lu-decomposition/solving-ax-equals-b-with-lu.json",
+        "mock: engineering-mathematics/question-bank/master_bank.json unit 1 holds 50 records grouped by the `subtopic` field (this bank carries no subtopic_label): matrix-operations 15, rank-nullity 14, systems-of-linear-equations 12, gauss-elimination 9; paper from runs[] file engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html. Unit-level only: no group names LU decomposition, EM-U1-Q19 is the only banked item that touches factorisation.",
+        "visual: syllabus-coverage.json lesson_slug matrices-systems-and-eigenvalues (PUBLISHED); covers checked against topics/matrices-systems-and-eigenvalues/transcript.md scene 5 'LU decomposition: elimination written down'"
+      ],
+      "row_verdict": "PARTIAL"
+    },
+    {
+      "subject": "linear-algebra",
       "group": "matrices-and-determinants",
       "topic": "matrix-vocabulary-and-types",
       "title": "Matrix Vocabulary, Order and the Standard Types",
@@ -4244,6 +4660,21 @@
       "kind": "visual",
       "placement": "linear-algebra › eigenvalues-and-eigenvectors › cayley-hamilton-and-matrix-inverse",
       "detail": "No lesson mentions Cayley-Hamilton: the word appears in no file under topics/ except the Cayley formula for spanning trees in topics/graphs-connectivity. Extend topics/matrices-systems-and-eigenvalues/ with one scene."
+    },
+    {
+      "kind": "notes",
+      "placement": "theory-of-computation › turing-machines-and-undecidability › (no card)",
+      "detail": "Mock unit, Theory of Computation Unit 4 'Turing Machines & Decidability' (run 12, 2026-10-29, paper theory-of-computation/turing-machines-decidability/gate_toc_mock_4_2026-10-29.html) now holds 75 questions over 5 subtopic groups (standard-turing-machine-models 15, recursive-vs-recursively-enumerable 15, halting-problem-undecidability 15, rices-theorem-reductions 15, chomsky-hierarchy-summary 15), above the 50-question cap, so the second pass continues. content/syllabus.json lists theory-of-computation but every one of its topics carries material='planned', so no card serves them. Recommendation: write the first theory-of-computation card set at content/subjects/theory-of-computation/turing-machines-and-undecidability/."
+    },
+    {
+      "kind": "notes",
+      "placement": "general-aptitude › (subject not enumerated in content/syllabus.json) › (no card)",
+      "detail": "New lesson topics/tense-adjectives-and-conjunctions (added 2026-10-28, PUBLISHED, syllabus-coverage topic 'Tenses, adjectives and conjunctions') serves no notes card; content/syllabus.json enumerates 13 GATE subjects and general aptitude is not among them. Recommendation: decide whether general aptitude enters the notes at all; if it does, add the subject and topic to content/syllabus.json before any card is written, otherwise leave the lesson as the only artefact."
+    },
+    {
+      "kind": "visual",
+      "placement": "linear-algebra › lu-decomposition › doolittle-crout-and-ldu, ldlt-and-cholesky, inverse-and-repeated-solves, reading-lu-entries-in-gate-questions",
+      "detail": "The matrices-systems-and-eigenvalues lesson (PUBLISHED) scene 5 covers the A = LU definition, existence by leading principal minors, PA = LU, the pivot-product determinant and forward/back substitution; its transcript says nothing about the Doolittle/Crout/LDU conventions, LDL^T and Cholesky, computing the inverse through LU, or reading single L and U entries in an exam. Recommendation: extend topics/matrices-systems-and-eigenvalues/ with one scene rather than publishing a new lesson."
     }
   ]
 }
