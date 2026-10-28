@@ -1466,6 +1466,16 @@
       "kind": "notes",
       "placement": "compiler-design › analysis › lexical-analysis-parsing-sdt",
       "detail": "New lesson topics/lexical-analysis-parsing-and-sdt (added 2026-10-28, topics.json created 2026-10-28, 96 aliases, syllabus-coverage.json subject Compiler Design, unit Analysis, topic 'Lexical analysis, parsing and syntax-directed translation', coverage_status PUBLISHED, 4 subtopics, 28 microtopics, 10 scenes in transcript.md) serves no notes card; the notes repo has no compiler-design subject yet."
+    },
+    {
+      "kind": "notes",
+      "placement": "engineering-mathematics › calculus-optimization-integrals › (no card)",
+      "detail": "Mock unit 4 'Calculus: Maxima, Minima & Integrals' (unit_slug calculus-optimization-integrals, run 7, 1 of 2, 2026-10-28, paper engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-28.html) holds 25 questions grouped by subtopic slug: single-variable-extrema 7, multivariable-extrema-saddle-points 6, definite-integrals 6, vector-calculus-basics 6. Records carry subtopic slugs rather than subtopic_label text. The notes repo covers discrete mathematics only, so no card serves them."
+    },
+    {
+      "kind": "notes",
+      "placement": "computer-networks › network-layer › ip-fragmentation-cidr-and-nat",
+      "detail": "New lesson topics/ip-fragmentation-cidr-and-nat (added 2026-10-28; topics.json created/updated 2026-10-28; syllabus-coverage.json coverage_status PUBLISHED, subject Computer Networks, unit Network layer, 4 subtopics, 12 microtopics, 10 scenes in transcript.md) genuinely covers subnetting arithmetic and the five numbers of a block, longest prefix match on two real tables, adjacent-aligned prefix aggregation, fragmentation and reassembly with the 8-byte offset rule, transport header placement, downstream re-fragmentation, and NAT/PAT. No notes card exists for computer networks."
     }
   ]
 }
