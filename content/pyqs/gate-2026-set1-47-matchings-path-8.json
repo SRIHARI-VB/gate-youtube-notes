@@ -1,0 +1,15 @@
+{
+  "id": "gate-2026-set1-47-matchings-path-8",
+  "year": "2026",
+  "paper": "GATE CS 2026 Set 1",
+  "question_ref": "Q.47",
+  "type": "NAT",
+  "topic": "matching-maximal-maximum-perfect",
+  "text": "Let G be an undirected graph, which is a path on 8 vertices. The number of matchings in G is ______. (answer in integer)",
+  "answer": "34",
+  "solution": "Let M(n) be the number of matchings of a path on n vertices, counting the empty matching. The last edge is either unused, leaving a path on n-1 vertices, or used, which forbids the edge before it and leaves a path on n-2 vertices, so M(n) = M(n-1) + M(n-2) with M(0) = M(1) = 1. The values are 1, 1, 2, 3, 5, 8, 13, 21, 34, so M(8) = 34 = F(9). scripts/validate.py enumerates every subset of the 7 edges of P_8 and counts the 34 matchings.",
+  "source_url": "https://gateoverflow.in/523033/gate-cse-2026-set-1-question-47",
+  "source_label": "GATE Overflow question page - GATE CSE 2026 Set 1 Q.47 with the accepted answer (34)",
+  "verification": "SOURCED",
+  "answer_evidence": "Accepted answer: 'Answer: 34', via the Fibonacci recurrence with the empty matching counted."
+}
