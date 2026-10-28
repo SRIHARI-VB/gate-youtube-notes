@@ -1431,6 +1431,16 @@
       "kind": "visual",
       "placement": "computer-networks › data-link-layer › sliding-window-protocols, ethernet-framing-and-bridging",
       "detail": "The syllabus-coverage entry for topics/link-layer-error-detection-mac-and-ethernet lists subtopics 'sliding window protocols' and 'Ethernet framing and bridging', but neither appears in transcript.md, lesson.js or timeline.js (the 10 scenes run frames, parity, checksum, CRC, Hamming, ALOHA, carrier sense, Ethernet frame/backoff, arithmetic, procedure). Bridging is absent altogether; extend this lesson rather than build a new one."
+    },
+    {
+      "kind": "notes",
+      "placement": "computer-architecture › datapath-control-unit › (no card)",
+      "detail": "Mock unit 2 'CPU Control Design & Data Path' (unit_slug datapath-control-unit) holds 50 questions in 4 subtopic groups — Hardwired control 13, ALU & datapath timing 13, Microprogrammed control 12, Bus architectures 12; run 2, Set 2 of 2, paper computer-architecture/datapath-control-unit/gate_co_mock_2_2026-10-28.html. At the 50-question cap, so the rotation advances to the next unit. content/syllabus.json lists discrete-mathematics as the only notes subject, so no card serves this unit."
+    },
+    {
+      "kind": "notes",
+      "placement": "computer-networks › routing › distance-vector-and-link-state-routing",
+      "detail": "Lesson topics/distance-vector-and-link-state-routing (PUBLISHED 2026-10-28, 39 microtopics across 3 syllabus subtopics: distance vector algorithm and count-to-infinity, link state and Dijkstra, routing tables) serves no notes card — content/syllabus.json lists discrete-mathematics as the only notes subject, so there is no computer-networks subject to file it under."
     }
   ]
 }
