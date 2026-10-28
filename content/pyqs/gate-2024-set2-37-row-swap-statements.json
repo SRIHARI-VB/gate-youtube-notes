@@ -1,0 +1,21 @@
+{
+  "id": "gate-2024-set2-37-row-swap-statements",
+  "year": "2024",
+  "paper": "GATE CS 2024 Set 2",
+  "question_ref": "Q.37",
+  "type": "MSQ",
+  "topic": "determinant-row-column-operations",
+  "text": "Let A be an n x n matrix over the set of all real numbers. Let B be a matrix obtained from A by swapping two rows. Which of the following statements is/are TRUE?",
+  "options": [
+    "The determinant of B is the negative of the determinant of A",
+    "If A is invertible, then B is also invertible",
+    "If A is symmetric, then B is also symmetric",
+    "If the trace of A is zero, then the trace of B is also zero"
+  ],
+  "answer": "Options 1 and 2",
+  "solution": "A single row interchange multiplies the determinant by -1, so option 1 holds. det(B) = -det(A) is non-zero whenever det(A) is, so invertibility survives and option 2 holds. Symmetry does not survive: [[1,2],[2,3]] becomes [[2,3],[1,2]] after swapping the rows. The trace does not survive either: A = [[1,-1,0],[-1,-2,1],[0,1,1]] has trace 0 while the same matrix with rows 1 and 2 swapped has trace -1. scripts/validate.py checks all four verdicts by enumeration over small integer matrices.",
+  "source_url": "https://gateoverflow.in/422860/gate-cse-2024-set-2-question-37",
+  "source_label": "GATE Overflow question page - GATE CSE 2024 Set 2 Q.37 with the accepted answer (A and B true)",
+  "verification": "SOURCED",
+  "answer_evidence": "Accepted answer: 'Options A and B are True', with the symmetric 2 x 2 counterexample for C and a trace counterexample for D."
+}

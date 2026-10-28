@@ -1,0 +1,21 @@
+{
+  "id": "gate-2023-8-determinant-row-interchange",
+  "year": "2023",
+  "paper": "GATE CS 2023",
+  "question_ref": "Q.8",
+  "type": "MCQ",
+  "topic": "determinant-row-column-operations",
+  "text": "Let A = [[1,2,3,4],[4,1,2,3],[3,4,1,2],[2,3,4,1]] and B = [[3,4,1,2],[4,1,2,3],[1,2,3,4],[2,3,4,1]]. Which one of the options is TRUE?",
+  "options": [
+    "det(A) = det(B)",
+    "det(B) = -det(A)",
+    "det(A) = 0",
+    "det(AB) = det(A) + det(B)"
+  ],
+  "answer": "Option 2: det(B) = -det(A)",
+  "solution": "B is obtained from A by interchanging rows 1 and 3, and one interchange multiplies the determinant by -1. Computing directly, det(A) = -160 and det(B) = 160, so det(B) = -det(A); det(A) is not 0, and det(AB) = det(A) det(B) = -25600, not det(A) + det(B) = 0. scripts/validate.py recomputes both determinants and both products.",
+  "source_url": "https://gateoverflow.in/399304/gate-cse-2023-question-8",
+  "source_label": "GATE Overflow question page - GATE CSE 2023 Q.8 with the accepted answer (option B)",
+  "verification": "SOURCED",
+  "answer_evidence": "Accepted answer: 'R1 and R3 are interchanged, so det(B) = -det(A)', option B."
+}

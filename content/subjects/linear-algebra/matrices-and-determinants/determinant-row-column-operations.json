@@ -1,0 +1,96 @@
+{
+  "id": "determinant-row-column-operations",
+  "title": "How Row and Column Operations Change a Determinant",
+  "priority": "P1",
+  "order": 108,
+  "unit": "Determinants and rank",
+  "quickIdea": "Most determinant questions are property questions: swapping rows flips the sign, scaling one row scales the determinant, adding a multiple of a row changes nothing, and det(AB) = det(A) det(B).",
+  "remember": [
+    "Interchanging two rows, or two columns, multiplies the determinant by -1.",
+    "Multiplying one row by k multiplies the determinant by k. Hence det(kA) = k^n det(A) for an n x n A, because the scalar multiplies all n rows.",
+    "Adding a multiple of one row to another row leaves the determinant unchanged, which is why row reduction to triangular form preserves the value.",
+    "If two rows, or two columns, are identical or proportional, the determinant is 0.",
+    "det(A^T) = det(A), det(AB) = det(A) det(B), det(A^-1) = 1/det(A) and det(A^k) = det(A)^k.",
+    "det(A + B) has no law: it is neither det(A) + det(B) nor anything else predictable, and det(A) = 0 does not follow from det(A + B) = det(B)."
+  ],
+  "example": {
+    "prompt": "A = [[2,1],[0,3]]. Relate det(A), the determinant of A with its two rows swapped, and det(2A).",
+    "work": "det(A) = 2 x 3 - 1 x 0 = 6. Swapping the rows gives [[0,3],[2,1]] with determinant 0 x 1 - 3 x 2 = -6. Doubling gives 2A = [[4,2],[0,6]] with determinant 24.",
+    "answer": "The swap gives -6 = -det(A), and doubling gives 24 = 2^2 det(A) with n = 2."
+  },
+  "gateAngle": "GATE CSE 2026 Set 2 Q.52 asks det(2A) for a 4 x 4 with det 3, answer 48; GATE CSE 2023 Q.8 is a single row interchange, answer -det(A); GATE CSE 2020 Q.27 confirms det(AB) = det(A) det(B) while rejecting rank(AB) = rank(A) rank(B).",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "A is 3 x 3 with det(A) = 5. What is det(-2A)?",
+      "answer": "-40.",
+      "why": "det(-2A) = (-2)^3 det(A) = -8 x 5, because the scalar multiplies all three rows."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Why does adding a multiple of one row to another leave the determinant unchanged?",
+      "answer": "The operation replaces row i by row i + c row j. Expanding by linearity in row i splits the determinant into det(A) plus c times a determinant with two equal rows, and that second determinant is 0.",
+      "why": "Linearity in a single row plus the vanishing of a determinant with a repeated row gives the rule."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "A and B are 3 x 3 with det(A) = 2 and det(B) = 3. What is det(A^2 B^-1 A^T)?",
+      "answer": "8/3.",
+      "why": "The determinants multiply: det(A^2) = 4, det(B^-1) = 1/3 and det(A^T) = 2, so the product is 4 x (1/3) x 2."
+    }
+  ],
+  "trap": {
+    "what": "Applying det(kA) = k det(A) to an n x n matrix.",
+    "why": "The scalar multiplies every one of the n rows, so it leaves the determinant n times, not once.",
+    "counterexample": "For A = I_3, det(2I_3) = 8, while 2 det(I_3) = 2."
+  },
+  "check": {
+    "question": "A is 4 x 4 with det(A) = 6. What is det(A^T A^-1)?",
+    "answer": "1.",
+    "explanation": "det(A^T) = 6 and det(A^-1) = 1/6, so the product of the determinants is 1."
+  },
+  "pyqIds": [
+    "gate-2026-set2-52-det-2a",
+    "gate-2023-8-determinant-row-interchange",
+    "gate-2024-set2-37-row-swap-statements",
+    "gate-2020-27-rank-det-statements"
+  ],
+  "prereqs": [
+    "determinant-definition-and-cofactor-expansion"
+  ],
+  "videoRefs": [],
+  "visual": "linear-algebra/matrices-and-determinants/determinant-as-area-scaling",
+  "sources": [
+    {
+      "kind": "slides",
+      "title": "CS6015 Linear Algebra and Random Processes, LARP 2018 lecture slides",
+      "channel": "IIT Madras (cse.iitm.ac.in, Prof. Vineeth Balaji's course page)",
+      "url": "https://www.cse.iitm.ac.in/~vplab/LARP.html",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "the 'Determinants' deck states the three row-operation effects, the product rule and the pivot-product interpretation, and treats the determinant as a signed volume; read in full"
+    },
+    {
+      "kind": "text",
+      "title": "Linear Algebra subject page and revision notes",
+      "channel": "GATE Overflow",
+      "url": "https://gateoverflow.in/subject/mathematics/linear-algebra",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "the determinant section lists every row and column property used here and names det(A + B) = det(A) + det(B) as a common pitfall"
+    },
+    {
+      "kind": "text",
+      "title": "Matrices and Determinant Notes for GATE CSE and DA",
+      "channel": "GeeksforGeeks",
+      "url": "https://www.geeksforgeeks.org/maths/matrices-and-determinant-notes-for-gate-cse-and-da/",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "the determinant properties list confirms det(kA) = k^n det(A), the sign change on interchange, the product rule and the identical-rows rule"
+    }
+  ],
+  "sourceLine": "IIT Madras CS6015 (LARP 2018) slides, deck 4 'Determinants' (English, read in full) for the row-operation effects and the signed-volume reading. GATE Overflow Linear Algebra notes (English, read in part) for the property list and the det(A + B) pitfall. GeeksforGeeks (English, read in part) for the scalar and product rules. Every property is exercised over exhaustive small cases in scripts/validate.py, and the lesson in visuals/linear-algebra/matrices-and-determinants/determinant-as-area-scaling draws the same four rules as areas."
+}

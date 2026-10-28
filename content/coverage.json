@@ -2,8 +2,8 @@
   "exam": "GATE CSE 2027",
   "updated_at": "2026-10-28",
   "cycle": {
-    "last_subject": "discrete-mathematics",
-    "last_topic": "graphs",
+    "last_subject": "linear-algebra",
+    "last_topic": "matrices-and-determinants",
     "updated_at": "2026-10-28",
     "rule": "Next topic is the first topic strictly after cycle.last in the enumerated syllabus order whose status is not covered, wrapping at the end. not_started and partial topics are candidates; blocked topics are skipped while their blocker stands."
   },
@@ -193,10 +193,33 @@
         {
           "slug": "matrices-and-determinants",
           "name": "Matrices and Determinants",
-          "status": "not_started",
-          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
-          "runs": [],
-          "gaps": []
+          "status": "partial",
+          "coverage_note": "11 subtopics, 11 cards (matrix vocabulary and types, addition and scalar multiplication, the multiplication conformability rule and non-commutativity, transpose with symmetric and skew-symmetric matrices, powers with the idempotent/involutory/nilpotent/orthogonal identities, trace and the cyclic law, the determinant by minors and cofactors, the row and column operation laws, adjoint and inverse, rank with its bounds, and the singular-matrix equivalence list), 13 verified PYQs and 1 p5.js lesson. Partial because seven gaps remain, named below.",
+          "runs": [
+            {
+              "date": "2026-10-28",
+              "sources": [
+                "iitm-larp-2018-linear-algebra-slides",
+                "gateoverflow-linear-algebra-notes",
+                "geeksforgeeks-matrices-determinants-gate-notes",
+                "ashish-singh-matrices-determinants-hindi-oneshot",
+                "nptel-iit-roorkee-numerical-linear-algebra"
+              ],
+              "cards": 11,
+              "pyqs": 13,
+              "lesson": "linear-algebra/matrices-and-determinants/determinant-as-area-scaling",
+              "note": "Sources chosen on merit across two languages: five full-text IIT Madras CS6015 slide decks (English, every page carrying a text layer) for the definitions, the multiplication and transpose rules, the elimination pivot count, the inverse and the determinant as a signed volume; the GATE Overflow linear algebra notes (English, read in part) for the GATE property and pitfall lists; the GeeksforGeeks GATE notes (English, read in part) for the adjoint, inverse, trace and rank property lists; one Hindi Class-12 one-shot (read only in its opening, translated, marked as translated) for the elementary vocabulary and operation laws; and the NPTEL IIT Roorkee Numerical Linear Algebra lecture list (structure only) to confirm the subtopic enumeration. The only non-English source used is Hindi."
+            }
+          ],
+          "gaps": [
+            "no GATE-oriented lecture was readable: every English GATE linear-algebra video page tried carried no caption track, so the teaching rests on the IIT Madras slide decks and two GATE revision texts, and no card quotes or timestamps a GATE lecture",
+            "the adjoint and inverse card carries no verified PYQ: the only GATE CSE inverse question found in this topic, 1994 Q.3.12 ('Find the inverse of the matrix ...'), is descriptive, and the repository's PYQ schema holds only MCQ, MSQ and NAT records",
+            "no marks field is recorded on any PYQ of this topic: the official papers and keys were not fetched, so every question reference follows the numbering on the GATE Overflow question page and marks are left out rather than guessed",
+            "the one non-English source is a Class-12 Hindi one-shot read only in its opening, and it contributes only the elementary vocabulary, the matrix types and the operation laws; no GATE-level Hindi, Tamil, Telugu or Bengali lecture could be read this run",
+            "three full-text GATE note sets that would have deepened the topic could not be fetched from the sandbox (Ankur Gupta's GATE engineering-mathematics PDF, the Vidyalankar GATE mathematics notes, and the NPTEL IIT Kanpur Linear Algebra book, whose host returned 404); nothing rests on them and a later run should retry",
+            "every PYQ in the topic is SOURCED against a GATE Overflow accepted answer rather than key-verified against an official answer key; only GATE CSE 2022 Q.10 has an independent corroboration of the official option, from the GateAI PYQ page and the GeeksforGeeks answer key",
+            "the GATE Overflow subject page lists further linear algebra questions from 2010 to 2019 that were not individually read or recomputed; only the thirteen recorded PYQs were verified"
+          ]
         },
         {
           "slug": "system-of-linear-equations",

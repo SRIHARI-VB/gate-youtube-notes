@@ -1,0 +1,21 @@
+{
+  "id": "gate-2022-10-trace-cyclic",
+  "year": "2022",
+  "paper": "GATE CS 2022",
+  "question_ref": "Q.10",
+  "type": "MCQ",
+  "topic": "trace-and-its-properties",
+  "text": "Consider the following two statements with respect to the matrices A (m x n), B (n x m), C (n x n) and D (n x n). Statement 1: tr(AB) = tr(BA). Statement 2: tr(CD) = tr(DC). Which one of the following holds?",
+  "options": [
+    "Statement 1 is correct and Statement 2 is wrong",
+    "Statement 1 is wrong and Statement 2 is correct",
+    "Both Statement 1 and Statement 2 are correct",
+    "Both Statement 1 and Statement 2 are wrong"
+  ],
+  "answer": "Option 3: both statements are correct",
+  "solution": "tr(AB) is the double sum over i and k of a_ik b_ki, and tr(BA) is the same double sum with the indices exchanged, so they agree even though AB is m x m and BA is n x n. Statement 2 is the square case of the same identity. scripts/validate.py checks the identity over every pair of small integer matrices of every compatible shape.",
+  "source_url": "https://gateoverflow.in/371926/gate-cse-2022-question-10",
+  "source_label": "GATE Overflow question page - GATE CSE 2022 Q.10 with the accepted answer (both statements correct)",
+  "verification": "SOURCED",
+  "answer_evidence": "Accepted answer: 'Both statements are correct', option C; corroborated by the GeeksforGeeks GATE CSE engineering-mathematics answer key and by the GateAI PYQ page, which both record option C as the official answer."
+}

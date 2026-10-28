@@ -1,0 +1,91 @@
+{
+  "id": "adjoint-inverse-and-invertibility",
+  "title": "Cofactor Matrix, Adjoint and Inverse",
+  "priority": "P1",
+  "order": 109,
+  "unit": "Determinants and rank",
+  "quickIdea": "The adjoint is the transposed cofactor matrix; it exists for every square matrix and manufactures the inverse exactly when the determinant is not zero.",
+  "remember": [
+    "adj(A) is the transpose of the cofactor matrix: adj(A)_ij = C_ji. The transpose is part of the definition, not an afterthought.",
+    "A adj(A) = adj(A) A = |A| I_n. When |A| = 0 this reads A adj(A) = O, so the adjoint still exists.",
+    "A^-1 = adj(A)/|A| exists exactly when |A| is not 0; the inverse is unique, (AB)^-1 = B^-1 A^-1 and (A^T)^-1 = (A^-1)^T.",
+    "|adj A| = |A|^(n-1), adj(adj A) = |A|^(n-2) A, adj(AB) = adj(B) adj(A) and adj(kA) = k^(n-1) adj(A).",
+    "For 2 x 2: if A = [[a,b],[c,d]] then adj(A) = [[d,-b],[-c,a]] and A^-1 = adj(A)/(ad - bc).",
+    "An orthogonal matrix is its own adjoint up to sign: adj(A) = det(A) A^T when A is orthogonal."
+  ],
+  "example": {
+    "prompt": "A = [[3,1],[2,4]]. Find adj(A), verify A adj(A) = |A| I, and write A^-1.",
+    "work": "|A| = 12 - 2 = 10. adj(A) = [[4,-1],[-2,3]]. Then A adj(A) = [[12 - 2, -3 + 3],[8 - 8, -2 + 12]] = [[10,0],[0,10]] = 10 I. Dividing by 10 gives A^-1 = [[2/5,-1/10],[-1/5,3/10]].",
+    "answer": "adj(A) = [[4,-1],[-2,3]] and A^-1 = (1/10)[[4,-1],[-2,3]], with A adj(A) = 10 I."
+  },
+  "gateAngle": "GATE prefers the identities |adj A| = |A|^(n-1) and A adj(A) = |A| I to a full inverse computation. The only inverse question found in this topic, GATE CSE 1994 Q.3.12, is descriptive and is recorded as a gap rather than forced into the MCQ schema.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "A is 3 x 3 with |A| = 2. Find |adj(A)| and |adj(adj A)|.",
+      "answer": "|adj A| = 4 and |adj(adj A)| = 16.",
+      "why": "|adj A| = |A|^(n-1) = 2^2 = 4, and applying the same rule twice gives |adj(adj A)| = |A|^((n-1)^2) = 2^4."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Why is adj(A) defined even when A is singular?",
+      "answer": "Because it is built from cofactors, which are determinants of (n-1) x (n-1) submatrices and always exist; only the step A^-1 = adj(A)/|A| needs |A| to be non-zero.",
+      "why": "The adjoint is a matrix of numbers; the inverse is the adjoint divided by a number that may be zero."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "A is 2 x 2 with adj(A) = [[2,3],[4,5]]. What is A?",
+      "answer": "A = [[5,-3],[-4,2]].",
+      "why": "|adj A| = |A|^(2-1) = |A| = 2 x 5 - 3 x 4 = -2, and A = |A| adj(A)^-1 = -2 x (1/-2)[[5,-3],[-4,2]]."
+    }
+  ],
+  "trap": {
+    "what": "Forgetting to transpose the cofactor matrix, or writing |adj A| = |A|.",
+    "why": "adj(A) is the transposed cofactor matrix, and each of the n cofactors carries one factor of |A|, so the determinant of the adjoint is |A|^(n-1).",
+    "counterexample": "For A = [[3,1],[2,4]] the cofactor matrix is [[4,-2],[-1,3]] but adj(A) = [[4,-1],[-2,3]]; and for a 3 x 3 with |A| = 3, |adj A| = 9, not 3."
+  },
+  "check": {
+    "question": "A is 3 x 3 with |A| = 5. What is |A adj(A)|?",
+    "answer": "125.",
+    "explanation": "A adj(A) = |A| I_3 = 5 I_3, and the determinant of 5 I_3 is 5^3 = 125."
+  },
+  "pyqIds": [],
+  "prereqs": [
+    "determinant-definition-and-cofactor-expansion",
+    "determinant-row-column-operations"
+  ],
+  "videoRefs": [],
+  "sources": [
+    {
+      "kind": "slides",
+      "title": "CS6015 Linear Algebra and Random Processes, LARP 2018 lecture slides",
+      "channel": "IIT Madras (cse.iitm.ac.in, Prof. Vineeth Balaji's course page)",
+      "url": "https://www.cse.iitm.ac.in/~vplab/LARP.html",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "the 'Inverses and Transposes' deck defines the inverse, proves the inverse-transpose and reversal laws and explains which matrices have no inverse; read in full"
+    },
+    {
+      "kind": "text",
+      "title": "Linear Algebra subject page and revision notes",
+      "channel": "GATE Overflow",
+      "url": "https://gateoverflow.in/subject/mathematics/linear-algebra",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "the determinant section records adj(A) = |A|^(n-1) and the cofactor-matrix construction"
+    },
+    {
+      "kind": "text",
+      "title": "Matrices and Determinant Notes for GATE CSE and DA",
+      "channel": "GeeksforGeeks",
+      "url": "https://www.geeksforgeeks.org/maths/matrices-and-determinant-notes-for-gate-cse-and-da/",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "the 'Adjoint of a Matrix' and 'Inverse of a Matrix' sections give the full property list, including adj(adj A) = |A|^(n-2) A and adj(kA) = k^(n-1) adj(A)"
+    }
+  ],
+  "sourceLine": "IIT Madras CS6015 (LARP 2018) slides, deck 6 'Inverses and Transposes' (English, read in full) for the inverse laws and the non-invertibility discussion. GeeksforGeeks 'Matrices and Determinant Notes for GATE CSE and DA' (English, read in part) for the adjoint property list. GATE Overflow Linear Algebra notes (English, read in part) for |adj A| = |A|^(n-1). Every adjoint, inverse and determinant on this card is recomputed in scripts/validate.py, including by exact rational arithmetic."
+}

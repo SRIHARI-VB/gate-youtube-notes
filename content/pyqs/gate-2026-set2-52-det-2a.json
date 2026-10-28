@@ -1,0 +1,15 @@
+{
+  "id": "gate-2026-set2-52-det-2a",
+  "year": "2026",
+  "paper": "GATE CS 2026 Set 2",
+  "question_ref": "Q.52",
+  "type": "NAT",
+  "topic": "determinant-row-column-operations",
+  "text": "The determinant of a 4 x 4 matrix A is 3. The value of the determinant of 2A is ____. (answer in integer)",
+  "answer": "48",
+  "solution": "det(kA) = k^n det(A) for an n x n matrix, because multiplying by k scales each of the n rows. With k = 2, n = 4 and det(A) = 3, det(2A) = 2^4 x 3 = 16 x 3 = 48. scripts/validate.py checks the row-scaling law on every 2 x 2 and 3 x 3 integer matrix with entries in a small range.",
+  "source_url": "https://gateoverflow.in/523094/gate-cse-2026-set-2-question-52",
+  "source_label": "GATE Overflow question page - GATE CSE 2026 Set 2 Q.52 with the accepted answer (48)",
+  "verification": "SOURCED",
+  "answer_evidence": "Accepted answer: '|2A| = 2^4 x 3 = 48', applying |kA| = k^n |A|."
+}

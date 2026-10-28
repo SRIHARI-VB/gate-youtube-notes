@@ -1,0 +1,21 @@
+{
+  "id": "gate-2025-set2-4-det-of-matrix-powers",
+  "year": "2025",
+  "paper": "GATE CS 2025 Set 2",
+  "question_ref": "Q.4",
+  "type": "MCQ",
+  "topic": "matrix-powers-and-special-matrices",
+  "text": "Let L, M and N be non-singular matrices of order 3 satisfying L^2 = L^-1, M = L^8 and N = L^2. Which ONE of the following is the value of the determinant of (M - N)?",
+  "options": [
+    "0",
+    "1",
+    "2",
+    "3"
+  ],
+  "answer": "Option 1: 0",
+  "solution": "L^2 = L^-1 gives L^3 = I. Then L^8 = L^(6+2) = (L^3)^2 L^2 = L^2, so M = N and M - N is the zero matrix, whose determinant is 0. scripts/validate.py repeats the argument on concrete order-3 matrices satisfying L^3 = I.",
+  "source_url": "https://gateoverflow.in/460831/gate-cse-2025-set-2-question-4",
+  "source_label": "GATE Overflow question page - GATE CSE 2025 Set 2 Q.4 with the accepted answer (0)",
+  "verification": "SOURCED",
+  "answer_evidence": "Accepted answer: 'L^3 = I, so L^8 = L^2 = N, hence M - N = O and its determinant is 0', option A."
+}

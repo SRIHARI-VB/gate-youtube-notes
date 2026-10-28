@@ -1,0 +1,21 @@
+{
+  "id": "gate-2025-set2-1-matrix-powers-a8",
+  "year": "2025",
+  "paper": "GATE CS 2025 Set 2",
+  "question_ref": "Q.1",
+  "type": "MCQ",
+  "topic": "matrix-powers-and-special-matrices",
+  "text": "If A = [[1,2],[2,-1]], then which ONE of the following is A^8?",
+  "options": [
+    "[[25,0],[0,25]]",
+    "[[125,0],[0,125]]",
+    "[[625,0],[0,625]]",
+    "[[3125,0],[0,3125]]"
+  ],
+  "answer": "Option 3: [[625,0],[0,625]]",
+  "solution": "A^2 = [[1x1 + 2x2, 1x2 + 2x(-1)],[2x1 + (-1)x2, 2x2 + (-1)(-1)]] = [[5,0],[0,5]] = 5I. Then A^4 = 25I and A^8 = (A^4)^2 = 625I. scripts/validate.py multiplies the matrix out by repeated exact multiplication and confirms 625I.",
+  "source_url": "https://gateoverflow.in/460834/gate-cse-2025-set-2-question-1",
+  "source_label": "GATE Overflow question page - GATE CSE 2025 Set 2 Q.1 with the accepted answer (option C, 625I)",
+  "verification": "SOURCED",
+  "answer_evidence": "Accepted answer: 'A^2 = 5I, so A^4 = 25I and A^8 = 625I', option C."
+}

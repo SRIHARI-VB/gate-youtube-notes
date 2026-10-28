@@ -1,0 +1,90 @@
+{
+  "id": "transpose-symmetric-and-skew-symmetric",
+  "title": "Transpose, Symmetric and Skew-Symmetric Matrices",
+  "priority": "P1",
+  "order": 104,
+  "unit": "Matrices",
+  "quickIdea": "Transposing reflects a matrix in its main diagonal and reverses products; symmetric means A^T = A, skew-symmetric means A^T = -A, and every square matrix splits uniquely into one of each.",
+  "remember": [
+    "(A^T)_ij = a_ji; (A^T)^T = A; (A + B)^T = A^T + B^T; (kA)^T = kA^T; (AB)^T = B^T A^T; (A^-1)^T = (A^T)^-1.",
+    "Symmetric: A^T = A. Skew-symmetric: A^T = -A, which forces every diagonal entry to be 0 and forces a_ij = -a_ji off the diagonal.",
+    "Every square matrix splits uniquely as A = (A + A^T)/2 + (A - A^T)/2, a symmetric part plus a skew-symmetric part.",
+    "A^T A and A A^T are always symmetric, even when A is rectangular.",
+    "A skew-symmetric matrix of odd order has determinant 0, so it is singular; of even order it can be non-singular, for example [[0,1],[-1,0]].",
+    "The rank of a skew-symmetric matrix is never 1: it is 0 or at least 2."
+  ],
+  "example": {
+    "prompt": "A = [[1,2,3],[4,5,6]]. Compute A^T A and explain why it must be symmetric.",
+    "work": "A^T is 3 x 2, so A^T A is 3 x 3 with (A^T A)_ij equal to column i of A dotted with column j of A: 17, 22, 27 on the first row; 22, 29, 36 on the second; 27, 36, 45 on the third.",
+    "answer": "A^T A = [[17,22,27],[22,29,36],[27,36,45]], symmetric because a dot product does not care about the order of its two factors."
+  },
+  "gateAngle": "GATE CSE 2024 Set 2 Q.37 asks which properties survive swapping two rows of a square matrix: the determinant changes sign and invertibility survives, but symmetry and the trace do not.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "How many 3 x 3 symmetric matrices are there with every entry 0 or 1?",
+      "answer": "64, which is 2^6.",
+      "why": "The three diagonal entries and the three entries above the diagonal are free, and the entries below the diagonal are then forced, so the count is 2^(3 x 4 / 2)."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Why must a skew-symmetric matrix of odd order be singular?",
+      "answer": "Because det(A) = det(A^T) = det(-A) = (-1)^n det(A), and for odd n that reads det(A) = -det(A), so det(A) = 0.",
+      "why": "The three steps are the transpose law, the definition of skew-symmetric, and the scalar law det(kA) = k^n det(A) with k = -1."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "A and B are symmetric matrices of the same order. When is AB symmetric?",
+      "answer": "Exactly when AB = BA.",
+      "why": "(AB)^T = B^T A^T = BA, so AB equals its own transpose if and only if AB = BA."
+    }
+  ],
+  "trap": {
+    "what": "Writing (AB)^T = A^T B^T.",
+    "why": "The order of the factors reverses. The wrong version agrees with the right one only when AB = BA.",
+    "counterexample": "A = [[0,1],[0,0]] and B = [[0,0],[1,0]]: AB = [[1,0],[0,0]] is already symmetric, but A^T B^T = [[0,0],[0,1]], which is a different matrix."
+  },
+  "check": {
+    "question": "A is 3 x 3 and skew-symmetric. What is det(A)?",
+    "answer": "0.",
+    "explanation": "For odd order, det(A) = det(A^T) = det(-A) = (-1)^3 det(A) = -det(A), so det(A) = 0; a 3 x 3 skew-symmetric matrix is always singular."
+  },
+  "pyqIds": [],
+  "prereqs": [
+    "matrix-multiplication-and-noncommutativity"
+  ],
+  "videoRefs": [],
+  "sources": [
+    {
+      "kind": "slides",
+      "title": "CS6015 Linear Algebra and Random Processes, LARP 2018 lecture slides",
+      "channel": "IIT Madras (cse.iitm.ac.in, Prof. Vineeth Balaji's course page)",
+      "url": "https://www.cse.iitm.ac.in/~vplab/LARP.html",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "the deck 'Inverses and Transposes' covers the transpose, its laws and the inverse-transpose identity; read in full"
+    },
+    {
+      "kind": "text",
+      "title": "Matrices and Determinant Notes for GATE CSE and DA",
+      "channel": "GeeksforGeeks",
+      "url": "https://www.geeksforgeeks.org/maths/matrices-and-determinant-notes-for-gate-cse-and-da/",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "the 'Transpose of a Matrix' section lists the transpose laws including (AB)^T = B^T A^T, and the type list defines symmetric, skew-symmetric and orthogonal matrices"
+    },
+    {
+      "kind": "text",
+      "title": "Linear Algebra subject page and revision notes",
+      "channel": "GATE Overflow",
+      "url": "https://gateoverflow.in/subject/mathematics/linear-algebra",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "the determinant section states that a skew-symmetric matrix of odd order has determinant zero"
+    }
+  ],
+  "sourceLine": "IIT Madras CS6015 (LARP 2018) slides, deck 6 'Inverses and Transposes' (English, read in full) for the transpose laws. GeeksforGeeks 'Matrices and Determinant Notes for GATE CSE and DA' (English, read in part) for the symmetric, skew-symmetric and orthogonal definitions and the transpose properties. GATE Overflow Linear Algebra notes (English, read in part) for the odd-order skew-symmetric determinant. The counts and counterexamples are recomputed in scripts/validate.py."
+}

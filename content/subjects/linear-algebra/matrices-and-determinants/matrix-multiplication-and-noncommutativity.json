@@ -1,0 +1,91 @@
+{
+  "id": "matrix-multiplication-and-noncommutativity",
+  "title": "Matrix Multiplication: The Conformability Rule",
+  "priority": "P1",
+  "order": 103,
+  "unit": "Matrices",
+  "quickIdea": "AB exists only when the columns of A match the rows of B; each entry is a row of A dotted with a column of B, and AB is not BA.",
+  "remember": [
+    "AB is defined if and only if cols(A) = rows(B). If A is m x n and B is n x p then AB is m x p: the outer dimensions survive and the shared inner dimension disappears.",
+    "(AB)_ij is row i of A times column j of B, that is the sum of a_ik b_kj over k.",
+    "AB is not equal to BA in general, AB = O does not force A = O or B = O, and cancellation fails: AB = AC with A non-zero does not give B = C.",
+    "(AB)C = A(BC), A(B + C) = AB + AC, (A + B)C = AC + BC, and AI = IA = A.",
+    "A column u (n x 1) times a row v (1 x n) gives an n x n matrix of rank 1 whenever u and v are both non-zero, and of rank 0 otherwise.",
+    "Counting cost: multiplying an m x n by an n x p matrix takes m n p scalar multiplications."
+  ],
+  "example": {
+    "prompt": "A = [[1,2],[3,4]] and B = [[0,1],[0,0]]. Compute AB and BA.",
+    "work": "AB: row 1 of A is (1,2), and the columns of B are (0,0) and (1,0), so AB = [[0,1],[0,3]]. BA: row 1 of B is (0,1), giving BA = [[3,4],[0,0]].",
+    "answer": "AB = [[0,1],[0,3]] and BA = [[3,4],[0,0]]: different products, and neither is the zero matrix although B is not invertible."
+  },
+  "gateAngle": "Every question that writes A^2 or A^n assumes this rule. GATE CSE 2025 Set 2 Q.1 is a chain of 2 x 2 products, and GATE CSE 2020 Q.27 contrasts rank(AB) with det(AB) = det(A) det(B).",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "How many scalar multiplications does the product of a 3 x 4 matrix with a 4 x 2 matrix take, and what is the order of the answer?",
+      "answer": "24 scalar multiplications, and the product is 3 x 2.",
+      "why": "The cost is m n p = 3 x 4 x 2, and the outer dimensions give the order."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Can a 2 x 3 matrix A and a 3 x 2 matrix B satisfy AB = I_2 while BA is not I_3?",
+      "answer": "Yes.",
+      "why": "Take A = [[1,0,0],[0,1,0]] and B = [[1,0],[0,1],[0,0]]: AB = I_2, but BA has a zero third row and third column, so BA is not I_3."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "A is 3 x 3 with A^2 = A and A not equal to I. Must A be singular?",
+      "answer": "Yes.",
+      "why": "If A were invertible, multiplying A^2 = A on the left by A^-1 gives A = I, contradicting A not equal to I; so det(A) = 0."
+    }
+  ],
+  "trap": {
+    "what": "Assuming AB = BA, or expanding (AB)^2 as A^2 B^2.",
+    "why": "(AB)^2 means ABAB, which collapses to A^2 B^2 only when A and B commute.",
+    "counterexample": "A = [[0,1],[0,0]] and B = [[0,0],[1,0]]: AB = [[1,0],[0,0]] so (AB)^2 = AB, while A^2 = O and B^2 = O so A^2 B^2 = O."
+  },
+  "check": {
+    "question": "A is 1 x 3 and B is 3 x 1. What are the orders of AB and BA?",
+    "answer": "AB is 1 x 1, a single number; BA is 3 x 3.",
+    "explanation": "The inner dimension is 3 for both products, so AB is (1 x 1) and BA is (3 x 3), and BA has rank 1 because it is a column times a row."
+  },
+  "pyqIds": [],
+  "prereqs": [
+    "matrix-vocabulary-and-types",
+    "matrix-addition-and-scalar-multiplication"
+  ],
+  "videoRefs": [],
+  "sources": [
+    {
+      "kind": "slides",
+      "title": "CS6015 Linear Algebra and Random Processes, LARP 2018 lecture slides",
+      "channel": "IIT Madras (cse.iitm.ac.in, Prof. Vineeth Balaji's course page)",
+      "url": "https://www.cse.iitm.ac.in/~vplab/LARP.html",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "the deck 'Matrix multiplication' gives the inner-dimension rule, the row-times-column formula, the outer-dimension result, the warning that AB differs from BA, and worked conformance examples; read in full"
+    },
+    {
+      "kind": "video",
+      "title": "Mega OneShot | Ch - Aavyuh tatha Sarnik (Matrices And Determinants) | 12th Maths Hindi Medium",
+      "channel": "ashish singh lectures (Vikram Sir)",
+      "url": "https://www.youtube.com/watch?v=m-yjFO_-VFk",
+      "language": "hi",
+      "transcript": "PARTIAL",
+      "translated": true,
+      "note": "translated from Hindi: the lecture derives the multiplication condition (columns of the first factor equal rows of the second) and shows that the product is generally not commutative"
+    },
+    {
+      "kind": "text",
+      "title": "Matrices and Determinant Notes for GATE CSE and DA",
+      "channel": "GeeksforGeeks",
+      "url": "https://www.geeksforgeeks.org/maths/matrices-and-determinant-notes-for-gate-cse-and-da/",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "the 'Matrix Multiplication' section states the same rule and the transpose law (AB)^T = B^T A^T"
+    }
+  ],
+  "sourceLine": "IIT Madras CS6015 (LARP 2018) slides, deck 2 'Matrix multiplication' (English, read in full) for the conformability rule, the entry formula and the worked products. Ashish Singh Lectures, 'Mega One Shot: Matrices and Determinants' (Hindi, opening read only, translated and marked as translated, source language Hindi) for the multiplication condition and non-commutativity. Every product and count on this card is recomputed in scripts/validate.py."
+}

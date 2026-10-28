@@ -1,0 +1,79 @@
+{
+  "id": "matrix-addition-and-scalar-multiplication",
+  "title": "Addition, Scalar Multiplication and Their Laws",
+  "priority": "P2",
+  "order": 102,
+  "unit": "Matrices",
+  "quickIdea": "Addition and scalar multiplication act entry by entry and need matching orders; every law you expect from ordinary numbers survives, and division does not exist.",
+  "remember": [
+    "A + B is defined only when A and B have the same order, and then (A + B)_ij = a_ij + b_ij.",
+    "A + B = B + A, (A + B) + C = A + (B + C), A + O = A and A + (-A) = O.",
+    "(kA)_ij = k a_ij, with k(A + B) = kA + kB, (k + l)A = kA + lA, k(lA) = (kl)A, 1A = A and 0A = O.",
+    "Transpose commutes with both: (A + B)^T = A^T + B^T and (kA)^T = kA^T. It does not commute with products, where (AB)^T = B^T A^T.",
+    "There is no division by a matrix. 'A/B' would mean A B^-1 or B^-1 A, and those two are different matrices unless A and B commute."
+  ],
+  "example": {
+    "prompt": "A is 2 x 3 and B is 3 x 2. Which of A + B, 2A and A + A^T exist?",
+    "work": "A + B fails because the orders differ. 2A doubles every entry and always exists. A^T is 3 x 2 while A is 2 x 3, so A + A^T fails as well.",
+    "answer": "Only 2A exists among the three."
+  },
+  "gateAngle": "Scalar multiplication is where det(kA) = k^n det A comes from: the scalar touches all n rows, which is exactly why the exponent appears in GATE CSE 2026 Set 2 Q.52.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "A is 3 x 3. Simplify (2A + 3A)^T.",
+      "answer": "5A^T.",
+      "why": "2A + 3A = 5A by the distributive law, and (kA)^T = kA^T."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Is A + 1 defined for a matrix A?",
+      "answer": "No.",
+      "why": "A scalar is added to a matrix only through a matrix of the same order, such as kI; writing A + 1 has no entry-by-entry meaning."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "A is 2 x 2 with A + A^T = O. What does that tell you about A?",
+      "answer": "A is skew-symmetric.",
+      "why": "A + A^T = O rearranges to A^T = -A, which is the definition of skew-symmetric, and it forces both diagonal entries to be zero."
+    }
+  ],
+  "trap": {
+    "what": "Adding matrices of different orders, or adding a bare scalar to a matrix.",
+    "why": "Entry-by-entry addition is only defined when the two arrays line up, and a scalar enters a matrix through multiplication or through a scaled identity.",
+    "counterexample": "A = [[1,2],[3,4]]: 2A = [[2,4],[6,8]] exists, A + 2 does not, and A + 2I = [[3,2],[3,6]] only because 2I has the same order as A."
+  },
+  "check": {
+    "question": "A is 4 x 4 with A + A^T = 2A. What kind of matrix is A?",
+    "answer": "Symmetric.",
+    "explanation": "A + A^T = 2A rearranges to A^T = A, which is the definition of a symmetric matrix."
+  },
+  "pyqIds": [],
+  "prereqs": [
+    "matrix-vocabulary-and-types"
+  ],
+  "videoRefs": [],
+  "sources": [
+    {
+      "kind": "video",
+      "title": "Mega OneShot | Ch - Aavyuh tatha Sarnik (Matrices And Determinants) | 12th Maths Hindi Medium",
+      "channel": "ashish singh lectures (Vikram Sir)",
+      "url": "https://www.youtube.com/watch?v=m-yjFO_-VFk",
+      "language": "hi",
+      "transcript": "PARTIAL",
+      "translated": true,
+      "note": "translated from Hindi: the lecture gives the same-order condition for addition, elementwise addition, the commutative, associative, additive-identity and additive-inverse laws, and the scalar multiplication laws"
+    },
+    {
+      "kind": "text",
+      "title": "Matrices and Determinant Notes for GATE CSE and DA",
+      "channel": "GeeksforGeeks",
+      "url": "https://www.geeksforgeeks.org/maths/matrices-and-determinant-notes-for-gate-cse-and-da/",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "the 'Matrix Addition' section states the same-order requirement and the commutative and associative laws"
+    }
+  ],
+  "sourceLine": "Ashish Singh Lectures, 'Mega One Shot: Matrices and Determinants' (Hindi, opening read only; every sentence taken from it is translated into English and marked as translated, source language Hindi) for the addition and scalar-multiplication laws. GeeksforGeeks 'Matrices and Determinant Notes for GATE CSE and DA' (English, read in part) to confirm the same-order requirement. Standard reference used to verify, never copied: Strang, Introduction to Linear Algebra, ch. 1."
+}

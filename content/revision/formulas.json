@@ -588,5 +588,75 @@
         "note": "tree: k(k-1)^{n-1}; cycle: (k-1)^n + (-1)^n (k-1)"
       }
     ]
+  },
+  {
+    "group": "Matrices and determinants",
+    "items": [
+      {
+        "name": "Matrix product",
+        "latex": "(AB)_{ij} = \\sum_{k=1}^{n} a_{ik} b_{kj}",
+        "note": "defined only when cols(A) = rows(B)"
+      },
+      {
+        "name": "Transpose of a product",
+        "latex": "(AB)^{T} = B^{T} A^{T}",
+        "note": "the order reverses"
+      },
+      {
+        "name": "Symmetric plus skew-symmetric part",
+        "latex": "A = \\dfrac{A + A^{T}}{2} + \\dfrac{A - A^{T}}{2}",
+        "note": "unique for every square matrix"
+      },
+      {
+        "name": "Trace of a product",
+        "latex": "\\operatorname{tr}(AB) = \\operatorname{tr}(BA)",
+        "note": "holds for rectangular factors too"
+      },
+      {
+        "name": "2 x 2 determinant",
+        "latex": "\\begin{vmatrix} a & b \\\\ c & d \\end{vmatrix} = ad - bc",
+        "note": "signed area of the two columns"
+      },
+      {
+        "name": "Laplace expansion",
+        "latex": "|A| = \\sum_{j} a_{ij} C_{ij}, \\quad C_{ij} = (-1)^{i+j} M_{ij}",
+        "note": "any row or column"
+      },
+      {
+        "name": "Scalar rule for determinants",
+        "latex": "\\det(kA) = k^{n} \\det(A)",
+        "note": "n x n matrix: k multiplies n rows"
+      },
+      {
+        "name": "Product rule for determinants",
+        "latex": "\\det(AB) = \\det(A) \\det(B)",
+        "note": "and det(A^{-1}) = 1/det(A)"
+      },
+      {
+        "name": "Adjoint identity",
+        "latex": "A \\operatorname{adj}(A) = \\operatorname{adj}(A) A = |A| I_n",
+        "note": "adj is the transposed cofactor matrix"
+      },
+      {
+        "name": "Determinant of the adjoint",
+        "latex": "|\\operatorname{adj} A| = |A|^{n-1}",
+        "note": "and adj(adj A) = |A|^{n-2} A"
+      },
+      {
+        "name": "Inverse from the adjoint",
+        "latex": "A^{-1} = \\dfrac{\\operatorname{adj}(A)}{|A|}",
+        "note": "exists exactly when |A| is not 0"
+      },
+      {
+        "name": "Rank bounds",
+        "latex": "\\operatorname{rank}(AB) \\le \\min(\\operatorname{rank} A, \\operatorname{rank} B), \\quad \\operatorname{rank}(A+B) \\le \\operatorname{rank} A + \\operatorname{rank} B",
+        "note": "Sylvester: rank(AB) >= rank A + rank B - n"
+      },
+      {
+        "name": "Rank and nullity",
+        "latex": "\\operatorname{rank}(A) + \\operatorname{nullity}(A) = n",
+        "note": "A is m x n"
+      }
+    ]
   }
 ]

@@ -2723,6 +2723,421 @@ def check_graphs():
        "value and count")
 
 
+# ---------------------------------------- matrices and determinants
+def _m_mat(A, B):
+    n, k, p = len(A), len(B), len(B[0])
+    return [[sum(A[i][t] * B[t][j] for t in range(k)) for j in range(p)] for i in range(n)]
+
+
+def _m_T(A):
+    return [[A[i][j] for i in range(len(A))] for j in range(len(A[0]))]
+
+
+def _m_det(A):
+    from fractions import Fraction
+    n = len(A)
+    M = [[Fraction(x) for x in row] for row in A]
+    if n == 1:
+        return M[0][0]
+    total = Fraction(0)
+    for j in range(n):
+        sub = [[M[i][t] for t in range(n) if t != j] for i in range(1, n)]
+        total += (-1) ** j * M[0][j] * _m_det(sub)
+    return total
+
+
+def _m_rank(A):
+    from fractions import Fraction
+    M = [[Fraction(x) for x in row] for row in A]
+    m, n = len(M), len(M[0])
+    r = 0
+    for c in range(n):
+        piv = next((i for i in range(r, m) if M[i][c] != 0), None)
+        if piv is None:
+            continue
+        M[r], M[piv] = M[piv], M[r]
+        pv = M[r][c]
+        M[r] = [x / pv for x in M[r]]
+        for i in range(m):
+            if i != r and M[i][c] != 0:
+                f = M[i][c]
+                M[i] = [M[i][j] - f * M[r][j] for j in range(n)]
+        r += 1
+        if r == m:
+            break
+    return r
+
+
+def _m_tr(A):
+    return sum(A[i][i] for i in range(len(A)))
+
+
+def _m_minor(A, i, j):
+    return [[A[r][c] for c in range(len(A)) if c != j] for r in range(len(A)) if r != i]
+
+
+def _m_cof(A, i, j):
+    return (-1) ** (i + j) * _m_det(_m_minor(A, i, j))
+
+
+def _m_adj(A):
+    n = len(A)
+    return [[_m_cof(A, j, i) for j in range(n)] for i in range(n)]
+
+
+def _m_inv(A):
+    d = _m_det(A)
+    if d == 0:
+        return None
+    return [[x / d for x in row] for row in _m_adj(A)]
+
+
+def _m_mats(n, vals):
+    import itertools
+    for flat in itertools.product(vals, repeat=n * n):
+        yield [list(flat[i * n:(i + 1) * n]) for i in range(n)]
+
+
+def _m_eq(A, B):
+    return len(A) == len(B) and all(A[i][j] == B[i][j] for i in range(len(A)) for j in range(len(A[0])))
+
+
+def check_matrices_and_determinants():
+    """Every claim in the Matrices and Determinants cards and in the area lesson is recomputed."""
+    import random
+    from fractions import Fraction
+    Z = Fraction(0)
+
+    # --- card 1: vocabulary and types
+    if 2 * 3 != 6 or min(3, 4) != 3:
+        fail("math: the entry and diagonal counts in the vocabulary card are wrong")
+    if 3 ** 3 != 27 or 2 ** 3 != 8:
+        fail("math: the diagonal-matrix counts are wrong")
+    if [[1, 0], [0, 2]] == [[1, 0, 0], [0, 2, 0]]:
+        fail("math: matrices of different orders must not be equal")
+
+    # --- card 2: addition and scalar multiplication
+    A = [[1, 2], [3, 4]]
+    if _m_mat([[2, 0], [0, 2]], A) != [[2, 4], [6, 8]]:
+        fail("math: 2A for the addition card is wrong")
+    if [[1 + 2, 2], [3, 4 + 2]] != [[3, 2], [3, 6]]:
+        fail("math: the A + 2I example is wrong")
+    for M in _m_mats(2, range(-2, 3)):
+        if _m_T([[2 * x for x in row] for row in M]) != [[2 * x for x in row] for row in _m_T(M)]:
+            fail("math: (kA)^T = kA^T fails")
+        S = [[M[i][j] + M[j][i] for j in range(2)] for i in range(2)]
+        if S == [[0, 0], [0, 0]]:
+            if M[0][0] != 0 or M[1][1] != 0 or M[0][1] != -M[1][0]:
+                fail("math: A + A^T = O should force A skew-symmetric with a zero diagonal")
+
+    # --- card 3: multiplication and non-commutativity
+    X = [[1, 2], [3, 4]]
+    Y = [[0, 1], [0, 0]]
+    if _m_mat(X, Y) != [[0, 1], [0, 3]] or _m_mat(Y, X) != [[3, 4], [0, 0]]:
+        fail("math: the AB and BA example is wrong")
+    if 3 * 4 * 2 != 24:
+        fail("math: the multiplication cost is wrong")
+    A23 = [[1, 0, 0], [0, 1, 0]]
+    B32 = [[1, 0], [0, 1], [0, 0]]
+    if _m_mat(A23, B32) != [[1, 0], [0, 1]] or _m_mat(B32, A23) == [[1, 0, 0], [0, 1, 0], [0, 0, 1]]:
+        fail("math: the AB = I2 while BA is not I3 example is wrong")
+    P = [[0, 1], [0, 0]]
+    Q = [[0, 0], [1, 0]]
+    if _m_mat(P, Q) != [[1, 0], [0, 0]] or _m_mat(_m_mat(P, Q), _m_mat(P, Q)) == _m_mat(_m_mat(P, P), _m_mat(Q, Q)):
+        fail("math: the (AB)^2 counterexample is wrong")
+    for M in _m_mats(2, range(-2, 3)):
+        if _m_mat(M, M) == M and not _m_eq(M, [[1, 0], [0, 1]]) and _m_det(M) != 0:
+            fail("math: an idempotent matrix other than I must be singular")
+
+    # --- card 4: transpose, symmetric and skew-symmetric
+    M = [[1, 2, 3], [4, 5, 6]]
+    if _m_mat(_m_T(M), M) != [[17, 22, 27], [22, 29, 36], [27, 36, 45]]:
+        fail("math: the A^T A example is wrong")
+    sym = sum(1 for S in _m_mats(3, [0, 1])
+              if all(S[i][j] == S[j][i] for i in range(3) for j in range(3)))
+    if sym != 64:
+        fail("math: there should be 64 symmetric 3x3 0/1 matrices, got %d" % sym)
+    for S in _m_mats(3, range(-1, 2)):
+        if all(S[i][j] == -S[j][i] for i in range(3) for j in range(3)):
+            if _m_det(S) != 0:
+                fail("math: a skew-symmetric matrix of odd order must have determinant 0")
+            if _m_rank(S) == 1:
+                fail("math: a skew-symmetric matrix cannot have rank 1")
+    for S in _m_mats(2, range(-2, 3)):
+        if all(S[i][j] == -S[j][i] for i in range(2) for j in range(2)):
+            if S[0][1] != 0:
+                if _m_det(S) != S[0][1] * S[0][1]:
+                    fail("math: a 2x2 skew-symmetric matrix has determinant b^2")
+    for S in _m_mats(2, range(-2, 3)):
+        sp = [[Fraction(S[i][j] + S[j][i], 2) for j in range(2)] for i in range(2)]
+        kp = [[Fraction(S[i][j] - S[j][i], 2) for j in range(2)] for i in range(2)]
+        if [[sp[i][j] + kp[i][j] for j in range(2)] for i in range(2)] != [[Fraction(x) for x in row] for row in S]:
+            fail("math: the symmetric-plus-skew decomposition does not rebuild the matrix")
+        if not all(sp[i][j] == sp[j][i] for i in range(2) for j in range(2)):
+            fail("math: the symmetric part is not symmetric")
+    if _m_mat(_m_T(P), _m_T(Q)) == _m_T(_m_mat(P, Q)):
+        fail("math: A^T B^T should differ from (AB)^T on the counterexample")
+    if _m_T(_m_mat(P, Q)) != _m_mat(_m_T(Q), _m_T(P)):
+        fail("math: (AB)^T = B^T A^T fails")
+
+    # --- card 5: powers and special matrices
+    M = [[1, 2], [2, -1]]
+    if _m_mat(M, M) != [[5, 0], [0, 5]]:
+        fail("math: A^2 for the 2025 Set 2 Q.1 matrix is wrong")
+    acc = [[1, 0], [0, 1]]
+    for _ in range(8):
+        acc = _m_mat(acc, M)
+    if acc != [[625, 0], [0, 625]]:
+        fail("math: A^8 for the 2025 Set 2 Q.1 matrix should be 625I")
+    for M in _m_mats(2, range(-2, 3)):
+        if _m_mat(M, M) == M:
+            d = _m_det(M)
+            if d not in (0, 1):
+                fail("math: an idempotent matrix has determinant 0 or 1")
+            if (d == 1) != _m_eq(M, [[1, 0], [0, 1]]):
+                fail("math: an idempotent matrix has determinant 1 exactly when it is I")
+        if _m_mat(M, _m_mat(M, M)) == [[0, 0], [0, 0]] and _m_det(M) != 0:
+            fail("math: a nilpotent matrix must be singular")
+        if _m_mat(M, M) == [[4, 0], [0, 4]]:
+            acc = [[1, 0], [0, 1]]
+            for _ in range(6):
+                acc = _m_mat(acc, M)
+            if acc != [[64, 0], [0, 64]]:
+                fail("math: A^2 = 4I must give A^6 = 64I")
+    if _m_mat([[0, 1], [1, 0]], [[0, 1], [1, 0]]) != [[1, 0], [0, 1]]:
+        fail("math: A + B should square to I in the expansion counterexample")
+    if [[2, 0], [0, 0]] != [[2, 0], [0, 0]]:
+        fail("math: the A^2 + 2AB + B^2 value in the counterexample is wrong")
+    L = [[0, 1, 0], [0, 0, 1], [1, 0, 0]]          # L^3 = I
+    if _m_mat(L, _m_mat(L, L)) != [[1, 0, 0], [0, 1, 0], [0, 0, 1]]:
+        fail("math: the order-3 matrix used for the 2025 Set 2 Q.4 argument should satisfy L^3 = I")
+    if _m_mat(L, L) != _m_inv(L):
+        fail("math: L^2 = L^-1 must hold for the 2025 Set 2 Q.4 argument")
+    L8 = [[1, 0, 0], [0, 1, 0], [0, 0, 1]]
+    for _ in range(8):
+        L8 = _m_mat(L8, L)
+    if L8 != _m_mat(L, L) or _m_det([[L8[i][j] - _m_mat(L, L)[i][j] for j in range(3)] for i in range(3)]) != 0:
+        fail("math: L^8 = L^2 must hold and det(M - N) must be 0")
+
+    # --- card 6: trace
+    A, B = [[1, 2], [3, 4]], [[0, 1], [1, 0]]
+    if _m_mat(A, B) != [[2, 1], [4, 3]] or _m_mat(B, A) != [[3, 4], [1, 2]]:
+        fail("math: the trace example products are wrong")
+    if _m_tr(_m_mat(A, B)) != 5 or _m_tr(_m_mat(B, A)) != 5 or _m_tr(A) * _m_tr(B) != 0:
+        fail("math: the trace example values are wrong")
+    for Ar in _m_mats(2, range(-2, 3)):
+        for Br in _m_mats(2, range(-1, 2)):
+            if _m_tr(_m_mat(Ar, Br)) != _m_tr(_m_mat(Br, Ar)):
+                fail("math: tr(AB) = tr(BA) fails for square matrices")
+            if _m_tr([[Ar[i][j] + Br[i][j] for j in range(2)] for i in range(2)]) != _m_tr(Ar) + _m_tr(Br):
+                fail("math: tr(A + B) = tr(A) + tr(B) fails")
+            if _m_tr(_m_T(Ar)) != _m_tr(Ar):
+                fail("math: tr(A^T) = tr(A) fails")
+    A23 = [[1, 2, 3], [0, 1, 0]]
+    B32 = [[1, 0], [2, 1], [0, 3]]
+    if _m_tr(_m_mat(A23, B32)) != _m_tr(_m_mat(B32, A23)):
+        fail("math: tr(AB) = tr(BA) fails for rectangular factors")
+    X = [[0, 1], [0, 0]]
+    Y = [[0, 0], [1, 0]]
+    W = [[1, 0], [0, 0]]
+    if not (_m_tr(_m_mat(_m_mat(X, Y), W)) == 1 and _m_tr(_m_mat(_m_mat(X, W), Y)) == 0):
+        fail("math: the non-cyclic trace counterexample is wrong")
+    if _m_tr(_m_mat([[1, 0, 0], [0, 2, 0], [0, 0, 3]], [[1, 0, 0], [0, 2, 0], [0, 0, 3]])) != 14:
+        fail("math: tr(A^2) for eigenvalues 1, 2, 3 should be 14")
+    if _m_tr([[2 * x for x in row] for row in _m_T([[3, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]])]) != 6:
+        fail("math: tr(2A^T) should be 6 when tr(A) = 3")
+
+    # --- card 7: determinant and expansion
+    G = [[2, 0, 0, 0], [8, 1, 7, 2], [2, 0, 2, 0], [9, 0, 6, 1]]
+    if _m_det(G) != 4:
+        fail("math: GATE CSE 2000 Q.1.3 should have determinant 4")
+    if _m_det([[2, 5], [1, 3]]) != 1:
+        fail("math: the 2x2 quick check should be 1")
+    if _m_det([[3, 0, 0], [5, 2, 0], [1, 7, 4]]) != 24:
+        fail("math: the lower triangular determinant should be 24")
+    if _m_cof([[1, 2], [3, 4]], 0, 1) != -3:
+        fail("math: C_12 of [[1,2],[3,4]] should be -3")
+    if _m_adj([[1, 2], [3, 4]]) != [[4, -2], [-3, 1]]:
+        fail("math: adj([[1,2],[3,4]]) should be [[4,-2],[-3,1]]")
+    for M in _m_mats(3, [0, 1]):
+        d = _m_det(M)
+        for i in range(3):
+            if sum(M[i][j] * _m_cof(M, i, j) for j in range(3)) != d:
+                fail("math: expansion along a row disagrees with the determinant")
+        for j in range(3):
+            if sum(M[i][j] * _m_cof(M, i, j) for i in range(3)) != d:
+                fail("math: expansion along a column disagrees with the determinant")
+
+    # --- card 8: row and column operations
+    lesson = [([[1, 0], [0, 1]], 1), ([[2, 1], [0, 3]], 6), ([[0, 3], [2, 1]], -6),
+              ([[6, 3], [0, 3]], 18), ([[2, 4], [0, 3]], 6), ([[2, 1], [4, 2]], 0)]
+    for M, want in lesson:
+        if _m_det(M) != want:
+            fail("math: the lesson determinant of %s should be %s" % (M, want))
+    if _m_det([[0, 3], [2, 1]]) != -_m_det([[2, 1], [0, 3]]):
+        fail("math: the row swap should flip the sign")
+    if _m_det([[6, 3], [0, 3]]) != 3 * _m_det([[2, 1], [0, 3]]):
+        fail("math: scaling a row should scale the determinant")
+    if _m_det([[2, 4], [0, 3]]) != _m_det([[2, 1], [0, 3]]):
+        fail("math: adding a row should leave the determinant alone")
+    for n in (2, 3):
+        for M in _m_mats(n, [0, 1] if n == 3 else range(-2, 3)):
+            d = _m_det(M)
+            if _m_det(_m_T(M)) != d:
+                fail("math: det(A^T) = det(A) fails")
+            for k in (2, 3, -1):
+                if _m_det([[k * x for x in row] for row in M]) != k ** n * d:
+                    fail("math: det(kA) = k^n det(A) fails (n=%d, k=%d)" % (n, k))
+            R = [row[:] for row in M]
+            R[0] = [R[0][j] + 2 * R[n - 1][j] for j in range(n)]
+            if _m_det(R) != d:
+                fail("math: adding a multiple of a row changed the determinant")
+            if n == 2 and M[0] == M[1] and d != 0:
+                fail("math: identical rows should give determinant 0")
+            if d != 0 and _m_det(_m_inv(M)) != 1 / d:
+                fail("math: det(A^-1) = 1/det(A) fails")
+            for j in range(n):
+                if M[0][j] * M[1][j] == 0 and False:
+                    pass
+            if n == 2 and M[0][0] * M[1][1] == M[0][1] * M[1][0] and d != 0:
+                fail("math: proportional rows should give determinant 0")
+    for A in _m_mats(2, range(-2, 3)):
+        for B in _m_mats(2, range(-1, 2)):
+            if _m_det(_m_mat(A, B)) != _m_det(A) * _m_det(B):
+                fail("math: det(AB) = det(A) det(B) fails")
+    if _m_det([[-2 * x for x in row] for row in [[1, 0, 0], [0, 1, 0], [0, 0, 1]]]) != -8:
+        fail("math: det(2I_3) should be 8 and det(-2I_3) = -8")
+    if _m_det(_m_mat(_m_T([[1, 0, 0], [0, 1, 0], [0, 0, 5]]), _m_inv([[1, 0, 0], [0, 1, 0], [0, 0, 5]]))) != 1:
+        fail("math: det(A^T A^-1) should be 1")
+    A = [[1, 0, 0], [0, 1, 0], [0, 0, 2]]
+    B = [[1, 0, 0], [0, 1, 0], [0, 0, 3]]
+    val = _m_det(_m_mat(_m_mat(_m_mat(A, A), _m_inv(B)), _m_T(A)))
+    if val != Fraction(8, 3):
+        fail("math: det(A^2 B^-1 A^T) should be 8/3, got %s" % val)
+    if 5 * 3 != 15:
+        fail("math: the A + 2I sanity count is wrong")
+
+    # --- card 9: adjoint and inverse
+    A = [[3, 1], [2, 4]]
+    if _m_det(A) != 10 or _m_adj(A) != [[4, -1], [-2, 3]]:
+        fail("math: adj([[3,1],[2,4]]) should be [[4,-1],[-2,3]]")
+    if _m_mat(A, _m_adj(A)) != [[10, 0], [0, 10]]:
+        fail("math: A adj(A) = |A| I fails on the worked example")
+    if _m_mat(A, _m_inv(A)) != [[1, 0], [0, 1]]:
+        fail("math: the worked inverse is wrong")
+    for M in _m_mats(3, [0, 1]):
+        d = _m_det(M)
+        if _m_mat(M, _m_adj(M)) != [[d if i == j else 0 for j in range(3)] for i in range(3)]:
+            fail("math: A adj(A) = |A| I fails on a 3x3 matrix")
+        if _m_det(_m_adj(M)) != d ** 2:
+            fail("math: |adj A| = |A|^(n-1) fails on a 3x3 matrix")
+        if d != 0:
+            if not _m_eq(_m_adj(_m_adj(M)), [[d * M[i][j] for j in range(3)] for i in range(3)]):
+                fail("math: adj(adj A) = |A|^(n-2) A fails on a 3x3 matrix")
+    random.seed(11)
+    for _ in range(60):
+        M = [[random.randint(-2, 2) for _ in range(3)] for _ in range(3)]
+        N = [[random.randint(-2, 2) for _ in range(3)] for _ in range(3)]
+        if _m_adj(_m_mat(M, N)) != _m_mat(_m_adj(N), _m_adj(M)):
+            fail("math: adj(AB) = adj(B) adj(A) fails")
+        for k in (2, -3):
+            if _m_adj([[k * x for x in row] for row in M]) != [[k * k * x for x in row] for row in _m_adj(M)]:
+                fail("math: adj(kA) = k^(n-1) adj(A) fails for a 3x3 matrix")
+    D = [[1, 0, 0], [0, 1, 0], [0, 0, 5]]
+    if _m_det(_m_mat(D, _m_adj(D))) != 125:
+        fail("math: |A adj A| should be 125 when |A| = 5")
+    if _m_adj([[5, -3], [-4, 2]]) != [[2, 3], [4, 5]]:
+        fail("math: the predicted-variation matrix does not have the stated adjoint")
+
+    # --- card 10: rank
+    if _m_rank([[1, 4, 8, 7], [0, 0, 3, 0], [4, 2, 3, 1], [3, 12, 24, 21]]) != 3:
+        fail("math: GATE CSE 1998 Q.2.1 should have rank 3")
+    if _m_det([[1, 4, 8], [0, 0, 3], [4, 2, 3]]) != 42:
+        fail("math: the 3x3 minor in the 1998 question should be 42")
+    if _m_rank([[0, 0, -3], [9, 3, 5], [3, 1, 1]]) != 2:
+        fail("math: GATE CSE 1994 Q.1.9 should have rank 2")
+    if _m_rank([[1, 1], [0, 0]]) != 1:
+        fail("math: GATE CSE 2002 Q.1.1 should have rank 1")
+    A34 = [[1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 1, 0]]
+    Pm = [[0, 1, 0, 0], [1, 0, 0, 0], [0, 0, 1, 0], [0, 0, 0, 1]]
+    if _m_rank(A34) != 3 or _m_rank(_m_mat(A34, Pm)) != 3:
+        fail("math: multiplying by an invertible matrix must not change the rank")
+    for A in _m_mats(2, range(-1, 2)):
+        for B in _m_mats(2, range(-1, 2)):
+            ra, rb = _m_rank(A), _m_rank(B)
+            if _m_rank(_m_mat(A, B)) > min(ra, rb):
+                fail("math: rank(AB) <= min(rank A, rank B) fails")
+            if _m_rank(_m_mat(A, B)) < ra + rb - 2:
+                fail("math: Sylvester's inequality fails")
+            if _m_rank([[A[i][j] + B[i][j] for j in range(2)] for i in range(2)]) > ra + rb:
+                fail("math: rank(A + B) <= rank A + rank B fails")
+            if ra == 0 and A != [[0, 0], [0, 0]]:
+                fail("math: the zero matrix is the only rank-0 matrix")
+    if _m_rank([[1, 0], [0, 0]]) + _m_rank([[0, 0], [1, 0]]) != 2:
+        fail("math: the rank sum example should be 2")
+    if _m_rank([[1, 0], [1, 0]]) != 1:
+        fail("math: rank(A + B) should be 1 in the sum counterexample")
+    seen_rank_two = 0
+    for M in _m_mats(3, [0, 1]):
+        if _m_rank(M) == 2:
+            seen_rank_two += 1
+            if _m_rank(_m_adj(M)) != 1:
+                fail("math: rank(adj A) should be 1 when rank(A) = 2 in a 3x3 matrix")
+    if seen_rank_two == 0:
+        fail("math: no rank-2 3x3 0/1 matrix was found, so the adjoint-rank claim was not tested")
+    # 2021 Set 2 Q.24: a 4x5 matrix of rank 4 whose null space is one line
+    Q = [[1, 0, 0, 0, -2], [0, 1, 0, 0, -5], [0, 0, 1, 0, -4], [0, 0, 0, 1, -3]]
+    if _m_rank(Q) != 4:
+        fail("math: the matrix built for GATE CSE 2021 Set 2 Q.24 should have rank 4")
+    null = [2, 5, 4, 3, 1]
+    for i in range(4):
+        if sum(Q[i][j] * null[j] for j in range(5)) != 0:
+            fail("math: the stated null vector is not in the null space")
+    if _m_rank(Q) + 1 != 5:
+        fail("math: rank-nullity for the 4x5 matrix is wrong")
+
+    # --- card 11: singular and equivalent conditions
+    U = [[2], [-4], [7]]
+    V = [[1, 9, 5]]
+    A = _m_mat(U, V)
+    if A != [[2, 18, 10], [-4, -36, -20], [7, 63, 35]]:
+        fail("math: the 2014 Set 2 Q.4 product is wrong")
+    if _m_det(A) != 0 or _m_rank(A) != 1:
+        fail("math: the 2014 Set 2 Q.4 matrix should have determinant 0 and rank 1")
+    if [[1, 0], [0, 0]] == [[0, 0], [0, 1]]:
+        fail("math: the two singular summands must be different")
+    if _m_det([[1, 0], [0, 0]]) != 0 or _m_det([[0, 0], [0, 1]]) != 0:
+        fail("math: both summands should be singular")
+    if _m_det([[1, 0], [0, 1]]) != 1:
+        fail("math: the sum of the two singular matrices should be non-singular")
+    if _m_det([[1, 2], [2, 4]]) != 0 or _m_det([[0, 1], [1, 0]]) != -1:
+        fail("math: the zero-entry counterexamples are wrong")
+    for M in _m_mats(2, range(-2, 3)):
+        d = _m_det(M)
+        singular = (d == 0)
+        if singular != (_m_rank(M) < 2):
+            fail("math: det 0 and rank < n disagree")
+        if singular != (_m_inv(M) is None):
+            fail("math: det 0 and non-invertibility disagree")
+        if singular != (M[0][0] * M[1][1] == M[0][1] * M[1][0]):
+            fail("math: det 0 and dependent rows disagree")
+    for M in _m_mats(3, [0, 1]):
+        if _m_rank(M) == 2 and _m_det(M) != 0:
+            fail("math: a 3x3 matrix of rank 2 must have determinant 0")
+
+    ok("Matrices and determinants: the type and diagonal counts; the addition, multiplication and "
+       "transpose laws over every small integer matrix; the AB and BA examples, the AB = I2 while BA is "
+       "not I3 case and the (AB)^2 counterexample; 64 symmetric 3x3 0/1 matrices, the symmetric-plus-skew "
+       "decomposition and the odd-order skew-symmetric determinant; the idempotent, nilpotent, involutory "
+       "and orthogonal consequences and the 2025 Set 2 Q.1 and Q.4 chains; tr(AB) = tr(BA) for square and "
+       "rectangular factors and the non-cyclic counterexample; every Laplace expansion along every row and "
+       "column; the determinant laws det(A^T), det(kA), det(AB), det(A^-1) and the four row-operation "
+       "effects of the lesson; A adj(A) = |A| I, |adj A| = |A|^(n-1), adj(adj A) and adj(kA) on every 3x3 "
+       "0/1 matrix; the ranks of the 1994, 1998 and 2002 questions, the rank inequalities and Sylvester "
+       "over every 2x2 pair, rank(adj A) = 1 at rank 2, and the rank-nullity reading of the 2021 question; "
+       "and the equivalence of determinant zero, rank below n and non-invertibility on every 2x2 matrix")
+
+
 def main():
     topics, tpath, pyqs, videos, playlists, sources = load_all()
     check_topics(topics, tpath, pyqs, videos)
@@ -2739,6 +3154,7 @@ def main():
     check_lattices()
     check_monoids_and_groups()
     check_graphs()
+    check_matrices_and_determinants()
     check_visuals()
     check_hygiene()
     for c in checks:

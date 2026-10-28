@@ -1,0 +1,21 @@
+{
+  "id": "gate-2000-1-3-determinant-expansion",
+  "year": "2000",
+  "paper": "GATE CS 2000",
+  "question_ref": "Q.1.3",
+  "type": "MCQ",
+  "topic": "determinant-definition-and-cofactor-expansion",
+  "text": "The determinant of the matrix [[2,0,0,0],[8,1,7,2],[2,0,2,0],[9,0,6,1]] is",
+  "options": [
+    "4",
+    "0",
+    "15",
+    "20"
+  ],
+  "answer": "Option 1: 4",
+  "solution": "Expand along the first row, where only a_11 = 2 is non-zero: |A| = 2 x |[[1,7,2],[0,2,0],[0,6,1]]|. Expand that along its first row: 1 x |[[2,0],[6,1]]| = 2 x 1 - 0 x 6 = 2. So |A| = 2 x 2 = 4. scripts/validate.py evaluates the determinant by exact rational cofactor expansion and by elimination and gets 4 both ways.",
+  "source_url": "https://gateoverflow.in/626/gate-cse-2000-question-1-3",
+  "source_label": "GATE Overflow question page - GATE CSE 2000 Q.1.3 with the accepted answer (4)",
+  "verification": "SOURCED",
+  "answer_evidence": "Accepted answer: '|A| = 2 x 1 x (2 - 0) = 4', option A."
+}

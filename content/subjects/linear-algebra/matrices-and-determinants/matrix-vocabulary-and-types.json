@@ -1,0 +1,87 @@
+{
+  "id": "matrix-vocabulary-and-types",
+  "title": "Matrix Vocabulary, Order and the Standard Types",
+  "priority": "P1",
+  "order": 101,
+  "unit": "Matrices",
+  "quickIdea": "A matrix is a rectangular array of numbers; its order is rows by columns, and GATE names a short list of shapes by which entries are forced to zero.",
+  "remember": [
+    "An m x n matrix has m rows and n columns; a_ij is the entry in row i and column j, and the order is always written rows first, so a 2 x 3 matrix has 6 entries.",
+    "Two matrices are equal exactly when they have the same order and every corresponding entry agrees.",
+    "Square means m = n. Diagonal means square with every off-diagonal entry zero. Scalar means diagonal with all diagonal entries equal. Identity I_n is the scalar matrix with every diagonal entry 1. Zero matrix O has every entry 0.",
+    "Row matrix: order 1 x n. Column matrix: order m x 1. Only a square matrix is called diagonal, even though the entries a_ii of a rectangular matrix exist.",
+    "A diagonal n x n matrix is fixed by its diagonal, so there are k^n of them over a k-element set, and 2^n of them with entries 0 or 1."
+  ],
+  "example": {
+    "prompt": "A is 2 x 3 and B is 3 x 2. Are A and B equal, and how many entries does each have?",
+    "work": "Each has 2 x 3 = 6 entries. Equality of matrices needs the same order first and identical entries second; 2 x 3 and 3 x 2 are different orders, so no entry-by-entry comparison is even defined.",
+    "answer": "Not equal. Both have six entries, but their orders differ."
+  },
+  "gateAngle": "GATE rarely asks what a matrix is, but every later question leans on the vocabulary: 'A is a 3 x 3 matrix' fixes n = 3 in det(kA) = k^n det A, and 'skew-symmetric' already forces the whole diagonal to zero.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "How many 3 x 3 diagonal matrices are there with entries from {0, 1, 2}?",
+      "answer": "27, which is 3^3.",
+      "why": "The three diagonal entries are free and every off-diagonal entry is fixed at 0, so the count is k^n with k = 3 and n = 3."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Is a 2 x 3 matrix with zeros everywhere except a_11 and a_22 a diagonal matrix?",
+      "answer": "No.",
+      "why": "Diagonal is defined only for square matrices; the phrase you want is 'the entries on the main diagonal are the only non-zero ones', which is a weaker statement."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "A is 4 x 4, B is 4 x 4 and A + B = A. What is B?",
+      "answer": "The 4 x 4 zero matrix.",
+      "why": "Subtract A from both sides entry by entry, which is legal because the orders match: B = O."
+    }
+  ],
+  "trap": {
+    "what": "Treating a rectangular matrix as if it had the properties of a diagonal or triangular matrix, or treating two zero matrices of different orders as the same matrix.",
+    "why": "Diagonal, triangular and symmetric are all square-only words, and matrix equality includes the order, not just the entries.",
+    "counterexample": "A = [[1,0],[0,2]] is 2 x 2 and diagonal; B = [[1,0,0],[0,2,0]] is 2 x 3 and is not called diagonal, although its entries a_11 and a_22 sit on a diagonal."
+  },
+  "check": {
+    "question": "How many entries does a 3 x 4 matrix have, and how many of them lie on the main diagonal?",
+    "answer": "12 entries, and 3 of them lie on the main diagonal.",
+    "explanation": "The order gives 3 x 4 = 12 entries, and the main diagonal runs a_11, a_22, a_33, so it has min(3, 4) = 3 entries."
+  },
+  "pyqIds": [],
+  "prereqs": [],
+  "videoRefs": [],
+  "sources": [
+    {
+      "kind": "slides",
+      "title": "CS6015 Linear Algebra and Random Processes, LARP 2018 lecture slides",
+      "channel": "IIT Madras (cse.iitm.ac.in, Prof. Vineeth Balaji's course page)",
+      "url": "https://www.cse.iitm.ac.in/~vplab/LARP.html",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "the deck 'Matrices' defines a matrix, its size m x n, the entry notation a_ij, row and column vectors, and the square and diagonal vocabulary; read in full"
+    },
+    {
+      "kind": "video",
+      "title": "Mega OneShot | Ch - Aavyuh tatha Sarnik (Matrices And Determinants) | 12th Maths Hindi Medium",
+      "channel": "ashish singh lectures (Vikram Sir)",
+      "url": "https://www.youtube.com/watch?v=m-yjFO_-VFk",
+      "language": "hi",
+      "transcript": "PARTIAL",
+      "translated": true,
+      "note": "translated from Hindi: the lecture opens by defining a matrix as a rectangular arrangement of elements, then fixes the order, the column matrix, row matrix, square, diagonal, scalar, identity and zero matrices, and the equality rule"
+    },
+    {
+      "kind": "text",
+      "title": "Matrices and Determinant Notes for GATE CSE and DA",
+      "channel": "GeeksforGeeks",
+      "url": "https://www.geeksforgeeks.org/maths/matrices-and-determinant-notes-for-gate-cse-and-da/",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "the 'Types of Matrices' section confirms the list of named types and the singular and non-singular distinction"
+    }
+  ],
+  "sourceLine": "IIT Madras CS6015 (LARP 2018) lecture slides, deck 1 'Matrices' (English, read in full) for the definition, the order and the entry notation. Ashish Singh Lectures, 'Mega One Shot: Matrices and Determinants' (Hindi, opening read only, translated into English here and marked as translated) for the order and the list of named types. GeeksforGeeks 'Matrices and Determinant Notes for GATE CSE and DA' (English, read in part) to confirm the type list. Every count on this card is recomputed in scripts/validate.py."
+}

@@ -1,0 +1,15 @@
+{
+  "id": "gate-2021-set2-24-rank-from-nullity",
+  "year": "2021",
+  "paper": "GATE CS 2021 Set 2",
+  "question_ref": "Q.24",
+  "type": "NAT",
+  "topic": "rank-and-its-bounds",
+  "text": "Suppose that P is a 4 x 5 matrix such that every solution of the equation Px = 0 is a scalar multiple of [2 5 4 3 1]^T. The rank of P is ____.",
+  "answer": "4",
+  "solution": "The solution space of Px = 0 is one-dimensional, spanned by that single vector, so the nullity is 1. For a 4 x 5 matrix the rank-nullity theorem reads rank(P) + nullity = 5, so rank(P) = 4, which is also consistent with rank <= min(4, 5) = 4. scripts/validate.py builds such a matrix of rank 4 and confirms the null space is exactly that line.",
+  "source_url": "https://gateoverflow.in/357516/gate-cse-2021-set-2-question-24",
+  "source_label": "GATE Overflow question page - GATE CSE 2021 Set 2 Q.24 with the accepted answer (4)",
+  "verification": "SOURCED",
+  "answer_evidence": "Accepted answer: 'nullity = 1 by rank-nullity rank + 1 = 5, so rank = 4'."
+}

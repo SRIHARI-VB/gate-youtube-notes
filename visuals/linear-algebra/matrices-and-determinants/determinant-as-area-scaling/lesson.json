@@ -1,0 +1,24 @@
+{
+  "slug": "determinant-as-area-scaling",
+  "topic": "determinant-row-column-operations",
+  "engine": "p5.js",
+  "steps": 7,
+  "example": {
+    "matrices": [
+      {"name": "identity", "M": [[1, 0], [0, 1]], "det": 1},
+      {"name": "A", "M": [[2, 1], [0, 3]], "det": 6},
+      {"name": "A with rows swapped", "M": [[0, 3], [2, 1]], "det": -6},
+      {"name": "A with row 1 scaled by 3", "M": [[6, 3], [0, 3]], "det": 18},
+      {"name": "A with row 2 added to row 1", "M": [[2, 4], [0, 3]], "det": 6},
+      {"name": "rows dependent", "M": [[2, 1], [4, 2]], "det": 0}
+    ],
+    "rules": [
+      "a row interchange multiplies the determinant by -1",
+      "multiplying one row by k multiplies the determinant by k",
+      "adding a multiple of one row to another leaves the determinant unchanged",
+      "dependent rows give determinant 0"
+    ],
+    "three_by_three_check": {"det_A": 5, "scalar": -2, "det_scaled": -40},
+    "four_by_four_pyq": {"det_A": 3, "scalar": 2, "det_scaled": 48}
+  }
+}

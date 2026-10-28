@@ -1,0 +1,93 @@
+{
+  "id": "matrix-powers-and-special-matrices",
+  "title": "Powers, Idempotent, Involutory, Nilpotent and Orthogonal Matrices",
+  "priority": "P1",
+  "order": 105,
+  "unit": "Matrices",
+  "quickIdea": "Powers exist only for square matrices, and four named identities turn a high power into a one-line answer.",
+  "remember": [
+    "A^0 = I, A^1 = A, A^(k+m) = A^k A^m and (A^k)^m = A^(km), all for square A only.",
+    "Idempotent: A^2 = A. Involutory: A^2 = I. Nilpotent: A^k = O for some k at least 1, the least such k being the index. Orthogonal: A A^T = A^T A = I, equivalently A^-1 = A^T, and then det(A) is 1 or -1.",
+    "If A^2 = cI for a scalar c, then A^(2m) = c^m I: every even power collapses to a multiple of the identity.",
+    "A^2 = A together with A invertible forces A = I; a nilpotent matrix is singular and its only eigenvalue is 0.",
+    "Orthogonal matrices preserve length: |Av| = |v| for every vector v, and the product of two orthogonal matrices is orthogonal.",
+    "Rectangular matrices have no powers; only products such as A A^T and A^T A are defined."
+  ],
+  "example": {
+    "prompt": "A = [[1,2],[2,-1]]. Find A^8.",
+    "work": "A^2 = [[1 + 4, 2 - 2],[2 - 2, 4 + 1]] = [[5,0],[0,5]] = 5I. Then A^4 = (5I)^2 = 25I and A^8 = (25I)^2 = 625I.",
+    "answer": "A^8 = [[625,0],[0,625]]. This is GATE CSE 2025 Set 2 Q.1."
+  },
+  "gateAngle": "GATE CSE 2025 Set 2 Q.1 is exactly this collapse. GATE CSE 2025 Set 2 Q.4 uses L^2 = L^-1 to get L^3 = I, hence M = L^8 = L^2 = N and det(M - N) = 0.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "A is a square matrix with A^2 = I. What is A^2027?",
+      "answer": "A.",
+      "why": "A^2 = I makes the powers periodic with period 2, and 2027 is odd, so A^2027 = A."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Show that an idempotent matrix other than I must be singular.",
+      "answer": "A^2 = A gives A(A - I) = O. If A were invertible, multiplying by A^-1 would give A - I = O, that is A = I.",
+      "why": "The only way out is that A has no inverse, so det(A) = 0."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "A is a 4 x 4 nilpotent matrix with index 3. What are det(A) and the eigenvalues?",
+      "answer": "det(A) = 0 and every eigenvalue is 0.",
+      "why": "A^3 = O gives lambda^3 = 0 for every eigenvalue, so all eigenvalues vanish and the determinant, their product, is 0."
+    }
+  ],
+  "trap": {
+    "what": "Expanding (A + B)^2 as A^2 + 2AB + B^2, or (A - B)(A + B) as A^2 - B^2.",
+    "why": "Both expansions need AB = BA, because the cross terms 2AB and -BA have to combine.",
+    "counterexample": "A = [[0,1],[0,0]] and B = [[0,0],[1,0]]: (A + B)^2 = I_2, while A^2 + 2AB + B^2 = [[2,0],[0,0]]."
+  },
+  "check": {
+    "question": "A is 3 x 3 with A^2 = 4I. What is A^6?",
+    "answer": "64I.",
+    "explanation": "A^6 = (A^2)^3 = (4I)^3 = 4^3 I = 64I, by the power rule for powers of a power."
+  },
+  "pyqIds": [
+    "gate-2025-set2-1-matrix-powers-a8",
+    "gate-2025-set2-4-det-of-matrix-powers"
+  ],
+  "prereqs": [
+    "matrix-multiplication-and-noncommutativity"
+  ],
+  "videoRefs": [],
+  "sources": [
+    {
+      "kind": "slides",
+      "title": "CS6015 Linear Algebra and Random Processes, LARP 2018 lecture slides",
+      "channel": "IIT Madras (cse.iitm.ac.in, Prof. Vineeth Balaji's course page)",
+      "url": "https://www.cse.iitm.ac.in/~vplab/LARP.html",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "the deck 'Inverses and Transposes' gives the inverse laws and the identity that a matrix squaring to a multiple of I collapses high powers; read in full"
+    },
+    {
+      "kind": "text",
+      "title": "Matrices and Determinant Notes for GATE CSE and DA",
+      "channel": "GeeksforGeeks",
+      "url": "https://www.geeksforgeeks.org/maths/matrices-and-determinant-notes-for-gate-cse-and-da/",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "the type list defines idempotent, involutory, nilpotent and orthogonal matrices with examples"
+    },
+    {
+      "kind": "text",
+      "title": "Linear Algebra subject page and revision notes",
+      "channel": "GATE Overflow",
+      "url": "https://gateoverflow.in/subject/mathematics/linear-algebra",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "the notes record the determinant and eigenvalue consequences of the orthogonal, idempotent and nilpotent definitions"
+    }
+  ],
+  "sourceLine": "IIT Madras CS6015 (LARP 2018) slides, deck 6 (English, read in full) for the power and inverse laws. GeeksforGeeks 'Matrices and Determinant Notes for GATE CSE and DA' (English, read in part) for the four special-matrix definitions. GATE Overflow Linear Algebra notes (English, read in part) for the determinant consequences. Every power, product and verdict on this card is recomputed in scripts/validate.py."
+}

@@ -1,0 +1,192 @@
+{
+  "subject": "linear-algebra",
+  "topic": "matrices-and-determinants",
+  "exam": "GATE CSE 2027",
+  "retrieved_at": "2026-10-28",
+  "subtopics": [
+    "matrix vocabulary, order, entry notation and the standard types (row, column, square, diagonal, scalar, identity, zero)",
+    "matrix addition and scalar multiplication with their laws, additive identity and inverse",
+    "matrix multiplication: the conformability rule, the row-times-column formula and non-commutativity",
+    "transpose and its laws, symmetric and skew-symmetric matrices, and the symmetric-plus-skew decomposition",
+    "powers of a square matrix, and the idempotent, involutory, nilpotent and orthogonal identities",
+    "trace, its linearity, the cyclic law tr(AB) = tr(BA) and the trace-eigenvalue link",
+    "the determinant: minors, cofactors, Laplace expansion, 2x2 and 3x3 formulas and the triangular rule",
+    "how row and column operations change a determinant, and the laws det(AB), det(kA), det(A^T), det(A^-1)",
+    "cofactor matrix, adjoint, inverse, A adj(A) = |A| I and the |adj A| = |A|^(n-1) identity",
+    "rank: row rank equals column rank, echelon and minor definitions, and the rank inequalities",
+    "singular and non-singular matrices with the equivalent-condition list"
+  ],
+  "chosen": [
+    {
+      "id": "iitm-larp-2018-linear-algebra-slides",
+      "kind": "slides",
+      "channel": "IIT Madras CS6015, Linear Algebra and Random Processes (course page at cse.iitm.ac.in)",
+      "title": "LARP 2018 lecture decks: Matrices; Matrix multiplication; Gaussian Elimination; Inverses and Transposes; Determinants",
+      "url": "https://www.cse.iitm.ac.in/~vplab/LARP.html",
+      "language": "en",
+      "covers": [
+        "the matrix definition, size m x n, entry notation, row and column vectors",
+        "the conformability rule, the row-times-column formula and the warning that AB differs from BA",
+        "the pivot count of Gaussian elimination, which is the echelon definition of rank",
+        "inverse, transpose, the reversal law and which matrices have no inverse",
+        "the four uses of the determinant, cofactor expansion, the pivot product and the volume reading"
+      ],
+      "transcript": "FULL",
+      "why": "The best readable teaching of this topic found in any language this run: five full slide decks, every page carrying a text layer, from an IIT Madras course taught to computer-science students and built on Strang. Chosen for accessibility and correctness rather than for size: the algebra is standard, it states the multiplication and transpose rules exactly as GATE uses them, and it explains non-invertibility through Ax = 0 with x non-zero, which is the argument the singular-matrix card needs. It is not GATE-branded and contains no PYQ work, so the GATE patterns come from the sources below."
+    },
+    {
+      "id": "gateoverflow-linear-algebra-notes",
+      "kind": "text",
+      "channel": "GATE Overflow",
+      "title": "Linear Algebra subject page: determinant and matrix revision notes with a marks table and a pitfalls list",
+      "url": "https://gateoverflow.in/subject/mathematics/linear-algebra",
+      "language": "en",
+      "covers": [
+        "the per-year marks table for linear algebra from 2010 to 2026",
+        "the determinant property list: det(kA) = k^n det(A), the sign change on interchange, the product rule, the triangular rule",
+        "the named pitfalls, including det(A + B) = det(A) + det(B) and the scalar law det(kA)",
+        "the equivalence of det 0, singularity and non-invertibility"
+      ],
+      "transcript": "PARTIAL",
+      "why": "The only GATE-oriented written source whose text could be read this run that states the properties in GATE's own vocabulary and names the exact mistakes GATE sets traps for. Used for the property lists and the pitfall list; the teaching of why each rule holds comes from the IIT Madras decks. Read in part: the fetched page covered the matrix and determinant sections, not every later section."
+    },
+    {
+      "id": "geeksforgeeks-matrices-determinants-gate-notes",
+      "kind": "text",
+      "channel": "GeeksforGeeks",
+      "title": "Matrices and Determinant Notes for GATE CSE and DA",
+      "url": "https://www.geeksforgeeks.org/maths/matrices-and-determinant-notes-for-gate-cse-and-da/",
+      "language": "en",
+      "covers": [
+        "the type list: symmetric, skew-symmetric, orthogonal, singular, non-singular, idempotent, involutory, nilpotent, triangular",
+        "the transpose, adjoint and inverse property lists, including adj(adj A) = |A|^(n-2) A and |adj A| = |A|^(n-1)",
+        "the trace definition and the trace-eigenvalue link",
+        "the rank property list, including rank(AB) <= min and Sylvester's inequality"
+      ],
+      "transcript": "PARTIAL",
+      "why": "The most complete property list aimed at GATE CSE that could be read this run, and the only source that gave the adjoint identities in full. Chosen as a checklist to test the other sources against, not as the teacher: it states properties without proof, so every identity it supplied is recomputed in scripts/validate.py before publication. Read in part: the fetch returned the types, operations, adjoint, inverse, trace, determinant and rank sections; the eigenvalue and diagonalisation sections past that point were not needed for this topic."
+    },
+    {
+      "id": "ashish-singh-matrices-determinants-hindi-oneshot",
+      "kind": "video",
+      "channel": "ashish singh lectures (Vikram Sir)",
+      "title": "Mega OneShot | Ch - Aavyuh tatha Sarnik (Matrices And Determinants) | 12th Maths Hindi Medium",
+      "url": "https://www.youtube.com/watch?v=m-yjFO_-VFk",
+      "language": "hi",
+      "transcript": "PARTIAL",
+      "translated": true,
+      "covers": [
+        "the definition of a matrix as elements arranged in rectangular form, and the order m x n",
+        "the column matrix, row matrix, square, diagonal, scalar, identity and zero matrices",
+        "equality of matrices, addition with the same-order condition, and the addition laws",
+        "scalar multiplication and its laws",
+        "the multiplication condition and the multiplication properties, then transpose, symmetric and skew-symmetric matrices"
+      ],
+      "why": "Chosen deliberately as a Hindi-language candidate so that this topic is not built from English sources alone, and it is the only non-English source that was readable this run: the search route returned its Hindi transcript, unlike every YouTube page tried in the last three runs. It is a Class-12 NCERT one-shot rather than a GATE lecture, so it is used only for the elementary vocabulary, the types and the operation laws, which it states carefully and in the same order GATE uses. Every sentence taken from it is translated into English and marked as translated, with the source language (Hindi) named on the card. Read only in part: the opening, which covers the definition, the types and the start of the operations; the six-hour body of determinant and inverse work was not read."
+    },
+    {
+      "id": "nptel-iit-roorkee-numerical-linear-algebra",
+      "kind": "course-outline",
+      "channel": "NPTEL, IIT Roorkee (NOC: Numerical Linear Algebra)",
+      "title": "Course outline and lecture list: Matrix Operations and Types of Matrices; Determinant of a Matrix; Rank of a Matrix",
+      "url": "https://archive.nptel.ac.in/courses/111/107/111107106/",
+      "language": "en",
+      "covers": [
+        "the teaching order of the first three lectures of a standard linear algebra course",
+        "confirmation that types of matrices, determinants and rank are the elementary layer before vector spaces"
+      ],
+      "transcript": "UNAVAILABLE",
+      "why": "Used only to check that the eleven subtopics are complete and in a sane order - its first three lectures are exactly the three blocks this topic is built from. No card quotes it and no claim rests on it: the transcript PDFs returned 404 from the sandbox, so it is recorded as structure only."
+    }
+  ],
+  "rejected": [
+    {
+      "id": "iitk-mth102-lecture-notes",
+      "kind": "lecture-notes",
+      "channel": "IIT Kanpur, MTH102 lecture notes (home.iitk.ac.in)",
+      "title": "Linear Algebra lecture notes LA1 to LA18",
+      "url": "https://home.iitk.ac.in/~psraj/mth102/lecture_notes.html",
+      "language": "en",
+      "why": "The index was readable and the PDFs downloaded, but they are scans of handwritten pages: the text layer is OCR noise ('F\\',,s in ffi tv^Y') and not one formula could be recovered. Rejected for accessibility, not for quality - a later run with an OCR path could use them."
+    },
+    {
+      "id": "ankurgupta-gate-engineering-mathematics",
+      "kind": "text",
+      "channel": "ankurgupta.net",
+      "title": "Engineering Mathematics: Comprehensive Study Notes for GATE Computer Science",
+      "url": "https://ankurgupta.net/gate-notes/engineering-mathematics-digitized.pdf",
+      "language": "en",
+      "why": "A well-matched GATE CSE source whose contents page and opening chapter were readable through the extraction service, but the full PDF could not be fetched from the sandbox (the egress proxy answered 502), so only the first few hundred characters of chapter 1 could be read. Nothing in this topic rests on it; recorded so a later run retries it."
+    },
+    {
+      "id": "vidyalankar-gate-engineering-mathematics",
+      "kind": "text",
+      "channel": "Vidyalankar",
+      "title": "GATE Engineering Mathematics notes, Module 1 Linear Algebra",
+      "url": "https://www.vidyalankar.org/gate/assets/docs/notes/maths.pdf",
+      "language": "en",
+      "why": "A GATE coaching note set with determinants, matrices, rank and adjoint chapters, but every fetch of the PDF failed from the sandbox (502) and only a search snippet of the determinant-property page could be read. Its formulas are stated without derivation and its examples are not GATE CSE questions, so nothing was taken from it."
+    },
+    {
+      "id": "unacademy-hindi-linear-algebra-gate",
+      "kind": "lesson-series",
+      "channel": "Unacademy (Shrenik Jain)",
+      "title": "(Hindi) All About Linear Algebra: GATE, 14 lessons",
+      "url": "https://unacademy.com/lesson/determinants-in-hindi/QT62NO3G",
+      "language": "hi",
+      "why": "The most GATE-focused Hindi candidate found, and its lesson list (basics and rank, determinants, eigenvalues, solution of linear equations) maps onto this topic well. Rejected for access: the lesson pages are paywalled and carry no transcript, so not a single sentence could be read or translated."
+    },
+    {
+      "id": "nptel-iit-kanpur-linear-algebra-arbind-lal",
+      "kind": "lecture-notes",
+      "channel": "NPTEL, IIT Kanpur (Prof. Arbind Kumar Lal)",
+      "title": "Linear Algebra, 12 weeks, with a published lecture-notes book",
+      "url": "https://archive.nptel.ac.in/content/syllabus_pdf/111104137.pdf",
+      "language": "en",
+      "why": "Its week 1 to 3 plan (matrix operations, elementary matrices, rank, determinants, adjoint, Cramer's rule) is the closest match to this syllabus line of anything found, and its index shows a full treatment of the adjugate and determinant properties. Rejected for access: the book's PDF host returned 404 for every path tried and the course transcript pages were not reachable from the sandbox."
+    },
+    {
+      "id": "nptel-iisc-linear-algebra-dilip-patil",
+      "kind": "lecture-series",
+      "channel": "NPTEL, IISc Bangalore (Prof. Dilip P. Patil)",
+      "title": "Linear Algebra, 12 weeks: coordinate-free vector spaces, determinants via multilinear forms",
+      "url": "https://onlinecourses.nptel.ac.in/noc23_ma80/preview",
+      "language": "en",
+      "why": "The deepest option found, and the only one that treats determinants through multilinear forms and the adjoint-determinant theorem. Rejected for fit: it is a mathematics-major course that reaches determinants in week 11 after ten weeks of coordinate-free algebra, while GATE CSE needs the matrix and determinant layer immediately; and no transcript could be read."
+    },
+    {
+      "id": "nptel-iit-delhi-linear-algebra",
+      "kind": "lecture-series",
+      "channel": "NPTEL, IIT Delhi",
+      "title": "Linear Algebra (web course): vector spaces, linear transformations, the eigen spectrum, bilinear forms",
+      "url": "https://archive.nptel.ac.in/courses/111/102/111102011/",
+      "language": "en",
+      "why": "Considered because it is an IIT course with a published module list. Rejected for fit and access: its modules are vector spaces, dual bases, the eigen spectrum and sesquilinear forms - the matrix and determinant basics GATE asks about are assumed rather than taught - and its transcripts could not be fetched."
+    },
+    {
+      "id": "manish-kalia-matrices-determinants-pdf",
+      "kind": "text",
+      "channel": "Manish Kalia's Mathematics Classes",
+      "title": "Matrices and Determinants formula sheet",
+      "url": "https://iitmathematics.com/media/18-matrices%20and%20determinants.pdf",
+      "language": "en",
+      "why": "A dense formula sheet that does state the adjoint and determinant identities correctly, and it was readable as a snippet. Rejected as a teaching source: it is a JEE-oriented revision sheet with no derivations and no GATE CSE question work, so it adds nothing the GATE Overflow and GeeksforGeeks lists do not state more carefully."
+    },
+    {
+      "id": "answer-aggregators-linear-algebra",
+      "kind": "answer-aggregator",
+      "channel": "ExamSIDE, GateAI, pyqbox",
+      "title": "Secondary GATE question and answer sites",
+      "url": "https://questions.examside.com/past-years/gate/gate-cse/discrete-mathematics/linear-algebra",
+      "language": "en",
+      "why": "Used only to confirm that a question exists in a given paper and, for GATE CSE 2022 Q.10, to corroborate the official answer. They disagree on question numbering - the 2022 trace question is printed as Q.10, Q.18 and Q.20 by three sites - so no question reference in this topic is taken from them; every reference is the numbering on the GATE Overflow question page."
+    }
+  ],
+  "standard_refs": [
+    "Strang, Introduction to Linear Algebra (matrices, elimination, determinants, the four fundamental subspaces)",
+    "Hoffman and Kunze, Linear Algebra (determinants, adjoint, rank)",
+    "Kolman and Hill, Elementary Linear Algebra with Applications (rank and the equivalence conditions)",
+    "Lay, Linear Algebra and Its Applications (matrix algebra, determinants, the invertible matrix theorem)"
+  ],
+  "note": "Every numeric, algebraic and logical claim published in this topic is recomputed by check_matrices_and_determinants() in scripts/validate.py, including exhaustive small-integer enumeration for the determinant laws, the adjoint identities, the rank inequalities, the trace laws and the equivalence list. No source is quoted; each card paraphrases and then re-derives. The one non-English source is Hindi, read only in its opening, and every sentence taken from it is translated and marked as translated on the card that uses it."
+}

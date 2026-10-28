@@ -1,0 +1,91 @@
+{
+  "id": "trace-and-its-properties",
+  "title": "Trace: Definition and the Cyclic Law",
+  "priority": "P2",
+  "order": 106,
+  "unit": "Matrices",
+  "quickIdea": "The trace is the sum of the diagonal entries of a square matrix; it is linear, it survives transposition, and it obeys the cyclic law tr(AB) = tr(BA) even for rectangular factors.",
+  "remember": [
+    "tr(A) is the sum a_11 + a_22 + ... + a_nn, defined for square matrices only.",
+    "tr(A + B) = tr(A) + tr(B), tr(kA) = k tr(A), tr(A^T) = tr(A).",
+    "tr(AB) = tr(BA) whenever both products exist, even when A is m x n and B is n x m, so the two traces come from matrices of different orders.",
+    "Only cyclic shifts are allowed: tr(ABC) = tr(CAB) = tr(BCA), but tr(ABC) and tr(ACB) can differ.",
+    "tr(A) equals the sum of the eigenvalues of A, counted with multiplicity, which is why tr(A^k) is the sum of the k-th powers of the eigenvalues."
+  ],
+  "example": {
+    "prompt": "A = [[1,2],[3,4]] and B = [[0,1],[1,0]]. Compare tr(AB), tr(BA) and tr(A) tr(B).",
+    "work": "AB = [[2,1],[4,3]] so tr(AB) = 5. BA = [[3,4],[1,2]] so tr(BA) = 5. tr(A) tr(B) = 5 x 0 = 0.",
+    "answer": "tr(AB) = tr(BA) = 5, while tr(A) tr(B) = 0: the trace of a product is not the product of the traces."
+  },
+  "gateAngle": "GATE CSE 2022 Q.10 asks whether tr(AB) = tr(BA) still holds for rectangular A and B; both of its statements are true, and the reason is the double-sum identity rather than eigenvalues.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "A is 2 x 3, B is 3 x 2 and tr(AB) = 7. What is tr(BA)?",
+      "answer": "7.",
+      "why": "The cyclic law holds for any conformable pair, so the trace of the 2 x 2 product equals the trace of the 3 x 3 product."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Why is tr(AB) = tr(BA) true when A and B are not square?",
+      "answer": "tr(AB) is the sum over i and k of a_ik b_ki, and tr(BA) is the sum over k and i of b_ki a_ik; the same products are added in a different order.",
+      "why": "A finite sum of scalars does not depend on the order of summation, and no other term appears in either sum."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "A is 3 x 3 with eigenvalues 1, 2 and 3. What is tr(A^2)?",
+      "answer": "14.",
+      "why": "The eigenvalues of A^2 are the squares 1, 4 and 9, and the trace of A^2 is their sum."
+    }
+  ],
+  "trap": {
+    "what": "Assuming the trace survives any reordering of three factors, so that tr(ABC) = tr(ACB).",
+    "why": "The trace law only permits cyclic shifts; swapping two factors changes the product itself.",
+    "counterexample": "A = [[0,1],[0,0]], B = [[0,0],[1,0]] and C = [[1,0],[0,0]]: tr(ABC) = 1 while tr(ACB) = 0."
+  },
+  "check": {
+    "question": "A is 4 x 4 with tr(A) = 3. What is tr(2A^T)?",
+    "answer": "6.",
+    "explanation": "tr(2A^T) = 2 tr(A^T) = 2 tr(A) = 6, using linearity and then the transpose law."
+  },
+  "pyqIds": [
+    "gate-2022-10-trace-cyclic"
+  ],
+  "prereqs": [
+    "matrix-multiplication-and-noncommutativity"
+  ],
+  "videoRefs": [],
+  "sources": [
+    {
+      "kind": "text",
+      "title": "Matrices and Determinant Notes for GATE CSE and DA",
+      "channel": "GeeksforGeeks",
+      "url": "https://www.geeksforgeeks.org/maths/matrices-and-determinant-notes-for-gate-cse-and-da/",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "the 'Trace of a Matrix' section gives the definition, the linearity laws and the eigenvalue link"
+    },
+    {
+      "kind": "text",
+      "title": "Linear Algebra subject page and revision notes",
+      "channel": "GATE Overflow",
+      "url": "https://gateoverflow.in/subject/mathematics/linear-algebra",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "the notes state tr(AB) = tr(BA) as a standard property and record the eigenvalue interpretation"
+    },
+    {
+      "kind": "slides",
+      "title": "CS6015 Linear Algebra and Random Processes, LARP 2018 lecture slides",
+      "channel": "IIT Madras (cse.iitm.ac.in, Prof. Vineeth Balaji's course page)",
+      "url": "https://www.cse.iitm.ac.in/~vplab/LARP.html",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "the trace appears in the determinant and inverse decks as the sum of the diagonal, which is the definition used here"
+    }
+  ],
+  "sourceLine": "GeeksforGeeks 'Matrices and Determinant Notes for GATE CSE and DA' (English, read in part) for the trace definition and its laws. GATE Overflow Linear Algebra notes (English, read in part) for the cyclic law. IIT Madras CS6015 (LARP 2018) slides (English, read in full) for the diagonal-sum definition. The counterexample to the non-cyclic order is recomputed in scripts/validate.py."
+}

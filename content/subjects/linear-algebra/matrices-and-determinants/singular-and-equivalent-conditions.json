@@ -1,0 +1,92 @@
+{
+  "id": "singular-and-equivalent-conditions",
+  "title": "Singular Matrices and the Equivalence List",
+  "priority": "P2",
+  "order": 111,
+  "unit": "Determinants and rank",
+  "quickIdea": "For a square matrix, singular, determinant zero, not invertible, rank below n, dependent rows and a zero eigenvalue are six names for one condition.",
+  "remember": [
+    "A square matrix A is singular when |A| = 0 and non-singular when |A| is not 0.",
+    "For an n x n A these are all equivalent: |A| = 0; rank(A) < n; A has no inverse; the rows are linearly dependent; the columns are linearly dependent; 0 is an eigenvalue; Ax = 0 has a non-zero solution.",
+    "A product u v^T of a non-zero column and a non-zero row has rank 1, so for n at least 2 it is singular however large its entries are.",
+    "The sum of two singular matrices can be non-singular, and the sum of two non-singular matrices can be singular: [[1,0],[0,0]] + [[0,0],[0,1]] = I_2, and I_2 + (-I_2) = O.",
+    "det(A + B) is unrelated to det(A) + det(B) in either direction, so no conclusion about A can be drawn from det(A + B) = det(B) alone."
+  ],
+  "example": {
+    "prompt": "A is the product of the column [[2],[-4],[7]] with the row [[1,9,5]]. Find |A| without computing all nine entries.",
+    "work": "The product is 3 x 3 and every row is a multiple of (1,9,5), namely 2 times it, -4 times it and 7 times it, so the rows are dependent and the determinant is 0. Equivalently A = u v^T has rank 1, which is below 3.",
+    "answer": "|A| = 0. This is GATE CSE 2014 Set 2 Q.4."
+  },
+  "gateAngle": "GATE CSE 2014 Set 2 Q.4 is this one-line argument, and GATE CSE 2020 Q.27 tests whether you know that the sum of two singular matrices may be non-singular while det(A + B) has no law.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "Give two singular 2 x 2 matrices whose sum is non-singular.",
+      "answer": "[[1,0],[0,0]] and [[0,0],[0,1]], whose sum is I_2.",
+      "why": "Each has determinant 0, and the sum is the identity with determinant 1, so singularity is not preserved by addition."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Why does a zero eigenvalue make a matrix singular?",
+      "answer": "Av = 0 with v non-zero means A sends a non-zero vector to zero, so A cannot be inverted; equivalently the columns are dependent and |A| = 0.",
+      "why": "A zero eigenvalue is exactly the existence of a non-zero vector in the null space."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "A is 5 x 5 with rank(A) = 3. Is A invertible, and how many of its eigenvalues must be 0?",
+      "answer": "Not invertible, and at least two eigenvalues are 0.",
+      "why": "The nullity is 5 - 3 = 2, and every null vector is an eigenvector for the eigenvalue 0, so 0 has geometric multiplicity at least 2."
+    }
+  ],
+  "trap": {
+    "what": "Concluding that a matrix with no zero entries is non-singular, or that det(A) = 0 follows from det(A + B) = det(B).",
+    "why": "Determinant zero is a statement about linear dependence, not about how many zero entries appear, and the determinant is not additive.",
+    "counterexample": "[[1,2],[2,4]] has no zero entry and determinant 0, while [[0,1],[1,0]] has two zero entries and determinant -1."
+  },
+  "check": {
+    "question": "A is 3 x 3 with rank 2. What is |A|?",
+    "answer": "0.",
+    "explanation": "rank < 3 means the three rows are dependent, and a dependent set of n rows in an n x n matrix forces the determinant to vanish."
+  },
+  "pyqIds": [
+    "gate-2014-set2-4-column-times-row-singular"
+  ],
+  "prereqs": [
+    "rank-and-its-bounds",
+    "adjoint-inverse-and-invertibility"
+  ],
+  "videoRefs": [],
+  "sources": [
+    {
+      "kind": "slides",
+      "title": "CS6015 Linear Algebra and Random Processes, LARP 2018 lecture slides",
+      "channel": "IIT Madras (cse.iitm.ac.in, Prof. Vineeth Balaji's course page)",
+      "url": "https://www.cse.iitm.ac.in/~vplab/LARP.html",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "the 'Inverses and Transposes' deck explains exactly which matrices have no inverse, through Ax = 0 with x non-zero; read in full"
+    },
+    {
+      "kind": "text",
+      "title": "Linear Algebra subject page and revision notes",
+      "channel": "GATE Overflow",
+      "url": "https://gateoverflow.in/subject/mathematics/linear-algebra",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "the determinant section lists the equivalence of det 0, singularity and non-invertibility, and names det(A + B) as a pitfall"
+    },
+    {
+      "kind": "text",
+      "title": "Matrices and Determinant Notes for GATE CSE and DA",
+      "channel": "GeeksforGeeks",
+      "url": "https://www.geeksforgeeks.org/maths/matrices-and-determinant-notes-for-gate-cse-and-da/",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "the singular and non-singular definitions and the rank section supply the equivalence list"
+    }
+  ],
+  "sourceLine": "IIT Madras CS6015 (LARP 2018) slides, deck 6 (English, read in full) for the Ax = 0 characterisation of non-invertibility. GATE Overflow Linear Algebra notes (English, read in part) for the equivalence list and the det(A + B) warning. GeeksforGeeks (English, read in part) for the singular and non-singular definitions. Every equivalence and counterexample is recomputed in scripts/validate.py."
+}
