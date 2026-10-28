@@ -1,5 +1,154 @@
 # Run report
 
+## Run 6 - Eigenvalues and Eigenvectors
+
+### The topic, and why it was next
+
+**Linear Algebra > Eigenvalues and Eigenvectors** (`eigenvalues-and-eigenvectors`), the third topic of the
+GATE 2027 Linear Algebra line: *"Matrices, determinants, system of linear equations, eigenvalues and
+eigenvectors, LU decomposition."*
+
+The cycle pointer was left by the previous run on `linear-algebra/system-of-linear-equations`, and the
+first topic strictly after it in the enumerated syllabus order whose status is not `covered` is this one,
+which was `not_started`. Nothing was skipped: no topic sits between the pointer and this one, and no topic
+is `blocked`. The nine `partial` topics earlier in the cycle were not touched, because the cycle takes its
+second pass over `partial` topics only after a full pass finds no `not_started` topic left.
+
+### Subtopics enumerated before any source was chosen
+
+The definition Av = lambda v with v non-zero and the geometric reading of an eigenvector as a direction the
+matrix only scales; the characteristic equation det(A - lambda I) = 0, its degree n and its n roots over the
+complex numbers counted with multiplicity; the eigenspace null(A - lambda I) and computing eigenvectors by
+solving that homogeneous system; the identities sum of eigenvalues = trace and product = determinant; the
+eigenvalues of A^k, A^-1, A^T, cA, A + cI and polynomials p(A); algebraic against geometric multiplicity
+with 1 <= GM <= AM; diagonalisability and the criterion of n independent eigenvectors; real symmetric
+matrices with real eigenvalues and orthogonal eigenvectors; complex eigenvalues of a real matrix as
+conjugate pairs; the triangular, row-sum, all-ones and rank-one shortcuts; what preserves eigenvalues and
+the row-operation trap; and Cayley-Hamilton with the inverse obtained from it. Twelve subtopics, eleven
+cards, because the multiplicity and diagonalisability subtopics are distinct enough to need their own card.
+
+### Sources chosen, on merit
+
+Five sources, four of them readable this run, across two languages:
+
+- **NPTEL, IIT Kharagpur, Engineering Mathematics I, Lecture 46 "Eigenvalues and Eigenvectors"** (English,
+  read in full). The only lecture this run whose transcript ran from the opening greeting to the closing
+  references, and the only readable source that takes the topic from the definition through the
+  characteristic equation and the eigenspace to Cayley-Hamilton in one pass. Its worked examples were
+  re-derived independently before use.
+- **NPTEL-NOC IIT Madras, CS7015 Deep Learning, Lec 6.1 "Eigenvalues and Eigenvectors"** (English, read in
+  part). The clearest statement found of the geometric idea, "what happens when a matrix hits a vector",
+  plus the dominant eigenvalue and the steady-state motivation. Chosen because it is a computer-science
+  lecture, so its framing matches a GATE CSE reader.
+- **GanitAnk, "Eigen Value Eigen Vector | Engineering Mathematics ONESHOT"** (Hindi, read in part,
+  translated). Chosen deliberately so the topic is not built from English alone, and the only readable
+  non-English source: it gives the 3x3 characteristic polynomial in the principal-minor form
+  lambda^3 - s1 lambda^2 + s2 lambda - det = 0, eigenvectors by Cramer's rule, and a Cayley-Hamilton
+  inverse. Every sentence taken from it is translated and marked as translated on the cards that use it.
+- **GATE Overflow Linear Algebra subject notes** (English, read in part). The AM and GM definitions and the
+  property list, in the form the 2026 question needs. The fetched body was cut off in the determinant
+  section, so the eigenvalue notes were read through their search extract.
+- **NPTEL course index 111105121** (structure only). Fixes the subtopic order and confirms that
+  Cayley-Hamilton belongs to this topic. No card quotes it.
+
+Rejected, with the reasons recorded in `sources.json`: **MIT OCW 18.06 Lecture 21**, the canonical English
+treatment, whose page returned a one-sentence summary and a transcript link but no transcript body;
+**NPTEL IIT Kharagpur Lecture 49**, the continuation covering diagonalisation and symmetric matrices, whose
+index page was readable but whose transcript was not; the **Unacademy Hindi eigen lesson series**, which
+matched the topic lesson for lesson but is paywalled with no transcript; the **formula-list pages**
+(AlmaBetter, KnowledgeCubs, BYJU'S), read only through search extracts and rejected because they list
+properties without derivation, repeat each other, and at least one states the symmetric-matrix facts as
+though they held in general; the **GO Classes DPP question bank**, which is practice material rather than
+PYQs; and the **answer aggregators** (ExamSIDE, GateAI, PYQBox, Quorank, Success Tracker), used to
+corroborate answers only, since they disagree on question numbering.
+
+### Content
+
+Eleven new cards under `content/subjects/linear-algebra/eigenvalues-and-eigenvectors/`, in two units
+("The eigenpair", "Eigenvalue properties and structure"): the definition with the non-zero condition; the
+characteristic equation with the 2x2 and 3x3 forms; the eigenspace and computing eigenvectors; the
+eigenvalues of A^k, A^-1, A^T and p(A) with the trace and determinant identities; algebraic and geometric
+multiplicity; diagonalisability; real symmetric matrices and orthogonal eigenvectors; complex conjugate
+pairs; the triangular, row-sum, all-ones and rank-one shortcuts; what preserves eigenvalues and the
+row-operation trap; and Cayley-Hamilton. Each card carries the template fields, two or three labelled
+variations, a trap with a counterexample, and a quick check with a revealed answer.
+
+Ten verified PYQs added under `content/pyqs/`, each with year, question reference, source URL and answer
+evidence: GATE CSE 2026 Set 1 Q.3, 2025 Set 1 Q.31, 2024 Set 1 Q.2, 2021 Set 1 Q.52, 2018 Q.26, 2017
+Set 1 Q.31, 2016 Set 1 Q.5, 2016 Set 2 Q.6, 2015 Set 3 Q.15 and 2014 Set 2 Q.47. All ten are `SOURCED`
+against a GATE Overflow accepted answer; three are corroborated by an independent reproduction of the
+official paper, and where another site numbers a question differently the record says so (2026 Set 1 Q.3 is
+Q.13 on Quorank; 2018 Q.26 is Q.31 on ExamSIDE; 2015 Set 3 Q.15 is Q.23 on Success Tracker).
+
+### Visual lesson
+
+`visuals/linear-algebra/eigenvalues-and-eigenvectors/eigen-directions/`, a seven-step p5.js lesson on
+A = [[2,1],[1,2]]: the input at 25 degrees and its image, the same pair with the input's own line drawn,
+a full sweep in which the turn angle falls to zero only at 45 and 135 degrees, the two eigenpairs 3 with
+(1,1) and 1 with (1,-1), the trace and determinant read off the two scale factors, and the right angle
+between the eigenvectors because A is symmetric. It ships the static explanation, the misconception and the
+quick check outside the canvas, reuses the shared harness, and is found automatically by
+`tests/visual-lessons.js`.
+
+### Mathematics
+
+`check_eigenvalues_and_eigenvectors()` added to `scripts/validate.py`, and four rows added to the `MATH`
+table. The function recomputes, in exact rational arithmetic: the characteristic polynomial coefficients and
+eigenvalues of every published 2x2; the principal minors of the 3x3 triangular example; every published
+eigenpair by A v = lambda v; the multiplicity pair of the defective matrix; A^13 = 64A for the 2025
+question; the rotation and discriminant tests; the row-operation counterexample with both characteristic
+polynomials; the rank, trace and trace(A^2) behind the 2014 question; the 2018 counterexample; J - I of
+orders 4 and 5; the rank-one trace; the conjugate-pair product; the 2017 counterexample; both
+Cayley-Hamilton inverses and the P D P^-1 reconstruction; Cayley-Hamilton and 1 <= GM <= AM over every 2x2
+integer matrix with entries in [-2,2]; the entry-square identity, orthogonal eigenvectors and the eigenpair
+itself over every small symmetric matrix; and the defectiveness of every non-scalar 2x2 with double
+eigenvalue 4.
+
+Two of the new assertions were wrong on first run and were fixed: the claim that [[2,4],[3,5]] has no real
+eigenvalues (it has real, irrational ones, discriminant 57), and a matrix built as J + I where the claim was
+about J. The content was right in both cases; the assertions were repaired, not the cards.
+
+### Validation performed
+
+- `python3 scripts/build-index.py` indexes 3 playlists, 39 videos, 115 topics and 106 PYQs.
+- `python3 scripts/validate.py` - 21 checks passed, 0 failures, 8 warnings, all eight pre-existing (seven
+  PYQs labelled `OFFICIAL_KEY` without an evidence line, two combinatorics videos not referenced by any
+  card).
+- `node tests/visual-lessons.js` - all fourteen p5 sketches load and draw every step at three progress
+  values, including the new seven-step lesson.
+
+### UI
+
+No change to design tokens, shell layout, navigation labels, routes or component classes. The new cards
+render through the existing components, and the sidebar tree and the Topics tab pick up the new topic and
+its eleven subtopics from the generated data with no code change. `content/syllabus.json` now records
+`eigenvalues-and-eigenvectors` as `cards` instead of `planned`.
+
+### Gaps (the topic stays `partial`)
+
+1. No GATE-oriented coaching lecture on this topic could be read. The one lecture read end to end is a
+   general engineering-mathematics NPTEL course, so GATE-specific teaching order and PYQ walkthroughs are
+   recorded as structure only.
+2. MIT OCW 18.06 Lecture 21, the canonical English treatment, returned a page with a one-sentence summary
+   and a transcript link but no transcript body. Nothing rests on it and a later run should retry.
+3. NPTEL IIT Kharagpur Lecture 49, the continuation that would have covered diagonalisation and symmetric
+   matrices in the lecturer's own voice, had no retrievable transcript, so the symmetric-matrix card rests
+   on the standard references plus computation.
+4. The Hindi source was read in part only, and no GATE-level Hindi, Tamil, Telugu or Bengali lecture with a
+   readable transcript was found; the Unacademy series that matched the topic lesson for lesson is
+   paywalled.
+5. Every PYQ is `SOURCED` against a GATE Overflow accepted answer rather than key-verified, and no `marks`
+   field is recorded, because the official papers were not fetched this run.
+6. GATE Overflow lists further eigenvalue questions that were not individually read or recomputed (2010 to
+   2013 entries, 2019 Q.44, 2022 Q.35 and Q.43, 2023 Q.8 and Q.20, 2024 Set 2 Q.37, 2025 Set 2, 2026 Set 1
+   Q.10). Cayley-Hamilton has no verified CSE PYQ recorded at all, which is why that card is P3.
+
+### Next
+
+The cycle pointer now sits on `linear-algebra/eigenvalues-and-eigenvectors`. The topic immediately after it
+in the syllabus order is `linear-algebra/lu-decomposition`, which is `not_started`, so that is the next
+run's topic.
+
 ## Run 5 - System of Linear Equations
 
 ### The topic, and why it was next

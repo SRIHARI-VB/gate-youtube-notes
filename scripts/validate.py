@@ -370,6 +370,11 @@ MATH = [
     ("2014 Set 1 Q.52 minor determinant", 3 * (1 * 7 - 1 * (-2)) - 2 * (1 * 7 - 1 * 1), 15),
     ("2026 Set 2 Q.31 product ab", 4 * 6, 24),
     ("2025 Set 1 Q.13 critical values of k", len([k for k in range(-6, 7) if 1 - k * k == 0]), 2),
+    # eigenvalues and eigenvectors
+    ("eigen: A = [[2,1],[1,2]] eigenvalues sum to the trace", 3 + 1, 4),
+    ("eigen: A = [[2,1],[1,2]] eigenvalues multiply to the determinant", 3 * 1, 3),
+    ("eigen: 2017 Set 1 Q.31 entry squares of [[5,0],[0,5]]", 5 * 5 + 5 * 5, 50),
+    ("eigen: 2021 Set 1 Q.52 largest eigenvalue of J - I of order 4", 4 - 1, 3),
 ]
 
 
@@ -720,6 +725,338 @@ def check_first_order():
                     "(forall x R) -> not (exists x not R) is valid"
     ok("first order logic: quantifier order, negation, null quantification, uniqueness, model size, "
        "validity and the tautology distinction recomputed on domains of size 1 to 3")
+
+
+def check_eigenvalues_and_eigenvectors():
+    """Every eigenvalue, eigenvector, multiplicity, trace, determinant and power published in the
+    Eigenvalues and Eigenvectors topic, recomputed in exact rational arithmetic."""
+    from fractions import Fraction
+    from math import sqrt
+
+    def mat(A):
+        return [[Fraction(x) for x in row] for row in A]
+
+    def mm(A, B):
+        A, B = mat(A), mat(B)
+        return [[sum(A[i][k] * B[k][j] for k in range(len(B))) for j in range(len(B[0]))]
+                for i in range(len(A))]
+
+    def mv(A, v):
+        A = mat(A)
+        v = [Fraction(x) for x in v]
+        return [sum(A[i][k] * v[k] for k in range(len(v))) for i in range(len(A))]
+
+    def tr(A):
+        M = mat(A)
+        return sum(M[i][i] for i in range(len(M)))
+
+    def det(A):
+        M = mat(A)
+        n = len(M)
+        d = Fraction(1)
+        for c in range(n):
+            piv = next((i for i in range(c, n) if M[i][c] != 0), None)
+            if piv is None:
+                return Fraction(0)
+            if piv != c:
+                M[c], M[piv] = M[piv], M[c]
+                d = -d
+            d *= M[c][c]
+            for i in range(c + 1, n):
+                if M[i][c] != 0:
+                    f = M[i][c] / M[c][c]
+                    M[i] = [M[i][j] - f * M[c][j] for j in range(n)]
+        return d
+
+    def rank(M):
+        R = mat(M)
+        if not R:
+            return 0
+        rows, cols, r = len(R), len(R[0]), 0
+        for c in range(cols):
+            piv = next((i for i in range(r, rows) if R[i][c] != 0), None)
+            if piv is None:
+                continue
+            R[r], R[piv] = R[piv], R[r]
+            for i in range(rows):
+                if i != r and R[i][c] != 0:
+                    f = R[i][c] / R[r][c]
+                    R[i] = [R[i][j] - f * R[r][j] for j in range(cols)]
+            r += 1
+            if r == rows:
+                break
+        return r
+
+    def charpoly2(A):
+        """Coefficients (1, -trace, determinant) of lambda^2 - t lambda + d."""
+        return (Fraction(1), -tr(A), det(A))
+
+    def eigen2(A):
+        """Sorted eigenvalues of a 2x2 matrix when both are rational, else None."""
+        t, d = tr(A), det(A)
+        disc = t * t - 4 * d
+        if disc < 0:
+            return None
+        r = sqrt(float(disc))
+        if abs(r - round(r)) > 1e-9:
+            return None
+        r = Fraction(int(round(r)))
+        return sorted([(t + r) / 2, (t - r) / 2])
+
+    def same(u, v):
+        return len(u) == len(v) and all(Fraction(a) == Fraction(b) for a, b in zip(u, v))
+
+    def mat_eq(A, B):
+        return len(A) == len(B) and all(same(x, y) for x, y in zip(A, B))
+
+    def squares(A):
+        return sum(Fraction(x) * Fraction(x) for row in A for x in row)
+
+    def shift(A, lam):
+        """A - lam I."""
+        M = mat(A)
+        return [[M[i][j] - (lam if i == j else 0) for j in range(len(M))] for i in range(len(M))]
+
+    # --- the lesson and definition matrix
+    A1 = [[2, 1], [1, 2]]
+    if not same(mv(A1, [1, 1]), [3, 3]):
+        fail("eigen: A(1,1) must be (3,3)")
+    if not same(mv(A1, [1, -1]), [1, -1]):
+        fail("eigen: A(1,-1) must be (1,-1)")
+    if charpoly2(A1) != (Fraction(1), Fraction(-4), Fraction(3)):
+        fail("eigen: A=[[2,1],[1,2]] must have characteristic polynomial lambda^2 - 4 lambda + 3")
+    if eigen2(A1) != [Fraction(1), Fraction(3)]:
+        fail("eigen: A=[[2,1],[1,2]] must have eigenvalues 1 and 3")
+    if tr(A1) != 4 or det(A1) != 3:
+        fail("eigen: trace and determinant of A=[[2,1],[1,2]] must be 4 and 3")
+    if sum(a * b for a, b in zip([1, 1], [1, -1])) != 0:
+        fail("eigen: the eigenvectors (1,1) and (1,-1) must be orthogonal")
+    if squares(A1) != 3 ** 2 + 1 ** 2:
+        fail("eigen: the entry squares of A=[[2,1],[1,2]] must equal the squared eigenvalues")
+
+    # --- the 3x3 triangular example and its principal minors
+    T = [[1, 2, 3], [0, 4, 5], [0, 0, 6]]
+    if tr(T) != 11 or det(T) != 24:
+        fail("eigen: the triangular example must have trace 11 and determinant 24")
+    minors = T[0][0] * T[1][1] + T[0][0] * T[2][2] + T[1][1] * T[2][2]
+    if minors != 34:
+        fail("eigen: the principal 2x2 minors of the triangular example must sum to 34")
+    for lam, dg in zip([1, 4, 6], [T[0][0], T[1][1], T[2][2]]):
+        if lam != dg:
+            fail("eigen: a triangular matrix must have its diagonal as eigenvalues")
+
+    # --- 2015 Set 3 Q.15
+    A15 = [[1, -1, 2], [0, 1, 0], [1, 2, 1]]
+    if not same(mv(A15, [-4, 2, 1]), [-4, 2, 1]):
+        fail("eigen: 2015 Set 3 Q.15 (-4,2,1) must satisfy A v = v")
+    if rank(shift(A15, 1)) != 2:
+        fail("eigen: 2015 Set 3 Q.15 rank(A - I) must be 2")
+
+    # --- the defective matrix and its multiplicity pair
+    D2 = [[2, 1], [0, 2]]
+    if charpoly2(D2) != (Fraction(1), Fraction(-4), Fraction(4)):
+        fail("eigen: [[2,1],[0,2]] must have characteristic polynomial (lambda-2)^2")
+    if rank(shift(D2, 2)) != 1:
+        fail("eigen: [[2,1],[0,2]] must have rank(A - 2I) = 1")
+    if 2 - rank(shift(D2, 2)) != 1:
+        fail("eigen: [[2,1],[0,2]] must have geometric multiplicity 1 against algebraic multiplicity 2")
+
+    # --- 2025 Set 1 Q.31
+    A25 = [[1, 1], [1, -1]]
+    if charpoly2(A25) != (Fraction(1), Fraction(0), Fraction(-2)):
+        fail("eigen: 2025 Set 1 Q.31 matrix must have lambda^2 - 2 = 0")
+    P = mat(A25)
+    for _ in range(12):
+        P = mm(P, A25)
+    if not mat_eq(P, [[64, 64], [64, -64]]):
+        fail("eigen: 2025 Set 1 Q.31 A^13 must equal 64A")
+    r2 = sqrt(2.0)
+    if abs(r2 ** 13 - 64 * r2) > 1e-6:
+        fail("eigen: (sqrt2)^13 must be 64 sqrt2")
+    if abs((-r2) ** 13 + 64 * r2) > 1e-6:
+        fail("eigen: (-sqrt2)^13 must be -64 sqrt2")
+
+    # --- the rotation, the discriminant test and the irrational case
+    R = [[0, -1], [1, 0]]
+    if charpoly2(R) != (Fraction(1), Fraction(0), Fraction(1)):
+        fail("eigen: the 90 degree rotation must have lambda^2 + 1 = 0")
+    if tr(R) * tr(R) - 4 * det(R) >= 0:
+        fail("eigen: the 90 degree rotation must have a negative discriminant")
+    if tr([[2, 4], [3, 5]]) ** 2 - 4 * det([[2, 4], [3, 5]]) != 57:
+        fail("eigen: [[2,4],[3,5]] must have discriminant 57, so its eigenvalues are real but irrational")
+    if eigen2([[2, 4], [3, 5]]) is not None:
+        fail("eigen: [[2,4],[3,5]] has irrational eigenvalues and must not be reported as rational")
+    if charpoly2([[2, 4], [3, 5]]) != (Fraction(1), Fraction(-7), Fraction(-2)):
+        fail("eigen: [[2,4],[3,5]] must have lambda^2 - 7 lambda - 2")
+
+    # --- the row-operation trap
+    A7 = [[1, 2], [3, 4]]
+    B7 = [[1, 2], [0, -2]]
+    if charpoly2(A7) != (Fraction(1), Fraction(-5), Fraction(-2)):
+        fail("eigen: [[1,2],[3,4]] must have lambda^2 - 5 lambda - 2")
+    if eigen2(B7) != [Fraction(-2), Fraction(1)]:
+        fail("eigen: the row-reduced [[1,2],[0,-2]] must have eigenvalues -2 and 1")
+    if 5 * 5 + 4 * 2 != 33:
+        fail("eigen: the discriminant of lambda^2 - 5 lambda - 2 must be 33")
+    if det(A7) != -2 or det(B7) != -2:
+        fail("eigen: this row operation keeps the determinant at -2, which is what the card says")
+
+    # --- 2014 Set 2 Q.47
+    M47 = [[1, 0, 0, 0, 1],
+           [0, 1, 1, 1, 0],
+           [0, 1, 1, 1, 0],
+           [0, 1, 1, 1, 0],
+           [1, 0, 0, 0, 1]]
+    if rank(M47) != 2:
+        fail("eigen: 2014 Set 2 Q.47 matrix must have rank 2")
+    if tr(M47) != 5:
+        fail("eigen: 2014 Set 2 Q.47 matrix must have trace 5")
+    if tr(mm(M47, M47)) != 13:
+        fail("eigen: 2014 Set 2 Q.47 matrix must have trace(A^2) = 13")
+    if eigen2([[0, -6], [1, 5]]) != [Fraction(2), Fraction(3)]:
+        fail("eigen: the nonzero eigenvalues of 2014 Set 2 Q.47 must be 2 and 3")
+    if 2 * 3 != 6:
+        fail("eigen: the product of the nonzero eigenvalues must be 6")
+
+    # --- 2018 Q.26 counterexample
+    P18 = [[-2, 1], [-16, 6]]
+    if charpoly2(P18) != (Fraction(1), Fraction(-4), Fraction(4)):
+        fail("eigen: the 2018 Q.26 counterexample must have (lambda-2)^2")
+    if not same(mv(P18, [1, 4]), [2, 8]):
+        fail("eigen: the 2018 Q.26 counterexample must send (1,4) to 2(1,4)")
+    if det(P18) != 4:
+        fail("eigen: the 2018 Q.26 counterexample must be invertible with determinant 4")
+
+    # --- 2021 Set 1 Q.52: J - I
+    JI = [[0 if i == j else 1 for j in range(4)] for i in range(4)]
+    if not same(mv(JI, [1, 1, 1, 1]), [3, 3, 3, 3]):
+        fail("eigen: J - I of order 4 must send (1,1,1,1) to 3(1,1,1,1)")
+    if tr(JI) != 0:
+        fail("eigen: J - I of order 4 must have trace 0")
+    if rank([[1 for _ in range(4)] for _ in range(4)]) != 1:
+        fail("eigen: J of order 4 must have rank 1, so J - I has -1 with multiplicity 3")
+    if rank(shift(JI, 3)) != 3:
+        fail("eigen: rank(J - I - 3I) must be 3, confirming that the eigenvalue 3 of J - I is simple")
+    JI5 = [[0 if i == j else 1 for j in range(5)] for i in range(5)]
+    if det(JI5) != 4:
+        fail("eigen: J - I of order 5 must have determinant 4")
+
+    # --- rank one
+    u, v = [1, 2, 3], [1, 1, 1]
+    UV = [[u[i] * v[j] for j in range(3)] for i in range(3)]
+    if rank(UV) != 1:
+        fail("eigen: u v^T must have rank 1")
+    if tr(UV) != 6:
+        fail("eigen: u v^T must have trace v^T u = 6")
+
+    # --- complex conjugate pair, 2016 Set 1 Q.5
+    if (2 + 1j) * (2 - 1j) != 5:
+        fail("eigen: (2+i)(2-i) must be 5")
+    if (2 + 1j) * (2 - 1j) * 3 != 15:
+        fail("eigen: 2016 Set 1 Q.5 must give determinant 15")
+
+    # --- 2016 Set 2 Q.6
+    if Fraction(1, 1 * 2 * 4) != Fraction(1, 8):
+        fail("eigen: 2016 Set 2 Q.6 must give 1/8")
+
+    # --- 2017 Set 1 Q.31 counterexample
+    S5 = [[5, 0], [0, 5]]
+    if squares(S5) != 50:
+        fail("eigen: [[5,0],[0,5]] must have entry squares summing to 50")
+    if eigen2(S5) != [Fraction(5), Fraction(5)]:
+        fail("eigen: [[5,0],[0,5]] must have eigenvalue 5 twice, so statement II of 2017 Set 1 Q.31 fails")
+
+    # --- the diagonalisation factorisation
+    Pp = [[1, 1], [1, -1]]
+    Dm = [[3, 0], [0, 1]]
+    Pinv = [[Fraction(1, 2), Fraction(1, 2)], [Fraction(1, 2), Fraction(-1, 2)]]
+    if not mat_eq(mm(mm(Pp, Dm), Pinv), mat(A1)):
+        fail("eigen: P diag(3,1) P^-1 must reconstruct [[2,1],[1,2]]")
+
+    # --- the two Cayley-Hamilton inverses
+    ident2 = [[Fraction(1), Fraction(0)], [Fraction(0), Fraction(1)]]
+    for M, inv in [([[2, 1], [1, 2]], [[Fraction(2, 3), Fraction(-1, 3)], [Fraction(-1, 3), Fraction(2, 3)]]),
+                   ([[2, 4], [3, 5]], [[Fraction(-5, 2), Fraction(2)], [Fraction(3, 2), Fraction(-1)]])]:
+        if not mat_eq(mm(M, inv), ident2):
+            fail("eigen: the Cayley-Hamilton inverse of %r must multiply to the identity" % (M,))
+    if not mat_eq(mm([[2, 1], [1, 2]], [[2, 1], [1, 2]]), [[5, 4], [4, 5]]):
+        fail("eigen: A^2 for [[2,1],[1,2]] must be [[5,4],[4,5]]")
+    A2 = mat(mm([[2, 1], [1, 2]], [[2, 1], [1, 2]]))
+    fourA = [[4 * Fraction(x) for x in row] for row in mat([[2, 1], [1, 2]])]
+    threeI = [[3 if i == j else 0 for j in range(2)] for i in range(2)]
+    if [[A2[i][j] - fourA[i][j] + threeI[i][j] for j in range(2)] for i in range(2)] != mat([[0, 0], [0, 0]]):
+        fail("eigen: A^2 - 4A + 3I must vanish for [[2,1],[1,2]]")
+    if charpoly2([[2, 4], [3, 5]]) != (Fraction(1), Fraction(-7), Fraction(-2)):
+        fail("eigen: the Hindi-source example [[2,4],[3,5]] must have lambda^2 - 7 lambda - 2")
+    if det([[2, 4], [3, 5]]) != -2:
+        fail("eigen: the Hindi-source example must have determinant -2")
+
+    # --- Cayley-Hamilton, AM >= GM and distinct-eigenvalue independence, over small integer matrices
+    small = [-2, -1, 0, 1, 2]
+    for a in small:
+        for b in small:
+            for c in small:
+                for d in small:
+                    M = [[a, b], [c, d]]
+                    t, dt = tr(M), det(M)
+                    lhs = mm(M, M)
+                    lhs = [[lhs[i][j] - t * M[i][j] + (dt if i == j else 0) for j in range(2)]
+                           for i in range(2)]
+                    if not mat_eq(lhs, [[0, 0], [0, 0]]):
+                        fail("eigen: Cayley-Hamilton fails for %r" % (M,))
+                    roots = eigen2(M)
+                    if roots is None:
+                        continue
+                    for lam in set(roots):
+                        am = roots.count(lam)
+                        gm = 2 - rank(shift(M, lam))
+                        if gm < 1 or gm > am:
+                            fail("eigen: 1 <= GM <= AM fails for %r at lambda=%r" % (M, lam))
+                    if roots[0] != roots[1]:
+                        for lam in roots:
+                            if rank(shift(M, lam)) != 1:
+                                fail("eigen: a distinct eigenvalue of %r must have geometric multiplicity 1" % (M,))
+
+    # --- symmetric matrices: the entry-square identity and orthogonal eigenvectors
+    for a in small:
+        for b in small:
+            for c in small:
+                S = [[a, b], [b, c]]
+                if squares(S) != tr(mm(S, S)):
+                    fail("eigen: the entry squares of the symmetric matrix %r must equal trace(A^2)" % (S,))
+                roots = eigen2(S)
+                if roots is None or roots[0] == roots[1]:
+                    continue
+                v1 = [b, roots[0] - a]
+                v2 = [b, roots[1] - a]
+                if v1 == [0, 0] or v2 == [0, 0]:
+                    continue
+                if sum(x * y for x, y in zip(v1, v2)) != 0:
+                    fail("eigen: the eigenvectors of the symmetric matrix %r must be orthogonal" % (S,))
+                if not same(mv(S, v1), [roots[0] * v1[0], roots[0] * v1[1]]):
+                    fail("eigen: the stated eigenvector of the symmetric matrix %r must satisfy A v = lambda v" % (S,))
+
+    # --- a non-scalar 2x2 with the double eigenvalue 4 must be defective
+    for a in range(-2, 5):
+        for b in [-2, -1, 1, 2]:
+            for c in [-2, -1, 1, 2]:
+                for d in range(-2, 5):
+                    M = [[a, b], [c, d]]
+                    if charpoly2(M) != (Fraction(1), Fraction(-8), Fraction(16)):
+                        continue
+                    if mat_eq(mat(M), [[4, 0], [0, 4]]):
+                        continue
+                    if rank(shift(M, 4)) != 1:
+                        fail("eigen: a non-scalar 2x2 with double eigenvalue 4 must have rank(A - 4I) = 1")
+
+    ok("Eigenvalues and eigenvectors: the definition matrix with both eigenpairs, the triangular 3x3 with its "
+       "principal minors, the 2015 Set 3 eigenvector and rank(A - I), the defective matrix with AM 2 and GM 1, "
+       "A^13 = 64A for 2025 Set 1 Q.31, the rotation and discriminant tests, the row-operation trap, the "
+       "2014 Set 2 Q.47 rank, trace and trace(A^2), the 2018 Q.26 counterexample, J - I of orders 4 and 5, the "
+       "rank-one trace, the 2016 conjugate pair and 1/8, the 2017 Set 1 Q.31 counterexample, both "
+       "Cayley-Hamilton inverses, and Cayley-Hamilton with 1 <= GM <= AM over every 2x2 integer matrix with "
+       "entries in [-2,2]; the entry-square identity, orthogonal eigenvectors and the eigenpair itself over "
+       "every small symmetric matrix; and the defectiveness of every non-scalar 2x2 with double eigenvalue 4")
 
 
 def check_visuals():
@@ -3621,6 +3958,7 @@ def main():
     check_graphs()
     check_matrices_and_determinants()
     check_system_of_linear_equations()
+    check_eigenvalues_and_eigenvectors()
     check_visuals()
     check_hygiene()
     for c in checks:
