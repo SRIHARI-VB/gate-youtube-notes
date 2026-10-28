@@ -1416,6 +1416,21 @@
       "kind": "notes",
       "placement": "theory-of-computation › turing-machines-decidability › (no card)",
       "detail": "Mock unit 4 'Turing Machines & Decidability' (unit_slug turing-machines-decidability) closed Set 2 of 2 on 2026-10-28 (run 8, paper theory-of-computation/turing-machines-decidability/gate_toc_mock_4_2026-10-28.html, Set 1 archived) and now holds 50 questions, at the 50-question cap, over 5 subtopic_label groups of 10 each: Standard TM models & variants 10, Recursive vs recursively enumerable 10, Halting problem & undecidability 10, Rice’s theorem & reductions 10, Chomsky hierarchy summary 10. The notes repo has no theory-of-computation subject, so no card serves any of them. No published lesson covers them either: syllabus-coverage.json places them under Theory of Computation › Computability › Turing machines and undecidability with coverage_status NOT_STARTED and lesson_slug null."
+    },
+    {
+      "kind": "notes",
+      "placement": "programming-data-structures › linear-data-structures › (no card)",
+      "detail": "Mock set, Programming and Data Structures Unit 3 'Linear Data Structures' (run 3, 2026-10-28, paper programming-data-structures/linear-data-structures/gate_ds_mock_3_2026-10-28.html), holds 25 questions over 4 subtopic_label groups: 'Arrays & multidimensional arrays' 7, 'Singly, doubly & circular linked lists' 6, 'Stacks: infix, postfix & applications' 6, 'Queues, circular queues & deques' 6. The notes repo covers discrete mathematics only (content/syllabus.json lists one subject), so no card serves any of them."
+    },
+    {
+      "kind": "notes",
+      "placement": "computer-networks › data-link-layer › (no card)",
+      "detail": "New lesson topics/link-layer-error-detection-mac-and-ethernet (added 2026-10-28, PUBLISHED, 10 scenes, 32 microtopics, Computer Networks › Data link layer › 'Error detection, MAC and Ethernet') serves no notes card; the notes repo has no computer-networks subject. Its content covers framing and bit stuffing, parity, Internet checksum, CRC, Hamming distance, ALOHA, CSMA/CD with the 2-tau rule and Ethernet framing/backoff."
+    },
+    {
+      "kind": "visual",
+      "placement": "computer-networks › data-link-layer › sliding-window-protocols, ethernet-framing-and-bridging",
+      "detail": "The syllabus-coverage entry for topics/link-layer-error-detection-mac-and-ethernet lists subtopics 'sliding window protocols' and 'Ethernet framing and bridging', but neither appears in transcript.md, lesson.js or timeline.js (the 10 scenes run frames, parity, checksum, CRC, Hamming, ALOHA, carrier sense, Ethernet frame/backoff, arithmetic, procedure). Bridging is absent altogether; extend this lesson rather than build a new one."
     }
   ]
 }
