@@ -75,5 +75,34 @@
       "note": "the 'Matrix Addition' section states the same-order requirement and the commutative and associative laws"
     }
   ],
-  "sourceLine": "Ashish Singh Lectures, 'Mega One Shot: Matrices and Determinants' (Hindi, opening read only; every sentence taken from it is translated into English and marked as translated, source language Hindi) for the addition and scalar-multiplication laws. GeeksforGeeks 'Matrices and Determinant Notes for GATE CSE and DA' (English, read in part) to confirm the same-order requirement. Standard reference used to verify, never copied: Strang, Introduction to Linear Algebra, ch. 1."
+  "sourceLine": "Ashish Singh Lectures, 'Mega One Shot: Matrices and Determinants' (Hindi, opening read only; every sentence taken from it is translated into English and marked as translated, source language Hindi) for the addition and scalar-multiplication laws. GeeksforGeeks 'Matrices and Determinant Notes for GATE CSE and DA' (English, read in part) to confirm the same-order requirement. Standard reference used to verify, never copied: Strang, Introduction to Linear Algebra, ch. 1.",
+  "links": {
+    "mock": {
+      "subject": "engineering-mathematics",
+      "unit_slug": "linear-algebra-matrices",
+      "unit_name": "Linear Algebra: Matrices & Systems",
+      "unit_number": 1,
+      "question_count": 50,
+      "subtopics": [
+        {
+          "label": "matrix-operations",
+          "questions": 15
+        },
+        {
+          "label": "rank-nullity",
+          "questions": 14
+        },
+        {
+          "label": "systems-of-linear-equations",
+          "questions": 12
+        },
+        {
+          "label": "gauss-elimination",
+          "questions": 9
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
+    },
+    "mapped_at": "2026-10-29"
+  }
 }

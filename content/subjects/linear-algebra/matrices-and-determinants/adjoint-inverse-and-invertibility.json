@@ -87,5 +87,44 @@
       "note": "the 'Adjoint of a Matrix' and 'Inverse of a Matrix' sections give the full property list, including adj(adj A) = |A|^(n-2) A and adj(kA) = k^(n-1) adj(A)"
     }
   ],
-  "sourceLine": "IIT Madras CS6015 (LARP 2018) slides, deck 6 'Inverses and Transposes' (English, read in full) for the inverse laws and the non-invertibility discussion. GeeksforGeeks 'Matrices and Determinant Notes for GATE CSE and DA' (English, read in part) for the adjoint property list. GATE Overflow Linear Algebra notes (English, read in part) for |adj A| = |A|^(n-1). Every adjoint, inverse and determinant on this card is recomputed in scripts/validate.py, including by exact rational arithmetic."
+  "sourceLine": "IIT Madras CS6015 (LARP 2018) slides, deck 6 'Inverses and Transposes' (English, read in full) for the inverse laws and the non-invertibility discussion. GeeksforGeeks 'Matrices and Determinant Notes for GATE CSE and DA' (English, read in part) for the adjoint property list. GATE Overflow Linear Algebra notes (English, read in part) for |adj A| = |A|^(n-1). Every adjoint, inverse and determinant on this card is recomputed in scripts/validate.py, including by exact rational arithmetic.",
+  "links": {
+    "mock": {
+      "subject": "engineering-mathematics",
+      "unit_slug": "linear-algebra-matrices",
+      "unit_name": "Linear Algebra: Matrices & Systems",
+      "unit_number": 1,
+      "question_count": 50,
+      "subtopics": [
+        {
+          "label": "matrix-operations",
+          "questions": 15
+        },
+        {
+          "label": "rank-nullity",
+          "questions": 14
+        },
+        {
+          "label": "systems-of-linear-equations",
+          "questions": 12
+        },
+        {
+          "label": "gauss-elimination",
+          "questions": 9
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
+    },
+    "visual": {
+      "slug": "matrices-systems-and-eigenvalues",
+      "title": "Matrices, Systems and Eigenvalues",
+      "level": "topic-level",
+      "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html",
+      "covers": [
+        "determinant, pivots or eigenvalue decide invertibility",
+        "the inverse stretches by 1/lambda on the same directions"
+      ]
+    },
+    "mapped_at": "2026-10-29"
+  }
 }

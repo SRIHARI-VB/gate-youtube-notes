@@ -83,5 +83,44 @@
       "note": "the 'Types of Matrices' section confirms the list of named types and the singular and non-singular distinction"
     }
   ],
-  "sourceLine": "IIT Madras CS6015 (LARP 2018) lecture slides, deck 1 'Matrices' (English, read in full) for the definition, the order and the entry notation. Ashish Singh Lectures, 'Mega One Shot: Matrices and Determinants' (Hindi, opening read only, translated into English here and marked as translated) for the order and the list of named types. GeeksforGeeks 'Matrices and Determinant Notes for GATE CSE and DA' (English, read in part) to confirm the type list. Every count on this card is recomputed in scripts/validate.py."
+  "sourceLine": "IIT Madras CS6015 (LARP 2018) lecture slides, deck 1 'Matrices' (English, read in full) for the definition, the order and the entry notation. Ashish Singh Lectures, 'Mega One Shot: Matrices and Determinants' (Hindi, opening read only, translated into English here and marked as translated) for the order and the list of named types. GeeksforGeeks 'Matrices and Determinant Notes for GATE CSE and DA' (English, read in part) to confirm the type list. Every count on this card is recomputed in scripts/validate.py.",
+  "links": {
+    "mock": {
+      "subject": "engineering-mathematics",
+      "unit_slug": "linear-algebra-matrices",
+      "unit_name": "Linear Algebra: Matrices & Systems",
+      "unit_number": 1,
+      "question_count": 50,
+      "subtopics": [
+        {
+          "label": "matrix-operations",
+          "questions": 15
+        },
+        {
+          "label": "rank-nullity",
+          "questions": 14
+        },
+        {
+          "label": "systems-of-linear-equations",
+          "questions": 12
+        },
+        {
+          "label": "gauss-elimination",
+          "questions": 9
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
+    },
+    "visual": {
+      "slug": "matrices-systems-and-eigenvalues",
+      "title": "Matrices, Systems and Eigenvalues",
+      "level": "topic-level",
+      "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html",
+      "covers": [
+        "a matrix as a function; shape caps the rank at the smaller side",
+        "square matrices get the invertibility vocabulary"
+      ]
+    },
+    "mapped_at": "2026-10-29"
+  }
 }

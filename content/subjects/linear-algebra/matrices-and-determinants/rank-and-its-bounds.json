@@ -92,5 +92,44 @@
       "note": "the 'Gaussian Elimination' deck produces the pivot count that the echelon definition uses; read in full"
     }
   ],
-  "sourceLine": "GATE Overflow Linear Algebra notes (English, read in part) for the rank definitions and bounds. GeeksforGeeks 'Matrices and Determinant Notes for GATE CSE and DA' (English, read in part) for the rank property list. IIT Madras CS6015 (LARP 2018) slides, deck 5 'Gaussian Elimination' (English, read in full) for the pivot count. Every rank, minor and bound on this card is recomputed in scripts/validate.py, and the inequalities are checked over exhaustive small integer matrices."
+  "sourceLine": "GATE Overflow Linear Algebra notes (English, read in part) for the rank definitions and bounds. GeeksforGeeks 'Matrices and Determinant Notes for GATE CSE and DA' (English, read in part) for the rank property list. IIT Madras CS6015 (LARP 2018) slides, deck 5 'Gaussian Elimination' (English, read in full) for the pivot count. Every rank, minor and bound on this card is recomputed in scripts/validate.py, and the inequalities are checked over exhaustive small integer matrices.",
+  "links": {
+    "mock": {
+      "subject": "engineering-mathematics",
+      "unit_slug": "linear-algebra-matrices",
+      "unit_name": "Linear Algebra: Matrices & Systems",
+      "unit_number": 1,
+      "question_count": 50,
+      "subtopics": [
+        {
+          "label": "matrix-operations",
+          "questions": 15
+        },
+        {
+          "label": "rank-nullity",
+          "questions": 14
+        },
+        {
+          "label": "systems-of-linear-equations",
+          "questions": 12
+        },
+        {
+          "label": "gauss-elimination",
+          "questions": 9
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
+    },
+    "visual": {
+      "slug": "matrices-systems-and-eigenvalues",
+      "title": "Matrices, Systems and Eigenvalues",
+      "level": "topic-level",
+      "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html",
+      "covers": [
+        "rank as a pivot count; elimination preserves it",
+        "rank + nullity = number of columns, not rows"
+      ]
+    },
+    "mapped_at": "2026-10-29"
+  }
 }

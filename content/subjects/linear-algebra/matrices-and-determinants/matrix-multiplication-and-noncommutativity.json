@@ -87,5 +87,43 @@
       "note": "the 'Matrix Multiplication' section states the same rule and the transpose law (AB)^T = B^T A^T"
     }
   ],
-  "sourceLine": "IIT Madras CS6015 (LARP 2018) slides, deck 2 'Matrix multiplication' (English, read in full) for the conformability rule, the entry formula and the worked products. Ashish Singh Lectures, 'Mega One Shot: Matrices and Determinants' (Hindi, opening read only, translated and marked as translated, source language Hindi) for the multiplication condition and non-commutativity. Every product and count on this card is recomputed in scripts/validate.py."
+  "sourceLine": "IIT Madras CS6015 (LARP 2018) slides, deck 2 'Matrix multiplication' (English, read in full) for the conformability rule, the entry formula and the worked products. Ashish Singh Lectures, 'Mega One Shot: Matrices and Determinants' (Hindi, opening read only, translated and marked as translated, source language Hindi) for the multiplication condition and non-commutativity. Every product and count on this card is recomputed in scripts/validate.py.",
+  "links": {
+    "mock": {
+      "subject": "engineering-mathematics",
+      "unit_slug": "linear-algebra-matrices",
+      "unit_name": "Linear Algebra: Matrices & Systems",
+      "unit_number": 1,
+      "question_count": 50,
+      "subtopics": [
+        {
+          "label": "matrix-operations",
+          "questions": 15
+        },
+        {
+          "label": "rank-nullity",
+          "questions": 14
+        },
+        {
+          "label": "systems-of-linear-equations",
+          "questions": 12
+        },
+        {
+          "label": "gauss-elimination",
+          "questions": 9
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
+    },
+    "visual": {
+      "slug": "matrices-systems-and-eigenvalues",
+      "title": "Matrices, Systems and Eigenvalues",
+      "level": "topic-level",
+      "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html",
+      "covers": [
+        "products are compositions; a product needs the inner sizes to agree"
+      ]
+    },
+    "mapped_at": "2026-10-29"
+  }
 }

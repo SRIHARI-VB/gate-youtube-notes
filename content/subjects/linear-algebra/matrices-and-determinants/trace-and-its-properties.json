@@ -87,5 +87,43 @@
       "note": "the trace appears in the determinant and inverse decks as the sum of the diagonal, which is the definition used here"
     }
   ],
-  "sourceLine": "GeeksforGeeks 'Matrices and Determinant Notes for GATE CSE and DA' (English, read in part) for the trace definition and its laws. GATE Overflow Linear Algebra notes (English, read in part) for the cyclic law. IIT Madras CS6015 (LARP 2018) slides (English, read in full) for the diagonal-sum definition. The counterexample to the non-cyclic order is recomputed in scripts/validate.py."
+  "sourceLine": "GeeksforGeeks 'Matrices and Determinant Notes for GATE CSE and DA' (English, read in part) for the trace definition and its laws. GATE Overflow Linear Algebra notes (English, read in part) for the cyclic law. IIT Madras CS6015 (LARP 2018) slides (English, read in full) for the diagonal-sum definition. The counterexample to the non-cyclic order is recomputed in scripts/validate.py.",
+  "links": {
+    "mock": {
+      "subject": "engineering-mathematics",
+      "unit_slug": "linear-algebra-matrices",
+      "unit_name": "Linear Algebra: Matrices & Systems",
+      "unit_number": 1,
+      "question_count": 50,
+      "subtopics": [
+        {
+          "label": "matrix-operations",
+          "questions": 15
+        },
+        {
+          "label": "rank-nullity",
+          "questions": 14
+        },
+        {
+          "label": "systems-of-linear-equations",
+          "questions": 12
+        },
+        {
+          "label": "gauss-elimination",
+          "questions": 9
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
+    },
+    "visual": {
+      "slug": "matrices-systems-and-eigenvalues",
+      "title": "Matrices, Systems and Eigenvalues",
+      "level": "topic-level",
+      "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html",
+      "covers": [
+        "trace is the sum and determinant the product of the eigenvalues"
+      ]
+    },
+    "mapped_at": "2026-10-29"
+  }
 }

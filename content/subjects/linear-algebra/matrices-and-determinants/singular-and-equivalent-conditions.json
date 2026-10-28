@@ -88,5 +88,44 @@
       "note": "the singular and non-singular definitions and the rank section supply the equivalence list"
     }
   ],
-  "sourceLine": "IIT Madras CS6015 (LARP 2018) slides, deck 6 (English, read in full) for the Ax = 0 characterisation of non-invertibility. GATE Overflow Linear Algebra notes (English, read in part) for the equivalence list and the det(A + B) warning. GeeksforGeeks (English, read in part) for the singular and non-singular definitions. Every equivalence and counterexample is recomputed in scripts/validate.py."
+  "sourceLine": "IIT Madras CS6015 (LARP 2018) slides, deck 6 (English, read in full) for the Ax = 0 characterisation of non-invertibility. GATE Overflow Linear Algebra notes (English, read in part) for the equivalence list and the det(A + B) warning. GeeksforGeeks (English, read in part) for the singular and non-singular definitions. Every equivalence and counterexample is recomputed in scripts/validate.py.",
+  "links": {
+    "mock": {
+      "subject": "engineering-mathematics",
+      "unit_slug": "linear-algebra-matrices",
+      "unit_name": "Linear Algebra: Matrices & Systems",
+      "unit_number": 1,
+      "question_count": 50,
+      "subtopics": [
+        {
+          "label": "matrix-operations",
+          "questions": 15
+        },
+        {
+          "label": "rank-nullity",
+          "questions": 14
+        },
+        {
+          "label": "systems-of-linear-equations",
+          "questions": 12
+        },
+        {
+          "label": "gauss-elimination",
+          "questions": 9
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
+    },
+    "visual": {
+      "slug": "matrices-systems-and-eigenvalues",
+      "title": "Matrices, Systems and Eigenvalues",
+      "level": "topic-level",
+      "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html",
+      "covers": [
+        "a zero determinant is the definition of singular",
+        "three equivalent ways to see invertibility"
+      ]
+    },
+    "mapped_at": "2026-10-29"
+  }
 }

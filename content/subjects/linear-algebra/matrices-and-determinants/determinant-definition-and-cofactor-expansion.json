@@ -87,5 +87,44 @@
       "note": "the determinant section restates the expansion formula and the minor and cofactor definitions"
     }
   ],
-  "sourceLine": "IIT Madras CS6015 (LARP 2018) slides, deck 4 'Determinants' (English, read in full) for the determinant as a volume scaling and its uses. GATE Overflow Linear Algebra notes (English, read in part) for the expansion formulas and the common sign error. GeeksforGeeks (English, read in part) for the minor and cofactor definitions. Every expansion on this card is recomputed in scripts/validate.py."
+  "sourceLine": "IIT Madras CS6015 (LARP 2018) slides, deck 4 'Determinants' (English, read in full) for the determinant as a volume scaling and its uses. GATE Overflow Linear Algebra notes (English, read in part) for the expansion formulas and the common sign error. GeeksforGeeks (English, read in part) for the minor and cofactor definitions. Every expansion on this card is recomputed in scripts/validate.py.",
+  "links": {
+    "mock": {
+      "subject": "engineering-mathematics",
+      "unit_slug": "linear-algebra-matrices",
+      "unit_name": "Linear Algebra: Matrices & Systems",
+      "unit_number": 1,
+      "question_count": 50,
+      "subtopics": [
+        {
+          "label": "matrix-operations",
+          "questions": 15
+        },
+        {
+          "label": "rank-nullity",
+          "questions": 14
+        },
+        {
+          "label": "systems-of-linear-equations",
+          "questions": 12
+        },
+        {
+          "label": "gauss-elimination",
+          "questions": 9
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
+    },
+    "visual": {
+      "slug": "matrices-systems-and-eigenvalues",
+      "title": "Matrices, Systems and Eigenvalues",
+      "level": "topic-level",
+      "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html",
+      "covers": [
+        "the determinant as an area factor, and its sign as orientation",
+        "det(AB) = det A det B"
+      ]
+    },
+    "mapped_at": "2026-10-29"
+  }
 }
