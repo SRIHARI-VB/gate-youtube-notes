@@ -1476,6 +1476,21 @@
       "kind": "notes",
       "placement": "computer-networks › network-layer › ip-fragmentation-cidr-and-nat",
       "detail": "New lesson topics/ip-fragmentation-cidr-and-nat (added 2026-10-28; topics.json created/updated 2026-10-28; syllabus-coverage.json coverage_status PUBLISHED, subject Computer Networks, unit Network layer, 4 subtopics, 12 microtopics, 10 scenes in transcript.md) genuinely covers subnetting arithmetic and the five numbers of a block, longest prefix match on two real tables, adjacent-aligned prefix aggregation, fragmentation and reassembly with the 8-byte offset rule, transport header placement, downstream re-fragmentation, and NAT/PAT. No notes card exists for computer networks."
+    },
+    {
+      "kind": "notes",
+      "placement": "databases › design › (no card)",
+      "detail": "New mock set, Databases Unit 3 'Database Normalization' (unit_slug normalization, run 4, Set 1 of 2, 2026-10-28, paper databases/normalization/gate_db_mock_3_2026-10-28.html) holds 25 questions over 5 subtopic_label groups of 5 each: Functional dependencies & Armstrong's axioms, Closure of attribute sets & keys, 1NF, 2NF, 3NF & BCNF, Lossless join & dependency preservation, Multivalued dependencies & 4NF. Unit 3 sits below the 50-question cap, so the next Databases run re-selects it before advancing to Unit 4. The notes repo covers discrete mathematics only (content/syllabus.json), so no card serves any of these subtopics. Recommendation: write the first databases card at content/subjects/databases/design/functional-dependencies-and-normal-forms.json, the ground the published lesson topics/functional-dependencies-and-normal-forms already teaches."
+    },
+    {
+      "kind": "notes",
+      "placement": "computer-networks › transport-layer › (no card)",
+      "detail": "New lesson topics/tcp-flow-congestion-control-and-sockets (added 2026-10-28; topics.json created/updated 2026-10-28; syllabus-coverage.json subject Computer Networks, unit Transport layer, topic 'TCP flow control, congestion control and sockets', coverage_status PUBLISHED, 5 subtopics, 17 microtopics, 10 scenes in transcript.md) serves no notes card: content/syllabus.json lists discrete-mathematics as the only subject. Checked against transcript.md rather than the alias list, it covers the two windows and the min() cap, advertised window and window scaling, zero window and the probe, silly window syndrome with Nagle and delayed acknowledgement, slow start, the threshold switch to congestion avoidance, the timeout reset, duplicate ACKs with Tahoe against Reno, the AIMD sawtooth and 0.75 W_max / RTT, the bandwidth-delay product, MSS = MTU - 40, socket/bind/listen/accept/connect order, the three-way handshake, the four-tuple and TIME_WAIT. UDP, one of its five syllabus subtopics, appears nowhere in the transcript. Its mock side is empty: the computer-networks master_bank.json holds units 1 and 2 only (100 questions), so README unit 5 transport-layer is MOCK_UNIT_EMPTY. Recommendation: write the card at content/subjects/computer-networks/transport-layer/tcp-flow-congestion-control-and-sockets.json."
+    },
+    {
+      "kind": "visual",
+      "placement": "databases › design › multivalued-dependencies-4nf",
+      "detail": "topics/functional-dependencies-and-normal-forms covers FDs, Armstrong's axioms, attribute closure, candidate keys, 1NF to BCNF, lossless join and dependency preservation, but its transcript.md never mentions multivalued dependencies or 4NF, one of the five subtopic_label groups in Databases Unit 3. Recommendation: extend topics/functional-dependencies-and-normal-forms with a scene on multivalued dependencies and 4NF rather than build a new lesson, then regenerate captions with node tools/gen-captions.mjs functional-dependencies-and-normal-forms."
     }
   ]
 }
