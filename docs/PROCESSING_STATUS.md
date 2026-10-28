@@ -86,3 +86,24 @@ rest are not.
 
 No Hindi-language source could be read: two candidates were searched for and only their playlist or lesson pages
 were retrievable, so nothing is translated in this run and no card draws on a non-English source.
+
+## Run 7 - source access for Matrices and Determinants
+
+This topic used no playlist. What could be read, and what could not:
+
+| Source | Route | Result |
+| --- | --- | --- |
+| IIT Madras CS6015 (LARP 2018) slide decks, 5 files | direct HTTPS from the sandbox | FULL: every page carries a text layer, all five decks read in full |
+| GATE Overflow Linear Algebra notes | extraction service | PARTIAL: the matrix and determinant sections read |
+| GeeksforGeeks GATE matrices and determinants notes | extraction service | PARTIAL: the types, operations, adjoint, inverse, trace, determinant and rank sections read |
+| ashish singh lectures, Matrices and Determinants one-shot (Hindi) | search route | PARTIAL: the Hindi transcript was returned, and the opening (definition, types, operation laws) was read and translated |
+| NPTEL IIT Roorkee Numerical Linear Algebra | extraction service | structure only: the lecture list; transcript PDFs returned 404 |
+| IIT Kanpur MTH102 lecture notes (LA1 to LA18) | direct HTTPS | downloaded, but handwritten scans with an OCR-noise text layer, so unusable |
+| Ankur Gupta GATE engineering-mathematics PDF | extraction service / direct | truncated extract only; the full PDF returned 502 through the egress proxy |
+| Vidyalankar GATE mathematics notes PDF | direct HTTPS | 502 through the egress proxy |
+| NPTEL IIT Kanpur Linear Algebra book | direct HTTPS | 404 for every path tried |
+| Unacademy Hindi linear algebra series | extraction service | paywalled lesson pages, no transcript |
+| English GATE linear-algebra lecture videos | extraction service | no caption track on any page tried |
+
+The one change from runs 4 to 6 is the Hindi video: the search route returned its Hindi transcript, so this topic
+contains the first translated material since the Monoids and Groups run. No English lecture transcript could be read.

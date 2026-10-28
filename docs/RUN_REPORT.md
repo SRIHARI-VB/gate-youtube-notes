@@ -657,3 +657,154 @@ topics until a full pass finds no `not_started` topic left, so the next run take
 after the pointer, `linear-algebra/matrices-and-determinants`. `combinatorics` waits for the second pass, with its
 two recorded gaps (no re-audit of its subtopics since it was built from a single playlist, and long lecture
 transcripts readable only in their opening minutes).
+
+## Run 7 - Matrices and Determinants (2026-10-28)
+
+### The topic, and why it was next
+
+**Linear Algebra > Matrices and Determinants** (`linear-algebra/matrices-and-determinants`), the first topic of the
+GATE 2027 Linear Algebra line: *"Matrices, determinants, system of linear equations, eigenvalues and eigenvectors,
+LU decomposition."*
+
+`content/coverage.json` had `cycle.last = discrete-mathematics/graphs`. Walking the enumerated syllabus from there,
+the topic immediately after `graphs` is `discrete-mathematics/combinatorics`, which is already `partial`; the skill's
+second-pass rule defers partial topics until a full pass finds no `not_started` topic left, so the next candidate is
+the first `not_started` topic after the pointer, `linear-algebra/matrices-and-determinants`. That is exactly what the
+previous run's report predicted. **Skipped:** `combinatorics` (partial, second pass), and nothing was `blocked`.
+Status before this run: `not_started`. Status after: `partial`, with seven named gaps.
+
+### Subtopics enumerated before any source was chosen
+
+The syllabus gives two words, "Matrices, determinants", so the subtopics come from the standard content those words
+name, cross-checked against the NPTEL IIT Roorkee lecture order (types of matrices, determinant, rank):
+
+1. matrix vocabulary, order, entry notation and the standard types
+2. addition and scalar multiplication with their laws, additive identity and inverse
+3. multiplication: the conformability rule, the row-times-column formula and non-commutativity
+4. transpose and its laws, symmetric and skew-symmetric matrices, the symmetric-plus-skew decomposition
+5. powers of a square matrix, and the idempotent, involutory, nilpotent and orthogonal identities
+6. trace, its linearity, the cyclic law and the trace-eigenvalue link
+7. the determinant: minors, cofactors, Laplace expansion and the triangular rule
+8. how row and column operations change a determinant, and the laws det(AB), det(kA), det(A^T), det(A^-1)
+9. cofactor matrix, adjoint, inverse, `A adj(A) = |A| I` and `|adj A| = |A|^(n-1)`
+10. rank: row rank equals column rank, the echelon and minor definitions, and the rank inequalities
+11. singular and non-singular matrices with the equivalent-condition list
+
+Each of the eleven has exactly one card. The full ledger, with what was rejected and why, is
+`content/subjects/linear-algebra/matrices-and-determinants/sources.json`.
+
+### Sources chosen, on merit
+
+| Source | Channel | Language | Transcript | What it carries |
+| --- | --- | --- | --- | --- |
+| CS6015 LARP 2018 slide decks: Matrices, Matrix multiplication, Gaussian Elimination, Inverses and Transposes, Determinants | IIT Madras (cse.iitm.ac.in) | English | FULL | Definitions, the multiplication and transpose rules, the pivot count behind rank, the inverse and reversal laws, the determinant as a signed volume and its four uses |
+| Linear Algebra subject notes | GATE Overflow | English | PARTIAL | The per-year marks table, the determinant property list, and the named pitfalls including `det(A+B) = det(A)+det(B)` |
+| Matrices and Determinant Notes for GATE CSE and DA | GeeksforGeeks | English | PARTIAL | The type list and the adjoint, inverse, trace and rank property lists |
+| Mega OneShot: Aavyuh tatha Sarnik (Matrices And Determinants) | ashish singh lectures (Hindi) | Hindi | PARTIAL (opening) | The definition and order, the named matrix types, the equality rule, the addition and scalar laws, the multiplication condition - **translated into English and marked as translated** |
+| NOC: Numerical Linear Algebra lecture list | NPTEL, IIT Roorkee | English | UNAVAILABLE | Structure only: confirms that types, determinant and rank are the elementary layer |
+
+**Rejected, with reasons in `sources.json`:** the IIT Kanpur MTH102 lecture notes (downloaded, but scans of handwritten
+pages whose text layer is OCR noise, so not one formula was recoverable); Ankur Gupta's GATE engineering-mathematics
+PDF and the Vidyalankar GATE mathematics notes (well matched, but every fetch failed from the sandbox with a 502);
+the Unacademy "(Hindi) All About Linear Algebra: GATE" series (the best GATE-focused Hindi candidate, but paywalled
+with no transcript); the NPTEL IIT Kanpur Linear Algebra book by Arbind Kumar Lal (closest match of all on paper,
+but the host returned 404 for every path tried); the NPTEL IISc course by Dilip Patil (determinants only in week 11,
+via multilinear forms - a mathematics-major sequence); the NPTEL IIT Delhi web course (vector spaces and the eigen
+spectrum, with the matrix basics assumed); the Manish Kalia formula sheet (a JEE revision sheet with no derivations);
+and the answer aggregators ExamSIDE, GateAI and pyqbox, which disagree on question numbering and were used only to
+corroborate one official answer.
+
+### Translated material
+
+The Hindi one-shot is the only non-English source, and it is the only readable non-English source found in this topic
+after three runs in which YouTube supplied no caption text at all. It is a Class-12 NCERT lecture rather than a GATE
+lecture, so it is used only for the elementary vocabulary, the matrix types and the operation laws. Every sentence
+taken from it is translated into English and marked as translated on the three cards that use it, with the source
+language (Hindi) named on the card, in the source ledger and here.
+
+### Created
+
+| Item | Added this run | Total in repository |
+| --- | --- | --- |
+| Revision cards | 11 | 93 |
+| Verified PYQs | 13 | 84 |
+| Question variations | 33 (11 ORIGINAL PYQ-STYLE, 11 CONCEPTUAL PRACTICE, 11 PREDICTED VARIATION) | 233 |
+| Quick checks with answers | 11 | 93 |
+| Traps with counterexamples | 11 | 93 |
+| Visual lessons | 1 (`matrices-and-determinants/determinant-as-area-scaling`, 7 steps) | 12 |
+| Formula-sheet groups | 1 (13 formulas) | 16 |
+| Topic source ledgers | 1 | 5 |
+
+The thirteen PYQs are GATE CSE 2026 Set 2 Q.52 (det of 2A), 2025 Set 2 Q.1 (A^8) and Q.4 (det of M - N), 2024 Set 2
+Q.37 (what survives a row swap), 2023 Q.8 (a single row interchange), 2022 Q.10 (the cyclic trace law), 2020 Q.27
+(rank and determinant statements), 2021 Set 2 Q.24 (rank from nullity), 2014 Set 2 Q.4 (a column times a row is
+singular), 2000 Q.1.3 (expansion with zeros), 1998 Q.2.1, 1994 Q.1.9 and 2002 Q.1.1 (rank computations). Each carries
+a year, a paper, a question reference and the GATE Overflow URL it was read on, with the accepted answer quoted as
+`answer_evidence`. All thirteen are `SOURCED`, none `OFFICIAL_KEY`, because the official papers and keys were not
+fetched; GATE CSE 2022 Q.10 is the only one with an independent corroboration of the official option.
+
+### The visual lesson
+
+`visuals/linear-algebra/matrices-and-determinants/determinant-as-area-scaling/` draws the determinant as the signed
+area of the parallelogram spanned by the two columns, then walks the four row-operation rules as area operations: the
+unit square with area 1; A = [[2,1],[0,3]] with area 6; the rows swapped, same area and reversed orientation, -6;
+row 1 scaled by 3, area 18; row 2 added to row 1, a shear that leaves the area at 6; rows made dependent, area 0;
+then the four rules together with the singularity equivalence.
+
+### Mathematics
+
+A new `check_matrices_and_determinants()` in `scripts/validate.py` recomputes every claim in the topic: the type and
+diagonal counts; the addition, multiplication and transpose laws over every small integer matrix; the worked products
+and the (AB)^2 counterexample; 64 symmetric 3x3 0/1 matrices counted by enumeration; the symmetric-plus-skew
+decomposition on every 2x2 integer matrix; the odd-order skew-symmetric determinant over every skew 3x3 matrix with
+entries in {-1,0,1} and the "rank is never 1" claim; the idempotent, nilpotent and involutory consequences over every
+2x2 matrix in range, plus the 2025 Set 2 Q.1 and Q.4 chains on explicit matrices; `tr(AB) = tr(BA)` for square and
+rectangular factors and the non-cyclic counterexample; every Laplace expansion along every row and column of every
+3x3 0/1 matrix; the determinant laws `det(A^T)`, `det(kA)`, `det(AB)`, `det(A^-1)` and the four row-operation effects
+of the lesson; `A adj(A) = |A| I`, `|adj A| = |A|^(n-1)`, `adj(adj A)`, `adj(AB)` and `adj(kA)` on every 3x3 0/1
+matrix and on random matrices; the ranks of the 1994, 1998 and 2002 questions; the rank inequalities and Sylvester's
+inequality over every 2x2 pair; `rank(adj A) = 1` at rank 2; the rank-nullity reading of the 2021 question; and the
+equivalence of determinant zero, rank below n and non-invertibility on every 2x2 matrix.
+
+One content claim was caught and corrected before publication: the first draft of the transpose card's quick check
+asked for the determinant of a 4x4 skew-symmetric matrix, which is **not** necessarily zero - the odd-order argument
+gives no constraint when n is even. The check now asks about a 3x3 matrix, and the card states the even-order
+exception explicitly. Four of the new validator assertions were also wrong on first run (a mis-specified skew test,
+an inverted counterexample test, a rank expectation of 2 where the matrix has rank 3, and a null vector that did not
+annihilate the matrix built for it); the assertions were fixed, not the content, and the function now passes.
+
+### Validation performed
+
+- `python3 scripts/build-index.py` indexes 3 playlists, 39 videos, 93 topics and 84 PYQs.
+- `python3 scripts/validate.py` - 18 checks passed, 0 failures, 8 warnings, all eight pre-existing (seven PYQs
+  labelled `OFFICIAL_KEY` without an evidence line, two combinatorics videos not referenced by any card).
+- `node tests/visual-lessons.js` - all twelve p5 sketches load and draw every step at three progress values,
+  including the new seven-step lesson.
+
+### UI
+
+No change to design tokens, shell layout, navigation labels, routes or component classes. The new cards render
+through the existing components, and the sidebar tree and the Topics tab pick up the new subject, its two units
+(Matrices; Determinants and rank) and its eleven subtopics from the generated data with no code change.
+
+### Gaps (the topic stays `partial`)
+
+1. No GATE-oriented lecture was readable: every English GATE linear-algebra video page tried carried no caption
+   track, so the teaching rests on the IIT Madras slide decks and two GATE revision texts.
+2. The adjoint and inverse card carries no verified PYQ: the only GATE CSE inverse question found in this topic,
+   1994 Q.3.12, is descriptive, and the PYQ schema holds only MCQ, MSQ and NAT records.
+3. No `marks` field is recorded on any PYQ of this topic: the official papers were not fetched, so references follow
+   the GATE Overflow numbering and marks are left out rather than guessed.
+4. The one non-English source is a Class-12 Hindi one-shot read only in its opening; no GATE-level Hindi, Tamil,
+   Telugu or Bengali lecture could be read this run.
+5. Three full-text GATE note sets could not be fetched from the sandbox (Ankur Gupta, Vidyalankar, the NPTEL IIT
+   Kanpur book); nothing rests on them and a later run should retry.
+6. Every PYQ is `SOURCED` against a GATE Overflow accepted answer rather than key-verified against an official key.
+7. GATE Overflow lists further linear algebra questions from 2010 to 2019 that were not individually read or
+   recomputed; only the thirteen recorded PYQs were verified.
+
+### Next
+
+The cycle pointer now sits on `linear-algebra/matrices-and-determinants`. The topic immediately after it in the
+syllabus order is `linear-algebra/system-of-linear-equations`, which is `not_started`, so that is the next run's
+topic.
