@@ -1,10 +1,10 @@
 {
   "exam": "GATE CSE 2027",
-  "updated_at": "2026-10-28",
+  "updated_at": "2026-10-29",
   "cycle": {
     "last_subject": "linear-algebra",
-    "last_topic": "matrices-and-determinants",
-    "updated_at": "2026-10-28",
+    "last_topic": "system-of-linear-equations",
+    "updated_at": "2026-10-29",
     "rule": "Next topic is the first topic strictly after cycle.last in the enumerated syllabus order whose status is not covered, wrapping at the end. not_started and partial topics are candidates; blocked topics are skipped while their blocker stands."
   },
   "subjects": [
@@ -224,10 +224,36 @@
         {
           "slug": "system-of-linear-equations",
           "name": "System of Linear Equations",
-          "status": "not_started",
-          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
-          "runs": [],
-          "gaps": []
+          "status": "partial",
+          "coverage_note": "11 subtopics, 11 cards (matrix form with the row and column pictures, the consistency test by rank, the square determinant test, free variables and the shape of the solution set, homogeneous systems, Gaussian elimination with back substitution, parameter-dependent systems, overdetermined and underdetermined systems, the inverse and Cramer's rule, the geometry of the three cases, and telling no solution apart from infinitely many), 12 verified PYQs and 1 p5.js lesson. Partial because eight gaps remain, named below.",
+          "runs": [
+            {
+              "date": "2026-10-29",
+              "sources": [
+                "gateoverflow-strang-notes-lectures-1-10",
+                "sathee-iitk-consistency-and-solution",
+                "vidyalankar-gate-engineering-mathematics-1-4",
+                "careercraftlabs-hindi-linear-systems",
+                "ohio-math3200-lecture-27",
+                "go-classes-engineering-mathematics-linear-algebra"
+              ],
+              "cards": 11,
+              "pyqs": 12,
+              "lesson": "linear-algebra/system-of-linear-equations/row-and-column-picture",
+              "note": "Sources chosen on merit across two languages: the GATE Overflow notes on Strang's first ten lectures (English, read in part) for the column picture and the particular-plus-null-space decomposition; SATHEE IIT Kanpur (English, read in part) for the rank criterion and the plane-arrangement table; the Vidyalankar GATE notes section 1.4 (English, read in part) for the consistency cases, Cramer's rule and the homogeneous condition; an Ohio University lecture (English, read in part) for the rank theorem and the rank(A) = m corollary; one Hindi chapter (translated, read in part) for the three-case table and the zero-determinant warning; and the GO Classes lecture list (structure only) to confirm the subtopic enumeration. No video transcript could be retrieved this run, so no card quotes or timestamps a lecture. Rejected with reasons in sources.json: the NPTEL IIT Roorkee Matrix Analysis lectures 4-5, the NPTEL IIT Kharagpur lectures 36-38, MIT OCW 18.06 Lecture 8, two Hindi Unacademy lessons, the Knowledge Gate Hindi live class (only an English AI summary is readable), a Testbook Hindi question bank drawn from other branches, and a GATE Overflow discussion thread that states one rule wrongly."
+            }
+          ],
+          "gaps": [
+            "no video transcript could be retrieved this run: every YouTube watch page tried carried no caption track and the transcript service was refused by the egress proxy, so the GO Classes linear algebra lecture sequence (3B-3D, 5D-5E, 6A-6C) is recorded as structure-only and no card quotes or timestamps a lecture",
+            "the two best-scoped lecture series found, the NPTEL IIT Roorkee 'Matrix Analysis with Applications' lectures 4-5 and the NPTEL IIT Kharagpur 'Engineering Mathematics I' lectures 36-38, answered 404 on every transcript path tried from the sandbox; nothing rests on them and a later run should retry",
+            "two chosen English sources (Vidyalankar, Ohio University) were readable only through the search service extract because their PDFs returned 502 from the sandbox, so their contribution is limited to the sections quoted and neither was read in full",
+            "MIT OCW 18.06 Lecture 8, the canonical treatment of the complete solution, returned an empty body to the fetch service; its content reached the topic only indirectly through the GATE Overflow notes that summarise the same lectures",
+            "no marks field is recorded on any PYQ of this topic: only the GATE 2026 CS2 paper was fetched, and every other question reference follows the GATE Overflow numbering",
+            "every PYQ in the topic is SOURCED against a GATE Overflow accepted answer rather than key-verified; GATE CSE 2026 Set 2 Q.31 was located in the official paper at IIT Guwahati but the official answer key was not fetched, and GATE CSE 2014 Set 1 Q.52 rests on three secondary sources agreeing on 1",
+            "GATE CSE 2008 Q.3 is a defective question: a unique solution needs alpha other than 5, and no printed option states that, so the record says so instead of picking the nearest option",
+            "the only non-English source is a Hindi JEE-oriented chapter read in part; no GATE-level Hindi, Tamil, Telugu or Bengali lecture on this topic could be read this run",
+            "GATE Overflow lists further linear-systems questions that were not individually read or recomputed, including GATE CSE 2004 Q.33 on finding x, y, z and GATE CSE 2001 Q.37 on sums of singular matrices"
+          ]
         },
         {
           "slug": "eigenvalues-and-eigenvectors",

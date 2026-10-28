@@ -29,8 +29,8 @@
   ],
   "counts": {
     "subjects": 2,
-    "topics": 93,
-    "pyqs": 84,
+    "topics": 104,
+    "pyqs": 96,
     "videos": 39,
     "playlists": 3
   },
@@ -1488,6 +1488,189 @@
       ],
       "visual": null,
       "variations": 3
+    },
+    {
+      "topic": "matrix-form-and-two-pictures",
+      "title": "Matrix Form Ax = b, and the Row and Column Pictures",
+      "subject": "linear-algebra",
+      "group": "system-of-linear-equations",
+      "unit": "Formulating a system",
+      "priority": "P1",
+      "path": "subjects/linear-algebra/system-of-linear-equations/matrix-form-and-two-pictures.json",
+      "videos": [],
+      "pyqs": [
+        "gate-1996-1-7-false-statement-systems",
+        "gate-2017-set1-3-dependent-columns-infinite"
+      ],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "consistency-by-rank",
+      "title": "The Consistency Test: rank(A) against rank([A|b])",
+      "subject": "linear-algebra",
+      "group": "system-of-linear-equations",
+      "unit": "Existence and number of solutions",
+      "priority": "P1",
+      "path": "subjects/linear-algebra/system-of-linear-equations/consistency-by-rank.json",
+      "videos": [],
+      "pyqs": [
+        "gate-1998-1-2-no-solution",
+        "gate-1996-1-7-false-statement-systems",
+        "gate-2003-41-alpha-one-value"
+      ],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "square-systems-determinant-test",
+      "title": "Square Systems: the Determinant Test",
+      "subject": "linear-algebra",
+      "group": "system-of-linear-equations",
+      "unit": "Existence and number of solutions",
+      "priority": "P1",
+      "path": "subjects/linear-algebra/system-of-linear-equations/square-systems-determinant-test.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2005-48-unique-solution",
+        "gate-2008-3-alpha-unique",
+        "gate-2025-set1-13-k-system"
+      ],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "free-variables-and-solution-set",
+      "title": "Free Variables and the Shape of the Solution Set",
+      "subject": "linear-algebra",
+      "group": "system-of-linear-equations",
+      "unit": "Existence and number of solutions",
+      "priority": "P1",
+      "path": "subjects/linear-algebra/system-of-linear-equations/free-variables-and-solution-set.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2024-set1-39-homogeneous-nxm",
+        "gate-2017-set1-3-dependent-columns-infinite"
+      ],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "homogeneous-systems",
+      "title": "Homogeneous Systems Ax = 0",
+      "subject": "linear-algebra",
+      "group": "system-of-linear-equations",
+      "unit": "Existence and number of solutions",
+      "priority": "P1",
+      "path": "subjects/linear-algebra/system-of-linear-equations/homogeneous-systems.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2015-set3-33-nontrivial-p-q-r",
+        "gate-2024-set1-39-homogeneous-nxm"
+      ],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "gaussian-elimination-and-back-substitution",
+      "title": "Gaussian Elimination and Back Substitution",
+      "subject": "linear-algebra",
+      "group": "system-of-linear-equations",
+      "unit": "Solving a system",
+      "priority": "P2",
+      "path": "subjects/linear-algebra/system-of-linear-equations/gaussian-elimination-and-back-substitution.json",
+      "videos": [],
+      "pyqs": [
+        "gate-1998-1-2-no-solution",
+        "gate-2014-set1-52-number-of-solutions"
+      ],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "parameter-dependent-systems",
+      "title": "Parameter-Dependent Systems: Finding k, a or b",
+      "subject": "linear-algebra",
+      "group": "system-of-linear-equations",
+      "unit": "Solving a system",
+      "priority": "P1",
+      "path": "subjects/linear-algebra/system-of-linear-equations/parameter-dependent-systems.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2026-set2-31-product-ab",
+        "gate-2025-set1-13-k-system",
+        "gate-2008-3-alpha-unique",
+        "gate-2003-41-alpha-one-value"
+      ],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "overdetermined-and-underdetermined",
+      "title": "More Equations than Unknowns, and Fewer",
+      "subject": "linear-algebra",
+      "group": "system-of-linear-equations",
+      "unit": "Existence and number of solutions",
+      "priority": "P2",
+      "path": "subjects/linear-algebra/system-of-linear-equations/overdetermined-and-underdetermined.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2016-set2-4-m-n-statements",
+        "gate-2024-set1-39-homogeneous-nxm",
+        "gate-1996-1-7-false-statement-systems"
+      ],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "inverse-and-cramers-rule",
+      "title": "Solving by the Inverse and by Cramer's Rule",
+      "subject": "linear-algebra",
+      "group": "system-of-linear-equations",
+      "unit": "Solving a system",
+      "priority": "P2",
+      "path": "subjects/linear-algebra/system-of-linear-equations/inverse-and-cramers-rule.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2005-48-unique-solution",
+        "gate-2008-3-alpha-unique"
+      ],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "row-picture-geometry",
+      "title": "The Geometry of the Three Cases",
+      "subject": "linear-algebra",
+      "group": "system-of-linear-equations",
+      "unit": "Existence and number of solutions",
+      "priority": "P2",
+      "path": "subjects/linear-algebra/system-of-linear-equations/row-picture-geometry.json",
+      "videos": [],
+      "pyqs": [
+        "gate-1998-1-2-no-solution",
+        "gate-2003-41-alpha-one-value"
+      ],
+      "visual": "linear-algebra/system-of-linear-equations/row-and-column-picture",
+      "variations": 2
+    },
+    {
+      "topic": "no-solution-versus-infinite",
+      "title": "No Solution or Infinitely Many: Telling Them Apart",
+      "subject": "linear-algebra",
+      "group": "system-of-linear-equations",
+      "unit": "Existence and number of solutions",
+      "priority": "P1",
+      "path": "subjects/linear-algebra/system-of-linear-equations/no-solution-versus-infinite.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2003-41-alpha-one-value",
+        "gate-1998-1-2-no-solution",
+        "gate-2025-set1-13-k-system",
+        "gate-2014-set1-52-number-of-solutions"
+      ],
+      "visual": null,
+      "variations": 2
     }
   ]
 }

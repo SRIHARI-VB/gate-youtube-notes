@@ -193,7 +193,7 @@ window.GATE_DATA = {
      {
       "slug": "system-of-linear-equations",
       "name": "System of Linear Equations",
-      "material": "planned"
+      "material": "cards"
      },
      {
       "slug": "eigenvalues-and-eigenvectors",
@@ -10012,45 +10012,6 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "IIT Madras CS6015 (LARP 2018) lecture slides, deck 1 'Matrices' (English, read in full) for the definition, the order and the entry notation. Ashish Singh Lectures, 'Mega One Shot: Matrices and Determinants' (Hindi, opening read only, translated into English here and marked as translated) for the order and the list of named types. GeeksforGeeks 'Matrices and Determinant Notes for GATE CSE and DA' (English, read in part) to confirm the type list. Every count on this card is recomputed in scripts/validate.py.",
-   "links": {
-    "mock": {
-     "subject": "engineering-mathematics",
-     "unit_slug": "linear-algebra-matrices",
-     "unit_name": "Linear Algebra: Matrices & Systems",
-     "unit_number": 1,
-     "question_count": 50,
-     "subtopics": [
-      {
-       "label": "matrix-operations",
-       "questions": 15
-      },
-      {
-       "label": "rank-nullity",
-       "questions": 14
-      },
-      {
-       "label": "systems-of-linear-equations",
-       "questions": 12
-      },
-      {
-       "label": "gauss-elimination",
-       "questions": 9
-      }
-     ],
-     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
-    },
-    "visual": {
-     "slug": "matrices-systems-and-eigenvalues",
-     "title": "Matrices, Systems and Eigenvalues",
-     "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html",
-     "covers": [
-      "a matrix as a function; shape caps the rank at the smaller side",
-      "square matrices get the invertibility vocabulary"
-     ]
-    },
-    "mapped_at": "2026-10-29"
-   },
    "subject": "linear-algebra",
    "topic": "matrices-and-determinants",
    "path": "subjects/linear-algebra/matrices-and-determinants/matrix-vocabulary-and-types.json"
@@ -10133,35 +10094,6 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "Ashish Singh Lectures, 'Mega One Shot: Matrices and Determinants' (Hindi, opening read only; every sentence taken from it is translated into English and marked as translated, source language Hindi) for the addition and scalar-multiplication laws. GeeksforGeeks 'Matrices and Determinant Notes for GATE CSE and DA' (English, read in part) to confirm the same-order requirement. Standard reference used to verify, never copied: Strang, Introduction to Linear Algebra, ch. 1.",
-   "links": {
-    "mock": {
-     "subject": "engineering-mathematics",
-     "unit_slug": "linear-algebra-matrices",
-     "unit_name": "Linear Algebra: Matrices & Systems",
-     "unit_number": 1,
-     "question_count": 50,
-     "subtopics": [
-      {
-       "label": "matrix-operations",
-       "questions": 15
-      },
-      {
-       "label": "rank-nullity",
-       "questions": 14
-      },
-      {
-       "label": "systems-of-linear-equations",
-       "questions": 12
-      },
-      {
-       "label": "gauss-elimination",
-       "questions": 9
-      }
-     ],
-     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
-    },
-    "mapped_at": "2026-10-29"
-   },
    "subject": "linear-algebra",
    "topic": "matrices-and-determinants",
    "path": "subjects/linear-algebra/matrices-and-determinants/matrix-addition-and-scalar-multiplication.json"
@@ -10256,44 +10188,6 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "IIT Madras CS6015 (LARP 2018) slides, deck 2 'Matrix multiplication' (English, read in full) for the conformability rule, the entry formula and the worked products. Ashish Singh Lectures, 'Mega One Shot: Matrices and Determinants' (Hindi, opening read only, translated and marked as translated, source language Hindi) for the multiplication condition and non-commutativity. Every product and count on this card is recomputed in scripts/validate.py.",
-   "links": {
-    "mock": {
-     "subject": "engineering-mathematics",
-     "unit_slug": "linear-algebra-matrices",
-     "unit_name": "Linear Algebra: Matrices & Systems",
-     "unit_number": 1,
-     "question_count": 50,
-     "subtopics": [
-      {
-       "label": "matrix-operations",
-       "questions": 15
-      },
-      {
-       "label": "rank-nullity",
-       "questions": 14
-      },
-      {
-       "label": "systems-of-linear-equations",
-       "questions": 12
-      },
-      {
-       "label": "gauss-elimination",
-       "questions": 9
-      }
-     ],
-     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
-    },
-    "visual": {
-     "slug": "matrices-systems-and-eigenvalues",
-     "title": "Matrices, Systems and Eigenvalues",
-     "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html",
-     "covers": [
-      "products are compositions; a product needs the inner sizes to agree"
-     ]
-    },
-    "mapped_at": "2026-10-29"
-   },
    "subject": "linear-algebra",
    "topic": "matrices-and-determinants",
    "path": "subjects/linear-algebra/matrices-and-determinants/matrix-multiplication-and-noncommutativity.json"
@@ -10387,44 +10281,6 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "IIT Madras CS6015 (LARP 2018) slides, deck 6 'Inverses and Transposes' (English, read in full) for the transpose laws. GeeksforGeeks 'Matrices and Determinant Notes for GATE CSE and DA' (English, read in part) for the symmetric, skew-symmetric and orthogonal definitions and the transpose properties. GATE Overflow Linear Algebra notes (English, read in part) for the odd-order skew-symmetric determinant. The counts and counterexamples are recomputed in scripts/validate.py.",
-   "links": {
-    "mock": {
-     "subject": "engineering-mathematics",
-     "unit_slug": "linear-algebra-matrices",
-     "unit_name": "Linear Algebra: Matrices & Systems",
-     "unit_number": 1,
-     "question_count": 50,
-     "subtopics": [
-      {
-       "label": "matrix-operations",
-       "questions": 15
-      },
-      {
-       "label": "rank-nullity",
-       "questions": 14
-      },
-      {
-       "label": "systems-of-linear-equations",
-       "questions": 12
-      },
-      {
-       "label": "gauss-elimination",
-       "questions": 9
-      }
-     ],
-     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
-    },
-    "visual": {
-     "slug": "matrices-systems-and-eigenvalues",
-     "title": "Matrices, Systems and Eigenvalues",
-     "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html",
-     "covers": [
-      "real symmetric matrices: real eigenvalues, perpendicular eigenvectors"
-     ]
-    },
-    "mapped_at": "2026-10-29"
-   },
    "subject": "linear-algebra",
    "topic": "matrices-and-determinants",
    "path": "subjects/linear-algebra/matrices-and-determinants/transpose-symmetric-and-skew-symmetric.json"
@@ -10521,45 +10377,6 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "IIT Madras CS6015 (LARP 2018) slides, deck 6 (English, read in full) for the power and inverse laws. GeeksforGeeks 'Matrices and Determinant Notes for GATE CSE and DA' (English, read in part) for the four special-matrix definitions. GATE Overflow Linear Algebra notes (English, read in part) for the determinant consequences. Every power, product and verdict on this card is recomputed in scripts/validate.py.",
-   "links": {
-    "mock": {
-     "subject": "engineering-mathematics",
-     "unit_slug": "linear-algebra-matrices",
-     "unit_name": "Linear Algebra: Matrices & Systems",
-     "unit_number": 1,
-     "question_count": 50,
-     "subtopics": [
-      {
-       "label": "matrix-operations",
-       "questions": 15
-      },
-      {
-       "label": "rank-nullity",
-       "questions": 14
-      },
-      {
-       "label": "systems-of-linear-equations",
-       "questions": 12
-      },
-      {
-       "label": "gauss-elimination",
-       "questions": 9
-      }
-     ],
-     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
-    },
-    "visual": {
-     "slug": "matrices-systems-and-eigenvalues",
-     "title": "Matrices, Systems and Eigenvalues",
-     "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html",
-     "covers": [
-      "powers: A^k has lambda^k; the inverse has 1/lambda",
-      "triangular, all-ones, idempotent, nilpotent and rotation patterns"
-     ]
-    },
-    "mapped_at": "2026-10-29"
-   },
    "subject": "linear-algebra",
    "topic": "matrices-and-determinants",
    "path": "subjects/linear-algebra/matrices-and-determinants/matrix-powers-and-special-matrices.json"
@@ -10654,44 +10471,6 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "GeeksforGeeks 'Matrices and Determinant Notes for GATE CSE and DA' (English, read in part) for the trace definition and its laws. GATE Overflow Linear Algebra notes (English, read in part) for the cyclic law. IIT Madras CS6015 (LARP 2018) slides (English, read in full) for the diagonal-sum definition. The counterexample to the non-cyclic order is recomputed in scripts/validate.py.",
-   "links": {
-    "mock": {
-     "subject": "engineering-mathematics",
-     "unit_slug": "linear-algebra-matrices",
-     "unit_name": "Linear Algebra: Matrices & Systems",
-     "unit_number": 1,
-     "question_count": 50,
-     "subtopics": [
-      {
-       "label": "matrix-operations",
-       "questions": 15
-      },
-      {
-       "label": "rank-nullity",
-       "questions": 14
-      },
-      {
-       "label": "systems-of-linear-equations",
-       "questions": 12
-      },
-      {
-       "label": "gauss-elimination",
-       "questions": 9
-      }
-     ],
-     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
-    },
-    "visual": {
-     "slug": "matrices-systems-and-eigenvalues",
-     "title": "Matrices, Systems and Eigenvalues",
-     "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html",
-     "covers": [
-      "trace is the sum and determinant the product of the eigenvalues"
-     ]
-    },
-    "mapped_at": "2026-10-29"
-   },
    "subject": "linear-algebra",
    "topic": "matrices-and-determinants",
    "path": "subjects/linear-algebra/matrices-and-determinants/trace-and-its-properties.json"
@@ -10786,45 +10565,6 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "IIT Madras CS6015 (LARP 2018) slides, deck 4 'Determinants' (English, read in full) for the determinant as a volume scaling and its uses. GATE Overflow Linear Algebra notes (English, read in part) for the expansion formulas and the common sign error. GeeksforGeeks (English, read in part) for the minor and cofactor definitions. Every expansion on this card is recomputed in scripts/validate.py.",
-   "links": {
-    "mock": {
-     "subject": "engineering-mathematics",
-     "unit_slug": "linear-algebra-matrices",
-     "unit_name": "Linear Algebra: Matrices & Systems",
-     "unit_number": 1,
-     "question_count": 50,
-     "subtopics": [
-      {
-       "label": "matrix-operations",
-       "questions": 15
-      },
-      {
-       "label": "rank-nullity",
-       "questions": 14
-      },
-      {
-       "label": "systems-of-linear-equations",
-       "questions": 12
-      },
-      {
-       "label": "gauss-elimination",
-       "questions": 9
-      }
-     ],
-     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
-    },
-    "visual": {
-     "slug": "matrices-systems-and-eigenvalues",
-     "title": "Matrices, Systems and Eigenvalues",
-     "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html",
-     "covers": [
-      "the determinant as an area factor, and its sign as orientation",
-      "det(AB) = det A det B"
-     ]
-    },
-    "mapped_at": "2026-10-29"
-   },
    "subject": "linear-algebra",
    "topic": "matrices-and-determinants",
    "path": "subjects/linear-algebra/matrices-and-determinants/determinant-definition-and-cofactor-expansion.json"
@@ -10924,44 +10664,6 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "IIT Madras CS6015 (LARP 2018) slides, deck 4 'Determinants' (English, read in full) for the row-operation effects and the signed-volume reading. GATE Overflow Linear Algebra notes (English, read in part) for the property list and the det(A + B) pitfall. GeeksforGeeks (English, read in part) for the scalar and product rules. Every property is exercised over exhaustive small cases in scripts/validate.py, and the lesson in visuals/linear-algebra/matrices-and-determinants/determinant-as-area-scaling draws the same four rules as areas.",
-   "links": {
-    "mock": {
-     "subject": "engineering-mathematics",
-     "unit_slug": "linear-algebra-matrices",
-     "unit_name": "Linear Algebra: Matrices & Systems",
-     "unit_number": 1,
-     "question_count": 50,
-     "subtopics": [
-      {
-       "label": "matrix-operations",
-       "questions": 15
-      },
-      {
-       "label": "rank-nullity",
-       "questions": 14
-      },
-      {
-       "label": "systems-of-linear-equations",
-       "questions": 12
-      },
-      {
-       "label": "gauss-elimination",
-       "questions": 9
-      }
-     ],
-     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
-    },
-    "visual": {
-     "slug": "matrices-systems-and-eigenvalues",
-     "title": "Matrices, Systems and Eigenvalues",
-     "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html",
-     "covers": [
-      "row swap negates, row addition preserves, row scaling scales"
-     ]
-    },
-    "mapped_at": "2026-10-29"
-   },
    "subject": "linear-algebra",
    "topic": "matrices-and-determinants",
    "path": "subjects/linear-algebra/matrices-and-determinants/determinant-row-column-operations.json"
@@ -11056,45 +10758,6 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "IIT Madras CS6015 (LARP 2018) slides, deck 6 'Inverses and Transposes' (English, read in full) for the inverse laws and the non-invertibility discussion. GeeksforGeeks 'Matrices and Determinant Notes for GATE CSE and DA' (English, read in part) for the adjoint property list. GATE Overflow Linear Algebra notes (English, read in part) for |adj A| = |A|^(n-1). Every adjoint, inverse and determinant on this card is recomputed in scripts/validate.py, including by exact rational arithmetic.",
-   "links": {
-    "mock": {
-     "subject": "engineering-mathematics",
-     "unit_slug": "linear-algebra-matrices",
-     "unit_name": "Linear Algebra: Matrices & Systems",
-     "unit_number": 1,
-     "question_count": 50,
-     "subtopics": [
-      {
-       "label": "matrix-operations",
-       "questions": 15
-      },
-      {
-       "label": "rank-nullity",
-       "questions": 14
-      },
-      {
-       "label": "systems-of-linear-equations",
-       "questions": 12
-      },
-      {
-       "label": "gauss-elimination",
-       "questions": 9
-      }
-     ],
-     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
-    },
-    "visual": {
-     "slug": "matrices-systems-and-eigenvalues",
-     "title": "Matrices, Systems and Eigenvalues",
-     "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html",
-     "covers": [
-      "determinant, pivots or eigenvalue decide invertibility",
-      "the inverse stretches by 1/lambda on the same directions"
-     ]
-    },
-    "mapped_at": "2026-10-29"
-   },
    "subject": "linear-algebra",
    "topic": "matrices-and-determinants",
    "path": "subjects/linear-algebra/matrices-and-determinants/adjoint-inverse-and-invertibility.json"
@@ -11194,45 +10857,6 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "GATE Overflow Linear Algebra notes (English, read in part) for the rank definitions and bounds. GeeksforGeeks 'Matrices and Determinant Notes for GATE CSE and DA' (English, read in part) for the rank property list. IIT Madras CS6015 (LARP 2018) slides, deck 5 'Gaussian Elimination' (English, read in full) for the pivot count. Every rank, minor and bound on this card is recomputed in scripts/validate.py, and the inequalities are checked over exhaustive small integer matrices.",
-   "links": {
-    "mock": {
-     "subject": "engineering-mathematics",
-     "unit_slug": "linear-algebra-matrices",
-     "unit_name": "Linear Algebra: Matrices & Systems",
-     "unit_number": 1,
-     "question_count": 50,
-     "subtopics": [
-      {
-       "label": "matrix-operations",
-       "questions": 15
-      },
-      {
-       "label": "rank-nullity",
-       "questions": 14
-      },
-      {
-       "label": "systems-of-linear-equations",
-       "questions": 12
-      },
-      {
-       "label": "gauss-elimination",
-       "questions": 9
-      }
-     ],
-     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
-    },
-    "visual": {
-     "slug": "matrices-systems-and-eigenvalues",
-     "title": "Matrices, Systems and Eigenvalues",
-     "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html",
-     "covers": [
-      "rank as a pivot count; elimination preserves it",
-      "rank + nullity = number of columns, not rows"
-     ]
-    },
-    "mapped_at": "2026-10-29"
-   },
    "subject": "linear-algebra",
    "topic": "matrices-and-determinants",
    "path": "subjects/linear-algebra/matrices-and-determinants/rank-and-its-bounds.json"
@@ -11328,48 +10952,928 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "IIT Madras CS6015 (LARP 2018) slides, deck 6 (English, read in full) for the Ax = 0 characterisation of non-invertibility. GATE Overflow Linear Algebra notes (English, read in part) for the equivalence list and the det(A + B) warning. GeeksforGeeks (English, read in part) for the singular and non-singular definitions. Every equivalence and counterexample is recomputed in scripts/validate.py.",
-   "links": {
-    "mock": {
-     "subject": "engineering-mathematics",
-     "unit_slug": "linear-algebra-matrices",
-     "unit_name": "Linear Algebra: Matrices & Systems",
-     "unit_number": 1,
-     "question_count": 50,
-     "subtopics": [
-      {
-       "label": "matrix-operations",
-       "questions": 15
-      },
-      {
-       "label": "rank-nullity",
-       "questions": 14
-      },
-      {
-       "label": "systems-of-linear-equations",
-       "questions": 12
-      },
-      {
-       "label": "gauss-elimination",
-       "questions": 9
-      }
-     ],
-     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
-    },
-    "visual": {
-     "slug": "matrices-systems-and-eigenvalues",
-     "title": "Matrices, Systems and Eigenvalues",
-     "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html",
-     "covers": [
-      "a zero determinant is the definition of singular",
-      "three equivalent ways to see invertibility"
-     ]
-    },
-    "mapped_at": "2026-10-29"
-   },
    "subject": "linear-algebra",
    "topic": "matrices-and-determinants",
    "path": "subjects/linear-algebra/matrices-and-determinants/singular-and-equivalent-conditions.json"
+  },
+  {
+   "id": "matrix-form-and-two-pictures",
+   "title": "Matrix Form Ax = b, and the Row and Column Pictures",
+   "priority": "P1",
+   "order": 121,
+   "unit": "Formulating a system",
+   "quickIdea": "Every linear system is one equation Ax = b. Read it by rows and each equation is a line or a plane; read it by columns and the question becomes which combination of the columns of A produces b.",
+   "remember": [
+    "A system of m equations in n unknowns is written Ax = b, where A is the m x n coefficient matrix, x is the n x 1 vector of unknowns and b is the m x 1 right-hand side. Attaching b as an extra column gives the augmented matrix [A|b].",
+    "Row picture: one equation is one line when there are two unknowns and one plane when there are three. A solution is a point common to all of them.",
+    "Column picture: Ax is the combination x1 a1 + x2 a2 + ... + xn an of the columns of A. A solution exists exactly when b lies in the span of the columns, which is the column space of A.",
+    "So Ax = b is solvable if and only if b is in the column space of A, which is the same statement as rank(A) = rank([A|b]).",
+    "The column picture is the one that survives the jump to many unknowns: the row picture stops being drawable above three variables, but the column statement stays true."
+   ],
+   "example": {
+    "prompt": "Solve x + y = 3, x - y = 1 by the column picture and by the row picture.",
+    "work": "Column picture: A = [[1,1],[1,-1]], so x1(1,1) + x2(1,-1) = (3,1). Adding the two coordinates gives 2x1 = 4, so x1 = 2, and then x2 = 1. Row picture: the two lines cross where both hold; substituting x = 2, y = 1 satisfies 2 + 1 = 3 and 2 - 1 = 1.",
+    "answer": "x = 2, y = 1. The column weights 2 and 1 reproduce b, and the two lines meet at the point (2, 1)."
+   },
+   "gateAngle": "GATE CSE 1996 Q.1.7 asks directly whether solvability is equivalent to equal ranks, and GATE CSE 2017 Set 1 Q.3 is pure column picture: b is handed to you as the sum of the columns of A, so the all-ones vector is a solution before any arithmetic.",
+   "variations": [
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "A is 3 x 2 with independent columns and b is in R^3. Must Ax = b have a solution?",
+     "answer": "No. The two independent columns span only a plane inside R^3, so only the b lying in that plane are reachable.",
+     "why": "The column picture makes the failure visible: solvability is membership of b in a 2-dimensional subspace of a 3-dimensional space."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "For A = [[1,2],[2,4]] and b = (3,6), find one solution of Ax = b and describe all of them.",
+     "answer": "x = (3,0) works, and so does every x = (3 - 2t, t).",
+     "why": "b is exactly 3 times the first column, and the second column is twice the first, so the reachable directions are one-dimensional while there are two unknowns."
+    }
+   ],
+   "trap": {
+    "what": "Assuming that a solution exists because the system was written down, or reading the row picture as if two lines must always meet.",
+    "why": "Writing Ax = b says nothing about whether b is reachable. Parallel lines are a perfectly ordinary system with no solution, and the algebra of the same fact is rank(A) below rank([A|b]).",
+    "counterexample": "x + y = 1 and x + y = 3 are two parallel lines; A = [[1,1],[1,1]] has rank 1, [A|b] = [[1,1,1],[1,1,3]] has rank 2, and no point satisfies both."
+   },
+   "check": {
+    "question": "A is 2 x 2 with columns (1,2) and (2,4). Is Ax = (1,0) solvable?",
+    "answer": "No.",
+    "explanation": "The second column is twice the first, so the column space is the line through (1,2). The vector (1,0) is not on that line, so b is unreachable; equivalently rank(A) = 1 while rank([A|b]) = 2."
+   },
+   "pyqIds": [
+    "gate-1996-1-7-false-statement-systems",
+    "gate-2017-set1-3-dependent-columns-infinite"
+   ],
+   "prereqs": [
+    "rank-and-its-bounds",
+    "matrix-multiplication-and-noncommutativity"
+   ],
+   "videoRefs": [],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "Linear Algebra (Gilbert Strang) Notes, Lecture 1 to 10",
+     "channel": "GATE Overflow blog",
+     "url": "https://gateoverflow.in/blog/18190/linear-algebra-gilbert-strang-notes-lecture-1-10",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "the 'Solving Systems of Linear Equations' section gives the row picture, the column picture and the reachability condition; read in part"
+    },
+    {
+     "kind": "text",
+     "title": "Matrices and Determinants: Consistency and Solution of Simultaneous Linear Equations (Lecture 04)",
+     "channel": "SATHEE, IIT Kanpur",
+     "url": "https://sathee.iitk.ac.in/ncert-books/udaan/udaan-math-12/matrics-and-determinats/math-12-matrics-and-determinats-4/",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "the rank criterion r = s and the plane-intersection table; read in part"
+    }
+   ],
+   "sourceLine": "GATE Overflow blog, 'Linear Algebra (Gilbert Strang) Notes, Lecture 1 to 10' (English, read in part) for the row picture, the column picture and the reachability condition. SATHEE, IIT Kanpur, 'Consistency and Solution of Simultaneous Linear Equations' (English, read in part) for the rank criterion. Both pictures and the worked solution are recomputed in scripts/validate.py.",
+   "subject": "linear-algebra",
+   "topic": "system-of-linear-equations",
+   "path": "subjects/linear-algebra/system-of-linear-equations/matrix-form-and-two-pictures.json"
+  },
+  {
+   "id": "consistency-by-rank",
+   "title": "The Consistency Test: rank(A) against rank([A|b])",
+   "priority": "P1",
+   "order": 122,
+   "unit": "Existence and number of solutions",
+   "quickIdea": "Compare two numbers. If the coefficient matrix and the augmented matrix have the same rank the system has a solution; if the augmented rank is larger it has none. The common rank then decides unique or infinite by comparison with n.",
+   "remember": [
+    "rank(A) is never larger than rank([A|b]), because every column of A is a column of [A|b].",
+    "rank([A|b]) is either rank(A) or rank(A) + 1, never more: adding one column can raise the rank by at most one.",
+    "If rank(A) is not equal to rank([A|b]) the system is inconsistent and has no solution.",
+    "If rank(A) = rank([A|b]) = r the system is consistent. It has a unique solution when r = n, and infinitely many solutions when r < n, with n - r free parameters.",
+    "Never compare rank(A) with m, the number of equations: the pivot count that matters is measured against n, the number of unknowns."
+   ],
+   "example": {
+    "prompt": "Decide the number of solutions of x + 2y = 5, 4x + 8y = 12, 3x + 6y + 3z = 15.",
+    "work": "A = [[1,2,0],[4,8,0],[3,6,3]] and [A|b] = [[1,2,0,5],[4,8,0,12],[3,6,3,15]]. Replace row 2 by row 2 - 4 row 1, giving (0,0,0 | -8). Row 3 - 3 row 1 gives (0,0,3 | 0). The coefficient part now has pivots in columns 1 and 3 only, so rank(A) = 2; the augmented part has a third pivot in the last column, so rank([A|b]) = 3.",
+    "answer": "rank(A) = 2 but rank([A|b]) = 3, so the system is inconsistent: no solution. This is GATE CSE 1998 Q.1.2, whose row 2 - 4 row 1 reads 0 = -8."
+   },
+   "gateAngle": "This is the single most reused test in the topic: GATE CSE 1996 Q.1.7 states it as an if-and-only-if, GATE CSE 2016 Set 2 Q.04 tests whether you can conclude anything from m and n alone, and GATE CSE 2003 Q.41 uses it to count the values of a parameter that make a system consistent.",
+   "variations": [
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "A is 3 x 3 with rank(A) = 2. Can [A|b] have rank 4?",
+     "answer": "No. Adding one column raises the rank by at most one, so rank([A|b]) is 2 or 3.",
+     "why": "The augmented matrix has the same three rows as A, so its rank is bounded by the number of rows and by rank(A) + 1."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "A is 4 x 3, rank(A) = 3, and the system is consistent. How many solutions are there?",
+     "answer": "Exactly one.",
+     "why": "Consistency gives rank([A|b]) = 3 = n, so every unknown is a pivot variable and there is no free parameter, however many equations there are."
+    }
+   ],
+   "trap": {
+    "what": "Concluding 'no solution' from rank(A) being smaller than the number of equations, or 'unique' from m = n.",
+    "why": "The comparison that decides is rank against n, the number of unknowns, after the two ranks have been checked for equality. Extra equations can be redundant (still consistent) and a square system can be singular (not unique).",
+    "counterexample": "A = [[1,0],[0,1],[1,1]] with b = (1,1,2) is 3 equations in 2 unknowns; rank(A) = rank([A|b]) = 2 = n, so it has exactly one solution, x = (1,1), despite having more equations than unknowns."
+   },
+   "check": {
+    "question": "A is 3 x 3, rank(A) = 2 and rank([A|b]) = 3. How many solutions?",
+    "answer": "None.",
+    "explanation": "The two ranks differ, so b is outside the column space of A and the system is inconsistent. The number of unknowns is irrelevant once the ranks disagree."
+   },
+   "pyqIds": [
+    "gate-1998-1-2-no-solution",
+    "gate-1996-1-7-false-statement-systems",
+    "gate-2003-41-alpha-one-value"
+   ],
+   "prereqs": [
+    "matrix-form-and-two-pictures",
+    "rank-and-its-bounds"
+   ],
+   "videoRefs": [],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "Linear Algebra Important Points",
+     "channel": "GATE Overflow blog",
+     "url": "https://gateoverflow.in/blog/8877/linear-algebra-important-points",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "the augmented-matrix consistency table, in GATE's own vocabulary; read in part"
+    },
+    {
+     "kind": "text",
+     "title": "Matrices and Determinants: Consistency and Solution of Simultaneous Linear Equations (Lecture 04)",
+     "channel": "SATHEE, IIT Kanpur",
+     "url": "https://sathee.iitk.ac.in/ncert-books/udaan/udaan-math-12/matrics-and-determinats/math-12-matrics-and-determinats-4/",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "the r = s rank rule with the unique and infinite sub-cases; read in part"
+    },
+    {
+     "kind": "text",
+     "title": "Engineering Mathematics notes for GATE, Module 1, section 1.4 System of Linear Equations",
+     "channel": "Vidyalankar",
+     "url": "https://www.vidyalankar.org/gate/assets/docs/notes/maths.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "the consistency conditions stated as case 1 and case 2 with the r = number-of-unknowns split; read in part through the search extract, the PDF itself did not download"
+    }
+   ],
+   "sourceLine": "GATE Overflow blog, 'Linear Algebra Important Points' (English, read in part) for the consistency table. SATHEE, IIT Kanpur (English, read in part) for the rank rule and its two sub-cases. Vidyalankar GATE Engineering Mathematics notes, section 1.4 (English, read in part through the search extract) for the same conditions in coaching language. The ranks in every example are recomputed by Gaussian elimination in scripts/validate.py.",
+   "subject": "linear-algebra",
+   "topic": "system-of-linear-equations",
+   "path": "subjects/linear-algebra/system-of-linear-equations/consistency-by-rank.json"
+  },
+  {
+   "id": "square-systems-determinant-test",
+   "title": "Square Systems: the Determinant Test",
+   "priority": "P1",
+   "order": 123,
+   "unit": "Existence and number of solutions",
+   "quickIdea": "For n equations in n unknowns the determinant is a yes-or-no gate: non-zero means one solution and only one; zero means none or infinitely many, and you must look further to know which.",
+   "remember": [
+    "If A is n x n and |A| is not 0, then rank(A) = n, so rank([A|b]) = n for every b and the system has exactly one solution.",
+    "If |A| = 0 then rank(A) < n, and the system has either no solution or infinitely many. It can never have exactly one, and it can never have exactly k solutions for a finite k above 1.",
+    "Which of the two it is depends on b: no solution when rank([A|b]) = rank(A) + 1, infinitely many when rank([A|b]) = rank(A).",
+    "A non-zero determinant is a property of A alone, so 'unique solution for every b' and '|A| is not 0' are the same statement.",
+    "A zero determinant is not a property of the system: the same singular A can be inconsistent for one b and have infinitely many solutions for another."
+   ],
+   "example": {
+    "prompt": "How many solutions has 2x1 - x2 + 3x3 = 1, 3x1 + 2x2 + 5x3 = 2, -x1 + 4x2 + x3 = 3?",
+    "work": "The coefficient matrix is [[2,-1,3],[3,2,5],[-1,4,1]]. Expanding along the first row: 2(2 x 1 - 5 x 4) - (-1)(3 x 1 - 5 x (-1)) + 3(3 x 4 - 2 x (-1)) = 2(-18) + 1(8) + 3(14) = -36 + 8 + 42 = 14. The determinant is 14, which is not 0.",
+    "answer": "Exactly one solution, because the determinant is non-zero. This is GATE CSE 2005 Q.48, whose answer is 'a unique solution'."
+   },
+   "gateAngle": "GATE uses the determinant as the fast route and the rank test as the general one. GATE CSE 2005 Q.48 is a pure determinant computation; GATE CSE 2025 Set 1 Q.13 is the trap in reverse, where the determinant is zero for two values of k and the two values behave differently; GATE CSE 2008 Q.3 asks for the parameter values that keep the determinant away from zero.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "A is 3 x 3 with |A| = 0. Is it true that Ax = b has infinitely many solutions for every b?",
+     "answer": "No. It is true for some b and false for others.",
+     "why": "A zero determinant only removes the unique case. Consistency still has to be checked, and for most b a singular A is inconsistent."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why can a square system never have exactly two solutions?",
+     "answer": "Because the solution set is either empty or a coset of the null space of A, which contains 1 element (unique) or infinitely many.",
+     "why": "If x and y both solve Ax = b then x - y is in the null space, and every scalar multiple of x - y can be added to x to produce another solution."
+    }
+   ],
+   "trap": {
+    "what": "Reading |A| = 0 as 'infinitely many solutions'.",
+    "why": "A zero determinant is consistent with both failures. The determinant is computed from A alone, while the number of solutions also depends on b.",
+    "counterexample": "A = [[1,1],[2,2]] has determinant 0. With b = (1,2) the equations are x + y = 1 and 2x + 2y = 2, the same line twice, so there are infinitely many solutions; with b = (1,3) they are x + y = 1 and 2x + 2y = 3, parallel lines, so there is none."
+   },
+   "check": {
+    "question": "A is 4 x 4 with |A| = 0 and Ax = b is given. What are the possible numbers of solutions?",
+    "answer": "Either 0 or infinitely many.",
+    "explanation": "A zero determinant forces rank(A) below 4, so if the system is consistent at all there is at least one free parameter and hence infinitely many solutions."
+   },
+   "pyqIds": [
+    "gate-2005-48-unique-solution",
+    "gate-2008-3-alpha-unique",
+    "gate-2025-set1-13-k-system"
+   ],
+   "prereqs": [
+    "consistency-by-rank",
+    "singular-and-equivalent-conditions"
+   ],
+   "videoRefs": [],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "Engineering Mathematics notes for GATE, Module 1, section 1.4 System of Linear Equations",
+     "channel": "Vidyalankar",
+     "url": "https://www.vidyalankar.org/gate/assets/docs/notes/maths.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "the case 1 and case 2 consistency conditions and the non-zero-solution condition for the homogeneous case; read in part through the search extract"
+    },
+    {
+     "kind": "text",
+     "title": "Linear Algebra Important Points",
+     "channel": "GATE Overflow blog",
+     "url": "https://gateoverflow.in/blog/8877/linear-algebra-important-points",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "the square-matrix split on |A| = 0 with the dependent-rows reading; read in part"
+    }
+   ],
+   "sourceLine": "Vidyalankar GATE Engineering Mathematics notes, section 1.4 (English, read in part) for the consistency conditions and the determinant gate. GATE Overflow blog, 'Linear Algebra Important Points' (English, read in part) for the square-matrix split. Both determinants, the 2 x 2 counterexamples and the 2025 Set 1 parameter cases are recomputed in scripts/validate.py.",
+   "subject": "linear-algebra",
+   "topic": "system-of-linear-equations",
+   "path": "subjects/linear-algebra/system-of-linear-equations/square-systems-determinant-test.json"
+  },
+  {
+   "id": "free-variables-and-solution-set",
+   "title": "Free Variables and the Shape of the Solution Set",
+   "priority": "P1",
+   "order": 124,
+   "unit": "Existence and number of solutions",
+   "quickIdea": "A consistent system with rank r in n unknowns has n - r free parameters. Its solutions are one particular solution plus every solution of Ax = 0, so the set is a point, a line, a plane or a higher-dimensional flat, never a finite cluster.",
+   "remember": [
+    "Pivot columns correspond to basic variables; the remaining n - r columns are free, and each free variable contributes one parameter.",
+    "Every solution is x = x_p + x_n, where x_p is any one solution of Ax = b and x_n runs over the null space of A, that is over all solutions of Ax = 0.",
+    "The number of parameters is n - rank(A), which is the nullity. It does not depend on b.",
+    "Consequently a consistent system has 1 solution when rank(A) = n, and infinitely many when rank(A) < n. There is no third possibility.",
+    "If two different solutions exist, infinitely many exist: their difference is a non-zero null vector, and every multiple of it can be added to either solution."
+   ],
+   "example": {
+    "prompt": "Describe all solutions of x + y + z = 3 and x - y = 0.",
+    "work": "A = [[1,1,1],[1,-1,0]] has rank 2 in n = 3 unknowns, so there is 3 - 2 = 1 free parameter. Take z = t: then x = y from the second equation, and 2x + t = 3 gives x = y = (3 - t)/2. So the solutions are ((3-t)/2, (3-t)/2, t) for every real t.",
+    "answer": "A one-parameter family: a line in R^3. One particular solution is (3/2, 3/2, 0), and the null space is spanned by (-1/2, -1/2, 1)."
+   },
+   "gateAngle": "GATE CSE 2024 Set 1 Q.39 is entirely about this bookkeeping: for an n x m matrix with m > n the nullity is at least m - n, so at least that many independent solutions of Ax = 0 exist. GATE CSE 2021 Set 2 Q.24 is the same count read backwards, from a one-dimensional null space to rank 4.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "A is 4 x 5 and the system Ax = b is consistent with rank(A) = 4. How many solutions are there?",
+     "answer": "Infinitely many, forming a one-parameter family.",
+     "why": "The nullity is 5 - 4 = 1, so the solution set is a line: a particular solution plus all multiples of one null vector."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "A 3 x 3 system has exactly two solutions, (1,0,0) and (0,1,0). Is that possible?",
+     "answer": "No. Two solutions force infinitely many.",
+     "why": "Their difference (1,-1,0) is a non-zero null vector, so (1,0,0) + t(1,-1,0) solves the system for every real t."
+    }
+   ],
+   "trap": {
+    "what": "Reporting 'no solution or one solution or two solutions' as the possibilities, or assuming the number of solutions can be counted when the determinant vanishes.",
+    "why": "The solution set of a consistent linear system is an affine subspace. Its size is 1 or infinite, and the only question is how many parameters it has.",
+    "counterexample": "x + y = 2 and 2x + 2y = 4 have the solutions (2 - t, t) for every real t; no choice of b makes this system have exactly two solutions."
+   },
+   "check": {
+    "question": "A is 3 x 5 with rank 3 and Ax = b is consistent. How many parameters does the solution set have?",
+    "answer": "Two.",
+    "explanation": "The nullity is n - rank = 5 - 3 = 2, so two free variables remain and the solution set is a plane inside R^5."
+   },
+   "pyqIds": [
+    "gate-2024-set1-39-homogeneous-nxm",
+    "gate-2017-set1-3-dependent-columns-infinite"
+   ],
+   "prereqs": [
+    "consistency-by-rank",
+    "homogeneous-systems"
+   ],
+   "videoRefs": [],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "Linear Algebra (Gilbert Strang) Notes, Lecture 1 to 10",
+     "channel": "GATE Overflow blog",
+     "url": "https://gateoverflow.in/blog/18190/linear-algebra-gilbert-strang-notes-lecture-1-10",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "the 'Complete Solution to Ax = b' section: particular solution with free variables set to zero, then the null space, then x = x_p + x_n; read in part"
+    },
+    {
+     "kind": "text",
+     "title": "Linear Algebra Important Points",
+     "channel": "GATE Overflow blog",
+     "url": "https://gateoverflow.in/blog/8877/linear-algebra-important-points",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "the infinite-solution case stated as rank = rank([A:b]) below the number of unknowns; read in part"
+    }
+   ],
+   "sourceLine": "GATE Overflow blog, 'Linear Algebra (Gilbert Strang) Notes, Lecture 1 to 10' (English, read in part) for the particular-plus-null-space decomposition. GATE Overflow blog, 'Linear Algebra Important Points' (English, read in part) for the free-variable count. The parameter counts and the worked solution are recomputed in scripts/validate.py.",
+   "subject": "linear-algebra",
+   "topic": "system-of-linear-equations",
+   "path": "subjects/linear-algebra/system-of-linear-equations/free-variables-and-solution-set.json"
+  },
+  {
+   "id": "homogeneous-systems",
+   "title": "Homogeneous Systems Ax = 0",
+   "priority": "P1",
+   "order": 125,
+   "unit": "Existence and number of solutions",
+   "quickIdea": "Ax = 0 always has the trivial solution, so it is never inconsistent. The only question is whether a non-zero solution exists, and that happens exactly when the rank is below the number of unknowns.",
+   "remember": [
+    "Ax = 0 is always consistent: x = 0 satisfies it for every A. It therefore has either one solution (only x = 0) or infinitely many, never none and never a finite number above one.",
+    "A non-trivial solution exists if and only if rank(A) < n, that is if and only if nullity is positive.",
+    "For a square n x n A this reads: a non-trivial solution exists if and only if |A| = 0.",
+    "If m < n, a homogeneous system always has a non-trivial solution, because rank(A) is at most m < n.",
+    "The solution set of Ax = 0 is a subspace, so sums and scalar multiples of solutions are solutions. If b is non-zero and Ax = b has at least one solution, then it has infinitely many."
+   ],
+   "example": {
+    "prompt": "For which p, q, r has px + qy + rz = 0, qx + ry + pz = 0, rx + py + qz = 0 a non-trivial solution?",
+    "work": "The coefficient matrix has determinant 3pqr - p^3 - q^3 - r^3, which factors as -(p + q + r)(p^2 + q^2 + r^2 - pq - qr - rp), and the second factor equals half of ((p-q)^2 + (q-r)^2 + (r-p)^2), which is zero only when p = q = r.",
+    "answer": "A non-trivial solution exists exactly when p + q + r = 0 or p = q = r. This is GATE CSE 2015 Set 3 Q.33, whose correct option is 'p + q + r = 0 or p = q = r'."
+   },
+   "gateAngle": "GATE CSE 2015 Set 3 Q.33 is the determinant form of the test; GATE CSE 1996 Q.1.7 checks that you know a homogeneous system with more unknowns than equations always has infinitely many solutions; GATE CSE 2024 Set 1 Q.39 asks how many independent non-trivial solutions are guaranteed.",
+   "variations": [
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Can a homogeneous system be inconsistent?",
+     "answer": "No. x = 0 always solves it.",
+     "why": "The right-hand side is the zero vector, which is in the column space of every matrix, so the two ranks can never differ."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "A is 3 x 3 with |A| = 0. Does Ax = b have a solution for a given non-zero b?",
+     "answer": "It depends on b, and the answer is not settled by the determinant.",
+     "why": "The determinant says only that the homogeneous system has a non-zero solution. Consistency of the non-homogeneous system is a statement about b, checked by comparing ranks."
+    }
+   ],
+   "trap": {
+    "what": "Transferring the singular-matrix conclusion from Ax = 0 to Ax = b.",
+    "why": "The free-solution guarantee belongs to the homogeneous system, whose right-hand side is already in the column space. A non-zero b may sit outside it.",
+    "counterexample": "A = [[1,1],[1,1]] has |A| = 0, so x + y = 0, x + y = 0 has the non-trivial solution (1,-1); the same A with b = (1,2) gives x + y = 1 and x + y = 2, which has no solution."
+   },
+   "check": {
+    "question": "A is 4 x 3. Can Ax = 0 have only the trivial solution?",
+    "answer": "Yes, provided rank(A) = 3.",
+    "explanation": "The test is rank against the number of unknowns, not the number of equations. Four equations in three unknowns with full column rank force every unknown to zero."
+   },
+   "pyqIds": [
+    "gate-2015-set3-33-nontrivial-p-q-r",
+    "gate-2024-set1-39-homogeneous-nxm"
+   ],
+   "prereqs": [
+    "free-variables-and-solution-set",
+    "singular-and-equivalent-conditions"
+   ],
+   "videoRefs": [],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "Engineering Mathematics notes for GATE, Module 1, section 1.4 System of Linear Equations",
+     "channel": "Vidyalankar",
+     "url": "https://www.vidyalankar.org/gate/assets/docs/notes/maths.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "the non-zero-solution condition for the homogeneous system, stated as the vanishing of the coefficient determinant; read in part through the search extract"
+    },
+    {
+     "kind": "text",
+     "title": "Matrices and Determinants: Consistency and Solution of Simultaneous Linear Equations (Lecture 04)",
+     "channel": "SATHEE, IIT Kanpur",
+     "url": "https://sathee.iitk.ac.in/ncert-books/udaan/udaan-math-12/matrics-and-determinats/math-12-matrics-and-determinats-4/",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "the adjoint test for a singular square system and the statement that a homogeneous system is always consistent; read in part"
+    },
+    {
+     "kind": "text",
+     "title": "Notes on linear systems: raikhik samikaran nikay (Hindi)",
+     "channel": "CareerCraft Labs, JEE mathematics notes in Hindi",
+     "url": "https://careercraftlabs.org/hi/read/jee-math-ch03",
+     "language": "hi",
+     "transcript": "PARTIAL",
+     "translated": true,
+     "note": "the three-case Cramer table and the statement that a homogeneous system is never inconsistent; read in part; every sentence taken from it is translated from Hindi into English"
+    }
+   ],
+   "sourceLine": "Vidyalankar GATE Engineering Mathematics notes, section 1.4 (English, read in part) for the determinant form of the non-trivial-solution condition. SATHEE, IIT Kanpur (English, read in part) for the singular-square adjoint test. CareerCraft Labs Hindi notes (Hindi, translated, read in part) for the never-inconsistent property and the three-case table. The determinant factorisation and the p, q, r conclusion are recomputed in scripts/validate.py.",
+   "subject": "linear-algebra",
+   "topic": "system-of-linear-equations",
+   "path": "subjects/linear-algebra/system-of-linear-equations/homogeneous-systems.json"
+  },
+  {
+   "id": "gaussian-elimination-and-back-substitution",
+   "title": "Gaussian Elimination and Back Substitution",
+   "priority": "P2",
+   "order": 126,
+   "unit": "Solving a system",
+   "quickIdea": "Reduce [A|b] by row operations until the coefficient part is in echelon form, count the pivots for the rank, read off any contradiction, then solve from the bottom row upwards.",
+   "remember": [
+    "Work on [A|b], not on A alone: the right-hand side must undergo every row operation too.",
+    "The three elementary row operations are swapping two rows, multiplying a row by a non-zero scalar, and adding a multiple of one row to another. Each one preserves the solution set exactly.",
+    "In row echelon form the number of non-zero rows of the coefficient part is rank(A); the number of pivots in the whole augmented matrix is rank([A|b]).",
+    "A row that reads (0 0 ... 0 | c) with c not 0 is a contradiction and settles the question: no solution.",
+    "When there is no contradiction, back substitution starts at the last pivot and works upwards, expressing each pivot variable in terms of the free ones.",
+    "Do not use column operations to solve a system: they change the unknowns and therefore change the solution set."
+   ],
+   "example": {
+    "prompt": "Solve x + y = 3, x - y = 1 by elimination.",
+    "work": "The augmented matrix is [[1,1,3],[1,-1,1]]. Replace row 2 by row 2 - row 1: [[1,1,3],[0,-2,-2]]. Back substitution: -2y = -2 gives y = 1, then x + 1 = 3 gives x = 2.",
+    "answer": "x = 2, y = 1. Two pivots, rank(A) = rank([A|b]) = 2 = n, so the solution is unique."
+   },
+   "gateAngle": "GATE CSE 1998 Q.1.2 is solved in one step once the augmented matrix is written: row 2 - 4 row 1 produces (0 0 0 | -8) and the answer is immediate. GATE CSE 2003 Q.41 needs the last row of the reduced augmented matrix to be set to zero, which is a back-substitution-style reading of the parameter condition.",
+   "variations": [
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "After elimination the augmented matrix ends with the row (0 0 0 | 5). What does that tell you?",
+     "answer": "The system has no solution.",
+     "why": "The row asserts 0 = 5. Equivalently rank([A|b]) is one more than rank(A), so b lies outside the column space."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "Elimination on a 3 x 3 system leaves two pivots and no contradictory row. How many solutions, and why?",
+     "answer": "Infinitely many, with one free parameter.",
+     "why": "rank(A) = rank([A|b]) = 2 < 3, so the nullity is 1 and the solution set is a line."
+    }
+   ],
+   "trap": {
+    "what": "Forgetting to apply a row operation to the augmented column, or using column operations to clear entries.",
+    "why": "The solution is a property of the pair (A, b). Changing only A breaks the correspondence, and column operations relabel or mix the unknowns, which is a different system.",
+    "counterexample": "Clearing the (2,1) entry of [[1,1],[1,-1]] by a column operation, column 1 - column 2, gives [[0,1],[2,-1]], a system whose solutions are not those of the original."
+   },
+   "check": {
+    "question": "An augmented matrix in echelon form has three pivots in the coefficient part of a 4-unknown system, and no contradictory row. How many solutions?",
+    "answer": "Infinitely many, with one free parameter.",
+    "explanation": "rank(A) = rank([A|b]) = 3 while n = 4, so the nullity is 1 and the solution set is a line."
+   },
+   "pyqIds": [
+    "gate-1998-1-2-no-solution",
+    "gate-2014-set1-52-number-of-solutions"
+   ],
+   "prereqs": [
+    "consistency-by-rank",
+    "matrix-form-and-two-pictures"
+   ],
+   "videoRefs": [],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "Linear Algebra (Gilbert Strang) Notes, Lecture 1 to 10",
+     "channel": "GATE Overflow blog",
+     "url": "https://gateoverflow.in/blog/18190/linear-algebra-gilbert-strang-notes-lecture-1-10",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "the forward elimination, augmented matrix and back substitution sequence, and the two ways elimination can fail; read in part"
+    },
+    {
+     "kind": "text",
+     "title": "Engineering Mathematics notes for GATE, Module 1, section 1.4 System of Linear Equations",
+     "channel": "Vidyalankar",
+     "url": "https://www.vidyalankar.org/gate/assets/docs/notes/maths.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "reduce [A:B] to row echelon form and then compare ranks; read in part through the search extract"
+    }
+   ],
+   "sourceLine": "GATE Overflow blog, 'Linear Algebra (Gilbert Strang) Notes, Lecture 1 to 10' (English, read in part) for the elimination and back-substitution sequence. Vidyalankar GATE Engineering Mathematics notes, section 1.4 (English, read in part) for the echelon-then-compare-ranks procedure. Every elimination step quoted here is reproduced and checked in scripts/validate.py.",
+   "subject": "linear-algebra",
+   "topic": "system-of-linear-equations",
+   "path": "subjects/linear-algebra/system-of-linear-equations/gaussian-elimination-and-back-substitution.json"
+  },
+  {
+   "id": "parameter-dependent-systems",
+   "title": "Parameter-Dependent Systems: Finding k, a or b",
+   "priority": "P1",
+   "order": 127,
+   "unit": "Solving a system",
+   "quickIdea": "A parameter makes the determinant a function. Set it to zero to find the critical values, then substitute each one back and compare the ranks, because at a critical value the system may be inconsistent or may have infinitely many solutions.",
+   "remember": [
+    "For a square system, compute |A| as a function of the parameter. Where |A| is not 0 the solution is unique.",
+    "At each value where |A| = 0, substitute that value into [A|b] and compare ranks. rank([A|b]) = rank(A) gives infinitely many solutions; rank([A|b]) = rank(A) + 1 gives none.",
+    "For two equations in two unknowns the fast test is proportionality: infinitely many solutions need a1/a2 = b1/b2 = c1/c2, no solution needs a1/a2 = b1/b2 but c1/c2 different, and a unique solution needs a1/a2 different from b1/b2.",
+    "A question that fixes the number of solutions is a question about a determinant equation plus a consistency check; doing only the first half is the standard error.",
+    "When the parameter multiplies an unknown, check the case where it makes a leading coefficient zero separately; that case can change the rank in a way the determinant does not show."
+   ],
+   "example": {
+    "prompt": "For which a and b does ax + y = b, 16x + ay = 24 have multiple solutions, and what is ab?",
+    "work": "The determinant is a^2 - 16, so multiple solutions require a = 4 or a = -4. With a = 4 the system is 4x + y = b and 16x + 4y = 24; the second row is 4 times the first, so consistency needs 4b = 24, that is b = 6. With a = -4 the second row is -4 times the first, so consistency needs -4b = 24, that is b = -6. In both cases ab = 24.",
+    "answer": "ab = 24. This is GATE CSE 2026 Set 2 Q.31, whose official answer is 24."
+   },
+   "gateAngle": "This is the most frequent shape in the topic: GATE CSE 2026 Set 2 Q.31 asks for the product ab, GATE CSE 2025 Set 1 Q.13 asks which statements about k are true for x + ky = 1, kx + y = -1, and GATE CSE 2008 Q.3 asks for the values of alpha that keep the system uniquely solvable.",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "For the system x + ky = 1, kx + y = -1, which statements are true: (A) exactly one k gives no solution, (B) infinitely many k give no solution, (C) exactly one k gives exactly one solution, (D) exactly one k gives infinitely many solutions?",
+     "answer": "A and D. k = 1 gives no solution, k = -1 gives infinitely many, and every other k gives a unique solution.",
+     "why": "The determinant is 1 - k^2, so only k = 1 and k = -1 are critical, and the two behave differently. This is GATE CSE 2025 Set 1 Q.13."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "For which k does x + y = 2, 2x + 2y = k have infinitely many solutions?",
+     "answer": "k = 4, and only k = 4.",
+     "why": "Proportionality requires 1/2 = 1/2 = 2/k, so k = 4; for any other k the two lines are parallel and distinct."
+    }
+   ],
+   "trap": {
+    "what": "Stopping once the determinant is zero and declaring infinitely many solutions.",
+    "why": "A zero determinant is a necessary condition for multiple solutions, not a sufficient one. The right-hand side has to be proportional to the coefficient rows as well.",
+    "counterexample": "In GATE CSE 2026 Set 2 Q.31, a = 4 with b = 7 still has determinant 0 but the two equations are 4x + y = 7 and 16x + 4y = 24, that is 16x + 4y = 28 and 16x + 4y = 24, which are parallel and distinct: no solution."
+   },
+   "check": {
+    "question": "For which k does x + ky = 1, kx + y = -1 have no solution?",
+    "answer": "k = 1 only.",
+    "explanation": "At k = 1 the equations become x + y = 1 and x + y = -1, parallel and distinct. At k = -1 they become x - y = 1 and -x + y = -1, the same line twice, so there are infinitely many solutions."
+   },
+   "pyqIds": [
+    "gate-2026-set2-31-product-ab",
+    "gate-2025-set1-13-k-system",
+    "gate-2008-3-alpha-unique",
+    "gate-2003-41-alpha-one-value"
+   ],
+   "prereqs": [
+    "square-systems-determinant-test",
+    "consistency-by-rank"
+   ],
+   "videoRefs": [],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "Linear Algebra Important Points",
+     "channel": "GATE Overflow blog",
+     "url": "https://gateoverflow.in/blog/8877/linear-algebra-important-points",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "the consistent and inconsistent branches with the parameter conditions; read in part"
+    },
+    {
+     "kind": "text",
+     "title": "Notes on linear systems: raikhik samikaran nikay (Hindi)",
+     "channel": "CareerCraft Labs, JEE mathematics notes in Hindi",
+     "url": "https://careercraftlabs.org/hi/read/jee-math-ch03",
+     "language": "hi",
+     "transcript": "PARTIAL",
+     "translated": true,
+     "note": "the three-case table in terms of the main determinant and the numerator determinants, and the warning that a zero main determinant alone does not mean infinitely many solutions; read in part; translated from Hindi into English"
+    }
+   ],
+   "sourceLine": "GATE Overflow blog, 'Linear Algebra Important Points' (English, read in part) for the parameter branches. CareerCraft Labs Hindi notes (Hindi, translated, read in part) for the three-case table and the zero-determinant warning. Every parameter value, product and rank in this card is recomputed in scripts/validate.py.",
+   "subject": "linear-algebra",
+   "topic": "system-of-linear-equations",
+   "path": "subjects/linear-algebra/system-of-linear-equations/parameter-dependent-systems.json"
+  },
+  {
+   "id": "overdetermined-and-underdetermined",
+   "title": "More Equations than Unknowns, and Fewer",
+   "priority": "P2",
+   "order": 128,
+   "unit": "Existence and number of solutions",
+   "quickIdea": "Counting equations against unknowns decides nothing. m greater than n can still be consistent and m less than n can still be inconsistent; only the ranks settle it, with one exception that does follow from counting.",
+   "remember": [
+    "m > n does not force inconsistency: redundant equations can be dropped, and a consistent overdetermined system has exactly one solution when rank(A) = n.",
+    "m < n does not guarantee a solution for a non-homogeneous system: x + y + z = 1 and x + y + z = 2 has two equations, three unknowns and no solution.",
+    "m < n does guarantee a non-trivial solution of the homogeneous system Ax = 0, because rank(A) is at most m < n.",
+    "m = n guarantees nothing by itself, but it does guarantee that some system with that A has a solution, namely the consistent ones; a unique solution needs rank(A) = n.",
+    "A useful sufficient condition: if rank(A) = m, the number of rows, then every b is reachable and the system is consistent for all b."
+   ],
+   "example": {
+    "prompt": "For systems of m linear equations in n variables, which of these is correct: (I) m < n implies all such systems have a solution; (II) m > n implies none has a solution; (III) m = n implies there exists a system which has a solution?",
+    "work": "I fails: x + y + z = 1 and x + y + z = 2 has m = 2 < n = 3 and no solution. II fails: x + y = 1, 2x + 2y = 2, x - y = 0 has m = 3 > n = 2, and x = y = 1/2 satisfies all three equations, so a system with more equations than unknowns can be consistent. III holds: take m = n = 1 and the equation x = 0.",
+    "answer": "Only III is true. This is GATE CSE 2016 Set 2 Q.04, whose correct option is 'Only III is true'."
+   },
+   "gateAngle": "GATE CSE 2016 Set 2 Q.04 is exactly this card. GATE CSE 2024 Set 1 Q.39 runs the same idea for a wide matrix and asks what the nullity is guaranteed to be, and GATE CSE 1996 Q.1.7 tests the m < n homogeneous guarantee.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "Give a system with more equations than unknowns that has infinitely many solutions.",
+     "answer": "x + y = 1, 2x + 2y = 2, 3x + 3y = 3.",
+     "why": "Three equations, two unknowns, all three the same line: rank(A) = rank([A|b]) = 1 < 2, so there are infinitely many solutions despite m > n."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "If rank(A) equals the number of rows of A, why is Ax = b consistent for every b?",
+     "answer": "Because the columns of A then span the whole of R^m, so every b is a combination of them.",
+     "why": "rank([A|b]) has the same number of rows as A, so it cannot exceed m; since rank(A) = m already, the two ranks are equal for every b."
+    }
+   ],
+   "trap": {
+    "what": "Answering a 'which statement is true' question about m and n by intuition about 'too many equations' or 'too few equations'.",
+    "why": "The counts m and n bound the rank but do not fix it. The only safe conclusions are the ones the rank inequality gives, such as nullity at least m - n for a wide matrix.",
+    "counterexample": "x + y + z = 1 and x + y + z = 2 has fewer equations than unknowns and is inconsistent, so 'fewer equations means solvable' is false."
+   },
+   "check": {
+    "question": "A is 5 x 3 with rank 3. Is Ax = b consistent for every b in R^5?",
+    "answer": "No.",
+    "explanation": "rank(A) = 3 is less than the number of rows 5, so the columns span only a 3-dimensional subspace of R^5 and most b are unreachable. Consistency for all b needs rank(A) = m."
+   },
+   "pyqIds": [
+    "gate-2016-set2-4-m-n-statements",
+    "gate-2024-set1-39-homogeneous-nxm",
+    "gate-1996-1-7-false-statement-systems"
+   ],
+   "prereqs": [
+    "consistency-by-rank",
+    "free-variables-and-solution-set"
+   ],
+   "videoRefs": [],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "Lecture 27: The Rank and Consistency of Systems of Linear Equations",
+     "channel": "Ohio University, MATH3200 Applied Linear Algebra (Winfried Just)",
+     "url": "https://people.ohio.edu/just/M3200F21/Lectures/LAL27np.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "the theorem rank(A) = rank([A,b]) and the corollary that rank(A) = m makes every system consistent; read in part through the search extract, the PDF itself did not download"
+    },
+    {
+     "kind": "text",
+     "title": "Linear Algebra Important Points",
+     "channel": "GATE Overflow blog",
+     "url": "https://gateoverflow.in/blog/8877/linear-algebra-important-points",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "the homogeneous always-consistent branch that supplies the m < n guarantee; read in part"
+    }
+   ],
+   "sourceLine": "Ohio University MATH3200 Lecture 27, 'The Rank and Consistency of Systems of Linear Equations' (English, read in part through the search extract) for the rank theorem and the rank(A) = m corollary. GATE Overflow blog, 'Linear Algebra Important Points' (English, read in part) for the homogeneous guarantee. Every counterexample in this card is checked in scripts/validate.py.",
+   "subject": "linear-algebra",
+   "topic": "system-of-linear-equations",
+   "path": "subjects/linear-algebra/system-of-linear-equations/overdetermined-and-underdetermined.json"
+  },
+  {
+   "id": "inverse-and-cramers-rule",
+   "title": "Solving by the Inverse and by Cramer's Rule",
+   "priority": "P2",
+   "order": 129,
+   "unit": "Solving a system",
+   "quickIdea": "When the coefficient matrix is square and invertible, the solution is x = A^(-1) b, and Cramer's rule writes each unknown as a ratio of two determinants. Both methods stop working the moment the determinant is zero.",
+   "remember": [
+    "If A is n x n with |A| not 0, the unique solution is x = A^(-1) b = adj(A) b / |A|.",
+    "Cramer's rule: xi = det(Ai) / det(A), where Ai is A with its i-th column replaced by b.",
+    "Both methods need a square coefficient matrix with non-zero determinant. For m not equal to n, or for a singular A, they say nothing about the number of solutions.",
+    "Cramer's rule costs n + 1 determinants of order n, so for n of 4 or more elimination is far cheaper; it is worth using only when one unknown is wanted.",
+    "If |A| = 0 the system has no solution or infinitely many, and the ratio form is undefined rather than infinite."
+   ],
+   "example": {
+    "prompt": "Solve x + y = 3, x - y = 1 by Cramer's rule.",
+    "work": "det(A) = 1 x (-1) - 1 x 1 = -2. Replacing the first column by b = (3,1) gives det([[3,1],[1,-1]]) = -3 - 1 = -4, so x = -4 / -2 = 2. Replacing the second column gives det([[1,3],[1,1]]) = 1 - 3 = -2, so y = -2 / -2 = 1.",
+    "answer": "x = 2, y = 1, matching the elimination result."
+   },
+   "gateAngle": "GATE rarely asks for a full Cramer computation, but it does ask when each method applies. GATE CSE 2005 Q.48 is answered in one line by the inverse route because the determinant is 14, and GATE CSE 2008 Q.3 is the same route read as a condition on the parameter.",
+   "variations": [
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "A is 3 x 3 with |A| = 0. Can Cramer's rule be used to show the system is inconsistent?",
+     "answer": "No. Cramer's rule is undefined here; inconsistency has to be shown by comparing ranks.",
+     "why": "The rule divides by det(A). A zero denominator is not a solution and not a proof of no solution."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "A is 4 x 4 with |A| = 2 and b is given. What is the cheapest way to find only x3?",
+     "answer": "Cramer's rule for the third unknown, or elimination with back substitution from the third pivot.",
+     "why": "Cramer needs one determinant of order 4 to get a single unknown; elimination costs about 4^3/3 operations but gives every unknown at once."
+    }
+   ],
+   "trap": {
+    "what": "Writing x = A^(-1) b for a rectangular system, or dividing by a zero determinant and treating the result as 'no solution'.",
+    "why": "A^(-1) exists only for square non-singular matrices, and the ratio det(Ai)/det(A) is meaningless when det(A) = 0, where the answer could be none or infinitely many.",
+    "counterexample": "For x + y = 1, 2x + 2y = 2 the determinant is 0; the system has infinitely many solutions, and neither A^(-1) nor Cramer's rule is available."
+   },
+   "check": {
+    "question": "A is 2 x 2 with det(A) = 0 and b is non-zero. How many solutions can Ax = b have?",
+    "answer": "None or infinitely many.",
+    "explanation": "The determinant is zero, so the unique case is excluded. Which of the remaining two occurs is decided by whether b lies in the column space of A."
+   },
+   "pyqIds": [
+    "gate-2005-48-unique-solution",
+    "gate-2008-3-alpha-unique"
+   ],
+   "prereqs": [
+    "adjoint-inverse-and-invertibility",
+    "square-systems-determinant-test"
+   ],
+   "videoRefs": [],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "Engineering Mathematics notes for GATE, Module 1, section 1.4 System of Linear Equations",
+     "channel": "Vidyalankar",
+     "url": "https://www.vidyalankar.org/gate/assets/docs/notes/maths.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "Cramer's rule and the inversion method X = A^(-1) B stated for the GATE syllabus line; read in part through the search extract"
+    },
+    {
+     "kind": "text",
+     "title": "Matrices and Determinants: Consistency and Solution of Simultaneous Linear Equations (Lecture 04)",
+     "channel": "SATHEE, IIT Kanpur",
+     "url": "https://sathee.iitk.ac.in/ncert-books/udaan/udaan-math-12/matrics-and-determinats/math-12-matrics-and-determinats-4/",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "the matrix-method solution X = A^(-1)B and the adjoint test when the determinant vanishes; read in part"
+    }
+   ],
+   "sourceLine": "Vidyalankar GATE Engineering Mathematics notes, section 1.4 (English, read in part) for Cramer's rule and the inversion method. SATHEE, IIT Kanpur (English, read in part) for the matrix method and the adjoint test. The Cramer ratios in the worked example are recomputed in scripts/validate.py.",
+   "subject": "linear-algebra",
+   "topic": "system-of-linear-equations",
+   "path": "subjects/linear-algebra/system-of-linear-equations/inverse-and-cramers-rule.json"
+  },
+  {
+   "id": "row-picture-geometry",
+   "title": "The Geometry of the Three Cases",
+   "priority": "P2",
+   "order": 130,
+   "unit": "Existence and number of solutions",
+   "quickIdea": "Two unknowns give lines and three give planes, and the rank pair tells you which arrangement you are looking at: crossing, parallel, coincident, a common line, or a triangular prism.",
+   "remember": [
+    "Two unknowns: a unique solution means two lines crossing at a point; no solution means parallel distinct lines; infinitely many means the same line written twice.",
+    "Three unknowns, coefficient rank r and augmented rank s: r = s = 3 is a single point, r = s = 2 is a common line, r = s = 1 is one plane written three times, r = 2 with s = 3 is a triangular prism with no common point, r = 1 with s = 2 is three parallel planes.",
+    "The prism case is the one that fools the eye: every pair of planes meets in a line, yet the three lines are different and there is no common point.",
+    "In the column picture the same cases read as: b inside a 3-dimensional span (unique), inside a 2-dimensional span (a line of solutions), or outside the span (no solution).",
+    "Geometry is a check, not a method: the rank pair is what the answer is graded on."
+   ],
+   "example": {
+    "prompt": "Describe the solution set of x + y = 1, 2x + 2y = 2 geometrically and by rank.",
+    "work": "The second equation is twice the first, so both are the same line. A = [[1,1],[2,2]] has rank 1, and [A|b] = [[1,1,1],[2,2,2]] also has rank 1, with n = 2.",
+    "answer": "One line, so infinitely many solutions: rank(A) = rank([A|b]) = 1 < 2, one free parameter. Replacing b by (1,3) makes the lines parallel and distinct, rank([A|b]) becomes 2 and there is no solution."
+   },
+   "gateAngle": "GATE CSE 1998 Q.1.2 is the parallel case in three unknowns, GATE CSE 2025 Set 1 Q.13 turns the geometric split into a statement about k, and GATE CSE 2003 Q.41 asks for the parameter that makes the planes share a line.",
+   "variations": [
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Three planes in R^3 pairwise intersect in three different lines. How many solutions has the system?",
+     "answer": "None.",
+     "why": "That is the prism case, rank(A) = 2 with rank([A|b]) = 3, so the system is inconsistent even though every pair of equations is solvable."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "Two lines in the plane are given by equations with proportional left-hand sides and proportional right-hand sides. What does the system look like?",
+     "answer": "One line written twice, so infinitely many solutions.",
+     "why": "Proportional rows make rank(A) = 1, and proportional constants keep rank([A|b]) = 1 as well."
+    }
+   ],
+   "trap": {
+    "what": "Judging the number of solutions from a sketch of the row picture when the system has more than three unknowns, or treating pairwise intersection as a common intersection.",
+    "why": "The row picture is only drawable up to three unknowns, and pairwise consistency is strictly weaker than joint consistency.",
+    "counterexample": "x + y + z = 1, x - y + z = 1, 2x + 2z = 3: any two of them meet in a line, and yet rank(A) = 2 while rank([A|b]) = 3, so the three have no common point."
+   },
+   "check": {
+    "question": "A 3-unknown system has rank(A) = 2 and rank([A|b]) = 2. What does the solution set look like?",
+    "answer": "A line.",
+    "explanation": "Consistent with one free parameter, so the solutions form a line in R^3: the intersection of the planes is a common line."
+   },
+   "pyqIds": [
+    "gate-1998-1-2-no-solution",
+    "gate-2003-41-alpha-one-value"
+   ],
+   "prereqs": [
+    "matrix-form-and-two-pictures",
+    "consistency-by-rank"
+   ],
+   "videoRefs": [],
+   "visual": "linear-algebra/system-of-linear-equations/row-and-column-picture",
+   "sources": [
+    {
+     "kind": "text",
+     "title": "Matrices and Determinants: Consistency and Solution of Simultaneous Linear Equations (Lecture 04)",
+     "channel": "SATHEE, IIT Kanpur",
+     "url": "https://sathee.iitk.ac.in/ncert-books/udaan/udaan-math-12/matrics-and-determinats/math-12-matrics-and-determinats-4/",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "the plane-arrangement table: single point, line, prism, parallel planes, coincident planes, keyed to the rank pair; read in part"
+    },
+    {
+     "kind": "text",
+     "title": "Linear Algebra (Gilbert Strang) Notes, Lecture 1 to 10",
+     "channel": "GATE Overflow blog",
+     "url": "https://gateoverflow.in/blog/18190/linear-algebra-gilbert-strang-notes-lecture-1-10",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "the row picture and the column picture as two readings of one system; read in part"
+    }
+   ],
+   "sourceLine": "SATHEE, IIT Kanpur (English, read in part) for the plane-arrangement table keyed to the rank pair. GATE Overflow blog, 'Linear Algebra (Gilbert Strang) Notes, Lecture 1 to 10' (English, read in part) for the row and column readings. Every arrangement used here is reproduced with its ranks in the lesson and in scripts/validate.py.",
+   "subject": "linear-algebra",
+   "topic": "system-of-linear-equations",
+   "path": "subjects/linear-algebra/system-of-linear-equations/row-picture-geometry.json"
+  },
+  {
+   "id": "no-solution-versus-infinite",
+   "title": "No Solution or Infinitely Many: Telling Them Apart",
+   "priority": "P1",
+   "order": 131,
+   "unit": "Existence and number of solutions",
+   "quickIdea": "A singular system is not a solved system. The determinant only removes the unique case; one extra comparison of ranks, or one substitution of the critical parameter, decides between none and infinitely many.",
+   "remember": [
+    "rank(A) below rank([A|b]) means no solution; equality means at least one solution, and then rank(A) below n means infinitely many.",
+    "The difference between the two ranks is at most one, so the test is a single yes-or-no comparison.",
+    "Substitution is a valid shortcut: put the critical parameter back into the equations and read them. Proportional right-hand sides give infinitely many; non-proportional give none.",
+    "Two solutions always mean infinitely many, so a question that hands you two solutions has already settled the count.",
+    "A consistent system with a free variable has an infinite solution set, so 'finite but more than one' is never an option."
+   ],
+   "example": {
+    "prompt": "For how many values of alpha does [[2,1,-4],[4,3,-12],[1,2,-8]] (x,y,z) = (alpha,5,7) have infinitely many solutions?",
+    "work": "The third column is -4 times the second, so the determinant is 0 and rank(A) = 2. Reducing the augmented matrix gives a last row whose coefficient part is 0 and whose right-hand side is 5 alpha - 1. Infinitely many solutions need that entry to vanish, so alpha = 1/5, and every other alpha leaves a contradiction in the last row.",
+    "answer": "Exactly one value, alpha = 1/5. This is GATE CSE 2003 Q.41, whose correct option is '1'."
+   },
+   "gateAngle": "GATE CSE 2003 Q.41 is this card in one question: the paper even tells you the columns are dependent, so the whole task is the consistency half. GATE CSE 1998 Q.1.2 is the other branch with the same singularity, and GATE CSE 2025 Set 1 Q.13 puts both branches side by side at k = 1 and k = -1.",
+   "variations": [
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "A is 2 x 2 with determinant 0 and the system Ax = b is given. Which of 'no solution' and 'infinitely many' is it?",
+     "answer": "It depends on b; both are possible for the same A.",
+     "why": "A = [[1,1],[2,2]] is inconsistent for b = (1,3) and has infinitely many solutions for b = (1,2)."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "A is 3 x 3 with rank 2, and [A|b] also has rank 2. If you are told (1,0,0) is a solution, what is the full solution set?",
+     "answer": "A line through (1,0,0) in the direction of any non-zero null vector of A.",
+     "why": "Consistent with nullity 1, so the solution set is the particular solution plus the one-dimensional null space."
+    }
+   ],
+   "trap": {
+    "what": "Answering 'infinite' as soon as the determinant is zero, or 'no solution' as soon as the matrix is singular.",
+    "why": "Singularity fixes only the coefficient side. The right-hand side decides which of the two failures you are in, and the two failures are different answers on the answer sheet.",
+    "counterexample": "x + y = 1, 2x + 2y = 2 has infinitely many solutions while x + y = 1, 2x + 2y = 3 has none, and both coefficient matrices are [[1,1],[2,2]] with determinant 0."
+   },
+   "check": {
+    "question": "A is 3 x 3, |A| = 0, and substituting b shows rank([A|b]) = 3. How many solutions?",
+    "answer": "None.",
+    "explanation": "rank(A) is at most 2 while rank([A|b]) is 3, so b is outside the column space of A and the system is inconsistent."
+   },
+   "pyqIds": [
+    "gate-2003-41-alpha-one-value",
+    "gate-1998-1-2-no-solution",
+    "gate-2025-set1-13-k-system",
+    "gate-2014-set1-52-number-of-solutions"
+   ],
+   "prereqs": [
+    "square-systems-determinant-test",
+    "consistency-by-rank"
+   ],
+   "videoRefs": [],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "Notes on linear systems: raikhik samikaran nikay (Hindi)",
+     "channel": "CareerCraft Labs, JEE mathematics notes in Hindi",
+     "url": "https://careercraftlabs.org/hi/read/jee-math-ch03",
+     "language": "hi",
+     "transcript": "PARTIAL",
+     "translated": true,
+     "note": "the table of the three cases and the warning that a zero main determinant alone does not mean infinitely many solutions; read in part; translated from Hindi into English"
+    },
+    {
+     "kind": "text",
+     "title": "Linear Algebra Important Points",
+     "channel": "GATE Overflow blog",
+     "url": "https://gateoverflow.in/blog/8877/linear-algebra-important-points",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "the inconsistent branch as rank(A) not equal to rank([A:B]); read in part"
+    },
+    {
+     "kind": "text",
+     "title": "Matrices and Determinants: Consistency and Solution of Simultaneous Linear Equations (Lecture 04)",
+     "channel": "SATHEE, IIT Kanpur",
+     "url": "https://sathee.iitk.ac.in/ncert-books/udaan/udaan-math-12/matrics-and-determinats/math-12-matrics-and-determinats-4/",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "the adjoint test: (adj A)B = 0 gives infinitely many and (adj A)B not 0 gives none; read in part"
+    }
+   ],
+   "sourceLine": "CareerCraft Labs Hindi notes (Hindi, translated, read in part) for the three-case table and the zero-determinant warning. GATE Overflow blog, 'Linear Algebra Important Points' (English, read in part) for the inconsistent branch. SATHEE, IIT Kanpur (English, read in part) for the adjoint test. The 2003 reduction and the alpha value are recomputed in scripts/validate.py.",
+   "subject": "linear-algebra",
+   "topic": "system-of-linear-equations",
+   "path": "subjects/linear-algebra/system-of-linear-equations/no-solution-versus-infinite.json"
   }
  ],
  "pyqs": [
@@ -11503,6 +12007,27 @@ window.GATE_DATA = {
    "answer_evidence": "The accepted answer on the page records 'Answer: B' and the comment thread counts the four covering edges; the count is independently recomputed by scripts/validate.py."
   },
   {
+   "id": "gate-1996-1-7-false-statement-systems",
+   "year": "1996",
+   "paper": "GATE CS 1996",
+   "question_ref": "Q.1.7",
+   "type": "MCQ",
+   "topic": "consistency-by-rank",
+   "text": "Let AX = b be a system of linear equations where A is an m x n matrix, b is an m x 1 column vector and X is an n x 1 column vector of unknowns. Which of the following is false?",
+   "options": [
+    "The system has a solution if and only if both A and the augmented matrix [A b] have the same rank",
+    "If m < n and b is the zero vector, then the system has infinitely many solutions",
+    "If m = n and b is a non-zero vector, then the system has a unique solution",
+    "The system will have only a trivial solution when m = n, b is the zero vector and rank(A) = n"
+   ],
+   "answer": "Option (C) - the third statement is false",
+   "solution": "(A) is the rank criterion itself. (B) holds because rank(A) <= m < n, so the nullity is positive and the homogeneous system has infinitely many solutions. (D) holds because rank(A) = n = number of unknowns leaves no free variable, so only x = 0 solves Ax = 0. (C) fails: A = [[1,0],[0,0]] with b = (1,1) has no solution, and the same A with b = (1,0) has infinitely many, so a square system with non-zero b is unique only when rank(A) = n. scripts/validate.py builds both counterexamples.",
+   "source_url": "https://gateoverflow.in/2711/gate-cse-1996-question-1-7",
+   "source_label": "GATE Overflow question page - GATE CSE 1996 Q.1.7 with the accepted answer (C is false)",
+   "verification": "SOURCED",
+   "answer_evidence": "Accepted answers state 'the false statement is C', with the counterexample A = [[1,0],[0,0]] given for both the no-solution and the infinite-solution cases."
+  },
+  {
    "id": "gate-1996-2-4-concatenation-monoid",
    "year": "1996",
    "paper": "GATE CS 1996",
@@ -11588,6 +12113,27 @@ window.GATE_DATA = {
    "source_label": "GATE Overflow question page for GATE CS 1997 Q.6.3 with the accepted answer",
    "verification": "SOURCED",
    "answer_evidence": "The accepted answer on the GATE Overflow page states 15 (option A) and derives it from the Bell number B(4)."
+  },
+  {
+   "id": "gate-1998-1-2-no-solution",
+   "year": "1998",
+   "paper": "GATE CS 1998",
+   "question_ref": "Q.1.2",
+   "type": "MCQ",
+   "topic": "consistency-by-rank",
+   "text": "Consider the following set of equations: x + 2y = 5; 4x + 8y = 12; 3x + 6y + 3z = 15. This set",
+   "options": [
+    "has unique solution",
+    "has no solution",
+    "has finite number of solutions",
+    "has infinite number of solutions"
+   ],
+   "answer": "Option (B) - the set has no solution",
+   "solution": "The coefficient matrix is [[1,2,0],[4,8,0],[3,6,3]] and the augmented matrix is [[1,2,0,5],[4,8,0,12],[3,6,3,15]]. Row 2 - 4 row 1 gives (0,0,0 | -8), that is the equation 0 = -8. So rank(A) = 2 while rank([A|b]) = 3, the ranks differ and the system is inconsistent. Multiplying the first equation by 4 gives 4x + 8y = 20, which contradicts 4x + 8y = 12 directly.",
+   "source_url": "https://gateoverflow.in/1639/gate-cse-1998-question-1-2",
+   "source_label": "GATE Overflow question page - GATE CSE 1998 Q.1.2 with the accepted answer (B, no solution)",
+   "verification": "SOURCED",
+   "answer_evidence": "Accepted answer: 'Correct Answer: B', with the row reduction R2 <- R2 - 4R1 giving 0 = -8 and rank(A) = 2 against rank([A|b]) = 3."
   },
   {
    "id": "gate-1998-2-1-rank-4x4",
@@ -11800,6 +12346,27 @@ window.GATE_DATA = {
    "verification": "SOURCED"
   },
   {
+   "id": "gate-2003-41-alpha-one-value",
+   "year": "2003",
+   "paper": "GATE CS 2003",
+   "question_ref": "Q.41",
+   "type": "MCQ",
+   "topic": "no-solution-versus-infinite",
+   "text": "Consider the following system of linear equations: [[2,1,-4],[4,3,-12],[1,2,-8]] (x,y,z)^T = (alpha,5,7)^T. Notice that the second and the third columns of the coefficient matrix are linearly dependent. For how many values of alpha does this system of equations have infinitely many solutions?",
+   "options": [
+    "0",
+    "1",
+    "2",
+    "infinitely many"
+   ],
+   "answer": "Option (B) - exactly one value, alpha = 1/5",
+   "solution": "The third column is -4 times the second, so the determinant is 0 and rank(A) = 2. Reducing [A|b] gives a last row with zero coefficient part and right-hand side 5 alpha - 1. Infinitely many solutions require that entry to be 0, so alpha = 1/5, and for every other alpha the last row reads 0 = non-zero and the system has no solution. Solving b = s(2,4,1) + t(1,3,2) directly gives s = -11/5, t = 23/5 and alpha = 2s + t = 1/5, which agrees. scripts/validate.py recomputes both routes.",
+   "source_url": "https://gateoverflow.in/932/gate-cse-2003-question-41",
+   "source_label": "GATE Overflow question page - GATE CSE 2003 Q.41 with the accepted answer (B, one value)",
+   "verification": "SOURCED",
+   "answer_evidence": "Accepted answer: 'for only 1 value of alpha, this system has infinitely many solutions. So, option (B) is correct', with the reduction giving alpha = 1/5. Note that the IIT Delhi worked solution for the same paper reaches alpha = -4/3 through an arithmetic slip; the reduction here and the direct span computation both give 1/5, and the count of values is 1 either way."
+  },
+  {
    "id": "gate-2003-resolution-rule-false-statement",
    "year": "2003",
    "paper": "GATE CS 2003",
@@ -11949,6 +12516,27 @@ window.GATE_DATA = {
    "answer_evidence": "Accepted answer: 'So, it is group. Correct Answer: A', with the inverse matrix written out and the diagonal entries 1/a, 1/b, 1/c shown non-zero."
   },
   {
+   "id": "gate-2005-48-unique-solution",
+   "year": "2005",
+   "paper": "GATE CS 2005",
+   "question_ref": "Q.48",
+   "type": "MCQ",
+   "topic": "square-systems-determinant-test",
+   "text": "Consider the following system of linear equations: 2x1 - x2 + 3x3 = 1; 3x1 + 2x2 + 5x3 = 2; -x1 + 4x2 + x3 = 3. The system of equations has",
+   "options": [
+    "no solution",
+    "a unique solution",
+    "more than one but a finite number of solutions",
+    "an infinite number of solutions"
+   ],
+   "answer": "Option (B) - a unique solution",
+   "solution": "The determinant of the coefficient matrix [[2,-1,3],[3,2,5],[-1,4,1]] is 2(2 - 20) + 1(3 + 5) + 3(12 + 2) = -36 + 8 + 42 = 14, which is not 0. A square system with a non-zero determinant has rank n = 3 and therefore exactly one solution. Option (C) is impossible for any linear system, which is what makes it a safe elimination.",
+   "source_url": "https://gateoverflow.in/1173/gate-cse-2005-question-48",
+   "source_label": "GATE Overflow question page - GATE CSE 2005 Q.48 with the accepted answer (B, a unique solution)",
+   "verification": "SOURCED",
+   "answer_evidence": "Accepted answer: 'Determinant of matrix = 14 which is non zero ... so option B', and a second accepted route through rank[A] = rank[A|b] = 3."
+  },
+  {
    "id": "gate-2007-cnf-half-clauses-true",
    "year": "2007",
    "paper": "GATE CS 2007",
@@ -11968,6 +12556,27 @@ window.GATE_DATA = {
    "source_label": "GATE Overflow question page for GATE CS 2007 Q.48. GATE Overflow files this item under Digital Logic; the content is CNF clause counting",
    "verification": "SOURCED",
    "answer_evidence": "Answer is option A."
+  },
+  {
+   "id": "gate-2008-3-alpha-unique",
+   "year": "2008",
+   "paper": "GATE CS 2008",
+   "question_ref": "Q.3",
+   "type": "MCQ",
+   "topic": "parameter-dependent-systems",
+   "text": "The following system of equations x1 + x2 + 2x3 = 1; x1 + 2x2 + 3x3 = 2; x1 + 4x2 + alpha x3 = 4 has a unique solution. The only possible value(s) for alpha is/are",
+   "options": [
+    "0",
+    "either 0 or 1",
+    "one of 0, 1 or -1",
+    "any real number"
+   ],
+   "answer": "alpha can be any real number except 5. The printed options contain no correct entry; the intended answer is (D), and the key point is that alpha = 5 is excluded.",
+   "solution": "The coefficient determinant is alpha - 5. Row reduction confirms it: R2 <- R2 - R1 and R3 <- R3 - R1 give rows (0,1,1 | 1) and (0,3,alpha-2 | 3), and then R3 <- R3 - 3R2 gives (0,0,alpha-5 | 0). At alpha = 5 the last row is (0,0,0 | 0), rank(A) = rank([A|b]) = 2 < 3, so the system has infinitely many solutions rather than a unique one. Every other real alpha gives three pivots and a unique solution. The question as printed is therefore defective: GATE Overflow and the IIT Delhi worked solution both record that no printed option states 'any real number other than 5'.",
+   "source_url": "https://gateoverflow.in/401/gate-cse-2008-question-3",
+   "source_label": "GATE Overflow question page - GATE CSE 2008 Q.3, with the row reduction and the note that no printed option is correct",
+   "verification": "SOURCED",
+   "answer_evidence": "Accepted answer: 'if alpha = 5 then there'll be a free variable ... So alpha != 5 will always give a unique solution', and the IIT Delhi solution for GATE 2008 Q.3 concludes 'alpha can be any real number except 5. So none of the options is correct'."
   },
   {
    "id": "gate-2013-not-equivalent-negated-exists",
@@ -12005,6 +12614,21 @@ window.GATE_DATA = {
    "source_url": "https://gateforumonline.com/wp-content/uploads/2021/09/CS-Gate-2014-Set-1.pdf",
    "source_label": "GATE 2014 CS Set 1 paper with answer key (answer printed as 89); discussion at gateoverflow.in/1929",
    "verification": "OFFICIAL_KEY"
+  },
+  {
+   "id": "gate-2014-set1-52-number-of-solutions",
+   "year": "2014",
+   "paper": "GATE CS 2014 Set 1",
+   "question_ref": "Q.52",
+   "type": "NAT",
+   "topic": "no-solution-versus-infinite",
+   "text": "Consider the following system of equations: 3x + 2y = 1; 4x + 7z = 1; x + y + z = 3; x - 2y + 7z = 0. The number of solutions for this system is ____.",
+   "answer": "1",
+   "solution": "The coefficient matrix is 4 x 3. The 3 x 3 minor formed by rows 1, 3 and 4 is [[3,2,0],[1,1,1],[1,-2,7]], whose determinant is 3(7 + 2) - 2(7 - 1) = 27 - 12 = 15, so rank(A) = 3 = number of unknowns. The system is consistent: solving gives y = 19/5, x = -11/5, z = 7/5, and the fourth equation x - 2y + 7z = -11/5 - 38/5 + 49/5 = 0 holds. So rank([A|b]) = 3 as well and the solution is unique. scripts/validate.py recomputes the minor, solves the system and substitutes into all four equations.",
+   "source_url": "https://questions.examside.com/past-years/gate/gate-cse/discrete-mathematics/linear-algebra",
+   "source_label": "ExamSIDE GATE CSE Linear Algebra question bank - GATE CSE 2014 Set 1 Q.52, with the answer 1; corroborated by Testbook's GATE CS 2014 Shift 1 solution and by Knowledge Gate AI, which both give 1",
+   "verification": "SOURCED",
+   "answer_evidence": "Three independent sources give 1: Testbook ('This question was previously asked in GATE CS 2014 Official Paper: Shift 1 ... Answer 1'), Knowledge Gate AI ('Correct answer: 1. rank(Augmented Matrix) = rank(Matrix) = no of unknowns'), and the ExamSIDE answer for the same question."
   },
   {
    "id": "gate-2014-set2-3-max-edges-bipartite",
@@ -12222,6 +12846,27 @@ window.GATE_DATA = {
    "answer_evidence": "The accepted answer on the GATE Overflow page states 2048 and explains that the set has 11 elements."
   },
   {
+   "id": "gate-2015-set3-33-nontrivial-p-q-r",
+   "year": "2015",
+   "paper": "GATE CS 2015 Set 3",
+   "question_ref": "Q.33",
+   "type": "MCQ",
+   "topic": "homogeneous-systems",
+   "text": "If the following system has a non-trivial solution: px + qy + rz = 0; qx + ry + pz = 0; rx + py + qz = 0, then which one of the following options is TRUE?",
+   "options": [
+    "p - q + r = 0 or p = q = -r",
+    "p + q - r = 0 or p = -q = r",
+    "p + q + r = 0 or p = q = r",
+    "p - q + r = 0 or p = -q = -r"
+   ],
+   "answer": "Option (C) - p + q + r = 0 or p = q = r",
+   "solution": "A homogeneous 3 x 3 system has a non-trivial solution exactly when the coefficient determinant vanishes. That determinant is 3pqr - p^3 - q^3 - r^3, which factors as -(p+q+r)(p^2+q^2+r^2-pq-qr-rp), and the second factor is half of ((p-q)^2 + (q-r)^2 + (r-p)^2), which vanishes exactly when p = q = r. So the condition is p + q + r = 0 or p = q = r, and only option (C) states it. scripts/validate.py checks the factorisation and the equivalence by enumeration over small integers.",
+   "source_url": "https://gateoverflow.in/8490/gate-cse-2015-set-3-question-33",
+   "source_label": "GATE Overflow question page - GATE CSE 2015 Set 3 Q.33 with the accepted answer (C)",
+   "verification": "SOURCED",
+   "answer_evidence": "Accepted answer: 'for non-trivial solution |A| = 0 ... the only option where each individual condition can make |A| zero is C.'"
+  },
+  {
    "id": "gate-2015-set3-relation-p-s-q-r",
    "year": "2015",
    "paper": "GATE CS 2015 Set 3",
@@ -12257,6 +12902,27 @@ window.GATE_DATA = {
    "source_url": "https://gateoverflow.in/39693/gate-cse-2016-set-1-question-26",
    "source_label": "GATE Overflow discussion of GATE CS 2016 Set 1 Q.26 (official key 10)",
    "verification": "OFFICIAL_KEY"
+  },
+  {
+   "id": "gate-2016-set2-4-m-n-statements",
+   "year": "2016",
+   "paper": "GATE CS 2016 Set 2",
+   "question_ref": "Q.04",
+   "type": "MCQ",
+   "topic": "overdetermined-and-underdetermined",
+   "text": "Consider the systems, each consisting of m linear equations in n variables. I. If m < n, then all such systems have a solution. II. If m > n, then none of these systems has a solution. III. If m = n, then there exists a system which has a solution. Which one of the following is CORRECT?",
+   "options": [
+    "I, II and III are true",
+    "Only II and III are true",
+    "Only III is true",
+    "None of them is true"
+   ],
+   "answer": "Option (C) - only III is true",
+   "solution": "I is false: x + y + z = 1 and x + y + z = 2 has m = 2 < n = 3 and no solution. II is false: x + y = 1, 2x + 2y = 2 and x - y = 0 has m = 3 > n = 2 and the solution (1/2, 1/2). III is true: with m = n = 1 the equation x = 0 has a solution. The counting of equations against unknowns bounds the rank but never fixes the number of solutions.",
+   "source_url": "https://gateoverflow.in/39545/gate-cse-2016-set-2-question-04",
+   "source_label": "GATE Overflow question page - GATE CSE 2016 Set 2 Q.04 with the accepted answer (C, only III)",
+   "verification": "SOURCED",
+   "answer_evidence": "Accepted answer: 'Correct answer => C) ... I is false ... II is false ... III is correct. Answer is C.'"
   },
   {
    "id": "gate-2016-set2-logically-implied-count",
@@ -12331,6 +12997,27 @@ window.GATE_DATA = {
    "source_url": "https://questions.examside.com/past-years/gate/question/pthe-number-of-integers-between-1-and-500-both-inclusive-gate-cse-discrete-mathematics-u87ugkllm2bnbwxh",
    "source_label": "ExamSIDE solution for GATE CS 2017 Set 1 Q.47; official answer key 271",
    "verification": "OFFICIAL_KEY"
+  },
+  {
+   "id": "gate-2017-set1-3-dependent-columns-infinite",
+   "year": "2017",
+   "paper": "GATE CS 2017 Set 1",
+   "question_ref": "Q.3",
+   "type": "MCQ",
+   "topic": "free-variables-and-solution-set",
+   "text": "Let c1, ..., cn be scalars, not all zero, such that the sum from i = 1 to n of ci ai = 0, where ai are column vectors in R^n. Consider the set of linear equations Ax = b where A = [a1 ... an] and b = the sum from i = 1 to n of ai. The set of equations has",
+   "options": [
+    "a unique solution at x = Jn, where Jn denotes the n-dimensional vector of all 1",
+    "no solution",
+    "infinitely many solutions",
+    "finitely many solutions"
+   ],
+   "answer": "Option (C) - infinitely many solutions",
+   "solution": "The scalars c1, ..., cn are not all zero and their combination of the columns is 0, so the columns of A are linearly dependent and |A| = 0. Also b is the sum of the columns, so A Jn = b and Jn is one solution. A non-zero vector c in the null space then gives Jn + tc as a solution for every real t, so the solution set is infinite. Note that option (A) is wrong only because it says unique: Jn is a solution but not the only one.",
+   "source_url": "https://gateoverflow.in/118282/gate-cse-2017-set-1-question-3",
+   "source_label": "GATE Overflow question page - GATE CSE 2017 Set 1 Q.3 with the accepted answer (C)",
+   "verification": "SOURCED",
+   "answer_evidence": "Accepted answer: 'a n-dimensional vector of all 1 is a solution of Ax = b. Hence Ax = b will have infinitely many solutions. The correct answer is (C).'"
   },
   {
    "id": "gate-2017-set2-21-lattice-pairs-to-add",
@@ -12699,6 +13386,27 @@ window.GATE_DATA = {
    "answer_evidence": "The accepted solutions conclude (B) and (C), using for all x for all y Q implies the conjecture, and there exists y for all x R implies for all x there exists y R."
   },
   {
+   "id": "gate-2024-set1-39-homogeneous-nxm",
+   "year": "2024",
+   "paper": "GATE CS 2024 Set 1",
+   "question_ref": "Q.39",
+   "type": "MSQ",
+   "topic": "homogeneous-systems",
+   "text": "Let A be any n x m matrix, where m > n. Which of the following statements is/are TRUE about the system of linear equations Ax = 0?",
+   "options": [
+    "There exist at least m - n linearly independent solutions to this system",
+    "There exist m - n linearly independent vectors such that every solution is a linear combination of these vectors",
+    "There exists a non-zero solution in which at least m - n variables are 0",
+    "There exists a solution in which at least n variables are non-zero"
+   ],
+   "answer": "Option (A) only",
+   "solution": "The nullity of an n x m matrix is m - rank(A), and rank(A) <= n, so the nullity is at least m - n: (A) is true. (B) claims the null space is exactly (m-n)-dimensional, which fails whenever rank(A) < n. (C) fails for A = [[1,0,0,1],[0,1,0,2],[0,0,1,3]], whose only non-zero solutions are multiples of (-1,-2,-3,1) with no zero entry. (D) fails for A = [[1,0,0,0],[0,1,0,0],[0,0,1,3]], where the non-zero solutions are multiples of (0,0,-3,1) with only two non-zero entries. scripts/validate.py checks all four claims on these matrices.",
+   "source_url": "https://gateoverflow.in/422803/gate-cse-2024-set-1-question-39",
+   "source_label": "GATE Overflow question page - GATE CSE 2024 Set 1 Q.39 with the accepted answer (A)",
+   "verification": "SOURCED",
+   "answer_evidence": "Accepted answer: 'Answer: A', with explicit counterexamples for options C and D and the note that B requires the null space to have dimension exactly m - n."
+  },
+  {
    "id": "gate-2024-set1-41-chromatic-statements",
    "year": "2024",
    "paper": "GATE CS 2024 Set 1",
@@ -12831,6 +13539,27 @@ window.GATE_DATA = {
    "source_url": "https://www.trygateai.com/pyq/engineering-mathematics/combinatorics/gate-cse-2025-set-1-q30",
    "source_label": "GATE CSE 2025 Set 1 Q.30 solution stating official answer 195 (also iaeacademy.in, citing the IIT Roorkee key)",
    "verification": "OFFICIAL_KEY"
+  },
+  {
+   "id": "gate-2025-set1-13-k-system",
+   "year": "2025",
+   "paper": "GATE CS 2025 Set 1",
+   "question_ref": "Q.13",
+   "type": "MSQ",
+   "topic": "parameter-dependent-systems",
+   "text": "Consider the given system of linear equations for variables x and y, where k is a real-valued constant: x + ky = 1; kx + y = -1. Which of the following option(s) is/are CORRECT?",
+   "options": [
+    "There is exactly one value of k for which the above system of equations has no solution",
+    "There exist an infinite number of values of k for which the system of equations has no solution",
+    "There exists exactly one value of k for which the system of equations has exactly one solution",
+    "There exists exactly one value of k for which the system of equations has an infinite number of solutions"
+   ],
+   "answer": "Options (A) and (D)",
+   "solution": "The determinant is 1 - k^2, which vanishes only at k = 1 and k = -1. At k = 1 the equations are x + y = 1 and x + y = -1, parallel and distinct, so no solution. At k = -1 they are x - y = 1 and -x + y = -1, the same line twice, so infinitely many solutions. For every other real k there are two pivots and the solution is unique, which is infinitely many values of k, so (C) is false. Hence exactly one k gives no solution and exactly one k gives infinitely many.",
+   "source_url": "https://gateoverflow.in/460067/gate-cse-2025-set-1-question-13",
+   "source_label": "GATE Overflow question page - GATE CSE 2025 Set 1 Q.13 with the accepted answer (A and D)",
+   "verification": "SOURCED",
+   "answer_evidence": "Accepted answer: 'The answers are A and D', with the reduction R2 <- R2 - k R1 giving the last row (0, k^2 - 1 | k + 1). Corroborated by Quorank, which records the official answer as A, D."
   },
   {
    "id": "gate-2025-set1-39-functions-abelian-monoid",
@@ -12995,6 +13724,21 @@ window.GATE_DATA = {
    "source_label": "GATE Overflow question page - GATE CSE 2026 Set 1 Q.47 with the accepted answer (34)",
    "verification": "SOURCED",
    "answer_evidence": "Accepted answer: 'Answer: 34', via the Fibonacci recurrence with the empty matching counted."
+  },
+  {
+   "id": "gate-2026-set2-31-product-ab",
+   "year": "2026",
+   "paper": "GATE CS 2026 Set 2",
+   "question_ref": "Q.31",
+   "type": "NAT",
+   "topic": "parameter-dependent-systems",
+   "text": "Consider the system of linear equations given below: ax + y = b; 16x + ay = 24. Suppose the values of a and b are chosen such that the system of linear equations produce multiple solutions. Then the product of a and b is ____. (answer in integer)",
+   "answer": "24",
+   "solution": "Multiple solutions for a 2 x 2 system require the coefficient rows to be dependent, so the determinant a^2 - 16 must vanish, giving a = 4 or a = -4. The constants must be proportional in the same ratio: with a = 4 the second row is 4 times the first, so 4b = 24 and b = 6; with a = -4 the second row is -4 times the first, so -4b = 24 and b = -6. In both cases ab = 24. Note that a = 0 is not a candidate, since then the determinant is -16 and the solution is unique. scripts/validate.py checks both cases and the product.",
+   "source_url": "https://gateoverflow.in/523125/gate-cse-2026-set-2-question-21",
+   "source_label": "GATE Overflow question page (which numbers this question Q.21) for GATE CSE 2026 Set 2, with the accepted answer 24; the official paper at gate2026.iitg.ac.in/doc/download/2026/QPs/CS2.pdf prints the same text as Q.31",
+   "verification": "SOURCED",
+   "answer_evidence": "Accepted answer: 'a^2 = 16 => a = +-4 ... b = 24/a => b = +-6. Hence a*b = 24', and the official GATE 2026 CS2 paper at IIT Guwahati prints the question as Q.31 with the same wording. The official answer key was not fetched, so the label stays SOURCED rather than OFFICIAL_KEY."
   },
   {
    "id": "gate-2026-set2-52-det-2a",

@@ -1,0 +1,78 @@
+{
+  "id": "row-picture-geometry",
+  "title": "The Geometry of the Three Cases",
+  "priority": "P2",
+  "order": 130,
+  "unit": "Existence and number of solutions",
+  "quickIdea": "Two unknowns give lines and three give planes, and the rank pair tells you which arrangement you are looking at: crossing, parallel, coincident, a common line, or a triangular prism.",
+  "remember": [
+    "Two unknowns: a unique solution means two lines crossing at a point; no solution means parallel distinct lines; infinitely many means the same line written twice.",
+    "Three unknowns, coefficient rank r and augmented rank s: r = s = 3 is a single point, r = s = 2 is a common line, r = s = 1 is one plane written three times, r = 2 with s = 3 is a triangular prism with no common point, r = 1 with s = 2 is three parallel planes.",
+    "The prism case is the one that fools the eye: every pair of planes meets in a line, yet the three lines are different and there is no common point.",
+    "In the column picture the same cases read as: b inside a 3-dimensional span (unique), inside a 2-dimensional span (a line of solutions), or outside the span (no solution).",
+    "Geometry is a check, not a method: the rank pair is what the answer is graded on."
+  ],
+  "example": {
+    "prompt": "Describe the solution set of x + y = 1, 2x + 2y = 2 geometrically and by rank.",
+    "work": "The second equation is twice the first, so both are the same line. A = [[1,1],[2,2]] has rank 1, and [A|b] = [[1,1,1],[2,2,2]] also has rank 1, with n = 2.",
+    "answer": "One line, so infinitely many solutions: rank(A) = rank([A|b]) = 1 < 2, one free parameter. Replacing b by (1,3) makes the lines parallel and distinct, rank([A|b]) becomes 2 and there is no solution."
+  },
+  "gateAngle": "GATE CSE 1998 Q.1.2 is the parallel case in three unknowns, GATE CSE 2025 Set 1 Q.13 turns the geometric split into a statement about k, and GATE CSE 2003 Q.41 asks for the parameter that makes the planes share a line.",
+  "variations": [
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Three planes in R^3 pairwise intersect in three different lines. How many solutions has the system?",
+      "answer": "None.",
+      "why": "That is the prism case, rank(A) = 2 with rank([A|b]) = 3, so the system is inconsistent even though every pair of equations is solvable."
+    },
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "Two lines in the plane are given by equations with proportional left-hand sides and proportional right-hand sides. What does the system look like?",
+      "answer": "One line written twice, so infinitely many solutions.",
+      "why": "Proportional rows make rank(A) = 1, and proportional constants keep rank([A|b]) = 1 as well."
+    }
+  ],
+  "trap": {
+    "what": "Judging the number of solutions from a sketch of the row picture when the system has more than three unknowns, or treating pairwise intersection as a common intersection.",
+    "why": "The row picture is only drawable up to three unknowns, and pairwise consistency is strictly weaker than joint consistency.",
+    "counterexample": "x + y + z = 1, x - y + z = 1, 2x + 2z = 3: any two of them meet in a line, and yet rank(A) = 2 while rank([A|b]) = 3, so the three have no common point."
+  },
+  "check": {
+    "question": "A 3-unknown system has rank(A) = 2 and rank([A|b]) = 2. What does the solution set look like?",
+    "answer": "A line.",
+    "explanation": "Consistent with one free parameter, so the solutions form a line in R^3: the intersection of the planes is a common line."
+  },
+  "pyqIds": [
+    "gate-1998-1-2-no-solution",
+    "gate-2003-41-alpha-one-value"
+  ],
+  "prereqs": [
+    "matrix-form-and-two-pictures",
+    "consistency-by-rank"
+  ],
+  "videoRefs": [],
+  "visual": "linear-algebra/system-of-linear-equations/row-and-column-picture",
+  "sources": [
+    {
+      "kind": "text",
+      "title": "Matrices and Determinants: Consistency and Solution of Simultaneous Linear Equations (Lecture 04)",
+      "channel": "SATHEE, IIT Kanpur",
+      "url": "https://sathee.iitk.ac.in/ncert-books/udaan/udaan-math-12/matrics-and-determinats/math-12-matrics-and-determinats-4/",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "the plane-arrangement table: single point, line, prism, parallel planes, coincident planes, keyed to the rank pair; read in part"
+    },
+    {
+      "kind": "text",
+      "title": "Linear Algebra (Gilbert Strang) Notes, Lecture 1 to 10",
+      "channel": "GATE Overflow blog",
+      "url": "https://gateoverflow.in/blog/18190/linear-algebra-gilbert-strang-notes-lecture-1-10",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "the row picture and the column picture as two readings of one system; read in part"
+    }
+  ],
+  "sourceLine": "SATHEE, IIT Kanpur (English, read in part) for the plane-arrangement table keyed to the rank pair. GATE Overflow blog, 'Linear Algebra (Gilbert Strang) Notes, Lecture 1 to 10' (English, read in part) for the row and column readings. Every arrangement used here is reproduced with its ranks in the lesson and in scripts/validate.py."
+}

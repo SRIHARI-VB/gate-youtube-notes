@@ -1,0 +1,77 @@
+{
+  "id": "inverse-and-cramers-rule",
+  "title": "Solving by the Inverse and by Cramer's Rule",
+  "priority": "P2",
+  "order": 129,
+  "unit": "Solving a system",
+  "quickIdea": "When the coefficient matrix is square and invertible, the solution is x = A^(-1) b, and Cramer's rule writes each unknown as a ratio of two determinants. Both methods stop working the moment the determinant is zero.",
+  "remember": [
+    "If A is n x n with |A| not 0, the unique solution is x = A^(-1) b = adj(A) b / |A|.",
+    "Cramer's rule: xi = det(Ai) / det(A), where Ai is A with its i-th column replaced by b.",
+    "Both methods need a square coefficient matrix with non-zero determinant. For m not equal to n, or for a singular A, they say nothing about the number of solutions.",
+    "Cramer's rule costs n + 1 determinants of order n, so for n of 4 or more elimination is far cheaper; it is worth using only when one unknown is wanted.",
+    "If |A| = 0 the system has no solution or infinitely many, and the ratio form is undefined rather than infinite."
+  ],
+  "example": {
+    "prompt": "Solve x + y = 3, x - y = 1 by Cramer's rule.",
+    "work": "det(A) = 1 x (-1) - 1 x 1 = -2. Replacing the first column by b = (3,1) gives det([[3,1],[1,-1]]) = -3 - 1 = -4, so x = -4 / -2 = 2. Replacing the second column gives det([[1,3],[1,1]]) = 1 - 3 = -2, so y = -2 / -2 = 1.",
+    "answer": "x = 2, y = 1, matching the elimination result."
+  },
+  "gateAngle": "GATE rarely asks for a full Cramer computation, but it does ask when each method applies. GATE CSE 2005 Q.48 is answered in one line by the inverse route because the determinant is 14, and GATE CSE 2008 Q.3 is the same route read as a condition on the parameter.",
+  "variations": [
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "A is 3 x 3 with |A| = 0. Can Cramer's rule be used to show the system is inconsistent?",
+      "answer": "No. Cramer's rule is undefined here; inconsistency has to be shown by comparing ranks.",
+      "why": "The rule divides by det(A). A zero denominator is not a solution and not a proof of no solution."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "A is 4 x 4 with |A| = 2 and b is given. What is the cheapest way to find only x3?",
+      "answer": "Cramer's rule for the third unknown, or elimination with back substitution from the third pivot.",
+      "why": "Cramer needs one determinant of order 4 to get a single unknown; elimination costs about 4^3/3 operations but gives every unknown at once."
+    }
+  ],
+  "trap": {
+    "what": "Writing x = A^(-1) b for a rectangular system, or dividing by a zero determinant and treating the result as 'no solution'.",
+    "why": "A^(-1) exists only for square non-singular matrices, and the ratio det(Ai)/det(A) is meaningless when det(A) = 0, where the answer could be none or infinitely many.",
+    "counterexample": "For x + y = 1, 2x + 2y = 2 the determinant is 0; the system has infinitely many solutions, and neither A^(-1) nor Cramer's rule is available."
+  },
+  "check": {
+    "question": "A is 2 x 2 with det(A) = 0 and b is non-zero. How many solutions can Ax = b have?",
+    "answer": "None or infinitely many.",
+    "explanation": "The determinant is zero, so the unique case is excluded. Which of the remaining two occurs is decided by whether b lies in the column space of A."
+  },
+  "pyqIds": [
+    "gate-2005-48-unique-solution",
+    "gate-2008-3-alpha-unique"
+  ],
+  "prereqs": [
+    "adjoint-inverse-and-invertibility",
+    "square-systems-determinant-test"
+  ],
+  "videoRefs": [],
+  "sources": [
+    {
+      "kind": "text",
+      "title": "Engineering Mathematics notes for GATE, Module 1, section 1.4 System of Linear Equations",
+      "channel": "Vidyalankar",
+      "url": "https://www.vidyalankar.org/gate/assets/docs/notes/maths.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "Cramer's rule and the inversion method X = A^(-1) B stated for the GATE syllabus line; read in part through the search extract"
+    },
+    {
+      "kind": "text",
+      "title": "Matrices and Determinants: Consistency and Solution of Simultaneous Linear Equations (Lecture 04)",
+      "channel": "SATHEE, IIT Kanpur",
+      "url": "https://sathee.iitk.ac.in/ncert-books/udaan/udaan-math-12/matrics-and-determinats/math-12-matrics-and-determinats-4/",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "the matrix-method solution X = A^(-1)B and the adjoint test when the determinant vanishes; read in part"
+    }
+  ],
+  "sourceLine": "Vidyalankar GATE Engineering Mathematics notes, section 1.4 (English, read in part) for Cramer's rule and the inversion method. SATHEE, IIT Kanpur (English, read in part) for the matrix method and the adjoint test. The Cramer ratios in the worked example are recomputed in scripts/validate.py."
+}

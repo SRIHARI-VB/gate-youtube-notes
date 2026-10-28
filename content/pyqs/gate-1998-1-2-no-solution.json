@@ -1,0 +1,21 @@
+{
+  "id": "gate-1998-1-2-no-solution",
+  "year": "1998",
+  "paper": "GATE CS 1998",
+  "question_ref": "Q.1.2",
+  "type": "MCQ",
+  "topic": "consistency-by-rank",
+  "text": "Consider the following set of equations: x + 2y = 5; 4x + 8y = 12; 3x + 6y + 3z = 15. This set",
+  "options": [
+    "has unique solution",
+    "has no solution",
+    "has finite number of solutions",
+    "has infinite number of solutions"
+  ],
+  "answer": "Option (B) - the set has no solution",
+  "solution": "The coefficient matrix is [[1,2,0],[4,8,0],[3,6,3]] and the augmented matrix is [[1,2,0,5],[4,8,0,12],[3,6,3,15]]. Row 2 - 4 row 1 gives (0,0,0 | -8), that is the equation 0 = -8. So rank(A) = 2 while rank([A|b]) = 3, the ranks differ and the system is inconsistent. Multiplying the first equation by 4 gives 4x + 8y = 20, which contradicts 4x + 8y = 12 directly.",
+  "source_url": "https://gateoverflow.in/1639/gate-cse-1998-question-1-2",
+  "source_label": "GATE Overflow question page - GATE CSE 1998 Q.1.2 with the accepted answer (B, no solution)",
+  "verification": "SOURCED",
+  "answer_evidence": "Accepted answer: 'Correct Answer: B', with the row reduction R2 <- R2 - 4R1 giving 0 = -8 and rank(A) = 2 against rank([A|b]) = 3."
+}

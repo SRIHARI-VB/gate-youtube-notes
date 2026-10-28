@@ -1,0 +1,21 @@
+{
+  "id": "gate-2015-set3-33-nontrivial-p-q-r",
+  "year": "2015",
+  "paper": "GATE CS 2015 Set 3",
+  "question_ref": "Q.33",
+  "type": "MCQ",
+  "topic": "homogeneous-systems",
+  "text": "If the following system has a non-trivial solution: px + qy + rz = 0; qx + ry + pz = 0; rx + py + qz = 0, then which one of the following options is TRUE?",
+  "options": [
+    "p - q + r = 0 or p = q = -r",
+    "p + q - r = 0 or p = -q = r",
+    "p + q + r = 0 or p = q = r",
+    "p - q + r = 0 or p = -q = -r"
+  ],
+  "answer": "Option (C) - p + q + r = 0 or p = q = r",
+  "solution": "A homogeneous 3 x 3 system has a non-trivial solution exactly when the coefficient determinant vanishes. That determinant is 3pqr - p^3 - q^3 - r^3, which factors as -(p+q+r)(p^2+q^2+r^2-pq-qr-rp), and the second factor is half of ((p-q)^2 + (q-r)^2 + (r-p)^2), which vanishes exactly when p = q = r. So the condition is p + q + r = 0 or p = q = r, and only option (C) states it. scripts/validate.py checks the factorisation and the equivalence by enumeration over small integers.",
+  "source_url": "https://gateoverflow.in/8490/gate-cse-2015-set-3-question-33",
+  "source_label": "GATE Overflow question page - GATE CSE 2015 Set 3 Q.33 with the accepted answer (C)",
+  "verification": "SOURCED",
+  "answer_evidence": "Accepted answer: 'for non-trivial solution |A| = 0 ... the only option where each individual condition can make |A| zero is C.'"
+}

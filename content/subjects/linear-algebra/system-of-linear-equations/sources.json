@@ -1,0 +1,194 @@
+{
+  "subject": "linear-algebra",
+  "topic": "system-of-linear-equations",
+  "exam": "GATE CSE 2027",
+  "retrieved_at": "2026-10-29",
+  "subtopics": [
+    "the matrix form Ax = b, the coefficient and augmented matrices, and the row and column pictures of a solution",
+    "the consistency test: rank(A) against rank([A|b]) and the three cases it produces",
+    "the square case: |A| not 0 gives a unique solution, |A| = 0 gives none or infinitely many",
+    "free variables, nullity n - rank(A), and the solution set as a particular solution plus the null space",
+    "homogeneous systems Ax = 0: always consistent, and a non-trivial solution exactly when rank(A) < n",
+    "solving by Gaussian elimination on [A|b] and back substitution",
+    "parameter-dependent systems: the critical values of the determinant and the consistency check at each",
+    "overdetermined and underdetermined systems: what m against n does and does not decide",
+    "the inverse and Cramer's rule, and the conditions under which they apply",
+    "the geometry of the three cases, including the triangular-prism arrangement of three planes",
+    "telling no solution apart from infinitely many solutions when the determinant vanishes"
+  ],
+  "chosen": [
+    {
+      "id": "gateoverflow-strang-notes-lectures-1-10",
+      "kind": "text",
+      "channel": "GATE Overflow (blog)",
+      "title": "Linear Algebra (Gilbert Strang) Notes, Lecture 1 to 10",
+      "url": "https://gateoverflow.in/blog/18190/linear-algebra-gilbert-strang-notes-lecture-1-10",
+      "language": "en",
+      "covers": [
+        "the row picture, the column picture and the matrix form as three readings of Ax = b",
+        "the reachability condition: columns independent means every b is reachable, dependent columns means only some b are",
+        "forward elimination on the augmented matrix, the two ways elimination fails, and back substitution",
+        "the complete solution x = x_p + x_n, with free variables set to zero for the particular solution"
+      ],
+      "transcript": "PARTIAL",
+      "why": "The best readable English treatment of the column picture and of the particular-plus-null-space decomposition found this run, and it is written for GATE CSE readers on a GATE site rather than for a mathematics audience. Chosen over the NPTEL and IIT video sequences because their transcripts could not be retrieved at all, and over the coaching note sets because this one explains why the solution set has the shape it has instead of listing cases. Read in part: the fetched page covered the systems, elimination, multiplication, inverse and complete-solution sections; the later eigen and SVD sections were not needed here."
+    },
+    {
+      "id": "sathee-iitk-consistency-and-solution",
+      "kind": "text",
+      "channel": "SATHEE, IIT Kanpur",
+      "title": "Matrices and Determinants - Consistency and Solution of Simultaneous Linear Equations (Lecture-04)",
+      "url": "https://sathee.iitk.ac.in/ncert-books/udaan/udaan-math-12/matrics-and-determinats/math-12-matrics-and-determinats-4/",
+      "language": "en",
+      "covers": [
+        "the rank criterion r = s for consistency, and the unique and infinite sub-cases",
+        "the adjoint test when the coefficient determinant vanishes",
+        "the geometry of three planes keyed to the rank pair, including the triangular prism",
+        "the statement that a homogeneous system is always consistent"
+      ],
+      "transcript": "PARTIAL",
+      "why": "An IIT Kanpur initiative's own teaching text, and the only readable source found that gives the plane-arrangement table keyed to the rank pair, which the row-picture card needs. It also supplies the adjoint route into the singular case, which no other readable source gave in full. Read in part: the fetched page carried the linear-systems section and the eigen-value material that follows it; the later chapters were not needed."
+    },
+    {
+      "id": "vidyalankar-gate-engineering-mathematics-1-4",
+      "kind": "text",
+      "channel": "Vidyalankar",
+      "title": "Engineering Mathematics notes for GATE, Module 1, section 1.4 System of Linear Equations",
+      "url": "https://www.vidyalankar.org/gate/assets/docs/notes/maths.pdf",
+      "language": "en",
+      "covers": [
+        "the consistency conditions stated as case 1 and case 2 with the split at r = number of unknowns",
+        "Cramer's rule and the inversion method X = A^(-1) B",
+        "the non-zero-solution condition for the homogeneous system as the vanishing of the coefficient determinant"
+      ],
+      "transcript": "PARTIAL",
+      "why": "A GATE coaching note set whose own contents page quotes the GATE CS linear algebra line word for word, so its scope matches the syllabus exactly, and it states Cramer's rule and the inversion method in the form GATE answers expect. Read in part: the direct PDF download failed from the sandbox again this run, so only the section 1.4 extract returned by the search service was read; the later chapters were not read at all."
+    },
+    {
+      "id": "careercraftlabs-hindi-linear-systems",
+      "kind": "text",
+      "channel": "CareerCraft Labs (JEE mathematics notes in Hindi)",
+      "title": "Notes on linear systems: raikhik samikaran nikay (Hindi)",
+      "url": "https://careercraftlabs.org/hi/read/jee-math-ch03",
+      "language": "hi",
+      "translated": true,
+      "covers": [
+        "the three-case table in terms of the main determinant and the numerator determinants",
+        "the statement that a homogeneous system is never inconsistent, because the trivial solution is free",
+        "the warning that a zero main determinant alone does not mean infinitely many solutions"
+      ],
+      "transcript": "PARTIAL",
+      "why": "Chosen deliberately so that this topic is not built from English sources alone, and it is the only non-English source that was readable this run. It is a JEE-oriented chapter rather than a GATE lecture, so it is used only for the three points above, all of which are syllabus-neutral and stated more carefully here than in the English coaching notes. Every sentence taken from it is translated from Hindi into English and the card says so. Read in part: the fetched extract covered the determinants, the linear-systems table and the practice set; nothing past that was read."
+    },
+    {
+      "id": "ohio-math3200-lecture-27",
+      "kind": "lecture-notes",
+      "channel": "Ohio University, MATH3200 Applied Linear Algebra (Winfried Just)",
+      "title": "Lecture 27: The Rank and Consistency of Systems of Linear Equations",
+      "url": "https://people.ohio.edu/just/M3200F21/Lectures/LAL27np.pdf",
+      "language": "en",
+      "covers": [
+        "the theorem that Ax = b is consistent if and only if rank(A) = rank([A, b])",
+        "the corollary that rank(A) = m makes every system with that A consistent",
+        "worked inconsistent and consistent examples in echelon form"
+      ],
+      "transcript": "PARTIAL",
+      "why": "A university lecture that proves the consistency theorem rather than asserting it, and it is the only readable source that states the rank(A) = m corollary, which the overdetermined card needs for its one safe counting conclusion. Read in part: the PDF itself returned 502 from the sandbox, so only the text returned by the search service was read, which covered the theorem, the corollary and the two worked examples."
+    },
+    {
+      "id": "go-classes-engineering-mathematics-linear-algebra",
+      "kind": "course-outline",
+      "channel": "GO Classes for GATE CS (Sachin Mittal)",
+      "title": "Engineering Mathematics course, Linear Algebra lecture list: 3B-D on Ax = b, 4E-4F, 5D-5E, 6A-6C on rank and number of solutions",
+      "url": "https://www.goclasses.in/courses/Engineering-Mathematics-60fdd8530cf2c7989e1f109d",
+      "language": "en",
+      "covers": [
+        "the teaching order of the topic and the subtopic enumeration itself",
+        "confirmation that the GATE treatment runs from Ax = b through rank(A) against rank(A|b) to GATE PYQ work"
+      ],
+      "transcript": "UNAVAILABLE",
+      "why": "Recorded because its lecture list is the closest fit to this syllabus line of any source found, and because it confirms the eleven subtopics are complete and in a sensible order: 3C writes the system as Ax = b with the geometric interpretation, 6B is solutions based on rank(A) and rank(A|b), 6C is questions on rank and the number of solutions. No card quotes it and no claim rests on it, because no transcript could be retrieved this run."
+    }
+  ],
+  "rejected": [
+    {
+      "id": "nptel-iit-roorkee-matrix-analysis",
+      "kind": "lecture-series",
+      "channel": "NPTEL, IIT Roorkee (NOC: Matrix Analysis with Applications)",
+      "title": "Lectures 4 and 5, System of Linear Equations I and II, after lectures on elementary row operations, echelon form and rank",
+      "url": "https://archive.nptel.ac.in/courses/111/107/111107112/",
+      "language": "en",
+      "why": "The closest-scoped NPTEL course found: its first five lectures are exactly this topic in the right order. Rejected for access, not for quality - the course page returned 404 and every transcript path tried answered 404, so not one sentence could be read. A later run with a working transcript route should retry it."
+    },
+    {
+      "id": "nptel-iit-kharagpur-engineering-mathematics-1",
+      "kind": "lecture-series",
+      "channel": "NPTEL, IIT Kharagpur (Prof. Jitendra Kumar, Engineering Mathematics I)",
+      "title": "Lectures 36 to 38: System of Linear Equations, Gauss Elimination, Gauss Elimination continued",
+      "url": "http://www.infocobuild.com/education/audio-video-courses/mathematics/EngineeringMathematics1-IIT-Kharagpur/lecture-37.html",
+      "language": "en",
+      "why": "Three lectures dedicated to this exact topic inside a full engineering-mathematics course, and the index was readable. Rejected for access: the transcript PDF for lecture 37 answered 404 from the sandbox and the video pages carried no caption track, so nothing could be read."
+    },
+    {
+      "id": "mit-ocw-18-06-lecture-8",
+      "kind": "lecture",
+      "channel": "MIT OpenCourseWare (Gilbert Strang, 18.06)",
+      "title": "Lecture 8: Solving Ax = b, row reduced form and the complete solution",
+      "url": "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/resources/lecture-8-solving-ax-b/",
+      "language": "en",
+      "why": "The canonical explanation of the complete solution and the strongest single candidate found. Rejected for access: the OCW page returned an empty body to the fetch service this run, so no transcript or summary could be read. Its content reached this topic only indirectly, through the GATE Overflow notes that summarise the same lectures."
+    },
+    {
+      "id": "unacademy-hindi-gauss-elimination",
+      "kind": "lesson",
+      "channel": "Unacademy (Sanjay Yadav)",
+      "title": "Gauss Elimination Method (in Hindi), lesson 7 of A Complete Course on Numerical Method; and MATRIX: GATE Problem Series, lesson 31",
+      "url": "https://unacademy.com/lesson/gauss-elimination-method-in-hindi/MV67RQME",
+      "language": "hi",
+      "why": "The most GATE-focused Hindi candidate found, and its lesson titles map onto this topic. Rejected for access: the lessons are paywalled with no transcript, so not one sentence could be read or translated. The Hindi source that was used came from a free written page instead."
+    },
+    {
+      "id": "knowledge-gate-hindi-linear-algebra-4",
+      "kind": "lecture",
+      "channel": "Knowledge Gate (Sanchit Sir, Hindi-medium live class)",
+      "title": "21 Jan - EM - Linear Algebra - 4, a lecture on systems of linear equations",
+      "url": "https://www.knowledgegate.ai/learn/GATE-GUIDANCE-BY-SANCHIT-SIR/live-classes/gate-2026-live-class/engineering-mathematics-for-gate-exam/asset-21-jan-em-linear-algebra-4",
+      "language": "hi",
+      "why": "A well-matched Hindi-medium lecture whose chapter summary shows the three cases, Gauss elimination, Cramer's rule and the homogeneous case. Rejected because what is readable on the page is an English AI summary of the lecture, not the Hindi teaching itself: quoting it as a Hindi source would misrepresent it, and the video needs enrolment."
+    },
+    {
+      "id": "testbook-hindi-gate-linear-algebra-questions",
+      "kind": "question-bank",
+      "channel": "Testbook (Hindi)",
+      "title": "GATE Linear Algebra Questions in Hindi, with worked solutions",
+      "url": "https://testbook.com/questions/hn/gate-linear-algebra-questions--63a3fc4481f6f7acaab84f43",
+      "language": "hi",
+      "why": "A readable Hindi page with a worked rank-based solution of a two-parameter system. Rejected as a source for this topic because its questions are drawn from other GATE branches rather than GATE CSE, so presenting any of them as a CSE previous-year question would be false. Its Hindi phrasing of the rank rule was read but nothing is taken from it."
+    },
+    {
+      "id": "gateoverflow-strang-answer-thread",
+      "kind": "forum-thread",
+      "channel": "GATE Overflow",
+      "title": "Understanding singularity, triviality, consistency and uniqueness of solutions of a linear system",
+      "url": "https://gateoverflow.in/4947/understanding-singularity-triviality-consistency-uniqueness-of-solutions-of-linear-system",
+      "language": "en",
+      "why": "A thread that collects exactly the confusions this topic creates. Rejected as a source because it is a discussion, and parts of it state the wrong rule outright - one reply says a singular A means Ax = b has no solution, which the 2025 Set 1 Q.13 case refutes. It was read only to confirm which misconceptions GATE actually catches, and the trap sections were checked against the standard references instead."
+    },
+    {
+      "id": "answer-aggregators-systems",
+      "kind": "answer-aggregator",
+      "channel": "ExamSIDE, GateAI, pyqbox, Quorank, Knowledge Gate AI",
+      "title": "Secondary GATE question and answer sites",
+      "url": "https://questions.examside.com/past-years/gate/gate-cse/discrete-mathematics/linear-algebra",
+      "language": "en",
+      "why": "Used only to corroborate answers and to locate questions, never as the authority. They disagree on numbering - the GATE 2026 Set 2 system question is Q.21 on GATE Overflow, Q.31 on the official paper and Q.42 on one solutions PDF - so every question reference here follows the official paper where it was fetched and the GATE Overflow numbering otherwise, and each record says which."
+    }
+  ],
+  "standard_refs": [
+    "Strang, Introduction to Linear Algebra (the column picture, elimination, the complete solution x = x_p + x_n)",
+    "Lay, Linear Algebra and Its Applications (the consistency theorem and the rank conditions)",
+    "Hoffman and Kunze, Linear Algebra (solutions of homogeneous and non-homogeneous systems)",
+    "Kolman and Hill, Elementary Linear Algebra with Applications (Cramer's rule and the geometry of the three cases)"
+  ],
+  "note": "Every rank, determinant, solution and parameter value published in this topic is recomputed by check_system_of_linear_equations() in scripts/validate.py, by Gaussian elimination over the rationals, including exhaustive small-integer enumeration for the rank criteria, the nullity count, the non-trivial-solution test, the two-solutions-imply-infinitely-many claim and every counterexample quoted on a card. No source is quoted; each card paraphrases and then re-derives. The one non-English source is Hindi, read in part, and every sentence taken from it is translated and marked as translated on the cards that use it. No video transcript could be retrieved this run, so the GATE-oriented lecture sequence is recorded as structure only."
+}

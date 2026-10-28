@@ -1,0 +1,89 @@
+{
+  "id": "no-solution-versus-infinite",
+  "title": "No Solution or Infinitely Many: Telling Them Apart",
+  "priority": "P1",
+  "order": 131,
+  "unit": "Existence and number of solutions",
+  "quickIdea": "A singular system is not a solved system. The determinant only removes the unique case; one extra comparison of ranks, or one substitution of the critical parameter, decides between none and infinitely many.",
+  "remember": [
+    "rank(A) below rank([A|b]) means no solution; equality means at least one solution, and then rank(A) below n means infinitely many.",
+    "The difference between the two ranks is at most one, so the test is a single yes-or-no comparison.",
+    "Substitution is a valid shortcut: put the critical parameter back into the equations and read them. Proportional right-hand sides give infinitely many; non-proportional give none.",
+    "Two solutions always mean infinitely many, so a question that hands you two solutions has already settled the count.",
+    "A consistent system with a free variable has an infinite solution set, so 'finite but more than one' is never an option."
+  ],
+  "example": {
+    "prompt": "For how many values of alpha does [[2,1,-4],[4,3,-12],[1,2,-8]] (x,y,z) = (alpha,5,7) have infinitely many solutions?",
+    "work": "The third column is -4 times the second, so the determinant is 0 and rank(A) = 2. Reducing the augmented matrix gives a last row whose coefficient part is 0 and whose right-hand side is 5 alpha - 1. Infinitely many solutions need that entry to vanish, so alpha = 1/5, and every other alpha leaves a contradiction in the last row.",
+    "answer": "Exactly one value, alpha = 1/5. This is GATE CSE 2003 Q.41, whose correct option is '1'."
+  },
+  "gateAngle": "GATE CSE 2003 Q.41 is this card in one question: the paper even tells you the columns are dependent, so the whole task is the consistency half. GATE CSE 1998 Q.1.2 is the other branch with the same singularity, and GATE CSE 2025 Set 1 Q.13 puts both branches side by side at k = 1 and k = -1.",
+  "variations": [
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "A is 2 x 2 with determinant 0 and the system Ax = b is given. Which of 'no solution' and 'infinitely many' is it?",
+      "answer": "It depends on b; both are possible for the same A.",
+      "why": "A = [[1,1],[2,2]] is inconsistent for b = (1,3) and has infinitely many solutions for b = (1,2)."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "A is 3 x 3 with rank 2, and [A|b] also has rank 2. If you are told (1,0,0) is a solution, what is the full solution set?",
+      "answer": "A line through (1,0,0) in the direction of any non-zero null vector of A.",
+      "why": "Consistent with nullity 1, so the solution set is the particular solution plus the one-dimensional null space."
+    }
+  ],
+  "trap": {
+    "what": "Answering 'infinite' as soon as the determinant is zero, or 'no solution' as soon as the matrix is singular.",
+    "why": "Singularity fixes only the coefficient side. The right-hand side decides which of the two failures you are in, and the two failures are different answers on the answer sheet.",
+    "counterexample": "x + y = 1, 2x + 2y = 2 has infinitely many solutions while x + y = 1, 2x + 2y = 3 has none, and both coefficient matrices are [[1,1],[2,2]] with determinant 0."
+  },
+  "check": {
+    "question": "A is 3 x 3, |A| = 0, and substituting b shows rank([A|b]) = 3. How many solutions?",
+    "answer": "None.",
+    "explanation": "rank(A) is at most 2 while rank([A|b]) is 3, so b is outside the column space of A and the system is inconsistent."
+  },
+  "pyqIds": [
+    "gate-2003-41-alpha-one-value",
+    "gate-1998-1-2-no-solution",
+    "gate-2025-set1-13-k-system",
+    "gate-2014-set1-52-number-of-solutions"
+  ],
+  "prereqs": [
+    "square-systems-determinant-test",
+    "consistency-by-rank"
+  ],
+  "videoRefs": [],
+  "sources": [
+    {
+      "kind": "text",
+      "title": "Notes on linear systems: raikhik samikaran nikay (Hindi)",
+      "channel": "CareerCraft Labs, JEE mathematics notes in Hindi",
+      "url": "https://careercraftlabs.org/hi/read/jee-math-ch03",
+      "language": "hi",
+      "transcript": "PARTIAL",
+      "translated": true,
+      "note": "the table of the three cases and the warning that a zero main determinant alone does not mean infinitely many solutions; read in part; translated from Hindi into English"
+    },
+    {
+      "kind": "text",
+      "title": "Linear Algebra Important Points",
+      "channel": "GATE Overflow blog",
+      "url": "https://gateoverflow.in/blog/8877/linear-algebra-important-points",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "the inconsistent branch as rank(A) not equal to rank([A:B]); read in part"
+    },
+    {
+      "kind": "text",
+      "title": "Matrices and Determinants: Consistency and Solution of Simultaneous Linear Equations (Lecture 04)",
+      "channel": "SATHEE, IIT Kanpur",
+      "url": "https://sathee.iitk.ac.in/ncert-books/udaan/udaan-math-12/matrics-and-determinats/math-12-matrics-and-determinats-4/",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "the adjoint test: (adj A)B = 0 gives infinitely many and (adj A)B not 0 gives none; read in part"
+    }
+  ],
+  "sourceLine": "CareerCraft Labs Hindi notes (Hindi, translated, read in part) for the three-case table and the zero-determinant warning. GATE Overflow blog, 'Linear Algebra Important Points' (English, read in part) for the inconsistent branch. SATHEE, IIT Kanpur (English, read in part) for the adjoint test. The 2003 reduction and the alpha value are recomputed in scripts/validate.py."
+}

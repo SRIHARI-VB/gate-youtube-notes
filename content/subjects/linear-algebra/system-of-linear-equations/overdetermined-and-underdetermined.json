@@ -1,0 +1,78 @@
+{
+  "id": "overdetermined-and-underdetermined",
+  "title": "More Equations than Unknowns, and Fewer",
+  "priority": "P2",
+  "order": 128,
+  "unit": "Existence and number of solutions",
+  "quickIdea": "Counting equations against unknowns decides nothing. m greater than n can still be consistent and m less than n can still be inconsistent; only the ranks settle it, with one exception that does follow from counting.",
+  "remember": [
+    "m > n does not force inconsistency: redundant equations can be dropped, and a consistent overdetermined system has exactly one solution when rank(A) = n.",
+    "m < n does not guarantee a solution for a non-homogeneous system: x + y + z = 1 and x + y + z = 2 has two equations, three unknowns and no solution.",
+    "m < n does guarantee a non-trivial solution of the homogeneous system Ax = 0, because rank(A) is at most m < n.",
+    "m = n guarantees nothing by itself, but it does guarantee that some system with that A has a solution, namely the consistent ones; a unique solution needs rank(A) = n.",
+    "A useful sufficient condition: if rank(A) = m, the number of rows, then every b is reachable and the system is consistent for all b."
+  ],
+  "example": {
+    "prompt": "For systems of m linear equations in n variables, which of these is correct: (I) m < n implies all such systems have a solution; (II) m > n implies none has a solution; (III) m = n implies there exists a system which has a solution?",
+    "work": "I fails: x + y + z = 1 and x + y + z = 2 has m = 2 < n = 3 and no solution. II fails: x + y = 1, 2x + 2y = 2, x - y = 0 has m = 3 > n = 2, and x = y = 1/2 satisfies all three equations, so a system with more equations than unknowns can be consistent. III holds: take m = n = 1 and the equation x = 0.",
+    "answer": "Only III is true. This is GATE CSE 2016 Set 2 Q.04, whose correct option is 'Only III is true'."
+  },
+  "gateAngle": "GATE CSE 2016 Set 2 Q.04 is exactly this card. GATE CSE 2024 Set 1 Q.39 runs the same idea for a wide matrix and asks what the nullity is guaranteed to be, and GATE CSE 1996 Q.1.7 tests the m < n homogeneous guarantee.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "Give a system with more equations than unknowns that has infinitely many solutions.",
+      "answer": "x + y = 1, 2x + 2y = 2, 3x + 3y = 3.",
+      "why": "Three equations, two unknowns, all three the same line: rank(A) = rank([A|b]) = 1 < 2, so there are infinitely many solutions despite m > n."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "If rank(A) equals the number of rows of A, why is Ax = b consistent for every b?",
+      "answer": "Because the columns of A then span the whole of R^m, so every b is a combination of them.",
+      "why": "rank([A|b]) has the same number of rows as A, so it cannot exceed m; since rank(A) = m already, the two ranks are equal for every b."
+    }
+  ],
+  "trap": {
+    "what": "Answering a 'which statement is true' question about m and n by intuition about 'too many equations' or 'too few equations'.",
+    "why": "The counts m and n bound the rank but do not fix it. The only safe conclusions are the ones the rank inequality gives, such as nullity at least m - n for a wide matrix.",
+    "counterexample": "x + y + z = 1 and x + y + z = 2 has fewer equations than unknowns and is inconsistent, so 'fewer equations means solvable' is false."
+  },
+  "check": {
+    "question": "A is 5 x 3 with rank 3. Is Ax = b consistent for every b in R^5?",
+    "answer": "No.",
+    "explanation": "rank(A) = 3 is less than the number of rows 5, so the columns span only a 3-dimensional subspace of R^5 and most b are unreachable. Consistency for all b needs rank(A) = m."
+  },
+  "pyqIds": [
+    "gate-2016-set2-4-m-n-statements",
+    "gate-2024-set1-39-homogeneous-nxm",
+    "gate-1996-1-7-false-statement-systems"
+  ],
+  "prereqs": [
+    "consistency-by-rank",
+    "free-variables-and-solution-set"
+  ],
+  "videoRefs": [],
+  "sources": [
+    {
+      "kind": "text",
+      "title": "Lecture 27: The Rank and Consistency of Systems of Linear Equations",
+      "channel": "Ohio University, MATH3200 Applied Linear Algebra (Winfried Just)",
+      "url": "https://people.ohio.edu/just/M3200F21/Lectures/LAL27np.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "the theorem rank(A) = rank([A,b]) and the corollary that rank(A) = m makes every system consistent; read in part through the search extract, the PDF itself did not download"
+    },
+    {
+      "kind": "text",
+      "title": "Linear Algebra Important Points",
+      "channel": "GATE Overflow blog",
+      "url": "https://gateoverflow.in/blog/8877/linear-algebra-important-points",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "the homogeneous always-consistent branch that supplies the m < n guarantee; read in part"
+    }
+  ],
+  "sourceLine": "Ohio University MATH3200 Lecture 27, 'The Rank and Consistency of Systems of Linear Equations' (English, read in part through the search extract) for the rank theorem and the rank(A) = m corollary. GATE Overflow blog, 'Linear Algebra Important Points' (English, read in part) for the homogeneous guarantee. Every counterexample in this card is checked in scripts/validate.py."
+}

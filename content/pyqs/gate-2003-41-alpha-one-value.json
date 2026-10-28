@@ -1,0 +1,21 @@
+{
+  "id": "gate-2003-41-alpha-one-value",
+  "year": "2003",
+  "paper": "GATE CS 2003",
+  "question_ref": "Q.41",
+  "type": "MCQ",
+  "topic": "no-solution-versus-infinite",
+  "text": "Consider the following system of linear equations: [[2,1,-4],[4,3,-12],[1,2,-8]] (x,y,z)^T = (alpha,5,7)^T. Notice that the second and the third columns of the coefficient matrix are linearly dependent. For how many values of alpha does this system of equations have infinitely many solutions?",
+  "options": [
+    "0",
+    "1",
+    "2",
+    "infinitely many"
+  ],
+  "answer": "Option (B) - exactly one value, alpha = 1/5",
+  "solution": "The third column is -4 times the second, so the determinant is 0 and rank(A) = 2. Reducing [A|b] gives a last row with zero coefficient part and right-hand side 5 alpha - 1. Infinitely many solutions require that entry to be 0, so alpha = 1/5, and for every other alpha the last row reads 0 = non-zero and the system has no solution. Solving b = s(2,4,1) + t(1,3,2) directly gives s = -11/5, t = 23/5 and alpha = 2s + t = 1/5, which agrees. scripts/validate.py recomputes both routes.",
+  "source_url": "https://gateoverflow.in/932/gate-cse-2003-question-41",
+  "source_label": "GATE Overflow question page - GATE CSE 2003 Q.41 with the accepted answer (B, one value)",
+  "verification": "SOURCED",
+  "answer_evidence": "Accepted answer: 'for only 1 value of alpha, this system has infinitely many solutions. So, option (B) is correct', with the reduction giving alpha = 1/5. Note that the IIT Delhi worked solution for the same paper reaches alpha = -4/3 through an arithmetic slip; the reduction here and the direct span computation both give 1/5, and the count of values is 1 either way."
+}

@@ -1,0 +1,87 @@
+{
+  "id": "homogeneous-systems",
+  "title": "Homogeneous Systems Ax = 0",
+  "priority": "P1",
+  "order": 125,
+  "unit": "Existence and number of solutions",
+  "quickIdea": "Ax = 0 always has the trivial solution, so it is never inconsistent. The only question is whether a non-zero solution exists, and that happens exactly when the rank is below the number of unknowns.",
+  "remember": [
+    "Ax = 0 is always consistent: x = 0 satisfies it for every A. It therefore has either one solution (only x = 0) or infinitely many, never none and never a finite number above one.",
+    "A non-trivial solution exists if and only if rank(A) < n, that is if and only if nullity is positive.",
+    "For a square n x n A this reads: a non-trivial solution exists if and only if |A| = 0.",
+    "If m < n, a homogeneous system always has a non-trivial solution, because rank(A) is at most m < n.",
+    "The solution set of Ax = 0 is a subspace, so sums and scalar multiples of solutions are solutions. If b is non-zero and Ax = b has at least one solution, then it has infinitely many."
+  ],
+  "example": {
+    "prompt": "For which p, q, r has px + qy + rz = 0, qx + ry + pz = 0, rx + py + qz = 0 a non-trivial solution?",
+    "work": "The coefficient matrix has determinant 3pqr - p^3 - q^3 - r^3, which factors as -(p + q + r)(p^2 + q^2 + r^2 - pq - qr - rp), and the second factor equals half of ((p-q)^2 + (q-r)^2 + (r-p)^2), which is zero only when p = q = r.",
+    "answer": "A non-trivial solution exists exactly when p + q + r = 0 or p = q = r. This is GATE CSE 2015 Set 3 Q.33, whose correct option is 'p + q + r = 0 or p = q = r'."
+  },
+  "gateAngle": "GATE CSE 2015 Set 3 Q.33 is the determinant form of the test; GATE CSE 1996 Q.1.7 checks that you know a homogeneous system with more unknowns than equations always has infinitely many solutions; GATE CSE 2024 Set 1 Q.39 asks how many independent non-trivial solutions are guaranteed.",
+  "variations": [
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Can a homogeneous system be inconsistent?",
+      "answer": "No. x = 0 always solves it.",
+      "why": "The right-hand side is the zero vector, which is in the column space of every matrix, so the two ranks can never differ."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "A is 3 x 3 with |A| = 0. Does Ax = b have a solution for a given non-zero b?",
+      "answer": "It depends on b, and the answer is not settled by the determinant.",
+      "why": "The determinant says only that the homogeneous system has a non-zero solution. Consistency of the non-homogeneous system is a statement about b, checked by comparing ranks."
+    }
+  ],
+  "trap": {
+    "what": "Transferring the singular-matrix conclusion from Ax = 0 to Ax = b.",
+    "why": "The free-solution guarantee belongs to the homogeneous system, whose right-hand side is already in the column space. A non-zero b may sit outside it.",
+    "counterexample": "A = [[1,1],[1,1]] has |A| = 0, so x + y = 0, x + y = 0 has the non-trivial solution (1,-1); the same A with b = (1,2) gives x + y = 1 and x + y = 2, which has no solution."
+  },
+  "check": {
+    "question": "A is 4 x 3. Can Ax = 0 have only the trivial solution?",
+    "answer": "Yes, provided rank(A) = 3.",
+    "explanation": "The test is rank against the number of unknowns, not the number of equations. Four equations in three unknowns with full column rank force every unknown to zero."
+  },
+  "pyqIds": [
+    "gate-2015-set3-33-nontrivial-p-q-r",
+    "gate-2024-set1-39-homogeneous-nxm"
+  ],
+  "prereqs": [
+    "free-variables-and-solution-set",
+    "singular-and-equivalent-conditions"
+  ],
+  "videoRefs": [],
+  "sources": [
+    {
+      "kind": "text",
+      "title": "Engineering Mathematics notes for GATE, Module 1, section 1.4 System of Linear Equations",
+      "channel": "Vidyalankar",
+      "url": "https://www.vidyalankar.org/gate/assets/docs/notes/maths.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "the non-zero-solution condition for the homogeneous system, stated as the vanishing of the coefficient determinant; read in part through the search extract"
+    },
+    {
+      "kind": "text",
+      "title": "Matrices and Determinants: Consistency and Solution of Simultaneous Linear Equations (Lecture 04)",
+      "channel": "SATHEE, IIT Kanpur",
+      "url": "https://sathee.iitk.ac.in/ncert-books/udaan/udaan-math-12/matrics-and-determinats/math-12-matrics-and-determinats-4/",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "the adjoint test for a singular square system and the statement that a homogeneous system is always consistent; read in part"
+    },
+    {
+      "kind": "text",
+      "title": "Notes on linear systems: raikhik samikaran nikay (Hindi)",
+      "channel": "CareerCraft Labs, JEE mathematics notes in Hindi",
+      "url": "https://careercraftlabs.org/hi/read/jee-math-ch03",
+      "language": "hi",
+      "transcript": "PARTIAL",
+      "translated": true,
+      "note": "the three-case Cramer table and the statement that a homogeneous system is never inconsistent; read in part; every sentence taken from it is translated from Hindi into English"
+    }
+  ],
+  "sourceLine": "Vidyalankar GATE Engineering Mathematics notes, section 1.4 (English, read in part) for the determinant form of the non-trivial-solution condition. SATHEE, IIT Kanpur (English, read in part) for the singular-square adjoint test. CareerCraft Labs Hindi notes (Hindi, translated, read in part) for the never-inconsistent property and the three-case table. The determinant factorisation and the p, q, r conclusion are recomputed in scripts/validate.py."
+}

@@ -1,0 +1,21 @@
+{
+  "id": "gate-2017-set1-3-dependent-columns-infinite",
+  "year": "2017",
+  "paper": "GATE CS 2017 Set 1",
+  "question_ref": "Q.3",
+  "type": "MCQ",
+  "topic": "free-variables-and-solution-set",
+  "text": "Let c1, ..., cn be scalars, not all zero, such that the sum from i = 1 to n of ci ai = 0, where ai are column vectors in R^n. Consider the set of linear equations Ax = b where A = [a1 ... an] and b = the sum from i = 1 to n of ai. The set of equations has",
+  "options": [
+    "a unique solution at x = Jn, where Jn denotes the n-dimensional vector of all 1",
+    "no solution",
+    "infinitely many solutions",
+    "finitely many solutions"
+  ],
+  "answer": "Option (C) - infinitely many solutions",
+  "solution": "The scalars c1, ..., cn are not all zero and their combination of the columns is 0, so the columns of A are linearly dependent and |A| = 0. Also b is the sum of the columns, so A Jn = b and Jn is one solution. A non-zero vector c in the null space then gives Jn + tc as a solution for every real t, so the solution set is infinite. Note that option (A) is wrong only because it says unique: Jn is a solution but not the only one.",
+  "source_url": "https://gateoverflow.in/118282/gate-cse-2017-set-1-question-3",
+  "source_label": "GATE Overflow question page - GATE CSE 2017 Set 1 Q.3 with the accepted answer (C)",
+  "verification": "SOURCED",
+  "answer_evidence": "Accepted answer: 'a n-dimensional vector of all 1 is a solution of Ax = b. Hence Ax = b will have infinitely many solutions. The correct answer is (C).'"
+}

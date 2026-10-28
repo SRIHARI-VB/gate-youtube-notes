@@ -1,0 +1,77 @@
+{
+  "id": "free-variables-and-solution-set",
+  "title": "Free Variables and the Shape of the Solution Set",
+  "priority": "P1",
+  "order": 124,
+  "unit": "Existence and number of solutions",
+  "quickIdea": "A consistent system with rank r in n unknowns has n - r free parameters. Its solutions are one particular solution plus every solution of Ax = 0, so the set is a point, a line, a plane or a higher-dimensional flat, never a finite cluster.",
+  "remember": [
+    "Pivot columns correspond to basic variables; the remaining n - r columns are free, and each free variable contributes one parameter.",
+    "Every solution is x = x_p + x_n, where x_p is any one solution of Ax = b and x_n runs over the null space of A, that is over all solutions of Ax = 0.",
+    "The number of parameters is n - rank(A), which is the nullity. It does not depend on b.",
+    "Consequently a consistent system has 1 solution when rank(A) = n, and infinitely many when rank(A) < n. There is no third possibility.",
+    "If two different solutions exist, infinitely many exist: their difference is a non-zero null vector, and every multiple of it can be added to either solution."
+  ],
+  "example": {
+    "prompt": "Describe all solutions of x + y + z = 3 and x - y = 0.",
+    "work": "A = [[1,1,1],[1,-1,0]] has rank 2 in n = 3 unknowns, so there is 3 - 2 = 1 free parameter. Take z = t: then x = y from the second equation, and 2x + t = 3 gives x = y = (3 - t)/2. So the solutions are ((3-t)/2, (3-t)/2, t) for every real t.",
+    "answer": "A one-parameter family: a line in R^3. One particular solution is (3/2, 3/2, 0), and the null space is spanned by (-1/2, -1/2, 1)."
+  },
+  "gateAngle": "GATE CSE 2024 Set 1 Q.39 is entirely about this bookkeeping: for an n x m matrix with m > n the nullity is at least m - n, so at least that many independent solutions of Ax = 0 exist. GATE CSE 2021 Set 2 Q.24 is the same count read backwards, from a one-dimensional null space to rank 4.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "A is 4 x 5 and the system Ax = b is consistent with rank(A) = 4. How many solutions are there?",
+      "answer": "Infinitely many, forming a one-parameter family.",
+      "why": "The nullity is 5 - 4 = 1, so the solution set is a line: a particular solution plus all multiples of one null vector."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "A 3 x 3 system has exactly two solutions, (1,0,0) and (0,1,0). Is that possible?",
+      "answer": "No. Two solutions force infinitely many.",
+      "why": "Their difference (1,-1,0) is a non-zero null vector, so (1,0,0) + t(1,-1,0) solves the system for every real t."
+    }
+  ],
+  "trap": {
+    "what": "Reporting 'no solution or one solution or two solutions' as the possibilities, or assuming the number of solutions can be counted when the determinant vanishes.",
+    "why": "The solution set of a consistent linear system is an affine subspace. Its size is 1 or infinite, and the only question is how many parameters it has.",
+    "counterexample": "x + y = 2 and 2x + 2y = 4 have the solutions (2 - t, t) for every real t; no choice of b makes this system have exactly two solutions."
+  },
+  "check": {
+    "question": "A is 3 x 5 with rank 3 and Ax = b is consistent. How many parameters does the solution set have?",
+    "answer": "Two.",
+    "explanation": "The nullity is n - rank = 5 - 3 = 2, so two free variables remain and the solution set is a plane inside R^5."
+  },
+  "pyqIds": [
+    "gate-2024-set1-39-homogeneous-nxm",
+    "gate-2017-set1-3-dependent-columns-infinite"
+  ],
+  "prereqs": [
+    "consistency-by-rank",
+    "homogeneous-systems"
+  ],
+  "videoRefs": [],
+  "sources": [
+    {
+      "kind": "text",
+      "title": "Linear Algebra (Gilbert Strang) Notes, Lecture 1 to 10",
+      "channel": "GATE Overflow blog",
+      "url": "https://gateoverflow.in/blog/18190/linear-algebra-gilbert-strang-notes-lecture-1-10",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "the 'Complete Solution to Ax = b' section: particular solution with free variables set to zero, then the null space, then x = x_p + x_n; read in part"
+    },
+    {
+      "kind": "text",
+      "title": "Linear Algebra Important Points",
+      "channel": "GATE Overflow blog",
+      "url": "https://gateoverflow.in/blog/8877/linear-algebra-important-points",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "the infinite-solution case stated as rank = rank([A:b]) below the number of unknowns; read in part"
+    }
+  ],
+  "sourceLine": "GATE Overflow blog, 'Linear Algebra (Gilbert Strang) Notes, Lecture 1 to 10' (English, read in part) for the particular-plus-null-space decomposition. GATE Overflow blog, 'Linear Algebra Important Points' (English, read in part) for the free-variable count. The parameter counts and the worked solution are recomputed in scripts/validate.py."
+}

@@ -1,0 +1,88 @@
+{
+  "id": "consistency-by-rank",
+  "title": "The Consistency Test: rank(A) against rank([A|b])",
+  "priority": "P1",
+  "order": 122,
+  "unit": "Existence and number of solutions",
+  "quickIdea": "Compare two numbers. If the coefficient matrix and the augmented matrix have the same rank the system has a solution; if the augmented rank is larger it has none. The common rank then decides unique or infinite by comparison with n.",
+  "remember": [
+    "rank(A) is never larger than rank([A|b]), because every column of A is a column of [A|b].",
+    "rank([A|b]) is either rank(A) or rank(A) + 1, never more: adding one column can raise the rank by at most one.",
+    "If rank(A) is not equal to rank([A|b]) the system is inconsistent and has no solution.",
+    "If rank(A) = rank([A|b]) = r the system is consistent. It has a unique solution when r = n, and infinitely many solutions when r < n, with n - r free parameters.",
+    "Never compare rank(A) with m, the number of equations: the pivot count that matters is measured against n, the number of unknowns."
+  ],
+  "example": {
+    "prompt": "Decide the number of solutions of x + 2y = 5, 4x + 8y = 12, 3x + 6y + 3z = 15.",
+    "work": "A = [[1,2,0],[4,8,0],[3,6,3]] and [A|b] = [[1,2,0,5],[4,8,0,12],[3,6,3,15]]. Replace row 2 by row 2 - 4 row 1, giving (0,0,0 | -8). Row 3 - 3 row 1 gives (0,0,3 | 0). The coefficient part now has pivots in columns 1 and 3 only, so rank(A) = 2; the augmented part has a third pivot in the last column, so rank([A|b]) = 3.",
+    "answer": "rank(A) = 2 but rank([A|b]) = 3, so the system is inconsistent: no solution. This is GATE CSE 1998 Q.1.2, whose row 2 - 4 row 1 reads 0 = -8."
+  },
+  "gateAngle": "This is the single most reused test in the topic: GATE CSE 1996 Q.1.7 states it as an if-and-only-if, GATE CSE 2016 Set 2 Q.04 tests whether you can conclude anything from m and n alone, and GATE CSE 2003 Q.41 uses it to count the values of a parameter that make a system consistent.",
+  "variations": [
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "A is 3 x 3 with rank(A) = 2. Can [A|b] have rank 4?",
+      "answer": "No. Adding one column raises the rank by at most one, so rank([A|b]) is 2 or 3.",
+      "why": "The augmented matrix has the same three rows as A, so its rank is bounded by the number of rows and by rank(A) + 1."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "A is 4 x 3, rank(A) = 3, and the system is consistent. How many solutions are there?",
+      "answer": "Exactly one.",
+      "why": "Consistency gives rank([A|b]) = 3 = n, so every unknown is a pivot variable and there is no free parameter, however many equations there are."
+    }
+  ],
+  "trap": {
+    "what": "Concluding 'no solution' from rank(A) being smaller than the number of equations, or 'unique' from m = n.",
+    "why": "The comparison that decides is rank against n, the number of unknowns, after the two ranks have been checked for equality. Extra equations can be redundant (still consistent) and a square system can be singular (not unique).",
+    "counterexample": "A = [[1,0],[0,1],[1,1]] with b = (1,1,2) is 3 equations in 2 unknowns; rank(A) = rank([A|b]) = 2 = n, so it has exactly one solution, x = (1,1), despite having more equations than unknowns."
+  },
+  "check": {
+    "question": "A is 3 x 3, rank(A) = 2 and rank([A|b]) = 3. How many solutions?",
+    "answer": "None.",
+    "explanation": "The two ranks differ, so b is outside the column space of A and the system is inconsistent. The number of unknowns is irrelevant once the ranks disagree."
+  },
+  "pyqIds": [
+    "gate-1998-1-2-no-solution",
+    "gate-1996-1-7-false-statement-systems",
+    "gate-2003-41-alpha-one-value"
+  ],
+  "prereqs": [
+    "matrix-form-and-two-pictures",
+    "rank-and-its-bounds"
+  ],
+  "videoRefs": [],
+  "sources": [
+    {
+      "kind": "text",
+      "title": "Linear Algebra Important Points",
+      "channel": "GATE Overflow blog",
+      "url": "https://gateoverflow.in/blog/8877/linear-algebra-important-points",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "the augmented-matrix consistency table, in GATE's own vocabulary; read in part"
+    },
+    {
+      "kind": "text",
+      "title": "Matrices and Determinants: Consistency and Solution of Simultaneous Linear Equations (Lecture 04)",
+      "channel": "SATHEE, IIT Kanpur",
+      "url": "https://sathee.iitk.ac.in/ncert-books/udaan/udaan-math-12/matrics-and-determinats/math-12-matrics-and-determinats-4/",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "the r = s rank rule with the unique and infinite sub-cases; read in part"
+    },
+    {
+      "kind": "text",
+      "title": "Engineering Mathematics notes for GATE, Module 1, section 1.4 System of Linear Equations",
+      "channel": "Vidyalankar",
+      "url": "https://www.vidyalankar.org/gate/assets/docs/notes/maths.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "the consistency conditions stated as case 1 and case 2 with the r = number-of-unknowns split; read in part through the search extract, the PDF itself did not download"
+    }
+  ],
+  "sourceLine": "GATE Overflow blog, 'Linear Algebra Important Points' (English, read in part) for the consistency table. SATHEE, IIT Kanpur (English, read in part) for the rank rule and its two sub-cases. Vidyalankar GATE Engineering Mathematics notes, section 1.4 (English, read in part through the search extract) for the same conditions in coaching language. The ranks in every example are recomputed by Gaussian elimination in scripts/validate.py."
+}

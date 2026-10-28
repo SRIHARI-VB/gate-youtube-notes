@@ -1,0 +1,21 @@
+{
+  "id": "gate-2016-set2-4-m-n-statements",
+  "year": "2016",
+  "paper": "GATE CS 2016 Set 2",
+  "question_ref": "Q.04",
+  "type": "MCQ",
+  "topic": "overdetermined-and-underdetermined",
+  "text": "Consider the systems, each consisting of m linear equations in n variables. I. If m < n, then all such systems have a solution. II. If m > n, then none of these systems has a solution. III. If m = n, then there exists a system which has a solution. Which one of the following is CORRECT?",
+  "options": [
+    "I, II and III are true",
+    "Only II and III are true",
+    "Only III is true",
+    "None of them is true"
+  ],
+  "answer": "Option (C) - only III is true",
+  "solution": "I is false: x + y + z = 1 and x + y + z = 2 has m = 2 < n = 3 and no solution. II is false: x + y = 1, 2x + 2y = 2 and x - y = 0 has m = 3 > n = 2 and the solution (1/2, 1/2). III is true: with m = n = 1 the equation x = 0 has a solution. The counting of equations against unknowns bounds the rank but never fixes the number of solutions.",
+  "source_url": "https://gateoverflow.in/39545/gate-cse-2016-set-2-question-04",
+  "source_label": "GATE Overflow question page - GATE CSE 2016 Set 2 Q.04 with the accepted answer (C, only III)",
+  "verification": "SOURCED",
+  "answer_evidence": "Accepted answer: 'Correct answer => C) ... I is false ... II is false ... III is correct. Answer is C.'"
+}

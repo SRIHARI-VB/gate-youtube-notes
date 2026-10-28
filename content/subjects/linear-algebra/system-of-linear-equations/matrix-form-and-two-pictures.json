@@ -1,0 +1,77 @@
+{
+  "id": "matrix-form-and-two-pictures",
+  "title": "Matrix Form Ax = b, and the Row and Column Pictures",
+  "priority": "P1",
+  "order": 121,
+  "unit": "Formulating a system",
+  "quickIdea": "Every linear system is one equation Ax = b. Read it by rows and each equation is a line or a plane; read it by columns and the question becomes which combination of the columns of A produces b.",
+  "remember": [
+    "A system of m equations in n unknowns is written Ax = b, where A is the m x n coefficient matrix, x is the n x 1 vector of unknowns and b is the m x 1 right-hand side. Attaching b as an extra column gives the augmented matrix [A|b].",
+    "Row picture: one equation is one line when there are two unknowns and one plane when there are three. A solution is a point common to all of them.",
+    "Column picture: Ax is the combination x1 a1 + x2 a2 + ... + xn an of the columns of A. A solution exists exactly when b lies in the span of the columns, which is the column space of A.",
+    "So Ax = b is solvable if and only if b is in the column space of A, which is the same statement as rank(A) = rank([A|b]).",
+    "The column picture is the one that survives the jump to many unknowns: the row picture stops being drawable above three variables, but the column statement stays true."
+  ],
+  "example": {
+    "prompt": "Solve x + y = 3, x - y = 1 by the column picture and by the row picture.",
+    "work": "Column picture: A = [[1,1],[1,-1]], so x1(1,1) + x2(1,-1) = (3,1). Adding the two coordinates gives 2x1 = 4, so x1 = 2, and then x2 = 1. Row picture: the two lines cross where both hold; substituting x = 2, y = 1 satisfies 2 + 1 = 3 and 2 - 1 = 1.",
+    "answer": "x = 2, y = 1. The column weights 2 and 1 reproduce b, and the two lines meet at the point (2, 1)."
+  },
+  "gateAngle": "GATE CSE 1996 Q.1.7 asks directly whether solvability is equivalent to equal ranks, and GATE CSE 2017 Set 1 Q.3 is pure column picture: b is handed to you as the sum of the columns of A, so the all-ones vector is a solution before any arithmetic.",
+  "variations": [
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "A is 3 x 2 with independent columns and b is in R^3. Must Ax = b have a solution?",
+      "answer": "No. The two independent columns span only a plane inside R^3, so only the b lying in that plane are reachable.",
+      "why": "The column picture makes the failure visible: solvability is membership of b in a 2-dimensional subspace of a 3-dimensional space."
+    },
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "For A = [[1,2],[2,4]] and b = (3,6), find one solution of Ax = b and describe all of them.",
+      "answer": "x = (3,0) works, and so does every x = (3 - 2t, t).",
+      "why": "b is exactly 3 times the first column, and the second column is twice the first, so the reachable directions are one-dimensional while there are two unknowns."
+    }
+  ],
+  "trap": {
+    "what": "Assuming that a solution exists because the system was written down, or reading the row picture as if two lines must always meet.",
+    "why": "Writing Ax = b says nothing about whether b is reachable. Parallel lines are a perfectly ordinary system with no solution, and the algebra of the same fact is rank(A) below rank([A|b]).",
+    "counterexample": "x + y = 1 and x + y = 3 are two parallel lines; A = [[1,1],[1,1]] has rank 1, [A|b] = [[1,1,1],[1,1,3]] has rank 2, and no point satisfies both."
+  },
+  "check": {
+    "question": "A is 2 x 2 with columns (1,2) and (2,4). Is Ax = (1,0) solvable?",
+    "answer": "No.",
+    "explanation": "The second column is twice the first, so the column space is the line through (1,2). The vector (1,0) is not on that line, so b is unreachable; equivalently rank(A) = 1 while rank([A|b]) = 2."
+  },
+  "pyqIds": [
+    "gate-1996-1-7-false-statement-systems",
+    "gate-2017-set1-3-dependent-columns-infinite"
+  ],
+  "prereqs": [
+    "rank-and-its-bounds",
+    "matrix-multiplication-and-noncommutativity"
+  ],
+  "videoRefs": [],
+  "sources": [
+    {
+      "kind": "text",
+      "title": "Linear Algebra (Gilbert Strang) Notes, Lecture 1 to 10",
+      "channel": "GATE Overflow blog",
+      "url": "https://gateoverflow.in/blog/18190/linear-algebra-gilbert-strang-notes-lecture-1-10",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "the 'Solving Systems of Linear Equations' section gives the row picture, the column picture and the reachability condition; read in part"
+    },
+    {
+      "kind": "text",
+      "title": "Matrices and Determinants: Consistency and Solution of Simultaneous Linear Equations (Lecture 04)",
+      "channel": "SATHEE, IIT Kanpur",
+      "url": "https://sathee.iitk.ac.in/ncert-books/udaan/udaan-math-12/matrics-and-determinats/math-12-matrics-and-determinats-4/",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "the rank criterion r = s and the plane-intersection table; read in part"
+    }
+  ],
+  "sourceLine": "GATE Overflow blog, 'Linear Algebra (Gilbert Strang) Notes, Lecture 1 to 10' (English, read in part) for the row picture, the column picture and the reachability condition. SATHEE, IIT Kanpur, 'Consistency and Solution of Simultaneous Linear Equations' (English, read in part) for the rank criterion. Both pictures and the worked solution are recomputed in scripts/validate.py."
+}

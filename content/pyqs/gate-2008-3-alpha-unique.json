@@ -1,0 +1,21 @@
+{
+  "id": "gate-2008-3-alpha-unique",
+  "year": "2008",
+  "paper": "GATE CS 2008",
+  "question_ref": "Q.3",
+  "type": "MCQ",
+  "topic": "parameter-dependent-systems",
+  "text": "The following system of equations x1 + x2 + 2x3 = 1; x1 + 2x2 + 3x3 = 2; x1 + 4x2 + alpha x3 = 4 has a unique solution. The only possible value(s) for alpha is/are",
+  "options": [
+    "0",
+    "either 0 or 1",
+    "one of 0, 1 or -1",
+    "any real number"
+  ],
+  "answer": "alpha can be any real number except 5. The printed options contain no correct entry; the intended answer is (D), and the key point is that alpha = 5 is excluded.",
+  "solution": "The coefficient determinant is alpha - 5. Row reduction confirms it: R2 <- R2 - R1 and R3 <- R3 - R1 give rows (0,1,1 | 1) and (0,3,alpha-2 | 3), and then R3 <- R3 - 3R2 gives (0,0,alpha-5 | 0). At alpha = 5 the last row is (0,0,0 | 0), rank(A) = rank([A|b]) = 2 < 3, so the system has infinitely many solutions rather than a unique one. Every other real alpha gives three pivots and a unique solution. The question as printed is therefore defective: GATE Overflow and the IIT Delhi worked solution both record that no printed option states 'any real number other than 5'.",
+  "source_url": "https://gateoverflow.in/401/gate-cse-2008-question-3",
+  "source_label": "GATE Overflow question page - GATE CSE 2008 Q.3, with the row reduction and the note that no printed option is correct",
+  "verification": "SOURCED",
+  "answer_evidence": "Accepted answer: 'if alpha = 5 then there'll be a free variable ... So alpha != 5 will always give a unique solution', and the IIT Delhi solution for GATE 2008 Q.3 concludes 'alpha can be any real number except 5. So none of the options is correct'."
+}

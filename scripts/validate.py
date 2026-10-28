@@ -365,6 +365,11 @@ MATH = [
     ("truth functions of 2 variables", 2 ** (2 ** 2), 16),
     ("truth functions of 3 variables", 2 ** (2 ** 3), 256),
     ("minterms of 3 variables", 2 ** 3, 8),
+    # system of linear equations
+    ("2005 Q.48 coefficient determinant", 2 * (2 * 1 - 5 * 4) + 1 * (3 * 1 - 5 * (-1)) + 3 * (3 * 4 - 2 * (-1)), 14),
+    ("2014 Set 1 Q.52 minor determinant", 3 * (1 * 7 - 1 * (-2)) - 2 * (1 * 7 - 1 * 1), 15),
+    ("2026 Set 2 Q.31 product ab", 4 * 6, 24),
+    ("2025 Set 1 Q.13 critical values of k", len([k for k in range(-6, 7) if 1 - k * k == 0]), 2),
 ]
 
 
@@ -3138,6 +3143,466 @@ def check_matrices_and_determinants():
        "and the equivalence of determinant zero, rank below n and non-invertibility on every 2x2 matrix")
 
 
+def check_system_of_linear_equations():
+    """Every determinant, rank, verdict and solution published in the System of Linear Equations topic."""
+    from fractions import Fraction
+
+    def mat(A):
+        return [[Fraction(x) for x in row] for row in A]
+
+    def vec(v):
+        return [Fraction(x) for x in v]
+
+    def aug(A, b):
+        return [row + [b[i]] for i, row in enumerate(mat(A))]
+
+    def rank(M):
+        R = [row[:] for row in M]
+        if not R:
+            return 0
+        rows, cols, r = len(R), len(R[0]), 0
+        for c in range(cols):
+            piv = next((i for i in range(r, rows) if R[i][c] != 0), None)
+            if piv is None:
+                continue
+            R[r], R[piv] = R[piv], R[r]
+            for i in range(rows):
+                if i != r and R[i][c] != 0:
+                    f = R[i][c] / R[r][c]
+                    R[i] = [R[i][j] - f * R[r][j] for j in range(cols)]
+            r += 1
+            if r == rows:
+                break
+        return r
+
+    def det(A):
+        M = mat(A)
+        n = len(M)
+        d = Fraction(1)
+        for c in range(n):
+            piv = next((i for i in range(c, n) if M[i][c] != 0), None)
+            if piv is None:
+                return Fraction(0)
+            if piv != c:
+                M[c], M[piv] = M[piv], M[c]
+                d = -d
+            d *= M[c][c]
+            for i in range(c + 1, n):
+                if M[i][c] != 0:
+                    f = M[i][c] / M[c][c]
+                    M[i] = [M[i][j] - f * M[c][j] for j in range(n)]
+        return d
+
+    def solve(A, b):
+        """Unique solution of a square consistent system, or None."""
+        n = len(A)
+        if det(A) == 0:
+            return None
+        M = aug(A, b)
+        for c in range(n):
+            piv = next(i for i in range(c, n) if M[i][c] != 0)
+            M[c], M[piv] = M[piv], M[c]
+            for i in range(n):
+                if i != c and M[i][c] != 0:
+                    f = M[i][c] / M[c][c]
+                    M[i] = [M[i][j] - f * M[c][j] for j in range(n + 1)]
+        return [M[i][n] / M[i][i] for i in range(n)]
+
+    def verdict(A, b):
+        rA, rAug = rank(mat(A)), rank(aug(A, b))
+        n = len(mat(A)[0])
+        if rA != rAug:
+            return "none"
+        return "unique" if rA == n else "infinite"
+
+    def solutions(A, b):
+        """Number of solutions for a 2x2 integer system: 0, 1, or 'inf'."""
+        v = verdict(A, b)
+        return {"none": 0, "unique": 1, "infinite": "inf"}[v]
+
+    def mats(r, c, vals):
+        for flat in itertools.product(vals, repeat=r * c):
+            yield [list(flat[i * c:(i + 1) * c]) for i in range(r)]
+
+    def vecs(r, vals):
+        for flat in itertools.product(vals, repeat=r):
+            yield list(flat)
+
+    # --- the lesson's six systems, read back from lesson.json
+    lesson_path = os.path.join(ROOT, "visuals", "linear-algebra", "system-of-linear-equations",
+                               "row-and-column-picture", "lesson.json")
+    L = load(lesson_path)
+    if L.get("steps") != len(L.get("example", {}).get("systems", [])) + 1:
+        fail("lesson row-and-column-picture: steps must be the six systems plus the summary step")
+    for S in L["example"]["systems"]:
+        A, b = S["A"], S["b"]
+        d, rA, rAug, v = det(A), rank(mat(A)), rank(aug(A, b)), verdict(A, b)
+        if d != S["det"]:
+            fail("lesson %s: det claimed %r, computed %r" % (S["name"], S["det"], d))
+        if rA != S["rank_A"] or rAug != S["rank_aug"]:
+            fail("lesson %s: ranks claimed %r/%r, computed %r/%r"
+                 % (S["name"], S["rank_A"], S["rank_aug"], rA, rAug))
+        if v != S["verdict"]:
+            fail("lesson %s: verdict claimed %r, computed %r" % (S["name"], S["verdict"], v))
+        sol = solve(A, b) if v == "unique" else None
+        if "solution" in S:
+            if sol is None or [Fraction(x) for x in S["solution"]] != sol:
+                fail("lesson %s: claimed solution %r, computed %r" % (S["name"], S["solution"], sol))
+        elif sol is not None:
+            fail("lesson %s: a solution exists but none is claimed" % S["name"])
+    if len(L["example"]["rules"]) != 4:
+        fail("lesson row-and-column-picture: expected the four decision rules")
+    ok("System of linear equations lesson: six systems with determinant, rank pair, verdict and solution "
+       "recomputed, plus the summary step")
+
+    # --- card 1 and card 7 examples
+    if solutions([[1, 2], [2, 4]], [3, 6]) != "inf":
+        fail("math: [[1,2],[2,4]] with b = (3,6) must have infinitely many solutions")
+    for t in (0, 1, -3):
+        x = [3 - 2 * t, t]
+        if [1 * x[0] + 2 * x[1], 2 * x[0] + 4 * x[1]] != [3, 6]:
+            fail("math: (3 - 2t, t) must solve [[1,2],[2,4]] x = (3,6)")
+    if solutions([[1, 2], [2, 4]], [1, 0]) != 0:
+        fail("math: [[1,2],[2,4]] x = (1,0) must have no solution")
+    if solutions([[1, 1], [1, 1]], [1, 3]) != 0:
+        fail("math: the parallel-lines counterexample must have no solution")
+    if rank([[1, 1, 1], [1, 1, 3]]) != 2 or rank([[1, 1], [1, 1]]) != 1:
+        fail("math: the parallel-lines counterexample ranks are wrong")
+
+    # --- card 2 and GATE 1998 Q.1.2
+    A98 = [[1, 2, 0], [4, 8, 0], [3, 6, 3]]
+    b98 = [5, 12, 15]
+    if rank(mat(A98)) != 2 or rank(aug(A98, b98)) != 3:
+        fail("math: GATE CSE 1998 Q.1.2 must give rank(A) = 2 and rank([A|b]) = 3")
+    if verdict(A98, b98) != "none":
+        fail("math: GATE CSE 1998 Q.1.2 must have no solution")
+    if rank([[1, 0], [0, 1], [1, 1]]) != 2 or rank([[1, 0, 1], [0, 1, 1], [1, 1, 2]]) != 2:
+        fail("math: the 3 x 2 example must have equal ranks of 2")
+    if solve([[1, 0], [0, 1]], [1, 1]) != [Fraction(1), Fraction(1)]:
+        fail("math: the 3 x 2 example's unique solution should be (1,1)")
+    if verdict([[1, 0], [0, 1], [1, 1]], [1, 1, 2]) != "unique":
+        fail("math: the 3 x 2 example must be consistent with one solution")
+
+    # --- card 3 and GATE 2005 Q.48
+    A05 = [[2, -1, 3], [3, 2, 5], [-1, 4, 1]]
+    if det(A05) != 14:
+        fail("math: GATE CSE 2005 Q.48 must have determinant 14, got %s" % det(A05))
+    if verdict(A05, [1, 2, 3]) != "unique":
+        fail("math: GATE CSE 2005 Q.48 must have a unique solution")
+    if det([[1, 1], [2, 2]]) != 0:
+        fail("math: [[1,1],[2,2]] must have determinant 0")
+    if solutions([[1, 1], [2, 2]], [1, 2]) != "inf" or solutions([[1, 1], [2, 2]], [1, 3]) != 0:
+        fail("math: the singular-matrix counterexample pair is wrong")
+
+    # --- card 4: the one-parameter family
+    for t in (0, 1, -2, Fraction(7, 3)):
+        x, y, z = (3 - t) / 2, (3 - t) / 2, t
+        if x + y + z != 3 or x - y != 0:
+            fail("math: ((3-t)/2, (3-t)/2, t) must solve x + y + z = 3 and x - y = 0")
+    if rank([[1, 1, 1], [1, -1, 0]]) != 2:
+        fail("math: x + y + z = 3 and x - y = 0 must have rank 2")
+    for A in mats(2, 3, [0, 1, -1]):
+        r = rank(mat(A))
+        if r > min(2, 3) or r < 0:
+            fail("math: rank out of bounds")
+        nullity = 3 - r
+        if nullity < 0:
+            fail("math: nullity must be non-negative")
+    for A in mats(2, 2, [0, 1, -1, 2]):
+        r = rank(mat(A))
+        has_nontrivial = False
+        for x in itertools.product([-2, -1, 0, 1, 2], repeat=2):
+            if x == (0, 0):
+                continue
+            if all(sum(A[i][j] * x[j] for j in range(2)) == 0 for i in range(2)):
+                has_nontrivial = True
+                break
+        if has_nontrivial != (r < 2):
+            fail("math: a 2x2 system has a non-trivial homogeneous solution iff rank < 2")
+        if (det(A) == 0) != (r < 2):
+            fail("math: det 0 and rank < n must agree for a 2x2 matrix")
+
+    # --- card 5 and GATE 2015 Set 3 Q.33
+    def det33(p, q, r):
+        return 3 * p * q * r - p ** 3 - q ** 3 - r ** 3
+
+    def option_c(p, q, r):
+        return (p + q + r == 0) or (p == q == r)
+
+    def option_a(p, q, r):
+        return (p - q + r == 0) or (p == q == -r)
+
+    def option_b(p, q, r):
+        return (p + q - r == 0) or (p == -q == r)
+
+    def option_d(p, q, r):
+        return (p - q + r == 0) or (p == -q == -r)
+
+    for p in range(-3, 4):
+        for q in range(-3, 4):
+            for r in range(-3, 4):
+                z = det33(p, q, r)
+                if (z == 0) != option_c(p, q, r):
+                    fail("math: GATE CSE 2015 Set 3 Q.33: det = 0 must be equivalent to option C "
+                         "at (p,q,r) = (%d,%d,%d)" % (p, q, r))
+                if z == 0:
+                    if not option_c(p, q, r):
+                        fail("math: the correct option must hold whenever the determinant vanishes")
+                if option_c(p, q, r):
+                    if (p, q, r) not in [(0, 0, 0)] and det([[p, q, r], [q, r, p], [r, p, q]]) != 0:
+                        fail("math: the 2015 Q.33 determinant must vanish when option C holds")
+    # options A, B and D are not equivalent: exhibit a witness for each
+    for name, fn in (("A", option_a), ("B", option_b), ("D", option_d)):
+        witness = None
+        for p in range(-3, 4):
+            for q in range(-3, 4):
+                for r in range(-3, 4):
+                    if (det33(p, q, r) == 0) != fn(p, q, r):
+                        witness = (p, q, r)
+                        break
+                if witness:
+                    break
+            if witness:
+                break
+        if witness is None:
+            fail("math: option %s of GATE CSE 2015 Set 3 Q.33 was not separated from the truth" % name)
+    if det33(1, 1, 1) != 0 or det33(1, -1, 0) != 0:
+        fail("math: p = q = r and p + q + r = 0 must both make the 2015 Q.33 determinant vanish")
+    if det33(1, 2, 3) == 0:
+        fail("math: p = 1, q = 2, r = 3 must not make the 2015 Q.33 determinant vanish")
+    if solutions([[1, 1], [1, 1]], [1, 2]) != 0:
+        fail("math: the homogeneous counterexample pair is wrong")
+    if [1 * 1 + 1 * (-1), 1 * 1 + 1 * (-1)] != [0, 0]:
+        fail("math: (1,-1) must be a null vector of [[1,1],[1,1]]")
+    if rank([[1, 0, 0], [0, 1, 0], [0, 0, 1], [0, 0, 0]]) != 3:
+        fail("math: a 4 x 3 matrix with full column rank must have rank 3")
+
+    # --- card 6: elimination reading
+    if rank([[1, 1, 3], [0, -2, -2]]) != 2:
+        fail("math: the elimination example must end with two pivots")
+    if solve([[1, 1], [1, -1]], [3, 1]) != [Fraction(2), Fraction(1)]:
+        fail("math: x + y = 3, x - y = 1 must solve to (2,1)")
+    if rank([[0, 0, 0, 5]]) != 1:
+        fail("math: a row (0 0 0 | 5) carries a pivot in the augmented column")
+
+    # --- card 7 and the parameter questions
+    for a in (-4, 4):
+        bb = 24 // a
+        A = [[a, 1], [16, a]]
+        if det(A) != 0:
+            fail("math: a = %d must make the GATE CSE 2026 determinant vanish" % a)
+        if verdict(A, [bb, 24]) != "infinite":
+            fail("math: a = %d with b = %d must give infinitely many solutions" % (a, bb))
+        if a * bb != 24:
+            fail("math: the product ab in GATE CSE 2026 Set 2 Q.31 must be 24")
+    if verdict([[4, 1], [16, 4]], [7, 24]) != "none":
+        fail("math: a = 4 with b = 7 must give no solution")
+    if det([[0, 1], [16, 0]]) != -16:
+        fail("math: a = 0 must leave the determinant non-zero")
+    if verdict([[0, 1], [16, 0]], [6, 24]) != "unique":
+        fail("math: a = 0 must give a unique solution")
+    if det([[1, 1], [2, 2]]) != 0:
+        fail("math: the k-system sanity check failed")
+    # GATE 2025 Set 1 Q.13
+    no_sol, inf_sol, uniq = [], [], []
+    for k in range(-6, 7):
+        A = [[1, k], [k, 1]]
+        d = det(A)
+        if d != 1 - k * k:
+            fail("math: the GATE CSE 2025 Q.13 determinant must be 1 - k^2")
+        v = verdict(A, [1, -1])
+        if v == "none":
+            no_sol.append(k)
+        elif v == "infinite":
+            inf_sol.append(k)
+        else:
+            uniq.append(k)
+    if no_sol != [1]:
+        fail("math: GATE CSE 2025 Set 1 Q.13 must have exactly one k with no solution, got %s" % no_sol)
+    if inf_sol != [-1]:
+        fail("math: GATE CSE 2025 Set 1 Q.13 must have exactly one k with infinitely many, got %s"
+             % inf_sol)
+    if len(uniq) < 5:
+        fail("math: GATE CSE 2025 Set 1 Q.13 must have many k with a unique solution")
+    if solutions([[1, 1], [1, 1]], [1, -1]) != 0:
+        fail("math: k = 1 must give parallel distinct lines")
+    if solutions([[1, -1], [-1, 1]], [1, -1]) != "inf":
+        fail("math: k = -1 must give the same line twice")
+    # GATE 2008 Q.3
+    for alpha in range(-4, 9):
+        A = [[1, 1, 2], [1, 2, 3], [1, 4, alpha]]
+        if det(A) != alpha - 5:
+            fail("math: the GATE CSE 2008 Q.3 determinant must be alpha - 5")
+        v = verdict(A, [1, 2, 4])
+        if alpha == 5:
+            if v != "infinite":
+                fail("math: alpha = 5 must give infinitely many solutions in GATE CSE 2008 Q.3")
+        elif v != "unique":
+            fail("math: every alpha other than 5 must give a unique solution in GATE CSE 2008 Q.3")
+
+    # --- card 8 and GATE 2016 Set 2 Q.04
+    if solutions([[1, 1, 1], [1, 1, 1]], [1, 2]) != 0:
+        fail("math: the m < n counterexample of GATE CSE 2016 Set 2 Q.04 must have no solution")
+    if rank([[1, 1], [2, 2], [1, -1]]) != 2 or rank([[1, 1, 1], [2, 2, 2], [1, -1, 0]]) != 2:
+        fail("math: the m > n counterexample of GATE CSE 2016 Set 2 Q.04 must have rank 2")
+    if [Fraction(1, 2), Fraction(1, 2)] != solve([[1, 1], [1, -1]], [1, 0]):
+        fail("math: the m > n counterexample must be solved by x = y = 1/2")
+    if verdict([[1, 1], [2, 2], [1, -1]], [1, 2, 0]) != "unique":
+        fail("math: the m > n counterexample of GATE CSE 2016 Set 2 Q.04 must be consistent")
+    if verdict([[1]], [0]) != "unique":
+        fail("math: the m = n = 1 example of GATE CSE 2016 Set 2 Q.04 must have a solution")
+    # the rank(A) = m corollary, over every small full-row-rank matrix and every b in range
+    seen_full_row = 0
+    for A in mats(2, 3, [0, 1, -1]):
+        if rank(mat(A)) == 2:
+            seen_full_row += 1
+            for b in vecs(2, [-1, 0, 1, 2]):
+                if verdict(A, b) == "none":
+                    fail("math: rank(A) = m must make every b reachable")
+    if seen_full_row == 0:
+        fail("math: no 2 x 3 matrix of full row rank was found, so the corollary was not tested")
+
+    # --- card 9: Cramer's rule
+    A = [[2, -1, 3], [3, 2, 5], [-1, 4, 1]]
+    b = [1, 2, 3]
+    x = solve(A, b)
+    d = det(A)
+    for i in range(3):
+        Ai = [[b[row] if col == i else A[row][col] for col in range(3)] for row in range(3)]
+        if det(Ai) / d != x[i]:
+            fail("math: Cramer's rule disagrees with elimination on the 3 x 3 example")
+    if solve([[1, 1], [1, -1]], [3, 1]) != [Fraction(2), Fraction(1)]:
+        fail("math: the Cramer worked example is wrong")
+    if det([[3, 1], [1, -1]]) != -4 or det([[1, 3], [1, 1]]) != -2 or det([[1, 1], [1, -1]]) != -2:
+        fail("math: the Cramer numerator and denominator determinants are wrong")
+
+    # --- card 10: the three-unknown arrangements
+    if verdict([[1, 1, 1], [1, -1, 1], [2, 0, 2]], [1, 1, 3]) != "none":
+        fail("math: the prism example must have no solution")
+    if rank([[1, 1, 1], [1, -1, 1], [2, 0, 2]]) != 2:
+        fail("math: the prism example must have rank(A) = 2")
+    if rank([[1, 1, 1, 1], [1, -1, 1, 1], [2, 0, 2, 3]]) != 3:
+        fail("math: the prism example must have rank([A|b]) = 3")
+    for pair in ((0, 1), (0, 2), (1, 2)):
+        rows = [[1, 1, 1], [1, -1, 1], [2, 0, 2]]
+        rhs = [1, 1, 3]
+        Ap = [rows[pair[0]], rows[pair[1]]]
+        bp = [rhs[pair[0]], rhs[pair[1]]]
+        if verdict(Ap, bp) == "none":
+            fail("math: every pair of planes in the prism example must meet")
+    if verdict([[1, 1], [2, 2]], [1, 2]) != "infinite":
+        fail("math: the coincident-lines example must have infinitely many solutions")
+
+    # --- card 11 and GATE 2003 Q.41
+    A03 = [[2, 1, -4], [4, 3, -12], [1, 2, -8]]
+    if det(A03) != 0 or rank(mat(A03)) != 2:
+        fail("math: GATE CSE 2003 Q.41 must have a singular coefficient matrix of rank 2")
+    if [A03[0][2], A03[1][2], A03[2][2]] != [-4 * A03[i][1] for i in range(3)]:
+        fail("math: the third column of the 2003 matrix must be -4 times the second")
+    good = []
+    for alpha in [Fraction(k, 5) for k in range(-15, 16)] + [Fraction(1, 5), Fraction(-4, 3)]:
+        if verdict(A03, [alpha, 5, 7]) == "infinite":
+            good.append(alpha)
+    if set(good) != {Fraction(1, 5)}:
+        fail("math: GATE CSE 2003 Q.41 must have exactly one alpha with infinitely many solutions, "
+             "got %s" % sorted(set(good)))
+    # the direct span route: b = s c1 + t c2
+    s, t = Fraction(-11, 5), Fraction(23, 5)
+    for i in range(3):
+        if s * A03[i][0] + t * A03[i][1] != [Fraction(1, 5), Fraction(5), Fraction(7)][i]:
+            fail("math: the span route to alpha = 1/5 in GATE CSE 2003 Q.41 is wrong")
+    if verdict(A03, [0, 5, 7]) != "none":
+        fail("math: alpha = 0 must give no solution in GATE CSE 2003 Q.41")
+    if verdict([[1, 0], [0, 0]], [1, 1]) != "none" or verdict([[1, 0], [0, 0]], [1, 0]) != "infinite":
+        fail("math: the GATE CSE 1996 Q.1.7 counterexamples are wrong")
+    if verdict([[1, 0, 0], [0, 1, 0]], [0, 0]) != "infinite":
+        fail("math: m < n with b = 0 must give infinitely many solutions (GATE CSE 1996 Q.1.7 B)")
+    if verdict([[1, 0], [0, 1]], [0, 0]) != "unique":
+        fail("math: rank(A) = n with b = 0 must give only the trivial solution (GATE 1996 Q.1.7 D)")
+
+    # --- card 11 and GATE 2017 Set 1 Q.3
+    A17 = [[1, 2, 3], [2, 4, 6], [1, 1, 2]]
+    c = [1, 1, -1]
+    if any(sum(c[i] * A17[j][i] for i in range(3)) != 0 for j in range(3)):
+        fail("math: the GATE CSE 2017 Q.3 example needs a non-zero null vector")
+    if det(A17) != 0:
+        fail("math: the GATE CSE 2017 Q.3 example must be singular")
+    b17 = [sum(A17[j][i] for i in range(3)) for j in range(3)]
+    if verdict(A17, b17) != "infinite":
+        fail("math: GATE CSE 2017 Set 1 Q.3 must have infinitely many solutions")
+    if [sum(A17[j][i] for i in range(3)) for j in range(3)] != b17:
+        fail("math: the all-ones vector must reproduce b in GATE CSE 2017 Q.3")
+
+    # --- card 5 and GATE 2024 Set 1 Q.39
+    for n in (1, 2, 3):
+        for m in range(n + 1, n + 4):
+            for A in itertools.islice(mats(n, m, [0, 1]), 60):
+                if m - rank(mat(A)) < m - n:
+                    fail("math: the nullity of an n x m matrix must be at least m - n")
+    Ac = [[1, 0, 0, 1], [0, 1, 0, 2], [0, 0, 1, 3]]
+    xc = [-1, -2, -3, 1]
+    if any(sum(Ac[i][j] * xc[j] for j in range(4)) != 0 for i in range(3)):
+        fail("math: the option-C counterexample of GATE CSE 2024 Q.39 must solve Ax = 0")
+    if 0 in xc:
+        fail("math: the option-C counterexample must have no zero variable")
+    Ad = [[1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 1, 3]]
+    xd = [0, 0, -3, 1]
+    if any(sum(Ad[i][j] * xd[j] for j in range(4)) != 0 for i in range(3)):
+        fail("math: the option-D counterexample of GATE CSE 2024 Q.39 must solve Ax = 0")
+    if sum(1 for v in xd if v != 0) != 2:
+        fail("math: the option-D counterexample must have exactly two non-zero variables")
+    if rank(mat(Ad)) != 3:
+        fail("math: the option-D counterexample must have rank 3")
+
+    # --- GATE 2014 Set 1 Q.52
+    A14 = [[3, 2, 0], [4, 0, 7], [1, 1, 1], [1, -2, 7]]
+    b14 = [1, 1, 3, 0]
+    minor = [[3, 2, 0], [1, 1, 1], [1, -2, 7]]
+    if det(minor) != 15:
+        fail("math: the 3 x 3 minor in GATE CSE 2014 Set 1 Q.52 must have determinant 15")
+    if rank(mat(A14)) != 3 or rank(aug(A14, b14)) != 3:
+        fail("math: GATE CSE 2014 Set 1 Q.52 must have both ranks equal to 3")
+    sol14 = [Fraction(-11, 5), Fraction(19, 5), Fraction(7, 5)]
+    for i in range(4):
+        if sum(A14[i][j] * sol14[j] for j in range(3)) != b14[i]:
+            fail("math: the GATE CSE 2014 Set 1 Q.52 solution does not satisfy every equation")
+    if solve([[3, 2, 0], [4, 0, 7], [1, 1, 1]], [1, 1, 3]) != sol14:
+        fail("math: solving GATE CSE 2014 Set 1 Q.52 by elimination must give (-11/5, 19/5, 7/5)")
+
+    # --- general theory, exhaustive on small systems
+    for A in mats(2, 2, [-1, 0, 1, 2]):
+        for b in vecs(2, [-1, 0, 1, 2]):
+            v = verdict(A, b)
+            if v == "unique":
+                x = solve(A, b)
+                if x is None or any(sum(A[i][j] * x[j] for j in range(2)) != b[i] for i in range(2)):
+                    fail("math: a system reported unique has no valid solution")
+            if v == "none" and rank(mat(A)) == rank(aug(A, b)):
+                fail("math: an inconsistent system must have unequal ranks")
+            if v == "infinite":
+                if det(A) != 0:
+                    fail("math: infinitely many solutions require a singular 2x2 matrix")
+                if det(A) == 0 and rank(mat(A)) < 2:
+                    # a null vector must exist, so two solutions can be built
+                    null = None
+                    for x in itertools.product([-2, -1, 0, 1, 2], repeat=2):
+                        if x != (0, 0) and all(sum(A[i][j] * x[j] for j in range(2)) == 0
+                                               for i in range(2)):
+                            null = x
+                            break
+                    if null is None:
+                        fail("math: a consistent singular system must have a non-zero null vector")
+    if rank([[1, 2], [2, 4]]) != 1:
+        fail("math: proportional rows must give rank 1")
+
+    ok("System of linear equations: the six lesson systems with determinants, rank pairs, verdicts and "
+       "solutions; the 1998, 2003, 2005, 2008, 2014, 2015, 2016, 2017, 2024, 2025 and 2026 questions "
+       "recomputed from their own matrices; the nullity count and the non-trivial-solution test over every "
+       "small 2x2 and 2x3 matrix; the rank(A) = m corollary over every full-row-rank 2x3 matrix and every "
+       "small b; Cramer's rule against elimination on a 3x3 system; the prism, parallel and coincident "
+       "arrangements; and the two-solutions-imply-infinitely-many claim")
+
+
 def main():
     topics, tpath, pyqs, videos, playlists, sources = load_all()
     check_topics(topics, tpath, pyqs, videos)
@@ -3155,6 +3620,7 @@ def main():
     check_monoids_and_groups()
     check_graphs()
     check_matrices_and_determinants()
+    check_system_of_linear_equations()
     check_visuals()
     check_hygiene()
     for c in checks:

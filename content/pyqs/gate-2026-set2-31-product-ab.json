@@ -1,0 +1,15 @@
+{
+  "id": "gate-2026-set2-31-product-ab",
+  "year": "2026",
+  "paper": "GATE CS 2026 Set 2",
+  "question_ref": "Q.31",
+  "type": "NAT",
+  "topic": "parameter-dependent-systems",
+  "text": "Consider the system of linear equations given below: ax + y = b; 16x + ay = 24. Suppose the values of a and b are chosen such that the system of linear equations produce multiple solutions. Then the product of a and b is ____. (answer in integer)",
+  "answer": "24",
+  "solution": "Multiple solutions for a 2 x 2 system require the coefficient rows to be dependent, so the determinant a^2 - 16 must vanish, giving a = 4 or a = -4. The constants must be proportional in the same ratio: with a = 4 the second row is 4 times the first, so 4b = 24 and b = 6; with a = -4 the second row is -4 times the first, so -4b = 24 and b = -6. In both cases ab = 24. Note that a = 0 is not a candidate, since then the determinant is -16 and the solution is unique. scripts/validate.py checks both cases and the product.",
+  "source_url": "https://gateoverflow.in/523125/gate-cse-2026-set-2-question-21",
+  "source_label": "GATE Overflow question page (which numbers this question Q.21) for GATE CSE 2026 Set 2, with the accepted answer 24; the official paper at gate2026.iitg.ac.in/doc/download/2026/QPs/CS2.pdf prints the same text as Q.31",
+  "verification": "SOURCED",
+  "answer_evidence": "Accepted answer: 'a^2 = 16 => a = +-4 ... b = 24/a => b = +-6. Hence a*b = 24', and the official GATE 2026 CS2 paper at IIT Guwahati prints the question as Q.31 with the same wording. The official answer key was not fetched, so the label stays SOURCED rather than OFFICIAL_KEY."
+}

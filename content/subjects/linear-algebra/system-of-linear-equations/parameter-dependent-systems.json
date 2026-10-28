@@ -1,0 +1,79 @@
+{
+  "id": "parameter-dependent-systems",
+  "title": "Parameter-Dependent Systems: Finding k, a or b",
+  "priority": "P1",
+  "order": 127,
+  "unit": "Solving a system",
+  "quickIdea": "A parameter makes the determinant a function. Set it to zero to find the critical values, then substitute each one back and compare the ranks, because at a critical value the system may be inconsistent or may have infinitely many solutions.",
+  "remember": [
+    "For a square system, compute |A| as a function of the parameter. Where |A| is not 0 the solution is unique.",
+    "At each value where |A| = 0, substitute that value into [A|b] and compare ranks. rank([A|b]) = rank(A) gives infinitely many solutions; rank([A|b]) = rank(A) + 1 gives none.",
+    "For two equations in two unknowns the fast test is proportionality: infinitely many solutions need a1/a2 = b1/b2 = c1/c2, no solution needs a1/a2 = b1/b2 but c1/c2 different, and a unique solution needs a1/a2 different from b1/b2.",
+    "A question that fixes the number of solutions is a question about a determinant equation plus a consistency check; doing only the first half is the standard error.",
+    "When the parameter multiplies an unknown, check the case where it makes a leading coefficient zero separately; that case can change the rank in a way the determinant does not show."
+  ],
+  "example": {
+    "prompt": "For which a and b does ax + y = b, 16x + ay = 24 have multiple solutions, and what is ab?",
+    "work": "The determinant is a^2 - 16, so multiple solutions require a = 4 or a = -4. With a = 4 the system is 4x + y = b and 16x + 4y = 24; the second row is 4 times the first, so consistency needs 4b = 24, that is b = 6. With a = -4 the second row is -4 times the first, so consistency needs -4b = 24, that is b = -6. In both cases ab = 24.",
+    "answer": "ab = 24. This is GATE CSE 2026 Set 2 Q.31, whose official answer is 24."
+  },
+  "gateAngle": "This is the most frequent shape in the topic: GATE CSE 2026 Set 2 Q.31 asks for the product ab, GATE CSE 2025 Set 1 Q.13 asks which statements about k are true for x + ky = 1, kx + y = -1, and GATE CSE 2008 Q.3 asks for the values of alpha that keep the system uniquely solvable.",
+  "variations": [
+    {
+      "label": "VERIFIED PYQ",
+      "question": "For the system x + ky = 1, kx + y = -1, which statements are true: (A) exactly one k gives no solution, (B) infinitely many k give no solution, (C) exactly one k gives exactly one solution, (D) exactly one k gives infinitely many solutions?",
+      "answer": "A and D. k = 1 gives no solution, k = -1 gives infinitely many, and every other k gives a unique solution.",
+      "why": "The determinant is 1 - k^2, so only k = 1 and k = -1 are critical, and the two behave differently. This is GATE CSE 2025 Set 1 Q.13."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "For which k does x + y = 2, 2x + 2y = k have infinitely many solutions?",
+      "answer": "k = 4, and only k = 4.",
+      "why": "Proportionality requires 1/2 = 1/2 = 2/k, so k = 4; for any other k the two lines are parallel and distinct."
+    }
+  ],
+  "trap": {
+    "what": "Stopping once the determinant is zero and declaring infinitely many solutions.",
+    "why": "A zero determinant is a necessary condition for multiple solutions, not a sufficient one. The right-hand side has to be proportional to the coefficient rows as well.",
+    "counterexample": "In GATE CSE 2026 Set 2 Q.31, a = 4 with b = 7 still has determinant 0 but the two equations are 4x + y = 7 and 16x + 4y = 24, that is 16x + 4y = 28 and 16x + 4y = 24, which are parallel and distinct: no solution."
+  },
+  "check": {
+    "question": "For which k does x + ky = 1, kx + y = -1 have no solution?",
+    "answer": "k = 1 only.",
+    "explanation": "At k = 1 the equations become x + y = 1 and x + y = -1, parallel and distinct. At k = -1 they become x - y = 1 and -x + y = -1, the same line twice, so there are infinitely many solutions."
+  },
+  "pyqIds": [
+    "gate-2026-set2-31-product-ab",
+    "gate-2025-set1-13-k-system",
+    "gate-2008-3-alpha-unique",
+    "gate-2003-41-alpha-one-value"
+  ],
+  "prereqs": [
+    "square-systems-determinant-test",
+    "consistency-by-rank"
+  ],
+  "videoRefs": [],
+  "sources": [
+    {
+      "kind": "text",
+      "title": "Linear Algebra Important Points",
+      "channel": "GATE Overflow blog",
+      "url": "https://gateoverflow.in/blog/8877/linear-algebra-important-points",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "the consistent and inconsistent branches with the parameter conditions; read in part"
+    },
+    {
+      "kind": "text",
+      "title": "Notes on linear systems: raikhik samikaran nikay (Hindi)",
+      "channel": "CareerCraft Labs, JEE mathematics notes in Hindi",
+      "url": "https://careercraftlabs.org/hi/read/jee-math-ch03",
+      "language": "hi",
+      "transcript": "PARTIAL",
+      "translated": true,
+      "note": "the three-case table in terms of the main determinant and the numerator determinants, and the warning that a zero main determinant alone does not mean infinitely many solutions; read in part; translated from Hindi into English"
+    }
+  ],
+  "sourceLine": "GATE Overflow blog, 'Linear Algebra Important Points' (English, read in part) for the parameter branches. CareerCraft Labs Hindi notes (Hindi, translated, read in part) for the three-case table and the zero-determinant warning. Every parameter value, product and rank in this card is recomputed in scripts/validate.py."
+}

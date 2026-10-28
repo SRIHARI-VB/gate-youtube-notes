@@ -1,5 +1,162 @@
 # Run report
 
+## Run 5 - System of Linear Equations
+
+### The topic, and why it was next
+
+**Linear Algebra > System of Linear Equations** (`system-of-linear-equations`), the second topic of the
+GATE 2027 Linear Algebra line: *"Matrices, determinants, system of linear equations, eigenvalues and
+eigenvectors, LU decomposition."*
+
+The cycle pointer was left by the previous run on `linear-algebra/matrices-and-determinants`, and the
+first topic strictly after it in the enumerated syllabus order whose status is not `covered` is this one,
+which was `not_started`. Nothing was skipped: no topic between the pointer and this one exists, and no
+topic is `blocked`. The seven `partial` topics earlier in the cycle (propositional logic, first order
+logic, sets/relations/functions, partial orders and lattices, monoids and groups, graphs, combinatorics)
+were not touched because the cycle takes its second pass over `partial` topics only after a full pass
+finds no `not_started` topic left.
+
+### Subtopics enumerated before any source was chosen
+
+The matrix form Ax = b with the coefficient and augmented matrices and the row and column pictures of a
+solution; the consistency test of rank(A) against rank([A|b]) and the three cases it produces; the square
+case where |A| not 0 gives one solution and |A| = 0 gives none or infinitely many; free variables, the
+nullity n - rank(A), and the solution set as a particular solution plus the null space; homogeneous systems
+Ax = 0, always consistent, with a non-trivial solution exactly when rank(A) < n; Gaussian elimination on
+[A|b] with back substitution; parameter-dependent systems; overdetermined and underdetermined systems;
+the inverse and Cramer's rule; the geometry of the three cases including the triangular-prism arrangement;
+and telling no solution apart from infinitely many when the determinant vanishes. Eleven subtopics, one
+card each.
+
+### Sources chosen, on merit
+
+Six sources, five of them readable this run, across two languages:
+
+- **GATE Overflow blog, "Linear Algebra (Gilbert Strang) Notes, Lecture 1 to 10"** (English, read in part).
+  The column picture, the reachability condition, forward elimination and the complete solution
+  x = x_p + x_n. Chosen because it explains why the solution set has its shape instead of listing cases,
+  and it is written for GATE CSE readers.
+- **SATHEE, IIT Kanpur, "Consistency and Solution of Simultaneous Linear Equations"** (English, read in
+  part). The rank criterion, the adjoint test for a singular square system, and the only readable
+  plane-arrangement table keyed to the rank pair, which the geometry card needs.
+- **Vidyalankar GATE Engineering Mathematics notes, section 1.4** (English, read in part). Consistency
+  conditions, Cramer's rule and the inversion method, in the form GATE answers expect; its own contents
+  page quotes the GATE CS linear algebra line word for word.
+- **Ohio University MATH3200 Lecture 27** (English, read in part). The consistency theorem proved rather
+  than asserted, plus the rank(A) = m corollary, which is the one safe counting conclusion.
+- **CareerCraft Labs Hindi notes** (Hindi, translated, read in part). The three-case table and the warning
+  that a zero main determinant alone does not mean infinitely many solutions. Chosen so the topic is not
+  built from English alone; it is JEE-oriented, so its contribution is restricted to those syllabus-neutral
+  points, and every sentence taken from it is translated and marked as translated on the two cards that
+  use it.
+- **GO Classes Engineering Mathematics lecture list** (structure only). Recorded because its lecture
+  sequence - 3C writing the system as Ax = b, 6B solutions based on rank(A) and rank(A|b), 6C questions on
+  rank and the number of solutions - is the closest fit to this syllabus line of anything found, and it
+  confirms the eleven subtopics are complete. No card quotes it: no transcript could be retrieved.
+
+Rejected, with reasons recorded in `sources.json`: the NPTEL IIT Roorkee "Matrix Analysis with
+Applications" lectures 4-5 and the NPTEL IIT Kharagpur "Engineering Mathematics I" lectures 36-38 (the two
+best-scoped series found, both 404 on every transcript path); MIT OCW 18.06 Lecture 8 (empty body); two
+Hindi Unacademy lessons (paywalled, no transcript); the Knowledge Gate Hindi live class (only an English AI
+summary of it is readable, so citing it as a Hindi source would misrepresent it); a Testbook Hindi question
+bank whose questions come from other branches; and a GATE Overflow discussion thread that states one rule
+outright wrongly.
+
+### Content
+
+Eleven cards under `content/subjects/linear-algebra/system-of-linear-equations/`, in three units (Formulating
+a system; Existence and number of solutions; Solving a system), with priorities: eight P1 and three P2.
+Twelve PYQ records, all `SOURCED`:
+
+| Question | Topic | Answer |
+| --- | --- | --- |
+| GATE CSE 1996 Q.1.7 | consistency by rank | (C) is the false statement |
+| GATE CSE 1998 Q.1.2 | consistency by rank | (B) no solution |
+| GATE CSE 2003 Q.41 | no solution vs infinite | (B) one value, alpha = 1/5 |
+| GATE CSE 2005 Q.48 | determinant test | (B) a unique solution |
+| GATE CSE 2008 Q.3 | parameter-dependent | any real alpha except 5 - the printed options contain no correct entry |
+| GATE CSE 2014 Set 1 Q.52 | no solution vs infinite | 1 |
+| GATE CSE 2015 Set 3 Q.33 | homogeneous systems | (C) p + q + r = 0 or p = q = r |
+| GATE CSE 2016 Set 2 Q.04 | over/underdetermined | (C) only III is true |
+| GATE CSE 2017 Set 1 Q.3 | free variables | (C) infinitely many solutions |
+| GATE CSE 2024 Set 1 Q.39 | homogeneous systems | (A) only |
+| GATE CSE 2025 Set 1 Q.13 | parameter-dependent | (A) and (D) |
+| GATE CSE 2026 Set 2 Q.31 | parameter-dependent | 24 |
+
+Two of these needed a note in the record rather than a bare answer. GATE CSE 2008 Q.3 is defective: a
+unique solution needs alpha other than 5, and no printed option says that, so the record states the true
+condition and says the paper is defective. GATE CSE 2003 Q.41 is printed with the answer 1, and the IIT
+Delhi worked solution reaches alpha = -4/3 through an arithmetic slip; the record gives 1/5, which both the
+row reduction and the direct span computation produce, and notes that the count of values is 1 either way.
+GATE CSE 2026 Set 2 Q.31 was located in the official paper at IIT Guwahati, where it is printed as Q.31
+rather than the Q.21 GATE Overflow uses; the record cites both and stays `SOURCED` because the official
+answer key was not fetched.
+
+### Visual lesson
+
+`visuals/linear-algebra/system-of-linear-equations/row-and-column-picture/`, seven p5.js steps: the
+identity system with its crossing point; A = [[1,1],[1,-1]] with b = (3,1), two lines crossing at (2,1) and
+the column combination 2(1,1) + 1(1,-1); the same line twice with b = (1,2); parallel distinct lines with
+b = (1,3); the k = 1 case of GATE CSE 2025 Set 1 Q.13; the k = -1 case; and the decision order to carry into
+the exam. Each step shows the two lines and a panel with det(A), rank(A), rank([A|b]), the free-parameter
+count and the verdict, so the same determinant-zero state is seen producing two different answers.
+
+### Mathematics
+
+A new `check_system_of_linear_equations()` in `scripts/validate.py` recomputes every claim in the topic by
+Gaussian elimination over the rationals: the six lesson systems with their determinants, rank pairs,
+verdicts and solutions; the matrices of the 1998, 2003, 2005, 2008, 2014, 2015, 2016, 2017, 2024, 2025 and
+2026 questions, solved or ranked from their own numbers; the nullity count and the non-trivial-solution test
+over every small 2x2 and 2x3 matrix; the rank(A) = m corollary over every full-row-rank 2x3 matrix and every
+small b; Cramer's rule against elimination on a 3x3 system; the prism, parallel and coincident arrangements,
+including that every pair of planes in the prism example does meet; and the claim that two solutions force
+infinitely many. Four MATH entries were added for the numeric claims.
+
+Three content errors were caught and fixed before publication, all of them by the validator rather than by
+reading: the counterexample offered for the prism arrangement was in fact a system with a unique solution
+(its third row was independent of the other two, so rank(A) was 3 and not 2), the 2017 example's null vector
+was attached to the wrong matrix, and the 2014 question's coefficient matrix was transcribed with its second
+row in the wrong order, which made a consistent system look inconsistent. The lesson and the cards now agree
+with the recomputation.
+
+### Validation performed
+
+- `python3 scripts/build-index.py` indexes 3 playlists, 39 videos, 104 topics and 96 PYQs.
+- `python3 scripts/validate.py` - 20 checks passed, 0 failures, 8 warnings, all eight pre-existing (seven
+  PYQs labelled `OFFICIAL_KEY` without an evidence line, two combinatorics videos not referenced by a card).
+- `node tests/visual-lessons.js` - all thirteen p5 sketches load and draw every step at three progress
+  values, including the new seven-step lesson.
+
+### UI
+
+No change to design tokens, shell layout, navigation labels, routes or component classes. The new cards
+render through the existing components, and the sidebar tree and the Topics tab pick up the topic, its three
+units and its eleven subtopics from the generated data with no code change.
+
+### Gaps (the topic stays `partial`)
+
+1. No video transcript could be retrieved: every YouTube watch page tried carried no caption track and the
+   transcript service was refused by the egress proxy, so the GO Classes lecture sequence is structure only.
+2. The NPTEL IIT Roorkee and IIT Kharagpur lecture series - the two best-scoped found - answered 404 on
+   every transcript path.
+3. Two chosen English sources were readable only through the search service extract because their PDFs
+   returned 502 from the sandbox; their contribution is limited to the sections quoted.
+4. MIT OCW 18.06 Lecture 8 returned an empty body; its content reached the topic only indirectly.
+5. No `marks` field is recorded on any PYQ of this topic, because only the GATE 2026 CS2 paper was fetched.
+6. Every PYQ is `SOURCED` rather than key-verified; the GATE 2026 answer key was not fetched and the 2014
+   answer rests on three secondary sources agreeing.
+7. GATE CSE 2008 Q.3 is a defective question, recorded as such rather than resolved.
+8. The only non-English source is a Hindi JEE-oriented chapter read in part; no GATE-level Hindi, Tamil,
+   Telugu or Bengali lecture could be read.
+9. GATE Overflow lists further linear-systems questions not individually read, including GATE CSE 2004 Q.33
+   and GATE CSE 2001 Q.37.
+
+### Next
+
+The cycle pointer now sits on `linear-algebra/system-of-linear-equations`. The topic immediately after it in
+the syllabus order is `linear-algebra/eigenvalues-and-eigenvectors`, which is `not_started`, so that is the
+next run's topic.
+
 ## Run 4 - sets, relations, functions; the syllabus cycle and the ledger start here
 
 ### The topic, and why it was next
