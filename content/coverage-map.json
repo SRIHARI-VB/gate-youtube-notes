@@ -2429,7 +2429,7 @@
     {
       "kind": "mock",
       "placement": "discrete-mathematics › combinatorics › basic-counting-rules, ioib-partitions, recurrences-and-compositions",
-      "detail": "Unit 7 'Counting & Combinatorics' (unit_slug combinatorics, run 7, 2026-10-28, 25 questions) holds 5 subtopic_label groups of 5: Permutations & combinations, Binomial & multinomial coefficients, Double counting, Stars and bars, Inclusion-exclusion counting. derangements is now linked to the unit through 'Inclusion-exclusion counting' (DM-CB7-Q23). Still unrepresented: the sum/product/subtraction rules card (basic-counting-rules), integer partitions (ioib-partitions) and the playlist-gap recurrence card (recurrences-and-compositions). Recommendation: add a group to discrete-mathematics/combinatorics before the unit reaches its 50-question cap."
+      "detail": "Unit 7 'Counting & Combinatorics' (unit_slug combinatorics, run 7, 2026-10-28, 50 questions) holds 5 subtopic_label groups of 10: Permutations & combinations, Binomial & multinomial coefficients, Double counting, Stars and bars, Inclusion-exclusion counting, and sits at the 50-question cap (MOCK_CAPPED). derangements is linked to the unit through 'Inclusion-exclusion counting' (DM-CB7-Q23). Still unrepresented: the sum/product/subtraction rules card (basic-counting-rules), integer partitions (ioib-partitions) and the playlist-gap recurrence card (recurrences-and-compositions). Next build: a counting set for these three cases needs a new unit folder under discrete-mathematics/, since unit 7 is full; name it before writing questions."
     },
     {
       "kind": "visual",
@@ -2609,7 +2609,7 @@
     {
       "kind": "notes",
       "placement": "computer-networks › network-layer › (no card)",
-      "detail": "New mock set, Computer Networks Unit 3 'Network Layer: IP Addressing & Subnetting' (unit_slug ipv4-subnetting, run 5, Set 1 of 2, 2026-10-28, paper computer-networks/ipv4-subnetting/gate_cn_mock_3_2026-10-28.html), holds 25 questions in 4 subtopic_label groups: IPv4 header & fragmentation 7, Classful vs classless & CIDR 6, Subnet masking & supernetting 7, IPv6 basics & differences 5. The notes repo holds only the discrete-mathematics subject, so no card serves this unit; the lesson topics/ip-fragmentation-cidr-and-nat already covers the same syllabus line and carries its own gap. Recommendation: write the first computer-networks card at content/subjects/computer-networks/network-layer/ipv4-subnetting.json, the ground topics/ip-fragmentation-cidr-and-nat already teaches."
+      "detail": "New mock set, Computer Networks Unit 3 'Network Layer: IP Addressing & Subnetting' (unit_slug ipv4-subnetting, run 6, Set 2 of 2, 2026-10-28, paper computer-networks/ipv4-subnetting/gate_cn_mock_3_2026-10-28.html) closes the unit at the 50-question cap over 4 subtopic_label groups: IPv4 header & fragmentation 14, Classful vs classless & CIDR 12, Subnet masking & supernetting 13, IPv6 basics & differences 11 — MOCK_CAPPED, so the rotation moves on to Computer Networks Unit 4, which master_bank.json does not hold yet. The notes repo has no computer-networks subject, so no card serves these records; the lesson topics/ip-fragmentation-cidr-and-nat covers the addressing half at topic level."
     },
     {
       "kind": "notes",
@@ -2654,7 +2654,7 @@
     {
       "kind": "mock",
       "placement": "discrete-mathematics › combinatorics › ioib-partitions",
-      "detail": "Card IOIB: Integer Partitions still has no links. Combinatorics unit 7 'Counting & Combinatorics' holds 25 questions over 5 subtopic_label groups, but its 'Stars and bars' group is 5 questions on non-negative integer solutions (identical objects into distinct boxes), not integer partitions; no unit in discrete-mathematics master_bank.json carries partition counts. Visual: the counting-and-combinatorics transcript covers stars and bars, not integer partitions. Next build: add an integer-partitions set to discrete-mathematics/combinatorics/ once unit 7 passes the 50-question cap, or extend topics/counting-and-combinatorics/ with a partition scene."
+      "detail": "Card IOIB: Integer Partitions still has no links. Combinatorics unit 7 'Counting & Combinatorics' holds 50 questions over 5 subtopic_label groups of 10, but its 'Stars and bars' group is non-negative integer solutions (identical objects into distinct boxes), not integer partitions; no unit in discrete-mathematics master_bank.json carries partition counts. Visual: the counting-and-combinatorics transcript covers stars and bars, not integer partitions. Next build: extend topics/counting-and-combinatorics/ with one integer-partitions scene (p(5)=7, p(6)=11), which is cheaper than a new lesson."
     },
     {
       "kind": "mock",
@@ -2665,6 +2665,11 @@
       "kind": "visual",
       "placement": "discrete-mathematics › monoids-and-groups › group-homomorphism-and-kernel",
       "detail": "topics/monoids-and-groups/index.html covers 11 scenes on axioms, order, cyclic groups, subgroups, cosets and Lagrange, and none mentions homomorphisms or kernels (0 hits in transcript.md). Extend that lesson with a homomorphism scene rather than build topics/group-homomorphisms."
+    },
+    {
+      "kind": "notes",
+      "placement": "general-aptitude › aptitude › quantitative-aptitude",
+      "detail": "New lesson topics/quantitative-aptitude (added 2026-10-28; syllabus-coverage.json subject General Aptitude, unit Aptitude, topic 'Quantitative aptitude', coverage_status PUBLISHED, 5 subtopics and 32 microtopics) serves no notes card: content/syllabus.json enumerates 13 CS subjects and carries no General Aptitude subject, so nothing covers ratios and percentages, data interpretation, logarithms, mensuration, or elementary statistics and probability. Next build: the card belongs at content/subjects/general-aptitude/aptitude/quantitative-aptitude.json."
     }
   ]
 }
