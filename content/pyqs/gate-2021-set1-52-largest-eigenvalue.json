@@ -1,0 +1,15 @@
+{
+  "id": "gate-2021-set1-52-largest-eigenvalue",
+  "year": "2021",
+  "paper": "GATE CS 2021 Set 1",
+  "question_ref": "Q.52",
+  "type": "NAT",
+  "topic": "eigenvalues-of-special-structured-matrices",
+  "text": "Consider the 4 x 4 matrix with 0 on the diagonal and 1 in every off-diagonal position. The largest eigenvalue of the above matrix is ______.",
+  "answer": "3",
+  "solution": "The matrix is J - I where J is the all-ones 4 x 4 matrix. J has rank 1 and trace 4, so its eigenvalues are 4, 0, 0, 0; subtracting I shifts them to 3, -1, -1, -1. The largest is 3, and the trace check 3 - 1 - 1 - 1 = 0 matches the zero diagonal. scripts/validate.py verifies the eigenvalues by applying the matrix to (1,1,1,1) and by computing the rank of A + I.",
+  "source_url": "https://gateoverflow.in/357399/gate-cse-2021-set-1-question-52",
+  "source_label": "GATE Overflow question page - GATE CSE 2021 Set 1 Q.52 with the accepted answer (3)",
+  "verification": "SOURCED",
+  "answer_evidence": "Accepted answer: 3, from the characteristic polynomial (3-lambda)(-1-lambda)^3. Corroborated by the gateforum reproduction of the GATE 2021 CS Set 1 paper, whose key for this question is (3)."
+}

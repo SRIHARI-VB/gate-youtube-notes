@@ -3,7 +3,7 @@
   "updated_at": "2026-10-29",
   "cycle": {
     "last_subject": "linear-algebra",
-    "last_topic": "system-of-linear-equations",
+    "last_topic": "eigenvalues-and-eigenvectors",
     "updated_at": "2026-10-29",
     "rule": "Next topic is the first topic strictly after cycle.last in the enumerated syllabus order whose status is not covered, wrapping at the end. not_started and partial topics are candidates; blocked topics are skipped while their blocker stands."
   },
@@ -258,10 +258,32 @@
         {
           "slug": "eigenvalues-and-eigenvectors",
           "name": "Eigenvalues and Eigenvectors",
-          "status": "not_started",
-          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
-          "runs": [],
-          "gaps": []
+          "status": "partial",
+          "coverage_note": "12 subtopics, 11 cards (the definition with v nonzero, the characteristic equation and its degree-n roots, the eigenspace and computing eigenvectors, the trace and determinant identities with the eigenvalues of A^k, A^-1, A^T and p(A), algebraic against geometric multiplicity, diagonalisability, real symmetric matrices with orthogonal eigenvectors, complex conjugate pairs in a real matrix, the triangular / row-sum / all-ones / rank-one shortcuts, what preserves eigenvalues and the row-operation trap, and Cayley-Hamilton with the inverse from it), 10 verified PYQs and 1 p5.js lesson. Partial because six gaps remain, named below.",
+          "runs": [
+            {
+              "date": "2026-10-29",
+              "sources": [
+                "nptel-iit-kharagpur-lecture-46",
+                "nptel-noc-iitm-deep-learning-6-1",
+                "ganitank-hindi-eigen-oneshot",
+                "gateoverflow-linear-algebra-notes",
+                "nptel-course-outline-111105121"
+              ],
+              "cards": 11,
+              "pyqs": 10,
+              "lesson": "linear-algebra/eigenvalues-and-eigenvectors/eigen-directions",
+              "note": "Sources chosen on merit across two languages, with one lecture readable end to end. NPTEL IIT Kharagpur Lecture 46 (English, read in full) carries the definition, the characteristic equation, the eigenspace and Cayley-Hamilton, and is the only lecture this run whose transcript ran from the opening to the closing references. NPTEL-NOC IIT Madras CS7015 Lec 6.1 (English, read in part) supplies the geometric framing and the steady-state motivation. GanitAnk's Hindi one-shot (translated, read in part) is the only readable non-English source and gives the 3x3 principal-minor form of the characteristic polynomial and the Cayley-Hamilton inverse example. The GATE Overflow linear algebra notes (English, read in part) give the AM and GM definitions and the property list. The NPTEL course index is recorded as structure only. Rejected with reasons in sources.json: MIT OCW 18.06 Lecture 21 (page carried a summary and a transcript link, no transcript body), NPTEL IIT Kharagpur Lecture 49 (index only), the Unacademy Hindi eigen lesson series (paywalled, no transcript), the formula-list pages (properties without derivation, one of them stating the symmetric facts as general), the GO Classes DPP question bank (practice questions, not PYQs) and the answer aggregators (corroboration only, and they disagree on question numbering)."
+            }
+          ],
+          "gaps": [
+            "no GATE-oriented coaching lecture on this topic could be read: the readable lecture is a general engineering-mathematics NPTEL course, so the GATE-specific teaching order and PYQ walkthroughs are recorded as structure only",
+            "MIT OCW 18.06 Lecture 21, the canonical English treatment, returned a page with a one-sentence summary and a transcript link but no transcript body, so nothing could be read from it; a later run should retry",
+            "NPTEL IIT Kharagpur Lecture 49, the continuation that would have covered diagonalisation and symmetric matrices in the lecturer's voice, had no retrievable transcript, so the symmetric-matrix card rests on the standard references plus computation",
+            "the Hindi source was read in part only, and no GATE-level Hindi, Tamil, Telugu or Bengali lecture with a readable transcript was found this run; the Unacademy Hindi series that matched the topic lesson-for-lesson is paywalled",
+            "every PYQ in this topic is SOURCED against a GATE Overflow accepted answer rather than key-verified against an official key, and no marks field is recorded: the official papers were not fetched this run, so references follow the GATE Overflow numbering and each record says where another site numbers the question differently",
+            "GATE Overflow lists further eigenvalue questions in this subject that were not individually read or recomputed, including the 2010 to 2013 entries, 2019 Q.44, 2022 Q.35 and Q.43, 2023 Q.8 and Q.20, 2024 Set 2 Q.37, 2025 Set 2 and 2026 Set 1 Q.10; Cayley-Hamilton has no verified CSE PYQ recorded at all, which is why that card is P3"
+          ]
         },
         {
           "slug": "lu-decomposition",

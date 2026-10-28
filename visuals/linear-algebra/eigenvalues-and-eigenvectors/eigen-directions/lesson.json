@@ -1,0 +1,22 @@
+{
+  "slug": "eigen-directions",
+  "topic": "eigenvalue-and-eigenvector-definition",
+  "engine": "p5.js",
+  "steps": 7,
+  "example": {
+    "A": [[2, 1], [1, 2]],
+    "trace": 4,
+    "det": 3,
+    "eigenpairs": [
+      {"lambda": 3, "vector": [1, 1], "unitAngleDegrees": 45},
+      {"lambda": 1, "vector": [1, -1], "unitAngleDegrees": 135}
+    ],
+    "dotOfEigenvectors": 0,
+    "rules": [
+      "Av = lambda v with v not zero defines an eigenvector",
+      "the eigenvalue is the signed factor by which A scales that direction",
+      "the sum of the eigenvalues is the trace and the product is the determinant",
+      "a real symmetric matrix has orthogonal eigenvectors for distinct eigenvalues"
+    ]
+  }
+}

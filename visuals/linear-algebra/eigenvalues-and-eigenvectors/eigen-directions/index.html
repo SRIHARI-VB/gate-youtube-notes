@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Eigen-directions - Eigenvalues and Eigenvectors visual lesson</title>
+<link rel="stylesheet" href="../../../lesson.css">
+<script src="https://cdn.jsdelivr.net/npm/p5@1.9.4/lib/p5.min.js"></script>
+</head>
+<body>
+<div class="wrap">
+  <p class="small"><a href="../../../../index.html">&larr; back to the revision site</a></p>
+  <h1>Two Directions a Matrix Cannot Turn</h1>
+  <div class="objective"><strong>Objective.</strong> Sweep an input vector around the unit circle through A = [[2,1],[1,2]] and see that the matrix turns almost every vector, except at two directions where it only scales it. Those directions are the eigenvectors, the scale factors are the eigenvalues, and their sum and product are the trace and the determinant.</div>
+
+  <div class="canvas-wrap"><div id="canvas-holder"></div></div>
+  <div class="caption" id="caption" aria-live="polite"></div>
+
+  <div class="controls">
+    <button id="play" class="primary">Play</button>
+    <button id="prev">&larr; Prev</button>
+    <button id="next">Next &rarr;</button>
+    <button id="restart">Restart</button>
+    <span class="speed"><label for="speed">Speed</label>
+      <input id="speed" type="range" min="0.25" max="2" step="0.25" value="1">
+      <span id="speedLabel">1.00x</span></span>
+    <span class="counter" id="counter"></span>
+  </div>
+
+  <h2>Static explanation</h2>
+  <p>A matrix is a rule that sends each vector to another vector. Usually both the direction and the length change, and there is nothing to say about the pair. An eigenvector is the exception: it is a nonzero vector x for which Ax stays on the same line through the origin, so Ax = lambda x for some scalar lambda, which is called the eigenvalue. The scalar may be larger than 1 (stretched), between 0 and 1 (shrunk), negative (flipped to the opposite ray) or 0 (collapsed onto the origin). Only the line is determined, never the vector, because every nonzero multiple of an eigenvector is again an eigenvector for the same eigenvalue.</p>
+  <p>For A = [[2,1],[1,2]] the picture gives the two directions directly: the unit vector along (1,1) is sent to (3,3), three times itself, and the unit vector along (1,-1) is sent to itself, so the eigenvalues are 3 and 1. The algebra agrees. The characteristic equation is det(A - lambda I) = lambda^2 - 4 lambda + 3 = 0, whose roots are 3 and 1, and the two coefficients are exactly the trace 4 and the determinant 3, so the eigenvalues of any 2 by 2 matrix always sum to the trace and multiply to the determinant.</p>
+  <p>This A is symmetric, and the two eigen-directions come out perpendicular. That is not a coincidence of the example: every real symmetric matrix has real eigenvalues, and eigenvectors belonging to different eigenvalues of a symmetric matrix are orthogonal. It is the reason a symmetric matrix can always be written Q Lambda Q^T with Q orthogonal, and the reason questions about symmetric matrices can be answered from the eigenvalues alone.</p>
+
+  <div class="card warn"><div class="label">Common misconception</div><p>Reading "same line" as "same arrow". The eigenvector condition allows a negative eigenvalue, which sends the vector to the opposite ray while keeping the line, as [[0,1],[1,0]] does to (1,-1): the output is (-1,1), which is -1 times the input. The second mistake is treating the zero vector as an eigenvector, because A0 = 0 = lambda 0 for every lambda and every matrix, so allowing it would make every number an eigenvalue of every matrix.</p></div>
+  <div class="card ok"><div class="label">Quick check</div><p>A = [[3,0],[0,3]]. Which vectors are eigenvectors, and how many distinct eigenvalues are there?</p><details><summary>Answer</summary><p><strong>Every nonzero vector, and one eigenvalue, 3.</strong> A = 3I multiplies every vector by 3, so every line through the origin is kept. This is the extreme case behind GATE CSE 2026 Set 1 Q.3, where the maximum multiplicity of an eigenvalue of an n by n matrix is n.</p></details></div>
+  <p class="small">Topic: the definition of an eigenvalue and eigenvector (Linear Algebra, Eigenvalues and Eigenvectors). Sources: NPTEL, IIT Kharagpur, Engineering Mathematics I, Lecture 46 "Eigenvalues and Eigenvectors" (English, read in full) for the definition with the vector nonzero, the geometric reading and the worked 2x2 example; NPTEL-NOC IIT Madras, CS7015 Lec 6.1 (English, read in part) for the framing of what a matrix does to a vector; GanitAnk's Hindi one-shot (Hindi, read in part, translated) for the phrasing of the nonzero condition. The matrix, both eigenpairs, the trace, the determinant and the orthogonality of the two eigenvectors are recomputed in scripts/validate.py. Related verified PYQ: GATE CSE 2015 Set 3 Q.15 on the eigenvectors of a stated eigenvalue.</p>
+</div>
+<script src="../../../lesson.js"></script>
+<script src="sketch.js"></script>
+<script>
+/* p5.js is loaded from a CDN. If it is unreachable, say so plainly instead of showing an empty box. */
+window.addEventListener('load', function () {
+  if (window.p5) { return; }
+  var holder = document.getElementById('canvas-holder');
+  if (holder) {
+    holder.innerHTML = '<div style="padding:22px 18px;font-size:14.5px;color:#4a5260">' +
+      'The animation needs p5.js, which this page loads from a CDN, and the request failed (offline, or the CDN is blocked). ' +
+      'Everything below still works: the static explanation, the misconception and the quick check.</div>';
+  }
+  var cap = document.getElementById('caption');
+  if (cap && window.LESSON && window.LESSON.steps && window.LESSON.steps[0]) {
+    cap.innerHTML = window.LESSON.steps[0].caption;
+  }
+  ['play', 'prev', 'next', 'restart', 'speed'].forEach(function (id) {
+    var el = document.getElementById(id);
+    if (el) { el.disabled = true; }
+  });
+});
+</script>
+</body>
+</html>

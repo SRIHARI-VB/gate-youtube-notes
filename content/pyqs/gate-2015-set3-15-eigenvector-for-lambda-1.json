@@ -1,0 +1,21 @@
+{
+  "id": "gate-2015-set3-15-eigenvector-for-lambda-1",
+  "year": "2015",
+  "paper": "GATE CS 2015 Set 3",
+  "question_ref": "Q.15 (GATE Overflow numbering; the same question is numbered Q.23 by some solution sites)",
+  "type": "MCQ",
+  "topic": "eigenspace-and-computing-eigenvectors",
+  "text": "In the matrix [[1,-1,2],[0,1,0],[1,2,1]], one of the eigenvalues is 1. The eigenvectors corresponding to the eigenvalue 1 are:",
+  "options": [
+    "{ alpha (4,2,1) : alpha not 0, alpha real }",
+    "{ alpha (-4,2,1) : alpha not 0, alpha real }",
+    "{ alpha (sqrt2,0,1) : alpha not 0, alpha real }",
+    "{ alpha (-sqrt2,0,1) : alpha not 0, alpha real }"
+  ],
+  "answer": "Option 2: { alpha (-4,2,1) : alpha not 0, alpha real }",
+  "solution": "A - I = [[0,-1,2],[0,0,0],[1,2,0]]. The rows give -y + 2z = 0 and x + 2y = 0, so y = 2z and x = -4z, giving alpha(-4,2,1). The rank of A - I is 2, so the eigenspace is one line. Direct check: A(-4,2,1) = (-4-2+2, 2, -4+4+1) = (-4,2,1). scripts/validate.py recomputes the product and the rank.",
+  "source_url": "https://gateoverflow.in/8411/gate-cse-2015-set-3-question-15",
+  "source_label": "GATE Overflow question page - GATE CSE 2015 Set 3 Q.15 with the accepted answer (option B, alpha(-4,2,1))",
+  "verification": "SOURCED",
+  "answer_evidence": "Accepted answer on the GATE Overflow page: option B, { alpha(-4,2,1) }. Corroborated by the GateAI PYQ page for GATE CSE 2015 Set 3 Q.15 and by the PYQBox paper page, which both record option B as the answer."
+}

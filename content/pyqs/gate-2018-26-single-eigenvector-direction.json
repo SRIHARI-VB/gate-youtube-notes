@@ -1,0 +1,21 @@
+{
+  "id": "gate-2018-26-single-eigenvector-direction",
+  "year": "2018",
+  "paper": "GATE CS 2018",
+  "question_ref": "Q.26 (GATE Overflow numbering; ExamSIDE lists the same question as Q.31 of the 2018 paper)",
+  "type": "MCQ",
+  "topic": "diagonalisability-criterion",
+  "text": "Consider a matrix P whose only eigenvectors are the multiples of (1,4)^T. Consider the statements: I. P does not have an inverse. II. P has a repeated eigenvalue. III. P cannot be diagonalised. Which one of the following options is correct?",
+  "options": [
+    "Only I and III are necessarily true",
+    "Only II is necessarily true",
+    "Only I and II are necessarily true",
+    "Only II and III are necessarily true"
+  ],
+  "answer": "Option 4: only II and III are necessarily true",
+  "solution": "All eigenvectors lie on one line, so P is 2 x 2 with only one independent eigenvector: the geometric multiplicity of its eigenvalue is 1, which forces the algebraic multiplicity to be 2, so the eigenvalue is repeated (II). With fewer than two independent eigenvectors P cannot be diagonalised (III). Nothing forces singularity: [[-2,1],[-16,6]] has the single eigenvector direction (1,4), eigenvalue 2 twice, and determinant 4. scripts/validate.py checks that matrix's characteristic polynomial, its eigenvector and its determinant.",
+  "source_url": "https://gateoverflow.in/204100/gate-cse-2018-question-26",
+  "source_label": "GATE Overflow question page - GATE CSE 2018 Q.26 with the accepted answer (option D, II and III)",
+  "verification": "SOURCED",
+  "answer_evidence": "Accepted answer: only II and III are necessarily true, because diagonalisability needs n independent eigenvectors and the single-direction condition forces a repeated eigenvalue. Corroborated by the ExamSIDE 2018 paper page, which lists the question as Q.31 of that paper."
+}

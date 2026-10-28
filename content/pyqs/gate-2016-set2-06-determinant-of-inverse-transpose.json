@@ -1,0 +1,15 @@
+{
+  "id": "gate-2016-set2-06-determinant-of-inverse-transpose",
+  "year": "2016",
+  "paper": "GATE CS 2016 Set 2",
+  "question_ref": "Q.6",
+  "type": "NAT",
+  "topic": "eigenvalue-properties-of-matrix-functions",
+  "text": "Suppose that the eigenvalues of matrix A are 1, 2, 4. The determinant of (A^-1)^T is ______.",
+  "answer": "0.125",
+  "solution": "det A = 1 x 2 x 4 = 8, so det(A^-1) = 1/8. Transposition does not change the determinant, so det((A^-1)^T) = 1/8 = 0.125. scripts/validate.py recomputes the product and the reciprocal.",
+  "source_url": "https://gateoverflow.in/39549/gate-cse-2016-set-2-question-06",
+  "source_label": "GATE Overflow question page - GATE CSE 2016 Set 2 Q.6 with the accepted answer (1/8 = 0.125)",
+  "verification": "SOURCED",
+  "answer_evidence": "Accepted answer: 0.125. Corroborated by the gateforum reproduction of the GATE 2016 CS Set 2 paper, which prints Q.6 with answer (0.125)."
+}

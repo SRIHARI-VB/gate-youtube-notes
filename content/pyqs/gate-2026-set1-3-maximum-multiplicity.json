@@ -1,0 +1,21 @@
+{
+  "id": "gate-2026-set1-3-maximum-multiplicity",
+  "year": "2026",
+  "paper": "GATE CS 2026 Set 1",
+  "question_ref": "Q.3 (GATE Overflow numbering; the same question is numbered Q.13 by Quorank)",
+  "type": "MCQ",
+  "topic": "algebraic-and-geometric-multiplicity",
+  "text": "For n > 1, the maximum multiplicity of any eigenvalue of an n x n matrix with elements from R is:",
+  "options": [
+    "n",
+    "n-1",
+    "1",
+    "n+1"
+  ],
+  "answer": "Option 1: n",
+  "solution": "The characteristic polynomial has degree n, so by the fundamental theorem of algebra no root can repeat more than n times. The bound is attained: the identity matrix I_n has the single eigenvalue 1 with multiplicity n. scripts/validate.py confirms the identity case for n = 5 and checks that the characteristic polynomial degree equals n.",
+  "source_url": "https://gateoverflow.in/523077/gate-cse-2026-set-1-question-3",
+  "source_label": "GATE Overflow question page - GATE CSE 2026 Set 1 Q.3 with the accepted answer (option A, n)",
+  "verification": "SOURCED",
+  "answer_evidence": "Accepted answer: option A, n, argued from the degree of the characteristic polynomial and the identity matrix. Corroborated by Quorank's GATE 2026 CSE Set 1 page, which records the same question (numbered Q.13 there) with answer A."
+}

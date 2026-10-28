@@ -1,0 +1,15 @@
+{
+  "id": "gate-2016-set1-05-determinant-from-eigenvalues",
+  "year": "2016",
+  "paper": "GATE CS 2016 Set 1",
+  "question_ref": "Q.5",
+  "type": "NAT",
+  "topic": "complex-eigenvalues-of-real-matrices",
+  "text": "Two eigenvalues of a 3 x 3 real matrix P are (2 + sqrt(-1)) and 3. The determinant of P is ______.",
+  "answer": "15",
+  "solution": "P is real, so its characteristic polynomial has real coefficients and a non-real root forces its conjugate: the third eigenvalue is 2 - sqrt(-1). The determinant is the product of the eigenvalues, (2+i)(2-i) x 3 = (4+1) x 3 = 15. scripts/validate.py recomputes the product over the complex numbers.",
+  "source_url": "https://gateoverflow.in/39634/gate-cse-2016-set-1-question-05",
+  "source_label": "GATE Overflow question page - GATE CSE 2016 Set 1 Q.5 with the accepted answer (15)",
+  "verification": "SOURCED",
+  "answer_evidence": "Accepted answer: 15, from (2+i)(2-i)(3) = 15. Corroborated by the official GATE 2016 CS Set 1 paper as reproduced by the pyqonline PDF, which carries the same question as Q.5."
+}

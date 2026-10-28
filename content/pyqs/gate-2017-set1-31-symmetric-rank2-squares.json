@@ -1,0 +1,21 @@
+{
+  "id": "gate-2017-set1-31-symmetric-rank2-squares",
+  "year": "2017",
+  "paper": "GATE CS 2017 Set 1",
+  "question_ref": "Q.31",
+  "type": "MCQ",
+  "topic": "symmetric-matrices-and-orthogonal-eigenvectors",
+  "text": "Let A be an n x n real valued square symmetric matrix of rank 2 with the sum of A_ij^2 over all i and j equal to 50. Consider the statements: I. One eigenvalue must be in [-5,5]. II. The eigenvalue with the largest magnitude must be strictly greater than 5. Which of the above statements about eigenvalues of A is/are necessarily correct?",
+  "options": [
+    "Both I and II",
+    "I only",
+    "II only",
+    "Neither I nor II"
+  ],
+  "answer": "Option 2: I only",
+  "solution": "For a symmetric matrix the sum of the squares of the entries is tr(A^T A) = tr(A^2), which is the sum of the squared eigenvalues. Rank 2 leaves at most two nonzero eigenvalues, so lambda1^2 + lambda2^2 = 50. If both had magnitude above 5 their squares would sum to more than 50, so at least one lies in [-5,5] and I is true. II fails: A = [[5,0],[0,5]] has entries squaring to 50 and largest eigenvalue exactly 5, not strictly greater. scripts/validate.py recomputes the entry-square sum, the trace of A^2 and both eigenvalues for that counterexample.",
+  "source_url": "https://gateoverflow.in/118312/gate-cse-2017-set-1-question-31",
+  "source_label": "GATE Overflow question page - GATE CSE 2017 Set 1 Q.31 with the accepted answer (option B, I only)",
+  "verification": "SOURCED",
+  "answer_evidence": "Accepted answer: option B, I only, with the 2 x 2 counterexample [[5,0],[0,5]] refuting statement II."
+}

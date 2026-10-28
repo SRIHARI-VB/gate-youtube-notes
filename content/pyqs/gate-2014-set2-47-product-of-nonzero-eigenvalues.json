@@ -1,0 +1,15 @@
+{
+  "id": "gate-2014-set2-47-product-of-nonzero-eigenvalues",
+  "year": "2014",
+  "paper": "GATE CS 2014 Set 2",
+  "question_ref": "Q.47",
+  "type": "NAT",
+  "topic": "eigenvalues-of-special-structured-matrices",
+  "text": "The product of the non-zero eigenvalues of the 5 x 5 matrix whose first and last rows are (1,0,0,0,1) and whose three middle rows are (0,1,1,1,0) is ______.",
+  "answer": "6",
+  "solution": "Rows 2, 3 and 4 are identical and row 5 equals row 1, so the rank is 2 and exactly two eigenvalues are nonzero, with three zeros. The trace is 1 + 1 + 1 + 1 + 1 = 5, so the two nonzero eigenvalues sum to 5. The trace of A^2 is 13, so their squares sum to 13. Solving gives the pair 2 and 3, whose product is 6. scripts/validate.py computes the rank, the trace, the trace of A^2 and the two eigenvalues of this matrix.",
+  "source_url": "https://gateoverflow.in/2013/gate-cse-2014-set-2-question-47",
+  "source_label": "GATE Overflow question page - GATE CSE 2014 Set 2 Q.47 with the accepted answer (6)",
+  "verification": "SOURCED",
+  "answer_evidence": "Accepted answer: 6, from the nonzero eigenvalues 2 and 3. One reply on the thread argues for 1 by reading eigenvalues off a row-reduced triangular matrix, which is exactly the row-operation error the similarity card warns about; the accepted answer and the trace-of-A-squared derivation agree on 6."
+}
