@@ -225,7 +225,7 @@
           "slug": "system-of-linear-equations",
           "name": "System of Linear Equations",
           "status": "partial",
-          "coverage_note": "11 subtopics, 11 cards (matrix form with the row and column pictures, the consistency test by rank, the square determinant test, free variables and the shape of the solution set, homogeneous systems, Gaussian elimination with back substitution, parameter-dependent systems, overdetermined and underdetermined systems, the inverse and Cramer's rule, the geometry of the three cases, and telling no solution apart from infinitely many), 12 verified PYQs and 1 p5.js lesson. Partial because eight gaps remain, named below.",
+          "coverage_note": "11 subtopics, 11 cards (matrix form with the row and column pictures, the consistency test by rank, the square determinant test, free variables and the shape of the solution set, homogeneous systems, Gaussian elimination with back substitution, parameter-dependent systems, overdetermined and underdetermined systems, the inverse and Cramer's rule, the geometry of the three cases, and telling no solution apart from infinitely many), 12 verified PYQs and 1 p5.js lesson. Partial because nine gaps remain, named below.",
           "runs": [
             {
               "date": "2026-10-29",
