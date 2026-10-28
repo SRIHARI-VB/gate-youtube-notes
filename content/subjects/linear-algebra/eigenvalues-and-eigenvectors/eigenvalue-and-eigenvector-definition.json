@@ -88,5 +88,44 @@
     }
   ],
   "sourceLine": "NPTEL IIT Kharagpur Lecture 46, 'Eigenvalues and Eigenvectors' (English, read in full) for the definition with v nonzero, the geometric reading and the worked 2x2 example. NPTEL-NOC IIT Madras CS7015 Lec 6.1 (English, read in part) for the 'what a matrix does to a vector' framing. GanitAnk's Hindi one-shot (Hindi, read in part, translated) for the phrasing of the nonzero condition; the sentences taken from it are translated. Every eigenpair printed on this card is rechecked by A v = lambda v in scripts/validate.py.",
-  "visual": "linear-algebra/eigenvalues-and-eigenvectors/eigen-directions"
+  "visual": "linear-algebra/eigenvalues-and-eigenvectors/eigen-directions",
+  "links": {
+    "mock": {
+      "subject": "engineering-mathematics",
+      "unit_slug": "eigenvalues-eigenvectors",
+      "unit_name": "Linear Algebra: Eigenvalues & Vectors",
+      "unit_number": 2,
+      "question_count": 50,
+      "subtopics": [
+        {
+          "label": "eigenvalue-properties",
+          "questions": 16
+        },
+        {
+          "label": "characteristic-equations",
+          "questions": 12
+        },
+        {
+          "label": "diagonalization",
+          "questions": 12
+        },
+        {
+          "label": "cayley-hamilton-theorem",
+          "questions": 10
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/eigenvalues-eigenvectors/gate_em_mock_2_2026-10-27.html"
+    },
+    "visual": {
+      "slug": "matrices-systems-and-eigenvalues",
+      "title": "Matrices, Systems and Eigenvalues",
+      "level": "topic-level",
+      "covers": [
+        "eigenvectors as preserved directions; Av = lambda v",
+        "the eigenvalue may be negative (a flip) or zero (a crush); the zero vector is not an eigenvector"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
+    },
+    "mapped_at": "2026-10-29"
+  }
 }

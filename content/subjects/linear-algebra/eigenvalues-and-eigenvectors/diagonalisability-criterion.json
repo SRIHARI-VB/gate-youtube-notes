@@ -77,5 +77,44 @@
       "note": "the characteristic equation written as lambda^3 - s1 lambda^2 + s2 lambda - det = 0, eigenvectors from Cramer's rule, the repeated-eigenvalue case, and the inverse from Cayley-Hamilton; read in part, the last third of the stream not read"
     }
   ],
-  "sourceLine": "NPTEL IIT Kharagpur Lecture 46 (English, read in full) for the statement that distinct eigenvalues give independent eigenvectors, which the lecture proves later in the course. GanitAnk's Hindi one-shot (Hindi, read in part, translated) for the repeated-eigenvalue discussion that separates diagonalisable from defective cases; the sentences taken from it are translated. The factorisation P diag(3,1) P^-1 is multiplied back out in scripts/validate.py."
+  "sourceLine": "NPTEL IIT Kharagpur Lecture 46 (English, read in full) for the statement that distinct eigenvalues give independent eigenvectors, which the lecture proves later in the course. GanitAnk's Hindi one-shot (Hindi, read in part, translated) for the repeated-eigenvalue discussion that separates diagonalisable from defective cases; the sentences taken from it are translated. The factorisation P diag(3,1) P^-1 is multiplied back out in scripts/validate.py.",
+  "links": {
+    "mock": {
+      "subject": "engineering-mathematics",
+      "unit_slug": "eigenvalues-eigenvectors",
+      "unit_name": "Linear Algebra: Eigenvalues & Vectors",
+      "unit_number": 2,
+      "question_count": 50,
+      "subtopics": [
+        {
+          "label": "eigenvalue-properties",
+          "questions": 16
+        },
+        {
+          "label": "characteristic-equations",
+          "questions": 12
+        },
+        {
+          "label": "diagonalization",
+          "questions": 12
+        },
+        {
+          "label": "cayley-hamilton-theorem",
+          "questions": 10
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/eigenvalues-eigenvectors/gate_em_mock_2_2026-10-27.html"
+    },
+    "visual": {
+      "slug": "matrices-systems-and-eigenvalues",
+      "title": "Matrices, Systems and Eigenvalues",
+      "level": "topic-level",
+      "covers": [
+        "diagonalisation A = P D P^-1 and powers through D",
+        "a repeated eigenvalue may fail to supply enough independent eigenvectors"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
+    },
+    "mapped_at": "2026-10-29"
+  }
 }

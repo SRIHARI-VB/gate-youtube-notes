@@ -76,5 +76,34 @@
       "note": "the characteristic equation written as lambda^3 - s1 lambda^2 + s2 lambda - det = 0, eigenvectors from Cramer's rule, the repeated-eigenvalue case, and the inverse from Cayley-Hamilton; read in part, the last third of the stream not read"
     }
   ],
-  "sourceLine": "NPTEL IIT Kharagpur Lecture 46 (English, read in full) for the statement and proof-free use of the theorem, with the worked inverse from it. GanitAnk's Hindi one-shot (Hindi, read in part, translated) for the 2x2 inverse example and the GATE-question framing; the sentences taken from it are translated into English. Both inverse examples are multiplied back to the identity in scripts/validate.py, and the theorem is checked against every small integer 2x2 matrix."
+  "sourceLine": "NPTEL IIT Kharagpur Lecture 46 (English, read in full) for the statement and proof-free use of the theorem, with the worked inverse from it. GanitAnk's Hindi one-shot (Hindi, read in part, translated) for the 2x2 inverse example and the GATE-question framing; the sentences taken from it are translated into English. Both inverse examples are multiplied back to the identity in scripts/validate.py, and the theorem is checked against every small integer 2x2 matrix.",
+  "links": {
+    "mock": {
+      "subject": "engineering-mathematics",
+      "unit_slug": "eigenvalues-eigenvectors",
+      "unit_name": "Linear Algebra: Eigenvalues & Vectors",
+      "unit_number": 2,
+      "question_count": 50,
+      "subtopics": [
+        {
+          "label": "eigenvalue-properties",
+          "questions": 16
+        },
+        {
+          "label": "characteristic-equations",
+          "questions": 12
+        },
+        {
+          "label": "diagonalization",
+          "questions": 12
+        },
+        {
+          "label": "cayley-hamilton-theorem",
+          "questions": 10
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/eigenvalues-eigenvectors/gate_em_mock_2_2026-10-27.html"
+    },
+    "mapped_at": "2026-10-29"
+  }
 }

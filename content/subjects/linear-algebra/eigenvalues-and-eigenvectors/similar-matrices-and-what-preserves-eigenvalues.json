@@ -76,5 +76,34 @@
       "note": "the algebraic and geometric multiplicity definitions and the property list; the fetched body was cut off at the determinant section, so the eigenvalue section was read only through its search extract"
     }
   ],
-  "sourceLine": "NPTEL IIT Kharagpur Lecture 46 (English, read in full) for the characteristic-polynomial route to the eigenvalue rules. GATE Overflow Linear Algebra notes (English, read in part) for the property list. The row-operation counterexample, both characteristic quadratics and the two eigenvalue pairs are recomputed in scripts/validate.py, and the row-operation claim is also checked against every small integer 2x2 matrix in range."
+  "sourceLine": "NPTEL IIT Kharagpur Lecture 46 (English, read in full) for the characteristic-polynomial route to the eigenvalue rules. GATE Overflow Linear Algebra notes (English, read in part) for the property list. The row-operation counterexample, both characteristic quadratics and the two eigenvalue pairs are recomputed in scripts/validate.py, and the row-operation claim is also checked against every small integer 2x2 matrix in range.",
+  "links": {
+    "mock": {
+      "subject": "engineering-mathematics",
+      "unit_slug": "eigenvalues-eigenvectors",
+      "unit_name": "Linear Algebra: Eigenvalues & Vectors",
+      "unit_number": 2,
+      "question_count": 50,
+      "subtopics": [
+        {
+          "label": "eigenvalue-properties",
+          "questions": 16
+        },
+        {
+          "label": "characteristic-equations",
+          "questions": 12
+        },
+        {
+          "label": "diagonalization",
+          "questions": 12
+        },
+        {
+          "label": "cayley-hamilton-theorem",
+          "questions": 10
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/eigenvalues-eigenvectors/gate_em_mock_2_2026-10-27.html"
+    },
+    "mapped_at": "2026-10-29"
+  }
 }

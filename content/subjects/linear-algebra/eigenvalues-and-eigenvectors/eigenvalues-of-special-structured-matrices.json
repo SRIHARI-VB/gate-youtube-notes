@@ -80,5 +80,44 @@
       "note": "the algebraic and geometric multiplicity definitions and the property list; the fetched body was cut off at the determinant section, so the eigenvalue section was read only through its search extract"
     }
   ],
-  "sourceLine": "NPTEL IIT Kharagpur Lecture 46 (English, read in full) for the triangular reading of eigenvalues and the trace-sum check. GATE Overflow Linear Algebra notes (English, read in part) for the property list behind the row-sum and rank-one shortcuts. The 2021 Set 1 Q.52 and 2014 Set 2 Q.47 matrices are recomputed in scripts/validate.py: ranks, traces, trace(A^2) and the resulting eigenvalues."
+  "sourceLine": "NPTEL IIT Kharagpur Lecture 46 (English, read in full) for the triangular reading of eigenvalues and the trace-sum check. GATE Overflow Linear Algebra notes (English, read in part) for the property list behind the row-sum and rank-one shortcuts. The 2021 Set 1 Q.52 and 2014 Set 2 Q.47 matrices are recomputed in scripts/validate.py: ranks, traces, trace(A^2) and the resulting eigenvalues.",
+  "links": {
+    "mock": {
+      "subject": "engineering-mathematics",
+      "unit_slug": "eigenvalues-eigenvectors",
+      "unit_name": "Linear Algebra: Eigenvalues & Vectors",
+      "unit_number": 2,
+      "question_count": 50,
+      "subtopics": [
+        {
+          "label": "eigenvalue-properties",
+          "questions": 16
+        },
+        {
+          "label": "characteristic-equations",
+          "questions": 12
+        },
+        {
+          "label": "diagonalization",
+          "questions": 12
+        },
+        {
+          "label": "cayley-hamilton-theorem",
+          "questions": 10
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/eigenvalues-eigenvectors/gate_em_mock_2_2026-10-27.html"
+    },
+    "visual": {
+      "slug": "matrices-systems-and-eigenvalues",
+      "title": "Matrices, Systems and Eigenvalues",
+      "level": "topic-level",
+      "covers": [
+        "triangular, all-ones, idempotent, nilpotent and rotation patterns",
+        "the row-sum shortcut gives the largest eigenvalue only, not the whole list"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
+    },
+    "mapped_at": "2026-10-29"
+  }
 }

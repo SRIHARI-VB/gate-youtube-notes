@@ -78,5 +78,44 @@
       "note": "the algebraic and geometric multiplicity definitions and the property list; the fetched body was cut off at the determinant section, so the eigenvalue section was read only through its search extract"
     }
   ],
-  "sourceLine": "Standard references for the spectral theorem for real symmetric matrices: Lay, Linear Algebra and Its Applications, chapter 7, and Hoffman and Kunze, Linear Algebra, chapter 6. GATE Overflow Linear Algebra notes (English, read in part) for the property list used here. NPTEL IIT Kharagpur Lecture 46 (English, read in full) for the real-eigenvalue examples. The orthogonality, the trace and determinant values and the entry-square identity are recomputed in scripts/validate.py, including over every small integer symmetric matrix."
+  "sourceLine": "Standard references for the spectral theorem for real symmetric matrices: Lay, Linear Algebra and Its Applications, chapter 7, and Hoffman and Kunze, Linear Algebra, chapter 6. GATE Overflow Linear Algebra notes (English, read in part) for the property list used here. NPTEL IIT Kharagpur Lecture 46 (English, read in full) for the real-eigenvalue examples. The orthogonality, the trace and determinant values and the entry-square identity are recomputed in scripts/validate.py, including over every small integer symmetric matrix.",
+  "links": {
+    "mock": {
+      "subject": "engineering-mathematics",
+      "unit_slug": "eigenvalues-eigenvectors",
+      "unit_name": "Linear Algebra: Eigenvalues & Vectors",
+      "unit_number": 2,
+      "question_count": 50,
+      "subtopics": [
+        {
+          "label": "eigenvalue-properties",
+          "questions": 16
+        },
+        {
+          "label": "characteristic-equations",
+          "questions": 12
+        },
+        {
+          "label": "diagonalization",
+          "questions": 12
+        },
+        {
+          "label": "cayley-hamilton-theorem",
+          "questions": 10
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/eigenvalues-eigenvectors/gate_em_mock_2_2026-10-27.html"
+    },
+    "visual": {
+      "slug": "matrices-systems-and-eigenvalues",
+      "title": "Matrices, Systems and Eigenvalues",
+      "level": "topic-level",
+      "covers": [
+        "symmetric matrices: real eigenvalues, orthogonal eigenvectors",
+        "the eigenvector basis can be made orthonormal (spectral theorem)"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
+    },
+    "mapped_at": "2026-10-29"
+  }
 }

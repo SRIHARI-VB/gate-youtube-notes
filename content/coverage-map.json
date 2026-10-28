@@ -2736,6 +2736,396 @@
     },
     {
       "subject": "linear-algebra",
+      "group": "eigenvalues-and-eigenvectors",
+      "topic": "eigenvalue-and-eigenvector-definition",
+      "title": "Eigenvalue and Eigenvector: Av = lambda v",
+      "priority": "P1",
+      "path": "subjects/linear-algebra/eigenvalues-and-eigenvectors/eigenvalue-and-eigenvector-definition.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "engineering-mathematics",
+        "unit_slug": "eigenvalues-eigenvectors",
+        "unit_name": "Linear Algebra: Eigenvalues & Vectors",
+        "unit_number": 2,
+        "question_count": 50,
+        "subtopic_labels": [
+          "eigenvalue-properties",
+          "characteristic-equations",
+          "diagonalization",
+          "cayley-hamilton-theorem"
+        ],
+        "verdict": "MOCK_CAPPED"
+      },
+      "visual": {
+        "slug": "matrices-systems-and-eigenvalues",
+        "title": "Matrices, Systems and Eigenvalues",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/linear-algebra/eigenvalues-and-eigenvectors/eigenvalue-and-eigenvector-definition.json",
+        "mock: engineering-mathematics/question-bank/master_bank.json questions[] unit 2 (unit_slug eigenvalues-eigenvectors), 50 records, subtopic groups eigenvalue-properties 16, characteristic-equations 12, diagonalization 12, cayley-hamilton-theorem 10; paper from runs[] file engineering-mathematics/eigenvalues-eigenvectors/gate_em_mock_2_2026-10-27.html",
+        "visual: syllabus-coverage.json lesson_slug matrices-systems-and-eigenvalues (PUBLISHED), title from topics.json; covers checked against topics/matrices-systems-and-eigenvalues/transcript.md"
+      ],
+      "row_verdict": "BOTH"
+    },
+    {
+      "subject": "linear-algebra",
+      "group": "eigenvalues-and-eigenvectors",
+      "topic": "characteristic-equation-and-roots",
+      "title": "Characteristic Equation and Its Roots",
+      "priority": "P1",
+      "path": "subjects/linear-algebra/eigenvalues-and-eigenvectors/characteristic-equation-and-roots.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "engineering-mathematics",
+        "unit_slug": "eigenvalues-eigenvectors",
+        "unit_name": "Linear Algebra: Eigenvalues & Vectors",
+        "unit_number": 2,
+        "question_count": 50,
+        "subtopic_labels": [
+          "eigenvalue-properties",
+          "characteristic-equations",
+          "diagonalization",
+          "cayley-hamilton-theorem"
+        ],
+        "verdict": "MOCK_CAPPED"
+      },
+      "visual": {
+        "slug": "matrices-systems-and-eigenvalues",
+        "title": "Matrices, Systems and Eigenvalues",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/linear-algebra/eigenvalues-and-eigenvectors/characteristic-equation-and-roots.json",
+        "mock: engineering-mathematics/question-bank/master_bank.json questions[] unit 2 (unit_slug eigenvalues-eigenvectors), 50 records, subtopic groups eigenvalue-properties 16, characteristic-equations 12, diagonalization 12, cayley-hamilton-theorem 10; paper from runs[] file engineering-mathematics/eigenvalues-eigenvectors/gate_em_mock_2_2026-10-27.html",
+        "visual: syllabus-coverage.json lesson_slug matrices-systems-and-eigenvalues (PUBLISHED), title from topics.json; covers checked against topics/matrices-systems-and-eigenvalues/transcript.md"
+      ],
+      "row_verdict": "BOTH"
+    },
+    {
+      "subject": "linear-algebra",
+      "group": "eigenvalues-and-eigenvectors",
+      "topic": "eigenspace-and-computing-eigenvectors",
+      "title": "Eigenspace: the Eigenvectors of a Known Eigenvalue",
+      "priority": "P1",
+      "path": "subjects/linear-algebra/eigenvalues-and-eigenvectors/eigenspace-and-computing-eigenvectors.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "engineering-mathematics",
+        "unit_slug": "eigenvalues-eigenvectors",
+        "unit_name": "Linear Algebra: Eigenvalues & Vectors",
+        "unit_number": 2,
+        "question_count": 50,
+        "subtopic_labels": [
+          "eigenvalue-properties",
+          "characteristic-equations",
+          "diagonalization",
+          "cayley-hamilton-theorem"
+        ],
+        "verdict": "MOCK_CAPPED"
+      },
+      "visual": {
+        "slug": "matrices-systems-and-eigenvalues",
+        "title": "Matrices, Systems and Eigenvalues",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/linear-algebra/eigenvalues-and-eigenvectors/eigenspace-and-computing-eigenvectors.json",
+        "mock: engineering-mathematics/question-bank/master_bank.json questions[] unit 2 (unit_slug eigenvalues-eigenvectors), 50 records, subtopic groups eigenvalue-properties 16, characteristic-equations 12, diagonalization 12, cayley-hamilton-theorem 10; paper from runs[] file engineering-mathematics/eigenvalues-eigenvectors/gate_em_mock_2_2026-10-27.html",
+        "visual: syllabus-coverage.json lesson_slug matrices-systems-and-eigenvalues (PUBLISHED), title from topics.json; covers checked against topics/matrices-systems-and-eigenvalues/transcript.md"
+      ],
+      "row_verdict": "BOTH"
+    },
+    {
+      "subject": "linear-algebra",
+      "group": "eigenvalues-and-eigenvectors",
+      "topic": "eigenvalue-properties-of-matrix-functions",
+      "title": "Eigenvalues of A^k, A^-1, A^T and Polynomials in A",
+      "priority": "P1",
+      "path": "subjects/linear-algebra/eigenvalues-and-eigenvectors/eigenvalue-properties-of-matrix-functions.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "engineering-mathematics",
+        "unit_slug": "eigenvalues-eigenvectors",
+        "unit_name": "Linear Algebra: Eigenvalues & Vectors",
+        "unit_number": 2,
+        "question_count": 50,
+        "subtopic_labels": [
+          "eigenvalue-properties",
+          "characteristic-equations",
+          "diagonalization",
+          "cayley-hamilton-theorem"
+        ],
+        "verdict": "MOCK_CAPPED"
+      },
+      "visual": {
+        "slug": "matrices-systems-and-eigenvalues",
+        "title": "Matrices, Systems and Eigenvalues",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/linear-algebra/eigenvalues-and-eigenvectors/eigenvalue-properties-of-matrix-functions.json",
+        "mock: engineering-mathematics/question-bank/master_bank.json questions[] unit 2 (unit_slug eigenvalues-eigenvectors), 50 records, subtopic groups eigenvalue-properties 16, characteristic-equations 12, diagonalization 12, cayley-hamilton-theorem 10; paper from runs[] file engineering-mathematics/eigenvalues-eigenvectors/gate_em_mock_2_2026-10-27.html",
+        "visual: syllabus-coverage.json lesson_slug matrices-systems-and-eigenvalues (PUBLISHED), title from topics.json; covers checked against topics/matrices-systems-and-eigenvalues/transcript.md"
+      ],
+      "row_verdict": "BOTH"
+    },
+    {
+      "subject": "linear-algebra",
+      "group": "eigenvalues-and-eigenvectors",
+      "topic": "algebraic-and-geometric-multiplicity",
+      "title": "Algebraic and Geometric Multiplicity",
+      "priority": "P1",
+      "path": "subjects/linear-algebra/eigenvalues-and-eigenvectors/algebraic-and-geometric-multiplicity.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "engineering-mathematics",
+        "unit_slug": "eigenvalues-eigenvectors",
+        "unit_name": "Linear Algebra: Eigenvalues & Vectors",
+        "unit_number": 2,
+        "question_count": 50,
+        "subtopic_labels": [
+          "eigenvalue-properties",
+          "characteristic-equations",
+          "diagonalization",
+          "cayley-hamilton-theorem"
+        ],
+        "verdict": "MOCK_CAPPED"
+      },
+      "visual": {
+        "slug": "matrices-systems-and-eigenvalues",
+        "title": "Matrices, Systems and Eigenvalues",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/linear-algebra/eigenvalues-and-eigenvectors/algebraic-and-geometric-multiplicity.json",
+        "mock: engineering-mathematics/question-bank/master_bank.json questions[] unit 2 (unit_slug eigenvalues-eigenvectors), 50 records, subtopic groups eigenvalue-properties 16, characteristic-equations 12, diagonalization 12, cayley-hamilton-theorem 10; paper from runs[] file engineering-mathematics/eigenvalues-eigenvectors/gate_em_mock_2_2026-10-27.html",
+        "visual: syllabus-coverage.json lesson_slug matrices-systems-and-eigenvalues (PUBLISHED), title from topics.json; covers checked against topics/matrices-systems-and-eigenvalues/transcript.md"
+      ],
+      "row_verdict": "BOTH"
+    },
+    {
+      "subject": "linear-algebra",
+      "group": "eigenvalues-and-eigenvectors",
+      "topic": "diagonalisability-criterion",
+      "title": "Diagonalisability: When A = P D P^-1",
+      "priority": "P2",
+      "path": "subjects/linear-algebra/eigenvalues-and-eigenvectors/diagonalisability-criterion.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "engineering-mathematics",
+        "unit_slug": "eigenvalues-eigenvectors",
+        "unit_name": "Linear Algebra: Eigenvalues & Vectors",
+        "unit_number": 2,
+        "question_count": 50,
+        "subtopic_labels": [
+          "eigenvalue-properties",
+          "characteristic-equations",
+          "diagonalization",
+          "cayley-hamilton-theorem"
+        ],
+        "verdict": "MOCK_CAPPED"
+      },
+      "visual": {
+        "slug": "matrices-systems-and-eigenvalues",
+        "title": "Matrices, Systems and Eigenvalues",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/linear-algebra/eigenvalues-and-eigenvectors/diagonalisability-criterion.json",
+        "mock: engineering-mathematics/question-bank/master_bank.json questions[] unit 2 (unit_slug eigenvalues-eigenvectors), 50 records, subtopic groups eigenvalue-properties 16, characteristic-equations 12, diagonalization 12, cayley-hamilton-theorem 10; paper from runs[] file engineering-mathematics/eigenvalues-eigenvectors/gate_em_mock_2_2026-10-27.html",
+        "visual: syllabus-coverage.json lesson_slug matrices-systems-and-eigenvalues (PUBLISHED), title from topics.json; covers checked against topics/matrices-systems-and-eigenvalues/transcript.md"
+      ],
+      "row_verdict": "BOTH"
+    },
+    {
+      "subject": "linear-algebra",
+      "group": "eigenvalues-and-eigenvectors",
+      "topic": "symmetric-matrices-and-orthogonal-eigenvectors",
+      "title": "Real Symmetric Matrices: Real Eigenvalues, Orthogonal Eigenvectors",
+      "priority": "P1",
+      "path": "subjects/linear-algebra/eigenvalues-and-eigenvectors/symmetric-matrices-and-orthogonal-eigenvectors.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "engineering-mathematics",
+        "unit_slug": "eigenvalues-eigenvectors",
+        "unit_name": "Linear Algebra: Eigenvalues & Vectors",
+        "unit_number": 2,
+        "question_count": 50,
+        "subtopic_labels": [
+          "eigenvalue-properties",
+          "characteristic-equations",
+          "diagonalization",
+          "cayley-hamilton-theorem"
+        ],
+        "verdict": "MOCK_CAPPED"
+      },
+      "visual": {
+        "slug": "matrices-systems-and-eigenvalues",
+        "title": "Matrices, Systems and Eigenvalues",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/linear-algebra/eigenvalues-and-eigenvectors/symmetric-matrices-and-orthogonal-eigenvectors.json",
+        "mock: engineering-mathematics/question-bank/master_bank.json questions[] unit 2 (unit_slug eigenvalues-eigenvectors), 50 records, subtopic groups eigenvalue-properties 16, characteristic-equations 12, diagonalization 12, cayley-hamilton-theorem 10; paper from runs[] file engineering-mathematics/eigenvalues-eigenvectors/gate_em_mock_2_2026-10-27.html",
+        "visual: syllabus-coverage.json lesson_slug matrices-systems-and-eigenvalues (PUBLISHED), title from topics.json; covers checked against topics/matrices-systems-and-eigenvalues/transcript.md"
+      ],
+      "row_verdict": "BOTH"
+    },
+    {
+      "subject": "linear-algebra",
+      "group": "eigenvalues-and-eigenvectors",
+      "topic": "complex-eigenvalues-of-real-matrices",
+      "title": "Complex Eigenvalues of a Real Matrix",
+      "priority": "P2",
+      "path": "subjects/linear-algebra/eigenvalues-and-eigenvectors/complex-eigenvalues-of-real-matrices.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "engineering-mathematics",
+        "unit_slug": "eigenvalues-eigenvectors",
+        "unit_name": "Linear Algebra: Eigenvalues & Vectors",
+        "unit_number": 2,
+        "question_count": 50,
+        "subtopic_labels": [
+          "eigenvalue-properties",
+          "characteristic-equations",
+          "diagonalization",
+          "cayley-hamilton-theorem"
+        ],
+        "verdict": "MOCK_CAPPED"
+      },
+      "visual": {
+        "slug": "matrices-systems-and-eigenvalues",
+        "title": "Matrices, Systems and Eigenvalues",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/linear-algebra/eigenvalues-and-eigenvectors/complex-eigenvalues-of-real-matrices.json",
+        "mock: engineering-mathematics/question-bank/master_bank.json questions[] unit 2 (unit_slug eigenvalues-eigenvectors), 50 records, subtopic groups eigenvalue-properties 16, characteristic-equations 12, diagonalization 12, cayley-hamilton-theorem 10; paper from runs[] file engineering-mathematics/eigenvalues-eigenvectors/gate_em_mock_2_2026-10-27.html",
+        "visual: syllabus-coverage.json lesson_slug matrices-systems-and-eigenvalues (PUBLISHED), title from topics.json; covers checked against topics/matrices-systems-and-eigenvalues/transcript.md"
+      ],
+      "row_verdict": "BOTH"
+    },
+    {
+      "subject": "linear-algebra",
+      "group": "eigenvalues-and-eigenvectors",
+      "topic": "eigenvalues-of-special-structured-matrices",
+      "title": "Shortcuts: Triangular, Row-Sum, All-Ones and Rank-One Matrices",
+      "priority": "P1",
+      "path": "subjects/linear-algebra/eigenvalues-and-eigenvectors/eigenvalues-of-special-structured-matrices.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "engineering-mathematics",
+        "unit_slug": "eigenvalues-eigenvectors",
+        "unit_name": "Linear Algebra: Eigenvalues & Vectors",
+        "unit_number": 2,
+        "question_count": 50,
+        "subtopic_labels": [
+          "eigenvalue-properties",
+          "characteristic-equations",
+          "diagonalization",
+          "cayley-hamilton-theorem"
+        ],
+        "verdict": "MOCK_CAPPED"
+      },
+      "visual": {
+        "slug": "matrices-systems-and-eigenvalues",
+        "title": "Matrices, Systems and Eigenvalues",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/linear-algebra/eigenvalues-and-eigenvectors/eigenvalues-of-special-structured-matrices.json",
+        "mock: engineering-mathematics/question-bank/master_bank.json questions[] unit 2 (unit_slug eigenvalues-eigenvectors), 50 records, subtopic groups eigenvalue-properties 16, characteristic-equations 12, diagonalization 12, cayley-hamilton-theorem 10; paper from runs[] file engineering-mathematics/eigenvalues-eigenvectors/gate_em_mock_2_2026-10-27.html",
+        "visual: syllabus-coverage.json lesson_slug matrices-systems-and-eigenvalues (PUBLISHED), title from topics.json; covers checked against topics/matrices-systems-and-eigenvalues/transcript.md"
+      ],
+      "row_verdict": "BOTH"
+    },
+    {
+      "subject": "linear-algebra",
+      "group": "eigenvalues-and-eigenvectors",
+      "topic": "similar-matrices-and-what-preserves-eigenvalues",
+      "title": "What Preserves Eigenvalues: Similarity, Transpose, and the Row-Operation Trap",
+      "priority": "P2",
+      "path": "subjects/linear-algebra/eigenvalues-and-eigenvectors/similar-matrices-and-what-preserves-eigenvalues.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "engineering-mathematics",
+        "unit_slug": "eigenvalues-eigenvectors",
+        "unit_name": "Linear Algebra: Eigenvalues & Vectors",
+        "unit_number": 2,
+        "question_count": 50,
+        "subtopic_labels": [
+          "eigenvalue-properties",
+          "characteristic-equations",
+          "diagonalization",
+          "cayley-hamilton-theorem"
+        ],
+        "verdict": "MOCK_CAPPED"
+      },
+      "visual": {
+        "verdict": "VISUAL_MISSING",
+        "detail": "topics/matrices-systems-and-eigenvalues/transcript.md does not treat this subtopic"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/linear-algebra/eigenvalues-and-eigenvectors/similar-matrices-and-what-preserves-eigenvalues.json",
+        "mock: engineering-mathematics/question-bank/master_bank.json questions[] unit 2 (unit_slug eigenvalues-eigenvectors), 50 records, subtopic groups eigenvalue-properties 16, characteristic-equations 12, diagonalization 12, cayley-hamilton-theorem 10; paper from runs[] file engineering-mathematics/eigenvalues-eigenvectors/gate_em_mock_2_2026-10-27.html",
+        "visual: syllabus-coverage.json lesson_slug matrices-systems-and-eigenvalues (PUBLISHED), title from topics.json; covers checked against topics/matrices-systems-and-eigenvalues/transcript.md"
+      ],
+      "row_verdict": "MOCK_ONLY"
+    },
+    {
+      "subject": "linear-algebra",
+      "group": "eigenvalues-and-eigenvectors",
+      "topic": "cayley-hamilton-and-matrix-inverse",
+      "title": "Cayley-Hamilton Theorem and the Inverse From It",
+      "priority": "P3",
+      "path": "subjects/linear-algebra/eigenvalues-and-eigenvectors/cayley-hamilton-and-matrix-inverse.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "engineering-mathematics",
+        "unit_slug": "eigenvalues-eigenvectors",
+        "unit_name": "Linear Algebra: Eigenvalues & Vectors",
+        "unit_number": 2,
+        "question_count": 50,
+        "subtopic_labels": [
+          "eigenvalue-properties",
+          "characteristic-equations",
+          "diagonalization",
+          "cayley-hamilton-theorem"
+        ],
+        "verdict": "MOCK_CAPPED"
+      },
+      "visual": {
+        "verdict": "VISUAL_MISSING",
+        "detail": "topics/matrices-systems-and-eigenvalues/transcript.md does not treat this subtopic"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/linear-algebra/eigenvalues-and-eigenvectors/cayley-hamilton-and-matrix-inverse.json",
+        "mock: engineering-mathematics/question-bank/master_bank.json questions[] unit 2 (unit_slug eigenvalues-eigenvectors), 50 records, subtopic groups eigenvalue-properties 16, characteristic-equations 12, diagonalization 12, cayley-hamilton-theorem 10; paper from runs[] file engineering-mathematics/eigenvalues-eigenvectors/gate_em_mock_2_2026-10-27.html",
+        "visual: syllabus-coverage.json lesson_slug matrices-systems-and-eigenvalues (PUBLISHED), title from topics.json; covers checked against topics/matrices-systems-and-eigenvalues/transcript.md"
+      ],
+      "row_verdict": "MOCK_ONLY"
+    },
+    {
+      "subject": "linear-algebra",
       "group": "matrices-and-determinants",
       "topic": "matrix-vocabulary-and-types",
       "title": "Matrix Vocabulary, Order and the Standard Types",
@@ -3834,6 +4224,26 @@
       "kind": "notes",
       "placement": "algorithms › design-techniques › divide-and-conquer",
       "detail": "gate-visual-explainer published lesson divide-and-conquer (topics/divide-and-conquer/, syllabus-coverage.json subject Algorithms, unit 'Design techniques', coverage_status PUBLISHED, 10 scenes, 41 caption segments). Content read from transcript.md, not the alias list: the three steps, the recursion tree (levels log_b n, leaves n^(log_b a)), the three master-theorem cases, merge sort and quicksort exact comparison counts, decrease and conquer (binary search, quickselect), Karatsuba, maximum subarray and Towers of Hanoi. The notes repo has no algorithms subject, so no card serves it. Recommendation: write content/subjects/algorithms/design-techniques/divide-and-conquer.json."
+    },
+    {
+      "kind": "notes",
+      "placement": "operating-systems › virtual-memory › (no card)",
+      "detail": "Mock unit 5 'Virtual Memory & Page Replacement' (unit_slug virtual-memory, run 9, 2026-10-29, paper operating-systems/virtual-memory/gate_os_mock_5_2026-10-29.html) holds 25 questions over 4 subtopic_label groups (Demand paging & page-fault rate 7, FIFO, OPT & LRU replacement 6, Belady's anomaly 6, Thrashing & the working-set model 6) and no notes card exists for any of them; the notes repo has no operating-systems subject."
+    },
+    {
+      "kind": "notes",
+      "placement": "algorithms › analysis › exact counts: comparisons, probes, transfers and multiplications",
+      "detail": "New lesson topics/exact-counts-across-topics (PUBLISHED, 7 subtopics, 25 microtopics in syllabus-coverage.json) serves no notes card; the notes repo covers discrete mathematics and linear algebra only."
+    },
+    {
+      "kind": "visual",
+      "placement": "linear-algebra › eigenvalues-and-eigenvectors › similar-matrices-and-what-preserves-eigenvalues",
+      "detail": "No lesson covers similarity, the transpose rule or the row-operation trap: topics/matrices-systems-and-eigenvalues/transcript.md never treats similarity. Extend topics/matrices-systems-and-eigenvalues/ with one scene."
+    },
+    {
+      "kind": "visual",
+      "placement": "linear-algebra › eigenvalues-and-eigenvectors › cayley-hamilton-and-matrix-inverse",
+      "detail": "No lesson mentions Cayley-Hamilton: the word appears in no file under topics/ except the Cayley formula for spanning trees in topics/graphs-connectivity. Extend topics/matrices-systems-and-eigenvalues/ with one scene."
     }
   ]
 }

@@ -79,5 +79,43 @@
       "note": "the algebraic and geometric multiplicity definitions and the property list; the fetched body was cut off at the determinant section, so the eigenvalue section was read only through its search extract"
     }
   ],
-  "sourceLine": "NPTEL IIT Kharagpur Lecture 46 (English, read in full) for the eigenvalue relations that follow from the characteristic polynomial. GATE Overflow Linear Algebra notes (English, read in part) for the property list: sum is the trace, product is the determinant, powers and inverses carry the eigenvalue to the same power and reciprocal. Every value printed here, including A^13 = 64A, is recomputed in scripts/validate.py."
+  "sourceLine": "NPTEL IIT Kharagpur Lecture 46 (English, read in full) for the eigenvalue relations that follow from the characteristic polynomial. GATE Overflow Linear Algebra notes (English, read in part) for the property list: sum is the trace, product is the determinant, powers and inverses carry the eigenvalue to the same power and reciprocal. Every value printed here, including A^13 = 64A, is recomputed in scripts/validate.py.",
+  "links": {
+    "mock": {
+      "subject": "engineering-mathematics",
+      "unit_slug": "eigenvalues-eigenvectors",
+      "unit_name": "Linear Algebra: Eigenvalues & Vectors",
+      "unit_number": 2,
+      "question_count": 50,
+      "subtopics": [
+        {
+          "label": "eigenvalue-properties",
+          "questions": 16
+        },
+        {
+          "label": "characteristic-equations",
+          "questions": 12
+        },
+        {
+          "label": "diagonalization",
+          "questions": 12
+        },
+        {
+          "label": "cayley-hamilton-theorem",
+          "questions": 10
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/eigenvalues-eigenvectors/gate_em_mock_2_2026-10-27.html"
+    },
+    "visual": {
+      "slug": "matrices-systems-and-eigenvalues",
+      "title": "Matrices, Systems and Eigenvalues",
+      "level": "topic-level",
+      "covers": [
+        "powers: A^k has lambda^k, and the inverse has 1/lambda on the same directions"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
+    },
+    "mapped_at": "2026-10-29"
+  }
 }

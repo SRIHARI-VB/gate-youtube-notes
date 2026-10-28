@@ -12784,6 +12784,45 @@ window.GATE_DATA = {
    ],
    "sourceLine": "NPTEL IIT Kharagpur Lecture 46, 'Eigenvalues and Eigenvectors' (English, read in full) for the definition with v nonzero, the geometric reading and the worked 2x2 example. NPTEL-NOC IIT Madras CS7015 Lec 6.1 (English, read in part) for the 'what a matrix does to a vector' framing. GanitAnk's Hindi one-shot (Hindi, read in part, translated) for the phrasing of the nonzero condition; the sentences taken from it are translated. Every eigenpair printed on this card is rechecked by A v = lambda v in scripts/validate.py.",
    "visual": "linear-algebra/eigenvalues-and-eigenvectors/eigen-directions",
+   "links": {
+    "mock": {
+     "subject": "engineering-mathematics",
+     "unit_slug": "eigenvalues-eigenvectors",
+     "unit_name": "Linear Algebra: Eigenvalues & Vectors",
+     "unit_number": 2,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "eigenvalue-properties",
+       "questions": 16
+      },
+      {
+       "label": "characteristic-equations",
+       "questions": 12
+      },
+      {
+       "label": "diagonalization",
+       "questions": 12
+      },
+      {
+       "label": "cayley-hamilton-theorem",
+       "questions": 10
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/eigenvalues-eigenvectors/gate_em_mock_2_2026-10-27.html"
+    },
+    "visual": {
+     "slug": "matrices-systems-and-eigenvalues",
+     "title": "Matrices, Systems and Eigenvalues",
+     "level": "topic-level",
+     "covers": [
+      "eigenvectors as preserved directions; Av = lambda v",
+      "the eigenvalue may be negative (a flip) or zero (a crush); the zero vector is not an eigenvector"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
+    },
+    "mapped_at": "2026-10-29"
+   },
    "subject": "linear-algebra",
    "topic": "eigenvalues-and-eigenvectors",
    "path": "subjects/linear-algebra/eigenvalues-and-eigenvectors/eigenvalue-and-eigenvector-definition.json"
@@ -12869,6 +12908,45 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "NPTEL IIT Kharagpur Lecture 46 (English, read in full) for the characteristic equation, the degree-n reading and the worked 2x2 example. GanitAnk's Hindi one-shot (Hindi, read in part, translated) for the 3x3 form lambda^3 - s1 lambda^2 + s2 lambda - det = 0 and the principal-minor reading of s2; the sentences taken from it are translated. The 3x3 example's trace, determinant, principal minors and polynomial are recomputed in scripts/validate.py.",
+   "links": {
+    "mock": {
+     "subject": "engineering-mathematics",
+     "unit_slug": "eigenvalues-eigenvectors",
+     "unit_name": "Linear Algebra: Eigenvalues & Vectors",
+     "unit_number": 2,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "eigenvalue-properties",
+       "questions": 16
+      },
+      {
+       "label": "characteristic-equations",
+       "questions": 12
+      },
+      {
+       "label": "diagonalization",
+       "questions": 12
+      },
+      {
+       "label": "cayley-hamilton-theorem",
+       "questions": 10
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/eigenvalues-eigenvectors/gate_em_mock_2_2026-10-27.html"
+    },
+    "visual": {
+     "slug": "matrices-systems-and-eigenvalues",
+     "title": "Matrices, Systems and Eigenvalues",
+     "level": "topic-level",
+     "covers": [
+      "characteristic polynomial det(A - lambda I) = 0 and its roots",
+      "trace is the sum and determinant the product of the eigenvalues"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
+    },
+    "mapped_at": "2026-10-29"
+   },
    "subject": "linear-algebra",
    "topic": "eigenvalues-and-eigenvectors",
    "path": "subjects/linear-algebra/eigenvalues-and-eigenvectors/characteristic-equation-and-roots.json"
@@ -12954,6 +13032,44 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "NPTEL IIT Kharagpur Lecture 46 (English, read in full) for the eigenspace as the null space of A - lambda I and the worked example with eigenvalues 3 and -2. GanitAnk's Hindi one-shot (Hindi, read in part, translated) for computing eigenvectors by Cramer's rule on A - lambda I; the sentences taken from it are translated. The 2015 Set 3 matrix, its eigenvector and the rank of A - I are recomputed in scripts/validate.py.",
+   "links": {
+    "mock": {
+     "subject": "engineering-mathematics",
+     "unit_slug": "eigenvalues-eigenvectors",
+     "unit_name": "Linear Algebra: Eigenvalues & Vectors",
+     "unit_number": 2,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "eigenvalue-properties",
+       "questions": 16
+      },
+      {
+       "label": "characteristic-equations",
+       "questions": 12
+      },
+      {
+       "label": "diagonalization",
+       "questions": 12
+      },
+      {
+       "label": "cayley-hamilton-theorem",
+       "questions": 10
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/eigenvalues-eigenvectors/gate_em_mock_2_2026-10-27.html"
+    },
+    "visual": {
+     "slug": "matrices-systems-and-eigenvalues",
+     "title": "Matrices, Systems and Eigenvalues",
+     "level": "topic-level",
+     "covers": [
+      "nullity of A - lambda I is the count of independent directions"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
+    },
+    "mapped_at": "2026-10-29"
+   },
    "subject": "linear-algebra",
    "topic": "eigenvalues-and-eigenvectors",
    "path": "subjects/linear-algebra/eigenvalues-and-eigenvectors/eigenspace-and-computing-eigenvectors.json"
@@ -13040,6 +13156,44 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "NPTEL IIT Kharagpur Lecture 46 (English, read in full) for the eigenvalue relations that follow from the characteristic polynomial. GATE Overflow Linear Algebra notes (English, read in part) for the property list: sum is the trace, product is the determinant, powers and inverses carry the eigenvalue to the same power and reciprocal. Every value printed here, including A^13 = 64A, is recomputed in scripts/validate.py.",
+   "links": {
+    "mock": {
+     "subject": "engineering-mathematics",
+     "unit_slug": "eigenvalues-eigenvectors",
+     "unit_name": "Linear Algebra: Eigenvalues & Vectors",
+     "unit_number": 2,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "eigenvalue-properties",
+       "questions": 16
+      },
+      {
+       "label": "characteristic-equations",
+       "questions": 12
+      },
+      {
+       "label": "diagonalization",
+       "questions": 12
+      },
+      {
+       "label": "cayley-hamilton-theorem",
+       "questions": 10
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/eigenvalues-eigenvectors/gate_em_mock_2_2026-10-27.html"
+    },
+    "visual": {
+     "slug": "matrices-systems-and-eigenvalues",
+     "title": "Matrices, Systems and Eigenvalues",
+     "level": "topic-level",
+     "covers": [
+      "powers: A^k has lambda^k, and the inverse has 1/lambda on the same directions"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
+    },
+    "mapped_at": "2026-10-29"
+   },
    "subject": "linear-algebra",
    "topic": "eigenvalues-and-eigenvectors",
    "path": "subjects/linear-algebra/eigenvalues-and-eigenvectors/eigenvalue-properties-of-matrix-functions.json"
@@ -13126,6 +13280,44 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "GATE Overflow Linear Algebra notes (English, read in part) for the algebraic and geometric multiplicity definitions and the AM >= GM statement. NPTEL IIT Kharagpur Lecture 46 (English, read in full) for the repeated-root example in which a double eigenvalue yields only one eigenvector direction. The multiplicity pairs on this card are recomputed in scripts/validate.py.",
+   "links": {
+    "mock": {
+     "subject": "engineering-mathematics",
+     "unit_slug": "eigenvalues-eigenvectors",
+     "unit_name": "Linear Algebra: Eigenvalues & Vectors",
+     "unit_number": 2,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "eigenvalue-properties",
+       "questions": 16
+      },
+      {
+       "label": "characteristic-equations",
+       "questions": 12
+      },
+      {
+       "label": "diagonalization",
+       "questions": 12
+      },
+      {
+       "label": "cayley-hamilton-theorem",
+       "questions": 10
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/eigenvalues-eigenvectors/gate_em_mock_2_2026-10-27.html"
+    },
+    "visual": {
+     "slug": "matrices-systems-and-eigenvalues",
+     "title": "Matrices, Systems and Eigenvalues",
+     "level": "topic-level",
+     "covers": [
+      "algebraic against geometric multiplicity; defective matrices"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
+    },
+    "mapped_at": "2026-10-29"
+   },
    "subject": "linear-algebra",
    "topic": "eigenvalues-and-eigenvectors",
    "path": "subjects/linear-algebra/eigenvalues-and-eigenvectors/algebraic-and-geometric-multiplicity.json"
@@ -13210,6 +13402,45 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "NPTEL IIT Kharagpur Lecture 46 (English, read in full) for the statement that distinct eigenvalues give independent eigenvectors, which the lecture proves later in the course. GanitAnk's Hindi one-shot (Hindi, read in part, translated) for the repeated-eigenvalue discussion that separates diagonalisable from defective cases; the sentences taken from it are translated. The factorisation P diag(3,1) P^-1 is multiplied back out in scripts/validate.py.",
+   "links": {
+    "mock": {
+     "subject": "engineering-mathematics",
+     "unit_slug": "eigenvalues-eigenvectors",
+     "unit_name": "Linear Algebra: Eigenvalues & Vectors",
+     "unit_number": 2,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "eigenvalue-properties",
+       "questions": 16
+      },
+      {
+       "label": "characteristic-equations",
+       "questions": 12
+      },
+      {
+       "label": "diagonalization",
+       "questions": 12
+      },
+      {
+       "label": "cayley-hamilton-theorem",
+       "questions": 10
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/eigenvalues-eigenvectors/gate_em_mock_2_2026-10-27.html"
+    },
+    "visual": {
+     "slug": "matrices-systems-and-eigenvalues",
+     "title": "Matrices, Systems and Eigenvalues",
+     "level": "topic-level",
+     "covers": [
+      "diagonalisation A = P D P^-1 and powers through D",
+      "a repeated eigenvalue may fail to supply enough independent eigenvectors"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
+    },
+    "mapped_at": "2026-10-29"
+   },
    "subject": "linear-algebra",
    "topic": "eigenvalues-and-eigenvectors",
    "path": "subjects/linear-algebra/eigenvalues-and-eigenvectors/diagonalisability-criterion.json"
@@ -13295,6 +13526,45 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "Standard references for the spectral theorem for real symmetric matrices: Lay, Linear Algebra and Its Applications, chapter 7, and Hoffman and Kunze, Linear Algebra, chapter 6. GATE Overflow Linear Algebra notes (English, read in part) for the property list used here. NPTEL IIT Kharagpur Lecture 46 (English, read in full) for the real-eigenvalue examples. The orthogonality, the trace and determinant values and the entry-square identity are recomputed in scripts/validate.py, including over every small integer symmetric matrix.",
+   "links": {
+    "mock": {
+     "subject": "engineering-mathematics",
+     "unit_slug": "eigenvalues-eigenvectors",
+     "unit_name": "Linear Algebra: Eigenvalues & Vectors",
+     "unit_number": 2,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "eigenvalue-properties",
+       "questions": 16
+      },
+      {
+       "label": "characteristic-equations",
+       "questions": 12
+      },
+      {
+       "label": "diagonalization",
+       "questions": 12
+      },
+      {
+       "label": "cayley-hamilton-theorem",
+       "questions": 10
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/eigenvalues-eigenvectors/gate_em_mock_2_2026-10-27.html"
+    },
+    "visual": {
+     "slug": "matrices-systems-and-eigenvalues",
+     "title": "Matrices, Systems and Eigenvalues",
+     "level": "topic-level",
+     "covers": [
+      "symmetric matrices: real eigenvalues, orthogonal eigenvectors",
+      "the eigenvector basis can be made orthonormal (spectral theorem)"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
+    },
+    "mapped_at": "2026-10-29"
+   },
    "subject": "linear-algebra",
    "topic": "eigenvalues-and-eigenvectors",
    "path": "subjects/linear-algebra/eigenvalues-and-eigenvectors/symmetric-matrices-and-orthogonal-eigenvectors.json"
@@ -13369,6 +13639,45 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "NPTEL IIT Kharagpur Lecture 46 (English, read in full) for the statement that a matrix may have complex eigenvalues and complex eigenvectors, with the complex example whose characteristic equation has a repeated real root. The conjugate-pair fact and the discriminant test are standard results, recorded in the standard references for this topic, and every product printed here is recomputed in scripts/validate.py.",
+   "links": {
+    "mock": {
+     "subject": "engineering-mathematics",
+     "unit_slug": "eigenvalues-eigenvectors",
+     "unit_name": "Linear Algebra: Eigenvalues & Vectors",
+     "unit_number": 2,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "eigenvalue-properties",
+       "questions": 16
+      },
+      {
+       "label": "characteristic-equations",
+       "questions": 12
+      },
+      {
+       "label": "diagonalization",
+       "questions": 12
+      },
+      {
+       "label": "cayley-hamilton-theorem",
+       "questions": 10
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/eigenvalues-eigenvectors/gate_em_mock_2_2026-10-27.html"
+    },
+    "visual": {
+     "slug": "matrices-systems-and-eigenvalues",
+     "title": "Matrices, Systems and Eigenvalues",
+     "level": "topic-level",
+     "covers": [
+      "a real matrix with no real eigenvalue",
+      "a quarter turn sends every vector to a perpendicular one, giving plus and minus i"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
+    },
+    "mapped_at": "2026-10-29"
+   },
    "subject": "linear-algebra",
    "topic": "eigenvalues-and-eigenvectors",
    "path": "subjects/linear-algebra/eigenvalues-and-eigenvectors/complex-eigenvalues-of-real-matrices.json"
@@ -13456,6 +13765,45 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "NPTEL IIT Kharagpur Lecture 46 (English, read in full) for the triangular reading of eigenvalues and the trace-sum check. GATE Overflow Linear Algebra notes (English, read in part) for the property list behind the row-sum and rank-one shortcuts. The 2021 Set 1 Q.52 and 2014 Set 2 Q.47 matrices are recomputed in scripts/validate.py: ranks, traces, trace(A^2) and the resulting eigenvalues.",
+   "links": {
+    "mock": {
+     "subject": "engineering-mathematics",
+     "unit_slug": "eigenvalues-eigenvectors",
+     "unit_name": "Linear Algebra: Eigenvalues & Vectors",
+     "unit_number": 2,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "eigenvalue-properties",
+       "questions": 16
+      },
+      {
+       "label": "characteristic-equations",
+       "questions": 12
+      },
+      {
+       "label": "diagonalization",
+       "questions": 12
+      },
+      {
+       "label": "cayley-hamilton-theorem",
+       "questions": 10
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/eigenvalues-eigenvectors/gate_em_mock_2_2026-10-27.html"
+    },
+    "visual": {
+     "slug": "matrices-systems-and-eigenvalues",
+     "title": "Matrices, Systems and Eigenvalues",
+     "level": "topic-level",
+     "covers": [
+      "triangular, all-ones, idempotent, nilpotent and rotation patterns",
+      "the row-sum shortcut gives the largest eigenvalue only, not the whole list"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
+    },
+    "mapped_at": "2026-10-29"
+   },
    "subject": "linear-algebra",
    "topic": "eigenvalues-and-eigenvectors",
    "path": "subjects/linear-algebra/eigenvalues-and-eigenvectors/eigenvalues-of-special-structured-matrices.json"
@@ -13539,6 +13887,35 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "NPTEL IIT Kharagpur Lecture 46 (English, read in full) for the characteristic-polynomial route to the eigenvalue rules. GATE Overflow Linear Algebra notes (English, read in part) for the property list. The row-operation counterexample, both characteristic quadratics and the two eigenvalue pairs are recomputed in scripts/validate.py, and the row-operation claim is also checked against every small integer 2x2 matrix in range.",
+   "links": {
+    "mock": {
+     "subject": "engineering-mathematics",
+     "unit_slug": "eigenvalues-eigenvectors",
+     "unit_name": "Linear Algebra: Eigenvalues & Vectors",
+     "unit_number": 2,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "eigenvalue-properties",
+       "questions": 16
+      },
+      {
+       "label": "characteristic-equations",
+       "questions": 12
+      },
+      {
+       "label": "diagonalization",
+       "questions": 12
+      },
+      {
+       "label": "cayley-hamilton-theorem",
+       "questions": 10
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/eigenvalues-eigenvectors/gate_em_mock_2_2026-10-27.html"
+    },
+    "mapped_at": "2026-10-29"
+   },
    "subject": "linear-algebra",
    "topic": "eigenvalues-and-eigenvectors",
    "path": "subjects/linear-algebra/eigenvalues-and-eigenvectors/similar-matrices-and-what-preserves-eigenvalues.json"
@@ -13622,6 +13999,35 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "NPTEL IIT Kharagpur Lecture 46 (English, read in full) for the statement and proof-free use of the theorem, with the worked inverse from it. GanitAnk's Hindi one-shot (Hindi, read in part, translated) for the 2x2 inverse example and the GATE-question framing; the sentences taken from it are translated into English. Both inverse examples are multiplied back to the identity in scripts/validate.py, and the theorem is checked against every small integer 2x2 matrix.",
+   "links": {
+    "mock": {
+     "subject": "engineering-mathematics",
+     "unit_slug": "eigenvalues-eigenvectors",
+     "unit_name": "Linear Algebra: Eigenvalues & Vectors",
+     "unit_number": 2,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "eigenvalue-properties",
+       "questions": 16
+      },
+      {
+       "label": "characteristic-equations",
+       "questions": 12
+      },
+      {
+       "label": "diagonalization",
+       "questions": 12
+      },
+      {
+       "label": "cayley-hamilton-theorem",
+       "questions": 10
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/eigenvalues-eigenvectors/gate_em_mock_2_2026-10-27.html"
+    },
+    "mapped_at": "2026-10-29"
+   },
    "subject": "linear-algebra",
    "topic": "eigenvalues-and-eigenvectors",
    "path": "subjects/linear-algebra/eigenvalues-and-eigenvectors/cayley-hamilton-and-matrix-inverse.json"

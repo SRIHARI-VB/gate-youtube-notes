@@ -67,5 +67,44 @@
       "note": "the definition with v nonzero, the geometric reading, the characteristic equation, the eigenspace, a 2x2 worked example with eigenvalues 3 and -2, the repeated-root example whose eigenvalue 1 has only one eigenvector, and Cayley-Hamilton with the inverse from it"
     }
   ],
-  "sourceLine": "NPTEL IIT Kharagpur Lecture 46 (English, read in full) for the statement that a matrix may have complex eigenvalues and complex eigenvectors, with the complex example whose characteristic equation has a repeated real root. The conjugate-pair fact and the discriminant test are standard results, recorded in the standard references for this topic, and every product printed here is recomputed in scripts/validate.py."
+  "sourceLine": "NPTEL IIT Kharagpur Lecture 46 (English, read in full) for the statement that a matrix may have complex eigenvalues and complex eigenvectors, with the complex example whose characteristic equation has a repeated real root. The conjugate-pair fact and the discriminant test are standard results, recorded in the standard references for this topic, and every product printed here is recomputed in scripts/validate.py.",
+  "links": {
+    "mock": {
+      "subject": "engineering-mathematics",
+      "unit_slug": "eigenvalues-eigenvectors",
+      "unit_name": "Linear Algebra: Eigenvalues & Vectors",
+      "unit_number": 2,
+      "question_count": 50,
+      "subtopics": [
+        {
+          "label": "eigenvalue-properties",
+          "questions": 16
+        },
+        {
+          "label": "characteristic-equations",
+          "questions": 12
+        },
+        {
+          "label": "diagonalization",
+          "questions": 12
+        },
+        {
+          "label": "cayley-hamilton-theorem",
+          "questions": 10
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/eigenvalues-eigenvectors/gate_em_mock_2_2026-10-27.html"
+    },
+    "visual": {
+      "slug": "matrices-systems-and-eigenvalues",
+      "title": "Matrices, Systems and Eigenvalues",
+      "level": "topic-level",
+      "covers": [
+        "a real matrix with no real eigenvalue",
+        "a quarter turn sends every vector to a perpendicular one, giving plus and minus i"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
+    },
+    "mapped_at": "2026-10-29"
+  }
 }

@@ -78,5 +78,44 @@
       "note": "the characteristic equation written as lambda^3 - s1 lambda^2 + s2 lambda - det = 0, eigenvectors from Cramer's rule, the repeated-eigenvalue case, and the inverse from Cayley-Hamilton; read in part, the last third of the stream not read"
     }
   ],
-  "sourceLine": "NPTEL IIT Kharagpur Lecture 46 (English, read in full) for the characteristic equation, the degree-n reading and the worked 2x2 example. GanitAnk's Hindi one-shot (Hindi, read in part, translated) for the 3x3 form lambda^3 - s1 lambda^2 + s2 lambda - det = 0 and the principal-minor reading of s2; the sentences taken from it are translated. The 3x3 example's trace, determinant, principal minors and polynomial are recomputed in scripts/validate.py."
+  "sourceLine": "NPTEL IIT Kharagpur Lecture 46 (English, read in full) for the characteristic equation, the degree-n reading and the worked 2x2 example. GanitAnk's Hindi one-shot (Hindi, read in part, translated) for the 3x3 form lambda^3 - s1 lambda^2 + s2 lambda - det = 0 and the principal-minor reading of s2; the sentences taken from it are translated. The 3x3 example's trace, determinant, principal minors and polynomial are recomputed in scripts/validate.py.",
+  "links": {
+    "mock": {
+      "subject": "engineering-mathematics",
+      "unit_slug": "eigenvalues-eigenvectors",
+      "unit_name": "Linear Algebra: Eigenvalues & Vectors",
+      "unit_number": 2,
+      "question_count": 50,
+      "subtopics": [
+        {
+          "label": "eigenvalue-properties",
+          "questions": 16
+        },
+        {
+          "label": "characteristic-equations",
+          "questions": 12
+        },
+        {
+          "label": "diagonalization",
+          "questions": 12
+        },
+        {
+          "label": "cayley-hamilton-theorem",
+          "questions": 10
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/eigenvalues-eigenvectors/gate_em_mock_2_2026-10-27.html"
+    },
+    "visual": {
+      "slug": "matrices-systems-and-eigenvalues",
+      "title": "Matrices, Systems and Eigenvalues",
+      "level": "topic-level",
+      "covers": [
+        "characteristic polynomial det(A - lambda I) = 0 and its roots",
+        "trace is the sum and determinant the product of the eigenvalues"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
+    },
+    "mapped_at": "2026-10-29"
+  }
 }
