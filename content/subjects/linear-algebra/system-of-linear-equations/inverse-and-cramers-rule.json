@@ -73,5 +73,34 @@
       "note": "the matrix-method solution X = A^(-1)B and the adjoint test when the determinant vanishes; read in part"
     }
   ],
-  "sourceLine": "Vidyalankar GATE Engineering Mathematics notes, section 1.4 (English, read in part) for Cramer's rule and the inversion method. SATHEE, IIT Kanpur (English, read in part) for the matrix method and the adjoint test. The Cramer ratios in the worked example are recomputed in scripts/validate.py."
+  "sourceLine": "Vidyalankar GATE Engineering Mathematics notes, section 1.4 (English, read in part) for Cramer's rule and the inversion method. SATHEE, IIT Kanpur (English, read in part) for the matrix method and the adjoint test. The Cramer ratios in the worked example are recomputed in scripts/validate.py.",
+  "links": {
+    "mock": {
+      "subject": "engineering-mathematics",
+      "unit_slug": "linear-algebra-matrices",
+      "unit_name": "Linear Algebra: Matrices & Systems",
+      "unit_number": 1,
+      "question_count": 50,
+      "subtopics": [
+        {
+          "label": "matrix-operations",
+          "questions": 15
+        },
+        {
+          "label": "rank-nullity",
+          "questions": 14
+        },
+        {
+          "label": "systems-of-linear-equations",
+          "questions": 12
+        },
+        {
+          "label": "gauss-elimination",
+          "questions": 9
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
+    },
+    "mapped_at": "2026-10-29"
+  }
 }

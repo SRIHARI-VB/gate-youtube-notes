@@ -74,5 +74,43 @@
       "note": "the square-matrix split on |A| = 0 with the dependent-rows reading; read in part"
     }
   ],
-  "sourceLine": "Vidyalankar GATE Engineering Mathematics notes, section 1.4 (English, read in part) for the consistency conditions and the determinant gate. GATE Overflow blog, 'Linear Algebra Important Points' (English, read in part) for the square-matrix split. Both determinants, the 2 x 2 counterexamples and the 2025 Set 1 parameter cases are recomputed in scripts/validate.py."
+  "sourceLine": "Vidyalankar GATE Engineering Mathematics notes, section 1.4 (English, read in part) for the consistency conditions and the determinant gate. GATE Overflow blog, 'Linear Algebra Important Points' (English, read in part) for the square-matrix split. Both determinants, the 2 x 2 counterexamples and the 2025 Set 1 parameter cases are recomputed in scripts/validate.py.",
+  "links": {
+    "mock": {
+      "subject": "engineering-mathematics",
+      "unit_slug": "linear-algebra-matrices",
+      "unit_name": "Linear Algebra: Matrices & Systems",
+      "unit_number": 1,
+      "question_count": 50,
+      "subtopics": [
+        {
+          "label": "matrix-operations",
+          "questions": 15
+        },
+        {
+          "label": "rank-nullity",
+          "questions": 14
+        },
+        {
+          "label": "systems-of-linear-equations",
+          "questions": 12
+        },
+        {
+          "label": "gauss-elimination",
+          "questions": 9
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
+    },
+    "visual": {
+      "slug": "matrices-systems-and-eigenvalues",
+      "title": "Matrices, Systems and Eigenvalues",
+      "level": "topic-level",
+      "covers": [
+        "the determinant as an area factor, and its sign as orientation"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
+    },
+    "mapped_at": "2026-10-29"
+  }
 }

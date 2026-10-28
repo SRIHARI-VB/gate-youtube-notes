@@ -84,5 +84,43 @@
       "note": "the consistency conditions stated as case 1 and case 2 with the r = number-of-unknowns split; read in part through the search extract, the PDF itself did not download"
     }
   ],
-  "sourceLine": "GATE Overflow blog, 'Linear Algebra Important Points' (English, read in part) for the consistency table. SATHEE, IIT Kanpur (English, read in part) for the rank rule and its two sub-cases. Vidyalankar GATE Engineering Mathematics notes, section 1.4 (English, read in part through the search extract) for the same conditions in coaching language. The ranks in every example are recomputed by Gaussian elimination in scripts/validate.py."
+  "sourceLine": "GATE Overflow blog, 'Linear Algebra Important Points' (English, read in part) for the consistency table. SATHEE, IIT Kanpur (English, read in part) for the rank rule and its two sub-cases. Vidyalankar GATE Engineering Mathematics notes, section 1.4 (English, read in part through the search extract) for the same conditions in coaching language. The ranks in every example are recomputed by Gaussian elimination in scripts/validate.py.",
+  "links": {
+    "mock": {
+      "subject": "engineering-mathematics",
+      "unit_slug": "linear-algebra-matrices",
+      "unit_name": "Linear Algebra: Matrices & Systems",
+      "unit_number": 1,
+      "question_count": 50,
+      "subtopics": [
+        {
+          "label": "matrix-operations",
+          "questions": 15
+        },
+        {
+          "label": "rank-nullity",
+          "questions": 14
+        },
+        {
+          "label": "systems-of-linear-equations",
+          "questions": 12
+        },
+        {
+          "label": "gauss-elimination",
+          "questions": 9
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
+    },
+    "visual": {
+      "slug": "matrices-systems-and-eigenvalues",
+      "title": "Matrices, Systems and Eigenvalues",
+      "level": "topic-level",
+      "covers": [
+        "consistency by rank(A) against rank([A|b])"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
+    },
+    "mapped_at": "2026-10-29"
+  }
 }

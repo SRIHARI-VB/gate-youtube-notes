@@ -10012,6 +10012,45 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "IIT Madras CS6015 (LARP 2018) lecture slides, deck 1 'Matrices' (English, read in full) for the definition, the order and the entry notation. Ashish Singh Lectures, 'Mega One Shot: Matrices and Determinants' (Hindi, opening read only, translated into English here and marked as translated) for the order and the list of named types. GeeksforGeeks 'Matrices and Determinant Notes for GATE CSE and DA' (English, read in part) to confirm the type list. Every count on this card is recomputed in scripts/validate.py.",
+   "links": {
+    "mock": {
+     "subject": "engineering-mathematics",
+     "unit_slug": "linear-algebra-matrices",
+     "unit_name": "Linear Algebra: Matrices & Systems",
+     "unit_number": 1,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "matrix-operations",
+       "questions": 15
+      },
+      {
+       "label": "rank-nullity",
+       "questions": 14
+      },
+      {
+       "label": "systems-of-linear-equations",
+       "questions": 12
+      },
+      {
+       "label": "gauss-elimination",
+       "questions": 9
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
+    },
+    "visual": {
+     "slug": "matrices-systems-and-eigenvalues",
+     "title": "Matrices, Systems and Eigenvalues",
+     "level": "topic-level",
+     "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html",
+     "covers": [
+      "a matrix as a function; shape caps the rank at the smaller side",
+      "square matrices get the invertibility vocabulary"
+     ]
+    },
+    "mapped_at": "2026-10-29"
+   },
    "subject": "linear-algebra",
    "topic": "matrices-and-determinants",
    "path": "subjects/linear-algebra/matrices-and-determinants/matrix-vocabulary-and-types.json"
@@ -10094,6 +10133,35 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "Ashish Singh Lectures, 'Mega One Shot: Matrices and Determinants' (Hindi, opening read only; every sentence taken from it is translated into English and marked as translated, source language Hindi) for the addition and scalar-multiplication laws. GeeksforGeeks 'Matrices and Determinant Notes for GATE CSE and DA' (English, read in part) to confirm the same-order requirement. Standard reference used to verify, never copied: Strang, Introduction to Linear Algebra, ch. 1.",
+   "links": {
+    "mock": {
+     "subject": "engineering-mathematics",
+     "unit_slug": "linear-algebra-matrices",
+     "unit_name": "Linear Algebra: Matrices & Systems",
+     "unit_number": 1,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "matrix-operations",
+       "questions": 15
+      },
+      {
+       "label": "rank-nullity",
+       "questions": 14
+      },
+      {
+       "label": "systems-of-linear-equations",
+       "questions": 12
+      },
+      {
+       "label": "gauss-elimination",
+       "questions": 9
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
+    },
+    "mapped_at": "2026-10-29"
+   },
    "subject": "linear-algebra",
    "topic": "matrices-and-determinants",
    "path": "subjects/linear-algebra/matrices-and-determinants/matrix-addition-and-scalar-multiplication.json"
@@ -10188,6 +10256,44 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "IIT Madras CS6015 (LARP 2018) slides, deck 2 'Matrix multiplication' (English, read in full) for the conformability rule, the entry formula and the worked products. Ashish Singh Lectures, 'Mega One Shot: Matrices and Determinants' (Hindi, opening read only, translated and marked as translated, source language Hindi) for the multiplication condition and non-commutativity. Every product and count on this card is recomputed in scripts/validate.py.",
+   "links": {
+    "mock": {
+     "subject": "engineering-mathematics",
+     "unit_slug": "linear-algebra-matrices",
+     "unit_name": "Linear Algebra: Matrices & Systems",
+     "unit_number": 1,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "matrix-operations",
+       "questions": 15
+      },
+      {
+       "label": "rank-nullity",
+       "questions": 14
+      },
+      {
+       "label": "systems-of-linear-equations",
+       "questions": 12
+      },
+      {
+       "label": "gauss-elimination",
+       "questions": 9
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
+    },
+    "visual": {
+     "slug": "matrices-systems-and-eigenvalues",
+     "title": "Matrices, Systems and Eigenvalues",
+     "level": "topic-level",
+     "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html",
+     "covers": [
+      "products are compositions; a product needs the inner sizes to agree"
+     ]
+    },
+    "mapped_at": "2026-10-29"
+   },
    "subject": "linear-algebra",
    "topic": "matrices-and-determinants",
    "path": "subjects/linear-algebra/matrices-and-determinants/matrix-multiplication-and-noncommutativity.json"
@@ -10281,6 +10387,44 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "IIT Madras CS6015 (LARP 2018) slides, deck 6 'Inverses and Transposes' (English, read in full) for the transpose laws. GeeksforGeeks 'Matrices and Determinant Notes for GATE CSE and DA' (English, read in part) for the symmetric, skew-symmetric and orthogonal definitions and the transpose properties. GATE Overflow Linear Algebra notes (English, read in part) for the odd-order skew-symmetric determinant. The counts and counterexamples are recomputed in scripts/validate.py.",
+   "links": {
+    "mock": {
+     "subject": "engineering-mathematics",
+     "unit_slug": "linear-algebra-matrices",
+     "unit_name": "Linear Algebra: Matrices & Systems",
+     "unit_number": 1,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "matrix-operations",
+       "questions": 15
+      },
+      {
+       "label": "rank-nullity",
+       "questions": 14
+      },
+      {
+       "label": "systems-of-linear-equations",
+       "questions": 12
+      },
+      {
+       "label": "gauss-elimination",
+       "questions": 9
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
+    },
+    "visual": {
+     "slug": "matrices-systems-and-eigenvalues",
+     "title": "Matrices, Systems and Eigenvalues",
+     "level": "topic-level",
+     "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html",
+     "covers": [
+      "real symmetric matrices: real eigenvalues, perpendicular eigenvectors"
+     ]
+    },
+    "mapped_at": "2026-10-29"
+   },
    "subject": "linear-algebra",
    "topic": "matrices-and-determinants",
    "path": "subjects/linear-algebra/matrices-and-determinants/transpose-symmetric-and-skew-symmetric.json"
@@ -10377,6 +10521,45 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "IIT Madras CS6015 (LARP 2018) slides, deck 6 (English, read in full) for the power and inverse laws. GeeksforGeeks 'Matrices and Determinant Notes for GATE CSE and DA' (English, read in part) for the four special-matrix definitions. GATE Overflow Linear Algebra notes (English, read in part) for the determinant consequences. Every power, product and verdict on this card is recomputed in scripts/validate.py.",
+   "links": {
+    "mock": {
+     "subject": "engineering-mathematics",
+     "unit_slug": "linear-algebra-matrices",
+     "unit_name": "Linear Algebra: Matrices & Systems",
+     "unit_number": 1,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "matrix-operations",
+       "questions": 15
+      },
+      {
+       "label": "rank-nullity",
+       "questions": 14
+      },
+      {
+       "label": "systems-of-linear-equations",
+       "questions": 12
+      },
+      {
+       "label": "gauss-elimination",
+       "questions": 9
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
+    },
+    "visual": {
+     "slug": "matrices-systems-and-eigenvalues",
+     "title": "Matrices, Systems and Eigenvalues",
+     "level": "topic-level",
+     "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html",
+     "covers": [
+      "powers: A^k has lambda^k; the inverse has 1/lambda",
+      "triangular, all-ones, idempotent, nilpotent and rotation patterns"
+     ]
+    },
+    "mapped_at": "2026-10-29"
+   },
    "subject": "linear-algebra",
    "topic": "matrices-and-determinants",
    "path": "subjects/linear-algebra/matrices-and-determinants/matrix-powers-and-special-matrices.json"
@@ -10471,6 +10654,44 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "GeeksforGeeks 'Matrices and Determinant Notes for GATE CSE and DA' (English, read in part) for the trace definition and its laws. GATE Overflow Linear Algebra notes (English, read in part) for the cyclic law. IIT Madras CS6015 (LARP 2018) slides (English, read in full) for the diagonal-sum definition. The counterexample to the non-cyclic order is recomputed in scripts/validate.py.",
+   "links": {
+    "mock": {
+     "subject": "engineering-mathematics",
+     "unit_slug": "linear-algebra-matrices",
+     "unit_name": "Linear Algebra: Matrices & Systems",
+     "unit_number": 1,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "matrix-operations",
+       "questions": 15
+      },
+      {
+       "label": "rank-nullity",
+       "questions": 14
+      },
+      {
+       "label": "systems-of-linear-equations",
+       "questions": 12
+      },
+      {
+       "label": "gauss-elimination",
+       "questions": 9
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
+    },
+    "visual": {
+     "slug": "matrices-systems-and-eigenvalues",
+     "title": "Matrices, Systems and Eigenvalues",
+     "level": "topic-level",
+     "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html",
+     "covers": [
+      "trace is the sum and determinant the product of the eigenvalues"
+     ]
+    },
+    "mapped_at": "2026-10-29"
+   },
    "subject": "linear-algebra",
    "topic": "matrices-and-determinants",
    "path": "subjects/linear-algebra/matrices-and-determinants/trace-and-its-properties.json"
@@ -10565,6 +10786,45 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "IIT Madras CS6015 (LARP 2018) slides, deck 4 'Determinants' (English, read in full) for the determinant as a volume scaling and its uses. GATE Overflow Linear Algebra notes (English, read in part) for the expansion formulas and the common sign error. GeeksforGeeks (English, read in part) for the minor and cofactor definitions. Every expansion on this card is recomputed in scripts/validate.py.",
+   "links": {
+    "mock": {
+     "subject": "engineering-mathematics",
+     "unit_slug": "linear-algebra-matrices",
+     "unit_name": "Linear Algebra: Matrices & Systems",
+     "unit_number": 1,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "matrix-operations",
+       "questions": 15
+      },
+      {
+       "label": "rank-nullity",
+       "questions": 14
+      },
+      {
+       "label": "systems-of-linear-equations",
+       "questions": 12
+      },
+      {
+       "label": "gauss-elimination",
+       "questions": 9
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
+    },
+    "visual": {
+     "slug": "matrices-systems-and-eigenvalues",
+     "title": "Matrices, Systems and Eigenvalues",
+     "level": "topic-level",
+     "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html",
+     "covers": [
+      "the determinant as an area factor, and its sign as orientation",
+      "det(AB) = det A det B"
+     ]
+    },
+    "mapped_at": "2026-10-29"
+   },
    "subject": "linear-algebra",
    "topic": "matrices-and-determinants",
    "path": "subjects/linear-algebra/matrices-and-determinants/determinant-definition-and-cofactor-expansion.json"
@@ -10664,6 +10924,44 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "IIT Madras CS6015 (LARP 2018) slides, deck 4 'Determinants' (English, read in full) for the row-operation effects and the signed-volume reading. GATE Overflow Linear Algebra notes (English, read in part) for the property list and the det(A + B) pitfall. GeeksforGeeks (English, read in part) for the scalar and product rules. Every property is exercised over exhaustive small cases in scripts/validate.py, and the lesson in visuals/linear-algebra/matrices-and-determinants/determinant-as-area-scaling draws the same four rules as areas.",
+   "links": {
+    "mock": {
+     "subject": "engineering-mathematics",
+     "unit_slug": "linear-algebra-matrices",
+     "unit_name": "Linear Algebra: Matrices & Systems",
+     "unit_number": 1,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "matrix-operations",
+       "questions": 15
+      },
+      {
+       "label": "rank-nullity",
+       "questions": 14
+      },
+      {
+       "label": "systems-of-linear-equations",
+       "questions": 12
+      },
+      {
+       "label": "gauss-elimination",
+       "questions": 9
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
+    },
+    "visual": {
+     "slug": "matrices-systems-and-eigenvalues",
+     "title": "Matrices, Systems and Eigenvalues",
+     "level": "topic-level",
+     "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html",
+     "covers": [
+      "row swap negates, row addition preserves, row scaling scales"
+     ]
+    },
+    "mapped_at": "2026-10-29"
+   },
    "subject": "linear-algebra",
    "topic": "matrices-and-determinants",
    "path": "subjects/linear-algebra/matrices-and-determinants/determinant-row-column-operations.json"
@@ -10758,6 +11056,45 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "IIT Madras CS6015 (LARP 2018) slides, deck 6 'Inverses and Transposes' (English, read in full) for the inverse laws and the non-invertibility discussion. GeeksforGeeks 'Matrices and Determinant Notes for GATE CSE and DA' (English, read in part) for the adjoint property list. GATE Overflow Linear Algebra notes (English, read in part) for |adj A| = |A|^(n-1). Every adjoint, inverse and determinant on this card is recomputed in scripts/validate.py, including by exact rational arithmetic.",
+   "links": {
+    "mock": {
+     "subject": "engineering-mathematics",
+     "unit_slug": "linear-algebra-matrices",
+     "unit_name": "Linear Algebra: Matrices & Systems",
+     "unit_number": 1,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "matrix-operations",
+       "questions": 15
+      },
+      {
+       "label": "rank-nullity",
+       "questions": 14
+      },
+      {
+       "label": "systems-of-linear-equations",
+       "questions": 12
+      },
+      {
+       "label": "gauss-elimination",
+       "questions": 9
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
+    },
+    "visual": {
+     "slug": "matrices-systems-and-eigenvalues",
+     "title": "Matrices, Systems and Eigenvalues",
+     "level": "topic-level",
+     "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html",
+     "covers": [
+      "determinant, pivots or eigenvalue decide invertibility",
+      "the inverse stretches by 1/lambda on the same directions"
+     ]
+    },
+    "mapped_at": "2026-10-29"
+   },
    "subject": "linear-algebra",
    "topic": "matrices-and-determinants",
    "path": "subjects/linear-algebra/matrices-and-determinants/adjoint-inverse-and-invertibility.json"
@@ -10857,6 +11194,45 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "GATE Overflow Linear Algebra notes (English, read in part) for the rank definitions and bounds. GeeksforGeeks 'Matrices and Determinant Notes for GATE CSE and DA' (English, read in part) for the rank property list. IIT Madras CS6015 (LARP 2018) slides, deck 5 'Gaussian Elimination' (English, read in full) for the pivot count. Every rank, minor and bound on this card is recomputed in scripts/validate.py, and the inequalities are checked over exhaustive small integer matrices.",
+   "links": {
+    "mock": {
+     "subject": "engineering-mathematics",
+     "unit_slug": "linear-algebra-matrices",
+     "unit_name": "Linear Algebra: Matrices & Systems",
+     "unit_number": 1,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "matrix-operations",
+       "questions": 15
+      },
+      {
+       "label": "rank-nullity",
+       "questions": 14
+      },
+      {
+       "label": "systems-of-linear-equations",
+       "questions": 12
+      },
+      {
+       "label": "gauss-elimination",
+       "questions": 9
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
+    },
+    "visual": {
+     "slug": "matrices-systems-and-eigenvalues",
+     "title": "Matrices, Systems and Eigenvalues",
+     "level": "topic-level",
+     "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html",
+     "covers": [
+      "rank as a pivot count; elimination preserves it",
+      "rank + nullity = number of columns, not rows"
+     ]
+    },
+    "mapped_at": "2026-10-29"
+   },
    "subject": "linear-algebra",
    "topic": "matrices-and-determinants",
    "path": "subjects/linear-algebra/matrices-and-determinants/rank-and-its-bounds.json"
@@ -10952,6 +11328,45 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "IIT Madras CS6015 (LARP 2018) slides, deck 6 (English, read in full) for the Ax = 0 characterisation of non-invertibility. GATE Overflow Linear Algebra notes (English, read in part) for the equivalence list and the det(A + B) warning. GeeksforGeeks (English, read in part) for the singular and non-singular definitions. Every equivalence and counterexample is recomputed in scripts/validate.py.",
+   "links": {
+    "mock": {
+     "subject": "engineering-mathematics",
+     "unit_slug": "linear-algebra-matrices",
+     "unit_name": "Linear Algebra: Matrices & Systems",
+     "unit_number": 1,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "matrix-operations",
+       "questions": 15
+      },
+      {
+       "label": "rank-nullity",
+       "questions": 14
+      },
+      {
+       "label": "systems-of-linear-equations",
+       "questions": 12
+      },
+      {
+       "label": "gauss-elimination",
+       "questions": 9
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
+    },
+    "visual": {
+     "slug": "matrices-systems-and-eigenvalues",
+     "title": "Matrices, Systems and Eigenvalues",
+     "level": "topic-level",
+     "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html",
+     "covers": [
+      "a zero determinant is the definition of singular",
+      "three equivalent ways to see invertibility"
+     ]
+    },
+    "mapped_at": "2026-10-29"
+   },
    "subject": "linear-algebra",
    "topic": "matrices-and-determinants",
    "path": "subjects/linear-algebra/matrices-and-determinants/singular-and-equivalent-conditions.json"
@@ -11032,6 +11447,44 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "GATE Overflow blog, 'Linear Algebra (Gilbert Strang) Notes, Lecture 1 to 10' (English, read in part) for the row picture, the column picture and the reachability condition. SATHEE, IIT Kanpur, 'Consistency and Solution of Simultaneous Linear Equations' (English, read in part) for the rank criterion. Both pictures and the worked solution are recomputed in scripts/validate.py.",
+   "links": {
+    "mock": {
+     "subject": "engineering-mathematics",
+     "unit_slug": "linear-algebra-matrices",
+     "unit_name": "Linear Algebra: Matrices & Systems",
+     "unit_number": 1,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "matrix-operations",
+       "questions": 15
+      },
+      {
+       "label": "rank-nullity",
+       "questions": 14
+      },
+      {
+       "label": "systems-of-linear-equations",
+       "questions": 12
+      },
+      {
+       "label": "gauss-elimination",
+       "questions": 9
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
+    },
+    "visual": {
+     "slug": "matrices-systems-and-eigenvalues",
+     "title": "Matrices, Systems and Eigenvalues",
+     "level": "topic-level",
+     "covers": [
+      "a matrix as a function; Ax mixes the columns of A"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
+    },
+    "mapped_at": "2026-10-29"
+   },
    "subject": "linear-algebra",
    "topic": "system-of-linear-equations",
    "path": "subjects/linear-algebra/system-of-linear-equations/matrix-form-and-two-pictures.json"
@@ -11123,6 +11576,44 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "GATE Overflow blog, 'Linear Algebra Important Points' (English, read in part) for the consistency table. SATHEE, IIT Kanpur (English, read in part) for the rank rule and its two sub-cases. Vidyalankar GATE Engineering Mathematics notes, section 1.4 (English, read in part through the search extract) for the same conditions in coaching language. The ranks in every example are recomputed by Gaussian elimination in scripts/validate.py.",
+   "links": {
+    "mock": {
+     "subject": "engineering-mathematics",
+     "unit_slug": "linear-algebra-matrices",
+     "unit_name": "Linear Algebra: Matrices & Systems",
+     "unit_number": 1,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "matrix-operations",
+       "questions": 15
+      },
+      {
+       "label": "rank-nullity",
+       "questions": 14
+      },
+      {
+       "label": "systems-of-linear-equations",
+       "questions": 12
+      },
+      {
+       "label": "gauss-elimination",
+       "questions": 9
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
+    },
+    "visual": {
+     "slug": "matrices-systems-and-eigenvalues",
+     "title": "Matrices, Systems and Eigenvalues",
+     "level": "topic-level",
+     "covers": [
+      "consistency by rank(A) against rank([A|b])"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
+    },
+    "mapped_at": "2026-10-29"
+   },
    "subject": "linear-algebra",
    "topic": "system-of-linear-equations",
    "path": "subjects/linear-algebra/system-of-linear-equations/consistency-by-rank.json"
@@ -11204,6 +11695,44 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "Vidyalankar GATE Engineering Mathematics notes, section 1.4 (English, read in part) for the consistency conditions and the determinant gate. GATE Overflow blog, 'Linear Algebra Important Points' (English, read in part) for the square-matrix split. Both determinants, the 2 x 2 counterexamples and the 2025 Set 1 parameter cases are recomputed in scripts/validate.py.",
+   "links": {
+    "mock": {
+     "subject": "engineering-mathematics",
+     "unit_slug": "linear-algebra-matrices",
+     "unit_name": "Linear Algebra: Matrices & Systems",
+     "unit_number": 1,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "matrix-operations",
+       "questions": 15
+      },
+      {
+       "label": "rank-nullity",
+       "questions": 14
+      },
+      {
+       "label": "systems-of-linear-equations",
+       "questions": 12
+      },
+      {
+       "label": "gauss-elimination",
+       "questions": 9
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
+    },
+    "visual": {
+     "slug": "matrices-systems-and-eigenvalues",
+     "title": "Matrices, Systems and Eigenvalues",
+     "level": "topic-level",
+     "covers": [
+      "the determinant as an area factor, and its sign as orientation"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
+    },
+    "mapped_at": "2026-10-29"
+   },
    "subject": "linear-algebra",
    "topic": "system-of-linear-equations",
    "path": "subjects/linear-algebra/system-of-linear-equations/square-systems-determinant-test.json"
@@ -11284,6 +11813,44 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "GATE Overflow blog, 'Linear Algebra (Gilbert Strang) Notes, Lecture 1 to 10' (English, read in part) for the particular-plus-null-space decomposition. GATE Overflow blog, 'Linear Algebra Important Points' (English, read in part) for the free-variable count. The parameter counts and the worked solution are recomputed in scripts/validate.py.",
+   "links": {
+    "mock": {
+     "subject": "engineering-mathematics",
+     "unit_slug": "linear-algebra-matrices",
+     "unit_name": "Linear Algebra: Matrices & Systems",
+     "unit_number": 1,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "matrix-operations",
+       "questions": 15
+      },
+      {
+       "label": "rank-nullity",
+       "questions": 14
+      },
+      {
+       "label": "systems-of-linear-equations",
+       "questions": 12
+      },
+      {
+       "label": "gauss-elimination",
+       "questions": 9
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
+    },
+    "visual": {
+     "slug": "matrices-systems-and-eigenvalues",
+     "title": "Matrices, Systems and Eigenvalues",
+     "level": "topic-level",
+     "covers": [
+      "free variables = columns - rank; the homogeneous case"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
+    },
+    "mapped_at": "2026-10-29"
+   },
    "subject": "linear-algebra",
    "topic": "system-of-linear-equations",
    "path": "subjects/linear-algebra/system-of-linear-equations/free-variables-and-solution-set.json"
@@ -11374,6 +11941,45 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "Vidyalankar GATE Engineering Mathematics notes, section 1.4 (English, read in part) for the determinant form of the non-trivial-solution condition. SATHEE, IIT Kanpur (English, read in part) for the singular-square adjoint test. CareerCraft Labs Hindi notes (Hindi, translated, read in part) for the never-inconsistent property and the three-case table. The determinant factorisation and the p, q, r conclusion are recomputed in scripts/validate.py.",
+   "links": {
+    "mock": {
+     "subject": "engineering-mathematics",
+     "unit_slug": "linear-algebra-matrices",
+     "unit_name": "Linear Algebra: Matrices & Systems",
+     "unit_number": 1,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "matrix-operations",
+       "questions": 15
+      },
+      {
+       "label": "rank-nullity",
+       "questions": 14
+      },
+      {
+       "label": "systems-of-linear-equations",
+       "questions": 12
+      },
+      {
+       "label": "gauss-elimination",
+       "questions": 9
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
+    },
+    "visual": {
+     "slug": "matrices-systems-and-eigenvalues",
+     "title": "Matrices, Systems and Eigenvalues",
+     "level": "topic-level",
+     "covers": [
+      "free variables = columns - rank; the homogeneous case",
+      "wide matrix: nullity at least m - n (GATE 2024 Set 1 Q39)"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
+    },
+    "mapped_at": "2026-10-29"
+   },
    "subject": "linear-algebra",
    "topic": "system-of-linear-equations",
    "path": "subjects/linear-algebra/system-of-linear-equations/homogeneous-systems.json"
@@ -11455,6 +12061,45 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "GATE Overflow blog, 'Linear Algebra (Gilbert Strang) Notes, Lecture 1 to 10' (English, read in part) for the elimination and back-substitution sequence. Vidyalankar GATE Engineering Mathematics notes, section 1.4 (English, read in part) for the echelon-then-compare-ranks procedure. Every elimination step quoted here is reproduced and checked in scripts/validate.py.",
+   "links": {
+    "mock": {
+     "subject": "engineering-mathematics",
+     "unit_slug": "linear-algebra-matrices",
+     "unit_name": "Linear Algebra: Matrices & Systems",
+     "unit_number": 1,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "matrix-operations",
+       "questions": 15
+      },
+      {
+       "label": "rank-nullity",
+       "questions": 14
+      },
+      {
+       "label": "systems-of-linear-equations",
+       "questions": 12
+      },
+      {
+       "label": "gauss-elimination",
+       "questions": 9
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
+    },
+    "visual": {
+     "slug": "matrices-systems-and-eigenvalues",
+     "title": "Matrices, Systems and Eigenvalues",
+     "level": "topic-level",
+     "covers": [
+      "rank as a pivot count; elimination preserves it",
+      "forward and back substitution; n^3/3 against n^2"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
+    },
+    "mapped_at": "2026-10-29"
+   },
    "subject": "linear-algebra",
    "topic": "system-of-linear-equations",
    "path": "subjects/linear-algebra/system-of-linear-equations/gaussian-elimination-and-back-substitution.json"
@@ -11537,6 +12182,44 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "GATE Overflow blog, 'Linear Algebra Important Points' (English, read in part) for the parameter branches. CareerCraft Labs Hindi notes (Hindi, translated, read in part) for the three-case table and the zero-determinant warning. Every parameter value, product and rank in this card is recomputed in scripts/validate.py.",
+   "links": {
+    "mock": {
+     "subject": "engineering-mathematics",
+     "unit_slug": "linear-algebra-matrices",
+     "unit_name": "Linear Algebra: Matrices & Systems",
+     "unit_number": 1,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "matrix-operations",
+       "questions": 15
+      },
+      {
+       "label": "rank-nullity",
+       "questions": 14
+      },
+      {
+       "label": "systems-of-linear-equations",
+       "questions": 12
+      },
+      {
+       "label": "gauss-elimination",
+       "questions": 9
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
+    },
+    "visual": {
+     "slug": "matrices-systems-and-eigenvalues",
+     "title": "Matrices, Systems and Eigenvalues",
+     "level": "topic-level",
+     "covers": [
+      "consistency by rank(A) against rank([A|b])"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
+    },
+    "mapped_at": "2026-10-29"
+   },
    "subject": "linear-algebra",
    "topic": "system-of-linear-equations",
    "path": "subjects/linear-algebra/system-of-linear-equations/parameter-dependent-systems.json"
@@ -11618,6 +12301,44 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "Ohio University MATH3200 Lecture 27, 'The Rank and Consistency of Systems of Linear Equations' (English, read in part through the search extract) for the rank theorem and the rank(A) = m corollary. GATE Overflow blog, 'Linear Algebra Important Points' (English, read in part) for the homogeneous guarantee. Every counterexample in this card is checked in scripts/validate.py.",
+   "links": {
+    "mock": {
+     "subject": "engineering-mathematics",
+     "unit_slug": "linear-algebra-matrices",
+     "unit_name": "Linear Algebra: Matrices & Systems",
+     "unit_number": 1,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "matrix-operations",
+       "questions": 15
+      },
+      {
+       "label": "rank-nullity",
+       "questions": 14
+      },
+      {
+       "label": "systems-of-linear-equations",
+       "questions": 12
+      },
+      {
+       "label": "gauss-elimination",
+       "questions": 9
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
+    },
+    "visual": {
+     "slug": "matrices-systems-and-eigenvalues",
+     "title": "Matrices, Systems and Eigenvalues",
+     "level": "topic-level",
+     "covers": [
+      "wide matrix: nullity at least m - n (GATE 2024 Set 1 Q39)"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
+    },
+    "mapped_at": "2026-10-29"
+   },
    "subject": "linear-algebra",
    "topic": "system-of-linear-equations",
    "path": "subjects/linear-algebra/system-of-linear-equations/overdetermined-and-underdetermined.json"
@@ -11698,6 +12419,35 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "Vidyalankar GATE Engineering Mathematics notes, section 1.4 (English, read in part) for Cramer's rule and the inversion method. SATHEE, IIT Kanpur (English, read in part) for the matrix method and the adjoint test. The Cramer ratios in the worked example are recomputed in scripts/validate.py.",
+   "links": {
+    "mock": {
+     "subject": "engineering-mathematics",
+     "unit_slug": "linear-algebra-matrices",
+     "unit_name": "Linear Algebra: Matrices & Systems",
+     "unit_number": 1,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "matrix-operations",
+       "questions": 15
+      },
+      {
+       "label": "rank-nullity",
+       "questions": 14
+      },
+      {
+       "label": "systems-of-linear-equations",
+       "questions": 12
+      },
+      {
+       "label": "gauss-elimination",
+       "questions": 9
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
+    },
+    "mapped_at": "2026-10-29"
+   },
    "subject": "linear-algebra",
    "topic": "system-of-linear-equations",
    "path": "subjects/linear-algebra/system-of-linear-equations/inverse-and-cramers-rule.json"
@@ -11779,6 +12529,35 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "SATHEE, IIT Kanpur (English, read in part) for the plane-arrangement table keyed to the rank pair. GATE Overflow blog, 'Linear Algebra (Gilbert Strang) Notes, Lecture 1 to 10' (English, read in part) for the row and column readings. Every arrangement used here is reproduced with its ranks in the lesson and in scripts/validate.py.",
+   "links": {
+    "mock": {
+     "subject": "engineering-mathematics",
+     "unit_slug": "linear-algebra-matrices",
+     "unit_name": "Linear Algebra: Matrices & Systems",
+     "unit_number": 1,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "matrix-operations",
+       "questions": 15
+      },
+      {
+       "label": "rank-nullity",
+       "questions": 14
+      },
+      {
+       "label": "systems-of-linear-equations",
+       "questions": 12
+      },
+      {
+       "label": "gauss-elimination",
+       "questions": 9
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
+    },
+    "mapped_at": "2026-10-29"
+   },
    "subject": "linear-algebra",
    "topic": "system-of-linear-equations",
    "path": "subjects/linear-algebra/system-of-linear-equations/row-picture-geometry.json"
@@ -11871,6 +12650,45 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "CareerCraft Labs Hindi notes (Hindi, translated, read in part) for the three-case table and the zero-determinant warning. GATE Overflow blog, 'Linear Algebra Important Points' (English, read in part) for the inconsistent branch. SATHEE, IIT Kanpur (English, read in part) for the adjoint test. The 2003 reduction and the alpha value are recomputed in scripts/validate.py.",
+   "links": {
+    "mock": {
+     "subject": "engineering-mathematics",
+     "unit_slug": "linear-algebra-matrices",
+     "unit_name": "Linear Algebra: Matrices & Systems",
+     "unit_number": 1,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "matrix-operations",
+       "questions": 15
+      },
+      {
+       "label": "rank-nullity",
+       "questions": 14
+      },
+      {
+       "label": "systems-of-linear-equations",
+       "questions": 12
+      },
+      {
+       "label": "gauss-elimination",
+       "questions": 9
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
+    },
+    "visual": {
+     "slug": "matrices-systems-and-eigenvalues",
+     "title": "Matrices, Systems and Eigenvalues",
+     "level": "topic-level",
+     "covers": [
+      "consistency by rank(A) against rank([A|b])",
+      "free variables = columns - rank; the homogeneous case"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
+    },
+    "mapped_at": "2026-10-29"
+   },
    "subject": "linear-algebra",
    "topic": "system-of-linear-equations",
    "path": "subjects/linear-algebra/system-of-linear-equations/no-solution-versus-infinite.json"

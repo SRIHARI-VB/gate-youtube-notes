@@ -73,5 +73,43 @@
       "note": "the rank criterion r = s and the plane-intersection table; read in part"
     }
   ],
-  "sourceLine": "GATE Overflow blog, 'Linear Algebra (Gilbert Strang) Notes, Lecture 1 to 10' (English, read in part) for the row picture, the column picture and the reachability condition. SATHEE, IIT Kanpur, 'Consistency and Solution of Simultaneous Linear Equations' (English, read in part) for the rank criterion. Both pictures and the worked solution are recomputed in scripts/validate.py."
+  "sourceLine": "GATE Overflow blog, 'Linear Algebra (Gilbert Strang) Notes, Lecture 1 to 10' (English, read in part) for the row picture, the column picture and the reachability condition. SATHEE, IIT Kanpur, 'Consistency and Solution of Simultaneous Linear Equations' (English, read in part) for the rank criterion. Both pictures and the worked solution are recomputed in scripts/validate.py.",
+  "links": {
+    "mock": {
+      "subject": "engineering-mathematics",
+      "unit_slug": "linear-algebra-matrices",
+      "unit_name": "Linear Algebra: Matrices & Systems",
+      "unit_number": 1,
+      "question_count": 50,
+      "subtopics": [
+        {
+          "label": "matrix-operations",
+          "questions": 15
+        },
+        {
+          "label": "rank-nullity",
+          "questions": 14
+        },
+        {
+          "label": "systems-of-linear-equations",
+          "questions": 12
+        },
+        {
+          "label": "gauss-elimination",
+          "questions": 9
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
+    },
+    "visual": {
+      "slug": "matrices-systems-and-eigenvalues",
+      "title": "Matrices, Systems and Eigenvalues",
+      "level": "topic-level",
+      "covers": [
+        "a matrix as a function; Ax mixes the columns of A"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
+    },
+    "mapped_at": "2026-10-29"
+  }
 }

@@ -74,5 +74,34 @@
       "note": "the row picture and the column picture as two readings of one system; read in part"
     }
   ],
-  "sourceLine": "SATHEE, IIT Kanpur (English, read in part) for the plane-arrangement table keyed to the rank pair. GATE Overflow blog, 'Linear Algebra (Gilbert Strang) Notes, Lecture 1 to 10' (English, read in part) for the row and column readings. Every arrangement used here is reproduced with its ranks in the lesson and in scripts/validate.py."
+  "sourceLine": "SATHEE, IIT Kanpur (English, read in part) for the plane-arrangement table keyed to the rank pair. GATE Overflow blog, 'Linear Algebra (Gilbert Strang) Notes, Lecture 1 to 10' (English, read in part) for the row and column readings. Every arrangement used here is reproduced with its ranks in the lesson and in scripts/validate.py.",
+  "links": {
+    "mock": {
+      "subject": "engineering-mathematics",
+      "unit_slug": "linear-algebra-matrices",
+      "unit_name": "Linear Algebra: Matrices & Systems",
+      "unit_number": 1,
+      "question_count": 50,
+      "subtopics": [
+        {
+          "label": "matrix-operations",
+          "questions": 15
+        },
+        {
+          "label": "rank-nullity",
+          "questions": 14
+        },
+        {
+          "label": "systems-of-linear-equations",
+          "questions": 12
+        },
+        {
+          "label": "gauss-elimination",
+          "questions": 9
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
+    },
+    "mapped_at": "2026-10-29"
+  }
 }

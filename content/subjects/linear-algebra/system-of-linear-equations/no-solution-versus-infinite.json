@@ -85,5 +85,44 @@
       "note": "the adjoint test: (adj A)B = 0 gives infinitely many and (adj A)B not 0 gives none; read in part"
     }
   ],
-  "sourceLine": "CareerCraft Labs Hindi notes (Hindi, translated, read in part) for the three-case table and the zero-determinant warning. GATE Overflow blog, 'Linear Algebra Important Points' (English, read in part) for the inconsistent branch. SATHEE, IIT Kanpur (English, read in part) for the adjoint test. The 2003 reduction and the alpha value are recomputed in scripts/validate.py."
+  "sourceLine": "CareerCraft Labs Hindi notes (Hindi, translated, read in part) for the three-case table and the zero-determinant warning. GATE Overflow blog, 'Linear Algebra Important Points' (English, read in part) for the inconsistent branch. SATHEE, IIT Kanpur (English, read in part) for the adjoint test. The 2003 reduction and the alpha value are recomputed in scripts/validate.py.",
+  "links": {
+    "mock": {
+      "subject": "engineering-mathematics",
+      "unit_slug": "linear-algebra-matrices",
+      "unit_name": "Linear Algebra: Matrices & Systems",
+      "unit_number": 1,
+      "question_count": 50,
+      "subtopics": [
+        {
+          "label": "matrix-operations",
+          "questions": 15
+        },
+        {
+          "label": "rank-nullity",
+          "questions": 14
+        },
+        {
+          "label": "systems-of-linear-equations",
+          "questions": 12
+        },
+        {
+          "label": "gauss-elimination",
+          "questions": 9
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
+    },
+    "visual": {
+      "slug": "matrices-systems-and-eigenvalues",
+      "title": "Matrices, Systems and Eigenvalues",
+      "level": "topic-level",
+      "covers": [
+        "consistency by rank(A) against rank([A|b])",
+        "free variables = columns - rank; the homogeneous case"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
+    },
+    "mapped_at": "2026-10-29"
+  }
 }
