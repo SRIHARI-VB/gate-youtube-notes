@@ -1,0 +1,198 @@
+{
+  "subject": "linear-algebra",
+  "topic": "lu-decomposition",
+  "exam": "GATE CSE 2027",
+  "retrieved_at": "2026-10-29",
+  "subtopics": [
+    "the factorization A = LU with L lower triangular and U upper triangular, and what each factor records",
+    "where L comes from: the multipliers of Gaussian elimination, recorded at the position they clear",
+    "the Doolittle, Crout and LDU conventions, and why the factorization is not unique without one",
+    "existence: elimination without row interchanges, and the leading-principal-minor condition",
+    "a zero pivot: partial pivoting, the permutation matrix P, and PA = LU",
+    "solving Ax = b by forward substitution on Ly = b and back substitution on Ux = y",
+    "the determinant as the signed product of the pivots",
+    "rank and singularity read from the diagonal of U, and the link to det(L) det(U)",
+    "the cost of the factorization against repeated elimination, and why the factors are kept",
+    "the inverse and many right-hand sides from one factorization",
+    "symmetric matrices: LDL^T, and Cholesky when the pivots are positive",
+    "reading a single entry of L or U under exam conditions"
+  ],
+  "chosen": [
+    {
+      "id": "engineering-wing-lu-method",
+      "kind": "lecture",
+      "title": "Lec23: Matrix Decomposition - LU Method",
+      "channel": "Engineering Wing (machine learning lecture series)",
+      "url": "https://www.youtube.com/watch?v=7w7PZOmD7Uw",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "covers": [
+        "the mechanical recipe: place the identity beside the matrix and replace its zeros by the multiplying factors as you clear each position",
+        "three elimination steps on a 3x3, with the multipliers 3, 3 and 2/3 written into L",
+        "the reading of the finished L and U, and the statement that the multipliers are what L records"
+      ],
+      "why": "The only lecture this run whose transcript could be read from beginning to end while teaching the arithmetic a beginner needs, and the only one that shows the multipliers being collected into L as the elimination proceeds rather than solved for afterwards. Its worked 3x3 was re-derived independently in scripts/validate.py before a single number from it was used: L = [[1,0,0],[3,1,0],[3,2/3,1]] times U = [[1,2,4],[0,-3,-10],[0,0,-10/3]] reproduces A = [[1,2,4],[3,3,2],[3,4,2]]. It is a machine-learning series rather than a GATE series, so it is used for the method only, never for the exam framing."
+    },
+    {
+      "id": "double-vibe-lu-factorisation",
+      "kind": "lecture",
+      "title": "LU Factorization of Matrix With Solved Example",
+      "channel": "The Double Vibe (Asma Mushtak)",
+      "url": "https://www.youtube.com/watch?v=ZYDMM9_nYTQ",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "covers": [
+        "the meaning of a unit lower triangular matrix, and the shape of the general L and U of order 3",
+        "the product of the two symbolic factors written out entry by entry and compared with A, which is the technique the exam-reading card uses",
+        "a full worked 3x3 whose L and U are reused on that card",
+        "the closing reduction of Ax = b to Ly = b and Ux = y"
+      ],
+      "why": "Chosen because it teaches the one idea the other readable lecture skips: that LU is found by comparing the entries of the product with the entries of A, which is exactly what a student does when a question hands them a partly filled L and U. Read in full. The worked example was recomputed in exact arithmetic, and the card that uses it prints the recomputed values, not the lecturer's reading of them."
+    },
+    {
+      "id": "dheeraj-mishra-gate-da-lu",
+      "kind": "lecture",
+      "title": "LU Decomposition | GATE Data Science and AI 2024 | Linear Algebra",
+      "channel": "Dheeraj Mishra (IIT Bombay)",
+      "url": "https://www.youtube.com/watch?v=I7Hd_qHusR0",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "covers": [
+        "the existence question raised before any arithmetic: which matrices can be factorised at all",
+        "the condition stated through the principal minors, and the practical rule to check the first diagonal entry first",
+        "the deliberate choice between a unit diagonal in L and a unit diagonal in U, and the fact that the question usually states which one it wants"
+      ],
+      "why": "The only readable GATE-oriented lecture found, and the only source that raises existence before method, which is the order this topic needs. Read in part. It states the condition loosely as 'principal minors' when the standard statement is 'leading principal minors', so the card that depends on it uses the standard wording from the references and records the imprecision in its own gap note rather than repeating the loose version."
+    },
+    {
+      "id": "statlect-lu-decomposition",
+      "kind": "text",
+      "title": "LU decomposition (definition, existence and uniqueness, PA = LU)",
+      "channel": "StatLect, Marco Taboga",
+      "url": "https://www.statlect.com/matrix-algebra/lu-decomposition",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "covers": [
+        "the formal definition of an LU decomposition",
+        "the counterexample proving that an invertible matrix need not have one, and the reason it fails",
+        "the proof that a factorization is not unique without a normalisation, which is the fact behind the 2022 question's two defensible options",
+        "the sufficient condition of elimination without row interchanges, and the PA = LU theorem"
+      ],
+      "why": "Chosen for correctness rather than for teaching style: it is the only source read this run that proves the three statements the topic rests on, and the proof that a factorization is not unique is what makes the 2022 question's disputed options intelligible. Read in part: the page body was truncated inside the PA = LU proof, so nothing beyond the statement of that theorem is claimed from it."
+    },
+    {
+      "id": "go-classes-lecture-11a-lu",
+      "kind": "course-outline",
+      "title": "Lecture 11A, LU Decomposition: Shortcut to Find Decomposition (Engineering Mathematics course index)",
+      "channel": "GO Classes for GATE CS (Sachin Mittal)",
+      "url": "https://www.goclasses.in/courses/Engineering-Mathematics-60fdd8530cf2c7989e1f109d",
+      "language": "en",
+      "transcript": "UNAVAILABLE",
+      "translated": false,
+      "covers": [
+        "the GATE-oriented teaching order: LU decomposition immediately after the eigenvalue lectures",
+        "confirmation that a single 25-minute GATE lecture is the intended coverage of the topic, which fixes the scope of this run"
+      ],
+      "why": "Recorded as structure only. It is the one GATE-specific treatment whose place in a CSE course could be verified this run, and it is the resource a GATE Overflow thread recommends as sufficient for the previous-year questions, but no transcript was retrievable, so no card quotes it and no claim rests on it."
+    }
+  ],
+  "rejected": [
+    {
+      "id": "mit-ocw-18-06-lecture-4",
+      "kind": "lecture",
+      "channel": "MIT OpenCourseWare (Gilbert Strang, 18.06 Linear Algebra)",
+      "title": "Lecture 4: Factorization into A = LU",
+      "url": "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/resources/lecture-4-factorization-into-a-lu/",
+      "language": "en",
+      "why": "The canonical English treatment of exactly this topic, and the strongest candidate found on reputation. Rejected for access, not for quality: the lecture page carried a two-sentence summary and a link to the transcript, and the transcript resource page described the file (92 kB, 'This resource is a transcript for Lecture 4') without serving its text, so not one sentence of the lecture could be read. A later run with a working transcript route should retry it."
+    },
+    {
+      "id": "nptel-iit-kharagpur-matrix-solvers-lecture-08",
+      "kind": "lecture",
+      "channel": "NPTEL, IIT Kharagpur (Prof. Somnath Roy, Matrix Solvers)",
+      "title": "Lecture 08: LU Decomposition, in a 61-lecture course whose lectures 06 and 07 are Gauss elimination",
+      "url": "https://www.youtube.com/playlist?list=PLbRMhDVUMngdcugfQl36Rnf50ki_8grvh",
+      "language": "en",
+      "why": "The best-scoped NPTEL candidate: a matrix-solvers course that reaches LU decomposition in its eighth lecture, directly after Gauss elimination, which is the correct teaching order. Rejected for access: only the playlist index was readable, with no transcript for the lecture itself, so nothing could be attributed to it."
+    },
+    {
+      "id": "nptel-noc-matrix-solver-lecture-08",
+      "kind": "lecture",
+      "channel": "NPTEL-NOC, Matrix Solver",
+      "title": "Lecture 8: LU Decomposition",
+      "url": "http://www.digimat.in/nptel/courses/video/111105111/L08.html",
+      "language": "en",
+      "why": "A dedicated LU decomposition lecture inside a course on solving matrix problems. Rejected for access: the index page carried the lecture title and nothing else, so no sentence of the teaching could be read."
+    },
+    {
+      "id": "nptel-matrix-theory-lecture-53",
+      "kind": "lecture",
+      "channel": "NPTEL, Matrix Theory",
+      "title": "Lecture 53: LU decomposition",
+      "url": "http://www.digimat.in/nptel/courses/video/111108157/L53.html",
+      "language": "en",
+      "why": "Rejected for access: the index page gave the lecture title only. It would also have arrived at lecture 53 of a long theory course, which is the wrong depth for a three-word syllabus line."
+    },
+    {
+      "id": "nptel-iit-delhi-numerical-methods-lecture-14",
+      "kind": "lecture",
+      "channel": "NPTEL, IIT Delhi (Prof. S. R. K. Iyengar, Numerical Methods and Computation)",
+      "title": "Lecture 14: LU Decomposition",
+      "url": "http://www.infocobuild.com/education/audio-video-courses/mathematics/NumericalMethods-Computation-IIT-Delhi/lecture-14.html",
+      "language": "en",
+      "why": "A lecture with the exact title, but inside a numerical-analysis course: its framing is error, pivoting strategy and round-off rather than the linear-algebra reading GATE uses, and it is followed by the Cholesky and partition methods. Rejected on scope and access together: the index page was readable but no transcript was."
+    },
+    {
+      "id": "unacademy-hindi-lu-decomposition",
+      "kind": "lecture",
+      "channel": "Unacademy (Sanjay Yadav), A Complete Course on Numerical Method",
+      "title": "LU Decomposition Method (in Hindi), lesson 9 of 26",
+      "url": "https://unacademy.com/lesson/lu-decomposition-method-in-hindi/Y98RM09P",
+      "language": "hi",
+      "translated": false,
+      "why": "The closest non-English candidate: 8 minutes 54 seconds of Hindi on the LU method and Crout's method, inside a GATE-oriented numerical-methods course. Rejected for access: the lesson page served a description and a lesson list, and the video is behind the platform's subscription, so no transcript could be read and no translated sentence is published anywhere in this topic."
+    },
+    {
+      "id": "gate-smashers-linear-algebra-playlist",
+      "kind": "playlist",
+      "channel": "Gate Smashers (Hindi, 21 videos, 5h 50m)",
+      "title": "Linear Algebra (Complete Playlist)",
+      "url": "https://playlistduration.com/playlist/PLxCzCOWd7aiGmXGb0t8YXtWl7qAe6hk25",
+      "language": "hi",
+      "translated": false,
+      "why": "A large Hindi linear-algebra playlist that would have been the natural non-English choice. Rejected on scope: its 21 lectures run from binary operations and groups to spanning sets and stop before matrices, so it contains no LU decomposition lecture at all."
+    },
+    {
+      "id": "geeksforgeeks-gate-launchpad-lu",
+      "kind": "lecture",
+      "channel": "GeeksforGeeks GATE",
+      "title": "LU Decomposition | Engineering Mathematics | GATE Launchpad Series",
+      "url": "https://www.youtube.com/watch?v=y8Whx9oMOCg",
+      "language": "en",
+      "why": "A GATE-branded LU decomposition episode, which is exactly the shape wanted. Rejected for content and access: the description is generic channel promotion with no statement of what the episode covers, and no transcript was retrievable, so there was no way to verify a single claim."
+    },
+    {
+      "id": "edurev-crack-gate-lu-mirror",
+      "kind": "mirror",
+      "channel": "EduRev (Crack Gate and Gate Gurus course mirrors)",
+      "title": "LU Decomposition Method and LU Decomposition video pages",
+      "url": "https://edurev.in/v/245425/lu-decomposition-method",
+      "language": "en",
+      "why": "Aggregator pages that embed third-party LU decomposition videos behind a sign-up wall. Rejected because the page text is boilerplate about the course rather than the teaching, and the embedded video could not be identified or read."
+    }
+  ],
+  "standard_refs": [
+    "Gilbert Strang, Introduction to Linear Algebra, 5th ed., section 2.6 (elimination = factorization A = LU)",
+    "Gene H. Golub and Charles F. Van Loan, Matrix Computations, 4th ed., sections 3.2 and 3.4 (LU, partial pivoting, the 2n^3/3 operation count)",
+    "Lloyd N. Trefethen and David Bau, Numerical Linear Algebra, lectures 20 and 21 (stability and the meaning of the pivots)",
+    "GATE 2027 CS syllabus, IIT Madras: Linear Algebra line 'Matrices, determinants, system of linear equations, eigenvalues and eigenvectors, LU decomposition'"
+  ],
+  "notes": [
+    "No non-English source was readable this run: the Hindi candidate is paywalled and the Hindi playlist has no lecture on this topic. Nothing in the topic is translated, and no card claims a translation.",
+    "The syllabus names the topic in three words, so the twelve subtopics above are this run's enumeration from the standard treatment (Strang, Golub and Van Loan) plus the three verified CSE questions, not a quotation from the syllabus."
+  ]
+}

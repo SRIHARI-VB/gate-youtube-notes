@@ -1,0 +1,69 @@
+{
+  "id": "cost-of-factorisation",
+  "title": "What LU Costs, and Why You Factor Once",
+  "priority": "P3",
+  "order": 151,
+  "unit": "Using the factors",
+  "quickIdea": "About 2n^3/3 multiply-subtract operations buy the factorization, and each further right-hand side then costs only about 2n^2, so the factors pay for themselves from the second system onwards.",
+  "remember": [
+    "Factorizing an n x n matrix costs about 2n^3/3 operations; each pair of triangular substitutions costs about 2n^2.",
+    "Eliminating afresh for every right-hand side costs about 2n^3/3 per system, so m systems cost about 2mn^3/3.",
+    "With LU the total for m systems is about 2n^3/3 + 2mn^2, which is smaller for every m of 2 or more.",
+    "The same order, different constant: n^3 is the growth rate, 2/3 is the factor, and quoting n^3 for the factorization overstates it by half.",
+    "Storage is the price: L and U together hold about n^2 numbers, the same order as A itself."
+  ],
+  "example": {
+    "prompt": "Compare the work for n = 1000 and m = 100 right-hand sides.",
+    "work": "Factorization: 2n^3/3 = 6.67 x 10^8. Each substitution pair: 2n^2 = 2 x 10^6, so 100 of them cost 2 x 10^8. Total by LU: about 8.7 x 10^8. Eliminating afresh each time: 100 x 6.67 x 10^8 = 6.67 x 10^10.",
+    "answer": "LU needs about 8.7 x 10^8 operations against 6.7 x 10^10 for repeated elimination - roughly 75 times less work for the same 100 answers."
+  },
+  "gateAngle": "GATE CSE has not asked an operation count for LU decomposition, and the syllabus line is three words long. This card is P3 for exactly that reason: read it once so that 'factor once, solve many times' makes sense, and do not spend revision time on constants.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "For n = 100, roughly how many operations do one factorization and five solves need?",
+      "answer": "About 6.7 x 10^5 for the factorization plus 1.0 x 10^5 for the five solves, so about 7.7 x 10^5 in total.",
+      "why": "2*10^6/3 = 666,667 and 5 * 2 * 10^4 = 100,000; the factorization dominates, which is why the number of solves barely matters once the factors exist."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Why does the factorization cost less than n^3 when elimination has n columns of work?",
+      "answer": "Because the amount of work shrinks with each column: the first column touches (n-1) rows of n entries, the second (n-2) rows of n-1 entries, and so on, and the sum of those products is about n^3/3 for the multipliers alone and 2n^3/3 with the row updates.",
+      "why": "The cubic term comes from the shrinking triangle of work, not from n full passes over the matrix."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "You must solve 50 systems with the same 200 x 200 matrix. Is LU worth it, and by roughly how much?",
+      "answer": "Yes. LU costs about 5.3 x 10^6 plus 50 * 8 x 10^4 = 4 x 10^6, about 9.3 x 10^6; repeated elimination costs 50 * 5.3 x 10^6, about 2.7 x 10^8.",
+      "why": "The saving grows linearly in the number of right-hand sides, so the more systems share a matrix the more the factorization is worth."
+    }
+  ],
+  "trap": {
+    "what": "Quoting n^3 as the cost of the factorization and then comparing it with the wrong thing.",
+    "why": "n^3 is the growth rate; the constant is 2/3 for the factorization and 2 for a substitution pair. Mixing the two makes the break-even point look different from where it is.",
+    "counterexample": "At n = 100 the factorization is about 6.7 x 10^5 operations, not 10^6, and a substitution pair is 2 x 10^4, not 10^4. Using n^3 and n^2 instead still gives the right conclusion but a wrong total by a third."
+  },
+  "check": {
+    "question": "One right-hand side, n = 500. Is LU faster than plain elimination?",
+    "answer": "No: LU costs the same 2n^3/3 for the factorization plus 2n^2 extra for the substitutions, so for a single system plain elimination is slightly cheaper.",
+    "explanation": "The factorization only earns its keep when it is reused. For m = 1 the substitutions are pure overhead; from m = 2 the saving appears."
+  },
+  "pyqIds": [],
+  "prereqs": [
+    "solving-ax-equals-b-with-lu"
+  ],
+  "videoRefs": [],
+  "sources": [
+    {
+      "kind": "text",
+      "title": "LU decomposition (definition, existence and uniqueness, PA = LU)",
+      "channel": "StatLect, Marco Taboga",
+      "url": "https://www.statlect.com/matrix-algebra/lu-decomposition",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "the definition, the proof that not every invertible matrix has a factorization, the proof that a factorization is never unique without a normalisation, the sufficient condition of elimination without row interchanges, and the PA = LU statement; the page body was cut off inside the PA = LU proof"
+    }
+  ],
+  "sourceLine": "The operation counts are the standard ones from Golub and Van Loan, Matrix Computations, section 3.2, and Strang's account of elimination as factorization; no readable lecture this run gave them, so no lecture is cited for the constants. Every arithmetic claim on this card is recomputed in scripts/validate.py."
+}

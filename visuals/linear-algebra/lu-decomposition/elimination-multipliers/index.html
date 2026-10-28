@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Elimination Writes Down L - LU Decomposition visual lesson</title>
+<link rel="stylesheet" href="../../../lesson.css">
+<script src="https://cdn.jsdelivr.net/npm/p5@1.9.4/lib/p5.min.js"></script>
+</head>
+<body>
+<div class="wrap">
+  <p class="small"><a href="../../../../index.html">&larr; back to the revision site</a></p>
+  <h1>Where L Comes From: Elimination Recording Its Own Multipliers</h1>
+  <div class="objective"><strong>Objective.</strong> Watch one 3 by 3 matrix being eliminated, and see that the multiplier used at each step is exactly the entry that lands in L. By the end, L and U are both on the page, the product checks entry by entry, and the determinant falls out of the pivots. The last step shows the case where a zero pivot forces a row swap, and the factorization becomes PA = LU.</div>
+
+  <div class="canvas-wrap"><div id="canvas-holder"></div></div>
+  <div class="caption" id="caption" aria-live="polite"></div>
+
+  <div class="controls">
+    <button id="play" class="primary">Play</button>
+    <button id="prev">&larr; Prev</button>
+    <button id="next">Next &rarr;</button>
+    <button id="restart">Restart</button>
+    <span class="speed"><label for="speed">Speed</label>
+      <input id="speed" type="range" min="0.25" max="2" step="0.25" value="1">
+      <span id="speedLabel">1.00x</span></span>
+    <span class="counter" id="counter"></span>
+  </div>
+
+  <h2>Static explanation</h2>
+  <p>Elimination turns a matrix into an upper triangular one by subtracting multiples of a row from the rows below it. Each such step is described by one number: the multiplier, which is the entry being cleared divided by the pivot above it. The claim behind LU decomposition is that those multipliers, written into the positions they cleared, form a lower triangular matrix L, and the triangular matrix elimination produced is U, with A equal to their product.</p>
+  <p>For A = [[2,3,1],[4,7,7],[-2,4,5]] the first column is cleared with the multipliers 4/2 = 2 and -2/2 = -1, giving [[2,3,1],[0,1,5],[0,7,6]]. The second column is then cleared with the multiplier 7/1 = 7, and the last entry becomes 6 - 7*5 = -29. So L = [[1,0,0],[2,1,0],[-1,7,1]] and U = [[2,3,1],[0,1,5],[0,0,-29]]. Multiplying them back reproduces A, and any single entry can be checked on its own: entry (3,2) of A is row 3 of L times column 2 of U, (-1)(3) + (7)(1) + (1)(0) = 4.</p>
+  <p>The determinant needs no separate work. A triangular determinant is the product of its diagonal, L has determinant 1 because its diagonal is all 1s, so det(A) = det(U) = 2 * 1 * (-29) = -58, which is what the direct computation gives. When a row swap is needed the same identity holds with one correction: det(A) = det(U) / det(P), and det(P) is -1 for an odd number of swaps. That is the case in the last step, where A = [[0,2],[1,3]] has a zero in the pivot position, and the swap turns the problem into an already-triangular one.</p>
+
+  <div class="card warn"><div class="label">Common misconception</div><p>Computing the multiplier from the original matrix instead of the working matrix. In the second column the entry being cleared is 7 and the pivot is 1, both taken <em>after</em> column 1 has been cleared; using A's original entries, 4 and 3, would give the wrong multiplier and a product that no longer equals A. The second mistake is a sign: adding a multiple of a row corresponds to a negative multiplier, so the operation R3 &lt;- R3 + R1 records l31 = -1, not +1.</p></div>
+  <div class="card ok"><div class="label">Quick check</div><p>A 3 by 3 matrix has l21 = 0 and l31 = 0. What did the elimination look like, and what does that say about the first column of A?</p><details><summary>Answer</summary><p><strong>No row operation was needed in column 1</strong>, which happens exactly when the first entry of rows 2 and 3 is already 0. It says nothing about the rest of those rows and nothing about whether A is singular - a zero multiplier is the record of a step that was skipped, not of an entry that vanished.</p></details></div>
+  <p class="small">Topic: the multipliers of elimination, and where L comes from (Linear Algebra, LU Decomposition). Sources: Engineering Wing, "Lec23: Matrix Decomposition - LU Method" (English, read in full) for the recipe of recording the multiplying factor at the position being cleared and for the three-step 3x3 used here; The Double Vibe, "LU Factorization of Matrix With Solved Example" (English, read in full) for the entry-by-entry reading of the product. The matrix, its factors, its three multipliers, its pivots, the determinant -58 and the pivoting example with det(A) = -2 are all recomputed in scripts/validate.py. Related verified PYQs: GATE CSE 2022 Q.35 asks for exactly two of these numbers, L32 and U33, and GATE CSE 2015 Set 1 Q.18 asks for one entry of L under the other diagonal convention.</p>
+</div>
+<script src="../../../lesson.js"></script>
+<script src="sketch.js"></script>
+<script>
+/* p5.js is loaded from a CDN. If it is unreachable, say so plainly instead of showing an empty box. */
+window.addEventListener('load', function () {
+  if (window.p5) { return; }
+  var holder = document.getElementById('canvas-holder');
+  if (holder) {
+    holder.innerHTML = '<div style="padding:22px 18px;font-size:14.5px;color:#4a5260">' +
+      'The animation needs p5.js, which this page loads from a CDN, and the request failed (offline, or the CDN is blocked). ' +
+      'Everything below still works: the static explanation, the misconception and the quick check.</div>';
+  }
+  var cap = document.getElementById('caption');
+  if (cap && window.LESSON && window.LESSON.steps && window.LESSON.steps[0]) {
+    cap.innerHTML = window.LESSON.steps[0].caption;
+  }
+  ['play', 'prev', 'next', 'restart', 'speed'].forEach(function (id) {
+    var el = document.getElementById(id);
+    if (el) { el.disabled = true; }
+  });
+});
+</script>
+</body>
+</html>

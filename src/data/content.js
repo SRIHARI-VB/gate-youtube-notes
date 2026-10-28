@@ -203,7 +203,7 @@ window.GATE_DATA = {
      {
       "slug": "lu-decomposition",
       "name": "LU Decomposition",
-      "material": "planned"
+      "material": "cards"
      }
     ]
    },
@@ -14031,6 +14031,981 @@ window.GATE_DATA = {
    "subject": "linear-algebra",
    "topic": "eigenvalues-and-eigenvectors",
    "path": "subjects/linear-algebra/eigenvalues-and-eigenvectors/cayley-hamilton-and-matrix-inverse.json"
+  },
+  {
+   "id": "lu-factorisation-definition",
+   "title": "A = LU: Two Triangular Factors and What They Hold",
+   "priority": "P1",
+   "order": 143,
+   "unit": "The factorization",
+   "quickIdea": "LU decomposition rewrites a square matrix as a lower triangular matrix times an upper triangular matrix, so that the row operations of elimination are written down once, in L, instead of being repeated for every right-hand side.",
+   "remember": [
+    "L is lower triangular, with zeros above its diagonal; U is upper triangular, with zeros below its. Both are square and the same order as A.",
+    "U is the matrix elimination produces. L stores the multipliers that produced it, so the factorization is a record of work you already do.",
+    "The test is one product: multiply L by U and compare entry by entry with A. If every entry matches, the factorization is right.",
+    "In the Doolittle convention L has 1s on its diagonal and U carries the pivots. In the Crout convention it is the other way round. Unless the question fixes a convention, the factorization is not unique.",
+    "A = LU exists only for some matrices; that is a separate card. Where it exists, det(A) = det(L) det(U), which is the fastest check that a factorization is not nonsense."
+   ],
+   "example": {
+    "prompt": "Find the Doolittle factorization of A = [[2,1],[6,4]].",
+    "work": "Clear the (2,1) entry: R2 <- R2 - 3 R1, because 6/2 = 3. The matrix becomes [[2,1],[0,4-3]] = [[2,1],[0,1]]. That is U. The multiplier 3 goes into L below the 1, so L = [[1,0],[3,1]].",
+    "answer": "L = [[1,0],[3,1]] and U = [[2,1],[0,1]]. Check: row 2 of L times the columns of U gives (3*2 + 1*0, 3*1 + 1*1) = (6,4), which is row 2 of A."
+   },
+   "gateAngle": "GATE asks two things about the factorization itself: read one entry of L or U when a partly given factorization is printed (2015 Set 1 Q.18 asks for l22 when U's diagonal is 1), or decide which structural statements follow from A being invertible or singular (2025 Set 2 Q.34). Both are answered by multiplying LU out and comparing entries, or by det(A) = det(L) det(U) - never by guessing.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "A = [[3,1],[6,5]]. Write its Doolittle factorization and verify one entry of the product.",
+     "answer": "L = [[1,0],[2,1]], U = [[3,1],[0,3]]. The (2,2) entry of LU is 2*1 + 1*3 = 5, which is the (2,2) entry of A.",
+     "why": "The multiplier is 6/3 = 2, and the entry check is the same dot product the exam expects you to be able to write in one line."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why does the definition ask for L and U to be triangular rather than just any two matrices whose product is A?",
+     "answer": "Because triangular systems are solved immediately: in L y = b the first equation contains only y1, the second only y1 and y2, and so on. Without triangularity the factorization would not make anything easier to solve.",
+     "why": "The whole value of the factorization is the two cheap substitutions it enables, so the shape of the factors is the point, not a decoration."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "A is 3x3 and A = LU with L unit lower triangular. What are the diagonal entries of L, and what is det(L)?",
+     "answer": "All three are 1, so det(L) = 1 and therefore det(A) = det(U) = u11 u22 u33.",
+     "why": "A unit triangular matrix always has determinant 1, which is why the Doolittle convention makes the determinant of A read off U's diagonal alone."
+    }
+   ],
+   "trap": {
+    "what": "Assuming the diagonal of L is 1 when the question has fixed the diagonal of U to 1 instead.",
+    "why": "The two conventions put the pivots in different places, so the same matrix has different numbers in L and U under each. Reading the question's convention is part of the question.",
+    "counterexample": "For [[2,2],[4,9]] the Doolittle factorization is L = [[1,0],[2,1]], U = [[2,2],[0,5]], while the Crout factorization with U's diagonal 1 is L = [[2,0],[4,5]], U = [[1,1],[0,1]]. The entry l22 is 1 in one and 5 in the other, and GATE CSE 2015 Set 1 Q.18 asks for the second."
+   },
+   "check": {
+    "question": "A = [[2,1],[6,4]] has the factorization L = [[1,0],[3,1]], U = [[2,1],[0,1]]. What is det(L), and what does that tell you about det(A)?",
+    "answer": "det(L) = 1, so det(A) = det(U) = 2 * 1 = 2.",
+    "explanation": "A triangular determinant is the product of its diagonal, and L's diagonal is all 1s. The determinant of A itself is 2*4 - 1*6 = 2, which agrees."
+   },
+   "pyqIds": [
+    "gate-2015-set1-18-lu-l22"
+   ],
+   "prereqs": [
+    "matrix-multiplication-and-noncommutativity",
+    "gaussian-elimination-and-back-substitution"
+   ],
+   "videoRefs": [],
+   "sources": [
+    {
+     "kind": "lecture",
+     "title": "LU Factorization of Matrix With Solved Example",
+     "channel": "The Double Vibe (Asma Mushtak)",
+     "url": "https://www.youtube.com/watch?v=ZYDMM9_nYTQ",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "the meaning of 'unit lower triangular', the symbolic product L times U compared entry by entry with A, the worked 3x3 whose L and U are the ones used on the exam-reading card, and the Ly = b then Ux = y conclusion"
+    },
+    {
+     "kind": "lecture",
+     "title": "Lec23: Matrix Decomposition - LU Method",
+     "channel": "Engineering Wing (machine learning lecture series)",
+     "url": "https://www.youtube.com/watch?v=7w7PZOmD7Uw",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "the two-step recipe (write the identity beside the matrix, record the multiplying factor at the position you clear), the three row operations on a 3x3, the placement of the multipliers 3, 3 and 2/3 into L, and the resulting L and U; read from the opening greeting to the closing sign-off"
+    },
+    {
+     "kind": "text",
+     "title": "LU decomposition (definition, existence and uniqueness, PA = LU)",
+     "channel": "StatLect, Marco Taboga",
+     "url": "https://www.statlect.com/matrix-algebra/lu-decomposition",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "the definition, the proof that not every invertible matrix has a factorization, the proof that a factorization is never unique without a normalisation, the sufficient condition of elimination without row interchanges, and the PA = LU statement; the page body was cut off inside the PA = LU proof"
+    }
+   ],
+   "sourceLine": "The Double Vibe's worked LU factorization (English, read in full) for the definition, the unit lower triangular shape and the entry-by-entry comparison. Engineering Wing's Lec23 (English, read in full) for the multipliers being collected into L as elimination proceeds. StatLect's LU decomposition page (English, read in part) for the formal definition and the statement that the factorization is not unique without a normalisation. Every matrix printed on this card is recomputed in exact rational arithmetic in scripts/validate.py.",
+   "visual": "linear-algebra/lu-decomposition/elimination-multipliers",
+   "subject": "linear-algebra",
+   "topic": "lu-decomposition",
+   "path": "subjects/linear-algebra/lu-decomposition/lu-factorisation-definition.json"
+  },
+  {
+   "id": "multipliers-from-elimination",
+   "title": "Where L Comes From: the Multipliers of Elimination",
+   "priority": "P1",
+   "order": 144,
+   "unit": "The factorization",
+   "quickIdea": "Each row operation R_i <- R_i - m R_j contributes the number m to position (i, j) of L, so L is written down while you eliminate rather than solved for afterwards.",
+   "remember": [
+    "The multiplier that clears position (i, j) is m = (current entry at (i,j)) / (current pivot at (j,j)), and it is stored in L at row i, column j.",
+    "The multiplier is computed from the matrix as it stands at that moment, not from the original A, so the arithmetic of the previous steps matters.",
+    "Its sign is the sign of the operation: subtracting 2 R1 puts l21 = 2; adding half of R2 puts l32 = -1/2.",
+    "Work column by column, top to bottom within a column, and left to right across columns. That is the order in which the entries of L are read back.",
+    "In the Doolittle convention the diagonal of L is all 1s and is never written as a multiplier; the pivots stay on U's diagonal."
+   ],
+   "example": {
+    "prompt": "Factor A = [[1,1,-2],[1,3,-1],[2,1,-5]] by Doolittle elimination, the matrix of GATE CSE 2022 Q.35.",
+    "work": "Column 1: R2 <- R2 - 1 R1 gives (0,2,1) and R3 <- R3 - 2 R1 gives (0,-1,-1), so l21 = 1 and l31 = 2. Column 2: the pivot is 2, and clearing -1 needs R3 <- R3 + (1/2) R2, so l32 = -1/2; the third row becomes (0,0,-1-(-1/2)) = (0,0,-1/2).",
+    "answer": "L = [[1,0,0],[1,1,0],[2,-1/2,1]] and U = [[1,1,-2],[0,2,1],[0,0,-1/2]]. The (3,2) entry of LU is 2*1 + (-1/2)*2 + 1*0 = 1, which is the (3,2) entry of A."
+   },
+   "gateAngle": "GATE CSE 2022 Q.35 asks for L32 and U33 and nothing else, which is exactly what this card gives: the multiplier that clears the third row in the second column, and the pivot left behind. Reading a multiplier off an elimination you are already doing is faster and safer than writing A = LU and solving nine equations.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "A = [[1,2,4],[3,3,2],[3,4,2]]. Give l32 and u33 of its Doolittle factorization.",
+     "answer": "l32 = 2/3 and u33 = -10/3.",
+     "why": "Column 1 gives l21 = 3 and l31 = 3, leaving rows (0,-3,-10) and (0,-2,-10). The second pivot is -3, so clearing -2 needs the multiplier -2/-3 = 2/3, and the last entry becomes -10 - (2/3)(-10) = -10/3."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why is the multiplier for position (i, j) computed before the row is updated rather than after?",
+     "answer": "Because the operation that clears the entry is defined by what the entry and the pivot are at that moment. Using the updated value would describe a different operation and the recorded factor would no longer reproduce A.",
+     "why": "L is a product of the elementary matrices of the steps actually taken, in the order they were taken, so each entry must be the number that was actually used."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "A 3x3 matrix has l21 = 0. What does that say about the second row of A?",
+     "answer": "Nothing about elimination, but it does say the second row needed no clearing in column 1, which happens when its first entry is already 0.",
+     "why": "A zero multiplier means no row operation was needed there; it does not mean the entry was zero after the step, only that the step was the identity for that row."
+    }
+   ],
+   "trap": {
+    "what": "Dropping the sign of a multiplier when the row operation adds rather than subtracts.",
+    "why": "The multiplier is the coefficient in R_i <- R_i - m R_j, so an operation that adds half of R2 corresponds to m = -1/2, not +1/2. Writing the positive value turns a correct factorization into one that does not multiply back to A.",
+    "counterexample": "In GATE CSE 2022 Q.35 the last step is R3 <- R3 + (1/2) R2, so l32 = -1/2. With l32 = +1/2 the product LU gives (3,2) entry 2*1 + (1/2)*2 = 3 instead of 1, and the factorization visibly fails."
+   },
+   "check": {
+    "question": "Eliminating A = [[2,2],[4,9]] needs one operation. What is the multiplier, where does it go, and what is U?",
+    "answer": "The multiplier is 4/2 = 2, it goes to l21, and U = [[2,2],[0,5]].",
+    "explanation": "R2 <- R2 - 2 R1 gives (0, 9 - 4) = (0,5). The multiplier 2 is the same number GATE CSE 2015 Set 1 Q.18 would have put in L if that question had used the Doolittle convention."
+   },
+   "pyqIds": [
+    "gate-2022-35-lu-l32-u33-x1"
+   ],
+   "prereqs": [
+    "gaussian-elimination-and-back-substitution",
+    "lu-factorisation-definition"
+   ],
+   "videoRefs": [],
+   "sources": [
+    {
+     "kind": "lecture",
+     "title": "Lec23: Matrix Decomposition - LU Method",
+     "channel": "Engineering Wing (machine learning lecture series)",
+     "url": "https://www.youtube.com/watch?v=7w7PZOmD7Uw",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "the two-step recipe (write the identity beside the matrix, record the multiplying factor at the position you clear), the three row operations on a 3x3, the placement of the multipliers 3, 3 and 2/3 into L, and the resulting L and U; read from the opening greeting to the closing sign-off"
+    },
+    {
+     "kind": "lecture",
+     "title": "LU Factorization of Matrix With Solved Example",
+     "channel": "The Double Vibe (Asma Mushtak)",
+     "url": "https://www.youtube.com/watch?v=ZYDMM9_nYTQ",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "the meaning of 'unit lower triangular', the symbolic product L times U compared entry by entry with A, the worked 3x3 whose L and U are the ones used on the exam-reading card, and the Ly = b then Ux = y conclusion"
+    }
+   ],
+   "sourceLine": "Engineering Wing's Lec23 (English, read in full) for the recipe of recording the multiplying factor at the position being cleared, and for the three-step 3x3 that supplies this card's quick check. The Double Vibe's lecture (English, read in full) for the same arithmetic read as a comparison of entries. Both worked examples were recomputed in exact arithmetic in scripts/validate.py before publication.",
+   "subject": "linear-algebra",
+   "topic": "lu-decomposition",
+   "path": "subjects/linear-algebra/lu-decomposition/multipliers-from-elimination.json"
+  },
+  {
+   "id": "doolittle-crout-and-ldu",
+   "title": "Doolittle, Crout and LDU: Which Diagonal Is 1",
+   "priority": "P1",
+   "order": 145,
+   "unit": "The factorization",
+   "quickIdea": "Three conventions, one product: Doolittle puts 1s on the diagonal of L, Crout puts them on the diagonal of U, and LDU splits the pivots out into a separate diagonal matrix.",
+   "remember": [
+    "Doolittle: L unit lower triangular, U upper triangular carrying the pivots. This is the default in most textbooks and the convention of GATE CSE 2022 Q.35.",
+    "Crout: L lower triangular carrying the pivots, U unit upper triangular. This is the convention of GATE CSE 2015 Set 1 Q.18, which says the diagonal elements of U are both 1.",
+    "LDU: A = L D U with L and U both unit triangular and D = diag(u11, ..., unn). Merging D into L gives Doolittle; merging D into U gives Crout.",
+    "Same matrix, different numbers: for [[2,2],[4,9]] the Doolittle l22 is 1 and the Crout l22 is 5. Both products equal A.",
+    "The factorization is not unique without a convention, because any nonzero scaling can be moved between a column of L and a row of U."
+   ],
+   "example": {
+    "prompt": "Factor A = [[2,2],[4,9]] three ways: Doolittle, Crout, and LDU.",
+    "work": "Doolittle: R2 <- R2 - 2 R1 gives U = [[2,2],[0,5]] with L = [[1,0],[2,1]]. Crout: the same elimination, but the pivots 2 and 5 stay in L and U is normalised to [[1,1],[0,1]]. LDU: A = [[1,0],[2,1]] [[2,0],[0,5]] [[1,1],[0,1]].",
+    "answer": "Doolittle gives l22 = 1, u22 = 5. Crout gives l22 = 5, u22 = 1. LDU shows that 2 and 5 are the pivots and that only their placement differs."
+   },
+   "gateAngle": "Read the sentence that fixes the diagonal before computing anything. GATE CSE 2015 Set 1 Q.18 says the diagonal elements of U are both 1, so it wants Crout, and the answer 5 is l22 - not u22 and not the Doolittle value. This one sentence is the whole difficulty of that question.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "For A = [[1,2],[3,8]] with the diagonal of U fixed to 1, what is the trace of L?",
+     "answer": "3.",
+     "why": "In that convention L = [[1,0],[3,2]], so the trace is 1 + 2 = 3. The (2,2) entry is 8 - 3*2 = 2, because the multiplier 3 meets u12 = 2 in the product."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why can a matrix have infinitely many LU factorizations unless one diagonal is fixed?",
+     "answer": "Because for any nonzero scalar c you can divide a column of U by c and multiply the matching column of L by c without changing the product. Only after one diagonal is pinned down does the scaling stop.",
+     "why": "That is exactly the non-uniqueness StatLect proves, and it is why every well-posed question states which diagonal carries the 1s."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "A 2x2 matrix has Doolittle U = [[4,6],[0,-2]] and L = [[1,0],[1/2,1]]. Write its LDU factorization.",
+     "answer": "A = [[1,0],[1/2,1]] [[4,0],[0,-2]] [[1,3/2],[0,1]].",
+     "why": "D is the diagonal of U and U is rescaled to unit diagonal by dividing each row by its pivot, so u12 = 6/4 = 3/2."
+    }
+   ],
+   "trap": {
+    "what": "Producing a Doolittle factorization when the question asked for the other convention, and reporting the wrong entry.",
+    "why": "The two conventions agree on the product and on the pivots but disagree on every other number in the two factors, so a Doolittle answer to a Crout question is wrong even though the arithmetic is right.",
+    "counterexample": "GATE CSE 2015 Set 1 Q.18: the Doolittle factorization of [[2,2],[4,9]] is L = [[1,0],[2,1]], U = [[2,2],[0,5]] and it has l22 = 1. The question fixes U's diagonal to 1, so the answer is the Crout value 5. Answering 1 comes from skipping the convention sentence."
+   },
+   "check": {
+    "question": "For A = [[2,2],[4,9]], a student writes L = [[2,0],[4,5]] and U = [[1,1],[0,1]]. Which convention is this, and what is det(A) from it?",
+    "answer": "Crout, because the pivots 2 and 5 sit on L's diagonal. det(A) = det(L) det(U) = (2*5)(1*1) = 10.",
+    "explanation": "A direct computation gives 2*9 - 2*4 = 10 as well, which is the check that the factorization is correct."
+   },
+   "pyqIds": [
+    "gate-2015-set1-18-lu-l22"
+   ],
+   "prereqs": [
+    "lu-factorisation-definition",
+    "multipliers-from-elimination"
+   ],
+   "videoRefs": [],
+   "sources": [
+    {
+     "kind": "lecture",
+     "title": "LU Decomposition | GATE Data Science and AI 2024 | Linear Algebra",
+     "channel": "Dheeraj Mishra (IIT Bombay)",
+     "url": "https://www.youtube.com/watch?v=I7Hd_qHusR0",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "the existence condition stated through the principal minors, the check of the first diagonal entry before attempting a factorization, and the choice between a unit diagonal in L and a unit diagonal in U; read up to the point where the lecture turns to the mechanical method"
+    },
+    {
+     "kind": "text",
+     "title": "LU decomposition (definition, existence and uniqueness, PA = LU)",
+     "channel": "StatLect, Marco Taboga",
+     "url": "https://www.statlect.com/matrix-algebra/lu-decomposition",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "the definition, the proof that not every invertible matrix has a factorization, the proof that a factorization is never unique without a normalisation, the sufficient condition of elimination without row interchanges, and the PA = LU statement; the page body was cut off inside the PA = LU proof"
+    },
+    {
+     "kind": "lecture",
+     "title": "LU Factorization of Matrix With Solved Example",
+     "channel": "The Double Vibe (Asma Mushtak)",
+     "url": "https://www.youtube.com/watch?v=ZYDMM9_nYTQ",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "the meaning of 'unit lower triangular', the symbolic product L times U compared entry by entry with A, the worked 3x3 whose L and U are the ones used on the exam-reading card, and the Ly = b then Ux = y conclusion"
+    }
+   ],
+   "sourceLine": "Dheeraj Mishra's GATE lecture (English, read in part) for the deliberate choice between a unit diagonal in L and a unit diagonal in U, and for the warning to check the first diagonal entry before starting. StatLect (English, read in part) for the proof that the factorization is not unique without a normalisation. The Double Vibe's lecture (English, read in full) for the meaning of 'unit'. Both factorizations of [[2,2],[4,9]] and the LDU product are recomputed in scripts/validate.py.",
+   "subject": "linear-algebra",
+   "topic": "lu-decomposition",
+   "path": "subjects/linear-algebra/lu-decomposition/doolittle-crout-and-ldu.json"
+  },
+  {
+   "id": "existence-and-leading-minors",
+   "title": "When an LU Factorization Exists",
+   "priority": "P1",
+   "order": 146,
+   "unit": "Existence and pivoting",
+   "quickIdea": "A has a factorization with unit lower triangular L exactly when Gaussian elimination can run without swapping rows, which happens exactly when the first n-1 leading principal minors are nonzero.",
+   "remember": [
+    "The k-th leading principal minor is the determinant of the top-left k x k block. For a unit-L factorization to exist, the minors for k = 1, 2, ..., n-1 must all be nonzero.",
+    "The n-th one is det(A) itself and may be zero: a singular matrix can still have an LU factorization, and then its last pivot is 0.",
+    "If a leading principal minor is zero, elimination meets a zero pivot and no unit-L factorization exists, however carefully you compute.",
+    "Being invertible is not enough: [[0,1],[1,0]] is invertible and has no LU factorization.",
+    "If row exchanges are allowed the obstruction disappears, and the factorization always exists in the form PA = LU."
+   ],
+   "example": {
+    "prompt": "Show that A = [[0,1],[1,0]] has no LU factorization with unit L.",
+    "work": "Suppose L = [[1,0],[l,1]] and U = [[u,v],[0,w]]. Then LU = [[u,v],[lu, lv+w]]. Matching position (1,1) forces u = 0, since A's (1,1) entry is 0. Matching position (2,1) then forces l*u = 1, that is 0 = 1.",
+    "answer": "No such L and U exist. The first leading principal minor is a11 = 0, which is exactly the condition that fails, and the matrix is nevertheless invertible with determinant -1."
+   },
+   "gateAngle": "GATE has not asked the existence theorem directly in CSE. It is tested inside questions that hand you a factorization and ask what it implies - GATE CSE 2025 Set 2 Q.34 statement 3 is the existence fact read backwards, from a singular P to a zero on U's diagonal. Knowing why a factorization can fail is what stops you hunting for one that cannot exist.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "Does A = [[0,2],[1,3]] have an LU factorization with unit L? If not, what is the smallest change that gives one?",
+     "answer": "No, because its first leading principal minor is 0. Swapping the two rows gives [[1,3],[0,2]], which is already upper triangular, so PA = LU with P the swap and L the identity.",
+     "why": "The obstruction is in the position of the zero, not in the matrix's invertibility: A is invertible with determinant -2."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why may the last leading principal minor, det(A), be zero without spoiling the factorization?",
+     "answer": "Because no elimination step needs the last pivot as a divisor: by the time you reach position (n,n) there are no rows below it to clear. A zero there makes U singular, not the factorization impossible.",
+     "why": "The condition is about division by pivots, and the last pivot is never used as a divisor."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "A is 3x3 with leading principal minors 2, 0 and 6. Does it have a unit-L factorization, and is it invertible?",
+     "answer": "It has no unit-L factorization, because the second leading minor is 0. It is invertible, because the third one, det(A), is 6.",
+     "why": "The two questions are separate: existence depends on the first n-1 minors, invertibility on the last one."
+    }
+   ],
+   "trap": {
+    "what": "Assuming that an invertible matrix must have an LU factorization.",
+    "why": "Invertibility says det(A) is nonzero, which is the condition for the *last* leading minor only. Elimination can still meet a zero pivot earlier, and then no unit-L factorization exists.",
+    "counterexample": "A = [[0,1],[1,0]] has determinant -1 and no LU factorization: matching the entries of L times U forces 0 = 1. The same happens to any matrix with a zero in the (1,1) position, however large its determinant."
+   },
+   "check": {
+    "question": "Does A = [[1,2],[2,4]] have a Doolittle factorization? What is u22, and what does that say about A?",
+    "answer": "Yes, with L = [[1,0],[2,1]] and U = [[1,2],[0,0]]. So u22 = 0, and A is singular with rank 1.",
+    "explanation": "The only leading minor that must be nonzero is the first, a11 = 1, and it is. The zero appears in the last pivot, which is allowed and is the same statement as det(A) = 0."
+   },
+   "pyqIds": [
+    "gate-2025-set2-34-lu-statements"
+   ],
+   "prereqs": [
+    "lu-factorisation-definition",
+    "rank-and-its-bounds"
+   ],
+   "videoRefs": [],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "LU decomposition (definition, existence and uniqueness, PA = LU)",
+     "channel": "StatLect, Marco Taboga",
+     "url": "https://www.statlect.com/matrix-algebra/lu-decomposition",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "the definition, the proof that not every invertible matrix has a factorization, the proof that a factorization is never unique without a normalisation, the sufficient condition of elimination without row interchanges, and the PA = LU statement; the page body was cut off inside the PA = LU proof"
+    },
+    {
+     "kind": "lecture",
+     "title": "LU Decomposition | GATE Data Science and AI 2024 | Linear Algebra",
+     "channel": "Dheeraj Mishra (IIT Bombay)",
+     "url": "https://www.youtube.com/watch?v=I7Hd_qHusR0",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "the existence condition stated through the principal minors, the check of the first diagonal entry before attempting a factorization, and the choice between a unit diagonal in L and a unit diagonal in U; read up to the point where the lecture turns to the mechanical method"
+    }
+   ],
+   "sourceLine": "StatLect's LU decomposition page (English, read in part) for the counterexample to existence and for the sufficient condition of elimination without row interchanges. Dheeraj Mishra's GATE lecture (English, read in part) for the practical habit of checking the first diagonal entry before starting; his phrasing is 'principal minors' where the standard statement is 'leading principal minors', and this card uses the standard wording. The 2x2 impossibility argument and the singular example are recomputed in scripts/validate.py.",
+   "subject": "linear-algebra",
+   "topic": "lu-decomposition",
+   "path": "subjects/linear-algebra/lu-decomposition/existence-and-leading-minors.json"
+  },
+  {
+   "id": "pivoting-and-pa-equals-lu",
+   "title": "Zero Pivot: PA = LU with a Row Exchange",
+   "priority": "P2",
+   "order": 147,
+   "unit": "Existence and pivoting",
+   "quickIdea": "When the next pivot is zero, swap in a row from below; the swap is recorded in a permutation matrix P, and the factorization becomes PA = LU.",
+   "remember": [
+    "A permutation matrix P has exactly one 1 in each row and column; it is orthogonal, so P^T P = I, and det(P) is +1 or -1 according to the parity of the swaps.",
+    "Partial pivoting chooses the largest available entry in magnitude in the current column. In exact exam arithmetic any nonzero entry will do; the choice matters only for round-off.",
+    "The swap must be applied to the whole already-eliminated matrix, and the multipliers already sitting in the earlier columns of L must be swapped in the same way - this is the step people forget.",
+    "With partial pivoting, PA = LU exists for every square matrix, singular or not.",
+    "det(A) = det(U) / det(P), that is the product of the pivots times the sign of the permutation."
+   ],
+   "example": {
+    "prompt": "Factor A = [[1,2,3],[2,4,1],[4,9,2]], which needs a row exchange.",
+    "work": "Column 1: R2 <- R2 - 2 R1 gives (0,0,-5) and R3 <- R3 - 4 R1 gives (0,1,-10). The (2,2) pivot is now 0, so swap rows 2 and 3: P is the 2-3 transposition and PA = [[1,2,3],[4,9,2],[2,4,1]]. Then R2 <- R2 - 4 R1 gives (0,1,-10) and R3 <- R3 - 2 R1 gives (0,0,-5).",
+    "answer": "L = [[1,0,0],[4,1,0],[2,0,1]] and U = [[1,2,3],[0,1,-10],[0,0,-5]]. The product LU is PA, and since det(P) = -1 and the pivots multiply to -5, det(A) = 5."
+   },
+   "gateAngle": "Both CSE questions that print an LU factorization use matrices that need no exchange, so pivoting appears in the exam only as the background that makes the existence answer complete. It is P2 for that reason: worth one reading, because a question can always hand you a matrix with a zero in the first position and ask why the printed factorization has a P in it.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "A = [[0,2],[1,3]]. Write PA = LU and give det(A).",
+     "answer": "P = [[0,1],[1,0]], PA = [[1,3],[0,2]], L = I, U = [[1,3],[0,2]], and det(A) = -1 * 2 = -2.",
+     "why": "After the swap the matrix is already upper triangular, so the factorization is trivial; the sign of det(P) is what carries the -1, and the direct computation 0*3 - 2*1 agrees."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why must the multipliers already recorded in L be swapped along with the rows?",
+     "answer": "Because those multipliers describe operations applied to rows that have now changed places. If they stay put, L no longer records the operations actually performed and the product LU is not PA.",
+     "why": "L is a product of elementary matrices in the order they were applied; permuting rows of the working matrix permutes the corresponding factors."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "A is 4x4 and its factorization required three row swaps. What is the sign in det(A) = (sign) * u11 u22 u33 u44?",
+     "answer": "Minus one, because three swaps is an odd number and det(P) = (-1)^3.",
+     "why": "Only the parity matters, so three swaps and one swap give the same sign."
+    }
+   ],
+   "trap": {
+    "what": "Swapping rows of A and then writing the multipliers in the order they were computed, without swapping the earlier columns of L.",
+    "why": "The two rows exchanged places carry their history with them, so the entries of L belonging to those rows must move too. Otherwise the recorded factors multiply to a matrix that is A with its rows in a different order, which is neither A nor PA.",
+    "counterexample": "In the worked example, rows 2 and 3 are exchanged after l21 = 2 and l31 = 4 have been recorded. Those two multipliers travel with their rows: after the swap the row that was third carries the multiplier 4 and becomes the second row of L, which is why L has 4 in position (2,1) and 2 in position (3,1) - the reverse of the order they were computed in."
+   },
+   "check": {
+    "question": "Why can a matrix with a zero in the (1,1) position still be solved by LU, when the previous card says no unit-L factorization exists?",
+    "answer": "Because the swap is allowed: the factorization is then PA = LU, which does exist, and you solve PA x = P b by the same two substitutions.",
+    "explanation": "The obstruction was the zero pivot, not the matrix. Permuting the rows moves the zero out of the pivot position, and the right-hand side is permuted with the same P so the system is unchanged."
+   },
+   "pyqIds": [],
+   "prereqs": [
+    "existence-and-leading-minors"
+   ],
+   "videoRefs": [],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "LU decomposition (definition, existence and uniqueness, PA = LU)",
+     "channel": "StatLect, Marco Taboga",
+     "url": "https://www.statlect.com/matrix-algebra/lu-decomposition",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "the definition, the proof that not every invertible matrix has a factorization, the proof that a factorization is never unique without a normalisation, the sufficient condition of elimination without row interchanges, and the PA = LU statement; the page body was cut off inside the PA = LU proof"
+    }
+   ],
+   "sourceLine": "StatLect's LU decomposition page (English, read in part) for the PA = LU theorem, the permutation matrix as an orthogonal matrix, and the observation that the elementary matrices of elimination are lower triangular. The worked 3x3, its permutation, its factors and both determinants are recomputed in exact arithmetic in scripts/validate.py. No readable lecture this run covered pivoting, so nothing on this card is quoted from a lecture.",
+   "subject": "linear-algebra",
+   "topic": "lu-decomposition",
+   "path": "subjects/linear-algebra/lu-decomposition/pivoting-and-pa-equals-lu.json"
+  },
+  {
+   "id": "solving-ax-equals-b-with-lu",
+   "title": "Solving Ax = b: Forward, Then Back Substitution",
+   "priority": "P1",
+   "order": 148,
+   "unit": "Using the factors",
+   "quickIdea": "With A = LU, solve L y = b first by working down the rows, then U x = y by working up them; both systems are triangular, so each unknown falls out immediately.",
+   "remember": [
+    "The order is fixed: L first, then U. If you start with U you have two unknowns in the first equation and the system is no easier than before.",
+    "Forward substitution, top to bottom: y1 = b1/l11, then y_i = (b_i - sum over known y's) / l_ii.",
+    "Back substitution, bottom to top: x_n = y_n/u_nn, then upward.",
+    "With a unit lower triangular L there is no division in the forward pass at all.",
+    "The factors do not depend on b. A new right-hand side costs only the two substitutions, which is the whole reason the factors are kept."
+   ],
+   "example": {
+    "prompt": "Solve the GATE CSE 2022 Q.35 system x1 + x2 - 2x3 = 4, x1 + 3x2 - x3 = 7, 2x1 + x2 - 5x3 = 7 using L = [[1,0,0],[1,1,0],[2,-1/2,1]] and U = [[1,1,-2],[0,2,1],[0,0,-1/2]].",
+    "work": "Forward: y1 = 4; y2 = 7 - 1*4 = 3; y3 = 7 - 2*4 - (-1/2)*3 = 7 - 8 + 3/2 = 1/2. Back: (-1/2)x3 = 1/2 gives x3 = -1; then 2x2 + x3 = 3 gives x2 = 2; then x1 + x2 - 2x3 = 4 gives x1 = 0.",
+    "answer": "x = (0, 2, -1). Check in the original equations: 0 + 2 + 2 = 4, 0 + 6 + 1 = 7, 0 + 2 + 5 = 7."
+   },
+   "gateAngle": "GATE CSE 2022 Q.35 asks for x1 only, after L32 and U33, and the substitution above returns it in three short steps. The exam value of this card is that the substitution is mechanical: no elimination decisions, no free variables, just two triangular walks.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "With L = [[1,0],[3,1]], U = [[2,1],[0,1]] and b = (1,0), solve Ax = b by LU.",
+     "answer": "y = (1,-3) from the forward pass, then x = (2,-3) from the back pass.",
+     "why": "Forward: y1 = 1, y2 = 0 - 3*1 = -3. Back: x2 = -3, then 2x1 + (-3) = 1 gives x1 = 2. Check: A x = (2*2 + 1*(-3), 6*2 + 4*(-3)) = (1, 0)."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why is solving two triangular systems cheaper than eliminating the augmented matrix twice?",
+     "answer": "Because the elimination work - the multipliers and the pivots - is done once and stored in L and U. Each right-hand side then needs only about 2n^2 operations instead of about 2n^3/3.",
+     "why": "This is the reason LU exists at all: the expensive part does not depend on b."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "A has an LU factorization with u33 = 0. What happens when you try to solve Ax = b for a b that is in the range of A?",
+     "answer": "The back substitution reaches x3 with a zero coefficient and cannot solve for it; the system has a free variable instead of a unique solution.",
+     "why": "A zero pivot means the last equation of U carries no information about x3, so the solution set has one parameter - and for a b outside the range, no solution at all."
+    }
+   ],
+   "trap": {
+    "what": "Substituting b into the upper system first, or solving U x = b and then L y = x.",
+    "why": "A = LU means A x = L(U x), so the inner system U x must be named first and the outer one solved first. Reversing the order solves a different problem and returns a wrong x that still satisfies two triangular systems.",
+    "counterexample": "For the 2022 system, solving U x = b directly gives (-1/2)x3 = 7, so x3 = -14, and then 2x2 - 14 = 7, so x2 = 21/2 - values that satisfy U x = b but not A x = b."
+   },
+   "check": {
+    "question": "L = [[1,0],[2,1]], U = [[1,2],[0,0]], b = (1,2). What does the forward pass give, and what does the back pass run into?",
+    "answer": "Forward gives y = (1,0). The back pass has 0*x2 = 0, so x2 is free, and then x1 + 2x2 = 1 gives x1 = 1 - 2x2: infinitely many solutions.",
+    "explanation": "The zero last pivot is the singularity of A = [[1,2],[2,4]], and the zero in the second entry of y is exactly the condition that b lies in the range of A."
+   },
+   "pyqIds": [
+    "gate-2022-35-lu-l32-u33-x1",
+    "gate-2025-set2-34-lu-statements"
+   ],
+   "prereqs": [
+    "multipliers-from-elimination",
+    "gaussian-elimination-and-back-substitution"
+   ],
+   "videoRefs": [],
+   "sources": [
+    {
+     "kind": "lecture",
+     "title": "LU Factorization of Matrix With Solved Example",
+     "channel": "The Double Vibe (Asma Mushtak)",
+     "url": "https://www.youtube.com/watch?v=ZYDMM9_nYTQ",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "the meaning of 'unit lower triangular', the symbolic product L times U compared entry by entry with A, the worked 3x3 whose L and U are the ones used on the exam-reading card, and the Ly = b then Ux = y conclusion"
+    },
+    {
+     "kind": "lecture",
+     "title": "Lec23: Matrix Decomposition - LU Method",
+     "channel": "Engineering Wing (machine learning lecture series)",
+     "url": "https://www.youtube.com/watch?v=7w7PZOmD7Uw",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "the two-step recipe (write the identity beside the matrix, record the multiplying factor at the position you clear), the three row operations on a 3x3, the placement of the multipliers 3, 3 and 2/3 into L, and the resulting L and U; read from the opening greeting to the closing sign-off"
+    }
+   ],
+   "sourceLine": "The Double Vibe's lecture (English, read in full) for the reduction of Ax = b to Ly = b and Ux = y, which is how it closes. Engineering Wing's Lec23 (English, read in full) for the elimination half of the same walk. The 2022 system is solved in exact rational arithmetic in scripts/validate.py, including the check that the answer satisfies all three original equations.",
+   "subject": "linear-algebra",
+   "topic": "lu-decomposition",
+   "path": "subjects/linear-algebra/lu-decomposition/solving-ax-equals-b-with-lu.json"
+  },
+  {
+   "id": "determinant-from-lu",
+   "title": "The Determinant From the Pivots",
+   "priority": "P2",
+   "order": 149,
+   "unit": "Using the factors",
+   "quickIdea": "Because a triangular determinant is just the product of its diagonal, det(A) = det(L) det(U) det(P)^-1: the product of the pivots, times the sign of the permutation.",
+   "remember": [
+    "Unit lower triangular L has det(L) = 1, so under Doolittle det(A) = u11 u22 ... unn, the product of the pivots.",
+    "Under Crout the pivots sit in L, so det(A) = l11 l22 ... lnn instead. The product of the pivots is the same number either way.",
+    "With a row exchange, det(A) = det(U) / det(P), and det(P) is +1 for an even number of swaps and -1 for an odd number.",
+    "If A is singular, the product of the pivots is 0, which is the same statement as det(A) = 0 - the formula does not break.",
+    "It is the cheapest check on any factorization: if the pivots do not multiply to det(A), some multiplier is wrong."
+   ],
+   "example": {
+    "prompt": "Use the factorization of A = [[2,2],[4,9]] to compute det(A).",
+    "work": "Doolittle gives U = [[2,2],[0,5]], so the pivots are 2 and 5. Their product is 10.",
+    "answer": "det(A) = 2*5 = 10. The direct computation is 2*9 - 2*4 = 18 - 8 = 10, which agrees."
+   },
+   "gateAngle": "No CSE question has asked for a determinant through LU, so this is P2 rather than P1. Its exam value is as a one-line check on the factorization a question hands you, and as the reason statements 2 and 3 of GATE CSE 2025 Set 2 Q.34 are true: det(P) = det(L) det(U) makes det(U) vanish exactly when P is singular.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "A 3x3 matrix has the factorization with pivots 1, -3 and -10/3 and no row exchange. What is det(A)?",
+     "answer": "10.",
+     "why": "1 * (-3) * (-10/3) = 10, which matches the direct determinant of [[1,2,4],[3,3,2],[3,4,2]]."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why does the product of the pivots give the determinant even though elimination changes the matrix?",
+     "answer": "Because each elimination step is a unit lower triangular elementary matrix with determinant 1, and the row swaps are the only steps with a determinant other than 1.",
+     "why": "So det(A) is unchanged by the additions of multiples of rows, and only the swaps and the resulting triangular matrix carry a factor."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "A 4x4 matrix needs one row swap and its U has pivots 2, 3, 0 and 5. What is det(A) and what is rank(A)?",
+     "answer": "det(A) = 0 and rank(A) = 3.",
+     "why": "One pivot is zero, so the product is 0; and the number of nonzero pivots is the rank."
+    }
+   ],
+   "trap": {
+    "what": "Forgetting det(P) when a row exchange was needed, and reporting the product of the pivots as det(A).",
+    "why": "A swap changes the sign of the determinant, so the product of the pivots is det(PA), not det(A).",
+    "counterexample": "For A = [[1,2,3],[2,4,1],[4,9,2]] the pivots multiply to -5, but det(A) = +5, because one row swap was made. Reporting -5 is the sign error this trap is about."
+   },
+   "check": {
+    "question": "A factorization has pivots 2 and 5 under Doolittle, and the same matrix has l11 = 2 and l22 = 5 under Crout. What is det(A) in each case?",
+    "answer": "10 in both, because det(L) det(U) is the same product however the pivots are split between the two factors.",
+    "explanation": "Under Doolittle det(A) = 1 * (2*5); under Crout det(A) = (2*5) * 1. The convention moves the pivots, not the number."
+   },
+   "pyqIds": [
+    "gate-2025-set2-34-lu-statements"
+   ],
+   "prereqs": [
+    "doolittle-crout-and-ldu",
+    "determinant-definition-and-cofactor-expansion"
+   ],
+   "videoRefs": [],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "LU decomposition (definition, existence and uniqueness, PA = LU)",
+     "channel": "StatLect, Marco Taboga",
+     "url": "https://www.statlect.com/matrix-algebra/lu-decomposition",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "the definition, the proof that not every invertible matrix has a factorization, the proof that a factorization is never unique without a normalisation, the sufficient condition of elimination without row interchanges, and the PA = LU statement; the page body was cut off inside the PA = LU proof"
+    }
+   ],
+   "sourceLine": "StatLect (English, read in part) for the multiplicative property of the determinant on which the identity rests, and for the elementary-matrix proof that elimination leaves the determinant unchanged. Every determinant and pivot product printed here is recomputed in scripts/validate.py.",
+   "subject": "linear-algebra",
+   "topic": "lu-decomposition",
+   "path": "subjects/linear-algebra/lu-decomposition/determinant-from-lu.json"
+  },
+  {
+   "id": "rank-and-singularity-from-u",
+   "title": "Zero Pivots, Rank and Singularity",
+   "priority": "P2",
+   "order": 150,
+   "unit": "Using the factors",
+   "quickIdea": "The number of nonzero entries on the diagonal of U is the rank of A, so a lost dimension and a zero pivot are the same fact seen twice.",
+   "remember": [
+    "rank(A) equals the number of nonzero pivots in U, and the same holds for the pivots of PA = LU.",
+    "A is singular exactly when some u_ii = 0, exactly when det(U) = 0, exactly when det(A) = 0.",
+    "A is invertible exactly when every u_ii is nonzero; then L and U are both invertible, because L is unit triangular with det 1 and det(U) = det(A).",
+    "A zero pivot *during* elimination is not the same as a zero pivot at the end: the first may only mean a row swap is needed, the second means the matrix is singular.",
+    "Singularity is a statement about A. Whether Ax = b has no solution or infinitely many is a statement about [A|b], and needs the augmented matrix."
+   ],
+   "example": {
+    "prompt": "Factor A = [[1,2],[2,4]] and read off its rank and singularity.",
+    "work": "R2 <- R2 - 2 R1 gives U = [[1,2],[0,0]] with L = [[1,0],[2,1]]. One pivot is 1, the other is 0.",
+    "answer": "rank(A) = 1 and A is singular, since det(A) = 1*0 = 0. The zero pivot is in the last position, so no row swap was needed and no swap could have helped."
+   },
+   "gateAngle": "GATE CSE 2025 Set 2 Q.34 is built entirely on this card. Statement 2 (invertible P forces invertible L and U) and statement 3 (singular P forces a zero on U's diagonal) are both the identity det(P) = det(L) det(U) read in one direction or the other. The answer is that statements 1, 2 and 3 are true and 4 is false.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "U = [[2,1,0],[0,0,3],[0,0,1]] comes from a factorization with no row exchange. What is rank(A), and is A invertible?",
+     "answer": "rank(A) = 2 and A is not invertible, because the diagonal of U is 2, 0, 1.",
+     "why": "Two nonzero pivots out of three, so one dimension is lost; the zero pivot is enough to make det(U) = 0 whatever the off-diagonal entries are."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why is a unit lower triangular matrix always invertible, whatever its entries below the diagonal?",
+     "answer": "Because its determinant is the product of its diagonal, which is 1*1*...*1 = 1, and a matrix with nonzero determinant is invertible.",
+     "why": "This is what lets statement 2 of the 2025 question be settled by looking at U alone: L never causes a singularity."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "A is 5x5 with rank 5 and has a factorization PA = LU. Can any u_ii be zero?",
+     "answer": "No. rank(A) = 5 means five nonzero pivots, so all five diagonal entries of U are nonzero and U is invertible.",
+     "why": "Rank and the pivot count are the same number, and with full rank every pivot is available."
+    }
+   ],
+   "trap": {
+    "what": "Reading a zero on the diagonal of U as 'the system has no solution'.",
+    "why": "A zero pivot says A is singular, which leaves two possibilities: no solution or infinitely many, depending on the right-hand side. Which one it is depends on rank([A|b]), not on U alone.",
+    "counterexample": "A = [[1,2],[2,4]] with b = (1,2) has infinitely many solutions, because the second equation is twice the first. The same A with b = (1,3) has none, because 2x + 4y = 3 contradicts 2x + 4y = 2. Both have u22 = 0."
+   },
+   "check": {
+    "question": "For a symmetric P = LU with L unit lower triangular, is L symmetric? Is U?",
+    "answer": "Not in general. A lower triangular matrix that equals its transpose must be diagonal, and a unit diagonal makes it the identity, which would force P to be diagonal.",
+    "explanation": "That is why statement 4 of GATE CSE 2025 Set 2 Q.34 is false, and why the right factorization for a symmetric matrix is LDL^T rather than symmetric L and U."
+   },
+   "pyqIds": [
+    "gate-2025-set2-34-lu-statements"
+   ],
+   "prereqs": [
+    "determinant-from-lu",
+    "singular-and-equivalent-conditions"
+   ],
+   "videoRefs": [],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "LU decomposition (definition, existence and uniqueness, PA = LU)",
+     "channel": "StatLect, Marco Taboga",
+     "url": "https://www.statlect.com/matrix-algebra/lu-decomposition",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "the definition, the proof that not every invertible matrix has a factorization, the proof that a factorization is never unique without a normalisation, the sufficient condition of elimination without row interchanges, and the PA = LU statement; the page body was cut off inside the PA = LU proof"
+    }
+   ],
+   "sourceLine": "StatLect (English, read in part) for the triangular-determinant fact and the non-existence proof that turns on a zero diagonal entry. The four statements of GATE CSE 2025 Set 2 Q.34 are checked against the determinant identity in scripts/validate.py, together with a symmetric matrix whose L and U are both asymmetric.",
+   "subject": "linear-algebra",
+   "topic": "lu-decomposition",
+   "path": "subjects/linear-algebra/lu-decomposition/rank-and-singularity-from-u.json"
+  },
+  {
+   "id": "cost-of-factorisation",
+   "title": "What LU Costs, and Why You Factor Once",
+   "priority": "P3",
+   "order": 151,
+   "unit": "Using the factors",
+   "quickIdea": "About 2n^3/3 multiply-subtract operations buy the factorization, and each further right-hand side then costs only about 2n^2, so the factors pay for themselves from the second system onwards.",
+   "remember": [
+    "Factorizing an n x n matrix costs about 2n^3/3 operations; each pair of triangular substitutions costs about 2n^2.",
+    "Eliminating afresh for every right-hand side costs about 2n^3/3 per system, so m systems cost about 2mn^3/3.",
+    "With LU the total for m systems is about 2n^3/3 + 2mn^2, which is smaller for every m of 2 or more.",
+    "The same order, different constant: n^3 is the growth rate, 2/3 is the factor, and quoting n^3 for the factorization overstates it by half.",
+    "Storage is the price: L and U together hold about n^2 numbers, the same order as A itself."
+   ],
+   "example": {
+    "prompt": "Compare the work for n = 1000 and m = 100 right-hand sides.",
+    "work": "Factorization: 2n^3/3 = 6.67 x 10^8. Each substitution pair: 2n^2 = 2 x 10^6, so 100 of them cost 2 x 10^8. Total by LU: about 8.7 x 10^8. Eliminating afresh each time: 100 x 6.67 x 10^8 = 6.67 x 10^10.",
+    "answer": "LU needs about 8.7 x 10^8 operations against 6.7 x 10^10 for repeated elimination - roughly 75 times less work for the same 100 answers."
+   },
+   "gateAngle": "GATE CSE has not asked an operation count for LU decomposition, and the syllabus line is three words long. This card is P3 for exactly that reason: read it once so that 'factor once, solve many times' makes sense, and do not spend revision time on constants.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "For n = 100, roughly how many operations do one factorization and five solves need?",
+     "answer": "About 6.7 x 10^5 for the factorization plus 1.0 x 10^5 for the five solves, so about 7.7 x 10^5 in total.",
+     "why": "2*10^6/3 = 666,667 and 5 * 2 * 10^4 = 100,000; the factorization dominates, which is why the number of solves barely matters once the factors exist."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why does the factorization cost less than n^3 when elimination has n columns of work?",
+     "answer": "Because the amount of work shrinks with each column: the first column touches (n-1) rows of n entries, the second (n-2) rows of n-1 entries, and so on, and the sum of those products is about n^3/3 for the multipliers alone and 2n^3/3 with the row updates.",
+     "why": "The cubic term comes from the shrinking triangle of work, not from n full passes over the matrix."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "You must solve 50 systems with the same 200 x 200 matrix. Is LU worth it, and by roughly how much?",
+     "answer": "Yes. LU costs about 5.3 x 10^6 plus 50 * 8 x 10^4 = 4 x 10^6, about 9.3 x 10^6; repeated elimination costs 50 * 5.3 x 10^6, about 2.7 x 10^8.",
+     "why": "The saving grows linearly in the number of right-hand sides, so the more systems share a matrix the more the factorization is worth."
+    }
+   ],
+   "trap": {
+    "what": "Quoting n^3 as the cost of the factorization and then comparing it with the wrong thing.",
+    "why": "n^3 is the growth rate; the constant is 2/3 for the factorization and 2 for a substitution pair. Mixing the two makes the break-even point look different from where it is.",
+    "counterexample": "At n = 100 the factorization is about 6.7 x 10^5 operations, not 10^6, and a substitution pair is 2 x 10^4, not 10^4. Using n^3 and n^2 instead still gives the right conclusion but a wrong total by a third."
+   },
+   "check": {
+    "question": "One right-hand side, n = 500. Is LU faster than plain elimination?",
+    "answer": "No: LU costs the same 2n^3/3 for the factorization plus 2n^2 extra for the substitutions, so for a single system plain elimination is slightly cheaper.",
+    "explanation": "The factorization only earns its keep when it is reused. For m = 1 the substitutions are pure overhead; from m = 2 the saving appears."
+   },
+   "pyqIds": [],
+   "prereqs": [
+    "solving-ax-equals-b-with-lu"
+   ],
+   "videoRefs": [],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "LU decomposition (definition, existence and uniqueness, PA = LU)",
+     "channel": "StatLect, Marco Taboga",
+     "url": "https://www.statlect.com/matrix-algebra/lu-decomposition",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "the definition, the proof that not every invertible matrix has a factorization, the proof that a factorization is never unique without a normalisation, the sufficient condition of elimination without row interchanges, and the PA = LU statement; the page body was cut off inside the PA = LU proof"
+    }
+   ],
+   "sourceLine": "The operation counts are the standard ones from Golub and Van Loan, Matrix Computations, section 3.2, and Strang's account of elimination as factorization; no readable lecture this run gave them, so no lecture is cited for the constants. Every arithmetic claim on this card is recomputed in scripts/validate.py.",
+   "subject": "linear-algebra",
+   "topic": "lu-decomposition",
+   "path": "subjects/linear-algebra/lu-decomposition/cost-of-factorisation.json"
+  },
+  {
+   "id": "inverse-and-repeated-solves",
+   "title": "The Inverse, and Many Right-Hand Sides",
+   "priority": "P3",
+   "order": 152,
+   "unit": "Using the factors",
+   "quickIdea": "The inverse is n LU solves, one per column of the identity: factor A once, then run the two substitutions against e1, e2, ..., en.",
+   "remember": [
+    "Column j of A^-1 solves A x = e_j, so the whole inverse comes from one factorization and n pairs of substitutions.",
+    "(LU)^-1 = U^-1 L^-1: the factors invert in the reverse order, exactly as for any product.",
+    "For one system, never form the inverse: two substitutions on b are cheaper and more accurate than building A^-1 and multiplying.",
+    "A zero pivot stops the substitution with a division by zero, so the failure to invert is visible rather than silent.",
+    "The same machinery handles any number of right-hand sides: keep L and U, change b."
+   ],
+   "example": {
+    "prompt": "Find A^-1 for A = [[2,1],[6,4]] using its factorization L = [[1,0],[3,1]], U = [[2,1],[0,1]].",
+    "work": "For e1 = (1,0): forward gives y = (1,-3), back gives x = (2,-3). For e2 = (0,1): forward gives y = (0,1), back gives x = (-1/2,1).",
+    "answer": "A^-1 = [[2, -1/2],[-3, 1]]. Check against the adjugate: det(A) = 2 and adj(A) = [[4,-1],[-6,2]], so A^-1 = (1/2)[[4,-1],[-6,2]], the same matrix."
+   },
+   "gateAngle": "The one CSE question on inverting a matrix in this subject, GATE CSE 1994 Q.3.12, is a descriptive question and cannot be stored in this repository's MCQ/MSQ/NAT schema, so no verified PYQ sits on this card. It is included because GATE-style questions still ask for a 2x2 or 3x3 inverse, and the LU route is an independent check on the adjugate route.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "A = [[1,2],[3,8]]. Use its factorization to find the (1,1) entry of A^-1.",
+     "answer": "4.",
+     "why": "The Crout factors here are L = [[1,0],[3,2]] and U = [[1,2],[0,1]]. Solving A x = e1: the forward pass gives y1 = 1 and 3 + 2y2 = 0, so y2 = -3/2; the back pass gives x2 = -3/2 and x1 + 2(-3/2) = 1, so x1 = 4. The adjugate agrees: det(A) = 2 and the (1,1) cofactor is 8, so the entry is 8/2 = 4."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why is (LU)^-1 equal to U^-1 L^-1 and not L^-1 U^-1?",
+     "answer": "Because the inverse of a product reverses the order: (LU)(U^-1 L^-1) = L (U U^-1) L^-1 = L L^-1 = I, whereas the other order gives L^-1 U^-1 L U, which does not collapse.",
+     "why": "Matrix multiplication is not commutative, so the reversal is a real condition, not a convention."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "A is 3x3 with u22 = 0. What happens when you try to build A^-1 from the factorization?",
+     "answer": "The back substitution divides by u22 = 0, so no inverse exists; A is singular with rank at most 2.",
+     "why": "The failure appears at the exact step where the inverse would need it, which is a useful diagnostic: a zero pivot in U means no inverse, whatever the right-hand side."
+    }
+   ],
+   "trap": {
+    "what": "Inverting L and U in the same order as they appear, writing A^-1 = L^-1 U^-1.",
+    "why": "The inverse of a product reverses the factors. With the order kept, the product does not reduce to the identity and the resulting matrix is not the inverse.",
+    "counterexample": "For L = [[1,0],[3,1]] and U = [[2,1],[0,1]], the wrong order gives L^-1 U^-1 = [[1,0],[-3,1]][[1/2,-1/2],[0,1]] = [[1/2,-1/2],[-3/2,5/2]], whose product with A = [[2,1],[6,4]] is [[-2,-3/2],[12,17/2]] and not the identity, while the right order U^-1 L^-1 gives [[2,-1/2],[-3,1]], which is A^-1."
+   },
+   "check": {
+    "question": "A = [[2,1],[6,4]] and b = (5,16). Solve without forming the inverse, and say why that is better.",
+    "answer": "y = (5,1) from the forward pass, then x = (2,1); no inverse is formed, so there is one factorization and two cheap substitutions instead of a full inverse and a multiplication.",
+    "explanation": "Check: 2*2 + 1*1 = 5 and 6*2 + 4*1 = 16. The inverse would have given the same answer at several times the cost."
+   },
+   "pyqIds": [],
+   "prereqs": [
+    "solving-ax-equals-b-with-lu",
+    "adjoint-inverse-and-invertibility"
+   ],
+   "videoRefs": [],
+   "sources": [
+    {
+     "kind": "lecture",
+     "title": "LU Factorization of Matrix With Solved Example",
+     "channel": "The Double Vibe (Asma Mushtak)",
+     "url": "https://www.youtube.com/watch?v=ZYDMM9_nYTQ",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "the meaning of 'unit lower triangular', the symbolic product L times U compared entry by entry with A, the worked 3x3 whose L and U are the ones used on the exam-reading card, and the Ly = b then Ux = y conclusion"
+    }
+   ],
+   "sourceLine": "The Double Vibe's lecture (English, read in full) for the substitution method that this card repeats once per column of the identity; the inverse itself is not worked in any readable source this run, so both columns, the adjugate cross-check and the reversal-order counterexample are computed in scripts/validate.py.",
+   "subject": "linear-algebra",
+   "topic": "lu-decomposition",
+   "path": "subjects/linear-algebra/lu-decomposition/inverse-and-repeated-solves.json"
+  },
+  {
+   "id": "ldlt-and-cholesky",
+   "title": "Symmetric Matrices: LDL^T and Cholesky",
+   "priority": "P3",
+   "order": 153,
+   "unit": "Using the factors",
+   "quickIdea": "A symmetric matrix factors as L D L^T with the same L on both sides; when the pivots are positive you can take square roots and get the Cholesky factor C with A = C C^T.",
+   "remember": [
+    "Symmetry survives only in the LDL^T form. The plain L and U of a symmetric matrix are generally not symmetric - a lower triangular matrix equal to its transpose is diagonal.",
+    "D is the diagonal of the pivots, so A = L D L^T with L unit lower triangular.",
+    "If A is symmetric positive definite, every pivot is positive, and C = L diag(sqrt(d1), ..., sqrt(dn)) satisfies A = C C^T.",
+    "The 2x2 test for positive definiteness is a11 > 0 and det(A) > 0.",
+    "Cholesky needs about half the storage and half the work of LU, because only one triangle has to be kept."
+   ],
+   "example": {
+    "prompt": "Factor A = [[4,2],[2,3]] as LDL^T and as C C^T.",
+    "work": "Doolittle gives L = [[1,0],[1/2,1]] and U = [[4,2],[0,2]], so D = diag(4,2). Scaling each column of L by the square root of its pivot gives C = [[2,0],[1,sqrt2]].",
+    "answer": "A = [[1,0],[1/2,1]] [[4,0],[0,2]] [[1,1/2],[0,1]] and A = [[2,0],[1,sqrt2]] times its transpose, whose (2,2) entry is 1 + 2 = 3."
+   },
+   "gateAngle": "Cholesky is outside the three words of the syllabus line, so this card is P3. But option 4 of GATE CSE 2025 Set 2 Q.34 tests precisely the fact that a symmetric P does not give symmetric L and U, and the correct thing to say instead is that it gives LDL^T. That makes this the one card in the topic that answers a wrong option in a real question.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "Is A = [[1,2],[2,5]] positive definite, and what is its Cholesky factor?",
+     "answer": "Yes: a11 = 1 > 0 and det(A) = 1 > 0. C = [[1,0],[2,1]], and C C^T = [[1,2],[2,5]].",
+     "why": "The pivots are 1 and 1, both positive, so both square roots are real; the factor is read off in the same two steps as an LU factorization."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why must every pivot be positive for Cholesky to exist, when LU only needs them nonzero?",
+     "answer": "Because Cholesky takes the square root of each pivot, which is real only when the pivot is positive. A negative pivot gives a valid LU factorization but no real C.",
+     "why": "Positive definiteness is exactly the condition that makes all pivots positive, which is why the two notions coincide."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "A symmetric 3x3 has pivots 2, -1 and 4. Which of LDL^T and Cholesky exist?",
+     "answer": "LDL^T exists with D = diag(2,-1,4); Cholesky does not, because the second pivot is negative and has no real square root.",
+     "why": "The sign of the pivots is what separates the two factorizations, and a negative pivot means the matrix is indefinite rather than positive definite."
+    }
+   ],
+   "trap": {
+    "what": "Concluding that a symmetric matrix has symmetric L and U.",
+    "why": "L is lower triangular and U is upper triangular, so for either to equal its transpose it would have to be diagonal; a unit diagonal then forces L = I, which would make A = U upper triangular as well as symmetric, hence diagonal.",
+    "counterexample": "P = [[1,2,0],[2,5,1],[0,1,3]] is symmetric, and its Doolittle factors are L = [[1,0,0],[2,1,0],[0,1,1]] and U = [[1,2,0],[0,1,1],[0,0,2]]. Neither is symmetric, which is why statement 4 of GATE CSE 2025 Set 2 Q.34 is false."
+   },
+   "check": {
+    "question": "For A = [[4,2],[2,3]], what is D, and what are the entries of C on its diagonal?",
+    "answer": "D = diag(4,2) and C's diagonal is (2, sqrt2).",
+    "explanation": "Each diagonal entry of C is the square root of the matching pivot, which is why positive definiteness is needed: here both pivots are positive."
+   },
+   "pyqIds": [
+    "gate-2025-set2-34-lu-statements"
+   ],
+   "prereqs": [
+    "rank-and-singularity-from-u",
+    "symmetric-matrices-and-orthogonal-eigenvectors"
+   ],
+   "videoRefs": [],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "LU decomposition (definition, existence and uniqueness, PA = LU)",
+     "channel": "StatLect, Marco Taboga",
+     "url": "https://www.statlect.com/matrix-algebra/lu-decomposition",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "the definition, the proof that not every invertible matrix has a factorization, the proof that a factorization is never unique without a normalisation, the sufficient condition of elimination without row interchanges, and the PA = LU statement; the page body was cut off inside the PA = LU proof"
+    }
+   ],
+   "sourceLine": "StatLect (English, read in part) for the factorization definitions and the elementary-matrix argument; the LDL^T and Cholesky forms themselves come from the standard references (Golub and Van Loan, sections 4.1 and 4.2). Every product on this card, including the asymmetric L and U of the symmetric counterexample, is recomputed in scripts/validate.py.",
+   "subject": "linear-algebra",
+   "topic": "lu-decomposition",
+   "path": "subjects/linear-algebra/lu-decomposition/ldlt-and-cholesky.json"
+  },
+  {
+   "id": "reading-lu-entries-in-gate-questions",
+   "title": "Reading L and U Entries Under Exam Conditions",
+   "priority": "P2",
+   "order": 154,
+   "unit": "Using the factors",
+   "quickIdea": "You rarely need the whole factorization: each off-diagonal entry of L is one multiplier, each diagonal entry of U is one pivot, and either can be produced by eliminating only as far as that entry.",
+   "remember": [
+    "u_ij for j >= i is the (i,j) entry of the working matrix after the first i-1 columns have been cleared.",
+    "l_ij for i > j is the multiplier that cleared position (i,j) at step j, computed from the working matrix, not from A.",
+    "Asked for one entry? Eliminate only up to it: for l32, clear column 1, then divide the (3,2) entry by the (2,2) pivot.",
+    "Any single entry can be verified by one dot product: entry (i,j) of A is row i of L times column j of U.",
+    "If the question fixes U's diagonal to 1, do not rescale a Doolittle answer blindly: the pivots move into L and every other entry changes with them."
+   ],
+   "example": {
+    "prompt": "For A = [[2,3,1],[4,7,7],[-2,4,5]], verify the (3,2) entry of the factorization without multiplying the whole product.",
+    "work": "The factorization is L = [[1,0,0],[2,1,0],[-1,7,1]] and U = [[2,3,1],[0,1,5],[0,0,-29]]. The (3,2) entry of A is row 3 of L times column 2 of U: (-1)(3) + 7(1) + 1(0) = 4.",
+    "answer": "4, which is the (3,2) entry of A. The pivots 2, 1, -29 multiply to -58, and the direct determinant of A is also -58."
+   },
+   "gateAngle": "Both CSE questions that print a factorization ask for individual entries plus one unknown of the solution, never for the whole of L and U: 2015 Set 1 Q.18 wants l22 under the Crout convention, and 2022 Q.35 wants l32, u33 and x1. Reading one entry directly is the fastest safe route, and the dot-product check costs a few seconds and catches every sign error.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "In the factorization above, what is u23, and which combination of rows of U gives the third row of A?",
+     "answer": "u23 = 5. Row 3 of A is (-1) times row 1 of U, plus 7 times row 2 of U, plus 1 times row 3 of U, which gives (-2,4,5).",
+     "why": "The coefficients are exactly the third row of L, so the third row of A is always that combination - which is why an entry check is a single dot product."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "A question gives L and U with U's diagonal fixed to 1, and you already have the Doolittle factors. How do you convert?",
+     "answer": "Divide each row of U by its pivot and multiply the matching column of L by that pivot, which moves the pivots onto L's diagonal and leaves the product unchanged.",
+     "why": "That is the scaling that separates Doolittle from Crout, and it must be applied to both factors or the product changes."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "A 4x4 question asks only for u44. What is the least work?",
+     "answer": "Eliminate columns 1 to 3 in order and read the last diagonal entry of the working matrix; nothing below it needs to be computed.",
+     "why": "u44 is a pivot, so it is whatever remains in position (4,4) after the first three columns are cleared - no back substitution and no product."
+    }
+   ],
+   "trap": {
+    "what": "Rescaling a Doolittle factorization to make U's diagonal 1 by dividing only the rows of U.",
+    "why": "Dividing a row of U without multiplying the corresponding column of L changes the product. The scaling has to move between the factors, not disappear.",
+    "counterexample": "For [[2,2],[4,9]] with L = [[1,0],[2,1]] and U = [[2,2],[0,5]], dividing both rows of U by their pivots gives [[1,1],[0,1]], whose product with L is [[1,1],[2,3]] and not A. The correct Crout factors are L = [[2,0],[4,5]] and U = [[1,1],[0,1]]."
+   },
+   "check": {
+    "question": "In the worked example, which single dot product confirms u33 = -29?",
+    "answer": "Row 3 of L times column 3 of U: (-1)(1) + 7(5) + 1(-29) = -1 + 35 - 29 = 5, which is the (3,3) entry of A.",
+    "explanation": "The same dot product also confirms the pivot, because the coefficient of u33 in it is l33 = 1: a mistake in u33 changes the total by exactly that mistake."
+   },
+   "pyqIds": [
+    "gate-2015-set1-18-lu-l22",
+    "gate-2022-35-lu-l32-u33-x1"
+   ],
+   "prereqs": [
+    "multipliers-from-elimination",
+    "doolittle-crout-and-ldu"
+   ],
+   "videoRefs": [],
+   "sources": [
+    {
+     "kind": "lecture",
+     "title": "LU Factorization of Matrix With Solved Example",
+     "channel": "The Double Vibe (Asma Mushtak)",
+     "url": "https://www.youtube.com/watch?v=ZYDMM9_nYTQ",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "the meaning of 'unit lower triangular', the symbolic product L times U compared entry by entry with A, the worked 3x3 whose L and U are the ones used on the exam-reading card, and the Ly = b then Ux = y conclusion"
+    },
+    {
+     "kind": "lecture",
+     "title": "LU Decomposition | GATE Data Science and AI 2024 | Linear Algebra",
+     "channel": "Dheeraj Mishra (IIT Bombay)",
+     "url": "https://www.youtube.com/watch?v=I7Hd_qHusR0",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "the existence condition stated through the principal minors, the check of the first diagonal entry before attempting a factorization, and the choice between a unit diagonal in L and a unit diagonal in U; read up to the point where the lecture turns to the mechanical method"
+    }
+   ],
+   "sourceLine": "The Double Vibe's lecture (English, read in full) for the entry-by-entry comparison that this card turns into a single-dot-product check, and for the 3x3 used as the worked example. Dheeraj Mishra's GATE lecture (English, read in part) for the habit of checking the convention before computing. Both factorizations, the dot products and the determinant are recomputed in scripts/validate.py.",
+   "subject": "linear-algebra",
+   "topic": "lu-decomposition",
+   "path": "subjects/linear-algebra/lu-decomposition/reading-lu-entries-in-gate-questions.json"
   }
  ],
  "pyqs": [
@@ -14881,6 +15856,22 @@ window.GATE_DATA = {
    "verification": "SOURCED"
   },
   {
+   "id": "gate-2015-set1-18-lu-l22",
+   "year": "2015",
+   "paper": "GATE CS 2015 Set 1",
+   "question_ref": "Q.18",
+   "type": "NAT",
+   "marks": "1",
+   "topic": "doolittle-crout-and-ldu",
+   "text": "In the LU decomposition of the matrix [[2,2],[4,9]], if the diagonal elements of U are both 1, then the lower diagonal entry l22 of L is ______.",
+   "answer": "5",
+   "solution": "The question fixes the diagonal of U to 1, so the pivots sit on the diagonal of L: this is the Crout convention. Write L = [[l11,0],[l21,l22]] and U = [[1,u12],[0,1]]. Their product is [[l11, l11 u12],[l21, l21 u12 + l22]]. Comparing with A: l11 = 2, so l11 u12 = 2 gives u12 = 1; l21 = 4; and l21 u12 + l22 = 9 gives 4 + l22 = 9, so l22 = 5. Equivalently, eliminate with R2 <- R2 - 2 R1 to get U = [[2,2],[0,5]], then move the pivots 2 and 5 into L and normalise U to [[1,1],[0,1]], giving L = [[2,0],[4,5]]. Check: L U = [[2,2],[4,4+5]] = A.",
+   "source_url": "https://gateoverflow.in/8241/gate-cse-2015-set-1-question-1-8",
+   "source_label": "GATE Overflow question page, GATE CSE 2015 Set 1 Q.18, with several accepted answers agreeing on 5",
+   "verification": "SOURCED",
+   "answer_evidence": "Every answer on the page reaches l22 = 5 by one of three routes (entry comparison, column-operation shortcut, and the LDU form), and the GATE Overflow linear algebra subject page lists this as the 1-mark linear algebra question of GATE CSE 2015 Set 1. The official paper and key were not fetched this run, so the record is SOURCED rather than key-verified."
+  },
+  {
    "id": "gate-2015-set1-functional-completeness",
    "year": "2015",
    "paper": "GATE CS 2015 Set 1",
@@ -15581,6 +16572,28 @@ window.GATE_DATA = {
    "verification": "OFFICIAL_KEY"
   },
   {
+   "id": "gate-2022-35-lu-l32-u33-x1",
+   "year": "2022",
+   "paper": "GATE CS 2022",
+   "question_ref": "Q.35",
+   "type": "MCQ",
+   "marks": "2",
+   "topic": "multipliers-from-elimination",
+   "text": "Consider solving the following system of simultaneous equations using LU decomposition: x1 + x2 - 2x3 = 4; x1 + 3x2 - x3 = 7; 2x1 + x2 - 5x3 = 7, where L and U are denoted as L = [[L11,0,0],[L21,L22,0],[L31,L32,L33]] and U = [[U11,U12,U13],[0,U22,U23],[0,0,U33]]. Which one of the following is the correct combination of values for L32, U33 and x1?",
+   "options": [
+    "L32 = 2, U33 = -1/2, x1 = -1",
+    "L32 = 2, U33 = 2, x1 = -1",
+    "L32 = -1/2, U33 = 2, x1 = 0",
+    "L32 = -1/2, U33 = -1/2, x1 = 0"
+   ],
+   "answer": "Option (D) - L32 = -1/2, U33 = -1/2, x1 = 0",
+   "solution": "Take A = [[1,1,-2],[1,3,-1],[2,1,-5]] and eliminate in the Doolittle convention, which the printed L and U imply because L is unit lower triangular. R2 <- R2 - R1 gives (0,2,1) with L21 = 1; R3 <- R3 - 2 R1 gives (0,-1,-1) with L31 = 2. The second pivot is 2, so clearing -1 needs R3 <- R3 + (1/2) R2, giving L32 = -1/2 and a last entry of -1 + 1/2 = -1/2, so U33 = -1/2. For the solution, solve L y = b with b = (4,7,7): y1 = 4, y2 = 3, y3 = 1/2. Then U x = y gives x3 = -1, x2 = 2 and x1 = 0. Check in the original equations: 0 + 2 + 2 = 4, 0 + 6 + 1 = 7, 0 + 2 + 5 = 7.",
+   "source_url": "https://gateoverflow.in/371901/gate-cse-2022-question-35",
+   "source_label": "GATE Overflow question page, GATE CSE 2022 Q.35, with the accepted answer (D); a second site records the official paper's key as option 4",
+   "verification": "SOURCED",
+   "answer_evidence": "The accepted answer is D and a published solution page for the official paper states 'Correct Answer: option 4 (D)'. The same page argues that option (C) is also defensible, because LU is not unique unless a diagonal convention is fixed and with L33 = -1/4 the second factorization also reproduces A; the question as printed offers only one correct option, so the record notes the disagreement rather than hiding it. Marks are taken from the GATE Overflow mark table, which lists this as a 2-mark linear algebra question of GATE 2022."
+  },
+  {
    "id": "gate-2022-40-petersen",
    "year": "2022",
    "paper": "GATE CS 2022",
@@ -15968,6 +16981,22 @@ window.GATE_DATA = {
    "source_label": "GATE Overflow question page - GATE CSE 2025 Set 2 Q.32 with community solutions (answer B and C)",
    "verification": "SOURCED",
    "answer_evidence": "The page's solutions conclude 'The correct options are: (B) and (C)'; the pointwise-order claims are recomputed by enumeration in scripts/validate.py."
+  },
+  {
+   "id": "gate-2025-set2-34-lu-statements",
+   "year": "2025",
+   "paper": "GATE CS 2025 Set 2",
+   "question_ref": "Q.34",
+   "type": "MSQ",
+   "marks": "2",
+   "topic": "rank-and-singularity-from-u",
+   "text": "Consider a system of linear equations P X = Q where P is a real 3x3 matrix and Q is a real 3x1 matrix. Suppose P has an LU decomposition P = LU, where L = [[1,0,0],[l21,1,0],[l31,l32,1]] and U = [[u11,u12,u13],[0,u22,u23],[0,0,u33]]. Which of the following statement(s) is/are TRUE? (1) The system P X = Q can be solved by first solving L Y = Q and then U X = Y. (2) If P is invertible, then both L and U are invertible. (3) If P is singular, then at least one of the diagonal elements of U is zero. (4) If P is symmetric, then both L and U are symmetric.",
+   "answer": "Statements (1), (2) and (3) are TRUE; statement (4) is FALSE",
+   "solution": "Statement 1: substituting P = LU gives L(UX) = Q, so with Y = UX the system splits into L Y = Q (lower triangular, forward substitution) and U X = Y (upper triangular, back substitution). True. Statement 2: det(L) = 1 because L is unit lower triangular, and det(P) = det(L) det(U) = det(U); if P is invertible then det(U) is nonzero and both factors are invertible. True. Statement 3: if P is singular then det(U) = 0, and det(U) = u11 u22 u33 is a product of real numbers, so at least one of them is zero. True. Statement 4: a lower triangular matrix that equals its transpose must be diagonal, and a unit diagonal then makes L the identity; likewise U would be diagonal, so P = LU would have to be diagonal, which a general symmetric matrix is not. Counterexample: P = [[1,2,0],[2,5,1],[0,1,3]] is symmetric with L = [[1,0,0],[2,1,0],[0,1,1]] and U = [[1,2,0],[0,1,1],[0,0,2]], neither symmetric. False.",
+   "source_url": "https://gateoverflow.in/460801/gate-cse-2025-set-2-question-34",
+   "source_label": "GATE Overflow question page, GATE CSE 2025 Set 2 Q.34, with the accepted answer A, B, C",
+   "verification": "SOURCED",
+   "answer_evidence": "The accepted answer and every other answer on the page agree on statements 1, 2 and 3 true and 4 false, and a published table of the official key for CS-2 lists its 2-mark linear algebra MSQ as A, B, C. The official master question paper was not fetched, so the question reference follows the GATE Overflow numbering and the marks follow its mark table; the number the question carries in the master paper is not recorded here because it could not be confirmed."
   },
   {
    "id": "gate-2025-set2-4-det-of-matrix-powers",

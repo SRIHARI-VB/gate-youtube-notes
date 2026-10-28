@@ -1,0 +1,82 @@
+{
+  "id": "multipliers-from-elimination",
+  "title": "Where L Comes From: the Multipliers of Elimination",
+  "priority": "P1",
+  "order": 144,
+  "unit": "The factorization",
+  "quickIdea": "Each row operation R_i <- R_i - m R_j contributes the number m to position (i, j) of L, so L is written down while you eliminate rather than solved for afterwards.",
+  "remember": [
+    "The multiplier that clears position (i, j) is m = (current entry at (i,j)) / (current pivot at (j,j)), and it is stored in L at row i, column j.",
+    "The multiplier is computed from the matrix as it stands at that moment, not from the original A, so the arithmetic of the previous steps matters.",
+    "Its sign is the sign of the operation: subtracting 2 R1 puts l21 = 2; adding half of R2 puts l32 = -1/2.",
+    "Work column by column, top to bottom within a column, and left to right across columns. That is the order in which the entries of L are read back.",
+    "In the Doolittle convention the diagonal of L is all 1s and is never written as a multiplier; the pivots stay on U's diagonal."
+  ],
+  "example": {
+    "prompt": "Factor A = [[1,1,-2],[1,3,-1],[2,1,-5]] by Doolittle elimination, the matrix of GATE CSE 2022 Q.35.",
+    "work": "Column 1: R2 <- R2 - 1 R1 gives (0,2,1) and R3 <- R3 - 2 R1 gives (0,-1,-1), so l21 = 1 and l31 = 2. Column 2: the pivot is 2, and clearing -1 needs R3 <- R3 + (1/2) R2, so l32 = -1/2; the third row becomes (0,0,-1-(-1/2)) = (0,0,-1/2).",
+    "answer": "L = [[1,0,0],[1,1,0],[2,-1/2,1]] and U = [[1,1,-2],[0,2,1],[0,0,-1/2]]. The (3,2) entry of LU is 2*1 + (-1/2)*2 + 1*0 = 1, which is the (3,2) entry of A."
+  },
+  "gateAngle": "GATE CSE 2022 Q.35 asks for L32 and U33 and nothing else, which is exactly what this card gives: the multiplier that clears the third row in the second column, and the pivot left behind. Reading a multiplier off an elimination you are already doing is faster and safer than writing A = LU and solving nine equations.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "A = [[1,2,4],[3,3,2],[3,4,2]]. Give l32 and u33 of its Doolittle factorization.",
+      "answer": "l32 = 2/3 and u33 = -10/3.",
+      "why": "Column 1 gives l21 = 3 and l31 = 3, leaving rows (0,-3,-10) and (0,-2,-10). The second pivot is -3, so clearing -2 needs the multiplier -2/-3 = 2/3, and the last entry becomes -10 - (2/3)(-10) = -10/3."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Why is the multiplier for position (i, j) computed before the row is updated rather than after?",
+      "answer": "Because the operation that clears the entry is defined by what the entry and the pivot are at that moment. Using the updated value would describe a different operation and the recorded factor would no longer reproduce A.",
+      "why": "L is a product of the elementary matrices of the steps actually taken, in the order they were taken, so each entry must be the number that was actually used."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "A 3x3 matrix has l21 = 0. What does that say about the second row of A?",
+      "answer": "Nothing about elimination, but it does say the second row needed no clearing in column 1, which happens when its first entry is already 0.",
+      "why": "A zero multiplier means no row operation was needed there; it does not mean the entry was zero after the step, only that the step was the identity for that row."
+    }
+  ],
+  "trap": {
+    "what": "Dropping the sign of a multiplier when the row operation adds rather than subtracts.",
+    "why": "The multiplier is the coefficient in R_i <- R_i - m R_j, so an operation that adds half of R2 corresponds to m = -1/2, not +1/2. Writing the positive value turns a correct factorization into one that does not multiply back to A.",
+    "counterexample": "In GATE CSE 2022 Q.35 the last step is R3 <- R3 + (1/2) R2, so l32 = -1/2. With l32 = +1/2 the product LU gives (3,2) entry 2*1 + (1/2)*2 = 3 instead of 1, and the factorization visibly fails."
+  },
+  "check": {
+    "question": "Eliminating A = [[2,2],[4,9]] needs one operation. What is the multiplier, where does it go, and what is U?",
+    "answer": "The multiplier is 4/2 = 2, it goes to l21, and U = [[2,2],[0,5]].",
+    "explanation": "R2 <- R2 - 2 R1 gives (0, 9 - 4) = (0,5). The multiplier 2 is the same number GATE CSE 2015 Set 1 Q.18 would have put in L if that question had used the Doolittle convention."
+  },
+  "pyqIds": [
+    "gate-2022-35-lu-l32-u33-x1"
+  ],
+  "prereqs": [
+    "gaussian-elimination-and-back-substitution",
+    "lu-factorisation-definition"
+  ],
+  "videoRefs": [],
+  "sources": [
+    {
+      "kind": "lecture",
+      "title": "Lec23: Matrix Decomposition - LU Method",
+      "channel": "Engineering Wing (machine learning lecture series)",
+      "url": "https://www.youtube.com/watch?v=7w7PZOmD7Uw",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "the two-step recipe (write the identity beside the matrix, record the multiplying factor at the position you clear), the three row operations on a 3x3, the placement of the multipliers 3, 3 and 2/3 into L, and the resulting L and U; read from the opening greeting to the closing sign-off"
+    },
+    {
+      "kind": "lecture",
+      "title": "LU Factorization of Matrix With Solved Example",
+      "channel": "The Double Vibe (Asma Mushtak)",
+      "url": "https://www.youtube.com/watch?v=ZYDMM9_nYTQ",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "the meaning of 'unit lower triangular', the symbolic product L times U compared entry by entry with A, the worked 3x3 whose L and U are the ones used on the exam-reading card, and the Ly = b then Ux = y conclusion"
+    }
+  ],
+  "sourceLine": "Engineering Wing's Lec23 (English, read in full) for the recipe of recording the multiplying factor at the position being cleared, and for the three-step 3x3 that supplies this card's quick check. The Double Vibe's lecture (English, read in full) for the same arithmetic read as a comparison of entries. Both worked examples were recomputed in exact arithmetic in scripts/validate.py before publication."
+}

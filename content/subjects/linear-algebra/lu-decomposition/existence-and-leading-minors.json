@@ -1,0 +1,82 @@
+{
+  "id": "existence-and-leading-minors",
+  "title": "When an LU Factorization Exists",
+  "priority": "P1",
+  "order": 146,
+  "unit": "Existence and pivoting",
+  "quickIdea": "A has a factorization with unit lower triangular L exactly when Gaussian elimination can run without swapping rows, which happens exactly when the first n-1 leading principal minors are nonzero.",
+  "remember": [
+    "The k-th leading principal minor is the determinant of the top-left k x k block. For a unit-L factorization to exist, the minors for k = 1, 2, ..., n-1 must all be nonzero.",
+    "The n-th one is det(A) itself and may be zero: a singular matrix can still have an LU factorization, and then its last pivot is 0.",
+    "If a leading principal minor is zero, elimination meets a zero pivot and no unit-L factorization exists, however carefully you compute.",
+    "Being invertible is not enough: [[0,1],[1,0]] is invertible and has no LU factorization.",
+    "If row exchanges are allowed the obstruction disappears, and the factorization always exists in the form PA = LU."
+  ],
+  "example": {
+    "prompt": "Show that A = [[0,1],[1,0]] has no LU factorization with unit L.",
+    "work": "Suppose L = [[1,0],[l,1]] and U = [[u,v],[0,w]]. Then LU = [[u,v],[lu, lv+w]]. Matching position (1,1) forces u = 0, since A's (1,1) entry is 0. Matching position (2,1) then forces l*u = 1, that is 0 = 1.",
+    "answer": "No such L and U exist. The first leading principal minor is a11 = 0, which is exactly the condition that fails, and the matrix is nevertheless invertible with determinant -1."
+  },
+  "gateAngle": "GATE has not asked the existence theorem directly in CSE. It is tested inside questions that hand you a factorization and ask what it implies - GATE CSE 2025 Set 2 Q.34 statement 3 is the existence fact read backwards, from a singular P to a zero on U's diagonal. Knowing why a factorization can fail is what stops you hunting for one that cannot exist.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "Does A = [[0,2],[1,3]] have an LU factorization with unit L? If not, what is the smallest change that gives one?",
+      "answer": "No, because its first leading principal minor is 0. Swapping the two rows gives [[1,3],[0,2]], which is already upper triangular, so PA = LU with P the swap and L the identity.",
+      "why": "The obstruction is in the position of the zero, not in the matrix's invertibility: A is invertible with determinant -2."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Why may the last leading principal minor, det(A), be zero without spoiling the factorization?",
+      "answer": "Because no elimination step needs the last pivot as a divisor: by the time you reach position (n,n) there are no rows below it to clear. A zero there makes U singular, not the factorization impossible.",
+      "why": "The condition is about division by pivots, and the last pivot is never used as a divisor."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "A is 3x3 with leading principal minors 2, 0 and 6. Does it have a unit-L factorization, and is it invertible?",
+      "answer": "It has no unit-L factorization, because the second leading minor is 0. It is invertible, because the third one, det(A), is 6.",
+      "why": "The two questions are separate: existence depends on the first n-1 minors, invertibility on the last one."
+    }
+  ],
+  "trap": {
+    "what": "Assuming that an invertible matrix must have an LU factorization.",
+    "why": "Invertibility says det(A) is nonzero, which is the condition for the *last* leading minor only. Elimination can still meet a zero pivot earlier, and then no unit-L factorization exists.",
+    "counterexample": "A = [[0,1],[1,0]] has determinant -1 and no LU factorization: matching the entries of L times U forces 0 = 1. The same happens to any matrix with a zero in the (1,1) position, however large its determinant."
+  },
+  "check": {
+    "question": "Does A = [[1,2],[2,4]] have a Doolittle factorization? What is u22, and what does that say about A?",
+    "answer": "Yes, with L = [[1,0],[2,1]] and U = [[1,2],[0,0]]. So u22 = 0, and A is singular with rank 1.",
+    "explanation": "The only leading minor that must be nonzero is the first, a11 = 1, and it is. The zero appears in the last pivot, which is allowed and is the same statement as det(A) = 0."
+  },
+  "pyqIds": [
+    "gate-2025-set2-34-lu-statements"
+  ],
+  "prereqs": [
+    "lu-factorisation-definition",
+    "rank-and-its-bounds"
+  ],
+  "videoRefs": [],
+  "sources": [
+    {
+      "kind": "text",
+      "title": "LU decomposition (definition, existence and uniqueness, PA = LU)",
+      "channel": "StatLect, Marco Taboga",
+      "url": "https://www.statlect.com/matrix-algebra/lu-decomposition",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "the definition, the proof that not every invertible matrix has a factorization, the proof that a factorization is never unique without a normalisation, the sufficient condition of elimination without row interchanges, and the PA = LU statement; the page body was cut off inside the PA = LU proof"
+    },
+    {
+      "kind": "lecture",
+      "title": "LU Decomposition | GATE Data Science and AI 2024 | Linear Algebra",
+      "channel": "Dheeraj Mishra (IIT Bombay)",
+      "url": "https://www.youtube.com/watch?v=I7Hd_qHusR0",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "the existence condition stated through the principal minors, the check of the first diagonal entry before attempting a factorization, and the choice between a unit diagonal in L and a unit diagonal in U; read up to the point where the lecture turns to the mechanical method"
+    }
+  ],
+  "sourceLine": "StatLect's LU decomposition page (English, read in part) for the counterexample to existence and for the sufficient condition of elimination without row interchanges. Dheeraj Mishra's GATE lecture (English, read in part) for the practical habit of checking the first diagonal entry before starting; his phrasing is 'principal minors' where the standard statement is 'leading principal minors', and this card uses the standard wording. The 2x2 impossibility argument and the singular example are recomputed in scripts/validate.py."
+}

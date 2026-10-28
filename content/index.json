@@ -29,8 +29,8 @@
   ],
   "counts": {
     "subjects": 2,
-    "topics": 115,
-    "pyqs": 106,
+    "topics": 127,
+    "pyqs": 109,
     "videos": 39,
     "playlists": 3
   },
@@ -1834,6 +1834,182 @@
       "path": "subjects/linear-algebra/eigenvalues-and-eigenvectors/cayley-hamilton-and-matrix-inverse.json",
       "videos": [],
       "pyqs": [],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "lu-factorisation-definition",
+      "title": "A = LU: Two Triangular Factors and What They Hold",
+      "subject": "linear-algebra",
+      "group": "lu-decomposition",
+      "unit": "The factorization",
+      "priority": "P1",
+      "path": "subjects/linear-algebra/lu-decomposition/lu-factorisation-definition.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2015-set1-18-lu-l22"
+      ],
+      "visual": "linear-algebra/lu-decomposition/elimination-multipliers",
+      "variations": 3
+    },
+    {
+      "topic": "multipliers-from-elimination",
+      "title": "Where L Comes From: the Multipliers of Elimination",
+      "subject": "linear-algebra",
+      "group": "lu-decomposition",
+      "unit": "The factorization",
+      "priority": "P1",
+      "path": "subjects/linear-algebra/lu-decomposition/multipliers-from-elimination.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2022-35-lu-l32-u33-x1"
+      ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "doolittle-crout-and-ldu",
+      "title": "Doolittle, Crout and LDU: Which Diagonal Is 1",
+      "subject": "linear-algebra",
+      "group": "lu-decomposition",
+      "unit": "The factorization",
+      "priority": "P1",
+      "path": "subjects/linear-algebra/lu-decomposition/doolittle-crout-and-ldu.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2015-set1-18-lu-l22"
+      ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "existence-and-leading-minors",
+      "title": "When an LU Factorization Exists",
+      "subject": "linear-algebra",
+      "group": "lu-decomposition",
+      "unit": "Existence and pivoting",
+      "priority": "P1",
+      "path": "subjects/linear-algebra/lu-decomposition/existence-and-leading-minors.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2025-set2-34-lu-statements"
+      ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "pivoting-and-pa-equals-lu",
+      "title": "Zero Pivot: PA = LU with a Row Exchange",
+      "subject": "linear-algebra",
+      "group": "lu-decomposition",
+      "unit": "Existence and pivoting",
+      "priority": "P2",
+      "path": "subjects/linear-algebra/lu-decomposition/pivoting-and-pa-equals-lu.json",
+      "videos": [],
+      "pyqs": [],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "solving-ax-equals-b-with-lu",
+      "title": "Solving Ax = b: Forward, Then Back Substitution",
+      "subject": "linear-algebra",
+      "group": "lu-decomposition",
+      "unit": "Using the factors",
+      "priority": "P1",
+      "path": "subjects/linear-algebra/lu-decomposition/solving-ax-equals-b-with-lu.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2022-35-lu-l32-u33-x1",
+        "gate-2025-set2-34-lu-statements"
+      ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "determinant-from-lu",
+      "title": "The Determinant From the Pivots",
+      "subject": "linear-algebra",
+      "group": "lu-decomposition",
+      "unit": "Using the factors",
+      "priority": "P2",
+      "path": "subjects/linear-algebra/lu-decomposition/determinant-from-lu.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2025-set2-34-lu-statements"
+      ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "rank-and-singularity-from-u",
+      "title": "Zero Pivots, Rank and Singularity",
+      "subject": "linear-algebra",
+      "group": "lu-decomposition",
+      "unit": "Using the factors",
+      "priority": "P2",
+      "path": "subjects/linear-algebra/lu-decomposition/rank-and-singularity-from-u.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2025-set2-34-lu-statements"
+      ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "cost-of-factorisation",
+      "title": "What LU Costs, and Why You Factor Once",
+      "subject": "linear-algebra",
+      "group": "lu-decomposition",
+      "unit": "Using the factors",
+      "priority": "P3",
+      "path": "subjects/linear-algebra/lu-decomposition/cost-of-factorisation.json",
+      "videos": [],
+      "pyqs": [],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "inverse-and-repeated-solves",
+      "title": "The Inverse, and Many Right-Hand Sides",
+      "subject": "linear-algebra",
+      "group": "lu-decomposition",
+      "unit": "Using the factors",
+      "priority": "P3",
+      "path": "subjects/linear-algebra/lu-decomposition/inverse-and-repeated-solves.json",
+      "videos": [],
+      "pyqs": [],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "ldlt-and-cholesky",
+      "title": "Symmetric Matrices: LDL^T and Cholesky",
+      "subject": "linear-algebra",
+      "group": "lu-decomposition",
+      "unit": "Using the factors",
+      "priority": "P3",
+      "path": "subjects/linear-algebra/lu-decomposition/ldlt-and-cholesky.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2025-set2-34-lu-statements"
+      ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "reading-lu-entries-in-gate-questions",
+      "title": "Reading L and U Entries Under Exam Conditions",
+      "subject": "linear-algebra",
+      "group": "lu-decomposition",
+      "unit": "Using the factors",
+      "priority": "P2",
+      "path": "subjects/linear-algebra/lu-decomposition/reading-lu-entries-in-gate-questions.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2015-set1-18-lu-l22",
+        "gate-2022-35-lu-l32-u33-x1"
+      ],
       "visual": null,
       "variations": 3
     }

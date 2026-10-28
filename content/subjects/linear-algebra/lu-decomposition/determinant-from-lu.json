@@ -1,0 +1,72 @@
+{
+  "id": "determinant-from-lu",
+  "title": "The Determinant From the Pivots",
+  "priority": "P2",
+  "order": 149,
+  "unit": "Using the factors",
+  "quickIdea": "Because a triangular determinant is just the product of its diagonal, det(A) = det(L) det(U) det(P)^-1: the product of the pivots, times the sign of the permutation.",
+  "remember": [
+    "Unit lower triangular L has det(L) = 1, so under Doolittle det(A) = u11 u22 ... unn, the product of the pivots.",
+    "Under Crout the pivots sit in L, so det(A) = l11 l22 ... lnn instead. The product of the pivots is the same number either way.",
+    "With a row exchange, det(A) = det(U) / det(P), and det(P) is +1 for an even number of swaps and -1 for an odd number.",
+    "If A is singular, the product of the pivots is 0, which is the same statement as det(A) = 0 - the formula does not break.",
+    "It is the cheapest check on any factorization: if the pivots do not multiply to det(A), some multiplier is wrong."
+  ],
+  "example": {
+    "prompt": "Use the factorization of A = [[2,2],[4,9]] to compute det(A).",
+    "work": "Doolittle gives U = [[2,2],[0,5]], so the pivots are 2 and 5. Their product is 10.",
+    "answer": "det(A) = 2*5 = 10. The direct computation is 2*9 - 2*4 = 18 - 8 = 10, which agrees."
+  },
+  "gateAngle": "No CSE question has asked for a determinant through LU, so this is P2 rather than P1. Its exam value is as a one-line check on the factorization a question hands you, and as the reason statements 2 and 3 of GATE CSE 2025 Set 2 Q.34 are true: det(P) = det(L) det(U) makes det(U) vanish exactly when P is singular.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "A 3x3 matrix has the factorization with pivots 1, -3 and -10/3 and no row exchange. What is det(A)?",
+      "answer": "10.",
+      "why": "1 * (-3) * (-10/3) = 10, which matches the direct determinant of [[1,2,4],[3,3,2],[3,4,2]]."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Why does the product of the pivots give the determinant even though elimination changes the matrix?",
+      "answer": "Because each elimination step is a unit lower triangular elementary matrix with determinant 1, and the row swaps are the only steps with a determinant other than 1.",
+      "why": "So det(A) is unchanged by the additions of multiples of rows, and only the swaps and the resulting triangular matrix carry a factor."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "A 4x4 matrix needs one row swap and its U has pivots 2, 3, 0 and 5. What is det(A) and what is rank(A)?",
+      "answer": "det(A) = 0 and rank(A) = 3.",
+      "why": "One pivot is zero, so the product is 0; and the number of nonzero pivots is the rank."
+    }
+  ],
+  "trap": {
+    "what": "Forgetting det(P) when a row exchange was needed, and reporting the product of the pivots as det(A).",
+    "why": "A swap changes the sign of the determinant, so the product of the pivots is det(PA), not det(A).",
+    "counterexample": "For A = [[1,2,3],[2,4,1],[4,9,2]] the pivots multiply to -5, but det(A) = +5, because one row swap was made. Reporting -5 is the sign error this trap is about."
+  },
+  "check": {
+    "question": "A factorization has pivots 2 and 5 under Doolittle, and the same matrix has l11 = 2 and l22 = 5 under Crout. What is det(A) in each case?",
+    "answer": "10 in both, because det(L) det(U) is the same product however the pivots are split between the two factors.",
+    "explanation": "Under Doolittle det(A) = 1 * (2*5); under Crout det(A) = (2*5) * 1. The convention moves the pivots, not the number."
+  },
+  "pyqIds": [
+    "gate-2025-set2-34-lu-statements"
+  ],
+  "prereqs": [
+    "doolittle-crout-and-ldu",
+    "determinant-definition-and-cofactor-expansion"
+  ],
+  "videoRefs": [],
+  "sources": [
+    {
+      "kind": "text",
+      "title": "LU decomposition (definition, existence and uniqueness, PA = LU)",
+      "channel": "StatLect, Marco Taboga",
+      "url": "https://www.statlect.com/matrix-algebra/lu-decomposition",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "the definition, the proof that not every invertible matrix has a factorization, the proof that a factorization is never unique without a normalisation, the sufficient condition of elimination without row interchanges, and the PA = LU statement; the page body was cut off inside the PA = LU proof"
+    }
+  ],
+  "sourceLine": "StatLect (English, read in part) for the multiplicative property of the determinant on which the identity rests, and for the elementary-matrix proof that elimination leaves the determinant unchanged. Every determinant and pivot product printed here is recomputed in scripts/validate.py."
+}

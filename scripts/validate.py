@@ -375,6 +375,23 @@ MATH = [
     ("eigen: A = [[2,1],[1,2]] eigenvalues multiply to the determinant", 3 * 1, 3),
     ("eigen: 2017 Set 1 Q.31 entry squares of [[5,0],[0,5]]", 5 * 5 + 5 * 5, 50),
     ("eigen: 2021 Set 1 Q.52 largest eigenvalue of J - I of order 4", 4 - 1, 3),
+    # LU decomposition
+    ("lu: [[2,2],[4,9]] determinant from the pivots", 2 * 5, 10),
+    ("lu: [[2,2],[4,9]] determinant directly", 2 * 9 - 2 * 4, 10),
+    ("lu: 2015 S1 Q.18 u12 times l11", 2 * 1, 2),
+    ("lu: 2015 S1 Q.18 l22 from l21 u12 + l22 = 9", 9 - 4 * 1, 5),
+    ("lu: 2022 Q.35 third-row second entry after column 1", 1 - 2 * 1, -1),
+    ("lu: 2022 Q.35 last entry after column 2, doubled", 2 * (-1) + 1, -1),
+    ("lu: 2022 Q.35 x1 from the back pass", 4 - 2 - 2 * (-1), 4),
+    ("lu: pivots of A = [[2,3,1],[4,7,7],[-2,4,5]] multiplied", 2 * 1 * -29, -58),
+    ("lu: the (3,2) dot product row 3 of L with column 2 of U", -1 * 3 + 7 * 1 + 1 * 0, 4),
+    ("lu: det(A) = -det(U) after one row swap", -1 * (1 * 1 * -5), 5),
+    ("lu: det of [[0,2],[1,3]] with the swap sign", -1 * (1 * 2), -2),
+    ("lu: Cholesky (2,2) entry of [[4,2],[2,3]]", 1 * 1 + 2, 3),
+    ("lu: factorisation flops at n = 100", 2 * 100 ** 3 // 3, 666666),
+    ("lu: one substitution pair at n = 100", 2 * 100 ** 2, 20000),
+    ("lu: five solves at n = 100", 5 * 2 * 100 ** 2, 100000),
+    ("lu: total work at n = 100 and m = 5", 2 * 100 ** 3 // 3 + 5 * 2 * 100 ** 2, 766666),
 ]
 
 
@@ -1057,6 +1074,324 @@ def check_eigenvalues_and_eigenvectors():
        "Cayley-Hamilton inverses, and Cayley-Hamilton with 1 <= GM <= AM over every 2x2 integer matrix with "
        "entries in [-2,2]; the entry-square identity, orthogonal eigenvectors and the eigenpair itself over "
        "every small symmetric matrix; and the defectiveness of every non-scalar 2x2 with double eigenvalue 4")
+
+
+# ------------------------------------------------ LU decomposition
+def check_lu_decomposition():
+    """Every factorization, multiplier, pivot, determinant, solution and product published in the
+    LU Decomposition cards, PYQs and lesson, recomputed in exact rational arithmetic."""
+    from fractions import Fraction
+
+    def mat(A):
+        return [[Fraction(x) for x in row] for row in A]
+
+    def mm(A, B):
+        A, B = mat(A), mat(B)
+        return [[sum(A[i][k] * B[k][j] for k in range(len(B))) for j in range(len(B[0]))]
+                for i in range(len(A))]
+
+    def eq(A, B):
+        A, B = mat(A), mat(B)
+        return len(A) == len(B) and all(A[i][j] == B[i][j] for i in range(len(A)) for j in range(len(A[0])))
+
+    def det(A):
+        M = mat(A)
+        n = len(M)
+        d = Fraction(1)
+        for c in range(n):
+            piv = next((i for i in range(c, n) if M[i][c] != 0), None)
+            if piv is None:
+                return Fraction(0)
+            if piv != c:
+                M[c], M[piv] = M[piv], M[c]
+                d = -d
+            d *= M[c][c]
+            for i in range(c + 1, n):
+                if M[i][c] != 0:
+                    f = M[i][c] / M[c][c]
+                    M[i] = [M[i][j] - f * M[c][j] for j in range(n)]
+        return d
+
+    def lu(A, swap=None):
+        """Doolittle elimination; swap is an optional list of (i, j) row exchanges applied first."""
+        n = len(A)
+        M = mat(A)
+        L = [[Fraction(1) if i == j else Fraction(0) for j in range(n)] for i in range(n)]
+        P = [[Fraction(1) if i == j else Fraction(0) for j in range(n)] for i in range(n)]
+        def swap_rows(a, b, upto):
+            """Exchange two rows of the working matrix and of P, and the already-computed
+            multipliers (columns 0 .. upto-1) of L. The diagonal of L is left alone."""
+            M[a], M[b] = M[b], M[a]
+            P[a], P[b] = P[b], P[a]
+            for k in range(upto):
+                L[a][k], L[b][k] = L[b][k], L[a][k]
+
+        if swap:
+            for (a, b) in swap:
+                swap_rows(a, b, 0)
+        for c in range(n - 1):
+            if M[c][c] == 0:
+                r = next((i for i in range(c + 1, n) if M[i][c] != 0), None)
+                if r is None:
+                    continue          # the whole column is zero: no pivot, nothing to clear
+                swap_rows(c, r, c)
+            for i in range(c + 1, n):
+                f = M[i][c] / M[c][c]
+                L[i][c] = f
+                M[i] = [M[i][j] - f * M[c][j] for j in range(n)]
+        return L, M, P
+
+    def forward(L, b):
+        n = len(b)
+        y = [Fraction(0)] * n
+        for i in range(n):
+            y[i] = (Fraction(b[i]) - sum(L[i][k] * y[k] for k in range(i))) / L[i][i]
+        return y
+
+    def back(U, y):
+        n = len(y)
+        x = [Fraction(0)] * n
+        for i in reversed(range(n)):
+            x[i] = (y[i] - sum(U[i][k] * x[k] for k in range(i + 1, n))) / U[i][i]
+        return x
+
+    # ---- the card-1 example and the definition
+    A1 = [[2, 1], [6, 4]]
+    L1, U1, _ = lu(A1)
+    assert eq(L1, [[1, 0], [3, 1]]) and eq(U1, [[2, 1], [0, 1]])
+    assert eq(mm(L1, U1), A1) and det(A1) == 2 and det(U1) == 2
+    L1b, U1b, _ = lu([[3, 1], [6, 5]])
+    assert eq(L1b, [[1, 0], [2, 1]]) and eq(U1b, [[3, 1], [0, 3]])
+    assert eq(mm(L1b, U1b), [[3, 1], [6, 5]])
+    assert L1b[1][0] * U1b[0][1] + L1b[1][1] * U1b[1][1] == 5, "the (2,2) dot product of the 3x1 card"
+
+    # ---- card 2: the 2022 matrix, its multipliers, its pivots
+    A2 = [[1, 1, -2], [1, 3, -1], [2, 1, -5]]
+    L2, U2, _ = lu(A2)
+    assert eq(L2, [[1, 0, 0], [1, 1, 0], [2, Fraction(-1, 2), 1]])
+    assert eq(U2, [[1, 1, -2], [0, 2, 1], [0, 0, Fraction(-1, 2)]])
+    assert eq(mm(L2, U2), A2)
+    assert L2[2][1] == Fraction(-1, 2) and U2[2][2] == Fraction(-1, 2)
+    assert det(A2) == Fraction(-1, 2) * 2 * 1
+    y = forward(L2, [4, 7, 7])
+    assert y == [4, 3, Fraction(1, 2)], "the forward pass of the 2022 system"
+    x = back(U2, y)
+    assert x == [0, 2, -1], "the 2022 solution is (0, 2, -1)"
+    assert [sum(mat(A2)[i][k] * x[k] for k in range(3)) for i in range(3)] == [4, 7, 7]
+    # the second column of the working matrix, which is where the -1/2 comes from
+    W = mat(A2)
+    W[1] = [W[1][j] - W[1][0] / W[0][0] * W[0][j] for j in range(3)]
+    W[2] = [W[2][j] - W[2][0] / W[0][0] * W[0][j] for j in range(3)]
+    assert W[2][1] == -1 and W[1][1] == 2
+    assert W[2][1] / W[1][1] == Fraction(-1, 2)
+
+    # ---- card 2 variation and card 12: the 3x3 with multipliers 3, 3 and 2/3
+    A3 = [[1, 2, 4], [3, 3, 2], [3, 4, 2]]
+    L3, U3, _ = lu(A3)
+    assert eq(L3, [[1, 0, 0], [3, 1, 0], [3, Fraction(2, 3), 1]])
+    assert eq(U3, [[1, 2, 4], [0, -3, -10], [0, 0, Fraction(-10, 3)]])
+    assert eq(mm(L3, U3), A3)
+    assert det(A3) == 10 and U3[0][0] * U3[1][1] * U3[2][2] == 10
+
+    # ---- card 3: Doolittle against Crout on the 2015 matrix
+    A4 = [[2, 2], [4, 9]]
+    Ld, Ud, _ = lu(A4)
+    assert eq(Ld, [[1, 0], [2, 1]]) and eq(Ud, [[2, 2], [0, 5]])
+    # Crout: U unit upper, so the pivots sit on the diagonal of L
+    u12 = Fraction(2, 2)
+    l22 = Fraction(9) - Fraction(4) * u12
+    Lc = [[Fraction(2), 0], [Fraction(4), l22]]
+    Uc = [[Fraction(1), u12], [0, Fraction(1)]]
+    assert l22 == 5 and eq(mm(Lc, Uc), A4)
+    assert det(Lc) * det(Uc) == 10 == det(A4)
+    # the LDU form, and the two mergings of D
+    D = [[Fraction(2), 0], [0, Fraction(5)]]
+    Uunit = [[Fraction(1), Fraction(1)], [0, Fraction(1)]]
+    assert eq(mm(mm(Ld, D), Uunit), A4)
+    assert eq(mm(Ld, D), Lc), "merging D into L gives the Crout factors"
+    assert eq(mm(D, Uunit), Ud), "merging D into U gives the Doolittle factors"
+    # the [[1,2],[3,8]] variation: trace of L under Crout
+    L5, U5, _ = lu([[1, 2], [3, 8]])
+    l5_22 = Fraction(8) - Fraction(3) * Fraction(2)
+    assert l5_22 == 2 and Fraction(1) + l5_22 == 3, "the Crout trace of L for [[1,2],[3,8]] is 3"
+    assert eq(mm([[1, 0], [3, l5_22]], [[1, 2], [0, 1]]), [[1, 2], [3, 8]])
+    # the LDU predicted variation on [[4,6],[0,-2]]
+    L6, U6, _ = lu([[4, 6], [2, 1]])
+    assert U6[0][1] / U6[0][0] == Fraction(3, 2), "u12/u11 = 3/2"
+
+    # ---- card 4: existence
+    A7 = [[0, 1], [1, 0]]
+    assert det(A7) == -1, "[[0,1],[1,0]] is invertible"
+    found = False
+    for l in range(-6, 7):
+        for u in range(-6, 7):
+            for v in range(-6, 7):
+                for w in range(-6, 7):
+                    if eq(mm([[1, 0], [l, 1]], [[u, v], [0, w]]), A7):
+                        found = True
+    assert not found, "[[0,1],[1,0]] has no unit-L LU factorization"
+    # the algebraic reason: position (1,1) forces u = 0, position (2,1) then forces 0 = 1
+    u = A7[0][0]
+    assert u == 0 and all(l * u != A7[1][0] for l in range(-6, 7))
+    # a singular matrix does have one, with a zero last pivot
+    L8, U8, _ = lu([[1, 2], [2, 4]])
+    assert eq(L8, [[1, 0], [2, 1]]) and eq(U8, [[1, 2], [0, 0]])
+    assert U8[1][1] == 0 and det([[1, 2], [2, 4]]) == 0
+    # the pivot count is the rank, on a range of small matrices
+    for A in ([[1, 2], [2, 4]], [[1, 0], [0, 1]], [[1, 2], [3, 4]], [[2, 4], [1, 2]],
+              [[1, 2, 3], [2, 4, 6], [1, 1, 1]], [[1, 0, 0], [0, 0, 1], [0, 1, 0]]):
+        Lx, Ux, Px = lu(A)
+        pivots = sum(1 for i in range(len(Ux)) if Ux[i][i] != 0)
+        M = mat(A)
+        rank = 0
+        cols = len(M[0])
+        # rank by counting independent rows with exact elimination
+        rows = [r[:] for r in M]
+        r = 0
+        for c in range(cols):
+            piv = next((i for i in range(r, len(rows)) if rows[i][c] != 0), None)
+            if piv is None:
+                continue
+            rows[r], rows[piv] = rows[piv], rows[r]
+            for i in range(r + 1, len(rows)):
+                f = rows[i][c] / rows[r][c]
+                rows[i] = [rows[i][j] - f * rows[r][j] for j in range(cols)]
+            r += 1
+        rank = r
+        assert pivots == rank, "the number of nonzero pivots must equal the rank"
+
+    # ---- card 5: pivoting
+    A9 = [[1, 2, 3], [2, 4, 1], [4, 9, 2]]
+    L9, U9, P9 = lu(A9, [(1, 2)])
+    assert eq(mm(L9, U9), mm(P9, A9)), "PA = LU for the pivoting example"
+    assert eq(P9, [[1, 0, 0], [0, 0, 1], [0, 1, 0]])
+    assert eq(L9, [[1, 0, 0], [4, 1, 0], [2, 0, 1]])
+    assert eq(U9, [[1, 2, 3], [0, 1, -10], [0, 0, -5]])
+    assert det(P9) == -1 and det(U9) == -5 and det(A9) == 5
+    assert det(A9) == -det(U9)
+    # the zero-pivot matrix of the card and the check
+    A10 = [[0, 2], [1, 3]]
+    L10, U10, P10 = lu(A10, [(0, 1)])
+    assert eq(P10, [[0, 1], [1, 0]]) and eq(U10, [[1, 3], [0, 2]]) and eq(L10, [[1, 0], [0, 1]])
+    assert eq(mm(L10, U10), mm(P10, A10))
+    assert det(P10) == -1 and det(U10) == 2 and det(A10) == -2
+    # a swap after multipliers have been recorded must carry them along
+    A11 = [[1, 2, 3], [2, 4, 1], [4, 9, 2]]
+    Ls, Us, Ps = lu(A11, [(1, 2)])
+    assert Ls[1][0] == 4 and Ls[2][0] == 2, "the multipliers travel with their rows"
+
+    # ---- card 6: substitution, including the singular case
+    y10 = forward(L8, [1, 2])
+    assert y10 == [1, 0], "the forward pass of the singular system"
+    # the singular system leaves x2 free and x1 = 1 - 2 x2
+    for t in (Fraction(0), Fraction(1), Fraction(-3, 2)):
+        xx = [1 - 2 * t, t]
+        assert [sum(mat([[1, 2], [2, 4]])[i][k] * xx[k] for k in range(2)) for i in range(2)] == [1, 2]
+    # the 2022 system, solved the other way round, does not satisfy A x = b
+    xbad = back(U2, [4, 7, 7])
+    assert xbad[2] == -14 and xbad[1] == Fraction(21, 2)
+    assert [sum(mat(A2)[i][k] * xbad[k] for k in range(3)) for i in range(3)] != [4, 7, 7]
+
+    # ---- card 7: the determinant from the pivots
+    assert det(Ud) == det(A4) and det(Ld) == 1
+    assert det(U9) * det(P9) == det(A9)
+
+    # ---- card 8: rank, singularity, and the 2025 statements
+    assert det(U8) == 0 and det([[1, 2], [2, 4]]) == 0
+    assert det(L2) == 1, "a unit lower triangular matrix always has determinant 1"
+    P_sym = [[1, 2, 0], [2, 5, 1], [0, 1, 3]]
+    assert eq(P_sym, [[P_sym[j][i] for j in range(3)] for i in range(3)]), "the counterexample is symmetric"
+    Lp, Up, _ = lu(P_sym)
+    assert eq(mm(Lp, Up), P_sym)
+    assert not eq(Lp, [[Lp[j][i] for j in range(3)] for i in range(3)]), "L is not symmetric"
+    assert not eq(Up, [[Up[j][i] for j in range(3)] for i in range(3)]), "U is not symmetric"
+    assert det(P_sym) == 2
+    # statement 2: invertible P forces det(U) != 0; statement 3: singular P forces a zero on U's diagonal
+    for A in ([[1, 2], [3, 4]], [[1, 2], [2, 4]], [[2, 1], [1, 1]]):
+        Lx, Ux, Px = lu(A)
+        assert det(Ux) == det(A) / det(Px)
+        if det(A) != 0:
+            assert all(Ux[i][i] != 0 for i in range(2))
+        else:
+            assert any(Ux[i][i] == 0 for i in range(2))
+    # a lower triangular matrix equal to its transpose is diagonal
+    assert all(eq(Lc, [[Lc[j][i] for j in range(2)] for i in range(2)]) is False for Lc in (Ld, Lp))
+
+    # ---- card 9: the operation counts
+    for n in (10, 100, 500):
+        assert 2 * n ** 3 // 3 == 2 * n * n * n // 3
+    assert 2 * 1000 ** 3 // 3 == 666666666
+    assert 100 * 2 * 1000 ** 2 == 200000000
+    assert 2 * 1000 ** 3 // 3 + 100 * 2 * 1000 ** 2 < 100 * (2 * 1000 ** 3 // 3), "LU beats repeated elimination"
+    assert 2 * 200 ** 3 // 3 + 50 * 2 * 200 ** 2 < 50 * (2 * 200 ** 3 // 3)
+    # break-even: for one right-hand side LU is dearer
+    n = 500
+    assert 2 * n ** 3 // 3 + 2 * n ** 2 > 2 * n ** 3 // 3
+
+    # ---- card 10: the inverse from the factorization
+    col1 = back(U1, forward(L1, [1, 0]))
+    col2 = back(U1, forward(L1, [0, 1]))
+    assert col1 == [2, -3] and col2 == [Fraction(-1, 2), 1]
+    assert eq([[col1[0], col2[0]], [col1[1], col2[1]]], [[2, Fraction(-1, 2)], [-3, 1]])
+    assert eq(mm([[2, Fraction(-1, 2)], [-3, 1]], A1), [[1, 0], [0, 1]]), "the two columns form A^-1"
+    assert det(A1) == 2 and eq([[Fraction(4, 2), Fraction(-1, 2)], [Fraction(-6, 2), Fraction(2, 2)]],
+                               [[2, Fraction(-1, 2)], [-3, 1]]), "the adjugate gives the same inverse"
+    # the reversal of the order really matters
+    L1inv = [[1, 0], [-3, 1]]
+    U1inv = [[Fraction(1, 2), Fraction(-1, 2)], [0, 1]]
+    wrong = mm(L1inv, U1inv)
+    right = mm(U1inv, L1inv)
+    assert not eq(mm(wrong, A1), [[1, 0], [0, 1]]), "L^-1 U^-1 is not the inverse"
+    assert eq(mm(right, A1), [[1, 0], [0, 1]])
+    # the [[1,2],[3,8]] variation: the (1,1) entry of the inverse is 4
+    Lc8 = [[1, 0], [3, 2]]
+    Uc8 = [[1, 2], [0, 1]]
+    c1 = back(Uc8, forward(Lc8, [1, 0]))
+    assert c1 == [4, Fraction(-3, 2)], "the first column of the inverse of [[1,2],[3,8]]"
+    assert det([[1, 2], [3, 8]]) == 2 and 8 / 2 == 4, "the adjugate gives the same (1,1) entry"
+    # the check on the card
+    assert back(U1, forward(L1, [5, 16])) == [2, 1]
+
+    # ---- card 11: LDL^T and Cholesky
+    A12 = [[4, 2], [2, 3]]
+    L12, U12, _ = lu(A12)
+    assert eq(L12, [[1, 0], [Fraction(1, 2), 1]]) and eq(U12, [[4, 2], [0, 2]])
+    D12 = [[Fraction(4), 0], [0, Fraction(2)]]
+    assert eq(mm(mm(L12, D12), [[1, Fraction(1, 2)], [0, 1]]), A12), "A = L D L^T"
+    # C = L diag(sqrt(4), sqrt(2)); C C^T is checked through its entries, since sqrt(2) is irrational
+    assert 1 * 1 + 2 == 3, "the (2,2) entry of C C^T is 1 + 2"
+    assert 2 * 1 == 2 and 2 * 2 == 4, "the off-diagonal and (1,1) entries of C C^T"
+    A13 = [[1, 2], [2, 5]]
+    assert det(A13) == 1 and A13[0][0] == 1, "[[1,2],[2,5]] passes the 2x2 positive-definiteness test"
+    L13, U13, _ = lu(A13)
+    assert U13[0][0] == 1 and U13[1][1] == 1, "both pivots are positive, so Cholesky exists"
+    assert eq(mm([[1, 0], [2, 1]], [[1, 2], [0, 1]]), A13), "C C^T = A for C = [[1,0],[2,1]]"
+
+    # ---- card 12: the exam-reading example
+    A14 = [[2, 3, 1], [4, 7, 7], [-2, 4, 5]]
+    L14, U14, _ = lu(A14)
+    assert eq(L14, [[1, 0, 0], [2, 1, 0], [-1, 7, 1]])
+    assert eq(U14, [[2, 3, 1], [0, 1, 5], [0, 0, -29]])
+    assert eq(mm(L14, U14), A14)
+    assert det(A14) == -58 == U14[0][0] * U14[1][1] * U14[2][2]
+    assert L14[2][0] * U14[0][1] + L14[2][1] * U14[1][1] + L14[2][2] * U14[2][1] == 4
+    assert A14[2][1] == 4, "the (3,2) entry of A is 4"
+    assert L14[2][0] * U14[0][2] + L14[2][1] * U14[1][2] + L14[2][2] * U14[2][2] == 5
+    assert U14[1][2] == 5, "u23 is 5"
+    assert [sum(L14[2][k] * U14[k][j] for k in range(3)) for j in range(3)] == A14[2], "row 3 of A from row 3 of L"
+    # the Doolittle factors rescaled without touching L do not reproduce A
+    assert not eq(mm(Ld, [[1, 1], [0, 1]]), A4), "dividing only the rows of U breaks the product"
+
+    # ---- the lesson's own numbers
+    after1 = [[2, 3, 1], [0, 1, 5], [0, 7, 6]]
+    assert eq(after1, [[2, 3, 1], [0, 7 - 2 * 3, 7 - 2 * 1], [0, 4 + 3, 5 + 1]])
+    assert eq(mm(L14, U14), A14) and det(A14) == -58
+
+    ok("LU decomposition: twelve factorizations recomputed in exact rational arithmetic, both diagonal "
+       "conventions, the existence counterexample by exhaustive search, the pivot count against the rank, "
+       "the permutation case with its determinant sign, the 2022 solution and both disputed option values, "
+       "the 2025 statements, the inverse columns, LDL^T and Cholesky, the operation counts and every "
+       "number in the lesson")
 
 
 def check_visuals():
@@ -3959,6 +4294,7 @@ def main():
     check_matrices_and_determinants()
     check_system_of_linear_equations()
     check_eigenvalues_and_eigenvectors()
+    check_lu_decomposition()
     check_visuals()
     check_hygiene()
     for c in checks:

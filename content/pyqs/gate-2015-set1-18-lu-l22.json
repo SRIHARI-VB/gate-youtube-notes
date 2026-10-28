@@ -1,0 +1,16 @@
+{
+  "id": "gate-2015-set1-18-lu-l22",
+  "year": "2015",
+  "paper": "GATE CS 2015 Set 1",
+  "question_ref": "Q.18",
+  "type": "NAT",
+  "marks": "1",
+  "topic": "doolittle-crout-and-ldu",
+  "text": "In the LU decomposition of the matrix [[2,2],[4,9]], if the diagonal elements of U are both 1, then the lower diagonal entry l22 of L is ______.",
+  "answer": "5",
+  "solution": "The question fixes the diagonal of U to 1, so the pivots sit on the diagonal of L: this is the Crout convention. Write L = [[l11,0],[l21,l22]] and U = [[1,u12],[0,1]]. Their product is [[l11, l11 u12],[l21, l21 u12 + l22]]. Comparing with A: l11 = 2, so l11 u12 = 2 gives u12 = 1; l21 = 4; and l21 u12 + l22 = 9 gives 4 + l22 = 9, so l22 = 5. Equivalently, eliminate with R2 <- R2 - 2 R1 to get U = [[2,2],[0,5]], then move the pivots 2 and 5 into L and normalise U to [[1,1],[0,1]], giving L = [[2,0],[4,5]]. Check: L U = [[2,2],[4,4+5]] = A.",
+  "source_url": "https://gateoverflow.in/8241/gate-cse-2015-set-1-question-1-8",
+  "source_label": "GATE Overflow question page, GATE CSE 2015 Set 1 Q.18, with several accepted answers agreeing on 5",
+  "verification": "SOURCED",
+  "answer_evidence": "Every answer on the page reaches l22 = 5 by one of three routes (entry comparison, column-operation shortcut, and the LDU form), and the GATE Overflow linear algebra subject page lists this as the 1-mark linear algebra question of GATE CSE 2015 Set 1. The official paper and key were not fetched this run, so the record is SOURCED rather than key-verified."
+}

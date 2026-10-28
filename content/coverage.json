@@ -3,7 +3,7 @@
   "updated_at": "2026-10-29",
   "cycle": {
     "last_subject": "linear-algebra",
-    "last_topic": "eigenvalues-and-eigenvectors",
+    "last_topic": "lu-decomposition",
     "updated_at": "2026-10-29",
     "rule": "Next topic is the first topic strictly after cycle.last in the enumerated syllabus order whose status is not covered, wrapping at the end. not_started and partial topics are candidates; blocked topics are skipped while their blocker stands."
   },
@@ -288,10 +288,34 @@
         {
           "slug": "lu-decomposition",
           "name": "LU Decomposition",
-          "status": "not_started",
-          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
-          "runs": [],
-          "gaps": []
+          "status": "partial",
+          "coverage_note": "12 subtopics, 12 cards (the factorization A = LU, the multipliers of elimination, the Doolittle, Crout and LDU conventions, existence by the leading principal minors, pivoting and PA = LU, forward and back substitution, the determinant from the pivots, rank and singularity from U, the cost of the factorization, the inverse and repeated solves, LDL^T and Cholesky, and reading single entries under exam conditions), 3 verified PYQs and 1 p5.js lesson. Partial because eight gaps remain, named below.",
+          "runs": [
+            {
+              "date": "2026-10-29",
+              "sources": [
+                "engineering-wing-lu-method",
+                "double-vibe-lu-factorisation",
+                "dheeraj-mishra-gate-da-lu",
+                "statlect-lu-decomposition",
+                "go-classes-lecture-11a-lu"
+              ],
+              "cards": 12,
+              "pyqs": 3,
+              "lesson": "linear-algebra/lu-decomposition/elimination-multipliers",
+              "note": "Sources chosen on merit across two readable lectures and two references: Engineering Wing's Lec23 (English, read in full) for the elimination recipe that records multipliers into L, and The Double Vibe's worked factorization (English, read in full) for the entry-by-entry reading of the product; Dheeraj Mishra's GATE DA lecture (English, read in part) for the existence condition and the choice of diagonal convention; StatLect (English, read in part) for the proofs of non-existence and non-uniqueness and for PA = LU; and the GO Classes lecture index (structure only) to confirm the GATE teaching order. Rejected with reasons in sources.json: MIT OCW 18.06 Lecture 4 (transcript described but not served), the NPTEL IIT Kharagpur Matrix Solvers Lecture 08, the NPTEL-NOC Matrix Solver Lecture 8, the NPTEL Matrix Theory Lecture 53, the NPTEL IIT Delhi numerical-methods Lecture 14, the Unacademy Hindi LU lesson (paywalled), the Gate Smashers Hindi linear algebra playlist (no lecture on this topic), the GeeksforGeeks GATE Launchpad episode and the EduRev course mirrors. No translated material appears: no non-English source was readable this run."
+            }
+          ],
+          "gaps": [
+            "no GATE-oriented lecture transcript was readable: the GO Classes Lecture 11A is recorded as structure only, and MIT OCW 18.06 Lecture 4, the canonical English treatment, served a resource page describing its 92 kB transcript without the transcript text",
+            "only three CSE previous-year questions exist in this topic (2015 Set 1 Q.18, 2022 Q.35, 2025 Set 2 Q.34) and all three are SOURCED against GATE Overflow accepted answers rather than key-verified, because the official papers and answer keys were not fetched; no marks field comes from an official key either, and the number the 2025 Set 2 question carries in the master paper could not be confirmed",
+            "GATE CSE 2022 Q.35 is defective as printed: with the diagonal convention left open, options (C) and (D) are both defensible, since a second factorization with L33 = -1/4 also reproduces A. The record states the disagreement and reports the official option D rather than picking silently",
+            "pivoting (PA = LU) and the LDL^T / Cholesky material rest on the standard references and on recomputation alone: no readable source this run taught either, so no card quotes or timestamps a lecture for them",
+            "no non-English source was readable: the Hindi Unacademy lesson is behind a subscription and the Gate Smashers Hindi playlist stops before matrices, so the topic contains no translated material and no card is marked as translated",
+            "two subtopics have no GATE CSE previous-year question at all - the operation count of the factorization and the inverse from the factors - which is why those cards are P3; the one inverse question, GATE CSE 1994 Q.3.12, is descriptive and cannot be stored in the repository's MCQ/MSQ/NAT schema",
+            "GATE 2008 MA contains an LU decomposition question, but it belongs to the Mathematics paper and not to Computer Science, so it is deliberately excluded from this topic's PYQ set",
+            "Dheeraj Mishra's lecture states the existence condition as 'principal minors' where the standard statement is 'leading principal minors'; the card uses the standard wording from the references, so the source and this repository disagree on the phrasing and the gap is recorded rather than smoothed over"
+          ]
         }
       ]
     },

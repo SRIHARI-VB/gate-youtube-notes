@@ -1,0 +1,72 @@
+{
+  "id": "rank-and-singularity-from-u",
+  "title": "Zero Pivots, Rank and Singularity",
+  "priority": "P2",
+  "order": 150,
+  "unit": "Using the factors",
+  "quickIdea": "The number of nonzero entries on the diagonal of U is the rank of A, so a lost dimension and a zero pivot are the same fact seen twice.",
+  "remember": [
+    "rank(A) equals the number of nonzero pivots in U, and the same holds for the pivots of PA = LU.",
+    "A is singular exactly when some u_ii = 0, exactly when det(U) = 0, exactly when det(A) = 0.",
+    "A is invertible exactly when every u_ii is nonzero; then L and U are both invertible, because L is unit triangular with det 1 and det(U) = det(A).",
+    "A zero pivot *during* elimination is not the same as a zero pivot at the end: the first may only mean a row swap is needed, the second means the matrix is singular.",
+    "Singularity is a statement about A. Whether Ax = b has no solution or infinitely many is a statement about [A|b], and needs the augmented matrix."
+  ],
+  "example": {
+    "prompt": "Factor A = [[1,2],[2,4]] and read off its rank and singularity.",
+    "work": "R2 <- R2 - 2 R1 gives U = [[1,2],[0,0]] with L = [[1,0],[2,1]]. One pivot is 1, the other is 0.",
+    "answer": "rank(A) = 1 and A is singular, since det(A) = 1*0 = 0. The zero pivot is in the last position, so no row swap was needed and no swap could have helped."
+  },
+  "gateAngle": "GATE CSE 2025 Set 2 Q.34 is built entirely on this card. Statement 2 (invertible P forces invertible L and U) and statement 3 (singular P forces a zero on U's diagonal) are both the identity det(P) = det(L) det(U) read in one direction or the other. The answer is that statements 1, 2 and 3 are true and 4 is false.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "U = [[2,1,0],[0,0,3],[0,0,1]] comes from a factorization with no row exchange. What is rank(A), and is A invertible?",
+      "answer": "rank(A) = 2 and A is not invertible, because the diagonal of U is 2, 0, 1.",
+      "why": "Two nonzero pivots out of three, so one dimension is lost; the zero pivot is enough to make det(U) = 0 whatever the off-diagonal entries are."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Why is a unit lower triangular matrix always invertible, whatever its entries below the diagonal?",
+      "answer": "Because its determinant is the product of its diagonal, which is 1*1*...*1 = 1, and a matrix with nonzero determinant is invertible.",
+      "why": "This is what lets statement 2 of the 2025 question be settled by looking at U alone: L never causes a singularity."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "A is 5x5 with rank 5 and has a factorization PA = LU. Can any u_ii be zero?",
+      "answer": "No. rank(A) = 5 means five nonzero pivots, so all five diagonal entries of U are nonzero and U is invertible.",
+      "why": "Rank and the pivot count are the same number, and with full rank every pivot is available."
+    }
+  ],
+  "trap": {
+    "what": "Reading a zero on the diagonal of U as 'the system has no solution'.",
+    "why": "A zero pivot says A is singular, which leaves two possibilities: no solution or infinitely many, depending on the right-hand side. Which one it is depends on rank([A|b]), not on U alone.",
+    "counterexample": "A = [[1,2],[2,4]] with b = (1,2) has infinitely many solutions, because the second equation is twice the first. The same A with b = (1,3) has none, because 2x + 4y = 3 contradicts 2x + 4y = 2. Both have u22 = 0."
+  },
+  "check": {
+    "question": "For a symmetric P = LU with L unit lower triangular, is L symmetric? Is U?",
+    "answer": "Not in general. A lower triangular matrix that equals its transpose must be diagonal, and a unit diagonal makes it the identity, which would force P to be diagonal.",
+    "explanation": "That is why statement 4 of GATE CSE 2025 Set 2 Q.34 is false, and why the right factorization for a symmetric matrix is LDL^T rather than symmetric L and U."
+  },
+  "pyqIds": [
+    "gate-2025-set2-34-lu-statements"
+  ],
+  "prereqs": [
+    "determinant-from-lu",
+    "singular-and-equivalent-conditions"
+  ],
+  "videoRefs": [],
+  "sources": [
+    {
+      "kind": "text",
+      "title": "LU decomposition (definition, existence and uniqueness, PA = LU)",
+      "channel": "StatLect, Marco Taboga",
+      "url": "https://www.statlect.com/matrix-algebra/lu-decomposition",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "the definition, the proof that not every invertible matrix has a factorization, the proof that a factorization is never unique without a normalisation, the sufficient condition of elimination without row interchanges, and the PA = LU statement; the page body was cut off inside the PA = LU proof"
+    }
+  ],
+  "sourceLine": "StatLect (English, read in part) for the triangular-determinant fact and the non-existence proof that turns on a zero diagonal entry. The four statements of GATE CSE 2025 Set 2 Q.34 are checked against the determinant identity in scripts/validate.py, together with a symmetric matrix whose L and U are both asymmetric."
+}

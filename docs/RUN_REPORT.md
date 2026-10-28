@@ -1114,3 +1114,96 @@ through the existing components, and the sidebar tree and the Topics tab pick up
 The cycle pointer now sits on `linear-algebra/matrices-and-determinants`. The topic immediately after it in the
 syllabus order is `linear-algebra/system-of-linear-equations`, which is `not_started`, so that is the next run's
 topic.
+
+## Run 8 - LU Decomposition (2026-10-29)
+
+### The topic, and why it was next
+
+**Linear Algebra > LU Decomposition** (`lu-decomposition`), the fourth and last topic of the GATE 2027 Linear
+Algebra line: *"Matrices, determinants, system of linear equations, eigenvalues and eigenvectors, LU
+decomposition."*
+
+The cycle pointer was left by the previous run on `linear-algebra/eigenvalues-and-eigenvectors`. The first topic
+strictly after it in the enumerated syllabus order whose status is not `covered` is `lu-decomposition`, which was
+`not_started` with no card anywhere in the tree, so it was next. Nothing was skipped: no topic in the syllabus is
+`blocked`, and no earlier topic is `not_started`.
+
+### The syllabus subtopics
+
+The syllabus names the topic in three words, so the twelve subtopics were enumerated from the standard treatment
+(Strang section 2.6, Golub and Van Loan sections 3.2 and 3.4) and from the three CSE questions that exist: the
+factorization itself; where L comes from; the Doolittle, Crout and LDU conventions; existence through the leading
+principal minors; pivoting and PA = LU; forward and back substitution; the determinant from the pivots; rank and
+singularity from U; the cost of the factorization; the inverse and repeated solves; LDL^T and Cholesky; and reading
+single entries under exam conditions. Each has a card.
+
+### Sources chosen, and why
+
+- **Engineering Wing, "Lec23: Matrix Decomposition - LU Method"** (English, read in full). The only readable
+  lecture that shows the multipliers being recorded into L as elimination proceeds. Its 3x3 was re-derived before
+  use.
+- **The Double Vibe, "LU Factorization of Matrix With Solved Example"** (English, read in full). Teaches the
+  entry-by-entry comparison of LU with A, which is the technique the exam-reading card uses.
+- **Dheeraj Mishra (IIT Bombay), "LU Decomposition | GATE DA 2024"** (English, read in part). The only readable
+  GATE-oriented lecture; raises existence before method and explains the choice of unit diagonal.
+- **StatLect, "LU decomposition"** (English, read in part). Chosen for proof rather than style: non-existence,
+  non-uniqueness and PA = LU.
+- **GO Classes, Lecture 11A course index** (structure only). Fixes the GATE teaching order; nothing rests on it.
+
+Rejected, with reasons in `sources.json`: MIT OCW 18.06 Lecture 4 (the transcript file is described on its resource
+page but the text was not served), the NPTEL IIT Kharagpur Matrix Solvers Lecture 08, the NPTEL-NOC Matrix Solver
+Lecture 8, the NPTEL Matrix Theory Lecture 53, the NPTEL IIT Delhi numerical-methods Lecture 14, the Unacademy Hindi
+LU lesson (paywalled), the Gate Smashers Hindi linear algebra playlist (21 lectures that stop before matrices), the
+GeeksforGeeks GATE Launchpad episode (promotional description, no transcript) and the EduRev course mirrors.
+
+**No translated material.** No non-English source was readable this run, so nothing in the topic is marked as
+translated.
+
+### What was created
+
+Twelve cards in `content/subjects/linear-algebra/lu-decomposition/`, three PYQ records, one topic source ledger, and
+one eight-step p5.js lesson, `visuals/linear-algebra/lu-decomposition/elimination-multipliers`, which runs the
+elimination on A = [[2,3,1],[4,7,7],[-2,4,5]], records the multipliers 2, -1 and 7 into L, checks one entry by a dot
+product, reads det(A) = -58 off the pivots, and ends on the zero pivot of [[0,2],[1,3]] that forces PA = LU.
+
+### PYQs
+
+- GATE CSE 2015 Set 1 Q.18 (1 mark, NAT): l22 = 5 under the Crout convention.
+- GATE CSE 2022 Q.35 (2 marks, MCQ): L32 = -1/2, U33 = -1/2, x1 = 0, option D.
+- GATE CSE 2025 Set 2 Q.34 (2 marks, MSQ): statements 1, 2 and 3 true, 4 false.
+
+All three are `SOURCED` against GATE Overflow accepted answers; the official papers and keys were not fetched this
+run. Every one of them, and every number in every card, the lesson and the 3x3 examples, is recomputed in exact
+rational arithmetic by the new `check_lu_decomposition()` in `scripts/validate.py`, alongside sixteen new entries in
+the `MATH` table.
+
+### UI
+
+No change to design tokens, shell layout, navigation labels, routes or component classes. `syllabus.json` flips
+`lu-decomposition` from `planned` to `cards`, and `scripts/build-index.py` regenerates `content/index.json` and
+`src/data/content.js`, so the sidebar tree and the Topics tab pick up the new topic and its twelve subtopics with no
+code change.
+
+### Gaps (the topic stays `partial`)
+
+1. No GATE-oriented lecture transcript was readable. MIT OCW 18.06 Lecture 4, the canonical English treatment,
+   served a resource page that describes its transcript without the text.
+2. Only three CSE questions exist in this topic, and all three are `SOURCED` rather than key-verified. No `marks`
+   field comes from an official key, and the number the 2025 Set 2 question carries in the master paper could not be
+   confirmed.
+3. GATE CSE 2022 Q.35 is defective as printed: with the diagonal convention left open, options (C) and (D) are both
+   defensible. The record says so and reports the official option D.
+4. Pivoting and the LDL^T / Cholesky material rest on the standard references and on recomputation only; no readable
+   source taught either this run.
+5. No non-English source was readable, so the topic contains no translated material.
+6. The operation count and the inverse from the factors have no CSE PYQ at all, which is why those cards are P3; the
+   one inverse question, 1994 Q.3.12, is descriptive and cannot be stored.
+7. The GATE 2008 MA LU decomposition question belongs to the Mathematics paper, so it is excluded from a CSE set.
+8. Dheeraj Mishra's lecture says "principal minors" where the standard statement is "leading principal minors"; the
+   card uses the standard wording and the disagreement is recorded.
+
+### Next
+
+The cycle pointer now sits on `linear-algebra/lu-decomposition`, the last topic of the Linear Algebra subject. The
+topic immediately after it in the syllabus order is `calculus/limits-continuity-differentiability`, which is
+`not_started`, so that is the next run's topic. With it the cycle leaves Engineering Mathematics for the first time.

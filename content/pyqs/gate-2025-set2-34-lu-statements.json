@@ -1,0 +1,16 @@
+{
+  "id": "gate-2025-set2-34-lu-statements",
+  "year": "2025",
+  "paper": "GATE CS 2025 Set 2",
+  "question_ref": "Q.34",
+  "type": "MSQ",
+  "marks": "2",
+  "topic": "rank-and-singularity-from-u",
+  "text": "Consider a system of linear equations P X = Q where P is a real 3x3 matrix and Q is a real 3x1 matrix. Suppose P has an LU decomposition P = LU, where L = [[1,0,0],[l21,1,0],[l31,l32,1]] and U = [[u11,u12,u13],[0,u22,u23],[0,0,u33]]. Which of the following statement(s) is/are TRUE? (1) The system P X = Q can be solved by first solving L Y = Q and then U X = Y. (2) If P is invertible, then both L and U are invertible. (3) If P is singular, then at least one of the diagonal elements of U is zero. (4) If P is symmetric, then both L and U are symmetric.",
+  "answer": "Statements (1), (2) and (3) are TRUE; statement (4) is FALSE",
+  "solution": "Statement 1: substituting P = LU gives L(UX) = Q, so with Y = UX the system splits into L Y = Q (lower triangular, forward substitution) and U X = Y (upper triangular, back substitution). True. Statement 2: det(L) = 1 because L is unit lower triangular, and det(P) = det(L) det(U) = det(U); if P is invertible then det(U) is nonzero and both factors are invertible. True. Statement 3: if P is singular then det(U) = 0, and det(U) = u11 u22 u33 is a product of real numbers, so at least one of them is zero. True. Statement 4: a lower triangular matrix that equals its transpose must be diagonal, and a unit diagonal then makes L the identity; likewise U would be diagonal, so P = LU would have to be diagonal, which a general symmetric matrix is not. Counterexample: P = [[1,2,0],[2,5,1],[0,1,3]] is symmetric with L = [[1,0,0],[2,1,0],[0,1,1]] and U = [[1,2,0],[0,1,1],[0,0,2]], neither symmetric. False.",
+  "source_url": "https://gateoverflow.in/460801/gate-cse-2025-set-2-question-34",
+  "source_label": "GATE Overflow question page, GATE CSE 2025 Set 2 Q.34, with the accepted answer A, B, C",
+  "verification": "SOURCED",
+  "answer_evidence": "The accepted answer and every other answer on the page agree on statements 1, 2 and 3 true and 4 false, and a published table of the official key for CS-2 lists its 2-mark linear algebra MSQ as A, B, C. The official master question paper was not fetched, so the question reference follows the GATE Overflow numbering and the marks follow its mark table; the number the question carries in the master paper is not recorded here because it could not be confirmed."
+}

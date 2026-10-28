@@ -1,0 +1,72 @@
+{
+  "id": "ldlt-and-cholesky",
+  "title": "Symmetric Matrices: LDL^T and Cholesky",
+  "priority": "P3",
+  "order": 153,
+  "unit": "Using the factors",
+  "quickIdea": "A symmetric matrix factors as L D L^T with the same L on both sides; when the pivots are positive you can take square roots and get the Cholesky factor C with A = C C^T.",
+  "remember": [
+    "Symmetry survives only in the LDL^T form. The plain L and U of a symmetric matrix are generally not symmetric - a lower triangular matrix equal to its transpose is diagonal.",
+    "D is the diagonal of the pivots, so A = L D L^T with L unit lower triangular.",
+    "If A is symmetric positive definite, every pivot is positive, and C = L diag(sqrt(d1), ..., sqrt(dn)) satisfies A = C C^T.",
+    "The 2x2 test for positive definiteness is a11 > 0 and det(A) > 0.",
+    "Cholesky needs about half the storage and half the work of LU, because only one triangle has to be kept."
+  ],
+  "example": {
+    "prompt": "Factor A = [[4,2],[2,3]] as LDL^T and as C C^T.",
+    "work": "Doolittle gives L = [[1,0],[1/2,1]] and U = [[4,2],[0,2]], so D = diag(4,2). Scaling each column of L by the square root of its pivot gives C = [[2,0],[1,sqrt2]].",
+    "answer": "A = [[1,0],[1/2,1]] [[4,0],[0,2]] [[1,1/2],[0,1]] and A = [[2,0],[1,sqrt2]] times its transpose, whose (2,2) entry is 1 + 2 = 3."
+  },
+  "gateAngle": "Cholesky is outside the three words of the syllabus line, so this card is P3. But option 4 of GATE CSE 2025 Set 2 Q.34 tests precisely the fact that a symmetric P does not give symmetric L and U, and the correct thing to say instead is that it gives LDL^T. That makes this the one card in the topic that answers a wrong option in a real question.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "Is A = [[1,2],[2,5]] positive definite, and what is its Cholesky factor?",
+      "answer": "Yes: a11 = 1 > 0 and det(A) = 1 > 0. C = [[1,0],[2,1]], and C C^T = [[1,2],[2,5]].",
+      "why": "The pivots are 1 and 1, both positive, so both square roots are real; the factor is read off in the same two steps as an LU factorization."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Why must every pivot be positive for Cholesky to exist, when LU only needs them nonzero?",
+      "answer": "Because Cholesky takes the square root of each pivot, which is real only when the pivot is positive. A negative pivot gives a valid LU factorization but no real C.",
+      "why": "Positive definiteness is exactly the condition that makes all pivots positive, which is why the two notions coincide."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "A symmetric 3x3 has pivots 2, -1 and 4. Which of LDL^T and Cholesky exist?",
+      "answer": "LDL^T exists with D = diag(2,-1,4); Cholesky does not, because the second pivot is negative and has no real square root.",
+      "why": "The sign of the pivots is what separates the two factorizations, and a negative pivot means the matrix is indefinite rather than positive definite."
+    }
+  ],
+  "trap": {
+    "what": "Concluding that a symmetric matrix has symmetric L and U.",
+    "why": "L is lower triangular and U is upper triangular, so for either to equal its transpose it would have to be diagonal; a unit diagonal then forces L = I, which would make A = U upper triangular as well as symmetric, hence diagonal.",
+    "counterexample": "P = [[1,2,0],[2,5,1],[0,1,3]] is symmetric, and its Doolittle factors are L = [[1,0,0],[2,1,0],[0,1,1]] and U = [[1,2,0],[0,1,1],[0,0,2]]. Neither is symmetric, which is why statement 4 of GATE CSE 2025 Set 2 Q.34 is false."
+  },
+  "check": {
+    "question": "For A = [[4,2],[2,3]], what is D, and what are the entries of C on its diagonal?",
+    "answer": "D = diag(4,2) and C's diagonal is (2, sqrt2).",
+    "explanation": "Each diagonal entry of C is the square root of the matching pivot, which is why positive definiteness is needed: here both pivots are positive."
+  },
+  "pyqIds": [
+    "gate-2025-set2-34-lu-statements"
+  ],
+  "prereqs": [
+    "rank-and-singularity-from-u",
+    "symmetric-matrices-and-orthogonal-eigenvectors"
+  ],
+  "videoRefs": [],
+  "sources": [
+    {
+      "kind": "text",
+      "title": "LU decomposition (definition, existence and uniqueness, PA = LU)",
+      "channel": "StatLect, Marco Taboga",
+      "url": "https://www.statlect.com/matrix-algebra/lu-decomposition",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "the definition, the proof that not every invertible matrix has a factorization, the proof that a factorization is never unique without a normalisation, the sufficient condition of elimination without row interchanges, and the PA = LU statement; the page body was cut off inside the PA = LU proof"
+    }
+  ],
+  "sourceLine": "StatLect (English, read in part) for the factorization definitions and the elementary-matrix argument; the LDL^T and Cholesky forms themselves come from the standard references (Golub and Van Loan, sections 4.1 and 4.2). Every product on this card, including the asymmetric L and U of the symmetric counterexample, is recomputed in scripts/validate.py."
+}
