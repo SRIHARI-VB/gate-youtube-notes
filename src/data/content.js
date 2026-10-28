@@ -4654,6 +4654,50 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "Set basics, cardinality and the empty-set distinction: TrevTutor, Introduction to Set Theory (English, full transcript). Nested-set discipline and subset proofs: Rosen ch. 2.",
+   "links": {
+    "mock": {
+     "subject": "discrete-mathematics",
+     "unit_slug": "set-theory",
+     "unit_name": "Set Theory",
+     "unit_number": 3,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Subsets & power sets",
+       "questions": 10
+      },
+      {
+       "label": "Cardinality",
+       "questions": 10
+      },
+      {
+       "label": "Set algebra & De Morgan",
+       "questions": 10
+      },
+      {
+       "label": "Inclusion-exclusion",
+       "questions": 10
+      },
+      {
+       "label": "Partitions & Cartesian products",
+       "questions": 10
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/set-theory/gate_dm_mock_3_2026-10-25.html"
+    },
+    "visual": {
+     "slug": "sets-and-set-operations",
+     "title": "Sets and set operations",
+     "level": "topic-level",
+     "covers": [
+      "membership, roster and set-builder form",
+      "the empty set and the sets that look like it",
+      "subset is an implication over the universe"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/sets-and-set-operations/index.html"
+    },
+    "mapped_at": "2026-10-28"
+   },
    "subject": "discrete-mathematics",
    "topic": "sets-relations-functions",
    "path": "subjects/discrete-mathematics/sets-relations-functions/sets-elements-subsets-cardinality.json"
@@ -4738,6 +4782,49 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "Power-set counting: Rosen ch. 2 (section on sets and their cardinalities) and the power-set remark in the IIT lecture (English, full transcript). Verified against GATE CS 2015 Set 2 Q.18 and GATE CS 1993 Q.8.4.",
+   "links": {
+    "mock": {
+     "subject": "discrete-mathematics",
+     "unit_slug": "set-theory",
+     "unit_name": "Set Theory",
+     "unit_number": 3,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Subsets & power sets",
+       "questions": 10
+      },
+      {
+       "label": "Cardinality",
+       "questions": 10
+      },
+      {
+       "label": "Set algebra & De Morgan",
+       "questions": 10
+      },
+      {
+       "label": "Inclusion-exclusion",
+       "questions": 10
+      },
+      {
+       "label": "Partitions & Cartesian products",
+       "questions": 10
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/set-theory/gate_dm_mock_3_2026-10-25.html"
+    },
+    "visual": {
+     "slug": "sets-and-set-operations",
+     "title": "Sets and set operations",
+     "level": "topic-level",
+     "covers": [
+      "the power set and its size 2^n",
+      "every subset is a bit string"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/sets-and-set-operations/index.html"
+    },
+    "mapped_at": "2026-10-28"
+   },
    "subject": "discrete-mathematics",
    "topic": "sets-relations-functions",
    "path": "subjects/discrete-mathematics/sets-relations-functions/power-set-and-its-size.json"
@@ -4820,6 +4907,50 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "Element-chasing proofs of De Morgan's and the distributive laws, with the difference and symmetric-difference definitions: IIT lecture Lec 02 (English, full transcript). Cardinality of a union is counted in the combinatorics inclusion-exclusion card.",
+   "links": {
+    "mock": {
+     "subject": "discrete-mathematics",
+     "unit_slug": "set-theory",
+     "unit_name": "Set Theory",
+     "unit_number": 3,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Subsets & power sets",
+       "questions": 10
+      },
+      {
+       "label": "Cardinality",
+       "questions": 10
+      },
+      {
+       "label": "Set algebra & De Morgan",
+       "questions": 10
+      },
+      {
+       "label": "Inclusion-exclusion",
+       "questions": 10
+      },
+      {
+       "label": "Partitions & Cartesian products",
+       "questions": 10
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/set-theory/gate_dm_mock_3_2026-10-25.html"
+    },
+    "visual": {
+     "slug": "sets-and-set-operations",
+     "title": "Sets and set operations",
+     "level": "topic-level",
+     "covers": [
+      "union, intersection, difference, symmetric difference, complement",
+      "De Morgan for sets is De Morgan for logic",
+      "counting a union by inclusion and exclusion"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/sets-and-set-operations/index.html"
+    },
+    "mapped_at": "2026-10-28"
+   },
    "subject": "discrete-mathematics",
    "topic": "sets-relations-functions",
    "path": "subjects/discrete-mathematics/sets-relations-functions/set-operations-and-identities.json"
@@ -4902,6 +5033,48 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "Ordered pairs, the ZF construction of the product, and the rectangle picture: IIT lecture Lec 02 (English, full transcript). Definitions and cardinality: Rosen ch. 2.",
+   "links": {
+    "mock": {
+     "subject": "discrete-mathematics",
+     "unit_slug": "set-theory",
+     "unit_name": "Set Theory",
+     "unit_number": 3,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Subsets & power sets",
+       "questions": 10
+      },
+      {
+       "label": "Cardinality",
+       "questions": 10
+      },
+      {
+       "label": "Set algebra & De Morgan",
+       "questions": 10
+      },
+      {
+       "label": "Inclusion-exclusion",
+       "questions": 10
+      },
+      {
+       "label": "Partitions & Cartesian products",
+       "questions": 10
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/set-theory/gate_dm_mock_3_2026-10-25.html"
+    },
+    "visual": {
+     "slug": "sets-and-set-operations",
+     "title": "Sets and set operations",
+     "level": "topic-level",
+     "covers": [
+      "the Cartesian product is a set of ordered pairs"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/sets-and-set-operations/index.html"
+    },
+    "mapped_at": "2026-10-28"
+   },
    "subject": "discrete-mathematics",
    "topic": "sets-relations-functions",
    "path": "subjects/discrete-mathematics/sets-relations-functions/cartesian-product.json"
@@ -4980,6 +5153,39 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "Countability, the diagonal argument and the countable-union rule: Rosen ch. 2 (cardinality of sets) and Grimaldi ch. 3. No lecture transcript on countability was readable in this run, so this card rests on the standard references alone - recorded as a gap.",
+   "links": {
+    "mock": {
+     "subject": "discrete-mathematics",
+     "unit_slug": "set-theory",
+     "unit_name": "Set Theory",
+     "unit_number": 3,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Subsets & power sets",
+       "questions": 10
+      },
+      {
+       "label": "Cardinality",
+       "questions": 10
+      },
+      {
+       "label": "Set algebra & De Morgan",
+       "questions": 10
+      },
+      {
+       "label": "Inclusion-exclusion",
+       "questions": 10
+      },
+      {
+       "label": "Partitions & Cartesian products",
+       "questions": 10
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/set-theory/gate_dm_mock_3_2026-10-25.html"
+    },
+    "mapped_at": "2026-10-28"
+   },
    "subject": "discrete-mathematics",
    "topic": "sets-relations-functions",
    "path": "subjects/discrete-mathematics/sets-relations-functions/countable-and-uncountable-sets.json"
@@ -5075,6 +5281,53 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "Relation as a subset of a product, with matrix and digraph representations: IIT lecture Lec 02 (English, full transcript). The counting question type and the ternary-relation variation: GO Classes Relations GATE PYQs Part 2 (English, opening readable only). Rosen ch. 9.1.",
+   "links": {
+    "mock": {
+     "subject": "discrete-mathematics",
+     "unit_slug": "relations",
+     "unit_name": "Relations",
+     "unit_number": 4,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Relation properties",
+       "questions": 9
+      },
+      {
+       "label": "Equivalence relations & classes",
+       "questions": 9
+      },
+      {
+       "label": "Partial orders & Hasse diagrams",
+       "questions": 8
+      },
+      {
+       "label": "Lattices in posets",
+       "questions": 8
+      },
+      {
+       "label": "Composition & transitive closure",
+       "questions": 8
+      },
+      {
+       "label": "Counting relations",
+       "questions": 8
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html"
+    },
+    "visual": {
+     "slug": "relations-and-their-properties",
+     "title": "Relations and their properties",
+     "level": "topic-level",
+     "covers": [
+      "a relation is a set of ordered pairs, and nothing more",
+      "the counting table, every entry enumerated in code"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/relations-and-their-properties/index.html"
+    },
+    "mapped_at": "2026-10-28"
+   },
    "subject": "discrete-mathematics",
    "topic": "sets-relations-functions",
    "path": "subjects/discrete-mathematics/sets-relations-functions/relation-definition-and-counting.json"
@@ -5171,6 +5424,54 @@ window.GATE_DATA = {
    ],
    "sourceLine": "The four property definitions, with the division and congruence examples: IIT lecture Lec 02 (English, full transcript). Counting formulas and the matrix method: GO Classes Relations GATE PYQs Part 2 (English, opening readable only) and Rosen ch. 9.1.",
    "visual": "discrete-mathematics/sets-relations-functions/relation-matrix-properties",
+   "links": {
+    "mock": {
+     "subject": "discrete-mathematics",
+     "unit_slug": "relations",
+     "unit_name": "Relations",
+     "unit_number": 4,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Relation properties",
+       "questions": 9
+      },
+      {
+       "label": "Equivalence relations & classes",
+       "questions": 9
+      },
+      {
+       "label": "Partial orders & Hasse diagrams",
+       "questions": 8
+      },
+      {
+       "label": "Lattices in posets",
+       "questions": 8
+      },
+      {
+       "label": "Composition & transitive closure",
+       "questions": 8
+      },
+      {
+       "label": "Counting relations",
+       "questions": 8
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html"
+    },
+    "visual": {
+     "slug": "relations-and-their-properties",
+     "title": "Relations and their properties",
+     "level": "topic-level",
+     "covers": [
+      "reflexive and irreflexive are about the diagonal",
+      "symmetric means the matrix equals its mirror image",
+      "antisymmetric is not the opposite of symmetric"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/relations-and-their-properties/index.html"
+    },
+    "mapped_at": "2026-10-28"
+   },
    "subject": "discrete-mathematics",
    "topic": "sets-relations-functions",
    "path": "subjects/discrete-mathematics/sets-relations-functions/relation-properties-reflexive-symmetric-antisymmetric.json"
@@ -5255,6 +5556,53 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "Transitivity as a chain condition: IIT lecture Lec 02 (English, full transcript). Transitive closure, paths of length k and Warshall: Rosen ch. 9.4, the only source used for closures - recorded as a gap.",
+   "links": {
+    "mock": {
+     "subject": "discrete-mathematics",
+     "unit_slug": "relations",
+     "unit_name": "Relations",
+     "unit_number": 4,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Relation properties",
+       "questions": 9
+      },
+      {
+       "label": "Equivalence relations & classes",
+       "questions": 9
+      },
+      {
+       "label": "Partial orders & Hasse diagrams",
+       "questions": 8
+      },
+      {
+       "label": "Lattices in posets",
+       "questions": 8
+      },
+      {
+       "label": "Composition & transitive closure",
+       "questions": 8
+      },
+      {
+       "label": "Counting relations",
+       "questions": 8
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html"
+    },
+    "visual": {
+     "slug": "relations-and-their-properties",
+     "title": "Relations and their properties",
+     "level": "topic-level",
+     "covers": [
+      "transitive closes a two-step path with a one-step shortcut",
+      "the closure is the smallest relation that fixes the defect"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/relations-and-their-properties/index.html"
+    },
+    "mapped_at": "2026-10-28"
+   },
    "subject": "discrete-mathematics",
    "topic": "sets-relations-functions",
    "path": "subjects/discrete-mathematics/sets-relations-functions/transitivity-and-closure.json"
@@ -5339,6 +5687,52 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "Equivalence relation definition and its link to partitions: IIT lecture Lec 02 (English, full transcript). Counting by partitions, Bell and Stirling numbers: Rosen ch. 9.5, verified against GATE CS 1997 Q.6.3.",
+   "links": {
+    "mock": {
+     "subject": "discrete-mathematics",
+     "unit_slug": "relations",
+     "unit_name": "Relations",
+     "unit_number": 4,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Relation properties",
+       "questions": 9
+      },
+      {
+       "label": "Equivalence relations & classes",
+       "questions": 9
+      },
+      {
+       "label": "Partial orders & Hasse diagrams",
+       "questions": 8
+      },
+      {
+       "label": "Lattices in posets",
+       "questions": 8
+      },
+      {
+       "label": "Composition & transitive closure",
+       "questions": 8
+      },
+      {
+       "label": "Counting relations",
+       "questions": 8
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html"
+    },
+    "visual": {
+     "slug": "relations-and-their-properties",
+     "title": "Relations and their properties",
+     "level": "topic-level",
+     "covers": [
+      "reflexive, symmetric and transitive together make a partition"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/relations-and-their-properties/index.html"
+    },
+    "mapped_at": "2026-10-28"
+   },
    "subject": "discrete-mathematics",
    "topic": "sets-relations-functions",
    "path": "subjects/discrete-mathematics/sets-relations-functions/equivalence-relations-and-partitions.json"
@@ -5425,6 +5819,51 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "Injectivity, surjectivity, bijectivity, the proof technique and the cardinality conditions: TrevTutor (English, full transcript). The counting formulas: Rosen ch. 2 and ch. 6, verified against GATE CS 2015 Set 2 Q.40.",
+   "links": {
+    "mock": {
+     "subject": "discrete-mathematics",
+     "unit_slug": "functions",
+     "unit_name": "Functions",
+     "unit_number": 5,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Injective / surjective / bijective",
+       "questions": 10
+      },
+      {
+       "label": "Composition & inverses",
+       "questions": 10
+      },
+      {
+       "label": "Counting functions",
+       "questions": 10
+      },
+      {
+       "label": "Pigeonhole principle",
+       "questions": 10
+      },
+      {
+       "label": "Floor, ceiling & recursion",
+       "questions": 10
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/functions/gate_dm_mock_5_2026-10-26.html"
+    },
+    "visual": {
+     "slug": "functions-and-their-properties",
+     "title": "Functions and their properties",
+     "level": "topic-level",
+     "covers": [
+      "injective means no two elements share an image",
+      "surjective means every codomain element is hit",
+      "on equal finite sizes the three properties collapse",
+      "four counts, and only one of them is a product"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/functions-and-their-properties/index.html"
+    },
+    "mapped_at": "2026-10-28"
+   },
    "subject": "discrete-mathematics",
    "topic": "sets-relations-functions",
    "path": "subjects/discrete-mathematics/sets-relations-functions/functions-counting-injective-surjective.json"
@@ -5507,6 +5946,49 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "Inverse functions and why bijectivity is required: TrevTutor (English, full transcript). Composition laws: Rosen ch. 2.3.",
+   "links": {
+    "mock": {
+     "subject": "discrete-mathematics",
+     "unit_slug": "functions",
+     "unit_name": "Functions",
+     "unit_number": 5,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Injective / surjective / bijective",
+       "questions": 10
+      },
+      {
+       "label": "Composition & inverses",
+       "questions": 10
+      },
+      {
+       "label": "Counting functions",
+       "questions": 10
+      },
+      {
+       "label": "Pigeonhole principle",
+       "questions": 10
+      },
+      {
+       "label": "Floor, ceiling & recursion",
+       "questions": 10
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/functions/gate_dm_mock_5_2026-10-26.html"
+    },
+    "visual": {
+     "slug": "functions-and-their-properties",
+     "title": "Functions and their properties",
+     "level": "topic-level",
+     "covers": [
+      "composition: what survives, and only in one direction",
+      "the inverse function exists only for a bijection"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/functions-and-their-properties/index.html"
+    },
+    "mapped_at": "2026-10-28"
+   },
    "subject": "discrete-mathematics",
    "topic": "sets-relations-functions",
    "path": "subjects/discrete-mathematics/sets-relations-functions/composition-and-inverse-functions.json"

@@ -89,5 +89,53 @@
     }
   ],
   "sourceLine": "The four property definitions, with the division and congruence examples: IIT lecture Lec 02 (English, full transcript). Counting formulas and the matrix method: GO Classes Relations GATE PYQs Part 2 (English, opening readable only) and Rosen ch. 9.1.",
-  "visual": "discrete-mathematics/sets-relations-functions/relation-matrix-properties"
+  "visual": "discrete-mathematics/sets-relations-functions/relation-matrix-properties",
+  "links": {
+    "mock": {
+      "subject": "discrete-mathematics",
+      "unit_slug": "relations",
+      "unit_name": "Relations",
+      "unit_number": 4,
+      "question_count": 50,
+      "subtopics": [
+        {
+          "label": "Relation properties",
+          "questions": 9
+        },
+        {
+          "label": "Equivalence relations & classes",
+          "questions": 9
+        },
+        {
+          "label": "Partial orders & Hasse diagrams",
+          "questions": 8
+        },
+        {
+          "label": "Lattices in posets",
+          "questions": 8
+        },
+        {
+          "label": "Composition & transitive closure",
+          "questions": 8
+        },
+        {
+          "label": "Counting relations",
+          "questions": 8
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html"
+    },
+    "visual": {
+      "slug": "relations-and-their-properties",
+      "title": "Relations and their properties",
+      "level": "topic-level",
+      "covers": [
+        "reflexive and irreflexive are about the diagonal",
+        "symmetric means the matrix equals its mirror image",
+        "antisymmetric is not the opposite of symmetric"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/relations-and-their-properties/index.html"
+    },
+    "mapped_at": "2026-10-28"
+  }
 }

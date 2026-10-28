@@ -26,7 +26,7 @@
       "title": "Basic Counting Rules",
       "priority": "P1",
       "path": "subjects/discrete-mathematics/combinatorics/basic-counting-rules.json",
-      "transcript_status": "PARTIAL",
+      "transcript_status": "not stated",
       "mock": null,
       "visual": {
         "slug": "counting-and-combinatorics",
@@ -38,7 +38,7 @@
       "evidence": [
         "notes content/index.json -> map[].path = subjects/discrete-mathematics/combinatorics/basic-counting-rules.json",
         "mock: no unit in discrete-mathematics master_bank.json carries this card's vocabulary",
-        "visual: topics/counting-and-combinatorics/transcript.md scene list, covers checked against transcript text"
+        "visual: syllabus-coverage.json lesson_slug counting-and-combinatorics (PUBLISHED); covers checked against topics/counting-and-combinatorics/transcript.md scene list"
       ],
       "row_verdict": "VISUAL_ONLY"
     },
@@ -49,7 +49,7 @@
       "title": "Permutations (order matters)",
       "priority": "P1",
       "path": "subjects/discrete-mathematics/combinatorics/permutations.json",
-      "transcript_status": "PARTIAL",
+      "transcript_status": "not stated",
       "mock": {
         "subject": "discrete-mathematics",
         "unit_slug": "combinatorics",
@@ -74,8 +74,8 @@
       },
       "evidence": [
         "notes content/index.json -> map[].path = subjects/discrete-mathematics/combinatorics/permutations.json",
-        "mock: discrete-mathematics/question-bank/master_bank.json -> questions[] with unit 7 grouped by subtopic_label, count 25, paper from runs[] file discrete-mathematics/combinatorics/gate_dm_mock_7_2026-10-28.html",
-        "visual: topics/counting-and-combinatorics/transcript.md scene list, covers checked against transcript text"
+        "mock: discrete-mathematics master_bank.json unit 7 (combinatorics), 25 records grouped by subtopic_label; paper https://gate-cse-mocks.vercel.app/discrete-mathematics/combinatorics/gate_dm_mock_7_2026-10-28.html",
+        "visual: syllabus-coverage.json lesson_slug counting-and-combinatorics (PUBLISHED); covers checked against topics/counting-and-combinatorics/transcript.md scene list"
       ],
       "row_verdict": "BOTH"
     },
@@ -86,7 +86,7 @@
       "title": "Combinations (order does not matter)",
       "priority": "P1",
       "path": "subjects/discrete-mathematics/combinatorics/combinations.json",
-      "transcript_status": "PARTIAL",
+      "transcript_status": "not stated",
       "mock": {
         "subject": "discrete-mathematics",
         "unit_slug": "combinatorics",
@@ -111,8 +111,8 @@
       },
       "evidence": [
         "notes content/index.json -> map[].path = subjects/discrete-mathematics/combinatorics/combinations.json",
-        "mock: discrete-mathematics/question-bank/master_bank.json -> questions[] with unit 7 grouped by subtopic_label, count 25, paper from runs[] file discrete-mathematics/combinatorics/gate_dm_mock_7_2026-10-28.html",
-        "visual: topics/counting-and-combinatorics/transcript.md scene list, covers checked against transcript text"
+        "mock: discrete-mathematics master_bank.json unit 7 (combinatorics), 25 records grouped by subtopic_label; paper https://gate-cse-mocks.vercel.app/discrete-mathematics/combinatorics/gate_dm_mock_7_2026-10-28.html",
+        "visual: syllabus-coverage.json lesson_slug counting-and-combinatorics (PUBLISHED); covers checked against topics/counting-and-combinatorics/transcript.md scene list"
       ],
       "row_verdict": "BOTH"
     },
@@ -123,7 +123,7 @@
       "title": "Binomial Theorem and Coefficient Extraction",
       "priority": "P2",
       "path": "subjects/discrete-mathematics/combinatorics/binomial-theorem.json",
-      "transcript_status": "PARTIAL",
+      "transcript_status": "not stated",
       "mock": {
         "subject": "discrete-mathematics",
         "unit_slug": "combinatorics",
@@ -148,8 +148,8 @@
       },
       "evidence": [
         "notes content/index.json -> map[].path = subjects/discrete-mathematics/combinatorics/binomial-theorem.json",
-        "mock: discrete-mathematics/question-bank/master_bank.json -> questions[] with unit 7 grouped by subtopic_label, count 25, paper from runs[] file discrete-mathematics/combinatorics/gate_dm_mock_7_2026-10-28.html",
-        "visual: topics/counting-and-combinatorics/transcript.md scene list, covers checked against transcript text"
+        "mock: discrete-mathematics master_bank.json unit 7 (combinatorics), 25 records grouped by subtopic_label; paper https://gate-cse-mocks.vercel.app/discrete-mathematics/combinatorics/gate_dm_mock_7_2026-10-28.html",
+        "visual: syllabus-coverage.json lesson_slug counting-and-combinatorics (PUBLISHED); covers checked against topics/counting-and-combinatorics/transcript.md scene list"
       ],
       "row_verdict": "BOTH"
     },
@@ -160,7 +160,7 @@
       "title": "Permutation with Repetition and Multinomials",
       "priority": "P2",
       "path": "subjects/discrete-mathematics/combinatorics/permutation-with-repetition.json",
-      "transcript_status": "PARTIAL",
+      "transcript_status": "not stated",
       "mock": {
         "subject": "discrete-mathematics",
         "unit_slug": "combinatorics",
@@ -185,8 +185,8 @@
       },
       "evidence": [
         "notes content/index.json -> map[].path = subjects/discrete-mathematics/combinatorics/permutation-with-repetition.json",
-        "mock: discrete-mathematics/question-bank/master_bank.json -> questions[] with unit 7 grouped by subtopic_label, count 25, paper from runs[] file discrete-mathematics/combinatorics/gate_dm_mock_7_2026-10-28.html",
-        "visual: topics/counting-and-combinatorics/transcript.md scene list, covers checked against transcript text"
+        "mock: discrete-mathematics master_bank.json unit 7 (combinatorics), 25 records grouped by subtopic_label; paper https://gate-cse-mocks.vercel.app/discrete-mathematics/combinatorics/gate_dm_mock_7_2026-10-28.html",
+        "visual: syllabus-coverage.json lesson_slug counting-and-combinatorics (PUBLISHED); covers checked against topics/counting-and-combinatorics/transcript.md scene list"
       ],
       "row_verdict": "BOTH"
     },
@@ -197,7 +197,7 @@
       "title": "Distribution Templates: the 2x2 Grid",
       "priority": "P1",
       "path": "subjects/discrete-mathematics/combinatorics/distribution-templates.json",
-      "transcript_status": "PARTIAL",
+      "transcript_status": "not stated",
       "mock": {
         "subject": "discrete-mathematics",
         "unit_slug": "combinatorics",
@@ -222,8 +222,8 @@
       },
       "evidence": [
         "notes content/index.json -> map[].path = subjects/discrete-mathematics/combinatorics/distribution-templates.json",
-        "mock: discrete-mathematics/question-bank/master_bank.json -> questions[] with unit 7 grouped by subtopic_label, count 25, paper from runs[] file discrete-mathematics/combinatorics/gate_dm_mock_7_2026-10-28.html",
-        "visual: topics/counting-and-combinatorics/transcript.md scene list, covers checked against transcript text"
+        "mock: discrete-mathematics master_bank.json unit 7 (combinatorics), 25 records grouped by subtopic_label; paper https://gate-cse-mocks.vercel.app/discrete-mathematics/combinatorics/gate_dm_mock_7_2026-10-28.html",
+        "visual: syllabus-coverage.json lesson_slug counting-and-combinatorics (PUBLISHED); covers checked against topics/counting-and-combinatorics/transcript.md scene list"
       ],
       "row_verdict": "BOTH"
     },
@@ -234,7 +234,7 @@
       "title": "DODB: Distinct Objects, Distinct Boxes",
       "priority": "P2",
       "path": "subjects/discrete-mathematics/combinatorics/dodb.json",
-      "transcript_status": "PARTIAL",
+      "transcript_status": "not stated",
       "mock": {
         "subject": "discrete-mathematics",
         "unit_slug": "functions",
@@ -259,8 +259,8 @@
       },
       "evidence": [
         "notes content/index.json -> map[].path = subjects/discrete-mathematics/combinatorics/dodb.json",
-        "mock: discrete-mathematics/question-bank/master_bank.json -> questions[] grouped by unit_slug/subtopic_label, count 50",
-        "visual: topics/functions-and-their-properties/transcript.md scene list, covers checked against transcript text"
+        "mock: discrete-mathematics master_bank.json unit 5 (functions), 50 records grouped by subtopic_label; paper https://gate-cse-mocks.vercel.app/discrete-mathematics/functions/gate_dm_mock_5_2026-10-26.html",
+        "visual: syllabus-coverage.json lesson_slug functions-and-their-properties (PUBLISHED); covers checked against topics/functions-and-their-properties/transcript.md scene list"
       ],
       "row_verdict": "BOTH"
     },
@@ -271,7 +271,7 @@
       "title": "IODB: Stars and Bars",
       "priority": "P1",
       "path": "subjects/discrete-mathematics/combinatorics/iodb-stars-and-bars.json",
-      "transcript_status": "PARTIAL",
+      "transcript_status": "not stated",
       "mock": {
         "subject": "discrete-mathematics",
         "unit_slug": "combinatorics",
@@ -296,8 +296,8 @@
       },
       "evidence": [
         "notes content/index.json -> map[].path = subjects/discrete-mathematics/combinatorics/iodb-stars-and-bars.json",
-        "mock: discrete-mathematics/question-bank/master_bank.json -> questions[] with unit 7 grouped by subtopic_label, count 25, paper from runs[] file discrete-mathematics/combinatorics/gate_dm_mock_7_2026-10-28.html",
-        "visual: topics/counting-and-combinatorics/transcript.md scene list, covers checked against transcript text"
+        "mock: discrete-mathematics master_bank.json unit 7 (combinatorics), 25 records grouped by subtopic_label; paper https://gate-cse-mocks.vercel.app/discrete-mathematics/combinatorics/gate_dm_mock_7_2026-10-28.html",
+        "visual: syllabus-coverage.json lesson_slug counting-and-combinatorics (PUBLISHED); covers checked against topics/counting-and-combinatorics/transcript.md scene list"
       ],
       "row_verdict": "BOTH"
     },
@@ -308,7 +308,7 @@
       "title": "DOIB: Distinct Objects, Identical Boxes (Stirling Numbers)",
       "priority": "P2",
       "path": "subjects/discrete-mathematics/combinatorics/doib-stirling.json",
-      "transcript_status": "PARTIAL",
+      "transcript_status": "not stated",
       "mock": {
         "subject": "discrete-mathematics",
         "unit_slug": "set-theory",
@@ -327,8 +327,8 @@
       "visual": null,
       "evidence": [
         "notes content/index.json -> map[].path = subjects/discrete-mathematics/combinatorics/doib-stirling.json",
-        "mock: discrete-mathematics/question-bank/master_bank.json -> questions[] grouped by unit_slug/subtopic_label, count 50",
-        "visual: no published lesson transcript covers this subtopic"
+        "mock: discrete-mathematics master_bank.json unit 3 (set-theory), 50 records grouped by subtopic_label; paper https://gate-cse-mocks.vercel.app/discrete-mathematics/set-theory/gate_dm_mock_3_2026-10-25.html",
+        "visual: no published lesson covers this card at subtopic level"
       ],
       "row_verdict": "MOCK_ONLY"
     },
@@ -339,13 +339,13 @@
       "title": "IOIB: Integer Partitions",
       "priority": "P3",
       "path": "subjects/discrete-mathematics/combinatorics/ioib-partitions.json",
-      "transcript_status": "PARTIAL",
+      "transcript_status": "not stated",
       "mock": null,
       "visual": null,
       "evidence": [
         "notes content/index.json -> map[].path = subjects/discrete-mathematics/combinatorics/ioib-partitions.json",
-        "mock: no unit in discrete-mathematics master_bank.json carries a partition-counting group; unit 7 combinatorics groups are Permutations & combinations, Binomial & multinomial coefficients, Double counting, Stars and bars, Inclusion-exclusion counting",
-        "visual: no published lesson transcript covers integer partitions (counting-and-combinatorics and generating-functions transcripts read this run)"
+        "mock: no unit in discrete-mathematics master_bank.json carries this card's vocabulary",
+        "visual: no published lesson covers this card at subtopic level"
       ],
       "row_verdict": "NEITHER"
     },
@@ -356,7 +356,7 @@
       "title": "Inclusion-Exclusion",
       "priority": "P1",
       "path": "subjects/discrete-mathematics/combinatorics/inclusion-exclusion.json",
-      "transcript_status": "PARTIAL",
+      "transcript_status": "not stated",
       "mock": {
         "subject": "discrete-mathematics",
         "unit_slug": "combinatorics",
@@ -381,8 +381,8 @@
       },
       "evidence": [
         "notes content/index.json -> map[].path = subjects/discrete-mathematics/combinatorics/inclusion-exclusion.json",
-        "mock: discrete-mathematics/question-bank/master_bank.json -> questions[] with unit 7 grouped by subtopic_label, count 25, paper from runs[] file discrete-mathematics/combinatorics/gate_dm_mock_7_2026-10-28.html",
-        "visual: topics/counting-and-combinatorics/transcript.md scene list, covers checked against transcript text"
+        "mock: discrete-mathematics master_bank.json unit 7 (combinatorics), 25 records grouped by subtopic_label; paper https://gate-cse-mocks.vercel.app/discrete-mathematics/combinatorics/gate_dm_mock_7_2026-10-28.html",
+        "visual: syllabus-coverage.json lesson_slug counting-and-combinatorics (PUBLISHED); covers checked against topics/counting-and-combinatorics/transcript.md scene list"
       ],
       "row_verdict": "BOTH"
     },
@@ -393,7 +393,7 @@
       "title": "Derangements",
       "priority": "P2",
       "path": "subjects/discrete-mathematics/combinatorics/derangements.json",
-      "transcript_status": "PARTIAL",
+      "transcript_status": "not stated",
       "mock": {
         "subject": "discrete-mathematics",
         "unit_slug": "combinatorics",
@@ -418,8 +418,8 @@
       },
       "evidence": [
         "notes content/index.json -> map[].path = subjects/discrete-mathematics/combinatorics/derangements.json",
-        "mock: discrete-mathematics/question-bank/master_bank.json questions[] unit_slug combinatorics, 25 records, subtopic_label 'Inclusion-exclusion counting' 5; DM-CB7-Q23 asks for the permutations of {1,2,3,4,5} that leave no element in its own position",
-        "visual: topics/counting-and-combinatorics/transcript.md scene 9 'Derangements'"
+        "mock: discrete-mathematics master_bank.json unit 7 (combinatorics), 25 records grouped by subtopic_label; paper https://gate-cse-mocks.vercel.app/discrete-mathematics/combinatorics/gate_dm_mock_7_2026-10-28.html",
+        "visual: syllabus-coverage.json lesson_slug counting-and-combinatorics (PUBLISHED); covers checked against topics/counting-and-combinatorics/transcript.md scene list"
       ],
       "row_verdict": "BOTH"
     },
@@ -430,7 +430,7 @@
       "title": "Onto (Surjective) Functions",
       "priority": "P2",
       "path": "subjects/discrete-mathematics/combinatorics/onto-functions.json",
-      "transcript_status": "PARTIAL",
+      "transcript_status": "not stated",
       "mock": {
         "subject": "discrete-mathematics",
         "unit_slug": "functions",
@@ -455,8 +455,8 @@
       },
       "evidence": [
         "notes content/index.json -> map[].path = subjects/discrete-mathematics/combinatorics/onto-functions.json",
-        "mock: discrete-mathematics/question-bank/master_bank.json -> questions[] grouped by unit_slug/subtopic_label, count 50",
-        "visual: topics/functions-and-their-properties/transcript.md scene list, covers checked against transcript text"
+        "mock: discrete-mathematics master_bank.json unit 5 (functions), 50 records grouped by subtopic_label; paper https://gate-cse-mocks.vercel.app/discrete-mathematics/functions/gate_dm_mock_5_2026-10-26.html",
+        "visual: syllabus-coverage.json lesson_slug functions-and-their-properties (PUBLISHED); covers checked against topics/functions-and-their-properties/transcript.md scene list"
       ],
       "row_verdict": "BOTH"
     },
@@ -467,7 +467,7 @@
       "title": "Pigeonhole Principle",
       "priority": "P1",
       "path": "subjects/discrete-mathematics/combinatorics/pigeonhole.json",
-      "transcript_status": "PARTIAL",
+      "transcript_status": "not stated",
       "mock": {
         "subject": "discrete-mathematics",
         "unit_slug": "functions",
@@ -492,8 +492,8 @@
       },
       "evidence": [
         "notes content/index.json -> map[].path = subjects/discrete-mathematics/combinatorics/pigeonhole.json",
-        "mock: discrete-mathematics/question-bank/master_bank.json -> questions[] grouped by unit_slug/subtopic_label, count 50",
-        "visual: topics/counting-and-combinatorics/transcript.md scene list, covers checked against transcript text"
+        "mock: discrete-mathematics master_bank.json unit 5 (functions), 50 records grouped by subtopic_label; paper https://gate-cse-mocks.vercel.app/discrete-mathematics/functions/gate_dm_mock_5_2026-10-26.html",
+        "visual: syllabus-coverage.json lesson_slug counting-and-combinatorics (PUBLISHED); covers checked against topics/counting-and-combinatorics/transcript.md scene list"
       ],
       "row_verdict": "BOTH"
     },
@@ -516,7 +516,7 @@
       "evidence": [
         "notes content/index.json -> map[].path = subjects/discrete-mathematics/combinatorics/recurrences-and-compositions.json",
         "mock: no unit in discrete-mathematics master_bank.json carries this card's vocabulary",
-        "visual: topics/recurrence-relations/transcript.md scene list, covers checked against transcript text"
+        "visual: syllabus-coverage.json lesson_slug recurrence-relations (PUBLISHED); covers checked against topics/recurrence-relations/transcript.md scene list"
       ],
       "row_verdict": "VISUAL_ONLY"
     },
@@ -527,7 +527,7 @@
       "title": "Propositions and Connectives",
       "priority": "P1",
       "path": "subjects/discrete-mathematics/propositional-logic/propositions-and-connectives.json",
-      "transcript_status": "PARTIAL",
+      "transcript_status": "not stated",
       "mock": {
         "subject": "discrete-mathematics",
         "unit_slug": "propositional-logic",
@@ -553,8 +553,8 @@
       },
       "evidence": [
         "notes content/index.json -> map[].path = subjects/discrete-mathematics/propositional-logic/propositions-and-connectives.json",
-        "mock: discrete-mathematics/question-bank/master_bank.json -> questions[] grouped by unit_slug/subtopic_label, count 50",
-        "visual: topics/propositional-logic/transcript.md scene list, covers checked against transcript text"
+        "mock: discrete-mathematics master_bank.json unit 1 (propositional-logic), 50 records grouped by subtopic_label; paper https://gate-cse-mocks.vercel.app/discrete-mathematics/propositional-logic/gate_dm_mock_1_2026-10-25.html",
+        "visual: syllabus-coverage.json lesson_slug propositional-logic (PUBLISHED); covers checked against topics/propositional-logic/transcript.md scene list"
       ],
       "row_verdict": "BOTH"
     },
@@ -565,7 +565,7 @@
       "title": "Truth Tables, Tautology and Contradiction",
       "priority": "P1",
       "path": "subjects/discrete-mathematics/propositional-logic/truth-tables-and-tautology.json",
-      "transcript_status": "PARTIAL",
+      "transcript_status": "not stated",
       "mock": {
         "subject": "discrete-mathematics",
         "unit_slug": "propositional-logic",
@@ -591,8 +591,8 @@
       },
       "evidence": [
         "notes content/index.json -> map[].path = subjects/discrete-mathematics/propositional-logic/truth-tables-and-tautology.json",
-        "mock: discrete-mathematics/question-bank/master_bank.json -> questions[] grouped by unit_slug/subtopic_label, count 50",
-        "visual: topics/propositional-logic/transcript.md scene list, covers checked against transcript text"
+        "mock: discrete-mathematics master_bank.json unit 1 (propositional-logic), 50 records grouped by subtopic_label; paper https://gate-cse-mocks.vercel.app/discrete-mathematics/propositional-logic/gate_dm_mock_1_2026-10-25.html",
+        "visual: syllabus-coverage.json lesson_slug propositional-logic (PUBLISHED); covers checked against topics/propositional-logic/transcript.md scene list"
       ],
       "row_verdict": "BOTH"
     },
@@ -603,7 +603,7 @@
       "title": "Implication, Converse and Contrapositive",
       "priority": "P1",
       "path": "subjects/discrete-mathematics/propositional-logic/implication-converse-contrapositive.json",
-      "transcript_status": "PARTIAL",
+      "transcript_status": "not stated",
       "mock": {
         "subject": "discrete-mathematics",
         "unit_slug": "propositional-logic",
@@ -629,8 +629,8 @@
       },
       "evidence": [
         "notes content/index.json -> map[].path = subjects/discrete-mathematics/propositional-logic/implication-converse-contrapositive.json",
-        "mock: discrete-mathematics/question-bank/master_bank.json -> questions[] grouped by unit_slug/subtopic_label, count 50",
-        "visual: topics/propositional-logic/transcript.md scene list, covers checked against transcript text"
+        "mock: discrete-mathematics master_bank.json unit 1 (propositional-logic), 50 records grouped by subtopic_label; paper https://gate-cse-mocks.vercel.app/discrete-mathematics/propositional-logic/gate_dm_mock_1_2026-10-25.html",
+        "visual: syllabus-coverage.json lesson_slug propositional-logic (PUBLISHED); covers checked against topics/propositional-logic/transcript.md scene list"
       ],
       "row_verdict": "BOTH"
     },
@@ -641,7 +641,7 @@
       "title": "Logical Equivalence and the Law List",
       "priority": "P1",
       "path": "subjects/discrete-mathematics/propositional-logic/logical-equivalence-laws.json",
-      "transcript_status": "PARTIAL",
+      "transcript_status": "not stated",
       "mock": {
         "subject": "discrete-mathematics",
         "unit_slug": "propositional-logic",
@@ -667,8 +667,8 @@
       },
       "evidence": [
         "notes content/index.json -> map[].path = subjects/discrete-mathematics/propositional-logic/logical-equivalence-laws.json",
-        "mock: discrete-mathematics/question-bank/master_bank.json -> questions[] grouped by unit_slug/subtopic_label, count 50",
-        "visual: topics/propositional-logic/transcript.md scene list, covers checked against transcript text"
+        "mock: discrete-mathematics master_bank.json unit 1 (propositional-logic), 50 records grouped by subtopic_label; paper https://gate-cse-mocks.vercel.app/discrete-mathematics/propositional-logic/gate_dm_mock_1_2026-10-25.html",
+        "visual: syllabus-coverage.json lesson_slug propositional-logic (PUBLISHED); covers checked against topics/propositional-logic/transcript.md scene list"
       ],
       "row_verdict": "BOTH"
     },
@@ -679,7 +679,7 @@
       "title": "CNF, DNF and Canonical Forms",
       "priority": "P2",
       "path": "subjects/discrete-mathematics/propositional-logic/cnf-dnf-normal-forms.json",
-      "transcript_status": "PARTIAL",
+      "transcript_status": "not stated",
       "mock": {
         "subject": "discrete-mathematics",
         "unit_slug": "propositional-logic",
@@ -699,8 +699,8 @@
       "visual": null,
       "evidence": [
         "notes content/index.json -> map[].path = subjects/discrete-mathematics/propositional-logic/cnf-dnf-normal-forms.json",
-        "mock: discrete-mathematics/question-bank/master_bank.json -> questions[] grouped by unit_slug/subtopic_label, count 50",
-        "visual: no published lesson transcript covers this subtopic"
+        "mock: discrete-mathematics master_bank.json unit 1 (propositional-logic), 50 records grouped by subtopic_label; paper https://gate-cse-mocks.vercel.app/discrete-mathematics/propositional-logic/gate_dm_mock_1_2026-10-25.html",
+        "visual: no published lesson covers this card at subtopic level"
       ],
       "row_verdict": "MOCK_ONLY"
     },
@@ -711,7 +711,7 @@
       "title": "Satisfiability, Validity and Falsifiability",
       "priority": "P1",
       "path": "subjects/discrete-mathematics/propositional-logic/satisfiability-and-validity.json",
-      "transcript_status": "PARTIAL",
+      "transcript_status": "not stated",
       "mock": {
         "subject": "discrete-mathematics",
         "unit_slug": "propositional-logic",
@@ -737,8 +737,8 @@
       },
       "evidence": [
         "notes content/index.json -> map[].path = subjects/discrete-mathematics/propositional-logic/satisfiability-and-validity.json",
-        "mock: discrete-mathematics/question-bank/master_bank.json -> questions[] grouped by unit_slug/subtopic_label, count 50",
-        "visual: topics/propositional-logic/transcript.md scene list, covers checked against transcript text"
+        "mock: discrete-mathematics master_bank.json unit 1 (propositional-logic), 50 records grouped by subtopic_label; paper https://gate-cse-mocks.vercel.app/discrete-mathematics/propositional-logic/gate_dm_mock_1_2026-10-25.html",
+        "visual: syllabus-coverage.json lesson_slug propositional-logic (PUBLISHED); covers checked against topics/propositional-logic/transcript.md scene list"
       ],
       "row_verdict": "BOTH"
     },
@@ -749,7 +749,7 @@
       "title": "Interpretations, Models and Logical Entailment",
       "priority": "P1",
       "path": "subjects/discrete-mathematics/propositional-logic/logical-entailment-and-models.json",
-      "transcript_status": "PARTIAL",
+      "transcript_status": "not stated",
       "mock": {
         "subject": "discrete-mathematics",
         "unit_slug": "propositional-logic",
@@ -775,8 +775,8 @@
       },
       "evidence": [
         "notes content/index.json -> map[].path = subjects/discrete-mathematics/propositional-logic/logical-entailment-and-models.json",
-        "mock: discrete-mathematics/question-bank/master_bank.json -> questions[] grouped by unit_slug/subtopic_label, count 50",
-        "visual: topics/propositional-logic/transcript.md scene list, covers checked against transcript text"
+        "mock: discrete-mathematics master_bank.json unit 1 (propositional-logic), 50 records grouped by subtopic_label; paper https://gate-cse-mocks.vercel.app/discrete-mathematics/propositional-logic/gate_dm_mock_1_2026-10-25.html",
+        "visual: syllabus-coverage.json lesson_slug propositional-logic (PUBLISHED); covers checked against topics/propositional-logic/transcript.md scene list"
       ],
       "row_verdict": "BOTH"
     },
@@ -787,7 +787,7 @@
       "title": "Rules of Inference and Argument Validity",
       "priority": "P1",
       "path": "subjects/discrete-mathematics/propositional-logic/rules-of-inference.json",
-      "transcript_status": "PARTIAL",
+      "transcript_status": "not stated",
       "mock": {
         "subject": "discrete-mathematics",
         "unit_slug": "propositional-logic",
@@ -813,8 +813,8 @@
       },
       "evidence": [
         "notes content/index.json -> map[].path = subjects/discrete-mathematics/propositional-logic/rules-of-inference.json",
-        "mock: discrete-mathematics/question-bank/master_bank.json -> questions[] grouped by unit_slug/subtopic_label, count 50",
-        "visual: topics/propositional-logic/transcript.md scene list, covers checked against transcript text"
+        "mock: discrete-mathematics master_bank.json unit 1 (propositional-logic), 50 records grouped by subtopic_label; paper https://gate-cse-mocks.vercel.app/discrete-mathematics/propositional-logic/gate_dm_mock_1_2026-10-25.html",
+        "visual: syllabus-coverage.json lesson_slug propositional-logic (PUBLISHED); covers checked against topics/propositional-logic/transcript.md scene list"
       ],
       "row_verdict": "BOTH"
     },
@@ -825,7 +825,7 @@
       "title": "Resolution and Proof by Refutation",
       "priority": "P2",
       "path": "subjects/discrete-mathematics/propositional-logic/resolution-refutation.json",
-      "transcript_status": "PARTIAL",
+      "transcript_status": "not stated",
       "mock": {
         "subject": "discrete-mathematics",
         "unit_slug": "propositional-logic",
@@ -845,8 +845,8 @@
       "visual": null,
       "evidence": [
         "notes content/index.json -> map[].path = subjects/discrete-mathematics/propositional-logic/resolution-refutation.json",
-        "mock: discrete-mathematics/question-bank/master_bank.json -> questions[] grouped by unit_slug/subtopic_label, count 50",
-        "visual: no published lesson transcript covers this subtopic"
+        "mock: discrete-mathematics master_bank.json unit 1 (propositional-logic), 50 records grouped by subtopic_label; paper https://gate-cse-mocks.vercel.app/discrete-mathematics/propositional-logic/gate_dm_mock_1_2026-10-25.html",
+        "visual: no published lesson covers this card at subtopic level"
       ],
       "row_verdict": "MOCK_ONLY"
     },
@@ -857,7 +857,7 @@
       "title": "Functional Completeness of Connectives",
       "priority": "P2",
       "path": "subjects/discrete-mathematics/propositional-logic/functional-completeness.json",
-      "transcript_status": "PARTIAL",
+      "transcript_status": "not stated",
       "mock": {
         "subject": "discrete-mathematics",
         "unit_slug": "propositional-logic",
@@ -877,8 +877,8 @@
       "visual": null,
       "evidence": [
         "notes content/index.json -> map[].path = subjects/discrete-mathematics/propositional-logic/functional-completeness.json",
-        "mock: discrete-mathematics/question-bank/master_bank.json -> questions[] grouped by unit_slug/subtopic_label, count 50",
-        "visual: no published lesson transcript covers this subtopic"
+        "mock: discrete-mathematics master_bank.json unit 1 (propositional-logic), 50 records grouped by subtopic_label; paper https://gate-cse-mocks.vercel.app/discrete-mathematics/propositional-logic/gate_dm_mock_1_2026-10-25.html",
+        "visual: no published lesson covers this card at subtopic level"
       ],
       "row_verdict": "MOCK_ONLY"
     },
@@ -889,7 +889,7 @@
       "title": "Quantifiers, Scope and Translation",
       "priority": "P2",
       "path": "subjects/discrete-mathematics/propositional-logic/quantifiers-and-scope.json",
-      "transcript_status": "PARTIAL",
+      "transcript_status": "not stated",
       "mock": {
         "subject": "discrete-mathematics",
         "unit_slug": "predicate-logic",
@@ -914,8 +914,8 @@
       },
       "evidence": [
         "notes content/index.json -> map[].path = subjects/discrete-mathematics/propositional-logic/quantifiers-and-scope.json",
-        "mock: discrete-mathematics/question-bank/master_bank.json -> questions[] grouped by unit_slug/subtopic_label, count 50",
-        "visual: topics/first-order-logic/transcript.md scene list, covers checked against transcript text"
+        "mock: discrete-mathematics master_bank.json unit 2 (predicate-logic), 50 records grouped by subtopic_label; paper https://gate-cse-mocks.vercel.app/discrete-mathematics/predicate-logic/gate_dm_mock_2_2026-10-25.html",
+        "visual: syllabus-coverage.json lesson_slug first-order-logic (PUBLISHED); covers checked against topics/first-order-logic/transcript.md scene list"
       ],
       "row_verdict": "BOTH"
     },
@@ -926,7 +926,7 @@
       "title": "By-Case and Simplification Methods",
       "priority": "P1",
       "path": "subjects/discrete-mathematics/propositional-logic/fast-methods-by-case-and-simplification.json",
-      "transcript_status": "PARTIAL",
+      "transcript_status": "not stated",
       "mock": {
         "subject": "discrete-mathematics",
         "unit_slug": "propositional-logic",
@@ -952,8 +952,8 @@
       },
       "evidence": [
         "notes content/index.json -> map[].path = subjects/discrete-mathematics/propositional-logic/fast-methods-by-case-and-simplification.json",
-        "mock: discrete-mathematics/question-bank/master_bank.json -> questions[] grouped by unit_slug/subtopic_label, count 50",
-        "visual: topics/propositional-logic/transcript.md scene list, covers checked against transcript text"
+        "mock: discrete-mathematics master_bank.json unit 1 (propositional-logic), 50 records grouped by subtopic_label; paper https://gate-cse-mocks.vercel.app/discrete-mathematics/propositional-logic/gate_dm_mock_1_2026-10-25.html",
+        "visual: syllabus-coverage.json lesson_slug propositional-logic (PUBLISHED); covers checked against topics/propositional-logic/transcript.md scene list"
       ],
       "row_verdict": "BOTH"
     },
@@ -964,7 +964,7 @@
       "title": "Predicates, Variables and Quantifiers",
       "priority": "P1",
       "path": "subjects/discrete-mathematics/first-order-logic/fol-syntax-predicates-and-quantifiers.json",
-      "transcript_status": "PARTIAL",
+      "transcript_status": "not stated",
       "mock": {
         "subject": "discrete-mathematics",
         "unit_slug": "predicate-logic",
@@ -989,8 +989,8 @@
       },
       "evidence": [
         "notes content/index.json -> map[].path = subjects/discrete-mathematics/first-order-logic/fol-syntax-predicates-and-quantifiers.json",
-        "mock: discrete-mathematics/question-bank/master_bank.json -> questions[] grouped by unit_slug/subtopic_label, count 50",
-        "visual: topics/first-order-logic/transcript.md scene list, covers checked against transcript text"
+        "mock: discrete-mathematics master_bank.json unit 2 (predicate-logic), 50 records grouped by subtopic_label; paper https://gate-cse-mocks.vercel.app/discrete-mathematics/predicate-logic/gate_dm_mock_2_2026-10-25.html",
+        "visual: syllabus-coverage.json lesson_slug first-order-logic (PUBLISHED); covers checked against topics/first-order-logic/transcript.md scene list"
       ],
       "row_verdict": "BOTH"
     },
@@ -1001,7 +1001,7 @@
       "title": "English to First-Order Logic: the Sentence Templates",
       "priority": "P1",
       "path": "subjects/discrete-mathematics/first-order-logic/english-to-fol-translation-templates.json",
-      "transcript_status": "PARTIAL",
+      "transcript_status": "not stated",
       "mock": {
         "subject": "discrete-mathematics",
         "unit_slug": "predicate-logic",
@@ -1026,8 +1026,8 @@
       },
       "evidence": [
         "notes content/index.json -> map[].path = subjects/discrete-mathematics/first-order-logic/english-to-fol-translation-templates.json",
-        "mock: discrete-mathematics/question-bank/master_bank.json -> questions[] grouped by unit_slug/subtopic_label, count 50",
-        "visual: topics/first-order-logic/transcript.md scene list, covers checked against transcript text"
+        "mock: discrete-mathematics master_bank.json unit 2 (predicate-logic), 50 records grouped by subtopic_label; paper https://gate-cse-mocks.vercel.app/discrete-mathematics/predicate-logic/gate_dm_mock_2_2026-10-25.html",
+        "visual: syllabus-coverage.json lesson_slug first-order-logic (PUBLISHED); covers checked against topics/first-order-logic/transcript.md scene list"
       ],
       "row_verdict": "BOTH"
     },
@@ -1038,7 +1038,7 @@
       "title": "Quantifier Order: for all x there exists y versus there exists y for all x",
       "priority": "P1",
       "path": "subjects/discrete-mathematics/first-order-logic/quantifier-order-and-nesting.json",
-      "transcript_status": "PARTIAL",
+      "transcript_status": "not stated",
       "mock": {
         "subject": "discrete-mathematics",
         "unit_slug": "predicate-logic",
@@ -1063,8 +1063,8 @@
       },
       "evidence": [
         "notes content/index.json -> map[].path = subjects/discrete-mathematics/first-order-logic/quantifier-order-and-nesting.json",
-        "mock: discrete-mathematics/question-bank/master_bank.json -> questions[] grouped by unit_slug/subtopic_label, count 50",
-        "visual: topics/first-order-logic/transcript.md scene list, covers checked against transcript text"
+        "mock: discrete-mathematics master_bank.json unit 2 (predicate-logic), 50 records grouped by subtopic_label; paper https://gate-cse-mocks.vercel.app/discrete-mathematics/predicate-logic/gate_dm_mock_2_2026-10-25.html",
+        "visual: syllabus-coverage.json lesson_slug first-order-logic (PUBLISHED); covers checked against topics/first-order-logic/transcript.md scene list"
       ],
       "row_verdict": "BOTH"
     },
@@ -1075,7 +1075,7 @@
       "title": "Interpretation, Model and Validity",
       "priority": "P1",
       "path": "subjects/discrete-mathematics/first-order-logic/fol-interpretation-model-and-validity.json",
-      "transcript_status": "PARTIAL",
+      "transcript_status": "not stated",
       "mock": {
         "subject": "discrete-mathematics",
         "unit_slug": "predicate-logic",
@@ -1100,8 +1100,8 @@
       },
       "evidence": [
         "notes content/index.json -> map[].path = subjects/discrete-mathematics/first-order-logic/fol-interpretation-model-and-validity.json",
-        "mock: discrete-mathematics/question-bank/master_bank.json -> questions[] grouped by unit_slug/subtopic_label, count 50",
-        "visual: topics/first-order-logic/transcript.md scene list, covers checked against transcript text"
+        "mock: discrete-mathematics master_bank.json unit 2 (predicate-logic), 50 records grouped by subtopic_label; paper https://gate-cse-mocks.vercel.app/discrete-mathematics/predicate-logic/gate_dm_mock_2_2026-10-25.html",
+        "visual: syllabus-coverage.json lesson_slug first-order-logic (PUBLISHED); covers checked against topics/first-order-logic/transcript.md scene list"
       ],
       "row_verdict": "BOTH"
     },
@@ -1137,8 +1137,8 @@
       },
       "evidence": [
         "notes content/index.json -> map[].path = subjects/discrete-mathematics/first-order-logic/quantifier-negation-and-equivalence.json",
-        "mock: discrete-mathematics/question-bank/master_bank.json -> questions[] grouped by unit_slug/subtopic_label, count 50",
-        "visual: topics/first-order-logic/transcript.md scene list, covers checked against transcript text"
+        "mock: discrete-mathematics master_bank.json unit 2 (predicate-logic), 50 records grouped by subtopic_label; paper https://gate-cse-mocks.vercel.app/discrete-mathematics/predicate-logic/gate_dm_mock_2_2026-10-25.html",
+        "visual: syllabus-coverage.json lesson_slug first-order-logic (PUBLISHED); covers checked against topics/first-order-logic/transcript.md scene list"
       ],
       "row_verdict": "BOTH"
     },
@@ -1149,7 +1149,7 @@
       "title": "Validity, Implication and the Two-Element Countermodel",
       "priority": "P1",
       "path": "subjects/discrete-mathematics/first-order-logic/fol-validity-and-implication.json",
-      "transcript_status": "PARTIAL",
+      "transcript_status": "not stated",
       "mock": {
         "subject": "discrete-mathematics",
         "unit_slug": "predicate-logic",
@@ -1174,8 +1174,8 @@
       },
       "evidence": [
         "notes content/index.json -> map[].path = subjects/discrete-mathematics/first-order-logic/fol-validity-and-implication.json",
-        "mock: discrete-mathematics/question-bank/master_bank.json -> questions[] grouped by unit_slug/subtopic_label, count 50",
-        "visual: topics/first-order-logic/transcript.md scene list, covers checked against transcript text"
+        "mock: discrete-mathematics master_bank.json unit 2 (predicate-logic), 50 records grouped by subtopic_label; paper https://gate-cse-mocks.vercel.app/discrete-mathematics/predicate-logic/gate_dm_mock_2_2026-10-25.html",
+        "visual: syllabus-coverage.json lesson_slug first-order-logic (PUBLISHED); covers checked against topics/first-order-logic/transcript.md scene list"
       ],
       "row_verdict": "BOTH"
     },
@@ -1186,7 +1186,7 @@
       "title": "Tautology versus Validity in First-Order Logic",
       "priority": "P2",
       "path": "subjects/discrete-mathematics/first-order-logic/fol-tautology-vs-validity.json",
-      "transcript_status": "PARTIAL",
+      "transcript_status": "not stated",
       "mock": {
         "subject": "discrete-mathematics",
         "unit_slug": "predicate-logic",
@@ -1205,8 +1205,8 @@
       "visual": null,
       "evidence": [
         "notes content/index.json -> map[].path = subjects/discrete-mathematics/first-order-logic/fol-tautology-vs-validity.json",
-        "mock: discrete-mathematics/question-bank/master_bank.json -> questions[] grouped by unit_slug/subtopic_label, count 50",
-        "visual: no published lesson transcript covers this subtopic"
+        "mock: discrete-mathematics master_bank.json unit 2 (predicate-logic), 50 records grouped by subtopic_label; paper https://gate-cse-mocks.vercel.app/discrete-mathematics/predicate-logic/gate_dm_mock_2_2026-10-25.html",
+        "visual: no published lesson covers this card at subtopic level"
       ],
       "row_verdict": "MOCK_ONLY"
     },
@@ -1236,8 +1236,8 @@
       "visual": null,
       "evidence": [
         "notes content/index.json -> map[].path = subjects/discrete-mathematics/first-order-logic/fol-exactly-one-and-uniqueness.json",
-        "mock: discrete-mathematics/question-bank/master_bank.json -> questions[] grouped by unit_slug/subtopic_label, count 50",
-        "visual: no published lesson transcript covers this subtopic"
+        "mock: discrete-mathematics master_bank.json unit 2 (predicate-logic), 50 records grouped by subtopic_label; paper https://gate-cse-mocks.vercel.app/discrete-mathematics/predicate-logic/gate_dm_mock_2_2026-10-25.html",
+        "visual: no published lesson covers this card at subtopic level"
       ],
       "row_verdict": "MOCK_ONLY"
     },
@@ -1273,8 +1273,8 @@
       },
       "evidence": [
         "notes content/index.json -> map[].path = subjects/discrete-mathematics/first-order-logic/fol-model-size-and-countermodels.json",
-        "mock: discrete-mathematics/question-bank/master_bank.json -> questions[] grouped by unit_slug/subtopic_label, count 50",
-        "visual: topics/first-order-logic/transcript.md scene list, covers checked against transcript text"
+        "mock: discrete-mathematics master_bank.json unit 2 (predicate-logic), 50 records grouped by subtopic_label; paper https://gate-cse-mocks.vercel.app/discrete-mathematics/predicate-logic/gate_dm_mock_2_2026-10-25.html",
+        "visual: syllabus-coverage.json lesson_slug first-order-logic (PUBLISHED); covers checked against topics/first-order-logic/transcript.md scene list"
       ],
       "row_verdict": "BOTH"
     },
@@ -1304,10 +1304,415 @@
       "visual": null,
       "evidence": [
         "notes content/index.json -> map[].path = subjects/discrete-mathematics/first-order-logic/fol-quantifier-inference-rules.json",
-        "mock: discrete-mathematics/question-bank/master_bank.json -> questions[] grouped by unit_slug/subtopic_label, count 50",
-        "visual: no published lesson transcript covers this subtopic"
+        "mock: discrete-mathematics master_bank.json unit 2 (predicate-logic), 50 records grouped by subtopic_label; paper https://gate-cse-mocks.vercel.app/discrete-mathematics/predicate-logic/gate_dm_mock_2_2026-10-25.html",
+        "visual: no published lesson covers this card at subtopic level"
       ],
       "row_verdict": "MOCK_ONLY"
+    },
+    {
+      "subject": "discrete-mathematics",
+      "group": "sets-relations-functions",
+      "topic": "sets-elements-subsets-cardinality",
+      "title": "Sets, Elements, Subsets and Cardinality",
+      "priority": "P1",
+      "path": "subjects/discrete-mathematics/sets-relations-functions/sets-elements-subsets-cardinality.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "discrete-mathematics",
+        "unit_slug": "set-theory",
+        "unit_name": "Set Theory",
+        "unit_number": 3,
+        "question_count": 50,
+        "subtopic_labels": [
+          "Subsets & power sets",
+          "Cardinality",
+          "Set algebra & De Morgan",
+          "Inclusion-exclusion",
+          "Partitions & Cartesian products"
+        ],
+        "verdict": "MOCK_READY"
+      },
+      "visual": {
+        "slug": "sets-and-set-operations",
+        "title": "Sets and set operations",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/discrete-mathematics/sets-relations-functions/sets-elements-subsets-cardinality.json",
+        "mock: discrete-mathematics master_bank.json unit 3 (set-theory), 50 records grouped by subtopic_label; paper https://gate-cse-mocks.vercel.app/discrete-mathematics/set-theory/gate_dm_mock_3_2026-10-25.html",
+        "visual: syllabus-coverage.json lesson_slug sets-and-set-operations (PUBLISHED); covers checked against topics/sets-and-set-operations/transcript.md scene list"
+      ],
+      "row_verdict": "BOTH"
+    },
+    {
+      "subject": "discrete-mathematics",
+      "group": "sets-relations-functions",
+      "topic": "power-set-and-its-size",
+      "title": "Power Set and Counting Subsets",
+      "priority": "P1",
+      "path": "subjects/discrete-mathematics/sets-relations-functions/power-set-and-its-size.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "discrete-mathematics",
+        "unit_slug": "set-theory",
+        "unit_name": "Set Theory",
+        "unit_number": 3,
+        "question_count": 50,
+        "subtopic_labels": [
+          "Subsets & power sets",
+          "Cardinality",
+          "Set algebra & De Morgan",
+          "Inclusion-exclusion",
+          "Partitions & Cartesian products"
+        ],
+        "verdict": "MOCK_READY"
+      },
+      "visual": {
+        "slug": "sets-and-set-operations",
+        "title": "Sets and set operations",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/discrete-mathematics/sets-relations-functions/power-set-and-its-size.json",
+        "mock: discrete-mathematics master_bank.json unit 3 (set-theory), 50 records grouped by subtopic_label; paper https://gate-cse-mocks.vercel.app/discrete-mathematics/set-theory/gate_dm_mock_3_2026-10-25.html",
+        "visual: syllabus-coverage.json lesson_slug sets-and-set-operations (PUBLISHED); covers checked against topics/sets-and-set-operations/transcript.md scene list"
+      ],
+      "row_verdict": "BOTH"
+    },
+    {
+      "subject": "discrete-mathematics",
+      "group": "sets-relations-functions",
+      "topic": "set-operations-and-identities",
+      "title": "Set Operations and Set Identities",
+      "priority": "P1",
+      "path": "subjects/discrete-mathematics/sets-relations-functions/set-operations-and-identities.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "discrete-mathematics",
+        "unit_slug": "set-theory",
+        "unit_name": "Set Theory",
+        "unit_number": 3,
+        "question_count": 50,
+        "subtopic_labels": [
+          "Subsets & power sets",
+          "Cardinality",
+          "Set algebra & De Morgan",
+          "Inclusion-exclusion",
+          "Partitions & Cartesian products"
+        ],
+        "verdict": "MOCK_READY"
+      },
+      "visual": {
+        "slug": "sets-and-set-operations",
+        "title": "Sets and set operations",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/discrete-mathematics/sets-relations-functions/set-operations-and-identities.json",
+        "mock: discrete-mathematics master_bank.json unit 3 (set-theory), 50 records grouped by subtopic_label; paper https://gate-cse-mocks.vercel.app/discrete-mathematics/set-theory/gate_dm_mock_3_2026-10-25.html",
+        "visual: syllabus-coverage.json lesson_slug sets-and-set-operations (PUBLISHED); covers checked against topics/sets-and-set-operations/transcript.md scene list"
+      ],
+      "row_verdict": "BOTH"
+    },
+    {
+      "subject": "discrete-mathematics",
+      "group": "sets-relations-functions",
+      "topic": "cartesian-product",
+      "title": "Ordered Pairs and the Cartesian Product",
+      "priority": "P1",
+      "path": "subjects/discrete-mathematics/sets-relations-functions/cartesian-product.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "discrete-mathematics",
+        "unit_slug": "set-theory",
+        "unit_name": "Set Theory",
+        "unit_number": 3,
+        "question_count": 50,
+        "subtopic_labels": [
+          "Subsets & power sets",
+          "Cardinality",
+          "Set algebra & De Morgan",
+          "Inclusion-exclusion",
+          "Partitions & Cartesian products"
+        ],
+        "verdict": "MOCK_READY"
+      },
+      "visual": {
+        "slug": "sets-and-set-operations",
+        "title": "Sets and set operations",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/discrete-mathematics/sets-relations-functions/cartesian-product.json",
+        "mock: discrete-mathematics master_bank.json unit 3 (set-theory), 50 records grouped by subtopic_label; paper https://gate-cse-mocks.vercel.app/discrete-mathematics/set-theory/gate_dm_mock_3_2026-10-25.html",
+        "visual: syllabus-coverage.json lesson_slug sets-and-set-operations (PUBLISHED); covers checked against topics/sets-and-set-operations/transcript.md scene list"
+      ],
+      "row_verdict": "BOTH"
+    },
+    {
+      "subject": "discrete-mathematics",
+      "group": "sets-relations-functions",
+      "topic": "countable-and-uncountable-sets",
+      "title": "Countable and Uncountable Sets",
+      "priority": "P2",
+      "path": "subjects/discrete-mathematics/sets-relations-functions/countable-and-uncountable-sets.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "discrete-mathematics",
+        "unit_slug": "set-theory",
+        "unit_name": "Set Theory",
+        "unit_number": 3,
+        "question_count": 50,
+        "subtopic_labels": [
+          "Subsets & power sets",
+          "Cardinality",
+          "Set algebra & De Morgan",
+          "Inclusion-exclusion",
+          "Partitions & Cartesian products"
+        ],
+        "verdict": "MOCK_READY"
+      },
+      "visual": null,
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/discrete-mathematics/sets-relations-functions/countable-and-uncountable-sets.json",
+        "mock: discrete-mathematics master_bank.json unit 3 (set-theory), 50 records grouped by subtopic_label; paper https://gate-cse-mocks.vercel.app/discrete-mathematics/set-theory/gate_dm_mock_3_2026-10-25.html",
+        "visual: no published lesson covers this card at subtopic level"
+      ],
+      "row_verdict": "MOCK_ONLY"
+    },
+    {
+      "subject": "discrete-mathematics",
+      "group": "sets-relations-functions",
+      "topic": "relation-definition-and-counting",
+      "title": "Relations as Subsets, and Counting Them",
+      "priority": "P1",
+      "path": "subjects/discrete-mathematics/sets-relations-functions/relation-definition-and-counting.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "discrete-mathematics",
+        "unit_slug": "relations",
+        "unit_name": "Relations",
+        "unit_number": 4,
+        "question_count": 50,
+        "subtopic_labels": [
+          "Relation properties",
+          "Equivalence relations & classes",
+          "Partial orders & Hasse diagrams",
+          "Lattices in posets",
+          "Composition & transitive closure",
+          "Counting relations"
+        ],
+        "verdict": "MOCK_READY"
+      },
+      "visual": {
+        "slug": "relations-and-their-properties",
+        "title": "Relations and their properties",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/discrete-mathematics/sets-relations-functions/relation-definition-and-counting.json",
+        "mock: discrete-mathematics master_bank.json unit 4 (relations), 50 records grouped by subtopic_label; paper https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html",
+        "visual: syllabus-coverage.json lesson_slug relations-and-their-properties (PUBLISHED); covers checked against topics/relations-and-their-properties/transcript.md scene list"
+      ],
+      "row_verdict": "BOTH"
+    },
+    {
+      "subject": "discrete-mathematics",
+      "group": "sets-relations-functions",
+      "topic": "relation-properties-reflexive-symmetric-antisymmetric",
+      "title": "Reflexive, Symmetric, Antisymmetric and Asymmetric Relations",
+      "priority": "P1",
+      "path": "subjects/discrete-mathematics/sets-relations-functions/relation-properties-reflexive-symmetric-antisymmetric.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "discrete-mathematics",
+        "unit_slug": "relations",
+        "unit_name": "Relations",
+        "unit_number": 4,
+        "question_count": 50,
+        "subtopic_labels": [
+          "Relation properties",
+          "Equivalence relations & classes",
+          "Partial orders & Hasse diagrams",
+          "Lattices in posets",
+          "Composition & transitive closure",
+          "Counting relations"
+        ],
+        "verdict": "MOCK_READY"
+      },
+      "visual": {
+        "slug": "relations-and-their-properties",
+        "title": "Relations and their properties",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/discrete-mathematics/sets-relations-functions/relation-properties-reflexive-symmetric-antisymmetric.json",
+        "mock: discrete-mathematics master_bank.json unit 4 (relations), 50 records grouped by subtopic_label; paper https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html",
+        "visual: syllabus-coverage.json lesson_slug relations-and-their-properties (PUBLISHED); covers checked against topics/relations-and-their-properties/transcript.md scene list"
+      ],
+      "row_verdict": "BOTH"
+    },
+    {
+      "subject": "discrete-mathematics",
+      "group": "sets-relations-functions",
+      "topic": "transitivity-and-closure",
+      "title": "Transitivity, Transitive Closure and Warshall",
+      "priority": "P1",
+      "path": "subjects/discrete-mathematics/sets-relations-functions/transitivity-and-closure.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "discrete-mathematics",
+        "unit_slug": "relations",
+        "unit_name": "Relations",
+        "unit_number": 4,
+        "question_count": 50,
+        "subtopic_labels": [
+          "Relation properties",
+          "Equivalence relations & classes",
+          "Partial orders & Hasse diagrams",
+          "Lattices in posets",
+          "Composition & transitive closure",
+          "Counting relations"
+        ],
+        "verdict": "MOCK_READY"
+      },
+      "visual": {
+        "slug": "relations-and-their-properties",
+        "title": "Relations and their properties",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/discrete-mathematics/sets-relations-functions/transitivity-and-closure.json",
+        "mock: discrete-mathematics master_bank.json unit 4 (relations), 50 records grouped by subtopic_label; paper https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html",
+        "visual: syllabus-coverage.json lesson_slug relations-and-their-properties (PUBLISHED); covers checked against topics/relations-and-their-properties/transcript.md scene list"
+      ],
+      "row_verdict": "BOTH"
+    },
+    {
+      "subject": "discrete-mathematics",
+      "group": "sets-relations-functions",
+      "topic": "equivalence-relations-and-partitions",
+      "title": "Equivalence Relations, Classes and Partitions",
+      "priority": "P1",
+      "path": "subjects/discrete-mathematics/sets-relations-functions/equivalence-relations-and-partitions.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "discrete-mathematics",
+        "unit_slug": "relations",
+        "unit_name": "Relations",
+        "unit_number": 4,
+        "question_count": 50,
+        "subtopic_labels": [
+          "Relation properties",
+          "Equivalence relations & classes",
+          "Partial orders & Hasse diagrams",
+          "Lattices in posets",
+          "Composition & transitive closure",
+          "Counting relations"
+        ],
+        "verdict": "MOCK_READY"
+      },
+      "visual": {
+        "slug": "relations-and-their-properties",
+        "title": "Relations and their properties",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/discrete-mathematics/sets-relations-functions/equivalence-relations-and-partitions.json",
+        "mock: discrete-mathematics master_bank.json unit 4 (relations), 50 records grouped by subtopic_label; paper https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html",
+        "visual: syllabus-coverage.json lesson_slug relations-and-their-properties (PUBLISHED); covers checked against topics/relations-and-their-properties/transcript.md scene list"
+      ],
+      "row_verdict": "BOTH"
+    },
+    {
+      "subject": "discrete-mathematics",
+      "group": "sets-relations-functions",
+      "topic": "functions-counting-injective-surjective",
+      "title": "Functions: Counting, Injections, Surjections and Bijections",
+      "priority": "P1",
+      "path": "subjects/discrete-mathematics/sets-relations-functions/functions-counting-injective-surjective.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "discrete-mathematics",
+        "unit_slug": "functions",
+        "unit_name": "Functions",
+        "unit_number": 5,
+        "question_count": 50,
+        "subtopic_labels": [
+          "Injective / surjective / bijective",
+          "Composition & inverses",
+          "Counting functions",
+          "Pigeonhole principle",
+          "Floor, ceiling & recursion"
+        ],
+        "verdict": "MOCK_READY"
+      },
+      "visual": {
+        "slug": "functions-and-their-properties",
+        "title": "Functions and their properties",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/discrete-mathematics/sets-relations-functions/functions-counting-injective-surjective.json",
+        "mock: discrete-mathematics master_bank.json unit 5 (functions), 50 records grouped by subtopic_label; paper https://gate-cse-mocks.vercel.app/discrete-mathematics/functions/gate_dm_mock_5_2026-10-26.html",
+        "visual: syllabus-coverage.json lesson_slug functions-and-their-properties (PUBLISHED); covers checked against topics/functions-and-their-properties/transcript.md scene list"
+      ],
+      "row_verdict": "BOTH"
+    },
+    {
+      "subject": "discrete-mathematics",
+      "group": "sets-relations-functions",
+      "topic": "composition-and-inverse-functions",
+      "title": "Composition and Inverse Functions",
+      "priority": "P2",
+      "path": "subjects/discrete-mathematics/sets-relations-functions/composition-and-inverse-functions.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "discrete-mathematics",
+        "unit_slug": "functions",
+        "unit_name": "Functions",
+        "unit_number": 5,
+        "question_count": 50,
+        "subtopic_labels": [
+          "Injective / surjective / bijective",
+          "Composition & inverses",
+          "Counting functions",
+          "Pigeonhole principle",
+          "Floor, ceiling & recursion"
+        ],
+        "verdict": "MOCK_READY"
+      },
+      "visual": {
+        "slug": "functions-and-their-properties",
+        "title": "Functions and their properties",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/discrete-mathematics/sets-relations-functions/composition-and-inverse-functions.json",
+        "mock: discrete-mathematics master_bank.json unit 5 (functions), 50 records grouped by subtopic_label; paper https://gate-cse-mocks.vercel.app/discrete-mathematics/functions/gate_dm_mock_5_2026-10-26.html",
+        "visual: syllabus-coverage.json lesson_slug functions-and-their-properties (PUBLISHED); covers checked against topics/functions-and-their-properties/transcript.md scene list"
+      ],
+      "row_verdict": "BOTH"
     }
   ],
   "gaps": [
@@ -1525,6 +1930,36 @@
       "kind": "notes",
       "placement": "engineering-mathematics › linear-algebra › (no card)",
       "detail": "New lesson topics/matrices-systems-and-eigenvalues (added 2026-10-28, syllabus-coverage.json coverage_status PUBLISHED, 7 subtopics and 25 microtopics, 10 scenes in transcript.md) covers determinants, rank and nullity, systems decided by rank comparison, LU and PA=LU, and eigenvalues with diagonalisation. It serves no notes card: the notes repo has no engineering-mathematics subject, and no discrete-mathematics card matches its vocabulary. Placement: engineering-mathematics › linear-algebra › matrices-systems-and-eigenvalues. Recommendation: write the first engineering-mathematics card at content/subjects/engineering-mathematics/linear-algebra/matrices-systems-and-eigenvalues.json, paired with mock unit linear-algebra-matrices (50 records in master_bank.json) and the lesson that already exists."
+    },
+    {
+      "kind": "notes",
+      "placement": "operating-systems › memory-paging › (no card)",
+      "detail": "Mock unit 4 \"Memory Management & Paging\" (unit_slug memory-paging) now holds 50 questions at the 50-question cap, grouped by subtopic slug: contiguous-allocation-first-best-worst-fit 13, paging-page-table-structures 13, inverted-page-tables 12, segmented-paging 12. The notes carry no operating-systems card at all, so the unit serves nothing. Write the notes cards before extending this unit."
+    },
+    {
+      "kind": "notes",
+      "placement": "compiler-design › sdt-intermediate-code › (no card)",
+      "detail": "Mock unit 4 \"Syntax-Directed Translation & Intermediate Code\" (unit_slug sdt-intermediate-code) holds 25 questions over 4 subtopic slugs: s-attributed-vs-l-attributed-definitions 7, three-address-code-quadruples-triples 7, syntax-trees-dags 6, type-checking 5. No compiler-design card exists in the notes."
+    },
+    {
+      "kind": "notes",
+      "placement": "compiler-design › runtime-environments › (no card)",
+      "detail": "Lesson topics/runtime-environments-intermediate-code-and-optimisation (PUBLISHED 2026-10-28) covers activation records, scoping, parameter passing, three-address code, basic blocks, the DAG, liveness and available expressions. It serves no notes card because the notes hold no compiler-design topic."
+    },
+    {
+      "kind": "notes",
+      "placement": "general-aptitude › spatial-aptitude › (no card)",
+      "detail": "Lesson topics/spatial-aptitude (PUBLISHED 2026-10-28) covers transformations, paper folding and cutting, cube nets, symmetry order and tiling invariants. General Aptitude carries 15 of 100 marks and has no notes card; it is the largest unmapped area now."
+    },
+    {
+      "kind": "visual",
+      "placement": "discrete-mathematics › sets-relations-functions › countable-and-uncountable-sets",
+      "detail": "The card is MOCK_READY against set-theory unit 3 (its Cardinality group holds countable/uncountable items) but no published lesson covers countability: topics/sets-and-set-operations/transcript.md never mentions countable or uncountable. Extend that lesson with a countability scene rather than build a new one."
+    },
+    {
+      "kind": "mock",
+      "placement": "discrete-mathematics › combinatorics › ioib-partitions",
+      "detail": "Integer partitions (identical objects into identical boxes) is in no bank: no record in any master_bank.json uses that vocabulary, and unit 7 holds stars-and-bars (identical into distinct) only. The card also has no lesson: counting-and-combinatorics never says partition or Stirling. Add a subtopic_label group to combinatorics unit 7."
     }
   ]
 }

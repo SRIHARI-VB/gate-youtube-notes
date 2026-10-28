@@ -77,5 +77,48 @@
       "translated": false
     }
   ],
-  "sourceLine": "Power-set counting: Rosen ch. 2 (section on sets and their cardinalities) and the power-set remark in the IIT lecture (English, full transcript). Verified against GATE CS 2015 Set 2 Q.18 and GATE CS 1993 Q.8.4."
+  "sourceLine": "Power-set counting: Rosen ch. 2 (section on sets and their cardinalities) and the power-set remark in the IIT lecture (English, full transcript). Verified against GATE CS 2015 Set 2 Q.18 and GATE CS 1993 Q.8.4.",
+  "links": {
+    "mock": {
+      "subject": "discrete-mathematics",
+      "unit_slug": "set-theory",
+      "unit_name": "Set Theory",
+      "unit_number": 3,
+      "question_count": 50,
+      "subtopics": [
+        {
+          "label": "Subsets & power sets",
+          "questions": 10
+        },
+        {
+          "label": "Cardinality",
+          "questions": 10
+        },
+        {
+          "label": "Set algebra & De Morgan",
+          "questions": 10
+        },
+        {
+          "label": "Inclusion-exclusion",
+          "questions": 10
+        },
+        {
+          "label": "Partitions & Cartesian products",
+          "questions": 10
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/set-theory/gate_dm_mock_3_2026-10-25.html"
+    },
+    "visual": {
+      "slug": "sets-and-set-operations",
+      "title": "Sets and set operations",
+      "level": "topic-level",
+      "covers": [
+        "the power set and its size 2^n",
+        "every subset is a bit string"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/sets-and-set-operations/index.html"
+    },
+    "mapped_at": "2026-10-28"
+  }
 }

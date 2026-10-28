@@ -75,5 +75,49 @@
       "transcript": "N/A"
     }
   ],
-  "sourceLine": "Set basics, cardinality and the empty-set distinction: TrevTutor, Introduction to Set Theory (English, full transcript). Nested-set discipline and subset proofs: Rosen ch. 2."
+  "sourceLine": "Set basics, cardinality and the empty-set distinction: TrevTutor, Introduction to Set Theory (English, full transcript). Nested-set discipline and subset proofs: Rosen ch. 2.",
+  "links": {
+    "mock": {
+      "subject": "discrete-mathematics",
+      "unit_slug": "set-theory",
+      "unit_name": "Set Theory",
+      "unit_number": 3,
+      "question_count": 50,
+      "subtopics": [
+        {
+          "label": "Subsets & power sets",
+          "questions": 10
+        },
+        {
+          "label": "Cardinality",
+          "questions": 10
+        },
+        {
+          "label": "Set algebra & De Morgan",
+          "questions": 10
+        },
+        {
+          "label": "Inclusion-exclusion",
+          "questions": 10
+        },
+        {
+          "label": "Partitions & Cartesian products",
+          "questions": 10
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/set-theory/gate_dm_mock_3_2026-10-25.html"
+    },
+    "visual": {
+      "slug": "sets-and-set-operations",
+      "title": "Sets and set operations",
+      "level": "topic-level",
+      "covers": [
+        "membership, roster and set-builder form",
+        "the empty set and the sets that look like it",
+        "subset is an implication over the universe"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/sets-and-set-operations/index.html"
+    },
+    "mapped_at": "2026-10-28"
+  }
 }

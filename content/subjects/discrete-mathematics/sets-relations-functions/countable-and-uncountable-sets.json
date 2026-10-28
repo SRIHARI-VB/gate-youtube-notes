@@ -71,5 +71,38 @@
       "transcript": "N/A"
     }
   ],
-  "sourceLine": "Countability, the diagonal argument and the countable-union rule: Rosen ch. 2 (cardinality of sets) and Grimaldi ch. 3. No lecture transcript on countability was readable in this run, so this card rests on the standard references alone - recorded as a gap."
+  "sourceLine": "Countability, the diagonal argument and the countable-union rule: Rosen ch. 2 (cardinality of sets) and Grimaldi ch. 3. No lecture transcript on countability was readable in this run, so this card rests on the standard references alone - recorded as a gap.",
+  "links": {
+    "mock": {
+      "subject": "discrete-mathematics",
+      "unit_slug": "set-theory",
+      "unit_name": "Set Theory",
+      "unit_number": 3,
+      "question_count": 50,
+      "subtopics": [
+        {
+          "label": "Subsets & power sets",
+          "questions": 10
+        },
+        {
+          "label": "Cardinality",
+          "questions": 10
+        },
+        {
+          "label": "Set algebra & De Morgan",
+          "questions": 10
+        },
+        {
+          "label": "Inclusion-exclusion",
+          "questions": 10
+        },
+        {
+          "label": "Partitions & Cartesian products",
+          "questions": 10
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/set-theory/gate_dm_mock_3_2026-10-25.html"
+    },
+    "mapped_at": "2026-10-28"
+  }
 }

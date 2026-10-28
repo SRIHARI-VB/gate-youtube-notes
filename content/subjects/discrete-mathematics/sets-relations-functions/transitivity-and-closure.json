@@ -77,5 +77,52 @@
       "transcript": "N/A"
     }
   ],
-  "sourceLine": "Transitivity as a chain condition: IIT lecture Lec 02 (English, full transcript). Transitive closure, paths of length k and Warshall: Rosen ch. 9.4, the only source used for closures - recorded as a gap."
+  "sourceLine": "Transitivity as a chain condition: IIT lecture Lec 02 (English, full transcript). Transitive closure, paths of length k and Warshall: Rosen ch. 9.4, the only source used for closures - recorded as a gap.",
+  "links": {
+    "mock": {
+      "subject": "discrete-mathematics",
+      "unit_slug": "relations",
+      "unit_name": "Relations",
+      "unit_number": 4,
+      "question_count": 50,
+      "subtopics": [
+        {
+          "label": "Relation properties",
+          "questions": 9
+        },
+        {
+          "label": "Equivalence relations & classes",
+          "questions": 9
+        },
+        {
+          "label": "Partial orders & Hasse diagrams",
+          "questions": 8
+        },
+        {
+          "label": "Lattices in posets",
+          "questions": 8
+        },
+        {
+          "label": "Composition & transitive closure",
+          "questions": 8
+        },
+        {
+          "label": "Counting relations",
+          "questions": 8
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html"
+    },
+    "visual": {
+      "slug": "relations-and-their-properties",
+      "title": "Relations and their properties",
+      "level": "topic-level",
+      "covers": [
+        "transitive closes a two-step path with a one-step shortcut",
+        "the closure is the smallest relation that fixes the defect"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/relations-and-their-properties/index.html"
+    },
+    "mapped_at": "2026-10-28"
+  }
 }

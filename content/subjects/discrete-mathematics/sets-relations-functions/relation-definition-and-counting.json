@@ -88,5 +88,52 @@
       "transcript": "N/A"
     }
   ],
-  "sourceLine": "Relation as a subset of a product, with matrix and digraph representations: IIT lecture Lec 02 (English, full transcript). The counting question type and the ternary-relation variation: GO Classes Relations GATE PYQs Part 2 (English, opening readable only). Rosen ch. 9.1."
+  "sourceLine": "Relation as a subset of a product, with matrix and digraph representations: IIT lecture Lec 02 (English, full transcript). The counting question type and the ternary-relation variation: GO Classes Relations GATE PYQs Part 2 (English, opening readable only). Rosen ch. 9.1.",
+  "links": {
+    "mock": {
+      "subject": "discrete-mathematics",
+      "unit_slug": "relations",
+      "unit_name": "Relations",
+      "unit_number": 4,
+      "question_count": 50,
+      "subtopics": [
+        {
+          "label": "Relation properties",
+          "questions": 9
+        },
+        {
+          "label": "Equivalence relations & classes",
+          "questions": 9
+        },
+        {
+          "label": "Partial orders & Hasse diagrams",
+          "questions": 8
+        },
+        {
+          "label": "Lattices in posets",
+          "questions": 8
+        },
+        {
+          "label": "Composition & transitive closure",
+          "questions": 8
+        },
+        {
+          "label": "Counting relations",
+          "questions": 8
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html"
+    },
+    "visual": {
+      "slug": "relations-and-their-properties",
+      "title": "Relations and their properties",
+      "level": "topic-level",
+      "covers": [
+        "a relation is a set of ordered pairs, and nothing more",
+        "the counting table, every entry enumerated in code"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/relations-and-their-properties/index.html"
+    },
+    "mapped_at": "2026-10-28"
+  }
 }
