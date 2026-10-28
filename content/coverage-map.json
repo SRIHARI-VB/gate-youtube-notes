@@ -1456,6 +1456,16 @@
       "kind": "notes",
       "placement": "theory-of-computation › computability › turing-machines-and-undecidability",
       "detail": "New lesson topics/turing-machines-and-undecidability (added 2026-10-28; syllabus-coverage.json subject Theory of Computation, unit Computability, coverage_status PUBLISHED, lesson_slug turing-machines-and-undecidability, 10 scenes in transcript.md, 22 microtopics) serves no notes card: content/syllabus.json subjects[] holds only discrete-mathematics."
+    },
+    {
+      "kind": "notes",
+      "placement": "operating-systems › deadlocks › (no card)",
+      "detail": "Mock set, Operating Systems Unit 3 'Deadlocks' (unit_slug deadlocks, run 6, 2 of 2, 2026-10-28, paper operating-systems/deadlocks/gate_os_mock_3_2026-10-28.html) now holds 50 questions, the 50-question cap (MOCK_CAPPED), across two sets — 1 of 2: deadlock-prevention-avoidance-bankers 10, four-conditions-resource-allocation-graph 6, deadlock-detection-recovery 5, starvation-vs-deadlock 4; Set 2 of 2: four-conditions-resource-allocation-graph 7, deadlock-prevention-avoidance-bankers 6, deadlock-detection-recovery 6, starvation-vs-deadlock 6. Records carry no subtopic_label field, so groups are the subtopic slugs; Set 2 also stores unit_number as the string \"3\" and set as 'Set 2 of 2', where Set 1 uses integer 3 and '1 of 2'. The notes repo covers discrete mathematics only, so no card serves them; the rotation moves on to Operating Systems Unit 4."
+    },
+    {
+      "kind": "notes",
+      "placement": "compiler-design › analysis › lexical-analysis-parsing-sdt",
+      "detail": "New lesson topics/lexical-analysis-parsing-and-sdt (added 2026-10-28, topics.json created 2026-10-28, 96 aliases, syllabus-coverage.json subject Compiler Design, unit Analysis, topic 'Lexical analysis, parsing and syntax-directed translation', coverage_status PUBLISHED, 4 subtopics, 28 microtopics, 10 scenes in transcript.md) serves no notes card; the notes repo has no compiler-design subject yet."
     }
   ]
 }
