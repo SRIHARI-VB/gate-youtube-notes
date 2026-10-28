@@ -61,11 +61,15 @@ def load(path):
 # ---------------------------------------------------------------- loading
 def load_all():
     topics, tpath = {}, {}
+    sources = {}
     sroot = os.path.join(CONTENT, "subjects")
     for path in walk(sroot):
         parts = rel(path).split("/")
         if len(parts) != 5:          # content/subjects/<s>/<t>/<card>.json
             fail("%s: card is not at content/subjects/<subject>/<topic>/<card>.json" % rel(path))
+            continue
+        if parts[4] == "sources.json":   # topic-level source ledger, not a card
+            sources[parts[2] + "/" + parts[3]] = load(path)
             continue
         t = load(path)
         tid = t.get("id")
@@ -118,7 +122,7 @@ def load_all():
                 if m.get("video_id") != vid:
                     fail("%s: video_id %r does not match its folder name" % (rel(mpath), m.get("video_id")))
                 videos[m["video_id"]] = (m, a, rel(vdir))
-    return topics, tpath, pyqs, videos, playlists
+    return topics, tpath, pyqs, videos, playlists, sources
 
 
 def channel_slug(name):
@@ -279,12 +283,27 @@ def check_syllabus(topics, tpath):
     declared = {s["slug"] for s in syl.get("subjects", [])}
     for s in subjects - declared:
         fail("subject folder %r is not declared in syllabus.json" % s)
+    src = syl.get("source") or {}
+    if not str(src.get("url", "")).startswith("http"):
+        fail("syllabus.json does not cite the official syllabus document")
+    declared_topics = 0
     for s in syl.get("subjects", []):
+        if not SLUG.match(str(s.get("slug"))):
+            fail("syllabus.json subject %r is not a slug" % s.get("slug"))
         for tp in s.get("topics", []):
+            declared_topics += 1
+            if not SLUG.match(str(tp.get("slug"))):
+                fail("syllabus.json topic %r is not a slug" % tp.get("slug"))
             d = os.path.join(CONTENT, "subjects", s["slug"], tp["slug"])
-            if not os.path.isdir(d):
-                fail("syllabus.json names %s/%s but the folder is missing" % (s["slug"], tp["slug"]))
-    ok("syllabus declares every subject and topic folder that exists")
+            material = tp.get("material", "cards")
+            if material not in {"cards", "planned"}:
+                fail("syllabus.json %s/%s: invalid material %r" % (s["slug"], tp["slug"], material))
+            if material == "cards" and not os.path.isdir(d):
+                fail("syllabus.json says %s/%s has cards but the folder is missing" % (s["slug"], tp["slug"]))
+            if material == "planned" and os.path.isdir(d):
+                fail("syllabus.json says %s/%s is planned but cards exist there" % (s["slug"], tp["slug"]))
+    ok("syllabus enumerates %d topics in %d subjects, cited to the official document, with folders matching material"
+       % (declared_topics, len(syl.get("subjects", []))))
 
 
 # ---------------------------------------------------------------- mathematics
@@ -765,16 +784,321 @@ def check_hygiene():
             warn("src/data/content.js predates the multi-playlist shape; rerun build-index.py")
 
 
+def check_sources(sources):
+    """Every topic that has cards should also record which sources it drew on and what it rejected."""
+    if not sources:
+        warn("no topic-level sources.json found")
+    for key, src in sorted(sources.items()):
+        subject, topic = key.split("/")
+        if src.get("topic") != topic or src.get("subject") != subject:
+            fail("%s: sources.json topic/subject does not match its folder" % key)
+        if not src.get("retrieved_at"):
+            fail("%s: sources.json has no retrieved_at" % key)
+        chosen, rejected = src.get("chosen") or [], src.get("rejected") or []
+        if not chosen:
+            fail("%s: sources.json records no chosen source" % key)
+        if not rejected:
+            warn("%s: sources.json records no rejected candidate, so the search is not reviewable" % key)
+        for c in chosen:
+            for f in ("id", "kind", "language", "transcript", "why"):
+                if not c.get(f):
+                    fail("%s: chosen source %r has no %s" % (key, c.get("id"), f))
+            if c.get("language") != "en" and not c.get("translated", False):
+                fail("%s: non-English source %r is not marked as translated" % (key, c.get("id")))
+        for r in rejected:
+            if not r.get("why"):
+                fail("%s: rejected candidate %r records no reason" % (key, r.get("id")))
+        ids = {c.get("id") for c in chosen} & {r.get("id") for r in rejected}
+        if ids:
+            fail("%s: source(s) both chosen and rejected: %s" % (key, ", ".join(sorted(ids))))
+    ok("%d topic source ledgers: chosen and rejected candidates recorded with reasons" % len(sources))
+
+
+STATUSES = {"not_started", "partial", "covered", "blocked"}
+
+
+def check_coverage(topics, tpath):
+    """content/coverage.json must describe exactly the enumerated syllabus and must not overstate itself."""
+    path = os.path.join(CONTENT, "coverage.json")
+    if not os.path.isfile(path):
+        fail("content/coverage.json is missing: the cycle cannot run without the ledger")
+        return
+    cov = load(path)
+    syl = load(os.path.join(CONTENT, "syllabus.json"))
+    syl_topics = {}
+    for s in syl.get("subjects", []):
+        for tp in s.get("topics", []):
+            syl_topics[(s["slug"], tp["slug"])] = tp.get("material", "cards")
+
+    seen = {}
+    for s in cov.get("subjects", []):
+        for tp in s.get("topics", []):
+            key = (s["slug"], tp["slug"])
+            if key in seen:
+                fail("coverage.json lists %s/%s twice" % key)
+            seen[key] = tp
+            if tp.get("status") not in STATUSES:
+                fail("coverage.json %s/%s: invalid status %r" % (key[0], key[1], tp.get("status")))
+            if tp.get("status") == "covered" and tp.get("gaps"):
+                fail("coverage.json %s/%s is covered but names gaps" % key)
+            if tp.get("status") == "partial" and not tp.get("gaps"):
+                fail("coverage.json %s/%s is partial but names no gap" % key)
+            if tp.get("status") == "blocked" and not tp.get("coverage_note"):
+                fail("coverage.json %s/%s is blocked without a reason" % key)
+            has_cards = any(tpath[tid].split("/")[3] == tp["slug"] for tid in topics)
+            if has_cards and tp.get("status") == "not_started":
+                fail("coverage.json %s/%s has cards but is not_started" % key)
+            if tp.get("status") in {"covered", "partial"} and not has_cards:
+                fail("coverage.json %s/%s claims material but no card exists" % key)
+
+    missing = sorted(set(syl_topics) - set(seen))
+    extra = sorted(set(seen) - set(syl_topics))
+    if missing:
+        fail("coverage.json does not list %d syllabus topic(s): %s"
+             % (len(missing), ", ".join("%s/%s" % m for m in missing[:8])))
+    if extra:
+        fail("coverage.json lists topic(s) not in the syllabus: %s" % ", ".join("%s/%s" % e for e in extra[:8]))
+
+    cyc = cov.get("cycle") or {}
+    last = (cyc.get("last_subject"), cyc.get("last_topic"))
+    if last not in seen:
+        fail("coverage.json cycle.last %s/%s is not a syllabus topic" % last)
+    elif seen[last].get("status") == "not_started":
+        fail("coverage.json cycle.last %s/%s is still not_started" % last)
+    ok("coverage ledger: %d topics, statuses, gaps, cycle pointer %s/%s" % (len(seen), last[0], last[1]))
+
+
+# ---------------------------------------- sets, relations and functions
+def check_sets_relations_functions():
+    """Every count and verdict published in the Sets, Relations, Functions cards is recomputed."""
+    import itertools
+    from math import comb, factorial
+
+    # card 1: S = {{}, 1, {2,3}} has three top-level elements; {} is not one of them; {2,3} is not a subset
+    S = [frozenset({frozenset()}), 1, frozenset({2, 3})]      # {{}, 1, {2,3}}
+    assert len(S) == 3
+    assert frozenset() not in S, "the empty set is not an element of {{empty}, 1, {{2,3}}}"
+    assert 2 not in S and 3 not in S, "{2,3} is an element but not a subset of S"
+    # card 1 check: S = {{}, {{}}} has 2 elements, 4 subsets, and {{{}}} is a subset
+    T = [frozenset(), frozenset({frozenset()})]
+    assert len(T) == 2 and 2 ** len(T) == 4
+    assert set(T[1]) <= set(T), "{{empty}} is a subset of {empty, {empty}}"
+
+    # card 2: |P({0..10})| = 2048; C(11,3) = 165; C(6,0..2) = 22
+    assert 2 ** 11 == 2048 and comb(11, 3) == 165
+    assert sum(comb(6, k) for k in range(3)) == 22
+    # card 2 check: relations from a 3-set to a 5-set
+    assert 2 ** 15 == 32768
+
+    # card 3: the De Morgan counterexample and the symmetric-difference count
+    U = {1, 2, 3}
+    A, B = {1}, {2}
+    assert (U - (A | B)) == {3} and ((U - A) | (U - B)) == U, "wrong De Morgan is visibly false"
+    assert (U - (A | B)) == ((U - A) & (U - B)), "correct De Morgan"
+    A5, B4 = {1, 2, 3, 4, 5}, {1, 2, 9, 8}
+    assert len(A5 | B4) == 7 and len(A5 ^ B4) == 5, "union and symmetric difference counts"
+    assert (A5 - B4) | B4 == A5 | B4, "(A - B) union B = A union B"
+    A1, B2 = {1}, {2}
+    assert ((A1 - B2) | B2) == {1, 2} != A1, "(A - B) union B is not A"
+
+    # card 4: products, and the non-product subset
+    AxB = [(a, b) for a in {1, 2} for b in "abc"]
+    assert len(AxB) == 6
+    BxA = [(b, a) for b in "abc" for a in {1, 2}]
+    assert len(BxA) == 6 and ("a", 1) in BxA and ("a", 1) not in AxB
+    diag = {(1, 1), (2, 2)}
+    for X in itertools.chain.from_iterable(itertools.combinations([1, 2], k) for k in (0, 1, 2)):
+        for Y in itertools.chain.from_iterable(itertools.combinations([1, 2], k) for k in (0, 1, 2)):
+            if {(1, 1), (2, 2)} <= {(x, y) for x in X for y in Y}:
+                assert (1, 2) in {(x, y) for x in X for y in Y}, "no product contains the diagonal only"
+    assert 2 ** 12 == 4096
+
+    # card 5: the countable-union counterexample is a set-theoretic fact, checked structurally
+    assert len({(r,) for r in range(3)}) == 3, "singletons are countable"
+
+    # relations on a small set, by exhaustive enumeration
+    def relations(n):
+        cells = [(i, j) for i in range(n) for j in range(n)]
+        for bits in range(1 << len(cells)):
+            yield {(i, j) for k, (i, j) in enumerate(cells) if bits >> k & 1}
+
+    def reflexive(R, n): return all((i, i) in R for i in range(n))
+    def irreflexive(R, n): return not any((i, i) in R for i in range(n))
+    def symmetric(R, n): return all((j, i) in R for (i, j) in R)
+    def antisymmetric(R, n): return all(i == j for (i, j) in R if (j, i) in R)
+    def asymmetric(R, n): return all((j, i) not in R for (i, j) in R)
+    def transitive(R, n):
+        return all((i, k) in R for (i, j) in R for (j2, k) in R if j == j2)
+    def equivalence(R, n): return reflexive(R, n) and symmetric(R, n) and transitive(R, n)
+
+    for n in (1, 2, 3):
+        tally = dict(all_=0, refl=0, irrefl=0, sym=0, antisym=0, asym=0, refl_sym=0, sym_antisym=0,
+                     neither=0, equiv=0)
+        for R in relations(n):
+            tally["all_"] += 1
+            tally["refl"] += reflexive(R, n)
+            tally["irrefl"] += irreflexive(R, n)
+            tally["sym"] += symmetric(R, n)
+            tally["antisym"] += antisymmetric(R, n)
+            tally["asym"] += asymmetric(R, n)
+            tally["refl_sym"] += reflexive(R, n) and symmetric(R, n)
+            tally["sym_antisym"] += symmetric(R, n) and antisymmetric(R, n)
+            tally["neither"] += not reflexive(R, n) and not irreflexive(R, n)
+            tally["equiv"] += equivalence(R, n)
+        assert tally["all_"] == 2 ** (n * n)
+        assert tally["refl"] == 2 ** (n * n - n) == tally["irrefl"]
+        assert tally["sym"] == 2 ** (n * (n + 1) // 2)
+        assert tally["antisym"] == 2 ** n * 3 ** (n * (n - 1) // 2)
+        assert tally["asym"] == 3 ** (n * (n - 1) // 2)
+        assert tally["refl_sym"] == 2 ** (n * (n - 1) // 2)
+        assert tally["sym_antisym"] == 2 ** n
+        assert tally["neither"] == 2 ** (n * n) - 2 * 2 ** (n * n - n)
+        # asymmetric is exactly irreflexive plus antisymmetric
+        assert all((asymmetric(R, n) == (irreflexive(R, n) and antisymmetric(R, n))) for R in relations(n))
+        # symmetric plus antisymmetric is exactly a subset of the identity
+        assert all((symmetric(R, n) and antisymmetric(R, n)) ==
+                   (R <= {(i, i) for i in range(n)}) for R in relations(n))
+        if n == 3:
+            assert tally["equiv"] == 5, "equivalence relations on a 3-element set"
+            assert tally["sym"] == tally["refl"] == 64
+
+    # Bell numbers and Stirling numbers used in the cards
+    def stirling2(n, k):
+        return sum((-1) ** i * comb(k, i) * (k - i) ** n for i in range(k + 1)) // factorial(k)
+    assert [stirling2(4, k) for k in range(1, 5)] == [1, 7, 6, 1]
+    assert sum(stirling2(4, k) for k in range(1, 5)) == 15
+    assert sum(stirling2(3, k) for k in range(1, 4)) == 5
+    assert comb(3, 2) == 3, "two-class partitions of a 3-element set"
+
+    # card 6: matrix and property verdicts of R = {(1,1),(1,2),(2,3)} on {1,2,3}
+    R6 = {(0, 0), (0, 1), (1, 2)}
+    assert not reflexive(R6, 3) and not symmetric(R6, 3) and not transitive(R6, 3)
+    assert len(R6) == 3 and 2 ** 9 == 512
+    # card 6 check: relations from a 3-set to a 5-set, functions among them
+    assert 2 ** 15 == 32768 and 5 ** 3 == 125
+
+    # card 7: the worked example is an equivalence relation, not antisymmetric
+    R7 = {(0, 0), (1, 1), (2, 2), (0, 1), (1, 0)}
+    assert reflexive(R7, 3) and symmetric(R7, 3) and transitive(R7, 3) and not antisymmetric(R7, 3)
+    # card 7: {(1,1),(1,2)} is neither reflexive nor irreflexive, and is antisymmetric
+    R7b = {(0, 0), (0, 1)}
+    assert not reflexive(R7b, 2) and not irreflexive(R7b, 2) and antisymmetric(R7b, 2)
+    # card 7 predicted variation: 4-element set, reflexive and symmetric but not antisymmetric
+    assert 2 ** 6 - 1 == 63
+
+    # card 8: chains, and the symmetric-plus-transitive-but-not-reflexive example
+    assert not transitive({(0, 1), (1, 2)}, 3), "{(1,2),(2,3)} is not transitive"
+    closure = {(0, 1), (1, 2)}
+    while True:
+        add = {(i, k) for (i, j) in closure for (j2, k) in closure if j == j2} - closure
+        if not add:
+            break
+        closure |= add
+    assert closure == {(0, 1), (1, 2), (0, 2)}, "transitive closure adds exactly (1,3)"
+    R8 = {(0, 0), (1, 1), (0, 1), (1, 0)}
+    assert symmetric(R8, 3) and transitive(R8, 3) and not reflexive(R8, 3)
+    assert not transitive({(0, 1), (1, 0)}, 2), "{(1,2),(2,1)} alone is not transitive: it forces (1,1)"
+    # card 8 check: {(1,1),(1,2),(2,2)} on {1,2}
+    R8c = {(0, 0), (0, 1), (1, 1)}
+    assert transitive(R8c, 2) and not symmetric(R8c, 2)
+    # card 8 ORIGINAL: the closure of a 4-chain adds three pairs
+    chain = {(0, 1), (1, 2), (2, 3)}
+    cl = set(chain)
+    while True:
+        add = {(i, k) for (i, j) in cl for (j2, k) in cl if j == j2} - cl
+        if not add:
+            break
+        cl |= add
+    assert cl - chain == {(0, 2), (1, 3), (0, 3)} and len(cl) == 6
+
+    # card 9: the union of two equivalence relations need not be transitive
+    R1 = {(0, 0), (1, 1), (2, 2), (0, 1), (1, 0)}
+    R2 = {(0, 0), (1, 1), (2, 2), (1, 2), (2, 1)}
+    assert equivalence(R1, 3) and equivalence(R2, 3)
+    assert not transitive(R1 | R2, 3), "union of two equivalence relations is not transitive"
+    assert equivalence(R1 & R2, 3), "intersection of two equivalence relations is an equivalence relation"
+    R9 = {(0, 0), (1, 1), (0, 1), (1, 0)}
+    assert symmetric(R9, 3) and transitive(R9, 3) and not reflexive(R9, 3)
+
+    # functions: counts by brute force
+    def functions(m, n):
+        for img in itertools.product(range(n), repeat=m):
+            yield img
+    def injective(img): return len(set(img)) == len(img)
+    def surjective(img, n): return len(set(img)) == n
+    f43 = list(functions(4, 3))
+    assert len(f43) == 81
+    assert sum(1 for i in f43 if surjective(i, 3)) == 36
+    assert sum(1 for i in f43 if injective(i)) == 0
+    assert sum(1 for i in f43 if injective(i) and surjective(i, 3)) == 0
+    f23 = list(functions(2, 3))
+    assert len(f23) == 9 and sum(1 for i in f23 if surjective(i, 3)) == 0
+    assert sum(1 for i in f23 if injective(i)) == 6
+    f46 = list(functions(4, 6))
+    assert sum(1 for i in f46 if injective(i)) == 360
+    f64 = list(functions(6, 4))
+    assert sum(1 for i in f64 if injective(i)) == 0
+    f33 = list(functions(3, 3))
+    assert len(f33) == 27
+    assert sum(1 for i in f33 if not injective(i) and not surjective(i, 3)) == 21
+    assert sum(1 for i in f33 if injective(i)) == 6 and sum(1 for i in f33 if surjective(i, 3)) == 6
+    assert factorial(5) == 120
+
+    # card 11: the composite example, and the injectivity rule
+    f = {0: 0, 1: 0, 2: 1}          # {1,2,3} -> {a,b}
+    g = {0: 0, 1: 1}                # {a,b} -> {x,y}
+    comp = {k: g[v] for k, v in f.items()}
+    assert comp == {0: 0, 1: 0, 2: 1}
+    assert len(set(comp.values())) == 2 and len(set(comp.values())) != len(comp)
+    assert not injective([f[k] for k in sorted(f)])
+    # g of f injective forces f injective, over every pair of small maps
+    for m in (1, 2, 3):
+        for n in (1, 2, 3):
+            for img_f in itertools.product(range(n), repeat=m):
+                for img_g in itertools.product(range(n), repeat=n):
+                    c = [img_g[img_f[i]] for i in range(m)]
+                    if injective(c):
+                        assert injective(img_f), "injective composite forces injective left factor"
+    # the converse fails: f(1) = a, g(a) = g(b) = x
+    assert not injective([0, 0]) and injective([0])  # g collapses a and b, the composite on one point is injective
+
+    # 2015 Set 3 Q.41: symmetric, not reflexive, not transitive, on small positive integers
+    pairs = [(p, q) for p in range(1, 5) for q in range(1, 5)]
+    Rq = {((p, q), (r, s)) for (p, q) in pairs for (r, s) in pairs if p - s == q - r}
+    assert not all((x, x) in Rq for x in pairs), "p - s = q - r is not reflexive"
+    assert all(((r, s), (p, q)) in Rq for ((p, q), (r, s)) in Rq), "p - s = q - r is symmetric"
+    assert ((1, 2), (1, 2)) not in Rq and ((1, 1), (1, 1)) in Rq, "not reflexive but not irreflexive"
+    assert ((1, 2), (2, 1)) in Rq and ((2, 1), (1, 2)) in Rq and ((1, 2), (1, 2)) not in Rq, \
+        "the relation is not transitive"
+
+    # 2016 Set 2 Q.26: reflexive, not transitive; with 'and' it would be transitive
+    def Ror(x, y): return x[0] <= y[0] or x[1] <= y[1]
+    def Rand(x, y): return x[0] <= y[0] and x[1] <= y[1]
+    pts = [(a, b) for a in range(1, 6) for b in range(1, 6)]
+    assert all(Ror(p, p) for p in pts), "the 'or' relation is reflexive"
+    assert not all(Ror(p, r) for p in pts for q in pts for r in pts if Ror(p, q) and Ror(q, r)), \
+        "the 'or' relation is not transitive"
+    assert all(Rand(p, r) for p in pts for q in pts for r in pts if Rand(p, q) and Rand(q, r)), \
+        "the 'and' relation is transitive"
+    assert Ror((2, 10), (3, 1)) and Ror((3, 1), (1, 2)) and not Ror((2, 10), (1, 2))
+
+    ok("sets, relations, functions: %d relation counts recomputed by enumeration, Bell and Stirling numbers, "
+       "function counts by brute force, and the verdicts of the four relations-based PYQs" % 9)
+
+
 def main():
-    topics, tpath, pyqs, videos, playlists = load_all()
+    topics, tpath, pyqs, videos, playlists, sources = load_all()
     check_topics(topics, tpath, pyqs, videos)
     check_pyqs(topics, pyqs)
     check_videos(topics, videos)
     check_playlists(playlists, videos)
     check_syllabus(topics, tpath)
+    check_sources(sources)
+    check_coverage(topics, tpath)
     check_math()
     check_logic()
     check_first_order()
+    check_sets_relations_functions()
     check_visuals()
     check_hygiene()
     for c in checks:

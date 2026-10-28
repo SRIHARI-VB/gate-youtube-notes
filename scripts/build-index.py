@@ -43,6 +43,8 @@ def main():
         # subjects/<subject>/<topic>/<subtopic>.json
         if len(parts) != 4:
             continue
+        if parts[3] == "sources.json":     # topic-level source ledger, not a card
+            continue
         card = load(path)
         card["subject"] = parts[1]
         card["topic"] = parts[2]
