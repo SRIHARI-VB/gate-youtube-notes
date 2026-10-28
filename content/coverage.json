@@ -1,0 +1,741 @@
+{
+  "exam": "GATE CSE 2027",
+  "updated_at": "2026-10-28",
+  "cycle": {
+    "last_subject": "discrete-mathematics",
+    "last_topic": "sets-relations-functions",
+    "updated_at": "2026-10-28",
+    "rule": "Next topic is the first topic strictly after cycle.last in the enumerated syllabus order whose status is not covered, wrapping at the end. not_started and partial topics are candidates; blocked topics are skipped while their blocker stands."
+  },
+  "subjects": [
+    {
+      "slug": "discrete-mathematics",
+      "name": "Discrete Mathematics",
+      "topics": [
+        {
+          "slug": "propositional-logic",
+          "name": "Propositional Logic",
+          "status": "partial",
+          "coverage_note": "Built in run 2 from one playlist only (GO Classes for GATE CS, Propositional Logic). Four videos had Devanagari ASR captions only and were not used for any formula. Nineteen of the topic's PYQs are SOURCED rather than key-verified.",
+          "runs": [
+            {
+              "date": null,
+              "sources": [
+                "PLIPZ2_p3RNHillKxh1_iFeZhy9MftHeWW"
+              ],
+              "cards": 12,
+              "pyqs": 14,
+              "note": "date not recorded in docs/RUN_REPORT.md"
+            }
+          ],
+          "gaps": [
+            "four videos readable only as Hindi ASR fragments; two GATE questions they cover (2006, 2015 Q.28) are not in the PYQ set",
+            "no re-audit of the syllabus subtopics since the topic was built from a single playlist"
+          ]
+        },
+        {
+          "slug": "first-order-logic",
+          "name": "First Order Logic",
+          "status": "partial",
+          "coverage_note": "Built in run 3 from one playlist only (GO Classes for GATE CS, First Order Logic). One video returned no caption text at all; the rest were readable only in their opening minutes.",
+          "runs": [
+            {
+              "date": null,
+              "sources": [
+                "PLIPZ2_p3RNHidhFvyKH4U_VE1rFAyvG8U"
+              ],
+              "cards": 10,
+              "pyqs": 10,
+              "note": "date not recorded in docs/RUN_REPORT.md"
+            }
+          ],
+          "gaps": [
+            "video zdeKQ-nABtk returned no caption text on any route, so nothing is claimed about what it teaches",
+            "resolution and prenex normal form in first order logic are not taught by any processed source"
+          ]
+        },
+        {
+          "slug": "sets-relations-functions",
+          "name": "Sets, Relations, Functions",
+          "status": "partial",
+          "coverage_note": "11 cards, one per subtopic (sets and cardinality, power sets, set identities, Cartesian product, countability, relation representation and counting, relation properties, transitivity and closure, equivalence relations and partitions, function counting, composition and inverse), 7 verified PYQs and 1 p5.js lesson. Partial because three gaps remain, named below.",
+          "runs": [
+            {
+              "date": "2026-10-28",
+              "sources": [
+                "7djvJetFiSY",
+                "tyDKR4FG3Yw",
+                "PpA4LWPh40M",
+                "Z9khyLCt2-I"
+              ],
+              "playlists": [
+                "PLIPZ2_p3RNHjHnhdkPWFAlcizVQJ8w4TX"
+              ],
+              "cards": 11,
+              "pyqs": 7,
+              "note": "Sources chosen on merit: one IIT/NPTEL-style lecture for set identities, Cartesian product and relation properties (full transcript); two TrevTutor lectures for set basics and for injective/surjective/bijective functions (full transcripts); the GO Classes Set Theory playlist for GATE question patterns (opening readable only)."
+            }
+          ],
+          "gaps": [
+            "no verified GATE CSE previous-year question exists in this topic for countability of infinite sets; GATE tests countability inside Theory of Computation questions (for example GATE CSE 2019 Q.34 on recursively enumerable languages), so that question is left for the Theory of Computation run",
+            "relation closures (reflexive, symmetric, transitive closure and Warshall) are taught from Rosen ch. 9.4 only - no lecture transcript for closures was readable",
+            "the GO Classes Set Theory PYQ lecture used here (Relations - GATE PYQs Part 2) was readable only in its opening, so its later question types are not recorded"
+          ]
+        },
+        {
+          "slug": "partial-orders-and-lattices",
+          "name": "Partial Orders and Lattices",
+          "status": "not_started",
+          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+          "runs": [],
+          "gaps": []
+        },
+        {
+          "slug": "monoids-and-groups",
+          "name": "Monoids and Groups",
+          "status": "not_started",
+          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+          "runs": [],
+          "gaps": []
+        },
+        {
+          "slug": "graphs",
+          "name": "Graphs: Connectivity, Matching, Colouring",
+          "status": "not_started",
+          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+          "runs": [],
+          "gaps": []
+        },
+        {
+          "slug": "combinatorics",
+          "name": "Combinatorics: Counting, Recurrence Relations, Generating Functions",
+          "status": "partial",
+          "coverage_note": "Built in runs 1 and 2 from one playlist only (GO Classes for GATE CS, Combinatorics). The run reports record partial transcripts for the long lectures. The subtopic list has not been re-audited against the GATE 2027 line since.",
+          "runs": [
+            {
+              "date": null,
+              "sources": [
+                "PLIPZ2_p3RNHjlC6eceG_vWSu-oA6Dc6aX"
+              ],
+              "cards": 15,
+              "pyqs": 14,
+              "note": "date not recorded in docs/RUN_REPORT.md"
+            }
+          ],
+          "gaps": [
+            "no re-audit of the syllabus subtopics since the topic was built from a single playlist",
+            "long lecture transcripts were readable only in their opening minutes"
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "linear-algebra",
+      "name": "Linear Algebra",
+      "topics": [
+        {
+          "slug": "matrices-and-determinants",
+          "name": "Matrices and Determinants",
+          "status": "not_started",
+          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+          "runs": [],
+          "gaps": []
+        },
+        {
+          "slug": "system-of-linear-equations",
+          "name": "System of Linear Equations",
+          "status": "not_started",
+          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+          "runs": [],
+          "gaps": []
+        },
+        {
+          "slug": "eigenvalues-and-eigenvectors",
+          "name": "Eigenvalues and Eigenvectors",
+          "status": "not_started",
+          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+          "runs": [],
+          "gaps": []
+        },
+        {
+          "slug": "lu-decomposition",
+          "name": "LU Decomposition",
+          "status": "not_started",
+          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+          "runs": [],
+          "gaps": []
+        }
+      ]
+    },
+    {
+      "slug": "calculus",
+      "name": "Calculus",
+      "topics": [
+        {
+          "slug": "limits-continuity-differentiability",
+          "name": "Limits, Continuity and Differentiability",
+          "status": "not_started",
+          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+          "runs": [],
+          "gaps": []
+        },
+        {
+          "slug": "maxima-and-minima",
+          "name": "Maxima and Minima",
+          "status": "not_started",
+          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+          "runs": [],
+          "gaps": []
+        },
+        {
+          "slug": "mean-value-theorem",
+          "name": "Mean Value Theorem",
+          "status": "not_started",
+          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+          "runs": [],
+          "gaps": []
+        },
+        {
+          "slug": "integration",
+          "name": "Integration",
+          "status": "not_started",
+          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+          "runs": [],
+          "gaps": []
+        }
+      ]
+    },
+    {
+      "slug": "probability-and-statistics",
+      "name": "Probability and Statistics",
+      "topics": [
+        {
+          "slug": "random-variables-and-distributions",
+          "name": "Random Variables and Distributions",
+          "status": "not_started",
+          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+          "runs": [],
+          "gaps": []
+        },
+        {
+          "slug": "mean-median-mode-standard-deviation",
+          "name": "Mean, Median, Mode and Standard Deviation",
+          "status": "not_started",
+          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+          "runs": [],
+          "gaps": []
+        },
+        {
+          "slug": "conditional-probability-and-bayes",
+          "name": "Conditional Probability and Bayes Theorem",
+          "status": "not_started",
+          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+          "runs": [],
+          "gaps": []
+        }
+      ]
+    },
+    {
+      "slug": "digital-logic",
+      "name": "Digital Logic",
+      "topics": [
+        {
+          "slug": "number-systems-and-representation",
+          "name": "Number Systems and Number Representation",
+          "status": "not_started",
+          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+          "runs": [],
+          "gaps": []
+        },
+        {
+          "slug": "boolean-algebra-and-minimization",
+          "name": "Boolean Algebra and Minimization",
+          "status": "not_started",
+          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+          "runs": [],
+          "gaps": []
+        },
+        {
+          "slug": "combinational-circuits",
+          "name": "Combinational Circuits",
+          "status": "not_started",
+          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+          "runs": [],
+          "gaps": []
+        },
+        {
+          "slug": "sequential-circuits",
+          "name": "Sequential Circuits",
+          "status": "not_started",
+          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+          "runs": [],
+          "gaps": []
+        },
+        {
+          "slug": "computer-arithmetic",
+          "name": "Computer Arithmetic: Fixed and Floating Point",
+          "status": "not_started",
+          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+          "runs": [],
+          "gaps": []
+        }
+      ]
+    },
+    {
+      "slug": "computer-organization-and-architecture",
+      "name": "Computer Organization and Architecture",
+      "topics": [
+        {
+          "slug": "instruction-set-and-addressing-modes",
+          "name": "Instruction Set and Addressing Modes",
+          "status": "not_started",
+          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+          "runs": [],
+          "gaps": []
+        },
+        {
+          "slug": "alu-design",
+          "name": "Design of the Arithmetic and Logic Unit",
+          "status": "not_started",
+          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+          "runs": [],
+          "gaps": []
+        },
+        {
+          "slug": "control-unit-design",
+          "name": "Design of the Control Unit",
+          "status": "not_started",
+          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+          "runs": [],
+          "gaps": []
+        },
+        {
+          "slug": "memory-hierarchy-and-cache",
+          "name": "Memory Interfacing, Hierarchy and Cache Mapping",
+          "status": "not_started",
+          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+          "runs": [],
+          "gaps": []
+        },
+        {
+          "slug": "io-interface",
+          "name": "I/O Interface: Interrupt and DMA",
+          "status": "not_started",
+          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+          "runs": [],
+          "gaps": []
+        },
+        {
+          "slug": "instruction-pipelining-and-hazards",
+          "name": "Instruction Pipelining and Pipeline Hazards",
+          "status": "not_started",
+          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+          "runs": [],
+          "gaps": []
+        }
+      ]
+    },
+    {
+      "slug": "programming-and-data-structures",
+      "name": "Programming and Data Structures",
+      "topics": [
+        {
+          "slug": "programming-in-c",
+          "name": "Programming in C",
+          "status": "not_started",
+          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+          "runs": [],
+          "gaps": []
+        },
+        {
+          "slug": "recursion",
+          "name": "Recursion",
+          "status": "not_started",
+          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+          "runs": [],
+          "gaps": []
+        },
+        {
+          "slug": "arrays-stacks-queues",
+          "name": "Arrays, Stacks and Queues",
+          "status": "not_started",
+          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+          "runs": [],
+          "gaps": []
+        },
+        {
+          "slug": "linked-lists",
+          "name": "Linked Lists",
+          "status": "not_started",
+          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+          "runs": [],
+          "gaps": []
+        },
+        {
+          "slug": "trees-and-binary-search-trees",
+          "name": "Trees and Binary Search Trees",
+          "status": "not_started",
+          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+          "runs": [],
+          "gaps": []
+        },
+        {
+          "slug": "binary-heaps",
+          "name": "Binary Heaps",
+          "status": "not_started",
+          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+          "runs": [],
+          "gaps": []
+        },
+        {
+          "slug": "graphs-data-structure",
+          "name": "Graphs as a Data Structure",
+          "status": "not_started",
+          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+          "runs": [],
+          "gaps": []
+        }
+      ]
+    },
+    {
+      "slug": "algorithms",
+      "name": "Algorithms",
+      "topics": [
+        {
+          "slug": "searching-sorting-hashing",
+          "name": "Searching, Sorting and Hashing",
+          "status": "not_started",
+          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+          "runs": [],
+          "gaps": []
+        },
+        {
+          "slug": "asymptotic-complexity",
+          "name": "Asymptotic Worst Case Time and Space Complexity",
+          "status": "not_started",
+          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+          "runs": [],
+          "gaps": []
+        },
+        {
+          "slug": "greedy-algorithms",
+          "name": "Greedy Algorithms",
+          "status": "not_started",
+          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+          "runs": [],
+          "gaps": []
+        },
+        {
+          "slug": "dynamic-programming",
+          "name": "Dynamic Programming",
+          "status": "not_started",
+          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+          "runs": [],
+          "gaps": []
+        },
+        {
+          "slug": "divide-and-conquer",
+          "name": "Divide and Conquer",
+          "status": "not_started",
+          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+          "runs": [],
+          "gaps": []
+        },
+        {
+          "slug": "graph-traversals",
+          "name": "Graph Traversals",
+          "status": "not_started",
+          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+          "runs": [],
+          "gaps": []
+        },
+        {
+          "slug": "minimum-spanning-trees",
+          "name": "Minimum Spanning Trees",
+          "status": "not_started",
+          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+          "runs": [],
+          "gaps": []
+        },
+        {
+          "slug": "shortest-paths",
+          "name": "Shortest Paths",
+          "status": "not_started",
+          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+          "runs": [],
+          "gaps": []
+        }
+      ]
+    },
+    {
+      "slug": "theory-of-computation",
+      "name": "Theory of Computation",
+      "topics": [
+        {
+          "slug": "regular-expressions-and-finite-automata",
+          "name": "Regular Expressions and Finite Automata",
+          "status": "not_started",
+          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+          "runs": [],
+          "gaps": []
+        },
+        {
+          "slug": "context-free-grammars-and-pda",
+          "name": "Context-Free Grammars and Push-Down Automata",
+          "status": "not_started",
+          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+          "runs": [],
+          "gaps": []
+        },
+        {
+          "slug": "pumping-lemma",
+          "name": "Pumping Lemma",
+          "status": "not_started",
+          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+          "runs": [],
+          "gaps": []
+        },
+        {
+          "slug": "turing-machines-and-undecidability",
+          "name": "Turing Machines and Undecidability",
+          "status": "not_started",
+          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+          "runs": [],
+          "gaps": []
+        }
+      ]
+    },
+    {
+      "slug": "compiler-design",
+      "name": "Compiler Design",
+      "topics": [
+        {
+          "slug": "lexical-analysis",
+          "name": "Lexical Analysis",
+          "status": "not_started",
+          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+          "runs": [],
+          "gaps": []
+        },
+        {
+          "slug": "parsing",
+          "name": "Parsing",
+          "status": "not_started",
+          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+          "runs": [],
+          "gaps": []
+        },
+        {
+          "slug": "syntax-directed-translation",
+          "name": "Syntax-Directed Translation",
+          "status": "not_started",
+          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+          "runs": [],
+          "gaps": []
+        },
+        {
+          "slug": "runtime-environments",
+          "name": "Runtime Environments",
+          "status": "not_started",
+          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+          "runs": [],
+          "gaps": []
+        },
+        {
+          "slug": "intermediate-code-generation",
+          "name": "Intermediate Code Generation",
+          "status": "not_started",
+          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+          "runs": [],
+          "gaps": []
+        },
+        {
+          "slug": "local-optimisation",
+          "name": "Local Optimisation",
+          "status": "not_started",
+          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+          "runs": [],
+          "gaps": []
+        },
+        {
+          "slug": "data-flow-analysis",
+          "name": "Data Flow Analyses",
+          "status": "not_started",
+          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+          "runs": [],
+          "gaps": []
+        }
+      ]
+    },
+    {
+      "slug": "operating-system",
+      "name": "Operating System",
+      "topics": [
+        {
+          "slug": "processes-and-threads",
+          "name": "System Calls, Processes and Threads",
+          "status": "not_started",
+          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+          "runs": [],
+          "gaps": []
+        },
+        {
+          "slug": "ipc-and-synchronization",
+          "name": "Inter-Process Communication and Synchronization",
+          "status": "not_started",
+          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+          "runs": [],
+          "gaps": []
+        },
+        {
+          "slug": "deadlock",
+          "name": "Deadlock",
+          "status": "not_started",
+          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+          "runs": [],
+          "gaps": []
+        },
+        {
+          "slug": "cpu-and-io-scheduling",
+          "name": "CPU and I/O Scheduling",
+          "status": "not_started",
+          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+          "runs": [],
+          "gaps": []
+        },
+        {
+          "slug": "memory-management-and-virtual-memory",
+          "name": "Memory Management and Virtual Memory",
+          "status": "not_started",
+          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+          "runs": [],
+          "gaps": []
+        },
+        {
+          "slug": "file-systems",
+          "name": "File Systems",
+          "status": "not_started",
+          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+          "runs": [],
+          "gaps": []
+        }
+      ]
+    },
+    {
+      "slug": "databases",
+      "name": "Databases",
+      "topics": [
+        {
+          "slug": "er-model",
+          "name": "ER Model",
+          "status": "not_started",
+          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+          "runs": [],
+          "gaps": []
+        },
+        {
+          "slug": "relational-algebra-and-tuple-calculus",
+          "name": "Relational Model: Algebra and Tuple Calculus",
+          "status": "not_started",
+          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+          "runs": [],
+          "gaps": []
+        },
+        {
+          "slug": "sql",
+          "name": "SQL",
+          "status": "not_started",
+          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+          "runs": [],
+          "gaps": []
+        },
+        {
+          "slug": "integrity-constraints-and-normal-forms",
+          "name": "Integrity Constraints and Normal Forms",
+          "status": "not_started",
+          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+          "runs": [],
+          "gaps": []
+        },
+        {
+          "slug": "file-organization-and-indexing",
+          "name": "File Organization and Indexing",
+          "status": "not_started",
+          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+          "runs": [],
+          "gaps": []
+        },
+        {
+          "slug": "transactions-and-concurrency-control",
+          "name": "Transactions and Concurrency Control",
+          "status": "not_started",
+          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+          "runs": [],
+          "gaps": []
+        }
+      ]
+    },
+    {
+      "slug": "computer-networks",
+      "name": "Computer Networks",
+      "topics": [
+        {
+          "slug": "principles-of-layering",
+          "name": "Principles of Layering",
+          "status": "not_started",
+          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+          "runs": [],
+          "gaps": []
+        },
+        {
+          "slug": "switching-and-performance-metrics",
+          "name": "Switching and Performance Metrics",
+          "status": "not_started",
+          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+          "runs": [],
+          "gaps": []
+        },
+        {
+          "slug": "data-link-layer",
+          "name": "Data Link Layer: Error Detection and MAC",
+          "status": "not_started",
+          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+          "runs": [],
+          "gaps": []
+        },
+        {
+          "slug": "routing-algorithms",
+          "name": "Distance Vector and Link State Routing",
+          "status": "not_started",
+          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+          "runs": [],
+          "gaps": []
+        },
+        {
+          "slug": "ipv4-addressing",
+          "name": "IPv4: Fragmentation, CIDR and NAT",
+          "status": "not_started",
+          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+          "runs": [],
+          "gaps": []
+        },
+        {
+          "slug": "tcp-and-congestion-control",
+          "name": "TCP: Flow Control and Congestion Control",
+          "status": "not_started",
+          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+          "runs": [],
+          "gaps": []
+        },
+        {
+          "slug": "application-layer-protocols",
+          "name": "Application Layer Protocols: DNS and HTTP",
+          "status": "not_started",
+          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+          "runs": [],
+          "gaps": []
+        }
+      ]
+    }
+  ]
+}
