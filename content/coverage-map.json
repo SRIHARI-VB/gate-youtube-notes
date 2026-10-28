@@ -1441,6 +1441,16 @@
       "kind": "notes",
       "placement": "computer-networks › routing › distance-vector-and-link-state-routing",
       "detail": "Lesson topics/distance-vector-and-link-state-routing (PUBLISHED 2026-10-28, 39 microtopics across 3 syllabus subtopics: distance vector algorithm and count-to-infinity, link state and Dijkstra, routing tables) serves no notes card — content/syllabus.json lists discrete-mathematics as the only notes subject, so there is no computer-networks subject to file it under."
+    },
+    {
+      "kind": "notes",
+      "placement": "computer-networks › data-link-mac › (no card)",
+      "detail": "New mock set, Computer Networks Unit 2 'Data Link Protocols & MAC' (unit_slug data-link-mac, run 4, 2026-10-28, paper computer-networks/data-link-mac/gate_cn_mock_2_2026-10-28.html), closes the unit at the 50-question cap over 5 subtopic groups of 10: Stop-and-wait ARQ, Go-back-N & selective repeat, Pure & slotted ALOHA, CSMA/CD, CSMA/CA & backoff, Ethernet, switches & bridges. The notes repo covers discrete mathematics only, so no card serves any of them."
+    },
+    {
+      "kind": "notes",
+      "placement": "theory-of-computation › context-free languages › (no card)",
+      "detail": "New lesson topics/context-free-grammars-and-pushdown-automata (added 2026-10-28, PUBLISHED, 52 aliases, 25 microtopics) serves no notes card; the notes repo has no theory-of-computation subject. Its syllabus-coverage entry places it at Theory of Computation › Context-free languages › 'CFG, PDA and pumping lemma' with subtopics grammars and derivations, ambiguity, pushdown automata, CFL closure properties, pumping lemma for CFLs."
     }
   ]
 }
