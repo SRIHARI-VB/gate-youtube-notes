@@ -6168,6 +6168,16 @@
       "kind": "visual",
       "placement": "calculus \u203a mean-value-theorem \u203a (12 cards, topic-level only)",
       "detail": "No published gate-visual-explainer lesson is dedicated to the mean value theorem. topics.json carries no mvt or rolle slug; the nearest is calculus-limits-extrema-and-integration (syllabus-coverage.json coverage_status PUBLISHED, microtopic 'the mean value theorem used as an inequality, and sharpness'), which gives the theorem one scene of the lesson's ten, so the twelve mean-value-theorem cards are mapped to it at topic-level. The notes repo holds an unregistered lesson at visuals/calculus/mean-value-theorem/secant-parallel-tangent/ (index.html, lesson.json, sketch.js) that the card field visual points at, but it is not in gate-visual-explainer/topics.json and so has no public deployment URL. Recommendation: add topics/mean-value-theorem/ to gate-visual-explainer (registering the slug in topics.json and syllabus-coverage.json), or publish the existing secant-parallel-tangent lesson there under that slug."
+    },
+    {
+      "kind": "notes",
+      "placement": "operating-systems \u203a storage-file-systems \u203a (no card)",
+      "detail": "Mock unit 6 'File Systems & Disk Scheduling' (unit_slug storage-file-systems, unit_number 6, run 11, 2026-10-29, Set 1 of 2, paper operating-systems/storage-file-systems/gate_os_mock_6_2026-10-29.html) holds 25 records OS-U6-Q01..Q25 in operating-systems/question-bank/master_bank.json, grouped by subtopic_label: File allocation: indexed & linked 7, Free-space management 6, Disk scheduling: FCFS, SSTF, SCAN, C-SCAN, LOOK 7, Access control & protection 5. At 25 questions the unit is below UNIT_QUESTION_CAP = 50, so the next Operating Systems run re-selects unit 6 rather than advancing. content/subjects/ holds calculus, discrete-mathematics and linear-algebra only, and content/index.json map[] carries no operating-systems card, so no card serves any of the four groups. Visual side, read from transcript.md and not the alias list: topics/file-systems covers contiguous, linked and indexed allocation, FAT, the inode pointer tree, free-space management and bitmaps; topics/disk-scheduling covers FCFS, SSTF, SCAN, C-SCAN, LOOK and the seek/rotational/transfer cost model. Both are VISUAL_LESSON at topic-level for their groups; Access control & protection is in neither transcript. Recommendation: write the first operating-systems card at content/subjects/operating-systems/storage-file-systems/file-allocation-indexed-linked.json."
+    },
+    {
+      "kind": "visual",
+      "placement": "operating-systems \u203a storage-file-systems \u203a access-control-protection",
+      "detail": "Access control & protection is one of the four subtopic_label groups in Operating Systems Unit 6 (5 of the unit's 25 questions: OS-U6-Q04, Q08, Q12, Q16 and Q20), and no published lesson covers it: 'access control', 'protection' and 'permission' return 0 hits in topics/file-systems/transcript.md and topics/disk-scheduling/transcript.md, and syllabus-coverage.json places file protection under neither lesson. Recommendation: extend topics/file-systems with one access-control scene (owner/group/other permission bits, ACLs against capability lists) rather than build a new lesson, then regenerate captions with node tools/gen-captions.mjs file-systems."
     }
   ]
 }
