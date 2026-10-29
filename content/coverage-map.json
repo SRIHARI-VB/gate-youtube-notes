@@ -6178,6 +6178,11 @@
       "kind": "visual",
       "placement": "operating-systems \u203a storage-file-systems \u203a access-control-protection",
       "detail": "Access control & protection is one of the four subtopic_label groups in Operating Systems Unit 6 (5 of the unit's 25 questions: OS-U6-Q04, Q08, Q12, Q16 and Q20), and no published lesson covers it: 'access control', 'protection' and 'permission' return 0 hits in topics/file-systems/transcript.md and topics/disk-scheduling/transcript.md, and syllabus-coverage.json places file protection under neither lesson. Recommendation: extend topics/file-systems with one access-control scene (owner/group/other permission bits, ACLs against capability lists) rather than build a new lesson, then regenerate captions with node tools/gen-captions.mjs file-systems."
+    },
+    {
+      "kind": "notes",
+      "placement": "computer-networks \u203a routing-protocols \u203a (no card)",
+      "detail": "Computer Networks Unit 4 'Network Layer: Routing & Protocols' (unit_slug routing-protocols, unit_number 4) opened on 2026-10-29 as run 7, Set 1 of 2, paper computer-networks/routing-protocols/gate_cn_mock_4_2026-10-29.html. The bank holds 25 records for the unit, grouped by subtopic_label: Distance vector & count to infinity 7, Link state, OSPF & Dijkstra 7, BGP & path vector 5, ARP, RARP, ICMP, DHCP & NAT 6. The visual side is served by two PUBLISHED lessons: topics/distance-vector-and-link-state-routing (syllabus-coverage.json subtopics 'distance vector algorithm and count-to-infinity', 'link state and Dijkstra', 'routing tables'; index.html carries count-to-infinity 4, OSPF 21 and BGP 3 hits) for the first two groups, and topics/ip-fragmentation-cidr-and-nat for the fourth (index.html ARP 2, ICMP 3, DHCP 2, NAT 55). The notes repo has no computer-networks subject (content/index.json map[] carries only discrete-mathematics, linear-algebra and calculus), so no card serves the unit: this is a notes gap, not an unmapped lesson. Recommendation: start content/subjects/computer-networks/routing-protocols/ with distance-vector-and-count-to-infinity.json, the group both the mock and a published lesson already carry."
     }
   ]
 }
