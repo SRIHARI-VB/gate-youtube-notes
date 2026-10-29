@@ -86,5 +86,17 @@
     }
   ],
   "sourceLine": "The definition as a measurable function and the motivation for replacing outcomes by numbers: NPTEL Probability and Statistics Lecture 13 (English, IIT Kharagpur). The discrete-versus-continuous contrast and the distribution-table rules: CBSE Applied Mathematics chapter 4 (English) and the Hindi page on probability distributions (translated). The density as a height rather than a probability: NPTEL Lecture 15 (English).",
-  "videoRefs": []
+  "videoRefs": [],
+  "links": {
+    "visual": {
+      "slug": "probability-and-random-variables",
+      "title": "Probability, Random Variables and Distributions",
+      "level": "topic-level",
+      "url": "https://gate-visual-explainer.vercel.app/topics/probability-and-random-variables/index.html",
+      "covers": [
+        "random variable as a function on outcomes"
+      ]
+    },
+    "mapped_at": "2026-10-29"
+  }
 }

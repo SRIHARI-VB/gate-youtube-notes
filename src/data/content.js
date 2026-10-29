@@ -21409,6 +21409,18 @@ window.GATE_DATA = {
    ],
    "sourceLine": "The definition as a measurable function and the motivation for replacing outcomes by numbers: NPTEL Probability and Statistics Lecture 13 (English, IIT Kharagpur). The discrete-versus-continuous contrast and the distribution-table rules: CBSE Applied Mathematics chapter 4 (English) and the Hindi page on probability distributions (translated). The density as a height rather than a probability: NPTEL Lecture 15 (English).",
    "videoRefs": [],
+   "links": {
+    "visual": {
+     "slug": "probability-and-random-variables",
+     "title": "Probability, Random Variables and Distributions",
+     "level": "topic-level",
+     "url": "https://gate-visual-explainer.vercel.app/topics/probability-and-random-variables/index.html",
+     "covers": [
+      "random variable as a function on outcomes"
+     ]
+    },
+    "mapped_at": "2026-10-29"
+   },
    "subject": "probability-and-statistics",
    "topic": "random-variables-and-distributions",
    "path": "subjects/probability-and-statistics/random-variables-and-distributions/random-variable-as-a-function.json"
@@ -21498,6 +21510,19 @@ window.GATE_DATA = {
    ],
    "sourceLine": "The definition of the CDF, the absolutely-continuous case and the density as its derivative: NPTEL Probability and Statistics Lecture 15 (English, IIT Kharagpur). The GATE framing of the staircase and the pitfall list: GATE Overflow probability notes (English, read in part). The probability-distribution table and the sum-to-one rule: CBSE Applied Mathematics chapter 4 (English).",
    "videoRefs": [],
+   "links": {
+    "visual": {
+     "slug": "probability-and-random-variables",
+     "title": "Probability, Random Variables and Distributions",
+     "level": "topic-level",
+     "url": "https://gate-visual-explainer.vercel.app/topics/probability-and-random-variables/index.html",
+     "covers": [
+      "PMF sums to 1",
+      "CDF as a staircase: non-decreasing, flat between values, reaching 1"
+     ]
+    },
+    "mapped_at": "2026-10-29"
+   },
    "subject": "probability-and-statistics",
    "topic": "random-variables-and-distributions",
    "path": "subjects/probability-and-statistics/random-variables-and-distributions/probability-distribution-and-cdf.json"
@@ -21594,6 +21619,19 @@ window.GATE_DATA = {
    ],
    "sourceLine": "The two conditions on a density and the interval formula: NPTEL Probability and Statistics Lecture 15 (English). The GATE statement of the same trap, that a computed probability outside [0, 1] means the constant was forgotten: the Knowledge Gate walkthrough of the 2025 question and the GATE Overflow probability notes (English). The Hindi page states the area-under-the-curve reading and the zero probability of a single value (translated).",
    "videoRefs": [],
+   "links": {
+    "visual": {
+     "slug": "probability-and-random-variables",
+     "title": "Probability, Random Variables and Distributions",
+     "level": "topic-level",
+     "url": "https://gate-visual-explainer.vercel.app/topics/probability-and-random-variables/index.html",
+     "covers": [
+      "probability as area under the density",
+      "the density may exceed 1 and P(X = a) = 0"
+     ]
+    },
+    "mapped_at": "2026-10-29"
+   },
    "subject": "probability-and-statistics",
    "topic": "random-variables-and-distributions",
    "path": "subjects/probability-and-statistics/random-variables-and-distributions/pmf-pdf-normalisation-and-interval-probability.json"
@@ -21701,6 +21739,20 @@ window.GATE_DATA = {
    "sourceLine": "The definition, the function-of-X rule and linearity: the GATE Overflow probability notes and CBSE Applied Mathematics chapter 4 (English). The balance-point reading and the 'check that the probabilities sum to 1 first' warning: the Hindi page on probability distributions (translated). A worked mean computed term by term from a PMF: NPTEL Lecture 19, the discrete uniform mean (English).",
    "videoRefs": [],
    "visual": "probability-and-statistics/random-variables-and-distributions/pmf-cdf-and-the-balance-point",
+   "links": {
+    "visual": {
+     "slug": "probability-and-random-variables",
+     "title": "Probability, Random Variables and Distributions",
+     "level": "topic-level",
+     "url": "https://gate-visual-explainer.vercel.app/topics/probability-and-random-variables/index.html",
+     "covers": [
+      "expectation as a balance point",
+      "E[g(X)] and linearity of expectation",
+      "E[XY] = E[X]E[Y] only under independence"
+     ]
+    },
+    "mapped_at": "2026-10-29"
+   },
    "subject": "probability-and-statistics",
    "topic": "random-variables-and-distributions",
    "path": "subjects/probability-and-statistics/random-variables-and-distributions/expectation-and-linearity.json"
@@ -21796,6 +21848,20 @@ window.GATE_DATA = {
    ],
    "sourceLine": "The identity Var(X) = E[X^2] - mu^2, the Var(aX+b) rule and the independence condition on Var(X - Y): the GATE Overflow probability notes and the Hindi page (translated), which lists 'writing E(X^2) - E(X)' as one of four common mistakes. A variance computed from first principles for a named distribution: NPTEL Lecture 24, the continuous uniform (English).",
    "videoRefs": [],
+   "links": {
+    "visual": {
+     "slug": "probability-and-random-variables",
+     "title": "Probability, Random Variables and Distributions",
+     "level": "topic-level",
+     "url": "https://gate-visual-explainer.vercel.app/topics/probability-and-random-variables/index.html",
+     "covers": [
+      "variance as E[X squared] minus the square of E[X]",
+      "Var(aX + b) = a^2 Var(X)",
+      "standard deviation as the square root of the variance"
+     ]
+    },
+    "mapped_at": "2026-10-29"
+   },
    "subject": "probability-and-statistics",
    "topic": "random-variables-and-distributions",
    "path": "subjects/probability-and-statistics/random-variables-and-distributions/variance-and-standard-deviation.json"
@@ -21912,6 +21978,19 @@ window.GATE_DATA = {
    ],
    "sourceLine": "The Bernoulli trial setup and the discrete uniform contrast: NPTEL Lecture 19 (English). A binomial application solved end to end, the airline overbooking example with binomial(52, 0.95): NPTEL Lecture 20 (English). The boundary of the model, sampling without replacement and the hypergeometric: NPTEL Lecture 21 (English). The four trial conditions in one list: CBSE Applied Mathematics chapter 4 (English). The mean np and variance np(1-p) with the 'p changing between trials' warning: the Hindi page (translated).",
    "videoRefs": [],
+   "links": {
+    "visual": {
+     "slug": "probability-and-random-variables",
+     "title": "Probability, Random Variables and Distributions",
+     "level": "topic-level",
+     "url": "https://gate-visual-explainer.vercel.app/topics/probability-and-random-variables/index.html",
+     "covers": [
+      "Bernoulli trials and the binomial PMF",
+      "binomial mean np and variance np(1-p)"
+     ]
+    },
+    "mapped_at": "2026-10-29"
+   },
    "subject": "probability-and-statistics",
    "topic": "random-variables-and-distributions",
    "path": "subjects/probability-and-statistics/random-variables-and-distributions/binomial-distribution.json"
@@ -22018,6 +22097,19 @@ window.GATE_DATA = {
    ],
    "sourceLine": "The three assumptions of the Poisson process, the derivation of the PMF and the worked example with lambda t rescaled to the window: NPTEL Lecture 22 (English). The derivation of the mean and the standard deviation sqrt(lambda): Glen Cowan's Poisson note (English). The mean-equals-variance signature and the 'at least / at most' pitfalls: the GATE Overflow probability notes and the Hindi page (translated).",
    "videoRefs": [],
+   "links": {
+    "visual": {
+     "slug": "probability-and-random-variables",
+     "title": "Probability, Random Variables and Distributions",
+     "level": "topic-level",
+     "url": "https://gate-visual-explainer.vercel.app/topics/probability-and-random-variables/index.html",
+     "covers": [
+      "Poisson PMF with mean and variance both lambda",
+      "Poisson as the large-n small-p binomial limit"
+     ]
+    },
+    "mapped_at": "2026-10-29"
+   },
    "subject": "probability-and-statistics",
    "topic": "random-variables-and-distributions",
    "path": "subjects/probability-and-statistics/random-variables-and-distributions/poisson-distribution.json"
@@ -22115,6 +22207,19 @@ window.GATE_DATA = {
    ],
    "sourceLine": "The exponential as the waiting time of a Poisson process, the memorylessness identity derived from the survival function and the mean 1/lambda: NPTEL Lecture 25 (English). The decay parameter m = 1/mu, the standard deviation equal to the mean and the median below the mean: OpenStax Introductory Statistics 2e section 5.3 (English). The rate-versus-mean pitfall: the GATE Overflow probability notes (English).",
    "videoRefs": [],
+   "links": {
+    "visual": {
+     "slug": "probability-and-random-variables",
+     "title": "Probability, Random Variables and Distributions",
+     "level": "topic-level",
+     "url": "https://gate-visual-explainer.vercel.app/topics/probability-and-random-variables/index.html",
+     "covers": [
+      "exponential density and the tail e^(-lambda t)",
+      "memorylessness and the condition that makes it true"
+     ]
+    },
+    "mapped_at": "2026-10-29"
+   },
    "subject": "probability-and-statistics",
    "topic": "random-variables-and-distributions",
    "path": "subjects/probability-and-statistics/random-variables-and-distributions/exponential-distribution.json"
@@ -22318,6 +22423,21 @@ window.GATE_DATA = {
    ],
    "sourceLine": "The density, the standardisation Z = (X - mu)/sigma and the vanishing of the odd central moments by symmetry: NPTEL Lecture 29 (English). The empirical rule, the standard-normal table cautions and the 'variance versus standard deviation' pitfall: the GATE Overflow probability notes (English). The mean-median-mode equality and the symmetry statement: CBSE Applied Mathematics chapter 4 (English).",
    "videoRefs": [],
+   "links": {
+    "visual": {
+     "slug": "probability-and-random-variables",
+     "title": "Probability, Random Variables and Distributions",
+     "level": "topic-level",
+     "url": "https://gate-visual-explainer.vercel.app/topics/probability-and-random-variables/index.html",
+     "covers": [
+      "normal density fixed by its mean and variance",
+      "standardise with z = (x - mu)/sigma",
+      "68.27, 95.45 and 99.73 percent bands",
+      "reading mean and variance off a normal density"
+     ]
+    },
+    "mapped_at": "2026-10-29"
+   },
    "subject": "probability-and-statistics",
    "topic": "random-variables-and-distributions",
    "path": "subjects/probability-and-statistics/random-variables-and-distributions/normal-distribution-and-standardisation.json"
@@ -22425,6 +22545,18 @@ window.GATE_DATA = {
    ],
    "sourceLine": "The origins of the discrete models, one experiment at a time: NPTEL Lectures 19 and 22 (English). The explicit statement that the exponential is the waiting time of a Poisson process, and the relation lambda = 1/mu between the two rates: OpenStax Introductory Statistics 2e section 5.3 (English). The Bernoulli-trial conditions that decide between binomial and hypergeometric: CBSE Applied Mathematics chapter 4 (English).",
    "videoRefs": [],
+   "links": {
+    "visual": {
+     "slug": "probability-and-random-variables",
+     "title": "Probability, Random Variables and Distributions",
+     "level": "topic-level",
+     "url": "https://gate-visual-explainer.vercel.app/topics/probability-and-random-variables/index.html",
+     "covers": [
+      "the procedure: name the type, write the event, compute, check the answer is a probability"
+     ]
+    },
+    "mapped_at": "2026-10-29"
+   },
    "subject": "probability-and-statistics",
    "topic": "random-variables-and-distributions",
    "path": "subjects/probability-and-statistics/random-variables-and-distributions/choosing-the-right-distribution.json"
@@ -22511,6 +22643,18 @@ window.GATE_DATA = {
    ],
    "sourceLine": "The reproductive property derived for the Poisson sum, and the statements that binomial and normal share it while the Bernoulli family does not: NPTEL Introduction to Probability Theory and Stochastic Processes, Lecture 30, IIT Delhi (English). The variance-addition condition: the GATE Overflow probability notes (English).",
    "videoRefs": [],
+   "links": {
+    "visual": {
+     "slug": "probability-and-random-variables",
+     "title": "Probability, Random Variables and Distributions",
+     "level": "topic-level",
+     "url": "https://gate-visual-explainer.vercel.app/topics/probability-and-random-variables/index.html",
+     "covers": [
+      "the expectation of a sum is the sum of the expectations, always"
+     ]
+    },
+    "mapped_at": "2026-10-29"
+   },
    "subject": "probability-and-statistics",
    "topic": "random-variables-and-distributions",
    "path": "subjects/probability-and-statistics/random-variables-and-distributions/sums-of-independent-random-variables.json"

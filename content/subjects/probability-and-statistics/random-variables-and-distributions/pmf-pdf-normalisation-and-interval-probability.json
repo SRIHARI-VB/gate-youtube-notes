@@ -89,5 +89,18 @@
     }
   ],
   "sourceLine": "The two conditions on a density and the interval formula: NPTEL Probability and Statistics Lecture 15 (English). The GATE statement of the same trap, that a computed probability outside [0, 1] means the constant was forgotten: the Knowledge Gate walkthrough of the 2025 question and the GATE Overflow probability notes (English). The Hindi page states the area-under-the-curve reading and the zero probability of a single value (translated).",
-  "videoRefs": []
+  "videoRefs": [],
+  "links": {
+    "visual": {
+      "slug": "probability-and-random-variables",
+      "title": "Probability, Random Variables and Distributions",
+      "level": "topic-level",
+      "url": "https://gate-visual-explainer.vercel.app/topics/probability-and-random-variables/index.html",
+      "covers": [
+        "probability as area under the density",
+        "the density may exceed 1 and P(X = a) = 0"
+      ]
+    },
+    "mapped_at": "2026-10-29"
+  }
 }

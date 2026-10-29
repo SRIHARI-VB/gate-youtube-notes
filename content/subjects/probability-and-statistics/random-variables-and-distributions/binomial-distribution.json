@@ -109,5 +109,18 @@
     }
   ],
   "sourceLine": "The Bernoulli trial setup and the discrete uniform contrast: NPTEL Lecture 19 (English). A binomial application solved end to end, the airline overbooking example with binomial(52, 0.95): NPTEL Lecture 20 (English). The boundary of the model, sampling without replacement and the hypergeometric: NPTEL Lecture 21 (English). The four trial conditions in one list: CBSE Applied Mathematics chapter 4 (English). The mean np and variance np(1-p) with the 'p changing between trials' warning: the Hindi page (translated).",
-  "videoRefs": []
+  "videoRefs": [],
+  "links": {
+    "visual": {
+      "slug": "probability-and-random-variables",
+      "title": "Probability, Random Variables and Distributions",
+      "level": "topic-level",
+      "url": "https://gate-visual-explainer.vercel.app/topics/probability-and-random-variables/index.html",
+      "covers": [
+        "Bernoulli trials and the binomial PMF",
+        "binomial mean np and variance np(1-p)"
+      ]
+    },
+    "mapped_at": "2026-10-29"
+  }
 }

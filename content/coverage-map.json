@@ -6188,6 +6188,384 @@
         "visual: syllabus-coverage.json lesson_slug matrices-systems-and-eigenvalues (PUBLISHED); covers checked against topics/matrices-systems-and-eigenvalues/transcript.md, not the alias list"
       ],
       "row_verdict": "BOTH"
+    },
+    {
+      "subject": "probability-and-statistics",
+      "group": "random-variables-and-distributions",
+      "topic": "random-variable-as-a-function",
+      "title": "The Random Variable as a Function",
+      "priority": "P1",
+      "path": "subjects/probability-and-statistics/random-variables-and-distributions/random-variable-as-a-function.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "engineering-mathematics",
+        "unit_slug": "probability-distributions",
+        "unit_name": "Continuous Probability & Distributions",
+        "unit_number": 5,
+        "question_count": 0,
+        "subtopic_labels": [],
+        "verdict": "MOCK_UNIT_EMPTY"
+      },
+      "visual": {
+        "slug": "probability-and-random-variables",
+        "title": "Probability, Random Variables and Distributions",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/probability-and-statistics/random-variables-and-distributions/random-variable-as-a-function.json",
+        "mock: engineering-mathematics/question-bank/master_bank.json holds 0 records for unit 5 probability-distributions; the README unit table lists it as 'Continuous Probability & Distributions' with 0 questions, so MOCK_UNIT_EMPTY",
+        "card map[] videos[] is empty and the card quotes no lecture, so transcript_status is not stated",
+        "visual: syllabus-coverage.json lesson_slug probability-and-random-variables (PUBLISHED); covers checked against topics/probability-and-random-variables/transcript.md, not the alias list"
+      ],
+      "row_verdict": "VISUAL_ONLY"
+    },
+    {
+      "subject": "probability-and-statistics",
+      "group": "random-variables-and-distributions",
+      "topic": "probability-distribution-and-cdf",
+      "title": "The Distribution and the CDF",
+      "priority": "P1",
+      "path": "subjects/probability-and-statistics/random-variables-and-distributions/probability-distribution-and-cdf.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "engineering-mathematics",
+        "unit_slug": "probability-distributions",
+        "unit_name": "Continuous Probability & Distributions",
+        "unit_number": 5,
+        "question_count": 0,
+        "subtopic_labels": [],
+        "verdict": "MOCK_UNIT_EMPTY"
+      },
+      "visual": {
+        "slug": "probability-and-random-variables",
+        "title": "Probability, Random Variables and Distributions",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/probability-and-statistics/random-variables-and-distributions/probability-distribution-and-cdf.json",
+        "mock: engineering-mathematics/question-bank/master_bank.json holds 0 records for unit 5 probability-distributions; the README unit table lists it as 'Continuous Probability & Distributions' with 0 questions, so MOCK_UNIT_EMPTY",
+        "card map[] videos[] is empty and the card quotes no lecture, so transcript_status is not stated",
+        "visual: syllabus-coverage.json lesson_slug probability-and-random-variables (PUBLISHED); covers checked against topics/probability-and-random-variables/transcript.md, not the alias list"
+      ],
+      "row_verdict": "VISUAL_ONLY"
+    },
+    {
+      "subject": "probability-and-statistics",
+      "group": "random-variables-and-distributions",
+      "topic": "pmf-pdf-normalisation-and-interval-probability",
+      "title": "Normalising a Density and Reading an Interval",
+      "priority": "P1",
+      "path": "subjects/probability-and-statistics/random-variables-and-distributions/pmf-pdf-normalisation-and-interval-probability.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "engineering-mathematics",
+        "unit_slug": "probability-distributions",
+        "unit_name": "Continuous Probability & Distributions",
+        "unit_number": 5,
+        "question_count": 0,
+        "subtopic_labels": [],
+        "verdict": "MOCK_UNIT_EMPTY"
+      },
+      "visual": {
+        "slug": "probability-and-random-variables",
+        "title": "Probability, Random Variables and Distributions",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/probability-and-statistics/random-variables-and-distributions/pmf-pdf-normalisation-and-interval-probability.json",
+        "mock: engineering-mathematics/question-bank/master_bank.json holds 0 records for unit 5 probability-distributions; the README unit table lists it as 'Continuous Probability & Distributions' with 0 questions, so MOCK_UNIT_EMPTY",
+        "card map[] videos[] is empty and the card quotes no lecture, so transcript_status is not stated",
+        "visual: syllabus-coverage.json lesson_slug probability-and-random-variables (PUBLISHED); covers checked against topics/probability-and-random-variables/transcript.md, not the alias list"
+      ],
+      "row_verdict": "VISUAL_ONLY"
+    },
+    {
+      "subject": "probability-and-statistics",
+      "group": "random-variables-and-distributions",
+      "topic": "expectation-and-linearity",
+      "title": "Expectation and Linearity",
+      "priority": "P1",
+      "path": "subjects/probability-and-statistics/random-variables-and-distributions/expectation-and-linearity.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "engineering-mathematics",
+        "unit_slug": "probability-distributions",
+        "unit_name": "Continuous Probability & Distributions",
+        "unit_number": 5,
+        "question_count": 0,
+        "subtopic_labels": [],
+        "verdict": "MOCK_UNIT_EMPTY"
+      },
+      "visual": {
+        "slug": "probability-and-random-variables",
+        "title": "Probability, Random Variables and Distributions",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/probability-and-statistics/random-variables-and-distributions/expectation-and-linearity.json",
+        "mock: engineering-mathematics/question-bank/master_bank.json holds 0 records for unit 5 probability-distributions; the README unit table lists it as 'Continuous Probability & Distributions' with 0 questions, so MOCK_UNIT_EMPTY",
+        "card map[] videos[] is empty and the card quotes no lecture, so transcript_status is not stated",
+        "visual: syllabus-coverage.json lesson_slug probability-and-random-variables (PUBLISHED); covers checked against topics/probability-and-random-variables/transcript.md, not the alias list"
+      ],
+      "row_verdict": "VISUAL_ONLY"
+    },
+    {
+      "subject": "probability-and-statistics",
+      "group": "random-variables-and-distributions",
+      "topic": "variance-and-standard-deviation",
+      "title": "Variance and Standard Deviation",
+      "priority": "P1",
+      "path": "subjects/probability-and-statistics/random-variables-and-distributions/variance-and-standard-deviation.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "engineering-mathematics",
+        "unit_slug": "probability-distributions",
+        "unit_name": "Continuous Probability & Distributions",
+        "unit_number": 5,
+        "question_count": 0,
+        "subtopic_labels": [],
+        "verdict": "MOCK_UNIT_EMPTY"
+      },
+      "visual": {
+        "slug": "probability-and-random-variables",
+        "title": "Probability, Random Variables and Distributions",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/probability-and-statistics/random-variables-and-distributions/variance-and-standard-deviation.json",
+        "mock: engineering-mathematics/question-bank/master_bank.json holds 0 records for unit 5 probability-distributions; the README unit table lists it as 'Continuous Probability & Distributions' with 0 questions, so MOCK_UNIT_EMPTY",
+        "card map[] videos[] is empty and the card quotes no lecture, so transcript_status is not stated",
+        "visual: syllabus-coverage.json lesson_slug probability-and-random-variables (PUBLISHED); covers checked against topics/probability-and-random-variables/transcript.md, not the alias list"
+      ],
+      "row_verdict": "VISUAL_ONLY"
+    },
+    {
+      "subject": "probability-and-statistics",
+      "group": "random-variables-and-distributions",
+      "topic": "binomial-distribution",
+      "title": "The Binomial Distribution",
+      "priority": "P1",
+      "path": "subjects/probability-and-statistics/random-variables-and-distributions/binomial-distribution.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "engineering-mathematics",
+        "unit_slug": "probability-distributions",
+        "unit_name": "Continuous Probability & Distributions",
+        "unit_number": 5,
+        "question_count": 0,
+        "subtopic_labels": [],
+        "verdict": "MOCK_UNIT_EMPTY"
+      },
+      "visual": {
+        "slug": "probability-and-random-variables",
+        "title": "Probability, Random Variables and Distributions",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/probability-and-statistics/random-variables-and-distributions/binomial-distribution.json",
+        "mock: engineering-mathematics/question-bank/master_bank.json holds 0 records for unit 5 probability-distributions; the README unit table lists it as 'Continuous Probability & Distributions' with 0 questions, so MOCK_UNIT_EMPTY",
+        "card map[] videos[] is empty and the card quotes no lecture, so transcript_status is not stated",
+        "visual: syllabus-coverage.json lesson_slug probability-and-random-variables (PUBLISHED); covers checked against topics/probability-and-random-variables/transcript.md, not the alias list"
+      ],
+      "row_verdict": "VISUAL_ONLY"
+    },
+    {
+      "subject": "probability-and-statistics",
+      "group": "random-variables-and-distributions",
+      "topic": "poisson-distribution",
+      "title": "The Poisson Distribution",
+      "priority": "P1",
+      "path": "subjects/probability-and-statistics/random-variables-and-distributions/poisson-distribution.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "engineering-mathematics",
+        "unit_slug": "probability-distributions",
+        "unit_name": "Continuous Probability & Distributions",
+        "unit_number": 5,
+        "question_count": 0,
+        "subtopic_labels": [],
+        "verdict": "MOCK_UNIT_EMPTY"
+      },
+      "visual": {
+        "slug": "probability-and-random-variables",
+        "title": "Probability, Random Variables and Distributions",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/probability-and-statistics/random-variables-and-distributions/poisson-distribution.json",
+        "mock: engineering-mathematics/question-bank/master_bank.json holds 0 records for unit 5 probability-distributions; the README unit table lists it as 'Continuous Probability & Distributions' with 0 questions, so MOCK_UNIT_EMPTY",
+        "card map[] videos[] is empty and the card quotes no lecture, so transcript_status is not stated",
+        "visual: syllabus-coverage.json lesson_slug probability-and-random-variables (PUBLISHED); covers checked against topics/probability-and-random-variables/transcript.md, not the alias list"
+      ],
+      "row_verdict": "VISUAL_ONLY"
+    },
+    {
+      "subject": "probability-and-statistics",
+      "group": "random-variables-and-distributions",
+      "topic": "exponential-distribution",
+      "title": "The Exponential Distribution",
+      "priority": "P1",
+      "path": "subjects/probability-and-statistics/random-variables-and-distributions/exponential-distribution.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "engineering-mathematics",
+        "unit_slug": "probability-distributions",
+        "unit_name": "Continuous Probability & Distributions",
+        "unit_number": 5,
+        "question_count": 0,
+        "subtopic_labels": [],
+        "verdict": "MOCK_UNIT_EMPTY"
+      },
+      "visual": {
+        "slug": "probability-and-random-variables",
+        "title": "Probability, Random Variables and Distributions",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/probability-and-statistics/random-variables-and-distributions/exponential-distribution.json",
+        "mock: engineering-mathematics/question-bank/master_bank.json holds 0 records for unit 5 probability-distributions; the README unit table lists it as 'Continuous Probability & Distributions' with 0 questions, so MOCK_UNIT_EMPTY",
+        "card map[] videos[] is empty and the card quotes no lecture, so transcript_status is not stated",
+        "visual: syllabus-coverage.json lesson_slug probability-and-random-variables (PUBLISHED); covers checked against topics/probability-and-random-variables/transcript.md, not the alias list"
+      ],
+      "row_verdict": "VISUAL_ONLY"
+    },
+    {
+      "subject": "probability-and-statistics",
+      "group": "random-variables-and-distributions",
+      "topic": "continuous-uniform-distribution",
+      "title": "The Uniform Distribution",
+      "priority": "P1",
+      "path": "subjects/probability-and-statistics/random-variables-and-distributions/continuous-uniform-distribution.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "engineering-mathematics",
+        "unit_slug": "probability-distributions",
+        "unit_name": "Continuous Probability & Distributions",
+        "unit_number": 5,
+        "question_count": 0,
+        "subtopic_labels": [],
+        "verdict": "MOCK_UNIT_EMPTY"
+      },
+      "visual": null,
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/probability-and-statistics/random-variables-and-distributions/continuous-uniform-distribution.json",
+        "mock: engineering-mathematics/question-bank/master_bank.json holds 0 records for unit 5 probability-distributions; the README unit table lists it as 'Continuous Probability & Distributions' with 0 questions, so MOCK_UNIT_EMPTY",
+        "card map[] videos[] is empty and the card quotes no lecture, so transcript_status is not stated",
+        "visual: topics/probability-and-random-variables/transcript.md has ten scenes and none of them treats a continuous uniform density, although syllabus-coverage.json lists 'uniform density and its mean and variance' as a microtopic; coverage_status PUBLISHED covers the other subtopics only"
+      ],
+      "row_verdict": "NEITHER"
+    },
+    {
+      "subject": "probability-and-statistics",
+      "group": "random-variables-and-distributions",
+      "topic": "normal-distribution-and-standardisation",
+      "title": "The Normal Distribution and Standardisation",
+      "priority": "P1",
+      "path": "subjects/probability-and-statistics/random-variables-and-distributions/normal-distribution-and-standardisation.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "engineering-mathematics",
+        "unit_slug": "probability-distributions",
+        "unit_name": "Continuous Probability & Distributions",
+        "unit_number": 5,
+        "question_count": 0,
+        "subtopic_labels": [],
+        "verdict": "MOCK_UNIT_EMPTY"
+      },
+      "visual": {
+        "slug": "probability-and-random-variables",
+        "title": "Probability, Random Variables and Distributions",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/probability-and-statistics/random-variables-and-distributions/normal-distribution-and-standardisation.json",
+        "mock: engineering-mathematics/question-bank/master_bank.json holds 0 records for unit 5 probability-distributions; the README unit table lists it as 'Continuous Probability & Distributions' with 0 questions, so MOCK_UNIT_EMPTY",
+        "card map[] videos[] is empty and the card quotes no lecture, so transcript_status is not stated",
+        "visual: syllabus-coverage.json lesson_slug probability-and-random-variables (PUBLISHED); covers checked against topics/probability-and-random-variables/transcript.md, not the alias list"
+      ],
+      "row_verdict": "VISUAL_ONLY"
+    },
+    {
+      "subject": "probability-and-statistics",
+      "group": "random-variables-and-distributions",
+      "topic": "choosing-the-right-distribution",
+      "title": "Choosing the Right Distribution",
+      "priority": "P2",
+      "path": "subjects/probability-and-statistics/random-variables-and-distributions/choosing-the-right-distribution.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "engineering-mathematics",
+        "unit_slug": "probability-distributions",
+        "unit_name": "Continuous Probability & Distributions",
+        "unit_number": 5,
+        "question_count": 0,
+        "subtopic_labels": [],
+        "verdict": "MOCK_UNIT_EMPTY"
+      },
+      "visual": {
+        "slug": "probability-and-random-variables",
+        "title": "Probability, Random Variables and Distributions",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/probability-and-statistics/random-variables-and-distributions/choosing-the-right-distribution.json",
+        "mock: engineering-mathematics/question-bank/master_bank.json holds 0 records for unit 5 probability-distributions; the README unit table lists it as 'Continuous Probability & Distributions' with 0 questions, so MOCK_UNIT_EMPTY",
+        "card map[] videos[] is empty and the card quotes no lecture, so transcript_status is not stated",
+        "visual: syllabus-coverage.json lesson_slug probability-and-random-variables (PUBLISHED); covers checked against topics/probability-and-random-variables/transcript.md, not the alias list"
+      ],
+      "row_verdict": "VISUAL_ONLY"
+    },
+    {
+      "subject": "probability-and-statistics",
+      "group": "random-variables-and-distributions",
+      "topic": "sums-of-independent-random-variables",
+      "title": "Sums of Independent Variables",
+      "priority": "P3",
+      "path": "subjects/probability-and-statistics/random-variables-and-distributions/sums-of-independent-random-variables.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "engineering-mathematics",
+        "unit_slug": "probability-distributions",
+        "unit_name": "Continuous Probability & Distributions",
+        "unit_number": 5,
+        "question_count": 0,
+        "subtopic_labels": [],
+        "verdict": "MOCK_UNIT_EMPTY"
+      },
+      "visual": {
+        "slug": "probability-and-random-variables",
+        "title": "Probability, Random Variables and Distributions",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/probability-and-statistics/random-variables-and-distributions/sums-of-independent-random-variables.json",
+        "mock: engineering-mathematics/question-bank/master_bank.json holds 0 records for unit 5 probability-distributions; the README unit table lists it as 'Continuous Probability & Distributions' with 0 questions, so MOCK_UNIT_EMPTY",
+        "card map[] videos[] is empty and the card quotes no lecture, so transcript_status is not stated",
+        "visual: syllabus-coverage.json lesson_slug probability-and-random-variables (PUBLISHED); covers checked against topics/probability-and-random-variables/transcript.md, not the alias list"
+      ],
+      "row_verdict": "VISUAL_ONLY"
     }
   ],
   "gaps": [
@@ -6590,6 +6968,41 @@
       "kind": "notes",
       "placement": "computer-architecture › cache-memory › (no card)",
       "detail": "New mock unit 3 'Memory Hierarchy & Cache Memory' (unit_slug cache-memory, run 3, Set 1 of 2, 2026-10-29) holds 25 questions in 4 subtopic_label groups — Direct, associative & set-associative mapping 8, Cache hit/miss & miss penalty 7, Replacement algorithms 5, Write policies: write-through & write-back 5 — paper computer-architecture/cache-memory/gate_co_mock_3_2026-10-29.html; under the 50-question cap, so the next Computer Architecture run takes Set 2 of 2 before advancing to unit 4. The visual side is served: topics/memory-hierarchy-and-cache is PUBLISHED (syllabus-coverage.json subject 'Computer Organization and Architecture', unit 'Memory', 4 subtopics, 22 microtopics) and transcript.md covers direct-mapped and set-associative mapping, LRU replacement, write-through, write-back with the dirty bit, write-allocate, miss penalty and hit rate — topic-level. The notes side has nothing: content/subjects/ holds only calculus, discrete-mathematics and linear-algebra, and all 3 playlists in content/playlists/ are Discrete Mathematics, so no card serves this unit. Next build: the card belongs at content/subjects/computer-architecture/memory-hierarchy/cache-memory.json, but it needs an upstream Computer Architecture playlist first (syllabus.json lists 'computer-organization-and-architecture' under not_covered_by_playlist), so this is an upstream notes gap, not a card to invent."
+    },
+    {
+      "kind": "mock",
+      "placement": "engineering-mathematics › probability-distributions › (unit exists, 0 questions)",
+      "detail": "Twelve probability cards now sit at content/subjects/probability-and-statistics/random-variables-and-distributions/, and the mocks README unit table lists Engineering Mathematics unit 5 as 'Continuous Probability & Distributions' with slug probability-distributions and 0 questions in the bank. master_bank.json holds no record for that slug, so every card's mock side is MOCK_UNIT_EMPTY and no mock link was written. Recommendation: build the first 25-question set for engineering-mathematics/probability-distributions/ (15 MCQ / 5 MSQ / 5 NAT, 10 easy / 10 medium / 5 hard) covering random variables and CDF, expectation and variance, and the five named distributions."
+    },
+    {
+      "kind": "visual",
+      "placement": "probability-and-statistics › random-variables-and-distributions › continuous-uniform-distribution",
+      "detail": "syllabus-coverage.json lists 'uniform density and its mean and variance' as a microtopic of topics/probability-and-random-variables, but its transcript.md has no scene on the continuous uniform distribution - the only two mentions are a caption about a non-uniform table and one about a uniform waiting time not being memoryless. The card therefore carries no visual link. Recommendation: add one scene to topics/probability-and-random-variables/ (density 1/(b-a), mean (a+b)/2, variance (b-a)^2/12) and regenerate captions with node tools/gen-captions.mjs probability-and-random-variables."
+    },
+    {
+      "kind": "visual",
+      "placement": "probability-and-statistics › random-variables-and-distributions › sums-of-independent-random-variables",
+      "detail": "The card is about sums of independent random variables - the reproductive property of the Poisson and the normal - and the lesson covers only the linearity of expectation for a sum (Scene 5, and Scene 7's note that the variance of a binomial sum needs independence). The reproductive property itself is not taught anywhere in topics/probability-and-random-variables/transcript.md, so the card is mapped at topic-level with that single covered microtopic. Recommendation: extend the same lesson with a scene on sums of independent Poissons and normals rather than starting a new slug."
+    },
+    {
+      "kind": "notes",
+      "placement": "operating-systems › process-management-and-cpu-scheduling › process-states-pcb",
+      "detail": "Mock change this hour: Operating Systems unit 1 'Process Management & CPU Scheduling' (unit_slug process-scheduling, unit_number 1) published gate_os_mock_1_2026-10-29.html and the bank now holds 75 records for the unit, grouped by the subtopic field as process-states-pcb 20, fcfs-sjf-srtf-roundrobin-priority-multilevel 20, threads-user-vs-kernel 18, preemptive-nonpreemptive-scheduling 17. The notes repo has no operating-systems subject at all - content/index.json map[] carries only discrete-mathematics, linear-algebra, calculus and probability-and-statistics - so all four groups are notes gaps. Recommendation: open the subject with a card per group, starting at content/subjects/operating-systems/process-management-and-cpu-scheduling/process-states-pcb.json, since the published lesson topics/cpu-scheduling already covers the three scheduling groups."
+    },
+    {
+      "kind": "visual",
+      "placement": "discrete-mathematics › monoids-and-groups › group-homomorphism-and-kernel",
+      "detail": "This card still carries no links. topics/monoids-and-groups/transcript.md has no mention of a homomorphism or a kernel, so the lesson does not cover it, and the Discrete Mathematics bank has no groups unit. Recommendation: add a homomorphism-and-kernel scene to topics/monoids-and-groups/ rather than a new lesson."
+    },
+    {
+      "kind": "mock",
+      "placement": "discrete-mathematics › graphs › chromatic-polynomial",
+      "detail": "This card still carries no links. The Discrete Mathematics bank has no graph unit (units run propositional-logic, predicate-logic, set-theory, relations, functions, induction-recursion, combinatorics, recurrence-generating-functions, proof-techniques), and topics/matching-and-colouring/transcript.md never mentions the chromatic polynomial or deletion-contraction. Recommendation: extend topics/matching-and-colouring/ with the chromatic polynomial before any mock unit is opened for graphs."
+    },
+    {
+      "kind": "mock",
+      "placement": "discrete-mathematics › combinatorics › ioib-partitions",
+      "detail": "This card still carries no links. Integer partitions into identical boxes are neither the set partitions of unit 3 set-theory ('Partitions & Cartesian products', which serves doib-stirling) nor the 'Stars and bars' group of unit 7 combinatorics, and topics/counting-and-combinatorics/transcript.md covers stars and bars, circular permutations and pigeonhole but no integer-partition enumeration. Recommendation: add an integer-partition group to discrete-mathematics/combinatorics in the bank and a matching microtopic to topics/counting-and-combinatorics/."
     }
   ]
 }

@@ -100,5 +100,19 @@
   ],
   "sourceLine": "The definition, the function-of-X rule and linearity: the GATE Overflow probability notes and CBSE Applied Mathematics chapter 4 (English). The balance-point reading and the 'check that the probabilities sum to 1 first' warning: the Hindi page on probability distributions (translated). A worked mean computed term by term from a PMF: NPTEL Lecture 19, the discrete uniform mean (English).",
   "videoRefs": [],
-  "visual": "probability-and-statistics/random-variables-and-distributions/pmf-cdf-and-the-balance-point"
+  "visual": "probability-and-statistics/random-variables-and-distributions/pmf-cdf-and-the-balance-point",
+  "links": {
+    "visual": {
+      "slug": "probability-and-random-variables",
+      "title": "Probability, Random Variables and Distributions",
+      "level": "topic-level",
+      "url": "https://gate-visual-explainer.vercel.app/topics/probability-and-random-variables/index.html",
+      "covers": [
+        "expectation as a balance point",
+        "E[g(X)] and linearity of expectation",
+        "E[XY] = E[X]E[Y] only under independence"
+      ]
+    },
+    "mapped_at": "2026-10-29"
+  }
 }

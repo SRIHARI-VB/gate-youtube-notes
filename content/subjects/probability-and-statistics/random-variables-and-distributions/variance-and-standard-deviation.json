@@ -88,5 +88,19 @@
     }
   ],
   "sourceLine": "The identity Var(X) = E[X^2] - mu^2, the Var(aX+b) rule and the independence condition on Var(X - Y): the GATE Overflow probability notes and the Hindi page (translated), which lists 'writing E(X^2) - E(X)' as one of four common mistakes. A variance computed from first principles for a named distribution: NPTEL Lecture 24, the continuous uniform (English).",
-  "videoRefs": []
+  "videoRefs": [],
+  "links": {
+    "visual": {
+      "slug": "probability-and-random-variables",
+      "title": "Probability, Random Variables and Distributions",
+      "level": "topic-level",
+      "url": "https://gate-visual-explainer.vercel.app/topics/probability-and-random-variables/index.html",
+      "covers": [
+        "variance as E[X squared] minus the square of E[X]",
+        "Var(aX + b) = a^2 Var(X)",
+        "standard deviation as the square root of the variance"
+      ]
+    },
+    "mapped_at": "2026-10-29"
+  }
 }

@@ -90,5 +90,20 @@
     }
   ],
   "sourceLine": "The density, the standardisation Z = (X - mu)/sigma and the vanishing of the odd central moments by symmetry: NPTEL Lecture 29 (English). The empirical rule, the standard-normal table cautions and the 'variance versus standard deviation' pitfall: the GATE Overflow probability notes (English). The mean-median-mode equality and the symmetry statement: CBSE Applied Mathematics chapter 4 (English).",
-  "videoRefs": []
+  "videoRefs": [],
+  "links": {
+    "visual": {
+      "slug": "probability-and-random-variables",
+      "title": "Probability, Random Variables and Distributions",
+      "level": "topic-level",
+      "url": "https://gate-visual-explainer.vercel.app/topics/probability-and-random-variables/index.html",
+      "covers": [
+        "normal density fixed by its mean and variance",
+        "standardise with z = (x - mu)/sigma",
+        "68.27, 95.45 and 99.73 percent bands",
+        "reading mean and variance off a normal density"
+      ]
+    },
+    "mapped_at": "2026-10-29"
+  }
 }

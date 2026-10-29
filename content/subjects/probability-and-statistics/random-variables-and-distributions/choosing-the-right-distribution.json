@@ -100,5 +100,17 @@
     }
   ],
   "sourceLine": "The origins of the discrete models, one experiment at a time: NPTEL Lectures 19 and 22 (English). The explicit statement that the exponential is the waiting time of a Poisson process, and the relation lambda = 1/mu between the two rates: OpenStax Introductory Statistics 2e section 5.3 (English). The Bernoulli-trial conditions that decide between binomial and hypergeometric: CBSE Applied Mathematics chapter 4 (English).",
-  "videoRefs": []
+  "videoRefs": [],
+  "links": {
+    "visual": {
+      "slug": "probability-and-random-variables",
+      "title": "Probability, Random Variables and Distributions",
+      "level": "topic-level",
+      "url": "https://gate-visual-explainer.vercel.app/topics/probability-and-random-variables/index.html",
+      "covers": [
+        "the procedure: name the type, write the event, compute, check the answer is a probability"
+      ]
+    },
+    "mapped_at": "2026-10-29"
+  }
 }

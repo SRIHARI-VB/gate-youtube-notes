@@ -82,5 +82,18 @@
     }
   ],
   "sourceLine": "The definition of the CDF, the absolutely-continuous case and the density as its derivative: NPTEL Probability and Statistics Lecture 15 (English, IIT Kharagpur). The GATE framing of the staircase and the pitfall list: GATE Overflow probability notes (English, read in part). The probability-distribution table and the sum-to-one rule: CBSE Applied Mathematics chapter 4 (English).",
-  "videoRefs": []
+  "videoRefs": [],
+  "links": {
+    "visual": {
+      "slug": "probability-and-random-variables",
+      "title": "Probability, Random Variables and Distributions",
+      "level": "topic-level",
+      "url": "https://gate-visual-explainer.vercel.app/topics/probability-and-random-variables/index.html",
+      "covers": [
+        "PMF sums to 1",
+        "CDF as a staircase: non-decreasing, flat between values, reaching 1"
+      ]
+    },
+    "mapped_at": "2026-10-29"
+  }
 }
