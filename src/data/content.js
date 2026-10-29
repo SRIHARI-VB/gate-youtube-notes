@@ -16854,26 +16854,26 @@ window.GATE_DATA = {
      "unit_slug": "calculus-optimization-integrals",
      "unit_name": "Calculus: Maxima, Minima & Integrals",
      "unit_number": 4,
-     "question_count": 25,
+     "question_count": 50,
      "subtopics": [
       {
        "label": "single-variable-extrema",
-       "questions": 7
-      },
-      {
-       "label": "multivariable-extrema-saddle-points",
-       "questions": 6
+       "questions": 15
       },
       {
        "label": "definite-integrals",
-       "questions": 6
+       "questions": 13
+      },
+      {
+       "label": "multivariable-extrema-saddle-points",
+       "questions": 11
       },
       {
        "label": "vector-calculus-basics",
-       "questions": 6
+       "questions": 11
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-28.html"
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-29.html"
     },
     "visual": {
      "slug": "calculus-limits-extrema-and-integration",
@@ -16972,26 +16972,26 @@ window.GATE_DATA = {
      "unit_slug": "calculus-optimization-integrals",
      "unit_name": "Calculus: Maxima, Minima & Integrals",
      "unit_number": 4,
-     "question_count": 25,
+     "question_count": 50,
      "subtopics": [
       {
        "label": "single-variable-extrema",
-       "questions": 7
-      },
-      {
-       "label": "multivariable-extrema-saddle-points",
-       "questions": 6
+       "questions": 15
       },
       {
        "label": "definite-integrals",
-       "questions": 6
+       "questions": 13
+      },
+      {
+       "label": "multivariable-extrema-saddle-points",
+       "questions": 11
       },
       {
        "label": "vector-calculus-basics",
-       "questions": 6
+       "questions": 11
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-28.html"
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-29.html"
     },
     "visual": {
      "slug": "calculus-limits-extrema-and-integration",
@@ -17089,26 +17089,26 @@ window.GATE_DATA = {
      "unit_slug": "calculus-optimization-integrals",
      "unit_name": "Calculus: Maxima, Minima & Integrals",
      "unit_number": 4,
-     "question_count": 25,
+     "question_count": 50,
      "subtopics": [
       {
        "label": "single-variable-extrema",
-       "questions": 7
-      },
-      {
-       "label": "multivariable-extrema-saddle-points",
-       "questions": 6
+       "questions": 15
       },
       {
        "label": "definite-integrals",
-       "questions": 6
+       "questions": 13
+      },
+      {
+       "label": "multivariable-extrema-saddle-points",
+       "questions": 11
       },
       {
        "label": "vector-calculus-basics",
-       "questions": 6
+       "questions": 11
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-28.html"
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-29.html"
     },
     "visual": {
      "slug": "calculus-limits-extrema-and-integration",
@@ -17206,26 +17206,26 @@ window.GATE_DATA = {
      "unit_slug": "calculus-optimization-integrals",
      "unit_name": "Calculus: Maxima, Minima & Integrals",
      "unit_number": 4,
-     "question_count": 25,
+     "question_count": 50,
      "subtopics": [
       {
        "label": "single-variable-extrema",
-       "questions": 7
-      },
-      {
-       "label": "multivariable-extrema-saddle-points",
-       "questions": 6
+       "questions": 15
       },
       {
        "label": "definite-integrals",
-       "questions": 6
+       "questions": 13
+      },
+      {
+       "label": "multivariable-extrema-saddle-points",
+       "questions": 11
       },
       {
        "label": "vector-calculus-basics",
-       "questions": 6
+       "questions": 11
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-28.html"
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-29.html"
     },
     "visual": {
      "slug": "calculus-limits-extrema-and-integration",
@@ -17324,26 +17324,26 @@ window.GATE_DATA = {
      "unit_slug": "calculus-optimization-integrals",
      "unit_name": "Calculus: Maxima, Minima & Integrals",
      "unit_number": 4,
-     "question_count": 25,
+     "question_count": 50,
      "subtopics": [
       {
        "label": "single-variable-extrema",
-       "questions": 7
-      },
-      {
-       "label": "multivariable-extrema-saddle-points",
-       "questions": 6
+       "questions": 15
       },
       {
        "label": "definite-integrals",
-       "questions": 6
+       "questions": 13
+      },
+      {
+       "label": "multivariable-extrema-saddle-points",
+       "questions": 11
       },
       {
        "label": "vector-calculus-basics",
-       "questions": 6
+       "questions": 11
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-28.html"
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-29.html"
     },
     "visual": {
      "slug": "calculus-limits-extrema-and-integration",
@@ -17442,26 +17442,26 @@ window.GATE_DATA = {
      "unit_slug": "calculus-optimization-integrals",
      "unit_name": "Calculus: Maxima, Minima & Integrals",
      "unit_number": 4,
-     "question_count": 25,
+     "question_count": 50,
      "subtopics": [
       {
        "label": "single-variable-extrema",
-       "questions": 7
-      },
-      {
-       "label": "multivariable-extrema-saddle-points",
-       "questions": 6
+       "questions": 15
       },
       {
        "label": "definite-integrals",
-       "questions": 6
+       "questions": 13
+      },
+      {
+       "label": "multivariable-extrema-saddle-points",
+       "questions": 11
       },
       {
        "label": "vector-calculus-basics",
-       "questions": 6
+       "questions": 11
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-28.html"
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-29.html"
     },
     "visual": {
      "slug": "calculus-limits-extrema-and-integration",
@@ -17559,26 +17559,26 @@ window.GATE_DATA = {
      "unit_slug": "calculus-optimization-integrals",
      "unit_name": "Calculus: Maxima, Minima & Integrals",
      "unit_number": 4,
-     "question_count": 25,
+     "question_count": 50,
      "subtopics": [
       {
        "label": "single-variable-extrema",
-       "questions": 7
-      },
-      {
-       "label": "multivariable-extrema-saddle-points",
-       "questions": 6
+       "questions": 15
       },
       {
        "label": "definite-integrals",
-       "questions": 6
+       "questions": 13
+      },
+      {
+       "label": "multivariable-extrema-saddle-points",
+       "questions": 11
       },
       {
        "label": "vector-calculus-basics",
-       "questions": 6
+       "questions": 11
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-28.html"
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-29.html"
     },
     "mapped_at": "2026-10-29"
    },
@@ -17667,26 +17667,26 @@ window.GATE_DATA = {
      "unit_slug": "calculus-optimization-integrals",
      "unit_name": "Calculus: Maxima, Minima & Integrals",
      "unit_number": 4,
-     "question_count": 25,
+     "question_count": 50,
      "subtopics": [
       {
        "label": "single-variable-extrema",
-       "questions": 7
-      },
-      {
-       "label": "multivariable-extrema-saddle-points",
-       "questions": 6
+       "questions": 15
       },
       {
        "label": "definite-integrals",
-       "questions": 6
+       "questions": 13
+      },
+      {
+       "label": "multivariable-extrema-saddle-points",
+       "questions": 11
       },
       {
        "label": "vector-calculus-basics",
-       "questions": 6
+       "questions": 11
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-28.html"
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-29.html"
     },
     "visual": {
      "slug": "calculus-limits-extrema-and-integration",
@@ -17782,26 +17782,26 @@ window.GATE_DATA = {
      "unit_slug": "calculus-optimization-integrals",
      "unit_name": "Calculus: Maxima, Minima & Integrals",
      "unit_number": 4,
-     "question_count": 25,
+     "question_count": 50,
      "subtopics": [
       {
        "label": "single-variable-extrema",
-       "questions": 7
-      },
-      {
-       "label": "multivariable-extrema-saddle-points",
-       "questions": 6
+       "questions": 15
       },
       {
        "label": "definite-integrals",
-       "questions": 6
+       "questions": 13
+      },
+      {
+       "label": "multivariable-extrema-saddle-points",
+       "questions": 11
       },
       {
        "label": "vector-calculus-basics",
-       "questions": 6
+       "questions": 11
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-28.html"
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-29.html"
     },
     "visual": {
      "slug": "calculus-limits-extrema-and-integration",
@@ -17899,26 +17899,26 @@ window.GATE_DATA = {
      "unit_slug": "calculus-optimization-integrals",
      "unit_name": "Calculus: Maxima, Minima & Integrals",
      "unit_number": 4,
-     "question_count": 25,
+     "question_count": 50,
      "subtopics": [
       {
        "label": "single-variable-extrema",
-       "questions": 7
-      },
-      {
-       "label": "multivariable-extrema-saddle-points",
-       "questions": 6
+       "questions": 15
       },
       {
        "label": "definite-integrals",
-       "questions": 6
+       "questions": 13
+      },
+      {
+       "label": "multivariable-extrema-saddle-points",
+       "questions": 11
       },
       {
        "label": "vector-calculus-basics",
-       "questions": 6
+       "questions": 11
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-28.html"
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-29.html"
     },
     "visual": {
      "slug": "calculus-limits-extrema-and-integration",
@@ -18016,26 +18016,26 @@ window.GATE_DATA = {
      "unit_slug": "calculus-optimization-integrals",
      "unit_name": "Calculus: Maxima, Minima & Integrals",
      "unit_number": 4,
-     "question_count": 25,
+     "question_count": 50,
      "subtopics": [
       {
        "label": "single-variable-extrema",
-       "questions": 7
-      },
-      {
-       "label": "multivariable-extrema-saddle-points",
-       "questions": 6
+       "questions": 15
       },
       {
        "label": "definite-integrals",
-       "questions": 6
+       "questions": 13
+      },
+      {
+       "label": "multivariable-extrema-saddle-points",
+       "questions": 11
       },
       {
        "label": "vector-calculus-basics",
-       "questions": 6
+       "questions": 11
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-28.html"
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-29.html"
     },
     "visual": {
      "slug": "calculus-limits-extrema-and-integration",
@@ -18135,26 +18135,26 @@ window.GATE_DATA = {
      "unit_slug": "calculus-optimization-integrals",
      "unit_name": "Calculus: Maxima, Minima & Integrals",
      "unit_number": 4,
-     "question_count": 25,
+     "question_count": 50,
      "subtopics": [
       {
        "label": "single-variable-extrema",
-       "questions": 7
-      },
-      {
-       "label": "multivariable-extrema-saddle-points",
-       "questions": 6
+       "questions": 15
       },
       {
        "label": "definite-integrals",
-       "questions": 6
+       "questions": 13
+      },
+      {
+       "label": "multivariable-extrema-saddle-points",
+       "questions": 11
       },
       {
        "label": "vector-calculus-basics",
-       "questions": 6
+       "questions": 11
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-28.html"
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-29.html"
     },
     "visual": {
      "slug": "calculus-limits-extrema-and-integration",
@@ -18252,26 +18252,26 @@ window.GATE_DATA = {
      "unit_slug": "calculus-optimization-integrals",
      "unit_name": "Calculus: Maxima, Minima & Integrals",
      "unit_number": 4,
-     "question_count": 25,
+     "question_count": 50,
      "subtopics": [
       {
        "label": "single-variable-extrema",
-       "questions": 7
-      },
-      {
-       "label": "multivariable-extrema-saddle-points",
-       "questions": 6
+       "questions": 15
       },
       {
        "label": "definite-integrals",
-       "questions": 6
+       "questions": 13
+      },
+      {
+       "label": "multivariable-extrema-saddle-points",
+       "questions": 11
       },
       {
        "label": "vector-calculus-basics",
-       "questions": 6
+       "questions": 11
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-28.html"
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-29.html"
     },
     "mapped_at": "2026-10-29"
    },
@@ -18359,26 +18359,26 @@ window.GATE_DATA = {
      "unit_slug": "calculus-optimization-integrals",
      "unit_name": "Calculus: Maxima, Minima & Integrals",
      "unit_number": 4,
-     "question_count": 25,
+     "question_count": 50,
      "subtopics": [
       {
        "label": "single-variable-extrema",
-       "questions": 7
-      },
-      {
-       "label": "multivariable-extrema-saddle-points",
-       "questions": 6
+       "questions": 15
       },
       {
        "label": "definite-integrals",
-       "questions": 6
+       "questions": 13
+      },
+      {
+       "label": "multivariable-extrema-saddle-points",
+       "questions": 11
       },
       {
        "label": "vector-calculus-basics",
-       "questions": 6
+       "questions": 11
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-28.html"
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-29.html"
     },
     "mapped_at": "2026-10-29"
    },
@@ -18465,26 +18465,26 @@ window.GATE_DATA = {
      "unit_slug": "calculus-optimization-integrals",
      "unit_name": "Calculus: Maxima, Minima & Integrals",
      "unit_number": 4,
-     "question_count": 25,
+     "question_count": 50,
      "subtopics": [
       {
        "label": "single-variable-extrema",
-       "questions": 7
-      },
-      {
-       "label": "multivariable-extrema-saddle-points",
-       "questions": 6
+       "questions": 15
       },
       {
        "label": "definite-integrals",
-       "questions": 6
+       "questions": 13
+      },
+      {
+       "label": "multivariable-extrema-saddle-points",
+       "questions": 11
       },
       {
        "label": "vector-calculus-basics",
-       "questions": 6
+       "questions": 11
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-28.html"
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-29.html"
     },
     "mapped_at": "2026-10-29"
    },
