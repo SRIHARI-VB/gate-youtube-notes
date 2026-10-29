@@ -71,5 +71,34 @@
   ],
   "sourceLine": "The limit-of-sums definition and the property list including the dummy variable: Paul's Online Math Notes section 5.6 (English). The signed-area reading with the rectangle and triangle verifications: Knowledge Gate 'Definite Integrals' 0:00-10:00 (Hindi-medium lecture, English summary - translated). Every value quoted is recomputed in scripts/validate.py.",
   "videoRefs": [],
-  "visual": "calculus/integration/signed-area-and-running-total"
+  "visual": "calculus/integration/signed-area-and-running-total",
+  "links": {
+    "mock": {
+      "subject": "engineering-mathematics",
+      "unit_slug": "calculus-optimization-integrals",
+      "unit_name": "Calculus: Maxima, Minima & Integrals",
+      "unit_number": 4,
+      "question_count": 50,
+      "subtopics": [
+        {
+          "label": "single-variable-extrema",
+          "questions": 15
+        },
+        {
+          "label": "definite-integrals",
+          "questions": 13
+        },
+        {
+          "label": "multivariable-extrema-saddle-points",
+          "questions": 11
+        },
+        {
+          "label": "vector-calculus-basics",
+          "questions": 11
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-29.html"
+    },
+    "mapped_at": "2026-10-29"
+  }
 }

@@ -80,5 +80,43 @@
     }
   ],
   "sourceLine": "The form f(g(x)) g'(x), the five-step procedure and the constant adjustment: OpenStax Calculus Volume 1 section 5.5 (English). The changing of limits and the worked sin^8 x cos x definite integral: Knowledge Gate 'Solving Integration: Substitution Method' 5:00-10:00 (Hindi-medium lecture, English summary - translated). Both PYQ values are recomputed in scripts/validate.py.",
-  "videoRefs": []
+  "videoRefs": [],
+  "links": {
+    "mock": {
+      "subject": "engineering-mathematics",
+      "unit_slug": "calculus-optimization-integrals",
+      "unit_name": "Calculus: Maxima, Minima & Integrals",
+      "unit_number": 4,
+      "question_count": 50,
+      "subtopics": [
+        {
+          "label": "single-variable-extrema",
+          "questions": 15
+        },
+        {
+          "label": "definite-integrals",
+          "questions": 13
+        },
+        {
+          "label": "multivariable-extrema-saddle-points",
+          "questions": 11
+        },
+        {
+          "label": "vector-calculus-basics",
+          "questions": 11
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-29.html"
+    },
+    "visual": {
+      "slug": "calculus-limits-extrema-and-integration",
+      "title": "Calculus: Limits, Extrema and Integration",
+      "level": "topic-level",
+      "covers": [
+        "substitution with its sign and its new limits"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
+    },
+    "mapped_at": "2026-10-29"
+  }
 }

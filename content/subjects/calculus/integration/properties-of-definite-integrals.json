@@ -70,5 +70,34 @@
     }
   ],
   "sourceLine": "The property list including reversal, zero width, the constant factor, additivity with c outside the interval, and the dummy variable: Paul's Online Math Notes section 5.6 (English). The GATE ordering of the same properties, with the reversal derived from the fundamental theorem and the area-between-curves reading: Knowledge Gate 'Properties of Definite Integrals' 0:00-10:00 (Hindi-medium lecture, English summary - translated).",
-  "videoRefs": []
+  "videoRefs": [],
+  "links": {
+    "mock": {
+      "subject": "engineering-mathematics",
+      "unit_slug": "calculus-optimization-integrals",
+      "unit_name": "Calculus: Maxima, Minima & Integrals",
+      "unit_number": 4,
+      "question_count": 50,
+      "subtopics": [
+        {
+          "label": "single-variable-extrema",
+          "questions": 15
+        },
+        {
+          "label": "definite-integrals",
+          "questions": 13
+        },
+        {
+          "label": "multivariable-extrema-saddle-points",
+          "questions": 11
+        },
+        {
+          "label": "vector-calculus-basics",
+          "questions": 11
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-29.html"
+    },
+    "mapped_at": "2026-10-29"
+  }
 }

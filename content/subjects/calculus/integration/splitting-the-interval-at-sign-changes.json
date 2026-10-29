@@ -73,5 +73,34 @@
     }
   ],
   "sourceLine": "The distinction between the signed integral and the area, which is what a modulus question is testing: Knowledge Gate 'Definite Integrals' 5:00-10:00 and 'Properties of Definite Integrals' 5:00-10:00 (Hindi-medium lectures, English summaries - translated). The 2014 computation is carried out here from the antiderivative of x sin x and recomputed in scripts/validate.py.",
-  "videoRefs": []
+  "videoRefs": [],
+  "links": {
+    "mock": {
+      "subject": "engineering-mathematics",
+      "unit_slug": "calculus-optimization-integrals",
+      "unit_name": "Calculus: Maxima, Minima & Integrals",
+      "unit_number": 4,
+      "question_count": 50,
+      "subtopics": [
+        {
+          "label": "single-variable-extrema",
+          "questions": 15
+        },
+        {
+          "label": "definite-integrals",
+          "questions": 13
+        },
+        {
+          "label": "multivariable-extrema-saddle-points",
+          "questions": 11
+        },
+        {
+          "label": "vector-calculus-basics",
+          "questions": 11
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-29.html"
+    },
+    "mapped_at": "2026-10-29"
+  }
 }

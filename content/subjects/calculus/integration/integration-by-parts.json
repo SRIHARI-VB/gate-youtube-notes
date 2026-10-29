@@ -79,5 +79,34 @@
     }
   ],
   "sourceLine": "The derivation from the product rule, the formula, the x sin x example, the warning about the other choice of u, and the LIATE ordering: OpenStax Calculus Volume 2 section 3.1 (English). The GATE framing of the technique: Knowledge Gate '13 Oct - EM - Calculus Part 3' 55:00-59:08 (Hindi-medium lecture, English summary - translated). The 2014 value is recomputed in scripts/validate.py.",
-  "videoRefs": []
+  "videoRefs": [],
+  "links": {
+    "mock": {
+      "subject": "engineering-mathematics",
+      "unit_slug": "calculus-optimization-integrals",
+      "unit_name": "Calculus: Maxima, Minima & Integrals",
+      "unit_number": 4,
+      "question_count": 50,
+      "subtopics": [
+        {
+          "label": "single-variable-extrema",
+          "questions": 15
+        },
+        {
+          "label": "definite-integrals",
+          "questions": 13
+        },
+        {
+          "label": "multivariable-extrema-saddle-points",
+          "questions": 11
+        },
+        {
+          "label": "vector-calculus-basics",
+          "questions": 11
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-29.html"
+    },
+    "mapped_at": "2026-10-29"
+  }
 }

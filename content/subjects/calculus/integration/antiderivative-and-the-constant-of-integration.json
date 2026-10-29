@@ -69,5 +69,34 @@
     }
   ],
   "sourceLine": "Integration as anti-differentiation, the indefinite against the definite integral, and the standard-form table: Knowledge Gate '13 Oct - EM - Calculus Part 3', chapter summary 45:00-55:00, and 'Definite Integrals' 0:00-5:00 (Hindi-medium lectures, English summaries - translated). The antiderivative table itself is the standard one and every entry used here is checked by differentiation in scripts/validate.py.",
-  "videoRefs": []
+  "videoRefs": [],
+  "links": {
+    "mock": {
+      "subject": "engineering-mathematics",
+      "unit_slug": "calculus-optimization-integrals",
+      "unit_name": "Calculus: Maxima, Minima & Integrals",
+      "unit_number": 4,
+      "question_count": 50,
+      "subtopics": [
+        {
+          "label": "single-variable-extrema",
+          "questions": 15
+        },
+        {
+          "label": "definite-integrals",
+          "questions": 13
+        },
+        {
+          "label": "multivariable-extrema-saddle-points",
+          "questions": 11
+        },
+        {
+          "label": "vector-calculus-basics",
+          "questions": 11
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-29.html"
+    },
+    "mapped_at": "2026-10-29"
+  }
 }

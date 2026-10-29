@@ -72,5 +72,34 @@
     }
   ],
   "sourceLine": "The two parts of the theorem as GATE states them, with the worked area examples: Knowledge Gate 'Definite Integrals' 0:00-5:00 and '13 Oct - EM - Calculus Part 3' 45:00-50:00 (Hindi-medium lectures, English summaries - translated). The theorem statements follow the standard form, because the OpenStax section 5.3 extract returned this run stopped before them; both parts and the chain-rule case are checked numerically in scripts/validate.py.",
-  "videoRefs": []
+  "videoRefs": [],
+  "links": {
+    "mock": {
+      "subject": "engineering-mathematics",
+      "unit_slug": "calculus-optimization-integrals",
+      "unit_name": "Calculus: Maxima, Minima & Integrals",
+      "unit_number": 4,
+      "question_count": 50,
+      "subtopics": [
+        {
+          "label": "single-variable-extrema",
+          "questions": 15
+        },
+        {
+          "label": "definite-integrals",
+          "questions": 13
+        },
+        {
+          "label": "multivariable-extrema-saddle-points",
+          "questions": 11
+        },
+        {
+          "label": "vector-calculus-basics",
+          "questions": 11
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-29.html"
+    },
+    "mapped_at": "2026-10-29"
+  }
 }
