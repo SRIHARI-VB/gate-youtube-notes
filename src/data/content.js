@@ -220,7 +220,7 @@ window.GATE_DATA = {
      {
       "slug": "maxima-and-minima",
       "name": "Maxima and Minima",
-      "material": "planned"
+      "material": "cards"
      },
      {
       "slug": "mean-value-theorem",
@@ -16890,6 +16890,1117 @@ window.GATE_DATA = {
    "subject": "calculus",
    "topic": "limits-continuity-differentiability",
    "path": "subjects/calculus/limits-continuity-differentiability/corners-cusps-and-max-min-functions.json"
+  },
+  {
+   "id": "local-and-global-extrema",
+   "title": "Local and Global Extrema",
+   "priority": "P1",
+   "order": 167,
+   "unit": "Maxima and Minima",
+   "quickIdea": "A local maximum beats its own neighbourhood; a global maximum beats the whole domain. The same point can be one, both, or neither.",
+   "remember": [
+    "f has a local (relative) maximum at c if f(c) >= f(x) for every x in some open interval around c; local minimum is the same with <=.",
+    "f has a global (absolute) maximum at c if f(c) >= f(x) for every x in the whole domain under discussion; global minimum likewise.",
+    "Local compares against nearby points only; global compares against every point of the domain. A global extremum that is interior is also local; a local one need not be global.",
+    "Extremum is the collective word for a maximum or a minimum point; the extremal value is f at that point.",
+    "Whether an endpoint can be a local extremum is a definitional choice, not a theorem: many textbooks restrict local extrema to interior points, and GATE has used the wider convention (see the endpoint card)."
+   ],
+   "example": {
+    "prompt": "For f(x) = x^2 on the domain [-1, 2], name every local extremum and every global extremum.",
+    "work": "f'(x) = 2x vanishes only at x = 0. On (-1, 1) the value 0 is the smallest nearby value, so x = 0 is a local minimum, and f(0) = 0 is also the smallest value on the whole domain, so it is the global minimum too. At the right endpoint f(2) = 4, which is larger than every nearby value inside the domain, but it is not a local maximum under the interior convention because no two-sided neighbourhood of 2 lies in the domain.",
+    "answer": "Local minimum at 0 (value 0), which is also the global minimum. Global maximum 4 at x = 2, which is an endpoint and therefore not a local maximum in the interior sense."
+   },
+   "gateAngle": "GATE states extrema questions on a closed interval more often than on the whole line, and the closed interval is exactly where the local/global distinction bites. GATE CSE 1997 Q.4.1 asks for the maximum on [0,2] and the answer is at the endpoint; GATE CSE 2012 Q.9 asks for the number of local minima and the answer depends on whether the left endpoint counts.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "For f(x) = x^3 - x on [-1, 1], how many local maxima and how many local minima are there inside the open interval?",
+     "answer": "One of each: a local maximum at x = -1/sqrt(3) with value 2/(3 sqrt(3)) and a local minimum at x = 1/sqrt(3) with value -2/(3 sqrt(3)).",
+     "why": "Same recipe on a cubic whose critical points are irrational. The step that changes is only the arithmetic of f at the critical points."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Can a point be a global maximum but not a local maximum?",
+     "answer": "Yes, when the domain has an endpoint that is the highest point: f(x) = x on [0,1] has its global maximum at x = 1 and x = 1 has no two-sided neighbourhood inside the domain, so it is not a local maximum under the interior convention.",
+     "why": "It separates the two definitions from the single word 'maximum'. GATE CSE 2012 Q.9 is decided by exactly this point."
+    }
+   ],
+   "trap": {
+    "what": "Treating 'local maximum' and 'global maximum' as the same thing, or assuming the highest point of a closed interval must be a stationary point.",
+    "why": "On a closed interval the largest value is often at an endpoint, where the derivative is one-sided and need not vanish; and a local maximum can be lower than a global maximum elsewhere.",
+    "counterexample": "f(x) = x^2 on [-1, 2] has its global maximum 4 at the endpoint 2, where f'(2) = 4 is not zero, while the only stationary point gives the minimum."
+   },
+   "check": {
+    "question": "f(x) = x^3 - 3x on [-2, 2]. What is the global minimum and where is it attained?",
+    "answer": "The global minimum is -2, attained at both x = -1 and x = -2.",
+    "explanation": "f(-2) = -2, f(-1) = 2, f(1) = -2, f(2) = 2. Two points give -2: the critical point x = -1 and the left endpoint x = -2. A global minimum may be attained at more than one point."
+   },
+   "pyqIds": [
+    "gate-1997-4-1-max-on-closed-interval",
+    "gate-2012-9-sin-local-minima"
+   ],
+   "prereqs": [
+    "corners-cusps-and-max-min-functions"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-summary",
+     "title": "Maxima & Minima (13 min), Engineering Mathematics for GATE",
+     "channel": "Knowledge Gate (Yash Jain)",
+     "url": "https://www.knowledgegate.ai/learn/GATE-GUIDANCE-BY-SANCHIT-SIR/engineering-mathematics/calculus/maxima-and-minima/asset-maxima-minima",
+     "language": "hi",
+     "transcript": "SUMMARY_ONLY",
+     "translated": true,
+     "note": "Hindi-medium lecture; the platform's published English AI chapter summary with timestamps was read in full, the lecture itself was not. Chapters used: 0:00-2:00 local and global extrema drawn on [a,b], 2:00-5:00 the three statements S1/S2/S3, 5:00-10:00 the x^3 saddle point and the cusp maximum, 10:00-13:20 the closed-interval algorithm"
+    },
+    {
+     "kind": "text",
+     "title": "Calculus I, section 4.3: Minimum and Maximum Values",
+     "channel": "Paul's Online Math Notes, Lamar University",
+     "url": "https://tutorial.math.lamar.edu/classes/calci/minmaxvalues.aspx",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "read in full: the four definitions, the statement that relative extrema are usually taken to be interior with an explicit note that some authors disagree, Fermat's theorem and the |x| counterexample to its converse"
+    }
+   ],
+   "sourceLine": "Definitions: Paul's Online Math Notes section 4.3 (English, read in full). GATE framing and the drawn local/global picture: Knowledge Gate 'Maxima & Minima' chapter summary at 0:00-5:00 (Hindi-medium lecture, English summary - translated). Values recomputed in scripts/validate.py.",
+   "videoRefs": [],
+   "subject": "calculus",
+   "topic": "maxima-and-minima",
+   "path": "subjects/calculus/maxima-and-minima/local-and-global-extrema.json"
+  },
+  {
+   "id": "stationary-and-critical-points",
+   "title": "Stationary Points and Critical Points",
+   "priority": "P1",
+   "order": 168,
+   "unit": "Maxima and Minima",
+   "quickIdea": "Stationary means f'(c) = 0. Critical means f'(c) = 0 or f'(c) does not exist. Every stationary point is critical; not every critical point is stationary.",
+   "remember": [
+    "c is a stationary point of f if f is differentiable at c and f'(c) = 0 - the tangent there is horizontal.",
+    "c is a critical point if f'(c) = 0 or f is not differentiable at c.",
+    "Stationary subset of critical. A corner or a vertical tangent gives a critical point that is not stationary, as at 0 for |x|.",
+    "Extrema can occur only at critical points (Fermat's theorem for the differentiable case, plus the non-differentiable case), so the critical points are the complete candidate list.",
+    "A critical point is only a candidate: x^3 at 0 is stationary and is neither a maximum nor a minimum."
+   ],
+   "example": {
+    "prompt": "List the critical points of f(x) = |x| and of g(x) = x^3, and say which are stationary.",
+    "work": "For f, f'(x) = 1 for x > 0 and -1 for x < 0, and f'(0) does not exist, so 0 is critical and not stationary. For g, g'(x) = 3x^2, which vanishes only at 0, so 0 is stationary and therefore critical.",
+    "answer": "f has one critical point, 0, which is not stationary. g has one critical point, 0, which is stationary. Neither function's critical point set contains anything else."
+   },
+   "gateAngle": "GATE CSE 2026 Set 1 Q.36 asks directly about a function built from |x|: it asks whether f has a local maximum, whether f has a local minimum, whether f' is continuous, and whether f' is not differentiable. All four statements are about where the derivative exists and where it vanishes, which is the stationary/critical distinction applied twice.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "How many critical points does f(x) = x^(2/3) have, and how many are stationary?",
+     "answer": "One critical point, at x = 0, and none of them is stationary: f'(x) = (2/3) x^(-1/3) is never zero and fails to exist at 0.",
+     "why": "The same distinction on a cusp instead of a corner. The count of critical points does not change; the reason it is critical does."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Is every point where f' = 0 a critical point? Is every critical point a point where f' = 0?",
+     "answer": "Yes to the first, no to the second.",
+     "why": "The containment is one-way, and both directions appear as distractors in statement-style questions."
+    }
+   ],
+   "trap": {
+    "what": "Using 'critical point' to mean only the solutions of f'(x) = 0, so that points where the derivative fails to exist are dropped from the candidate list.",
+    "why": "Extrema do occur at non-differentiable points - |x| at 0 is the standard example - so dropping them can lose the answer.",
+    "counterexample": "f(x) = |x| has its only minimum at 0, where f' does not exist. Solving f'(x) = 0 gives no candidates at all."
+   },
+   "check": {
+    "question": "f(x) = x^4. How many stationary points does f have, and how many critical points?",
+    "answer": "One stationary point, at x = 0, and one critical point, the same one.",
+    "explanation": "f'(x) = 4x^3 exists everywhere and vanishes only at 0, so there are no critical points of the non-differentiable kind."
+   },
+   "pyqIds": [
+    "gate-2026-set1-36-abs-piecewise-local-max"
+   ],
+   "prereqs": [
+    "local-and-global-extrema"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-summary",
+     "title": "26 Jan - EM - Calculus Part 2, the maxima and minima segment",
+     "channel": "Knowledge Gate (Yash Jain)",
+     "url": "https://www.knowledgegate.ai/learn/GATE-GUIDANCE-BY-SANCHIT-SIR/live-classes/gate-2026-live-class/engineering-mathematics-for-gate-exam/asset-26-jan-em-calculus-part-2",
+     "language": "hi",
+     "transcript": "SUMMARY_ONLY",
+     "translated": true,
+     "note": "Hindi-medium live class; the English AI chapter summary was read for the stationary-versus-critical distinction (2:00-5:00) and the second-derivative test with its inconclusive case (5:00-15:00)"
+    },
+    {
+     "kind": "lecture-transcript",
+     "title": "18.01 Single Variable Calculus, Lecture 12 (Fall 2007): maxima and minima",
+     "channel": "MIT OpenCourseWare, Prof. David Jerison",
+     "url": "https://rachel.worldpossible.org/mods/en-rachelcourses/singlevarcalculus/contents/12_Transcript.pdf",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "the full lecture transcript was read from its opening to the related-rates hand-off; the wire-into-two-squares worked example and the warning about unchecked endpoints are quoted from it, the OCW lecture 11 page being the course index entry"
+    }
+   ],
+   "sourceLine": "Stationary versus critical: Knowledge Gate '26 Jan EM Calculus Part 2' chapter summary at 2:00-5:00 (Hindi-medium lecture, English summary - translated). The candidate-point reasoning and the worked critical points: MIT 18.01 Lecture 12 transcript (English, read in full).",
+   "videoRefs": [],
+   "subject": "calculus",
+   "topic": "maxima-and-minima",
+   "path": "subjects/calculus/maxima-and-minima/stationary-and-critical-points.json"
+  },
+  {
+   "id": "fermats-theorem-and-its-converse",
+   "title": "Fermat's Theorem and Why Its Converse Fails",
+   "priority": "P1",
+   "order": 169,
+   "unit": "Maxima and Minima",
+   "quickIdea": "At an interior local extremum of a differentiable function the derivative must vanish. The reverse is false: a horizontal tangent does not make an extremum.",
+   "remember": [
+    "Fermat's theorem: if f has a local extremum at c and f'(c) exists, then f'(c) = 0. Equivalently, an extremum of a differentiable function must be stationary.",
+    "The converse is false. f(x) = x^3 has f'(0) = 0 and no extremum at 0; the curve is increasing on both sides of 0.",
+    "The theorem needs the interior condition: at an endpoint a one-sided derivative can be nonzero and the endpoint can still be the maximum, as x on [0, 1].",
+    "The theorem also needs differentiability at c: |x| has a minimum at 0 and f'(0) does not exist.",
+    "Consequence for exams: f'(c) = 0 is a test for candidacy, never a proof of extremum. The classification needs the sign of f' or the value of f''."
+   ],
+   "example": {
+    "prompt": "Show that f(x) = x^3 satisfies the hypothesis-free half of Fermat's theorem at 0 but is not an extremum there.",
+    "work": "f'(x) = 3x^2 so f'(0) = 0, which is the conclusion Fermat's theorem would draw. But f(-1) = -1 < 0 = f(0) < 1 = f(1), so on the left of 0 the function is below f(0) and on the right it is above. A local maximum needs f(x) <= f(0) on both sides, and a local minimum needs f(x) >= f(0) on both sides; neither holds.",
+    "answer": "0 is a stationary point of x^3 and is neither a maximum nor a minimum, so f'(c) = 0 does not imply an extremum."
+   },
+   "gateAngle": "GATE CSE 2023 Q.18 hands you a cubic and four statements of the form 'f has / does not have a local maximum / minimum'. The whole question is Fermat's theorem run forwards: solve f'(x) = 0 to get the only candidates, then classify. Statements of the form 'if f'(c) = 0 then f has an extremum at c' are the false converse and are a standard distractor.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "Let f be differentiable on R with f'(2) = 0. Which must be true? (i) f has a local extremum at 2. (ii) f has a horizontal tangent at 2.",
+     "answer": "Only (ii) must be true.",
+     "why": "The value of the derivative at a point is exactly the slope of the tangent, which is what (ii) says; (i) is the false converse, refuted by x^3 at 0."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "f(x) = x^5 - 5x^4. How many distinct extrema does it have?",
+     "answer": "Two: a local maximum at x = 0 with f(0) = 0, and a local minimum at x = 4 with f(4) = -256. f'(x) = 5x^3(x - 4), so the critical points are 0 and 4; f' is positive for x < 0, negative on (0,4) and positive after 4, so the sign changes at both.",
+     "why": "The root at 0 has odd multiplicity 3, so unlike the double root of the 2008 quartic it does change the sign. It separates 'a repeated root removes a candidate' from 'every root of f' is a candidate'."
+    }
+   ],
+   "trap": {
+    "what": "Concluding from f'(c) = 0 that c is an extremum, or concluding from f'(c) != 0 that c is not an extremum.",
+    "why": "The first ignores x^3; the second ignores non-differentiable points such as |x| at 0, where no derivative value exists to be nonzero.",
+    "counterexample": "f(x) = x^3 at 0: f'(0) = 0 and there is no extremum. f(x) = |x| at 0: f'(0) does not exist and there is a minimum."
+   },
+   "check": {
+    "question": "f(x) = x^4 has f'(0) = 0. Is 0 a local extremum, and does Fermat's theorem decide it?",
+    "answer": "0 is a local minimum, and Fermat's theorem does not decide it - it only says 0 had to be a candidate.",
+    "explanation": "x^4 >= 0 = f(0) for every x, so 0 is a minimum. Fermat's theorem gives a necessary condition only; the classification comes from the sign of f' or from a higher derivative."
+   },
+   "pyqIds": [
+    "gate-2023-18-cubic-local-extrema"
+   ],
+   "prereqs": [
+    "stationary-and-critical-points"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-summary",
+     "title": "Maxima & Minima (13 min), Engineering Mathematics for GATE",
+     "channel": "Knowledge Gate (Yash Jain)",
+     "url": "https://www.knowledgegate.ai/learn/GATE-GUIDANCE-BY-SANCHIT-SIR/engineering-mathematics/calculus/maxima-and-minima/asset-maxima-minima",
+     "language": "hi",
+     "transcript": "SUMMARY_ONLY",
+     "translated": true,
+     "note": "Hindi-medium lecture; the platform's published English AI chapter summary with timestamps was read in full, the lecture itself was not. Chapters used: 0:00-2:00 local and global extrema drawn on [a,b], 2:00-5:00 the three statements S1/S2/S3, 5:00-10:00 the x^3 saddle point and the cusp maximum, 10:00-13:20 the closed-interval algorithm"
+    },
+    {
+     "kind": "text",
+     "title": "Calculus I, section 4.3: Minimum and Maximum Values",
+     "channel": "Paul's Online Math Notes, Lamar University",
+     "url": "https://tutorial.math.lamar.edu/classes/calci/minmaxvalues.aspx",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "read in full: the four definitions, the statement that relative extrema are usually taken to be interior with an explicit note that some authors disagree, Fermat's theorem and the |x| counterexample to its converse"
+    }
+   ],
+   "sourceLine": "The three statements and the x^3 counterexample: Knowledge Gate 'Maxima & Minima' chapter summary at 2:00-10:00 (Hindi-medium lecture, English summary - translated). The theorem statement and the |x| note: Paul's Online Math Notes section 4.3. Every value recomputed in scripts/validate.py.",
+   "videoRefs": [],
+   "subject": "calculus",
+   "topic": "maxima-and-minima",
+   "path": "subjects/calculus/maxima-and-minima/fermats-theorem-and-its-converse.json"
+  },
+  {
+   "id": "first-derivative-test",
+   "title": "The First-Derivative (Sign) Test",
+   "priority": "P1",
+   "order": 170,
+   "unit": "Maxima and Minima",
+   "quickIdea": "Walk through the critical point and watch the sign of f': plus to minus is a maximum, minus to plus is a minimum, no change is neither.",
+   "remember": [
+    "If f' changes from positive to negative at c, f has a local maximum at c.",
+    "If f' changes from negative to positive at c, f has a local minimum at c.",
+    "If f' keeps the same sign on both sides of c, there is no extremum at c, even if f'(c) = 0.",
+    "The test needs f continuous at c and f' of one sign on each side; it works at non-differentiable points too, which is why it is the safer test.",
+    "A zero of f' of even multiplicity never changes the sign of f'; a zero of odd multiplicity always does."
+   ],
+   "example": {
+    "prompt": "Classify the critical points of f(x) = x^4 - 4x^3.",
+    "work": "f'(x) = 4x^3 - 12x^2 = 4x^2(x - 3). The zeros are 0 (double) and 3 (simple). Sign: for x < 0, 4x^2 > 0 and x - 3 < 0, so f' < 0; for 0 < x < 3, again f' < 0; for x > 3, f' > 0. So f' falls then rises only at 3.",
+    "answer": "Local minimum at x = 3 with f(3) = 81 - 108 = -27. x = 0 is stationary but not an extremum, because the sign of f' does not change there."
+   },
+   "gateAngle": "This is the test that rescues the cases where the second derivative vanishes. GATE CSE 2008 Q.25 is exactly such a case: at x = 2 the second derivative is 0, and the accepted solution falls back on the sign of f'(1) and f'(3), both positive, to conclude that x = 2 is not an extremum.",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2008 Q.25: how many distinct extrema does 3x^4 - 16x^3 + 24x^2 + 37 have?",
+     "answer": "One. f'(x) = 12x(x - 2)^2 has zeros 0 and 2; the sign changes at 0 and not at 2.",
+     "why": "The sign chart, not the derivative's zeros, decides the count. Two critical points, one extremum."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "Classify the critical points of f(x) = x^3(x - 2).",
+     "answer": "A local minimum at x = 3/2 and no extremum at x = 0. Here f = x^4 - 2x^3, so f'(x) = 4x^3 - 6x^2 = 2x^2(2x - 3); the critical points are 0 and 3/2, and the sign of f' changes only at 3/2, from negative to positive.",
+     "why": "A double root at 0 again, but now the surviving extremum is a minimum, which forces you to read the sign direction rather than pattern-match on the previous question."
+    }
+   ],
+   "trap": {
+    "what": "Counting every solution of f'(x) = 0 as an extremum.",
+    "why": "A repeated root of f' gives a stationary point where the function keeps increasing (or keeps decreasing), so no extremum exists there.",
+    "counterexample": "f(x) = x^4 - 4x^3 has f'(0) = 0 with f'(x) < 0 on both sides of 0, so 0 is not an extremum. GATE CSE 2008 Q.25 is the same phenomenon at x = 2."
+   },
+   "check": {
+    "question": "f'(x) = (x - 1)^3 (x + 2). What happens at x = 1 and at x = -2?",
+    "answer": "A local minimum at x = 1; a local maximum at x = -2.",
+    "explanation": "The factor (x - 1)^3 is negative just left of 1 and positive just right, and (x + 2) is positive near 1, so f' goes from negative to positive: a minimum. At -2 the factor (x + 2) changes sign and (x - 1)^3 is negative there, so f' goes from positive to negative: a maximum."
+   },
+   "pyqIds": [
+    "gate-2008-25-number-of-extrema"
+   ],
+   "prereqs": [
+    "fermats-theorem-and-its-converse"
+   ],
+   "visual": "calculus/maxima-and-minima/sign-chart-of-the-derivative",
+   "sources": [
+    {
+     "kind": "lecture-summary",
+     "title": "Maxima & Minima (13 min), Engineering Mathematics for GATE",
+     "channel": "Knowledge Gate (Yash Jain)",
+     "url": "https://www.knowledgegate.ai/learn/GATE-GUIDANCE-BY-SANCHIT-SIR/engineering-mathematics/calculus/maxima-and-minima/asset-maxima-minima",
+     "language": "hi",
+     "transcript": "SUMMARY_ONLY",
+     "translated": true,
+     "note": "Hindi-medium lecture; the platform's published English AI chapter summary with timestamps was read in full, the lecture itself was not. Chapters used: 0:00-2:00 local and global extrema drawn on [a,b], 2:00-5:00 the three statements S1/S2/S3, 5:00-10:00 the x^3 saddle point and the cusp maximum, 10:00-13:20 the closed-interval algorithm"
+    },
+    {
+     "kind": "lecture-transcript",
+     "title": "18.01 Single Variable Calculus, Lecture 12 (Fall 2007): maxima and minima",
+     "channel": "MIT OpenCourseWare, Prof. David Jerison",
+     "url": "https://rachel.worldpossible.org/mods/en-rachelcourses/singlevarcalculus/contents/12_Transcript.pdf",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "the full lecture transcript was read from its opening to the related-rates hand-off; the wire-into-two-squares worked example and the warning about unchecked endpoints are quoted from it, the OCW lecture 11 page being the course index entry"
+    }
+   ],
+   "sourceLine": "The sign chart as the deciding test, and the GATE CSE 2008 Q.25 fallback: Knowledge Gate 'Maxima & Minima' chapter summary at 10:00-13:20 (Hindi-medium lecture, English summary - translated) and the accepted GATE Overflow solution. The p5.js lesson follows the same three-step procedure; every sign and value is recomputed in scripts/validate.py.",
+   "videoRefs": [],
+   "links": {
+    "visual": {
+     "slug": "calculus/maxima-and-minima/sign-chart-of-the-derivative",
+     "title": "The Sign Chart of the Derivative",
+     "level": "subtopic-level",
+     "covers": [
+      "f'(x) = 12x(x-2)^2 has zeros at 0 and 2",
+      "the sign changes at 0 and not at 2",
+      "why x = 2 is stationary but not an extremum",
+      "closed-interval candidates: critical points plus endpoints"
+     ],
+     "url": "visuals/calculus/maxima-and-minima/sign-chart-of-the-derivative/index.html"
+    }
+   },
+   "subject": "calculus",
+   "topic": "maxima-and-minima",
+   "path": "subjects/calculus/maxima-and-minima/first-derivative-test.json"
+  },
+  {
+   "id": "second-derivative-test",
+   "title": "The Second-Derivative Test",
+   "priority": "P1",
+   "order": 171,
+   "unit": "Maxima and Minima",
+   "quickIdea": "At a stationary point, f'' > 0 means the curve bends up (minimum) and f'' < 0 means it bends down (maximum). f'' = 0 decides nothing.",
+   "remember": [
+    "Suppose f'(c) = 0 and f'' is continuous near c. If f''(c) > 0 then f has a local minimum at c; if f''(c) < 0 then a local maximum.",
+    "If f''(c) = 0 the test is inconclusive: the point may be a minimum (x^4 at 0), a maximum (-x^4 at 0) or neither (x^3 at 0).",
+    "The test needs f'(c) = 0 first; applying it where f' does not vanish is meaningless.",
+    "The test is one-sided in a second sense: it is silent at points where f' fails to exist, so it cannot handle |x| at 0.",
+    "It is the fastest classifier for a cubic: f'' at the two stationary points has opposite signs, so a cubic with two stationary points has one maximum and one minimum."
+   ],
+   "example": {
+    "prompt": "GATE CSE 2023 Q.18: classify the stationary points of f(x) = x^3 + 15x^2 - 33x - 36.",
+    "work": "f'(x) = 3x^2 + 30x - 33 = 3(x^2 + 10x - 11) = 3(x + 11)(x - 1), so the stationary points are -11 and 1. f''(x) = 6x + 30. At x = 1, f''(1) = 36 > 0, a local minimum. At x = -11, f''(-11) = -36 < 0, a local maximum.",
+    "answer": "A local maximum at x = -11 and a local minimum at x = 1, so the true statements are 'f has a local maximum' and 'f has a local minimum'."
+   },
+   "gateAngle": "The second-derivative test is the classifier GATE expects you to reach for on a cubic, and 2023 Q.18 is a pure instance. The exam also tests the inconclusive case: 2008 Q.25 has f''(2) = 0, and the answer depends on noticing that the test has failed rather than on applying it.",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2023 Q.18: for f(x) = x^3 + 15x^2 - 33x - 36, which statements hold?",
+     "answer": "f has a local maximum (at -11) and f has a local minimum (at 1).",
+     "why": "Two stationary points, opposite signs of f'', so exactly one of each."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "For f(x) = x^3 - 3x^2 + 4, find and classify the stationary points.",
+     "answer": "Local maximum at x = 0 with f(0) = 4, local minimum at x = 2 with f(2) = 0. f'(x) = 3x(x - 2), f''(x) = 6x - 6, f''(0) = -6 < 0 and f''(2) = 6 > 0.",
+     "why": "The same two-step procedure with smaller numbers, so the arithmetic cannot hide a missing sign check."
+    }
+   ],
+   "trap": {
+    "what": "Reporting 'no extremum' whenever f''(c) = 0.",
+    "why": "A zero second derivative only means this test cannot decide; the point can still be a minimum, a maximum or neither.",
+    "counterexample": "x^4 has f''(0) = 0 and a minimum at 0; x^3 has f''(0) = 0 and no extremum at 0. The same value of f'' gives opposite verdicts."
+   },
+   "check": {
+    "question": "f(x) = x^4 - 2x^2. Classify its stationary points.",
+    "answer": "Local maximum at 0, local minima at x = 1 and x = -1.",
+    "explanation": "f'(x) = 4x^3 - 4x = 4x(x - 1)(x + 1), f''(x) = 12x^2 - 4. f''(0) = -4 < 0, so a maximum; f''(1) = f''(-1) = 8 > 0, so minima."
+   },
+   "pyqIds": [
+    "gate-2023-18-cubic-local-extrema",
+    "gate-2008-25-number-of-extrema"
+   ],
+   "prereqs": [
+    "first-derivative-test"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-summary",
+     "title": "26 Jan - EM - Calculus Part 2, the maxima and minima segment",
+     "channel": "Knowledge Gate (Yash Jain)",
+     "url": "https://www.knowledgegate.ai/learn/GATE-GUIDANCE-BY-SANCHIT-SIR/live-classes/gate-2026-live-class/engineering-mathematics-for-gate-exam/asset-26-jan-em-calculus-part-2",
+     "language": "hi",
+     "transcript": "SUMMARY_ONLY",
+     "translated": true,
+     "note": "Hindi-medium live class; the English AI chapter summary was read for the stationary-versus-critical distinction (2:00-5:00) and the second-derivative test with its inconclusive case (5:00-15:00)"
+    },
+    {
+     "kind": "lecture-transcript",
+     "title": "18.01 Single Variable Calculus, Lecture 12 (Fall 2007): maxima and minima",
+     "channel": "MIT OpenCourseWare, Prof. David Jerison",
+     "url": "https://rachel.worldpossible.org/mods/en-rachelcourses/singlevarcalculus/contents/12_Transcript.pdf",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "the full lecture transcript was read from its opening to the related-rates hand-off; the wire-into-two-squares worked example and the warning about unchecked endpoints are quoted from it, the OCW lecture 11 page being the course index entry"
+    }
+   ],
+   "sourceLine": "The rule, the inconclusive case and the worked examples x, x^2, x^3: Knowledge Gate '26 Jan EM Calculus Part 2' chapter summary at 5:00-15:00 (Hindi-medium lecture, English summary - translated). Cross-checked against the accepted GATE Overflow solutions to 2023 Q.18 and 2008 Q.25, and recomputed in scripts/validate.py.",
+   "videoRefs": [],
+   "subject": "calculus",
+   "topic": "maxima-and-minima",
+   "path": "subjects/calculus/maxima-and-minima/second-derivative-test.json"
+  },
+  {
+   "id": "higher-derivative-test",
+   "title": "When f'' Vanishes: The Higher-Derivative Test",
+   "priority": "P2",
+   "order": 172,
+   "unit": "Maxima and Minima",
+   "quickIdea": "At a stationary point, differentiate until you reach the first derivative that is not zero. An even order means an extremum; an odd order means neither.",
+   "remember": [
+    "Let f'(c) = f''(c) = ... = f^(k-1)(c) = 0 and f^(k)(c) != 0, with k >= 2 the first such order.",
+    "If k is even: f^(k)(c) > 0 gives a local minimum, f^(k)(c) < 0 gives a local maximum.",
+    "If k is odd: there is no extremum at c; the curve crosses its tangent and the point is an inflection.",
+    "k = 2 is the ordinary second-derivative test; k = 3 explains why x^3 has no extremum at 0; k = 4 explains why x^4 has a minimum.",
+    "The test still assumes the derivatives exist at c, so it says nothing about |x| at 0."
+   ],
+   "example": {
+    "prompt": "GATE CSE 2008 Q.25 again: what does the higher-derivative test say about x = 2 for f(x) = 3x^4 - 16x^3 + 24x^2 + 37?",
+    "work": "f'(x) = 12x^3 - 48x^2 + 48x = 12x(x - 2)^2, so f'(2) = 0. f''(x) = 36x^2 - 96x + 48 gives f''(2) = 144 - 192 + 48 = 0. f'''(x) = 72x - 96 gives f'''(2) = 144 - 96 = 48, which is not zero, and its order k = 3 is odd.",
+    "answer": "Because the first non-vanishing derivative has odd order, x = 2 is not an extremum. Only x = 0 survives (f''(0) = 48 > 0, a minimum), so the curve has one extremum."
+   },
+   "gateAngle": "GATE has not asked the higher-derivative test by name, but it is the reasoning inside 2008 Q.25's accepted solution and it is the only clean way to answer a question of the form 'how many extrema does this quartic have'. Its real exam value is defensive: it stops you from counting a stationary point as an extremum.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "How many extrema does f(x) = x^6 have, and of what kind?",
+     "answer": "One, a local (and global) minimum at 0. f^(k)(0) = 0 for k = 1..5 and f^(6)(0) = 720 > 0, an even order.",
+     "why": "The same 'differentiate until nonzero' procedure with a large even order, which is where the even/odd rule earns its keep."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "f'(0) = f''(0) = f'''(0) = 0 and f^(4)(0) = -12. What is at 0?",
+     "answer": "A local maximum.",
+     "why": "The first non-vanishing derivative has order 4, which is even, and its value is negative, so the curve bends downwards in both directions."
+    }
+   ],
+   "trap": {
+    "what": "Stopping at f''(c) = 0 and guessing, or assuming that a stationary point with a vanishing second derivative must be an inflection.",
+    "why": "The order of the first non-vanishing derivative decides, and even orders give extrema - x^4 at 0 is a minimum with f''(0) = 0.",
+    "counterexample": "x^4 has f''(0) = 0 and a minimum; x^3 has f''(0) = 0 and no extremum; the second derivative alone cannot separate them."
+   },
+   "check": {
+    "question": "For f(x) = x^5, what is at x = 0?",
+    "answer": "Neither a maximum nor a minimum.",
+    "explanation": "f^(5)(0) = 120 and the first four derivatives vanish at 0, so k = 5 is odd and the point is an inflection."
+   },
+   "pyqIds": [
+    "gate-2008-25-number-of-extrema"
+   ],
+   "prereqs": [
+    "second-derivative-test"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-summary",
+     "title": "26 Jan - EM - Calculus Part 2, the maxima and minima segment",
+     "channel": "Knowledge Gate (Yash Jain)",
+     "url": "https://www.knowledgegate.ai/learn/GATE-GUIDANCE-BY-SANCHIT-SIR/live-classes/gate-2026-live-class/engineering-mathematics-for-gate-exam/asset-26-jan-em-calculus-part-2",
+     "language": "hi",
+     "transcript": "SUMMARY_ONLY",
+     "translated": true,
+     "note": "Hindi-medium live class; the English AI chapter summary was read for the stationary-versus-critical distinction (2:00-5:00) and the second-derivative test with its inconclusive case (5:00-15:00)"
+    },
+    {
+     "kind": "lecture-transcript",
+     "title": "18.01 Single Variable Calculus, Lecture 12 (Fall 2007): maxima and minima",
+     "channel": "MIT OpenCourseWare, Prof. David Jerison",
+     "url": "https://rachel.worldpossible.org/mods/en-rachelcourses/singlevarcalculus/contents/12_Transcript.pdf",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "the full lecture transcript was read from its opening to the related-rates hand-off; the wire-into-two-squares worked example and the warning about unchecked endpoints are quoted from it, the OCW lecture 11 page being the course index entry"
+    }
+   ],
+   "sourceLine": "The inconclusive case and the instruction to check higher derivatives: Knowledge Gate '26 Jan EM Calculus Part 2' chapter summary at 5:00-15:00 (Hindi-medium lecture, English summary - translated). Applied to GATE CSE 2008 Q.25 from its accepted GATE Overflow solution; the order test is verified on x^3, x^4, x^5 and x^6 in scripts/validate.py.",
+   "videoRefs": [],
+   "subject": "calculus",
+   "topic": "maxima-and-minima",
+   "path": "subjects/calculus/maxima-and-minima/higher-derivative-test.json"
+  },
+  {
+   "id": "closed-interval-candidate-list",
+   "title": "Absolute Extrema on a Closed Interval",
+   "priority": "P1",
+   "order": 173,
+   "unit": "Maxima and Minima",
+   "quickIdea": "On a closed interval, evaluate f at every critical point inside and at both endpoints, then take the largest and smallest. Nothing else can be an absolute extremum.",
+   "remember": [
+    "Extreme value theorem: a continuous f on a closed bounded interval [a, b] attains an absolute maximum and an absolute minimum there.",
+    "The complete candidate list is: points in (a, b) where f'(c) = 0, points in (a, b) where f' does not exist, and the two endpoints a and b.",
+    "Compare the values of f, not the values of f'. A stationary point can give the smallest value while an endpoint gives the largest.",
+    "Continuity on the closed interval is what guarantees the maximum exists; on an open interval the supremum may be approached and never reached.",
+    "If f is not continuous, the theorem fails: 1/x on (0, 1] has no minimum, and a jump function on [0, 1] can miss its supremum."
+   ],
+   "example": {
+    "prompt": "GATE CSE 1997 Q.4.1: what is the maximum value of f(x) = 2x^2 - 2x + 6 on [0, 2]?",
+    "work": "f'(x) = 4x - 2 vanishes at x = 1/2, the only critical point. Values: f(0) = 6, f(1/2) = 0.5 - 1 + 6 = 5.5, f(2) = 8 - 4 + 6 = 10. The largest of the three is 10.",
+    "answer": "The maximum value is 10, attained at the endpoint x = 2. The stationary point gives the minimum, 5.5."
+   },
+   "gateAngle": "1997 Q.4.1 is the pure closed-interval question, and its trap is the one the MIT lecture warns about: solving f'(x) = 0 alone returns the minimum and you report the opposite of the truth. Any GATE question that says 'in the interval [a, b]' is asking for this candidate list.",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 1997 Q.4.1: the maximum value of 2x^2 - 2x + 6 on [0, 2].",
+     "answer": "10, at x = 2.",
+     "why": "The endpoint, not the stationary point, supplies the maximum."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "Find the absolute maximum and minimum of f(x) = x^3 - 3x on [0, 3].",
+     "answer": "Maximum 18 at x = 3, minimum -2 at x = 1. Candidates: f(0) = 0, f(1) = -2, f(3) = 18; the critical point x = -1 is outside the interval and is not a candidate.",
+     "why": "Adds the second half of the discipline: a critical point outside the interval must be discarded before comparing."
+    }
+   ],
+   "trap": {
+    "what": "Answering with the value at the stationary point because it is the only point the derivative found.",
+    "why": "The derivative is blind to endpoints, and on a closed interval the largest value is very often at one of them.",
+    "counterexample": "On [0, 2], f(x) = 2x^2 - 2x + 6 is 5.5 at its only stationary point and 10 at x = 2. MIT's wire-into-squares example fails the other way: there the stationary point is the minimum while the largest value sits at the ends."
+   },
+   "check": {
+    "question": "f(x) = x^4 - 4x on [0, 2]. Where are the absolute extrema?",
+    "answer": "Minimum -3 at x = 1, maximum 8 at x = 2.",
+    "explanation": "f'(x) = 4x^3 - 4 vanishes at x = 1 only. f(0) = 0, f(1) = 1 - 4 = -3, f(2) = 16 - 8 = 8, so the endpoint gives the maximum."
+   },
+   "pyqIds": [
+    "gate-1997-4-1-max-on-closed-interval"
+   ],
+   "prereqs": [
+    "local-and-global-extrema",
+    "first-derivative-test"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-transcript",
+     "title": "18.01 Single Variable Calculus, Lecture 12 (Fall 2007): maxima and minima",
+     "channel": "MIT OpenCourseWare, Prof. David Jerison",
+     "url": "https://rachel.worldpossible.org/mods/en-rachelcourses/singlevarcalculus/contents/12_Transcript.pdf",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "the full lecture transcript was read from its opening to the related-rates hand-off; the wire-into-two-squares worked example and the warning about unchecked endpoints are quoted from it, the OCW lecture 11 page being the course index entry"
+    },
+    {
+     "kind": "text",
+     "title": "Calculus I, section 4.3: Minimum and Maximum Values",
+     "channel": "Paul's Online Math Notes, Lamar University",
+     "url": "https://tutorial.math.lamar.edu/classes/calci/minmaxvalues.aspx",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "read in full: the four definitions, the statement that relative extrema are usually taken to be interior with an explicit note that some authors disagree, Fermat's theorem and the |x| counterexample to its converse"
+    }
+   ],
+   "sourceLine": "The candidate list and the warning that a derivative-only search can return the opposite of what was asked: MIT 18.01 Lecture 12 transcript (English, read in full). The absolute-versus-relative definitions and the extreme value theorem: Paul's Online Math Notes section 4.3. The 1997 values are recomputed in scripts/validate.py.",
+   "videoRefs": [],
+   "subject": "calculus",
+   "topic": "maxima-and-minima",
+   "path": "subjects/calculus/maxima-and-minima/closed-interval-candidate-list.json"
+  },
+  {
+   "id": "monotonicity-and-sign-of-derivative",
+   "title": "Monotonicity and the Sign of f'",
+   "priority": "P2",
+   "order": 174,
+   "unit": "Maxima and Minima",
+   "quickIdea": "f' > 0 on an interval means f is strictly increasing there, f' < 0 means strictly decreasing, and the intervals of increase and decrease are the extrema read backwards.",
+   "remember": [
+    "If f' > 0 at every interior point of an interval, f is strictly increasing on that interval; if f' < 0, strictly decreasing.",
+    "If f' = 0 at every point of an interval, f is constant there.",
+    "The converses are weaker: a strictly increasing differentiable f can have f' = 0 at isolated points, as x^3 at 0.",
+    "Increasing on two separate intervals does not make f increasing on their union: x^3 - 3x increases on (-inf, -1) and on (1, inf) but decreases on (-1, 1).",
+    "The monotonicity picture is the same information as the sign chart, so it classifies extrema without any second derivative."
+   ],
+   "example": {
+    "prompt": "Find the intervals on which f(x) = x^3 - 3x is increasing and decreasing.",
+    "work": "f'(x) = 3x^2 - 3 = 3(x - 1)(x + 1). The sign of f' is positive for x < -1, negative for -1 < x < 1 and positive for x > 1.",
+    "answer": "Increasing on (-inf, -1) and on (1, inf); decreasing on (-1, 1). Consequently a local maximum at x = -1 with f(-1) = 2 and a local minimum at x = 1 with f(1) = -2."
+   },
+   "gateAngle": "GATE asks monotonicity mostly as a supporting step - 'f is increasing on which interval' inside a larger statement question - and it is the cheapest way to answer a 2023-style cubic question without computing a second derivative. The union trap is the standard distractor.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "On which intervals is f(x) = x^4 - 4x^3 increasing?",
+     "answer": "On (3, inf) only. f'(x) = 4x^2(x - 3) is negative for x < 0 and for 0 < x < 3, and positive after 3.",
+     "why": "The same reading of a sign chart where one factor is squared, so one interval of increase is missing and students who expect symmetry pick the wrong answer."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "If f'(2) > 0, must f be increasing on some interval containing 2?",
+     "answer": "Yes, provided f' is continuous at 2: f' stays positive on a whole neighbourhood, so f is strictly increasing there.",
+     "why": "It separates 'positive derivative at a point' from 'positive derivative on an interval', which is the hypothesis the theorem actually needs."
+    }
+   ],
+   "trap": {
+    "what": "Writing that f is increasing on (-inf, -1) union (1, inf) because f' > 0 on each piece.",
+    "why": "Monotonicity is a statement about every pair of points in the set; between a point in the left piece and a point in the right piece the function drops.",
+    "counterexample": "For x^3 - 3x: f(-2) = -2 and f(2) = 2, but f(-1) = 2 > f(1) = -2, so the function is not increasing on the union."
+   },
+   "check": {
+    "question": "Where is f(x) = 2x^3 - 3x^2 - 12x increasing?",
+    "answer": "On (-inf, -1) and on (2, inf).",
+    "explanation": "f'(x) = 6x^2 - 6x - 12 = 6(x - 2)(x + 1), which is positive outside the roots and negative between them."
+   },
+   "pyqIds": [],
+   "prereqs": [
+    "first-derivative-test"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-summary",
+     "title": "26 Jan - EM - Calculus Part 2, the maxima and minima segment",
+     "channel": "Knowledge Gate (Yash Jain)",
+     "url": "https://www.knowledgegate.ai/learn/GATE-GUIDANCE-BY-SANCHIT-SIR/live-classes/gate-2026-live-class/engineering-mathematics-for-gate-exam/asset-26-jan-em-calculus-part-2",
+     "language": "hi",
+     "transcript": "SUMMARY_ONLY",
+     "translated": true,
+     "note": "Hindi-medium live class; the English AI chapter summary was read for the stationary-versus-critical distinction (2:00-5:00) and the second-derivative test with its inconclusive case (5:00-15:00)"
+    },
+    {
+     "kind": "text",
+     "title": "Calculus I, section 4.3: Minimum and Maximum Values",
+     "channel": "Paul's Online Math Notes, Lamar University",
+     "url": "https://tutorial.math.lamar.edu/classes/calci/minmaxvalues.aspx",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "read in full: the four definitions, the statement that relative extrema are usually taken to be interior with an explicit note that some authors disagree, Fermat's theorem and the |x| counterexample to its converse"
+    }
+   ],
+   "sourceLine": "Monotonic functions as a separate step in the GATE teaching order: Knowledge Gate module outline (Monotonic Functions follows Maxima & Minima). The theorem statements and their converses: Paul's Online Math Notes section 4.3 and the standard references. Recomputed in scripts/validate.py.",
+   "videoRefs": [],
+   "subject": "calculus",
+   "topic": "maxima-and-minima",
+   "path": "subjects/calculus/maxima-and-minima/monotonicity-and-sign-of-derivative.json"
+  },
+  {
+   "id": "extrema-of-piecewise-and-absolute-value-functions",
+   "title": "Extrema of Piecewise and Absolute-Value Functions",
+   "priority": "P1",
+   "order": 175,
+   "unit": "Maxima and Minima",
+   "quickIdea": "When a formula changes at a point, or contains an absolute value, the join itself is a candidate - and it is often where the extremum lives.",
+   "remember": [
+    "For f = max{g, h} or f = min{g, h}, the formula changes exactly where g(x) = h(x); solve that equation to get the candidate points.",
+    "At a join, compare the one-sided derivatives: unequal slopes mean a corner, and a corner can be an extremum.",
+    "For a function of the form -(something)^2, the maximum is where the squared term vanishes and the value is 0.",
+    "Write the absolute value as two linear pieces before differentiating; |x| = x for x >= 0 and -x for x < 0.",
+    "A function can be continuous everywhere, have a local maximum, have a continuous derivative, and still have a derivative that is not differentiable everywhere - GATE CSE 2026 Set 1 Q.36 is exactly this chain."
+   ],
+   "example": {
+    "prompt": "GATE CSE 2026 Set 1 Q.36: for f(x) = (|x|/2 - x)(x - |x|/2), decide whether f has a local maximum, whether f has a local minimum, whether f' is continuous on R, and whether f' is not differentiable on R.",
+    "work": "The second factor is the negative of the first, so f(x) = -(|x|/2 - x)^2, which is <= 0 with equality only at x = 0. Hence f(0) = 0 is a strict global (and local) maximum and there is no local minimum. For x >= 0, |x|/2 - x = -x/2 so f = -x^2/4 and f' = -x/2. For x < 0, |x|/2 - x = -3x/2 so f = -9x^2/4 and f' = -9x/2. At 0 the difference quotient is -h/4 for h > 0 and -9h/4 for h < 0, both tending to 0, so f'(0) = 0 and f' is continuous at 0, hence on R. But the one-sided derivatives of f' at 0 are -1/2 and -9/2, which differ, so f' is not differentiable at 0.",
+    "answer": "Statements 1, 3 and 4 are true and statement 2 is false: f has a local maximum, f' is continuous on R, and f' is not differentiable over R. The accepted answer on GATE Overflow is A, C, D."
+   },
+   "gateAngle": "GATE CSE 2026 Set 1 Q.36 and 2024 Set 1 Q.1 both build a function out of a max or an absolute value and ask where it is differentiable or extremal. The exam's method is always the same: split at the joins, write one formula per piece, then read the derivative on each side.",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2026 Set 1 Q.36: which statements about f(x) = (|x|/2 - x)(x - |x|/2) are true?",
+     "answer": "f has a local maximum; f' is continuous over R; f' is not differentiable over R.",
+     "why": "f = -(|x|/2 - x)^2 peaks at 0, its derivative is the continuous but kinked function -x/2 for x > 0 and -9x/2 for x < 0."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "Let g(x) = min{x^2, x}. Where does g have local extrema?",
+     "answer": "None. g(x) = x for x <= 0, x^2 for 0 < x < 1 and x for x >= 1, and g is strictly increasing on the whole line: at 0 the left piece rises to 0 and the right piece rises away from 0, and at 1 both pieces approach 1 from below and leave it upwards.",
+     "why": "It is the counterweight to max{x, x^3}: a join is a candidate, not an extremum, and here neither join qualifies. Assuming every change of formula is a corner-and-extremum gives two wrong answers."
+    }
+   ],
+   "trap": {
+    "what": "Differentiating a piecewise or absolute-value function without first splitting it, so the join is never tested.",
+    "why": "The join is where the formula changes; the derivative there is one-sided and may not exist, and it is frequently the only extremum.",
+    "counterexample": "f(x) = |x| has its only minimum at the join 0, where no two-sided derivative exists. In the 2026 question the maximum is at the join 0, where the two pieces have slopes -0.5 and -4.5 approaching it."
+   },
+   "check": {
+    "question": "For f(x) = (|x|/2 - x)(x - |x|/2), what is f(1) and f(-1)?",
+    "answer": "f(1) = -0.25 and f(-1) = -2.25.",
+    "explanation": "At 1 the pieces give -x^2/4 = -1/4; at -1 they give -9x^2/4 = -9/4. Both are below f(0) = 0, which confirms the maximum at 0."
+   },
+   "pyqIds": [
+    "gate-2026-set1-36-abs-piecewise-local-max"
+   ],
+   "prereqs": [
+    "stationary-and-critical-points",
+    "corners-cusps-and-max-min-functions"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-summary",
+     "title": "Maxima & Minima (13 min), Engineering Mathematics for GATE",
+     "channel": "Knowledge Gate (Yash Jain)",
+     "url": "https://www.knowledgegate.ai/learn/GATE-GUIDANCE-BY-SANCHIT-SIR/engineering-mathematics/calculus/maxima-and-minima/asset-maxima-minima",
+     "language": "hi",
+     "transcript": "SUMMARY_ONLY",
+     "translated": true,
+     "note": "Hindi-medium lecture; the platform's published English AI chapter summary with timestamps was read in full, the lecture itself was not. Chapters used: 0:00-2:00 local and global extrema drawn on [a,b], 2:00-5:00 the three statements S1/S2/S3, 5:00-10:00 the x^3 saddle point and the cusp maximum, 10:00-13:20 the closed-interval algorithm"
+    },
+    {
+     "kind": "text",
+     "title": "Calculus I, section 4.3: Minimum and Maximum Values",
+     "channel": "Paul's Online Math Notes, Lamar University",
+     "url": "https://tutorial.math.lamar.edu/classes/calci/minmaxvalues.aspx",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "read in full: the four definitions, the statement that relative extrema are usually taken to be interior with an explicit note that some authors disagree, Fermat's theorem and the |x| counterexample to its converse"
+    }
+   ],
+   "sourceLine": "The cusp-maximum and 'f'(x) = 0 is not necessary' points: Knowledge Gate 'Maxima & Minima' chapter summary at 5:00-10:00 (Hindi-medium lecture, English summary - translated). The piecewise and |x| treatment: Paul's Online Math Notes section 4.3. The 2026 question is recomputed piece by piece in scripts/validate.py.",
+   "videoRefs": [],
+   "subject": "calculus",
+   "topic": "maxima-and-minima",
+   "path": "subjects/calculus/maxima-and-minima/extrema-of-piecewise-and-absolute-value-functions.json"
+  },
+  {
+   "id": "endpoint-extrema-and-the-definition-dispute",
+   "title": "Endpoints as Extrema: A Definitional Choice",
+   "priority": "P2",
+   "order": 176,
+   "unit": "Maxima and Minima",
+   "quickIdea": "Some books allow a local extremum at an endpoint of the domain and some do not. GATE has used the endpoint-allowing convention, and one question's answer depends on it.",
+   "remember": [
+    "Interior convention: a local extremum needs a two-sided neighbourhood, so endpoints of the domain are excluded. Paul's Online Math Notes states this and explicitly notes the disagreement.",
+    "Endpoint convention: c is a local extremum if f(c) is the largest (or smallest) value in the part of the domain near c, allowing one-sided neighbourhoods.",
+    "Under the endpoint convention a function on a closed interval can have local extrema at its endpoints, and the global extrema are then automatically local.",
+    "GATE CSE 2012 Q.9 counts the left endpoint pi/4 as a local minimum, so the accepted answer follows the endpoint convention.",
+    "On an exam, use the convention the options force: if the endpoint-containing option exists and the endpoint really is a one-sided extremum, prefer it."
+   ],
+   "example": {
+    "prompt": "GATE CSE 2012 Q.9: how many local minima does f(x) = sin x have on [pi/4, 7pi/4], and where?",
+    "work": "f'(x) = cos x vanishes at pi/2 and 3pi/2 inside the interval. f''(x) = -sin x, so f''(pi/2) = -1 < 0 (a local maximum, value 1) and f''(3pi/2) = 1 > 0 (a local minimum, value -1). At the left endpoint, sin rises from pi/4 to pi/2, so the endpoint value sin(pi/4) = 0.707 is smaller than every nearby value inside the domain, which makes it a local minimum under the endpoint convention. At the right endpoint sin is still rising into 7pi/4 (value -0.707), so that endpoint is not a minimum.",
+    "answer": "Two local minima, at pi/4 and at 3pi/2, which is the accepted option. Under the strict interior convention the count would be one, at 3pi/2."
+   },
+   "gateAngle": "2012 Q.9 is the only verified GATE CSE question whose answer turns on the endpoint convention, and the accepted answer takes the endpoint in. Statements that compare 'global' with 'local' extrema (the subset relation global-minima within local-minima) hold only under that convention.",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2012 Q.9: number and location of the local minima of sin x on [pi/4, 7pi/4].",
+     "answer": "Two, at pi/4 and 3pi/2.",
+     "why": "The interior minimum at 3pi/2 is unambiguous; the second one exists only if endpoints count."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "How many local maxima does sin x have on [pi/4, 7pi/4] under the endpoint convention?",
+     "answer": "Two: at pi/2 (interior) and at 7pi/4 (right endpoint, where sin is still increasing into the endpoint).",
+     "why": "It tests the same convention from the other side, and shows that the right endpoint is the mirror image of the left one."
+    }
+   ],
+   "trap": {
+    "what": "Answering only the interior critical point on a closed-interval question.",
+    "why": "It silently adopts the interior convention, which is the minority reading in GATE's own key for 2012 Q.9.",
+    "counterexample": "sin x on [pi/4, 7pi/4] has one interior minimum but the accepted answer counts two, because sin(pi/4) is smaller than every value of sin on a small right-hand neighbourhood of pi/4."
+   },
+   "check": {
+    "question": "Under the endpoint convention, is x = 0 a local minimum of f(x) = x on [0, 1]?",
+    "answer": "Yes, and it is also the global minimum.",
+    "explanation": "On the domain [0, 1] the value f(0) = 0 is the smallest value in a one-sided neighbourhood of 0, which the endpoint convention accepts."
+   },
+   "pyqIds": [
+    "gate-2012-9-sin-local-minima"
+   ],
+   "prereqs": [
+    "local-and-global-extrema"
+   ],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "Calculus I, section 4.3: Minimum and Maximum Values",
+     "channel": "Paul's Online Math Notes, Lamar University",
+     "url": "https://tutorial.math.lamar.edu/classes/calci/minmaxvalues.aspx",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "read in full: the four definitions, the statement that relative extrema are usually taken to be interior with an explicit note that some authors disagree, Fermat's theorem and the |x| counterexample to its converse"
+    },
+    {
+     "kind": "lecture-summary",
+     "title": "Maxima & Minima (13 min), Engineering Mathematics for GATE",
+     "channel": "Knowledge Gate (Yash Jain)",
+     "url": "https://www.knowledgegate.ai/learn/GATE-GUIDANCE-BY-SANCHIT-SIR/engineering-mathematics/calculus/maxima-and-minima/asset-maxima-minima",
+     "language": "hi",
+     "transcript": "SUMMARY_ONLY",
+     "translated": true,
+     "note": "Hindi-medium lecture; the platform's published English AI chapter summary with timestamps was read in full, the lecture itself was not. Chapters used: 0:00-2:00 local and global extrema drawn on [a,b], 2:00-5:00 the three statements S1/S2/S3, 5:00-10:00 the x^3 saddle point and the cusp maximum, 10:00-13:20 the closed-interval algorithm"
+    }
+   ],
+   "sourceLine": "The two conventions, stated as a disagreement rather than a fact: Paul's Online Math Notes section 4.3. The GATE answer and the endpoint picture: the accepted GATE Overflow solution to 2012 Q.9 and the Knowledge Gate local/global picture at 0:00-5:00 (Hindi-medium lecture, English summary - translated). All sine values recomputed in scripts/validate.py.",
+   "videoRefs": [],
+   "subject": "calculus",
+   "topic": "maxima-and-minima",
+   "path": "subjects/calculus/maxima-and-minima/endpoint-extrema-and-the-definition-dispute.json"
+  },
+  {
+   "id": "cubic-and-quartic-extrema-counting",
+   "title": "Counting Extrema of Cubics and Quartics",
+   "priority": "P1",
+   "order": 177,
+   "unit": "Maxima and Minima",
+   "quickIdea": "For a cubic, b^2 > 3ac gives one maximum and one minimum, b^2 = 3ac gives neither, b^2 < 3ac gives none at all. For a quartic, count the critical points where f' actually changes sign.",
+   "remember": [
+    "For f(x) = ax^3 + bx^2 + cx + d with a != 0: f'(x) = 3ax^2 + 2bx + c, whose discriminant is 4(b^2 - 3ac).",
+    "b^2 > 3ac: two distinct stationary points, one local maximum and one local minimum.",
+    "b^2 = 3ac: exactly one stationary point, and it is an inflection, so no extremum.",
+    "b^2 < 3ac: f' has no real zero and f is strictly monotone, so no extremum.",
+    "For a quartic, f' is cubic, so there are at most three stationary points and at most two extrema; a repeated root of f' removes a candidate."
+   ],
+   "example": {
+    "prompt": "GATE CSE 2023 Q.18 by the cubic criterion: does f(x) = x^3 + 15x^2 - 33x - 36 have extrema, without solving f' = 0?",
+    "work": "Here a = 1, b = 15, c = -33, so b^2 - 3ac = 225 - 3(1)(-33) = 225 + 99 = 324 > 0. Two distinct stationary points therefore exist, and since f'' = 6x + 30 has one zero, they lie on opposite sides of it and have opposite signs.",
+    "answer": "One local maximum and one local minimum exist. Solving f' = 0 gives them explicitly at x = -11 (maximum) and x = 1 (minimum), confirming the criterion."
+   },
+   "gateAngle": "2023 Q.18 offers the criterion as a shortcut (its accepted solutions show both the direct route and the b^2 - 3ac route) and 2008 Q.25 is the quartic counterpart where the count is decided by sign change. Together they are the two shapes GATE reuses for this topic.",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2008 Q.25: the number of distinct extrema of 3x^4 - 16x^3 + 24x^2 + 37.",
+     "answer": "One.",
+     "why": "f'(x) = 12x(x - 2)^2 has two zeros but the sign changes only at 0, so only one extremum exists."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "For which values of k does f(x) = x^3 + kx have a local maximum and a local minimum?",
+     "answer": "Exactly when k < 0. Here a = 1, b = 0, c = k, so b^2 - 3ac = -3k, which is positive only for k < 0.",
+     "why": "Turns the criterion into a condition on a parameter, which is how GATE has tested other calculus facts (for example the parameterised system-of-equations questions)."
+    }
+   ],
+   "trap": {
+    "what": "Counting the solutions of f'(x) = 0 as the number of extrema.",
+    "why": "A repeated root of f' is a stationary point with no sign change, so it contributes nothing to the count.",
+    "counterexample": "3x^4 - 16x^3 + 24x^2 + 37 has f'(x) = 12x(x - 2)^2 with the two zeros 0 and 2, but only one extremum, at 0."
+   },
+   "check": {
+    "question": "How many extrema does f(x) = x^3 + 3x^2 + 3x + 1 have?",
+    "answer": "None.",
+    "explanation": "f(x) = (x + 1)^3, so f'(x) = 3(x + 1)^2 has the single double root -1 with no sign change. The criterion agrees: b^2 - 3ac = 9 - 9 = 0."
+   },
+   "pyqIds": [
+    "gate-2023-18-cubic-local-extrema",
+    "gate-2008-25-number-of-extrema"
+   ],
+   "prereqs": [
+    "second-derivative-test",
+    "first-derivative-test"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-summary",
+     "title": "Maxima & Minima (13 min), Engineering Mathematics for GATE",
+     "channel": "Knowledge Gate (Yash Jain)",
+     "url": "https://www.knowledgegate.ai/learn/GATE-GUIDANCE-BY-SANCHIT-SIR/engineering-mathematics/calculus/maxima-and-minima/asset-maxima-minima",
+     "language": "hi",
+     "transcript": "SUMMARY_ONLY",
+     "translated": true,
+     "note": "Hindi-medium lecture; the platform's published English AI chapter summary with timestamps was read in full, the lecture itself was not. Chapters used: 0:00-2:00 local and global extrema drawn on [a,b], 2:00-5:00 the three statements S1/S2/S3, 5:00-10:00 the x^3 saddle point and the cusp maximum, 10:00-13:20 the closed-interval algorithm"
+    },
+    {
+     "kind": "lecture-transcript",
+     "title": "18.01 Single Variable Calculus, Lecture 12 (Fall 2007): maxima and minima",
+     "channel": "MIT OpenCourseWare, Prof. David Jerison",
+     "url": "https://rachel.worldpossible.org/mods/en-rachelcourses/singlevarcalculus/contents/12_Transcript.pdf",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "the full lecture transcript was read from its opening to the related-rates hand-off; the wire-into-two-squares worked example and the warning about unchecked endpoints are quoted from it, the OCW lecture 11 page being the course index entry"
+    }
+   ],
+   "sourceLine": "The counting discipline (critical points are candidates, sign change decides): Knowledge Gate 'Maxima & Minima' chapter summary at 5:00-13:20 (Hindi-medium lecture, English summary - translated) and MIT 18.01 Lecture 12 (English, read in full). The b^2 - 3ac criterion is derived and then checked against both PYQs in scripts/validate.py.",
+   "videoRefs": [],
+   "subject": "calculus",
+   "topic": "maxima-and-minima",
+   "path": "subjects/calculus/maxima-and-minima/cubic-and-quartic-extrema-counting.json"
+  },
+  {
+   "id": "extrema-of-trig-functions-on-an-interval",
+   "title": "Extrema of Trigonometric Functions on an Interval",
+   "priority": "P2",
+   "order": 178,
+   "unit": "Maxima and Minima",
+   "quickIdea": "For a periodic function restricted to an interval, list the critical points that lie inside, then compare them with the endpoint values - the periodicity does the rest.",
+   "remember": [
+    "sin x has derivative cos x, which vanishes at pi/2 + k pi; f''(x) = -sin x classifies them: pi/2 + 2k pi are maxima, 3pi/2 + 2k pi are minima.",
+    "cos x has derivative -sin x, which vanishes at k pi; maxima at 0 + 2k pi and minima at pi + 2k pi.",
+    "On a restricted interval only the critical points inside it are candidates, and the endpoints must be evaluated separately.",
+    "Values repeat with period 2pi, so an interval longer than 2pi contains the same extremum values more than once - but they are distinct points.",
+    "Half-open intervals such as [pi/4, 7pi/4) remove the right endpoint from the candidate list, which can change the answer."
+   ],
+   "example": {
+    "prompt": "GATE CSE 2012 Q.9: where are the local minima of sin x on [pi/4, 7pi/4]?",
+    "work": "cos x = 0 at pi/2 and 3pi/2, both inside the interval. -sin(pi/2) = -1 < 0 so pi/2 is a local maximum; -sin(3pi/2) = 1 > 0 so 3pi/2 is a local minimum with value -1. Endpoint values: sin(pi/4) = sqrt(2)/2 = 0.707 and sin(7pi/4) = -0.707.",
+    "answer": "The interior local minimum is at 3pi/2; under the endpoint convention pi/4 is a second local minimum, which is the accepted option (two, at pi/4 and 3pi/2)."
+   },
+   "gateAngle": "This is the trigonometric instance of the closed-interval candidate list, and 2012 Q.9 is its only verified CSE appearance. The exam's distractors are the interior point alone (one minimum) and the pair pi/2, 3pi/2 (confusing the maximum with a minimum).",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2012 Q.9: the number and locations of the local minima of sin x on [pi/4, 7pi/4].",
+     "answer": "Two, at pi/4 and 3pi/2.",
+     "why": "One interior minimum plus the left endpoint, under the endpoint convention."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "Where are the local maxima of cos x on [0, 2pi]?",
+     "answer": "At 0 and at 2pi, both endpoints, each with value 1.",
+     "why": "A periodic function on a full period puts its maximum exactly at both ends, which makes the endpoint convention unavoidable."
+    }
+   ],
+   "trap": {
+    "what": "Listing pi/2 as a local minimum because cos x = 0 there.",
+    "why": "A zero of the derivative is a candidate, not a verdict; at pi/2 the sign of cos goes from positive to negative, which is a maximum.",
+    "counterexample": "sin(pi/2) = 1 is the largest value of sin anywhere, so pi/2 cannot be a local minimum."
+   },
+   "check": {
+    "question": "How many local minima does sin x have on [0, 2pi]?",
+    "answer": "One, at 3pi/2.",
+    "explanation": "The only interior critical point with positive second derivative is 3pi/2. The endpoints 0 and 2pi both have value 0, which is larger than sin(3pi/2) = -1, so neither is a minimum."
+   },
+   "pyqIds": [
+    "gate-2012-9-sin-local-minima"
+   ],
+   "prereqs": [
+    "closed-interval-candidate-list",
+    "endpoint-extrema-and-the-definition-dispute"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-transcript",
+     "title": "18.01 Single Variable Calculus, Lecture 12 (Fall 2007): maxima and minima",
+     "channel": "MIT OpenCourseWare, Prof. David Jerison",
+     "url": "https://rachel.worldpossible.org/mods/en-rachelcourses/singlevarcalculus/contents/12_Transcript.pdf",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "the full lecture transcript was read from its opening to the related-rates hand-off; the wire-into-two-squares worked example and the warning about unchecked endpoints are quoted from it, the OCW lecture 11 page being the course index entry"
+    },
+    {
+     "kind": "text",
+     "title": "Calculus I, section 4.3: Minimum and Maximum Values",
+     "channel": "Paul's Online Math Notes, Lamar University",
+     "url": "https://tutorial.math.lamar.edu/classes/calci/minmaxvalues.aspx",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "read in full: the four definitions, the statement that relative extrema are usually taken to be interior with an explicit note that some authors disagree, Fermat's theorem and the |x| counterexample to its converse"
+    }
+   ],
+   "sourceLine": "The candidate-list discipline and the endpoint warning: MIT 18.01 Lecture 12 (English, read in full) and Paul's Online Math Notes section 4.3. The 2012 question is recomputed at pi/4, pi/2, 3pi/2 and 7pi/4 in scripts/validate.py.",
+   "videoRefs": [],
+   "subject": "calculus",
+   "topic": "maxima-and-minima",
+   "path": "subjects/calculus/maxima-and-minima/extrema-of-trig-functions-on-an-interval.json"
+  },
+  {
+   "id": "two-variable-stationary-points",
+   "title": "Two-Variable Stationary Points and the rt - s^2 Test",
+   "priority": "P3",
+   "order": 179,
+   "unit": "Maxima and Minima",
+   "quickIdea": "For f(x, y) solve f_x = f_y = 0, then test D = f_xx f_yy - (f_xy)^2 at each solution: D > 0 with f_xx < 0 is a maximum, D > 0 with f_xx > 0 is a minimum, D < 0 is a saddle.",
+   "remember": [
+    "Stationary points of f(x, y) solve f_x = 0 and f_y = 0 simultaneously; each solution is a candidate.",
+    "Write r = f_xx, s = f_xy, t = f_yy and D = rt - s^2.",
+    "D > 0 and r < 0: local maximum. D > 0 and r > 0: local minimum. D < 0: saddle point, no extremum. D = 0: the test is inconclusive.",
+    "If D <= 0 at every stationary point, the function has no local extremum at all - which is enough to answer a multiple-choice question without classifying further.",
+    "The single-variable second-derivative test is the special case with s = 0."
+   ],
+   "example": {
+    "prompt": "GATE CSE 1993 Q.1.7: the function f(x, y) = x^2 y - 3xy + 2y + x has how many local extrema?",
+    "work": "f_x = 2xy - 3y + 1 and f_y = x^2 - 3x + 2 = (x - 1)(x - 2). Setting f_y = 0 gives x = 1 or x = 2. With x = 1, f_x = 2y - 3y + 1 = 1 - y, so y = 1. With x = 2, f_x = 4y - 3y + 1 = 1 + y, so y = -1. The stationary points are (1, 1) and (2, -1). Now r = f_xx = 2y, s = f_xy = 2x - 3, t = f_yy = 0, so D = rt - s^2 = -(2x - 3)^2, which is negative at both points (-1 at each).",
+    "answer": "D < 0 at both stationary points, so both are saddles and the function has no local extremum. The answer is option A."
+   },
+   "gateAngle": "This is the only verified GATE CSE question in the topic that leaves one variable, and one solution site marks it out of syllabus. Treat it as a P3 card: know the test, know that GATE CSE asked it once in 1993, and do not expect it again under the current line 'Maxima and minima'.",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 1993 Q.1.7: how many local extrema does x^2 y - 3xy + 2y + x have?",
+     "answer": "None - both stationary points are saddles.",
+     "why": "D = -(2x - 3)^2 cannot be positive at a stationary point, because the only x making it zero is 3/2, where f_y != 0."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "For f(x, y) = x^2 + y^2, classify the stationary point.",
+     "answer": "A local minimum at (0, 0). f_x = 2x, f_y = 2y force (0,0); r = 2, s = 0, t = 2, so D = 4 > 0 and r > 0.",
+     "why": "The clean case that shows the test working, so that the saddle verdict of the PYQ is not mistaken for a rule that D is always negative."
+    }
+   ],
+   "trap": {
+    "what": "Reporting every solution of f_x = f_y = 0 as an extremum.",
+    "why": "In two variables a stationary point can be a saddle, where the function rises in one direction and falls in another; only the sign of D separates the cases.",
+    "counterexample": "f(x, y) = x^2 - y^2 has one stationary point at the origin with r = 2, t = -2, s = 0, so D = -4 < 0: a saddle, not an extremum."
+   },
+   "check": {
+    "question": "For f(x, y) = x^2 - y^2, what is at the origin?",
+    "answer": "A saddle point.",
+    "explanation": "f_x = 2x and f_y = -2y vanish only at (0,0); r = 2, s = 0, t = -2, so D = -4 < 0."
+   },
+   "pyqIds": [
+    "gate-1993-1-7-two-variable-no-extremum"
+   ],
+   "prereqs": [
+    "second-derivative-test"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-transcript",
+     "title": "18.01 Single Variable Calculus, Lecture 12 (Fall 2007): maxima and minima",
+     "channel": "MIT OpenCourseWare, Prof. David Jerison",
+     "url": "https://rachel.worldpossible.org/mods/en-rachelcourses/singlevarcalculus/contents/12_Transcript.pdf",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "the full lecture transcript was read from its opening to the related-rates hand-off; the wire-into-two-squares worked example and the warning about unchecked endpoints are quoted from it, the OCW lecture 11 page being the course index entry"
+    },
+    {
+     "kind": "text",
+     "title": "Calculus I, section 4.3: Minimum and Maximum Values",
+     "channel": "Paul's Online Math Notes, Lamar University",
+     "url": "https://tutorial.math.lamar.edu/classes/calci/minmaxvalues.aspx",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "read in full: the four definitions, the statement that relative extrema are usually taken to be interior with an explicit note that some authors disagree, Fermat's theorem and the |x| counterexample to its converse"
+    }
+   ],
+   "sourceLine": "The single-variable second-derivative test this generalises: MIT 18.01 Lecture 12 (English, read in full). The two-variable test statement: standard references (Stewart, Calculus, sections on partial derivatives). The 1993 question is recomputed from its own partial derivatives in scripts/validate.py.",
+   "videoRefs": [],
+   "subject": "calculus",
+   "topic": "maxima-and-minima",
+   "path": "subjects/calculus/maxima-and-minima/two-variable-stationary-points.json"
+  },
+  {
+   "id": "optimisation-word-problems",
+   "title": "Setting Up an Optimisation Problem",
+   "priority": "P2",
+   "order": 180,
+   "unit": "Maxima and Minima",
+   "quickIdea": "Draw the picture, name the variables, use the constraint to write the objective as a function of one variable, state its interval - and only then differentiate.",
+   "remember": [
+    "Four steps: draw a diagram; name the variables; write the objective and the constraint; eliminate one variable so the objective is a function of one variable.",
+    "State the interval on which the variable is allowed to move; it is usually forced by the geometry and is often open at both ends.",
+    "Then apply the closed-interval candidate list, or the first-derivative test if the interval is open, and compare with the limiting values at the ends.",
+    "A stationary point can give the minimum when the question asked for the maximum; the diagram or the sign chart must confirm which one you found.",
+    "State the answer in the units of the question, and say where it is attained, not only what the value is."
+   ],
+   "example": {
+    "prompt": "A wire of length 1 is cut into two pieces and each piece is bent into a square. Find the largest and the smallest total area enclosed.",
+    "work": "Let one piece have length x, so the other has 1 - x; the sides are x/4 and (1 - x)/4, and the area is A(x) = x^2/16 + (1 - x)^2/16 on (0, 1). A'(x) = (2x - 2(1 - x))/16 = (4x - 2)/16 = (2x - 1)/8, which vanishes at x = 1/2. A(1/2) = (1/4)/16 + (1/4)/16 = 1/32. As x -> 0+ the area tends to 1/16, and as x -> 1- it also tends to 1/16.",
+    "answer": "The smallest total area is 1/32, attained at x = 1/2 (two equal squares). The largest value 1/16 is only approached, as one piece shrinks to nothing, so on the open interval there is no maximum - the question as posed has a trick answer."
+   },
+   "gateAngle": "GATE has not asked a pure word problem in this topic, but every 'maximum value of ... in the interval' question is the same procedure with the modelling step removed, and the MIT example is the standard warning that the critical point may be the minimum. Use it to keep the candidate list in mind.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "For x > 0, what is the minimum value of x + 4/x?",
+     "answer": "4, attained at x = 2.",
+     "why": "f'(x) = 1 - 4/x^2 vanishes at x = 2; f''(x) = 8/x^3 > 0 there, so it is a minimum, and f tends to infinity at both ends of (0, inf)."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "A rectangle has perimeter 20. What is its maximum area?",
+     "answer": "25, for a 5 by 5 square.",
+     "why": "The constraint y = 10 - x turns the area into A(x) = x(10 - x) on (0, 10), with a single stationary point at x = 5 where A = 25; the ends give area tending to 0."
+    }
+   ],
+   "trap": {
+    "what": "Differentiating first and never checking which extremum was found or what happens at the ends of the allowed interval.",
+    "why": "Optimisation questions ask for a largest or a smallest value, and the stationary point may be the opposite of the one asked for, or the answer may sit at a boundary that the derivative cannot see.",
+    "counterexample": "In the wire problem the only stationary point gives the minimum area 1/32 while the largest area 1/16 lies at the ends of the interval."
+   },
+   "check": {
+    "question": "For x > 0, where is the minimum of f(x) = x^2 + 16/x?",
+    "answer": "At x = 2, with f(2) = 12.",
+    "explanation": "f'(x) = 2x - 16/x^2 = (2x^3 - 16)/x^2, which vanishes at x = 2. f''(x) = 2 + 32/x^3 > 0, so it is a minimum, and f tends to infinity as x -> 0+ and as x -> infinity."
+   },
+   "pyqIds": [],
+   "prereqs": [
+    "closed-interval-candidate-list",
+    "monotonicity-and-sign-of-derivative"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-transcript",
+     "title": "18.01 Single Variable Calculus, Lecture 12 (Fall 2007): maxima and minima",
+     "channel": "MIT OpenCourseWare, Prof. David Jerison",
+     "url": "https://rachel.worldpossible.org/mods/en-rachelcourses/singlevarcalculus/contents/12_Transcript.pdf",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "the full lecture transcript was read from its opening to the related-rates hand-off; the wire-into-two-squares worked example and the warning about unchecked endpoints are quoted from it, the OCW lecture 11 page being the course index entry"
+    },
+    {
+     "kind": "lecture-summary",
+     "title": "Maxima & Minima (13 min), Engineering Mathematics for GATE",
+     "channel": "Knowledge Gate (Yash Jain)",
+     "url": "https://www.knowledgegate.ai/learn/GATE-GUIDANCE-BY-SANCHIT-SIR/engineering-mathematics/calculus/maxima-and-minima/asset-maxima-minima",
+     "language": "hi",
+     "transcript": "SUMMARY_ONLY",
+     "translated": true,
+     "note": "Hindi-medium lecture; the platform's published English AI chapter summary with timestamps was read in full, the lecture itself was not. Chapters used: 0:00-2:00 local and global extrema drawn on [a,b], 2:00-5:00 the three statements S1/S2/S3, 5:00-10:00 the x^3 saddle point and the cusp maximum, 10:00-13:20 the closed-interval algorithm"
+    }
+   ],
+   "sourceLine": "The four-step set-up, the wire-into-two-squares worked example and the warning that the critical point gave the least area rather than the largest: MIT 18.01 Lecture 12 transcript (English, read in full). The closed-interval algorithm: Knowledge Gate 'Maxima & Minima' chapter summary at 10:00-13:20 (Hindi-medium lecture, English summary - translated). Every value recomputed in scripts/validate.py.",
+   "videoRefs": [],
+   "subject": "calculus",
+   "topic": "maxima-and-minima",
+   "path": "subjects/calculus/maxima-and-minima/optimisation-word-problems.json"
   }
  ],
  "pyqs": [
@@ -16935,6 +18046,27 @@ window.GATE_DATA = {
    "source_label": "GATE Overflow question page for GATE CS 1992 Q.2(xvi) with community solutions; question and options read off that page",
    "verification": "SOURCED",
    "answer_evidence": "Option B is Tautology."
+  },
+  {
+   "id": "gate-1993-1-7-two-variable-no-extremum",
+   "year": "1993",
+   "paper": "GATE CS 1993",
+   "question_ref": "Q.1.7",
+   "type": "MCQ",
+   "topic": "two-variable-stationary-points",
+   "text": "The function f(x, y) = x^2 y - 3xy + 2y + x has",
+   "options": [
+    "no local extremum",
+    "one local minimum but no local maximum",
+    "one local maximum but no local minimum",
+    "one local minimum and one local maximum"
+   ],
+   "answer": "Option (a) - no local extremum",
+   "solution": "f_x = 2xy - 3y + 1 and f_y = x^2 - 3x + 2 = (x-1)(x-2). f_y = 0 gives x = 1 or x = 2; substituting into f_x = 0 gives y = 1 for x = 1 and y = -1 for x = 2, so the stationary points are (1,1) and (2,-1). With r = f_xx = 2y, s = f_xy = 2x - 3, t = f_yy = 0, we get rt - s^2 = -(2x-3)^2, which is -1 at both stationary points. A local extremum needs rt - s^2 > 0, so neither point is one.",
+   "source_url": "https://gateoverflow.in/602/gate-cse-1993-question-01-7",
+   "source_label": "GATE Overflow question page - GATE CSE 1993 Q.1.7 with the accepted answer (option A)",
+   "verification": "SOURCED",
+   "answer_evidence": "Accepted answer states 'Answer: A' and shows rt - s^2 <= 0 at both stationary points. One solution site (solutionsadda) marks the question 'Out of syllabus'; the paper itself is the 1993 CSE paper (gateexam.info CS-1993.pdf)."
   },
   {
    "id": "gate-1993-8-4",
@@ -17086,6 +18218,27 @@ window.GATE_DATA = {
    "source_label": "GATE Overflow question page - GATE CSE 1997 Q.3.1 with the accepted solution (option 4)",
    "verification": "SOURCED",
    "answer_evidence": "Accepted answer: 'we don't have a single unique element for all the elements which is less than all the elements ... Hence, this is just a semigroup - D option.'"
+  },
+  {
+   "id": "gate-1997-4-1-max-on-closed-interval",
+   "year": "1997",
+   "paper": "GATE CS 1997",
+   "question_ref": "Q.4.1",
+   "type": "MCQ",
+   "topic": "closed-interval-candidate-list",
+   "text": "What is the maximum value of the function f(x) = 2x^2 - 2x + 6 in the interval [0, 2]?",
+   "options": [
+    "6",
+    "10",
+    "12",
+    "5.5"
+   ],
+   "answer": "Option (B) - 10",
+   "solution": "f'(x) = 4x - 2 vanishes at x = 1/2, the only critical point in the interval. Compare f(0) = 6, f(1/2) = 0.5 - 1 + 6 = 5.5 and f(2) = 8 - 4 + 6 = 10. The largest of the three is 10, at the endpoint x = 2; the stationary point supplies the minimum.",
+   "source_url": "https://gateoverflow.in/2242/gate-cse-1997-question-4-1",
+   "source_label": "GATE Overflow question page - GATE CSE 1997 Q.4.1 with four agreeing answers (option B)",
+   "verification": "SOURCED",
+   "answer_evidence": "Every answer on the page concludes 10; one shows the completed-square form 2((x - 1/2)^2 + 11/4). GATE Overflow numbers it Q.4.1, ExamSIDE numbers the same question Q.19 of the 1997 paper."
   },
   {
    "id": "gate-1997-6-1-total-orders-n-factorial",
@@ -17595,6 +18748,27 @@ window.GATE_DATA = {
    "answer_evidence": "Answer is option A."
   },
   {
+   "id": "gate-2008-25-number-of-extrema",
+   "year": "2008",
+   "paper": "GATE CS 2008",
+   "question_ref": "Q.25",
+   "type": "MCQ",
+   "topic": "cubic-and-quartic-extrema-counting",
+   "text": "A point on a curve is said to be an extremum if it is a local minimum or a local maximum. The number of distinct extrema for the curve 3x^4 - 16x^3 + 24x^2 + 37 is",
+   "options": [
+    "0",
+    "1",
+    "2",
+    "3"
+   ],
+   "answer": "Option (b) - 1",
+   "solution": "f'(x) = 12x^3 - 48x^2 + 48x = 12x(x-2)^2, so the stationary points are x = 0 and x = 2. f''(x) = 36x^2 - 96x + 48 gives f''(0) = 48 > 0, a local minimum, and f''(2) = 0, where the second-derivative test fails. The first-derivative test then decides: f'(1) = 12 > 0 and f'(3) = 36 > 0, so the sign does not change at 2 and x = 2 is not an extremum. Equivalently f'''(2) = 48 != 0 with odd order. Hence exactly one extremum, at x = 0.",
+   "source_url": "https://gateoverflow.in/423/gate-cse-2008-question-25",
+   "source_label": "GATE Overflow question page - GATE CSE 2008 Q.25 with three agreeing answers (option b)",
+   "verification": "SOURCED",
+   "answer_evidence": "The accepted answer states 'Answer is (b)' and falls back on the first-derivative test at x = 2 because f''(2) = 0; a second answer reaches the same verdict through f'''(2) = 48."
+  },
+  {
    "id": "gate-2008-3-alpha-unique",
    "year": "2008",
    "paper": "GATE CS 2008",
@@ -17614,6 +18788,27 @@ window.GATE_DATA = {
    "source_label": "GATE Overflow question page - GATE CSE 2008 Q.3, with the row reduction and the note that no printed option is correct",
    "verification": "SOURCED",
    "answer_evidence": "Accepted answer: 'if alpha = 5 then there'll be a free variable ... So alpha != 5 will always give a unique solution', and the IIT Delhi solution for GATE 2008 Q.3 concludes 'alpha can be any real number except 5. So none of the options is correct'."
+  },
+  {
+   "id": "gate-2012-9-sin-local-minima",
+   "year": "2012",
+   "paper": "GATE CS 2012",
+   "question_ref": "Q.9",
+   "type": "MCQ",
+   "topic": "endpoint-extrema-and-the-definition-dispute",
+   "text": "Consider the function f(x) = sin(x) in the interval x in [pi/4, 7pi/4]. The number and location(s) of the local minima of this function are",
+   "options": [
+    "One, at pi/2",
+    "One, at 3pi/2",
+    "Two, at pi/2 and 3pi/2",
+    "Two, at pi/4 and 3pi/2"
+   ],
+   "answer": "Option (D) - two, at pi/4 and 3pi/2",
+   "solution": "cos x = 0 at pi/2 and 3pi/2, both inside the interval. Since (sin)'' = -sin, at pi/2 the second derivative is -1 < 0, a local maximum, and at 3pi/2 it is 1 > 0, a local minimum with value -1. The left endpoint pi/4 has value sqrt(2)/2 = 0.707, which is smaller than sin x for every x just to its right, so under the endpoint convention it is also a local minimum. That gives two minima, at pi/4 and at 3pi/2.",
+   "source_url": "https://gateoverflow.in/41/gate-cse-2012-question-9",
+   "source_label": "GATE Overflow question page - GATE CSE 2012 Q.9 with five answers agreeing on option (D)",
+   "verification": "SOURCED",
+   "answer_evidence": "The accepted answers state option (D) and justify the endpoint by noting that sin is increasing up to pi/2, so pi/4 is a local minimum. The point is definitional: under the strict interior convention the count would be one, at 3pi/2, and the card on endpoint extrema states both readings."
   },
   {
    "id": "gate-2013-22-continuity-at-three",
@@ -18670,6 +19865,27 @@ window.GATE_DATA = {
    "answer_evidence": "Accepted answer: 'Option A,B and C are TRUE', noting 'Hamiltonian path exists in Peterson graph but not Hamiltonian cycle' and that the largest independent set has size 4."
   },
   {
+   "id": "gate-2023-18-cubic-local-extrema",
+   "year": "2023",
+   "paper": "GATE CS 2023",
+   "question_ref": "Q.18",
+   "type": "MSQ",
+   "topic": "second-derivative-test",
+   "text": "Let f(x) = x^3 + 15x^2 - 33x - 36 be a real-valued function. Which of the following statements is/are TRUE?",
+   "options": [
+    "f(x) does not have a local maximum.",
+    "f(x) has a local maximum.",
+    "f(x) does not have a local minimum.",
+    "f(x) has a local minimum."
+   ],
+   "answer": "Options (B) and (D) - f has a local maximum and f has a local minimum",
+   "solution": "f'(x) = 3x^2 + 30x - 33 = 3(x^2 + 10x - 11) = 3(x+11)(x-1), so the stationary points are x = -11 and x = 1. f''(x) = 6x + 30 gives f''(1) = 36 > 0, a local minimum, and f''(-11) = -36 < 0, a local maximum. Equivalently b^2 - 3ac = 225 + 99 = 324 > 0, so a cubic has one of each.",
+   "source_url": "https://gateoverflow.in/399293/gate-cse-2023-question-18",
+   "source_label": "GATE Overflow question page - GATE CSE 2023 Q.18 with several agreeing answers (B, D)",
+   "verification": "SOURCED",
+   "answer_evidence": "Accepted answers conclude 'Option B, D' by the second-derivative test, and one of them also derives the b^2 > 3ac criterion for a cubic."
+  },
+  {
    "id": "gate-2023-41-symmetric-difference-group",
    "year": "2023",
    "paper": "GATE CS 2023",
@@ -19145,6 +20361,27 @@ window.GATE_DATA = {
    "source_label": "GATE Overflow question page - GATE CSE 2026 Set 1 Q.3 with the accepted answer (option A, n)",
    "verification": "SOURCED",
    "answer_evidence": "Accepted answer: option A, n, argued from the degree of the characteristic polynomial and the identity matrix. Corroborated by Quorank's GATE 2026 CSE Set 1 page, which records the same question (numbered Q.13 there) with answer A."
+  },
+  {
+   "id": "gate-2026-set1-36-abs-piecewise-local-max",
+   "year": "2026",
+   "paper": "GATE CS 2026 Set 1",
+   "question_ref": "Q.36",
+   "type": "MSQ",
+   "topic": "extrema-of-piecewise-and-absolute-value-functions",
+   "text": "Let f: R -> R be defined as f(x) = (|x|/2 - x)(x - |x|/2). Which of the following statements is/are true?",
+   "options": [
+    "f has a local maximum",
+    "f has a local minimum",
+    "f' is continuous over R",
+    "f' is not differentiable over R"
+   ],
+   "answer": "Options A, C and D",
+   "solution": "The second factor is the negative of the first, so f(x) = -(|x|/2 - x)^2 <= 0, with equality only where |x|/2 = x, that is only at x = 0. Hence f(0) = 0 is a local (indeed global) maximum and there is no local minimum. For x >= 0 the bracket equals -x/2, so f = -x^2/4 and f' = -x/2; for x < 0 it equals -3x/2, so f = -9x^2/4 and f' = -9x/2. The difference quotient at 0 is -h/4 from the right and -9h/4 from the left, both tending to 0, so f'(0) = 0 and f' is continuous on R. The one-sided derivatives of f' at 0 are -1/2 and -9/2, so f' is not differentiable at 0 and hence not differentiable over R.",
+   "source_url": "https://gateoverflow.in/523044/gate-cse-2026-set-1-question-36",
+   "source_label": "GATE Overflow question page - GATE CSE 2026 Set 1 Q.36 with two answers giving A, C, D",
+   "verification": "SOURCED",
+   "answer_evidence": "The later answer states 'Correct answer A,C,D'; the earlier answer reaches the same set. The official answer key for GATE 2026 Set 1 was not fetched, so this record is SOURCED rather than key-verified."
   },
   {
    "id": "gate-2026-set1-37-vertex-cover-degree",

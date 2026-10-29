@@ -29,8 +29,8 @@
   ],
   "counts": {
     "subjects": 3,
-    "topics": 139,
-    "pyqs": 121,
+    "topics": 153,
+    "pyqs": 127,
     "videos": 39,
     "playlists": 3
   },
@@ -2187,6 +2187,215 @@
       "pyqs": [
         "gate-2024-set1-1-max-x-x3"
       ],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "local-and-global-extrema",
+      "title": "Local and Global Extrema",
+      "subject": "calculus",
+      "group": "maxima-and-minima",
+      "unit": "Maxima and Minima",
+      "priority": "P1",
+      "path": "subjects/calculus/maxima-and-minima/local-and-global-extrema.json",
+      "videos": [],
+      "pyqs": [
+        "gate-1997-4-1-max-on-closed-interval",
+        "gate-2012-9-sin-local-minima"
+      ],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "stationary-and-critical-points",
+      "title": "Stationary Points and Critical Points",
+      "subject": "calculus",
+      "group": "maxima-and-minima",
+      "unit": "Maxima and Minima",
+      "priority": "P1",
+      "path": "subjects/calculus/maxima-and-minima/stationary-and-critical-points.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2026-set1-36-abs-piecewise-local-max"
+      ],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "fermats-theorem-and-its-converse",
+      "title": "Fermat's Theorem and Why Its Converse Fails",
+      "subject": "calculus",
+      "group": "maxima-and-minima",
+      "unit": "Maxima and Minima",
+      "priority": "P1",
+      "path": "subjects/calculus/maxima-and-minima/fermats-theorem-and-its-converse.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2023-18-cubic-local-extrema"
+      ],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "first-derivative-test",
+      "title": "The First-Derivative (Sign) Test",
+      "subject": "calculus",
+      "group": "maxima-and-minima",
+      "unit": "Maxima and Minima",
+      "priority": "P1",
+      "path": "subjects/calculus/maxima-and-minima/first-derivative-test.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2008-25-number-of-extrema"
+      ],
+      "visual": "calculus/maxima-and-minima/sign-chart-of-the-derivative",
+      "variations": 2
+    },
+    {
+      "topic": "second-derivative-test",
+      "title": "The Second-Derivative Test",
+      "subject": "calculus",
+      "group": "maxima-and-minima",
+      "unit": "Maxima and Minima",
+      "priority": "P1",
+      "path": "subjects/calculus/maxima-and-minima/second-derivative-test.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2023-18-cubic-local-extrema",
+        "gate-2008-25-number-of-extrema"
+      ],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "higher-derivative-test",
+      "title": "When f'' Vanishes: The Higher-Derivative Test",
+      "subject": "calculus",
+      "group": "maxima-and-minima",
+      "unit": "Maxima and Minima",
+      "priority": "P2",
+      "path": "subjects/calculus/maxima-and-minima/higher-derivative-test.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2008-25-number-of-extrema"
+      ],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "closed-interval-candidate-list",
+      "title": "Absolute Extrema on a Closed Interval",
+      "subject": "calculus",
+      "group": "maxima-and-minima",
+      "unit": "Maxima and Minima",
+      "priority": "P1",
+      "path": "subjects/calculus/maxima-and-minima/closed-interval-candidate-list.json",
+      "videos": [],
+      "pyqs": [
+        "gate-1997-4-1-max-on-closed-interval"
+      ],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "monotonicity-and-sign-of-derivative",
+      "title": "Monotonicity and the Sign of f'",
+      "subject": "calculus",
+      "group": "maxima-and-minima",
+      "unit": "Maxima and Minima",
+      "priority": "P2",
+      "path": "subjects/calculus/maxima-and-minima/monotonicity-and-sign-of-derivative.json",
+      "videos": [],
+      "pyqs": [],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "extrema-of-piecewise-and-absolute-value-functions",
+      "title": "Extrema of Piecewise and Absolute-Value Functions",
+      "subject": "calculus",
+      "group": "maxima-and-minima",
+      "unit": "Maxima and Minima",
+      "priority": "P1",
+      "path": "subjects/calculus/maxima-and-minima/extrema-of-piecewise-and-absolute-value-functions.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2026-set1-36-abs-piecewise-local-max"
+      ],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "endpoint-extrema-and-the-definition-dispute",
+      "title": "Endpoints as Extrema: A Definitional Choice",
+      "subject": "calculus",
+      "group": "maxima-and-minima",
+      "unit": "Maxima and Minima",
+      "priority": "P2",
+      "path": "subjects/calculus/maxima-and-minima/endpoint-extrema-and-the-definition-dispute.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2012-9-sin-local-minima"
+      ],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "cubic-and-quartic-extrema-counting",
+      "title": "Counting Extrema of Cubics and Quartics",
+      "subject": "calculus",
+      "group": "maxima-and-minima",
+      "unit": "Maxima and Minima",
+      "priority": "P1",
+      "path": "subjects/calculus/maxima-and-minima/cubic-and-quartic-extrema-counting.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2023-18-cubic-local-extrema",
+        "gate-2008-25-number-of-extrema"
+      ],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "extrema-of-trig-functions-on-an-interval",
+      "title": "Extrema of Trigonometric Functions on an Interval",
+      "subject": "calculus",
+      "group": "maxima-and-minima",
+      "unit": "Maxima and Minima",
+      "priority": "P2",
+      "path": "subjects/calculus/maxima-and-minima/extrema-of-trig-functions-on-an-interval.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2012-9-sin-local-minima"
+      ],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "two-variable-stationary-points",
+      "title": "Two-Variable Stationary Points and the rt - s^2 Test",
+      "subject": "calculus",
+      "group": "maxima-and-minima",
+      "unit": "Maxima and Minima",
+      "priority": "P3",
+      "path": "subjects/calculus/maxima-and-minima/two-variable-stationary-points.json",
+      "videos": [],
+      "pyqs": [
+        "gate-1993-1-7-two-variable-no-extremum"
+      ],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "optimisation-word-problems",
+      "title": "Setting Up an Optimisation Problem",
+      "subject": "calculus",
+      "group": "maxima-and-minima",
+      "unit": "Maxima and Minima",
+      "priority": "P2",
+      "path": "subjects/calculus/maxima-and-minima/optimisation-word-problems.json",
+      "videos": [],
+      "pyqs": [],
       "visual": null,
       "variations": 2
     }
