@@ -1,0 +1,75 @@
+{
+  "id": "stationary-and-critical-points",
+  "title": "Stationary Points and Critical Points",
+  "priority": "P1",
+  "order": 168,
+  "unit": "Maxima and Minima",
+  "quickIdea": "Stationary means f'(c) = 0. Critical means f'(c) = 0 or f'(c) does not exist. Every stationary point is critical; not every critical point is stationary.",
+  "remember": [
+    "c is a stationary point of f if f is differentiable at c and f'(c) = 0 - the tangent there is horizontal.",
+    "c is a critical point if f'(c) = 0 or f is not differentiable at c.",
+    "Stationary subset of critical. A corner or a vertical tangent gives a critical point that is not stationary, as at 0 for |x|.",
+    "Extrema can occur only at critical points (Fermat's theorem for the differentiable case, plus the non-differentiable case), so the critical points are the complete candidate list.",
+    "A critical point is only a candidate: x^3 at 0 is stationary and is neither a maximum nor a minimum."
+  ],
+  "example": {
+    "prompt": "List the critical points of f(x) = |x| and of g(x) = x^3, and say which are stationary.",
+    "work": "For f, f'(x) = 1 for x > 0 and -1 for x < 0, and f'(0) does not exist, so 0 is critical and not stationary. For g, g'(x) = 3x^2, which vanishes only at 0, so 0 is stationary and therefore critical.",
+    "answer": "f has one critical point, 0, which is not stationary. g has one critical point, 0, which is stationary. Neither function's critical point set contains anything else."
+  },
+  "gateAngle": "GATE CSE 2026 Set 1 Q.36 asks directly about a function built from |x|: it asks whether f has a local maximum, whether f has a local minimum, whether f' is continuous, and whether f' is not differentiable. All four statements are about where the derivative exists and where it vanishes, which is the stationary/critical distinction applied twice.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "How many critical points does f(x) = x^(2/3) have, and how many are stationary?",
+      "answer": "One critical point, at x = 0, and none of them is stationary: f'(x) = (2/3) x^(-1/3) is never zero and fails to exist at 0.",
+      "why": "The same distinction on a cusp instead of a corner. The count of critical points does not change; the reason it is critical does."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Is every point where f' = 0 a critical point? Is every critical point a point where f' = 0?",
+      "answer": "Yes to the first, no to the second.",
+      "why": "The containment is one-way, and both directions appear as distractors in statement-style questions."
+    }
+  ],
+  "trap": {
+    "what": "Using 'critical point' to mean only the solutions of f'(x) = 0, so that points where the derivative fails to exist are dropped from the candidate list.",
+    "why": "Extrema do occur at non-differentiable points - |x| at 0 is the standard example - so dropping them can lose the answer.",
+    "counterexample": "f(x) = |x| has its only minimum at 0, where f' does not exist. Solving f'(x) = 0 gives no candidates at all."
+  },
+  "check": {
+    "question": "f(x) = x^4. How many stationary points does f have, and how many critical points?",
+    "answer": "One stationary point, at x = 0, and one critical point, the same one.",
+    "explanation": "f'(x) = 4x^3 exists everywhere and vanishes only at 0, so there are no critical points of the non-differentiable kind."
+  },
+  "pyqIds": [
+    "gate-2026-set1-36-abs-piecewise-local-max"
+  ],
+  "prereqs": [
+    "local-and-global-extrema"
+  ],
+  "sources": [
+    {
+      "kind": "lecture-summary",
+      "title": "26 Jan - EM - Calculus Part 2, the maxima and minima segment",
+      "channel": "Knowledge Gate (Yash Jain)",
+      "url": "https://www.knowledgegate.ai/learn/GATE-GUIDANCE-BY-SANCHIT-SIR/live-classes/gate-2026-live-class/engineering-mathematics-for-gate-exam/asset-26-jan-em-calculus-part-2",
+      "language": "hi",
+      "transcript": "SUMMARY_ONLY",
+      "translated": true,
+      "note": "Hindi-medium live class; the English AI chapter summary was read for the stationary-versus-critical distinction (2:00-5:00) and the second-derivative test with its inconclusive case (5:00-15:00)"
+    },
+    {
+      "kind": "lecture-transcript",
+      "title": "18.01 Single Variable Calculus, Lecture 12 (Fall 2007): maxima and minima",
+      "channel": "MIT OpenCourseWare, Prof. David Jerison",
+      "url": "https://rachel.worldpossible.org/mods/en-rachelcourses/singlevarcalculus/contents/12_Transcript.pdf",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "the full lecture transcript was read from its opening to the related-rates hand-off; the wire-into-two-squares worked example and the warning about unchecked endpoints are quoted from it, the OCW lecture 11 page being the course index entry"
+    }
+  ],
+  "sourceLine": "Stationary versus critical: Knowledge Gate '26 Jan EM Calculus Part 2' chapter summary at 2:00-5:00 (Hindi-medium lecture, English summary - translated). The candidate-point reasoning and the worked critical points: MIT 18.01 Lecture 12 transcript (English, read in full).",
+  "videoRefs": []
+}

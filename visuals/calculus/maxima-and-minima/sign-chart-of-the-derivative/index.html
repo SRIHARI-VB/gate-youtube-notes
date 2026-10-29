@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Sign Chart of the Derivative - Maxima and Minima visual lesson</title>
+<link rel="stylesheet" href="../../../lesson.css">
+<script src="https://cdn.jsdelivr.net/npm/p5@1.9.4/lib/p5.min.js"></script>
+</head>
+<body>
+<div class="wrap">
+  <p class="small"><a href="../../../../index.html">&larr; back to the revision site</a></p>
+  <h1>Where the Derivative Changes Sign</h1>
+  <div class="objective"><strong>Objective.</strong> See why solving f'(x) = 0 only produces candidates, why the sign of f' on each side decides the verdict, and why a stationary point can fail to be an extremum.</div>
+
+  <div class="canvas-wrap"><div id="canvas-holder"></div></div>
+  <div class="caption" id="caption" aria-live="polite"></div>
+
+  <div class="controls">
+    <button id="play" class="primary">Play</button>
+    <button id="prev">&larr; Prev</button>
+    <button id="next">Next &rarr;</button>
+    <button id="restart">Restart</button>
+    <span class="speed"><label for="speed">Speed</label>
+      <input id="speed" type="range" min="0.25" max="2" step="0.25" value="1">
+      <span id="speedLabel">1.00x</span></span>
+    <span class="counter" id="counter"></span>
+  </div>
+
+  <h2>Static explanation</h2>
+  <p>The curve is f(x) = 3x^4 - 16x^3 + 24x^2 + 37, the function from GATE CSE 2008 Q.25. Its derivative is f'(x) = 12x^3 - 48x^2 + 48x = 12x(x - 2)^2, which vanishes at x = 0 and at x = 2. Those two numbers are the only candidates for an extremum.</p>
+  <p>The candidates have to be classified, and the classification is the sign chart, not the list of zeros. For x below 0 the factor 12x is negative and (x - 2)^2 is positive, so f' is negative and f is falling. Between 0 and 2 both factors are positive, so f' is positive and f is rising. Above 2 both factors are again positive, so f' is positive and f keeps rising. Numerically f'(-0.5) = -37.5, f'(1) = 12 and f'(3) = 36.</p>
+  <p>At x = 0 the sign of f' goes from minus to plus, which is a local minimum, and f(0) = 37. At x = 2 the sign does not change at all: the curve flattens and then continues upwards, so f(2) = 53 is higher than f(0) but is not an extremum. This is the case the second-derivative test cannot settle, because f''(x) = 36x^2 - 96x + 48 gives f''(2) = 0. The first non-vanishing derivative there is f'''(2) = 48, of odd order, which confirms the verdict.</p>
+  <p>On the closed interval [-1, 4] there are two more candidates that no derivative can find: the endpoints. f(-1) = 80 and f(4) = 165, so the absolute maximum on that interval is 165 at x = 4, and the absolute minimum is 37 at x = 0.</p>
+
+  <div class="card warn"><div class="label">Common misconception</div><p>Counting the solutions of f'(x) = 0 as the number of extrema. This function has two stationary points and exactly one extremum. A repeated root of f' - here (x - 2)^2 - is a place where the tangent is horizontal and the function does not turn.</p></div>
+  <div class="card ok"><div class="label">Quick check</div><p>For the same function, how many extrema does it have on the whole real line, and of what kind?</p><details><summary>Answer</summary><p><strong>One, a local minimum at x = 0.</strong> The sign of f' changes only at 0, from negative to positive, so f falls until 0 and rises afterwards. Since f grows without bound as x goes to either infinity, that single local minimum is also the global minimum, with value 37.</p></details></div>
+  <p class="small">Topic: Maxima and Minima (Calculus), subtopic the first-derivative test. Function and question: GATE CSE 2008 Q.25. Procedure and the instruction to check endpoints and points where f' is undefined: Knowledge Gate "Maxima &amp; Minima", chapter summary 10:00-13:20 (Hindi-medium lecture, English summary - translated) and the MIT 18.01 Lecture 12 transcript. Every value shown here is recomputed in scripts/validate.py.</p>
+</div>
+<script src="../../../lesson.js"></script>
+<script src="sketch.js"></script>
+<script>
+/* p5.js is loaded from a CDN. If it is unreachable, say so plainly instead of showing an empty box. */
+window.addEventListener('load', function () {
+  if (window.p5) { return; }
+  var holder = document.getElementById('canvas-holder');
+  if (holder) {
+    holder.innerHTML = '<div style="padding:22px 18px;font-size:14.5px;color:#4a5260">' +
+      'The animation needs p5.js, which this page loads from a CDN, and the request failed (offline, or the CDN is blocked). ' +
+      'Everything below still works: the static explanation, the misconception and the quick check.</div>';
+  }
+  var cap = document.getElementById('caption');
+  if (cap && window.LESSON && window.LESSON.steps && window.LESSON.steps[0]) {
+    cap.innerHTML = window.LESSON.steps[0].caption;
+  }
+  ['play', 'prev', 'next', 'restart', 'speed'].forEach(function (id) {
+    var el = document.getElementById(id);
+    if (el) { el.disabled = true; }
+  });
+});
+</script>
+</body>
+</html>

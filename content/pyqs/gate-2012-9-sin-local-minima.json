@@ -1,0 +1,21 @@
+{
+  "id": "gate-2012-9-sin-local-minima",
+  "year": "2012",
+  "paper": "GATE CS 2012",
+  "question_ref": "Q.9",
+  "type": "MCQ",
+  "topic": "endpoint-extrema-and-the-definition-dispute",
+  "text": "Consider the function f(x) = sin(x) in the interval x in [pi/4, 7pi/4]. The number and location(s) of the local minima of this function are",
+  "options": [
+    "One, at pi/2",
+    "One, at 3pi/2",
+    "Two, at pi/2 and 3pi/2",
+    "Two, at pi/4 and 3pi/2"
+  ],
+  "answer": "Option (D) - two, at pi/4 and 3pi/2",
+  "solution": "cos x = 0 at pi/2 and 3pi/2, both inside the interval. Since (sin)'' = -sin, at pi/2 the second derivative is -1 < 0, a local maximum, and at 3pi/2 it is 1 > 0, a local minimum with value -1. The left endpoint pi/4 has value sqrt(2)/2 = 0.707, which is smaller than sin x for every x just to its right, so under the endpoint convention it is also a local minimum. That gives two minima, at pi/4 and at 3pi/2.",
+  "source_url": "https://gateoverflow.in/41/gate-cse-2012-question-9",
+  "source_label": "GATE Overflow question page - GATE CSE 2012 Q.9 with five answers agreeing on option (D)",
+  "verification": "SOURCED",
+  "answer_evidence": "The accepted answers state option (D) and justify the endpoint by noting that sin is increasing up to pi/2, so pi/4 is a local minimum. The point is definitional: under the strict interior convention the count would be one, at 3pi/2, and the card on endpoint extrema states both readings."
+}

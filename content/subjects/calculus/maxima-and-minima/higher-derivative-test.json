@@ -1,0 +1,75 @@
+{
+  "id": "higher-derivative-test",
+  "title": "When f'' Vanishes: The Higher-Derivative Test",
+  "priority": "P2",
+  "order": 172,
+  "unit": "Maxima and Minima",
+  "quickIdea": "At a stationary point, differentiate until you reach the first derivative that is not zero. An even order means an extremum; an odd order means neither.",
+  "remember": [
+    "Let f'(c) = f''(c) = ... = f^(k-1)(c) = 0 and f^(k)(c) != 0, with k >= 2 the first such order.",
+    "If k is even: f^(k)(c) > 0 gives a local minimum, f^(k)(c) < 0 gives a local maximum.",
+    "If k is odd: there is no extremum at c; the curve crosses its tangent and the point is an inflection.",
+    "k = 2 is the ordinary second-derivative test; k = 3 explains why x^3 has no extremum at 0; k = 4 explains why x^4 has a minimum.",
+    "The test still assumes the derivatives exist at c, so it says nothing about |x| at 0."
+  ],
+  "example": {
+    "prompt": "GATE CSE 2008 Q.25 again: what does the higher-derivative test say about x = 2 for f(x) = 3x^4 - 16x^3 + 24x^2 + 37?",
+    "work": "f'(x) = 12x^3 - 48x^2 + 48x = 12x(x - 2)^2, so f'(2) = 0. f''(x) = 36x^2 - 96x + 48 gives f''(2) = 144 - 192 + 48 = 0. f'''(x) = 72x - 96 gives f'''(2) = 144 - 96 = 48, which is not zero, and its order k = 3 is odd.",
+    "answer": "Because the first non-vanishing derivative has odd order, x = 2 is not an extremum. Only x = 0 survives (f''(0) = 48 > 0, a minimum), so the curve has one extremum."
+  },
+  "gateAngle": "GATE has not asked the higher-derivative test by name, but it is the reasoning inside 2008 Q.25's accepted solution and it is the only clean way to answer a question of the form 'how many extrema does this quartic have'. Its real exam value is defensive: it stops you from counting a stationary point as an extremum.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "How many extrema does f(x) = x^6 have, and of what kind?",
+      "answer": "One, a local (and global) minimum at 0. f^(k)(0) = 0 for k = 1..5 and f^(6)(0) = 720 > 0, an even order.",
+      "why": "The same 'differentiate until nonzero' procedure with a large even order, which is where the even/odd rule earns its keep."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "f'(0) = f''(0) = f'''(0) = 0 and f^(4)(0) = -12. What is at 0?",
+      "answer": "A local maximum.",
+      "why": "The first non-vanishing derivative has order 4, which is even, and its value is negative, so the curve bends downwards in both directions."
+    }
+  ],
+  "trap": {
+    "what": "Stopping at f''(c) = 0 and guessing, or assuming that a stationary point with a vanishing second derivative must be an inflection.",
+    "why": "The order of the first non-vanishing derivative decides, and even orders give extrema - x^4 at 0 is a minimum with f''(0) = 0.",
+    "counterexample": "x^4 has f''(0) = 0 and a minimum; x^3 has f''(0) = 0 and no extremum; the second derivative alone cannot separate them."
+  },
+  "check": {
+    "question": "For f(x) = x^5, what is at x = 0?",
+    "answer": "Neither a maximum nor a minimum.",
+    "explanation": "f^(5)(0) = 120 and the first four derivatives vanish at 0, so k = 5 is odd and the point is an inflection."
+  },
+  "pyqIds": [
+    "gate-2008-25-number-of-extrema"
+  ],
+  "prereqs": [
+    "second-derivative-test"
+  ],
+  "sources": [
+    {
+      "kind": "lecture-summary",
+      "title": "26 Jan - EM - Calculus Part 2, the maxima and minima segment",
+      "channel": "Knowledge Gate (Yash Jain)",
+      "url": "https://www.knowledgegate.ai/learn/GATE-GUIDANCE-BY-SANCHIT-SIR/live-classes/gate-2026-live-class/engineering-mathematics-for-gate-exam/asset-26-jan-em-calculus-part-2",
+      "language": "hi",
+      "transcript": "SUMMARY_ONLY",
+      "translated": true,
+      "note": "Hindi-medium live class; the English AI chapter summary was read for the stationary-versus-critical distinction (2:00-5:00) and the second-derivative test with its inconclusive case (5:00-15:00)"
+    },
+    {
+      "kind": "lecture-transcript",
+      "title": "18.01 Single Variable Calculus, Lecture 12 (Fall 2007): maxima and minima",
+      "channel": "MIT OpenCourseWare, Prof. David Jerison",
+      "url": "https://rachel.worldpossible.org/mods/en-rachelcourses/singlevarcalculus/contents/12_Transcript.pdf",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "the full lecture transcript was read from its opening to the related-rates hand-off; the wire-into-two-squares worked example and the warning about unchecked endpoints are quoted from it, the OCW lecture 11 page being the course index entry"
+    }
+  ],
+  "sourceLine": "The inconclusive case and the instruction to check higher derivatives: Knowledge Gate '26 Jan EM Calculus Part 2' chapter summary at 5:00-15:00 (Hindi-medium lecture, English summary - translated). Applied to GATE CSE 2008 Q.25 from its accepted GATE Overflow solution; the order test is verified on x^3, x^4, x^5 and x^6 in scripts/validate.py.",
+  "videoRefs": []
+}

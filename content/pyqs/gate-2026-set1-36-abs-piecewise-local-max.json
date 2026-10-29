@@ -1,0 +1,21 @@
+{
+  "id": "gate-2026-set1-36-abs-piecewise-local-max",
+  "year": "2026",
+  "paper": "GATE CS 2026 Set 1",
+  "question_ref": "Q.36",
+  "type": "MSQ",
+  "topic": "extrema-of-piecewise-and-absolute-value-functions",
+  "text": "Let f: R -> R be defined as f(x) = (|x|/2 - x)(x - |x|/2). Which of the following statements is/are true?",
+  "options": [
+    "f has a local maximum",
+    "f has a local minimum",
+    "f' is continuous over R",
+    "f' is not differentiable over R"
+  ],
+  "answer": "Options A, C and D",
+  "solution": "The second factor is the negative of the first, so f(x) = -(|x|/2 - x)^2 <= 0, with equality only where |x|/2 = x, that is only at x = 0. Hence f(0) = 0 is a local (indeed global) maximum and there is no local minimum. For x >= 0 the bracket equals -x/2, so f = -x^2/4 and f' = -x/2; for x < 0 it equals -3x/2, so f = -9x^2/4 and f' = -9x/2. The difference quotient at 0 is -h/4 from the right and -9h/4 from the left, both tending to 0, so f'(0) = 0 and f' is continuous on R. The one-sided derivatives of f' at 0 are -1/2 and -9/2, so f' is not differentiable at 0 and hence not differentiable over R.",
+  "source_url": "https://gateoverflow.in/523044/gate-cse-2026-set-1-question-36",
+  "source_label": "GATE Overflow question page - GATE CSE 2026 Set 1 Q.36 with two answers giving A, C, D",
+  "verification": "SOURCED",
+  "answer_evidence": "The later answer states 'Correct answer A,C,D'; the earlier answer reaches the same set. The official answer key for GATE 2026 Set 1 was not fetched, so this record is SOURCED rather than key-verified."
+}

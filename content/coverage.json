@@ -3,7 +3,7 @@
   "updated_at": "2026-10-29",
   "cycle": {
     "last_subject": "calculus",
-    "last_topic": "limits-continuity-differentiability",
+    "last_topic": "maxima-and-minima",
     "updated_at": "2026-10-29"
   },
   "subjects": [
@@ -356,10 +356,33 @@
         {
           "slug": "maxima-and-minima",
           "name": "Maxima and Minima",
-          "status": "not_started",
-          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
-          "runs": [],
-          "gaps": []
+          "status": "partial",
+          "coverage_note": "15 subtopics, 14 cards (local and global extrema, stationary against critical points, Fermat's theorem and its false converse, the first-derivative sign test, the second-derivative test with its inconclusive case, the higher-derivative test, the closed-interval candidate list, monotonicity, piecewise and absolute-value functions, endpoint extrema and the definitional dispute, counting the extrema of cubics and quartics, trigonometric extrema on an interval, the two-variable rt - s^2 test, and optimisation set-up), 6 verified PYQs and 1 p5.js lesson. Partial because eight gaps remain, named below - above all that no YouTube caption track was readable this run.",
+          "runs": [
+            {
+              "date": "2026-10-29",
+              "sources": [
+                "mit-ocw-18-01-lecture-12-maxima-minima",
+                "knowledgegate-maxima-minima-lesson",
+                "knowledgegate-26-jan-em-calculus-part-2",
+                "pauls-notes-min-max-values"
+              ],
+              "cards": 14,
+              "pyqs": 6,
+              "lesson": "calculus/maxima-and-minima/sign-chart-of-the-derivative",
+              "note": "Sources chosen on merit across two languages, with one lecture read end to end: the MIT 18.01 Lecture 12 transcript (English, read in full) for the closed-interval candidate list, the wire-into-two-squares worked example and the warning that the critical point gave the opposite of the extremum asked for; the Knowledge Gate 'Maxima & Minima' lesson (Hindi-medium, read through its published English AI chapter summary with timestamps, translated) for the GATE teaching order, the three true/false statements, the x^3 saddle point, the cusp maximum and the closed-interval algorithm; the Knowledge Gate '26 Jan EM Calculus Part 2' summary (Hindi-medium, translated) for the stationary/critical distinction and the second-derivative test with its inconclusive case; and Paul's Online Math Notes section 4.3 (English, read in full) for the definitions, the |x| counterexample and the endpoint convention stated as a disagreement. Rejected with reasons in sources.json: the NPTEL IIT Madras Basic Calculus 1 lectures 33-34 and 39-40, the NPTEL IIT Kharagpur lectures 17-20 on two-variable extrema, the HV Sir GATE lecture 0wRR_97a9Zk, the GATE Overflow maxima-minima tag page, the EduRev PYQ listing, the Solutions Adda 1993 page, the GATE CSE 2015 Set 2 GA-3 aptitude question and the 1998 descriptive question. YouTube served no caption track for any video tried, so no YouTube lecture is quoted; the transcript that could be read is MIT's published lecture transcript."
+            }
+          ],
+          "gaps": [
+            "no YouTube caption track was readable this run: every watch page tried carried none, so no YouTube lecture is quoted and the two GATE-oriented sources are recorded as SUMMARY_ONLY against their platforms' published English AI chapter summaries of Hindi-medium classes",
+            "the NPTEL IIT Madras Basic Calculus 1 lectures 33-34 (Maxima and minima) and 39-40 (First derivative test), the closest English sequence to this topic, and the NPTEL IIT Kharagpur lectures 17-20 on maxima and minima of functions of two variables, served lecture titles only - no transcript could be read, so nothing is attributed to them and a later run should retry",
+            "GATE CSE 1998's 5-mark descriptive question (points of local maxima and minima of x^3 - 6x^2 + 9x + 15 on 0 <= x <= 6) is a genuine CSE question but the repository's PYQ schema holds only MCQ, MSQ and NAT records, so it is not in the PYQ set; the closed-interval card covers the same computation",
+            "GATE CSE 2015 Set 2 GA-3 (the maximum of 1 - |x| on [-1, 1], answer 0 and 1) is a General Aptitude question, not an Engineering Mathematics one, and is deliberately excluded from the PYQ set",
+            "GATE CSE 2012 Q.9 is recorded with the accepted answer (two local minima, at pi/4 and 3pi/2) but the question is definitional: under the strict interior convention the count is one, at 3pi/2. Both readings are stated on the endpoint card and in the PYQ record rather than resolved silently",
+            "every PYQ in the topic is SOURCED against a GATE Overflow accepted answer rather than key-verified against an official answer key, and no marks field is recorded on any of the six, because no official paper or key was fetched this run",
+            "the two-variable case rests on one 1993 question that one solution site marks out of syllabus, so it is a P3 card; no readable lecture on the two-variable test was found, and the GATE CSE line 'Maxima and minima' has been single-variable in every paper since",
+            "three cards carry no previous-year question of their own - the higher-derivative test, monotonicity, and optimisation set-up - because no verified CSE question in this topic is decided by them alone; they are the steps inside 2008 Q.25, 2023 Q.18 and 1997 Q.4.1 respectively"
+          ]
         },
         {
           "slug": "mean-value-theorem",

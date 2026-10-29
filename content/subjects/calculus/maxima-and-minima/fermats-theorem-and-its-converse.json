@@ -1,0 +1,75 @@
+{
+  "id": "fermats-theorem-and-its-converse",
+  "title": "Fermat's Theorem and Why Its Converse Fails",
+  "priority": "P1",
+  "order": 169,
+  "unit": "Maxima and Minima",
+  "quickIdea": "At an interior local extremum of a differentiable function the derivative must vanish. The reverse is false: a horizontal tangent does not make an extremum.",
+  "remember": [
+    "Fermat's theorem: if f has a local extremum at c and f'(c) exists, then f'(c) = 0. Equivalently, an extremum of a differentiable function must be stationary.",
+    "The converse is false. f(x) = x^3 has f'(0) = 0 and no extremum at 0; the curve is increasing on both sides of 0.",
+    "The theorem needs the interior condition: at an endpoint a one-sided derivative can be nonzero and the endpoint can still be the maximum, as x on [0, 1].",
+    "The theorem also needs differentiability at c: |x| has a minimum at 0 and f'(0) does not exist.",
+    "Consequence for exams: f'(c) = 0 is a test for candidacy, never a proof of extremum. The classification needs the sign of f' or the value of f''."
+  ],
+  "example": {
+    "prompt": "Show that f(x) = x^3 satisfies the hypothesis-free half of Fermat's theorem at 0 but is not an extremum there.",
+    "work": "f'(x) = 3x^2 so f'(0) = 0, which is the conclusion Fermat's theorem would draw. But f(-1) = -1 < 0 = f(0) < 1 = f(1), so on the left of 0 the function is below f(0) and on the right it is above. A local maximum needs f(x) <= f(0) on both sides, and a local minimum needs f(x) >= f(0) on both sides; neither holds.",
+    "answer": "0 is a stationary point of x^3 and is neither a maximum nor a minimum, so f'(c) = 0 does not imply an extremum."
+  },
+  "gateAngle": "GATE CSE 2023 Q.18 hands you a cubic and four statements of the form 'f has / does not have a local maximum / minimum'. The whole question is Fermat's theorem run forwards: solve f'(x) = 0 to get the only candidates, then classify. Statements of the form 'if f'(c) = 0 then f has an extremum at c' are the false converse and are a standard distractor.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "Let f be differentiable on R with f'(2) = 0. Which must be true? (i) f has a local extremum at 2. (ii) f has a horizontal tangent at 2.",
+      "answer": "Only (ii) must be true.",
+      "why": "The value of the derivative at a point is exactly the slope of the tangent, which is what (ii) says; (i) is the false converse, refuted by x^3 at 0."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "f(x) = x^5 - 5x^4. How many distinct extrema does it have?",
+      "answer": "Two: a local maximum at x = 0 with f(0) = 0, and a local minimum at x = 4 with f(4) = -256. f'(x) = 5x^3(x - 4), so the critical points are 0 and 4; f' is positive for x < 0, negative on (0,4) and positive after 4, so the sign changes at both.",
+      "why": "The root at 0 has odd multiplicity 3, so unlike the double root of the 2008 quartic it does change the sign. It separates 'a repeated root removes a candidate' from 'every root of f' is a candidate'."
+    }
+  ],
+  "trap": {
+    "what": "Concluding from f'(c) = 0 that c is an extremum, or concluding from f'(c) != 0 that c is not an extremum.",
+    "why": "The first ignores x^3; the second ignores non-differentiable points such as |x| at 0, where no derivative value exists to be nonzero.",
+    "counterexample": "f(x) = x^3 at 0: f'(0) = 0 and there is no extremum. f(x) = |x| at 0: f'(0) does not exist and there is a minimum."
+  },
+  "check": {
+    "question": "f(x) = x^4 has f'(0) = 0. Is 0 a local extremum, and does Fermat's theorem decide it?",
+    "answer": "0 is a local minimum, and Fermat's theorem does not decide it - it only says 0 had to be a candidate.",
+    "explanation": "x^4 >= 0 = f(0) for every x, so 0 is a minimum. Fermat's theorem gives a necessary condition only; the classification comes from the sign of f' or from a higher derivative."
+  },
+  "pyqIds": [
+    "gate-2023-18-cubic-local-extrema"
+  ],
+  "prereqs": [
+    "stationary-and-critical-points"
+  ],
+  "sources": [
+    {
+      "kind": "lecture-summary",
+      "title": "Maxima & Minima (13 min), Engineering Mathematics for GATE",
+      "channel": "Knowledge Gate (Yash Jain)",
+      "url": "https://www.knowledgegate.ai/learn/GATE-GUIDANCE-BY-SANCHIT-SIR/engineering-mathematics/calculus/maxima-and-minima/asset-maxima-minima",
+      "language": "hi",
+      "transcript": "SUMMARY_ONLY",
+      "translated": true,
+      "note": "Hindi-medium lecture; the platform's published English AI chapter summary with timestamps was read in full, the lecture itself was not. Chapters used: 0:00-2:00 local and global extrema drawn on [a,b], 2:00-5:00 the three statements S1/S2/S3, 5:00-10:00 the x^3 saddle point and the cusp maximum, 10:00-13:20 the closed-interval algorithm"
+    },
+    {
+      "kind": "text",
+      "title": "Calculus I, section 4.3: Minimum and Maximum Values",
+      "channel": "Paul's Online Math Notes, Lamar University",
+      "url": "https://tutorial.math.lamar.edu/classes/calci/minmaxvalues.aspx",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "read in full: the four definitions, the statement that relative extrema are usually taken to be interior with an explicit note that some authors disagree, Fermat's theorem and the |x| counterexample to its converse"
+    }
+  ],
+  "sourceLine": "The three statements and the x^3 counterexample: Knowledge Gate 'Maxima & Minima' chapter summary at 2:00-10:00 (Hindi-medium lecture, English summary - translated). The theorem statement and the |x| note: Paul's Online Math Notes section 4.3. Every value recomputed in scripts/validate.py.",
+  "videoRefs": []
+}

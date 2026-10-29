@@ -1,0 +1,90 @@
+{
+  "id": "first-derivative-test",
+  "title": "The First-Derivative (Sign) Test",
+  "priority": "P1",
+  "order": 170,
+  "unit": "Maxima and Minima",
+  "quickIdea": "Walk through the critical point and watch the sign of f': plus to minus is a maximum, minus to plus is a minimum, no change is neither.",
+  "remember": [
+    "If f' changes from positive to negative at c, f has a local maximum at c.",
+    "If f' changes from negative to positive at c, f has a local minimum at c.",
+    "If f' keeps the same sign on both sides of c, there is no extremum at c, even if f'(c) = 0.",
+    "The test needs f continuous at c and f' of one sign on each side; it works at non-differentiable points too, which is why it is the safer test.",
+    "A zero of f' of even multiplicity never changes the sign of f'; a zero of odd multiplicity always does."
+  ],
+  "example": {
+    "prompt": "Classify the critical points of f(x) = x^4 - 4x^3.",
+    "work": "f'(x) = 4x^3 - 12x^2 = 4x^2(x - 3). The zeros are 0 (double) and 3 (simple). Sign: for x < 0, 4x^2 > 0 and x - 3 < 0, so f' < 0; for 0 < x < 3, again f' < 0; for x > 3, f' > 0. So f' falls then rises only at 3.",
+    "answer": "Local minimum at x = 3 with f(3) = 81 - 108 = -27. x = 0 is stationary but not an extremum, because the sign of f' does not change there."
+  },
+  "gateAngle": "This is the test that rescues the cases where the second derivative vanishes. GATE CSE 2008 Q.25 is exactly such a case: at x = 2 the second derivative is 0, and the accepted solution falls back on the sign of f'(1) and f'(3), both positive, to conclude that x = 2 is not an extremum.",
+  "variations": [
+    {
+      "label": "VERIFIED PYQ",
+      "question": "GATE CSE 2008 Q.25: how many distinct extrema does 3x^4 - 16x^3 + 24x^2 + 37 have?",
+      "answer": "One. f'(x) = 12x(x - 2)^2 has zeros 0 and 2; the sign changes at 0 and not at 2.",
+      "why": "The sign chart, not the derivative's zeros, decides the count. Two critical points, one extremum."
+    },
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "Classify the critical points of f(x) = x^3(x - 2).",
+      "answer": "A local minimum at x = 3/2 and no extremum at x = 0. Here f = x^4 - 2x^3, so f'(x) = 4x^3 - 6x^2 = 2x^2(2x - 3); the critical points are 0 and 3/2, and the sign of f' changes only at 3/2, from negative to positive.",
+      "why": "A double root at 0 again, but now the surviving extremum is a minimum, which forces you to read the sign direction rather than pattern-match on the previous question."
+    }
+  ],
+  "trap": {
+    "what": "Counting every solution of f'(x) = 0 as an extremum.",
+    "why": "A repeated root of f' gives a stationary point where the function keeps increasing (or keeps decreasing), so no extremum exists there.",
+    "counterexample": "f(x) = x^4 - 4x^3 has f'(0) = 0 with f'(x) < 0 on both sides of 0, so 0 is not an extremum. GATE CSE 2008 Q.25 is the same phenomenon at x = 2."
+  },
+  "check": {
+    "question": "f'(x) = (x - 1)^3 (x + 2). What happens at x = 1 and at x = -2?",
+    "answer": "A local minimum at x = 1; a local maximum at x = -2.",
+    "explanation": "The factor (x - 1)^3 is negative just left of 1 and positive just right, and (x + 2) is positive near 1, so f' goes from negative to positive: a minimum. At -2 the factor (x + 2) changes sign and (x - 1)^3 is negative there, so f' goes from positive to negative: a maximum."
+  },
+  "pyqIds": [
+    "gate-2008-25-number-of-extrema"
+  ],
+  "prereqs": [
+    "fermats-theorem-and-its-converse"
+  ],
+  "visual": "calculus/maxima-and-minima/sign-chart-of-the-derivative",
+  "sources": [
+    {
+      "kind": "lecture-summary",
+      "title": "Maxima & Minima (13 min), Engineering Mathematics for GATE",
+      "channel": "Knowledge Gate (Yash Jain)",
+      "url": "https://www.knowledgegate.ai/learn/GATE-GUIDANCE-BY-SANCHIT-SIR/engineering-mathematics/calculus/maxima-and-minima/asset-maxima-minima",
+      "language": "hi",
+      "transcript": "SUMMARY_ONLY",
+      "translated": true,
+      "note": "Hindi-medium lecture; the platform's published English AI chapter summary with timestamps was read in full, the lecture itself was not. Chapters used: 0:00-2:00 local and global extrema drawn on [a,b], 2:00-5:00 the three statements S1/S2/S3, 5:00-10:00 the x^3 saddle point and the cusp maximum, 10:00-13:20 the closed-interval algorithm"
+    },
+    {
+      "kind": "lecture-transcript",
+      "title": "18.01 Single Variable Calculus, Lecture 12 (Fall 2007): maxima and minima",
+      "channel": "MIT OpenCourseWare, Prof. David Jerison",
+      "url": "https://rachel.worldpossible.org/mods/en-rachelcourses/singlevarcalculus/contents/12_Transcript.pdf",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "the full lecture transcript was read from its opening to the related-rates hand-off; the wire-into-two-squares worked example and the warning about unchecked endpoints are quoted from it, the OCW lecture 11 page being the course index entry"
+    }
+  ],
+  "sourceLine": "The sign chart as the deciding test, and the GATE CSE 2008 Q.25 fallback: Knowledge Gate 'Maxima & Minima' chapter summary at 10:00-13:20 (Hindi-medium lecture, English summary - translated) and the accepted GATE Overflow solution. The p5.js lesson follows the same three-step procedure; every sign and value is recomputed in scripts/validate.py.",
+  "videoRefs": [],
+  "links": {
+    "visual": {
+      "slug": "calculus/maxima-and-minima/sign-chart-of-the-derivative",
+      "title": "The Sign Chart of the Derivative",
+      "level": "subtopic-level",
+      "covers": [
+        "f'(x) = 12x(x-2)^2 has zeros at 0 and 2",
+        "the sign changes at 0 and not at 2",
+        "why x = 2 is stationary but not an extremum",
+        "closed-interval candidates: critical points plus endpoints"
+      ],
+      "url": "visuals/calculus/maxima-and-minima/sign-chart-of-the-derivative/index.html"
+    }
+  }
+}

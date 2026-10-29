@@ -1,0 +1,48 @@
+{
+  "slug": "sign-chart-of-the-derivative",
+  "topic": "first-derivative-test",
+  "engine": "p5.js",
+  "steps": 6,
+  "example": {
+    "function": "f(x) = 3x^4 - 16x^3 + 24x^2 + 37",
+    "derivative": "f'(x) = 12x^3 - 48x^2 + 48x = 12x(x-2)^2",
+    "critical_points": [
+      0,
+      2
+    ],
+    "second_derivative": "f''(x) = 36x^2 - 96x + 48",
+    "f_at_critical_points": {
+      "0": 37,
+      "2": 53
+    },
+    "f_double_prime": {
+      "0": 48,
+      "2": 0
+    },
+    "f_triple_prime_at_2": 48,
+    "sign_of_f_prime": {
+      "-0.5": -37.5,
+      "1": 12,
+      "3": 36
+    },
+    "verdict": {
+      "0": "local minimum",
+      "2": "stationary, not an extremum"
+    },
+    "closed_interval": {
+      "interval": [
+        -1,
+        4
+      ],
+      "f(-1)": 80,
+      "f(0)": 37,
+      "f(2)": 53,
+      "f(4)": 165
+    },
+    "absolute_maximum": {
+      "x": 4,
+      "value": 165
+    },
+    "source_question": "GATE CSE 2008 Q.25"
+  }
+}

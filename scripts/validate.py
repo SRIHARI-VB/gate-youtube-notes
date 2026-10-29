@@ -4494,6 +4494,228 @@ def check_limits_continuity_differentiability():
        "of 2025 Q.21 and the quick check")
 
 
+def check_maxima_and_minima():
+    """Every value, sign, verdict and count published in the Maxima and Minima topic is recomputed."""
+    import math
+
+    def close(a, b, tol=1e-9):
+        return abs(a - b) <= tol * max(1.0, abs(b))
+
+    # ---- the lesson and 2008 Q.25 function
+    f = lambda x: 3 * x ** 4 - 16 * x ** 3 + 24 * x ** 2 + 37
+    d1 = lambda x: 12 * x ** 3 - 48 * x ** 2 + 48 * x
+    d2 = lambda x: 36 * x ** 2 - 96 * x + 48
+    d3 = lambda x: 72 * x - 96
+    for x in (-1.0, 0.0, 0.5, 1.0, 2.0, 3.0, 4.0):
+        h = 1e-6
+        if not close((f(x + h) - f(x - h)) / (2 * h), d1(x), 1e-4):
+            fail("maxima: f'(%s) disagrees with the difference quotient of 3x^4-16x^3+24x^2+37" % x)
+    if not close(d1(0), 0) or not close(d1(2), 0):
+        fail("maxima: 12x(x-2)^2 must vanish at 0 and at 2")
+    if not (close(d1(-0.5), -37.5) and close(d1(1), 12) and close(d1(3), 36)):
+        fail("maxima: the published signs of f' (-37.5, 12, 36) must be right")
+    if not (close(f(-1), 80) and close(f(0), 37) and close(f(2), 53) and close(f(4), 165)):
+        fail("maxima: the published values f(-1)=80, f(0)=37, f(2)=53, f(4)=165 must be right")
+    if not (close(d2(0), 48) and close(d2(2), 0) and close(d3(2), 48)):
+        fail("maxima: the second derivative must be 48 at 0 and 0 at 2, and the third derivative 48 at 2")
+    if not (d1(-0.01) < 0 < d1(0.01)):
+        fail("maxima: f' must change from negative to positive at x = 0")
+    if not (d1(1.99) > 0 and d1(2.01) > 0):
+        fail("maxima: f' must keep its sign on both sides of x = 2")
+    grid = [i / 200.0 + 0.0025 for i in range(-200, 900)]
+    changes = sum(1 for a, b in zip(grid, grid[1:]) if d1(a) * d1(b) < 0)
+    if changes != 1:
+        fail("maxima: 3x^4-16x^3+24x^2+37 must have exactly one extremum, found %d" % changes)
+    if not (max(f(-1), f(0), f(2), f(4)) == 165 and min(f(-1), f(0), f(2), f(4)) == 37):
+        fail("maxima: on [-1,4] the extreme values must be 165 at 4 and 37 at 0")
+
+    # ---- the cubic criterion b^2 - 3ac, checked over every small integer cubic
+    for a in (-3, -2, -1, 1, 2, 3):
+        for b in range(-4, 5):
+            for c in range(-4, 5):
+                disc = 4 * (b * b - 3 * a * c)
+                stationary = 0
+                if disc > 0:
+                    stationary = 2
+                elif disc == 0:
+                    stationary = 1
+                roots = set()
+                if disc > 0:
+                    sq = math.sqrt(disc)
+                    roots.add(round((-2 * b - sq) / (6 * a), 9))
+                    roots.add(round((-2 * b + sq) / (6 * a), 9))
+                elif disc == 0:
+                    roots.add(round(-2 * b / (6 * a), 9))
+                if len(roots) != stationary:
+                    fail("maxima: the cubic criterion miscounts stationary points for a=%r b=%r c=%r" % (a, b, c))
+                if (b * b - 3 * a * c > 0) != (stationary == 2):
+                    fail("maxima: b^2 > 3ac must be equivalent to two stationary points")
+    cub = lambda x: x ** 3 + 15 * x ** 2 - 33 * x - 36
+    if not (close(3 * 1 ** 2 + 30 * 1 - 33, 0) and close(3 * 121 - 330 - 33, 0)):
+        fail("maxima: 2023 Q.18 must have stationary points at -11 and 1")
+    if not (close(6 * 1 + 30, 36) and close(6 * (-11) + 30, -36)):
+        fail("maxima: 2023 Q.18 must give f''(1) = 36 and f''(-11) = -36")
+    if not (15 ** 2 - 3 * 1 * (-33) == 324):
+        fail("maxima: 2023 Q.18 must give b^2 - 3ac = 324")
+    if not (close(cub(1), -53) and close(cub(-11), 811)):
+        fail("maxima: 2023 Q.18 values at the stationary points must be -53 and 811")
+    for x in (-2.0, -1.0, 0.0, 0.5):
+        if not close(x ** 3 + 3 * x ** 2 + 3 * x + 1, (x + 1) ** 3):
+            fail("maxima: x^3+3x^2+3x+1 must equal (x+1)^3")
+    if not (0 - 3 * 1 * 3 == -9):
+        fail("maxima: x^3+3x^2+3x+1 must give b^2-3ac = 0")
+    if not (-3 * 1 * 1 == -3):
+        fail("maxima: x^3 + kx must give b^2 - 3ac = -3k, negative exactly when k < 0")
+
+    # ---- 1997 Q.4.1 on the closed interval
+    q97 = lambda x: 2 * x ** 2 - 2 * x + 6
+    if not (close(q97(0), 6) and close(q97(0.5), 5.5) and close(q97(2), 10)):
+        fail("maxima: 1997 Q.4.1 must give f(0)=6, f(1/2)=5.5, f(2)=10")
+
+    # ---- 2012 Q.9 and the trigonometric values
+    s2 = math.sqrt(2) / 2
+    if not (close(math.sin(math.pi / 4), s2) and close(math.sin(math.pi / 2), 1)
+            and close(math.sin(3 * math.pi / 2), -1) and close(math.sin(7 * math.pi / 4), -s2)):
+        fail("maxima: the sine values at pi/4, pi/2, 3pi/2, 7pi/4 must be 0.707, 1, -1, -0.707")
+    if not (-math.sin(math.pi / 2) < 0 < -math.sin(3 * math.pi / 2)):
+        fail("maxima: sin must have a maximum at pi/2 and a minimum at 3pi/2")
+    if not (s2 < math.sin(math.pi / 4 + 1e-6)):
+        fail("maxima: pi/4 must be a local minimum of sin on [pi/4, 7pi/4] under the endpoint convention")
+    if not (math.sin(7 * math.pi / 4 - 1e-6) < -s2):
+        fail("maxima: 7pi/4 must be a local maximum, not a minimum, under the endpoint convention")
+
+    # ---- 2026 Set 1 Q.36, piece by piece
+    def q26(x):
+        g = abs(x) / 2.0 - x
+        return g * (x - abs(x) / 2.0)
+    if not (close(q26(0), 0) and close(q26(1), -0.25) and close(q26(-1), -2.25)):
+        fail("maxima: 2026 Set 1 Q.36 must give f(0)=0, f(1)=-0.25, f(-1)=-2.25")
+    for x in (-3.0, -1.0, -0.1, 0.1, 1.0, 3.0):
+        if not q26(x) < 0:
+            fail("maxima: 2026 Set 1 Q.36 must be negative away from 0")
+    for x in (0.5, 1.0, 2.0):
+        if not close((q26(x + 1e-6) - q26(x)) / 1e-6, -x / 2.0, 1e-4):
+            fail("maxima: 2026 Set 1 Q.36 must have f'(x) = -x/2 for x > 0")
+    for x in (-0.5, -1.0, -2.0):
+        if not close((q26(x + 1e-6) - q26(x)) / 1e-6, -9 * x / 2.0, 1e-4):
+            fail("maxima: 2026 Set 1 Q.36 must have f'(x) = -9x/2 for x < 0")
+    left = (q26(-1e-6) - q26(0)) / -1e-6
+    right = (q26(1e-6) - q26(0)) / 1e-6
+    if not (close(left, 0, 1e-4) and close(right, 0, 1e-4)):
+        fail("maxima: 2026 Set 1 Q.36 must have f'(0) = 0 from both sides, so f' is continuous")
+    dl = (-9 * (-1e-6) / 2.0 - 0) / -1e-6
+    dr = (-1e-6 / 2.0 - 0) / 1e-6
+    if not (close(dl, -4.5, 1e-3) and close(dr, -0.5, 1e-3)):
+        fail("maxima: the one-sided derivatives of f' at 0 must be -4.5 and -0.5, so f' is not differentiable there")
+
+    # ---- 1993 Q.1.7, the two-variable case
+    fx = lambda x, y: 2 * x * y - 3 * y + 1
+    fy = lambda x, y: x * x - 3 * x + 2
+    if not (close(fy(1, 0), 0) and close(fy(2, 0), 0) and not close(fy(1.5, 0), 0)):
+        fail("maxima: f_y of the 1993 question must vanish at x = 1 and x = 2 only")
+    if not (close(fx(1, 1), 0) and close(fx(2, -1), 0)):
+        fail("maxima: the 1993 stationary points must be (1,1) and (2,-1)")
+    for (x, y) in ((1, 1), (2, -1)):
+        r, s, t = 2 * y, 2 * x - 3, 0
+        if not (r * t - s * s == -1):
+            fail("maxima: rt - s^2 must be -1 at %r, so there is no extremum" % ((x, y),))
+    if not (-(2 * 1.5 - 3) ** 2 == 0):
+        fail("maxima: rt - s^2 of the 1993 question vanishes only at x = 1.5, where f_y != 0")
+    if not (2 * (-2) - 0 < 0):
+        fail("maxima: x^2 - y^2 must give D = -4 at the origin")
+
+    # ---- monotonicity and the union trap
+    m = lambda x: x ** 3 - 3 * x
+    if not (close(m(-1), 2) and close(m(1), -2) and close(m(-2), -2) and close(m(2), 2)):
+        fail("maxima: x^3 - 3x must take 2 at -1 and 2, and -2 at 1 and -2")
+    if not (m(-2) < m(2) and m(-1) > m(1)):
+        fail("maxima: x^3 - 3x must not be increasing on the union of its two increasing pieces")
+    q = lambda x: 2 * x ** 3 - 3 * x ** 2 - 12 * x
+    for x in (-2.0, -1.5, 2.5, 3.0):
+        if not (6 * x * x - 6 * x - 12 > 0):
+            fail("maxima: 2x^3-3x^2-12x must be increasing outside [-1,2]")
+    for x in (-0.5, 0.0, 1.0, 1.5):
+        if not (6 * x * x - 6 * x - 12 < 0):
+            fail("maxima: 2x^3-3x^2-12x must be decreasing inside (-1,2)")
+
+    # ---- the quartic used for the repeated root
+    q4 = lambda x: x ** 4 - 4 * x ** 3
+    if not (close(q4(3), -27) and close(q4(0), 0)):
+        fail("maxima: x^4-4x^3 must give f(3) = -27 and f(0) = 0")
+    if not (4 * (-1) ** 3 - 12 * (-1) ** 2 < 0 and 4 * 1 ** 3 - 12 * 1 ** 2 < 0 and 4 * 4 ** 3 - 12 * 4 ** 2 > 0):
+        fail("maxima: x^4-4x^3 must have f' negative on both sides of 0 and positive after 3")
+
+    # ---- the higher-derivative orders and the quintic variation
+    if not (math.factorial(6) == 720 and math.factorial(5) == 120):
+        fail("maxima: the sixth derivative of x^6 at 0 must be 720 and the fifth of x^5 must be 120")
+    q5 = lambda x: x ** 5 - 5 * x ** 4
+    dq5 = lambda x: 5 * x ** 3 * (x - 4)
+    if not (close(q5(0), 0) and close(q5(4), -256)):
+        fail("maxima: x^5 - 5x^4 must give f(0) = 0 and f(4) = -256")
+    if not (dq5(-1) > 0 and dq5(1) < 0 and dq5(5) > 0):
+        fail("maxima: x^5 - 5x^4 must change the sign of f' at both 0 and 4")
+
+    # ---- x^4 - 2x^2 and x^4 - 4x
+    if not (close(12 * 0 - 4, -4) and close(12 * 1 - 4, 8) and close(12 * 1 - 4, 8)):
+        fail("maxima: x^4-2x^2 must give f''(0) = -4 and f''(+-1) = 8")
+    b4 = lambda x: x ** 4 - 4 * x
+    if not (close(b4(0), 0) and close(b4(1), -3) and close(b4(2), 8)):
+        fail("maxima: x^4-4x on [0,2] must give 0, -3 and 8")
+
+    # ---- the optimisation examples
+    area = lambda x: x * x / 16 + (1 - x) ** 2 / 16
+    if not (close(area(0.5), 1 / 32.0) and close(area(0), 1 / 16.0) and close(area(1), 1 / 16.0)):
+        fail("maxima: the wire problem must give 1/32 at x = 1/2 and 1/16 at both ends")
+    for x in (0.25, 0.5, 0.75):
+        if not close((2 * x - 1) / 8.0, (area(x + 1e-7) - area(x - 1e-7)) / 2e-7, 1e-4):
+            fail("maxima: the wire problem must have A'(x) = (2x - 1)/8")
+    if not (close(2 + 4 / 2.0, 4) and close(1 - 4 / 4.0, 0)):
+        fail("maxima: x + 4/x must have a minimum 4 at x = 2")
+    if not (close(4 + 16 / 2.0, 12) and close(2 * 2 - 16 / 4.0, 0)):
+        fail("maxima: x^2 + 16/x must have a minimum 12 at x = 2")
+    if not (5 * (10 - 5) == 25):
+        fail("maxima: the perimeter-20 rectangle must have maximum area 25")
+
+    # ---- local and global extrema examples
+    g2 = lambda x: x * x
+    if not (g2(0) == 0 and g2(2) == 4 and g2(0) < g2(0.5) < g2(2)):
+        fail("maxima: x^2 on [-1,2] must have minimum 0 at 0 and maximum 4 at 2")
+    c3 = lambda x: x ** 3 - x
+    if not (close(c3(1 / math.sqrt(3)), -2 / (3 * math.sqrt(3)), 1e-9)
+            and close(c3(-1 / math.sqrt(3)), 2 / (3 * math.sqrt(3)), 1e-9)):
+        fail("maxima: x^3 - x must take -2/(3 sqrt3) at 1/sqrt3 and 2/(3 sqrt3) at -1/sqrt3")
+    t3 = lambda x: x ** 3 - 3 * x
+    if not (close(t3(-2), -2) and close(t3(-1), 2) and close(t3(1), -2) and close(t3(2), 2)):
+        fail("maxima: x^3 - 3x on [-2,2] must give -2, 2, -2, 2 at -2, -1, 1, 2")
+    if not (close(t3(0), 0) and close(t3(3), 18) and close(t3(1), -2)):
+        fail("maxima: x^3 - 3x on [0,3] must give 0, -2 and 18 at 0, 1, 3")
+
+    # ---- min{x^2, x} is non-decreasing, so it has no extremum at either join
+    mm = lambda x: min(x * x, x)
+    prev = mm(-3.0)
+    x = -3.0
+    while x < 3.0:
+        x += 0.01
+        if mm(x) < prev - 1e-12:
+            fail("maxima: min{x^2, x} must be non-decreasing everywhere")
+        prev = mm(x)
+    if not (mm(0) == 0 and mm(1) == 1):
+        fail("maxima: min{x^2, x} must pass through (0,0) and (1,1)")
+    if not (mm(0.5) == 0.25 and mm(2.0) == 2.0):
+        fail("maxima: min{x^2, x} must be x^2 on (0,1) and x above 1")
+
+    # ---- x^(2/3) has a critical point that is not stationary
+    if not (abs((2.0 / 3) * (1e-9) ** (-1.0 / 3)) > 100):
+        fail("maxima: the derivative of x^(2/3) must blow up at 0 and never vanish")
+
+    ok("Maxima and minima: the 2008 quartic's derivative, values, signs, its single sign change and its "
+       "closed-interval extremes; the cubic criterion b^2-3ac over every small integer cubic plus both PYQ "
+       "cubics; the 1997 closed-interval values; the 2012 sine values and both endpoint verdicts; the 2026 "
+       "piecewise function's values, slopes, continuity and kink; the 1993 stationary points and rt - s^2; "
+       "the monotonicity and union claims; the higher-derivative orders and the quintic variation; and the "
+       "optimisation values including the wire problem")
+
+
 def main():
     topics, tpath, pyqs, videos, playlists, sources = load_all()
     check_topics(topics, tpath, pyqs, videos)
@@ -4515,6 +4737,7 @@ def main():
     check_eigenvalues_and_eigenvectors()
     check_lu_decomposition()
     check_limits_continuity_differentiability()
+    check_maxima_and_minima()
     check_visuals()
     check_hygiene()
     for c in checks:

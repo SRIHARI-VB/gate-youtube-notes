@@ -1,0 +1,76 @@
+{
+  "id": "second-derivative-test",
+  "title": "The Second-Derivative Test",
+  "priority": "P1",
+  "order": 171,
+  "unit": "Maxima and Minima",
+  "quickIdea": "At a stationary point, f'' > 0 means the curve bends up (minimum) and f'' < 0 means it bends down (maximum). f'' = 0 decides nothing.",
+  "remember": [
+    "Suppose f'(c) = 0 and f'' is continuous near c. If f''(c) > 0 then f has a local minimum at c; if f''(c) < 0 then a local maximum.",
+    "If f''(c) = 0 the test is inconclusive: the point may be a minimum (x^4 at 0), a maximum (-x^4 at 0) or neither (x^3 at 0).",
+    "The test needs f'(c) = 0 first; applying it where f' does not vanish is meaningless.",
+    "The test is one-sided in a second sense: it is silent at points where f' fails to exist, so it cannot handle |x| at 0.",
+    "It is the fastest classifier for a cubic: f'' at the two stationary points has opposite signs, so a cubic with two stationary points has one maximum and one minimum."
+  ],
+  "example": {
+    "prompt": "GATE CSE 2023 Q.18: classify the stationary points of f(x) = x^3 + 15x^2 - 33x - 36.",
+    "work": "f'(x) = 3x^2 + 30x - 33 = 3(x^2 + 10x - 11) = 3(x + 11)(x - 1), so the stationary points are -11 and 1. f''(x) = 6x + 30. At x = 1, f''(1) = 36 > 0, a local minimum. At x = -11, f''(-11) = -36 < 0, a local maximum.",
+    "answer": "A local maximum at x = -11 and a local minimum at x = 1, so the true statements are 'f has a local maximum' and 'f has a local minimum'."
+  },
+  "gateAngle": "The second-derivative test is the classifier GATE expects you to reach for on a cubic, and 2023 Q.18 is a pure instance. The exam also tests the inconclusive case: 2008 Q.25 has f''(2) = 0, and the answer depends on noticing that the test has failed rather than on applying it.",
+  "variations": [
+    {
+      "label": "VERIFIED PYQ",
+      "question": "GATE CSE 2023 Q.18: for f(x) = x^3 + 15x^2 - 33x - 36, which statements hold?",
+      "answer": "f has a local maximum (at -11) and f has a local minimum (at 1).",
+      "why": "Two stationary points, opposite signs of f'', so exactly one of each."
+    },
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "For f(x) = x^3 - 3x^2 + 4, find and classify the stationary points.",
+      "answer": "Local maximum at x = 0 with f(0) = 4, local minimum at x = 2 with f(2) = 0. f'(x) = 3x(x - 2), f''(x) = 6x - 6, f''(0) = -6 < 0 and f''(2) = 6 > 0.",
+      "why": "The same two-step procedure with smaller numbers, so the arithmetic cannot hide a missing sign check."
+    }
+  ],
+  "trap": {
+    "what": "Reporting 'no extremum' whenever f''(c) = 0.",
+    "why": "A zero second derivative only means this test cannot decide; the point can still be a minimum, a maximum or neither.",
+    "counterexample": "x^4 has f''(0) = 0 and a minimum at 0; x^3 has f''(0) = 0 and no extremum at 0. The same value of f'' gives opposite verdicts."
+  },
+  "check": {
+    "question": "f(x) = x^4 - 2x^2. Classify its stationary points.",
+    "answer": "Local maximum at 0, local minima at x = 1 and x = -1.",
+    "explanation": "f'(x) = 4x^3 - 4x = 4x(x - 1)(x + 1), f''(x) = 12x^2 - 4. f''(0) = -4 < 0, so a maximum; f''(1) = f''(-1) = 8 > 0, so minima."
+  },
+  "pyqIds": [
+    "gate-2023-18-cubic-local-extrema",
+    "gate-2008-25-number-of-extrema"
+  ],
+  "prereqs": [
+    "first-derivative-test"
+  ],
+  "sources": [
+    {
+      "kind": "lecture-summary",
+      "title": "26 Jan - EM - Calculus Part 2, the maxima and minima segment",
+      "channel": "Knowledge Gate (Yash Jain)",
+      "url": "https://www.knowledgegate.ai/learn/GATE-GUIDANCE-BY-SANCHIT-SIR/live-classes/gate-2026-live-class/engineering-mathematics-for-gate-exam/asset-26-jan-em-calculus-part-2",
+      "language": "hi",
+      "transcript": "SUMMARY_ONLY",
+      "translated": true,
+      "note": "Hindi-medium live class; the English AI chapter summary was read for the stationary-versus-critical distinction (2:00-5:00) and the second-derivative test with its inconclusive case (5:00-15:00)"
+    },
+    {
+      "kind": "lecture-transcript",
+      "title": "18.01 Single Variable Calculus, Lecture 12 (Fall 2007): maxima and minima",
+      "channel": "MIT OpenCourseWare, Prof. David Jerison",
+      "url": "https://rachel.worldpossible.org/mods/en-rachelcourses/singlevarcalculus/contents/12_Transcript.pdf",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "the full lecture transcript was read from its opening to the related-rates hand-off; the wire-into-two-squares worked example and the warning about unchecked endpoints are quoted from it, the OCW lecture 11 page being the course index entry"
+    }
+  ],
+  "sourceLine": "The rule, the inconclusive case and the worked examples x, x^2, x^3: Knowledge Gate '26 Jan EM Calculus Part 2' chapter summary at 5:00-15:00 (Hindi-medium lecture, English summary - translated). Cross-checked against the accepted GATE Overflow solutions to 2023 Q.18 and 2008 Q.25, and recomputed in scripts/validate.py.",
+  "videoRefs": []
+}

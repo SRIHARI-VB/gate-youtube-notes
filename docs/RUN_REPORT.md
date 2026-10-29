@@ -1207,3 +1207,89 @@ code change.
 The cycle pointer now sits on `linear-algebra/lu-decomposition`, the last topic of the Linear Algebra subject. The
 topic immediately after it in the syllabus order is `calculus/limits-continuity-differentiability`, which is
 `not_started`, so that is the next run's topic. With it the cycle leaves Engineering Mathematics for the first time.
+
+## Maxima and Minima (2026-10-29)
+
+### The topic, and why it was next
+
+**Calculus > Maxima and Minima** (`maxima-and-minima`), the second topic of the GATE 2027 Calculus line:
+*"Limits, continuity and differentiability. Maxima and minima. Mean value theorem. Integration."*
+
+The cycle pointer was left by the previous run on `calculus/limits-continuity-differentiability`, and the first
+topic strictly after it in the enumerated syllabus order whose status is not `covered` is this one, which was
+`not_started`. Nothing was skipped: no topic sits between the pointer and this one and none is `blocked`. The
+eight `partial` topics earlier in the cycle were not touched, because the second pass over `partial` topics
+starts only after a full pass finds no `not_started` topic left.
+
+### Subtopics enumerated before any source was chosen
+
+Local (relative) maximum and minimum defined on a neighbourhood; global (absolute) extrema on a stated domain;
+Fermat's theorem and why its converse fails; stationary against critical points; the first-derivative sign test
+and the multiplicity of a zero of f'; the second-derivative test including the inconclusive case; the
+higher-derivative test on the order of the first non-vanishing derivative; the extreme value theorem and the
+closed-interval candidate list; monotonicity and the sign of f'; extrema of piecewise and absolute-value
+functions; endpoint extrema and the definitional dispute; counting the extrema of cubics and quartics;
+trigonometric extrema on a restricted interval; the two-variable rt - s^2 test; and the set-up of an
+optimisation word problem. Fifteen subtopics, fourteen cards.
+
+### Sources chosen, on merit
+
+- **MIT OpenCourseWare 18.01 Lecture 12, "Maxima and minima"** (English, transcript read in full). Chosen because
+  it was the one lecture this run whose transcript could be read end to end, and because it supplies the two
+  ideas the GATE questions actually test: the closed-interval candidate list and the fact that the critical point
+  may give the opposite of the extremum asked for. Its wire-into-two-squares example is verified independently
+  here (1/32 at x = 1/2, 1/16 in the limit).
+- **Knowledge Gate, "Maxima & Minima"** (Hindi-medium, 13 min; read through the platform's published English AI
+  chapter summary with timestamps - translated). The only GATE-oriented teaching of this topic that could be
+  read, and its order is the order of the cards: definitions, the two false converses, the closed-interval
+  algorithm.
+- **Knowledge Gate, "26 Jan - EM Calculus Part 2"**, maxima and minima segment (Hindi-medium; English AI summary -
+  translated). Used for the stationary/critical distinction and the second-derivative test with its inconclusive
+  case.
+- **Paul's Online Math Notes, Calculus I section 4.3** (English, read in full). The definitions, the |x|
+  counterexample to the converse of Fermat's theorem, and the endpoint convention stated as a disagreement
+  rather than a fact - which is exactly what GATE CSE 2012 Q.9 runs into.
+
+Rejected, with reasons in `sources.json`: the NPTEL IIT Madras Basic Calculus 1 lectures 33-34 and 39-40 and the
+NPTEL IIT Kharagpur lectures 17-20 on two-variable extrema (titles only, no transcript); the HV Sir GATE lecture
+0wRR_97a9Zk (no caption track); the GATE Overflow maxima-minima tag page and the EduRev PYQ listing (indexes
+without answers); the Solutions Adda 1993 page (used only for its "out of syllabus" note); GATE CSE 2015 Set 2
+GA-3 (a General Aptitude question); and the 1998 descriptive question (not storable in the MCQ/MSQ/NAT schema).
+
+### What was created
+
+Fourteen cards under `content/subjects/calculus/maxima-and-minima/`, six PYQ records, one p5.js lesson at
+`visuals/calculus/maxima-and-minima/sign-chart-of-the-derivative/`, a `sources.json` with four chosen and eight
+rejected candidates, and a new `check_maxima_and_minima()` in `scripts/validate.py` that recomputes every
+published value, sign, verdict and count - including the b^2 - 3ac cubic criterion over every small integer
+cubic.
+
+The verified PYQs are GATE CSE 1997 Q.4.1 (maximum 10 at the endpoint), 2008 Q.25 (one extremum), 2012 Q.9 (two
+local minima, endpoint convention), 2023 Q.18 (one maximum and one minimum), 2026 Set 1 Q.36 (local maximum, f'
+continuous, f' not differentiable) and 1993 Q.1.7 (no local extremum, two variables). All six are `SOURCED`
+against GATE Overflow accepted answers; no official paper or key was fetched, so no `marks` field is recorded.
+
+### UI
+
+No change to design tokens, shell layout, navigation labels, routes or component classes. `syllabus.json` flips
+`maxima-and-minima` from `planned` to `cards`, and `scripts/build-index.py` regenerates `content/index.json` and
+`src/data/content.js`, so the tree and the Topics tab pick up the new topic and its fourteen subtopics with no
+code change.
+
+### Gaps (the topic stays `partial`)
+
+1. No YouTube caption track was readable this run, so no YouTube lecture is quoted; the two GATE-oriented
+   sources are `SUMMARY_ONLY` against published English summaries of Hindi-medium classes.
+2. The NPTEL lectures named above served titles only; nothing rests on them.
+3. GATE CSE 1998's descriptive maxima question cannot be stored in the MCQ/MSQ/NAT schema.
+4. GATE CSE 2015 Set 2 GA-3 is a General Aptitude question and is excluded from the PYQ set.
+5. GATE CSE 2012 Q.9 is definitional: the accepted answer counts the endpoint, the strict interior reading does
+   not. Both readings are stated rather than resolved silently.
+6. All six PYQs are `SOURCED`, not key-verified, and carry no marks.
+7. The two-variable case rests on one 1993 question that one site marks out of syllabus, hence a P3 card.
+8. Three cards - the higher-derivative test, monotonicity, and optimisation set-up - carry no PYQ of their own.
+
+### Next
+
+The cycle pointer now sits on `calculus/maxima-and-minima`. The next topic in syllabus order is
+`calculus/mean-value-theorem`, which is `not_started`.

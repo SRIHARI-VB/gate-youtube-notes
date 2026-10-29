@@ -1,0 +1,21 @@
+{
+  "id": "gate-1997-4-1-max-on-closed-interval",
+  "year": "1997",
+  "paper": "GATE CS 1997",
+  "question_ref": "Q.4.1",
+  "type": "MCQ",
+  "topic": "closed-interval-candidate-list",
+  "text": "What is the maximum value of the function f(x) = 2x^2 - 2x + 6 in the interval [0, 2]?",
+  "options": [
+    "6",
+    "10",
+    "12",
+    "5.5"
+  ],
+  "answer": "Option (B) - 10",
+  "solution": "f'(x) = 4x - 2 vanishes at x = 1/2, the only critical point in the interval. Compare f(0) = 6, f(1/2) = 0.5 - 1 + 6 = 5.5 and f(2) = 8 - 4 + 6 = 10. The largest of the three is 10, at the endpoint x = 2; the stationary point supplies the minimum.",
+  "source_url": "https://gateoverflow.in/2242/gate-cse-1997-question-4-1",
+  "source_label": "GATE Overflow question page - GATE CSE 1997 Q.4.1 with four agreeing answers (option B)",
+  "verification": "SOURCED",
+  "answer_evidence": "Every answer on the page concludes 10; one shows the completed-square form 2((x - 1/2)^2 + 11/4). GATE Overflow numbers it Q.4.1, ExamSIDE numbers the same question Q.19 of the 1997 paper."
+}

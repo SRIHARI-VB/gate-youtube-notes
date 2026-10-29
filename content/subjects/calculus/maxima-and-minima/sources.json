@@ -1,0 +1,195 @@
+{
+  "subject": "calculus",
+  "topic": "maxima-and-minima",
+  "exam": "GATE CSE 2027",
+  "retrieved_at": "2026-10-29",
+  "subtopics": [
+    "the local (relative) maximum and minimum, defined on a neighbourhood",
+    "the global (absolute) maximum and minimum on a stated domain",
+    "Fermat's theorem: an interior local extremum of a differentiable function forces f' = 0, and why the converse fails",
+    "stationary points (f' = 0) against critical points (f' = 0 or f' undefined)",
+    "the first-derivative (sign) test and the multiplicity of a zero of f'",
+    "the second-derivative test, including the inconclusive case f'' = 0",
+    "the higher-derivative test: the order of the first non-vanishing derivative",
+    "the extreme value theorem and the closed-interval candidate list of critical points plus endpoints",
+    "monotonicity: the sign of f' on an interval, and the union-of-intervals trap",
+    "extrema of piecewise and absolute-value functions, and at points where f' does not exist",
+    "local extrema at the endpoints of the domain, and the definitional disagreement",
+    "counting the extrema of a cubic (b^2 against 3ac) and of a quartic",
+    "extrema of trigonometric functions on a restricted interval",
+    "stationary points of a function of two variables and the rt - s^2 test",
+    "setting up an optimisation word problem and choosing the interval"
+  ],
+  "chosen": [
+    {
+      "id": "mit-ocw-18-01-lecture-12-maxima-minima",
+      "kind": "lecture-transcript",
+      "title": "18.01 Single Variable Calculus, Lecture 12 (Fall 2007): maxima and minima",
+      "channel": "MIT OpenCourseWare, Prof. David Jerison",
+      "url": "https://rachel.worldpossible.org/mods/en-rachelcourses/singlevarcalculus/contents/12_Transcript.pdf",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "the full lecture transcript was read from its opening to the related-rates hand-off; the wire-into-two-squares worked example and the warning about unchecked endpoints are quoted from it, the OCW lecture 11 page being the course index entry",
+      "covers": [
+        "the max-min procedure on a word problem: draw, name the variables, write the objective, then differentiate",
+        "the wire of length 1 cut into two squares, with A(x) = x^2/16 + (1-x)^2/16, critical point x = 1/2 and value 1/32",
+        "the explicit warning that the critical point gave the least area while the largest area sits at the ends of the interval",
+        "the distinction between the minimum value, the minimum point and the critical point",
+        "the standing instruction to check the end points after the critical points"
+      ],
+      "why": "The one source this run whose lecture could be read end to end. It is not GATE material, but it supplies the two ideas the GATE questions actually test - the closed-interval candidate list and the fact that a stationary point may be the opposite of the extremum asked for - in the lecturer's own words, and its worked example is verified here independently (1/32 at x = 1/2, 1/16 in the limit). Read in full from the transcript of 18.01 Lecture 12."
+    },
+    {
+      "id": "knowledgegate-maxima-minima-lesson",
+      "kind": "lecture-summary",
+      "title": "Maxima & Minima (13 min), Engineering Mathematics for GATE",
+      "channel": "Knowledge Gate (Yash Jain)",
+      "url": "https://www.knowledgegate.ai/learn/GATE-GUIDANCE-BY-SANCHIT-SIR/engineering-mathematics/calculus/maxima-and-minima/asset-maxima-minima",
+      "language": "hi",
+      "transcript": "SUMMARY_ONLY",
+      "translated": true,
+      "note": "Hindi-medium lecture; the platform's published English AI chapter summary with timestamps was read in full, the lecture itself was not. Chapters used: 0:00-2:00 local and global extrema drawn on [a,b], 2:00-5:00 the three statements S1/S2/S3, 5:00-10:00 the x^3 saddle point and the cusp maximum, 10:00-13:20 the closed-interval algorithm",
+      "covers": [
+        "local and global extrema drawn on a closed interval [a, b] with the points m1..m5 (0:00-2:00)",
+        "the three statements S1 (at every maximum/minimum f' = 0), S2 (if f' = 0 then an extremum) and S3, with x^3 as the counterexample to S2 (2:00-10:00)",
+        "a sharp corner at a maximum, where f' does not exist, as the counterexample to 'f' = 0 is necessary' (5:00-10:00)",
+        "the closed-interval algorithm: check where f'(x) = 0, check the endpoints f(a) and f(b), and check points where f' is undefined (10:00-13:20)"
+      ],
+      "why": "The only GATE-oriented teaching of this topic that could be read this run, and its order is the order of the cards: definitions, then the two false converses, then the algorithm. It is a Hindi-medium lecture and what was readable is the platform's published English AI chapter summary with timestamps, so the cards use its structure and its counterexamples and quote no sentence of the lecturer."
+    },
+    {
+      "id": "knowledgegate-26-jan-em-calculus-part-2",
+      "kind": "lecture-summary",
+      "title": "26 Jan - EM - Calculus Part 2, the maxima and minima segment",
+      "channel": "Knowledge Gate (Yash Jain)",
+      "url": "https://www.knowledgegate.ai/learn/GATE-GUIDANCE-BY-SANCHIT-SIR/live-classes/gate-2026-live-class/engineering-mathematics-for-gate-exam/asset-26-jan-em-calculus-part-2",
+      "language": "hi",
+      "transcript": "SUMMARY_ONLY",
+      "translated": true,
+      "note": "Hindi-medium live class; the English AI chapter summary was read for the stationary-versus-critical distinction (2:00-5:00) and the second-derivative test with its inconclusive case (5:00-15:00)",
+      "covers": [
+        "the definition of a stationary point as f'(a) = 0 with a horizontal tangent, and of a critical point as f'(a) = 0 or f'(a) undefined (2:00-5:00)",
+        "the second-derivative test with the rule f'' > 0 minimum, f'' < 0 maximum, and the explicit statement that f'' = 0 is inconclusive and needs higher derivatives (5:00-15:00)",
+        "worked examples f(x) = x, x^2, x^3 and x^3/3 - x, the last with a maximum at -1 and a minimum at 1 (10:00-15:00)"
+      ],
+      "why": "Used for exactly the two things the 13-minute lesson does not cover: the stationary/critical distinction and the second-derivative test with its inconclusive case. Same channel as the lesson above and the same access limit (Hindi-medium, English AI summary), recorded separately because it is a different recording with different content."
+    },
+    {
+      "id": "pauls-notes-min-max-values",
+      "kind": "text",
+      "title": "Calculus I, section 4.3: Minimum and Maximum Values",
+      "channel": "Paul's Online Math Notes, Lamar University",
+      "url": "https://tutorial.math.lamar.edu/classes/calci/minmaxvalues.aspx",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "read in full: the four definitions, the statement that relative extrema are usually taken to be interior with an explicit note that some authors disagree, Fermat's theorem and the |x| counterexample to its converse",
+      "covers": [
+        "the four definitions of absolute and relative maximum and minimum",
+        "the statement that relative extrema are usually taken to occur only at interior points, with an explicit note that some authors disagree - the disagreement GATE CSE 2012 Q.9 runs into",
+        "Fermat's theorem and the |x| counterexample showing that extrema also occur where f' does not exist",
+        "the critical-point vocabulary and the extreme value theorem"
+      ],
+      "why": "Chosen for correctness and for beginner accessibility rather than exam framing: it is the readable English source that states every definition and hypothesis the cards depend on, including the endpoint convention as a disagreement rather than a fact. Read in full."
+    }
+  ],
+  "rejected": [
+    {
+      "id": "gateoverflow-maxima-minima-tag",
+      "kind": "pyq-index",
+      "channel": "GATE Overflow (maxima-minima tag and the calculus question index)",
+      "title": "Tagged maxima-minima questions and the Previous GATE Questions in Calculus page",
+      "url": "https://gateoverflow.in/tag/maxima-minima",
+      "language": "en",
+      "why": "Used as an index and not as a source: the tag page mixes GATE CE and GATE DA practice questions with CSE papers, and its entries carry no question text. Every question kept in this topic was taken from its own GATE Overflow question page with an accepted answer; the tag page was used only to find the question numbers."
+    },
+    {
+      "id": "gateoverflow-1993-thread",
+      "kind": "pyq-solutions",
+      "channel": "GATE Overflow, GATE CSE 1993 Q.1.7",
+      "title": "The accepted answer to the two-variable question",
+      "url": "https://gateoverflow.in/602/gate-cse-1993-question-01-7",
+      "language": "en",
+      "why": "This page is listed as a source for the 1993 record but is rejected as a teaching source for the topic: it states rt - s^2 <= 0 without deriving the stationary points, and one solution site flags the question out of syllabus. The card therefore derives (1,1) and (2,-1) itself and marks the question P3."
+    },
+    {
+      "id": "nptel-basic-calculus-1-maxima-minima-33-34",
+      "kind": "course-outline",
+      "channel": "NPTEL, IIT Madras (NOC Basic Calculus 1, course 111106146)",
+      "title": "Lectures 33-34 Maxima and minima, 39-40 First derivative test",
+      "url": "http://digimat.in/nptel/courses/video/111106146/L34.html",
+      "language": "en",
+      "why": "The best-matched English sequence found - the same course whose outline anchored the previous topic, with dedicated maxima/minima and first-derivative-test lectures. Rejected for access: the digimat pages carry lecture titles and a video frame only, and no transcript of these lectures could be read from the sandbox, so nothing is attributed to them."
+    },
+    {
+      "id": "nptel-engineering-mathematics-i-maxima-minima-17-20",
+      "kind": "course-outline",
+      "channel": "NPTEL, IIT Kharagpur (NOC Engineering Mathematics-I, course 111105121)",
+      "title": "Lectures 17-19 Maxima and minima of functions of two variables, 20 Constrained maxima and minima",
+      "url": "http://www.digimat.in/nptel/courses/video/111105121/111105121.html",
+      "language": "en",
+      "why": "The one NPTEL course with a full four-lecture treatment of the two-variable case, which is the P3 corner of this topic. Rejected on scope and access: the index gives titles only, and every lecture in the sequence is about functions of two variables while the GATE CSE line 'Maxima and minima' has been a single-variable topic in every CSE paper since 1993."
+    },
+    {
+      "id": "hv-sir-calculus-31-maxima-minima",
+      "kind": "lecture",
+      "channel": "GATE Wallah / HV Sir, 'Calculus-31 Maxima and Minima for GATE (all branch)'",
+      "title": "Engineering Mathematics Calculus-31, 0wRR_97a9Zk",
+      "url": "https://www.youtube.com/watch?v=0wRR_97a9Zk",
+      "language": "en",
+      "why": "A GATE-oriented English lecture whose title is exactly this topic. Rejected for access: the watch page returned no caption track and no readable transcript, and the search result carried only YouTube boilerplate, so not one sentence could be read."
+    },
+    {
+      "id": "edurev-gate-cse-calculus-pyq-page",
+      "kind": "pyq-index",
+      "channel": "EduRev, 'Previous Year Questions (GATE CSE) Calculus'",
+      "title": "A per-year listing of GATE CSE calculus questions",
+      "url": "https://edurev.in/t/548032/previous-year-questions-gate-cse-calculus",
+      "language": "en",
+      "why": "Readable and it was the first place the 1993 two-variable question and the 1997 maximum question were seen together. Rejected as a verification source: it gives question text without an answer or a solution, and its numbering (1997 'Question 61', 1993 'Question 66') does not match the paper numbering used by GATE Overflow."
+    },
+    {
+      "id": "solutionsadda-1993",
+      "kind": "pyq-solutions",
+      "channel": "Solutions Adda, GATE 1993",
+      "title": "The 1993 two-variable question with the note 'Out of syllabus'",
+      "url": "https://solutionsadda.in/2024/01/12/question-10400-gate-1993/",
+      "language": "en",
+      "why": "Not used as an answer source (it gives no derivation), but its 'Out of syllabus' note is recorded in the 1993 PYQ record and in the P3 card, because it is evidence that the two-variable case is not part of the current CSE line."
+    },
+    {
+      "id": "gate-cse-2015-set2-ga-3",
+      "kind": "pyq",
+      "channel": "GATE Overflow, GATE CSE 2015 Set 2 GA-3",
+      "title": "Maximum of 1 - |x| on [-1, 1]",
+      "url": "https://gateoverflow.in/8030/gate-cse-2015-set-2-question-ga-3",
+      "language": "en",
+      "why": "A clean maxima question with the answer (0, 1) and a correct solution. Excluded from the PYQ set because it is a General Aptitude question (GA-3), not a question from the Engineering Mathematics section of the CSE paper; including it would misstate the topic's weight."
+    },
+    {
+      "id": "gate-cse-1998-2-local-maxima-descriptive",
+      "kind": "pyq",
+      "channel": "GATE CSE 1998, descriptive question (ExamSIDE copy)",
+      "title": "Find the points of local maxima and minima of x^3 - 6x^2 + 9x + 15 on 0 <= x <= 6",
+      "url": "https://questions.examside.com/past-years/gate/question/a-find-the-points-of-local-maxima-and-minima-if-any-of-the-f-gate-cse-1998-marks-5-niu98az6rgzv8vj7.htm",
+      "language": "en",
+      "why": "A genuine GATE CSE maxima question, excluded only because the repository's PYQ schema holds MCQ, MSQ and NAT records and this one is a 5-mark descriptive question. The same computation is covered by the closed-interval card and recorded as a named gap."
+    }
+  ],
+  "standard_refs": [
+    "James Stewart, Calculus: Early Transcendentals, sections 4.1-4.3 (maximum and minimum values, the mean value theorem, derivative tests)",
+    "George B. Thomas, Maurice D. Weir and Joel Hass, Thomas' Calculus, chapter 4 (applications of derivatives)",
+    "NCERT Mathematics, Class 12, chapter 6 (application of derivatives), the version most Indian candidates meet first",
+    "Paul Dawkins, Paul's Online Math Notes, Calculus I, sections 4.1 and 4.3",
+    "GATE 2027 CS syllabus, Engineering Mathematics line 'Limits, continuity and differentiability. Maxima and minima. Mean value theorem. Integration.'"
+  ],
+  "notes": [
+    "The syllabus names the topic in three words, so the fifteen subtopics above are this run's enumeration from the standard treatment (Stewart 4.1-4.3, NCERT chapter 6, Paul's notes) and from the six verified CSE questions, not a quotation from the syllabus.",
+    "This run read one lecture transcript end to end (MIT 18.01 Lecture 12), which the previous topic could not do. YouTube itself still served no caption track, so no YouTube lecture is quoted; the two GATE-oriented lectures used are recorded from the platform's published English AI chapter summaries of Hindi-medium classes and are marked translated.",
+    "The non-English material is Hindi-medium throughout (two Knowledge Gate recordings) and reaches the cards only through English AI summaries, so the translation sits two layers from the lecture; no card quotes a Hindi sentence.",
+    "GATE CSE 2015 Set 2 GA-3 (maximum of 1 - |x|) is a General Aptitude question and is excluded from the PYQ set for that reason; it is still a fair practice question and appears nowhere as a PYQ.",
+    "GATE CSE 1998's descriptive maxima question is excluded by the repository's MCQ/MSQ/NAT-only schema and is named as a gap.",
+    "Every PYQ in this topic is SOURCED against a GATE Overflow accepted answer rather than key-verified against an official answer key, and no marks field is recorded, because no official paper or key was fetched this run."
+  ]
+}

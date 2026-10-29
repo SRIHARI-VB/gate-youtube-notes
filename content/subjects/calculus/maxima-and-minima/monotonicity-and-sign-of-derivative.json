@@ -1,0 +1,73 @@
+{
+  "id": "monotonicity-and-sign-of-derivative",
+  "title": "Monotonicity and the Sign of f'",
+  "priority": "P2",
+  "order": 174,
+  "unit": "Maxima and Minima",
+  "quickIdea": "f' > 0 on an interval means f is strictly increasing there, f' < 0 means strictly decreasing, and the intervals of increase and decrease are the extrema read backwards.",
+  "remember": [
+    "If f' > 0 at every interior point of an interval, f is strictly increasing on that interval; if f' < 0, strictly decreasing.",
+    "If f' = 0 at every point of an interval, f is constant there.",
+    "The converses are weaker: a strictly increasing differentiable f can have f' = 0 at isolated points, as x^3 at 0.",
+    "Increasing on two separate intervals does not make f increasing on their union: x^3 - 3x increases on (-inf, -1) and on (1, inf) but decreases on (-1, 1).",
+    "The monotonicity picture is the same information as the sign chart, so it classifies extrema without any second derivative."
+  ],
+  "example": {
+    "prompt": "Find the intervals on which f(x) = x^3 - 3x is increasing and decreasing.",
+    "work": "f'(x) = 3x^2 - 3 = 3(x - 1)(x + 1). The sign of f' is positive for x < -1, negative for -1 < x < 1 and positive for x > 1.",
+    "answer": "Increasing on (-inf, -1) and on (1, inf); decreasing on (-1, 1). Consequently a local maximum at x = -1 with f(-1) = 2 and a local minimum at x = 1 with f(1) = -2."
+  },
+  "gateAngle": "GATE asks monotonicity mostly as a supporting step - 'f is increasing on which interval' inside a larger statement question - and it is the cheapest way to answer a 2023-style cubic question without computing a second derivative. The union trap is the standard distractor.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "On which intervals is f(x) = x^4 - 4x^3 increasing?",
+      "answer": "On (3, inf) only. f'(x) = 4x^2(x - 3) is negative for x < 0 and for 0 < x < 3, and positive after 3.",
+      "why": "The same reading of a sign chart where one factor is squared, so one interval of increase is missing and students who expect symmetry pick the wrong answer."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "If f'(2) > 0, must f be increasing on some interval containing 2?",
+      "answer": "Yes, provided f' is continuous at 2: f' stays positive on a whole neighbourhood, so f is strictly increasing there.",
+      "why": "It separates 'positive derivative at a point' from 'positive derivative on an interval', which is the hypothesis the theorem actually needs."
+    }
+  ],
+  "trap": {
+    "what": "Writing that f is increasing on (-inf, -1) union (1, inf) because f' > 0 on each piece.",
+    "why": "Monotonicity is a statement about every pair of points in the set; between a point in the left piece and a point in the right piece the function drops.",
+    "counterexample": "For x^3 - 3x: f(-2) = -2 and f(2) = 2, but f(-1) = 2 > f(1) = -2, so the function is not increasing on the union."
+  },
+  "check": {
+    "question": "Where is f(x) = 2x^3 - 3x^2 - 12x increasing?",
+    "answer": "On (-inf, -1) and on (2, inf).",
+    "explanation": "f'(x) = 6x^2 - 6x - 12 = 6(x - 2)(x + 1), which is positive outside the roots and negative between them."
+  },
+  "pyqIds": [],
+  "prereqs": [
+    "first-derivative-test"
+  ],
+  "sources": [
+    {
+      "kind": "lecture-summary",
+      "title": "26 Jan - EM - Calculus Part 2, the maxima and minima segment",
+      "channel": "Knowledge Gate (Yash Jain)",
+      "url": "https://www.knowledgegate.ai/learn/GATE-GUIDANCE-BY-SANCHIT-SIR/live-classes/gate-2026-live-class/engineering-mathematics-for-gate-exam/asset-26-jan-em-calculus-part-2",
+      "language": "hi",
+      "transcript": "SUMMARY_ONLY",
+      "translated": true,
+      "note": "Hindi-medium live class; the English AI chapter summary was read for the stationary-versus-critical distinction (2:00-5:00) and the second-derivative test with its inconclusive case (5:00-15:00)"
+    },
+    {
+      "kind": "text",
+      "title": "Calculus I, section 4.3: Minimum and Maximum Values",
+      "channel": "Paul's Online Math Notes, Lamar University",
+      "url": "https://tutorial.math.lamar.edu/classes/calci/minmaxvalues.aspx",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "read in full: the four definitions, the statement that relative extrema are usually taken to be interior with an explicit note that some authors disagree, Fermat's theorem and the |x| counterexample to its converse"
+    }
+  ],
+  "sourceLine": "Monotonic functions as a separate step in the GATE teaching order: Knowledge Gate module outline (Monotonic Functions follows Maxima & Minima). The theorem statements and their converses: Paul's Online Math Notes section 4.3 and the standard references. Recomputed in scripts/validate.py.",
+  "videoRefs": []
+}

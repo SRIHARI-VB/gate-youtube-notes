@@ -1,0 +1,21 @@
+{
+  "id": "gate-2008-25-number-of-extrema",
+  "year": "2008",
+  "paper": "GATE CS 2008",
+  "question_ref": "Q.25",
+  "type": "MCQ",
+  "topic": "cubic-and-quartic-extrema-counting",
+  "text": "A point on a curve is said to be an extremum if it is a local minimum or a local maximum. The number of distinct extrema for the curve 3x^4 - 16x^3 + 24x^2 + 37 is",
+  "options": [
+    "0",
+    "1",
+    "2",
+    "3"
+  ],
+  "answer": "Option (b) - 1",
+  "solution": "f'(x) = 12x^3 - 48x^2 + 48x = 12x(x-2)^2, so the stationary points are x = 0 and x = 2. f''(x) = 36x^2 - 96x + 48 gives f''(0) = 48 > 0, a local minimum, and f''(2) = 0, where the second-derivative test fails. The first-derivative test then decides: f'(1) = 12 > 0 and f'(3) = 36 > 0, so the sign does not change at 2 and x = 2 is not an extremum. Equivalently f'''(2) = 48 != 0 with odd order. Hence exactly one extremum, at x = 0.",
+  "source_url": "https://gateoverflow.in/423/gate-cse-2008-question-25",
+  "source_label": "GATE Overflow question page - GATE CSE 2008 Q.25 with three agreeing answers (option b)",
+  "verification": "SOURCED",
+  "answer_evidence": "The accepted answer states 'Answer is (b)' and falls back on the first-derivative test at x = 2 because f''(2) = 0; a second answer reaches the same verdict through f'''(2) = 48."
+}

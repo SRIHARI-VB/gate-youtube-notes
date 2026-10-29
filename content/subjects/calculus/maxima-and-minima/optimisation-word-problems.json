@@ -1,0 +1,74 @@
+{
+  "id": "optimisation-word-problems",
+  "title": "Setting Up an Optimisation Problem",
+  "priority": "P2",
+  "order": 180,
+  "unit": "Maxima and Minima",
+  "quickIdea": "Draw the picture, name the variables, use the constraint to write the objective as a function of one variable, state its interval - and only then differentiate.",
+  "remember": [
+    "Four steps: draw a diagram; name the variables; write the objective and the constraint; eliminate one variable so the objective is a function of one variable.",
+    "State the interval on which the variable is allowed to move; it is usually forced by the geometry and is often open at both ends.",
+    "Then apply the closed-interval candidate list, or the first-derivative test if the interval is open, and compare with the limiting values at the ends.",
+    "A stationary point can give the minimum when the question asked for the maximum; the diagram or the sign chart must confirm which one you found.",
+    "State the answer in the units of the question, and say where it is attained, not only what the value is."
+  ],
+  "example": {
+    "prompt": "A wire of length 1 is cut into two pieces and each piece is bent into a square. Find the largest and the smallest total area enclosed.",
+    "work": "Let one piece have length x, so the other has 1 - x; the sides are x/4 and (1 - x)/4, and the area is A(x) = x^2/16 + (1 - x)^2/16 on (0, 1). A'(x) = (2x - 2(1 - x))/16 = (4x - 2)/16 = (2x - 1)/8, which vanishes at x = 1/2. A(1/2) = (1/4)/16 + (1/4)/16 = 1/32. As x -> 0+ the area tends to 1/16, and as x -> 1- it also tends to 1/16.",
+    "answer": "The smallest total area is 1/32, attained at x = 1/2 (two equal squares). The largest value 1/16 is only approached, as one piece shrinks to nothing, so on the open interval there is no maximum - the question as posed has a trick answer."
+  },
+  "gateAngle": "GATE has not asked a pure word problem in this topic, but every 'maximum value of ... in the interval' question is the same procedure with the modelling step removed, and the MIT example is the standard warning that the critical point may be the minimum. Use it to keep the candidate list in mind.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "For x > 0, what is the minimum value of x + 4/x?",
+      "answer": "4, attained at x = 2.",
+      "why": "f'(x) = 1 - 4/x^2 vanishes at x = 2; f''(x) = 8/x^3 > 0 there, so it is a minimum, and f tends to infinity at both ends of (0, inf)."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "A rectangle has perimeter 20. What is its maximum area?",
+      "answer": "25, for a 5 by 5 square.",
+      "why": "The constraint y = 10 - x turns the area into A(x) = x(10 - x) on (0, 10), with a single stationary point at x = 5 where A = 25; the ends give area tending to 0."
+    }
+  ],
+  "trap": {
+    "what": "Differentiating first and never checking which extremum was found or what happens at the ends of the allowed interval.",
+    "why": "Optimisation questions ask for a largest or a smallest value, and the stationary point may be the opposite of the one asked for, or the answer may sit at a boundary that the derivative cannot see.",
+    "counterexample": "In the wire problem the only stationary point gives the minimum area 1/32 while the largest area 1/16 lies at the ends of the interval."
+  },
+  "check": {
+    "question": "For x > 0, where is the minimum of f(x) = x^2 + 16/x?",
+    "answer": "At x = 2, with f(2) = 12.",
+    "explanation": "f'(x) = 2x - 16/x^2 = (2x^3 - 16)/x^2, which vanishes at x = 2. f''(x) = 2 + 32/x^3 > 0, so it is a minimum, and f tends to infinity as x -> 0+ and as x -> infinity."
+  },
+  "pyqIds": [],
+  "prereqs": [
+    "closed-interval-candidate-list",
+    "monotonicity-and-sign-of-derivative"
+  ],
+  "sources": [
+    {
+      "kind": "lecture-transcript",
+      "title": "18.01 Single Variable Calculus, Lecture 12 (Fall 2007): maxima and minima",
+      "channel": "MIT OpenCourseWare, Prof. David Jerison",
+      "url": "https://rachel.worldpossible.org/mods/en-rachelcourses/singlevarcalculus/contents/12_Transcript.pdf",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "the full lecture transcript was read from its opening to the related-rates hand-off; the wire-into-two-squares worked example and the warning about unchecked endpoints are quoted from it, the OCW lecture 11 page being the course index entry"
+    },
+    {
+      "kind": "lecture-summary",
+      "title": "Maxima & Minima (13 min), Engineering Mathematics for GATE",
+      "channel": "Knowledge Gate (Yash Jain)",
+      "url": "https://www.knowledgegate.ai/learn/GATE-GUIDANCE-BY-SANCHIT-SIR/engineering-mathematics/calculus/maxima-and-minima/asset-maxima-minima",
+      "language": "hi",
+      "transcript": "SUMMARY_ONLY",
+      "translated": true,
+      "note": "Hindi-medium lecture; the platform's published English AI chapter summary with timestamps was read in full, the lecture itself was not. Chapters used: 0:00-2:00 local and global extrema drawn on [a,b], 2:00-5:00 the three statements S1/S2/S3, 5:00-10:00 the x^3 saddle point and the cusp maximum, 10:00-13:20 the closed-interval algorithm"
+    }
+  ],
+  "sourceLine": "The four-step set-up, the wire-into-two-squares worked example and the warning that the critical point gave the least area rather than the largest: MIT 18.01 Lecture 12 transcript (English, read in full). The closed-interval algorithm: Knowledge Gate 'Maxima & Minima' chapter summary at 10:00-13:20 (Hindi-medium lecture, English summary - translated). Every value recomputed in scripts/validate.py.",
+  "videoRefs": []
+}

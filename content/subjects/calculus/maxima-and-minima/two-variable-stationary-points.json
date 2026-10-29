@@ -1,0 +1,75 @@
+{
+  "id": "two-variable-stationary-points",
+  "title": "Two-Variable Stationary Points and the rt - s^2 Test",
+  "priority": "P3",
+  "order": 179,
+  "unit": "Maxima and Minima",
+  "quickIdea": "For f(x, y) solve f_x = f_y = 0, then test D = f_xx f_yy - (f_xy)^2 at each solution: D > 0 with f_xx < 0 is a maximum, D > 0 with f_xx > 0 is a minimum, D < 0 is a saddle.",
+  "remember": [
+    "Stationary points of f(x, y) solve f_x = 0 and f_y = 0 simultaneously; each solution is a candidate.",
+    "Write r = f_xx, s = f_xy, t = f_yy and D = rt - s^2.",
+    "D > 0 and r < 0: local maximum. D > 0 and r > 0: local minimum. D < 0: saddle point, no extremum. D = 0: the test is inconclusive.",
+    "If D <= 0 at every stationary point, the function has no local extremum at all - which is enough to answer a multiple-choice question without classifying further.",
+    "The single-variable second-derivative test is the special case with s = 0."
+  ],
+  "example": {
+    "prompt": "GATE CSE 1993 Q.1.7: the function f(x, y) = x^2 y - 3xy + 2y + x has how many local extrema?",
+    "work": "f_x = 2xy - 3y + 1 and f_y = x^2 - 3x + 2 = (x - 1)(x - 2). Setting f_y = 0 gives x = 1 or x = 2. With x = 1, f_x = 2y - 3y + 1 = 1 - y, so y = 1. With x = 2, f_x = 4y - 3y + 1 = 1 + y, so y = -1. The stationary points are (1, 1) and (2, -1). Now r = f_xx = 2y, s = f_xy = 2x - 3, t = f_yy = 0, so D = rt - s^2 = -(2x - 3)^2, which is negative at both points (-1 at each).",
+    "answer": "D < 0 at both stationary points, so both are saddles and the function has no local extremum. The answer is option A."
+  },
+  "gateAngle": "This is the only verified GATE CSE question in the topic that leaves one variable, and one solution site marks it out of syllabus. Treat it as a P3 card: know the test, know that GATE CSE asked it once in 1993, and do not expect it again under the current line 'Maxima and minima'.",
+  "variations": [
+    {
+      "label": "VERIFIED PYQ",
+      "question": "GATE CSE 1993 Q.1.7: how many local extrema does x^2 y - 3xy + 2y + x have?",
+      "answer": "None - both stationary points are saddles.",
+      "why": "D = -(2x - 3)^2 cannot be positive at a stationary point, because the only x making it zero is 3/2, where f_y != 0."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "For f(x, y) = x^2 + y^2, classify the stationary point.",
+      "answer": "A local minimum at (0, 0). f_x = 2x, f_y = 2y force (0,0); r = 2, s = 0, t = 2, so D = 4 > 0 and r > 0.",
+      "why": "The clean case that shows the test working, so that the saddle verdict of the PYQ is not mistaken for a rule that D is always negative."
+    }
+  ],
+  "trap": {
+    "what": "Reporting every solution of f_x = f_y = 0 as an extremum.",
+    "why": "In two variables a stationary point can be a saddle, where the function rises in one direction and falls in another; only the sign of D separates the cases.",
+    "counterexample": "f(x, y) = x^2 - y^2 has one stationary point at the origin with r = 2, t = -2, s = 0, so D = -4 < 0: a saddle, not an extremum."
+  },
+  "check": {
+    "question": "For f(x, y) = x^2 - y^2, what is at the origin?",
+    "answer": "A saddle point.",
+    "explanation": "f_x = 2x and f_y = -2y vanish only at (0,0); r = 2, s = 0, t = -2, so D = -4 < 0."
+  },
+  "pyqIds": [
+    "gate-1993-1-7-two-variable-no-extremum"
+  ],
+  "prereqs": [
+    "second-derivative-test"
+  ],
+  "sources": [
+    {
+      "kind": "lecture-transcript",
+      "title": "18.01 Single Variable Calculus, Lecture 12 (Fall 2007): maxima and minima",
+      "channel": "MIT OpenCourseWare, Prof. David Jerison",
+      "url": "https://rachel.worldpossible.org/mods/en-rachelcourses/singlevarcalculus/contents/12_Transcript.pdf",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "the full lecture transcript was read from its opening to the related-rates hand-off; the wire-into-two-squares worked example and the warning about unchecked endpoints are quoted from it, the OCW lecture 11 page being the course index entry"
+    },
+    {
+      "kind": "text",
+      "title": "Calculus I, section 4.3: Minimum and Maximum Values",
+      "channel": "Paul's Online Math Notes, Lamar University",
+      "url": "https://tutorial.math.lamar.edu/classes/calci/minmaxvalues.aspx",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "read in full: the four definitions, the statement that relative extrema are usually taken to be interior with an explicit note that some authors disagree, Fermat's theorem and the |x| counterexample to its converse"
+    }
+  ],
+  "sourceLine": "The single-variable second-derivative test this generalises: MIT 18.01 Lecture 12 (English, read in full). The two-variable test statement: standard references (Stewart, Calculus, sections on partial derivatives). The 1993 question is recomputed from its own partial derivatives in scripts/validate.py.",
+  "videoRefs": []
+}

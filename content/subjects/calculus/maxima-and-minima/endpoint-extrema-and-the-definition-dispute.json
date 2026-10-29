@@ -1,0 +1,75 @@
+{
+  "id": "endpoint-extrema-and-the-definition-dispute",
+  "title": "Endpoints as Extrema: A Definitional Choice",
+  "priority": "P2",
+  "order": 176,
+  "unit": "Maxima and Minima",
+  "quickIdea": "Some books allow a local extremum at an endpoint of the domain and some do not. GATE has used the endpoint-allowing convention, and one question's answer depends on it.",
+  "remember": [
+    "Interior convention: a local extremum needs a two-sided neighbourhood, so endpoints of the domain are excluded. Paul's Online Math Notes states this and explicitly notes the disagreement.",
+    "Endpoint convention: c is a local extremum if f(c) is the largest (or smallest) value in the part of the domain near c, allowing one-sided neighbourhoods.",
+    "Under the endpoint convention a function on a closed interval can have local extrema at its endpoints, and the global extrema are then automatically local.",
+    "GATE CSE 2012 Q.9 counts the left endpoint pi/4 as a local minimum, so the accepted answer follows the endpoint convention.",
+    "On an exam, use the convention the options force: if the endpoint-containing option exists and the endpoint really is a one-sided extremum, prefer it."
+  ],
+  "example": {
+    "prompt": "GATE CSE 2012 Q.9: how many local minima does f(x) = sin x have on [pi/4, 7pi/4], and where?",
+    "work": "f'(x) = cos x vanishes at pi/2 and 3pi/2 inside the interval. f''(x) = -sin x, so f''(pi/2) = -1 < 0 (a local maximum, value 1) and f''(3pi/2) = 1 > 0 (a local minimum, value -1). At the left endpoint, sin rises from pi/4 to pi/2, so the endpoint value sin(pi/4) = 0.707 is smaller than every nearby value inside the domain, which makes it a local minimum under the endpoint convention. At the right endpoint sin is still rising into 7pi/4 (value -0.707), so that endpoint is not a minimum.",
+    "answer": "Two local minima, at pi/4 and at 3pi/2, which is the accepted option. Under the strict interior convention the count would be one, at 3pi/2."
+  },
+  "gateAngle": "2012 Q.9 is the only verified GATE CSE question whose answer turns on the endpoint convention, and the accepted answer takes the endpoint in. Statements that compare 'global' with 'local' extrema (the subset relation global-minima within local-minima) hold only under that convention.",
+  "variations": [
+    {
+      "label": "VERIFIED PYQ",
+      "question": "GATE CSE 2012 Q.9: number and location of the local minima of sin x on [pi/4, 7pi/4].",
+      "answer": "Two, at pi/4 and 3pi/2.",
+      "why": "The interior minimum at 3pi/2 is unambiguous; the second one exists only if endpoints count."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "How many local maxima does sin x have on [pi/4, 7pi/4] under the endpoint convention?",
+      "answer": "Two: at pi/2 (interior) and at 7pi/4 (right endpoint, where sin is still increasing into the endpoint).",
+      "why": "It tests the same convention from the other side, and shows that the right endpoint is the mirror image of the left one."
+    }
+  ],
+  "trap": {
+    "what": "Answering only the interior critical point on a closed-interval question.",
+    "why": "It silently adopts the interior convention, which is the minority reading in GATE's own key for 2012 Q.9.",
+    "counterexample": "sin x on [pi/4, 7pi/4] has one interior minimum but the accepted answer counts two, because sin(pi/4) is smaller than every value of sin on a small right-hand neighbourhood of pi/4."
+  },
+  "check": {
+    "question": "Under the endpoint convention, is x = 0 a local minimum of f(x) = x on [0, 1]?",
+    "answer": "Yes, and it is also the global minimum.",
+    "explanation": "On the domain [0, 1] the value f(0) = 0 is the smallest value in a one-sided neighbourhood of 0, which the endpoint convention accepts."
+  },
+  "pyqIds": [
+    "gate-2012-9-sin-local-minima"
+  ],
+  "prereqs": [
+    "local-and-global-extrema"
+  ],
+  "sources": [
+    {
+      "kind": "text",
+      "title": "Calculus I, section 4.3: Minimum and Maximum Values",
+      "channel": "Paul's Online Math Notes, Lamar University",
+      "url": "https://tutorial.math.lamar.edu/classes/calci/minmaxvalues.aspx",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "read in full: the four definitions, the statement that relative extrema are usually taken to be interior with an explicit note that some authors disagree, Fermat's theorem and the |x| counterexample to its converse"
+    },
+    {
+      "kind": "lecture-summary",
+      "title": "Maxima & Minima (13 min), Engineering Mathematics for GATE",
+      "channel": "Knowledge Gate (Yash Jain)",
+      "url": "https://www.knowledgegate.ai/learn/GATE-GUIDANCE-BY-SANCHIT-SIR/engineering-mathematics/calculus/maxima-and-minima/asset-maxima-minima",
+      "language": "hi",
+      "transcript": "SUMMARY_ONLY",
+      "translated": true,
+      "note": "Hindi-medium lecture; the platform's published English AI chapter summary with timestamps was read in full, the lecture itself was not. Chapters used: 0:00-2:00 local and global extrema drawn on [a,b], 2:00-5:00 the three statements S1/S2/S3, 5:00-10:00 the x^3 saddle point and the cusp maximum, 10:00-13:20 the closed-interval algorithm"
+    }
+  ],
+  "sourceLine": "The two conventions, stated as a disagreement rather than a fact: Paul's Online Math Notes section 4.3. The GATE answer and the endpoint picture: the accepted GATE Overflow solution to 2012 Q.9 and the Knowledge Gate local/global picture at 0:00-5:00 (Hindi-medium lecture, English summary - translated). All sine values recomputed in scripts/validate.py.",
+  "videoRefs": []
+}

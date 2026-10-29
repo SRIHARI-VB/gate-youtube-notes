@@ -1,0 +1,76 @@
+{
+  "id": "extrema-of-trig-functions-on-an-interval",
+  "title": "Extrema of Trigonometric Functions on an Interval",
+  "priority": "P2",
+  "order": 178,
+  "unit": "Maxima and Minima",
+  "quickIdea": "For a periodic function restricted to an interval, list the critical points that lie inside, then compare them with the endpoint values - the periodicity does the rest.",
+  "remember": [
+    "sin x has derivative cos x, which vanishes at pi/2 + k pi; f''(x) = -sin x classifies them: pi/2 + 2k pi are maxima, 3pi/2 + 2k pi are minima.",
+    "cos x has derivative -sin x, which vanishes at k pi; maxima at 0 + 2k pi and minima at pi + 2k pi.",
+    "On a restricted interval only the critical points inside it are candidates, and the endpoints must be evaluated separately.",
+    "Values repeat with period 2pi, so an interval longer than 2pi contains the same extremum values more than once - but they are distinct points.",
+    "Half-open intervals such as [pi/4, 7pi/4) remove the right endpoint from the candidate list, which can change the answer."
+  ],
+  "example": {
+    "prompt": "GATE CSE 2012 Q.9: where are the local minima of sin x on [pi/4, 7pi/4]?",
+    "work": "cos x = 0 at pi/2 and 3pi/2, both inside the interval. -sin(pi/2) = -1 < 0 so pi/2 is a local maximum; -sin(3pi/2) = 1 > 0 so 3pi/2 is a local minimum with value -1. Endpoint values: sin(pi/4) = sqrt(2)/2 = 0.707 and sin(7pi/4) = -0.707.",
+    "answer": "The interior local minimum is at 3pi/2; under the endpoint convention pi/4 is a second local minimum, which is the accepted option (two, at pi/4 and 3pi/2)."
+  },
+  "gateAngle": "This is the trigonometric instance of the closed-interval candidate list, and 2012 Q.9 is its only verified CSE appearance. The exam's distractors are the interior point alone (one minimum) and the pair pi/2, 3pi/2 (confusing the maximum with a minimum).",
+  "variations": [
+    {
+      "label": "VERIFIED PYQ",
+      "question": "GATE CSE 2012 Q.9: the number and locations of the local minima of sin x on [pi/4, 7pi/4].",
+      "answer": "Two, at pi/4 and 3pi/2.",
+      "why": "One interior minimum plus the left endpoint, under the endpoint convention."
+    },
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "Where are the local maxima of cos x on [0, 2pi]?",
+      "answer": "At 0 and at 2pi, both endpoints, each with value 1.",
+      "why": "A periodic function on a full period puts its maximum exactly at both ends, which makes the endpoint convention unavoidable."
+    }
+  ],
+  "trap": {
+    "what": "Listing pi/2 as a local minimum because cos x = 0 there.",
+    "why": "A zero of the derivative is a candidate, not a verdict; at pi/2 the sign of cos goes from positive to negative, which is a maximum.",
+    "counterexample": "sin(pi/2) = 1 is the largest value of sin anywhere, so pi/2 cannot be a local minimum."
+  },
+  "check": {
+    "question": "How many local minima does sin x have on [0, 2pi]?",
+    "answer": "One, at 3pi/2.",
+    "explanation": "The only interior critical point with positive second derivative is 3pi/2. The endpoints 0 and 2pi both have value 0, which is larger than sin(3pi/2) = -1, so neither is a minimum."
+  },
+  "pyqIds": [
+    "gate-2012-9-sin-local-minima"
+  ],
+  "prereqs": [
+    "closed-interval-candidate-list",
+    "endpoint-extrema-and-the-definition-dispute"
+  ],
+  "sources": [
+    {
+      "kind": "lecture-transcript",
+      "title": "18.01 Single Variable Calculus, Lecture 12 (Fall 2007): maxima and minima",
+      "channel": "MIT OpenCourseWare, Prof. David Jerison",
+      "url": "https://rachel.worldpossible.org/mods/en-rachelcourses/singlevarcalculus/contents/12_Transcript.pdf",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "the full lecture transcript was read from its opening to the related-rates hand-off; the wire-into-two-squares worked example and the warning about unchecked endpoints are quoted from it, the OCW lecture 11 page being the course index entry"
+    },
+    {
+      "kind": "text",
+      "title": "Calculus I, section 4.3: Minimum and Maximum Values",
+      "channel": "Paul's Online Math Notes, Lamar University",
+      "url": "https://tutorial.math.lamar.edu/classes/calci/minmaxvalues.aspx",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "read in full: the four definitions, the statement that relative extrema are usually taken to be interior with an explicit note that some authors disagree, Fermat's theorem and the |x| counterexample to its converse"
+    }
+  ],
+  "sourceLine": "The candidate-list discipline and the endpoint warning: MIT 18.01 Lecture 12 (English, read in full) and Paul's Online Math Notes section 4.3. The 2012 question is recomputed at pi/4, pi/2, 3pi/2 and 7pi/4 in scripts/validate.py.",
+  "videoRefs": []
+}

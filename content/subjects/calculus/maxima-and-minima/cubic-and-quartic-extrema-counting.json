@@ -1,0 +1,77 @@
+{
+  "id": "cubic-and-quartic-extrema-counting",
+  "title": "Counting Extrema of Cubics and Quartics",
+  "priority": "P1",
+  "order": 177,
+  "unit": "Maxima and Minima",
+  "quickIdea": "For a cubic, b^2 > 3ac gives one maximum and one minimum, b^2 = 3ac gives neither, b^2 < 3ac gives none at all. For a quartic, count the critical points where f' actually changes sign.",
+  "remember": [
+    "For f(x) = ax^3 + bx^2 + cx + d with a != 0: f'(x) = 3ax^2 + 2bx + c, whose discriminant is 4(b^2 - 3ac).",
+    "b^2 > 3ac: two distinct stationary points, one local maximum and one local minimum.",
+    "b^2 = 3ac: exactly one stationary point, and it is an inflection, so no extremum.",
+    "b^2 < 3ac: f' has no real zero and f is strictly monotone, so no extremum.",
+    "For a quartic, f' is cubic, so there are at most three stationary points and at most two extrema; a repeated root of f' removes a candidate."
+  ],
+  "example": {
+    "prompt": "GATE CSE 2023 Q.18 by the cubic criterion: does f(x) = x^3 + 15x^2 - 33x - 36 have extrema, without solving f' = 0?",
+    "work": "Here a = 1, b = 15, c = -33, so b^2 - 3ac = 225 - 3(1)(-33) = 225 + 99 = 324 > 0. Two distinct stationary points therefore exist, and since f'' = 6x + 30 has one zero, they lie on opposite sides of it and have opposite signs.",
+    "answer": "One local maximum and one local minimum exist. Solving f' = 0 gives them explicitly at x = -11 (maximum) and x = 1 (minimum), confirming the criterion."
+  },
+  "gateAngle": "2023 Q.18 offers the criterion as a shortcut (its accepted solutions show both the direct route and the b^2 - 3ac route) and 2008 Q.25 is the quartic counterpart where the count is decided by sign change. Together they are the two shapes GATE reuses for this topic.",
+  "variations": [
+    {
+      "label": "VERIFIED PYQ",
+      "question": "GATE CSE 2008 Q.25: the number of distinct extrema of 3x^4 - 16x^3 + 24x^2 + 37.",
+      "answer": "One.",
+      "why": "f'(x) = 12x(x - 2)^2 has two zeros but the sign changes only at 0, so only one extremum exists."
+    },
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "For which values of k does f(x) = x^3 + kx have a local maximum and a local minimum?",
+      "answer": "Exactly when k < 0. Here a = 1, b = 0, c = k, so b^2 - 3ac = -3k, which is positive only for k < 0.",
+      "why": "Turns the criterion into a condition on a parameter, which is how GATE has tested other calculus facts (for example the parameterised system-of-equations questions)."
+    }
+  ],
+  "trap": {
+    "what": "Counting the solutions of f'(x) = 0 as the number of extrema.",
+    "why": "A repeated root of f' is a stationary point with no sign change, so it contributes nothing to the count.",
+    "counterexample": "3x^4 - 16x^3 + 24x^2 + 37 has f'(x) = 12x(x - 2)^2 with the two zeros 0 and 2, but only one extremum, at 0."
+  },
+  "check": {
+    "question": "How many extrema does f(x) = x^3 + 3x^2 + 3x + 1 have?",
+    "answer": "None.",
+    "explanation": "f(x) = (x + 1)^3, so f'(x) = 3(x + 1)^2 has the single double root -1 with no sign change. The criterion agrees: b^2 - 3ac = 9 - 9 = 0."
+  },
+  "pyqIds": [
+    "gate-2023-18-cubic-local-extrema",
+    "gate-2008-25-number-of-extrema"
+  ],
+  "prereqs": [
+    "second-derivative-test",
+    "first-derivative-test"
+  ],
+  "sources": [
+    {
+      "kind": "lecture-summary",
+      "title": "Maxima & Minima (13 min), Engineering Mathematics for GATE",
+      "channel": "Knowledge Gate (Yash Jain)",
+      "url": "https://www.knowledgegate.ai/learn/GATE-GUIDANCE-BY-SANCHIT-SIR/engineering-mathematics/calculus/maxima-and-minima/asset-maxima-minima",
+      "language": "hi",
+      "transcript": "SUMMARY_ONLY",
+      "translated": true,
+      "note": "Hindi-medium lecture; the platform's published English AI chapter summary with timestamps was read in full, the lecture itself was not. Chapters used: 0:00-2:00 local and global extrema drawn on [a,b], 2:00-5:00 the three statements S1/S2/S3, 5:00-10:00 the x^3 saddle point and the cusp maximum, 10:00-13:20 the closed-interval algorithm"
+    },
+    {
+      "kind": "lecture-transcript",
+      "title": "18.01 Single Variable Calculus, Lecture 12 (Fall 2007): maxima and minima",
+      "channel": "MIT OpenCourseWare, Prof. David Jerison",
+      "url": "https://rachel.worldpossible.org/mods/en-rachelcourses/singlevarcalculus/contents/12_Transcript.pdf",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "the full lecture transcript was read from its opening to the related-rates hand-off; the wire-into-two-squares worked example and the warning about unchecked endpoints are quoted from it, the OCW lecture 11 page being the course index entry"
+    }
+  ],
+  "sourceLine": "The counting discipline (critical points are candidates, sign change decides): Knowledge Gate 'Maxima & Minima' chapter summary at 5:00-13:20 (Hindi-medium lecture, English summary - translated) and MIT 18.01 Lecture 12 (English, read in full). The b^2 - 3ac criterion is derived and then checked against both PYQs in scripts/validate.py.",
+  "videoRefs": []
+}

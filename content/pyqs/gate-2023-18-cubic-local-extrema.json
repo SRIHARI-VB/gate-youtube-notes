@@ -1,0 +1,21 @@
+{
+  "id": "gate-2023-18-cubic-local-extrema",
+  "year": "2023",
+  "paper": "GATE CS 2023",
+  "question_ref": "Q.18",
+  "type": "MSQ",
+  "topic": "second-derivative-test",
+  "text": "Let f(x) = x^3 + 15x^2 - 33x - 36 be a real-valued function. Which of the following statements is/are TRUE?",
+  "options": [
+    "f(x) does not have a local maximum.",
+    "f(x) has a local maximum.",
+    "f(x) does not have a local minimum.",
+    "f(x) has a local minimum."
+  ],
+  "answer": "Options (B) and (D) - f has a local maximum and f has a local minimum",
+  "solution": "f'(x) = 3x^2 + 30x - 33 = 3(x^2 + 10x - 11) = 3(x+11)(x-1), so the stationary points are x = -11 and x = 1. f''(x) = 6x + 30 gives f''(1) = 36 > 0, a local minimum, and f''(-11) = -36 < 0, a local maximum. Equivalently b^2 - 3ac = 225 + 99 = 324 > 0, so a cubic has one of each.",
+  "source_url": "https://gateoverflow.in/399293/gate-cse-2023-question-18",
+  "source_label": "GATE Overflow question page - GATE CSE 2023 Q.18 with several agreeing answers (B, D)",
+  "verification": "SOURCED",
+  "answer_evidence": "Accepted answers conclude 'Option B, D' by the second-derivative test, and one of them also derives the b^2 > 3ac criterion for a cubic."
+}

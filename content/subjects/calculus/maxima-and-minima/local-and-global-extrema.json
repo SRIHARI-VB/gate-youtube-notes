@@ -1,0 +1,76 @@
+{
+  "id": "local-and-global-extrema",
+  "title": "Local and Global Extrema",
+  "priority": "P1",
+  "order": 167,
+  "unit": "Maxima and Minima",
+  "quickIdea": "A local maximum beats its own neighbourhood; a global maximum beats the whole domain. The same point can be one, both, or neither.",
+  "remember": [
+    "f has a local (relative) maximum at c if f(c) >= f(x) for every x in some open interval around c; local minimum is the same with <=.",
+    "f has a global (absolute) maximum at c if f(c) >= f(x) for every x in the whole domain under discussion; global minimum likewise.",
+    "Local compares against nearby points only; global compares against every point of the domain. A global extremum that is interior is also local; a local one need not be global.",
+    "Extremum is the collective word for a maximum or a minimum point; the extremal value is f at that point.",
+    "Whether an endpoint can be a local extremum is a definitional choice, not a theorem: many textbooks restrict local extrema to interior points, and GATE has used the wider convention (see the endpoint card)."
+  ],
+  "example": {
+    "prompt": "For f(x) = x^2 on the domain [-1, 2], name every local extremum and every global extremum.",
+    "work": "f'(x) = 2x vanishes only at x = 0. On (-1, 1) the value 0 is the smallest nearby value, so x = 0 is a local minimum, and f(0) = 0 is also the smallest value on the whole domain, so it is the global minimum too. At the right endpoint f(2) = 4, which is larger than every nearby value inside the domain, but it is not a local maximum under the interior convention because no two-sided neighbourhood of 2 lies in the domain.",
+    "answer": "Local minimum at 0 (value 0), which is also the global minimum. Global maximum 4 at x = 2, which is an endpoint and therefore not a local maximum in the interior sense."
+  },
+  "gateAngle": "GATE states extrema questions on a closed interval more often than on the whole line, and the closed interval is exactly where the local/global distinction bites. GATE CSE 1997 Q.4.1 asks for the maximum on [0,2] and the answer is at the endpoint; GATE CSE 2012 Q.9 asks for the number of local minima and the answer depends on whether the left endpoint counts.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "For f(x) = x^3 - x on [-1, 1], how many local maxima and how many local minima are there inside the open interval?",
+      "answer": "One of each: a local maximum at x = -1/sqrt(3) with value 2/(3 sqrt(3)) and a local minimum at x = 1/sqrt(3) with value -2/(3 sqrt(3)).",
+      "why": "Same recipe on a cubic whose critical points are irrational. The step that changes is only the arithmetic of f at the critical points."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Can a point be a global maximum but not a local maximum?",
+      "answer": "Yes, when the domain has an endpoint that is the highest point: f(x) = x on [0,1] has its global maximum at x = 1 and x = 1 has no two-sided neighbourhood inside the domain, so it is not a local maximum under the interior convention.",
+      "why": "It separates the two definitions from the single word 'maximum'. GATE CSE 2012 Q.9 is decided by exactly this point."
+    }
+  ],
+  "trap": {
+    "what": "Treating 'local maximum' and 'global maximum' as the same thing, or assuming the highest point of a closed interval must be a stationary point.",
+    "why": "On a closed interval the largest value is often at an endpoint, where the derivative is one-sided and need not vanish; and a local maximum can be lower than a global maximum elsewhere.",
+    "counterexample": "f(x) = x^2 on [-1, 2] has its global maximum 4 at the endpoint 2, where f'(2) = 4 is not zero, while the only stationary point gives the minimum."
+  },
+  "check": {
+    "question": "f(x) = x^3 - 3x on [-2, 2]. What is the global minimum and where is it attained?",
+    "answer": "The global minimum is -2, attained at both x = -1 and x = -2.",
+    "explanation": "f(-2) = -2, f(-1) = 2, f(1) = -2, f(2) = 2. Two points give -2: the critical point x = -1 and the left endpoint x = -2. A global minimum may be attained at more than one point."
+  },
+  "pyqIds": [
+    "gate-1997-4-1-max-on-closed-interval",
+    "gate-2012-9-sin-local-minima"
+  ],
+  "prereqs": [
+    "corners-cusps-and-max-min-functions"
+  ],
+  "sources": [
+    {
+      "kind": "lecture-summary",
+      "title": "Maxima & Minima (13 min), Engineering Mathematics for GATE",
+      "channel": "Knowledge Gate (Yash Jain)",
+      "url": "https://www.knowledgegate.ai/learn/GATE-GUIDANCE-BY-SANCHIT-SIR/engineering-mathematics/calculus/maxima-and-minima/asset-maxima-minima",
+      "language": "hi",
+      "transcript": "SUMMARY_ONLY",
+      "translated": true,
+      "note": "Hindi-medium lecture; the platform's published English AI chapter summary with timestamps was read in full, the lecture itself was not. Chapters used: 0:00-2:00 local and global extrema drawn on [a,b], 2:00-5:00 the three statements S1/S2/S3, 5:00-10:00 the x^3 saddle point and the cusp maximum, 10:00-13:20 the closed-interval algorithm"
+    },
+    {
+      "kind": "text",
+      "title": "Calculus I, section 4.3: Minimum and Maximum Values",
+      "channel": "Paul's Online Math Notes, Lamar University",
+      "url": "https://tutorial.math.lamar.edu/classes/calci/minmaxvalues.aspx",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "read in full: the four definitions, the statement that relative extrema are usually taken to be interior with an explicit note that some authors disagree, Fermat's theorem and the |x| counterexample to its converse"
+    }
+  ],
+  "sourceLine": "Definitions: Paul's Online Math Notes section 4.3 (English, read in full). GATE framing and the drawn local/global picture: Knowledge Gate 'Maxima & Minima' chapter summary at 0:00-5:00 (Hindi-medium lecture, English summary - translated). Values recomputed in scripts/validate.py.",
+  "videoRefs": []
+}
