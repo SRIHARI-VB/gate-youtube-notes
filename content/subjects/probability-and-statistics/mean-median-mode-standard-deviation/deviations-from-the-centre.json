@@ -88,5 +88,17 @@
     }
   ],
   "sourceLine": "Both minimisation identities, in the exact form used here: the IAE Academy GATE formula sheet (English). The statement that signed deviations sum to zero, the mean absolute deviation, and the two reasons for squaring: the IIT Roorkee Lecture 4 transcript (English). Why the standard deviation is preferred to the mean deviation: the NCERT class 11 chapter 13 summary in Hindi (translated).",
-  "videoRefs": []
+  "videoRefs": [],
+  "links": {
+    "visual": {
+      "slug": "probability-and-random-variables",
+      "title": "Probability, Random Variables and Distributions",
+      "level": "topic-level",
+      "url": "https://gate-visual-explainer.vercel.app/topics/probability-and-random-variables/index.html",
+      "covers": [
+        "variance as the mean squared distance from the mean"
+      ]
+    },
+    "mapped_at": "2026-10-30"
+  }
 }

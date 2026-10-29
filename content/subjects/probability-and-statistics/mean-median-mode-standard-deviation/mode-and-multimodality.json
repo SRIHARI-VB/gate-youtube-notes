@@ -85,5 +85,18 @@
     }
   ],
   "sourceLine": "The frequency definition and the bimodal and multimodal cases: the NPTEL Forest Biometry Lecture 4 transcript (English, which also shows why the mode is the one summary available for rating data) and the IIT Roorkee Lecture 4 transcript (English). The modal-class interpolation and the density reading: the IAE Academy GATE formula sheet (English).",
-  "videoRefs": []
+  "videoRefs": [],
+  "links": {
+    "visual": {
+      "slug": "probability-and-random-variables",
+      "title": "Probability, Random Variables and Distributions",
+      "level": "topic-level",
+      "url": "https://gate-visual-explainer.vercel.app/topics/probability-and-random-variables/index.html",
+      "covers": [
+        "mean, median and mode on skewed data",
+        "when np is not an integer the mode is one of the two integers beside it"
+      ]
+    },
+    "mapped_at": "2026-10-30"
+  }
 }

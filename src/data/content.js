@@ -22763,6 +22763,19 @@ window.GATE_DATA = {
    ],
    "sourceLine": "The grouped mean as a weighted mean of midpoints, the balance-point identity and the monotonicity of the mean: the IAE Academy GATE formula sheet (English) and the IIT Roorkee Lecture 4 transcript (English). The question numbering for both PYQs: GATE Overflow Volume 1, chapter 7 (English).",
    "videoRefs": [],
+   "links": {
+    "visual": {
+     "slug": "probability-and-random-variables",
+     "title": "Probability, Random Variables and Distributions",
+     "level": "topic-level",
+     "url": "https://gate-visual-explainer.vercel.app/topics/probability-and-random-variables/index.html",
+     "covers": [
+      "expectation as a probability-weighted average",
+      "expectation as a balance point"
+     ]
+    },
+    "mapped_at": "2026-10-30"
+   },
    "subject": "probability-and-statistics",
    "topic": "mean-median-mode-standard-deviation",
    "path": "subjects/probability-and-statistics/mean-median-mode-standard-deviation/mean-of-a-data-set.json"
@@ -22855,6 +22868,19 @@ window.GATE_DATA = {
    ],
    "sourceLine": "The (n+1)/2 position rule, the even-n average and the robustness argument: the IAE Academy GATE formula sheet (English), the NPTEL Forest Biometry Lecture 4 transcript (English, which works the retirement-age example where adding a 20 moves the mean far and the median by half a year) and the GATE Overflow statistics notes (English).",
    "videoRefs": [],
+   "links": {
+    "visual": {
+     "slug": "probability-and-random-variables",
+     "title": "Probability, Random Variables and Distributions",
+     "level": "topic-level",
+     "url": "https://gate-visual-explainer.vercel.app/topics/probability-and-random-variables/index.html",
+     "covers": [
+      "mean, median and mode on skewed data",
+      "the median of a distribution with an atom at zero"
+     ]
+    },
+    "mapped_at": "2026-10-30"
+   },
    "subject": "probability-and-statistics",
    "topic": "mean-median-mode-standard-deviation",
    "path": "subjects/probability-and-statistics/mean-median-mode-standard-deviation/median-and-its-position.json"
@@ -22947,6 +22973,19 @@ window.GATE_DATA = {
    ],
    "sourceLine": "The frequency definition and the bimodal and multimodal cases: the NPTEL Forest Biometry Lecture 4 transcript (English, which also shows why the mode is the one summary available for rating data) and the IIT Roorkee Lecture 4 transcript (English). The modal-class interpolation and the density reading: the IAE Academy GATE formula sheet (English).",
    "videoRefs": [],
+   "links": {
+    "visual": {
+     "slug": "probability-and-random-variables",
+     "title": "Probability, Random Variables and Distributions",
+     "level": "topic-level",
+     "url": "https://gate-visual-explainer.vercel.app/topics/probability-and-random-variables/index.html",
+     "covers": [
+      "mean, median and mode on skewed data",
+      "when np is not an integer the mode is one of the two integers beside it"
+     ]
+    },
+    "mapped_at": "2026-10-30"
+   },
    "subject": "probability-and-statistics",
    "topic": "mean-median-mode-standard-deviation",
    "path": "subjects/probability-and-statistics/mean-median-mode-standard-deviation/mode-and-multimodality.json"
@@ -23043,6 +23082,19 @@ window.GATE_DATA = {
    ],
    "sourceLine": "The symmetric case and the tail direction: OpenStax Introductory Statistics 2e section 2.6 (English), which works a symmetrical histogram where all three are seven and two skewed ones. The empirical relation median minus mode equals twice mean minus median, and the caution attached to it: the NPTEL Forest Biometry Lecture 4 transcript (English). The GATE framing: the GATE Overflow statistics notes (English).",
    "videoRefs": [],
+   "links": {
+    "visual": {
+     "slug": "probability-and-random-variables",
+     "title": "Probability, Random Variables and Distributions",
+     "level": "topic-level",
+     "url": "https://gate-visual-explainer.vercel.app/topics/probability-and-random-variables/index.html",
+     "covers": [
+      "mean, median and mode on skewed data",
+      "for skewed data the mean runs towards the tail and the median does not"
+     ]
+    },
+    "mapped_at": "2026-10-30"
+   },
    "subject": "probability-and-statistics",
    "topic": "mean-median-mode-standard-deviation",
    "path": "subjects/probability-and-statistics/mean-median-mode-standard-deviation/mean-median-mode-relation-and-skewness.json"
@@ -23253,6 +23305,19 @@ window.GATE_DATA = {
    ],
    "sourceLine": "The two divisors, the frequency forms and the statement that the standard deviation is positive or zero: OpenStax Introductory Statistics 2e section 2.7 (English). The shortcut form and the population against sample relation: the IAE Academy GATE formula sheet (English). Variance as the mean of the squared deviations with the standard deviation as its positive root, and why dispersion is needed at all: the NCERT class 11 chapter 13 summary in Hindi (translated).",
    "videoRefs": [],
+   "links": {
+    "visual": {
+     "slug": "probability-and-random-variables",
+     "title": "Probability, Random Variables and Distributions",
+     "level": "topic-level",
+     "url": "https://gate-visual-explainer.vercel.app/topics/probability-and-random-variables/index.html",
+     "covers": [
+      "variance as E[X^2] - (E[X])^2",
+      "the standard deviation as the square root of the variance"
+     ]
+    },
+    "mapped_at": "2026-10-30"
+   },
    "subject": "probability-and-statistics",
    "topic": "mean-median-mode-standard-deviation",
    "path": "subjects/probability-and-statistics/mean-median-mode-standard-deviation/variance-and-standard-deviation-of-data.json"
@@ -23462,6 +23527,18 @@ window.GATE_DATA = {
    ],
    "sourceLine": "Both minimisation identities, in the exact form used here: the IAE Academy GATE formula sheet (English). The statement that signed deviations sum to zero, the mean absolute deviation, and the two reasons for squaring: the IIT Roorkee Lecture 4 transcript (English). Why the standard deviation is preferred to the mean deviation: the NCERT class 11 chapter 13 summary in Hindi (translated).",
    "videoRefs": [],
+   "links": {
+    "visual": {
+     "slug": "probability-and-random-variables",
+     "title": "Probability, Random Variables and Distributions",
+     "level": "topic-level",
+     "url": "https://gate-visual-explainer.vercel.app/topics/probability-and-random-variables/index.html",
+     "covers": [
+      "variance as the mean squared distance from the mean"
+     ]
+    },
+    "mapped_at": "2026-10-30"
+   },
    "subject": "probability-and-statistics",
    "topic": "mean-median-mode-standard-deviation",
    "path": "subjects/probability-and-statistics/mean-median-mode-standard-deviation/deviations-from-the-centre.json"
@@ -23559,6 +23636,19 @@ window.GATE_DATA = {
    ],
    "sourceLine": "The two-condition median definition, the F(m) = 1/2 continuous case and the exponential example: the IAE Academy GATE formula sheet (English). The symmetric case where the three coincide: OpenStax Introductory Statistics 2e section 2.6 (English). The question and its numbering: GATE Overflow Volume 1 chapter 7 and the GATE Overflow question page (English).",
    "videoRefs": [],
+   "links": {
+    "visual": {
+     "slug": "probability-and-random-variables",
+     "title": "Probability, Random Variables and Distributions",
+     "level": "topic-level",
+     "url": "https://gate-visual-explainer.vercel.app/topics/probability-and-random-variables/index.html",
+     "covers": [
+      "the median of a distribution with an atom at zero",
+      "when np is not an integer the mode is one of the two integers beside it"
+     ]
+    },
+    "mapped_at": "2026-10-30"
+   },
    "subject": "probability-and-statistics",
    "topic": "mean-median-mode-standard-deviation",
    "path": "subjects/probability-and-statistics/mean-median-mode-standard-deviation/median-and-mode-of-a-random-variable.json"
@@ -23656,6 +23746,18 @@ window.GATE_DATA = {
    ],
    "sourceLine": "The binomial and Poisson standard deviations and the Bernoulli special case: the GATE Overflow probability notes, Statistics section (English), and the GATE Overflow Volume 1 chapter 7 (English) for the question numbering. The statement that a standard deviation is the positive root of an average of squared deviations: OpenStax Introductory Statistics 2e section 2.7 (English).",
    "videoRefs": [],
+   "links": {
+    "visual": {
+     "slug": "probability-and-random-variables",
+     "title": "Probability, Random Variables and Distributions",
+     "level": "topic-level",
+     "url": "https://gate-visual-explainer.vercel.app/topics/probability-and-random-variables/index.html",
+     "covers": [
+      "binomial mean np and variance np(1-p)"
+     ]
+    },
+    "mapped_at": "2026-10-30"
+   },
    "subject": "probability-and-statistics",
    "topic": "mean-median-mode-standard-deviation",
    "path": "subjects/probability-and-statistics/mean-median-mode-standard-deviation/standard-deviation-of-a-count.json"
@@ -23848,6 +23950,18 @@ window.GATE_DATA = {
    ],
    "sourceLine": "The coefficient of variation as the unitless comparison and the definition of the population and sample standard deviations: the IAE Academy GATE formula sheet (English) and OpenStax Introductory Statistics 2e section 2.7 (English). Why a measure of centre alone does not describe a distribution: the NCERT class 11 chapter 13 summary in Hindi (translated).",
    "videoRefs": [],
+   "links": {
+    "visual": {
+     "slug": "probability-and-random-variables",
+     "title": "Probability, Random Variables and Distributions",
+     "level": "topic-level",
+     "url": "https://gate-visual-explainer.vercel.app/topics/probability-and-random-variables/index.html",
+     "covers": [
+      "mean, median and mode are three different questions: balance, middle, peak"
+     ]
+    },
+    "mapped_at": "2026-10-30"
+   },
    "subject": "probability-and-statistics",
    "topic": "mean-median-mode-standard-deviation",
    "path": "subjects/probability-and-statistics/mean-median-mode-standard-deviation/choosing-the-summary-and-reading-units.json"

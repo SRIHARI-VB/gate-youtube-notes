@@ -85,5 +85,18 @@
     }
   ],
   "sourceLine": "The (n+1)/2 position rule, the even-n average and the robustness argument: the IAE Academy GATE formula sheet (English), the NPTEL Forest Biometry Lecture 4 transcript (English, which works the retirement-age example where adding a 20 moves the mean far and the median by half a year) and the GATE Overflow statistics notes (English).",
-  "videoRefs": []
+  "videoRefs": [],
+  "links": {
+    "visual": {
+      "slug": "probability-and-random-variables",
+      "title": "Probability, Random Variables and Distributions",
+      "level": "topic-level",
+      "url": "https://gate-visual-explainer.vercel.app/topics/probability-and-random-variables/index.html",
+      "covers": [
+        "mean, median and mode on skewed data",
+        "the median of a distribution with an atom at zero"
+      ]
+    },
+    "mapped_at": "2026-10-30"
+  }
 }

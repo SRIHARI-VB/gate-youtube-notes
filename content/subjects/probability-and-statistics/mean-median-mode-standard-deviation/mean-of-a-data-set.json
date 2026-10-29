@@ -88,5 +88,18 @@
     }
   ],
   "sourceLine": "The grouped mean as a weighted mean of midpoints, the balance-point identity and the monotonicity of the mean: the IAE Academy GATE formula sheet (English) and the IIT Roorkee Lecture 4 transcript (English). The question numbering for both PYQs: GATE Overflow Volume 1, chapter 7 (English).",
-  "videoRefs": []
+  "videoRefs": [],
+  "links": {
+    "visual": {
+      "slug": "probability-and-random-variables",
+      "title": "Probability, Random Variables and Distributions",
+      "level": "topic-level",
+      "url": "https://gate-visual-explainer.vercel.app/topics/probability-and-random-variables/index.html",
+      "covers": [
+        "expectation as a probability-weighted average",
+        "expectation as a balance point"
+      ]
+    },
+    "mapped_at": "2026-10-30"
+  }
 }

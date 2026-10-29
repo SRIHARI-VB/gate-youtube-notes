@@ -89,5 +89,17 @@
     }
   ],
   "sourceLine": "The coefficient of variation as the unitless comparison and the definition of the population and sample standard deviations: the IAE Academy GATE formula sheet (English) and OpenStax Introductory Statistics 2e section 2.7 (English). Why a measure of centre alone does not describe a distribution: the NCERT class 11 chapter 13 summary in Hindi (translated).",
-  "videoRefs": []
+  "videoRefs": [],
+  "links": {
+    "visual": {
+      "slug": "probability-and-random-variables",
+      "title": "Probability, Random Variables and Distributions",
+      "level": "topic-level",
+      "url": "https://gate-visual-explainer.vercel.app/topics/probability-and-random-variables/index.html",
+      "covers": [
+        "mean, median and mode are three different questions: balance, middle, peak"
+      ]
+    },
+    "mapped_at": "2026-10-30"
+  }
 }

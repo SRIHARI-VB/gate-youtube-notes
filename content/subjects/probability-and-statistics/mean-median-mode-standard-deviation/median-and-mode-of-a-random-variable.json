@@ -90,5 +90,18 @@
     }
   ],
   "sourceLine": "The two-condition median definition, the F(m) = 1/2 continuous case and the exponential example: the IAE Academy GATE formula sheet (English). The symmetric case where the three coincide: OpenStax Introductory Statistics 2e section 2.6 (English). The question and its numbering: GATE Overflow Volume 1 chapter 7 and the GATE Overflow question page (English).",
-  "videoRefs": []
+  "videoRefs": [],
+  "links": {
+    "visual": {
+      "slug": "probability-and-random-variables",
+      "title": "Probability, Random Variables and Distributions",
+      "level": "topic-level",
+      "url": "https://gate-visual-explainer.vercel.app/topics/probability-and-random-variables/index.html",
+      "covers": [
+        "the median of a distribution with an atom at zero",
+        "when np is not an integer the mode is one of the two integers beside it"
+      ]
+    },
+    "mapped_at": "2026-10-30"
+  }
 }

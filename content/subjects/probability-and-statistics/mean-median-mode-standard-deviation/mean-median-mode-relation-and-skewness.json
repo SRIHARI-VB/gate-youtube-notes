@@ -89,5 +89,18 @@
     }
   ],
   "sourceLine": "The symmetric case and the tail direction: OpenStax Introductory Statistics 2e section 2.6 (English), which works a symmetrical histogram where all three are seven and two skewed ones. The empirical relation median minus mode equals twice mean minus median, and the caution attached to it: the NPTEL Forest Biometry Lecture 4 transcript (English). The GATE framing: the GATE Overflow statistics notes (English).",
-  "videoRefs": []
+  "videoRefs": [],
+  "links": {
+    "visual": {
+      "slug": "probability-and-random-variables",
+      "title": "Probability, Random Variables and Distributions",
+      "level": "topic-level",
+      "url": "https://gate-visual-explainer.vercel.app/topics/probability-and-random-variables/index.html",
+      "covers": [
+        "mean, median and mode on skewed data",
+        "for skewed data the mean runs towards the tail and the median does not"
+      ]
+    },
+    "mapped_at": "2026-10-30"
+  }
 }

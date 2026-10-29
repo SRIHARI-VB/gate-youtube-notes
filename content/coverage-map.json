@@ -1,6 +1,6 @@
 {
   "generated_by": "gate-content-mapper",
-  "generated_at": "2026-10-29",
+  "generated_at": "2026-10-30",
   "playlists": [
     {
       "playlist_id": "PLIPZ2_p3RNHidhFvyKH4U_VE1rFAyvG8U",
@@ -6191,6 +6191,378 @@
     },
     {
       "subject": "probability-and-statistics",
+      "group": "mean-median-mode-standard-deviation",
+      "topic": "mean-of-a-data-set",
+      "title": "The Arithmetic Mean and the Balance Point",
+      "priority": "P1",
+      "path": "subjects/probability-and-statistics/mean-median-mode-standard-deviation/mean-of-a-data-set.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "engineering-mathematics",
+        "unit_slug": "probability-distributions",
+        "unit_name": "Continuous Probability & Distributions",
+        "unit_number": 5,
+        "question_count": 0,
+        "subtopic_labels": [],
+        "verdict": "MOCK_UNIT_EMPTY"
+      },
+      "visual": {
+        "slug": "probability-and-random-variables",
+        "title": "Probability, Random Variables and Distributions",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/probability-and-statistics/mean-median-mode-standard-deviation/mean-of-a-data-set.json",
+        "mock: gate-cse-mocks engineering-mathematics/question-bank/master_bank.json holds 0 records for unit 5 probability-distributions; README.md Engineering Mathematics unit table lists it as 'Continuous Probability & Distributions' with 0 questions, so MOCK_UNIT_EMPTY and no mock is written on the card",
+        "card map[] videos[] is empty and the card quotes no lecture, so transcript_status is not stated",
+        "visual: gate-visual-explainer syllabus-coverage.json lesson_slug probability-and-random-variables (PUBLISHED, Engineering Mathematics -> Probability and statistics); covers checked against topics/probability-and-random-variables/transcript.md scenes 5-7, not the alias list"
+      ],
+      "row_verdict": "VISUAL_ONLY"
+    },
+    {
+      "subject": "probability-and-statistics",
+      "group": "mean-median-mode-standard-deviation",
+      "topic": "median-and-its-position",
+      "title": "The Median and Its Position",
+      "priority": "P1",
+      "path": "subjects/probability-and-statistics/mean-median-mode-standard-deviation/median-and-its-position.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "engineering-mathematics",
+        "unit_slug": "probability-distributions",
+        "unit_name": "Continuous Probability & Distributions",
+        "unit_number": 5,
+        "question_count": 0,
+        "subtopic_labels": [],
+        "verdict": "MOCK_UNIT_EMPTY"
+      },
+      "visual": {
+        "slug": "probability-and-random-variables",
+        "title": "Probability, Random Variables and Distributions",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/probability-and-statistics/mean-median-mode-standard-deviation/median-and-its-position.json",
+        "mock: gate-cse-mocks engineering-mathematics/question-bank/master_bank.json holds 0 records for unit 5 probability-distributions; README.md Engineering Mathematics unit table lists it as 'Continuous Probability & Distributions' with 0 questions, so MOCK_UNIT_EMPTY and no mock is written on the card",
+        "card map[] videos[] is empty and the card quotes no lecture, so transcript_status is not stated",
+        "visual: gate-visual-explainer syllabus-coverage.json lesson_slug probability-and-random-variables (PUBLISHED, Engineering Mathematics -> Probability and statistics); covers checked against topics/probability-and-random-variables/transcript.md scenes 5-7, not the alias list"
+      ],
+      "row_verdict": "VISUAL_ONLY"
+    },
+    {
+      "subject": "probability-and-statistics",
+      "group": "mean-median-mode-standard-deviation",
+      "topic": "mode-and-multimodality",
+      "title": "The Mode, Ties and Non-Numeric Data",
+      "priority": "P2",
+      "path": "subjects/probability-and-statistics/mean-median-mode-standard-deviation/mode-and-multimodality.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "engineering-mathematics",
+        "unit_slug": "probability-distributions",
+        "unit_name": "Continuous Probability & Distributions",
+        "unit_number": 5,
+        "question_count": 0,
+        "subtopic_labels": [],
+        "verdict": "MOCK_UNIT_EMPTY"
+      },
+      "visual": {
+        "slug": "probability-and-random-variables",
+        "title": "Probability, Random Variables and Distributions",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/probability-and-statistics/mean-median-mode-standard-deviation/mode-and-multimodality.json",
+        "mock: gate-cse-mocks engineering-mathematics/question-bank/master_bank.json holds 0 records for unit 5 probability-distributions; README.md Engineering Mathematics unit table lists it as 'Continuous Probability & Distributions' with 0 questions, so MOCK_UNIT_EMPTY and no mock is written on the card",
+        "card map[] videos[] is empty and the card quotes no lecture, so transcript_status is not stated",
+        "visual: gate-visual-explainer syllabus-coverage.json lesson_slug probability-and-random-variables (PUBLISHED, Engineering Mathematics -> Probability and statistics); covers checked against topics/probability-and-random-variables/transcript.md scenes 5-7, not the alias list"
+      ],
+      "row_verdict": "VISUAL_ONLY"
+    },
+    {
+      "subject": "probability-and-statistics",
+      "group": "mean-median-mode-standard-deviation",
+      "topic": "mean-median-mode-relation-and-skewness",
+      "title": "How Mean, Median and Mode Sit Together",
+      "priority": "P2",
+      "path": "subjects/probability-and-statistics/mean-median-mode-standard-deviation/mean-median-mode-relation-and-skewness.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "engineering-mathematics",
+        "unit_slug": "probability-distributions",
+        "unit_name": "Continuous Probability & Distributions",
+        "unit_number": 5,
+        "question_count": 0,
+        "subtopic_labels": [],
+        "verdict": "MOCK_UNIT_EMPTY"
+      },
+      "visual": {
+        "slug": "probability-and-random-variables",
+        "title": "Probability, Random Variables and Distributions",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/probability-and-statistics/mean-median-mode-standard-deviation/mean-median-mode-relation-and-skewness.json",
+        "mock: gate-cse-mocks engineering-mathematics/question-bank/master_bank.json holds 0 records for unit 5 probability-distributions; README.md Engineering Mathematics unit table lists it as 'Continuous Probability & Distributions' with 0 questions, so MOCK_UNIT_EMPTY and no mock is written on the card",
+        "card map[] videos[] is empty and the card quotes no lecture, so transcript_status is not stated",
+        "visual: gate-visual-explainer syllabus-coverage.json lesson_slug probability-and-random-variables (PUBLISHED, Engineering Mathematics -> Probability and statistics); covers checked against topics/probability-and-random-variables/transcript.md scenes 5-7, not the alias list"
+      ],
+      "row_verdict": "VISUAL_ONLY"
+    },
+    {
+      "subject": "probability-and-statistics",
+      "group": "mean-median-mode-standard-deviation",
+      "topic": "grouped-frequency-table-measures",
+      "title": "Mean, Median and Mode from a Grouped Table",
+      "priority": "P2",
+      "path": "subjects/probability-and-statistics/mean-median-mode-standard-deviation/grouped-frequency-table-measures.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "engineering-mathematics",
+        "unit_slug": "probability-distributions",
+        "unit_name": "Continuous Probability & Distributions",
+        "unit_number": 5,
+        "question_count": 0,
+        "subtopic_labels": [],
+        "verdict": "MOCK_UNIT_EMPTY"
+      },
+      "visual": null,
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/probability-and-statistics/mean-median-mode-standard-deviation/grouped-frequency-table-measures.json",
+        "mock: gate-cse-mocks engineering-mathematics/question-bank/master_bank.json holds 0 records for unit 5 probability-distributions; README.md Engineering Mathematics unit table lists it as 'Continuous Probability & Distributions' with 0 questions, so MOCK_UNIT_EMPTY and no mock is written on the card",
+        "card map[] videos[] is empty and the card quotes no lecture, so transcript_status is not stated",
+        "visual: no published lesson covers this subtopic - checked against topics/probability-and-random-variables/transcript.md scenes 5-7 (the only published lesson with mean, median, mode or standard-deviation content)"
+      ],
+      "row_verdict": "NEITHER"
+    },
+    {
+      "subject": "probability-and-statistics",
+      "group": "mean-median-mode-standard-deviation",
+      "topic": "variance-and-standard-deviation-of-data",
+      "title": "Variance and Standard Deviation of a Data Set",
+      "priority": "P1",
+      "path": "subjects/probability-and-statistics/mean-median-mode-standard-deviation/variance-and-standard-deviation-of-data.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "engineering-mathematics",
+        "unit_slug": "probability-distributions",
+        "unit_name": "Continuous Probability & Distributions",
+        "unit_number": 5,
+        "question_count": 0,
+        "subtopic_labels": [],
+        "verdict": "MOCK_UNIT_EMPTY"
+      },
+      "visual": {
+        "slug": "probability-and-random-variables",
+        "title": "Probability, Random Variables and Distributions",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/probability-and-statistics/mean-median-mode-standard-deviation/variance-and-standard-deviation-of-data.json",
+        "mock: gate-cse-mocks engineering-mathematics/question-bank/master_bank.json holds 0 records for unit 5 probability-distributions; README.md Engineering Mathematics unit table lists it as 'Continuous Probability & Distributions' with 0 questions, so MOCK_UNIT_EMPTY and no mock is written on the card",
+        "card map[] videos[] is empty and the card quotes no lecture, so transcript_status is not stated",
+        "visual: gate-visual-explainer syllabus-coverage.json lesson_slug probability-and-random-variables (PUBLISHED, Engineering Mathematics -> Probability and statistics); covers checked against topics/probability-and-random-variables/transcript.md scenes 5-7, not the alias list"
+      ],
+      "row_verdict": "VISUAL_ONLY"
+    },
+    {
+      "subject": "probability-and-statistics",
+      "group": "mean-median-mode-standard-deviation",
+      "topic": "standard-deviation-under-shift-and-scale",
+      "title": "What a Shift and a Scale Do to the Four Summaries",
+      "priority": "P1",
+      "path": "subjects/probability-and-statistics/mean-median-mode-standard-deviation/standard-deviation-under-shift-and-scale.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "engineering-mathematics",
+        "unit_slug": "probability-distributions",
+        "unit_name": "Continuous Probability & Distributions",
+        "unit_number": 5,
+        "question_count": 0,
+        "subtopic_labels": [],
+        "verdict": "MOCK_UNIT_EMPTY"
+      },
+      "visual": {
+        "slug": "mean-median-and-spread",
+        "title": "The Mean, the Median and the Spread Under a Shift and a Scale",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/probability-and-statistics/mean-median-mode-standard-deviation/standard-deviation-under-shift-and-scale.json",
+        "mock: gate-cse-mocks engineering-mathematics/question-bank/master_bank.json holds 0 records for unit 5 probability-distributions; README.md Engineering Mathematics unit table lists it as 'Continuous Probability & Distributions' with 0 questions, so MOCK_UNIT_EMPTY and no mock is written on the card",
+        "card map[] videos[] is empty and the card quotes no lecture, so transcript_status is not stated",
+        "visual: gate-visual-explainer syllabus-coverage.json lesson_slug probability-and-random-variables (PUBLISHED, Engineering Mathematics -> Probability and statistics); covers checked against topics/probability-and-random-variables/transcript.md scenes 5-7, not the alias list"
+      ],
+      "row_verdict": "VISUAL_ONLY"
+    },
+    {
+      "subject": "probability-and-statistics",
+      "group": "mean-median-mode-standard-deviation",
+      "topic": "deviations-from-the-centre",
+      "title": "Why Squaring Gives the Mean and Absolute Values Give the Median",
+      "priority": "P2",
+      "path": "subjects/probability-and-statistics/mean-median-mode-standard-deviation/deviations-from-the-centre.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "engineering-mathematics",
+        "unit_slug": "probability-distributions",
+        "unit_name": "Continuous Probability & Distributions",
+        "unit_number": 5,
+        "question_count": 0,
+        "subtopic_labels": [],
+        "verdict": "MOCK_UNIT_EMPTY"
+      },
+      "visual": {
+        "slug": "probability-and-random-variables",
+        "title": "Probability, Random Variables and Distributions",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/probability-and-statistics/mean-median-mode-standard-deviation/deviations-from-the-centre.json",
+        "mock: gate-cse-mocks engineering-mathematics/question-bank/master_bank.json holds 0 records for unit 5 probability-distributions; README.md Engineering Mathematics unit table lists it as 'Continuous Probability & Distributions' with 0 questions, so MOCK_UNIT_EMPTY and no mock is written on the card",
+        "card map[] videos[] is empty and the card quotes no lecture, so transcript_status is not stated",
+        "visual: gate-visual-explainer syllabus-coverage.json lesson_slug probability-and-random-variables (PUBLISHED, Engineering Mathematics -> Probability and statistics); covers checked against topics/probability-and-random-variables/transcript.md scenes 5-7, not the alias list"
+      ],
+      "row_verdict": "VISUAL_ONLY"
+    },
+    {
+      "subject": "probability-and-statistics",
+      "group": "mean-median-mode-standard-deviation",
+      "topic": "median-and-mode-of-a-random-variable",
+      "title": "The Median and the Mode of a Random Variable",
+      "priority": "P2",
+      "path": "subjects/probability-and-statistics/mean-median-mode-standard-deviation/median-and-mode-of-a-random-variable.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "engineering-mathematics",
+        "unit_slug": "probability-distributions",
+        "unit_name": "Continuous Probability & Distributions",
+        "unit_number": 5,
+        "question_count": 0,
+        "subtopic_labels": [],
+        "verdict": "MOCK_UNIT_EMPTY"
+      },
+      "visual": {
+        "slug": "probability-and-random-variables",
+        "title": "Probability, Random Variables and Distributions",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/probability-and-statistics/mean-median-mode-standard-deviation/median-and-mode-of-a-random-variable.json",
+        "mock: gate-cse-mocks engineering-mathematics/question-bank/master_bank.json holds 0 records for unit 5 probability-distributions; README.md Engineering Mathematics unit table lists it as 'Continuous Probability & Distributions' with 0 questions, so MOCK_UNIT_EMPTY and no mock is written on the card",
+        "card map[] videos[] is empty and the card quotes no lecture, so transcript_status is not stated",
+        "visual: gate-visual-explainer syllabus-coverage.json lesson_slug probability-and-random-variables (PUBLISHED, Engineering Mathematics -> Probability and statistics); covers checked against topics/probability-and-random-variables/transcript.md scenes 5-7, not the alias list"
+      ],
+      "row_verdict": "VISUAL_ONLY"
+    },
+    {
+      "subject": "probability-and-statistics",
+      "group": "mean-median-mode-standard-deviation",
+      "topic": "standard-deviation-of-a-count",
+      "title": "The Standard Deviation of a Count",
+      "priority": "P1",
+      "path": "subjects/probability-and-statistics/mean-median-mode-standard-deviation/standard-deviation-of-a-count.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "engineering-mathematics",
+        "unit_slug": "probability-distributions",
+        "unit_name": "Continuous Probability & Distributions",
+        "unit_number": 5,
+        "question_count": 0,
+        "subtopic_labels": [],
+        "verdict": "MOCK_UNIT_EMPTY"
+      },
+      "visual": {
+        "slug": "probability-and-random-variables",
+        "title": "Probability, Random Variables and Distributions",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/probability-and-statistics/mean-median-mode-standard-deviation/standard-deviation-of-a-count.json",
+        "mock: gate-cse-mocks engineering-mathematics/question-bank/master_bank.json holds 0 records for unit 5 probability-distributions; README.md Engineering Mathematics unit table lists it as 'Continuous Probability & Distributions' with 0 questions, so MOCK_UNIT_EMPTY and no mock is written on the card",
+        "card map[] videos[] is empty and the card quotes no lecture, so transcript_status is not stated",
+        "visual: gate-visual-explainer syllabus-coverage.json lesson_slug probability-and-random-variables (PUBLISHED, Engineering Mathematics -> Probability and statistics); covers checked against topics/probability-and-random-variables/transcript.md scenes 5-7, not the alias list"
+      ],
+      "row_verdict": "VISUAL_ONLY"
+    },
+    {
+      "subject": "probability-and-statistics",
+      "group": "mean-median-mode-standard-deviation",
+      "topic": "effect-of-one-observation-and-combined-groups",
+      "title": "One Changed Value, and Combining Two Groups",
+      "priority": "P2",
+      "path": "subjects/probability-and-statistics/mean-median-mode-standard-deviation/effect-of-one-observation-and-combined-groups.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "engineering-mathematics",
+        "unit_slug": "probability-distributions",
+        "unit_name": "Continuous Probability & Distributions",
+        "unit_number": 5,
+        "question_count": 0,
+        "subtopic_labels": [],
+        "verdict": "MOCK_UNIT_EMPTY"
+      },
+      "visual": null,
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/probability-and-statistics/mean-median-mode-standard-deviation/effect-of-one-observation-and-combined-groups.json",
+        "mock: gate-cse-mocks engineering-mathematics/question-bank/master_bank.json holds 0 records for unit 5 probability-distributions; README.md Engineering Mathematics unit table lists it as 'Continuous Probability & Distributions' with 0 questions, so MOCK_UNIT_EMPTY and no mock is written on the card",
+        "card map[] videos[] is empty and the card quotes no lecture, so transcript_status is not stated",
+        "visual: no published lesson covers this subtopic - checked against topics/probability-and-random-variables/transcript.md scenes 5-7 (the only published lesson with mean, median, mode or standard-deviation content)"
+      ],
+      "row_verdict": "NEITHER"
+    },
+    {
+      "subject": "probability-and-statistics",
+      "group": "mean-median-mode-standard-deviation",
+      "topic": "choosing-the-summary-and-reading-units",
+      "title": "Which Summary to Quote, and What the Units Are",
+      "priority": "P3",
+      "path": "subjects/probability-and-statistics/mean-median-mode-standard-deviation/choosing-the-summary-and-reading-units.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "engineering-mathematics",
+        "unit_slug": "probability-distributions",
+        "unit_name": "Continuous Probability & Distributions",
+        "unit_number": 5,
+        "question_count": 0,
+        "subtopic_labels": [],
+        "verdict": "MOCK_UNIT_EMPTY"
+      },
+      "visual": {
+        "slug": "probability-and-random-variables",
+        "title": "Probability, Random Variables and Distributions",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/probability-and-statistics/mean-median-mode-standard-deviation/choosing-the-summary-and-reading-units.json",
+        "mock: gate-cse-mocks engineering-mathematics/question-bank/master_bank.json holds 0 records for unit 5 probability-distributions; README.md Engineering Mathematics unit table lists it as 'Continuous Probability & Distributions' with 0 questions, so MOCK_UNIT_EMPTY and no mock is written on the card",
+        "card map[] videos[] is empty and the card quotes no lecture, so transcript_status is not stated",
+        "visual: gate-visual-explainer syllabus-coverage.json lesson_slug probability-and-random-variables (PUBLISHED, Engineering Mathematics -> Probability and statistics); covers checked against topics/probability-and-random-variables/transcript.md scenes 5-7, not the alias list"
+      ],
+      "row_verdict": "VISUAL_ONLY"
+    },
+    {
+      "subject": "probability-and-statistics",
       "group": "random-variables-and-distributions",
       "topic": "random-variable-as-a-function",
       "title": "The Random Variable as a Function",
@@ -7020,6 +7392,21 @@
       "kind": "notes",
       "placement": "compiler-design › code-optimisation-local › (no card)",
       "detail": "New lesson topics/local-optimisation-and-basic-blocks (gate-visual-explainer commit accef8a4, 2026-10-29; topics.json entry created/updated 2026-10-29; syllabus-coverage.json subject Compiler Design, unit 'Code optimisation: local optimisation (Section 7)', coverage_status PUBLISHED, 8 subtopics and 34 microtopics, 10 scenes / 30 caption segments). Its transcript.md was read, not its alias list: the scenes cover the basic block as a maximal straight-line run, the three leader rules, the CFG with one node per block and an edge per jump and fall-through, the DAG of a block by value numbering, the six local rewrites, dead-code elimination with the side-effect guard, soundness witnesses, and where local stops and data-flow analysis begins. The notes repo has no compiler-design subject (content/index.json map[] carries discrete-mathematics, linear-algebra, calculus and probability-and-statistics only), so no card serves it. The matching mock ground already exists: Compiler Design Unit 5 'Runtime Environments & Code Optimization' (unit_slug runtime-code-optimization) holds 25 questions as of run 9 (2026-10-29, paper compiler-design/runtime-code-optimization/gate_cd_mock_5_2026-10-29.html) over four groups counted from the subtopic field, since this bank carries no subtopic_label: basic-blocks-and-flow-graphs 7, local-and-loop-optimizations 6, activation-records-call-stack 6, data-flow-analysis-liveness 6. The first two are exactly this lesson's ground at topic-level. Recommendation: write content/subjects/compiler-design/code-optimisation-local/local-optimisation-and-basic-blocks.json as the first card of that subject, then its links.mock is unit_slug runtime-code-optimization and its links.visual is slug local-optimisation-and-basic-blocks."
+    },
+    {
+      "kind": "notes",
+      "placement": "operating-systems › synchronization-ipc › (no card)",
+      "detail": "Mock change this hour: Operating Systems Unit 2 'Inter-Process Communication & Synchronization' (unit_slug synchronization-ipc, unit_number 2) took a new paper operating-systems/synchronization-ipc/gate_os_mock_2_2026-10-30.html at run 14. operating-systems/question-bank/master_bank.json holds 75 records for the unit, grouped by the subtopic field: semaphores-binary-counting 20, classic-problems-dining-philosophers-producer-consumer 19, critical-section-problem-peterson 18, hardware-primitives-test-and-set 18. The gate-youtube-notes index.json holds 202 cards in four subjects (discrete-mathematics, calculus, linear-algebra, probability-and-statistics) and no operating-systems subject, so no card can serve this unit. The published lesson topics/synchronisation-and-deadlock already covers all four subtopics. Recommendation: write the notes cards under content/subjects/operating-systems/synchronization-ipc/ against the lesson slug synchronisation-and-deadlock."
+    },
+    {
+      "kind": "notes",
+      "placement": "programming-data-structures › data-structures › graph-representations",
+      "detail": "Lesson change this hour: gate-visual-explainer published topics/graph-representations (syllabus-coverage.json lesson_slug graph-representations, coverage_status PUBLISHED, subject Programming and Data Structures, unit Data structures, topic 'Graphs as a data structure: matrix, list and incidence') with 10 scenes in topics/graph-representations/transcript.md: adjacency matrix and symmetry, adjacency list and twin pointers, edge list, incidence matrix, space n^2 against n + 2m, A^k walk counting. No notes card serves it: the notes repo has no programming-data-structures subject, and the only cards mentioning adjacency are discrete-mathematics/graphs/graph-vocabulary-and-degree-sum and bipartite-graphs-and-odd-cycles, whose content is the handshake lemma and the odd-cycle criterion, not representation. Recommendation: write content/subjects/programming-data-structures/data-structures/graph-representations.json (plus its subtopic cards) so the lesson slug graph-representations has a spine."
+    },
+    {
+      "kind": "mock",
+      "placement": "engineering-mathematics › probability-distributions › (unit 5, 0 questions)",
+      "detail": "The twelve mean, median, mode and standard-deviation cards added this hour map to no unit with questions: gate-cse-mocks has no probability-and-statistics subject, and the only probability/statistics unit is Engineering Mathematics Unit 5 'Continuous Probability & Distributions' (unit_slug probability-distributions), which README.md lists with 0 questions in bank. Recommendation: build the first paper for unit slug probability-distributions - 25 questions at 15 MCQ / 5 MSQ / 5 NAT, 10 easy / 10 medium / 5 hard, in engineering-mathematics/probability-distributions/."
     }
   ]
 }

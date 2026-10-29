@@ -90,5 +90,17 @@
     }
   ],
   "sourceLine": "The binomial and Poisson standard deviations and the Bernoulli special case: the GATE Overflow probability notes, Statistics section (English), and the GATE Overflow Volume 1 chapter 7 (English) for the question numbering. The statement that a standard deviation is the positive root of an average of squared deviations: OpenStax Introductory Statistics 2e section 2.7 (English).",
-  "videoRefs": []
+  "videoRefs": [],
+  "links": {
+    "visual": {
+      "slug": "probability-and-random-variables",
+      "title": "Probability, Random Variables and Distributions",
+      "level": "topic-level",
+      "url": "https://gate-visual-explainer.vercel.app/topics/probability-and-random-variables/index.html",
+      "covers": [
+        "binomial mean np and variance np(1-p)"
+      ]
+    },
+    "mapped_at": "2026-10-30"
+  }
 }
