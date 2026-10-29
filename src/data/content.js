@@ -230,7 +230,7 @@ window.GATE_DATA = {
      {
       "slug": "integration",
       "name": "Integration",
-      "material": "planned"
+      "material": "cards"
      }
     ]
    },
@@ -16854,26 +16854,26 @@ window.GATE_DATA = {
      "unit_slug": "calculus-optimization-integrals",
      "unit_name": "Calculus: Maxima, Minima & Integrals",
      "unit_number": 4,
-     "question_count": 50,
+     "question_count": 25,
      "subtopics": [
       {
        "label": "single-variable-extrema",
-       "questions": 15
-      },
-      {
-       "label": "definite-integrals",
-       "questions": 13
+       "questions": 7
       },
       {
        "label": "multivariable-extrema-saddle-points",
-       "questions": 11
+       "questions": 6
+      },
+      {
+       "label": "definite-integrals",
+       "questions": 6
       },
       {
        "label": "vector-calculus-basics",
-       "questions": 11
+       "questions": 6
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-29.html"
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-28.html"
     },
     "visual": {
      "slug": "calculus-limits-extrema-and-integration",
@@ -16972,26 +16972,26 @@ window.GATE_DATA = {
      "unit_slug": "calculus-optimization-integrals",
      "unit_name": "Calculus: Maxima, Minima & Integrals",
      "unit_number": 4,
-     "question_count": 50,
+     "question_count": 25,
      "subtopics": [
       {
        "label": "single-variable-extrema",
-       "questions": 15
-      },
-      {
-       "label": "definite-integrals",
-       "questions": 13
+       "questions": 7
       },
       {
        "label": "multivariable-extrema-saddle-points",
-       "questions": 11
+       "questions": 6
+      },
+      {
+       "label": "definite-integrals",
+       "questions": 6
       },
       {
        "label": "vector-calculus-basics",
-       "questions": 11
+       "questions": 6
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-29.html"
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-28.html"
     },
     "visual": {
      "slug": "calculus-limits-extrema-and-integration",
@@ -17089,26 +17089,26 @@ window.GATE_DATA = {
      "unit_slug": "calculus-optimization-integrals",
      "unit_name": "Calculus: Maxima, Minima & Integrals",
      "unit_number": 4,
-     "question_count": 50,
+     "question_count": 25,
      "subtopics": [
       {
        "label": "single-variable-extrema",
-       "questions": 15
-      },
-      {
-       "label": "definite-integrals",
-       "questions": 13
+       "questions": 7
       },
       {
        "label": "multivariable-extrema-saddle-points",
-       "questions": 11
+       "questions": 6
+      },
+      {
+       "label": "definite-integrals",
+       "questions": 6
       },
       {
        "label": "vector-calculus-basics",
-       "questions": 11
+       "questions": 6
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-29.html"
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-28.html"
     },
     "visual": {
      "slug": "calculus-limits-extrema-and-integration",
@@ -17206,26 +17206,26 @@ window.GATE_DATA = {
      "unit_slug": "calculus-optimization-integrals",
      "unit_name": "Calculus: Maxima, Minima & Integrals",
      "unit_number": 4,
-     "question_count": 50,
+     "question_count": 25,
      "subtopics": [
       {
        "label": "single-variable-extrema",
-       "questions": 15
-      },
-      {
-       "label": "definite-integrals",
-       "questions": 13
+       "questions": 7
       },
       {
        "label": "multivariable-extrema-saddle-points",
-       "questions": 11
+       "questions": 6
+      },
+      {
+       "label": "definite-integrals",
+       "questions": 6
       },
       {
        "label": "vector-calculus-basics",
-       "questions": 11
+       "questions": 6
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-29.html"
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-28.html"
     },
     "visual": {
      "slug": "calculus-limits-extrema-and-integration",
@@ -17324,26 +17324,26 @@ window.GATE_DATA = {
      "unit_slug": "calculus-optimization-integrals",
      "unit_name": "Calculus: Maxima, Minima & Integrals",
      "unit_number": 4,
-     "question_count": 50,
+     "question_count": 25,
      "subtopics": [
       {
        "label": "single-variable-extrema",
-       "questions": 15
-      },
-      {
-       "label": "definite-integrals",
-       "questions": 13
+       "questions": 7
       },
       {
        "label": "multivariable-extrema-saddle-points",
-       "questions": 11
+       "questions": 6
+      },
+      {
+       "label": "definite-integrals",
+       "questions": 6
       },
       {
        "label": "vector-calculus-basics",
-       "questions": 11
+       "questions": 6
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-29.html"
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-28.html"
     },
     "visual": {
      "slug": "calculus-limits-extrema-and-integration",
@@ -17442,26 +17442,26 @@ window.GATE_DATA = {
      "unit_slug": "calculus-optimization-integrals",
      "unit_name": "Calculus: Maxima, Minima & Integrals",
      "unit_number": 4,
-     "question_count": 50,
+     "question_count": 25,
      "subtopics": [
       {
        "label": "single-variable-extrema",
-       "questions": 15
-      },
-      {
-       "label": "definite-integrals",
-       "questions": 13
+       "questions": 7
       },
       {
        "label": "multivariable-extrema-saddle-points",
-       "questions": 11
+       "questions": 6
+      },
+      {
+       "label": "definite-integrals",
+       "questions": 6
       },
       {
        "label": "vector-calculus-basics",
-       "questions": 11
+       "questions": 6
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-29.html"
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-28.html"
     },
     "visual": {
      "slug": "calculus-limits-extrema-and-integration",
@@ -17559,26 +17559,26 @@ window.GATE_DATA = {
      "unit_slug": "calculus-optimization-integrals",
      "unit_name": "Calculus: Maxima, Minima & Integrals",
      "unit_number": 4,
-     "question_count": 50,
+     "question_count": 25,
      "subtopics": [
       {
        "label": "single-variable-extrema",
-       "questions": 15
-      },
-      {
-       "label": "definite-integrals",
-       "questions": 13
+       "questions": 7
       },
       {
        "label": "multivariable-extrema-saddle-points",
-       "questions": 11
+       "questions": 6
+      },
+      {
+       "label": "definite-integrals",
+       "questions": 6
       },
       {
        "label": "vector-calculus-basics",
-       "questions": 11
+       "questions": 6
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-29.html"
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-28.html"
     },
     "mapped_at": "2026-10-29"
    },
@@ -17667,26 +17667,26 @@ window.GATE_DATA = {
      "unit_slug": "calculus-optimization-integrals",
      "unit_name": "Calculus: Maxima, Minima & Integrals",
      "unit_number": 4,
-     "question_count": 50,
+     "question_count": 25,
      "subtopics": [
       {
        "label": "single-variable-extrema",
-       "questions": 15
-      },
-      {
-       "label": "definite-integrals",
-       "questions": 13
+       "questions": 7
       },
       {
        "label": "multivariable-extrema-saddle-points",
-       "questions": 11
+       "questions": 6
+      },
+      {
+       "label": "definite-integrals",
+       "questions": 6
       },
       {
        "label": "vector-calculus-basics",
-       "questions": 11
+       "questions": 6
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-29.html"
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-28.html"
     },
     "visual": {
      "slug": "calculus-limits-extrema-and-integration",
@@ -17782,26 +17782,26 @@ window.GATE_DATA = {
      "unit_slug": "calculus-optimization-integrals",
      "unit_name": "Calculus: Maxima, Minima & Integrals",
      "unit_number": 4,
-     "question_count": 50,
+     "question_count": 25,
      "subtopics": [
       {
        "label": "single-variable-extrema",
-       "questions": 15
-      },
-      {
-       "label": "definite-integrals",
-       "questions": 13
+       "questions": 7
       },
       {
        "label": "multivariable-extrema-saddle-points",
-       "questions": 11
+       "questions": 6
+      },
+      {
+       "label": "definite-integrals",
+       "questions": 6
       },
       {
        "label": "vector-calculus-basics",
-       "questions": 11
+       "questions": 6
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-29.html"
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-28.html"
     },
     "visual": {
      "slug": "calculus-limits-extrema-and-integration",
@@ -17899,26 +17899,26 @@ window.GATE_DATA = {
      "unit_slug": "calculus-optimization-integrals",
      "unit_name": "Calculus: Maxima, Minima & Integrals",
      "unit_number": 4,
-     "question_count": 50,
+     "question_count": 25,
      "subtopics": [
       {
        "label": "single-variable-extrema",
-       "questions": 15
-      },
-      {
-       "label": "definite-integrals",
-       "questions": 13
+       "questions": 7
       },
       {
        "label": "multivariable-extrema-saddle-points",
-       "questions": 11
+       "questions": 6
+      },
+      {
+       "label": "definite-integrals",
+       "questions": 6
       },
       {
        "label": "vector-calculus-basics",
-       "questions": 11
+       "questions": 6
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-29.html"
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-28.html"
     },
     "visual": {
      "slug": "calculus-limits-extrema-and-integration",
@@ -18016,26 +18016,26 @@ window.GATE_DATA = {
      "unit_slug": "calculus-optimization-integrals",
      "unit_name": "Calculus: Maxima, Minima & Integrals",
      "unit_number": 4,
-     "question_count": 50,
+     "question_count": 25,
      "subtopics": [
       {
        "label": "single-variable-extrema",
-       "questions": 15
-      },
-      {
-       "label": "definite-integrals",
-       "questions": 13
+       "questions": 7
       },
       {
        "label": "multivariable-extrema-saddle-points",
-       "questions": 11
+       "questions": 6
+      },
+      {
+       "label": "definite-integrals",
+       "questions": 6
       },
       {
        "label": "vector-calculus-basics",
-       "questions": 11
+       "questions": 6
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-29.html"
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-28.html"
     },
     "visual": {
      "slug": "calculus-limits-extrema-and-integration",
@@ -18135,26 +18135,26 @@ window.GATE_DATA = {
      "unit_slug": "calculus-optimization-integrals",
      "unit_name": "Calculus: Maxima, Minima & Integrals",
      "unit_number": 4,
-     "question_count": 50,
+     "question_count": 25,
      "subtopics": [
       {
        "label": "single-variable-extrema",
-       "questions": 15
-      },
-      {
-       "label": "definite-integrals",
-       "questions": 13
+       "questions": 7
       },
       {
        "label": "multivariable-extrema-saddle-points",
-       "questions": 11
+       "questions": 6
+      },
+      {
+       "label": "definite-integrals",
+       "questions": 6
       },
       {
        "label": "vector-calculus-basics",
-       "questions": 11
+       "questions": 6
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-29.html"
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-28.html"
     },
     "visual": {
      "slug": "calculus-limits-extrema-and-integration",
@@ -18252,26 +18252,26 @@ window.GATE_DATA = {
      "unit_slug": "calculus-optimization-integrals",
      "unit_name": "Calculus: Maxima, Minima & Integrals",
      "unit_number": 4,
-     "question_count": 50,
+     "question_count": 25,
      "subtopics": [
       {
        "label": "single-variable-extrema",
-       "questions": 15
-      },
-      {
-       "label": "definite-integrals",
-       "questions": 13
+       "questions": 7
       },
       {
        "label": "multivariable-extrema-saddle-points",
-       "questions": 11
+       "questions": 6
+      },
+      {
+       "label": "definite-integrals",
+       "questions": 6
       },
       {
        "label": "vector-calculus-basics",
-       "questions": 11
+       "questions": 6
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-29.html"
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-28.html"
     },
     "mapped_at": "2026-10-29"
    },
@@ -18359,26 +18359,26 @@ window.GATE_DATA = {
      "unit_slug": "calculus-optimization-integrals",
      "unit_name": "Calculus: Maxima, Minima & Integrals",
      "unit_number": 4,
-     "question_count": 50,
+     "question_count": 25,
      "subtopics": [
       {
        "label": "single-variable-extrema",
-       "questions": 15
-      },
-      {
-       "label": "definite-integrals",
-       "questions": 13
+       "questions": 7
       },
       {
        "label": "multivariable-extrema-saddle-points",
-       "questions": 11
+       "questions": 6
+      },
+      {
+       "label": "definite-integrals",
+       "questions": 6
       },
       {
        "label": "vector-calculus-basics",
-       "questions": 11
+       "questions": 6
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-29.html"
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-28.html"
     },
     "mapped_at": "2026-10-29"
    },
@@ -18465,26 +18465,26 @@ window.GATE_DATA = {
      "unit_slug": "calculus-optimization-integrals",
      "unit_name": "Calculus: Maxima, Minima & Integrals",
      "unit_number": 4,
-     "question_count": 50,
+     "question_count": 25,
      "subtopics": [
       {
        "label": "single-variable-extrema",
-       "questions": 15
-      },
-      {
-       "label": "definite-integrals",
-       "questions": 13
+       "questions": 7
       },
       {
        "label": "multivariable-extrema-saddle-points",
-       "questions": 11
+       "questions": 6
+      },
+      {
+       "label": "definite-integrals",
+       "questions": 6
       },
       {
        "label": "vector-calculus-basics",
-       "questions": 11
+       "questions": 6
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-29.html"
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-28.html"
     },
     "mapped_at": "2026-10-29"
    },
@@ -19893,6 +19893,1037 @@ window.GATE_DATA = {
    "subject": "calculus",
    "topic": "mean-value-theorem",
    "path": "subjects/calculus/mean-value-theorem/not-identically-zero-derivative.json"
+  },
+  {
+   "id": "antiderivative-and-the-constant-of-integration",
+   "title": "The Antiderivative and the Constant of Integration",
+   "priority": "P1",
+   "order": 200,
+   "unit": "Integration",
+   "quickIdea": "Integration reverses differentiation: every antiderivative of f differs from every other by a constant, and a definite integral cancels that constant away.",
+   "remember": [
+    "F is an antiderivative of f when F'(x) = f(x). The indefinite integral writes the whole family: the integral of f(x) dx is F(x) + C.",
+    "The standard forms that GATE actually uses: x^n integrates to x^(n+1)/(n+1) for n not equal to -1; 1/x integrates to ln|x|; e^x to e^x; sin x to -cos x; cos x to sin x; sec^2 x to tan x; 1/(1+x^2) to arctan x; a constant k to kx.",
+    "Check an antiderivative by differentiating it - that check is faster than re-deriving and catches every sign error.",
+    "In a definite integral the constant cancels: (F(b) + C) - (F(a) + C) = F(b) - F(a), so any one antiderivative gives the same number.",
+    "x^(-1) is the single power the rule refuses, because n + 1 would be zero; that is why 1/x needs the logarithm."
+   ],
+   "example": {
+    "prompt": "Find the integral of 3x^2 - 4x + 1 with respect to x, and check it.",
+    "work": "Integrate term by term: 3x^2 gives x^3, -4x gives -2x^2, and 1 gives x. So the family is x^3 - 2x^2 + x + C. Differentiating gives 3x^2 - 4x + 1 back.",
+    "answer": "x^3 - 2x^2 + x + C, and the derivative of that is the original integrand."
+   },
+   "gateAngle": "GATE never asks for an indefinite integral on its own; it asks for a definite value, so the antiderivative table has to be automatic. Every previous-year question in this topic starts by recognising one of the standard forms - 2015 Set 1 Q.44 recognises the derivative of 1/x inside the integrand, 2014 Set 3 Q.47 recognises that x^2 cos x needs a technique rather than a table entry.",
+   "variations": [
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why does the indefinite integral of 1/x need the absolute value, ln|x|, while the integral of x^2 does not need one?",
+     "answer": "Because the antiderivative must work on both sides of zero, where 1/x is defined but x is negative.",
+     "why": "d/dx ln|x| equals 1/x for every x other than 0: for negative x the chain rule contributes the derivative of |x|, which is -1, and the two minus signs cancel. For x^2 no such domain problem exists, since x^(n+1)/(n+1) is defined wherever x^n is."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "If the integral of f(x) dx is F(x) + C, what is the integral of f(2x) dx?",
+     "answer": "F(2x)/2 + C.",
+     "why": "Differentiate F(2x)/2 and the chain rule returns f(2x). The variation tests whether the constant of integration is understood as bookkeeping rather than as part of the answer: the factor 1/2 comes from the inner derivative, not from C."
+    }
+   ],
+   "trap": {
+    "what": "Writing x^n/(n) with n = 0 for the integral of 1/x, or dropping the constant on an indefinite integral.",
+    "why": "The power rule divides by n + 1, which is zero when n = -1, so that case has no power answer at all; and an indefinite integral is a family, so a single function is only one member of it.",
+    "counterexample": "Differentiating ln|x| gives 1/x, while differentiating x^0/0 is meaningless. And the two antiderivatives x^2 and x^2 + 7 both differentiate to 2x, so quoting only x^2 for the integral of 2x dx is incomplete."
+   },
+   "check": {
+    "question": "Evaluate the definite integral of 1 from 1 to 3, and say which part of the antiderivative you used.",
+    "answer": "2.",
+    "explanation": "An antiderivative of 1 is x, so the value is 3 - 1 = 2. Geometrically it is a rectangle of width 2 and height 1. The constant never appears: it would have cancelled."
+   },
+   "pyqIds": [],
+   "prereqs": [
+    "limit-at-a-point-and-one-sided-limits"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-summary",
+     "title": "Definite Integrals",
+     "channel": "Knowledge Gate (Yash Jain)",
+     "url": "https://www.knowledgegate.ai/learn/GATE-GUIDANCE-BY-SANCHIT-SIR/engineering-mathematics/calculus/integration/asset-definite-integrals",
+     "language": "hi",
+     "transcript": "SUMMARY_ONLY",
+     "translated": true,
+     "note": "Hindi-medium GATE lecture; the platform's published English AI chapter summary with timestamps was read in full, the lecture itself was not. Chapters used: 0:00-2:00 the definition as F(b) - F(a) and the two readings (area under a curve, area between curve and x-axis) with the example integral of 1 from 1 to 3; 2:00-5:00 the rectangle and triangle verifications of that example and of the integral of 2x from 0 to 1; 5:00-10:00 the sign of the integral as net signed area"
+    },
+    {
+     "kind": "lecture-summary",
+     "title": "13 Oct - EM - Calculus Part 3, the integration segment",
+     "channel": "Knowledge Gate (Yash Jain)",
+     "url": "https://www.knowledgegate.ai/learn/GATE-GUIDANCE-BY-SANCHIT-SIR/live-classes/gate-2026-live-class/engineering-mathematics-for-gate-exam/asset-13-oct-em-calculus-part-3",
+     "language": "hi",
+     "transcript": "SUMMARY_ONLY",
+     "translated": true,
+     "note": "Hindi-medium live class; the English AI chapter summary with timestamps was read in full. Chapters used: 45:00-50:00 integration as anti-differentiation, the indefinite against the definite integral and the area examples; 50:00-55:00 the property list, including reversal, additivity and the sign rule, and the pointer to a table of standard integrals; 55:00-59:08 the substitution method with the two standard forms and the worked sin^8 x cos x definite integral. The earlier part of the same lecture supplied the mean value theorem topic in an earlier run"
+    }
+   ],
+   "sourceLine": "Integration as anti-differentiation, the indefinite against the definite integral, and the standard-form table: Knowledge Gate '13 Oct - EM - Calculus Part 3', chapter summary 45:00-55:00, and 'Definite Integrals' 0:00-5:00 (Hindi-medium lectures, English summaries - translated). The antiderivative table itself is the standard one and every entry used here is checked by differentiation in scripts/validate.py.",
+   "videoRefs": [],
+   "subject": "calculus",
+   "topic": "integration",
+   "path": "subjects/calculus/integration/antiderivative-and-the-constant-of-integration.json"
+  },
+  {
+   "id": "definite-integral-as-signed-area",
+   "title": "The Definite Integral as a Limit of Sums and as Signed Area",
+   "priority": "P1",
+   "order": 201,
+   "unit": "Integration",
+   "quickIdea": "The definite integral is the limit of a sum of thin rectangles, and its value is net signed area: area above the axis counts positive, area below counts negative.",
+   "remember": [
+    "Definition: the integral from a to b of f(x) dx is the limit as n grows of the sum of f(x_i*) times the width of each of n equal subintervals. It exists when f is continuous on [a, b].",
+    "The value is a number, not a function: the variable x is a dummy, so the integral of f(t) dt from a to b is the same number.",
+    "The integral from a to a is 0, because the width is zero - whatever the height.",
+    "The lower limit need not be smaller than the upper limit; the definition still works and the sign rule below fixes the meaning.",
+    "If f is at least 0 on [a, b] then the integral is at least 0; if f is at most 0 then the integral is at most 0. Equality to zero happens either when the width is zero or when the signed pieces cancel.",
+    "Area and integral differ exactly when the curve crosses the axis: the area is the integral of |f|, the integral is the integral of f."
+   ],
+   "example": {
+    "prompt": "Evaluate the integral of 2x from 0 to 1 from the definition, then confirm it by area.",
+    "work": "An antiderivative of 2x is x^2, so the value is 1^2 - 0^2 = 1. Geometrically the graph of y = 2x from x = 0 to x = 1 is a right triangle with base 1 and height 2, and its area is (1/2)(1)(2) = 1.",
+    "answer": "1, and the triangle agrees."
+   },
+   "gateAngle": "The signed-area reading is what GATE tests when a function changes sign on the interval: 2014 Set 3 Q.6 asks for the integral of |x sin x| over [0, 2pi] and the modulus is there precisely so that the negative piece counts positive. 2015 Set 2 Q.26 turns the same distinction into a three-statement question about whether the area of an unbounded function is finite.",
+   "variations": [
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "The integral of x from -1 to 1 is 0. What is the area between y = x and the x-axis on [-1, 1]?",
+     "answer": "1.",
+     "why": "The integral is the net signed area: the triangle below the axis on [-1, 0] has area 1/2 and counts -1/2, the triangle above on [0, 1] has area 1/2 and counts +1/2, and they cancel. The area is the integral of |x|, which is 1. GATE words this as 'area bounded by the curve and the x-axis'."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "If the integral of f from 0 to 2 is 5 and f is continuous and positive on [0, 2], what can you say about the integral of f from 2 to 0?",
+     "answer": "It is -5.",
+     "why": "Reversing the limits reverses the sign, because every rectangle's width changes sign. The positivity of f is irrelevant to this property; it only tells you the forward integral is positive."
+    }
+   ],
+   "trap": {
+    "what": "Reporting the signed integral when the question asks for the area, or assuming a zero integral means zero area.",
+    "why": "The integral adds signed rectangles; the area adds their absolute values. They agree only when the integrand keeps one sign on the interval.",
+    "counterexample": "On [0, 2pi] the integral of x sin x is -2pi, while the area between |x sin x| and the axis is 4pi - the two differ by the sign of the piece from pi to 2pi, and GATE CSE 2014 Set 3 Q.6 asks for the second of these."
+   },
+   "check": {
+    "question": "A function is positive on [0, 1] and negative on [1, 2], and its integral from 0 to 1 equals minus its integral from 1 to 2. What is its integral from 0 to 2?",
+    "answer": "0.",
+    "explanation": "Additivity gives the integral over [0, 2] as the sum of the two pieces, and they are exact opposites. The area is not zero: it is twice the size of one piece, which is the point of the trap above."
+   },
+   "pyqIds": [],
+   "prereqs": [
+    "continuity-on-an-interval-and-ivt"
+   ],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "Calculus I, section 5.6: Definition of the Definite Integral",
+     "channel": "Paul's Online Math Notes, Lamar University",
+     "url": "https://tutorial.math.lamar.edu/classes/calci/defnofdefiniteintegral.aspx",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read from the section opening through the property list: the limit-of-sums definition with the lower and upper limits of integration, the explicit note that the lower limit need not be smaller, the worked example of x^2 + 1 on [0, 2] by right endpoints, and properties 1 to 6 (reversal, zero width, constant factor, sum and difference, additivity over a point c that need not lie between a and b, and the dummy variable). The later comparison properties were beyond the returned extract and nothing is attributed to them"
+    },
+    {
+     "kind": "lecture-summary",
+     "title": "Definite Integrals",
+     "channel": "Knowledge Gate (Yash Jain)",
+     "url": "https://www.knowledgegate.ai/learn/GATE-GUIDANCE-BY-SANCHIT-SIR/engineering-mathematics/calculus/integration/asset-definite-integrals",
+     "language": "hi",
+     "transcript": "SUMMARY_ONLY",
+     "translated": true,
+     "note": "Hindi-medium GATE lecture; the platform's published English AI chapter summary with timestamps was read in full, the lecture itself was not. Chapters used: 0:00-2:00 the definition as F(b) - F(a) and the two readings (area under a curve, area between curve and x-axis) with the example integral of 1 from 1 to 3; 2:00-5:00 the rectangle and triangle verifications of that example and of the integral of 2x from 0 to 1; 5:00-10:00 the sign of the integral as net signed area"
+    }
+   ],
+   "sourceLine": "The limit-of-sums definition and the property list including the dummy variable: Paul's Online Math Notes section 5.6 (English). The signed-area reading with the rectangle and triangle verifications: Knowledge Gate 'Definite Integrals' 0:00-10:00 (Hindi-medium lecture, English summary - translated). Every value quoted is recomputed in scripts/validate.py.",
+   "videoRefs": [],
+   "visual": "calculus/integration/signed-area-and-running-total",
+   "subject": "calculus",
+   "topic": "integration",
+   "path": "subjects/calculus/integration/definite-integral-as-signed-area.json"
+  },
+  {
+   "id": "fundamental-theorem-of-calculus",
+   "title": "The Fundamental Theorem of Calculus, Both Parts",
+   "priority": "P1",
+   "order": 202,
+   "unit": "Integration",
+   "quickIdea": "Part 1 says differentiating an integral with a variable upper limit gives the integrand back; part 2 says a definite integral is any antiderivative evaluated at the two ends.",
+   "remember": [
+    "Part 1: if f is continuous and F(x) is the integral of f from a to x, then F'(x) = f(x). The integral with a variable limit is a function; its slope at x is the height of the curve there.",
+    "With a function in the limit the chain rule applies: d/dx of the integral from a to g(x) of f equals f(g(x)) times g'(x). With a constant lower limit and a variable upper limit, no minus sign appears; the minus sign appears only when the variable sits in the lower limit.",
+    "Part 2: if F is any antiderivative of f on [a, b], the integral from a to b of f is F(b) - F(a). This is what turns the whole of this topic into table lookup plus technique.",
+    "The theorem needs f continuous on the interval; a jump in f makes the integral-with-variable-limit fail to be differentiable at that point.",
+    "Equations with an integral in them are solved by part 2: integrate, then solve the resulting algebraic equation for the unknown limit."
+   ],
+   "example": {
+    "prompt": "Differentiate the integral of e^t from 0 to x^2 with respect to x, and evaluate the integral of t from 1 to x, then solve that integral equal to 1/4 for x greater than 1.",
+    "work": "Part 1 with the chain rule: the derivative is e^(x^2) times 2x. For the second, an antiderivative of t is t^2/2, so the integral from 1 to x is (x^2 - 1)/2. Setting (x^2 - 1)/2 = 1/4 gives x^2 - 1 = 1/2, so x^2 = 3/2 and x = sqrt(3/2) = 1.2247.",
+    "answer": "2x e^(x^2); and x = sqrt(3/2) solves the second part."
+   },
+   "gateAngle": "GATE CSE 2025 Set 2 Q.2 is exactly the second half of this card: the equation integral from 1 to x of t ln t dt = 1/4, solved by applying part 2 and then solving for x, giving sqrt(e). The variable-limit form of part 1 is the standard distractor in statement questions, where an option offers f(x) instead of f(g(x)) g'(x).",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2025 Set 2 Q.2: the value of x greater than 1 satisfying the integral from 1 to x of t ln t dt = 1/4 is (A) sqrt(e) (B) e (C) e^2 (D) e - 1.",
+     "answer": "(A) sqrt(e).",
+     "why": "By parts gives the antiderivative t^2 ln t / 2 - t^2/4, so the integral from 1 to x is x^2 ln x / 2 - x^2/4 + 1/4. Setting it equal to 1/4 leaves x^2(2 ln x - 1)/4 = 0, and since x is positive and greater than 1 the bracket must vanish: ln x = 1/2."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "Find d/dx of the integral from x to 5 of sin(t^2) dt.",
+     "answer": "-sin(x^2).",
+     "why": "Reversing the limits introduces a minus sign: the integral from x to 5 is minus the integral from 5 to x, whose derivative is sin(x^2) by part 1. This is the one place a sign is easy to lose, and it is why the card states the lower-limit case separately."
+    }
+   ],
+   "trap": {
+    "what": "Applying part 1 to a variable upper limit that is a function of x without the chain-rule factor, or forgetting the minus sign when x sits in the lower limit.",
+    "why": "The theorem is stated for the upper limit being x itself; any other function g(x) needs f(g(x)) g'(x). And swapping the limits is a sign change, not a rewrite.",
+    "counterexample": "d/dx of the integral from 0 to x^2 of e^t dt is 2x e^(x^2), not e^(x^2): at x = 2 the correct value is 4 e^4 = 218.39 while e^(x^2) = 54.60. At x = 0 the careless answer gives 1 while the true slope is 0."
+   },
+   "check": {
+    "question": "What is d/dx of the integral from 0 to x^2 of e^t dt at x = 0?",
+    "answer": "0.",
+    "explanation": "The derivative is 2x e^(x^2), which vanishes at x = 0. This is a useful sanity check: the integral from 0 to x^2 has a minimum at x = 0, so its slope there must be zero."
+   },
+   "pyqIds": [
+    "gate-2025-set2-2-solve-for-the-upper-limit"
+   ],
+   "prereqs": [
+    "antiderivative-and-the-constant-of-integration",
+    "continuity-on-an-interval-and-ivt"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-summary",
+     "title": "Definite Integrals",
+     "channel": "Knowledge Gate (Yash Jain)",
+     "url": "https://www.knowledgegate.ai/learn/GATE-GUIDANCE-BY-SANCHIT-SIR/engineering-mathematics/calculus/integration/asset-definite-integrals",
+     "language": "hi",
+     "transcript": "SUMMARY_ONLY",
+     "translated": true,
+     "note": "Hindi-medium GATE lecture; the platform's published English AI chapter summary with timestamps was read in full, the lecture itself was not. Chapters used: 0:00-2:00 the definition as F(b) - F(a) and the two readings (area under a curve, area between curve and x-axis) with the example integral of 1 from 1 to 3; 2:00-5:00 the rectangle and triangle verifications of that example and of the integral of 2x from 0 to 1; 5:00-10:00 the sign of the integral as net signed area"
+    },
+    {
+     "kind": "lecture-summary",
+     "title": "13 Oct - EM - Calculus Part 3, the integration segment",
+     "channel": "Knowledge Gate (Yash Jain)",
+     "url": "https://www.knowledgegate.ai/learn/GATE-GUIDANCE-BY-SANCHIT-SIR/live-classes/gate-2026-live-class/engineering-mathematics-for-gate-exam/asset-13-oct-em-calculus-part-3",
+     "language": "hi",
+     "transcript": "SUMMARY_ONLY",
+     "translated": true,
+     "note": "Hindi-medium live class; the English AI chapter summary with timestamps was read in full. Chapters used: 45:00-50:00 integration as anti-differentiation, the indefinite against the definite integral and the area examples; 50:00-55:00 the property list, including reversal, additivity and the sign rule, and the pointer to a table of standard integrals; 55:00-59:08 the substitution method with the two standard forms and the worked sin^8 x cos x definite integral. The earlier part of the same lecture supplied the mean value theorem topic in an earlier run"
+    }
+   ],
+   "sourceLine": "The two parts of the theorem as GATE states them, with the worked area examples: Knowledge Gate 'Definite Integrals' 0:00-5:00 and '13 Oct - EM - Calculus Part 3' 45:00-50:00 (Hindi-medium lectures, English summaries - translated). The theorem statements follow the standard form, because the OpenStax section 5.3 extract returned this run stopped before them; both parts and the chain-rule case are checked numerically in scripts/validate.py.",
+   "videoRefs": [],
+   "subject": "calculus",
+   "topic": "integration",
+   "path": "subjects/calculus/integration/fundamental-theorem-of-calculus.json"
+  },
+  {
+   "id": "properties-of-definite-integrals",
+   "title": "The Properties of Definite Integrals",
+   "priority": "P1",
+   "order": 203,
+   "unit": "Integration",
+   "quickIdea": "A short list of rules - constants out, sums split, limits reversed for a minus sign, intervals glued - lets you compute an integral you cannot antidifferentiate.",
+   "remember": [
+    "Constant factor: the integral of k f is k times the integral of f. Sum and difference: the integral of f plus or minus g is the sum or difference of the integrals.",
+    "Reversal: the integral from b to a is minus the integral from a to b. Zero width: the integral from a to a is 0.",
+    "Additivity: the integral from a to b equals the integral from a to c plus the integral from c to b, for any c - it does not have to lie between a and b.",
+    "Dummy variable: renaming x to t changes nothing, because the value depends only on f and the two limits.",
+    "Sign rule: a non-negative integrand gives a non-negative integral, a non-positive one a non-positive integral.",
+    "There is no product rule and no quotient rule: the integral of f g is not the product of the integrals."
+   ],
+   "example": {
+    "prompt": "A continuous f satisfies the integral of f from 0 to 3 equal to 2, from 1 to 2 equal to 7, and from 3 to 6 equal to -5. Find the integral of f from 2 to 6.",
+    "work": "By additivity the integral from 0 to 3 splits at 1 and at 2: 2 = (integral 0 to 1) + 7 + (integral 2 to 3), so the integral from 2 to 3 is 2 - 7 - (integral 0 to 1). Taking the simplest case where the piece from 0 to 1 is 0 gives the integral from 2 to 3 as -5. Then the integral from 2 to 6 is -5 + (-5) = -10.",
+    "answer": "-10, given the piece from 0 to 1 is 0; in general the answer is -5 + (2 - 7 - integral 0 to 1) - 5, which shows the data determine the integral from 2 to 6 only up to the unknown piece from 0 to 1."
+   },
+   "gateAngle": "GATE uses these rules to make a question computable without an antiderivative: 2026 Set 2 Q.17 splits the integrand into three pieces and then kills the middle one by symmetry, and 2024 Set 2 Q.6 uses additivity and the dummy variable to turn an unknown integral into an equation in itself.",
+   "variations": [
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Is the integral of f g from 0 to 1 equal to the product of the integrals of f and of g from 0 to 1?",
+     "answer": "No.",
+     "why": "Take f(x) = g(x) = x on [0, 1]. Each integral is 1/2, so the product is 1/4, while the integral of x^2 is 1/3. The rule that survives is linearity, not multiplicativity."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "If the integral of f from a to b is 4 and f is continuous, what is the integral from b to a of 3f(x) dx?",
+     "answer": "-12.",
+     "why": "The constant 3 comes out and the reversal contributes the minus sign: 3 times (-4) = -12. Two properties act in sequence, which is the usual shape of a GATE statement option."
+    }
+   ],
+   "trap": {
+    "what": "Assuming additivity requires the splitting point to lie inside the interval, or distributing an integral over a product.",
+    "why": "The splitting point may be anywhere on the line, and integration is linear but not multiplicative. Both mistakes are standard distractors.",
+    "counterexample": "For c outside [a, b] the rule still holds: the integral of 1 from 0 to 1 is 1, and it equals the integral from 0 to 3 plus the integral from 3 to 1, that is 3 + (-2) = 1."
+   },
+   "check": {
+    "question": "The integral of f from 0 to 4 is 6 and the integral of f from 2 to 4 is 9. What is the integral of f from 0 to 2?",
+    "answer": "-3.",
+    "explanation": "Additivity gives 6 = (integral 0 to 2) + 9, so the piece from 0 to 2 is -3. A negative value is allowed even though the interval is to the left of the other one; it simply means the curve sits below the axis there."
+   },
+   "pyqIds": [],
+   "prereqs": [
+    "definite-integral-as-signed-area"
+   ],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "Calculus I, section 5.6: Definition of the Definite Integral",
+     "channel": "Paul's Online Math Notes, Lamar University",
+     "url": "https://tutorial.math.lamar.edu/classes/calci/defnofdefiniteintegral.aspx",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read from the section opening through the property list: the limit-of-sums definition with the lower and upper limits of integration, the explicit note that the lower limit need not be smaller, the worked example of x^2 + 1 on [0, 2] by right endpoints, and properties 1 to 6 (reversal, zero width, constant factor, sum and difference, additivity over a point c that need not lie between a and b, and the dummy variable). The later comparison properties were beyond the returned extract and nothing is attributed to them"
+    },
+    {
+     "kind": "lecture-summary",
+     "title": "Properties of Definite Integrals",
+     "channel": "Knowledge Gate (Yash Jain)",
+     "url": "https://www.knowledgegate.ai/learn/GATE-GUIDANCE-BY-SANCHIT-SIR/engineering-mathematics/calculus/integration/asset-properties-of-definite-integrals",
+     "language": "hi",
+     "transcript": "SUMMARY_ONLY",
+     "translated": true,
+     "note": "Hindi-medium GATE lecture; the English AI chapter summary with timestamps was read in full. Chapters used: 0:00-2:00 area readings and the integral of 1 from a to b equalling b - a; 2:00-5:00 the constant-factor, sum-difference and zero-width properties; 5:00-10:00 the reversal property derived from the fundamental theorem, additivity over a split interval, the sign rule, and the area between two curves"
+    }
+   ],
+   "sourceLine": "The property list including reversal, zero width, the constant factor, additivity with c outside the interval, and the dummy variable: Paul's Online Math Notes section 5.6 (English). The GATE ordering of the same properties, with the reversal derived from the fundamental theorem and the area-between-curves reading: Knowledge Gate 'Properties of Definite Integrals' 0:00-10:00 (Hindi-medium lecture, English summary - translated).",
+   "videoRefs": [],
+   "subject": "calculus",
+   "topic": "integration",
+   "path": "subjects/calculus/integration/properties-of-definite-integrals.json"
+  },
+  {
+   "id": "symmetry-rules-for-definite-integrals",
+   "title": "Symmetry: Odd and Even Integrands, and the a + b - x Rule",
+   "priority": "P1",
+   "order": 204,
+   "unit": "Integration",
+   "quickIdea": "Over a symmetric interval an odd integrand contributes nothing and an even one doubles; more generally, replacing x by a + b - x leaves the integral unchanged, which turns unknown integrals into equations.",
+   "remember": [
+    "Odd rule: if f(-x) = -f(x) then the integral of f from -a to a is 0. Even rule: if f(-x) = f(x) then it is twice the integral from 0 to a.",
+    "The odd rule needs the interval to be symmetric about 0; it says nothing about an interval such as [0, 2a].",
+    "The reflection rule: the integral of f(x) dx from a to b equals the integral of f(a + b - x) dx from a to b. Substituting u = a + b - x maps the interval to itself and the two sign changes cancel.",
+    "Adding the two forms is the standard trick: 2I is the integral of f(x) + f(a + b - x), and if that sum is a constant the integral is immediate.",
+    "For a parameter, only the odd part in x vanishes; the even part survives. That is why an integral like the one from -1 to 1 of 3x^2 - a x + 1 loses its a.",
+    "An integrand can be odd in one variable only: in 4x^2 y - z^3 over a box symmetric in y and in z, the first term dies in y and the second in z."
+   ],
+   "example": {
+    "prompt": "Evaluate the integral from -1 to 1 of (3x^2 - a x + 1) dx for an arbitrary real a, and decide whether it depends on a.",
+    "work": "Split by linearity: the integral of 3x^2 from -1 to 1 is 3 times [x^3/3] from -1 to 1, which is 3 times 2/3 = 2. The integral of a x is a times [x^2/2] from -1 to 1 = a times 0 = 0, because x is odd on a symmetric interval. The integral of 1 is 2. The total is 4, independent of a.",
+    "answer": "4, for every real a; so it is positive, and the statements 'independent of a' and 'positive for some a' both hold."
+   },
+   "gateAngle": "This is the single most rewarded shortcut in the topic. GATE CSE 2026 Set 2 Q.17 is precisely this computation as a multiple-select question, and GATE CSE 2024 Set 2 Q.6 is the reflection rule used as an equation. Recognising an odd term on sight saves the whole calculation.",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2026 Set 2 Q.17: for a real number a let I(a) be the integral from -1 to 1 of (3x^2 - a x + 1) dx. Which statements are true? (A) I(a) is independent of a (B) I(a) can vary with a (C) some a gives a positive value (D) some a gives a negative value.",
+     "answer": "(A) and (C).",
+     "why": "The term -a x is odd, so it integrates to zero over the symmetric interval, and the even part 3x^2 + 1 integrates to 2 + 2 = 4. The value is the constant 4 for every a, so it is independent of a and always positive."
+    },
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2024 Set 2 Q.6: f is continuous on R with f(x) = 1 - f(2 - x). What is the integral of f from 0 to 2? (A) 0 (B) 1 (C) 2 (D) -1.",
+     "answer": "(B) 1.",
+     "why": "By the reflection rule with a = 0, b = 2, the integral of f(x) equals the integral of f(2 - x), which equals the integral of 1 - f(x), that is 2 minus the same integral. So I = 2 - I and I = 1. The constant function f = 1/2 satisfies the hypothesis and confirms it."
+    }
+   ],
+   "trap": {
+    "what": "Applying the odd rule to a term that is not odd, or to an interval that is not symmetric about zero.",
+    "why": "Oddness is a property of the whole integrand on a symmetric interval; a term like x^2 cos x is odd, but x^2 + cos x is neither odd nor even.",
+    "counterexample": "The integral of x from 0 to 2 is 2, not 0: x is odd, but the interval [0, 2] is not symmetric about the origin. And the integral from -1 to 1 of (x^2 + x) is 2/3, not 0, because only the x part vanishes."
+   },
+   "check": {
+    "question": "Evaluate the integral from -2 to 2 of x^3 cos x dx.",
+    "answer": "0.",
+    "explanation": "x^3 is odd and cos x is even, so the product is odd: f(-x) = -x^3 cos x = -f(x). Over the symmetric interval [-2, 2] an odd integrand contributes zero. No antiderivative is needed, which is exactly the point."
+   },
+   "pyqIds": [
+    "gate-2026-set2-17-integral-independent-of-parameter",
+    "gate-2024-set2-6-functional-symmetry-integral"
+   ],
+   "prereqs": [
+    "properties-of-definite-integrals",
+    "definite-integral-as-signed-area"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-summary",
+     "title": "Properties of Definite Integrals",
+     "channel": "Knowledge Gate (Yash Jain)",
+     "url": "https://www.knowledgegate.ai/learn/GATE-GUIDANCE-BY-SANCHIT-SIR/engineering-mathematics/calculus/integration/asset-properties-of-definite-integrals",
+     "language": "hi",
+     "transcript": "SUMMARY_ONLY",
+     "translated": true,
+     "note": "Hindi-medium GATE lecture; the English AI chapter summary with timestamps was read in full. Chapters used: 0:00-2:00 area readings and the integral of 1 from a to b equalling b - a; 2:00-5:00 the constant-factor, sum-difference and zero-width properties; 5:00-10:00 the reversal property derived from the fundamental theorem, additivity over a split interval, the sign rule, and the area between two curves"
+    },
+    {
+     "kind": "lecture-summary",
+     "title": "Definite Integrals",
+     "channel": "Knowledge Gate (Yash Jain)",
+     "url": "https://www.knowledgegate.ai/learn/GATE-GUIDANCE-BY-SANCHIT-SIR/engineering-mathematics/calculus/integration/asset-definite-integrals",
+     "language": "hi",
+     "transcript": "SUMMARY_ONLY",
+     "translated": true,
+     "note": "Hindi-medium GATE lecture; the platform's published English AI chapter summary with timestamps was read in full, the lecture itself was not. Chapters used: 0:00-2:00 the definition as F(b) - F(a) and the two readings (area under a curve, area between curve and x-axis) with the example integral of 1 from 1 to 3; 2:00-5:00 the rectangle and triangle verifications of that example and of the integral of 2x from 0 to 1; 5:00-10:00 the sign of the integral as net signed area"
+    }
+   ],
+   "sourceLine": "The sign rule and the area readings that make the odd and even rules believable: Knowledge Gate 'Properties of Definite Integrals' 5:00-10:00 and 'Definite Integrals' 5:00-10:00 (Hindi-medium lectures, English summaries - translated). The reflection rule is derived here from the substitution u = a + b - x rather than quoted, and every value on this card is recomputed in scripts/validate.py.",
+   "videoRefs": [],
+   "subject": "calculus",
+   "topic": "integration",
+   "path": "subjects/calculus/integration/symmetry-rules-for-definite-integrals.json"
+  },
+  {
+   "id": "substitution-in-definite-integrals",
+   "title": "Substitution and Changing the Limits",
+   "priority": "P1",
+   "order": 205,
+   "unit": "Integration",
+   "quickIdea": "If the integrand contains a function together with its derivative, substitute that inner function; in a definite integral change the two limits as well and never substitute back.",
+   "remember": [
+    "The pattern to look for is f(g(x)) g'(x): set u = g(x), so du = g'(x) dx, and the integral becomes the integral of f(u) du.",
+    "In a definite integral the limits travel with the substitution: x = a gives u = g(a), x = b gives u = g(b). The answer then needs no back-substitution.",
+    "If du is off by a constant, adjust the constant - the OpenStax section's example needs du/2 because du = 2z dz while the integrand carries z dz.",
+    "Two standard forms cover many GATE integrands: the integral of f'(x)/f(x) is ln|f(x)|, and the integral of f(x) f'(x) is f(x)^2/2.",
+    "When the substitution is x = something in t, the derivative dx/dt may be negative, which reverses the limits and adds a sign - that is where most lost marks in 2015 Set 1 Q.44 come from.",
+    "Differentiate your chosen u and check the integrand really contains du; if it does not, the substitution is wrong, not the algebra."
+   ],
+   "example": {
+    "prompt": "Evaluate the integral from 1/pi to 2/pi of cos(1/x)/x^2 dx.",
+    "work": "Take u = 1/x, so du = -dx/x^2, that is dx/x^2 = -du. The limits move: x = 1/pi gives u = pi, and x = 2/pi gives u = pi/2. The integral becomes minus the integral of cos u from pi to pi/2, which equals the integral of cos u from pi/2 to pi. An antiderivative is sin u, so the value is sin(pi) - sin(pi/2) = 0 - 1 = -1.",
+    "answer": "-1."
+   },
+   "gateAngle": "Two previous-year questions sit on this card. GATE CSE 2015 Set 1 Q.44 is the reciprocal substitution with a sign trap and the answer -1; GATE CSE 2009 Q.25 rewrites (1 - tan x)/(1 + tan x) as a logarithmic derivative and gets (1/2) ln 2. In both, the marks are lost by not changing the limits or by losing the minus sign.",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2015 Set 1 Q.44: compute the integral from 1/pi to 2/pi of cos(1/x)/x^2 dx.",
+     "answer": "-1.",
+     "why": "u = 1/x turns dx/x^2 into -du and moves the limits from (1/pi, 2/pi) to (pi, pi/2). Flipping the limits to remove the minus sign gives the integral of cos u from pi/2 to pi, which is sin(pi) - sin(pi/2) = -1. Forgetting to flip the limits gives +1, the common wrong answer."
+    },
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2009 Q.25: the integral from 0 to pi/4 of (1 - tan x)/(1 + tan x) dx equals (A) 0 (B) 1 (C) ln 2 (D) (1/2) ln 2.",
+     "answer": "(D) (1/2) ln 2.",
+     "why": "Writing tan x = sin x / cos x makes the integrand (cos x - sin x)/(cos x + sin x), which is exactly the derivative of ln(cos x + sin x) divided by itself. With u = cos x + sin x the limits become 1 and sqrt(2), so the value is ln(sqrt(2)) = (1/2) ln 2 = 0.3466."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why is it wrong to substitute u = sin x in the integral from 0 to pi/2 of sin^8 x cos x dx and then keep the limits 0 and pi/2?",
+     "answer": "Because the limits belong to x, and after substituting they must be rewritten in u: 0 and 1.",
+     "why": "The correct computation gives the integral of u^8 from 0 to 1, which is 1/9. Keeping the old limits would mean the integral of u^8 from 0 to pi/2, which is (pi/2)^9/9 = 6.46899 instead of 0.1111 - a wildly different number, which is why the limits must travel with the substitution."
+    }
+   ],
+   "trap": {
+    "what": "Changing the integrand but not the limits, or losing the minus sign that comes from du = -dx/x^2.",
+    "why": "The two limits are values of x, not of u. Once the variable changes, they must change too; and when the substitution is decreasing, the derivative is negative and the limits swap.",
+    "counterexample": "Substituting u = 1/x in the integral from 1/pi to 2/pi without touching the limits would ask for the integral of cos u from 1/pi to 2/pi, which is sin(2/pi) - sin(1/pi) = 0.5944 - 0.3090 = 0.2854, not -1."
+   },
+   "check": {
+    "question": "Evaluate the integral from 0 to pi/2 of sin^8 x cos x dx.",
+    "answer": "1/9.",
+    "explanation": "With u = sin x and du = cos x dx the limits become 0 and 1, so the integral is the integral of u^8 from 0 to 1 = 1/9 = 0.1111. The lecture example this is taken from states the same answer."
+   },
+   "pyqIds": [
+    "gate-2015-set1-44-substitution-cosine-reciprocal",
+    "gate-2009-25-tan-half-angle-substitution"
+   ],
+   "prereqs": [
+    "antiderivative-and-the-constant-of-integration",
+    "fundamental-theorem-of-calculus"
+   ],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "Calculus Volume 1, section 5.5: Substitution",
+     "channel": "OpenStax (Rice University)",
+     "url": "https://openstax.org/books/calculus-volume-1/pages/5-5-substitution",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read from the opening through the alteration-of-constants example: the chain-rule origin of the form f[g(x)] g'(x) dx, the substitution rule with its proof by differentiating F(g(x)), the five-step procedure, and the worked 6x(3x^2+4)^4 and z sqrt(z^2-5) examples. The definite-integral half of the section, including the change of limits, was beyond the returned extract"
+    },
+    {
+     "kind": "lecture-summary",
+     "title": "Solving Integration: Substitution Method",
+     "channel": "Knowledge Gate (Yash Jain), ZERO TO HERO module",
+     "url": "https://www.knowledgegate.ai/learn/ZERO-TO-HERO/engineering-mathematics/calculus/integration/asset-solving-integration-substitution-method",
+     "language": "hi",
+     "transcript": "SUMMARY_ONLY",
+     "translated": true,
+     "note": "Hindi-medium GATE lecture; the English AI chapter summary with timestamps was read in full. Chapters used: 0:00-2:00 the form f(x) g'(x) and u = g(x); 2:00-5:00 the x^2 sqrt(x^3+1) example; 5:00-10:00 the e^{x^3} and sin^8 x cos x examples with the limits changed from 0..pi/2 to 0..1; 10:00-15:00 the ratio form whose integral is a logarithm; 15:00-16:29 the (2x+3)/(x^2+3x-4) example"
+    }
+   ],
+   "sourceLine": "The form f(g(x)) g'(x), the five-step procedure and the constant adjustment: OpenStax Calculus Volume 1 section 5.5 (English). The changing of limits and the worked sin^8 x cos x definite integral: Knowledge Gate 'Solving Integration: Substitution Method' 5:00-10:00 (Hindi-medium lecture, English summary - translated). Both PYQ values are recomputed in scripts/validate.py.",
+   "videoRefs": [],
+   "subject": "calculus",
+   "topic": "integration",
+   "path": "subjects/calculus/integration/substitution-in-definite-integrals.json"
+  },
+  {
+   "id": "integration-by-parts",
+   "title": "Integration by Parts",
+   "priority": "P1",
+   "order": 206,
+   "unit": "Integration",
+   "quickIdea": "Trade one integral for another using the product rule backwards: the integral of u dv is u v minus the integral of v du, and the choice of u decides whether the trade helps.",
+   "remember": [
+    "Formula: the integral of u dv = u v - the integral of v du. It comes straight from integrating the product rule.",
+    "For a definite integral evaluate the product at the two limits and subtract the second integral: the integral from a to b of u dv = [u v] from a to b minus the integral from a to b of v du.",
+    "Choose u by LIATE - logarithmic, inverse trigonometric, algebraic, trigonometric, exponential - taking whichever appears first in that list as u.",
+    "A polynomial times a trigonometric or exponential factor needs as many rounds as the polynomial's degree; each round lowers the degree by one. x^2 cos x needs two rounds.",
+    "A polynomial times a logarithm or an inverse trigonometric function is the classic case for u being the logarithm, since its derivative is algebraic.",
+    "The constant in v is free: adding K to v changes nothing, because the K terms cancel - OpenStax shows this explicitly."
+   ],
+   "example": {
+    "prompt": "Evaluate the integral from 0 to pi of x^2 cos x dx.",
+    "work": "First round with u = x^2, dv = cos x dx, so du = 2x dx and v = sin x: the integral is [x^2 sin x] from 0 to pi minus the integral from 0 to pi of 2x sin x dx. The bracket is 0 at both ends. Second round on 2x sin x with u = 2x, dv = sin x dx, so du = 2 dx and v = -cos x: it equals [-2x cos x] from 0 to pi plus the integral from 0 to pi of 2 cos x dx, that is (2pi - 0) + 0 = 2pi. So the original integral is 0 - 2pi.",
+    "answer": "-2pi."
+   },
+   "gateAngle": "GATE CSE 2014 Set 3 Q.47 is this exact integral and its answer -2pi; GATE CSE 2025 Set 2 Q.2 needs one round of by parts on t ln t before the equation in x can be solved. The distractor pattern is the sign of the second bracket, so evaluate each bracket separately.",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2014 Set 3 Q.47: the value of the integral from 0 to pi of x^2 cos x dx is (A) -2pi (B) pi (C) -pi (D) 2pi.",
+     "answer": "(A) -2pi.",
+     "why": "Two rounds of by parts give [x^2 sin x + 2x cos x - 2 sin x] from 0 to pi. At pi the first and third terms vanish and 2x cos x is -2pi; at 0 the whole bracket is 0. The value is -6.2832, and the option -pi = -3.14 comes from dropping the factor 2."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "Evaluate the integral from 0 to 1 of x e^x dx.",
+     "answer": "1.",
+     "why": "With u = x and dv = e^x dx, the integral is [x e^x] from 0 to 1 minus the integral from 0 to 1 of e^x dx = e - (e - 1) = 1. The value is exactly 1, which is worth remembering as the smallest self-checking by-parts example."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why does choosing u = cos x and dv = x^2 dx make the integral of x^2 cos x worse rather than better?",
+     "answer": "Because the new integral has a higher power of x in it.",
+     "why": "With that choice v = x^3/3, so the second integral carries x^3 sin x, a harder integrand than the one you started with. The rule of thumb is that u should get simpler when differentiated, which a polynomial always does and a cosine does not."
+    }
+   ],
+   "trap": {
+    "what": "Picking u so that the new integral is harder, or losing a sign when the second round produces a minus of a minus.",
+    "why": "By parts is a trade, not a solution: it helps only if the new integral is easier. And each round carries its own bracket, whose sign is easy to get wrong.",
+    "counterexample": "For the integral of x^2 cos x, taking u = cos x gives the new integral of (x^3/3) sin x, which is worse. And in the second round, [-2x cos x] from 0 to pi equals -2pi - 0 = -2pi only if the minus sign in v = -cos x is kept; dropping it gives +2pi and the wrong option (D)."
+   },
+   "check": {
+    "question": "Evaluate the integral from 1 to e of ln x dx.",
+    "answer": "1.",
+    "explanation": "With u = ln x, dv = dx, du = dx/x and v = x, the integral is [x ln x] from 1 to e minus the integral from 1 to e of 1 dx = (e - 0) - (e - 1) = 1. The logarithm must be u, because it is the only factor that becomes simpler when differentiated."
+   },
+   "pyqIds": [
+    "gate-2014-set3-47-x-squared-cos-x-by-parts"
+   ],
+   "prereqs": [
+    "antiderivative-and-the-constant-of-integration",
+    "substitution-in-definite-integrals"
+   ],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "Calculus Volume 2, section 3.1: Integration by Parts",
+     "channel": "OpenStax (Rice University)",
+     "url": "https://openstax.org/books/calculus-volume-2/pages/3-1-integration-by-parts",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read from the opening through the LIATE discussion: the derivation of the formula from the product rule, the statement of the integration-by-parts formula, the worked x sin x example, the explicit warning that the other choice of u makes the new integral no better, the note that the constant in v does not matter, and the LIATE ordering with the x sin x illustration. The definite-integral subsection was announced but its text was beyond the returned extract"
+    },
+    {
+     "kind": "lecture-summary",
+     "title": "13 Oct - EM - Calculus Part 3, the integration segment",
+     "channel": "Knowledge Gate (Yash Jain)",
+     "url": "https://www.knowledgegate.ai/learn/GATE-GUIDANCE-BY-SANCHIT-SIR/live-classes/gate-2026-live-class/engineering-mathematics-for-gate-exam/asset-13-oct-em-calculus-part-3",
+     "language": "hi",
+     "transcript": "SUMMARY_ONLY",
+     "translated": true,
+     "note": "Hindi-medium live class; the English AI chapter summary with timestamps was read in full. Chapters used: 45:00-50:00 integration as anti-differentiation, the indefinite against the definite integral and the area examples; 50:00-55:00 the property list, including reversal, additivity and the sign rule, and the pointer to a table of standard integrals; 55:00-59:08 the substitution method with the two standard forms and the worked sin^8 x cos x definite integral. The earlier part of the same lecture supplied the mean value theorem topic in an earlier run"
+    }
+   ],
+   "sourceLine": "The derivation from the product rule, the formula, the x sin x example, the warning about the other choice of u, and the LIATE ordering: OpenStax Calculus Volume 2 section 3.1 (English). The GATE framing of the technique: Knowledge Gate '13 Oct - EM - Calculus Part 3' 55:00-59:08 (Hindi-medium lecture, English summary - translated). The 2014 value is recomputed in scripts/validate.py.",
+   "videoRefs": [],
+   "subject": "calculus",
+   "topic": "integration",
+   "path": "subjects/calculus/integration/integration-by-parts.json"
+  },
+  {
+   "id": "splitting-the-interval-at-sign-changes",
+   "title": "Splitting the Interval: Modulus and Piecewise Integrands",
+   "priority": "P1",
+   "order": 207,
+   "unit": "Integration",
+   "quickIdea": "An absolute value inside an integral must be removed before integrating: find where the inner expression changes sign, split the interval there, and integrate each piece with its own sign.",
+   "remember": [
+    "|g(x)| equals g(x) where g is non-negative and -g(x) where g is negative; the split points are the zeros of g inside the interval.",
+    "The integral of |f| is the area; the integral of f is the net signed area. A question that says 'area' wants the first, and a question that says 'integral of the modulus' already forces it.",
+    "A piecewise definition is handled the same way: split at the joins and add the pieces.",
+    "A modulus of a product needs every factor's sign on the interval, not just the obvious one: |x sin x| on [0, 2pi] needs x, which is non-negative, and sin x, which changes sign at pi.",
+    "Absolute value also appears as a limit of integration or as the integrand of a definite integral with a parameter; the split is at the point where the expression inside is zero.",
+    "Check the answer's sign: an integral of a modulus over an interval of positive length cannot be negative."
+   ],
+   "example": {
+    "prompt": "If the integral from 0 to 2pi of |x sin x| dx = k pi, find k.",
+    "work": "On [0, 2pi] x is non-negative, so |x sin x| = x|sin x|. sin x is non-negative on [0, pi] and non-positive on [pi, 2pi], so the integral is the integral of x sin x from 0 to pi minus the integral of x sin x from pi to 2pi. An antiderivative of x sin x is -x cos x + sin x. The first piece is (-pi cos pi + 0) - 0 = pi. The second piece is (-2pi cos 2pi + 0) - (-pi cos pi + 0) = -2pi - pi = -3pi. So the integral is pi - (-3pi) = 4pi.",
+    "answer": "k = 4."
+   },
+   "gateAngle": "GATE CSE 2014 Set 3 Q.6 is this computation with the answer 4. The exam's habit is to give a modulus and a scaling constant - here k pi - so that a partially correct split still produces a plausible wrong integer; the mark is in the second piece's sign.",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2014 Set 3 Q.6: if the integral from 0 to 2pi of |x sin x| dx = k pi, the value of k is ____.",
+     "answer": "4.",
+     "why": "Splitting at pi and integrating each piece by parts gives pi for the first and -3pi for the second; the modulus makes the second contribute +3pi, so the total is 4pi. Integrating x sin x across the whole interval without splitting gives -2pi, which is the trap."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "Evaluate the integral from 0 to 2 of |x - 1| dx.",
+     "answer": "1.",
+     "why": "The sign changes at x = 1. On [0, 1] the integrand is 1 - x, whose integral is 1/2; on [1, 2] it is x - 1, also 1/2. The two triangles together have area 1, and the signed integral of x - 1 over [0, 2] is 0 - the modulus is what makes the difference."
+    }
+   ],
+   "trap": {
+    "what": "Integrating through a sign change as if the expression were positive throughout, or using the signed integral when the question asks for area.",
+    "why": "The modulus is not a decoration: it changes the integrand on exactly one of the pieces. And the signed integral can be much smaller, or zero, when the pieces cancel.",
+    "counterexample": "The integral of x sin x from 0 to 2pi is -2pi, while the integral of |x sin x| is 4pi. Reading the first as the answer gives k = -2, which is not even an offered option."
+   },
+   "check": {
+    "question": "Evaluate the integral from -1 to 1 of |x| dx and compare it with the integral of x over the same interval.",
+    "answer": "The first is 1 and the second is 0.",
+    "explanation": "|x| is even, so its integral is twice the integral from 0 to 1 of x, which is 2 times 1/2 = 1. The integral of x is 0 because x is odd on a symmetric interval. Same interval, same endpoints, different integrand, and the modulus is the whole difference."
+   },
+   "pyqIds": [
+    "gate-2014-set3-6-modulus-x-sin-x"
+   ],
+   "prereqs": [
+    "definite-integral-as-signed-area",
+    "integration-by-parts"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-summary",
+     "title": "Definite Integrals",
+     "channel": "Knowledge Gate (Yash Jain)",
+     "url": "https://www.knowledgegate.ai/learn/GATE-GUIDANCE-BY-SANCHIT-SIR/engineering-mathematics/calculus/integration/asset-definite-integrals",
+     "language": "hi",
+     "transcript": "SUMMARY_ONLY",
+     "translated": true,
+     "note": "Hindi-medium GATE lecture; the platform's published English AI chapter summary with timestamps was read in full, the lecture itself was not. Chapters used: 0:00-2:00 the definition as F(b) - F(a) and the two readings (area under a curve, area between curve and x-axis) with the example integral of 1 from 1 to 3; 2:00-5:00 the rectangle and triangle verifications of that example and of the integral of 2x from 0 to 1; 5:00-10:00 the sign of the integral as net signed area"
+    },
+    {
+     "kind": "lecture-summary",
+     "title": "Properties of Definite Integrals",
+     "channel": "Knowledge Gate (Yash Jain)",
+     "url": "https://www.knowledgegate.ai/learn/GATE-GUIDANCE-BY-SANCHIT-SIR/engineering-mathematics/calculus/integration/asset-properties-of-definite-integrals",
+     "language": "hi",
+     "transcript": "SUMMARY_ONLY",
+     "translated": true,
+     "note": "Hindi-medium GATE lecture; the English AI chapter summary with timestamps was read in full. Chapters used: 0:00-2:00 area readings and the integral of 1 from a to b equalling b - a; 2:00-5:00 the constant-factor, sum-difference and zero-width properties; 5:00-10:00 the reversal property derived from the fundamental theorem, additivity over a split interval, the sign rule, and the area between two curves"
+    }
+   ],
+   "sourceLine": "The distinction between the signed integral and the area, which is what a modulus question is testing: Knowledge Gate 'Definite Integrals' 5:00-10:00 and 'Properties of Definite Integrals' 5:00-10:00 (Hindi-medium lectures, English summaries - translated). The 2014 computation is carried out here from the antiderivative of x sin x and recomputed in scripts/validate.py.",
+   "videoRefs": [],
+   "subject": "calculus",
+   "topic": "integration",
+   "path": "subjects/calculus/integration/splitting-the-interval-at-sign-changes.json"
+  },
+  {
+   "id": "improper-integrals-and-convergence",
+   "title": "Improper Integrals: Unbounded Integrands and Infinite Limits",
+   "priority": "P1",
+   "order": 208,
+   "unit": "Integration",
+   "quickIdea": "When the integrand blows up or a limit is infinite, the integral is defined as a limit; it exists only if that limit is finite, and a finite area can belong to an unbounded function.",
+   "remember": [
+    "Unbounded integrand at an interior point c: split at c and take one-sided limits. The integral exists only if both limits are finite.",
+    "Infinite limit: the integral from a to infinity is the limit as b grows of the integral from a to b.",
+    "Benchmark: the integral of x^(-p) from 1 to infinity converges exactly when p is greater than 1; the integral of x^(-p) from 0 to 1 converges exactly when p is less than 1. The two conditions are opposite, which is why the interval matters.",
+    "An unbounded function can still have a finite area: x^(-1/3) on [-1, 1] is unbounded and discontinuous at 0, yet the area between it and the axis is 3.",
+    "The odd-function shortcut is invalid across a singularity: the integral of 1/x from -1 to 1 is not 0, it diverges, because each side has an infinite limit even though the formal antiderivative cancels.",
+    "For an area question the integrand is |f|, so an odd unbounded function does not cancel at all: both sides add."
+   ],
+   "example": {
+    "prompt": "For f(x) = x^(-1/3) on [-1, 1], decide whether f is continuous, whether it is bounded, and whether the area between f and the x-axis is finite and non-zero.",
+    "work": "As x approaches 0 from the right f tends to plus infinity and from the left to minus infinity, so f is not continuous at 0 and not bounded on [-1, 1]. The area is the integral of |x^(-1/3)| from -1 to 1. An antiderivative of x^(-1/3) is (3/2) x^(2/3), so the right piece gives (3/2)(1 - s^(2/3)) as s tends to 0, that is 3/2, and the left piece gives 3/2 as well.",
+    "answer": "Not continuous, not bounded, and the area is 3 - non-zero and finite."
+   },
+   "gateAngle": "GATE CSE 2015 Set 2 Q.26 asks exactly these three statements about x^(-1/3) and the answer is that the function is unbounded and the area is non-zero and finite. The question exists because candidates assume unbounded means infinite area, or read the area as the signed integral, which would be 0 here.",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2015 Set 2 Q.26: let f(x) = x^(-1/3) and A be the area of the region bounded by f and the x-axis as x varies from -1 to 1. Which are true? I. f is continuous on [-1, 1]. II. f is not bounded on [-1, 1]. III. A is non-zero and finite. (A) II only (B) III only (C) II and III only (D) I, II and III.",
+     "answer": "(C) II and III only.",
+     "why": "The one-sided limits at 0 are infinite with opposite signs, so I fails and II holds. The area uses the modulus, and each half contributes 3/2, so A = 3, which is finite and non-zero. The signed integral over [-1, 1] would be 0, which is why statement III is about the area and not the integral."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Does the integral from 0 to 1 of x^(-1/2) dx exist, and what is its value?",
+     "answer": "It exists and equals 2.",
+     "why": "An antiderivative is 2 sqrt(x), and as the lower limit tends to 0 that tends to 0, so the limit is 2. Here p = 1/2 is less than 1, which is exactly the convergent case for a singularity at 0; the same function on [1, infinity) would diverge."
+    }
+   ],
+   "trap": {
+    "what": "Treating an unbounded integrand as if it were continuous, or using an odd-function cancellation across a singularity.",
+    "why": "The definition is a limit, and a limit may fail to exist. Cancelling two infinite quantities is not arithmetic that the definite integral permits.",
+    "counterexample": "The integral of 1/x from -1 to 1 looks like 0 because ln|x| is even, but each side diverges: the integral from 0 to 1 of 1/x is the limit of ln(1) - ln(s) = -ln(s) as s tends to 0, which is infinite. The improper integral diverges, so quoting 0 is wrong."
+   },
+   "check": {
+    "question": "For which p does the integral of x^(-p) from 1 to infinity converge?",
+    "answer": "Exactly when p is greater than 1.",
+    "explanation": "For p other than 1 the integral up to b is (b^(1-p) - 1)/(1 - p), which stays finite as b grows only if 1 - p is negative, that is p greater than 1. The case p = 1 gives ln b, which grows without bound. The mirror statement at 0 is p less than 1."
+   },
+   "pyqIds": [
+    "gate-2015-set2-26-improper-integral-unbounded"
+   ],
+   "prereqs": [
+    "definite-integral-as-signed-area",
+    "limits-at-infinity-and-orders-of-growth"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-summary",
+     "title": "Definite Integrals",
+     "channel": "Knowledge Gate (Yash Jain)",
+     "url": "https://www.knowledgegate.ai/learn/GATE-GUIDANCE-BY-SANCHIT-SIR/engineering-mathematics/calculus/integration/asset-definite-integrals",
+     "language": "hi",
+     "transcript": "SUMMARY_ONLY",
+     "translated": true,
+     "note": "Hindi-medium GATE lecture; the platform's published English AI chapter summary with timestamps was read in full, the lecture itself was not. Chapters used: 0:00-2:00 the definition as F(b) - F(a) and the two readings (area under a curve, area between curve and x-axis) with the example integral of 1 from 1 to 3; 2:00-5:00 the rectangle and triangle verifications of that example and of the integral of 2x from 0 to 1; 5:00-10:00 the sign of the integral as net signed area"
+    },
+    {
+     "kind": "text",
+     "title": "Calculus Volume 1, section 5.3: The Fundamental Theorem of Calculus",
+     "channel": "OpenStax (Rice University)",
+     "url": "https://openstax.org/books/calculus-volume-1/pages/5-3-the-fundamental-theorem-of-calculus",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read from the section opening through the mean value theorem for integrals: the statement and proof of the mean value theorem for integrals by the extreme value and intermediate value theorems, the average-value formula, and the worked average of 8 - 2x on [0, 4] giving 4 at c = 2. The two parts of the fundamental theorem are announced in the learning objectives and are the section's subject, but the part of the extract returned stopped before their statements, so the two parts are stated here from the standard form and checked by recomputation rather than quoted"
+    }
+   ],
+   "sourceLine": "The signed-area and area readings that the 2015 question turns on: Knowledge Gate 'Definite Integrals' 5:00-10:00 (Hindi-medium lecture, English summary - translated). The convergence conditions are the standard p-test; the OpenStax section 5.3 material read this run supplies the continuity and average-value background but not the improper-integral definitions, so no lecture is quoted for them and every value is recomputed in scripts/validate.py.",
+   "videoRefs": [],
+   "subject": "calculus",
+   "topic": "integration",
+   "path": "subjects/calculus/integration/improper-integrals-and-convergence.json"
+  },
+  {
+   "id": "area-between-two-curves",
+   "title": "Area Between Two Curves",
+   "priority": "P2",
+   "order": 209,
+   "unit": "Integration",
+   "quickIdea": "The area between an upper curve f and a lower curve g from a to b is the integral of f - g, with the interval cut wherever the two curves cross.",
+   "remember": [
+    "If f is at least g throughout [a, b], the area is the integral from a to b of (f - g). The limits a and b are usually the intersection points, not arbitrary numbers.",
+    "Find the intersections first: solve f(x) = g(x). Those solutions decide the interval and the split points.",
+    "Where the curves cross inside the interval, split there, because the upper curve changes; integrating f - g across a crossing subtracts area instead of adding it.",
+    "This is the same statement as the signed-integral rule with the x-axis replaced by a curve: the area between two curves is the integral of the vertical gap.",
+    "For curves given as x as a function of y, the same formula runs in y; the gap is horizontal.",
+    "A quick sanity check: the answer must be positive, and it cannot exceed the rectangle bounded by the interval width and the largest gap."
+   ],
+   "example": {
+    "prompt": "Find the area enclosed between y = x and y = x^2.",
+    "work": "The curves meet where x = x^2, that is at x = 0 and x = 1. Between them x is at least x^2, so the area is the integral from 0 to 1 of (x - x^2) dx = [x^2/2 - x^3/3] from 0 to 1 = 1/2 - 1/3 = 1/6.",
+    "answer": "1/6, about 0.1667."
+   },
+   "gateAngle": "No verified GATE CSE previous-year question in this topic asks for an area between two curves; the closest is 2015 Set 2 Q.26, which asks for the area between one curve and the axis. The pattern is still worth knowing because it is the geometric meaning the properties are built on, and because a statement question can ask whether the area equals the difference of the two integrals - it does only when the curves do not cross.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "Find the area between y = 4 and y = x^2.",
+     "answer": "32/3, about 10.667.",
+     "why": "The curves meet at x = -2 and x = 2, and 4 is above x^2 in between. The area is the integral from -2 to 2 of (4 - x^2) dx = [4x - x^3/3] from -2 to 2 = (8 - 8/3) - (-8 + 8/3) = 32/3. Symmetry lets you double the integral from 0 to 2 instead."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "The curves y = x^3 and y = x meet at -1, 0 and 1. What is the signed integral of x^3 - x from -1 to 1, and what is the enclosed area?",
+     "answer": "The signed integral is 0 and the area is 1/2.",
+     "why": "x^3 - x is odd, so its integral over the symmetric interval vanishes. The enclosed area needs the modulus of the gap, and each of the two lobes has area 1/4, so the total is 1/2. This is the clearest example of why crossing points must be split."
+    }
+   ],
+   "trap": {
+    "what": "Integrating f - g across a crossing point and calling the result an area.",
+    "why": "On one side of the crossing f is above g, on the other g is above f, so the contributions have opposite signs and partly cancel.",
+    "counterexample": "For y = x^3 and y = x on [-1, 1] the integral of x^3 - x is 0, while the enclosed area is 1/2. Reporting 0 as an area is the standard error."
+   },
+   "check": {
+    "question": "What is the area between y = x^2 and the x-axis from x = 0 to x = 3?",
+    "answer": "9.",
+    "explanation": "x^2 is non-negative on [0, 3], so the area equals the integral, which is [x^3/3] from 0 to 3 = 27/3 = 9. Because there is no crossing, the area and the integral agree - the case the previous card warned about does not arise."
+   },
+   "pyqIds": [],
+   "prereqs": [
+    "definite-integral-as-signed-area",
+    "properties-of-definite-integrals"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-summary",
+     "title": "Properties of Definite Integrals",
+     "channel": "Knowledge Gate (Yash Jain)",
+     "url": "https://www.knowledgegate.ai/learn/GATE-GUIDANCE-BY-SANCHIT-SIR/engineering-mathematics/calculus/integration/asset-properties-of-definite-integrals",
+     "language": "hi",
+     "transcript": "SUMMARY_ONLY",
+     "translated": true,
+     "note": "Hindi-medium GATE lecture; the English AI chapter summary with timestamps was read in full. Chapters used: 0:00-2:00 area readings and the integral of 1 from a to b equalling b - a; 2:00-5:00 the constant-factor, sum-difference and zero-width properties; 5:00-10:00 the reversal property derived from the fundamental theorem, additivity over a split interval, the sign rule, and the area between two curves"
+    },
+    {
+     "kind": "lecture-summary",
+     "title": "Definite Integrals",
+     "channel": "Knowledge Gate (Yash Jain)",
+     "url": "https://www.knowledgegate.ai/learn/GATE-GUIDANCE-BY-SANCHIT-SIR/engineering-mathematics/calculus/integration/asset-definite-integrals",
+     "language": "hi",
+     "transcript": "SUMMARY_ONLY",
+     "translated": true,
+     "note": "Hindi-medium GATE lecture; the platform's published English AI chapter summary with timestamps was read in full, the lecture itself was not. Chapters used: 0:00-2:00 the definition as F(b) - F(a) and the two readings (area under a curve, area between curve and x-axis) with the example integral of 1 from 1 to 3; 2:00-5:00 the rectangle and triangle verifications of that example and of the integral of 2x from 0 to 1; 5:00-10:00 the sign of the integral as net signed area"
+    }
+   ],
+   "sourceLine": "The area-between-two-curves property, stated and drawn in the GATE lecture: Knowledge Gate 'Properties of Definite Integrals' 5:00-10:00 (Hindi-medium lecture, English summary - translated), with the signed-area reading from 'Definite Integrals'. The two worked areas are recomputed in scripts/validate.py.",
+   "videoRefs": [],
+   "subject": "calculus",
+   "topic": "integration",
+   "path": "subjects/calculus/integration/area-between-two-curves.json"
+  },
+  {
+   "id": "average-value-and-the-mean-value-theorem-for-integrals",
+   "title": "Average Value of a Function",
+   "priority": "P2",
+   "order": 210,
+   "unit": "Integration",
+   "quickIdea": "The average value of f on [a, b] is the integral of f divided by the width b - a, and a continuous f actually attains that average somewhere on the interval.",
+   "remember": [
+    "Average value = (1/(b - a)) times the integral from a to b of f. The average is the height of the rectangle over [a, b] with the same area as the region under the curve.",
+    "Mean value theorem for integrals: if f is continuous on [a, b], some c in [a, b] has f(c) equal to that average. It is proved by bounding the integral between the minimum and maximum and then using the intermediate value theorem.",
+    "For a linear function the average is attained at the midpoint, which is why the trapezium rule is exact for straight lines.",
+    "For a non-linear function the average of the endpoint values is not the average value: for x^2 on [0, 2] the endpoint average is 2 while the integral average is 4/3.",
+    "This is the integral form of the mean value theorem of the previous topic: there the average was a slope, here it is a height.",
+    "Average value is not a probability: for that the integrand must be a density and the interval must be the whole support."
+   ],
+   "example": {
+    "prompt": "Find the average value of f(x) = 8 - 2x on [0, 4] and the point where f takes it.",
+    "work": "The integral from 0 to 4 of (8 - 2x) dx = [8x - x^2] from 0 to 4 = 32 - 16 = 16. Dividing by the width 4 gives 4. Setting 8 - 2c = 4 gives c = 2, which lies in [0, 4].",
+    "answer": "Average value 4, attained at c = 2, the midpoint."
+   },
+   "gateAngle": "No verified GATE CSE previous-year question asks for an average value directly, so this card is P2 and rests on the standard reference plus recomputation. It earns its place because the mean value theorem for integrals is what makes the fundamental theorem provable, and because the phrase 'average value' appears in the statements of several engineering-mathematics questions of other branches.",
+   "variations": [
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Is the average value of x^2 on [0, 2] equal to the average of f(0) and f(2)?",
+     "answer": "No: the average value is 4/3 and the endpoint average is 2.",
+     "why": "The integral of x^2 from 0 to 2 is 8/3, and dividing by the width 2 gives 4/3. Averaging the endpoint values weights only two points, and x^2 is convex, so it spends more of its range below the chord. The mean value theorem for integrals guarantees a point where f equals 4/3, namely c = sqrt(4/3) = 1.1547."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "If the average value of f on [0, 4] is 3, what is the integral of f from 0 to 4?",
+     "answer": "12.",
+     "why": "The definition rearranges to integral = average times width = 3 times 4. This is the form GATE would use: the average is given and the integral is asked, so the candidate who memorises only the forward direction has to re-derive it."
+    }
+   ],
+   "trap": {
+    "what": "Dividing by the wrong width, or treating the average value as the average of the endpoint values.",
+    "why": "The divisor is b - a, the length of the interval, not b or a; and averaging two endpoint values ignores the whole interior of the interval.",
+    "counterexample": "For x^2 on [0, 2] the endpoint average is (0 + 4)/2 = 2, but the true average value is 4/3 = 1.333. Dividing the integral 8/3 by 2 (the upper limit) instead of by the width 2 happens to be right here only because a = 0, which is exactly how the error hides."
+   },
+   "check": {
+    "question": "What is the average value of x^2 on [0, 3]?",
+    "answer": "3.",
+    "explanation": "The integral is [x^3/3] from 0 to 3 = 9, and the width is 3, so the average is 3. The point where x^2 equals 3 is c = sqrt(3) = 1.732, which lies in [0, 3] as the theorem promises."
+   },
+   "pyqIds": [],
+   "prereqs": [
+    "definite-integral-as-signed-area",
+    "lmvt-statement-and-secant-slope"
+   ],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "Calculus Volume 1, section 5.3: The Fundamental Theorem of Calculus",
+     "channel": "OpenStax (Rice University)",
+     "url": "https://openstax.org/books/calculus-volume-1/pages/5-3-the-fundamental-theorem-of-calculus",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read from the section opening through the mean value theorem for integrals: the statement and proof of the mean value theorem for integrals by the extreme value and intermediate value theorems, the average-value formula, and the worked average of 8 - 2x on [0, 4] giving 4 at c = 2. The two parts of the fundamental theorem are announced in the learning objectives and are the section's subject, but the part of the extract returned stopped before their statements, so the two parts are stated here from the standard form and checked by recomputation rather than quoted"
+    }
+   ],
+   "sourceLine": "The mean value theorem for integrals with its proof and the average value of 8 - 2x on [0, 4]: OpenStax Calculus Volume 1 section 5.3 (English, read through the proof). No GATE-oriented lecture read this run covered average value, and no previous-year CSE question in the topic turns on it, so the card is P2 and every number is recomputed in scripts/validate.py.",
+   "videoRefs": [],
+   "subject": "calculus",
+   "topic": "integration",
+   "path": "subjects/calculus/integration/average-value-and-the-mean-value-theorem-for-integrals.json"
+  },
+  {
+   "id": "integrating-a-functional-equation",
+   "title": "Integrating a Functional Equation",
+   "priority": "P2",
+   "order": 211,
+   "unit": "Integration",
+   "quickIdea": "When f is given only through a relation, integrate both sides of the relation over the interval and use substitution to turn the unknown pieces into copies of the same integral, then solve the resulting equation.",
+   "remember": [
+    "Integrate the relation over the required interval; the unknown function then appears only inside integrals, which is what the question asks for.",
+    "Substitution is the tool that renames an awkward piece: the integral of f(1/x) over [1, 2] becomes an integral of f(u) times a weight after u = 1/x, and it is not the same as the integral of f over [1, 2].",
+    "The reflection identity is the cleanest case: the integral of f(a + b - x) over [a, b] equals the integral of f over [a, b], so a relation like f(x) + f(2 - x) = 1 gives an equation in the single unknown integral.",
+    "Two unknowns need two equations: with a f(x) + b f(1/x) = g(x), replace x by 1/x to get the second equation, then eliminate.",
+    "Watch the constants: integrating 1/x over [1, 2] gives ln 2, and integrating x over [1, 2] gives 3/2 - these are the numbers that appear in the options.",
+    "Solve for the integral, not for f, unless f itself is needed; the algebra is shorter and less error-prone."
+   ],
+   "example": {
+    "prompt": "For non-zero x, a f(x) + b f(1/x) = 1/x - 25 with a not equal to b. Find the integral of f from 1 to 2.",
+    "work": "Integrate the relation from 1 to 2: a times the integral of f plus b times the integral of f(1/x) equals [ln x - 25x] from 1 to 2 = ln 2 - 25. Replace x by 1/x in the relation to get a f(1/x) + b f(x) = x - 25, and integrate that: a times the integral of f(1/x) plus b times the integral of f equals [x^2/2 - 25x] from 1 to 2 = (2 - 50) - (1/2 - 25) = -47/2. Multiply the first equation by a and the second by b and subtract, which kills the f(1/x) term and leaves (a^2 - b^2) times the integral of f = a(ln 2 - 25) + 47b/2.",
+    "answer": "The integral is [a(ln 2 - 25) + 47b/2] / (a^2 - b^2)."
+   },
+   "gateAngle": "Two previous-year questions sit here: GATE CSE 2015 Set 3 Q.45 is this exact elimination, and GATE CSE 2024 Set 2 Q.6 is the reflection version with the answer 1. In both, the whole difficulty is realising that the unfamiliar integral is the same object as the wanted one.",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2015 Set 3 Q.45: if for non-zero x, a f(x) + b f(1/x) = 1/x - 25 with a not equal to b, then the integral of f from 1 to 2 is which of the four expressions?",
+     "answer": "The option reading [a(ln 2 - 25) + 47b/2] / (a^2 - b^2), printed as option (A).",
+     "why": "Integrating the relation gives a I + b J = ln 2 - 25 and the swapped relation gives a J + b I = -47/2, where I is the wanted integral and J the integral of f(1/x). Eliminating J leaves (a^2 - b^2) I = a(ln 2 - 25) + 47b/2. The sign of 47b/2 is the discriminating detail between the four options."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "A continuous f satisfies f(x) + f(4 - x) = 6 for all x. Find the integral of f from 0 to 4.",
+     "answer": "12.",
+     "why": "By the reflection rule the integral of f(4 - x) over [0, 4] equals the integral of f over [0, 4], so adding the two forms gives twice the integral equal to the integral of 6 over [0, 4], which is 24. The answer is 12, which is the average value 3 times the width 4 - the same number by the average-value card."
+    }
+   ],
+   "trap": {
+    "what": "Assuming the integral of f(1/x) equals the integral of f over the same limits.",
+    "why": "Substituting u = 1/x does not map the interval to itself: on [1, 2] it maps to [1/2, 1], and the differential picks up a factor of -1/u^2.",
+    "counterexample": "Take f(x) = x. The integral of f from 1 to 2 is 3/2 = 1.5, while the integral of f(1/x) from 1 to 2 is the integral of 1/x = ln 2 = 0.693. Treating them as equal would give a wrong constant throughout the elimination."
+   },
+   "check": {
+    "question": "A continuous f satisfies f(x) = 1 - f(2 - x). What is the integral of f from 0 to 2?",
+    "answer": "1.",
+    "explanation": "The reflection rule replaces the integral of f(2 - x) by the integral of f, so I = the integral of 1 from 0 to 2 minus I = 2 - I, giving I = 1. The constant f = 1/2 satisfies the relation and confirms the value."
+   },
+   "pyqIds": [
+    "gate-2015-set3-45-functional-equation-then-integrate"
+   ],
+   "prereqs": [
+    "properties-of-definite-integrals",
+    "symmetry-rules-for-definite-integrals",
+    "substitution-in-definite-integrals"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-summary",
+     "title": "Properties of Definite Integrals",
+     "channel": "Knowledge Gate (Yash Jain)",
+     "url": "https://www.knowledgegate.ai/learn/GATE-GUIDANCE-BY-SANCHIT-SIR/engineering-mathematics/calculus/integration/asset-properties-of-definite-integrals",
+     "language": "hi",
+     "transcript": "SUMMARY_ONLY",
+     "translated": true,
+     "note": "Hindi-medium GATE lecture; the English AI chapter summary with timestamps was read in full. Chapters used: 0:00-2:00 area readings and the integral of 1 from a to b equalling b - a; 2:00-5:00 the constant-factor, sum-difference and zero-width properties; 5:00-10:00 the reversal property derived from the fundamental theorem, additivity over a split interval, the sign rule, and the area between two curves"
+    },
+    {
+     "kind": "text",
+     "title": "Calculus I, section 5.6: Definition of the Definite Integral",
+     "channel": "Paul's Online Math Notes, Lamar University",
+     "url": "https://tutorial.math.lamar.edu/classes/calci/defnofdefiniteintegral.aspx",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read from the section opening through the property list: the limit-of-sums definition with the lower and upper limits of integration, the explicit note that the lower limit need not be smaller, the worked example of x^2 + 1 on [0, 2] by right endpoints, and properties 1 to 6 (reversal, zero width, constant factor, sum and difference, additivity over a point c that need not lie between a and b, and the dummy variable). The later comparison properties were beyond the returned extract and nothing is attributed to them"
+    }
+   ],
+   "sourceLine": "The reflection and additivity properties that the elimination uses: Knowledge Gate 'Properties of Definite Integrals' 5:00-10:00 (Hindi-medium lecture, English summary - translated) and Paul's Online Math Notes section 5.6 for the dummy-variable property (English). The 2015 computation is re-derived here and recomputed in scripts/validate.py.",
+   "videoRefs": [],
+   "subject": "calculus",
+   "topic": "integration",
+   "path": "subjects/calculus/integration/integrating-a-functional-equation.json"
+  },
+  {
+   "id": "iterated-integrals-and-odd-symmetry",
+   "title": "Iterated Integrals and Symmetry in Several Variables",
+   "priority": "P2",
+   "order": 212,
+   "unit": "Integration",
+   "quickIdea": "A multiple integral is evaluated one variable at a time from the inside out, and over a box symmetric about the origin a term that is odd in one variable contributes nothing.",
+   "remember": [
+    "Evaluate from the innermost differential outward, treating every other variable as a constant.",
+    "With constant limits the order of integration can be swapped without changing the value; with variable limits it cannot, because the limits then depend on the outer variable.",
+    "Odd symmetry extends term by term: over a box symmetric in y, any term odd in y integrates to zero; over a box symmetric in z, any term odd in z does so. The 2023 question dies twice over.",
+    "A term can be even in every variable and still vanish only if it is odd in at least one - check each term separately rather than the whole integrand at once.",
+    "The multi-variable odd rule is the single-variable rule applied one variable at a time; the joint condition f(-x, -y, -z) = -f(x, y, z) is sufficient but not necessary.",
+    "A quick size check: for a box, the integral of a constant k is k times the volume of the box."
+   ],
+   "example": {
+    "prompt": "Evaluate the integral from -3 to 3, from -2 to 2, from -1 to 1 of (4x^2 y - z^3) dz dy dx.",
+    "work": "The inner integral in z: an antiderivative of 4x^2 y is 4x^2 y z, and of z^3 is z^4/4, so the inner value is 8x^2 y - 0 = 8x^2 y, because z^4/4 is the same at -1 and at 1. The middle integral in y of 8x^2 y from -2 to 2 is 0, since y is odd. The outer integral is then 0.",
+    "answer": "0."
+   },
+   "gateAngle": "GATE CSE 2023 Q.21 is this integral and the answer is 0. It is a numerical-answer question, so the only route to the marks is spotting the odd terms; computing it by hand costs time and invites an arithmetic slip. The exam has used the same trick in single-variable form in 2026 Set 2 Q.17.",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2023 Q.21: the value of the integral from -3 to 3, from -2 to 2, from -1 to 1 of (4x^2 y - z^3) dz dy dx, rounded to the nearest integer, is ____.",
+     "answer": "0.",
+     "why": "4x^2 y is odd in y, so its integral over the symmetric y-range is 0, and z^3 is odd in z, so its integral over the symmetric z-range is 0. Every layer therefore contributes nothing and the value is exactly 0."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "What is the integral of xy over the unit square [0, 1] x [0, 1]?",
+     "answer": "1/4.",
+     "why": "Here the limits are not symmetric, so no cancellation applies. Integrating in y first gives x/2, and then in x gives 1/4. The contrast with the 2023 question is the point: symmetry needs both the odd integrand and the symmetric range."
+    }
+   ],
+   "trap": {
+    "what": "Assuming a term vanishes because it contains a variable that appears to an odd power, without checking that the range for that variable is symmetric.",
+    "why": "The odd rule needs both conditions. On [0, 1] the integral of y is 1/2, not 0, and the same term that dies on [-2, 2] survives.",
+    "counterexample": "The integral of 4x^2 y over x in [0, 3], y in [0, 2], z in [0, 1] is 4 times (x^3/3 evaluated 0 to 3 = 9) times (y^2/2 evaluated 0 to 2 = 2) times 1 = 72, not 0. Only the symmetric box kills it."
+   },
+   "check": {
+    "question": "Evaluate the integral from -1 to 1, from -1 to 1 of x^2 y dy dx.",
+    "answer": "0.",
+    "explanation": "The inner integral in y of x^2 y over the symmetric range is 0 because y is odd; x^2 does not matter. The outer integral of 0 is 0. If the y-range were [0, 1] the inner value would be x^2/2 and the answer 1/3."
+   },
+   "pyqIds": [
+    "gate-2023-21-triple-integral-odd-symmetry"
+   ],
+   "prereqs": [
+    "symmetry-rules-for-definite-integrals",
+    "properties-of-definite-integrals"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-summary",
+     "title": "Definite Integrals",
+     "channel": "Knowledge Gate (Yash Jain)",
+     "url": "https://www.knowledgegate.ai/learn/GATE-GUIDANCE-BY-SANCHIT-SIR/engineering-mathematics/calculus/integration/asset-definite-integrals",
+     "language": "hi",
+     "transcript": "SUMMARY_ONLY",
+     "translated": true,
+     "note": "Hindi-medium GATE lecture; the platform's published English AI chapter summary with timestamps was read in full, the lecture itself was not. Chapters used: 0:00-2:00 the definition as F(b) - F(a) and the two readings (area under a curve, area between curve and x-axis) with the example integral of 1 from 1 to 3; 2:00-5:00 the rectangle and triangle verifications of that example and of the integral of 2x from 0 to 1; 5:00-10:00 the sign of the integral as net signed area"
+    },
+    {
+     "kind": "lecture-summary",
+     "title": "Properties of Definite Integrals",
+     "channel": "Knowledge Gate (Yash Jain)",
+     "url": "https://www.knowledgegate.ai/learn/GATE-GUIDANCE-BY-SANCHIT-SIR/engineering-mathematics/calculus/integration/asset-properties-of-definite-integrals",
+     "language": "hi",
+     "transcript": "SUMMARY_ONLY",
+     "translated": true,
+     "note": "Hindi-medium GATE lecture; the English AI chapter summary with timestamps was read in full. Chapters used: 0:00-2:00 area readings and the integral of 1 from a to b equalling b - a; 2:00-5:00 the constant-factor, sum-difference and zero-width properties; 5:00-10:00 the reversal property derived from the fundamental theorem, additivity over a split interval, the sign rule, and the area between two curves"
+    }
+   ],
+   "sourceLine": "The iterated reading of a multiple integral and the term-by-term sign rule: Knowledge Gate 'Definite Integrals' 5:00-10:00 and 'Properties of Definite Integrals' 0:00-5:00 (Hindi-medium lectures, English summaries - translated). No lecture read this run taught multiple integrals, so the order-of-integration and box-volume statements follow the standard treatment and every value is recomputed in scripts/validate.py.",
+   "videoRefs": [],
+   "subject": "calculus",
+   "topic": "integration",
+   "path": "subjects/calculus/integration/iterated-integrals-and-odd-symmetry.json"
   }
  ],
  "pyqs": [
@@ -20682,6 +21713,27 @@ window.GATE_DATA = {
    "answer_evidence": "Accepted answer: 'if alpha = 5 then there'll be a free variable ... So alpha != 5 will always give a unique solution', and the IIT Delhi solution for GATE 2008 Q.3 concludes 'alpha can be any real number except 5. So none of the options is correct'."
   },
   {
+   "id": "gate-2009-25-tan-half-angle-substitution",
+   "year": "2009",
+   "paper": "GATE CS 2009",
+   "question_ref": "Q.25",
+   "type": "MCQ",
+   "topic": "substitution-in-definite-integrals",
+   "text": "The integral from 0 to pi/4 of (1 - tan x)/(1 + tan x) dx evaluates to",
+   "options": [
+    "0",
+    "1",
+    "ln 2",
+    "(1/2) ln 2"
+   ],
+   "answer": "Option (D) - (1/2) ln 2",
+   "solution": "Writing tan x = sin x / cos x makes the integrand (cos x - sin x)/(cos x + sin x), which is the derivative of ln(cos x + sin x). Substituting u = cos x + sin x gives du = (cos x - sin x) dx and the limits u = 1 at x = 0 and u = sqrt(2) at x = pi/4, so the integral is ln(sqrt(2)) = (1/2) ln 2 = 0.3466.",
+   "source_url": "https://gateoverflow.in/802/gate-cse-2009-question-25",
+   "source_label": "GATE Overflow question page - GATE CSE 2009 Q.25 with the accepted answer (option D)",
+   "verification": "SOURCED",
+   "answer_evidence": "The accepted answer substitutes t = cos x + sin x and states 'Correct Answer: D'; the GATE Forum 2009 CS paper PDF shows the same four options with (D) printed as (1/2) ln 2. Recomputed here numerically."
+  },
+  {
    "id": "gate-2012-9-sin-local-minima",
    "year": "2012",
    "paper": "GATE CS 2012",
@@ -20879,6 +21931,27 @@ window.GATE_DATA = {
    "answer_evidence": "Accepted answer: 'Since, the given size of L is at least 4 (1 and 3 eliminated) and not equal to G (15 eliminated), the only size left is 5. Size of L is 5.'"
   },
   {
+   "id": "gate-2014-set3-47-x-squared-cos-x-by-parts",
+   "year": "2014",
+   "paper": "GATE CS 2014 Set 3",
+   "question_ref": "Q.47",
+   "type": "MCQ",
+   "topic": "integration-by-parts",
+   "text": "The value of the integral given below is: the integral from 0 to pi of x^2 cos x dx",
+   "options": [
+    "-2 pi",
+    "pi",
+    "-pi",
+    "2 pi"
+   ],
+   "answer": "Option (A) - -2 pi",
+   "solution": "By parts twice, with u = x^2 then u = 2x: the integral is [x^2 sin x + 2x cos x - 2 sin x] from 0 to pi. At pi, sin pi = 0 so the first and third terms vanish and 2 pi cos pi = -2 pi; at 0 every term is 0. The value is -2 pi = -6.2832.",
+   "source_url": "https://gateoverflow.in/2081/gate-cse-2014-set-3-question-47",
+   "source_label": "GATE Overflow question page - GATE CSE 2014 Set 3 Q.47 with the accepted answer (option A)",
+   "verification": "SOURCED",
+   "answer_evidence": "The accepted answer carries out both rounds of by parts and states 'Answer is A'; the Knowledge Gate AI page for the GATE 2014 Set 3 paper records the official answer key as A. Recomputed here numerically."
+  },
+  {
    "id": "gate-2014-set3-50-two-involutions-four-elements",
    "year": "2014",
    "paper": "GATE CS 2014 Set 3",
@@ -20893,6 +21966,21 @@ window.GATE_DATA = {
    "source_label": "GATE Overflow question page - GATE CSE 2014 Set 3 Q.50 with the accepted solution (4)",
    "verification": "SOURCED",
    "answer_evidence": "Accepted answer by Sachin Mittal: 'This turns out to be abelian group ... only four element can be there at max. {x, y, x*y, e}'. The repository recomputes the reduction independently, since some answer aggregator sites print 8 for this question."
+  },
+  {
+   "id": "gate-2014-set3-6-modulus-x-sin-x",
+   "year": "2014",
+   "paper": "GATE CS 2014 Set 3",
+   "question_ref": "Q.6",
+   "type": "NAT",
+   "topic": "splitting-the-interval-at-sign-changes",
+   "text": "If the integral from 0 to 2 pi of |x sin x| dx = k pi, then the value of k is equal to ____.",
+   "answer": "4",
+   "solution": "On [0, 2 pi], x is non-negative, so |x sin x| = x |sin x|. Since sin x is non-negative on [0, pi] and non-positive on [pi, 2 pi], the integral equals the integral of x sin x from 0 to pi minus the integral of x sin x from pi to 2 pi. With antiderivative -x cos x + sin x the first piece is pi and the second is -3 pi, so the total is pi + 3 pi = 4 pi and k = 4.",
+   "source_url": "https://gateoverflow.in/2040/gate-cse-2014-set-3-question-6",
+   "source_label": "GATE Overflow question page - GATE CSE 2014 Set 3 Q.6 with the accepted answer (4)",
+   "verification": "SOURCED",
+   "answer_evidence": "The accepted answers split at pi, integrate each piece by parts and conclude k = 4; the GateAI PYQ page states 'Official answer: 4'. Recomputed here numerically."
   },
   {
    "id": "gate-2015-3-5",
@@ -20948,6 +22036,21 @@ window.GATE_DATA = {
    "answer_evidence": "The accepted answer takes the exponential of the logarithm and uses (ln x)/x -> 0; another answer reaches 1 by the dominant-term argument. The value is recomputed numerically in scripts/validate.py. The official key was not fetched, so this rests on the accepted GATE Overflow answer, and no marks field is recorded."
   },
   {
+   "id": "gate-2015-set1-44-substitution-cosine-reciprocal",
+   "year": "2015",
+   "paper": "GATE CS 2015 Set 1",
+   "question_ref": "Q.44",
+   "type": "NAT",
+   "topic": "substitution-in-definite-integrals",
+   "text": "Compute the value of the integral from 1/pi to 2/pi of cos(1/x)/x^2 dx.",
+   "answer": "-1",
+   "solution": "Put u = 1/x, so du = -dx/x^2 and dx/x^2 = -du. The limits become u = pi at x = 1/pi and u = pi/2 at x = 2/pi. The integral is minus the integral of cos u from pi to pi/2, which equals the integral of cos u from pi/2 to pi = [sin u] from pi/2 to pi = 0 - 1 = -1.",
+   "source_url": "https://gateoverflow.in/8314/gate-cse-2015-set-1-question-44",
+   "source_label": "GATE Overflow question page - GATE CSE 2015 Set 1 Q.44 with the accepted answer (-1)",
+   "verification": "SOURCED",
+   "answer_evidence": "Three answers on the page perform the substitution and reach -1; the GateAI PYQ page for this question states 'Official answer: -1'. Recomputed here numerically."
+  },
+  {
    "id": "gate-2015-set1-functional-completeness",
    "year": "2015",
    "paper": "GATE CS 2015 Set 1",
@@ -20988,6 +22091,27 @@ window.GATE_DATA = {
    "source_label": "GATE Overflow question page - GATE CSE 2015 Set 1 Q.14 with community solutions",
    "verification": "SOURCED",
    "answer_evidence": "So, answer C is not equivanet to $p \\iff q$ and is the answer."
+  },
+  {
+   "id": "gate-2015-set2-26-improper-integral-unbounded",
+   "year": "2015",
+   "paper": "GATE CS 2015 Set 2",
+   "question_ref": "Q.26",
+   "type": "MSQ",
+   "topic": "improper-integrals-and-convergence",
+   "text": "Let f(x) = x^(-1/3) and A denote the area of the region bounded by f(x) and the X-axis, when x varies from -1 to 1. Which of the following statements is/are TRUE? I. f is continuous in [-1, 1]. II. f is not bounded in [-1, 1]. III. A is non-zero and finite.",
+   "options": [
+    "II only",
+    "III only",
+    "II and III only",
+    "I, II and III"
+   ],
+   "answer": "Option (C) - II and III only",
+   "solution": "As x tends to 0 from the right f tends to +infinity and from the left to -infinity, so f is neither continuous nor bounded at 0: I is false and II is true. The area is the integral of |x^(-1/3)| over [-1, 1], an improper integral with an antiderivative (3/2)x^(2/3); each half contributes 3/2, so A = 3, which is finite and non-zero. III is true. The signed integral over [-1, 1] would be 0, so statement III must be read as the area.",
+   "source_url": "https://gateoverflow.in/8124/gate-cse-2015-set-2-question-26",
+   "source_label": "GATE Overflow question page - GATE CSE 2015 Set 2 Q.26 with the accepted answer (option C)",
+   "verification": "SOURCED",
+   "answer_evidence": "The accepted answers evaluate the one-sided limits at 0, compute the area as 3 and state that II and III are true, giving option (C). Recomputed here."
   },
   {
    "id": "gate-2015-set2-50-bridge",
@@ -21125,6 +22249,27 @@ window.GATE_DATA = {
    "source_label": "GATE Overflow question page - GATE CSE 2015 Set 3 Q.33 with the accepted answer (C)",
    "verification": "SOURCED",
    "answer_evidence": "Accepted answer: 'for non-trivial solution |A| = 0 ... the only option where each individual condition can make |A| zero is C.'"
+  },
+  {
+   "id": "gate-2015-set3-45-functional-equation-then-integrate",
+   "year": "2015",
+   "paper": "GATE CS 2015 Set 3",
+   "question_ref": "Q.45",
+   "type": "MCQ",
+   "topic": "integrating-a-functional-equation",
+   "text": "If for non-zero x, a f(x) + b f(1/x) = 1/x - 25 where a is not equal to b, then the integral of f(x) dx from 1 to 2 is",
+   "options": [
+    "[a(ln 2 - 25) + 47b/2] / (a^2 - b^2)",
+    "[a(2 ln 2 - 25) - 47b/2] / (a^2 - b^2)",
+    "[a(2 ln 2 - 25) + 47b/2] / (a^2 - b^2)",
+    "[a(ln 2 - 25) - 47b/2] / (a^2 - b^2)"
+   ],
+   "answer": "Option (A) - [a(ln 2 - 25) + 47b/2] / (a^2 - b^2)",
+   "solution": "Let I be the integral of f from 1 to 2 and J the integral of f(1/x) from 1 to 2. Integrating the relation gives aI + bJ = [ln x - 25x] from 1 to 2 = ln 2 - 25. Replacing x by 1/x gives a f(1/x) + b f(x) = x - 25, whose integral is aJ + bI = [x^2/2 - 25x] from 1 to 2 = (2 - 50) - (1/2 - 25) = -47/2. Multiply the first by a and the second by b and subtract: (a^2 - b^2) I = a(ln 2 - 25) + 47b/2.",
+   "source_url": "https://gateoverflow.in/8554/gate-cse-2015-set-3-question-45",
+   "source_label": "GATE Overflow question page - GATE CSE 2015 Set 3 Q.45 with the accepted answer (option A)",
+   "verification": "SOURCED",
+   "answer_evidence": "The accepted answer performs the same elimination and states 'Answer: A'. Recomputed here for a = 2, b = 1 by numerical quadrature of the explicit f."
   },
   {
    "id": "gate-2015-set3-relation-p-s-q-r",
@@ -21835,6 +22980,21 @@ window.GATE_DATA = {
    "answer_evidence": "Accepted answers conclude 'Option B, D' by the second-derivative test, and one of them also derives the b^2 > 3ac criterion for a cubic."
   },
   {
+   "id": "gate-2023-21-triple-integral-odd-symmetry",
+   "year": "2023",
+   "paper": "GATE CS 2023",
+   "question_ref": "Q.21",
+   "type": "NAT",
+   "topic": "iterated-integrals-and-odd-symmetry",
+   "text": "The value of the definite integral of (4x^2 y - z^3) dz dy dx over z from -1 to 1, y from -2 to 2 and x from -3 to 3 is ____. (Rounded off to the nearest integer)",
+   "answer": "0",
+   "solution": "Integrating in z first gives 8x^2 y - 0, because z^4/4 takes the same value at -1 and 1. The remaining integral in y of 8x^2 y over [-2, 2] is 0 since y is odd, so the outer integral is 0. The equivalent shortcut: 4x^2 y is odd in y and z^3 is odd in z, so each term vanishes over its symmetric range.",
+   "source_url": "https://gateoverflow.in/399290/gate-cse-2023-question-21",
+   "source_label": "GATE Overflow question page - GATE CSE 2023 Q.21 with the accepted answer (0)",
+   "verification": "SOURCED",
+   "answer_evidence": "The accepted answers compute the integral in two ways and both give 0; the question page shows the numerical answer 0. Recomputed here layer by layer."
+  },
+  {
    "id": "gate-2023-41-symmetric-difference-group",
    "year": "2023",
    "paper": "GATE CS 2023",
@@ -22058,6 +23218,27 @@ window.GATE_DATA = {
    "answer_evidence": "Accepted answer: 'Z2 has 2 inverses (0 and 1) Z3 has 1 inverse (0) Z4 has 2 inverses (0 and 2) ... will give 4 elements having own inverses.'"
   },
   {
+   "id": "gate-2024-set2-6-functional-symmetry-integral",
+   "year": "2024",
+   "paper": "GATE CS 2024 Set 2",
+   "question_ref": "Q.6",
+   "type": "MCQ",
+   "topic": "symmetry-rules-for-definite-integrals",
+   "text": "Let f(x) be a continuous function from R to R such that f(x) = 1 - f(2 - x). Which one of the following options is the CORRECT value of the integral from 0 to 2 of f(x) dx?",
+   "options": [
+    "0",
+    "1",
+    "2",
+    "-1"
+   ],
+   "answer": "Option (B) - 1",
+   "solution": "By the reflection property the integral from 0 to 2 of f(x) dx equals the integral from 0 to 2 of f(2 - x) dx. Substituting the given relation turns that into the integral from 0 to 2 of (1 - f(x)) dx = 2 - I. So I = 2 - I, giving I = 1. The constant f = 1/2 satisfies the hypothesis, which confirms the value.",
+   "source_url": "https://gateoverflow.in/422891/gate-cse-2024-set-2-question-6",
+   "source_label": "GATE Overflow question page - GATE CSE 2024 Set 2 Q.6 with the accepted answer (option B)",
+   "verification": "SOURCED",
+   "answer_evidence": "Several answers on the page derive I = 2 - I = 1 and state option (B); the substitution x -> 2 - x is shown explicitly. Recomputed here with a concrete family of solutions."
+  },
+  {
    "id": "gate-2024-set2-fail-grade-translation",
    "year": "2024",
    "paper": "GATE CS 2024 Set 2",
@@ -22215,6 +23396,27 @@ window.GATE_DATA = {
    "source_label": "GATE Overflow question page - GATE CSE 2025 Set 2 Q.1 with the accepted answer (option C, 625I)",
    "verification": "SOURCED",
    "answer_evidence": "Accepted answer: 'A^2 = 5I, so A^4 = 25I and A^8 = 625I', option C."
+  },
+  {
+   "id": "gate-2025-set2-2-solve-for-the-upper-limit",
+   "year": "2025",
+   "paper": "GATE CS 2025 Set 2",
+   "question_ref": "Q.2",
+   "type": "MCQ",
+   "topic": "fundamental-theorem-of-calculus",
+   "text": "The value of x such that x > 1, satisfying the equation integral from 1 to x of t ln t dt = 1/4, is",
+   "options": [
+    "sqrt(e)",
+    "e",
+    "e^2",
+    "e - 1"
+   ],
+   "answer": "Option (A) - sqrt(e)",
+   "solution": "Integrate by parts with u = ln t and dv = t dt: the antiderivative is t^2 ln t / 2 - t^2/4. Evaluating from 1 to x gives x^2 ln x / 2 - x^2/4 + 1/4. Setting this equal to 1/4 leaves x^2(2 ln x - 1)/4 = 0; since x > 1, 2 ln x = 1 and x = e^(1/2) = sqrt(e) = 1.6487.",
+   "source_url": "https://gateoverflow.in/460833/gate-cse-2025-set-2-question-2",
+   "source_label": "GATE Overflow question page - GATE CSE 2025 Set 2 Q.2 with the accepted answer (option A)",
+   "verification": "SOURCED",
+   "answer_evidence": "The accepted answer derives x = sqrt(e) by parts and states 'Answer: A'; a second answer on the page reaches the same value. Recomputed here numerically."
   },
   {
    "id": "gate-2025-set2-32-function-poset",
@@ -22388,6 +23590,27 @@ window.GATE_DATA = {
    "source_label": "GATE Overflow question page - GATE CSE 2026 Set 1 Q.47 with the accepted answer (34)",
    "verification": "SOURCED",
    "answer_evidence": "Accepted answer: 'Answer: 34', via the Fibonacci recurrence with the empty matching counted."
+  },
+  {
+   "id": "gate-2026-set2-17-integral-independent-of-parameter",
+   "year": "2026",
+   "paper": "GATE CS 2026 Set 2",
+   "question_ref": "Q.17",
+   "type": "MSQ",
+   "topic": "symmetry-rules-for-definite-integrals",
+   "text": "For a real number a, let I(a) = the integral from -1 to 1 of (3x^2 - a x + 1) dx. Which of the following statements is/are true?",
+   "options": [
+    "The value of I(a) is independent of the value of a",
+    "The value of I(a) can vary with the value of a",
+    "There exists a in (-infinity, +infinity) such that I(a) is a positive real number",
+    "There exists a in (-infinity, +infinity) such that I(a) is a negative real number"
+   ],
+   "answer": "Options (A) and (C): I(a) = 4 for every a",
+   "solution": "An antiderivative is x^3 - a x^2/2 + x. At x = 1 it is 2 - a/2, at x = -1 it is -2 - a/2, so the value is 4 for every a. Equivalently the term -a x is odd and integrates to 0 over the symmetric interval, while 3x^2 and 1 are even and contribute 2 and 2. Hence I(a) is the constant 4: independent of a (A true, B false), always positive (C true, D false).",
+   "source_url": "https://gateoverflow.in/523129/gate-cse-2026-set-2-question-17",
+   "source_label": "GATE Overflow question page - GATE CSE 2026 Set 2 Q.17 with the accepted answer (A, C)",
+   "verification": "SOURCED",
+   "answer_evidence": "Two independent answers on the question page compute 4 and state 'Answer : (A,C)', and the same value is obtained here by direct evaluation and by the odd-term argument."
   },
   {
    "id": "gate-2026-set2-31-product-ab",

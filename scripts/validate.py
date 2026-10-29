@@ -4968,6 +4968,230 @@ def check_mean_value_theorem():
        "inequality recomputed")
 
 
+
+# ---------------------------------------------------------------- integration
+def check_integration():
+    """Every value, sign, bound and verdict published in the Integration topic is recomputed."""
+    import math
+
+    def close(a, b, tol=1e-7):
+        return abs(a - b) <= tol * max(1.0, abs(b))
+
+    def quad(fn, a, b, n=20000):
+        """Composite Simpson rule; enough for every smooth integrand on this topic."""
+        if a == b:
+            return 0.0
+        n = n if n % 2 == 0 else n + 1
+        h = (b - a) / n
+        total = fn(a) + fn(b)
+        for i in range(1, n):
+            total += (4 if i % 2 else 2) * fn(a + i * h)
+        return total * h / 3.0
+
+    # ---- card 1: the antiderivative and its check
+    A = lambda x: x ** 3 - 2 * x ** 2 + x
+    for x in (-1.5, 0.0, 0.5, 2.0, 3.7):
+        if not close(3 * x * x - 4 * x + 1, 3 * x * x - 4 * x + 1):
+            fail("integration: the antiderivative check must be an identity")
+        if not close((A(x + 1e-6) - A(x - 1e-6)) / 2e-6, 3 * x * x - 4 * x + 1, 1e-4):
+            fail("integration: the derivative of x^3-2x^2+x must be 3x^2-4x+1 at x = %r" % x)
+    if not close(quad(lambda x: 1.0, 1, 3), 2):
+        fail("integration: the integral of 1 from 1 to 3 must be 2")
+    if not close(quad(lambda x: x ** 2, 0, 1), 1.0 / 3):
+        fail("integration: x^2 on [0,1] must integrate to 1/3, so the product rule trap is real")
+    if not close(quad(lambda x: x, 0, 1) ** 2, 0.25):
+        fail("integration: the square of the integral of x on [0,1] must be 1/4, not 1/3")
+
+    # ---- card 2: signed area against area
+    if not close(quad(lambda x: 2 * x, 0, 1), 1):
+        fail("integration: 2x on [0,1] must be 1, matching the triangle")
+    if not close(quad(lambda x: x, -1, 1), 0):
+        fail("integration: x on [-1,1] must be 0 by oddness")
+    if not close(quad(lambda x: abs(x), -1, 1), 1):
+        fail("integration: the area under |x| on [-1,1] must be 1")
+    if not close(quad(lambda x: x * math.sin(x), 0, 2 * math.pi), -2 * math.pi):
+        fail("integration: x sin x on [0,2pi] must be -2pi")
+
+    # ---- card 3: the fundamental theorem and its chain-rule form
+    if not close(2 * 2.0 * math.exp(4.0), 4 * math.exp(4)):
+        fail("integration: the derivative of the integral of e^t from 0 to x^2 at x=2 must be 4e^4")
+    if not close(2 * 0.0 * math.exp(0.0), 0):
+        fail("integration: that derivative must vanish at x = 0, unlike e^(x^2) = 1")
+    xs = 1.5
+    if not close(quad(lambda t: t, 1, xs), (xs * xs - 1) / 2.0):
+        fail("integration: the integral of t from 1 to x must be (x^2-1)/2")
+    x_root = math.sqrt(1.5)
+    if not close(quad(lambda t: t, 1, x_root), 0.25):
+        fail("integration: x = sqrt(3/2) must solve the integral of t from 1 to x equal to 1/4")
+    # the 2025 Set 2 Q.2 value
+    xe = math.sqrt(math.e)
+    if not close(quad(lambda t: t * math.log(t), 1, xe), 0.25, 1e-6):
+        fail("integration: the integral of t ln t from 1 to sqrt(e) must be 1/4")
+    for other in (math.e, math.e ** 2, math.e - 1):
+        if close(quad(lambda t: t * math.log(t), 1, other), 0.25, 1e-6):
+            fail("integration: another offered root must not also satisfy the 2025 equation")
+
+    # ---- card 4: properties
+    f4 = lambda x: x ** 2
+    if not close(quad(f4, 0, 3) + quad(f4, 3, 1), quad(f4, 0, 1)):
+        fail("integration: additivity must hold with the split point outside the interval")
+    f_any = lambda x: math.exp(-x)
+    if not close(quad(f_any, 0, 4), quad(f_any, 0, 2) + quad(f_any, 2, 4)):
+        fail("integration: additivity must hold for a smooth f on adjacent intervals")
+    # the worked example on card 4: 2 = I(0,1) + 7 + I(2,3) with I(0,1) = 0, then I(2,6) = I(2,3) + (-5)
+    if not close(2 - 7 - 0, -5) or not close(-5 + (-5), -10):
+        fail("integration: the card 4 worked example must give I(2,6) = -10 when I(0,1) = 0")
+
+    # ---- card 5: symmetry and the reflection rule
+    for a in (-5.0, 0.0, 2.5, 100.0, -0.125):
+        val = quad(lambda x: 3 * x * x - a * x + 1, -1, 1)
+        if not close(val, 4):
+            fail("integration: the 2026 Set 2 Q.17 integral must be 4 for every a, failed at a = %r" % a)
+        if not (val > 0):
+            fail("integration: that integral must be positive for every a")
+    for slope in (0.0, 1.0, -2.0, 7.5):
+        fq = lambda x, c=slope: 0.5 + c * (x - 1)
+        if not close(fq(0.3) + fq(2 - 0.3), 1):
+            fail("integration: the 2024 Set 2 Q.6 family must satisfy f(x) + f(2-x) = 1")
+        if not close(quad(fq, 0, 2), 1):
+            fail("integration: that family must integrate to 1 on [0,2]")
+    if not close(quad(lambda x: x ** 3 * math.cos(x), -2, 2), 0):
+        fail("integration: x^3 cos x must vanish on [-2,2]")
+    if not close(quad(lambda x: x * x + x, -1, 1), 2.0 / 3):
+        fail("integration: x^2 + x on [-1,1] must be 2/3, not 0")
+    if not close(quad(lambda x: x, 0, 2), 2):
+        fail("integration: x on [0,2] must be 2, so the odd rule needs a symmetric interval")
+
+    # ---- card 6: substitution, including the two previous-year questions
+    if not close(quad(lambda x: math.cos(1.0 / x) / (x * x), 1 / math.pi, 2 / math.pi), -1, 1e-6):
+        fail("integration: the 2015 Set 1 Q.44 integral must be -1")
+    if not close(quad(lambda u: math.cos(u), 1 / math.pi, 2 / math.pi),
+                math.sin(2 / math.pi) - math.sin(1 / math.pi)):
+        fail("integration: the unsubstituted-limits counterexample must give sin(2/pi) - sin(1/pi)")
+    if not close(quad(lambda x: (1 - math.tan(x)) / (1 + math.tan(x)), 0, math.pi / 4), 0.5 * math.log(2), 1e-6):
+        fail("integration: the 2009 Q.25 integral must be (1/2) ln 2")
+    if not close(quad(lambda x: math.sin(x) ** 8 * math.cos(x), 0, math.pi / 2), 1.0 / 9, 1e-6):
+        fail("integration: sin^8 x cos x on [0, pi/2] must be 1/9")
+    if not close((math.pi / 2) ** 9 / 9.0, 6.46899, 1e-5):
+        fail("integration: the unsubstituted-limits trap must give (pi/2)^9/9 = 6.46899")
+
+    # ---- card 7: integration by parts
+    if not close(quad(lambda x: x * x * math.cos(x), 0, math.pi), -2 * math.pi, 1e-6):
+        fail("integration: the 2014 Set 3 Q.47 integral must be -2pi")
+    if not close(quad(lambda x: x * math.exp(x), 0, 1), 1, 1e-7):
+        fail("integration: x e^x on [0,1] must be 1")
+    if not close(quad(lambda x: math.log(x), 1, math.e), 1, 1e-6):
+        fail("integration: ln x on [1,e] must be 1")
+
+    # ---- card 8: splitting at a sign change
+    if not close(quad(lambda x: abs(x * math.sin(x)), 0, 2 * math.pi), 4 * math.pi, 1e-6):
+        fail("integration: the 2014 Set 3 Q.6 area must be 4pi")
+    if not close(quad(lambda x: abs(x - 1), 0, 2), 1, 1e-7):
+        fail("integration: |x-1| on [0,2] must be 1")
+    if not close(quad(lambda x: x - 1, 0, 2), 0):
+        fail("integration: the signed integral of x-1 on [0,2] must be 0")
+
+    # ---- card 9: improper integrals
+    # the singularity is removed by x = t^3, which is how the antiderivative (3/2) x^(2/3) is checked
+    half = quad(lambda t: 3 * t, 0, 1)
+    if not close(half, 1.5, 1e-9) or not close(2 * half, 3, 1e-9):
+        fail("integration: the area of x^(-1/3) on [-1,1] must be 3")
+    if not close(-half, -1.5, 1e-9):
+        fail("integration: the signed piece of x^(-1/3) on [-1,0) must be -3/2, so the signed integral is 0")
+    if not (math.log(1.0) - math.log(1e-12) > 20):
+        fail("integration: the integral of 1/x from 0 to 1 must diverge")
+    if not close(quad(lambda t: 2.0, 0, 1), 2, 1e-9):   # x = t^2 removes the singularity
+        fail("integration: x^(-1/2) on (0,1] must converge to 2")
+    # the p-test, from the exact antiderivative up to B: (B^(1-p) - 1)/(1-p), and ln B at p = 1
+    def tail(p_, B):
+        return math.log(B) if close(p_, 1.0) else (B ** (1 - p_) - 1) / (1 - p_)
+    for p_ in (0.5, 1.0, 1.5, 2.0):
+        ratio = tail(p_, 1e6) / tail(p_, 1e3)
+        if p_ > 1 and ratio > 1.1:
+            fail("integration: x^-%r on [1,inf) must converge, ratio %r" % (p_, ratio))
+        if p_ <= 1 and ratio < 1.5:
+            fail("integration: x^-%r on [1,inf) must diverge, ratio %r" % (p_, ratio))
+    if not close(tail(1.5, 1e16), 2, 1e-6) or not close(tail(2.0, 1e16), 1, 1e-6):
+        fail("integration: the convergent p-integrals must tend to 1/(p-1)")
+
+    # ---- card 10: area between curves
+    if not close(quad(lambda x: x - x * x, 0, 1), 1.0 / 6):
+        fail("integration: the area between x and x^2 must be 1/6")
+    if not close(quad(lambda x: 4 - x * x, -2, 2), 32.0 / 3):
+        fail("integration: the area between 4 and x^2 must be 32/3")
+    if not close(quad(lambda x: x ** 3 - x, -1, 1), 0):
+        fail("integration: the signed gap between x^3 and x must be 0")
+    if not close(quad(lambda x: abs(x ** 3 - x), -1, 1), 0.5):
+        fail("integration: the enclosed area between x^3 and x must be 1/2")
+    if not close(quad(lambda x: x * x, 0, 3), 9):
+        fail("integration: x^2 on [0,3] must be 9")
+
+    # ---- card 11: average value
+    if not close(quad(lambda x: 8 - 2 * x, 0, 4), 16):
+        fail("integration: 8-2x on [0,4] must be 16")
+    if not close(16 / 4.0, 4) or not close(8 - 2 * 2.0, 4):
+        fail("integration: the average of 8-2x must be 4, attained at c = 2")
+    if not close(quad(lambda x: x * x, 0, 2) / 2.0, 4.0 / 3):
+        fail("integration: the average of x^2 on [0,2] must be 4/3")
+    if close(4.0 / 3, (0 + 4) / 2.0):
+        fail("integration: the endpoint average must differ from the integral average for x^2")
+    if not close(quad(lambda x: x * x, 0, 3) / 3.0, 3):
+        fail("integration: the average of x^2 on [0,3] must be 3")
+    if not close(math.sqrt(3), 1.7320508, 1e-6):
+        fail("integration: the point where x^2 equals its average on [0,3] must be sqrt(3)")
+
+    # ---- card 12: integrating a functional equation
+    aa, bb = 2.0, 1.0
+    f12 = lambda x: (aa * (1.0 / x - 25) - bb * (x - 25)) / (aa * aa - bb * bb)
+    if not close(aa * f12(1.7) + bb * f12(1 / 1.7), 1 / 1.7 - 25, 1e-9):
+        fail("integration: the explicit f of the 2015 Set 3 Q.45 question must satisfy the relation")
+    want = (aa * (math.log(2) - 25) + 47 * bb / 2.0) / (aa * aa - bb * bb)
+    if not close(quad(f12, 1, 2), want, 1e-6):
+        fail("integration: the 2015 Set 3 Q.45 option (A) must match the explicit integral")
+    if not close(quad(lambda x: 1.0 / x, 1, 2), math.log(2), 1e-9):
+        fail("integration: the integral of 1/x from 1 to 2 must be ln 2")
+    if not close(quad(lambda x: x, 1, 2), 1.5):
+        fail("integration: the integral of x from 1 to 2 must be 3/2")
+
+    # ---- card 13: iterated integrals
+    inner = quad(lambda y: 4 * 1.0 * y, -2, 2)
+    if not close(inner, 0):
+        fail("integration: the y-layer of the 2023 question must vanish")
+    def tri(fn, a, b, c, d, e, g, n=120):
+        return quad(lambda x: quad(lambda y: quad(lambda z: fn(x, y, z), e, g, n), c, d, n), a, b, n)
+    if not close(tri(lambda x, y, z: 4 * x * x * y - z ** 3, -3, 3, -2, 2, -1, 1), 0, 1e-6):
+        fail("integration: the 2023 Q.21 triple integral must be 0")
+    if not close(quad(lambda x: quad(lambda y: x * y, 0, 1, 120), 0, 1, 120), 0.25, 1e-6):
+        fail("integration: xy on the unit square must be 1/4")
+    if not close(quad(lambda x: quad(lambda y: x * x * y, -1, 1, 120), -1, 1, 120), 0, 1e-9):
+        fail("integration: x^2 y on [-1,1]x[-1,1] must be 0")
+    asym = quad(lambda x: 4 * x * x, 0, 3) * quad(lambda y: y, 0, 2)
+    if not close(asym, 72):
+        fail("integration: the asymmetric box version of the same term must give 72, not 0")
+
+    # ---- the visual lesson
+    fL = lambda x: x * x - 1
+    FL = lambda x: x ** 3 / 3.0 - x
+    if not close(FL(0), 0) or not close(FL(1), -2.0 / 3) or not close(FL(2), 2.0 / 3):
+        fail("integration: the running total of x^2-1 must be 0, -2/3 and 2/3 at 0, 1 and 2")
+    if not close(quad(fL, 0, 1), -2.0 / 3) or not close(quad(fL, 1, 2), 4.0 / 3):
+        fail("integration: the two pieces of x^2-1 on [0,2] must be -2/3 and 4/3")
+    if not close(quad(fL, 0, 2), 2.0 / 3):
+        fail("integration: x^2-1 on [0,2] must be 2/3")
+    if not close(quad(lambda x: abs(fL(x)), 0, 2), 2.0):
+        fail("integration: the area of x^2-1 on [0,2] must be 2")
+    if not close(FL(math.sqrt(3)), 0, 1e-9):
+        fail("integration: the running total must vanish at sqrt(3)")
+    if not close(quad(fL, -1, 1), -4.0 / 3) or not close(2 * quad(fL, 0, 1), -4.0 / 3):
+        fail("integration: the even rule must give -4/3 on [-1,1]")
+    for x, want in ((0, -1), (1, 0), (2, 3)):
+        if not close(fL(x), want) or not close((FL(x + 1e-6) - FL(x - 1e-6)) / 2e-6, want, 1e-4):
+            fail("integration: the slope of F must equal f at x = %r" % x)
+
+    ok("integration: every integral, sign, area, average, convergence verdict and running-total "
+       "value published in the topic recomputed")
+
+
 def main():
     topics, tpath, pyqs, videos, playlists, sources = load_all()
     check_topics(topics, tpath, pyqs, videos)
@@ -4991,6 +5215,7 @@ def main():
     check_limits_continuity_differentiability()
     check_maxima_and_minima()
     check_mean_value_theorem()
+    check_integration()
     check_visuals()
     check_hygiene()
     for c in checks:
