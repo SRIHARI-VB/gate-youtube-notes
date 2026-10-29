@@ -2576,30 +2576,30 @@ window.GATE_DATA = {
      "unit_slug": "recurrence-generating-functions",
      "unit_name": "Recurrence Relations & Generating Functions",
      "unit_number": 8,
-     "question_count": 25,
+     "question_count": 50,
      "subtopics": [
       {
        "label": "Characteristic equations",
-       "questions": 6
+       "questions": 11
       },
       {
        "label": "Homogeneous & non-homogeneous",
-       "questions": 5
+       "questions": 10
       },
       {
        "label": "Ordinary generating functions",
-       "questions": 5
+       "questions": 10
       },
       {
        "label": "Coefficient extraction",
-       "questions": 5
+       "questions": 10
       },
       {
        "label": "Divide-and-conquer recurrences",
-       "questions": 4
+       "questions": 9
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/recurrence-generating-functions/gate_dm_mock_8_2026-10-29.html"
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/recurrence-generating-functions/gate_dm_mock_8_2026-10-30.html"
     },
     "visual": {
      "slug": "recurrence-relations",
@@ -2612,7 +2612,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/recurrence-relations/index.html"
     },
-    "mapped_at": "2026-10-29"
+    "mapped_at": "2026-10-30"
    },
    "subject": "discrete-mathematics",
    "topic": "combinatorics",
@@ -23201,6 +23201,20 @@ window.GATE_DATA = {
    ],
    "sourceLine": "The median-class and modal-class formulas with the continuous-boundary warning, and the standard deviation of a grouped table: the IAE Academy GATE formula sheet (English). The worked table with N = 98: a Tamil-language lecture (translated; every value recomputed here). The step-deviation method and the grouped standard deviation: the NCERT class 11 chapter 13 summary in Hindi (translated).",
    "videoRefs": [],
+   "links": {
+    "visual": {
+     "slug": "mean-median-mode-standard-deviation",
+     "title": "Mean, Median, Mode and Standard Deviation",
+     "level": "topic-level",
+     "covers": [
+      "grouped mean by class midpoints, and its approximation error",
+      "median class by cumulative frequency and the interpolation formula",
+      "modal class and the mode interpolation formula"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/mean-median-mode-standard-deviation/index.html"
+    },
+    "mapped_at": "2026-10-30"
+   },
    "subject": "probability-and-statistics",
    "topic": "mean-median-mode-standard-deviation",
    "path": "subjects/probability-and-statistics/mean-median-mode-standard-deviation/grouped-frequency-table-measures.json"
@@ -23417,17 +23431,15 @@ window.GATE_DATA = {
    "visual": "probability-and-statistics/mean-median-mode-standard-deviation/mean-median-and-spread",
    "links": {
     "visual": {
-     "slug": "mean-median-and-spread",
-     "title": "The Mean, the Median and the Spread Under a Shift and a Scale",
+     "slug": "mean-median-mode-standard-deviation",
+     "title": "Mean, Median, Mode and Standard Deviation",
      "level": "topic-level",
      "covers": [
-      "the mean as the balance point where signed deviations cancel",
-      "one outlier moving the mean while the median stays put",
-      "a shift of every value leaving the standard deviation unchanged",
-      "a doubling of every value doubling the mean and the standard deviation",
-      "the standard deviation as the root mean square distance from the mean"
+      "adding a constant moves the mean, median and mode and not sigma",
+      "scaling multiplies all three averages and sigma by the factor, sigma by |a|",
+      "a negative multiplier reverses the median index position"
      ],
-     "url": "visuals/probability-and-statistics/mean-median-mode-standard-deviation/mean-median-and-spread/index.html"
+     "url": "https://gate-visual-explainer.vercel.app/topics/mean-median-mode-standard-deviation/index.html"
     },
     "mapped_at": "2026-10-30"
    },

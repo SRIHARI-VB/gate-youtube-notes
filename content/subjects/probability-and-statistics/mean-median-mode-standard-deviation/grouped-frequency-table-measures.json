@@ -99,5 +99,19 @@
     }
   ],
   "sourceLine": "The median-class and modal-class formulas with the continuous-boundary warning, and the standard deviation of a grouped table: the IAE Academy GATE formula sheet (English). The worked table with N = 98: a Tamil-language lecture (translated; every value recomputed here). The step-deviation method and the grouped standard deviation: the NCERT class 11 chapter 13 summary in Hindi (translated).",
-  "videoRefs": []
+  "videoRefs": [],
+  "links": {
+    "visual": {
+      "slug": "mean-median-mode-standard-deviation",
+      "title": "Mean, Median, Mode and Standard Deviation",
+      "level": "topic-level",
+      "covers": [
+        "grouped mean by class midpoints, and its approximation error",
+        "median class by cumulative frequency and the interpolation formula",
+        "modal class and the mode interpolation formula"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/mean-median-mode-standard-deviation/index.html"
+    },
+    "mapped_at": "2026-10-30"
+  }
 }

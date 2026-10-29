@@ -2283,7 +2283,7 @@
         "unit_slug": "recurrence-generating-functions",
         "unit_name": "Recurrence Relations & Generating Functions",
         "unit_number": 8,
-        "question_count": 25,
+        "question_count": 50,
         "subtopic_labels": [
           "Characteristic equations",
           "Homogeneous & non-homogeneous",
@@ -2291,7 +2291,7 @@
           "Coefficient extraction",
           "Divide-and-conquer recurrences"
         ],
-        "verdict": "MOCK_READY"
+        "verdict": "MOCK_CAPPED"
       },
       "visual": {
         "slug": "recurrence-relations",
@@ -2302,7 +2302,7 @@
       },
       "evidence": [
         "notes content/index.json -> map[].path = subjects/discrete-mathematics/combinatorics/recurrences-and-compositions.json",
-        "mock: discrete-mathematics master_bank.json unit 8 (recurrence-generating-functions), 25 records grouped by subtopic_label; paper https://gate-cse-mocks.vercel.app/discrete-mathematics/recurrence-generating-functions/gate_dm_mock_8_2026-10-29.html",
+        "mock: discrete-mathematics/question-bank/master_bank.json unit 8 (recurrence-generating-functions) now holds 50 records (Set 2 of 2, run 9, 2026-10-30, paper discrete-mathematics/recurrence-generating-functions/gate_dm_mock_8_2026-10-30.html); records grouped by subtopic_label give Characteristic equations 11, Homogeneous & non-homogeneous 10, Ordinary generating functions 10, Coefficient extraction 10, Divide-and-conquer recurrences 9; 50 is the unit cap, so MOCK_CAPPED",
         "visual: syllabus-coverage.json lesson_slug recurrence-relations (PUBLISHED); covers checked against topics/recurrence-relations/transcript.md scenes 2, 4, 5, 8"
       ],
       "row_verdict": "BOTH"
@@ -6334,14 +6334,20 @@
         "subtopic_labels": [],
         "verdict": "MOCK_UNIT_EMPTY"
       },
-      "visual": null,
+      "visual": {
+        "slug": "mean-median-mode-standard-deviation",
+        "title": "Mean, Median, Mode and Standard Deviation",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
       "evidence": [
         "notes content/index.json -> map[].path = subjects/probability-and-statistics/mean-median-mode-standard-deviation/grouped-frequency-table-measures.json",
         "mock: gate-cse-mocks engineering-mathematics/question-bank/master_bank.json holds 0 records for unit 5 probability-distributions; README.md Engineering Mathematics unit table lists it as 'Continuous Probability & Distributions' with 0 questions, so MOCK_UNIT_EMPTY and no mock is written on the card",
         "card map[] videos[] is empty and the card quotes no lecture, so transcript_status is not stated",
-        "visual: no published lesson covers this subtopic - checked against topics/probability-and-random-variables/transcript.md scenes 5-7 (the only published lesson with mean, median, mode or standard-deviation content)"
+        "visual: lesson mean-median-mode-standard-deviation (PUBLISHED 2026-10-30) covers the grouped table directly - microtopics 'grouped mean by class midpoints, and its approximation error', 'median class by cumulative frequency and the interpolation formula', 'modal class and the mode interpolation formula' - and its index.html carries 'grouped' 9 times, 'frequency table' 6, 'modal class' 3, 'cumulative' 8, so VISUAL_LESSON at topic-level"
       ],
-      "row_verdict": "NEITHER"
+      "row_verdict": "VISUAL_ONLY"
     },
     {
       "subject": "probability-and-statistics",
@@ -6393,8 +6399,8 @@
         "verdict": "MOCK_UNIT_EMPTY"
       },
       "visual": {
-        "slug": "mean-median-and-spread",
-        "title": "The Mean, the Median and the Spread Under a Shift and a Scale",
+        "slug": "mean-median-mode-standard-deviation",
+        "title": "Mean, Median, Mode and Standard Deviation",
         "coverage_status": "PUBLISHED",
         "level": "topic-level",
         "verdict": "VISUAL_LESSON"
@@ -6403,7 +6409,7 @@
         "notes content/index.json -> map[].path = subjects/probability-and-statistics/mean-median-mode-standard-deviation/standard-deviation-under-shift-and-scale.json",
         "mock: gate-cse-mocks engineering-mathematics/question-bank/master_bank.json holds 0 records for unit 5 probability-distributions; README.md Engineering Mathematics unit table lists it as 'Continuous Probability & Distributions' with 0 questions, so MOCK_UNIT_EMPTY and no mock is written on the card",
         "card map[] videos[] is empty and the card quotes no lecture, so transcript_status is not stated",
-        "visual: gate-visual-explainer syllabus-coverage.json lesson_slug probability-and-random-variables (PUBLISHED, Engineering Mathematics -> Probability and statistics); covers checked against topics/probability-and-random-variables/transcript.md scenes 5-7, not the alias list"
+        "visual: the slug mean-median-and-spread is no longer in gate-visual-explainer topics.json (79 lessons); the published lesson mean-median-mode-standard-deviation (topics.json created/updated 2026-10-30, syllabus-coverage.json coverage_status PUBLISHED, subject Engineering Mathematics, topic 'Mean, median, mode and standard deviation') carries the shift-and-scale microtopics 'adding a constant moves the mean, median and mode and not sigma', 'scaling multiplies all three averages and sigma by the factor, sigma by |a|' and 'a negative multiplier reverses the median index position', so the card now links topics/mean-median-mode-standard-deviation at topic-level"
       ],
       "row_verdict": "VISUAL_ONLY"
     },
@@ -6525,7 +6531,7 @@
         "notes content/index.json -> map[].path = subjects/probability-and-statistics/mean-median-mode-standard-deviation/effect-of-one-observation-and-combined-groups.json",
         "mock: gate-cse-mocks engineering-mathematics/question-bank/master_bank.json holds 0 records for unit 5 probability-distributions; README.md Engineering Mathematics unit table lists it as 'Continuous Probability & Distributions' with 0 questions, so MOCK_UNIT_EMPTY and no mock is written on the card",
         "card map[] videos[] is empty and the card quotes no lecture, so transcript_status is not stated",
-        "visual: no published lesson covers this subtopic - checked against topics/probability-and-random-variables/transcript.md scenes 5-7 (the only published lesson with mean, median, mode or standard-deviation content)"
+        "visual: re-checked against lesson mean-median-mode-standard-deviation (PUBLISHED 2026-10-30); it shows the one-observation effect only as a worked example (nine salaries, 55.33 -> 27.75 after removing 90) and its microtopics carry nothing on pooling two groups - 'combined' appears 0 times in index.html - so no visual is written and the combined-groups half stays a visual gap"
       ],
       "row_verdict": "NEITHER"
     },
@@ -7412,6 +7418,16 @@
       "kind": "notes",
       "placement": "digital-logic › arithmetic-algorithms › (no card)",
       "detail": "New lesson topics/arithmetic-algorithms-booth-division-cla (topics.json created and updated 2026-10-30; syllabus-coverage.json subject Digital Logic, unit 'Arithmetic algorithms', coverage_status PUBLISHED, 6 subtopics, 32 microtopics, 10 scenes in transcript.md: three machines one adder, shift-and-add multiplication, a run of 1s is a difference, Booth in registers, counting the operations, restoring division, non-restoring division, carry-lookahead addition, the three traps, which machine is being asked about) serves no notes card: content/index.json map[] carries only calculus, discrete-mathematics, linear-algebra and probability-and-statistics, and content/syllabus.json lists no digital-logic subject. Checked against transcript.md rather than the alias list, its content covers shift-and-add multiplication with the addition count equal to the number of 1s, the n+1-bit accumulator requirement, Booth recoding with the pair table and the arithmetic right shift, operation count as the multiplier's transition count, restoring division, non-restoring division with its single final correction, and the carry-lookahead adder at depth 2 ceil(log2 n) + 2 with fan-in 2. Mock side, from digital-logic/question-bank/master_bank.json read this run: unit 2 combinational-circuits holds 50 records including 'Adders & subtractors' 10 and unit 1 number-systems holds 50 including \"One's & two's complement\" 13, so the adder and two's-complement halves are MOCK_READY while Booth multiplication and both division algorithms have no unit of their own (MOCK_UNIT_MISSING). Recommendation: write content/subjects/digital-logic/arithmetic-algorithms/booth-multiplication.json as the first card, because scenes 3-5 of the lesson and both of its GATE items (2025 Set 2 Q32, 2016 Set 1 Q33) sit on it."
+    },
+    {
+      "kind": "notes",
+      "placement": "computer-networks › transport-layer › (no card)",
+      "detail": "Computer Networks Unit 5 'Transport Layer: TCP, UDP & Congestion' (unit_slug transport-layer, unit_number 5) closed Set 2 of 2 on 2026-10-30 - run 10, paper computer-networks/transport-layer/gate_cn_mock_5_2026-10-30.html, Set 1 archived to computer-networks/transport-layer/archive/gate_cn_mock_5_2026-10-30_run1.html. computer-networks/question-bank/master_bank.json holds 50 records for the unit, at UNIT_QUESTION_CAP, so MOCK_CAPPED; grouped by subtopic_label they are TCP header & connection management 14, UDP datagrams 12, Flow control & sliding window 12, Congestion control: slow start & AIMD 12. All four groups match the published lesson topics/tcp-flow-congestion-control-and-sockets (syllabus-coverage.json subject Computer Networks, unit 'Transport layer', coverage_status PUBLISHED), so the visual side is VISUAL_LESSON at topic-level. The notes repo has no computer-networks card (content/index.json map[] carries only discrete-mathematics, linear-algebra, calculus and probability-and-statistics), so no card serves the unit: notes gap. Next Computer Networks unit per runs[10].selection is Unit 6, Application Layer & Network Security."
+    },
+    {
+      "kind": "notes",
+      "placement": "discrete-mathematics › induction-recursion › (no card)",
+      "detail": "gate-visual-explainer published topics/mathematical-induction this hour (topics.json created and updated 2026-10-30, 55 aliases; syllabus-coverage.json subject Discrete Mathematics, unit 'Proof techniques', topic 'Mathematical induction and well-ordering', coverage_status PUBLISHED, 7 subtopics and 35 microtopics). Its subtopics - the induction rule, strong induction, the well-ordering principle, structural induction, induction on recurrences, loop invariants as induction, where an induction argument fails - line up one for one with mock unit 6 'Mathematical Induction & Recursion' (unit_slug induction-recursion, 50 records: Weak & strong induction 14, Structural induction 12, Well-ordering principle 12, Proof techniques & errors 12), so mock and lesson both exist and only the card is missing. The notes syllabus has no induction group and content/index.json map[] has no induction card; the nearest card, discrete-mathematics › combinatorics › recurrences-and-compositions, covers solving recurrences, not proof by induction, and is not attached. Placement for the missing card: discrete-mathematics › combinatorics (the syllabus group that carries recurrence relations) or a new proof-techniques group."
     }
   ]
 }

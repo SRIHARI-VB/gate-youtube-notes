@@ -48,30 +48,30 @@
       "unit_slug": "recurrence-generating-functions",
       "unit_name": "Recurrence Relations & Generating Functions",
       "unit_number": 8,
-      "question_count": 25,
+      "question_count": 50,
       "subtopics": [
         {
           "label": "Characteristic equations",
-          "questions": 6
+          "questions": 11
         },
         {
           "label": "Homogeneous & non-homogeneous",
-          "questions": 5
+          "questions": 10
         },
         {
           "label": "Ordinary generating functions",
-          "questions": 5
+          "questions": 10
         },
         {
           "label": "Coefficient extraction",
-          "questions": 5
+          "questions": 10
         },
         {
           "label": "Divide-and-conquer recurrences",
-          "questions": 4
+          "questions": 9
         }
       ],
-      "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/recurrence-generating-functions/gate_dm_mock_8_2026-10-29.html"
+      "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/recurrence-generating-functions/gate_dm_mock_8_2026-10-30.html"
     },
     "visual": {
       "slug": "recurrence-relations",
@@ -84,6 +84,6 @@
       ],
       "url": "https://gate-visual-explainer.vercel.app/topics/recurrence-relations/index.html"
     },
-    "mapped_at": "2026-10-29"
+    "mapped_at": "2026-10-30"
   }
 }

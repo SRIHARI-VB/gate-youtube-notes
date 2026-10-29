@@ -93,17 +93,15 @@
   "visual": "probability-and-statistics/mean-median-mode-standard-deviation/mean-median-and-spread",
   "links": {
     "visual": {
-      "slug": "mean-median-and-spread",
-      "title": "The Mean, the Median and the Spread Under a Shift and a Scale",
+      "slug": "mean-median-mode-standard-deviation",
+      "title": "Mean, Median, Mode and Standard Deviation",
       "level": "topic-level",
       "covers": [
-        "the mean as the balance point where signed deviations cancel",
-        "one outlier moving the mean while the median stays put",
-        "a shift of every value leaving the standard deviation unchanged",
-        "a doubling of every value doubling the mean and the standard deviation",
-        "the standard deviation as the root mean square distance from the mean"
+        "adding a constant moves the mean, median and mode and not sigma",
+        "scaling multiplies all three averages and sigma by the factor, sigma by |a|",
+        "a negative multiplier reverses the median index position"
       ],
-      "url": "visuals/probability-and-statistics/mean-median-mode-standard-deviation/mean-median-and-spread/index.html"
+      "url": "https://gate-visual-explainer.vercel.app/topics/mean-median-mode-standard-deviation/index.html"
     },
     "mapped_at": "2026-10-30"
   },
