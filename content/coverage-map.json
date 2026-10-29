@@ -6462,14 +6462,21 @@
         "subtopic_labels": [],
         "verdict": "MOCK_UNIT_EMPTY"
       },
-      "visual": null,
+      "visual": {
+        "slug": "probability-and-random-variables",
+        "title": "Probability, Random Variables and Distributions",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
       "evidence": [
         "notes content/index.json -> map[].path = subjects/probability-and-statistics/random-variables-and-distributions/continuous-uniform-distribution.json",
         "mock: engineering-mathematics/question-bank/master_bank.json holds 0 records for unit 5 probability-distributions; the README unit table lists it as 'Continuous Probability & Distributions' with 0 questions, so MOCK_UNIT_EMPTY",
         "card map[] videos[] is empty and the card quotes no lecture, so transcript_status is not stated",
-        "visual: topics/probability-and-random-variables/transcript.md has ten scenes and none of them treats a continuous uniform density, although syllabus-coverage.json lists 'uniform density and its mean and variance' as a microtopic; coverage_status PUBLISHED covers the other subtopics only"
+        "visual: syllabus-coverage.json lesson_slug probability-and-random-variables (PUBLISHED, subject Engineering Mathematics, unit 'Probability and statistics'). The ten animated scenes in timeline.js/transcript.md carry no uniform scene, so this is topic-level, not subtopic-level; but the lesson's tab content in topics/probability-and-random-variables/index.html does treat the card: 'Uniform on [a, b]. Density 1/(b-a). Mean (a+b)/2, variance (b-a)^2/12. Assumption: every value in the interval is equally likely - flat density', the counterexample 'The uniform density on [0, 0.5] is 2 everywhere on its support' for density above one, and the trap 'Uniform is not memoryless'. Two syllabus-coverage.json microtopics are therefore genuinely covered: 'uniform density and its mean and variance' and 'density as area; P(X = a) = 0; density may exceed 1'. Earlier audit (2026-10-29 14:45Z) recorded NEITHER after reading the transcript alone; corrected here on the tab content.",
+        "card links written: links.visual.slug probability-and-random-variables, level topic-level, no links.mock because engineering-mathematics/question-bank/master_bank.json holds 0 records for unit 5 probability-distributions (README unit table: 0 questions)"
       ],
-      "row_verdict": "NEITHER"
+      "row_verdict": "VISUAL_ONLY"
     },
     {
       "subject": "probability-and-statistics",
@@ -7003,6 +7010,11 @@
       "kind": "mock",
       "placement": "discrete-mathematics › combinatorics › ioib-partitions",
       "detail": "This card still carries no links. Integer partitions into identical boxes are neither the set partitions of unit 3 set-theory ('Partitions & Cartesian products', which serves doib-stirling) nor the 'Stars and bars' group of unit 7 combinatorics, and topics/counting-and-combinatorics/transcript.md covers stars and bars, circular permutations and pigeonhole but no integer-partition enumeration. Recommendation: add an integer-partition group to discrete-mathematics/combinatorics in the bank and a matching microtopic to topics/counting-and-combinatorics/."
+    },
+    {
+      "kind": "notes",
+      "placement": "digital-logic › sequential-circuits › (no card)",
+      "detail": "Mock unit, Digital Logic Unit 4 'Sequential Circuits: Counters & State Machines' (unit_slug sequential-fsm-counters, unit_number 4) opened Set 1 of 2 on 2026-10-29: run 7, paper digital-logic/sequential-fsm-counters/gate_dl_mock_4_2026-10-29.html, 25 questions, unit at 25 of the 50-question cap. Groups by subtopic_label: 'Synchronous & asynchronous counters' 7, 'FSM: Mealy & Moore machines' 6, 'State reduction & assignment' 6, 'Timing analysis' 6. The notes repo has no digital-logic subject at all - content/index.json map[] carries only calculus, discrete-mathematics, linear-algebra and probability-and-statistics - and content/syllabus.json lists digital-logic topic sequential-circuits with material 'planned', so no card serves this unit. The visual side exists: syllabus-coverage.json entry subject Digital Logic, unit 'Sequential design', topic 'Design of sequential circuits', coverage_status PUBLISHED, lesson_slug sequential-circuits, whose microtopics include the synchronous counter toggle rule, mod-N counters, the FSM design flow, state assignment, Moore against Mealy and the setup/hold constraints - VISUAL_LESSON at topic-level for all four groups. Recommendation: write the first digital-logic cards under content/subjects/digital-logic/sequential-circuits/, one per group, before the next Digital Logic run re-selects Unit 4."
     }
   ]
 }

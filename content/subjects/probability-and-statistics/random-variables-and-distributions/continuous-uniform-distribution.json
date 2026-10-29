@@ -99,5 +99,18 @@
     }
   ],
   "sourceLine": "The density fixed by normalisation, the mean (a+b)/2 and the variance (b-a)^2/12 with the standard deviation (b-a)/(2 sqrt 3): NPTEL Lecture 24 (English). The rectangle-area method and the standard deviation (b-a)/sqrt(12): OpenStax Introductory Statistics 2e section 5.2 (English). The discriminant argument for the 2019 question: the Knowledge Gate PYQ walkthrough (English), which agrees with the GATE Overflow accepted answer. The discrete-uniform mean and variance, for the contrast: NPTEL Lecture 19 (English).",
-  "videoRefs": []
+  "videoRefs": [],
+  "links": {
+    "visual": {
+      "slug": "probability-and-random-variables",
+      "title": "Probability, Random Variables and Distributions",
+      "level": "topic-level",
+      "url": "https://gate-visual-explainer.vercel.app/topics/probability-and-random-variables/index.html",
+      "covers": [
+        "uniform density and its mean and variance",
+        "density as area; P(X = a) = 0; density may exceed 1"
+      ]
+    },
+    "mapped_at": "2026-10-29"
+  }
 }
