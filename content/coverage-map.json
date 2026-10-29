@@ -4777,8 +4777,8 @@
     },
     {
       "kind": "notes",
-      "placement": "engineering-mathematics › calculus-limits-derivatives › (no card)",
-      "detail": "Mock unit 3 'Calculus: Limits, Continuity & Differentiability' holds 50 questions over 4 subtopics (indeterminate-forms-lhopital 14, continuity-analysis 12, mean-value-theorems 12, partial-derivatives 12) and no notes card exists for any of them; the notes repo covers discrete mathematics only."
+      "placement": "engineering-mathematics › calculus-limits-derivatives › mean-value-theorems, partial-derivatives",
+      "detail": "Mock unit 3 'Calculus: Limits, Continuity & Differentiability' (unit_slug calculus-limits-derivatives) holds 50 questions over 4 groups counted from the bank's subtopic field: indeterminate-forms-lhopital 14, continuity-analysis 12, mean-value-theorems 12, partial-derivatives 12. The twelve cards added under content/subjects/calculus/limits-continuity-differentiability/ now link to this unit, so indeterminate-forms-lhopital and continuity-analysis are served. Two groups still have no card: mean-value-theorems (12) and partial-derivatives (12). Recommendation: write content/subjects/calculus/limits-continuity-differentiability/mean-value-theorem.json first, then the partial-derivatives card beside it."
     },
     {
       "kind": "notes",
@@ -4937,8 +4937,8 @@
     },
     {
       "kind": "notes",
-      "placement": "engineering-mathematics › calculus-optimization-integrals › (no card)",
-      "detail": "Mock unit 4 'Calculus: Maxima, Minima & Integrals' (unit_slug calculus-optimization-integrals, run 7, 1 of 2, 2026-10-28, paper engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-28.html) holds 25 questions grouped by subtopic slug: single-variable-extrema 7, multivariable-extrema-saddle-points 6, definite-integrals 6, vector-calculus-basics 6. Records carry subtopic slugs rather than subtopic_label text. The notes repo covers discrete mathematics only, so no card serves them."
+      "placement": "engineering-mathematics › calculus-optimization-integrals › multivariable-extrema-saddle-points, definite-integrals, vector-calculus-basics",
+      "detail": "Mock unit 4 'Calculus: Maxima, Minima & Integrals' (unit_slug calculus-optimization-integrals, run 7, 1 of 2, 2026-10-28, paper engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-28.html) holds 25 questions grouped by subtopic slug: single-variable-extrema 7, multivariable-extrema-saddle-points 6, definite-integrals 6, vector-calculus-basics 6. The card corners-cusps-and-max-min-functions now links the unit through single-variable-extrema. Three groups have no card: multivariable-extrema-saddle-points, definite-integrals and vector-calculus-basics. Recommendation: open a second calculus group for integrals (content/subjects/calculus/maxima-minima-and-integrals/) and write definite-integrals there first."
     },
     {
       "kind": "notes",
@@ -4977,18 +4977,18 @@
     },
     {
       "kind": "notes",
-      "placement": "engineering-mathematics › linear-algebra › (no card)",
-      "detail": "New lesson topics/matrices-systems-and-eigenvalues (added 2026-10-28, syllabus-coverage.json coverage_status PUBLISHED, 7 subtopics and 25 microtopics, 10 scenes in transcript.md) covers determinants, rank and nullity, systems decided by rank comparison, LU and PA=LU, and eigenvalues with diagonalisation. It serves no notes card: the notes repo has no engineering-mathematics subject, and no discrete-mathematics card matches its vocabulary. Placement: engineering-mathematics › linear-algebra › matrices-systems-and-eigenvalues. Recommendation: write the first engineering-mathematics card at content/subjects/engineering-mathematics/linear-algebra/matrices-systems-and-eigenvalues.json, paired with mock unit linear-algebra-matrices (50 records in master_bank.json) and the lesson that already exists."
-    },
-    {
-      "kind": "notes",
       "placement": "operating-systems › memory-paging › (no card)",
       "detail": "Mock unit 4 \"Memory Management & Paging\" (unit_slug memory-paging) now holds 50 questions at the 50-question cap, grouped by subtopic slug: contiguous-allocation-first-best-worst-fit 13, paging-page-table-structures 13, inverted-page-tables 12, segmented-paging 12. The notes carry no operating-systems card at all, so the unit serves nothing. Write the notes cards before extending this unit."
     },
     {
       "kind": "notes",
       "placement": "compiler-design › sdt-intermediate-code › (no card)",
-      "detail": "Mock unit 4 \"Syntax-Directed Translation & Intermediate Code\" (unit_slug sdt-intermediate-code) holds 25 questions over 4 subtopic slugs: s-attributed-vs-l-attributed-definitions 7, three-address-code-quadruples-triples 7, syntax-trees-dags 6, type-checking 5. No compiler-design card exists in the notes."
+      "detail": "Mock unit 4 \"Syntax-Directed Translation & Intermediate Code\" (unit_slug sdt-intermediate-code) closed Set 2 of 2 on 2026-10-29 (run 8, paper compiler-design/sdt-intermediate-code/gate_cd_mock_4_2026-10-29.html, Set 1 archived) and now holds 50 questions, at the 50-question cap (MOCK_CAPPED), over 4 groups counted from the bank's subtopic field (the bank carries no subtopic_label field): three-address-code-quadruples-triples 14, s-attributed-vs-l-attributed-definitions 13, syntax-trees-dags 12, type-checking 11. content/subjects/ holds calculus, discrete-mathematics and linear-algebra only, so no card serves any of them. Visual side, checked against transcript.md: topics/runtime-environments-intermediate-code-and-optimisation covers three-address code, quadruples and triples, and DAG value numbering; topics/lexical-analysis-parsing-and-sdt covers S-attributed and L-attributed definitions. Recommendation: write the first compiler-design card at content/subjects/compiler-design/sdt-intermediate-code/three-address-code-quadruples-triples.json."
+    },
+    {
+      "kind": "visual",
+      "placement": "compiler-design › sdt-intermediate-code › type-checking",
+      "detail": "No published lesson covers type checking: neither topics/runtime-environments-intermediate-code-and-optimisation nor topics/lexical-analysis-parsing-and-sdt mentions type checking or semantic analysis anywhere in its transcript.md. It is one of the four groups in Compiler Design Unit 4 (11 of the unit's 50 questions). Recommendation: extend topics/lexical-analysis-parsing-and-sdt with a type-checking scene rather than build a new lesson, then regenerate captions with node tools/gen-captions.mjs lexical-analysis-parsing-and-sdt."
     },
     {
       "kind": "notes",
