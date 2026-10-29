@@ -74,41 +74,42 @@
   "links": {
     "mock": {
       "subject": "engineering-mathematics",
-      "unit_slug": "calculus-optimization-integrals",
-      "unit_name": "Calculus: Maxima, Minima & Integrals",
-      "unit_number": 4,
-      "question_count": 25,
+      "unit_slug": "calculus-limits-derivatives",
+      "unit_name": "Calculus: Limits, Continuity & Differentiability",
+      "unit_number": 3,
+      "question_count": 50,
       "subtopics": [
         {
-          "label": "single-variable-extrema",
-          "questions": 7
+          "label": "indeterminate-forms-lhopital",
+          "questions": 14
         },
         {
-          "label": "multivariable-extrema-saddle-points",
-          "questions": 6
+          "label": "continuity-analysis",
+          "questions": 12
         },
         {
-          "label": "definite-integrals",
-          "questions": 6
+          "label": "mean-value-theorems",
+          "questions": 12
         },
         {
-          "label": "vector-calculus-basics",
-          "questions": 6
+          "label": "partial-derivatives",
+          "questions": 12
         }
       ],
-      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-28.html"
+      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-limits-derivatives/gate_em_mock_3_2026-10-27.html"
     },
-    "mapped_at": "2026-10-29",
     "visual": {
-      "slug": "calculus-mean-value-theorem-secant",
-      "title": "Mean Value Theorem: The Secant and the Parallel Tangent",
+      "slug": "calculus-limits-extrema-and-integration",
+      "title": "Calculus: Limits, Extrema and Integration",
       "level": "topic-level",
       "covers": [
-        "the chord slope is the average rate of change",
-        "sliding the tangent until it is parallel to the chord locates c",
-        "Rolle is the flat-chord case, and |x| on [-1, 1] shows the failure"
+        "the mean value theorem as an inequality bounding a function's value",
+        "Rolle's theorem as the equal-endpoint special case",
+        "continuity on the closed interval and differentiability on the open one",
+        "the failure case where no interior point carries the average slope"
       ],
       "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
-    }
+    },
+    "mapped_at": "2026-10-29"
   }
 }

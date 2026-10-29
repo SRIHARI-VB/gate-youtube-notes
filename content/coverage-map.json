@@ -5266,383 +5266,820 @@
         "visual: the lesson is topic-level and its maxima scenes do not cover this card's subtopic; no visual side written"
       ],
       "row_verdict": "MOCK_ONLY"
+    },
+    {
+      "subject": "calculus",
+      "group": "mean-value-theorem",
+      "topic": "auxiliary-function-construction",
+      "title": "Building the Function: The Auxiliary-Function Trick",
+      "priority": "P2",
+      "path": "subjects/calculus/mean-value-theorem/auxiliary-function-construction.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "engineering-mathematics",
+        "unit_slug": "calculus-limits-derivatives",
+        "unit_name": "Calculus: Limits, Continuity & Differentiability",
+        "unit_number": 3,
+        "question_count": 50,
+        "subtopic_labels": [
+          "indeterminate-forms-lhopital",
+          "continuity-analysis",
+          "mean-value-theorems",
+          "partial-derivatives"
+        ],
+        "verdict": "MOCK_CAPPED"
+      },
+      "visual": {
+        "slug": "calculus-limits-extrema-and-integration",
+        "title": "Calculus: Limits, Extrema and Integration",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/calculus/mean-value-theorem/auxiliary-function-construction.json",
+        "mock: engineering-mathematics/question-bank/master_bank.json unit 3 (calculus-limits-derivatives, Calculus: Limits, Continuity & Differentiability) holds 50 records; subtopic_label is null on every record, so the groups are counted from the subtopic field: indeterminate-forms-lhopital 14, continuity-analysis 12, mean-value-theorems 12, partial-derivatives 12; paper from runs[] run 6 file engineering-mathematics/calculus-limits-derivatives/gate_em_mock_3_2026-10-27.html; the unit is at the 50-question cap (MOCK_CAPPED), so the rotation advanced to unit 4 calculus-optimization-integrals",
+        "visual: syllabus-coverage.json lesson_slug calculus-limits-extrema-and-integration (PUBLISHED), microtopic 'the mean value theorem used as an inequality, and sharpness'; scene 5 of topics/calculus-limits-extrema-and-integration/transcript.md read for the covers list, not the alias list"
+      ],
+      "row_verdict": "BOTH"
+    },
+    {
+      "subject": "calculus",
+      "group": "mean-value-theorem",
+      "topic": "cauchy-extended-mvt",
+      "title": "Cauchy's Extended Mean Value Theorem",
+      "priority": "P2",
+      "path": "subjects/calculus/mean-value-theorem/cauchy-extended-mvt.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "engineering-mathematics",
+        "unit_slug": "calculus-limits-derivatives",
+        "unit_name": "Calculus: Limits, Continuity & Differentiability",
+        "unit_number": 3,
+        "question_count": 50,
+        "subtopic_labels": [
+          "indeterminate-forms-lhopital",
+          "continuity-analysis",
+          "mean-value-theorems",
+          "partial-derivatives"
+        ],
+        "verdict": "MOCK_CAPPED"
+      },
+      "visual": {
+        "slug": "calculus-limits-extrema-and-integration",
+        "title": "Calculus: Limits, Extrema and Integration",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/calculus/mean-value-theorem/cauchy-extended-mvt.json",
+        "mock: engineering-mathematics/question-bank/master_bank.json unit 3 (calculus-limits-derivatives, Calculus: Limits, Continuity & Differentiability) holds 50 records; subtopic_label is null on every record, so the groups are counted from the subtopic field: indeterminate-forms-lhopital 14, continuity-analysis 12, mean-value-theorems 12, partial-derivatives 12; paper from runs[] run 6 file engineering-mathematics/calculus-limits-derivatives/gate_em_mock_3_2026-10-27.html; the unit is at the 50-question cap (MOCK_CAPPED), so the rotation advanced to unit 4 calculus-optimization-integrals",
+        "visual: syllabus-coverage.json lesson_slug calculus-limits-extrema-and-integration (PUBLISHED), microtopic 'the mean value theorem used as an inequality, and sharpness'; scene 5 of topics/calculus-limits-extrema-and-integration/transcript.md read for the covers list, not the alias list"
+      ],
+      "row_verdict": "BOTH"
+    },
+    {
+      "subject": "calculus",
+      "group": "mean-value-theorem",
+      "topic": "consequences-constant-and-monotone",
+      "title": "The Three Corollaries: Constant, Difference Constant, Monotone",
+      "priority": "P2",
+      "path": "subjects/calculus/mean-value-theorem/consequences-constant-and-monotone.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "engineering-mathematics",
+        "unit_slug": "calculus-limits-derivatives",
+        "unit_name": "Calculus: Limits, Continuity & Differentiability",
+        "unit_number": 3,
+        "question_count": 50,
+        "subtopic_labels": [
+          "indeterminate-forms-lhopital",
+          "continuity-analysis",
+          "mean-value-theorems",
+          "partial-derivatives"
+        ],
+        "verdict": "MOCK_CAPPED"
+      },
+      "visual": {
+        "slug": "calculus-limits-extrema-and-integration",
+        "title": "Calculus: Limits, Extrema and Integration",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/calculus/mean-value-theorem/consequences-constant-and-monotone.json",
+        "mock: engineering-mathematics/question-bank/master_bank.json unit 3 (calculus-limits-derivatives, Calculus: Limits, Continuity & Differentiability) holds 50 records; subtopic_label is null on every record, so the groups are counted from the subtopic field: indeterminate-forms-lhopital 14, continuity-analysis 12, mean-value-theorems 12, partial-derivatives 12; paper from runs[] run 6 file engineering-mathematics/calculus-limits-derivatives/gate_em_mock_3_2026-10-27.html; the unit is at the 50-question cap (MOCK_CAPPED), so the rotation advanced to unit 4 calculus-optimization-integrals",
+        "visual: syllabus-coverage.json lesson_slug calculus-limits-extrema-and-integration (PUBLISHED), microtopic 'the mean value theorem used as an inequality, and sharpness'; scene 5 of topics/calculus-limits-extrema-and-integration/transcript.md read for the covers list, not the alias list"
+      ],
+      "row_verdict": "BOTH"
+    },
+    {
+      "subject": "calculus",
+      "group": "mean-value-theorem",
+      "topic": "existence-not-uniqueness",
+      "title": "At Least One, Not Exactly One",
+      "priority": "P2",
+      "path": "subjects/calculus/mean-value-theorem/existence-not-uniqueness.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "engineering-mathematics",
+        "unit_slug": "calculus-limits-derivatives",
+        "unit_name": "Calculus: Limits, Continuity & Differentiability",
+        "unit_number": 3,
+        "question_count": 50,
+        "subtopic_labels": [
+          "indeterminate-forms-lhopital",
+          "continuity-analysis",
+          "mean-value-theorems",
+          "partial-derivatives"
+        ],
+        "verdict": "MOCK_CAPPED"
+      },
+      "visual": {
+        "slug": "calculus-limits-extrema-and-integration",
+        "title": "Calculus: Limits, Extrema and Integration",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/calculus/mean-value-theorem/existence-not-uniqueness.json",
+        "mock: engineering-mathematics/question-bank/master_bank.json unit 3 (calculus-limits-derivatives, Calculus: Limits, Continuity & Differentiability) holds 50 records; subtopic_label is null on every record, so the groups are counted from the subtopic field: indeterminate-forms-lhopital 14, continuity-analysis 12, mean-value-theorems 12, partial-derivatives 12; paper from runs[] run 6 file engineering-mathematics/calculus-limits-derivatives/gate_em_mock_3_2026-10-27.html; the unit is at the 50-question cap (MOCK_CAPPED), so the rotation advanced to unit 4 calculus-optimization-integrals",
+        "visual: syllabus-coverage.json lesson_slug calculus-limits-extrema-and-integration (PUBLISHED), microtopic 'the mean value theorem used as an inequality, and sharpness'; scene 5 of topics/calculus-limits-extrema-and-integration/transcript.md read for the covers list, not the alias list"
+      ],
+      "row_verdict": "BOTH"
+    },
+    {
+      "subject": "calculus",
+      "group": "mean-value-theorem",
+      "topic": "finding-the-point-c",
+      "title": "Finding the Point c",
+      "priority": "P2",
+      "path": "subjects/calculus/mean-value-theorem/finding-the-point-c.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "engineering-mathematics",
+        "unit_slug": "calculus-limits-derivatives",
+        "unit_name": "Calculus: Limits, Continuity & Differentiability",
+        "unit_number": 3,
+        "question_count": 50,
+        "subtopic_labels": [
+          "indeterminate-forms-lhopital",
+          "continuity-analysis",
+          "mean-value-theorems",
+          "partial-derivatives"
+        ],
+        "verdict": "MOCK_CAPPED"
+      },
+      "visual": {
+        "slug": "calculus-limits-extrema-and-integration",
+        "title": "Calculus: Limits, Extrema and Integration",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/calculus/mean-value-theorem/finding-the-point-c.json",
+        "mock: engineering-mathematics/question-bank/master_bank.json unit 3 (calculus-limits-derivatives, Calculus: Limits, Continuity & Differentiability) holds 50 records; subtopic_label is null on every record, so the groups are counted from the subtopic field: indeterminate-forms-lhopital 14, continuity-analysis 12, mean-value-theorems 12, partial-derivatives 12; paper from runs[] run 6 file engineering-mathematics/calculus-limits-derivatives/gate_em_mock_3_2026-10-27.html; the unit is at the 50-question cap (MOCK_CAPPED), so the rotation advanced to unit 4 calculus-optimization-integrals",
+        "visual: syllabus-coverage.json lesson_slug calculus-limits-extrema-and-integration (PUBLISHED), microtopic 'the mean value theorem used as an inequality, and sharpness'; scene 5 of topics/calculus-limits-extrema-and-integration/transcript.md read for the covers list, not the alias list"
+      ],
+      "row_verdict": "BOTH"
+    },
+    {
+      "subject": "calculus",
+      "group": "mean-value-theorem",
+      "topic": "hypotheses-and-when-mvt-fails",
+      "title": "When the Hypotheses Fail",
+      "priority": "P1",
+      "path": "subjects/calculus/mean-value-theorem/hypotheses-and-when-mvt-fails.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "engineering-mathematics",
+        "unit_slug": "calculus-limits-derivatives",
+        "unit_name": "Calculus: Limits, Continuity & Differentiability",
+        "unit_number": 3,
+        "question_count": 50,
+        "subtopic_labels": [
+          "indeterminate-forms-lhopital",
+          "continuity-analysis",
+          "mean-value-theorems",
+          "partial-derivatives"
+        ],
+        "verdict": "MOCK_CAPPED"
+      },
+      "visual": {
+        "slug": "calculus-limits-extrema-and-integration",
+        "title": "Calculus: Limits, Extrema and Integration",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/calculus/mean-value-theorem/hypotheses-and-when-mvt-fails.json",
+        "mock: engineering-mathematics/question-bank/master_bank.json unit 3 (calculus-limits-derivatives, Calculus: Limits, Continuity & Differentiability) holds 50 records; subtopic_label is null on every record, so the groups are counted from the subtopic field: indeterminate-forms-lhopital 14, continuity-analysis 12, mean-value-theorems 12, partial-derivatives 12; paper from runs[] run 6 file engineering-mathematics/calculus-limits-derivatives/gate_em_mock_3_2026-10-27.html; the unit is at the 50-question cap (MOCK_CAPPED), so the rotation advanced to unit 4 calculus-optimization-integrals",
+        "visual: syllabus-coverage.json lesson_slug calculus-limits-extrema-and-integration (PUBLISHED), microtopic 'the mean value theorem used as an inequality, and sharpness'; scene 5 of topics/calculus-limits-extrema-and-integration/transcript.md read for the covers list, not the alias list"
+      ],
+      "row_verdict": "BOTH"
+    },
+    {
+      "subject": "calculus",
+      "group": "mean-value-theorem",
+      "topic": "inequalities-from-mvt",
+      "title": "Proving Inequalities with the MVT",
+      "priority": "P3",
+      "path": "subjects/calculus/mean-value-theorem/inequalities-from-mvt.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "engineering-mathematics",
+        "unit_slug": "calculus-limits-derivatives",
+        "unit_name": "Calculus: Limits, Continuity & Differentiability",
+        "unit_number": 3,
+        "question_count": 50,
+        "subtopic_labels": [
+          "indeterminate-forms-lhopital",
+          "continuity-analysis",
+          "mean-value-theorems",
+          "partial-derivatives"
+        ],
+        "verdict": "MOCK_CAPPED"
+      },
+      "visual": {
+        "slug": "calculus-limits-extrema-and-integration",
+        "title": "Calculus: Limits, Extrema and Integration",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/calculus/mean-value-theorem/inequalities-from-mvt.json",
+        "mock: engineering-mathematics/question-bank/master_bank.json unit 3 (calculus-limits-derivatives, Calculus: Limits, Continuity & Differentiability) holds 50 records; subtopic_label is null on every record, so the groups are counted from the subtopic field: indeterminate-forms-lhopital 14, continuity-analysis 12, mean-value-theorems 12, partial-derivatives 12; paper from runs[] run 6 file engineering-mathematics/calculus-limits-derivatives/gate_em_mock_3_2026-10-27.html; the unit is at the 50-question cap (MOCK_CAPPED), so the rotation advanced to unit 4 calculus-optimization-integrals",
+        "visual: syllabus-coverage.json lesson_slug calculus-limits-extrema-and-integration (PUBLISHED), microtopic 'the mean value theorem used as an inequality, and sharpness'; scene 5 of topics/calculus-limits-extrema-and-integration/transcript.md read for the covers list, not the alias list"
+      ],
+      "row_verdict": "BOTH"
+    },
+    {
+      "subject": "calculus",
+      "group": "mean-value-theorem",
+      "topic": "lmvt-statement-and-secant-slope",
+      "title": "Lagrange's Mean Value Theorem",
+      "priority": "P1",
+      "path": "subjects/calculus/mean-value-theorem/lmvt-statement-and-secant-slope.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "engineering-mathematics",
+        "unit_slug": "calculus-limits-derivatives",
+        "unit_name": "Calculus: Limits, Continuity & Differentiability",
+        "unit_number": 3,
+        "question_count": 50,
+        "subtopic_labels": [
+          "indeterminate-forms-lhopital",
+          "continuity-analysis",
+          "mean-value-theorems",
+          "partial-derivatives"
+        ],
+        "verdict": "MOCK_CAPPED"
+      },
+      "visual": {
+        "slug": "calculus-limits-extrema-and-integration",
+        "title": "Calculus: Limits, Extrema and Integration",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/calculus/mean-value-theorem/lmvt-statement-and-secant-slope.json",
+        "mock: engineering-mathematics/question-bank/master_bank.json unit 3 (calculus-limits-derivatives, Calculus: Limits, Continuity & Differentiability) holds 50 records; subtopic_label is null on every record, so the groups are counted from the subtopic field: indeterminate-forms-lhopital 14, continuity-analysis 12, mean-value-theorems 12, partial-derivatives 12; paper from runs[] run 6 file engineering-mathematics/calculus-limits-derivatives/gate_em_mock_3_2026-10-27.html; the unit is at the 50-question cap (MOCK_CAPPED), so the rotation advanced to unit 4 calculus-optimization-integrals",
+        "visual: syllabus-coverage.json lesson_slug calculus-limits-extrema-and-integration (PUBLISHED), microtopic 'the mean value theorem used as an inequality, and sharpness'; scene 5 of topics/calculus-limits-extrema-and-integration/transcript.md read for the covers list, not the alias list"
+      ],
+      "row_verdict": "BOTH"
+    },
+    {
+      "subject": "calculus",
+      "group": "mean-value-theorem",
+      "topic": "mvt-bounds-on-function-values",
+      "title": "Bounding a Function Value with the MVT",
+      "priority": "P1",
+      "path": "subjects/calculus/mean-value-theorem/mvt-bounds-on-function-values.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "engineering-mathematics",
+        "unit_slug": "calculus-limits-derivatives",
+        "unit_name": "Calculus: Limits, Continuity & Differentiability",
+        "unit_number": 3,
+        "question_count": 50,
+        "subtopic_labels": [
+          "indeterminate-forms-lhopital",
+          "continuity-analysis",
+          "mean-value-theorems",
+          "partial-derivatives"
+        ],
+        "verdict": "MOCK_CAPPED"
+      },
+      "visual": {
+        "slug": "calculus-limits-extrema-and-integration",
+        "title": "Calculus: Limits, Extrema and Integration",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/calculus/mean-value-theorem/mvt-bounds-on-function-values.json",
+        "mock: engineering-mathematics/question-bank/master_bank.json unit 3 (calculus-limits-derivatives, Calculus: Limits, Continuity & Differentiability) holds 50 records; subtopic_label is null on every record, so the groups are counted from the subtopic field: indeterminate-forms-lhopital 14, continuity-analysis 12, mean-value-theorems 12, partial-derivatives 12; paper from runs[] run 6 file engineering-mathematics/calculus-limits-derivatives/gate_em_mock_3_2026-10-27.html; the unit is at the 50-question cap (MOCK_CAPPED), so the rotation advanced to unit 4 calculus-optimization-integrals",
+        "visual: syllabus-coverage.json lesson_slug calculus-limits-extrema-and-integration (PUBLISHED), microtopic 'the mean value theorem used as an inequality, and sharpness'; scene 5 of topics/calculus-limits-extrema-and-integration/transcript.md read for the covers list, not the alias list"
+      ],
+      "row_verdict": "BOTH"
+    },
+    {
+      "subject": "calculus",
+      "group": "mean-value-theorem",
+      "topic": "not-identically-zero-derivative",
+      "title": "One Zero of f' Is Not Zero Everywhere",
+      "priority": "P2",
+      "path": "subjects/calculus/mean-value-theorem/not-identically-zero-derivative.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "engineering-mathematics",
+        "unit_slug": "calculus-limits-derivatives",
+        "unit_name": "Calculus: Limits, Continuity & Differentiability",
+        "unit_number": 3,
+        "question_count": 50,
+        "subtopic_labels": [
+          "indeterminate-forms-lhopital",
+          "continuity-analysis",
+          "mean-value-theorems",
+          "partial-derivatives"
+        ],
+        "verdict": "MOCK_CAPPED"
+      },
+      "visual": {
+        "slug": "calculus-limits-extrema-and-integration",
+        "title": "Calculus: Limits, Extrema and Integration",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/calculus/mean-value-theorem/not-identically-zero-derivative.json",
+        "mock: engineering-mathematics/question-bank/master_bank.json unit 3 (calculus-limits-derivatives, Calculus: Limits, Continuity & Differentiability) holds 50 records; subtopic_label is null on every record, so the groups are counted from the subtopic field: indeterminate-forms-lhopital 14, continuity-analysis 12, mean-value-theorems 12, partial-derivatives 12; paper from runs[] run 6 file engineering-mathematics/calculus-limits-derivatives/gate_em_mock_3_2026-10-27.html; the unit is at the 50-question cap (MOCK_CAPPED), so the rotation advanced to unit 4 calculus-optimization-integrals",
+        "visual: syllabus-coverage.json lesson_slug calculus-limits-extrema-and-integration (PUBLISHED), microtopic 'the mean value theorem used as an inequality, and sharpness'; scene 5 of topics/calculus-limits-extrema-and-integration/transcript.md read for the covers list, not the alias list"
+      ],
+      "row_verdict": "BOTH"
+    },
+    {
+      "subject": "calculus",
+      "group": "mean-value-theorem",
+      "topic": "rolle-and-root-counting",
+      "title": "Counting Real Roots with Rolle",
+      "priority": "P2",
+      "path": "subjects/calculus/mean-value-theorem/rolle-and-root-counting.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "engineering-mathematics",
+        "unit_slug": "calculus-limits-derivatives",
+        "unit_name": "Calculus: Limits, Continuity & Differentiability",
+        "unit_number": 3,
+        "question_count": 50,
+        "subtopic_labels": [
+          "indeterminate-forms-lhopital",
+          "continuity-analysis",
+          "mean-value-theorems",
+          "partial-derivatives"
+        ],
+        "verdict": "MOCK_CAPPED"
+      },
+      "visual": {
+        "slug": "calculus-limits-extrema-and-integration",
+        "title": "Calculus: Limits, Extrema and Integration",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/calculus/mean-value-theorem/rolle-and-root-counting.json",
+        "mock: engineering-mathematics/question-bank/master_bank.json unit 3 (calculus-limits-derivatives, Calculus: Limits, Continuity & Differentiability) holds 50 records; subtopic_label is null on every record, so the groups are counted from the subtopic field: indeterminate-forms-lhopital 14, continuity-analysis 12, mean-value-theorems 12, partial-derivatives 12; paper from runs[] run 6 file engineering-mathematics/calculus-limits-derivatives/gate_em_mock_3_2026-10-27.html; the unit is at the 50-question cap (MOCK_CAPPED), so the rotation advanced to unit 4 calculus-optimization-integrals",
+        "visual: syllabus-coverage.json lesson_slug calculus-limits-extrema-and-integration (PUBLISHED), microtopic 'the mean value theorem used as an inequality, and sharpness'; scene 5 of topics/calculus-limits-extrema-and-integration/transcript.md read for the covers list, not the alias list"
+      ],
+      "row_verdict": "BOTH"
+    },
+    {
+      "subject": "calculus",
+      "group": "mean-value-theorem",
+      "topic": "rolle-theorem-statement",
+      "title": "Rolle's Theorem",
+      "priority": "P1",
+      "path": "subjects/calculus/mean-value-theorem/rolle-theorem-statement.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "engineering-mathematics",
+        "unit_slug": "calculus-limits-derivatives",
+        "unit_name": "Calculus: Limits, Continuity & Differentiability",
+        "unit_number": 3,
+        "question_count": 50,
+        "subtopic_labels": [
+          "indeterminate-forms-lhopital",
+          "continuity-analysis",
+          "mean-value-theorems",
+          "partial-derivatives"
+        ],
+        "verdict": "MOCK_CAPPED"
+      },
+      "visual": {
+        "slug": "calculus-limits-extrema-and-integration",
+        "title": "Calculus: Limits, Extrema and Integration",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/calculus/mean-value-theorem/rolle-theorem-statement.json",
+        "mock: engineering-mathematics/question-bank/master_bank.json unit 3 (calculus-limits-derivatives, Calculus: Limits, Continuity & Differentiability) holds 50 records; subtopic_label is null on every record, so the groups are counted from the subtopic field: indeterminate-forms-lhopital 14, continuity-analysis 12, mean-value-theorems 12, partial-derivatives 12; paper from runs[] run 6 file engineering-mathematics/calculus-limits-derivatives/gate_em_mock_3_2026-10-27.html; the unit is at the 50-question cap (MOCK_CAPPED), so the rotation advanced to unit 4 calculus-optimization-integrals",
+        "visual: syllabus-coverage.json lesson_slug calculus-limits-extrema-and-integration (PUBLISHED), microtopic 'the mean value theorem used as an inequality, and sharpness'; scene 5 of topics/calculus-limits-extrema-and-integration/transcript.md read for the covers list, not the alias list"
+      ],
+      "row_verdict": "BOTH"
     }
   ],
   "gaps": [
     {
       "kind": "notes",
-      "placement": "algorithms › greedy-algorithms › (no card)",
+      "placement": "algorithms \u203a greedy-algorithms \u203a (no card)",
       "detail": "Mock set, Algorithms Unit 3 'Greedy Algorithms' (unit_slug greedy-algorithms, run 5, Set 1 of 2, 2026-10-29, paper algorithms/greedy-algorithms/gate_algo_mock_3_2026-10-29.html) holds 25 questions over 4 groups counted from the bank's subtopic field: fractional-knapsack 7, huffman-coding 6, activity-selection-interval-scheduling 6, optimal-merge-patterns 6. The unit sits at 25 of the 50-question cap, so Set 2 of 2 can still be drawn on it. Records carry subtopic slugs rather than subtopic_label text. The notes repo has no algorithms subject (content/index.json map[] carries only discrete-mathematics, linear-algebra and calculus), so no card serves them."
     },
     {
       "kind": "notes",
-      "placement": "operating-systems › synchronisation-and-deadlock › (no card)",
+      "placement": "operating-systems \u203a synchronisation-and-deadlock \u203a (no card)",
       "detail": "New lesson topics/synchronisation-and-deadlock (added 2026-10-27, PUBLISHED, 55 aliases) serves no notes card; the notes repo has no operating-systems subject yet."
     },
     {
       "kind": "notes",
-      "placement": "engineering-mathematics › calculus-limits-derivatives › mean-value-theorems, partial-derivatives",
-      "detail": "Mock unit 3 'Calculus: Limits, Continuity & Differentiability' (unit_slug calculus-limits-derivatives) holds 50 questions over 4 groups counted from the bank's subtopic field: indeterminate-forms-lhopital 14, continuity-analysis 12, mean-value-theorems 12, partial-derivatives 12. The twelve cards added under content/subjects/calculus/limits-continuity-differentiability/ now link to this unit, so indeterminate-forms-lhopital and continuity-analysis are served. Two groups still have no card: mean-value-theorems (12) and partial-derivatives (12). Recommendation: write content/subjects/calculus/limits-continuity-differentiability/mean-value-theorem.json first, then the partial-derivatives card beside it."
+      "placement": "engineering-mathematics \u203a calculus-limits-derivatives \u203a partial-derivatives",
+      "detail": "Mock unit 3 'Calculus: Limits, Continuity & Differentiability' (unit_slug calculus-limits-derivatives) holds 50 questions over 4 groups counted from the bank's subtopic field: indeterminate-forms-lhopital 14, continuity-analysis 12, mean-value-theorems 12, partial-derivatives 12. indeterminate-forms-lhopital and continuity-analysis are served by the twelve cards under content/subjects/calculus/limits-continuity-differentiability/, and mean-value-theorems is now served by the twelve cards under content/subjects/calculus/mean-value-theorem/ (mapped 2026-10-29). One group still has no card: partial-derivatives (12 questions). Recommendation: write content/subjects/calculus/limits-continuity-differentiability/partial-derivatives.json."
     },
     {
       "kind": "notes",
-      "placement": "operating-systems › scheduling › cpu-scheduling",
+      "placement": "operating-systems \u203a scheduling \u203a cpu-scheduling",
       "detail": "Lesson topics/cpu-scheduling (PUBLISHED 2026-10-27, 26 microtopics from FCFS/SJF/SRTF/round robin to MLFQ) serves no notes card; the notes repo has no operating-systems subject yet."
     },
     {
       "kind": "notes",
-      "placement": "digital-logic › sequential-flipflops › (no card)",
+      "placement": "digital-logic \u203a sequential-flipflops \u203a (no card)",
       "detail": "New mock set, Digital Logic Unit 3 'Sequential Circuits: Flip-Flops & Registers' (run 5, 2026-10-27, paper gate_dl_mock_3_2026-10-27.html), holds 25 questions over 4 subtopic_label groups (Latches vs flip-flops 8, Shift registers 6, Setup &amp; hold times 6, Characteristic equations 5). The notes repo covers discrete mathematics only, so no card serves any of them. Lesson topics/sequential-circuits (PUBLISHED 2026-10-27, topic-level) already covers all four subtopics, so the missing piece is the notes card."
     },
     {
       "kind": "mock",
-      "placement": "discrete-mathematics › combinatorics › basic-counting-rules, ioib-partitions, recurrences-and-compositions",
+      "placement": "discrete-mathematics \u203a combinatorics \u203a basic-counting-rules, ioib-partitions, recurrences-and-compositions",
       "detail": "Unit 7 'Counting & Combinatorics' (unit_slug combinatorics, run 7, 2026-10-28, 50 questions) holds 5 subtopic_label groups of 10: Permutations & combinations, Binomial & multinomial coefficients, Double counting, Stars and bars, Inclusion-exclusion counting, and sits at the 50-question cap (MOCK_CAPPED). derangements is linked to the unit through 'Inclusion-exclusion counting' (DM-CB7-Q23). Still unrepresented: the sum/product/subtraction rules card (basic-counting-rules), integer partitions (ioib-partitions) and the playlist-gap recurrence card (recurrences-and-compositions). Next build: a counting set for these three cases needs a new unit folder under discrete-mathematics/, since unit 7 is full; name it before writing questions."
     },
     {
       "kind": "visual",
-      "placement": "discrete-mathematics › combinatorics › doib-stirling, ioib-partitions, binomial-theorem",
+      "placement": "discrete-mathematics \u203a combinatorics \u203a doib-stirling, ioib-partitions, binomial-theorem",
       "detail": "No published lesson covers Stirling numbers of the second kind, integer partitions or binomial-theorem coefficient extraction; counting-and-combinatorics stops at stars and bars, inclusion-exclusion, surjections and derangements."
     },
     {
       "kind": "visual",
-      "placement": "discrete-mathematics › propositional-logic › cnf-dnf-normal-forms, resolution-refutation, functional-completeness",
+      "placement": "discrete-mathematics \u203a propositional-logic \u203a cnf-dnf-normal-forms, resolution-refutation, functional-completeness",
       "detail": "topics/propositional-logic has no scene on CNF/DNF, resolution or NAND completeness; its 10 scenes stop at equivalence, valid arguments and satisfiability."
     },
     {
       "kind": "visual",
-      "placement": "discrete-mathematics › first-order-logic › fol-validity-and-implication, fol-tautology-vs-validity, fol-exactly-one-and-uniqueness, fol-model-size-and-countermodels, fol-quantifier-inference-rules",
+      "placement": "discrete-mathematics \u203a first-order-logic \u203a fol-validity-and-implication, fol-tautology-vs-validity, fol-exactly-one-and-uniqueness, fol-model-size-and-countermodels, fol-quantifier-inference-rules",
       "detail": "topics/first-order-logic covers predicates, both quantifiers, the domain, quantifier negation, quantifier order and free/bound variables only; validity, uniqueness, countermodels and quantifier inference rules are absent from its transcript."
     },
     {
       "kind": "notes",
-      "placement": "compiler-design › top-down-parsing › (no card)",
+      "placement": "compiler-design \u203a top-down-parsing \u203a (no card)",
       "detail": "New mock set, Compiler Design Unit 2 'Syntax Analysis: Top-Down Parsing' (runs 3 and 4, 2026-10-27, paper compiler-design/top-down-parsing/gate_cd_mock_2_2026-10-27.html), holds 50 questions, at the unit cap, over 4 groups counted from the bank's subtopic field (first-and-follow-sets 15, left-recursion-and-factoring 12, recursive-descent-parsers 12, ll1-parsing-tables 11). This bank carries no subtopic_label field, so the subtopic field is the grouping. The notes repo covers discrete mathematics only, so no card serves any of them."
     },
     {
       "kind": "notes",
-      "placement": "operating-systems › memory › file-systems",
+      "placement": "operating-systems \u203a memory \u203a file-systems",
       "detail": "New lesson topics/file-systems (added 2026-10-27, PUBLISHED, 10 scenes, 29 microtopics in syllabus-coverage.json) covers file and directory structure, contiguous, linked and indexed allocation, FAT and inode pointer trees, free space management, hard and symbolic links, and the disk-access counts of an open and an insert. The notes repo has no operating-systems subject, so no card serves it."
     },
     {
       "kind": "notes",
-      "placement": "programming-data-structures › pointers-memory › (no card)",
+      "placement": "programming-data-structures \u203a pointers-memory \u203a (no card)",
       "detail": "New mock set, Programming and Data Structures Unit 2 'Pointers, Memory & Preprocessors' Set 2 of 2 (run 4, 2026-10-27, paper programming-data-structures/pointers-memory/gate_ds_mock_2_2026-10-27.html); the unit now holds 50 questions, at the 50-question cap, over 4 subtopic_label groups (Pointer arithmetic 14, Pointers to functions 12, Dynamic memory allocation 12, Macro expansion, scope & lifetime 12). The notes repo covers discrete mathematics only, so no card serves them."
     },
     {
       "kind": "notes",
-      "placement": "operating-systems › scheduling › disk-scheduling",
+      "placement": "operating-systems \u203a scheduling \u203a disk-scheduling",
       "detail": "New lesson topics/disk-scheduling (added 2026-10-27, PUBLISHED, 10 scenes) covers FCFS, SSTF, SCAN, C-SCAN, LOOK and C-LOOK, head movement arithmetic and the seek/rotational-latency/transfer cost model, and serves no notes card; the notes repo has no operating-systems subject yet."
     },
     {
       "kind": "visual",
-      "placement": "programming-data-structures › pointers-memory › pointers-to-functions, dynamic-memory-allocation",
+      "placement": "programming-data-structures \u203a pointers-memory \u203a pointers-to-functions, dynamic-memory-allocation",
       "detail": "No published lesson covers function pointers or dynamic memory allocation: the topics/pointers-in-c transcript contains no mention of either, and its subtopics stop at pointer arithmetic, array decay, sizeof semantics, pointer to pointer and dangling pointers. Unit 2's other two groups are served by pointers-in-c (Pointer arithmetic) and functions-scope-and-preprocessor (Macro expansion, scope & lifetime)."
     },
     {
       "kind": "notes",
-      "placement": "compiler-design › bottom-up-parsing › (no card)",
+      "placement": "compiler-design \u203a bottom-up-parsing \u203a (no card)",
       "detail": "Mock set, Compiler Design Unit 3 'Syntax Analysis: Bottom-Up Parsing' (run 7, 2026-10-28, paper compiler-design/bottom-up-parsing/gate_cd_mock_3_2026-10-28.html, Set 1 archived) now holds 50 questions, at the unit cap, over 4 groups counted from the bank's subtopic field: lr0-items-parsing 14, slr1-parsing-conflicts 12, lr1-and-lalr1-parsers 13, operator-precedence-parsing 11. The bank carries no subtopic_label field, so the subtopic slug is the grouping. The run note states the next Compiler Design run advances to Unit 4, Syntax-Directed Translation & Intermediate Code. The notes repo covers discrete mathematics only, so no card serves any of them."
     },
     {
       "kind": "notes",
-      "placement": "databases › relational-model › relational-algebra-and-sql",
+      "placement": "databases \u203a relational-model \u203a relational-algebra-and-sql",
       "detail": "New lesson topics/relational-algebra-and-sql (registered 2026-10-27; syllabus-coverage.json coverage_status PUBLISHED, lesson_slug relational-algebra-and-sql, 4 subtopics: relational algebra operators, tuple relational calculus, SQL queries/joins/subqueries, ER to relational mapping). Its transcript.md was read: 10 scenes covering the six primitives, projection against SELECT DISTINCT, joins and relational division. The notes repo has no databases subject, so no card serves it. The databases bank already holds unit 1 er-relational-algebra with 50 questions (relational-algebra-select-project-join-division 16, er-diagrams-cardinality-weak-entities 12, relational-model-constraints 12, tuple-and-domain-relational-calculus 10), so only the notes card is missing."
     },
     {
       "kind": "notes",
-      "placement": "discrete-mathematics › induction-recursion › (no card)",
+      "placement": "discrete-mathematics \u203a induction-recursion \u203a (no card)",
       "detail": "Mock unit 6 'Mathematical Induction & Recursion' (unit_slug induction-recursion) reached 50 questions on 2026-10-27 (run 5, Set 2 of 2, paper discrete-mathematics/induction-recursion/gate_dm_mock_6_2026-10-27.html) over 4 subtopic groups: Weak & strong induction 14, Structural induction 12, Well-ordering principle 12, Proof techniques & errors 12. No notes card carries induction, well-ordering or structural induction - content/subjects/ holds 37 cards, all combinatorics, propositional-logic and first-order-logic, with zero occurrences of 'induction'."
     },
     {
       "kind": "notes",
-      "placement": "databases › design › functional-dependencies-and-normal-forms",
+      "placement": "databases \u203a design \u203a functional-dependencies-and-normal-forms",
       "detail": "New lesson topics/functional-dependencies-and-normal-forms (added 2026-10-27, syllabus-coverage.json subject Databases, unit Design, coverage_status PUBLISHED, 10 scenes / 40 caption segments) covers FDs and attribute closure, Armstrong's axioms, candidate keys, 1NF to BCNF, lossless join decomposition and dependency preservation. The notes repo has no databases subject, so no card serves it."
     },
     {
       "kind": "notes",
-      "placement": "databases › sql-querying › (no card)",
+      "placement": "databases \u203a sql-querying \u203a (no card)",
       "detail": "New mock set, Databases Unit 2 'SQL & Advanced Querying' Set 2 of 2 (run 3, 2026-10-28, paper databases/sql-querying/gate_db_mock_2_2026-10-28.html), holds 50 questions over 5 subtopic groups of 10 each: ddl-dml-dcl, nested-and-correlated-subqueries, aggregate-functions-group-by-having, joins-outer-joins, views-triggers-constraints. That reaches the 50-question cap, so the next Databases run advances to Unit 3, Database Normalization (unit slug normalization). The notes repo has no databases subject, so no card serves it."
     },
     {
       "kind": "notes",
-      "placement": "theory-of-computation › regular-languages › regular-expressions-and-finite-automata",
+      "placement": "theory-of-computation \u203a regular-languages \u203a regular-expressions-and-finite-automata",
       "detail": "New lesson topics/regular-expressions-and-finite-automata (added 2026-10-28; topics.json entry created/updated 2026-10-28; syllabus-coverage.json subject Theory of Computation, unit Regular languages, coverage_status PUBLISHED, 5 subtopics, 22 microtopics). Its transcript.md was read: 10 scenes covering alphabet/Sigma-star, the five-tuple, nondeterminism and epsilon-closure, subset construction against the 2^n bound, distinguishability and table filling, counters modulo m with the lcm rule, Thompson's construction, state elimination and closure properties, and the pumping lemma. The notes repo has no theory-of-computation subject, so no card serves it."
     },
     {
       "kind": "notes",
-      "placement": "databases › transactions › transactions-and-concurrency-control",
+      "placement": "databases \u203a transactions \u203a transactions-and-concurrency-control",
       "detail": "New lesson topics/transactions-and-concurrency-control (added 2026-10-27, syllabus-coverage.json subject Databases, unit Transactions, coverage_status PUBLISHED, 8 subtopics, 21 microtopics) serves no notes card: the notes repo has only the discrete-mathematics subject. Covers ACID, conflict and view serialisability, precedence graphs, recoverability, 2PL, timestamp ordering and the Thomas write rule."
     },
     {
       "kind": "notes",
-      "placement": "discrete-mathematics › combinatorics › double-counting",
+      "placement": "discrete-mathematics \u203a combinatorics \u203a double-counting",
       "detail": "Mock unit 7 group 'Double counting' (5 questions: handshakes, cards sent, sum k*C(10,k)) matches no card. The nearest card is basic-counting-rules, whose sum/product/subtraction/bijection rules do not include counting one set two ways, so no link was written."
     },
     {
       "kind": "notes",
-      "placement": "computer-networks › fundamentals › layering-switching-and-performance-metrics",
+      "placement": "computer-networks \u203a fundamentals \u203a layering-switching-and-performance-metrics",
       "detail": "New lesson topics/layering-switching-and-performance-metrics (added 2026-10-27, PUBLISHED, 10 scenes in transcript.md, 7 subtopics and 20 microtopics in syllabus-coverage.json) covers layering principles, OSI and TCP/IP stacks, encapsulation and per-hop versus end-to-end addressing, circuit/packet/virtual-circuit switching, store-and-forward against cut-through, transmission, propagation and queuing delay, pipelined end-to-end delay over N links, throughput as the bottleneck and the bandwidth-delay product; checked against transcript.md, not the alias list. The notes repo has no computer-networks subject, so no card serves it. The mock unit on the same ground is computer-networks/network-fundamentals-framing (50 questions: osi-and-tcp-ip-models 13, transmission-delays-bandwidth-delay-product 12, framing-bit-byte-stuffing 12, error-detection-crc-checksum-hamming 13)."
     },
     {
       "kind": "notes",
-      "placement": "theory-of-computation › turing-machines-decidability › (no card)",
-      "detail": "Mock unit 4 'Turing Machines & Decidability' (unit_slug turing-machines-decidability) closed Set 2 of 2 on 2026-10-28 (run 8, paper theory-of-computation/turing-machines-decidability/gate_toc_mock_4_2026-10-28.html, Set 1 archived) and now holds 50 questions, at the 50-question cap, over 5 subtopic_label groups of 10 each: Standard TM models & variants 10, Recursive vs recursively enumerable 10, Halting problem & undecidability 10, Rice’s theorem & reductions 10, Chomsky hierarchy summary 10. The notes repo has no theory-of-computation subject, so no card serves any of them. No published lesson covers them either: syllabus-coverage.json places them under Theory of Computation › Computability › Turing machines and undecidability with coverage_status NOT_STARTED and lesson_slug null."
+      "placement": "theory-of-computation \u203a turing-machines-decidability \u203a (no card)",
+      "detail": "Mock unit 4 'Turing Machines & Decidability' (unit_slug turing-machines-decidability) closed Set 2 of 2 on 2026-10-28 (run 8, paper theory-of-computation/turing-machines-decidability/gate_toc_mock_4_2026-10-28.html, Set 1 archived) and now holds 50 questions, at the 50-question cap, over 5 subtopic_label groups of 10 each: Standard TM models & variants 10, Recursive vs recursively enumerable 10, Halting problem & undecidability 10, Rice\u2019s theorem & reductions 10, Chomsky hierarchy summary 10. The notes repo has no theory-of-computation subject, so no card serves any of them. No published lesson covers them either: syllabus-coverage.json places them under Theory of Computation \u203a Computability \u203a Turing machines and undecidability with coverage_status NOT_STARTED and lesson_slug null."
     },
     {
       "kind": "notes",
-      "placement": "programming-data-structures › linear-data-structures › (no card)",
+      "placement": "programming-data-structures \u203a linear-data-structures \u203a (no card)",
       "detail": "Mock set, Programming and Data Structures Unit 3 'Linear Data Structures' closed at the cap on 2026-10-28 (run 6, Set 2 of 2, paper programming-data-structures/linear-data-structures/gate_ds_mock_3_2026-10-28.html; run 3, Set 1 of 2, was archived to programming-data-structures/linear-data-structures/archive/gate_ds_mock_3_2026-10-28_run1.html). The unit now holds 50 questions over 4 subtopic_label groups: 'Arrays & multidimensional arrays' 13, 'Singly, doubly & circular linked lists' 12, 'Stacks: infix, postfix & applications' 13, 'Queues, circular queues & deques' 12. MOCK_CAPPED: the rotation advances to (2 + 1) mod 7 = 3, Unit 4, Binary Trees & Tree Traversals. The notes repo covers discrete mathematics only (content/syllabus.json lists one subject), so no card serves any of the four groups; the visual side already holds topics/arrays-stacks-queues and topics/linked-lists."
     },
     {
       "kind": "notes",
-      "placement": "computer-networks › data-link-layer › (no card)",
-      "detail": "New lesson topics/link-layer-error-detection-mac-and-ethernet (added 2026-10-28, PUBLISHED, 10 scenes, 32 microtopics, Computer Networks › Data link layer › 'Error detection, MAC and Ethernet') serves no notes card; the notes repo has no computer-networks subject. Its content covers framing and bit stuffing, parity, Internet checksum, CRC, Hamming distance, ALOHA, CSMA/CD with the 2-tau rule and Ethernet framing/backoff."
+      "placement": "computer-networks \u203a data-link-layer \u203a (no card)",
+      "detail": "New lesson topics/link-layer-error-detection-mac-and-ethernet (added 2026-10-28, PUBLISHED, 10 scenes, 32 microtopics, Computer Networks \u203a Data link layer \u203a 'Error detection, MAC and Ethernet') serves no notes card; the notes repo has no computer-networks subject. Its content covers framing and bit stuffing, parity, Internet checksum, CRC, Hamming distance, ALOHA, CSMA/CD with the 2-tau rule and Ethernet framing/backoff."
     },
     {
       "kind": "visual",
-      "placement": "computer-networks › data-link-layer › sliding-window-protocols, ethernet-framing-and-bridging",
+      "placement": "computer-networks \u203a data-link-layer \u203a sliding-window-protocols, ethernet-framing-and-bridging",
       "detail": "The syllabus-coverage entry for topics/link-layer-error-detection-mac-and-ethernet lists subtopics 'sliding window protocols' and 'Ethernet framing and bridging', but neither appears in transcript.md, lesson.js or timeline.js (the 10 scenes run frames, parity, checksum, CRC, Hamming, ALOHA, carrier sense, Ethernet frame/backoff, arithmetic, procedure). Bridging is absent altogether; extend this lesson rather than build a new one."
     },
     {
       "kind": "notes",
-      "placement": "computer-architecture › datapath-control-unit › (no card)",
-      "detail": "Mock unit 2 'CPU Control Design & Data Path' (unit_slug datapath-control-unit) holds 50 questions in 4 subtopic groups — Hardwired control 13, ALU & datapath timing 13, Microprogrammed control 12, Bus architectures 12; run 2, Set 2 of 2, paper computer-architecture/datapath-control-unit/gate_co_mock_2_2026-10-28.html. At the 50-question cap, so the rotation advances to the next unit. content/syllabus.json lists discrete-mathematics as the only notes subject, so no card serves this unit."
+      "placement": "computer-architecture \u203a datapath-control-unit \u203a (no card)",
+      "detail": "Mock unit 2 'CPU Control Design & Data Path' (unit_slug datapath-control-unit) holds 50 questions in 4 subtopic groups \u2014 Hardwired control 13, ALU & datapath timing 13, Microprogrammed control 12, Bus architectures 12; run 2, Set 2 of 2, paper computer-architecture/datapath-control-unit/gate_co_mock_2_2026-10-28.html. At the 50-question cap, so the rotation advances to the next unit. content/syllabus.json lists discrete-mathematics as the only notes subject, so no card serves this unit."
     },
     {
       "kind": "notes",
-      "placement": "computer-networks › routing › distance-vector-and-link-state-routing",
-      "detail": "Lesson topics/distance-vector-and-link-state-routing (PUBLISHED 2026-10-28, 39 microtopics across 3 syllabus subtopics: distance vector algorithm and count-to-infinity, link state and Dijkstra, routing tables) serves no notes card — content/syllabus.json lists discrete-mathematics as the only notes subject, so there is no computer-networks subject to file it under."
+      "placement": "computer-networks \u203a routing \u203a distance-vector-and-link-state-routing",
+      "detail": "Lesson topics/distance-vector-and-link-state-routing (PUBLISHED 2026-10-28, 39 microtopics across 3 syllabus subtopics: distance vector algorithm and count-to-infinity, link state and Dijkstra, routing tables) serves no notes card \u2014 content/syllabus.json lists discrete-mathematics as the only notes subject, so there is no computer-networks subject to file it under."
     },
     {
       "kind": "notes",
-      "placement": "computer-networks › data-link-mac › (no card)",
+      "placement": "computer-networks \u203a data-link-mac \u203a (no card)",
       "detail": "New mock set, Computer Networks Unit 2 'Data Link Protocols & MAC' (unit_slug data-link-mac, run 4, 2026-10-28, paper computer-networks/data-link-mac/gate_cn_mock_2_2026-10-28.html), closes the unit at the 50-question cap over 5 subtopic groups of 10: Stop-and-wait ARQ, Go-back-N & selective repeat, Pure & slotted ALOHA, CSMA/CD, CSMA/CA & backoff, Ethernet, switches & bridges. The notes repo covers discrete mathematics only, so no card serves any of them."
     },
     {
       "kind": "notes",
-      "placement": "theory-of-computation › context-free languages › (no card)",
-      "detail": "New lesson topics/context-free-grammars-and-pushdown-automata (added 2026-10-28, PUBLISHED, 52 aliases, 25 microtopics) serves no notes card; the notes repo has no theory-of-computation subject. Its syllabus-coverage entry places it at Theory of Computation › Context-free languages › 'CFG, PDA and pumping lemma' with subtopics grammars and derivations, ambiguity, pushdown automata, CFL closure properties, pumping lemma for CFLs."
+      "placement": "theory-of-computation \u203a context-free languages \u203a (no card)",
+      "detail": "New lesson topics/context-free-grammars-and-pushdown-automata (added 2026-10-28, PUBLISHED, 52 aliases, 25 microtopics) serves no notes card; the notes repo has no theory-of-computation subject. Its syllabus-coverage entry places it at Theory of Computation \u203a Context-free languages \u203a 'CFG, PDA and pumping lemma' with subtopics grammars and derivations, ambiguity, pushdown automata, CFL closure properties, pumping lemma for CFLs."
     },
     {
       "kind": "notes",
-      "placement": "theory-of-computation › computability › turing-machines-and-undecidability",
+      "placement": "theory-of-computation \u203a computability \u203a turing-machines-and-undecidability",
       "detail": "New lesson topics/turing-machines-and-undecidability (added 2026-10-28; syllabus-coverage.json subject Theory of Computation, unit Computability, coverage_status PUBLISHED, lesson_slug turing-machines-and-undecidability, 10 scenes in transcript.md, 22 microtopics) serves no notes card: content/syllabus.json subjects[] holds only discrete-mathematics."
     },
     {
       "kind": "notes",
-      "placement": "operating-systems › deadlocks › (no card)",
-      "detail": "Mock set, Operating Systems Unit 3 'Deadlocks' (unit_slug deadlocks, run 6, 2 of 2, 2026-10-28, paper operating-systems/deadlocks/gate_os_mock_3_2026-10-28.html) now holds 50 questions, the 50-question cap (MOCK_CAPPED), across two sets — 1 of 2: deadlock-prevention-avoidance-bankers 10, four-conditions-resource-allocation-graph 6, deadlock-detection-recovery 5, starvation-vs-deadlock 4; Set 2 of 2: four-conditions-resource-allocation-graph 7, deadlock-prevention-avoidance-bankers 6, deadlock-detection-recovery 6, starvation-vs-deadlock 6. Records carry no subtopic_label field, so groups are the subtopic slugs; Set 2 also stores unit_number as the string \"3\" and set as 'Set 2 of 2', where Set 1 uses integer 3 and '1 of 2'. The notes repo covers discrete mathematics only, so no card serves them; the rotation moves on to Operating Systems Unit 4."
+      "placement": "operating-systems \u203a deadlocks \u203a (no card)",
+      "detail": "Mock set, Operating Systems Unit 3 'Deadlocks' (unit_slug deadlocks, run 6, 2 of 2, 2026-10-28, paper operating-systems/deadlocks/gate_os_mock_3_2026-10-28.html) now holds 50 questions, the 50-question cap (MOCK_CAPPED), across two sets \u2014 1 of 2: deadlock-prevention-avoidance-bankers 10, four-conditions-resource-allocation-graph 6, deadlock-detection-recovery 5, starvation-vs-deadlock 4; Set 2 of 2: four-conditions-resource-allocation-graph 7, deadlock-prevention-avoidance-bankers 6, deadlock-detection-recovery 6, starvation-vs-deadlock 6. Records carry no subtopic_label field, so groups are the subtopic slugs; Set 2 also stores unit_number as the string \"3\" and set as 'Set 2 of 2', where Set 1 uses integer 3 and '1 of 2'. The notes repo covers discrete mathematics only, so no card serves them; the rotation moves on to Operating Systems Unit 4."
     },
     {
       "kind": "notes",
-      "placement": "compiler-design › analysis › lexical-analysis-parsing-sdt",
+      "placement": "compiler-design \u203a analysis \u203a lexical-analysis-parsing-sdt",
       "detail": "New lesson topics/lexical-analysis-parsing-and-sdt (added 2026-10-28, topics.json created 2026-10-28, 96 aliases, syllabus-coverage.json subject Compiler Design, unit Analysis, topic 'Lexical analysis, parsing and syntax-directed translation', coverage_status PUBLISHED, 4 subtopics, 28 microtopics, 10 scenes in transcript.md) serves no notes card; the notes repo has no compiler-design subject yet."
     },
     {
       "kind": "notes",
-      "placement": "engineering-mathematics › calculus-optimization-integrals › multivariable-extrema-saddle-points, definite-integrals, vector-calculus-basics",
+      "placement": "engineering-mathematics \u203a calculus-optimization-integrals \u203a multivariable-extrema-saddle-points, definite-integrals, vector-calculus-basics",
       "detail": "Mock unit 4 'Calculus: Maxima, Minima & Integrals' (unit_slug calculus-optimization-integrals, run 7, 1 of 2, 2026-10-28, paper engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-28.html) holds 25 questions grouped by subtopic slug: single-variable-extrema 7, multivariable-extrema-saddle-points 6, definite-integrals 6, vector-calculus-basics 6. The card corners-cusps-and-max-min-functions now links the unit through single-variable-extrema. Three groups have no card: multivariable-extrema-saddle-points, definite-integrals and vector-calculus-basics. Recommendation: open a second calculus group for integrals (content/subjects/calculus/maxima-minima-and-integrals/) and write definite-integrals there first."
     },
     {
       "kind": "notes",
-      "placement": "computer-networks › network-layer › ip-fragmentation-cidr-and-nat",
+      "placement": "computer-networks \u203a network-layer \u203a ip-fragmentation-cidr-and-nat",
       "detail": "New lesson topics/ip-fragmentation-cidr-and-nat (added 2026-10-28; topics.json created/updated 2026-10-28; syllabus-coverage.json coverage_status PUBLISHED, subject Computer Networks, unit Network layer, 4 subtopics, 12 microtopics, 10 scenes in transcript.md) genuinely covers subnetting arithmetic and the five numbers of a block, longest prefix match on two real tables, adjacent-aligned prefix aggregation, fragmentation and reassembly with the 8-byte offset rule, transport header placement, downstream re-fragmentation, and NAT/PAT. No notes card exists for computer networks."
     },
     {
       "kind": "notes",
-      "placement": "databases › design › (no card)",
+      "placement": "databases \u203a design \u203a (no card)",
       "detail": "New mock set, Databases Unit 3 'Database Normalization' (unit_slug normalization, run 4, Set 1 of 2, 2026-10-28, paper databases/normalization/gate_db_mock_3_2026-10-28.html) holds 25 questions over 5 subtopic_label groups of 5 each: Functional dependencies & Armstrong's axioms, Closure of attribute sets & keys, 1NF, 2NF, 3NF & BCNF, Lossless join & dependency preservation, Multivalued dependencies & 4NF. Unit 3 sits below the 50-question cap, so the next Databases run re-selects it before advancing to Unit 4. The notes repo covers discrete mathematics only (content/syllabus.json), so no card serves any of these subtopics. Recommendation: write the first databases card at content/subjects/databases/design/functional-dependencies-and-normal-forms.json, the ground the published lesson topics/functional-dependencies-and-normal-forms already teaches."
     },
     {
       "kind": "notes",
-      "placement": "computer-networks › transport-layer › (no card)",
+      "placement": "computer-networks \u203a transport-layer \u203a (no card)",
       "detail": "New lesson topics/tcp-flow-congestion-control-and-sockets (added 2026-10-28; topics.json created/updated 2026-10-28; syllabus-coverage.json subject Computer Networks, unit Transport layer, topic 'TCP flow control, congestion control and sockets', coverage_status PUBLISHED, 5 subtopics, 17 microtopics, 10 scenes in transcript.md) serves no notes card: content/syllabus.json lists discrete-mathematics as the only subject. Checked against transcript.md rather than the alias list, it covers the two windows and the min() cap, advertised window and window scaling, zero window and the probe, silly window syndrome with Nagle and delayed acknowledgement, slow start, the threshold switch to congestion avoidance, the timeout reset, duplicate ACKs with Tahoe against Reno, the AIMD sawtooth and 0.75 W_max / RTT, the bandwidth-delay product, MSS = MTU - 40, socket/bind/listen/accept/connect order, the three-way handshake, the four-tuple and TIME_WAIT. UDP, one of its five syllabus subtopics, appears nowhere in the transcript. Its mock side is empty: the computer-networks master_bank.json holds units 1 and 2 only (100 questions), so README unit 5 transport-layer is MOCK_UNIT_EMPTY. Recommendation: write the card at content/subjects/computer-networks/transport-layer/tcp-flow-congestion-control-and-sockets.json."
     },
     {
       "kind": "visual",
-      "placement": "databases › design › multivalued-dependencies-4nf",
+      "placement": "databases \u203a design \u203a multivalued-dependencies-4nf",
       "detail": "topics/functional-dependencies-and-normal-forms covers FDs, Armstrong's axioms, attribute closure, candidate keys, 1NF to BCNF, lossless join and dependency preservation, but its transcript.md never mentions multivalued dependencies or 4NF, one of the five subtopic_label groups in Databases Unit 3. Recommendation: extend topics/functional-dependencies-and-normal-forms with a scene on multivalued dependencies and 4NF rather than build a new lesson, then regenerate captions with node tools/gen-captions.mjs functional-dependencies-and-normal-forms."
     },
     {
       "kind": "notes",
-      "placement": "engineering-mathematics › probability-and-statistics › probability-and-random-variables",
-      "detail": "New lesson topics/probability-and-random-variables (topics.json slug probability-and-random-variables, title 'Probability, Random Variables and Distributions'; syllabus-coverage.json subject Engineering Mathematics, unit 'Probability and statistics', coverage_status PUBLISHED, 7 subtopics, 33 microtopics, transcript.md 10 scenes, last_execution_status 'published 2026-10-28'). Coverage was read from transcript.md, not from the alias list: scene 1 opens on outcomes, events and the three axioms, then conditional probability and independence, Bayes with a two-part partition, random variables, expectation and linearity, variance, and the binomial, Poisson, exponential, uniform and normal distributions. No notes card serves it: the notes repo has no engineering-mathematics subject. Its stated prerequisite 'counting and combinatorics' is carded (discrete-mathematics › combinatorics) but that is a prerequisite, not coverage."
+      "placement": "engineering-mathematics \u203a probability-and-statistics \u203a probability-and-random-variables",
+      "detail": "New lesson topics/probability-and-random-variables (topics.json slug probability-and-random-variables, title 'Probability, Random Variables and Distributions'; syllabus-coverage.json subject Engineering Mathematics, unit 'Probability and statistics', coverage_status PUBLISHED, 7 subtopics, 33 microtopics, transcript.md 10 scenes, last_execution_status 'published 2026-10-28'). Coverage was read from transcript.md, not from the alias list: scene 1 opens on outcomes, events and the three axioms, then conditional probability and independence, Bayes with a two-part partition, random variables, expectation and linearity, variance, and the binomial, Poisson, exponential, uniform and normal distributions. No notes card serves it: the notes repo has no engineering-mathematics subject. Its stated prerequisite 'counting and combinatorics' is carded (discrete-mathematics \u203a combinatorics) but that is a prerequisite, not coverage."
     },
     {
       "kind": "notes",
-      "placement": "programming-data-structures › trees-traversals › (no card)",
+      "placement": "programming-data-structures \u203a trees-traversals \u203a (no card)",
       "detail": "New mock set, Programming and Data Structures Unit 4 'Binary Trees & Tree Traversals' (unit_slug trees-traversals, run 7, Set 1 of 2, 2026-10-28, paper programming-data-structures/trees-traversals/gate_ds_mock_4_2026-10-28.html) holds 25 questions over 4 subtopic_label groups: Binary tree properties 7, Inorder, preorder & postorder 6, Threaded binary trees 6, Expression trees 6. Unit 4 sits below the 50-question cap, so the next Programming and Data Structures run re-selects it. content/syllabus.json lists discrete-mathematics as the only notes subject, so no card serves any of the four groups. Visual side: topics/trees-bst-and-heaps covers traversals (scene 2) and binary tree counting (scene 5) but its transcript never mentions threaded binary trees or expression trees, so two of the four groups have no lesson either. Recommendation: write the first programming-data-structures card at content/subjects/programming-data-structures/trees-traversals/binary-tree-traversals.json, the ground topics/trees-bst-and-heaps already teaches."
     },
     {
       "kind": "notes",
-      "placement": "computer-networks › network-layer › (no card)",
-      "detail": "New mock set, Computer Networks Unit 3 'Network Layer: IP Addressing & Subnetting' (unit_slug ipv4-subnetting, run 6, Set 2 of 2, 2026-10-28, paper computer-networks/ipv4-subnetting/gate_cn_mock_3_2026-10-28.html) closes the unit at the 50-question cap over 4 subtopic_label groups: IPv4 header & fragmentation 14, Classful vs classless & CIDR 12, Subnet masking & supernetting 13, IPv6 basics & differences 11 — MOCK_CAPPED, so the rotation moves on to Computer Networks Unit 4, which master_bank.json does not hold yet. The notes repo has no computer-networks subject, so no card serves these records; the lesson topics/ip-fragmentation-cidr-and-nat covers the addressing half at topic level."
+      "placement": "computer-networks \u203a network-layer \u203a (no card)",
+      "detail": "New mock set, Computer Networks Unit 3 'Network Layer: IP Addressing & Subnetting' (unit_slug ipv4-subnetting, run 6, Set 2 of 2, 2026-10-28, paper computer-networks/ipv4-subnetting/gate_cn_mock_3_2026-10-28.html) closes the unit at the 50-question cap over 4 subtopic_label groups: IPv4 header & fragmentation 14, Classful vs classless & CIDR 12, Subnet masking & supernetting 13, IPv6 basics & differences 11 \u2014 MOCK_CAPPED, so the rotation moves on to Computer Networks Unit 4, which master_bank.json does not hold yet. The notes repo has no computer-networks subject, so no card serves these records; the lesson topics/ip-fragmentation-cidr-and-nat covers the addressing half at topic level."
     },
     {
       "kind": "notes",
-      "placement": "operating-systems › memory-paging › (no card)",
+      "placement": "operating-systems \u203a memory-paging \u203a (no card)",
       "detail": "Mock unit 4 \"Memory Management & Paging\" (unit_slug memory-paging) now holds 50 questions at the 50-question cap, grouped by subtopic slug: contiguous-allocation-first-best-worst-fit 13, paging-page-table-structures 13, inverted-page-tables 12, segmented-paging 12. The notes carry no operating-systems card at all, so the unit serves nothing. Write the notes cards before extending this unit."
     },
     {
       "kind": "notes",
-      "placement": "compiler-design › sdt-intermediate-code › (no card)",
+      "placement": "compiler-design \u203a sdt-intermediate-code \u203a (no card)",
       "detail": "Mock unit 4 \"Syntax-Directed Translation & Intermediate Code\" (unit_slug sdt-intermediate-code) closed Set 2 of 2 on 2026-10-29 (run 8, paper compiler-design/sdt-intermediate-code/gate_cd_mock_4_2026-10-29.html, Set 1 archived) and now holds 50 questions, at the 50-question cap (MOCK_CAPPED), over 4 groups counted from the bank's subtopic field (the bank carries no subtopic_label field): three-address-code-quadruples-triples 14, s-attributed-vs-l-attributed-definitions 13, syntax-trees-dags 12, type-checking 11. content/subjects/ holds calculus, discrete-mathematics and linear-algebra only, so no card serves any of them. Visual side, checked against transcript.md: topics/runtime-environments-intermediate-code-and-optimisation covers three-address code, quadruples and triples, and DAG value numbering; topics/lexical-analysis-parsing-and-sdt covers S-attributed and L-attributed definitions. Recommendation: write the first compiler-design card at content/subjects/compiler-design/sdt-intermediate-code/three-address-code-quadruples-triples.json."
     },
     {
       "kind": "visual",
-      "placement": "compiler-design › sdt-intermediate-code › type-checking",
+      "placement": "compiler-design \u203a sdt-intermediate-code \u203a type-checking",
       "detail": "No published lesson covers type checking: neither topics/runtime-environments-intermediate-code-and-optimisation nor topics/lexical-analysis-parsing-and-sdt mentions type checking or semantic analysis anywhere in its transcript.md. It is one of the four groups in Compiler Design Unit 4 (11 of the unit's 50 questions). Recommendation: extend topics/lexical-analysis-parsing-and-sdt with a type-checking scene rather than build a new lesson, then regenerate captions with node tools/gen-captions.mjs lexical-analysis-parsing-and-sdt."
     },
     {
       "kind": "notes",
-      "placement": "compiler-design › runtime-environments › (no card)",
+      "placement": "compiler-design \u203a runtime-environments \u203a (no card)",
       "detail": "Lesson topics/runtime-environments-intermediate-code-and-optimisation (PUBLISHED 2026-10-28) covers activation records, scoping, parameter passing, three-address code, basic blocks, the DAG, liveness and available expressions. It serves no notes card because the notes hold no compiler-design topic."
     },
     {
       "kind": "notes",
-      "placement": "general-aptitude › spatial-aptitude › (no card)",
+      "placement": "general-aptitude \u203a spatial-aptitude \u203a (no card)",
       "detail": "Lesson topics/spatial-aptitude (PUBLISHED 2026-10-28) covers transformations, paper folding and cutting, cube nets, symmetry order and tiling invariants. General Aptitude carries 15 of 100 marks and has no notes card; it is the largest unmapped area now."
     },
     {
       "kind": "visual",
-      "placement": "discrete-mathematics › sets-relations-functions › countable-and-uncountable-sets",
+      "placement": "discrete-mathematics \u203a sets-relations-functions \u203a countable-and-uncountable-sets",
       "detail": "The card is MOCK_READY against set-theory unit 3 (its Cardinality group holds countable/uncountable items) but no published lesson covers countability: topics/sets-and-set-operations/transcript.md never mentions countable or uncountable. Extend that lesson with a countability scene rather than build a new one."
     },
     {
       "kind": "notes",
-      "placement": "operating-systems › memory-management-and-paging › (no card)",
-      "detail": "Mock set, Operating Systems Unit 4 'Memory Management & Paging' (run of 2026-10-28, Set 2 of 2, paper operating-systems/memory-paging/gate_os_mock_4_2026-10-28.html) now holds 50 questions and sits at the 50-question cap (MOCK_CAPPED), so the rotation moves on to Operating Systems Unit 5. The unit's records carry subtopic slugs (subtopic/sub fields), not subtopic_label text. The notes repo holds no operating-systems card at all — 1 subject, 60 topics, discrete-mathematics only — so nothing can be attached. Next build: write the operating-systems notes cards first, starting at content/subjects/operating-systems/memory-management-and-paging/, then re-run this mapping."
+      "placement": "operating-systems \u203a memory-management-and-paging \u203a (no card)",
+      "detail": "Mock set, Operating Systems Unit 4 'Memory Management & Paging' (run of 2026-10-28, Set 2 of 2, paper operating-systems/memory-paging/gate_os_mock_4_2026-10-28.html) now holds 50 questions and sits at the 50-question cap (MOCK_CAPPED), so the rotation moves on to Operating Systems Unit 5. The unit's records carry subtopic slugs (subtopic/sub fields), not subtopic_label text. The notes repo holds no operating-systems card at all \u2014 1 subject, 60 topics, discrete-mathematics only \u2014 so nothing can be attached. Next build: write the operating-systems notes cards first, starting at content/subjects/operating-systems/memory-management-and-paging/, then re-run this mapping."
     },
     {
       "kind": "notes",
-      "placement": "general-aptitude › spatial-aptitude › (no card)",
+      "placement": "general-aptitude \u203a spatial-aptitude \u203a (no card)",
       "detail": "New lesson topics/spatial-aptitude/ in gate-visual-explainer (topics.json created 2026-10-28, syllabus-coverage.json 'Spatial aptitude', PUBLISHED) covers transformations, symmetry, paper folding and cutting, cube nets, minimum cuts and tiling invariants. No notes card exists for general aptitude, so the lesson serves no card. Next build: a notes card set at content/subjects/general-aptitude/spatial-aptitude/ before the lesson is mapped."
     },
     {
       "kind": "mock",
-      "placement": "discrete-mathematics › combinatorics › ioib-partitions",
+      "placement": "discrete-mathematics \u203a combinatorics \u203a ioib-partitions",
       "detail": "Card IOIB: Integer Partitions still has no links. Combinatorics unit 7 'Counting & Combinatorics' holds 50 questions over 5 subtopic_label groups of 10, but its 'Stars and bars' group is non-negative integer solutions (identical objects into distinct boxes), not integer partitions; no unit in discrete-mathematics master_bank.json carries partition counts. Visual: the counting-and-combinatorics transcript covers stars and bars, not integer partitions. Next build: extend topics/counting-and-combinatorics/ with one integer-partitions scene (p(5)=7, p(6)=11), which is cheaper than a new lesson."
     },
     {
       "kind": "mock",
-      "placement": "discrete-mathematics › monoids-and-groups › (no unit)",
+      "placement": "discrete-mathematics \u203a monoids-and-groups \u203a (no unit)",
       "detail": "11 new notes cards under content/subjects/discrete-mathematics/monoids-and-groups/ have no mock unit: discrete-mathematics/question-bank/master_bank.json holds units 1-7 and 16, none of them algebraic structures (monoids, groups, subgroups, cyclic groups, cosets, Lagrange). A new set belongs in discrete-mathematics/monoids-and-groups/."
     },
     {
       "kind": "visual",
-      "placement": "discrete-mathematics › monoids-and-groups › group-homomorphism-and-kernel",
+      "placement": "discrete-mathematics \u203a monoids-and-groups \u203a group-homomorphism-and-kernel",
       "detail": "topics/monoids-and-groups/index.html covers 11 scenes on axioms, order, cyclic groups, subgroups, cosets and Lagrange, and none mentions homomorphisms or kernels (0 hits in transcript.md). Extend that lesson with a homomorphism scene rather than build topics/group-homomorphisms."
     },
     {
       "kind": "notes",
-      "placement": "general-aptitude › aptitude › quantitative-aptitude",
+      "placement": "general-aptitude \u203a aptitude \u203a quantitative-aptitude",
       "detail": "New lesson topics/quantitative-aptitude (added 2026-10-28; syllabus-coverage.json subject General Aptitude, unit Aptitude, topic 'Quantitative aptitude', coverage_status PUBLISHED, 5 subtopics and 32 microtopics) serves no notes card: content/syllabus.json enumerates 13 CS subjects and carries no General Aptitude subject, so nothing covers ratios and percentages, data interpretation, logarithms, mensuration, or elementary statistics and probability. Next build: the card belongs at content/subjects/general-aptitude/aptitude/quantitative-aptitude.json."
     },
     {
       "kind": "notes",
-      "placement": "theory-of-computation › context-free-grammars-and-pda › (no card)",
+      "placement": "theory-of-computation \u203a context-free-grammars-and-pda \u203a (no card)",
       "detail": "Mock unit 2 'Grammars & Context-Free Languages' (unit_slug cfl-grammars) opened Set 1 of 2 of its second pass on 2026-10-28 (run 10, paper theory-of-computation/cfl-grammars/gate_toc_mock_2_2026-10-28.html; the earlier paper was archived to archive/gate_toc_mock_2_2026-10-27_run2.html) and now holds 75 questions, above the 50-question cap, over 4 subtopics: CFG derivation trees 20, CNF & GNF normal forms 19, Ambiguity in grammars 18, Closure properties of CFLs 18. The 25 records of the new set carry the subtopic slug only, with no subtopic_label text. content/syllabus.json lists theory-of-computation with the topic context-free-grammars-and-pda marked material 'planned', and content/index.json map[] carries cards for discrete-mathematics only (counts.subjects 1), so no card serves any of these subtopics. Lesson topics/context-free-grammars-and-pushdown-automata (PUBLISHED) already covers this vocabulary, so the missing piece is the notes card set at content/subjects/theory-of-computation/context-free-grammars-and-pda/."
     },
     {
       "kind": "notes",
-      "placement": "general-aptitude › aptitude › (no card)",
+      "placement": "general-aptitude \u203a aptitude \u203a (no card)",
       "detail": "New lesson topics/verbal-aptitude (added 2026-10-28; syllabus-coverage.json subject General Aptitude, unit Aptitude, topic 'Verbal aptitude', coverage_status PUBLISHED, 4 subtopics and 18 microtopics; topics.json 50 aliases; transcript.md 10 scenes) covers agreement by the head noun and the nearest-noun attraction error, a/an by first sound, prepositions of time (for a length, since a point, within a deadline), idioms and phrasal verbs as fixed particles, vocabulary by intensity ladder and clue polarity, comprehension entailment with the absolute-word test, and narrative sequencing as a topological order with determiners and connectors. It serves no notes card: content/syllabus.json carries no General Aptitude subject. Next build: cards at content/subjects/general-aptitude/aptitude/, one per scene group (agreement, articles, prepositions of time, idioms, vocabulary in context, comprehension, sequencing)."
     },
     {
       "kind": "mock",
-      "placement": "discrete-mathematics › graphs › all 11 cards",
+      "placement": "discrete-mathematics \u203a graphs \u203a all 11 cards",
       "detail": "11 new notes cards under content/subjects/discrete-mathematics/graphs/ have no questions to sit a mock on. discrete-mathematics/question-bank/master_bank.json holds records for units 1-7 and 16 only; README.md's syllabus table declares unit 9 'Graph Theory Fundamentals' (graph-theory-fundamentals) and unit 10 'Graph Theory Advanced' (graph-theory-advanced), both at 0 questions. Build the first set in discrete-mathematics/graph-theory-fundamentals/ (25 questions, 15 MCQ / 5 MSQ / 5 NAT, 10 easy / 10 medium / 5 hard) covering handshake lemma, cut vertices and bridges, kappa/lambda/delta, bipartite-iff-no-odd-cycle and Euler/Hamilton, then the matching-and-colouring set in discrete-mathematics/graph-theory-advanced/."
     },
     {
       "kind": "visual",
-      "placement": "discrete-mathematics › graphs › chromatic-polynomial",
+      "placement": "discrete-mathematics \u203a graphs \u203a chromatic-polynomial",
       "detail": "No published lesson covers the chromatic polynomial: grep for 'chromatic polynomial' and 'deletion-contraction' across gate-visual-explainer/topics/ returns 0 hits, and topics/matching-and-colouring spends its 11 scenes on matchings, Hall, Konig, chromatic number, greedy, Brooks, edge colouring and planarity. Extend topics/matching-and-colouring/ with a chromatic-polynomial scene (P(G,k) by deletion-contraction, P = k(k-1)^(n-1) for trees, the cycle formula) rather than starting a new lesson."
     },
     {
       "kind": "visual",
-      "placement": "discrete-mathematics › graphs › cut-vertices-bridges-and-blocks",
+      "placement": "discrete-mathematics \u203a graphs \u203a cut-vertices-bridges-and-blocks",
       "detail": "topics/graphs-connectivity Scene 6 ('Cut vertices and bridges') defines both objects and their counterexamples, but the word 'block' does not appear anywhere in its transcript.md, so the card's blocks / biconnected-component half is uncovered. Add a blocks scene to topics/graphs-connectivity/."
     },
     {
       "kind": "notes",
-      "placement": "theory-of-computation › pushdown-automata › (no card)",
+      "placement": "theory-of-computation \u203a pushdown-automata \u203a (no card)",
       "detail": "Mock unit 3 'Pushdown Automata' (unit_slug pushdown-automata) opened Set 1 of 2 of its second pass on 2026-10-28 (paper theory-of-computation/pushdown-automata/gate_toc_mock_3_2026-10-28.html) and now holds 75 questions over 4 subtopic_label groups: Deterministic PDA 21, Nondeterministic PDA 18, Acceptance: empty store vs final state 17, Equivalence with CFG 19. The notes repo covers discrete mathematics only (content/index.json counts.subjects = 1), so no card serves any of the four groups; content/syllabus.json lists 'every subject outside Discrete Mathematics - enumerated here, not yet processed' under not_covered_by_playlist."
     },
     {
       "kind": "notes",
-      "placement": "databases › er-model › (no card)",
+      "placement": "databases \u203a er-model \u203a (no card)",
       "detail": "gate-visual-explainer published lesson er-model (topics/er-model/, coverage_status PUBLISHED, syllabus-coverage.json subject Databases, unit Design, topic 'ER model and the mapping to relations') with 6 subtopics: entity sets and attribute kinds; relationship sets and degree; cardinality ratios and participation constraints; weak entity sets and identifying relationships; specialisation, generalisation and aggregation; the ER-to-relational mapping rules. content/syllabus.json enumerates databases with topic slug er-model marked material 'planned', and no file exists under content/subjects/databases/, so the lesson serves no card. Recommendation: write the er-model cards under content/subjects/databases/er-model/."
     },
     {
       "kind": "visual",
-      "placement": "linear-algebra › matrices-and-determinants › matrix-addition-and-scalar-multiplication",
+      "placement": "linear-algebra \u203a matrices-and-determinants \u203a matrix-addition-and-scalar-multiplication",
       "detail": "topics/matrices-systems-and-eigenvalues/transcript.md teaches no addition or scalar-multiplication scene; the card's law-by-law treatment is not in the lesson. Recommendation: extend the existing matrices-systems-and-eigenvalues lesson (one scene before the composition scene) rather than build a new lesson."
     },
     {
       "kind": "mock",
-      "placement": "engineering-mathematics › linear-algebra-matrices › cofactor expansion / adjoint mechanics",
+      "placement": "engineering-mathematics \u203a linear-algebra-matrices \u203a cofactor expansion / adjoint mechanics",
       "detail": "Unit 1 'Linear Algebra: Matrices & Systems' holds 50 records (MOCK_CAPPED) and none asks for a cofactor expansion or for adjoint mechanics beyond det(adj A) (EM-U1-Q04). Recommendation: place these in the next engineering-mathematics unit to be opened (unit 5 does not exist yet in master_bank.json; units 1-4 all sit at 50)."
     },
     {
       "kind": "notes",
-      "placement": "databases › design › (no card)",
+      "placement": "databases \u203a design \u203a (no card)",
       "detail": "Databases Unit 3 'Database Normalization' (unit_slug normalization) closed at the 50-question cap on 2026-10-29: run 5, Set 2 of 2, paper databases/normalization/gate_db_mock_3_2026-10-29.html, 25 new items DB-U3-Q26..Q50. The unit now holds 50 records over five subtopic_label groups of 10 each: Functional dependencies & Armstrong's axioms, 1NF, 2NF, 3NF & BCNF, Closure of attribute sets & keys, Multivalued dependencies & 4NF, Lossless join & dependency preservation. MOCK_CAPPED, so the next Databases run advances to (2 + 1) mod 5 = 3 -> Unit 4, Transactions & Concurrency Control. content/syllabus.json lists databases with material 'planned' and no file exists under content/subjects/databases/, so no card serves any of these subtopics."
     },
     {
       "kind": "notes",
-      "placement": "algorithms › design-techniques › divide-and-conquer",
+      "placement": "algorithms \u203a design-techniques \u203a divide-and-conquer",
       "detail": "gate-visual-explainer published lesson divide-and-conquer (topics/divide-and-conquer/, syllabus-coverage.json subject Algorithms, unit 'Design techniques', coverage_status PUBLISHED, 10 scenes, 41 caption segments). Content read from transcript.md, not the alias list: the three steps, the recursion tree (levels log_b n, leaves n^(log_b a)), the three master-theorem cases, merge sort and quicksort exact comparison counts, decrease and conquer (binary search, quickselect), Karatsuba, maximum subarray and Towers of Hanoi. The notes repo has no algorithms subject, so no card serves it. Recommendation: write content/subjects/algorithms/design-techniques/divide-and-conquer.json."
     },
     {
       "kind": "notes",
-      "placement": "operating-systems › virtual-memory › (no card)",
+      "placement": "operating-systems \u203a virtual-memory \u203a (no card)",
       "detail": "Mock unit 5 'Virtual Memory & Page Replacement' (unit_slug virtual-memory, run 9, 2026-10-29, paper operating-systems/virtual-memory/gate_os_mock_5_2026-10-29.html) holds 25 questions over 4 subtopic_label groups (Demand paging & page-fault rate 7, FIFO, OPT & LRU replacement 6, Belady's anomaly 6, Thrashing & the working-set model 6) and no notes card exists for any of them; the notes repo has no operating-systems subject."
     },
     {
       "kind": "notes",
-      "placement": "algorithms › analysis › exact counts: comparisons, probes, transfers and multiplications",
+      "placement": "algorithms \u203a analysis \u203a exact counts: comparisons, probes, transfers and multiplications",
       "detail": "New lesson topics/exact-counts-across-topics (PUBLISHED, 7 subtopics, 25 microtopics in syllabus-coverage.json) serves no notes card; the notes repo covers discrete mathematics and linear algebra only."
     },
     {
       "kind": "visual",
-      "placement": "linear-algebra › eigenvalues-and-eigenvectors › similar-matrices-and-what-preserves-eigenvalues",
+      "placement": "linear-algebra \u203a eigenvalues-and-eigenvectors \u203a similar-matrices-and-what-preserves-eigenvalues",
       "detail": "No lesson covers similarity, the transpose rule or the row-operation trap: topics/matrices-systems-and-eigenvalues/transcript.md never treats similarity. Extend topics/matrices-systems-and-eigenvalues/ with one scene."
     },
     {
       "kind": "visual",
-      "placement": "linear-algebra › eigenvalues-and-eigenvectors › cayley-hamilton-and-matrix-inverse",
+      "placement": "linear-algebra \u203a eigenvalues-and-eigenvectors \u203a cayley-hamilton-and-matrix-inverse",
       "detail": "No lesson mentions Cayley-Hamilton: the word appears in no file under topics/ except the Cayley formula for spanning trees in topics/graphs-connectivity. Extend topics/matrices-systems-and-eigenvalues/ with one scene."
     },
     {
       "kind": "notes",
-      "placement": "theory-of-computation › turing-machines-and-undecidability › (no card)",
+      "placement": "theory-of-computation \u203a turing-machines-and-undecidability \u203a (no card)",
       "detail": "Mock unit, Theory of Computation Unit 4 'Turing Machines & Decidability' (run 12, 2026-10-29, paper theory-of-computation/turing-machines-decidability/gate_toc_mock_4_2026-10-29.html) now holds 75 questions over 5 subtopic groups (standard-turing-machine-models 15, recursive-vs-recursively-enumerable 15, halting-problem-undecidability 15, rices-theorem-reductions 15, chomsky-hierarchy-summary 15), above the 50-question cap, so the second pass continues. content/syllabus.json lists theory-of-computation but every one of its topics carries material='planned', so no card serves them. Recommendation: write the first theory-of-computation card set at content/subjects/theory-of-computation/turing-machines-and-undecidability/."
     },
     {
       "kind": "notes",
-      "placement": "general-aptitude › (subject not enumerated in content/syllabus.json) › (no card)",
+      "placement": "general-aptitude \u203a (subject not enumerated in content/syllabus.json) \u203a (no card)",
       "detail": "New lesson topics/tense-adjectives-and-conjunctions (added 2026-10-28, PUBLISHED, syllabus-coverage topic 'Tenses, adjectives and conjunctions') serves no notes card; content/syllabus.json enumerates 13 GATE subjects and general aptitude is not among them. Recommendation: decide whether general aptitude enters the notes at all; if it does, add the subject and topic to content/syllabus.json before any card is written, otherwise leave the lesson as the only artefact."
     },
     {
       "kind": "visual",
-      "placement": "linear-algebra › lu-decomposition › doolittle-crout-and-ldu, ldlt-and-cholesky, inverse-and-repeated-solves, reading-lu-entries-in-gate-questions",
+      "placement": "linear-algebra \u203a lu-decomposition \u203a doolittle-crout-and-ldu, ldlt-and-cholesky, inverse-and-repeated-solves, reading-lu-entries-in-gate-questions",
       "detail": "The matrices-systems-and-eigenvalues lesson (PUBLISHED) scene 5 covers the A = LU definition, existence by leading principal minors, PA = LU, the pivot-product determinant and forward/back substitution; its transcript says nothing about the Doolittle/Crout/LDU conventions, LDL^T and Cholesky, computing the inverse through LU, or reading single L and U entries in an exam. Recommendation: extend topics/matrices-systems-and-eigenvalues/ with one scene rather than publishing a new lesson."
     },
     {
       "kind": "notes",
-      "placement": "discrete-mathematics › combinatorics › (no card)",
+      "placement": "discrete-mathematics \u203a combinatorics \u203a (no card)",
       "detail": "Mock set, Discrete Mathematics Unit 8 'Recurrence Relations & Generating Functions' (run 8, Set 1 of 2, 2026-10-29, paper discrete-mathematics/recurrence-generating-functions/gate_dm_mock_8_2026-10-29.html) holds 25 questions over 5 subtopic_label groups (Characteristic equations 6, Homogeneous & non-homogeneous 5, Ordinary generating functions 5, Coefficient extraction 5, Divide-and-conquer recurrences 4). The 'Divide-and-conquer recurrences' group (4 questions, master-theorem style) is served by no notes card: the notes repo has no algorithms subject, and the nearest card recurrences-and-compositions covers compositions and the Fibonacci recurrence only. 'Ordinary generating functions' and 'Coefficient extraction' have no dedicated card either; binomial-theorem touches coefficient extraction at subtopic level but its nearer mock remains Unit 7."
     },
     {
       "kind": "notes",
-      "placement": "programming-data-structures › search-trees › (no card)",
-      "detail": "Mock set, Programming and Data Structures Unit 5 'Binary Search Trees & Balanced Trees' (unit_slug search-trees, run 5, paper programming-data-structures/search-trees/gate_ds_mock_5_2026-10-29.html, 2026-10-29) holds 25 questions over 4 subtopic groups (BST insertion &amp; deletion 7, AVL trees &amp; rotations 6, B-trees &amp; B+ trees 6, Trie basics 6). The notes repo has no programming-data-structures card at all (content/index.json map[] carries only discrete-mathematics, linear-algebra and calculus), so no card is served by this unit."
+      "placement": "programming-data-structures \u203a search-trees \u203a (no card)",
+      "detail": "Mock set, Programming and Data Structures Unit 5 'Search Trees' (unit_slug search-trees, run 10, Set 2 of 2, 2026-10-29, paper programming-data-structures/search-trees/gate_ds_mock_5_2026-10-29.html) holds 50 questions over 4 groups counted from the bank's subtopic field: bst-insertion-deletion 14, avl-trees-rotations 12, b-trees-b-plus-trees 12, trie-basics 12. The unit sits at the 50-question cap (MOCK_CAPPED), so the next run advances to the following unit. The notes repo has no cards for the programming-and-data-structures subject - content/index.json map[] carries only discrete-mathematics, linear-algebra and calculus, and content/syllabus.json lists every programming-and-data-structures topic as 'planned' - so no card serves them."
     },
     {
       "kind": "visual",
-      "placement": "calculus › maxima-and-minima › higher-derivative-test, extrema-of-trig-functions-on-an-interval, two-variable-stationary-points, optimisation-word-problems",
+      "placement": "calculus \u203a maxima-and-minima \u203a higher-derivative-test, extrema-of-trig-functions-on-an-interval, two-variable-stationary-points, optimisation-word-problems",
       "detail": "The 14 new cards map to engineering-mathematics unit 4 'Calculus: Maxima, Minima & Integrals' (25 questions: single-variable-extrema 7, multivariable-extrema-saddle-points 6, definite-integrals 6, vector-calculus-basics 6). topics/calculus-limits-extrema-and-integration (PUBLISHED) covers critical points, both derivative tests, the closed-interval candidate list, a corner maximum and monotonicity in scenes 6, 7 and 10, so ten of the cards carry a topic-level visual link; the four named here have no scene: the higher-derivative test, trigonometric extrema on an interval, the two-variable rt - s^2 test and optimisation word-problem set-up. The mock already holds 6 saddle-point questions, so that scene is the most valuable addition to topics/calculus-limits-extrema-and-integration."
+    },
+    {
+      "kind": "visual",
+      "placement": "calculus \u203a mean-value-theorem \u203a (12 cards, topic-level only)",
+      "detail": "No published gate-visual-explainer lesson is dedicated to the mean value theorem. topics.json carries no mvt or rolle slug; the nearest is calculus-limits-extrema-and-integration (syllabus-coverage.json coverage_status PUBLISHED, microtopic 'the mean value theorem used as an inequality, and sharpness'), which gives the theorem one scene of the lesson's ten, so the twelve mean-value-theorem cards are mapped to it at topic-level. The notes repo holds an unregistered lesson at visuals/calculus/mean-value-theorem/secant-parallel-tangent/ (index.html, lesson.json, sketch.js) that the card field visual points at, but it is not in gate-visual-explainer/topics.json and so has no public deployment URL. Recommendation: add topics/mean-value-theorem/ to gate-visual-explainer (registering the slug in topics.json and syllabus-coverage.json), or publish the existing secant-parallel-tangent lesson there under that slug."
     }
   ]
 }
