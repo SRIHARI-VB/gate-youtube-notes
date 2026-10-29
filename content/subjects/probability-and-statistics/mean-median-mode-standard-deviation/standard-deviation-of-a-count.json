@@ -1,0 +1,94 @@
+{
+  "id": "standard-deviation-of-a-count",
+  "title": "The Standard Deviation of a Count",
+  "priority": "P1",
+  "order": 322,
+  "unit": "Mean, Median, Mode and Standard Deviation",
+  "quickIdea": "A binomial count with n trials and success probability p has standard deviation sqrt(n p (1-p)); a Poisson count with mean lambda has standard deviation sqrt(lambda).",
+  "remember": [
+    "X binomial with parameters n and p: mean np, variance np(1-p), standard deviation sqrt(np(1-p)).",
+    "X Poisson with mean lambda: mean = variance = lambda, so the standard deviation is sqrt(lambda). The mean and the standard deviation are different numbers even though the mean and the variance coincide.",
+    "A Bernoulli(p) variable is the n = 1 case, with standard deviation sqrt(p(1-p)).",
+    "For fixed n the variance np(1-p) is largest at p = 1/2 and is symmetric about it, so p and 1-p give the same spread.",
+    "The mean grows like n and the standard deviation like sqrt(n), so the relative spread shrinks as the number of trials grows - the reason large samples give stable proportions.",
+    "Variances of independent counts add; standard deviations do not. Add the variances first, then take one square root.",
+    "The question asks for a rounded numerical answer, so carry the root to more digits than asked and round once at the end."
+  ],
+  "example": {
+    "prompt": "A biased coin lands heads with probability 0.4 and is tossed 1000 times. Find the standard deviation of the number of heads.",
+    "work": "X is binomial with n = 1000 and p = 0.4. Variance = 1000*0.4*0.6 = 240. Standard deviation = sqrt(240) = 15.4919, which rounds to 15.49.",
+    "answer": "15.49."
+  },
+  "gateAngle": "GATE CSE 2021 Set 2 Q.22 is exactly this computation, a numerical-answer question accepted over the range 15.00 to 16.00. The two wrong answers candidates produce are the variance 240 and the value sqrt(np) = 20, which drops the (1-p).",
+  "variations": [
+    {
+      "label": "VERIFIED PYQ",
+      "question": "GATE CSE 2021 Set 2 Q.22: p(head) = 0.4, the coin is tossed 1000 times, X is the number of heads, and the standard deviation of X rounded to two decimals is ______.",
+      "answer": "15.49.",
+      "why": "Var(X) = np(1-p) = 1000*0.4*0.6 = 240 and sqrt(240) = 15.4919. Writing 240 is the variance; writing 20 is sqrt(np), which silently sets 1-p to 1."
+    },
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "Calls arrive at a rate of 9 per minute and the count in a minute is Poisson. What are the mean and the standard deviation of the count in a minute?",
+      "answer": "Mean 9 and standard deviation 3.",
+      "why": "For a Poisson count the variance equals the mean, so the variance is 9 and the standard deviation is its square root, 3. Reporting 9 as the standard deviation is the usual error."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "For fixed n, for which value of p is the standard deviation of a binomial count largest, and what is it at n = 100?",
+      "answer": "At p = 1/2, where the standard deviation is 5.",
+      "why": "np(1-p) is a downward parabola in p with its maximum at p = 1/2. There the variance is 100*0.25 = 25 and the standard deviation is 5."
+    }
+  ],
+  "trap": {
+    "what": "Reporting the variance instead of the standard deviation, or using sqrt(np) and dropping the (1-p) factor.",
+    "why": "The two quantities differ by a square root and by the factor (1-p); both omissions produce numbers that look plausible and are wrong by a wide margin.",
+    "counterexample": "For n = 1000 and p = 0.4 the variance is 240, sqrt(np) is 20 and the standard deviation is 15.49. All three are within one order of magnitude of each other, which is exactly why the slip survives a glance."
+  },
+  "check": {
+    "question": "X is binomial with n = 100 and p = 0.5. Find its standard deviation.",
+    "answer": "5.",
+    "explanation": "Variance = 100*0.5*0.5 = 25, so the standard deviation is the square root, 5. At p = 1/2 the factor (1-p) equals p, which is why the arithmetic looks unusually clean here."
+  },
+  "pyqIds": [
+    "gate-2021-set2-22-standard-deviation-of-binomial-count"
+  ],
+  "prereqs": [
+    "binomial-distribution",
+    "variance-and-standard-deviation"
+  ],
+  "sources": [
+    {
+      "kind": "pyq-compilation",
+      "title": "GATE Overflow for GATE CSE, Volume 1 - Engineering Mathematics: Probability, chapter 7",
+      "channel": "GATE Overflow (GO-PDFs release, gatecse-2026)",
+      "url": "https://github.com/GATEOverflow/GO-PDFs/releases/tag/gatecse-2026",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read as a text layer across the chapter: used for the question numbering and the classification of every GATE CSE probability question from 1987 to 2026, which is how the five PYQs of this topic were found and how the General Aptitude and other-branch questions were told apart from CSE engineering-mathematics ones"
+    },
+    {
+      "kind": "text",
+      "title": "Probability subject notes (GATE Overflow for GATE CSE Volume 1) - the Statistics section",
+      "channel": "GATE Overflow",
+      "url": "https://gateoverflow.in/subject/mathematics/probability?tab=notes",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read in part through the search service's extract: the Statistics block giving the mean, median and mode as measures of central tendency, variance and standard deviation as measures of dispersion, range as max minus min, and the population against sample variance conventions with the note that the mean is pulled by skew"
+    },
+    {
+      "kind": "text",
+      "title": "Introductory Statistics 2e, section 2.7: Measures of the Spread of the Data",
+      "channel": "OpenStax (Rice University)",
+      "url": "https://openstax.org/books/introductory-statistics-2e/pages/2-7-measures-of-the-spread-of-the-data",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read from the opening through the two standard-deviation formulas: the sample divisor n - 1 and the population divisor N, with the frequency forms, and the statement that the standard deviation is always positive or zero"
+    }
+  ],
+  "sourceLine": "The binomial and Poisson standard deviations and the Bernoulli special case: the GATE Overflow probability notes, Statistics section (English), and the GATE Overflow Volume 1 chapter 7 (English) for the question numbering. The statement that a standard deviation is the positive root of an average of squared deviations: OpenStax Introductory Statistics 2e section 2.7 (English).",
+  "videoRefs": []
+}

@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Mean, the Median and the Spread Under a Shift and a Scale - visual lesson</title>
+<link rel="stylesheet" href="../../../lesson.css">
+<script src="https://cdn.jsdelivr.net/npm/p5@1.9.4/lib/p5.min.js"></script>
+</head>
+<body>
+<div class="wrap">
+  <p class="small"><a href="../../../../index.html">&larr; back to the revision site</a></p>
+  <h1>The Mean, the Median and the Spread</h1>
+  <div class="objective"><strong>Objective.</strong> Follow one data set - 2, 3, 3, 4 and 9 - while it is read four different ways. Watch the mean behave as a balance point, watch one outlier move the mean and the standard deviation while the median and the mode stay put, and then watch a shift of every value leave the spread alone while a doubling multiplies it. The point is the difference between the statistics that follow <em>a&nbsp;x&nbsp;+&nbsp;b</em> and the one that follows only <em>|a|</em>.</div>
+
+  <div class="canvas-wrap"><div id="canvas-holder"></div></div>
+  <div class="caption" id="caption" aria-live="polite"></div>
+
+  <div class="controls">
+    <button id="play" class="primary">Play</button>
+    <button id="prev">&larr; Prev</button>
+    <button id="next">Next &rarr;</button>
+    <button id="restart">Restart</button>
+    <span class="speed"><label for="speed">Speed</label>
+      <input id="speed" type="range" min="0.25" max="2" step="0.25" value="1">
+      <span id="speedLabel">1.00x</span></span>
+    <span class="counter" id="counter"></span>
+  </div>
+
+  <h2>Static explanation</h2>
+  <p>Take the five values 2, 3, 3, 4 and 9. Their sum is 21, so the mean is 4.2. The mean is the balance point of the data: the signed deviations -2.2, -1.2, -1.2, -0.2 and 4.8 add up to zero, which is why a single large value can move it. Sorting the values gives 2, 3, 3, 4, 9, so the middle one is the median, 3, and the most frequent value is also 3, so the mode is 3. The mean sits to the right of both of them because the 9 is pulling it.</p>
+  <p>The standard deviation is a root-mean-square distance from the mean. The squared deviations are 4.84, 1.44, 1.44, 0.04 and 23.04, which sum to 30.8; dividing by five gives a variance of 6.16 and the square root of that is 2.4819. Notice that the 9 alone contributes 23.04 of the 30.8 - squaring is what makes the far value dominate, and that is the whole reason the standard deviation reacts sharply to outliers while the median does not.</p>
+  <p>Replace 9 by 19 and the sum becomes 31, so the mean rises to 6.2 and the variance to 41.36, giving a standard deviation of 6.4312. The sorted list is still 2, 3, 3, 4, 19, so the median is still 3, and 3 is still the most frequent value. This is the single most useful comparison in the topic: the mean and the standard deviation use the sizes of the values, the median and the mode use only ranks and counts.</p>
+  <p>Now add 10 to every value. The list becomes 12, 13, 13, 14, 29, the mean becomes 16.2 and the median 13, but the variance is still 41.36 and the standard deviation still 6.4312. Doubling every value instead gives 4, 6, 6, 8, 38, with mean 12.4, median 6, variance 165.44 - four times as large - and standard deviation 12.8624, twice as large. In one line: the mean, the median and the mode all satisfy <em>new = a&nbsp;x&nbsp;+&nbsp;b</em>, while the standard deviation satisfies <em>new = |a| &times; old</em> with no b anywhere. That asymmetry is exactly what GATE CSE 2011 Q.33 asks about.</p>
+
+  <div class="card warn"><div class="label">Common misconception</div><p>Writing the standard deviation of <em>aX&nbsp;+&nbsp;b</em> as <em>a</em>&nbsp;&times;&nbsp;sd&nbsp;+&nbsp;<em>b</em>. A constant added to every value shifts every deviation by nothing, because the mean shifts with it; and a spread is a distance, so a negative multiplier changes direction but never size. For these five values, sd(2X&nbsp;+&nbsp;100) is 4.9638, not 104.96.</p></div>
+  <div class="card ok"><div class="label">Quick check</div><p>The base data has standard deviation 2.4819. What is the standard deviation of 3X&nbsp;-&nbsp;7?</p><details><summary>Answer</summary><p><strong>7.4458.</strong> The standard deviation is multiplied by |3| and the -7 does nothing to it: 3&nbsp;&times;&nbsp;2.4819 = 7.4458. Every value and the mean both shift by -7, so every deviation is unchanged.</p></details></div>
+  <p class="small">Topic: Mean, Median, Mode and Standard Deviation (Probability and Statistics), subtopics the mean as a balance point, the median and its position, the mode, the standard deviation of a data set, and what a shift and a scale do to all four. The balance-point reading, the median position rule and the two reasons for squaring: the IIT Roorkee Lecture 4 transcript (English). The population and sample divisors and the statement that a standard deviation is positive or zero: OpenStax Introductory Statistics 2e, section 2.7 (English). The effect of <em>y&nbsp;=&nbsp;ax&nbsp;+&nbsp;b</em> on the centre and the spread: the IAE Academy GATE descriptive-statistics formula sheet (English). Every number on this page is recomputed in scripts/validate.py.</p>
+</div>
+<script src="../../../lesson.js"></script>
+<script src="sketch.js"></script>
+<script>
+/* p5.js is loaded from a CDN. If it is unreachable, say so plainly instead of showing an empty box. */
+window.addEventListener('load', function () {
+  if (window.p5) { return; }
+  var holder = document.getElementById('canvas-holder');
+  if (holder) {
+    holder.innerHTML = '<div style="padding:22px 18px;font-size:14.5px;color:#4a5260">' +
+      'The animation needs p5.js, which this page loads from a CDN, and the request failed (offline, or the CDN is blocked). ' +
+      'Everything below still works: the static explanation, the misconception and the quick check.</div>';
+  }
+  var cap = document.getElementById('caption');
+  if (cap && window.LESSON && window.LESSON.steps && window.LESSON.steps[0]) {
+    cap.innerHTML = window.LESSON.steps[0].caption;
+  }
+  ['play', 'prev', 'next', 'restart', 'speed'].forEach(function (id) {
+    var el = document.getElementById(id);
+    if (el) { el.disabled = true; }
+  });
+});
+</script>
+</body>
+</html>

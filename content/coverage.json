@@ -1,10 +1,10 @@
 {
   "exam": "GATE CSE 2027",
-  "updated_at": "2026-10-29",
+  "updated_at": "2026-10-30",
   "cycle": {
     "last_subject": "probability-and-statistics",
-    "last_topic": "random-variables-and-distributions",
-    "updated_at": "2026-10-29"
+    "last_topic": "mean-median-mode-standard-deviation",
+    "updated_at": "2026-10-30"
   },
   "subjects": [
     {
@@ -499,10 +499,40 @@
         {
           "slug": "mean-median-mode-standard-deviation",
           "name": "Mean, Median, Mode and Standard Deviation",
-          "status": "not_started",
-          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
-          "runs": [],
-          "gaps": []
+          "status": "partial",
+          "coverage_note": "12 subtopics, 12 cards (the arithmetic mean and the weighted and grouped means, the median and its position, the mode and multimodality, how the three sit together under skew with the empirical relation, the grouped-table formulas, the variance and standard deviation of a data set with both divisors, the shift and scale identities, the two deviation minimisations, the median and mode of a random variable, the standard deviation of a binomial and a Poisson count, one changed observation and the combination of two groups, and choosing the summary with its units), 5 verified PYQs and 1 p5.js lesson. Partial because eleven gaps remain, named below - above all that no YouTube caption track was readable and that seven of the twelve cards carry no previous-year question of their own.",
+          "runs": [
+            {
+              "date": "2026-10-30",
+              "sources": [
+                "iaeacademy-descriptive-statistics-formulas",
+                "iit-roorkee-lec4-central-tendency-and-dispersion",
+                "nptel-forest-biometry-lec4",
+                "openstax-introductory-statistics-2-6-and-2-7",
+                "ncert-class-11-chapter-13-hindi",
+                "tamil-mean-median-mode-continuous",
+                "gateoverflow-go-pdfs-volume-1",
+                "gateoverflow-probability-statistics-notes"
+              ],
+              "cards": 12,
+              "pyqs": 5,
+              "lesson": "probability-and-statistics/mean-median-mode-standard-deviation/mean-median-and-spread",
+              "note": "Sources chosen on merit across three languages: a GATE-oriented descriptive-statistics formula sheet (English, read in full through the search service's extract) for the grouped median and mode, both deviation minimisations and the combined variance; the IIT Roorkee Lecture 4 transcript (English, read through a transcript page) for the teaching order, the weighted mean, the skew-based choice of centre and the two reasons for squaring; the NPTEL Forest Biometry Lecture 4 transcript (English, read in part) for the same data set analysed by all three summaries and for the empirical relation; OpenStax Introductory Statistics 2e sections 2.6 and 2.7 (English, read in part) for the skew direction and the two divisors; a Hindi summary of the NCERT class 11 statistics chapter (translated) for why dispersion is needed at all; a Tamil lecture on grouped data (translated) for one fully recomputed worked table; and the GATE Overflow Volume 1 index for the question numbering. Rejected with reasons in sources.json: the Unacademy Hindi lesson on exactly this topic (paywalled), the NPTEL IIT Kharagpur probability course (403 on every transcript URL), a Khan Academy Hindi lesson (client challenge), a Knowledge Gate AI grouped-data asset (snippet only), the GATE CSE 2012 Q.64 General Aptitude question, ISRO CSE 2014 Q.74, the GATE DA and DS&AI statistics questions, GATE CSE 2024 Set 2 Q.8 (a dice question, not a standard deviation one), GATE CSE 2011 Q.18 (the previous topic's variance card), MIT OCW 18.05 and the EduRev course mirror."
+            }
+          ],
+          "gaps": [
+            "no YouTube caption track was readable this run: every watch page fetched carried no captionTracks entry, so both lectures used were read through third-party transcript pages, no card quotes or timestamps a lecturer's sentence, and videoRefs is empty on all twelve cards",
+            "the IIT Roorkee Lecture 4 transcript page served only its opening through the weighted-average example, so its later half (grouped median and mode, percentiles, quartiles, mean absolute deviation, variance) is recorded from the search service's longer extract of the same transcript; the source is PARTIAL, not read end to end",
+            "every digimat NPTEL transcript URL for the IIT Kharagpur Probability and Statistics course (111105090) - the course that supplied nine lectures to the previous topic - answered 403 to a direct request from the sandbox this run, so its descriptive-statistics lectures were not read and nothing rests on them; a later run should retry",
+            "seven of the twelve cards carry no previous-year question of their own (the median, the mode, the grouped table, the deviation identities, the standard deviation of a data set, one changed observation, and the choice of summary): no verified GATE CSE question in this topic is decided by them alone, and each card says so rather than borrowing a question that does not test it",
+            "GATE CSE 2012 Q.64 (the P, Q, R, S statements on adding 7 to and doubling every entry of a list) is the closest CSE-paper test of the shift-and-scale identities, but it sits in that paper's General Aptitude section (questions 56 to 65), so it is excluded from the PYQ set by the repository's CSE-only rule and appears only as an original PYQ-style question",
+            "ISRO CSE 2014 Q.74 (median from mode 15 and mean 30) is a genuine mean-median-mode question but not a GATE one, although at least one site labels it 'GATE CSE 2014 Q.31'; it is excluded and the mislabelling is recorded rather than repeated",
+            "no marks field is recorded on any of the five PYQs: the official papers and answer keys were not fetched, so every reference follows the paper numbering as reproduced by the sources, with GATE Overflow's numbering stated where it differs (GATE CSE 2024 Set 2 Q.44 is Q.34 on GATE Overflow, and GATE CSE 2017 Set 1 Q.19 is numbered 37 on a duplicate GATE Overflow page and 30 on one solution site)",
+            "all five PYQs are SOURCED against GATE Overflow accepted answers rather than key-verified against an official answer key; two of them (2014 Set 2 Q.2 and 2021 Set 2 Q.22) have an independent worked-solution page recording the official answer and its accepted range, and the other three rest on the GATE Overflow accepted answers alone",
+            "GATE CSE 2024 Set 2 Q.44 is a statement about means of random variables and therefore sits on the boundary between this topic and Random Variables; it is recorded once, here, and deliberately not duplicated on the earlier topic's mean or expectation cards",
+            "quartiles and percentiles, the mean absolute deviation, the harmonic and geometric means, and the coefficient of variation beyond one contrast card are outside the four words of the syllabus line and have no card of their own; the IIT Roorkee lecture taught them but they are not examined by any verified CSE question found this run",
+            "the grouped-data formulas rest on one GATE-oriented formula sheet and one Tamil lecture, with no readable English lecture teaching them; the interpolation is an approximation and the cards say so, but no source read this run discussed when the approximation fails or how large the error can be"
+          ]
         },
         {
           "slug": "conditional-probability-and-bayes",

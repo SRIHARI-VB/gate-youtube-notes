@@ -1394,6 +1394,414 @@ def check_lu_decomposition():
        "number in the lesson")
 
 
+# ------------------------------- mean, median, mode and standard deviation
+def check_mean_median_mode():
+    """Every mean, median, mode, variance and standard deviation published in this topic's
+    twelve cards, five PYQ records and p5 lesson is recomputed from the lists themselves."""
+    import math
+    from fractions import Fraction as Fr
+
+    def close(a, b, tol=1e-6):
+        return abs(a - b) <= tol
+
+    def mean(xs):
+        return sum(Fr(x) for x in xs) / len(xs)
+
+    def var(xs):
+        m = mean(xs)
+        return sum((Fr(x) - m) ** 2 for x in xs) / len(xs)
+
+    def sd(xs):
+        return math.sqrt(float(var(xs)))
+
+    def median(xs):
+        s = sorted(xs)
+        n = len(s)
+        return Fr(s[n // 2]) if n % 2 else (Fr(s[n // 2 - 1]) + Fr(s[n // 2])) / 2
+
+    def mode(xs):
+        counts = {}
+        for x in xs:
+            counts[x] = counts.get(x, 0) + 1
+        best = max(counts.values())
+        return sorted(k for k, v in counts.items() if v == best)
+
+    # ---- card 1: the credit-weighted mean and the frequency-table mean
+    if mean([72, 72, 88, 88, 88] + [64] * 5) != Fr(728, 10):
+        fail("mean: the credit-weighted example must be 728/10")
+    if float(mean([72, 72, 88, 88, 88] + [64] * 5)) != 72.8:
+        fail("mean: the credit-weighted example must be 72.8")
+    if Fr(2 * 72 + 3 * 88 + 5 * 64, 10) != Fr(728, 10):
+        fail("mean: the weighted sum must be 144 + 264 + 320 = 728")
+    if float(mean([0] * 12 + [1] * 20 + [2] * 15 + [3] * 3)) != 1.18:
+        fail("mean: the defects table must give 59/50 = 1.18")
+    if float(mean([4, 6, 6, 8, 11])) != 7:
+        fail("mean: the quick check on 4, 6, 6, 8, 11 must be 7")
+    if float(mean([2, 4, 6, 8])) != 5:
+        fail("mean: the four equally likely values must have mean 5")
+    # the unweighted-midpoint trap: 44 against 25
+    mid = [5, 15, 25, 35, 45]
+    freq = [1, 1, 1, 1, 96]
+    if Fr(sum(f * m for f, m in zip(freq, mid)), sum(freq)) != 44:
+        fail("mean: the weighted midpoint mean of the trap example must be 44")
+    if float(mean(mid)) != 25:
+        fail("mean: the unweighted midpoint average must be 25")
+
+    # ---- card 2: the median and its robustness
+    if median([3, 7, 8, 9, 12, 15]) != Fr(17, 2):
+        fail("median: 3, 7, 8, 9, 12, 15 must have median 8.5")
+    if float(mean([3, 7, 8, 9, 12, 15])) != 9:
+        fail("median: the same list must have mean 9")
+    if median([3, 7, 8, 9, 12, 1000]) != Fr(17, 2):
+        fail("median: replacing 15 by 1000 must leave the median at 8.5")
+    if abs(float(mean([3, 7, 8, 9, 12, 1000])) - 1039 / 6) > 1e-12:
+        fail("median: replacing 15 by 1000 must give the mean 1039/6")
+    if median([1, 2, 2, 3, 4, 5, 5]) != 3:
+        fail("median: the seven scores must have median 3")
+    if median([12, 7, 3, 9, 15, 8, 11]) != 9:
+        fail("median: the quick check list must have median 9")
+    if median([9, 3, 7, 15, 8, 12]) != Fr(17, 2):
+        fail("median: the unsorted trap list must have median 8.5")
+    if (7 + 15) / 2 == 8.5:
+        fail("median: the unsorted trap must not accidentally give the same answer")
+    # decreasing the smallest three of a nine-value list leaves the median alone
+    nine = [1, 2, 3, 4, 20, 21, 22, 23, 24]
+    if median(nine) != 20 or median([1 - 5, 2 - 5, 3 - 5, 4, 20, 21, 22, 23, 24]) != 20:
+        fail("median: the nine-value variation must keep its median at 20")
+
+    # ---- card 3: the mode, ties and multimodality
+    if mode([2, 3, 3, 5, 7, 7, 7, 9]) != [7]:
+        fail("mode: 2, 3, 3, 5, 7, 7, 7, 9 must be unimodal at 7")
+    if float(mean([2, 3, 3, 5, 7, 7, 7, 9])) != 43 / 8:
+        fail("mode: the same list must have mean 43/8")
+    if median([2, 3, 3, 5, 7, 7, 7, 9]) != 6:
+        fail("mode: the same list must have median 6")
+    if mode([1, 2, 2, 3, 3, 4]) != [2, 3]:
+        fail("mode: the bimodal example must be 2 and 3")
+    if mode([1, 2, 3, 4, 5]) != [1, 2, 3, 4, 5]:
+        fail("mode: a list of distinct values must have no unique mode")
+    if mode([4, 4, 5, 6, 6, 7, 7, 7, 9]) != [7]:
+        fail("mode: the quick check list must be unimodal at 7")
+    # the modal-class interpolation of the original question
+    L, f1, f0, f2, h = 30, 14, 9, 8, 10
+    if not close(L + (f1 - f0) / (2 * f1 - f0 - f2) * h, 34.54545, 1e-4):
+        fail("mode: the modal-class interpolation must give 34.545")
+    # the Poisson mode of the predicted variation
+    lam = 2.4
+    ratio = lambda k: lam / k
+    masses = [lam ** k * math.exp(-lam) / math.factorial(k) for k in range(12)]
+    if masses.index(max(masses)) != 2:
+        fail("mode: the Poisson mode at lambda = 2.4 must be 2")
+
+    # ---- card 4: the empirical relation and the ordering
+    if 3 * 37 - 2 * 40 != 31:
+        fail("relation: mean 40 and median 37 must give mode 31")
+    if (48 + 2 * 60) // 3 != 56:
+        fail("relation: mode 48 and mean 60 must give median 56")
+    if (15 + 2 * float(mean([15, 15, 15, 75]))) / 3 != 25:
+        fail("relation: the empirical formula must predict 25 for the hostile list")
+    if float(mean([15, 15, 15, 75])) != 30 or mode([15, 15, 15, 75]) != [15]:
+        fail("relation: the hostile list must have mean 30 and mode 15")
+    if median([15, 15, 15, 75]) != 15:
+        fail("relation: the hostile list must have true median 15")
+    if 3 * 15 - 2 * 30 != -15:
+        fail("relation: the formula applied backwards to the hostile list")
+
+    # ---- card 5: the grouped table, and the Tamil lecture's table
+    mid5 = [5, 15, 25, 35, 45]
+    fr5 = [4, 6, 10, 6, 4]
+    n5 = sum(fr5)
+    m5 = Fr(sum(f * x for f, x in zip(fr5, mid5)), n5)
+    if m5 != 25:
+        fail("grouped: the symmetric table must have mean 25")
+    cf, run = [], 0
+    for f in fr5:
+        run += f
+        cf.append(run)
+    half = Fr(n5, 2)
+    k = next(i for i, c in enumerate(cf) if c >= half)
+    prev = cf[k - 1] if k else 0
+    med5 = Fr(mid5[k] - 5) + (half - prev) / fr5[k] * 10
+    if med5 != 25:
+        fail("grouped: the symmetric table must have median 25")
+    j = fr5.index(max(fr5))
+    f0g = fr5[j - 1] if j else 0
+    f2g = fr5[j + 1] if j + 1 < len(fr5) else 0
+    mode5 = Fr(mid5[j] - 5) + Fr(fr5[j] - f0g, 2 * fr5[j] - f0g - f2g) * 10
+    if mode5 != 25:
+        fail("grouped: the symmetric table must have mode 25")
+    var5 = sum(Fr(f) * (Fr(x) - m5) ** 2 for f, x in zip(fr5, mid5)) / n5
+    if var5 != Fr(4400, 30):
+        fail("grouped: the symmetric table must have variance 4400/30")
+    if not close(math.sqrt(float(var5)), 12.11059, 1e-4):
+        fail("grouped: the symmetric table must have standard deviation 12.1106")
+    # the Tamil lecture's table
+    midT = [5, 15, 25, 35, 45]
+    frT = [12, 18, 20, 25, 23]
+    nT = sum(frT)
+    mT = Fr(sum(f * x for f, x in zip(frT, midT)), nT)
+    if nT != 98 or mT != Fr(2740, 98):
+        fail("grouped: the Tamil table must have N = 98 and mean 2740/98")
+    if not close(float(mT), 27.95918, 1e-4):
+        fail("grouped: the Tamil table must have mean 27.96")
+    if Fr(20) + (Fr(98, 2) - 30) / 20 * 10 != 29.5:
+        fail("grouped: the Tamil table must have median 29.5")
+    if Fr(30) + Fr(25 - 20, 2 * 25 - 20 - 23) * 10 != Fr(50, 7) + 30:
+        fail("grouped: the Tamil table must have mode 30 + 5/7*10")
+    if not close(30 + 5 / 7 * 10, 37.14286, 1e-4):
+        fail("grouped: the Tamil table must have mode 37.14")
+    # the discontinuous-classes variation
+    if Fr(19) + Fr(1, 2) + (Fr(20, 2) - 5) / 8 * 10 != Fr(103, 4):
+        fail("grouped: the discontinuous variation must give a median of 25.75")
+
+    # ---- card 6: variance and the two divisors
+    d6 = [2, 4, 4, 4, 5, 5, 7, 9]
+    if mean(d6) != 5 or var(d6) != 4:
+        fail("variance: 2, 4, 4, 4, 5, 5, 7, 9 must have mean 5 and population variance 4")
+    if sd(d6) != 2:
+        fail("variance: the same list must have population standard deviation 2")
+    if sum((x - 5) ** 2 for x in d6) != 32:
+        fail("variance: the squared deviations must sum to 32")
+    if Fr(32, 7) != Fr(8, 7) * 4:
+        fail("variance: the sample variance must be 32/7")
+    if not close(math.sqrt(32 / 7), 2.13809, 1e-4):
+        fail("variance: the sample standard deviation must be 2.1381")
+    if not close(sd([1, 2, 3, 4, 5]) ** 2, 2):
+        fail("variance: 1, 2, 3, 4, 5 must have variance 2")
+    if not close(sd([1, 2, 3, 4, 5]), 1.414214, 1e-5):
+        fail("variance: 1, 2, 3, 4, 5 must have standard deviation 1.4142")
+
+    # ---- card 7: shift and scale, and the 2011 question's numbers
+    X7 = [2, 4, 6, 8, 10]
+    if mean(X7) != 6 or var(X7) != 8:
+        fail("scale: 2, 4, 6, 8, 10 must have mean 6 and variance 8")
+    Y7 = [3 * x - 5 for x in X7]
+    if Y7 != [1, 7, 13, 19, 25]:
+        fail("scale: 3X - 5 of the card's list must be 1, 7, 13, 19, 25")
+    if mean(Y7) != 13 or var(Y7) != 72:
+        fail("scale: 3X - 5 must have mean 13 and variance 72")
+    if var(Y7) != 9 * var(X7):
+        fail("scale: the variance of aX + b must be a^2 times the variance")
+    if not close(sd(Y7), 3 * sd(X7)) or not close(sd(Y7), 8.485281, 1e-5):
+        fail("scale: the standard deviation of 3X - 5 must be 8.4853")
+    if not close(sd(X7), 2.828427, 1e-5):
+        fail("scale: 2, 4, 6, 8, 10 must have standard deviation 2.8284")
+    # the 2011 question's worked numbers
+    q11 = [2, 3, 4, 4, 5]
+    if not close(float(mean(q11)), 3.6) or not close(sd(q11), 1.019804, 1e-5):
+        fail("scale: the 2011 example must have mean 3.6 and standard deviation 1.0198")
+    if [2 * x + 100 for x in q11] != [104, 106, 108, 108, 110]:
+        fail("scale: the 2011 transformed list must be 104, 106, 108, 108, 110")
+    if not close(sd([2 * x + 100 for x in q11]), 2 * sd(q11)):
+        fail("scale: the transformed list's standard deviation must be twice the original")
+    if not close(2 * sd(q11) + 100, 102.039608, 1e-5):
+        fail("scale: the wrong option of the 2011 question must evaluate to 102.0396")
+    if not close(sd([-2 * x + 7 for x in X7]), 2 * sd(X7)):
+        fail("scale: a negative multiplier must still multiply the spread by its absolute value")
+    if not close(sd([0.5 * x + 100 for x in X7]), 0.5 * sd(X7)):
+        fail("scale: the quick check must halve the spread")
+
+    # ---- card 8: the two minimisations
+    d8 = [1, 2, 3, 10]
+    m8 = mean(d8)
+    if m8 != 4:
+        fail("deviation: 1, 2, 3, 10 must have mean 4")
+    sq = lambda c: sum((Fr(x) - Fr(c)) ** 2 for x in d8)
+    if sq(4) != 50 or sq(3) != 54:
+        fail("deviation: the squared deviations must be 50 at the mean and 54 at 3")
+    if sq(Fr(5, 2)) != 59:
+        fail("deviation: the squared deviations at the median must be 59")
+    if sum(abs(x - m8) for x in d8) != 12:
+        fail("deviation: the absolute deviations at the mean must sum to 12")
+    if sum(abs(Fr(x) - Fr(5, 2)) for x in d8) != 10:
+        fail("deviation: the absolute deviations at the median must sum to 10")
+    if sum(x - m8 for x in d8) != 0:
+        fail("deviation: the signed deviations must sum to zero")
+    for c in [-3, 0, 1, 2, 3, 5, 9, 20]:
+        if sq(c) < sq(4):
+            fail("deviation: c = %r beats the mean on the squared deviations" % c)
+    for c in [1, 2, 3, 10]:
+        if sum(abs(Fr(x) - Fr(c)) for x in d8) < 10:
+            fail("deviation: c = %r beats the median on the absolute deviations" % c)
+    for c in [2, 3, 4, 9]:
+        if sum(abs(Fr(x) - Fr(c)) for x in [1, 2, 9, 10]) != 16:
+            fail("deviation: every c in [2, 9] must give 16 on the four-point list")
+    d8b = [4, 6, 8, 10]
+    if sum((x - 7) ** 2 for x in d8b) != 20 or sum((x - 6) ** 2 for x in d8b) != 24:
+        fail("deviation: the 4, 6, 8, 10 variation must give 20 at the mean and 24 at 6")
+
+    # ---- card 9: the median and the mode of a random variable
+    lam9 = 2.0
+    if not close(1 / lam9, 0.5):
+        fail("median-rv: the exponential mean must be 1/lambda")
+    if not close(math.log(2) / lam9, 0.346574, 1e-5):
+        fail("median-rv: the exponential median must be ln 2 / lambda")
+    if not close(math.log(2) / lam9 / (1 / lam9), math.log(2)):
+        fail("median-rv: the exponential median over mean must be ln 2")
+    def cdf_expo(x):
+        return 1 - math.exp(-lam9 * x)
+    if not close(cdf_expo(math.log(2) / lam9), 0.5):
+        fail("median-rv: the exponential CDF must be 1/2 at the median")
+    dens = lambda x: lam9 * math.exp(-lam9 * x)
+    if not (dens(0) > dens(0.1) and dens(0.1) > dens(1.0)):
+        fail("median-rv: the exponential density must be decreasing, so the mode is 0")
+    # the discrete uniform on 1..6 has two medians and the continuous analogue an interval
+    u6 = [1, 2, 3, 4, 5, 6]
+    def is_median(u, m):
+        le = sum(1 for x in u if x <= m) / len(u)
+        ge = sum(1 for x in u if x >= m) / len(u)
+        return le >= 0.5 - 1e-12 and ge >= 0.5 - 1e-12
+    if not (is_median(u6, 3) and is_median(u6, 4)):
+        fail("median-rv: 3 and 4 must both be medians of the uniform on 1..6")
+    if is_median(u6, 2) or is_median(u6, 5):
+        fail("median-rv: 2 and 5 must not be medians of the uniform on 1..6")
+    u4 = [1, 2, 3, 4]
+    for m in [2, 2.5, 3]:
+        if not is_median(u4, m):
+            fail("median-rv: every m in [2, 3] must be a median of the uniform on 1..4")
+    if is_median(u4, 1) or is_median(u4, 4):
+        fail("median-rv: the endpoints must not be medians of the uniform on 1..4")
+    # Y = max(X, 0) with X symmetric about 0: 0 is a median, no positive m is
+    def ycdf(m):
+        if m < 0:
+            return 0.0
+        return 0.5 + 0.5 * math.erf(m / math.sqrt(2))
+    def ysurv(m):
+        if m <= 0:
+            return 1.0
+        return 0.5 * (1 - math.erf(m / math.sqrt(2)))
+    if not (ycdf(0) >= 0.5 and ysurv(0) >= 0.5):
+        fail("median-rv: 0 must be a median of max(X, 0)")
+    for m in [0.1, 0.5, 1, 2]:
+        if ycdf(m) >= 0.5 and ysurv(m) >= 0.5:
+            fail("median-rv: a positive m must not be a median of max(X, 0)")
+    if ycdf(-1) >= 0.5:
+        fail("median-rv: a negative m must not be a median of max(X, 0)")
+
+    # ---- card 10: the standard deviation of a count
+    n10, p10 = 1000, 0.4
+    if not close(n10 * p10 * (1 - p10), 240):
+        fail("count: the binomial variance must be 240")
+    if not close(math.sqrt(240), 15.491933, 1e-5):
+        fail("count: the binomial standard deviation must be 15.4919")
+    if not close(math.sqrt(n10 * p10), 20):
+        fail("count: sqrt(np) must be 20, the dropped-factor wrong answer")
+    if not close(math.sqrt(100 * 0.5 * 0.5), 5):
+        fail("count: Bin(100, 0.5) must have standard deviation 5")
+    if not close(math.sqrt(9), 3):
+        fail("count: the Poisson count with mean 9 must have standard deviation 3")
+    best = max(range(1, 100), key=lambda k: k / 100 * (1 - k / 100))
+    if best != 50:
+        fail("count: np(1-p) must be largest at p = 1/2")
+
+    # ---- card 11: one changed value, and two combined groups
+    if Fr(10 * 60 + 30 * 80, 40) != 75:
+        fail("combine: the two-group mean must be 75")
+    if (60 + 80) / 2 == 75:
+        fail("combine: the unweighted average of the means must not coincide with 75")
+    if Fr(20 * 55 + 30 * 80, 50) != 70:
+        fail("combine: the two-section mean must be 70")
+    before, after = [1, 2, 3, 4], [1, 2, 3, 14]
+    if mean(before) != Fr(5, 2) or mean(after) != 5:
+        fail("combine: the changed value must move the mean from 2.5 to 5")
+    if median(before) != Fr(5, 2) or median(after) != Fr(5, 2):
+        fail("combine: the median must stay at 2.5")
+    if var(before) != Fr(5, 4) or var(after) != Fr(55, 2):
+        fail("combine: the variances must be 1.25 and 27.5")
+    if not close(sd(before), 1.118034, 1e-5) or not close(sd(after), 5.244044, 1e-5):
+        fail("combine: the standard deviations must be 1.1180 and 5.2440")
+    # the combined variance with its between-group term
+    n1, m1, v1 = 4, 10, 4
+    n2, m2, v2 = 6, 20, 4
+    mc = Fr(n1 * m1 + n2 * m2, n1 + n2)
+    if mc != 16:
+        fail("combine: the combined mean must be 16")
+    d1, d2 = m1 - mc, m2 - mc
+    cv = (n1 * (v1 + d1 ** 2) + n2 * (v2 + d2 ** 2)) / (n1 + n2)
+    if cv != 28:
+        fail("combine: the combined variance must be 28")
+    if (n1 * v1 + n2 * v2) / (n1 + n2) != 4:
+        fail("combine: ignoring the between-group term must give 4, which the card warns about")
+
+    # ---- card 12: the coefficient of variation and the units
+    if not close(5 / 100, 0.05) or not close(20 / 100, 0.20):
+        fail("units: the two coefficients of variation must be 0.05 and 0.20")
+    if not close(10 / 50, 0.2):
+        fail("units: the quick check coefficient of variation must be 0.2")
+
+    # ---- the five PYQ records
+    if Fr(35, 9) != Fr(4 * 3 + 2 * 4 + 3 * 5, 9):
+        fail("pyq: the 2014 word-length mean must equal 35/9 both ways")
+    if not close(float(Fr(35, 9)), 3.888889, 1e-5):
+        fail("pyq: the 2014 word-length mean must be 3.8889")
+    if 4 * 3 + 2 * 4 + 3 * 5 != 35:
+        fail("pyq: the 2014 grouping must still total 35")
+    # 2024 Set 2 Q.44: the two counterexamples and the monotone inequality
+    if not close(1 / 3, 0.3333333, 1e-6) or not (1 / 3 > 0.25):
+        fail("pyq: E[X^2] on the unit interval must be 1/3, beating 1/4")
+    if not close(1 / 6, 0.1666667, 1e-6) or not (1 / 6 < 0.25):
+        fail("pyq: E[X(1-X)] on the unit interval must be 1/6, below 1/4")
+    for a, b in [(0.2, 0.9), (1.0, 1.0), (0.0, 0.4), (0.7, 0.3)]:
+        if not (a * b <= a + 1e-12):
+            fail("pyq: 0 <= xy <= x must hold for every pair in [0, 1]")
+
+    # ---- the p5 lesson's four versions of the same data set
+    base = [2, 3, 3, 4, 9]
+    outlier = [2, 3, 3, 4, 19]
+    shifted = [12, 13, 13, 14, 29]
+    doubled = [4, 6, 6, 8, 38]
+    if [2 * x for x in outlier] != doubled:
+        fail("lesson: the doubled set must be twice the outlier set")
+    if [x + 10 for x in outlier] != shifted:
+        fail("lesson: the shifted set must be the outlier set plus 10")
+    if base != [2, 3, 3, 4, 9]:
+        fail("lesson: the base set is wrong")
+    expected = [
+        (base, 4.2, 3, 3, 6.16, 2.4819),
+        (outlier, 6.2, 3, 3, 41.36, 6.4312),
+        (shifted, 16.2, 13, 13, 41.36, 6.4312),
+        (doubled, 12.4, 6, 6, 165.44, 12.8624),
+    ]
+    for xs, m, md, mo, v, s in expected:
+        if not close(float(mean(xs)), m):
+            fail("lesson: %r must have mean %r" % (xs, m))
+        if float(median(xs)) != md:
+            fail("lesson: %r must have median %r" % (xs, md))
+        if mode(xs) != [mo]:
+            fail("lesson: %r must be unimodal at %r" % (xs, mo))
+        if not close(float(var(xs)), v):
+            fail("lesson: %r must have variance %r" % (xs, v))
+        if not close(sd(xs), s, 1e-4):
+            fail("lesson: %r must have standard deviation %r" % (xs, s))
+        if sum(Fr(x) - mean(xs) for x in xs) != 0:
+            fail("lesson: the signed deviations of %r must sum to zero" % (xs,))
+    if var(shifted) != var(outlier):
+        fail("lesson: the shift must leave the variance unchanged")
+    if var(doubled) != 4 * var(outlier):
+        fail("lesson: the doubling must multiply the variance by four")
+    if not close(sd(doubled), 2 * sd(outlier)):
+        fail("lesson: the doubling must double the standard deviation")
+    if mean(doubled) != 2 * mean(outlier) or median(doubled) != 2 * median(outlier):
+        fail("lesson: the doubling must double the mean and the median")
+    if mean(shifted) != mean(outlier) + 10 or median(shifted) != median(outlier) + 10:
+        fail("lesson: the shift must add 10 to the mean and the median")
+    if median(outlier) != median(base):
+        fail("lesson: the outlier must leave the median at 3")
+    if not close(3 * sd(base), 7.4458, 1e-4):
+        fail("lesson: the quick check must be 3 x 2.4819 = 7.4458")
+    if not close(2 * sd(base), 4.9638, 1e-4):
+        fail("lesson: the misconception figure must be 2 x 2.4819 = 4.9638")
+    if sum((x - 4.2) ** 2 for x in base) != 30.8 and not close(sum((x - 4.2) ** 2 for x in base), 30.8):
+        fail("lesson: the squared deviations of the base set must total 30.8")
+    if not close((9 - 4.2) ** 2, 23.04):
+        fail("lesson: the 9 must contribute 23.04 to the squared deviations")
+
+    ok("mean, median, mode and standard deviation: the weighted and grouped means, the median "
+       "positions, the modes, both deviation minimisations, the two divisors, the shift and scale "
+       "identities, the random-variable medians, the binomial and Poisson spreads, the combined "
+       "variance, all five PYQ computations and the four versions in the p5 lesson recomputed")
+
+
 def check_visuals():
     vroot = os.path.join(ROOT, "visuals")
     lessons = []
@@ -5488,6 +5896,7 @@ def main():
     check_mean_value_theorem()
     check_integration()
     check_probability_and_statistics()
+    check_mean_median_mode()
     check_visuals()
     check_hygiene()
     for c in checks:

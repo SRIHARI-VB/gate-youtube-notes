@@ -1,0 +1,89 @@
+{
+  "id": "mode-and-multimodality",
+  "title": "The Mode, Ties and Non-Numeric Data",
+  "priority": "P2",
+  "order": 315,
+  "unit": "Mean, Median, Mode and Standard Deviation",
+  "quickIdea": "The mode is the value with the highest frequency; a data set can have no mode, one mode, or several, and the mode is the only one of the three summaries that also works for categories.",
+  "remember": [
+    "Mode = the value of maximum frequency. Count frequencies first; nothing else is needed.",
+    "If every value occurs once there is no mode. Some texts instead say every value is a mode; state which convention you are using rather than assuming one.",
+    "Two values tied at the top give a bimodal data set; more than two give a multimodal one. A tie is a property of the data, not a mistake in the calculation.",
+    "The mode ignores how far the other values are from it. Moving a non-modal value from 100 to 10000 changes the mode not at all.",
+    "The mode is the only measure of centre that makes sense for nominal data - a colour, a brand, a city - because a mean or a median needs order or arithmetic.",
+    "For a continuous variable the mode is the point where the density peaks, and for a grouped table it is the modal class refined by an interpolation formula.",
+    "In a unimodal, moderately skewed distribution the three summaries are ordered, and the mode sits at the far end from the tail."
+  ],
+  "example": {
+    "prompt": "Find the mode of 2, 3, 3, 5, 7, 7, 7, 9.",
+    "work": "Frequencies: 2 once, 3 twice, 5 once, 7 three times, 9 once. The largest frequency is 3, at the value 7. For comparison, the mean is 43/8 = 5.375 and the median, the average of the fourth and fifth values 5 and 7, is 6.",
+    "answer": "The mode is 7, the only mode."
+  },
+  "gateAngle": "No GATE CSE engineering-mathematics question asks for a mode on its own. The mode appears in 2011 Q.33 as the statistic whose index position survives the transformation y = ax + b, and in the aptitude papers as part of a mean-median-mode relation.",
+  "variations": [
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Give the mode or modes of 1, 2, 2, 3, 3, 4, and then of 1, 2, 3, 4, 5.",
+      "answer": "The first list is bimodal with modes 2 and 3; the second has no mode under the strict convention.",
+      "why": "In the first list two values tie at frequency 2, so neither is more typical than the other. In the second every frequency is 1, so no value is more frequent than any other."
+    },
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "A grouped table has classes 10-20, 20-30, 30-40, 40-50 with frequencies 5, 9, 14, 8. Which class is the modal class, and what is the mode?",
+      "answer": "The modal class is 30-40 and the mode is 34.55.",
+      "why": "L = 30, f1 = 14, f0 = 9, f2 = 8 and h = 10, so mode = 30 + ((14-9)/(2*14 - 9 - 8))*10 = 30 + (5/11)*10 = 34.545. The modal class is the answer the table alone can justify; the interpolation is the refinement, and it is an approximation because the values inside a class are assumed evenly spread."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "X has a Poisson distribution with mean lambda = 2.4. What is its mode?",
+      "answer": "The mode is 2.",
+      "why": "The ratio P(X=k)/P(X=k-1) = lambda/k exceeds 1 exactly while k < lambda, so the mass increases up to floor(lambda) and decreases after it. With lambda = 2.4 the largest mass is at 2, not at the rounded 2.4."
+    }
+  ],
+  "trap": {
+    "what": "Reporting the mean when the mode was asked for, or insisting on a single mode when two values tie.",
+    "why": "The three summaries answer three different questions, and a tie is a legitimate outcome. A single number cannot always be reported for the mode.",
+    "counterexample": "For 1, 2, 2, 3, 3, 4 the mean is 2.5 and both 2 and 3 are modes; writing 'the mode is 2' discards half of the answer, and writing 'the mode is 2.5' answers a different question."
+  },
+  "check": {
+    "question": "Find the mode of 4, 4, 5, 6, 6, 7, 7, 7, 9.",
+    "answer": "7.",
+    "explanation": "The frequencies are 4: 2, 5: 1, 6: 2, 7: 3, 9: 1. The largest is 3 at the value 7, so 7 is the unique mode and the data is unimodal."
+  },
+  "pyqIds": [],
+  "prereqs": [],
+  "sources": [
+    {
+      "kind": "text",
+      "title": "Descriptive statistics formulas (GATE-oriented formula sheet)",
+      "channel": "IAE Academy",
+      "url": "https://iaeacademy.in/study/probability-statistics/formula-sheet/descriptive-statistics",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read in full through the search service's extract: the arithmetic mean of raw and grouped data, the median of raw and grouped data with the continuous-boundary warning, the mode of grouped data, the median condition F(m) = 1/2 for a random variable, the two deviation identities (squares minimised at the mean, absolute values at the median), population against sample variance, the effect of y = ax + b, the combined mean and the combined variance"
+    },
+    {
+      "kind": "lecture-transcript",
+      "title": "Lecture 04: Measures of central tendency and dispersion",
+      "channel": "NPTEL, Forest Biometry (IIT Kanpur)",
+      "url": "http://www.digimat.in/nptel/courses/video/102104060/lec4.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read from the opening through the mean and its outlier limitation, the median on the same eleven retirement ages, the mode on the same data and on rating data, the empirical relation median minus mode equals twice mean minus median, and the standard deviation worked example on five dog heights; the later dispersion material was not read"
+    },
+    {
+      "kind": "lecture-transcript",
+      "title": "Lec 4, Central Tendency and Dispersion - I",
+      "channel": "IIT Roorkee (NPTEL-style lecture series, July 2018)",
+      "url": "https://pickscribe.com/v/1MiT06JFNo4/",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read through a third-party transcript page, from the opening to the weighted-average example; the later part (median position, grouped median and mode, percentiles, deviations summing to zero, mean absolute deviation, variance and the two reasons for squaring) was read through the search service's longer extract of the same transcript"
+    }
+  ],
+  "sourceLine": "The frequency definition and the bimodal and multimodal cases: the NPTEL Forest Biometry Lecture 4 transcript (English, which also shows why the mode is the one summary available for rating data) and the IIT Roorkee Lecture 4 transcript (English). The modal-class interpolation and the density reading: the IAE Academy GATE formula sheet (English).",
+  "videoRefs": []
+}

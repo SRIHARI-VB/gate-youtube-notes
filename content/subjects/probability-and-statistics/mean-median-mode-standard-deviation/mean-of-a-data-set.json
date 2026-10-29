@@ -1,0 +1,92 @@
+{
+  "id": "mean-of-a-data-set",
+  "title": "The Arithmetic Mean and the Balance Point",
+  "priority": "P1",
+  "order": 313,
+  "unit": "Mean, Median, Mode and Standard Deviation",
+  "quickIdea": "The mean is the sum of the values divided by how many there are, and it is the point where the signed deviations cancel - which is exactly why one huge value drags it away.",
+  "remember": [
+    "Mean of n values: x-bar = (x1 + x2 + ... + xn) / n. For a frequency table with class midpoints m and frequencies f, x-bar = sum(f*m) / sum(f).",
+    "Weighted mean: x-bar = sum(w*x) / sum(w). A credit-weighted course average is a weighted mean, not the plain average of the grades.",
+    "The mean is the balance point of the data: sum(x - x-bar) = 0 for every list. That identity is what the mean is, not a coincidence about it.",
+    "The mean reads every value, so it is not robust. Move one value far away and the mean moves with it, while the median and the mode may not move at all.",
+    "The mean of a list and the mean of a random variable are the same operation: E[X] is the probability-weighted average, and if a value is drawn uniformly from the list then its mean is E[X].",
+    "The mean is monotone: if X <= Y for every outcome then E[X] <= E[Y]. That one fact decides GATE CSE 2024 Set 2 Q.44 without any distributional assumption.",
+    "Never average the midpoints unweighted when a frequency column is present; the frequencies are the weights."
+  ],
+  "example": {
+    "prompt": "A student takes three courses: 2 credits with 72 marks, 3 credits with 88 marks, 5 credits with 64 marks. What is the credit-weighted mean?",
+    "work": "sum(w*x) = 2*72 + 3*88 + 5*64 = 144 + 264 + 320 = 728. sum(w) = 2 + 3 + 5 = 10. Weighted mean = 728/10 = 72.8. The unweighted average of 72, 88 and 64 would be 74.667, which is the wrong answer.",
+    "answer": "72.8 marks."
+  },
+  "gateAngle": "GATE CSE 2014 Set 2 Q.2 asks for the expected length of a word drawn from nine equally likely words, which is the arithmetic mean of nine lengths, 35/9 = 3.9. GATE CSE 2024 Set 2 Q.44 asks which inequality between means must hold for variables confined to [0,1]; the answer is the monotonicity of the mean, 0 <= xy <= x pointwise so z-bar <= x-bar.",
+  "variations": [
+    {
+      "label": "VERIFIED PYQ",
+      "question": "GATE CSE 2014 Set 2 Q.2: Each of the nine words in 'The quick brown fox jumps over the lazy dog' is written on a separate piece of paper, one is drawn at random, and the expected length of the word drawn is ______ (one decimal place).",
+      "answer": "3.9.",
+      "why": "The lengths are 3, 5, 5, 3, 5, 4, 3, 4, 3, which sum to 35, and each word has probability 1/9, so E[L] = 35/9 = 3.8889. The question is a mean wearing a probability hat: no distribution theory is needed beyond equal probabilities."
+    },
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "A frequency table records the number of defects per board: 0 defects on 12 boards, 1 on 20 boards, 2 on 15 boards, 3 on 3 boards. Find the mean number of defects per board.",
+      "answer": "1.18.",
+      "why": "N = 12 + 20 + 15 + 3 = 50 and sum(f*m) = 0*12 + 1*20 + 2*15 + 3*3 = 0 + 20 + 30 + 9 = 59, so the mean is 59/50 = 1.18. Dividing 59 by the four distinct values instead of by the fifty boards is the standard slip."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "A variable takes the four values 2, 4, 6 and 8 with equal probability. Without using the probability language, what is its mean?",
+      "answer": "5.",
+      "why": "(2 + 4 + 6 + 8)/4 = 20/4 = 5, and E[X] = (1/4)(2 + 4 + 6 + 8) = 5 as well. The two computations are the same sum, which is why the mean of a data set and the mean of a random variable are not two topics."
+    }
+  ],
+  "trap": {
+    "what": "Averaging class midpoints without weighting them by their frequencies, or averaging group means of different sizes.",
+    "why": "The frequency column is the weight. Dropping it silently replaces a weighted mean with an unweighted one, and the answer moves a long way whenever the classes are unequal in size.",
+    "counterexample": "Classes with midpoints 5, 15, 25, 35 and 45 and frequencies 1, 1, 1, 1 and 96 have the weighted mean (5 + 15 + 25 + 35 + 96*45)/100 = 4400/100 = 44, not the unweighted midpoint average of 25."
+  },
+  "check": {
+    "question": "Find the mean of 4, 6, 6, 8, 11.",
+    "answer": "7.",
+    "explanation": "The sum is 4 + 6 + 6 + 8 + 11 = 35 and n = 5, so x-bar = 7. As a check, the deviations are -3, -1, -1, 1 and 4, which sum to 0."
+  },
+  "pyqIds": [
+    "gate-2014-set2-2-expected-word-length-as-mean",
+    "gate-2024-set2-44-mean-of-product-bounded"
+  ],
+  "prereqs": [],
+  "sources": [
+    {
+      "kind": "text",
+      "title": "Descriptive statistics formulas (GATE-oriented formula sheet)",
+      "channel": "IAE Academy",
+      "url": "https://iaeacademy.in/study/probability-statistics/formula-sheet/descriptive-statistics",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read in full through the search service's extract: the arithmetic mean of raw and grouped data, the median of raw and grouped data with the continuous-boundary warning, the mode of grouped data, the median condition F(m) = 1/2 for a random variable, the two deviation identities (squares minimised at the mean, absolute values at the median), population against sample variance, the effect of y = ax + b, the combined mean and the combined variance"
+    },
+    {
+      "kind": "lecture-transcript",
+      "title": "Lec 4, Central Tendency and Dispersion - I",
+      "channel": "IIT Roorkee (NPTEL-style lecture series, July 2018)",
+      "url": "https://pickscribe.com/v/1MiT06JFNo4/",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read through a third-party transcript page, from the opening to the weighted-average example; the later part (median position, grouped median and mode, percentiles, deviations summing to zero, mean absolute deviation, variance and the two reasons for squaring) was read through the search service's longer extract of the same transcript"
+    },
+    {
+      "kind": "pyq-compilation",
+      "title": "GATE Overflow for GATE CSE, Volume 1 - Engineering Mathematics: Probability, chapter 7",
+      "channel": "GATE Overflow (GO-PDFs release, gatecse-2026)",
+      "url": "https://github.com/GATEOverflow/GO-PDFs/releases/tag/gatecse-2026",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read as a text layer across the chapter: used for the question numbering and the classification of every GATE CSE probability question from 1987 to 2026, which is how the five PYQs of this topic were found and how the General Aptitude and other-branch questions were told apart from CSE engineering-mathematics ones"
+    }
+  ],
+  "sourceLine": "The grouped mean as a weighted mean of midpoints, the balance-point identity and the monotonicity of the mean: the IAE Academy GATE formula sheet (English) and the IIT Roorkee Lecture 4 transcript (English). The question numbering for both PYQs: GATE Overflow Volume 1, chapter 7 (English).",
+  "videoRefs": []
+}

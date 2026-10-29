@@ -1,0 +1,111 @@
+{
+  "id": "standard-deviation-under-shift-and-scale",
+  "title": "What a Shift and a Scale Do to the Four Summaries",
+  "priority": "P1",
+  "order": 319,
+  "unit": "Mean, Median, Mode and Standard Deviation",
+  "quickIdea": "The mean, median and mode follow y = ax + b exactly; the standard deviation follows |a| times the old one and takes no part of b.",
+  "remember": [
+    "Mean, median and mode are equivariant: y-bar = a*x-bar + b, median(y) = a*median(x) + b, mode(y) = a*mode(x) + b.",
+    "Standard deviation: sd(y) = |a| * sd(x). Variance: Var(y) = a^2 * Var(x). There is no additive term in either.",
+    "The b disappears because a spread is measured from the centre, and the centre moved by exactly the same b.",
+    "For a > 0 the whole ordering is preserved, so the index position of the median and of the mode is unchanged. That is precisely the claim of GATE CSE 2011 Q.33.",
+    "For a < 0 the order reverses, so the index position flips: the value at position k moves to position n+1-k. The median value is still a*median + b, but it is no longer at the same index.",
+    "Writing sd(y) = a*sd(x) + b is the classic wrong option, and it is wrong for a reason worth remembering: a constant offset cannot widen or narrow a spread.",
+    "A scale factor a with |a| < 1 shrinks the spread; the absolute value is what handles a negative multiplier correctly."
+  ],
+  "example": {
+    "prompt": "X is 2, 4, 6, 8, 10. Find the mean and standard deviation of Y = 3X - 5.",
+    "work": "X has mean 6 and variance (16 + 4 + 0 + 4 + 16)/5 = 8, so sd(X) = 2.8284. Then mean(Y) = 3*6 - 5 = 13 and sd(Y) = 3*2.8284 = 8.4853. Directly, Y is 1, 7, 13, 19, 25 with mean 65/5 = 13, and the deviations -12, -6, 0, 6, 12 square to 144 + 36 + 0 + 36 + 144 = 360, giving a variance of 72 and a standard deviation of 8.4853. The two routes agree.",
+    "answer": "mean(Y) = 13 and sd(Y) = 8.4853."
+  },
+  "gateAngle": "GATE CSE 2011 Q.33 is this card. Four statements are offered about Y = a*x + b with a and b positive, and the incorrect one is sd(y) = a*sd(x) + b.",
+  "variations": [
+    {
+      "label": "VERIFIED PYQ",
+      "question": "GATE CSE 2011 Q.33: Y is formed from X by y_i = a*x_i + b with a, b positive. Which statement is INCORRECT - the index position of the mode is unchanged, the index position of the median is unchanged, mu_y = a*mu_x + b, or sigma_y = a*sigma_x + b?",
+      "answer": "The fourth: sigma_y = a*sigma_x + b.",
+      "why": "Each deviation x_i - mu_x becomes a*(x_i - mu_x), so the standard deviation is multiplied by a and nothing is added. With X = 2, 3, 4, 4, 5, a = 2 and b = 100, sd(X) = 1.0198 and sd(Y) = 2.0396, while 2*1.0198 + 100 would be 102.04."
+    },
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "Which of these are correct for a list of numbers? P: adding 7 to every entry adds 7 to the mean. Q: adding 7 to every entry adds 7 to the standard deviation. R: doubling every entry doubles the mean. S: doubling every entry leaves the standard deviation unchanged.",
+      "answer": "P and R only.",
+      "why": "The mean is equivariant under both a shift and a scale, so P and R hold. A shift leaves the standard deviation alone, so Q fails, and a scale multiplies it by the factor, so S fails."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "A list has standard deviation 4. What is the standard deviation of -2X + 7?",
+      "answer": "8.",
+      "why": "sd(-2X + 7) = |-2| * sd(X) = 2*4 = 8. The sign of the multiplier reverses the order of the values but cannot make a spread negative, which is why the absolute value appears."
+    }
+  ],
+  "trap": {
+    "what": "Writing sd(y) = a*sd(x) + b, or dropping the absolute value when a is negative.",
+    "why": "A spread is invariant under a shift, so b cannot enter the formula; and a spread is a distance, so a negative multiplier changes direction but not size.",
+    "counterexample": "X = 2, 3, 4, 4, 5 has sd 1.0198. With a = 2 and b = 100 the new sd is 2.0396, not 102.04. With a = -1 the new sd is still 1.0198, not -1.0198."
+  },
+  "check": {
+    "question": "X has standard deviation 4. Find the standard deviation of Y = 0.5X + 100.",
+    "answer": "2.",
+    "explanation": "sd(Y) = |0.5| * sd(X) = 0.5*4 = 2. The 100 shifts every value and every mean equally, so it leaves the spread untouched."
+  },
+  "pyqIds": [
+    "gate-2011-33-mean-median-mode-invariance-and-sd-scaling"
+  ],
+  "prereqs": [
+    "variance-and-standard-deviation-of-data",
+    "mean-of-a-data-set"
+  ],
+  "sources": [
+    {
+      "kind": "text",
+      "title": "Descriptive statistics formulas (GATE-oriented formula sheet)",
+      "channel": "IAE Academy",
+      "url": "https://iaeacademy.in/study/probability-statistics/formula-sheet/descriptive-statistics",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read in full through the search service's extract: the arithmetic mean of raw and grouped data, the median of raw and grouped data with the continuous-boundary warning, the mode of grouped data, the median condition F(m) = 1/2 for a random variable, the two deviation identities (squares minimised at the mean, absolute values at the median), population against sample variance, the effect of y = ax + b, the combined mean and the combined variance"
+    },
+    {
+      "kind": "pyq-compilation",
+      "title": "GATE Overflow for GATE CSE, Volume 1 - Engineering Mathematics: Probability, chapter 7",
+      "channel": "GATE Overflow (GO-PDFs release, gatecse-2026)",
+      "url": "https://github.com/GATEOverflow/GO-PDFs/releases/tag/gatecse-2026",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read as a text layer across the chapter: used for the question numbering and the classification of every GATE CSE probability question from 1987 to 2026, which is how the five PYQs of this topic were found and how the General Aptitude and other-branch questions were told apart from CSE engineering-mathematics ones"
+    },
+    {
+      "kind": "text",
+      "title": "Introductory Statistics 2e, section 2.7: Measures of the Spread of the Data",
+      "channel": "OpenStax (Rice University)",
+      "url": "https://openstax.org/books/introductory-statistics-2e/pages/2-7-measures-of-the-spread-of-the-data",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read from the opening through the two standard-deviation formulas: the sample divisor n - 1 and the population divisor N, with the frequency forms, and the statement that the standard deviation is always positive or zero"
+    }
+  ],
+  "sourceLine": "The effect of y = ax + b on the centre and the spread, and the statement that the median and the mode transform as a*value + b: the IAE Academy GATE formula sheet (English). The standard deviation as a spread measured from the mean: OpenStax Introductory Statistics 2e section 2.7 (English). The question itself and its numbering: GATE Overflow Volume 1 chapter 7 and the GATE Overflow question page (English).",
+  "visual": "probability-and-statistics/mean-median-mode-standard-deviation/mean-median-and-spread",
+  "links": {
+    "visual": {
+      "slug": "mean-median-and-spread",
+      "title": "The Mean, the Median and the Spread Under a Shift and a Scale",
+      "level": "topic-level",
+      "covers": [
+        "the mean as the balance point where signed deviations cancel",
+        "one outlier moving the mean while the median stays put",
+        "a shift of every value leaving the standard deviation unchanged",
+        "a doubling of every value doubling the mean and the standard deviation",
+        "the standard deviation as the root mean square distance from the mean"
+      ],
+      "url": "visuals/probability-and-statistics/mean-median-mode-standard-deviation/mean-median-and-spread/index.html"
+    },
+    "mapped_at": "2026-10-30"
+  },
+  "videoRefs": []
+}

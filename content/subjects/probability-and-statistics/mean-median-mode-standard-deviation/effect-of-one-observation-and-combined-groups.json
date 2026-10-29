@@ -1,0 +1,93 @@
+{
+  "id": "effect-of-one-observation-and-combined-groups",
+  "title": "One Changed Value, and Combining Two Groups",
+  "priority": "P2",
+  "order": 323,
+  "unit": "Mean, Median, Mode and Standard Deviation",
+  "quickIdea": "Changing one value moves the mean by the change divided by n and can leave the median and the mode untouched; combining two groups needs a size-weighted mean, never the average of the two means.",
+  "remember": [
+    "Replacing x_i by x_i + d moves the mean by d/n and changes nothing else about the sum of the other values.",
+    "Adding a new value moves the mean toward the new value by an amount that depends on the new count, so the same value has less effect on a larger data set.",
+    "The median moves only if the changed value crosses the middle of the sorted list; the mode moves only if a frequency tie breaks.",
+    "The standard deviation changes whenever any value changes, because every value enters the sum of squared deviations.",
+    "Combined mean = (n1*m1 + n2*m2)/(n1 + n2). It equals (m1 + m2)/2 only when n1 = n2, which is the single most common wrong option in group-averaging questions.",
+    "Combined population variance = [n1*(sigma1^2 + d1^2) + n2*(sigma2^2 + d2^2)]/(n1 + n2), where d_i is the distance from each group mean to the combined mean. The between-group term is the part that gets forgotten.",
+    "If the two group variances are sample variances, convert first with sigma^2 = ((n-1)/n)*s^2, or the combined figure will not be in the population convention."
+  ],
+  "example": {
+    "prompt": "Group A has 10 students with mean 60 and group B has 30 students with mean 80. Find the combined mean.",
+    "work": "n1*m1 = 10*60 = 600 and n2*m2 = 30*80 = 2400, so the total is 3000 over 40 students. Combined mean = 3000/40 = 75. The unweighted average of the two means would be 70, which underweights the larger group.",
+    "answer": "75."
+  },
+  "gateAngle": "No GATE CSE question in this topic asks for a combined mean, but the fact decides the distractor options in any question that reports two group averages, and it is the arithmetic behind the 'average of averages' wrong answer.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "Two sections have 20 and 30 students with mean marks 55 and 80. What is the mean over both sections?",
+      "answer": "70.",
+      "why": "(20*55 + 30*80)/50 = (1100 + 2400)/50 = 3500/50 = 70. Here the answer happens to look close to the plain average of 67.5 but is not equal to it, which is why the weighted form must be used every time."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "The data 1, 2, 3, 4 has its largest value replaced by 14. What happens to the mean, the median and the standard deviation?",
+      "answer": "The mean rises from 2.5 to 5, the median stays at 2.5, and the standard deviation rises from 1.1180 to 5.2440.",
+      "why": "The new sum is 20 over 4 values. The middle two values are still 2 and 3, so the median is unchanged. The squared deviations from 5 are 16, 9, 4 and 81, giving a variance of 27.5 and a standard deviation of 5.2440."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "Group A has 4 items with mean 10 and variance 4; group B has 6 items with mean 20 and variance 4. Find the combined variance.",
+      "answer": "28.",
+      "why": "The combined mean is (40 + 120)/10 = 16, so d1 = -6 and d2 = 4. Then the numerator is 4*(4 + 36) + 6*(4 + 16) = 160 + 120 = 280 and the combined variance is 280/10 = 28. The between-group term alone contributes 4*36 + 6*16 = 240, so ignoring it would return 4 instead of 28."
+    }
+  ],
+  "trap": {
+    "what": "Averaging two group means without weighting by the group sizes, or adding the two variances when combining groups.",
+    "why": "Each group mean already absorbed its own size, so averaging them again gives the larger group less than its share. And a combined variance has a between-group component that the within-group variances do not contain.",
+    "counterexample": "Groups of 10 with mean 60 and 30 with mean 80 combine to 75, not 70. Groups of 4 with mean 10 and 6 with mean 20 have a combined variance of 28, not 4."
+  },
+  "check": {
+    "question": "The data 1, 2, 3, 4 has its 4 replaced by 14. Find the new mean and the new median.",
+    "answer": "Mean 5 and median 2.5.",
+    "explanation": "The new list is 1, 2, 3, 14, whose sum is 20 over 4 values, so the mean is 5. The two middle values are still 2 and 3, so the median is unchanged at 2.5."
+  },
+  "pyqIds": [],
+  "prereqs": [
+    "mean-of-a-data-set",
+    "median-and-its-position",
+    "variance-and-standard-deviation-of-data"
+  ],
+  "sources": [
+    {
+      "kind": "text",
+      "title": "Descriptive statistics formulas (GATE-oriented formula sheet)",
+      "channel": "IAE Academy",
+      "url": "https://iaeacademy.in/study/probability-statistics/formula-sheet/descriptive-statistics",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read in full through the search service's extract: the arithmetic mean of raw and grouped data, the median of raw and grouped data with the continuous-boundary warning, the mode of grouped data, the median condition F(m) = 1/2 for a random variable, the two deviation identities (squares minimised at the mean, absolute values at the median), population against sample variance, the effect of y = ax + b, the combined mean and the combined variance"
+    },
+    {
+      "kind": "lecture-transcript",
+      "title": "Lec 4, Central Tendency and Dispersion - I",
+      "channel": "IIT Roorkee (NPTEL-style lecture series, July 2018)",
+      "url": "https://pickscribe.com/v/1MiT06JFNo4/",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read through a third-party transcript page, from the opening to the weighted-average example; the later part (median position, grouped median and mode, percentiles, deviations summing to zero, mean absolute deviation, variance and the two reasons for squaring) was read through the search service's longer extract of the same transcript"
+    },
+    {
+      "kind": "text",
+      "title": "Introductory Statistics 2e, section 2.7: Measures of the Spread of the Data",
+      "channel": "OpenStax (Rice University)",
+      "url": "https://openstax.org/books/introductory-statistics-2e/pages/2-7-measures-of-the-spread-of-the-data",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read from the opening through the two standard-deviation formulas: the sample divisor n - 1 and the population divisor N, with the frequency forms, and the statement that the standard deviation is always positive or zero"
+    }
+  ],
+  "sourceLine": "The combined mean, the combined variance with its between-group term, and the conversion between the sample and population conventions: the IAE Academy GATE formula sheet (English). The effect of a single value on the mean and on the median: the IIT Roorkee Lecture 4 transcript (English). The definition of the standard deviation that makes it respond to any change: OpenStax Introductory Statistics 2e section 2.7 (English).",
+  "videoRefs": []
+}

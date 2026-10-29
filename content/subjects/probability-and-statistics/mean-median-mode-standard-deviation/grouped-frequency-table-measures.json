@@ -1,0 +1,103 @@
+{
+  "id": "grouped-frequency-table-measures",
+  "title": "Mean, Median and Mode from a Grouped Table",
+  "priority": "P2",
+  "order": 317,
+  "unit": "Mean, Median, Mode and Standard Deviation",
+  "quickIdea": "A grouped table replaces each class by its midpoint, so the mean is a weighted mean of midpoints and the median and mode are found by locating a class and interpolating inside it.",
+  "remember": [
+    "Mean: x-bar = sum(f*m) / sum(f), with m the class midpoints. The midpoint stands in for every value in the class, so the answer is an approximation.",
+    "Median: find the first class whose cumulative frequency reaches N/2. Median = L + ((N/2 - F)/f)*h, with L the lower boundary of that class, F the cumulative frequency before it, f its frequency and h its width.",
+    "Mode: the modal class is the one with the largest frequency. Mode = L + ((f1 - f0)/(2*f1 - f0 - f2))*h, with f0 and f2 the frequencies of the classes before and after it.",
+    "Make the classes continuous before using either formula: 10-19, 20-29 becomes 9.5-19.5, 19.5-29.5, and h is 10 in both cases.",
+    "If the modal class is the first or the last class, take the missing neighbour's frequency as 0. The modal class and its two neighbours must have the same width.",
+    "Use N/2 in the median formula, not (N+1)/2. The grouped formula assumes the values inside a class are spread evenly, which is a different model from the positional rule for raw data.",
+    "A symmetric table is the cheapest check there is: it must return mean = median = mode at the centre."
+  ],
+  "example": {
+    "prompt": "Find the mean, median, mode and standard deviation of the table 0-10: 4, 10-20: 6, 20-30: 10, 30-40: 6, 40-50: 4.",
+    "work": "Midpoints 5, 15, 25, 35, 45 with N = 30. sum(f*m) = 20 + 90 + 250 + 210 + 180 = 750, so the mean is 25. Cumulative frequencies are 4, 10, 20, 26, 30, so N/2 = 15 falls in 20-30: L = 20, F = 10, f = 10, h = 10, giving 20 + ((15-10)/10)*10 = 25. The largest frequency is 10 in 20-30, so f1 = 10, f0 = 6, f2 = 6 and the mode is 20 + (4/8)*10 = 25. Squared deviations from 25 are 400, 100, 0, 100, 400, so sum(f*(m-25)^2) = 4400 and the variance is 4400/30 = 146.6667.",
+    "answer": "Mean 25, median 25, mode 25, standard deviation 12.1106."
+  },
+  "gateAngle": "The three formulas are where grouped data is examined, and the two things that go wrong are the class boundary and the N/2 against (N+1)/2. No GATE CSE engineering-mathematics question in this topic uses them, so this card carries no PYQ of its own.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "A table has classes 0-10, 10-20, 20-30, 30-40, 40-50 with frequencies 12, 18, 20, 25, 23. Find the mean and the median.",
+      "answer": "Mean 27.96 and median 29.5.",
+      "why": "N = 98, sum(f*m) = 60 + 270 + 500 + 875 + 1035 = 2740, so the mean is 2740/98 = 27.9592. Cumulative frequencies are 12, 30, 50, 75, 98, so N/2 = 49 falls in 20-30: 20 + ((49-30)/20)*10 = 29.5. Both numbers are recomputed in scripts/validate.py."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Why does the grouped median formula use N/2 while the raw-data median uses position (n+1)/2?",
+      "answer": "Because the grouped formula interpolates a proportion of the way through a class, not a position in a list.",
+      "why": "Inside a class the data is assumed evenly spread, so half the observations lie below the point where the cumulative frequency reaches N/2. The (n+1)/2 rule is a counting rule for individual observations and has no meaning for a class."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "The classes are given as 10-19, 20-29, 30-39 with frequencies 5, 8, 7. What are L and h for the median formula, and what is the median?",
+      "answer": "L = 19.5 and h = 10, giving a median of 25.75.",
+      "why": "The limits leave a gap, so the continuous boundaries are 9.5-19.5, 19.5-29.5, 29.5-39.5. N = 20 and N/2 = 10, which falls in 19.5-29.5: 19.5 + ((10-5)/8)*10 = 25.75. Using L = 20 instead of 19.5 is the standard half-mark error."
+    }
+  ],
+  "trap": {
+    "what": "Using the printed class limits as L, or forgetting to make the classes continuous before computing h.",
+    "why": "The formula interpolates over a continuous interval. With a gap between classes the printed lower limit is not the boundary of the interval the data actually occupies.",
+    "counterexample": "For classes 10-19, 20-29, 30-39 the true lower boundary of the second class is 19.5, not 20. Using 20 shifts the median by half a unit and every subsequent step inherits the error."
+  },
+  "check": {
+    "question": "For the symmetric table 0-10: 4, 10-20: 6, 20-30: 10, 30-40: 6, 40-50: 4, what is the standard deviation?",
+    "answer": "12.1106.",
+    "explanation": "sum(f*(m - 25)^2) = 4*400 + 6*100 + 10*0 + 6*100 + 4*400 = 4400, so the variance is 4400/30 = 146.6667 and the standard deviation is its square root, 12.1106."
+  },
+  "pyqIds": [],
+  "prereqs": [
+    "mean-of-a-data-set",
+    "median-and-its-position",
+    "mode-and-multimodality"
+  ],
+  "sources": [
+    {
+      "kind": "text",
+      "title": "Descriptive statistics formulas (GATE-oriented formula sheet)",
+      "channel": "IAE Academy",
+      "url": "https://iaeacademy.in/study/probability-statistics/formula-sheet/descriptive-statistics",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read in full through the search service's extract: the arithmetic mean of raw and grouped data, the median of raw and grouped data with the continuous-boundary warning, the mode of grouped data, the median condition F(m) = 1/2 for a random variable, the two deviation identities (squares minimised at the mean, absolute values at the median), population against sample variance, the effect of y = ax + b, the combined mean and the combined variance"
+    },
+    {
+      "kind": "lecture-transcript",
+      "title": "Mean, Median and Mode in Tamil - continuous (grouped) data",
+      "channel": "YouTube lecture in Tamil (auto-captions read through a transcript page)",
+      "url": "https://www.youtube.com/watch?v=b2pvhf8UKdA",
+      "language": "ta",
+      "transcript": "PARTIAL",
+      "translated": true,
+      "note": "Tamil-language lecture whose auto-caption transcript was read from its opening to the mode computation; used only for its one worked grouped table (classes 0-10 to 40-50 with frequencies 12, 18, 20, 25, 23), and every number it produces is recomputed in scripts/validate.py before it appears on a card"
+    },
+    {
+      "kind": "lecture-transcript",
+      "title": "Lec 4, Central Tendency and Dispersion - I",
+      "channel": "IIT Roorkee (NPTEL-style lecture series, July 2018)",
+      "url": "https://pickscribe.com/v/1MiT06JFNo4/",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read through a third-party transcript page, from the opening to the weighted-average example; the later part (median position, grouped median and mode, percentiles, deviations summing to zero, mean absolute deviation, variance and the two reasons for squaring) was read through the search service's longer extract of the same transcript"
+    },
+    {
+      "kind": "text",
+      "title": "Sankhyiki (statistics): NCERT class 11 mathematics, chapter 13 - notes and summary",
+      "channel": "NCERT Hindi (ncerthindi.com)",
+      "url": "https://ncerthindi.com/ncert-books/class-11/mathematics/statistics",
+      "language": "hi",
+      "transcript": "PARTIAL",
+      "translated": true,
+      "note": "Hindi-language page read in full; every statement taken from it is rendered in English and the two cards that use it say so. It gives the chapter's ladder from central tendency to dispersion, the statement that a measure of centre alone hides the spread, range and mean deviation as cruder measures, variance as the mean of the squared deviations with the standard deviation as its positive root, and the step-deviation method for grouped data"
+    }
+  ],
+  "sourceLine": "The median-class and modal-class formulas with the continuous-boundary warning, and the standard deviation of a grouped table: the IAE Academy GATE formula sheet (English). The worked table with N = 98: a Tamil-language lecture (translated; every value recomputed here). The step-deviation method and the grouped standard deviation: the NCERT class 11 chapter 13 summary in Hindi (translated).",
+  "videoRefs": []
+}

@@ -1,0 +1,15 @@
+{
+  "id": "gate-2017-set1-19-median-of-max-x-zero",
+  "year": "2017",
+  "paper": "GATE CS 2017 Set 1",
+  "question_ref": "Q.19",
+  "type": "NAT",
+  "topic": "median-and-mode-of-a-random-variable",
+  "text": "Let X be a Gaussian random variable with mean 0 and variance sigma^2. Let Y = max(X, 0) where max(a, b) is the maximum of a and b. The median of Y is ____.",
+  "answer": "0",
+  "solution": "X is symmetric about 0, so P(X <= 0) = 1/2. For every outcome with X <= 0 we have Y = 0, so P(Y = 0) = 1/2, hence P(Y <= 0) = 1/2 and P(Y >= 0) = 1. Both halves of the median condition hold at m = 0, so 0 is a median. For m > 0, P(Y >= m) = P(X >= m) < 1/2, and for m < 0, P(Y <= m) = 0, so no other value qualifies.",
+  "source_url": "https://gateoverflow.in/118299/gate-cse-2017-set-1-question-19",
+  "source_label": "GATE Overflow question page - GATE CSE 2017 Set 1 Question 19, with community solutions and an accepted answer",
+  "verification": "SOURCED",
+  "answer_evidence": "GATE Overflow's subject page for GATE CSE 2017 Set 1 lists this question as the paper's one-mark probability question, numbered 19, and its accepted answers reach 0. GATE Overflow Volume 1 chapter 7 numbers it Q.19 under Normal Distribution. Numbering differs across sites: a duplicate GATE Overflow page numbers it 37 and one solution site labels it 'Probability Question 30', so the reference here follows GATE Overflow's subject page and the paper table."
+}

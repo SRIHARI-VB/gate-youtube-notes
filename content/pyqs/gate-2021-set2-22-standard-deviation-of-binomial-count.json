@@ -1,0 +1,15 @@
+{
+  "id": "gate-2021-set2-22-standard-deviation-of-binomial-count",
+  "year": "2021",
+  "paper": "GATE CS 2021 Set 2",
+  "question_ref": "Q.22",
+  "type": "NAT",
+  "topic": "standard-deviation-of-a-count",
+  "text": "For a given biased coin, the probability that the outcome of a toss is a head is 0.4. This coin is tossed 1,000 times. Let X denote the random variable whose value is the number of times that head appeared in these 1,000 tosses. The standard deviation of X (rounded to 2 decimal places) is _____.",
+  "answer": "15.49 (accepted range 15.00 to 16.00)",
+  "solution": "The tosses are independent with a constant success probability, so X is binomial with n = 1000 and p = 0.4. Var(X) = n*p*(1-p) = 1000*0.4*0.6 = 240 and the standard deviation is sqrt(240) = 15.4919, which rounds to 15.49. Two nearby wrong answers are 240 (the variance) and 20 (sqrt(n*p), which drops the factor 1-p).",
+  "source_url": "https://gateoverflow.in/357518/gate-cse-2021-set-2-question-22",
+  "source_label": "GATE Overflow question page - GATE CSE 2021 Set 2 Q.22, with community solutions and an accepted answer",
+  "verification": "SOURCED",
+  "answer_evidence": "GATE Overflow's accepted answer computes 240 and sqrt(240) = 15.49 and records the accepted range 15.00 to 16.00. An independent worked solution page records the official answer as 15.49 with a tolerance of 0.5."
+}

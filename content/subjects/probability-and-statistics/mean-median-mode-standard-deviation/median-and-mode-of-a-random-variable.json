@@ -1,0 +1,94 @@
+{
+  "id": "median-and-mode-of-a-random-variable",
+  "title": "The Median and the Mode of a Random Variable",
+  "priority": "P2",
+  "order": 321,
+  "unit": "Mean, Median, Mode and Standard Deviation",
+  "quickIdea": "For a random variable the median is any m with P(X <= m) >= 1/2 and P(X >= m) >= 1/2, and the mode is where the mass or density peaks; neither need be unique, and neither need equal the mean.",
+  "remember": [
+    "m is a median when P(X <= m) >= 1/2 and P(X >= m) >= 1/2. For a continuous variable with a strictly increasing CDF this reduces to F(m) = 1/2.",
+    "A median need not be unique. For X uniform on {1, 2, 3, 4, 5, 6} both 3 and 4 qualify, and every point of [3, 4] does for the continuous analogue.",
+    "The mode is the argmax of the mass function or of the density. A distribution can be bimodal, and a discrete one can have several modes.",
+    "The three summaries differ in general. An exponential variable with rate lambda has mean 1/lambda, median (ln 2)/lambda = 0.693/lambda and mode 0, so the median sits below the mean for a right-skewed density.",
+    "A single point carrying half the probability settles the median at once: for X normal with mean 0 and Y = max(X, 0), P(Y = 0) = 1/2, so 0 is a median of Y even though Y takes no value below 0.",
+    "For a symmetric unimodal distribution the three coincide at the centre of symmetry, which is why the normal is the one family where you never have to choose.",
+    "The mean of a random variable is E[X], covered on the Expectation and Linearity card; this card is about the two summaries that are not expectations."
+  ],
+  "example": {
+    "prompt": "X is exponential with rate lambda = 2. Find its mean, median and mode.",
+    "work": "Mean = 1/2 = 0.5. Median: solve 1 - exp(-2m) = 1/2, so exp(-2m) = 1/2 and m = ln(2)/2 = 0.3466. Mode: the density 2*exp(-2x) is decreasing on x >= 0, so its maximum is at x = 0.",
+    "answer": "Mean 0.5, median 0.3466, mode 0."
+  },
+  "gateAngle": "GATE CSE 2017 Set 1 Q.19 asks for the median of max(X, 0) when X is Gaussian with mean 0, and the answer is 0 because half the probability collapses onto the value 0. Reading the definition rather than reaching for the mean is the whole question.",
+  "variations": [
+    {
+      "label": "VERIFIED PYQ",
+      "question": "GATE CSE 2017 Set 1 Q.19: X is Gaussian with mean 0 and variance sigma^2, and Y = max(X, 0). The median of Y is ______.",
+      "answer": "0.",
+      "why": "P(X <= 0) = 1/2, and for X <= 0 we get Y = 0, so P(Y = 0) = 1/2. Hence P(Y <= 0) = 1/2 and P(Y >= 0) = 1. For any m > 0, P(Y >= m) = P(X >= m) < 1/2, so no positive m is a median."
+    },
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "X is uniform on {1, 2, 3, 4}. Show that the median is not unique and give the set of medians.",
+      "answer": "Every m in [2, 3] is a median.",
+      "why": "At m = 2: P(X <= 2) = 1/2 and P(X >= 2) = 3/4. At m = 3: P(X <= 3) = 3/4 and P(X >= 3) = 1/2. For m strictly between 2 and 3 the two conditions read 1/2 >= 1/2 and 1/2 >= 1/2, so they hold too."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "X is exponential with rate 3. Which is smaller, its mean or its median, and by what factor?",
+      "answer": "The median, by the factor ln 2 = 0.6931.",
+      "why": "The mean is 1/3 and the median is ln(2)/3, so the ratio is ln 2 regardless of the rate. The same ratio holds for every exponential, which is a useful sanity check on a computed median."
+    }
+  ],
+  "trap": {
+    "what": "Assuming the median of a discrete variable is unique, or computing it as the average of two middle values without checking the two probability conditions.",
+    "why": "The two-condition definition is the definition; the average of two middle values is a shortcut that only works for a data set of equally weighted points. A point mass breaks it.",
+    "counterexample": "For X uniform on {1, 2, 3, 4} both 2 and 3 satisfy the definition, and so does every number between them. Reporting 'the median is 2.5' is a choice, not a consequence."
+  },
+  "check": {
+    "question": "X is uniform on {1, 2, 3, 4}. Verify that 3 is a median.",
+    "answer": "P(X <= 3) = 3/4 >= 1/2 and P(X >= 3) = 1/2 >= 1/2, so 3 is a median.",
+    "explanation": "Both halves of the definition must be checked. The first says at most half the mass is strictly above 3, the second says at most half is strictly below it, and both hold."
+  },
+  "pyqIds": [
+    "gate-2017-set1-19-median-of-max-x-zero"
+  ],
+  "prereqs": [
+    "probability-distribution-and-cdf",
+    "median-and-its-position"
+  ],
+  "sources": [
+    {
+      "kind": "text",
+      "title": "Descriptive statistics formulas (GATE-oriented formula sheet)",
+      "channel": "IAE Academy",
+      "url": "https://iaeacademy.in/study/probability-statistics/formula-sheet/descriptive-statistics",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read in full through the search service's extract: the arithmetic mean of raw and grouped data, the median of raw and grouped data with the continuous-boundary warning, the mode of grouped data, the median condition F(m) = 1/2 for a random variable, the two deviation identities (squares minimised at the mean, absolute values at the median), population against sample variance, the effect of y = ax + b, the combined mean and the combined variance"
+    },
+    {
+      "kind": "text",
+      "title": "Introductory Statistics 2e, section 2.6: Skewness and the Mean, Median, and Mode",
+      "channel": "OpenStax (Rice University)",
+      "url": "https://openstax.org/books/introductory-statistics-2e/pages/2-6-skewness-and-the-mean-median-and-mode",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read from the opening: the symmetrical histogram whose mean, median and mode are all seven, the bimodal case where the modes differ from the mean, and the two skewed histograms with the mean pulled toward the tail"
+    },
+    {
+      "kind": "pyq-compilation",
+      "title": "GATE Overflow for GATE CSE, Volume 1 - Engineering Mathematics: Probability, chapter 7",
+      "channel": "GATE Overflow (GO-PDFs release, gatecse-2026)",
+      "url": "https://github.com/GATEOverflow/GO-PDFs/releases/tag/gatecse-2026",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read as a text layer across the chapter: used for the question numbering and the classification of every GATE CSE probability question from 1987 to 2026, which is how the five PYQs of this topic were found and how the General Aptitude and other-branch questions were told apart from CSE engineering-mathematics ones"
+    }
+  ],
+  "sourceLine": "The two-condition median definition, the F(m) = 1/2 continuous case and the exponential example: the IAE Academy GATE formula sheet (English). The symmetric case where the three coincide: OpenStax Introductory Statistics 2e section 2.6 (English). The question and its numbering: GATE Overflow Volume 1 chapter 7 and the GATE Overflow question page (English).",
+  "videoRefs": []
+}

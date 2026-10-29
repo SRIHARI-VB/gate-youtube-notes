@@ -1,0 +1,101 @@
+{
+  "id": "variance-and-standard-deviation-of-data",
+  "title": "Variance and Standard Deviation of a Data Set",
+  "priority": "P1",
+  "order": 318,
+  "unit": "Mean, Median, Mode and Standard Deviation",
+  "quickIdea": "Variance is the average squared deviation from the mean and the standard deviation is its square root, so the standard deviation is in the same units as the data.",
+  "remember": [
+    "Population form: sigma^2 = (1/N) sum (x - mu)^2, which equals (1/N) sum x^2 - mu^2. Sample form: s^2 = (1/(n-1)) sum (x - x-bar)^2.",
+    "The divisor n-1 makes s^2 an unbiased estimator of the population variance; for the whole population the divisor is N. State which one you used.",
+    "The shortcut sigma^2 = mean of the squares minus the square of the mean is the only version worth computing by hand, and it is the one that catches arithmetic slips because a negative variance is impossible.",
+    "Standard deviation = positive square root of the variance, always >= 0, and equal to 0 exactly when every value is the same.",
+    "The standard deviation carries the units of the data; the variance carries squared units. Comparing a variance with a mean, or adding them, is a units error.",
+    "The standard deviation is a root-mean-square distance, not a distance: individual values may lie much further from the mean than one standard deviation.",
+    "The standard deviation of a data set is the standard deviation of the random variable that picks a value uniformly from it, which is why the earlier topic's Var(X) card and this one agree once the divisor matches."
+  ],
+  "example": {
+    "prompt": "Find the population and sample standard deviations of 2, 4, 4, 4, 5, 5, 7, 9.",
+    "work": "The sum is 40 over 8 values, so the mean is 5. Deviations are -3, -1, -1, -1, 0, 0, 2, 4, whose squares sum to 9 + 1 + 1 + 1 + 0 + 0 + 4 + 16 = 32. Population variance = 32/8 = 4 and the standard deviation is 2. Sample variance = 32/7 = 4.5714 and s = 2.1381.",
+    "answer": "Population standard deviation 2; sample standard deviation 2.1381."
+  },
+  "gateAngle": "GATE CSE 2021 Set 2 Q.22 asks for the standard deviation of a binomial count, which is the same root of an average of squared deviations applied to a distribution (card 10). No CSE engineering-mathematics question in this topic asks for the standard deviation of a raw list.",
+  "variations": [
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "The data 2, 4, 4, 4, 5, 5, 7, 9 has population standard deviation 2. What is its sample standard deviation, and why are they different?",
+      "answer": "2.1381, because the sample form divides by n-1 = 7 instead of n = 8.",
+      "why": "The relation is s^2 = (n/(n-1)) * sigma^2 = (8/7)*4 = 4.5714, so s = 2.1381. Dividing by n-1 inflates the value to correct the downward bias of the divisor-n estimate."
+    },
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "Find the population standard deviation of 1, 2, 3, 4, 5.",
+      "answer": "1.4142.",
+      "why": "The mean is 3, the squared deviations are 4, 1, 0, 1, 4 summing to 10, so the variance is 10/5 = 2 and the standard deviation is the square root of 2."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "A list has variance 25. Every value is increased by 40. What are the new variance and standard deviation?",
+      "answer": "Variance 25 and standard deviation 5, both unchanged.",
+      "why": "Deviations are measured from the mean, and the mean moved by the same 40, so every deviation is identical to what it was. A shift cannot change a spread."
+    }
+  ],
+  "trap": {
+    "what": "Dividing by n-1 when the numbers are the whole population, or forgetting the square root and reporting a variance as a standard deviation.",
+    "why": "The two divisors answer different questions, and the square root is what restores the data's units. Reporting 240 for a quantity whose standard deviation is 15.49 is an order-of-magnitude answer, not a rounding slip.",
+    "counterexample": "For 2, 4, 4, 4, 5, 5, 7, 9 the population variance is 4 and the standard deviation is 2; the sample variance is 4.5714 and the sample standard deviation is 2.1381. All four numbers are correct answers to four different questions."
+  },
+  "check": {
+    "question": "Find the population standard deviation of 1, 2, 3, 4, 5.",
+    "answer": "1.4142, the square root of 2.",
+    "explanation": "The mean is 3 and the squared deviations are 4, 1, 0, 1 and 4, summing to 10. The variance is 10/5 = 2 and the standard deviation is sqrt(2) = 1.4142."
+  },
+  "pyqIds": [],
+  "prereqs": [
+    "mean-of-a-data-set"
+  ],
+  "sources": [
+    {
+      "kind": "text",
+      "title": "Introductory Statistics 2e, section 2.7: Measures of the Spread of the Data",
+      "channel": "OpenStax (Rice University)",
+      "url": "https://openstax.org/books/introductory-statistics-2e/pages/2-7-measures-of-the-spread-of-the-data",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read from the opening through the two standard-deviation formulas: the sample divisor n - 1 and the population divisor N, with the frequency forms, and the statement that the standard deviation is always positive or zero"
+    },
+    {
+      "kind": "text",
+      "title": "Descriptive statistics formulas (GATE-oriented formula sheet)",
+      "channel": "IAE Academy",
+      "url": "https://iaeacademy.in/study/probability-statistics/formula-sheet/descriptive-statistics",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read in full through the search service's extract: the arithmetic mean of raw and grouped data, the median of raw and grouped data with the continuous-boundary warning, the mode of grouped data, the median condition F(m) = 1/2 for a random variable, the two deviation identities (squares minimised at the mean, absolute values at the median), population against sample variance, the effect of y = ax + b, the combined mean and the combined variance"
+    },
+    {
+      "kind": "text",
+      "title": "Sankhyiki (statistics): NCERT class 11 mathematics, chapter 13 - notes and summary",
+      "channel": "NCERT Hindi (ncerthindi.com)",
+      "url": "https://ncerthindi.com/ncert-books/class-11/mathematics/statistics",
+      "language": "hi",
+      "transcript": "PARTIAL",
+      "translated": true,
+      "note": "Hindi-language page read in full; every statement taken from it is rendered in English and the two cards that use it say so. It gives the chapter's ladder from central tendency to dispersion, the statement that a measure of centre alone hides the spread, range and mean deviation as cruder measures, variance as the mean of the squared deviations with the standard deviation as its positive root, and the step-deviation method for grouped data"
+    },
+    {
+      "kind": "lecture-transcript",
+      "title": "Lec 4, Central Tendency and Dispersion - I",
+      "channel": "IIT Roorkee (NPTEL-style lecture series, July 2018)",
+      "url": "https://pickscribe.com/v/1MiT06JFNo4/",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read through a third-party transcript page, from the opening to the weighted-average example; the later part (median position, grouped median and mode, percentiles, deviations summing to zero, mean absolute deviation, variance and the two reasons for squaring) was read through the search service's longer extract of the same transcript"
+    }
+  ],
+  "sourceLine": "The two divisors, the frequency forms and the statement that the standard deviation is positive or zero: OpenStax Introductory Statistics 2e section 2.7 (English). The shortcut form and the population against sample relation: the IAE Academy GATE formula sheet (English). Variance as the mean of the squared deviations with the standard deviation as its positive root, and why dispersion is needed at all: the NCERT class 11 chapter 13 summary in Hindi (translated).",
+  "videoRefs": []
+}

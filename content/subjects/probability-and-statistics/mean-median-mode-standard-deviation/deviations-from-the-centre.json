@@ -1,0 +1,92 @@
+{
+  "id": "deviations-from-the-centre",
+  "title": "Why Squaring Gives the Mean and Absolute Values Give the Median",
+  "priority": "P2",
+  "order": 320,
+  "unit": "Mean, Median, Mode and Standard Deviation",
+  "quickIdea": "Signed deviations from the mean always cancel; the sum of squared deviations is smallest at the mean and the sum of absolute deviations is smallest at the median, which is why the two summaries behave so differently.",
+  "remember": [
+    "sum(x - x-bar) = 0 for every data set. The signed deviations cannot tell you anything about spread, which is the first reason for squaring.",
+    "sum(x - c)^2 = sum(x - x-bar)^2 + n(x-bar - c)^2, so the sum of squared deviations is smallest at c = x-bar and strictly larger anywhere else.",
+    "sum|x - c| is smallest at c = the median, and for even n at every c between the two middle values.",
+    "Those two minimisations are the modern definitions of the mean and the median, and they explain the robustness gap: a square punishes a far value much harder than an absolute value does.",
+    "Squaring is done for two stated reasons - to remove the sign and to penalise large deviations more - and both are in the standard treatment.",
+    "The mean absolute deviation cannot be manipulated algebraically the way the variance can, which is why the standard deviation, not the mean absolute deviation, is what later theory uses.",
+    "Neither minimisation depends on the data being symmetric, so both facts hold for any list."
+  ],
+  "example": {
+    "prompt": "For the data 1, 2, 3, 10, compare the sum of squared deviations at the mean and at 3, and the sum of absolute deviations at the mean and at the median.",
+    "work": "The mean is 4. Squared deviations from 4 are 9, 4, 1, 36, summing to 50; from 3 they are 4, 1, 0, 49, summing to 54, which is larger. The median is (2+3)/2 = 2.5. Absolute deviations from 2.5 are 1.5, 0.5, 0.5, 7.5, summing to 10; from the mean 4 they are 3, 2, 1, 6, summing to 12, which is larger.",
+    "answer": "Squares: 50 at the mean against 54 at 3. Absolute values: 10 at the median against 12 at the mean."
+  },
+  "gateAngle": "No GATE CSE question in this topic asks for these minimisations directly, but they are what makes the multiple-choice options about 'which measure of centre is best' decidable, and they are the reason the median is preferred on skewed data.",
+  "variations": [
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Which single number c minimises the sum of squared deviations of 1, 2, 3, 10, and which minimises the sum of absolute deviations?",
+      "answer": "The mean 4 minimises the squares; the median 2.5 minimises the absolute values.",
+      "why": "The identity sum(x-c)^2 = sum(x-x-bar)^2 + n(x-bar-c)^2 has its only zero of the second term at c = x-bar. The absolute-value sum is flat between the two middle values for even n and is smallest there."
+    },
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "For the data 4, 6, 8, 10, find the sum of squared deviations from the mean and from 6.",
+      "answer": "20 from the mean 7, and 24 from 6.",
+      "why": "The mean is 7, and the deviations -3, -1, 1, 3 square to 9, 1, 1, 9, summing to 20. From 6 the deviations are -2, 0, 2, 4, which square to 4, 0, 4, 16 and sum to 24. The mean gives the smaller value, which is the minimisation at work."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "The data is 1, 2, 9, 10. For which values of c is the sum of absolute deviations smallest?",
+      "answer": "For every c between 2 and 9, so the minimiser is not unique.",
+      "why": "With n = 4 the median is the whole interval between the two middle values. Any c in [2, 9] gives the same sum, 16, which is the point most candidates miss when they assume a unique answer."
+    }
+  ],
+  "trap": {
+    "what": "Claiming the mean minimises the sum of absolute deviations, or that the median minimises the sum of squares.",
+    "why": "The two centres are the minimisers of two different objectives. Swapping them is a conceptual error that no amount of arithmetic fixes.",
+    "counterexample": "For 1, 2, 3, 10 the sum of absolute deviations at the mean 4 is 12, while at the median 2.5 it is 10; and the sum of squared deviations at the median is 2.25 + 0.25 + 0.25 + 56.25 = 59, larger than the 50 obtained at the mean."
+  },
+  "check": {
+    "question": "For 1, 2, 3, 10, is 50 the smallest possible sum of squared deviations over all choices of c?",
+    "answer": "Yes, and it is attained only at c = 4, the mean.",
+    "explanation": "The identity sum(x-c)^2 = 50 + 4(4-c)^2 makes the value 50 plus a non-negative term, so 50 is the minimum and it is attained only when c = 4."
+  },
+  "pyqIds": [],
+  "prereqs": [
+    "mean-of-a-data-set",
+    "median-and-its-position"
+  ],
+  "sources": [
+    {
+      "kind": "text",
+      "title": "Descriptive statistics formulas (GATE-oriented formula sheet)",
+      "channel": "IAE Academy",
+      "url": "https://iaeacademy.in/study/probability-statistics/formula-sheet/descriptive-statistics",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read in full through the search service's extract: the arithmetic mean of raw and grouped data, the median of raw and grouped data with the continuous-boundary warning, the mode of grouped data, the median condition F(m) = 1/2 for a random variable, the two deviation identities (squares minimised at the mean, absolute values at the median), population against sample variance, the effect of y = ax + b, the combined mean and the combined variance"
+    },
+    {
+      "kind": "lecture-transcript",
+      "title": "Lec 4, Central Tendency and Dispersion - I",
+      "channel": "IIT Roorkee (NPTEL-style lecture series, July 2018)",
+      "url": "https://pickscribe.com/v/1MiT06JFNo4/",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read through a third-party transcript page, from the opening to the weighted-average example; the later part (median position, grouped median and mode, percentiles, deviations summing to zero, mean absolute deviation, variance and the two reasons for squaring) was read through the search service's longer extract of the same transcript"
+    },
+    {
+      "kind": "text",
+      "title": "Sankhyiki (statistics): NCERT class 11 mathematics, chapter 13 - notes and summary",
+      "channel": "NCERT Hindi (ncerthindi.com)",
+      "url": "https://ncerthindi.com/ncert-books/class-11/mathematics/statistics",
+      "language": "hi",
+      "transcript": "PARTIAL",
+      "translated": true,
+      "note": "Hindi-language page read in full; every statement taken from it is rendered in English and the two cards that use it say so. It gives the chapter's ladder from central tendency to dispersion, the statement that a measure of centre alone hides the spread, range and mean deviation as cruder measures, variance as the mean of the squared deviations with the standard deviation as its positive root, and the step-deviation method for grouped data"
+    }
+  ],
+  "sourceLine": "Both minimisation identities, in the exact form used here: the IAE Academy GATE formula sheet (English). The statement that signed deviations sum to zero, the mean absolute deviation, and the two reasons for squaring: the IIT Roorkee Lecture 4 transcript (English). Why the standard deviation is preferred to the mean deviation: the NCERT class 11 chapter 13 summary in Hindi (translated).",
+  "videoRefs": []
+}

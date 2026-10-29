@@ -1,0 +1,93 @@
+{
+  "id": "mean-median-mode-relation-and-skewness",
+  "title": "How Mean, Median and Mode Sit Together",
+  "priority": "P2",
+  "order": 316,
+  "unit": "Mean, Median, Mode and Standard Deviation",
+  "quickIdea": "In a symmetric unimodal distribution all three coincide; a long right tail puts the mean above the median, a long left tail puts it below, and the empirical rule mode = 3 median - 2 mean is a summary of that ordering, not an identity.",
+  "remember": [
+    "Symmetric and unimodal: mean = median = mode, all at the centre of symmetry.",
+    "Right-skewed (tail to the right): mean > median > mode. Left-skewed: mean < median < mode. The mean is pulled furthest because it uses the sizes; the median only counts ranks.",
+    "For moderately skewed unimodal data the median lies between the mean and the mode.",
+    "Empirical relation: mode = 3*median - 2*mean, equivalently median = (mode + 2*mean)/3. It is an approximation for moderately skewed unimodal data.",
+    "It is not a theorem and it fails on arbitrary data, so do not use it unless the question says the distribution is moderately skewed or gives you two of the three and nothing else.",
+    "A bimodal distribution breaks the picture entirely: the mean and median can both sit between two modes that are far apart.",
+    "In a perfectly symmetric distribution an odd central moment vanishes, which is why the mean and the median coincide there."
+  ],
+  "example": {
+    "prompt": "A moderately skewed distribution has mean 40 and median 37. Estimate its mode, and say which way it is skewed.",
+    "work": "mode = 3*median - 2*mean = 3*37 - 2*40 = 111 - 80 = 31. The ordering is mode 31 < median 37 < mean 40, so the tail is on the right.",
+    "answer": "Mode about 31, right-skewed."
+  },
+  "gateAngle": "GATE has tested the ordering rather than the formula: a question that gives a skewed histogram and asks which of the three is largest is answered by the tail direction. The formula itself appears in GATE aptitude papers and in ISRO CSE 2014 Q.74 (mode 15, mean 30, median 25), not in a CSE engineering-mathematics question.",
+  "variations": [
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "A histogram of incomes is strongly right-skewed. Which of the mean, median and mode is largest, and which should be quoted as the typical income?",
+      "answer": "The mean is largest; the median is the honest typical value.",
+      "why": "A few very large incomes pull the mean far to the right, and the mode sits at the peak of the mass on the left. Quoting the mean of a skewed income distribution overstates what a typical earner receives."
+    },
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "For a moderately skewed unimodal distribution the mean is 60 and the mode is 48. Find the median.",
+      "answer": "56.",
+      "why": "median = (mode + 2*mean)/3 = (48 + 120)/3 = 168/3 = 56. Check the ordering: 48 < 56 < 60, which is consistent with a right skew, so the answer is self-consistent."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "The data is 15, 15, 15, 75. Apply the empirical relation with mean 30 and mode 15. What does it give, and what is the true median?",
+      "answer": "The relation gives 25; the true median is 15.",
+      "why": "The relation is an approximation for moderately skewed unimodal data, and this list is neither. With n = 4 the median is the average of the middle two values, which are both 15. A question that hands you the formula and a hostile data set is testing whether you notice this."
+    }
+  ],
+  "trap": {
+    "what": "Treating mode = 3 median - 2 mean as an identity that holds for every data set.",
+    "why": "It is an empirical approximation derived for moderately skewed unimodal distributions. Applied blindly it returns a median that is not even a plausible value.",
+    "counterexample": "For 15, 15, 15, 75 the mean is 30 and the mode is 15, so the formula gives median 25, while the actual median is 15 - a ten-mark error from a formula that looked safe."
+  },
+  "check": {
+    "question": "A symmetric unimodal distribution has mean 12. What are its median and mode?",
+    "answer": "Both are 12.",
+    "explanation": "In a symmetric unimodal distribution the three summaries coincide at the centre of symmetry, so the median and the mode both equal the mean."
+  },
+  "pyqIds": [],
+  "prereqs": [
+    "mean-of-a-data-set",
+    "median-and-its-position",
+    "mode-and-multimodality"
+  ],
+  "sources": [
+    {
+      "kind": "text",
+      "title": "Introductory Statistics 2e, section 2.6: Skewness and the Mean, Median, and Mode",
+      "channel": "OpenStax (Rice University)",
+      "url": "https://openstax.org/books/introductory-statistics-2e/pages/2-6-skewness-and-the-mean-median-and-mode",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read from the opening: the symmetrical histogram whose mean, median and mode are all seven, the bimodal case where the modes differ from the mean, and the two skewed histograms with the mean pulled toward the tail"
+    },
+    {
+      "kind": "lecture-transcript",
+      "title": "Lecture 04: Measures of central tendency and dispersion",
+      "channel": "NPTEL, Forest Biometry (IIT Kanpur)",
+      "url": "http://www.digimat.in/nptel/courses/video/102104060/lec4.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read from the opening through the mean and its outlier limitation, the median on the same eleven retirement ages, the mode on the same data and on rating data, the empirical relation median minus mode equals twice mean minus median, and the standard deviation worked example on five dog heights; the later dispersion material was not read"
+    },
+    {
+      "kind": "text",
+      "title": "Probability subject notes (GATE Overflow for GATE CSE Volume 1) - the Statistics section",
+      "channel": "GATE Overflow",
+      "url": "https://gateoverflow.in/subject/mathematics/probability?tab=notes",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read in part through the search service's extract: the Statistics block giving the mean, median and mode as measures of central tendency, variance and standard deviation as measures of dispersion, range as max minus min, and the population against sample variance conventions with the note that the mean is pulled by skew"
+    }
+  ],
+  "sourceLine": "The symmetric case and the tail direction: OpenStax Introductory Statistics 2e section 2.6 (English), which works a symmetrical histogram where all three are seven and two skewed ones. The empirical relation median minus mode equals twice mean minus median, and the caution attached to it: the NPTEL Forest Biometry Lecture 4 transcript (English). The GATE framing: the GATE Overflow statistics notes (English).",
+  "videoRefs": []
+}

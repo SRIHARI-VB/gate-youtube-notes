@@ -1,0 +1,89 @@
+{
+  "id": "median-and-its-position",
+  "title": "The Median and Its Position",
+  "priority": "P1",
+  "order": 314,
+  "unit": "Mean, Median, Mode and Standard Deviation",
+  "quickIdea": "The median is the middle value once the data is sorted: position (n+1)/2 when n is odd, and the average of the two middle values when n is even.",
+  "remember": [
+    "Sort first. The median is a positional measure: it depends on the ranks of the values, not on their sizes.",
+    "Odd n: the median is the value at position (n+1)/2. Even n: the average of the values at positions n/2 and n/2 + 1.",
+    "The median is robust. Replacing the largest value by anything even larger leaves the median unchanged, because the rank of every value is unchanged.",
+    "At most half the data lies strictly above the median and at most half lies strictly below it. That is the defining property, and it is what the random-variable definition generalises.",
+    "For even n the median need not be one of the data values - it is a number between two of them.",
+    "The median minimises the sum of absolute deviations from a point; the mean minimises the sum of squared deviations. The two summaries are answers to two different minimisation problems.",
+    "The median is not the most common value. The most common value is the mode, and in a skewed list the median and the mode are usually different numbers."
+  ],
+  "example": {
+    "prompt": "Find the median of 3, 7, 8, 9, 12, 15.",
+    "work": "The list is already sorted and n = 6 is even, so the two middle positions are 3 and 4, holding 8 and 9. Median = (8 + 9)/2 = 8.5. The mean is 54/6 = 9.",
+    "answer": "Median 8.5, mean 9."
+  },
+  "gateAngle": "No GATE CSE engineering-mathematics question asks for the median of a raw data set on its own; the median enters through the invariance statement of 2011 Q.33 (its index position survives y = ax + b) and through the median of a random variable in 2017 Set 1 Q.19.",
+  "variations": [
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "The list 3, 7, 8, 9, 12, 15 is changed by replacing 15 with 1000. What happens to the mean, the median and the mode?",
+      "answer": "The mean rises from 9 to 173.1667, the median stays at 8.5, and the mode is unchanged because every value still occurs once.",
+      "why": "The new sum is 1039 over 6 values. The middle two values are still 8 and 9. This is the whole argument for reporting a median on skewed data."
+    },
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "Seven students score 1, 2, 2, 3, 4, 5, 5. Find the median and say whether it is one of the scores.",
+      "answer": "The median is 3, which is one of the scores.",
+      "why": "n = 7 is odd, so the position is (7+1)/2 = 4 and the fourth smallest value is 3. With an odd count the median is always a data value; with an even count it need not be."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "A list of nine distinct numbers has median 20. If the smallest three are each decreased by 5, what is the new median?",
+      "answer": "Still 20.",
+      "why": "Changing values that sit below the fifth position does not change which value is fifth, as long as they stay below it, and decreasing them cannot lift them above it. Positional measures survive changes that do not cross the middle."
+    }
+  ],
+  "trap": {
+    "what": "Taking the two middle entries of the unsorted list, or applying the odd-n rule to an even count.",
+    "why": "The median is defined on the ordered list. Reading the middle of the list as written measures nothing at all.",
+    "counterexample": "For 9, 3, 7, 15, 8, 12 the two middle entries as written are 7 and 15, giving 11. Sorted, the list is 3, 7, 8, 9, 12, 15 and the median is (8+9)/2 = 8.5."
+  },
+  "check": {
+    "question": "Find the median of 12, 7, 3, 9, 15, 8, 11.",
+    "answer": "9.",
+    "explanation": "Sorted: 3, 7, 8, 9, 11, 12, 15. n = 7 is odd, so the position is (7+1)/2 = 4 and the fourth value is 9."
+  },
+  "pyqIds": [],
+  "prereqs": [],
+  "sources": [
+    {
+      "kind": "text",
+      "title": "Descriptive statistics formulas (GATE-oriented formula sheet)",
+      "channel": "IAE Academy",
+      "url": "https://iaeacademy.in/study/probability-statistics/formula-sheet/descriptive-statistics",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read in full through the search service's extract: the arithmetic mean of raw and grouped data, the median of raw and grouped data with the continuous-boundary warning, the mode of grouped data, the median condition F(m) = 1/2 for a random variable, the two deviation identities (squares minimised at the mean, absolute values at the median), population against sample variance, the effect of y = ax + b, the combined mean and the combined variance"
+    },
+    {
+      "kind": "lecture-transcript",
+      "title": "Lecture 04: Measures of central tendency and dispersion",
+      "channel": "NPTEL, Forest Biometry (IIT Kanpur)",
+      "url": "http://www.digimat.in/nptel/courses/video/102104060/lec4.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read from the opening through the mean and its outlier limitation, the median on the same eleven retirement ages, the mode on the same data and on rating data, the empirical relation median minus mode equals twice mean minus median, and the standard deviation worked example on five dog heights; the later dispersion material was not read"
+    },
+    {
+      "kind": "text",
+      "title": "Probability subject notes (GATE Overflow for GATE CSE Volume 1) - the Statistics section",
+      "channel": "GATE Overflow",
+      "url": "https://gateoverflow.in/subject/mathematics/probability?tab=notes",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read in part through the search service's extract: the Statistics block giving the mean, median and mode as measures of central tendency, variance and standard deviation as measures of dispersion, range as max minus min, and the population against sample variance conventions with the note that the mean is pulled by skew"
+    }
+  ],
+  "sourceLine": "The (n+1)/2 position rule, the even-n average and the robustness argument: the IAE Academy GATE formula sheet (English), the NPTEL Forest Biometry Lecture 4 transcript (English, which works the retirement-age example where adding a 20 moves the mean far and the median by half a year) and the GATE Overflow statistics notes (English).",
+  "videoRefs": []
+}

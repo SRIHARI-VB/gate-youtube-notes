@@ -1489,3 +1489,119 @@ The cycle pointer now sits on `probability-and-statistics/random-variables-and-d
 syllabus order is `probability-and-statistics/mean-median-mode-standard-deviation`, which is `not_started`; the
 questions deliberately left for it are GATE CSE 2024 Set 2 Q.8 (the standard deviation of a binomial count) and
 2017 Set 1 Q.37 (the median of max(X, 0)).
+
+## Run 9 - Mean, Median, Mode and Standard Deviation (2026-10-30)
+
+### The topic, and why it was next
+
+**Probability and Statistics > Mean, Median, Mode and Standard Deviation**
+(`mean-median-mode-standard-deviation`), the second topic of the GATE 2027 Probability and Statistics line:
+*"Random variables. Uniform, normal, exponential, Poisson and binomial distributions. Mean, median, mode and
+standard deviation. Conditional probability and Bayes theorem."*
+
+The cycle pointer was left by the previous run on
+`probability-and-statistics/random-variables-and-distributions`. The first topic strictly after it in the
+enumerated syllabus order whose status is not `covered` is this one, which was `not_started`. Nothing was
+skipped: no topic sits between the pointer and this one, and no topic is `blocked`. The sixteen `partial`
+topics earlier in the cycle were not touched, because the cycle takes its second pass over `partial` topics
+only after a full pass finds no `not_started` topic left.
+
+### Subtopics enumerated before any source was chosen
+
+The arithmetic mean of a data set, the weighted mean and the mean of a grouped frequency table with the mean
+as the balance point; the median with the (n+1)/2 position rule for odd n and the average of the two middle
+values for even n, and its robustness to outliers; the mode, ties and bimodality, and the mode as the only
+summary available for non-numeric data; how the mean, the median and the mode sit together in symmetric and
+skewed unimodal distributions, with the empirical relation mode = 3 median - 2 mean; the grouped-table
+formulas with class midpoints, the median class and the modal class and the continuous-boundary warning; the
+variance and standard deviation of a data set with the divisor N against n - 1 and the shortcut form; what a
+shift and a scale do to all four summaries; signed deviations, the minimisation of squared deviations at the
+mean and of absolute deviations at the median, and why squaring is used; the median and the mode of a random
+variable with the two-condition definition and its non-uniqueness; the standard deviation of a binomial and a
+Poisson count; the effect of one changed observation and the combination of two groups, with the combined
+mean and the combined variance; and choosing which summary to quote, with the units of variance against
+standard deviation and the coefficient of variation. Twelve subtopics, twelve cards.
+
+### Sources chosen, on merit
+
+Eight sources, six of them readable this run, across three languages:
+
+- **IAE Academy, "Descriptive statistics formulas"** (English, read in full through the search service's
+  extract). A GATE-oriented formula sheet and the only readable written source that states both deviation
+  minimisation identities, the grouped median and mode with the boundary warning, and the combined variance
+  with its between-group term. Every formula was recomputed before a card used it.
+- **IIT Roorkee Lecture 4, "Central Tendency and Dispersion - I"** (English, read through a transcript page).
+  The only lecture this run whose teaching sequence could be followed, and the source of the weighted mean,
+  the skew-based choice of centre, the signed-deviations identity and the two stated reasons for squaring.
+- **NPTEL Forest Biometry Lecture 04, IIT Kanpur** (English, read in part). A second course and a second
+  lecturer, chosen because it analyses one data set with all three summaries side by side and states the
+  empirical relation with its caution.
+- **OpenStax Introductory Statistics 2e, sections 2.6 and 2.7** (English, read in part). A standard text
+  independent of both lecture courses, for the skew direction and the two divisors.
+- **NCERT class 11 chapter 13, Hindi summary** (translated). The only readable non-English written source,
+  and the one that supplies the argument for why dispersion is needed at all.
+- **A Tamil lecture on grouped data** (translated). The only Tamil source whose transcript could be read, and
+  the source of the one fully worked grouped table - mean 27.96, median 29.5, mode 37.14 - all three
+  recomputed here before use.
+- **GATE Overflow Volume 1, chapter 7** and the **GATE Overflow probability notes**. The index that made the
+  PYQ search systematic: chapter 7 lists only two CSE questions under Statistics, which is why four of this
+  topic's five PYQs sit under other headings in the same chapter.
+
+Rejected, with reasons in `sources.json`: the Unacademy Hindi lesson that matches this topic exactly
+(paywalled, no transcript), the NPTEL IIT Kharagpur probability course used for the previous topic (403 on
+every transcript URL this run), a Khan Academy Hindi lesson (client challenge), a Knowledge Gate AI
+grouped-data asset (snippet only, AI-generated), the GATE CSE 2012 Q.64 General Aptitude question, ISRO CSE
+2014 Q.74, the GATE DA and DS&AI statistics questions, GATE CSE 2024 Set 2 Q.8, GATE CSE 2011 Q.18, MIT OCW
+18.05 and 6.041SC, and the EduRev course mirror.
+
+### What was created
+
+Twelve cards, five verified PYQs and one p5.js lesson
+(`visuals/probability-and-statistics/mean-median-mode-standard-deviation/mean-median-and-spread`), which
+follows one data set - 2, 3, 3, 4, 9 - through the balance point, the root-mean-square reading, the median
+and mode markers, one outlier, a shift and a doubling.
+
+The five PYQs: GATE CSE 2011 Q.33 (mean, median and mode invariant under y = ax + b while the standard
+deviation is only scaled), 2014 Set 2 Q.2 (an expected word length as the mean of nine lengths), 2017 Set 1
+Q.19 (the median of max(X, 0)), 2021 Set 2 Q.22 (the standard deviation of a binomial count) and 2024 Set 2
+Q.44 (the mean of a product is bounded by the mean). All five are `SOURCED`.
+
+`check_mean_median_mode()` was added to `scripts/validate.py` and recomputes every published number in exact
+rational arithmetic: the weighted and grouped means, the median positions, the modes, both minimisations,
+both divisors, the shift and scale identities, the random-variable medians, the binomial and Poisson spreads,
+the combined variance, all five PYQ computations and the four versions of the lesson's data set.
+
+### A correction carried into this run
+
+The previous run's report and the ledger both described GATE CSE 2024 Set 2 Q.8 as "the standard deviation of
+a binomial count". It is not: Q.8 asks for the probability that six dice show all distinct numbers, 5/324.
+The standard-deviation-of-a-binomial-count question is GATE CSE 2021 Set 2 Q.22, and it is recorded here. The
+ledger entry for `random-variables-and-distributions` now says so; the previous run's report is left as it was
+written, with this note as the correction.
+
+### Gaps (the topic stays `partial`)
+
+1. No YouTube caption track was readable: every watch page carried no `captionTracks` entry, so both lectures
+   used were read through third-party transcript pages, no card quotes a lecturer's sentence, and `videoRefs`
+   is empty on all twelve cards.
+2. The IIT Roorkee transcript page served only its opening; its later half is recorded from the search
+   service's longer extract, so the source is `PARTIAL` rather than read end to end.
+3. Every digimat NPTEL URL for the IIT Kharagpur probability course answered 403, so its descriptive-statistics
+   lectures were not read.
+4. Seven of the twelve cards carry no PYQ of their own, because no verified CSE question in this topic is
+   decided by them alone.
+5. GATE CSE 2012 Q.64, the closest CSE-paper test of the shift-and-scale identities, is a General Aptitude
+   question and is excluded; its content appears only as an original question.
+6. ISRO CSE 2014 Q.74 is not a GATE question, although one site labels it "GATE CSE 2014 Q.31".
+7. No marks field on any PYQ, and all five are `SOURCED` rather than key-verified: no official paper or key
+   was fetched.
+8. GATE CSE 2024 Set 2 Q.44 sits on the boundary with Random Variables and is recorded once, here.
+9. Quartiles, percentiles, the mean absolute deviation, the harmonic and geometric means and the coefficient
+   of variation beyond one contrast card have no card of their own.
+10. The grouped-data formulas rest on one formula sheet and one Tamil lecture, with no readable English
+    lecture teaching them.
+
+### Next
+
+The cycle pointer now sits on `probability-and-statistics/mean-median-mode-standard-deviation`. The next topic
+in syllabus order is `probability-and-statistics/conditional-probability-and-bayes`, which is `not_started`.

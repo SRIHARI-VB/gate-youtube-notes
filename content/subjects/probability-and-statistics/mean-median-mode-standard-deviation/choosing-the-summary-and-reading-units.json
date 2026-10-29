@@ -1,0 +1,93 @@
+{
+  "id": "choosing-the-summary-and-reading-units",
+  "title": "Which Summary to Quote, and What the Units Are",
+  "priority": "P3",
+  "order": 324,
+  "unit": "Mean, Median, Mode and Standard Deviation",
+  "quickIdea": "Mean for symmetric data, median when there are outliers or open-ended classes, mode for categories; and of the four summaries only the standard deviation carries the data's units.",
+  "remember": [
+    "Symmetric data without outliers: the mean, because it uses every value and adds up correctly across groups.",
+    "Skewed data, or data with outliers or open-ended classes ('1000 and above'): the median, because it cannot be dragged and needs no midpoint.",
+    "Categories with no order: the mode, and nothing else - a mean of colours is not a number with a meaning.",
+    "Variance is in squared units, the standard deviation is in the data's units, and the coefficient of variation sd/mean is unitless, which is what makes it the right comparison across different scales.",
+    "The coefficient of variation is defined only for a positive mean, so it is meaningless for data centred on zero.",
+    "The empirical rule - about 68 percent within one standard deviation, 95 within two, 99.7 within three - is a statement about roughly normal data. Applying it to a skewed set is a category error, not a rounding error.",
+    "In an exam, 'average' means the mean unless the data is described as skewed, and 'spread' means the standard deviation unless the variance is named explicitly."
+  ],
+  "example": {
+    "prompt": "Two machines produce parts with mean length 100 mm. Machine A has standard deviation 5 mm and machine B has standard deviation 20 mm. Compare their relative variability.",
+    "work": "CV(A) = 5/100 = 0.05, or 5 percent. CV(B) = 20/100 = 0.20, or 20 percent. The ratio of the standard deviations is 4, and the ratio of the coefficients of variation is also 4 because the means are equal.",
+    "answer": "Machine B is four times as variable relative to its mean; the coefficients of variation are 5 percent and 20 percent."
+  },
+  "gateAngle": "The choice of summary is the first step of every question in this topic and is never tested on its own. Where GATE does test it, it does so inside a skewness or an invariance question, which is why those cards carry the PYQs and this one does not.",
+  "variations": [
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "A grouped table of salaries has a final open class of '200000 and above'. Which of the mean, median and mode can be computed, and which cannot?",
+      "answer": "The median and the mode can; the mean cannot be computed exactly.",
+      "why": "The mean needs a midpoint for every class, and an open class has none. The median needs only the cumulative frequencies and the boundaries, and the mode needs only the frequencies."
+    },
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "A data set has mean 50 and standard deviation 10. What is its coefficient of variation, and what does the number mean?",
+      "answer": "0.20, or 20 percent.",
+      "why": "CV = sd/mean = 10/50 = 0.2. It says the typical distance from the mean is a fifth of the mean, which is a scale-free statement and can be compared with a data set measured in different units."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "A data set is strongly right-skewed with mean 80 and standard deviation 40. A candidate claims about 68 percent of the values lie between 40 and 120. What is wrong?",
+      "answer": "The empirical rule applies to roughly normal data, not to a skewed set.",
+      "why": "With a strong right tail the mass between mean minus one standard deviation and mean plus one standard deviation need not be near 68 percent. The rule is a property of the normal family, and the question has told you the data is not in it."
+    }
+  ],
+  "trap": {
+    "what": "Comparing variances of data sets measured in different units, or applying the empirical rule to a skewed set.",
+    "why": "A variance carries squared units, so two variances are comparable only when the units and the scales match. And the 68/95/99.7 percentages are a property of the normal distribution, not of standard deviations in general.",
+    "counterexample": "A variance of 4 in centimetres squared and a variance of 4 in metres squared describe spreads that differ by a factor of 10000. Comparing them directly says the two data sets are equally variable, which is false."
+  },
+  "check": {
+    "question": "A data set has mean 50 and standard deviation 10. What is its coefficient of variation?",
+    "answer": "0.2, that is 20 percent.",
+    "explanation": "CV = standard deviation / mean = 10/50 = 0.2. It is unitless, so it can be compared with the coefficient of variation of a data set in other units."
+  },
+  "pyqIds": [],
+  "prereqs": [
+    "mean-of-a-data-set",
+    "median-and-its-position",
+    "mode-and-multimodality"
+  ],
+  "sources": [
+    {
+      "kind": "text",
+      "title": "Descriptive statistics formulas (GATE-oriented formula sheet)",
+      "channel": "IAE Academy",
+      "url": "https://iaeacademy.in/study/probability-statistics/formula-sheet/descriptive-statistics",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read in full through the search service's extract: the arithmetic mean of raw and grouped data, the median of raw and grouped data with the continuous-boundary warning, the mode of grouped data, the median condition F(m) = 1/2 for a random variable, the two deviation identities (squares minimised at the mean, absolute values at the median), population against sample variance, the effect of y = ax + b, the combined mean and the combined variance"
+    },
+    {
+      "kind": "text",
+      "title": "Introductory Statistics 2e, section 2.7: Measures of the Spread of the Data",
+      "channel": "OpenStax (Rice University)",
+      "url": "https://openstax.org/books/introductory-statistics-2e/pages/2-7-measures-of-the-spread-of-the-data",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read from the opening through the two standard-deviation formulas: the sample divisor n - 1 and the population divisor N, with the frequency forms, and the statement that the standard deviation is always positive or zero"
+    },
+    {
+      "kind": "text",
+      "title": "Sankhyiki (statistics): NCERT class 11 mathematics, chapter 13 - notes and summary",
+      "channel": "NCERT Hindi (ncerthindi.com)",
+      "url": "https://ncerthindi.com/ncert-books/class-11/mathematics/statistics",
+      "language": "hi",
+      "transcript": "PARTIAL",
+      "translated": true,
+      "note": "Hindi-language page read in full; every statement taken from it is rendered in English and the two cards that use it say so. It gives the chapter's ladder from central tendency to dispersion, the statement that a measure of centre alone hides the spread, range and mean deviation as cruder measures, variance as the mean of the squared deviations with the standard deviation as its positive root, and the step-deviation method for grouped data"
+    }
+  ],
+  "sourceLine": "The coefficient of variation as the unitless comparison and the definition of the population and sample standard deviations: the IAE Academy GATE formula sheet (English) and OpenStax Introductory Statistics 2e section 2.7 (English). Why a measure of centre alone does not describe a distribution: the NCERT class 11 chapter 13 summary in Hindi (translated).",
+  "videoRefs": []
+}

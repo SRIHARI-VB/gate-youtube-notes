@@ -1,0 +1,15 @@
+{
+  "id": "gate-2014-set2-2-expected-word-length-as-mean",
+  "year": "2014",
+  "paper": "GATE CS 2014 Set 2",
+  "question_ref": "Q.2",
+  "type": "NAT",
+  "topic": "mean-of-a-data-set",
+  "text": "Each of the nine words in the sentence \"The quick brown fox jumps over the lazy dog\" is written on a separate piece of paper. These nine pieces of paper are kept in a box. One of the pieces is drawn at random from the box. The expected length of the word drawn is _____. (The answer should be rounded to one decimal place.)",
+  "answer": "3.9 (accepted range 3.8 to 3.9)",
+  "solution": "The nine word lengths are 3, 5, 5, 3, 5, 4, 3, 4, 3. Each word has probability 1/9, so the expected length is the arithmetic mean of the nine lengths: (3+5+5+3+5+4+3+4+3)/9 = 35/9 = 3.8889, which rounds to 3.9. The same number is obtained as 4*(3/9) + 2*(4/9) + 3*(5/9), grouping the four three-letter words, the two four-letter words and the three five-letter words.",
+  "source_url": "https://gateoverflow.in/1954/gate-cse-2014-set-2-question-2",
+  "source_label": "GATE Overflow question page - GATE CSE 2014 Set 2 Q.2, with community solutions and an accepted answer",
+  "verification": "SOURCED",
+  "answer_evidence": "The accepted answer and several others on the page all reach 35/9 = 3.9. An independent worked solution page records the official answer as 3.9 with an accepted range of 3.8 to 3.9, and a second solution site gives 3.9."
+}

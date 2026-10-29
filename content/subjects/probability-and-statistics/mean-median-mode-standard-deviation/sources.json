@@ -1,0 +1,262 @@
+{
+  "subject": "probability-and-statistics",
+  "topic": "mean-median-mode-standard-deviation",
+  "exam": "GATE CSE 2027",
+  "retrieved_at": "2026-10-30",
+  "subtopics": [
+    "the arithmetic mean of a data set, the weighted mean and the mean of a grouped frequency table, and the mean as the balance point",
+    "the median: position (n+1)/2 for odd n, the average of the two middle values for even n, and its robustness to outliers",
+    "the mode, ties and bimodality, and the mode as the only summary available for non-numeric data",
+    "how the mean, median and mode sit together in symmetric and skewed unimodal distributions, and the empirical relation mode = 3 median - 2 mean",
+    "the mean, median and mode of a grouped frequency table: class midpoints, the median class and the modal class with continuous boundaries",
+    "the variance and standard deviation of a data set, the divisor N against n - 1, and the shortcut form",
+    "what a shift and a scale do to the mean, the median, the mode, the variance and the standard deviation",
+    "signed deviations, the minimisation of squared deviations at the mean and of absolute deviations at the median, and why squaring is used",
+    "the median and the mode of a random variable: the two-condition definition, non-uniqueness, and the exponential and normal cases",
+    "the standard deviation of a count: the binomial sqrt(np(1-p)) and the Poisson sqrt(lambda)",
+    "the effect of one changed or added observation, the combined mean of two groups and the combined variance",
+    "choosing which summary to quote, the units of variance against standard deviation, and the coefficient of variation"
+  ],
+  "chosen": [
+    {
+      "id": "iaeacademy-descriptive-statistics-formulas",
+      "kind": "text",
+      "title": "Descriptive statistics formulas",
+      "channel": "IAE Academy (GATE-oriented formula sheet)",
+      "url": "https://iaeacademy.in/study/probability-statistics/formula-sheet/descriptive-statistics",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "covers": [
+        "the arithmetic mean of raw and grouped data",
+        "the median of raw and grouped data, with the continuous-boundary warning",
+        "the mode of grouped data and the modal-class convention",
+        "the two-condition median of a random variable and the F(m) = 1/2 case",
+        "the minimisation of squared deviations at the mean and of absolute deviations at the median",
+        "population against sample variance and standard deviation",
+        "the effect of y = ax + b on the centre and the spread",
+        "the combined mean and the combined variance"
+      ],
+      "why": "The only GATE-oriented written source found this run whose full text could be read, and the only one that states both minimisation identities and the combined-variance between-group term. Every formula on it was checked by recomputation before a card used it, and one of its claims (the sample against population conversion) is the only place the relation s^2 = (n/(n-1))sigma^2 appears in this topic's sources."
+    },
+    {
+      "id": "iit-roorkee-lec4-central-tendency-and-dispersion",
+      "kind": "lecture-transcript",
+      "title": "Lec 4, Central Tendency and Dispersion - I",
+      "channel": "IIT Roorkee lecture series, July 2018",
+      "url": "https://pickscribe.com/v/1MiT06JFNo4/",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "covers": [
+        "the arithmetic mean and its sensitivity to extreme values",
+        "the weighted mean and a worked credit-weighted example",
+        "the mean of grouped data as a weighted mean of midpoints",
+        "the median position rule for odd and even counts and its robustness",
+        "the median and mode of grouped data",
+        "when to use the mean, the median or the mode, from the skew of the data",
+        "signed deviations summing to zero, the mean absolute deviation, and the two reasons for squaring"
+      ],
+      "why": "The only lecture this run whose transcript could be followed through the whole central-tendency sequence, and the source of the two-reasons-for-squaring statement and the signed-deviations identity that card 8 rests on. Chosen over the coaching channels because it teaches the reason for each formula rather than a shortcut, and over MIT OCW because it is a single readable lecture rather than a video page with no transcript body."
+    },
+    {
+      "id": "nptel-forest-biometry-lec4",
+      "kind": "lecture-transcript",
+      "title": "Lecture 04: Measures of central tendency and dispersion",
+      "channel": "NPTEL, Forest Biometry (IIT Kanpur)",
+      "url": "http://www.digimat.in/nptel/courses/video/102104060/lec4.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "covers": [
+        "the mean on eleven retirement ages, and the outlier that moves it",
+        "the median on the same data and why it barely moves",
+        "the mode, and why it is the only summary for rating data",
+        "the empirical relation median - mode = 2(mean - median)",
+        "the standard deviation as the positive root of the mean squared deviation, worked on five dog heights"
+      ],
+      "why": "A second course and a second lecturer, deliberately, so the robustness and empirical-relation cards are not built on one voice. It is also the only readable source that shows the same data set analysed by all three summaries side by side, which is exactly the comparison the trap on card 4 turns on."
+    },
+    {
+      "id": "openstax-introductory-statistics-2-6-and-2-7",
+      "kind": "text",
+      "title": "Introductory Statistics 2e, sections 2.6 and 2.7",
+      "channel": "OpenStax (Rice University)",
+      "url": "https://openstax.org/books/introductory-statistics-2e/pages/2-7-measures-of-the-spread-of-the-data",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "covers": [
+        "the symmetrical case where mean, median and mode coincide",
+        "the bimodal case where the modes differ from the mean",
+        "the direction the mean is pulled in each skew",
+        "the sample divisor n - 1 against the population divisor N",
+        "the standard deviation as a measure that is always positive or zero"
+      ],
+      "why": "A standard text independent of both lecture courses, used to corroborate the skew direction and the two divisors. It is the only source read this run that states the standard deviation is always positive or zero, which card 6 and card 12 both rely on."
+    },
+    {
+      "id": "ncert-class-11-chapter-13-hindi",
+      "kind": "text",
+      "title": "Sankhyiki: NCERT class 11 mathematics chapter 13 notes and summary",
+      "channel": "NCERT Hindi (ncerthindi.com)",
+      "url": "https://ncerthindi.com/ncert-books/class-11/mathematics/statistics",
+      "language": "hi",
+      "transcript": "PARTIAL",
+      "translated": true,
+      "covers": [
+        "the ladder from central tendency to dispersion",
+        "the statement that a measure of centre alone hides the spread",
+        "variance as the mean of squared deviations and the standard deviation as its positive root",
+        "the step-deviation method and the grouped standard deviation",
+        "why the standard deviation is preferred to the mean deviation"
+      ],
+      "why": "The only readable non-English written source, and the one that supplies the argument for why dispersion is needed at all - two data sets with the same mean and different spreads. That argument is what card 12 and the opening of card 6 are built on. Everything taken from it is rendered in English and the cards that use it say so."
+    },
+    {
+      "id": "tamil-mean-median-mode-continuous",
+      "kind": "lecture-transcript",
+      "title": "Mean, Median and Mode in Tamil - continuous (grouped) data",
+      "channel": "Tamil-language YouTube lecture",
+      "url": "https://www.youtube.com/watch?v=b2pvhf8UKdA",
+      "language": "ta",
+      "transcript": "PARTIAL",
+      "translated": true,
+      "covers": [
+        "the grouped mean as sum(f*m)/N on a five-class table",
+        "the median class and the interpolation formula",
+        "the modal class and the interpolation formula"
+      ],
+      "why": "The only Tamil source whose transcript could be read, and it earns its place by working one complete grouped table through all three formulas: classes 0-10 to 40-50 with frequencies 12, 18, 20, 25 and 23, giving a mean of 2740/98 = 27.96, a median of 29.5 and a mode of 37.14. All three numbers were recomputed here before use. It is the worked example on card 5's original question."
+    },
+    {
+      "id": "gateoverflow-go-pdfs-volume-1",
+      "kind": "pyq-compilation",
+      "title": "GATE Overflow for GATE CSE, Volume 1 - Engineering Mathematics: Probability (chapter 7)",
+      "channel": "GATE Overflow",
+      "url": "https://github.com/GATEOverflow/GO-PDFs/releases/tag/gatecse-2026",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "covers": [
+        "the question numbering of every GATE CSE probability question since 1987",
+        "the classification that separates CSE engineering-mathematics questions from General Aptitude and other-branch questions"
+      ],
+      "why": "The index that made the search for this topic's PYQs systematic instead of a guess: its chapter 7 lists two CSE questions under Statistics and shows that the mean, median, mode and standard deviation material in a CSE paper is thin, which is why four of the five PYQs here sit under other headings (Random Variable, Normal Distribution, Probability, Expectation). No question text was taken from it, because its text layer drops inline mathematics; the text came from the question pages."
+    },
+    {
+      "id": "gateoverflow-probability-statistics-notes",
+      "kind": "text",
+      "title": "Probability subject notes - the Statistics section",
+      "channel": "GATE Overflow",
+      "url": "https://gateoverflow.in/subject/mathematics/probability?tab=notes",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "covers": [
+        "mean, median and mode as measures of central tendency",
+        "variance and standard deviation as measures of dispersion",
+        "range as max minus min",
+        "the population against sample variance conventions",
+        "the binomial and Poisson standard deviations"
+      ],
+      "why": "The GATE-oriented framing: it is the only readable text this run that states each summary in the words a GATE answer key would use and lists the sample-against-population convention as a pitfall. Read in part through the search service's extract."
+    }
+  ],
+  "rejected": [
+    {
+      "id": "youtube-caption-tracks",
+      "kind": "lecture",
+      "channel": "Every YouTube watch page tried this run",
+      "why": "The watch page fetched cleanly but carried no captionTracks entry, so no caption text could be retrieved on any route. The two lectures that were used are therefore read through transcript pages rather than from YouTube's own captions, and no card quotes a timestamp from a video. A later run should retry."
+    },
+    {
+      "id": "unacademy-hindi-mean-median-mode",
+      "kind": "lecture",
+      "channel": "Unacademy, 'Mean, Median, Mode and Std. Deviation' by Rishikant Bairwa (Hindi)",
+      "why": "Exactly the right scope - eight minutes, the definitions of mean, median, variance and standard deviation, lesson 40 of a GATE engineering-mathematics course - but it sits behind a subscription and no transcript is served. Its structure was read from the course listing only, so nothing rests on it."
+    },
+    {
+      "id": "nptel-iit-kharagpur-111105090",
+      "kind": "lecture",
+      "channel": "NPTEL, Probability and Statistics (IIT Kharagpur, Prof. Somesh Kumar), the course used for the previous topic",
+      "why": "The natural continuation of the course whose lectures 13 to 29 built the Random Variables topic, but every digimat transcript URL answered 403 to a direct request from the sandbox this run, including the course index. Nothing rests on it; a later run should retry, because its descriptive-statistics lectures would be the closest English sequence to this topic."
+    },
+    {
+      "id": "khan-academy-hindi-mean-median-mode",
+      "kind": "lecture",
+      "channel": "Khan Academy, 'Statistics intro: Mean, median, and mode' (Hindi)",
+      "why": "The page returned a client challenge rather than content, so no text could be read. Listed here because it would otherwise have been a good second non-English source."
+    },
+    {
+      "id": "knowledgegate-ai-grouped-data",
+      "kind": "lecture",
+      "channel": "Knowledge Gate AI, 'Mean, median and mode for grouped data' (GATE Guidance by Sanchit Sir)",
+      "why": "A GATE-oriented treatment of exactly the grouped-data formulas, and the snippet showed a worked median-class example on electricity consumption with 68 consumers. Only the snippet was readable and the page is an AI-generated asset rather than a lecture, so no card draws on it; the grouped-data card rests on the formula sheet and the Tamil lecture instead."
+    },
+    {
+      "id": "gate-cse-2012-q64-general-aptitude",
+      "kind": "pyq",
+      "channel": "GATE CSE 2012 Q.64 (the P/Q/R/S statements about adding 7 to and doubling a list)",
+      "why": "The cleanest standard-deviation shift-and-scale question in a CSE paper, and the closest thing to a direct test of card 7. It sits in that paper's General Aptitude section, questions 56 to 65, and this repository's PYQ set is CSE engineering-mathematics only, so it is excluded rather than mixed in. Its content appears only as an original PYQ-style question on card 7."
+    },
+    {
+      "id": "isro-cse-2014-q74",
+      "kind": "pyq",
+      "channel": "ISRO CSE 2014 Q.74 ('What is the median of data if its mode is 15 and the mean is 30?')",
+      "why": "A genuine mean-median-mode-relation question, but from the ISRO paper and not GATE. At least one site labels it 'GATE CSE 2014 Q.31', which is wrong - the paper is ISRO CSE 2014 - so it is excluded and the mislabelling is recorded rather than repeated."
+    },
+    {
+      "id": "gate-da-and-ds-ai-statistics",
+      "kind": "pyq",
+      "channel": "GATE DA 2025 Q.9, Q.26 and the GATE DS&AI statistics questions",
+      "why": "Genuine statistics questions - the median of a continuous variable with an unknown parameter, and a variance question - but they belong to the Data Science and AI papers. The repository's PYQ set is GATE CSE only."
+    },
+    {
+      "id": "general-aptitude-statistics-questions",
+      "kind": "pyq",
+      "channel": "The General Aptitude statistics questions across branches (GATE 2017 CE-1 GA-5, GATE CSE 2024 Set 1 GA-3 and the rest)",
+      "why": "Read while building the index and useful as corroboration that the mean-median-mode relation is an aptitude favourite, but they are not CSE engineering-mathematics questions and the repository does not mix papers."
+    },
+    {
+      "id": "gate-cse-2024-set2-q8",
+      "kind": "pyq",
+      "channel": "GATE CSE 2024 Set 2 Q.8",
+      "why": "An earlier note in this repository's ledger described this question as asking for a standard deviation of a binomial count. It does not: it asks for the probability that six dice show all distinct numbers, 5/324. The standard-deviation-of-a-binomial question is GATE CSE 2021 Set 2 Q.22, which is recorded in this topic. The ledger entry for the previous topic has been corrected."
+    },
+    {
+      "id": "gate-cse-2011-q18",
+      "kind": "pyq",
+      "channel": "GATE CSE 2011 Q.18 (the difference between E[X^2] and (E[X])^2)",
+      "why": "A variance question, and a good one, but the variance of a random variable is the previous topic's card and adding it here would duplicate a concept across two topics. Left for a later pass over that topic's gaps."
+    },
+    {
+      "id": "mit-ocw-1805-and-6041",
+      "kind": "lecture",
+      "channel": "MIT OpenCourseWare 18.05 and 6.041SC",
+      "why": "Considered as the canonical English alternative and not fetched, because the two readable lecture transcripts plus two standard texts already cover every subtopic. No claim rests on MIT material."
+    },
+    {
+      "id": "edurev-gate-probability-course-mirror",
+      "kind": "course-index",
+      "channel": "EduRev, 'Probability and Statistics - Engineering Maths' video list",
+      "why": "Its lecture list is the most complete enumeration of the central-tendency subtopics found (measure of central tendency, arithmetic mean given frequencies and intervals, failure of the arithmetic mean, median and mode for frequency distributions, quartiles, range and quartile deviation, mean and standard deviation), and it was used to check that the twelve subtopics here are complete. Its own pages are boilerplate wrappers around videos with no readable transcript, so nothing is attributed to it."
+    }
+  ],
+  "standard_refs": [
+    "Sheldon Ross, A First Course in Probability, chapter 2 and chapter 4 (the mean as an expectation, and the median condition) - the book GATE preparation pages recommend for this subject",
+    "Ronald E. Walpole, Raymond H. Myers, Sharon L. Myers and Keying Ye, Probability and Statistics for Engineers and Scientists, chapter 1 (measures of central tendency and variability) and chapter 8",
+    "NCERT Mathematics, Class 11, chapter 15 'Statistics' (mean, median, mode and the measures of dispersion for raw, discrete and continuous data) and the CBSE Applied Mathematics chapter 4",
+    "OpenStax, Introductory Statistics 2e, chapter 2, sections 2.6 and 2.7 (skewness and the mean, median and mode; measures of the spread of the data)",
+    "GATE 2027 CS syllabus, Engineering Mathematics line 'Random variables. Uniform, normal, exponential, Poisson and binomial distributions. Mean, median, mode and standard deviation. Conditional probability and Bayes theorem.'"
+  ],
+  "notes": [
+    "The syllabus names this topic in four words, so the twelve subtopics above are this run's enumeration from the standard treatment (Walpole chapter 1, NCERT class 11 statistics, the OpenStax descriptive-statistics chapter and the IIT Roorkee lecture order), not a quotation from the syllabus. Each of the four words - mean, median, mode, standard deviation - gets at least two cards, and the grouped-table, deviation, invariance and count cases are included because they are where the four words are actually examined.",
+    "Five GATE CSE previous-year questions were verified for this topic: 2011 Q.33 (mean, median and mode invariant, standard deviation scaled), 2014 Set 2 Q.2 (an expected word length as the mean of nine lengths), 2017 Set 1 Q.19 (the median of max(X, 0)), 2021 Set 2 Q.22 (the standard deviation of a binomial count) and 2024 Set 2 Q.44 (the mean of a product is bounded by the mean). Four of the five sit under other headings in GATE Overflow's own index, which is the honest measure of how thin this topic's dedicated question record is.",
+    "Every PYQ is SOURCED against a GATE Overflow accepted answer, not key-verified against an official answer key: the official papers and keys were not fetched this run, so no marks field is recorded on any record and every question reference follows the paper numbering as reproduced by the sources, with the GATE Overflow numbering given where it differs.",
+    "No YouTube caption track was readable this run, so no card quotes or timestamps a video and videoRefs is empty on every card. The two lectures used were read through third-party transcript pages, and both are PARTIAL: the IIT Roorkee transcript through its weighted-average example, the Tamil lecture through its mode computation.",
+    "Two sources are non-English and both are marked translated: a Hindi summary of the NCERT class 11 statistics chapter and a Tamil lecture on grouped data. Everything published is English. No card quotes a Hindi or Tamil sentence; what is used is the structure, the formulas and one worked table, all recomputed here before publication.",
+    "The 2024 Set 2 Q.44 question sits on the boundary between this topic and the Random Variables topic, because it is a statement about means of random variables. It is recorded here once, on the mean card, and deliberately not duplicated there.",
+    "Five of the twelve cards carry no previous-year question of their own - the median, the mode, the grouped table, the deviation identities and the choice of summary - because no verified CSE question in this topic is decided by them alone. Each says so on the card rather than borrowing a question that does not test it."
+  ]
+}
