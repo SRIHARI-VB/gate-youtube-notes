@@ -28,9 +28,9 @@
     }
   ],
   "counts": {
-    "subjects": 2,
-    "topics": 127,
-    "pyqs": 109,
+    "subjects": 3,
+    "topics": 139,
+    "pyqs": 121,
     "videos": 39,
     "playlists": 3
   },
@@ -2012,6 +2012,183 @@
       ],
       "visual": null,
       "variations": 3
+    },
+    {
+      "topic": "limit-at-a-point-and-one-sided-limits",
+      "title": "The Limit at a Point, and One-Sided Limits",
+      "subject": "calculus",
+      "group": "limits-continuity-differentiability",
+      "unit": "Limits",
+      "priority": "P1",
+      "path": "subjects/calculus/limits-continuity-differentiability/limit-at-a-point-and-one-sided-limits.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2021-set1-20-rationalise-root"
+      ],
+      "visual": "calculus/limits-continuity-differentiability/one-sided-limits-and-the-hole",
+      "variations": 3
+    },
+    {
+      "topic": "algebra-of-limits",
+      "title": "Algebra of Limits: When You May Substitute",
+      "subject": "calculus",
+      "group": "limits-continuity-differentiability",
+      "unit": "Limits",
+      "priority": "P2",
+      "path": "subjects/calculus/limits-continuity-differentiability/algebra-of-limits.json",
+      "videos": [],
+      "pyqs": [],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "standard-limits",
+      "title": "The Standard Limits Worth Memorising",
+      "subject": "calculus",
+      "group": "limits-continuity-differentiability",
+      "unit": "Limits",
+      "priority": "P1",
+      "path": "subjects/calculus/limits-continuity-differentiability/standard-limits.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2016-set1-3-sin-shift"
+      ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "lhopital-rule-and-its-conditions",
+      "title": "L'Hopital's Rule and When It Is Legal",
+      "subject": "calculus",
+      "group": "limits-continuity-differentiability",
+      "unit": "Limits",
+      "priority": "P1",
+      "path": "subjects/calculus/limits-continuity-differentiability/lhopital-rule-and-its-conditions.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2019-13-x4-minus-81",
+        "gate-2017-set1-28-lhopital-two-polynomials",
+        "gate-2022-24-sqrt-over-exponential"
+      ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "other-indeterminate-forms",
+      "title": "0 times infinity, infinity minus infinity and 1 to the infinity",
+      "subject": "calculus",
+      "group": "limits-continuity-differentiability",
+      "unit": "Limits",
+      "priority": "P2",
+      "path": "subjects/calculus/limits-continuity-differentiability/other-indeterminate-forms.json",
+      "videos": [],
+      "pyqs": [],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "limits-at-infinity-and-orders-of-growth",
+      "title": "Limits at Infinity and Orders of Growth",
+      "subject": "calculus",
+      "group": "limits-continuity-differentiability",
+      "unit": "Limits",
+      "priority": "P2",
+      "path": "subjects/calculus/limits-continuity-differentiability/limits-at-infinity-and-orders-of-growth.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2015-set1-4-x-power-one-over-x"
+      ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "continuity-at-a-point",
+      "title": "Continuity at a Point: The Three Conditions",
+      "subject": "calculus",
+      "group": "limits-continuity-differentiability",
+      "unit": "Continuity",
+      "priority": "P1",
+      "path": "subjects/calculus/limits-continuity-differentiability/continuity-at-a-point.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2013-22-continuity-at-three",
+        "gate-2026-set1-22-c1-plus-c2"
+      ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "types-of-discontinuity",
+      "title": "Removable, Jump and Infinite Discontinuities",
+      "subject": "calculus",
+      "group": "limits-continuity-differentiability",
+      "unit": "Continuity",
+      "priority": "P2",
+      "path": "subjects/calculus/limits-continuity-differentiability/types-of-discontinuity.json",
+      "videos": [],
+      "pyqs": [],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "continuity-on-an-interval-and-ivt",
+      "title": "Continuity on an Interval and the Intermediate Value Theorem",
+      "subject": "calculus",
+      "group": "limits-continuity-differentiability",
+      "unit": "Continuity",
+      "priority": "P1",
+      "path": "subjects/calculus/limits-continuity-differentiability/continuity-on-an-interval-and-ivt.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2014-set1-47-ivt-difference"
+      ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "differentiability-and-its-link-to-continuity",
+      "title": "Differentiability Implies Continuity, Never the Reverse",
+      "subject": "calculus",
+      "group": "limits-continuity-differentiability",
+      "unit": "Differentiability",
+      "priority": "P1",
+      "path": "subjects/calculus/limits-continuity-differentiability/differentiability-and-its-link-to-continuity.json",
+      "videos": [],
+      "pyqs": [
+        "gate-1998-1-4-absolute-value"
+      ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "matching-value-and-slope-at-a-join",
+      "title": "Matching Value and Slope at a Join",
+      "subject": "calculus",
+      "group": "limits-continuity-differentiability",
+      "unit": "Differentiability",
+      "priority": "P1",
+      "path": "subjects/calculus/limits-continuity-differentiability/matching-value-and-slope-at-a-join.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2025-set1-21-differentiable-everywhere-b"
+      ],
+      "visual": "calculus/limits-continuity-differentiability/join-value-and-slope",
+      "variations": 3
+    },
+    {
+      "topic": "corners-cusps-and-max-min-functions",
+      "title": "Corners, Cusps and max/min Functions",
+      "subject": "calculus",
+      "group": "limits-continuity-differentiability",
+      "unit": "Differentiability",
+      "priority": "P2",
+      "path": "subjects/calculus/limits-continuity-differentiability/corners-cusps-and-max-min-functions.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2024-set1-1-max-x-x3"
+      ],
+      "visual": null,
+      "variations": 2
     }
   ]
 }

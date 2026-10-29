@@ -1,0 +1,21 @@
+{
+  "id": "gate-2019-13-x4-minus-81",
+  "year": "2019",
+  "paper": "GATE CS 2019",
+  "question_ref": "Q.13",
+  "type": "MCQ",
+  "topic": "lhopital-rule-and-its-conditions",
+  "text": "Compute lim(x -> 3) (x^4 - 81)/(2x^2 - 5x - 3)",
+  "options": [
+    "1",
+    "53/12",
+    "108/7",
+    "Limit does not exist"
+  ],
+  "answer": "Option (C), 108/7",
+  "solution": "Factor both: x^4 - 81 = (x^2 - 9)(x^2 + 9) = (x - 3)(x + 3)(x^2 + 9), and 2x^2 - 5x - 3 = (2x + 1)(x - 3). For x not equal to 3 the (x - 3) cancels, leaving (x + 3)(x^2 + 9)/(2x + 1), which at x = 3 is (6)(18)/7 = 108/7. L'Hopital gives the same: 4x^3/(4x - 5) at 3 is 108/7. Note that 108/7 is about 15.43, so the option 53/12 is a different number.",
+  "source_url": "https://gateoverflow.in/302835/gate-cse-2019-question-13",
+  "source_label": "GATE Overflow question page, GATE CSE 2019 Q.13, with the accepted answer C",
+  "verification": "SOURCED",
+  "answer_evidence": "The accepted answer and every other answer on the page reach 108/7, by factoring in one case and by L'Hopital in another, and a comment warns that the denominator must be factorised as (2x + 1)(x - 3). Both routes were re-derived and the value is recomputed in scripts/validate.py. The official key was not fetched and no marks field is recorded."
+}

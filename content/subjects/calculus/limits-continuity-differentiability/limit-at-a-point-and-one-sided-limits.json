@@ -1,0 +1,83 @@
+{
+  "id": "limit-at-a-point-and-one-sided-limits",
+  "title": "The Limit at a Point, and One-Sided Limits",
+  "priority": "P1",
+  "order": 155,
+  "unit": "Limits",
+  "quickIdea": "A limit describes where f(x) is heading as x approaches a, not what f(a) is; it exists only when the left-hand and right-hand limits agree.",
+  "remember": [
+    "lim(x->a) f(x) = L means f(x) can be forced as close to L as we like by taking x close enough to a, with x never equal to a.",
+    "The value f(a) plays no part in the limit. f need not even be defined at a for the limit to exist.",
+    "The limit exists exactly when the left-hand limit and the right-hand limit both exist and are equal: LHL = RHL = L.",
+    "LHL = lim(h->0+) f(a-h) and RHL = lim(h->0+) f(a+h). Both h's are positive; the sign lives in the formula.",
+    "If the two one-sided limits differ, or either is infinite, the two-sided limit does not exist.",
+    "At an endpoint of a domain only the one-sided limit that stays inside the domain is asked for."
+  ],
+  "example": {
+    "prompt": "Find lim(x->1) (x^2 - 1)/(x - 1), given that f(1) is undefined.",
+    "work": "Factor: x^2 - 1 = (x - 1)(x + 1). For x not equal to 1 the (x - 1) cancels and the expression equals x + 1. As x -> 1 from either side, x + 1 -> 2. Check numerically: x = 0.9 gives 1.9, x = 0.99 gives 1.99, x = 1.1 gives 2.1, x = 1.01 gives 2.01.",
+    "answer": "The limit is 2, even though f(1) is undefined. The graph is the line y = x + 1 with a hole punched out at (1, 2)."
+  },
+  "gateAngle": "GATE tests the definition rather than the arithmetic. In 2013 Q.22 four piecewise functions are offered and only one has LHL = RHL = f(3); in 2026 Set 1 Q.22 the value f(0) = 3 is given and the one-sided limit at 0 must be forced to 3. Read every option's three quantities separately instead of trusting the formula.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "For g(x) = |x|/x, find the left-hand and right-hand limits at x = 0 and decide whether the two-sided limit exists.",
+      "answer": "For x < 0, g(x) = -1, so LHL = -1. For x > 0, g(x) = 1, so RHL = 1. The one-sided limits differ, so lim(x->0) g(x) does not exist.",
+      "why": "This is the cheapest possible counterexample to 'just substitute x = 0'. It separates the three quantities - function value, one-sided limits, two-sided limit - which is exactly the skill 2013 Q.22 tests."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Can lim(x->a) f(x) exist when f(a) is defined but different from the limit?",
+      "answer": "Yes. Take f(x) = 5 for every x except f(3) = 4. Then the limit at 3 is 5 while f(3) = 4, so the limit exists and the function is discontinuous at 3.",
+      "why": "GATE CSE 2013 Q.22 option (B) is exactly this shape: the limit is 5 and f(3) = 4. A limit constrains only nearby values."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "Let f(x) = x + 2 for x < 1 and f(x) = 4 - x for x > 1, with f(1) = 0. Does the limit at 1 exist, and is f continuous at 1?",
+      "answer": "LHL = 3 and RHL = 3, so the limit exists and equals 3. But f(1) = 0, so the function is not continuous at 1 - a removable discontinuity.",
+      "why": "The limit and the continuity verdict are two different questions. Solving only the first is the usual half-answer."
+    }
+  ],
+  "trap": {
+    "what": "Computing a limit by substituting x = a and, when that gives 0/0, declaring the limit does not exist.",
+    "why": "0/0 is an indeterminate form: it says the substitution told you nothing, not that the limit is missing. The correct response is to factor, rationalise, expand or differentiate.",
+    "counterexample": "(x^2 - 1)/(x - 1) at x = 1 gives 0/0 by substitution, yet the limit is 2. Likewise (x^2 - 4)/(x - 2) at x = 2 gives 0/0 and has limit 4."
+  },
+  "check": {
+    "question": "Evaluate lim(x->2) (x^2 - 4)/(x - 2).",
+    "answer": "4",
+    "explanation": "x^2 - 4 = (x - 2)(x + 2); cancelling x - 2 for x not equal to 2 leaves x + 2, which tends to 4. Substitution would have produced 0/0 and told you nothing."
+  },
+  "pyqIds": [
+    "gate-2021-set1-20-rationalise-root"
+  ],
+  "prereqs": [
+    "composition-and-inverse-functions"
+  ],
+  "visual": "calculus/limits-continuity-differentiability/one-sided-limits-and-the-hole",
+  "sources": [
+    {
+      "kind": "lecture-summary",
+      "title": "11 Oct - EM - Calculus Part 2 (GATE Guidance), continuity section",
+      "channel": "Knowledge Gate (Yash Jain)",
+      "url": "https://www.knowledgegate.ai/learn/GATE-GUIDANCE-BY-SANCHIT-SIR/live-classes/gate-2026-live-class/engineering-mathematics-for-gate-exam/asset-11-oct-em-calculus-part-2",
+      "language": "hi",
+      "transcript": "SUMMARY_ONLY",
+      "translated": true,
+      "note": "the published English AI chapter summary places the continuity definition at 20:00-25:00 and states the three conditions and LHL = RHL; read as a summary, not a transcript"
+    },
+    {
+      "kind": "text",
+      "title": "Calculus I, Chapter 2: Limits (the limit, one-sided limits, limit properties)",
+      "channel": "Paul's Online Math Notes, Lamar University",
+      "url": "https://tutorial.math.lamar.edu/classes/calci/limitsintro.aspx",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "the section list and the one-sided-limit treatment were read in full"
+    }
+  ],
+  "sourceLine": "Definition, one-sided limits and the 2013/2026 question shapes: Paul's Online Math Notes, Calculus I chapter 2, and the Knowledge Gate chapter summary at 20:00-25:00 (Hindi-medium lecture, English summary - translated). Every limit value on this card is recomputed numerically in scripts/validate.py.",
+  "videoRefs": []
+}

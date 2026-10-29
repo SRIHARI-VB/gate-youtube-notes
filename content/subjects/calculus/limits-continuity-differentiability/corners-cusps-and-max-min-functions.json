@@ -1,0 +1,76 @@
+{
+  "id": "corners-cusps-and-max-min-functions",
+  "title": "Corners, Cusps and max/min Functions",
+  "priority": "P2",
+  "order": 166,
+  "unit": "Differentiability",
+  "quickIdea": "A continuous function fails to be differentiable at a corner (two finite slopes), a cusp (infinite slopes) or a vertical tangent - and for max or min of smooth pieces the suspects are where the pieces cross.",
+  "remember": [
+    "Corner: both one-sided derivatives exist and are finite but differ, as at 0 for |x|.",
+    "Cusp: the one-sided derivatives are infinite with opposite signs, as at 0 for x^(2/3).",
+    "Vertical tangent: both one-sided derivatives are +infinity (or both -infinity), as at 0 for x^(1/3).",
+    "For f = max{g, h} the formula changes exactly where g(x) = h(x), so solve that equation to get the candidate points.",
+    "At each candidate, compare the one-sided derivatives of the two pieces: equal slopes mean differentiable, unequal mean a corner.",
+    "Being continuous everywhere does not mean failing nowhere: max{x, x^3} is continuous everywhere and fails at three points."
+  ],
+  "example": {
+    "prompt": "GATE CSE 2024 Set 1 Q.1: where is f(x) = max{x, x^3} not differentiable?",
+    "work": "The pieces cross where x^3 = x, that is x = -1, 0, 1. Between the crossings the larger piece is x^3 on (-inf, -1) and on (0, 1), and x on (-1, 0) and on (1, inf). Slopes: at x = -1, x^3 has slope 3 and x has slope 1; at x = 0, x^3 has slope 0 and x has slope 1; at x = 1, x^3 has slope 3 and x has slope 1. Each pair is unequal.",
+    "answer": "f is not differentiable at {-1, 0, 1}, which is option (D). Everywhere else f is one of the two smooth pieces and is differentiable."
+  },
+  "gateAngle": "2024 Set 1 Q.1 is exactly this computation, and 1998 Q.1.4 is the single-corner case with |x|. The exam's distractor options add extra points such as 2 or -2, which are places where the two pieces are far apart and only one of them is the maximum - so no change of formula occurs there.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "Where is f(x) = max{x, x^2} not differentiable?",
+      "answer": "At x = 0 and x = 1. The pieces cross where x^2 = x, that is x = 0 and x = 1. At 0 the slopes are 1 and 0; at 1 they are 1 and 2. Both are corners.",
+      "why": "Same recipe, different pieces. The crossing equation is the only step that changes, which is why the method is worth memorising rather than the answer."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Why is max{x, x^3} not differentiable at x = 0, even though both pieces pass through the origin?",
+      "answer": "Because the function switches from x^3 (slope 0) on the left of 0 to x (slope 1) on the right. The values agree at 0, so f is continuous, but the one-sided slopes are 0 and 1.",
+      "why": "Differentiability is about slopes, not values. This is the point the 2024 question's option {0, 1} tests: 0 is included, and the reasoning is the slope mismatch."
+    }
+  ],
+  "trap": {
+    "what": "Assuming that a max or min of smooth functions is smooth, or that differentiability can fail only where the formula changes visibly.",
+    "why": "The maximum of two smooth functions is generally only piecewise smooth, and the failures sit exactly at the crossing points - including crossings where both pieces take the same value, such as x = 0 above.",
+    "counterexample": "max{x, x^3} is continuous everywhere but not differentiable at -1, 0 and 1. At x = 2 only x^3 is the maximum and near 2 the function is x^3, so it is differentiable there - which is why the option containing 2 is wrong."
+  },
+  "check": {
+    "question": "Where is f(x) = |x - 2| not differentiable?",
+    "answer": "At x = 2 only",
+    "explanation": "The absolute value has a corner where its argument vanishes. Everywhere else one of the two linear pieces is in force and the slope is +1 or -1."
+  },
+  "pyqIds": [
+    "gate-2024-set1-1-max-x-x3"
+  ],
+  "prereqs": [
+    "differentiability-and-its-link-to-continuity"
+  ],
+  "sources": [
+    {
+      "kind": "pyq-solutions",
+      "title": "GATE Overflow GATE CSE 2024 Set 1 Q.1 solution page",
+      "channel": "GATE Overflow",
+      "url": "https://gateoverflow.in/422841/gate-cse-2024-set-1-question-1",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "the accepted answer partitions the line at the crossings and compares one-sided derivatives at -1, 0 and 1"
+    },
+    {
+      "kind": "lecture-summary",
+      "title": "11 Oct - EM - Calculus Part 2, the geometric view of non-differentiability",
+      "channel": "Knowledge Gate (Yash Jain)",
+      "url": "https://www.knowledgegate.ai/learn/GATE-GUIDANCE-BY-SANCHIT-SIR/live-classes/gate-2026-live-class/engineering-mathematics-for-gate-exam/asset-11-oct-em-calculus-part-2",
+      "language": "hi",
+      "transcript": "SUMMARY_ONLY",
+      "translated": true,
+      "note": "the published chapter summary records sharp corners being identified as the geometric cause of non-differentiability at 35:00-40:00, and points to a following lecture on the geometric definition"
+    }
+  ],
+  "sourceLine": "The crossing-point method follows the accepted GATE Overflow solution to 2024 Set 1 Q.1 and the corner discussion at 35:00-40:00 of the Knowledge Gate summary (Hindi-medium, English summary - translated). The three slope pairs are recomputed in scripts/validate.py.",
+  "videoRefs": []
+}

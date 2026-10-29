@@ -1,0 +1,82 @@
+{
+  "id": "limits-at-infinity-and-orders-of-growth",
+  "title": "Limits at Infinity and Orders of Growth",
+  "priority": "P2",
+  "order": 160,
+  "unit": "Limits",
+  "quickIdea": "As x grows, only the fastest-growing term matters: logarithms lose to powers, and powers lose to exponentials.",
+  "remember": [
+    "For a ratio of polynomials at infinity, divide numerator and denominator by the highest power present.",
+    "Growth ladder: ln x grows slower than any positive power x^p, and x^p grows slower than any exponential e^(a x) with a > 0.",
+    "Consequences: lim(x->inf) (ln x)/x = 0, lim(x->inf) x^p/e^(a x) = 0, lim(x->inf) x^(1/x) = 1.",
+    "A bounded oscillation is invisible next to x: (x - sin x)/(x + cos x) -> 1 because sin x and cos x are trapped between -1 and 1.",
+    "Limits at infinity are one-sided by nature: x -> +infinity and x -> -infinity can give different answers for the same function.",
+    "e^(-x) decays so fast that (1 + x^2) e^(-x) -> 0 even though x^2 grows without bound."
+  ],
+  "example": {
+    "prompt": "Evaluate lim(x->inf) (3x^3 - 2x + 1)/(x^3 + 5).",
+    "work": "Divide every term by x^3: (3 - 2/x^2 + 1/x^3)/(1 + 5/x^3). Each of 2/x^2, 1/x^3 and 5/x^3 tends to 0, leaving 3/1.",
+    "answer": "The limit is 3 - the ratio of the leading coefficients, which is why the division is the whole method."
+  },
+  "gateAngle": "2015 Set 1 Q.4 is the classic: lim(x->inf) x^(1/x) = 1, answered either by taking logs or by the growth ladder. The same ladder decides the trap in that question, where 'anything to the power 0 is 1' gives the right answer for the wrong reason.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "Evaluate lim(x->inf) (x - sin x)/(x + cos x).",
+      "answer": "1. Divide numerator and denominator by x: (1 - (sin x)/x)/(1 + (cos x)/x), and both sine and cosine quotients tend to 0 because they are bounded.",
+      "why": "A bounded numerator cannot beat x. This is the squeeze idea, and it is the reason L'Hopital must not be attempted here - the derivative ratio oscillates."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Which is larger for very large x: x^100 or e^x?",
+      "answer": "e^x, eventually. For every fixed p, x^p/e^x -> 0 as x -> infinity, so the exponential overtakes any power however large the power is.",
+      "why": "The comparison is asymptotic, not pointwise: at x = 1000, x^100 is enormous, yet e^x is vastly larger still. GATE tests the eventual ordering."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "Evaluate lim(x->inf) (1 + x^2) e^(-x).",
+      "answer": "0. Rewrite as (1 + x^2)/e^x and divide by x^2: (1/x^2 + 1)/(e^x/x^2), whose denominator tends to infinity while the numerator tends to 1.",
+      "why": "This is GATE CSE 2015 Set 3 Q.9's shape, and it is the growth ladder applied directly: the exponential in the denominator wins."
+    }
+  ],
+  "trap": {
+    "what": "Assuming a limit at infinity is infinite whenever the expression contains growing terms, or using L'Hopital reflexively on infinity/infinity.",
+    "why": "What matters is the comparison between numerator and denominator, not their sizes separately. And L'Hopital is valid only when the derivative ratio has a limit, which bounded oscillation defeats.",
+    "counterexample": "x^(1/x) -> 1 and not infinity, although both base and exponent grow. (x + sin x)/x -> 1 although the derivative ratio (1 + cos x)/1 has no limit."
+  },
+  "check": {
+    "question": "Evaluate lim(x->inf) 2^x / x^2.",
+    "answer": "Infinity",
+    "explanation": "The exponential beats every power, so the ratio grows without bound. Dividing by x^2 gives 2^x/x^2 unchanged in spirit: the numerator's growth dominates."
+  },
+  "pyqIds": [
+    "gate-2015-set1-4-x-power-one-over-x"
+  ],
+  "prereqs": [
+    "standard-limits"
+  ],
+  "sources": [
+    {
+      "kind": "text",
+      "title": "GATE Engineering Mathematics notes: orders of growth at infinity",
+      "channel": "IAE Academy (GATE engineering mathematics study notes)",
+      "url": "https://iaeacademy.in/study/engineering-mathematics/calculus",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read as a search extract: the order statements lim (ln x)/x^p = 0 and lim x^p/e^(a x) = 0 with the note that each follows from L'Hopital, plus lim x^x = 1"
+    },
+    {
+      "kind": "pyq-solutions",
+      "title": "GATE Overflow GATE CSE 2015 Set 1 Q.4 solution page",
+      "channel": "GATE Overflow",
+      "url": "https://gateoverflow.in/8021/gate-cse-2015-set-1-question-4",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "the accepted answer takes the logarithm and uses (ln x)/x -> 0; a second answer divides by e^x"
+    }
+  ],
+  "sourceLine": "The growth ladder and its limits: IAE Academy GATE notes (extract) and Paul's Online Math Notes; the 2015 question's answer is the accepted GATE Overflow solution. Every limit on this card is recomputed numerically in scripts/validate.py.",
+  "videoRefs": []
+}

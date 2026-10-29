@@ -1,0 +1,21 @@
+{
+  "id": "gate-2013-22-continuity-at-three",
+  "year": "2013",
+  "paper": "GATE CS 2013",
+  "question_ref": "Q.22",
+  "type": "MCQ",
+  "topic": "continuity-at-a-point",
+  "text": "Which one of the following functions is continuous at x = 3? (A) f(x) = 2 if x = 3; x - 1 if x > 3; (x + 3)/3 if x < 3. (B) f(x) = 4 if x = 3; 8 - x if x != 3. (C) f(x) = x + 3 if x <= 3; x - 4 if x > 3. (D) f(x) = 1/(x^3 - 27) if x != 3.",
+  "options": [
+    "f(x) = 2 if x = 3; x - 1 if x > 3; (x + 3)/3 if x < 3",
+    "f(x) = 4 if x = 3; 8 - x if x != 3",
+    "f(x) = x + 3 if x <= 3; x - 4 if x > 3",
+    "f(x) = 1/(x^3 - 27) if x != 3"
+  ],
+  "answer": "Option (A)",
+  "solution": "(A): LHL = (3 + 3)/3 = 2, RHL = 3 - 1 = 2, f(3) = 2, so LHL = RHL = f(3) and the function is continuous. (B): both one-sided limits are 8 - 3 = 5 but f(3) = 4, a removable discontinuity. (C): LHL = 3 + 3 = 6 and RHL = 3 - 4 = -1, a jump. (D): 1/(x^3 - 27) tends to -infinity from the left and +infinity from the right, and f(3) is undefined, an infinite discontinuity.",
+  "source_url": "https://gateoverflow.in/1533/gate-cse-2013-question-22",
+  "source_label": "GATE Overflow question page, GATE CSE 2013 Q.22, with the accepted answer A",
+  "verification": "SOURCED",
+  "answer_evidence": "Every answer on the page reaches option (A) by computing LHL, RHL and f(3) for each option, and the alternatives name the type of discontinuity for (B), (C) and (D). The official key was not fetched, so this record rests on the accepted GATE Overflow answer; no marks field is recorded because the paper and key were not fetched either."
+}

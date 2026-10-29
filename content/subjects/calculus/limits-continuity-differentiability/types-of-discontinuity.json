@@ -1,0 +1,74 @@
+{
+  "id": "types-of-discontinuity",
+  "title": "Removable, Jump and Infinite Discontinuities",
+  "priority": "P2",
+  "order": 162,
+  "unit": "Continuity",
+  "quickIdea": "A removable discontinuity is a hole, a jump has two different finite one-sided limits, and an infinite discontinuity blows up to +-infinity.",
+  "remember": [
+    "Removable: the two-sided limit exists but differs from f(a), or f(a) is undefined. Repairing it means redefining the single value f(a).",
+    "Jump: both one-sided limits exist and are finite, but they differ. No single value at a can repair it.",
+    "Infinite: at least one one-sided limit is +-infinity or -infinity, as with 1/x at 0 or 1/(x^3 - 27) at 3.",
+    "Oscillatory: neither one-sided limit exists even in the extended sense, as with sin(1/x) at 0.",
+    "Read the type off the numbers, not off the picture: compute LHL and RHL first and the classification follows.",
+    "A function discontinuous at a point can still be continuous everywhere else; a question may ask for the count of discontinuities."
+  ],
+  "example": {
+    "prompt": "Classify the discontinuities at x = 3 of the three failing options of GATE CSE 2013 Q.22.",
+    "work": "Option (B): f(3) = 4 but 8 - x -> 5 from both sides, so the limit exists and differs from the value - removable. Option (C): x + 3 -> 6 from the left and x - 4 -> -1 from the right, both finite and different - jump. Option (D): 1/(x^3 - 27) -> -infinity from the left and +infinity from the right, and f(3) is undefined - infinite.",
+    "answer": "Removable for (B), jump for (C), infinite for (D). Only (A) is continuous."
+  },
+  "gateAngle": "The classification is what makes 2013 Q.22 quick: three options fail in three different ways, and naming the type is faster than evaluating all four. The classification is also the reasoning inside a continuity question: once the one-sided limits are known, the verdict follows without further work.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "Classify the discontinuity of g(x) = |x|/x at x = 0.",
+      "answer": "A jump. LHL = -1 and RHL = 1; both are finite and they differ, so no value at 0 could make g continuous.",
+      "why": "The smallest jump there is. Comparing it with the removable case (where the one-sided limits agree) is the whole distinction."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Why can a removable discontinuity be repaired but a jump cannot?",
+      "answer": "Because repairing means choosing one value for f(a), and that value must equal the two-sided limit. A removable discontinuity has a two-sided limit, so one value works; a jump has no two-sided limit, so no single value can equal it.",
+      "why": "The repair test is exactly 'does the two-sided limit exist'. It is also why the terminology matters in a question that asks which discontinuity is removable."
+    }
+  ],
+  "trap": {
+    "what": "Calling any break in the graph 'removable', or assuming that a function which fails to be continuous must fail at only one point.",
+    "why": "Removable means specifically that the two-sided limit exists. A jump and an infinite discontinuity have no two-sided limit at all, and functions can be discontinuous at infinitely many points while being continuous elsewhere.",
+    "counterexample": "f(x) = 1/(x^3 - 27) at x = 3 has one-sided limits -infinity and +infinity, so no two-sided limit exists and the break is not removable. And a function can be discontinuous at more than one point: f(x) = 0 at rational x and 1 at irrational x is discontinuous at every real number."
+  },
+  "check": {
+    "question": "f(x) = x + 1 for x < 2, f(x) = x + 3 for x > 2, f(2) = 3. What type of discontinuity is at x = 2?",
+    "answer": "A jump",
+    "explanation": "LHL = 3 and RHL = 5: both finite and different, so the two-sided limit does not exist and the break cannot be repaired by redefining f(2)."
+  },
+  "pyqIds": [],
+  "prereqs": [
+    "continuity-at-a-point"
+  ],
+  "sources": [
+    {
+      "kind": "text",
+      "title": "Calculus I, section 2.9: Continuity (jump and removable discontinuities)",
+      "channel": "Paul's Online Math Notes, Lamar University",
+      "url": "https://tutorial.math.lamar.edu/classes/calci/continuity.aspx",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "the worked graph example names the jump discontinuity and the removable discontinuity and explains what distinguishes them"
+    },
+    {
+      "kind": "lecture-summary",
+      "title": "11 Oct - EM - Calculus Part 2, the continuity graphs",
+      "channel": "Knowledge Gate (Yash Jain)",
+      "url": "https://www.knowledgegate.ai/learn/GATE-GUIDANCE-BY-SANCHIT-SIR/live-classes/gate-2026-live-class/engineering-mathematics-for-gate-exam/asset-11-oct-em-calculus-part-2",
+      "language": "hi",
+      "transcript": "SUMMARY_ONLY",
+      "translated": true,
+      "note": "the published chapter summary records a hole and a jump being drawn at 20:00-25:00 to separate removable from non-removable breaks"
+    }
+  ],
+  "sourceLine": "The three types follow Paul's Online Math Notes section 2.9, which names jump and removable discontinuities explicitly; the infinite type is the behaviour of 1/(x^3 - 27) at 3 in GATE CSE 2013 Q.22 option (D). The lecture summary draws the hole and the jump (Hindi-medium, English summary - translated).",
+  "videoRefs": []
+}

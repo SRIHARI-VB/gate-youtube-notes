@@ -2,10 +2,9 @@
   "exam": "GATE CSE 2027",
   "updated_at": "2026-10-29",
   "cycle": {
-    "last_subject": "linear-algebra",
-    "last_topic": "lu-decomposition",
-    "updated_at": "2026-10-29",
-    "rule": "Next topic is the first topic strictly after cycle.last in the enumerated syllabus order whose status is not covered, wrapping at the end. not_started and partial topics are candidates; blocked topics are skipped while their blocker stands."
+    "last_subject": "calculus",
+    "last_topic": "limits-continuity-differentiability",
+    "updated_at": "2026-10-29"
   },
   "subjects": [
     {
@@ -326,10 +325,33 @@
         {
           "slug": "limits-continuity-differentiability",
           "name": "Limits, Continuity and Differentiability",
-          "status": "not_started",
-          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
-          "runs": [],
-          "gaps": []
+          "status": "partial",
+          "coverage_note": "15 subtopics, 12 cards (the limit at a point and one-sided limits, the algebra of limits, the standard limits, L'Hopital's rule and its conditions, the other indeterminate forms, limits at infinity and orders of growth, continuity at a point, the types of discontinuity, continuity on an interval and the IVT, differentiability and its link to continuity, matching value and slope at a join, and corners, cusps and max/min functions), 12 verified PYQs and 2 p5.js lessons. Partial because eight gaps remain, named below - above all that no video transcript was readable this run.",
+          "runs": [
+            {
+              "date": "2026-10-29",
+              "sources": [
+                "knowledgegate-calculus-part-2",
+                "pauls-notes-limits-and-continuity",
+                "nptel-basic-calculus-1-iit-madras",
+                "gateoverflow-calculus-solutions"
+              ],
+              "cards": 12,
+              "pyqs": 12,
+              "lesson": "calculus/limits-continuity-differentiability/one-sided-limits-and-the-hole",
+              "note": "Sources chosen on merit: a GATE-oriented Hindi-medium lecture read through its published English AI chapter summary with timestamps (Knowledge Gate, 11 Oct EM Calculus Part 2) for the teaching order and the technique sequence; Paul's Online Math Notes (English, read in full) for the definitions and the continuity hypotheses; the NPTEL IIT Madras Basic Calculus-1 outline as structure only; and GATE Overflow question pages for every PYQ. Rejected: an English EduRev video whose page is boilerplate and whose captions were refused, the NPTEL IIT Kanpur Calculus of One Variable playlist (right sequence, no readable transcript), the NPTEL Engineering Mathematics-I indeterminate-forms lectures (index only, and the course is mostly multivariable), a paywalled Hindi Unacademy lesson, a readable SlideShare formula dump, and the PYQLabs index whose year labels are wrong. YouTube answered LOGIN_REQUIRED for every watch page and yt-dlp returned 403, so no lecture transcript was read."
+            }
+          ],
+          "gaps": [
+            "no video transcript was readable this run: every YouTube watch page answered LOGIN_REQUIRED ('Sign in to confirm you are not a bot') and yt-dlp returned HTTP 403 even with a consent cookie, so the one GATE-oriented lecture in the chosen list is recorded from the platform's published English AI chapter summary with timestamps (SUMMARY_ONLY) and no card quotes a lecturer's sentence",
+            "no Hindi, Tamil, Telugu or Bengali lecture transcript was readable; the single non-English source is a Hindi-medium GATE lecture whose readable text is an English AI summary of it, so the translation sits two layers from the lecture and the cards say so rather than implying a verbatim translation",
+            "the informal epsilon-delta meaning of a limit is stated on one card from the standard references only: no readable source this run taught it in GATE framing, and the card does not attempt a formal epsilon-delta proof",
+            "the algebra-of-limits and types-of-discontinuity cards carry no previous-year question of their own, because no question in this topic's verified set is decided by the limit laws or by the classification alone; both are the steps inside the neighbouring questions",
+            "every PYQ in the topic is SOURCED against a GATE Overflow accepted answer rather than key-verified against an official answer key, and no marks field is recorded on any of the twelve, because neither the official papers nor the keys were fetched this run; question references follow the GATE Overflow numbering, and GATE CSE 2022 Q.24 is numbered Q.34 on at least one other site, which its record states",
+            "GATE CSE 2026 Set 1 Q.22 is recorded as printed, and a commenter on the memory-based version of the same question argues that the printed form is defective; the record reports the accepted answer 3 and the disagreement rather than resolving it",
+            "three question families of this topic are deliberately absent: the descriptive questions GATE CSE 1995 Q.7(B) (compute lim sin x / x without a power series) and GATE CSE 1996 Q.3 (find a, b, c, d for a piecewise function to be continuous and differentiable) cannot be stored in the repository's MCQ/MSQ/NAT schema, and GATE CSE 2026 Set 2 Q.54 (the number of discontinuities of a digit-defined function) was seen only in a listing and was not verified or read, so it is not in the PYQ set",
+            "maxima and minima, the mean value theorem and integration are the next three topics in the cycle; their questions, including GATE CSE 2021 Set 2 Q.25 and GATE CSE 2023 Q.28, were left for those runs and are not counted here"
+          ]
         },
         {
           "slug": "maxima-and-minima",

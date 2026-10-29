@@ -1,0 +1,36 @@
+{
+  "slug": "one-sided-limits-and-the-hole",
+  "topic": "limit-at-a-point-and-one-sided-limits",
+  "engine": "p5.js",
+  "steps": 5,
+  "example": {
+    "function": "f(x) = (x^2 - 1)/(x - 1) = x + 1 for x != 1",
+    "limit_at_1": 2,
+    "value_at_1": "undefined",
+    "left_values": {
+      "0.9": 1.9,
+      "0.99": 1.99,
+      "0.999": 1.999
+    },
+    "right_values": {
+      "1.001": 2.001,
+      "1.01": 2.01,
+      "1.1": 2.1
+    },
+    "jump_example": {
+      "function": "g(x) = |x|/x",
+      "left_limit": -1,
+      "right_limit": 1,
+      "two_sided_limit": "does not exist"
+    },
+    "continuity_example": {
+      "left": "2x + 1",
+      "right": "3x - 2",
+      "at": 3,
+      "left_limit": 7,
+      "right_limit": 7,
+      "value": 7,
+      "verdict": "continuous"
+    }
+  }
+}

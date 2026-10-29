@@ -1,0 +1,15 @@
+{
+  "id": "gate-2016-set1-3-sin-shift",
+  "year": "2016",
+  "paper": "GATE CS 2016 Set 1",
+  "question_ref": "Q.3",
+  "type": "NAT",
+  "topic": "standard-limits",
+  "text": "lim(x -> 4) sin(x - 4)/(x - 4) = ____.",
+  "answer": "1",
+  "solution": "Substitute h = x - 4. As x -> 4, h -> 0, and the expression becomes lim(h -> 0) sin h / h, which is the standard limit equal to 1. By L'Hopital the form is 0/0 and the ratio of derivatives is cos(x - 4)/1, which at x = 4 is cos 0 = 1.",
+  "source_url": "https://gateoverflow.in/39630/gate-cse-2016-set-1-question-3",
+  "source_label": "GATE Overflow question page, GATE CSE 2016 Set 1 Q.3, with the accepted answer 1",
+  "verification": "SOURCED",
+  "answer_evidence": "The accepted answer substitutes h = x - 4 to reach the standard limit, and a second answer applies L'Hopital's rule to the same conclusion. Both routes were re-derived and the value is recomputed numerically in scripts/validate.py. The official key was not fetched and no marks field is recorded."
+}

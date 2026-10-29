@@ -1,0 +1,82 @@
+{
+  "id": "standard-limits",
+  "title": "The Standard Limits Worth Memorising",
+  "priority": "P1",
+  "order": 157,
+  "unit": "Limits",
+  "quickIdea": "Six limits at zero and three at infinity cover almost every GATE limit question; recognising one collapses the problem to arithmetic.",
+  "remember": [
+    "lim(x->0) (sin x)/x = 1, with x in radians. Also lim(x->0) (tan x)/x = 1.",
+    "lim(x->0) (1 - cos x)/x^2 = 1/2. Not 1, and not 0.",
+    "lim(x->0) (e^x - 1)/x = 1 and lim(x->0) (a^x - 1)/x = ln a for a > 0.",
+    "lim(x->0) ln(1 + x)/x = 1 and lim(x->0) (1 + x)^(1/x) = e.",
+    "At infinity: lim(x->inf) (ln x)/x = 0, lim(x->inf) x^(1/x) = 1, lim(x->inf) (1 + x^2) e^(-x) = 0.",
+    "Each of these is a shape, not a formula: sin(u)/u -> 1 for any u that tends to 0, so sin(x - 4)/(x - 4) -> 1 as x -> 4."
+  ],
+  "example": {
+    "prompt": "Evaluate lim(x->0) (1 - cos 3x)/x^2.",
+    "work": "Put u = 3x, so x = u/3 and x^2 = u^2/9. Then (1 - cos 3x)/x^2 = 9 (1 - cos u)/u^2. As x -> 0, u -> 0, so (1 - cos u)/u^2 -> 1/2 and the whole expression tends to 9/2.",
+    "answer": "The limit is 9/2 = 4.5. The factor 9 is the square of the coefficient inside the cosine - a coefficient on x is squared when it moves past x^2."
+  },
+  "gateAngle": "2016 Set 1 Q.3 is this family at its simplest: lim(x->4) sin(x - 4)/(x - 4) = 1. 2015 Set 1 Q.4 is the infinity member, x^(1/x) -> 1. Most other limits in the papers are these shapes after one substitution.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "Evaluate lim(x->0) (e^(5x) - 1)/x.",
+      "answer": "5. Write it as 5 * (e^(5x) - 1)/(5x) and use (e^u - 1)/u -> 1 with u = 5x.",
+      "why": "The same one-substitution move as the 2016 question; the coefficient of x survives, whereas a coefficient inside a cosine would be squared."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Why is (1 - cos x)/x^2 equal to 1/2 rather than 0?",
+      "answer": "Because 1 - cos x behaves like x^2/2 near 0: cos x = 1 - x^2/2 + x^4/24 - ..., so 1 - cos x = x^2/2 - x^4/24 + ... and dividing by x^2 leaves 1/2 - x^2/24 + ..., which tends to 1/2.",
+      "why": "The numerator vanishes to second order, exactly as fast as x^2, so the ratio settles at a finite non-zero value. Seeing the order of vanishing predicts the answer before any algebra."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "Evaluate lim(x->0) (1 - cos x)/(x sin x).",
+      "answer": "1/2. Write it as [(1 - cos x)/x^2] * [x/sin x], and the two factors tend to 1/2 and 1.",
+      "why": "GATE builds questions by multiplying two standard limits. Splitting the expression into recognisable factors is the whole technique."
+    }
+  ],
+  "trap": {
+    "what": "Quoting sin x/x -> 1 while the angle is in degrees, or assuming (1 - cos x)/x^2 -> 1 by analogy with sin x/x.",
+    "why": "Every standard limit above is stated in radians; in degrees sin x/x -> pi/180. And (1 - cos x) vanishes to second order, so its ratio with x^2 is 1/2, not 1.",
+    "counterexample": "With x in degrees, lim(x->0) sin(x degrees)/x = pi/180, not 1. And (1 - cos x)/x^2 -> 1/2, which the 2022 question's neighbour, (1 - cos x)/x, gets wrong as 0."
+  },
+  "check": {
+    "question": "Evaluate lim(x->0) (e^(2x) - 1)/x.",
+    "answer": "2",
+    "explanation": "Write it as 2 * (e^(2x) - 1)/(2x); the bracket is the standard limit 1, so the answer is 2."
+  },
+  "pyqIds": [
+    "gate-2016-set1-3-sin-shift"
+  ],
+  "prereqs": [
+    "limit-at-a-point-and-one-sided-limits"
+  ],
+  "sources": [
+    {
+      "kind": "lecture-summary",
+      "title": "11 Oct - EM - Calculus Part 2, the EXPANSION segment",
+      "channel": "Knowledge Gate (Yash Jain)",
+      "url": "https://www.knowledgegate.ai/learn/GATE-GUIDANCE-BY-SANCHIT-SIR/live-classes/gate-2026-live-class/engineering-mathematics-for-gate-exam/asset-11-oct-em-calculus-part-2",
+      "language": "hi",
+      "transcript": "SUMMARY_ONLY",
+      "translated": true,
+      "note": "the published English chapter summary records the Maclaurin series of log(1+x), e^x, sin x and cos x being written at 05:00-10:00, which is where these limits come from"
+    },
+    {
+      "kind": "text",
+      "title": "Calculus I, Chapter 2: Computing Limits and Proof of Trig Limits",
+      "channel": "Paul's Online Math Notes, Lamar University",
+      "url": "https://tutorial.math.lamar.edu/classes/calci/limitsintro.aspx",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "the chapter index lists the trig-limit proofs section used for sin x/x and (1 - cos x)/x^2"
+    }
+  ],
+  "sourceLine": "The series that generate these limits are written at 05:00-10:00 of the Knowledge Gate lecture (Hindi-medium, English summary - translated); the limits themselves are the standard ones in Thomas' Calculus chapter 2 and Paul's Online Math Notes. Every value is recomputed numerically in scripts/validate.py.",
+  "videoRefs": []
+}

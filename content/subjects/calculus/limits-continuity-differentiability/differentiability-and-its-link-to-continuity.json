@@ -1,0 +1,82 @@
+{
+  "id": "differentiability-and-its-link-to-continuity",
+  "title": "Differentiability Implies Continuity, Never the Reverse",
+  "priority": "P1",
+  "order": 164,
+  "unit": "Differentiability",
+  "quickIdea": "f'(a) exists when the left and right difference quotients agree and are finite; that forces continuity at a, but continuity does not force a derivative.",
+  "remember": [
+    "f'(a) = lim(h->0) (f(a + h) - f(a))/h, and the limit must be finite and two-sided.",
+    "Left derivative uses h -> 0- and right derivative uses h -> 0+; the derivative exists exactly when both exist and are equal.",
+    "Differentiable at a implies continuous at a. Proof idea: f(a + h) - f(a) = h * [(f(a + h) - f(a))/h], and the bracket is bounded near a.",
+    "Continuous at a does not imply differentiable: |x| at 0 is the standard counterexample.",
+    "Differentiability is a local statement - it says nothing about neighbouring points, and f' need not be continuous where it exists.",
+    "A vertical tangent (x^(1/3) at 0) is continuous but not differentiable: the difference quotient tends to infinity."
+  ],
+  "example": {
+    "prompt": "Show that f(x) = |x| is continuous but not differentiable at x = 0.",
+    "work": "Continuity: for x > 0 f(x) = x -> 0, for x < 0 f(x) = -x -> 0, and f(0) = 0, so LHL = RHL = f(0). Derivatives: for h > 0 the quotient (|h| - 0)/h = 1; for h < 0 it is (-h)/h = -1. The two one-sided derivatives are 1 and -1.",
+    "answer": "Continuous at 0 but not differentiable there, because the one-sided derivatives disagree. This is GATE CSE 1998 Q.1.4, whose answer is 'continuous but not differentiable'."
+  },
+  "gateAngle": "1998 Q.1.4 asks exactly this pair of verdicts for |x| on [-1, 1]. 2024 Set 1 Q.1 asks for the set of points where max{x, x^3} fails to be differentiable, and 2025 Set 1 Q.21 makes differentiability at a join the condition that fixes a constant. The implication runs one way only, and every one of these questions depends on knowing that.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "Is f(x) = x|x| differentiable at x = 0?",
+      "answer": "Yes, with f'(0) = 0. For h > 0 the quotient is h^2/h = h -> 0, and for h < 0 it is -h^2/h = -h -> 0, so both one-sided derivatives are 0.",
+      "why": "The mirror image of |x|: the same piecewise structure, but the pieces meet with the same slope. It shows that a formula containing |x| is not automatically non-differentiable at the join."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Why does differentiability at a point force continuity there?",
+      "answer": "Because f(a + h) - f(a) = h * [(f(a + h) - f(a))/h], and as h -> 0 the first factor tends to 0 while the bracket tends to the finite number f'(a); the product tends to 0, which is exactly lim f(a + h) = f(a).",
+      "why": "The proof is one line and it explains why the converse cannot hold: the argument needs the bracket to have a limit, and continuity gives no such thing."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "Is f(x) = x^(2/3) differentiable at x = 0?",
+      "answer": "No. It is continuous at 0, but the difference quotient is h^(2/3)/h = h^(-1/3), which tends to +infinity from the right and -infinity from the left - a cusp, not a finite derivative.",
+      "why": "A third way to fail: not a corner with two finite slopes, but a cusp where the slopes are infinite. GATE has used max and min functions to build such points."
+    }
+  ],
+  "trap": {
+    "what": "Assuming that a continuous function is differentiable, and checking differentiability by comparing formulas on the two pieces only.",
+    "why": "Continuity constrains values, differentiability constrains slopes; the second is strictly stronger. And matching the two formulas' slopes is not enough - the difference quotient itself must have a two-sided limit at the join.",
+    "counterexample": "|x| is continuous at 0 and has no derivative there. max{x, x^3} is continuous everywhere yet not differentiable at -1, 0 and 1."
+  },
+  "check": {
+    "question": "Is f(x) = |x - 2| differentiable at x = 2?",
+    "answer": "No",
+    "explanation": "It is continuous at 2, but the one-sided derivatives are -1 and 1. A shift of |x| fails at the point where its argument vanishes."
+  },
+  "pyqIds": [
+    "gate-1998-1-4-absolute-value"
+  ],
+  "prereqs": [
+    "continuity-at-a-point"
+  ],
+  "sources": [
+    {
+      "kind": "lecture-summary",
+      "title": "11 Oct - EM - Calculus Part 2, the DIFFERENTIABILITY segment",
+      "channel": "Knowledge Gate (Yash Jain)",
+      "url": "https://www.knowledgegate.ai/learn/GATE-GUIDANCE-BY-SANCHIT-SIR/live-classes/gate-2026-live-class/engineering-mathematics-for-gate-exam/asset-11-oct-em-calculus-part-2",
+      "language": "hi",
+      "transcript": "SUMMARY_ONLY",
+      "translated": true,
+      "note": "the published chapter summary records the difference-quotient definition at 35:00-40:00 and the |x| computation at 40:00-45:00, ending with the GATE 1998 question"
+    },
+    {
+      "kind": "pyq-solutions",
+      "title": "GATE Overflow GATE CSE 1998 Q.1.4 solution page",
+      "channel": "GATE Overflow",
+      "url": "https://gateoverflow.in/1641/gate-cse-1998-question-1-4",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "the accepted answer computes LHL, RHL, LHD and RHD separately and selects 'continuous but not differentiable'"
+    }
+  ],
+  "sourceLine": "Definition and the |x| computation: the Knowledge Gate chapter summary at 35:00-45:00 (Hindi-medium lecture, English summary - translated) and Paul's Online Math Notes. The one-sided derivatives of |x|, x|x| and x^(2/3) are recomputed numerically in scripts/validate.py.",
+  "videoRefs": []
+}

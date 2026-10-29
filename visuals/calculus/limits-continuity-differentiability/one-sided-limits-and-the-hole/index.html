@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>One-Sided Limits and the Hole - Limits, Continuity and Differentiability visual lesson</title>
+<link rel="stylesheet" href="../../../lesson.css">
+<script src="https://cdn.jsdelivr.net/npm/p5@1.9.4/lib/p5.min.js"></script>
+</head>
+<body>
+<div class="wrap">
+  <p class="small"><a href="../../../../index.html">&larr; back to the revision site</a></p>
+  <h1>The Limit at a Point: Approach, Not Arrival</h1>
+  <div class="objective"><strong>Objective.</strong> See why the limit at a point ignores the value there, why it exists only when the left-hand and right-hand limits agree, and how that one condition turns into continuity.</div>
+
+  <div class="canvas-wrap"><div id="canvas-holder"></div></div>
+  <div class="caption" id="caption" aria-live="polite"></div>
+
+  <div class="controls">
+    <button id="play" class="primary">Play</button>
+    <button id="prev">&larr; Prev</button>
+    <button id="next">Next &rarr;</button>
+    <button id="restart">Restart</button>
+    <span class="speed"><label for="speed">Speed</label>
+      <input id="speed" type="range" min="0.25" max="2" step="0.25" value="1">
+      <span id="speedLabel">1.00x</span></span>
+    <span class="counter" id="counter"></span>
+  </div>
+
+  <h2>Static explanation</h2>
+  <p>For f(x) = (x^2 - 1)/(x - 1) the numerator factors as (x - 1)(x + 1), so away from x = 1 the function is exactly x + 1. At x = 1 it is undefined, because the denominator vanishes. The limit at 1 is nevertheless 2: as x approaches 1 from either side the values approach 2, and the value at 1 never enters the computation.</p>
+  <p>The numbers make it concrete. From the left: f(0.9) = 1.9, f(0.99) = 1.99, f(0.999) = 1.999. From the right: f(1.1) = 2.1, f(1.01) = 2.01, f(1.001) = 2.001. Both columns close in on 2, so the left-hand limit and the right-hand limit agree and the two-sided limit exists.</p>
+  <p>A limit can also fail. For g(x) = |x|/x the values are -1 for every negative x and +1 for every positive x, so the left-hand limit at 0 is -1 and the right-hand limit is +1. They disagree, so lim(x -&gt; 0) g(x) does not exist. Nothing can repair a disagreement between the two sides.</p>
+  <p>Agreement is what continuity is built on. For h(x) = 2x + 1 when x &lt; 3 and h(x) = 3x - 2 when x &gt;= 3, both one-sided limits at 3 equal 7, and h(3) = 7 as well, so h is continuous at 3. Had the two sides disagreed, the function would jump and no value at 3 could fix it.</p>
+
+  <div class="card warn"><div class="label">Common misconception</div><p>Computing a limit by substituting x = a and, when the result is 0/0, concluding that the limit does not exist. Substitution producing 0/0 says only that this particular evaluation is uninformative. In the first example substitution gives 0/0 and the limit is 2; in GATE CSE 2013 Q.22 one option has a perfectly good limit of 5 at x = 3 and is still discontinuous there, because f(3) = 4.</p></div>
+  <div class="card ok"><div class="label">Quick check</div><p>Let f(x) = x + 2 for x &lt; 1 and f(x) = 4 - x for x &gt; 1, with f(1) = 0. Does the limit at 1 exist, and is f continuous at 1?</p><details><summary>Answer</summary><p><strong>The limit exists and equals 3; the function is not continuous at 1.</strong> The left-hand limit is 1 + 2 = 3 and the right-hand limit is 4 - 1 = 3, so the two-sided limit is 3. But f(1) = 0 differs from 3, so the third condition for continuity fails and the break is a removable discontinuity.</p></details></div>
+  <p class="small">Topic: the limit at a point and one-sided limits (Calculus, Limits, Continuity and Differentiability). Lecture: Knowledge Gate, 11 Oct EM Calculus Part 2, continuity segment at 20:00-25:00 (Hindi-medium class, read through its published English chapter summary - translated). Definitions: Paul's Online Math Notes, Calculus I chapter 2. Verified PYQs: GATE CSE 2021 Set 1 Q.20, GATE CSE 2013 Q.22. Every value shown here is recomputed in scripts/validate.py.</p>
+</div>
+<script src="../../../lesson.js"></script>
+<script src="sketch.js"></script>
+<script>
+/* p5.js is loaded from a CDN. If it is unreachable, say so plainly instead of showing an empty box. */
+window.addEventListener('load', function () {
+  if (window.p5) { return; }
+  var holder = document.getElementById('canvas-holder');
+  if (holder) {
+    holder.innerHTML = '<div style="padding:22px 18px;font-size:14.5px;color:#4a5260">' +
+      'The animation needs p5.js, which this page loads from a CDN, and the request failed (offline, or the CDN is blocked). ' +
+      'Everything below still works: the static explanation, the misconception and the quick check.</div>';
+  }
+  var cap = document.getElementById('caption');
+  if (cap && window.LESSON && window.LESSON.steps && window.LESSON.steps[0]) {
+    cap.innerHTML = window.LESSON.steps[0].caption;
+  }
+  ['play', 'prev', 'next', 'restart', 'speed'].forEach(function (id) {
+    var el = document.getElementById(id);
+    if (el) { el.disabled = true; }
+  });
+});
+</script>
+</body>
+</html>

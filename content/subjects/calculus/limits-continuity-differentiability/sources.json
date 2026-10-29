@@ -1,0 +1,166 @@
+{
+  "subject": "calculus",
+  "topic": "limits-continuity-differentiability",
+  "exam": "GATE CSE 2027",
+  "retrieved_at": "2026-10-29",
+  "subtopics": [
+    "the limit of a function at a point, and the informal epsilon-delta meaning",
+    "one-sided limits, and the condition under which the two-sided limit exists",
+    "the algebra of limits: sums, products, quotients and compositions, with their hypotheses",
+    "the standard limits at zero: sin x / x, (1 - cos x)/x^2, (e^x - 1)/x, (a^x - 1)/x, ln(1 + x)/x, (1 + x)^(1/x)",
+    "indeterminate forms 0/0 and infinity/infinity, and L'Hopital's rule with its three conditions",
+    "the forms 0 times infinity, infinity minus infinity, 0^0, infinity^0 and 1^infinity, and their conversions",
+    "limits at infinity, and the order of growth of logarithms, powers and exponentials",
+    "continuity at a point: the three conditions, and one-sided continuity at an endpoint",
+    "the types of discontinuity: removable, jump, infinite and oscillatory",
+    "continuity on an interval, and the algebra and composition of continuous functions",
+    "the Intermediate Value Theorem, its sign-change corollary and its use on a constructed function",
+    "differentiability at a point, one-sided derivatives, and differentiability implying continuity",
+    "the geometric causes of non-differentiability: corners, cusps and vertical tangents",
+    "piecewise functions: matching the value and the slope at a join",
+    "differentiation rules needed inside these questions: chain rule, product and quotient rules"
+  ],
+  "chosen": [
+    {
+      "id": "knowledgegate-calculus-part-2",
+      "kind": "lecture-summary",
+      "title": "11 Oct - EM - Calculus Part 2, GATE Guidance live class (1 hr 4 min)",
+      "channel": "Knowledge Gate (Yash Jain, GATE Guidance)",
+      "url": "https://www.knowledgegate.ai/learn/GATE-GUIDANCE-BY-SANCHIT-SIR/live-classes/gate-2026-live-class/engineering-mathematics-for-gate-exam/asset-11-oct-em-calculus-part-2",
+      "language": "hi",
+      "transcript": "SUMMARY_ONLY",
+      "translated": true,
+      "covers": [
+        "rationalisation as the first technique for an indeterminate limit, worked on (3 - sqrt(5 + x))/(x - 4) at x = 4",
+        "the Maclaurin series of log(1 + x), log(1 - x), e^x, e^-x, sin x and cos x, used to expand a limit",
+        "L'Hopital's rule with the 0/0 and infinity/infinity conditions, and repeated differentiation",
+        "limits at infinity solved by dividing by the dominant exponential",
+        "continuity at a point as three conditions, with a hole and a jump drawn",
+        "the properties of continuous functions, including composition",
+        "differentiability by the difference quotient, and the geometric meaning of a sharp corner, worked on |x|",
+        "GATE CSE 2013 (continuity at a join) and GATE CSE 2016 Set 2 Q.2 (degree of a derivative) solved in class"
+      ],
+      "why": "The only GATE-oriented lecture on this topic whose content could be read this run, and it follows the order a beginner needs: limit techniques, then continuity, then differentiability, with the GATE questions solved at the end rather than at the start. It is a Hindi-medium class, and what was readable is the platform's published English chapter summary with timestamps, not a transcript, so the cards use its structure, its technique order and its worked question choices, and no card quotes a sentence of the lecturer. The class's own arithmetic was re-derived before use: (3 - sqrt(5 + x))/(x - 4) at x = 4 has limit -1/6, and (e^x - 1)/(x^2 + x) at 0 has limit 1, both recomputed in scripts/validate.py."
+    },
+    {
+      "id": "pauls-notes-limits-and-continuity",
+      "kind": "text",
+      "title": "Calculus I, Chapter 2 (Limits) and section 2.9 (Continuity)",
+      "channel": "Paul's Online Math Notes, Lamar University",
+      "url": "https://tutorial.math.lamar.edu/classes/calci/continuity.aspx",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "covers": [
+        "the limit at a point, one-sided limits and the limit properties",
+        "computing limits by factoring, rationalising and the squeeze theorem",
+        "infinite limits and limits at infinity",
+        "the definition of continuity and the note that both f(a) and the limit must exist",
+        "jump and removable discontinuities, named and explained on a graph",
+        "the Intermediate Value Theorem, with the warning that it verifies a value but never excludes one and does not say how many times"
+      ],
+      "why": "Chosen for correctness and for beginner accessibility, not for exam framing: it is the one readable English source this run that states every definition and hypothesis the cards depend on, including the two conditions inside the continuity definition that the 2013 question tests. Read in full. It carries no GATE material, so it supplies definitions only; every exam claim in the topic comes from a verified previous-year question."
+    },
+    {
+      "id": "nptel-basic-calculus-1-iit-madras",
+      "kind": "course-outline",
+      "title": "NOC: Basic Calculus - 1, Prof. Arindama Singh, IIT Madras",
+      "channel": "NPTEL, IIT Madras",
+      "url": "https://onlinecourses.nptel.ac.in/noc22_ma13/preview",
+      "language": "en",
+      "transcript": "UNAVAILABLE",
+      "translated": false,
+      "covers": [
+        "the week-by-week order: limits and one-sided limits in week 2, continuity and the intermediate value property in week 3, differentiation and the chain rule in week 4",
+        "confirmation that this topic is three weeks of a twelve-week course, which fixes the scope of this run"
+      ],
+      "why": "Recorded as structure only, and it is the reason the subtopic enumeration runs limit, then continuity, then differentiability rather than interleaving them. It is the closest NPTEL course to the syllabus line and its outline is readable, but no lecture transcript could be read, so no card quotes it and no claim rests on it."
+    },
+    {
+      "id": "gateoverflow-calculus-solutions",
+      "kind": "pyq-solutions",
+      "title": "Previous GATE Questions in Calculus, and the individual question pages used here",
+      "channel": "GATE Overflow",
+      "url": "https://gateoverflow.in/questions/mathematics/calculus?sort=gate",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "covers": [
+        "the list of GATE CSE calculus questions with their year and question number",
+        "the accepted answer, and usually two or three alternative solutions, for each of the eleven questions recorded in this topic",
+        "the mark-distribution table for calculus across 2021 to 2026, which shows the topic carrying one 1-mark question a year and an extra 2-mark question in 2026"
+      ],
+      "why": "The only source this run that gives a question number, a question text and an accepted answer for every previous-year question used, so it is the basis of every PYQ record. Its numbering is not always the numbering of the master paper - GATE CSE 2022 Q.24 appears as Q.34 on other sites - and each record says so rather than silently choosing one."
+    }
+  ],
+  "rejected": [
+    {
+      "id": "edurev-machine-experts-calculus-lcd",
+      "kind": "lecture",
+      "channel": "EduRev (Machine Experts), C9TSePo6FKI",
+      "title": "Calculus - Limit Continuity And Differentiability, 10:40",
+      "url": "https://edurev.in/v/236208/calculus-limit-continuity-and-differentiability",
+      "language": "en",
+      "why": "The one English video whose page names this exact topic in its title. Rejected on content and access together: the page text is boilerplate about the course rather than the teaching, the runtime is ten minutes for three subtopics, and the video returned LOGIN_REQUIRED when its captions were requested, so not one sentence could be read."
+    },
+    {
+      "id": "nptel-calculus-of-one-variable-joydeep-das",
+      "kind": "playlist",
+      "channel": "NPTEL, IIT Kanpur (Prof. Joydeep Das), mirrored on YouTube",
+      "title": "Calculus of One Variable, 40 lectures",
+      "url": "https://www.youtube.com/playlist?list=PLEAYkSg4uSQ0q9CDkHkJGdUTQOgH1DLDj",
+      "language": "en",
+      "why": "The best-sequenced English candidate found: lectures 5 and 6 are Limits of Functions, 7 is Continuous Functions, 8 is the Intermediate Value Theorem and 11 is the Derivative, which is exactly this topic in order. Rejected for access: only the playlist index was readable, and the same caption block that refused the other videos refused these, so nothing could be attributed to it. A later run with a working caption route should retry it."
+    },
+    {
+      "id": "nptel-engineering-mathematics-i-indeterminate-forms",
+      "kind": "course-outline",
+      "channel": "NPTEL, NOC Engineering Mathematics-I (course 111105121)",
+      "title": "Lectures 3 and 4, Indeterminate Forms, and lecture 11, Derivative and Differentiability",
+      "url": "http://www.digimat.in/nptel/courses/video/111105121/111105121.html",
+      "language": "en",
+      "why": "Its lectures 3 and 4 are the only dedicated indeterminate-forms lectures found in any NPTEL course. Rejected on access and on scope: the index page carries lecture titles only, and the course moves immediately into functions of two variables, so most of it is outside this topic."
+    },
+    {
+      "id": "unacademy-hindi-limit-continuity-anuradha-yadav",
+      "kind": "lecture",
+      "channel": "Unacademy (Anuradha Yadav), in Hindi",
+      "title": "Concept of Limit, Continuity and Differentiability with example, lesson 7 of 35, 14:41",
+      "url": "https://unacademy.com/lesson/concept-of-limitcontinuity-and-differetiability-with-example-useful-for-gatenetnbhmand-manexams/5ZSC6ICK",
+      "language": "hi",
+      "translated": false,
+      "why": "A Hindi lesson with exactly this topic's title and a GATE-oriented syllabus around it. Rejected for access: the lesson page serves a description and a lesson list, the video is behind the platform's subscription, and no transcript could be read, so no translated sentence is published anywhere in this topic."
+    },
+    {
+      "id": "slideshare-gate-limit-continuity-deck",
+      "kind": "slides",
+      "channel": "SlideShare (Mukuldev Khunte), GATE Engineering Maths",
+      "title": "GATE Engineering Maths: Limit, Continuity and Differentiability, 11 slides",
+      "url": "https://www.slideshare.net/slideshow/gate-engineering-maths-limit-continuity-and-differentiability/87198605",
+      "language": "en",
+      "why": "Readable in full, and its slide text was checked against the cards - the epsilon-delta line, the LHD/RHD formulas and the statement that differentiability implies continuity all agree. Rejected as a source anyway: it is a formula dump with no explanation, no worked derivation and no GATE question, so nothing is attributed to it. It served only as a cross-check that the standard wording on the cards is conventional."
+    },
+    {
+      "id": "pyqlabs-calculus-listing",
+      "kind": "pyq-index",
+      "channel": "PYQLabs",
+      "title": "GATE CSE Calculus: every PYQ across 40 years",
+      "url": "https://pyqlabs.in/gate/cse/topic/calculus",
+      "language": "en",
+      "why": "A convenient per-concept PYQ index. Rejected as a verification source because its year labels are unreliable: its calculus page lists the GATE CSE 2019 limit question (x^4 - 81)/(2x^2 - 5x - 3) under 2023, and repeats question text under two different years. Nothing in this topic rests on it; every question was taken from its own GATE Overflow page instead."
+    }
+  ],
+  "standard_refs": [
+    "George B. Thomas, Maurice D. Weir and Joel Hass, Thomas' Calculus, chapters on limits and continuity, and on differentiation",
+    "James Stewart, Calculus: Early Transcendentals, chapters 2 (limits and continuity) and 3 (differentiation rules)",
+    "NCERT Mathematics, Class 12, chapter 5 (continuity and differentiability), the version most Indian candidates meet first",
+    "Paul Dawkins, Paul's Online Math Notes, Calculus I, chapters 2 and 3",
+    "GATE 2027 CS syllabus, IIT Madras: Engineering Mathematics line 'Limits, continuity and differentiability. Maxima and minima. Mean value theorem. Integration.'"
+  ],
+  "notes": [
+    "No video transcript was readable this run. YouTube answered LOGIN_REQUIRED ('Sign in to confirm you are not a bot') for every watch page, yt-dlp returned HTTP 403, and the consent cookie did not help, so the one GATE-oriented lecture in the chosen list is recorded from the platform's published English chapter summary with timestamps and is marked SUMMARY_ONLY. No card quotes a lecturer's sentence and no card claims a timestamp for a claim that is not in that summary.",
+    "The syllabus names the topic in five words, so the fifteen subtopics above are this run's enumeration from the standard treatment (Thomas, Stewart, NCERT chapter 5) and the eleven verified CSE questions, not a quotation from the syllabus.",
+    "The non-English material is one Hindi-medium GATE lecture, marked translated. What was readable is an English AI summary of it, so the translation sits two layers from the lecture - summary, then English - and the cards say so rather than implying a verbatim translation.",
+    "Maxima and minima, the mean value theorem and integration are the next three topics in the cycle. Questions that belong to them, such as GATE CSE 2021 Set 2 Q.25 (f'(x) <= 2 with f(-3) = 7) and GATE CSE 2023 Q.28 (local maxima of a cubic), were deliberately left for those runs and are not in this topic's PYQ set."
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "id": "matching-value-and-slope-at-a-join",
+  "title": "Matching Value and Slope at a Join",
+  "priority": "P1",
+  "order": 165,
+  "unit": "Differentiability",
+  "quickIdea": "For a piecewise function to be differentiable at the join, solve two equations in order: the values must match, then the slopes must match.",
+  "remember": [
+    "Step 1, continuity: f from the left at a equals f from the right at a equals f(a). This is one equation in the unknown constants.",
+    "Step 2, differentiability: the left derivative at a equals the right derivative at a. This is the second equation.",
+    "Differentiability requires continuity, so step 1 is not optional and its equation is always needed.",
+    "The word 'continuous' in a question licenses only step 1; the word 'differentiable' licenses both.",
+    "Differentiate each piece first, then evaluate at a - do not differentiate the joined function as if it were one formula.",
+    "Two unknowns need both equations; one unknown may be fixed by either, depending on the wording."
+  ],
+  "example": {
+    "prompt": "GATE CSE 2025 Set 1 Q.21: f(x) = ax + b for x < 1 and f(x) = x^3 + x^2 + 1 for x >= 1. If f is differentiable everywhere, find b.",
+    "work": "Continuity at 1: a(1) + b = 1 + 1 + 1, so a + b = 3. Differentiability at 1: the left derivative is a, the right derivative is 3x^2 + 2x evaluated at 1, which is 5. So a = 5, and then b = 3 - 5 = -2.",
+    "answer": "b = -2.0, with a = 5. The slope equation fixes a, and the value equation then fixes b."
+  },
+  "gateAngle": "This is the highest-yield pattern in the topic: 2025 Set 1 Q.21 asks for b under 'differentiable everywhere', 2013 Q.22 tests continuity at a join only, and 2026 Set 1 Q.22 fixes a coefficient by forcing a one-sided limit to match a given value. The two-step order never changes.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "f(x) = x^2 for x < 2 and f(x) = ax + b for x >= 2. Find a and b so that f is differentiable everywhere.",
+      "answer": "a = 4 and b = -4. Continuity: 4 = 2a + b. Differentiability: the left derivative 2x at 2 is 4, so a = 4, and then b = 4 - 8 = -4.",
+      "why": "The same two equations with the pieces swapped. The left piece is now the curved one, which changes which derivative you evaluate but not the method."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "If a question says only that f is continuous at the join, what can be concluded about the constants?",
+      "answer": "Only the value equation. For the 2025 function, continuity alone gives a + b = 3 - a whole family of pairs - and no value of a or b is forced.",
+      "why": "Differentiability is the stronger hypothesis and supplies the extra equation. Reading 'continuous' as 'differentiable' is the mistake the 2025 question is designed to catch."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "f(x) = ax + b for x < 1 and f(x) = x^3 + x^2 + 1 for x >= 1, but the question asks for a + b instead of b.",
+      "answer": "a + b = 3, from the continuity equation alone; a = 5 is not needed. The answer is 3.",
+      "why": "The same function, a different question. Deciding which equation the requested quantity needs saves a step and prevents over-solving."
+    }
+  ],
+  "trap": {
+    "what": "Matching the slopes first, or reporting the pair of equations without solving them, or assuming continuity gives differentiability.",
+    "why": "The slope equation uses the constant from the value equation, so continuity must come first. And equal slopes at a point where the values differ does not make the function differentiable - it does not even make it continuous.",
+    "counterexample": "For f(x) = ax + b (x < 1) and x^3 + x^2 + 1 (x >= 1), taking a = 5 without the value equation gives b free; with b = 0 the function jumps from 5 to 3 at x = 1 and is not even continuous, let alone differentiable."
+  },
+  "check": {
+    "question": "f(x) = x^2 for x < 2 and f(x) = ax + b for x >= 2. What is a?",
+    "answer": "4",
+    "explanation": "Differentiability forces the slopes to agree at 2: the left derivative is 2x = 4 there, so a = 4. Continuity then gives b = 4 - 2(4) = -4."
+  },
+  "pyqIds": [
+    "gate-2025-set1-21-differentiable-everywhere-b"
+  ],
+  "prereqs": [
+    "differentiability-and-its-link-to-continuity",
+    "continuity-at-a-point"
+  ],
+  "visual": "calculus/limits-continuity-differentiability/join-value-and-slope",
+  "sources": [
+    {
+      "kind": "pyq-solutions",
+      "title": "GATE Overflow GATE CSE 2025 Set 1 Q.21 solution page",
+      "channel": "GATE Overflow",
+      "url": "https://gateoverflow.in/460059/gate-cse-2025-set-1-question-21",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "three answers, all reaching a + b = 3 and a = 5 from continuity and the matching derivatives, then b = -2"
+    },
+    {
+      "kind": "lecture-summary",
+      "title": "11 Oct - EM - Calculus Part 2, GATE questions on continuity at a join",
+      "channel": "Knowledge Gate (Yash Jain)",
+      "url": "https://www.knowledgegate.ai/learn/GATE-GUIDANCE-BY-SANCHIT-SIR/live-classes/gate-2026-live-class/engineering-mathematics-for-gate-exam/asset-11-oct-em-calculus-part-2",
+      "language": "hi",
+      "transcript": "SUMMARY_ONLY",
+      "translated": true,
+      "note": "the published chapter summary records a piecewise continuity example at 30:00-35:00 followed by a GATE 2013 question on the same pattern"
+    }
+  ],
+  "sourceLine": "The two-equation method is worked from the accepted GATE Overflow solutions to 2025 Set 1 Q.21 and the piecewise example in the Knowledge Gate chapter summary at 30:00-35:00 (Hindi-medium, English summary - translated). Every constant on this card is recomputed in scripts/validate.py.",
+  "videoRefs": []
+}

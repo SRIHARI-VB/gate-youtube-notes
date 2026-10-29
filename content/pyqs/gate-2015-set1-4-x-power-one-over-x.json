@@ -1,0 +1,21 @@
+{
+  "id": "gate-2015-set1-4-x-power-one-over-x",
+  "year": "2015",
+  "paper": "GATE CS 2015 Set 1",
+  "question_ref": "Q.4",
+  "type": "MCQ",
+  "topic": "limits-at-infinity-and-orders-of-growth",
+  "text": "lim(x -> infinity) x^(1/x) is",
+  "options": [
+    "infinity",
+    "0",
+    "1",
+    "Not defined"
+  ],
+  "answer": "Option (C), 1",
+  "solution": "Write x^(1/x) = exp((ln x)/x). Since (ln x)/x -> 0 as x -> infinity - the logarithm grows slower than x, and L'Hopital confirms it - the limit is exp(0) = 1. Numerically x^(1/x) is 1.0069 at x = 1000 and 1.0007 at x = 10000, approaching 1 from above.",
+  "source_url": "https://gateoverflow.in/8021/gate-cse-2015-set-1-question-4",
+  "source_label": "GATE Overflow question page, GATE CSE 2015 Set 1 Q.4, with the accepted answer C",
+  "verification": "SOURCED",
+  "answer_evidence": "The accepted answer takes the exponential of the logarithm and uses (ln x)/x -> 0; another answer reaches 1 by the dominant-term argument. The value is recomputed numerically in scripts/validate.py. The official key was not fetched, so this rests on the accepted GATE Overflow answer, and no marks field is recorded."
+}

@@ -1,0 +1,15 @@
+{
+  "id": "gate-2021-set1-20-rationalise-root",
+  "year": "2021",
+  "paper": "GATE CS 2021 Set 1",
+  "question_ref": "Q.20",
+  "type": "NAT",
+  "topic": "limit-at-a-point-and-one-sided-limits",
+  "text": "Consider the following expression. lim(x -> -3) (sqrt(2x + 22) - 4)/(x + 3). The value of the above expression (rounded to 2 decimal places) is ____.",
+  "answer": "0.25",
+  "solution": "At x = -3 the numerator is sqrt(16) - 4 = 0 and the denominator is 0, so the form is 0/0. L'Hopital: the numerator's derivative is (1/(2 sqrt(2x + 22)))(2) = 1/sqrt(2x + 22), the denominator's is 1, so the limit is 1/sqrt(2(-3) + 22) = 1/4 = 0.25. Rationalising gives the same: multiply by (sqrt(2x + 22) + 4), and the numerator becomes 2x + 22 - 16 = 2(x + 3), which cancels to 2/(sqrt(2x + 22) + 4) -> 2/8 = 0.25.",
+  "source_url": "https://gateoverflow.in/357431/gate-cse-2021-set-1-question-20",
+  "source_label": "GATE Overflow question page, GATE CSE 2021 Set 1 Q.20, with the accepted answer 0.25",
+  "verification": "SOURCED",
+  "answer_evidence": "The accepted answer applies L'Hopital and gets 1/4; a commenter reports 0.25 by substituting x = -3.00001, and another answer rationalises the numerator to the same value. Recomputed in scripts/validate.py. The official key was not fetched, so the record rests on the accepted GATE Overflow answer, and no marks field is recorded."
+}

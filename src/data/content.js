@@ -215,7 +215,7 @@ window.GATE_DATA = {
      {
       "slug": "limits-continuity-differentiability",
       "name": "Limits, Continuity and Differentiability",
-      "material": "planned"
+      "material": "cards"
      },
      {
       "slug": "maxima-and-minima",
@@ -15458,6 +15458,1001 @@ window.GATE_DATA = {
    "subject": "linear-algebra",
    "topic": "lu-decomposition",
    "path": "subjects/linear-algebra/lu-decomposition/reading-lu-entries-in-gate-questions.json"
+  },
+  {
+   "id": "limit-at-a-point-and-one-sided-limits",
+   "title": "The Limit at a Point, and One-Sided Limits",
+   "priority": "P1",
+   "order": 155,
+   "unit": "Limits",
+   "quickIdea": "A limit describes where f(x) is heading as x approaches a, not what f(a) is; it exists only when the left-hand and right-hand limits agree.",
+   "remember": [
+    "lim(x->a) f(x) = L means f(x) can be forced as close to L as we like by taking x close enough to a, with x never equal to a.",
+    "The value f(a) plays no part in the limit. f need not even be defined at a for the limit to exist.",
+    "The limit exists exactly when the left-hand limit and the right-hand limit both exist and are equal: LHL = RHL = L.",
+    "LHL = lim(h->0+) f(a-h) and RHL = lim(h->0+) f(a+h). Both h's are positive; the sign lives in the formula.",
+    "If the two one-sided limits differ, or either is infinite, the two-sided limit does not exist.",
+    "At an endpoint of a domain only the one-sided limit that stays inside the domain is asked for."
+   ],
+   "example": {
+    "prompt": "Find lim(x->1) (x^2 - 1)/(x - 1), given that f(1) is undefined.",
+    "work": "Factor: x^2 - 1 = (x - 1)(x + 1). For x not equal to 1 the (x - 1) cancels and the expression equals x + 1. As x -> 1 from either side, x + 1 -> 2. Check numerically: x = 0.9 gives 1.9, x = 0.99 gives 1.99, x = 1.1 gives 2.1, x = 1.01 gives 2.01.",
+    "answer": "The limit is 2, even though f(1) is undefined. The graph is the line y = x + 1 with a hole punched out at (1, 2)."
+   },
+   "gateAngle": "GATE tests the definition rather than the arithmetic. In 2013 Q.22 four piecewise functions are offered and only one has LHL = RHL = f(3); in 2026 Set 1 Q.22 the value f(0) = 3 is given and the one-sided limit at 0 must be forced to 3. Read every option's three quantities separately instead of trusting the formula.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "For g(x) = |x|/x, find the left-hand and right-hand limits at x = 0 and decide whether the two-sided limit exists.",
+     "answer": "For x < 0, g(x) = -1, so LHL = -1. For x > 0, g(x) = 1, so RHL = 1. The one-sided limits differ, so lim(x->0) g(x) does not exist.",
+     "why": "This is the cheapest possible counterexample to 'just substitute x = 0'. It separates the three quantities - function value, one-sided limits, two-sided limit - which is exactly the skill 2013 Q.22 tests."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Can lim(x->a) f(x) exist when f(a) is defined but different from the limit?",
+     "answer": "Yes. Take f(x) = 5 for every x except f(3) = 4. Then the limit at 3 is 5 while f(3) = 4, so the limit exists and the function is discontinuous at 3.",
+     "why": "GATE CSE 2013 Q.22 option (B) is exactly this shape: the limit is 5 and f(3) = 4. A limit constrains only nearby values."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "Let f(x) = x + 2 for x < 1 and f(x) = 4 - x for x > 1, with f(1) = 0. Does the limit at 1 exist, and is f continuous at 1?",
+     "answer": "LHL = 3 and RHL = 3, so the limit exists and equals 3. But f(1) = 0, so the function is not continuous at 1 - a removable discontinuity.",
+     "why": "The limit and the continuity verdict are two different questions. Solving only the first is the usual half-answer."
+    }
+   ],
+   "trap": {
+    "what": "Computing a limit by substituting x = a and, when that gives 0/0, declaring the limit does not exist.",
+    "why": "0/0 is an indeterminate form: it says the substitution told you nothing, not that the limit is missing. The correct response is to factor, rationalise, expand or differentiate.",
+    "counterexample": "(x^2 - 1)/(x - 1) at x = 1 gives 0/0 by substitution, yet the limit is 2. Likewise (x^2 - 4)/(x - 2) at x = 2 gives 0/0 and has limit 4."
+   },
+   "check": {
+    "question": "Evaluate lim(x->2) (x^2 - 4)/(x - 2).",
+    "answer": "4",
+    "explanation": "x^2 - 4 = (x - 2)(x + 2); cancelling x - 2 for x not equal to 2 leaves x + 2, which tends to 4. Substitution would have produced 0/0 and told you nothing."
+   },
+   "pyqIds": [
+    "gate-2021-set1-20-rationalise-root"
+   ],
+   "prereqs": [
+    "composition-and-inverse-functions"
+   ],
+   "visual": "calculus/limits-continuity-differentiability/one-sided-limits-and-the-hole",
+   "sources": [
+    {
+     "kind": "lecture-summary",
+     "title": "11 Oct - EM - Calculus Part 2 (GATE Guidance), continuity section",
+     "channel": "Knowledge Gate (Yash Jain)",
+     "url": "https://www.knowledgegate.ai/learn/GATE-GUIDANCE-BY-SANCHIT-SIR/live-classes/gate-2026-live-class/engineering-mathematics-for-gate-exam/asset-11-oct-em-calculus-part-2",
+     "language": "hi",
+     "transcript": "SUMMARY_ONLY",
+     "translated": true,
+     "note": "the published English AI chapter summary places the continuity definition at 20:00-25:00 and states the three conditions and LHL = RHL; read as a summary, not a transcript"
+    },
+    {
+     "kind": "text",
+     "title": "Calculus I, Chapter 2: Limits (the limit, one-sided limits, limit properties)",
+     "channel": "Paul's Online Math Notes, Lamar University",
+     "url": "https://tutorial.math.lamar.edu/classes/calci/limitsintro.aspx",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "the section list and the one-sided-limit treatment were read in full"
+    }
+   ],
+   "sourceLine": "Definition, one-sided limits and the 2013/2026 question shapes: Paul's Online Math Notes, Calculus I chapter 2, and the Knowledge Gate chapter summary at 20:00-25:00 (Hindi-medium lecture, English summary - translated). Every limit value on this card is recomputed numerically in scripts/validate.py.",
+   "videoRefs": [],
+   "subject": "calculus",
+   "topic": "limits-continuity-differentiability",
+   "path": "subjects/calculus/limits-continuity-differentiability/limit-at-a-point-and-one-sided-limits.json"
+  },
+  {
+   "id": "algebra-of-limits",
+   "title": "Algebra of Limits: When You May Substitute",
+   "priority": "P2",
+   "order": 156,
+   "unit": "Limits",
+   "quickIdea": "Limits pass through sums, products, quotients and compositions provided each piece has a finite limit and no denominator tends to zero.",
+   "remember": [
+    "If lim f = L and lim g = M (both finite) then lim(f + g) = L + M, lim(f g) = L M, and lim(f/g) = L/M when M is not 0.",
+    "A constant factor passes out: lim(c f) = c lim f.",
+    "Powers and roots pass through too, so lim (f(x))^n = L^n and lim sqrt(f(x)) = sqrt(L) when L >= 0.",
+    "Composition needs one extra condition: lim f(g(x)) = f(lim g(x)) only when the outer function f is continuous at the inner limit.",
+    "These laws are the reason substitution works for polynomials and for rational functions away from their zeros of the denominator.",
+    "The laws say nothing at 0/0 or infinity/infinity. There you must rewrite the expression first - factor, rationalise, expand, or use L'Hopital."
+   ],
+   "example": {
+    "prompt": "Evaluate lim(x->2) (3x^2 - 5x + 1).",
+    "work": "A polynomial is a sum of constant multiples of powers of x, and lim(x->2) x = 2. So each term passes its limit through: 3(2)^2 = 12, -5(2) = -10, and the constant 1 stays 1. Adding: 12 - 10 + 1 = 3.",
+    "answer": "The limit is 3, which is just the value of the polynomial at x = 2 - the substitution is justified by these laws, not by habit."
+   },
+   "gateAngle": "The algebra of limits is rarely the whole question but it is the step that fails silently. In 2019 Q.13 and 2017 Set 1 Q.28 the quotient law cannot be applied because the denominator limit is 0, and in 2022 Q.24 the composition e^(2 sqrt(x)) is handled by substituting y = 2 sqrt(x) - a change of variable the composition law licenses once the outer function is continuous.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "Evaluate lim(x->3) (x^2 - 9)/(x - 3) and say which limit law justifies each step.",
+     "answer": "Factor to (x + 3) for x not equal to 3, then use the sum law and lim x = 3 to get 6. The quotient law is not used, because the denominator's limit is 0.",
+     "why": "The point is the bookkeeping: the answer comes from the sum law applied after an algebraic rewrite, and naming which law applies is what stops the invalid quotient step."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Is lim(x->a) f(g(x)) always f(lim(x->a) g(x))?",
+     "answer": "No. It holds when f is continuous at the inner limit L. Take g(x) = x and f(t) = 0 for t not equal to 0 with f(0) = 1, at a = 0: the inner limit is 0, f(0) = 1, but f(g(x)) = 0 near 0, so the left side is 0.",
+     "why": "The composition law has a continuity hypothesis, and GATE has asked conceptual questions of this shape about limits of compositions."
+    }
+   ],
+   "trap": {
+    "what": "Applying the quotient law when the denominator's limit is zero, and reporting the result as a number or as infinity.",
+    "why": "The law requires M not equal to 0. When M = 0 the quotient law simply does not apply, and the answer may be finite, infinite, or non-existent depending on the numerator.",
+    "counterexample": "lim(x->0) (sin x)/x: the denominator tends to 0, the quotient law is void, and the limit is 1. lim(x->0) (1)/x has the same zero denominator and no finite limit at all."
+   },
+   "check": {
+    "question": "Which law lets you evaluate lim(x->1) (x^3 + 2x) by substitution?",
+    "answer": "The sum, constant-multiple and power laws, applied to lim(x->1) x = 1, giving 1 + 2 = 3.",
+    "explanation": "No denominator is involved, every piece has a finite limit, so the laws apply directly and substitution is legitimate."
+   },
+   "pyqIds": [],
+   "prereqs": [
+    "limit-at-a-point-and-one-sided-limits"
+   ],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "Calculus I, Chapter 2: Limit Properties and Computing Limits",
+     "channel": "Paul's Online Math Notes, Lamar University",
+     "url": "https://tutorial.math.lamar.edu/classes/calci/limitsintro.aspx",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "the chapter's section list names the limit-properties and computing-limits sections this card follows"
+    }
+   ],
+   "sourceLine": "The limit laws and their hypotheses: Paul's Online Math Notes, Calculus I, Limit Properties. The card carries no GATE CSE previous-year question of its own because no question in this topic is decided by the laws alone; they are the step inside the limit questions on the neighbouring cards.",
+   "videoRefs": [],
+   "subject": "calculus",
+   "topic": "limits-continuity-differentiability",
+   "path": "subjects/calculus/limits-continuity-differentiability/algebra-of-limits.json"
+  },
+  {
+   "id": "standard-limits",
+   "title": "The Standard Limits Worth Memorising",
+   "priority": "P1",
+   "order": 157,
+   "unit": "Limits",
+   "quickIdea": "Six limits at zero and three at infinity cover almost every GATE limit question; recognising one collapses the problem to arithmetic.",
+   "remember": [
+    "lim(x->0) (sin x)/x = 1, with x in radians. Also lim(x->0) (tan x)/x = 1.",
+    "lim(x->0) (1 - cos x)/x^2 = 1/2. Not 1, and not 0.",
+    "lim(x->0) (e^x - 1)/x = 1 and lim(x->0) (a^x - 1)/x = ln a for a > 0.",
+    "lim(x->0) ln(1 + x)/x = 1 and lim(x->0) (1 + x)^(1/x) = e.",
+    "At infinity: lim(x->inf) (ln x)/x = 0, lim(x->inf) x^(1/x) = 1, lim(x->inf) (1 + x^2) e^(-x) = 0.",
+    "Each of these is a shape, not a formula: sin(u)/u -> 1 for any u that tends to 0, so sin(x - 4)/(x - 4) -> 1 as x -> 4."
+   ],
+   "example": {
+    "prompt": "Evaluate lim(x->0) (1 - cos 3x)/x^2.",
+    "work": "Put u = 3x, so x = u/3 and x^2 = u^2/9. Then (1 - cos 3x)/x^2 = 9 (1 - cos u)/u^2. As x -> 0, u -> 0, so (1 - cos u)/u^2 -> 1/2 and the whole expression tends to 9/2.",
+    "answer": "The limit is 9/2 = 4.5. The factor 9 is the square of the coefficient inside the cosine - a coefficient on x is squared when it moves past x^2."
+   },
+   "gateAngle": "2016 Set 1 Q.3 is this family at its simplest: lim(x->4) sin(x - 4)/(x - 4) = 1. 2015 Set 1 Q.4 is the infinity member, x^(1/x) -> 1. Most other limits in the papers are these shapes after one substitution.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "Evaluate lim(x->0) (e^(5x) - 1)/x.",
+     "answer": "5. Write it as 5 * (e^(5x) - 1)/(5x) and use (e^u - 1)/u -> 1 with u = 5x.",
+     "why": "The same one-substitution move as the 2016 question; the coefficient of x survives, whereas a coefficient inside a cosine would be squared."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why is (1 - cos x)/x^2 equal to 1/2 rather than 0?",
+     "answer": "Because 1 - cos x behaves like x^2/2 near 0: cos x = 1 - x^2/2 + x^4/24 - ..., so 1 - cos x = x^2/2 - x^4/24 + ... and dividing by x^2 leaves 1/2 - x^2/24 + ..., which tends to 1/2.",
+     "why": "The numerator vanishes to second order, exactly as fast as x^2, so the ratio settles at a finite non-zero value. Seeing the order of vanishing predicts the answer before any algebra."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "Evaluate lim(x->0) (1 - cos x)/(x sin x).",
+     "answer": "1/2. Write it as [(1 - cos x)/x^2] * [x/sin x], and the two factors tend to 1/2 and 1.",
+     "why": "GATE builds questions by multiplying two standard limits. Splitting the expression into recognisable factors is the whole technique."
+    }
+   ],
+   "trap": {
+    "what": "Quoting sin x/x -> 1 while the angle is in degrees, or assuming (1 - cos x)/x^2 -> 1 by analogy with sin x/x.",
+    "why": "Every standard limit above is stated in radians; in degrees sin x/x -> pi/180. And (1 - cos x) vanishes to second order, so its ratio with x^2 is 1/2, not 1.",
+    "counterexample": "With x in degrees, lim(x->0) sin(x degrees)/x = pi/180, not 1. And (1 - cos x)/x^2 -> 1/2, which the 2022 question's neighbour, (1 - cos x)/x, gets wrong as 0."
+   },
+   "check": {
+    "question": "Evaluate lim(x->0) (e^(2x) - 1)/x.",
+    "answer": "2",
+    "explanation": "Write it as 2 * (e^(2x) - 1)/(2x); the bracket is the standard limit 1, so the answer is 2."
+   },
+   "pyqIds": [
+    "gate-2016-set1-3-sin-shift"
+   ],
+   "prereqs": [
+    "limit-at-a-point-and-one-sided-limits"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-summary",
+     "title": "11 Oct - EM - Calculus Part 2, the EXPANSION segment",
+     "channel": "Knowledge Gate (Yash Jain)",
+     "url": "https://www.knowledgegate.ai/learn/GATE-GUIDANCE-BY-SANCHIT-SIR/live-classes/gate-2026-live-class/engineering-mathematics-for-gate-exam/asset-11-oct-em-calculus-part-2",
+     "language": "hi",
+     "transcript": "SUMMARY_ONLY",
+     "translated": true,
+     "note": "the published English chapter summary records the Maclaurin series of log(1+x), e^x, sin x and cos x being written at 05:00-10:00, which is where these limits come from"
+    },
+    {
+     "kind": "text",
+     "title": "Calculus I, Chapter 2: Computing Limits and Proof of Trig Limits",
+     "channel": "Paul's Online Math Notes, Lamar University",
+     "url": "https://tutorial.math.lamar.edu/classes/calci/limitsintro.aspx",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "the chapter index lists the trig-limit proofs section used for sin x/x and (1 - cos x)/x^2"
+    }
+   ],
+   "sourceLine": "The series that generate these limits are written at 05:00-10:00 of the Knowledge Gate lecture (Hindi-medium, English summary - translated); the limits themselves are the standard ones in Thomas' Calculus chapter 2 and Paul's Online Math Notes. Every value is recomputed numerically in scripts/validate.py.",
+   "videoRefs": [],
+   "subject": "calculus",
+   "topic": "limits-continuity-differentiability",
+   "path": "subjects/calculus/limits-continuity-differentiability/standard-limits.json"
+  },
+  {
+   "id": "lhopital-rule-and-its-conditions",
+   "title": "L'Hopital's Rule and When It Is Legal",
+   "priority": "P1",
+   "order": 158,
+   "unit": "Limits",
+   "quickIdea": "L'Hopital replaces f/g by f'/g' - but only for 0/0 or infinity/infinity, only near the point, and only when the new limit exists.",
+   "remember": [
+    "The rule applies to lim f(x)/g(x) only when the form is 0/0 or infinity/infinity at the point.",
+    "Differentiate the numerator and the denominator separately. Never apply the quotient rule to the whole fraction.",
+    "The rule may be repeated while each new ratio is still 0/0 or infinity/infinity.",
+    "The rule is valid only if lim f'/g' exists (as a finite number or as +-infinity). If f'/g' oscillates, the rule tells you nothing about the original limit.",
+    "Check by substitution first. If substitution gives a number, that number is the limit and L'Hopital must not be used.",
+    "One application is often cheaper than two: simplify between applications rather than differentiating twice."
+   ],
+   "example": {
+    "prompt": "Evaluate lim(x->1) (x^7 - 2x^5 + 1)/(x^3 - 3x^2 + 2).",
+    "work": "At x = 1: numerator 1 - 2 + 1 = 0 and denominator 1 - 3 + 2 = 0, so the form is 0/0. Differentiate separately: numerator 7x^6 - 10x^4, denominator 3x^2 - 6x. At x = 1 these are 7 - 10 = -3 and 3 - 6 = -3. The ratio is (-3)/(-3) = 1.",
+    "answer": "The limit is 1. Both one-sided limits give the same value, so the two-sided limit exists."
+   },
+   "gateAngle": "This is the single most used technique in the topic: 2019 Q.13, 2017 Set 1 Q.28, 2021 Set 1 Q.20, 2022 Q.24 and 2016 Set 1 Q.3 all yield to it in one or two applications. 2021 Set 1 Q.20 is also the reminder that rationalising the numerator gives the same answer - the papers accept whichever is faster.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "Evaluate lim(x->1) (x^3 - 1)/(x^2 - 1).",
+     "answer": "3/2. Both parts vanish at 1, so differentiate: 3x^2/(2x) at x = 1 gives 3/2. Factoring gives the same: (x^2 + x + 1)/(x + 1) at 1 is 3/2.",
+     "why": "Two routes to one number is the check GATE rewards: factor when the degree is small, differentiate when it is not."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why is L'Hopital's rule invalid on lim(x->1) (x^2 + 1)/(x + 1)?",
+     "answer": "Because the form is not indeterminate: at x = 1 the ratio is 2/2 = 1. Differentiating would give 2x/1 = 2 at x = 1, which is simply a different quantity.",
+     "why": "The rule is a theorem about 0/0 and infinity/infinity only. Applying it elsewhere produces a number that looks plausible and is wrong."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "Evaluate lim(x->0+) sqrt(x)/(1 - e^(2 sqrt(x))).",
+     "answer": "-1/2. This is GATE CSE 2022 Q.24; substitute u = 2 sqrt(x) to get -1/2 * u/(e^u - 1), whose second factor tends to 1.",
+     "why": "The 2022 question looks like a one-sided L'Hopital problem but is faster as a substitution into the standard limit (e^u - 1)/u -> 1. Recognising which of the two tools is cheaper is the revision point."
+    }
+   ],
+   "trap": {
+    "what": "Applying L'Hopital when the form is not indeterminate, or trusting it when the ratio of derivatives has no limit.",
+    "why": "The rule is an implication, not an equivalence: if the derivative ratio has a limit then it equals the original limit, and nothing is claimed otherwise. Non-indeterminate forms are outside the theorem entirely.",
+    "counterexample": "lim(x->inf) (x + sin x)/x equals 1, but the derivative ratio is (1 + cos x)/1, which oscillates and has no limit. The rule fails; dividing numerator and denominator by x succeeds. Separately, lim(x->1) (x^2 + 1)/(x + 1) = 1 while the derivative ratio at 1 is 2."
+   },
+   "check": {
+    "question": "Use L'Hopital's rule to evaluate lim(x->0) (1 - cos x)/x^2.",
+    "answer": "1/2",
+    "explanation": "The form is 0/0. One application gives sin x/(2x), still 0/0. A second gives cos x/2, which at 0 is 1/2. Both applications were legal because each intermediate ratio was indeterminate."
+   },
+   "pyqIds": [
+    "gate-2019-13-x4-minus-81",
+    "gate-2017-set1-28-lhopital-two-polynomials",
+    "gate-2022-24-sqrt-over-exponential"
+   ],
+   "prereqs": [
+    "standard-limits",
+    "algebra-of-limits"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-summary",
+     "title": "11 Oct - EM - Calculus Part 2, the L'Hopital segment",
+     "channel": "Knowledge Gate (Yash Jain)",
+     "url": "https://www.knowledgegate.ai/learn/GATE-GUIDANCE-BY-SANCHIT-SIR/live-classes/gate-2026-live-class/engineering-mathematics-for-gate-exam/asset-11-oct-em-calculus-part-2",
+     "language": "hi",
+     "transcript": "SUMMARY_ONLY",
+     "translated": true,
+     "note": "the published English chapter summary records the 0/0 and infinity/infinity conditions being written at 10:00-15:00 and repeated differentiation being used at 15:00-20:00"
+    },
+    {
+     "kind": "pyq-solutions",
+     "title": "GATE Overflow Calculus question pages (2017 Set 1 Q.28, 2019 Q.13, 2022 Q.24)",
+     "channel": "GATE Overflow",
+     "url": "https://gateoverflow.in/questions/mathematics/calculus?sort=gate",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "the accepted answers and the alternative rationalising and series solutions were read on each question page"
+    }
+   ],
+   "sourceLine": "Conditions and worked examples: the Knowledge Gate chapter summary at 10:00-20:00 (Hindi-medium, English summary - translated) and Paul's Online Math Notes. Every limit on this card, including the two counterexamples, is recomputed in scripts/validate.py.",
+   "videoRefs": [],
+   "subject": "calculus",
+   "topic": "limits-continuity-differentiability",
+   "path": "subjects/calculus/limits-continuity-differentiability/lhopital-rule-and-its-conditions.json"
+  },
+  {
+   "id": "other-indeterminate-forms",
+   "title": "0 times infinity, infinity minus infinity and 1 to the infinity",
+   "priority": "P2",
+   "order": 159,
+   "unit": "Limits",
+   "quickIdea": "0 times infinity, infinity minus infinity, 0^0, infinity^0 and 1^infinity are not L'Hopital forms; convert each into 0/0 or infinity/infinity first, and take logs for powers.",
+   "remember": [
+    "0 times infinity: write f g as f/(1/g) or as g/(1/f) to obtain 0/0 or infinity/infinity.",
+    "infinity minus infinity: combine into one fraction, or rationalise a difference of roots.",
+    "Powers 0^0, infinity^0, 1^infinity: set y = f^g, take ln y = g ln f, find the limit of that 0 times infinity form, then exponentiate.",
+    "The 1^infinity shortcut: if f -> 1 and g -> infinity then f^g -> e^(lim g(f - 1)).",
+    "0 times infinity is not 0 and 1^infinity is not 1. Both are indeterminate; the answer depends on the rates.",
+    "0^0 and infinity^0 usually settle at 1 for the shapes GATE uses: x^x -> 1 and x^(1/x) -> 1."
+   ],
+   "example": {
+    "prompt": "Evaluate lim(x->0+) x ln x.",
+    "work": "As x -> 0+, x -> 0 and ln x -> -infinity: a 0 times infinity form. Rewrite as (ln x)/(1/x), which is infinity/infinity. L'Hopital gives (1/x)/(-1/x^2) = -x. As x -> 0+, -x -> 0.",
+    "answer": "The limit is 0. The logarithm grows slowly enough to lose to x."
+   },
+   "gateAngle": "No question in this topic's verified set is a pure 0 times infinity question; 2015 Set 1 Q.4 (x^(1/x) as x -> infinity, an infinity^0 shape) and the 2022 question's exponential denominator both require the convert-then-compute discipline. The 1^infinity shortcut is the fastest route through any (1 + small)^large limit.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "Evaluate lim(x->inf) (sqrt(x^2 + x) - x).",
+     "answer": "1/2. Multiply and divide by the conjugate: (x^2 + x - x^2)/(sqrt(x^2 + x) + x) = x/(sqrt(x^2 + x) + x), then divide through by x to get 1/(sqrt(1 + 1/x) + 1) -> 1/2.",
+     "why": "infinity minus infinity is settled by rationalising, exactly as 2021 Set 1 Q.20 settles 0/0 by rationalising. Same move, different form."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why is 1^infinity indeterminate when 1 raised to any fixed power is 1?",
+     "answer": "Because the base is not equal to 1, only tending to 1, and the exponent is growing. The competition between the two rates decides the answer: (1 + 1/x)^x -> e, while (1 + 1/x^2)^x -> 1.",
+     "why": "GATE's distractors rely on the reflex 'base tends to 1, so the answer is 1'. The rate comparison is the actual content."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "Evaluate lim(x->0) (cos x)^(1/x^2).",
+     "answer": "e^(-1/2), about 0.6065. The form is 1^infinity, so the limit is e^(lim (cos x - 1)/x^2) = e^(-1/2), using (1 - cos x)/x^2 -> 1/2.",
+     "why": "This chains two ideas: the 1^infinity shortcut and the standard limit for 1 - cos x. Questions of this shape appear in the GATE DA and CS practice sets."
+    }
+   ],
+   "trap": {
+    "what": "Treating 1^infinity as 1, or 0 times infinity as 0, by substituting the limiting values directly.",
+    "why": "Both are indeterminate: the base and the exponent, or the two factors, move at different rates and the answer is decided by which wins. Direct substitution throws that information away.",
+    "counterexample": "(1 + 1/x)^x tends to e, not 1, although the base tends to 1 and the exponent to infinity. And x ln x tends to 0 rather than '0 times infinity', while (1/x) ln x tends to -infinity - the same form, opposite conclusion."
+   },
+   "check": {
+    "question": "Evaluate lim(x->inf) (1 + 2/x)^x.",
+    "answer": "e^2",
+    "explanation": "This is 1^infinity with g(f - 1) = x * (2/x) = 2, so the limit is e^2. Equivalently it is the standard limit (1 + a/x)^x -> e^a with a = 2."
+   },
+   "pyqIds": [],
+   "prereqs": [
+    "standard-limits",
+    "lhopital-rule-and-its-conditions"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-summary",
+     "title": "11 Oct - EM - Calculus Part 2, limits at infinity and the L'Hopital examples",
+     "channel": "Knowledge Gate (Yash Jain)",
+     "url": "https://www.knowledgegate.ai/learn/GATE-GUIDANCE-BY-SANCHIT-SIR/live-classes/gate-2026-live-class/engineering-mathematics-for-gate-exam/asset-11-oct-em-calculus-part-2",
+     "language": "hi",
+     "transcript": "SUMMARY_ONLY",
+     "translated": true,
+     "note": "the published chapter summary records (e^x + e^-x)/(e^x - e^-x) at infinity being solved by dividing by e^x at 15:00-20:00"
+    },
+    {
+     "kind": "text",
+     "title": "GATE Engineering Mathematics notes: standard limits, orders of growth and the indeterminate-form recipe",
+     "channel": "IAE Academy (GATE engineering mathematics study notes)",
+     "url": "https://iaeacademy.in/study/engineering-mathematics/calculus",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read as a search extract: the four-step conversion recipe for 0 times infinity, infinity minus infinity and the power forms, and the worked (cos x)^(1/x^2) example; the page was not read in full"
+    }
+   ],
+   "sourceLine": "The conversion recipe and the worked (cos x)^(1/x^2) example follow the IAE Academy GATE calculus notes (read as an extract) and Paul's Online Math Notes; the lecture summary at 15:00-20:00 supplies the infinity-at-infinity division trick (Hindi-medium, English summary - translated). Every value is recomputed in scripts/validate.py.",
+   "videoRefs": [],
+   "subject": "calculus",
+   "topic": "limits-continuity-differentiability",
+   "path": "subjects/calculus/limits-continuity-differentiability/other-indeterminate-forms.json"
+  },
+  {
+   "id": "limits-at-infinity-and-orders-of-growth",
+   "title": "Limits at Infinity and Orders of Growth",
+   "priority": "P2",
+   "order": 160,
+   "unit": "Limits",
+   "quickIdea": "As x grows, only the fastest-growing term matters: logarithms lose to powers, and powers lose to exponentials.",
+   "remember": [
+    "For a ratio of polynomials at infinity, divide numerator and denominator by the highest power present.",
+    "Growth ladder: ln x grows slower than any positive power x^p, and x^p grows slower than any exponential e^(a x) with a > 0.",
+    "Consequences: lim(x->inf) (ln x)/x = 0, lim(x->inf) x^p/e^(a x) = 0, lim(x->inf) x^(1/x) = 1.",
+    "A bounded oscillation is invisible next to x: (x - sin x)/(x + cos x) -> 1 because sin x and cos x are trapped between -1 and 1.",
+    "Limits at infinity are one-sided by nature: x -> +infinity and x -> -infinity can give different answers for the same function.",
+    "e^(-x) decays so fast that (1 + x^2) e^(-x) -> 0 even though x^2 grows without bound."
+   ],
+   "example": {
+    "prompt": "Evaluate lim(x->inf) (3x^3 - 2x + 1)/(x^3 + 5).",
+    "work": "Divide every term by x^3: (3 - 2/x^2 + 1/x^3)/(1 + 5/x^3). Each of 2/x^2, 1/x^3 and 5/x^3 tends to 0, leaving 3/1.",
+    "answer": "The limit is 3 - the ratio of the leading coefficients, which is why the division is the whole method."
+   },
+   "gateAngle": "2015 Set 1 Q.4 is the classic: lim(x->inf) x^(1/x) = 1, answered either by taking logs or by the growth ladder. The same ladder decides the trap in that question, where 'anything to the power 0 is 1' gives the right answer for the wrong reason.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "Evaluate lim(x->inf) (x - sin x)/(x + cos x).",
+     "answer": "1. Divide numerator and denominator by x: (1 - (sin x)/x)/(1 + (cos x)/x), and both sine and cosine quotients tend to 0 because they are bounded.",
+     "why": "A bounded numerator cannot beat x. This is the squeeze idea, and it is the reason L'Hopital must not be attempted here - the derivative ratio oscillates."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Which is larger for very large x: x^100 or e^x?",
+     "answer": "e^x, eventually. For every fixed p, x^p/e^x -> 0 as x -> infinity, so the exponential overtakes any power however large the power is.",
+     "why": "The comparison is asymptotic, not pointwise: at x = 1000, x^100 is enormous, yet e^x is vastly larger still. GATE tests the eventual ordering."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "Evaluate lim(x->inf) (1 + x^2) e^(-x).",
+     "answer": "0. Rewrite as (1 + x^2)/e^x and divide by x^2: (1/x^2 + 1)/(e^x/x^2), whose denominator tends to infinity while the numerator tends to 1.",
+     "why": "This is GATE CSE 2015 Set 3 Q.9's shape, and it is the growth ladder applied directly: the exponential in the denominator wins."
+    }
+   ],
+   "trap": {
+    "what": "Assuming a limit at infinity is infinite whenever the expression contains growing terms, or using L'Hopital reflexively on infinity/infinity.",
+    "why": "What matters is the comparison between numerator and denominator, not their sizes separately. And L'Hopital is valid only when the derivative ratio has a limit, which bounded oscillation defeats.",
+    "counterexample": "x^(1/x) -> 1 and not infinity, although both base and exponent grow. (x + sin x)/x -> 1 although the derivative ratio (1 + cos x)/1 has no limit."
+   },
+   "check": {
+    "question": "Evaluate lim(x->inf) 2^x / x^2.",
+    "answer": "Infinity",
+    "explanation": "The exponential beats every power, so the ratio grows without bound. Dividing by x^2 gives 2^x/x^2 unchanged in spirit: the numerator's growth dominates."
+   },
+   "pyqIds": [
+    "gate-2015-set1-4-x-power-one-over-x"
+   ],
+   "prereqs": [
+    "standard-limits"
+   ],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "GATE Engineering Mathematics notes: orders of growth at infinity",
+     "channel": "IAE Academy (GATE engineering mathematics study notes)",
+     "url": "https://iaeacademy.in/study/engineering-mathematics/calculus",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read as a search extract: the order statements lim (ln x)/x^p = 0 and lim x^p/e^(a x) = 0 with the note that each follows from L'Hopital, plus lim x^x = 1"
+    },
+    {
+     "kind": "pyq-solutions",
+     "title": "GATE Overflow GATE CSE 2015 Set 1 Q.4 solution page",
+     "channel": "GATE Overflow",
+     "url": "https://gateoverflow.in/8021/gate-cse-2015-set-1-question-4",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "the accepted answer takes the logarithm and uses (ln x)/x -> 0; a second answer divides by e^x"
+    }
+   ],
+   "sourceLine": "The growth ladder and its limits: IAE Academy GATE notes (extract) and Paul's Online Math Notes; the 2015 question's answer is the accepted GATE Overflow solution. Every limit on this card is recomputed numerically in scripts/validate.py.",
+   "videoRefs": [],
+   "subject": "calculus",
+   "topic": "limits-continuity-differentiability",
+   "path": "subjects/calculus/limits-continuity-differentiability/limits-at-infinity-and-orders-of-growth.json"
+  },
+  {
+   "id": "continuity-at-a-point",
+   "title": "Continuity at a Point: The Three Conditions",
+   "priority": "P1",
+   "order": 161,
+   "unit": "Continuity",
+   "quickIdea": "f is continuous at a when f(a) is defined, the two-sided limit exists, and the two are equal.",
+   "remember": [
+    "f is continuous at x = a when lim(x->a) f(x) = f(a).",
+    "Unpacked into three checks: f(a) must exist; lim(x->a) f(x) must exist, which needs LHL = RHL; and the limit must equal f(a).",
+    "Failure of any one of the three is a discontinuity, and which one failed tells you the type.",
+    "Sums, differences, products and quotients of continuous functions are continuous, the quotient only where the denominator is non-zero.",
+    "A composition of continuous functions is continuous, which is why polynomials, sin, cos, e^x and ln x can be combined freely on their domains.",
+    "On a closed interval [a, b] continuity at the endpoints means one-sided continuity: RHL = f(a) at a, and LHL = f(b) at b."
+   ],
+   "example": {
+    "prompt": "Is the function of GATE CSE 2013 Q.22 option (A) continuous at x = 3? It is f(x) = (x + 3)/3 for x < 3, f(x) = x - 1 for x > 3, and f(3) = 2.",
+    "work": "LHL: (3 + 3)/3 = 2. RHL: 3 - 1 = 2. Function value: f(3) = 2. All three quantities are 2.",
+    "answer": "Yes. LHL = RHL = f(3) = 2, so the function is continuous at 3 - and it is the only option of the four that is."
+   },
+   "gateAngle": "2013 Q.22 offers four piecewise functions and asks which is continuous at 3; three fail in three different ways (removable, jump, infinite). 2026 Set 1 Q.22 supplies f(0) = 3 and a formula valid for x > 0, and asks for c1 + c2 so that the one-sided limit at 0 equals 3. Both questions are decided by the same three checks.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "For f(x) = 2x + 1 when x < 3 and f(x) = 3x - 2 when x >= 3, is f continuous at x = 3?",
+     "answer": "Yes. LHL = 2(3) + 1 = 7, RHL = 3(3) - 2 = 7, and f(3) = 7.",
+     "why": "The smallest version of the GATE shape: two linear pieces that happen to meet. Change one coefficient and the same computation produces a jump."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "If lim(x->a) f(x) exists, must f be continuous at a?",
+     "answer": "No. Continuity also needs the limit to equal f(a). With f(x) = 5 for x not equal to 3 and f(3) = 4, the limit at 3 exists and equals 5, yet f is discontinuous at 3.",
+     "why": "This is the distinction 2013 Q.22 option (B) is built on. Existence of the limit and continuity are not the same condition."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "Find c so that f(x) = c e^x - 2 ln(1/x) for x > 0 and f(x) = 3 otherwise is continuous at x = 0, given that the logarithmic term must vanish.",
+     "answer": "The term -2 ln(1/x) = 2 ln x tends to -infinity as x -> 0+, so no finite c repairs it unless its coefficient is 0. With the coefficient 0 the one-sided limit is c, so c = 3.",
+     "why": "This is GATE CSE 2026 Set 1 Q.22's reasoning: a term that blows up cannot be balanced by a constant, so its coefficient must be forced to zero before the remaining constant is matched."
+    }
+   ],
+   "trap": {
+    "what": "Checking only that the limit exists, or only that the two one-sided limits agree, and declaring continuity.",
+    "why": "Continuity is a three-part condition. A function can have a perfectly good limit at a and still fail to be continuous there because f(a) is defined differently or not at all.",
+    "counterexample": "f(x) = 8 - x for x not equal to 3 with f(3) = 4: both one-sided limits are 5, so the limit exists, but 5 is not 4 and f is discontinuous. That is option (B) of GATE CSE 2013 Q.22."
+   },
+   "check": {
+    "question": "Is f(x) = (x^2 - 9)/(x - 3) for x not equal to 3, with f(3) = 6, continuous at 3?",
+    "answer": "Yes",
+    "explanation": "The limit at 3 is 6 because the expression equals x + 3 away from 3, and f(3) is defined as 6, so all three conditions hold. Had f(3) been left undefined or set to any other number, the function would be discontinuous."
+   },
+   "pyqIds": [
+    "gate-2013-22-continuity-at-three",
+    "gate-2026-set1-22-c1-plus-c2"
+   ],
+   "prereqs": [
+    "limit-at-a-point-and-one-sided-limits"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-summary",
+     "title": "11 Oct - EM - Calculus Part 2, the CONTINUITY segment",
+     "channel": "Knowledge Gate (Yash Jain)",
+     "url": "https://www.knowledgegate.ai/learn/GATE-GUIDANCE-BY-SANCHIT-SIR/live-classes/gate-2026-live-class/engineering-mathematics-for-gate-exam/asset-11-oct-em-calculus-part-2",
+     "language": "hi",
+     "transcript": "SUMMARY_ONLY",
+     "translated": true,
+     "note": "the published chapter summary records the three conditions and the properties of continuous functions being written at 20:00-30:00, including the GATE 2013 question"
+    },
+    {
+     "kind": "text",
+     "title": "Calculus I, section 2.9: Continuity",
+     "channel": "Paul's Online Math Notes, Lamar University",
+     "url": "https://tutorial.math.lamar.edu/classes/calci/continuity.aspx",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "the definition, the note that both f(a) and the limit must exist, and the worked graph example with a jump and a removable discontinuity were read in full"
+    }
+   ],
+   "sourceLine": "Definition and worked checks: Paul's Online Math Notes section 2.9 and the Knowledge Gate chapter summary at 20:00-30:00 (Hindi-medium lecture, English summary - translated). The 2013 and 2026 answers are the accepted GATE Overflow solutions and are recomputed in scripts/validate.py.",
+   "videoRefs": [],
+   "subject": "calculus",
+   "topic": "limits-continuity-differentiability",
+   "path": "subjects/calculus/limits-continuity-differentiability/continuity-at-a-point.json"
+  },
+  {
+   "id": "types-of-discontinuity",
+   "title": "Removable, Jump and Infinite Discontinuities",
+   "priority": "P2",
+   "order": 162,
+   "unit": "Continuity",
+   "quickIdea": "A removable discontinuity is a hole, a jump has two different finite one-sided limits, and an infinite discontinuity blows up to +-infinity.",
+   "remember": [
+    "Removable: the two-sided limit exists but differs from f(a), or f(a) is undefined. Repairing it means redefining the single value f(a).",
+    "Jump: both one-sided limits exist and are finite, but they differ. No single value at a can repair it.",
+    "Infinite: at least one one-sided limit is +-infinity or -infinity, as with 1/x at 0 or 1/(x^3 - 27) at 3.",
+    "Oscillatory: neither one-sided limit exists even in the extended sense, as with sin(1/x) at 0.",
+    "Read the type off the numbers, not off the picture: compute LHL and RHL first and the classification follows.",
+    "A function discontinuous at a point can still be continuous everywhere else; a question may ask for the count of discontinuities."
+   ],
+   "example": {
+    "prompt": "Classify the discontinuities at x = 3 of the three failing options of GATE CSE 2013 Q.22.",
+    "work": "Option (B): f(3) = 4 but 8 - x -> 5 from both sides, so the limit exists and differs from the value - removable. Option (C): x + 3 -> 6 from the left and x - 4 -> -1 from the right, both finite and different - jump. Option (D): 1/(x^3 - 27) -> -infinity from the left and +infinity from the right, and f(3) is undefined - infinite.",
+    "answer": "Removable for (B), jump for (C), infinite for (D). Only (A) is continuous."
+   },
+   "gateAngle": "The classification is what makes 2013 Q.22 quick: three options fail in three different ways, and naming the type is faster than evaluating all four. The classification is also the reasoning inside a continuity question: once the one-sided limits are known, the verdict follows without further work.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "Classify the discontinuity of g(x) = |x|/x at x = 0.",
+     "answer": "A jump. LHL = -1 and RHL = 1; both are finite and they differ, so no value at 0 could make g continuous.",
+     "why": "The smallest jump there is. Comparing it with the removable case (where the one-sided limits agree) is the whole distinction."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why can a removable discontinuity be repaired but a jump cannot?",
+     "answer": "Because repairing means choosing one value for f(a), and that value must equal the two-sided limit. A removable discontinuity has a two-sided limit, so one value works; a jump has no two-sided limit, so no single value can equal it.",
+     "why": "The repair test is exactly 'does the two-sided limit exist'. It is also why the terminology matters in a question that asks which discontinuity is removable."
+    }
+   ],
+   "trap": {
+    "what": "Calling any break in the graph 'removable', or assuming that a function which fails to be continuous must fail at only one point.",
+    "why": "Removable means specifically that the two-sided limit exists. A jump and an infinite discontinuity have no two-sided limit at all, and functions can be discontinuous at infinitely many points while being continuous elsewhere.",
+    "counterexample": "f(x) = 1/(x^3 - 27) at x = 3 has one-sided limits -infinity and +infinity, so no two-sided limit exists and the break is not removable. And a function can be discontinuous at more than one point: f(x) = 0 at rational x and 1 at irrational x is discontinuous at every real number."
+   },
+   "check": {
+    "question": "f(x) = x + 1 for x < 2, f(x) = x + 3 for x > 2, f(2) = 3. What type of discontinuity is at x = 2?",
+    "answer": "A jump",
+    "explanation": "LHL = 3 and RHL = 5: both finite and different, so the two-sided limit does not exist and the break cannot be repaired by redefining f(2)."
+   },
+   "pyqIds": [],
+   "prereqs": [
+    "continuity-at-a-point"
+   ],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "Calculus I, section 2.9: Continuity (jump and removable discontinuities)",
+     "channel": "Paul's Online Math Notes, Lamar University",
+     "url": "https://tutorial.math.lamar.edu/classes/calci/continuity.aspx",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "the worked graph example names the jump discontinuity and the removable discontinuity and explains what distinguishes them"
+    },
+    {
+     "kind": "lecture-summary",
+     "title": "11 Oct - EM - Calculus Part 2, the continuity graphs",
+     "channel": "Knowledge Gate (Yash Jain)",
+     "url": "https://www.knowledgegate.ai/learn/GATE-GUIDANCE-BY-SANCHIT-SIR/live-classes/gate-2026-live-class/engineering-mathematics-for-gate-exam/asset-11-oct-em-calculus-part-2",
+     "language": "hi",
+     "transcript": "SUMMARY_ONLY",
+     "translated": true,
+     "note": "the published chapter summary records a hole and a jump being drawn at 20:00-25:00 to separate removable from non-removable breaks"
+    }
+   ],
+   "sourceLine": "The three types follow Paul's Online Math Notes section 2.9, which names jump and removable discontinuities explicitly; the infinite type is the behaviour of 1/(x^3 - 27) at 3 in GATE CSE 2013 Q.22 option (D). The lecture summary draws the hole and the jump (Hindi-medium, English summary - translated).",
+   "videoRefs": [],
+   "subject": "calculus",
+   "topic": "limits-continuity-differentiability",
+   "path": "subjects/calculus/limits-continuity-differentiability/types-of-discontinuity.json"
+  },
+  {
+   "id": "continuity-on-an-interval-and-ivt",
+   "title": "Continuity on an Interval and the Intermediate Value Theorem",
+   "priority": "P1",
+   "order": 163,
+   "unit": "Continuity",
+   "quickIdea": "A function continuous on [a, b] takes every value between f(a) and f(b); a sign change therefore guarantees a root, though not how many.",
+   "remember": [
+    "Intermediate Value Theorem: if f is continuous on the closed interval [a, b] and k lies between f(a) and f(b), then f(c) = k for some c in (a, b).",
+    "The sign-change corollary: if f(a) and f(b) have opposite signs, f has a root in (a, b).",
+    "The theorem gives existence only. It does not say how many solutions there are, nor where they are.",
+    "The hypotheses matter: continuity on the whole closed interval is required, and f must be real-valued there.",
+    "A standard trick is to apply the theorem to a new function built from f, for example g(y) = f(y) - f(y + 1).",
+    "Extreme Value Theorem: a function continuous on a closed bounded interval attains a maximum and a minimum there. Continuity on an open interval guarantees neither."
+   ],
+   "example": {
+    "prompt": "Show that f(x) = x^3 + x - 1 has a root in (0, 1), and locate it between two consecutive hundredths.",
+    "work": "A polynomial is continuous everywhere, so it is continuous on [0, 1]. f(0) = -1 and f(1) = 1, so the values straddle 0 and the theorem gives a root in (0, 1). Testing: f(0.68) = 0.314432 + 0.68 - 1 = -0.005568 and f(0.69) = 0.328509 + 0.69 - 1 = 0.018509.",
+    "answer": "There is a root in (0.68, 0.69). The theorem guaranteed one root; the sign test on the hundredths located it, and neither step says there is only one."
+   },
+   "gateAngle": "2014 Set 1 Q.47 is the exam's shape: f continuous on [0, 2] with f(0) = f(2) = -1 and f(1) = 1, and the answer comes from applying the theorem to g(y) = f(y) - f(y + 1), whose endpoint values are -2 and 2. GATE rarely asks for the theorem by name; it asks which statement must be true.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "Must a continuous f on [0, 1] with f(0) = -1 and f(1) = 1 take the value 0? Must it take the value 2?",
+     "answer": "It must take 0, by the sign-change corollary. It need not take 2: f(x) = 2x - 1 is a counterexample, continuous with those endpoint values and never equal to 2.",
+     "why": "The theorem only speaks about values between f(a) and f(b). A value outside that range is unconstrained - the distinction option (C) of 2014 Set 1 Q.47 probes with its claim about the maximum."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why does the theorem fail for f(x) = 1/x on [-1, 1], where f(-1) = -1 and f(1) = 1 but f is never 0?",
+     "answer": "Because f is not continuous on the whole interval: it is undefined at 0. The hypothesis fails, so the conclusion is not owed.",
+     "why": "This is the standard reason a question states 'continuous on the closed interval'. Dropping the hypothesis is exactly how a tempting but false IVT argument is built."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "f is continuous on [0, 2] with f(0) = 3, f(1) = -1 and f(2) = 3. Must there exist y in (0, 1) with f(y) = f(y + 1)?",
+     "answer": "Yes. Let g(y) = f(y) - f(y + 1). Then g(0) = 3 - (-1) = 4 and g(1) = -1 - 3 = -4, so by the theorem g has a zero in (0, 1), giving f(y) = f(y + 1).",
+     "why": "The same constructed-function move as 2014 Set 1 Q.47, with the signs reversed. Recognising that the question is about a difference of two values is the whole insight."
+    }
+   ],
+   "trap": {
+    "what": "Using the Intermediate Value Theorem without checking continuity on the entire closed interval, or reading it as a statement about how many solutions exist.",
+    "why": "Continuity on [a, b] is the hypothesis; on an open interval, or with a point of discontinuity inside, the conclusion can fail. And the theorem is existential: one solution is guaranteed, more are not excluded.",
+    "counterexample": "f(x) = 1/x on [-1, 1] has f(-1) = -1 and f(1) = 1 yet no zero, because f is not continuous at 0. And f(x) = x^3 - x on [-1, 1] takes the value 0 three times, which the theorem neither predicts nor forbids."
+   },
+   "check": {
+    "question": "f is continuous on [1, 4] with f(1) = -2 and f(4) = 5. Must f take the value 0 somewhere in (1, 4)?",
+    "answer": "Yes",
+    "explanation": "0 lies between -2 and 5, and f is continuous on the closed interval, so the theorem gives c in (1, 4) with f(c) = 0. The theorem does not say where, nor whether there is more than one such c."
+   },
+   "pyqIds": [
+    "gate-2014-set1-47-ivt-difference"
+   ],
+   "prereqs": [
+    "continuity-at-a-point",
+    "types-of-discontinuity"
+   ],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "Calculus I, section 2.9: Continuity, the Intermediate Value Theorem",
+     "channel": "Paul's Online Math Notes, Lamar University",
+     "url": "https://tutorial.math.lamar.edu/classes/calci/continuity.aspx",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "the statement, the warning that the theorem verifies a value is taken but never excludes one, and the note that it does not say how many times"
+    },
+    {
+     "kind": "pyq-solutions",
+     "title": "GATE Overflow GATE CSE 2014 Set 1 Q.47 solution page",
+     "channel": "GATE Overflow",
+     "url": "https://gateoverflow.in/1925/gate-cse-2014-set-1-question-47",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "the accepted answer constructs g(y) = f(y) - f(y + 1), evaluates it at 0 and 1, and applies the theorem"
+    }
+   ],
+   "sourceLine": "Statement and caveats: Paul's Online Math Notes section 2.9. The constructed-function technique is the accepted GATE Overflow solution to 2014 Set 1 Q.47. The root location for x^3 + x - 1 is recomputed in scripts/validate.py.",
+   "videoRefs": [],
+   "subject": "calculus",
+   "topic": "limits-continuity-differentiability",
+   "path": "subjects/calculus/limits-continuity-differentiability/continuity-on-an-interval-and-ivt.json"
+  },
+  {
+   "id": "differentiability-and-its-link-to-continuity",
+   "title": "Differentiability Implies Continuity, Never the Reverse",
+   "priority": "P1",
+   "order": 164,
+   "unit": "Differentiability",
+   "quickIdea": "f'(a) exists when the left and right difference quotients agree and are finite; that forces continuity at a, but continuity does not force a derivative.",
+   "remember": [
+    "f'(a) = lim(h->0) (f(a + h) - f(a))/h, and the limit must be finite and two-sided.",
+    "Left derivative uses h -> 0- and right derivative uses h -> 0+; the derivative exists exactly when both exist and are equal.",
+    "Differentiable at a implies continuous at a. Proof idea: f(a + h) - f(a) = h * [(f(a + h) - f(a))/h], and the bracket is bounded near a.",
+    "Continuous at a does not imply differentiable: |x| at 0 is the standard counterexample.",
+    "Differentiability is a local statement - it says nothing about neighbouring points, and f' need not be continuous where it exists.",
+    "A vertical tangent (x^(1/3) at 0) is continuous but not differentiable: the difference quotient tends to infinity."
+   ],
+   "example": {
+    "prompt": "Show that f(x) = |x| is continuous but not differentiable at x = 0.",
+    "work": "Continuity: for x > 0 f(x) = x -> 0, for x < 0 f(x) = -x -> 0, and f(0) = 0, so LHL = RHL = f(0). Derivatives: for h > 0 the quotient (|h| - 0)/h = 1; for h < 0 it is (-h)/h = -1. The two one-sided derivatives are 1 and -1.",
+    "answer": "Continuous at 0 but not differentiable there, because the one-sided derivatives disagree. This is GATE CSE 1998 Q.1.4, whose answer is 'continuous but not differentiable'."
+   },
+   "gateAngle": "1998 Q.1.4 asks exactly this pair of verdicts for |x| on [-1, 1]. 2024 Set 1 Q.1 asks for the set of points where max{x, x^3} fails to be differentiable, and 2025 Set 1 Q.21 makes differentiability at a join the condition that fixes a constant. The implication runs one way only, and every one of these questions depends on knowing that.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "Is f(x) = x|x| differentiable at x = 0?",
+     "answer": "Yes, with f'(0) = 0. For h > 0 the quotient is h^2/h = h -> 0, and for h < 0 it is -h^2/h = -h -> 0, so both one-sided derivatives are 0.",
+     "why": "The mirror image of |x|: the same piecewise structure, but the pieces meet with the same slope. It shows that a formula containing |x| is not automatically non-differentiable at the join."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why does differentiability at a point force continuity there?",
+     "answer": "Because f(a + h) - f(a) = h * [(f(a + h) - f(a))/h], and as h -> 0 the first factor tends to 0 while the bracket tends to the finite number f'(a); the product tends to 0, which is exactly lim f(a + h) = f(a).",
+     "why": "The proof is one line and it explains why the converse cannot hold: the argument needs the bracket to have a limit, and continuity gives no such thing."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "Is f(x) = x^(2/3) differentiable at x = 0?",
+     "answer": "No. It is continuous at 0, but the difference quotient is h^(2/3)/h = h^(-1/3), which tends to +infinity from the right and -infinity from the left - a cusp, not a finite derivative.",
+     "why": "A third way to fail: not a corner with two finite slopes, but a cusp where the slopes are infinite. GATE has used max and min functions to build such points."
+    }
+   ],
+   "trap": {
+    "what": "Assuming that a continuous function is differentiable, and checking differentiability by comparing formulas on the two pieces only.",
+    "why": "Continuity constrains values, differentiability constrains slopes; the second is strictly stronger. And matching the two formulas' slopes is not enough - the difference quotient itself must have a two-sided limit at the join.",
+    "counterexample": "|x| is continuous at 0 and has no derivative there. max{x, x^3} is continuous everywhere yet not differentiable at -1, 0 and 1."
+   },
+   "check": {
+    "question": "Is f(x) = |x - 2| differentiable at x = 2?",
+    "answer": "No",
+    "explanation": "It is continuous at 2, but the one-sided derivatives are -1 and 1. A shift of |x| fails at the point where its argument vanishes."
+   },
+   "pyqIds": [
+    "gate-1998-1-4-absolute-value"
+   ],
+   "prereqs": [
+    "continuity-at-a-point"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-summary",
+     "title": "11 Oct - EM - Calculus Part 2, the DIFFERENTIABILITY segment",
+     "channel": "Knowledge Gate (Yash Jain)",
+     "url": "https://www.knowledgegate.ai/learn/GATE-GUIDANCE-BY-SANCHIT-SIR/live-classes/gate-2026-live-class/engineering-mathematics-for-gate-exam/asset-11-oct-em-calculus-part-2",
+     "language": "hi",
+     "transcript": "SUMMARY_ONLY",
+     "translated": true,
+     "note": "the published chapter summary records the difference-quotient definition at 35:00-40:00 and the |x| computation at 40:00-45:00, ending with the GATE 1998 question"
+    },
+    {
+     "kind": "pyq-solutions",
+     "title": "GATE Overflow GATE CSE 1998 Q.1.4 solution page",
+     "channel": "GATE Overflow",
+     "url": "https://gateoverflow.in/1641/gate-cse-1998-question-1-4",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "the accepted answer computes LHL, RHL, LHD and RHD separately and selects 'continuous but not differentiable'"
+    }
+   ],
+   "sourceLine": "Definition and the |x| computation: the Knowledge Gate chapter summary at 35:00-45:00 (Hindi-medium lecture, English summary - translated) and Paul's Online Math Notes. The one-sided derivatives of |x|, x|x| and x^(2/3) are recomputed numerically in scripts/validate.py.",
+   "videoRefs": [],
+   "subject": "calculus",
+   "topic": "limits-continuity-differentiability",
+   "path": "subjects/calculus/limits-continuity-differentiability/differentiability-and-its-link-to-continuity.json"
+  },
+  {
+   "id": "matching-value-and-slope-at-a-join",
+   "title": "Matching Value and Slope at a Join",
+   "priority": "P1",
+   "order": 165,
+   "unit": "Differentiability",
+   "quickIdea": "For a piecewise function to be differentiable at the join, solve two equations in order: the values must match, then the slopes must match.",
+   "remember": [
+    "Step 1, continuity: f from the left at a equals f from the right at a equals f(a). This is one equation in the unknown constants.",
+    "Step 2, differentiability: the left derivative at a equals the right derivative at a. This is the second equation.",
+    "Differentiability requires continuity, so step 1 is not optional and its equation is always needed.",
+    "The word 'continuous' in a question licenses only step 1; the word 'differentiable' licenses both.",
+    "Differentiate each piece first, then evaluate at a - do not differentiate the joined function as if it were one formula.",
+    "Two unknowns need both equations; one unknown may be fixed by either, depending on the wording."
+   ],
+   "example": {
+    "prompt": "GATE CSE 2025 Set 1 Q.21: f(x) = ax + b for x < 1 and f(x) = x^3 + x^2 + 1 for x >= 1. If f is differentiable everywhere, find b.",
+    "work": "Continuity at 1: a(1) + b = 1 + 1 + 1, so a + b = 3. Differentiability at 1: the left derivative is a, the right derivative is 3x^2 + 2x evaluated at 1, which is 5. So a = 5, and then b = 3 - 5 = -2.",
+    "answer": "b = -2.0, with a = 5. The slope equation fixes a, and the value equation then fixes b."
+   },
+   "gateAngle": "This is the highest-yield pattern in the topic: 2025 Set 1 Q.21 asks for b under 'differentiable everywhere', 2013 Q.22 tests continuity at a join only, and 2026 Set 1 Q.22 fixes a coefficient by forcing a one-sided limit to match a given value. The two-step order never changes.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "f(x) = x^2 for x < 2 and f(x) = ax + b for x >= 2. Find a and b so that f is differentiable everywhere.",
+     "answer": "a = 4 and b = -4. Continuity: 4 = 2a + b. Differentiability: the left derivative 2x at 2 is 4, so a = 4, and then b = 4 - 8 = -4.",
+     "why": "The same two equations with the pieces swapped. The left piece is now the curved one, which changes which derivative you evaluate but not the method."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "If a question says only that f is continuous at the join, what can be concluded about the constants?",
+     "answer": "Only the value equation. For the 2025 function, continuity alone gives a + b = 3 - a whole family of pairs - and no value of a or b is forced.",
+     "why": "Differentiability is the stronger hypothesis and supplies the extra equation. Reading 'continuous' as 'differentiable' is the mistake the 2025 question is designed to catch."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "f(x) = ax + b for x < 1 and f(x) = x^3 + x^2 + 1 for x >= 1, but the question asks for a + b instead of b.",
+     "answer": "a + b = 3, from the continuity equation alone; a = 5 is not needed. The answer is 3.",
+     "why": "The same function, a different question. Deciding which equation the requested quantity needs saves a step and prevents over-solving."
+    }
+   ],
+   "trap": {
+    "what": "Matching the slopes first, or reporting the pair of equations without solving them, or assuming continuity gives differentiability.",
+    "why": "The slope equation uses the constant from the value equation, so continuity must come first. And equal slopes at a point where the values differ does not make the function differentiable - it does not even make it continuous.",
+    "counterexample": "For f(x) = ax + b (x < 1) and x^3 + x^2 + 1 (x >= 1), taking a = 5 without the value equation gives b free; with b = 0 the function jumps from 5 to 3 at x = 1 and is not even continuous, let alone differentiable."
+   },
+   "check": {
+    "question": "f(x) = x^2 for x < 2 and f(x) = ax + b for x >= 2. What is a?",
+    "answer": "4",
+    "explanation": "Differentiability forces the slopes to agree at 2: the left derivative is 2x = 4 there, so a = 4. Continuity then gives b = 4 - 2(4) = -4."
+   },
+   "pyqIds": [
+    "gate-2025-set1-21-differentiable-everywhere-b"
+   ],
+   "prereqs": [
+    "differentiability-and-its-link-to-continuity",
+    "continuity-at-a-point"
+   ],
+   "visual": "calculus/limits-continuity-differentiability/join-value-and-slope",
+   "sources": [
+    {
+     "kind": "pyq-solutions",
+     "title": "GATE Overflow GATE CSE 2025 Set 1 Q.21 solution page",
+     "channel": "GATE Overflow",
+     "url": "https://gateoverflow.in/460059/gate-cse-2025-set-1-question-21",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "three answers, all reaching a + b = 3 and a = 5 from continuity and the matching derivatives, then b = -2"
+    },
+    {
+     "kind": "lecture-summary",
+     "title": "11 Oct - EM - Calculus Part 2, GATE questions on continuity at a join",
+     "channel": "Knowledge Gate (Yash Jain)",
+     "url": "https://www.knowledgegate.ai/learn/GATE-GUIDANCE-BY-SANCHIT-SIR/live-classes/gate-2026-live-class/engineering-mathematics-for-gate-exam/asset-11-oct-em-calculus-part-2",
+     "language": "hi",
+     "transcript": "SUMMARY_ONLY",
+     "translated": true,
+     "note": "the published chapter summary records a piecewise continuity example at 30:00-35:00 followed by a GATE 2013 question on the same pattern"
+    }
+   ],
+   "sourceLine": "The two-equation method is worked from the accepted GATE Overflow solutions to 2025 Set 1 Q.21 and the piecewise example in the Knowledge Gate chapter summary at 30:00-35:00 (Hindi-medium, English summary - translated). Every constant on this card is recomputed in scripts/validate.py.",
+   "videoRefs": [],
+   "subject": "calculus",
+   "topic": "limits-continuity-differentiability",
+   "path": "subjects/calculus/limits-continuity-differentiability/matching-value-and-slope-at-a-join.json"
+  },
+  {
+   "id": "corners-cusps-and-max-min-functions",
+   "title": "Corners, Cusps and max/min Functions",
+   "priority": "P2",
+   "order": 166,
+   "unit": "Differentiability",
+   "quickIdea": "A continuous function fails to be differentiable at a corner (two finite slopes), a cusp (infinite slopes) or a vertical tangent - and for max or min of smooth pieces the suspects are where the pieces cross.",
+   "remember": [
+    "Corner: both one-sided derivatives exist and are finite but differ, as at 0 for |x|.",
+    "Cusp: the one-sided derivatives are infinite with opposite signs, as at 0 for x^(2/3).",
+    "Vertical tangent: both one-sided derivatives are +infinity (or both -infinity), as at 0 for x^(1/3).",
+    "For f = max{g, h} the formula changes exactly where g(x) = h(x), so solve that equation to get the candidate points.",
+    "At each candidate, compare the one-sided derivatives of the two pieces: equal slopes mean differentiable, unequal mean a corner.",
+    "Being continuous everywhere does not mean failing nowhere: max{x, x^3} is continuous everywhere and fails at three points."
+   ],
+   "example": {
+    "prompt": "GATE CSE 2024 Set 1 Q.1: where is f(x) = max{x, x^3} not differentiable?",
+    "work": "The pieces cross where x^3 = x, that is x = -1, 0, 1. Between the crossings the larger piece is x^3 on (-inf, -1) and on (0, 1), and x on (-1, 0) and on (1, inf). Slopes: at x = -1, x^3 has slope 3 and x has slope 1; at x = 0, x^3 has slope 0 and x has slope 1; at x = 1, x^3 has slope 3 and x has slope 1. Each pair is unequal.",
+    "answer": "f is not differentiable at {-1, 0, 1}, which is option (D). Everywhere else f is one of the two smooth pieces and is differentiable."
+   },
+   "gateAngle": "2024 Set 1 Q.1 is exactly this computation, and 1998 Q.1.4 is the single-corner case with |x|. The exam's distractor options add extra points such as 2 or -2, which are places where the two pieces are far apart and only one of them is the maximum - so no change of formula occurs there.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "Where is f(x) = max{x, x^2} not differentiable?",
+     "answer": "At x = 0 and x = 1. The pieces cross where x^2 = x, that is x = 0 and x = 1. At 0 the slopes are 1 and 0; at 1 they are 1 and 2. Both are corners.",
+     "why": "Same recipe, different pieces. The crossing equation is the only step that changes, which is why the method is worth memorising rather than the answer."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why is max{x, x^3} not differentiable at x = 0, even though both pieces pass through the origin?",
+     "answer": "Because the function switches from x^3 (slope 0) on the left of 0 to x (slope 1) on the right. The values agree at 0, so f is continuous, but the one-sided slopes are 0 and 1.",
+     "why": "Differentiability is about slopes, not values. This is the point the 2024 question's option {0, 1} tests: 0 is included, and the reasoning is the slope mismatch."
+    }
+   ],
+   "trap": {
+    "what": "Assuming that a max or min of smooth functions is smooth, or that differentiability can fail only where the formula changes visibly.",
+    "why": "The maximum of two smooth functions is generally only piecewise smooth, and the failures sit exactly at the crossing points - including crossings where both pieces take the same value, such as x = 0 above.",
+    "counterexample": "max{x, x^3} is continuous everywhere but not differentiable at -1, 0 and 1. At x = 2 only x^3 is the maximum and near 2 the function is x^3, so it is differentiable there - which is why the option containing 2 is wrong."
+   },
+   "check": {
+    "question": "Where is f(x) = |x - 2| not differentiable?",
+    "answer": "At x = 2 only",
+    "explanation": "The absolute value has a corner where its argument vanishes. Everywhere else one of the two linear pieces is in force and the slope is +1 or -1."
+   },
+   "pyqIds": [
+    "gate-2024-set1-1-max-x-x3"
+   ],
+   "prereqs": [
+    "differentiability-and-its-link-to-continuity"
+   ],
+   "sources": [
+    {
+     "kind": "pyq-solutions",
+     "title": "GATE Overflow GATE CSE 2024 Set 1 Q.1 solution page",
+     "channel": "GATE Overflow",
+     "url": "https://gateoverflow.in/422841/gate-cse-2024-set-1-question-1",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "the accepted answer partitions the line at the crossings and compares one-sided derivatives at -1, 0 and 1"
+    },
+    {
+     "kind": "lecture-summary",
+     "title": "11 Oct - EM - Calculus Part 2, the geometric view of non-differentiability",
+     "channel": "Knowledge Gate (Yash Jain)",
+     "url": "https://www.knowledgegate.ai/learn/GATE-GUIDANCE-BY-SANCHIT-SIR/live-classes/gate-2026-live-class/engineering-mathematics-for-gate-exam/asset-11-oct-em-calculus-part-2",
+     "language": "hi",
+     "transcript": "SUMMARY_ONLY",
+     "translated": true,
+     "note": "the published chapter summary records sharp corners being identified as the geometric cause of non-differentiability at 35:00-40:00, and points to a following lecture on the geometric definition"
+    }
+   ],
+   "sourceLine": "The crossing-point method follows the accepted GATE Overflow solution to 2024 Set 1 Q.1 and the corner discussion at 35:00-40:00 of the Knowledge Gate summary (Hindi-medium, English summary - translated). The three slope pairs are recomputed in scripts/validate.py.",
+   "videoRefs": [],
+   "subject": "calculus",
+   "topic": "limits-continuity-differentiability",
+   "path": "subjects/calculus/limits-continuity-differentiability/corners-cusps-and-max-min-functions.json"
   }
  ],
  "pyqs": [
@@ -15718,6 +16713,27 @@ window.GATE_DATA = {
    "source_label": "GATE Overflow question page - GATE CSE 1998 Q.1.2 with the accepted answer (B, no solution)",
    "verification": "SOURCED",
    "answer_evidence": "Accepted answer: 'Correct Answer: B', with the row reduction R2 <- R2 - 4R1 giving 0 = -8 and rank(A) = 2 against rank([A|b]) = 3."
+  },
+  {
+   "id": "gate-1998-1-4-absolute-value",
+   "year": "1998",
+   "paper": "GATE CS 1998",
+   "question_ref": "Q.1.4",
+   "type": "MCQ",
+   "topic": "differentiability-and-its-link-to-continuity",
+   "text": "Consider the function y = |x| in the interval [-1, 1]. In this interval, the function is",
+   "options": [
+    "continuous and differentiable",
+    "continuous but not differentiable",
+    "differentiable but not continuous",
+    "neither continuous nor differentiable"
+   ],
+   "answer": "Option (B), continuous but not differentiable",
+   "solution": "Continuity: for x -> 0 from either side, |x| -> 0 = f(0), so f is continuous at 0, and it is continuous elsewhere as a composition of continuous functions. Differentiability at 0: the left derivative is lim(h -> 0-) (|h| - 0)/h = -1 and the right derivative is lim(h -> 0+) (|h| - 0)/h = +1. The one-sided derivatives differ, so f'(0) does not exist. Hence continuous but not differentiable on [-1, 1].",
+   "source_url": "https://gateoverflow.in/1641/gate-cse-1998-question-1-4",
+   "source_label": "GATE Overflow question page, GATE CSE 1998 Q.1.4, with the accepted answer B",
+   "verification": "SOURCED",
+   "answer_evidence": "The accepted answer and every other answer on the page compute the left-hand and right-hand limits and the two one-sided derivatives separately and select 'continuous but not differentiable'; one answer also corrects a commenter who confused the one-sided limits with the one-sided derivatives. Recomputed in scripts/validate.py. The official key was not fetched and no marks field is recorded."
   },
   {
    "id": "gate-1998-2-1-rank-4x4",
@@ -16163,6 +17179,27 @@ window.GATE_DATA = {
    "answer_evidence": "Accepted answer: 'if alpha = 5 then there'll be a free variable ... So alpha != 5 will always give a unique solution', and the IIT Delhi solution for GATE 2008 Q.3 concludes 'alpha can be any real number except 5. So none of the options is correct'."
   },
   {
+   "id": "gate-2013-22-continuity-at-three",
+   "year": "2013",
+   "paper": "GATE CS 2013",
+   "question_ref": "Q.22",
+   "type": "MCQ",
+   "topic": "continuity-at-a-point",
+   "text": "Which one of the following functions is continuous at x = 3? (A) f(x) = 2 if x = 3; x - 1 if x > 3; (x + 3)/3 if x < 3. (B) f(x) = 4 if x = 3; 8 - x if x != 3. (C) f(x) = x + 3 if x <= 3; x - 4 if x > 3. (D) f(x) = 1/(x^3 - 27) if x != 3.",
+   "options": [
+    "f(x) = 2 if x = 3; x - 1 if x > 3; (x + 3)/3 if x < 3",
+    "f(x) = 4 if x = 3; 8 - x if x != 3",
+    "f(x) = x + 3 if x <= 3; x - 4 if x > 3",
+    "f(x) = 1/(x^3 - 27) if x != 3"
+   ],
+   "answer": "Option (A)",
+   "solution": "(A): LHL = (3 + 3)/3 = 2, RHL = 3 - 1 = 2, f(3) = 2, so LHL = RHL = f(3) and the function is continuous. (B): both one-sided limits are 8 - 3 = 5 but f(3) = 4, a removable discontinuity. (C): LHL = 3 + 3 = 6 and RHL = 3 - 4 = -1, a jump. (D): 1/(x^3 - 27) tends to -infinity from the left and +infinity from the right, and f(3) is undefined, an infinite discontinuity.",
+   "source_url": "https://gateoverflow.in/1533/gate-cse-2013-question-22",
+   "source_label": "GATE Overflow question page, GATE CSE 2013 Q.22, with the accepted answer A",
+   "verification": "SOURCED",
+   "answer_evidence": "Every answer on the page reaches option (A) by computing LHL, RHL and f(3) for each option, and the alternatives name the type of discontinuity for (B), (C) and (D). The official key was not fetched, so this record rests on the accepted GATE Overflow answer; no marks field is recorded because the paper and key were not fetched either."
+  },
+  {
    "id": "gate-2013-not-equivalent-negated-exists",
    "year": "2013",
    "paper": "GATE CS 2013",
@@ -16198,6 +17235,27 @@ window.GATE_DATA = {
    "source_url": "https://gateforumonline.com/wp-content/uploads/2021/09/CS-Gate-2014-Set-1.pdf",
    "source_label": "GATE 2014 CS Set 1 paper with answer key (answer printed as 89); discussion at gateoverflow.in/1929",
    "verification": "OFFICIAL_KEY"
+  },
+  {
+   "id": "gate-2014-set1-47-ivt-difference",
+   "year": "2014",
+   "paper": "GATE CS 2014 Set 1",
+   "question_ref": "Q.47",
+   "type": "MCQ",
+   "topic": "continuity-on-an-interval-and-ivt",
+   "text": "A function f(x) is continuous in the interval [0, 2]. It is known that f(0) = f(2) = -1 and f(1) = 1. Which one of the following statements must be true?",
+   "options": [
+    "There exists a y in the interval (0, 1) such that f(y) = f(y + 1)",
+    "For every y in the interval (0, 1), f(y) = f(2 - y)",
+    "The maximum value of the function in the interval (0, 2) is 1",
+    "There exists a y in the interval (0, 1) such that f(y) = -f(2 - y)"
+   ],
+   "answer": "Option (A)",
+   "solution": "Define g(y) = f(y) - f(y + 1) on [0, 1]. Since f is continuous, so is g. Then g(0) = f(0) - f(1) = -1 - 1 = -2 and g(1) = f(1) - f(2) = 1 - (-1) = 2. By the Intermediate Value Theorem g takes the value 0 somewhere in (0, 1), that is f(y) = f(y + 1). (B) and (D) impose a symmetry that nothing in the data forces, and (C) fails because f(1) = 1 says nothing about values elsewhere in (0, 2).",
+   "source_url": "https://gateoverflow.in/1925/gate-cse-2014-set-1-question-47",
+   "source_label": "GATE Overflow question page, GATE CSE 2014 Set 1 Q.47, with the accepted answer A",
+   "verification": "SOURCED",
+   "answer_evidence": "The accepted answer constructs g(y) = f(y) - f(y + 1), evaluates it at 0 and 1 as -2 and 2, and applies the Intermediate Value Theorem; several other answers repeat the construction. One answer also names option (B), which the accepted answer rejects, so the disagreement is visible on the page rather than hidden. Recomputed in scripts/validate.py. The official key was not fetched and no marks field is recorded."
   },
   {
    "id": "gate-2014-set1-52-number-of-solutions",
@@ -16322,6 +17380,27 @@ window.GATE_DATA = {
    "source_label": "GATE Overflow question page, GATE CSE 2015 Set 1 Q.18, with several accepted answers agreeing on 5",
    "verification": "SOURCED",
    "answer_evidence": "Every answer on the page reaches l22 = 5 by one of three routes (entry comparison, column-operation shortcut, and the LDU form), and the GATE Overflow linear algebra subject page lists this as the 1-mark linear algebra question of GATE CSE 2015 Set 1. The official paper and key were not fetched this run, so the record is SOURCED rather than key-verified."
+  },
+  {
+   "id": "gate-2015-set1-4-x-power-one-over-x",
+   "year": "2015",
+   "paper": "GATE CS 2015 Set 1",
+   "question_ref": "Q.4",
+   "type": "MCQ",
+   "topic": "limits-at-infinity-and-orders-of-growth",
+   "text": "lim(x -> infinity) x^(1/x) is",
+   "options": [
+    "infinity",
+    "0",
+    "1",
+    "Not defined"
+   ],
+   "answer": "Option (C), 1",
+   "solution": "Write x^(1/x) = exp((ln x)/x). Since (ln x)/x -> 0 as x -> infinity - the logarithm grows slower than x, and L'Hopital confirms it - the limit is exp(0) = 1. Numerically x^(1/x) is 1.0069 at x = 1000 and 1.0007 at x = 10000, approaching 1 from above.",
+   "source_url": "https://gateoverflow.in/8021/gate-cse-2015-set-1-question-4",
+   "source_label": "GATE Overflow question page, GATE CSE 2015 Set 1 Q.4, with the accepted answer C",
+   "verification": "SOURCED",
+   "answer_evidence": "The accepted answer takes the exponential of the logarithm and uses (ln x)/x -> 0; another answer reaches 1 by the dominant-term argument. The value is recomputed numerically in scripts/validate.py. The official key was not fetched, so this rests on the accepted GATE Overflow answer, and no marks field is recorded."
   },
   {
    "id": "gate-2015-set1-functional-completeness",
@@ -16555,6 +17634,21 @@ window.GATE_DATA = {
    "answer_evidence": "Accepted answer: 15, from (2+i)(2-i)(3) = 15. Corroborated by the official GATE 2016 CS Set 1 paper as reproduced by the pyqonline PDF, which carries the same question as Q.5."
   },
   {
+   "id": "gate-2016-set1-3-sin-shift",
+   "year": "2016",
+   "paper": "GATE CS 2016 Set 1",
+   "question_ref": "Q.3",
+   "type": "NAT",
+   "topic": "standard-limits",
+   "text": "lim(x -> 4) sin(x - 4)/(x - 4) = ____.",
+   "answer": "1",
+   "solution": "Substitute h = x - 4. As x -> 4, h -> 0, and the expression becomes lim(h -> 0) sin h / h, which is the standard limit equal to 1. By L'Hopital the form is 0/0 and the ratio of derivatives is cos(x - 4)/1, which at x = 4 is cos 0 = 1.",
+   "source_url": "https://gateoverflow.in/39630/gate-cse-2016-set-1-question-3",
+   "source_label": "GATE Overflow question page, GATE CSE 2016 Set 1 Q.3, with the accepted answer 1",
+   "verification": "SOURCED",
+   "answer_evidence": "The accepted answer substitutes h = x - 4 to reach the standard limit, and a second answer applies L'Hopital's rule to the same conclusion. Both routes were re-derived and the value is recomputed numerically in scripts/validate.py. The official key was not fetched and no marks field is recorded."
+  },
+  {
    "id": "gate-2016-set2-06-determinant-of-inverse-transpose",
    "year": "2016",
    "paper": "GATE CS 2016 Set 2",
@@ -16663,6 +17757,27 @@ window.GATE_DATA = {
    "source_url": "https://questions.examside.com/past-years/gate/question/pthe-number-of-integers-between-1-and-500-both-inclusive-gate-cse-discrete-mathematics-u87ugkllm2bnbwxh",
    "source_label": "ExamSIDE solution for GATE CS 2017 Set 1 Q.47; official answer key 271",
    "verification": "OFFICIAL_KEY"
+  },
+  {
+   "id": "gate-2017-set1-28-lhopital-two-polynomials",
+   "year": "2017",
+   "paper": "GATE CS 2017 Set 1",
+   "question_ref": "Q.28",
+   "type": "MCQ",
+   "topic": "lhopital-rule-and-its-conditions",
+   "text": "The value of lim(x -> 1) (x^7 - 2x^5 + 1)/(x^3 - 3x^2 + 2)",
+   "options": [
+    "is 0",
+    "is -1",
+    "is 1",
+    "does not exist"
+   ],
+   "answer": "Option (C), is 1",
+   "solution": "At x = 1 the numerator is 1 - 2 + 1 = 0 and the denominator is 1 - 3 + 2 = 0, so the form is 0/0. Differentiating separately gives (7x^6 - 10x^4)/(3x^2 - 6x), which at x = 1 is (7 - 10)/(3 - 6) = (-3)/(-3) = 1. A comment on the page checks the two one-sided limits separately and gets 1 from each, so the two-sided limit exists.",
+   "source_url": "https://gateoverflow.in/118309/gate-cse-2017-set-1-question-28",
+   "source_label": "GATE Overflow question page, GATE CSE 2017 Set 1 Q.28, with the accepted answer C",
+   "verification": "SOURCED",
+   "answer_evidence": "The accepted answer applies L'Hopital once and gets 1; a comment derives the left-hand and right-hand limits independently and shows both equal 1, which rules out the 'does not exist' option. Recomputed in scripts/validate.py. The official key was not fetched and no marks field is recorded."
   },
   {
    "id": "gate-2017-set1-3-dependent-columns-infinite",
@@ -16781,6 +17896,27 @@ window.GATE_DATA = {
    "answer_evidence": "The accepted answer is (A): a model of size at most 3 always exists, obtained by keeping the three existential witnesses."
   },
   {
+   "id": "gate-2019-13-x4-minus-81",
+   "year": "2019",
+   "paper": "GATE CS 2019",
+   "question_ref": "Q.13",
+   "type": "MCQ",
+   "topic": "lhopital-rule-and-its-conditions",
+   "text": "Compute lim(x -> 3) (x^4 - 81)/(2x^2 - 5x - 3)",
+   "options": [
+    "1",
+    "53/12",
+    "108/7",
+    "Limit does not exist"
+   ],
+   "answer": "Option (C), 108/7",
+   "solution": "Factor both: x^4 - 81 = (x^2 - 9)(x^2 + 9) = (x - 3)(x + 3)(x^2 + 9), and 2x^2 - 5x - 3 = (2x + 1)(x - 3). For x not equal to 3 the (x - 3) cancels, leaving (x + 3)(x^2 + 9)/(2x + 1), which at x = 3 is (6)(18)/7 = 108/7. L'Hopital gives the same: 4x^3/(4x - 5) at 3 is 108/7. Note that 108/7 is about 15.43, so the option 53/12 is a different number.",
+   "source_url": "https://gateoverflow.in/302835/gate-cse-2019-question-13",
+   "source_label": "GATE Overflow question page, GATE CSE 2019 Q.13, with the accepted answer C",
+   "verification": "SOURCED",
+   "answer_evidence": "The accepted answer and every other answer on the page reach 108/7, by factoring in one case and by L'Hopital in another, and a comment warns that the denominator must be factorised as (2x + 1)(x - 3). Both routes were re-derived and the value is recomputed in scripts/validate.py. The official key was not fetched and no marks field is recorded."
+  },
+  {
    "id": "gate-2020-18-largest-proper-subgroup-7",
    "year": "2020",
    "paper": "GATE CS 2020",
@@ -16869,6 +18005,21 @@ window.GATE_DATA = {
    "source_url": "https://gateforum.com/wp-content/uploads/2021/03/CS-Gate-2021-Paper-II_Formatted.pdf",
    "source_label": "GATE 2021 CS Paper II solution set with key printed as 59049",
    "verification": "OFFICIAL_KEY"
+  },
+  {
+   "id": "gate-2021-set1-20-rationalise-root",
+   "year": "2021",
+   "paper": "GATE CS 2021 Set 1",
+   "question_ref": "Q.20",
+   "type": "NAT",
+   "topic": "limit-at-a-point-and-one-sided-limits",
+   "text": "Consider the following expression. lim(x -> -3) (sqrt(2x + 22) - 4)/(x + 3). The value of the above expression (rounded to 2 decimal places) is ____.",
+   "answer": "0.25",
+   "solution": "At x = -3 the numerator is sqrt(16) - 4 = 0 and the denominator is 0, so the form is 0/0. L'Hopital: the numerator's derivative is (1/(2 sqrt(2x + 22)))(2) = 1/sqrt(2x + 22), the denominator's is 1, so the limit is 1/sqrt(2(-3) + 22) = 1/4 = 0.25. Rationalising gives the same: multiply by (sqrt(2x + 22) + 4), and the numerator becomes 2x + 22 - 16 = 2(x + 3), which cancels to 2/(sqrt(2x + 22) + 4) -> 2/8 = 0.25.",
+   "source_url": "https://gateoverflow.in/357431/gate-cse-2021-set-1-question-20",
+   "source_label": "GATE Overflow question page, GATE CSE 2021 Set 1 Q.20, with the accepted answer 0.25",
+   "verification": "SOURCED",
+   "answer_evidence": "The accepted answer applies L'Hopital and gets 1/4; a commenter reports 0.25 by substituting x = -3.00001, and another answer rationalises the numerator to the same value. Recomputed in scripts/validate.py. The official key was not fetched, so the record rests on the accepted GATE Overflow answer, and no marks field is recorded."
   },
   {
    "id": "gate-2021-set1-34-order-6-subgroup-cyclic",
@@ -16984,6 +18135,21 @@ window.GATE_DATA = {
    "source_label": "GATE Overflow question page - GATE CSE 2022 Q.10 with the accepted answer (both statements correct)",
    "verification": "SOURCED",
    "answer_evidence": "Accepted answer: 'Both statements are correct', option C; corroborated by the GeeksforGeeks GATE CSE engineering-mathematics answer key and by the GateAI PYQ page, which both record option C as the official answer."
+  },
+  {
+   "id": "gate-2022-24-sqrt-over-exponential",
+   "year": "2022",
+   "paper": "GATE CS 2022",
+   "question_ref": "Q.24",
+   "type": "NAT",
+   "topic": "lhopital-rule-and-its-conditions",
+   "text": "The value of the following limit is ____. lim(x -> 0+) sqrt(x)/(1 - e^(2 sqrt(x)))",
+   "answer": "-0.5",
+   "solution": "The form is 0/0. L'Hopital in x gives (1/(2 sqrt(x)))/(-e^(2 sqrt(x)) * 2/(2 sqrt(x))) = -1/(2 e^(2 sqrt(x))), which at x = 0+ is -1/2. Faster: put y = 2 sqrt(x), so the expression is -(1/2) * y/(e^y - 1), and (e^y - 1)/y -> 1 gives -1/2.",
+   "source_url": "https://gateoverflow.in/371912/gate-cse-2022-question-24",
+   "source_label": "GATE Overflow question page, GATE CSE 2022 Q.24, with the accepted answer -0.5",
+   "verification": "SOURCED",
+   "answer_evidence": "Three answers on the page agree on -1/2, by the standard limit (a^x - 1)/x = ln a, by L'Hopital, and by series expansion. Note that at least one other site numbers this question Q.34 of the 2022 paper rather than Q.24, so the reference here follows the GATE Overflow numbering and says so. Recomputed in scripts/validate.py. The official key was not fetched and no marks field is recorded."
   },
   {
    "id": "gate-2022-27-group-commutativity-tests",
@@ -17129,6 +18295,27 @@ window.GATE_DATA = {
    "source_label": "GATE Overflow question page for GATE CS 2023 Q.16 with two independent published solutions",
    "verification": "SOURCED",
    "answer_evidence": "The accepted solutions conclude (B) and (C), using for all x for all y Q implies the conjecture, and there exists y for all x R implies for all x there exists y R."
+  },
+  {
+   "id": "gate-2024-set1-1-max-x-x3",
+   "year": "2024",
+   "paper": "GATE CS 2024 Set 1",
+   "question_ref": "Q.1",
+   "type": "MCQ",
+   "topic": "corners-cusps-and-max-min-functions",
+   "text": "Let f: R -> R be a function such that f(x) = max{x, x^3}, x in R, where R is the set of all real numbers. The set of all points where f(x) is NOT differentiable is",
+   "options": [
+    "{-1, 1, 2}",
+    "{-2, -1, 1}",
+    "{0, 1}",
+    "{-1, 0, 1}"
+   ],
+   "answer": "Option (D), {-1, 0, 1}",
+   "solution": "The pieces are equal where x^3 = x, that is at x = -1, 0, 1. Comparing slopes there: at -1 the slopes are 3 (from x^3) and 1 (from x); at 0 they are 0 and 1; at 1 they are 3 and 1. Each pair differs, so f has a corner at all three points. Between the crossings f is one smooth piece, so it is differentiable there; in particular x = 2 is differentiable, which rules out the options containing 2 and -2.",
+   "source_url": "https://gateoverflow.in/422841/gate-cse-2024-set-1-question-1",
+   "source_label": "GATE Overflow question page, GATE CSE 2024 Set 1 Q.1, with the accepted answer D",
+   "verification": "SOURCED",
+   "answer_evidence": "The accepted answer partitions the real line at the three crossings and evaluates the one-sided derivatives at each, and two further answers reach the same set. The slope pairs are recomputed in scripts/validate.py. The official key was not fetched, so this rests on the accepted GATE Overflow answer, and no marks field is recorded."
   },
   {
    "id": "gate-2024-set1-2-product-of-eigenvalues",
@@ -17328,6 +18515,21 @@ window.GATE_DATA = {
    "answer_evidence": "Accepted answer: 'The answers are A and D', with the reduction R2 <- R2 - k R1 giving the last row (0, k^2 - 1 | k + 1). Corroborated by Quorank, which records the official answer as A, D."
   },
   {
+   "id": "gate-2025-set1-21-differentiable-everywhere-b",
+   "year": "2025",
+   "paper": "GATE CS 2025 Set 1",
+   "question_ref": "Q.21",
+   "type": "NAT",
+   "topic": "matching-value-and-slope-at-a-join",
+   "text": "Consider the given function f(x) = ax + b for x < 1, and f(x) = x^3 + x^2 + 1 for x >= 1. If the function is differentiable everywhere, the value of b must be ____. (rounded off to one decimal place)",
+   "answer": "-2",
+   "solution": "Differentiability at x = 1 needs continuity first: a(1) + b = 1 + 1 + 1, so a + b = 3. Then the slopes must agree: the left derivative is a, the right derivative is 3x^2 + 2x, which at x = 1 is 5, so a = 5. Substituting gives b = 3 - 5 = -2, and the answer to one decimal place is -2.0.",
+   "source_url": "https://gateoverflow.in/460059/gate-cse-2025-set-1-question-21",
+   "source_label": "GATE Overflow question page, GATE CSE 2025 Set 1 Q.21, with the accepted answer -2",
+   "verification": "SOURCED",
+   "answer_evidence": "Three answers on the page agree: all derive a + b = 3 from continuity and a = 5 from matching the derivatives, then b = -2. A GO Classes test-series question on the same function (GATE Overflow 468307) repeats the accepted range -2.1 to -1.9. Recomputed in scripts/validate.py. The official key was not fetched and no marks field is recorded."
+  },
+  {
    "id": "gate-2025-set1-31-eigenvalues-of-a13",
    "year": "2025",
    "paper": "GATE CS 2025 Set 1",
@@ -17470,6 +18672,21 @@ window.GATE_DATA = {
    "source_label": "GATE Overflow question page - GATE CSE 2025 Set 2 Q.4 with the accepted answer (0)",
    "verification": "SOURCED",
    "answer_evidence": "Accepted answer: 'L^3 = I, so L^8 = L^2 = N, hence M - N = O and its determinant is 0', option A."
+  },
+  {
+   "id": "gate-2026-set1-22-c1-plus-c2",
+   "year": "2026",
+   "paper": "GATE CS 2026 Set 1",
+   "question_ref": "Q.22",
+   "type": "NAT",
+   "topic": "continuity-at-a-point",
+   "text": "Consider the function f: R -> R defined as f(x) = c1 e^x - c2 log_e(1/x) if x > 0, and f(x) = 3 otherwise, where c1, c2 are in R. If f is continuous at x = 0, then c1 + c2 = ____. (answer in integer)",
+   "answer": "3",
+   "solution": "For x > 0, -c2 log_e(1/x) = c2 log_e(x), which tends to -infinity as x -> 0+ when c2 is non-zero. The right-hand limit must equal f(0) = 3, a finite number, so the logarithm must be absent: c2 = 0. Then the right-hand limit is c1 e^0 = c1, so c1 = 3 and c1 + c2 = 3.",
+   "source_url": "https://gateoverflow.in/523058/gate-cse-2026-set-1-question-22",
+   "source_label": "GATE Overflow question page, GATE CSE 2026 Set 1 Q.22, with the accepted answer 3",
+   "verification": "SOURCED",
+   "answer_evidence": "The accepted answer forces c2 = 0 because a logarithm term cannot produce a finite limit, then reads c1 = 3 from the exponential; a second answer on the memory-based version of the same question (GATE Overflow 521224) reaches the same pair, and one commenter on that page argues the printed question is defective, which is recorded rather than hidden. Recomputed in scripts/validate.py. The official key was not fetched and no marks field is recorded."
   },
   {
    "id": "gate-2026-set1-3-maximum-multiplicity",

@@ -1,0 +1,15 @@
+{
+  "id": "gate-2022-24-sqrt-over-exponential",
+  "year": "2022",
+  "paper": "GATE CS 2022",
+  "question_ref": "Q.24",
+  "type": "NAT",
+  "topic": "lhopital-rule-and-its-conditions",
+  "text": "The value of the following limit is ____. lim(x -> 0+) sqrt(x)/(1 - e^(2 sqrt(x)))",
+  "answer": "-0.5",
+  "solution": "The form is 0/0. L'Hopital in x gives (1/(2 sqrt(x)))/(-e^(2 sqrt(x)) * 2/(2 sqrt(x))) = -1/(2 e^(2 sqrt(x))), which at x = 0+ is -1/2. Faster: put y = 2 sqrt(x), so the expression is -(1/2) * y/(e^y - 1), and (e^y - 1)/y -> 1 gives -1/2.",
+  "source_url": "https://gateoverflow.in/371912/gate-cse-2022-question-24",
+  "source_label": "GATE Overflow question page, GATE CSE 2022 Q.24, with the accepted answer -0.5",
+  "verification": "SOURCED",
+  "answer_evidence": "Three answers on the page agree on -1/2, by the standard limit (a^x - 1)/x = ln a, by L'Hopital, and by series expansion. Note that at least one other site numbers this question Q.34 of the 2022 paper rather than Q.24, so the reference here follows the GATE Overflow numbering and says so. Recomputed in scripts/validate.py. The official key was not fetched and no marks field is recorded."
+}

@@ -1,0 +1,21 @@
+{
+  "id": "gate-2024-set1-1-max-x-x3",
+  "year": "2024",
+  "paper": "GATE CS 2024 Set 1",
+  "question_ref": "Q.1",
+  "type": "MCQ",
+  "topic": "corners-cusps-and-max-min-functions",
+  "text": "Let f: R -> R be a function such that f(x) = max{x, x^3}, x in R, where R is the set of all real numbers. The set of all points where f(x) is NOT differentiable is",
+  "options": [
+    "{-1, 1, 2}",
+    "{-2, -1, 1}",
+    "{0, 1}",
+    "{-1, 0, 1}"
+  ],
+  "answer": "Option (D), {-1, 0, 1}",
+  "solution": "The pieces are equal where x^3 = x, that is at x = -1, 0, 1. Comparing slopes there: at -1 the slopes are 3 (from x^3) and 1 (from x); at 0 they are 0 and 1; at 1 they are 3 and 1. Each pair differs, so f has a corner at all three points. Between the crossings f is one smooth piece, so it is differentiable there; in particular x = 2 is differentiable, which rules out the options containing 2 and -2.",
+  "source_url": "https://gateoverflow.in/422841/gate-cse-2024-set-1-question-1",
+  "source_label": "GATE Overflow question page, GATE CSE 2024 Set 1 Q.1, with the accepted answer D",
+  "verification": "SOURCED",
+  "answer_evidence": "The accepted answer partitions the real line at the three crossings and evaluates the one-sided derivatives at each, and two further answers reach the same set. The slope pairs are recomputed in scripts/validate.py. The official key was not fetched, so this rests on the accepted GATE Overflow answer, and no marks field is recorded."
+}

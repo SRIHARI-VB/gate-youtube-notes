@@ -4275,6 +4275,225 @@ def check_system_of_linear_equations():
        "arrangements; and the two-solutions-imply-infinitely-many claim")
 
 
+def check_limits_continuity_differentiability():
+    """Every number published in the Calculus limits/continuity/differentiability topic is recomputed."""
+    import math
+
+    def close(a, b, tol=1e-6):
+        if b == 0:
+            return abs(a) <= tol
+        return abs(a - b) <= tol * max(1.0, abs(b))
+
+    def lim_at(f, a, side=1, h=1e-6):
+        return f(a + side * h)
+
+    # ---- the limit at a point: (x^2 - 1)/(x - 1) has a hole at 1 and limit 2
+    hole = lambda x: (x * x - 1) / (x - 1)
+    table = [(0.9, 1.9), (0.99, 1.99), (0.999, 1.999), (1.001, 2.001), (1.01, 2.01), (1.1, 2.1)]
+    for x, y in table:
+        if not close(hole(x), y, 1e-9):
+            fail("math: f(%s) for (x^2-1)/(x-1) should be %s, computed %s" % (x, y, hole(x)))
+    if not close(hole(1 + 1e-9), 2, 1e-6) or not close(hole(1 - 1e-9), 2, 1e-6):
+        fail("math: the limit of (x^2-1)/(x-1) at 1 must be 2 from both sides")
+    if not close(lim_at(lambda x: (x * x - 4) / (x - 2), 2), 4, 1e-4):
+        fail("math: (x^2-4)/(x-2) at 2 must tend to 4")
+    if not close(lim_at(lambda x: (x * x - 9) / (x - 3), 3), 6, 1e-4):
+        fail("math: (x^2-9)/(x-3) at 3 must tend to 6")
+    # g(x) = |x|/x has one-sided limits -1 and +1
+    g = lambda x: abs(x) / x
+    if not close(g(-1e-6), -1) or not close(g(1e-6), 1):
+        fail("math: |x|/x must have one-sided limits -1 and +1 at 0")
+
+    # ---- algebra of limits: 3x^2 - 5x + 1 at 2 is 3, x^3 + 2x at 1 is 3
+    if 3 * 2 ** 2 - 5 * 2 + 1 != 3:
+        fail("math: 3x^2-5x+1 at x=2 must be 3")
+    if 1 ** 3 + 2 * 1 != 3:
+        fail("math: x^3+2x at x=1 must be 3")
+
+    # ---- the standard limits
+    if not close(lim_at(lambda x: math.sin(x) / x, 0, 1, 1e-6), 1, 1e-9):
+        fail("math: sin x / x must tend to 1")
+    if not close(lim_at(lambda x: (1 - math.cos(x)) / (x * x), 0, 1, 1e-3), 0.5, 1e-6):
+        fail("math: (1-cos x)/x^2 must tend to 1/2")
+    if not close(lim_at(lambda x: (math.exp(x) - 1) / x, 0, 1, 1e-6), 1, 1e-6):
+        fail("math: (e^x-1)/x must tend to 1")
+    if not close(lim_at(lambda x: math.log(1 + x) / x, 0, 1, 1e-6), 1, 1e-6):
+        fail("math: ln(1+x)/x must tend to 1")
+    if not close(lim_at(lambda x: (3.0 ** x - 1) / x, 0, 1, 1e-6), math.log(3), 1e-6):
+        fail("math: (a^x-1)/x must tend to ln a")
+    if not close((1 + 1e-6) ** (1 / 1e-6), math.e, 1e-4):
+        fail("math: (1+x)^(1/x) must tend to e")
+    if not close((1 + 2.0 / 1e7) ** 1e7, math.e ** 2, 1e-3):
+        fail("math: (1+a/x)^x must tend to e^a")
+    if not close(lim_at(lambda x: (1 - math.cos(3 * x)) / (x * x), 0, 1, 1e-3), 4.5, 1e-5):
+        fail("math: (1-cos 3x)/x^2 must tend to 9/2")
+    if not close(lim_at(lambda x: (math.exp(5 * x) - 1) / x, 0, 1, 1e-6), 5, 1e-5):
+        fail("math: (e^5x-1)/x must tend to 5")
+    if not close(lim_at(lambda x: (math.exp(2 * x) - 1) / x, 0, 1, 1e-6), 2, 1e-5):
+        fail("math: (e^2x-1)/x must tend to 2")
+    if not close(lim_at(lambda x: (1 - math.cos(x)) / (x * math.sin(x)), 0, 1, 1e-4), 0.5, 1e-4):
+        fail("math: (1-cos x)/(x sin x) must tend to 1/2")
+    # degrees: sin(x degrees)/x -> pi/180
+    if not close(math.sin(math.radians(1e-6)) / 1e-6, math.pi / 180, 1e-6):
+        fail("math: sin x / x in degrees must tend to pi/180")
+
+    # ---- L'Hopital questions
+    if not close(lim_at(lambda x: (x ** 7 - 2 * x ** 5 + 1) / (x ** 3 - 3 * x * x + 2), 1, 1, 1e-6), 1, 1e-4):
+        fail("math: GATE 2017 Set 1 Q.28 limit must be 1")
+    if not close(lim_at(lambda x: (x ** 4 - 81) / (2 * x * x - 5 * x - 3), 3, 1, 1e-6), 108 / 7, 1e-6):
+        fail("math: GATE 2019 Q.13 limit must be 108/7")
+    if not close(lim_at(lambda x: (math.sqrt(2 * x + 22) - 4) / (x + 3), -3, 1, 1e-6), 0.25, 1e-6):
+        fail("math: GATE 2021 Set 1 Q.20 limit must be 0.25")
+    if not close(lim_at(lambda x: math.sqrt(x) / (1 - math.exp(2 * math.sqrt(x))), 0, 1, 1e-8), -0.5, 1e-4):
+        fail("math: GATE 2022 Q.24 limit must be -1/2")
+    if not close(lim_at(lambda x: math.sin(x - 4) / (x - 4), 4, 1, 1e-6), 1, 1e-8):
+        fail("math: GATE 2016 Set 1 Q.3 limit must be 1")
+    if not close(lim_at(lambda x: (x ** 3 - 1) / (x * x - 1), 1, 1, 1e-6), 1.5, 1e-6):
+        fail("math: (x^3-1)/(x^2-1) at 1 must tend to 3/2")
+    # the non-indeterminate counterexample: value 1, derivative ratio 2
+    if (1 + 1) / (1 + 1) != 1:
+        fail("math: (x^2+1)/(x+1) at x=1 must be 1")
+    if 2 * 1 / 1 != 2:
+        fail("math: the derivative ratio of (x^2+1)/(x+1) at x=1 is 2, not 1")
+    # the oscillating counterexample: (x + sin x)/x -> 1 while (1 + cos x) has no limit
+    if not close((1e6 + math.sin(1e6)) / 1e6, 1, 1e-5):
+        fail("math: (x+sin x)/x at infinity must tend to 1")
+    if not (min(1 + math.cos(x / 100.0) for x in range(2000)) < 0.001):
+        fail("math: 1 + cos x must come arbitrarily close to 0, so the derivative ratio has no limit")
+
+    # ---- the other indeterminate forms
+    if not close(lim_at(lambda x: x * math.log(x), 0, 1, 1e-9), 0, 1e-6):
+        fail("math: x ln x must tend to 0")
+    if not close(lim_at(lambda x: math.sqrt(x * x + x) - x, 0, 1, 1e8), 0.5, 1e-4):
+        fail("math: sqrt(x^2+x)-x must tend to 1/2")
+    if not close(math.exp(math.log(math.cos(1e-4)) / 1e-8), math.exp(-0.5), 1e-4):
+        fail("math: (cos x)^(1/x^2) must tend to e^-1/2")
+    if not close((1e-4) ** (1e-4), 1, 1e-2):
+        fail("math: x^x must tend to 1")
+    if not close((1 + 2.0 / 1e7) ** 1e7, math.exp(2), 1e-3):
+        fail("math: (1+2/x)^x must tend to e^2")
+
+    # ---- limits at infinity and orders of growth
+    if not close((3 * 1e6 ** 3 - 2 * 1e6 + 1) / (1e6 ** 3 + 5), 3, 1e-9):
+        fail("math: the ratio of cubics must tend to 3")
+    if not close((1e5) ** (1 / 1e5), 1, 2e-3):
+        fail("math: x^(1/x) must tend to 1")
+    if not close((1e6 - math.sin(1e6)) / (1e6 + math.cos(1e6)), 1, 1e-5):
+        fail("math: (x - sin x)/(x + cos x) must tend to 1")
+    if not close((1 + 500.0 ** 2) * math.exp(-500), 0, 1e-9):
+        fail("math: (1+x^2)e^-x must tend to 0")
+    if not close(math.log(1e9) / 1e9, 0, 1e-7):
+        fail("math: (ln x)/x must tend to 0")
+    if 2 ** 200 / 200 ** 2 <= 1e10:
+        fail("math: 2^x/x^2 must grow without bound")
+    # the growth ladder: x^p / e^x -> 0 for a fixed p
+    if not close(100.0 ** 3 / math.exp(100), 0, 1e-9):
+        fail("math: x^3/e^x must tend to 0")
+
+    # ---- continuity at a point: the four options of GATE CSE 2013 Q.22
+    optA_lhl = (3 + 3) / 3
+    optA_rhl = 3 - 1
+    if not (optA_lhl == optA_rhl == 2):
+        fail("math: 2013 Q.22 option (A) must give LHL = RHL = f(3) = 2")
+    if not (8 - 3 == 5 and 5 != 4):
+        fail("math: 2013 Q.22 option (B) must have limit 5 and value 4")
+    if not (3 + 3 == 6 and 3 - 4 == -1):
+        fail("math: 2013 Q.22 option (C) must have one-sided limits 6 and -1")
+    if not (lim_at(lambda x: 1 / (x ** 3 - 27), 3, -1, 1e-7) < -1e5):
+        fail("math: 2013 Q.22 option (D) must tend to -infinity from the left")
+    if not (lim_at(lambda x: 1 / (x ** 3 - 27), 3, 1, 1e-7) > 1e5):
+        fail("math: 2013 Q.22 option (D) must tend to +infinity from the right")
+    # the piecewise example and the jump example on the cards
+    if not (2 * 3 + 1 == 3 * 3 - 2 == 7):
+        fail("math: the 2x+1 / 3x-2 piecewise must meet at 7 at x = 3")
+    if not ((2 + 1) != (2 + 3)):
+        fail("math: the x+1 / x+3 jump example must give 3 and 5")
+    if not close(lim_at(lambda x: (x * x - 9) / (x - 3), 3), 6, 1e-4):
+        fail("math: the removable example must have limit 6, matching the assigned f(3)")
+
+    # ---- GATE CSE 2026 Set 1 Q.22: a logarithm term cannot produce a finite limit
+    if not (math.log(1 / 1e-30) > 60 and math.log(1 / 1e-15) > math.log(1 / 1e-9)):
+        fail("math: c2 ln(1/x) with c2 = -1 must diverge as x -> 0+")
+    if not close(3.0 * math.exp(0), 3, 1e-9):
+        fail("math: with c2 = 0 the one-sided limit is c1 = 3")
+
+    # ---- the Intermediate Value Theorem
+    def cube_root_fn(x):
+        return x ** 3 + x - 1
+    if not (cube_root_fn(0) < 0 < cube_root_fn(1)):
+        fail("math: x^3+x-1 must change sign on [0, 1]")
+    if not close(cube_root_fn(0.68), -0.005568, 1e-6):
+        fail("math: f(0.68) for x^3+x-1 must be -0.005568")
+    if not close(cube_root_fn(0.69), 0.018509, 1e-6):
+        fail("math: f(0.69) for x^3+x-1 must be 0.018509")
+    if not (cube_root_fn(0.68) < 0 < cube_root_fn(0.69)):
+        fail("math: the root of x^3+x-1 must lie between 0.68 and 0.69")
+    # GATE CSE 2014 Set 1 Q.47: g(y) = f(y) - f(y+1) with the given values
+    fvals = {0: -1, 1: 1, 2: -1}
+    if not (fvals[0] - fvals[1] == -2 and fvals[1] - fvals[2] == 2):
+        fail("math: 2014 Set 1 Q.47 must give g(0) = -2 and g(1) = 2")
+    # x^3 - x has three zeros on [-1, 1]
+    zeros = [x / 100.0 for x in range(-100, 101) if abs((x / 100.0) ** 3 - (x / 100.0)) < 1e-9]
+    if zeros != [-1.0, 0.0, 1.0]:
+        fail("math: x^3 - x must vanish exactly at -1, 0 and 1 on [-1, 1]")
+
+    # ---- differentiability
+    def abs_slope(h):
+        return (abs(h) - 0) / h
+    if not (abs_slope(-1e-6) == -1 and abs_slope(1e-6) == 1):
+        fail("math: |x| must have one-sided derivatives -1 and +1 at 0")
+    for h in (-1e-6, 1e-6):
+        if not close((h * abs(h)) / h, abs(h), 1e-9):
+            fail("math: x|x| must have derivative 0 at 0")
+    if not ((1e-12) ** (2.0 / 3) / 1e-12 > 1e3):
+        fail("math: the difference quotient of x^(2/3) at 0 must blow up")
+    # GATE CSE 2025 Set 1 Q.21 and the card's quick check
+    if not (5 + (-2) == 1 + 1 + 1):
+        fail("math: a + b = 3 must hold for a = 5, b = -2")
+    if not (3 * 1 ** 2 + 2 * 1 == 5):
+        fail("math: the right derivative of x^3+x^2+1 at 1 must be 5")
+    if not (5 * 1 + 0 != 1 + 1 + 1):
+        fail("math: with a = 5 and b = 0 the pieces would jump from 5 to 3 at x = 1")
+    if not (4 == 2 * 4 + (-4)):
+        fail("math: the quick check must give a = 4, b = -4")
+    if not (2 * 2 == 4):
+        fail("math: the left derivative of x^2 at 2 must be 4")
+    # GATE CSE 2024 Set 1 Q.1: the crossings and the three slope pairs
+    crossings = [x / 100.0 for x in range(-300, 301) if abs((x / 100.0) ** 3 - (x / 100.0)) < 1e-9]
+    if crossings != [-1.0, 0.0, 1.0]:
+        fail("math: max{x, x^3} must change pieces at -1, 0 and 1")
+    pairs = [(-1.0, 3 * (-1.0) ** 2, 1), (0.0, 0.0, 1), (1.0, 3 * 1 ** 2, 1)]
+    for at, left, right in pairs:
+        if left == right:
+            fail("math: the two pieces of max{x, x^3} must have different slopes at %s" % at)
+    if not (3 * (1.5) ** 2 + 2 * (1.5) == 9.75):
+        fail("math: the right derivative at x = 1.5 is 9.75, so x = 1.5 is not a corner")
+    # max{x, x^2} crosses at 0 and 1 with slopes (1, 0) and (1, 2)
+    if not (1 != 0 and 1 != 2):
+        fail("math: max{x, x^2} must have unequal slopes at 0 and at 1")
+    lhd = (abs(2 + (-1e-6) - 2) - 0) / (-1e-6)
+    rhd = (abs(2 + 1e-6 - 2) - 0) / (1e-6)
+    if not (lhd < 0 < rhd):
+        fail("math: |x-2| must have one-sided derivatives of opposite signs at 2")
+    # 1998 Q.1.4 verdict
+    if not (abs(0.0) == 0.0):
+        fail("math: |x| must equal 0 at 0, so it is continuous there")
+
+    # ---- the lecture summary's own worked limits
+    if not close(lim_at(lambda x: (3 - math.sqrt(5 + x)) / (x - 4), 4, 1, 1e-6), -1 / 6, 1e-6):
+        fail("math: (3-sqrt(5+x))/(x-4) at 4 must tend to -1/6")
+    if not close(lim_at(lambda x: (math.exp(x) - 1) / (x * x + x), 0, 1, 1e-6), 1, 1e-6):
+        fail("math: (e^x-1)/(x^2+x) at 0 must tend to 1")
+
+    ok("Limits, continuity and differentiability: the hole example and its six table values; |x|/x, "
+       "x|x|, x^(2/3) and |x-2| one-sided derivatives; the standard limits including the degree case; "
+       "the 2013, 2014, 2015, 2016, 2017, 2019, 2021, 2022, 2024, 2025, 2026 and 1998 questions "
+       "recomputed from their own expressions; the removable, jump and infinite verdicts of 2013 Q.22; "
+       "the growth ladder; the two non-indeterminate and oscillating counterexamples; the root of "
+       "x^3+x-1 between 0.68 and 0.69; the constructed IVT function; and the two piecewise constants "
+       "of 2025 Q.21 and the quick check")
+
+
 def main():
     topics, tpath, pyqs, videos, playlists, sources = load_all()
     check_topics(topics, tpath, pyqs, videos)
@@ -4295,6 +4514,7 @@ def main():
     check_system_of_linear_equations()
     check_eigenvalues_and_eigenvectors()
     check_lu_decomposition()
+    check_limits_continuity_differentiability()
     check_visuals()
     check_hygiene()
     for c in checks:

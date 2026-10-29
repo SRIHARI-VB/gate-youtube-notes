@@ -1,0 +1,83 @@
+{
+  "id": "continuity-on-an-interval-and-ivt",
+  "title": "Continuity on an Interval and the Intermediate Value Theorem",
+  "priority": "P1",
+  "order": 163,
+  "unit": "Continuity",
+  "quickIdea": "A function continuous on [a, b] takes every value between f(a) and f(b); a sign change therefore guarantees a root, though not how many.",
+  "remember": [
+    "Intermediate Value Theorem: if f is continuous on the closed interval [a, b] and k lies between f(a) and f(b), then f(c) = k for some c in (a, b).",
+    "The sign-change corollary: if f(a) and f(b) have opposite signs, f has a root in (a, b).",
+    "The theorem gives existence only. It does not say how many solutions there are, nor where they are.",
+    "The hypotheses matter: continuity on the whole closed interval is required, and f must be real-valued there.",
+    "A standard trick is to apply the theorem to a new function built from f, for example g(y) = f(y) - f(y + 1).",
+    "Extreme Value Theorem: a function continuous on a closed bounded interval attains a maximum and a minimum there. Continuity on an open interval guarantees neither."
+  ],
+  "example": {
+    "prompt": "Show that f(x) = x^3 + x - 1 has a root in (0, 1), and locate it between two consecutive hundredths.",
+    "work": "A polynomial is continuous everywhere, so it is continuous on [0, 1]. f(0) = -1 and f(1) = 1, so the values straddle 0 and the theorem gives a root in (0, 1). Testing: f(0.68) = 0.314432 + 0.68 - 1 = -0.005568 and f(0.69) = 0.328509 + 0.69 - 1 = 0.018509.",
+    "answer": "There is a root in (0.68, 0.69). The theorem guaranteed one root; the sign test on the hundredths located it, and neither step says there is only one."
+  },
+  "gateAngle": "2014 Set 1 Q.47 is the exam's shape: f continuous on [0, 2] with f(0) = f(2) = -1 and f(1) = 1, and the answer comes from applying the theorem to g(y) = f(y) - f(y + 1), whose endpoint values are -2 and 2. GATE rarely asks for the theorem by name; it asks which statement must be true.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "Must a continuous f on [0, 1] with f(0) = -1 and f(1) = 1 take the value 0? Must it take the value 2?",
+      "answer": "It must take 0, by the sign-change corollary. It need not take 2: f(x) = 2x - 1 is a counterexample, continuous with those endpoint values and never equal to 2.",
+      "why": "The theorem only speaks about values between f(a) and f(b). A value outside that range is unconstrained - the distinction option (C) of 2014 Set 1 Q.47 probes with its claim about the maximum."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Why does the theorem fail for f(x) = 1/x on [-1, 1], where f(-1) = -1 and f(1) = 1 but f is never 0?",
+      "answer": "Because f is not continuous on the whole interval: it is undefined at 0. The hypothesis fails, so the conclusion is not owed.",
+      "why": "This is the standard reason a question states 'continuous on the closed interval'. Dropping the hypothesis is exactly how a tempting but false IVT argument is built."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "f is continuous on [0, 2] with f(0) = 3, f(1) = -1 and f(2) = 3. Must there exist y in (0, 1) with f(y) = f(y + 1)?",
+      "answer": "Yes. Let g(y) = f(y) - f(y + 1). Then g(0) = 3 - (-1) = 4 and g(1) = -1 - 3 = -4, so by the theorem g has a zero in (0, 1), giving f(y) = f(y + 1).",
+      "why": "The same constructed-function move as 2014 Set 1 Q.47, with the signs reversed. Recognising that the question is about a difference of two values is the whole insight."
+    }
+  ],
+  "trap": {
+    "what": "Using the Intermediate Value Theorem without checking continuity on the entire closed interval, or reading it as a statement about how many solutions exist.",
+    "why": "Continuity on [a, b] is the hypothesis; on an open interval, or with a point of discontinuity inside, the conclusion can fail. And the theorem is existential: one solution is guaranteed, more are not excluded.",
+    "counterexample": "f(x) = 1/x on [-1, 1] has f(-1) = -1 and f(1) = 1 yet no zero, because f is not continuous at 0. And f(x) = x^3 - x on [-1, 1] takes the value 0 three times, which the theorem neither predicts nor forbids."
+  },
+  "check": {
+    "question": "f is continuous on [1, 4] with f(1) = -2 and f(4) = 5. Must f take the value 0 somewhere in (1, 4)?",
+    "answer": "Yes",
+    "explanation": "0 lies between -2 and 5, and f is continuous on the closed interval, so the theorem gives c in (1, 4) with f(c) = 0. The theorem does not say where, nor whether there is more than one such c."
+  },
+  "pyqIds": [
+    "gate-2014-set1-47-ivt-difference"
+  ],
+  "prereqs": [
+    "continuity-at-a-point",
+    "types-of-discontinuity"
+  ],
+  "sources": [
+    {
+      "kind": "text",
+      "title": "Calculus I, section 2.9: Continuity, the Intermediate Value Theorem",
+      "channel": "Paul's Online Math Notes, Lamar University",
+      "url": "https://tutorial.math.lamar.edu/classes/calci/continuity.aspx",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "the statement, the warning that the theorem verifies a value is taken but never excludes one, and the note that it does not say how many times"
+    },
+    {
+      "kind": "pyq-solutions",
+      "title": "GATE Overflow GATE CSE 2014 Set 1 Q.47 solution page",
+      "channel": "GATE Overflow",
+      "url": "https://gateoverflow.in/1925/gate-cse-2014-set-1-question-47",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "the accepted answer constructs g(y) = f(y) - f(y + 1), evaluates it at 0 and 1, and applies the theorem"
+    }
+  ],
+  "sourceLine": "Statement and caveats: Paul's Online Math Notes section 2.9. The constructed-function technique is the accepted GATE Overflow solution to 2014 Set 1 Q.47. The root location for x^3 + x - 1 is recomputed in scripts/validate.py.",
+  "videoRefs": []
+}

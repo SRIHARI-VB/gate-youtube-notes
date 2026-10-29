@@ -1,0 +1,64 @@
+{
+  "id": "algebra-of-limits",
+  "title": "Algebra of Limits: When You May Substitute",
+  "priority": "P2",
+  "order": 156,
+  "unit": "Limits",
+  "quickIdea": "Limits pass through sums, products, quotients and compositions provided each piece has a finite limit and no denominator tends to zero.",
+  "remember": [
+    "If lim f = L and lim g = M (both finite) then lim(f + g) = L + M, lim(f g) = L M, and lim(f/g) = L/M when M is not 0.",
+    "A constant factor passes out: lim(c f) = c lim f.",
+    "Powers and roots pass through too, so lim (f(x))^n = L^n and lim sqrt(f(x)) = sqrt(L) when L >= 0.",
+    "Composition needs one extra condition: lim f(g(x)) = f(lim g(x)) only when the outer function f is continuous at the inner limit.",
+    "These laws are the reason substitution works for polynomials and for rational functions away from their zeros of the denominator.",
+    "The laws say nothing at 0/0 or infinity/infinity. There you must rewrite the expression first - factor, rationalise, expand, or use L'Hopital."
+  ],
+  "example": {
+    "prompt": "Evaluate lim(x->2) (3x^2 - 5x + 1).",
+    "work": "A polynomial is a sum of constant multiples of powers of x, and lim(x->2) x = 2. So each term passes its limit through: 3(2)^2 = 12, -5(2) = -10, and the constant 1 stays 1. Adding: 12 - 10 + 1 = 3.",
+    "answer": "The limit is 3, which is just the value of the polynomial at x = 2 - the substitution is justified by these laws, not by habit."
+  },
+  "gateAngle": "The algebra of limits is rarely the whole question but it is the step that fails silently. In 2019 Q.13 and 2017 Set 1 Q.28 the quotient law cannot be applied because the denominator limit is 0, and in 2022 Q.24 the composition e^(2 sqrt(x)) is handled by substituting y = 2 sqrt(x) - a change of variable the composition law licenses once the outer function is continuous.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "Evaluate lim(x->3) (x^2 - 9)/(x - 3) and say which limit law justifies each step.",
+      "answer": "Factor to (x + 3) for x not equal to 3, then use the sum law and lim x = 3 to get 6. The quotient law is not used, because the denominator's limit is 0.",
+      "why": "The point is the bookkeeping: the answer comes from the sum law applied after an algebraic rewrite, and naming which law applies is what stops the invalid quotient step."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Is lim(x->a) f(g(x)) always f(lim(x->a) g(x))?",
+      "answer": "No. It holds when f is continuous at the inner limit L. Take g(x) = x and f(t) = 0 for t not equal to 0 with f(0) = 1, at a = 0: the inner limit is 0, f(0) = 1, but f(g(x)) = 0 near 0, so the left side is 0.",
+      "why": "The composition law has a continuity hypothesis, and GATE has asked conceptual questions of this shape about limits of compositions."
+    }
+  ],
+  "trap": {
+    "what": "Applying the quotient law when the denominator's limit is zero, and reporting the result as a number or as infinity.",
+    "why": "The law requires M not equal to 0. When M = 0 the quotient law simply does not apply, and the answer may be finite, infinite, or non-existent depending on the numerator.",
+    "counterexample": "lim(x->0) (sin x)/x: the denominator tends to 0, the quotient law is void, and the limit is 1. lim(x->0) (1)/x has the same zero denominator and no finite limit at all."
+  },
+  "check": {
+    "question": "Which law lets you evaluate lim(x->1) (x^3 + 2x) by substitution?",
+    "answer": "The sum, constant-multiple and power laws, applied to lim(x->1) x = 1, giving 1 + 2 = 3.",
+    "explanation": "No denominator is involved, every piece has a finite limit, so the laws apply directly and substitution is legitimate."
+  },
+  "pyqIds": [],
+  "prereqs": [
+    "limit-at-a-point-and-one-sided-limits"
+  ],
+  "sources": [
+    {
+      "kind": "text",
+      "title": "Calculus I, Chapter 2: Limit Properties and Computing Limits",
+      "channel": "Paul's Online Math Notes, Lamar University",
+      "url": "https://tutorial.math.lamar.edu/classes/calci/limitsintro.aspx",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "the chapter's section list names the limit-properties and computing-limits sections this card follows"
+    }
+  ],
+  "sourceLine": "The limit laws and their hypotheses: Paul's Online Math Notes, Calculus I, Limit Properties. The card carries no GATE CSE previous-year question of its own because no question in this topic is decided by the laws alone; they are the step inside the limit questions on the neighbouring cards.",
+  "videoRefs": []
+}

@@ -1,0 +1,81 @@
+{
+  "id": "other-indeterminate-forms",
+  "title": "0 times infinity, infinity minus infinity and 1 to the infinity",
+  "priority": "P2",
+  "order": 159,
+  "unit": "Limits",
+  "quickIdea": "0 times infinity, infinity minus infinity, 0^0, infinity^0 and 1^infinity are not L'Hopital forms; convert each into 0/0 or infinity/infinity first, and take logs for powers.",
+  "remember": [
+    "0 times infinity: write f g as f/(1/g) or as g/(1/f) to obtain 0/0 or infinity/infinity.",
+    "infinity minus infinity: combine into one fraction, or rationalise a difference of roots.",
+    "Powers 0^0, infinity^0, 1^infinity: set y = f^g, take ln y = g ln f, find the limit of that 0 times infinity form, then exponentiate.",
+    "The 1^infinity shortcut: if f -> 1 and g -> infinity then f^g -> e^(lim g(f - 1)).",
+    "0 times infinity is not 0 and 1^infinity is not 1. Both are indeterminate; the answer depends on the rates.",
+    "0^0 and infinity^0 usually settle at 1 for the shapes GATE uses: x^x -> 1 and x^(1/x) -> 1."
+  ],
+  "example": {
+    "prompt": "Evaluate lim(x->0+) x ln x.",
+    "work": "As x -> 0+, x -> 0 and ln x -> -infinity: a 0 times infinity form. Rewrite as (ln x)/(1/x), which is infinity/infinity. L'Hopital gives (1/x)/(-1/x^2) = -x. As x -> 0+, -x -> 0.",
+    "answer": "The limit is 0. The logarithm grows slowly enough to lose to x."
+  },
+  "gateAngle": "No question in this topic's verified set is a pure 0 times infinity question; 2015 Set 1 Q.4 (x^(1/x) as x -> infinity, an infinity^0 shape) and the 2022 question's exponential denominator both require the convert-then-compute discipline. The 1^infinity shortcut is the fastest route through any (1 + small)^large limit.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "Evaluate lim(x->inf) (sqrt(x^2 + x) - x).",
+      "answer": "1/2. Multiply and divide by the conjugate: (x^2 + x - x^2)/(sqrt(x^2 + x) + x) = x/(sqrt(x^2 + x) + x), then divide through by x to get 1/(sqrt(1 + 1/x) + 1) -> 1/2.",
+      "why": "infinity minus infinity is settled by rationalising, exactly as 2021 Set 1 Q.20 settles 0/0 by rationalising. Same move, different form."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Why is 1^infinity indeterminate when 1 raised to any fixed power is 1?",
+      "answer": "Because the base is not equal to 1, only tending to 1, and the exponent is growing. The competition between the two rates decides the answer: (1 + 1/x)^x -> e, while (1 + 1/x^2)^x -> 1.",
+      "why": "GATE's distractors rely on the reflex 'base tends to 1, so the answer is 1'. The rate comparison is the actual content."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "Evaluate lim(x->0) (cos x)^(1/x^2).",
+      "answer": "e^(-1/2), about 0.6065. The form is 1^infinity, so the limit is e^(lim (cos x - 1)/x^2) = e^(-1/2), using (1 - cos x)/x^2 -> 1/2.",
+      "why": "This chains two ideas: the 1^infinity shortcut and the standard limit for 1 - cos x. Questions of this shape appear in the GATE DA and CS practice sets."
+    }
+  ],
+  "trap": {
+    "what": "Treating 1^infinity as 1, or 0 times infinity as 0, by substituting the limiting values directly.",
+    "why": "Both are indeterminate: the base and the exponent, or the two factors, move at different rates and the answer is decided by which wins. Direct substitution throws that information away.",
+    "counterexample": "(1 + 1/x)^x tends to e, not 1, although the base tends to 1 and the exponent to infinity. And x ln x tends to 0 rather than '0 times infinity', while (1/x) ln x tends to -infinity - the same form, opposite conclusion."
+  },
+  "check": {
+    "question": "Evaluate lim(x->inf) (1 + 2/x)^x.",
+    "answer": "e^2",
+    "explanation": "This is 1^infinity with g(f - 1) = x * (2/x) = 2, so the limit is e^2. Equivalently it is the standard limit (1 + a/x)^x -> e^a with a = 2."
+  },
+  "pyqIds": [],
+  "prereqs": [
+    "standard-limits",
+    "lhopital-rule-and-its-conditions"
+  ],
+  "sources": [
+    {
+      "kind": "lecture-summary",
+      "title": "11 Oct - EM - Calculus Part 2, limits at infinity and the L'Hopital examples",
+      "channel": "Knowledge Gate (Yash Jain)",
+      "url": "https://www.knowledgegate.ai/learn/GATE-GUIDANCE-BY-SANCHIT-SIR/live-classes/gate-2026-live-class/engineering-mathematics-for-gate-exam/asset-11-oct-em-calculus-part-2",
+      "language": "hi",
+      "transcript": "SUMMARY_ONLY",
+      "translated": true,
+      "note": "the published chapter summary records (e^x + e^-x)/(e^x - e^-x) at infinity being solved by dividing by e^x at 15:00-20:00"
+    },
+    {
+      "kind": "text",
+      "title": "GATE Engineering Mathematics notes: standard limits, orders of growth and the indeterminate-form recipe",
+      "channel": "IAE Academy (GATE engineering mathematics study notes)",
+      "url": "https://iaeacademy.in/study/engineering-mathematics/calculus",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read as a search extract: the four-step conversion recipe for 0 times infinity, infinity minus infinity and the power forms, and the worked (cos x)^(1/x^2) example; the page was not read in full"
+    }
+  ],
+  "sourceLine": "The conversion recipe and the worked (cos x)^(1/x^2) example follow the IAE Academy GATE calculus notes (read as an extract) and Paul's Online Math Notes; the lecture summary at 15:00-20:00 supplies the infinity-at-infinity division trick (Hindi-medium, English summary - translated). Every value is recomputed in scripts/validate.py.",
+  "videoRefs": []
+}

@@ -1,0 +1,21 @@
+{
+  "id": "gate-2017-set1-28-lhopital-two-polynomials",
+  "year": "2017",
+  "paper": "GATE CS 2017 Set 1",
+  "question_ref": "Q.28",
+  "type": "MCQ",
+  "topic": "lhopital-rule-and-its-conditions",
+  "text": "The value of lim(x -> 1) (x^7 - 2x^5 + 1)/(x^3 - 3x^2 + 2)",
+  "options": [
+    "is 0",
+    "is -1",
+    "is 1",
+    "does not exist"
+  ],
+  "answer": "Option (C), is 1",
+  "solution": "At x = 1 the numerator is 1 - 2 + 1 = 0 and the denominator is 1 - 3 + 2 = 0, so the form is 0/0. Differentiating separately gives (7x^6 - 10x^4)/(3x^2 - 6x), which at x = 1 is (7 - 10)/(3 - 6) = (-3)/(-3) = 1. A comment on the page checks the two one-sided limits separately and gets 1 from each, so the two-sided limit exists.",
+  "source_url": "https://gateoverflow.in/118309/gate-cse-2017-set-1-question-28",
+  "source_label": "GATE Overflow question page, GATE CSE 2017 Set 1 Q.28, with the accepted answer C",
+  "verification": "SOURCED",
+  "answer_evidence": "The accepted answer applies L'Hopital once and gets 1; a comment derives the left-hand and right-hand limits independently and shows both equal 1, which rules out the 'does not exist' option. Recomputed in scripts/validate.py. The official key was not fetched and no marks field is recorded."
+}

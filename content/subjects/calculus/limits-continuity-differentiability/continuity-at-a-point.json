@@ -1,0 +1,83 @@
+{
+  "id": "continuity-at-a-point",
+  "title": "Continuity at a Point: The Three Conditions",
+  "priority": "P1",
+  "order": 161,
+  "unit": "Continuity",
+  "quickIdea": "f is continuous at a when f(a) is defined, the two-sided limit exists, and the two are equal.",
+  "remember": [
+    "f is continuous at x = a when lim(x->a) f(x) = f(a).",
+    "Unpacked into three checks: f(a) must exist; lim(x->a) f(x) must exist, which needs LHL = RHL; and the limit must equal f(a).",
+    "Failure of any one of the three is a discontinuity, and which one failed tells you the type.",
+    "Sums, differences, products and quotients of continuous functions are continuous, the quotient only where the denominator is non-zero.",
+    "A composition of continuous functions is continuous, which is why polynomials, sin, cos, e^x and ln x can be combined freely on their domains.",
+    "On a closed interval [a, b] continuity at the endpoints means one-sided continuity: RHL = f(a) at a, and LHL = f(b) at b."
+  ],
+  "example": {
+    "prompt": "Is the function of GATE CSE 2013 Q.22 option (A) continuous at x = 3? It is f(x) = (x + 3)/3 for x < 3, f(x) = x - 1 for x > 3, and f(3) = 2.",
+    "work": "LHL: (3 + 3)/3 = 2. RHL: 3 - 1 = 2. Function value: f(3) = 2. All three quantities are 2.",
+    "answer": "Yes. LHL = RHL = f(3) = 2, so the function is continuous at 3 - and it is the only option of the four that is."
+  },
+  "gateAngle": "2013 Q.22 offers four piecewise functions and asks which is continuous at 3; three fail in three different ways (removable, jump, infinite). 2026 Set 1 Q.22 supplies f(0) = 3 and a formula valid for x > 0, and asks for c1 + c2 so that the one-sided limit at 0 equals 3. Both questions are decided by the same three checks.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "For f(x) = 2x + 1 when x < 3 and f(x) = 3x - 2 when x >= 3, is f continuous at x = 3?",
+      "answer": "Yes. LHL = 2(3) + 1 = 7, RHL = 3(3) - 2 = 7, and f(3) = 7.",
+      "why": "The smallest version of the GATE shape: two linear pieces that happen to meet. Change one coefficient and the same computation produces a jump."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "If lim(x->a) f(x) exists, must f be continuous at a?",
+      "answer": "No. Continuity also needs the limit to equal f(a). With f(x) = 5 for x not equal to 3 and f(3) = 4, the limit at 3 exists and equals 5, yet f is discontinuous at 3.",
+      "why": "This is the distinction 2013 Q.22 option (B) is built on. Existence of the limit and continuity are not the same condition."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "Find c so that f(x) = c e^x - 2 ln(1/x) for x > 0 and f(x) = 3 otherwise is continuous at x = 0, given that the logarithmic term must vanish.",
+      "answer": "The term -2 ln(1/x) = 2 ln x tends to -infinity as x -> 0+, so no finite c repairs it unless its coefficient is 0. With the coefficient 0 the one-sided limit is c, so c = 3.",
+      "why": "This is GATE CSE 2026 Set 1 Q.22's reasoning: a term that blows up cannot be balanced by a constant, so its coefficient must be forced to zero before the remaining constant is matched."
+    }
+  ],
+  "trap": {
+    "what": "Checking only that the limit exists, or only that the two one-sided limits agree, and declaring continuity.",
+    "why": "Continuity is a three-part condition. A function can have a perfectly good limit at a and still fail to be continuous there because f(a) is defined differently or not at all.",
+    "counterexample": "f(x) = 8 - x for x not equal to 3 with f(3) = 4: both one-sided limits are 5, so the limit exists, but 5 is not 4 and f is discontinuous. That is option (B) of GATE CSE 2013 Q.22."
+  },
+  "check": {
+    "question": "Is f(x) = (x^2 - 9)/(x - 3) for x not equal to 3, with f(3) = 6, continuous at 3?",
+    "answer": "Yes",
+    "explanation": "The limit at 3 is 6 because the expression equals x + 3 away from 3, and f(3) is defined as 6, so all three conditions hold. Had f(3) been left undefined or set to any other number, the function would be discontinuous."
+  },
+  "pyqIds": [
+    "gate-2013-22-continuity-at-three",
+    "gate-2026-set1-22-c1-plus-c2"
+  ],
+  "prereqs": [
+    "limit-at-a-point-and-one-sided-limits"
+  ],
+  "sources": [
+    {
+      "kind": "lecture-summary",
+      "title": "11 Oct - EM - Calculus Part 2, the CONTINUITY segment",
+      "channel": "Knowledge Gate (Yash Jain)",
+      "url": "https://www.knowledgegate.ai/learn/GATE-GUIDANCE-BY-SANCHIT-SIR/live-classes/gate-2026-live-class/engineering-mathematics-for-gate-exam/asset-11-oct-em-calculus-part-2",
+      "language": "hi",
+      "transcript": "SUMMARY_ONLY",
+      "translated": true,
+      "note": "the published chapter summary records the three conditions and the properties of continuous functions being written at 20:00-30:00, including the GATE 2013 question"
+    },
+    {
+      "kind": "text",
+      "title": "Calculus I, section 2.9: Continuity",
+      "channel": "Paul's Online Math Notes, Lamar University",
+      "url": "https://tutorial.math.lamar.edu/classes/calci/continuity.aspx",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "the definition, the note that both f(a) and the limit must exist, and the worked graph example with a jump and a removable discontinuity were read in full"
+    }
+  ],
+  "sourceLine": "Definition and worked checks: Paul's Online Math Notes section 2.9 and the Knowledge Gate chapter summary at 20:00-30:00 (Hindi-medium lecture, English summary - translated). The 2013 and 2026 answers are the accepted GATE Overflow solutions and are recomputed in scripts/validate.py.",
+  "videoRefs": []
+}

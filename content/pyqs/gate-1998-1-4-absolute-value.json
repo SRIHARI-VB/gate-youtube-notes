@@ -1,0 +1,21 @@
+{
+  "id": "gate-1998-1-4-absolute-value",
+  "year": "1998",
+  "paper": "GATE CS 1998",
+  "question_ref": "Q.1.4",
+  "type": "MCQ",
+  "topic": "differentiability-and-its-link-to-continuity",
+  "text": "Consider the function y = |x| in the interval [-1, 1]. In this interval, the function is",
+  "options": [
+    "continuous and differentiable",
+    "continuous but not differentiable",
+    "differentiable but not continuous",
+    "neither continuous nor differentiable"
+  ],
+  "answer": "Option (B), continuous but not differentiable",
+  "solution": "Continuity: for x -> 0 from either side, |x| -> 0 = f(0), so f is continuous at 0, and it is continuous elsewhere as a composition of continuous functions. Differentiability at 0: the left derivative is lim(h -> 0-) (|h| - 0)/h = -1 and the right derivative is lim(h -> 0+) (|h| - 0)/h = +1. The one-sided derivatives differ, so f'(0) does not exist. Hence continuous but not differentiable on [-1, 1].",
+  "source_url": "https://gateoverflow.in/1641/gate-cse-1998-question-1-4",
+  "source_label": "GATE Overflow question page, GATE CSE 1998 Q.1.4, with the accepted answer B",
+  "verification": "SOURCED",
+  "answer_evidence": "The accepted answer and every other answer on the page compute the left-hand and right-hand limits and the two one-sided derivatives separately and select 'continuous but not differentiable'; one answer also corrects a commenter who confused the one-sided limits with the one-sided derivatives. Recomputed in scripts/validate.py. The official key was not fetched and no marks field is recorded."
+}

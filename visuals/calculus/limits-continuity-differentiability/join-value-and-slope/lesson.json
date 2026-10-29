@@ -1,0 +1,37 @@
+{
+  "slug": "join-value-and-slope",
+  "topic": "matching-value-and-slope-at-a-join",
+  "engine": "p5.js",
+  "steps": 5,
+  "example": {
+    "function": "f(x) = ax + b for x < 1; f(x) = x^3 + x^2 + 1 for x >= 1",
+    "continuity_equation": "a + b = 3",
+    "differentiability_equation": "a = 3(1)^2 + 2(1) = 5",
+    "solution": {
+      "a": 5,
+      "b": -2
+    },
+    "settings_shown": [
+      {
+        "a": 0,
+        "b": 0,
+        "verdict": "jump of 3 at x = 1, not continuous"
+      },
+      {
+        "a": 1,
+        "b": 2,
+        "verdict": "continuous, slopes 1 and 5, corner at x = 1"
+      },
+      {
+        "a": 5,
+        "b": -2,
+        "verdict": "continuous with equal slopes, differentiable everywhere"
+      }
+    ],
+    "quick_check": {
+      "function": "f(x) = x^2 for x < 2; f(x) = ax + b for x >= 2",
+      "a": 4,
+      "b": -4
+    }
+  }
+}

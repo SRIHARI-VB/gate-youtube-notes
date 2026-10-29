@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Matching Value and Slope at a Join - Limits, Continuity and Differentiability visual lesson</title>
+<link rel="stylesheet" href="../../../lesson.css">
+<script src="https://cdn.jsdelivr.net/npm/p5@1.9.4/lib/p5.min.js"></script>
+</head>
+<body>
+<div class="wrap">
+  <p class="small"><a href="../../../../index.html">&larr; back to the revision site</a></p>
+  <h1>Matching Value and Slope at a Join</h1>
+  <div class="objective"><strong>Objective.</strong> See why a piecewise function needs two equations at its join - one for the values and one for the slopes - and why the value equation can never be skipped.</div>
+
+  <div class="canvas-wrap"><div id="canvas-holder"></div></div>
+  <div class="caption" id="caption" aria-live="polite"></div>
+
+  <div class="controls">
+    <button id="play" class="primary">Play</button>
+    <button id="prev">&larr; Prev</button>
+    <button id="next">Next &rarr;</button>
+    <button id="restart">Restart</button>
+    <span class="speed"><label for="speed">Speed</label>
+      <input id="speed" type="range" min="0.25" max="2" step="0.25" value="1">
+      <span id="speedLabel">1.00x</span></span>
+    <span class="counter" id="counter"></span>
+  </div>
+
+  <h2>Static explanation</h2>
+  <p>Let f(x) = ax + b for x &lt; 1 and f(x) = x^3 + x^2 + 1 for x &gt;= 1. Everything happens at x = 1, because that is the only point where the formula can change.</p>
+  <p>Continuity at 1 asks for one equation: the left-hand value a(1) + b must equal the right-hand value 1 + 1 + 1 = 3. So a + b = 3. With a = 0 and b = 0 the left-hand value is 0 while the right-hand value is 3, a jump of 3, and the function is not even continuous. With a = 1 and b = 2 the values agree at 3 and the function is continuous.</p>
+  <p>Differentiability at 1 asks for a second equation: the left-hand slope must equal the right-hand slope. The left piece is a line of slope a. The right piece has derivative 3x^2 + 2x, which at x = 1 is 3 + 2 = 5. So a = 5. With a = 1 and b = 2 the slopes are 1 and 5 - the pieces meet but with a corner, and the derivative does not exist at x = 1.</p>
+  <p>With a = 5 the value equation gives b = 3 - 5 = -2. The line arrives at (1, 3) with slope 5 and the cubic leaves with slope 5, so the join is smooth and f is differentiable everywhere. That is the answer to GATE CSE 2025 Set 1 Q.21, which asks for b under the hypothesis that f is differentiable everywhere.</p>
+  <p>Solve the equations in this order, always: continuity first, because a function that is not continuous at the join cannot be differentiable there, and the slope equation is then applied to a function whose values already agree.</p>
+
+  <div class="card warn"><div class="label">Common misconception</div><p>Reading the word "continuous" in a question as though it licensed the slope equation. Continuity gives only a + b = 3, a whole family of pairs; nothing about a or b is fixed. Only the word "differentiable" adds the second equation a = 5. The mirror mistake is setting the slopes equal without matching the values: with a = 5 and b = 0 the pieces jump from 5 to 3 at x = 1, so the function is not continuous, let alone differentiable.</p></div>
+  <div class="card ok"><div class="label">Quick check</div><p>Let f(x) = x^2 for x &lt; 2 and f(x) = ax + b for x &gt;= 2. Find a and b so that f is differentiable everywhere.</p><details><summary>Answer</summary><p><strong>a = 4 and b = -4.</strong> Continuity at 2: the left value is 2^2 = 4, so 2a + b = 4. Differentiability at 2: the left derivative is 2x, which is 4 at x = 2, so a = 4. Then 2(4) + b = 4 gives b = -4. The pieces meet at (2, 4) with slope 4 on both sides.</p></details></div>
+  <p class="small">Topic: matching value and slope at a join (Calculus, Limits, Continuity and Differentiability). Verified PYQ: GATE CSE 2025 Set 1 Q.21, from its GATE Overflow page. The piecewise continuity example at 30:00-35:00 of the Knowledge Gate 11 Oct EM Calculus Part 2 lecture (Hindi-medium class, read through its published English chapter summary - translated) uses the same two-step pattern. Every constant shown here is recomputed in scripts/validate.py.</p>
+</div>
+<script src="../../../lesson.js"></script>
+<script src="sketch.js"></script>
+<script>
+/* p5.js is loaded from a CDN. If it is unreachable, say so plainly instead of showing an empty box. */
+window.addEventListener('load', function () {
+  if (window.p5) { return; }
+  var holder = document.getElementById('canvas-holder');
+  if (holder) {
+    holder.innerHTML = '<div style="padding:22px 18px;font-size:14.5px;color:#4a5260">' +
+      'The animation needs p5.js, which this page loads from a CDN, and the request failed (offline, or the CDN is blocked). ' +
+      'Everything below still works: the static explanation, the misconception and the quick check.</div>';
+  }
+  var cap = document.getElementById('caption');
+  if (cap && window.LESSON && window.LESSON.steps && window.LESSON.steps[0]) {
+    cap.innerHTML = window.LESSON.steps[0].caption;
+  }
+  ['play', 'prev', 'next', 'restart', 'speed'].forEach(function (id) {
+    var el = document.getElementById(id);
+    if (el) { el.disabled = true; }
+  });
+});
+</script>
+</body>
+</html>

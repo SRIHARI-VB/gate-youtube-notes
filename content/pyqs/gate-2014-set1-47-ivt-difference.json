@@ -1,0 +1,21 @@
+{
+  "id": "gate-2014-set1-47-ivt-difference",
+  "year": "2014",
+  "paper": "GATE CS 2014 Set 1",
+  "question_ref": "Q.47",
+  "type": "MCQ",
+  "topic": "continuity-on-an-interval-and-ivt",
+  "text": "A function f(x) is continuous in the interval [0, 2]. It is known that f(0) = f(2) = -1 and f(1) = 1. Which one of the following statements must be true?",
+  "options": [
+    "There exists a y in the interval (0, 1) such that f(y) = f(y + 1)",
+    "For every y in the interval (0, 1), f(y) = f(2 - y)",
+    "The maximum value of the function in the interval (0, 2) is 1",
+    "There exists a y in the interval (0, 1) such that f(y) = -f(2 - y)"
+  ],
+  "answer": "Option (A)",
+  "solution": "Define g(y) = f(y) - f(y + 1) on [0, 1]. Since f is continuous, so is g. Then g(0) = f(0) - f(1) = -1 - 1 = -2 and g(1) = f(1) - f(2) = 1 - (-1) = 2. By the Intermediate Value Theorem g takes the value 0 somewhere in (0, 1), that is f(y) = f(y + 1). (B) and (D) impose a symmetry that nothing in the data forces, and (C) fails because f(1) = 1 says nothing about values elsewhere in (0, 2).",
+  "source_url": "https://gateoverflow.in/1925/gate-cse-2014-set-1-question-47",
+  "source_label": "GATE Overflow question page, GATE CSE 2014 Set 1 Q.47, with the accepted answer A",
+  "verification": "SOURCED",
+  "answer_evidence": "The accepted answer constructs g(y) = f(y) - f(y + 1), evaluates it at 0 and 1 as -2 and 2, and applies the Intermediate Value Theorem; several other answers repeat the construction. One answer also names option (B), which the accepted answer rejects, so the disagreement is visible on the page rather than hidden. Recomputed in scripts/validate.py. The official key was not fetched and no marks field is recorded."
+}
