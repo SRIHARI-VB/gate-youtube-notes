@@ -15541,6 +15541,45 @@ window.GATE_DATA = {
    ],
    "sourceLine": "Definition, one-sided limits and the 2013/2026 question shapes: Paul's Online Math Notes, Calculus I chapter 2, and the Knowledge Gate chapter summary at 20:00-25:00 (Hindi-medium lecture, English summary - translated). Every limit value on this card is recomputed numerically in scripts/validate.py.",
    "videoRefs": [],
+   "links": {
+    "mock": {
+     "subject": "engineering-mathematics",
+     "unit_slug": "calculus-limits-derivatives",
+     "unit_name": "Calculus: Limits, Continuity & Differentiability",
+     "unit_number": 3,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "indeterminate-forms-lhopital",
+       "questions": 14
+      },
+      {
+       "label": "continuity-analysis",
+       "questions": 12
+      },
+      {
+       "label": "mean-value-theorems",
+       "questions": 12
+      },
+      {
+       "label": "partial-derivatives",
+       "questions": 12
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-limits-derivatives/gate_em_mock_3_2026-10-27.html"
+    },
+    "visual": {
+     "slug": "calculus-limits-extrema-and-integration",
+     "title": "Calculus: Limits, Extrema and Integration",
+     "level": "topic-level",
+     "covers": [
+      "a limit is the value approached, not the value reached",
+      "two one-sided limits plus the value decide continuity at a point"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
+    },
+    "mapped_at": "2026-10-29"
+   },
    "subject": "calculus",
    "topic": "limits-continuity-differentiability",
    "path": "subjects/calculus/limits-continuity-differentiability/limit-at-a-point-and-one-sided-limits.json"
@@ -15608,6 +15647,35 @@ window.GATE_DATA = {
    ],
    "sourceLine": "The limit laws and their hypotheses: Paul's Online Math Notes, Calculus I, Limit Properties. The card carries no GATE CSE previous-year question of its own because no question in this topic is decided by the laws alone; they are the step inside the limit questions on the neighbouring cards.",
    "videoRefs": [],
+   "links": {
+    "mock": {
+     "subject": "engineering-mathematics",
+     "unit_slug": "calculus-limits-derivatives",
+     "unit_name": "Calculus: Limits, Continuity & Differentiability",
+     "unit_number": 3,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "indeterminate-forms-lhopital",
+       "questions": 14
+      },
+      {
+       "label": "continuity-analysis",
+       "questions": 12
+      },
+      {
+       "label": "mean-value-theorems",
+       "questions": 12
+      },
+      {
+       "label": "partial-derivatives",
+       "questions": 12
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-limits-derivatives/gate_em_mock_3_2026-10-27.html"
+    },
+    "mapped_at": "2026-10-29"
+   },
    "subject": "calculus",
    "topic": "limits-continuity-differentiability",
    "path": "subjects/calculus/limits-continuity-differentiability/algebra-of-limits.json"
@@ -15693,6 +15761,35 @@ window.GATE_DATA = {
    ],
    "sourceLine": "The series that generate these limits are written at 05:00-10:00 of the Knowledge Gate lecture (Hindi-medium, English summary - translated); the limits themselves are the standard ones in Thomas' Calculus chapter 2 and Paul's Online Math Notes. Every value is recomputed numerically in scripts/validate.py.",
    "videoRefs": [],
+   "links": {
+    "mock": {
+     "subject": "engineering-mathematics",
+     "unit_slug": "calculus-limits-derivatives",
+     "unit_name": "Calculus: Limits, Continuity & Differentiability",
+     "unit_number": 3,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "indeterminate-forms-lhopital",
+       "questions": 14
+      },
+      {
+       "label": "continuity-analysis",
+       "questions": 12
+      },
+      {
+       "label": "mean-value-theorems",
+       "questions": 12
+      },
+      {
+       "label": "partial-derivatives",
+       "questions": 12
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-limits-derivatives/gate_em_mock_3_2026-10-27.html"
+    },
+    "mapped_at": "2026-10-29"
+   },
    "subject": "calculus",
    "topic": "limits-continuity-differentiability",
    "path": "subjects/calculus/limits-continuity-differentiability/standard-limits.json"
@@ -15781,6 +15878,45 @@ window.GATE_DATA = {
    ],
    "sourceLine": "Conditions and worked examples: the Knowledge Gate chapter summary at 10:00-20:00 (Hindi-medium, English summary - translated) and Paul's Online Math Notes. Every limit on this card, including the two counterexamples, is recomputed in scripts/validate.py.",
    "videoRefs": [],
+   "links": {
+    "mock": {
+     "subject": "engineering-mathematics",
+     "unit_slug": "calculus-limits-derivatives",
+     "unit_name": "Calculus: Limits, Continuity & Differentiability",
+     "unit_number": 3,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "indeterminate-forms-lhopital",
+       "questions": 14
+      },
+      {
+       "label": "continuity-analysis",
+       "questions": 12
+      },
+      {
+       "label": "mean-value-theorems",
+       "questions": 12
+      },
+      {
+       "label": "partial-derivatives",
+       "questions": 12
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-limits-derivatives/gate_em_mock_3_2026-10-27.html"
+    },
+    "visual": {
+     "slug": "calculus-limits-extrema-and-integration",
+     "title": "Calculus: Limits, Extrema and Integration",
+     "level": "topic-level",
+     "covers": [
+      "L'Hopital is legal only on 0/0 and infinity over infinity",
+      "one application is often not enough"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
+    },
+    "mapped_at": "2026-10-29"
+   },
    "subject": "calculus",
    "topic": "limits-continuity-differentiability",
    "path": "subjects/calculus/limits-continuity-differentiability/lhopital-rule-and-its-conditions.json"
@@ -15865,6 +16001,45 @@ window.GATE_DATA = {
    ],
    "sourceLine": "The conversion recipe and the worked (cos x)^(1/x^2) example follow the IAE Academy GATE calculus notes (read as an extract) and Paul's Online Math Notes; the lecture summary at 15:00-20:00 supplies the infinity-at-infinity division trick (Hindi-medium, English summary - translated). Every value is recomputed in scripts/validate.py.",
    "videoRefs": [],
+   "links": {
+    "mock": {
+     "subject": "engineering-mathematics",
+     "unit_slug": "calculus-limits-derivatives",
+     "unit_name": "Calculus: Limits, Continuity & Differentiability",
+     "unit_number": 3,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "indeterminate-forms-lhopital",
+       "questions": 14
+      },
+      {
+       "label": "continuity-analysis",
+       "questions": 12
+      },
+      {
+       "label": "mean-value-theorems",
+       "questions": 12
+      },
+      {
+       "label": "partial-derivatives",
+       "questions": 12
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-limits-derivatives/gate_em_mock_3_2026-10-27.html"
+    },
+    "visual": {
+     "slug": "calculus-limits-extrema-and-integration",
+     "title": "Calculus: Limits, Extrema and Integration",
+     "level": "topic-level",
+     "covers": [
+      "the five indeterminate forms and the move for each",
+      "a 1 to the infinity power goes through e to the g ln f"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
+    },
+    "mapped_at": "2026-10-29"
+   },
    "subject": "calculus",
    "topic": "limits-continuity-differentiability",
    "path": "subjects/calculus/limits-continuity-differentiability/other-indeterminate-forms.json"
@@ -15950,6 +16125,45 @@ window.GATE_DATA = {
    ],
    "sourceLine": "The growth ladder and its limits: IAE Academy GATE notes (extract) and Paul's Online Math Notes; the 2015 question's answer is the accepted GATE Overflow solution. Every limit on this card is recomputed numerically in scripts/validate.py.",
    "videoRefs": [],
+   "links": {
+    "mock": {
+     "subject": "engineering-mathematics",
+     "unit_slug": "calculus-limits-derivatives",
+     "unit_name": "Calculus: Limits, Continuity & Differentiability",
+     "unit_number": 3,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "indeterminate-forms-lhopital",
+       "questions": 14
+      },
+      {
+       "label": "continuity-analysis",
+       "questions": 12
+      },
+      {
+       "label": "mean-value-theorems",
+       "questions": 12
+      },
+      {
+       "label": "partial-derivatives",
+       "questions": 12
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-limits-derivatives/gate_em_mock_3_2026-10-27.html"
+    },
+    "visual": {
+     "slug": "calculus-limits-extrema-and-integration",
+     "title": "Calculus: Limits, Extrema and Integration",
+     "level": "topic-level",
+     "covers": [
+      "the exponential beats a polynomial as x goes to infinity",
+      "x to the 1 over x is infinity to the zero, so the limit is 1"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
+    },
+    "mapped_at": "2026-10-29"
+   },
    "subject": "calculus",
    "topic": "limits-continuity-differentiability",
    "path": "subjects/calculus/limits-continuity-differentiability/limits-at-infinity-and-orders-of-growth.json"
@@ -16036,6 +16250,45 @@ window.GATE_DATA = {
    ],
    "sourceLine": "Definition and worked checks: Paul's Online Math Notes section 2.9 and the Knowledge Gate chapter summary at 20:00-30:00 (Hindi-medium lecture, English summary - translated). The 2013 and 2026 answers are the accepted GATE Overflow solutions and are recomputed in scripts/validate.py.",
    "videoRefs": [],
+   "links": {
+    "mock": {
+     "subject": "engineering-mathematics",
+     "unit_slug": "calculus-limits-derivatives",
+     "unit_name": "Calculus: Limits, Continuity & Differentiability",
+     "unit_number": 3,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "indeterminate-forms-lhopital",
+       "questions": 14
+      },
+      {
+       "label": "continuity-analysis",
+       "questions": 12
+      },
+      {
+       "label": "mean-value-theorems",
+       "questions": 12
+      },
+      {
+       "label": "partial-derivatives",
+       "questions": 12
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-limits-derivatives/gate_em_mock_3_2026-10-27.html"
+    },
+    "visual": {
+     "slug": "calculus-limits-extrema-and-integration",
+     "title": "Calculus: Limits, Extrema and Integration",
+     "level": "topic-level",
+     "covers": [
+      "continuity at a point: limit exists, value exists, they are equal",
+      "solving for the constant that makes a piecewise function continuous"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
+    },
+    "mapped_at": "2026-10-29"
+   },
    "subject": "calculus",
    "topic": "limits-continuity-differentiability",
    "path": "subjects/calculus/limits-continuity-differentiability/continuity-at-a-point.json"
@@ -16113,6 +16366,44 @@ window.GATE_DATA = {
    ],
    "sourceLine": "The three types follow Paul's Online Math Notes section 2.9, which names jump and removable discontinuities explicitly; the infinite type is the behaviour of 1/(x^3 - 27) at 3 in GATE CSE 2013 Q.22 option (D). The lecture summary draws the hole and the jump (Hindi-medium, English summary - translated).",
    "videoRefs": [],
+   "links": {
+    "mock": {
+     "subject": "engineering-mathematics",
+     "unit_slug": "calculus-limits-derivatives",
+     "unit_name": "Calculus: Limits, Continuity & Differentiability",
+     "unit_number": 3,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "indeterminate-forms-lhopital",
+       "questions": 14
+      },
+      {
+       "label": "continuity-analysis",
+       "questions": 12
+      },
+      {
+       "label": "mean-value-theorems",
+       "questions": 12
+      },
+      {
+       "label": "partial-derivatives",
+       "questions": 12
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-limits-derivatives/gate_em_mock_3_2026-10-27.html"
+    },
+    "visual": {
+     "slug": "calculus-limits-extrema-and-integration",
+     "title": "Calculus: Limits, Extrema and Integration",
+     "level": "topic-level",
+     "covers": [
+      "the three ways continuity fails: jump, blow-up, hole"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
+    },
+    "mapped_at": "2026-10-29"
+   },
    "subject": "calculus",
    "topic": "limits-continuity-differentiability",
    "path": "subjects/calculus/limits-continuity-differentiability/types-of-discontinuity.json"
@@ -16199,6 +16490,35 @@ window.GATE_DATA = {
    ],
    "sourceLine": "Statement and caveats: Paul's Online Math Notes section 2.9. The constructed-function technique is the accepted GATE Overflow solution to 2014 Set 1 Q.47. The root location for x^3 + x - 1 is recomputed in scripts/validate.py.",
    "videoRefs": [],
+   "links": {
+    "mock": {
+     "subject": "engineering-mathematics",
+     "unit_slug": "calculus-limits-derivatives",
+     "unit_name": "Calculus: Limits, Continuity & Differentiability",
+     "unit_number": 3,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "indeterminate-forms-lhopital",
+       "questions": 14
+      },
+      {
+       "label": "continuity-analysis",
+       "questions": 12
+      },
+      {
+       "label": "mean-value-theorems",
+       "questions": 12
+      },
+      {
+       "label": "partial-derivatives",
+       "questions": 12
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-limits-derivatives/gate_em_mock_3_2026-10-27.html"
+    },
+    "mapped_at": "2026-10-29"
+   },
    "subject": "calculus",
    "topic": "limits-continuity-differentiability",
    "path": "subjects/calculus/limits-continuity-differentiability/continuity-on-an-interval-and-ivt.json"
@@ -16284,6 +16604,45 @@ window.GATE_DATA = {
    ],
    "sourceLine": "Definition and the |x| computation: the Knowledge Gate chapter summary at 35:00-45:00 (Hindi-medium lecture, English summary - translated) and Paul's Online Math Notes. The one-sided derivatives of |x|, x|x| and x^(2/3) are recomputed numerically in scripts/validate.py.",
    "videoRefs": [],
+   "links": {
+    "mock": {
+     "subject": "engineering-mathematics",
+     "unit_slug": "calculus-limits-derivatives",
+     "unit_name": "Calculus: Limits, Continuity & Differentiability",
+     "unit_number": 3,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "indeterminate-forms-lhopital",
+       "questions": 14
+      },
+      {
+       "label": "continuity-analysis",
+       "questions": 12
+      },
+      {
+       "label": "mean-value-theorems",
+       "questions": 12
+      },
+      {
+       "label": "partial-derivatives",
+       "questions": 12
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-limits-derivatives/gate_em_mock_3_2026-10-27.html"
+    },
+    "visual": {
+     "slug": "calculus-limits-extrema-and-integration",
+     "title": "Calculus: Limits, Extrema and Integration",
+     "level": "topic-level",
+     "covers": [
+      "two one-sided slopes must agree for a derivative to exist",
+      "differentiable implies continuous, never the reverse; |x| at zero"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
+    },
+    "mapped_at": "2026-10-29"
+   },
    "subject": "calculus",
    "topic": "limits-continuity-differentiability",
    "path": "subjects/calculus/limits-continuity-differentiability/differentiability-and-its-link-to-continuity.json"
@@ -16371,6 +16730,45 @@ window.GATE_DATA = {
    ],
    "sourceLine": "The two-equation method is worked from the accepted GATE Overflow solutions to 2025 Set 1 Q.21 and the piecewise example in the Knowledge Gate chapter summary at 30:00-35:00 (Hindi-medium, English summary - translated). Every constant on this card is recomputed in scripts/validate.py.",
    "videoRefs": [],
+   "links": {
+    "mock": {
+     "subject": "engineering-mathematics",
+     "unit_slug": "calculus-limits-derivatives",
+     "unit_name": "Calculus: Limits, Continuity & Differentiability",
+     "unit_number": 3,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "indeterminate-forms-lhopital",
+       "questions": 14
+      },
+      {
+       "label": "continuity-analysis",
+       "questions": 12
+      },
+      {
+       "label": "mean-value-theorems",
+       "questions": 12
+      },
+      {
+       "label": "partial-derivatives",
+       "questions": 12
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-limits-derivatives/gate_em_mock_3_2026-10-27.html"
+    },
+    "visual": {
+     "slug": "calculus-limits-extrema-and-integration",
+     "title": "Calculus: Limits, Extrema and Integration",
+     "level": "topic-level",
+     "covers": [
+      "solving for the constant that makes the value match at a join",
+      "two one-sided slopes as the test for differentiability at a join"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
+    },
+    "mapped_at": "2026-10-29"
+   },
    "subject": "calculus",
    "topic": "limits-continuity-differentiability",
    "path": "subjects/calculus/limits-continuity-differentiability/matching-value-and-slope-at-a-join.json"
@@ -16450,6 +16848,45 @@ window.GATE_DATA = {
    ],
    "sourceLine": "The crossing-point method follows the accepted GATE Overflow solution to 2024 Set 1 Q.1 and the corner discussion at 35:00-40:00 of the Knowledge Gate summary (Hindi-medium, English summary - translated). The three slope pairs are recomputed in scripts/validate.py.",
    "videoRefs": [],
+   "links": {
+    "mock": {
+     "subject": "engineering-mathematics",
+     "unit_slug": "calculus-optimization-integrals",
+     "unit_name": "Calculus: Maxima, Minima & Integrals",
+     "unit_number": 4,
+     "question_count": 25,
+     "subtopics": [
+      {
+       "label": "single-variable-extrema",
+       "questions": 7
+      },
+      {
+       "label": "multivariable-extrema-saddle-points",
+       "questions": 6
+      },
+      {
+       "label": "definite-integrals",
+       "questions": 6
+      },
+      {
+       "label": "vector-calculus-basics",
+       "questions": 6
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-28.html"
+    },
+    "visual": {
+     "slug": "calculus-limits-extrema-and-integration",
+     "title": "Calculus: Limits, Extrema and Integration",
+     "level": "topic-level",
+     "covers": [
+      "the max of x and x cubed has corners at minus 1, 0 and 1",
+      "critical points, sign chart, then the second derivative test"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
+    },
+    "mapped_at": "2026-10-29"
+   },
    "subject": "calculus",
    "topic": "limits-continuity-differentiability",
    "path": "subjects/calculus/limits-continuity-differentiability/corners-cusps-and-max-min-functions.json"

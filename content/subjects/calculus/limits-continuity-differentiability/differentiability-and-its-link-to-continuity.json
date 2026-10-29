@@ -78,5 +78,44 @@
     }
   ],
   "sourceLine": "Definition and the |x| computation: the Knowledge Gate chapter summary at 35:00-45:00 (Hindi-medium lecture, English summary - translated) and Paul's Online Math Notes. The one-sided derivatives of |x|, x|x| and x^(2/3) are recomputed numerically in scripts/validate.py.",
-  "videoRefs": []
+  "videoRefs": [],
+  "links": {
+    "mock": {
+      "subject": "engineering-mathematics",
+      "unit_slug": "calculus-limits-derivatives",
+      "unit_name": "Calculus: Limits, Continuity & Differentiability",
+      "unit_number": 3,
+      "question_count": 50,
+      "subtopics": [
+        {
+          "label": "indeterminate-forms-lhopital",
+          "questions": 14
+        },
+        {
+          "label": "continuity-analysis",
+          "questions": 12
+        },
+        {
+          "label": "mean-value-theorems",
+          "questions": 12
+        },
+        {
+          "label": "partial-derivatives",
+          "questions": 12
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-limits-derivatives/gate_em_mock_3_2026-10-27.html"
+    },
+    "visual": {
+      "slug": "calculus-limits-extrema-and-integration",
+      "title": "Calculus: Limits, Extrema and Integration",
+      "level": "topic-level",
+      "covers": [
+        "two one-sided slopes must agree for a derivative to exist",
+        "differentiable implies continuous, never the reverse; |x| at zero"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
+    },
+    "mapped_at": "2026-10-29"
+  }
 }

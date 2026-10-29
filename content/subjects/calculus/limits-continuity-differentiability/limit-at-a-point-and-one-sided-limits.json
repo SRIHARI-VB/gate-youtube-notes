@@ -79,5 +79,44 @@
     }
   ],
   "sourceLine": "Definition, one-sided limits and the 2013/2026 question shapes: Paul's Online Math Notes, Calculus I chapter 2, and the Knowledge Gate chapter summary at 20:00-25:00 (Hindi-medium lecture, English summary - translated). Every limit value on this card is recomputed numerically in scripts/validate.py.",
-  "videoRefs": []
+  "videoRefs": [],
+  "links": {
+    "mock": {
+      "subject": "engineering-mathematics",
+      "unit_slug": "calculus-limits-derivatives",
+      "unit_name": "Calculus: Limits, Continuity & Differentiability",
+      "unit_number": 3,
+      "question_count": 50,
+      "subtopics": [
+        {
+          "label": "indeterminate-forms-lhopital",
+          "questions": 14
+        },
+        {
+          "label": "continuity-analysis",
+          "questions": 12
+        },
+        {
+          "label": "mean-value-theorems",
+          "questions": 12
+        },
+        {
+          "label": "partial-derivatives",
+          "questions": 12
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-limits-derivatives/gate_em_mock_3_2026-10-27.html"
+    },
+    "visual": {
+      "slug": "calculus-limits-extrema-and-integration",
+      "title": "Calculus: Limits, Extrema and Integration",
+      "level": "topic-level",
+      "covers": [
+        "a limit is the value approached, not the value reached",
+        "two one-sided limits plus the value decide continuity at a point"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
+    },
+    "mapped_at": "2026-10-29"
+  }
 }

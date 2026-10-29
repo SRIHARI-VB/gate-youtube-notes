@@ -79,5 +79,34 @@
     }
   ],
   "sourceLine": "Statement and caveats: Paul's Online Math Notes section 2.9. The constructed-function technique is the accepted GATE Overflow solution to 2014 Set 1 Q.47. The root location for x^3 + x - 1 is recomputed in scripts/validate.py.",
-  "videoRefs": []
+  "videoRefs": [],
+  "links": {
+    "mock": {
+      "subject": "engineering-mathematics",
+      "unit_slug": "calculus-limits-derivatives",
+      "unit_name": "Calculus: Limits, Continuity & Differentiability",
+      "unit_number": 3,
+      "question_count": 50,
+      "subtopics": [
+        {
+          "label": "indeterminate-forms-lhopital",
+          "questions": 14
+        },
+        {
+          "label": "continuity-analysis",
+          "questions": 12
+        },
+        {
+          "label": "mean-value-theorems",
+          "questions": 12
+        },
+        {
+          "label": "partial-derivatives",
+          "questions": 12
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-limits-derivatives/gate_em_mock_3_2026-10-27.html"
+    },
+    "mapped_at": "2026-10-29"
+  }
 }

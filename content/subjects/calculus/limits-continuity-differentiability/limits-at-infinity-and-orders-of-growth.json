@@ -78,5 +78,44 @@
     }
   ],
   "sourceLine": "The growth ladder and its limits: IAE Academy GATE notes (extract) and Paul's Online Math Notes; the 2015 question's answer is the accepted GATE Overflow solution. Every limit on this card is recomputed numerically in scripts/validate.py.",
-  "videoRefs": []
+  "videoRefs": [],
+  "links": {
+    "mock": {
+      "subject": "engineering-mathematics",
+      "unit_slug": "calculus-limits-derivatives",
+      "unit_name": "Calculus: Limits, Continuity & Differentiability",
+      "unit_number": 3,
+      "question_count": 50,
+      "subtopics": [
+        {
+          "label": "indeterminate-forms-lhopital",
+          "questions": 14
+        },
+        {
+          "label": "continuity-analysis",
+          "questions": 12
+        },
+        {
+          "label": "mean-value-theorems",
+          "questions": 12
+        },
+        {
+          "label": "partial-derivatives",
+          "questions": 12
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-limits-derivatives/gate_em_mock_3_2026-10-27.html"
+    },
+    "visual": {
+      "slug": "calculus-limits-extrema-and-integration",
+      "title": "Calculus: Limits, Extrema and Integration",
+      "level": "topic-level",
+      "covers": [
+        "the exponential beats a polynomial as x goes to infinity",
+        "x to the 1 over x is infinity to the zero, so the limit is 1"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
+    },
+    "mapped_at": "2026-10-29"
+  }
 }

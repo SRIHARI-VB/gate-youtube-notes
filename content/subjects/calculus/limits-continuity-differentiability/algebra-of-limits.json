@@ -60,5 +60,34 @@
     }
   ],
   "sourceLine": "The limit laws and their hypotheses: Paul's Online Math Notes, Calculus I, Limit Properties. The card carries no GATE CSE previous-year question of its own because no question in this topic is decided by the laws alone; they are the step inside the limit questions on the neighbouring cards.",
-  "videoRefs": []
+  "videoRefs": [],
+  "links": {
+    "mock": {
+      "subject": "engineering-mathematics",
+      "unit_slug": "calculus-limits-derivatives",
+      "unit_name": "Calculus: Limits, Continuity & Differentiability",
+      "unit_number": 3,
+      "question_count": 50,
+      "subtopics": [
+        {
+          "label": "indeterminate-forms-lhopital",
+          "questions": 14
+        },
+        {
+          "label": "continuity-analysis",
+          "questions": 12
+        },
+        {
+          "label": "mean-value-theorems",
+          "questions": 12
+        },
+        {
+          "label": "partial-derivatives",
+          "questions": 12
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-limits-derivatives/gate_em_mock_3_2026-10-27.html"
+    },
+    "mapped_at": "2026-10-29"
+  }
 }

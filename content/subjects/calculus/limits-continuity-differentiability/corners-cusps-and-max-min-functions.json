@@ -72,5 +72,44 @@
     }
   ],
   "sourceLine": "The crossing-point method follows the accepted GATE Overflow solution to 2024 Set 1 Q.1 and the corner discussion at 35:00-40:00 of the Knowledge Gate summary (Hindi-medium, English summary - translated). The three slope pairs are recomputed in scripts/validate.py.",
-  "videoRefs": []
+  "videoRefs": [],
+  "links": {
+    "mock": {
+      "subject": "engineering-mathematics",
+      "unit_slug": "calculus-optimization-integrals",
+      "unit_name": "Calculus: Maxima, Minima & Integrals",
+      "unit_number": 4,
+      "question_count": 25,
+      "subtopics": [
+        {
+          "label": "single-variable-extrema",
+          "questions": 7
+        },
+        {
+          "label": "multivariable-extrema-saddle-points",
+          "questions": 6
+        },
+        {
+          "label": "definite-integrals",
+          "questions": 6
+        },
+        {
+          "label": "vector-calculus-basics",
+          "questions": 6
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-28.html"
+    },
+    "visual": {
+      "slug": "calculus-limits-extrema-and-integration",
+      "title": "Calculus: Limits, Extrema and Integration",
+      "level": "topic-level",
+      "covers": [
+        "the max of x and x cubed has corners at minus 1, 0 and 1",
+        "critical points, sign chart, then the second derivative test"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
+    },
+    "mapped_at": "2026-10-29"
+  }
 }
