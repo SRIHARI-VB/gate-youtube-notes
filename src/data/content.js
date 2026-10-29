@@ -16966,6 +16966,45 @@ window.GATE_DATA = {
    ],
    "sourceLine": "Definitions: Paul's Online Math Notes section 4.3 (English, read in full). GATE framing and the drawn local/global picture: Knowledge Gate 'Maxima & Minima' chapter summary at 0:00-5:00 (Hindi-medium lecture, English summary - translated). Values recomputed in scripts/validate.py.",
    "videoRefs": [],
+   "links": {
+    "mock": {
+     "subject": "engineering-mathematics",
+     "unit_slug": "calculus-optimization-integrals",
+     "unit_name": "Calculus: Maxima, Minima & Integrals",
+     "unit_number": 4,
+     "question_count": 25,
+     "subtopics": [
+      {
+       "label": "single-variable-extrema",
+       "questions": 7
+      },
+      {
+       "label": "multivariable-extrema-saddle-points",
+       "questions": 6
+      },
+      {
+       "label": "definite-integrals",
+       "questions": 6
+      },
+      {
+       "label": "vector-calculus-basics",
+       "questions": 6
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-28.html"
+    },
+    "visual": {
+     "slug": "calculus-limits-extrema-and-integration",
+     "title": "Calculus: Limits, Extrema and Integration",
+     "level": "topic-level",
+     "covers": [
+      "a local extremum can occur only at a critical point or at an endpoint",
+      "the closed-interval comparison that settles the global value"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
+    },
+    "mapped_at": "2026-10-29"
+   },
    "subject": "calculus",
    "topic": "maxima-and-minima",
    "path": "subjects/calculus/maxima-and-minima/local-and-global-extrema.json"
@@ -17044,6 +17083,45 @@ window.GATE_DATA = {
    ],
    "sourceLine": "Stationary versus critical: Knowledge Gate '26 Jan EM Calculus Part 2' chapter summary at 2:00-5:00 (Hindi-medium lecture, English summary - translated). The candidate-point reasoning and the worked critical points: MIT 18.01 Lecture 12 transcript (English, read in full).",
    "videoRefs": [],
+   "links": {
+    "mock": {
+     "subject": "engineering-mathematics",
+     "unit_slug": "calculus-optimization-integrals",
+     "unit_name": "Calculus: Maxima, Minima & Integrals",
+     "unit_number": 4,
+     "question_count": 25,
+     "subtopics": [
+      {
+       "label": "single-variable-extrema",
+       "questions": 7
+      },
+      {
+       "label": "multivariable-extrema-saddle-points",
+       "questions": 6
+      },
+      {
+       "label": "definite-integrals",
+       "questions": 6
+      },
+      {
+       "label": "vector-calculus-basics",
+       "questions": 6
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-28.html"
+    },
+    "visual": {
+     "slug": "calculus-limits-extrema-and-integration",
+     "title": "Calculus: Limits, Extrema and Integration",
+     "level": "topic-level",
+     "covers": [
+      "two kinds of interior candidate: derivative zero or derivative missing",
+      "solving f prime = 0 and then reading the sign chart"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
+    },
+    "mapped_at": "2026-10-29"
+   },
    "subject": "calculus",
    "topic": "maxima-and-minima",
    "path": "subjects/calculus/maxima-and-minima/stationary-and-critical-points.json"
@@ -17122,6 +17200,45 @@ window.GATE_DATA = {
    ],
    "sourceLine": "The three statements and the x^3 counterexample: Knowledge Gate 'Maxima & Minima' chapter summary at 2:00-10:00 (Hindi-medium lecture, English summary - translated). The theorem statement and the |x| note: Paul's Online Math Notes section 4.3. Every value recomputed in scripts/validate.py.",
    "videoRefs": [],
+   "links": {
+    "mock": {
+     "subject": "engineering-mathematics",
+     "unit_slug": "calculus-optimization-integrals",
+     "unit_name": "Calculus: Maxima, Minima & Integrals",
+     "unit_number": 4,
+     "question_count": 25,
+     "subtopics": [
+      {
+       "label": "single-variable-extrema",
+       "questions": 7
+      },
+      {
+       "label": "multivariable-extrema-saddle-points",
+       "questions": 6
+      },
+      {
+       "label": "definite-integrals",
+       "questions": 6
+      },
+      {
+       "label": "vector-calculus-basics",
+       "questions": 6
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-28.html"
+    },
+    "visual": {
+     "slug": "calculus-limits-extrema-and-integration",
+     "title": "Calculus: Limits, Extrema and Integration",
+     "level": "topic-level",
+     "covers": [
+      "derivative zero does not mean extremum: x cubed at zero",
+      "the sign of f prime must change, or the second derivative must be non-zero"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
+    },
+    "mapped_at": "2026-10-29"
+   },
    "subject": "calculus",
    "topic": "maxima-and-minima",
    "path": "subjects/calculus/maxima-and-minima/fermats-theorem-and-its-converse.json"
@@ -17202,18 +17319,43 @@ window.GATE_DATA = {
    "sourceLine": "The sign chart as the deciding test, and the GATE CSE 2008 Q.25 fallback: Knowledge Gate 'Maxima & Minima' chapter summary at 10:00-13:20 (Hindi-medium lecture, English summary - translated) and the accepted GATE Overflow solution. The p5.js lesson follows the same three-step procedure; every sign and value is recomputed in scripts/validate.py.",
    "videoRefs": [],
    "links": {
-    "visual": {
-     "slug": "calculus/maxima-and-minima/sign-chart-of-the-derivative",
-     "title": "The Sign Chart of the Derivative",
-     "level": "subtopic-level",
-     "covers": [
-      "f'(x) = 12x(x-2)^2 has zeros at 0 and 2",
-      "the sign changes at 0 and not at 2",
-      "why x = 2 is stationary but not an extremum",
-      "closed-interval candidates: critical points plus endpoints"
+    "mock": {
+     "subject": "engineering-mathematics",
+     "unit_slug": "calculus-optimization-integrals",
+     "unit_name": "Calculus: Maxima, Minima & Integrals",
+     "unit_number": 4,
+     "question_count": 25,
+     "subtopics": [
+      {
+       "label": "single-variable-extrema",
+       "questions": 7
+      },
+      {
+       "label": "multivariable-extrema-saddle-points",
+       "questions": 6
+      },
+      {
+       "label": "definite-integrals",
+       "questions": 6
+      },
+      {
+       "label": "vector-calculus-basics",
+       "questions": 6
+      }
      ],
-     "url": "visuals/calculus/maxima-and-minima/sign-chart-of-the-derivative/index.html"
-    }
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-28.html"
+    },
+    "visual": {
+     "slug": "calculus-limits-extrema-and-integration",
+     "title": "Calculus: Limits, Extrema and Integration",
+     "level": "topic-level",
+     "covers": [
+      "the sign chart of f prime classifies each critical point",
+      "climb-then-fall versus fall-then-climb"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
+    },
+    "mapped_at": "2026-10-29"
    },
    "subject": "calculus",
    "topic": "maxima-and-minima",
@@ -17294,6 +17436,45 @@ window.GATE_DATA = {
    ],
    "sourceLine": "The rule, the inconclusive case and the worked examples x, x^2, x^3: Knowledge Gate '26 Jan EM Calculus Part 2' chapter summary at 5:00-15:00 (Hindi-medium lecture, English summary - translated). Cross-checked against the accepted GATE Overflow solutions to 2023 Q.18 and 2008 Q.25, and recomputed in scripts/validate.py.",
    "videoRefs": [],
+   "links": {
+    "mock": {
+     "subject": "engineering-mathematics",
+     "unit_slug": "calculus-optimization-integrals",
+     "unit_name": "Calculus: Maxima, Minima & Integrals",
+     "unit_number": 4,
+     "question_count": 25,
+     "subtopics": [
+      {
+       "label": "single-variable-extrema",
+       "questions": 7
+      },
+      {
+       "label": "multivariable-extrema-saddle-points",
+       "questions": 6
+      },
+      {
+       "label": "definite-integrals",
+       "questions": 6
+      },
+      {
+       "label": "vector-calculus-basics",
+       "questions": 6
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-28.html"
+    },
+    "visual": {
+     "slug": "calculus-limits-extrema-and-integration",
+     "title": "Calculus: Limits, Extrema and Integration",
+     "level": "topic-level",
+     "covers": [
+      "confirming the classification with the second derivative",
+      "concave up or concave down at the critical point"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
+    },
+    "mapped_at": "2026-10-29"
+   },
    "subject": "calculus",
    "topic": "maxima-and-minima",
    "path": "subjects/calculus/maxima-and-minima/second-derivative-test.json"
@@ -17372,6 +17553,35 @@ window.GATE_DATA = {
    ],
    "sourceLine": "The inconclusive case and the instruction to check higher derivatives: Knowledge Gate '26 Jan EM Calculus Part 2' chapter summary at 5:00-15:00 (Hindi-medium lecture, English summary - translated). Applied to GATE CSE 2008 Q.25 from its accepted GATE Overflow solution; the order test is verified on x^3, x^4, x^5 and x^6 in scripts/validate.py.",
    "videoRefs": [],
+   "links": {
+    "mock": {
+     "subject": "engineering-mathematics",
+     "unit_slug": "calculus-optimization-integrals",
+     "unit_name": "Calculus: Maxima, Minima & Integrals",
+     "unit_number": 4,
+     "question_count": 25,
+     "subtopics": [
+      {
+       "label": "single-variable-extrema",
+       "questions": 7
+      },
+      {
+       "label": "multivariable-extrema-saddle-points",
+       "questions": 6
+      },
+      {
+       "label": "definite-integrals",
+       "questions": 6
+      },
+      {
+       "label": "vector-calculus-basics",
+       "questions": 6
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-28.html"
+    },
+    "mapped_at": "2026-10-29"
+   },
    "subject": "calculus",
    "topic": "maxima-and-minima",
    "path": "subjects/calculus/maxima-and-minima/higher-derivative-test.json"
@@ -17451,6 +17661,45 @@ window.GATE_DATA = {
    ],
    "sourceLine": "The candidate list and the warning that a derivative-only search can return the opposite of what was asked: MIT 18.01 Lecture 12 transcript (English, read in full). The absolute-versus-relative definitions and the extreme value theorem: Paul's Online Math Notes section 4.3. The 1997 values are recomputed in scripts/validate.py.",
    "videoRefs": [],
+   "links": {
+    "mock": {
+     "subject": "engineering-mathematics",
+     "unit_slug": "calculus-optimization-integrals",
+     "unit_name": "Calculus: Maxima, Minima & Integrals",
+     "unit_number": 4,
+     "question_count": 25,
+     "subtopics": [
+      {
+       "label": "single-variable-extrema",
+       "questions": 7
+      },
+      {
+       "label": "multivariable-extrema-saddle-points",
+       "questions": 6
+      },
+      {
+       "label": "definite-integrals",
+       "questions": 6
+      },
+      {
+       "label": "vector-calculus-basics",
+       "questions": 6
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-28.html"
+    },
+    "visual": {
+     "slug": "calculus-limits-extrema-and-integration",
+     "title": "Calculus: Limits, Extrema and Integration",
+     "level": "topic-level",
+     "covers": [
+      "the candidate list: critical points plus both endpoints",
+      "evaluate at every candidate and compare the values"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
+    },
+    "mapped_at": "2026-10-29"
+   },
    "subject": "calculus",
    "topic": "maxima-and-minima",
    "path": "subjects/calculus/maxima-and-minima/closed-interval-candidate-list.json"
@@ -17527,6 +17776,44 @@ window.GATE_DATA = {
    ],
    "sourceLine": "Monotonic functions as a separate step in the GATE teaching order: Knowledge Gate module outline (Monotonic Functions follows Maxima & Minima). The theorem statements and their converses: Paul's Online Math Notes section 4.3 and the standard references. Recomputed in scripts/validate.py.",
    "videoRefs": [],
+   "links": {
+    "mock": {
+     "subject": "engineering-mathematics",
+     "unit_slug": "calculus-optimization-integrals",
+     "unit_name": "Calculus: Maxima, Minima & Integrals",
+     "unit_number": 4,
+     "question_count": 25,
+     "subtopics": [
+      {
+       "label": "single-variable-extrema",
+       "questions": 7
+      },
+      {
+       "label": "multivariable-extrema-saddle-points",
+       "questions": 6
+      },
+      {
+       "label": "definite-integrals",
+       "questions": 6
+      },
+      {
+       "label": "vector-calculus-basics",
+       "questions": 6
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-28.html"
+    },
+    "visual": {
+     "slug": "calculus-limits-extrema-and-integration",
+     "title": "Calculus: Limits, Extrema and Integration",
+     "level": "topic-level",
+     "covers": [
+      "reading where f prime is positive or negative to get climb or fall"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
+    },
+    "mapped_at": "2026-10-29"
+   },
    "subject": "calculus",
    "topic": "maxima-and-minima",
    "path": "subjects/calculus/maxima-and-minima/monotonicity-and-sign-of-derivative.json"
@@ -17606,6 +17893,45 @@ window.GATE_DATA = {
    ],
    "sourceLine": "The cusp-maximum and 'f'(x) = 0 is not necessary' points: Knowledge Gate 'Maxima & Minima' chapter summary at 5:00-10:00 (Hindi-medium lecture, English summary - translated). The piecewise and |x| treatment: Paul's Online Math Notes section 4.3. The 2026 question is recomputed piece by piece in scripts/validate.py.",
    "videoRefs": [],
+   "links": {
+    "mock": {
+     "subject": "engineering-mathematics",
+     "unit_slug": "calculus-optimization-integrals",
+     "unit_name": "Calculus: Maxima, Minima & Integrals",
+     "unit_number": 4,
+     "question_count": 25,
+     "subtopics": [
+      {
+       "label": "single-variable-extrema",
+       "questions": 7
+      },
+      {
+       "label": "multivariable-extrema-saddle-points",
+       "questions": 6
+      },
+      {
+       "label": "definite-integrals",
+       "questions": 6
+      },
+      {
+       "label": "vector-calculus-basics",
+       "questions": 6
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-28.html"
+    },
+    "visual": {
+     "slug": "calculus-limits-extrema-and-integration",
+     "title": "Calculus: Limits, Extrema and Integration",
+     "level": "topic-level",
+     "covers": [
+      "a maximum at a corner where no derivative exists: one minus |x| on [-1, 1]",
+      "the candidate list has two kinds of interior point"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
+    },
+    "mapped_at": "2026-10-29"
+   },
    "subject": "calculus",
    "topic": "maxima-and-minima",
    "path": "subjects/calculus/maxima-and-minima/extrema-of-piecewise-and-absolute-value-functions.json"
@@ -17684,6 +18010,45 @@ window.GATE_DATA = {
    ],
    "sourceLine": "The two conventions, stated as a disagreement rather than a fact: Paul's Online Math Notes section 4.3. The GATE answer and the endpoint picture: the accepted GATE Overflow solution to 2012 Q.9 and the Knowledge Gate local/global picture at 0:00-5:00 (Hindi-medium lecture, English summary - translated). All sine values recomputed in scripts/validate.py.",
    "videoRefs": [],
+   "links": {
+    "mock": {
+     "subject": "engineering-mathematics",
+     "unit_slug": "calculus-optimization-integrals",
+     "unit_name": "Calculus: Maxima, Minima & Integrals",
+     "unit_number": 4,
+     "question_count": 25,
+     "subtopics": [
+      {
+       "label": "single-variable-extrema",
+       "questions": 7
+      },
+      {
+       "label": "multivariable-extrema-saddle-points",
+       "questions": 6
+      },
+      {
+       "label": "definite-integrals",
+       "questions": 6
+      },
+      {
+       "label": "vector-calculus-basics",
+       "questions": 6
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-28.html"
+    },
+    "visual": {
+     "slug": "calculus-limits-extrema-and-integration",
+     "title": "Calculus: Limits, Extrema and Integration",
+     "level": "topic-level",
+     "covers": [
+      "on a closed interval the endpoints are candidates too",
+      "a maximum can sit where the derivative has nothing to say"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
+    },
+    "mapped_at": "2026-10-29"
+   },
    "subject": "calculus",
    "topic": "maxima-and-minima",
    "path": "subjects/calculus/maxima-and-minima/endpoint-extrema-and-the-definition-dispute.json"
@@ -17764,6 +18129,44 @@ window.GATE_DATA = {
    ],
    "sourceLine": "The counting discipline (critical points are candidates, sign change decides): Knowledge Gate 'Maxima & Minima' chapter summary at 5:00-13:20 (Hindi-medium lecture, English summary - translated) and MIT 18.01 Lecture 12 (English, read in full). The b^2 - 3ac criterion is derived and then checked against both PYQs in scripts/validate.py.",
    "videoRefs": [],
+   "links": {
+    "mock": {
+     "subject": "engineering-mathematics",
+     "unit_slug": "calculus-optimization-integrals",
+     "unit_name": "Calculus: Maxima, Minima & Integrals",
+     "unit_number": 4,
+     "question_count": 25,
+     "subtopics": [
+      {
+       "label": "single-variable-extrema",
+       "questions": 7
+      },
+      {
+       "label": "multivariable-extrema-saddle-points",
+       "questions": 6
+      },
+      {
+       "label": "definite-integrals",
+       "questions": 6
+      },
+      {
+       "label": "vector-calculus-basics",
+       "questions": 6
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-28.html"
+    },
+    "visual": {
+     "slug": "calculus-limits-extrema-and-integration",
+     "title": "Calculus: Limits, Extrema and Integration",
+     "level": "topic-level",
+     "covers": [
+      "the cubic worked example with two critical points, both classified"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
+    },
+    "mapped_at": "2026-10-29"
+   },
    "subject": "calculus",
    "topic": "maxima-and-minima",
    "path": "subjects/calculus/maxima-and-minima/cubic-and-quartic-extrema-counting.json"
@@ -17843,6 +18246,35 @@ window.GATE_DATA = {
    ],
    "sourceLine": "The candidate-list discipline and the endpoint warning: MIT 18.01 Lecture 12 (English, read in full) and Paul's Online Math Notes section 4.3. The 2012 question is recomputed at pi/4, pi/2, 3pi/2 and 7pi/4 in scripts/validate.py.",
    "videoRefs": [],
+   "links": {
+    "mock": {
+     "subject": "engineering-mathematics",
+     "unit_slug": "calculus-optimization-integrals",
+     "unit_name": "Calculus: Maxima, Minima & Integrals",
+     "unit_number": 4,
+     "question_count": 25,
+     "subtopics": [
+      {
+       "label": "single-variable-extrema",
+       "questions": 7
+      },
+      {
+       "label": "multivariable-extrema-saddle-points",
+       "questions": 6
+      },
+      {
+       "label": "definite-integrals",
+       "questions": 6
+      },
+      {
+       "label": "vector-calculus-basics",
+       "questions": 6
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-28.html"
+    },
+    "mapped_at": "2026-10-29"
+   },
    "subject": "calculus",
    "topic": "maxima-and-minima",
    "path": "subjects/calculus/maxima-and-minima/extrema-of-trig-functions-on-an-interval.json"
@@ -17921,6 +18353,35 @@ window.GATE_DATA = {
    ],
    "sourceLine": "The single-variable second-derivative test this generalises: MIT 18.01 Lecture 12 (English, read in full). The two-variable test statement: standard references (Stewart, Calculus, sections on partial derivatives). The 1993 question is recomputed from its own partial derivatives in scripts/validate.py.",
    "videoRefs": [],
+   "links": {
+    "mock": {
+     "subject": "engineering-mathematics",
+     "unit_slug": "calculus-optimization-integrals",
+     "unit_name": "Calculus: Maxima, Minima & Integrals",
+     "unit_number": 4,
+     "question_count": 25,
+     "subtopics": [
+      {
+       "label": "single-variable-extrema",
+       "questions": 7
+      },
+      {
+       "label": "multivariable-extrema-saddle-points",
+       "questions": 6
+      },
+      {
+       "label": "definite-integrals",
+       "questions": 6
+      },
+      {
+       "label": "vector-calculus-basics",
+       "questions": 6
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-28.html"
+    },
+    "mapped_at": "2026-10-29"
+   },
    "subject": "calculus",
    "topic": "maxima-and-minima",
    "path": "subjects/calculus/maxima-and-minima/two-variable-stationary-points.json"
@@ -17998,6 +18459,35 @@ window.GATE_DATA = {
    ],
    "sourceLine": "The four-step set-up, the wire-into-two-squares worked example and the warning that the critical point gave the least area rather than the largest: MIT 18.01 Lecture 12 transcript (English, read in full). The closed-interval algorithm: Knowledge Gate 'Maxima & Minima' chapter summary at 10:00-13:20 (Hindi-medium lecture, English summary - translated). Every value recomputed in scripts/validate.py.",
    "videoRefs": [],
+   "links": {
+    "mock": {
+     "subject": "engineering-mathematics",
+     "unit_slug": "calculus-optimization-integrals",
+     "unit_name": "Calculus: Maxima, Minima & Integrals",
+     "unit_number": 4,
+     "question_count": 25,
+     "subtopics": [
+      {
+       "label": "single-variable-extrema",
+       "questions": 7
+      },
+      {
+       "label": "multivariable-extrema-saddle-points",
+       "questions": 6
+      },
+      {
+       "label": "definite-integrals",
+       "questions": 6
+      },
+      {
+       "label": "vector-calculus-basics",
+       "questions": 6
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-28.html"
+    },
+    "mapped_at": "2026-10-29"
+   },
    "subject": "calculus",
    "topic": "maxima-and-minima",
    "path": "subjects/calculus/maxima-and-minima/optimisation-word-problems.json"

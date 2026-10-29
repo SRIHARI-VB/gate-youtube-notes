@@ -4762,13 +4762,517 @@
         "visual: syllabus-coverage.json lesson_slug calculus-limits-extrema-and-integration (PUBLISHED); covers checked against topics/calculus-limits-extrema-and-integration/transcript.md scene list, not the alias list"
       ],
       "row_verdict": "BOTH"
+    },
+    {
+      "subject": "calculus",
+      "group": "maxima-and-minima",
+      "topic": "local-and-global-extrema",
+      "title": "Local and Global Extrema",
+      "priority": "P1",
+      "path": "subjects/calculus/maxima-and-minima/local-and-global-extrema.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "engineering-mathematics",
+        "unit_slug": "calculus-optimization-integrals",
+        "unit_name": "Calculus: Maxima, Minima & Integrals",
+        "unit_number": 4,
+        "question_count": 25,
+        "subtopic_labels": [
+          "single-variable-extrema",
+          "multivariable-extrema-saddle-points",
+          "definite-integrals",
+          "vector-calculus-basics"
+        ],
+        "verdict": "MOCK_READY"
+      },
+      "visual": {
+        "slug": "calculus-limits-extrema-and-integration",
+        "title": "Calculus: Limits, Extrema and Integration",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/calculus/maxima-and-minima/local-and-global-extrema.json",
+        "mock: engineering-mathematics/question-bank/master_bank.json unit 4 (calculus-optimization-integrals, Calculus: Maxima, Minima & Integrals) holds 25 records; subtopic_label is null on every record, so the groups are counted from the subtopic field: single-variable-extrema 7, multivariable-extrema-saddle-points 6, definite-integrals 6, vector-calculus-basics 6; paper from runs[] run 7 file engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-28.html",
+        "visual: syllabus-coverage.json lesson_slug calculus-limits-extrema-and-integration (PUBLISHED); scenes 6 and 7 of topics/calculus-limits-extrema-and-integration/transcript.md read for the covers list, not the alias list"
+      ],
+      "row_verdict": "BOTH"
+    },
+    {
+      "subject": "calculus",
+      "group": "maxima-and-minima",
+      "topic": "stationary-and-critical-points",
+      "title": "Stationary Points and Critical Points",
+      "priority": "P1",
+      "path": "subjects/calculus/maxima-and-minima/stationary-and-critical-points.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "engineering-mathematics",
+        "unit_slug": "calculus-optimization-integrals",
+        "unit_name": "Calculus: Maxima, Minima & Integrals",
+        "unit_number": 4,
+        "question_count": 25,
+        "subtopic_labels": [
+          "single-variable-extrema",
+          "multivariable-extrema-saddle-points",
+          "definite-integrals",
+          "vector-calculus-basics"
+        ],
+        "verdict": "MOCK_READY"
+      },
+      "visual": {
+        "slug": "calculus-limits-extrema-and-integration",
+        "title": "Calculus: Limits, Extrema and Integration",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/calculus/maxima-and-minima/stationary-and-critical-points.json",
+        "mock: engineering-mathematics/question-bank/master_bank.json unit 4 (calculus-optimization-integrals, Calculus: Maxima, Minima & Integrals) holds 25 records; subtopic_label is null on every record, so the groups are counted from the subtopic field: single-variable-extrema 7, multivariable-extrema-saddle-points 6, definite-integrals 6, vector-calculus-basics 6; paper from runs[] run 7 file engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-28.html",
+        "visual: syllabus-coverage.json lesson_slug calculus-limits-extrema-and-integration (PUBLISHED); scenes 6 and 7 of topics/calculus-limits-extrema-and-integration/transcript.md read for the covers list, not the alias list"
+      ],
+      "row_verdict": "BOTH"
+    },
+    {
+      "subject": "calculus",
+      "group": "maxima-and-minima",
+      "topic": "fermats-theorem-and-its-converse",
+      "title": "Fermat's Theorem and Why Its Converse Fails",
+      "priority": "P1",
+      "path": "subjects/calculus/maxima-and-minima/fermats-theorem-and-its-converse.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "engineering-mathematics",
+        "unit_slug": "calculus-optimization-integrals",
+        "unit_name": "Calculus: Maxima, Minima & Integrals",
+        "unit_number": 4,
+        "question_count": 25,
+        "subtopic_labels": [
+          "single-variable-extrema",
+          "multivariable-extrema-saddle-points",
+          "definite-integrals",
+          "vector-calculus-basics"
+        ],
+        "verdict": "MOCK_READY"
+      },
+      "visual": {
+        "slug": "calculus-limits-extrema-and-integration",
+        "title": "Calculus: Limits, Extrema and Integration",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/calculus/maxima-and-minima/fermats-theorem-and-its-converse.json",
+        "mock: engineering-mathematics/question-bank/master_bank.json unit 4 (calculus-optimization-integrals, Calculus: Maxima, Minima & Integrals) holds 25 records; subtopic_label is null on every record, so the groups are counted from the subtopic field: single-variable-extrema 7, multivariable-extrema-saddle-points 6, definite-integrals 6, vector-calculus-basics 6; paper from runs[] run 7 file engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-28.html",
+        "visual: syllabus-coverage.json lesson_slug calculus-limits-extrema-and-integration (PUBLISHED); scenes 6 and 7 of topics/calculus-limits-extrema-and-integration/transcript.md read for the covers list, not the alias list"
+      ],
+      "row_verdict": "BOTH"
+    },
+    {
+      "subject": "calculus",
+      "group": "maxima-and-minima",
+      "topic": "first-derivative-test",
+      "title": "The First-Derivative (Sign) Test",
+      "priority": "P1",
+      "path": "subjects/calculus/maxima-and-minima/first-derivative-test.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "engineering-mathematics",
+        "unit_slug": "calculus-optimization-integrals",
+        "unit_name": "Calculus: Maxima, Minima & Integrals",
+        "unit_number": 4,
+        "question_count": 25,
+        "subtopic_labels": [
+          "single-variable-extrema",
+          "multivariable-extrema-saddle-points",
+          "definite-integrals",
+          "vector-calculus-basics"
+        ],
+        "verdict": "MOCK_READY"
+      },
+      "visual": {
+        "slug": "calculus-limits-extrema-and-integration",
+        "title": "Calculus: Limits, Extrema and Integration",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/calculus/maxima-and-minima/first-derivative-test.json",
+        "mock: engineering-mathematics/question-bank/master_bank.json unit 4 (calculus-optimization-integrals, Calculus: Maxima, Minima & Integrals) holds 25 records; subtopic_label is null on every record, so the groups are counted from the subtopic field: single-variable-extrema 7, multivariable-extrema-saddle-points 6, definite-integrals 6, vector-calculus-basics 6; paper from runs[] run 7 file engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-28.html",
+        "visual: syllabus-coverage.json lesson_slug calculus-limits-extrema-and-integration (PUBLISHED); scenes 6 and 7 of topics/calculus-limits-extrema-and-integration/transcript.md read for the covers list, not the alias list"
+      ],
+      "row_verdict": "BOTH"
+    },
+    {
+      "subject": "calculus",
+      "group": "maxima-and-minima",
+      "topic": "second-derivative-test",
+      "title": "The Second-Derivative Test",
+      "priority": "P1",
+      "path": "subjects/calculus/maxima-and-minima/second-derivative-test.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "engineering-mathematics",
+        "unit_slug": "calculus-optimization-integrals",
+        "unit_name": "Calculus: Maxima, Minima & Integrals",
+        "unit_number": 4,
+        "question_count": 25,
+        "subtopic_labels": [
+          "single-variable-extrema",
+          "multivariable-extrema-saddle-points",
+          "definite-integrals",
+          "vector-calculus-basics"
+        ],
+        "verdict": "MOCK_READY"
+      },
+      "visual": {
+        "slug": "calculus-limits-extrema-and-integration",
+        "title": "Calculus: Limits, Extrema and Integration",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/calculus/maxima-and-minima/second-derivative-test.json",
+        "mock: engineering-mathematics/question-bank/master_bank.json unit 4 (calculus-optimization-integrals, Calculus: Maxima, Minima & Integrals) holds 25 records; subtopic_label is null on every record, so the groups are counted from the subtopic field: single-variable-extrema 7, multivariable-extrema-saddle-points 6, definite-integrals 6, vector-calculus-basics 6; paper from runs[] run 7 file engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-28.html",
+        "visual: syllabus-coverage.json lesson_slug calculus-limits-extrema-and-integration (PUBLISHED); scenes 6 and 7 of topics/calculus-limits-extrema-and-integration/transcript.md read for the covers list, not the alias list"
+      ],
+      "row_verdict": "BOTH"
+    },
+    {
+      "subject": "calculus",
+      "group": "maxima-and-minima",
+      "topic": "higher-derivative-test",
+      "title": "When f'' Vanishes: The Higher-Derivative Test",
+      "priority": "P2",
+      "path": "subjects/calculus/maxima-and-minima/higher-derivative-test.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "engineering-mathematics",
+        "unit_slug": "calculus-optimization-integrals",
+        "unit_name": "Calculus: Maxima, Minima & Integrals",
+        "unit_number": 4,
+        "question_count": 25,
+        "subtopic_labels": [
+          "single-variable-extrema",
+          "multivariable-extrema-saddle-points",
+          "definite-integrals",
+          "vector-calculus-basics"
+        ],
+        "verdict": "MOCK_READY"
+      },
+      "visual": {
+        "slug": "calculus-limits-extrema-and-integration",
+        "title": "Calculus: Limits, Extrema and Integration",
+        "coverage_status": "PUBLISHED",
+        "level": "none",
+        "verdict": "VISUAL_MISSING"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/calculus/maxima-and-minima/higher-derivative-test.json",
+        "mock: engineering-mathematics/question-bank/master_bank.json unit 4 (calculus-optimization-integrals, Calculus: Maxima, Minima & Integrals) holds 25 records; subtopic_label is null on every record, so the groups are counted from the subtopic field: single-variable-extrema 7, multivariable-extrema-saddle-points 6, definite-integrals 6, vector-calculus-basics 6; paper from runs[] run 7 file engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-28.html",
+        "visual: the lesson is topic-level and its maxima scenes do not cover this card's subtopic; no visual side written"
+      ],
+      "row_verdict": "MOCK_ONLY"
+    },
+    {
+      "subject": "calculus",
+      "group": "maxima-and-minima",
+      "topic": "closed-interval-candidate-list",
+      "title": "Absolute Extrema on a Closed Interval",
+      "priority": "P1",
+      "path": "subjects/calculus/maxima-and-minima/closed-interval-candidate-list.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "engineering-mathematics",
+        "unit_slug": "calculus-optimization-integrals",
+        "unit_name": "Calculus: Maxima, Minima & Integrals",
+        "unit_number": 4,
+        "question_count": 25,
+        "subtopic_labels": [
+          "single-variable-extrema",
+          "multivariable-extrema-saddle-points",
+          "definite-integrals",
+          "vector-calculus-basics"
+        ],
+        "verdict": "MOCK_READY"
+      },
+      "visual": {
+        "slug": "calculus-limits-extrema-and-integration",
+        "title": "Calculus: Limits, Extrema and Integration",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/calculus/maxima-and-minima/closed-interval-candidate-list.json",
+        "mock: engineering-mathematics/question-bank/master_bank.json unit 4 (calculus-optimization-integrals, Calculus: Maxima, Minima & Integrals) holds 25 records; subtopic_label is null on every record, so the groups are counted from the subtopic field: single-variable-extrema 7, multivariable-extrema-saddle-points 6, definite-integrals 6, vector-calculus-basics 6; paper from runs[] run 7 file engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-28.html",
+        "visual: syllabus-coverage.json lesson_slug calculus-limits-extrema-and-integration (PUBLISHED); scenes 6 and 7 of topics/calculus-limits-extrema-and-integration/transcript.md read for the covers list, not the alias list"
+      ],
+      "row_verdict": "BOTH"
+    },
+    {
+      "subject": "calculus",
+      "group": "maxima-and-minima",
+      "topic": "monotonicity-and-sign-of-derivative",
+      "title": "Monotonicity and the Sign of f'",
+      "priority": "P2",
+      "path": "subjects/calculus/maxima-and-minima/monotonicity-and-sign-of-derivative.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "engineering-mathematics",
+        "unit_slug": "calculus-optimization-integrals",
+        "unit_name": "Calculus: Maxima, Minima & Integrals",
+        "unit_number": 4,
+        "question_count": 25,
+        "subtopic_labels": [
+          "single-variable-extrema",
+          "multivariable-extrema-saddle-points",
+          "definite-integrals",
+          "vector-calculus-basics"
+        ],
+        "verdict": "MOCK_READY"
+      },
+      "visual": {
+        "slug": "calculus-limits-extrema-and-integration",
+        "title": "Calculus: Limits, Extrema and Integration",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/calculus/maxima-and-minima/monotonicity-and-sign-of-derivative.json",
+        "mock: engineering-mathematics/question-bank/master_bank.json unit 4 (calculus-optimization-integrals, Calculus: Maxima, Minima & Integrals) holds 25 records; subtopic_label is null on every record, so the groups are counted from the subtopic field: single-variable-extrema 7, multivariable-extrema-saddle-points 6, definite-integrals 6, vector-calculus-basics 6; paper from runs[] run 7 file engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-28.html",
+        "visual: syllabus-coverage.json lesson_slug calculus-limits-extrema-and-integration (PUBLISHED); scenes 6 and 7 of topics/calculus-limits-extrema-and-integration/transcript.md read for the covers list, not the alias list"
+      ],
+      "row_verdict": "BOTH"
+    },
+    {
+      "subject": "calculus",
+      "group": "maxima-and-minima",
+      "topic": "extrema-of-piecewise-and-absolute-value-functions",
+      "title": "Extrema of Piecewise and Absolute-Value Functions",
+      "priority": "P1",
+      "path": "subjects/calculus/maxima-and-minima/extrema-of-piecewise-and-absolute-value-functions.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "engineering-mathematics",
+        "unit_slug": "calculus-optimization-integrals",
+        "unit_name": "Calculus: Maxima, Minima & Integrals",
+        "unit_number": 4,
+        "question_count": 25,
+        "subtopic_labels": [
+          "single-variable-extrema",
+          "multivariable-extrema-saddle-points",
+          "definite-integrals",
+          "vector-calculus-basics"
+        ],
+        "verdict": "MOCK_READY"
+      },
+      "visual": {
+        "slug": "calculus-limits-extrema-and-integration",
+        "title": "Calculus: Limits, Extrema and Integration",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/calculus/maxima-and-minima/extrema-of-piecewise-and-absolute-value-functions.json",
+        "mock: engineering-mathematics/question-bank/master_bank.json unit 4 (calculus-optimization-integrals, Calculus: Maxima, Minima & Integrals) holds 25 records; subtopic_label is null on every record, so the groups are counted from the subtopic field: single-variable-extrema 7, multivariable-extrema-saddle-points 6, definite-integrals 6, vector-calculus-basics 6; paper from runs[] run 7 file engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-28.html",
+        "visual: syllabus-coverage.json lesson_slug calculus-limits-extrema-and-integration (PUBLISHED); scenes 6 and 7 of topics/calculus-limits-extrema-and-integration/transcript.md read for the covers list, not the alias list"
+      ],
+      "row_verdict": "BOTH"
+    },
+    {
+      "subject": "calculus",
+      "group": "maxima-and-minima",
+      "topic": "endpoint-extrema-and-the-definition-dispute",
+      "title": "Endpoints as Extrema: A Definitional Choice",
+      "priority": "P2",
+      "path": "subjects/calculus/maxima-and-minima/endpoint-extrema-and-the-definition-dispute.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "engineering-mathematics",
+        "unit_slug": "calculus-optimization-integrals",
+        "unit_name": "Calculus: Maxima, Minima & Integrals",
+        "unit_number": 4,
+        "question_count": 25,
+        "subtopic_labels": [
+          "single-variable-extrema",
+          "multivariable-extrema-saddle-points",
+          "definite-integrals",
+          "vector-calculus-basics"
+        ],
+        "verdict": "MOCK_READY"
+      },
+      "visual": {
+        "slug": "calculus-limits-extrema-and-integration",
+        "title": "Calculus: Limits, Extrema and Integration",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/calculus/maxima-and-minima/endpoint-extrema-and-the-definition-dispute.json",
+        "mock: engineering-mathematics/question-bank/master_bank.json unit 4 (calculus-optimization-integrals, Calculus: Maxima, Minima & Integrals) holds 25 records; subtopic_label is null on every record, so the groups are counted from the subtopic field: single-variable-extrema 7, multivariable-extrema-saddle-points 6, definite-integrals 6, vector-calculus-basics 6; paper from runs[] run 7 file engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-28.html",
+        "visual: syllabus-coverage.json lesson_slug calculus-limits-extrema-and-integration (PUBLISHED); scenes 6 and 7 of topics/calculus-limits-extrema-and-integration/transcript.md read for the covers list, not the alias list"
+      ],
+      "row_verdict": "BOTH"
+    },
+    {
+      "subject": "calculus",
+      "group": "maxima-and-minima",
+      "topic": "cubic-and-quartic-extrema-counting",
+      "title": "Counting Extrema of Cubics and Quartics",
+      "priority": "P1",
+      "path": "subjects/calculus/maxima-and-minima/cubic-and-quartic-extrema-counting.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "engineering-mathematics",
+        "unit_slug": "calculus-optimization-integrals",
+        "unit_name": "Calculus: Maxima, Minima & Integrals",
+        "unit_number": 4,
+        "question_count": 25,
+        "subtopic_labels": [
+          "single-variable-extrema",
+          "multivariable-extrema-saddle-points",
+          "definite-integrals",
+          "vector-calculus-basics"
+        ],
+        "verdict": "MOCK_READY"
+      },
+      "visual": {
+        "slug": "calculus-limits-extrema-and-integration",
+        "title": "Calculus: Limits, Extrema and Integration",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/calculus/maxima-and-minima/cubic-and-quartic-extrema-counting.json",
+        "mock: engineering-mathematics/question-bank/master_bank.json unit 4 (calculus-optimization-integrals, Calculus: Maxima, Minima & Integrals) holds 25 records; subtopic_label is null on every record, so the groups are counted from the subtopic field: single-variable-extrema 7, multivariable-extrema-saddle-points 6, definite-integrals 6, vector-calculus-basics 6; paper from runs[] run 7 file engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-28.html",
+        "visual: syllabus-coverage.json lesson_slug calculus-limits-extrema-and-integration (PUBLISHED); scenes 6 and 7 of topics/calculus-limits-extrema-and-integration/transcript.md read for the covers list, not the alias list"
+      ],
+      "row_verdict": "BOTH"
+    },
+    {
+      "subject": "calculus",
+      "group": "maxima-and-minima",
+      "topic": "extrema-of-trig-functions-on-an-interval",
+      "title": "Extrema of Trigonometric Functions on an Interval",
+      "priority": "P2",
+      "path": "subjects/calculus/maxima-and-minima/extrema-of-trig-functions-on-an-interval.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "engineering-mathematics",
+        "unit_slug": "calculus-optimization-integrals",
+        "unit_name": "Calculus: Maxima, Minima & Integrals",
+        "unit_number": 4,
+        "question_count": 25,
+        "subtopic_labels": [
+          "single-variable-extrema",
+          "multivariable-extrema-saddle-points",
+          "definite-integrals",
+          "vector-calculus-basics"
+        ],
+        "verdict": "MOCK_READY"
+      },
+      "visual": {
+        "slug": "calculus-limits-extrema-and-integration",
+        "title": "Calculus: Limits, Extrema and Integration",
+        "coverage_status": "PUBLISHED",
+        "level": "none",
+        "verdict": "VISUAL_MISSING"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/calculus/maxima-and-minima/extrema-of-trig-functions-on-an-interval.json",
+        "mock: engineering-mathematics/question-bank/master_bank.json unit 4 (calculus-optimization-integrals, Calculus: Maxima, Minima & Integrals) holds 25 records; subtopic_label is null on every record, so the groups are counted from the subtopic field: single-variable-extrema 7, multivariable-extrema-saddle-points 6, definite-integrals 6, vector-calculus-basics 6; paper from runs[] run 7 file engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-28.html",
+        "visual: the lesson is topic-level and its maxima scenes do not cover this card's subtopic; no visual side written"
+      ],
+      "row_verdict": "MOCK_ONLY"
+    },
+    {
+      "subject": "calculus",
+      "group": "maxima-and-minima",
+      "topic": "two-variable-stationary-points",
+      "title": "Two-Variable Stationary Points and the rt - s^2 Test",
+      "priority": "P3",
+      "path": "subjects/calculus/maxima-and-minima/two-variable-stationary-points.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "engineering-mathematics",
+        "unit_slug": "calculus-optimization-integrals",
+        "unit_name": "Calculus: Maxima, Minima & Integrals",
+        "unit_number": 4,
+        "question_count": 25,
+        "subtopic_labels": [
+          "single-variable-extrema",
+          "multivariable-extrema-saddle-points",
+          "definite-integrals",
+          "vector-calculus-basics"
+        ],
+        "verdict": "MOCK_READY"
+      },
+      "visual": {
+        "slug": "calculus-limits-extrema-and-integration",
+        "title": "Calculus: Limits, Extrema and Integration",
+        "coverage_status": "PUBLISHED",
+        "level": "none",
+        "verdict": "VISUAL_MISSING"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/calculus/maxima-and-minima/two-variable-stationary-points.json",
+        "mock: engineering-mathematics/question-bank/master_bank.json unit 4 (calculus-optimization-integrals, Calculus: Maxima, Minima & Integrals) holds 25 records; subtopic_label is null on every record, so the groups are counted from the subtopic field: single-variable-extrema 7, multivariable-extrema-saddle-points 6, definite-integrals 6, vector-calculus-basics 6; paper from runs[] run 7 file engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-28.html",
+        "visual: the lesson is topic-level and its maxima scenes do not cover this card's subtopic; no visual side written"
+      ],
+      "row_verdict": "MOCK_ONLY"
+    },
+    {
+      "subject": "calculus",
+      "group": "maxima-and-minima",
+      "topic": "optimisation-word-problems",
+      "title": "Setting Up an Optimisation Problem",
+      "priority": "P2",
+      "path": "subjects/calculus/maxima-and-minima/optimisation-word-problems.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "engineering-mathematics",
+        "unit_slug": "calculus-optimization-integrals",
+        "unit_name": "Calculus: Maxima, Minima & Integrals",
+        "unit_number": 4,
+        "question_count": 25,
+        "subtopic_labels": [
+          "single-variable-extrema",
+          "multivariable-extrema-saddle-points",
+          "definite-integrals",
+          "vector-calculus-basics"
+        ],
+        "verdict": "MOCK_READY"
+      },
+      "visual": {
+        "slug": "calculus-limits-extrema-and-integration",
+        "title": "Calculus: Limits, Extrema and Integration",
+        "coverage_status": "PUBLISHED",
+        "level": "none",
+        "verdict": "VISUAL_MISSING"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/calculus/maxima-and-minima/optimisation-word-problems.json",
+        "mock: engineering-mathematics/question-bank/master_bank.json unit 4 (calculus-optimization-integrals, Calculus: Maxima, Minima & Integrals) holds 25 records; subtopic_label is null on every record, so the groups are counted from the subtopic field: single-variable-extrema 7, multivariable-extrema-saddle-points 6, definite-integrals 6, vector-calculus-basics 6; paper from runs[] run 7 file engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-28.html",
+        "visual: the lesson is topic-level and its maxima scenes do not cover this card's subtopic; no visual side written"
+      ],
+      "row_verdict": "MOCK_ONLY"
     }
   ],
   "gaps": [
     {
       "kind": "notes",
-      "placement": "algorithms › sorting-divide-conquer › (no card)",
-      "detail": "Mock set, Algorithms Unit 2 'Divide and Conquer & Sorting' (run 4, Set 2 of 2, 2026-10-28, paper algorithms/sorting-divide-conquer/gate_algo_mock_2_2026-10-28.html) now holds 50 questions over 4 subtopic groups (merge-sort-quick-sort 14, linear-time-sorts-counting-radix 12, selection-kth-element 12, inversion-counting 12) and sits at the 50-question cap (MOCK_CAPPED), so the rotation moves on to Algorithms Unit 3. Records carry subtopic slugs rather than subtopic_label text. The notes repo covers discrete mathematics only, so no card serves them."
+      "placement": "algorithms › greedy-algorithms › (no card)",
+      "detail": "Mock set, Algorithms Unit 3 'Greedy Algorithms' (unit_slug greedy-algorithms, run 5, Set 1 of 2, 2026-10-29, paper algorithms/greedy-algorithms/gate_algo_mock_3_2026-10-29.html) holds 25 questions over 4 groups counted from the bank's subtopic field: fractional-knapsack 7, huffman-coding 6, activity-selection-interval-scheduling 6, optimal-merge-patterns 6. The unit sits at 25 of the 50-question cap, so Set 2 of 2 can still be drawn on it. Records carry subtopic slugs rather than subtopic_label text. The notes repo has no algorithms subject (content/index.json map[] carries only discrete-mathematics, linear-algebra and calculus), so no card serves them."
     },
     {
       "kind": "notes",
@@ -5134,6 +5638,11 @@
       "kind": "notes",
       "placement": "programming-data-structures › search-trees › (no card)",
       "detail": "Mock set, Programming and Data Structures Unit 5 'Binary Search Trees & Balanced Trees' (unit_slug search-trees, run 5, paper programming-data-structures/search-trees/gate_ds_mock_5_2026-10-29.html, 2026-10-29) holds 25 questions over 4 subtopic groups (BST insertion &amp; deletion 7, AVL trees &amp; rotations 6, B-trees &amp; B+ trees 6, Trie basics 6). The notes repo has no programming-data-structures card at all (content/index.json map[] carries only discrete-mathematics, linear-algebra and calculus), so no card is served by this unit."
+    },
+    {
+      "kind": "visual",
+      "placement": "calculus › maxima-and-minima › higher-derivative-test, extrema-of-trig-functions-on-an-interval, two-variable-stationary-points, optimisation-word-problems",
+      "detail": "The 14 new cards map to engineering-mathematics unit 4 'Calculus: Maxima, Minima & Integrals' (25 questions: single-variable-extrema 7, multivariable-extrema-saddle-points 6, definite-integrals 6, vector-calculus-basics 6). topics/calculus-limits-extrema-and-integration (PUBLISHED) covers critical points, both derivative tests, the closed-interval candidate list, a corner maximum and monotonicity in scenes 6, 7 and 10, so ten of the cards carry a topic-level visual link; the four named here have no scene: the higher-derivative test, trigonometric extrema on an interval, the two-variable rt - s^2 test and optimisation word-problem set-up. The mock already holds 6 saddle-point questions, so that scene is the most valuable addition to topics/calculus-limits-extrema-and-integration."
     }
   ]
 }

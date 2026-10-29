@@ -74,17 +74,42 @@
   "sourceLine": "The sign chart as the deciding test, and the GATE CSE 2008 Q.25 fallback: Knowledge Gate 'Maxima & Minima' chapter summary at 10:00-13:20 (Hindi-medium lecture, English summary - translated) and the accepted GATE Overflow solution. The p5.js lesson follows the same three-step procedure; every sign and value is recomputed in scripts/validate.py.",
   "videoRefs": [],
   "links": {
-    "visual": {
-      "slug": "calculus/maxima-and-minima/sign-chart-of-the-derivative",
-      "title": "The Sign Chart of the Derivative",
-      "level": "subtopic-level",
-      "covers": [
-        "f'(x) = 12x(x-2)^2 has zeros at 0 and 2",
-        "the sign changes at 0 and not at 2",
-        "why x = 2 is stationary but not an extremum",
-        "closed-interval candidates: critical points plus endpoints"
+    "mock": {
+      "subject": "engineering-mathematics",
+      "unit_slug": "calculus-optimization-integrals",
+      "unit_name": "Calculus: Maxima, Minima & Integrals",
+      "unit_number": 4,
+      "question_count": 25,
+      "subtopics": [
+        {
+          "label": "single-variable-extrema",
+          "questions": 7
+        },
+        {
+          "label": "multivariable-extrema-saddle-points",
+          "questions": 6
+        },
+        {
+          "label": "definite-integrals",
+          "questions": 6
+        },
+        {
+          "label": "vector-calculus-basics",
+          "questions": 6
+        }
       ],
-      "url": "visuals/calculus/maxima-and-minima/sign-chart-of-the-derivative/index.html"
-    }
+      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-28.html"
+    },
+    "visual": {
+      "slug": "calculus-limits-extrema-and-integration",
+      "title": "Calculus: Limits, Extrema and Integration",
+      "level": "topic-level",
+      "covers": [
+        "the sign chart of f prime classifies each critical point",
+        "climb-then-fall versus fall-then-climb"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
+    },
+    "mapped_at": "2026-10-29"
   }
 }
