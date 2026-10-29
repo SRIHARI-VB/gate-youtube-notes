@@ -2174,7 +2174,15 @@
       "priority": "P1",
       "path": "subjects/discrete-mathematics/monoids-and-groups/algebraic-structure-ladder.json",
       "transcript_status": "not stated",
-      "mock": null,
+      "mock": {
+        "subject": "discrete-mathematics",
+        "unit_slug": "algebraic-structures",
+        "unit_name": "Algebraic Structures",
+        "unit_number": 12,
+        "question_count": 0,
+        "subtopic_labels": [],
+        "verdict": "MOCK_UNIT_EMPTY"
+      },
       "visual": {
         "slug": "monoids-and-groups",
         "title": "Monoids and Groups",
@@ -2184,7 +2192,7 @@
       },
       "evidence": [
         "notes content/index.json -> map[].path = subjects/discrete-mathematics/monoids-and-groups/algebraic-structure-ladder.json",
-        "mock: discrete-mathematics master_bank.json holds units 1-7 and 16 only; none is an algebraic-structures unit",
+        "mock: discrete-mathematics/question-bank/master_bank.json holds 0 records and no runs[] entry for unit 12; README.md syllabus table declares unit 12 'Algebraic Structures' (unit_slug algebraic-structures) at 0 questions, so the unit exists but is empty (MOCK_UNIT_EMPTY)",
         "visual: syllabus-coverage.json lesson_slug monoids-and-groups (PUBLISHED); covers checked against topics/monoids-and-groups/transcript.md, 11 scenes"
       ],
       "row_verdict": "VISUAL_ONLY"
@@ -2197,7 +2205,15 @@
       "priority": "P1",
       "path": "subjects/discrete-mathematics/monoids-and-groups/monoid-identity-and-examples.json",
       "transcript_status": "not stated",
-      "mock": null,
+      "mock": {
+        "subject": "discrete-mathematics",
+        "unit_slug": "algebraic-structures",
+        "unit_name": "Algebraic Structures",
+        "unit_number": 12,
+        "question_count": 0,
+        "subtopic_labels": [],
+        "verdict": "MOCK_UNIT_EMPTY"
+      },
       "visual": {
         "slug": "monoids-and-groups",
         "title": "Monoids and Groups",
@@ -2207,7 +2223,7 @@
       },
       "evidence": [
         "notes content/index.json -> map[].path = subjects/discrete-mathematics/monoids-and-groups/monoid-identity-and-examples.json",
-        "mock: discrete-mathematics master_bank.json holds units 1-7 and 16 only; none is an algebraic-structures unit",
+        "mock: discrete-mathematics/question-bank/master_bank.json holds 0 records and no runs[] entry for unit 12; README.md syllabus table declares unit 12 'Algebraic Structures' (unit_slug algebraic-structures) at 0 questions, so the unit exists but is empty (MOCK_UNIT_EMPTY)",
         "visual: syllabus-coverage.json lesson_slug monoids-and-groups (PUBLISHED); covers checked against topics/monoids-and-groups/transcript.md, 11 scenes"
       ],
       "row_verdict": "VISUAL_ONLY"
@@ -2220,7 +2236,15 @@
       "priority": "P1",
       "path": "subjects/discrete-mathematics/monoids-and-groups/group-axioms-and-uniqueness.json",
       "transcript_status": "not stated",
-      "mock": null,
+      "mock": {
+        "subject": "discrete-mathematics",
+        "unit_slug": "algebraic-structures",
+        "unit_name": "Algebraic Structures",
+        "unit_number": 12,
+        "question_count": 0,
+        "subtopic_labels": [],
+        "verdict": "MOCK_UNIT_EMPTY"
+      },
       "visual": {
         "slug": "monoids-and-groups",
         "title": "Monoids and Groups",
@@ -2230,7 +2254,7 @@
       },
       "evidence": [
         "notes content/index.json -> map[].path = subjects/discrete-mathematics/monoids-and-groups/group-axioms-and-uniqueness.json",
-        "mock: discrete-mathematics master_bank.json holds units 1-7 and 16 only; none is an algebraic-structures unit",
+        "mock: discrete-mathematics/question-bank/master_bank.json holds 0 records and no runs[] entry for unit 12; README.md syllabus table declares unit 12 'Algebraic Structures' (unit_slug algebraic-structures) at 0 questions, so the unit exists but is empty (MOCK_UNIT_EMPTY)",
         "visual: syllabus-coverage.json lesson_slug monoids-and-groups (PUBLISHED); covers checked against topics/monoids-and-groups/transcript.md, 11 scenes"
       ],
       "row_verdict": "VISUAL_ONLY"
@@ -2243,7 +2267,15 @@
       "priority": "P1",
       "path": "subjects/discrete-mathematics/monoids-and-groups/order-of-group-and-element.json",
       "transcript_status": "not stated",
-      "mock": null,
+      "mock": {
+        "subject": "discrete-mathematics",
+        "unit_slug": "algebraic-structures",
+        "unit_name": "Algebraic Structures",
+        "unit_number": 12,
+        "question_count": 0,
+        "subtopic_labels": [],
+        "verdict": "MOCK_UNIT_EMPTY"
+      },
       "visual": {
         "slug": "monoids-and-groups",
         "title": "Monoids and Groups",
@@ -2253,7 +2285,7 @@
       },
       "evidence": [
         "notes content/index.json -> map[].path = subjects/discrete-mathematics/monoids-and-groups/order-of-group-and-element.json",
-        "mock: discrete-mathematics master_bank.json holds units 1-7 and 16 only; none is an algebraic-structures unit",
+        "mock: discrete-mathematics/question-bank/master_bank.json holds 0 records and no runs[] entry for unit 12; README.md syllabus table declares unit 12 'Algebraic Structures' (unit_slug algebraic-structures) at 0 questions, so the unit exists but is empty (MOCK_UNIT_EMPTY)",
         "visual: syllabus-coverage.json lesson_slug monoids-and-groups (PUBLISHED); covers checked against topics/monoids-and-groups/transcript.md, 11 scenes"
       ],
       "row_verdict": "VISUAL_ONLY"
@@ -2266,7 +2298,15 @@
       "priority": "P1",
       "path": "subjects/discrete-mathematics/monoids-and-groups/abelian-groups-and-commutativity-tests.json",
       "transcript_status": "not stated",
-      "mock": null,
+      "mock": {
+        "subject": "discrete-mathematics",
+        "unit_slug": "algebraic-structures",
+        "unit_name": "Algebraic Structures",
+        "unit_number": 12,
+        "question_count": 0,
+        "subtopic_labels": [],
+        "verdict": "MOCK_UNIT_EMPTY"
+      },
       "visual": {
         "slug": "monoids-and-groups",
         "title": "Monoids and Groups",
@@ -2276,7 +2316,7 @@
       },
       "evidence": [
         "notes content/index.json -> map[].path = subjects/discrete-mathematics/monoids-and-groups/abelian-groups-and-commutativity-tests.json",
-        "mock: discrete-mathematics master_bank.json holds units 1-7 and 16 only; none is an algebraic-structures unit",
+        "mock: discrete-mathematics/question-bank/master_bank.json holds 0 records and no runs[] entry for unit 12; README.md syllabus table declares unit 12 'Algebraic Structures' (unit_slug algebraic-structures) at 0 questions, so the unit exists but is empty (MOCK_UNIT_EMPTY)",
         "visual: syllabus-coverage.json lesson_slug monoids-and-groups (PUBLISHED); covers checked against topics/monoids-and-groups/transcript.md, 11 scenes"
       ],
       "row_verdict": "VISUAL_ONLY"
@@ -2289,7 +2329,15 @@
       "priority": "P1",
       "path": "subjects/discrete-mathematics/monoids-and-groups/subgroups-and-tests.json",
       "transcript_status": "not stated",
-      "mock": null,
+      "mock": {
+        "subject": "discrete-mathematics",
+        "unit_slug": "algebraic-structures",
+        "unit_name": "Algebraic Structures",
+        "unit_number": 12,
+        "question_count": 0,
+        "subtopic_labels": [],
+        "verdict": "MOCK_UNIT_EMPTY"
+      },
       "visual": {
         "slug": "monoids-and-groups",
         "title": "Monoids and Groups",
@@ -2299,7 +2347,7 @@
       },
       "evidence": [
         "notes content/index.json -> map[].path = subjects/discrete-mathematics/monoids-and-groups/subgroups-and-tests.json",
-        "mock: discrete-mathematics master_bank.json holds units 1-7 and 16 only; none is an algebraic-structures unit",
+        "mock: discrete-mathematics/question-bank/master_bank.json holds 0 records and no runs[] entry for unit 12; README.md syllabus table declares unit 12 'Algebraic Structures' (unit_slug algebraic-structures) at 0 questions, so the unit exists but is empty (MOCK_UNIT_EMPTY)",
         "visual: syllabus-coverage.json lesson_slug monoids-and-groups (PUBLISHED); covers checked against topics/monoids-and-groups/transcript.md, 11 scenes"
       ],
       "row_verdict": "VISUAL_ONLY"
@@ -2312,7 +2360,15 @@
       "priority": "P1",
       "path": "subjects/discrete-mathematics/monoids-and-groups/cyclic-groups-and-generators.json",
       "transcript_status": "not stated",
-      "mock": null,
+      "mock": {
+        "subject": "discrete-mathematics",
+        "unit_slug": "algebraic-structures",
+        "unit_name": "Algebraic Structures",
+        "unit_number": 12,
+        "question_count": 0,
+        "subtopic_labels": [],
+        "verdict": "MOCK_UNIT_EMPTY"
+      },
       "visual": {
         "slug": "monoids-and-groups",
         "title": "Monoids and Groups",
@@ -2322,7 +2378,7 @@
       },
       "evidence": [
         "notes content/index.json -> map[].path = subjects/discrete-mathematics/monoids-and-groups/cyclic-groups-and-generators.json",
-        "mock: discrete-mathematics master_bank.json holds units 1-7 and 16 only; none is an algebraic-structures unit",
+        "mock: discrete-mathematics/question-bank/master_bank.json holds 0 records and no runs[] entry for unit 12; README.md syllabus table declares unit 12 'Algebraic Structures' (unit_slug algebraic-structures) at 0 questions, so the unit exists but is empty (MOCK_UNIT_EMPTY)",
         "visual: syllabus-coverage.json lesson_slug monoids-and-groups (PUBLISHED); covers checked against topics/monoids-and-groups/transcript.md, 11 scenes"
       ],
       "row_verdict": "VISUAL_ONLY"
@@ -2335,7 +2391,15 @@
       "priority": "P1",
       "path": "subjects/discrete-mathematics/monoids-and-groups/cosets-and-lagrange.json",
       "transcript_status": "not stated",
-      "mock": null,
+      "mock": {
+        "subject": "discrete-mathematics",
+        "unit_slug": "algebraic-structures",
+        "unit_name": "Algebraic Structures",
+        "unit_number": 12,
+        "question_count": 0,
+        "subtopic_labels": [],
+        "verdict": "MOCK_UNIT_EMPTY"
+      },
       "visual": {
         "slug": "monoids-and-groups",
         "title": "Monoids and Groups",
@@ -2345,7 +2409,7 @@
       },
       "evidence": [
         "notes content/index.json -> map[].path = subjects/discrete-mathematics/monoids-and-groups/cosets-and-lagrange.json",
-        "mock: discrete-mathematics master_bank.json holds units 1-7 and 16 only; none is an algebraic-structures unit",
+        "mock: discrete-mathematics/question-bank/master_bank.json holds 0 records and no runs[] entry for unit 12; README.md syllabus table declares unit 12 'Algebraic Structures' (unit_slug algebraic-structures) at 0 questions, so the unit exists but is empty (MOCK_UNIT_EMPTY)",
         "visual: syllabus-coverage.json lesson_slug monoids-and-groups (PUBLISHED); covers checked against topics/monoids-and-groups/transcript.md, 11 scenes"
       ],
       "row_verdict": "VISUAL_ONLY"
@@ -2358,7 +2422,15 @@
       "priority": "P2",
       "path": "subjects/discrete-mathematics/monoids-and-groups/finite-group-examples-gate-uses.json",
       "transcript_status": "not stated",
-      "mock": null,
+      "mock": {
+        "subject": "discrete-mathematics",
+        "unit_slug": "algebraic-structures",
+        "unit_name": "Algebraic Structures",
+        "unit_number": 12,
+        "question_count": 0,
+        "subtopic_labels": [],
+        "verdict": "MOCK_UNIT_EMPTY"
+      },
       "visual": {
         "slug": "monoids-and-groups",
         "title": "Monoids and Groups",
@@ -2368,7 +2440,7 @@
       },
       "evidence": [
         "notes content/index.json -> map[].path = subjects/discrete-mathematics/monoids-and-groups/finite-group-examples-gate-uses.json",
-        "mock: discrete-mathematics master_bank.json holds units 1-7 and 16 only; none is an algebraic-structures unit",
+        "mock: discrete-mathematics/question-bank/master_bank.json holds 0 records and no runs[] entry for unit 12; README.md syllabus table declares unit 12 'Algebraic Structures' (unit_slug algebraic-structures) at 0 questions, so the unit exists but is empty (MOCK_UNIT_EMPTY)",
         "visual: syllabus-coverage.json lesson_slug monoids-and-groups (PUBLISHED); covers checked against topics/monoids-and-groups/transcript.md, 11 scenes"
       ],
       "row_verdict": "VISUAL_ONLY"
@@ -2381,11 +2453,19 @@
       "priority": "P3",
       "path": "subjects/discrete-mathematics/monoids-and-groups/group-homomorphism-and-kernel.json",
       "transcript_status": "not stated",
-      "mock": null,
+      "mock": {
+        "subject": "discrete-mathematics",
+        "unit_slug": "algebraic-structures",
+        "unit_name": "Algebraic Structures",
+        "unit_number": 12,
+        "question_count": 0,
+        "subtopic_labels": [],
+        "verdict": "MOCK_UNIT_EMPTY"
+      },
       "visual": null,
       "evidence": [
         "notes content/index.json -> map[].path = subjects/discrete-mathematics/monoids-and-groups/group-homomorphism-and-kernel.json",
-        "mock: discrete-mathematics master_bank.json holds units 1-7 and 16 only; none is an algebraic-structures unit",
+        "mock: discrete-mathematics/question-bank/master_bank.json holds 0 records and no runs[] entry for unit 12; README.md syllabus table declares unit 12 'Algebraic Structures' (unit_slug algebraic-structures) at 0 questions, so the unit exists but is empty (MOCK_UNIT_EMPTY)",
         "visual: topics/monoids-and-groups/transcript.md has no homomorphism or kernel content (grep: 0 hits), so no lesson covers this card"
       ],
       "row_verdict": "NEITHER"
@@ -2398,7 +2478,15 @@
       "priority": "P3",
       "path": "subjects/discrete-mathematics/monoids-and-groups/permutation-groups-and-symmetry.json",
       "transcript_status": "not stated",
-      "mock": null,
+      "mock": {
+        "subject": "discrete-mathematics",
+        "unit_slug": "algebraic-structures",
+        "unit_name": "Algebraic Structures",
+        "unit_number": 12,
+        "question_count": 0,
+        "subtopic_labels": [],
+        "verdict": "MOCK_UNIT_EMPTY"
+      },
       "visual": {
         "slug": "monoids-and-groups",
         "title": "Monoids and Groups",
@@ -2408,7 +2496,7 @@
       },
       "evidence": [
         "notes content/index.json -> map[].path = subjects/discrete-mathematics/monoids-and-groups/permutation-groups-and-symmetry.json",
-        "mock: discrete-mathematics master_bank.json holds units 1-7 and 16 only; none is an algebraic-structures unit",
+        "mock: discrete-mathematics/question-bank/master_bank.json holds 0 records and no runs[] entry for unit 12; README.md syllabus table declares unit 12 'Algebraic Structures' (unit_slug algebraic-structures) at 0 questions, so the unit exists but is empty (MOCK_UNIT_EMPTY)",
         "visual: syllabus-coverage.json lesson_slug monoids-and-groups (PUBLISHED); covers checked against topics/monoids-and-groups/transcript.md, 11 scenes"
       ],
       "row_verdict": "VISUAL_ONLY"
@@ -5958,8 +6046,8 @@
     },
     {
       "kind": "mock",
-      "placement": "discrete-mathematics \u203a monoids-and-groups \u203a (no unit)",
-      "detail": "11 new notes cards under content/subjects/discrete-mathematics/monoids-and-groups/ have no mock unit: discrete-mathematics/question-bank/master_bank.json holds units 1-7 and 16, none of them algebraic structures (monoids, groups, subgroups, cyclic groups, cosets, Lagrange). A new set belongs in discrete-mathematics/monoids-and-groups/."
+      "placement": "discrete-mathematics \u203a monoids-and-groups \u203a (unit 12 empty)",
+      "detail": "11 notes cards under content/subjects/discrete-mathematics/monoids-and-groups/ have no questions to sit a mock on. discrete-mathematics/question-bank/master_bank.json holds records for units 1-7 and 16 only, and carries no record and no runs[] entry for unit 12; README.md's syllabus table declares unit 12 'Algebraic Structures' (unit_slug algebraic-structures, unit_number 12) at 0 questions. The unit therefore exists but is empty (MOCK_UNIT_EMPTY), so the folder is already named and no new unit is needed. Next build: the first set in discrete-mathematics/algebraic-structures/ (25 questions, 15 MCQ / 5 MSQ / 5 NAT, 10 easy / 10 medium / 5 hard) covering monoid axioms, group axioms and the reversal rule, order of group and element, abelian commutativity tests, subgroups and their tests, cyclic groups and generators, cosets and Lagrange."
     },
     {
       "kind": "visual",
