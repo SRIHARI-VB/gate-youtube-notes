@@ -225,7 +225,7 @@ window.GATE_DATA = {
      {
       "slug": "mean-value-theorem",
       "name": "Mean Value Theorem",
-      "material": "planned"
+      "material": "cards"
      },
      {
       "slug": "integration",
@@ -18491,6 +18491,1297 @@ window.GATE_DATA = {
    "subject": "calculus",
    "topic": "maxima-and-minima",
    "path": "subjects/calculus/maxima-and-minima/optimisation-word-problems.json"
+  },
+  {
+   "id": "rolle-theorem-statement",
+   "title": "Rolle's Theorem",
+   "priority": "P1",
+   "order": 181,
+   "unit": "Mean Value Theorem",
+   "quickIdea": "If f is continuous on [a, b], differentiable inside, and f(a) = f(b), then f' is zero somewhere strictly between a and b.",
+   "remember": [
+    "Three hypotheses: f is continuous on the closed interval [a, b]; f is differentiable on the open interval (a, b); f(a) = f(b).",
+    "Conclusion: there is at least one c with a < c < b and f'(c) = 0. The point is strictly inside, never at an endpoint.",
+    "Geometrically: somewhere between the two equal heights the tangent is horizontal.",
+    "Why it is true: the extreme value theorem gives a maximum and a minimum on [a, b]. If either is attained inside, Fermat's theorem makes f' zero there. If both are at the ends, then f equals f(a) everywhere and f' is zero throughout.",
+    "Every hypothesis is load-bearing: |x| on [-1, 1] is continuous with equal endpoint values, but it is not differentiable at 0 and no interior point has zero slope."
+   ],
+   "example": {
+    "prompt": "Verify Rolle's theorem for f(x) = x^2 - 4x + 3 on [1, 3] and find every c it guarantees.",
+    "work": "A polynomial is continuous and differentiable everywhere, and f(1) = 1 - 4 + 3 = 0 while f(3) = 9 - 12 + 3 = 0, so all three hypotheses hold. f'(x) = 2x - 4 vanishes only at x = 2, and 2 lies in (1, 3).",
+    "answer": "c = 2. It is the only such point, and f(2) = -1 is the lowest value on the interval."
+   },
+   "gateAngle": "GATE CSE 2014 Set 1 Q.6 is the pure Rolle question in disguise: the function is a 3x3 determinant, and the equal endpoint values come from two rows becoming identical. The exam pattern is always the same - establish the three hypotheses from the structure of the function, then quote the theorem instead of differentiating.",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2014 Set 1 Q.6: f(theta) is the determinant with rows (sin, cos, tan) at theta, at pi/6 and at pi/3, on [pi/6, pi/3]. Are these true? I: some theta in the open interval has f'(theta) = 0. II: some theta in the open interval has f'(theta) != 0.",
+     "answer": "Both I and II (option C).",
+     "why": "I is Rolle, because f(pi/6) = 0 and f(pi/3) = 0 by two identical rows. II needs the extra observation that f is not constant, which the value f(pi/4) = 0.0977 settles."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "Apply Rolle's theorem to f(x) = x^3 - 4x on [-2, 2] and list every guaranteed point.",
+     "answer": "c = 2/sqrt(3) and c = -2/sqrt(3), both about 1.155 in absolute value.",
+     "why": "f(-2) = 0 = f(2) and f'(x) = 3x^2 - 4, so the candidates are the two roots of 3c^2 = 4. The variation tests the 'at least one' wording: the theorem is satisfied twice over."
+    }
+   ],
+   "trap": {
+    "what": "Quoting Rolle whenever the function is continuous and differentiable, without checking f(a) = f(b).",
+    "why": "The equal endpoint values are a hypothesis, not a formality. Drop it and the conclusion can be false.",
+    "counterexample": "f(x) = x^2 on [0, 2] is continuous and differentiable, but f(0) = 0 and f(2) = 4, and f'(x) = 2x is never zero in (0, 2). The right tool there is the mean value theorem, which gives c = 1 with f'(1) = 2 equal to the average slope 4/2."
+   },
+   "check": {
+    "question": "Does Rolle's theorem apply to f(x) = x^(2/3) on [-1, 1], and does its conclusion hold?",
+    "answer": "It does not apply, and the conclusion is false.",
+    "explanation": "f(-1) = 1 = f(1) and f is continuous, but f'(x) = (2/3) x^(-1/3) does not exist at 0, so the differentiability hypothesis fails. For x != 0 the derivative is never zero, so no interior point has zero slope - exactly the failure the missing hypothesis allows."
+   },
+   "pyqIds": [
+    "gate-2014-set1-6-rolle-determinant"
+   ],
+   "prereqs": [
+    "continuity-on-an-interval-and-ivt",
+    "differentiability-and-its-link-to-continuity"
+   ],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "Calculus Volume 1, section 4.4: The Mean Value Theorem",
+     "channel": "OpenStax (Rice University)",
+     "url": "https://openstax.org/books/calculus-volume-1/pages/4-4-the-mean-value-theorem",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read from the section opening through the proof of the mean value theorem: Rolle's statement, the three-case proof from the extreme value theorem, the |x| - 1 counterexample, the two worked Rolle examples (x^2 + 2x on [-2,0], x^3 - 4x on [-2,2]), the mean value theorem statement and its proof by the auxiliary function g(x) = f(x) minus the chord. The later corollary subsection was beyond the returned extract and is not quoted"
+    },
+    {
+     "kind": "lecture-summary",
+     "title": "13 Oct - EM - Calculus Part 3, the Rolle's theorem and mean value theorem segment",
+     "channel": "Knowledge Gate (Yash Jain)",
+     "url": "https://www.knowledgegate.ai/learn/GATE-GUIDANCE-BY-SANCHIT-SIR/live-classes/gate-2026-live-class/engineering-mathematics-for-gate-exam/asset-13-oct-em-calculus-part-3",
+     "language": "hi",
+     "transcript": "SUMMARY_ONLY",
+     "translated": true,
+     "note": "Hindi-medium live class; the platform's published English AI chapter summary with timestamps was read in full, the lecture itself was not. Chapters used: 10:00-15:00 Rolle's theorem, its three conditions and the horizontal-tangent picture; 15:00-20:00 the GATE CS 2014 determinant question solved by Rolle; 20:00-25:00 Lagrange's mean value theorem with the secant picture; 25:00-30:00 Cauchy's extended mean value theorem in the form (f(b)-f(a))g'(c) = (g(b)-g(a))f'(c)"
+    }
+   ],
+   "sourceLine": "Statement, three-case proof and the |x| - 1 counterexample: OpenStax Calculus Volume 1 section 4.4 (English). The GATE framing and the 2014 determinant question worked through: Knowledge Gate '13 Oct - EM - Calculus Part 3', chapter summary 10:00-20:00 (Hindi-medium lecture, English summary - translated). Every value here is recomputed in scripts/validate.py.",
+   "videoRefs": [],
+   "links": {
+    "mock": {
+     "subject": "engineering-mathematics",
+     "unit_slug": "calculus-optimization-integrals",
+     "unit_name": "Calculus: Maxima, Minima & Integrals",
+     "unit_number": 4,
+     "question_count": 25,
+     "subtopics": [
+      {
+       "label": "single-variable-extrema",
+       "questions": 7
+      },
+      {
+       "label": "multivariable-extrema-saddle-points",
+       "questions": 6
+      },
+      {
+       "label": "definite-integrals",
+       "questions": 6
+      },
+      {
+       "label": "vector-calculus-basics",
+       "questions": 6
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-28.html"
+    },
+    "mapped_at": "2026-10-29"
+   },
+   "subject": "calculus",
+   "topic": "mean-value-theorem",
+   "path": "subjects/calculus/mean-value-theorem/rolle-theorem-statement.json"
+  },
+  {
+   "id": "lmvt-statement-and-secant-slope",
+   "title": "Lagrange's Mean Value Theorem",
+   "priority": "P1",
+   "order": 182,
+   "unit": "Mean Value Theorem",
+   "quickIdea": "With only continuity on [a, b] and differentiability inside, some interior point has f'(c) equal to the average slope (f(b) - f(a)) / (b - a): the tangent is parallel to the chord.",
+   "remember": [
+    "Two hypotheses only: continuous on [a, b], differentiable on (a, b). Equal endpoint values are not required.",
+    "Conclusion: there is a c in (a, b) with f'(c) = (f(b) - f(a)) / (b - a), equivalently f(b) - f(a) = f'(c)(b - a).",
+    "Geometrically the chord through (a, f(a)) and (b, f(b)) has a parallel tangent somewhere in between.",
+    "Rolle is the special case f(a) = f(b), where the average slope is 0. In the other direction the theorem is Rolle applied to g(x) = f(x) minus the chord line, whose endpoints are both 0.",
+    "The theorem is an existence statement. It never says where c is, and it does not say c is unique."
+   ],
+   "example": {
+    "prompt": "Find the point the mean value theorem guarantees for f(x) = x^3 on [0, 2].",
+    "work": "f is a polynomial, so both hypotheses hold. The average slope is (f(2) - f(0)) / (2 - 0) = 8/2 = 4. Setting f'(c) = 3c^2 = 4 gives c = 2/sqrt(3), about 1.1547, and the negative root is outside the interval.",
+    "answer": "c = 2/sqrt(3) = 1.1547. At that point f(c) = 1.5396 and the tangent slope 3c^2 = 4 equals the chord slope, so the tangent is parallel to the chord from (0, 0) to (2, 8)."
+   },
+   "gateAngle": "GATE rarely asks for c itself. GATE CSE 2021 Set 2 Q.25 gives a bound on f' and asks for a bound on f(3), which is the theorem read as an inequality - see the bounds card. The 2014 Set 1 Q.6 determinant question is the Rolle end of the same theorem.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "Find the mean value theorem point for f(x) = x^3 - 3x on [0, 2].",
+     "answer": "c = 2/sqrt(3), about 1.155.",
+     "why": "The average slope is (f(2) - f(0)) / 2 = (2 - 0) / 2 = 1 and f'(x) = 3x^2 - 3, so 3c^2 = 4. The reasoning is identical to the worked example but the function is no longer monotone, which is the point: the theorem does not care whether f rises or falls."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Must the mean value theorem point be the midpoint of the interval?",
+     "answer": "No. It is the midpoint for every quadratic and for nothing else in general.",
+     "why": "For f(x) = Ax^2 + Bx + C the equation 2Ac + B = A(a + b) + B forces c = (a + b)/2, which is why so many textbook answers look like midpoints. For x^3 on [0, 2] the point is 1.155, not 1."
+    }
+   ],
+   "trap": {
+    "what": "Reporting the midpoint of [a, b], or the slope at an endpoint, as the mean value theorem point.",
+    "why": "The theorem only asserts that some c exists. Unless the function is a quadratic, the point has to be computed from f'(c) = average slope.",
+    "counterexample": "For f(x) = x^3 on [0, 2] the midpoint is 1, where f'(1) = 3, but the average slope is 4. The genuine point is 2/sqrt(3) = 1.155, where f' = 4."
+   },
+   "check": {
+    "question": "For f(x) = x^2 on [0, 2], find the guaranteed c and compare it with the midpoint.",
+    "answer": "c = 1, which is the midpoint.",
+    "explanation": "The average slope is (4 - 0)/2 = 2 and f'(c) = 2c, so c = 1. For a quadratic the point is always the midpoint - that is a property of quadratics, not of the theorem."
+   },
+   "pyqIds": [],
+   "prereqs": [
+    "rolle-theorem-statement"
+   ],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "Calculus Volume 1, section 4.4: The Mean Value Theorem",
+     "channel": "OpenStax (Rice University)",
+     "url": "https://openstax.org/books/calculus-volume-1/pages/4-4-the-mean-value-theorem",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read from the section opening through the proof of the mean value theorem: Rolle's statement, the three-case proof from the extreme value theorem, the |x| - 1 counterexample, the two worked Rolle examples (x^2 + 2x on [-2,0], x^3 - 4x on [-2,2]), the mean value theorem statement and its proof by the auxiliary function g(x) = f(x) minus the chord. The later corollary subsection was beyond the returned extract and is not quoted"
+    },
+    {
+     "kind": "text",
+     "title": "Calculus I, section 4.7: The Mean Value Theorem",
+     "channel": "Paul's Online Math Notes, Lamar University",
+     "url": "https://tutorial.math.lamar.edu/classes/calci/MeanValueTheorem.aspx",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read from the opening through the geometric interpretation: Rolle's three hypotheses, the exactly-one-real-root example 4x^5 + x^3 + 7x - 2, the mean value theorem statement, the explicit note that the theorem does not say what c is, and the secant-parallel-to-tangent picture. The corollary list further down the page was beyond the returned extract"
+    },
+    {
+     "kind": "lecture-summary",
+     "title": "13 Oct - EM - Calculus Part 3, the Rolle's theorem and mean value theorem segment",
+     "channel": "Knowledge Gate (Yash Jain)",
+     "url": "https://www.knowledgegate.ai/learn/GATE-GUIDANCE-BY-SANCHIT-SIR/live-classes/gate-2026-live-class/engineering-mathematics-for-gate-exam/asset-13-oct-em-calculus-part-3",
+     "language": "hi",
+     "transcript": "SUMMARY_ONLY",
+     "translated": true,
+     "note": "Hindi-medium live class; the platform's published English AI chapter summary with timestamps was read in full, the lecture itself was not. Chapters used: 10:00-15:00 Rolle's theorem, its three conditions and the horizontal-tangent picture; 15:00-20:00 the GATE CS 2014 determinant question solved by Rolle; 20:00-25:00 Lagrange's mean value theorem with the secant picture; 25:00-30:00 Cauchy's extended mean value theorem in the form (f(b)-f(a))g'(c) = (g(b)-g(a))f'(c)"
+    }
+   ],
+   "sourceLine": "Statement, the secant-parallel-to-tangent reading and the proof by the auxiliary function: OpenStax section 4.4 and Paul's Online Math Notes section 4.7 (English). The GATE framing: Knowledge Gate '13 Oct - EM - Calculus Part 3', chapter summary 20:00-25:00 (Hindi-medium lecture, English summary - translated).",
+   "visual": "calculus/mean-value-theorem/secant-parallel-tangent",
+   "videoRefs": [],
+   "links": {
+    "mock": {
+     "subject": "engineering-mathematics",
+     "unit_slug": "calculus-optimization-integrals",
+     "unit_name": "Calculus: Maxima, Minima & Integrals",
+     "unit_number": 4,
+     "question_count": 25,
+     "subtopics": [
+      {
+       "label": "single-variable-extrema",
+       "questions": 7
+      },
+      {
+       "label": "multivariable-extrema-saddle-points",
+       "questions": 6
+      },
+      {
+       "label": "definite-integrals",
+       "questions": 6
+      },
+      {
+       "label": "vector-calculus-basics",
+       "questions": 6
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-28.html"
+    },
+    "mapped_at": "2026-10-29",
+    "visual": {
+     "slug": "calculus-mean-value-theorem-secant",
+     "title": "Mean Value Theorem: The Secant and the Parallel Tangent",
+     "level": "topic-level",
+     "covers": [
+      "the chord slope is the average rate of change",
+      "sliding the tangent until it is parallel to the chord locates c",
+      "Rolle is the flat-chord case, and |x| on [-1, 1] shows the failure"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
+    }
+   },
+   "subject": "calculus",
+   "topic": "mean-value-theorem",
+   "path": "subjects/calculus/mean-value-theorem/lmvt-statement-and-secant-slope.json"
+  },
+  {
+   "id": "mvt-bounds-on-function-values",
+   "title": "Bounding a Function Value with the MVT",
+   "priority": "P1",
+   "order": 183,
+   "unit": "Mean Value Theorem",
+   "quickIdea": "If f' is at most M on an interval, the mean value theorem turns that into f(b) at most f(a) + M(b - a). This is the form GATE actually asks.",
+   "remember": [
+    "From f(b) - f(a) = f'(c)(b - a): if f'(x) <= M for every interior x and b > a, then f(b) <= f(a) + M(b - a).",
+    "If |f'(x)| <= M then |f(b) - f(a)| <= M|b - a|, the Lipschitz form of the same statement.",
+    "The bound is attained exactly by a straight line of slope M, so it is the best possible bound and not merely a safe one.",
+    "With only an upper bound on f' there is no lower bound on f(b): the value can be far below f(a) - M(b - a) is not a claim.",
+    "The bound needs f' <= M on the whole interval. A bound at a single point proves nothing about f(b)."
+   ],
+   "example": {
+    "prompt": "GATE CSE 2021 Set 2 Q.25: f is continuous on [-3, 3] and differentiable on (-3, 3) with f'(x) <= 2 everywhere there. If f(-3) = 7, how large can f(3) be?",
+    "work": "The hypotheses are exactly those of the mean value theorem on [-3, 3], so some c in (-3, 3) has f'(c) = (f(3) - f(-3)) / (3 - (-3)) = (f(3) - 7) / 6. Since f'(c) <= 2, (f(3) - 7)/6 <= 2, hence f(3) - 7 <= 12.",
+    "answer": "f(3) <= 19, so f(3) is at most 19. The bound is attained by f(x) = 2x + 13."
+   },
+   "gateAngle": "2021 Set 2 Q.25 is the only verified GATE CSE question in this topic whose answer is a number, and it is a one-line application once the theorem is recognised. The distractors are the arithmetic slips: forgetting the interval length 6, or answering 12 by reporting f(3) - f(-3) instead of f(3).",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2021 Set 2 Q.25: f' <= 2 on (-3, 3), f(-3) = 7; the largest possible f(3).",
+     "answer": "19.",
+     "why": "f(3) = 7 + 6 f'(c) with f'(c) <= 2, so f(3) <= 7 + 12."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "f is continuous on [1, 4], differentiable on (1, 4), f'(x) <= -1 there, and f(1) = 5. What is the largest possible f(4)?",
+     "answer": "2.",
+     "why": "Same theorem with a negative bound: f(4) = f(1) + 3 f'(c) <= 5 - 3 = 2. The variation checks that the sign of the bound is carried through, which is where the 2021 question's easier cousins usually break."
+    }
+   ],
+   "trap": {
+    "what": "Using the interval length of the wrong pair of points, or treating an upper bound on f' as a lower bound as well.",
+    "why": "The theorem multiplies f'(c) by b - a, so the interval matters, and f' <= M says nothing about how fast f may fall.",
+    "counterexample": "With f'(x) <= 2 on [-3, 3] and f(-3) = 7, the value f(3) = -107 is perfectly legal (take f(x) = -19x - 50, whose slope -19 is below 2 and whose value at -3 is 7). Only the upper bound 19 follows from the data."
+   },
+   "check": {
+    "question": "f is continuous on [0, 4], differentiable inside, f'(x) <= 3, and f(0) = 1. Bound f(4).",
+    "answer": "f(4) <= 13.",
+    "explanation": "f(4) = f(0) + 4 f'(c) <= 1 + 12 = 13, by the mean value theorem on [0, 4]."
+   },
+   "pyqIds": [
+    "gate-2021-set2-25-mvt-bound"
+   ],
+   "prereqs": [
+    "lmvt-statement-and-secant-slope"
+   ],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "Calculus I, section 4.7: The Mean Value Theorem",
+     "channel": "Paul's Online Math Notes, Lamar University",
+     "url": "https://tutorial.math.lamar.edu/classes/calci/MeanValueTheorem.aspx",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read from the opening through the geometric interpretation: Rolle's three hypotheses, the exactly-one-real-root example 4x^5 + x^3 + 7x - 2, the mean value theorem statement, the explicit note that the theorem does not say what c is, and the secant-parallel-to-tangent picture. The corollary list further down the page was beyond the returned extract"
+    },
+    {
+     "kind": "lecture-summary",
+     "title": "13 Oct - EM - Calculus Part 3, the Rolle's theorem and mean value theorem segment",
+     "channel": "Knowledge Gate (Yash Jain)",
+     "url": "https://www.knowledgegate.ai/learn/GATE-GUIDANCE-BY-SANCHIT-SIR/live-classes/gate-2026-live-class/engineering-mathematics-for-gate-exam/asset-13-oct-em-calculus-part-3",
+     "language": "hi",
+     "transcript": "SUMMARY_ONLY",
+     "translated": true,
+     "note": "Hindi-medium live class; the platform's published English AI chapter summary with timestamps was read in full, the lecture itself was not. Chapters used: 10:00-15:00 Rolle's theorem, its three conditions and the horizontal-tangent picture; 15:00-20:00 the GATE CS 2014 determinant question solved by Rolle; 20:00-25:00 Lagrange's mean value theorem with the secant picture; 25:00-30:00 Cauchy's extended mean value theorem in the form (f(b)-f(a))g'(c) = (g(b)-g(a))f'(c)"
+    }
+   ],
+   "sourceLine": "The inequality form of the theorem and the note that the conclusion is an existence claim: Paul's Online Math Notes section 4.7 (English). The GATE question and its solution route: GATE Overflow question page for GATE CSE 2021 Set 2 Q.25, with Knowledge Gate's chapter summary 20:00-25:00 (translated) supplying the same reading. Recomputed in scripts/validate.py.",
+   "videoRefs": [],
+   "links": {
+    "mock": {
+     "subject": "engineering-mathematics",
+     "unit_slug": "calculus-optimization-integrals",
+     "unit_name": "Calculus: Maxima, Minima & Integrals",
+     "unit_number": 4,
+     "question_count": 25,
+     "subtopics": [
+      {
+       "label": "single-variable-extrema",
+       "questions": 7
+      },
+      {
+       "label": "multivariable-extrema-saddle-points",
+       "questions": 6
+      },
+      {
+       "label": "definite-integrals",
+       "questions": 6
+      },
+      {
+       "label": "vector-calculus-basics",
+       "questions": 6
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-28.html"
+    },
+    "mapped_at": "2026-10-29"
+   },
+   "subject": "calculus",
+   "topic": "mean-value-theorem",
+   "path": "subjects/calculus/mean-value-theorem/mvt-bounds-on-function-values.json"
+  },
+  {
+   "id": "hypotheses-and-when-mvt-fails",
+   "title": "When the Hypotheses Fail",
+   "priority": "P1",
+   "order": 184,
+   "unit": "Mean Value Theorem",
+   "quickIdea": "Continuity is needed on the closed interval and differentiability only on the open one. A corner or a blow-up inside destroys the guarantee, and the counterexample is the answer.",
+   "remember": [
+    "Continuity on [a, b] includes the endpoints; differentiability is demanded only on (a, b). A vertical tangent at an endpoint is therefore harmless.",
+    "|x| on [-1, 1]: continuous, f(-1) = f(1) = 1, not differentiable at 0. Its slope is -1 on (-1, 0) and +1 on (0, 1), so Rolle's conclusion fails.",
+    "1/x on [-1, 1]: not even defined at 0, so not continuous there. Its derivative -1/x^2 is never zero, so no conclusion can hold.",
+    "x^(2/3) on [-1, 1]: continuous with equal endpoint values, a vertical tangent at 0, and f' != 0 everywhere else. Rolle fails again.",
+    "A failed hypothesis removes the guarantee, not the possibility: x^3 on [-1, 1] has unequal endpoint values, yet f'(0) = 0 anyway."
+   ],
+   "example": {
+    "prompt": "Show that Rolle's theorem fails for f(x) = |x| on [-1, 1], and say exactly which hypothesis fails.",
+    "work": "f(-1) = 1 = f(1) and f is continuous on [-1, 1], so two of the three hypotheses hold. At 0 the left derivative is -1 and the right derivative is +1, so f is not differentiable at 0. For x in (-1, 0) the derivative is -1 and for x in (0, 1) it is +1.",
+    "answer": "No c in (-1, 1) has f'(c) = 0. The differentiability hypothesis is the one that fails, and with it the conclusion."
+   },
+   "gateAngle": "GATE tests the hypotheses as a statement question: 'which of the following functions satisfies the conditions of the mean value theorem on the given interval'. The correct answer is always found by locating the corner or the vertical asymptote, not by differentiating.",
+   "variations": [
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Does the mean value theorem apply to f(x) = sqrt(x) on [0, 1]?",
+     "answer": "Yes, and the guaranteed point is c = 1/4.",
+     "why": "f is continuous on [0, 1] and differentiable on (0, 1); the infinite slope at the endpoint 0 does not matter because differentiability is demanded only inside. The average slope is 1 and 1/(2 sqrt(c)) = 1 gives c = 1/4."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "For which functions on [-1, 1] does Rolle's theorem fail even though f(-1) = f(1)?",
+     "answer": "Those with a point inside where f' does not exist, or where f is discontinuous.",
+     "why": "GATE has used the same shape for continuity and differentiability questions since 2013, and a statement question listing |x|, x^(2/3) and 1/x is the natural next step."
+    }
+   ],
+   "trap": {
+    "what": "Checking differentiability at the endpoints, or checking continuity only on the open interval.",
+    "why": "The two conditions are deliberately split across the closed and the open interval, and swapping them changes which functions qualify.",
+    "counterexample": "sqrt(x) on [0, 1] is not differentiable at 0 but the theorem still applies, because only the open interval matters. Conversely 1/x on [-1, 1] is differentiable everywhere it is defined and the theorem still fails, because continuity on the closed interval fails."
+   },
+   "check": {
+    "question": "Which hypothesis of the mean value theorem does f(x) = 1/x violate on [-1, 1]?",
+    "answer": "Continuity on the closed interval: f is not defined at 0.",
+    "explanation": "The function is differentiable on (-1, 0) and on (0, 1) separately, but it is not continuous at 0, so the interval [-1, 1] is not admissible. Its derivative -1/x^2 is negative everywhere it exists, so the average slope 0 is never attained."
+   },
+   "pyqIds": [],
+   "prereqs": [
+    "rolle-theorem-statement",
+    "lmvt-statement-and-secant-slope"
+   ],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "Calculus Volume 1, section 4.4: The Mean Value Theorem",
+     "channel": "OpenStax (Rice University)",
+     "url": "https://openstax.org/books/calculus-volume-1/pages/4-4-the-mean-value-theorem",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read from the section opening through the proof of the mean value theorem: Rolle's statement, the three-case proof from the extreme value theorem, the |x| - 1 counterexample, the two worked Rolle examples (x^2 + 2x on [-2,0], x^3 - 4x on [-2,2]), the mean value theorem statement and its proof by the auxiliary function g(x) = f(x) minus the chord. The later corollary subsection was beyond the returned extract and is not quoted"
+    }
+   ],
+   "sourceLine": "The three-case proof that shows why each hypothesis is used, and the |x| - 1 counterexample: OpenStax Calculus Volume 1 section 4.4 (English). The sqrt(x) and 1/x readings are derived here and recomputed in scripts/validate.py.",
+   "visual": "calculus/mean-value-theorem/secant-parallel-tangent",
+   "videoRefs": [],
+   "links": {
+    "mock": {
+     "subject": "engineering-mathematics",
+     "unit_slug": "calculus-optimization-integrals",
+     "unit_name": "Calculus: Maxima, Minima & Integrals",
+     "unit_number": 4,
+     "question_count": 25,
+     "subtopics": [
+      {
+       "label": "single-variable-extrema",
+       "questions": 7
+      },
+      {
+       "label": "multivariable-extrema-saddle-points",
+       "questions": 6
+      },
+      {
+       "label": "definite-integrals",
+       "questions": 6
+      },
+      {
+       "label": "vector-calculus-basics",
+       "questions": 6
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-28.html"
+    },
+    "mapped_at": "2026-10-29",
+    "visual": {
+     "slug": "calculus-mean-value-theorem-secant",
+     "title": "Mean Value Theorem: The Secant and the Parallel Tangent",
+     "level": "topic-level",
+     "covers": [
+      "the chord slope is the average rate of change",
+      "sliding the tangent until it is parallel to the chord locates c",
+      "Rolle is the flat-chord case, and |x| on [-1, 1] shows the failure"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
+    }
+   },
+   "subject": "calculus",
+   "topic": "mean-value-theorem",
+   "path": "subjects/calculus/mean-value-theorem/hypotheses-and-when-mvt-fails.json"
+  },
+  {
+   "id": "finding-the-point-c",
+   "title": "Finding the Point c",
+   "priority": "P2",
+   "order": 185,
+   "unit": "Mean Value Theorem",
+   "quickIdea": "For a quadratic the point is always the midpoint; otherwise solve f'(c) = average slope and keep only the roots strictly inside the interval.",
+   "remember": [
+    "Quadratic f(x) = Ax^2 + Bx + C: the average slope is A(a + b) + B and f'(c) = 2Ac + B, so c = (a + b)/2 exactly, for every quadratic.",
+    "Cubic: f'(c) = average slope is a quadratic equation in c, so there are up to two candidates.",
+    "Discard every root outside (a, b). Rolle and the mean value theorem both demand a strictly interior point.",
+    "For Rolle, solve f'(c) = 0 by the same procedure - it is the mean value theorem with average slope 0.",
+    "For a general function the equation may have no closed form. The theorem still guarantees that a solution exists."
+   ],
+   "example": {
+    "prompt": "Find the mean value theorem point for f(x) = x^3 - 4x on [0, 3].",
+    "work": "f(3) = 27 - 12 = 15 and f(0) = 0, so the average slope is 15/3 = 5. f'(x) = 3x^2 - 4, so 3c^2 - 4 = 5 gives c^2 = 3 and c = sqrt(3) or c = -sqrt(3). Only sqrt(3), about 1.732, lies in (0, 3).",
+    "answer": "c = sqrt(3) = 1.732. The negative root is discarded because it is outside the interval."
+   },
+   "gateAngle": "When GATE asks for the point at all, it asks in a form where the arithmetic is clean, and the distractor is the discarded root or the midpoint. The 2014 Set 1 Q.6 question avoids the issue entirely by asking only whether such a point exists.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "For f(x) = x^2 + 2x on [-2, 0], find the Rolle point.",
+     "answer": "c = -1.",
+     "why": "f(-2) = 0 = f(0) and f'(x) = 2x + 2, so c = -1, which is the midpoint - as it must be for a quadratic. The same function appears in the OpenStax worked example, which is why it is a safe model for what GATE would set."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Can the mean value theorem point be an endpoint?",
+     "answer": "No. Both theorems place c strictly inside the open interval.",
+     "why": "If c could be an endpoint, every differentiable function would trivially satisfy the conclusion at a or b, and the theorem would say nothing."
+    }
+   ],
+   "trap": {
+    "what": "Keeping every algebraic root of f'(c) = average slope.",
+    "why": "The equation is solved over the whole real line, but only interior solutions are theorem points.",
+    "counterexample": "For x^3 - 4x on [0, 3] the equation 3c^2 = 9 has two roots, and -sqrt(3) is outside the interval, so the answer is one point, not two."
+   },
+   "check": {
+    "question": "For f(x) = x^3 on [-2, 2], where is the mean value theorem point?",
+    "answer": "c = 2/sqrt(3) and c = -2/sqrt(3).",
+    "explanation": "The average slope is (8 - (-8))/4 = 4 and f'(c) = 3c^2, so c^2 = 4/3 and both roots lie in (-2, 2). Two points are allowed: the theorem promises at least one."
+   },
+   "pyqIds": [],
+   "prereqs": [
+    "lmvt-statement-and-secant-slope"
+   ],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "Calculus Volume 1, section 4.4: The Mean Value Theorem",
+     "channel": "OpenStax (Rice University)",
+     "url": "https://openstax.org/books/calculus-volume-1/pages/4-4-the-mean-value-theorem",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read from the section opening through the proof of the mean value theorem: Rolle's statement, the three-case proof from the extreme value theorem, the |x| - 1 counterexample, the two worked Rolle examples (x^2 + 2x on [-2,0], x^3 - 4x on [-2,2]), the mean value theorem statement and its proof by the auxiliary function g(x) = f(x) minus the chord. The later corollary subsection was beyond the returned extract and is not quoted"
+    },
+    {
+     "kind": "text",
+     "title": "Calculus I, section 4.7: The Mean Value Theorem",
+     "channel": "Paul's Online Math Notes, Lamar University",
+     "url": "https://tutorial.math.lamar.edu/classes/calci/MeanValueTheorem.aspx",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read from the opening through the geometric interpretation: Rolle's three hypotheses, the exactly-one-real-root example 4x^5 + x^3 + 7x - 2, the mean value theorem statement, the explicit note that the theorem does not say what c is, and the secant-parallel-to-tangent picture. The corollary list further down the page was beyond the returned extract"
+    }
+   ],
+   "sourceLine": "The worked Rolle examples that fix the procedure: OpenStax section 4.4 (x^2 + 2x on [-2, 0] and x^3 - 4x on [-2, 2], both roots kept). The statement that the theorem does not say what c is: Paul's Online Math Notes section 4.7 (English). The quadratic-midpoint fact is derived and recomputed here.",
+   "videoRefs": [],
+   "links": {
+    "mock": {
+     "subject": "engineering-mathematics",
+     "unit_slug": "calculus-optimization-integrals",
+     "unit_name": "Calculus: Maxima, Minima & Integrals",
+     "unit_number": 4,
+     "question_count": 25,
+     "subtopics": [
+      {
+       "label": "single-variable-extrema",
+       "questions": 7
+      },
+      {
+       "label": "multivariable-extrema-saddle-points",
+       "questions": 6
+      },
+      {
+       "label": "definite-integrals",
+       "questions": 6
+      },
+      {
+       "label": "vector-calculus-basics",
+       "questions": 6
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-28.html"
+    },
+    "mapped_at": "2026-10-29"
+   },
+   "subject": "calculus",
+   "topic": "mean-value-theorem",
+   "path": "subjects/calculus/mean-value-theorem/finding-the-point-c.json"
+  },
+  {
+   "id": "existence-not-uniqueness",
+   "title": "At Least One, Not Exactly One",
+   "priority": "P2",
+   "order": 186,
+   "unit": "Mean Value Theorem",
+   "quickIdea": "Both theorems promise at least one point c. There may be several, and a question that asks 'how many' cannot be answered by quoting the theorem.",
+   "remember": [
+    "The wording is 'there exists at least one c'. It is not 'exactly one', and it is certainly not 'the point c is'.",
+    "x^3 - 4x on [-2, 2] satisfies Rolle and has two zero-slope points, at 2/sqrt(3) and -2/sqrt(3).",
+    "sin x on [0, 2 pi] has f(0) = f(2 pi) = 0 and f'(x) = cos x zero at pi/2 and at 3 pi/2: two points again.",
+    "For the mean value theorem the same holds: on a wiggly curve several tangents can be parallel to one chord.",
+    "Counting the points requires solving f'(c) = 0 or f'(c) = average slope. The theorem alone gives existence."
+   ],
+   "example": {
+    "prompt": "How many points does Rolle's theorem allow for f(x) = x^3 - 4x on [-2, 2], and where are they?",
+    "work": "f(-2) = -8 + 8 = 0 and f(2) = 8 - 8 = 0, so the hypotheses hold. f'(x) = 3x^2 - 4 vanishes at c = 2/sqrt(3) = 1.1547 and at c = -2/sqrt(3) = -1.1547, and both lie inside (-2, 2).",
+    "answer": "Two points, at plus and minus 2/sqrt(3). The theorem guarantees at least one and is satisfied twice."
+   },
+   "gateAngle": "GATE has not asked for a count in this topic, but the counting instinct is what breaks the 2014 Set 1 Q.6 statement 'there exists theta with f'(theta) = 0': a student who reads it as 'exactly one' then wrongly rejects the second statement of that question.",
+   "variations": [
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Rolle's theorem gives one c for a certain f on [a, b]. Does f' vanish only at that c?",
+     "answer": "No. The theorem says nothing about other points.",
+     "why": "f(x) = sin x on [0, 2 pi] has two such points and x^3 - 4x has two as well; a constant function has f' = 0 at every point."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "For f(x) = x(x - 1)(x - 2) on [0, 2], how many Rolle points are there?",
+     "answer": "Two, at 1 - 1/sqrt(3) and 1 + 1/sqrt(3), about 0.423 and 1.577.",
+     "why": "f(0) = f(2) = 0 and f'(x) = 3x^2 - 6x + 2, whose roots are both interior. It is the natural MSQ form of this idea: a count, not a location."
+    }
+   ],
+   "trap": {
+    "what": "Answering 'one' because the theorem says 'at least one'.",
+    "why": "Existence statements are lower bounds on the number of solutions, never upper bounds.",
+    "counterexample": "The constant function f(x) = 3 on [0, 1] satisfies Rolle and every interior point has f' = 0, so the number of guaranteed points is not the number of points."
+   },
+   "check": {
+    "question": "f(x) = x^4 - 5x^2 + 4 has roots at 1 and 2. Must f' have a zero between them, and can you find it?",
+    "answer": "Yes by Rolle; f'(x) = 4x^3 - 10x = 2x(2x^2 - 5) vanishes at sqrt(5/2) = 1.581, inside (1, 2).",
+    "explanation": "f(1) = 1 - 5 + 4 = 0 and f(2) = 16 - 20 + 4 = 0, so Rolle applies on [1, 2]. The other roots of f' are 0 and -1.581, both outside the interval, so exactly one point lies inside."
+   },
+   "pyqIds": [],
+   "prereqs": [
+    "rolle-theorem-statement"
+   ],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "Calculus Volume 1, section 4.4: The Mean Value Theorem",
+     "channel": "OpenStax (Rice University)",
+     "url": "https://openstax.org/books/calculus-volume-1/pages/4-4-the-mean-value-theorem",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read from the section opening through the proof of the mean value theorem: Rolle's statement, the three-case proof from the extreme value theorem, the |x| - 1 counterexample, the two worked Rolle examples (x^2 + 2x on [-2,0], x^3 - 4x on [-2,2]), the mean value theorem statement and its proof by the auxiliary function g(x) = f(x) minus the chord. The later corollary subsection was beyond the returned extract and is not quoted"
+    },
+    {
+     "kind": "text",
+     "title": "Calculus I, section 4.7: The Mean Value Theorem",
+     "channel": "Paul's Online Math Notes, Lamar University",
+     "url": "https://tutorial.math.lamar.edu/classes/calci/MeanValueTheorem.aspx",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read from the opening through the geometric interpretation: Rolle's three hypotheses, the exactly-one-real-root example 4x^5 + x^3 + 7x - 2, the mean value theorem statement, the explicit note that the theorem does not say what c is, and the secant-parallel-to-tangent picture. The corollary list further down the page was beyond the returned extract"
+    }
+   ],
+   "sourceLine": "The two-root Rolle example x^3 - 4x on [-2, 2]: OpenStax section 4.4 (English). The explicit warning that the theorem does not say what c is: Paul's Online Math Notes section 4.7. Every count and root here is recomputed in scripts/validate.py.",
+   "visual": "calculus/mean-value-theorem/secant-parallel-tangent",
+   "videoRefs": [],
+   "links": {
+    "mock": {
+     "subject": "engineering-mathematics",
+     "unit_slug": "calculus-optimization-integrals",
+     "unit_name": "Calculus: Maxima, Minima & Integrals",
+     "unit_number": 4,
+     "question_count": 25,
+     "subtopics": [
+      {
+       "label": "single-variable-extrema",
+       "questions": 7
+      },
+      {
+       "label": "multivariable-extrema-saddle-points",
+       "questions": 6
+      },
+      {
+       "label": "definite-integrals",
+       "questions": 6
+      },
+      {
+       "label": "vector-calculus-basics",
+       "questions": 6
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-28.html"
+    },
+    "mapped_at": "2026-10-29",
+    "visual": {
+     "slug": "calculus-mean-value-theorem-secant",
+     "title": "Mean Value Theorem: The Secant and the Parallel Tangent",
+     "level": "topic-level",
+     "covers": [
+      "the chord slope is the average rate of change",
+      "sliding the tangent until it is parallel to the chord locates c",
+      "Rolle is the flat-chord case, and |x| on [-1, 1] shows the failure"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
+    }
+   },
+   "subject": "calculus",
+   "topic": "mean-value-theorem",
+   "path": "subjects/calculus/mean-value-theorem/existence-not-uniqueness.json"
+  },
+  {
+   "id": "consequences-constant-and-monotone",
+   "title": "The Three Corollaries: Constant, Difference Constant, Monotone",
+   "priority": "P2",
+   "order": 187,
+   "unit": "Mean Value Theorem",
+   "quickIdea": "f' = 0 everywhere makes f constant, f' = g' makes f - g constant, and the sign of f' decides whether f rises or falls. All three are the mean value theorem applied between two arbitrary points.",
+   "remember": [
+    "If f'(x) = 0 for every x in (a, b) then f is constant on [a, b]: apply the theorem between any two points and the difference is f'(c)(x2 - x1) = 0.",
+    "If f'(x) = g'(x) on an interval then f - g is constant there, so two antiderivatives of the same function differ by a constant.",
+    "If f' > 0 on (a, b) then f is strictly increasing; f' < 0 strictly decreasing; f' >= 0 non-decreasing.",
+    "The converses fail: x^3 is strictly increasing on the whole line and f'(0) = 0.",
+    "These corollaries are what make the first-derivative test and the constant-of-integration rule valid rather than merely plausible."
+   ],
+   "example": {
+    "prompt": "Show that f(x) = x^3 + 2x + 5 is strictly increasing on the whole real line.",
+    "work": "f'(x) = 3x^2 + 2, and 3x^2 >= 0, so f'(x) >= 2 > 0 everywhere. Take any x1 < x2; the mean value theorem on [x1, x2] gives f(x2) - f(x1) = f'(c)(x2 - x1) with f'(c) > 0 and x2 - x1 > 0.",
+    "answer": "f(x2) > f(x1) for every x1 < x2, so f is strictly increasing."
+   },
+   "gateAngle": "GATE CSE 2020 Q.1 asks which of e^(-x), x^2 - sin x and sqrt(x^3 + 1) is increasing on [0, 1]. The route is this corollary: differentiate and read the sign, and note that x^2 - sin x has derivative 2x - cos x, which is -1 at 0, so it falls first and then rises.",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2020 Q.1: which of I. e^(-x), II. x^2 - sin x, III. sqrt(x^3 + 1) is increasing everywhere in [0, 1]?",
+     "answer": "III only.",
+     "why": "The derivative of I is -e^(-x) < 0, so it decreases. The derivative of II is 2x - cos x, which is -1 at x = 0 and about 1.46 at x = 1, so II decreases first. The derivative of III is 3x^2/(2 sqrt(x^3 + 1)), positive for x > 0, so III increases."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "If f'(x) = g'(x) for every x, f(0) = 4 and g(0) = 1, what is f(1) - g(1)?",
+     "answer": "3.",
+     "why": "f - g has zero derivative everywhere, so it is constant; its value at 0 is 3 and therefore its value at 1 is 3. The variation is the constant-of-integration corollary in disguise."
+    }
+   ],
+   "trap": {
+    "what": "Concluding 'strictly increasing' from f' >= 0, or 'increasing' from f'(p) > 0 at one point p.",
+    "why": "f' >= 0 gives only non-decreasing - a constant function satisfies it. And a positive derivative at a single point says nothing about a neighbourhood unless f' stays positive near p.",
+    "counterexample": "f(x) = 5 has f' = 0 >= 0 everywhere and is not strictly increasing. For the pointwise version, f(x) = x^3 - 3x has f'(-2) = 9 > 0 but f decreases on (-1, 1)."
+   },
+   "check": {
+    "question": "Is f(x) = x + sin x increasing on the whole real line?",
+    "answer": "Yes, strictly increasing.",
+    "explanation": "f'(x) = 1 + cos x >= 0, and it is zero only at odd multiples of pi, isolated points. On any interval between two such points f' > 0, so f is strictly increasing on each and therefore on the whole line."
+   },
+   "pyqIds": [
+    "gate-2020-q1-increasing-everywhere"
+   ],
+   "prereqs": [
+    "monotonicity-and-sign-of-derivative",
+    "lmvt-statement-and-secant-slope"
+   ],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "Calculus Volume 1, section 4.4: The Mean Value Theorem",
+     "channel": "OpenStax (Rice University)",
+     "url": "https://openstax.org/books/calculus-volume-1/pages/4-4-the-mean-value-theorem",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read from the section opening through the proof of the mean value theorem: Rolle's statement, the three-case proof from the extreme value theorem, the |x| - 1 counterexample, the two worked Rolle examples (x^2 + 2x on [-2,0], x^3 - 4x on [-2,2]), the mean value theorem statement and its proof by the auxiliary function g(x) = f(x) minus the chord. The later corollary subsection was beyond the returned extract and is not quoted"
+    },
+    {
+     "kind": "text",
+     "title": "Calculus I, section 4.7: The Mean Value Theorem",
+     "channel": "Paul's Online Math Notes, Lamar University",
+     "url": "https://tutorial.math.lamar.edu/classes/calci/MeanValueTheorem.aspx",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read from the opening through the geometric interpretation: Rolle's three hypotheses, the exactly-one-real-root example 4x^5 + x^3 + 7x - 2, the mean value theorem statement, the explicit note that the theorem does not say what c is, and the secant-parallel-to-tangent picture. The corollary list further down the page was beyond the returned extract"
+    }
+   ],
+   "sourceLine": "The corollaries as consequences of the mean value theorem: OpenStax section 4.4 (whose stated objectives include three important consequences) and Paul's Online Math Notes section 4.7, both English. The 2020 question and its sign analysis are recomputed in scripts/validate.py.",
+   "videoRefs": [],
+   "links": {
+    "mock": {
+     "subject": "engineering-mathematics",
+     "unit_slug": "calculus-optimization-integrals",
+     "unit_name": "Calculus: Maxima, Minima & Integrals",
+     "unit_number": 4,
+     "question_count": 25,
+     "subtopics": [
+      {
+       "label": "single-variable-extrema",
+       "questions": 7
+      },
+      {
+       "label": "multivariable-extrema-saddle-points",
+       "questions": 6
+      },
+      {
+       "label": "definite-integrals",
+       "questions": 6
+      },
+      {
+       "label": "vector-calculus-basics",
+       "questions": 6
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-28.html"
+    },
+    "mapped_at": "2026-10-29"
+   },
+   "subject": "calculus",
+   "topic": "mean-value-theorem",
+   "path": "subjects/calculus/mean-value-theorem/consequences-constant-and-monotone.json"
+  },
+  {
+   "id": "rolle-and-root-counting",
+   "title": "Counting Real Roots with Rolle",
+   "priority": "P2",
+   "order": 188,
+   "unit": "Mean Value Theorem",
+   "quickIdea": "Between two roots of f there is a root of f'. So a derivative that never vanishes forces at most one root, and the intermediate value theorem supplies the one that exists.",
+   "remember": [
+    "If f(p) = f(q) = 0 with p < q, Rolle gives a c in (p, q) with f'(c) = 0.",
+    "Contrapositive: if f' has no real zero, f has at most one real root.",
+    "Existence and uniqueness are separate jobs. The intermediate value theorem gives existence from a sign change; Rolle gives uniqueness.",
+    "A polynomial of degree n has at most n real roots, by applying Rolle n - 1 times to f' and using that a linear function has at most one root.",
+    "The same argument bounds the number of solutions of f(x) = k: apply it to f(x) - k."
+   ],
+   "example": {
+    "prompt": "Show that 4x^5 + x^3 + 7x - 2 has exactly one real root.",
+    "work": "f(0) = -2 and f(1) = 4 + 1 + 7 - 2 = 10, so by the intermediate value theorem there is a root in (0, 1). Now f'(x) = 20x^4 + 3x^2 + 7, and both even powers are non-negative, so f'(x) >= 7 > 0 for every x. If there were two roots, Rolle would give a point with f' = 0, which is impossible.",
+    "answer": "Exactly one real root, and it lies in (0, 1)."
+   },
+   "gateAngle": "GATE uses this pattern in the statement form - 'the equation has at most one root', 'how many real solutions' - rather than asking for the root. The 2014 Set 2 Q.5 question about a cubic with roots at 1, 2 and 3 is the same idea seen from the sign side, though its accepted solution factors the polynomial instead of invoking Rolle.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "How many real roots does x^3 + x + 1 have?",
+     "answer": "Exactly one.",
+     "why": "f'(x) = 3x^2 + 1 > 0 everywhere, so at most one root; f(-1) = -1 and f(0) = 1 give one by the intermediate value theorem. Neither half alone is enough, which is the point of the variation."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why does a degree-n polynomial have at most n real roots?",
+     "answer": "Because Rolle applied to consecutive roots would give n - 1 distinct roots of f', and so on down to a constant.",
+     "why": "Between any two roots of f there is a root of f'; repeating gives at least n - 1, n - 2, ... roots of the successive derivatives, and a non-zero constant has none."
+    }
+   ],
+   "trap": {
+    "what": "Proving uniqueness with Rolle and then forgetting that no root need exist.",
+    "why": "At most one root is a statement about the maximum number, not about existence.",
+    "counterexample": "x^2 + 1 has f'(x) = 2x, and Rolle's argument shows it has at most one real root - which is true, because it has none. The count needs the intermediate value theorem as well."
+   },
+   "check": {
+    "question": "Show that x^5 + x^3 + x + 1 = 0 has exactly one real solution.",
+    "answer": "One, in (-1, 0).",
+    "explanation": "f(-1) = -1 - 1 - 1 + 1 = -2 and f(0) = 1, so a root exists in (-1, 0). f'(x) = 5x^4 + 3x^2 + 1 >= 1 > 0, so f is strictly increasing and the root is unique."
+   },
+   "pyqIds": [],
+   "prereqs": [
+    "rolle-theorem-statement",
+    "continuity-on-an-interval-and-ivt"
+   ],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "Calculus I, section 4.7: The Mean Value Theorem",
+     "channel": "Paul's Online Math Notes, Lamar University",
+     "url": "https://tutorial.math.lamar.edu/classes/calci/MeanValueTheorem.aspx",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read from the opening through the geometric interpretation: Rolle's three hypotheses, the exactly-one-real-root example 4x^5 + x^3 + 7x - 2, the mean value theorem statement, the explicit note that the theorem does not say what c is, and the secant-parallel-to-tangent picture. The corollary list further down the page was beyond the returned extract"
+    },
+    {
+     "kind": "text",
+     "title": "Calculus Volume 1, section 4.4: The Mean Value Theorem",
+     "channel": "OpenStax (Rice University)",
+     "url": "https://openstax.org/books/calculus-volume-1/pages/4-4-the-mean-value-theorem",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read from the section opening through the proof of the mean value theorem: Rolle's statement, the three-case proof from the extreme value theorem, the |x| - 1 counterexample, the two worked Rolle examples (x^2 + 2x on [-2,0], x^3 - 4x on [-2,2]), the mean value theorem statement and its proof by the auxiliary function g(x) = f(x) minus the chord. The later corollary subsection was beyond the returned extract and is not quoted"
+    }
+   ],
+   "sourceLine": "The exactly-one-real-root argument and the 4x^5 + x^3 + 7x - 2 example: Paul's Online Math Notes section 4.7 (English). Rolle's statement that the argument rests on: OpenStax section 4.4. The values are recomputed in scripts/validate.py.",
+   "videoRefs": [],
+   "links": {
+    "mock": {
+     "subject": "engineering-mathematics",
+     "unit_slug": "calculus-optimization-integrals",
+     "unit_name": "Calculus: Maxima, Minima & Integrals",
+     "unit_number": 4,
+     "question_count": 25,
+     "subtopics": [
+      {
+       "label": "single-variable-extrema",
+       "questions": 7
+      },
+      {
+       "label": "multivariable-extrema-saddle-points",
+       "questions": 6
+      },
+      {
+       "label": "definite-integrals",
+       "questions": 6
+      },
+      {
+       "label": "vector-calculus-basics",
+       "questions": 6
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-28.html"
+    },
+    "mapped_at": "2026-10-29"
+   },
+   "subject": "calculus",
+   "topic": "mean-value-theorem",
+   "path": "subjects/calculus/mean-value-theorem/rolle-and-root-counting.json"
+  },
+  {
+   "id": "cauchy-extended-mvt",
+   "title": "Cauchy's Extended Mean Value Theorem",
+   "priority": "P2",
+   "order": 189,
+   "unit": "Mean Value Theorem",
+   "quickIdea": "For two functions there is one point c where (f(b) - f(a)) g'(c) = (g(b) - g(a)) f'(c). Taking g(x) = x gives the ordinary mean value theorem back.",
+   "remember": [
+    "Hypotheses: f and g continuous on [a, b] and differentiable on (a, b). Conclusion: some c in (a, b) satisfies (f(b) - f(a)) g'(c) = (g(b) - g(a)) f'(c).",
+    "The ratio form f'(c)/g'(c) = (f(b) - f(a))/(g(b) - g(a)) needs g'(c) != 0 and g(b) != g(a); the product form needs neither.",
+    "With g(x) = x, g'(c) = 1 and g(b) - g(a) = b - a, so the ordinary mean value theorem drops out.",
+    "It is proved directly, by Rolle applied to h(x) = (f(b) - f(a)) g(x) - (g(b) - g(a)) f(x), not by dividing two separate applications of the ordinary theorem.",
+    "This is the theorem that justifies L'Hopital's rule: the single c has to serve both functions at once."
+   ],
+   "example": {
+    "prompt": "For f(x) = x^2 and g(x) = x^3 on [1, 2], find the point Cauchy's theorem guarantees.",
+    "work": "f(2) - f(1) = 3 and g(2) - g(1) = 7, so the ratio is 3/7. f'(c)/g'(c) = 2c/(3c^2) = 2/(3c). Setting 2/(3c) = 3/7 gives 14 = 9c, so c = 14/9.",
+    "answer": "c = 14/9 = 1.5556, which lies in (1, 2). Check: 2/(3c) = 2/(14/3) = 3/7, as required."
+   },
+   "gateAngle": "No verified GATE CSE question asks for Cauchy's form directly, so this card is P2 rather than P1. It earns its place because L'Hopital's rule - which GATE does test, in the limits topic - is its corollary, and because statement questions about 'which theorem applies' use it as a distractor.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "Can the ratio form be used for f(x) = x^2, g(x) = x^3 on [-1, 1]?",
+     "answer": "No, and it need not be: the product form holds with c = 0.",
+     "why": "g(1) - g(-1) = 2 is non-zero, but f(1) - f(-1) = 0, so the product form forces (g(1) - g(-1)) f'(c) = 0, that is 2 (2c) = 0 and c = 0. At c = 0 the derivative g'(0) = 0, so the ratio is undefined. The variation shows exactly why the product form is the safe statement."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why can Cauchy's theorem not be proved by applying the ordinary theorem to f and to g separately?",
+     "answer": "Because the two applications give two different points c1 and c2, and the conclusion needs one point.",
+     "why": "The whole content of the theorem is that a single c works for both functions. The proof therefore builds a combined function and applies Rolle to it."
+    }
+   ],
+   "trap": {
+    "what": "Writing the ratio form when g(b) = g(a) or when g' vanishes somewhere inside.",
+    "why": "Both conditions are divisions by zero waiting to happen, and neither is part of the product form.",
+    "counterexample": "f(x) = x^2, g(x) = x^3 on [-1, 1]: g(1) - g(-1) = 2 != 0, yet the only c satisfying the product form is 0, where g'(0) = 0, so the ratio form has no value to report."
+   },
+   "check": {
+    "question": "Recover the ordinary mean value theorem from Cauchy's statement.",
+    "answer": "Put g(x) = x, so g'(c) = 1 and g(b) - g(a) = b - a.",
+    "explanation": "The product form becomes (f(b) - f(a))(1) = (b - a) f'(c), which is exactly f'(c) = (f(b) - f(a))/(b - a)."
+   },
+   "pyqIds": [],
+   "prereqs": [
+    "lmvt-statement-and-secant-slope",
+    "lhopital-rule-and-its-conditions"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-summary",
+     "title": "13 Oct - EM - Calculus Part 3, the Rolle's theorem and mean value theorem segment",
+     "channel": "Knowledge Gate (Yash Jain)",
+     "url": "https://www.knowledgegate.ai/learn/GATE-GUIDANCE-BY-SANCHIT-SIR/live-classes/gate-2026-live-class/engineering-mathematics-for-gate-exam/asset-13-oct-em-calculus-part-3",
+     "language": "hi",
+     "transcript": "SUMMARY_ONLY",
+     "translated": true,
+     "note": "Hindi-medium live class; the platform's published English AI chapter summary with timestamps was read in full, the lecture itself was not. Chapters used: 10:00-15:00 Rolle's theorem, its three conditions and the horizontal-tangent picture; 15:00-20:00 the GATE CS 2014 determinant question solved by Rolle; 20:00-25:00 Lagrange's mean value theorem with the secant picture; 25:00-30:00 Cauchy's extended mean value theorem in the form (f(b)-f(a))g'(c) = (g(b)-g(a))f'(c)"
+    }
+   ],
+   "sourceLine": "The statement in the form (f(b) - f(a)) g'(c) = (g(b) - g(a)) f'(c), and the reading that it generalises Lagrange's theorem: Knowledge Gate '13 Oct - EM - Calculus Part 3', chapter summary 25:00-30:00 (Hindi-medium lecture, English summary - translated). The worked point 14/9 and the [-1, 1] example are derived and recomputed here; no verified CSE PYQ exists for this form.",
+   "videoRefs": [],
+   "links": {
+    "mock": {
+     "subject": "engineering-mathematics",
+     "unit_slug": "calculus-optimization-integrals",
+     "unit_name": "Calculus: Maxima, Minima & Integrals",
+     "unit_number": 4,
+     "question_count": 25,
+     "subtopics": [
+      {
+       "label": "single-variable-extrema",
+       "questions": 7
+      },
+      {
+       "label": "multivariable-extrema-saddle-points",
+       "questions": 6
+      },
+      {
+       "label": "definite-integrals",
+       "questions": 6
+      },
+      {
+       "label": "vector-calculus-basics",
+       "questions": 6
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-28.html"
+    },
+    "mapped_at": "2026-10-29"
+   },
+   "subject": "calculus",
+   "topic": "mean-value-theorem",
+   "path": "subjects/calculus/mean-value-theorem/cauchy-extended-mvt.json"
+  },
+  {
+   "id": "auxiliary-function-construction",
+   "title": "Building the Function: The Auxiliary-Function Trick",
+   "priority": "P2",
+   "order": 190,
+   "unit": "Mean Value Theorem",
+   "quickIdea": "When the conclusion names a point where something vanishes, build the function whose derivative is that something, check its two endpoint values, then quote Rolle.",
+   "remember": [
+    "The mean value theorem itself is Rolle applied to g(x) = f(x) - [f(a) + ((f(b) - f(a))/(b - a))(x - a)], the vertical gap between the curve and its chord. g(a) = g(b) = 0.",
+    "For 'show ax^2 + bx + c = 0 has a root in (0, 1) given 2a + 3b + 6c = 0', integrate: F(x) = ax^3/3 + bx^2/2 + cx has F(0) = 0 and F(1) = (2a + 3b + 6c)/6 = 0, and F' is the given quadratic.",
+    "The recipe: read the object that must vanish, integrate it, verify the two endpoint values, then apply Rolle to the integral.",
+    "Always check both endpoint values before quoting the theorem; a construction that does not give equal endpoints proves nothing.",
+    "Cauchy's theorem uses the same construction with h(x) = (f(b) - f(a)) g(x) - (g(b) - g(a)) f(x)."
+   ],
+   "example": {
+    "prompt": "If 2a + 3b + 6c = 0, show that ax^2 + bx + c = 0 has at least one root in (0, 1).",
+    "work": "Let F(x) = ax^3/3 + bx^2/2 + cx. Then F(0) = 0 and F(1) = a/3 + b/2 + c = (2a + 3b + 6c)/6 = 0, so F satisfies Rolle's hypotheses on [0, 1] and some c0 in (0, 1) has F'(c0) = 0. But F'(x) = ax^2 + bx + c.",
+    "answer": "There is a root of ax^2 + bx + c in (0, 1), namely the Rolle point of F."
+   },
+   "gateAngle": "This is the shape of the descriptive MVT questions in the older GATE papers and of the 'which of the following must be true' statement questions: the given relation between the coefficients is exactly the equal-endpoint condition of some integral.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "If f(0) = 0 and f(1) = 1, show that some c in (0, 1) has f'(c) = 2c.",
+     "answer": "Apply Rolle to g(x) = f(x) - x^2.",
+     "why": "g(0) = 0 - 0 = 0 and g(1) = 1 - 1 = 0, so Rolle gives g'(c) = 0, that is f'(c) - 2c = 0. The auxiliary function is read off the conclusion: the thing that must vanish is f'(x) - 2x, so integrate it to get f(x) - x^2."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why does the mean value theorem need an auxiliary function at all, when Rolle's theorem is enough?",
+     "answer": "Because Rolle needs equal endpoint values, and the chord is what makes them equal.",
+     "why": "Subtracting the chord removes the height difference between f(a) and f(b), so the gap function starts and ends at 0 - and its derivative is f' minus the average slope."
+    }
+   ],
+   "trap": {
+    "what": "Applying Rolle to the given function instead of to its integral.",
+    "why": "The given quadratic has no reason to take equal values at the endpoints; the relation between the coefficients is a condition on the integral.",
+    "counterexample": "For a = 1, b = 0, c = -1/3 the relation 2a + 3b + 6c = 2 - 2 = 0 holds, and x^2 - 1/3 is not equal at 0 and 1 - Rolle cannot be applied to it, yet its root 0.577 does lie in (0, 1)."
+   },
+   "check": {
+    "question": "If f(0) = f(1) = f(2) = 0, how many distinct zeros does f' have in (0, 2)?",
+    "answer": "At least two.",
+    "explanation": "Rolle on [0, 1] gives one zero in (0, 1) and Rolle on [1, 2] gives another in (1, 2); the two intervals are disjoint, so the zeros are distinct."
+   },
+   "pyqIds": [],
+   "prereqs": [
+    "rolle-theorem-statement",
+    "cauchy-extended-mvt"
+   ],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "Calculus Volume 1, section 4.4: The Mean Value Theorem",
+     "channel": "OpenStax (Rice University)",
+     "url": "https://openstax.org/books/calculus-volume-1/pages/4-4-the-mean-value-theorem",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read from the section opening through the proof of the mean value theorem: Rolle's statement, the three-case proof from the extreme value theorem, the |x| - 1 counterexample, the two worked Rolle examples (x^2 + 2x on [-2,0], x^3 - 4x on [-2,2]), the mean value theorem statement and its proof by the auxiliary function g(x) = f(x) minus the chord. The later corollary subsection was beyond the returned extract and is not quoted"
+    },
+    {
+     "kind": "lecture-summary",
+     "title": "13 Oct - EM - Calculus Part 3, the Rolle's theorem and mean value theorem segment",
+     "channel": "Knowledge Gate (Yash Jain)",
+     "url": "https://www.knowledgegate.ai/learn/GATE-GUIDANCE-BY-SANCHIT-SIR/live-classes/gate-2026-live-class/engineering-mathematics-for-gate-exam/asset-13-oct-em-calculus-part-3",
+     "language": "hi",
+     "transcript": "SUMMARY_ONLY",
+     "translated": true,
+     "note": "Hindi-medium live class; the platform's published English AI chapter summary with timestamps was read in full, the lecture itself was not. Chapters used: 10:00-15:00 Rolle's theorem, its three conditions and the horizontal-tangent picture; 15:00-20:00 the GATE CS 2014 determinant question solved by Rolle; 20:00-25:00 Lagrange's mean value theorem with the secant picture; 25:00-30:00 Cauchy's extended mean value theorem in the form (f(b)-f(a))g'(c) = (g(b)-g(a))f'(c)"
+    }
+   ],
+   "sourceLine": "The chord-subtraction construction and its use in the proof of the mean value theorem: OpenStax section 4.4 (English). Cauchy's form of the same construction: Knowledge Gate chapter summary 25:00-30:00 (Hindi-medium lecture, English summary - translated). The 2a + 3b + 6c example is derived and recomputed in scripts/validate.py.",
+   "videoRefs": [],
+   "links": {
+    "mock": {
+     "subject": "engineering-mathematics",
+     "unit_slug": "calculus-optimization-integrals",
+     "unit_name": "Calculus: Maxima, Minima & Integrals",
+     "unit_number": 4,
+     "question_count": 25,
+     "subtopics": [
+      {
+       "label": "single-variable-extrema",
+       "questions": 7
+      },
+      {
+       "label": "multivariable-extrema-saddle-points",
+       "questions": 6
+      },
+      {
+       "label": "definite-integrals",
+       "questions": 6
+      },
+      {
+       "label": "vector-calculus-basics",
+       "questions": 6
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-28.html"
+    },
+    "mapped_at": "2026-10-29"
+   },
+   "subject": "calculus",
+   "topic": "mean-value-theorem",
+   "path": "subjects/calculus/mean-value-theorem/auxiliary-function-construction.json"
+  },
+  {
+   "id": "inequalities-from-mvt",
+   "title": "Proving Inequalities with the MVT",
+   "priority": "P3",
+   "order": 191,
+   "unit": "Mean Value Theorem",
+   "quickIdea": "To prove f(x) >= g(x) between two points, apply the mean value theorem to the difference and bound its derivative on the interval between them.",
+   "remember": [
+    "e^x >= 1 + x for x >= 0: on [0, x] the theorem gives e^x - 1 = e^c x with 0 < c < x, and e^c >= 1.",
+    "ln(1 + x) <= x for x >= 0: ln(1 + x) - ln(1) = x/(1 + c) with 0 < c < x, and 1/(1 + c) <= 1.",
+    "|sin a - sin b| <= |a - b| for all a, b: the derivative cos is bounded by 1 in absolute value.",
+    "The direction of the inequality comes from the sign of b - a. On a negative interval the same bound reverses, so write the theorem as f(b) - f(a) = f'(c)(b - a) and read the signs.",
+    "The bound is sharp only where the derivative bound is attained; e^x >= 1 + x is an equality exactly at x = 0."
+   ],
+   "example": {
+    "prompt": "Use the mean value theorem to show that e^0.5 >= 1.5.",
+    "work": "Apply the theorem to f(x) = e^x on [0, 0.5]: e^0.5 - e^0 = e^c (0.5 - 0) for some c in (0, 0.5). Since e^c >= 1 on that interval, e^0.5 - 1 >= 0.5.",
+    "answer": "e^0.5 >= 1.5. Numerically e^0.5 = 1.6487, so the bound holds with room to spare."
+   },
+   "gateAngle": "No verified GATE CSE question in this topic asks for an inequality proof, which is why this card is P3. It is kept because the same one-line bound (|f'| <= M) is what the 2021 Set 2 Q.25 question uses, and because inequality statements appear as MSQ options.",
+   "variations": [
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Show that ln(1.5) <= 0.5 using the mean value theorem.",
+     "answer": "Apply the theorem to ln(1 + x) on [0, 0.5]: ln(1.5) - ln(1) = 0.5/(1 + c) <= 0.5.",
+     "why": "The derivative 1/(1 + c) is at most 1 because c > 0. Numerically ln(1.5) = 0.4055, which is the value the bound is protecting."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "Which is larger for x > 0: e^x or 1 + x + x^2/2?",
+     "answer": "e^x, for every x > 0.",
+     "why": "Apply the theorem twice, or use the second-order Taylor bound with Lagrange remainder, which is the mean value theorem applied to the difference. At x = 0.5 the two sides are 1.6487 and 1.625, so the gap is real but small - a good multiple-select distractor."
+    }
+   ],
+   "trap": {
+    "what": "Quoting the bound without checking the sign of b - a.",
+    "why": "f(b) - f(a) = f'(c)(b - a); if b < a the factor is negative and the inequality flips.",
+    "counterexample": "The bound ln(1 + x) <= x is stated for x >= 0. At x = -0.5 the left side is ln(0.5) = -0.693 and the right side is -0.5, so the inequality is false - the interval runs the other way."
+   },
+   "check": {
+    "question": "Show that |cos 1 - cos 0.5| <= 0.5.",
+    "answer": "True, because |sin c| <= 1 for the c the theorem produces.",
+    "explanation": "cos 1 - cos 0.5 = -sin(c)(0.5) for some c in (0.5, 1), so the absolute value is at most 0.5. Numerically cos 1 = 0.5403 and cos 0.5 = 0.8776, a difference of 0.337."
+   },
+   "pyqIds": [],
+   "prereqs": [
+    "mvt-bounds-on-function-values"
+   ],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "Calculus I, section 4.7: The Mean Value Theorem",
+     "channel": "Paul's Online Math Notes, Lamar University",
+     "url": "https://tutorial.math.lamar.edu/classes/calci/MeanValueTheorem.aspx",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read from the opening through the geometric interpretation: Rolle's three hypotheses, the exactly-one-real-root example 4x^5 + x^3 + 7x - 2, the mean value theorem statement, the explicit note that the theorem does not say what c is, and the secant-parallel-to-tangent picture. The corollary list further down the page was beyond the returned extract"
+    }
+   ],
+   "sourceLine": "The theorem in the form f(b) - f(a) = f'(c)(b - a), which is what every inequality proof here uses: Paul's Online Math Notes section 4.7 (English). Each bound and each numerical value is recomputed in scripts/validate.py.",
+   "videoRefs": [],
+   "links": {
+    "mock": {
+     "subject": "engineering-mathematics",
+     "unit_slug": "calculus-optimization-integrals",
+     "unit_name": "Calculus: Maxima, Minima & Integrals",
+     "unit_number": 4,
+     "question_count": 25,
+     "subtopics": [
+      {
+       "label": "single-variable-extrema",
+       "questions": 7
+      },
+      {
+       "label": "multivariable-extrema-saddle-points",
+       "questions": 6
+      },
+      {
+       "label": "definite-integrals",
+       "questions": 6
+      },
+      {
+       "label": "vector-calculus-basics",
+       "questions": 6
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-28.html"
+    },
+    "mapped_at": "2026-10-29"
+   },
+   "subject": "calculus",
+   "topic": "mean-value-theorem",
+   "path": "subjects/calculus/mean-value-theorem/inequalities-from-mvt.json"
+  },
+  {
+   "id": "not-identically-zero-derivative",
+   "title": "One Zero of f' Is Not Zero Everywhere",
+   "priority": "P2",
+   "order": 192,
+   "unit": "Mean Value Theorem",
+   "quickIdea": "Rolle produces a point where f' = 0. That does not make f' zero everywhere: if f is not constant on the interval, f' takes a nonzero value somewhere.",
+   "remember": [
+    "If f'(x) = 0 for all x in (a, b) then f is constant there, by the mean value theorem applied between any two points.",
+    "Contrapositive, which is what GATE asks: if f is not constant on the interval, then f' != 0 at some point of it.",
+    "To show f is not constant, exhibit two points with different values; one interior value is usually enough.",
+    "A function defined by a determinant is continuous and differentiable wherever its entries are, so check that no entry blows up on the interval - tan is undefined at pi/2.",
+    "Two rows of a determinant becoming equal is the standard way an endpoint value collapses to 0 without any computation."
+   ],
+   "example": {
+    "prompt": "GATE CSE 2014 Set 1 Q.6: f(theta) is the 3x3 determinant with first row (sin, cos, tan) at theta and the other two rows at pi/6 and pi/3. Show that both 'some theta has f'(theta) = 0' and 'some theta has f'(theta) != 0' are true on (pi/6, pi/3).",
+    "work": "At theta = pi/6 the first two rows are identical, so f(pi/6) = 0; at theta = pi/3 the first and third rows are identical, so f(pi/3) = 0. The entries are sin, cos and tan, all differentiable on [pi/6, pi/3] because pi/2 is outside it, so Rolle gives a theta with f'(theta) = 0. At theta = pi/4 the three rows are not proportional and the determinant is 0.0977, not 0, so f is not constant and f' cannot vanish everywhere.",
+    "answer": "Both statements hold, so the answer is option C: both I and II."
+   },
+   "gateAngle": "This is the one verified CSE question in the topic that is not a plain bound, and its second statement is the part students lose: Rolle proves existence of a zero, and the non-constant observation proves f' is not identically zero. GATE has used 'must be true' statement pairs of this kind repeatedly.",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2014 Set 1 Q.6, statements I and II as above.",
+     "answer": "Both I and II.",
+     "why": "I is Rolle; II is the corollary that a non-constant differentiable function cannot have f' = 0 everywhere."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "f(x) = sin x on [0, 2 pi]. Rolle gives a point with f' = 0. Is f'(x) = 0 at every point of the interval?",
+     "answer": "No: f'(0) = cos 0 = 1.",
+     "why": "The same two-step reasoning as the PYQ: existence from Rolle, non-constancy from one value. The variation isolates the step that the 2014 question rewards."
+    }
+   ],
+   "trap": {
+    "what": "Concluding from Rolle that f' is identically zero on the interval.",
+    "why": "Rolle gives one point, not an interval, and a single zero says nothing about the rest of the domain.",
+    "counterexample": "f(x) = x^2 - 1 on [-1, 1] has f(-1) = f(1) = 0 and f'(0) = 0, yet f'(1) = 2. The derivative is zero at exactly one point of the interval."
+   },
+   "check": {
+    "question": "A differentiable f on [0, 1] satisfies f(0) = f(1) = 0 and f'(x) = 0 for all x in (0, 1). What is f?",
+    "answer": "The constant function 0.",
+    "explanation": "Zero derivative on an interval forces a constant by the mean value theorem, and the constant is fixed by f(0) = 0."
+   },
+   "pyqIds": [
+    "gate-2014-set1-6-rolle-determinant"
+   ],
+   "prereqs": [
+    "rolle-theorem-statement",
+    "consequences-constant-and-monotone"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-summary",
+     "title": "13 Oct - EM - Calculus Part 3, the Rolle's theorem and mean value theorem segment",
+     "channel": "Knowledge Gate (Yash Jain)",
+     "url": "https://www.knowledgegate.ai/learn/GATE-GUIDANCE-BY-SANCHIT-SIR/live-classes/gate-2026-live-class/engineering-mathematics-for-gate-exam/asset-13-oct-em-calculus-part-3",
+     "language": "hi",
+     "transcript": "SUMMARY_ONLY",
+     "translated": true,
+     "note": "Hindi-medium live class; the platform's published English AI chapter summary with timestamps was read in full, the lecture itself was not. Chapters used: 10:00-15:00 Rolle's theorem, its three conditions and the horizontal-tangent picture; 15:00-20:00 the GATE CS 2014 determinant question solved by Rolle; 20:00-25:00 Lagrange's mean value theorem with the secant picture; 25:00-30:00 Cauchy's extended mean value theorem in the form (f(b)-f(a))g'(c) = (g(b)-g(a))f'(c)"
+    },
+    {
+     "kind": "text",
+     "title": "Calculus Volume 1, section 4.4: The Mean Value Theorem",
+     "channel": "OpenStax (Rice University)",
+     "url": "https://openstax.org/books/calculus-volume-1/pages/4-4-the-mean-value-theorem",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read from the section opening through the proof of the mean value theorem: Rolle's statement, the three-case proof from the extreme value theorem, the |x| - 1 counterexample, the two worked Rolle examples (x^2 + 2x on [-2,0], x^3 - 4x on [-2,2]), the mean value theorem statement and its proof by the auxiliary function g(x) = f(x) minus the chord. The later corollary subsection was beyond the returned extract and is not quoted"
+    }
+   ],
+   "sourceLine": "The GATE 2014 determinant question and the two-step solution: Knowledge Gate '13 Oct - EM - Calculus Part 3', chapter summary 15:00-20:00 (Hindi-medium lecture, English summary - translated), with the determinant value at pi/4 recomputed here and in scripts/validate.py. The corollary that zero derivative on an interval means constant: OpenStax section 4.4 (English).",
+   "videoRefs": [],
+   "links": {
+    "mock": {
+     "subject": "engineering-mathematics",
+     "unit_slug": "calculus-optimization-integrals",
+     "unit_name": "Calculus: Maxima, Minima & Integrals",
+     "unit_number": 4,
+     "question_count": 25,
+     "subtopics": [
+      {
+       "label": "single-variable-extrema",
+       "questions": 7
+      },
+      {
+       "label": "multivariable-extrema-saddle-points",
+       "questions": 6
+      },
+      {
+       "label": "definite-integrals",
+       "questions": 6
+      },
+      {
+       "label": "vector-calculus-basics",
+       "questions": 6
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-28.html"
+    },
+    "mapped_at": "2026-10-29"
+   },
+   "subject": "calculus",
+   "topic": "mean-value-theorem",
+   "path": "subjects/calculus/mean-value-theorem/not-identically-zero-derivative.json"
   }
  ],
  "pyqs": [
@@ -19395,6 +20686,27 @@ window.GATE_DATA = {
    "answer_evidence": "Three independent sources give 1: Testbook ('This question was previously asked in GATE CS 2014 Official Paper: Shift 1 ... Answer 1'), Knowledge Gate AI ('Correct answer: 1. rank(Augmented Matrix) = rank(Matrix) = no of unknowns'), and the ExamSIDE answer for the same question."
   },
   {
+   "id": "gate-2014-set1-6-rolle-determinant",
+   "year": "2014",
+   "paper": "GATE CS 2014 Set 1",
+   "question_ref": "Q.6",
+   "type": "MCQ",
+   "topic": "rolle-theorem-statement",
+   "text": "Let f(theta) be the determinant of the 3x3 matrix whose first row is (sin theta, cos theta, tan theta) and whose second and third rows are the same three functions evaluated at pi/6 and at pi/3, with theta in [pi/6, pi/3]. Which of the following statements is/are TRUE? I. There exists theta in (pi/6, pi/3) such that f'(theta) = 0. II. There exists theta in (pi/6, pi/3) such that f'(theta) != 0.",
+   "options": [
+    "I only",
+    "II only",
+    "Both I and II",
+    "Neither I nor II"
+   ],
+   "answer": "Option (C) - both I and II",
+   "solution": "At theta = pi/6 the first two rows coincide, so f(pi/6) = 0; at theta = pi/3 the first and third rows coincide, so f(pi/3) = 0. The entries sin, cos and tan are continuous and differentiable on [pi/6, pi/3] (tan is smooth there because pi/2 is outside the interval), so Rolle's theorem gives a theta in the open interval with f'(theta) = 0, which is I. For II, the determinant at theta = pi/4 is 0.0977, not 0, so f is not constant on the interval; a non-constant differentiable function cannot have f' = 0 at every point, so some theta has f'(theta) != 0. Both statements hold.",
+   "source_url": "https://gateoverflow.in/1763/gate-cse-2014-set-1-question-6",
+   "source_label": "GATE Overflow question page, GATE CSE 2014 Set 1 Q.6, with the accepted answer option C",
+   "verification": "SOURCED",
+   "answer_evidence": "Every answer on the GATE Overflow page concludes C, the shortest route being 'the conditions of Rolle's theorem hold, and the function is not constant'. Solutions Adda's GATE 2014 Set 1 page (question 16 in its numbering) also concludes that both statements are true. The determinant values f(pi/6) = 0, f(pi/3) = 0 and f(pi/4) = 0.0977 are recomputed in scripts/validate.py. The official key was not fetched and no marks field is recorded."
+  },
+  {
    "id": "gate-2014-set2-3-max-edges-bipartite",
    "year": "2014",
    "paper": "GATE CS 2014 Set 2",
@@ -20113,6 +21425,27 @@ window.GATE_DATA = {
    "answer_evidence": "The accepted answer rewrites (C) as (there exists x P(x)) implies W and concludes (C) is not logically valid, while (D) is valid."
   },
   {
+   "id": "gate-2020-q1-increasing-everywhere",
+   "year": "2020",
+   "paper": "GATE CS 2020",
+   "question_ref": "Q.1",
+   "type": "MCQ",
+   "topic": "consequences-constant-and-monotone",
+   "text": "Consider the functions I. e^(-x) II. x^2 - sin x III. sqrt(x^3 + 1). Which of the above functions is/are increasing everywhere in [0, 1]?",
+   "options": [
+    "III only",
+    "II only",
+    "II and III only",
+    "I and III only"
+   ],
+   "answer": "Option (A) - III only",
+   "solution": "I: the derivative of e^(-x) is -e^(-x), negative on [0, 1], so it decreases. II: the derivative of x^2 - sin x is 2x - cos x, which equals -1 at x = 0 and about 1.4597 at x = 1, so the function decreases on part of [0, 1] before rising. III: the derivative of sqrt(x^3 + 1) is 3x^2 / (2 sqrt(x^3 + 1)), positive for x in (0, 1] and zero only at 0, so the function increases throughout. Only III qualifies.",
+   "source_url": "https://gateoverflow.in/333230/gate-cse-2020-question-1",
+   "source_label": "GATE Overflow question page, GATE CSE 2020 Q.1, with the accepted answer 'III only'",
+   "verification": "SOURCED",
+   "answer_evidence": "All five answers on the GATE Overflow page conclude III only, four of them by differentiating each function and reading the sign. ExamSIDE's calculus bank lists the same question with the same options, and the EduRev GATE CSE calculus listing prints 'A: III only'. The values 2(0) - cos(0) = -1 and 2(1) - cos(1) = 1.4597 are recomputed in scripts/validate.py. GATE Overflow numbers this Q.1 and ExamSIDE numbers it 12, which is recorded rather than hidden; the official key was not fetched and no marks field is recorded."
+  },
+  {
    "id": "gate-2021-2-50",
    "year": "2021",
    "paper": "GATE CS 2021 Set 2",
@@ -20236,6 +21569,21 @@ window.GATE_DATA = {
    "source_label": "GATE Overflow question page - GATE CSE 2021 Set 2 Q.24 with the accepted answer (4)",
    "verification": "SOURCED",
    "answer_evidence": "Accepted answer: 'nullity = 1 by rank-nullity rank + 1 = 5, so rank = 4'."
+  },
+  {
+   "id": "gate-2021-set2-25-mvt-bound",
+   "year": "2021",
+   "paper": "GATE CS 2021 Set 2",
+   "question_ref": "Q.25",
+   "type": "NAT",
+   "topic": "mvt-bounds-on-function-values",
+   "text": "Suppose that f: R -> R is a continuous function on the interval [-3, 3] and a differentiable function in the interval (-3, 3) such that for every x in the interval, f'(x) <= 2. If f(-3) = 7, then f(3) is at most ____.",
+   "answer": "19",
+   "solution": "The hypotheses are exactly those of Lagrange's mean value theorem on [-3, 3], so there is a c in (-3, 3) with f'(c) = (f(3) - f(-3)) / (3 - (-3)) = (f(3) - 7) / 6. Since f'(c) <= 2, (f(3) - 7)/6 <= 2, so f(3) - 7 <= 12 and f(3) <= 19. The bound is attained by the straight line f(x) = 2x + 13, which has f(-3) = 7 and f(3) = 19.",
+   "source_url": "https://gateoverflow.in/357515/gate-cse-2021-set-2-question-25",
+   "source_label": "GATE Overflow question page, GATE CSE 2021 Set 2 Q.25, with the accepted answer 19",
+   "verification": "SOURCED",
+   "answer_evidence": "All six answers on the GATE Overflow page give 19; one of them states the mean value theorem route explicitly and adds that the shortcut 'assume f(x) = 2x + b' happens to work here but is not a proof. ExamSIDE's calculus bank and the GateAI PYQ listing for the same question both print 'Correct answer is 19'. Recomputed in scripts/validate.py. The official key was not fetched and no marks field is recorded."
   },
   {
    "id": "gate-2022-10-trace-cyclic",
