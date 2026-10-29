@@ -247,7 +247,7 @@ window.GATE_DATA = {
      {
       "slug": "mean-median-mode-standard-deviation",
       "name": "Mean, Median, Mode and Standard Deviation",
-      "material": "planned"
+      "material": "cards"
      },
      {
       "slug": "conditional-probability-and-bayes",
@@ -22671,6 +22671,1186 @@ window.GATE_DATA = {
    "subject": "probability-and-statistics",
    "topic": "random-variables-and-distributions",
    "path": "subjects/probability-and-statistics/random-variables-and-distributions/sums-of-independent-random-variables.json"
+  },
+  {
+   "id": "mean-of-a-data-set",
+   "title": "The Arithmetic Mean and the Balance Point",
+   "priority": "P1",
+   "order": 313,
+   "unit": "Mean, Median, Mode and Standard Deviation",
+   "quickIdea": "The mean is the sum of the values divided by how many there are, and it is the point where the signed deviations cancel - which is exactly why one huge value drags it away.",
+   "remember": [
+    "Mean of n values: x-bar = (x1 + x2 + ... + xn) / n. For a frequency table with class midpoints m and frequencies f, x-bar = sum(f*m) / sum(f).",
+    "Weighted mean: x-bar = sum(w*x) / sum(w). A credit-weighted course average is a weighted mean, not the plain average of the grades.",
+    "The mean is the balance point of the data: sum(x - x-bar) = 0 for every list. That identity is what the mean is, not a coincidence about it.",
+    "The mean reads every value, so it is not robust. Move one value far away and the mean moves with it, while the median and the mode may not move at all.",
+    "The mean of a list and the mean of a random variable are the same operation: E[X] is the probability-weighted average, and if a value is drawn uniformly from the list then its mean is E[X].",
+    "The mean is monotone: if X <= Y for every outcome then E[X] <= E[Y]. That one fact decides GATE CSE 2024 Set 2 Q.44 without any distributional assumption.",
+    "Never average the midpoints unweighted when a frequency column is present; the frequencies are the weights."
+   ],
+   "example": {
+    "prompt": "A student takes three courses: 2 credits with 72 marks, 3 credits with 88 marks, 5 credits with 64 marks. What is the credit-weighted mean?",
+    "work": "sum(w*x) = 2*72 + 3*88 + 5*64 = 144 + 264 + 320 = 728. sum(w) = 2 + 3 + 5 = 10. Weighted mean = 728/10 = 72.8. The unweighted average of 72, 88 and 64 would be 74.667, which is the wrong answer.",
+    "answer": "72.8 marks."
+   },
+   "gateAngle": "GATE CSE 2014 Set 2 Q.2 asks for the expected length of a word drawn from nine equally likely words, which is the arithmetic mean of nine lengths, 35/9 = 3.9. GATE CSE 2024 Set 2 Q.44 asks which inequality between means must hold for variables confined to [0,1]; the answer is the monotonicity of the mean, 0 <= xy <= x pointwise so z-bar <= x-bar.",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2014 Set 2 Q.2: Each of the nine words in 'The quick brown fox jumps over the lazy dog' is written on a separate piece of paper, one is drawn at random, and the expected length of the word drawn is ______ (one decimal place).",
+     "answer": "3.9.",
+     "why": "The lengths are 3, 5, 5, 3, 5, 4, 3, 4, 3, which sum to 35, and each word has probability 1/9, so E[L] = 35/9 = 3.8889. The question is a mean wearing a probability hat: no distribution theory is needed beyond equal probabilities."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "A frequency table records the number of defects per board: 0 defects on 12 boards, 1 on 20 boards, 2 on 15 boards, 3 on 3 boards. Find the mean number of defects per board.",
+     "answer": "1.18.",
+     "why": "N = 12 + 20 + 15 + 3 = 50 and sum(f*m) = 0*12 + 1*20 + 2*15 + 3*3 = 0 + 20 + 30 + 9 = 59, so the mean is 59/50 = 1.18. Dividing 59 by the four distinct values instead of by the fifty boards is the standard slip."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "A variable takes the four values 2, 4, 6 and 8 with equal probability. Without using the probability language, what is its mean?",
+     "answer": "5.",
+     "why": "(2 + 4 + 6 + 8)/4 = 20/4 = 5, and E[X] = (1/4)(2 + 4 + 6 + 8) = 5 as well. The two computations are the same sum, which is why the mean of a data set and the mean of a random variable are not two topics."
+    }
+   ],
+   "trap": {
+    "what": "Averaging class midpoints without weighting them by their frequencies, or averaging group means of different sizes.",
+    "why": "The frequency column is the weight. Dropping it silently replaces a weighted mean with an unweighted one, and the answer moves a long way whenever the classes are unequal in size.",
+    "counterexample": "Classes with midpoints 5, 15, 25, 35 and 45 and frequencies 1, 1, 1, 1 and 96 have the weighted mean (5 + 15 + 25 + 35 + 96*45)/100 = 4400/100 = 44, not the unweighted midpoint average of 25."
+   },
+   "check": {
+    "question": "Find the mean of 4, 6, 6, 8, 11.",
+    "answer": "7.",
+    "explanation": "The sum is 4 + 6 + 6 + 8 + 11 = 35 and n = 5, so x-bar = 7. As a check, the deviations are -3, -1, -1, 1 and 4, which sum to 0."
+   },
+   "pyqIds": [
+    "gate-2014-set2-2-expected-word-length-as-mean",
+    "gate-2024-set2-44-mean-of-product-bounded"
+   ],
+   "prereqs": [],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "Descriptive statistics formulas (GATE-oriented formula sheet)",
+     "channel": "IAE Academy",
+     "url": "https://iaeacademy.in/study/probability-statistics/formula-sheet/descriptive-statistics",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read in full through the search service's extract: the arithmetic mean of raw and grouped data, the median of raw and grouped data with the continuous-boundary warning, the mode of grouped data, the median condition F(m) = 1/2 for a random variable, the two deviation identities (squares minimised at the mean, absolute values at the median), population against sample variance, the effect of y = ax + b, the combined mean and the combined variance"
+    },
+    {
+     "kind": "lecture-transcript",
+     "title": "Lec 4, Central Tendency and Dispersion - I",
+     "channel": "IIT Roorkee (NPTEL-style lecture series, July 2018)",
+     "url": "https://pickscribe.com/v/1MiT06JFNo4/",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read through a third-party transcript page, from the opening to the weighted-average example; the later part (median position, grouped median and mode, percentiles, deviations summing to zero, mean absolute deviation, variance and the two reasons for squaring) was read through the search service's longer extract of the same transcript"
+    },
+    {
+     "kind": "pyq-compilation",
+     "title": "GATE Overflow for GATE CSE, Volume 1 - Engineering Mathematics: Probability, chapter 7",
+     "channel": "GATE Overflow (GO-PDFs release, gatecse-2026)",
+     "url": "https://github.com/GATEOverflow/GO-PDFs/releases/tag/gatecse-2026",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read as a text layer across the chapter: used for the question numbering and the classification of every GATE CSE probability question from 1987 to 2026, which is how the five PYQs of this topic were found and how the General Aptitude and other-branch questions were told apart from CSE engineering-mathematics ones"
+    }
+   ],
+   "sourceLine": "The grouped mean as a weighted mean of midpoints, the balance-point identity and the monotonicity of the mean: the IAE Academy GATE formula sheet (English) and the IIT Roorkee Lecture 4 transcript (English). The question numbering for both PYQs: GATE Overflow Volume 1, chapter 7 (English).",
+   "videoRefs": [],
+   "subject": "probability-and-statistics",
+   "topic": "mean-median-mode-standard-deviation",
+   "path": "subjects/probability-and-statistics/mean-median-mode-standard-deviation/mean-of-a-data-set.json"
+  },
+  {
+   "id": "median-and-its-position",
+   "title": "The Median and Its Position",
+   "priority": "P1",
+   "order": 314,
+   "unit": "Mean, Median, Mode and Standard Deviation",
+   "quickIdea": "The median is the middle value once the data is sorted: position (n+1)/2 when n is odd, and the average of the two middle values when n is even.",
+   "remember": [
+    "Sort first. The median is a positional measure: it depends on the ranks of the values, not on their sizes.",
+    "Odd n: the median is the value at position (n+1)/2. Even n: the average of the values at positions n/2 and n/2 + 1.",
+    "The median is robust. Replacing the largest value by anything even larger leaves the median unchanged, because the rank of every value is unchanged.",
+    "At most half the data lies strictly above the median and at most half lies strictly below it. That is the defining property, and it is what the random-variable definition generalises.",
+    "For even n the median need not be one of the data values - it is a number between two of them.",
+    "The median minimises the sum of absolute deviations from a point; the mean minimises the sum of squared deviations. The two summaries are answers to two different minimisation problems.",
+    "The median is not the most common value. The most common value is the mode, and in a skewed list the median and the mode are usually different numbers."
+   ],
+   "example": {
+    "prompt": "Find the median of 3, 7, 8, 9, 12, 15.",
+    "work": "The list is already sorted and n = 6 is even, so the two middle positions are 3 and 4, holding 8 and 9. Median = (8 + 9)/2 = 8.5. The mean is 54/6 = 9.",
+    "answer": "Median 8.5, mean 9."
+   },
+   "gateAngle": "No GATE CSE engineering-mathematics question asks for the median of a raw data set on its own; the median enters through the invariance statement of 2011 Q.33 (its index position survives y = ax + b) and through the median of a random variable in 2017 Set 1 Q.19.",
+   "variations": [
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "The list 3, 7, 8, 9, 12, 15 is changed by replacing 15 with 1000. What happens to the mean, the median and the mode?",
+     "answer": "The mean rises from 9 to 173.1667, the median stays at 8.5, and the mode is unchanged because every value still occurs once.",
+     "why": "The new sum is 1039 over 6 values. The middle two values are still 8 and 9. This is the whole argument for reporting a median on skewed data."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "Seven students score 1, 2, 2, 3, 4, 5, 5. Find the median and say whether it is one of the scores.",
+     "answer": "The median is 3, which is one of the scores.",
+     "why": "n = 7 is odd, so the position is (7+1)/2 = 4 and the fourth smallest value is 3. With an odd count the median is always a data value; with an even count it need not be."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "A list of nine distinct numbers has median 20. If the smallest three are each decreased by 5, what is the new median?",
+     "answer": "Still 20.",
+     "why": "Changing values that sit below the fifth position does not change which value is fifth, as long as they stay below it, and decreasing them cannot lift them above it. Positional measures survive changes that do not cross the middle."
+    }
+   ],
+   "trap": {
+    "what": "Taking the two middle entries of the unsorted list, or applying the odd-n rule to an even count.",
+    "why": "The median is defined on the ordered list. Reading the middle of the list as written measures nothing at all.",
+    "counterexample": "For 9, 3, 7, 15, 8, 12 the two middle entries as written are 7 and 15, giving 11. Sorted, the list is 3, 7, 8, 9, 12, 15 and the median is (8+9)/2 = 8.5."
+   },
+   "check": {
+    "question": "Find the median of 12, 7, 3, 9, 15, 8, 11.",
+    "answer": "9.",
+    "explanation": "Sorted: 3, 7, 8, 9, 11, 12, 15. n = 7 is odd, so the position is (7+1)/2 = 4 and the fourth value is 9."
+   },
+   "pyqIds": [],
+   "prereqs": [],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "Descriptive statistics formulas (GATE-oriented formula sheet)",
+     "channel": "IAE Academy",
+     "url": "https://iaeacademy.in/study/probability-statistics/formula-sheet/descriptive-statistics",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read in full through the search service's extract: the arithmetic mean of raw and grouped data, the median of raw and grouped data with the continuous-boundary warning, the mode of grouped data, the median condition F(m) = 1/2 for a random variable, the two deviation identities (squares minimised at the mean, absolute values at the median), population against sample variance, the effect of y = ax + b, the combined mean and the combined variance"
+    },
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 04: Measures of central tendency and dispersion",
+     "channel": "NPTEL, Forest Biometry (IIT Kanpur)",
+     "url": "http://www.digimat.in/nptel/courses/video/102104060/lec4.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read from the opening through the mean and its outlier limitation, the median on the same eleven retirement ages, the mode on the same data and on rating data, the empirical relation median minus mode equals twice mean minus median, and the standard deviation worked example on five dog heights; the later dispersion material was not read"
+    },
+    {
+     "kind": "text",
+     "title": "Probability subject notes (GATE Overflow for GATE CSE Volume 1) - the Statistics section",
+     "channel": "GATE Overflow",
+     "url": "https://gateoverflow.in/subject/mathematics/probability?tab=notes",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read in part through the search service's extract: the Statistics block giving the mean, median and mode as measures of central tendency, variance and standard deviation as measures of dispersion, range as max minus min, and the population against sample variance conventions with the note that the mean is pulled by skew"
+    }
+   ],
+   "sourceLine": "The (n+1)/2 position rule, the even-n average and the robustness argument: the IAE Academy GATE formula sheet (English), the NPTEL Forest Biometry Lecture 4 transcript (English, which works the retirement-age example where adding a 20 moves the mean far and the median by half a year) and the GATE Overflow statistics notes (English).",
+   "videoRefs": [],
+   "subject": "probability-and-statistics",
+   "topic": "mean-median-mode-standard-deviation",
+   "path": "subjects/probability-and-statistics/mean-median-mode-standard-deviation/median-and-its-position.json"
+  },
+  {
+   "id": "mode-and-multimodality",
+   "title": "The Mode, Ties and Non-Numeric Data",
+   "priority": "P2",
+   "order": 315,
+   "unit": "Mean, Median, Mode and Standard Deviation",
+   "quickIdea": "The mode is the value with the highest frequency; a data set can have no mode, one mode, or several, and the mode is the only one of the three summaries that also works for categories.",
+   "remember": [
+    "Mode = the value of maximum frequency. Count frequencies first; nothing else is needed.",
+    "If every value occurs once there is no mode. Some texts instead say every value is a mode; state which convention you are using rather than assuming one.",
+    "Two values tied at the top give a bimodal data set; more than two give a multimodal one. A tie is a property of the data, not a mistake in the calculation.",
+    "The mode ignores how far the other values are from it. Moving a non-modal value from 100 to 10000 changes the mode not at all.",
+    "The mode is the only measure of centre that makes sense for nominal data - a colour, a brand, a city - because a mean or a median needs order or arithmetic.",
+    "For a continuous variable the mode is the point where the density peaks, and for a grouped table it is the modal class refined by an interpolation formula.",
+    "In a unimodal, moderately skewed distribution the three summaries are ordered, and the mode sits at the far end from the tail."
+   ],
+   "example": {
+    "prompt": "Find the mode of 2, 3, 3, 5, 7, 7, 7, 9.",
+    "work": "Frequencies: 2 once, 3 twice, 5 once, 7 three times, 9 once. The largest frequency is 3, at the value 7. For comparison, the mean is 43/8 = 5.375 and the median, the average of the fourth and fifth values 5 and 7, is 6.",
+    "answer": "The mode is 7, the only mode."
+   },
+   "gateAngle": "No GATE CSE engineering-mathematics question asks for a mode on its own. The mode appears in 2011 Q.33 as the statistic whose index position survives the transformation y = ax + b, and in the aptitude papers as part of a mean-median-mode relation.",
+   "variations": [
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Give the mode or modes of 1, 2, 2, 3, 3, 4, and then of 1, 2, 3, 4, 5.",
+     "answer": "The first list is bimodal with modes 2 and 3; the second has no mode under the strict convention.",
+     "why": "In the first list two values tie at frequency 2, so neither is more typical than the other. In the second every frequency is 1, so no value is more frequent than any other."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "A grouped table has classes 10-20, 20-30, 30-40, 40-50 with frequencies 5, 9, 14, 8. Which class is the modal class, and what is the mode?",
+     "answer": "The modal class is 30-40 and the mode is 34.55.",
+     "why": "L = 30, f1 = 14, f0 = 9, f2 = 8 and h = 10, so mode = 30 + ((14-9)/(2*14 - 9 - 8))*10 = 30 + (5/11)*10 = 34.545. The modal class is the answer the table alone can justify; the interpolation is the refinement, and it is an approximation because the values inside a class are assumed evenly spread."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "X has a Poisson distribution with mean lambda = 2.4. What is its mode?",
+     "answer": "The mode is 2.",
+     "why": "The ratio P(X=k)/P(X=k-1) = lambda/k exceeds 1 exactly while k < lambda, so the mass increases up to floor(lambda) and decreases after it. With lambda = 2.4 the largest mass is at 2, not at the rounded 2.4."
+    }
+   ],
+   "trap": {
+    "what": "Reporting the mean when the mode was asked for, or insisting on a single mode when two values tie.",
+    "why": "The three summaries answer three different questions, and a tie is a legitimate outcome. A single number cannot always be reported for the mode.",
+    "counterexample": "For 1, 2, 2, 3, 3, 4 the mean is 2.5 and both 2 and 3 are modes; writing 'the mode is 2' discards half of the answer, and writing 'the mode is 2.5' answers a different question."
+   },
+   "check": {
+    "question": "Find the mode of 4, 4, 5, 6, 6, 7, 7, 7, 9.",
+    "answer": "7.",
+    "explanation": "The frequencies are 4: 2, 5: 1, 6: 2, 7: 3, 9: 1. The largest is 3 at the value 7, so 7 is the unique mode and the data is unimodal."
+   },
+   "pyqIds": [],
+   "prereqs": [],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "Descriptive statistics formulas (GATE-oriented formula sheet)",
+     "channel": "IAE Academy",
+     "url": "https://iaeacademy.in/study/probability-statistics/formula-sheet/descriptive-statistics",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read in full through the search service's extract: the arithmetic mean of raw and grouped data, the median of raw and grouped data with the continuous-boundary warning, the mode of grouped data, the median condition F(m) = 1/2 for a random variable, the two deviation identities (squares minimised at the mean, absolute values at the median), population against sample variance, the effect of y = ax + b, the combined mean and the combined variance"
+    },
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 04: Measures of central tendency and dispersion",
+     "channel": "NPTEL, Forest Biometry (IIT Kanpur)",
+     "url": "http://www.digimat.in/nptel/courses/video/102104060/lec4.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read from the opening through the mean and its outlier limitation, the median on the same eleven retirement ages, the mode on the same data and on rating data, the empirical relation median minus mode equals twice mean minus median, and the standard deviation worked example on five dog heights; the later dispersion material was not read"
+    },
+    {
+     "kind": "lecture-transcript",
+     "title": "Lec 4, Central Tendency and Dispersion - I",
+     "channel": "IIT Roorkee (NPTEL-style lecture series, July 2018)",
+     "url": "https://pickscribe.com/v/1MiT06JFNo4/",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read through a third-party transcript page, from the opening to the weighted-average example; the later part (median position, grouped median and mode, percentiles, deviations summing to zero, mean absolute deviation, variance and the two reasons for squaring) was read through the search service's longer extract of the same transcript"
+    }
+   ],
+   "sourceLine": "The frequency definition and the bimodal and multimodal cases: the NPTEL Forest Biometry Lecture 4 transcript (English, which also shows why the mode is the one summary available for rating data) and the IIT Roorkee Lecture 4 transcript (English). The modal-class interpolation and the density reading: the IAE Academy GATE formula sheet (English).",
+   "videoRefs": [],
+   "subject": "probability-and-statistics",
+   "topic": "mean-median-mode-standard-deviation",
+   "path": "subjects/probability-and-statistics/mean-median-mode-standard-deviation/mode-and-multimodality.json"
+  },
+  {
+   "id": "mean-median-mode-relation-and-skewness",
+   "title": "How Mean, Median and Mode Sit Together",
+   "priority": "P2",
+   "order": 316,
+   "unit": "Mean, Median, Mode and Standard Deviation",
+   "quickIdea": "In a symmetric unimodal distribution all three coincide; a long right tail puts the mean above the median, a long left tail puts it below, and the empirical rule mode = 3 median - 2 mean is a summary of that ordering, not an identity.",
+   "remember": [
+    "Symmetric and unimodal: mean = median = mode, all at the centre of symmetry.",
+    "Right-skewed (tail to the right): mean > median > mode. Left-skewed: mean < median < mode. The mean is pulled furthest because it uses the sizes; the median only counts ranks.",
+    "For moderately skewed unimodal data the median lies between the mean and the mode.",
+    "Empirical relation: mode = 3*median - 2*mean, equivalently median = (mode + 2*mean)/3. It is an approximation for moderately skewed unimodal data.",
+    "It is not a theorem and it fails on arbitrary data, so do not use it unless the question says the distribution is moderately skewed or gives you two of the three and nothing else.",
+    "A bimodal distribution breaks the picture entirely: the mean and median can both sit between two modes that are far apart.",
+    "In a perfectly symmetric distribution an odd central moment vanishes, which is why the mean and the median coincide there."
+   ],
+   "example": {
+    "prompt": "A moderately skewed distribution has mean 40 and median 37. Estimate its mode, and say which way it is skewed.",
+    "work": "mode = 3*median - 2*mean = 3*37 - 2*40 = 111 - 80 = 31. The ordering is mode 31 < median 37 < mean 40, so the tail is on the right.",
+    "answer": "Mode about 31, right-skewed."
+   },
+   "gateAngle": "GATE has tested the ordering rather than the formula: a question that gives a skewed histogram and asks which of the three is largest is answered by the tail direction. The formula itself appears in GATE aptitude papers and in ISRO CSE 2014 Q.74 (mode 15, mean 30, median 25), not in a CSE engineering-mathematics question.",
+   "variations": [
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "A histogram of incomes is strongly right-skewed. Which of the mean, median and mode is largest, and which should be quoted as the typical income?",
+     "answer": "The mean is largest; the median is the honest typical value.",
+     "why": "A few very large incomes pull the mean far to the right, and the mode sits at the peak of the mass on the left. Quoting the mean of a skewed income distribution overstates what a typical earner receives."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "For a moderately skewed unimodal distribution the mean is 60 and the mode is 48. Find the median.",
+     "answer": "56.",
+     "why": "median = (mode + 2*mean)/3 = (48 + 120)/3 = 168/3 = 56. Check the ordering: 48 < 56 < 60, which is consistent with a right skew, so the answer is self-consistent."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "The data is 15, 15, 15, 75. Apply the empirical relation with mean 30 and mode 15. What does it give, and what is the true median?",
+     "answer": "The relation gives 25; the true median is 15.",
+     "why": "The relation is an approximation for moderately skewed unimodal data, and this list is neither. With n = 4 the median is the average of the middle two values, which are both 15. A question that hands you the formula and a hostile data set is testing whether you notice this."
+    }
+   ],
+   "trap": {
+    "what": "Treating mode = 3 median - 2 mean as an identity that holds for every data set.",
+    "why": "It is an empirical approximation derived for moderately skewed unimodal distributions. Applied blindly it returns a median that is not even a plausible value.",
+    "counterexample": "For 15, 15, 15, 75 the mean is 30 and the mode is 15, so the formula gives median 25, while the actual median is 15 - a ten-mark error from a formula that looked safe."
+   },
+   "check": {
+    "question": "A symmetric unimodal distribution has mean 12. What are its median and mode?",
+    "answer": "Both are 12.",
+    "explanation": "In a symmetric unimodal distribution the three summaries coincide at the centre of symmetry, so the median and the mode both equal the mean."
+   },
+   "pyqIds": [],
+   "prereqs": [
+    "mean-of-a-data-set",
+    "median-and-its-position",
+    "mode-and-multimodality"
+   ],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "Introductory Statistics 2e, section 2.6: Skewness and the Mean, Median, and Mode",
+     "channel": "OpenStax (Rice University)",
+     "url": "https://openstax.org/books/introductory-statistics-2e/pages/2-6-skewness-and-the-mean-median-and-mode",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read from the opening: the symmetrical histogram whose mean, median and mode are all seven, the bimodal case where the modes differ from the mean, and the two skewed histograms with the mean pulled toward the tail"
+    },
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 04: Measures of central tendency and dispersion",
+     "channel": "NPTEL, Forest Biometry (IIT Kanpur)",
+     "url": "http://www.digimat.in/nptel/courses/video/102104060/lec4.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read from the opening through the mean and its outlier limitation, the median on the same eleven retirement ages, the mode on the same data and on rating data, the empirical relation median minus mode equals twice mean minus median, and the standard deviation worked example on five dog heights; the later dispersion material was not read"
+    },
+    {
+     "kind": "text",
+     "title": "Probability subject notes (GATE Overflow for GATE CSE Volume 1) - the Statistics section",
+     "channel": "GATE Overflow",
+     "url": "https://gateoverflow.in/subject/mathematics/probability?tab=notes",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read in part through the search service's extract: the Statistics block giving the mean, median and mode as measures of central tendency, variance and standard deviation as measures of dispersion, range as max minus min, and the population against sample variance conventions with the note that the mean is pulled by skew"
+    }
+   ],
+   "sourceLine": "The symmetric case and the tail direction: OpenStax Introductory Statistics 2e section 2.6 (English), which works a symmetrical histogram where all three are seven and two skewed ones. The empirical relation median minus mode equals twice mean minus median, and the caution attached to it: the NPTEL Forest Biometry Lecture 4 transcript (English). The GATE framing: the GATE Overflow statistics notes (English).",
+   "videoRefs": [],
+   "subject": "probability-and-statistics",
+   "topic": "mean-median-mode-standard-deviation",
+   "path": "subjects/probability-and-statistics/mean-median-mode-standard-deviation/mean-median-mode-relation-and-skewness.json"
+  },
+  {
+   "id": "grouped-frequency-table-measures",
+   "title": "Mean, Median and Mode from a Grouped Table",
+   "priority": "P2",
+   "order": 317,
+   "unit": "Mean, Median, Mode and Standard Deviation",
+   "quickIdea": "A grouped table replaces each class by its midpoint, so the mean is a weighted mean of midpoints and the median and mode are found by locating a class and interpolating inside it.",
+   "remember": [
+    "Mean: x-bar = sum(f*m) / sum(f), with m the class midpoints. The midpoint stands in for every value in the class, so the answer is an approximation.",
+    "Median: find the first class whose cumulative frequency reaches N/2. Median = L + ((N/2 - F)/f)*h, with L the lower boundary of that class, F the cumulative frequency before it, f its frequency and h its width.",
+    "Mode: the modal class is the one with the largest frequency. Mode = L + ((f1 - f0)/(2*f1 - f0 - f2))*h, with f0 and f2 the frequencies of the classes before and after it.",
+    "Make the classes continuous before using either formula: 10-19, 20-29 becomes 9.5-19.5, 19.5-29.5, and h is 10 in both cases.",
+    "If the modal class is the first or the last class, take the missing neighbour's frequency as 0. The modal class and its two neighbours must have the same width.",
+    "Use N/2 in the median formula, not (N+1)/2. The grouped formula assumes the values inside a class are spread evenly, which is a different model from the positional rule for raw data.",
+    "A symmetric table is the cheapest check there is: it must return mean = median = mode at the centre."
+   ],
+   "example": {
+    "prompt": "Find the mean, median, mode and standard deviation of the table 0-10: 4, 10-20: 6, 20-30: 10, 30-40: 6, 40-50: 4.",
+    "work": "Midpoints 5, 15, 25, 35, 45 with N = 30. sum(f*m) = 20 + 90 + 250 + 210 + 180 = 750, so the mean is 25. Cumulative frequencies are 4, 10, 20, 26, 30, so N/2 = 15 falls in 20-30: L = 20, F = 10, f = 10, h = 10, giving 20 + ((15-10)/10)*10 = 25. The largest frequency is 10 in 20-30, so f1 = 10, f0 = 6, f2 = 6 and the mode is 20 + (4/8)*10 = 25. Squared deviations from 25 are 400, 100, 0, 100, 400, so sum(f*(m-25)^2) = 4400 and the variance is 4400/30 = 146.6667.",
+    "answer": "Mean 25, median 25, mode 25, standard deviation 12.1106."
+   },
+   "gateAngle": "The three formulas are where grouped data is examined, and the two things that go wrong are the class boundary and the N/2 against (N+1)/2. No GATE CSE engineering-mathematics question in this topic uses them, so this card carries no PYQ of its own.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "A table has classes 0-10, 10-20, 20-30, 30-40, 40-50 with frequencies 12, 18, 20, 25, 23. Find the mean and the median.",
+     "answer": "Mean 27.96 and median 29.5.",
+     "why": "N = 98, sum(f*m) = 60 + 270 + 500 + 875 + 1035 = 2740, so the mean is 2740/98 = 27.9592. Cumulative frequencies are 12, 30, 50, 75, 98, so N/2 = 49 falls in 20-30: 20 + ((49-30)/20)*10 = 29.5. Both numbers are recomputed in scripts/validate.py."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why does the grouped median formula use N/2 while the raw-data median uses position (n+1)/2?",
+     "answer": "Because the grouped formula interpolates a proportion of the way through a class, not a position in a list.",
+     "why": "Inside a class the data is assumed evenly spread, so half the observations lie below the point where the cumulative frequency reaches N/2. The (n+1)/2 rule is a counting rule for individual observations and has no meaning for a class."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "The classes are given as 10-19, 20-29, 30-39 with frequencies 5, 8, 7. What are L and h for the median formula, and what is the median?",
+     "answer": "L = 19.5 and h = 10, giving a median of 25.75.",
+     "why": "The limits leave a gap, so the continuous boundaries are 9.5-19.5, 19.5-29.5, 29.5-39.5. N = 20 and N/2 = 10, which falls in 19.5-29.5: 19.5 + ((10-5)/8)*10 = 25.75. Using L = 20 instead of 19.5 is the standard half-mark error."
+    }
+   ],
+   "trap": {
+    "what": "Using the printed class limits as L, or forgetting to make the classes continuous before computing h.",
+    "why": "The formula interpolates over a continuous interval. With a gap between classes the printed lower limit is not the boundary of the interval the data actually occupies.",
+    "counterexample": "For classes 10-19, 20-29, 30-39 the true lower boundary of the second class is 19.5, not 20. Using 20 shifts the median by half a unit and every subsequent step inherits the error."
+   },
+   "check": {
+    "question": "For the symmetric table 0-10: 4, 10-20: 6, 20-30: 10, 30-40: 6, 40-50: 4, what is the standard deviation?",
+    "answer": "12.1106.",
+    "explanation": "sum(f*(m - 25)^2) = 4*400 + 6*100 + 10*0 + 6*100 + 4*400 = 4400, so the variance is 4400/30 = 146.6667 and the standard deviation is its square root, 12.1106."
+   },
+   "pyqIds": [],
+   "prereqs": [
+    "mean-of-a-data-set",
+    "median-and-its-position",
+    "mode-and-multimodality"
+   ],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "Descriptive statistics formulas (GATE-oriented formula sheet)",
+     "channel": "IAE Academy",
+     "url": "https://iaeacademy.in/study/probability-statistics/formula-sheet/descriptive-statistics",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read in full through the search service's extract: the arithmetic mean of raw and grouped data, the median of raw and grouped data with the continuous-boundary warning, the mode of grouped data, the median condition F(m) = 1/2 for a random variable, the two deviation identities (squares minimised at the mean, absolute values at the median), population against sample variance, the effect of y = ax + b, the combined mean and the combined variance"
+    },
+    {
+     "kind": "lecture-transcript",
+     "title": "Mean, Median and Mode in Tamil - continuous (grouped) data",
+     "channel": "YouTube lecture in Tamil (auto-captions read through a transcript page)",
+     "url": "https://www.youtube.com/watch?v=b2pvhf8UKdA",
+     "language": "ta",
+     "transcript": "PARTIAL",
+     "translated": true,
+     "note": "Tamil-language lecture whose auto-caption transcript was read from its opening to the mode computation; used only for its one worked grouped table (classes 0-10 to 40-50 with frequencies 12, 18, 20, 25, 23), and every number it produces is recomputed in scripts/validate.py before it appears on a card"
+    },
+    {
+     "kind": "lecture-transcript",
+     "title": "Lec 4, Central Tendency and Dispersion - I",
+     "channel": "IIT Roorkee (NPTEL-style lecture series, July 2018)",
+     "url": "https://pickscribe.com/v/1MiT06JFNo4/",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read through a third-party transcript page, from the opening to the weighted-average example; the later part (median position, grouped median and mode, percentiles, deviations summing to zero, mean absolute deviation, variance and the two reasons for squaring) was read through the search service's longer extract of the same transcript"
+    },
+    {
+     "kind": "text",
+     "title": "Sankhyiki (statistics): NCERT class 11 mathematics, chapter 13 - notes and summary",
+     "channel": "NCERT Hindi (ncerthindi.com)",
+     "url": "https://ncerthindi.com/ncert-books/class-11/mathematics/statistics",
+     "language": "hi",
+     "transcript": "PARTIAL",
+     "translated": true,
+     "note": "Hindi-language page read in full; every statement taken from it is rendered in English and the two cards that use it say so. It gives the chapter's ladder from central tendency to dispersion, the statement that a measure of centre alone hides the spread, range and mean deviation as cruder measures, variance as the mean of the squared deviations with the standard deviation as its positive root, and the step-deviation method for grouped data"
+    }
+   ],
+   "sourceLine": "The median-class and modal-class formulas with the continuous-boundary warning, and the standard deviation of a grouped table: the IAE Academy GATE formula sheet (English). The worked table with N = 98: a Tamil-language lecture (translated; every value recomputed here). The step-deviation method and the grouped standard deviation: the NCERT class 11 chapter 13 summary in Hindi (translated).",
+   "videoRefs": [],
+   "subject": "probability-and-statistics",
+   "topic": "mean-median-mode-standard-deviation",
+   "path": "subjects/probability-and-statistics/mean-median-mode-standard-deviation/grouped-frequency-table-measures.json"
+  },
+  {
+   "id": "variance-and-standard-deviation-of-data",
+   "title": "Variance and Standard Deviation of a Data Set",
+   "priority": "P1",
+   "order": 318,
+   "unit": "Mean, Median, Mode and Standard Deviation",
+   "quickIdea": "Variance is the average squared deviation from the mean and the standard deviation is its square root, so the standard deviation is in the same units as the data.",
+   "remember": [
+    "Population form: sigma^2 = (1/N) sum (x - mu)^2, which equals (1/N) sum x^2 - mu^2. Sample form: s^2 = (1/(n-1)) sum (x - x-bar)^2.",
+    "The divisor n-1 makes s^2 an unbiased estimator of the population variance; for the whole population the divisor is N. State which one you used.",
+    "The shortcut sigma^2 = mean of the squares minus the square of the mean is the only version worth computing by hand, and it is the one that catches arithmetic slips because a negative variance is impossible.",
+    "Standard deviation = positive square root of the variance, always >= 0, and equal to 0 exactly when every value is the same.",
+    "The standard deviation carries the units of the data; the variance carries squared units. Comparing a variance with a mean, or adding them, is a units error.",
+    "The standard deviation is a root-mean-square distance, not a distance: individual values may lie much further from the mean than one standard deviation.",
+    "The standard deviation of a data set is the standard deviation of the random variable that picks a value uniformly from it, which is why the earlier topic's Var(X) card and this one agree once the divisor matches."
+   ],
+   "example": {
+    "prompt": "Find the population and sample standard deviations of 2, 4, 4, 4, 5, 5, 7, 9.",
+    "work": "The sum is 40 over 8 values, so the mean is 5. Deviations are -3, -1, -1, -1, 0, 0, 2, 4, whose squares sum to 9 + 1 + 1 + 1 + 0 + 0 + 4 + 16 = 32. Population variance = 32/8 = 4 and the standard deviation is 2. Sample variance = 32/7 = 4.5714 and s = 2.1381.",
+    "answer": "Population standard deviation 2; sample standard deviation 2.1381."
+   },
+   "gateAngle": "GATE CSE 2021 Set 2 Q.22 asks for the standard deviation of a binomial count, which is the same root of an average of squared deviations applied to a distribution (card 10). No CSE engineering-mathematics question in this topic asks for the standard deviation of a raw list.",
+   "variations": [
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "The data 2, 4, 4, 4, 5, 5, 7, 9 has population standard deviation 2. What is its sample standard deviation, and why are they different?",
+     "answer": "2.1381, because the sample form divides by n-1 = 7 instead of n = 8.",
+     "why": "The relation is s^2 = (n/(n-1)) * sigma^2 = (8/7)*4 = 4.5714, so s = 2.1381. Dividing by n-1 inflates the value to correct the downward bias of the divisor-n estimate."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "Find the population standard deviation of 1, 2, 3, 4, 5.",
+     "answer": "1.4142.",
+     "why": "The mean is 3, the squared deviations are 4, 1, 0, 1, 4 summing to 10, so the variance is 10/5 = 2 and the standard deviation is the square root of 2."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "A list has variance 25. Every value is increased by 40. What are the new variance and standard deviation?",
+     "answer": "Variance 25 and standard deviation 5, both unchanged.",
+     "why": "Deviations are measured from the mean, and the mean moved by the same 40, so every deviation is identical to what it was. A shift cannot change a spread."
+    }
+   ],
+   "trap": {
+    "what": "Dividing by n-1 when the numbers are the whole population, or forgetting the square root and reporting a variance as a standard deviation.",
+    "why": "The two divisors answer different questions, and the square root is what restores the data's units. Reporting 240 for a quantity whose standard deviation is 15.49 is an order-of-magnitude answer, not a rounding slip.",
+    "counterexample": "For 2, 4, 4, 4, 5, 5, 7, 9 the population variance is 4 and the standard deviation is 2; the sample variance is 4.5714 and the sample standard deviation is 2.1381. All four numbers are correct answers to four different questions."
+   },
+   "check": {
+    "question": "Find the population standard deviation of 1, 2, 3, 4, 5.",
+    "answer": "1.4142, the square root of 2.",
+    "explanation": "The mean is 3 and the squared deviations are 4, 1, 0, 1 and 4, summing to 10. The variance is 10/5 = 2 and the standard deviation is sqrt(2) = 1.4142."
+   },
+   "pyqIds": [],
+   "prereqs": [
+    "mean-of-a-data-set"
+   ],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "Introductory Statistics 2e, section 2.7: Measures of the Spread of the Data",
+     "channel": "OpenStax (Rice University)",
+     "url": "https://openstax.org/books/introductory-statistics-2e/pages/2-7-measures-of-the-spread-of-the-data",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read from the opening through the two standard-deviation formulas: the sample divisor n - 1 and the population divisor N, with the frequency forms, and the statement that the standard deviation is always positive or zero"
+    },
+    {
+     "kind": "text",
+     "title": "Descriptive statistics formulas (GATE-oriented formula sheet)",
+     "channel": "IAE Academy",
+     "url": "https://iaeacademy.in/study/probability-statistics/formula-sheet/descriptive-statistics",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read in full through the search service's extract: the arithmetic mean of raw and grouped data, the median of raw and grouped data with the continuous-boundary warning, the mode of grouped data, the median condition F(m) = 1/2 for a random variable, the two deviation identities (squares minimised at the mean, absolute values at the median), population against sample variance, the effect of y = ax + b, the combined mean and the combined variance"
+    },
+    {
+     "kind": "text",
+     "title": "Sankhyiki (statistics): NCERT class 11 mathematics, chapter 13 - notes and summary",
+     "channel": "NCERT Hindi (ncerthindi.com)",
+     "url": "https://ncerthindi.com/ncert-books/class-11/mathematics/statistics",
+     "language": "hi",
+     "transcript": "PARTIAL",
+     "translated": true,
+     "note": "Hindi-language page read in full; every statement taken from it is rendered in English and the two cards that use it say so. It gives the chapter's ladder from central tendency to dispersion, the statement that a measure of centre alone hides the spread, range and mean deviation as cruder measures, variance as the mean of the squared deviations with the standard deviation as its positive root, and the step-deviation method for grouped data"
+    },
+    {
+     "kind": "lecture-transcript",
+     "title": "Lec 4, Central Tendency and Dispersion - I",
+     "channel": "IIT Roorkee (NPTEL-style lecture series, July 2018)",
+     "url": "https://pickscribe.com/v/1MiT06JFNo4/",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read through a third-party transcript page, from the opening to the weighted-average example; the later part (median position, grouped median and mode, percentiles, deviations summing to zero, mean absolute deviation, variance and the two reasons for squaring) was read through the search service's longer extract of the same transcript"
+    }
+   ],
+   "sourceLine": "The two divisors, the frequency forms and the statement that the standard deviation is positive or zero: OpenStax Introductory Statistics 2e section 2.7 (English). The shortcut form and the population against sample relation: the IAE Academy GATE formula sheet (English). Variance as the mean of the squared deviations with the standard deviation as its positive root, and why dispersion is needed at all: the NCERT class 11 chapter 13 summary in Hindi (translated).",
+   "videoRefs": [],
+   "subject": "probability-and-statistics",
+   "topic": "mean-median-mode-standard-deviation",
+   "path": "subjects/probability-and-statistics/mean-median-mode-standard-deviation/variance-and-standard-deviation-of-data.json"
+  },
+  {
+   "id": "standard-deviation-under-shift-and-scale",
+   "title": "What a Shift and a Scale Do to the Four Summaries",
+   "priority": "P1",
+   "order": 319,
+   "unit": "Mean, Median, Mode and Standard Deviation",
+   "quickIdea": "The mean, median and mode follow y = ax + b exactly; the standard deviation follows |a| times the old one and takes no part of b.",
+   "remember": [
+    "Mean, median and mode are equivariant: y-bar = a*x-bar + b, median(y) = a*median(x) + b, mode(y) = a*mode(x) + b.",
+    "Standard deviation: sd(y) = |a| * sd(x). Variance: Var(y) = a^2 * Var(x). There is no additive term in either.",
+    "The b disappears because a spread is measured from the centre, and the centre moved by exactly the same b.",
+    "For a > 0 the whole ordering is preserved, so the index position of the median and of the mode is unchanged. That is precisely the claim of GATE CSE 2011 Q.33.",
+    "For a < 0 the order reverses, so the index position flips: the value at position k moves to position n+1-k. The median value is still a*median + b, but it is no longer at the same index.",
+    "Writing sd(y) = a*sd(x) + b is the classic wrong option, and it is wrong for a reason worth remembering: a constant offset cannot widen or narrow a spread.",
+    "A scale factor a with |a| < 1 shrinks the spread; the absolute value is what handles a negative multiplier correctly."
+   ],
+   "example": {
+    "prompt": "X is 2, 4, 6, 8, 10. Find the mean and standard deviation of Y = 3X - 5.",
+    "work": "X has mean 6 and variance (16 + 4 + 0 + 4 + 16)/5 = 8, so sd(X) = 2.8284. Then mean(Y) = 3*6 - 5 = 13 and sd(Y) = 3*2.8284 = 8.4853. Directly, Y is 1, 7, 13, 19, 25 with mean 65/5 = 13, and the deviations -12, -6, 0, 6, 12 square to 144 + 36 + 0 + 36 + 144 = 360, giving a variance of 72 and a standard deviation of 8.4853. The two routes agree.",
+    "answer": "mean(Y) = 13 and sd(Y) = 8.4853."
+   },
+   "gateAngle": "GATE CSE 2011 Q.33 is this card. Four statements are offered about Y = a*x + b with a and b positive, and the incorrect one is sd(y) = a*sd(x) + b.",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2011 Q.33: Y is formed from X by y_i = a*x_i + b with a, b positive. Which statement is INCORRECT - the index position of the mode is unchanged, the index position of the median is unchanged, mu_y = a*mu_x + b, or sigma_y = a*sigma_x + b?",
+     "answer": "The fourth: sigma_y = a*sigma_x + b.",
+     "why": "Each deviation x_i - mu_x becomes a*(x_i - mu_x), so the standard deviation is multiplied by a and nothing is added. With X = 2, 3, 4, 4, 5, a = 2 and b = 100, sd(X) = 1.0198 and sd(Y) = 2.0396, while 2*1.0198 + 100 would be 102.04."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "Which of these are correct for a list of numbers? P: adding 7 to every entry adds 7 to the mean. Q: adding 7 to every entry adds 7 to the standard deviation. R: doubling every entry doubles the mean. S: doubling every entry leaves the standard deviation unchanged.",
+     "answer": "P and R only.",
+     "why": "The mean is equivariant under both a shift and a scale, so P and R hold. A shift leaves the standard deviation alone, so Q fails, and a scale multiplies it by the factor, so S fails."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "A list has standard deviation 4. What is the standard deviation of -2X + 7?",
+     "answer": "8.",
+     "why": "sd(-2X + 7) = |-2| * sd(X) = 2*4 = 8. The sign of the multiplier reverses the order of the values but cannot make a spread negative, which is why the absolute value appears."
+    }
+   ],
+   "trap": {
+    "what": "Writing sd(y) = a*sd(x) + b, or dropping the absolute value when a is negative.",
+    "why": "A spread is invariant under a shift, so b cannot enter the formula; and a spread is a distance, so a negative multiplier changes direction but not size.",
+    "counterexample": "X = 2, 3, 4, 4, 5 has sd 1.0198. With a = 2 and b = 100 the new sd is 2.0396, not 102.04. With a = -1 the new sd is still 1.0198, not -1.0198."
+   },
+   "check": {
+    "question": "X has standard deviation 4. Find the standard deviation of Y = 0.5X + 100.",
+    "answer": "2.",
+    "explanation": "sd(Y) = |0.5| * sd(X) = 0.5*4 = 2. The 100 shifts every value and every mean equally, so it leaves the spread untouched."
+   },
+   "pyqIds": [
+    "gate-2011-33-mean-median-mode-invariance-and-sd-scaling"
+   ],
+   "prereqs": [
+    "variance-and-standard-deviation-of-data",
+    "mean-of-a-data-set"
+   ],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "Descriptive statistics formulas (GATE-oriented formula sheet)",
+     "channel": "IAE Academy",
+     "url": "https://iaeacademy.in/study/probability-statistics/formula-sheet/descriptive-statistics",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read in full through the search service's extract: the arithmetic mean of raw and grouped data, the median of raw and grouped data with the continuous-boundary warning, the mode of grouped data, the median condition F(m) = 1/2 for a random variable, the two deviation identities (squares minimised at the mean, absolute values at the median), population against sample variance, the effect of y = ax + b, the combined mean and the combined variance"
+    },
+    {
+     "kind": "pyq-compilation",
+     "title": "GATE Overflow for GATE CSE, Volume 1 - Engineering Mathematics: Probability, chapter 7",
+     "channel": "GATE Overflow (GO-PDFs release, gatecse-2026)",
+     "url": "https://github.com/GATEOverflow/GO-PDFs/releases/tag/gatecse-2026",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read as a text layer across the chapter: used for the question numbering and the classification of every GATE CSE probability question from 1987 to 2026, which is how the five PYQs of this topic were found and how the General Aptitude and other-branch questions were told apart from CSE engineering-mathematics ones"
+    },
+    {
+     "kind": "text",
+     "title": "Introductory Statistics 2e, section 2.7: Measures of the Spread of the Data",
+     "channel": "OpenStax (Rice University)",
+     "url": "https://openstax.org/books/introductory-statistics-2e/pages/2-7-measures-of-the-spread-of-the-data",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read from the opening through the two standard-deviation formulas: the sample divisor n - 1 and the population divisor N, with the frequency forms, and the statement that the standard deviation is always positive or zero"
+    }
+   ],
+   "sourceLine": "The effect of y = ax + b on the centre and the spread, and the statement that the median and the mode transform as a*value + b: the IAE Academy GATE formula sheet (English). The standard deviation as a spread measured from the mean: OpenStax Introductory Statistics 2e section 2.7 (English). The question itself and its numbering: GATE Overflow Volume 1 chapter 7 and the GATE Overflow question page (English).",
+   "visual": "probability-and-statistics/mean-median-mode-standard-deviation/mean-median-and-spread",
+   "links": {
+    "visual": {
+     "slug": "mean-median-and-spread",
+     "title": "The Mean, the Median and the Spread Under a Shift and a Scale",
+     "level": "topic-level",
+     "covers": [
+      "the mean as the balance point where signed deviations cancel",
+      "one outlier moving the mean while the median stays put",
+      "a shift of every value leaving the standard deviation unchanged",
+      "a doubling of every value doubling the mean and the standard deviation",
+      "the standard deviation as the root mean square distance from the mean"
+     ],
+     "url": "visuals/probability-and-statistics/mean-median-mode-standard-deviation/mean-median-and-spread/index.html"
+    },
+    "mapped_at": "2026-10-30"
+   },
+   "videoRefs": [],
+   "subject": "probability-and-statistics",
+   "topic": "mean-median-mode-standard-deviation",
+   "path": "subjects/probability-and-statistics/mean-median-mode-standard-deviation/standard-deviation-under-shift-and-scale.json"
+  },
+  {
+   "id": "deviations-from-the-centre",
+   "title": "Why Squaring Gives the Mean and Absolute Values Give the Median",
+   "priority": "P2",
+   "order": 320,
+   "unit": "Mean, Median, Mode and Standard Deviation",
+   "quickIdea": "Signed deviations from the mean always cancel; the sum of squared deviations is smallest at the mean and the sum of absolute deviations is smallest at the median, which is why the two summaries behave so differently.",
+   "remember": [
+    "sum(x - x-bar) = 0 for every data set. The signed deviations cannot tell you anything about spread, which is the first reason for squaring.",
+    "sum(x - c)^2 = sum(x - x-bar)^2 + n(x-bar - c)^2, so the sum of squared deviations is smallest at c = x-bar and strictly larger anywhere else.",
+    "sum|x - c| is smallest at c = the median, and for even n at every c between the two middle values.",
+    "Those two minimisations are the modern definitions of the mean and the median, and they explain the robustness gap: a square punishes a far value much harder than an absolute value does.",
+    "Squaring is done for two stated reasons - to remove the sign and to penalise large deviations more - and both are in the standard treatment.",
+    "The mean absolute deviation cannot be manipulated algebraically the way the variance can, which is why the standard deviation, not the mean absolute deviation, is what later theory uses.",
+    "Neither minimisation depends on the data being symmetric, so both facts hold for any list."
+   ],
+   "example": {
+    "prompt": "For the data 1, 2, 3, 10, compare the sum of squared deviations at the mean and at 3, and the sum of absolute deviations at the mean and at the median.",
+    "work": "The mean is 4. Squared deviations from 4 are 9, 4, 1, 36, summing to 50; from 3 they are 4, 1, 0, 49, summing to 54, which is larger. The median is (2+3)/2 = 2.5. Absolute deviations from 2.5 are 1.5, 0.5, 0.5, 7.5, summing to 10; from the mean 4 they are 3, 2, 1, 6, summing to 12, which is larger.",
+    "answer": "Squares: 50 at the mean against 54 at 3. Absolute values: 10 at the median against 12 at the mean."
+   },
+   "gateAngle": "No GATE CSE question in this topic asks for these minimisations directly, but they are what makes the multiple-choice options about 'which measure of centre is best' decidable, and they are the reason the median is preferred on skewed data.",
+   "variations": [
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Which single number c minimises the sum of squared deviations of 1, 2, 3, 10, and which minimises the sum of absolute deviations?",
+     "answer": "The mean 4 minimises the squares; the median 2.5 minimises the absolute values.",
+     "why": "The identity sum(x-c)^2 = sum(x-x-bar)^2 + n(x-bar-c)^2 has its only zero of the second term at c = x-bar. The absolute-value sum is flat between the two middle values for even n and is smallest there."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "For the data 4, 6, 8, 10, find the sum of squared deviations from the mean and from 6.",
+     "answer": "20 from the mean 7, and 24 from 6.",
+     "why": "The mean is 7, and the deviations -3, -1, 1, 3 square to 9, 1, 1, 9, summing to 20. From 6 the deviations are -2, 0, 2, 4, which square to 4, 0, 4, 16 and sum to 24. The mean gives the smaller value, which is the minimisation at work."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "The data is 1, 2, 9, 10. For which values of c is the sum of absolute deviations smallest?",
+     "answer": "For every c between 2 and 9, so the minimiser is not unique.",
+     "why": "With n = 4 the median is the whole interval between the two middle values. Any c in [2, 9] gives the same sum, 16, which is the point most candidates miss when they assume a unique answer."
+    }
+   ],
+   "trap": {
+    "what": "Claiming the mean minimises the sum of absolute deviations, or that the median minimises the sum of squares.",
+    "why": "The two centres are the minimisers of two different objectives. Swapping them is a conceptual error that no amount of arithmetic fixes.",
+    "counterexample": "For 1, 2, 3, 10 the sum of absolute deviations at the mean 4 is 12, while at the median 2.5 it is 10; and the sum of squared deviations at the median is 2.25 + 0.25 + 0.25 + 56.25 = 59, larger than the 50 obtained at the mean."
+   },
+   "check": {
+    "question": "For 1, 2, 3, 10, is 50 the smallest possible sum of squared deviations over all choices of c?",
+    "answer": "Yes, and it is attained only at c = 4, the mean.",
+    "explanation": "The identity sum(x-c)^2 = 50 + 4(4-c)^2 makes the value 50 plus a non-negative term, so 50 is the minimum and it is attained only when c = 4."
+   },
+   "pyqIds": [],
+   "prereqs": [
+    "mean-of-a-data-set",
+    "median-and-its-position"
+   ],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "Descriptive statistics formulas (GATE-oriented formula sheet)",
+     "channel": "IAE Academy",
+     "url": "https://iaeacademy.in/study/probability-statistics/formula-sheet/descriptive-statistics",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read in full through the search service's extract: the arithmetic mean of raw and grouped data, the median of raw and grouped data with the continuous-boundary warning, the mode of grouped data, the median condition F(m) = 1/2 for a random variable, the two deviation identities (squares minimised at the mean, absolute values at the median), population against sample variance, the effect of y = ax + b, the combined mean and the combined variance"
+    },
+    {
+     "kind": "lecture-transcript",
+     "title": "Lec 4, Central Tendency and Dispersion - I",
+     "channel": "IIT Roorkee (NPTEL-style lecture series, July 2018)",
+     "url": "https://pickscribe.com/v/1MiT06JFNo4/",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read through a third-party transcript page, from the opening to the weighted-average example; the later part (median position, grouped median and mode, percentiles, deviations summing to zero, mean absolute deviation, variance and the two reasons for squaring) was read through the search service's longer extract of the same transcript"
+    },
+    {
+     "kind": "text",
+     "title": "Sankhyiki (statistics): NCERT class 11 mathematics, chapter 13 - notes and summary",
+     "channel": "NCERT Hindi (ncerthindi.com)",
+     "url": "https://ncerthindi.com/ncert-books/class-11/mathematics/statistics",
+     "language": "hi",
+     "transcript": "PARTIAL",
+     "translated": true,
+     "note": "Hindi-language page read in full; every statement taken from it is rendered in English and the two cards that use it say so. It gives the chapter's ladder from central tendency to dispersion, the statement that a measure of centre alone hides the spread, range and mean deviation as cruder measures, variance as the mean of the squared deviations with the standard deviation as its positive root, and the step-deviation method for grouped data"
+    }
+   ],
+   "sourceLine": "Both minimisation identities, in the exact form used here: the IAE Academy GATE formula sheet (English). The statement that signed deviations sum to zero, the mean absolute deviation, and the two reasons for squaring: the IIT Roorkee Lecture 4 transcript (English). Why the standard deviation is preferred to the mean deviation: the NCERT class 11 chapter 13 summary in Hindi (translated).",
+   "videoRefs": [],
+   "subject": "probability-and-statistics",
+   "topic": "mean-median-mode-standard-deviation",
+   "path": "subjects/probability-and-statistics/mean-median-mode-standard-deviation/deviations-from-the-centre.json"
+  },
+  {
+   "id": "median-and-mode-of-a-random-variable",
+   "title": "The Median and the Mode of a Random Variable",
+   "priority": "P2",
+   "order": 321,
+   "unit": "Mean, Median, Mode and Standard Deviation",
+   "quickIdea": "For a random variable the median is any m with P(X <= m) >= 1/2 and P(X >= m) >= 1/2, and the mode is where the mass or density peaks; neither need be unique, and neither need equal the mean.",
+   "remember": [
+    "m is a median when P(X <= m) >= 1/2 and P(X >= m) >= 1/2. For a continuous variable with a strictly increasing CDF this reduces to F(m) = 1/2.",
+    "A median need not be unique. For X uniform on {1, 2, 3, 4, 5, 6} both 3 and 4 qualify, and every point of [3, 4] does for the continuous analogue.",
+    "The mode is the argmax of the mass function or of the density. A distribution can be bimodal, and a discrete one can have several modes.",
+    "The three summaries differ in general. An exponential variable with rate lambda has mean 1/lambda, median (ln 2)/lambda = 0.693/lambda and mode 0, so the median sits below the mean for a right-skewed density.",
+    "A single point carrying half the probability settles the median at once: for X normal with mean 0 and Y = max(X, 0), P(Y = 0) = 1/2, so 0 is a median of Y even though Y takes no value below 0.",
+    "For a symmetric unimodal distribution the three coincide at the centre of symmetry, which is why the normal is the one family where you never have to choose.",
+    "The mean of a random variable is E[X], covered on the Expectation and Linearity card; this card is about the two summaries that are not expectations."
+   ],
+   "example": {
+    "prompt": "X is exponential with rate lambda = 2. Find its mean, median and mode.",
+    "work": "Mean = 1/2 = 0.5. Median: solve 1 - exp(-2m) = 1/2, so exp(-2m) = 1/2 and m = ln(2)/2 = 0.3466. Mode: the density 2*exp(-2x) is decreasing on x >= 0, so its maximum is at x = 0.",
+    "answer": "Mean 0.5, median 0.3466, mode 0."
+   },
+   "gateAngle": "GATE CSE 2017 Set 1 Q.19 asks for the median of max(X, 0) when X is Gaussian with mean 0, and the answer is 0 because half the probability collapses onto the value 0. Reading the definition rather than reaching for the mean is the whole question.",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2017 Set 1 Q.19: X is Gaussian with mean 0 and variance sigma^2, and Y = max(X, 0). The median of Y is ______.",
+     "answer": "0.",
+     "why": "P(X <= 0) = 1/2, and for X <= 0 we get Y = 0, so P(Y = 0) = 1/2. Hence P(Y <= 0) = 1/2 and P(Y >= 0) = 1. For any m > 0, P(Y >= m) = P(X >= m) < 1/2, so no positive m is a median."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "X is uniform on {1, 2, 3, 4}. Show that the median is not unique and give the set of medians.",
+     "answer": "Every m in [2, 3] is a median.",
+     "why": "At m = 2: P(X <= 2) = 1/2 and P(X >= 2) = 3/4. At m = 3: P(X <= 3) = 3/4 and P(X >= 3) = 1/2. For m strictly between 2 and 3 the two conditions read 1/2 >= 1/2 and 1/2 >= 1/2, so they hold too."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "X is exponential with rate 3. Which is smaller, its mean or its median, and by what factor?",
+     "answer": "The median, by the factor ln 2 = 0.6931.",
+     "why": "The mean is 1/3 and the median is ln(2)/3, so the ratio is ln 2 regardless of the rate. The same ratio holds for every exponential, which is a useful sanity check on a computed median."
+    }
+   ],
+   "trap": {
+    "what": "Assuming the median of a discrete variable is unique, or computing it as the average of two middle values without checking the two probability conditions.",
+    "why": "The two-condition definition is the definition; the average of two middle values is a shortcut that only works for a data set of equally weighted points. A point mass breaks it.",
+    "counterexample": "For X uniform on {1, 2, 3, 4} both 2 and 3 satisfy the definition, and so does every number between them. Reporting 'the median is 2.5' is a choice, not a consequence."
+   },
+   "check": {
+    "question": "X is uniform on {1, 2, 3, 4}. Verify that 3 is a median.",
+    "answer": "P(X <= 3) = 3/4 >= 1/2 and P(X >= 3) = 1/2 >= 1/2, so 3 is a median.",
+    "explanation": "Both halves of the definition must be checked. The first says at most half the mass is strictly above 3, the second says at most half is strictly below it, and both hold."
+   },
+   "pyqIds": [
+    "gate-2017-set1-19-median-of-max-x-zero"
+   ],
+   "prereqs": [
+    "probability-distribution-and-cdf",
+    "median-and-its-position"
+   ],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "Descriptive statistics formulas (GATE-oriented formula sheet)",
+     "channel": "IAE Academy",
+     "url": "https://iaeacademy.in/study/probability-statistics/formula-sheet/descriptive-statistics",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read in full through the search service's extract: the arithmetic mean of raw and grouped data, the median of raw and grouped data with the continuous-boundary warning, the mode of grouped data, the median condition F(m) = 1/2 for a random variable, the two deviation identities (squares minimised at the mean, absolute values at the median), population against sample variance, the effect of y = ax + b, the combined mean and the combined variance"
+    },
+    {
+     "kind": "text",
+     "title": "Introductory Statistics 2e, section 2.6: Skewness and the Mean, Median, and Mode",
+     "channel": "OpenStax (Rice University)",
+     "url": "https://openstax.org/books/introductory-statistics-2e/pages/2-6-skewness-and-the-mean-median-and-mode",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read from the opening: the symmetrical histogram whose mean, median and mode are all seven, the bimodal case where the modes differ from the mean, and the two skewed histograms with the mean pulled toward the tail"
+    },
+    {
+     "kind": "pyq-compilation",
+     "title": "GATE Overflow for GATE CSE, Volume 1 - Engineering Mathematics: Probability, chapter 7",
+     "channel": "GATE Overflow (GO-PDFs release, gatecse-2026)",
+     "url": "https://github.com/GATEOverflow/GO-PDFs/releases/tag/gatecse-2026",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read as a text layer across the chapter: used for the question numbering and the classification of every GATE CSE probability question from 1987 to 2026, which is how the five PYQs of this topic were found and how the General Aptitude and other-branch questions were told apart from CSE engineering-mathematics ones"
+    }
+   ],
+   "sourceLine": "The two-condition median definition, the F(m) = 1/2 continuous case and the exponential example: the IAE Academy GATE formula sheet (English). The symmetric case where the three coincide: OpenStax Introductory Statistics 2e section 2.6 (English). The question and its numbering: GATE Overflow Volume 1 chapter 7 and the GATE Overflow question page (English).",
+   "videoRefs": [],
+   "subject": "probability-and-statistics",
+   "topic": "mean-median-mode-standard-deviation",
+   "path": "subjects/probability-and-statistics/mean-median-mode-standard-deviation/median-and-mode-of-a-random-variable.json"
+  },
+  {
+   "id": "standard-deviation-of-a-count",
+   "title": "The Standard Deviation of a Count",
+   "priority": "P1",
+   "order": 322,
+   "unit": "Mean, Median, Mode and Standard Deviation",
+   "quickIdea": "A binomial count with n trials and success probability p has standard deviation sqrt(n p (1-p)); a Poisson count with mean lambda has standard deviation sqrt(lambda).",
+   "remember": [
+    "X binomial with parameters n and p: mean np, variance np(1-p), standard deviation sqrt(np(1-p)).",
+    "X Poisson with mean lambda: mean = variance = lambda, so the standard deviation is sqrt(lambda). The mean and the standard deviation are different numbers even though the mean and the variance coincide.",
+    "A Bernoulli(p) variable is the n = 1 case, with standard deviation sqrt(p(1-p)).",
+    "For fixed n the variance np(1-p) is largest at p = 1/2 and is symmetric about it, so p and 1-p give the same spread.",
+    "The mean grows like n and the standard deviation like sqrt(n), so the relative spread shrinks as the number of trials grows - the reason large samples give stable proportions.",
+    "Variances of independent counts add; standard deviations do not. Add the variances first, then take one square root.",
+    "The question asks for a rounded numerical answer, so carry the root to more digits than asked and round once at the end."
+   ],
+   "example": {
+    "prompt": "A biased coin lands heads with probability 0.4 and is tossed 1000 times. Find the standard deviation of the number of heads.",
+    "work": "X is binomial with n = 1000 and p = 0.4. Variance = 1000*0.4*0.6 = 240. Standard deviation = sqrt(240) = 15.4919, which rounds to 15.49.",
+    "answer": "15.49."
+   },
+   "gateAngle": "GATE CSE 2021 Set 2 Q.22 is exactly this computation, a numerical-answer question accepted over the range 15.00 to 16.00. The two wrong answers candidates produce are the variance 240 and the value sqrt(np) = 20, which drops the (1-p).",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2021 Set 2 Q.22: p(head) = 0.4, the coin is tossed 1000 times, X is the number of heads, and the standard deviation of X rounded to two decimals is ______.",
+     "answer": "15.49.",
+     "why": "Var(X) = np(1-p) = 1000*0.4*0.6 = 240 and sqrt(240) = 15.4919. Writing 240 is the variance; writing 20 is sqrt(np), which silently sets 1-p to 1."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "Calls arrive at a rate of 9 per minute and the count in a minute is Poisson. What are the mean and the standard deviation of the count in a minute?",
+     "answer": "Mean 9 and standard deviation 3.",
+     "why": "For a Poisson count the variance equals the mean, so the variance is 9 and the standard deviation is its square root, 3. Reporting 9 as the standard deviation is the usual error."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "For fixed n, for which value of p is the standard deviation of a binomial count largest, and what is it at n = 100?",
+     "answer": "At p = 1/2, where the standard deviation is 5.",
+     "why": "np(1-p) is a downward parabola in p with its maximum at p = 1/2. There the variance is 100*0.25 = 25 and the standard deviation is 5."
+    }
+   ],
+   "trap": {
+    "what": "Reporting the variance instead of the standard deviation, or using sqrt(np) and dropping the (1-p) factor.",
+    "why": "The two quantities differ by a square root and by the factor (1-p); both omissions produce numbers that look plausible and are wrong by a wide margin.",
+    "counterexample": "For n = 1000 and p = 0.4 the variance is 240, sqrt(np) is 20 and the standard deviation is 15.49. All three are within one order of magnitude of each other, which is exactly why the slip survives a glance."
+   },
+   "check": {
+    "question": "X is binomial with n = 100 and p = 0.5. Find its standard deviation.",
+    "answer": "5.",
+    "explanation": "Variance = 100*0.5*0.5 = 25, so the standard deviation is the square root, 5. At p = 1/2 the factor (1-p) equals p, which is why the arithmetic looks unusually clean here."
+   },
+   "pyqIds": [
+    "gate-2021-set2-22-standard-deviation-of-binomial-count"
+   ],
+   "prereqs": [
+    "binomial-distribution",
+    "variance-and-standard-deviation"
+   ],
+   "sources": [
+    {
+     "kind": "pyq-compilation",
+     "title": "GATE Overflow for GATE CSE, Volume 1 - Engineering Mathematics: Probability, chapter 7",
+     "channel": "GATE Overflow (GO-PDFs release, gatecse-2026)",
+     "url": "https://github.com/GATEOverflow/GO-PDFs/releases/tag/gatecse-2026",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read as a text layer across the chapter: used for the question numbering and the classification of every GATE CSE probability question from 1987 to 2026, which is how the five PYQs of this topic were found and how the General Aptitude and other-branch questions were told apart from CSE engineering-mathematics ones"
+    },
+    {
+     "kind": "text",
+     "title": "Probability subject notes (GATE Overflow for GATE CSE Volume 1) - the Statistics section",
+     "channel": "GATE Overflow",
+     "url": "https://gateoverflow.in/subject/mathematics/probability?tab=notes",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read in part through the search service's extract: the Statistics block giving the mean, median and mode as measures of central tendency, variance and standard deviation as measures of dispersion, range as max minus min, and the population against sample variance conventions with the note that the mean is pulled by skew"
+    },
+    {
+     "kind": "text",
+     "title": "Introductory Statistics 2e, section 2.7: Measures of the Spread of the Data",
+     "channel": "OpenStax (Rice University)",
+     "url": "https://openstax.org/books/introductory-statistics-2e/pages/2-7-measures-of-the-spread-of-the-data",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read from the opening through the two standard-deviation formulas: the sample divisor n - 1 and the population divisor N, with the frequency forms, and the statement that the standard deviation is always positive or zero"
+    }
+   ],
+   "sourceLine": "The binomial and Poisson standard deviations and the Bernoulli special case: the GATE Overflow probability notes, Statistics section (English), and the GATE Overflow Volume 1 chapter 7 (English) for the question numbering. The statement that a standard deviation is the positive root of an average of squared deviations: OpenStax Introductory Statistics 2e section 2.7 (English).",
+   "videoRefs": [],
+   "subject": "probability-and-statistics",
+   "topic": "mean-median-mode-standard-deviation",
+   "path": "subjects/probability-and-statistics/mean-median-mode-standard-deviation/standard-deviation-of-a-count.json"
+  },
+  {
+   "id": "effect-of-one-observation-and-combined-groups",
+   "title": "One Changed Value, and Combining Two Groups",
+   "priority": "P2",
+   "order": 323,
+   "unit": "Mean, Median, Mode and Standard Deviation",
+   "quickIdea": "Changing one value moves the mean by the change divided by n and can leave the median and the mode untouched; combining two groups needs a size-weighted mean, never the average of the two means.",
+   "remember": [
+    "Replacing x_i by x_i + d moves the mean by d/n and changes nothing else about the sum of the other values.",
+    "Adding a new value moves the mean toward the new value by an amount that depends on the new count, so the same value has less effect on a larger data set.",
+    "The median moves only if the changed value crosses the middle of the sorted list; the mode moves only if a frequency tie breaks.",
+    "The standard deviation changes whenever any value changes, because every value enters the sum of squared deviations.",
+    "Combined mean = (n1*m1 + n2*m2)/(n1 + n2). It equals (m1 + m2)/2 only when n1 = n2, which is the single most common wrong option in group-averaging questions.",
+    "Combined population variance = [n1*(sigma1^2 + d1^2) + n2*(sigma2^2 + d2^2)]/(n1 + n2), where d_i is the distance from each group mean to the combined mean. The between-group term is the part that gets forgotten.",
+    "If the two group variances are sample variances, convert first with sigma^2 = ((n-1)/n)*s^2, or the combined figure will not be in the population convention."
+   ],
+   "example": {
+    "prompt": "Group A has 10 students with mean 60 and group B has 30 students with mean 80. Find the combined mean.",
+    "work": "n1*m1 = 10*60 = 600 and n2*m2 = 30*80 = 2400, so the total is 3000 over 40 students. Combined mean = 3000/40 = 75. The unweighted average of the two means would be 70, which underweights the larger group.",
+    "answer": "75."
+   },
+   "gateAngle": "No GATE CSE question in this topic asks for a combined mean, but the fact decides the distractor options in any question that reports two group averages, and it is the arithmetic behind the 'average of averages' wrong answer.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "Two sections have 20 and 30 students with mean marks 55 and 80. What is the mean over both sections?",
+     "answer": "70.",
+     "why": "(20*55 + 30*80)/50 = (1100 + 2400)/50 = 3500/50 = 70. Here the answer happens to look close to the plain average of 67.5 but is not equal to it, which is why the weighted form must be used every time."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "The data 1, 2, 3, 4 has its largest value replaced by 14. What happens to the mean, the median and the standard deviation?",
+     "answer": "The mean rises from 2.5 to 5, the median stays at 2.5, and the standard deviation rises from 1.1180 to 5.2440.",
+     "why": "The new sum is 20 over 4 values. The middle two values are still 2 and 3, so the median is unchanged. The squared deviations from 5 are 16, 9, 4 and 81, giving a variance of 27.5 and a standard deviation of 5.2440."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "Group A has 4 items with mean 10 and variance 4; group B has 6 items with mean 20 and variance 4. Find the combined variance.",
+     "answer": "28.",
+     "why": "The combined mean is (40 + 120)/10 = 16, so d1 = -6 and d2 = 4. Then the numerator is 4*(4 + 36) + 6*(4 + 16) = 160 + 120 = 280 and the combined variance is 280/10 = 28. The between-group term alone contributes 4*36 + 6*16 = 240, so ignoring it would return 4 instead of 28."
+    }
+   ],
+   "trap": {
+    "what": "Averaging two group means without weighting by the group sizes, or adding the two variances when combining groups.",
+    "why": "Each group mean already absorbed its own size, so averaging them again gives the larger group less than its share. And a combined variance has a between-group component that the within-group variances do not contain.",
+    "counterexample": "Groups of 10 with mean 60 and 30 with mean 80 combine to 75, not 70. Groups of 4 with mean 10 and 6 with mean 20 have a combined variance of 28, not 4."
+   },
+   "check": {
+    "question": "The data 1, 2, 3, 4 has its 4 replaced by 14. Find the new mean and the new median.",
+    "answer": "Mean 5 and median 2.5.",
+    "explanation": "The new list is 1, 2, 3, 14, whose sum is 20 over 4 values, so the mean is 5. The two middle values are still 2 and 3, so the median is unchanged at 2.5."
+   },
+   "pyqIds": [],
+   "prereqs": [
+    "mean-of-a-data-set",
+    "median-and-its-position",
+    "variance-and-standard-deviation-of-data"
+   ],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "Descriptive statistics formulas (GATE-oriented formula sheet)",
+     "channel": "IAE Academy",
+     "url": "https://iaeacademy.in/study/probability-statistics/formula-sheet/descriptive-statistics",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read in full through the search service's extract: the arithmetic mean of raw and grouped data, the median of raw and grouped data with the continuous-boundary warning, the mode of grouped data, the median condition F(m) = 1/2 for a random variable, the two deviation identities (squares minimised at the mean, absolute values at the median), population against sample variance, the effect of y = ax + b, the combined mean and the combined variance"
+    },
+    {
+     "kind": "lecture-transcript",
+     "title": "Lec 4, Central Tendency and Dispersion - I",
+     "channel": "IIT Roorkee (NPTEL-style lecture series, July 2018)",
+     "url": "https://pickscribe.com/v/1MiT06JFNo4/",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read through a third-party transcript page, from the opening to the weighted-average example; the later part (median position, grouped median and mode, percentiles, deviations summing to zero, mean absolute deviation, variance and the two reasons for squaring) was read through the search service's longer extract of the same transcript"
+    },
+    {
+     "kind": "text",
+     "title": "Introductory Statistics 2e, section 2.7: Measures of the Spread of the Data",
+     "channel": "OpenStax (Rice University)",
+     "url": "https://openstax.org/books/introductory-statistics-2e/pages/2-7-measures-of-the-spread-of-the-data",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read from the opening through the two standard-deviation formulas: the sample divisor n - 1 and the population divisor N, with the frequency forms, and the statement that the standard deviation is always positive or zero"
+    }
+   ],
+   "sourceLine": "The combined mean, the combined variance with its between-group term, and the conversion between the sample and population conventions: the IAE Academy GATE formula sheet (English). The effect of a single value on the mean and on the median: the IIT Roorkee Lecture 4 transcript (English). The definition of the standard deviation that makes it respond to any change: OpenStax Introductory Statistics 2e section 2.7 (English).",
+   "videoRefs": [],
+   "subject": "probability-and-statistics",
+   "topic": "mean-median-mode-standard-deviation",
+   "path": "subjects/probability-and-statistics/mean-median-mode-standard-deviation/effect-of-one-observation-and-combined-groups.json"
+  },
+  {
+   "id": "choosing-the-summary-and-reading-units",
+   "title": "Which Summary to Quote, and What the Units Are",
+   "priority": "P3",
+   "order": 324,
+   "unit": "Mean, Median, Mode and Standard Deviation",
+   "quickIdea": "Mean for symmetric data, median when there are outliers or open-ended classes, mode for categories; and of the four summaries only the standard deviation carries the data's units.",
+   "remember": [
+    "Symmetric data without outliers: the mean, because it uses every value and adds up correctly across groups.",
+    "Skewed data, or data with outliers or open-ended classes ('1000 and above'): the median, because it cannot be dragged and needs no midpoint.",
+    "Categories with no order: the mode, and nothing else - a mean of colours is not a number with a meaning.",
+    "Variance is in squared units, the standard deviation is in the data's units, and the coefficient of variation sd/mean is unitless, which is what makes it the right comparison across different scales.",
+    "The coefficient of variation is defined only for a positive mean, so it is meaningless for data centred on zero.",
+    "The empirical rule - about 68 percent within one standard deviation, 95 within two, 99.7 within three - is a statement about roughly normal data. Applying it to a skewed set is a category error, not a rounding error.",
+    "In an exam, 'average' means the mean unless the data is described as skewed, and 'spread' means the standard deviation unless the variance is named explicitly."
+   ],
+   "example": {
+    "prompt": "Two machines produce parts with mean length 100 mm. Machine A has standard deviation 5 mm and machine B has standard deviation 20 mm. Compare their relative variability.",
+    "work": "CV(A) = 5/100 = 0.05, or 5 percent. CV(B) = 20/100 = 0.20, or 20 percent. The ratio of the standard deviations is 4, and the ratio of the coefficients of variation is also 4 because the means are equal.",
+    "answer": "Machine B is four times as variable relative to its mean; the coefficients of variation are 5 percent and 20 percent."
+   },
+   "gateAngle": "The choice of summary is the first step of every question in this topic and is never tested on its own. Where GATE does test it, it does so inside a skewness or an invariance question, which is why those cards carry the PYQs and this one does not.",
+   "variations": [
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "A grouped table of salaries has a final open class of '200000 and above'. Which of the mean, median and mode can be computed, and which cannot?",
+     "answer": "The median and the mode can; the mean cannot be computed exactly.",
+     "why": "The mean needs a midpoint for every class, and an open class has none. The median needs only the cumulative frequencies and the boundaries, and the mode needs only the frequencies."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "A data set has mean 50 and standard deviation 10. What is its coefficient of variation, and what does the number mean?",
+     "answer": "0.20, or 20 percent.",
+     "why": "CV = sd/mean = 10/50 = 0.2. It says the typical distance from the mean is a fifth of the mean, which is a scale-free statement and can be compared with a data set measured in different units."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "A data set is strongly right-skewed with mean 80 and standard deviation 40. A candidate claims about 68 percent of the values lie between 40 and 120. What is wrong?",
+     "answer": "The empirical rule applies to roughly normal data, not to a skewed set.",
+     "why": "With a strong right tail the mass between mean minus one standard deviation and mean plus one standard deviation need not be near 68 percent. The rule is a property of the normal family, and the question has told you the data is not in it."
+    }
+   ],
+   "trap": {
+    "what": "Comparing variances of data sets measured in different units, or applying the empirical rule to a skewed set.",
+    "why": "A variance carries squared units, so two variances are comparable only when the units and the scales match. And the 68/95/99.7 percentages are a property of the normal distribution, not of standard deviations in general.",
+    "counterexample": "A variance of 4 in centimetres squared and a variance of 4 in metres squared describe spreads that differ by a factor of 10000. Comparing them directly says the two data sets are equally variable, which is false."
+   },
+   "check": {
+    "question": "A data set has mean 50 and standard deviation 10. What is its coefficient of variation?",
+    "answer": "0.2, that is 20 percent.",
+    "explanation": "CV = standard deviation / mean = 10/50 = 0.2. It is unitless, so it can be compared with the coefficient of variation of a data set in other units."
+   },
+   "pyqIds": [],
+   "prereqs": [
+    "mean-of-a-data-set",
+    "median-and-its-position",
+    "mode-and-multimodality"
+   ],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "Descriptive statistics formulas (GATE-oriented formula sheet)",
+     "channel": "IAE Academy",
+     "url": "https://iaeacademy.in/study/probability-statistics/formula-sheet/descriptive-statistics",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read in full through the search service's extract: the arithmetic mean of raw and grouped data, the median of raw and grouped data with the continuous-boundary warning, the mode of grouped data, the median condition F(m) = 1/2 for a random variable, the two deviation identities (squares minimised at the mean, absolute values at the median), population against sample variance, the effect of y = ax + b, the combined mean and the combined variance"
+    },
+    {
+     "kind": "text",
+     "title": "Introductory Statistics 2e, section 2.7: Measures of the Spread of the Data",
+     "channel": "OpenStax (Rice University)",
+     "url": "https://openstax.org/books/introductory-statistics-2e/pages/2-7-measures-of-the-spread-of-the-data",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read from the opening through the two standard-deviation formulas: the sample divisor n - 1 and the population divisor N, with the frequency forms, and the statement that the standard deviation is always positive or zero"
+    },
+    {
+     "kind": "text",
+     "title": "Sankhyiki (statistics): NCERT class 11 mathematics, chapter 13 - notes and summary",
+     "channel": "NCERT Hindi (ncerthindi.com)",
+     "url": "https://ncerthindi.com/ncert-books/class-11/mathematics/statistics",
+     "language": "hi",
+     "transcript": "PARTIAL",
+     "translated": true,
+     "note": "Hindi-language page read in full; every statement taken from it is rendered in English and the two cards that use it say so. It gives the chapter's ladder from central tendency to dispersion, the statement that a measure of centre alone hides the spread, range and mean deviation as cruder measures, variance as the mean of the squared deviations with the standard deviation as its positive root, and the step-deviation method for grouped data"
+    }
+   ],
+   "sourceLine": "The coefficient of variation as the unitless comparison and the definition of the population and sample standard deviations: the IAE Academy GATE formula sheet (English) and OpenStax Introductory Statistics 2e section 2.7 (English). Why a measure of centre alone does not describe a distribution: the NCERT class 11 chapter 13 summary in Hindi (translated).",
+   "videoRefs": [],
+   "subject": "probability-and-statistics",
+   "topic": "mean-median-mode-standard-deviation",
+   "path": "subjects/probability-and-statistics/mean-median-mode-standard-deviation/choosing-the-summary-and-reading-units.json"
   }
  ],
  "pyqs": [
@@ -23523,6 +24703,27 @@ window.GATE_DATA = {
    "answer_evidence": "The accepted answer substitutes t = cos x + sin x and states 'Correct Answer: D'; the GATE Forum 2009 CS paper PDF shows the same four options with (D) printed as (1/2) ln 2. Recomputed here numerically."
   },
   {
+   "id": "gate-2011-33-mean-median-mode-invariance-and-sd-scaling",
+   "year": "2011",
+   "paper": "GATE CS 2011",
+   "question_ref": "Q.33",
+   "type": "MCQ",
+   "topic": "standard-deviation-under-shift-and-scale",
+   "text": "Consider a finite sequence of random values X = [x1, x2, ..., xn]. Let mu_x be the mean and sigma_x the standard deviation of X. Let another finite sequence Y of equal length be derived from this as y_i = a*x_i + b, where a and b are positive constants. Let mu_y be the mean and sigma_y be the standard deviation of this sequence. Which one of the following statements is INCORRECT?",
+   "options": [
+    "Index position of mode of X in X is the same as the index position of mode of Y in Y",
+    "Index position of median of X in X is the same as the index position of median of Y in Y",
+    "mu_y = a*mu_x + b",
+    "sigma_y = a*sigma_x + b"
+   ],
+   "answer": "Option (D) - sigma_y = a*sigma_x + b is the incorrect statement",
+   "solution": "With a > 0 the map x -> a*x + b preserves order, so the k-th smallest value stays k-th smallest: the index position of the median and of the mode is unchanged, and (A) and (B) are correct. The mean is equivariant, mu_y = a*mu_x + b, so (C) is correct. Each deviation x_i - mu_x becomes a*(x_i - mu_x), so sigma_y = a*sigma_x with no additive term, which makes (D) incorrect. Numerically, X = [2, 3, 4, 4, 5] has mu_x = 3.6 and sigma_x = 1.0198; with a = 2 and b = 100, Y = [104, 106, 108, 108, 110] has sigma_y = 2.0396 = 2*sigma_x, while 2*sigma_x + 100 would be 102.04.",
+   "source_url": "https://gateoverflow.in/2135/gate-cse-2011-question-33",
+   "source_label": "GATE Overflow question page - GATE CSE 2011 Q.33, with community solutions and an accepted answer",
+   "verification": "SOURCED",
+   "answer_evidence": "The accepted answer on the page states 'Answer - D' and explains that mean, median and mode are linear functions of the values while the standard deviation is not, concluding sigma_y = a*sigma_x. The same question appears in GATE Overflow Volume 1, chapter 7 under Random Variable, numbered Q.33 of GATE CSE 2011."
+  },
+  {
    "id": "gate-2012-21-cdf-at-minus-one-and-one",
    "year": "2012",
    "paper": "GATE CS 2012",
@@ -23699,6 +24900,21 @@ window.GATE_DATA = {
    "source_label": "GATE Overflow question page, GATE CSE 2014 Set 1 Q.6, with the accepted answer option C",
    "verification": "SOURCED",
    "answer_evidence": "Every answer on the GATE Overflow page concludes C, the shortest route being 'the conditions of Rolle's theorem hold, and the function is not constant'. Solutions Adda's GATE 2014 Set 1 page (question 16 in its numbering) also concludes that both statements are true. The determinant values f(pi/6) = 0, f(pi/3) = 0 and f(pi/4) = 0.0977 are recomputed in scripts/validate.py. The official key was not fetched and no marks field is recorded."
+  },
+  {
+   "id": "gate-2014-set2-2-expected-word-length-as-mean",
+   "year": "2014",
+   "paper": "GATE CS 2014 Set 2",
+   "question_ref": "Q.2",
+   "type": "NAT",
+   "topic": "mean-of-a-data-set",
+   "text": "Each of the nine words in the sentence \"The quick brown fox jumps over the lazy dog\" is written on a separate piece of paper. These nine pieces of paper are kept in a box. One of the pieces is drawn at random from the box. The expected length of the word drawn is _____. (The answer should be rounded to one decimal place.)",
+   "answer": "3.9 (accepted range 3.8 to 3.9)",
+   "solution": "The nine word lengths are 3, 5, 5, 3, 5, 4, 3, 4, 3. Each word has probability 1/9, so the expected length is the arithmetic mean of the nine lengths: (3+5+5+3+5+4+3+4+3)/9 = 35/9 = 3.8889, which rounds to 3.9. The same number is obtained as 4*(3/9) + 2*(4/9) + 3*(5/9), grouping the four three-letter words, the two four-letter words and the three five-letter words.",
+   "source_url": "https://gateoverflow.in/1954/gate-cse-2014-set-2-question-2",
+   "source_label": "GATE Overflow question page - GATE CSE 2014 Set 2 Q.2, with community solutions and an accepted answer",
+   "verification": "SOURCED",
+   "answer_evidence": "The accepted answer and several others on the page all reach 35/9 = 3.9. An independent worked solution page records the official answer as 3.9 with an accepted range of 3.8 to 3.9, and a second solution site gives 3.9."
   },
   {
    "id": "gate-2014-set2-3-max-edges-bipartite",
@@ -24280,6 +25496,21 @@ window.GATE_DATA = {
    "verification": "OFFICIAL_KEY"
   },
   {
+   "id": "gate-2017-set1-19-median-of-max-x-zero",
+   "year": "2017",
+   "paper": "GATE CS 2017 Set 1",
+   "question_ref": "Q.19",
+   "type": "NAT",
+   "topic": "median-and-mode-of-a-random-variable",
+   "text": "Let X be a Gaussian random variable with mean 0 and variance sigma^2. Let Y = max(X, 0) where max(a, b) is the maximum of a and b. The median of Y is ____.",
+   "answer": "0",
+   "solution": "X is symmetric about 0, so P(X <= 0) = 1/2. For every outcome with X <= 0 we have Y = 0, so P(Y = 0) = 1/2, hence P(Y <= 0) = 1/2 and P(Y >= 0) = 1. Both halves of the median condition hold at m = 0, so 0 is a median. For m > 0, P(Y >= m) = P(X >= m) < 1/2, and for m < 0, P(Y <= m) = 0, so no other value qualifies.",
+   "source_url": "https://gateoverflow.in/118299/gate-cse-2017-set-1-question-19",
+   "source_label": "GATE Overflow question page - GATE CSE 2017 Set 1 Question 19, with community solutions and an accepted answer",
+   "verification": "SOURCED",
+   "answer_evidence": "GATE Overflow's subject page for GATE CSE 2017 Set 1 lists this question as the paper's one-mark probability question, numbered 19, and its accepted answers reach 0. GATE Overflow Volume 1 chapter 7 numbers it Q.19 under Normal Distribution. Numbering differs across sites: a duplicate GATE Overflow page numbers it 37 and one solution site labels it 'Probability Question 30', so the reference here follows GATE Overflow's subject page and the paper table."
+  },
+  {
    "id": "gate-2017-set1-28-lhopital-two-polynomials",
    "year": "2017",
    "paper": "GATE CS 2017 Set 1",
@@ -24688,6 +25919,21 @@ window.GATE_DATA = {
    "answer_evidence": "Correct Option: B"
   },
   {
+   "id": "gate-2021-set2-22-standard-deviation-of-binomial-count",
+   "year": "2021",
+   "paper": "GATE CS 2021 Set 2",
+   "question_ref": "Q.22",
+   "type": "NAT",
+   "topic": "standard-deviation-of-a-count",
+   "text": "For a given biased coin, the probability that the outcome of a toss is a head is 0.4. This coin is tossed 1,000 times. Let X denote the random variable whose value is the number of times that head appeared in these 1,000 tosses. The standard deviation of X (rounded to 2 decimal places) is _____.",
+   "answer": "15.49 (accepted range 15.00 to 16.00)",
+   "solution": "The tosses are independent with a constant success probability, so X is binomial with n = 1000 and p = 0.4. Var(X) = n*p*(1-p) = 1000*0.4*0.6 = 240 and the standard deviation is sqrt(240) = 15.4919, which rounds to 15.49. Two nearby wrong answers are 240 (the variance) and 20 (sqrt(n*p), which drops the factor 1-p).",
+   "source_url": "https://gateoverflow.in/357518/gate-cse-2021-set-2-question-22",
+   "source_label": "GATE Overflow question page - GATE CSE 2021 Set 2 Q.22, with community solutions and an accepted answer",
+   "verification": "SOURCED",
+   "answer_evidence": "GATE Overflow's accepted answer computes 240 and sqrt(240) = 15.49 and records the accepted range 15.00 to 16.00. An independent worked solution page records the official answer as 15.49 with a tolerance of 0.5."
+  },
+  {
    "id": "gate-2021-set2-24-rank-from-nullity",
    "year": "2021",
    "paper": "GATE CS 2021 Set 2",
@@ -25076,6 +26322,27 @@ window.GATE_DATA = {
    "source_label": "GATE Overflow question page - GATE CSE 2024 Set 2 Q.37 with the accepted answer (A and B true)",
    "verification": "SOURCED",
    "answer_evidence": "Accepted answer: 'Options A and B are True', with the symmetric 2 x 2 counterexample for C and a trace counterexample for D."
+  },
+  {
+   "id": "gate-2024-set2-44-mean-of-product-bounded",
+   "year": "2024",
+   "paper": "GATE CS 2024 Set 2",
+   "question_ref": "Q.44 (GATE Overflow numbers this question Q.34)",
+   "type": "MCQ",
+   "topic": "mean-of-a-data-set",
+   "text": "Let x and y be random variables, not necessarily independent, that take real values in the interval [0, 1]. Let z = xy and let the mean values of x, y, z be x-bar, y-bar, z-bar, respectively. Which one of the following statements is TRUE?",
+   "options": [
+    "z-bar = x-bar * y-bar",
+    "z-bar <= x-bar * y-bar",
+    "z-bar >= x-bar * y-bar",
+    "z-bar <= x-bar"
+   ],
+   "answer": "Option (D) - z-bar <= x-bar",
+   "solution": "Both variables lie in [0, 1], so 0 <= y <= 1, and multiplying by x >= 0 gives 0 <= xy <= x for every outcome. The mean is monotone, so taking means preserves the inequality: 0 <= z-bar <= x-bar, which is option (D). Option (A) needs independence, which is explicitly not assumed. Both (B) and (C) are false in general: with x uniform on [0, 1] and y = x the mean of xy is 1/3 > 1/4, and with y = 1 - x it is 1/6 < 1/4.",
+   "source_url": "https://gateoverflow.in/422863/gate-cse-2024-set-2-question-34",
+   "source_label": "GATE Overflow question page - GATE CSE 2024 Set 2 Question 34 (numbered Q.44 in the paper as reproduced by two solution sites), with community solutions and an accepted answer",
+   "verification": "SOURCED",
+   "answer_evidence": "GATE Overflow's accepted answers derive 0 <= XY <= X from the ranges and take expectations to conclude option (D), and give the y = x and y = 1 - x counterexamples to (B) and (C). Two independent reproductions of the 2024 Set 2 paper list the same question as Q.44 with answer D, which is why the paper reference here is Q.44 while the source URL follows GATE Overflow's numbering."
   },
   {
    "id": "gate-2024-set2-53-self-inverse-z2-z3-z4",

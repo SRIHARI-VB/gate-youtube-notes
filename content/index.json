@@ -29,8 +29,8 @@
   ],
   "counts": {
     "subjects": 4,
-    "topics": 190,
-    "pyqs": 150,
+    "topics": 202,
+    "pyqs": 155,
     "videos": 39,
     "playlists": 3
   },
@@ -2922,6 +2922,171 @@
       "unit": "Random Variables and Distributions",
       "priority": "P3",
       "path": "subjects/probability-and-statistics/random-variables-and-distributions/sums-of-independent-random-variables.json",
+      "videos": [],
+      "pyqs": [],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "mean-of-a-data-set",
+      "title": "The Arithmetic Mean and the Balance Point",
+      "subject": "probability-and-statistics",
+      "group": "mean-median-mode-standard-deviation",
+      "unit": "Mean, Median, Mode and Standard Deviation",
+      "priority": "P1",
+      "path": "subjects/probability-and-statistics/mean-median-mode-standard-deviation/mean-of-a-data-set.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2014-set2-2-expected-word-length-as-mean",
+        "gate-2024-set2-44-mean-of-product-bounded"
+      ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "median-and-its-position",
+      "title": "The Median and Its Position",
+      "subject": "probability-and-statistics",
+      "group": "mean-median-mode-standard-deviation",
+      "unit": "Mean, Median, Mode and Standard Deviation",
+      "priority": "P1",
+      "path": "subjects/probability-and-statistics/mean-median-mode-standard-deviation/median-and-its-position.json",
+      "videos": [],
+      "pyqs": [],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "mode-and-multimodality",
+      "title": "The Mode, Ties and Non-Numeric Data",
+      "subject": "probability-and-statistics",
+      "group": "mean-median-mode-standard-deviation",
+      "unit": "Mean, Median, Mode and Standard Deviation",
+      "priority": "P2",
+      "path": "subjects/probability-and-statistics/mean-median-mode-standard-deviation/mode-and-multimodality.json",
+      "videos": [],
+      "pyqs": [],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "mean-median-mode-relation-and-skewness",
+      "title": "How Mean, Median and Mode Sit Together",
+      "subject": "probability-and-statistics",
+      "group": "mean-median-mode-standard-deviation",
+      "unit": "Mean, Median, Mode and Standard Deviation",
+      "priority": "P2",
+      "path": "subjects/probability-and-statistics/mean-median-mode-standard-deviation/mean-median-mode-relation-and-skewness.json",
+      "videos": [],
+      "pyqs": [],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "grouped-frequency-table-measures",
+      "title": "Mean, Median and Mode from a Grouped Table",
+      "subject": "probability-and-statistics",
+      "group": "mean-median-mode-standard-deviation",
+      "unit": "Mean, Median, Mode and Standard Deviation",
+      "priority": "P2",
+      "path": "subjects/probability-and-statistics/mean-median-mode-standard-deviation/grouped-frequency-table-measures.json",
+      "videos": [],
+      "pyqs": [],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "variance-and-standard-deviation-of-data",
+      "title": "Variance and Standard Deviation of a Data Set",
+      "subject": "probability-and-statistics",
+      "group": "mean-median-mode-standard-deviation",
+      "unit": "Mean, Median, Mode and Standard Deviation",
+      "priority": "P1",
+      "path": "subjects/probability-and-statistics/mean-median-mode-standard-deviation/variance-and-standard-deviation-of-data.json",
+      "videos": [],
+      "pyqs": [],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "standard-deviation-under-shift-and-scale",
+      "title": "What a Shift and a Scale Do to the Four Summaries",
+      "subject": "probability-and-statistics",
+      "group": "mean-median-mode-standard-deviation",
+      "unit": "Mean, Median, Mode and Standard Deviation",
+      "priority": "P1",
+      "path": "subjects/probability-and-statistics/mean-median-mode-standard-deviation/standard-deviation-under-shift-and-scale.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2011-33-mean-median-mode-invariance-and-sd-scaling"
+      ],
+      "visual": "probability-and-statistics/mean-median-mode-standard-deviation/mean-median-and-spread",
+      "variations": 3
+    },
+    {
+      "topic": "deviations-from-the-centre",
+      "title": "Why Squaring Gives the Mean and Absolute Values Give the Median",
+      "subject": "probability-and-statistics",
+      "group": "mean-median-mode-standard-deviation",
+      "unit": "Mean, Median, Mode and Standard Deviation",
+      "priority": "P2",
+      "path": "subjects/probability-and-statistics/mean-median-mode-standard-deviation/deviations-from-the-centre.json",
+      "videos": [],
+      "pyqs": [],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "median-and-mode-of-a-random-variable",
+      "title": "The Median and the Mode of a Random Variable",
+      "subject": "probability-and-statistics",
+      "group": "mean-median-mode-standard-deviation",
+      "unit": "Mean, Median, Mode and Standard Deviation",
+      "priority": "P2",
+      "path": "subjects/probability-and-statistics/mean-median-mode-standard-deviation/median-and-mode-of-a-random-variable.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2017-set1-19-median-of-max-x-zero"
+      ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "standard-deviation-of-a-count",
+      "title": "The Standard Deviation of a Count",
+      "subject": "probability-and-statistics",
+      "group": "mean-median-mode-standard-deviation",
+      "unit": "Mean, Median, Mode and Standard Deviation",
+      "priority": "P1",
+      "path": "subjects/probability-and-statistics/mean-median-mode-standard-deviation/standard-deviation-of-a-count.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2021-set2-22-standard-deviation-of-binomial-count"
+      ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "effect-of-one-observation-and-combined-groups",
+      "title": "One Changed Value, and Combining Two Groups",
+      "subject": "probability-and-statistics",
+      "group": "mean-median-mode-standard-deviation",
+      "unit": "Mean, Median, Mode and Standard Deviation",
+      "priority": "P2",
+      "path": "subjects/probability-and-statistics/mean-median-mode-standard-deviation/effect-of-one-observation-and-combined-groups.json",
+      "videos": [],
+      "pyqs": [],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "choosing-the-summary-and-reading-units",
+      "title": "Which Summary to Quote, and What the Units Are",
+      "subject": "probability-and-statistics",
+      "group": "mean-median-mode-standard-deviation",
+      "unit": "Mean, Median, Mode and Standard Deviation",
+      "priority": "P3",
+      "path": "subjects/probability-and-statistics/mean-median-mode-standard-deviation/choosing-the-summary-and-reading-units.json",
       "videos": [],
       "pyqs": [],
       "visual": null,
