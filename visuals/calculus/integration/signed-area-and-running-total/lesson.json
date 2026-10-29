@@ -1,0 +1,37 @@
+{
+  "slug": "signed-area-and-running-total",
+  "topic": "definite-integral-as-signed-area",
+  "engine": "p5.js",
+  "steps": 6,
+  "example": {
+    "function": "f(x) = x^2 - 1 on [0, 2]",
+    "running_total": "F(x) = x^3/3 - x, so F(0) = 0, F(1) = -2/3, F(2) = 2/3",
+    "pieces": {
+      "integral_0_to_1": -0.6666666666666666,
+      "integral_1_to_2": 1.3333333333333333,
+      "integral_0_to_2": 0.6666666666666666,
+      "geometric_area_0_to_2": 2.0
+    },
+    "zero_of_running_total": {
+      "x": 1.7320508075688772,
+      "exact": "sqrt(3)"
+    },
+    "fundamental_theorem_check": {
+      "f(0)": -1,
+      "f(1)": 0,
+      "f(2)": 3,
+      "slope_of_F_at_0": -1,
+      "slope_of_F_at_1": 0,
+      "slope_of_F_at_2": 3
+    },
+    "even_function_case": {
+      "integral_minus_1_to_1": -1.3333333333333333,
+      "twice_integral_0_to_1": -1.3333333333333333
+    },
+    "quick_check": {
+      "question": "integral of x^2 - 1 from 0 to 1",
+      "answer": -0.6666666666666666,
+      "note": "the region lies below the axis, so the signed area is negative and the geometric area is 2/3"
+    }
+  }
+}

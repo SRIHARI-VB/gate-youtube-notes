@@ -1,0 +1,77 @@
+{
+  "id": "iterated-integrals-and-odd-symmetry",
+  "title": "Iterated Integrals and Symmetry in Several Variables",
+  "priority": "P2",
+  "order": 212,
+  "unit": "Integration",
+  "quickIdea": "A multiple integral is evaluated one variable at a time from the inside out, and over a box symmetric about the origin a term that is odd in one variable contributes nothing.",
+  "remember": [
+    "Evaluate from the innermost differential outward, treating every other variable as a constant.",
+    "With constant limits the order of integration can be swapped without changing the value; with variable limits it cannot, because the limits then depend on the outer variable.",
+    "Odd symmetry extends term by term: over a box symmetric in y, any term odd in y integrates to zero; over a box symmetric in z, any term odd in z does so. The 2023 question dies twice over.",
+    "A term can be even in every variable and still vanish only if it is odd in at least one - check each term separately rather than the whole integrand at once.",
+    "The multi-variable odd rule is the single-variable rule applied one variable at a time; the joint condition f(-x, -y, -z) = -f(x, y, z) is sufficient but not necessary.",
+    "A quick size check: for a box, the integral of a constant k is k times the volume of the box."
+  ],
+  "example": {
+    "prompt": "Evaluate the integral from -3 to 3, from -2 to 2, from -1 to 1 of (4x^2 y - z^3) dz dy dx.",
+    "work": "The inner integral in z: an antiderivative of 4x^2 y is 4x^2 y z, and of z^3 is z^4/4, so the inner value is 8x^2 y - 0 = 8x^2 y, because z^4/4 is the same at -1 and at 1. The middle integral in y of 8x^2 y from -2 to 2 is 0, since y is odd. The outer integral is then 0.",
+    "answer": "0."
+  },
+  "gateAngle": "GATE CSE 2023 Q.21 is this integral and the answer is 0. It is a numerical-answer question, so the only route to the marks is spotting the odd terms; computing it by hand costs time and invites an arithmetic slip. The exam has used the same trick in single-variable form in 2026 Set 2 Q.17.",
+  "variations": [
+    {
+      "label": "VERIFIED PYQ",
+      "question": "GATE CSE 2023 Q.21: the value of the integral from -3 to 3, from -2 to 2, from -1 to 1 of (4x^2 y - z^3) dz dy dx, rounded to the nearest integer, is ____.",
+      "answer": "0.",
+      "why": "4x^2 y is odd in y, so its integral over the symmetric y-range is 0, and z^3 is odd in z, so its integral over the symmetric z-range is 0. Every layer therefore contributes nothing and the value is exactly 0."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "What is the integral of xy over the unit square [0, 1] x [0, 1]?",
+      "answer": "1/4.",
+      "why": "Here the limits are not symmetric, so no cancellation applies. Integrating in y first gives x/2, and then in x gives 1/4. The contrast with the 2023 question is the point: symmetry needs both the odd integrand and the symmetric range."
+    }
+  ],
+  "trap": {
+    "what": "Assuming a term vanishes because it contains a variable that appears to an odd power, without checking that the range for that variable is symmetric.",
+    "why": "The odd rule needs both conditions. On [0, 1] the integral of y is 1/2, not 0, and the same term that dies on [-2, 2] survives.",
+    "counterexample": "The integral of 4x^2 y over x in [0, 3], y in [0, 2], z in [0, 1] is 4 times (x^3/3 evaluated 0 to 3 = 9) times (y^2/2 evaluated 0 to 2 = 2) times 1 = 72, not 0. Only the symmetric box kills it."
+  },
+  "check": {
+    "question": "Evaluate the integral from -1 to 1, from -1 to 1 of x^2 y dy dx.",
+    "answer": "0.",
+    "explanation": "The inner integral in y of x^2 y over the symmetric range is 0 because y is odd; x^2 does not matter. The outer integral of 0 is 0. If the y-range were [0, 1] the inner value would be x^2/2 and the answer 1/3."
+  },
+  "pyqIds": [
+    "gate-2023-21-triple-integral-odd-symmetry"
+  ],
+  "prereqs": [
+    "symmetry-rules-for-definite-integrals",
+    "properties-of-definite-integrals"
+  ],
+  "sources": [
+    {
+      "kind": "lecture-summary",
+      "title": "Definite Integrals",
+      "channel": "Knowledge Gate (Yash Jain)",
+      "url": "https://www.knowledgegate.ai/learn/GATE-GUIDANCE-BY-SANCHIT-SIR/engineering-mathematics/calculus/integration/asset-definite-integrals",
+      "language": "hi",
+      "transcript": "SUMMARY_ONLY",
+      "translated": true,
+      "note": "Hindi-medium GATE lecture; the platform's published English AI chapter summary with timestamps was read in full, the lecture itself was not. Chapters used: 0:00-2:00 the definition as F(b) - F(a) and the two readings (area under a curve, area between curve and x-axis) with the example integral of 1 from 1 to 3; 2:00-5:00 the rectangle and triangle verifications of that example and of the integral of 2x from 0 to 1; 5:00-10:00 the sign of the integral as net signed area"
+    },
+    {
+      "kind": "lecture-summary",
+      "title": "Properties of Definite Integrals",
+      "channel": "Knowledge Gate (Yash Jain)",
+      "url": "https://www.knowledgegate.ai/learn/GATE-GUIDANCE-BY-SANCHIT-SIR/engineering-mathematics/calculus/integration/asset-properties-of-definite-integrals",
+      "language": "hi",
+      "transcript": "SUMMARY_ONLY",
+      "translated": true,
+      "note": "Hindi-medium GATE lecture; the English AI chapter summary with timestamps was read in full. Chapters used: 0:00-2:00 area readings and the integral of 1 from a to b equalling b - a; 2:00-5:00 the constant-factor, sum-difference and zero-width properties; 5:00-10:00 the reversal property derived from the fundamental theorem, additivity over a split interval, the sign rule, and the area between two curves"
+    }
+  ],
+  "sourceLine": "The iterated reading of a multiple integral and the term-by-term sign rule: Knowledge Gate 'Definite Integrals' 5:00-10:00 and 'Properties of Definite Integrals' 0:00-5:00 (Hindi-medium lectures, English summaries - translated). No lecture read this run taught multiple integrals, so the order-of-integration and box-volume statements follow the standard treatment and every value is recomputed in scripts/validate.py.",
+  "videoRefs": []
+}

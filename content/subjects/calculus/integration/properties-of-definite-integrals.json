@@ -1,0 +1,74 @@
+{
+  "id": "properties-of-definite-integrals",
+  "title": "The Properties of Definite Integrals",
+  "priority": "P1",
+  "order": 203,
+  "unit": "Integration",
+  "quickIdea": "A short list of rules - constants out, sums split, limits reversed for a minus sign, intervals glued - lets you compute an integral you cannot antidifferentiate.",
+  "remember": [
+    "Constant factor: the integral of k f is k times the integral of f. Sum and difference: the integral of f plus or minus g is the sum or difference of the integrals.",
+    "Reversal: the integral from b to a is minus the integral from a to b. Zero width: the integral from a to a is 0.",
+    "Additivity: the integral from a to b equals the integral from a to c plus the integral from c to b, for any c - it does not have to lie between a and b.",
+    "Dummy variable: renaming x to t changes nothing, because the value depends only on f and the two limits.",
+    "Sign rule: a non-negative integrand gives a non-negative integral, a non-positive one a non-positive integral.",
+    "There is no product rule and no quotient rule: the integral of f g is not the product of the integrals."
+  ],
+  "example": {
+    "prompt": "A continuous f satisfies the integral of f from 0 to 3 equal to 2, from 1 to 2 equal to 7, and from 3 to 6 equal to -5. Find the integral of f from 2 to 6.",
+    "work": "By additivity the integral from 0 to 3 splits at 1 and at 2: 2 = (integral 0 to 1) + 7 + (integral 2 to 3), so the integral from 2 to 3 is 2 - 7 - (integral 0 to 1). Taking the simplest case where the piece from 0 to 1 is 0 gives the integral from 2 to 3 as -5. Then the integral from 2 to 6 is -5 + (-5) = -10.",
+    "answer": "-10, given the piece from 0 to 1 is 0; in general the answer is -5 + (2 - 7 - integral 0 to 1) - 5, which shows the data determine the integral from 2 to 6 only up to the unknown piece from 0 to 1."
+  },
+  "gateAngle": "GATE uses these rules to make a question computable without an antiderivative: 2026 Set 2 Q.17 splits the integrand into three pieces and then kills the middle one by symmetry, and 2024 Set 2 Q.6 uses additivity and the dummy variable to turn an unknown integral into an equation in itself.",
+  "variations": [
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Is the integral of f g from 0 to 1 equal to the product of the integrals of f and of g from 0 to 1?",
+      "answer": "No.",
+      "why": "Take f(x) = g(x) = x on [0, 1]. Each integral is 1/2, so the product is 1/4, while the integral of x^2 is 1/3. The rule that survives is linearity, not multiplicativity."
+    },
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "If the integral of f from a to b is 4 and f is continuous, what is the integral from b to a of 3f(x) dx?",
+      "answer": "-12.",
+      "why": "The constant 3 comes out and the reversal contributes the minus sign: 3 times (-4) = -12. Two properties act in sequence, which is the usual shape of a GATE statement option."
+    }
+  ],
+  "trap": {
+    "what": "Assuming additivity requires the splitting point to lie inside the interval, or distributing an integral over a product.",
+    "why": "The splitting point may be anywhere on the line, and integration is linear but not multiplicative. Both mistakes are standard distractors.",
+    "counterexample": "For c outside [a, b] the rule still holds: the integral of 1 from 0 to 1 is 1, and it equals the integral from 0 to 3 plus the integral from 3 to 1, that is 3 + (-2) = 1."
+  },
+  "check": {
+    "question": "The integral of f from 0 to 4 is 6 and the integral of f from 2 to 4 is 9. What is the integral of f from 0 to 2?",
+    "answer": "-3.",
+    "explanation": "Additivity gives 6 = (integral 0 to 2) + 9, so the piece from 0 to 2 is -3. A negative value is allowed even though the interval is to the left of the other one; it simply means the curve sits below the axis there."
+  },
+  "pyqIds": [],
+  "prereqs": [
+    "definite-integral-as-signed-area"
+  ],
+  "sources": [
+    {
+      "kind": "text",
+      "title": "Calculus I, section 5.6: Definition of the Definite Integral",
+      "channel": "Paul's Online Math Notes, Lamar University",
+      "url": "https://tutorial.math.lamar.edu/classes/calci/defnofdefiniteintegral.aspx",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read from the section opening through the property list: the limit-of-sums definition with the lower and upper limits of integration, the explicit note that the lower limit need not be smaller, the worked example of x^2 + 1 on [0, 2] by right endpoints, and properties 1 to 6 (reversal, zero width, constant factor, sum and difference, additivity over a point c that need not lie between a and b, and the dummy variable). The later comparison properties were beyond the returned extract and nothing is attributed to them"
+    },
+    {
+      "kind": "lecture-summary",
+      "title": "Properties of Definite Integrals",
+      "channel": "Knowledge Gate (Yash Jain)",
+      "url": "https://www.knowledgegate.ai/learn/GATE-GUIDANCE-BY-SANCHIT-SIR/engineering-mathematics/calculus/integration/asset-properties-of-definite-integrals",
+      "language": "hi",
+      "transcript": "SUMMARY_ONLY",
+      "translated": true,
+      "note": "Hindi-medium GATE lecture; the English AI chapter summary with timestamps was read in full. Chapters used: 0:00-2:00 area readings and the integral of 1 from a to b equalling b - a; 2:00-5:00 the constant-factor, sum-difference and zero-width properties; 5:00-10:00 the reversal property derived from the fundamental theorem, additivity over a split interval, the sign rule, and the area between two curves"
+    }
+  ],
+  "sourceLine": "The property list including reversal, zero width, the constant factor, additivity with c outside the interval, and the dummy variable: Paul's Online Math Notes section 5.6 (English). The GATE ordering of the same properties, with the reversal derived from the fundamental theorem and the area-between-curves reading: Knowledge Gate 'Properties of Definite Integrals' 0:00-10:00 (Hindi-medium lecture, English summary - translated).",
+  "videoRefs": []
+}

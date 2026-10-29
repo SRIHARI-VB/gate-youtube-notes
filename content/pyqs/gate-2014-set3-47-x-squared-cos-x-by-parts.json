@@ -1,0 +1,21 @@
+{
+  "id": "gate-2014-set3-47-x-squared-cos-x-by-parts",
+  "year": "2014",
+  "paper": "GATE CS 2014 Set 3",
+  "question_ref": "Q.47",
+  "type": "MCQ",
+  "topic": "integration-by-parts",
+  "text": "The value of the integral given below is: the integral from 0 to pi of x^2 cos x dx",
+  "options": [
+    "-2 pi",
+    "pi",
+    "-pi",
+    "2 pi"
+  ],
+  "answer": "Option (A) - -2 pi",
+  "solution": "By parts twice, with u = x^2 then u = 2x: the integral is [x^2 sin x + 2x cos x - 2 sin x] from 0 to pi. At pi, sin pi = 0 so the first and third terms vanish and 2 pi cos pi = -2 pi; at 0 every term is 0. The value is -2 pi = -6.2832.",
+  "source_url": "https://gateoverflow.in/2081/gate-cse-2014-set-3-question-47",
+  "source_label": "GATE Overflow question page - GATE CSE 2014 Set 3 Q.47 with the accepted answer (option A)",
+  "verification": "SOURCED",
+  "answer_evidence": "The accepted answer carries out both rounds of by parts and states 'Answer is A'; the Knowledge Gate AI page for the GATE 2014 Set 3 paper records the official answer key as A. Recomputed here numerically."
+}

@@ -1,0 +1,15 @@
+{
+  "id": "gate-2023-21-triple-integral-odd-symmetry",
+  "year": "2023",
+  "paper": "GATE CS 2023",
+  "question_ref": "Q.21",
+  "type": "NAT",
+  "topic": "iterated-integrals-and-odd-symmetry",
+  "text": "The value of the definite integral of (4x^2 y - z^3) dz dy dx over z from -1 to 1, y from -2 to 2 and x from -3 to 3 is ____. (Rounded off to the nearest integer)",
+  "answer": "0",
+  "solution": "Integrating in z first gives 8x^2 y - 0, because z^4/4 takes the same value at -1 and 1. The remaining integral in y of 8x^2 y over [-2, 2] is 0 since y is odd, so the outer integral is 0. The equivalent shortcut: 4x^2 y is odd in y and z^3 is odd in z, so each term vanishes over its symmetric range.",
+  "source_url": "https://gateoverflow.in/399290/gate-cse-2023-question-21",
+  "source_label": "GATE Overflow question page - GATE CSE 2023 Q.21 with the accepted answer (0)",
+  "verification": "SOURCED",
+  "answer_evidence": "The accepted answers compute the integral in two ways and both give 0; the question page shows the numerical answer 0. Recomputed here layer by layer."
+}

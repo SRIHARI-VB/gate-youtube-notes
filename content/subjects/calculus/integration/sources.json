@@ -1,0 +1,235 @@
+{
+  "subject": "calculus",
+  "topic": "integration",
+  "exam": "GATE CSE 2027",
+  "retrieved_at": "2026-10-29",
+  "subtopics": [
+    "the antiderivative, the indefinite integral, the constant of integration and the standard forms",
+    "the definite integral as a limit of Riemann sums, and the reading as net signed area",
+    "the fundamental theorem of calculus: the derivative of an integral with a variable limit, and evaluation by any antiderivative",
+    "the properties of definite integrals: linearity, reversal of limits, zero width, additivity, the dummy variable and the sign rule",
+    "symmetry rules over a symmetric interval, and the reflection rule f(x) -> f(a + b - x)",
+    "substitution in a definite integral, including the change of the two limits",
+    "integration by parts, with the choice of u and the definite-integral form",
+    "splitting the interval at a sign change: modulus and piecewise integrands",
+    "improper integrals: an unbounded integrand, an infinite limit, and convergence",
+    "the area between two curves",
+    "the average value of a function and the mean value theorem for integrals",
+    "integrating a functional equation, and solving for an unknown integral",
+    "iterated integrals and odd symmetry in several variables"
+  ],
+  "chosen": [
+    {
+      "id": "kg-definite",
+      "kind": "lecture-summary",
+      "title": "Definite Integrals",
+      "channel": "Knowledge Gate (Yash Jain)",
+      "url": "https://www.knowledgegate.ai/learn/GATE-GUIDANCE-BY-SANCHIT-SIR/engineering-mathematics/calculus/integration/asset-definite-integrals",
+      "language": "hi",
+      "transcript": "SUMMARY_ONLY",
+      "translated": true,
+      "covers": [
+        "the definition as F(b) - F(a) with the area readings",
+        "the rectangle and triangle verifications",
+        "the sign of the integral as net signed area"
+      ],
+      "why": "The GATE-oriented teaching of the definition that was readable this run, and the only source that states the signed-area convention in GATE's own words. Hindi-medium, so the cards take its structure and its two worked examples and mark the material translated; no Hindi sentence is quoted."
+    },
+    {
+      "id": "kg-properties",
+      "kind": "lecture-summary",
+      "title": "Properties of Definite Integrals",
+      "channel": "Knowledge Gate (Yash Jain)",
+      "url": "https://www.knowledgegate.ai/learn/GATE-GUIDANCE-BY-SANCHIT-SIR/engineering-mathematics/calculus/integration/asset-properties-of-definite-integrals",
+      "language": "hi",
+      "transcript": "SUMMARY_ONLY",
+      "translated": true,
+      "covers": [
+        "the eight properties in the order GATE teaches them",
+        "the reversal property derived from the fundamental theorem",
+        "additivity over a split interval",
+        "the area between two curves"
+      ],
+      "why": "The only readable source that presents the property list as a GATE revision sheet, in the same order the cards use, and the only one that derives reversal from the fundamental theorem rather than asserting it."
+    },
+    {
+      "id": "kg-substitution",
+      "kind": "lecture-summary",
+      "title": "Solving Integration: Substitution Method",
+      "channel": "Knowledge Gate (Yash Jain), ZERO TO HERO module",
+      "url": "https://www.knowledgegate.ai/learn/ZERO-TO-HERO/engineering-mathematics/calculus/integration/asset-solving-integration-substitution-method",
+      "language": "hi",
+      "transcript": "SUMMARY_ONLY",
+      "translated": true,
+      "covers": [
+        "the form f(x) g'(x)",
+        "six worked substitutions including a definite integral with the limits changed",
+        "the two standard forms"
+      ],
+      "why": "Chosen for one thing the other sources lack: a worked definite integral in which the limits are actually changed, with the arithmetic, which is the step GATE CSE 2015 Set 1 Q.44 punishes."
+    },
+    {
+      "id": "kg-13oct",
+      "kind": "lecture-summary",
+      "title": "13 Oct - EM - Calculus Part 3, the integration segment",
+      "channel": "Knowledge Gate (Yash Jain)",
+      "url": "https://www.knowledgegate.ai/learn/GATE-GUIDANCE-BY-SANCHIT-SIR/live-classes/gate-2026-live-class/engineering-mathematics-for-gate-exam/asset-13-oct-em-calculus-part-3",
+      "language": "hi",
+      "transcript": "SUMMARY_ONLY",
+      "translated": true,
+      "covers": [
+        "integration as anti-differentiation",
+        "indefinite against definite integral",
+        "the property list",
+        "substitution with the standard forms"
+      ],
+      "why": "The same live class that supplied the previous topic, read here for its last fifteen minutes, which are the only place in the readable material where the indefinite and definite integrals are distinguished in a GATE class and where the standard-form table is pointed at."
+    },
+    {
+      "id": "pauls-definite",
+      "kind": "text",
+      "title": "Calculus I, section 5.6: Definition of the Definite Integral",
+      "channel": "Paul's Online Math Notes, Lamar University",
+      "url": "https://tutorial.math.lamar.edu/classes/calci/defnofdefiniteintegral.aspx",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "covers": [
+        "the limit-of-sums definition",
+        "the lower limit need not be smaller",
+        "properties 1 to 6 with the dummy-variable property"
+      ],
+      "why": "The most complete readable English statement of the definition and of the property list, including the two details the GATE lecture omits: that c in the additivity rule need not lie between a and b, and that the variable of integration is a dummy."
+    },
+    {
+      "id": "openstax-ftc",
+      "kind": "text",
+      "title": "Calculus Volume 1, section 5.3: The Fundamental Theorem of Calculus",
+      "channel": "OpenStax (Rice University)",
+      "url": "https://openstax.org/books/calculus-volume-1/pages/5-3-the-fundamental-theorem-of-calculus",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "covers": [
+        "the mean value theorem for integrals and its proof",
+        "the average-value formula with a worked example"
+      ],
+      "why": "The only readable source for the average-value card and for the theorem that makes the fundamental theorem provable. Its extract stopped before the two parts of the fundamental theorem themselves, which is recorded as a gap rather than papered over."
+    },
+    {
+      "id": "openstax-substitution",
+      "kind": "text",
+      "title": "Calculus Volume 1, section 5.5: Substitution",
+      "channel": "OpenStax (Rice University)",
+      "url": "https://openstax.org/books/calculus-volume-1/pages/5-5-substitution",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "covers": [
+        "the chain-rule origin of the substitution form",
+        "the five-step procedure",
+        "the adjustment of a mismatched constant"
+      ],
+      "why": "The cleanest English derivation of why substitution works, with the constant-adjustment example that the GATE lecture skips. Chosen over the equivalent Paul's page because the Paul's substitution page returned an empty body this run."
+    },
+    {
+      "id": "openstax-by-parts",
+      "kind": "text",
+      "title": "Calculus Volume 2, section 3.1: Integration by Parts",
+      "channel": "OpenStax (Rice University)",
+      "url": "https://openstax.org/books/calculus-volume-2/pages/3-1-integration-by-parts",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "covers": [
+        "the derivation from the product rule",
+        "the formula and the worked x sin x example",
+        "the warning about the other choice of u",
+        "LIATE"
+      ],
+      "why": "The only readable English treatment of by parts found this run, and the only source that explains why the wrong choice of u fails rather than just prescribing an order."
+    }
+  ],
+  "rejected": [
+    {
+      "id": "pauls-ftc-and-substitution-pages",
+      "kind": "text",
+      "channel": "Paul's Online Math Notes",
+      "why": "The FTC, substitution and integration-by-parts pages of the same notes answered with an empty body to the fetch service this run, although the section 5.6 page from the same site was readable. Nothing is attributed to them; OpenStax covered the same ground."
+    },
+    {
+      "id": "pauls-improper-integrals",
+      "kind": "text",
+      "channel": "Paul's Online Math Notes, section 7.8 (Improper Integrals)",
+      "why": "Requested in the same batch as the by-parts page and returned no text. The improper-integral card therefore rests on the standard p-test and on recomputation, and the gap is recorded."
+    },
+    {
+      "id": "mit-ocw-18-01-lectures-18-20",
+      "kind": "lecture-transcript",
+      "channel": "MIT OpenCourseWare, 18.01 Single Variable Calculus, Lectures 18-20 (definite integrals and the two fundamental theorems)",
+      "why": "The transcript mirror that supplied a full lecture to an earlier topic answered HTTP 502 for every lecture number tried this run. A later run should retry: these are the canonical English lectures for the two parts of the theorem, which is the thinnest card in this topic."
+    },
+    {
+      "id": "nptel-basic-calculus-1-integration",
+      "kind": "lecture",
+      "channel": "NPTEL, IIT Madras Basic Calculus 1, the integration lectures",
+      "why": "Right scope and English, but the course pages carry lecture titles only and no transcript, so not one sentence could be read. Recorded rather than used."
+    },
+    {
+      "id": "youtube-gate-integration-lectures",
+      "kind": "lecture",
+      "channel": "Every YouTube lecture tried (English and Hindi GATE channels)",
+      "why": "No caption track was readable: yt-dlp is not installed in this environment and the watch pages carry no caption text. No YouTube lecture is quoted anywhere in this topic, and the GATE-oriented material reaches the cards only through the Knowledge Gate platform's published English AI chapter summaries of Hindi-medium classes."
+    },
+    {
+      "id": "kg-integration-by-parts-lesson",
+      "kind": "lecture-summary",
+      "channel": "Knowledge Gate, ZERO TO HERO, 'Solving Integration: Integration by Parts Method'",
+      "why": "Listed in the module outline of the same course that supplied the substitution lesson, and it is the natural GATE source for the by-parts card, but its summary page was not retrieved this run, so nothing rests on it. The by-parts card is built from OpenStax section 3.1 instead."
+    },
+    {
+      "id": "gate-cse-2011-31-complex-integral",
+      "kind": "pyq",
+      "channel": "GATE Overflow, GATE CSE 2011 Q.31",
+      "why": "A genuine CSE integration question - the integral from 0 to pi/2 of (cos x + i sin x)/(cos x - i sin x) dx - and a good test of Euler's formula, but the option labelling is in conflict: the question page lists i as option 1 while its accepted answer computes i and labels it 'D', and another site labels the option i as (D). The mathematics is certain (the value is i) but the paper's option letter is not, so the question is excluded rather than recorded with a guessed letter."
+    },
+    {
+      "id": "gate-cse-2014-set3-46-numerical-evaluation",
+      "kind": "pyq",
+      "channel": "GATE Overflow, GATE CSE 2014 Set 3 Q.46",
+      "why": "About the numerical evaluation of a definite integral by the trapezoidal and Simpson rules. That is the numerical-methods material, which this repository's enumerated syllabus does not contain as a topic, so it is deliberately outside this topic's scope."
+    },
+    {
+      "id": "gate-2014-set2-5-and-2015-set1-44-duplicates",
+      "kind": "pyq-index",
+      "channel": "GATE Overflow tag pages for calculus",
+      "why": "The calculus tag page and the per-year tag pages were used as an index only. They list duplicates of the same question under different ids (for example 2025 Set 2 Q.2 appears twice) and their numbering disagrees with ExamSIDE's, so every PYQ record here cites its own question page."
+    },
+    {
+      "id": "gateiq-and-pyqbox-indexes",
+      "kind": "pyq-index",
+      "channel": "GateIQ and PYQBox calculus listings",
+      "why": "Both are readable and both count calculus questions per year, which is how the topic's weight was confirmed, but their topic split ('Definite Integral 2023-2026', 'Integration 1993-2018') is their own taxonomy and their question numbering does not match the papers. Used as an index only; no answer was taken from either."
+    },
+    {
+      "id": "go-classes-dpp-integration",
+      "kind": "practice-set",
+      "channel": "GATE Overflow, GO Classes DPP | Calculus | Integration",
+      "why": "A coaching practice set, not a previous-year paper. Read for question shape only and nothing from it is presented as a PYQ."
+    }
+  ],
+  "standard_refs": [
+    "James Stewart, Calculus: Early Transcendentals, chapters 5 and 7 (integrals, techniques of integration, improper integrals)",
+    "George B. Thomas, Maurice D. Weir and Joel Hass, Thomas' Calculus, chapter 5 (integration) and section 8.8 (improper integrals)",
+    "NCERT Mathematics, Class 12, chapter 7 (integrals), which contains the property list and the standard forms most Indian candidates meet first",
+    "Gilbert Strang et al., OpenStax Calculus Volume 1 sections 5.3 and 5.5, and Volume 2 section 3.1",
+    "GATE 2027 CS syllabus, Engineering Mathematics line 'Limits, continuity and differentiability. Maxima and minima. Mean value theorem. Integration.'"
+  ],
+  "notes": [
+    "The syllabus names the topic in one word, so the thirteen subtopics above are this run's enumeration from the standard treatment (Stewart chapters 5 and 7, NCERT chapter 7, OpenStax 5.3-5.5 and 3.1) and from the ten verified CSE questions, not a quotation from the syllabus.",
+    "Ten GATE CSE previous-year questions were verified for this topic, the largest set of any calculus topic in the repository so far: 2026 Set 2 Q.17, 2025 Set 2 Q.2, 2024 Set 2 Q.6, 2023 Q.21, 2015 Set 1 Q.44, 2015 Set 2 Q.26, 2015 Set 3 Q.45, 2014 Set 3 Q.47, 2014 Set 3 Q.6 and 2009 Q.25. Five of the ten are numerical-answer or multiple-select, which is why the cards insist on the sign conventions.",
+    "No readable source this run taught integration by parts as a GATE lecture: the by-parts card rests on OpenStax section 3.1 and on the two PYQ solutions, and the Knowledge Gate by-parts lesson exists in the module but its summary was not retrieved.",
+    "The non-English material is Hindi-medium throughout, and every card that uses it is marked translated. What was readable is the platform's published English AI chapter summary with timestamps, not the lecture audio, so the translation sits two layers from the lecturer and no card quotes a Hindi sentence.",
+    "Four of the thirteen cards carry no previous-year question of their own (the antiderivative, the properties, the area between curves and the average value), because no verified CSE question in this topic is decided by them alone; they are the steps inside the ten that do have one. Those four are P1, P1, P2 and P2 accordingly, and the two P2 cards say so on the card."
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "id": "splitting-the-interval-at-sign-changes",
+  "title": "Splitting the Interval: Modulus and Piecewise Integrands",
+  "priority": "P1",
+  "order": 207,
+  "unit": "Integration",
+  "quickIdea": "An absolute value inside an integral must be removed before integrating: find where the inner expression changes sign, split the interval there, and integrate each piece with its own sign.",
+  "remember": [
+    "|g(x)| equals g(x) where g is non-negative and -g(x) where g is negative; the split points are the zeros of g inside the interval.",
+    "The integral of |f| is the area; the integral of f is the net signed area. A question that says 'area' wants the first, and a question that says 'integral of the modulus' already forces it.",
+    "A piecewise definition is handled the same way: split at the joins and add the pieces.",
+    "A modulus of a product needs every factor's sign on the interval, not just the obvious one: |x sin x| on [0, 2pi] needs x, which is non-negative, and sin x, which changes sign at pi.",
+    "Absolute value also appears as a limit of integration or as the integrand of a definite integral with a parameter; the split is at the point where the expression inside is zero.",
+    "Check the answer's sign: an integral of a modulus over an interval of positive length cannot be negative."
+  ],
+  "example": {
+    "prompt": "If the integral from 0 to 2pi of |x sin x| dx = k pi, find k.",
+    "work": "On [0, 2pi] x is non-negative, so |x sin x| = x|sin x|. sin x is non-negative on [0, pi] and non-positive on [pi, 2pi], so the integral is the integral of x sin x from 0 to pi minus the integral of x sin x from pi to 2pi. An antiderivative of x sin x is -x cos x + sin x. The first piece is (-pi cos pi + 0) - 0 = pi. The second piece is (-2pi cos 2pi + 0) - (-pi cos pi + 0) = -2pi - pi = -3pi. So the integral is pi - (-3pi) = 4pi.",
+    "answer": "k = 4."
+  },
+  "gateAngle": "GATE CSE 2014 Set 3 Q.6 is this computation with the answer 4. The exam's habit is to give a modulus and a scaling constant - here k pi - so that a partially correct split still produces a plausible wrong integer; the mark is in the second piece's sign.",
+  "variations": [
+    {
+      "label": "VERIFIED PYQ",
+      "question": "GATE CSE 2014 Set 3 Q.6: if the integral from 0 to 2pi of |x sin x| dx = k pi, the value of k is ____.",
+      "answer": "4.",
+      "why": "Splitting at pi and integrating each piece by parts gives pi for the first and -3pi for the second; the modulus makes the second contribute +3pi, so the total is 4pi. Integrating x sin x across the whole interval without splitting gives -2pi, which is the trap."
+    },
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "Evaluate the integral from 0 to 2 of |x - 1| dx.",
+      "answer": "1.",
+      "why": "The sign changes at x = 1. On [0, 1] the integrand is 1 - x, whose integral is 1/2; on [1, 2] it is x - 1, also 1/2. The two triangles together have area 1, and the signed integral of x - 1 over [0, 2] is 0 - the modulus is what makes the difference."
+    }
+  ],
+  "trap": {
+    "what": "Integrating through a sign change as if the expression were positive throughout, or using the signed integral when the question asks for area.",
+    "why": "The modulus is not a decoration: it changes the integrand on exactly one of the pieces. And the signed integral can be much smaller, or zero, when the pieces cancel.",
+    "counterexample": "The integral of x sin x from 0 to 2pi is -2pi, while the integral of |x sin x| is 4pi. Reading the first as the answer gives k = -2, which is not even an offered option."
+  },
+  "check": {
+    "question": "Evaluate the integral from -1 to 1 of |x| dx and compare it with the integral of x over the same interval.",
+    "answer": "The first is 1 and the second is 0.",
+    "explanation": "|x| is even, so its integral is twice the integral from 0 to 1 of x, which is 2 times 1/2 = 1. The integral of x is 0 because x is odd on a symmetric interval. Same interval, same endpoints, different integrand, and the modulus is the whole difference."
+  },
+  "pyqIds": [
+    "gate-2014-set3-6-modulus-x-sin-x"
+  ],
+  "prereqs": [
+    "definite-integral-as-signed-area",
+    "integration-by-parts"
+  ],
+  "sources": [
+    {
+      "kind": "lecture-summary",
+      "title": "Definite Integrals",
+      "channel": "Knowledge Gate (Yash Jain)",
+      "url": "https://www.knowledgegate.ai/learn/GATE-GUIDANCE-BY-SANCHIT-SIR/engineering-mathematics/calculus/integration/asset-definite-integrals",
+      "language": "hi",
+      "transcript": "SUMMARY_ONLY",
+      "translated": true,
+      "note": "Hindi-medium GATE lecture; the platform's published English AI chapter summary with timestamps was read in full, the lecture itself was not. Chapters used: 0:00-2:00 the definition as F(b) - F(a) and the two readings (area under a curve, area between curve and x-axis) with the example integral of 1 from 1 to 3; 2:00-5:00 the rectangle and triangle verifications of that example and of the integral of 2x from 0 to 1; 5:00-10:00 the sign of the integral as net signed area"
+    },
+    {
+      "kind": "lecture-summary",
+      "title": "Properties of Definite Integrals",
+      "channel": "Knowledge Gate (Yash Jain)",
+      "url": "https://www.knowledgegate.ai/learn/GATE-GUIDANCE-BY-SANCHIT-SIR/engineering-mathematics/calculus/integration/asset-properties-of-definite-integrals",
+      "language": "hi",
+      "transcript": "SUMMARY_ONLY",
+      "translated": true,
+      "note": "Hindi-medium GATE lecture; the English AI chapter summary with timestamps was read in full. Chapters used: 0:00-2:00 area readings and the integral of 1 from a to b equalling b - a; 2:00-5:00 the constant-factor, sum-difference and zero-width properties; 5:00-10:00 the reversal property derived from the fundamental theorem, additivity over a split interval, the sign rule, and the area between two curves"
+    }
+  ],
+  "sourceLine": "The distinction between the signed integral and the area, which is what a modulus question is testing: Knowledge Gate 'Definite Integrals' 5:00-10:00 and 'Properties of Definite Integrals' 5:00-10:00 (Hindi-medium lectures, English summaries - translated). The 2014 computation is carried out here from the antiderivative of x sin x and recomputed in scripts/validate.py.",
+  "videoRefs": []
+}

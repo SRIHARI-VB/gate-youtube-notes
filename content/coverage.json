@@ -3,7 +3,7 @@
   "updated_at": "2026-10-29",
   "cycle": {
     "last_subject": "calculus",
-    "last_topic": "mean-value-theorem",
+    "last_topic": "integration",
     "updated_at": "2026-10-29"
   },
   "subjects": [
@@ -414,10 +414,36 @@
         {
           "slug": "integration",
           "name": "Integration",
-          "status": "not_started",
-          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
-          "runs": [],
-          "gaps": []
+          "status": "partial",
+          "coverage_note": "13 subtopics, 13 cards (the antiderivative and the constant, the definite integral as a limit of sums and signed area, the fundamental theorem both parts, the property list, the symmetry and reflection rules, substitution with the limits changed, integration by parts, splitting at a sign change, improper integrals, area between two curves, average value, integrating a functional equation, and iterated integrals with odd symmetry), 10 verified PYQs and 1 p5.js lesson. Partial because seven gaps remain, named below - above all that no YouTube caption track was readable and that no read source states the two parts of the fundamental theorem.",
+          "runs": [
+            {
+              "date": "2026-10-29",
+              "sources": [
+                "kg-definite",
+                "kg-properties",
+                "kg-substitution",
+                "kg-13oct",
+                "pauls-definite",
+                "openstax-ftc",
+                "openstax-substitution",
+                "openstax-by-parts"
+              ],
+              "cards": 13,
+              "pyqs": 10,
+              "lesson": "calculus/integration/signed-area-and-running-total",
+              "note": "Sources chosen on merit across two languages: four Knowledge Gate lessons read through the platform's published English AI chapter summaries with timestamps (Hindi-medium lectures, translated) for the GATE teaching order, the signed-area convention, the property list in GATE's order and a worked definite integral with the limits changed; Paul's Online Math Notes section 5.6 (English, read in part) for the limit-of-sums definition and properties 1-6 including additivity with the split point outside the interval; OpenStax Calculus Volume 1 sections 5.3 and 5.5 and Volume 2 section 3.1 (English, read in part) for the mean value theorem for integrals, the substitution rule with its proof, and integration by parts with the LIATE argument. Ten CSE previous-year questions verified, the largest set in any calculus topic so far: 2026 Set 2 Q.17, 2025 Set 2 Q.2, 2024 Set 2 Q.6, 2023 Q.21, 2015 Set 1 Q.44, 2015 Set 2 Q.26, 2015 Set 3 Q.45, 2014 Set 3 Q.47, 2014 Set 3 Q.6 and 2009 Q.25. Rejected with reasons in sources.json: the Paul's FTC, substitution, by-parts and improper-integral pages (empty body), the MIT 18.01 lecture transcripts 18-20 (HTTP 502), the NPTEL integration lectures (titles only), every YouTube lecture tried (no caption track, yt-dlp absent), the Knowledge Gate by-parts lesson (summary not retrieved), GATE CSE 2011 Q.31 (option-letter conflict), GATE CSE 2014 Set 3 Q.46 (numerical methods, outside this topic), and two PYQ index sites used only as indexes."
+            }
+          ],
+          "gaps": [
+            "no YouTube caption track was readable this run - yt-dlp is not installed in this environment and the watch pages carry no caption text - so no YouTube lecture is quoted; the GATE-oriented material is the Knowledge Gate platform's published English AI chapter summaries of Hindi-medium classes, which puts a translation two layers from the lecturer",
+            "neither part of the fundamental theorem of calculus is quoted from a source read this run: the OpenStax section 5.3 extract stopped before the statements, the MIT 18.01 transcript mirror that supplied a full lecture to an earlier topic answered HTTP 502 for lectures 18-20, and the NPTEL lectures carry no transcript; the card states both parts from the standard form and both are recomputed in scripts/validate.py, so nothing is unverified, but the card has no teaching source behind its statement",
+            "integration by parts has no readable GATE lecture: the Knowledge Gate by-parts lesson exists in the same module as the substitution lesson but its summary was not retrieved, so the card rests on OpenStax Volume 2 section 3.1 and on the two previous-year solutions alone",
+            "improper integrals and iterated (multiple) integrals are taught by no readable source this run: the Paul's section 7.8 page returned an empty body, so the convergence rules rest on the standard p-test, and the order-of-integration statements rest on the standard treatment, with every value recomputed",
+            "four of the thirteen cards carry no previous-year question of their own - the antiderivative, the properties, the area between two curves and the average value - because no verified CSE question in this topic is decided by them alone; no CSE question on the average value or on the area between two curves was found at all",
+            "every PYQ in the topic is SOURCED against a GATE Overflow accepted answer rather than key-verified against an official key, and no marks field is recorded on any of the ten, because no official paper or key was fetched this run; two records (2014 Set 3 Q.47 and 2014 Set 3 Q.6) carry an independent corroboration of the official option from another site's key page",
+            "the GATE Overflow calculus listing and the Knowledge Gate integration module both name further previous-year questions that were not individually read this run, including GATE CS 2000 and the 2007, 2008, 2016 and 2018 calculus questions; GATE CSE 2011 Q.31 is excluded because its option letter is in conflict between the question page and its accepted answer, and GATE CSE 2014 Set 3 Q.46 is excluded because it is a numerical-methods question"
+          ]
         }
       ]
     },

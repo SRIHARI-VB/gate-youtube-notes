@@ -1,0 +1,75 @@
+{
+  "id": "area-between-two-curves",
+  "title": "Area Between Two Curves",
+  "priority": "P2",
+  "order": 209,
+  "unit": "Integration",
+  "quickIdea": "The area between an upper curve f and a lower curve g from a to b is the integral of f - g, with the interval cut wherever the two curves cross.",
+  "remember": [
+    "If f is at least g throughout [a, b], the area is the integral from a to b of (f - g). The limits a and b are usually the intersection points, not arbitrary numbers.",
+    "Find the intersections first: solve f(x) = g(x). Those solutions decide the interval and the split points.",
+    "Where the curves cross inside the interval, split there, because the upper curve changes; integrating f - g across a crossing subtracts area instead of adding it.",
+    "This is the same statement as the signed-integral rule with the x-axis replaced by a curve: the area between two curves is the integral of the vertical gap.",
+    "For curves given as x as a function of y, the same formula runs in y; the gap is horizontal.",
+    "A quick sanity check: the answer must be positive, and it cannot exceed the rectangle bounded by the interval width and the largest gap."
+  ],
+  "example": {
+    "prompt": "Find the area enclosed between y = x and y = x^2.",
+    "work": "The curves meet where x = x^2, that is at x = 0 and x = 1. Between them x is at least x^2, so the area is the integral from 0 to 1 of (x - x^2) dx = [x^2/2 - x^3/3] from 0 to 1 = 1/2 - 1/3 = 1/6.",
+    "answer": "1/6, about 0.1667."
+  },
+  "gateAngle": "No verified GATE CSE previous-year question in this topic asks for an area between two curves; the closest is 2015 Set 2 Q.26, which asks for the area between one curve and the axis. The pattern is still worth knowing because it is the geometric meaning the properties are built on, and because a statement question can ask whether the area equals the difference of the two integrals - it does only when the curves do not cross.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "Find the area between y = 4 and y = x^2.",
+      "answer": "32/3, about 10.667.",
+      "why": "The curves meet at x = -2 and x = 2, and 4 is above x^2 in between. The area is the integral from -2 to 2 of (4 - x^2) dx = [4x - x^3/3] from -2 to 2 = (8 - 8/3) - (-8 + 8/3) = 32/3. Symmetry lets you double the integral from 0 to 2 instead."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "The curves y = x^3 and y = x meet at -1, 0 and 1. What is the signed integral of x^3 - x from -1 to 1, and what is the enclosed area?",
+      "answer": "The signed integral is 0 and the area is 1/2.",
+      "why": "x^3 - x is odd, so its integral over the symmetric interval vanishes. The enclosed area needs the modulus of the gap, and each of the two lobes has area 1/4, so the total is 1/2. This is the clearest example of why crossing points must be split."
+    }
+  ],
+  "trap": {
+    "what": "Integrating f - g across a crossing point and calling the result an area.",
+    "why": "On one side of the crossing f is above g, on the other g is above f, so the contributions have opposite signs and partly cancel.",
+    "counterexample": "For y = x^3 and y = x on [-1, 1] the integral of x^3 - x is 0, while the enclosed area is 1/2. Reporting 0 as an area is the standard error."
+  },
+  "check": {
+    "question": "What is the area between y = x^2 and the x-axis from x = 0 to x = 3?",
+    "answer": "9.",
+    "explanation": "x^2 is non-negative on [0, 3], so the area equals the integral, which is [x^3/3] from 0 to 3 = 27/3 = 9. Because there is no crossing, the area and the integral agree - the case the previous card warned about does not arise."
+  },
+  "pyqIds": [],
+  "prereqs": [
+    "definite-integral-as-signed-area",
+    "properties-of-definite-integrals"
+  ],
+  "sources": [
+    {
+      "kind": "lecture-summary",
+      "title": "Properties of Definite Integrals",
+      "channel": "Knowledge Gate (Yash Jain)",
+      "url": "https://www.knowledgegate.ai/learn/GATE-GUIDANCE-BY-SANCHIT-SIR/engineering-mathematics/calculus/integration/asset-properties-of-definite-integrals",
+      "language": "hi",
+      "transcript": "SUMMARY_ONLY",
+      "translated": true,
+      "note": "Hindi-medium GATE lecture; the English AI chapter summary with timestamps was read in full. Chapters used: 0:00-2:00 area readings and the integral of 1 from a to b equalling b - a; 2:00-5:00 the constant-factor, sum-difference and zero-width properties; 5:00-10:00 the reversal property derived from the fundamental theorem, additivity over a split interval, the sign rule, and the area between two curves"
+    },
+    {
+      "kind": "lecture-summary",
+      "title": "Definite Integrals",
+      "channel": "Knowledge Gate (Yash Jain)",
+      "url": "https://www.knowledgegate.ai/learn/GATE-GUIDANCE-BY-SANCHIT-SIR/engineering-mathematics/calculus/integration/asset-definite-integrals",
+      "language": "hi",
+      "transcript": "SUMMARY_ONLY",
+      "translated": true,
+      "note": "Hindi-medium GATE lecture; the platform's published English AI chapter summary with timestamps was read in full, the lecture itself was not. Chapters used: 0:00-2:00 the definition as F(b) - F(a) and the two readings (area under a curve, area between curve and x-axis) with the example integral of 1 from 1 to 3; 2:00-5:00 the rectangle and triangle verifications of that example and of the integral of 2x from 0 to 1; 5:00-10:00 the sign of the integral as net signed area"
+    }
+  ],
+  "sourceLine": "The area-between-two-curves property, stated and drawn in the GATE lecture: Knowledge Gate 'Properties of Definite Integrals' 5:00-10:00 (Hindi-medium lecture, English summary - translated), with the signed-area reading from 'Definite Integrals'. The two worked areas are recomputed in scripts/validate.py.",
+  "videoRefs": []
+}

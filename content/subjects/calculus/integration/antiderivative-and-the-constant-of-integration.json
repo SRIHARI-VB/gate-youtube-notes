@@ -1,0 +1,73 @@
+{
+  "id": "antiderivative-and-the-constant-of-integration",
+  "title": "The Antiderivative and the Constant of Integration",
+  "priority": "P1",
+  "order": 200,
+  "unit": "Integration",
+  "quickIdea": "Integration reverses differentiation: every antiderivative of f differs from every other by a constant, and a definite integral cancels that constant away.",
+  "remember": [
+    "F is an antiderivative of f when F'(x) = f(x). The indefinite integral writes the whole family: the integral of f(x) dx is F(x) + C.",
+    "The standard forms that GATE actually uses: x^n integrates to x^(n+1)/(n+1) for n not equal to -1; 1/x integrates to ln|x|; e^x to e^x; sin x to -cos x; cos x to sin x; sec^2 x to tan x; 1/(1+x^2) to arctan x; a constant k to kx.",
+    "Check an antiderivative by differentiating it - that check is faster than re-deriving and catches every sign error.",
+    "In a definite integral the constant cancels: (F(b) + C) - (F(a) + C) = F(b) - F(a), so any one antiderivative gives the same number.",
+    "x^(-1) is the single power the rule refuses, because n + 1 would be zero; that is why 1/x needs the logarithm."
+  ],
+  "example": {
+    "prompt": "Find the integral of 3x^2 - 4x + 1 with respect to x, and check it.",
+    "work": "Integrate term by term: 3x^2 gives x^3, -4x gives -2x^2, and 1 gives x. So the family is x^3 - 2x^2 + x + C. Differentiating gives 3x^2 - 4x + 1 back.",
+    "answer": "x^3 - 2x^2 + x + C, and the derivative of that is the original integrand."
+  },
+  "gateAngle": "GATE never asks for an indefinite integral on its own; it asks for a definite value, so the antiderivative table has to be automatic. Every previous-year question in this topic starts by recognising one of the standard forms - 2015 Set 1 Q.44 recognises the derivative of 1/x inside the integrand, 2014 Set 3 Q.47 recognises that x^2 cos x needs a technique rather than a table entry.",
+  "variations": [
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Why does the indefinite integral of 1/x need the absolute value, ln|x|, while the integral of x^2 does not need one?",
+      "answer": "Because the antiderivative must work on both sides of zero, where 1/x is defined but x is negative.",
+      "why": "d/dx ln|x| equals 1/x for every x other than 0: for negative x the chain rule contributes the derivative of |x|, which is -1, and the two minus signs cancel. For x^2 no such domain problem exists, since x^(n+1)/(n+1) is defined wherever x^n is."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "If the integral of f(x) dx is F(x) + C, what is the integral of f(2x) dx?",
+      "answer": "F(2x)/2 + C.",
+      "why": "Differentiate F(2x)/2 and the chain rule returns f(2x). The variation tests whether the constant of integration is understood as bookkeeping rather than as part of the answer: the factor 1/2 comes from the inner derivative, not from C."
+    }
+  ],
+  "trap": {
+    "what": "Writing x^n/(n) with n = 0 for the integral of 1/x, or dropping the constant on an indefinite integral.",
+    "why": "The power rule divides by n + 1, which is zero when n = -1, so that case has no power answer at all; and an indefinite integral is a family, so a single function is only one member of it.",
+    "counterexample": "Differentiating ln|x| gives 1/x, while differentiating x^0/0 is meaningless. And the two antiderivatives x^2 and x^2 + 7 both differentiate to 2x, so quoting only x^2 for the integral of 2x dx is incomplete."
+  },
+  "check": {
+    "question": "Evaluate the definite integral of 1 from 1 to 3, and say which part of the antiderivative you used.",
+    "answer": "2.",
+    "explanation": "An antiderivative of 1 is x, so the value is 3 - 1 = 2. Geometrically it is a rectangle of width 2 and height 1. The constant never appears: it would have cancelled."
+  },
+  "pyqIds": [],
+  "prereqs": [
+    "limit-at-a-point-and-one-sided-limits"
+  ],
+  "sources": [
+    {
+      "kind": "lecture-summary",
+      "title": "Definite Integrals",
+      "channel": "Knowledge Gate (Yash Jain)",
+      "url": "https://www.knowledgegate.ai/learn/GATE-GUIDANCE-BY-SANCHIT-SIR/engineering-mathematics/calculus/integration/asset-definite-integrals",
+      "language": "hi",
+      "transcript": "SUMMARY_ONLY",
+      "translated": true,
+      "note": "Hindi-medium GATE lecture; the platform's published English AI chapter summary with timestamps was read in full, the lecture itself was not. Chapters used: 0:00-2:00 the definition as F(b) - F(a) and the two readings (area under a curve, area between curve and x-axis) with the example integral of 1 from 1 to 3; 2:00-5:00 the rectangle and triangle verifications of that example and of the integral of 2x from 0 to 1; 5:00-10:00 the sign of the integral as net signed area"
+    },
+    {
+      "kind": "lecture-summary",
+      "title": "13 Oct - EM - Calculus Part 3, the integration segment",
+      "channel": "Knowledge Gate (Yash Jain)",
+      "url": "https://www.knowledgegate.ai/learn/GATE-GUIDANCE-BY-SANCHIT-SIR/live-classes/gate-2026-live-class/engineering-mathematics-for-gate-exam/asset-13-oct-em-calculus-part-3",
+      "language": "hi",
+      "transcript": "SUMMARY_ONLY",
+      "translated": true,
+      "note": "Hindi-medium live class; the English AI chapter summary with timestamps was read in full. Chapters used: 45:00-50:00 integration as anti-differentiation, the indefinite against the definite integral and the area examples; 50:00-55:00 the property list, including reversal, additivity and the sign rule, and the pointer to a table of standard integrals; 55:00-59:08 the substitution method with the two standard forms and the worked sin^8 x cos x definite integral. The earlier part of the same lecture supplied the mean value theorem topic in an earlier run"
+    }
+  ],
+  "sourceLine": "Integration as anti-differentiation, the indefinite against the definite integral, and the standard-form table: Knowledge Gate '13 Oct - EM - Calculus Part 3', chapter summary 45:00-55:00, and 'Definite Integrals' 0:00-5:00 (Hindi-medium lectures, English summaries - translated). The antiderivative table itself is the standard one and every entry used here is checked by differentiation in scripts/validate.py.",
+  "videoRefs": []
+}

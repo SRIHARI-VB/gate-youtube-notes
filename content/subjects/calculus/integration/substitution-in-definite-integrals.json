@@ -1,0 +1,84 @@
+{
+  "id": "substitution-in-definite-integrals",
+  "title": "Substitution and Changing the Limits",
+  "priority": "P1",
+  "order": 205,
+  "unit": "Integration",
+  "quickIdea": "If the integrand contains a function together with its derivative, substitute that inner function; in a definite integral change the two limits as well and never substitute back.",
+  "remember": [
+    "The pattern to look for is f(g(x)) g'(x): set u = g(x), so du = g'(x) dx, and the integral becomes the integral of f(u) du.",
+    "In a definite integral the limits travel with the substitution: x = a gives u = g(a), x = b gives u = g(b). The answer then needs no back-substitution.",
+    "If du is off by a constant, adjust the constant - the OpenStax section's example needs du/2 because du = 2z dz while the integrand carries z dz.",
+    "Two standard forms cover many GATE integrands: the integral of f'(x)/f(x) is ln|f(x)|, and the integral of f(x) f'(x) is f(x)^2/2.",
+    "When the substitution is x = something in t, the derivative dx/dt may be negative, which reverses the limits and adds a sign - that is where most lost marks in 2015 Set 1 Q.44 come from.",
+    "Differentiate your chosen u and check the integrand really contains du; if it does not, the substitution is wrong, not the algebra."
+  ],
+  "example": {
+    "prompt": "Evaluate the integral from 1/pi to 2/pi of cos(1/x)/x^2 dx.",
+    "work": "Take u = 1/x, so du = -dx/x^2, that is dx/x^2 = -du. The limits move: x = 1/pi gives u = pi, and x = 2/pi gives u = pi/2. The integral becomes minus the integral of cos u from pi to pi/2, which equals the integral of cos u from pi/2 to pi. An antiderivative is sin u, so the value is sin(pi) - sin(pi/2) = 0 - 1 = -1.",
+    "answer": "-1."
+  },
+  "gateAngle": "Two previous-year questions sit on this card. GATE CSE 2015 Set 1 Q.44 is the reciprocal substitution with a sign trap and the answer -1; GATE CSE 2009 Q.25 rewrites (1 - tan x)/(1 + tan x) as a logarithmic derivative and gets (1/2) ln 2. In both, the marks are lost by not changing the limits or by losing the minus sign.",
+  "variations": [
+    {
+      "label": "VERIFIED PYQ",
+      "question": "GATE CSE 2015 Set 1 Q.44: compute the integral from 1/pi to 2/pi of cos(1/x)/x^2 dx.",
+      "answer": "-1.",
+      "why": "u = 1/x turns dx/x^2 into -du and moves the limits from (1/pi, 2/pi) to (pi, pi/2). Flipping the limits to remove the minus sign gives the integral of cos u from pi/2 to pi, which is sin(pi) - sin(pi/2) = -1. Forgetting to flip the limits gives +1, the common wrong answer."
+    },
+    {
+      "label": "VERIFIED PYQ",
+      "question": "GATE CSE 2009 Q.25: the integral from 0 to pi/4 of (1 - tan x)/(1 + tan x) dx equals (A) 0 (B) 1 (C) ln 2 (D) (1/2) ln 2.",
+      "answer": "(D) (1/2) ln 2.",
+      "why": "Writing tan x = sin x / cos x makes the integrand (cos x - sin x)/(cos x + sin x), which is exactly the derivative of ln(cos x + sin x) divided by itself. With u = cos x + sin x the limits become 1 and sqrt(2), so the value is ln(sqrt(2)) = (1/2) ln 2 = 0.3466."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Why is it wrong to substitute u = sin x in the integral from 0 to pi/2 of sin^8 x cos x dx and then keep the limits 0 and pi/2?",
+      "answer": "Because the limits belong to x, and after substituting they must be rewritten in u: 0 and 1.",
+      "why": "The correct computation gives the integral of u^8 from 0 to 1, which is 1/9. Keeping the old limits would mean the integral of u^8 from 0 to pi/2, which is (pi/2)^9/9 = 6.46899 instead of 0.1111 - a wildly different number, which is why the limits must travel with the substitution."
+    }
+  ],
+  "trap": {
+    "what": "Changing the integrand but not the limits, or losing the minus sign that comes from du = -dx/x^2.",
+    "why": "The two limits are values of x, not of u. Once the variable changes, they must change too; and when the substitution is decreasing, the derivative is negative and the limits swap.",
+    "counterexample": "Substituting u = 1/x in the integral from 1/pi to 2/pi without touching the limits would ask for the integral of cos u from 1/pi to 2/pi, which is sin(2/pi) - sin(1/pi) = 0.5944 - 0.3090 = 0.2854, not -1."
+  },
+  "check": {
+    "question": "Evaluate the integral from 0 to pi/2 of sin^8 x cos x dx.",
+    "answer": "1/9.",
+    "explanation": "With u = sin x and du = cos x dx the limits become 0 and 1, so the integral is the integral of u^8 from 0 to 1 = 1/9 = 0.1111. The lecture example this is taken from states the same answer."
+  },
+  "pyqIds": [
+    "gate-2015-set1-44-substitution-cosine-reciprocal",
+    "gate-2009-25-tan-half-angle-substitution"
+  ],
+  "prereqs": [
+    "antiderivative-and-the-constant-of-integration",
+    "fundamental-theorem-of-calculus"
+  ],
+  "sources": [
+    {
+      "kind": "text",
+      "title": "Calculus Volume 1, section 5.5: Substitution",
+      "channel": "OpenStax (Rice University)",
+      "url": "https://openstax.org/books/calculus-volume-1/pages/5-5-substitution",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read from the opening through the alteration-of-constants example: the chain-rule origin of the form f[g(x)] g'(x) dx, the substitution rule with its proof by differentiating F(g(x)), the five-step procedure, and the worked 6x(3x^2+4)^4 and z sqrt(z^2-5) examples. The definite-integral half of the section, including the change of limits, was beyond the returned extract"
+    },
+    {
+      "kind": "lecture-summary",
+      "title": "Solving Integration: Substitution Method",
+      "channel": "Knowledge Gate (Yash Jain), ZERO TO HERO module",
+      "url": "https://www.knowledgegate.ai/learn/ZERO-TO-HERO/engineering-mathematics/calculus/integration/asset-solving-integration-substitution-method",
+      "language": "hi",
+      "transcript": "SUMMARY_ONLY",
+      "translated": true,
+      "note": "Hindi-medium GATE lecture; the English AI chapter summary with timestamps was read in full. Chapters used: 0:00-2:00 the form f(x) g'(x) and u = g(x); 2:00-5:00 the x^2 sqrt(x^3+1) example; 5:00-10:00 the e^{x^3} and sin^8 x cos x examples with the limits changed from 0..pi/2 to 0..1; 10:00-15:00 the ratio form whose integral is a logarithm; 15:00-16:29 the (2x+3)/(x^2+3x-4) example"
+    }
+  ],
+  "sourceLine": "The form f(g(x)) g'(x), the five-step procedure and the constant adjustment: OpenStax Calculus Volume 1 section 5.5 (English). The changing of limits and the worked sin^8 x cos x definite integral: Knowledge Gate 'Solving Integration: Substitution Method' 5:00-10:00 (Hindi-medium lecture, English summary - translated). Both PYQ values are recomputed in scripts/validate.py.",
+  "videoRefs": []
+}

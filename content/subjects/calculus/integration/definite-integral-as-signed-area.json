@@ -1,0 +1,75 @@
+{
+  "id": "definite-integral-as-signed-area",
+  "title": "The Definite Integral as a Limit of Sums and as Signed Area",
+  "priority": "P1",
+  "order": 201,
+  "unit": "Integration",
+  "quickIdea": "The definite integral is the limit of a sum of thin rectangles, and its value is net signed area: area above the axis counts positive, area below counts negative.",
+  "remember": [
+    "Definition: the integral from a to b of f(x) dx is the limit as n grows of the sum of f(x_i*) times the width of each of n equal subintervals. It exists when f is continuous on [a, b].",
+    "The value is a number, not a function: the variable x is a dummy, so the integral of f(t) dt from a to b is the same number.",
+    "The integral from a to a is 0, because the width is zero - whatever the height.",
+    "The lower limit need not be smaller than the upper limit; the definition still works and the sign rule below fixes the meaning.",
+    "If f is at least 0 on [a, b] then the integral is at least 0; if f is at most 0 then the integral is at most 0. Equality to zero happens either when the width is zero or when the signed pieces cancel.",
+    "Area and integral differ exactly when the curve crosses the axis: the area is the integral of |f|, the integral is the integral of f."
+  ],
+  "example": {
+    "prompt": "Evaluate the integral of 2x from 0 to 1 from the definition, then confirm it by area.",
+    "work": "An antiderivative of 2x is x^2, so the value is 1^2 - 0^2 = 1. Geometrically the graph of y = 2x from x = 0 to x = 1 is a right triangle with base 1 and height 2, and its area is (1/2)(1)(2) = 1.",
+    "answer": "1, and the triangle agrees."
+  },
+  "gateAngle": "The signed-area reading is what GATE tests when a function changes sign on the interval: 2014 Set 3 Q.6 asks for the integral of |x sin x| over [0, 2pi] and the modulus is there precisely so that the negative piece counts positive. 2015 Set 2 Q.26 turns the same distinction into a three-statement question about whether the area of an unbounded function is finite.",
+  "variations": [
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "The integral of x from -1 to 1 is 0. What is the area between y = x and the x-axis on [-1, 1]?",
+      "answer": "1.",
+      "why": "The integral is the net signed area: the triangle below the axis on [-1, 0] has area 1/2 and counts -1/2, the triangle above on [0, 1] has area 1/2 and counts +1/2, and they cancel. The area is the integral of |x|, which is 1. GATE words this as 'area bounded by the curve and the x-axis'."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "If the integral of f from 0 to 2 is 5 and f is continuous and positive on [0, 2], what can you say about the integral of f from 2 to 0?",
+      "answer": "It is -5.",
+      "why": "Reversing the limits reverses the sign, because every rectangle's width changes sign. The positivity of f is irrelevant to this property; it only tells you the forward integral is positive."
+    }
+  ],
+  "trap": {
+    "what": "Reporting the signed integral when the question asks for the area, or assuming a zero integral means zero area.",
+    "why": "The integral adds signed rectangles; the area adds their absolute values. They agree only when the integrand keeps one sign on the interval.",
+    "counterexample": "On [0, 2pi] the integral of x sin x is -2pi, while the area between |x sin x| and the axis is 4pi - the two differ by the sign of the piece from pi to 2pi, and GATE CSE 2014 Set 3 Q.6 asks for the second of these."
+  },
+  "check": {
+    "question": "A function is positive on [0, 1] and negative on [1, 2], and its integral from 0 to 1 equals minus its integral from 1 to 2. What is its integral from 0 to 2?",
+    "answer": "0.",
+    "explanation": "Additivity gives the integral over [0, 2] as the sum of the two pieces, and they are exact opposites. The area is not zero: it is twice the size of one piece, which is the point of the trap above."
+  },
+  "pyqIds": [],
+  "prereqs": [
+    "continuity-on-an-interval-and-ivt"
+  ],
+  "sources": [
+    {
+      "kind": "text",
+      "title": "Calculus I, section 5.6: Definition of the Definite Integral",
+      "channel": "Paul's Online Math Notes, Lamar University",
+      "url": "https://tutorial.math.lamar.edu/classes/calci/defnofdefiniteintegral.aspx",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read from the section opening through the property list: the limit-of-sums definition with the lower and upper limits of integration, the explicit note that the lower limit need not be smaller, the worked example of x^2 + 1 on [0, 2] by right endpoints, and properties 1 to 6 (reversal, zero width, constant factor, sum and difference, additivity over a point c that need not lie between a and b, and the dummy variable). The later comparison properties were beyond the returned extract and nothing is attributed to them"
+    },
+    {
+      "kind": "lecture-summary",
+      "title": "Definite Integrals",
+      "channel": "Knowledge Gate (Yash Jain)",
+      "url": "https://www.knowledgegate.ai/learn/GATE-GUIDANCE-BY-SANCHIT-SIR/engineering-mathematics/calculus/integration/asset-definite-integrals",
+      "language": "hi",
+      "transcript": "SUMMARY_ONLY",
+      "translated": true,
+      "note": "Hindi-medium GATE lecture; the platform's published English AI chapter summary with timestamps was read in full, the lecture itself was not. Chapters used: 0:00-2:00 the definition as F(b) - F(a) and the two readings (area under a curve, area between curve and x-axis) with the example integral of 1 from 1 to 3; 2:00-5:00 the rectangle and triangle verifications of that example and of the integral of 2x from 0 to 1; 5:00-10:00 the sign of the integral as net signed area"
+    }
+  ],
+  "sourceLine": "The limit-of-sums definition and the property list including the dummy variable: Paul's Online Math Notes section 5.6 (English). The signed-area reading with the rectangle and triangle verifications: Knowledge Gate 'Definite Integrals' 0:00-10:00 (Hindi-medium lecture, English summary - translated). Every value quoted is recomputed in scripts/validate.py.",
+  "videoRefs": [],
+  "visual": "calculus/integration/signed-area-and-running-total"
+}

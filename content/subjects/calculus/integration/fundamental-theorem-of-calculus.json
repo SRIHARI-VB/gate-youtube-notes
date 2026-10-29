@@ -1,0 +1,76 @@
+{
+  "id": "fundamental-theorem-of-calculus",
+  "title": "The Fundamental Theorem of Calculus, Both Parts",
+  "priority": "P1",
+  "order": 202,
+  "unit": "Integration",
+  "quickIdea": "Part 1 says differentiating an integral with a variable upper limit gives the integrand back; part 2 says a definite integral is any antiderivative evaluated at the two ends.",
+  "remember": [
+    "Part 1: if f is continuous and F(x) is the integral of f from a to x, then F'(x) = f(x). The integral with a variable limit is a function; its slope at x is the height of the curve there.",
+    "With a function in the limit the chain rule applies: d/dx of the integral from a to g(x) of f equals f(g(x)) times g'(x). With a constant lower limit and a variable upper limit, no minus sign appears; the minus sign appears only when the variable sits in the lower limit.",
+    "Part 2: if F is any antiderivative of f on [a, b], the integral from a to b of f is F(b) - F(a). This is what turns the whole of this topic into table lookup plus technique.",
+    "The theorem needs f continuous on the interval; a jump in f makes the integral-with-variable-limit fail to be differentiable at that point.",
+    "Equations with an integral in them are solved by part 2: integrate, then solve the resulting algebraic equation for the unknown limit."
+  ],
+  "example": {
+    "prompt": "Differentiate the integral of e^t from 0 to x^2 with respect to x, and evaluate the integral of t from 1 to x, then solve that integral equal to 1/4 for x greater than 1.",
+    "work": "Part 1 with the chain rule: the derivative is e^(x^2) times 2x. For the second, an antiderivative of t is t^2/2, so the integral from 1 to x is (x^2 - 1)/2. Setting (x^2 - 1)/2 = 1/4 gives x^2 - 1 = 1/2, so x^2 = 3/2 and x = sqrt(3/2) = 1.2247.",
+    "answer": "2x e^(x^2); and x = sqrt(3/2) solves the second part."
+  },
+  "gateAngle": "GATE CSE 2025 Set 2 Q.2 is exactly the second half of this card: the equation integral from 1 to x of t ln t dt = 1/4, solved by applying part 2 and then solving for x, giving sqrt(e). The variable-limit form of part 1 is the standard distractor in statement questions, where an option offers f(x) instead of f(g(x)) g'(x).",
+  "variations": [
+    {
+      "label": "VERIFIED PYQ",
+      "question": "GATE CSE 2025 Set 2 Q.2: the value of x greater than 1 satisfying the integral from 1 to x of t ln t dt = 1/4 is (A) sqrt(e) (B) e (C) e^2 (D) e - 1.",
+      "answer": "(A) sqrt(e).",
+      "why": "By parts gives the antiderivative t^2 ln t / 2 - t^2/4, so the integral from 1 to x is x^2 ln x / 2 - x^2/4 + 1/4. Setting it equal to 1/4 leaves x^2(2 ln x - 1)/4 = 0, and since x is positive and greater than 1 the bracket must vanish: ln x = 1/2."
+    },
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "Find d/dx of the integral from x to 5 of sin(t^2) dt.",
+      "answer": "-sin(x^2).",
+      "why": "Reversing the limits introduces a minus sign: the integral from x to 5 is minus the integral from 5 to x, whose derivative is sin(x^2) by part 1. This is the one place a sign is easy to lose, and it is why the card states the lower-limit case separately."
+    }
+  ],
+  "trap": {
+    "what": "Applying part 1 to a variable upper limit that is a function of x without the chain-rule factor, or forgetting the minus sign when x sits in the lower limit.",
+    "why": "The theorem is stated for the upper limit being x itself; any other function g(x) needs f(g(x)) g'(x). And swapping the limits is a sign change, not a rewrite.",
+    "counterexample": "d/dx of the integral from 0 to x^2 of e^t dt is 2x e^(x^2), not e^(x^2): at x = 2 the correct value is 4 e^4 = 218.39 while e^(x^2) = 54.60. At x = 0 the careless answer gives 1 while the true slope is 0."
+  },
+  "check": {
+    "question": "What is d/dx of the integral from 0 to x^2 of e^t dt at x = 0?",
+    "answer": "0.",
+    "explanation": "The derivative is 2x e^(x^2), which vanishes at x = 0. This is a useful sanity check: the integral from 0 to x^2 has a minimum at x = 0, so its slope there must be zero."
+  },
+  "pyqIds": [
+    "gate-2025-set2-2-solve-for-the-upper-limit"
+  ],
+  "prereqs": [
+    "antiderivative-and-the-constant-of-integration",
+    "continuity-on-an-interval-and-ivt"
+  ],
+  "sources": [
+    {
+      "kind": "lecture-summary",
+      "title": "Definite Integrals",
+      "channel": "Knowledge Gate (Yash Jain)",
+      "url": "https://www.knowledgegate.ai/learn/GATE-GUIDANCE-BY-SANCHIT-SIR/engineering-mathematics/calculus/integration/asset-definite-integrals",
+      "language": "hi",
+      "transcript": "SUMMARY_ONLY",
+      "translated": true,
+      "note": "Hindi-medium GATE lecture; the platform's published English AI chapter summary with timestamps was read in full, the lecture itself was not. Chapters used: 0:00-2:00 the definition as F(b) - F(a) and the two readings (area under a curve, area between curve and x-axis) with the example integral of 1 from 1 to 3; 2:00-5:00 the rectangle and triangle verifications of that example and of the integral of 2x from 0 to 1; 5:00-10:00 the sign of the integral as net signed area"
+    },
+    {
+      "kind": "lecture-summary",
+      "title": "13 Oct - EM - Calculus Part 3, the integration segment",
+      "channel": "Knowledge Gate (Yash Jain)",
+      "url": "https://www.knowledgegate.ai/learn/GATE-GUIDANCE-BY-SANCHIT-SIR/live-classes/gate-2026-live-class/engineering-mathematics-for-gate-exam/asset-13-oct-em-calculus-part-3",
+      "language": "hi",
+      "transcript": "SUMMARY_ONLY",
+      "translated": true,
+      "note": "Hindi-medium live class; the English AI chapter summary with timestamps was read in full. Chapters used: 45:00-50:00 integration as anti-differentiation, the indefinite against the definite integral and the area examples; 50:00-55:00 the property list, including reversal, additivity and the sign rule, and the pointer to a table of standard integrals; 55:00-59:08 the substitution method with the two standard forms and the worked sin^8 x cos x definite integral. The earlier part of the same lecture supplied the mean value theorem topic in an earlier run"
+    }
+  ],
+  "sourceLine": "The two parts of the theorem as GATE states them, with the worked area examples: Knowledge Gate 'Definite Integrals' 0:00-5:00 and '13 Oct - EM - Calculus Part 3' 45:00-50:00 (Hindi-medium lectures, English summaries - translated). The theorem statements follow the standard form, because the OpenStax section 5.3 extract returned this run stopped before them; both parts and the chain-rule case are checked numerically in scripts/validate.py.",
+  "videoRefs": []
+}

@@ -29,8 +29,8 @@
   ],
   "counts": {
     "subjects": 3,
-    "topics": 165,
-    "pyqs": 130,
+    "topics": 178,
+    "pyqs": 140,
     "videos": 39,
     "playlists": 3
   },
@@ -2559,6 +2559,193 @@
       "videos": [],
       "pyqs": [
         "gate-2014-set1-6-rolle-determinant"
+      ],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "antiderivative-and-the-constant-of-integration",
+      "title": "The Antiderivative and the Constant of Integration",
+      "subject": "calculus",
+      "group": "integration",
+      "unit": "Integration",
+      "priority": "P1",
+      "path": "subjects/calculus/integration/antiderivative-and-the-constant-of-integration.json",
+      "videos": [],
+      "pyqs": [],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "definite-integral-as-signed-area",
+      "title": "The Definite Integral as a Limit of Sums and as Signed Area",
+      "subject": "calculus",
+      "group": "integration",
+      "unit": "Integration",
+      "priority": "P1",
+      "path": "subjects/calculus/integration/definite-integral-as-signed-area.json",
+      "videos": [],
+      "pyqs": [],
+      "visual": "calculus/integration/signed-area-and-running-total",
+      "variations": 2
+    },
+    {
+      "topic": "fundamental-theorem-of-calculus",
+      "title": "The Fundamental Theorem of Calculus, Both Parts",
+      "subject": "calculus",
+      "group": "integration",
+      "unit": "Integration",
+      "priority": "P1",
+      "path": "subjects/calculus/integration/fundamental-theorem-of-calculus.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2025-set2-2-solve-for-the-upper-limit"
+      ],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "properties-of-definite-integrals",
+      "title": "The Properties of Definite Integrals",
+      "subject": "calculus",
+      "group": "integration",
+      "unit": "Integration",
+      "priority": "P1",
+      "path": "subjects/calculus/integration/properties-of-definite-integrals.json",
+      "videos": [],
+      "pyqs": [],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "symmetry-rules-for-definite-integrals",
+      "title": "Symmetry: Odd and Even Integrands, and the a + b - x Rule",
+      "subject": "calculus",
+      "group": "integration",
+      "unit": "Integration",
+      "priority": "P1",
+      "path": "subjects/calculus/integration/symmetry-rules-for-definite-integrals.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2026-set2-17-integral-independent-of-parameter",
+        "gate-2024-set2-6-functional-symmetry-integral"
+      ],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "substitution-in-definite-integrals",
+      "title": "Substitution and Changing the Limits",
+      "subject": "calculus",
+      "group": "integration",
+      "unit": "Integration",
+      "priority": "P1",
+      "path": "subjects/calculus/integration/substitution-in-definite-integrals.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2015-set1-44-substitution-cosine-reciprocal",
+        "gate-2009-25-tan-half-angle-substitution"
+      ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "integration-by-parts",
+      "title": "Integration by Parts",
+      "subject": "calculus",
+      "group": "integration",
+      "unit": "Integration",
+      "priority": "P1",
+      "path": "subjects/calculus/integration/integration-by-parts.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2014-set3-47-x-squared-cos-x-by-parts"
+      ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "splitting-the-interval-at-sign-changes",
+      "title": "Splitting the Interval: Modulus and Piecewise Integrands",
+      "subject": "calculus",
+      "group": "integration",
+      "unit": "Integration",
+      "priority": "P1",
+      "path": "subjects/calculus/integration/splitting-the-interval-at-sign-changes.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2014-set3-6-modulus-x-sin-x"
+      ],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "improper-integrals-and-convergence",
+      "title": "Improper Integrals: Unbounded Integrands and Infinite Limits",
+      "subject": "calculus",
+      "group": "integration",
+      "unit": "Integration",
+      "priority": "P1",
+      "path": "subjects/calculus/integration/improper-integrals-and-convergence.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2015-set2-26-improper-integral-unbounded"
+      ],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "area-between-two-curves",
+      "title": "Area Between Two Curves",
+      "subject": "calculus",
+      "group": "integration",
+      "unit": "Integration",
+      "priority": "P2",
+      "path": "subjects/calculus/integration/area-between-two-curves.json",
+      "videos": [],
+      "pyqs": [],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "average-value-and-the-mean-value-theorem-for-integrals",
+      "title": "Average Value of a Function",
+      "subject": "calculus",
+      "group": "integration",
+      "unit": "Integration",
+      "priority": "P2",
+      "path": "subjects/calculus/integration/average-value-and-the-mean-value-theorem-for-integrals.json",
+      "videos": [],
+      "pyqs": [],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "integrating-a-functional-equation",
+      "title": "Integrating a Functional Equation",
+      "subject": "calculus",
+      "group": "integration",
+      "unit": "Integration",
+      "priority": "P2",
+      "path": "subjects/calculus/integration/integrating-a-functional-equation.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2015-set3-45-functional-equation-then-integrate"
+      ],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "iterated-integrals-and-odd-symmetry",
+      "title": "Iterated Integrals and Symmetry in Several Variables",
+      "subject": "calculus",
+      "group": "integration",
+      "unit": "Integration",
+      "priority": "P2",
+      "path": "subjects/calculus/integration/iterated-integrals-and-odd-symmetry.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2023-21-triple-integral-odd-symmetry"
       ],
       "visual": null,
       "variations": 2

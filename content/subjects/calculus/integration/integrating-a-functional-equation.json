@@ -1,0 +1,78 @@
+{
+  "id": "integrating-a-functional-equation",
+  "title": "Integrating a Functional Equation",
+  "priority": "P2",
+  "order": 211,
+  "unit": "Integration",
+  "quickIdea": "When f is given only through a relation, integrate both sides of the relation over the interval and use substitution to turn the unknown pieces into copies of the same integral, then solve the resulting equation.",
+  "remember": [
+    "Integrate the relation over the required interval; the unknown function then appears only inside integrals, which is what the question asks for.",
+    "Substitution is the tool that renames an awkward piece: the integral of f(1/x) over [1, 2] becomes an integral of f(u) times a weight after u = 1/x, and it is not the same as the integral of f over [1, 2].",
+    "The reflection identity is the cleanest case: the integral of f(a + b - x) over [a, b] equals the integral of f over [a, b], so a relation like f(x) + f(2 - x) = 1 gives an equation in the single unknown integral.",
+    "Two unknowns need two equations: with a f(x) + b f(1/x) = g(x), replace x by 1/x to get the second equation, then eliminate.",
+    "Watch the constants: integrating 1/x over [1, 2] gives ln 2, and integrating x over [1, 2] gives 3/2 - these are the numbers that appear in the options.",
+    "Solve for the integral, not for f, unless f itself is needed; the algebra is shorter and less error-prone."
+  ],
+  "example": {
+    "prompt": "For non-zero x, a f(x) + b f(1/x) = 1/x - 25 with a not equal to b. Find the integral of f from 1 to 2.",
+    "work": "Integrate the relation from 1 to 2: a times the integral of f plus b times the integral of f(1/x) equals [ln x - 25x] from 1 to 2 = ln 2 - 25. Replace x by 1/x in the relation to get a f(1/x) + b f(x) = x - 25, and integrate that: a times the integral of f(1/x) plus b times the integral of f equals [x^2/2 - 25x] from 1 to 2 = (2 - 50) - (1/2 - 25) = -47/2. Multiply the first equation by a and the second by b and subtract, which kills the f(1/x) term and leaves (a^2 - b^2) times the integral of f = a(ln 2 - 25) + 47b/2.",
+    "answer": "The integral is [a(ln 2 - 25) + 47b/2] / (a^2 - b^2)."
+  },
+  "gateAngle": "Two previous-year questions sit here: GATE CSE 2015 Set 3 Q.45 is this exact elimination, and GATE CSE 2024 Set 2 Q.6 is the reflection version with the answer 1. In both, the whole difficulty is realising that the unfamiliar integral is the same object as the wanted one.",
+  "variations": [
+    {
+      "label": "VERIFIED PYQ",
+      "question": "GATE CSE 2015 Set 3 Q.45: if for non-zero x, a f(x) + b f(1/x) = 1/x - 25 with a not equal to b, then the integral of f from 1 to 2 is which of the four expressions?",
+      "answer": "The option reading [a(ln 2 - 25) + 47b/2] / (a^2 - b^2), printed as option (A).",
+      "why": "Integrating the relation gives a I + b J = ln 2 - 25 and the swapped relation gives a J + b I = -47/2, where I is the wanted integral and J the integral of f(1/x). Eliminating J leaves (a^2 - b^2) I = a(ln 2 - 25) + 47b/2. The sign of 47b/2 is the discriminating detail between the four options."
+    },
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "A continuous f satisfies f(x) + f(4 - x) = 6 for all x. Find the integral of f from 0 to 4.",
+      "answer": "12.",
+      "why": "By the reflection rule the integral of f(4 - x) over [0, 4] equals the integral of f over [0, 4], so adding the two forms gives twice the integral equal to the integral of 6 over [0, 4], which is 24. The answer is 12, which is the average value 3 times the width 4 - the same number by the average-value card."
+    }
+  ],
+  "trap": {
+    "what": "Assuming the integral of f(1/x) equals the integral of f over the same limits.",
+    "why": "Substituting u = 1/x does not map the interval to itself: on [1, 2] it maps to [1/2, 1], and the differential picks up a factor of -1/u^2.",
+    "counterexample": "Take f(x) = x. The integral of f from 1 to 2 is 3/2 = 1.5, while the integral of f(1/x) from 1 to 2 is the integral of 1/x = ln 2 = 0.693. Treating them as equal would give a wrong constant throughout the elimination."
+  },
+  "check": {
+    "question": "A continuous f satisfies f(x) = 1 - f(2 - x). What is the integral of f from 0 to 2?",
+    "answer": "1.",
+    "explanation": "The reflection rule replaces the integral of f(2 - x) by the integral of f, so I = the integral of 1 from 0 to 2 minus I = 2 - I, giving I = 1. The constant f = 1/2 satisfies the relation and confirms the value."
+  },
+  "pyqIds": [
+    "gate-2015-set3-45-functional-equation-then-integrate"
+  ],
+  "prereqs": [
+    "properties-of-definite-integrals",
+    "symmetry-rules-for-definite-integrals",
+    "substitution-in-definite-integrals"
+  ],
+  "sources": [
+    {
+      "kind": "lecture-summary",
+      "title": "Properties of Definite Integrals",
+      "channel": "Knowledge Gate (Yash Jain)",
+      "url": "https://www.knowledgegate.ai/learn/GATE-GUIDANCE-BY-SANCHIT-SIR/engineering-mathematics/calculus/integration/asset-properties-of-definite-integrals",
+      "language": "hi",
+      "transcript": "SUMMARY_ONLY",
+      "translated": true,
+      "note": "Hindi-medium GATE lecture; the English AI chapter summary with timestamps was read in full. Chapters used: 0:00-2:00 area readings and the integral of 1 from a to b equalling b - a; 2:00-5:00 the constant-factor, sum-difference and zero-width properties; 5:00-10:00 the reversal property derived from the fundamental theorem, additivity over a split interval, the sign rule, and the area between two curves"
+    },
+    {
+      "kind": "text",
+      "title": "Calculus I, section 5.6: Definition of the Definite Integral",
+      "channel": "Paul's Online Math Notes, Lamar University",
+      "url": "https://tutorial.math.lamar.edu/classes/calci/defnofdefiniteintegral.aspx",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read from the section opening through the property list: the limit-of-sums definition with the lower and upper limits of integration, the explicit note that the lower limit need not be smaller, the worked example of x^2 + 1 on [0, 2] by right endpoints, and properties 1 to 6 (reversal, zero width, constant factor, sum and difference, additivity over a point c that need not lie between a and b, and the dummy variable). The later comparison properties were beyond the returned extract and nothing is attributed to them"
+    }
+  ],
+  "sourceLine": "The reflection and additivity properties that the elimination uses: Knowledge Gate 'Properties of Definite Integrals' 5:00-10:00 (Hindi-medium lecture, English summary - translated) and Paul's Online Math Notes section 5.6 for the dummy-variable property (English). The 2015 computation is re-derived here and recomputed in scripts/validate.py.",
+  "videoRefs": []
+}

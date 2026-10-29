@@ -1,0 +1,77 @@
+{
+  "id": "improper-integrals-and-convergence",
+  "title": "Improper Integrals: Unbounded Integrands and Infinite Limits",
+  "priority": "P1",
+  "order": 208,
+  "unit": "Integration",
+  "quickIdea": "When the integrand blows up or a limit is infinite, the integral is defined as a limit; it exists only if that limit is finite, and a finite area can belong to an unbounded function.",
+  "remember": [
+    "Unbounded integrand at an interior point c: split at c and take one-sided limits. The integral exists only if both limits are finite.",
+    "Infinite limit: the integral from a to infinity is the limit as b grows of the integral from a to b.",
+    "Benchmark: the integral of x^(-p) from 1 to infinity converges exactly when p is greater than 1; the integral of x^(-p) from 0 to 1 converges exactly when p is less than 1. The two conditions are opposite, which is why the interval matters.",
+    "An unbounded function can still have a finite area: x^(-1/3) on [-1, 1] is unbounded and discontinuous at 0, yet the area between it and the axis is 3.",
+    "The odd-function shortcut is invalid across a singularity: the integral of 1/x from -1 to 1 is not 0, it diverges, because each side has an infinite limit even though the formal antiderivative cancels.",
+    "For an area question the integrand is |f|, so an odd unbounded function does not cancel at all: both sides add."
+  ],
+  "example": {
+    "prompt": "For f(x) = x^(-1/3) on [-1, 1], decide whether f is continuous, whether it is bounded, and whether the area between f and the x-axis is finite and non-zero.",
+    "work": "As x approaches 0 from the right f tends to plus infinity and from the left to minus infinity, so f is not continuous at 0 and not bounded on [-1, 1]. The area is the integral of |x^(-1/3)| from -1 to 1. An antiderivative of x^(-1/3) is (3/2) x^(2/3), so the right piece gives (3/2)(1 - s^(2/3)) as s tends to 0, that is 3/2, and the left piece gives 3/2 as well.",
+    "answer": "Not continuous, not bounded, and the area is 3 - non-zero and finite."
+  },
+  "gateAngle": "GATE CSE 2015 Set 2 Q.26 asks exactly these three statements about x^(-1/3) and the answer is that the function is unbounded and the area is non-zero and finite. The question exists because candidates assume unbounded means infinite area, or read the area as the signed integral, which would be 0 here.",
+  "variations": [
+    {
+      "label": "VERIFIED PYQ",
+      "question": "GATE CSE 2015 Set 2 Q.26: let f(x) = x^(-1/3) and A be the area of the region bounded by f and the x-axis as x varies from -1 to 1. Which are true? I. f is continuous on [-1, 1]. II. f is not bounded on [-1, 1]. III. A is non-zero and finite. (A) II only (B) III only (C) II and III only (D) I, II and III.",
+      "answer": "(C) II and III only.",
+      "why": "The one-sided limits at 0 are infinite with opposite signs, so I fails and II holds. The area uses the modulus, and each half contributes 3/2, so A = 3, which is finite and non-zero. The signed integral over [-1, 1] would be 0, which is why statement III is about the area and not the integral."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Does the integral from 0 to 1 of x^(-1/2) dx exist, and what is its value?",
+      "answer": "It exists and equals 2.",
+      "why": "An antiderivative is 2 sqrt(x), and as the lower limit tends to 0 that tends to 0, so the limit is 2. Here p = 1/2 is less than 1, which is exactly the convergent case for a singularity at 0; the same function on [1, infinity) would diverge."
+    }
+  ],
+  "trap": {
+    "what": "Treating an unbounded integrand as if it were continuous, or using an odd-function cancellation across a singularity.",
+    "why": "The definition is a limit, and a limit may fail to exist. Cancelling two infinite quantities is not arithmetic that the definite integral permits.",
+    "counterexample": "The integral of 1/x from -1 to 1 looks like 0 because ln|x| is even, but each side diverges: the integral from 0 to 1 of 1/x is the limit of ln(1) - ln(s) = -ln(s) as s tends to 0, which is infinite. The improper integral diverges, so quoting 0 is wrong."
+  },
+  "check": {
+    "question": "For which p does the integral of x^(-p) from 1 to infinity converge?",
+    "answer": "Exactly when p is greater than 1.",
+    "explanation": "For p other than 1 the integral up to b is (b^(1-p) - 1)/(1 - p), which stays finite as b grows only if 1 - p is negative, that is p greater than 1. The case p = 1 gives ln b, which grows without bound. The mirror statement at 0 is p less than 1."
+  },
+  "pyqIds": [
+    "gate-2015-set2-26-improper-integral-unbounded"
+  ],
+  "prereqs": [
+    "definite-integral-as-signed-area",
+    "limits-at-infinity-and-orders-of-growth"
+  ],
+  "sources": [
+    {
+      "kind": "lecture-summary",
+      "title": "Definite Integrals",
+      "channel": "Knowledge Gate (Yash Jain)",
+      "url": "https://www.knowledgegate.ai/learn/GATE-GUIDANCE-BY-SANCHIT-SIR/engineering-mathematics/calculus/integration/asset-definite-integrals",
+      "language": "hi",
+      "transcript": "SUMMARY_ONLY",
+      "translated": true,
+      "note": "Hindi-medium GATE lecture; the platform's published English AI chapter summary with timestamps was read in full, the lecture itself was not. Chapters used: 0:00-2:00 the definition as F(b) - F(a) and the two readings (area under a curve, area between curve and x-axis) with the example integral of 1 from 1 to 3; 2:00-5:00 the rectangle and triangle verifications of that example and of the integral of 2x from 0 to 1; 5:00-10:00 the sign of the integral as net signed area"
+    },
+    {
+      "kind": "text",
+      "title": "Calculus Volume 1, section 5.3: The Fundamental Theorem of Calculus",
+      "channel": "OpenStax (Rice University)",
+      "url": "https://openstax.org/books/calculus-volume-1/pages/5-3-the-fundamental-theorem-of-calculus",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read from the section opening through the mean value theorem for integrals: the statement and proof of the mean value theorem for integrals by the extreme value and intermediate value theorems, the average-value formula, and the worked average of 8 - 2x on [0, 4] giving 4 at c = 2. The two parts of the fundamental theorem are announced in the learning objectives and are the section's subject, but the part of the extract returned stopped before their statements, so the two parts are stated here from the standard form and checked by recomputation rather than quoted"
+    }
+  ],
+  "sourceLine": "The signed-area and area readings that the 2015 question turns on: Knowledge Gate 'Definite Integrals' 5:00-10:00 (Hindi-medium lecture, English summary - translated). The convergence conditions are the standard p-test; the OpenStax section 5.3 material read this run supplies the continuity and average-value background but not the improper-integral definitions, so no lecture is quoted for them and every value is recomputed in scripts/validate.py.",
+  "videoRefs": []
+}

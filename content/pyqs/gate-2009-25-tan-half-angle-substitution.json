@@ -1,0 +1,21 @@
+{
+  "id": "gate-2009-25-tan-half-angle-substitution",
+  "year": "2009",
+  "paper": "GATE CS 2009",
+  "question_ref": "Q.25",
+  "type": "MCQ",
+  "topic": "substitution-in-definite-integrals",
+  "text": "The integral from 0 to pi/4 of (1 - tan x)/(1 + tan x) dx evaluates to",
+  "options": [
+    "0",
+    "1",
+    "ln 2",
+    "(1/2) ln 2"
+  ],
+  "answer": "Option (D) - (1/2) ln 2",
+  "solution": "Writing tan x = sin x / cos x makes the integrand (cos x - sin x)/(cos x + sin x), which is the derivative of ln(cos x + sin x). Substituting u = cos x + sin x gives du = (cos x - sin x) dx and the limits u = 1 at x = 0 and u = sqrt(2) at x = pi/4, so the integral is ln(sqrt(2)) = (1/2) ln 2 = 0.3466.",
+  "source_url": "https://gateoverflow.in/802/gate-cse-2009-question-25",
+  "source_label": "GATE Overflow question page - GATE CSE 2009 Q.25 with the accepted answer (option D)",
+  "verification": "SOURCED",
+  "answer_evidence": "The accepted answer substitutes t = cos x + sin x and states 'Correct Answer: D'; the GATE Forum 2009 CS paper PDF shows the same four options with (D) printed as (1/2) ln 2. Recomputed here numerically."
+}

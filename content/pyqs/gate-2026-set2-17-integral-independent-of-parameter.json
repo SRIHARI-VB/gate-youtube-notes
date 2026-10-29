@@ -1,0 +1,21 @@
+{
+  "id": "gate-2026-set2-17-integral-independent-of-parameter",
+  "year": "2026",
+  "paper": "GATE CS 2026 Set 2",
+  "question_ref": "Q.17",
+  "type": "MSQ",
+  "topic": "symmetry-rules-for-definite-integrals",
+  "text": "For a real number a, let I(a) = the integral from -1 to 1 of (3x^2 - a x + 1) dx. Which of the following statements is/are true?",
+  "options": [
+    "The value of I(a) is independent of the value of a",
+    "The value of I(a) can vary with the value of a",
+    "There exists a in (-infinity, +infinity) such that I(a) is a positive real number",
+    "There exists a in (-infinity, +infinity) such that I(a) is a negative real number"
+  ],
+  "answer": "Options (A) and (C): I(a) = 4 for every a",
+  "solution": "An antiderivative is x^3 - a x^2/2 + x. At x = 1 it is 2 - a/2, at x = -1 it is -2 - a/2, so the value is 4 for every a. Equivalently the term -a x is odd and integrates to 0 over the symmetric interval, while 3x^2 and 1 are even and contribute 2 and 2. Hence I(a) is the constant 4: independent of a (A true, B false), always positive (C true, D false).",
+  "source_url": "https://gateoverflow.in/523129/gate-cse-2026-set-2-question-17",
+  "source_label": "GATE Overflow question page - GATE CSE 2026 Set 2 Q.17 with the accepted answer (A, C)",
+  "verification": "SOURCED",
+  "answer_evidence": "Two independent answers on the question page compute 4 and state 'Answer : (A,C)', and the same value is obtained here by direct evaluation and by the odd-term argument."
+}

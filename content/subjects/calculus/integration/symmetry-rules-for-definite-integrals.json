@@ -1,0 +1,78 @@
+{
+  "id": "symmetry-rules-for-definite-integrals",
+  "title": "Symmetry: Odd and Even Integrands, and the a + b - x Rule",
+  "priority": "P1",
+  "order": 204,
+  "unit": "Integration",
+  "quickIdea": "Over a symmetric interval an odd integrand contributes nothing and an even one doubles; more generally, replacing x by a + b - x leaves the integral unchanged, which turns unknown integrals into equations.",
+  "remember": [
+    "Odd rule: if f(-x) = -f(x) then the integral of f from -a to a is 0. Even rule: if f(-x) = f(x) then it is twice the integral from 0 to a.",
+    "The odd rule needs the interval to be symmetric about 0; it says nothing about an interval such as [0, 2a].",
+    "The reflection rule: the integral of f(x) dx from a to b equals the integral of f(a + b - x) dx from a to b. Substituting u = a + b - x maps the interval to itself and the two sign changes cancel.",
+    "Adding the two forms is the standard trick: 2I is the integral of f(x) + f(a + b - x), and if that sum is a constant the integral is immediate.",
+    "For a parameter, only the odd part in x vanishes; the even part survives. That is why an integral like the one from -1 to 1 of 3x^2 - a x + 1 loses its a.",
+    "An integrand can be odd in one variable only: in 4x^2 y - z^3 over a box symmetric in y and in z, the first term dies in y and the second in z."
+  ],
+  "example": {
+    "prompt": "Evaluate the integral from -1 to 1 of (3x^2 - a x + 1) dx for an arbitrary real a, and decide whether it depends on a.",
+    "work": "Split by linearity: the integral of 3x^2 from -1 to 1 is 3 times [x^3/3] from -1 to 1, which is 3 times 2/3 = 2. The integral of a x is a times [x^2/2] from -1 to 1 = a times 0 = 0, because x is odd on a symmetric interval. The integral of 1 is 2. The total is 4, independent of a.",
+    "answer": "4, for every real a; so it is positive, and the statements 'independent of a' and 'positive for some a' both hold."
+  },
+  "gateAngle": "This is the single most rewarded shortcut in the topic. GATE CSE 2026 Set 2 Q.17 is precisely this computation as a multiple-select question, and GATE CSE 2024 Set 2 Q.6 is the reflection rule used as an equation. Recognising an odd term on sight saves the whole calculation.",
+  "variations": [
+    {
+      "label": "VERIFIED PYQ",
+      "question": "GATE CSE 2026 Set 2 Q.17: for a real number a let I(a) be the integral from -1 to 1 of (3x^2 - a x + 1) dx. Which statements are true? (A) I(a) is independent of a (B) I(a) can vary with a (C) some a gives a positive value (D) some a gives a negative value.",
+      "answer": "(A) and (C).",
+      "why": "The term -a x is odd, so it integrates to zero over the symmetric interval, and the even part 3x^2 + 1 integrates to 2 + 2 = 4. The value is the constant 4 for every a, so it is independent of a and always positive."
+    },
+    {
+      "label": "VERIFIED PYQ",
+      "question": "GATE CSE 2024 Set 2 Q.6: f is continuous on R with f(x) = 1 - f(2 - x). What is the integral of f from 0 to 2? (A) 0 (B) 1 (C) 2 (D) -1.",
+      "answer": "(B) 1.",
+      "why": "By the reflection rule with a = 0, b = 2, the integral of f(x) equals the integral of f(2 - x), which equals the integral of 1 - f(x), that is 2 minus the same integral. So I = 2 - I and I = 1. The constant function f = 1/2 satisfies the hypothesis and confirms it."
+    }
+  ],
+  "trap": {
+    "what": "Applying the odd rule to a term that is not odd, or to an interval that is not symmetric about zero.",
+    "why": "Oddness is a property of the whole integrand on a symmetric interval; a term like x^2 cos x is odd, but x^2 + cos x is neither odd nor even.",
+    "counterexample": "The integral of x from 0 to 2 is 2, not 0: x is odd, but the interval [0, 2] is not symmetric about the origin. And the integral from -1 to 1 of (x^2 + x) is 2/3, not 0, because only the x part vanishes."
+  },
+  "check": {
+    "question": "Evaluate the integral from -2 to 2 of x^3 cos x dx.",
+    "answer": "0.",
+    "explanation": "x^3 is odd and cos x is even, so the product is odd: f(-x) = -x^3 cos x = -f(x). Over the symmetric interval [-2, 2] an odd integrand contributes zero. No antiderivative is needed, which is exactly the point."
+  },
+  "pyqIds": [
+    "gate-2026-set2-17-integral-independent-of-parameter",
+    "gate-2024-set2-6-functional-symmetry-integral"
+  ],
+  "prereqs": [
+    "properties-of-definite-integrals",
+    "definite-integral-as-signed-area"
+  ],
+  "sources": [
+    {
+      "kind": "lecture-summary",
+      "title": "Properties of Definite Integrals",
+      "channel": "Knowledge Gate (Yash Jain)",
+      "url": "https://www.knowledgegate.ai/learn/GATE-GUIDANCE-BY-SANCHIT-SIR/engineering-mathematics/calculus/integration/asset-properties-of-definite-integrals",
+      "language": "hi",
+      "transcript": "SUMMARY_ONLY",
+      "translated": true,
+      "note": "Hindi-medium GATE lecture; the English AI chapter summary with timestamps was read in full. Chapters used: 0:00-2:00 area readings and the integral of 1 from a to b equalling b - a; 2:00-5:00 the constant-factor, sum-difference and zero-width properties; 5:00-10:00 the reversal property derived from the fundamental theorem, additivity over a split interval, the sign rule, and the area between two curves"
+    },
+    {
+      "kind": "lecture-summary",
+      "title": "Definite Integrals",
+      "channel": "Knowledge Gate (Yash Jain)",
+      "url": "https://www.knowledgegate.ai/learn/GATE-GUIDANCE-BY-SANCHIT-SIR/engineering-mathematics/calculus/integration/asset-definite-integrals",
+      "language": "hi",
+      "transcript": "SUMMARY_ONLY",
+      "translated": true,
+      "note": "Hindi-medium GATE lecture; the platform's published English AI chapter summary with timestamps was read in full, the lecture itself was not. Chapters used: 0:00-2:00 the definition as F(b) - F(a) and the two readings (area under a curve, area between curve and x-axis) with the example integral of 1 from 1 to 3; 2:00-5:00 the rectangle and triangle verifications of that example and of the integral of 2x from 0 to 1; 5:00-10:00 the sign of the integral as net signed area"
+    }
+  ],
+  "sourceLine": "The sign rule and the area readings that make the odd and even rules believable: Knowledge Gate 'Properties of Definite Integrals' 5:00-10:00 and 'Definite Integrals' 5:00-10:00 (Hindi-medium lectures, English summaries - translated). The reflection rule is derived here from the substitution u = a + b - x rather than quoted, and every value on this card is recomputed in scripts/validate.py.",
+  "videoRefs": []
+}

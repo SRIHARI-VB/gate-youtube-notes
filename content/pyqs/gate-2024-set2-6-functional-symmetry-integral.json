@@ -1,0 +1,21 @@
+{
+  "id": "gate-2024-set2-6-functional-symmetry-integral",
+  "year": "2024",
+  "paper": "GATE CS 2024 Set 2",
+  "question_ref": "Q.6",
+  "type": "MCQ",
+  "topic": "symmetry-rules-for-definite-integrals",
+  "text": "Let f(x) be a continuous function from R to R such that f(x) = 1 - f(2 - x). Which one of the following options is the CORRECT value of the integral from 0 to 2 of f(x) dx?",
+  "options": [
+    "0",
+    "1",
+    "2",
+    "-1"
+  ],
+  "answer": "Option (B) - 1",
+  "solution": "By the reflection property the integral from 0 to 2 of f(x) dx equals the integral from 0 to 2 of f(2 - x) dx. Substituting the given relation turns that into the integral from 0 to 2 of (1 - f(x)) dx = 2 - I. So I = 2 - I, giving I = 1. The constant f = 1/2 satisfies the hypothesis, which confirms the value.",
+  "source_url": "https://gateoverflow.in/422891/gate-cse-2024-set-2-question-6",
+  "source_label": "GATE Overflow question page - GATE CSE 2024 Set 2 Q.6 with the accepted answer (option B)",
+  "verification": "SOURCED",
+  "answer_evidence": "Several answers on the page derive I = 2 - I = 1 and state option (B); the substitution x -> 2 - x is shown explicitly. Recomputed here with a concrete family of solutions."
+}

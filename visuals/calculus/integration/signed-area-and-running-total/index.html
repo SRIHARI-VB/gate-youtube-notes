@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Signed Area and the Running Total - Integration visual lesson</title>
+<link rel="stylesheet" href="../../../lesson.css">
+<script src="https://cdn.jsdelivr.net/npm/p5@1.9.4/lib/p5.min.js"></script>
+</head>
+<body>
+<div class="wrap">
+  <p class="small"><a href="../../../../index.html">&larr; back to the revision site</a></p>
+  <h1>Signed Area and the Running Total</h1>
+  <div class="objective"><strong>Objective.</strong> See what a definite integral measures: sweep a boundary from the lower limit to the upper one and watch the area accumulate with a sign. Then see the same quantity as a function of its upper limit, and see why its slope is the height of the curve - the fundamental theorem of calculus.</div>
+
+  <div class="canvas-wrap"><div id="canvas-holder"></div></div>
+  <div class="caption" id="caption" aria-live="polite"></div>
+
+  <div class="controls">
+    <button id="play" class="primary">Play</button>
+    <button id="prev">&larr; Prev</button>
+    <button id="next">Next &rarr;</button>
+    <button id="restart">Restart</button>
+    <span class="speed"><label for="speed">Speed</label>
+      <input id="speed" type="range" min="0.25" max="2" step="0.25" value="1">
+      <span id="speedLabel">1.00x</span></span>
+    <span class="counter" id="counter"></span>
+  </div>
+
+  <h2>Static explanation</h2>
+  <p>Take f(x) = x squared minus 1 on the interval from 0 to 2. The definite integral from 0 to b of f is the limit of a sum of thin rectangles as their width shrinks, and the number it produces is the net signed area: pieces above the x-axis count positive, pieces below count negative.</p>
+  <p>The curve crosses the axis at x = 1. From 0 to 1 the integrand is negative, and the integral of x squared minus 1 there is one third minus one, which is minus two thirds. From 1 to 2 the integrand is positive, and the integral is two thirds plus two thirds, which is four thirds. Adding the pieces, the integral from 0 to 2 is two thirds. The geometric area between the curve and the axis over the same interval is the sum of the absolute values, two thirds plus four thirds, which is 2 - a different number, and that difference is exactly what a modulus question is asking about.</p>
+  <p>Now read the same integral as a function of its upper limit: F(b) is the integral from 0 to b. Then F(0) = 0, F(1) = minus two thirds and F(2) = two thirds, and F is zero again at the square root of 3, because the negative piece has been exactly paid back by then. Differentiating F gives x squared minus 1 back, which is f. So the slope of the running total at each point equals the height of the curve there: at x = 0 the height is minus 1 and the slope is minus 1, at x = 1 the height is 0 and the slope is 0, at x = 2 the height is 3 and the slope is 3. That statement is part one of the fundamental theorem of calculus, and it is why a definite integral can be computed from any antiderivative.</p>
+  <p>Finally, the integrand is even, so the integral from minus 1 to 1 equals twice the integral from 0 to 1, which is minus four thirds. An even integrand doubles over a symmetric interval; an odd one cancels.</p>
+
+  <div class="card warn"><div class="label">Common misconception</div><p>Reading the running total as the area. For this curve the area from 0 to 2 is 2 while the integral is two thirds, and at b = 1 the integral is negative although no area can be negative. The integral is a signed quantity; the area is the integral of the modulus.</p></div>
+  <div class="card ok"><div class="label">Quick check</div><p>What is the integral of x squared minus 1 from 0 to 1, and what is the geometric area of the same region?</p><details><summary>Answer</summary><p><strong>The integral is minus two thirds and the area is two thirds.</strong> An antiderivative is x cubed over 3 minus x, so at 1 the value is one third minus one, which is minus two thirds. The whole region lies below the axis, so the area is the modulus of that, two thirds.</p></details></div>
+  <p class="small">Topic: Integration (Calculus), subtopics the definite integral as signed area and the fundamental theorem of calculus. The signed-area convention and the area readings: Knowledge Gate "Definite Integrals", chapter summary 0:00-10:00 (Hindi-medium lecture, English summary - translated). The limit-of-sums definition: Paul's Online Math Notes section 5.6 (English). Every value shown here is recomputed in scripts/validate.py.</p>
+</div>
+<script src="../../../lesson.js"></script>
+<script src="sketch.js"></script>
+<script>
+/* p5.js is loaded from a CDN. If it is unreachable, say so plainly instead of showing an empty box. */
+window.addEventListener('load', function () {
+  if (window.p5) { return; }
+  var holder = document.getElementById('canvas-holder');
+  if (holder) {
+    holder.innerHTML = '<div style="padding:22px 18px;font-size:14.5px;color:#4a5260">' +
+      'The animation needs p5.js, which this page loads from a CDN, and the request failed (offline, or the CDN is blocked). ' +
+      'Everything below still works: the static explanation, the misconception and the quick check.</div>';
+  }
+  var cap = document.getElementById('caption');
+  if (cap && window.LESSON && window.LESSON.steps && window.LESSON.steps[0]) {
+    cap.innerHTML = window.LESSON.steps[0].caption;
+  }
+  ['play', 'prev', 'next', 'restart', 'speed'].forEach(function (id) {
+    var el = document.getElementById(id);
+    if (el) { el.disabled = true; }
+  });
+});
+</script>
+</body>
+</html>

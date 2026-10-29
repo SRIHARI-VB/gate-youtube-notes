@@ -1,0 +1,83 @@
+{
+  "id": "integration-by-parts",
+  "title": "Integration by Parts",
+  "priority": "P1",
+  "order": 206,
+  "unit": "Integration",
+  "quickIdea": "Trade one integral for another using the product rule backwards: the integral of u dv is u v minus the integral of v du, and the choice of u decides whether the trade helps.",
+  "remember": [
+    "Formula: the integral of u dv = u v - the integral of v du. It comes straight from integrating the product rule.",
+    "For a definite integral evaluate the product at the two limits and subtract the second integral: the integral from a to b of u dv = [u v] from a to b minus the integral from a to b of v du.",
+    "Choose u by LIATE - logarithmic, inverse trigonometric, algebraic, trigonometric, exponential - taking whichever appears first in that list as u.",
+    "A polynomial times a trigonometric or exponential factor needs as many rounds as the polynomial's degree; each round lowers the degree by one. x^2 cos x needs two rounds.",
+    "A polynomial times a logarithm or an inverse trigonometric function is the classic case for u being the logarithm, since its derivative is algebraic.",
+    "The constant in v is free: adding K to v changes nothing, because the K terms cancel - OpenStax shows this explicitly."
+  ],
+  "example": {
+    "prompt": "Evaluate the integral from 0 to pi of x^2 cos x dx.",
+    "work": "First round with u = x^2, dv = cos x dx, so du = 2x dx and v = sin x: the integral is [x^2 sin x] from 0 to pi minus the integral from 0 to pi of 2x sin x dx. The bracket is 0 at both ends. Second round on 2x sin x with u = 2x, dv = sin x dx, so du = 2 dx and v = -cos x: it equals [-2x cos x] from 0 to pi plus the integral from 0 to pi of 2 cos x dx, that is (2pi - 0) + 0 = 2pi. So the original integral is 0 - 2pi.",
+    "answer": "-2pi."
+  },
+  "gateAngle": "GATE CSE 2014 Set 3 Q.47 is this exact integral and its answer -2pi; GATE CSE 2025 Set 2 Q.2 needs one round of by parts on t ln t before the equation in x can be solved. The distractor pattern is the sign of the second bracket, so evaluate each bracket separately.",
+  "variations": [
+    {
+      "label": "VERIFIED PYQ",
+      "question": "GATE CSE 2014 Set 3 Q.47: the value of the integral from 0 to pi of x^2 cos x dx is (A) -2pi (B) pi (C) -pi (D) 2pi.",
+      "answer": "(A) -2pi.",
+      "why": "Two rounds of by parts give [x^2 sin x + 2x cos x - 2 sin x] from 0 to pi. At pi the first and third terms vanish and 2x cos x is -2pi; at 0 the whole bracket is 0. The value is -6.2832, and the option -pi = -3.14 comes from dropping the factor 2."
+    },
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "Evaluate the integral from 0 to 1 of x e^x dx.",
+      "answer": "1.",
+      "why": "With u = x and dv = e^x dx, the integral is [x e^x] from 0 to 1 minus the integral from 0 to 1 of e^x dx = e - (e - 1) = 1. The value is exactly 1, which is worth remembering as the smallest self-checking by-parts example."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Why does choosing u = cos x and dv = x^2 dx make the integral of x^2 cos x worse rather than better?",
+      "answer": "Because the new integral has a higher power of x in it.",
+      "why": "With that choice v = x^3/3, so the second integral carries x^3 sin x, a harder integrand than the one you started with. The rule of thumb is that u should get simpler when differentiated, which a polynomial always does and a cosine does not."
+    }
+  ],
+  "trap": {
+    "what": "Picking u so that the new integral is harder, or losing a sign when the second round produces a minus of a minus.",
+    "why": "By parts is a trade, not a solution: it helps only if the new integral is easier. And each round carries its own bracket, whose sign is easy to get wrong.",
+    "counterexample": "For the integral of x^2 cos x, taking u = cos x gives the new integral of (x^3/3) sin x, which is worse. And in the second round, [-2x cos x] from 0 to pi equals -2pi - 0 = -2pi only if the minus sign in v = -cos x is kept; dropping it gives +2pi and the wrong option (D)."
+  },
+  "check": {
+    "question": "Evaluate the integral from 1 to e of ln x dx.",
+    "answer": "1.",
+    "explanation": "With u = ln x, dv = dx, du = dx/x and v = x, the integral is [x ln x] from 1 to e minus the integral from 1 to e of 1 dx = (e - 0) - (e - 1) = 1. The logarithm must be u, because it is the only factor that becomes simpler when differentiated."
+  },
+  "pyqIds": [
+    "gate-2014-set3-47-x-squared-cos-x-by-parts"
+  ],
+  "prereqs": [
+    "antiderivative-and-the-constant-of-integration",
+    "substitution-in-definite-integrals"
+  ],
+  "sources": [
+    {
+      "kind": "text",
+      "title": "Calculus Volume 2, section 3.1: Integration by Parts",
+      "channel": "OpenStax (Rice University)",
+      "url": "https://openstax.org/books/calculus-volume-2/pages/3-1-integration-by-parts",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read from the opening through the LIATE discussion: the derivation of the formula from the product rule, the statement of the integration-by-parts formula, the worked x sin x example, the explicit warning that the other choice of u makes the new integral no better, the note that the constant in v does not matter, and the LIATE ordering with the x sin x illustration. The definite-integral subsection was announced but its text was beyond the returned extract"
+    },
+    {
+      "kind": "lecture-summary",
+      "title": "13 Oct - EM - Calculus Part 3, the integration segment",
+      "channel": "Knowledge Gate (Yash Jain)",
+      "url": "https://www.knowledgegate.ai/learn/GATE-GUIDANCE-BY-SANCHIT-SIR/live-classes/gate-2026-live-class/engineering-mathematics-for-gate-exam/asset-13-oct-em-calculus-part-3",
+      "language": "hi",
+      "transcript": "SUMMARY_ONLY",
+      "translated": true,
+      "note": "Hindi-medium live class; the English AI chapter summary with timestamps was read in full. Chapters used: 45:00-50:00 integration as anti-differentiation, the indefinite against the definite integral and the area examples; 50:00-55:00 the property list, including reversal, additivity and the sign rule, and the pointer to a table of standard integrals; 55:00-59:08 the substitution method with the two standard forms and the worked sin^8 x cos x definite integral. The earlier part of the same lecture supplied the mean value theorem topic in an earlier run"
+    }
+  ],
+  "sourceLine": "The derivation from the product rule, the formula, the x sin x example, the warning about the other choice of u, and the LIATE ordering: OpenStax Calculus Volume 2 section 3.1 (English). The GATE framing of the technique: Knowledge Gate '13 Oct - EM - Calculus Part 3' 55:00-59:08 (Hindi-medium lecture, English summary - translated). The 2014 value is recomputed in scripts/validate.py.",
+  "videoRefs": []
+}

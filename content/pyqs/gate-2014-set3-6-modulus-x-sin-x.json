@@ -1,0 +1,15 @@
+{
+  "id": "gate-2014-set3-6-modulus-x-sin-x",
+  "year": "2014",
+  "paper": "GATE CS 2014 Set 3",
+  "question_ref": "Q.6",
+  "type": "NAT",
+  "topic": "splitting-the-interval-at-sign-changes",
+  "text": "If the integral from 0 to 2 pi of |x sin x| dx = k pi, then the value of k is equal to ____.",
+  "answer": "4",
+  "solution": "On [0, 2 pi], x is non-negative, so |x sin x| = x |sin x|. Since sin x is non-negative on [0, pi] and non-positive on [pi, 2 pi], the integral equals the integral of x sin x from 0 to pi minus the integral of x sin x from pi to 2 pi. With antiderivative -x cos x + sin x the first piece is pi and the second is -3 pi, so the total is pi + 3 pi = 4 pi and k = 4.",
+  "source_url": "https://gateoverflow.in/2040/gate-cse-2014-set-3-question-6",
+  "source_label": "GATE Overflow question page - GATE CSE 2014 Set 3 Q.6 with the accepted answer (4)",
+  "verification": "SOURCED",
+  "answer_evidence": "The accepted answers split at pi, integrate each piece by parts and conclude k = 4; the GateAI PYQ page states 'Official answer: 4'. Recomputed here numerically."
+}

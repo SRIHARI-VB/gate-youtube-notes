@@ -1,0 +1,65 @@
+{
+  "id": "average-value-and-the-mean-value-theorem-for-integrals",
+  "title": "Average Value of a Function",
+  "priority": "P2",
+  "order": 210,
+  "unit": "Integration",
+  "quickIdea": "The average value of f on [a, b] is the integral of f divided by the width b - a, and a continuous f actually attains that average somewhere on the interval.",
+  "remember": [
+    "Average value = (1/(b - a)) times the integral from a to b of f. The average is the height of the rectangle over [a, b] with the same area as the region under the curve.",
+    "Mean value theorem for integrals: if f is continuous on [a, b], some c in [a, b] has f(c) equal to that average. It is proved by bounding the integral between the minimum and maximum and then using the intermediate value theorem.",
+    "For a linear function the average is attained at the midpoint, which is why the trapezium rule is exact for straight lines.",
+    "For a non-linear function the average of the endpoint values is not the average value: for x^2 on [0, 2] the endpoint average is 2 while the integral average is 4/3.",
+    "This is the integral form of the mean value theorem of the previous topic: there the average was a slope, here it is a height.",
+    "Average value is not a probability: for that the integrand must be a density and the interval must be the whole support."
+  ],
+  "example": {
+    "prompt": "Find the average value of f(x) = 8 - 2x on [0, 4] and the point where f takes it.",
+    "work": "The integral from 0 to 4 of (8 - 2x) dx = [8x - x^2] from 0 to 4 = 32 - 16 = 16. Dividing by the width 4 gives 4. Setting 8 - 2c = 4 gives c = 2, which lies in [0, 4].",
+    "answer": "Average value 4, attained at c = 2, the midpoint."
+  },
+  "gateAngle": "No verified GATE CSE previous-year question asks for an average value directly, so this card is P2 and rests on the standard reference plus recomputation. It earns its place because the mean value theorem for integrals is what makes the fundamental theorem provable, and because the phrase 'average value' appears in the statements of several engineering-mathematics questions of other branches.",
+  "variations": [
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Is the average value of x^2 on [0, 2] equal to the average of f(0) and f(2)?",
+      "answer": "No: the average value is 4/3 and the endpoint average is 2.",
+      "why": "The integral of x^2 from 0 to 2 is 8/3, and dividing by the width 2 gives 4/3. Averaging the endpoint values weights only two points, and x^2 is convex, so it spends more of its range below the chord. The mean value theorem for integrals guarantees a point where f equals 4/3, namely c = sqrt(4/3) = 1.1547."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "If the average value of f on [0, 4] is 3, what is the integral of f from 0 to 4?",
+      "answer": "12.",
+      "why": "The definition rearranges to integral = average times width = 3 times 4. This is the form GATE would use: the average is given and the integral is asked, so the candidate who memorises only the forward direction has to re-derive it."
+    }
+  ],
+  "trap": {
+    "what": "Dividing by the wrong width, or treating the average value as the average of the endpoint values.",
+    "why": "The divisor is b - a, the length of the interval, not b or a; and averaging two endpoint values ignores the whole interior of the interval.",
+    "counterexample": "For x^2 on [0, 2] the endpoint average is (0 + 4)/2 = 2, but the true average value is 4/3 = 1.333. Dividing the integral 8/3 by 2 (the upper limit) instead of by the width 2 happens to be right here only because a = 0, which is exactly how the error hides."
+  },
+  "check": {
+    "question": "What is the average value of x^2 on [0, 3]?",
+    "answer": "3.",
+    "explanation": "The integral is [x^3/3] from 0 to 3 = 9, and the width is 3, so the average is 3. The point where x^2 equals 3 is c = sqrt(3) = 1.732, which lies in [0, 3] as the theorem promises."
+  },
+  "pyqIds": [],
+  "prereqs": [
+    "definite-integral-as-signed-area",
+    "lmvt-statement-and-secant-slope"
+  ],
+  "sources": [
+    {
+      "kind": "text",
+      "title": "Calculus Volume 1, section 5.3: The Fundamental Theorem of Calculus",
+      "channel": "OpenStax (Rice University)",
+      "url": "https://openstax.org/books/calculus-volume-1/pages/5-3-the-fundamental-theorem-of-calculus",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read from the section opening through the mean value theorem for integrals: the statement and proof of the mean value theorem for integrals by the extreme value and intermediate value theorems, the average-value formula, and the worked average of 8 - 2x on [0, 4] giving 4 at c = 2. The two parts of the fundamental theorem are announced in the learning objectives and are the section's subject, but the part of the extract returned stopped before their statements, so the two parts are stated here from the standard form and checked by recomputation rather than quoted"
+    }
+  ],
+  "sourceLine": "The mean value theorem for integrals with its proof and the average value of 8 - 2x on [0, 4]: OpenStax Calculus Volume 1 section 5.3 (English, read through the proof). No GATE-oriented lecture read this run covered average value, and no previous-year CSE question in the topic turns on it, so the card is P2 and every number is recomputed in scripts/validate.py.",
+  "videoRefs": []
+}
