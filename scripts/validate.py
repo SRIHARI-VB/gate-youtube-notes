@@ -4716,6 +4716,258 @@ def check_maxima_and_minima():
        "optimisation values including the wire problem")
 
 
+def check_mean_value_theorem():
+    """Every value, root, bound and verdict published in the Mean Value Theorem topic is recomputed."""
+    import math
+
+    def close(a, b, tol=1e-6):
+        return abs(a - b) <= tol * max(1.0, abs(b))
+
+    C = 2 / math.sqrt(3)                      # the mean value theorem point of x^3 on [0, 2]
+
+    # ---- card 1: Rolle on x^2 - 4x + 3 over [1, 3]
+    q = lambda x: x * x - 4 * x + 3
+    if not (close(q(1), 0) and close(q(3), 0)):
+        fail("mvt: x^2-4x+3 must vanish at 1 and at 3")
+    if not close(2 * 2 - 4, 0):
+        fail("mvt: Rolle point of x^2-4x+3 on [1,3] must be c = 2")
+    if not close(q(2), -1):
+        fail("mvt: x^2-4x+3 must be -1 at c = 2")
+    # the trap counterexample: x^2 on [0,2] has no interior zero slope
+    if any(close(2 * x, 0) for x in (0.25, 0.5, 1.0, 1.5, 1.75)):
+        fail("mvt: 2x must not vanish inside (0,2)")
+    # the check: x^(2/3) on [-1,1] has no interior zero slope
+    if any(close((2.0 / 3) * x ** (-1.0 / 3), 0) for x in (-0.5, -0.25, 0.25, 0.5)):
+        fail("mvt: the derivative of x^(2/3) must never vanish off 0")
+
+    # ---- card 2 and the lesson: x^3 on [0,2]
+    f = lambda x: x ** 3
+    if not close((f(2) - f(0)) / 2.0, 4):
+        fail("mvt: the chord slope of x^3 on [0,2] must be 4")
+    for x, want in ((0.0, 0.0), (1.0, 3.0), (2.0, 12.0)):
+        if not close(3 * x * x, want):
+            fail("mvt: 3x^2 must be %r at x = %r" % (want, x))
+    if not close(3 * C * C, 4):
+        fail("mvt: 3c^2 = 4 at c = 2/sqrt(3)")
+    if not close(f(C), 1.539600717839002, 1e-9):
+        fail("mvt: f(2/sqrt(3)) must be 1.5396")
+    if not close(C, 1.1547005383792517, 1e-9):
+        fail("mvt: 2/sqrt(3) must be 1.1547005")
+    if not (0 < C < 2):
+        fail("mvt: the mean value theorem point of x^3 on [0,2] must be interior")
+    # the trap: the midpoint is not the point
+    if close(3 * 1.0 * 1.0, 4):
+        fail("mvt: the midpoint of [0,2] must not satisfy the mean value theorem for x^3")
+    # the check: x^2 on [0,2] gives the midpoint
+    if not close(2 * 1.0, 2.0):
+        fail("mvt: x^2 on [0,2] must give c = 1")
+    # the quadratic midpoint rule, checked on several quadratics
+    for A, B, Cc in ((1, 0, 0), (2, -3, 5), (-1, 4, 1), (0.5, 2, -7)):
+        for a, b in ((0, 2), (-1, 3), (1, 4), (-2.5, 0.5)):
+            avg = (A * (b * b - a * a) + B * (b - a)) / (b - a)
+            mid = (a + b) / 2.0
+            if not close(2 * A * mid + B, avg):
+                fail("mvt: the midpoint must be the mean value theorem point of a quadratic")
+    # the variation: x^3 - 3x on [0,2]
+    h = lambda x: x ** 3 - 3 * x
+    if not close((h(2) - h(0)) / 2.0, 1):
+        fail("mvt: the average slope of x^3-3x on [0,2] must be 1")
+    if not close(3 * C * C - 3, 1):
+        fail("mvt: 3c^2-3 = 1 at c = 2/sqrt(3)")
+    if not close(3 * 1.0 - 3, 0):
+        fail("mvt: x^3-3x must have derivative 0 at the midpoint 1, so the midpoint is not the point")
+
+    # ---- card 3: the 2021 Set 2 Q.25 bound
+    if not close(6 * 2 + 7, 19):
+        fail("mvt: 2021 Set 2 Q.25 must give f(3) <= 19")
+    if not close(2 * 3 + 13, 19) or not close(2 * (-3) + 13, 7):
+        fail("mvt: 2x+13 must attain the bound, with f(-3) = 7 and f(3) = 19")
+    if not close(-19 * (-3) - 50, 7):
+        fail("mvt: -19x-50 must have the value 7 at x = -3")
+    if not close(-19 * 3 - 50, -107):
+        fail("mvt: -19x-50 must have the value -107 at x = 3, the trap counterexample")
+    if not (-19 <= 2):
+        fail("mvt: the slope -19 of the trap counterexample must satisfy f' <= 2")
+    if not close(3 * 4 + 1, 13):
+        fail("mvt: the quick check bound f(4) <= 13 must be right")
+
+    # ---- card 4: the failure cases
+    if not close(abs(-1), abs(1)):
+        fail("mvt: |x| must have equal endpoint values on [-1,1]")
+    if not close(1 / (2 * math.sqrt(0.25)), 1):
+        fail("mvt: sqrt(x) on [0,1] must give c = 1/4")
+    if not (1 / (2 * math.sqrt(0.25)) > 0):
+        fail("mvt: the derivative of sqrt(x) must be positive")
+    if any(close(-1.0 / (x * x), 0) for x in (-2.0, -0.5, 0.5, 2.0)):
+        fail("mvt: the derivative of 1/x must never vanish")
+    if not (math.sqrt(3 * 1 + 1) > 0):
+        fail("mvt: sqrt(x^3+1) must be defined on [0,1]")
+
+    # ---- card 5: finding the point for x^3 - 4x on [0,3]
+    k = lambda x: x ** 3 - 4 * x
+    if not close((k(3) - k(0)) / 3.0, 5):
+        fail("mvt: the average slope of x^3-4x on [0,3] must be 5")
+    if not close(k(3), 15):
+        fail("mvt: x^3-4x must be 15 at 3")
+    if not close(3 * 3 - 4, 5):
+        fail("mvt: 3c^2-4 = 5 at c = sqrt(3)")
+    if not close(math.sqrt(3), 1.7320508075688772, 1e-9):
+        fail("mvt: sqrt(3) must be 1.7320508")
+    if not (0 < math.sqrt(3) < 3):
+        fail("mvt: sqrt(3) must lie in (0,3) and -sqrt(3) outside it")
+    # the OpenStax Rolle example x^2 + 2x on [-2, 0]
+    r2 = lambda x: x * x + 2 * x
+    if not (close(r2(-2), 0) and close(r2(0), 0) and close(2 * (-1) + 2, 0)):
+        fail("mvt: x^2+2x on [-2,0] must have its Rolle point at -1")
+    # the check: x^3 on [-2,2]
+    if not close((8 - (-8)) / 4.0, 4):
+        fail("mvt: the average slope of x^3 on [-2,2] must be 4")
+
+    # ---- card 6: existence, not uniqueness
+    g = lambda x: x ** 3 - 4 * x
+    if not (close(g(-2), 0) and close(g(2), 0)):
+        fail("mvt: x^3-4x must vanish at both ends of [-2,2]")
+    if not (close(g(C), -3.079201435678004, 1e-9) and close(g(-C), 3.079201435678004, 1e-9)):
+        fail("mvt: x^3-4x must be -3.0792 at 2/sqrt(3) and 3.0792 at -2/sqrt(3)")
+    if not (close(math.sin(0), 0) and close(math.sin(2 * math.pi), 0, 1e-9)):
+        fail("mvt: sin must vanish at 0 and at 2 pi")
+    if not (close(math.cos(math.pi / 2), 0, 1e-9) and close(math.cos(3 * math.pi / 2), 0, 1e-9)):
+        fail("mvt: cos must vanish at pi/2 and 3pi/2")
+    cub = lambda x: x * (x - 1) * (x - 2)
+    roots = sorted([(6 - math.sqrt(36 - 24)) / 6.0, (6 + math.sqrt(36 - 24)) / 6.0])
+    if not (close(roots[0], 1 - 1 / math.sqrt(3), 1e-9) and close(roots[1], 1 + 1 / math.sqrt(3), 1e-9)):
+        fail("mvt: the Rolle points of x(x-1)(x-2) must be 1 -+ 1/sqrt(3)")
+    if not (0 < roots[0] < roots[1] < 2):
+        fail("mvt: both Rolle points of x(x-1)(x-2) must lie in (0,2)")
+    for x in (roots[0], roots[1]):
+        if not close(3 * x * x - 6 * x + 2, 0, 1e-9):
+            fail("mvt: the derivative of x(x-1)(x-2) must vanish at its Rolle points")
+    # the check: x^4 - 5x^2 + 4 with roots at 1 and 2
+    qu = lambda x: x ** 4 - 5 * x * x + 4
+    if not (close(qu(1), 0) and close(qu(2), 0)):
+        fail("mvt: x^4-5x^2+4 must vanish at 1 and at 2")
+    if not (close(math.sqrt(2.5), 1.5811388300841898, 1e-9) and 1 < math.sqrt(2.5) < 2):
+        fail("mvt: the interior zero of 4x^3-10x must be sqrt(5/2) = 1.5811 in (1,2)")
+    if not close(4 * math.sqrt(2.5) ** 3 - 10 * math.sqrt(2.5), 0, 1e-9):
+        fail("mvt: 4x^3-10x must vanish at sqrt(5/2)")
+
+    # ---- card 7: the corollaries and the 2020 Q.1
+    if not (close(2 * 0 - math.cos(0), -1) and close(2 * 1 - math.cos(1), 1.4596976941318602, 1e-9)):
+        fail("mvt: 2x - cos x must be -1 at 0 and 1.4597 at 1, so x^2 - sin x is not increasing on [0,1]")
+    if not (2 * 0 - math.cos(0) < 0):
+        fail("mvt: the derivative of x^2 - sin x must be negative at 0")
+    for x in (0.1, 0.25, 0.5, 0.75, 1.0):
+        if not (3 * x * x / (2 * math.sqrt(x ** 3 + 1)) > 0):
+            fail("mvt: sqrt(x^3+1) must have a positive derivative on (0,1]")
+    for x in (0.0, 0.5, 1.0):
+        if not (-math.exp(-x) < 0):
+            fail("mvt: e^(-x) must decrease on [0,1]")
+    if not (3 * 0 + 2 >= 2):
+        fail("mvt: 3x^2+2 must be at least 2, so x^3+2x+5 is strictly increasing")
+    if not (4 - 1 == 3):
+        fail("mvt: the constant-difference corollary must give f(1) - g(1) = 3")
+    if not (1 + math.cos(0) >= 0):
+        fail("mvt: 1 + cos x must be non-negative")
+
+    # ---- card 8: root counting
+    p = lambda x: 4 * x ** 5 + x ** 3 + 7 * x - 2
+    if not (close(p(0), -2) and close(p(1), 10)):
+        fail("mvt: 4x^5+x^3+7x-2 must be -2 at 0 and 10 at 1")
+    for x in (-2.0, -1.0, -0.5, 0.0, 0.5, 1.0, 2.0):
+        if not (20 * x ** 4 + 3 * x * x + 7 >= 7):
+            fail("mvt: the derivative of 4x^5+x^3+7x-2 must be at least 7")
+    r5 = lambda x: x ** 5 + x ** 3 + x + 1
+    if not (close(r5(-1), -2) and close(r5(0), 1)):
+        fail("mvt: x^5+x^3+x+1 must be -2 at -1 and 1 at 0")
+    for x in (-1.0, -0.5, 0.0, 0.5, 1.0):
+        if not (5 * x ** 4 + 3 * x * x + 1 >= 1):
+            fail("mvt: the derivative of x^5+x^3+x+1 must be at least 1")
+    r3 = lambda x: x ** 3 + x + 1
+    if not (close(r3(-1), -1) and close(r3(0), 1)):
+        fail("mvt: x^3+x+1 must be -1 at -1 and 1 at 0")
+
+    # ---- card 9: Cauchy's theorem for x^2 and x^3 on [1,2] and on [-1,1]
+    if not close((4 - 1) / (8 - 1.0), 3 / 7.0):
+        fail("mvt: the Cauchy ratio for x^2 and x^3 on [1,2] must be 3/7")
+    if not close(2 / (3 * (14 / 9.0)), 3 / 7.0):
+        fail("mvt: c = 14/9 must satisfy the Cauchy ratio 3/7")
+    if not (1 < 14 / 9.0 < 2):
+        fail("mvt: the Cauchy point 14/9 must lie in (1,2)")
+    if not close((1 - 1) / (1 - (-1.0)), 0):
+        fail("mvt: the Cauchy ratio for x^2 and x^3 on [-1,1] must be 0")
+    if not close(2 * 0, 0):
+        fail("mvt: the product form on [-1,1] must force c = 0, where g' vanishes")
+
+    # ---- card 10: the auxiliary-function construction
+    for a, b, c0 in ((1, 2, -4 / 3.0), (3, -3, 0.5), (-2, 1, 1 / 6.0)):
+        if not close(2 * a + 3 * b + 6 * c0, 0):
+            fail("mvt: the auxiliary example must satisfy 2a+3b+6c = 0")
+        F = lambda x, a=a, b=b, c0=c0: a * x ** 3 / 3.0 + b * x * x / 2.0 + c0 * x
+        if not close(F(0), 0) or not close(F(1), 0):
+            fail("mvt: the antiderivative must vanish at 0 and at 1 when 2a+3b+6c = 0")
+        hstep = 1e-6
+        if not close((F(0.5 + hstep) - F(0.5 - hstep)) / (2 * hstep), a * 0.25 + b * 0.5 + c0, 1e-4):
+            fail("mvt: F' must be ax^2+bx+c")
+    if not close(2 * 1 + 3 * 0 + 6 * (-1 / 3.0), 0):
+        fail("mvt: a=1, b=0, c=-1/3 must satisfy 2a+3b+6c = 0")
+    if not close(1 / math.sqrt(3), 0.5773502691896258, 1e-9):
+        fail("mvt: the root of x^2 - 1/3 must be 0.5774")
+    if not (0 < 1 / math.sqrt(3) < 1):
+        fail("mvt: the root of x^2 - 1/3 must lie in (0,1)")
+    if not (close(1 * 1 - 1 / 3.0, 2 / 3.0) and close(0 - 1 / 3.0, -1 / 3.0)):
+        fail("mvt: x^2-1/3 must have different values at 0 and 1, so Rolle cannot be applied to it")
+    if not close(1.0 - 1.0, 0):
+        fail("mvt: the auxiliary g(x) = f(x) - x^2 must vanish at 0 and 1 for the variation")
+
+    # ---- card 11: the inequalities
+    if not (math.exp(0.5) >= 1.5):
+        fail("mvt: e^0.5 must be at least 1.5")
+    if not close(math.exp(0.5), 1.6487212707001282, 1e-9):
+        fail("mvt: e^0.5 must be 1.6487")
+    if not (math.log(1.5) <= 0.5):
+        fail("mvt: ln(1.5) must be at most 0.5")
+    if not close(math.log(1.5), 0.4054651081081644, 1e-9):
+        fail("mvt: ln(1.5) must be 0.4055")
+    if not (abs(math.cos(1) - math.cos(0.5)) <= 0.5):
+        fail("mvt: |cos 1 - cos 0.5| must be at most 0.5")
+    if not close(abs(math.cos(1) - math.cos(0.5)), 0.337280256022233, 1e-9):
+        fail("mvt: |cos 1 - cos 0.5| must be 0.3373")
+    if not (math.log(0.5) <= -0.5):
+        fail("mvt: the trap counterexample must fail the inequality at x = -0.5")
+    if not (math.exp(0.5) >= 1 + 0.5 + 0.25 / 2.0):
+        fail("mvt: e^0.5 must exceed 1 + 0.5 + 0.125 = 1.625")
+    if not close(1 + 0.5 + 0.125, 1.625):
+        fail("mvt: the second-order bound at 0.5 must be 1.625")
+
+    # ---- card 12: the 2014 Set 1 Q.6 determinant
+    import itertools
+    def det(t):
+        m = [[math.sin(t), math.cos(t), math.tan(t)],
+             [math.sin(math.pi / 6), math.cos(math.pi / 6), math.tan(math.pi / 6)],
+             [math.sin(math.pi / 3), math.cos(math.pi / 3), math.tan(math.pi / 3)]]
+        return (m[0][0] * (m[1][1] * m[2][2] - m[1][2] * m[2][1])
+                - m[0][1] * (m[1][0] * m[2][2] - m[1][2] * m[2][0])
+                + m[0][2] * (m[1][0] * m[2][1] - m[1][1] * m[2][0]))
+    if not close(det(math.pi / 6), 0, 1e-9):
+        fail("mvt: the 2014 determinant must vanish at pi/6, where rows 1 and 2 coincide")
+    if not close(det(math.pi / 3), 0, 1e-9):
+        fail("mvt: the 2014 determinant must vanish at pi/3, where rows 1 and 3 coincide")
+    if not close(det(math.pi / 4), 0.09771698144536893, 1e-9):
+        fail("mvt: the 2014 determinant must be 0.0977 at pi/4, so the function is not constant")
+    if abs(det(math.pi / 4)) < 1e-6:
+        fail("mvt: the 2014 determinant at pi/4 must be non-zero")
+    if not (math.pi / 6 < math.pi / 4 < math.pi / 3):
+        fail("mvt: pi/4 must lie inside the interval of the 2014 question")
+    if not (math.pi / 2 > math.pi / 3):
+        fail("mvt: pi/2 must lie outside [pi/6, pi/3], so tan is differentiable there")
+    sq = lambda x: x * x - 1
+    if not (close(sq(-1), 0) and close(sq(1), 0) and close(2 * 0, 0) and close(2 * 1, 2)):
+        fail("mvt: x^2-1 on [-1,1] must have one zero derivative and a non-zero one at 1")
+
+    ok("mean value theorem: every published point, bound, root count, determinant value and "
+       "inequality recomputed")
+
+
 def main():
     topics, tpath, pyqs, videos, playlists, sources = load_all()
     check_topics(topics, tpath, pyqs, videos)
@@ -4738,6 +4990,7 @@ def main():
     check_lu_decomposition()
     check_limits_continuity_differentiability()
     check_maxima_and_minima()
+    check_mean_value_theorem()
     check_visuals()
     check_hygiene()
     for c in checks:

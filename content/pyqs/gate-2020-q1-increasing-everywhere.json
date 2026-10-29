@@ -1,0 +1,21 @@
+{
+  "id": "gate-2020-q1-increasing-everywhere",
+  "year": "2020",
+  "paper": "GATE CS 2020",
+  "question_ref": "Q.1",
+  "type": "MCQ",
+  "topic": "consequences-constant-and-monotone",
+  "text": "Consider the functions I. e^(-x) II. x^2 - sin x III. sqrt(x^3 + 1). Which of the above functions is/are increasing everywhere in [0, 1]?",
+  "options": [
+    "III only",
+    "II only",
+    "II and III only",
+    "I and III only"
+  ],
+  "answer": "Option (A) - III only",
+  "solution": "I: the derivative of e^(-x) is -e^(-x), negative on [0, 1], so it decreases. II: the derivative of x^2 - sin x is 2x - cos x, which equals -1 at x = 0 and about 1.4597 at x = 1, so the function decreases on part of [0, 1] before rising. III: the derivative of sqrt(x^3 + 1) is 3x^2 / (2 sqrt(x^3 + 1)), positive for x in (0, 1] and zero only at 0, so the function increases throughout. Only III qualifies.",
+  "source_url": "https://gateoverflow.in/333230/gate-cse-2020-question-1",
+  "source_label": "GATE Overflow question page, GATE CSE 2020 Q.1, with the accepted answer 'III only'",
+  "verification": "SOURCED",
+  "answer_evidence": "All five answers on the GATE Overflow page conclude III only, four of them by differentiating each function and reading the sign. ExamSIDE's calculus bank lists the same question with the same options, and the EduRev GATE CSE calculus listing prints 'A: III only'. The values 2(0) - cos(0) = -1 and 2(1) - cos(1) = 1.4597 are recomputed in scripts/validate.py. GATE Overflow numbers this Q.1 and ExamSIDE numbers it 12, which is recorded rather than hidden; the official key was not fetched and no marks field is recorded."
+}

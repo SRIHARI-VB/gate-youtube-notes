@@ -107,3 +107,28 @@ This topic used no playlist. What could be read, and what could not:
 
 The one change from runs 4 to 6 is the Hindi video: the search route returned its Hindi transcript, so this topic
 contains the first translated material since the Monoids and Groups run. No English lecture transcript could be read.
+
+## Run 10 - source access for the Mean Value Theorem
+
+This topic used no playlist. What could be read, and what could not:
+
+| Source | Route | Result |
+| --- | --- | --- |
+| OpenStax Calculus Volume 1, section 4.4 | extraction service | PARTIAL: the opening through the proof of the mean value theorem, including both worked Rolle examples and the |x| - 1 counterexample |
+| Paul's Online Math Notes, Calculus I section 4.7 | extraction service | PARTIAL: the opening through the geometric interpretation, including the 4x^5 + x^3 + 7x - 2 root-counting example |
+| Knowledge Gate, "13 Oct - EM - Calculus Part 3" (Hindi) | extraction service | SUMMARY_ONLY: the platform's published English AI chapter summary with all thirteen chapters read in full |
+| MIT 18.01 Lecture 14 transcript | extraction service | PARTIAL, unusable for this topic: the readable part is the Newton's-method error analysis, and Lecture 15 opens by moving on from the mean value theorem |
+| MIT 18.01 Lectures 13 and 15 transcripts | extraction service | read only to establish which lecture covers the theorem; 13 is related rates, 15 is differentials and integration |
+| BYJU'S GATE mean value theorems (UawXU1TEI7o) | search route | no caption track, page boilerplate only |
+| GATE Wallah Calculus Lec 3 (DWkkX25k5Mc) | search route | title only, no caption track |
+| Unacademy Hindi MVT lesson (Sweta Kumari) | extraction service | description and lesson list only, video behind an account wall |
+| GeeksforGeeks Rolle's theorem page | extraction service | readable, but stops at Rolle's theorem |
+| MindSpan GATE DA/CS MVT quiz page | extraction service | readable, but a commercial quiz page with no source and no proof |
+| GATE Overflow mean-value-theorem tag | extraction service | five questions, none of them a GATE CSE paper question |
+| GateAI GATE CSE calculus PYQ index | extraction service | used as an index; it is what established that only two CSE questions turn on a mean value theorem |
+| YouTube, every other lecture tried | search route | consent wall, no caption tracks |
+
+The one change from the previous topic is that both English textbook sources arrived at all: the extraction
+service returned them from the opening to the proof of the mean value theorem. Neither arrived complete, so
+the corollary subsections are not quoted anywhere. The Hindi source is again a Knowledge Gate class read
+through its published English AI summary.

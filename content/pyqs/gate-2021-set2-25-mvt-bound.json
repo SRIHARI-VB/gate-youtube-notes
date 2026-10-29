@@ -1,1 +1,15 @@
-PLACEHOLDER
+{
+  "id": "gate-2021-set2-25-mvt-bound",
+  "year": "2021",
+  "paper": "GATE CS 2021 Set 2",
+  "question_ref": "Q.25",
+  "type": "NAT",
+  "topic": "mvt-bounds-on-function-values",
+  "text": "Suppose that f: R -> R is a continuous function on the interval [-3, 3] and a differentiable function in the interval (-3, 3) such that for every x in the interval, f'(x) <= 2. If f(-3) = 7, then f(3) is at most ____.",
+  "answer": "19",
+  "solution": "The hypotheses are exactly those of Lagrange's mean value theorem on [-3, 3], so there is a c in (-3, 3) with f'(c) = (f(3) - f(-3)) / (3 - (-3)) = (f(3) - 7) / 6. Since f'(c) <= 2, (f(3) - 7)/6 <= 2, so f(3) - 7 <= 12 and f(3) <= 19. The bound is attained by the straight line f(x) = 2x + 13, which has f(-3) = 7 and f(3) = 19.",
+  "source_url": "https://gateoverflow.in/357515/gate-cse-2021-set-2-question-25",
+  "source_label": "GATE Overflow question page, GATE CSE 2021 Set 2 Q.25, with the accepted answer 19",
+  "verification": "SOURCED",
+  "answer_evidence": "All six answers on the GATE Overflow page give 19; one of them states the mean value theorem route explicitly and adds that the shortcut 'assume f(x) = 2x + b' happens to work here but is not a proof. ExamSIDE's calculus bank and the GateAI PYQ listing for the same question both print 'Correct answer is 19'. Recomputed in scripts/validate.py. The official key was not fetched and no marks field is recorded."
+}

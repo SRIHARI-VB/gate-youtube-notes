@@ -29,8 +29,8 @@
   ],
   "counts": {
     "subjects": 3,
-    "topics": 153,
-    "pyqs": 127,
+    "topics": 165,
+    "pyqs": 130,
     "videos": 39,
     "playlists": 3
   },
@@ -2396,6 +2396,170 @@
       "path": "subjects/calculus/maxima-and-minima/optimisation-word-problems.json",
       "videos": [],
       "pyqs": [],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "rolle-theorem-statement",
+      "title": "Rolle's Theorem",
+      "subject": "calculus",
+      "group": "mean-value-theorem",
+      "unit": "Mean Value Theorem",
+      "priority": "P1",
+      "path": "subjects/calculus/mean-value-theorem/rolle-theorem-statement.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2014-set1-6-rolle-determinant"
+      ],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "lmvt-statement-and-secant-slope",
+      "title": "Lagrange's Mean Value Theorem",
+      "subject": "calculus",
+      "group": "mean-value-theorem",
+      "unit": "Mean Value Theorem",
+      "priority": "P1",
+      "path": "subjects/calculus/mean-value-theorem/lmvt-statement-and-secant-slope.json",
+      "videos": [],
+      "pyqs": [],
+      "visual": "calculus/mean-value-theorem/secant-parallel-tangent",
+      "variations": 2
+    },
+    {
+      "topic": "mvt-bounds-on-function-values",
+      "title": "Bounding a Function Value with the MVT",
+      "subject": "calculus",
+      "group": "mean-value-theorem",
+      "unit": "Mean Value Theorem",
+      "priority": "P1",
+      "path": "subjects/calculus/mean-value-theorem/mvt-bounds-on-function-values.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2021-set2-25-mvt-bound"
+      ],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "hypotheses-and-when-mvt-fails",
+      "title": "When the Hypotheses Fail",
+      "subject": "calculus",
+      "group": "mean-value-theorem",
+      "unit": "Mean Value Theorem",
+      "priority": "P1",
+      "path": "subjects/calculus/mean-value-theorem/hypotheses-and-when-mvt-fails.json",
+      "videos": [],
+      "pyqs": [],
+      "visual": "calculus/mean-value-theorem/secant-parallel-tangent",
+      "variations": 2
+    },
+    {
+      "topic": "finding-the-point-c",
+      "title": "Finding the Point c",
+      "subject": "calculus",
+      "group": "mean-value-theorem",
+      "unit": "Mean Value Theorem",
+      "priority": "P2",
+      "path": "subjects/calculus/mean-value-theorem/finding-the-point-c.json",
+      "videos": [],
+      "pyqs": [],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "existence-not-uniqueness",
+      "title": "At Least One, Not Exactly One",
+      "subject": "calculus",
+      "group": "mean-value-theorem",
+      "unit": "Mean Value Theorem",
+      "priority": "P2",
+      "path": "subjects/calculus/mean-value-theorem/existence-not-uniqueness.json",
+      "videos": [],
+      "pyqs": [],
+      "visual": "calculus/mean-value-theorem/secant-parallel-tangent",
+      "variations": 2
+    },
+    {
+      "topic": "consequences-constant-and-monotone",
+      "title": "The Three Corollaries: Constant, Difference Constant, Monotone",
+      "subject": "calculus",
+      "group": "mean-value-theorem",
+      "unit": "Mean Value Theorem",
+      "priority": "P2",
+      "path": "subjects/calculus/mean-value-theorem/consequences-constant-and-monotone.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2020-q1-increasing-everywhere"
+      ],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "rolle-and-root-counting",
+      "title": "Counting Real Roots with Rolle",
+      "subject": "calculus",
+      "group": "mean-value-theorem",
+      "unit": "Mean Value Theorem",
+      "priority": "P2",
+      "path": "subjects/calculus/mean-value-theorem/rolle-and-root-counting.json",
+      "videos": [],
+      "pyqs": [],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "cauchy-extended-mvt",
+      "title": "Cauchy's Extended Mean Value Theorem",
+      "subject": "calculus",
+      "group": "mean-value-theorem",
+      "unit": "Mean Value Theorem",
+      "priority": "P2",
+      "path": "subjects/calculus/mean-value-theorem/cauchy-extended-mvt.json",
+      "videos": [],
+      "pyqs": [],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "auxiliary-function-construction",
+      "title": "Building the Function: The Auxiliary-Function Trick",
+      "subject": "calculus",
+      "group": "mean-value-theorem",
+      "unit": "Mean Value Theorem",
+      "priority": "P2",
+      "path": "subjects/calculus/mean-value-theorem/auxiliary-function-construction.json",
+      "videos": [],
+      "pyqs": [],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "inequalities-from-mvt",
+      "title": "Proving Inequalities with the MVT",
+      "subject": "calculus",
+      "group": "mean-value-theorem",
+      "unit": "Mean Value Theorem",
+      "priority": "P3",
+      "path": "subjects/calculus/mean-value-theorem/inequalities-from-mvt.json",
+      "videos": [],
+      "pyqs": [],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "not-identically-zero-derivative",
+      "title": "One Zero of f' Is Not Zero Everywhere",
+      "subject": "calculus",
+      "group": "mean-value-theorem",
+      "unit": "Mean Value Theorem",
+      "priority": "P2",
+      "path": "subjects/calculus/mean-value-theorem/not-identically-zero-derivative.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2014-set1-6-rolle-determinant"
+      ],
       "visual": null,
       "variations": 2
     }

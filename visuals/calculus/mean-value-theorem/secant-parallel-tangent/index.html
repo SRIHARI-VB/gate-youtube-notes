@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Secant and the Parallel Tangent - Mean Value Theorem visual lesson</title>
+<link rel="stylesheet" href="../../../lesson.css">
+<script src="https://cdn.jsdelivr.net/npm/p5@1.9.4/lib/p5.min.js"></script>
+</head>
+<body>
+<div class="wrap">
+  <p class="small"><a href="../../../../index.html">&larr; back to the revision site</a></p>
+  <h1>The Secant and the Parallel Tangent</h1>
+  <div class="objective"><strong>Objective.</strong> See where the mean value theorem point comes from: slide a tangent along the curve until it is parallel to the chord, and read the value of c. Then see Rolle's theorem as the flat-chord case, and see the guarantee disappear when the curve has a corner.</div>
+
+  <div class="canvas-wrap"><div id="canvas-holder"></div></div>
+  <div class="caption" id="caption" aria-live="polite"></div>
+
+  <div class="controls">
+    <button id="play" class="primary">Play</button>
+    <button id="prev">&larr; Prev</button>
+    <button id="next">Next &rarr;</button>
+    <button id="restart">Restart</button>
+    <span class="speed"><label for="speed">Speed</label>
+      <input id="speed" type="range" min="0.25" max="2" step="0.25" value="1">
+      <span id="speedLabel">1.00x</span></span>
+    <span class="counter" id="counter"></span>
+  </div>
+
+  <h2>Static explanation</h2>
+  <p>Take f(x) = x cubed on [0, 2]. Its values at the ends are f(0) = 0 and f(2) = 8, so the chord joining (0, 0) to (2, 8) has slope (8 - 0)/(2 - 0) = 4. That number is the average rate of change of f over the interval.</p>
+  <p>The mean value theorem says that some interior point has an instantaneous rate of change equal to that average. Here f prime of x is 3x squared, so the tangent slope climbs from 0 at x = 0 to 12 at x = 2, and it must pass through 4 on the way. Setting 3c squared = 4 gives c = 2 over root 3, which is 1.1547, and it lies inside the interval. At that point f(c) = 1.5396 and the tangent has slope exactly 4, so the tangent is parallel to the chord.</p>
+  <p>Rolle's theorem is the same statement with a flat chord. For g(x) = x cubed minus 4x on [-2, 2] both endpoint values are 0, so the average slope is 0 and the theorem promises a horizontal tangent. Solving 3c squared - 4 = 0 gives c = 1.1547 and c = -1.1547, and both lie inside the interval: the theorem promises at least one point, not exactly one.</p>
+  <p>The hypotheses are not decoration. The modulus of x on [-1, 1] has equal endpoint values and a flat chord, but at 0 it has no derivative: the slope is -1 on the left and +1 on the right, and it never reaches 0. One point without a derivative is enough to destroy the guarantee.</p>
+
+  <div class="card warn"><div class="label">Common misconception</div><p>Reporting the midpoint of the interval as the theorem's point. For x cubed on [0, 2] the midpoint is 1, where the derivative is 3, not 4. The midpoint is correct only for a quadratic, because there the equation for c is linear.</p></div>
+  <div class="card ok"><div class="label">Quick check</div><p>For h(x) = x cubed minus 3x on [0, 2], find the point the theorem guarantees. Is it the midpoint?</p><details><summary>Answer</summary><p><strong>c = 2 over root 3 = 1.1547, and it is not the midpoint.</strong> h(2) - h(0) = 2 - 0 = 2, so the average slope is 1. Setting 3c squared - 3 = 1 gives c squared = 4/3, and the positive root lies in (0, 2). At the midpoint x = 1 the derivative is 0, not 1.</p></details></div>
+  <p class="small">Topic: Mean Value Theorem (Calculus), subtopic Lagrange's mean value theorem and the secant picture. Statement, the secant-parallel-to-tangent reading and the failure of the |x| case: OpenStax Calculus Volume 1 section 4.4 and Paul's Online Math Notes section 4.7 (English). The GATE framing and the worked 2014 determinant question: Knowledge Gate "13 Oct - EM - Calculus Part 3", chapter summary 10:00-25:00 (Hindi-medium lecture, English summary - translated). Every value shown here is recomputed in scripts/validate.py.</p>
+</div>
+<script src="../../../lesson.js"></script>
+<script src="sketch.js"></script>
+<script>
+/* p5.js is loaded from a CDN. If it is unreachable, say so plainly instead of showing an empty box. */
+window.addEventListener('load', function () {
+  if (window.p5) { return; }
+  var holder = document.getElementById('canvas-holder');
+  if (holder) {
+    holder.innerHTML = '<div style="padding:22px 18px;font-size:14.5px;color:#4a5260">' +
+      'The animation needs p5.js, which this page loads from a CDN, and the request failed (offline, or the CDN is blocked). ' +
+      'Everything below still works: the static explanation, the misconception and the quick check.</div>';
+  }
+  var cap = document.getElementById('caption');
+  if (cap && window.LESSON && window.LESSON.steps && window.LESSON.steps[0]) {
+    cap.innerHTML = window.LESSON.steps[0].caption;
+  }
+  ['play', 'prev', 'next', 'restart', 'speed'].forEach(function (id) {
+    var el = document.getElementById(id);
+    if (el) { el.disabled = true; }
+  });
+});
+</script>
+</body>
+</html>

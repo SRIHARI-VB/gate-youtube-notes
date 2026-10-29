@@ -1293,3 +1293,97 @@ code change.
 
 The cycle pointer now sits on `calculus/maxima-and-minima`. The next topic in syllabus order is
 `calculus/mean-value-theorem`, which is `not_started`.
+
+## Mean Value Theorem (2026-10-29)
+
+### The topic, and why it was next
+
+**Calculus > Mean Value Theorem** (`mean-value-theorem`), the third topic of the GATE 2027 Calculus line:
+*"Limits, continuity and differentiability. Maxima and minima. Mean value theorem. Integration."*
+
+The cycle pointer was left by the previous run on `calculus/maxima-and-minima`, and the first topic strictly
+after it in the enumerated syllabus order whose status is not `covered` is this one, which was `not_started`.
+Nothing was skipped: no topic sits between the pointer and this one, and no topic is `blocked`. The nine
+`partial` topics earlier in the cycle were not touched, because the cycle takes its second pass over
+`partial` topics only after a full pass finds no `not_started` topic left.
+
+### Subtopics enumerated before any source was chosen
+
+Rolle's theorem with its three hypotheses, its conclusion and the horizontal-tangent picture; Lagrange's
+mean value theorem with its two hypotheses and the tangent parallel to the chord; the equality
+f(b) - f(a) = f'(c)(b - a) read as an inequality and used to bound a function value; the hypotheses as a
+test, with the corner, vertical-tangent and discontinuity counterexamples; finding the point c, including
+the midpoint rule for quadratics and the discarding of roots outside the interval; existence against
+uniqueness; the three corollaries (zero derivative forces a constant, equal derivatives force a constant
+difference, the sign of f' decides monotonicity); root counting through Rolle with the intermediate value
+theorem; Cauchy's extended form and its relation to L'Hopital's rule; the auxiliary-function construction;
+inequalities proved by bounding the derivative; and reading a derivative that is zero at one point against
+a derivative that is zero everywhere. Twelve subtopics, twelve cards, one card each.
+
+### Sources chosen, on merit
+
+Three sources across two languages:
+
+- **OpenStax Calculus Volume 1, section 4.4 "The Mean Value Theorem"** (English, read from the opening
+  through the proof of the mean value theorem). Chosen because it is the only readable source this run that
+  proves both theorems rather than merely stating them, and because its proof of the mean value theorem is
+  the chord-subtraction auxiliary-function construction, which is itself one of the subtopics and is
+  usually skipped. It also supplies the |x| - 1 counterexample and two worked Rolle examples, one of them
+  with two interior points.
+- **Paul's Online Math Notes, Calculus I section 4.7** (English, read through the geometric
+  interpretation). Chosen for the one subtopic OpenStax does not touch: Rolle used backwards, by
+  contradiction, to bound the number of real roots, with 4x^5 + x^3 + 7x - 2 worked end to end. It also
+  states explicitly that the theorem never identifies c, which is the wording card 6 is built on.
+- **Knowledge Gate, "13 Oct - EM - Calculus Part 3"**, Rolle's and mean value theorem segment
+  (Hindi-medium; read through the platform's published English AI chapter summary with timestamps -
+  translated). The only GATE-oriented teaching of this topic that could be read, and the only source that
+  solves a CSE PYQ of it (2014 Set 1 Q.6) and states Cauchy's form at all. Cards take its structure, its
+  order and its worked PYQ; no sentence of the lecturer is quoted.
+
+Rejected, with reasons in `sources.json`: the MIT 18.01 Lecture 14 transcript (the theorem sits past the
+readable part - Lecture 15 opens by moving on from it); the BYJU'S GATE mean-value-theorems lecture
+(UawXU1TEI7o) and the GATE Wallah Calculus Lec 3 (DWkkX25k5Mc), both with no caption track; the Unacademy
+Hindi lesson on all three forms (behind an account wall); the GeeksforGeeks Rolle's theorem page (correct but
+stops at Rolle); the MindSpan quiz page (commercial, unsourced, written for GATE DA); the GATE Overflow
+mean-value-theorem tag (no CSE paper question in it); GATE CSE 2014 Set 2 Q.5 (a real question, but its
+accepted solution factors the cubic and never invokes a mean value theorem); GATE EE 1995's bounds question
+(the right pattern, the wrong paper); and three PYQ indexes (EduRev, GateAI, the GO Classes DPP), used as
+indexes only.
+
+### What was created
+
+Twelve cards under `content/subjects/calculus/mean-value-theorem/`, three PYQ records, one p5.js lesson at
+`visuals/calculus/mean-value-theorem/secant-parallel-tangent/`, a `sources.json` with three chosen and eleven
+rejected candidates, and a new `check_mean_value_theorem()` in `scripts/validate.py` that recomputes every
+published point, bound, root count, determinant value and inequality - including the quadratic-midpoint rule
+over four quadratics and four intervals, the 2014 determinant at all three angles, and the two Cauchy
+examples.
+
+The verified PYQs are GATE CSE 2014 Set 1 Q.6 (Rolle on a determinant-defined function; both statements
+true), 2021 Set 2 Q.25 (f'(x) <= 2 gives f(3) <= 19) and 2020 Q.1 (only sqrt(x^3 + 1) increases on [0, 1]).
+All three are `SOURCED` against GATE Overflow accepted answers; no official paper or key was fetched, so no
+`marks` field is recorded.
+
+### UI
+
+No change to design tokens, shell layout, navigation labels, routes or component classes. `syllabus.json`
+flips `mean-value-theorem` from `planned` to `cards`, and `scripts/build-index.py` regenerates
+`content/index.json` and `src/data/content.js`, so the tree and the Topics tab pick up the new topic and its
+twelve subtopics with no code change.
+
+### Gaps (the topic stays `partial`)
+
+1. No GATE CSE question on Cauchy's extended form or on an inequality proved by the mean value theorem was
+   found, so those two cards rest on the standard references and on recomputation alone.
+2. YouTube served no caption track on any watch page tried, so no lecture is quoted; the one GATE-oriented
+   source is a published English AI summary of a Hindi-medium class, marked translated.
+3. Both English textbook sources were read in part only: each page was returned from its opening to the
+   proof of the mean value theorem, so the corollary subsections are not quoted and the three corollary
+   cards derive their statements from the theorem instead.
+4. GATE CSE 2014 Set 2 Q.5 and GATE EE 1995 are both excluded, so the topic rests on three CSE records.
+5. All three PYQs are `SOURCED`, not key-verified, and carry no marks.
+
+### Next
+
+The cycle pointer now sits on `calculus/mean-value-theorem`. The next topic in syllabus order is
+`calculus/integration`, which is `not_started`.

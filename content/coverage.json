@@ -3,7 +3,7 @@
   "updated_at": "2026-10-29",
   "cycle": {
     "last_subject": "calculus",
-    "last_topic": "maxima-and-minima",
+    "last_topic": "mean-value-theorem",
     "updated_at": "2026-10-29"
   },
   "subjects": [
@@ -387,10 +387,29 @@
         {
           "slug": "mean-value-theorem",
           "name": "Mean Value Theorem",
-          "status": "not_started",
-          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
-          "runs": [],
-          "gaps": []
+          "status": "partial",
+          "coverage_note": "12 subtopics, 12 cards (Rolle's theorem, Lagrange's form and the secant picture, bounds on a function value, the hypotheses and their failure, finding the point c, existence against uniqueness, the three corollaries, root counting, Cauchy's extended form, the auxiliary-function construction, inequalities, and one zero of f' against zero everywhere), 3 verified PYQs and 1 p5.js lesson. Partial because four gaps remain, named below.",
+          "runs": [
+            {
+              "date": "2026-10-29",
+              "sources": [
+                "openstax-calculus-v1-4-4-mvt",
+                "pauls-notes-calculus-1-4-7-mvt",
+                "knowledgegate-13-oct-em-calculus-part-3"
+              ],
+              "cards": 12,
+              "pyqs": 3,
+              "lesson": "calculus/mean-value-theorem/secant-parallel-tangent",
+              "note": "Sources chosen on merit across two languages: the OpenStax Calculus Volume 1 section 4.4 (English, read through the proof of the mean value theorem) for Rolle's statement, its three-case proof, the |x| counterexample and the auxiliary-function proof; Paul's Online Math Notes section 4.7 (English, read through the geometric interpretation) for root counting and the explicit note that the theorem never identifies c; the Knowledge Gate '13 Oct - EM - Calculus Part 3' English AI chapter summary (Hindi-medium lecture - translated) for the GATE framing, the 2014 determinant question and Cauchy's form. Twelve candidates were rejected with reasons in sources.json, including the MIT 18.01 Lecture 14 transcript (the theorem sits past the readable part), two YouTube GATE lectures (no caption track) and an Unacademy Hindi lesson (paywalled)."
+            }
+          ],
+          "gaps": [
+            "no verified GATE CSE previous-year question exists for Cauchy's extended mean value theorem or for an inequality proved by the mean value theorem, so those two cards (P2 and P3) rest on the standard references and on recomputation alone",
+            "YouTube served no caption track on any watch page tried this run, so no lecture is quoted; the one GATE-oriented source is recorded from the platform's published English AI chapter summary of a Hindi-medium class and is marked translated, which puts the translation two layers from the lecturer",
+            "both English textbook sources were read only in part - the extraction service returned each page from its opening to the proof of the mean value theorem, so the corollary subsections are not quoted and the three corollary cards derive their statements from the theorem instead",
+            "GATE CSE 2014 Set 2 Q.5 (a cubic with roots at 1, 2 and 3) is Rolle-adjacent but its accepted solution factors the polynomial, and GATE EE 1995's mean-value-theorem bounds question is from a different paper; both are excluded from the PYQ set, so the topic rests on three CSE records only",
+            "all three PYQs are SOURCED against GATE Overflow accepted answers rather than key-verified against an official answer key, and no marks field is recorded because no official paper was fetched"
+          ]
         },
         {
           "slug": "integration",

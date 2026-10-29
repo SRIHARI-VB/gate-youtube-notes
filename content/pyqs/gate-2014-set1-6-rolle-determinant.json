@@ -1,0 +1,21 @@
+{
+  "id": "gate-2014-set1-6-rolle-determinant",
+  "year": "2014",
+  "paper": "GATE CS 2014 Set 1",
+  "question_ref": "Q.6",
+  "type": "MCQ",
+  "topic": "rolle-theorem-statement",
+  "text": "Let f(theta) be the determinant of the 3x3 matrix whose first row is (sin theta, cos theta, tan theta) and whose second and third rows are the same three functions evaluated at pi/6 and at pi/3, with theta in [pi/6, pi/3]. Which of the following statements is/are TRUE? I. There exists theta in (pi/6, pi/3) such that f'(theta) = 0. II. There exists theta in (pi/6, pi/3) such that f'(theta) != 0.",
+  "options": [
+    "I only",
+    "II only",
+    "Both I and II",
+    "Neither I nor II"
+  ],
+  "answer": "Option (C) - both I and II",
+  "solution": "At theta = pi/6 the first two rows coincide, so f(pi/6) = 0; at theta = pi/3 the first and third rows coincide, so f(pi/3) = 0. The entries sin, cos and tan are continuous and differentiable on [pi/6, pi/3] (tan is smooth there because pi/2 is outside the interval), so Rolle's theorem gives a theta in the open interval with f'(theta) = 0, which is I. For II, the determinant at theta = pi/4 is 0.0977, not 0, so f is not constant on the interval; a non-constant differentiable function cannot have f' = 0 at every point, so some theta has f'(theta) != 0. Both statements hold.",
+  "source_url": "https://gateoverflow.in/1763/gate-cse-2014-set-1-question-6",
+  "source_label": "GATE Overflow question page, GATE CSE 2014 Set 1 Q.6, with the accepted answer option C",
+  "verification": "SOURCED",
+  "answer_evidence": "Every answer on the GATE Overflow page concludes C, the shortest route being 'the conditions of Rolle's theorem hold, and the function is not constant'. Solutions Adda's GATE 2014 Set 1 page (question 16 in its numbering) also concludes that both statements are true. The determinant values f(pi/6) = 0, f(pi/3) = 0 and f(pi/4) = 0.0977 are recomputed in scripts/validate.py. The official key was not fetched and no marks field is recorded."
+}
