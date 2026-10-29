@@ -1,0 +1,15 @@
+{
+  "id": "gate-2021-set1-18-exponential-exceeds-mean",
+  "year": "2021",
+  "paper": "GATE CS 2021 Set 1",
+  "question_ref": "Q.18",
+  "type": "NAT",
+  "topic": "exponential-distribution",
+  "text": "The lifetime of a component of a certain type is a random variable whose probability density function is exponentially distributed with parameter 2. For a randomly picked component of this type, the probability that its lifetime exceeds the expected lifetime (rounded to 2 decimal places) is ______.",
+  "answer": "0.37 (e^(-1) = 0.3679)",
+  "solution": "The expected lifetime is 1/lambda = 1/2. With lambda = 2, P(X > 1/2) = e^(-2 x 1/2) = e^(-1) = 0.3679, which rounds to 0.37. In general P(X > 1/lambda) = e^(-1) for every lambda.",
+  "source_url": "https://gateoverflow.in/357433/gate-cse-2021-set-1-question-18",
+  "source_label": "GATE Overflow question page - GATE CSE 2021 Set 1 Q.18 with the accepted answer (0.37)",
+  "verification": "SOURCED",
+  "answer_evidence": "The accepted answer integrates the exponential density from 1/lambda to infinity and obtains e^(-1) = 0.3678, noting that the answer is independent of lambda; other answers on the page agree. Recomputed here."
+}

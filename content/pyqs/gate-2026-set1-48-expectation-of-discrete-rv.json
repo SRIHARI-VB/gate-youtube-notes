@@ -1,0 +1,15 @@
+{
+  "id": "gate-2026-set1-48-expectation-of-discrete-rv",
+  "year": "2026",
+  "paper": "GATE CS 2026 Set 1",
+  "question_ref": "Q.48",
+  "type": "NAT",
+  "topic": "expectation-and-linearity",
+  "text": "Let X be a random variable which takes values in the set {1,2,3,4,5,6,7,8}. Further, Pr(X=1) = Pr(X=2) = Pr(X=5) = Pr(X=7) = 1/6 and Pr(X=3) = Pr(X=4) = Pr(X=6) = Pr(X=8) = 1/12. The expected value of X, denoted by E[X], is equal to ______ (rounded off to two decimal places).",
+  "answer": "4.25",
+  "solution": "E[X] = (1/6)(1 + 2 + 5 + 7) + (1/12)(3 + 4 + 6 + 8) = 15/6 + 21/12 = 51/12 = 4.25. The probabilities sum to 4/6 + 4/12 = 1, so the table is a distribution.",
+  "source_url": "https://gateoverflow.in/523032/gate-cse-2026-set-1-question-48",
+  "source_label": "GATE Overflow question page - GATE CSE 2026 Set 1 Q.48 with the accepted answer (4.25)",
+  "verification": "SOURCED",
+  "answer_evidence": "Two answers on the question page compute 51/12 = 4.25, one by the PMF sum and one by expanding to a twelve-point equally likely sample; a third records the accepted range 4.24 to 4.26. Recomputed here."
+}

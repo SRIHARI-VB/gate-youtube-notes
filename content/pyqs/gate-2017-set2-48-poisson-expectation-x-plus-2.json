@@ -1,0 +1,15 @@
+{
+  "id": "gate-2017-set2-48-poisson-expectation-x-plus-2",
+  "year": "2017",
+  "paper": "GATE CS 2017 Set 2",
+  "question_ref": "Q.48",
+  "type": "NAT",
+  "topic": "variance-and-standard-deviation",
+  "text": "If a random variable X has a Poisson distribution with mean 5, then the expectation E[(x + 2)^2] equals ______.",
+  "answer": "54",
+  "solution": "For a Poisson variable the variance equals the mean, so Var(X) = 5 and E[X^2] = Var(X) + (E[X])^2 = 5 + 25 = 30. Expanding, E[(X+2)^2] = E[X^2] + 4E[X] + 4 = 30 + 20 + 4 = 54.",
+  "source_url": "https://gateoverflow.in/118513/gate-cse-2017-set-2-question-48",
+  "source_label": "GATE Overflow question page - GATE CSE 2017 Set 2 Q.48 with the accepted answer (54)",
+  "verification": "SOURCED",
+  "answer_evidence": "The accepted answer computes E[X^2] = 30 from Var = mean = 5 and then 30 + 20 + 4 = 54; a second route on the same page uses E[X+2] = 7 and Var(X+2) = 5 to get 5 + 49 = 54. Recomputed here."
+}

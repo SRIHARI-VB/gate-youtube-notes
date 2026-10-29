@@ -28,9 +28,9 @@
     }
   ],
   "counts": {
-    "subjects": 3,
-    "topics": 178,
-    "pyqs": 140,
+    "subjects": 4,
+    "topics": 190,
+    "pyqs": 150,
     "videos": 39,
     "playlists": 3
   },
@@ -2749,6 +2749,183 @@
       ],
       "visual": null,
       "variations": 2
+    },
+    {
+      "topic": "random-variable-as-a-function",
+      "title": "The Random Variable as a Function",
+      "subject": "probability-and-statistics",
+      "group": "random-variables-and-distributions",
+      "unit": "Random Variables and Distributions",
+      "priority": "P1",
+      "path": "subjects/probability-and-statistics/random-variables-and-distributions/random-variable-as-a-function.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2026-set2-4-normal-density-identification"
+      ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "probability-distribution-and-cdf",
+      "title": "The Distribution and the CDF",
+      "subject": "probability-and-statistics",
+      "group": "random-variables-and-distributions",
+      "unit": "Random Variables and Distributions",
+      "priority": "P1",
+      "path": "subjects/probability-and-statistics/random-variables-and-distributions/probability-distribution-and-cdf.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2012-21-cdf-at-minus-one-and-one"
+      ],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "pmf-pdf-normalisation-and-interval-probability",
+      "title": "Normalising a Density and Reading an Interval",
+      "subject": "probability-and-statistics",
+      "group": "random-variables-and-distributions",
+      "unit": "Random Variables and Distributions",
+      "priority": "P1",
+      "path": "subjects/probability-and-statistics/random-variables-and-distributions/pmf-pdf-normalisation-and-interval-probability.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2025-set1-48-density-normalisation-interval"
+      ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "expectation-and-linearity",
+      "title": "Expectation and Linearity",
+      "subject": "probability-and-statistics",
+      "group": "random-variables-and-distributions",
+      "unit": "Random Variables and Distributions",
+      "priority": "P1",
+      "path": "subjects/probability-and-statistics/random-variables-and-distributions/expectation-and-linearity.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2026-set1-48-expectation-of-discrete-rv"
+      ],
+      "visual": "probability-and-statistics/random-variables-and-distributions/pmf-cdf-and-the-balance-point",
+      "variations": 3
+    },
+    {
+      "topic": "variance-and-standard-deviation",
+      "title": "Variance and Standard Deviation",
+      "subject": "probability-and-statistics",
+      "group": "random-variables-and-distributions",
+      "unit": "Random Variables and Distributions",
+      "priority": "P1",
+      "path": "subjects/probability-and-statistics/random-variables-and-distributions/variance-and-standard-deviation.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2017-set2-48-poisson-expectation-x-plus-2"
+      ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "binomial-distribution",
+      "title": "The Binomial Distribution",
+      "subject": "probability-and-statistics",
+      "group": "random-variables-and-distributions",
+      "unit": "Random Variables and Distributions",
+      "priority": "P1",
+      "path": "subjects/probability-and-statistics/random-variables-and-distributions/binomial-distribution.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2006-21-exactly-n-of-2n-chosen"
+      ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "poisson-distribution",
+      "title": "The Poisson Distribution",
+      "subject": "probability-and-statistics",
+      "group": "random-variables-and-distributions",
+      "unit": "Random Variables and Distributions",
+      "priority": "P1",
+      "path": "subjects/probability-and-statistics/random-variables-and-distributions/poisson-distribution.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2013-2-poisson-fewer-than-three-cars"
+      ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "exponential-distribution",
+      "title": "The Exponential Distribution",
+      "subject": "probability-and-statistics",
+      "group": "random-variables-and-distributions",
+      "unit": "Random Variables and Distributions",
+      "priority": "P1",
+      "path": "subjects/probability-and-statistics/random-variables-and-distributions/exponential-distribution.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2021-set1-18-exponential-exceeds-mean"
+      ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "continuous-uniform-distribution",
+      "title": "The Uniform Distribution",
+      "subject": "probability-and-statistics",
+      "group": "random-variables-and-distributions",
+      "unit": "Random Variables and Distributions",
+      "priority": "P1",
+      "path": "subjects/probability-and-statistics/random-variables-and-distributions/continuous-uniform-distribution.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2019-47-uniform-real-roots-probability"
+      ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "normal-distribution-and-standardisation",
+      "title": "The Normal Distribution and Standardisation",
+      "subject": "probability-and-statistics",
+      "group": "random-variables-and-distributions",
+      "unit": "Random Variables and Distributions",
+      "priority": "P1",
+      "path": "subjects/probability-and-statistics/random-variables-and-distributions/normal-distribution-and-standardisation.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2008-29-normal-symmetry-sigma-y",
+        "gate-2026-set2-4-normal-density-identification"
+      ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "choosing-the-right-distribution",
+      "title": "Choosing the Right Distribution",
+      "subject": "probability-and-statistics",
+      "group": "random-variables-and-distributions",
+      "unit": "Random Variables and Distributions",
+      "priority": "P2",
+      "path": "subjects/probability-and-statistics/random-variables-and-distributions/choosing-the-right-distribution.json",
+      "videos": [],
+      "pyqs": [],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "sums-of-independent-random-variables",
+      "title": "Sums of Independent Variables",
+      "subject": "probability-and-statistics",
+      "group": "random-variables-and-distributions",
+      "unit": "Random Variables and Distributions",
+      "priority": "P3",
+      "path": "subjects/probability-and-statistics/random-variables-and-distributions/sums-of-independent-random-variables.json",
+      "videos": [],
+      "pyqs": [],
+      "visual": null,
+      "variations": 3
     }
   ]
 }

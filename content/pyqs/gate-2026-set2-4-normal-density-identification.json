@@ -1,0 +1,21 @@
+{
+  "id": "gate-2026-set2-4-normal-density-identification",
+  "year": "2026",
+  "paper": "GATE CS 2026 Set 2",
+  "question_ref": "Q.4",
+  "type": "MCQ",
+  "topic": "random-variable-as-a-function",
+  "text": "The probability density function f(x) of a random variable X which takes real values is f(x) = (1/(3 sqrt(2 pi))) exp(-x^2/18) for x in (-infinity, +infinity). Which one of the following statements is correct about the random variable X?",
+  "options": [
+    "X is an exponential random variable",
+    "X is a normal random variable",
+    "X is a Poisson random variable",
+    "X is a uniform random variable"
+  ],
+  "answer": "Option (B) - X is a normal random variable",
+  "solution": "Poisson is a discrete distribution and has no density. The exponential density is positive only for x >= 0, and the uniform density only on a finite interval. Only the normal density is positive on the whole real line. Comparing with the normal form gives mu = 0 and 2 sigma^2 = 18, so sigma = 3 and the variance is 9.",
+  "source_url": "https://gateoverflow.in/523142/gate-cse-2026-set-2-question-4",
+  "source_label": "GATE Overflow question page - GATE CSE 2026 Set 2 Q.4 with the accepted answer (option B)",
+  "verification": "SOURCED",
+  "answer_evidence": "The accepted answer eliminates the exponential and uniform families by their supports and the Poisson by discreteness, and reads mu = 0, variance = 9 from the exponent; a second answer on the page does the same. Recomputed here by integrating the density numerically."
+}

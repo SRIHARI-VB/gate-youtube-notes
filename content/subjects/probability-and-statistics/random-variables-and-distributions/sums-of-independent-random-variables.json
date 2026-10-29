@@ -1,0 +1,83 @@
+{
+  "id": "sums-of-independent-random-variables",
+  "title": "Sums of Independent Variables",
+  "priority": "P3",
+  "order": 312,
+  "unit": "Random Variables and Distributions",
+  "quickIdea": "Means always add; variances add only under independence; and three of GATE's five named families stay inside their own family when you add independent copies.",
+  "remember": [
+    "Means add with no condition at all: E[X + Y] = E[X] + E[Y].",
+    "Variances add under independence: Var(X + Y) = Var(X) + Var(Y), and the same for X - Y.",
+    "Poisson is closed under addition: independent Poisson(lambda1) + Poisson(lambda2) is Poisson(lambda1 + lambda2).",
+    "Binomial is closed under addition only with the same p: B(n1, p) + B(n2, p) is B(n1 + n2, p). Different p gives a sum that is not binomial.",
+    "Normal is closed under addition: N(mu1, s1^2) + N(mu2, s2^2) is N(mu1 + mu2, s1^2 + s2^2).",
+    "Bernoulli is not closed: a sum of n independent Bernoulli(p) variables is binomial(n, p). A sum of independent exponentials with the same rate is Erlang (a gamma), not exponential."
+  ],
+  "example": {
+    "prompt": "X is Poisson with mean 2 and Y is Poisson with mean 3, independent. Find the distribution of X + Y and P(X + Y = 0).",
+    "work": "By the reproductive property the sum is Poisson with mean 2 + 3 = 5. Then P(X + Y = 0) = e^(-5) x 5^0/0! = e^(-5).",
+    "answer": "X + Y is Poisson(5) and P(X + Y = 0) = e^(-5) = 0.0067."
+  },
+  "gateAngle": "No verified GATE CSE question in this topic turns on the reproductive property alone, so this card is P3: it is the background that makes the 'sum of two Poissons' options wrong or right in questions whose subject is something else. The property is stated in the NPTEL IIT Delhi lecture and is standard; it is not presented here as a PYQ pattern.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "X is normal with mean 0 and variance 1; Y is normal with mean 1 and variance 4; they are independent. Find the distribution of X + Y and P(X + Y <= 1).",
+      "answer": "N(1, 5), and P(X + Y <= 1) = 0.5.",
+      "why": "Means add to 1 and variances add to 5. Since 1 is the mean of the sum, the probability below it is one half by symmetry - the sigma never needs to be computed."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Two independent Poisson variables with means 2 and 3 are added. Is the variance of the sum 5 or sqrt(5)?",
+      "answer": "5.",
+      "why": "For a Poisson variable the variance equals the mean, so each variance is 2 and 3, and independence lets them add to 5. The square root of 5 is the standard deviation of the sum, not its variance."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "Ten independent components each have exponential lifetime with mean 4 years. Is the total lifetime of all ten exponential?",
+      "answer": "No - it is Erlang (gamma) with shape 10 and rate 1/4.",
+      "why": "The exponential family is not closed under addition; the sum of independent exponentials with the same rate has an Erlang distribution, whose density is x^(9) e^(-x/4)/(4^10 x 9!). Its mean is 40 years, which the addition of means does give, but its shape is not exponential."
+    }
+  ],
+  "trap": {
+    "what": "Adding variances without independence, or assuming every named family is closed under addition.",
+    "why": "Variances carry covariance terms that vanish only when the variables are independent, and closure is a property of some families, not a general rule.",
+    "counterexample": "If Y = -X with Var(X) = 4, then Var(X + Y) = 0 while Var(X) + Var(Y) = 8. And two binomials with p = 0.3 and p = 0.7 do not add to a binomial at all, whatever n1 and n2 are."
+  },
+  "check": {
+    "question": "X and Y are independent, X is Poisson(1) and Y is Poisson(4). Find P(X + Y = 1).",
+    "answer": "5 e^(-5) = 0.0337.",
+    "explanation": "The sum is Poisson(5), so P(sum = 1) = e^(-5) x 5 = 5 e^(-5) = 0.0337. Computing it by convolution, P(X=0)P(Y=1) + P(X=1)P(Y=0), gives the same number and is a useful check on the closure rule."
+  },
+  "pyqIds": [],
+  "prereqs": [
+    "poisson-distribution",
+    "binomial-distribution",
+    "normal-distribution-and-standardisation",
+    "variance-and-standard-deviation"
+  ],
+  "sources": [
+    {
+      "kind": "lecture-transcript",
+      "title": "Lecture 30: sums of independent random variables and the reproductive property",
+      "channel": "NPTEL, Introduction to Probability Theory and Stochastic Processes (IIT Delhi, Prof. S. Dharmaraja)",
+      "url": "http://digimat.in/nptel/courses/video/111102111/lec30.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read from the opening through the reproductive-property discussion: the derivation that a sum of independent Poissons is Poisson with the parameters added, the statement that binomial and normal share the property, and the explicit remark that the Bernoulli family does not, because a sum of Bernoullis is binomial"
+    },
+    {
+      "kind": "text",
+      "title": "GATE Overflow for GATE CSE Volume 1 - Engineering Mathematics: Probability",
+      "channel": "GATE Overflow",
+      "url": "https://gateoverflow.in/subject/mathematics/probability?tab=notes",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read in part through the search service's extract: the Bernoulli, binomial, exponential, Poisson and normal summaries with their means, variances and pitfalls, the random-variable section, and the 'Important Tips for GATE' list including the Var(X - Y) = Var(X) + Var(Y) condition and the exponential rate-versus-mean warning"
+    }
+  ],
+  "sourceLine": "The reproductive property derived for the Poisson sum, and the statements that binomial and normal share it while the Bernoulli family does not: NPTEL Introduction to Probability Theory and Stochastic Processes, Lecture 30, IIT Delhi (English). The variance-addition condition: the GATE Overflow probability notes (English).",
+  "videoRefs": []
+}

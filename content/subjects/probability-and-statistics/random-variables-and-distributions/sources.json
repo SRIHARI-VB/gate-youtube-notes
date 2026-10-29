@@ -1,0 +1,380 @@
+{
+  "subject": "probability-and-statistics",
+  "topic": "random-variables-and-distributions",
+  "exam": "GATE CSE 2027",
+  "retrieved_at": "2026-10-29",
+  "subtopics": [
+    "the random variable as a function from the sample space to the real line, and the discrete against the continuous case",
+    "the probability distribution, the probability mass function for a discrete variable, the density for a continuous one, and the cumulative distribution function",
+    "normalising a density or a mass function, and computing the probability of an interval",
+    "the expectation of a discrete and of a continuous random variable, and linearity",
+    "the variance and the standard deviation, with Var(X) = E[X^2] - (E[X])^2",
+    "the Bernoulli trial and the binomial distribution: mass function, mean np and variance np(1-p)",
+    "the Poisson distribution: mass function, mean equal to variance, and its origin in a Poisson process",
+    "the exponential distribution: density, survival function, mean 1/lambda and memorylessness",
+    "the continuous uniform distribution: density, mean, variance and the ratio-of-lengths rule",
+    "the normal distribution: density, the parameters mu and sigma, standardisation, symmetry and the empirical rule",
+    "choosing the distribution a word problem describes",
+    "sums of independent random variables and the reproductive property"
+  ],
+  "chosen": [
+    {
+      "id": "nptel-111105090-lec13",
+      "kind": "lecture-transcript",
+      "title": "Lecture 13: Random Variables",
+      "channel": "NPTEL, Probability and Statistics (IIT Kharagpur, Prof. Somesh Kumar)",
+      "url": "http://www.digimat.in/nptel/courses/video/111105090/lec13.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "covers": [
+        "the random variable as a function from outcomes to numbers",
+        "the measurability condition",
+        "the motivation for quantifying an experiment"
+      ],
+      "why": "The clearest English statement of what a random variable is and why the definition needs measurability, read from its opening through the inverse-image condition. Chosen over a formula list because the card that teaches the definition needs the reason, not the symbol."
+    },
+    {
+      "id": "nptel-111105090-lec15",
+      "kind": "lecture-transcript",
+      "title": "Lecture 15: Probability Distribution of a Random Variable - II",
+      "channel": "NPTEL, Probability and Statistics (IIT Kharagpur, Prof. Somesh Kumar)",
+      "url": "http://www.digimat.in/nptel/courses/video/111105090/lec15.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "covers": [
+        "the mass function worked on a small example",
+        "the definition of a continuous variable through its CDF",
+        "the density as the derivative of the CDF",
+        "the two conditions on a density"
+      ],
+      "why": "The only source read this run that defines the continuous random variable through an absolutely continuous CDF and then derives the density from it, which is exactly the chain the CDF and normalisation cards need. Its four-bulb worked example is also the smallest honest example of a PMF found."
+    },
+    {
+      "id": "nptel-111105090-lec19",
+      "kind": "lecture-transcript",
+      "title": "Lecture 19: Special Discrete Distributions - I",
+      "channel": "NPTEL, Probability and Statistics (IIT Kharagpur, Prof. Somesh Kumar)",
+      "url": "http://www.digimat.in/nptel/courses/video/111105090/lec19.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "covers": [
+        "the discrete uniform distribution with its mean and variance",
+        "the degenerate distribution",
+        "the Bernoulli trial"
+      ],
+      "why": "Supplies the discrete-uniform formulas that the uniform card uses as a contrast, and the Bernoulli setup that opens the binomial card, both derived term by term rather than quoted."
+    },
+    {
+      "id": "nptel-111105090-lec20",
+      "kind": "lecture-transcript",
+      "title": "Lecture 20: Special Discrete Distributions - II",
+      "channel": "NPTEL, Probability and Statistics (IIT Kharagpur, Prof. Somesh Kumar)",
+      "url": "http://www.digimat.in/nptel/courses/video/111105090/lec20.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "covers": [
+        "a binomial application solved end to end",
+        "the geometric distribution",
+        "the negative binomial"
+      ],
+      "why": "The airline overbooking example is a full binomial computation with a complement, which is the pattern GATE's 'exactly k out of n' questions use; it is the only readable worked binomial problem found this run."
+    },
+    {
+      "id": "nptel-111105090-lec21",
+      "kind": "lecture-transcript",
+      "title": "Lecture 21: Special Discrete Distributions - III",
+      "channel": "NPTEL, Probability and Statistics (IIT Kharagpur, Prof. Somesh Kumar)",
+      "url": "http://www.digimat.in/nptel/courses/video/111105090/lec21.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "covers": [
+        "why sampling without replacement breaks the constant-p assumption",
+        "the hypergeometric mass function"
+      ],
+      "why": "The binomial card states the boundary of the model - without replacement the count is not binomial - and this is the source that teaches it, with the changing probability computed explicitly at each draw."
+    },
+    {
+      "id": "nptel-111105090-lec22",
+      "kind": "lecture-transcript",
+      "title": "Lecture 22: Poisson Process - I",
+      "channel": "NPTEL, Probability and Statistics (IIT Kharagpur, Prof. Somesh Kumar)",
+      "url": "http://www.digimat.in/nptel/courses/video/111105090/lec22.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "covers": [
+        "the three assumptions of a Poisson process",
+        "the derivation of the Poisson mass function",
+        "the rescaling of the rate to the window"
+      ],
+      "why": "Chosen for the derivation and for the worked example in which lambda t = 15 is used for a three-minute window at 5 per minute, which is the rescaling step GATE questions punish."
+    },
+    {
+      "id": "nptel-111105090-lec24",
+      "kind": "lecture-transcript",
+      "title": "Lecture 24: Special Continuous Distributions - I",
+      "channel": "NPTEL, Probability and Statistics (IIT Kharagpur, Prof. Somesh Kumar)",
+      "url": "http://www.digimat.in/nptel/courses/video/111105090/lec24.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "covers": [
+        "the uniform density fixed by normalisation",
+        "mean (a+b)/2",
+        "variance (b-a)^2/12 and the standard deviation"
+      ],
+      "why": "Derives the uniform mean and variance from first principles, including the standard deviation (b-a)/(2 sqrt 3), so the uniform card's numbers are traced to an integral rather than quoted from a table."
+    },
+    {
+      "id": "nptel-111105090-lec25",
+      "kind": "lecture-transcript",
+      "title": "Lecture 25: Special Continuous Distributions - II",
+      "channel": "NPTEL, Probability and Statistics (IIT Kharagpur, Prof. Somesh Kumar)",
+      "url": "http://www.digimat.in/nptel/courses/video/111105090/lec25.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "covers": [
+        "the exponential as the waiting time of a Poisson process",
+        "memorylessness derived from the survival function",
+        "the mean 1/lambda"
+      ],
+      "why": "The only readable source that derives memorylessness rather than asserting it, and it states the analogy with the geometric distribution that makes the property believable."
+    },
+    {
+      "id": "nptel-111105090-lec29",
+      "kind": "lecture-transcript",
+      "title": "Lecture 29: Normal Distribution",
+      "channel": "NPTEL, Probability and Statistics (IIT Kharagpur, Prof. Somesh Kumar)",
+      "url": "http://www.digimat.in/nptel/courses/video/111105090/lec29.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "covers": [
+        "the normal density and its two parameters",
+        "standardisation",
+        "the vanishing of the odd central moments by symmetry"
+      ],
+      "why": "Gives the density, the standardisation and the symmetry argument that the 2008 question turns on, in one sequence. It is the same course as the other chosen lectures, so the notation is consistent across cards."
+    },
+    {
+      "id": "nptel-111105090-index",
+      "kind": "course-index",
+      "title": "Probability and Statistics - lecture list",
+      "channel": "NPTEL, Probability and Statistics (IIT Kharagpur, Prof. Somesh Kumar)",
+      "url": "http://www.digimat.in/nptel/courses/video/111105090/111105090.pdf",
+      "language": "en",
+      "transcript": "STRUCTURE_ONLY",
+      "translated": false,
+      "covers": [
+        "the teaching order of the course"
+      ],
+      "why": "Used only to confirm that the twelve subtopics enumerated for this topic follow a standard teaching order, and to find the lecture numbers for the distributions. No content claim rests on it."
+    },
+    {
+      "id": "nptel-111102111-lec30",
+      "kind": "lecture-transcript",
+      "title": "Lecture 30: sums of independent variables and the reproductive property",
+      "channel": "NPTEL, Introduction to Probability Theory and Stochastic Processes (IIT Delhi, Prof. S. Dharmaraja)",
+      "url": "http://digimat.in/nptel/courses/video/111102111/lec30.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "covers": [
+        "the sum of independent Poissons is Poisson",
+        "binomial and normal are closed under addition",
+        "Bernoulli is not"
+      ],
+      "why": "A second course, deliberately, so the sums card is not built on the same lecturer's voice as every other card. It derives the Poisson closure and states explicitly which families are and are not closed."
+    },
+    {
+      "id": "gateoverflow-probability-notes",
+      "kind": "text",
+      "title": "GATE Overflow for GATE CSE Volume 1 - Engineering Mathematics: Probability",
+      "channel": "GATE Overflow",
+      "url": "https://gateoverflow.in/subject/mathematics/probability?tab=notes",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "covers": [
+        "the distribution summaries with means and variances",
+        "the GATE pitfall list",
+        "the linearity and variance conditions"
+      ],
+      "why": "The GATE-oriented source: it is the only readable text this run that frames each family as a GATE pitfall list (rate against mean, variance against standard deviation, Var(X-Y), independence). Read in part through the search service's extract, and every claim taken from it is one of those framed warnings."
+    },
+    {
+      "id": "openstax-introductory-statistics-5-3",
+      "kind": "text",
+      "title": "Introductory Statistics 2e, section 5.3: The Exponential Distribution",
+      "channel": "OpenStax (Rice University)",
+      "url": "https://openstax.org/books/introductory-statistics-2e/pages/5-3-the-exponential-distribution",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "covers": [
+        "the decay parameter m = 1/mu",
+        "the standard deviation equals the mean",
+        "memorylessness",
+        "the Poisson-exponential relationship"
+      ],
+      "why": "An independent standard text for the exponential card, used to corroborate the parameter convention (rate versus mean) and the fact that the median lies below the mean, both of which are common traps."
+    },
+    {
+      "id": "openstax-introductory-statistics-5-2",
+      "kind": "text",
+      "title": "Introductory Statistics 2e, section 5.2: The Uniform Distribution",
+      "channel": "OpenStax (Rice University)",
+      "url": "https://openstax.org/books/introductory-statistics-2e/pages/5-2-the-uniform-distribution",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "covers": [
+        "the density 1/(b-a)",
+        "mean (a+b)/2 and standard deviation (b-a)/sqrt(12)",
+        "the rectangle-area method",
+        "percentiles"
+      ],
+      "why": "Corroborates the uniform formulas against a text independent of the NPTEL course, and supplies the rectangle-area reading that the 2019 question needs before any algebra."
+    },
+    {
+      "id": "codingmarble-hindi-probability-distributions",
+      "kind": "text",
+      "title": "Praayikta bantan: maadhy, prasaran, dvipad bantan",
+      "channel": "Coding Marble (Hindi learning page)",
+      "url": "https://learn.codingmarble.com/hi/learn/maths/probability-distributions/",
+      "language": "hi",
+      "transcript": "PARTIAL",
+      "translated": true,
+      "covers": [
+        "the random variable as a rule",
+        "the two distribution-table rules",
+        "the balance-point reading of E(X)",
+        "Var(X) = E(X^2) - mu^2 and the E(aX+b), Var(aX+b) rules",
+        "the binomial and Poisson summaries",
+        "four common mistakes"
+      ],
+      "why": "The only non-English source that could be read this run, and it is worth its place: its list of four common mistakes is the source of three of this topic's trap alerts. Everything taken from it is rendered in English and the three cards that use it say so."
+    },
+    {
+      "id": "cbse-applied-maths-ch4-probability-distributions",
+      "kind": "text",
+      "title": "Applied Mathematics, chapter 4: Probability Distributions",
+      "channel": "CBSE Academic (senior secondary manual)",
+      "url": "https://cbseacademic.nic.in/web_material/Manuals/appliedmaths/Chapter4_Probability_Distributions.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "covers": [
+        "the definition of a random variable",
+        "discrete against continuous",
+        "the expectation and variance definitions",
+        "the four Bernoulli-trial conditions",
+        "the binomial, Poisson and normal definitions"
+      ],
+      "why": "A school-level Indian text, which is what the default beginner has actually met before. Chosen for the clean four-condition statement of Bernoulli trials and for the mean-median-mode equality of the normal."
+    },
+    {
+      "id": "cowan-poisson-note",
+      "kind": "text",
+      "title": "Note on the Poisson Distribution",
+      "channel": "Glen Cowan, Royal Holloway, University of London",
+      "url": "https://www.pp.rhul.ac.uk/~cowan/stat/notes/poisson_note.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "covers": [
+        "the derivation of the Poisson mass function",
+        "the proof that it sums to 1",
+        "mean nu and standard deviation sqrt(nu)"
+      ],
+      "why": "A short standard derivation, independent of the NPTEL course, used to verify the Poisson card's claim that the mean and the variance are the same parameter, and to check that the mass function integrates to 1."
+    },
+    {
+      "id": "knowledgegate-2019-uniform-pyq",
+      "kind": "pyq-explanation",
+      "title": "PYQ walkthrough of the GATE CSE 2019 uniform-distribution question",
+      "channel": "Knowledge Gate AI (GATE Engineering Mathematics - Probability)",
+      "url": "https://www.knowledgegate.ai/learn/GATE-GUIDANCE-BY-SANCHIT-SIR/engineering-mathematics/probability/continuous-probability-distribution-random-variables-expected-value/pyq-questions?q=68ecac1995474565f43eedea",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "covers": [
+        "the discriminant argument for the 2019 question",
+        "the ratio-of-lengths step"
+      ],
+      "why": "A GATE-oriented worked solution, used as an independent corroboration of the answer 0.8 for the uniform card, alongside the GATE Overflow accepted answer and Testbook's copy of the official paper."
+    }
+  ],
+  "rejected": [
+    {
+      "id": "youtube-lectures-all-languages",
+      "kind": "lecture",
+      "channel": "Every YouTube lecture tried (English and Hindi GATE channels)",
+      "why": "The one watch page fetched this run returned an empty body to the fetch service, and no caption text could be retrieved on any route; earlier runs of this repository recorded the same block (LOGIN_REQUIRED or no caption track) and yt-dlp is not installed here. No YouTube lecture is quoted anywhere in this topic, so no card carries a timestamp or a lecturer's sentence. A later run should retry."
+    },
+    {
+      "id": "nptel-111105090-lec16-18-moments",
+      "kind": "lecture",
+      "channel": "NPTEL, Probability and Statistics (IIT Kharagpur, Prof. Somesh Kumar), lectures 16-18 (moments and characteristics of distributions)",
+      "why": "The natural continuation for the variance card, but only the openings of the transcripts are served and the four lectures fetched already cover the mean and variance derivations the cards need. Not fetched this run, so nothing rests on them; the variance card uses the GATE Overflow identity and the uniform derivation instead."
+    },
+    {
+      "id": "gateoverflow-direct-fetch",
+      "kind": "text",
+      "channel": "GATE Overflow subject and question pages (direct fetch)",
+      "why": "Direct requests to gateoverflow.in from this sandbox were refused by the egress proxy (403 on CONNECT, then 502), so every GATE Overflow page cited here was read through the search service's extract instead. That means the pages were read in part, not in full, and each citation says so."
+    },
+    {
+      "id": "gateiq-examside-indexes",
+      "kind": "pyq-index",
+      "channel": "GateIQ and ExamSIDE probability listings",
+      "why": "Both are readable and both count probability questions per year, which confirmed the topic's weight (about 3-4 marks a paper), but their topic split and question numbering are their own and disagree with the papers. Used as an index only; no answer was taken from either, except ExamSIDE's record of the accepted range for the 2025 density question, which is noted in that PYQ record."
+    },
+    {
+      "id": "go-classes-dpp-probability",
+      "kind": "practice-set",
+      "channel": "GATE Overflow, GO Classes DPP | Probability & Statistics",
+      "why": "A coaching practice set, not a previous-year paper. Some of its questions were visible in the tag listings and they are labelled as DPP on the page, so nothing from it is presented as a PYQ here."
+    },
+    {
+      "id": "gate-da-and-other-branch-questions",
+      "kind": "pyq",
+      "channel": "GATE DA 2025 Q.29 and Q.30, GATE BT 2020 Q.24, GATE Mechanical 2021 Set 2 Q.3",
+      "why": "Genuine distribution questions - a CDF read as F(0.5) - F(-0.5), a Bernoulli definition, a normal variable with mean 0, and the mean-variance pair of a binomial - but they belong to the Data Science, Biotechnology and Mechanical papers. The repository's PYQ set is GATE CSE only, so they are excluded rather than mixed in."
+    },
+    {
+      "id": "conditional-and-descriptive-questions",
+      "kind": "pyq",
+      "channel": "GATE CSE 2015 Set 3 Q.37, 2024 Set 2 Q.34, 2024 Set 2 Q.8, 2017 Set 1 Q.37",
+      "why": "All four are probability or statistics questions that belong to the next two topics in the cycle, not this one: 2015 Set 3 Q.37 is a conditional probability, 2024 Set 2 Q.34 is a covariance inequality, 2024 Set 2 Q.8 asks for a standard deviation of a binomial count (the mean-median-mode-and-standard-deviation topic), and 2017 Set 1 Q.37 asks for the median of max(X, 0). They are left for those runs so that the same question is not counted twice."
+    },
+    {
+      "id": "mit-ocw-1805-6041",
+      "kind": "lecture",
+      "channel": "MIT OpenCourseWare 18.05 and 6.041SC",
+      "why": "Considered as the canonical English alternative, but not fetched this run because the NPTEL transcripts were readable and cover every subtopic; no claim rests on MIT material. A later run could use 18.05 to deepen the 'functions of a random variable' material, which this topic does not cover."
+    }
+  ],
+  "standard_refs": [
+    "Sheldon Ross, A First Course in Probability, chapters 4 to 5 (random variables, expectation, special distributions) - the book GATE preparation pages recommend for this subject",
+    "William Feller, An Introduction to Probability Theory and Its Applications, volume 1, chapters 6 and 9 (the binomial and the Poisson)",
+    "Ronald E. Walpole, Raymond H. Myers, Sharon L. Myers and Keying Ye, Probability and Statistics for Engineers and Scientists, chapters 5 to 6",
+    "NCERT Mathematics, Class 12, chapter 13 (probability) and the CBSE Applied Mathematics chapter 4 on probability distributions, which is where most Indian candidates meet the binomial and the normal",
+    "GATE 2027 CS syllabus, Engineering Mathematics line 'Random variables. Uniform, normal, exponential, Poisson and binomial distributions. Mean, median, mode and standard deviation. Conditional probability and Bayes theorem.'"
+  ],
+  "notes": [
+    "The syllabus names this topic in one line, so the twelve subtopics above are this run's enumeration from the standard treatment (Ross chapters 4-5, the CBSE chapter 4 sequence, and the NPTEL course order 13-30), not a quotation from the syllabus. The line's own words - random variables, and the uniform, normal, exponential, Poisson and binomial distributions - each get a card, and the CDF, expectation and variance are included because every one of the ten verified questions needs at least one of them.",
+    "Ten GATE CSE previous-year questions were verified for this topic, one for each distribution the syllabus names plus the CDF, the expectation and the identification of a family: 2006 Q.21 (binomial), 2008 Q.29 (normal), 2012 Q.21 (CDF), 2013 Q.2 (Poisson), 2017 Set 2 Q.48 (Poisson moments), 2019 Q.47 (uniform), 2021 Set 1 Q.18 (exponential), 2025 Set 1 Q.48 (density normalisation), 2026 Set 1 Q.48 (expectation) and 2026 Set 2 Q.4 (normal identification).",
+    "Every PYQ is SOURCED against a GATE Overflow accepted answer, not key-verified against an official answer key: the official papers and keys were not fetched this run, so no marks field is recorded and every question reference follows the GATE Overflow numbering. Where another site numbers the question differently the record says so.",
+    "No video transcript was readable this run, so no card quotes or timestamps a lecture and videoRefs is empty on every card. The lectures cited are NPTEL transcripts served as PDFs, read from their opening to the point named in each source note - PARTIAL, not full.",
+    "The only non-English source is a Hindi page on probability distributions, marked translated on the three cards that use it. No Hindi, Tamil, Telugu or Bengali lecture could be read, and no card quotes a Hindi sentence: what is used is the page's structure, its four-mistake list and its formulas, all rendered in English.",
+    "The sums-of-independent-variables card is P3 and carries no PYQ: no verified CSE question in this topic is decided by the reproductive property alone. It is included because it is the fact that makes several distractor options wrong, and the card says plainly that it is not a PYQ pattern.",
+    "The choosing-the-right-distribution card is P2 and carries no PYQ of its own: it is the decision that opens every one of the ten verified questions, so its evidence is the ten questions rather than one."
+  ]
+}

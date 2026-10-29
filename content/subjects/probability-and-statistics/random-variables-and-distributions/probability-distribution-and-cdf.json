@@ -1,0 +1,86 @@
+{
+  "id": "probability-distribution-and-cdf",
+  "title": "The Distribution and the CDF",
+  "priority": "P1",
+  "order": 302,
+  "unit": "Random Variables and Distributions",
+  "quickIdea": "One function answers every probability question about a single variable: F(x) = P(X <= x), the cumulative distribution function. For a discrete variable it is a staircase, for a continuous one it is a smooth curve.",
+  "remember": [
+    "F(x) = P(X <= x) is defined for every real x, not only for the values X takes.",
+    "For a discrete variable F is a staircase: it is flat between values and jumps at each value x by exactly P(X = x). F(-1) in the 2012 question is 0.5, not 0.",
+    "For a continuous variable with density f, F is continuous and F'(x) = f(x) wherever F is differentiable.",
+    "Three properties always hold: F is non-decreasing, F(x) tends to 0 as x tends to minus infinity and to 1 as x tends to plus infinity, and F is right-continuous.",
+    "Interval probabilities: P(a < X <= b) = F(b) - F(a). For a continuous X the strict and weak inequalities give the same number.",
+    "The CDF determines the distribution completely: a distribution can be written as a table, a formula or a CDF, and the three carry the same information."
+  ],
+  "example": {
+    "prompt": "X takes the values +1 and -1 with probability 0.5 each. Find F(-2), F(-1), F(0) and F(1).",
+    "work": "F(-2) = P(X <= -2) = 0 because -2 is below every value. F(-1) = P(X <= -1) = P(X = -1) = 0.5, since the jump happens at -1 and the definition uses <=. F(0) = P(X <= 0) = 0.5, because nothing sits between -1 and 0. F(1) = P(X <= 1) = 0.5 + 0.5 = 1, and F stays 1 to the right of 1.",
+    "answer": "F(-2) = 0, F(-1) = 0.5, F(0) = 0.5, F(1) = 1."
+  },
+  "gateAngle": "GATE CSE 2012 Q.21 is exactly this computation, and its distractor 0 and 0.5 is what you get by reading the jump as belonging to the next point. Whenever a question gives a CDF and asks for a probability, the operation is subtraction: F(b) - F(a).",
+  "variations": [
+    {
+      "label": "VERIFIED PYQ",
+      "question": "GATE CSE 2012 Q.21: X takes +1 and -1 with probability 0.5 each. The values of F(x) at x = -1 and x = +1 are (A) 0 and 0.5 (B) 0 and 1 (C) 0.5 and 1 (D) 0.25 and 0.75.",
+      "answer": "(C) 0.5 and 1.",
+      "why": "F(-1) = P(X <= -1) = 0.5 includes the mass at -1 itself; F(1) = P(X <= 1) = 1 adds the mass at +1. Option (A) comes from using < instead of <=, which is the whole point of the question."
+    },
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "For x >= 0 a variable has F(x) = 1 - e^(-2x), and F(x) = 0 for x < 0. Find P(1 < X <= 2) and the density at x = 1.",
+      "answer": "P(1 < X <= 2) = e^(-2) - e^(-4) = 0.1170, and f(1) = 2 e^(-2) = 0.2707.",
+      "why": "Subtract the CDF: F(2) - F(1) = (1 - e^(-4)) - (1 - e^(-2)). The density is the derivative, F'(x) = 2 e^(-2x), evaluated at 1. This is the exponential family, and it is the same CDF the 2021 question uses in the form P(X > x) = e^(-lambda x)."
+    }
+  ],
+  "trap": {
+    "what": "Using the strict inequality for a discrete variable, or assuming F is continuous when the variable is discrete.",
+    "why": "The definition is P(X <= x). At a point where mass sits, the two readings differ by exactly that mass, which is usually one of the printed options.",
+    "counterexample": "For the 2012 variable, P(X < -1) = 0 while P(X <= -1) = 0.5. Writing the first as F(-1) gives option (A) 0 and 0.5, which is the trap the question is built around."
+  },
+  "check": {
+    "question": "A CDF is F(x) = 0 for x < 0, F(x) = x/4 for 0 <= x < 4, and F(x) = 1 for x >= 4. What is P(1 < X <= 3)?",
+    "answer": "0.5.",
+    "explanation": "F(3) - F(1) = 3/4 - 1/4 = 0.5. The variable is continuous and uniform on (0, 4), so the answer is also the length 2 divided by the total length 4."
+  },
+  "pyqIds": [
+    "gate-2012-21-cdf-at-minus-one-and-one"
+  ],
+  "prereqs": [
+    "random-variable-as-a-function"
+  ],
+  "sources": [
+    {
+      "kind": "lecture-transcript",
+      "title": "Lecture 15: Probability Distribution of a Random Variable - II",
+      "channel": "NPTEL, Probability and Statistics (IIT Kharagpur, Prof. Somesh Kumar)",
+      "url": "http://www.digimat.in/nptel/courses/video/111105090/lec15.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read from the opening through the definition of the density: the discrete PMF worked on a four-bulb package, the definition of a continuous random variable through an absolutely continuous CDF, the density as the derivative of the CDF, and the two conditions (non-negative, integrates to 1) with the interval formula F(b) - F(a)"
+    },
+    {
+      "kind": "text",
+      "title": "GATE Overflow for GATE CSE Volume 1 - Engineering Mathematics: Probability",
+      "channel": "GATE Overflow",
+      "url": "https://gateoverflow.in/subject/mathematics/probability?tab=notes",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read in part through the search service's extract: the Bernoulli, binomial, exponential, Poisson and normal summaries with their means, variances and pitfalls, the random-variable section, and the 'Important Tips for GATE' list including the Var(X - Y) = Var(X) + Var(Y) condition and the exponential rate-versus-mean warning"
+    },
+    {
+      "kind": "text",
+      "title": "Applied Mathematics, chapter 4: Probability Distributions",
+      "channel": "CBSE Academic (NCERT/CBSE senior secondary manual)",
+      "url": "https://cbseacademic.nic.in/web_material/Manuals/appliedmaths/Chapter4_Probability_Distributions.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read in part: the definition of a random variable as a real-valued function on the sample space, the discrete-versus-continuous contrast with the watch example, the probability-distribution table with the sum-to-one rule, the definition of mathematical expectation and variance, the four Bernoulli-trial conditions, the binomial and Poisson definitions, and the normal density with its mean-median-mode and symmetry facts"
+    }
+  ],
+  "sourceLine": "The definition of the CDF, the absolutely-continuous case and the density as its derivative: NPTEL Probability and Statistics Lecture 15 (English, IIT Kharagpur). The GATE framing of the staircase and the pitfall list: GATE Overflow probability notes (English, read in part). The probability-distribution table and the sum-to-one rule: CBSE Applied Mathematics chapter 4 (English).",
+  "videoRefs": []
+}

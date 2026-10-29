@@ -1,0 +1,94 @@
+{
+  "id": "normal-distribution-and-standardisation",
+  "title": "The Normal Distribution and Standardisation",
+  "priority": "P1",
+  "order": 310,
+  "unit": "Random Variables and Distributions",
+  "quickIdea": "A bell-shaped density fixed by two numbers, the mean mu and the standard deviation sigma; converting to Z = (X - mu)/sigma turns every normal question into a question about one standard curve.",
+  "remember": [
+    "Density f(x) = 1/(sigma sqrt(2 pi)) exp(-(x - mu)^2/(2 sigma^2)), positive on the whole real line; mean mu, variance sigma^2, standard deviation sigma.",
+    "Read the parameters off the exponent: if f is proportional to exp(-x^2/18) then 2 sigma^2 = 18, so sigma = 3 and the variance is 9; the coefficient 1/(3 sqrt(2 pi)) confirms it.",
+    "Standardise with Z = (X - mu)/sigma, which has mean 0 and variance 1. Then P(X <= x) = P(Z <= (x - mu)/sigma).",
+    "Symmetry about mu: P(Z <= -z) = P(Z >= z), and P(Z <= 0) = 1/2. This one fact answers most GATE normal questions without a table.",
+    "The empirical rule: about 68% of the mass lies within one sigma of the mean, 95% within two, 99.7% within three.",
+    "Mean, median and mode all equal mu, and a sum of independent normal variables is normal - the only family GATE names where both facts hold."
+  ],
+  "example": {
+    "prompt": "X is normal with mean 1 and variance 4. Y is normal with mean -1 and unknown variance. If P(X <= -1) = P(Y >= 2), find the standard deviation of Y.",
+    "work": "Standardise X: P(X <= -1) = P(Z <= (-1 - 1)/2) = P(Z <= -1). Standardise Y: P(Y >= 2) = P(Z >= (2 - (-1))/sigma) = P(Z >= 3/sigma). By symmetry P(Z <= -1) = P(Z >= 1). Equating the two right-tail probabilities gives 3/sigma = 1, so sigma = 3.",
+    "answer": "sigma_Y = 3."
+  },
+  "gateAngle": "GATE CSE 2008 Q.29 is this argument, and no table is needed: the equation between two tail probabilities is solved by matching the standardised distances from the mean. GATE CSE 2026 Set 2 Q.4 asks the identification step alone, where the support and the shape of the exponent decide the family.",
+  "variations": [
+    {
+      "label": "VERIFIED PYQ",
+      "question": "GATE CSE 2008 Q.29: X is normal with mean +1 and variance 4; Y is normal with mean -1 and unknown variance. If P(X <= -1) = P(Y >= 2), the standard deviation of Y is (A) 3 (B) 2 (C) sqrt(2) (D) 1.",
+      "answer": "(A) 3.",
+      "why": "P(X <= -1) = P(Z <= -1) and P(Y >= 2) = P(Z >= 3/sigma_Y). Since P(Z <= -1) = P(Z >= 1), we need 3/sigma_Y = 1, so sigma_Y = 3. Option (B) 2 is the standard deviation of X, which is the number the question supplies rather than asks for."
+    },
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "X is normal with mean 0 and variance 9. Find P(X <= 3), P(|X| <= 3) and the value of c with P(X > c) = 0.5.",
+      "answer": "P(X <= 3) = 0.8413, P(|X| <= 3) = 0.6827, and c = 0.",
+      "why": "Standardising gives P(Z <= 1) = 0.8413 and, by symmetry, P(-1 <= Z <= 1) = 2(0.8413) - 1 = 0.6827 - the 68% of the empirical rule. The median is the mean 0 because the density is symmetric."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "A density is 1/(3 sqrt(2 pi)) exp(-(x - 5)^2/18). What are its mean and variance, and what is P(X < 5)?",
+      "answer": "Mean 5, variance 9, and P(X < 5) = 0.5.",
+      "why": "The exponent gives 2 sigma^2 = 18, so sigma = 3 and the variance is 9; the shift 5 is the mean. The probability below the mean is one half by symmetry, whatever sigma is."
+    }
+  ],
+  "trap": {
+    "what": "Confusing sigma with sigma^2, or forgetting to standardise before comparing two normal variables.",
+    "why": "The density is written with sigma in the denominator and sigma^2 in the exponent, so both appear; and two normals with different parameters cannot be compared until both are in Z units.",
+    "counterexample": "For the 2008 question, using variance 4 as if it were the standard deviation of X gives P(Z <= -0.5) and a different sigma_Y. For the 2026 density, reading 18 as the variance gives sigma = sqrt(18) instead of 3."
+  },
+  "check": {
+    "question": "X is normal with mean 10 and standard deviation 2. Find P(X <= 12) and P(8 <= X <= 12).",
+    "answer": "P(X <= 12) = P(Z <= 1) = 0.8413 and P(8 <= X <= 12) = 0.6827.",
+    "explanation": "Standardise: (12 - 10)/2 = 1 and (8 - 10)/2 = -1. The second probability is the mass within one standard deviation of the mean, which the empirical rule gives as about 68%."
+  },
+  "pyqIds": [
+    "gate-2008-29-normal-symmetry-sigma-y",
+    "gate-2026-set2-4-normal-density-identification"
+  ],
+  "prereqs": [
+    "probability-distribution-and-cdf",
+    "pmf-pdf-normalisation-and-interval-probability"
+  ],
+  "sources": [
+    {
+      "kind": "lecture-transcript",
+      "title": "Lecture 29: Normal Distribution",
+      "channel": "NPTEL, Probability and Statistics (IIT Kharagpur, Prof. Somesh Kumar)",
+      "url": "http://www.digimat.in/nptel/courses/video/111105090/lec29.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read from the opening through the even moments: the density N(mu, sigma^2) with the standardisation Z = (X-mu)/sigma, the proof that it integrates to 1 by the gamma-half integral, and the vanishing of the odd central moments by odd symmetry"
+    },
+    {
+      "kind": "text",
+      "title": "GATE Overflow for GATE CSE Volume 1 - Engineering Mathematics: Probability",
+      "channel": "GATE Overflow",
+      "url": "https://gateoverflow.in/subject/mathematics/probability?tab=notes",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read in part through the search service's extract: the Bernoulli, binomial, exponential, Poisson and normal summaries with their means, variances and pitfalls, the random-variable section, and the 'Important Tips for GATE' list including the Var(X - Y) = Var(X) + Var(Y) condition and the exponential rate-versus-mean warning"
+    },
+    {
+      "kind": "text",
+      "title": "Applied Mathematics, chapter 4: Probability Distributions",
+      "channel": "CBSE Academic (NCERT/CBSE senior secondary manual)",
+      "url": "https://cbseacademic.nic.in/web_material/Manuals/appliedmaths/Chapter4_Probability_Distributions.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read in part: the definition of a random variable as a real-valued function on the sample space, the discrete-versus-continuous contrast with the watch example, the probability-distribution table with the sum-to-one rule, the definition of mathematical expectation and variance, the four Bernoulli-trial conditions, the binomial and Poisson definitions, and the normal density with its mean-median-mode and symmetry facts"
+    }
+  ],
+  "sourceLine": "The density, the standardisation Z = (X - mu)/sigma and the vanishing of the odd central moments by symmetry: NPTEL Lecture 29 (English). The empirical rule, the standard-normal table cautions and the 'variance versus standard deviation' pitfall: the GATE Overflow probability notes (English). The mean-median-mode equality and the symmetry statement: CBSE Applied Mathematics chapter 4 (English).",
+  "videoRefs": []
+}

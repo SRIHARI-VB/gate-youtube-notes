@@ -2,8 +2,8 @@
   "exam": "GATE CSE 2027",
   "updated_at": "2026-10-29",
   "cycle": {
-    "last_subject": "calculus",
-    "last_topic": "integration",
+    "last_subject": "probability-and-statistics",
+    "last_topic": "random-variables-and-distributions",
     "updated_at": "2026-10-29"
   },
   "subjects": [
@@ -454,10 +454,47 @@
         {
           "slug": "random-variables-and-distributions",
           "name": "Random Variables and Distributions",
-          "status": "not_started",
-          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
-          "runs": [],
-          "gaps": []
+          "status": "partial",
+          "coverage_note": "12 subtopics, 12 cards (the random variable as a function, the distribution and the CDF, normalising a density and reading an interval, expectation and linearity, variance and standard deviation, the binomial, the Poisson, the exponential, the continuous uniform, the normal with standardisation, choosing the distribution a word problem describes, and sums of independent variables), 10 verified PYQs and 1 p5.js lesson. Partial because eight gaps remain, named below - above all that no video transcript and no official answer key could be read this run.",
+          "runs": [
+            {
+              "date": "2026-10-29",
+              "sources": [
+                "nptel-111105090-lec13",
+                "nptel-111105090-lec15",
+                "nptel-111105090-lec19",
+                "nptel-111105090-lec20",
+                "nptel-111105090-lec21",
+                "nptel-111105090-lec22",
+                "nptel-111105090-lec24",
+                "nptel-111105090-lec25",
+                "nptel-111105090-lec29",
+                "nptel-111105090-index",
+                "nptel-111102111-lec30",
+                "gateoverflow-probability-notes",
+                "openstax-introductory-statistics-5-3",
+                "openstax-introductory-statistics-5-2",
+                "codingmarble-hindi-probability-distributions",
+                "cbse-applied-maths-ch4-probability-distributions",
+                "cowan-poisson-note",
+                "knowledgegate-2019-uniform-pyq"
+              ],
+              "cards": 12,
+              "pyqs": 10,
+              "lesson": "probability-and-statistics/random-variables-and-distributions/pmf-cdf-and-the-balance-point",
+              "note": "Sources chosen on merit across two languages and two NPTEL courses: nine lecture transcripts of NPTEL Probability and Statistics (IIT Kharagpur, Prof. Somesh Kumar, English, each read from its opening to the point named in sources.json) for the definition of a random variable, the PMF/PDF/CDF chain, the binomial and its hypergeometric boundary, the Poisson derivation with the rate rescaled to the window, the uniform mean and variance by integration, the exponential and its memorylessness, and the normal with standardisation; one lecture of the IIT Delhi course by Prof. Dharmaraja (English) for the reproductive property, deliberately from a second course; the GATE Overflow probability notes (English, read in part) for the GATE pitfall list; two OpenStax sections (English) to corroborate the uniform and exponential formulas independently of NPTEL; the CBSE Applied Mathematics chapter 4 (English) for the four Bernoulli-trial conditions; Glen Cowan's Poisson note (English) for the mean-equals-variance derivation; one Hindi page on probability distributions (translated) for three of the trap alerts and the balance-point reading of E(X); and the Knowledge Gate walkthrough of the 2019 question (English) as an independent corroboration of 0.8. Rejected with reasons in sources.json: every YouTube lecture (the one watch page fetched returned an empty body), the NPTEL moments lectures 16-18 (not fetched), the GATE DA, GATE BT and GATE Mechanical distribution questions (wrong paper), four CSE questions that belong to the next two topics, MIT OCW 18.05 and 6.041SC (not fetched), the GateIQ and ExamSIDE listings (indexes only) and the GO Classes DPP set (practice, not PYQs)."
+            }
+          ],
+          "gaps": [
+            "no video transcript was readable this run: the one YouTube watch page fetched returned an empty body to the fetch service and no caption text could be retrieved, so no card quotes or timestamps a lecture and videoRefs is empty on every card; the readable teaching is NPTEL transcripts served as PDFs, read from their openings only",
+            "no official GATE paper or answer key was fetched, so every one of the ten PYQs is SOURCED against a GATE Overflow accepted answer rather than key-verified, and no marks field is recorded on any of them; question references follow the GATE Overflow numbering",
+            "the only non-English source is a Hindi web page on probability distributions, read in part and marked translated on the three cards that use it; no Hindi, Tamil, Telugu or Bengali lecture could be read, so no card is translated from a lecture",
+            "GATE Overflow itself refused direct requests from this sandbox (403 on CONNECT, then 502), so every GATE Overflow page cited here was read through the search service's extract, that is in part rather than in full",
+            "the distribution of a function of a random variable (Y = g(X), min and max of independent variables, the Jacobian method) is taught by NPTEL lectures 33-34 and 43, none of which was fetched, so the topic has no card for it; GATE CSE 2017 Set 1 Q.37, the median of max(X, 0), is the one CSE question that would have used it and it is left for the mean-median-mode run",
+            "the discrete uniform distribution on {1, ..., N} appears only as a contrast inside the continuous-uniform card, because the syllabus line names 'uniform' once and every verified CSE uniform question is continuous; a later run should decide whether the discrete case deserves its own card",
+            "no verified GATE CSE question was found for the sums-of-independent-variables card or for the choosing-the-distribution card, which is why both carry no PYQ (one is P3, one is P2 and names the ten questions as its evidence); the reproductive property is standard but untested in the CSE papers read this run",
+            "the GATE Overflow probability subject page lists further distribution questions that were not individually read or recomputed, including 2014 Set 1 and Set 2 Q.48 (normal), 2011 Q.33 and Q.34, 2021 Set 2 Q.29 and Q.33, 2023 Q.43, 2024 Set 1 Q.53 and 2025 Set 2 Q.54 and Q.55; only the ten recorded PYQs were verified"
+          ]
         },
         {
           "slug": "mean-median-mode-standard-deviation",

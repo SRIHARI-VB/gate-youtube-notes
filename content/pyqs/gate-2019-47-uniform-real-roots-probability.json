@@ -1,0 +1,15 @@
+{
+  "id": "gate-2019-47-uniform-real-roots-probability",
+  "year": "2019",
+  "paper": "GATE CS 2019",
+  "question_ref": "Q.47",
+  "type": "NAT",
+  "topic": "continuous-uniform-distribution",
+  "text": "Suppose Y is distributed uniformly in the open interval (1, 6). The probability that the polynomial 3x^2 + 6xY + 3Y + 6 has only real roots is ______ (rounded off to 1 decimal place).",
+  "answer": "0.8",
+  "solution": "The quadratic has only real roots when b^2 - 4ac >= 0 with a = 3, b = 6Y, c = 3Y + 6: 36Y^2 - 12(3Y + 6) = 36(Y^2 - Y - 2) = 36(Y-2)(Y+1) >= 0, so Y <= -1 or Y >= 2. Inside (1, 6) the favourable set is [2, 6), of length 4, and the total length is 5, so the probability is 4/5 = 0.8.",
+  "source_url": "https://gateoverflow.in/302801/gate-cse-2019-question-47",
+  "source_label": "GATE Overflow question page - GATE CSE 2019 Q.47 with the accepted answer (0.8)",
+  "verification": "SOURCED",
+  "answer_evidence": "The accepted answer reduces the discriminant to (Y-2)(Y+1) >= 0 and measures the favourable length 4 against the total 5; Testbook's page for the same GATE CS 2019 paper and the Knowledge Gate walkthrough both give 0.8. Recomputed here, including the double root at Y = 2."
+}

@@ -1387,3 +1387,105 @@ twelve subtopics with no code change.
 
 The cycle pointer now sits on `calculus/mean-value-theorem`. The next topic in syllabus order is
 `calculus/integration`, which is `not_started`.
+
+## Random Variables and Distributions (2026-10-29)
+
+### The topic, and why it was next
+
+**Probability and Statistics > Random Variables and Distributions** (`random-variables-and-distributions`), the
+first topic of the GATE 2027 Probability and Statistics line: *"Random variables. Uniform, normal, exponential,
+Poisson and binomial distributions. Mean, median, mode and standard deviation. Conditional probability and Bayes
+theorem."*
+
+The cycle pointer was left by the previous run on `calculus/integration`, and the first topic strictly after it
+in the enumerated syllabus order whose status is not `covered` is this one, which was `not_started`. Nothing was
+skipped: no topic sits between the pointer and this one, no topic is `blocked`, and the twelve `partial` topics
+earlier in the cycle were not touched, because the cycle takes its second pass over `partial` topics only after a
+full pass finds no `not_started` topic left.
+
+### Subtopics enumerated before any source was chosen
+
+Twelve, from the syllabus line plus the standard treatment (Ross chapters 4-5, the CBSE Applied Mathematics
+chapter 4 sequence, and the NPTEL course order 13-30): the random variable as a function from the sample space
+and the discrete against the continuous case; the distribution, the PMF, the PDF and the CDF; normalising a
+density and reading an interval; expectation and linearity; variance and standard deviation; the Bernoulli trial
+and the binomial; the Poisson and its process origin; the exponential and memorylessness; the continuous uniform;
+the normal with standardisation; choosing the distribution a word problem describes; sums of independent
+variables and the reproductive property.
+
+### Sources chosen, on merit
+
+Nine lecture transcripts of **NPTEL Probability and Statistics, IIT Kharagpur (Prof. Somesh Kumar)**, English,
+each served as a PDF and read from its opening to the point named in `sources.json` (13 random variables, 15 the
+distribution and the density, 19 the discrete uniform and Bernoulli, 20 a full binomial application, 21 the
+hypergeometric boundary, 22 the Poisson derivation, 24 the uniform mean and variance by integration, 25 the
+exponential and memorylessness, 29 the normal and standardisation). One lecture of a **second NPTEL course, IIT
+Delhi (Prof. S. Dharmaraja), Lecture 30**, for the reproductive property, deliberately not the same lecturer. The
+**GATE Overflow probability notes** (English, read in part) for the GATE pitfall list. Two **OpenStax
+Introductory Statistics** sections (5.2 uniform, 5.3 exponential) to corroborate those formulas independently of
+NPTEL. The **CBSE Applied Mathematics chapter 4** (English) for the four Bernoulli-trial conditions and the
+mean-median-mode equality. **Glen Cowan's Poisson note** (English) for the mean-equals-variance derivation. One
+**Hindi page on probability distributions** (translated, read in part), which supplied three trap alerts and the
+balance-point reading of the expectation. The **Knowledge Gate walkthrough** of the 2019 question as an
+independent corroboration of 0.8.
+
+Rejected, with reasons in `sources.json`: every YouTube lecture (the one watch page fetched returned an empty
+body and no caption text was retrievable, so no card quotes a lecture); the NPTEL moments lectures 16-18 (not
+fetched, nothing rests on them); the GATE DA, GATE BT and GATE Mechanical distribution questions (wrong paper);
+four CSE questions that belong to the next two topics in the cycle; MIT OCW 18.05 and 6.041SC (considered, not
+fetched); the GateIQ and ExamSIDE listings (indexes only, their numbering differs from the papers); and the GO
+Classes DPP set (practice questions, not PYQs).
+
+### What was created
+
+Twelve cards under `content/subjects/probability-and-statistics/random-variables-and-distributions/`, ten PYQ
+records, one p5.js lesson at
+`visuals/probability-and-statistics/random-variables-and-distributions/pmf-cdf-and-the-balance-point/`, a
+`sources.json` with eighteen chosen and eight rejected candidates, and a new
+`check_probability_and_statistics()` in `scripts/validate.py` that recomputes every published number: the
+2026 Set 1 table with its mean 51/12, second moment 283/12, variance 265/48 and CDF staircase; the 2012 CDF
+points; the 2025 normalisation and 19/63; the binomial mass, mean and variance for three parameter sets; the
+Poisson mass, mean and variance at six rates plus the 2013 cumulative sum; the exponential mean, second moment,
+memorylessness and tail probabilities at four rates; the uniform mean and variance on four intervals by
+numerical integration; the 2019 discriminant over the whole interval; the normal density of 2026 Set 2 by
+integration, the 2008 sigma match, and the 68-95-99.7 bands; the Poisson closure by convolution; and every number
+in the lesson.
+
+The verified PYQs are GATE CSE 2006 Q.21 (binomial count), 2008 Q.29 (normal symmetry), 2012 Q.21 (CDF), 2013
+Q.2 (Poisson), 2017 Set 2 Q.48 (Poisson moments), 2019 Q.47 (uniform with a discriminant), 2021 Set 1 Q.18
+(exponential), 2025 Set 1 Q.48 (density normalisation), 2026 Set 1 Q.48 (expectation) and 2026 Set 2 Q.4 (family
+identification). All ten are `SOURCED` against GATE Overflow accepted answers; no official paper or key was
+fetched, so no `marks` field is recorded.
+
+### UI
+
+No change to design tokens, shell layout, navigation labels, routes or component classes. `syllabus.json` flips
+`random-variables-and-distributions` from `planned` to `cards`, and `scripts/build-index.py` regenerates
+`content/index.json` and `src/data/content.js`, so the tree and the Topics tab pick up the new topic and its
+twelve subtopics with no code change.
+
+### Gaps (the topic stays `partial`)
+
+1. No video transcript was readable: the one YouTube watch page fetched returned an empty body, so no card quotes
+   or timestamps a lecture and `videoRefs` is empty everywhere.
+2. No official paper or key was fetched, so all ten PYQs are `SOURCED` and carry no marks.
+3. The only non-English source is a Hindi web page, read in part and marked translated on the three cards that
+   use it; no Indic lecture could be read.
+4. GATE Overflow refused direct requests from the sandbox, so its pages were read through the search service's
+   extract - in part, not in full.
+5. The distribution of a function of a random variable (Y = g(X), min and max, the Jacobian method) has no card:
+   NPTEL lectures 33-34 and 43 were not fetched, and the one CSE question that would use it, 2017 Set 1 Q.37, is
+   left for the mean-median-mode run.
+6. The discrete uniform appears only as a contrast inside the continuous-uniform card.
+7. Two cards carry no PYQ by design: sums of independent variables (P3, no verified CSE question decides it) and
+   choosing the distribution (P2, whose evidence is the ten questions it opens).
+8. Further distribution questions listed on the GATE Overflow subject page were not individually read, including
+   2014 Set 1 and Set 2 Q.48, 2011 Q.33 and Q.34, 2021 Set 2 Q.29 and Q.33, 2023 Q.43, 2024 Set 1 Q.53 and 2025
+   Set 2 Q.54 and Q.55.
+
+### Next
+
+The cycle pointer now sits on `probability-and-statistics/random-variables-and-distributions`. The next topic in
+syllabus order is `probability-and-statistics/mean-median-mode-standard-deviation`, which is `not_started`; the
+questions deliberately left for it are GATE CSE 2024 Set 2 Q.8 (the standard deviation of a binomial count) and
+2017 Set 1 Q.37 (the median of max(X, 0)).

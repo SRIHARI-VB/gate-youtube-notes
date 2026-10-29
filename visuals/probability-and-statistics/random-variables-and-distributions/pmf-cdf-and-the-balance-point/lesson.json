@@ -1,0 +1,69 @@
+{
+  "slug": "pmf-cdf-and-the-balance-point",
+  "topic": "expectation-and-linearity",
+  "engine": "p5.js",
+  "steps": 7,
+  "example": {
+    "values": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "probabilities": [
+      0.16666666666666666,
+      0.16666666666666666,
+      0.08333333333333333,
+      0.08333333333333333,
+      0.16666666666666666,
+      0.08333333333333333,
+      0.16666666666666666,
+      0.08333333333333333
+    ],
+    "sum_of_probabilities": 1.0,
+    "expectation": {
+      "value": 4.25,
+      "exact": "51/12",
+      "grouped": "(1+2+5+7)/6 + (3+4+6+8)/12 = 15/6 + 21/12"
+    },
+    "second_moment": {
+      "value": 23.583333333333332,
+      "exact": "283/12"
+    },
+    "variance": {
+      "value": 5.520833333333333,
+      "exact": "265/48"
+    },
+    "standard_deviation": 2.3496453633119474,
+    "cdf": [
+      0.16666666666666666,
+      0.3333333333333333,
+      0.41666666666666663,
+      0.49999999999999994,
+      0.6666666666666666,
+      0.75,
+      0.9166666666666666,
+      1.0
+    ],
+    "cdf_at_4": 0.49999999999999994,
+    "unweighted_average_of_the_support": 4.5,
+    "uniform_on_the_same_support": {
+      "mean": 4.5,
+      "variance": 5.25,
+      "exact_variance": "63/12"
+    },
+    "wrong_variance_if_the_mean_is_not_squared": {
+      "value": 19.333333333333332,
+      "exact": "283/12 - 51/12 = 232/12"
+    },
+    "quick_check": {
+      "question": "what is E[X] and Var(X) for this table",
+      "answer": "E[X] = 4.25 and Var(X) = 265/48 = 5.5208",
+      "note": "the eight values are not equally likely, so 4.5 and 5.25 belong to the uniform distribution on the same support"
+    }
+  }
+}

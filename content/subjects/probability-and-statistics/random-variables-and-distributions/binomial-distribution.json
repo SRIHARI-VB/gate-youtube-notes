@@ -1,0 +1,113 @@
+{
+  "id": "binomial-distribution",
+  "title": "The Binomial Distribution",
+  "priority": "P1",
+  "order": 306,
+  "unit": "Random Variables and Distributions",
+  "quickIdea": "Count the successes in a fixed number of independent trials with a constant success probability: P(X = k) = C(n,k) p^k (1-p)^(n-k), with mean np and variance np(1-p).",
+  "remember": [
+    "The four conditions, all of which must hold: a fixed number n of trials, exactly two outcomes per trial, the same p in every trial, and independence between trials.",
+    "PMF: P(X = k) = C(n,k) p^k (1 - p)^(n-k) for k = 0, 1, ..., n. Mean np, variance np(1 - p), standard deviation sqrt(np(1-p)).",
+    "The single Bernoulli trial is the case n = 1, with mean p and variance p(1-p).",
+    "Sampling without replacement from a finite population breaks the constant-p condition: the counts are then hypergeometric, not binomial. The binomial is the with-replacement model.",
+    "'At least one' is almost always faster by complement: P(X >= 1) = 1 - (1-p)^n.",
+    "When n is large and p is small with np moderate, the binomial is well approximated by a Poisson with lambda = np; this is the bridge between the two cards."
+  ],
+  "example": {
+    "prompt": "A set has 2n elements and an unbiased coin is tossed for each. An element is chosen when its toss is a head. What is the probability that exactly n elements are chosen?",
+    "work": "The number of chosen elements is a binomial variable with n_trials = 2n and p = 1/2. So P(X = n) = C(2n, n) (1/2)^n (1/2)^n = C(2n, n)/4^n. For n = 5 the value is 252/1024 = 0.2461.",
+    "answer": "C(2n, n)/4^n, which is 0.2461 at n = 5."
+  },
+  "gateAngle": "GATE CSE 2006 Q.21 is this question, and the options are built from the two mistakes: dividing by 2^n instead of 4^n, and inverting the fraction. The count C(2n, n) is the number of ways to choose which n of the 2n tosses are heads, and 4^n is the total number of toss sequences - the two ingredients of every binomial computation.",
+  "variations": [
+    {
+      "label": "VERIFIED PYQ",
+      "question": "GATE CSE 2006 Q.21: for each element of a set of size 2n an unbiased coin is tossed independently, and the element is chosen on a head. The probability that exactly n elements are chosen is (A) C(2n,n)/4^n (B) C(2n,n)/2^n (C) 1/C(2n,n) (D) 1/2.",
+      "answer": "(A) C(2n,n)/4^n.",
+      "why": "Binomial with 2n trials and p = 1/2: the count of favourable sequences is C(2n,n) and each sequence has probability (1/2)^(2n) = 1/4^n. Option (D) is the tempting 'half the elements' answer, which is the mean divided by 2n, not a probability of an exact count."
+    },
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "A coin with P(head) = 0.4 is tossed 10 times. Find the probability of exactly 3 heads and the mean and variance of the count.",
+      "answer": "P(X = 3) = C(10,3)(0.4)^3(0.6)^7 = 0.2150; mean 4, variance 2.4.",
+      "why": "C(10,3) = 120, and 120 x 0.064 x 0.02799 = 0.2150. The mean is np = 4 and the variance np(1-p) = 2.4, so the standard deviation is 1.549 - which is the quantity GATE asked for in 2024 Set 2 Q.8."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Why is drawing 5 bulbs without replacement from a box of 20 containing 4 defectives not a binomial experiment?",
+      "answer": "Because the probability of a defective changes after each draw, so p is not constant across trials.",
+      "why": "The first draw is defective with probability 4/20; if it is defective, the second is defective with probability 3/19. Only with replacement would p stay at 1/5 and the count be binomial; without replacement the count is hypergeometric."
+    }
+  ],
+  "trap": {
+    "what": "Using the binomial when p changes between trials, or forgetting the binomial coefficient.",
+    "why": "The coefficient counts the orderings of the successes; without it you have the probability of one specific sequence, not of the count.",
+    "counterexample": "P(exactly 3 heads in 10 tosses) = C(10,3)/1024 = 0.1172, whereas the probability of one particular sequence with 3 heads and 7 tails is 1/1024 = 0.001. Dropping the coefficient is off by a factor of 120."
+  },
+  "check": {
+    "question": "A fair coin is tossed 6 times. What is the probability of at least one head?",
+    "answer": "63/64 = 0.9844.",
+    "explanation": "By the complement, P(at least one head) = 1 - P(no heads) = 1 - (1/2)^6 = 63/64. Summing the binomial probabilities for k = 1 to 6 gives the same number and takes six times as long."
+  },
+  "pyqIds": [
+    "gate-2006-21-exactly-n-of-2n-chosen"
+  ],
+  "prereqs": [
+    "probability-distribution-and-cdf",
+    "expectation-and-linearity"
+  ],
+  "sources": [
+    {
+      "kind": "lecture-transcript",
+      "title": "Lecture 19: Special Discrete Distributions - I",
+      "channel": "NPTEL, Probability and Statistics (IIT Kharagpur, Prof. Somesh Kumar)",
+      "url": "http://www.digimat.in/nptel/courses/video/111105090/lec19.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read from the opening through the Bernoulli distribution: the discrete uniform PMF with its mean (N+1)/2 and variance (N^2-1)/12 derived term by term, the moment generating function, the degenerate distribution, and the Bernoulli trial setup"
+    },
+    {
+      "kind": "lecture-transcript",
+      "title": "Lecture 20: Special Discrete Distributions - II",
+      "channel": "NPTEL, Probability and Statistics (IIT Kharagpur, Prof. Somesh Kumar)",
+      "url": "http://www.digimat.in/nptel/courses/video/111105090/lec20.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read from the opening through the negative binomial: the airline overbooking example solved as binomial(52, 0.95), the geometric distribution as the waiting time for the first success, and the negative binomial for the r-th success"
+    },
+    {
+      "kind": "lecture-transcript",
+      "title": "Lecture 21: Special Discrete Distributions - III",
+      "channel": "NPTEL, Probability and Statistics (IIT Kharagpur, Prof. Somesh Kumar)",
+      "url": "http://www.digimat.in/nptel/courses/video/111105090/lec21.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read from the opening through the moments of the hypergeometric: why sampling without replacement breaks the constant-p assumption, the hypergeometric PMF and its range of validity, and the capture-recapture application. This is the lecture that marks the boundary of the binomial card"
+    },
+    {
+      "kind": "text",
+      "title": "Applied Mathematics, chapter 4: Probability Distributions",
+      "channel": "CBSE Academic (NCERT/CBSE senior secondary manual)",
+      "url": "https://cbseacademic.nic.in/web_material/Manuals/appliedmaths/Chapter4_Probability_Distributions.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read in part: the definition of a random variable as a real-valued function on the sample space, the discrete-versus-continuous contrast with the watch example, the probability-distribution table with the sum-to-one rule, the definition of mathematical expectation and variance, the four Bernoulli-trial conditions, the binomial and Poisson definitions, and the normal density with its mean-median-mode and symmetry facts"
+    },
+    {
+      "kind": "text",
+      "title": "Praayikta bantan: maadhy, prasaran, dvipad bantan (probability distributions: mean, variance, binomial)",
+      "channel": "Coding Marble (Hindi learning page)",
+      "url": "https://learn.codingmarble.com/hi/learn/maths/probability-distributions/",
+      "language": "hi",
+      "transcript": "PARTIAL",
+      "translated": true,
+      "note": "Hindi-language page read in full in its opening sections; every statement taken from it is rendered in English and the cards that use it say so. It gives the random variable as a rule that turns each outcome into a number, the two distribution-table rules, the balance-point reading of E(X), Var(X) = E(X^2) - mu^2, the E(aX+b) and Var(aX+b) rules, the binomial and Poisson summaries, and a list of four common mistakes including writing E(X^2) - E(X) and using the binomial when p changes between trials"
+    }
+  ],
+  "sourceLine": "The Bernoulli trial setup and the discrete uniform contrast: NPTEL Lecture 19 (English). A binomial application solved end to end, the airline overbooking example with binomial(52, 0.95): NPTEL Lecture 20 (English). The boundary of the model, sampling without replacement and the hypergeometric: NPTEL Lecture 21 (English). The four trial conditions in one list: CBSE Applied Mathematics chapter 4 (English). The mean np and variance np(1-p) with the 'p changing between trials' warning: the Hindi page (translated).",
+  "videoRefs": []
+}

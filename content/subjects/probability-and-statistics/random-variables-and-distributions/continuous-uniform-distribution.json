@@ -1,0 +1,103 @@
+{
+  "id": "continuous-uniform-distribution",
+  "title": "The Uniform Distribution",
+  "priority": "P1",
+  "order": 309,
+  "unit": "Random Variables and Distributions",
+  "quickIdea": "Spread probability evenly over an interval: the density is the constant 1/(b-a), so the probability of a subinterval is just its length over the total length.",
+  "remember": [
+    "Density f(x) = 1/(b - a) for a <= x <= b and 0 elsewhere; CDF F(x) = (x - a)/(b - a) inside the interval.",
+    "Mean (a + b)/2, variance (b - a)^2/12, standard deviation (b - a)/(2 sqrt 3), which is about 0.289(b - a) - noticeably less than half the range.",
+    "P(c <= X <= d) = (d - c)/(b - a): a ratio of lengths, no integration needed once the density is constant.",
+    "The density can exceed 1: on (0, 0.5) it is 2. Only the area is a probability.",
+    "The discrete uniform on {1, ..., N} is a different distribution: mean (N + 1)/2 and variance (N^2 - 1)/12. Do not mix the two formulas; GATE has used the continuous one on a continuous interval.",
+    "Open endpoints do not matter for a continuous variable, so (1, 6) and [1, 6] give identical probabilities - which is why the 2019 question can say 'open interval' and still count the endpoint 2 as favourable."
+  ],
+  "example": {
+    "prompt": "Y is uniform on (1, 6). The polynomial 3x^2 + 6xY + 3Y + 6 in x has only real roots for which Y, and with what probability?",
+    "work": "A quadratic ax^2 + bx + c has only real roots when b^2 - 4ac >= 0. Here a = 3, b = 6Y and c = 3Y + 6, so the condition is 36Y^2 - 12(3Y + 6) >= 0, that is 36(Y^2 - Y - 2) >= 0, that is (Y - 2)(Y + 1) >= 0. So Y <= -1 or Y >= 2. Inside (1, 6) only Y >= 2 survives, which is the subinterval [2, 6) of length 4 out of a total length 5.",
+    "answer": "P = 4/5 = 0.8."
+  },
+  "gateAngle": "GATE CSE 2019 Q.47 combines the uniform distribution with a discriminant condition, and it is a two-step question: solve the inequality first, then measure the favourable set. The distribution never enters the inequality, so a candidate who tries to integrate the density before solving the condition wastes the marks' time budget.",
+  "variations": [
+    {
+      "label": "VERIFIED PYQ",
+      "question": "GATE CSE 2019 Q.47: Y is uniform on the open interval (1, 6). The probability that 3x^2 + 6xY + 3Y + 6 has only real roots is ______ (one decimal place).",
+      "answer": "0.8.",
+      "why": "The discriminant condition reduces to (Y - 2)(Y + 1) >= 0, so the favourable set inside (1, 6) is [2, 6), of length 4. Dividing by the total length 5 gives 0.8. Note that Y = 2 is included because a double root is still a real root, and the density is 1/5 there."
+    },
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "X is uniform on (0, 10). Find P(2 < X < 7), the mean and the standard deviation.",
+      "answer": "P = 0.5, mean 5, sd = 10/(2 sqrt 3) = 2.8868.",
+      "why": "The interval has length 5 out of 10. The mean is the midpoint and the standard deviation is (b - a)/(2 sqrt 3) = 10/3.4641 = 2.8868, well under half the range."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "X is uniform on (0, 1). For which a is P(X > a) = 0.25, and what is the probability that X^2 < 0.25?",
+      "answer": "a = 0.75; P(X^2 < 0.25) = P(X < 0.5) = 0.5.",
+      "why": "The first is a length condition: 1 - a = 0.25. The second needs the event rewritten as X < 0.5 before the uniform length is read, and it is the same move the GATE DA CDF question makes with X^2 <= 0.25."
+    }
+  ],
+  "trap": {
+    "what": "Using the discrete-uniform formulas on a continuous interval, or forgetting that the favourable set must be intersected with the support.",
+    "why": "The two uniforms have different means and variances, and a condition such as Y <= -1 can be satisfied by the inequality while being outside the interval the variable lives on.",
+    "counterexample": "For the 2019 question, the inequality also holds for Y <= -1, but no probability sits there because Y lives on (1, 6). Counting the whole real line would give a 'probability' larger than 1. And for N = 6 the discrete formula gives variance 35/12 = 2.917, whereas the continuous uniform on (1, 6) has variance 25/12 = 2.083."
+  },
+  "check": {
+    "question": "X is uniform on (2, 8). Find P(X < 5) and the standard deviation.",
+    "answer": "P(X < 5) = 0.5 and sd = 6/(2 sqrt 3) = 1.7321.",
+    "explanation": "The subinterval (2, 5) has length 3 out of 6, so the probability is 1/2 - which is also clear because 5 is the midpoint. The standard deviation is (8 - 2)/(2 sqrt 3) = 6/3.4641 = 1.7321."
+  },
+  "pyqIds": [
+    "gate-2019-47-uniform-real-roots-probability"
+  ],
+  "prereqs": [
+    "probability-distribution-and-cdf",
+    "pmf-pdf-normalisation-and-interval-probability"
+  ],
+  "sources": [
+    {
+      "kind": "lecture-transcript",
+      "title": "Lecture 24: Special Continuous Distributions - I",
+      "channel": "NPTEL, Probability and Statistics (IIT Kharagpur, Prof. Somesh Kumar)",
+      "url": "http://www.digimat.in/nptel/courses/video/111105090/lec24.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read from the opening through the variance of the continuous uniform: the density fixed at 1/(b-a) by normalisation, the mean (a+b)/2 by integration, E[X^2] = (a^2+ab+b^2)/3 and the variance (b-a)^2/12 with the standard deviation (b-a)/(2 sqrt 3)"
+    },
+    {
+      "kind": "text",
+      "title": "Introductory Statistics 2e, section 5.2: The Uniform Distribution",
+      "channel": "OpenStax (Rice University)",
+      "url": "https://openstax.org/books/introductory-statistics-2e/pages/5-2-the-uniform-distribution",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read through the conditional-probability example: the density 1/(b-a), the mean (a+b)/2 and the standard deviation (b-a)/sqrt(12) with the 0-23 second worked example, the rectangle-area method for an interval probability, and the 90th percentile computation"
+    },
+    {
+      "kind": "pyq-explanation",
+      "title": "PYQ walkthrough of the GATE CSE 2019 uniform-distribution question",
+      "channel": "Knowledge Gate AI (GATE Engineering Mathematics - Probability)",
+      "url": "https://www.knowledgegate.ai/learn/GATE-GUIDANCE-BY-SANCHIT-SIR/engineering-mathematics/probability/continuous-probability-distribution-random-variables-expected-value/pyq-questions?q=68ecac1995474565f43eedea",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read in full: the four-step discriminant argument for the 2019 question, ending at the favourable length 4 over the total length 5. Used as an independent corroboration of the answer 0.8, not as the only source"
+    },
+    {
+      "kind": "lecture-transcript",
+      "title": "Lecture 19: Special Discrete Distributions - I",
+      "channel": "NPTEL, Probability and Statistics (IIT Kharagpur, Prof. Somesh Kumar)",
+      "url": "http://www.digimat.in/nptel/courses/video/111105090/lec19.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read from the opening through the Bernoulli distribution: the discrete uniform PMF with its mean (N+1)/2 and variance (N^2-1)/12 derived term by term, the moment generating function, the degenerate distribution, and the Bernoulli trial setup"
+    }
+  ],
+  "sourceLine": "The density fixed by normalisation, the mean (a+b)/2 and the variance (b-a)^2/12 with the standard deviation (b-a)/(2 sqrt 3): NPTEL Lecture 24 (English). The rectangle-area method and the standard deviation (b-a)/sqrt(12): OpenStax Introductory Statistics 2e section 5.2 (English). The discriminant argument for the 2019 question: the Knowledge Gate PYQ walkthrough (English), which agrees with the GATE Overflow accepted answer. The discrete-uniform mean and variance, for the contrast: NPTEL Lecture 19 (English).",
+  "videoRefs": []
+}

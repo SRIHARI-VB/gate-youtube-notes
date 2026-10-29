@@ -1,0 +1,104 @@
+{
+  "id": "choosing-the-right-distribution",
+  "title": "Choosing the Right Distribution",
+  "priority": "P2",
+  "order": 311,
+  "unit": "Random Variables and Distributions",
+  "quickIdea": "The words of the question choose the model: a count of successes in fixed trials is binomial, a count of events in a window is Poisson, a waiting time is exponential, an equally likely point in an interval is uniform.",
+  "remember": [
+    "Binomial: a fixed number of trials, two outcomes each, the same p, independence - 'out of n items, how many ...'.",
+    "Poisson: a count of events in a window of time, length, area or volume at a constant rate - 'per minute', 'per page', 'per metre'. Mean = variance = lambda.",
+    "Exponential: the time until the next event, or a lifetime, when the rate is constant - 'the lifetime of a component', 'time between arrivals'. Mean 1/lambda.",
+    "Uniform: every value in an interval equally likely - 'chosen uniformly at random from (a, b)'. Probability is a ratio of lengths.",
+    "Normal: an explicitly stated bell-shaped or Gaussian variable, a measurement error, or a sum of many small independent effects. Two parameters, mu and sigma.",
+    "Two model-choice traps carry most of the marks: a count in a window is Poisson and not binomial (there is no fixed n), and a lifetime is exponential and not Poisson (it is a time, not a count)."
+  ],
+  "example": {
+    "prompt": "A call centre receives 4 calls per minute on average. (a) How many calls in two minutes, and with what distribution? (b) What is the probability that the next call is more than 30 seconds away?",
+    "work": "(a) A count in a fixed window at a constant rate is Poisson, and the rate must be rescaled: lambda = 4 x 2 = 8 calls in two minutes, so X is Poisson(8). (b) The waiting time to the next call is exponential with rate 4 per minute; 30 seconds is 0.5 minutes, so P(T > 0.5) = e^(-4 x 0.5) = e^(-2).",
+    "answer": "X is Poisson(8) in the two-minute window; P(T > 0.5 min) = e^(-2) = 0.1353."
+  },
+  "gateAngle": "Every distribution question begins with this choice, and the wrong choice produces a plausible number. The 2013 Poisson question is chosen by the phrase 'per minute'; the 2021 exponential question by 'lifetime'; the 2019 uniform question by 'distributed uniformly'; the 2006 binomial question by 'each of 2n elements, independently'.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "A book of 500 pages has 200 misprints spread uniformly. Using the Poisson approximation to the binomial, find the probability that a given page has no misprint.",
+      "answer": "lambda = 200/500 = 0.4 per page, so P(0) = e^(-0.4) = 0.6703.",
+      "why": "The binomial has n = 200 misprints and p = 1/500 per page, so np = 0.4; the Poisson limit applies because n is large and p small. This is the classic bridge question between the two discrete models."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "A component's lifetime is exponential with mean 5 years, and 3 such components are independent. What is the distribution of the number that survive 2 years?",
+      "answer": "Binomial with n = 3 and p = e^(-2/5) = 0.6703.",
+      "why": "The exponential gives each component's survival probability p = P(T > 2) = e^(-0.4), and independence across components turns the count into a binomial. The variation chains two models in the order GATE likes: a continuous one for one unit, then a discrete one for the count."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Why is the number of arrivals in a minute not binomial, even though each second either has an arrival or does not?",
+      "answer": "Because the number of trials is not fixed in advance and the sub-intervals are not the natural trials; the count is Poisson.",
+      "why": "You could force a binomial by chopping the minute into 60 one-second slots, but the count of slots is arbitrary and the probability of two arrivals in one slot is not negligible unless the slots are tiny. The Poisson model is the limit of that chopping process, which is exactly how it is derived from the three Poisson-process assumptions."
+    }
+  ],
+  "trap": {
+    "what": "Using the Poisson for a lifetime, or the exponential for a count.",
+    "why": "The Poisson counts events; the exponential measures the gap between them. They are two views of the same process and the question's units (events versus time) tell you which view is asked for.",
+    "counterexample": "For a component with exponential lifetime of mean 5 years, P(lifetime > 3) = e^(-0.6) = 0.5488. Treating the number of years until failure as Poisson with mean 5 and computing P(X >= 1) gives 0.9933 - a completely different question, and a number that would look reasonable in an option list."
+  },
+  "check": {
+    "question": "A page has typos at an average of 2 per page. What is the probability of exactly 1 typo on a page, and which distribution is used?",
+    "answer": "Poisson with lambda = 2, and P(X = 1) = 2 e^(-2) = 0.2707.",
+    "explanation": "A count of rare events in a fixed unit (one page) at a constant rate is Poisson. The mean equals the variance here, both 2, which is the signature that distinguishes it from the binomial."
+  },
+  "pyqIds": [],
+  "prereqs": [
+    "binomial-distribution",
+    "poisson-distribution",
+    "exponential-distribution",
+    "continuous-uniform-distribution",
+    "normal-distribution-and-standardisation"
+  ],
+  "sources": [
+    {
+      "kind": "lecture-transcript",
+      "title": "Lecture 19: Special Discrete Distributions - I",
+      "channel": "NPTEL, Probability and Statistics (IIT Kharagpur, Prof. Somesh Kumar)",
+      "url": "http://www.digimat.in/nptel/courses/video/111105090/lec19.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read from the opening through the Bernoulli distribution: the discrete uniform PMF with its mean (N+1)/2 and variance (N^2-1)/12 derived term by term, the moment generating function, the degenerate distribution, and the Bernoulli trial setup"
+    },
+    {
+      "kind": "lecture-transcript",
+      "title": "Lecture 22: Poisson Process - I",
+      "channel": "NPTEL, Probability and Statistics (IIT Kharagpur, Prof. Somesh Kumar)",
+      "url": "http://www.digimat.in/nptel/courses/video/111105090/lec22.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read from the opening through the statement and induction proof of the Poisson PMF: the three assumptions of a Poisson process, the examples (calls, vehicles, accidents), the derivation P_n(t) = e^{-lambda t}(lambda t)^n/n!, and the worked mall example at 5 customers per minute with lambda t = 15 for a three-minute window"
+    },
+    {
+      "kind": "text",
+      "title": "Introductory Statistics 2e, section 5.3: The Exponential Distribution",
+      "channel": "OpenStax (Rice University)",
+      "url": "https://openstax.org/books/introductory-statistics-2e/pages/5-3-the-exponential-distribution",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read through the memorylessness note: the decay parameter m = 1/mu, the density m e^{-mx}, the statement that the standard deviation equals the mean, the worked postal-clerk example with P(4 < x < 5) = 0.0814 and the median 2.8 minutes below the mean 4, and the Poisson-exponential relationship"
+    },
+    {
+      "kind": "text",
+      "title": "Applied Mathematics, chapter 4: Probability Distributions",
+      "channel": "CBSE Academic (NCERT/CBSE senior secondary manual)",
+      "url": "https://cbseacademic.nic.in/web_material/Manuals/appliedmaths/Chapter4_Probability_Distributions.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read in part: the definition of a random variable as a real-valued function on the sample space, the discrete-versus-continuous contrast with the watch example, the probability-distribution table with the sum-to-one rule, the definition of mathematical expectation and variance, the four Bernoulli-trial conditions, the binomial and Poisson definitions, and the normal density with its mean-median-mode and symmetry facts"
+    }
+  ],
+  "sourceLine": "The origins of the discrete models, one experiment at a time: NPTEL Lectures 19 and 22 (English). The explicit statement that the exponential is the waiting time of a Poisson process, and the relation lambda = 1/mu between the two rates: OpenStax Introductory Statistics 2e section 5.3 (English). The Bernoulli-trial conditions that decide between binomial and hypergeometric: CBSE Applied Mathematics chapter 4 (English).",
+  "videoRefs": []
+}

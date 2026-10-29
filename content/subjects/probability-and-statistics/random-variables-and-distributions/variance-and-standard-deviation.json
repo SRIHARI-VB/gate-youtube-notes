@@ -1,0 +1,92 @@
+{
+  "id": "variance-and-standard-deviation",
+  "title": "Variance and Standard Deviation",
+  "priority": "P1",
+  "order": 305,
+  "unit": "Random Variables and Distributions",
+  "quickIdea": "Variance is the average squared distance from the mean, and the identity Var(X) = E[X^2] - (E[X])^2 is the only version you should ever compute with.",
+  "remember": [
+    "Var(X) = E[(X - mu)^2] = E[X^2] - mu^2, with mu = E[X]. The second form is the working one; the first explains what is being measured.",
+    "Standard deviation is the square root of the variance, so it carries the same units as X. A variance in 'years squared' is not a useful width; a standard deviation in years is.",
+    "Var(aX + b) = a^2 Var(X). The shift b disappears entirely, and the scale a is squared - a common error is to write a Var(X) or to keep b.",
+    "Var(X + Y) = Var(X) + Var(Y) when X and Y are independent (more precisely, uncorrelated). Without that condition nothing can be said, and Var(X - Y) = Var(X) + Var(Y) - not a difference - under independence.",
+    "Var(X) >= 0 always, so a negative computed variance is proof of an arithmetic slip, usually in E[X^2].",
+    "Variance is not linear in the mean: shifting a distribution does not change its spread at all, which is exactly why b vanishes."
+  ],
+  "example": {
+    "prompt": "X has a Poisson distribution with mean 5. Find E[X^2] and E[(X + 2)^2].",
+    "work": "For a Poisson variable the variance equals the mean, so Var(X) = 5. Then E[X^2] = Var(X) + (E[X])^2 = 5 + 25 = 30. Expand the square: E[(X+2)^2] = E[X^2] + 4E[X] + 4 = 30 + 20 + 4 = 54.",
+    "answer": "E[X^2] = 30 and E[(X + 2)^2] = 54."
+  },
+  "gateAngle": "GATE CSE 2017 Set 2 Q.48 is this computation as a numerical-answer question, and it is decided by knowing that a Poisson variable's variance equals its mean. The second route - computing Var(X + 2) = 5 and E[X + 2] = 7, then E[(X+2)^2] = 5 + 49 - gives the same 54 and is a useful cross-check.",
+  "variations": [
+    {
+      "label": "VERIFIED PYQ",
+      "question": "GATE CSE 2017 Set 2 Q.48: X is Poisson with mean 5. The expectation E[(x + 2)^2] equals ______.",
+      "answer": "54.",
+      "why": "E[X^2] = 30 from Var = mean = 5, so E[(X+2)^2] = 30 + 4(5) + 4 = 54. Equivalently E[X+2] = 7 and Var(X+2) = 5, so E[(X+2)^2] = 5 + 49 = 54."
+    },
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "A fair die is rolled and Y = 2X + 3, where X is the face value. Find Var(Y).",
+      "answer": "35/3 = 11.6667.",
+      "why": "E[X] = 3.5 and E[X^2] = 91/6, so Var(X) = 91/6 - 49/4 = 35/12. Then Var(2X + 3) = 4 Var(X) = 35/3. The constant 3 does not enter at all."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "X and Y are independent with Var(X) = 4 and Var(Y) = 9. Find Var(2X - Y).",
+      "answer": "25.",
+      "why": "Var(2X - Y) = 4 Var(X) + Var(Y) = 16 + 9 = 25, because the minus sign disappears under the square and independence lets the variances add. Writing 16 - 9 = 7 is the standard wrong option."
+    }
+  ],
+  "trap": {
+    "what": "Writing Var(X) = E[X^2] - E[X], or subtracting variances of a difference.",
+    "why": "The identity subtracts the square of the mean, not the mean. And a difference of independent variables has a larger variance than either, because the fluctuations add.",
+    "counterexample": "For a fair die, E[X^2] - E[X] = 91/6 - 3.5 = 11.667, while the true variance is 35/12 = 2.917 - a factor of four out. For two independent variables with variances 4 and 9, Var(X - Y) = 13, not -5."
+  },
+  "check": {
+    "question": "X is uniform on {1, 2, ..., 6}. Find Var(X) and the standard deviation.",
+    "answer": "Var(X) = 35/12 = 2.9167 and sd = 1.7078.",
+    "explanation": "E[X] = 3.5 and E[X^2] = 91/6, so Var(X) = 91/6 - 49/4 = (182 - 147)/12 = 35/12. The formula (N^2 - 1)/12 for the discrete uniform on {1,...,N} gives (36 - 1)/12 = 35/12 as a check."
+  },
+  "pyqIds": [
+    "gate-2017-set2-48-poisson-expectation-x-plus-2"
+  ],
+  "prereqs": [
+    "expectation-and-linearity"
+  ],
+  "sources": [
+    {
+      "kind": "text",
+      "title": "GATE Overflow for GATE CSE Volume 1 - Engineering Mathematics: Probability",
+      "channel": "GATE Overflow",
+      "url": "https://gateoverflow.in/subject/mathematics/probability?tab=notes",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read in part through the search service's extract: the Bernoulli, binomial, exponential, Poisson and normal summaries with their means, variances and pitfalls, the random-variable section, and the 'Important Tips for GATE' list including the Var(X - Y) = Var(X) + Var(Y) condition and the exponential rate-versus-mean warning"
+    },
+    {
+      "kind": "text",
+      "title": "Praayikta bantan: maadhy, prasaran, dvipad bantan (probability distributions: mean, variance, binomial)",
+      "channel": "Coding Marble (Hindi learning page)",
+      "url": "https://learn.codingmarble.com/hi/learn/maths/probability-distributions/",
+      "language": "hi",
+      "transcript": "PARTIAL",
+      "translated": true,
+      "note": "Hindi-language page read in full in its opening sections; every statement taken from it is rendered in English and the cards that use it say so. It gives the random variable as a rule that turns each outcome into a number, the two distribution-table rules, the balance-point reading of E(X), Var(X) = E(X^2) - mu^2, the E(aX+b) and Var(aX+b) rules, the binomial and Poisson summaries, and a list of four common mistakes including writing E(X^2) - E(X) and using the binomial when p changes between trials"
+    },
+    {
+      "kind": "lecture-transcript",
+      "title": "Lecture 24: Special Continuous Distributions - I",
+      "channel": "NPTEL, Probability and Statistics (IIT Kharagpur, Prof. Somesh Kumar)",
+      "url": "http://www.digimat.in/nptel/courses/video/111105090/lec24.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read from the opening through the variance of the continuous uniform: the density fixed at 1/(b-a) by normalisation, the mean (a+b)/2 by integration, E[X^2] = (a^2+ab+b^2)/3 and the variance (b-a)^2/12 with the standard deviation (b-a)/(2 sqrt 3)"
+    }
+  ],
+  "sourceLine": "The identity Var(X) = E[X^2] - mu^2, the Var(aX+b) rule and the independence condition on Var(X - Y): the GATE Overflow probability notes and the Hindi page (translated), which lists 'writing E(X^2) - E(X)' as one of four common mistakes. A variance computed from first principles for a named distribution: NPTEL Lecture 24, the continuous uniform (English).",
+  "videoRefs": []
+}

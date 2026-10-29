@@ -242,7 +242,7 @@ window.GATE_DATA = {
      {
       "slug": "random-variables-and-distributions",
       "name": "Random Variables and Distributions",
-      "material": "planned"
+      "material": "cards"
      },
      {
       "slug": "mean-median-mode-standard-deviation",
@@ -21319,6 +21319,1201 @@ window.GATE_DATA = {
    "subject": "calculus",
    "topic": "integration",
    "path": "subjects/calculus/integration/iterated-integrals-and-odd-symmetry.json"
+  },
+  {
+   "id": "random-variable-as-a-function",
+   "title": "The Random Variable as a Function",
+   "priority": "P1",
+   "order": 301,
+   "unit": "Random Variables and Distributions",
+   "quickIdea": "A random variable is not a quantity that wobbles; it is a rule that attaches a real number to every outcome of the experiment, so that a question about outcomes becomes a question about numbers.",
+   "remember": [
+    "Formally X is a function from the sample space to the real line, and it must be measurable: every interval of values must correspond to an event whose probability exists. GATE never asks you to check measurability, but the definition explains why probabilities can be transferred to the values.",
+    "A random variable is discrete when its set of values is finite or countably infinite - the number of heads, the number of cars in a minute, the number of testings until a defect is found.",
+    "A random variable is continuous when its values fill an interval - a lifetime, a waiting time, a coordinate. For such a variable P(X = c) = 0 at every single c, because a point has no length.",
+    "The distribution of X is the rule that assigns probability to its values: a probability mass function (PMF) when X is discrete, a probability density function (PDF) when X is continuous.",
+    "Because P(X = c) = 0 for a continuous X, the four inequalities <, <=, >, >= all give the same number. For a discrete X they do not, and that is where the words 'fewer than', 'at most' and 'at least' decide the answer.",
+    "The support of the density is part of the definition: a density that is positive on the whole real line cannot be exponential, and one that is positive only on an interval cannot be normal."
+   ],
+   "example": {
+    "prompt": "Two fair coins are tossed. Let X be the number of heads. Write the distribution of X and check that it is a distribution.",
+    "work": "The sample space is {HH, HT, TH, TT}. The rule gives X(HH) = 2, X(HT) = X(TH) = 1 and X(TT) = 0. Four equally likely outcomes, so P(X = 0) = 1/4, P(X = 1) = 2/4 and P(X = 2) = 1/4. The values are 0, 1 and 2, a finite set, so X is discrete and this table is its PMF.",
+    "answer": "P(0) = 1/4, P(1) = 1/2, P(2) = 1/4, and 1/4 + 1/2 + 1/4 = 1."
+   },
+   "gateAngle": "Two GATE questions turn on nothing but the type of the variable. GATE CSE 2026 Set 2 Q.4 hands you a density and asks which family it belongs to; the answer follows from the support being the whole real line. GATE CSE 2012 Q.21 asks for CDF values at the two points of a two-point variable, where the staircase must be read with <= and not <.",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2026 Set 2 Q.4: the density of a real-valued X is f(x) = (1/(3 sqrt(2 pi))) exp(-x^2/18) on the whole real line. Which one is correct? (A) X is exponential (B) X is normal (C) X is Poisson (D) X is uniform.",
+     "answer": "(B) X is normal.",
+     "why": "Poisson is discrete and has no density at all; the exponential density lives on x >= 0; the uniform density lives on a finite interval. Only the normal density is positive on the whole real line. Reading the exponent further gives 2 sigma^2 = 18, so sigma = 3 and the variance is 9."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "A fair die is rolled until the first six appears, and X is the number of rolls needed. Is X discrete or continuous, and what is P(X = 3)?",
+     "answer": "Discrete; P(X = 3) = (5/6)^2 (1/6) = 25/216.",
+     "why": "X counts rolls, so its values are 1, 2, 3, ... - countably infinite, hence discrete, and the distribution is geometric. The answer needs the first two rolls to miss the six and the third to hit it."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why is P(X = 2) = 0 for a continuous random variable, when the density at 2 may well be large?",
+     "answer": "Because the probability of an interval is the area under the density over that interval, and a single point has zero width, so the area is zero.",
+     "why": "The density is a height, not a probability: it is the probability per unit length. This is why a density may exceed 1 while no probability ever does, and why P(a < X < b) = P(a <= X <= b) for a continuous X."
+    }
+   ],
+   "trap": {
+    "what": "Treating the density value as a probability, or treating a discrete variable's '<' and '<=' as interchangeable.",
+    "why": "The density is a rate. Only its integral over an interval is a probability. And for a discrete variable the point mass at the boundary value is a real quantity that one inequality includes and the other excludes.",
+    "counterexample": "For the exponential density with lambda = 2 the density at 0 is 2, which is not a probability at all, while P(X = 0) = 0. For the 2013 Poisson question, P(X < 3) sums k = 0, 1, 2 and gives 17/(2e^3) = 0.4232, whereas P(X <= 3) would add the k = 3 term and give 0.6472 - different options in the same paper."
+   },
+   "check": {
+    "question": "A random variable takes the value 0 with probability 0.3, and otherwise is uniformly spread over the interval (0, 1). Is it discrete, continuous, or neither?",
+    "answer": "Neither: it is a mixed variable.",
+    "explanation": "Its CDF jumps by 0.3 at 0 and then rises continuously, so it has a point mass (like a discrete variable) and a density on (0, 1) (like a continuous one). GATE's own questions use pure discrete or pure continuous variables, but the existence of mixed cases is why the definition is stated through the CDF."
+   },
+   "pyqIds": [
+    "gate-2026-set2-4-normal-density-identification"
+   ],
+   "prereqs": [],
+   "sources": [
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 13: Random Variables",
+     "channel": "NPTEL, Probability and Statistics (IIT Kharagpur, Prof. Somesh Kumar)",
+     "url": "http://www.digimat.in/nptel/courses/video/111105090/lec13.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read from the opening through the measurability condition: the motivation for replacing outcomes by numbers, the examples (instruments, cricket, rainfall), the informal 'function from omega into R', and the formal definition as a measurable function with the inverse-image condition"
+    },
+    {
+     "kind": "text",
+     "title": "Applied Mathematics, chapter 4: Probability Distributions",
+     "channel": "CBSE Academic (NCERT/CBSE senior secondary manual)",
+     "url": "https://cbseacademic.nic.in/web_material/Manuals/appliedmaths/Chapter4_Probability_Distributions.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read in part: the definition of a random variable as a real-valued function on the sample space, the discrete-versus-continuous contrast with the watch example, the probability-distribution table with the sum-to-one rule, the definition of mathematical expectation and variance, the four Bernoulli-trial conditions, the binomial and Poisson definitions, and the normal density with its mean-median-mode and symmetry facts"
+    },
+    {
+     "kind": "text",
+     "title": "Praayikta bantan: maadhy, prasaran, dvipad bantan (probability distributions: mean, variance, binomial)",
+     "channel": "Coding Marble (Hindi learning page)",
+     "url": "https://learn.codingmarble.com/hi/learn/maths/probability-distributions/",
+     "language": "hi",
+     "transcript": "PARTIAL",
+     "translated": true,
+     "note": "Hindi-language page read in full in its opening sections; every statement taken from it is rendered in English and the cards that use it say so. It gives the random variable as a rule that turns each outcome into a number, the two distribution-table rules, the balance-point reading of E(X), Var(X) = E(X^2) - mu^2, the E(aX+b) and Var(aX+b) rules, the binomial and Poisson summaries, and a list of four common mistakes including writing E(X^2) - E(X) and using the binomial when p changes between trials"
+    }
+   ],
+   "sourceLine": "The definition as a measurable function and the motivation for replacing outcomes by numbers: NPTEL Probability and Statistics Lecture 13 (English, IIT Kharagpur). The discrete-versus-continuous contrast and the distribution-table rules: CBSE Applied Mathematics chapter 4 (English) and the Hindi page on probability distributions (translated). The density as a height rather than a probability: NPTEL Lecture 15 (English).",
+   "videoRefs": [],
+   "subject": "probability-and-statistics",
+   "topic": "random-variables-and-distributions",
+   "path": "subjects/probability-and-statistics/random-variables-and-distributions/random-variable-as-a-function.json"
+  },
+  {
+   "id": "probability-distribution-and-cdf",
+   "title": "The Distribution and the CDF",
+   "priority": "P1",
+   "order": 302,
+   "unit": "Random Variables and Distributions",
+   "quickIdea": "One function answers every probability question about a single variable: F(x) = P(X <= x), the cumulative distribution function. For a discrete variable it is a staircase, for a continuous one it is a smooth curve.",
+   "remember": [
+    "F(x) = P(X <= x) is defined for every real x, not only for the values X takes.",
+    "For a discrete variable F is a staircase: it is flat between values and jumps at each value x by exactly P(X = x). F(-1) in the 2012 question is 0.5, not 0.",
+    "For a continuous variable with density f, F is continuous and F'(x) = f(x) wherever F is differentiable.",
+    "Three properties always hold: F is non-decreasing, F(x) tends to 0 as x tends to minus infinity and to 1 as x tends to plus infinity, and F is right-continuous.",
+    "Interval probabilities: P(a < X <= b) = F(b) - F(a). For a continuous X the strict and weak inequalities give the same number.",
+    "The CDF determines the distribution completely: a distribution can be written as a table, a formula or a CDF, and the three carry the same information."
+   ],
+   "example": {
+    "prompt": "X takes the values +1 and -1 with probability 0.5 each. Find F(-2), F(-1), F(0) and F(1).",
+    "work": "F(-2) = P(X <= -2) = 0 because -2 is below every value. F(-1) = P(X <= -1) = P(X = -1) = 0.5, since the jump happens at -1 and the definition uses <=. F(0) = P(X <= 0) = 0.5, because nothing sits between -1 and 0. F(1) = P(X <= 1) = 0.5 + 0.5 = 1, and F stays 1 to the right of 1.",
+    "answer": "F(-2) = 0, F(-1) = 0.5, F(0) = 0.5, F(1) = 1."
+   },
+   "gateAngle": "GATE CSE 2012 Q.21 is exactly this computation, and its distractor 0 and 0.5 is what you get by reading the jump as belonging to the next point. Whenever a question gives a CDF and asks for a probability, the operation is subtraction: F(b) - F(a).",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2012 Q.21: X takes +1 and -1 with probability 0.5 each. The values of F(x) at x = -1 and x = +1 are (A) 0 and 0.5 (B) 0 and 1 (C) 0.5 and 1 (D) 0.25 and 0.75.",
+     "answer": "(C) 0.5 and 1.",
+     "why": "F(-1) = P(X <= -1) = 0.5 includes the mass at -1 itself; F(1) = P(X <= 1) = 1 adds the mass at +1. Option (A) comes from using < instead of <=, which is the whole point of the question."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "For x >= 0 a variable has F(x) = 1 - e^(-2x), and F(x) = 0 for x < 0. Find P(1 < X <= 2) and the density at x = 1.",
+     "answer": "P(1 < X <= 2) = e^(-2) - e^(-4) = 0.1170, and f(1) = 2 e^(-2) = 0.2707.",
+     "why": "Subtract the CDF: F(2) - F(1) = (1 - e^(-4)) - (1 - e^(-2)). The density is the derivative, F'(x) = 2 e^(-2x), evaluated at 1. This is the exponential family, and it is the same CDF the 2021 question uses in the form P(X > x) = e^(-lambda x)."
+    }
+   ],
+   "trap": {
+    "what": "Using the strict inequality for a discrete variable, or assuming F is continuous when the variable is discrete.",
+    "why": "The definition is P(X <= x). At a point where mass sits, the two readings differ by exactly that mass, which is usually one of the printed options.",
+    "counterexample": "For the 2012 variable, P(X < -1) = 0 while P(X <= -1) = 0.5. Writing the first as F(-1) gives option (A) 0 and 0.5, which is the trap the question is built around."
+   },
+   "check": {
+    "question": "A CDF is F(x) = 0 for x < 0, F(x) = x/4 for 0 <= x < 4, and F(x) = 1 for x >= 4. What is P(1 < X <= 3)?",
+    "answer": "0.5.",
+    "explanation": "F(3) - F(1) = 3/4 - 1/4 = 0.5. The variable is continuous and uniform on (0, 4), so the answer is also the length 2 divided by the total length 4."
+   },
+   "pyqIds": [
+    "gate-2012-21-cdf-at-minus-one-and-one"
+   ],
+   "prereqs": [
+    "random-variable-as-a-function"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 15: Probability Distribution of a Random Variable - II",
+     "channel": "NPTEL, Probability and Statistics (IIT Kharagpur, Prof. Somesh Kumar)",
+     "url": "http://www.digimat.in/nptel/courses/video/111105090/lec15.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read from the opening through the definition of the density: the discrete PMF worked on a four-bulb package, the definition of a continuous random variable through an absolutely continuous CDF, the density as the derivative of the CDF, and the two conditions (non-negative, integrates to 1) with the interval formula F(b) - F(a)"
+    },
+    {
+     "kind": "text",
+     "title": "GATE Overflow for GATE CSE Volume 1 - Engineering Mathematics: Probability",
+     "channel": "GATE Overflow",
+     "url": "https://gateoverflow.in/subject/mathematics/probability?tab=notes",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read in part through the search service's extract: the Bernoulli, binomial, exponential, Poisson and normal summaries with their means, variances and pitfalls, the random-variable section, and the 'Important Tips for GATE' list including the Var(X - Y) = Var(X) + Var(Y) condition and the exponential rate-versus-mean warning"
+    },
+    {
+     "kind": "text",
+     "title": "Applied Mathematics, chapter 4: Probability Distributions",
+     "channel": "CBSE Academic (NCERT/CBSE senior secondary manual)",
+     "url": "https://cbseacademic.nic.in/web_material/Manuals/appliedmaths/Chapter4_Probability_Distributions.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read in part: the definition of a random variable as a real-valued function on the sample space, the discrete-versus-continuous contrast with the watch example, the probability-distribution table with the sum-to-one rule, the definition of mathematical expectation and variance, the four Bernoulli-trial conditions, the binomial and Poisson definitions, and the normal density with its mean-median-mode and symmetry facts"
+    }
+   ],
+   "sourceLine": "The definition of the CDF, the absolutely-continuous case and the density as its derivative: NPTEL Probability and Statistics Lecture 15 (English, IIT Kharagpur). The GATE framing of the staircase and the pitfall list: GATE Overflow probability notes (English, read in part). The probability-distribution table and the sum-to-one rule: CBSE Applied Mathematics chapter 4 (English).",
+   "videoRefs": [],
+   "subject": "probability-and-statistics",
+   "topic": "random-variables-and-distributions",
+   "path": "subjects/probability-and-statistics/random-variables-and-distributions/probability-distribution-and-cdf.json"
+  },
+  {
+   "id": "pmf-pdf-normalisation-and-interval-probability",
+   "title": "Normalising a Density and Reading an Interval",
+   "priority": "P1",
+   "order": 303,
+   "unit": "Random Variables and Distributions",
+   "quickIdea": "Every density carries an unknown constant until you impose total probability 1; fix the constant first, then integrate over the interval the question asks about.",
+   "remember": [
+    "A PDF must satisfy two conditions: f(x) >= 0 everywhere, and the integral of f over the whole real line equals 1. The second condition alone fixes any unknown constant.",
+    "A probability is an integral of the density over an interval, P(a <= X <= b) = F(b) - F(a), not the height of the density at a point.",
+    "A density may exceed 1: the uniform density on (0, 0.5) is 2. A probability may not, so any computed probability outside [0, 1] is a signal that the constant was never fixed.",
+    "For a discrete variable the same normalisation appears as a sum: the probabilities of all values must add to 1, which is how a missing table entry is found.",
+    "Support matters: integrate only over the part of the interval where the density is positive. For the 2025 question the density is zero outside [1, 4], so the limits are 1 and 4 for the constant and 2 and 3 for the probability.",
+    "Two quick sanity checks cost seconds: the total must be 1, and the answer must lie between 0 and 1."
+   ],
+   "example": {
+    "prompt": "The density of X is C x^2 for 1 <= x <= 4 and 0 elsewhere. Find C, then P(2 <= x <= 3).",
+    "work": "Normalise: the integral of C x^2 from 1 to 4 is C [x^3/3] from 1 to 4 = C (64 - 1)/3 = 21C, so C = 1/21. Then P(2 <= x <= 3) = (1/21) [x^3/3] from 2 to 3 = (1/21)(27 - 8)/3 = 19/63.",
+    "answer": "C = 1/21 and P(2 <= x <= 3) = 19/63 = 0.3016, which rounds to 0.302."
+   },
+   "gateAngle": "GATE CSE 2025 Set 1 Q.48 is this exact computation, and its stated trap is the one to memorise: integrating x^2 from 2 to 3 without the constant gives 19/3, a 'probability' of 6.33. Any answer above 1 means the normalisation step was skipped.",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2025 Set 1 Q.48: P(x) = C x^2 for 1 <= x <= 4 and 0 otherwise. The probability that x lies between 2 and 3 is ______ (three decimal places).",
+     "answer": "0.302 (19/63 = 0.30159).",
+     "why": "C = 1/21 from the normalisation, then the interval integral gives 19/63. The official key accepts 0.300 to 0.302, and the range exists because of rounding at the third decimal."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "The density of X is k x for 0 <= x <= 2 and 0 elsewhere. Find k and P(X > 1).",
+     "answer": "k = 1/2 and P(X > 1) = 3/4.",
+     "why": "The integral of kx from 0 to 2 is 2k, so k = 1/2. Then P(X > 1) = the integral of x/2 from 1 to 2 = (4 - 1)/4 = 0.75. The density at x = 2 is 1, which is a height, not a probability."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "The density of X is C(1 + x) for 0 <= x <= 1. Find C and P(X <= 1/2).",
+     "answer": "C = 2/3 and P(X <= 1/2) = 5/12.",
+     "why": "The integral of C(1+x) from 0 to 1 is C(1 + 1/2) = 3C/2, so C = 2/3. Then P(X <= 1/2) = (2/3)[x + x^2/2] from 0 to 1/2 = (2/3)(1/2 + 1/8) = (2/3)(5/8) = 5/12. The variation replaces a pure power by a shifted one, so the normalising integral is no longer a single term."
+    }
+   ],
+   "trap": {
+    "what": "Integrating over the asked interval without first fixing the constant, or integrating over the wrong limits.",
+    "why": "The constant is what makes the object a density at all; without it every number computed from it is meaningless. And the limits of the normalising integral are the support, not the interval asked about.",
+    "counterexample": "Skipping the constant in the 2025 question gives 19/3 = 6.33, which is larger than 1 and so cannot be a probability. Using the limits 0 to 4 instead of 1 to 4 gives C = 3/64 and a final answer of 0.148 instead of 0.302."
+   },
+   "check": {
+    "question": "The density of X is 1/(b - a) on (a, b). What is P(X > (a + b)/2)?",
+    "answer": "1/2.",
+    "explanation": "The upper half of the interval has length (b - a)/2, and the density is constant, so the probability is ((b - a)/2)/(b - a) = 1/2. That is the uniform distribution, whose mean is the midpoint - so exactly half the mass lies above the mean."
+   },
+   "pyqIds": [
+    "gate-2025-set1-48-density-normalisation-interval"
+   ],
+   "prereqs": [
+    "probability-distribution-and-cdf",
+    "definite-integral-as-signed-area"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 15: Probability Distribution of a Random Variable - II",
+     "channel": "NPTEL, Probability and Statistics (IIT Kharagpur, Prof. Somesh Kumar)",
+     "url": "http://www.digimat.in/nptel/courses/video/111105090/lec15.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read from the opening through the definition of the density: the discrete PMF worked on a four-bulb package, the definition of a continuous random variable through an absolutely continuous CDF, the density as the derivative of the CDF, and the two conditions (non-negative, integrates to 1) with the interval formula F(b) - F(a)"
+    },
+    {
+     "kind": "text",
+     "title": "GATE Overflow for GATE CSE Volume 1 - Engineering Mathematics: Probability",
+     "channel": "GATE Overflow",
+     "url": "https://gateoverflow.in/subject/mathematics/probability?tab=notes",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read in part through the search service's extract: the Bernoulli, binomial, exponential, Poisson and normal summaries with their means, variances and pitfalls, the random-variable section, and the 'Important Tips for GATE' list including the Var(X - Y) = Var(X) + Var(Y) condition and the exponential rate-versus-mean warning"
+    },
+    {
+     "kind": "text",
+     "title": "Praayikta bantan: maadhy, prasaran, dvipad bantan (probability distributions: mean, variance, binomial)",
+     "channel": "Coding Marble (Hindi learning page)",
+     "url": "https://learn.codingmarble.com/hi/learn/maths/probability-distributions/",
+     "language": "hi",
+     "transcript": "PARTIAL",
+     "translated": true,
+     "note": "Hindi-language page read in full in its opening sections; every statement taken from it is rendered in English and the cards that use it say so. It gives the random variable as a rule that turns each outcome into a number, the two distribution-table rules, the balance-point reading of E(X), Var(X) = E(X^2) - mu^2, the E(aX+b) and Var(aX+b) rules, the binomial and Poisson summaries, and a list of four common mistakes including writing E(X^2) - E(X) and using the binomial when p changes between trials"
+    }
+   ],
+   "sourceLine": "The two conditions on a density and the interval formula: NPTEL Probability and Statistics Lecture 15 (English). The GATE statement of the same trap, that a computed probability outside [0, 1] means the constant was forgotten: the Knowledge Gate walkthrough of the 2025 question and the GATE Overflow probability notes (English). The Hindi page states the area-under-the-curve reading and the zero probability of a single value (translated).",
+   "videoRefs": [],
+   "subject": "probability-and-statistics",
+   "topic": "random-variables-and-distributions",
+   "path": "subjects/probability-and-statistics/random-variables-and-distributions/pmf-pdf-normalisation-and-interval-probability.json"
+  },
+  {
+   "id": "expectation-and-linearity",
+   "title": "Expectation and Linearity",
+   "priority": "P1",
+   "order": 304,
+   "unit": "Random Variables and Distributions",
+   "quickIdea": "Expectation is the probability-weighted average of the values, and it is linear: averages of sums are sums of averages, always, with no independence needed.",
+   "remember": [
+    "Discrete: E[X] = the sum of x P(X = x) over the values. Continuous: E[X] = the integral of x f(x) dx.",
+    "E[g(X)] = the sum (or integral) of g(x) times the probability (or density) - you never need the distribution of g(X) to average g(X).",
+    "Linearity: E[aX + b] = a E[X] + b, and E[X + Y] = E[X] + E[Y] for any two variables, dependent or not.",
+    "The expectation need not be a value the variable can take: a fair die has E[X] = 3.5.",
+    "Check that the probabilities sum to 1 before averaging; the Hindi page lists exactly this as the first common mistake, and it is the cheapest check in the exam.",
+    "The mean of a symmetric distribution is its centre of symmetry, so for the uniform it is (a + b)/2, for the normal it is mu, and for the exponential it is 1/lambda - all of which follow from the definition rather than being separate facts."
+   ],
+   "example": {
+    "prompt": "X takes the values 1 to 8 with P(1) = P(2) = P(5) = P(7) = 1/6 and P(3) = P(4) = P(6) = P(8) = 1/12. Find E[X].",
+    "work": "Group the two kinds of value: E[X] = (1/6)(1 + 2 + 5 + 7) + (1/12)(3 + 4 + 6 + 8) = 15/6 + 21/12 = 2.5 + 1.75 = 4.25. The check: four values at 1/6 and four at 1/12 give 4/6 + 4/12 = 2/3 + 1/3 = 1, so the table is a distribution.",
+    "answer": "E[X] = 51/12 = 4.25."
+   },
+   "gateAngle": "GATE CSE 2026 Set 1 Q.48 is this computation, and the marks are lost by adding the eight values and dividing by 8 - that gives 4.5, the answer for the uniform distribution on the same support, not for this one. The grouping shortcut (equal probabilities collected first) is what makes it a one-minute question.",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2026 Set 1 Q.48: X takes values in {1,...,8} with P(1) = P(2) = P(5) = P(7) = 1/6 and P(3) = P(4) = P(6) = P(8) = 1/12. The expected value E[X] is ______ (two decimal places).",
+     "answer": "4.25.",
+     "why": "E[X] = 15/6 + 21/12 = 51/12 = 4.25. The answer 4.5 is the trap: it is the mean of the uniform distribution on {1,...,8}, which this is not, since the eight values do not carry equal probability."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "X takes the value 0 with probability 0.5, 1 with probability 0.3 and 2 with probability 0.2. Find E[X] and E[3X + 4].",
+     "answer": "E[X] = 0.7 and E[3X + 4] = 6.1.",
+     "why": "E[X] = 0(0.5) + 1(0.3) + 2(0.2) = 0.7. By linearity E[3X + 4] = 3(0.7) + 4 = 6.1, which is faster than recomputing the distribution of 3X + 4, and the two routes must agree."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Two variables have E[X] = 2 and E[Y] = 5 and are not independent. What is E[X + Y]?",
+     "answer": "7, whatever the dependence.",
+     "why": "Linearity of expectation needs no independence. Only multiplicative statements such as E[XY] = E[X]E[Y], and the addition of variances, need it. GATE has used this distinction to build options that are true for independent variables only."
+    }
+   ],
+   "trap": {
+    "what": "Averaging the values without their probabilities, or dividing by the count of values instead of weighting.",
+    "why": "The distribution is a weighting, not a list. Treating the values as equally likely silently replaces the question with a different one.",
+    "counterexample": "For the 2026 Set 1 distribution, the unweighted average of 1 to 8 is 4.5, while the correct expectation is 4.25. The two differ exactly because the four small probabilities sit on the larger values 3, 4, 6 and 8, pulling the mean down."
+   },
+   "check": {
+    "question": "A fair six-sided die is rolled. What are E[X] and E[X^2]?",
+    "answer": "E[X] = 3.5 and E[X^2] = 91/6 = 15.1667.",
+    "explanation": "E[X] = (1 + 2 + 3 + 4 + 5 + 6)/6 = 21/6 = 3.5. E[X^2] = (1 + 4 + 9 + 16 + 25 + 36)/6 = 91/6. Note E[X^2] is not (E[X])^2 = 12.25; the gap between them is the variance."
+   },
+   "pyqIds": [
+    "gate-2026-set1-48-expectation-of-discrete-rv"
+   ],
+   "prereqs": [
+    "random-variable-as-a-function",
+    "probability-distribution-and-cdf"
+   ],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "GATE Overflow for GATE CSE Volume 1 - Engineering Mathematics: Probability",
+     "channel": "GATE Overflow",
+     "url": "https://gateoverflow.in/subject/mathematics/probability?tab=notes",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read in part through the search service's extract: the Bernoulli, binomial, exponential, Poisson and normal summaries with their means, variances and pitfalls, the random-variable section, and the 'Important Tips for GATE' list including the Var(X - Y) = Var(X) + Var(Y) condition and the exponential rate-versus-mean warning"
+    },
+    {
+     "kind": "text",
+     "title": "Praayikta bantan: maadhy, prasaran, dvipad bantan (probability distributions: mean, variance, binomial)",
+     "channel": "Coding Marble (Hindi learning page)",
+     "url": "https://learn.codingmarble.com/hi/learn/maths/probability-distributions/",
+     "language": "hi",
+     "transcript": "PARTIAL",
+     "translated": true,
+     "note": "Hindi-language page read in full in its opening sections; every statement taken from it is rendered in English and the cards that use it say so. It gives the random variable as a rule that turns each outcome into a number, the two distribution-table rules, the balance-point reading of E(X), Var(X) = E(X^2) - mu^2, the E(aX+b) and Var(aX+b) rules, the binomial and Poisson summaries, and a list of four common mistakes including writing E(X^2) - E(X) and using the binomial when p changes between trials"
+    },
+    {
+     "kind": "text",
+     "title": "Applied Mathematics, chapter 4: Probability Distributions",
+     "channel": "CBSE Academic (NCERT/CBSE senior secondary manual)",
+     "url": "https://cbseacademic.nic.in/web_material/Manuals/appliedmaths/Chapter4_Probability_Distributions.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read in part: the definition of a random variable as a real-valued function on the sample space, the discrete-versus-continuous contrast with the watch example, the probability-distribution table with the sum-to-one rule, the definition of mathematical expectation and variance, the four Bernoulli-trial conditions, the binomial and Poisson definitions, and the normal density with its mean-median-mode and symmetry facts"
+    },
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 19: Special Discrete Distributions - I",
+     "channel": "NPTEL, Probability and Statistics (IIT Kharagpur, Prof. Somesh Kumar)",
+     "url": "http://www.digimat.in/nptel/courses/video/111105090/lec19.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read from the opening through the Bernoulli distribution: the discrete uniform PMF with its mean (N+1)/2 and variance (N^2-1)/12 derived term by term, the moment generating function, the degenerate distribution, and the Bernoulli trial setup"
+    }
+   ],
+   "sourceLine": "The definition, the function-of-X rule and linearity: the GATE Overflow probability notes and CBSE Applied Mathematics chapter 4 (English). The balance-point reading and the 'check that the probabilities sum to 1 first' warning: the Hindi page on probability distributions (translated). A worked mean computed term by term from a PMF: NPTEL Lecture 19, the discrete uniform mean (English).",
+   "videoRefs": [],
+   "visual": "probability-and-statistics/random-variables-and-distributions/pmf-cdf-and-the-balance-point",
+   "subject": "probability-and-statistics",
+   "topic": "random-variables-and-distributions",
+   "path": "subjects/probability-and-statistics/random-variables-and-distributions/expectation-and-linearity.json"
+  },
+  {
+   "id": "variance-and-standard-deviation",
+   "title": "Variance and Standard Deviation",
+   "priority": "P1",
+   "order": 305,
+   "unit": "Random Variables and Distributions",
+   "quickIdea": "Variance is the average squared distance from the mean, and the identity Var(X) = E[X^2] - (E[X])^2 is the only version you should ever compute with.",
+   "remember": [
+    "Var(X) = E[(X - mu)^2] = E[X^2] - mu^2, with mu = E[X]. The second form is the working one; the first explains what is being measured.",
+    "Standard deviation is the square root of the variance, so it carries the same units as X. A variance in 'years squared' is not a useful width; a standard deviation in years is.",
+    "Var(aX + b) = a^2 Var(X). The shift b disappears entirely, and the scale a is squared - a common error is to write a Var(X) or to keep b.",
+    "Var(X + Y) = Var(X) + Var(Y) when X and Y are independent (more precisely, uncorrelated). Without that condition nothing can be said, and Var(X - Y) = Var(X) + Var(Y) - not a difference - under independence.",
+    "Var(X) >= 0 always, so a negative computed variance is proof of an arithmetic slip, usually in E[X^2].",
+    "Variance is not linear in the mean: shifting a distribution does not change its spread at all, which is exactly why b vanishes."
+   ],
+   "example": {
+    "prompt": "X has a Poisson distribution with mean 5. Find E[X^2] and E[(X + 2)^2].",
+    "work": "For a Poisson variable the variance equals the mean, so Var(X) = 5. Then E[X^2] = Var(X) + (E[X])^2 = 5 + 25 = 30. Expand the square: E[(X+2)^2] = E[X^2] + 4E[X] + 4 = 30 + 20 + 4 = 54.",
+    "answer": "E[X^2] = 30 and E[(X + 2)^2] = 54."
+   },
+   "gateAngle": "GATE CSE 2017 Set 2 Q.48 is this computation as a numerical-answer question, and it is decided by knowing that a Poisson variable's variance equals its mean. The second route - computing Var(X + 2) = 5 and E[X + 2] = 7, then E[(X+2)^2] = 5 + 49 - gives the same 54 and is a useful cross-check.",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2017 Set 2 Q.48: X is Poisson with mean 5. The expectation E[(x + 2)^2] equals ______.",
+     "answer": "54.",
+     "why": "E[X^2] = 30 from Var = mean = 5, so E[(X+2)^2] = 30 + 4(5) + 4 = 54. Equivalently E[X+2] = 7 and Var(X+2) = 5, so E[(X+2)^2] = 5 + 49 = 54."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "A fair die is rolled and Y = 2X + 3, where X is the face value. Find Var(Y).",
+     "answer": "35/3 = 11.6667.",
+     "why": "E[X] = 3.5 and E[X^2] = 91/6, so Var(X) = 91/6 - 49/4 = 35/12. Then Var(2X + 3) = 4 Var(X) = 35/3. The constant 3 does not enter at all."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "X and Y are independent with Var(X) = 4 and Var(Y) = 9. Find Var(2X - Y).",
+     "answer": "25.",
+     "why": "Var(2X - Y) = 4 Var(X) + Var(Y) = 16 + 9 = 25, because the minus sign disappears under the square and independence lets the variances add. Writing 16 - 9 = 7 is the standard wrong option."
+    }
+   ],
+   "trap": {
+    "what": "Writing Var(X) = E[X^2] - E[X], or subtracting variances of a difference.",
+    "why": "The identity subtracts the square of the mean, not the mean. And a difference of independent variables has a larger variance than either, because the fluctuations add.",
+    "counterexample": "For a fair die, E[X^2] - E[X] = 91/6 - 3.5 = 11.667, while the true variance is 35/12 = 2.917 - a factor of four out. For two independent variables with variances 4 and 9, Var(X - Y) = 13, not -5."
+   },
+   "check": {
+    "question": "X is uniform on {1, 2, ..., 6}. Find Var(X) and the standard deviation.",
+    "answer": "Var(X) = 35/12 = 2.9167 and sd = 1.7078.",
+    "explanation": "E[X] = 3.5 and E[X^2] = 91/6, so Var(X) = 91/6 - 49/4 = (182 - 147)/12 = 35/12. The formula (N^2 - 1)/12 for the discrete uniform on {1,...,N} gives (36 - 1)/12 = 35/12 as a check."
+   },
+   "pyqIds": [
+    "gate-2017-set2-48-poisson-expectation-x-plus-2"
+   ],
+   "prereqs": [
+    "expectation-and-linearity"
+   ],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "GATE Overflow for GATE CSE Volume 1 - Engineering Mathematics: Probability",
+     "channel": "GATE Overflow",
+     "url": "https://gateoverflow.in/subject/mathematics/probability?tab=notes",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read in part through the search service's extract: the Bernoulli, binomial, exponential, Poisson and normal summaries with their means, variances and pitfalls, the random-variable section, and the 'Important Tips for GATE' list including the Var(X - Y) = Var(X) + Var(Y) condition and the exponential rate-versus-mean warning"
+    },
+    {
+     "kind": "text",
+     "title": "Praayikta bantan: maadhy, prasaran, dvipad bantan (probability distributions: mean, variance, binomial)",
+     "channel": "Coding Marble (Hindi learning page)",
+     "url": "https://learn.codingmarble.com/hi/learn/maths/probability-distributions/",
+     "language": "hi",
+     "transcript": "PARTIAL",
+     "translated": true,
+     "note": "Hindi-language page read in full in its opening sections; every statement taken from it is rendered in English and the cards that use it say so. It gives the random variable as a rule that turns each outcome into a number, the two distribution-table rules, the balance-point reading of E(X), Var(X) = E(X^2) - mu^2, the E(aX+b) and Var(aX+b) rules, the binomial and Poisson summaries, and a list of four common mistakes including writing E(X^2) - E(X) and using the binomial when p changes between trials"
+    },
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 24: Special Continuous Distributions - I",
+     "channel": "NPTEL, Probability and Statistics (IIT Kharagpur, Prof. Somesh Kumar)",
+     "url": "http://www.digimat.in/nptel/courses/video/111105090/lec24.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read from the opening through the variance of the continuous uniform: the density fixed at 1/(b-a) by normalisation, the mean (a+b)/2 by integration, E[X^2] = (a^2+ab+b^2)/3 and the variance (b-a)^2/12 with the standard deviation (b-a)/(2 sqrt 3)"
+    }
+   ],
+   "sourceLine": "The identity Var(X) = E[X^2] - mu^2, the Var(aX+b) rule and the independence condition on Var(X - Y): the GATE Overflow probability notes and the Hindi page (translated), which lists 'writing E(X^2) - E(X)' as one of four common mistakes. A variance computed from first principles for a named distribution: NPTEL Lecture 24, the continuous uniform (English).",
+   "videoRefs": [],
+   "subject": "probability-and-statistics",
+   "topic": "random-variables-and-distributions",
+   "path": "subjects/probability-and-statistics/random-variables-and-distributions/variance-and-standard-deviation.json"
+  },
+  {
+   "id": "binomial-distribution",
+   "title": "The Binomial Distribution",
+   "priority": "P1",
+   "order": 306,
+   "unit": "Random Variables and Distributions",
+   "quickIdea": "Count the successes in a fixed number of independent trials with a constant success probability: P(X = k) = C(n,k) p^k (1-p)^(n-k), with mean np and variance np(1-p).",
+   "remember": [
+    "The four conditions, all of which must hold: a fixed number n of trials, exactly two outcomes per trial, the same p in every trial, and independence between trials.",
+    "PMF: P(X = k) = C(n,k) p^k (1 - p)^(n-k) for k = 0, 1, ..., n. Mean np, variance np(1 - p), standard deviation sqrt(np(1-p)).",
+    "The single Bernoulli trial is the case n = 1, with mean p and variance p(1-p).",
+    "Sampling without replacement from a finite population breaks the constant-p condition: the counts are then hypergeometric, not binomial. The binomial is the with-replacement model.",
+    "'At least one' is almost always faster by complement: P(X >= 1) = 1 - (1-p)^n.",
+    "When n is large and p is small with np moderate, the binomial is well approximated by a Poisson with lambda = np; this is the bridge between the two cards."
+   ],
+   "example": {
+    "prompt": "A set has 2n elements and an unbiased coin is tossed for each. An element is chosen when its toss is a head. What is the probability that exactly n elements are chosen?",
+    "work": "The number of chosen elements is a binomial variable with n_trials = 2n and p = 1/2. So P(X = n) = C(2n, n) (1/2)^n (1/2)^n = C(2n, n)/4^n. For n = 5 the value is 252/1024 = 0.2461.",
+    "answer": "C(2n, n)/4^n, which is 0.2461 at n = 5."
+   },
+   "gateAngle": "GATE CSE 2006 Q.21 is this question, and the options are built from the two mistakes: dividing by 2^n instead of 4^n, and inverting the fraction. The count C(2n, n) is the number of ways to choose which n of the 2n tosses are heads, and 4^n is the total number of toss sequences - the two ingredients of every binomial computation.",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2006 Q.21: for each element of a set of size 2n an unbiased coin is tossed independently, and the element is chosen on a head. The probability that exactly n elements are chosen is (A) C(2n,n)/4^n (B) C(2n,n)/2^n (C) 1/C(2n,n) (D) 1/2.",
+     "answer": "(A) C(2n,n)/4^n.",
+     "why": "Binomial with 2n trials and p = 1/2: the count of favourable sequences is C(2n,n) and each sequence has probability (1/2)^(2n) = 1/4^n. Option (D) is the tempting 'half the elements' answer, which is the mean divided by 2n, not a probability of an exact count."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "A coin with P(head) = 0.4 is tossed 10 times. Find the probability of exactly 3 heads and the mean and variance of the count.",
+     "answer": "P(X = 3) = C(10,3)(0.4)^3(0.6)^7 = 0.2150; mean 4, variance 2.4.",
+     "why": "C(10,3) = 120, and 120 x 0.064 x 0.02799 = 0.2150. The mean is np = 4 and the variance np(1-p) = 2.4, so the standard deviation is 1.549 - which is the quantity GATE asked for in 2024 Set 2 Q.8."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why is drawing 5 bulbs without replacement from a box of 20 containing 4 defectives not a binomial experiment?",
+     "answer": "Because the probability of a defective changes after each draw, so p is not constant across trials.",
+     "why": "The first draw is defective with probability 4/20; if it is defective, the second is defective with probability 3/19. Only with replacement would p stay at 1/5 and the count be binomial; without replacement the count is hypergeometric."
+    }
+   ],
+   "trap": {
+    "what": "Using the binomial when p changes between trials, or forgetting the binomial coefficient.",
+    "why": "The coefficient counts the orderings of the successes; without it you have the probability of one specific sequence, not of the count.",
+    "counterexample": "P(exactly 3 heads in 10 tosses) = C(10,3)/1024 = 0.1172, whereas the probability of one particular sequence with 3 heads and 7 tails is 1/1024 = 0.001. Dropping the coefficient is off by a factor of 120."
+   },
+   "check": {
+    "question": "A fair coin is tossed 6 times. What is the probability of at least one head?",
+    "answer": "63/64 = 0.9844.",
+    "explanation": "By the complement, P(at least one head) = 1 - P(no heads) = 1 - (1/2)^6 = 63/64. Summing the binomial probabilities for k = 1 to 6 gives the same number and takes six times as long."
+   },
+   "pyqIds": [
+    "gate-2006-21-exactly-n-of-2n-chosen"
+   ],
+   "prereqs": [
+    "probability-distribution-and-cdf",
+    "expectation-and-linearity"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 19: Special Discrete Distributions - I",
+     "channel": "NPTEL, Probability and Statistics (IIT Kharagpur, Prof. Somesh Kumar)",
+     "url": "http://www.digimat.in/nptel/courses/video/111105090/lec19.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read from the opening through the Bernoulli distribution: the discrete uniform PMF with its mean (N+1)/2 and variance (N^2-1)/12 derived term by term, the moment generating function, the degenerate distribution, and the Bernoulli trial setup"
+    },
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 20: Special Discrete Distributions - II",
+     "channel": "NPTEL, Probability and Statistics (IIT Kharagpur, Prof. Somesh Kumar)",
+     "url": "http://www.digimat.in/nptel/courses/video/111105090/lec20.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read from the opening through the negative binomial: the airline overbooking example solved as binomial(52, 0.95), the geometric distribution as the waiting time for the first success, and the negative binomial for the r-th success"
+    },
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 21: Special Discrete Distributions - III",
+     "channel": "NPTEL, Probability and Statistics (IIT Kharagpur, Prof. Somesh Kumar)",
+     "url": "http://www.digimat.in/nptel/courses/video/111105090/lec21.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read from the opening through the moments of the hypergeometric: why sampling without replacement breaks the constant-p assumption, the hypergeometric PMF and its range of validity, and the capture-recapture application. This is the lecture that marks the boundary of the binomial card"
+    },
+    {
+     "kind": "text",
+     "title": "Applied Mathematics, chapter 4: Probability Distributions",
+     "channel": "CBSE Academic (NCERT/CBSE senior secondary manual)",
+     "url": "https://cbseacademic.nic.in/web_material/Manuals/appliedmaths/Chapter4_Probability_Distributions.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read in part: the definition of a random variable as a real-valued function on the sample space, the discrete-versus-continuous contrast with the watch example, the probability-distribution table with the sum-to-one rule, the definition of mathematical expectation and variance, the four Bernoulli-trial conditions, the binomial and Poisson definitions, and the normal density with its mean-median-mode and symmetry facts"
+    },
+    {
+     "kind": "text",
+     "title": "Praayikta bantan: maadhy, prasaran, dvipad bantan (probability distributions: mean, variance, binomial)",
+     "channel": "Coding Marble (Hindi learning page)",
+     "url": "https://learn.codingmarble.com/hi/learn/maths/probability-distributions/",
+     "language": "hi",
+     "transcript": "PARTIAL",
+     "translated": true,
+     "note": "Hindi-language page read in full in its opening sections; every statement taken from it is rendered in English and the cards that use it say so. It gives the random variable as a rule that turns each outcome into a number, the two distribution-table rules, the balance-point reading of E(X), Var(X) = E(X^2) - mu^2, the E(aX+b) and Var(aX+b) rules, the binomial and Poisson summaries, and a list of four common mistakes including writing E(X^2) - E(X) and using the binomial when p changes between trials"
+    }
+   ],
+   "sourceLine": "The Bernoulli trial setup and the discrete uniform contrast: NPTEL Lecture 19 (English). A binomial application solved end to end, the airline overbooking example with binomial(52, 0.95): NPTEL Lecture 20 (English). The boundary of the model, sampling without replacement and the hypergeometric: NPTEL Lecture 21 (English). The four trial conditions in one list: CBSE Applied Mathematics chapter 4 (English). The mean np and variance np(1-p) with the 'p changing between trials' warning: the Hindi page (translated).",
+   "videoRefs": [],
+   "subject": "probability-and-statistics",
+   "topic": "random-variables-and-distributions",
+   "path": "subjects/probability-and-statistics/random-variables-and-distributions/binomial-distribution.json"
+  },
+  {
+   "id": "poisson-distribution",
+   "title": "The Poisson Distribution",
+   "priority": "P1",
+   "order": 307,
+   "unit": "Random Variables and Distributions",
+   "quickIdea": "Count the events in a fixed window of time or space when they occur independently at a constant rate: P(X = k) = e^(-lambda) lambda^k / k!, and the mean and variance are both lambda.",
+   "remember": [
+    "PMF: P(X = k) = e^(-lambda) lambda^k / k! for k = 0, 1, 2, ...; mean = variance = lambda; standard deviation sqrt(lambda).",
+    "The three assumptions of the Poisson process: counts in disjoint intervals are independent, the probability of one event in a short interval is proportional to its length, and the probability of two or more events in a short interval is negligible.",
+    "lambda is a rate per unit window, so it scales with the window: 5 customers per minute means lambda t = 15 for a three-minute window.",
+    "Cumulative questions are sums: P(X < 3) = P(0) + P(1) + P(2) = e^(-lambda)(1 + lambda + lambda^2/2).",
+    "'Fewer than 3' stops at 2, 'at most 3' includes 3, and 'at least one' is 1 - e^(-lambda).",
+    "Mean equals variance is the identifying signature: any question that gives one of them gives the other for free, which is exactly what the 2017 question exploits."
+   ],
+   "example": {
+    "prompt": "Cars pass a junction at 3 per minute, Poisson distributed. What is the probability of observing fewer than 3 cars in a given minute?",
+    "work": "lambda = 3, and 'fewer than 3' means k = 0, 1, 2. P(0) = e^(-3), P(1) = 3 e^(-3), P(2) = (9/2) e^(-3). Sum: e^(-3)(1 + 3 + 4.5) = 8.5 e^(-3) = 17/(2 e^3).",
+    "answer": "17/(2 e^3) = 0.4232."
+   },
+   "gateAngle": "GATE CSE 2013 Q.2 is this question with all four options written over 2e^3, so the whole paper reduces to the numerator 17. GATE CSE 2017 Set 2 Q.48 uses the same distribution from the other side, where mean = variance = lambda supplies E[X^2]. The pair is worth remembering: one question about a cumulative probability, one about a moment.",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2013 Q.2: p, the number of cars per minute at a junction, is Poisson with mean 3. The probability of observing fewer than 3 cars in a given minute is (A) 8/(2e^3) (B) 9/(2e^3) (C) 17/(2e^3) (D) 26/(2e^3).",
+     "answer": "(C) 17/(2e^3) = 0.4232.",
+     "why": "Summing k = 0, 1, 2 gives e^(-3)(1 + 3 + 9/2) = (17/2) e^(-3). Option (D) 26/(2e^3) is what you get by including k = 3, that is by reading 'fewer than' as 'at most'."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "A web server receives 4 requests per second, Poisson distributed. Find the probability of exactly 0 requests in a second and of more than 8 requests in two seconds.",
+     "answer": "P(0) = e^(-4) = 0.0183; for the two-second window lambda = 8 and P(X > 8) = 1 - P(X <= 8) = 0.4075.",
+     "why": "The rate must be rescaled to the window before the formula is used: lambda = 4 x 2 = 8. Summing the Poisson probabilities for k = 0 to 8 with lambda = 8 gives 0.5925, and the complement is 0.4075."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "X is Poisson with mean 2. Given that E[X^2] = 6, find the second moment of X + 1.",
+     "answer": "E[(X+1)^2] = 6 + 2(2) + 1 = 11.",
+     "why": "This is the 2017 pattern with lambda = 2 instead of 5: expand the square and use E[X] = 2 and E[X^2] = 6. The variation checks that the expansion, not the particular value 5, is what carries the marks."
+    }
+   ],
+   "trap": {
+    "what": "Forgetting to rescale lambda to the window in the question, or reading 'fewer than k' as including k.",
+    "why": "lambda is a rate per unit, so a two-minute window doubles it. And the cumulative sum stops one short of k under 'fewer than'.",
+    "counterexample": "For the mall example at 5 customers per minute, the probability of exactly 2 customers in 3 minutes is e^(-15)(15^2/2) = 0.0000 to four decimals, while using lambda = 5 gives 0.0842 - the wrong window gives a number 2000 times too large."
+   },
+   "check": {
+    "question": "X is Poisson with mean 2. Find P(X = 0), P(X >= 1) and the standard deviation.",
+    "answer": "P(X = 0) = e^(-2) = 0.1353, P(X >= 1) = 0.8647, sd = sqrt(2) = 1.4142.",
+    "explanation": "P(0) = e^(-2) directly from the PMF, and the complement gives P(X >= 1). The standard deviation is the square root of the variance, which equals the mean 2."
+   },
+   "pyqIds": [
+    "gate-2013-2-poisson-fewer-than-three-cars"
+   ],
+   "prereqs": [
+    "probability-distribution-and-cdf",
+    "binomial-distribution"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 22: Poisson Process - I",
+     "channel": "NPTEL, Probability and Statistics (IIT Kharagpur, Prof. Somesh Kumar)",
+     "url": "http://www.digimat.in/nptel/courses/video/111105090/lec22.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read from the opening through the statement and induction proof of the Poisson PMF: the three assumptions of a Poisson process, the examples (calls, vehicles, accidents), the derivation P_n(t) = e^{-lambda t}(lambda t)^n/n!, and the worked mall example at 5 customers per minute with lambda t = 15 for a three-minute window"
+    },
+    {
+     "kind": "text",
+     "title": "Note on the Poisson Distribution",
+     "channel": "Glen Cowan, Royal Holloway, University of London",
+     "url": "https://www.pp.rhul.ac.uk/~cowan/stat/notes/poisson_note.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read through the moment derivation: the three assumptions, the differential-equation derivation of P(n;t) = (lambda t)^n e^{-lambda t}/n!, the proof that the probabilities sum to 1 by the exponential series, and the derivation of mean nu and standard deviation sqrt(nu)"
+    },
+    {
+     "kind": "text",
+     "title": "GATE Overflow for GATE CSE Volume 1 - Engineering Mathematics: Probability",
+     "channel": "GATE Overflow",
+     "url": "https://gateoverflow.in/subject/mathematics/probability?tab=notes",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read in part through the search service's extract: the Bernoulli, binomial, exponential, Poisson and normal summaries with their means, variances and pitfalls, the random-variable section, and the 'Important Tips for GATE' list including the Var(X - Y) = Var(X) + Var(Y) condition and the exponential rate-versus-mean warning"
+    },
+    {
+     "kind": "text",
+     "title": "Praayikta bantan: maadhy, prasaran, dvipad bantan (probability distributions: mean, variance, binomial)",
+     "channel": "Coding Marble (Hindi learning page)",
+     "url": "https://learn.codingmarble.com/hi/learn/maths/probability-distributions/",
+     "language": "hi",
+     "transcript": "PARTIAL",
+     "translated": true,
+     "note": "Hindi-language page read in full in its opening sections; every statement taken from it is rendered in English and the cards that use it say so. It gives the random variable as a rule that turns each outcome into a number, the two distribution-table rules, the balance-point reading of E(X), Var(X) = E(X^2) - mu^2, the E(aX+b) and Var(aX+b) rules, the binomial and Poisson summaries, and a list of four common mistakes including writing E(X^2) - E(X) and using the binomial when p changes between trials"
+    }
+   ],
+   "sourceLine": "The three assumptions of the Poisson process, the derivation of the PMF and the worked example with lambda t rescaled to the window: NPTEL Lecture 22 (English). The derivation of the mean and the standard deviation sqrt(lambda): Glen Cowan's Poisson note (English). The mean-equals-variance signature and the 'at least / at most' pitfalls: the GATE Overflow probability notes and the Hindi page (translated).",
+   "videoRefs": [],
+   "subject": "probability-and-statistics",
+   "topic": "random-variables-and-distributions",
+   "path": "subjects/probability-and-statistics/random-variables-and-distributions/poisson-distribution.json"
+  },
+  {
+   "id": "exponential-distribution",
+   "title": "The Exponential Distribution",
+   "priority": "P1",
+   "order": 308,
+   "unit": "Random Variables and Distributions",
+   "quickIdea": "The waiting time until the next event of a Poisson process is exponential: density lambda e^(-lambda x), survival e^(-lambda x), mean 1/lambda, and it forgets how long you have already waited.",
+   "remember": [
+    "Density f(x) = lambda e^(-lambda x) for x >= 0 and 0 for x < 0; CDF F(x) = 1 - e^(-lambda x); survival P(X > x) = e^(-lambda x).",
+    "Mean 1/lambda and variance 1/lambda^2, so the standard deviation equals the mean - a property unique to this family among the ones GATE asks about.",
+    "lambda is a rate, not a mean. 'Mean lifetime 10 years' means lambda = 0.1 per year, and the density is 0.1 e^(-0.1 x).",
+    "Memorylessness: P(X > s + t | X > s) = P(X > t). The conditional probability of waiting t more is the same as the unconditional one, however long you have already waited.",
+    "For every lambda, P(X > mean) = e^(-1) = 0.3679. This is why the 2021 question does not need the value of lambda at all.",
+    "The median is (ln 2)/lambda, which is less than the mean 1/lambda - the distribution is right-skewed, so the median sits below the mean."
+   ],
+   "example": {
+    "prompt": "The lifetime of a component is exponential with parameter 2. What is the probability that its lifetime exceeds its expected lifetime?",
+    "work": "The expected lifetime is 1/lambda = 1/2. So the question is P(X > 1/2) = e^(-2 x 1/2) = e^(-1). Numerically e^(-1) = 0.367879.",
+    "answer": "e^(-1) = 0.3679, which rounds to 0.37."
+   },
+   "gateAngle": "GATE CSE 2021 Set 1 Q.18 is this question, and the point of it is that the answer does not depend on lambda: P(X > 1/lambda) = e^(-lambda/lambda) = e^(-1) for every rate. Any option that needs the number 2 has been computed along a longer route than necessary.",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2021 Set 1 Q.18: the lifetime of a component is exponentially distributed with parameter 2. The probability that its lifetime exceeds the expected lifetime (two decimal places) is ______.",
+     "answer": "0.37 (e^(-1) = 0.3679).",
+     "why": "The mean is 1/2, so P(X > 1/2) = e^(-2 x 1/2) = e^(-1). The accepted range is 0.36 to 0.37, which is the rounding of 0.3679."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "A telephone call lasts on average 4 minutes, exponentially distributed. Find the probability that a call lasts more than 6 minutes, and the probability that it lasts more than 10 minutes given that it has already lasted 6.",
+     "answer": "P(X > 6) = e^(-1.5) = 0.2231, and P(X > 10 | X > 6) = P(X > 4) = e^(-1) = 0.3679.",
+     "why": "lambda = 1/4 per minute, so P(X > 6) = e^(-6/4). The conditional question is memorylessness: having waited 6 minutes leaves the same distribution of remaining time, so the answer is P(X > 4) and not the unconditional P(X > 10) = 0.0821."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "A used laptop has lasted 3 years. Its lifetime is exponential with mean 4 years. Is it more likely to fail in the next year than a new one?",
+     "answer": "No - exactly as likely, by memorylessness.",
+     "why": "P(X > 4 | X > 3) = P(X > 1) = e^(-0.25) = 0.7788 for both. This is the property that makes the exponential unsuitable for modelling wear-out, and it is the property GATE tests when it says 'exponential'."
+    }
+   ],
+   "trap": {
+    "what": "Treating the parameter as the mean, or applying the memoryless rule when the distribution is not exponential.",
+    "why": "For the exponential, lambda is the rate; the mean is 1/lambda. And memorylessness is a special property, not a general one: a uniform variable on (0, 10) that has survived 5 units is certainly about to fail within 5 more.",
+    "counterexample": "With 'mean 4 minutes' read as lambda = 4, P(X > 6) becomes e^(-24) = 3.8 x 10^(-11) instead of e^(-1.5) = 0.2231. For the uniform variable on (0, 10), P(X > 8 | X > 5) = 2/5 while P(X > 3) = 0.7 - memorylessness fails."
+   },
+   "check": {
+    "question": "X is exponential with mean 4. Find P(X > 4), P(X <= 2) and the variance.",
+    "answer": "P(X > 4) = e^(-1) = 0.3679, P(X <= 2) = 1 - e^(-0.5) = 0.3935, variance = 16.",
+    "explanation": "lambda = 1/4, so the survival at 4 is e^(-1) and the CDF at 2 is 1 - e^(-2/4). The variance is 1/lambda^2 = 16, so the standard deviation is 4, equal to the mean."
+   },
+   "pyqIds": [
+    "gate-2021-set1-18-exponential-exceeds-mean"
+   ],
+   "prereqs": [
+    "poisson-distribution",
+    "probability-distribution-and-cdf",
+    "substitution-in-definite-integrals"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 25: Special Continuous Distributions - II",
+     "channel": "NPTEL, Probability and Statistics (IIT Kharagpur, Prof. Somesh Kumar)",
+     "url": "http://www.digimat.in/nptel/courses/video/111105090/lec25.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read from the opening through the shifted form: the exponential as the waiting time for the first occurrence of a Poisson process, the memorylessness identity P(T>a+b | T>b) = P(T>a) derived from the survival function, the analogy with the geometric distribution, and the mean 1/lambda"
+    },
+    {
+     "kind": "text",
+     "title": "Introductory Statistics 2e, section 5.3: The Exponential Distribution",
+     "channel": "OpenStax (Rice University)",
+     "url": "https://openstax.org/books/introductory-statistics-2e/pages/5-3-the-exponential-distribution",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read through the memorylessness note: the decay parameter m = 1/mu, the density m e^{-mx}, the statement that the standard deviation equals the mean, the worked postal-clerk example with P(4 < x < 5) = 0.0814 and the median 2.8 minutes below the mean 4, and the Poisson-exponential relationship"
+    },
+    {
+     "kind": "text",
+     "title": "GATE Overflow for GATE CSE Volume 1 - Engineering Mathematics: Probability",
+     "channel": "GATE Overflow",
+     "url": "https://gateoverflow.in/subject/mathematics/probability?tab=notes",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read in part through the search service's extract: the Bernoulli, binomial, exponential, Poisson and normal summaries with their means, variances and pitfalls, the random-variable section, and the 'Important Tips for GATE' list including the Var(X - Y) = Var(X) + Var(Y) condition and the exponential rate-versus-mean warning"
+    }
+   ],
+   "sourceLine": "The exponential as the waiting time of a Poisson process, the memorylessness identity derived from the survival function and the mean 1/lambda: NPTEL Lecture 25 (English). The decay parameter m = 1/mu, the standard deviation equal to the mean and the median below the mean: OpenStax Introductory Statistics 2e section 5.3 (English). The rate-versus-mean pitfall: the GATE Overflow probability notes (English).",
+   "videoRefs": [],
+   "subject": "probability-and-statistics",
+   "topic": "random-variables-and-distributions",
+   "path": "subjects/probability-and-statistics/random-variables-and-distributions/exponential-distribution.json"
+  },
+  {
+   "id": "continuous-uniform-distribution",
+   "title": "The Uniform Distribution",
+   "priority": "P1",
+   "order": 309,
+   "unit": "Random Variables and Distributions",
+   "quickIdea": "Spread probability evenly over an interval: the density is the constant 1/(b-a), so the probability of a subinterval is just its length over the total length.",
+   "remember": [
+    "Density f(x) = 1/(b - a) for a <= x <= b and 0 elsewhere; CDF F(x) = (x - a)/(b - a) inside the interval.",
+    "Mean (a + b)/2, variance (b - a)^2/12, standard deviation (b - a)/(2 sqrt 3), which is about 0.289(b - a) - noticeably less than half the range.",
+    "P(c <= X <= d) = (d - c)/(b - a): a ratio of lengths, no integration needed once the density is constant.",
+    "The density can exceed 1: on (0, 0.5) it is 2. Only the area is a probability.",
+    "The discrete uniform on {1, ..., N} is a different distribution: mean (N + 1)/2 and variance (N^2 - 1)/12. Do not mix the two formulas; GATE has used the continuous one on a continuous interval.",
+    "Open endpoints do not matter for a continuous variable, so (1, 6) and [1, 6] give identical probabilities - which is why the 2019 question can say 'open interval' and still count the endpoint 2 as favourable."
+   ],
+   "example": {
+    "prompt": "Y is uniform on (1, 6). The polynomial 3x^2 + 6xY + 3Y + 6 in x has only real roots for which Y, and with what probability?",
+    "work": "A quadratic ax^2 + bx + c has only real roots when b^2 - 4ac >= 0. Here a = 3, b = 6Y and c = 3Y + 6, so the condition is 36Y^2 - 12(3Y + 6) >= 0, that is 36(Y^2 - Y - 2) >= 0, that is (Y - 2)(Y + 1) >= 0. So Y <= -1 or Y >= 2. Inside (1, 6) only Y >= 2 survives, which is the subinterval [2, 6) of length 4 out of a total length 5.",
+    "answer": "P = 4/5 = 0.8."
+   },
+   "gateAngle": "GATE CSE 2019 Q.47 combines the uniform distribution with a discriminant condition, and it is a two-step question: solve the inequality first, then measure the favourable set. The distribution never enters the inequality, so a candidate who tries to integrate the density before solving the condition wastes the marks' time budget.",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2019 Q.47: Y is uniform on the open interval (1, 6). The probability that 3x^2 + 6xY + 3Y + 6 has only real roots is ______ (one decimal place).",
+     "answer": "0.8.",
+     "why": "The discriminant condition reduces to (Y - 2)(Y + 1) >= 0, so the favourable set inside (1, 6) is [2, 6), of length 4. Dividing by the total length 5 gives 0.8. Note that Y = 2 is included because a double root is still a real root, and the density is 1/5 there."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "X is uniform on (0, 10). Find P(2 < X < 7), the mean and the standard deviation.",
+     "answer": "P = 0.5, mean 5, sd = 10/(2 sqrt 3) = 2.8868.",
+     "why": "The interval has length 5 out of 10. The mean is the midpoint and the standard deviation is (b - a)/(2 sqrt 3) = 10/3.4641 = 2.8868, well under half the range."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "X is uniform on (0, 1). For which a is P(X > a) = 0.25, and what is the probability that X^2 < 0.25?",
+     "answer": "a = 0.75; P(X^2 < 0.25) = P(X < 0.5) = 0.5.",
+     "why": "The first is a length condition: 1 - a = 0.25. The second needs the event rewritten as X < 0.5 before the uniform length is read, and it is the same move the GATE DA CDF question makes with X^2 <= 0.25."
+    }
+   ],
+   "trap": {
+    "what": "Using the discrete-uniform formulas on a continuous interval, or forgetting that the favourable set must be intersected with the support.",
+    "why": "The two uniforms have different means and variances, and a condition such as Y <= -1 can be satisfied by the inequality while being outside the interval the variable lives on.",
+    "counterexample": "For the 2019 question, the inequality also holds for Y <= -1, but no probability sits there because Y lives on (1, 6). Counting the whole real line would give a 'probability' larger than 1. And for N = 6 the discrete formula gives variance 35/12 = 2.917, whereas the continuous uniform on (1, 6) has variance 25/12 = 2.083."
+   },
+   "check": {
+    "question": "X is uniform on (2, 8). Find P(X < 5) and the standard deviation.",
+    "answer": "P(X < 5) = 0.5 and sd = 6/(2 sqrt 3) = 1.7321.",
+    "explanation": "The subinterval (2, 5) has length 3 out of 6, so the probability is 1/2 - which is also clear because 5 is the midpoint. The standard deviation is (8 - 2)/(2 sqrt 3) = 6/3.4641 = 1.7321."
+   },
+   "pyqIds": [
+    "gate-2019-47-uniform-real-roots-probability"
+   ],
+   "prereqs": [
+    "probability-distribution-and-cdf",
+    "pmf-pdf-normalisation-and-interval-probability"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 24: Special Continuous Distributions - I",
+     "channel": "NPTEL, Probability and Statistics (IIT Kharagpur, Prof. Somesh Kumar)",
+     "url": "http://www.digimat.in/nptel/courses/video/111105090/lec24.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read from the opening through the variance of the continuous uniform: the density fixed at 1/(b-a) by normalisation, the mean (a+b)/2 by integration, E[X^2] = (a^2+ab+b^2)/3 and the variance (b-a)^2/12 with the standard deviation (b-a)/(2 sqrt 3)"
+    },
+    {
+     "kind": "text",
+     "title": "Introductory Statistics 2e, section 5.2: The Uniform Distribution",
+     "channel": "OpenStax (Rice University)",
+     "url": "https://openstax.org/books/introductory-statistics-2e/pages/5-2-the-uniform-distribution",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read through the conditional-probability example: the density 1/(b-a), the mean (a+b)/2 and the standard deviation (b-a)/sqrt(12) with the 0-23 second worked example, the rectangle-area method for an interval probability, and the 90th percentile computation"
+    },
+    {
+     "kind": "pyq-explanation",
+     "title": "PYQ walkthrough of the GATE CSE 2019 uniform-distribution question",
+     "channel": "Knowledge Gate AI (GATE Engineering Mathematics - Probability)",
+     "url": "https://www.knowledgegate.ai/learn/GATE-GUIDANCE-BY-SANCHIT-SIR/engineering-mathematics/probability/continuous-probability-distribution-random-variables-expected-value/pyq-questions?q=68ecac1995474565f43eedea",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read in full: the four-step discriminant argument for the 2019 question, ending at the favourable length 4 over the total length 5. Used as an independent corroboration of the answer 0.8, not as the only source"
+    },
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 19: Special Discrete Distributions - I",
+     "channel": "NPTEL, Probability and Statistics (IIT Kharagpur, Prof. Somesh Kumar)",
+     "url": "http://www.digimat.in/nptel/courses/video/111105090/lec19.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read from the opening through the Bernoulli distribution: the discrete uniform PMF with its mean (N+1)/2 and variance (N^2-1)/12 derived term by term, the moment generating function, the degenerate distribution, and the Bernoulli trial setup"
+    }
+   ],
+   "sourceLine": "The density fixed by normalisation, the mean (a+b)/2 and the variance (b-a)^2/12 with the standard deviation (b-a)/(2 sqrt 3): NPTEL Lecture 24 (English). The rectangle-area method and the standard deviation (b-a)/sqrt(12): OpenStax Introductory Statistics 2e section 5.2 (English). The discriminant argument for the 2019 question: the Knowledge Gate PYQ walkthrough (English), which agrees with the GATE Overflow accepted answer. The discrete-uniform mean and variance, for the contrast: NPTEL Lecture 19 (English).",
+   "videoRefs": [],
+   "subject": "probability-and-statistics",
+   "topic": "random-variables-and-distributions",
+   "path": "subjects/probability-and-statistics/random-variables-and-distributions/continuous-uniform-distribution.json"
+  },
+  {
+   "id": "normal-distribution-and-standardisation",
+   "title": "The Normal Distribution and Standardisation",
+   "priority": "P1",
+   "order": 310,
+   "unit": "Random Variables and Distributions",
+   "quickIdea": "A bell-shaped density fixed by two numbers, the mean mu and the standard deviation sigma; converting to Z = (X - mu)/sigma turns every normal question into a question about one standard curve.",
+   "remember": [
+    "Density f(x) = 1/(sigma sqrt(2 pi)) exp(-(x - mu)^2/(2 sigma^2)), positive on the whole real line; mean mu, variance sigma^2, standard deviation sigma.",
+    "Read the parameters off the exponent: if f is proportional to exp(-x^2/18) then 2 sigma^2 = 18, so sigma = 3 and the variance is 9; the coefficient 1/(3 sqrt(2 pi)) confirms it.",
+    "Standardise with Z = (X - mu)/sigma, which has mean 0 and variance 1. Then P(X <= x) = P(Z <= (x - mu)/sigma).",
+    "Symmetry about mu: P(Z <= -z) = P(Z >= z), and P(Z <= 0) = 1/2. This one fact answers most GATE normal questions without a table.",
+    "The empirical rule: about 68% of the mass lies within one sigma of the mean, 95% within two, 99.7% within three.",
+    "Mean, median and mode all equal mu, and a sum of independent normal variables is normal - the only family GATE names where both facts hold."
+   ],
+   "example": {
+    "prompt": "X is normal with mean 1 and variance 4. Y is normal with mean -1 and unknown variance. If P(X <= -1) = P(Y >= 2), find the standard deviation of Y.",
+    "work": "Standardise X: P(X <= -1) = P(Z <= (-1 - 1)/2) = P(Z <= -1). Standardise Y: P(Y >= 2) = P(Z >= (2 - (-1))/sigma) = P(Z >= 3/sigma). By symmetry P(Z <= -1) = P(Z >= 1). Equating the two right-tail probabilities gives 3/sigma = 1, so sigma = 3.",
+    "answer": "sigma_Y = 3."
+   },
+   "gateAngle": "GATE CSE 2008 Q.29 is this argument, and no table is needed: the equation between two tail probabilities is solved by matching the standardised distances from the mean. GATE CSE 2026 Set 2 Q.4 asks the identification step alone, where the support and the shape of the exponent decide the family.",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2008 Q.29: X is normal with mean +1 and variance 4; Y is normal with mean -1 and unknown variance. If P(X <= -1) = P(Y >= 2), the standard deviation of Y is (A) 3 (B) 2 (C) sqrt(2) (D) 1.",
+     "answer": "(A) 3.",
+     "why": "P(X <= -1) = P(Z <= -1) and P(Y >= 2) = P(Z >= 3/sigma_Y). Since P(Z <= -1) = P(Z >= 1), we need 3/sigma_Y = 1, so sigma_Y = 3. Option (B) 2 is the standard deviation of X, which is the number the question supplies rather than asks for."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "X is normal with mean 0 and variance 9. Find P(X <= 3), P(|X| <= 3) and the value of c with P(X > c) = 0.5.",
+     "answer": "P(X <= 3) = 0.8413, P(|X| <= 3) = 0.6827, and c = 0.",
+     "why": "Standardising gives P(Z <= 1) = 0.8413 and, by symmetry, P(-1 <= Z <= 1) = 2(0.8413) - 1 = 0.6827 - the 68% of the empirical rule. The median is the mean 0 because the density is symmetric."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "A density is 1/(3 sqrt(2 pi)) exp(-(x - 5)^2/18). What are its mean and variance, and what is P(X < 5)?",
+     "answer": "Mean 5, variance 9, and P(X < 5) = 0.5.",
+     "why": "The exponent gives 2 sigma^2 = 18, so sigma = 3 and the variance is 9; the shift 5 is the mean. The probability below the mean is one half by symmetry, whatever sigma is."
+    }
+   ],
+   "trap": {
+    "what": "Confusing sigma with sigma^2, or forgetting to standardise before comparing two normal variables.",
+    "why": "The density is written with sigma in the denominator and sigma^2 in the exponent, so both appear; and two normals with different parameters cannot be compared until both are in Z units.",
+    "counterexample": "For the 2008 question, using variance 4 as if it were the standard deviation of X gives P(Z <= -0.5) and a different sigma_Y. For the 2026 density, reading 18 as the variance gives sigma = sqrt(18) instead of 3."
+   },
+   "check": {
+    "question": "X is normal with mean 10 and standard deviation 2. Find P(X <= 12) and P(8 <= X <= 12).",
+    "answer": "P(X <= 12) = P(Z <= 1) = 0.8413 and P(8 <= X <= 12) = 0.6827.",
+    "explanation": "Standardise: (12 - 10)/2 = 1 and (8 - 10)/2 = -1. The second probability is the mass within one standard deviation of the mean, which the empirical rule gives as about 68%."
+   },
+   "pyqIds": [
+    "gate-2008-29-normal-symmetry-sigma-y",
+    "gate-2026-set2-4-normal-density-identification"
+   ],
+   "prereqs": [
+    "probability-distribution-and-cdf",
+    "pmf-pdf-normalisation-and-interval-probability"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 29: Normal Distribution",
+     "channel": "NPTEL, Probability and Statistics (IIT Kharagpur, Prof. Somesh Kumar)",
+     "url": "http://www.digimat.in/nptel/courses/video/111105090/lec29.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read from the opening through the even moments: the density N(mu, sigma^2) with the standardisation Z = (X-mu)/sigma, the proof that it integrates to 1 by the gamma-half integral, and the vanishing of the odd central moments by odd symmetry"
+    },
+    {
+     "kind": "text",
+     "title": "GATE Overflow for GATE CSE Volume 1 - Engineering Mathematics: Probability",
+     "channel": "GATE Overflow",
+     "url": "https://gateoverflow.in/subject/mathematics/probability?tab=notes",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read in part through the search service's extract: the Bernoulli, binomial, exponential, Poisson and normal summaries with their means, variances and pitfalls, the random-variable section, and the 'Important Tips for GATE' list including the Var(X - Y) = Var(X) + Var(Y) condition and the exponential rate-versus-mean warning"
+    },
+    {
+     "kind": "text",
+     "title": "Applied Mathematics, chapter 4: Probability Distributions",
+     "channel": "CBSE Academic (NCERT/CBSE senior secondary manual)",
+     "url": "https://cbseacademic.nic.in/web_material/Manuals/appliedmaths/Chapter4_Probability_Distributions.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read in part: the definition of a random variable as a real-valued function on the sample space, the discrete-versus-continuous contrast with the watch example, the probability-distribution table with the sum-to-one rule, the definition of mathematical expectation and variance, the four Bernoulli-trial conditions, the binomial and Poisson definitions, and the normal density with its mean-median-mode and symmetry facts"
+    }
+   ],
+   "sourceLine": "The density, the standardisation Z = (X - mu)/sigma and the vanishing of the odd central moments by symmetry: NPTEL Lecture 29 (English). The empirical rule, the standard-normal table cautions and the 'variance versus standard deviation' pitfall: the GATE Overflow probability notes (English). The mean-median-mode equality and the symmetry statement: CBSE Applied Mathematics chapter 4 (English).",
+   "videoRefs": [],
+   "subject": "probability-and-statistics",
+   "topic": "random-variables-and-distributions",
+   "path": "subjects/probability-and-statistics/random-variables-and-distributions/normal-distribution-and-standardisation.json"
+  },
+  {
+   "id": "choosing-the-right-distribution",
+   "title": "Choosing the Right Distribution",
+   "priority": "P2",
+   "order": 311,
+   "unit": "Random Variables and Distributions",
+   "quickIdea": "The words of the question choose the model: a count of successes in fixed trials is binomial, a count of events in a window is Poisson, a waiting time is exponential, an equally likely point in an interval is uniform.",
+   "remember": [
+    "Binomial: a fixed number of trials, two outcomes each, the same p, independence - 'out of n items, how many ...'.",
+    "Poisson: a count of events in a window of time, length, area or volume at a constant rate - 'per minute', 'per page', 'per metre'. Mean = variance = lambda.",
+    "Exponential: the time until the next event, or a lifetime, when the rate is constant - 'the lifetime of a component', 'time between arrivals'. Mean 1/lambda.",
+    "Uniform: every value in an interval equally likely - 'chosen uniformly at random from (a, b)'. Probability is a ratio of lengths.",
+    "Normal: an explicitly stated bell-shaped or Gaussian variable, a measurement error, or a sum of many small independent effects. Two parameters, mu and sigma.",
+    "Two model-choice traps carry most of the marks: a count in a window is Poisson and not binomial (there is no fixed n), and a lifetime is exponential and not Poisson (it is a time, not a count)."
+   ],
+   "example": {
+    "prompt": "A call centre receives 4 calls per minute on average. (a) How many calls in two minutes, and with what distribution? (b) What is the probability that the next call is more than 30 seconds away?",
+    "work": "(a) A count in a fixed window at a constant rate is Poisson, and the rate must be rescaled: lambda = 4 x 2 = 8 calls in two minutes, so X is Poisson(8). (b) The waiting time to the next call is exponential with rate 4 per minute; 30 seconds is 0.5 minutes, so P(T > 0.5) = e^(-4 x 0.5) = e^(-2).",
+    "answer": "X is Poisson(8) in the two-minute window; P(T > 0.5 min) = e^(-2) = 0.1353."
+   },
+   "gateAngle": "Every distribution question begins with this choice, and the wrong choice produces a plausible number. The 2013 Poisson question is chosen by the phrase 'per minute'; the 2021 exponential question by 'lifetime'; the 2019 uniform question by 'distributed uniformly'; the 2006 binomial question by 'each of 2n elements, independently'.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "A book of 500 pages has 200 misprints spread uniformly. Using the Poisson approximation to the binomial, find the probability that a given page has no misprint.",
+     "answer": "lambda = 200/500 = 0.4 per page, so P(0) = e^(-0.4) = 0.6703.",
+     "why": "The binomial has n = 200 misprints and p = 1/500 per page, so np = 0.4; the Poisson limit applies because n is large and p small. This is the classic bridge question between the two discrete models."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "A component's lifetime is exponential with mean 5 years, and 3 such components are independent. What is the distribution of the number that survive 2 years?",
+     "answer": "Binomial with n = 3 and p = e^(-2/5) = 0.6703.",
+     "why": "The exponential gives each component's survival probability p = P(T > 2) = e^(-0.4), and independence across components turns the count into a binomial. The variation chains two models in the order GATE likes: a continuous one for one unit, then a discrete one for the count."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why is the number of arrivals in a minute not binomial, even though each second either has an arrival or does not?",
+     "answer": "Because the number of trials is not fixed in advance and the sub-intervals are not the natural trials; the count is Poisson.",
+     "why": "You could force a binomial by chopping the minute into 60 one-second slots, but the count of slots is arbitrary and the probability of two arrivals in one slot is not negligible unless the slots are tiny. The Poisson model is the limit of that chopping process, which is exactly how it is derived from the three Poisson-process assumptions."
+    }
+   ],
+   "trap": {
+    "what": "Using the Poisson for a lifetime, or the exponential for a count.",
+    "why": "The Poisson counts events; the exponential measures the gap between them. They are two views of the same process and the question's units (events versus time) tell you which view is asked for.",
+    "counterexample": "For a component with exponential lifetime of mean 5 years, P(lifetime > 3) = e^(-0.6) = 0.5488. Treating the number of years until failure as Poisson with mean 5 and computing P(X >= 1) gives 0.9933 - a completely different question, and a number that would look reasonable in an option list."
+   },
+   "check": {
+    "question": "A page has typos at an average of 2 per page. What is the probability of exactly 1 typo on a page, and which distribution is used?",
+    "answer": "Poisson with lambda = 2, and P(X = 1) = 2 e^(-2) = 0.2707.",
+    "explanation": "A count of rare events in a fixed unit (one page) at a constant rate is Poisson. The mean equals the variance here, both 2, which is the signature that distinguishes it from the binomial."
+   },
+   "pyqIds": [],
+   "prereqs": [
+    "binomial-distribution",
+    "poisson-distribution",
+    "exponential-distribution",
+    "continuous-uniform-distribution",
+    "normal-distribution-and-standardisation"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 19: Special Discrete Distributions - I",
+     "channel": "NPTEL, Probability and Statistics (IIT Kharagpur, Prof. Somesh Kumar)",
+     "url": "http://www.digimat.in/nptel/courses/video/111105090/lec19.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read from the opening through the Bernoulli distribution: the discrete uniform PMF with its mean (N+1)/2 and variance (N^2-1)/12 derived term by term, the moment generating function, the degenerate distribution, and the Bernoulli trial setup"
+    },
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 22: Poisson Process - I",
+     "channel": "NPTEL, Probability and Statistics (IIT Kharagpur, Prof. Somesh Kumar)",
+     "url": "http://www.digimat.in/nptel/courses/video/111105090/lec22.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read from the opening through the statement and induction proof of the Poisson PMF: the three assumptions of a Poisson process, the examples (calls, vehicles, accidents), the derivation P_n(t) = e^{-lambda t}(lambda t)^n/n!, and the worked mall example at 5 customers per minute with lambda t = 15 for a three-minute window"
+    },
+    {
+     "kind": "text",
+     "title": "Introductory Statistics 2e, section 5.3: The Exponential Distribution",
+     "channel": "OpenStax (Rice University)",
+     "url": "https://openstax.org/books/introductory-statistics-2e/pages/5-3-the-exponential-distribution",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read through the memorylessness note: the decay parameter m = 1/mu, the density m e^{-mx}, the statement that the standard deviation equals the mean, the worked postal-clerk example with P(4 < x < 5) = 0.0814 and the median 2.8 minutes below the mean 4, and the Poisson-exponential relationship"
+    },
+    {
+     "kind": "text",
+     "title": "Applied Mathematics, chapter 4: Probability Distributions",
+     "channel": "CBSE Academic (NCERT/CBSE senior secondary manual)",
+     "url": "https://cbseacademic.nic.in/web_material/Manuals/appliedmaths/Chapter4_Probability_Distributions.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read in part: the definition of a random variable as a real-valued function on the sample space, the discrete-versus-continuous contrast with the watch example, the probability-distribution table with the sum-to-one rule, the definition of mathematical expectation and variance, the four Bernoulli-trial conditions, the binomial and Poisson definitions, and the normal density with its mean-median-mode and symmetry facts"
+    }
+   ],
+   "sourceLine": "The origins of the discrete models, one experiment at a time: NPTEL Lectures 19 and 22 (English). The explicit statement that the exponential is the waiting time of a Poisson process, and the relation lambda = 1/mu between the two rates: OpenStax Introductory Statistics 2e section 5.3 (English). The Bernoulli-trial conditions that decide between binomial and hypergeometric: CBSE Applied Mathematics chapter 4 (English).",
+   "videoRefs": [],
+   "subject": "probability-and-statistics",
+   "topic": "random-variables-and-distributions",
+   "path": "subjects/probability-and-statistics/random-variables-and-distributions/choosing-the-right-distribution.json"
+  },
+  {
+   "id": "sums-of-independent-random-variables",
+   "title": "Sums of Independent Variables",
+   "priority": "P3",
+   "order": 312,
+   "unit": "Random Variables and Distributions",
+   "quickIdea": "Means always add; variances add only under independence; and three of GATE's five named families stay inside their own family when you add independent copies.",
+   "remember": [
+    "Means add with no condition at all: E[X + Y] = E[X] + E[Y].",
+    "Variances add under independence: Var(X + Y) = Var(X) + Var(Y), and the same for X - Y.",
+    "Poisson is closed under addition: independent Poisson(lambda1) + Poisson(lambda2) is Poisson(lambda1 + lambda2).",
+    "Binomial is closed under addition only with the same p: B(n1, p) + B(n2, p) is B(n1 + n2, p). Different p gives a sum that is not binomial.",
+    "Normal is closed under addition: N(mu1, s1^2) + N(mu2, s2^2) is N(mu1 + mu2, s1^2 + s2^2).",
+    "Bernoulli is not closed: a sum of n independent Bernoulli(p) variables is binomial(n, p). A sum of independent exponentials with the same rate is Erlang (a gamma), not exponential."
+   ],
+   "example": {
+    "prompt": "X is Poisson with mean 2 and Y is Poisson with mean 3, independent. Find the distribution of X + Y and P(X + Y = 0).",
+    "work": "By the reproductive property the sum is Poisson with mean 2 + 3 = 5. Then P(X + Y = 0) = e^(-5) x 5^0/0! = e^(-5).",
+    "answer": "X + Y is Poisson(5) and P(X + Y = 0) = e^(-5) = 0.0067."
+   },
+   "gateAngle": "No verified GATE CSE question in this topic turns on the reproductive property alone, so this card is P3: it is the background that makes the 'sum of two Poissons' options wrong or right in questions whose subject is something else. The property is stated in the NPTEL IIT Delhi lecture and is standard; it is not presented here as a PYQ pattern.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "X is normal with mean 0 and variance 1; Y is normal with mean 1 and variance 4; they are independent. Find the distribution of X + Y and P(X + Y <= 1).",
+     "answer": "N(1, 5), and P(X + Y <= 1) = 0.5.",
+     "why": "Means add to 1 and variances add to 5. Since 1 is the mean of the sum, the probability below it is one half by symmetry - the sigma never needs to be computed."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Two independent Poisson variables with means 2 and 3 are added. Is the variance of the sum 5 or sqrt(5)?",
+     "answer": "5.",
+     "why": "For a Poisson variable the variance equals the mean, so each variance is 2 and 3, and independence lets them add to 5. The square root of 5 is the standard deviation of the sum, not its variance."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "Ten independent components each have exponential lifetime with mean 4 years. Is the total lifetime of all ten exponential?",
+     "answer": "No - it is Erlang (gamma) with shape 10 and rate 1/4.",
+     "why": "The exponential family is not closed under addition; the sum of independent exponentials with the same rate has an Erlang distribution, whose density is x^(9) e^(-x/4)/(4^10 x 9!). Its mean is 40 years, which the addition of means does give, but its shape is not exponential."
+    }
+   ],
+   "trap": {
+    "what": "Adding variances without independence, or assuming every named family is closed under addition.",
+    "why": "Variances carry covariance terms that vanish only when the variables are independent, and closure is a property of some families, not a general rule.",
+    "counterexample": "If Y = -X with Var(X) = 4, then Var(X + Y) = 0 while Var(X) + Var(Y) = 8. And two binomials with p = 0.3 and p = 0.7 do not add to a binomial at all, whatever n1 and n2 are."
+   },
+   "check": {
+    "question": "X and Y are independent, X is Poisson(1) and Y is Poisson(4). Find P(X + Y = 1).",
+    "answer": "5 e^(-5) = 0.0337.",
+    "explanation": "The sum is Poisson(5), so P(sum = 1) = e^(-5) x 5 = 5 e^(-5) = 0.0337. Computing it by convolution, P(X=0)P(Y=1) + P(X=1)P(Y=0), gives the same number and is a useful check on the closure rule."
+   },
+   "pyqIds": [],
+   "prereqs": [
+    "poisson-distribution",
+    "binomial-distribution",
+    "normal-distribution-and-standardisation",
+    "variance-and-standard-deviation"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 30: sums of independent random variables and the reproductive property",
+     "channel": "NPTEL, Introduction to Probability Theory and Stochastic Processes (IIT Delhi, Prof. S. Dharmaraja)",
+     "url": "http://digimat.in/nptel/courses/video/111102111/lec30.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read from the opening through the reproductive-property discussion: the derivation that a sum of independent Poissons is Poisson with the parameters added, the statement that binomial and normal share the property, and the explicit remark that the Bernoulli family does not, because a sum of Bernoullis is binomial"
+    },
+    {
+     "kind": "text",
+     "title": "GATE Overflow for GATE CSE Volume 1 - Engineering Mathematics: Probability",
+     "channel": "GATE Overflow",
+     "url": "https://gateoverflow.in/subject/mathematics/probability?tab=notes",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read in part through the search service's extract: the Bernoulli, binomial, exponential, Poisson and normal summaries with their means, variances and pitfalls, the random-variable section, and the 'Important Tips for GATE' list including the Var(X - Y) = Var(X) + Var(Y) condition and the exponential rate-versus-mean warning"
+    }
+   ],
+   "sourceLine": "The reproductive property derived for the Poisson sum, and the statements that binomial and normal share it while the Bernoulli family does not: NPTEL Introduction to Probability Theory and Stochastic Processes, Lecture 30, IIT Delhi (English). The variance-addition condition: the GATE Overflow probability notes (English).",
+   "videoRefs": [],
+   "subject": "probability-and-statistics",
+   "topic": "random-variables-and-distributions",
+   "path": "subjects/probability-and-statistics/random-variables-and-distributions/sums-of-independent-random-variables.json"
   }
  ],
  "pyqs": [
@@ -22045,6 +23240,27 @@ window.GATE_DATA = {
    "answer_evidence": "Accepted answer: 'Determinant of matrix = 14 which is non zero ... so option B', and a second accepted route through rank[A] = rank[A|b] = 3."
   },
   {
+   "id": "gate-2006-21-exactly-n-of-2n-chosen",
+   "year": "2006",
+   "paper": "GATE CS 2006",
+   "question_ref": "Q.21",
+   "type": "MCQ",
+   "topic": "binomial-distribution",
+   "text": "For each element in a set of size 2n, an unbiased coin is tossed. The 2n coin tosses are independent. An element is chosen if the corresponding coin toss was a head. The probability that exactly n elements are chosen is",
+   "options": [
+    "C(2n, n) / 4^n",
+    "C(2n, n) / 2^n",
+    "1 / C(2n, n)",
+    "1/2"
+   ],
+   "answer": "Option (A) - C(2n, n) / 4^n",
+   "solution": "The number of chosen elements is binomial with 2n trials and p = 1/2. The number of toss sequences with exactly n heads is C(2n, n), and each sequence has probability (1/2)^(2n) = 1/4^n, so the probability is C(2n, n)/4^n. At n = 5 this is 252/1024 = 0.2461.",
+   "source_url": "https://gateoverflow.in/982/gate-cse-2006-question-21",
+   "source_label": "GATE Overflow question page - GATE CSE 2006 Q.21 with the accepted answer (option A)",
+   "verification": "SOURCED",
+   "answer_evidence": "Two independent answers on the question page reach option (A) by the same argument: the count of favourable sequences C(2n, n) over the 4^n equally likely sequences. Recomputed here for n = 1 to 8 against the binomial PMF."
+  },
+  {
    "id": "gate-2007-cnf-half-clauses-true",
    "year": "2007",
    "paper": "GATE CS 2007",
@@ -22085,6 +23301,27 @@ window.GATE_DATA = {
    "source_label": "GATE Overflow question page - GATE CSE 2008 Q.25 with three agreeing answers (option b)",
    "verification": "SOURCED",
    "answer_evidence": "The accepted answer states 'Answer is (b)' and falls back on the first-derivative test at x = 2 because f''(2) = 0; a second answer reaches the same verdict through f'''(2) = 48."
+  },
+  {
+   "id": "gate-2008-29-normal-symmetry-sigma-y",
+   "year": "2008",
+   "paper": "GATE CS 2008",
+   "question_ref": "Q.29",
+   "type": "MCQ",
+   "topic": "normal-distribution-and-standardisation",
+   "text": "Let X be a random variable following normal distribution with mean +1 and variance 4. Let Y be another normal variable with mean -1 and variance unknown. If P(X <= -1) = P(Y >= 2), the standard deviation of Y is",
+   "options": [
+    "3",
+    "2",
+    "sqrt(2)",
+    "1"
+   ],
+   "answer": "Option (A) - 3",
+   "solution": "Standardise both sides. P(X <= -1) = P(Z <= (-1-1)/2) = P(Z <= -1). P(Y >= 2) = P(Z >= (2-(-1))/sigma_Y) = P(Z >= 3/sigma_Y). The standard normal is symmetric, so P(Z <= -1) = P(Z >= 1). Hence 3/sigma_Y = 1 and sigma_Y = 3.",
+   "source_url": "https://gateoverflow.in/427/gate-cse-2008-question-29",
+   "source_label": "GATE Overflow question page - GATE CSE 2008 Q.29 with the accepted answer (option A)",
+   "verification": "SOURCED",
+   "answer_evidence": "The accepted answer standardises both variables and uses the symmetry P(Z <= -a) = P(Z >= a) to obtain sigma_Y = 3; several other answers on the page reach the same value by the same route. Recomputed here by matching normal CDF values numerically."
   },
   {
    "id": "gate-2008-3-alpha-unique",
@@ -22129,6 +23366,27 @@ window.GATE_DATA = {
    "answer_evidence": "The accepted answer substitutes t = cos x + sin x and states 'Correct Answer: D'; the GATE Forum 2009 CS paper PDF shows the same four options with (D) printed as (1/2) ln 2. Recomputed here numerically."
   },
   {
+   "id": "gate-2012-21-cdf-at-minus-one-and-one",
+   "year": "2012",
+   "paper": "GATE CS 2012",
+   "question_ref": "Q.21",
+   "type": "MCQ",
+   "topic": "probability-distribution-and-cdf",
+   "text": "Consider a random variable X that takes values +1 and -1 with probability 0.5 each. The values of the cumulative distribution function F(x) at x = -1 and +1 are",
+   "options": [
+    "0 and 0.5",
+    "0 and 1",
+    "0.5 and 1",
+    "0.25 and 0.75"
+   ],
+   "answer": "Option (C) - 0.5 and 1",
+   "solution": "F(x) = P(X <= x). So F(-1) = P(X <= -1) = P(X = -1) = 0.5, because the mass at -1 is included by the weak inequality. F(1) = P(X <= 1) = P(X = -1) + P(X = 1) = 1.",
+   "source_url": "https://gateoverflow.in/1577/gate-cse-2012-question-21",
+   "source_label": "GATE Overflow question page - GATE CSE 2012 Q.21 with the accepted answer (option C)",
+   "verification": "SOURCED",
+   "answer_evidence": "The accepted answer computes F(-1) = 0.5 and F(1) = 1 from the definition with the weak inequality; other answers on the page agree. Recomputed here from the two-point PMF."
+  },
+  {
    "id": "gate-2012-9-sin-local-minima",
    "year": "2012",
    "paper": "GATE CS 2012",
@@ -22148,6 +23406,27 @@ window.GATE_DATA = {
    "source_label": "GATE Overflow question page - GATE CSE 2012 Q.9 with five answers agreeing on option (D)",
    "verification": "SOURCED",
    "answer_evidence": "The accepted answers state option (D) and justify the endpoint by noting that sin is increasing up to pi/2, so pi/4 is a local minimum. The point is definitional: under the strict interior convention the count would be one, at 3pi/2, and the card on endpoint extrema states both readings."
+  },
+  {
+   "id": "gate-2013-2-poisson-fewer-than-three-cars",
+   "year": "2013",
+   "paper": "GATE CS 2013",
+   "question_ref": "Q.2",
+   "type": "MCQ",
+   "topic": "poisson-distribution",
+   "text": "Suppose p is the number of cars per minute passing through a certain road junction between 5 PM and 6 PM, and p has a Poisson distribution with mean 3. What is the probability of observing fewer than 3 cars during any given minute in this interval?",
+   "options": [
+    "8/(2e^3)",
+    "9/(2e^3)",
+    "17/(2e^3)",
+    "26/(2e^3)"
+   ],
+   "answer": "Option (C) - 17/(2e^3)",
+   "solution": "With lambda = 3, 'fewer than 3' means k = 0, 1, 2. The probabilities are e^(-3), 3e^(-3) and (9/2)e^(-3), summing to e^(-3)(1 + 3 + 4.5) = 8.5 e^(-3) = 17/(2 e^3) = 0.4232.",
+   "source_url": "https://gateoverflow.in/62/gate-cse-2013-question-2",
+   "source_label": "GATE Overflow question page - GATE CSE 2013 Q.2 with the accepted answer (option C)",
+   "verification": "SOURCED",
+   "answer_evidence": "The accepted answer sums the Poisson PMF for k = 0, 1, 2 and obtains 17/(2e^3); several answers on the page agree and one of them notes explicitly that the strict inequality excludes k = 3. Recomputed here."
   },
   {
    "id": "gate-2013-22-continuity-at-three",
@@ -22923,6 +24202,21 @@ window.GATE_DATA = {
    "answer_evidence": "The accepted answer states 'LUB and GLB exist for every two elements ... Hence, the Minimum number of ordered pairs that need to be added = 0'; the lattice test is recomputed by scripts/validate.py."
   },
   {
+   "id": "gate-2017-set2-48-poisson-expectation-x-plus-2",
+   "year": "2017",
+   "paper": "GATE CS 2017 Set 2",
+   "question_ref": "Q.48",
+   "type": "NAT",
+   "topic": "variance-and-standard-deviation",
+   "text": "If a random variable X has a Poisson distribution with mean 5, then the expectation E[(x + 2)^2] equals ______.",
+   "answer": "54",
+   "solution": "For a Poisson variable the variance equals the mean, so Var(X) = 5 and E[X^2] = Var(X) + (E[X])^2 = 5 + 25 = 30. Expanding, E[(X+2)^2] = E[X^2] + 4E[X] + 4 = 30 + 20 + 4 = 54.",
+   "source_url": "https://gateoverflow.in/118513/gate-cse-2017-set-2-question-48",
+   "source_label": "GATE Overflow question page - GATE CSE 2017 Set 2 Q.48 with the accepted answer (54)",
+   "verification": "SOURCED",
+   "answer_evidence": "The accepted answer computes E[X^2] = 30 from Var = mean = 5 and then 30 + 20 + 4 = 54; a second route on the same page uses E[X+2] = 7 and Var(X+2) = 5 to get 5 + 49 = 54. Recomputed here."
+  },
+  {
    "id": "gate-2018-19-largest-proper-subgroup-42",
    "year": "2018",
    "paper": "GATE CS 2018",
@@ -23000,6 +24294,21 @@ window.GATE_DATA = {
    "source_label": "GATE Overflow question page, GATE CSE 2019 Q.13, with the accepted answer C",
    "verification": "SOURCED",
    "answer_evidence": "The accepted answer and every other answer on the page reach 108/7, by factoring in one case and by L'Hopital in another, and a comment warns that the denominator must be factorised as (2x + 1)(x - 3). Both routes were re-derived and the value is recomputed in scripts/validate.py. The official key was not fetched and no marks field is recorded."
+  },
+  {
+   "id": "gate-2019-47-uniform-real-roots-probability",
+   "year": "2019",
+   "paper": "GATE CS 2019",
+   "question_ref": "Q.47",
+   "type": "NAT",
+   "topic": "continuous-uniform-distribution",
+   "text": "Suppose Y is distributed uniformly in the open interval (1, 6). The probability that the polynomial 3x^2 + 6xY + 3Y + 6 has only real roots is ______ (rounded off to 1 decimal place).",
+   "answer": "0.8",
+   "solution": "The quadratic has only real roots when b^2 - 4ac >= 0 with a = 3, b = 6Y, c = 3Y + 6: 36Y^2 - 12(3Y + 6) = 36(Y^2 - Y - 2) = 36(Y-2)(Y+1) >= 0, so Y <= -1 or Y >= 2. Inside (1, 6) the favourable set is [2, 6), of length 4, and the total length is 5, so the probability is 4/5 = 0.8.",
+   "source_url": "https://gateoverflow.in/302801/gate-cse-2019-question-47",
+   "source_label": "GATE Overflow question page - GATE CSE 2019 Q.47 with the accepted answer (0.8)",
+   "verification": "SOURCED",
+   "answer_evidence": "The accepted answer reduces the discriminant to (Y-2)(Y+1) >= 0 and measures the favourable length 4 against the total 5; Testbook's page for the same GATE CS 2019 paper and the Knowledge Gate walkthrough both give 0.8. Recomputed here, including the double root at Y = 2."
   },
   {
    "id": "gate-2020-18-largest-proper-subgroup-7",
@@ -23111,6 +24420,21 @@ window.GATE_DATA = {
    "source_url": "https://gateforum.com/wp-content/uploads/2021/03/CS-Gate-2021-Paper-II_Formatted.pdf",
    "source_label": "GATE 2021 CS Paper II solution set with key printed as 59049",
    "verification": "OFFICIAL_KEY"
+  },
+  {
+   "id": "gate-2021-set1-18-exponential-exceeds-mean",
+   "year": "2021",
+   "paper": "GATE CS 2021 Set 1",
+   "question_ref": "Q.18",
+   "type": "NAT",
+   "topic": "exponential-distribution",
+   "text": "The lifetime of a component of a certain type is a random variable whose probability density function is exponentially distributed with parameter 2. For a randomly picked component of this type, the probability that its lifetime exceeds the expected lifetime (rounded to 2 decimal places) is ______.",
+   "answer": "0.37 (e^(-1) = 0.3679)",
+   "solution": "The expected lifetime is 1/lambda = 1/2. With lambda = 2, P(X > 1/2) = e^(-2 x 1/2) = e^(-1) = 0.3679, which rounds to 0.37. In general P(X > 1/lambda) = e^(-1) for every lambda.",
+   "source_url": "https://gateoverflow.in/357433/gate-cse-2021-set-1-question-18",
+   "source_label": "GATE Overflow question page - GATE CSE 2021 Set 1 Q.18 with the accepted answer (0.37)",
+   "verification": "SOURCED",
+   "answer_evidence": "The accepted answer integrates the exponential density from 1/lambda to infinity and obtains e^(-1) = 0.3678, noting that the answer is independent of lambda; other answers on the page agree. Recomputed here."
   },
   {
    "id": "gate-2021-set1-20-rationalise-root",
@@ -23751,6 +25075,21 @@ window.GATE_DATA = {
    "answer_evidence": "Accepted answer: 'A valid inverse does not exist for nonzero functions. Hence, it is an abelian monoid'; the page's other answers reach option B."
   },
   {
+   "id": "gate-2025-set1-48-density-normalisation-interval",
+   "year": "2025",
+   "paper": "GATE CS 2025 Set 1",
+   "question_ref": "Q.48",
+   "type": "NAT",
+   "topic": "pmf-pdf-normalisation-and-interval-probability",
+   "text": "Consider a probability distribution given by the density function P(x) = C x^2 for 1 <= x <= 4 and P(x) = 0 for x < 1 or x > 4. The probability that x lies between 2 and 3, that is P(2 <= x <= 3), is ______ (rounded off to three decimal places).",
+   "answer": "0.302 (19/63 = 0.30159)",
+   "solution": "Normalise: the integral of C x^2 from 1 to 4 is C(64 - 1)/3 = 21C = 1, so C = 1/21. Then P(2 <= x <= 3) = (1/21)(27 - 8)/3 = 19/63 = 0.30159, which rounds to 0.302.",
+   "source_url": "https://gateoverflow.in/460032/gate-cse-2025-set-1-question-48",
+   "source_label": "GATE Overflow question page - GATE CSE 2025 Set 1 Q.48 with the accepted answer (0.302)",
+   "verification": "SOURCED",
+   "answer_evidence": "The accepted answer fixes C = 1/21 from the normalisation and computes 19/63 = 0.3016. ExamSIDE records the correct answer as 0.301 and the IAE Academy page quotes the official key range 0.300 to 0.302 for GATE 2025 CS1, so the third-decimal rounding is accepted in that range."
+  },
+  {
    "id": "gate-2025-set1-exactly-one-mother",
    "year": "2025",
    "paper": "GATE CS 2025 Set 1",
@@ -23987,6 +25326,21 @@ window.GATE_DATA = {
    "answer_evidence": "Accepted answer: 'Answer: 34', via the Fibonacci recurrence with the empty matching counted."
   },
   {
+   "id": "gate-2026-set1-48-expectation-of-discrete-rv",
+   "year": "2026",
+   "paper": "GATE CS 2026 Set 1",
+   "question_ref": "Q.48",
+   "type": "NAT",
+   "topic": "expectation-and-linearity",
+   "text": "Let X be a random variable which takes values in the set {1,2,3,4,5,6,7,8}. Further, Pr(X=1) = Pr(X=2) = Pr(X=5) = Pr(X=7) = 1/6 and Pr(X=3) = Pr(X=4) = Pr(X=6) = Pr(X=8) = 1/12. The expected value of X, denoted by E[X], is equal to ______ (rounded off to two decimal places).",
+   "answer": "4.25",
+   "solution": "E[X] = (1/6)(1 + 2 + 5 + 7) + (1/12)(3 + 4 + 6 + 8) = 15/6 + 21/12 = 51/12 = 4.25. The probabilities sum to 4/6 + 4/12 = 1, so the table is a distribution.",
+   "source_url": "https://gateoverflow.in/523032/gate-cse-2026-set-1-question-48",
+   "source_label": "GATE Overflow question page - GATE CSE 2026 Set 1 Q.48 with the accepted answer (4.25)",
+   "verification": "SOURCED",
+   "answer_evidence": "Two answers on the question page compute 51/12 = 4.25, one by the PMF sum and one by expanding to a twelve-point equally likely sample; a third records the accepted range 4.24 to 4.26. Recomputed here."
+  },
+  {
    "id": "gate-2026-set2-17-integral-independent-of-parameter",
    "year": "2026",
    "paper": "GATE CS 2026 Set 2",
@@ -24021,6 +25375,27 @@ window.GATE_DATA = {
    "source_label": "GATE Overflow question page (which numbers this question Q.21) for GATE CSE 2026 Set 2, with the accepted answer 24; the official paper at gate2026.iitg.ac.in/doc/download/2026/QPs/CS2.pdf prints the same text as Q.31",
    "verification": "SOURCED",
    "answer_evidence": "Accepted answer: 'a^2 = 16 => a = +-4 ... b = 24/a => b = +-6. Hence a*b = 24', and the official GATE 2026 CS2 paper at IIT Guwahati prints the question as Q.31 with the same wording. The official answer key was not fetched, so the label stays SOURCED rather than OFFICIAL_KEY."
+  },
+  {
+   "id": "gate-2026-set2-4-normal-density-identification",
+   "year": "2026",
+   "paper": "GATE CS 2026 Set 2",
+   "question_ref": "Q.4",
+   "type": "MCQ",
+   "topic": "random-variable-as-a-function",
+   "text": "The probability density function f(x) of a random variable X which takes real values is f(x) = (1/(3 sqrt(2 pi))) exp(-x^2/18) for x in (-infinity, +infinity). Which one of the following statements is correct about the random variable X?",
+   "options": [
+    "X is an exponential random variable",
+    "X is a normal random variable",
+    "X is a Poisson random variable",
+    "X is a uniform random variable"
+   ],
+   "answer": "Option (B) - X is a normal random variable",
+   "solution": "Poisson is a discrete distribution and has no density. The exponential density is positive only for x >= 0, and the uniform density only on a finite interval. Only the normal density is positive on the whole real line. Comparing with the normal form gives mu = 0 and 2 sigma^2 = 18, so sigma = 3 and the variance is 9.",
+   "source_url": "https://gateoverflow.in/523142/gate-cse-2026-set-2-question-4",
+   "source_label": "GATE Overflow question page - GATE CSE 2026 Set 2 Q.4 with the accepted answer (option B)",
+   "verification": "SOURCED",
+   "answer_evidence": "The accepted answer eliminates the exponential and uniform families by their supports and the Poisson by discreteness, and reads mu = 0, variance = 9 from the exponent; a second answer on the page does the same. Recomputed here by integrating the density numerically."
   },
   {
    "id": "gate-2026-set2-52-det-2a",

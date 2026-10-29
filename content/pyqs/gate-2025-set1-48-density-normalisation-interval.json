@@ -1,0 +1,15 @@
+{
+  "id": "gate-2025-set1-48-density-normalisation-interval",
+  "year": "2025",
+  "paper": "GATE CS 2025 Set 1",
+  "question_ref": "Q.48",
+  "type": "NAT",
+  "topic": "pmf-pdf-normalisation-and-interval-probability",
+  "text": "Consider a probability distribution given by the density function P(x) = C x^2 for 1 <= x <= 4 and P(x) = 0 for x < 1 or x > 4. The probability that x lies between 2 and 3, that is P(2 <= x <= 3), is ______ (rounded off to three decimal places).",
+  "answer": "0.302 (19/63 = 0.30159)",
+  "solution": "Normalise: the integral of C x^2 from 1 to 4 is C(64 - 1)/3 = 21C = 1, so C = 1/21. Then P(2 <= x <= 3) = (1/21)(27 - 8)/3 = 19/63 = 0.30159, which rounds to 0.302.",
+  "source_url": "https://gateoverflow.in/460032/gate-cse-2025-set-1-question-48",
+  "source_label": "GATE Overflow question page - GATE CSE 2025 Set 1 Q.48 with the accepted answer (0.302)",
+  "verification": "SOURCED",
+  "answer_evidence": "The accepted answer fixes C = 1/21 from the normalisation and computes 19/63 = 0.3016. ExamSIDE records the correct answer as 0.301 and the IAE Academy page quotes the official key range 0.300 to 0.302 for GATE 2025 CS1, so the third-decimal rounding is accepted in that range."
+}

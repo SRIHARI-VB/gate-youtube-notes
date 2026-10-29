@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PMF, CDF and the Balance Point - Random Variables visual lesson</title>
+<link rel="stylesheet" href="../../../lesson.css">
+<script src="https://cdn.jsdelivr.net/npm/p5@1.9.4/lib/p5.min.js"></script>
+</head>
+<body>
+<div class="wrap">
+  <p class="small"><a href="../../../../index.html">&larr; back to the revision site</a></p>
+  <h1>PMF, CDF and the Balance Point</h1>
+  <div class="objective"><strong>Objective.</strong> Read one discrete distribution in three ways - as bars whose heights are probabilities, as a staircase whose height is the running total, and as a set of weights balanced on the mean - and see why the support of a variable never fixes its mean by itself.</div>
+
+  <div class="canvas-wrap"><div id="canvas-holder"></div></div>
+  <div class="caption" id="caption" aria-live="polite"></div>
+
+  <div class="controls">
+    <button id="play" class="primary">Play</button>
+    <button id="prev">&larr; Prev</button>
+    <button id="next">Next &rarr;</button>
+    <button id="restart">Restart</button>
+    <span class="speed"><label for="speed">Speed</label>
+      <input id="speed" type="range" min="0.25" max="2" step="0.25" value="1">
+      <span id="speedLabel">1.00x</span></span>
+    <span class="counter" id="counter"></span>
+  </div>
+
+  <h2>Static explanation</h2>
+  <p>The distribution used here is the one from GATE CSE 2026 Set 1 Q.48. The variable X takes the values 1 to 8; the values 1, 2, 5 and 7 each carry probability one sixth, and the values 3, 4, 6 and 8 each carry one twelfth. Four sixths plus four twelfths is two thirds plus one third, so the table totals exactly one - the first check on any distribution.</p>
+  <p>The probability mass function is that table drawn as bars. Its cumulative version, the CDF, is F(x) = P(X is at most x), a staircase that is flat between values and jumps at each value by exactly that value's probability. At x = 4 the staircase has climbed through one sixth, one sixth, one twelfth and one twelfth, which is one half.</p>
+  <p>The expectation is the balance point of the bars. Grouping equal probabilities makes the arithmetic one line: (1 + 2 + 5 + 7)/6 + (3 + 4 + 6 + 8)/12 = 15/6 + 21/12 = 2.5 + 1.75 = 4.25. It sits to the left of the midpoint 4.5 because the larger probabilities are on the smaller values.</p>
+  <p>The variance is the probability-weighted average of the squared distances from 4.25. It is 265/48, about 5.52, so the standard deviation is about 2.35. For contrast, spreading one eighth over each of the same eight values would give the mean 4.5 and the variance 63/12, which is 5.25: same support, different distribution, different answers.</p>
+
+  <div class="card warn"><div class="label">Common misconception</div><p>Treating the eight values as equally likely because the question lists them. The unweighted average of 1 to 8 is 4.5, and the variance of the uniform distribution on those eight values is 5.25, but neither is the answer here: the probabilities are what carry the information. The second mistake is writing Var(X) = E[X^2] - E[X], which gives 283/12 - 51/12 = 19.33 instead of 5.52.</p></div>
+  <div class="card ok"><div class="label">Quick check</div><p>For this table, what are E[X], F(4) and the standard deviation?</p><details><summary>Answer</summary><p><strong>E[X] = 4.25, F(4) = 0.5 and the standard deviation is about 2.35.</strong> The mean is 51/12; the CDF at 4 adds the first four probabilities; and the variance 265/48 has square root 2.3496.</p></details></div>
+  <p class="small">Topic: Random Variables and Distributions (Probability and Statistics), subtopics the probability mass function, the cumulative distribution function, the expectation and the variance. The distribution and the grouped-expectation shortcut: GATE CSE 2026 Set 1 Q.48 as discussed in the GATE Overflow accepted answer (English). The definitions of the mass function, the CDF and the variance identity: NPTEL Probability and Statistics Lecture 15 and the GATE Overflow probability notes (English), and the Hindi page on probability distributions (translated). Every value shown here is recomputed in scripts/validate.py.</p>
+</div>
+<script src="../../../lesson.js"></script>
+<script src="sketch.js"></script>
+<script>
+/* p5.js is loaded from a CDN. If it is unreachable, say so plainly instead of showing an empty box. */
+window.addEventListener('load', function () {
+  if (window.p5) { return; }
+  var holder = document.getElementById('canvas-holder');
+  if (holder) {
+    holder.innerHTML = '<div style="padding:22px 18px;font-size:14.5px;color:#4a5260">' +
+      'The animation needs p5.js, which this page loads from a CDN, and the request failed (offline, or the CDN is blocked). ' +
+      'Everything below still works: the static explanation, the misconception and the quick check.</div>';
+  }
+  var cap = document.getElementById('caption');
+  if (cap && window.LESSON && window.LESSON.steps && window.LESSON.steps[0]) {
+    cap.innerHTML = window.LESSON.steps[0].caption;
+  }
+  ['play', 'prev', 'next', 'restart', 'speed'].forEach(function (id) {
+    var el = document.getElementById(id);
+    if (el) { el.disabled = true; }
+  });
+});
+</script>
+</body>
+</html>

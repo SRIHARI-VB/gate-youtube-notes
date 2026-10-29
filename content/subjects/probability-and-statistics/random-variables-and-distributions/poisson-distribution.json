@@ -1,0 +1,103 @@
+{
+  "id": "poisson-distribution",
+  "title": "The Poisson Distribution",
+  "priority": "P1",
+  "order": 307,
+  "unit": "Random Variables and Distributions",
+  "quickIdea": "Count the events in a fixed window of time or space when they occur independently at a constant rate: P(X = k) = e^(-lambda) lambda^k / k!, and the mean and variance are both lambda.",
+  "remember": [
+    "PMF: P(X = k) = e^(-lambda) lambda^k / k! for k = 0, 1, 2, ...; mean = variance = lambda; standard deviation sqrt(lambda).",
+    "The three assumptions of the Poisson process: counts in disjoint intervals are independent, the probability of one event in a short interval is proportional to its length, and the probability of two or more events in a short interval is negligible.",
+    "lambda is a rate per unit window, so it scales with the window: 5 customers per minute means lambda t = 15 for a three-minute window.",
+    "Cumulative questions are sums: P(X < 3) = P(0) + P(1) + P(2) = e^(-lambda)(1 + lambda + lambda^2/2).",
+    "'Fewer than 3' stops at 2, 'at most 3' includes 3, and 'at least one' is 1 - e^(-lambda).",
+    "Mean equals variance is the identifying signature: any question that gives one of them gives the other for free, which is exactly what the 2017 question exploits."
+  ],
+  "example": {
+    "prompt": "Cars pass a junction at 3 per minute, Poisson distributed. What is the probability of observing fewer than 3 cars in a given minute?",
+    "work": "lambda = 3, and 'fewer than 3' means k = 0, 1, 2. P(0) = e^(-3), P(1) = 3 e^(-3), P(2) = (9/2) e^(-3). Sum: e^(-3)(1 + 3 + 4.5) = 8.5 e^(-3) = 17/(2 e^3).",
+    "answer": "17/(2 e^3) = 0.4232."
+  },
+  "gateAngle": "GATE CSE 2013 Q.2 is this question with all four options written over 2e^3, so the whole paper reduces to the numerator 17. GATE CSE 2017 Set 2 Q.48 uses the same distribution from the other side, where mean = variance = lambda supplies E[X^2]. The pair is worth remembering: one question about a cumulative probability, one about a moment.",
+  "variations": [
+    {
+      "label": "VERIFIED PYQ",
+      "question": "GATE CSE 2013 Q.2: p, the number of cars per minute at a junction, is Poisson with mean 3. The probability of observing fewer than 3 cars in a given minute is (A) 8/(2e^3) (B) 9/(2e^3) (C) 17/(2e^3) (D) 26/(2e^3).",
+      "answer": "(C) 17/(2e^3) = 0.4232.",
+      "why": "Summing k = 0, 1, 2 gives e^(-3)(1 + 3 + 9/2) = (17/2) e^(-3). Option (D) 26/(2e^3) is what you get by including k = 3, that is by reading 'fewer than' as 'at most'."
+    },
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "A web server receives 4 requests per second, Poisson distributed. Find the probability of exactly 0 requests in a second and of more than 8 requests in two seconds.",
+      "answer": "P(0) = e^(-4) = 0.0183; for the two-second window lambda = 8 and P(X > 8) = 1 - P(X <= 8) = 0.4075.",
+      "why": "The rate must be rescaled to the window before the formula is used: lambda = 4 x 2 = 8. Summing the Poisson probabilities for k = 0 to 8 with lambda = 8 gives 0.5925, and the complement is 0.4075."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "X is Poisson with mean 2. Given that E[X^2] = 6, find the second moment of X + 1.",
+      "answer": "E[(X+1)^2] = 6 + 2(2) + 1 = 11.",
+      "why": "This is the 2017 pattern with lambda = 2 instead of 5: expand the square and use E[X] = 2 and E[X^2] = 6. The variation checks that the expansion, not the particular value 5, is what carries the marks."
+    }
+  ],
+  "trap": {
+    "what": "Forgetting to rescale lambda to the window in the question, or reading 'fewer than k' as including k.",
+    "why": "lambda is a rate per unit, so a two-minute window doubles it. And the cumulative sum stops one short of k under 'fewer than'.",
+    "counterexample": "For the mall example at 5 customers per minute, the probability of exactly 2 customers in 3 minutes is e^(-15)(15^2/2) = 0.0000 to four decimals, while using lambda = 5 gives 0.0842 - the wrong window gives a number 2000 times too large."
+  },
+  "check": {
+    "question": "X is Poisson with mean 2. Find P(X = 0), P(X >= 1) and the standard deviation.",
+    "answer": "P(X = 0) = e^(-2) = 0.1353, P(X >= 1) = 0.8647, sd = sqrt(2) = 1.4142.",
+    "explanation": "P(0) = e^(-2) directly from the PMF, and the complement gives P(X >= 1). The standard deviation is the square root of the variance, which equals the mean 2."
+  },
+  "pyqIds": [
+    "gate-2013-2-poisson-fewer-than-three-cars"
+  ],
+  "prereqs": [
+    "probability-distribution-and-cdf",
+    "binomial-distribution"
+  ],
+  "sources": [
+    {
+      "kind": "lecture-transcript",
+      "title": "Lecture 22: Poisson Process - I",
+      "channel": "NPTEL, Probability and Statistics (IIT Kharagpur, Prof. Somesh Kumar)",
+      "url": "http://www.digimat.in/nptel/courses/video/111105090/lec22.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read from the opening through the statement and induction proof of the Poisson PMF: the three assumptions of a Poisson process, the examples (calls, vehicles, accidents), the derivation P_n(t) = e^{-lambda t}(lambda t)^n/n!, and the worked mall example at 5 customers per minute with lambda t = 15 for a three-minute window"
+    },
+    {
+      "kind": "text",
+      "title": "Note on the Poisson Distribution",
+      "channel": "Glen Cowan, Royal Holloway, University of London",
+      "url": "https://www.pp.rhul.ac.uk/~cowan/stat/notes/poisson_note.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read through the moment derivation: the three assumptions, the differential-equation derivation of P(n;t) = (lambda t)^n e^{-lambda t}/n!, the proof that the probabilities sum to 1 by the exponential series, and the derivation of mean nu and standard deviation sqrt(nu)"
+    },
+    {
+      "kind": "text",
+      "title": "GATE Overflow for GATE CSE Volume 1 - Engineering Mathematics: Probability",
+      "channel": "GATE Overflow",
+      "url": "https://gateoverflow.in/subject/mathematics/probability?tab=notes",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read in part through the search service's extract: the Bernoulli, binomial, exponential, Poisson and normal summaries with their means, variances and pitfalls, the random-variable section, and the 'Important Tips for GATE' list including the Var(X - Y) = Var(X) + Var(Y) condition and the exponential rate-versus-mean warning"
+    },
+    {
+      "kind": "text",
+      "title": "Praayikta bantan: maadhy, prasaran, dvipad bantan (probability distributions: mean, variance, binomial)",
+      "channel": "Coding Marble (Hindi learning page)",
+      "url": "https://learn.codingmarble.com/hi/learn/maths/probability-distributions/",
+      "language": "hi",
+      "transcript": "PARTIAL",
+      "translated": true,
+      "note": "Hindi-language page read in full in its opening sections; every statement taken from it is rendered in English and the cards that use it say so. It gives the random variable as a rule that turns each outcome into a number, the two distribution-table rules, the balance-point reading of E(X), Var(X) = E(X^2) - mu^2, the E(aX+b) and Var(aX+b) rules, the binomial and Poisson summaries, and a list of four common mistakes including writing E(X^2) - E(X) and using the binomial when p changes between trials"
+    }
+  ],
+  "sourceLine": "The three assumptions of the Poisson process, the derivation of the PMF and the worked example with lambda t rescaled to the window: NPTEL Lecture 22 (English). The derivation of the mean and the standard deviation sqrt(lambda): Glen Cowan's Poisson note (English). The mean-equals-variance signature and the 'at least / at most' pitfalls: the GATE Overflow probability notes and the Hindi page (translated).",
+  "videoRefs": []
+}

@@ -5192,6 +5192,277 @@ def check_integration():
        "value published in the topic recomputed")
 
 
+# ---------------------------------- probability and statistics: distributions
+def check_probability_and_statistics():
+    """Every probability, mean, variance, density value and CDF point published in the
+    Random Variables and Distributions cards, the ten PYQ records and the p5 lesson is
+    recomputed here, from the definitions and not from the published numbers."""
+    import math
+
+    def close(a, b, tol=1e-9):
+        return abs(a - b) <= tol
+
+    def simpson(fn, a, b, n=20000):
+        if n % 2:
+            n += 1
+        hh = (b - a) / n
+        s = fn(a) + fn(b)
+        for i in range(1, n):
+            s += (4 if i % 2 else 2) * fn(a + i * hh)
+        return s * hh / 3
+
+    def phi(z):
+        return 0.5 * (1 + math.erf(z / math.sqrt(2)))
+
+    # ---- the distribution of GATE CSE 2026 Set 1 Q.48
+    vals = [1, 2, 3, 4, 5, 6, 7, 8]
+    probs = [1 / 6, 1 / 6, 1 / 12, 1 / 12, 1 / 6, 1 / 12, 1 / 6, 1 / 12]
+    if not close(sum(probs), 1):
+        fail("probability: the 2026 Set 1 probabilities must sum to 1")
+    if not all(0 <= q <= 1 for q in probs):
+        fail("probability: every mass must lie between 0 and 1")
+    mean = sum(v * q for v, q in zip(vals, probs))
+    second = sum(v * v * q for v, q in zip(vals, probs))
+    var = second - mean * mean
+    if not close(mean, 4.25):
+        fail("probability: E[X] of the 2026 Set 1 table must be 51/12 = 4.25")
+    if not close(mean, 51 / 12) or not close(second, 283 / 12) or not close(var, 265 / 48):
+        fail("probability: the 2026 Set 1 moments must be 51/12, 283/12 and 265/48")
+    if not close(var, 5.520833333333333, 1e-12):
+        fail("probability: the 2026 Set 1 variance must be 5.5208")
+    if not close(math.sqrt(var), 2.3496453633119474, 1e-12):
+        fail("probability: the 2026 Set 1 standard deviation must be 2.3496")
+    cdf, acc = [], 0.0
+    for q in probs:
+        acc += q
+        cdf.append(acc)
+    if not close(cdf[3], 0.5):
+        fail("probability: F(4) of the 2026 Set 1 table must be exactly 1/2")
+    if not close(cdf[-1], 1):
+        fail("probability: the CDF must end at 1")
+    if not all(cdf[i] < cdf[i + 1] for i in range(len(cdf) - 1)):
+        fail("probability: the CDF of a discrete variable must be non-decreasing")
+
+    # the same support, spread uniformly, is a different distribution
+    uni_mean = sum(vals) / len(vals)
+    uni_var = sum((v - uni_mean) ** 2 for v in vals) / len(vals)
+    if not close(uni_mean, 4.5) or not close(uni_var, 5.25):
+        fail("probability: the discrete uniform on {1..8} must have mean 4.5 and variance 63/12")
+
+    # ---- GATE CSE 2012 Q.21: the CDF of a two-point variable
+    two = {-1: 0.5, 1: 0.5}
+    F = lambda x: sum(q for v, q in two.items() if v <= x)
+    if not close(F(-1), 0.5) or not close(F(1), 1) or not close(F(-2), 0):
+        fail("probability: 2012 Q.21 must give F(-1) = 0.5 and F(1) = 1")
+    Fstrict = lambda x: sum(q for v, q in two.items() if v < x)
+    if not close(Fstrict(-1), 0.0) or not close(F(-1), 0.5):
+        fail("probability: 2012 Q.21's option (A) is what the strict inequality gives")
+
+    # ---- GATE CSE 2025 Set 1 Q.48: normalising C x^2 on [1,4]
+    if not close(simpson(lambda x: x * x, 1, 4), 21, 1e-6):
+        fail("probability: the integral of x^2 from 1 to 4 must be 21, so C = 1/21")
+    c25 = 1 / 21
+    p25 = simpson(lambda x: c25 * x * x, 2, 3)
+    if not close(p25, 19 / 63, 1e-9) or not close(round(p25, 3), 0.302):
+        fail("probability: 2025 Set 1 Q.48 must give 19/63 = 0.302")
+    if not (0 <= p25 <= 1):
+        fail("probability: a computed probability must lie in [0, 1]")
+    if not close(simpson(lambda x: x * x, 2, 3), 19 / 3, 1e-6):
+        fail("probability: skipping the normalisation must give 19/3, the trap option")
+
+    # a density may exceed 1, a probability may not
+    if not close(1 / (0.5 - 0), 2):
+        fail("probability: the uniform density on (0, 0.5) must be 2")
+
+    # ---- GATE CSE 2006 Q.21: exactly n of 2n chosen
+    for n in range(1, 7):
+        direct = sum(comb(2 * n, k) for k in range(2 * n + 1) if k == n) / 4 ** n
+        if not close(direct, comb(2 * n, n) / 4 ** n):
+            fail("probability: 2006 Q.21 formula disagrees with the count")
+        if not close(sum(comb(2 * n, k) for k in range(2 * n + 1)) / 4 ** n, 1):
+            fail("probability: the binomial probabilities of 2n tosses must sum to 1")
+    if not close(comb(10, 5) / 4 ** 5, 0.24609375):
+        fail("probability: 2006 Q.21 at n = 5 must be 0.2461")
+    # binomial mean and variance from the definition
+    for n, p in ((10, 0.4), (6, 0.5), (4, 0.25)):
+        pm = [comb(n, k) * p ** k * (1 - p) ** (n - k) for k in range(n + 1)]
+        if not close(sum(pm), 1, 1e-12):
+            fail("probability: the binomial PMF must sum to 1 (n=%d)" % n)
+        m = sum(k * pm[k] for k in range(n + 1))
+        v = sum(k * k * pm[k] for k in range(n + 1)) - m * m
+        if not close(m, n * p, 1e-9) or not close(v, n * p * (1 - p), 1e-9):
+            fail("probability: binomial mean np and variance np(1-p) failed at n=%d" % n)
+    if not close(comb(10, 3) * 0.4 ** 3 * 0.6 ** 7, 0.214990848, 1e-9):
+        fail("probability: P(exactly 3 heads in 10 at p = 0.4) must be 0.2150")
+    if not close(1 - 0.5 ** 6, 63 / 64):
+        fail("probability: at least one head in 6 tosses must be 63/64")
+    if not close(comb(10, 3) / 1024, 0.1171875):
+        fail("probability: exactly 3 heads in 10 tosses must be 120/1024")
+
+    # ---- Poisson
+    def poisson(lam, k):
+        # in log space, so that large k does not overflow the factorial
+        return math.exp(-lam + k * math.log(lam) - math.lgamma(k + 1))
+
+    for lam in (1, 2, 3, 5, 8, 15):
+        total = sum(poisson(lam, k) for k in range(0, 200))
+        if not close(total, 1, 1e-12):
+            fail("probability: the Poisson PMF must sum to 1 at lambda=%r" % lam)
+        m = sum(k * poisson(lam, k) for k in range(0, 200))
+        v = sum(k * k * poisson(lam, k) for k in range(0, 200)) - m * m
+        if not close(m, lam, 1e-9) or not close(v, lam, 1e-9):
+            fail("probability: Poisson mean and variance must both equal lambda=%r" % lam)
+    p13 = sum(poisson(3, k) for k in (0, 1, 2))
+    if not close(p13, 17 / (2 * math.e ** 3), 1e-12) or not close(round(p13, 4), 0.4232):
+        fail("probability: 2013 Q.2 must give 17/(2e^3) = 0.4232")
+    if not close(sum(poisson(3, k) for k in (0, 1, 2, 3)), 26 / (2 * math.e ** 3), 1e-12):
+        fail("probability: including k = 3 must give the 26/(2e^3) option of 2013 Q.2")
+    e17 = 5 * 5 + 5 + 4 * 5 + 4
+    if not close(e17, 54):
+        fail("probability: 2017 Set 2 Q.48 must give 54")
+    if not close(poisson(2, 0), math.exp(-2)) or not close(1 - math.exp(-2), 0.8646647167633873, 1e-12):
+        fail("probability: the Poisson check at lambda = 2 failed")
+    if not close(2 * math.exp(-2), 0.2706705664732254, 1e-12):
+        fail("probability: P(X = 1) at lambda = 2 must be 2e^-2 = 0.2707")
+    # the two-minute window of the choosing card: lambda t = 8
+    if not close(sum(poisson(8, k) for k in range(9)), 0.592547, 1e-5):
+        fail("probability: P(X <= 8) at lambda = 8 must be about 0.5925")
+    # the misprint page: np = 0.4
+    if not close(math.exp(-0.4), 0.6703200460356393, 1e-12):
+        fail("probability: e^-0.4 must be 0.6703")
+
+    # ---- exponential
+    for lam in (0.25, 0.5, 2, 4):
+        if not close(simpson(lambda x: lam * x * math.exp(-lam * x), 0, 200 / lam), 1 / lam, 1e-6):
+            fail("probability: the exponential mean must be 1/lambda at lambda=%r" % lam)
+        if not close(simpson(lambda x: lam * x * x * math.exp(-lam * x), 0, 200 / lam), 2 / lam ** 2, 1e-6):
+            fail("probability: the exponential second moment must be 2/lambda^2 at lambda=%r" % lam)
+        if not close(math.exp(-lam * (1 / lam)), math.exp(-1), 1e-12):
+            fail("probability: P(X > mean) must be e^-1 for every lambda")
+        # memorylessness
+        s, t = 3.0, 1.0
+        lhs = math.exp(-lam * (s + t)) / math.exp(-lam * s)
+        if not close(lhs, math.exp(-lam * t), 1e-12):
+            fail("probability: memorylessness failed at lambda=%r" % lam)
+    if not close(round(math.exp(-1), 2), 0.37):
+        fail("probability: 2021 Set 1 Q.18 must round to 0.37")
+    if not close(1 - math.exp(-0.5), 0.3934693402873666, 1e-12):
+        fail("probability: P(X <= 2) at mean 4 must be 0.3935")
+    if not close(math.exp(-1.5), 0.22313016014842982, 1e-12):
+        fail("probability: P(X > 6) at mean 4 must be 0.2231")
+    if not close(math.exp(-0.6), 0.5488116360940264, 1e-12):
+        fail("probability: P(lifetime > 3) at mean 5 must be 0.5488")
+
+    # ---- continuous uniform
+    for a, b in ((0, 10), (2, 8), (1, 6), (0, 23)):
+        d = 1 / (b - a)
+        if not close(simpson(lambda x: d, a, b), 1, 1e-9):
+            fail("probability: the uniform density must integrate to 1 on (%r,%r)" % (a, b))
+        if not close(simpson(lambda x: x * d, a, b), (a + b) / 2, 1e-6):
+            fail("probability: the uniform mean must be (a+b)/2 on (%r,%r)" % (a, b))
+        if not close(simpson(lambda x: x * x * d, a, b) - ((a + b) / 2) ** 2, (b - a) ** 2 / 12, 1e-6):
+            fail("probability: the uniform variance must be (b-a)^2/12 on (%r,%r)" % (a, b))
+    if not close(10 / (2 * math.sqrt(3)), 2.886751345948129, 1e-12):
+        fail("probability: the uniform (0,10) standard deviation must be 2.8868")
+    if not close(6 / (2 * math.sqrt(3)), 1.7320508075688772, 1e-12):
+        fail("probability: the uniform (2,8) standard deviation must be 1.7321")
+    if not close((6 - 2) / (6 - 1), 0.8):
+        fail("probability: 2019 Q.47 must give 4/5 = 0.8")
+    # the discriminant condition of 2019 Q.47, checked on the whole interval
+    for i in range(0, 501):
+        y = 1 + i * 5 / 500
+        disc = 36 * (y - 2) * (y + 1)
+        if y > 2 and disc < 0:
+            fail("probability: the discriminant of 2019 Q.47 must be non-negative for y > 2")
+        if 1 < y < 2 and disc >= 0:
+            fail("probability: the discriminant of 2019 Q.47 must be negative for 1 < y < 2")
+    if not close(36 * (2 - 2) * (2 + 1), 0):
+        fail("probability: y = 2 is a double root of the 2019 discriminant condition")
+    if not close(25 / 12, 2.0833333333333335, 1e-12):
+        fail("probability: the continuous uniform on (1,6) must have variance 25/12")
+
+    # ---- normal
+    if not close(simpson(lambda x: math.exp(-x * x / 2) / math.sqrt(2 * math.pi), -40, 40), 1, 1e-9):
+        fail("probability: the standard normal density must integrate to 1")
+    f26 = lambda x: math.exp(-x * x / 18) / (3 * math.sqrt(2 * math.pi))
+    if not close(simpson(f26, -60, 60), 1, 1e-9):
+        fail("probability: the 2026 Set 2 density must integrate to 1")
+    if not close(simpson(lambda x: x * f26(x), -60, 60), 0, 1e-9):
+        fail("probability: the 2026 Set 2 density must have mean 0")
+    if not close(simpson(lambda x: x * x * f26(x), -60, 60), 9, 1e-6):
+        fail("probability: the 2026 Set 2 density must have variance 9")
+    if not close(round(math.sqrt(18 / 2), 12), 3):
+        fail("probability: 2 sigma^2 = 18 must give sigma = 3")
+    # 2008 Q.29: sigma_Y = 3 is the value that matches the two tail probabilities
+    px = phi((-1 - 1) / 2)
+    for sigma in (1, 2, math.sqrt(2), 3):
+        py = 1 - phi((2 + 1) / sigma)
+        if close(sigma, 3) and not close(px, py, 1e-12):
+            fail("probability: 2008 Q.29's sigma = 3 must match both tails")
+        if not close(sigma, 3) and close(px, py, 1e-6):
+            fail("probability: 2008 Q.29's option %r must not match both tails" % sigma)
+    if not close(phi(1), 0.8413447460685429, 1e-12):
+        fail("probability: P(Z <= 1) must be 0.8413")
+    if not close(2 * phi(1) - 1, 0.6826894921370859, 1e-12):
+        fail("probability: the 68% band must be 2 phi(1) - 1")
+    if not close(phi(2) - phi(-2), 0.9544997361036416, 1e-12):
+        fail("probability: the 95% band must be phi(2) - phi(-2)")
+    if not close(phi(3) - phi(-3), 0.9973002039367398, 1e-12):
+        fail("probability: the 99.7% band must be phi(3) - phi(-3)")
+    if not close(phi(0), 0.5):
+        fail("probability: half the normal mass lies below the mean")
+
+    # ---- sums of independent variables
+    conv = [sum(poisson(2, j) * poisson(3, k - j) for j in range(k + 1)) for k in range(0, 40)]
+    for k in range(0, 40):
+        if not close(conv[k], poisson(5, k), 1e-12):
+            fail("probability: the sum of independent Poisson(2) and Poisson(3) must be Poisson(5)")
+    if not close(poisson(5, 0), math.exp(-5)):
+        fail("probability: P(X + Y = 0) must be e^-5")
+    if not close(5 * math.exp(-5), 0.03368973499542734, 1e-12):
+        fail("probability: P(X + Y = 1) must be 5e^-5")
+    # N(1,5): the probability below the mean is one half
+    if not close(phi((1 - 1) / math.sqrt(5)), 0.5):
+        fail("probability: P(N(1,5) <= 1) must be 0.5")
+
+    # ---- the visual lesson's published numbers
+    lesson_path = os.path.join(ROOT, "visuals", "probability-and-statistics",
+                               "random-variables-and-distributions",
+                               "pmf-cdf-and-the-balance-point", "lesson.json")
+    if not os.path.isfile(lesson_path):
+        fail("probability: the visual lesson's lesson.json is missing")
+    else:
+        L = load(lesson_path)
+        ex = L.get("example") or {}
+        if not close(ex.get("sum_of_probabilities", -1), 1):
+            fail("probability lesson: sum_of_probabilities must be 1")
+        if not close((ex.get("expectation") or {}).get("value", -1), mean):
+            fail("probability lesson: the expectation must equal the recomputed mean")
+        if not close((ex.get("second_moment") or {}).get("value", -1), second):
+            fail("probability lesson: the second moment must equal 283/12")
+        if not close((ex.get("variance") or {}).get("value", -1), var):
+            fail("probability lesson: the variance must equal 265/48")
+        if not close(ex.get("standard_deviation", -1), math.sqrt(var)):
+            fail("probability lesson: the standard deviation must equal sqrt(265/48)")
+        if not close(ex.get("cdf_at_4", -1), 0.5):
+            fail("probability lesson: the CDF at 4 must be 0.5")
+        if len(ex.get("cdf", [])) != len(cdf) or not all(close(a, b, 1e-12) for a, b in zip(ex.get("cdf", []), cdf)):
+            fail("probability lesson: the CDF table must match the recomputed staircase")
+        if not close(ex.get("unweighted_average_of_the_support", -1), 4.5):
+            fail("probability lesson: the unweighted average of 1..8 must be 4.5")
+        uni = ex.get("uniform_on_the_same_support") or {}
+        if not close(uni.get("mean", -1), 4.5) or not close(uni.get("variance", -1), 5.25):
+            fail("probability lesson: the uniform comparison must be mean 4.5, variance 5.25")
+        wrong = ex.get("wrong_variance_if_the_mean_is_not_squared") or {}
+        if not close(wrong.get("value", -1), second - mean):
+            fail("probability lesson: the E[X^2] - E[X] error must be 283/12 - 51/12")
+        if L.get("steps") != 7:
+            fail("probability lesson: the lesson must declare its seven steps")
+
+    ok("probability and statistics: every probability, mass, density, mean, variance, CDF value, "
+       "tail probability, discriminant verdict and closure claim published in the topic recomputed")
+
+
 def main():
     topics, tpath, pyqs, videos, playlists, sources = load_all()
     check_topics(topics, tpath, pyqs, videos)
@@ -5216,6 +5487,7 @@ def main():
     check_maxima_and_minima()
     check_mean_value_theorem()
     check_integration()
+    check_probability_and_statistics()
     check_visuals()
     check_hygiene()
     for c in checks:

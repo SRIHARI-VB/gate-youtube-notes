@@ -1,0 +1,21 @@
+{
+  "id": "gate-2012-21-cdf-at-minus-one-and-one",
+  "year": "2012",
+  "paper": "GATE CS 2012",
+  "question_ref": "Q.21",
+  "type": "MCQ",
+  "topic": "probability-distribution-and-cdf",
+  "text": "Consider a random variable X that takes values +1 and -1 with probability 0.5 each. The values of the cumulative distribution function F(x) at x = -1 and +1 are",
+  "options": [
+    "0 and 0.5",
+    "0 and 1",
+    "0.5 and 1",
+    "0.25 and 0.75"
+  ],
+  "answer": "Option (C) - 0.5 and 1",
+  "solution": "F(x) = P(X <= x). So F(-1) = P(X <= -1) = P(X = -1) = 0.5, because the mass at -1 is included by the weak inequality. F(1) = P(X <= 1) = P(X = -1) + P(X = 1) = 1.",
+  "source_url": "https://gateoverflow.in/1577/gate-cse-2012-question-21",
+  "source_label": "GATE Overflow question page - GATE CSE 2012 Q.21 with the accepted answer (option C)",
+  "verification": "SOURCED",
+  "answer_evidence": "The accepted answer computes F(-1) = 0.5 and F(1) = 1 from the definition with the weak inequality; other answers on the page agree. Recomputed here from the two-point PMF."
+}

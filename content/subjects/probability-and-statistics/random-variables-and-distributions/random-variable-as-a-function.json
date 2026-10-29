@@ -1,0 +1,90 @@
+{
+  "id": "random-variable-as-a-function",
+  "title": "The Random Variable as a Function",
+  "priority": "P1",
+  "order": 301,
+  "unit": "Random Variables and Distributions",
+  "quickIdea": "A random variable is not a quantity that wobbles; it is a rule that attaches a real number to every outcome of the experiment, so that a question about outcomes becomes a question about numbers.",
+  "remember": [
+    "Formally X is a function from the sample space to the real line, and it must be measurable: every interval of values must correspond to an event whose probability exists. GATE never asks you to check measurability, but the definition explains why probabilities can be transferred to the values.",
+    "A random variable is discrete when its set of values is finite or countably infinite - the number of heads, the number of cars in a minute, the number of testings until a defect is found.",
+    "A random variable is continuous when its values fill an interval - a lifetime, a waiting time, a coordinate. For such a variable P(X = c) = 0 at every single c, because a point has no length.",
+    "The distribution of X is the rule that assigns probability to its values: a probability mass function (PMF) when X is discrete, a probability density function (PDF) when X is continuous.",
+    "Because P(X = c) = 0 for a continuous X, the four inequalities <, <=, >, >= all give the same number. For a discrete X they do not, and that is where the words 'fewer than', 'at most' and 'at least' decide the answer.",
+    "The support of the density is part of the definition: a density that is positive on the whole real line cannot be exponential, and one that is positive only on an interval cannot be normal."
+  ],
+  "example": {
+    "prompt": "Two fair coins are tossed. Let X be the number of heads. Write the distribution of X and check that it is a distribution.",
+    "work": "The sample space is {HH, HT, TH, TT}. The rule gives X(HH) = 2, X(HT) = X(TH) = 1 and X(TT) = 0. Four equally likely outcomes, so P(X = 0) = 1/4, P(X = 1) = 2/4 and P(X = 2) = 1/4. The values are 0, 1 and 2, a finite set, so X is discrete and this table is its PMF.",
+    "answer": "P(0) = 1/4, P(1) = 1/2, P(2) = 1/4, and 1/4 + 1/2 + 1/4 = 1."
+  },
+  "gateAngle": "Two GATE questions turn on nothing but the type of the variable. GATE CSE 2026 Set 2 Q.4 hands you a density and asks which family it belongs to; the answer follows from the support being the whole real line. GATE CSE 2012 Q.21 asks for CDF values at the two points of a two-point variable, where the staircase must be read with <= and not <.",
+  "variations": [
+    {
+      "label": "VERIFIED PYQ",
+      "question": "GATE CSE 2026 Set 2 Q.4: the density of a real-valued X is f(x) = (1/(3 sqrt(2 pi))) exp(-x^2/18) on the whole real line. Which one is correct? (A) X is exponential (B) X is normal (C) X is Poisson (D) X is uniform.",
+      "answer": "(B) X is normal.",
+      "why": "Poisson is discrete and has no density at all; the exponential density lives on x >= 0; the uniform density lives on a finite interval. Only the normal density is positive on the whole real line. Reading the exponent further gives 2 sigma^2 = 18, so sigma = 3 and the variance is 9."
+    },
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "A fair die is rolled until the first six appears, and X is the number of rolls needed. Is X discrete or continuous, and what is P(X = 3)?",
+      "answer": "Discrete; P(X = 3) = (5/6)^2 (1/6) = 25/216.",
+      "why": "X counts rolls, so its values are 1, 2, 3, ... - countably infinite, hence discrete, and the distribution is geometric. The answer needs the first two rolls to miss the six and the third to hit it."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Why is P(X = 2) = 0 for a continuous random variable, when the density at 2 may well be large?",
+      "answer": "Because the probability of an interval is the area under the density over that interval, and a single point has zero width, so the area is zero.",
+      "why": "The density is a height, not a probability: it is the probability per unit length. This is why a density may exceed 1 while no probability ever does, and why P(a < X < b) = P(a <= X <= b) for a continuous X."
+    }
+  ],
+  "trap": {
+    "what": "Treating the density value as a probability, or treating a discrete variable's '<' and '<=' as interchangeable.",
+    "why": "The density is a rate. Only its integral over an interval is a probability. And for a discrete variable the point mass at the boundary value is a real quantity that one inequality includes and the other excludes.",
+    "counterexample": "For the exponential density with lambda = 2 the density at 0 is 2, which is not a probability at all, while P(X = 0) = 0. For the 2013 Poisson question, P(X < 3) sums k = 0, 1, 2 and gives 17/(2e^3) = 0.4232, whereas P(X <= 3) would add the k = 3 term and give 0.6472 - different options in the same paper."
+  },
+  "check": {
+    "question": "A random variable takes the value 0 with probability 0.3, and otherwise is uniformly spread over the interval (0, 1). Is it discrete, continuous, or neither?",
+    "answer": "Neither: it is a mixed variable.",
+    "explanation": "Its CDF jumps by 0.3 at 0 and then rises continuously, so it has a point mass (like a discrete variable) and a density on (0, 1) (like a continuous one). GATE's own questions use pure discrete or pure continuous variables, but the existence of mixed cases is why the definition is stated through the CDF."
+  },
+  "pyqIds": [
+    "gate-2026-set2-4-normal-density-identification"
+  ],
+  "prereqs": [],
+  "sources": [
+    {
+      "kind": "lecture-transcript",
+      "title": "Lecture 13: Random Variables",
+      "channel": "NPTEL, Probability and Statistics (IIT Kharagpur, Prof. Somesh Kumar)",
+      "url": "http://www.digimat.in/nptel/courses/video/111105090/lec13.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read from the opening through the measurability condition: the motivation for replacing outcomes by numbers, the examples (instruments, cricket, rainfall), the informal 'function from omega into R', and the formal definition as a measurable function with the inverse-image condition"
+    },
+    {
+      "kind": "text",
+      "title": "Applied Mathematics, chapter 4: Probability Distributions",
+      "channel": "CBSE Academic (NCERT/CBSE senior secondary manual)",
+      "url": "https://cbseacademic.nic.in/web_material/Manuals/appliedmaths/Chapter4_Probability_Distributions.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read in part: the definition of a random variable as a real-valued function on the sample space, the discrete-versus-continuous contrast with the watch example, the probability-distribution table with the sum-to-one rule, the definition of mathematical expectation and variance, the four Bernoulli-trial conditions, the binomial and Poisson definitions, and the normal density with its mean-median-mode and symmetry facts"
+    },
+    {
+      "kind": "text",
+      "title": "Praayikta bantan: maadhy, prasaran, dvipad bantan (probability distributions: mean, variance, binomial)",
+      "channel": "Coding Marble (Hindi learning page)",
+      "url": "https://learn.codingmarble.com/hi/learn/maths/probability-distributions/",
+      "language": "hi",
+      "transcript": "PARTIAL",
+      "translated": true,
+      "note": "Hindi-language page read in full in its opening sections; every statement taken from it is rendered in English and the cards that use it say so. It gives the random variable as a rule that turns each outcome into a number, the two distribution-table rules, the balance-point reading of E(X), Var(X) = E(X^2) - mu^2, the E(aX+b) and Var(aX+b) rules, the binomial and Poisson summaries, and a list of four common mistakes including writing E(X^2) - E(X) and using the binomial when p changes between trials"
+    }
+  ],
+  "sourceLine": "The definition as a measurable function and the motivation for replacing outcomes by numbers: NPTEL Probability and Statistics Lecture 13 (English, IIT Kharagpur). The discrete-versus-continuous contrast and the distribution-table rules: CBSE Applied Mathematics chapter 4 (English) and the Hindi page on probability distributions (translated). The density as a height rather than a probability: NPTEL Lecture 15 (English).",
+  "videoRefs": []
+}

@@ -1,0 +1,21 @@
+{
+  "id": "gate-2013-2-poisson-fewer-than-three-cars",
+  "year": "2013",
+  "paper": "GATE CS 2013",
+  "question_ref": "Q.2",
+  "type": "MCQ",
+  "topic": "poisson-distribution",
+  "text": "Suppose p is the number of cars per minute passing through a certain road junction between 5 PM and 6 PM, and p has a Poisson distribution with mean 3. What is the probability of observing fewer than 3 cars during any given minute in this interval?",
+  "options": [
+    "8/(2e^3)",
+    "9/(2e^3)",
+    "17/(2e^3)",
+    "26/(2e^3)"
+  ],
+  "answer": "Option (C) - 17/(2e^3)",
+  "solution": "With lambda = 3, 'fewer than 3' means k = 0, 1, 2. The probabilities are e^(-3), 3e^(-3) and (9/2)e^(-3), summing to e^(-3)(1 + 3 + 4.5) = 8.5 e^(-3) = 17/(2 e^3) = 0.4232.",
+  "source_url": "https://gateoverflow.in/62/gate-cse-2013-question-2",
+  "source_label": "GATE Overflow question page - GATE CSE 2013 Q.2 with the accepted answer (option C)",
+  "verification": "SOURCED",
+  "answer_evidence": "The accepted answer sums the Poisson PMF for k = 0, 1, 2 and obtains 17/(2e^3); several answers on the page agree and one of them notes explicitly that the strict inequality excludes k = 3. Recomputed here."
+}
