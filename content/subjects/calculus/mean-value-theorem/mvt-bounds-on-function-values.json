@@ -1,0 +1,104 @@
+{
+  "id": "mvt-bounds-on-function-values",
+  "title": "Bounding a Function Value with the MVT",
+  "priority": "P1",
+  "order": 183,
+  "unit": "Mean Value Theorem",
+  "quickIdea": "If f' is at most M on an interval, the mean value theorem turns that into f(b) at most f(a) + M(b - a). This is the form GATE actually asks.",
+  "remember": [
+    "From f(b) - f(a) = f'(c)(b - a): if f'(x) <= M for every interior x and b > a, then f(b) <= f(a) + M(b - a).",
+    "If |f'(x)| <= M then |f(b) - f(a)| <= M|b - a|, the Lipschitz form of the same statement.",
+    "The bound is attained exactly by a straight line of slope M, so it is the best possible bound and not merely a safe one.",
+    "With only an upper bound on f' there is no lower bound on f(b): the value can be far below f(a) - M(b - a) is not a claim.",
+    "The bound needs f' <= M on the whole interval. A bound at a single point proves nothing about f(b)."
+  ],
+  "example": {
+    "prompt": "GATE CSE 2021 Set 2 Q.25: f is continuous on [-3, 3] and differentiable on (-3, 3) with f'(x) <= 2 everywhere there. If f(-3) = 7, how large can f(3) be?",
+    "work": "The hypotheses are exactly those of the mean value theorem on [-3, 3], so some c in (-3, 3) has f'(c) = (f(3) - f(-3)) / (3 - (-3)) = (f(3) - 7) / 6. Since f'(c) <= 2, (f(3) - 7)/6 <= 2, hence f(3) - 7 <= 12.",
+    "answer": "f(3) <= 19, so f(3) is at most 19. The bound is attained by f(x) = 2x + 13."
+  },
+  "gateAngle": "2021 Set 2 Q.25 is the only verified GATE CSE question in this topic whose answer is a number, and it is a one-line application once the theorem is recognised. The distractors are the arithmetic slips: forgetting the interval length 6, or answering 12 by reporting f(3) - f(-3) instead of f(3).",
+  "variations": [
+    {
+      "label": "VERIFIED PYQ",
+      "question": "GATE CSE 2021 Set 2 Q.25: f' <= 2 on (-3, 3), f(-3) = 7; the largest possible f(3).",
+      "answer": "19.",
+      "why": "f(3) = 7 + 6 f'(c) with f'(c) <= 2, so f(3) <= 7 + 12."
+    },
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "f is continuous on [1, 4], differentiable on (1, 4), f'(x) <= -1 there, and f(1) = 5. What is the largest possible f(4)?",
+      "answer": "2.",
+      "why": "Same theorem with a negative bound: f(4) = f(1) + 3 f'(c) <= 5 - 3 = 2. The variation checks that the sign of the bound is carried through, which is where the 2021 question's easier cousins usually break."
+    }
+  ],
+  "trap": {
+    "what": "Using the interval length of the wrong pair of points, or treating an upper bound on f' as a lower bound as well.",
+    "why": "The theorem multiplies f'(c) by b - a, so the interval matters, and f' <= M says nothing about how fast f may fall.",
+    "counterexample": "With f'(x) <= 2 on [-3, 3] and f(-3) = 7, the value f(3) = -107 is perfectly legal (take f(x) = -19x - 50, whose slope -19 is below 2 and whose value at -3 is 7). Only the upper bound 19 follows from the data."
+  },
+  "check": {
+    "question": "f is continuous on [0, 4], differentiable inside, f'(x) <= 3, and f(0) = 1. Bound f(4).",
+    "answer": "f(4) <= 13.",
+    "explanation": "f(4) = f(0) + 4 f'(c) <= 1 + 12 = 13, by the mean value theorem on [0, 4]."
+  },
+  "pyqIds": [
+    "gate-2021-set2-25-mvt-bound"
+  ],
+  "prereqs": [
+    "lmvt-statement-and-secant-slope"
+  ],
+  "sources": [
+    {
+      "kind": "text",
+      "title": "Calculus I, section 4.7: The Mean Value Theorem",
+      "channel": "Paul's Online Math Notes, Lamar University",
+      "url": "https://tutorial.math.lamar.edu/classes/calci/MeanValueTheorem.aspx",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read from the opening through the geometric interpretation: Rolle's three hypotheses, the exactly-one-real-root example 4x^5 + x^3 + 7x - 2, the mean value theorem statement, the explicit note that the theorem does not say what c is, and the secant-parallel-to-tangent picture. The corollary list further down the page was beyond the returned extract"
+    },
+    {
+      "kind": "lecture-summary",
+      "title": "13 Oct - EM - Calculus Part 3, the Rolle's theorem and mean value theorem segment",
+      "channel": "Knowledge Gate (Yash Jain)",
+      "url": "https://www.knowledgegate.ai/learn/GATE-GUIDANCE-BY-SANCHIT-SIR/live-classes/gate-2026-live-class/engineering-mathematics-for-gate-exam/asset-13-oct-em-calculus-part-3",
+      "language": "hi",
+      "transcript": "SUMMARY_ONLY",
+      "translated": true,
+      "note": "Hindi-medium live class; the platform's published English AI chapter summary with timestamps was read in full, the lecture itself was not. Chapters used: 10:00-15:00 Rolle's theorem, its three conditions and the horizontal-tangent picture; 15:00-20:00 the GATE CS 2014 determinant question solved by Rolle; 20:00-25:00 Lagrange's mean value theorem with the secant picture; 25:00-30:00 Cauchy's extended mean value theorem in the form (f(b)-f(a))g'(c) = (g(b)-g(a))f'(c)"
+    }
+  ],
+  "sourceLine": "The inequality form of the theorem and the note that the conclusion is an existence claim: Paul's Online Math Notes section 4.7 (English). The GATE question and its solution route: GATE Overflow question page for GATE CSE 2021 Set 2 Q.25, with Knowledge Gate's chapter summary 20:00-25:00 (translated) supplying the same reading. Recomputed in scripts/validate.py.",
+  "videoRefs": [],
+  "links": {
+    "mock": {
+      "subject": "engineering-mathematics",
+      "unit_slug": "calculus-optimization-integrals",
+      "unit_name": "Calculus: Maxima, Minima & Integrals",
+      "unit_number": 4,
+      "question_count": 25,
+      "subtopics": [
+        {
+          "label": "single-variable-extrema",
+          "questions": 7
+        },
+        {
+          "label": "multivariable-extrema-saddle-points",
+          "questions": 6
+        },
+        {
+          "label": "definite-integrals",
+          "questions": 6
+        },
+        {
+          "label": "vector-calculus-basics",
+          "questions": 6
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-28.html"
+    },
+    "mapped_at": "2026-10-29"
+  }
+}

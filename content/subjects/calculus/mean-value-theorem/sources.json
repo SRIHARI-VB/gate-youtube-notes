@@ -1,0 +1,202 @@
+{
+  "subject": "calculus",
+  "topic": "mean-value-theorem",
+  "exam": "GATE CSE 2027",
+  "retrieved_at": "2026-10-29",
+  "subtopics": [
+    "Rolle's theorem: its three hypotheses, its conclusion, and the geometric picture of the horizontal tangent",
+    "Lagrange's mean value theorem: its two hypotheses and the tangent parallel to the chord",
+    "the equality f(b) - f(a) = f'(c)(b - a) read as an inequality: bounds on a function value from a bound on its derivative",
+    "the hypotheses as a test: corners, vertical tangents and discontinuities, and the counterexamples that show the theorem fails without them",
+    "finding the point c: the midpoint rule for quadratics, solving f'(c) = average slope, and discarding roots outside the interval",
+    "existence against uniqueness: the theorem promises at least one point and says nothing about how many",
+    "the three corollaries: zero derivative forces a constant, equal derivatives force a constant difference, and the sign of f' decides monotonicity",
+    "root counting: Rolle between two roots of f, and the exactly-one-real-root argument with the intermediate value theorem",
+    "Cauchy's extended mean value theorem for two functions, and its relation to L'Hopital's rule",
+    "the auxiliary-function construction: building the function that Rolle is applied to",
+    "inequalities proved by bounding the derivative between two points",
+    "reading a derivative that is zero at one point against a derivative that is zero everywhere"
+  ],
+  "chosen": [
+    {
+      "id": "openstax-calculus-v1-4-4-mvt",
+      "kind": "text",
+      "title": "Calculus Volume 1, section 4.4: The Mean Value Theorem",
+      "channel": "OpenStax (Rice University)",
+      "url": "https://openstax.org/books/calculus-volume-1/pages/4-4-the-mean-value-theorem",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read from the section opening through the proof of the mean value theorem: Rolle's statement and its three-case proof from the extreme value theorem and Fermat's theorem, the explicit warning that differentiability at a single point is critical, the |x| - 1 counterexample, the two worked Rolle examples (x^2 + 2x on [-2, 0] giving c = -1, x^3 - 4x on [-2, 2] giving both plus and minus 2/sqrt(3)), the mean value theorem statement, and its proof by the auxiliary function g(x) = f(x) minus the chord. The corollary subsection further down was beyond the returned extract and nothing is attributed to it",
+      "covers": [
+        "Rolle's theorem: statement, three-case proof, and why each hypothesis is used",
+        "the |x| - 1 counterexample that shows the conclusion fails without differentiability",
+        "two worked Rolle examples, including one with two interior points",
+        "the mean value theorem as the slanted Rolle theorem, with the secant-parallel-to-tangent reading",
+        "the proof by the chord-subtraction auxiliary function, which is the construction card 10 teaches"
+      ],
+      "why": "The most complete readable English treatment found this run: it states every hypothesis, proves both theorems, and supplies the counterexample and the worked points the cards need. Chosen over the other textbook pages because its proof of the mean value theorem is the auxiliary-function construction itself, which is a subtopic of this topic and is usually skipped."
+    },
+    {
+      "id": "pauls-notes-calculus-1-4-7-mvt",
+      "kind": "text",
+      "title": "Calculus I, section 4.7: The Mean Value Theorem",
+      "channel": "Paul's Online Math Notes, Lamar University",
+      "url": "https://tutorial.math.lamar.edu/classes/calci/MeanValueTheorem.aspx",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read from the opening through the geometric interpretation: Rolle's three hypotheses, the exactly-one-real-root example 4x^5 + x^3 + 7x - 2 (f(0) = -2, f(1) = 10, f'(x) >= 7), the mean value theorem statement in both forms, the explicit note that the theorem does not tell us what c is, and the secant-and-tangent picture. The corollary list further down the page was beyond the returned extract",
+      "covers": [
+        "Rolle's theorem used backwards, by contradiction, to bound the number of real roots",
+        "the 4x^5 + x^3 + 7x - 2 example, worked end to end",
+        "the statement that the theorem asserts existence and never identifies c",
+        "the secant-parallel-to-tangent geometric reading"
+      ],
+      "why": "The only readable source that treats root counting through Rolle - the subtopic that the 2014-adjacent GATE statement questions reward and that the OpenStax section does not touch. Its 4x^5 + x^3 + 7x - 2 example is reproduced as card 8's worked example because the numbers are small enough to verify by hand."
+    },
+    {
+      "id": "knowledgegate-13-oct-em-calculus-part-3",
+      "kind": "lecture-summary",
+      "title": "13 Oct - EM - Calculus Part 3, the Rolle's theorem and mean value theorem segment",
+      "channel": "Knowledge Gate (Yash Jain)",
+      "url": "https://www.knowledgegate.ai/learn/GATE-GUIDANCE-BY-SANCHIT-SIR/live-classes/gate-2026-live-class/engineering-mathematics-for-gate-exam/asset-13-oct-em-calculus-part-3",
+      "language": "hi",
+      "transcript": "SUMMARY_ONLY",
+      "translated": true,
+      "note": "Hindi-medium live class; the platform's published English AI chapter summary with timestamps was read in full, the lecture itself was not. Chapters used: 10:00-15:00 Rolle's theorem with its conditions and the horizontal-tangent reading; 15:00-20:00 the GATE CS 2014 determinant question solved by Rolle; 20:00-25:00 Lagrange's mean value theorem with the secant picture; 25:00-30:00 Cauchy's extended mean value theorem",
+      "covers": [
+        "Rolle's theorem as GATE states it, with the three conditions and the tangent-parallel-to-the-x-axis reading (10:00-15:00)",
+        "the GATE CS 2014 Set 1 Q.6 determinant question solved by Rolle (15:00-20:00)",
+        "Lagrange's mean value theorem and the secant-parallel-to-tangent picture (20:00-25:00)",
+        "Cauchy's extended mean value theorem in the product form (f(b)-f(a))g'(c) = (g(b)-g(a))f'(c) (25:00-30:00)"
+      ],
+      "why": "The only GATE-oriented teaching of this topic that could be read this run, and the only source that solves a CSE PYQ of the topic. It is Hindi-medium and what was readable is the platform's published English AI chapter summary with timestamps, so the cards take its structure, its order and its worked PYQ, and quote no sentence of the lecturer. It is also the only source for Cauchy's form."
+    }
+  ],
+  "rejected": [
+    {
+      "id": "mit-ocw-18-01-lecture-14-transcript",
+      "kind": "lecture-transcript",
+      "channel": "MIT OpenCourseWare, 18.01 Single Variable Calculus (Fall 2007), Lecture 14",
+      "title": "ocw-18-01-f07-lec14 transcript",
+      "url": "https://rachel.worldpossible.org/mods/en-rachelcourses/singlevarcalculus/contents/14_Transcript.pdf",
+      "language": "en",
+      "why": "The same transcript mirror that supplied the previous topic's lecture in full. Rejected for access, not for quality: the readable part of Lecture 14 is the Newton's-method error analysis, and Lecture 15 opens with 'today we're moving on from ... the mean value theorem', so the theorem is treated at the very end of Lecture 14, beyond the extract that was returned. Nothing is attributed to it."
+    },
+    {
+      "id": "byjus-gate-mean-value-theorems-uawxu1tei7o",
+      "kind": "lecture",
+      "channel": "BYJU'S GATE, 'Mean Value Theorems | GATE 2023 Engineering Mathematics | Rakesh Talreja'",
+      "title": "YouTube video UawXU1TEI7o",
+      "url": "https://www.youtube.com/watch?v=UawXU1TEI7o",
+      "language": "en",
+      "why": "A GATE-oriented English lecture whose title is exactly this topic. Rejected for access: the page returned only YouTube boilerplate, with no caption track and no transcript, so not one sentence could be read."
+    },
+    {
+      "id": "gatewallah-manish-taylor-mvt-dwkkx25k5mc",
+      "kind": "lecture",
+      "channel": "GATE Wallah, 'GATE 2027 Engineering Mathematics | Calculus Lec 3 | Taylor Series & Mean Value Theorems | Manish Sir'",
+      "title": "YouTube video DWkkX25k5Mc",
+      "url": "https://www.youtube.com/watch?v=DWkkX25k5Mc",
+      "language": "en",
+      "why": "The closest current match for the GATE 2027 line, but the search result carried the title only and the watch page returned no caption track, so nothing could be read. It also mixes Taylor series with the mean value theorem, and Taylor series is not in the GATE CSE calculus line."
+    },
+    {
+      "id": "unacademy-sweta-kumari-mvt-hindi",
+      "kind": "lecture",
+      "channel": "Unacademy, 'Mean Value Theorem: Lagrange's, Cauchy's & Roll's MVT (in Hindi)', Sweta Kumari",
+      "title": "Lesson 9 of 13, 8:09 min",
+      "url": "https://unacademy.com/lesson/mean-value-theorem-lagranges-cauchys-rolls-mvt-in-hindi/P4SUYJII",
+      "language": "hi",
+      "why": "A short Hindi lesson covering all three forms, which would have been a good second non-English source. Rejected for access: the page returns a description and a lesson list, with the video behind an account wall and no transcript."
+    },
+    {
+      "id": "geeksforgeeks-rolles-theorem",
+      "kind": "text",
+      "channel": "GeeksforGeeks, 'Rolle's Mean Value Theorem'",
+      "title": "rolles-theorem",
+      "url": "https://www.geeksforgeeks.org/engineering-mathematics/rolles-theorem/",
+      "language": "en",
+      "why": "Readable and correct on the statement, the proof sketch and the practice problems, but it stops at Rolle's theorem: no mean value theorem, no Cauchy form, no GATE framing, and its 'applications in CS' section is filler. Superseded by the OpenStax section, which covers the same ground and the theorem this topic is named after."
+    },
+    {
+      "id": "mindspan-mvt-quiz-page",
+      "kind": "text",
+      "channel": "MindSpan Education, 'Rolle's Theorem and the Mean Value Theorem'",
+      "title": "A GATE DA / CS quiz page",
+      "url": "https://mindspaneducation.com/learn/calculus-and-optimization/mean-value-theorem/",
+      "language": "en",
+      "why": "Its hierarchy table (Rolle, MVT, Cauchy) and its common-mistakes list are sound and were read, but it is a commercial quiz page written for GATE DA, it states no source, and every fact it carries is stated better in the OpenStax section. Not used for any card."
+    },
+    {
+      "id": "gateoverflow-mean-value-theorem-tag",
+      "kind": "pyq-index",
+      "channel": "GATE Overflow, mean-value-theorem tag",
+      "title": "Tagged questions",
+      "url": "https://gateoverflow.in/tag/mean-value-theorem",
+      "language": "en",
+      "why": "Used as an index only. The tag holds five questions and none of them is a GATE CSE paper question: they are ISI 2019, a 2018 user question about a tangent parallel to a chord, a 2016 rail-engine question and two 2016 user questions. Every PYQ kept here was taken from its own GATE Overflow question page instead."
+    },
+    {
+      "id": "gate-cse-2014-set2-5-cubic-roots",
+      "kind": "pyq",
+      "channel": "GATE Overflow, GATE CSE 2014 Set 2 Q.5",
+      "title": "A non-zero cubic with roots at 1, 2 and 3; which of f(0)f(4) < 0 and the others must hold",
+      "url": "https://gateoverflow.in/1957/gate-cse-2014-set-2-question-5",
+      "language": "en",
+      "why": "A genuine CSE question about the sign of a cubic, and Rolle-flavoured. Excluded from the PYQ set because its accepted solution factors the polynomial as k(x-1)(x-2)(x-3) and never invokes a mean value theorem; presenting it as an MVT question would misstate what GATE asked. It is named in the root-counting card's GATE angle instead."
+    },
+    {
+      "id": "gate-ee-1995-mvt-bounds",
+      "kind": "pyq",
+      "channel": "ExamSIDE, GATE EE 1995 calculus",
+      "title": "Lower and upper bounds of f(1) estimated by the mean value theorem, given f'(x) = 8/(x^2+3x+4)",
+      "url": "https://questions.examside.com/past-years/gate/gate-ee/engineering-mathematics/calculus",
+      "language": "en",
+      "why": "Exactly the bounds pattern this topic teaches, and the best-known Indian-exam example of it. Excluded because it is a GATE EE question, not a GATE CSE one; including it would misstate the topic's weight in the CSE paper. The same pattern is taught from the 2021 CSE question."
+    },
+    {
+      "id": "edurev-gate-cse-calculus-pyq-page",
+      "kind": "pyq-index",
+      "channel": "EduRev, 'Previous Year Questions (GATE CSE) Calculus'",
+      "title": "A per-year listing of GATE CSE calculus questions",
+      "url": "https://edurev.in/t/548032/previous-year-questions-gate-cse-calculus",
+      "language": "en",
+      "why": "Readable, and it lists the 2020 increasing-functions question with its answer. Rejected as a verification source because it gives question text with a bare answer letter, no solution and no answer evidence; its numbering also disagrees with GATE Overflow's."
+    },
+    {
+      "id": "trygateai-calculus-pyq-index",
+      "kind": "pyq-index",
+      "channel": "GateAI, 'GATE CSE Calculus PYQs'",
+      "title": "A per-question listing with types and marks",
+      "url": "https://www.trygateai.com/pyq/engineering-mathematics/calculus",
+      "language": "en",
+      "why": "The most complete per-year list of CSE calculus questions found, and it is what established that 2021 Set 2 Q.25 and 2014 Set 1 Q.6 are the only two CSE questions in the whole calculus line that turn on a mean value theorem. Used as an index only: its own solutions were not treated as evidence, and its marks column was not copied into the PYQ records."
+    },
+    {
+      "id": "go-classes-dpp-rolles-theorem",
+      "kind": "practice-set",
+      "channel": "GATE Overflow, 'GO Classes DPP | GATE CS, DA | Calculus & Optimization | Rolle's Theorem'",
+      "title": "A daily practice problem set on Rolle's theorem",
+      "url": "https://gateoverflow.in/tag/calculus-%26-optimization",
+      "language": "en",
+      "why": "A practice set from a coaching institute, not a previous-year paper. It was read and its question shape (two functions continuous on [a,b] with f(a)=f(b)=0, which of the statements must hold) informed one conceptual variation, but nothing in it is presented as a PYQ."
+    }
+  ],
+  "standard_refs": [
+    "James Stewart, Calculus: Early Transcendentals, sections 4.2 and 4.3 (Rolle's theorem and the mean value theorem)",
+    "George B. Thomas, Maurice D. Weir and Joel Hass, Thomas' Calculus, chapter 4 (applications of derivatives)",
+    "NCERT Mathematics, Class 12, chapter 5 (continuity and differentiability), which contains Rolle's and Lagrange's theorems as the version most Indian candidates meet first",
+    "Gilbert Strang et al., OpenStax Calculus Volume 1, section 4.4",
+    "GATE 2027 CS syllabus, Engineering Mathematics line 'Limits, continuity and differentiability. Maxima and minima. Mean value theorem. Integration.'"
+  ],
+  "notes": [
+    "The syllabus names the topic in three words, so the twelve subtopics above are this run's enumeration from the standard treatment (Stewart 4.2-4.3, NCERT chapter 5, OpenStax 4.4) and from the three verified CSE questions, not a quotation from the syllabus.",
+    "Only two GATE CSE questions in the whole calculus line turn on a mean value theorem - 2014 Set 1 Q.6 (Rolle) and 2021 Set 2 Q.25 (a bound from Lagrange's form). A third CSE question, 2020 Q.1, is included because the monotonicity corollary is the mean value theorem in use. No CSE question on Cauchy's form or on an MVT inequality was found, so those two cards are P2 and P3 and rest on the standard references.",
+    "YouTube served no caption track on any watch page tried this run, so no YouTube lecture is quoted. The GATE-oriented lecture used is recorded from the platform's published English AI chapter summary of a Hindi-medium class and is marked translated.",
+    "The non-English material is Hindi-medium (one Knowledge Gate live class) and reaches the cards only through its English AI summary, so the translation sits two layers from the lecture; no card quotes a Hindi sentence.",
+    "Both textbook sources were read in part: the extraction service returned the opening through the proof of the mean value theorem, and the corollary subsections beyond that are not quoted. The cards that depend on the corollaries (cards 7, 8 and 12) derive them from the theorem itself, and every number they use is recomputed in scripts/validate.py.",
+    "GATE EE 1995's mean-value-theorem bounds question and GATE CSE 2014 Set 2 Q.5 are both genuine previous-year questions of the right shape and both are excluded, with reasons recorded above rather than hidden."
+  ]
+}

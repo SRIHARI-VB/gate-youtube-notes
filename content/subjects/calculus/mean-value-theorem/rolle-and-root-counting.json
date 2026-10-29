@@ -1,0 +1,103 @@
+{
+  "id": "rolle-and-root-counting",
+  "title": "Counting Real Roots with Rolle",
+  "priority": "P2",
+  "order": 188,
+  "unit": "Mean Value Theorem",
+  "quickIdea": "Between two roots of f there is a root of f'. So a derivative that never vanishes forces at most one root, and the intermediate value theorem supplies the one that exists.",
+  "remember": [
+    "If f(p) = f(q) = 0 with p < q, Rolle gives a c in (p, q) with f'(c) = 0.",
+    "Contrapositive: if f' has no real zero, f has at most one real root.",
+    "Existence and uniqueness are separate jobs. The intermediate value theorem gives existence from a sign change; Rolle gives uniqueness.",
+    "A polynomial of degree n has at most n real roots, by applying Rolle n - 1 times to f' and using that a linear function has at most one root.",
+    "The same argument bounds the number of solutions of f(x) = k: apply it to f(x) - k."
+  ],
+  "example": {
+    "prompt": "Show that 4x^5 + x^3 + 7x - 2 has exactly one real root.",
+    "work": "f(0) = -2 and f(1) = 4 + 1 + 7 - 2 = 10, so by the intermediate value theorem there is a root in (0, 1). Now f'(x) = 20x^4 + 3x^2 + 7, and both even powers are non-negative, so f'(x) >= 7 > 0 for every x. If there were two roots, Rolle would give a point with f' = 0, which is impossible.",
+    "answer": "Exactly one real root, and it lies in (0, 1)."
+  },
+  "gateAngle": "GATE uses this pattern in the statement form - 'the equation has at most one root', 'how many real solutions' - rather than asking for the root. The 2014 Set 2 Q.5 question about a cubic with roots at 1, 2 and 3 is the same idea seen from the sign side, though its accepted solution factors the polynomial instead of invoking Rolle.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "How many real roots does x^3 + x + 1 have?",
+      "answer": "Exactly one.",
+      "why": "f'(x) = 3x^2 + 1 > 0 everywhere, so at most one root; f(-1) = -1 and f(0) = 1 give one by the intermediate value theorem. Neither half alone is enough, which is the point of the variation."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Why does a degree-n polynomial have at most n real roots?",
+      "answer": "Because Rolle applied to consecutive roots would give n - 1 distinct roots of f', and so on down to a constant.",
+      "why": "Between any two roots of f there is a root of f'; repeating gives at least n - 1, n - 2, ... roots of the successive derivatives, and a non-zero constant has none."
+    }
+  ],
+  "trap": {
+    "what": "Proving uniqueness with Rolle and then forgetting that no root need exist.",
+    "why": "At most one root is a statement about the maximum number, not about existence.",
+    "counterexample": "x^2 + 1 has f'(x) = 2x, and Rolle's argument shows it has at most one real root - which is true, because it has none. The count needs the intermediate value theorem as well."
+  },
+  "check": {
+    "question": "Show that x^5 + x^3 + x + 1 = 0 has exactly one real solution.",
+    "answer": "One, in (-1, 0).",
+    "explanation": "f(-1) = -1 - 1 - 1 + 1 = -2 and f(0) = 1, so a root exists in (-1, 0). f'(x) = 5x^4 + 3x^2 + 1 >= 1 > 0, so f is strictly increasing and the root is unique."
+  },
+  "pyqIds": [],
+  "prereqs": [
+    "rolle-theorem-statement",
+    "continuity-on-an-interval-and-ivt"
+  ],
+  "sources": [
+    {
+      "kind": "text",
+      "title": "Calculus I, section 4.7: The Mean Value Theorem",
+      "channel": "Paul's Online Math Notes, Lamar University",
+      "url": "https://tutorial.math.lamar.edu/classes/calci/MeanValueTheorem.aspx",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read from the opening through the geometric interpretation: Rolle's three hypotheses, the exactly-one-real-root example 4x^5 + x^3 + 7x - 2, the mean value theorem statement, the explicit note that the theorem does not say what c is, and the secant-parallel-to-tangent picture. The corollary list further down the page was beyond the returned extract"
+    },
+    {
+      "kind": "text",
+      "title": "Calculus Volume 1, section 4.4: The Mean Value Theorem",
+      "channel": "OpenStax (Rice University)",
+      "url": "https://openstax.org/books/calculus-volume-1/pages/4-4-the-mean-value-theorem",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read from the section opening through the proof of the mean value theorem: Rolle's statement, the three-case proof from the extreme value theorem, the |x| - 1 counterexample, the two worked Rolle examples (x^2 + 2x on [-2,0], x^3 - 4x on [-2,2]), the mean value theorem statement and its proof by the auxiliary function g(x) = f(x) minus the chord. The later corollary subsection was beyond the returned extract and is not quoted"
+    }
+  ],
+  "sourceLine": "The exactly-one-real-root argument and the 4x^5 + x^3 + 7x - 2 example: Paul's Online Math Notes section 4.7 (English). Rolle's statement that the argument rests on: OpenStax section 4.4. The values are recomputed in scripts/validate.py.",
+  "videoRefs": [],
+  "links": {
+    "mock": {
+      "subject": "engineering-mathematics",
+      "unit_slug": "calculus-optimization-integrals",
+      "unit_name": "Calculus: Maxima, Minima & Integrals",
+      "unit_number": 4,
+      "question_count": 25,
+      "subtopics": [
+        {
+          "label": "single-variable-extrema",
+          "questions": 7
+        },
+        {
+          "label": "multivariable-extrema-saddle-points",
+          "questions": 6
+        },
+        {
+          "label": "definite-integrals",
+          "questions": 6
+        },
+        {
+          "label": "vector-calculus-basics",
+          "questions": 6
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-28.html"
+    },
+    "mapped_at": "2026-10-29"
+  }
+}

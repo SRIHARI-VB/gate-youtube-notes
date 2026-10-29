@@ -1,0 +1,103 @@
+{
+  "id": "auxiliary-function-construction",
+  "title": "Building the Function: The Auxiliary-Function Trick",
+  "priority": "P2",
+  "order": 190,
+  "unit": "Mean Value Theorem",
+  "quickIdea": "When the conclusion names a point where something vanishes, build the function whose derivative is that something, check its two endpoint values, then quote Rolle.",
+  "remember": [
+    "The mean value theorem itself is Rolle applied to g(x) = f(x) - [f(a) + ((f(b) - f(a))/(b - a))(x - a)], the vertical gap between the curve and its chord. g(a) = g(b) = 0.",
+    "For 'show ax^2 + bx + c = 0 has a root in (0, 1) given 2a + 3b + 6c = 0', integrate: F(x) = ax^3/3 + bx^2/2 + cx has F(0) = 0 and F(1) = (2a + 3b + 6c)/6 = 0, and F' is the given quadratic.",
+    "The recipe: read the object that must vanish, integrate it, verify the two endpoint values, then apply Rolle to the integral.",
+    "Always check both endpoint values before quoting the theorem; a construction that does not give equal endpoints proves nothing.",
+    "Cauchy's theorem uses the same construction with h(x) = (f(b) - f(a)) g(x) - (g(b) - g(a)) f(x)."
+  ],
+  "example": {
+    "prompt": "If 2a + 3b + 6c = 0, show that ax^2 + bx + c = 0 has at least one root in (0, 1).",
+    "work": "Let F(x) = ax^3/3 + bx^2/2 + cx. Then F(0) = 0 and F(1) = a/3 + b/2 + c = (2a + 3b + 6c)/6 = 0, so F satisfies Rolle's hypotheses on [0, 1] and some c0 in (0, 1) has F'(c0) = 0. But F'(x) = ax^2 + bx + c.",
+    "answer": "There is a root of ax^2 + bx + c in (0, 1), namely the Rolle point of F."
+  },
+  "gateAngle": "This is the shape of the descriptive MVT questions in the older GATE papers and of the 'which of the following must be true' statement questions: the given relation between the coefficients is exactly the equal-endpoint condition of some integral.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "If f(0) = 0 and f(1) = 1, show that some c in (0, 1) has f'(c) = 2c.",
+      "answer": "Apply Rolle to g(x) = f(x) - x^2.",
+      "why": "g(0) = 0 - 0 = 0 and g(1) = 1 - 1 = 0, so Rolle gives g'(c) = 0, that is f'(c) - 2c = 0. The auxiliary function is read off the conclusion: the thing that must vanish is f'(x) - 2x, so integrate it to get f(x) - x^2."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Why does the mean value theorem need an auxiliary function at all, when Rolle's theorem is enough?",
+      "answer": "Because Rolle needs equal endpoint values, and the chord is what makes them equal.",
+      "why": "Subtracting the chord removes the height difference between f(a) and f(b), so the gap function starts and ends at 0 - and its derivative is f' minus the average slope."
+    }
+  ],
+  "trap": {
+    "what": "Applying Rolle to the given function instead of to its integral.",
+    "why": "The given quadratic has no reason to take equal values at the endpoints; the relation between the coefficients is a condition on the integral.",
+    "counterexample": "For a = 1, b = 0, c = -1/3 the relation 2a + 3b + 6c = 2 - 2 = 0 holds, and x^2 - 1/3 is not equal at 0 and 1 - Rolle cannot be applied to it, yet its root 0.577 does lie in (0, 1)."
+  },
+  "check": {
+    "question": "If f(0) = f(1) = f(2) = 0, how many distinct zeros does f' have in (0, 2)?",
+    "answer": "At least two.",
+    "explanation": "Rolle on [0, 1] gives one zero in (0, 1) and Rolle on [1, 2] gives another in (1, 2); the two intervals are disjoint, so the zeros are distinct."
+  },
+  "pyqIds": [],
+  "prereqs": [
+    "rolle-theorem-statement",
+    "cauchy-extended-mvt"
+  ],
+  "sources": [
+    {
+      "kind": "text",
+      "title": "Calculus Volume 1, section 4.4: The Mean Value Theorem",
+      "channel": "OpenStax (Rice University)",
+      "url": "https://openstax.org/books/calculus-volume-1/pages/4-4-the-mean-value-theorem",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read from the section opening through the proof of the mean value theorem: Rolle's statement, the three-case proof from the extreme value theorem, the |x| - 1 counterexample, the two worked Rolle examples (x^2 + 2x on [-2,0], x^3 - 4x on [-2,2]), the mean value theorem statement and its proof by the auxiliary function g(x) = f(x) minus the chord. The later corollary subsection was beyond the returned extract and is not quoted"
+    },
+    {
+      "kind": "lecture-summary",
+      "title": "13 Oct - EM - Calculus Part 3, the Rolle's theorem and mean value theorem segment",
+      "channel": "Knowledge Gate (Yash Jain)",
+      "url": "https://www.knowledgegate.ai/learn/GATE-GUIDANCE-BY-SANCHIT-SIR/live-classes/gate-2026-live-class/engineering-mathematics-for-gate-exam/asset-13-oct-em-calculus-part-3",
+      "language": "hi",
+      "transcript": "SUMMARY_ONLY",
+      "translated": true,
+      "note": "Hindi-medium live class; the platform's published English AI chapter summary with timestamps was read in full, the lecture itself was not. Chapters used: 10:00-15:00 Rolle's theorem, its three conditions and the horizontal-tangent picture; 15:00-20:00 the GATE CS 2014 determinant question solved by Rolle; 20:00-25:00 Lagrange's mean value theorem with the secant picture; 25:00-30:00 Cauchy's extended mean value theorem in the form (f(b)-f(a))g'(c) = (g(b)-g(a))f'(c)"
+    }
+  ],
+  "sourceLine": "The chord-subtraction construction and its use in the proof of the mean value theorem: OpenStax section 4.4 (English). Cauchy's form of the same construction: Knowledge Gate chapter summary 25:00-30:00 (Hindi-medium lecture, English summary - translated). The 2a + 3b + 6c example is derived and recomputed in scripts/validate.py.",
+  "videoRefs": [],
+  "links": {
+    "mock": {
+      "subject": "engineering-mathematics",
+      "unit_slug": "calculus-optimization-integrals",
+      "unit_name": "Calculus: Maxima, Minima & Integrals",
+      "unit_number": 4,
+      "question_count": 25,
+      "subtopics": [
+        {
+          "label": "single-variable-extrema",
+          "questions": 7
+        },
+        {
+          "label": "multivariable-extrema-saddle-points",
+          "questions": 6
+        },
+        {
+          "label": "definite-integrals",
+          "questions": 6
+        },
+        {
+          "label": "vector-calculus-basics",
+          "questions": 6
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-28.html"
+    },
+    "mapped_at": "2026-10-29"
+  }
+}

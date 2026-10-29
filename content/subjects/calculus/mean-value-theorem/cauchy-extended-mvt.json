@@ -1,0 +1,93 @@
+{
+  "id": "cauchy-extended-mvt",
+  "title": "Cauchy's Extended Mean Value Theorem",
+  "priority": "P2",
+  "order": 189,
+  "unit": "Mean Value Theorem",
+  "quickIdea": "For two functions there is one point c where (f(b) - f(a)) g'(c) = (g(b) - g(a)) f'(c). Taking g(x) = x gives the ordinary mean value theorem back.",
+  "remember": [
+    "Hypotheses: f and g continuous on [a, b] and differentiable on (a, b). Conclusion: some c in (a, b) satisfies (f(b) - f(a)) g'(c) = (g(b) - g(a)) f'(c).",
+    "The ratio form f'(c)/g'(c) = (f(b) - f(a))/(g(b) - g(a)) needs g'(c) != 0 and g(b) != g(a); the product form needs neither.",
+    "With g(x) = x, g'(c) = 1 and g(b) - g(a) = b - a, so the ordinary mean value theorem drops out.",
+    "It is proved directly, by Rolle applied to h(x) = (f(b) - f(a)) g(x) - (g(b) - g(a)) f(x), not by dividing two separate applications of the ordinary theorem.",
+    "This is the theorem that justifies L'Hopital's rule: the single c has to serve both functions at once."
+  ],
+  "example": {
+    "prompt": "For f(x) = x^2 and g(x) = x^3 on [1, 2], find the point Cauchy's theorem guarantees.",
+    "work": "f(2) - f(1) = 3 and g(2) - g(1) = 7, so the ratio is 3/7. f'(c)/g'(c) = 2c/(3c^2) = 2/(3c). Setting 2/(3c) = 3/7 gives 14 = 9c, so c = 14/9.",
+    "answer": "c = 14/9 = 1.5556, which lies in (1, 2). Check: 2/(3c) = 2/(14/3) = 3/7, as required."
+  },
+  "gateAngle": "No verified GATE CSE question asks for Cauchy's form directly, so this card is P2 rather than P1. It earns its place because L'Hopital's rule - which GATE does test, in the limits topic - is its corollary, and because statement questions about 'which theorem applies' use it as a distractor.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "Can the ratio form be used for f(x) = x^2, g(x) = x^3 on [-1, 1]?",
+      "answer": "No, and it need not be: the product form holds with c = 0.",
+      "why": "g(1) - g(-1) = 2 is non-zero, but f(1) - f(-1) = 0, so the product form forces (g(1) - g(-1)) f'(c) = 0, that is 2 (2c) = 0 and c = 0. At c = 0 the derivative g'(0) = 0, so the ratio is undefined. The variation shows exactly why the product form is the safe statement."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Why can Cauchy's theorem not be proved by applying the ordinary theorem to f and to g separately?",
+      "answer": "Because the two applications give two different points c1 and c2, and the conclusion needs one point.",
+      "why": "The whole content of the theorem is that a single c works for both functions. The proof therefore builds a combined function and applies Rolle to it."
+    }
+  ],
+  "trap": {
+    "what": "Writing the ratio form when g(b) = g(a) or when g' vanishes somewhere inside.",
+    "why": "Both conditions are divisions by zero waiting to happen, and neither is part of the product form.",
+    "counterexample": "f(x) = x^2, g(x) = x^3 on [-1, 1]: g(1) - g(-1) = 2 != 0, yet the only c satisfying the product form is 0, where g'(0) = 0, so the ratio form has no value to report."
+  },
+  "check": {
+    "question": "Recover the ordinary mean value theorem from Cauchy's statement.",
+    "answer": "Put g(x) = x, so g'(c) = 1 and g(b) - g(a) = b - a.",
+    "explanation": "The product form becomes (f(b) - f(a))(1) = (b - a) f'(c), which is exactly f'(c) = (f(b) - f(a))/(b - a)."
+  },
+  "pyqIds": [],
+  "prereqs": [
+    "lmvt-statement-and-secant-slope",
+    "lhopital-rule-and-its-conditions"
+  ],
+  "sources": [
+    {
+      "kind": "lecture-summary",
+      "title": "13 Oct - EM - Calculus Part 3, the Rolle's theorem and mean value theorem segment",
+      "channel": "Knowledge Gate (Yash Jain)",
+      "url": "https://www.knowledgegate.ai/learn/GATE-GUIDANCE-BY-SANCHIT-SIR/live-classes/gate-2026-live-class/engineering-mathematics-for-gate-exam/asset-13-oct-em-calculus-part-3",
+      "language": "hi",
+      "transcript": "SUMMARY_ONLY",
+      "translated": true,
+      "note": "Hindi-medium live class; the platform's published English AI chapter summary with timestamps was read in full, the lecture itself was not. Chapters used: 10:00-15:00 Rolle's theorem, its three conditions and the horizontal-tangent picture; 15:00-20:00 the GATE CS 2014 determinant question solved by Rolle; 20:00-25:00 Lagrange's mean value theorem with the secant picture; 25:00-30:00 Cauchy's extended mean value theorem in the form (f(b)-f(a))g'(c) = (g(b)-g(a))f'(c)"
+    }
+  ],
+  "sourceLine": "The statement in the form (f(b) - f(a)) g'(c) = (g(b) - g(a)) f'(c), and the reading that it generalises Lagrange's theorem: Knowledge Gate '13 Oct - EM - Calculus Part 3', chapter summary 25:00-30:00 (Hindi-medium lecture, English summary - translated). The worked point 14/9 and the [-1, 1] example are derived and recomputed here; no verified CSE PYQ exists for this form.",
+  "videoRefs": [],
+  "links": {
+    "mock": {
+      "subject": "engineering-mathematics",
+      "unit_slug": "calculus-optimization-integrals",
+      "unit_name": "Calculus: Maxima, Minima & Integrals",
+      "unit_number": 4,
+      "question_count": 25,
+      "subtopics": [
+        {
+          "label": "single-variable-extrema",
+          "questions": 7
+        },
+        {
+          "label": "multivariable-extrema-saddle-points",
+          "questions": 6
+        },
+        {
+          "label": "definite-integrals",
+          "questions": 6
+        },
+        {
+          "label": "vector-calculus-basics",
+          "questions": 6
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-28.html"
+    },
+    "mapped_at": "2026-10-29"
+  }
+}

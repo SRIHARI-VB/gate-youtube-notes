@@ -1,0 +1,124 @@
+{
+  "id": "lmvt-statement-and-secant-slope",
+  "title": "Lagrange's Mean Value Theorem",
+  "priority": "P1",
+  "order": 182,
+  "unit": "Mean Value Theorem",
+  "quickIdea": "With only continuity on [a, b] and differentiability inside, some interior point has f'(c) equal to the average slope (f(b) - f(a)) / (b - a): the tangent is parallel to the chord.",
+  "remember": [
+    "Two hypotheses only: continuous on [a, b], differentiable on (a, b). Equal endpoint values are not required.",
+    "Conclusion: there is a c in (a, b) with f'(c) = (f(b) - f(a)) / (b - a), equivalently f(b) - f(a) = f'(c)(b - a).",
+    "Geometrically the chord through (a, f(a)) and (b, f(b)) has a parallel tangent somewhere in between.",
+    "Rolle is the special case f(a) = f(b), where the average slope is 0. In the other direction the theorem is Rolle applied to g(x) = f(x) minus the chord line, whose endpoints are both 0.",
+    "The theorem is an existence statement. It never says where c is, and it does not say c is unique."
+  ],
+  "example": {
+    "prompt": "Find the point the mean value theorem guarantees for f(x) = x^3 on [0, 2].",
+    "work": "f is a polynomial, so both hypotheses hold. The average slope is (f(2) - f(0)) / (2 - 0) = 8/2 = 4. Setting f'(c) = 3c^2 = 4 gives c = 2/sqrt(3), about 1.1547, and the negative root is outside the interval.",
+    "answer": "c = 2/sqrt(3) = 1.1547. At that point f(c) = 1.5396 and the tangent slope 3c^2 = 4 equals the chord slope, so the tangent is parallel to the chord from (0, 0) to (2, 8)."
+  },
+  "gateAngle": "GATE rarely asks for c itself. GATE CSE 2021 Set 2 Q.25 gives a bound on f' and asks for a bound on f(3), which is the theorem read as an inequality - see the bounds card. The 2014 Set 1 Q.6 determinant question is the Rolle end of the same theorem.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "Find the mean value theorem point for f(x) = x^3 - 3x on [0, 2].",
+      "answer": "c = 2/sqrt(3), about 1.155.",
+      "why": "The average slope is (f(2) - f(0)) / 2 = (2 - 0) / 2 = 1 and f'(x) = 3x^2 - 3, so 3c^2 = 4. The reasoning is identical to the worked example but the function is no longer monotone, which is the point: the theorem does not care whether f rises or falls."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Must the mean value theorem point be the midpoint of the interval?",
+      "answer": "No. It is the midpoint for every quadratic and for nothing else in general.",
+      "why": "For f(x) = Ax^2 + Bx + C the equation 2Ac + B = A(a + b) + B forces c = (a + b)/2, which is why so many textbook answers look like midpoints. For x^3 on [0, 2] the point is 1.155, not 1."
+    }
+  ],
+  "trap": {
+    "what": "Reporting the midpoint of [a, b], or the slope at an endpoint, as the mean value theorem point.",
+    "why": "The theorem only asserts that some c exists. Unless the function is a quadratic, the point has to be computed from f'(c) = average slope.",
+    "counterexample": "For f(x) = x^3 on [0, 2] the midpoint is 1, where f'(1) = 3, but the average slope is 4. The genuine point is 2/sqrt(3) = 1.155, where f' = 4."
+  },
+  "check": {
+    "question": "For f(x) = x^2 on [0, 2], find the guaranteed c and compare it with the midpoint.",
+    "answer": "c = 1, which is the midpoint.",
+    "explanation": "The average slope is (4 - 0)/2 = 2 and f'(c) = 2c, so c = 1. For a quadratic the point is always the midpoint - that is a property of quadratics, not of the theorem."
+  },
+  "pyqIds": [],
+  "prereqs": [
+    "rolle-theorem-statement"
+  ],
+  "sources": [
+    {
+      "kind": "text",
+      "title": "Calculus Volume 1, section 4.4: The Mean Value Theorem",
+      "channel": "OpenStax (Rice University)",
+      "url": "https://openstax.org/books/calculus-volume-1/pages/4-4-the-mean-value-theorem",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read from the section opening through the proof of the mean value theorem: Rolle's statement, the three-case proof from the extreme value theorem, the |x| - 1 counterexample, the two worked Rolle examples (x^2 + 2x on [-2,0], x^3 - 4x on [-2,2]), the mean value theorem statement and its proof by the auxiliary function g(x) = f(x) minus the chord. The later corollary subsection was beyond the returned extract and is not quoted"
+    },
+    {
+      "kind": "text",
+      "title": "Calculus I, section 4.7: The Mean Value Theorem",
+      "channel": "Paul's Online Math Notes, Lamar University",
+      "url": "https://tutorial.math.lamar.edu/classes/calci/MeanValueTheorem.aspx",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read from the opening through the geometric interpretation: Rolle's three hypotheses, the exactly-one-real-root example 4x^5 + x^3 + 7x - 2, the mean value theorem statement, the explicit note that the theorem does not say what c is, and the secant-parallel-to-tangent picture. The corollary list further down the page was beyond the returned extract"
+    },
+    {
+      "kind": "lecture-summary",
+      "title": "13 Oct - EM - Calculus Part 3, the Rolle's theorem and mean value theorem segment",
+      "channel": "Knowledge Gate (Yash Jain)",
+      "url": "https://www.knowledgegate.ai/learn/GATE-GUIDANCE-BY-SANCHIT-SIR/live-classes/gate-2026-live-class/engineering-mathematics-for-gate-exam/asset-13-oct-em-calculus-part-3",
+      "language": "hi",
+      "transcript": "SUMMARY_ONLY",
+      "translated": true,
+      "note": "Hindi-medium live class; the platform's published English AI chapter summary with timestamps was read in full, the lecture itself was not. Chapters used: 10:00-15:00 Rolle's theorem, its three conditions and the horizontal-tangent picture; 15:00-20:00 the GATE CS 2014 determinant question solved by Rolle; 20:00-25:00 Lagrange's mean value theorem with the secant picture; 25:00-30:00 Cauchy's extended mean value theorem in the form (f(b)-f(a))g'(c) = (g(b)-g(a))f'(c)"
+    }
+  ],
+  "sourceLine": "Statement, the secant-parallel-to-tangent reading and the proof by the auxiliary function: OpenStax section 4.4 and Paul's Online Math Notes section 4.7 (English). The GATE framing: Knowledge Gate '13 Oct - EM - Calculus Part 3', chapter summary 20:00-25:00 (Hindi-medium lecture, English summary - translated).",
+  "visual": "calculus/mean-value-theorem/secant-parallel-tangent",
+  "videoRefs": [],
+  "links": {
+    "mock": {
+      "subject": "engineering-mathematics",
+      "unit_slug": "calculus-optimization-integrals",
+      "unit_name": "Calculus: Maxima, Minima & Integrals",
+      "unit_number": 4,
+      "question_count": 25,
+      "subtopics": [
+        {
+          "label": "single-variable-extrema",
+          "questions": 7
+        },
+        {
+          "label": "multivariable-extrema-saddle-points",
+          "questions": 6
+        },
+        {
+          "label": "definite-integrals",
+          "questions": 6
+        },
+        {
+          "label": "vector-calculus-basics",
+          "questions": 6
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-28.html"
+    },
+    "mapped_at": "2026-10-29",
+    "visual": {
+      "slug": "calculus-mean-value-theorem-secant",
+      "title": "Mean Value Theorem: The Secant and the Parallel Tangent",
+      "level": "topic-level",
+      "covers": [
+        "the chord slope is the average rate of change",
+        "sliding the tangent until it is parallel to the chord locates c",
+        "Rolle is the flat-chord case, and |x| on [-1, 1] shows the failure"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
+    }
+  }
+}

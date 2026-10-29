@@ -1,0 +1,105 @@
+{
+  "id": "not-identically-zero-derivative",
+  "title": "One Zero of f' Is Not Zero Everywhere",
+  "priority": "P2",
+  "order": 192,
+  "unit": "Mean Value Theorem",
+  "quickIdea": "Rolle produces a point where f' = 0. That does not make f' zero everywhere: if f is not constant on the interval, f' takes a nonzero value somewhere.",
+  "remember": [
+    "If f'(x) = 0 for all x in (a, b) then f is constant there, by the mean value theorem applied between any two points.",
+    "Contrapositive, which is what GATE asks: if f is not constant on the interval, then f' != 0 at some point of it.",
+    "To show f is not constant, exhibit two points with different values; one interior value is usually enough.",
+    "A function defined by a determinant is continuous and differentiable wherever its entries are, so check that no entry blows up on the interval - tan is undefined at pi/2.",
+    "Two rows of a determinant becoming equal is the standard way an endpoint value collapses to 0 without any computation."
+  ],
+  "example": {
+    "prompt": "GATE CSE 2014 Set 1 Q.6: f(theta) is the 3x3 determinant with first row (sin, cos, tan) at theta and the other two rows at pi/6 and pi/3. Show that both 'some theta has f'(theta) = 0' and 'some theta has f'(theta) != 0' are true on (pi/6, pi/3).",
+    "work": "At theta = pi/6 the first two rows are identical, so f(pi/6) = 0; at theta = pi/3 the first and third rows are identical, so f(pi/3) = 0. The entries are sin, cos and tan, all differentiable on [pi/6, pi/3] because pi/2 is outside it, so Rolle gives a theta with f'(theta) = 0. At theta = pi/4 the three rows are not proportional and the determinant is 0.0977, not 0, so f is not constant and f' cannot vanish everywhere.",
+    "answer": "Both statements hold, so the answer is option C: both I and II."
+  },
+  "gateAngle": "This is the one verified CSE question in the topic that is not a plain bound, and its second statement is the part students lose: Rolle proves existence of a zero, and the non-constant observation proves f' is not identically zero. GATE has used 'must be true' statement pairs of this kind repeatedly.",
+  "variations": [
+    {
+      "label": "VERIFIED PYQ",
+      "question": "GATE CSE 2014 Set 1 Q.6, statements I and II as above.",
+      "answer": "Both I and II.",
+      "why": "I is Rolle; II is the corollary that a non-constant differentiable function cannot have f' = 0 everywhere."
+    },
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "f(x) = sin x on [0, 2 pi]. Rolle gives a point with f' = 0. Is f'(x) = 0 at every point of the interval?",
+      "answer": "No: f'(0) = cos 0 = 1.",
+      "why": "The same two-step reasoning as the PYQ: existence from Rolle, non-constancy from one value. The variation isolates the step that the 2014 question rewards."
+    }
+  ],
+  "trap": {
+    "what": "Concluding from Rolle that f' is identically zero on the interval.",
+    "why": "Rolle gives one point, not an interval, and a single zero says nothing about the rest of the domain.",
+    "counterexample": "f(x) = x^2 - 1 on [-1, 1] has f(-1) = f(1) = 0 and f'(0) = 0, yet f'(1) = 2. The derivative is zero at exactly one point of the interval."
+  },
+  "check": {
+    "question": "A differentiable f on [0, 1] satisfies f(0) = f(1) = 0 and f'(x) = 0 for all x in (0, 1). What is f?",
+    "answer": "The constant function 0.",
+    "explanation": "Zero derivative on an interval forces a constant by the mean value theorem, and the constant is fixed by f(0) = 0."
+  },
+  "pyqIds": [
+    "gate-2014-set1-6-rolle-determinant"
+  ],
+  "prereqs": [
+    "rolle-theorem-statement",
+    "consequences-constant-and-monotone"
+  ],
+  "sources": [
+    {
+      "kind": "lecture-summary",
+      "title": "13 Oct - EM - Calculus Part 3, the Rolle's theorem and mean value theorem segment",
+      "channel": "Knowledge Gate (Yash Jain)",
+      "url": "https://www.knowledgegate.ai/learn/GATE-GUIDANCE-BY-SANCHIT-SIR/live-classes/gate-2026-live-class/engineering-mathematics-for-gate-exam/asset-13-oct-em-calculus-part-3",
+      "language": "hi",
+      "transcript": "SUMMARY_ONLY",
+      "translated": true,
+      "note": "Hindi-medium live class; the platform's published English AI chapter summary with timestamps was read in full, the lecture itself was not. Chapters used: 10:00-15:00 Rolle's theorem, its three conditions and the horizontal-tangent picture; 15:00-20:00 the GATE CS 2014 determinant question solved by Rolle; 20:00-25:00 Lagrange's mean value theorem with the secant picture; 25:00-30:00 Cauchy's extended mean value theorem in the form (f(b)-f(a))g'(c) = (g(b)-g(a))f'(c)"
+    },
+    {
+      "kind": "text",
+      "title": "Calculus Volume 1, section 4.4: The Mean Value Theorem",
+      "channel": "OpenStax (Rice University)",
+      "url": "https://openstax.org/books/calculus-volume-1/pages/4-4-the-mean-value-theorem",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read from the section opening through the proof of the mean value theorem: Rolle's statement, the three-case proof from the extreme value theorem, the |x| - 1 counterexample, the two worked Rolle examples (x^2 + 2x on [-2,0], x^3 - 4x on [-2,2]), the mean value theorem statement and its proof by the auxiliary function g(x) = f(x) minus the chord. The later corollary subsection was beyond the returned extract and is not quoted"
+    }
+  ],
+  "sourceLine": "The GATE 2014 determinant question and the two-step solution: Knowledge Gate '13 Oct - EM - Calculus Part 3', chapter summary 15:00-20:00 (Hindi-medium lecture, English summary - translated), with the determinant value at pi/4 recomputed here and in scripts/validate.py. The corollary that zero derivative on an interval means constant: OpenStax section 4.4 (English).",
+  "videoRefs": [],
+  "links": {
+    "mock": {
+      "subject": "engineering-mathematics",
+      "unit_slug": "calculus-optimization-integrals",
+      "unit_name": "Calculus: Maxima, Minima & Integrals",
+      "unit_number": 4,
+      "question_count": 25,
+      "subtopics": [
+        {
+          "label": "single-variable-extrema",
+          "questions": 7
+        },
+        {
+          "label": "multivariable-extrema-saddle-points",
+          "questions": 6
+        },
+        {
+          "label": "definite-integrals",
+          "questions": 6
+        },
+        {
+          "label": "vector-calculus-basics",
+          "questions": 6
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-28.html"
+    },
+    "mapped_at": "2026-10-29"
+  }
+}

@@ -1,0 +1,105 @@
+{
+  "id": "consequences-constant-and-monotone",
+  "title": "The Three Corollaries: Constant, Difference Constant, Monotone",
+  "priority": "P2",
+  "order": 187,
+  "unit": "Mean Value Theorem",
+  "quickIdea": "f' = 0 everywhere makes f constant, f' = g' makes f - g constant, and the sign of f' decides whether f rises or falls. All three are the mean value theorem applied between two arbitrary points.",
+  "remember": [
+    "If f'(x) = 0 for every x in (a, b) then f is constant on [a, b]: apply the theorem between any two points and the difference is f'(c)(x2 - x1) = 0.",
+    "If f'(x) = g'(x) on an interval then f - g is constant there, so two antiderivatives of the same function differ by a constant.",
+    "If f' > 0 on (a, b) then f is strictly increasing; f' < 0 strictly decreasing; f' >= 0 non-decreasing.",
+    "The converses fail: x^3 is strictly increasing on the whole line and f'(0) = 0.",
+    "These corollaries are what make the first-derivative test and the constant-of-integration rule valid rather than merely plausible."
+  ],
+  "example": {
+    "prompt": "Show that f(x) = x^3 + 2x + 5 is strictly increasing on the whole real line.",
+    "work": "f'(x) = 3x^2 + 2, and 3x^2 >= 0, so f'(x) >= 2 > 0 everywhere. Take any x1 < x2; the mean value theorem on [x1, x2] gives f(x2) - f(x1) = f'(c)(x2 - x1) with f'(c) > 0 and x2 - x1 > 0.",
+    "answer": "f(x2) > f(x1) for every x1 < x2, so f is strictly increasing."
+  },
+  "gateAngle": "GATE CSE 2020 Q.1 asks which of e^(-x), x^2 - sin x and sqrt(x^3 + 1) is increasing on [0, 1]. The route is this corollary: differentiate and read the sign, and note that x^2 - sin x has derivative 2x - cos x, which is -1 at 0, so it falls first and then rises.",
+  "variations": [
+    {
+      "label": "VERIFIED PYQ",
+      "question": "GATE CSE 2020 Q.1: which of I. e^(-x), II. x^2 - sin x, III. sqrt(x^3 + 1) is increasing everywhere in [0, 1]?",
+      "answer": "III only.",
+      "why": "The derivative of I is -e^(-x) < 0, so it decreases. The derivative of II is 2x - cos x, which is -1 at x = 0 and about 1.46 at x = 1, so II decreases first. The derivative of III is 3x^2/(2 sqrt(x^3 + 1)), positive for x > 0, so III increases."
+    },
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "If f'(x) = g'(x) for every x, f(0) = 4 and g(0) = 1, what is f(1) - g(1)?",
+      "answer": "3.",
+      "why": "f - g has zero derivative everywhere, so it is constant; its value at 0 is 3 and therefore its value at 1 is 3. The variation is the constant-of-integration corollary in disguise."
+    }
+  ],
+  "trap": {
+    "what": "Concluding 'strictly increasing' from f' >= 0, or 'increasing' from f'(p) > 0 at one point p.",
+    "why": "f' >= 0 gives only non-decreasing - a constant function satisfies it. And a positive derivative at a single point says nothing about a neighbourhood unless f' stays positive near p.",
+    "counterexample": "f(x) = 5 has f' = 0 >= 0 everywhere and is not strictly increasing. For the pointwise version, f(x) = x^3 - 3x has f'(-2) = 9 > 0 but f decreases on (-1, 1)."
+  },
+  "check": {
+    "question": "Is f(x) = x + sin x increasing on the whole real line?",
+    "answer": "Yes, strictly increasing.",
+    "explanation": "f'(x) = 1 + cos x >= 0, and it is zero only at odd multiples of pi, isolated points. On any interval between two such points f' > 0, so f is strictly increasing on each and therefore on the whole line."
+  },
+  "pyqIds": [
+    "gate-2020-q1-increasing-everywhere"
+  ],
+  "prereqs": [
+    "monotonicity-and-sign-of-derivative",
+    "lmvt-statement-and-secant-slope"
+  ],
+  "sources": [
+    {
+      "kind": "text",
+      "title": "Calculus Volume 1, section 4.4: The Mean Value Theorem",
+      "channel": "OpenStax (Rice University)",
+      "url": "https://openstax.org/books/calculus-volume-1/pages/4-4-the-mean-value-theorem",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read from the section opening through the proof of the mean value theorem: Rolle's statement, the three-case proof from the extreme value theorem, the |x| - 1 counterexample, the two worked Rolle examples (x^2 + 2x on [-2,0], x^3 - 4x on [-2,2]), the mean value theorem statement and its proof by the auxiliary function g(x) = f(x) minus the chord. The later corollary subsection was beyond the returned extract and is not quoted"
+    },
+    {
+      "kind": "text",
+      "title": "Calculus I, section 4.7: The Mean Value Theorem",
+      "channel": "Paul's Online Math Notes, Lamar University",
+      "url": "https://tutorial.math.lamar.edu/classes/calci/MeanValueTheorem.aspx",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read from the opening through the geometric interpretation: Rolle's three hypotheses, the exactly-one-real-root example 4x^5 + x^3 + 7x - 2, the mean value theorem statement, the explicit note that the theorem does not say what c is, and the secant-parallel-to-tangent picture. The corollary list further down the page was beyond the returned extract"
+    }
+  ],
+  "sourceLine": "The corollaries as consequences of the mean value theorem: OpenStax section 4.4 (whose stated objectives include three important consequences) and Paul's Online Math Notes section 4.7, both English. The 2020 question and its sign analysis are recomputed in scripts/validate.py.",
+  "videoRefs": [],
+  "links": {
+    "mock": {
+      "subject": "engineering-mathematics",
+      "unit_slug": "calculus-optimization-integrals",
+      "unit_name": "Calculus: Maxima, Minima & Integrals",
+      "unit_number": 4,
+      "question_count": 25,
+      "subtopics": [
+        {
+          "label": "single-variable-extrema",
+          "questions": 7
+        },
+        {
+          "label": "multivariable-extrema-saddle-points",
+          "questions": 6
+        },
+        {
+          "label": "definite-integrals",
+          "questions": 6
+        },
+        {
+          "label": "vector-calculus-basics",
+          "questions": 6
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-28.html"
+    },
+    "mapped_at": "2026-10-29"
+  }
+}

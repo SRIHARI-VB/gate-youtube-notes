@@ -1,0 +1,105 @@
+{
+  "id": "rolle-theorem-statement",
+  "title": "Rolle's Theorem",
+  "priority": "P1",
+  "order": 181,
+  "unit": "Mean Value Theorem",
+  "quickIdea": "If f is continuous on [a, b], differentiable inside, and f(a) = f(b), then f' is zero somewhere strictly between a and b.",
+  "remember": [
+    "Three hypotheses: f is continuous on the closed interval [a, b]; f is differentiable on the open interval (a, b); f(a) = f(b).",
+    "Conclusion: there is at least one c with a < c < b and f'(c) = 0. The point is strictly inside, never at an endpoint.",
+    "Geometrically: somewhere between the two equal heights the tangent is horizontal.",
+    "Why it is true: the extreme value theorem gives a maximum and a minimum on [a, b]. If either is attained inside, Fermat's theorem makes f' zero there. If both are at the ends, then f equals f(a) everywhere and f' is zero throughout.",
+    "Every hypothesis is load-bearing: |x| on [-1, 1] is continuous with equal endpoint values, but it is not differentiable at 0 and no interior point has zero slope."
+  ],
+  "example": {
+    "prompt": "Verify Rolle's theorem for f(x) = x^2 - 4x + 3 on [1, 3] and find every c it guarantees.",
+    "work": "A polynomial is continuous and differentiable everywhere, and f(1) = 1 - 4 + 3 = 0 while f(3) = 9 - 12 + 3 = 0, so all three hypotheses hold. f'(x) = 2x - 4 vanishes only at x = 2, and 2 lies in (1, 3).",
+    "answer": "c = 2. It is the only such point, and f(2) = -1 is the lowest value on the interval."
+  },
+  "gateAngle": "GATE CSE 2014 Set 1 Q.6 is the pure Rolle question in disguise: the function is a 3x3 determinant, and the equal endpoint values come from two rows becoming identical. The exam pattern is always the same - establish the three hypotheses from the structure of the function, then quote the theorem instead of differentiating.",
+  "variations": [
+    {
+      "label": "VERIFIED PYQ",
+      "question": "GATE CSE 2014 Set 1 Q.6: f(theta) is the determinant with rows (sin, cos, tan) at theta, at pi/6 and at pi/3, on [pi/6, pi/3]. Are these true? I: some theta in the open interval has f'(theta) = 0. II: some theta in the open interval has f'(theta) != 0.",
+      "answer": "Both I and II (option C).",
+      "why": "I is Rolle, because f(pi/6) = 0 and f(pi/3) = 0 by two identical rows. II needs the extra observation that f is not constant, which the value f(pi/4) = 0.0977 settles."
+    },
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "Apply Rolle's theorem to f(x) = x^3 - 4x on [-2, 2] and list every guaranteed point.",
+      "answer": "c = 2/sqrt(3) and c = -2/sqrt(3), both about 1.155 in absolute value.",
+      "why": "f(-2) = 0 = f(2) and f'(x) = 3x^2 - 4, so the candidates are the two roots of 3c^2 = 4. The variation tests the 'at least one' wording: the theorem is satisfied twice over."
+    }
+  ],
+  "trap": {
+    "what": "Quoting Rolle whenever the function is continuous and differentiable, without checking f(a) = f(b).",
+    "why": "The equal endpoint values are a hypothesis, not a formality. Drop it and the conclusion can be false.",
+    "counterexample": "f(x) = x^2 on [0, 2] is continuous and differentiable, but f(0) = 0 and f(2) = 4, and f'(x) = 2x is never zero in (0, 2). The right tool there is the mean value theorem, which gives c = 1 with f'(1) = 2 equal to the average slope 4/2."
+  },
+  "check": {
+    "question": "Does Rolle's theorem apply to f(x) = x^(2/3) on [-1, 1], and does its conclusion hold?",
+    "answer": "It does not apply, and the conclusion is false.",
+    "explanation": "f(-1) = 1 = f(1) and f is continuous, but f'(x) = (2/3) x^(-1/3) does not exist at 0, so the differentiability hypothesis fails. For x != 0 the derivative is never zero, so no interior point has zero slope - exactly the failure the missing hypothesis allows."
+  },
+  "pyqIds": [
+    "gate-2014-set1-6-rolle-determinant"
+  ],
+  "prereqs": [
+    "continuity-on-an-interval-and-ivt",
+    "differentiability-and-its-link-to-continuity"
+  ],
+  "sources": [
+    {
+      "kind": "text",
+      "title": "Calculus Volume 1, section 4.4: The Mean Value Theorem",
+      "channel": "OpenStax (Rice University)",
+      "url": "https://openstax.org/books/calculus-volume-1/pages/4-4-the-mean-value-theorem",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read from the section opening through the proof of the mean value theorem: Rolle's statement, the three-case proof from the extreme value theorem, the |x| - 1 counterexample, the two worked Rolle examples (x^2 + 2x on [-2,0], x^3 - 4x on [-2,2]), the mean value theorem statement and its proof by the auxiliary function g(x) = f(x) minus the chord. The later corollary subsection was beyond the returned extract and is not quoted"
+    },
+    {
+      "kind": "lecture-summary",
+      "title": "13 Oct - EM - Calculus Part 3, the Rolle's theorem and mean value theorem segment",
+      "channel": "Knowledge Gate (Yash Jain)",
+      "url": "https://www.knowledgegate.ai/learn/GATE-GUIDANCE-BY-SANCHIT-SIR/live-classes/gate-2026-live-class/engineering-mathematics-for-gate-exam/asset-13-oct-em-calculus-part-3",
+      "language": "hi",
+      "transcript": "SUMMARY_ONLY",
+      "translated": true,
+      "note": "Hindi-medium live class; the platform's published English AI chapter summary with timestamps was read in full, the lecture itself was not. Chapters used: 10:00-15:00 Rolle's theorem, its three conditions and the horizontal-tangent picture; 15:00-20:00 the GATE CS 2014 determinant question solved by Rolle; 20:00-25:00 Lagrange's mean value theorem with the secant picture; 25:00-30:00 Cauchy's extended mean value theorem in the form (f(b)-f(a))g'(c) = (g(b)-g(a))f'(c)"
+    }
+  ],
+  "sourceLine": "Statement, three-case proof and the |x| - 1 counterexample: OpenStax Calculus Volume 1 section 4.4 (English). The GATE framing and the 2014 determinant question worked through: Knowledge Gate '13 Oct - EM - Calculus Part 3', chapter summary 10:00-20:00 (Hindi-medium lecture, English summary - translated). Every value here is recomputed in scripts/validate.py.",
+  "videoRefs": [],
+  "links": {
+    "mock": {
+      "subject": "engineering-mathematics",
+      "unit_slug": "calculus-optimization-integrals",
+      "unit_name": "Calculus: Maxima, Minima & Integrals",
+      "unit_number": 4,
+      "question_count": 25,
+      "subtopics": [
+        {
+          "label": "single-variable-extrema",
+          "questions": 7
+        },
+        {
+          "label": "multivariable-extrema-saddle-points",
+          "questions": 6
+        },
+        {
+          "label": "definite-integrals",
+          "questions": 6
+        },
+        {
+          "label": "vector-calculus-basics",
+          "questions": 6
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-28.html"
+    },
+    "mapped_at": "2026-10-29"
+  }
+}

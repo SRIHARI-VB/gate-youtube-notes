@@ -1,0 +1,105 @@
+{
+  "id": "hypotheses-and-when-mvt-fails",
+  "title": "When the Hypotheses Fail",
+  "priority": "P1",
+  "order": 184,
+  "unit": "Mean Value Theorem",
+  "quickIdea": "Continuity is needed on the closed interval and differentiability only on the open one. A corner or a blow-up inside destroys the guarantee, and the counterexample is the answer.",
+  "remember": [
+    "Continuity on [a, b] includes the endpoints; differentiability is demanded only on (a, b). A vertical tangent at an endpoint is therefore harmless.",
+    "|x| on [-1, 1]: continuous, f(-1) = f(1) = 1, not differentiable at 0. Its slope is -1 on (-1, 0) and +1 on (0, 1), so Rolle's conclusion fails.",
+    "1/x on [-1, 1]: not even defined at 0, so not continuous there. Its derivative -1/x^2 is never zero, so no conclusion can hold.",
+    "x^(2/3) on [-1, 1]: continuous with equal endpoint values, a vertical tangent at 0, and f' != 0 everywhere else. Rolle fails again.",
+    "A failed hypothesis removes the guarantee, not the possibility: x^3 on [-1, 1] has unequal endpoint values, yet f'(0) = 0 anyway."
+  ],
+  "example": {
+    "prompt": "Show that Rolle's theorem fails for f(x) = |x| on [-1, 1], and say exactly which hypothesis fails.",
+    "work": "f(-1) = 1 = f(1) and f is continuous on [-1, 1], so two of the three hypotheses hold. At 0 the left derivative is -1 and the right derivative is +1, so f is not differentiable at 0. For x in (-1, 0) the derivative is -1 and for x in (0, 1) it is +1.",
+    "answer": "No c in (-1, 1) has f'(c) = 0. The differentiability hypothesis is the one that fails, and with it the conclusion."
+  },
+  "gateAngle": "GATE tests the hypotheses as a statement question: 'which of the following functions satisfies the conditions of the mean value theorem on the given interval'. The correct answer is always found by locating the corner or the vertical asymptote, not by differentiating.",
+  "variations": [
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Does the mean value theorem apply to f(x) = sqrt(x) on [0, 1]?",
+      "answer": "Yes, and the guaranteed point is c = 1/4.",
+      "why": "f is continuous on [0, 1] and differentiable on (0, 1); the infinite slope at the endpoint 0 does not matter because differentiability is demanded only inside. The average slope is 1 and 1/(2 sqrt(c)) = 1 gives c = 1/4."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "For which functions on [-1, 1] does Rolle's theorem fail even though f(-1) = f(1)?",
+      "answer": "Those with a point inside where f' does not exist, or where f is discontinuous.",
+      "why": "GATE has used the same shape for continuity and differentiability questions since 2013, and a statement question listing |x|, x^(2/3) and 1/x is the natural next step."
+    }
+  ],
+  "trap": {
+    "what": "Checking differentiability at the endpoints, or checking continuity only on the open interval.",
+    "why": "The two conditions are deliberately split across the closed and the open interval, and swapping them changes which functions qualify.",
+    "counterexample": "sqrt(x) on [0, 1] is not differentiable at 0 but the theorem still applies, because only the open interval matters. Conversely 1/x on [-1, 1] is differentiable everywhere it is defined and the theorem still fails, because continuity on the closed interval fails."
+  },
+  "check": {
+    "question": "Which hypothesis of the mean value theorem does f(x) = 1/x violate on [-1, 1]?",
+    "answer": "Continuity on the closed interval: f is not defined at 0.",
+    "explanation": "The function is differentiable on (-1, 0) and on (0, 1) separately, but it is not continuous at 0, so the interval [-1, 1] is not admissible. Its derivative -1/x^2 is negative everywhere it exists, so the average slope 0 is never attained."
+  },
+  "pyqIds": [],
+  "prereqs": [
+    "rolle-theorem-statement",
+    "lmvt-statement-and-secant-slope"
+  ],
+  "sources": [
+    {
+      "kind": "text",
+      "title": "Calculus Volume 1, section 4.4: The Mean Value Theorem",
+      "channel": "OpenStax (Rice University)",
+      "url": "https://openstax.org/books/calculus-volume-1/pages/4-4-the-mean-value-theorem",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read from the section opening through the proof of the mean value theorem: Rolle's statement, the three-case proof from the extreme value theorem, the |x| - 1 counterexample, the two worked Rolle examples (x^2 + 2x on [-2,0], x^3 - 4x on [-2,2]), the mean value theorem statement and its proof by the auxiliary function g(x) = f(x) minus the chord. The later corollary subsection was beyond the returned extract and is not quoted"
+    }
+  ],
+  "sourceLine": "The three-case proof that shows why each hypothesis is used, and the |x| - 1 counterexample: OpenStax Calculus Volume 1 section 4.4 (English). The sqrt(x) and 1/x readings are derived here and recomputed in scripts/validate.py.",
+  "visual": "calculus/mean-value-theorem/secant-parallel-tangent",
+  "videoRefs": [],
+  "links": {
+    "mock": {
+      "subject": "engineering-mathematics",
+      "unit_slug": "calculus-optimization-integrals",
+      "unit_name": "Calculus: Maxima, Minima & Integrals",
+      "unit_number": 4,
+      "question_count": 25,
+      "subtopics": [
+        {
+          "label": "single-variable-extrema",
+          "questions": 7
+        },
+        {
+          "label": "multivariable-extrema-saddle-points",
+          "questions": 6
+        },
+        {
+          "label": "definite-integrals",
+          "questions": 6
+        },
+        {
+          "label": "vector-calculus-basics",
+          "questions": 6
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-28.html"
+    },
+    "mapped_at": "2026-10-29",
+    "visual": {
+      "slug": "calculus-mean-value-theorem-secant",
+      "title": "Mean Value Theorem: The Secant and the Parallel Tangent",
+      "level": "topic-level",
+      "covers": [
+        "the chord slope is the average rate of change",
+        "sliding the tangent until it is parallel to the chord locates c",
+        "Rolle is the flat-chord case, and |x| on [-1, 1] shows the failure"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
+    }
+  }
+}

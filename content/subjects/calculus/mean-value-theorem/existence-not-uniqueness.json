@@ -1,0 +1,114 @@
+{
+  "id": "existence-not-uniqueness",
+  "title": "At Least One, Not Exactly One",
+  "priority": "P2",
+  "order": 186,
+  "unit": "Mean Value Theorem",
+  "quickIdea": "Both theorems promise at least one point c. There may be several, and a question that asks 'how many' cannot be answered by quoting the theorem.",
+  "remember": [
+    "The wording is 'there exists at least one c'. It is not 'exactly one', and it is certainly not 'the point c is'.",
+    "x^3 - 4x on [-2, 2] satisfies Rolle and has two zero-slope points, at 2/sqrt(3) and -2/sqrt(3).",
+    "sin x on [0, 2 pi] has f(0) = f(2 pi) = 0 and f'(x) = cos x zero at pi/2 and at 3 pi/2: two points again.",
+    "For the mean value theorem the same holds: on a wiggly curve several tangents can be parallel to one chord.",
+    "Counting the points requires solving f'(c) = 0 or f'(c) = average slope. The theorem alone gives existence."
+  ],
+  "example": {
+    "prompt": "How many points does Rolle's theorem allow for f(x) = x^3 - 4x on [-2, 2], and where are they?",
+    "work": "f(-2) = -8 + 8 = 0 and f(2) = 8 - 8 = 0, so the hypotheses hold. f'(x) = 3x^2 - 4 vanishes at c = 2/sqrt(3) = 1.1547 and at c = -2/sqrt(3) = -1.1547, and both lie inside (-2, 2).",
+    "answer": "Two points, at plus and minus 2/sqrt(3). The theorem guarantees at least one and is satisfied twice."
+  },
+  "gateAngle": "GATE has not asked for a count in this topic, but the counting instinct is what breaks the 2014 Set 1 Q.6 statement 'there exists theta with f'(theta) = 0': a student who reads it as 'exactly one' then wrongly rejects the second statement of that question.",
+  "variations": [
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Rolle's theorem gives one c for a certain f on [a, b]. Does f' vanish only at that c?",
+      "answer": "No. The theorem says nothing about other points.",
+      "why": "f(x) = sin x on [0, 2 pi] has two such points and x^3 - 4x has two as well; a constant function has f' = 0 at every point."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "For f(x) = x(x - 1)(x - 2) on [0, 2], how many Rolle points are there?",
+      "answer": "Two, at 1 - 1/sqrt(3) and 1 + 1/sqrt(3), about 0.423 and 1.577.",
+      "why": "f(0) = f(2) = 0 and f'(x) = 3x^2 - 6x + 2, whose roots are both interior. It is the natural MSQ form of this idea: a count, not a location."
+    }
+  ],
+  "trap": {
+    "what": "Answering 'one' because the theorem says 'at least one'.",
+    "why": "Existence statements are lower bounds on the number of solutions, never upper bounds.",
+    "counterexample": "The constant function f(x) = 3 on [0, 1] satisfies Rolle and every interior point has f' = 0, so the number of guaranteed points is not the number of points."
+  },
+  "check": {
+    "question": "f(x) = x^4 - 5x^2 + 4 has roots at 1 and 2. Must f' have a zero between them, and can you find it?",
+    "answer": "Yes by Rolle; f'(x) = 4x^3 - 10x = 2x(2x^2 - 5) vanishes at sqrt(5/2) = 1.581, inside (1, 2).",
+    "explanation": "f(1) = 1 - 5 + 4 = 0 and f(2) = 16 - 20 + 4 = 0, so Rolle applies on [1, 2]. The other roots of f' are 0 and -1.581, both outside the interval, so exactly one point lies inside."
+  },
+  "pyqIds": [],
+  "prereqs": [
+    "rolle-theorem-statement"
+  ],
+  "sources": [
+    {
+      "kind": "text",
+      "title": "Calculus Volume 1, section 4.4: The Mean Value Theorem",
+      "channel": "OpenStax (Rice University)",
+      "url": "https://openstax.org/books/calculus-volume-1/pages/4-4-the-mean-value-theorem",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read from the section opening through the proof of the mean value theorem: Rolle's statement, the three-case proof from the extreme value theorem, the |x| - 1 counterexample, the two worked Rolle examples (x^2 + 2x on [-2,0], x^3 - 4x on [-2,2]), the mean value theorem statement and its proof by the auxiliary function g(x) = f(x) minus the chord. The later corollary subsection was beyond the returned extract and is not quoted"
+    },
+    {
+      "kind": "text",
+      "title": "Calculus I, section 4.7: The Mean Value Theorem",
+      "channel": "Paul's Online Math Notes, Lamar University",
+      "url": "https://tutorial.math.lamar.edu/classes/calci/MeanValueTheorem.aspx",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read from the opening through the geometric interpretation: Rolle's three hypotheses, the exactly-one-real-root example 4x^5 + x^3 + 7x - 2, the mean value theorem statement, the explicit note that the theorem does not say what c is, and the secant-parallel-to-tangent picture. The corollary list further down the page was beyond the returned extract"
+    }
+  ],
+  "sourceLine": "The two-root Rolle example x^3 - 4x on [-2, 2]: OpenStax section 4.4 (English). The explicit warning that the theorem does not say what c is: Paul's Online Math Notes section 4.7. Every count and root here is recomputed in scripts/validate.py.",
+  "visual": "calculus/mean-value-theorem/secant-parallel-tangent",
+  "videoRefs": [],
+  "links": {
+    "mock": {
+      "subject": "engineering-mathematics",
+      "unit_slug": "calculus-optimization-integrals",
+      "unit_name": "Calculus: Maxima, Minima & Integrals",
+      "unit_number": 4,
+      "question_count": 25,
+      "subtopics": [
+        {
+          "label": "single-variable-extrema",
+          "questions": 7
+        },
+        {
+          "label": "multivariable-extrema-saddle-points",
+          "questions": 6
+        },
+        {
+          "label": "definite-integrals",
+          "questions": 6
+        },
+        {
+          "label": "vector-calculus-basics",
+          "questions": 6
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-28.html"
+    },
+    "mapped_at": "2026-10-29",
+    "visual": {
+      "slug": "calculus-mean-value-theorem-secant",
+      "title": "Mean Value Theorem: The Secant and the Parallel Tangent",
+      "level": "topic-level",
+      "covers": [
+        "the chord slope is the average rate of change",
+        "sliding the tangent until it is parallel to the chord locates c",
+        "Rolle is the flat-chord case, and |x| on [-1, 1] shows the failure"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
+    }
+  }
+}

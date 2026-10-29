@@ -1,0 +1,102 @@
+{
+  "id": "finding-the-point-c",
+  "title": "Finding the Point c",
+  "priority": "P2",
+  "order": 185,
+  "unit": "Mean Value Theorem",
+  "quickIdea": "For a quadratic the point is always the midpoint; otherwise solve f'(c) = average slope and keep only the roots strictly inside the interval.",
+  "remember": [
+    "Quadratic f(x) = Ax^2 + Bx + C: the average slope is A(a + b) + B and f'(c) = 2Ac + B, so c = (a + b)/2 exactly, for every quadratic.",
+    "Cubic: f'(c) = average slope is a quadratic equation in c, so there are up to two candidates.",
+    "Discard every root outside (a, b). Rolle and the mean value theorem both demand a strictly interior point.",
+    "For Rolle, solve f'(c) = 0 by the same procedure - it is the mean value theorem with average slope 0.",
+    "For a general function the equation may have no closed form. The theorem still guarantees that a solution exists."
+  ],
+  "example": {
+    "prompt": "Find the mean value theorem point for f(x) = x^3 - 4x on [0, 3].",
+    "work": "f(3) = 27 - 12 = 15 and f(0) = 0, so the average slope is 15/3 = 5. f'(x) = 3x^2 - 4, so 3c^2 - 4 = 5 gives c^2 = 3 and c = sqrt(3) or c = -sqrt(3). Only sqrt(3), about 1.732, lies in (0, 3).",
+    "answer": "c = sqrt(3) = 1.732. The negative root is discarded because it is outside the interval."
+  },
+  "gateAngle": "When GATE asks for the point at all, it asks in a form where the arithmetic is clean, and the distractor is the discarded root or the midpoint. The 2014 Set 1 Q.6 question avoids the issue entirely by asking only whether such a point exists.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "For f(x) = x^2 + 2x on [-2, 0], find the Rolle point.",
+      "answer": "c = -1.",
+      "why": "f(-2) = 0 = f(0) and f'(x) = 2x + 2, so c = -1, which is the midpoint - as it must be for a quadratic. The same function appears in the OpenStax worked example, which is why it is a safe model for what GATE would set."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Can the mean value theorem point be an endpoint?",
+      "answer": "No. Both theorems place c strictly inside the open interval.",
+      "why": "If c could be an endpoint, every differentiable function would trivially satisfy the conclusion at a or b, and the theorem would say nothing."
+    }
+  ],
+  "trap": {
+    "what": "Keeping every algebraic root of f'(c) = average slope.",
+    "why": "The equation is solved over the whole real line, but only interior solutions are theorem points.",
+    "counterexample": "For x^3 - 4x on [0, 3] the equation 3c^2 = 9 has two roots, and -sqrt(3) is outside the interval, so the answer is one point, not two."
+  },
+  "check": {
+    "question": "For f(x) = x^3 on [-2, 2], where is the mean value theorem point?",
+    "answer": "c = 2/sqrt(3) and c = -2/sqrt(3).",
+    "explanation": "The average slope is (8 - (-8))/4 = 4 and f'(c) = 3c^2, so c^2 = 4/3 and both roots lie in (-2, 2). Two points are allowed: the theorem promises at least one."
+  },
+  "pyqIds": [],
+  "prereqs": [
+    "lmvt-statement-and-secant-slope"
+  ],
+  "sources": [
+    {
+      "kind": "text",
+      "title": "Calculus Volume 1, section 4.4: The Mean Value Theorem",
+      "channel": "OpenStax (Rice University)",
+      "url": "https://openstax.org/books/calculus-volume-1/pages/4-4-the-mean-value-theorem",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read from the section opening through the proof of the mean value theorem: Rolle's statement, the three-case proof from the extreme value theorem, the |x| - 1 counterexample, the two worked Rolle examples (x^2 + 2x on [-2,0], x^3 - 4x on [-2,2]), the mean value theorem statement and its proof by the auxiliary function g(x) = f(x) minus the chord. The later corollary subsection was beyond the returned extract and is not quoted"
+    },
+    {
+      "kind": "text",
+      "title": "Calculus I, section 4.7: The Mean Value Theorem",
+      "channel": "Paul's Online Math Notes, Lamar University",
+      "url": "https://tutorial.math.lamar.edu/classes/calci/MeanValueTheorem.aspx",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read from the opening through the geometric interpretation: Rolle's three hypotheses, the exactly-one-real-root example 4x^5 + x^3 + 7x - 2, the mean value theorem statement, the explicit note that the theorem does not say what c is, and the secant-parallel-to-tangent picture. The corollary list further down the page was beyond the returned extract"
+    }
+  ],
+  "sourceLine": "The worked Rolle examples that fix the procedure: OpenStax section 4.4 (x^2 + 2x on [-2, 0] and x^3 - 4x on [-2, 2], both roots kept). The statement that the theorem does not say what c is: Paul's Online Math Notes section 4.7 (English). The quadratic-midpoint fact is derived and recomputed here.",
+  "videoRefs": [],
+  "links": {
+    "mock": {
+      "subject": "engineering-mathematics",
+      "unit_slug": "calculus-optimization-integrals",
+      "unit_name": "Calculus: Maxima, Minima & Integrals",
+      "unit_number": 4,
+      "question_count": 25,
+      "subtopics": [
+        {
+          "label": "single-variable-extrema",
+          "questions": 7
+        },
+        {
+          "label": "multivariable-extrema-saddle-points",
+          "questions": 6
+        },
+        {
+          "label": "definite-integrals",
+          "questions": 6
+        },
+        {
+          "label": "vector-calculus-basics",
+          "questions": 6
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-28.html"
+    },
+    "mapped_at": "2026-10-29"
+  }
+}

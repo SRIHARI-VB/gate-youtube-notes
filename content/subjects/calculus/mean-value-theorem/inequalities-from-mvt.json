@@ -1,0 +1,92 @@
+{
+  "id": "inequalities-from-mvt",
+  "title": "Proving Inequalities with the MVT",
+  "priority": "P3",
+  "order": 191,
+  "unit": "Mean Value Theorem",
+  "quickIdea": "To prove f(x) >= g(x) between two points, apply the mean value theorem to the difference and bound its derivative on the interval between them.",
+  "remember": [
+    "e^x >= 1 + x for x >= 0: on [0, x] the theorem gives e^x - 1 = e^c x with 0 < c < x, and e^c >= 1.",
+    "ln(1 + x) <= x for x >= 0: ln(1 + x) - ln(1) = x/(1 + c) with 0 < c < x, and 1/(1 + c) <= 1.",
+    "|sin a - sin b| <= |a - b| for all a, b: the derivative cos is bounded by 1 in absolute value.",
+    "The direction of the inequality comes from the sign of b - a. On a negative interval the same bound reverses, so write the theorem as f(b) - f(a) = f'(c)(b - a) and read the signs.",
+    "The bound is sharp only where the derivative bound is attained; e^x >= 1 + x is an equality exactly at x = 0."
+  ],
+  "example": {
+    "prompt": "Use the mean value theorem to show that e^0.5 >= 1.5.",
+    "work": "Apply the theorem to f(x) = e^x on [0, 0.5]: e^0.5 - e^0 = e^c (0.5 - 0) for some c in (0, 0.5). Since e^c >= 1 on that interval, e^0.5 - 1 >= 0.5.",
+    "answer": "e^0.5 >= 1.5. Numerically e^0.5 = 1.6487, so the bound holds with room to spare."
+  },
+  "gateAngle": "No verified GATE CSE question in this topic asks for an inequality proof, which is why this card is P3. It is kept because the same one-line bound (|f'| <= M) is what the 2021 Set 2 Q.25 question uses, and because inequality statements appear as MSQ options.",
+  "variations": [
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Show that ln(1.5) <= 0.5 using the mean value theorem.",
+      "answer": "Apply the theorem to ln(1 + x) on [0, 0.5]: ln(1.5) - ln(1) = 0.5/(1 + c) <= 0.5.",
+      "why": "The derivative 1/(1 + c) is at most 1 because c > 0. Numerically ln(1.5) = 0.4055, which is the value the bound is protecting."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "Which is larger for x > 0: e^x or 1 + x + x^2/2?",
+      "answer": "e^x, for every x > 0.",
+      "why": "Apply the theorem twice, or use the second-order Taylor bound with Lagrange remainder, which is the mean value theorem applied to the difference. At x = 0.5 the two sides are 1.6487 and 1.625, so the gap is real but small - a good multiple-select distractor."
+    }
+  ],
+  "trap": {
+    "what": "Quoting the bound without checking the sign of b - a.",
+    "why": "f(b) - f(a) = f'(c)(b - a); if b < a the factor is negative and the inequality flips.",
+    "counterexample": "The bound ln(1 + x) <= x is stated for x >= 0. At x = -0.5 the left side is ln(0.5) = -0.693 and the right side is -0.5, so the inequality is false - the interval runs the other way."
+  },
+  "check": {
+    "question": "Show that |cos 1 - cos 0.5| <= 0.5.",
+    "answer": "True, because |sin c| <= 1 for the c the theorem produces.",
+    "explanation": "cos 1 - cos 0.5 = -sin(c)(0.5) for some c in (0.5, 1), so the absolute value is at most 0.5. Numerically cos 1 = 0.5403 and cos 0.5 = 0.8776, a difference of 0.337."
+  },
+  "pyqIds": [],
+  "prereqs": [
+    "mvt-bounds-on-function-values"
+  ],
+  "sources": [
+    {
+      "kind": "text",
+      "title": "Calculus I, section 4.7: The Mean Value Theorem",
+      "channel": "Paul's Online Math Notes, Lamar University",
+      "url": "https://tutorial.math.lamar.edu/classes/calci/MeanValueTheorem.aspx",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read from the opening through the geometric interpretation: Rolle's three hypotheses, the exactly-one-real-root example 4x^5 + x^3 + 7x - 2, the mean value theorem statement, the explicit note that the theorem does not say what c is, and the secant-parallel-to-tangent picture. The corollary list further down the page was beyond the returned extract"
+    }
+  ],
+  "sourceLine": "The theorem in the form f(b) - f(a) = f'(c)(b - a), which is what every inequality proof here uses: Paul's Online Math Notes section 4.7 (English). Each bound and each numerical value is recomputed in scripts/validate.py.",
+  "videoRefs": [],
+  "links": {
+    "mock": {
+      "subject": "engineering-mathematics",
+      "unit_slug": "calculus-optimization-integrals",
+      "unit_name": "Calculus: Maxima, Minima & Integrals",
+      "unit_number": 4,
+      "question_count": 25,
+      "subtopics": [
+        {
+          "label": "single-variable-extrema",
+          "questions": 7
+        },
+        {
+          "label": "multivariable-extrema-saddle-points",
+          "questions": 6
+        },
+        {
+          "label": "definite-integrals",
+          "questions": 6
+        },
+        {
+          "label": "vector-calculus-basics",
+          "questions": 6
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-28.html"
+    },
+    "mapped_at": "2026-10-29"
+  }
+}
