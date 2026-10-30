@@ -1,0 +1,21 @@
+{
+  "id": "gate-2004-q20-relocation-at-run-time",
+  "year": "2004",
+  "paper": "GATE CS 2004",
+  "question_ref": "Q.20",
+  "type": "MCQ",
+  "topic": "relocation-and-position-independent-code",
+  "text": "Which of the following addressing modes are suitable for program relocation at run time? (i) Absolute addressing (ii) Based addressing (iii) Relative addressing (iv) Indirect addressing",
+  "options": [
+    "(i) and (iv)",
+    "(i) and (ii)",
+    "(ii) and (iii)",
+    "(i), (ii) and (iv)"
+  ],
+  "answer": "Option (C) - (ii) and (iii), based addressing and relative addressing",
+  "solution": "Both based and relative addressing compute the address from a value that can move with the program: the base register is reloaded at run time, and the program counter moves with the code. Absolute addressing hard-codes an address that stops being correct the moment the program moves. Indirect addressing is no help either, because the pointer it reads still holds an absolute address pointing at the old location - and it costs an extra memory reference into the bargain.",
+  "source_url": "https://gateoverflow.in/1017/gate-cse-2004-question-20",
+  "source_label": "GATE Overflow question page - GATE CSE 2004 Q.20 with the accepted answer (option C)",
+  "verification": "SOURCED",
+  "answer_evidence": "The accepted answer begins 'Answer: (C) A displacement type addressing should be preferred. So, (I) is not the answer. Indirect Addressing leads to extra memory reference which is not preferable at run time.' Several answers on the page reach the same option by the base-register argument. Corroborated by the GeeksforGeeks GATE CS 2004 Question 20 page, which lists the same option set."
+}
