@@ -29679,15 +29679,15 @@ window.GATE_DATA = {
    "visual": "digital-logic/combinational-circuits/mux-to-minimal-sop",
    "links": {
     "visual": {
-     "slug": "mux-to-minimal-sop",
-     "title": "From a 4-to-1 Multiplexer to a Minimal Sum of Products",
-     "level": "subtopic-level",
+     "slug": "combinational-circuits",
+     "title": "Combinational Circuits: Adders, Multiplexers and Decoders",
+     "level": "topic-level",
      "covers": [
-      "the multiplexer output equation",
-      "implementing a function on a multiplexer",
-      "reading a minimal sum of products off a group"
+      "a multiplexer is a lookup table, universal for functions of its select lines",
+      "the 8-to-1 table method: data input k is row k of the table",
+      "the 4-to-1 variable method: each data input is 0, 1, the variable, or its complement"
      ],
-     "url": "visuals/digital-logic/combinational-circuits/mux-to-minimal-sop/index.html"
+     "url": "https://gate-visual-explainer.vercel.app/topics/combinational-circuits/index.html"
     },
     "mapped_at": "2026-10-31",
     "mock": {

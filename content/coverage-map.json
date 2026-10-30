@@ -2828,9 +2828,16 @@
         "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=combinational-circuits (50 records)",
         "mock url: runs[] last entry for combinational-circuits -> https://gate-cse-mocks.vercel.app/digital-logic/combinational-circuits/gate_dl_mock_2_2026-10-27.html",
         "mock evidence: mock group multiplexers-demultiplexers; the card already carries a subtopic-level notes visual, kept",
-        "visual evidence: mock group multiplexers-demultiplexers; the card already carries a subtopic-level notes visual, kept"
+        "visual: gate-visual-explainer topics.json slug combinational-circuits (category digital-logic), syllabus-coverage.json lesson_slug combinational-circuits (PUBLISHED); transcript.md scenes 5-6 carry the 8-to-1 table method and the 4-to-1 variable method; the old links.visual slug mux-to-minimal-sop is a notes-internal visual under visuals/, not a gate-visual-explainer lesson, so it was replaced"
       ],
-      "row_verdict": "MOCK_ONLY"
+      "row_verdict": "BOTH",
+      "visual": {
+        "slug": "combinational-circuits",
+        "title": "Combinational Circuits: Adders, Multiplexers and Decoders",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      }
     },
     {
       "subject": "digital-logic",
@@ -10029,7 +10036,7 @@
     {
       "kind": "notes",
       "placement": "algorithms › dynamic-programming",
-      "detail": "mock unit \"Dynamic Programming\" (unit_number 4, 25 questions) serves no notes card; subtopic groups: 0-1-knapsack 6, all-pairs-shortest-paths-floyd-warshall 6, longest-common-subsequence 6, matrix-chain-multiplication 7"
+      "detail": "mock unit \"Dynamic Programming\" (unit_number 4, 50 questions) serves no notes card; subtopic groups: 0-1-knapsack 12, all-pairs-shortest-paths-floyd-warshall 12, longest-common-subsequence 12, matrix-chain-multiplication 14"
     },
     {
       "kind": "notes",
@@ -10064,7 +10071,7 @@
     {
       "kind": "notes",
       "placement": "compiler-design › top-down-parsing",
-      "detail": "mock unit \"Syntax Analysis: Top-Down Parsing\" (unit_number 2, 50 questions) serves no notes card; subtopic groups: first-and-follow-sets 15, left-recursion-and-factoring 12, ll1-parsing-tables 11, recursive-descent-parsers 12"
+      "detail": "mock unit \"Syntax Analysis: Top-Down Parsing\" (unit_number 2, 75 questions) serves no notes card; subtopic groups: first-and-follow-sets 21, left-recursion-and-factoring 18, ll1-parsing-tables 18, recursive-descent-parsers 18"
     },
     {
       "kind": "notes",
@@ -10079,7 +10086,7 @@
     {
       "kind": "notes",
       "placement": "computer-architecture › memory-management-unit",
-      "detail": "mock unit \"Main Memory & Virtual Memory Interface\" (unit_number 4, 25 questions) serves no notes card; subtopic groups: dram-sram-organization 6, effective-access-time 6, paging-tlb-hit-ratio 8, segmentation 5"
+      "detail": "mock unit \"Main Memory & Virtual Memory Interface\" (unit_number 4, 50 questions) serves no notes card; subtopic groups: dram-sram-organization 13, effective-access-time 11, paging-tlb-hit-ratio 17, segmentation 9"
     },
     {
       "kind": "notes",
@@ -10124,7 +10131,7 @@
     {
       "kind": "notes",
       "placement": "databases › transactions-concurrency",
-      "detail": "mock unit \"Transactions & Concurrency Control\" (unit_number 4, 25 questions) serves no notes card; subtopic groups: acid-properties 5, recoverability-cascadeless 5, schedules-serializability-conflict-view 5, timestamp-ordering-and-deadlocks 5, two-phase-locking-2pl-strict-rigorous 5"
+      "detail": "mock unit \"Transactions & Concurrency Control\" (unit_number 4, 50 questions) serves no notes card; subtopic groups: acid-properties 10, recoverability-cascadeless 10, schedules-serializability-conflict-view 10, timestamp-ordering-and-deadlocks 10, two-phase-locking-2pl-strict-rigorous 10"
     },
     {
       "kind": "notes",
@@ -10144,12 +10151,12 @@
     {
       "kind": "notes",
       "placement": "operating-systems › deadlocks",
-      "detail": "mock unit \"Deadlocks\" (unit_number 3, 50 questions) serves no notes card; subtopic groups: deadlock-detection-recovery 11, deadlock-prevention-avoidance-bankers 16, four-conditions-resource-allocation-graph 13, starvation-vs-deadlock 10"
+      "detail": "mock unit \"Deadlocks\" (unit_number 3, 75 questions) serves no notes card; subtopic groups: deadlock-detection-recovery 17, deadlock-prevention-avoidance-bankers 23, four-conditions-resource-allocation-graph 20, starvation-vs-deadlock 15"
     },
     {
       "kind": "notes",
       "placement": "operating-systems › memory-paging",
-      "detail": "mock unit \"Memory Management & Paging\" (unit_number 4, 50 questions) serves no notes card; subtopic groups: contiguous-allocation-first-best-worst-fit 13, inverted-page-tables 12, paging-page-table-structures 13, segmentation-paged-segmentation 12"
+      "detail": "mock unit \"Memory Management & Paging\" (unit_number 4, 75 questions) serves no notes card; subtopic groups: contiguous-allocation-first-best-worst-fit 19, inverted-page-tables 18, paging-page-table-structures 20, segmentation-paged-segmentation 18"
     },
     {
       "kind": "notes",
@@ -10570,6 +10577,11 @@
       "kind": "notes",
       "placement": "lesson complexity-classes-p-np-np-complete",
       "detail": "published lesson \"Complexity classes: P, NP, NP-hard and NP-complete, and what a reduction proves\" (PUBLISHED 2026-10-30, Algorithms) serves no notes card; the notes repo has no algorithms subject at all"
+    },
+    {
+      "kind": "notes",
+      "placement": "lesson intermediate-code-generation",
+      "detail": "published lesson \"Intermediate code generation: three-address code, the four counts, and the three tables\" (PUBLISHED) serves no notes card; covers three-address code, temporaries, SSA and the phi function, control-flow translation and quadruples/triples; pairs with mock unit \"Syntax-Directed Translation & Intermediate Code\" (unit_number 4) group three-address-code-quadruples-triples"
     },
     {
       "kind": "notes",
