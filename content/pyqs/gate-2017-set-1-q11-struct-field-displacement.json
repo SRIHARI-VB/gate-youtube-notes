@@ -1,0 +1,21 @@
+{
+  "id": "gate-2017-set-1-q11-struct-field-displacement",
+  "year": "2017",
+  "paper": "GATE CSE 2017 Set 1",
+  "question_ref": "Q.11",
+  "type": "MCQ",
+  "topic": "displacement-addressing-base-and-index",
+  "text": "Consider the C struct defined below: struct data { int marks[100]; char grade; int cnumber; }; struct data student; The base address of student is available in register R1. The field student.grade can be accessed efficiently using",
+  "options": [
+    "Post-increment addressing mode, (R1)+",
+    "Pre-decrement addressing mode, -(R1)",
+    "Register direct addressing mode, R1",
+    "Index addressing mode, X(R1), where X is an offset represented in 2's complement 16-bit representation"
+  ],
+  "answer": "Option (D) - Index addressing mode, X(R1), with X a 16-bit two's complement offset",
+  "solution": "The fields of a struct sit at fixed compile-time offsets from its base. With int at 4 bytes, marks[100] occupies the first 400 bytes, so grade is at offset 400 from the base in R1 and the access is X(R1) with X = 400. The two auto modes would modify R1, which would destroy the base needed for the other fields, and register direct mode gives the base itself rather than the field at an offset from it.",
+  "source_url": "https://gateoverflow.in/118291/gate-cse-2017-set-1-question-11",
+  "source_label": "GATE Overflow question page - GATE CSE 2017 Set 1 Q.11 with the accepted answer (option D)",
+  "verification": "SOURCED",
+  "answer_evidence": "The accepted answer gives 'Answer is option (D)' with the computation X = 400 from 100 four-byte ints. Corroborated by the Testbook page for the GATE CS 2017 Shift 1 paper, which gives Option 4, and by GateAI's PYQ page, which records the official answer as D."
+}
