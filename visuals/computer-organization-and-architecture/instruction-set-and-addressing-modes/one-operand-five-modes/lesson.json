@@ -1,0 +1,64 @@
+{
+  "slug": "one-operand-five-modes",
+  "topic": "instruction-set-and-addressing-modes",
+  "engine": "p5.js",
+  "steps": 8,
+  "subtopics": [
+    "immediate, direct, indirect, register-indirect and indexed addressing on one memory picture",
+    "PC-relative addressing as displacement addressing with the program counter as the register",
+    "effective address and the memory-cycle count per mode, with the instruction fetch excluded"
+  ],
+  "example": {
+    "instruction_address": 100,
+    "address_field": 500,
+    "register_r2": 1200,
+    "register_r3": 700,
+    "program_counter": 700,
+    "memory": {
+      "500": 1200,
+      "1200": 42
+    },
+    "modes": [
+      {
+        "mode": "Immediate",
+        "effective_address": null,
+        "operand": 500,
+        "memory_reads": 0
+      },
+      {
+        "mode": "Direct",
+        "effective_address": 500,
+        "operand": 1200,
+        "memory_reads": 1
+      },
+      {
+        "mode": "Indirect",
+        "effective_address": 1200,
+        "operand": 42,
+        "memory_reads": 2
+      },
+      {
+        "mode": "Register indirect",
+        "effective_address": 1200,
+        "operand": 42,
+        "memory_reads": 1
+      },
+      {
+        "mode": "Indexed",
+        "effective_address": 1200,
+        "operand": 42,
+        "memory_reads": 1
+      },
+      {
+        "mode": "PC-relative",
+        "effective_address": 1200,
+        "operand": 42,
+        "memory_reads": 1
+      }
+    ],
+    "indexed_check": "500 + 700 = 1200",
+    "relative_check": "700 + 500 = 1200",
+    "direct_operand_differs": true,
+    "total_memory_reads_all_modes": 6
+  }
+}
