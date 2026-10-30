@@ -1,0 +1,21 @@
+{
+  "id": "gate-2005-q65-memory-cycles-indexed-indirect",
+  "year": "2005",
+  "paper": "GATE CS 2005",
+  "question_ref": "Q.65",
+  "type": "MCQ",
+  "topic": "effective-address-and-memory-cycles",
+  "text": "Consider a three word machine instruction ADD A[R0], @B. The first operand (destination) 'A[R0]' uses indexed addressing mode with R0 as the index register. The second operand (source) '@B' uses indirect addressing mode. A and B are memory addresses residing at the second and third words, respectively. The first word of the instruction specifies the opcode, the index register designation and the source and destination addressing modes. During execution of the ADD instruction, the two operands are added and stored in the destination. The number of memory cycles needed during the execution cycle of the instruction is:",
+  "options": [
+    "3",
+    "4",
+    "5",
+    "6"
+  ],
+  "answer": "Option (B) - 4",
+  "solution": "One read to fetch the destination operand from address A + [R0]. One read of M[B] to obtain the source operand's address, since @B is indirect. One read of that address to obtain the source operand itself. One write back to A + [R0] to store the sum. The second and third words of the instruction were read while the instruction was being fetched, so they are not part of the execution cycle.",
+  "source_url": "https://gateoverflow.in/1388/gate-cse-2005-question-65",
+  "source_label": "GATE Overflow question page - GATE CSE 2005 Q.65 with the accepted answer (option B)",
+  "verification": "SOURCED",
+  "answer_evidence": "The accepted answer lists the four accesses and concludes 'So, total of 4 memory cycles once the instruction is fetched', and notes that the second and third words are loaded during instruction fetch. Corroborated by the Electrical4u GATE CS 2005 solutions page, which gives Answer (B). One answer on the GATE Overflow page argues for 6 by counting the fetch words; the accepted answer and this record use 4, and the disagreement is stated here rather than smoothed over."
+}
