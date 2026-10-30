@@ -269,7 +269,7 @@ window.GATE_DATA = {
      {
       "slug": "boolean-algebra-and-minimization",
       "name": "Boolean Algebra and Minimization",
-      "material": "planned"
+      "material": "cards"
      },
      {
       "slug": "combinational-circuits",
@@ -27328,6 +27328,1151 @@ window.GATE_DATA = {
    "subject": "digital-logic",
    "topic": "number-systems-and-representation",
    "path": "subjects/digital-logic/number-systems-and-representation/ieee-754-special-values-and-extremes.json"
+  },
+  {
+   "unit": "Boolean Algebra and Minimization",
+   "videoRefs": [],
+   "id": "boolean-algebra-postulates-and-duality",
+   "title": "Boolean Algebra: The Postulates, the Two Elements, and Duality",
+   "priority": "P1",
+   "order": 420,
+   "quickIdea": "Boolean algebra is algebra on two values, 0 and 1, with + for OR, . for AND and ' for NOT; six postulates generate every identity, and the duality rule hands you a second identity for free.",
+   "remember": [
+    "The set is {0, 1} with 0 not equal to 1, and every operation returns an element of the set: that closure is the first postulate.",
+    "Huntington's postulates: closure; identity (x + 0 = x and x.1 = x); commutativity (x + y = y + x, xy = yx); distributivity (x(y + z) = xy + xz AND x + yz = (x + y)(x + z)); complement (x + x' = 1 and x.x' = 0).",
+    "The second distributive law, x + yz = (x + y)(x + z), has no counterpart in ordinary algebra and is the one beginners forget.",
+    "The complement postulate is the pair x + x' = 1 and x.x' = 0. Mixing the two - writing x.x' = 1 - is a wrong identity, not a slip of notation.",
+    "Duality: swap + with ., swap 0 with 1, leave every literal alone, and a valid identity stays valid. x + x'y = x + y duals to x(x' + y) = xy.",
+    "There are 2^(2^n) Boolean functions of n variables, because a truth table has 2^n rows and each row's output is free: 16 for two variables, 256 for three, 65536 for four. A function is self-dual when F equals its own dual, and there are 2^(2^(n-1)) of those: 2 for one variable, 4 for two, 16 for three."
+   ],
+   "example": {
+    "prompt": "Prove a + a'b = a + b from the postulates, then write the dual identity and check it.",
+    "work": "a + a'b = (a + a')(a + b) by the second distributive law x + yz = (x + y)(x + z) with y = a' and z = b. Then a + a' = 1 by the complement postulate, and 1.(a + b) = a + b by the identity postulate.",
+    "answer": "a + a'b = a + b. Its dual is a(a' + b) = ab, and that checks directly: a(a' + b) = aa' + ab = 0 + ab = ab."
+   },
+   "gateAngle": "GATE asks the postulates in their plainest form. GATE CSE 2026 Set 2 Q.6 is a one-mark question offering four identities in which the only wrong one is a.a' = 1. The counting results - the number of Boolean functions of n variables and the number of self-dual functions - are the other standard question shape in this subtopic.",
+   "variations": [
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "How many Boolean functions are there of four variables, and how many of them are self-dual?",
+     "answer": "65536 functions, of which 256 are self-dual.",
+     "why": "The count of functions is 2^(2^4) = 2^16 = 65536. A self-dual function must satisfy F(x) = NOT F(NOT x), so the 16 rows pair into 8 complementary pairs and each pair has one free choice, giving 2^8 = 256."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "Which one of the following is NOT an identity of Boolean algebra? (A) a + a'b = a + b   (B) a(a' + b) = ab   (C) a.a' = 1   (D) a + ab = a",
+     "answer": "Option (C).",
+     "why": "a.a' = 0 for both a = 0 and a = 1, because the complement postulate pairs a + a' = 1 with a.a' = 0. Options A and B are duals of each other, and D is absorption."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "Write the dual of F = x.y' + 0.z and say whether F and its dual are equal for every assignment.",
+     "answer": "F = x.y', its dual is F^D = (x + y').(1 + z), and the two are not equal: at x = 1, y = 1, z = 0, F = 0 while F^D = 1.",
+     "why": "The dual swaps OR with AND and 0 with 1 and changes nothing else. Since the swap changes the value on some rows, the function is not self-dual - and self-duality is a property of a function, not of the way it is written."
+    }
+   ],
+   "trap": {
+    "what": "Treating a.a' as 1 because a + a' = 1.",
+    "why": "The complement postulate is a pair of statements, one for OR and one for AND. a + a' = 1 says one of the two values is 1; a.a' = 0 says they cannot both be 1, and one of them is always 0.",
+    "counterexample": "For a = 0: a.a' = 0.1 = 0. For a = 1: a.a' = 1.0 = 0. Never 1 - which is exactly the option GATE CSE 2026 Set 2 Q.6 marks as not a property of Boolean algebra."
+   },
+   "check": {
+    "question": "Write the dual of x + x'y = x + y and evaluate both sides at x = 0, y = 1.",
+    "answer": "The dual is x(x' + y) = xy. At x = 0, y = 1: the left side is 0.(1 + 1) = 0 and the right side is 0.1 = 0, so it holds.",
+    "explanation": "Swapping + with . gives x(x' + y) on the left and xy on the right. The substitution confirms the dual of a valid identity is itself valid - which is the whole content of the duality principle."
+   },
+   "pyqIds": [
+    "gate-2026-set2-q6-not-a-boolean-property"
+   ],
+   "prereqs": [],
+   "sources": [
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 07 - Fundamentals of Boolean Algebra",
+     "channel": "NPTEL, Digital Electronic Circuits (Prof. Goutam Saha, IIT Kharagpur)",
+     "url": "http://digimat.in/nptel/courses/video/108105132/lec7.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read from the opening to the statement of the distributive postulate, plus the lecturer's closing summary: the 16 functions of two variables and the 2^(2^n) count, the six Huntington postulates one by one (closure, identity elements 0 and 1, commutativity, distributivity of AND over OR and of OR over AND, complement), the duality rule (swap OR and AND, swap 0 and 1, leave the literals alone), and the closing warning that AND and OR are associative and distributive over each other while NAND and NOR are not. The served transcript stops partway through the worked theorem derivations, so no derivation is attributed to it."
+    },
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 10 - Karnaugh Map and Digital Circuit Realization",
+     "channel": "NPTEL, Digital Electronic Circuits (Prof. Goutam Saha, IIT Kharagpur)",
+     "url": "http://digimat.in/nptel/courses/video/108105132/lec10.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read from the opening to the two-variable map and its minterm numbering, plus the closing summary: the truth table rewritten as a grid, the A/B axis reading, the minterm numbering m0..m3, the first grouping (AB' + AB = A), and the summary's four rules - logical adjacency is the whole method, SOP covers every 1 with the fewest and largest power-of-two groups, POS covers the 0s, and a don't care is treated as 0 or 1 according to which makes the group larger. The middle of the transcript was not served, so the 3- and 4-variable worked examples are not attributed to it."
+    }
+   ],
+   "sourceLine": "The postulates, the 2^(2^n) count and the duality rule: NPTEL IIT Kharagpur Digital Electronic Circuits Lecture 07 (English, opening and closing summary read). The self-dual function and its count: the same course's Lecture 10 opening (English), where the dual circuit and the self-dual function are introduced. Every count in this card is recomputed in scripts/validate.py.",
+   "subject": "digital-logic",
+   "topic": "boolean-algebra-and-minimization",
+   "path": "subjects/digital-logic/boolean-algebra-and-minimization/boolean-algebra-postulates-and-duality.json"
+  },
+  {
+   "unit": "Boolean Algebra and Minimization",
+   "videoRefs": [],
+   "id": "boolean-theorems-absorption-and-consensus",
+   "title": "The Working Theorems: Idempotent, Absorption, De Morgan and Consensus",
+   "priority": "P1",
+   "order": 421,
+   "quickIdea": "Six postulates are enough to prove everything, but simplification is done with a short list of theorems - and the consensus theorem is the one that tells you when a term is genuinely redundant.",
+   "remember": [
+    "Idempotent x + x = x and x.x = x; involution (x')' = x; domination x + 1 = 1 and x.0 = 0.",
+    "Absorption x + xy = x and x(x + y) = x. The mixed form x + x'y = x + y is the one that removes a literal.",
+    "De Morgan: (x + y)' = x'.y' and (x.y)' = x' + y'. It converts an OR of terms into a NAND of complemented terms, which is why a two-level SOP becomes a NAND-NAND circuit.",
+    "Consensus: xy + x'z + yz = xy + x'z. The term yz is redundant, so it may be dropped; adding it back is also legal and is sometimes done deliberately to remove a hazard.",
+    "Multiplying out and factoring are both legal: x(y + z) = xy + xz turns a POS into a SOP, and xy + xz = x(y + z) turns a SOP into a POS.",
+    "Every theorem is proved either from the postulates or by exhaustion over the two values of each variable; a check on all 0/1 rows is a complete proof for a Boolean identity."
+   ],
+   "example": {
+    "prompt": "Minimise F = AB + A'C + BC using the theorems.",
+    "work": "The consensus theorem applies with x = A, y = B, z = C: AB + A'C already absorbs the third term BC. To see it without the theorem, write BC = BC(A + A') = ABC + A'BC. Then F = AB + ABC + A'C + A'BC = AB(1 + C) + A'C(1 + B) = AB + A'C, using domination 1 + C = 1.",
+    "answer": "F = AB + A'C, two terms and four literals instead of three terms and six."
+   },
+   "gateAngle": "This is the 'algebraic technique' the syllabus names. GATE tests it two ways: ask which identity is invalid (GATE CSE 2019 Q.6 does exactly that with four identities) or ask which of several expressions is equivalent to a given one (GATE CSE 2026 Set 1 Q.38, where two of the four offered four-term forms are minimal and two are not).",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "The Boolean expression A + BC is a reduced form of which of the following? (A) AB + BC   (B) (A + B)(A + C)   (C) A'B + AB'C   (D) (A + C)B",
+     "answer": "Option (B).",
+     "why": "The second distributive law gives A + BC = (A + B)(A + C) directly. Option (A) fails at A = 1, B = 0, C = 1, where A + BC = 1 but AB + BC = 0, so it is not even equivalent."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Simplify x + x'y and then x(x' + y).",
+     "answer": "Both simplify to x + y and to xy respectively: x + x'y = x + y, and x(x' + y) = xy.",
+     "why": "The first is the eliminate theorem; the second is its dual and also follows by multiplying out: xx' + xy = 0 + xy. The two answers are duals, which is the quickest check that neither is wrong."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "Is xy + x'z + yz equal to xy + x'z? Answer by truth table, then say what happens if either of the first two terms is dropped instead.",
+     "answer": "Yes, the two expressions are equal on all eight rows. Dropping xy or dropping x'z changes the function: at x = 1, y = 0, z = 1 the first expression is 0 while the second is 1.",
+     "why": "yz is covered by the other two terms, which is the consensus theorem. The other two terms are not covered by anything, so they are not removable - the usual error is to see three terms, remove the wrong one, and still believe the count went down."
+    }
+   ],
+   "trap": {
+    "what": "Dropping a term that looks redundant but is not, or forgetting that consensus only removes the third term.",
+    "why": "Consensus is asymmetric: xy + x'z is minimal, and only the term that is the product of the other two terms' remaining literals (yz here) is redundant. Any other removal changes the function.",
+    "counterexample": "xy + x'z at x = 1, y = 0, z = 1 gives 0 + 1 = 1; removing x'z leaves 0. The term yz, by contrast, is 1 only on rows where one of the other two is already 1."
+   },
+   "check": {
+    "question": "Simplify F = AB + AB' + A'B.",
+    "answer": "F = A + B.",
+    "explanation": "AB + AB' = A(1) = A by combining. Then A + A'B = A + B by the eliminate theorem. Checking row A = 0, B = 1: the original gives 0 + 0 + 1 = 1 and A + B gives 1, so the simplification is sound."
+   },
+   "pyqIds": [
+    "gate-2019-q6-not-a-valid-identity"
+   ],
+   "prereqs": [
+    "boolean-algebra-postulates-and-duality"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 07 - Fundamentals of Boolean Algebra",
+     "channel": "NPTEL, Digital Electronic Circuits (Prof. Goutam Saha, IIT Kharagpur)",
+     "url": "http://digimat.in/nptel/courses/video/108105132/lec7.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read from the opening to the statement of the distributive postulate, plus the lecturer's closing summary: the 16 functions of two variables and the 2^(2^n) count, the six Huntington postulates one by one (closure, identity elements 0 and 1, commutativity, distributivity of AND over OR and of OR over AND, complement), the duality rule (swap OR and AND, swap 0 and 1, leave the literals alone), and the closing warning that AND and OR are associative and distributive over each other while NAND and NOR are not. The served transcript stops partway through the worked theorem derivations, so no derivation is attributed to it."
+    },
+    {
+     "kind": "text",
+     "title": "Digital Logic subject notes: K Map, MSOP and MPOS",
+     "channel": "GATE Overflow, subject page for Digital Logic",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "url": "https://gateoverflow.in/subject/digital-logic?tab=exams",
+     "note": "read the K Map, Min Sum of Products Form and Min Products of Sum Form sections: the grouping rules (powers of two, rectangular, wrap-around, every 1 covered, largest groups first), the definitions of prime implicant and essential prime implicant, the don't-care rule, and the three-step algorithm for a minimal SOP (circle the PIs, take all EPIs, then a minimum subset for the rest). Used as the GATE-oriented statement of the rules, not as a source of questions."
+    }
+   ],
+   "sourceLine": "The theorem list and the NAND-NOR observation: NPTEL IIT Kharagpur Digital Electronic Circuits Lecture 07 (English, opening and closing summary read). The prime-implicant and simplification vocabulary in GATE's own phrasing: GATE Overflow's Digital Logic subject notes (English, read in part). Every identity used here is recomputed on all 0/1 rows in scripts/validate.py.",
+   "subject": "digital-logic",
+   "topic": "boolean-algebra-and-minimization",
+   "path": "subjects/digital-logic/boolean-algebra-and-minimization/boolean-theorems-absorption-and-consensus.json"
+  },
+  {
+   "unit": "Boolean Algebra and Minimization",
+   "videoRefs": [],
+   "id": "xor-and-xnor-algebra",
+   "title": "XOR and XNOR: The Identities GATE Reuses",
+   "priority": "P2",
+   "order": 422,
+   "quickIdea": "XOR is parity: x + y = xy' + x'y, it is associative and commutative, and it is NOT the same operation as OR - which is what most XOR questions turn on.",
+   "remember": [
+    "x XOR y = xy' + x'y, and x XNOR y = xy + x'y' = (x XOR y)'. Both are 1 for exactly two of the four input pairs.",
+    "XOR is commutative and associative: (x XOR y) XOR z = x XOR (y XOR z). XNOR is also commutative and associative. NAND and NOR are commutative but NOT associative - that contrast is a standing GATE favourite.",
+    "x XOR x = 0, x XOR x' = 1, x XOR 0 = x, x XOR 1 = x'. XOR with a constant either passes the value or inverts it.",
+    "If xy = 0 then x XOR y = x + y, because the two cannot both be 1 and so the ordinary OR loses nothing. Without that condition the two differ at x = y = 1.",
+    "x XOR y = (xy + x'y')', that is, XOR is the complement of XNOR - a rewrite GATE uses as an option.",
+    "Chained XOR is parity: x1 XOR ... XOR xn is 1 exactly when an odd number of the inputs are 1, so a chain of XORs is an odd-parity checker."
+   ],
+   "example": {
+    "prompt": "Show that x XOR y = (xy + x'y')', without a truth table.",
+    "work": "(xy + x'y')' = (xy)'.(x'y')' by De Morgan = (x' + y')(x + y) by De Morgan twice more. Multiplying out: x'x + x'y + y'x + y'y = 0 + x'y + xy' + 0 = x'y + xy'.",
+    "answer": "x XOR y = (xy + x'y')', which is the same statement as XOR being the complement of XNOR."
+   },
+   "gateAngle": "GATE CSE 2019 Q.6 offers four identities and marks the one that treats XOR as if it were OR: (x + y) XOR z is not x XOR (y + z). Expanding both sides shows the left is xz' + yz' + x'y'z and the right is xy'z' + x'y + x'z.",
+   "variations": [
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Is NAND associative? Test (x NAND y) NAND z against x NAND (y NAND z).",
+     "answer": "No. At x = 0, y = 0, z = 1: (0 NAND 0) NAND 1 = 1 NAND 1 = 0, while 0 NAND (0 NAND 1) = 0 NAND 1 = 1.",
+     "why": "NAND and NOR are commutative but not associative, which is why a chain of NANDs has to be bracketed and why the 'NAND of NANDs' realisation is written as a two-level form. XOR and XNOR, by contrast, may be chained freely."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "Which one of the following is NOT a valid identity? (A) (x XOR y) XOR z = x XOR (y XOR z)   (B) (x + y) XOR z = x XOR (y + z)   (C) x XOR y = x + y when xy = 0   (D) x XOR y = (xy + x'y')'",
+     "answer": "Option (B).",
+     "why": "XOR is associative (A) and is the complement of XNOR (D); (C) holds because xy = 0 removes the only row where OR and XOR disagree. Option (B) fails at x = 1, y = 1, z = 0, where the left side is 0 and the right side is 1."
+    }
+   ],
+   "trap": {
+    "what": "Replacing XOR by OR, or by addition, in an identity.",
+    "why": "XOR and OR agree on three of the four input pairs and differ only at 11. Every invalid XOR identity in the papers is one that quietly assumes they agree there.",
+    "counterexample": "1 XOR 1 = 0 but 1 + 1 = 1; so x XOR x = 0 while x + x = x. The same distinction is why x XOR y = x + y needs the side condition xy = 0."
+   },
+   "check": {
+    "question": "Evaluate (1 XOR 0) XOR 1 and 1 XOR (0 XOR 1), and say what the coincidence shows.",
+    "answer": "Both are 0, which is the associativity of XOR on this row.",
+    "explanation": "1 XOR 0 = 1 and 1 XOR 1 = 0; 0 XOR 1 = 1 and 1 XOR 1 = 0. Two ones in the chain give an even parity, so the result is 0 - the parity reading of XOR."
+   },
+   "pyqIds": [
+    "gate-2019-q6-not-a-valid-identity"
+   ],
+   "prereqs": [
+    "boolean-theorems-absorption-and-consensus"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 07 - Fundamentals of Boolean Algebra",
+     "channel": "NPTEL, Digital Electronic Circuits (Prof. Goutam Saha, IIT Kharagpur)",
+     "url": "http://digimat.in/nptel/courses/video/108105132/lec7.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read from the opening to the statement of the distributive postulate, plus the lecturer's closing summary: the 16 functions of two variables and the 2^(2^n) count, the six Huntington postulates one by one (closure, identity elements 0 and 1, commutativity, distributivity of AND over OR and of OR over AND, complement), the duality rule (swap OR and AND, swap 0 and 1, leave the literals alone), and the closing warning that AND and OR are associative and distributive over each other while NAND and NOR are not. The served transcript stops partway through the worked theorem derivations, so no derivation is attributed to it."
+    },
+    {
+     "kind": "text",
+     "title": "Digital Logic subject notes: K Map, MSOP and MPOS",
+     "channel": "GATE Overflow, subject page for Digital Logic",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "url": "https://gateoverflow.in/subject/digital-logic?tab=exams",
+     "note": "read the K Map, Min Sum of Products Form and Min Products of Sum Form sections: the grouping rules (powers of two, rectangular, wrap-around, every 1 covered, largest groups first), the definitions of prime implicant and essential prime implicant, the don't-care rule, and the three-step algorithm for a minimal SOP (circle the PIs, take all EPIs, then a minimum subset for the rest). Used as the GATE-oriented statement of the rules, not as a source of questions."
+    }
+   ],
+   "sourceLine": "The associativity contrast between AND/OR and NAND/NOR: NPTEL IIT Kharagpur Digital Electronic Circuits Lecture 07 closing summary (English). The XOR identities and their rewrites: recomputed on all rows in scripts/validate.py, with GATE Overflow's subject notes (English) as the GATE-side statement of the operator list.",
+   "subject": "digital-logic",
+   "topic": "boolean-algebra-and-minimization",
+   "path": "subjects/digital-logic/boolean-algebra-and-minimization/xor-and-xnor-algebra.json"
+  },
+  {
+   "unit": "Boolean Algebra and Minimization",
+   "videoRefs": [],
+   "id": "canonical-forms-minterms-and-maxterms",
+   "title": "Canonical Forms: Minterms, Maxterms, Sigma-m and Pi-M",
+   "priority": "P1",
+   "order": 423,
+   "quickIdea": "Every row of a truth table has one minterm that is 1 there and one maxterm that is 0 there; F is the OR of the minterms where it is 1 and the AND of the maxterms where it is 0.",
+   "remember": [
+    "A minterm of n variables is a product with every variable in it exactly once, plain or complemented; it is 1 on exactly one row. A maxterm is a sum of the same shape and is 0 on exactly one row.",
+    "Minterm m_i reads the bits of i with 1 = plain and 0 = complemented. Maxterm M_i is its complement, M_i = (m_i)', so it is 0 on row i.",
+    "Canonical SOP: F = OR of the minterms where F = 1, written F = Sigma m(the set of those rows). Canonical POS: F = AND of the maxterms where F = 0, written F = Pi M(that set).",
+    "The two lists are complementary sets of rows: F = Sigma m(S) is the same function as F = Pi M(complement of S), and F' = Sigma m(complement of S) = Pi M(S).",
+    "Any expression reaches canonical form by expanding the missing variables: x = x(y + y') = xy + xy'.",
+    "Canonical forms are unique - one function has exactly one canonical SOP - but minimal forms are not, so 'the minimal SOP' may be one of several equally cheap answers."
+   ],
+   "example": {
+    "prompt": "Write F = P' + QR as a canonical SOP and as a canonical POS.",
+    "work": "P' is 1 on every row with P = 0, which is rows 0, 1, 2 and 3. QR is 1 on rows 6 and 7, but row 6 has P = 1 and row 7 has P = 1, so only row 7 is new: QR contributes 7. Hence the 1s are 0, 1, 2, 3 and 7, and the 0s are 4, 5 and 6.",
+    "answer": "F = Sigma m(0, 1, 2, 3, 7) = Pi M(4, 5, 6), three literals in the original, eight rows accounted for."
+   },
+   "gateAngle": "GATE CSE 2015 Set 3 Q.44 is this conversion exactly: given F = P' + QR it offers four statements about Sigma m and Pi M and asks which are true, and the answer is that Sigma(0,1,2,3,7) and Pi(4,5,6) are right while Sigma(4,5,6) and Pi(0,1,2,3,7) are the complement's forms.",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2015 Set 3 Q.44: F = P' + QR over three variables. Which is true? (S1) F = Sigma(4,5,6)  (S2) F = Sigma(0,1,2,3,7)  (S3) F = Pi(4,5,6)  (S4) F = Pi(0,1,2,3,7)",
+     "answer": "S1 false, S2 true, S3 true, S4 false - the first option.",
+     "why": "P' is 1 on rows 0 to 3 and QR adds row 7, so the 1s are 0,1,2,3,7 and the 0s are 4,5,6. A POS lists the rows where the function is 0, which is why Pi(4,5,6) is the correct POS and Sigma(4,5,6) is the form of F', not of F."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "A four-variable function is given as F = Pi M(0, 1, 4, 5, 8, 9, 12, 13). What is its canonical SOP, and what does the pattern suggest?",
+     "answer": "F = Sigma m(2, 3, 6, 7, 10, 11, 14, 15), which is C.",
+     "why": "The two lists partition the 16 rows, so the SOP list is the complement. All eight rows in the SOP list have C = 1 and all eight in the POS list have C = 0, so F = C - the canonical form is long but the function is one literal."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "How many minterms does a five-variable function have in its canonical SOP if exactly 12 of the 32 rows are 1, and how many maxterms does its canonical POS have?",
+     "answer": "12 minterms and 20 maxterms.",
+     "why": "The minterms are the 1-rows and the maxterms are the 0-rows, and 12 + 20 = 32. Writing the shorter list is a legitimate exam move, but the answer must say which form it is in."
+    }
+   ],
+   "trap": {
+    "what": "Writing the minterm list of F where the question asked for the maxterm list, or reading a maxterm index as if it were a minterm index.",
+    "why": "Sigma m lists the rows where F = 1 and Pi M lists the rows where F = 0. The same set of numbers therefore describes two different functions, one the complement of the other.",
+    "counterexample": "For F = P' + QR, Sigma(4,5,6) is F' and Pi(4,5,6) is F. GATE CSE 2015 Set 3 Q.44 puts both in the options for exactly this reason."
+   },
+   "check": {
+    "question": "Write the canonical SOP of F = x XOR y.",
+    "answer": "F = Sigma m(1, 2), that is x'y + xy'.",
+    "explanation": "XOR is 1 on the rows 01 and 10 and 0 on 00 and 11, so the minterm list is {1, 2} and the POS form is Pi M(0, 3) = (x + y)(x' + y'). Both forms describe the same two rows."
+   },
+   "pyqIds": [
+    "gate-2015-set3-q44-sigma-and-pi-forms"
+   ],
+   "prereqs": [
+    "boolean-algebra-postulates-and-duality"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 10 - Karnaugh Map and Digital Circuit Realization",
+     "channel": "NPTEL, Digital Electronic Circuits (Prof. Goutam Saha, IIT Kharagpur)",
+     "url": "http://digimat.in/nptel/courses/video/108105132/lec10.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read from the opening to the two-variable map and its minterm numbering, plus the closing summary: the truth table rewritten as a grid, the A/B axis reading, the minterm numbering m0..m3, the first grouping (AB' + AB = A), and the summary's four rules - logical adjacency is the whole method, SOP covers every 1 with the fewest and largest power-of-two groups, POS covers the 0s, and a don't care is treated as 0 or 1 according to which makes the group larger. The middle of the transcript was not served, so the 3- and 4-variable worked examples are not attributed to it."
+    },
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 07 - Fundamentals of Boolean Algebra",
+     "channel": "NPTEL, Digital Electronic Circuits (Prof. Goutam Saha, IIT Kharagpur)",
+     "url": "http://digimat.in/nptel/courses/video/108105132/lec7.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read from the opening to the statement of the distributive postulate, plus the lecturer's closing summary: the 16 functions of two variables and the 2^(2^n) count, the six Huntington postulates one by one (closure, identity elements 0 and 1, commutativity, distributivity of AND over OR and of OR over AND, complement), the duality rule (swap OR and AND, swap 0 and 1, leave the literals alone), and the closing warning that AND and OR are associative and distributive over each other while NAND and NOR are not. The served transcript stops partway through the worked theorem derivations, so no derivation is attributed to it."
+    },
+    {
+     "kind": "text",
+     "title": "Digital Logic subject notes: K Map, MSOP and MPOS",
+     "channel": "GATE Overflow, subject page for Digital Logic",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "url": "https://gateoverflow.in/subject/digital-logic?tab=exams",
+     "note": "read the K Map, Min Sum of Products Form and Min Products of Sum Form sections: the grouping rules (powers of two, rectangular, wrap-around, every 1 covered, largest groups first), the definitions of prime implicant and essential prime implicant, the don't-care rule, and the three-step algorithm for a minimal SOP (circle the PIs, take all EPIs, then a minimum subset for the rest). Used as the GATE-oriented statement of the rules, not as a source of questions."
+    }
+   ],
+   "sourceLine": "The truth table to minterm/maxterm conversion and the two-level reading: NPTEL IIT Kharagpur Digital Electronic Circuits Lecture 10 opening (English), which recaps Lecture 09's conversion. The complement pairing of Sigma m and Pi M: recomputed row by row in scripts/validate.py, and stated in GATE Overflow's subject notes (English).",
+   "subject": "digital-logic",
+   "topic": "boolean-algebra-and-minimization",
+   "path": "subjects/digital-logic/boolean-algebra-and-minimization/canonical-forms-minterms-and-maxterms.json"
+  },
+  {
+   "unit": "Boolean Algebra and Minimization",
+   "videoRefs": [],
+   "id": "algebraic-minimization-technique",
+   "title": "Algebraic Minimisation: Combine, Absorb, Eliminate, Factor",
+   "priority": "P1",
+   "order": 424,
+   "quickIdea": "Hand simplification is four moves repeated until nothing changes: combine two terms that differ in one literal, absorb a term contained in another, eliminate a complemented variable, and factor or multiply out to switch between SOP and POS.",
+   "remember": [
+    "Combine: xy + xy' = x. Each combine step removes one literal, so the target is the fewest literals first and the fewest terms second.",
+    "Absorb: x + xy = x. A term contained in another is redundant and can be deleted.",
+    "Eliminate: x + x'y = x + y. The complemented variable disappears rather than the whole term.",
+    "Consensus: xy + x'z + yz = xy + x'z. Only the term formed from the leftover literals of the other two is redundant.",
+    "To reach POS, factor: xy + xz = x(y + z), and A + BC = (A + B)(A + C). To reach SOP, multiply out first, because combining only works on a sum of products.",
+    "Algebraic simplification has no guarantee of reaching the minimum - a different order of moves can land on a different expression, and proving minimality needs the map or the tabular method."
+   ],
+   "example": {
+    "prompt": "Minimise F = A'BC + AB'C + ABC' + ABC.",
+    "work": "Pair the terms that differ in one literal: ABC' + ABC = AB, AB'C + ABC = AC, and A'BC + ABC = BC. That is three combines, and each pair leaves a two-literal term. No term is contained in another, so nothing can be absorbed.",
+    "answer": "F = AB + AC + BC: four 3-literal terms (12 literals) reduced to three 2-literal terms (6 literals). This is the 3-variable majority function."
+   },
+   "gateAngle": "The syllabus names the algebraic technique before the map and the tabular method, and the papers still ask it: GATE CSE 2019 Q.6 is a pure identity question, and GATE CSE 2026 Set 1 Q.38 asks which of four four-term expressions are minimal - a question you can settle by counting literals and testing one row.",
+   "variations": [
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Minimise F = x'y'z + x'yz + xy'z + xyz.",
+     "answer": "F = z.",
+     "why": "Group the first two: x'y'z + x'yz = x'z. Group the last two: xy'z + xyz = xz. Then x'z + xz = z. Four 3-literal terms become one literal, which is the best a one-variable function can do."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "Which of the following is the minimal sum of products for F = A'B'C + A'BC + AB'C' + AB'C?",
+     "answer": "F = A'C + AB'.",
+     "why": "A'B'C + A'BC = A'C and AB'C' + AB'C = AB'. Neither remaining term is contained in the other and they differ in two literals, so nothing more combines; two 2-literal terms is minimal."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "Rewrite F = (A + B)(A + C) as a sum of products, then minimise it.",
+     "answer": "F = A + BC.",
+     "why": "Multiplying out gives AA + AC + AB + BC = A + AC + AB + BC = A(1 + C + B) + BC = A + BC. The POS form had four literals; the minimal SOP has three, which is why the choice of form matters for cost."
+    }
+   ],
+   "trap": {
+    "what": "Applying combine to terms that differ in more than one literal, or forgetting to multiply out before combining.",
+    "why": "xy + xy' = x works because exactly one literal differs. Terms that differ in two literals need an intermediate expansion, and terms inside a product of sums cannot be combined at all until the expression is a sum of products.",
+    "counterexample": "A'BC + AB'C differ in two literals, so they do not combine to C; the correct move is A'BC + ABC = BC and AB'C + ABC = AC, using ABC as the bridge - which is only visible after noting that ABC is itself a minterm of the function."
+   },
+   "check": {
+    "question": "Minimise F = xy + x'y + xy'.",
+    "answer": "F = x + y.",
+    "explanation": "xy + xy' = x, and then x + x'y = x + y by eliminate. Check row x = 0, y = 1: the original gives 0 + 1 + 0 = 1 and x + y gives 1."
+   },
+   "pyqIds": [],
+   "prereqs": [
+    "boolean-theorems-absorption-and-consensus"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 07 - Fundamentals of Boolean Algebra",
+     "channel": "NPTEL, Digital Electronic Circuits (Prof. Goutam Saha, IIT Kharagpur)",
+     "url": "http://digimat.in/nptel/courses/video/108105132/lec7.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read from the opening to the statement of the distributive postulate, plus the lecturer's closing summary: the 16 functions of two variables and the 2^(2^n) count, the six Huntington postulates one by one (closure, identity elements 0 and 1, commutativity, distributivity of AND over OR and of OR over AND, complement), the duality rule (swap OR and AND, swap 0 and 1, leave the literals alone), and the closing warning that AND and OR are associative and distributive over each other while NAND and NOR are not. The served transcript stops partway through the worked theorem derivations, so no derivation is attributed to it."
+    },
+    {
+     "kind": "text",
+     "title": "Digital Logic subject notes: K Map, MSOP and MPOS",
+     "channel": "GATE Overflow, subject page for Digital Logic",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "url": "https://gateoverflow.in/subject/digital-logic?tab=exams",
+     "note": "read the K Map, Min Sum of Products Form and Min Products of Sum Form sections: the grouping rules (powers of two, rectangular, wrap-around, every 1 covered, largest groups first), the definitions of prime implicant and essential prime implicant, the don't-care rule, and the three-step algorithm for a minimal SOP (circle the PIs, take all EPIs, then a minimum subset for the rest). Used as the GATE-oriented statement of the rules, not as a source of questions."
+    }
+   ],
+   "sourceLine": "The four moves and their justification: NPTEL IIT Kharagpur Digital Electronic Circuits Lecture 07 (English, postulates and duality read), with the simplification rules in GATE Overflow's subject notes (English). No verified GATE question is decided by this card alone, so it carries no PYQ of its own - the two that test the technique are linked from the theorem and XOR cards.",
+   "subject": "digital-logic",
+   "topic": "boolean-algebra-and-minimization",
+   "path": "subjects/digital-logic/boolean-algebra-and-minimization/algebraic-minimization-technique.json"
+  },
+  {
+   "unit": "Boolean Algebra and Minimization",
+   "videoRefs": [],
+   "id": "karnaugh-map-layout-and-gray-code",
+   "title": "The Karnaugh Map: Gray-Code Cells, Numbering and Wrap-Around",
+   "priority": "P1",
+   "order": 425,
+   "quickIdea": "A K-map is a truth table folded into a grid so that logically adjacent rows - rows differing in one bit - are physically adjacent cells; the row and column labels must therefore be in Gray code.",
+   "remember": [
+    "An n-variable map has 2^n cells, one per minterm. Rows and columns are labelled in the order 00, 01, 11, 10, not 00, 01, 10, 11, so that neighbours differ in exactly one bit.",
+    "Four-variable numbering with rows AB and columns CD both in Gray order: 0, 1, 3, 2 in the first row; 4, 5, 7, 6 in the second; 12, 13, 15, 14 in the third; 8, 9, 11, 10 in the fourth. The 3 sits before the 2 - that swap is the whole method.",
+    "The map is a torus: the left and right edges are adjacent, the top and bottom edges are adjacent, and the four corners are mutually adjacent, so m0, m2, m8 and m10 form a legal group of four.",
+    "Each cell has exactly n neighbours: 2 in a two-variable map, 3 in a three-variable map, 4 in a four-variable map, and 5 in a five-variable map.",
+    "A cell holds a 1, a 0 or an X for a don't care; the grid is only a picture of the truth table and carries no new information.",
+    "A three-variable map is a 2-by-4 grid with rows AB in Gray order and columns C = 0, 1, or its transpose; either convention groups identically, but the numbering must be read from the labels, never from the position."
+   ],
+   "example": {
+    "prompt": "In a four-variable map, list the cells adjacent to m0, and say what the group {m0, m2, m8, m10} simplifies to.",
+    "work": "m0 is 0000. Its four neighbours are m1 = 0001, m2 = 0010, m4 = 0100 and m8 = 1000. Wrap-around makes m2 the top-bottom neighbour and m8 the left-right neighbour, and the corner m10 = 1010 is adjacent to m2 and to m8, so all four corners are one group. In the four corners A and C take every combination while B and D stay 0, so the term keeps B' and D' and drops A and C.",
+    "answer": "m0's neighbours are m1, m2, m4 and m8; the group of four corners is B'D'."
+   },
+   "gateAngle": "Every map question begins with numbering, and a mis-numbered cell is the commonest way to lose the marks. GATE CSE 1998 Q.2.7 is the exception that proves the rule: its printed map was not in Gray order, so the accepted solution converts it to standard form before grouping.",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 1998 Q.2.7: The function represented by the given Karnaugh map is (A) A.B (B) AB + BC + CA (C) NOT(B XOR C) (D) A.BC",
+     "answer": "Option (C), that is B XNOR C.",
+     "why": "The map as printed changes two variables between consecutive columns, which makes merging unsafe; converted to Gray order it groups to BC + B'C' = B XNOR C. The lesson is to check the labels before drawing any group."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "How many cells has a five-variable map, and how many neighbours has each cell?",
+     "answer": "32 cells and 5 neighbours each.",
+     "why": "2^5 = 32, and a cell is adjacent to the cell that differs in each of the five variables - one neighbour per variable. In a four-variable map the same count is 4, which is why a corner cell in a 4-by-4 map has four neighbours even though it looks like it has two."
+    }
+   ],
+   "trap": {
+    "what": "Numbering the cells in binary order, or assuming only the drawn edges are adjacent.",
+    "why": "Binary order puts 2 and 3 in the wrong columns, so a pair that differs in one bit stops being adjacent and a pair that differs in two bits starts to look adjacent. And the wrap-around edges are as real as the drawn ones.",
+    "counterexample": "In binary order the cells of a quad would read 0, 1, 2, 3, whose corner pair 0 and 3 differs in two bits; in Gray order the same four cells are 0, 1, 3, 2 and each neighbour pair differs in one bit."
+   },
+   "check": {
+    "question": "Which minterms are adjacent to m5 in a four-variable map, and what is the group {m5, m7} as a product term?",
+    "answer": "m5 is adjacent to m4 (0100), m7 (0111), m13 (1101) and m1 (0001); the group {m5, m7} is A'BD.",
+    "explanation": "m5 = 0101. The four neighbours flip one bit each: 0100, 0111, 1101 and 0001. m5 and m7 both have A = 0, B = 1, D = 1 and differ only in C, so C drops and the term is A'BD."
+   },
+   "pyqIds": [
+    "gate-1998-q2-7-kmap-not-in-gray-order"
+   ],
+   "prereqs": [
+    "canonical-forms-minterms-and-maxterms"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 10 - Karnaugh Map and Digital Circuit Realization",
+     "channel": "NPTEL, Digital Electronic Circuits (Prof. Goutam Saha, IIT Kharagpur)",
+     "url": "http://digimat.in/nptel/courses/video/108105132/lec10.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read from the opening to the two-variable map and its minterm numbering, plus the closing summary: the truth table rewritten as a grid, the A/B axis reading, the minterm numbering m0..m3, the first grouping (AB' + AB = A), and the summary's four rules - logical adjacency is the whole method, SOP covers every 1 with the fewest and largest power-of-two groups, POS covers the 0s, and a don't care is treated as 0 or 1 according to which makes the group larger. The middle of the transcript was not served, so the 3- and 4-variable worked examples are not attributed to it."
+    },
+    {
+     "kind": "text",
+     "title": "Karnaugh map: Gray-code ordering, grouping and wrap-around",
+     "channel": "Wikipedia",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "url": "https://en.wikipedia.org/wiki/Karnaugh_map",
+     "note": "read the construction and grouping sections: the grid ordered in Gray code so that adjacent cells differ in one variable, groups rectangular with an area a power of two, groups allowed to overlap, toroidal connectivity so that the extreme right column is adjacent to the far left and the top row to the bottom, and the rule for reading a term by keeping the variables that do not change across the box."
+    }
+   ],
+   "sourceLine": "The grid, the minterm numbering and the adjacency argument: NPTEL IIT Kharagpur Digital Electronic Circuits Lecture 10 (English, opening read). Gray-code ordering, wrap-around and the reading rule: the Wikipedia Karnaugh map article (English, read in part). Every adjacency and every cell number is recomputed in scripts/validate.py.",
+   "subject": "digital-logic",
+   "topic": "boolean-algebra-and-minimization",
+   "path": "subjects/digital-logic/boolean-algebra-and-minimization/karnaugh-map-layout-and-gray-code.json"
+  },
+  {
+   "unit": "Boolean Algebra and Minimization",
+   "videoRefs": [],
+   "id": "karnaugh-grouping-and-reading-a-term",
+   "title": "Grouping Rules and Reading a Product Term Off a Group",
+   "priority": "P1",
+   "order": 426,
+   "quickIdea": "A group must be a rectangle of 1, 2, 4, 8 or 16 cells; keep the variables that are constant across it, drop the ones that change, and prefer the largest groups and the fewest of them.",
+   "remember": [
+    "Group size must be a power of two - 1, 2, 4, 8, 16 - and the shape must be a rectangle or square, including the wrap-around rectangles.",
+    "Read the term by inspection: a variable that is 0 in every cell of the group appears complemented, a variable that is 1 in every cell appears plain, and a variable that takes both values is dropped.",
+    "A group of 2^k cells drops exactly k variables, so the term has n - k literals. A group of 4 in a four-variable map is a 2-literal term.",
+    "Groups may overlap, and overlapping is often required: a cell may belong to several groups, and it must belong to at least one.",
+    "Cover every 1 at least once, with the fewest groups and each as large as possible; a 1 that cannot combine is a legal group of one cell, a full minterm.",
+    "Start with the loneliest 1 - the cell with the fewest 1-neighbours - because its group is forced, and that group often determines the rest."
+   ],
+   "example": {
+    "prompt": "Minimise F(A,B,C,D) = Sigma m(0, 1, 4, 5, 8, 9, 12, 13) on the map.",
+    "work": "These eight cells are 0000, 0001, 0100, 0101, 1000, 1001, 1100 and 1101: every combination of A, B and D with C = 0. They form two quads (rows AB = 00 and 01, and rows AB = 11 and 10, both in columns CD = 00 and 01), and the two quads merge into one group of eight across the A boundary. C is 0 in all eight cells; A, B and D each take both values.",
+    "answer": "F = C', one term of one literal from eight minterms."
+   },
+   "gateAngle": "This is the mechanical core of every map question: GATE CSE 2026 Set 2 Q.30 is an octet that collapses to B', and GATE CSE 2012 Q.30 asks which two quads a four-1 map with don't cares admits. Both are decided by group size and by reading the constant variables.",
+   "variations": [
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "A group of four cells in a five-variable map: how many literals has its term, and which cells could it be?",
+     "answer": "Three literals (5 - 2), and it could be any rectangle of four cells - for example cells 0, 1, 8 and 9, which is B'C'D'.",
+     "why": "The rule n - k literals holds in every map size; what changes with the size is the shape of the rectangles and whether a group can cross the reflection axis."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "In a four-variable map the cells m2, m3, m10 and m11 are 1. What is the minimal SOP?",
+     "answer": "F = B'C.",
+     "why": "m2 = 0010, m3 = 0011, m10 = 1010, m11 = 1011: B = 0 and C = 1 in all four, A and D vary, so the quad is B'C - two literals from four minterms."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "A function has 1s at m0, m1 and m8 only. What is its minimal SOP, and why is the answer not a group of four?",
+     "answer": "F = A'B'C' + B'C'D', that is the pair {m0, m1} and the pair {m0, m8}.",
+     "why": "m0, m1, m8 and m9 would be a quad, but m9 is 0, so the quad is illegal; the largest legal groups are the two pairs, each of three literals, and m0 is shared between them. This is the standard example of overlapping groups being necessary."
+    }
+   ],
+   "trap": {
+    "what": "Drawing a group of three, of six, or an L-shape, or reading the term from the map position instead of the labels.",
+    "why": "Only power-of-two rectangles correspond to a single product term: combining three cells would need two terms, not one. And a group's term is fixed by the variable values in its cells, not by where it sits on the page.",
+    "counterexample": "Cells 0, 1 and 3 are three cells and do not form one term; the minimal cover is (0,1) plus (1,3), giving A'B' + A'C - two terms, which is why the count of groups, not the count of cells, is the cost."
+   },
+   "check": {
+    "question": "Read the term for the group {m0, m4, m12, m8} in a four-variable map.",
+    "answer": "C'D'.",
+    "explanation": "The four cells are 0000, 0100, 1100, 1000: C = 0 and D = 0 in all four while A and B vary, so the term keeps C' and D' only. This group is the whole left-hand column pair of the map, which is why the wrap-around matters."
+   },
+   "pyqIds": [
+    "gate-2026-set2-q30-minimal-sop-is-b-bar"
+   ],
+   "prereqs": [
+    "karnaugh-map-layout-and-gray-code"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 10 - Karnaugh Map and Digital Circuit Realization",
+     "channel": "NPTEL, Digital Electronic Circuits (Prof. Goutam Saha, IIT Kharagpur)",
+     "url": "http://digimat.in/nptel/courses/video/108105132/lec10.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read from the opening to the two-variable map and its minterm numbering, plus the closing summary: the truth table rewritten as a grid, the A/B axis reading, the minterm numbering m0..m3, the first grouping (AB' + AB = A), and the summary's four rules - logical adjacency is the whole method, SOP covers every 1 with the fewest and largest power-of-two groups, POS covers the 0s, and a don't care is treated as 0 or 1 according to which makes the group larger. The middle of the transcript was not served, so the 3- and 4-variable worked examples are not attributed to it."
+    },
+    {
+     "kind": "text",
+     "title": "Digital Logic subject notes: K Map, MSOP and MPOS",
+     "channel": "GATE Overflow, subject page for Digital Logic",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "url": "https://gateoverflow.in/subject/digital-logic?tab=exams",
+     "note": "read the K Map, Min Sum of Products Form and Min Products of Sum Form sections: the grouping rules (powers of two, rectangular, wrap-around, every 1 covered, largest groups first), the definitions of prime implicant and essential prime implicant, the don't-care rule, and the three-step algorithm for a minimal SOP (circle the PIs, take all EPIs, then a minimum subset for the rest). Used as the GATE-oriented statement of the rules, not as a source of questions."
+    }
+   ],
+   "sourceLine": "The grouping rules and the cover requirement: NPTEL IIT Kharagpur Digital Electronic Circuits Lecture 10 closing summary (English) - logical adjacency is the key, every 1 is covered by the fewest and largest power-of-two groups. The reading rule (keep the constant variables): GATE Overflow's Digital Logic subject notes (English, read in part) and recomputation in scripts/validate.py.",
+   "visual": "digital-logic/boolean-algebra-and-minimization/kmap-dont-care-grouping",
+   "subject": "digital-logic",
+   "topic": "boolean-algebra-and-minimization",
+   "path": "subjects/digital-logic/boolean-algebra-and-minimization/karnaugh-grouping-and-reading-a-term.json"
+  },
+  {
+   "unit": "Boolean Algebra and Minimization",
+   "videoRefs": [],
+   "id": "essential-prime-implicants-and-minimal-cover",
+   "title": "Prime Implicants, Essential Prime Implicants and the Minimal Cover",
+   "priority": "P1",
+   "order": 427,
+   "quickIdea": "A prime implicant is a group that cannot be enlarged; an essential one covers a 1 that no other group covers; the minimal SOP is every essential prime implicant plus the cheapest way to cover what is left.",
+   "remember": [
+    "An implicant is any product term that is 1 wherever the function is 1 - it never covers a 0. A prime implicant is an implicant that no larger implicant contains, so it is a maximal group on the map.",
+    "An essential prime implicant covers at least one 1 that no other prime implicant covers. That 1 is its witness, and every minimal SOP must contain the prime implicant.",
+    "The algorithm: circle every prime implicant, take all the essential ones, delete the 1s they cover, then choose the smallest set of the remaining prime implicants that covers the rest.",
+    "The cover is not always unique. When the leftover 1s can be covered in two equally cheap ways, two minimal SOPs exist with the same term and literal counts - and a multiple-select question can ask for both.",
+    "A don't care can never make a prime implicant essential. Only a real 1 can be a witness, which is why a group made entirely of don't cares is never forced into the answer.",
+    "Compare covers by literals, not by terms: three terms of two literals beat two terms of four literals when the cost is the number of gate inputs."
+   ],
+   "example": {
+    "prompt": "Find every prime implicant and every essential prime implicant of F(A,B,C) = Sigma m(0, 1, 2, 5, 6), and give all minimal SOPs.",
+    "work": "On the 3-variable map the 1s are 000, 001, 010, 101, 110. Pairs: (0,1) gives A'B'; (0,2) gives A'C'; (1,5) gives B'C; (2,6) gives BC'. No pair can grow, so these four are the prime implicants. Minterm 5 is only in B'C and minterm 6 is only in BC', so both are essential. The leftover 1s are 0 and 2, and either A'B' or A'C' covers them - so two covers of equal cost exist.",
+    "answer": "Prime implicants: A'B', A'C', B'C, BC'. Essential: B'C and BC'. The two minimal SOPs are A'B' + B'C + BC' and A'C' + B'C + BC', each three terms and six literals."
+   },
+   "gateAngle": "Two verified questions sit exactly here. GATE CSE 2018 Q.49 asks only for the number of essential prime implicants of a function with five don't cares (the answer is 3), and GATE CSE 2026 Set 1 Q.38 offers four four-term forms of which two are minimal - the two minimal covers of a function whose leftover 1s can be covered two ways.",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2018 Q.49: F(P,Q,R,S) = Sigma m(0,2,5,7,9,11) + d(3,8,10,12,14). The number of essential prime implicants is ______.",
+     "answer": "3.",
+     "why": "The prime implicants are Q'S', Q'R, PQ', PS', P'RS and P'QS. Minterm 0 is covered only by Q'S', minterm 5 only by P'QS and minterm 9 only by PQ', so those three are essential; the other three cover 1s that are already covered. The don't cares let Q'S' and PQ' grow to quads, but no don't care makes anything essential."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why can a group made only of don't cares never be an essential prime implicant?",
+     "answer": "Because an essential prime implicant needs a witness 1 that no other prime implicant covers, and a don't care is not a 1 that has to be covered at all.",
+     "why": "Leaving a don't care ungrouped costs nothing, so no cover is ever forced by one. This is the single most common mistake in counting essential prime implicants - GATE CSE 2018 Q.49 is built to punish it."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "A four-variable function has prime implicants P1 = {0,1,8,9}, P2 = {0,2,8,10}, P3 = {5,7,13,15} and required 1s at 0, 1, 2, 5, 7, 8, 9, 10, 13, 15. How many minimal SOPs are there?",
+     "answer": "One: P3 is essential (minterm 5 and 15 appear nowhere else), and then P1 and P2 are both needed to cover 0, 1, 2, 8, 9 and 10, so the cover is P1 + P2 + P3.",
+     "why": "After taking the essential prime implicant, minterms 1 and 2 remain, and only P1 covers 1 while only P2 covers 2 - so both are forced. A cover is unique exactly when every leftover 1 is forced in this way."
+    }
+   ],
+   "trap": {
+    "what": "Counting a prime implicant as essential because it is the only group covering a don't care.",
+    "why": "Essentiality is defined on the 1s. A don't care is free to be 0, so a group whose only unique cell is a don't care is never forced.",
+    "counterexample": "In GATE CSE 2018 Q.49 the prime implicant PS' covers minterm 12 only as a don't care; taking PS' as essential would give 4 instead of the correct 3."
+   },
+   "check": {
+    "question": "A 3-variable function has 1s at 0, 1, 2, 3, 4. List its prime implicants and say which are essential.",
+    "answer": "Prime implicants: A' (cells 0,1,2,3) and B'C' (cells 0,4). A' is essential because minterms 1, 2 and 3 lie in no other prime implicant; B'C' is essential because minterm 4 lies in no other. So the minimal SOP is A' + B'C'.",
+    "explanation": "The four cells of the first row form a quad and collapse to A'. Minterm 4 = 100 is alone in its row, and its only possible partner is m0, giving the pair B'C'. Both prime implicants have a witness, so both are essential and the cover is unique."
+   },
+   "pyqIds": [
+    "gate-2026-set1-q38-minimal-sop-msq",
+    "gate-2018-q49-number-of-essential-prime-implicants"
+   ],
+   "prereqs": [
+    "karnaugh-grouping-and-reading-a-term"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 10 - Karnaugh Map and Digital Circuit Realization",
+     "channel": "NPTEL, Digital Electronic Circuits (Prof. Goutam Saha, IIT Kharagpur)",
+     "url": "http://digimat.in/nptel/courses/video/108105132/lec10.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read from the opening to the two-variable map, plus the closing summary: truth table to grid, minterm numbering, AB' + AB = A as the first grouping, and the summary's rules - SOP covers every 1 with the fewest and largest power-of-two groups, POS covers the 0s, and a don't care is taken as 0 or 1 according to which makes the group larger. The middle of the served transcript is missing, so no 3- or 4-variable worked example is attributed to it."
+    },
+    {
+     "kind": "text",
+     "title": "Digital Logic subject notes: K Map, MSOP and MPOS",
+     "channel": "GATE Overflow, subject page for Digital Logic",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "url": "https://gateoverflow.in/subject/digital-logic?tab=exams",
+     "note": "read the K Map, Min Sum of Products Form and Min Products of Sum Form sections: grouping rules, prime and essential prime implicant definitions, the don't-care rule, the three-step minimal-SOP algorithm (circle the PIs, take every EPI, then the smallest subset that covers the rest) and the POS derivation from the zeros."
+    },
+    {
+     "kind": "text",
+     "title": "Minimization of Switching Functions (Unit II instructional material)",
+     "channel": "Aditya Engineering College, digital logic course notes",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "url": "https://aec.edu.in/aec/Instruction_Material/DELD%20Unit-2.pdf",
+     "note": "read through the search service's extract: logical adjacency defined as differing in one literal, the six grouping rules, the implicant, prime implicant and essential prime implicant definitions, the three-step minimal-SOP algorithm, the five-variable map layout with rows ABC and columns DE in Gray order, and the tabulation method's two phases with the cover table, distinguished columns, row and column dominance and the cyclic cover table. Read as a reference for the rules, not as a source of questions."
+    }
+   ],
+   "sourceLine": "The definitions of implicant, prime implicant and essential prime implicant and the three-step cover algorithm: GATE Overflow's Digital Logic subject notes (English) and the Aditya Engineering College switching-functions notes (English, read in part). The cover-every-1 rule: NPTEL IIT Kharagpur Digital Electronic Circuits Lecture 10 closing summary (English). Every prime implicant and essential prime implicant in this card is enumerated by brute force in scripts/validate.py.",
+   "subject": "digital-logic",
+   "topic": "boolean-algebra-and-minimization",
+   "path": "subjects/digital-logic/boolean-algebra-and-minimization/essential-prime-implicants-and-minimal-cover.json"
+  },
+  {
+   "unit": "Boolean Algebra and Minimization",
+   "videoRefs": [],
+   "id": "dont-care-conditions",
+   "title": "Don't-Care Conditions: X as 0 or 1, and What X Must Never Do",
+   "priority": "P1",
+   "order": 428,
+   "quickIdea": "A don't care is a row whose output does not matter; take it as 0 or as 1, per cell, whichever makes the group bigger - but never count it as a 1 that has to be covered.",
+   "remember": [
+    "A don't care (X on the map, d in Sigma m + Sigma d) is an input combination that cannot occur or whose output is irrelevant to the specification.",
+    "For a minimal SOP, X may be grouped with the 1s to enlarge a group. For a minimal POS, X may be grouped with the 0s. In both cases the choice is made cell by cell.",
+    "An X never has to be covered. Leaving it ungrouped costs nothing, so no group is forced by a don't care.",
+    "An X never makes a prime implicant essential; only a real 1 can be a witness.",
+    "Choosing X = 1 in one group and X = 0 elsewhere is legal: the don't cares are independent, and each assignment gives a different function that all satisfy the specification.",
+    "Write the Xs on the map before grouping, then read the cover from the 1s only - that order avoids the usual mistake of covering a don't care and calling it a required minterm."
+   ],
+   "example": {
+    "prompt": "Minimise F(P,Q,R,S) = Sigma m(0, 2, 5, 7, 8, 10, 13, 15) where the minterms 2, 7, 8 and 13 are don't cares.",
+    "work": "The required 1s are 0, 5, 10 and 15. Taken alone, no two of them are adjacent: 0 = 0000 is two bits from 5 = 0101 and from 10 = 1010, and four bits from 15. With the don't cares allowed, 0 joins 2, 8 and 10 to form the quad {0,2,8,10}, in which Q = 0 and S = 0, giving Q'S'. And 5 joins 7, 13 and 15 to form {5,7,13,15}, in which Q = 1 and S = 1, giving QS.",
+    "answer": "F = Q'S' + QS, that is Q XNOR S - two 2-literal terms instead of four 4-literal minterms."
+   },
+   "gateAngle": "GATE uses don't cares in almost every map question: GATE CSE 2014 Set 3 Q.7 (four don't cares that turn four isolated 1s into two quads), GATE CSE 2012 Q.30 and GATE CSE 2018 Q.49. The recurring distractor is a cover that treats a don't care as a required minterm.",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2014 Set 3 Q.7: F(P,Q,R,S) = Sigma 0,2,5,7,8,10,13,15 with 2, 7, 8 and 13 as 'do not care' terms. The minimal SOP is (A) Q S' + Q' S (B) Q' S' + Q S (C) Q'R'S' + Q'RS' + QR'S + QRS (D) P'Q'S' + P'QS + PQS + PQ'S'",
+     "answer": "Option (B), Q'S' + QS.",
+     "why": "The four required 1s are 0, 5, 10 and 15. Using the don't cares, {0,2,8,10} gives Q'S' and {5,7,13,15} gives QS. Option (A) is the opposite polarity - Q XOR S, not Q XNOR S - and is the intended error."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "A four-variable function has 1s at 0 and 15 and don't cares at 3, 5, 10 and 12. What is the best use of the don't cares?",
+     "answer": "None helps: 0 = 0000 has neighbours 1, 2, 4 and 8, none of which is a 1 or a don't care, and 15 = 1111 has neighbours 7, 11, 13 and 14, also none. So F = P'Q'R'S' + PQRS, four literals per term.",
+     "why": "A don't care helps only when it is adjacent to a 1 (or to another don't care that is). Here every don't care sits two bits away from both 1s, so no group can grow - and the correct answer is the canonical form."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "The same function is asked for as a minimal POS instead of a minimal SOP. Do the don't cares still help, and how do you use them?",
+     "answer": "They may still help, but on the other side: group the 0s, and let an X join a group of 0s if that makes the group larger. Then read each group as a sum term with inverted polarity.",
+     "why": "A POS is the minimal cover of the complement, so the Xs are grouped with the 0s exactly as they were grouped with the 1s for the SOP. Grouping an X with 0s is legal even if the same X was grouped with 1s in the SOP answer, because the two minimisations are separate choices."
+    }
+   ],
+   "trap": {
+    "what": "Treating a don't care as a 1 that must be covered, or as a 0 that blocks a group.",
+    "why": "An X is a free variable: it can be inside a group or outside, and it can take a different value in different groups. Both over- and under-use of the X's produce a valid function that is not minimal.",
+    "counterexample": "In GATE CSE 2014 Set 3 Q.7, writing the four required 1s as four minterms (the canonical form) is correct but 16 literals; the two quads give 4 literals. Conversely, forcing a group through the don't care at 2 in a direction that leaves minterm 5 uncovered loses a required 1."
+   },
+   "check": {
+    "question": "F(A,B,C,D) has 1s at 4 and 6 and don't cares at 5 and 7. What is the minimal SOP, and what would it be without the don't cares?",
+    "answer": "With the don't cares, F = A'B; without them, F = A'BC'D' + A'BCD' = A'BD', two 3-literal terms.",
+    "explanation": "Cells 4, 5, 6 and 7 all have A = 0 and B = 1, so the quad is A'B. Without the don't cares only 4 and 6 are 1s, and they form a pair in which A = 0, B = 1 and D = 0 - the term A'BD', with C dropping out."
+   },
+   "pyqIds": [
+    "gate-2014-set3-q7-minimal-sop-with-dont-cares",
+    "gate-2012-q30-kmap-minimal-form"
+   ],
+   "prereqs": [
+    "essential-prime-implicants-and-minimal-cover"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 10 - Karnaugh Map and Digital Circuit Realization",
+     "channel": "NPTEL, Digital Electronic Circuits (Prof. Goutam Saha, IIT Kharagpur)",
+     "url": "http://digimat.in/nptel/courses/video/108105132/lec10.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read from the opening to the two-variable map, plus the closing summary: truth table to grid, minterm numbering, AB' + AB = A as the first grouping, and the summary's rules - SOP covers every 1 with the fewest and largest power-of-two groups, POS covers the 0s, and a don't care is taken as 0 or 1 according to which makes the group larger. The middle of the served transcript is missing, so no 3- or 4-variable worked example is attributed to it."
+    },
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 12 - Quine-McCluskey (QM) Algorithm",
+     "channel": "NPTEL, Digital Electronic Circuits (Prof. Goutam Saha, IIT Kharagpur)",
+     "url": "http://digimat.in/nptel/courses/video/108105132/lec12.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read from the opening to the stage-2 combination of the four-variable example, plus the closing summary: the three steps, implicant and prime implicant defined, grouping by the number of 1s, the iterative combination, and the closing rule that don't cares are included when finding prime implicants and excluded when finding essential prime implicants."
+    },
+    {
+     "kind": "text",
+     "title": "Karnaugh map: Gray-code ordering, grouping and wrap-around",
+     "channel": "Wikipedia",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "url": "https://en.wikipedia.org/wiki/Karnaugh_map",
+     "note": "read the construction, grouping and solution sections: Gray-code ordering so neighbours differ in one variable, power-of-two rectangles that may overlap, toroidal connectivity for wrap-around, the reading rule (keep the variables constant across the box, drop the rest), don't cares that may be included in a group or left out, and the POS form obtained by minimising the complement and applying De Morgan."
+    }
+   ],
+   "sourceLine": "The don't-care rule (take X as 0 or 1 according to which makes the group larger): NPTEL IIT Kharagpur Digital Electronic Circuits Lecture 10 closing summary (English), restated by the same course's Lecture 12 summary for the tabular method (included when finding prime implicants, excluded when finding essential ones). The same rule in reference form: the Wikipedia Karnaugh map article (English, read in part). Every cover in this card is recomputed in scripts/validate.py.",
+   "visual": "digital-logic/boolean-algebra-and-minimization/kmap-dont-care-grouping",
+   "subject": "digital-logic",
+   "topic": "boolean-algebra-and-minimization",
+   "path": "subjects/digital-logic/boolean-algebra-and-minimization/dont-care-conditions.json"
+  },
+  {
+   "unit": "Boolean Algebra and Minimization",
+   "videoRefs": [],
+   "id": "pos-minimization-on-the-map",
+   "title": "Minimal POS: Group the Zeros and Read the Sum Terms",
+   "priority": "P2",
+   "order": 429,
+   "quickIdea": "To get a minimal product of sums, group the 0s exactly as you would group 1s, then read each group as a sum term with the polarity inverted.",
+   "remember": [
+    "A minimal POS is the minimal cover of the complement: group the 0s of F, and each group becomes one sum term (one factor).",
+    "Read the sum term with inverted polarity: a variable that is 0 across the group appears plain, a variable that is 1 across the group appears complemented. For a group of 1s it is the other way round.",
+    "The group rules are unchanged: power-of-two rectangles, wrap-around allowed, largest groups first, overlap allowed, every 0 covered at least once.",
+    "Equivalently, minimise F' as an SOP and apply De Morgan: F' = B'D' + BD becomes F = (B + D)(B' + D').",
+    "Don't cares may be grouped with the 0s when that enlarges a group, exactly as they may be grouped with the 1s for an SOP.",
+    "A minimal SOP and a minimal POS of the same function need not cost the same; when the question fixes the form, minimise in that form only."
+   ],
+   "example": {
+    "prompt": "Find the minimal POS of f(w,x,y,z) = Sigma m(0, 1, 2, 3, 7, 8, 10) + Sigma d(5, 6, 11, 15).",
+    "work": "The 0s are 4, 9, 12, 13, 14. Group them: {4, 6, 12, 14} uses the don't cares at 6 and 14 and gives x = 1, z = 0 throughout, so the factor is (x' + z). {9, 11, 13, 15} uses the don't cares at 11 and 15 and gives w = 1, z = 1, so the factor is (w' + z'). Every 0 is covered: 4, 12 and 14 by the first group, 9 and 13 by the second.",
+    "answer": "f = (x' + z)(w' + z'), two factors and four literals - the minimal POS."
+   },
+   "gateAngle": "GATE CSE 2017 Set 2 Q.28 asks for the minimum POS of a function given as minterms plus don't cares, and all four options are two-factor products, so the whole question is whether you grouped the 0s or the 1s. GATE CSE 2015 Set 3 Q.44 tests the same idea from the notation side, by asking whether a Pi M list matches a given function.",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2017 Set 2 Q.28: f(w,x,y,z) = Sigma m(0,1,2,3,7,8,10) + Sigma d(5,6,11,15). Which is a minimum POS form? (A) (w' + z')(x' + z)  (B) (w' + z)(x + z)  (C) (w + z)(x' + z)  (D) (w + z')(x' + z)",
+     "answer": "Option (A), (w' + z')(x' + z).",
+     "why": "Grouping the zeros with the don't cares gives {4,6,12,14} = (x' + z) and {9,11,13,15} = (w' + z'). Checking the other options on the rows that decide it: at w = 0, x = 0, y = 0, z = 0 (a required 1, m0) option (B) gives (w' + z) = 1 and (x + z) = 0, so its product is 0 and it is not equivalent; the same test rules out (C) and (D)."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "F has 0s at 0, 2, 5 and 7 in a three-variable map. Write its minimal POS and its minimal SOP.",
+     "answer": "POS: F = (A + C)(A' + C'). SOP: F = A'C + AC'.",
+     "why": "The 0s {0,2} have A = 0 and C = 0, so the factor is (A + C); the 0s {5,7} have A = 1 and C = 1, so the factor is (A' + C'). The 1s are 1, 3, 4 and 6, which group as {1,3} = A'C and {4,6} = AC'. Both forms come to two 2-literal terms - here the two forms tie, which is not the general case."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "Given F = Pi M(0, 1, 2, 3, 4), find the minimal POS in a three-variable map.",
+     "answer": "F = A.",
+     "why": "The 0s are rows 0 to 4, which is A = 0 together with row 4 (100). The group of 0s at 0,1,2,3 gives the factor (A); minterm 4 is a 1 so it is not grouped. Hence F = A - one literal, and its SOP form is A as well."
+    }
+   ],
+   "trap": {
+    "what": "Reading a sum term with the same polarity as a product term.",
+    "why": "A product term describes where a group of 1s is 1; a sum term describes where a group of 0s is 0. The variable that is 0 in the group must appear plain in the sum, which is the opposite of the product-term rule.",
+    "counterexample": "For the group of 0s {0, 2} in a three-variable map, both cells have A = 0 and C = 0, so the factor is (A + C), not (A' + C'). Expanding (A' + C') instead gives the complement's factor."
+   },
+   "check": {
+    "question": "F(w,x,y,z) has 0s at 0, 1, 2, 3 only. Give its minimal POS and its minimal SOP.",
+    "answer": "Both are F = w + x: the POS is the single factor (w + x) and the SOP is the single term w + x.",
+    "explanation": "The 0s at 0, 1, 2 and 3 all have w = 0 and x = 0, so the group of zeros gives the factor (w + x). The 1s are rows 4 to 15, which group as {4,5,6,7} = w'x and {8..15} = w, and w + w'x = w + x. Here the two forms coincide; the worked example above is the case where they do not."
+   },
+   "pyqIds": [
+    "gate-2017-set2-q28-minimum-pos-with-dont-cares"
+   ],
+   "prereqs": [
+    "dont-care-conditions"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 10 - Karnaugh Map and Digital Circuit Realization",
+     "channel": "NPTEL, Digital Electronic Circuits (Prof. Goutam Saha, IIT Kharagpur)",
+     "url": "http://digimat.in/nptel/courses/video/108105132/lec10.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read from the opening to the two-variable map, plus the closing summary: truth table to grid, minterm numbering, AB' + AB = A as the first grouping, and the summary's rules - SOP covers every 1 with the fewest and largest power-of-two groups, POS covers the 0s, and a don't care is taken as 0 or 1 according to which makes the group larger. The middle of the served transcript is missing, so no 3- or 4-variable worked example is attributed to it."
+    },
+    {
+     "kind": "text",
+     "title": "Digital Logic subject notes: K Map, MSOP and MPOS",
+     "channel": "GATE Overflow, subject page for Digital Logic",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "url": "https://gateoverflow.in/subject/digital-logic?tab=exams",
+     "note": "read the K Map, Min Sum of Products Form and Min Products of Sum Form sections: grouping rules, prime and essential prime implicant definitions, the don't-care rule, the three-step minimal-SOP algorithm (circle the PIs, take every EPI, then the smallest subset that covers the rest) and the POS derivation from the zeros."
+    },
+    {
+     "kind": "text",
+     "title": "Karnaugh map: Gray-code ordering, grouping and wrap-around",
+     "channel": "Wikipedia",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "url": "https://en.wikipedia.org/wiki/Karnaugh_map",
+     "note": "read the construction, grouping and solution sections: Gray-code ordering so neighbours differ in one variable, power-of-two rectangles that may overlap, toroidal connectivity for wrap-around, the reading rule (keep the variables constant across the box, drop the rest), don't cares that may be included in a group or left out, and the POS form obtained by minimising the complement and applying De Morgan."
+    }
+   ],
+   "sourceLine": "The POS rule (cover the 0s, and a don't care may join a group of 0s): NPTEL IIT Kharagpur Digital Electronic Circuits Lecture 10 closing summary (English) and GATE Overflow's Digital Logic subject notes (English). The inverted reading of a sum term and the De Morgan route from the complement: the Wikipedia Karnaugh map article (English, read in part). Both forms of the worked example are recomputed in scripts/validate.py.",
+   "subject": "digital-logic",
+   "topic": "boolean-algebra-and-minimization",
+   "path": "subjects/digital-logic/boolean-algebra-and-minimization/pos-minimization-on-the-map.json"
+  },
+  {
+   "unit": "Boolean Algebra and Minimization",
+   "videoRefs": [],
+   "id": "five-variable-karnaugh-map",
+   "title": "The Five-Variable Map: Two Four-Variable Maps and the Reflection Axis",
+   "priority": "P3",
+   "order": 430,
+   "quickIdea": "Five variables give 32 cells, drawn as two four-variable maps side by side; a cell and the cell 16 places away are adjacent, so a group may cross the axis and drop the fifth variable.",
+   "remember": [
+    "A five-variable map has 2^5 = 32 cells. It is drawn as two four-variable maps: the left one for the fifth variable = 0, the right one for it = 1.",
+    "Cell m sits at the same position as cell m + 16 in the other half, and those two differ only in the fifth variable - so they are adjacent. A pair across the axis drops that variable.",
+    "Adjacency inside each half follows the four-variable rules, wrap-around included; adjacency across the halves is only through the matching position.",
+    "The reflection method and the overlay method are two pictures of the same adjacency: reflect across the axis, or stack the two maps and read the cell directly above.",
+    "Group sizes are still powers of two and still drop one variable per doubling, so an octet in a five-variable map is a 2-literal term.",
+    "Beyond five variables the map stops being readable and the tabular method takes over - which is exactly why the syllabus names the tabular method as a separate technique."
+   ],
+   "example": {
+    "prompt": "Minimise F(A,B,C,D,E) = Sigma m(0, 1, 2, 3, 16, 17, 18, 19).",
+    "work": "Cells 0 to 3 are A = 0, B = 0, C = 0 with D and E free; cells 16 to 19 are A = 1, B = 0, C = 0 with D and E free. Each is a group of four inside its own half, and the two halves match position for position, so together they form one group of eight across the reflection axis. A changes across the axis and B = 0, C = 0 throughout; D and E take every value.",
+    "answer": "F = B'C', one 2-literal term for eight minterms."
+   },
+   "gateAngle": "The five-variable map is not itself a common GATE question, but the reflection idea is: GATE CSE 2025 Set 2 Q.43 gives a map as a diagram and asks which expressions represent it, and every such question depends on reading adjacency from the labels rather than from the drawing. This card is P3 because the verified question record shows the papers staying at four variables.",
+   "variations": [
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "In a five-variable map, is cell 5 adjacent to cell 21? To cell 14?",
+     "answer": "Yes to 21, no to 14.",
+     "why": "5 = 00101 and 21 = 10101 differ only in the fifth variable, so they are matched positions across the axis. 5 = 00101 and 14 = 01110 differ in the second, fourth and fifth bits, so they are not adjacent by any route."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "A five-variable function has 1s at every cell in which B = 1 and D = 1. What is its minimal SOP, and how many cells does the term cover?",
+     "answer": "F = BD, covering 8 cells.",
+     "why": "B = 1 and D = 1 fixes two variables and leaves A, C and E free, which is 2^3 = 8 cells - a group of eight spread over both halves of the map. Two literals for eight minterms is the n - k rule with n = 5 and k = 3."
+    }
+   ],
+   "trap": {
+    "what": "Treating the two halves as separate maps and never grouping across the axis.",
+    "why": "The whole point of the five-variable picture is that the two halves are adjacent at matching positions. A cover that ignores the axis is valid but larger than necessary.",
+    "counterexample": "For Sigma m(0,1,2,3,16,17,18,19), ignoring the axis gives two 3-literal quads (A'B'C' + AB'C') and needs a combine step to reach B'C'; crossing the axis gives B'C' in one group of eight."
+   },
+   "check": {
+    "question": "How many neighbours has cell 0 in a five-variable map, and name them.",
+    "answer": "Five: cells 1, 2, 4, 8 and 16.",
+    "explanation": "Each neighbour flips exactly one of the five bits of 00000: 00001, 00010, 00100, 01000 and 10000. The last one is the cell in the other half at the same position, which is why the reflection axis has to be part of the picture."
+   },
+   "pyqIds": [],
+   "prereqs": [
+    "karnaugh-map-layout-and-gray-code"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 11 - Karnaugh Map to Entered Variable Map",
+     "channel": "NPTEL, Digital Electronic Circuits (Prof. Goutam Saha, IIT Kharagpur)",
+     "url": "http://digimat.in/nptel/courses/video/108105132/lec11.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read from the week-3 recap to the reflection-map construction: five variables give 32 cells, the four-variable map is drawn twice with the fifth variable fixed at 0 and 1, the reflection axis makes a cell and the cell 16 places away adjacent, and the lecturer's own adjacency examples are cells 3 and 7, then 1 and 5. The overlay alternative and the closing statement are also read; the entered-variable-map material is outside this repository's scope."
+    },
+    {
+     "kind": "text",
+     "title": "Minimization of Switching Functions (Unit II instructional material)",
+     "channel": "Aditya Engineering College, digital logic course notes",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "url": "https://aec.edu.in/aec/Instruction_Material/DELD%20Unit-2.pdf",
+     "note": "read through the search service's extract: logical adjacency defined as differing in one literal, the six grouping rules, the implicant, prime implicant and essential prime implicant definitions, the three-step minimal-SOP algorithm, the five-variable map layout with rows ABC and columns DE in Gray order, and the tabulation method's two phases with the cover table, distinguished columns, row and column dominance and the cyclic cover table. Read as a reference for the rules, not as a source of questions."
+    }
+   ],
+   "sourceLine": "The reflection map, the 32 cells and the adjacency of a cell with the cell 16 places away: NPTEL IIT Kharagpur Digital Electronic Circuits Lecture 11 (English, read from the recap to the reflection construction). The overlay alternative and the five-variable layout: the same lecture and the Aditya Engineering College switching-functions notes (English, read in part). Adjacency is recomputed cell by cell in scripts/validate.py. No verified GATE question is decided by this card alone.",
+   "subject": "digital-logic",
+   "topic": "boolean-algebra-and-minimization",
+   "path": "subjects/digital-logic/boolean-algebra-and-minimization/five-variable-karnaugh-map.json"
+  },
+  {
+   "unit": "Boolean Algebra and Minimization",
+   "videoRefs": [],
+   "id": "quine-mccluskey-tabular-method",
+   "title": "The Tabular Method: Quine-McCluskey, the Chart and the Essential Rows",
+   "priority": "P2",
+   "order": 431,
+   "quickIdea": "The tabular method is the map written as a table: group minterms by how many 1s they have, combine neighbours into dashed terms, then read essential prime implicants off a chart as the columns with a single tick.",
+   "remember": [
+    "Step 1: write every minterm, and every don't care, in binary, grouped by the number of 1s. Terms can only combine with terms in an adjacent group.",
+    "Step 2: combine two terms that differ in exactly one bit, replacing that bit by a dash, and repeat on the new list. A term that combines is ticked; the unticked terms at the end are the prime implicants.",
+    "Step 3: build the prime implicant chart - prime implicants down the side, the required minterms across the top, a tick where the prime implicant covers the minterm.",
+    "A column with a single tick marks an essential prime implicant. Take it, delete its row and the columns it covers, and repeat on the reduced chart.",
+    "When no single-tick column is left, use row dominance (a more expensive row that covers a subset of another row's columns can be dropped) or branch on the choice. A chart with no essential prime implicant at all is cyclic and has several equally minimal covers.",
+    "Don't cares go into steps 1 and 2, so that groups can grow, but never into the chart, because they are never required to be covered."
+   ],
+   "example": {
+    "prompt": "Minimise f(w,x,y,z) = Sigma m(0, 2, 4, 5, 6, 10) by the tabular method.",
+    "work": "Group by the number of 1s: 0 = 0000; 2 = 0010, 4 = 0100; 5 = 0101, 6 = 0110, 10 = 1010. Combine adjacent groups: 0 with 2 gives 00-0, 0 with 4 gives 0-00; 2 with 6 gives 0-10, 2 with 10 gives -010, 4 with 5 gives 010-, 4 with 6 gives 01-0. Second pass: 00-0 and 01-0 differ only in the second bit, so they merge to 0--0; the others differ in two positions, so they stop. The prime implicants are 0--0, -010 and 010-.",
+    "answer": "0--0 is w'z', -010 is x'yz' and 010- is wx'y'. In the chart, minterm 0 appears only under w'z', minterm 10 only under x'yz' and minterm 5 only under wx'y', so all three are essential: f = w'z' + x'yz' + wx'y', three terms and eight literals."
+   },
+   "gateAngle": "GATE asks for counts rather than tables, because a table is slow to print: GATE CSE 2015 Set 3 Q.43 asks only for the total number of prime implicants of Sigma(0,2,4,5,6,10), and GATE CSE 2018 Q.49 for the number of essential prime implicants. The tabular method is the reliable way to get both counts without drawing a map.",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2015 Set 3 Q.43: The total number of prime implicants of f(w,x,y,z) = Sigma(0,2,4,5,6,10) is ______.",
+     "answer": "3.",
+     "why": "The tabulation ends with 0--0 (covering 0,2,4,6), -010 (2,10) and 010- (4,5); none of the three can be combined further, and no other term survives, so there are exactly three prime implicants - and, in this function, all three are also essential."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why may two terms be combined only when they differ in exactly one bit, and what does the dash mean?",
+     "answer": "Because xy + xy' = x: two terms that differ in one literal collapse to the common part. The dash marks the position where the literal disappeared, so a dashed term stands for every minterm that matches the fixed bits.",
+     "why": "A dash is not a third value; it is a shorthand for 'this variable has been eliminated'. That is why two dashed terms can only combine when their dashes are in the same positions - otherwise they differ in more than one bit."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "A prime implicant chart has four prime implicants P1 = {0,1}, P2 = {1,2}, P3 = {2,3} and P4 = {3,0}, with required minterms 0, 1, 2 and 3. How many essential prime implicants are there, and how many minimal covers?",
+     "answer": "No essential prime implicant, and two minimal covers: P1 + P3, or P2 + P4.",
+     "why": "Every column has exactly two ticks - minterm 0 is covered by P1 and P4, 1 by P1 and P2, 2 by P2 and P3, 3 by P3 and P4 - so no row is forced. This is a cyclic chart: two two-row covers exist and both are minimal. A chart with no essential prime implicant is therefore not the same as a chart with no answer."
+    }
+   ],
+   "trap": {
+    "what": "Combining terms whose dashes are not in the same positions, or putting the don't cares into the chart.",
+    "why": "Two dashed terms must agree on every dash position before they can merge; otherwise they differ in more than one bit and the merge is invalid. And a chart that includes don't care columns produces essential prime implicants that are not actually required.",
+    "counterexample": "0-10 and -010 have dashes in different positions and differ in two bits, so they cannot merge - a merge here would produce a term that covers minterms not in the function. Including don't care 3 in the chart would wrongly make a prime implicant essential in GATE CSE 2018 Q.49."
+   },
+   "check": {
+    "question": "Apply the tabular method to f(a,b,c) = Sigma(0, 1, 2, 5, 6, 7). How many prime implicants are there?",
+    "answer": "Six: a'b' {0,1}, a'c' {0,2}, b'c {1,5}, bc' {2,6}, ab {6,7} and ac {5,7}.",
+    "explanation": "Grouping by the number of 1s gives 0 = 000; 1 = 001, 2 = 010; 5 = 101, 6 = 110; 7 = 111. Every combination of adjacent groups produces a pair, and no pair can grow: {0,1,2,3} would need minterm 3, {0,1,4,5} would need 4, {1,3,5,7} would need 3, and {4,5,6,7} would need 4, none of which is a 1. So all six pairs are prime, and all six are essential as well."
+   },
+   "pyqIds": [
+    "gate-2015-set3-q43-number-of-prime-implicants"
+   ],
+   "prereqs": [
+    "essential-prime-implicants-and-minimal-cover"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 12 - Quine-McCluskey (QM) Algorithm",
+     "channel": "NPTEL, Digital Electronic Circuits (Prof. Goutam Saha, IIT Kharagpur)",
+     "url": "http://digimat.in/nptel/courses/video/108105132/lec12.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read from the opening to the stage-2 combination of the four-variable example, plus the closing summary: the three steps, implicant and prime implicant defined, grouping by the number of 1s, the iterative combination, and the closing rule that don't cares are included when finding prime implicants and excluded when finding essential prime implicants."
+    },
+    {
+     "kind": "text",
+     "title": "Quine-McCluskey algorithm: the tabulation method",
+     "channel": "Wikipedia",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "url": "https://en.wikipedia.org/wiki/Quine%E2%80%93McCluskey_algorithm",
+     "note": "read the algorithm statement, the four-variable worked example with two don't cares, and the prime implicant chart section: minterms grouped by the number of 1s, combination when two terms differ in one digit with a dash for the eliminated digit, unticked terms as prime implicants, the chart of prime implicants against required minterms, and the essential prime implicants read off as the columns with a single tick."
+    },
+    {
+     "kind": "text",
+     "title": "Minimization of Switching Functions (Unit II instructional material)",
+     "channel": "Aditya Engineering College, digital logic course notes",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "url": "https://aec.edu.in/aec/Instruction_Material/DELD%20Unit-2.pdf",
+     "note": "read through the search service's extract: logical adjacency defined as differing in one literal, the six grouping rules, the implicant, prime implicant and essential prime implicant definitions, the three-step minimal-SOP algorithm, the five-variable map layout with rows ABC and columns DE in Gray order, and the tabulation method's two phases with the cover table, distinguished columns, row and column dominance and the cyclic cover table. Read as a reference for the rules, not as a source of questions."
+    }
+   ],
+   "sourceLine": "The three steps, the grouping by number of 1s and the don't-care rule: NPTEL IIT Kharagpur Digital Electronic Circuits Lecture 12 (English, opening, stage 1 and closing summary read). The combination rule, the chart and the single-tick reading of an essential prime implicant: the Wikipedia Quine-McCluskey article (English, read in part). Row and column dominance and the cyclic chart: the Aditya Engineering College switching-functions notes (English, read in part). The worked example's prime implicants are recomputed in scripts/validate.py.",
+   "subject": "digital-logic",
+   "topic": "boolean-algebra-and-minimization",
+   "path": "subjects/digital-logic/boolean-algebra-and-minimization/quine-mccluskey-tabular-method.json"
+  },
+  {
+   "unit": "Boolean Algebra and Minimization",
+   "videoRefs": [],
+   "id": "literal-and-gate-cost",
+   "title": "Cost: Literals, Terms and Gate Counts",
+   "priority": "P2",
+   "order": 432,
+   "quickIdea": "A literal is one appearance of a variable, plain or complemented; minimisation is about fewest literals and fewest terms, and a group of 2^k cells is exactly a term of n - k literals.",
+   "remember": [
+    "A literal is one appearance of a variable or its complement. In x'y' + xy + wz there are six literals, even though x and y each appear twice.",
+    "The usual cost of a two-level SOP is one gate per term plus one gate for the OR, and the number of gate inputs is the number of literals. So fewer literals and fewer terms is cheaper.",
+    "A group of 2^k cells in an n-variable map gives a term of n - k literals; that single fact links the grouping rules to the cost rules.",
+    "A question may fix the form: a minimal POS and a minimal SOP of the same function can have different costs, so minimise in the form asked for.",
+    "The number of literals and the number of 2-input gates are different questions. A NAND-only realisation adds inverters for the complemented literals, and a multi-input gate counts as one gate.",
+    "Count literals in the expression as written, not in some expanded form; a question that asks for the number of literals is asking about the printed minimal expression."
+   ],
+   "example": {
+    "prompt": "Find the number of literals in the minimal SOP of the function defined by f(w,0,0,z) = 1, f(1,x,1,z) = x + z and f(w,1,y,z) = wz + y.",
+    "work": "The first equation fixes x = y = 0 and gives 1s at 0, 1, 8, 9. The second fixes w = y = 1 and gives x + z, so 0 at 10 and 1 at 11, 14, 15. The third fixes x = 1 and gives wz + y, so 1 at 6, 7, 13, 14, 15 and 0 at 4, 5, 12. Rows 2 and 3 (x = 0, y = 1) are fixed by nothing, so they are don't cares.",
+    "answer": "The 1s are 0, 1, 6, 7, 8, 9, 11, 13, 14, 15 with don't cares at 2 and 3; the minimal SOP is x'y' + xy + wz, three 2-literal terms, so the number of literals is 6."
+   },
+   "gateAngle": "GATE CSE 2021 Set 2 Q.52 is this exact count and the accepted answer is 6; GATE CSE 2017 Set 1 Q.21 asks the companion question, the minimum number of 2-input NOR gates for a map given as a figure. Both are cost questions, and both are decided after the minimisation, not before it.",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2021 Set 2 Q.52: f(w,x,y,z) with f(w,0,0,z) = 1, f(1,x,1,z) = x + z and f(w,1,y,z) = wz + y. The number of literals in the minimal SOP of f is ______.",
+     "answer": "6.",
+     "why": "The three equations fix ten of the sixteen rows and leave rows 2 and 3 (x = 0, y = 1) as don't cares. The 1s group into three quads: {0,1,8,9} = x'y', {6,7,14,15} = xy and {9,11,13,15} = wz. Those three cover all ten 1s, each has two literals, and no cover with fewer literals exists - so the number of literals is 6. The don't cares are not needed for this cover."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Which is cheaper as a two-level SOP: three terms of two literals, or two terms of four literals?",
+     "answer": "Three terms of two literals: 6 literals and 4 gates, against 8 literals and 3 gates.",
+     "why": "The literal count, which is the number of gate inputs, is the standard measure and it favours the first. The gate count favours the second, so the answer depends on which cost the question names - and a GATE question almost always names literals."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "How many literals has the minimal POS of F(w,x,y,z) whose only 0s are at 0 and 15?",
+     "answer": "Eight: F = (w + x + y + z)(w' + x' + y' + z').",
+     "why": "Each isolated 0 is a group of one cell, and a group of one in a four-variable map gives a four-literal sum term. Two such factors give eight literals, while the SOP of the same function is w'x'y'z' + wxyz, also eight - the two forms tie here, which is not the general case."
+    }
+   ],
+   "trap": {
+    "what": "Counting a variable once when it appears several times, or counting the literals of the canonical form instead of the minimal one.",
+    "why": "A literal is an appearance, so x appears twice in x'y' + xy and contributes two to the count. And the canonical form is not minimal, so its literal count is not the answer to a question about the minimal expression.",
+    "counterexample": "x'y' + xy + wz has 6 literals but only 4 distinct variables; the canonical form of the same function has 10 minterms and would give 40 literals."
+   },
+   "check": {
+    "question": "How many literals has the expression AB + A'C + BC, and how many has its minimal form?",
+    "answer": "Six literals as written; four in the minimal form AB + A'C.",
+    "explanation": "AB has two literals, A'C two and BC two, so the printed expression has six. The consensus theorem removes BC, leaving AB + A'C with four - which is why the literal count is the right way to compare two candidate answers."
+   },
+   "pyqIds": [
+    "gate-2021-set2-q52-literals-in-minimal-sop"
+   ],
+   "prereqs": [
+    "quine-mccluskey-tabular-method"
+   ],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "Digital Logic subject notes: K Map, MSOP and MPOS",
+     "channel": "GATE Overflow, subject page for Digital Logic",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "url": "https://gateoverflow.in/subject/digital-logic?tab=exams",
+     "note": "read the K Map, Min Sum of Products Form and Min Products of Sum Form sections: grouping rules, prime and essential prime implicant definitions, the don't-care rule, the three-step minimal-SOP algorithm (circle the PIs, take every EPI, then the smallest subset that covers the rest) and the POS derivation from the zeros."
+    },
+    {
+     "kind": "text",
+     "title": "Minimization of Switching Functions (Unit II instructional material)",
+     "channel": "Aditya Engineering College, digital logic course notes",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "url": "https://aec.edu.in/aec/Instruction_Material/DELD%20Unit-2.pdf",
+     "note": "read through the search service's extract: logical adjacency defined as differing in one literal, the six grouping rules, the implicant, prime implicant and essential prime implicant definitions, the three-step minimal-SOP algorithm, the five-variable map layout with rows ABC and columns DE in Gray order, and the tabulation method's two phases with the cover table, distinguished columns, row and column dominance and the cyclic cover table. Read as a reference for the rules, not as a source of questions."
+    },
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 12 - Quine-McCluskey (QM) Algorithm",
+     "channel": "NPTEL, Digital Electronic Circuits (Prof. Goutam Saha, IIT Kharagpur)",
+     "url": "http://digimat.in/nptel/courses/video/108105132/lec12.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read from the opening to the stage-2 combination of the four-variable example, plus the closing summary: the three steps, implicant and prime implicant defined, grouping by the number of 1s, the iterative combination, and the closing rule that don't cares are included when finding prime implicants and excluded when finding essential prime implicants."
+    }
+   ],
+   "sourceLine": "The cost vocabulary (fewest literals, fewest terms) and the n - k literal rule: the Aditya Engineering College switching-functions notes (English, read in part) and GATE Overflow's Digital Logic subject notes (English). The minimisation itself for the worked example: the NPTEL IIT Kharagpur Lecture 12 method (English, read in part), with every count recomputed in scripts/validate.py.",
+   "subject": "digital-logic",
+   "topic": "boolean-algebra-and-minimization",
+   "path": "subjects/digital-logic/boolean-algebra-and-minimization/literal-and-gate-cost.json"
   }
  ],
  "pyqs": [
@@ -27693,6 +28838,27 @@ window.GATE_DATA = {
    "source_label": "GATE Overflow question page for GATE CS 1998 Q.1.5 with community solutions. The accepted answer names the option letter; the option list on that page orders the text differently, so the answer here is recorded by content",
    "verification": "SOURCED",
    "answer_evidence": "Converse (A→B)=B→A \"If you go then I stay\" Answer is (A)."
+  },
+  {
+   "id": "gate-1998-q2-7-kmap-not-in-gray-order",
+   "year": "1998",
+   "paper": "GATE CS 1998",
+   "question_ref": "Q.2.7",
+   "type": "MCQ",
+   "topic": "karnaugh-map-layout-and-gray-code",
+   "text": "The function represented by the Karnaugh map given below is",
+   "options": [
+    "A.B",
+    "AB + BC + CA",
+    "NOT (B XOR C)",
+    "A.BC"
+   ],
+   "answer": "Option (C) - NOT (B XOR C)",
+   "solution": "The map as printed is not in Gray order: two variables change between consecutive columns, which makes merging adjacent 1s unsafe. Converted to the standard order the cells group as BC + B'C', which is B XNOR C, the complement of B XOR C.",
+   "source_url": "https://gateoverflow.in/1679/gate-cse-1998-question-2-7",
+   "source_label": "GATE Overflow question page - GATE CSE 1998 Q.2.7 with the accepted answer (option C)",
+   "verification": "SOURCED",
+   "answer_evidence": "The accepted answer states that the printed map is not standard, that two variables change between consecutive columns, and that converting it to standard form gives BC + B'bar C'bar = B XNOR C, that is option C. Recomputed here: BC + B'C' covers minterms 0, 3, 4, 7, which is exactly XNOR on B and C."
   },
   {
    "id": "gate-1999-1-3",
@@ -28263,6 +29429,27 @@ window.GATE_DATA = {
    "answer_evidence": "The accepted answers state option (D) and justify the endpoint by noting that sin is increasing up to pi/2, so pi/4 is a local minimum. The point is definitional: under the strict interior convention the count would be one, at 3pi/2, and the card on endpoint extrema states both readings."
   },
   {
+   "id": "gate-2012-q30-kmap-minimal-form",
+   "year": "2012",
+   "paper": "GATE CS 2012",
+   "question_ref": "Q.30",
+   "type": "MCQ",
+   "topic": "dont-care-conditions",
+   "text": "What is the minimal form of the Karnaugh map shown below? Assume that X denotes a don't care term",
+   "options": [
+    "b' d'",
+    "b' d' + b' c'",
+    "b' d' + a b' c' d",
+    "b' d' + b' c' + c' d'"
+   ],
+   "answer": "Option (B) - b' d' + b' c'",
+   "solution": "The 1s of the printed map are at m0, m2, m8 and m9 and the don't cares at m1, m4, m10 and m12. Two quads exist: {0,2,8,10} uses the don't care at 10 and gives b'd', and {0,1,8,9} uses the don't care at 1 and gives b'c'. Both are essential, since m2 lies only in the first and m9 only in the second, so the minimal form is b'd' + b'c'.",
+   "source_url": "https://gateoverflow.in/1615/gate-cse-2012-question-30",
+   "source_label": "GATE Overflow question page - GATE CSE 2012 Q.30 with the accepted answer (option B)",
+   "verification": "SOURCED",
+   "answer_evidence": "The accepted answers on the GATE Overflow page give the two quads as b'd' and b'c' and the answer as option B, and a GateAI solution page lists the same 1-cells (m0, m2, m8, m9) and the same don't cares (m1, m4, m10, m12). The printed figure is not reproduced here; the cells are taken from those two independent readings of it. Recomputed here from those cells: prime implicants b'c', b'd' and c'd', essential b'c' and b'd', minimal cover b'c' + b'd'."
+  },
+  {
    "id": "gate-2012-q7-half-in-single-precision",
    "year": "2012",
    "paper": "GATE CS 2012",
@@ -28569,6 +29756,27 @@ window.GATE_DATA = {
    "answer_evidence": "The accepted answers split at pi, integrate each piece by parts and conclude k = 4; the GateAI PYQ page states 'Official answer: 4'. Recomputed here numerically."
   },
   {
+   "id": "gate-2014-set3-q7-minimal-sop-with-dont-cares",
+   "year": "2014",
+   "paper": "GATE CS 2014 Set 3",
+   "question_ref": "Q.7",
+   "type": "MCQ",
+   "topic": "dont-care-conditions",
+   "text": "Consider the following minterm expression for F: F(P, Q, R, S) = Sigma 0, 2, 5, 7, 8, 10, 13, 15. The minterms 2, 7, 8 and 13 are 'do not care' terms. The minimal sum-of-products form for F is",
+   "options": [
+    "Q S' + Q' S",
+    "Q' S' + Q S",
+    "Q'R'S' + Q'RS' + QR'S + QRS",
+    "P'Q'S' + P'QS + PQS + PQ'S'"
+   ],
+   "answer": "Option (B) - Q' S' + Q S",
+   "solution": "The required 1s are 0, 5, 10 and 15, and no two of them are adjacent. With the don't cares available, 0 joins 2, 8 and 10 to form the quad {0,2,8,10} in which Q = 0 and S = 0, giving Q'S'; and 5 joins 7, 13 and 15 to form the quad {5,7,13,15} in which Q = 1 and S = 1, giving QS. The answer is Q'S' + QS, which is Q XNOR S.",
+   "source_url": "https://gateoverflow.in/2041/gate-cse-2014-set-3-question-7",
+   "source_label": "GATE Overflow question page - GATE CSE 2014 Set 3 Q.7 with the accepted answer (option B)",
+   "verification": "SOURCED",
+   "answer_evidence": "The single answer on the page works the map with the swapped Gray-order columns and gives option B. Recomputed here: with the four don't cares the minimal SOP is Q'S' + QS (2 terms, 4 literals); option A is the opposite polarity and options C and D are non-minimal forms."
+  },
+  {
    "id": "gate-2015-3-5",
    "year": "2015",
    "paper": "GATE CS 2015 Set 3",
@@ -28870,6 +30078,42 @@ window.GATE_DATA = {
    "source_url": "https://gateoverflow.in/8496/gate-cse-2015-set-3-question-37",
    "source_label": "GATE Overflow question page, GATE CSE 2015 Set 3 Question 37, accepted answer",
    "verification": "SOURCED"
+  },
+  {
+   "id": "gate-2015-set3-q43-number-of-prime-implicants",
+   "year": "2015",
+   "paper": "GATE CS 2015 Set 3",
+   "question_ref": "Q.43",
+   "type": "NAT",
+   "topic": "quine-mccluskey-tabular-method",
+   "text": "The total number of prime implicants of the function f(w, x, y, z) = Sigma(0, 2, 4, 5, 6, 10) is ______.",
+   "answer": "3",
+   "solution": "Grouping by the number of 1s: 0 = 0000; 2 = 0010, 4 = 0100; 5 = 0101, 6 = 0110, 10 = 1010. Combining gives 00-0 and 0-00 from the first two groups, and 0-10, -010, 010-, 01-0 in the second pass; a third pass merges 00-0 with 01-0 into 0--0. The terms that never combine are 0--0, -010 and 010-, so there are three prime implicants: w'z', x'yz' and wx'y'.",
+   "source_url": "https://gateoverflow.in/8503/gate-cse-2015-set-3-question-43",
+   "source_label": "GATE Overflow question page - GATE CSE 2015 Set 3 Q.43 with the accepted answer (3)",
+   "verification": "SOURCED",
+   "answer_evidence": "The accepted answers build the minterm table, combine to 0--0, -010 and 010- and give 3; a GateQA record of the same question records the answer as 3. Recomputed here by exhaustive enumeration of implicants: exactly three prime implicants, each of which is also essential."
+  },
+  {
+   "id": "gate-2015-set3-q44-sigma-and-pi-forms",
+   "year": "2015",
+   "paper": "GATE CS 2015 Set 3",
+   "question_ref": "Q.44",
+   "type": "MCQ",
+   "topic": "canonical-forms-minterms-and-maxterms",
+   "text": "Given the function F = P' + QR, where F is a function in three Boolean variables P, Q and R and P' = !P, consider the following statements. (S1) F = Sigma(4, 5, 6)  (S2) F = Sigma(0, 1, 2, 3, 7)  (S3) F = Pi(4, 5, 6)  (S4) F = Pi(0, 1, 2, 3, 7). Which of the following is true?",
+   "options": [
+    "(S1)-False, (S2)-True, (S3)-True, (S4)-False",
+    "(S1)-True, (S2)-False, (S3)-False, (S4)-True",
+    "(S1)-False, (S2)-False, (S3)-True, (S4)-True",
+    "(S1)-True, (S2)-True, (S3)-False, (S4)-False"
+   ],
+   "answer": "Option (A) - (S1) False, (S2) True, (S3) True, (S4) False",
+   "solution": "P' is 1 on every row with P = 0, which is rows 0, 1, 2, 3; QR is 1 on rows 6 and 7, and of those only row 7 has P = 1, so the 1s of F are 0, 1, 2, 3 and 7. Hence F = Sigma(0,1,2,3,7), and the rows where F = 0 are 4, 5 and 6, so F = Pi(4,5,6). S1 and S4 describe the complement, F'.",
+   "source_url": "https://gateoverflow.in/8504/gate-cse-2015-set-3-question-44",
+   "source_label": "GATE Overflow question page - GATE CSE 2015 Set 3 Q.44 with the accepted answer (option A)",
+   "verification": "SOURCED",
+   "answer_evidence": "Several answers on the page expand P' + QR into minterms and into maxterms and conclude S2 and S3 are the true statements, which is option A. Recomputed here by evaluating P' + QR on all eight rows: 1s at 0,1,2,3,7 and 0s at 4,5,6."
   },
   {
    "id": "gate-2015-set3-relation-p-s-q-r",
@@ -29223,6 +30467,27 @@ window.GATE_DATA = {
    "answer_evidence": "The accepted answer computes E[X^2] = 30 from Var = mean = 5 and then 30 + 20 + 4 = 54; a second route on the same page uses E[X+2] = 7 and Var(X+2) = 5 to get 5 + 49 = 54. Recomputed here."
   },
   {
+   "id": "gate-2017-set2-q28-minimum-pos-with-dont-cares",
+   "year": "2017",
+   "paper": "GATE CS 2017 Set 2",
+   "question_ref": "Q.28",
+   "type": "MCQ",
+   "topic": "pos-minimization-on-the-map",
+   "text": "Given f(w, x, y, z) = Sigma m(0,1,2,3,7,8,10) + Sigma d(5,6,11,15), where d represents the 'don't-care' condition in Karnaugh maps. Which of the following is a minimum product-of-sums (POS) form of f(w, x, y, z)?",
+   "options": [
+    "(w' + z')(x' + z)",
+    "(w' + z)(x + z)",
+    "(w + z)(x' + z)",
+    "(w + z')(x' + z)"
+   ],
+   "answer": "Option (A) - (w' + z')(x' + z)",
+   "solution": "The 0s of f are at 4, 9, 12, 13 and 14. Grouping the 0s with the don't cares: {4, 6, 12, 14} has x = 1 and z = 0 throughout, giving the factor (x' + z); {9, 11, 13, 15} has w = 1 and z = 1 throughout, giving (w' + z'). Every 0 is covered by one of the two groups, so f = (x' + z)(w' + z'), two factors and four literals.",
+   "source_url": "https://gateoverflow.in/118370/gate-cse-2017-set-2-question-28",
+   "source_label": "GATE Overflow question page - GATE CSE 2017 Set 2 Q.28 with the accepted answer (option A)",
+   "verification": "SOURCED",
+   "answer_evidence": "The accepted answer writes the answer as (x' + z)(z' + w'), which is option A, and notes that a don't care may be used for grouping either the 1s or the 0s. Recomputed here: option A reproduces exactly the required 1s of f and sets only don't-care cells to 1 (m5), so it is correct, and the complement's minimal SOP is wz + xz', which is four literals, so the POS is minimal."
+  },
+  {
    "id": "gate-2018-19-largest-proper-subgroup-42",
    "year": "2018",
    "paper": "GATE CS 2018",
@@ -29295,6 +30560,21 @@ window.GATE_DATA = {
    "verification": "SOURCED"
   },
   {
+   "id": "gate-2018-q49-number-of-essential-prime-implicants",
+   "year": "2018",
+   "paper": "GATE CS 2018",
+   "question_ref": "Q.49",
+   "type": "NAT",
+   "topic": "essential-prime-implicants-and-minimal-cover",
+   "text": "Consider the minterm list form of a Boolean function F given below. F(P, Q, R, S) = Sigma m(0, 2, 5, 7, 9, 11) + d(3, 8, 10, 12, 14). Here, m denotes a minterm and d denotes a don't care term. The number of essential prime implicants of the function F is ______.",
+   "answer": "3",
+   "solution": "The prime implicants are Q'S' = {0,2,8,10}, Q'R = {2,3,10,11}, PQ' = {8,9,10,11}, PS' = {8,10,12,14}, P'RS = {3,7} and P'QS = {5,7}. Minterm 0 is covered only by Q'S', minterm 5 only by P'QS and minterm 9 only by PQ', so those three are essential. The remaining 1s (2, 7, 11) are each covered by two prime implicants and are already covered by the three essential ones, so Q'R, PS' and P'RS are not essential. A don't care is never a witness.",
+   "source_url": "https://gateoverflow.in/204124/gate-cse-2018-question-49",
+   "source_label": "GATE Overflow question page - GATE CSE 2018 Q.49 with the accepted answer (3)",
+   "verification": "SOURCED",
+   "answer_evidence": "The accepted answer lists five prime implicants and three essential ones with the same witness minterms; an ExamSIDE solution page and a successtracker solution page independently give the same three essential prime implicants (Q'S', PQ', P'QS) and the answer 3, and an iaeacademy solution page attributes the answer 3 to the official GATE 2018 CS key. Recomputed here by enumerating all prime implicants and testing every required 1 for a unique cover: 6 prime implicants, 3 essential."
+  },
+  {
    "id": "gate-2019-13-x4-minus-81",
    "year": "2019",
    "paper": "GATE CS 2019",
@@ -29329,6 +30609,27 @@ window.GATE_DATA = {
    "source_label": "GATE Overflow question page - GATE CSE 2019 Q.47 with the accepted answer (0.8)",
    "verification": "SOURCED",
    "answer_evidence": "The accepted answer reduces the discriminant to (Y-2)(Y+1) >= 0 and measures the favourable length 4 against the total 5; Testbook's page for the same GATE CS 2019 paper and the Knowledge Gate walkthrough both give 0.8. Recomputed here, including the double root at Y = 2."
+  },
+  {
+   "id": "gate-2019-q6-not-a-valid-identity",
+   "year": "2019",
+   "paper": "GATE CS 2019",
+   "question_ref": "Q.6",
+   "type": "MCQ",
+   "topic": "xor-and-xnor-algebra",
+   "text": "Which one of the following is NOT a valid identity?",
+   "options": [
+    "(x XOR y) XOR z = x XOR (y XOR z)",
+    "(x + y) XOR z = x XOR (y + z)",
+    "x XOR y = x + y, if xy = 0",
+    "x XOR y = (xy + x'y')'"
+   ],
+   "answer": "Option (B)",
+   "solution": "XOR is associative, so (A) holds. Expanding (B): the left side is (x + y)z' + (x + y)'z = xz' + yz' + x'y'z, while the right side is x(y + z)' + x'(y + z) = xy'z' + x'y + x'z; they differ, for example at x = 1, y = 1, z = 0 where the left is 0 and the right is 1. Option (C) holds because xy = 0 removes the only row where OR and XOR disagree. Option (D) is the standard rewrite, since (xy + x'y')' is the complement of XNOR.",
+   "source_url": "https://gateoverflow.in/302842/gate-cse-2019-question-6",
+   "source_label": "GATE Overflow question page - GATE CSE 2019 Q.6 with the accepted answer (option B)",
+   "verification": "SOURCED",
+   "answer_evidence": "The accepted answer expands both sides of option B and concludes that only B is false; a GateQA record of the same question also records the answer as B, and a freeatzeal listing marks B. Recomputed here on all eight rows: A, C and D hold everywhere and B fails at (1,1,0) and at (0,1,1)."
   },
   {
    "id": "gate-2020-18-largest-proper-subgroup-7",
@@ -29644,6 +30945,21 @@ window.GATE_DATA = {
    "source_label": "GATE Overflow question page, GATE CSE 2021 Set 2 Q.25, with the accepted answer 19",
    "verification": "SOURCED",
    "answer_evidence": "All six answers on the GATE Overflow page give 19; one of them states the mean value theorem route explicitly and adds that the shortcut 'assume f(x) = 2x + b' happens to work here but is not a proof. ExamSIDE's calculus bank and the GateAI PYQ listing for the same question both print 'Correct answer is 19'. Recomputed in scripts/validate.py. The official key was not fetched and no marks field is recorded."
+  },
+  {
+   "id": "gate-2021-set2-q52-literals-in-minimal-sop",
+   "year": "2021",
+   "paper": "GATE CS 2021 Set 2",
+   "question_ref": "Q.52",
+   "type": "NAT",
+   "topic": "literal-and-gate-cost",
+   "text": "Consider a Boolean function f(w, x, y, z) such that f(w,0,0,z) = 1, f(1,x,1,z) = x + z and f(w,1,y,z) = wz + y. The number of literals in the minimal sum-of-products expression of f is ______.",
+   "answer": "6",
+   "solution": "The first equation fixes x = y = 0 and makes rows 0, 1, 8, 9 equal to 1. The second fixes w = y = 1 and gives row 10 = 0 and rows 11, 14, 15 = 1. The third fixes x = 1 and gives rows 4, 5, 12 = 0 and rows 6, 7, 13, 14, 15 = 1. Rows 2 and 3 (x = 0, y = 1) are fixed by no equation, so they are don't cares. The map gives three quads: x'y' (0,1,8,9), xy (6,7,14,15) and wz (11,15 plus the don't cares 2,3), that is x'y' + xy + wz, three terms of two literals.",
+   "source_url": "https://gateoverflow.in/357485/gate-cse-2021-set-2-question-52",
+   "source_label": "GATE Overflow question page - GATE CSE 2021 Set 2 Q.52 with the accepted answer (6)",
+   "verification": "SOURCED",
+   "answer_evidence": "Several answers on the page build the truth table, identify rows 2 and 3 as don't cares, and give x'y' + xy + wz with 6 literals; the accepted answer counts three quads at two literals each. Recomputed here: the minimal cover of the ten required 1s with don't cares at 2 and 3 has three terms and six literals."
   },
   {
    "id": "gate-2022-10-trace-cyclic",
@@ -30536,6 +31852,27 @@ window.GATE_DATA = {
    "answer_evidence": "Two answers on the question page compute 51/12 = 4.25, one by the PMF sum and one by expanding to a twelve-point equally likely sample; a third records the accepted range 4.24 to 4.26. Recomputed here."
   },
   {
+   "id": "gate-2026-set1-q38-minimal-sop-msq",
+   "year": "2026",
+   "paper": "GATE CS 2026 Set 1",
+   "question_ref": "Q.38",
+   "type": "MSQ",
+   "topic": "essential-prime-implicants-and-minimal-cover",
+   "text": "Consider a Boolean function F with the following minterm expression: F(P, Q, R, S) = Sigma m(1, 2, 3, 4, 5, 7, 10, 12, 13, 14). Which of the following options is/are the minimal sum-of-products expression(s) of F?",
+   "options": [
+    "P' S + Q R' + P' Q' R + Q' R S'",
+    "P' S + Q R' + P' Q' R + P R S'",
+    "P' S + Q R' + P Q S' + P R S'",
+    "P' S + Q R' + P Q S' + Q' R S'"
+   ],
+   "answer": "Options (B) and (D)",
+   "solution": "The prime implicants are P'S, QR', P'Q'R, PRS' and Q'RS' (plus PQR', which no minimal cover uses). P'S and QR' are essential. The three 1s left over - 1 and 3 and the pair 10 and 14 - can be covered either by P'Q'R with PRS' (option B) or by PQS' with Q'RS' (option D); both covers have four terms and ten literals, so both are minimal. Options A and C are not equivalent to F at all.",
+   "source_url": "https://gateoverflow.in/523042/gate-cse-2026-set-1-question-38",
+   "source_label": "GATE Overflow question page - GATE CSE 2026 Set 1 Q.38 with the accepted answers (options B and D)",
+   "verification": "SOURCED",
+   "answer_evidence": "The answer comment on the GATE Overflow page states that both B and D are correct, and a Quorank PYQ page for the same question records the answer as B, D. GateAI and Quorank number this question Q48 and GATE Overflow numbers it Q.38. Recomputed here by enumerating every implicant: options B and D each reproduce the function exactly with 4 terms and 10 literals, options A and C do not reproduce the function, and a third 4-term 10-literal cover exists (P'S + QR' + PRS' + Q'RS') which is not among the printed options."
+  },
+  {
    "id": "gate-2026-set2-17-integral-independent-of-parameter",
    "year": "2026",
    "paper": "GATE CS 2026 Set 2",
@@ -30629,6 +31966,27 @@ window.GATE_DATA = {
    "answer_evidence": "The page's accepted answers read option (A) as 'there is a person y such that every other person x knows y and y does not know x', and reject the other three quantifier patterns."
   },
   {
+   "id": "gate-2026-set2-q30-minimal-sop-is-b-bar",
+   "year": "2026",
+   "paper": "GATE CS 2026 Set 2",
+   "question_ref": "Q.30",
+   "type": "MCQ",
+   "topic": "karnaugh-grouping-and-reading-a-term",
+   "text": "Consider the following 4-variable Boolean function F(A, B, C, D) = Sigma m(0, 1, 2, 3, 8, 9, 10, 11). Consider A as MSB, D as LSB. Which one of the following options represents the minimal sum of products form for the above function? Note: + is OR operation, . is AND operation, ' is NOT operation",
+   "options": [
+    "A' + B' + C' + D'",
+    "B'",
+    "A' . B' + A . B",
+    "A'"
+   ],
+   "answer": "Option (B) - B'",
+   "solution": "The eight minterms are exactly the rows with B = 0: A = 0, B = 0 with C and D free gives 0,1,2,3, and A = 1, B = 0 with C and D free gives 8,9,10,11. On the map these are two rows that merge into one octet, and B = 0 is the only variable constant across it, so F = B'. Option (C) is not even equivalent: at A = 0, B = 1 it gives 0 while the function gives 1.",
+   "source_url": "https://gateoverflow.in/523116/gate-cse-2026-set-2-question-30",
+   "source_label": "GATE Overflow question page - GATE CSE 2026 Set 2 Q.30 with the accepted answer (option B)",
+   "verification": "SOURCED",
+   "answer_evidence": "The accepted answer groups the first and fourth rows into an octet and gives option B. Two aggregators also give B: the GateAI solution page, which numbers this question Q40, and an ExamSIDE year page, which numbers it 32 - the paper numbering differs between sites and GATE Overflow's Q.30 is used here. Recomputed here: the eight minterms all have B = 0, and B' is the unique prime implicant."
+  },
+  {
    "id": "gate-2026-set2-q34-decode-c2710000",
    "year": "2026",
    "paper": "GATE CS 2026 Set 2",
@@ -30656,6 +32014,27 @@ window.GATE_DATA = {
    "source_url": "https://gateoverflow.in/523093/gate-cse-2026-set-2-question-53",
    "source_label": "GATE Overflow question page, GATE CSE 2026 Set 2 Question 53, accepted answer; the question also appears as Q.63 in the official CS2 paper at gate2026.iitg.ac.in",
    "verification": "SOURCED"
+  },
+  {
+   "id": "gate-2026-set2-q6-not-a-boolean-property",
+   "year": "2026",
+   "paper": "GATE CS 2026 Set 2",
+   "question_ref": "Q.6",
+   "type": "MCQ",
+   "topic": "boolean-algebra-postulates-and-duality",
+   "text": "Which one of the following options is not a property of Boolean Algebra? Note: + is OR operation, . is AND operation, and ' is NOT operation",
+   "options": [
+    "a + b = b + a",
+    "a . a' = 1",
+    "a + a' = 1",
+    "a . b = b . a"
+   ],
+   "answer": "Option (B) - a . a' = 1",
+   "solution": "The complement law is a pair: a + a' = 1 for OR and a . a' = 0 for AND. Since a and a' always have opposite values, their AND is 0 for both a = 0 and a = 1, so a . a' = 1 is false. The other three options are the commutative laws for OR and AND and the OR half of the complement law, all valid.",
+   "source_url": "https://gateoverflow.in/523140/gate-cse-2026-set-2-question-6",
+   "source_label": "GATE Overflow question page - GATE CSE 2026 Set 2 Q.6 with the accepted answer (option B)",
+   "verification": "SOURCED",
+   "answer_evidence": "The accepted answer evaluates each option on both values of a and concludes that a . a' is 0, not 1, and tabulates the complement and commutative laws. The same option is marked B on an ExamSIDE year page and in an EduRev PYQ listing. Recomputed here for a = 0 and a = 1."
   }
  ],
  "videos": [
