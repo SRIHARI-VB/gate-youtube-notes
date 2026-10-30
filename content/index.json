@@ -29,8 +29,8 @@
   ],
   "counts": {
     "subjects": 5,
-    "topics": 227,
-    "pyqs": 174,
+    "topics": 240,
+    "pyqs": 186,
     "videos": 39,
     "playlists": 3
   },
@@ -3446,6 +3446,199 @@
       "videos": [],
       "pyqs": [
         "gate-2024-set2-q14-largest-float"
+      ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "boolean-algebra-postulates-and-duality",
+      "title": "Boolean Algebra: The Postulates, the Two Elements, and Duality",
+      "subject": "digital-logic",
+      "group": "boolean-algebra-and-minimization",
+      "unit": "Boolean Algebra and Minimization",
+      "priority": "P1",
+      "path": "subjects/digital-logic/boolean-algebra-and-minimization/boolean-algebra-postulates-and-duality.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2026-set2-q6-not-a-boolean-property"
+      ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "boolean-theorems-absorption-and-consensus",
+      "title": "The Working Theorems: Idempotent, Absorption, De Morgan and Consensus",
+      "subject": "digital-logic",
+      "group": "boolean-algebra-and-minimization",
+      "unit": "Boolean Algebra and Minimization",
+      "priority": "P1",
+      "path": "subjects/digital-logic/boolean-algebra-and-minimization/boolean-theorems-absorption-and-consensus.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2019-q6-not-a-valid-identity"
+      ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "xor-and-xnor-algebra",
+      "title": "XOR and XNOR: The Identities GATE Reuses",
+      "subject": "digital-logic",
+      "group": "boolean-algebra-and-minimization",
+      "unit": "Boolean Algebra and Minimization",
+      "priority": "P2",
+      "path": "subjects/digital-logic/boolean-algebra-and-minimization/xor-and-xnor-algebra.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2019-q6-not-a-valid-identity"
+      ],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "canonical-forms-minterms-and-maxterms",
+      "title": "Canonical Forms: Minterms, Maxterms, Sigma-m and Pi-M",
+      "subject": "digital-logic",
+      "group": "boolean-algebra-and-minimization",
+      "unit": "Boolean Algebra and Minimization",
+      "priority": "P1",
+      "path": "subjects/digital-logic/boolean-algebra-and-minimization/canonical-forms-minterms-and-maxterms.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2015-set3-q44-sigma-and-pi-forms"
+      ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "algebraic-minimization-technique",
+      "title": "Algebraic Minimisation: Combine, Absorb, Eliminate, Factor",
+      "subject": "digital-logic",
+      "group": "boolean-algebra-and-minimization",
+      "unit": "Boolean Algebra and Minimization",
+      "priority": "P1",
+      "path": "subjects/digital-logic/boolean-algebra-and-minimization/algebraic-minimization-technique.json",
+      "videos": [],
+      "pyqs": [],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "karnaugh-map-layout-and-gray-code",
+      "title": "The Karnaugh Map: Gray-Code Cells, Numbering and Wrap-Around",
+      "subject": "digital-logic",
+      "group": "boolean-algebra-and-minimization",
+      "unit": "Boolean Algebra and Minimization",
+      "priority": "P1",
+      "path": "subjects/digital-logic/boolean-algebra-and-minimization/karnaugh-map-layout-and-gray-code.json",
+      "videos": [],
+      "pyqs": [
+        "gate-1998-q2-7-kmap-not-in-gray-order"
+      ],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "karnaugh-grouping-and-reading-a-term",
+      "title": "Grouping Rules and Reading a Product Term Off a Group",
+      "subject": "digital-logic",
+      "group": "boolean-algebra-and-minimization",
+      "unit": "Boolean Algebra and Minimization",
+      "priority": "P1",
+      "path": "subjects/digital-logic/boolean-algebra-and-minimization/karnaugh-grouping-and-reading-a-term.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2026-set2-q30-minimal-sop-is-b-bar"
+      ],
+      "visual": "digital-logic/boolean-algebra-and-minimization/kmap-dont-care-grouping",
+      "variations": 3
+    },
+    {
+      "topic": "essential-prime-implicants-and-minimal-cover",
+      "title": "Prime Implicants, Essential Prime Implicants and the Minimal Cover",
+      "subject": "digital-logic",
+      "group": "boolean-algebra-and-minimization",
+      "unit": "Boolean Algebra and Minimization",
+      "priority": "P1",
+      "path": "subjects/digital-logic/boolean-algebra-and-minimization/essential-prime-implicants-and-minimal-cover.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2026-set1-q38-minimal-sop-msq",
+        "gate-2018-q49-number-of-essential-prime-implicants"
+      ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "dont-care-conditions",
+      "title": "Don't-Care Conditions: X as 0 or 1, and What X Must Never Do",
+      "subject": "digital-logic",
+      "group": "boolean-algebra-and-minimization",
+      "unit": "Boolean Algebra and Minimization",
+      "priority": "P1",
+      "path": "subjects/digital-logic/boolean-algebra-and-minimization/dont-care-conditions.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2014-set3-q7-minimal-sop-with-dont-cares",
+        "gate-2012-q30-kmap-minimal-form"
+      ],
+      "visual": "digital-logic/boolean-algebra-and-minimization/kmap-dont-care-grouping",
+      "variations": 3
+    },
+    {
+      "topic": "pos-minimization-on-the-map",
+      "title": "Minimal POS: Group the Zeros and Read the Sum Terms",
+      "subject": "digital-logic",
+      "group": "boolean-algebra-and-minimization",
+      "unit": "Boolean Algebra and Minimization",
+      "priority": "P2",
+      "path": "subjects/digital-logic/boolean-algebra-and-minimization/pos-minimization-on-the-map.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2017-set2-q28-minimum-pos-with-dont-cares"
+      ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "five-variable-karnaugh-map",
+      "title": "The Five-Variable Map: Two Four-Variable Maps and the Reflection Axis",
+      "subject": "digital-logic",
+      "group": "boolean-algebra-and-minimization",
+      "unit": "Boolean Algebra and Minimization",
+      "priority": "P3",
+      "path": "subjects/digital-logic/boolean-algebra-and-minimization/five-variable-karnaugh-map.json",
+      "videos": [],
+      "pyqs": [],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "quine-mccluskey-tabular-method",
+      "title": "The Tabular Method: Quine-McCluskey, the Chart and the Essential Rows",
+      "subject": "digital-logic",
+      "group": "boolean-algebra-and-minimization",
+      "unit": "Boolean Algebra and Minimization",
+      "priority": "P2",
+      "path": "subjects/digital-logic/boolean-algebra-and-minimization/quine-mccluskey-tabular-method.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2015-set3-q43-number-of-prime-implicants"
+      ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "literal-and-gate-cost",
+      "title": "Cost: Literals, Terms and Gate Counts",
+      "subject": "digital-logic",
+      "group": "boolean-algebra-and-minimization",
+      "unit": "Boolean Algebra and Minimization",
+      "priority": "P2",
+      "path": "subjects/digital-logic/boolean-algebra-and-minimization/literal-and-gate-cost.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2021-set2-q52-literals-in-minimal-sop"
       ],
       "visual": null,
       "variations": 3

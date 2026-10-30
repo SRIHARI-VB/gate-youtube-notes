@@ -1863,3 +1863,156 @@ pre-existing (seven `OFFICIAL_KEY` records with no answer evidence, two videos r
 
 The cycle pointer now sits on `digital-logic/number-systems-and-representation`. The next topic in syllabus
 order is `digital-logic/boolean-algebra-and-minimization`, which is `not_started`.
+
+## Run 7 - Boolean Algebra and Minimization
+
+### The topic, and why it was next
+
+**Digital Logic > Boolean Algebra and Minimization** (`boolean-algebra-and-minimization`), the second topic of
+the GATE 2027 Digital Logic line: *"Boolean algebra and minimization - algebraic technique, Karnaugh map,
+tabular method. Design of combinational and sequential circuits. Number representation and arithmetic
+(fixed and floating point)."*
+
+The cycle pointer was left by the previous run on `digital-logic/number-systems-and-representation`, and the
+first topic strictly after it in the enumerated syllabus order whose status is not `covered` is this one,
+which was `not_started`. Nothing was skipped: no topic sits between the pointer and this one, and no topic
+is `blocked`. The twenty-one `partial` topics earlier in the cycle were not touched, because the cycle takes
+its second pass over `partial` topics only after a full pass finds no `not_started` topic left.
+
+### Subtopics enumerated before any source was chosen
+
+The Boolean algebra postulates (closure, identity elements, commutativity, both distributive laws,
+complement) and the count of Boolean functions 2^(2^n); duality, the dual of an expression, self-dual
+functions and the count 2^(2^(n-1)); the working theorems - idempotent, involution, domination, absorption,
+De Morgan, consensus; XOR and XNOR algebra and where XOR differs from OR; canonical forms with minterms,
+maxterms and the Sigma m / Pi M notation; the algebraic minimisation technique of combining, absorbing,
+eliminating, factoring and multiplying out; the Karnaugh map layout with Gray-code ordering and
+wrap-around; the grouping rules and the reading of a product term off a group; prime implicants, essential
+prime implicants and the minimal cover, including functions with several minimal SOPs; don't-care
+conditions in SOP and in POS; POS minimisation by grouping the zeros; the five-variable map with its
+reflection axis; the tabular (Quine-McCluskey) method with its chart, essential rows, dominance and cyclic
+case; and cost - literals, terms, gate counts and the n - k literal rule. Fourteen subtopics, thirteen
+cards, because cost and the tabular method are separate skills and the map needs both a layout card and a
+grouping card.
+
+### Sources chosen, on merit
+
+Nine sources, eight of them English and one Hindi, each read from its opening to its closing summary where
+the served transcript allowed it:
+
+- **NPTEL, IIT Kharagpur, Digital Electronic Circuits, Lecture 07 "Fundamentals of Boolean Algebra"**
+  (English, opening and closing summary read). The only readable lecture that derives the six Huntington
+  postulates in order, states the duality rule as a tool, and supplies the 2^n-rows-so-2^(2^n)-functions
+  argument. Its closing summary also gives the NAND/NOR associativity contrast that GATE CSE 2019 Q.6
+  turns on.
+- **The same course, Lecture 10 "Karnaugh Map and Digital Circuit Realization"** (English). Truth table to
+  grid, minterm numbering, the first grouping, and then the four rules in one closing summary: adjacency is
+  the method, SOP covers every 1 with the fewest and largest power-of-two groups, POS covers the 0s, and a
+  don't care is taken as 0 or 1 according to which enlarges the group. That summary is the checklist both
+  map cards and both don't-care cards are built on.
+- **The same course, Lecture 11 "Karnaugh Map to Entered Variable Map"** (English). The five-variable map
+  constructed rather than asserted: 32 cells, two four-variable maps, the reflection axis, and the
+  lecturer's own adjacency pair (cell 3 with cell 7, then 1 with 5).
+- **The same course, Lecture 12 "Quine-McCluskey (QM) Algorithm"** (English). The three steps, the grouping
+  by number of 1s, the iterative combination, and the closing rule that don't cares are included when
+  finding prime implicants and excluded when finding essential ones - the exact distinction GATE CSE 2018
+  Q.49 is built on.
+- **Wikipedia, "Karnaugh map"** (English, read in part). The reference for the two facts no lecture read
+  this run states cleanly: toroidal (wrap-around) adjacency, and the rule for reading a term off a group.
+  Also the second voice on POS by minimising the complement.
+- **Wikipedia, "Quine-McCluskey algorithm"** (English, read in part). The prime implicant chart and the
+  single-tick reading of an essential prime implicant - the half of the tabular method the lecture did not
+  reach.
+- **Aditya Engineering College, "Minimization of Switching Functions" (Unit II notes)** (English, read in
+  part). The only readable source with the chart stage's dominance rules and the cyclic cover table, plus
+  the cost criteria (fewest literals, fewest terms) and the essential-prime-implicant definition in the
+  form the 2018 question tests.
+- **eHindiStudy, "K-Map in Hindi"** (Hindi, read in full, translated). Chosen deliberately so the topic is
+  not built from English alone: it gives the pair/quad/octet ladder, one variable removed per doubling,
+  overlapping groups and the rolling of the map in Hindi. Every sentence taken from it is translated and
+  marked as translated on the cards that use it.
+- **GATE Overflow's Digital Logic subject notes** (English, read in part). The GATE-oriented statement of
+  the grouping rules, the prime and essential prime implicant definitions, and the three-step minimal-SOP
+  algorithm - used for phrasing and for checking the subtopic enumeration against the questions asked.
+
+Rejected, with the reasons recorded in `sources.json`: the **NPTEL Digital Circuits sequence**
+(Chattopadhyay), the obvious second voice, not fetched because the Digital Electronic Circuits sequence
+covers the identical syllabus line lecture for lecture; the **Gate Smashers Digital Logic playlist**, the
+closest video match found - eight consecutive lectures (Lec 7-14) on exactly this topic, in Hindi/Hinglish,
+with a title list that maps onto these subtopics - rejected only because no transcript could be read, its
+watch pages returning boilerplate to the extraction service; the **GO Classes Boolean algebra lectures**,
+for the same reason and because this repository must not default to a channel it already carries; two
+**Hindi Unacademy lesson series** that match the topic closely but are paywalled; a **Hindi Testbook
+practice bank** drawn from banking and SSC examinations rather than GATE CSE; a **blog PYQ index**
+(gateoffline) that supplied the 1997 question but is not a reference of record; the **answer aggregators**,
+used for numbering and corroboration only; and **three genuine PYQs** that could not be pinned down -
+GATE CSE 2008 Q.5, whose readable answers disagree about which cells the figure holds, and GATE CSE 2017
+Set 1 Q.21 and 2025 Set 2 Q.43, whose figures were not reproduced in any readable source.
+
+### What was created
+
+Thirteen cards under `content/subjects/digital-logic/boolean-algebra-and-minimization/`, twelve PYQ records
+from 1998 to 2026, a `sources.json` with nine chosen and ten rejected candidates, and one p5.js lesson.
+Three of the twelve questions are from 2026, two from 2021, one each from 2019, 2018, 2017, 2015 (twice),
+2014, 2012 and 1998, so the topic is anchored in the current paper as well as in the era when these
+questions were descriptive.
+
+The lesson, `visuals/digital-logic/boolean-algebra-and-minimization/kmap-dont-care-grouping`, works one map
+end to end - GATE CSE 2014 Set 3 Q.7, 1s at 0, 5, 10 and 15 with don't cares at 2, 7, 8 and 13. It was
+chosen because the order of the steps is the difficulty: number the cells from the Gray-code labels, place
+the 1s, place the Xs, let an X join a group, read the variables that never change, and then compare the
+four-literal answer with the sixteen-literal canonical form.
+
+`check_boolean_algebra()` was added to `scripts/validate.py`. It recomputes, by exhaustive enumeration:
+the 2^(2^n) and 2^(2^(n-1)) counts (the second by brute force for n = 1, 2, 3); every theorem on every row
+of its variables; the XOR identities of 2019 Q.6 including the two rows where OR and XOR disagree; the
+associativity of XNOR and the non-associativity of NAND; both canonical-form conversions; the four-variable
+cell numbering with row, column and wrap-around adjacency; the five-variable m / m+16 axis; and every prime
+implicant, essential prime implicant, minimal cover and literal count published in the cards and the PYQ
+records, including the three minimal covers of 2026 Set 1 Q.38 and the ten 1s and two don't cares of 2021
+Set 2 Q.52 rebuilt from its three equations.
+
+### Validation
+
+`python3 scripts/build-index.py` indexed 3 playlists, 39 videos, 240 topics and 186 PYQs.
+`python3 scripts/validate.py` reported 31 checks passed, 8 warnings, 0 failures; all eight warnings are
+pre-existing (seven `OFFICIAL_KEY` records with no answer evidence, two videos referenced by no card).
+`node tests/visual-lessons.js` passed on all 25 lessons, including the new one at 7 steps.
+
+### Gaps (the topic stays `partial`)
+
+1. No video transcript was readable this run. The Gate Smashers playlist covers this topic lecture for
+   lecture in Hindi/Hinglish, but its watch pages returned only boilerplate and no caption track could be
+   retrieved, so it is recorded as structure only and `videoRefs` is empty on all thirteen cards.
+2. Every PYQ is `SOURCED` against a GATE Overflow accepted answer rather than key-verified, and no marks
+   field is recorded. One secondary page attributes the answer 3 of 2018 Q.49 to the official GATE 2018 CS
+   key; that is noted in the record and not relied on.
+3. The aggregators disagree on numbering, and each disagreement is recorded in the record it affects:
+   2026 Set 2 Q.30 here is Q40 on GateAI and 32 on ExamSIDE; 2026 Set 1 Q.38 here is Q48 on GateAI and
+   Quorank; 2026 Set 2 Q.6 here is 29 on an ExamSIDE year page.
+4. The tabular method's chart stage rests on written references only, because the NPTEL Lecture 12
+   transcript was served only up to its stage-2 combination. No verified CSE question asks for a full
+   chart, so both tabular-method questions recorded (2015 Set 3 Q.43, 2018 Q.49) are counts.
+5. Three genuine PYQs are excluded and should be added by a later run with access to the papers: 2008 Q.5
+   (the figure's cells are disputed between readable answers), 2017 Set 1 Q.21 (NOR-gate count for a drawn
+   map) and 2025 Set 2 Q.43 (a map drawn as a diagram).
+6. 2026 Set 1 Q.38 has a third minimal cover that is not among its printed options
+   (P'S + QR' + PRS' + Q'RS', four terms and ten literals). The record states this so the two printed
+   correct options are not mistaken for the only minimal forms.
+7. Entered-variable maps, multiple-output minimisation, static and dynamic hazards, and the cost criteria
+   beyond literal counting are taught by the chosen lectures but sit outside the eight words of the
+   syllabus line and are not carded at all.
+8. The algebraic technique, the five-variable map and the cost rules have no verified CSE question decided
+   by them alone, which is why those cards are P2, P3 and P2; the five-variable card rests on one lecture
+   and one set of notes.
+9. Only one non-English source was readable (a Hindi K-map chapter, translated). No Hindi, Tamil, Telugu or
+   Bengali lecture transcript on this topic could be read this run.
+10. Functional completeness is deliberately not carded here even though the chosen sequence teaches it in
+    the same week: it already exists as
+    `content/subjects/discrete-mathematics/propositional-logic/functional-completeness.json`, and one
+    concept gets one card at one path.
+
+### Next
+
+The cycle pointer now sits on `digital-logic/boolean-algebra-and-minimization`. The next topic in syllabus
+order is `digital-logic/combinational-circuits`, which is `not_started`.

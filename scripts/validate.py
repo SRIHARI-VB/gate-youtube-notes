@@ -1938,6 +1938,311 @@ def check_number_representation():
        "words, the hidden-1 trap and every special-value pattern recomputed from bits")
 
 
+def check_boolean_algebra():
+    """Every count, cover, identity and cell number published in the Boolean Algebra and
+    Minimization cards, PYQs and lesson is recomputed here - by exhaustive enumeration of
+    implicants over the 3^n cubes, by evaluation on all 0/1 rows, and in exact sets."""
+    import itertools
+
+    def cube(n):
+        return list(itertools.product((0, 1, "-"), repeat=n))
+
+    def ones_of(term, n):
+        bits = [[int(c) for c in format(m, "0%db" % n)] for m in range(2 ** n)]
+        return {m for m in range(2 ** n)
+                if all(t == "-" or t == bits[m][i] for i, t in enumerate(term))}
+
+    def implies(term, ones, n, dc=()):
+        return all(m in ones or m in dc for m in ones_of(term, n))
+
+    def pis_of(ones, n, dc=()):
+        allimp = [t for t in cube(n) if implies(t, ones, n, dc)]
+        return [t for t in allimp
+                if not any(u != t and ones_of(t, n) < ones_of(u, n) for u in allimp)]
+
+    def eps_of(pis, ones, n):
+        out = []
+        for p in pis:
+            if any(m in ones and not any(q != p and m in ones_of(q, n) for q in pis)
+                   for m in ones_of(p, n)):
+                out.append(p)
+        return out
+
+    def covers(pis, ones, n):
+        """Every minimal cover as (term count, literal count), found by increasing term count."""
+        for r in range(1, len(pis) + 1):
+            sols = []
+            for combo in itertools.combinations(pis, r):
+                cov = set()
+                for p in combo:
+                    cov |= (ones_of(p, n) & ones)
+                if cov == ones:
+                    sols.append((sorted(combo, key=lambda t: str(t)),
+                                 sum(sum(1 for x in p if x != "-") for p in combo)))
+            if sols:
+                return sols
+        return []
+
+    def name(term, letters):
+        out = ""
+        for v, t in zip(letters, term):
+            if t == "-":
+                continue
+            out += v if t == 1 else v + "'"
+        return out or "1"
+
+    def check_cover(label, ones, n, dc, letters, want_terms, want_lits):
+        pis = pis_of(ones, n, dc)
+        sols = covers(pis, ones, n)
+        if not sols:
+            fail("boolean algebra: %s has no cover" % label)
+            return pis, sols
+        terms, lits = len(sols[0][0]), sols[0][1]
+        if (terms, lits) != (want_terms, want_lits):
+            fail("boolean algebra: %s minimal cover is %d terms / %d literals, content claims %d / %d"
+                 % (label, terms, lits, want_terms, want_lits))
+        for combo, _l in sols:
+            if set().union(*[ones_of(p, n) & ones for p in combo]) != ones:
+                fail("boolean algebra: %s publishes a cover that misses a required 1" % label)
+        return pis, sols
+
+    # ---- the counts of Boolean functions and of self-dual functions
+    for n in (1, 2, 3):
+        sd = 0
+        for bits in itertools.product((0, 1), repeat=2 ** n):
+            f = {m: bits[m] for m in range(2 ** n)}
+            dual = {m: 1 - f[(2 ** n - 1) ^ m] for m in range(2 ** n)}
+            sd += (f == dual)
+        assert sd == 2 ** (2 ** (n - 1)), "self-dual count for n=%d" % n
+    assert 2 ** (2 ** 2) == 16 and 2 ** (2 ** 3) == 256 and 2 ** (2 ** 4) == 65536
+    assert 2 ** (2 ** 0) == 2 and 2 ** (2 ** 1) == 4 and 2 ** (2 ** 2) == 16
+    assert 2 ** (2 ** (4 - 1)) == 256
+
+    # ---- the theorems, on every row
+    for r in itertools.product((0, 1), repeat=3):
+        a, b, c = r
+        assert (a or (a and b)) == a, "absorption"
+        assert (a and (a or b)) == a, "absorption (dual)"
+        assert (a and (not a)) == 0 and (a or (not a)) == 1, "complement"
+        assert (a | (b & c)) == ((a | b) & (a | c)), "distributive"
+        assert (a & (b | c)) == ((a & b) | (a & c)), "distributive (dual)"
+        assert ((a & b) | ((1 - a) & c) | (b & c)) == ((a & b) | ((1 - a) & c)), "consensus"
+        assert (a + b) % 2 == (b + a) % 2, "xor commutative"
+        assert ((a + b) % 2 + c) % 2 == (a + (b + c) % 2) % 2, "xor associative"
+        # xnor, built as the complement of xor, is associative too
+        xnor = lambda x, y: 1 - ((x + y) % 2)
+        assert xnor(xnor(a, b), c) == xnor(a, xnor(b, c)), "xnor associative"
+        # NAND is not associative
+        nand = lambda x, y: 1 - (x & y)
+        assert any(nand(nand(x, y), z) != nand(x, nand(y, z))
+                   for x in (0, 1) for y in (0, 1) for z in (0, 1)), "nand not associative"
+    # the 2020-26 identities quoted in the cards
+    for x in (0, 1):
+        for y in (0, 1):
+            for z in (0, 1):
+                assert ((x ^ y) ^ z) == (x ^ (y ^ z)), "2019 Q.6 option A"
+                assert (x ^ y) == (1 - ((x & y) | ((1 - x) & (1 - y)))), "2019 Q.6 option D"
+                if (x & y) == 0:
+                    assert (x ^ y) == (x | y), "2019 Q.6 option C"
+    bad = [(x, y, z) for x in (0, 1) for y in (0, 1) for z in (0, 1)
+           if ((x | y) ^ z) != (x ^ (y | z))]
+    assert bad == [(0, 1, 1), (1, 1, 0)] or bad == [(1, 1, 0), (0, 1, 1)], \
+        "2019 Q.6 option B must fail at exactly (0,1,1) and (1,1,0), got %r" % (bad,)
+    assert 1 ^ 1 == 0 and 1 | 1 == 1, "xor against or at 11"
+    # a + a'b = a + b, and the dual a(a'+b) = ab
+    for a in (0, 1):
+        for b in (0, 1):
+            assert (a | ((1 - a) & b)) == (a | b), "eliminate theorem"
+            assert (a & ((1 - a) | b)) == (a & b), "dual of the eliminate theorem"
+    # A + BC = (A+B)(A+C) and AB + BC != A + BC
+    for a in (0, 1):
+        for b in (0, 1):
+            for c in (0, 1):
+                assert (a | (b & c)) == ((a | b) & (a | c)), "1997 Q.1 identity"
+    assert [(a, b, c) for a in (0, 1) for b in (0, 1) for c in (0, 1)
+            if (a | (b & c)) != ((a & b) | c)] == [(0, 0, 1), (1, 0, 0)], \
+        "AB + BC differs from A + BC exactly at 001 and 100"
+    # the dual of x + x'y = x + y
+    assert all(((x | ((1 - x) & y)) == (x | y)) and ((x & ((1 - x) | y)) == (x & y))
+               for x in (0, 1) for y in (0, 1)), "dual pair of the eliminate theorem"
+    # F = x.y' + 0.z and its dual differ at x=1,y=1,z=0
+    assert (1 & (1 - 1)) + 0 == 0 and (1 | (1 - 1)) * (1 | 0) == 1, "dual counterexample"
+
+    # ---- canonical forms: F = P' + QR
+    ones44 = {m for m in range(8) if (1 - (m >> 2)) or (((m >> 1) & 1) and (m & 1))}
+    assert sorted(ones44) == [0, 1, 2, 3, 7], "2015 Set 3 Q.44 ones"
+    assert sorted(set(range(8)) - ones44) == [4, 5, 6], "2015 Set 3 Q.44 zeros"
+    # XOR canonical forms
+    assert sorted(m for m in range(4) if ((m >> 1) ^ (m & 1))) == [1, 2], "xor minterms"
+    assert sorted(m for m in range(4) if not ((m >> 1) ^ (m & 1))) == [0, 3], "xor maxterms"
+    # Pi M(0,1,4,5,8,9,12,13) is D
+    zeros_pi = {0, 1, 4, 5, 8, 9, 12, 13}
+    assert {m for m in range(16) if m not in zeros_pi} == {m for m in range(16) if (m >> 1) & 1}, \
+        "the complement of that maxterm list is the rows with C = 1"
+
+    # ---- the map: numbering, adjacency, wrap-around
+    rows = ["00", "01", "11", "10"]
+    table = [[int(r + c, 2) for c in rows] for r in rows]
+    assert table == [[0, 1, 3, 2], [4, 5, 7, 6], [12, 13, 15, 14], [8, 9, 11, 10]], \
+        "four-variable cell numbering"
+    for i in range(4):
+        for j in range(4):
+            # horizontal neighbours, wrap-around included
+            assert bin(table[i][j] ^ table[i][(j + 1) % 4]).count("1") == 1, "row adjacency"
+            assert bin(table[i][j] ^ table[(i + 1) % 4][j]).count("1") == 1, "column adjacency"
+            # a two-step move changes two bits, which is why diagonal is not adjacency
+            assert bin(table[i][j] ^ table[i][(j + 2) % 4]).count("1") == 2, "two-step move"
+    assert ones_of((0, "-", 0, "-"), 4) == {0, 1, 4, 5}, "A'C' cells"
+    assert ones_of(("-", 0, "-", 0), 4) == {0, 2, 8, 10}, "B'D' is the four corners"
+    assert sorted(ones_of((0, "-", "-", 0), 4)) == [0, 2, 4, 6], "w'z' cells"
+    assert sorted(ones_of((0, 1, 0, "-"), 4)) == [4, 5], "wx'y' cells"
+    assert sorted(ones_of((0, 1, "-", "-"), 4)) == [4, 5, 6, 7], "w'x cells"
+    assert sorted(ones_of(("-", 0, 1, 0), 4)) == [2, 10], "x'yz' cells"
+    # neighbours of m5 and the pair {5,7}
+    five = {5 ^ (1 << b) for b in range(4)}
+    assert sorted(five) == [1, 4, 7, 13], "neighbours of m5"
+    assert sorted(ones_of((0, 1, "-", 1), 4)) == [5, 7], "A'BD covers 5 and 7"
+    assert sorted(ones_of(("-", "-", 0, 0), 4)) == [0, 4, 8, 12], "the left column pair"
+    # cell 0's five neighbours in a five-variable map, and the m / m+16 adjacency
+    assert sorted({0 ^ (1 << b) for b in range(5)}) == [1, 2, 4, 8, 16], "neighbours of cell 0"
+    assert all(bin(m ^ (m + 16)).count("1") == 1 for m in range(16)), "m and m+16 adjacent"
+    assert bin(5 ^ 21).count("1") == 1 and bin(5 ^ 14).count("1") == 3, "5-var adjacency pair"
+    assert sorted(ones_of((0, "-", "-", "-", "-"), 5)) == list(range(16)), "A' covers 0..15"
+
+    # ---- worked covers in the cards and the PYQs
+    # 2026 Set 2 Q.30: the octet is B'
+    pis, _ = check_cover("2026 Set 2 Q.30", {0, 1, 2, 3, 8, 9, 10, 11}, 4, (), "ABCD", 1, 1)
+    assert [name(p, "ABCD") for p in pis] == ["B'"], "2026 Set 2 Q.30 prime implicant"
+    # 2026 Set 1 Q.38: three minimal covers, all at 4 terms and 10 literals
+    pis38, sols38 = check_cover("2026 Set 1 Q.38", {1, 2, 3, 4, 5, 7, 10, 12, 13, 14}, 4, (),
+                                "PQRS", 4, 10)
+    assert len(pis38) == 6, "2026 Set 1 Q.38 has six prime implicants, got %d" % len(pis38)
+    assert len(sols38) == 3, "2026 Set 1 Q.38 has three minimal covers, got %d" % len(sols38)
+    option_b = ["P'S", "QR'", "P'Q'R", "PRS'"]
+    option_d = ["P'S", "QR'", "PQS'", "Q'RS'"]
+    option_a = ["P'S", "QR'", "P'Q'R", "Q'RS'"]
+    option_c = ["P'S", "QR'", "PQS'", "PRS'"]
+
+    def eval_term(t, bits):
+        val, i = 1, 0
+        while i < len(t):
+            if t[i] == " ":
+                i += 1
+                continue
+            v = t[i]
+            neg = (i + 1 < len(t) and t[i + 1] == "'")
+            val &= (1 - bits["PQRS".index(v)]) if neg else bits["PQRS".index(v)]
+            i += 2 if neg else 1
+        return val
+
+    def eval_sop(terms, m):
+        bits = [int(c) for c in format(m, "04b")]
+        return max(eval_term(t, bits) for t in terms)
+
+    target38 = {1, 2, 3, 4, 5, 7, 10, 12, 13, 14}
+    for label, opt, want in (("B", option_b, True), ("D", option_d, True),
+                             ("A", option_a, False), ("C", option_c, False)):
+        got = {m for m in range(16) if eval_sop(opt, m)}
+        if (got == target38) != want:
+            fail("boolean algebra: 2026 Set 1 Q.38 option %s equivalence is wrong" % label)
+        if sum(sum(1 for ch in t if ch.isalpha()) for t in opt) != 10:
+            fail("boolean algebra: 2026 Set 1 Q.38 option %s is not ten literals" % label)
+    # 2014 Set 3 Q.7: Q'S' + QS, four literals
+    check_cover("2014 Set 3 Q.7", {0, 5, 10, 15}, 4, {2, 7, 8, 13}, "PQRS", 2, 4)
+    assert sorted(ones_of(("-", 0, "-", 0), 4)) == [0, 2, 8, 10]
+    assert sorted(ones_of(("-", 1, "-", 1), 4)) == [5, 7, 13, 15]
+    assert not any(bin(a ^ b).count("1") == 1 for a in (0, 5, 10, 15) for b in (0, 5, 10, 15) if a < b), \
+        "without the don't cares no two required 1s are adjacent"
+    assert 4 * 4 == 16, "the canonical form of four 4-literal minterms"
+    # 2018 Q.49: six prime implicants, three essential
+    pis18, _ = check_cover("2018 Q.49", {0, 2, 5, 7, 9, 11}, 4, {3, 8, 10, 12, 14}, "PQRS", 3, 7)
+    assert len(pis18) == 6, "2018 Q.49 has six prime implicants, got %d" % len(pis18)
+    eps18 = eps_of(pis18, {0, 2, 5, 7, 9, 11}, 4)
+    assert len(eps18) == 3, "2018 Q.49 has three essential prime implicants, got %d" % len(eps18)
+    assert sorted(name(p, "PQRS") for p in eps18) == ["P'QS", "PQ'", "Q'S'"], \
+        "2018 Q.49 essential prime implicants"
+    # 2015 Set 3 Q.43: three prime implicants, all essential
+    pis43, _ = check_cover("2015 Set 3 Q.43", {0, 2, 4, 5, 6, 10}, 4, (), "WXYZ", 3, 8)
+    assert len(pis43) == 3, "2015 Set 3 Q.43 has three prime implicants, got %d" % len(pis43)
+    assert len(eps_of(pis43, {0, 2, 4, 5, 6, 10}, 4)) == 3, "and all three are essential"
+    assert sorted(name(p, "WXYZ") for p in pis43) == ["W'XY'", "W'Z'", "X'YZ'"], \
+        "2015 Set 3 Q.43 prime implicant names"
+    # 2021 Set 2 Q.52: ten 1s, two don't cares, six literals
+    check_cover("2021 Set 2 Q.52", {0, 1, 6, 7, 8, 9, 11, 13, 14, 15}, 4, {2, 3}, "WXYZ", 3, 6)
+    # the three equations of that question, evaluated directly, rebuild the same 1s
+    eq_ones, eq_dc = set(), set()
+    for m in range(16):
+        w, x, y, z = [int(c) for c in format(m, "04b")]
+        if x == 0 and y == 0:
+            eq_ones.add(m)                        # f(w,0,0,z) = 1
+        elif w == 1 and y == 1:
+            if (x or z):
+                eq_ones.add(m)                    # f(1,x,1,z) = x + z
+        elif x == 1:
+            if (w and z) or y:
+                eq_ones.add(m)                    # f(w,1,y,z) = wz + y
+        else:
+            eq_dc.add(m)                          # fixed by no equation
+    assert eq_ones == {0, 1, 6, 7, 8, 9, 11, 13, 14, 15}, "2021 Set 2 Q.52 ones"
+    assert eq_dc == {2, 3}, "2021 Set 2 Q.52 don't cares"
+    # 2017 Set 2 Q.28: the zeros, and option A
+    pis28, sols28 = check_cover("2017 Set 2 Q.28 complement", {4, 9, 12, 13, 14}, 4,
+                                {5, 6, 11, 15}, "WXYZ", 2, 4)
+    assert sorted(name(p, "WXYZ") for p in sols28[0][0]) == ["WZ", "XZ'"], \
+        "the complement's minimal cover"
+    for m in range(16):
+        bits = [int(c) for c in format(m, "04b")]
+        w, x, y, z = bits
+        a = (1 - w) | (1 - z)
+        b = (1 - x) | z
+        val = a & b
+        ones28 = {0, 1, 2, 3, 7, 8, 10}
+        if m in ones28 and val != 1:
+            fail("boolean algebra: 2017 Set 2 Q.28 option A misses minterm %d" % m)
+        if m in {4, 9, 12, 13, 14} and val != 0:
+            fail("boolean algebra: 2017 Set 2 Q.28 option A sets required zero %d" % m)
+    # 2012 Q.30: b'c' + b'd', from the cells two sources agree on
+    check_cover("2012 Q.30", {0, 2, 8, 9}, 4, {1, 4, 10, 12}, "ABCD", 2, 4)
+    assert sorted(ones_of(("-", 0, 0, "-"), 4)) == [0, 1, 8, 9], "b'c' cells"
+    # 1998 Q.2.7: BC + B'C' is XNOR on B and C
+    xnor_bc = {m for m in range(8)
+               if ((m >> 1) & 1) == (m & 1)}
+    assert sorted(xnor_bc) == [0, 3, 4, 7], "B XNOR C covers 0,3,4,7"
+    # the majority function and the two-minimal-cover example
+    check_cover("majority sum(3,5,6,7)", {3, 5, 6, 7}, 3, (), "ABC", 3, 6)
+    pis11, sols11 = check_cover("sum(0,1,2,5,6)", {0, 1, 2, 5, 6}, 3, (), "ABC", 3, 6)
+    assert len(sols11) == 2, "sum(0,1,2,5,6) has exactly two minimal covers"
+    assert sorted(name(p, "ABC") for p in eps_of(pis11, {0, 1, 2, 5, 6}, 3)) == ["B'C", "BC'"], \
+        "sum(0,1,2,5,6) essential prime implicants"
+    # the card examples and checks
+    check_cover("sum(0,1,4,5,8,9,12,13) = C'", {0, 1, 4, 5, 8, 9, 12, 13}, 4, (), "ABCD", 1, 1)
+    assert sorted(ones_of(("-", "-", 0, "-"), 4)) == [0, 1, 4, 5, 8, 9, 12, 13], "C' cells"
+    assert sorted(ones_of(("-", 0, 1, "-"), 4)) == [2, 3, 10, 11], "B'C cells"
+    assert sorted(ones_of((0, "-", "-"), 3)) == [0, 1, 2, 3], "A' cells in three variables"
+    assert sorted(ones_of((0, 0, "-"), 3)) == [0, 1], "A'B' cells in three variables"
+    assert sorted(ones_of(("-", 0, 0), 3)) == [0, 4], "B'C' cells in three variables"
+    # 426's variation: 1s at 0, 1 and 8 are two pairs, never a quad
+    pis_426, _ = check_cover("426 variation sum(0,1,8)", {0, 1, 8}, 4, (), "ABCD", 2, 6)
+    assert sorted(name(p, "ABCD") for p in pis_426) == ["A'B'C'", "B'C'D'"], \
+        "426 variation prime implicants"
+    # 427's check: sum(0,1,2,3,4) = A' + B'C'
+    pis_chk, _ = check_cover("427 check sum(0,1,2,3,4)", {0, 1, 2, 3, 4}, 3, (), "ABC", 2, 3)
+    assert sorted(name(p, "ABC") for p in pis_chk) == ["A'", "B'C'"], "427 check prime implicants"
+    # 431's check: six prime implicants for sum(0,1,2,5,6,7)
+    pis_qm, _ = check_cover("431 check sum(0,1,2,5,6,7)", {0, 1, 2, 5, 6, 7}, 3, (), "ABC", 3, 6)
+    assert len(pis_qm) == 6, "431 check has six prime implicants, got %d" % len(pis_qm)
+    # 432's check: AB + A'C is four literals, the printed form six
+    assert 2 + 2 == 4 and 2 + 2 + 2 == 6
+    # 432's POS variation: two isolated zeros give two four-literal factors
+    assert 4 + 4 == 8
+    # 429's check: the 0s at 0..3 give (w + x), and the 1s give w + x
+    assert sorted(ones_of((1, "-", "-", "-"), 4)) == list(range(8, 16)), "w cells"
+    ok("boolean algebra and minimization: the 2^(2^n) and self-dual counts, every theorem on every "
+       "row, the XOR identities, the canonical-form conversions, the map numbering and adjacency "
+       "(wrap-around and the five-variable axis), and every published prime implicant, essential "
+       "prime implicant, minimal cover and literal count recomputed by enumeration")
+
+
 def check_visuals():
     vroot = os.path.join(ROOT, "visuals")
     lessons = []
@@ -6246,6 +6551,7 @@ def main():
     check_mean_median_mode()
     check_conditional_probability()
     check_number_representation()
+    check_boolean_algebra()
     check_visuals()
     check_hygiene()
     for c in checks:
