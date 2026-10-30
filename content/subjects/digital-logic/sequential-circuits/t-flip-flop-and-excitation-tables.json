@@ -1,0 +1,87 @@
+{
+  "id": "t-flip-flop-and-excitation-tables",
+  "title": "The T Flip-Flop and the Excitation Tables",
+  "priority": "P1",
+  "order": 452,
+  "unit": "Sequential Circuits",
+  "quickIdea": "The T flip-flop toggles when T is 1 and holds when T is 0, so Q+ = T XOR Q. The excitation table runs the characteristic table backwards: given the present and next state, it says what input each flip-flop needs.",
+  "remember": [
+    "T flip-flop: Q+ = T XOR Q. T = 0 holds, T = 1 toggles.",
+    "Excitation table, D: D = Q+ for both rows. Nothing to remember.",
+    "Excitation table, T: T = Q XOR Q+. A change of state means T = 1; no change means T = 0.",
+    "Excitation table, JK: 0 to 0 needs J = 0, K = X; 0 to 1 needs J = 1, K = X; 1 to 0 needs J = X, K = 1; 1 to 1 needs J = X, K = 0. Read it as: set only to go up, reset only to go down, and X elsewhere.",
+    "Excitation table, SR: 0 to 0 needs 0X; 0 to 1 needs 10; 1 to 0 needs 01; 1 to 1 needs X0. The 1-to-1 row is the one that is not the mirror of the 0-to-0 row, because S = R = 1 is forbidden.",
+    "The design flow is always the same: present state and next state give the flip-flop inputs column by column, then minimise each input over the present-state variables."
+  ],
+  "example": {
+    "prompt": "A two-bit saturating up-counter has the next-state table 00 to 01, 01 to 10, 10 to 11, 11 to 11. It is built from T flip-flops. What are T1 and T0?",
+    "work": "Take T = Q XOR Q+ per bit. For Q1 the next value differs only in the row 01, so T1 = Q1'Q0. For Q0 the next value differs in every row except 11, so T0 = Q1'Q0' + Q1'Q0 + Q1Q0' = Q1' + Q0'.",
+    "answer": "T1 = Q1'Q0 and T0 = Q1' + Q0'. This is GATE CSE 2017 Set 2 Q.42, accepted answer option (B)."
+  },
+  "gateAngle": "Excitation is the bridge between a state table and gates, so it is the step most GATE counter-design questions stop at. Two shapes recur: give the table and ask for the input expressions, or give the expressions and ask for the sequence.",
+  "variations": [
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Why does the JK excitation table contain X entries where the D and T tables contain numbers?",
+      "answer": "Because J and K are two inputs describing one transition. When the state must go from 0 to 1 only J matters and K may be anything; when it must stay at 1 only K matters and J may be anything. The free entry is a don't care, and it is what makes a JK design smaller than a D design.",
+      "why": "A don't care in the excitation table becomes a don't care in the K-map, which is where the saved gates come from."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "A three-bit counter must visit 000, 011, 101, 110 and repeat. How many T flip-flops are needed and what is T2 in the first row?",
+      "answer": "Three flip-flops, since there are four states and two would give only four patterns but the sequence uses specific three-bit codes. In the row 000 to 011 the high bit does not change, so T2 = 0.",
+      "why": "The flip-flop count comes from the number of states, ceil(log2 4) = 2, but a code that must be read as the count forces three bits. GATE separates these two ideas deliberately."
+    }
+  ],
+  "trap": {
+    "what": "Filling the excitation table from the characteristic table without reversing the roles of the columns.",
+    "why": "The characteristic table answers 'given the input, what is the next state'. The excitation table answers 'given the two states, what input do I need'. Same four rows, opposite direction, and the answers differ.",
+    "counterexample": "For a T flip-flop going from 1 to 1 the excitation entry is 0, while the characteristic table entry for T = 0 and Q = 1 is also 1 to 1; but for T = 1 and Q = 1 the characteristic table also says 1 to 0, which the excitation table assigns to the row 0 to 1. Confusing the two produces an inverted design."
+  },
+  "check": {
+    "question": "A D flip-flop must go from 0 to 0. What is its excitation input, and what would a JK flip-flop need for the same transition?",
+    "answer": "D = 0. JK needs J = 0 and K = X.",
+    "explanation": "D = Q+ = 0 directly. For JK, a 0 that stays 0 must not be set, so J = 0, and resetting is irrelevant because it is already 0, so K is a don't care."
+  },
+  "pyqIds": [
+    "gate-2017-2-42-saturating-counter-t-flip-flops"
+  ],
+  "videoRefs": [],
+  "prereqs": [
+    "d-and-jk-flip-flop-characteristic-equations"
+  ],
+  "visual": null,
+  "sources": [
+    {
+      "kind": "lecture-slides",
+      "title": "Lecture 7 - Synchronous Sequential Logic",
+      "channel": "IIT Bombay, CS 226 Digital Logic Design (Ashutosh Trivedi)",
+      "url": "https://www.cse.iitb.ac.in/~trivedi/courses/cs226/lecture07.pdf",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "The complete slide text was served and read: the sequential definition, the synchronous and asynchronous classification, the NOR and NAND SR latch tables, the gated SR latch, the D latch, the problem with latches, the edge-triggered D flip-flop and setup and hold, the JK and T flip-flops with their characteristic equations, the analysis example, the seven-step synthesis procedure, state reduction and the binary, Gray and one-hot assignment table."
+    },
+    {
+      "kind": "text",
+      "title": "फ्लिप-फ्लॉप (Flip-flop)",
+      "channel": "Wikipedia (Hindi)",
+      "url": "https://hi.wikipedia.org/wiki/%E0%A4%AB%E0%A5%8D%E0%A4%B2%E0%A4%BF%E0%A4%AA-%E0%A4%AB%E0%A5%8D%E0%A4%B2%E0%A5%89%E0%A4%AA",
+      "language": "hi",
+      "transcript": "FULL",
+      "translated": true,
+      "note": "The article was read in full and translated into English here. It gives the two stable output states, the latch name, the four kinds (SR, D, T, JK), the T characteristic equation Q_next = T XOR Q, and the combined characteristic and excitation table for D, T, SR and JK. The excitation table is the one place where a Hindi source supplied a table this repository publishes, and the table is recomputed in scripts/validate.py rather than trusted."
+    },
+    {
+      "kind": "lecture-slides",
+      "title": "Lecture 7 - Sequential Circuits, Finite State Machines",
+      "channel": "Auburn University, ELEC 2200 Digital Logic Circuits (Vishwani D. Agrawal)",
+      "url": "https://eng.auburn.edu/~agrawdv/COURSE/E2200_Fall15/LECTURES/lec7_SeqCkt.pdf",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "The complete slide text was served and read: the SR latch characteristic equation Q* = S + R'Q, the Huffman model of an FSM, the Nff = ceil(log2 Ns) flip-flop count, equivalent states and the A-to-I minimisation example that reduces nine states to four, the two state-assignment adjacency rules, the literal-cost comparison of the optimal and arbitrary assignments, and the Mealy and Moore diagrams under binary, Gray and one-hot encoding."
+    }
+  ],
+  "sourceLine": "The T characteristic equation Q+ = T XOR Q and the D = T XOR Q and J = K = T conversions: IIT Bombay CS 226 Lecture 7 (English, read in full). The combined characteristic and excitation table for D, T, SR and JK: the Hindi Wikipedia article on flip-flops (translated). The excitation-table design flow for a counter: Auburn ELEC 2200 Lecture 7 (English, read in full). The verified question is GATE CSE 2017 Set 2 Q.42."
+}

@@ -1,0 +1,258 @@
+{
+  "subject": "digital-logic",
+  "topic": "sequential-circuits",
+  "exam": "GATE CSE 2027",
+  "retrieved_at": "2026-10-30",
+  "subtopics": [
+    "the sequential definition: the output depends on the present inputs and on the stored state, so the circuit has memory",
+    "the state as the contents of the flip-flops, and the 2^n ceiling on the number of states",
+    "synchronous against asynchronous operation, and the clock period as the longest path plus setup time",
+    "the SR latch in both polarities, its hold row and its forbidden input, with the characteristic equation Q+ = S + R'Q",
+    "the gated SR latch and the D latch, level sensitivity and transparency",
+    "the edge-triggered flip-flop: the three-latch construction, master-slave behaviour, setup and hold, propagation delay",
+    "the D flip-flop and the JK flip-flop, their characteristic tables and equations, and race-around",
+    "the T flip-flop, and the excitation tables for D, T, JK and SR as the reverse of the characteristic tables",
+    "registers with a load or enable input, and the four shift-register kinds including the universal shift register",
+    "ring counters and Johnson counters: n states against 2n states, the sequence from a given initial value, and the unused states",
+    "ripple counters: modulo-2^n, the per-stage frequency halving, the ripple delay and the settling time",
+    "synchronous counters and mod-N design: the ceil(log2 N) count, the unused patterns and self-starting",
+    "analysis of a clocked circuit: next-state equations, the state table, the state diagram and the self-loops",
+    "Mealy and Moore machines: where the output lives and the one-cycle difference",
+    "state minimisation: equivalent states, partition refinement and the implication table",
+    "state assignment: the minimum bit count, binary, Gray and one-hot, and the adjacency rules",
+    "sequence detectors and the minimum-state argument from the essential memory"
+  ],
+  "chosen": [
+    {
+      "id": "iitb-cs226-lecture07-synchronous-sequential-logic",
+      "kind": "lecture-slides",
+      "title": "Lecture 7 - Synchronous Sequential Logic",
+      "channel": "IIT Bombay, CS 226 Digital Logic Design (Ashutosh Trivedi)",
+      "url": "https://www.cse.iitb.ac.in/~trivedi/courses/cs226/lecture07.pdf",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "covers": [
+        "the sequential definition against the combinational one, and the memory reading",
+        "the synchronous and asynchronous classification with the clock-pulse timing diagram",
+        "the memory-element list: SR and D latches, master-slave and edge-triggered flip-flops, JK and T",
+        "the NOR and NAND SR latch tables and the forbidden row",
+        "the gated SR latch table, the D latch table, and the problem with latches",
+        "the positive-edge-triggered D flip-flop from three SR latches, with setup and hold",
+        "the JK flip-flop with D = JQ' + K'Q, and the T flip-flop with D = T XOR Q and J = K = T",
+        "the characteristic tables and characteristic equations of all four devices",
+        "a worked state-equation example and the seven-step synthesis procedure",
+        "state reduction as step 2 and state assignment as step 3, with the binary, Gray and one-hot table and the ceil(log2 n) statement"
+      ],
+      "why": "The only source this run that was served complete and covers every subtopic from the latch to state assignment in one order. It was read from its objectives slide to its synthesis procedure, so the latch tables, the edge-triggered construction, all four characteristic equations, the seven design steps and the three-way assignment table are quoted from a text that was actually in front of this run. Five cards rest on it and no card quotes a sentence it does not contain."
+    },
+    {
+      "id": "auburn-elec2200-lecture7-sequential-circuits-fsm",
+      "kind": "lecture-slides",
+      "title": "Lecture 7 - Sequential Circuits, Finite State Machines",
+      "channel": "Auburn University, ELEC 2200 Digital Logic Circuits (Vishwani D. Agrawal)",
+      "url": "https://eng.auburn.edu/~agrawdv/COURSE/E2200_Fall15/LECTURES/lec7_SeqCkt.pdf",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "covers": [
+        "the SR latch characteristic equation Q* = S + R'Q derived from the table",
+        "the Huffman model of an FSM: combinational logic plus flip-flops",
+        "Nff = ceil(log2 Ns), the flip-flop count against the state count",
+        "equivalent states, and the nine-state to four-state reduction example",
+        "the two state-assignment adjacency rules and the literal-cost comparison, 5 products and 10 literals against 6 and 14",
+        "Mealy and Moore diagrams under binary, Gray and one-hot assignment",
+        "the count of possible assignments for four states"
+      ],
+      "why": "Chosen because it is the only readable source that does the reduction and the assignment rather than naming them, and because it disagrees usefully with the IIT Bombay deck: it derives the latch equation rather than stating it, and it gives the literal cost of two assignments. The minimisation, assignment and Mealy-and-Moore cards rest on it."
+    },
+    {
+      "id": "kfupm-coe202-registers-and-counters",
+      "kind": "lecture-slides",
+      "title": "Registers and Counters",
+      "channel": "King Fahd University of Petroleum and Minerals, COE 202 Digital Logic Design (Muhamed Mudawar)",
+      "url": "https://faculty.kfupm.edu.sa/coe/mudawar/coe202/lectures/16-Register&Counters.pdf",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "covers": [
+        "the register as n flip-flops with a common clock and a load or enable input",
+        "the four shift-register kinds and the universal shift register with its four control functions",
+        "the modulo-N definition and the binary, BCD and up and down counting",
+        "the ripple counter, its per-stage delay and the settling-time drawback",
+        "the synchronous counter with a common clock and identical output delay",
+        "the frequency-division table from F/2 to F/16",
+        "the BCD counter built by resetting a binary counter"
+      ],
+      "why": "The only readable source that teaches registers, shift registers and the two counter families, which are three of the syllabus subtopics and the two subtopics the two lecture decks above leave out. Its frequency-division table is what the ripple-counter card's arithmetic is checked against, and its universal shift register control table is the register card's examinable table."
+    },
+    {
+      "id": "en-wikipedia-counter-digital",
+      "kind": "text",
+      "title": "Counter (digital)",
+      "channel": "Wikipedia (English)",
+      "url": "https://en.wikipedia.org/wiki/Counter_(digital)",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "covers": [
+        "a counter as a finite state machine whose state is the count",
+        "the mod-2^n ceiling, the ring counter with n states and the Johnson counter with 2n states",
+        "the asynchronous counter's settling time and the instability during rollover",
+        "the statement that each flip-flop's output frequency is exactly half its clock's"
+      ],
+      "why": "Used as the reference for the three modulus statements - mod-2^n, mod-n and mod-2n - and for the frequency-halving sentence, because the three lecture decks state these in passing and an encyclopaedia states them flatly. Read in part: the characteristics, synchronous and asynchronous, binary, ring and Johnson sections. No card attributes a GATE claim to it."
+    },
+    {
+      "id": "hi-wikipedia-sequential-logic",
+      "kind": "text",
+      "title": "अनुक्रमिक लॉजिक (Sequential logic)",
+      "channel": "Wikipedia (Hindi)",
+      "url": "https://hi.wikipedia.org/wiki/%E0%A4%85%E0%A4%A8%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%B0%E0%A4%AE%E0%A4%BF%E0%A4%95_%E0%A4%B2%E0%A5%89%E0%A4%9C%E0%A4%BF%E0%A4%95",
+      "language": "hi",
+      "transcript": "FULL",
+      "translated": true,
+      "covers": [
+        "the sequential definition: the output depends on past inputs and not only the present ones",
+        "the memory property, and the contrast with combinational logic",
+        "the Moore machine as state-only output and the Mealy machine as state and input",
+        "the synchronous and asynchronous split"
+      ],
+      "why": "Chosen deliberately so the topic is not built from English alone. It is a clean Hindi statement of the definition the first card opens with, and it names both machine models, which is the vocabulary a large part of the GATE audience meets first. Read in full and translated into English here; it contributes terminology only, and no number in this topic comes from it."
+    },
+    {
+      "id": "hi-wikipedia-flip-flop",
+      "kind": "text",
+      "title": "फ्लिप-फ्लॉप (Flip-flop)",
+      "channel": "Wikipedia (Hindi)",
+      "url": "https://hi.wikipedia.org/wiki/%E0%A4%AB%E0%A5%8D%E0%A4%B2%E0%A4%BF%E0%A4%AA-%E0%A4%AB%E0%A5%8D%E0%A4%B2%E0%A5%89%E0%A4%AA",
+      "language": "hi",
+      "transcript": "FULL",
+      "translated": true,
+      "covers": [
+        "the two stable output states and the latch name",
+        "the four kinds: SR, D, T and JK",
+        "the T characteristic equation Q_next = T XOR Q",
+        "the combined characteristic and excitation table for D, T, SR and JK"
+      ],
+      "why": "The second non-English source, and the only one that supplies a table: the excitation table for all four devices, which is the table the T flip-flop card publishes. It was read in full and translated here, and every entry of that table is recomputed in scripts/validate.py rather than trusted, because a translation sits between the source and the reader."
+    },
+    {
+      "id": "nptel-noc25-cs67-switching-circuits-outline",
+      "kind": "course-outline",
+      "title": "Switching Circuits and Logic Design - course layout",
+      "channel": "NPTEL (noc25_cs67)",
+      "url": "https://onlinecourses.nptel.ac.in/noc25_cs67/preview",
+      "language": "en",
+      "transcript": "OUTLINE_ONLY",
+      "translated": false,
+      "covers": [
+        "week 7 design of latches and flip-flops: SR, D, JK, T, master-slave and edge-triggered, clocking and timing",
+        "week 8 synthesis of synchronous sequential circuits, Mealy and Moore machines, state minimisation",
+        "week 9 registers, shift registers, ring counters, binary and BCD counters, general counter design"
+      ],
+      "why": "Recorded as structure only. Its week layout is what the seventeen subtopics above were checked against, because it is the closest thing to an official statement of what a GATE-level course puts in this topic. No claim rests on it."
+    }
+  ],
+  "rejected": [
+    {
+      "id": "nptel-dec-108105132-digimat-transcripts",
+      "kind": "lecture-transcript",
+      "channel": "NPTEL, Digital Electronic Circuits (Prof. Goutam Saha, IIT Kharagpur), the lecture transcripts at digimat.in that supplied the previous topic",
+      "why": "The obvious first choice, because the previous run in this repository read Lectures 15, 16, 19 and 23 of the same course in full and the sequential lectures follow the same numbering. Every request this run answered HTTP 403 from the sandbox's egress proxy, on both http and https and with a browser user agent, so nothing could be read and nothing is attributed to it. A later run should retry; this is the single largest gap in the topic."
+    },
+    {
+      "id": "nptel-noc25-cs67-lecture-videos",
+      "kind": "lecture-sequence",
+      "channel": "NPTEL, Switching Circuits and Logic Design (noc25_cs67), the week 7 to week 9 lectures",
+      "why": "The right sequence for this exact topic - latches and flip-flops, then synchronous synthesis with Mealy and Moore and state minimisation, then registers and counters. Only the course layout page could be read; the lecture pages carry no retrievable transcript, so the course is recorded as structure only and no card quotes it."
+    },
+    {
+      "id": "gate-smashers-hindi-sequential-playlist",
+      "kind": "playlist",
+      "channel": "Gate Smashers, Digital Logic playlist, the flip-flop, counter and FSM lectures (Hindi/Hinglish)",
+      "why": "The closest video match in Hindi, and the same playlist the repository's combinational-circuits run found unreadable. Rejected for the same reason: no caption track on any watch page, so nothing could be quoted or timestamped. The Hindi contribution reaches the topic through two Hindi Wikipedia articles instead, both translated."
+    },
+    {
+      "id": "go-classes-digital-logic-sequential-pyq-playlist",
+      "kind": "playlist",
+      "channel": "GO Classes for GATE CS, Digital Logic sequential-circuit PYQ lectures",
+      "why": "The best title match for a GATE sequential-circuits PYQ walkthrough, and the channel the repository already carries three playlists from. Rejected for two reasons: no caption track could be retrieved, and defaulting to a channel the repository already holds is exactly what the source-selection rule forbids. The verified PYQs were taken from their GATE Overflow pages, so nothing rests on this playlist."
+    },
+    {
+      "id": "knowledgegate-ai-sequential-mcqs-blog",
+      "kind": "practice-bank",
+      "channel": "Knowledge Gate AI, 'Sequential Circuits MCQs: 11 solved GATE questions'",
+      "url": "https://www.knowledgegate.ai/blog/digital-electronics-sequential-circuits-mcqs",
+      "why": "A useful index - it is where the 2015 Johnson, 2015 Set 2 counter, 2016 Set 1 counter and 2017 Set 2 saturating-counter questions were first spotted - but rejected as a reference of record. It restates every question in its own wording, gives no paper numbering, and at least one attribution is wrong: the question it labels GATE 2005 about pulses of an 8-bit up-counter is GATE IT 2005 Q.11, not a CSE question. Every question it pointed at was verified on its own GATE Overflow page."
+    },
+    {
+      "id": "geeksforgeeks-gate-digital-logic-pyq-quiz",
+      "kind": "pyq-index",
+      "channel": "GeeksforGeeks, GATE digital-logic PYQ quiz pages (2010 to 2025)",
+      "url": "https://www.geeksforgeeks.org/quizzes/gate-digital-logic-pyq-2010-to-2025/",
+      "why": "Readable and correctly year-tagged, and it is where the 2014 Set 3, 2015 Set 1 and 2015 Set 2 questions were first located. Rejected as a source: the quiz format strips the paper's question numbering and shows the options without the figures the questions depend on, so it cannot support a PYQ record on its own."
+    },
+    {
+      "id": "gate-it-2005-pulses-question",
+      "kind": "pyq",
+      "channel": "GATE IT 2005 Q.11, the 8-bit up-counter pulse count from 10101100 to 00100111",
+      "url": "https://gateoverflow.in/3756/gate-it-2005-question-11",
+      "why": "A genuine and well-matched sequential-circuits question with the accepted answer 123, and one a careless index lists as a CSE question. Excluded because it belongs to the Information Technology paper, and this repository does not mix papers."
+    },
+    {
+      "id": "gate-ec-sequential-questions",
+      "kind": "pyq",
+      "channel": "GATE EC sequential-circuit questions, including the 2015 EC mod-5 counter with a bubbled NAND gate and the 2014 EC cascaded JK chain",
+      "url": "https://www.geeksforgeeks.org/quizzes/gate-ec-digital-logic-sequential-circuit-pyqs-2000-2025/",
+      "why": "Electronics and Communication questions on the same subtopics, several of them better written than the CSE ones. Excluded because they are not CSE. Recorded here so a later run does not mistake them for gaps."
+    },
+    {
+      "id": "testbook-unacademy-hindi-sequential-banks",
+      "kind": "practice-bank",
+      "channel": "Testbook and Unacademy Hindi question banks and lesson series on flip-flops, counters and state machines",
+      "why": "On the right topic and partly readable in Hindi, but the banks draw questions from many examinations rather than from GATE CSE papers, and the Unacademy lessons are behind a subscription with no transcript. Using either would have meant presenting non-GATE questions as GATE-style practice with a misleading pedigree."
+    },
+    {
+      "id": "cornell-ucsd-uci-fsm-slides",
+      "kind": "lecture-slides",
+      "channel": "Cornell CS 3410 Lecture 3, UCSD CSE 140L Lecture 7 and UC Irvine EECS 31 FSM slides",
+      "why": "All three were served in part and all three teach latches, FSM design and state encoding. Rejected because the IIT Bombay and Auburn decks cover the same ground more completely for this syllabus line - Cornell stops at the FSM design recipe, UCSD concentrates on glitches, and Irvine is an analysis-only deck - so a third voice would have added no subtopic. Named here so a later run can pick one up rather than re-search."
+    },
+    {
+      "id": "indonesian-shift-register-handout",
+      "kind": "lecture-slides",
+      "channel": "Politeknik Elektronika Negeri Surabaya, Shift Register handout (Indonesian)",
+      "url": "https://prima.lecturer.pens.ac.id/ElkaDigit2/Topik5.pdf",
+      "why": "A complete shift-register handout with the 74194 mode table, in a language this repository has never used. Rejected because the KFUPM deck covers the same four shift-register kinds and the same universal-register control table in English and in more detail, so translating it would have added work without adding a subtopic. Its 74194 table was used only to confirm the KFUPM one."
+    },
+    {
+      "id": "gate-2025-1-50-and-2018-22-figures",
+      "kind": "pyq",
+      "channel": "The drawn circuits of GATE CSE 2018 Q.22 and 2025 Set 1 Q.50",
+      "why": "Both questions are decided by a figure that no readable source reproduced. They are in the PYQ set only because their accepted solutions state the wiring in words, and both records say so explicitly instead of implying the figure was read. Any question of this topic whose wiring no readable solution states is left out of the set entirely."
+    },
+    {
+      "id": "answer-aggregators-sequential",
+      "kind": "pyq-index",
+      "channel": "ExamSIDE, GateAI, prepgalaxy, PYQLabs and the snboseplc digital GATE page for these questions",
+      "why": "Used to find years, question numbers and marks and to corroborate answers, never as the reference of record. They disagree on numbering and on option order: GATE CSE 2011 Q.15 is rendered with its four options in different orders on two pages, which is why its record reports the value 9 and says the option letter is not recorded. Each disagreement is noted in the record it affects."
+    }
+  ],
+  "standard_refs": [
+    "M. Morris Mano and Michael D. Ciletti, Digital Design, chapters 5 and 6 (synchronous sequential logic: latches, flip-flops, analysis, state reduction and assignment, design procedure; registers, shift registers, counters) - the reference the NPTEL and IIT decks above follow",
+    "Zvi Kohavi and Niraj K. Jha, Switching and Finite Automata Theory, 3rd edition, the state-minimisation and state-assignment chapters",
+    "Thomas L. Floyd, Digital Fundamentals, the sequential-logic chapters",
+    "GATE 2027 CS syllabus, Digital Logic line 'design of combinational and sequential circuits'",
+    "Official GATE CSE papers and answer keys for the twelve recorded questions - not fetched this run, which is why every PYQ here is SOURCED rather than key-verified"
+  ],
+  "notes": [
+    "The syllabus names this topic in the same six words as the previous one, 'design of combinational and sequential circuits', so the seventeen subtopics above are this run's enumeration from the standard treatment (Mano chapters 5 and 6), the NPTEL week 7 to week 9 layout and the GATE question record - not a quotation from the syllabus. The combinational half of the line was carded by the previous run and is not repeated here.",
+    "Twelve GATE CSE previous-year questions were verified, from 2003 to 2025, and every one is SOURCED against an accepted answer rather than key-verified against an official paper, so no marks field comes from an official key and every question reference follows the GATE Overflow numbering.",
+    "Three records state a disagreement rather than resolving it: GATE CSE 2016 Set 1 Q.8, where both 3 and 4 were accepted; GATE CSE 2025 Set 1 Q.50, where both 7 and 8 were accepted; and GATE CSE 2011 Q.15, whose option order differs between pages so only the value 9 is recorded.",
+    "No video transcript was readable this run: no YouTube watch page carried a caption track, and the NPTEL transcript PDFs that supplied the previous topic answered HTTP 403. videoRefs is therefore empty on all fifteen cards, and the four chosen teaching sources are published slide decks and articles that were read as text.",
+    "Two non-English sources were readable, both Hindi Wikipedia articles, both read in full and translated. One of them supplies the excitation table that the T flip-flop card publishes, and that table is recomputed in scripts/validate.py rather than trusted.",
+    "Five cards carry no PYQ of their own because no verified CSE question in this topic is decided by them alone: the latch card, the gated-latch and D-latch card, the register card, the state-minimisation card and the state-assignment card. Each says so in its source line rather than borrowing a question that does not test it.",
+    "The visual lesson animates the 4-bit Johnson counter cycle, which is the one circuit in this topic that two verified PYQs share (2015 Set 1 Q.20 and 2025 Set 1 Q.50). Its eight states and the second cycle are recomputed in scripts/validate.py."
+  ]
+}

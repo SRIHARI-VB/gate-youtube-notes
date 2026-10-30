@@ -1,0 +1,77 @@
+{
+  "id": "ripple-counter-and-frequency-division",
+  "title": "Ripple Counters and Frequency Division",
+  "priority": "P1",
+  "order": 455,
+  "unit": "Sequential Circuits",
+  "quickIdea": "Chain flip-flops so each one is clocked by the previous one's output. Every stage halves the frequency, so n stages divide by 2^n, but the stages change one after another rather than together.",
+  "remember": [
+    "A ripple counter is asynchronous: only the first flip-flop sees the external clock, and each later one is clocked by its predecessor's output.",
+    "Each flip-flop with J = K = 1 (or D tied to Q') toggles once per input clock, so its output frequency is half its clock's. After n stages the output frequency is f / 2^n and the period is 2^n times the input period.",
+    "So an n-stage ripple counter is a modulo-2^n counter, and it is also a divide-by-2^n circuit. Four stages divide by 16.",
+    "The ripple delay: stage i settles about i times the flip-flop delay after the clock edge, so the counter is briefly wrong while it settles. Decoding the count during that window produces spurious pulses.",
+    "The worst case is the rollover from all ones to all zeros, when every stage changes; the settling time is then n times the per-stage delay.",
+    "The frequency division is exact and does not depend on the delay; only the settling time does. That is why ripple counters survive as clock dividers even though they are poor counters."
+  ],
+  "example": {
+    "prompt": "In a 4-bit ripple counter the waveform at the last flip-flop has a period of 64 microseconds. What is the input clock frequency?",
+    "work": "The last stage divides by 2^4 = 16, so its frequency is the input frequency divided by 16. Its period of 64 microseconds means a frequency of 1 / (64 x 10^-6) = 15625 Hz. Multiply by 16 to undo the division: 15625 x 16 = 250000 Hz.",
+    "answer": "250 kHz. This is GATE CSE 2025 Set 2 Q.24, whose accepted answer is 250."
+  },
+  "gateAngle": "The reliable pattern is arithmetic: divide or multiply by 2^n. The trap is direction - a longer period at the output means a higher input frequency, not a lower one.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "A 5-stage ripple counter is clocked at 3.2 MHz. What are the frequency and period at the last stage, and how many distinct output states does the counter have?",
+      "answer": "3.2 MHz / 32 = 100 kHz, so a period of 10 microseconds. The counter has 32 states.",
+      "why": "Five stages divide by 2^5 = 32 and count modulo 32. Both facts come from the same 2^n."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "A ripple counter and a synchronous counter both have four stages and the same clock. Which one can be decoded safely at the clock edge, and why?",
+      "answer": "The synchronous one. All its flip-flops change together, so after one flip-flop delay the count is valid. In the ripple counter the stages settle one after another, so the decoded output is briefly wrong.",
+      "why": "The difference is not the sequence, which is identical, but the timing of the transitions. GATE asks about the glitch, not about the count."
+    }
+  ],
+  "trap": {
+    "what": "Multiplying when you should divide, or counting the stages as 2^n instead of n.",
+    "why": "The output of the last stage is the slowest signal, so going from output to input means multiplying the frequency by 2^n. And the division factor is 2 to the number of stages, not the number of stages.",
+    "counterexample": "Four stages with a 64 microsecond output period: dividing 15625 Hz by 16 gives about 977 Hz, which is wrong by a factor of 256; the input is 250 kHz."
+  },
+  "check": {
+    "question": "How many stages does a ripple counter need to divide a 1 MHz clock down to 1 kHz?",
+    "answer": "Ten stages, because 2^10 = 1024 and 1 MHz / 1024 is about 977 Hz, the nearest achievable value.",
+    "explanation": "A ripple counter can only divide by a power of two. To divide by exactly 1000 you need a synchronous decade counter or a reset scheme, not a plain ripple chain."
+  },
+  "pyqIds": [
+    "gate-2025-2-24-ripple-counter-frequency"
+  ],
+  "videoRefs": [],
+  "prereqs": [
+    "t-flip-flop-and-excitation-tables"
+  ],
+  "visual": null,
+  "sources": [
+    {
+      "kind": "lecture-slides",
+      "title": "Registers and Counters",
+      "channel": "King Fahd University of Petroleum and Minerals, COE 202 Digital Logic Design (Muhamed Mudawar)",
+      "url": "https://faculty.kfupm.edu.sa/coe/mudawar/coe202/lectures/16-Register&Counters.pdf",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "The complete slide text was served and read: the register and its load or enable input, the four shift-register kinds, the universal shift register with its four control functions, the modulo-N definition, the ripple counter and its per-stage delay, the synchronous counter, the frequency-division table F/2 to F/16, and the BCD counter reset."
+    },
+    {
+      "kind": "text",
+      "title": "Counter (digital)",
+      "channel": "Wikipedia (English)",
+      "url": "https://en.wikipedia.org/wiki/Counter_(digital)",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "Read the characteristics, the synchronous and asynchronous sections, the binary counter, the ring counter and the Johnson counter sections. Used for the mod-2^n, mod-n and mod-2n statements and for the frequency-halving and settling-time statements, never for a GATE claim."
+    }
+  ],
+  "sourceLine": "The ripple counter, the per-stage delay model, the frequency-division table from F/2 to F/16 and the modulo-N definition: KFUPM COE 202 Lecture 16 (English, read in full). The asynchronous counter's settling time and the divide-by-2^n statement: the English Wikipedia article on digital counters (read in part). The verified question is GATE CSE 2025 Set 2 Q.24."
+}

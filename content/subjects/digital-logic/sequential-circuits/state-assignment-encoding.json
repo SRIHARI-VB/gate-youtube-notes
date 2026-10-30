@@ -1,0 +1,75 @@
+{
+  "id": "state-assignment-encoding",
+  "title": "State Assignment",
+  "priority": "P2",
+  "order": 460,
+  "unit": "Sequential Circuits",
+  "quickIdea": "A symbolic state diagram has to become binary codes. The number of bits is at least log2 of the state count, but which code goes to which state changes the size of the combinational logic.",
+  "remember": [
+    "Minimum bits: ceil(log2 n) for n states. Two states need 1 bit, four need 2, five need 3, sixteen need 4.",
+    "The number of ways to assign codes grows explosively: four states with two bits allow 4! = 24 distinct assignments, so trying them all is only possible for small machines.",
+    "Binary, Gray and one-hot are the three encodings GATE names. One-hot uses n bits for n states, so it uses the most flip-flops and the simplest next-state logic.",
+    "Adjacency rule 1: states that have the same next state for some fixed input should get adjacent codes. Adjacency rule 2: states that are the next states of the same state under adjacent inputs should get adjacent codes.",
+    "Adjacent means differing in one bit, because a one-bit difference lets a K-map group the two cells and drop a literal.",
+    "The cost is counted in literals and product terms. In the standard example the optimal assignment gives 5 products and 10 literals where an arbitrary one gives 6 and 14."
+  ],
+  "example": {
+    "prompt": "A machine has five states. What is the minimum number of state bits, how many patterns are unused, and what does one-hot encoding cost instead?",
+    "work": "ceil(log2 5) = 3 bits, giving 8 patterns of which 3 are unused. One-hot uses one flip-flop per state, so 5 bits, and only 5 of the 32 patterns are legal.",
+    "answer": "Three bits with binary or Gray encoding, five with one-hot. One-hot trades flip-flops for much simpler next-state logic, which is why it is common in FPGA designs."
+  },
+  "gateAngle": "GATE asks for the bit count, the number of possible assignments, or which assignment gives fewer literals. The bit count is the one that appears most often and is the easiest mark in the topic.",
+  "variations": [
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Why can Gray-code assignment reduce glitches but not necessarily reduce gate count?",
+      "answer": "A Gray code makes consecutive states differ in one bit, so a transition cannot produce a transient wrong code. Gate count depends on how the codes fall into K-map groups, which a Gray code helps with only when the diagram's adjacencies match the code's.",
+      "why": "Two different objectives - timing safety and logic size - pull the assignment in different directions, which is why the problem has no single optimal answer."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "How many distinct two-bit assignments exist for four states, and how many for five states with three bits?",
+      "answer": "24 for four states with two bits, since 4! orderings of four codes. For five states with three bits it is the number of injective maps from 5 states into 8 codes, which is 8 x 7 x 6 x 5 x 4 = 6720.",
+      "why": "The count is the number of ways to choose and order distinct codes, which is why exhaustive search is only feasible for very small machines."
+    }
+  ],
+  "trap": {
+    "what": "Using one-hot encoding when the question asks for the minimum number of flip-flops.",
+    "why": "One-hot uses one flip-flop per state, which is the maximum, not the minimum. The minimum is ceil(log2 n) with a binary or Gray code.",
+    "counterexample": "For six states one-hot needs 6 flip-flops while binary needs 3. A question asking for the minimum always wants 3."
+  },
+  "check": {
+    "question": "A machine has 9 states. How many bits does the minimum encoding need, and how many does one-hot need?",
+    "answer": "Four bits for the minimum, since 2^3 = 8 is too few; nine for one-hot.",
+    "explanation": "ceil(log2 9) = 4, leaving 16 - 9 = 7 unused patterns. One-hot uses one flip-flop per state, so 9."
+  },
+  "pyqIds": [],
+  "videoRefs": [],
+  "prereqs": [
+    "state-minimisation-partition-refinement"
+  ],
+  "visual": null,
+  "sources": [
+    {
+      "kind": "lecture-slides",
+      "title": "Lecture 7 - Sequential Circuits, Finite State Machines",
+      "channel": "Auburn University, ELEC 2200 Digital Logic Circuits (Vishwani D. Agrawal)",
+      "url": "https://eng.auburn.edu/~agrawdv/COURSE/E2200_Fall15/LECTURES/lec7_SeqCkt.pdf",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "The complete slide text was served and read: the SR latch characteristic equation Q* = S + R'Q, the Huffman model of an FSM, the Nff = ceil(log2 Ns) flip-flop count, equivalent states and the A-to-I minimisation example that reduces nine states to four, the two state-assignment adjacency rules, the literal-cost comparison of the optimal and arbitrary assignments, and the Mealy and Moore diagrams under binary, Gray and one-hot encoding."
+    },
+    {
+      "kind": "lecture-slides",
+      "title": "Lecture 7 - Synchronous Sequential Logic",
+      "channel": "IIT Bombay, CS 226 Digital Logic Design (Ashutosh Trivedi)",
+      "url": "https://www.cse.iitb.ac.in/~trivedi/courses/cs226/lecture07.pdf",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "The complete slide text was served and read: the sequential definition, the synchronous and asynchronous classification, the NOR and NAND SR latch tables, the gated SR latch, the D latch, the problem with latches, the edge-triggered D flip-flop and setup and hold, the JK and T flip-flops with their characteristic equations, the analysis example, the seven-step synthesis procedure, state reduction and the binary, Gray and one-hot assignment table."
+    }
+  ],
+  "sourceLine": "The two adjacency rules, the binary, Gray and one-hot table, the literal-cost comparison of the optimal and arbitrary assignments and the count of possible assignments: Auburn ELEC 2200 Lecture 7 (English, read in full). The ceil(log2 n) statement and the three-assignment table: IIT Bombay CS 226 Lecture 7 (English, read in full). No verified GATE CSE question of this topic is decided by an assignment choice alone, which is why this card carries none."
+}

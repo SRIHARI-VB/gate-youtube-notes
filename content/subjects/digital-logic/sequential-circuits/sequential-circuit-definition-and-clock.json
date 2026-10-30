@@ -1,0 +1,75 @@
+{
+  "id": "sequential-circuit-definition-and-clock",
+  "title": "What Makes a Circuit Sequential",
+  "priority": "P1",
+  "order": 447,
+  "unit": "Sequential Circuits",
+  "quickIdea": "A combinational circuit's output is fixed by its present inputs. A sequential circuit also holds state in memory elements, so the same inputs can produce different outputs at different times.",
+  "remember": [
+    "Output = function of the present inputs and the present state. The state is whatever the memory elements hold, nothing more.",
+    "n flip-flops hold n bits, so the circuit has at most 2^n states. Three flip-flops give eight states at most, never nine.",
+    "The Huffman model: a block of combinational logic computes the next state and the outputs, and a block of flip-flops holds the state. Every GATE sequential question is this picture with different wiring.",
+    "Synchronous means the state changes only at clock edges, so all flip-flops update together. Asynchronous means the state can change whenever an input changes, and a ripple counter is the common example.",
+    "In a synchronous circuit the clock period must be at least the longest combinational delay plus the flip-flop setup time; that is what fixes the maximum clock frequency.",
+    "A counter is a degenerate finite state machine with no input and no output other than the state itself."
+  ],
+  "example": {
+    "prompt": "A synchronous sequential circuit is built from four D flip-flops and some combinational logic. How many states can it have, and how many does it actually have?",
+    "work": "Four flip-flops hold four bits, so the state space is 2^4 = 16 binary patterns. The number of states the circuit actually visits depends on the wiring: a plain binary counter visits all 16, a 4-bit ring counter visits 4, and a 4-bit Johnson counter visits 8.",
+    "answer": "At most 16 states; the reachable count is a property of the wiring, not of the flip-flop count. This is the idea behind GATE CSE 2025 Set 1 Q.50, where four D flip-flops wired as a Johnson counter reach 8 distinct states."
+  },
+  "gateAngle": "GATE rarely asks for the definition. It asks you to read a circuit and decide what it does, so the useful part of this card is the model: find the flip-flops, write what drives each one, and you have the next-state function.",
+  "variations": [
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "A circuit has three inputs and two flip-flops. Its output is a function of the three inputs only, and the flip-flops drive nothing. Is it sequential?",
+      "answer": "No. If the output does not depend on the state, the circuit is combinational whatever hardware it contains; the flip-flops are decoration.",
+      "why": "The label is decided by the output function, not by the parts list. GATE has used circuits that contain flip-flops whose outputs never reach an output."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "A synchronous circuit has a longest combinational delay of 8 ns and flip-flops with a 1 ns setup time and a 0.5 ns clock-to-output delay. What is the highest clock frequency it can run at?",
+      "answer": "The period must cover the clock-to-output delay, the combinational delay and the setup time: 0.5 + 8 + 1 = 9.5 ns, so about 105 MHz.",
+      "why": "Every timing question is this one sum. Leaving out the clock-to-output delay is the usual slip."
+    }
+  ],
+  "trap": {
+    "what": "Assuming the number of states equals 2 to the number of flip-flops.",
+    "why": "2^n is only the ceiling. A ring counter with n flip-flops has n states and a Johnson counter has 2n, because the feedback wiring restricts the reachable set.",
+    "counterexample": "Four D flip-flops wired as a Johnson counter visit 8 of the 16 patterns; four wired as a ring counter visit 4. GATE CSE 2015 Set 1 Q.20 and 2025 Set 1 Q.50 both turn on this difference."
+  },
+  "check": {
+    "question": "A state diagram has 6 states. What is the smallest number of flip-flops that can hold them, and how many patterns are then unused?",
+    "answer": "Three flip-flops, because 2^2 = 4 is too few and 2^3 = 8 is enough. Two patterns are unused.",
+    "explanation": "ceil(log2 6) = 3. The unused patterns still exist in hardware, so a design must say what happens if the circuit ever lands in one; that is the self-starting requirement on the counter card."
+  },
+  "pyqIds": [],
+  "videoRefs": [],
+  "prereqs": [
+    "combinational-circuit-definition-and-design"
+  ],
+  "visual": null,
+  "sources": [
+    {
+      "kind": "lecture-slides",
+      "title": "Lecture 7 - Synchronous Sequential Logic",
+      "channel": "IIT Bombay, CS 226 Digital Logic Design (Ashutosh Trivedi)",
+      "url": "https://www.cse.iitb.ac.in/~trivedi/courses/cs226/lecture07.pdf",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "The complete slide text was served and read: the sequential definition, the synchronous and asynchronous classification, the NOR and NAND SR latch tables, the gated SR latch, the D latch, the problem with latches, the edge-triggered D flip-flop and setup and hold, the JK and T flip-flops with their characteristic equations, the analysis example, the seven-step synthesis procedure, state reduction and the binary, Gray and one-hot assignment table."
+    },
+    {
+      "kind": "text",
+      "title": "अनुक्रमिक लॉजिक (Sequential logic)",
+      "channel": "Wikipedia (Hindi)",
+      "url": "https://hi.wikipedia.org/wiki/%E0%A4%85%E0%A4%A8%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%B0%E0%A4%AE%E0%A4%BF%E0%A4%95_%E0%A4%B2%E0%A5%89%E0%A4%9C%E0%A4%BF%E0%A4%95",
+      "language": "hi",
+      "transcript": "FULL",
+      "translated": true,
+      "note": "The article was read in full and translated into English here. It states that sequential logic has an output that depends on past inputs and not only on the present ones, that this is memory, that combinational logic has no such dependence, and it defines the Moore and Mealy machines and the synchronous and asynchronous split. Contributes terminology only; no number in this topic comes from it."
+    }
+  ],
+  "sourceLine": "The sequential definition, the state as the contents of the memory elements, the synchronous and asynchronous split and the clock-period argument: IIT Bombay CS 226 Lecture 7 (English, read in full). The memory reading of sequential logic and the Moore and Mealy definitions: the Hindi Wikipedia article on sequential logic (translated). No card of this topic rests on a YouTube transcript, because no caption track was readable this run."
+}

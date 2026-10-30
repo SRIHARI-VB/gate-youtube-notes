@@ -1,0 +1,75 @@
+{
+  "id": "sr-latch-nor-and-nand",
+  "title": "The SR Latch: Two Gates That Remember",
+  "priority": "P1",
+  "order": 448,
+  "unit": "Sequential Circuits",
+  "quickIdea": "Two cross-coupled NOR gates (or two cross-coupled NAND gates) store one bit with no clock. One input sets it, the other resets it, and the combination that asserts both is forbidden.",
+  "remember": [
+    "NOR latch, active-high inputs: S = 1, R = 0 sets Q to 1; S = 0, R = 1 resets Q to 0; S = R = 0 holds; S = R = 1 is forbidden.",
+    "NAND latch, active-low inputs: S' = 0 sets; R' = 0 resets; both 1 holds; both 0 is forbidden. The table is the mirror image of the NOR one, so check which gate the question draws.",
+    "Characteristic equation of the NOR latch: Q+ = S + R'Q, valid only while S and R are not both 1. With S = R = 1 the equation would say Q+ = 1, which contradicts the hardware.",
+    "Why the forbidden input is forbidden: on the NOR latch it forces Q = Q' = 0, so the two outputs stop being complements; on the NAND latch it forces Q = Q' = 1.",
+    "The forbidden input is not just an error state, it is a timing hazard. Releasing both inputs at once makes the stored value depend on which gate is faster, so the next state is unpredictable.",
+    "The latch is level-sensitive and clockless. That is what separates it from a flip-flop."
+  ],
+  "example": {
+    "prompt": "A NOR SR latch starts with Q = 0. The inputs go (S, R) = (1, 0), then (0, 0), then (0, 1), then (0, 0). What is Q after each step?",
+    "work": "(1, 0) sets: Q = 1. (0, 0) holds: Q stays 1. (0, 1) resets: Q = 0. (0, 0) holds again: Q stays 0. Each (0, 0) step copies the previous value, which is the memory.",
+    "answer": "Q = 1, 1, 0, 0. Every (0, 0) row of the table is the whole point of the circuit."
+  },
+  "gateAngle": "GATE hands you a drawn latch and asks for the outputs, or asks whether a given input sequence is legal. The marks are in knowing which polarity the drawn gates use and what the forbidden row does to the outputs.",
+  "variations": [
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "A NAND SR latch has inputs S' = 1 and R' = 1. What is Q, and why can it not be read off the gates alone?",
+      "answer": "Q keeps whatever it held. Both NAND gates see a 1 on their control input, so each output equals the complement of the other output, and the pair settles in whichever of the two stable states it was already in.",
+      "why": "This is bistability: two consistent solutions exist for the same inputs, and the circuit remembers which one it is in. That is exactly what a memory element is."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "Both inputs of a NOR SR latch are pulsed to 1 and released to 0 at exactly the same instant. What can be said about Q?",
+      "answer": "Nothing definite. The two gates race, and Q settles to whichever gate wins; the value may also be metastable for a short time.",
+      "why": "This is the reason the row is called forbidden rather than merely illegal. GATE has asked which input combination leaves the output indeterminate."
+    }
+  ],
+  "trap": {
+    "what": "Using the NOR truth table for a NAND latch, or reading a NAND latch's inputs as active-high.",
+    "why": "The two circuits are duals. The NAND latch is set by a 0 on S' and its forbidden combination is both inputs 0, so every row flips.",
+    "counterexample": "On a NAND latch with S' = 0 and R' = 1 the output is set to 1, whereas the same numbers on a NOR latch (S = 0, R = 1) reset it to 0."
+  },
+  "check": {
+    "question": "Write the next-state value of a NOR SR latch for all four input combinations, assuming Q = 0 before the inputs are applied.",
+    "answer": "S, R = 0, 0 gives Q+ = 0 (hold); 0, 1 gives 0 (reset); 1, 0 gives 1 (set); 1, 1 gives Q = Q' = 0, which is forbidden.",
+    "explanation": "From Q+ = S + R'Q with Q = 0 the term R'Q vanishes, so Q+ = S for the three legal rows. The forbidden row is the one the equation cannot describe."
+  },
+  "pyqIds": [],
+  "videoRefs": [],
+  "prereqs": [
+    "sequential-circuit-definition-and-clock"
+  ],
+  "visual": null,
+  "sources": [
+    {
+      "kind": "lecture-slides",
+      "title": "Lecture 7 - Synchronous Sequential Logic",
+      "channel": "IIT Bombay, CS 226 Digital Logic Design (Ashutosh Trivedi)",
+      "url": "https://www.cse.iitb.ac.in/~trivedi/courses/cs226/lecture07.pdf",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "The complete slide text was served and read: the sequential definition, the synchronous and asynchronous classification, the NOR and NAND SR latch tables, the gated SR latch, the D latch, the problem with latches, the edge-triggered D flip-flop and setup and hold, the JK and T flip-flops with their characteristic equations, the analysis example, the seven-step synthesis procedure, state reduction and the binary, Gray and one-hot assignment table."
+    },
+    {
+      "kind": "text",
+      "title": "फ्लिप-फ्लॉप (Flip-flop)",
+      "channel": "Wikipedia (Hindi)",
+      "url": "https://hi.wikipedia.org/wiki/%E0%A4%AB%E0%A5%8D%E0%A4%B2%E0%A4%BF%E0%A4%AA-%E0%A4%AB%E0%A5%8D%E0%A4%B2%E0%A5%89%E0%A4%AA",
+      "language": "hi",
+      "transcript": "FULL",
+      "translated": true,
+      "note": "The article was read in full and translated into English here. It gives the two stable output states, the latch name, the four kinds (SR, D, T, JK), the T characteristic equation Q_next = T XOR Q, and the combined characteristic and excitation table for D, T, SR and JK. The excitation table is the one place where a Hindi source supplied a table this repository publishes, and the table is recomputed in scripts/validate.py rather than trusted."
+    }
+  ],
+  "sourceLine": "Both latch tables, the active-high and active-low reading, the gated version and the forbidden row: IIT Bombay CS 226 Lecture 7 (English, read in full). The characteristic equation Q* = S + R'Q: Auburn ELEC 2200 Lecture 7 (English, read in full). The latch as a two-state memory element: the Hindi Wikipedia article on flip-flops (translated). No verified GATE CSE question of this topic is decided by a bare latch table, which is why this card carries none."
+}

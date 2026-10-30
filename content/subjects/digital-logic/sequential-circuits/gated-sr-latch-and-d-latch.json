@@ -1,0 +1,75 @@
+{
+  "id": "gated-sr-latch-and-d-latch",
+  "title": "The Gated SR Latch and the D Latch",
+  "priority": "P2",
+  "order": 449,
+  "unit": "Sequential Circuits",
+  "quickIdea": "Add an enable input and the latch only listens while the enable is high. Drive S and R from one data input through an inverter and the forbidden row disappears: that is the D latch.",
+  "remember": [
+    "Gated SR latch: while En = 0 the inputs are ignored and Q holds. While En = 1 the latch behaves exactly like a bare SR latch, forbidden row included.",
+    "D latch: S = D and R = D'. The forbidden combination can no longer occur, so Q+ = D while En = 1, and Q+ = Q while En = 0.",
+    "The D latch is level-sensitive, not edge-sensitive. It is transparent: while the enable is high the output follows the input, delay aside.",
+    "Transparency is the problem. A D latch feeding combinational logic that feeds back to its own D input can race through several states inside one clock pulse, so the final state depends on the gate delays.",
+    "That is why real designs use edge-triggered flip-flops: they sample once per clock edge and cannot be transparent.",
+    "The enable input is the ancestor of the register load signal and of the clock itself; a latch with an enable is a one-bit register."
+  ],
+  "example": {
+    "prompt": "A D latch has En = 1 and D changes 0, 1, 0, 1 while En stays high, then En drops to 0 and D changes again. What is Q?",
+    "work": "While En = 1 the latch is transparent, so Q follows D through the same sequence 0, 1, 0, 1. When En falls to 0 the latch closes and holds the last value, which is 1, and the later changes on D do nothing.",
+    "answer": "Q tracks D while enabled and holds 1 after the enable falls. A D flip-flop would instead have stored only the value present at the clock edge."
+  },
+  "gateAngle": "The exam angle is the distinction, not the table: a latch is level-sensitive, a flip-flop is edge-sensitive, and the answer to 'what is Q' differs between them. GATE tests this by drawing a latch, labelling it as a flip-flop, and asking for the sequence.",
+  "variations": [
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Why does a D latch need only one data input where an SR latch needs two, and what did that cost?",
+      "answer": "The inverter forces R to be the complement of S, so the forbidden combination cannot arise and one input is enough. The cost is that the latch can no longer hold while enabled: a D latch with En = 1 must follow D.",
+      "why": "Two independent inputs can express hold, set, reset and the forbidden state. Tying them together removes one state from the table as well as one input from the chip."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "A D latch and a positive-edge-triggered D flip-flop both receive D = 1, 0, 1 with the clock high throughout the first two values and a rising edge only at the third. What does each store?",
+      "answer": "The latch ends holding 1, having followed D all along. The flip-flop stores 1 only if the edge coincides with D = 1, and otherwise keeps its old value.",
+      "why": "Same input, different answer, because one device is transparent and the other samples. This is the single most examinable difference in the topic."
+    }
+  ],
+  "trap": {
+    "what": "Treating a drawn D latch as an edge-triggered flip-flop.",
+    "why": "A latch has an enable drawn as a plain input; a flip-flop has a clock input drawn with a triangle at the pin. If the drawing shows no triangle, the device is level-sensitive and the output follows the input while the enable is high.",
+    "counterexample": "Two D latches in series with a common enable are not a master-slave flip-flop and do not sample on an edge; they are transparent together, and the value passes straight through."
+  },
+  "check": {
+    "question": "How many of the five rows of a gated SR latch table leave Q unchanged, and what are they?",
+    "answer": "Two: En = 0 with any S and R, and En = 1 with S = R = 0.",
+    "explanation": "The gate blocks the inputs when En = 0, which gives one row covering three input combinations, and the 0, 0 row holds while enabled. The remaining rows set, reset, or are forbidden."
+  },
+  "pyqIds": [],
+  "videoRefs": [],
+  "prereqs": [
+    "sr-latch-nor-and-nand"
+  ],
+  "visual": null,
+  "sources": [
+    {
+      "kind": "lecture-slides",
+      "title": "Lecture 7 - Synchronous Sequential Logic",
+      "channel": "IIT Bombay, CS 226 Digital Logic Design (Ashutosh Trivedi)",
+      "url": "https://www.cse.iitb.ac.in/~trivedi/courses/cs226/lecture07.pdf",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "The complete slide text was served and read: the sequential definition, the synchronous and asynchronous classification, the NOR and NAND SR latch tables, the gated SR latch, the D latch, the problem with latches, the edge-triggered D flip-flop and setup and hold, the JK and T flip-flops with their characteristic equations, the analysis example, the seven-step synthesis procedure, state reduction and the binary, Gray and one-hot assignment table."
+    },
+    {
+      "kind": "text",
+      "title": "फ्लिप-फ्लॉप (Flip-flop)",
+      "channel": "Wikipedia (Hindi)",
+      "url": "https://hi.wikipedia.org/wiki/%E0%A4%AB%E0%A5%8D%E0%A4%B2%E0%A4%BF%E0%A4%AA-%E0%A4%AB%E0%A5%8D%E0%A4%B2%E0%A5%89%E0%A4%AA",
+      "language": "hi",
+      "transcript": "FULL",
+      "translated": true,
+      "note": "The article was read in full and translated into English here. It gives the two stable output states, the latch name, the four kinds (SR, D, T, JK), the T characteristic equation Q_next = T XOR Q, and the combined characteristic and excitation table for D, T, SR and JK. The excitation table is the one place where a Hindi source supplied a table this repository publishes, and the table is recomputed in scripts/validate.py rather than trusted."
+    }
+  ],
+  "sourceLine": "The gated SR latch table, the D latch table, the transparency argument and the three-case analysis of a positive-edge-triggered D flip-flop: IIT Bombay CS 226 Lecture 7 (English, read in full). The latch and flip-flop naming: the Hindi Wikipedia article on flip-flops (translated). No verified GATE CSE question of this topic is decided by a latch table alone."
+}

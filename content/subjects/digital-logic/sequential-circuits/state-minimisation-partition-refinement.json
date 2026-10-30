@@ -1,0 +1,75 @@
+{
+  "id": "state-minimisation-partition-refinement",
+  "title": "State Minimisation",
+  "priority": "P1",
+  "order": 459,
+  "unit": "Sequential Circuits",
+  "quickIdea": "Two states are equivalent when no input sequence can tell them apart. Merge them and the state count falls, which usually falls below a power of two and so removes a flip-flop.",
+  "remember": [
+    "Equivalent states: for every input they give the same output, and their next states are the same or themselves equivalent. The definition is recursive, which is why the algorithm is iterative.",
+    "Partition refinement: start by grouping states by their output. Then split any group whose members go to different groups on some input. Repeat until nothing splits. Each surviving group is one state.",
+    "The implication table does the same job by hand: cross out a pair whose outputs differ, then cross out a pair that implies a crossed-out pair, and repeat.",
+    "Minimisation is worth doing because the flip-flop count is ceil(log2 number of states): going from 5 states to 4 saves a flip-flop, going from 9 to 8 saves one, and going from 8 to 4 saves one more.",
+    "Incompletely specified machines break the transitivity of equivalence, so the partition method does not apply unchanged and the problem becomes finding a maximum compatible set.",
+    "Row matching, which merges only states with identical next-state and output rows, is a first pass and not a substitute for refinement."
+  ],
+  "example": {
+    "prompt": "Nine states A to I are reduced to four by the standard example: A, D and G merge, B, C and F merge, E and H merge, and I stands alone. How many flip-flops does each version need?",
+    "work": "Nine states need ceil(log2 9) = 4 flip-flops. Four states need ceil(log2 4) = 2. The reduction therefore saves two flip-flops, and it also shrinks the combinational logic that decodes the states.",
+    "answer": "Four flip-flops before, two after. The nine-to-four reduction is the worked example in Auburn ELEC 2200 Lecture 7."
+  },
+  "gateAngle": "GATE asks two things: the minimum number of states for a specification, and the number of flip-flops after reduction. The first needs the essential-memory argument, the second needs the partition.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "A four-state machine has outputs 0, 0, 1, 1 for states A, B, C, D. A and B both go to C on input 0 and to D on input 1; C and D both go to A on 0 and to B on 1. What is the minimum number of states?",
+      "answer": "Two. A and B are equivalent, and so are C and D, because each pair agrees on outputs and their next states fall in the same pair.",
+      "why": "The first partition is {A, B} and {C, D}. The refinement test passes because A and B both go to the {C, D} group on either input, so nothing splits."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Why is the equivalence relation on states not transitive when the machine has don't-care outputs?",
+      "answer": "Two states can be compatible through a third without being compatible with each other, because a don't care matches anything. Compatibility is therefore not an equivalence relation, and the clean partition argument fails.",
+      "why": "This is why the incompletely specified case needs maximum compatible sets, which is a harder problem. GATE's questions are fully specified for exactly this reason."
+    }
+  ],
+  "trap": {
+    "what": "Merging two states that have the same output but different next states.",
+    "why": "Equivalence needs both conditions. Matching outputs is only the first partition; the next-state condition is what the refinement steps test, and skipping it merges states that a later input can distinguish.",
+    "counterexample": "Two states both outputting 0 but going to different states on input 0 look mergeable in the first partition. If those destinations differ in output, the second partition splits them, and merging them would change the machine's behaviour."
+  },
+  "check": {
+    "question": "A machine has 6 states. After minimisation it has 4. How many flip-flops are saved?",
+    "answer": "One: ceil(log2 6) = 3 and ceil(log2 4) = 2.",
+    "explanation": "The saving is not proportional to the states removed; it is the difference of two logarithms. Going from 8 to 5 states saves nothing, because both need three flip-flops."
+  },
+  "pyqIds": [],
+  "videoRefs": [],
+  "prereqs": [
+    "mealy-and-moore-machines"
+  ],
+  "visual": null,
+  "sources": [
+    {
+      "kind": "lecture-slides",
+      "title": "Lecture 7 - Sequential Circuits, Finite State Machines",
+      "channel": "Auburn University, ELEC 2200 Digital Logic Circuits (Vishwani D. Agrawal)",
+      "url": "https://eng.auburn.edu/~agrawdv/COURSE/E2200_Fall15/LECTURES/lec7_SeqCkt.pdf",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "The complete slide text was served and read: the SR latch characteristic equation Q* = S + R'Q, the Huffman model of an FSM, the Nff = ceil(log2 Ns) flip-flop count, equivalent states and the A-to-I minimisation example that reduces nine states to four, the two state-assignment adjacency rules, the literal-cost comparison of the optimal and arbitrary assignments, and the Mealy and Moore diagrams under binary, Gray and one-hot encoding."
+    },
+    {
+      "kind": "lecture-slides",
+      "title": "Lecture 7 - Synchronous Sequential Logic",
+      "channel": "IIT Bombay, CS 226 Digital Logic Design (Ashutosh Trivedi)",
+      "url": "https://www.cse.iitb.ac.in/~trivedi/courses/cs226/lecture07.pdf",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "The complete slide text was served and read: the sequential definition, the synchronous and asynchronous classification, the NOR and NAND SR latch tables, the gated SR latch, the D latch, the problem with latches, the edge-triggered D flip-flop and setup and hold, the JK and T flip-flops with their characteristic equations, the analysis example, the seven-step synthesis procedure, state reduction and the binary, Gray and one-hot assignment table."
+    }
+  ],
+  "sourceLine": "The equivalent-state definition, the implication table, the nine-to-four worked reduction and the flip-flop count: Auburn ELEC 2200 Lecture 7 (English, read in full). The state-reduction step in the synthesis procedure and the remark that it is easy to tell when two states are not equivalent but hard to tell when they are: IIT Bombay CS 226 Lecture 7 (English, read in full). No verified GATE CSE question of this topic is decided by a reduction alone, which is why this card carries none."
+}

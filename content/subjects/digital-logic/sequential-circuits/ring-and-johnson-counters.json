@@ -1,0 +1,88 @@
+{
+  "id": "ring-and-johnson-counters",
+  "title": "Ring and Johnson Counters",
+  "priority": "P1",
+  "order": 454,
+  "unit": "Sequential Circuits",
+  "quickIdea": "Feed a shift register's last output back to its first input and it becomes a ring counter with n states. Feed back the complement and it becomes a Johnson counter with 2n states.",
+  "remember": [
+    "Ring counter: the last flip-flop's output goes straight back to the first. With one 1 preset and the rest 0, the 1 walks round the register, so n flip-flops give exactly n states.",
+    "Johnson counter, also called a twisted-ring or switch-tail counter: the complement of the last output goes back to the first input. Each clock shifts one place and inserts the complement.",
+    "A 4-bit Johnson counter started at 0000 visits 0000, 1000, 1100, 1110, 1111, 0111, 0011, 0001 and returns: 8 states, that is 2n.",
+    "Written as decimal with the leftmost bit as the most significant, that cycle is 0, 8, 12, 14, 15, 7, 3, 1 and back to 0.",
+    "Unused states: a ring counter leaves 2^n - n of them and a Johnson counter leaves 2^n - 2n. The other 8 states of a 4-bit Johnson counter form a second cycle of length 8, so it is not self-starting unless the reset is used.",
+    "Consecutive Johnson states differ in one bit, so the sequence is a Gray code. That is why it is preferred where decoding glitches matter."
+  ],
+  "example": {
+    "prompt": "A 4-bit Johnson counter holds 0000 and is clocked. Write the eight states and identify the first repeat.",
+    "work": "The first stage takes the complement of the last. From 0000 the last bit is 0, so a 1 shifts in: 1000. Then 1100, 1110, 1111, and now the last bit is 1 so a 0 shifts in: 0111, 0011, 0001, 0000.",
+    "answer": "0000, 1000, 1100, 1110, 1111, 0111, 0011, 0001, then back to 0000. Eight states, and the decimal reading is 0, 8, 12, 14, 15, 7, 3, 1 - GATE CSE 2015 Set 1 Q.20, accepted answer option (D)."
+  },
+  "gateAngle": "The two questions GATE asks are 'which sequence' and 'how many states'. Both are answered by the feedback rule alone: straight wire gives n states, inverted wire gives 2n, and the sequence is the shift pattern.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "A 4-bit Johnson counter is started at 0010 instead of 0000. How many distinct states does it visit before repeating, and does it ever reach 0000?",
+      "answer": "Eight distinct states, and it never reaches 0000: the cycle is 0010, 1001, 0100, 1010, 1101, 0110, 1011, 0101, and back to 0010.",
+      "why": "The 16 patterns split into two cycles of length 8. Starting anywhere gives 8 states, but which cycle you get depends on the start, which is why a Johnson counter needs a reset."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Why does a ring counter need a preset that puts exactly one 1 in the register, while a Johnson counter does not?",
+      "answer": "A ring counter's cycle is the rotation of a single 1, so all zeros is a fixed point from which it can never leave. A Johnson counter has no such fixed point, because the inverted feedback forces a 1 in from all zeros.",
+      "why": "All zeros is a self-loop for any shift register with straight feedback, which is why the reset must load a 1 somewhere."
+    }
+  ],
+  "trap": {
+    "what": "Reporting n states for a Johnson counter, or 2n for a ring counter.",
+    "why": "The count follows the feedback: a straight wire preserves the single 1 and gives n states, an inverted wire doubles the cycle to 2n. Mixing the two rules is the most common slip in this subtopic.",
+    "counterexample": "A 4-bit ring counter visits 4 states (1000, 0100, 0010, 0001) while a 4-bit Johnson counter visits 8. GATE CSE 2025 Set 1 Q.50 is a 4-bit Johnson circuit whose answer is 8 distinct states, or 7 if the initial state is excluded."
+  },
+  "check": {
+    "question": "How many flip-flops does a Johnson counter need to divide by 10, and how many states would it leave unused?",
+    "answer": "Five flip-flops give 2 x 5 = 10 states, leaving 32 - 10 = 22 unused.",
+    "explanation": "A Johnson counter of n stages has modulus 2n, so dividing by 10 needs n = 5. A ring counter would need 10 flip-flops for the same modulus, which is the trade the two designs make."
+  },
+  "pyqIds": [
+    "gate-2015-1-20-johnson-counter-sequence",
+    "gate-2025-1-50-johnson-distinct-states"
+  ],
+  "videoRefs": [],
+  "prereqs": [
+    "registers-and-shift-registers"
+  ],
+  "visual": "digital-logic/sequential-circuits/johnson-counter-cycle",
+  "sources": [
+    {
+      "kind": "text",
+      "title": "Counter (digital)",
+      "channel": "Wikipedia (English)",
+      "url": "https://en.wikipedia.org/wiki/Counter_(digital)",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "Read the characteristics, the synchronous and asynchronous sections, the binary counter, the ring counter and the Johnson counter sections. Used for the mod-2^n, mod-n and mod-2n statements and for the frequency-halving and settling-time statements, never for a GATE claim."
+    },
+    {
+      "kind": "lecture-slides",
+      "title": "Registers and Counters",
+      "channel": "King Fahd University of Petroleum and Minerals, COE 202 Digital Logic Design (Muhamed Mudawar)",
+      "url": "https://faculty.kfupm.edu.sa/coe/mudawar/coe202/lectures/16-Register&Counters.pdf",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "The complete slide text was served and read: the register and its load or enable input, the four shift-register kinds, the universal shift register with its four control functions, the modulo-N definition, the ripple counter and its per-stage delay, the synchronous counter, the frequency-division table F/2 to F/16, and the BCD counter reset."
+    },
+    {
+      "kind": "lecture-slides",
+      "title": "Lecture 7 - Sequential Circuits, Finite State Machines",
+      "channel": "Auburn University, ELEC 2200 Digital Logic Circuits (Vishwani D. Agrawal)",
+      "url": "https://eng.auburn.edu/~agrawdv/COURSE/E2200_Fall15/LECTURES/lec7_SeqCkt.pdf",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "The complete slide text was served and read: the SR latch characteristic equation Q* = S + R'Q, the Huffman model of an FSM, the Nff = ceil(log2 Ns) flip-flop count, equivalent states and the A-to-I minimisation example that reduces nine states to four, the two state-assignment adjacency rules, the literal-cost comparison of the optimal and arbitrary assignments, and the Mealy and Moore diagrams under binary, Gray and one-hot encoding."
+    }
+  ],
+  "sourceLine": "The ring and Johnson definitions, mod-n and mod-2n, the frequency and settling remarks: the English Wikipedia article on digital counters (read in part). The shift register as the parent circuit and the BCD and modulo remarks: KFUPM COE 202 Lecture 16 (English, read in full). The state count and the Gray-code property: Auburn ELEC 2200 Lecture 7 (English, read in full). Both verified questions are on their GATE Overflow pages: 2015 Set 1 Q.20 and 2025 Set 1 Q.50. The lesson animates the same 4-bit cycle."
+}

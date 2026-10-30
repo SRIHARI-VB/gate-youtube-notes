@@ -1,0 +1,90 @@
+{
+  "id": "synchronous-counter-and-mod-n-design",
+  "title": "Synchronous Counters and Mod-N Design",
+  "priority": "P1",
+  "order": 456,
+  "unit": "Sequential Circuits",
+  "quickIdea": "A synchronous counter clocks every flip-flop together and uses combinational logic to force the wanted sequence. For N states you need the smallest n with 2^n at least N, and the leftover patterns need a decision.",
+  "remember": [
+    "The flip-flop count for N states is ceil(log2 N): 258 states need 9 flip-flops, 75 need 7, and 5 need 3.",
+    "A modulo-2^n counter uses every pattern; a mod-N counter with N not a power of two has 2^n - N unused patterns that still exist in hardware.",
+    "Two ways to shorten the count: decode the terminal state and clear the counter, or design the next-state function so the unused patterns lead back into the cycle. Only the second is self-starting.",
+    "Decoding the count and clearing works, but the clear may be asynchronous and briefly pass through the forbidden value, so the decoded state must be chosen with care.",
+    "A synchronous counter has a constant output delay per stage; a ripple counter's delay grows with the stage index. That is the whole performance difference.",
+    "When a question gives a repeated count such as 0, 0, 1, 1, 2, 2, 3, 3 the answer is not simply ceil(log2 4): the repeated values need distinct codes, so you count distinct machine states, not distinct displayed numbers."
+  ],
+  "example": {
+    "prompt": "A synchronous counter must display 0, 0, 1, 1, 2, 2, 3, 3 and repeat. What is the minimum number of JK flip-flops?",
+    "work": "There are eight machine states, not four, because each displayed value appears twice and the counter must know which copy it is in. Eight distinct codes need three flip-flops, and the displayed value is the low two bits with the extra bit alternating.",
+    "answer": "Three. This is GATE CSE 2015 Set 2 Q.7, whose accepted answer is 3, against the tempting 2."
+  },
+  "gateAngle": "Two arithmetic questions and one modelling question. Arithmetic: ceil(log2 N) for a modulus, and 2^n - N for the unused states. Modelling: whether two identical displayed values are one state or two.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "Design a mod-6 synchronous up-counter with D flip-flops and a synchronous clear, starting from a 3-bit binary counter. Which count must the clear decode, and what happens to the two unused states?",
+      "answer": "Decode 110 and clear on it, so the counter runs 000 to 101 and returns to 000. The states 110 and 111 lead back to 000 on the next clock, so the counter is self-starting.",
+      "why": "Clearing on the count that must not appear gives six states; because the clear is synchronous, 110 exists for one clock and then leaves, which is exactly the self-starting behaviour."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Why does a mod-6 counter built from three flip-flops have a reset problem that a mod-8 counter does not?",
+      "answer": "The mod-8 counter uses all eight patterns, so there is nothing to escape. The mod-6 counter leaves 110 and 111 unused, and at power-up the flip-flops may land in one of them, so the design must route those patterns back into the cycle.",
+      "why": "Unused states are a hardware fact, not an abstraction. Every shortened counter needs either a reset or a designed escape path."
+    }
+  ],
+  "trap": {
+    "what": "Answering ceil(log2 N) when the question is about a repeated display sequence.",
+    "why": "ceil(log2 N) counts distinct patterns in the state register. If the same displayed number occurs several times in the sequence, each occurrence needs its own pattern, so the state count is larger than the number of distinct values.",
+    "counterexample": "GATE CSE 2016 Set 1 Q.8 counts 0, 1, 0, 2, 0, 3: six states with three separate zeros. Both 3 and 4 were accepted, and the disagreement is recorded on the PYQ page, so the exam itself is not settled here."
+  },
+  "check": {
+    "question": "How many flip-flops does a mod-100 counter need, and how many patterns are unused?",
+    "answer": "Seven flip-flops, since 2^6 = 64 is too few and 2^7 = 128 is enough; 28 patterns are unused.",
+    "explanation": "ceil(log2 100) = 7 and 128 - 100 = 28. Those 28 patterns must be routed into the cycle for the counter to be self-starting."
+  },
+  "pyqIds": [
+    "gate-2011-15-mod-258-flip-flops",
+    "gate-2015-2-7-min-jk-flip-flops-repeated-count",
+    "gate-2016-1-8-counter-0-1-0-2-0-3-flip-flops"
+  ],
+  "videoRefs": [],
+  "prereqs": [
+    "t-flip-flop-and-excitation-tables",
+    "ripple-counter-and-frequency-division"
+  ],
+  "visual": null,
+  "sources": [
+    {
+      "kind": "lecture-slides",
+      "title": "Registers and Counters",
+      "channel": "King Fahd University of Petroleum and Minerals, COE 202 Digital Logic Design (Muhamed Mudawar)",
+      "url": "https://faculty.kfupm.edu.sa/coe/mudawar/coe202/lectures/16-Register&Counters.pdf",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "The complete slide text was served and read: the register and its load or enable input, the four shift-register kinds, the universal shift register with its four control functions, the modulo-N definition, the ripple counter and its per-stage delay, the synchronous counter, the frequency-division table F/2 to F/16, and the BCD counter reset."
+    },
+    {
+      "kind": "lecture-slides",
+      "title": "Lecture 7 - Sequential Circuits, Finite State Machines",
+      "channel": "Auburn University, ELEC 2200 Digital Logic Circuits (Vishwani D. Agrawal)",
+      "url": "https://eng.auburn.edu/~agrawdv/COURSE/E2200_Fall15/LECTURES/lec7_SeqCkt.pdf",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "The complete slide text was served and read: the SR latch characteristic equation Q* = S + R'Q, the Huffman model of an FSM, the Nff = ceil(log2 Ns) flip-flop count, equivalent states and the A-to-I minimisation example that reduces nine states to four, the two state-assignment adjacency rules, the literal-cost comparison of the optimal and arbitrary assignments, and the Mealy and Moore diagrams under binary, Gray and one-hot encoding."
+    },
+    {
+      "kind": "text",
+      "title": "Counter (digital)",
+      "channel": "Wikipedia (English)",
+      "url": "https://en.wikipedia.org/wiki/Counter_(digital)",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "Read the characteristics, the synchronous and asynchronous sections, the binary counter, the ring counter and the Johnson counter sections. Used for the mod-2^n, mod-n and mod-2n statements and for the frequency-halving and settling-time statements, never for a GATE claim."
+    }
+  ],
+  "sourceLine": "The modulo-N definition, the synchronous counter and the reset-based BCD counter: KFUPM COE 202 Lecture 16 (English, read in full). The Nff = ceil(log2 Ns) count and the state-counting argument: Auburn ELEC 2200 Lecture 7 (English, read in full). The mod-2^n ceiling and the synchronous and asynchronous difference: the English Wikipedia article on digital counters (read in part). The three verified questions are GATE CSE 2011 Q.15, 2015 Set 2 Q.7 and 2016 Set 1 Q.8."
+}

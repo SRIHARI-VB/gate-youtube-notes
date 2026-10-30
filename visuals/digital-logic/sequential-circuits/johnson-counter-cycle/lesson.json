@@ -1,0 +1,27 @@
+{
+  "slug": "johnson-counter-cycle",
+  "topic": "sequential-circuits",
+  "engine": "p5.js",
+  "steps": 8,
+  "example": {
+    "circuit": "4-bit Johnson counter",
+    "feedback": "D0 = Q3', D1 = Q0, D2 = Q1, D3 = Q2",
+    "flip_flops": 4,
+    "initial_state": [0, 0, 0, 0],
+    "states": [
+      [0, 0, 0, 0], [1, 0, 0, 0], [1, 1, 0, 0], [1, 1, 1, 0],
+      [1, 1, 1, 1], [0, 1, 1, 1], [0, 0, 1, 1], [0, 0, 0, 1]
+    ],
+    "state_decimals": [0, 8, 12, 14, 15, 7, 3, 1],
+    "cycle_length": 8,
+    "cycle_length_rule": "2n",
+    "ring_counter_states": 4,
+    "patterns_total": 16,
+    "unused_patterns": 8,
+    "second_cycle": [[0, 0, 1, 0], [1, 0, 0, 1], [0, 1, 0, 0], [1, 0, 1, 0],
+                     [1, 1, 0, 1], [0, 1, 1, 0], [1, 0, 1, 1], [0, 1, 0, 1]],
+    "single_bit_change_each_step": true,
+    "questions": ["GATE CSE 2015 Set 1 Q.20", "GATE CSE 2025 Set 1 Q.50"],
+    "accepted_answers": ["option (D) 0, 8, 12, 14, 15, 7, 3, 1, 0", "8, with 7 also accepted"]
+  }
+}

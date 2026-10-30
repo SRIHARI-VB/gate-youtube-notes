@@ -1,0 +1,77 @@
+{
+  "id": "d-and-jk-flip-flop-characteristic-equations",
+  "title": "The D and JK Flip-Flops",
+  "priority": "P1",
+  "order": 451,
+  "unit": "Sequential Circuits",
+  "quickIdea": "The D flip-flop is a wire with memory: Q+ = D. The JK flip-flop has four modes - hold, reset, set and toggle - and its equation is Q+ = JQ' + K'Q.",
+  "remember": [
+    "D flip-flop characteristic equation: Q+ = D. Characteristic table: one row, D = 0 gives 0 and D = 1 gives 1, whatever Q was.",
+    "JK flip-flop modes: J = 0, K = 0 holds; J = 0, K = 1 resets; J = 1, K = 0 sets; J = 1, K = 1 toggles. Only the last one is new against an SR latch.",
+    "JK characteristic equation: Q+ = JQ' + K'Q. Check the toggle row: J = K = 1 gives Q' + Q, which is 1 when Q = 0 and 0 when Q = 1, that is Q'.",
+    "The JK flip-flop is an SR latch with the forbidden row used as toggle, implemented by feeding Q and Q' back to gate J and K.",
+    "Race-around: on a level-triggered JK flip-flop with J = K = 1, the output can toggle many times during one long clock pulse. A master-slave or edge-triggered construction is what makes J = K = 1 usable.",
+    "Every JK question reduces to one of three jobs: read the four modes, apply the equation, or convert the device into a D or T flip-flop."
+  ],
+  "example": {
+    "prompt": "A JK flip-flop has Q = 0 and receives J = 1, K = 1 for one clock, then J = 1, K = 0 for one clock, then J = 0, K = 1 for one clock. What is Q after each clock?",
+    "work": "J = K = 1 toggles 0 to 1. J = 1, K = 0 sets, and it is already 1, so it stays 1. J = 0, K = 1 resets to 0.",
+    "answer": "Q = 1, 1, 0. Reading the mode rather than the equation is faster and less error-prone, and the equation confirms it."
+  },
+  "gateAngle": "JK flip-flops appear in two ways: wired into a counter where you must derive the next state, and as the answer to a 'which flip-flop do I choose' question where the toggle mode saves gates.",
+  "variations": [
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Build a T flip-flop from a JK flip-flop and then from a D flip-flop. What are the two connections?",
+      "answer": "For JK, tie J and K together to the T input: T = 1 gives the toggle mode and T = 0 gives hold. For D, feed D = T XOR Q.",
+      "why": "Both are one-line consequences of the characteristic equations: J = K = T gives Q+ = TQ' + T'Q, and D = T XOR Q gives Q+ = T XOR Q."
+    },
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "A circuit uses two JK flip-flops with J1 = Q0, K1 = Q0, J0 = 1 and K0 = 1, both clocked together. Starting from Q1Q0 = 00, list the next four states.",
+      "answer": "01, 10, 11, 00 - a plain two-bit binary up counter.",
+      "why": "Q0 toggles every clock because J = K = 1. Q1 toggles exactly when Q0 was 1, which is the carry. This is the standard synchronous binary counter built from JK devices."
+    }
+  ],
+  "trap": {
+    "what": "Writing the JK equation as Q+ = JQ + K'Q', or forgetting the toggle row entirely.",
+    "why": "The J term multiplies Q', not Q: J sets the flip-flop, and setting means forcing the next value to 1 whatever Q was. Getting the complements the wrong way round turns the toggle row into the hold row.",
+    "counterexample": "With J = K = 1 and Q = 0, the correct equation gives Q+ = 1 x 1 + 0 x 0 = 1, a toggle. The wrong form gives 1 x 0 + 0 x 1 = 0, a hold, which contradicts the table."
+  },
+  "check": {
+    "question": "A JK flip-flop has J = Q' and K = Q. What is the next state?",
+    "answer": "Q+ = Q', so the flip-flop always toggles.",
+    "explanation": "Substituting gives Q+ = Q'Q' + (Q)'Q = Q' + Q'Q = Q'. The wiring has built a T flip-flop with T tied high."
+  },
+  "pyqIds": [
+    "gate-2014-3-45-jk-state-sequence"
+  ],
+  "videoRefs": [],
+  "prereqs": [
+    "edge-triggered-flip-flop-and-timing"
+  ],
+  "visual": null,
+  "sources": [
+    {
+      "kind": "lecture-slides",
+      "title": "Lecture 7 - Synchronous Sequential Logic",
+      "channel": "IIT Bombay, CS 226 Digital Logic Design (Ashutosh Trivedi)",
+      "url": "https://www.cse.iitb.ac.in/~trivedi/courses/cs226/lecture07.pdf",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "The complete slide text was served and read: the sequential definition, the synchronous and asynchronous classification, the NOR and NAND SR latch tables, the gated SR latch, the D latch, the problem with latches, the edge-triggered D flip-flop and setup and hold, the JK and T flip-flops with their characteristic equations, the analysis example, the seven-step synthesis procedure, state reduction and the binary, Gray and one-hot assignment table."
+    },
+    {
+      "kind": "lecture-slides",
+      "title": "Lecture 7 - Sequential Circuits, Finite State Machines",
+      "channel": "Auburn University, ELEC 2200 Digital Logic Circuits (Vishwani D. Agrawal)",
+      "url": "https://eng.auburn.edu/~agrawdv/COURSE/E2200_Fall15/LECTURES/lec7_SeqCkt.pdf",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "The complete slide text was served and read: the SR latch characteristic equation Q* = S + R'Q, the Huffman model of an FSM, the Nff = ceil(log2 Ns) flip-flop count, equivalent states and the A-to-I minimisation example that reduces nine states to four, the two state-assignment adjacency rules, the literal-cost comparison of the optimal and arbitrary assignments, and the Mealy and Moore diagrams under binary, Gray and one-hot encoding."
+    }
+  ],
+  "sourceLine": "The JK characteristic table and equation, the D = JQ' + K'Q construction, the four modes and the race-around warning: IIT Bombay CS 226 Lecture 7 (English, read in full). The gated-latch-plus-feedback construction of the JK flip-flop: Auburn ELEC 2200 Lecture 7 (English, read in full). The verified question is GATE CSE 2014 Set 3 Q.45."
+}

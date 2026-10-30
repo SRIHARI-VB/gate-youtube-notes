@@ -1,0 +1,80 @@
+{
+  "id": "sequential-circuit-analysis-state-equations",
+  "title": "Analysing a Clocked Sequential Circuit",
+  "priority": "P1",
+  "order": 457,
+  "unit": "Sequential Circuits",
+  "quickIdea": "Write what drives each flip-flop, substitute each device's characteristic equation, and you have the next-state equations. Tabulate them over the present states and inputs, then draw the diagram.",
+  "remember": [
+    "Four steps, always in this order: name the flip-flop inputs, write the next-state equations using each device's characteristic equation, build the state table over all present states and inputs, then draw the state diagram.",
+    "D flip-flop: the next state is literally the expression at D. JK: Q+ = JQ' + K'Q. T: Q+ = T XOR Q. A question that names the device is telling you which line to use.",
+    "A self-loop in the state diagram is a row where the next state equals the present state for some input. Counting them is a common NAT answer.",
+    "A shift-register-shaped circuit has next-state equations of the form Q1+ = in and Q0+ = Q1, so its diagram is a chain and the self-loops are exactly the all-zeros and all-ones states.",
+    "For a counter with no input, the state table has one row per state and the diagram has out-degree one everywhere, so the states form disjoint cycles.",
+    "Read the question's clock polarity and edge before tabulating: a negative-edge circuit with flip-flops clocked from each other's outputs is an asynchronous chain and cannot be analysed with a single simultaneous next-state table."
+  ],
+  "example": {
+    "prompt": "A synchronous circuit uses three JK flip-flops with J2 = Q1', K2 = Q0, J1 = Q2, K1 = Q2', J0 = Q1, K0 = Q0'. Starting from 000, what are the next three states?",
+    "work": "From 000: J2K2 = 1,0 sets Q2; J1K1 = 0,1 resets Q1, already 0; J0K0 = 0,1 resets Q0, already 0. Next state 100. From 100: J2K2 = 1,0 sets; J1K1 = 1,0 sets; J0K0 = 0,1 resets. Next 110. From 110: J2K2 = 0,0 holds; J1K1 = 1,0 holds at 1; J0K0 = 1,1 toggles. Next 111.",
+    "answer": "100, 110, 111. This is GATE CSE 2014 Set 3 Q.45, accepted answer option (C). The question is drawn as a figure, and the six equations above are taken from the accepted solutions; carrying the same equations one step further gives 011 and then 001, not an immediate return to 000, so this repository verifies the three states asked for and does not claim the circuit's modulus."
+  },
+  "gateAngle": "This is the highest-yield card in the topic: nearly every GATE sequential question is this procedure on a drawn circuit. Write the equations first, then step the clock; tracing the drawing by eye is how answers get lost.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "Two positive-edge-triggered D flip-flops are wired as Q1+ = in and Q0+ = Q1, with the output taken at Q0. How many self-loops does the state diagram have?",
+      "answer": "Two, at 00 with in = 0 and at 11 with in = 1.",
+      "why": "Q1+ = in and Q0+ = Q1, so the next state equals the present state only when in = Q1 and Q1 = Q0, which forces 00 and 11. This is GATE CSE 2018 Q.22, accepted answer 2."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "A counter built from three flip-flops visits only five states. How many rows does its state table have, and how many states appear in the diagram?",
+      "answer": "Eight rows, because the table must cover every present state the hardware can hold; only five of them lie on the cycle.",
+      "why": "The state table is a property of the hardware, the cycle is a property of the wiring. GATE questions that ask for the modulus want the cycle length, and those that ask for unused states want the difference."
+    }
+  ],
+  "trap": {
+    "what": "Tracing the circuit by eye instead of writing the next-state equations.",
+    "why": "With three flip-flops and shared inputs, the eye follows one gate at a time and loses the simultaneous update. The equations force you to compute all bits from the old values at once.",
+    "counterexample": "On GATE CSE 2014 Set 3 Q.45 an asynchronous reading of the same drawing gives a different sequence from the synchronous one; only writing the equations and updating simultaneously gives the accepted option (C)."
+  },
+  "check": {
+    "question": "A single D flip-flop has D = Q XOR x, and x is an input. How many states does the diagram have and what does the circuit do when x = 1?",
+    "answer": "Two states, 0 and 1. With x = 1 the next state is Q', so the circuit toggles every clock.",
+    "explanation": "The next-state equation is the whole analysis. Two states because one flip-flop holds one bit, and the toggle because Q XOR 1 = Q'."
+  },
+  "pyqIds": [
+    "gate-2014-3-45-jk-state-sequence",
+    "gate-2018-22-self-loop-states",
+    "gate-2005-62-dff-output-sequence"
+  ],
+  "videoRefs": [],
+  "prereqs": [
+    "d-and-jk-flip-flop-characteristic-equations",
+    "t-flip-flop-and-excitation-tables"
+  ],
+  "visual": null,
+  "sources": [
+    {
+      "kind": "lecture-slides",
+      "title": "Lecture 7 - Synchronous Sequential Logic",
+      "channel": "IIT Bombay, CS 226 Digital Logic Design (Ashutosh Trivedi)",
+      "url": "https://www.cse.iitb.ac.in/~trivedi/courses/cs226/lecture07.pdf",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "The complete slide text was served and read: the sequential definition, the synchronous and asynchronous classification, the NOR and NAND SR latch tables, the gated SR latch, the D latch, the problem with latches, the edge-triggered D flip-flop and setup and hold, the JK and T flip-flops with their characteristic equations, the analysis example, the seven-step synthesis procedure, state reduction and the binary, Gray and one-hot assignment table."
+    },
+    {
+      "kind": "lecture-slides",
+      "title": "Lecture 7 - Sequential Circuits, Finite State Machines",
+      "channel": "Auburn University, ELEC 2200 Digital Logic Circuits (Vishwani D. Agrawal)",
+      "url": "https://eng.auburn.edu/~agrawdv/COURSE/E2200_Fall15/LECTURES/lec7_SeqCkt.pdf",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "The complete slide text was served and read: the SR latch characteristic equation Q* = S + R'Q, the Huffman model of an FSM, the Nff = ceil(log2 Ns) flip-flop count, equivalent states and the A-to-I minimisation example that reduces nine states to four, the two state-assignment adjacency rules, the literal-cost comparison of the optimal and arbitrary assignments, and the Mealy and Moore diagrams under binary, Gray and one-hot encoding."
+    }
+  ],
+  "sourceLine": "The state equations, the state table and the state diagram with a worked two-flip-flop example, and the device-by-device characteristic equations: IIT Bombay CS 226 Lecture 7 (English, read in full). The Huffman model that this analysis walks through: Auburn ELEC 2200 Lecture 7 (English, read in full). The three verified questions are GATE CSE 2014 Set 3 Q.45, 2018 Q.22 and 2005 Q.62."
+}

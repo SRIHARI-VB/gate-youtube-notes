@@ -1,0 +1,78 @@
+{
+  "id": "sequence-detector-minimum-states",
+  "title": "Sequence Detectors and the Minimum-State Argument",
+  "priority": "P2",
+  "order": 461,
+  "unit": "Sequential Circuits",
+  "quickIdea": "The minimum number of states is the number of distinct things the circuit must remember. For a pattern detector that is the set of prefixes of the pattern matched so far, so a k-bit pattern needs k states in a Mealy machine.",
+  "remember": [
+    "A sequence detector's state records how much of the target pattern has been matched. Nothing else about the input history matters, so the states are the matched prefixes.",
+    "For a k-bit pattern with overlapping allowed, a Mealy machine needs k states: the prefixes of lengths 0 to k-1. A Moore machine needs k+1, because the output must sit on a state.",
+    "Without overlap, the machine returns to the start after a detection, which removes the suffix-sharing states and can lower the count for patterns with no proper prefix-suffix match.",
+    "The minimality argument is distinguishability: two prefixes are different states exactly when some suffix completes the pattern from one and not from the other.",
+    "Overlapping means a suffix of a detection can begin the next one; for 0101 the string 010101 contains two overlapping detections.",
+    "When the specification is about a running count rather than a pattern, the states are the possible values of that count, which is how a five-state answer arises for a 'difference of two' specification."
+  ],
+  "example": {
+    "prompt": "A detector must output 1 whenever the last four input bits are 0101, with overlaps allowed. How many states does a Mealy machine need, and what are they?",
+    "work": "The states record the longest suffix of the input seen so far that is a prefix of 0101. The possible values are the empty match, '0', '01' and '010' - four states. From '010' an input of 1 detects and leaves the machine in the state matching '01', because the last two bits '01' begin a new match.",
+    "answer": "Four states, and the detection transition returns to the '01' state rather than to the start, which is what makes the overlap work."
+  },
+  "gateAngle": "Two shapes. Give a specification and ask for the minimum states - the answer comes from naming the essential memory. Give a pattern and ask for states or for the output sequence - the answer comes from the prefix set.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "The same detector for 0101 must not allow overlaps. How many states does a Mealy machine need now?",
+      "answer": "Four states are still enough, but the detection transition now returns to the empty-match state instead of to '01'.",
+      "why": "Non-overlap changes the transitions, not the prefix set: after a detection the machine forgets everything, so the same four prefixes suffice. For some patterns, such as 1111, the saving in transitions is the point."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Why is the number of states not simply the length of the input sequence or the number of input symbols?",
+      "answer": "Because a state is a class of histories that behave identically from now on. Infinitely many input histories collapse into finitely many states, and the count is the number of distinct future behaviours.",
+      "why": "This is the whole idea of minimisation, and it is why GATE's specification questions have small answers such as 5 rather than a length."
+    }
+  ],
+  "trap": {
+    "what": "Counting one state per input symbol read, or forgetting the start state.",
+    "why": "States are matched prefixes, not history length. And the empty match is a state: the machine must have somewhere to be before any bit arrives.",
+    "counterexample": "For a four-bit pattern, counting only the three non-empty proper prefixes gives 3 and loses the start state; the correct count for a Mealy machine is 4, and for a Moore machine 5."
+  },
+  "check": {
+    "question": "How many states does a Moore machine need to detect 101 with overlaps allowed?",
+    "answer": "Four: the prefixes of length 0, 1, 2 and the full match, the last carrying the output 1.",
+    "explanation": "A Mealy machine needs three, the prefixes 0 to 2, because the output can sit on the final transition. The Moore version must add a state to hold the output."
+  },
+  "pyqIds": [
+    "gate-2003-44-min-states-two-output-circuit"
+  ],
+  "videoRefs": [],
+  "prereqs": [
+    "mealy-and-moore-machines",
+    "state-minimisation-partition-refinement"
+  ],
+  "visual": null,
+  "sources": [
+    {
+      "kind": "lecture-slides",
+      "title": "Lecture 7 - Sequential Circuits, Finite State Machines",
+      "channel": "Auburn University, ELEC 2200 Digital Logic Circuits (Vishwani D. Agrawal)",
+      "url": "https://eng.auburn.edu/~agrawdv/COURSE/E2200_Fall15/LECTURES/lec7_SeqCkt.pdf",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "The complete slide text was served and read: the SR latch characteristic equation Q* = S + R'Q, the Huffman model of an FSM, the Nff = ceil(log2 Ns) flip-flop count, equivalent states and the A-to-I minimisation example that reduces nine states to four, the two state-assignment adjacency rules, the literal-cost comparison of the optimal and arbitrary assignments, and the Mealy and Moore diagrams under binary, Gray and one-hot encoding."
+    },
+    {
+      "kind": "lecture-slides",
+      "title": "Lecture 7 - Synchronous Sequential Logic",
+      "channel": "IIT Bombay, CS 226 Digital Logic Design (Ashutosh Trivedi)",
+      "url": "https://www.cse.iitb.ac.in/~trivedi/courses/cs226/lecture07.pdf",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "The complete slide text was served and read: the sequential definition, the synchronous and asynchronous classification, the NOR and NAND SR latch tables, the gated SR latch, the D latch, the problem with latches, the edge-triggered D flip-flop and setup and hold, the JK and T flip-flops with their characteristic equations, the analysis example, the seven-step synthesis procedure, state reduction and the binary, Gray and one-hot assignment table."
+    }
+  ],
+  "sourceLine": "The word-description-to-state-diagram step and the equivalent-state reasoning behind the state count: Auburn ELEC 2200 Lecture 7 (English, read in full). The synthesis procedure that starts from a word description and reduces the states before assigning codes: IIT Bombay CS 226 Lecture 7 (English, read in full). The verified question is GATE CSE 2003 Q.44, whose five states come from a running difference rather than a pattern."
+}

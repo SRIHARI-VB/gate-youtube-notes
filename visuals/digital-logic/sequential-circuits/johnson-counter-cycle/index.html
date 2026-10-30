@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>From a shift register to the Johnson cycle - Sequential Circuits visual lesson</title>
+<link rel="stylesheet" href="../../../lesson.css">
+<script src="https://cdn.jsdelivr.net/npm/p5@1.9.4/lib/p5.min.js"></script>
+</head>
+<body>
+<div class="wrap">
+  <p class="small"><a href="../../../../index.html">&larr; back to the revision site</a></p>
+  <h1>From a Shift Register to the Johnson Cycle</h1>
+  <div class="objective"><strong>Objective.</strong> Take four D flip-flops in a chain and feed the complement of the last output back to the first input. Follow the register through all eight states from 0000, watch the block of ones grow and then shrink, see why the count is 2n rather than n, and see where the other eight patterns of a four-bit register go. The circuit is the one two verified GATE questions are about.</div>
+
+  <div class="canvas-wrap"><div id="canvas-holder"></div></div>
+  <div class="caption" id="caption" aria-live="polite"></div>
+
+  <div class="controls">
+    <button id="play" class="primary">Play</button>
+    <button id="prev">&larr; Prev</button>
+    <button id="next">Next &rarr;</button>
+    <button id="restart">Restart</button>
+    <span class="speed"><label for="speed">Speed</label>
+      <input id="speed" type="range" min="0.25" max="2" step="0.25" value="1">
+      <span id="speedLabel">1.00x</span></span>
+    <span class="counter" id="counter"></span>
+  </div>
+
+  <h2>Static explanation</h2>
+  <p>A shift register is a chain of D flip-flops sharing a clock: each stage copies its left neighbour on every clock edge, so a bit entering at one end travels one stage per clock. A ring counter closes the loop by wiring the last output straight back to the first input, and then a single 1 walks round the register, giving exactly n states for n stages. A Johnson counter, also called a twisted-ring or switch-tail counter, closes the loop through an inverter instead: the first stage takes the complement of the last stage's output.</p>
+  <p>That one inverter doubles the cycle. Starting from 0000 the last bit is 0, so its complement 1 shifts in, giving 1000; the ones keep arriving while the last bit is still 0, giving 1100, 1110 and then 1111. At that point the last bit is 1, so the inserted bit becomes 0 and the block of ones shrinks from the left: 0111, 0011, 0001, and the eighth clock restores 0000. Eight states, which is 2n for n = 4. Read as decimal with the leftmost bit as the most significant, the cycle is 0, 8, 12, 14, 15, 7, 3, 1 and back to 0, and consecutive states differ in exactly one bit, so the sequence is a Gray code.</p>
+  <p>Four flip-flops hold sixteen patterns, so eight are left over, and they are not dead states: they form a second cycle of length eight. Starting at 0010 gives 0010, 1001, 0100, 1010, 1101, 0110, 1011, 0101 and back, again eight states. A Johnson counter is therefore not self-starting, because where it lands depends on where it began, and a reset that loads a known state is what makes it deterministic. The unused count is 2^n - 2n, which is 16 - 8 = 8 here.</p>
+
+  <div class="card warn"><div class="label">Common misconception</div><p>Three mistakes dominate this circuit. Reporting n states instead of 2n, which is the ring counter's answer and the single most common slip. Forgetting that the feedback is inverted, which turns the sequence into a ring rotation and gives four states instead of eight. And reading the four-bit patterns as if the newest bit were the least significant, which reverses the decimal order and turns 0, 8, 12, 14, 15, 7, 3, 1 into 0, 1, 3, 7, 15, 14, 12, 8 - the first option offered in GATE CSE 2015 Set 1 Q.20 and the wrong one.</p></div>
+  <div class="card ok"><div class="label">Quick check</div><p>How many flip-flops does a Johnson counter need to divide by ten, how many patterns would a register of that width leave unused, and what does a ring counter of the same modulus need instead?</p><details><summary>Answer</summary><p><strong>Five flip-flops, 22 unused patterns, and ten flip-flops for the ring version.</strong> A Johnson counter of n stages has 2n states, so 2n = 10 needs n = 5, and five flip-flops hold 32 patterns of which 10 are used, leaving 22. A ring counter has n states, so the same modulus needs ten stages - twice the flip-flops, in exchange for needing no inverter and for having no second cycle.</p></details></div>
+  <p class="small">Topic: Sequential Circuits (Digital Logic), subtopics the ring and Johnson counters, the shift register they are built from, and the 2n state count. The ring and Johnson definitions and the mod-n and mod-2n statements: the English Wikipedia article on digital counters. The shift-register parent circuit and the register and counter families: KFUPM COE 202 Lecture 16 (English). The state count and the Gray-code property: Auburn ELEC 2200 Lecture 7 (English). The sequence itself and the two accepted answers are GATE CSE 2015 Set 1 Q.20 and GATE CSE 2025 Set 1 Q.50, both on their GATE Overflow pages. Every state, cycle length and unused count shown here is recomputed in scripts/validate.py.</p>
+</div>
+<script src="../../../lesson.js"></script>
+<script src="sketch.js"></script>
+<script>
+/* p5.js is loaded from a CDN. If it is unreachable, say so plainly instead of showing an empty box. */
+window.addEventListener('load', function () {
+  if (window.p5) { return; }
+  var holder = document.getElementById('canvas-holder');
+  if (holder) {
+    holder.innerHTML = '<div style="padding:22px 18px;font-size:14.5px;color:#4a5260">' +
+      'The animation needs p5.js, which this page loads from a CDN, and the request failed (offline, or the CDN is blocked). ' +
+      'Everything below still works: the static explanation, the misconception and the quick check.</div>';
+  }
+  var cap = document.getElementById('caption');
+  if (cap && window.LESSON && window.LESSON.steps && window.LESSON.steps[0]) {
+    cap.innerHTML = window.LESSON.steps[0].caption;
+  }
+  ['play', 'prev', 'next', 'restart', 'speed'].forEach(function (id) {
+    var el = document.getElementById(id);
+    if (el) { el.disabled = true; }
+  });
+});
+</script>
+</body>
+</html>

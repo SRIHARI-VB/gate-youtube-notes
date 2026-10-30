@@ -1,0 +1,87 @@
+{
+  "id": "mealy-and-moore-machines",
+  "title": "Mealy and Moore Machines",
+  "priority": "P2",
+  "order": 458,
+  "unit": "Sequential Circuits",
+  "quickIdea": "In a Moore machine the output depends on the state alone, so it is written inside the state circle. In a Mealy machine the output also depends on the input, so it is written on the transition arrow.",
+  "remember": [
+    "Moore: output = function of the state. Mealy: output = function of the state and the input.",
+    "Moore output changes only at clock edges, so it is glitch-free and always one cycle later than the input that caused it. Mealy output can change as soon as the input changes, within the same cycle.",
+    "For the same behaviour a Moore machine often needs one more state than a Mealy machine, because the output must be attached to a state rather than to a transition.",
+    "In a state diagram, a Moore machine's arrows are labelled with inputs only and a Mealy machine's with input and output.",
+    "Converting Mealy to Moore can multiply the states by the number of distinct outputs, since a state whose outgoing transitions carry different outputs must be split.",
+    "The same physical circuit can be described either way; the model is a choice of notation about where the output is attached, not a different circuit."
+  ],
+  "example": {
+    "prompt": "A circuit outputs 00 until the number of zeros in the input exceeds the number of ones by 2, then outputs 10 for ever; symmetrically it outputs 01 once the ones exceed the zeros by 2. What is the minimum number of states?",
+    "work": "The only memory the circuit needs is the running difference d between zeros and ones, and before a decision d can only be -1, 0 or +1. Those are three states, all emitting 00. Reaching d = +2 or d = -2 gives two absorbing states, emitting 10 and 01.",
+    "answer": "Five states. This is GATE CSE 2003 Q.44, accepted answer 5."
+  },
+  "gateAngle": "Two patterns: label a diagram as Moore or Mealy and read the output sequence, and count the minimum states for a specification. The count comes from identifying the essential memory, not from the length of the input.",
+  "variations": [
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Why can a Mealy machine produce an output in the very cycle the deciding input arrives while a Moore machine cannot?",
+      "answer": "The Mealy output is computed by combinational logic from the present state and the present input, so it appears as soon as the input settles. A Moore output depends only on the state, and the state only changes at the clock edge.",
+      "why": "That one-cycle difference is why a Moore version of a detector usually needs an extra state to remember that the deciding symbol has arrived."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "A Moore machine has four states and two output symbols. A Mealy machine implementing the same behaviour has three. What is the largest number of states the equivalent Moore machine could need?",
+      "answer": "Six, since the conversion can split each state by the number of distinct outputs on its outgoing transitions, and the count is bounded by states times outputs.",
+      "why": "The general bound is states times output symbols. It is not always attained, but it explains why Moore designs are usually bigger."
+    }
+  ],
+  "trap": {
+    "what": "Reading a Mealy arrow label as if the output belonged to the destination state.",
+    "why": "In a Mealy diagram the output on an arrow is produced during the transition, that is, in the cycle the input arrives. Attaching it to the destination state shifts the whole output sequence one clock later.",
+    "counterexample": "For an input that triggers the output immediately, the Mealy reading gives the 1 in the same cycle and the mistaken reading gives it one cycle later, so a five-value answer becomes a four-value answer shifted by one."
+  },
+  "check": {
+    "question": "A state diagram has outputs written inside the circles and inputs on the arrows. Which model is it, and when does the output change?",
+    "answer": "Moore, and the output changes only when the state changes, which is at a clock edge.",
+    "explanation": "The placement of the output is the model. Inside the circle means state-dependent, on the arrow means input-dependent as well."
+  },
+  "pyqIds": [
+    "gate-2003-44-min-states-two-output-circuit"
+  ],
+  "videoRefs": [],
+  "prereqs": [
+    "sequential-circuit-analysis-state-equations"
+  ],
+  "visual": null,
+  "sources": [
+    {
+      "kind": "lecture-slides",
+      "title": "Lecture 7 - Sequential Circuits, Finite State Machines",
+      "channel": "Auburn University, ELEC 2200 Digital Logic Circuits (Vishwani D. Agrawal)",
+      "url": "https://eng.auburn.edu/~agrawdv/COURSE/E2200_Fall15/LECTURES/lec7_SeqCkt.pdf",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "The complete slide text was served and read: the SR latch characteristic equation Q* = S + R'Q, the Huffman model of an FSM, the Nff = ceil(log2 Ns) flip-flop count, equivalent states and the A-to-I minimisation example that reduces nine states to four, the two state-assignment adjacency rules, the literal-cost comparison of the optimal and arbitrary assignments, and the Mealy and Moore diagrams under binary, Gray and one-hot encoding."
+    },
+    {
+      "kind": "text",
+      "title": "अनुक्रमिक लॉजिक (Sequential logic)",
+      "channel": "Wikipedia (Hindi)",
+      "url": "https://hi.wikipedia.org/wiki/%E0%A4%85%E0%A4%A8%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%B0%E0%A4%AE%E0%A4%BF%E0%A4%95_%E0%A4%B2%E0%A5%89%E0%A4%9C%E0%A4%BF%E0%A4%95",
+      "language": "hi",
+      "transcript": "FULL",
+      "translated": true,
+      "note": "The article was read in full and translated into English here. It states that sequential logic has an output that depends on past inputs and not only on the present ones, that this is memory, that combinational logic has no such dependence, and it defines the Moore and Mealy machines and the synchronous and asynchronous split. Contributes terminology only; no number in this topic comes from it."
+    },
+    {
+      "kind": "lecture-slides",
+      "title": "Lecture 7 - Synchronous Sequential Logic",
+      "channel": "IIT Bombay, CS 226 Digital Logic Design (Ashutosh Trivedi)",
+      "url": "https://www.cse.iitb.ac.in/~trivedi/courses/cs226/lecture07.pdf",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "The complete slide text was served and read: the sequential definition, the synchronous and asynchronous classification, the NOR and NAND SR latch tables, the gated SR latch, the D latch, the problem with latches, the edge-triggered D flip-flop and setup and hold, the JK and T flip-flops with their characteristic equations, the analysis example, the seven-step synthesis procedure, state reduction and the binary, Gray and one-hot assignment table."
+    }
+  ],
+  "sourceLine": "The Mealy and Moore definitions, the state diagrams under binary, Gray and one-hot assignment, and the conversion remark: Auburn ELEC 2200 Lecture 7 (English, read in full). The Moore and Mealy definitions and the statement that the Moore output changes only at a clock edge: the Hindi Wikipedia article on sequential logic (translated). The synthesis order in which the model is chosen: IIT Bombay CS 226 Lecture 7 (English, read in full). The verified question is GATE CSE 2003 Q.44."
+}

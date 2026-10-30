@@ -1,0 +1,78 @@
+{
+  "id": "edge-triggered-flip-flop-and-timing",
+  "title": "Edge-Triggered Flip-Flops and the Timing Rules",
+  "priority": "P1",
+  "order": 450,
+  "unit": "Sequential Circuits",
+  "quickIdea": "A flip-flop changes state only at a clock edge, never while the clock sits high. That single restriction removes the transparency race and gives the whole circuit one well-defined next state per cycle.",
+  "remember": [
+    "A positive-edge-triggered D flip-flop can be built from three SR latches: two form a master-slave pair gated by the clock, and the third is the output latch that holds the value between edges.",
+    "Master-slave behaviour: while the clock is high the master listens and the slave holds; when the clock falls the master's value passes to the slave. An edge-triggered device goes one step further and samples only the value present in the instant around the edge.",
+    "Setup time is how long the data must be stable before the active edge; hold time is how long it must stay stable after it. Violating either can leave the output metastable.",
+    "Propagation delay is the clock-to-output time. In a synchronous circuit the next state is computed from the old outputs, because every flip-flop samples before any new value arrives; that is why the simultaneous-update assumption is safe.",
+    "The clock period must cover clock-to-output delay plus the longest combinational path plus setup time. Hold-time violations are about the shortest path, not the longest.",
+    "Setup and hold are why a drawn circuit with 'non-zero propagation delays' behaves the same as one without: both flip-flops read the old values at the shared edge."
+  ],
+  "example": {
+    "prompt": "Two edge-triggered flip-flops are cross-coupled: the D input of the first is the output of the second, and the J and K inputs of the second are both the output of the first. Both are positive-edge-triggered. Starting from first = 1 and second = 0, what does the second output do?",
+    "work": "At each rising edge both flip-flops read the other's old output. The first flip-flop copies the second's old value; the second toggles when the first's old value is 1 and holds when it is 0. From (1, 0) the states run (0, 1), (1, 1), (0, 0), and back to (1, 0).",
+    "answer": "The second output reads 0, 1, 1, 0, 1, 1, 0, a repeating three-value cycle. This is GATE CSE 2015 Set 1 Q.37, accepted answer 0110110..."
+  },
+  "gateAngle": "Two patterns cover almost every year. First, a cross-coupled pair where you must write the next-state equations and step the clock. Second, a timing sum for the maximum clock frequency or the propagation delay through a chain.",
+  "variations": [
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Why does the phrase 'both flip-flops have non-zero propagation delays' in a cross-coupled question not change the answer?",
+      "answer": "Because both devices are edge-triggered and share the clock. At the active edge each one samples its input before its own output moves, so each sees the other's previous value. Non-zero delay only makes that sampling order physical rather than assumed.",
+      "why": "With level-sensitive latches the same sentence would change everything, since a fast latch could feed a slow one inside the same clock pulse."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "A shift register of four positive-edge-triggered D flip-flops is clocked at 100 MHz. What is the longest combinational path, and how long does a bit take to travel from input to output?",
+      "answer": "The combinational path is the wire from one flip-flop output to the next input, essentially zero, so the period is set by delay plus setup time alone. A bit needs four clock edges, 40 ns, to reach the output.",
+      "why": "A shift register has no combinational logic in the path, which is why it is the fastest sequential circuit in the syllabus."
+    }
+  ],
+  "trap": {
+    "what": "Computing the maximum clock frequency from the combinational delay alone.",
+    "why": "The period must also cover the clock-to-output delay of the launching flip-flop and the setup time of the capturing one. Dropping either term makes the answer too fast.",
+    "counterexample": "A path with 8 ns of combinational delay, 1 ns setup and 0.5 ns clock-to-output needs a 9.5 ns period; using 8 ns gives a frequency about 19 per cent too high."
+  },
+  "check": {
+    "question": "A positive-edge-triggered D flip-flop has D = 0 held steady, and D jumps to 1 a moment after a rising edge. When does Q become 1?",
+    "answer": "At the next rising edge, not before. The jump missed the edge it followed.",
+    "explanation": "The device samples only at the active edge. A latch would have followed D immediately, which is the difference the exam draws."
+  },
+  "pyqIds": [
+    "gate-2015-1-37-d-jk-cross-coupled-sequence",
+    "gate-2005-62-dff-output-sequence"
+  ],
+  "videoRefs": [],
+  "prereqs": [
+    "gated-sr-latch-and-d-latch"
+  ],
+  "visual": null,
+  "sources": [
+    {
+      "kind": "lecture-slides",
+      "title": "Lecture 7 - Synchronous Sequential Logic",
+      "channel": "IIT Bombay, CS 226 Digital Logic Design (Ashutosh Trivedi)",
+      "url": "https://www.cse.iitb.ac.in/~trivedi/courses/cs226/lecture07.pdf",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "The complete slide text was served and read: the sequential definition, the synchronous and asynchronous classification, the NOR and NAND SR latch tables, the gated SR latch, the D latch, the problem with latches, the edge-triggered D flip-flop and setup and hold, the JK and T flip-flops with their characteristic equations, the analysis example, the seven-step synthesis procedure, state reduction and the binary, Gray and one-hot assignment table."
+    },
+    {
+      "kind": "lecture-slides",
+      "title": "Registers and Counters",
+      "channel": "King Fahd University of Petroleum and Minerals, COE 202 Digital Logic Design (Muhamed Mudawar)",
+      "url": "https://faculty.kfupm.edu.sa/coe/mudawar/coe202/lectures/16-Register&Counters.pdf",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "The complete slide text was served and read: the register and its load or enable input, the four shift-register kinds, the universal shift register with its four control functions, the modulo-N definition, the ripple counter and its per-stage delay, the synchronous counter, the frequency-division table F/2 to F/16, and the BCD counter reset."
+    }
+  ],
+  "sourceLine": "The three-latch edge-triggered D flip-flop, setup and hold, and the sampling-at-the-edge argument: IIT Bombay CS 226 Lecture 7 (English, read in full). The synchronous-counter timing argument and the per-stage delay model: KFUPM COE 202 Lecture 16 (English, read in full). The two verified questions are GATE CSE 2015 Set 1 Q.37 and GATE CSE 2005 Q.62, both on their GATE Overflow pages."
+}

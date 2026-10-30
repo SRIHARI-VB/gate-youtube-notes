@@ -1,0 +1,75 @@
+{
+  "id": "registers-and-shift-registers",
+  "title": "Registers and Shift Registers",
+  "priority": "P2",
+  "order": 453,
+  "unit": "Sequential Circuits",
+  "quickIdea": "A register is n flip-flops sharing a clock, so they load together. A shift register connects each flip-flop's output to the next one's input, so on every clock the whole word moves one place.",
+  "remember": [
+    "An n-bit register is n flip-flops with a common clock and a common reset; n bits need n flip-flops, no compression.",
+    "A load or enable input is one AND gate per flip-flop feeding the D input, or a multiplexer per stage: when the enable is 0 the flip-flop reloads its own value, which is the hold.",
+    "The four shift-register kinds are named by where the data goes in and out: serial in serial out, serial in parallel out, parallel in serial out, parallel in parallel out.",
+    "A serial in parallel out register converts a serial stream to a word; a parallel in serial out register does the reverse. A shift register is a delay line: a bit entering now reaches the output n clocks later.",
+    "A universal shift register has two control lines, so four modes: 00 hold, 01 shift right, 10 shift left, 11 parallel load. Every stage carries a four-to-one multiplexer in front of its flip-flop.",
+    "A bit-serial adder is a full adder plus one flip-flop for the carry plus a shift register for the sum, which is why serial arithmetic needs one clock per bit."
+  ],
+  "example": {
+    "prompt": "A four-bit serial-in parallel-out shift register is cleared, then the bits 1, 0, 1, 1 are fed in on four successive clocks. What does the register hold after each clock, and after four clocks?",
+    "work": "Clock 1 shifts 1 in: 1000 as Q3Q2Q1Q0 if Q3 is the input end. Clock 2 shifts 0: 0100. Clock 3 shifts 1: 1010. Clock 4 shifts 1: 1101.",
+    "answer": "After four clocks the parallel output reads 1101, with the last bit fed in at the input end and the first bit furthest along. Four clocks are needed for four bits; a fifth clock would begin pushing the first bit out."
+  },
+  "gateAngle": "Registers are rarely asked alone; they appear as the state-holding block of a bigger circuit, or as the answer to 'how many clocks to move n bits'. The universal shift register's four control codes are the examinable table.",
+  "variations": [
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "How many clocks does a four-bit parallel-in serial-out shift register need to output a four-bit word, and how many would a four-bit serial-in serial-out register need to both load and unload it?",
+      "answer": "Four clocks for the parallel-in serial-out register, one bit per clock. The serial-in serial-out register needs eight: four to fill and four to empty.",
+      "why": "The count is the number of bits that must cross a serial boundary. A parallel interface crosses all of them in one clock, a serial one crosses one per clock."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "A universal shift register has control lines S1S0 = 11 and the parallel data inputs are 0110 while it currently holds 1001. What does it hold after the next clock?",
+      "answer": "0110. The code 11 is parallel load, so the data inputs overwrite all four stages at once.",
+      "why": "The four codes are hold, shift right, shift left and parallel load. Reading the code before the data is the whole method."
+    }
+  ],
+  "trap": {
+    "what": "Assuming a shift register needs fewer flip-flops than bits, or that a register can hold more bits than it has flip-flops.",
+    "why": "Each flip-flop stores exactly one bit, and nothing in a shift register compresses. An n-bit register is n flip-flops, whatever its input and output arrangement.",
+    "counterexample": "A four-bit serial-in parallel-out register has four flip-flops, holds four bits, and takes four clocks to fill; there is no arrangement of four flip-flops that holds five bits."
+  },
+  "check": {
+    "question": "A six-bit shift register is clocked at 1 MHz and receives one bit per clock. How long does a bit take to pass from input to output?",
+    "answer": "Six clock periods, 6 microseconds.",
+    "explanation": "Each clock moves the bit one stage, so the delay equals the number of stages times the period. That is why a shift register is called a digital delay line."
+  },
+  "pyqIds": [],
+  "videoRefs": [],
+  "prereqs": [
+    "edge-triggered-flip-flop-and-timing"
+  ],
+  "visual": null,
+  "sources": [
+    {
+      "kind": "lecture-slides",
+      "title": "Registers and Counters",
+      "channel": "King Fahd University of Petroleum and Minerals, COE 202 Digital Logic Design (Muhamed Mudawar)",
+      "url": "https://faculty.kfupm.edu.sa/coe/mudawar/coe202/lectures/16-Register&Counters.pdf",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "The complete slide text was served and read: the register and its load or enable input, the four shift-register kinds, the universal shift register with its four control functions, the modulo-N definition, the ripple counter and its per-stage delay, the synchronous counter, the frequency-division table F/2 to F/16, and the BCD counter reset."
+    },
+    {
+      "kind": "lecture-slides",
+      "title": "Lecture 7 - Synchronous Sequential Logic",
+      "channel": "IIT Bombay, CS 226 Digital Logic Design (Ashutosh Trivedi)",
+      "url": "https://www.cse.iitb.ac.in/~trivedi/courses/cs226/lecture07.pdf",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "The complete slide text was served and read: the sequential definition, the synchronous and asynchronous classification, the NOR and NAND SR latch tables, the gated SR latch, the D latch, the problem with latches, the edge-triggered D flip-flop and setup and hold, the JK and T flip-flops with their characteristic equations, the analysis example, the seven-step synthesis procedure, state reduction and the binary, Gray and one-hot assignment table."
+    }
+  ],
+  "sourceLine": "The register with load or enable, the four shift-register kinds, the universal shift register's four control functions and the bit-serial adder: KFUPM COE 202 Lecture 16 (English, read in full). The register as n flip-flops sharing a clock: IIT Bombay CS 226 Lecture 7 (English, read in full). No verified GATE CSE question of this topic is decided by a shift register alone, which is why this card carries none."
+}
