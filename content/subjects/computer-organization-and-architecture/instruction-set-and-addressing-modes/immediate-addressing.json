@@ -1,0 +1,90 @@
+{
+  "id": "immediate-addressing",
+  "title": "Immediate Addressing: The Operand Is in the Instruction",
+  "priority": "P1",
+  "order": 484,
+  "unit": "Instruction Set and Addressing Modes",
+  "quickIdea": "Immediate mode puts the value itself in the operand field. It costs no data memory reference and it cannot be written to.",
+  "remember": [
+    "Operand = the value in the address field. No effective address is computed, and there is no operand memory reference - only the instruction fetch.",
+    "It is the fastest mode and the narrowest: the value is limited to the field width, which is usually much less than a word.",
+    "An immediate can only be a source. A destination must be a register or a memory location.",
+    "In a high-level language it is a constant: the 5 in x = 5, or the 6 in A = B + 6.",
+    "Two immediate forms are distinguished in practice: a short literal in the operand field, and a long literal carried in a following word.",
+    "Because the value is fixed at assembly time, a program that needs the same constant twice carries it twice."
+  ],
+  "example": {
+    "prompt": "A 16-bit immediate field is unsigned. What is the largest constant ADD R1, #c can add, and what is the instruction's own length if the opcode is 6 bits and R1 is 5 bits?",
+    "work": "16 unsigned bits hold 0 to 65535, so c <= 65535. The instruction is 6 + 5 + 16 = 27 bits, which byte-aligns to 4 bytes.",
+    "answer": "65535 at most, in a 4-byte instruction."
+  },
+  "gateAngle": "The immediate field's width is the arithmetic GATE actually asks for (GATE CSE 2016 Set 2 Q.10 gives 16 bits; GATE CSE 2025 Set 1 Q.27 gives 20). The mode itself is asked as a classification - GATE CSE 2026 Set 1 Q.4 pairs immediate with a constant, and GATE CSE 2002 Q.1.24 uses 'the operand is inside the instruction' as the wrong option for absolute addressing, which is the immediate definition used as a distractor.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "Is ADD R1, #25 a one-word or a two-word instruction, and how many memory references does its operand need?",
+      "answer": "One word if the field is wide enough for 25, and zero operand memory references.",
+      "why": "The constant travels inside the fetched instruction. That is the whole advantage, and it is why an immediate field is worth its bits."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Why is the immediate value limited to the address field's width, and what do designers do about it?",
+      "answer": "Because it must fit in the instruction word. Designers add a second form that carries a full-width literal in the next word, or build the constant by shifting a shorter one.",
+      "why": "This is the origin of the 'load upper immediate' pair of instructions in MIPS-like designs, and of the length penalty a long literal carries."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "A loop adds 1 to a counter a million times. Is immediate addressing the right choice, and what does the instruction count look like?",
+      "answer": "Yes - the 1 is a constant - and the loop needs one ADD R1, #1 per iteration rather than a load of a constant plus an add.",
+      "why": "Using a memory constant instead would add one memory reference per iteration. That is the trade the mode exists to avoid."
+    }
+  ],
+  "trap": {
+    "what": "Saying the operand of an immediate instruction is the address 25 rather than the value 25.",
+    "why": "The bits in the field are the value. There is no second level of interpretation and nothing is fetched.",
+    "counterexample": "GATE CSE 2002 Q.1.24 offers 'the operand is inside the instruction' as an option for absolute addressing; it is wrong there and right here. The two modes are exactly each other's distractor."
+  },
+  "check": {
+    "question": "Which of these can never be an immediate operand: a source in an ADD, a destination in a MOV, an argument to a branch?",
+    "answer": "The destination. An immediate has no location to be written into.",
+    "explanation": "MOV #5, R1 is legal; MOV R1, #5 is not. The immediate is a value without an address, so it can only be read."
+  },
+  "pyqIds": [],
+  "prereqs": [
+    "instruction-format-and-fields"
+  ],
+  "sources": [
+    {
+      "kind": "lecture-transcript",
+      "title": "Lecture 12 - Addressing Modes",
+      "channel": "NPTEL, Computer Organization and Architecture - A Pedagogical Aspect (Prof. Jatindra Kr. Deka, Dr. Santosh Biswas, Dr. Arnab Sarkar, IIT Guwahati)",
+      "url": "http://www.digimat.in/nptel/courses/video/106103180/lec12.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read from the opening through the definition of displacement addressing: the reason a large operand is moved out of the instruction into memory, the immediate / direct / indirect / register / register-indirect ladder with the size-and-speed trade-off of each, and the two-part address of displacement addressing. The returned extract stopped inside the displacement discussion, so nothing is attributed to the indexed, relative, autoincrement or stack material of the same lecture"
+    },
+    {
+      "kind": "lecture-transcript",
+      "title": "Lecture 07 - Instruction Format and Addressing Modes",
+      "channel": "NPTEL, Computer Organization and Architecture (Prof. Kamalika Datta, NIT Meghalaya)",
+      "url": "http://www.digimat.in/nptel/courses/video/106105163/lec7.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read from the opening through the list of addressing modes: the opcode and operand parts of an instruction, the rule that a destination operand must be a register or a memory location while an immediate can only be a source, the zero- to three-address formats, the 32-bit field example with 32 registers costing 5 bits each, and the statement that load-store architectures support very few addressing modes. The returned extract stopped before the mode-by-mode teaching, so nothing is attributed to that part"
+    },
+    {
+      "kind": "text",
+      "title": "What is addressing modes in Hindi (addressing modes in hindi)",
+      "channel": "computernetworksite.in (Hindi article following Stallings' treatment of addressing modes)",
+      "url": "https://www.computernetworksite.in/2023/03/what-is-addressing-modes-in-hindi.html",
+      "language": "hi",
+      "transcript": "PARTIAL",
+      "translated": true,
+      "note": "read through the seven modes: immediate, direct, indirect, register, register indirect, displacement (relative, base register, indexing) and stack, each with its advantage and its disadvantage in memory references and address-space width. Translated into English here; the article's illustrative instruction examples are 8085-specific and are not used"
+    }
+  ],
+  "sourceLine": "The immediate rung of the ladder, and the argument that a high-precision constant is pushed into memory precisely because an immediate would lengthen the instruction: Deka et al., Lecture 12 (English, read in part). The rule that an immediate is only ever a source: Datta, Lecture 07 (English, read in part). The statement, translated from Hindi, that immediate mode needs no memory reference beyond the instruction fetch and is limited by the address field's width: computernetworksite.in (Hindi, translated, read in part). No PYQ is attached because the immediate questions of this topic are field-width questions and sit on the bit-budget card.",
+  "videoRefs": []
+}
