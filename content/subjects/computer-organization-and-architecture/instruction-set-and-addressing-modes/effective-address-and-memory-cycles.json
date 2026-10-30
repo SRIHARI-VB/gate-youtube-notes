@@ -81,5 +81,19 @@
     }
   ],
   "sourceLine": "The mode-by-mode control-step sequences, shown for direct mode as IR -> MAR, memory read, MDR -> operand, and the statement that the fetch steps 1 to 3 are the same for every instruction while the later steps differ by mode: Deka et al., Lecture 18 (English, read in part). The translated statement that indirect addressing needs three or more memory references for the whole instruction while direct needs one: computernetworksite.in (Hindi, translated, read in part). The full count for the 2005 instruction is recomputed in scripts/validate.py.",
-  "videoRefs": []
+  "videoRefs": [],
+  "links": {
+    "visual": {
+      "slug": "instruction-set-and-addressing-modes",
+      "title": "Instruction Set and Addressing Modes",
+      "level": "topic-level",
+      "covers": [
+        "a multi-word instruction costs one fetch per word",
+        "memory indirect costs two reads because the pointer must be fetched",
+        "direct and register indirect both cost one read; only the address source differs"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/instruction-set-and-addressing-modes/index.html"
+    },
+    "mapped_at": "2026-10-30"
+  }
 }

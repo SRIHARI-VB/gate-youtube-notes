@@ -89,10 +89,15 @@
       "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-limits-derivatives/gate_em_mock_3_2026-10-27.html"
     },
     "visual": {
-      "slug": "calculus-limits-extrema-and-integration",
-      "title": "Calculus: Limits, Extrema and Integration",
+      "slug": "mean-value-theorems-rolle-and-lagrange",
+      "title": "Mean value theorems: Rolle, Lagrange and Cauchy, and what each one licenses",
       "level": "topic-level",
-      "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
+      "covers": [
+        "Cauchy's theorem compares two functions at one common point",
+        "x squared against x cubed on [1,2]: ratio 3/7, point 14/9 = 1.555556",
+        "the separate theorems give 1.5 and 1.527525, so the ratio cannot be split"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/mean-value-theorems-rolle-and-lagrange/index.html"
     },
     "mapped_at": "2026-10-30"
   }

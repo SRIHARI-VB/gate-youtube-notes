@@ -18972,10 +18972,15 @@ window.GATE_DATA = {
      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-limits-derivatives/gate_em_mock_3_2026-10-27.html"
     },
     "visual": {
-     "slug": "calculus-limits-extrema-and-integration",
-     "title": "Calculus: Limits, Extrema and Integration",
+     "slug": "mean-value-theorems-rolle-and-lagrange",
+     "title": "Mean value theorems: Rolle, Lagrange and Cauchy, and what each one licenses",
      "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
+     "covers": [
+      "Rolle is the mean value theorem with a flat chord",
+      "x squared - 4x + 3 on [1,3]: level ends, c = 2 at the vertex, value -1",
+      "the auxiliary function x squared - 2x proves the general case from Rolle"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/mean-value-theorems-rolle-and-lagrange/index.html"
     },
     "mapped_at": "2026-10-30"
    },
@@ -19094,13 +19099,15 @@ window.GATE_DATA = {
      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-limits-derivatives/gate_em_mock_3_2026-10-27.html"
     },
     "visual": {
-     "slug": "calculus-limits-extrema-and-integration",
-     "title": "Calculus: Limits, Extrema and Integration",
+     "slug": "mean-value-theorems-rolle-and-lagrange",
+     "title": "Mean value theorems: Rolle, Lagrange and Cauchy, and what each one licenses",
      "level": "topic-level",
      "covers": [
-      "two one-sided slopes as the test for differentiability"
+      "the chord slope is the average rate of change and needs no knowledge of the interior",
+      "x squared on [0,2]: chord slope 2, guaranteed point c = 1",
+      "the tangent at c is parallel to the chord, not equal to it: y = 2x - 1 against y = 2x"
      ],
-     "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
+     "url": "https://gate-visual-explainer.vercel.app/topics/mean-value-theorems-rolle-and-lagrange/index.html"
     },
     "mapped_at": "2026-10-30"
    },
@@ -19210,13 +19217,15 @@ window.GATE_DATA = {
      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-limits-derivatives/gate_em_mock_3_2026-10-27.html"
     },
     "visual": {
-     "slug": "calculus-limits-extrema-and-integration",
-     "title": "Calculus: Limits, Extrema and Integration",
+     "slug": "mean-value-theorems-rolle-and-lagrange",
+     "title": "Mean value theorems: Rolle, Lagrange and Cauchy, and what each one licenses",
      "level": "topic-level",
      "covers": [
-      "mean value theorem"
+      "rewriting the conclusion as change equals derivative times width",
+      "sine over [0.3,2.1]: change 0.567689 against the gap 1.8, point 1.249936",
+      "root 101 between 10.049751 and 10.05, true value 10.049876"
      ],
-     "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
+     "url": "https://gate-visual-explainer.vercel.app/topics/mean-value-theorems-rolle-and-lagrange/index.html"
     },
     "mapped_at": "2026-10-30"
    },
@@ -19316,13 +19325,16 @@ window.GATE_DATA = {
      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-limits-derivatives/gate_em_mock_3_2026-10-27.html"
     },
     "visual": {
-     "slug": "calculus-limits-extrema-and-integration",
-     "title": "Calculus: Limits, Extrema and Integration",
+     "slug": "mean-value-theorems-rolle-and-lagrange",
+     "title": "Mean value theorems: Rolle, Lagrange and Cauchy, and what each one licenses",
      "level": "topic-level",
      "covers": [
-      "one-sided limits and the three ways continuity fails"
+      "continuity is demanded on the closed interval because the chord uses both ends",
+      "differentiability is demanded only inside because c is interior",
+      "absolute x on [-1,1]: level ends, derivative plus or minus 1, never 0, so no c",
+      "a moved endpoint: chord slope 0 against an interior derivative of 1, so no c"
      ],
-     "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
+     "url": "https://gate-visual-explainer.vercel.app/topics/mean-value-theorems-rolle-and-lagrange/index.html"
     },
     "mapped_at": "2026-10-30"
    },
@@ -19430,13 +19442,14 @@ window.GATE_DATA = {
      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-limits-derivatives/gate_em_mock_3_2026-10-27.html"
     },
     "visual": {
-     "slug": "calculus-limits-extrema-and-integration",
-     "title": "Calculus: Limits, Extrema and Integration",
+     "slug": "mean-value-theorems-rolle-and-lagrange",
+     "title": "Mean value theorems: Rolle, Lagrange and Cauchy, and what each one licenses",
      "level": "topic-level",
      "covers": [
-      "the closed-interval candidate list: critical points, corners, endpoints"
+      "x squared on [0,2]: chord slope 2, guaranteed point c = 1",
+      "counting the solutions inside the interval is part of the answer"
      ],
-     "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
+     "url": "https://gate-visual-explainer.vercel.app/topics/mean-value-theorems-rolle-and-lagrange/index.html"
     },
     "mapped_at": "2026-10-30"
    },
@@ -19545,10 +19558,15 @@ window.GATE_DATA = {
      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-limits-derivatives/gate_em_mock_3_2026-10-27.html"
     },
     "visual": {
-     "slug": "calculus-limits-extrema-and-integration",
-     "title": "Calculus: Limits, Extrema and Integration",
+     "slug": "mean-value-theorems-rolle-and-lagrange",
+     "title": "Mean value theorems: Rolle, Lagrange and Cauchy, and what each one licenses",
      "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
+     "covers": [
+      "existence is guaranteed, uniqueness and location are not",
+      "x cubed - x on [-1,1]: two admissible points, plus and minus 0.577350",
+      "the identity on [0,1]: every interior point is admissible"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/mean-value-theorems-rolle-and-lagrange/index.html"
     },
     "mapped_at": "2026-10-30"
    },
@@ -19659,10 +19677,16 @@ window.GATE_DATA = {
      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-limits-derivatives/gate_em_mock_3_2026-10-27.html"
     },
     "visual": {
-     "slug": "calculus-limits-extrema-and-integration",
-     "title": "Calculus: Limits, Extrema and Integration",
+     "slug": "mean-value-theorems-rolle-and-lagrange",
+     "title": "Mean value theorems: Rolle, Lagrange and Cauchy, and what each one licenses",
      "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
+     "covers": [
+      "a positive derivative forces an increase, by the theorem on every pair of points",
+      "a zero derivative on an interval forces a constant",
+      "x cubed is strictly increasing with a zero derivative at 0: the converse fails",
+      "a disconnected domain with zero derivative everywhere and two different values"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/mean-value-theorems-rolle-and-lagrange/index.html"
     },
     "mapped_at": "2026-10-30"
    },
@@ -19771,10 +19795,15 @@ window.GATE_DATA = {
      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-limits-derivatives/gate_em_mock_3_2026-10-27.html"
     },
     "visual": {
-     "slug": "calculus-limits-extrema-and-integration",
-     "title": "Calculus: Limits, Extrema and Integration",
+     "slug": "mean-value-theorems-rolle-and-lagrange",
+     "title": "Mean value theorems: Rolle, Lagrange and Cauchy, and what each one licenses",
      "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
+     "covers": [
+      "between two zeros of a differentiable function sits a zero of its derivative",
+      "x cubed - 3x + 1: zeros at -1.879385, 0.347296, 1.532089",
+      "read backwards, each gap costs a derivative zero, so degree n allows at most n zeros"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/mean-value-theorems-rolle-and-lagrange/index.html"
     },
     "mapped_at": "2026-10-30"
    },
@@ -19873,10 +19902,15 @@ window.GATE_DATA = {
      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-limits-derivatives/gate_em_mock_3_2026-10-27.html"
     },
     "visual": {
-     "slug": "calculus-limits-extrema-and-integration",
-     "title": "Calculus: Limits, Extrema and Integration",
+     "slug": "mean-value-theorems-rolle-and-lagrange",
+     "title": "Mean value theorems: Rolle, Lagrange and Cauchy, and what each one licenses",
      "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
+     "covers": [
+      "Cauchy's theorem compares two functions at one common point",
+      "x squared against x cubed on [1,2]: ratio 3/7, point 14/9 = 1.555556",
+      "the separate theorems give 1.5 and 1.527525, so the ratio cannot be split"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/mean-value-theorems-rolle-and-lagrange/index.html"
     },
     "mapped_at": "2026-10-30"
    },
@@ -19985,10 +20019,14 @@ window.GATE_DATA = {
      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-limits-derivatives/gate_em_mock_3_2026-10-27.html"
     },
     "visual": {
-     "slug": "calculus-limits-extrema-and-integration",
-     "title": "Calculus: Limits, Extrema and Integration",
+     "slug": "mean-value-theorems-rolle-and-lagrange",
+     "title": "Mean value theorems: Rolle, Lagrange and Cauchy, and what each one licenses",
      "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
+     "covers": [
+      "the auxiliary function x squared - 2x proves the general case from Rolle",
+      "Rolle is the mean value theorem with a flat chord"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/mean-value-theorems-rolle-and-lagrange/index.html"
     },
     "mapped_at": "2026-10-30"
    },
@@ -20086,13 +20124,15 @@ window.GATE_DATA = {
      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-limits-derivatives/gate_em_mock_3_2026-10-27.html"
     },
     "visual": {
-     "slug": "calculus-limits-extrema-and-integration",
-     "title": "Calculus: Limits, Extrema and Integration",
+     "slug": "mean-value-theorems-rolle-and-lagrange",
+     "title": "Mean value theorems: Rolle, Lagrange and Cauchy, and what each one licenses",
      "level": "topic-level",
      "covers": [
-      "the mean value theorem used as an inequality, and sharpness"
+      "the exponential outruns 1 + x because its secant slope exceeds 1",
+      "root 101 between 10.049751 and 10.05, true value 10.049876",
+      "rewriting the conclusion as change equals derivative times width"
      ],
-     "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
+     "url": "https://gate-visual-explainer.vercel.app/topics/mean-value-theorems-rolle-and-lagrange/index.html"
     },
     "mapped_at": "2026-10-30"
    },
@@ -20203,13 +20243,14 @@ window.GATE_DATA = {
      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-limits-derivatives/gate_em_mock_3_2026-10-27.html"
     },
     "visual": {
-     "slug": "calculus-limits-extrema-and-integration",
-     "title": "Calculus: Limits, Extrema and Integration",
+     "slug": "mean-value-theorems-rolle-and-lagrange",
+     "title": "Mean value theorems: Rolle, Lagrange and Cauchy, and what each one licenses",
      "level": "topic-level",
      "covers": [
-      "first and second derivative tests"
+      "a zero derivative is a candidate extremum, not a certificate of one",
+      "x cubed is strictly increasing with a zero derivative at 0: the converse fails"
      ],
-     "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
+     "url": "https://gate-visual-explainer.vercel.app/topics/mean-value-theorems-rolle-and-lagrange/index.html"
     },
     "mapped_at": "2026-10-30"
    },
@@ -32927,6 +32968,20 @@ window.GATE_DATA = {
    ],
    "sourceLine": "The opcode-and-operand split, the rule that a destination must be a register or a memory location while an immediate is only a source, the zero- to three-address formats and the 32-bit field example with 5 bits per register: Datta, Lecture 07 (English, read in part). The statement that a high-precision operand forces a long instruction and is therefore moved into memory, which is the format-versus-mode trade: Deka et al., Lecture 12 (English, read in part). Every number here is recomputed in scripts/validate.py.",
    "videoRefs": [],
+   "links": {
+    "visual": {
+     "slug": "instruction-set-and-addressing-modes",
+     "title": "Instruction Set and Addressing Modes",
+     "level": "topic-level",
+     "covers": [
+      "the format is one equation: sum of field widths = word length",
+      "a field naming one of n things costs ceil(log2 n) bits, never floor",
+      "read the operand list from the instruction shown, not from the widest format"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/instruction-set-and-addressing-modes/index.html"
+    },
+    "mapped_at": "2026-10-30"
+   },
    "subject": "computer-organization-and-architecture",
    "topic": "instruction-set-and-addressing-modes",
    "path": "subjects/computer-organization-and-architecture/instruction-set-and-addressing-modes/instruction-format-and-fields.json"
@@ -33005,6 +33060,21 @@ window.GATE_DATA = {
    ],
    "sourceLine": "The worked 32-bit field split with 32 registers costing 5 bits each, and the statement that the number of operands varies with the instruction: Datta, Lecture 07 (English, read in part). The expanding-opcode consequence and every number in the three verified questions are recomputed in scripts/validate.py, which also re-derives all three GATE answers from the question text.",
    "videoRefs": [],
+   "links": {
+    "visual": {
+     "slug": "instruction-set-and-addressing-modes",
+     "title": "Instruction Set and Addressing Modes",
+     "level": "topic-level",
+     "covers": [
+      "a field naming one of n things costs ceil(log2 n) bits, never floor",
+      "largest unsigned value is 2^b - 1, not 2^b",
+      "signed range -2^(b-1) to 2^(b-1)-1, and why it is asymmetric",
+      "an escape code gives a variable-length opcode"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/instruction-set-and-addressing-modes/index.html"
+    },
+    "mapped_at": "2026-10-30"
+   },
    "subject": "computer-organization-and-architecture",
    "topic": "instruction-set-and-addressing-modes",
    "path": "subjects/computer-organization-and-architecture/instruction-set-and-addressing-modes/instruction-field-bit-budget.json"
@@ -33098,6 +33168,21 @@ window.GATE_DATA = {
    ],
    "sourceLine": "The architecture-against-organisation distinction with the instruction set, data formats and memory-addressing techniques named as architectural attributes: Deka's NPTEL web course, introduction chapters (English, read in part through a published mirror). Instructions as the interface between hardware and software and MIPS as a real RISC design: Anshul Kumar, Lecture 3 (English, read in part). The statement that load-store architectures support very few addressing modes: Datta, Lecture 07 (English, read in part). No previous-year question is attached: the one that tests it directly, GATE CSE 2025 Set 2 Q.18, was seen only as a stripped listing and is not claimed here.",
    "videoRefs": [],
+   "links": {
+    "visual": {
+     "slug": "instruction-set-and-addressing-modes",
+     "title": "Instruction Set and Addressing Modes",
+     "level": "topic-level",
+     "covers": [
+      "the ISA is the programmer-visible contract: operations, registers, formats, modes, data types, byte order",
+      "microarchitecture is not the ISA: cache size, cache levels, clock frequency, pipeline depth",
+      "load-store allows memory only in load and store",
+      "RISC: register-to-register, fixed length, hardwired control"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/instruction-set-and-addressing-modes/index.html"
+    },
+    "mapped_at": "2026-10-30"
+   },
    "subject": "computer-organization-and-architecture",
    "topic": "instruction-set-and-addressing-modes",
    "path": "subjects/computer-organization-and-architecture/instruction-set-and-addressing-modes/isa-instruction-types-and-risc-cisc.json"
@@ -33173,6 +33258,20 @@ window.GATE_DATA = {
    ],
    "sourceLine": "The zero- to three-address enumeration, the worked formats and the statement that the number of operands varies with the instruction: Datta, Lecture 07 (English, read in part). The instruction counts in the example and the quick check are recomputed in scripts/validate.py.",
    "videoRefs": [],
+   "links": {
+    "visual": {
+     "slug": "instruction-set-and-addressing-modes",
+     "title": "Instruction Set and Addressing Modes",
+     "level": "topic-level",
+     "covers": [
+      "three-, two-, one- and zero-address formats evaluate one expression in 3, 5, 7 and 8 instructions",
+      "a two-address format needs a copy because the destination is also a source",
+      "an implied accumulator belongs to a one-address machine, never a three-address one"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/instruction-set-and-addressing-modes/index.html"
+    },
+    "mapped_at": "2026-10-30"
+   },
    "subject": "computer-organization-and-architecture",
    "topic": "instruction-set-and-addressing-modes",
    "path": "subjects/computer-organization-and-architecture/instruction-set-and-addressing-modes/instruction-formats-zero-to-three-address.json"
@@ -33266,6 +33365,20 @@ window.GATE_DATA = {
    ],
    "sourceLine": "The immediate rung of the ladder, and the argument that a high-precision constant is pushed into memory precisely because an immediate would lengthen the instruction: Deka et al., Lecture 12 (English, read in part). The rule that an immediate is only ever a source: Datta, Lecture 07 (English, read in part). The statement, translated from Hindi, that immediate mode needs no memory reference beyond the instruction fetch and is limited by the address field's width: computernetworksite.in (Hindi, translated, read in part). No PYQ is attached because the immediate questions of this topic are field-width questions and sit on the bit-budget card.",
    "videoRefs": [],
+   "links": {
+    "visual": {
+     "slug": "instruction-set-and-addressing-modes",
+     "title": "Instruction Set and Addressing Modes",
+     "level": "topic-level",
+     "covers": [
+      "effective address is computed from the instruction fields plus the named state",
+      "immediate and register modes read no memory for the operand",
+      "constant to immediate, pointer to indirect, array element to base-with-index, record field to base-with-displacement"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/instruction-set-and-addressing-modes/index.html"
+    },
+    "mapped_at": "2026-10-30"
+   },
    "subject": "computer-organization-and-architecture",
    "topic": "instruction-set-and-addressing-modes",
    "path": "subjects/computer-organization-and-architecture/instruction-set-and-addressing-modes/immediate-addressing.json"
@@ -33352,6 +33465,19 @@ window.GATE_DATA = {
    ],
    "sourceLine": "The direct rung of the ladder and the reason a large operand is held in memory rather than in the instruction: Deka et al., Lecture 12 (English, read in part). The statement, translated from Hindi, that direct addressing gives the effective address in the address field, needs one memory reference and reaches only the address space the field can name: computernetworksite.in (Hindi, translated, read in part). The 2002 question is recomputed against the four mode definitions in scripts/validate.py.",
    "videoRefs": [],
+   "links": {
+    "visual": {
+     "slug": "instruction-set-and-addressing-modes",
+     "title": "Instruction Set and Addressing Modes",
+     "level": "topic-level",
+     "covers": [
+      "effective address is computed from the instruction fields plus the named state",
+      "direct and register indirect both cost one read; only the address source differs"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/instruction-set-and-addressing-modes/index.html"
+    },
+    "mapped_at": "2026-10-30"
+   },
    "subject": "computer-organization-and-architecture",
    "topic": "instruction-set-and-addressing-modes",
    "path": "subjects/computer-organization-and-architecture/instruction-set-and-addressing-modes/direct-addressing.json"
@@ -33438,6 +33564,20 @@ window.GATE_DATA = {
    ],
    "sourceLine": "The indirect rung, described as the instruction naming a location which in turn names the data, and the note that indirection is what expands the reachable space: Deka et al., Lecture 12 (English, read in part). The statement, translated from Hindi, that indirect mode needs three or more memory references for the whole instruction and reaches 2^N addresses for an N-bit word: computernetworksite.in (Hindi, translated, read in part). The two-read operand count used on this card is the operand half of that figure, and the distinction is stated in scripts/validate.py.",
    "videoRefs": [],
+   "links": {
+    "visual": {
+     "slug": "instruction-set-and-addressing-modes",
+     "title": "Instruction Set and Addressing Modes",
+     "level": "topic-level",
+     "covers": [
+      "memory indirect costs two reads because the pointer must be fetched",
+      "direct and register indirect both cost one read; only the address source differs",
+      "constant to immediate, pointer to indirect, array element to base-with-index, record field to base-with-displacement"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/instruction-set-and-addressing-modes/index.html"
+    },
+    "mapped_at": "2026-10-30"
+   },
    "subject": "computer-organization-and-architecture",
    "topic": "instruction-set-and-addressing-modes",
    "path": "subjects/computer-organization-and-architecture/instruction-set-and-addressing-modes/indirect-addressing-and-pointers.json"
@@ -33522,6 +33662,19 @@ window.GATE_DATA = {
    ],
    "sourceLine": "The register and register-indirect rungs, including the observation that register addressing needs fewer bits and no memory trip but is limited by how few registers there are: Deka et al., Lecture 12 (English, read in part). The translated statement that register indirect needs exactly one memory reference and is bounded by the register width: computernetworksite.in (Hindi, translated, read in part). No PYQ is attached because no CSE question of this topic is decided by register mode alone.",
    "videoRefs": [],
+   "links": {
+    "visual": {
+     "slug": "instruction-set-and-addressing-modes",
+     "title": "Instruction Set and Addressing Modes",
+     "level": "topic-level",
+     "covers": [
+      "immediate and register modes read no memory for the operand",
+      "direct and register indirect both cost one read; only the address source differs"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/instruction-set-and-addressing-modes/index.html"
+    },
+    "mapped_at": "2026-10-30"
+   },
    "subject": "computer-organization-and-architecture",
    "topic": "instruction-set-and-addressing-modes",
    "path": "subjects/computer-organization-and-architecture/instruction-set-and-addressing-modes/register-and-register-indirect-addressing.json"
@@ -33621,6 +33774,20 @@ window.GATE_DATA = {
    ],
    "sourceLine": "The two-part address of displacement addressing - one part fixed in the instruction and one part held in a register that can change - is the last thing read from Deka et al., Lecture 12 (English, read in part). The statement that the control steps differ by mode and that address arithmetic happens in the address unit: Deka et al., Lecture 18 (English, read in part). The translated three-way split of displacement addressing into relative, base-register and indexing, with base register holding a memory address and index holding a positive displacement: computernetworksite.in (Hindi, translated, read in part). The three GATE answers are recomputed in scripts/validate.py.",
    "videoRefs": [],
+   "links": {
+    "visual": {
+     "slug": "instruction-set-and-addressing-modes",
+     "title": "Instruction Set and Addressing Modes",
+     "level": "topic-level",
+     "covers": [
+      "indexed scales the index by the element size; displacement does not scale",
+      "constant to immediate, pointer to indirect, array element to base-with-index, record field to base-with-displacement",
+      "effective address is computed from the instruction fields plus the named state"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/instruction-set-and-addressing-modes/index.html"
+    },
+    "mapped_at": "2026-10-30"
+   },
    "subject": "computer-organization-and-architecture",
    "topic": "instruction-set-and-addressing-modes",
    "path": "subjects/computer-organization-and-architecture/instruction-set-and-addressing-modes/displacement-addressing-base-and-index.json"
@@ -33707,6 +33874,20 @@ window.GATE_DATA = {
    ],
    "sourceLine": "The translated definition of relative addressing as displacement addressing with the program counter in place of the general register, with the address field treated as a two's complement number: computernetworksite.in (Hindi, translated, read in part). The general two-part displacement structure behind it: Deka et al., Lecture 12 (English, read in part). The offset arithmetic and the reach figures are recomputed in scripts/validate.py.",
    "videoRefs": [],
+   "links": {
+    "visual": {
+     "slug": "instruction-set-and-addressing-modes",
+     "title": "Instruction Set and Addressing Modes",
+     "level": "topic-level",
+     "covers": [
+      "a branch offset is target minus the address of the next instruction",
+      "the offset is signed, so half the field range is spent on backward jumps",
+      "a branch offset of zero means fall through and is legal"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/instruction-set-and-addressing-modes/index.html"
+    },
+    "mapped_at": "2026-10-30"
+   },
    "subject": "computer-organization-and-architecture",
    "topic": "instruction-set-and-addressing-modes",
    "path": "subjects/computer-organization-and-architecture/instruction-set-and-addressing-modes/pc-relative-addressing-and-branch-offsets.json"
@@ -33793,6 +33974,19 @@ window.GATE_DATA = {
    ],
    "sourceLine": "The translated description of stack addressing as implicit addressing through the stack pointer, with no memory reference for the address itself: computernetworksite.in (Hindi, translated, read in part). The mode-by-mode control-step structure that makes the register update a distinct step: Deka et al., Lecture 18 (English, read in part). The autoincrement and autodecrement definitions and the increment-amount rule are recomputed in scripts/validate.py against the 2008 answer.",
    "videoRefs": [],
+   "links": {
+    "visual": {
+     "slug": "instruction-set-and-addressing-modes",
+     "title": "Instruction Set and Addressing Modes",
+     "level": "topic-level",
+     "covers": [
+      "autoincrement advances by the item size, not by one",
+      "three-, two-, one- and zero-address formats evaluate one expression in 3, 5, 7 and 8 instructions"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/instruction-set-and-addressing-modes/index.html"
+    },
+    "mapped_at": "2026-10-30"
+   },
    "subject": "computer-organization-and-architecture",
    "topic": "instruction-set-and-addressing-modes",
    "path": "subjects/computer-organization-and-architecture/instruction-set-and-addressing-modes/autoincrement-autodecrement-and-stack.json"
@@ -33881,6 +34075,20 @@ window.GATE_DATA = {
    ],
    "sourceLine": "The mode-by-mode control-step sequences, shown for direct mode as IR -> MAR, memory read, MDR -> operand, and the statement that the fetch steps 1 to 3 are the same for every instruction while the later steps differ by mode: Deka et al., Lecture 18 (English, read in part). The translated statement that indirect addressing needs three or more memory references for the whole instruction while direct needs one: computernetworksite.in (Hindi, translated, read in part). The full count for the 2005 instruction is recomputed in scripts/validate.py.",
    "videoRefs": [],
+   "links": {
+    "visual": {
+     "slug": "instruction-set-and-addressing-modes",
+     "title": "Instruction Set and Addressing Modes",
+     "level": "topic-level",
+     "covers": [
+      "a multi-word instruction costs one fetch per word",
+      "memory indirect costs two reads because the pointer must be fetched",
+      "direct and register indirect both cost one read; only the address source differs"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/instruction-set-and-addressing-modes/index.html"
+    },
+    "mapped_at": "2026-10-30"
+   },
    "subject": "computer-organization-and-architecture",
    "topic": "instruction-set-and-addressing-modes",
    "path": "subjects/computer-organization-and-architecture/instruction-set-and-addressing-modes/effective-address-and-memory-cycles.json"
@@ -33969,6 +34177,19 @@ window.GATE_DATA = {
    ],
    "sourceLine": "The translated statement that relative addressing's effective address is a displacement from the program counter, which is what makes it independent of the load address: computernetworksite.in (Hindi, translated, read in part). The displacement structure in which the instruction holds a constant and a register holds the changeable part: Deka et al., Lecture 12 (English, read in part). The relocation arithmetic is recomputed in scripts/validate.py, and both GATE answers are re-derived there from the question text.",
    "videoRefs": [],
+   "links": {
+    "visual": {
+     "slug": "instruction-set-and-addressing-modes",
+     "title": "Instruction Set and Addressing Modes",
+     "level": "topic-level",
+     "covers": [
+      "PC-relative needs no change at all; a base register must be reloaded; absolute breaks",
+      "the wording 'without any change whatsoever' selects PC-relative alone"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/instruction-set-and-addressing-modes/index.html"
+    },
+    "mapped_at": "2026-10-30"
+   },
    "subject": "computer-organization-and-architecture",
    "topic": "instruction-set-and-addressing-modes",
    "path": "subjects/computer-organization-and-architecture/instruction-set-and-addressing-modes/relocation-and-position-independent-code.json"

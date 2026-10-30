@@ -79,5 +79,19 @@
     }
   ],
   "sourceLine": "The translated definition of relative addressing as displacement addressing with the program counter in place of the general register, with the address field treated as a two's complement number: computernetworksite.in (Hindi, translated, read in part). The general two-part displacement structure behind it: Deka et al., Lecture 12 (English, read in part). The offset arithmetic and the reach figures are recomputed in scripts/validate.py.",
-  "videoRefs": []
+  "videoRefs": [],
+  "links": {
+    "visual": {
+      "slug": "instruction-set-and-addressing-modes",
+      "title": "Instruction Set and Addressing Modes",
+      "level": "topic-level",
+      "covers": [
+        "a branch offset is target minus the address of the next instruction",
+        "the offset is signed, so half the field range is spent on backward jumps",
+        "a branch offset of zero means fall through and is legal"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/instruction-set-and-addressing-modes/index.html"
+    },
+    "mapped_at": "2026-10-30"
+  }
 }

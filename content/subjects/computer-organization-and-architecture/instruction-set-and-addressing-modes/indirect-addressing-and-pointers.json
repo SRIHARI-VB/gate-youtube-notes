@@ -79,5 +79,19 @@
     }
   ],
   "sourceLine": "The indirect rung, described as the instruction naming a location which in turn names the data, and the note that indirection is what expands the reachable space: Deka et al., Lecture 12 (English, read in part). The statement, translated from Hindi, that indirect mode needs three or more memory references for the whole instruction and reaches 2^N addresses for an N-bit word: computernetworksite.in (Hindi, translated, read in part). The two-read operand count used on this card is the operand half of that figure, and the distinction is stated in scripts/validate.py.",
-  "videoRefs": []
+  "videoRefs": [],
+  "links": {
+    "visual": {
+      "slug": "instruction-set-and-addressing-modes",
+      "title": "Instruction Set and Addressing Modes",
+      "level": "topic-level",
+      "covers": [
+        "memory indirect costs two reads because the pointer must be fetched",
+        "direct and register indirect both cost one read; only the address source differs",
+        "constant to immediate, pointer to indirect, array element to base-with-index, record field to base-with-displacement"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/instruction-set-and-addressing-modes/index.html"
+    },
+    "mapped_at": "2026-10-30"
+  }
 }

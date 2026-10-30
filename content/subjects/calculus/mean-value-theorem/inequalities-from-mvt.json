@@ -88,13 +88,15 @@
       "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-limits-derivatives/gate_em_mock_3_2026-10-27.html"
     },
     "visual": {
-      "slug": "calculus-limits-extrema-and-integration",
-      "title": "Calculus: Limits, Extrema and Integration",
+      "slug": "mean-value-theorems-rolle-and-lagrange",
+      "title": "Mean value theorems: Rolle, Lagrange and Cauchy, and what each one licenses",
       "level": "topic-level",
       "covers": [
-        "the mean value theorem used as an inequality, and sharpness"
+        "the exponential outruns 1 + x because its secant slope exceeds 1",
+        "root 101 between 10.049751 and 10.05, true value 10.049876",
+        "rewriting the conclusion as change equals derivative times width"
       ],
-      "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
+      "url": "https://gate-visual-explainer.vercel.app/topics/mean-value-theorems-rolle-and-lagrange/index.html"
     },
     "mapped_at": "2026-10-30"
   }

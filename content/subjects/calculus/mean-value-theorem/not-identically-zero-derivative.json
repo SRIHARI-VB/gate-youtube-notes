@@ -101,13 +101,14 @@
       "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-limits-derivatives/gate_em_mock_3_2026-10-27.html"
     },
     "visual": {
-      "slug": "calculus-limits-extrema-and-integration",
-      "title": "Calculus: Limits, Extrema and Integration",
+      "slug": "mean-value-theorems-rolle-and-lagrange",
+      "title": "Mean value theorems: Rolle, Lagrange and Cauchy, and what each one licenses",
       "level": "topic-level",
       "covers": [
-        "first and second derivative tests"
+        "a zero derivative is a candidate extremum, not a certificate of one",
+        "x cubed is strictly increasing with a zero derivative at 0: the converse fails"
       ],
-      "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
+      "url": "https://gate-visual-explainer.vercel.app/topics/mean-value-theorems-rolle-and-lagrange/index.html"
     },
     "mapped_at": "2026-10-30"
   }

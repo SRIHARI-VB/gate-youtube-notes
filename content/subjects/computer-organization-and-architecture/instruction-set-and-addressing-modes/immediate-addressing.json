@@ -86,5 +86,19 @@
     }
   ],
   "sourceLine": "The immediate rung of the ladder, and the argument that a high-precision constant is pushed into memory precisely because an immediate would lengthen the instruction: Deka et al., Lecture 12 (English, read in part). The rule that an immediate is only ever a source: Datta, Lecture 07 (English, read in part). The statement, translated from Hindi, that immediate mode needs no memory reference beyond the instruction fetch and is limited by the address field's width: computernetworksite.in (Hindi, translated, read in part). No PYQ is attached because the immediate questions of this topic are field-width questions and sit on the bit-budget card.",
-  "videoRefs": []
+  "videoRefs": [],
+  "links": {
+    "visual": {
+      "slug": "instruction-set-and-addressing-modes",
+      "title": "Instruction Set and Addressing Modes",
+      "level": "topic-level",
+      "covers": [
+        "effective address is computed from the instruction fields plus the named state",
+        "immediate and register modes read no memory for the operand",
+        "constant to immediate, pointer to indirect, array element to base-with-index, record field to base-with-displacement"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/instruction-set-and-addressing-modes/index.html"
+    },
+    "mapped_at": "2026-10-30"
+  }
 }

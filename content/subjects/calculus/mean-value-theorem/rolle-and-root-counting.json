@@ -99,10 +99,15 @@
       "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-limits-derivatives/gate_em_mock_3_2026-10-27.html"
     },
     "visual": {
-      "slug": "calculus-limits-extrema-and-integration",
-      "title": "Calculus: Limits, Extrema and Integration",
+      "slug": "mean-value-theorems-rolle-and-lagrange",
+      "title": "Mean value theorems: Rolle, Lagrange and Cauchy, and what each one licenses",
       "level": "topic-level",
-      "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
+      "covers": [
+        "between two zeros of a differentiable function sits a zero of its derivative",
+        "x cubed - 3x + 1: zeros at -1.879385, 0.347296, 1.532089",
+        "read backwards, each gap costs a derivative zero, so degree n allows at most n zeros"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/mean-value-theorems-rolle-and-lagrange/index.html"
     },
     "mapped_at": "2026-10-30"
   }

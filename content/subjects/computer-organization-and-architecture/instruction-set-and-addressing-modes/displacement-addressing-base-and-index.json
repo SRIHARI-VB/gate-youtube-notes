@@ -92,5 +92,19 @@
     }
   ],
   "sourceLine": "The two-part address of displacement addressing - one part fixed in the instruction and one part held in a register that can change - is the last thing read from Deka et al., Lecture 12 (English, read in part). The statement that the control steps differ by mode and that address arithmetic happens in the address unit: Deka et al., Lecture 18 (English, read in part). The translated three-way split of displacement addressing into relative, base-register and indexing, with base register holding a memory address and index holding a positive displacement: computernetworksite.in (Hindi, translated, read in part). The three GATE answers are recomputed in scripts/validate.py.",
-  "videoRefs": []
+  "videoRefs": [],
+  "links": {
+    "visual": {
+      "slug": "instruction-set-and-addressing-modes",
+      "title": "Instruction Set and Addressing Modes",
+      "level": "topic-level",
+      "covers": [
+        "indexed scales the index by the element size; displacement does not scale",
+        "constant to immediate, pointer to indirect, array element to base-with-index, record field to base-with-displacement",
+        "effective address is computed from the instruction fields plus the named state"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/instruction-set-and-addressing-modes/index.html"
+    },
+    "mapped_at": "2026-10-30"
+  }
 }

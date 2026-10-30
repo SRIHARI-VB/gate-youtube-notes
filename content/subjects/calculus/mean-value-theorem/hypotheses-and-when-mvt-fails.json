@@ -90,13 +90,16 @@
       "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-limits-derivatives/gate_em_mock_3_2026-10-27.html"
     },
     "visual": {
-      "slug": "calculus-limits-extrema-and-integration",
-      "title": "Calculus: Limits, Extrema and Integration",
+      "slug": "mean-value-theorems-rolle-and-lagrange",
+      "title": "Mean value theorems: Rolle, Lagrange and Cauchy, and what each one licenses",
       "level": "topic-level",
       "covers": [
-        "one-sided limits and the three ways continuity fails"
+        "continuity is demanded on the closed interval because the chord uses both ends",
+        "differentiability is demanded only inside because c is interior",
+        "absolute x on [-1,1]: level ends, derivative plus or minus 1, never 0, so no c",
+        "a moved endpoint: chord slope 0 against an interior derivative of 1, so no c"
       ],
-      "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
+      "url": "https://gate-visual-explainer.vercel.app/topics/mean-value-theorems-rolle-and-lagrange/index.html"
     },
     "mapped_at": "2026-10-30"
   }

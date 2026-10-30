@@ -71,5 +71,20 @@
     }
   ],
   "sourceLine": "The worked 32-bit field split with 32 registers costing 5 bits each, and the statement that the number of operands varies with the instruction: Datta, Lecture 07 (English, read in part). The expanding-opcode consequence and every number in the three verified questions are recomputed in scripts/validate.py, which also re-derives all three GATE answers from the question text.",
-  "videoRefs": []
+  "videoRefs": [],
+  "links": {
+    "visual": {
+      "slug": "instruction-set-and-addressing-modes",
+      "title": "Instruction Set and Addressing Modes",
+      "level": "topic-level",
+      "covers": [
+        "a field naming one of n things costs ceil(log2 n) bits, never floor",
+        "largest unsigned value is 2^b - 1, not 2^b",
+        "signed range -2^(b-1) to 2^(b-1)-1, and why it is asymmetric",
+        "an escape code gives a variable-length opcode"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/instruction-set-and-addressing-modes/index.html"
+    },
+    "mapped_at": "2026-10-30"
+  }
 }

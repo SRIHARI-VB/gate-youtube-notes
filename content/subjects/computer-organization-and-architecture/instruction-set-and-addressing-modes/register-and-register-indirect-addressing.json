@@ -77,5 +77,18 @@
     }
   ],
   "sourceLine": "The register and register-indirect rungs, including the observation that register addressing needs fewer bits and no memory trip but is limited by how few registers there are: Deka et al., Lecture 12 (English, read in part). The translated statement that register indirect needs exactly one memory reference and is bounded by the register width: computernetworksite.in (Hindi, translated, read in part). No PYQ is attached because no CSE question of this topic is decided by register mode alone.",
-  "videoRefs": []
+  "videoRefs": [],
+  "links": {
+    "visual": {
+      "slug": "instruction-set-and-addressing-modes",
+      "title": "Instruction Set and Addressing Modes",
+      "level": "topic-level",
+      "covers": [
+        "immediate and register modes read no memory for the operand",
+        "direct and register indirect both cost one read; only the address source differs"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/instruction-set-and-addressing-modes/index.html"
+    },
+    "mapped_at": "2026-10-30"
+  }
 }

@@ -79,5 +79,18 @@
     }
   ],
   "sourceLine": "The translated description of stack addressing as implicit addressing through the stack pointer, with no memory reference for the address itself: computernetworksite.in (Hindi, translated, read in part). The mode-by-mode control-step structure that makes the register update a distinct step: Deka et al., Lecture 18 (English, read in part). The autoincrement and autodecrement definitions and the increment-amount rule are recomputed in scripts/validate.py against the 2008 answer.",
-  "videoRefs": []
+  "videoRefs": [],
+  "links": {
+    "visual": {
+      "slug": "instruction-set-and-addressing-modes",
+      "title": "Instruction Set and Addressing Modes",
+      "level": "topic-level",
+      "covers": [
+        "autoincrement advances by the item size, not by one",
+        "three-, two-, one- and zero-address formats evaluate one expression in 3, 5, 7 and 8 instructions"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/instruction-set-and-addressing-modes/index.html"
+    },
+    "mapped_at": "2026-10-30"
+  }
 }

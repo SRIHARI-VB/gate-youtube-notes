@@ -1524,8 +1524,8 @@
         "verdict": "MOCK_CAPPED"
       },
       "visual": {
-        "slug": "calculus-limits-extrema-and-integration",
-        "title": "Calculus: Limits, Extrema and Integration",
+        "slug": "mean-value-theorems-rolle-and-lagrange",
+        "title": "Mean value theorems: Rolle, Lagrange and Cauchy, and what each one licenses",
         "coverage_status": "PUBLISHED",
         "level": "topic-level",
         "verdict": "VISUAL_LESSON"
@@ -1534,8 +1534,8 @@
         "notes content/index.json map[].path = subjects/calculus/mean-value-theorem/rolle-theorem-statement.json",
         "mock: engineering-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=calculus-limits-derivatives (50 records)",
         "mock url: runs[] last entry for calculus-limits-derivatives -> https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-limits-derivatives/gate_em_mock_3_2026-10-27.html",
-        "visual: topics.json slug=calculus-limits-extrema-and-integration; syllabus-coverage.json subtopics/microtopics checked against the card text",
-        "visual url: topics/calculus-limits-extrema-and-integration/index.html"
+        "visual: topics.json slug=mean-value-theorems-rolle-and-lagrange (created 2026-10-30); syllabus-coverage.json microtopics checked against topics/mean-value-theorems-rolle-and-lagrange/transcript.md scenes 1-10",
+        "visual url: topics/mean-value-theorems-rolle-and-lagrange/index.html"
       ],
       "row_verdict": "BOTH"
     },
@@ -1562,8 +1562,8 @@
         "verdict": "MOCK_CAPPED"
       },
       "visual": {
-        "slug": "calculus-limits-extrema-and-integration",
-        "title": "Calculus: Limits, Extrema and Integration",
+        "slug": "mean-value-theorems-rolle-and-lagrange",
+        "title": "Mean value theorems: Rolle, Lagrange and Cauchy, and what each one licenses",
         "coverage_status": "PUBLISHED",
         "level": "topic-level",
         "verdict": "VISUAL_LESSON"
@@ -1572,8 +1572,8 @@
         "notes content/index.json map[].path = subjects/calculus/mean-value-theorem/lmvt-statement-and-secant-slope.json",
         "mock: engineering-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=calculus-limits-derivatives (50 records)",
         "mock url: runs[] last entry for calculus-limits-derivatives -> https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-limits-derivatives/gate_em_mock_3_2026-10-27.html",
-        "visual: topics.json slug=calculus-limits-extrema-and-integration; syllabus-coverage.json subtopics/microtopics checked against the card text",
-        "visual url: topics/calculus-limits-extrema-and-integration/index.html"
+        "visual: topics.json slug=mean-value-theorems-rolle-and-lagrange (created 2026-10-30); syllabus-coverage.json microtopics checked against topics/mean-value-theorems-rolle-and-lagrange/transcript.md scenes 1-10",
+        "visual url: topics/mean-value-theorems-rolle-and-lagrange/index.html"
       ],
       "row_verdict": "BOTH"
     },
@@ -1600,8 +1600,8 @@
         "verdict": "MOCK_CAPPED"
       },
       "visual": {
-        "slug": "calculus-limits-extrema-and-integration",
-        "title": "Calculus: Limits, Extrema and Integration",
+        "slug": "mean-value-theorems-rolle-and-lagrange",
+        "title": "Mean value theorems: Rolle, Lagrange and Cauchy, and what each one licenses",
         "coverage_status": "PUBLISHED",
         "level": "topic-level",
         "verdict": "VISUAL_LESSON"
@@ -1610,8 +1610,8 @@
         "notes content/index.json map[].path = subjects/calculus/mean-value-theorem/mvt-bounds-on-function-values.json",
         "mock: engineering-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=calculus-limits-derivatives (50 records)",
         "mock url: runs[] last entry for calculus-limits-derivatives -> https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-limits-derivatives/gate_em_mock_3_2026-10-27.html",
-        "visual: topics.json slug=calculus-limits-extrema-and-integration; syllabus-coverage.json subtopics/microtopics checked against the card text",
-        "visual url: topics/calculus-limits-extrema-and-integration/index.html"
+        "visual: topics.json slug=mean-value-theorems-rolle-and-lagrange (created 2026-10-30); syllabus-coverage.json microtopics checked against topics/mean-value-theorems-rolle-and-lagrange/transcript.md scenes 1-10",
+        "visual url: topics/mean-value-theorems-rolle-and-lagrange/index.html"
       ],
       "row_verdict": "BOTH"
     },
@@ -1638,8 +1638,8 @@
         "verdict": "MOCK_CAPPED"
       },
       "visual": {
-        "slug": "calculus-limits-extrema-and-integration",
-        "title": "Calculus: Limits, Extrema and Integration",
+        "slug": "mean-value-theorems-rolle-and-lagrange",
+        "title": "Mean value theorems: Rolle, Lagrange and Cauchy, and what each one licenses",
         "coverage_status": "PUBLISHED",
         "level": "topic-level",
         "verdict": "VISUAL_LESSON"
@@ -1648,8 +1648,8 @@
         "notes content/index.json map[].path = subjects/calculus/mean-value-theorem/hypotheses-and-when-mvt-fails.json",
         "mock: engineering-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=calculus-limits-derivatives (50 records)",
         "mock url: runs[] last entry for calculus-limits-derivatives -> https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-limits-derivatives/gate_em_mock_3_2026-10-27.html",
-        "visual: topics.json slug=calculus-limits-extrema-and-integration; syllabus-coverage.json subtopics/microtopics checked against the card text",
-        "visual url: topics/calculus-limits-extrema-and-integration/index.html"
+        "visual: topics.json slug=mean-value-theorems-rolle-and-lagrange (created 2026-10-30); syllabus-coverage.json microtopics checked against topics/mean-value-theorems-rolle-and-lagrange/transcript.md scenes 1-10",
+        "visual url: topics/mean-value-theorems-rolle-and-lagrange/index.html"
       ],
       "row_verdict": "BOTH"
     },
@@ -1676,8 +1676,8 @@
         "verdict": "MOCK_CAPPED"
       },
       "visual": {
-        "slug": "calculus-limits-extrema-and-integration",
-        "title": "Calculus: Limits, Extrema and Integration",
+        "slug": "mean-value-theorems-rolle-and-lagrange",
+        "title": "Mean value theorems: Rolle, Lagrange and Cauchy, and what each one licenses",
         "coverage_status": "PUBLISHED",
         "level": "topic-level",
         "verdict": "VISUAL_LESSON"
@@ -1686,8 +1686,8 @@
         "notes content/index.json map[].path = subjects/calculus/mean-value-theorem/finding-the-point-c.json",
         "mock: engineering-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=calculus-limits-derivatives (50 records)",
         "mock url: runs[] last entry for calculus-limits-derivatives -> https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-limits-derivatives/gate_em_mock_3_2026-10-27.html",
-        "visual: topics.json slug=calculus-limits-extrema-and-integration; syllabus-coverage.json subtopics/microtopics checked against the card text",
-        "visual url: topics/calculus-limits-extrema-and-integration/index.html"
+        "visual: topics.json slug=mean-value-theorems-rolle-and-lagrange (created 2026-10-30); syllabus-coverage.json microtopics checked against topics/mean-value-theorems-rolle-and-lagrange/transcript.md scenes 1-10",
+        "visual url: topics/mean-value-theorems-rolle-and-lagrange/index.html"
       ],
       "row_verdict": "BOTH"
     },
@@ -1714,8 +1714,8 @@
         "verdict": "MOCK_CAPPED"
       },
       "visual": {
-        "slug": "calculus-limits-extrema-and-integration",
-        "title": "Calculus: Limits, Extrema and Integration",
+        "slug": "mean-value-theorems-rolle-and-lagrange",
+        "title": "Mean value theorems: Rolle, Lagrange and Cauchy, and what each one licenses",
         "coverage_status": "PUBLISHED",
         "level": "topic-level",
         "verdict": "VISUAL_LESSON"
@@ -1724,8 +1724,8 @@
         "notes content/index.json map[].path = subjects/calculus/mean-value-theorem/existence-not-uniqueness.json",
         "mock: engineering-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=calculus-limits-derivatives (50 records)",
         "mock url: runs[] last entry for calculus-limits-derivatives -> https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-limits-derivatives/gate_em_mock_3_2026-10-27.html",
-        "visual: topics.json slug=calculus-limits-extrema-and-integration; syllabus-coverage.json subtopics/microtopics checked against the card text",
-        "visual url: topics/calculus-limits-extrema-and-integration/index.html"
+        "visual: topics.json slug=mean-value-theorems-rolle-and-lagrange (created 2026-10-30); syllabus-coverage.json microtopics checked against topics/mean-value-theorems-rolle-and-lagrange/transcript.md scenes 1-10",
+        "visual url: topics/mean-value-theorems-rolle-and-lagrange/index.html"
       ],
       "row_verdict": "BOTH"
     },
@@ -1752,8 +1752,8 @@
         "verdict": "MOCK_CAPPED"
       },
       "visual": {
-        "slug": "calculus-limits-extrema-and-integration",
-        "title": "Calculus: Limits, Extrema and Integration",
+        "slug": "mean-value-theorems-rolle-and-lagrange",
+        "title": "Mean value theorems: Rolle, Lagrange and Cauchy, and what each one licenses",
         "coverage_status": "PUBLISHED",
         "level": "topic-level",
         "verdict": "VISUAL_LESSON"
@@ -1762,8 +1762,8 @@
         "notes content/index.json map[].path = subjects/calculus/mean-value-theorem/consequences-constant-and-monotone.json",
         "mock: engineering-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=calculus-limits-derivatives (50 records)",
         "mock url: runs[] last entry for calculus-limits-derivatives -> https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-limits-derivatives/gate_em_mock_3_2026-10-27.html",
-        "visual: topics.json slug=calculus-limits-extrema-and-integration; syllabus-coverage.json subtopics/microtopics checked against the card text",
-        "visual url: topics/calculus-limits-extrema-and-integration/index.html"
+        "visual: topics.json slug=mean-value-theorems-rolle-and-lagrange (created 2026-10-30); syllabus-coverage.json microtopics checked against topics/mean-value-theorems-rolle-and-lagrange/transcript.md scenes 1-10",
+        "visual url: topics/mean-value-theorems-rolle-and-lagrange/index.html"
       ],
       "row_verdict": "BOTH"
     },
@@ -1790,8 +1790,8 @@
         "verdict": "MOCK_CAPPED"
       },
       "visual": {
-        "slug": "calculus-limits-extrema-and-integration",
-        "title": "Calculus: Limits, Extrema and Integration",
+        "slug": "mean-value-theorems-rolle-and-lagrange",
+        "title": "Mean value theorems: Rolle, Lagrange and Cauchy, and what each one licenses",
         "coverage_status": "PUBLISHED",
         "level": "topic-level",
         "verdict": "VISUAL_LESSON"
@@ -1800,8 +1800,8 @@
         "notes content/index.json map[].path = subjects/calculus/mean-value-theorem/rolle-and-root-counting.json",
         "mock: engineering-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=calculus-limits-derivatives (50 records)",
         "mock url: runs[] last entry for calculus-limits-derivatives -> https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-limits-derivatives/gate_em_mock_3_2026-10-27.html",
-        "visual: topics.json slug=calculus-limits-extrema-and-integration; syllabus-coverage.json subtopics/microtopics checked against the card text",
-        "visual url: topics/calculus-limits-extrema-and-integration/index.html"
+        "visual: topics.json slug=mean-value-theorems-rolle-and-lagrange (created 2026-10-30); syllabus-coverage.json microtopics checked against topics/mean-value-theorems-rolle-and-lagrange/transcript.md scenes 1-10",
+        "visual url: topics/mean-value-theorems-rolle-and-lagrange/index.html"
       ],
       "row_verdict": "BOTH"
     },
@@ -1828,8 +1828,8 @@
         "verdict": "MOCK_CAPPED"
       },
       "visual": {
-        "slug": "calculus-limits-extrema-and-integration",
-        "title": "Calculus: Limits, Extrema and Integration",
+        "slug": "mean-value-theorems-rolle-and-lagrange",
+        "title": "Mean value theorems: Rolle, Lagrange and Cauchy, and what each one licenses",
         "coverage_status": "PUBLISHED",
         "level": "topic-level",
         "verdict": "VISUAL_LESSON"
@@ -1838,8 +1838,8 @@
         "notes content/index.json map[].path = subjects/calculus/mean-value-theorem/cauchy-extended-mvt.json",
         "mock: engineering-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=calculus-limits-derivatives (50 records)",
         "mock url: runs[] last entry for calculus-limits-derivatives -> https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-limits-derivatives/gate_em_mock_3_2026-10-27.html",
-        "visual: topics.json slug=calculus-limits-extrema-and-integration; syllabus-coverage.json subtopics/microtopics checked against the card text",
-        "visual url: topics/calculus-limits-extrema-and-integration/index.html"
+        "visual: topics.json slug=mean-value-theorems-rolle-and-lagrange (created 2026-10-30); syllabus-coverage.json microtopics checked against topics/mean-value-theorems-rolle-and-lagrange/transcript.md scenes 1-10",
+        "visual url: topics/mean-value-theorems-rolle-and-lagrange/index.html"
       ],
       "row_verdict": "BOTH"
     },
@@ -1866,8 +1866,8 @@
         "verdict": "MOCK_CAPPED"
       },
       "visual": {
-        "slug": "calculus-limits-extrema-and-integration",
-        "title": "Calculus: Limits, Extrema and Integration",
+        "slug": "mean-value-theorems-rolle-and-lagrange",
+        "title": "Mean value theorems: Rolle, Lagrange and Cauchy, and what each one licenses",
         "coverage_status": "PUBLISHED",
         "level": "topic-level",
         "verdict": "VISUAL_LESSON"
@@ -1876,8 +1876,8 @@
         "notes content/index.json map[].path = subjects/calculus/mean-value-theorem/auxiliary-function-construction.json",
         "mock: engineering-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=calculus-limits-derivatives (50 records)",
         "mock url: runs[] last entry for calculus-limits-derivatives -> https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-limits-derivatives/gate_em_mock_3_2026-10-27.html",
-        "visual: topics.json slug=calculus-limits-extrema-and-integration; syllabus-coverage.json subtopics/microtopics checked against the card text",
-        "visual url: topics/calculus-limits-extrema-and-integration/index.html"
+        "visual: topics.json slug=mean-value-theorems-rolle-and-lagrange (created 2026-10-30); syllabus-coverage.json microtopics checked against topics/mean-value-theorems-rolle-and-lagrange/transcript.md scenes 1-10",
+        "visual url: topics/mean-value-theorems-rolle-and-lagrange/index.html"
       ],
       "row_verdict": "BOTH"
     },
@@ -1904,8 +1904,8 @@
         "verdict": "MOCK_CAPPED"
       },
       "visual": {
-        "slug": "calculus-limits-extrema-and-integration",
-        "title": "Calculus: Limits, Extrema and Integration",
+        "slug": "mean-value-theorems-rolle-and-lagrange",
+        "title": "Mean value theorems: Rolle, Lagrange and Cauchy, and what each one licenses",
         "coverage_status": "PUBLISHED",
         "level": "topic-level",
         "verdict": "VISUAL_LESSON"
@@ -1914,8 +1914,8 @@
         "notes content/index.json map[].path = subjects/calculus/mean-value-theorem/inequalities-from-mvt.json",
         "mock: engineering-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=calculus-limits-derivatives (50 records)",
         "mock url: runs[] last entry for calculus-limits-derivatives -> https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-limits-derivatives/gate_em_mock_3_2026-10-27.html",
-        "visual: topics.json slug=calculus-limits-extrema-and-integration; syllabus-coverage.json subtopics/microtopics checked against the card text",
-        "visual url: topics/calculus-limits-extrema-and-integration/index.html"
+        "visual: topics.json slug=mean-value-theorems-rolle-and-lagrange (created 2026-10-30); syllabus-coverage.json microtopics checked against topics/mean-value-theorems-rolle-and-lagrange/transcript.md scenes 1-10",
+        "visual url: topics/mean-value-theorems-rolle-and-lagrange/index.html"
       ],
       "row_verdict": "BOTH"
     },
@@ -1942,8 +1942,8 @@
         "verdict": "MOCK_CAPPED"
       },
       "visual": {
-        "slug": "calculus-limits-extrema-and-integration",
-        "title": "Calculus: Limits, Extrema and Integration",
+        "slug": "mean-value-theorems-rolle-and-lagrange",
+        "title": "Mean value theorems: Rolle, Lagrange and Cauchy, and what each one licenses",
         "coverage_status": "PUBLISHED",
         "level": "topic-level",
         "verdict": "VISUAL_LESSON"
@@ -1952,10 +1952,335 @@
         "notes content/index.json map[].path = subjects/calculus/mean-value-theorem/not-identically-zero-derivative.json",
         "mock: engineering-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=calculus-limits-derivatives (50 records)",
         "mock url: runs[] last entry for calculus-limits-derivatives -> https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-limits-derivatives/gate_em_mock_3_2026-10-27.html",
-        "visual: topics.json slug=calculus-limits-extrema-and-integration; syllabus-coverage.json subtopics/microtopics checked against the card text",
-        "visual url: topics/calculus-limits-extrema-and-integration/index.html"
+        "visual: topics.json slug=mean-value-theorems-rolle-and-lagrange (created 2026-10-30); syllabus-coverage.json microtopics checked against topics/mean-value-theorems-rolle-and-lagrange/transcript.md scenes 1-10",
+        "visual url: topics/mean-value-theorems-rolle-and-lagrange/index.html"
       ],
       "row_verdict": "BOTH"
+    },
+    {
+      "subject": "computer-organization-and-architecture",
+      "group": "instruction-set-and-addressing-modes",
+      "topic": "instruction-format-and-fields",
+      "title": "The Instruction Format: Opcode, Operand Fields and Length",
+      "priority": "P1",
+      "path": "subjects/computer-organization-and-architecture/instruction-set-and-addressing-modes/instruction-format-and-fields.json",
+      "transcript_status": "not stated",
+      "mock": null,
+      "visual": {
+        "slug": "instruction-set-and-addressing-modes",
+        "title": "Instruction Set and Addressing Modes",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json map[].path = subjects/computer-organization-and-architecture/instruction-set-and-addressing-modes/instruction-format-and-fields.json",
+        "mock: computer-architecture/question-bank/master_bank.json holds units 2, 3 and 4 only (150 records); no unit covers instruction set or addressing modes",
+        "visual: gate-visual-explainer/syllabus-coverage.json unit 'Instruction set', topic 'Instruction set and addressing modes', coverage_status PUBLISHED, lesson_slug instruction-set-and-addressing-modes",
+        "visual coverage: topics/instruction-set-and-addressing-modes/transcript.md scenes 1-10 checked against the card's microtopics",
+        "visual url: topics/instruction-set-and-addressing-modes/index.html"
+      ],
+      "row_verdict": "VISUAL_ONLY"
+    },
+    {
+      "subject": "computer-organization-and-architecture",
+      "group": "instruction-set-and-addressing-modes",
+      "topic": "instruction-field-bit-budget",
+      "title": "Splitting the Word: The Bit Budget for Opcode, Registers, Mode and Immediate",
+      "priority": "P1",
+      "path": "subjects/computer-organization-and-architecture/instruction-set-and-addressing-modes/instruction-field-bit-budget.json",
+      "transcript_status": "not stated",
+      "mock": null,
+      "visual": {
+        "slug": "instruction-set-and-addressing-modes",
+        "title": "Instruction Set and Addressing Modes",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json map[].path = subjects/computer-organization-and-architecture/instruction-set-and-addressing-modes/instruction-field-bit-budget.json",
+        "mock: computer-architecture/question-bank/master_bank.json holds units 2, 3 and 4 only (150 records); no unit covers instruction set or addressing modes",
+        "visual: gate-visual-explainer/syllabus-coverage.json unit 'Instruction set', topic 'Instruction set and addressing modes', coverage_status PUBLISHED, lesson_slug instruction-set-and-addressing-modes",
+        "visual coverage: topics/instruction-set-and-addressing-modes/transcript.md scenes 1-10 checked against the card's microtopics",
+        "visual url: topics/instruction-set-and-addressing-modes/index.html"
+      ],
+      "row_verdict": "VISUAL_ONLY"
+    },
+    {
+      "subject": "computer-organization-and-architecture",
+      "group": "instruction-set-and-addressing-modes",
+      "topic": "isa-instruction-types-and-risc-cisc",
+      "title": "What an Instruction Set Is, and Why RISC Has Few Addressing Modes",
+      "priority": "P2",
+      "path": "subjects/computer-organization-and-architecture/instruction-set-and-addressing-modes/isa-instruction-types-and-risc-cisc.json",
+      "transcript_status": "not stated",
+      "mock": null,
+      "visual": {
+        "slug": "instruction-set-and-addressing-modes",
+        "title": "Instruction Set and Addressing Modes",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json map[].path = subjects/computer-organization-and-architecture/instruction-set-and-addressing-modes/isa-instruction-types-and-risc-cisc.json",
+        "mock: computer-architecture/question-bank/master_bank.json holds units 2, 3 and 4 only (150 records); no unit covers instruction set or addressing modes",
+        "visual: gate-visual-explainer/syllabus-coverage.json unit 'Instruction set', topic 'Instruction set and addressing modes', coverage_status PUBLISHED, lesson_slug instruction-set-and-addressing-modes",
+        "visual coverage: topics/instruction-set-and-addressing-modes/transcript.md scenes 1-10 checked against the card's microtopics",
+        "visual url: topics/instruction-set-and-addressing-modes/index.html"
+      ],
+      "row_verdict": "VISUAL_ONLY"
+    },
+    {
+      "subject": "computer-organization-and-architecture",
+      "group": "instruction-set-and-addressing-modes",
+      "topic": "instruction-formats-zero-to-three-address",
+      "title": "Zero-, One-, Two- and Three-Address Formats",
+      "priority": "P1",
+      "path": "subjects/computer-organization-and-architecture/instruction-set-and-addressing-modes/instruction-formats-zero-to-three-address.json",
+      "transcript_status": "not stated",
+      "mock": null,
+      "visual": {
+        "slug": "instruction-set-and-addressing-modes",
+        "title": "Instruction Set and Addressing Modes",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json map[].path = subjects/computer-organization-and-architecture/instruction-set-and-addressing-modes/instruction-formats-zero-to-three-address.json",
+        "mock: computer-architecture/question-bank/master_bank.json holds units 2, 3 and 4 only (150 records); no unit covers instruction set or addressing modes",
+        "visual: gate-visual-explainer/syllabus-coverage.json unit 'Instruction set', topic 'Instruction set and addressing modes', coverage_status PUBLISHED, lesson_slug instruction-set-and-addressing-modes",
+        "visual coverage: topics/instruction-set-and-addressing-modes/transcript.md scenes 1-10 checked against the card's microtopics",
+        "visual url: topics/instruction-set-and-addressing-modes/index.html"
+      ],
+      "row_verdict": "VISUAL_ONLY"
+    },
+    {
+      "subject": "computer-organization-and-architecture",
+      "group": "instruction-set-and-addressing-modes",
+      "topic": "immediate-addressing",
+      "title": "Immediate Addressing: The Operand Is in the Instruction",
+      "priority": "P1",
+      "path": "subjects/computer-organization-and-architecture/instruction-set-and-addressing-modes/immediate-addressing.json",
+      "transcript_status": "not stated",
+      "mock": null,
+      "visual": {
+        "slug": "instruction-set-and-addressing-modes",
+        "title": "Instruction Set and Addressing Modes",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json map[].path = subjects/computer-organization-and-architecture/instruction-set-and-addressing-modes/immediate-addressing.json",
+        "mock: computer-architecture/question-bank/master_bank.json holds units 2, 3 and 4 only (150 records); no unit covers instruction set or addressing modes",
+        "visual: gate-visual-explainer/syllabus-coverage.json unit 'Instruction set', topic 'Instruction set and addressing modes', coverage_status PUBLISHED, lesson_slug instruction-set-and-addressing-modes",
+        "visual coverage: topics/instruction-set-and-addressing-modes/transcript.md scenes 1-10 checked against the card's microtopics",
+        "visual url: topics/instruction-set-and-addressing-modes/index.html"
+      ],
+      "row_verdict": "VISUAL_ONLY"
+    },
+    {
+      "subject": "computer-organization-and-architecture",
+      "group": "instruction-set-and-addressing-modes",
+      "topic": "direct-addressing",
+      "title": "Direct (Absolute) Addressing: The Address Is in the Instruction",
+      "priority": "P1",
+      "path": "subjects/computer-organization-and-architecture/instruction-set-and-addressing-modes/direct-addressing.json",
+      "transcript_status": "not stated",
+      "mock": null,
+      "visual": {
+        "slug": "instruction-set-and-addressing-modes",
+        "title": "Instruction Set and Addressing Modes",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json map[].path = subjects/computer-organization-and-architecture/instruction-set-and-addressing-modes/direct-addressing.json",
+        "mock: computer-architecture/question-bank/master_bank.json holds units 2, 3 and 4 only (150 records); no unit covers instruction set or addressing modes",
+        "visual: gate-visual-explainer/syllabus-coverage.json unit 'Instruction set', topic 'Instruction set and addressing modes', coverage_status PUBLISHED, lesson_slug instruction-set-and-addressing-modes",
+        "visual coverage: topics/instruction-set-and-addressing-modes/transcript.md scenes 1-10 checked against the card's microtopics",
+        "visual url: topics/instruction-set-and-addressing-modes/index.html"
+      ],
+      "row_verdict": "VISUAL_ONLY"
+    },
+    {
+      "subject": "computer-organization-and-architecture",
+      "group": "instruction-set-and-addressing-modes",
+      "topic": "indirect-addressing-and-pointers",
+      "title": "Indirect Addressing: An Address That Points at an Address",
+      "priority": "P1",
+      "path": "subjects/computer-organization-and-architecture/instruction-set-and-addressing-modes/indirect-addressing-and-pointers.json",
+      "transcript_status": "not stated",
+      "mock": null,
+      "visual": {
+        "slug": "instruction-set-and-addressing-modes",
+        "title": "Instruction Set and Addressing Modes",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json map[].path = subjects/computer-organization-and-architecture/instruction-set-and-addressing-modes/indirect-addressing-and-pointers.json",
+        "mock: computer-architecture/question-bank/master_bank.json holds units 2, 3 and 4 only (150 records); no unit covers instruction set or addressing modes",
+        "visual: gate-visual-explainer/syllabus-coverage.json unit 'Instruction set', topic 'Instruction set and addressing modes', coverage_status PUBLISHED, lesson_slug instruction-set-and-addressing-modes",
+        "visual coverage: topics/instruction-set-and-addressing-modes/transcript.md scenes 1-10 checked against the card's microtopics",
+        "visual url: topics/instruction-set-and-addressing-modes/index.html"
+      ],
+      "row_verdict": "VISUAL_ONLY"
+    },
+    {
+      "subject": "computer-organization-and-architecture",
+      "group": "instruction-set-and-addressing-modes",
+      "topic": "register-and-register-indirect-addressing",
+      "title": "Register and Register-Indirect Addressing",
+      "priority": "P1",
+      "path": "subjects/computer-organization-and-architecture/instruction-set-and-addressing-modes/register-and-register-indirect-addressing.json",
+      "transcript_status": "not stated",
+      "mock": null,
+      "visual": {
+        "slug": "instruction-set-and-addressing-modes",
+        "title": "Instruction Set and Addressing Modes",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json map[].path = subjects/computer-organization-and-architecture/instruction-set-and-addressing-modes/register-and-register-indirect-addressing.json",
+        "mock: computer-architecture/question-bank/master_bank.json holds units 2, 3 and 4 only (150 records); no unit covers instruction set or addressing modes",
+        "visual: gate-visual-explainer/syllabus-coverage.json unit 'Instruction set', topic 'Instruction set and addressing modes', coverage_status PUBLISHED, lesson_slug instruction-set-and-addressing-modes",
+        "visual coverage: topics/instruction-set-and-addressing-modes/transcript.md scenes 1-10 checked against the card's microtopics",
+        "visual url: topics/instruction-set-and-addressing-modes/index.html"
+      ],
+      "row_verdict": "VISUAL_ONLY"
+    },
+    {
+      "subject": "computer-organization-and-architecture",
+      "group": "instruction-set-and-addressing-modes",
+      "topic": "displacement-addressing-base-and-index",
+      "title": "Displacement Addressing: Base, Index and the Same Arithmetic Under Three Names",
+      "priority": "P1",
+      "path": "subjects/computer-organization-and-architecture/instruction-set-and-addressing-modes/displacement-addressing-base-and-index.json",
+      "transcript_status": "not stated",
+      "mock": null,
+      "visual": {
+        "slug": "instruction-set-and-addressing-modes",
+        "title": "Instruction Set and Addressing Modes",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json map[].path = subjects/computer-organization-and-architecture/instruction-set-and-addressing-modes/displacement-addressing-base-and-index.json",
+        "mock: computer-architecture/question-bank/master_bank.json holds units 2, 3 and 4 only (150 records); no unit covers instruction set or addressing modes",
+        "visual: gate-visual-explainer/syllabus-coverage.json unit 'Instruction set', topic 'Instruction set and addressing modes', coverage_status PUBLISHED, lesson_slug instruction-set-and-addressing-modes",
+        "visual coverage: topics/instruction-set-and-addressing-modes/transcript.md scenes 1-10 checked against the card's microtopics",
+        "visual url: topics/instruction-set-and-addressing-modes/index.html"
+      ],
+      "row_verdict": "VISUAL_ONLY"
+    },
+    {
+      "subject": "computer-organization-and-architecture",
+      "group": "instruction-set-and-addressing-modes",
+      "topic": "pc-relative-addressing-and-branch-offsets",
+      "title": "PC-Relative Addressing and the Branch Offset Arithmetic",
+      "priority": "P2",
+      "path": "subjects/computer-organization-and-architecture/instruction-set-and-addressing-modes/pc-relative-addressing-and-branch-offsets.json",
+      "transcript_status": "not stated",
+      "mock": null,
+      "visual": {
+        "slug": "instruction-set-and-addressing-modes",
+        "title": "Instruction Set and Addressing Modes",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json map[].path = subjects/computer-organization-and-architecture/instruction-set-and-addressing-modes/pc-relative-addressing-and-branch-offsets.json",
+        "mock: computer-architecture/question-bank/master_bank.json holds units 2, 3 and 4 only (150 records); no unit covers instruction set or addressing modes",
+        "visual: gate-visual-explainer/syllabus-coverage.json unit 'Instruction set', topic 'Instruction set and addressing modes', coverage_status PUBLISHED, lesson_slug instruction-set-and-addressing-modes",
+        "visual coverage: topics/instruction-set-and-addressing-modes/transcript.md scenes 1-10 checked against the card's microtopics",
+        "visual url: topics/instruction-set-and-addressing-modes/index.html"
+      ],
+      "row_verdict": "VISUAL_ONLY"
+    },
+    {
+      "subject": "computer-organization-and-architecture",
+      "group": "instruction-set-and-addressing-modes",
+      "topic": "autoincrement-autodecrement-and-stack",
+      "title": "Autoincrement, Autodecrement and Stack Addressing",
+      "priority": "P2",
+      "path": "subjects/computer-organization-and-architecture/instruction-set-and-addressing-modes/autoincrement-autodecrement-and-stack.json",
+      "transcript_status": "not stated",
+      "mock": null,
+      "visual": {
+        "slug": "instruction-set-and-addressing-modes",
+        "title": "Instruction Set and Addressing Modes",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json map[].path = subjects/computer-organization-and-architecture/instruction-set-and-addressing-modes/autoincrement-autodecrement-and-stack.json",
+        "mock: computer-architecture/question-bank/master_bank.json holds units 2, 3 and 4 only (150 records); no unit covers instruction set or addressing modes",
+        "visual: gate-visual-explainer/syllabus-coverage.json unit 'Instruction set', topic 'Instruction set and addressing modes', coverage_status PUBLISHED, lesson_slug instruction-set-and-addressing-modes",
+        "visual coverage: topics/instruction-set-and-addressing-modes/transcript.md scenes 1-10 checked against the card's microtopics",
+        "visual url: topics/instruction-set-and-addressing-modes/index.html"
+      ],
+      "row_verdict": "VISUAL_ONLY"
+    },
+    {
+      "subject": "computer-organization-and-architecture",
+      "group": "instruction-set-and-addressing-modes",
+      "topic": "effective-address-and-memory-cycles",
+      "title": "Effective Address and Counting Memory Cycles",
+      "priority": "P1",
+      "path": "subjects/computer-organization-and-architecture/instruction-set-and-addressing-modes/effective-address-and-memory-cycles.json",
+      "transcript_status": "not stated",
+      "mock": null,
+      "visual": {
+        "slug": "instruction-set-and-addressing-modes",
+        "title": "Instruction Set and Addressing Modes",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json map[].path = subjects/computer-organization-and-architecture/instruction-set-and-addressing-modes/effective-address-and-memory-cycles.json",
+        "mock: computer-architecture/question-bank/master_bank.json holds units 2, 3 and 4 only (150 records); no unit covers instruction set or addressing modes",
+        "visual: gate-visual-explainer/syllabus-coverage.json unit 'Instruction set', topic 'Instruction set and addressing modes', coverage_status PUBLISHED, lesson_slug instruction-set-and-addressing-modes",
+        "visual coverage: topics/instruction-set-and-addressing-modes/transcript.md scenes 1-10 checked against the card's microtopics",
+        "visual url: topics/instruction-set-and-addressing-modes/index.html"
+      ],
+      "row_verdict": "VISUAL_ONLY"
+    },
+    {
+      "subject": "computer-organization-and-architecture",
+      "group": "instruction-set-and-addressing-modes",
+      "topic": "relocation-and-position-independent-code",
+      "title": "Relocation and Position-Independent Code",
+      "priority": "P2",
+      "path": "subjects/computer-organization-and-architecture/instruction-set-and-addressing-modes/relocation-and-position-independent-code.json",
+      "transcript_status": "not stated",
+      "mock": null,
+      "visual": {
+        "slug": "instruction-set-and-addressing-modes",
+        "title": "Instruction Set and Addressing Modes",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json map[].path = subjects/computer-organization-and-architecture/instruction-set-and-addressing-modes/relocation-and-position-independent-code.json",
+        "mock: computer-architecture/question-bank/master_bank.json holds units 2, 3 and 4 only (150 records); no unit covers instruction set or addressing modes",
+        "visual: gate-visual-explainer/syllabus-coverage.json unit 'Instruction set', topic 'Instruction set and addressing modes', coverage_status PUBLISHED, lesson_slug instruction-set-and-addressing-modes",
+        "visual coverage: topics/instruction-set-and-addressing-modes/transcript.md scenes 1-10 checked against the card's microtopics",
+        "visual url: topics/instruction-set-and-addressing-modes/index.html"
+      ],
+      "row_verdict": "VISUAL_ONLY"
     },
     {
       "subject": "digital-logic",
@@ -9399,6 +9724,16 @@
       "kind": "notes",
       "placement": "lesson complexity-classes-p-np-np-complete",
       "detail": "published lesson \"Complexity classes: P, NP, NP-hard and NP-complete, and what a reduction proves\" (PUBLISHED 2026-10-30, Algorithms) serves no notes card; the notes repo has no algorithms subject at all"
+    },
+    {
+      "kind": "notes",
+      "placement": "computer-organization-and-architecture › memory-hierarchy-and-cache",
+      "detail": "mock unit \"Main Memory & Virtual Memory Interface\" (unit_number 4, unit_slug memory-management-unit, 50 questions, papers gate_co_mock_4_2026-10-30.html) serves no notes card; subtopic_label groups: DRAM & SRAM organization 13, Paging & TLB hit ratio 17, Effective access time 11, Segmentation 9"
+    },
+    {
+      "kind": "mock",
+      "placement": "computer-organization-and-architecture › instruction-set-and-addressing-modes",
+      "detail": "the 13 notes cards of this topic have no mock unit: computer-architecture/question-bank/master_bank.json holds units 2, 3 and 4 only. Unit 1 is the missing unit, per the syllabus order in content/syllabus.json"
     }
   ]
 }

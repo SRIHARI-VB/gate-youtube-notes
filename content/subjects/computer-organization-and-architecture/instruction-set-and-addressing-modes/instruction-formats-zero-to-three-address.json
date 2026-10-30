@@ -68,5 +68,19 @@
     }
   ],
   "sourceLine": "The zero- to three-address enumeration, the worked formats and the statement that the number of operands varies with the instruction: Datta, Lecture 07 (English, read in part). The instruction counts in the example and the quick check are recomputed in scripts/validate.py.",
-  "videoRefs": []
+  "videoRefs": [],
+  "links": {
+    "visual": {
+      "slug": "instruction-set-and-addressing-modes",
+      "title": "Instruction Set and Addressing Modes",
+      "level": "topic-level",
+      "covers": [
+        "three-, two-, one- and zero-address formats evaluate one expression in 3, 5, 7 and 8 instructions",
+        "a two-address format needs a copy because the destination is also a source",
+        "an implied accumulator belongs to a one-address machine, never a three-address one"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/instruction-set-and-addressing-modes/index.html"
+    },
+    "mapped_at": "2026-10-30"
+  }
 }

@@ -81,5 +81,18 @@
     }
   ],
   "sourceLine": "The translated statement that relative addressing's effective address is a displacement from the program counter, which is what makes it independent of the load address: computernetworksite.in (Hindi, translated, read in part). The displacement structure in which the instruction holds a constant and a register holds the changeable part: Deka et al., Lecture 12 (English, read in part). The relocation arithmetic is recomputed in scripts/validate.py, and both GATE answers are re-derived there from the question text.",
-  "videoRefs": []
+  "videoRefs": [],
+  "links": {
+    "visual": {
+      "slug": "instruction-set-and-addressing-modes",
+      "title": "Instruction Set and Addressing Modes",
+      "level": "topic-level",
+      "covers": [
+        "PC-relative needs no change at all; a base register must be reloaded; absolute breaks",
+        "the wording 'without any change whatsoever' selects PC-relative alone"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/instruction-set-and-addressing-modes/index.html"
+    },
+    "mapped_at": "2026-10-30"
+  }
 }

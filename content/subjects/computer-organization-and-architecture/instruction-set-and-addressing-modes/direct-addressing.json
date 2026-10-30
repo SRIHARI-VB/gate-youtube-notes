@@ -79,5 +79,18 @@
     }
   ],
   "sourceLine": "The direct rung of the ladder and the reason a large operand is held in memory rather than in the instruction: Deka et al., Lecture 12 (English, read in part). The statement, translated from Hindi, that direct addressing gives the effective address in the address field, needs one memory reference and reaches only the address space the field can name: computernetworksite.in (Hindi, translated, read in part). The 2002 question is recomputed against the four mode definitions in scripts/validate.py.",
-  "videoRefs": []
+  "videoRefs": [],
+  "links": {
+    "visual": {
+      "slug": "instruction-set-and-addressing-modes",
+      "title": "Instruction Set and Addressing Modes",
+      "level": "topic-level",
+      "covers": [
+        "effective address is computed from the instruction fields plus the named state",
+        "direct and register indirect both cost one read; only the address source differs"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/instruction-set-and-addressing-modes/index.html"
+    },
+    "mapped_at": "2026-10-30"
+  }
 }

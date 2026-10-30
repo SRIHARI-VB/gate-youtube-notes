@@ -77,5 +77,19 @@
     }
   ],
   "sourceLine": "The opcode-and-operand split, the rule that a destination must be a register or a memory location while an immediate is only a source, the zero- to three-address formats and the 32-bit field example with 5 bits per register: Datta, Lecture 07 (English, read in part). The statement that a high-precision operand forces a long instruction and is therefore moved into memory, which is the format-versus-mode trade: Deka et al., Lecture 12 (English, read in part). Every number here is recomputed in scripts/validate.py.",
-  "videoRefs": []
+  "videoRefs": [],
+  "links": {
+    "visual": {
+      "slug": "instruction-set-and-addressing-modes",
+      "title": "Instruction Set and Addressing Modes",
+      "level": "topic-level",
+      "covers": [
+        "the format is one equation: sum of field widths = word length",
+        "a field naming one of n things costs ceil(log2 n) bits, never floor",
+        "read the operand list from the instruction shown, not from the widest format"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/instruction-set-and-addressing-modes/index.html"
+    },
+    "mapped_at": "2026-10-30"
+  }
 }
