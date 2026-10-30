@@ -1,0 +1,85 @@
+{
+  "id": "relocation-and-position-independent-code",
+  "title": "Relocation and Position-Independent Code",
+  "priority": "P2",
+  "order": 492,
+  "unit": "Instruction Set and Addressing Modes",
+  "quickIdea": "A mode is relocatable when the address it computes does not depend on where the program was loaded. Relative and base modes qualify; absolute and indirect do not.",
+  "remember": [
+    "Absolute (direct) addressing hard-codes an address, so relocation breaks it unless the loader rewrites the field.",
+    "Base-register addressing survives relocation because the base register can be reloaded at run time; the displacement inside the instruction never changes.",
+    "PC-relative addressing survives it with nothing to reload at all, because the instruction and its target move together.",
+    "Indirect addressing does not help: the pointer holds an absolute address that still points at the old location.",
+    "Two GATE questions look identical and have different accepted answers because 'relocation at run time' (base or relative will do) and 'no change whatsoever in the code' (only relative needs nothing done) are different requirements.",
+    "Position-independent code is what a shared library must be, which is why the mode question is a systems question and not only an encoding one."
+  ],
+  "example": {
+    "prompt": "A program is loaded at 5000 instead of 1000. What happens to an instruction using direct addressing, one using base-register addressing with the base in R3, and one using PC-relative addressing?",
+    "work": "Direct: the field still says 1200, which is now outside the program, so it must be rewritten to 5200. Base: the displacement is unchanged and only R3 must be set to the new base. PC-relative: nothing changes at all, because the offset between the instruction and its target is the same.",
+    "answer": "Direct needs the code changed; base needs a register reloaded; relative needs nothing."
+  },
+  "gateAngle": "GATE CSE 2004 Q.20 asks which modes suit program relocation at run time and accepts based and relative addressing. GATE CSE 1998 Q.1.19 asks which permits relocation without any change whatsoever in the code and accepts PC-relative. Read carefully, the two are consistent: the base register must be updated, and updating a register is a change even though the instruction bits are untouched.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "A loader relocates a program by 4000. Which fields must it patch: an immediate, a direct address, a base displacement, a PC-relative offset?",
+      "answer": "Only the direct address. The immediate is data, the base displacement is relative to a register, and the PC-relative offset is relative to the PC.",
+      "why": "This is what a relocating loader's relocation table lists, and it is the practical form of the GATE question."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Why can a shared library not use absolute addressing for its internal references?",
+      "answer": "Because it is mapped at a different address in every process, so an absolute address baked in at link time would point into whatever happened to be there.",
+      "why": "Position independence is the requirement that makes shared libraries possible, and PC-relative plus base modes are how it is met."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "Is autoincrement a relocation mode? Justify from the register contents.",
+      "answer": "No. The register holds an absolute address, and moving the program leaves that address pointing at the old data.",
+      "why": "This is the first statement of GATE CSE 2008 Q.33, and it is the same argument as the indirect case."
+    }
+  ],
+  "trap": {
+    "what": "Concluding that base-register addressing changes the code, because the base register must be updated.",
+    "why": "The instruction bits do not change; a register does. Whether that counts as 'a change in the code' is exactly what separates the 2004 answer from the 1998 answer.",
+    "counterexample": "GATE CSE 2004 Q.20 accepts both based and relative for relocation at run time, while GATE CSE 1998 Q.1.19 accepts only PC-relative for relocation 'without any change whatsoever'. Both answers are the papers', and the wording is the difference."
+  },
+  "check": {
+    "question": "Which two modes does GATE CSE 2004 Q.20 accept as suitable for relocation at run time?",
+    "answer": "Based addressing and relative addressing.",
+    "explanation": "Both compute an address from a base that can move with the program. Absolute addressing cannot, and indirect addressing carries an absolute pointer that goes stale."
+  },
+  "pyqIds": [
+    "gate-2004-q20-relocation-at-run-time",
+    "gate-1998-q1-19-relocation-without-change"
+  ],
+  "prereqs": [
+    "direct-addressing",
+    "displacement-addressing-base-and-index",
+    "pc-relative-addressing-and-branch-offsets"
+  ],
+  "sources": [
+    {
+      "kind": "text",
+      "title": "What is addressing modes in Hindi (addressing modes in hindi)",
+      "channel": "computernetworksite.in (Hindi article following Stallings' treatment of addressing modes)",
+      "url": "https://www.computernetworksite.in/2023/03/what-is-addressing-modes-in-hindi.html",
+      "language": "hi",
+      "transcript": "PARTIAL",
+      "translated": true,
+      "note": "read through the seven modes: immediate, direct, indirect, register, register indirect, displacement (relative, base register, indexing) and stack, each with its advantage and its disadvantage in memory references and address-space width. Translated into English here; the article's illustrative instruction examples are 8085-specific and are not used"
+    },
+    {
+      "kind": "lecture-transcript",
+      "title": "Lecture 12 - Addressing Modes",
+      "channel": "NPTEL, Computer Organization and Architecture - A Pedagogical Aspect (Prof. Jatindra Kr. Deka, Dr. Santosh Biswas, Dr. Arnab Sarkar, IIT Guwahati)",
+      "url": "http://www.digimat.in/nptel/courses/video/106103180/lec12.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read from the opening through the definition of displacement addressing: the reason a large operand is moved out of the instruction into memory, the immediate / direct / indirect / register / register-indirect ladder with the size-and-speed trade-off of each, and the two-part address of displacement addressing. The returned extract stopped inside the displacement discussion, so nothing is attributed to the indexed, relative, autoincrement or stack material of the same lecture"
+    }
+  ],
+  "sourceLine": "The translated statement that relative addressing's effective address is a displacement from the program counter, which is what makes it independent of the load address: computernetworksite.in (Hindi, translated, read in part). The displacement structure in which the instruction holds a constant and a register holds the changeable part: Deka et al., Lecture 12 (English, read in part). The relocation arithmetic is recomputed in scripts/validate.py, and both GATE answers are re-derived there from the question text.",
+  "videoRefs": []
+}
