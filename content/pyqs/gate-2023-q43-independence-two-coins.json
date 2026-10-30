@@ -1,0 +1,20 @@
+{
+  "id": "gate-2023-q43-independence-two-coins",
+  "year": "2023",
+  "paper": "GATE CSE 2023",
+  "question_ref": "Question 43",
+  "type": "MSQ",
+  "topic": "independence-and-the-product-test",
+  "text": "Consider a random experiment where two fair coins are tossed. Let A be the event that denotes HEAD on both the throws, B be the event that denotes HEAD on the first throw, and C be the event that denotes HEAD on the second throw. Which of the following statements is/are TRUE?",
+  "options": [
+    "A and B are independent.",
+    "A and C are independent.",
+    "B and C are independent.",
+    "Prob(B | C) = Prob(B)."
+  ],
+  "answer": "C and D",
+  "solution": "P(A) = 1/4, P(B) = P(C) = 1/2. P(A and B) = 1/4 while P(A)P(B) = 1/8, so A is not independent of B; the same argument rules out option B. P(B and C) = 1/4 = P(B)P(C), so B and C are independent, and P(B|C) = (1/4)/(1/2) = 1/2 = P(B).",
+  "source_url": "https://gateoverflow.in/399268/gate-cse-2023-question-43",
+  "source_label": "GATE Overflow question page, GATE CSE 2023 Question 43, accepted answer",
+  "verification": "SOURCED"
+}

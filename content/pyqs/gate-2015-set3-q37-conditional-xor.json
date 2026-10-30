@@ -1,0 +1,14 @@
+{
+  "id": "gate-2015-set3-q37-conditional-xor",
+  "year": "2015",
+  "paper": "GATE CSE 2015 Set 3",
+  "question_ref": "Question 37",
+  "type": "NAT",
+  "topic": "conditioning-on-a-count-and-on-shared-trials",
+  "text": "Suppose Xi for i = 1, 2, 3 are independent and identically distributed random variables whose probability mass functions are Pr[Xi = 0] = Pr[Xi = 1] = 1/2 for i = 1, 2, 3. Define another random variable Y = X1X2 XOR X3, where XOR denotes exclusive or. Then Pr[Y = 0 | X3 = 0] = ____.",
+  "answer": "0.75",
+  "solution": "Given X3 = 0, Y = X1X2, so Y = 0 exactly when X1X2 = 0, which happens for (0,0), (0,1) and (1,0): three of the four equally likely pairs. Hence the conditional probability is 3/4. Equivalently P(Y = 0 and X3 = 0) = 3/8 and P(X3 = 0) = 4/8, and the ratio is 3/4.",
+  "source_url": "https://gateoverflow.in/8496/gate-cse-2015-set-3-question-37",
+  "source_label": "GATE Overflow question page, GATE CSE 2015 Set 3 Question 37, accepted answer",
+  "verification": "SOURCED"
+}

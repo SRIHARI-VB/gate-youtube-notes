@@ -5871,6 +5871,217 @@ def check_probability_and_statistics():
        "tail probability, discriminant verdict and closure claim published in the topic recomputed")
 
 
+# ------------------------------------------------- conditional probability and Bayes
+def check_conditional_probability():
+    """Every probability, verdict and count published in the Conditional Probability and Bayes cards,
+    PYQs and lesson is recomputed by enumeration or in exact rational arithmetic."""
+    import itertools
+    from fractions import Fraction as Fr
+
+    def close(a, b, tol=1e-9):
+        return abs(float(a) - float(b)) <= tol
+
+    def frac(x):
+        return Fr(x).limit_denominator(10 ** 6)
+
+    # ---- card 1: the definition, the die example, and the two PYQ-style dice questions
+    die = list(range(1, 7))
+    def cond(space, A, B):
+        sb = [x for x in space if B(x)]
+        if not sb:
+            return None
+        sa = [x for x in sb if A(x)]
+        return Fr(len(sa), len(sb))
+    assert cond(die, lambda x: x == 2, lambda x: x % 2 == 0) == Fr(1, 3), "die: P(2 | even) = 1/3"
+    assert Fr(1, 6) / Fr(1, 2) == Fr(1, 3), "the ratio of probabilities agrees with the ratio of counts"
+    dice = [(a, b) for a in die for b in die]
+    assert cond(dice, lambda t: t[0] == 3, lambda t: t[0] + t[1] == 8) == Fr(1, 5), "sum 8 given first die 3"
+    assert cond(dice, lambda t: t[0] == 4, lambda t: t[0] + t[1] == 9) == Fr(1, 4), "sum 9 given first die 4"
+    assert Fr(1, 36) / Fr(5, 36) == Fr(1, 5), "1/36 is the joint probability of (3,5), not the answer"
+    # 2011 Q.3: two coins, at least one head
+    coins2 = list(itertools.product("HT", repeat=2))
+    p_both = Fr(sum(1 for c in coins2 if c == ("H", "H")), 4)
+    p_atleast = Fr(sum(1 for c in coins2 if "H" in c), 4)
+    assert p_both == Fr(1, 4) and p_atleast == Fr(3, 4) and p_both / p_atleast == Fr(1, 3), \
+        "2011 Q.3: P(both heads | at least one head) = 1/3"
+
+    # ---- card 2: P(.|B) as a probability measure on a three-point space
+    Bdie = [x for x in die if x % 2 == 0]
+    assert cond(Bdie, lambda x: x in (1, 2), lambda x: True) == Fr(1, 3)
+    assert cond(Bdie, lambda x: x in (1, 3, 5), lambda x: True) == Fr(0)
+    assert cond(Bdie, lambda x: x in (2, 4), lambda x: True) == Fr(2, 3)
+    assert Fr(2, 3) + Fr(2, 3) - Fr(1, 3) == Fr(1), "the conditional addition rule on overlapping events"
+    assert Fr(2, 3) + Fr(2, 3) == Fr(4, 3), "adding them without the intersection overcounts"
+    assert Fr(1, 3) + Fr(0) == Fr(1, 3), "P(A|B) + P(A|B^c) is not 1 for A = {2}, B = even"
+    assert 1 - Fr(35, 100) == Fr(65, 100), "complement inside the condition"
+    # 2024 Set 1 Q.17
+    pa, pb, pab = Fr(3, 10), Fr(5, 10), Fr(1, 10)
+    assert pa * pb == Fr(15, 100) != pab, "not independent"
+    assert pa + pb - pab == Fr(7, 10), "P(A or B) = 0.7"
+    assert pa - pab == Fr(2, 10), "P(A and B^c) = 0.2"
+    assert 1 - (pa + pb - pab) == Fr(3, 10) != Fr(4, 10), "P(A^c and B^c) = 0.3, not 0.4"
+    assert Fr(12, 100) / Fr(3, 10) == Fr(4, 10), "the predicted variation P(B) = P(A and B)/P(A|B)"
+
+    # ---- card 3: the multiplication rule, the bag, and the three aces
+    bag = ["R"] * 10 + ["B"] * 15
+    two = [(x, y) for x in range(25) for y in range(25) if x != y]
+    def both_red(t):
+        return bag[t[0]] == "R" and bag[t[1]] == "R"
+    def first_red(t):
+        return bag[t[0]] == "R"
+    assert Fr(sum(1 for t in two if both_red(t)), len(two)) == Fr(10, 25) * Fr(9, 24) == Fr(15, 100), \
+        "P(both red) = 0.15"
+    assert cond(two, both_red, first_red) == Fr(9, 24) == Fr(375, 1000), \
+        "2024 Set 1 Q.53: P(both red | first red) = 0.375"
+    assert cond(two, both_red, first_red) != Fr(15, 100), "0.15 is the unconditional probability"
+    assert Fr(4, 52) * Fr(3, 51) * Fr(2, 50) == Fr(1, 5525), "three aces without replacement"
+    three = [(x, y) for x in range(5) for y in range(5) if x != y]
+    assert Fr(3, 5) * Fr(2, 4) == Fr(3, 10), "two red from 3 red and 2 blue"
+
+    # ---- card 4: independence, and GATE CSE 2023 Q.43
+    pA, pB, pC = Fr(1, 4), Fr(1, 2), Fr(1, 2)
+    assert pB * pC == Fr(1, 4) == pA, "P(B and C) = 1/4 = P(B)P(C)"
+    assert pA * pB == Fr(1, 8) != Fr(1, 4), "P(A and B) = 1/4, so A is not independent of B"
+    assert pA * pC == Fr(1, 8) != Fr(1, 4), "the same for A and C"
+    assert Fr(1, 4) / pC == pB, "P(B|C) = P(B), which is option D"
+    assert Fr(4, 10) * Fr(5, 10) == Fr(2, 10), "the predicted variation: 0.4 and 0.5 are independent"
+    assert (1 - Fr(6, 10)) * Fr(5, 10) == Fr(2, 10), "complements carry independence"
+
+    # ---- card 5: independence against exclusivity, over every pair of events on a die
+    subsets = []
+    for r in range(len(die) + 1):
+        for s in itertools.combinations(die, r):
+            subsets.append(set(s))
+    for A in subsets:
+        for B in subsets:
+            disjoint = not (A & B)
+            independent = Fr(len(A & B), 6) == Fr(len(A), 6) * Fr(len(B), 6)
+            if disjoint and independent:
+                assert len(A) == 0 or len(B) == 0, "only a zero-probability event is both"
+            if independent and len(A) > 0 and len(B) > 0:
+                assert not disjoint, "positive-probability independent events must overlap"
+    odd, even = {1, 3, 5}, {2, 4, 6}
+    assert not (odd & even) and Fr(0) != Fr(1, 2) * Fr(1, 2), "odd and even are disjoint and dependent"
+    assert Fr(len(odd), 6) + Fr(len(even), 6) == Fr(1), "the disjoint addition rule"
+    assert Fr(2, 10) * Fr(3, 10) == Fr(6, 100) != Fr(0), "two disjoint events of 0.2 and 0.3 are dependent"
+    assert Fr(0) * Fr(7, 10) == Fr(0), "a zero-probability event is independent of everything"
+
+    # ---- card 6: pairwise but not mutual independence
+    cc = list(itertools.product("HT", repeat=2))
+    def ev(f): return {c for c in cc if f(c)}
+    A6, B6, C6 = ev(lambda c: c[0] == "H"), ev(lambda c: c[1] == "H"), ev(lambda c: c[0] != c[1])
+    for X, Y in ((A6, B6), (A6, C6), (B6, C6)):
+        assert Fr(len(X & Y), 4) == Fr(len(X), 4) * Fr(len(Y), 4), "every pair is independent"
+    assert len(A6 & B6 & C6) == 0, "the triple intersection is empty"
+    assert Fr(0) != Fr(1, 2) ** 3, "so the triple product fails"
+    assert 2 ** 3 - 3 - 1 == 4, "four conditions for three events"
+    assert Fr(1, 2) * Fr(1, 2) * Fr(1, 2) == Fr(1, 8), "the triple product that mutual independence needs"
+
+    # ---- card 7: conditional independence, both directions
+    A7, C7 = ev(lambda c: c[0] == "H"), ev(lambda c: c[1] == "H")
+    B7 = ev(lambda c: "H" in c)
+    assert Fr(len(A7 & C7), 4) == Fr(len(A7), 4) * Fr(len(C7), 4), "independent unconditionally"
+    pa7 = Fr(len(A7 & B7), len(B7))
+    pc7 = Fr(len(C7 & B7), len(B7))
+    pac7 = Fr(len(A7 & C7 & B7), len(B7))
+    assert pa7 == Fr(2, 3) and pc7 == Fr(2, 3) and pac7 == Fr(1, 3), "given at least one head: 1/3 against 4/9"
+    assert pa7 * pc7 != pac7, "so they are conditionally dependent"
+    # the eight-outcome construction: dependent overall, independent given B
+    S8 = list(range(1, 9))
+    B8, A8, C8 = {1, 2, 3, 4}, {1, 2}, {1, 3, 5, 6, 7, 8}
+    assert Fr(len(A8), 8) == Fr(1, 4) and Fr(len(C8), 8) == Fr(3, 4)
+    assert Fr(len(A8 & C8), 8) == Fr(1, 8) != Fr(1, 4) * Fr(3, 4), "dependent unconditionally"
+    assert Fr(len(A8 & C8 & B8), len(B8)) == Fr(1, 4) == Fr(len(A8 & B8), len(B8)) * Fr(len(C8 & B8), len(B8)), \
+        "independent given B"
+    # the quick check: three coins, exactly two heads given at least one head
+    c3 = list(itertools.product("HT", repeat=3))
+    at_least_one = [c for c in c3 if "H" in c]
+    assert Fr(sum(1 for c in at_least_one if c.count("H") == 2), len(at_least_one)) == Fr(3, 7)
+
+    # ---- card 8: the total probability theorem
+    assert Fr(1, 2) * Fr(7, 10) + Fr(1, 2) * Fr(4, 10) == Fr(55, 100), "2016 Set 2 Q.5 = 0.55"
+    assert Fr(7, 10) * Fr(7, 10) + Fr(3, 10) * Fr(4, 10) == Fr(61, 100), "unequal priors give 0.61"
+    assert Fr(1, 2) * Fr(7, 10) + Fr(1, 2) * Fr(4, 10) != Fr(61, 100), "and the plain average does not"
+    assert Fr(5, 10) * Fr(1, 100) + Fr(3, 10) * Fr(2, 100) + Fr(2, 10) * Fr(3, 100) == Fr(17, 1000), \
+        "the three-machine check = 0.017"
+    # the rain question (GATE IT 2006 Q.1), used as an original question here
+    assert (Fr(6, 10) - Fr(1, 2) * Fr(4, 10)) / Fr(1, 2) == Fr(8, 10), "rain given above 25 degrees = 0.8"
+
+    # ---- card 9: Bayes, the coin box, the temperatures, and the two-urn variation
+    def bayes(priors, lik):
+        evidence = sum(p * l for p, l in zip(priors, lik))
+        return evidence, [p * l / evidence for p, l in zip(priors, lik)]
+    ev, post = bayes([Fr(1, 5), Fr(4, 5)], [Fr(1), Fr(1, 4)])
+    assert ev == Fr(4, 10) and post[0] == Fr(1, 2), "2025 Set 1 Q.22: P(fake | two heads) = 0.50"
+    assert post[0] + post[1] == 1, "the posteriors over a partition sum to 1"
+    ev, post = bayes([Fr(2, 10), Fr(5, 10), Fr(3, 10)], [Fr(40, 100), Fr(10, 100), Fr(1, 100)])
+    assert ev == Fr(133, 1000), "2018 Q.44: P(D high) = 0.133"
+    assert post[0] == Fr(80, 133) and abs(float(post[0]) - 0.6015) < 5e-4, "P(G high | D high) = 0.6015"
+    assert round(float(post[0]) + 5e-9, 2) == 0.60, "which rounds to 0.60"
+    ev, post = bayes([Fr(1, 2), Fr(1, 2)], [Fr(2, 5), Fr(4, 5)])
+    assert ev == Fr(6, 10) and post[0] == Fr(1, 3), "the two-urn predicted variation = 1/3"
+    ev, post = bayes([Fr(1, 2), Fr(1, 2)], [Fr(2, 10), Fr(6, 10)])
+    assert ev == Fr(4, 10) and post[0] == Fr(1, 4), "the card 9 quick check = 0.25"
+    assert Fr(1, 1) != Fr(1, 2), "P(two heads | fake) = 1 is not P(fake | two heads) = 0.5"
+
+    # ---- card 10: the tree, the sender and receiver, and the odds form
+    ev, post = bayes([Fr(1, 10), Fr(9, 10)], [Fr(3, 10), Fr(8, 10)])
+    assert ev == Fr(75, 100) and post[0] == Fr(4, 100), "2021 Set 1 Q.54: 0.04"
+    assert Fr(1, 10) * Fr(3, 10) + Fr(9, 10) * Fr(8, 10) + Fr(1, 10) * Fr(7, 10) + Fr(9, 10) * Fr(2, 10) == Fr(1), \
+        "all four branches sum to 1, so dividing by 1 returns the joint probability"
+    prior_odds = Fr(1, 3)
+    post_odds = prior_odds * 5
+    assert post_odds == Fr(5, 3) and post_odds / (1 + post_odds) == Fr(5, 8), "odds: 1:3 with a ratio of 5 gives 5/8"
+
+    # ---- card 11: the base rate
+    ev, post = bayes([Fr(1, 100), Fr(99, 100)], [Fr(98, 100), Fr(1, 100)])
+    assert post[0] == Fr(98, 197) and abs(float(post[0]) - 0.4975) < 5e-5, "1 per cent prevalence: 98/197"
+    assert round(float(post[0]) + 5e-9, 2) == 0.50, "which rounds to 0.50"
+    ev, post = bayes([Fr(1, 1000), Fr(999, 1000)], [Fr(98, 100), Fr(1, 100)])
+    assert post[0] == Fr(98, 1097) and abs(float(post[0]) - 0.0893) < 5e-4, "the robot example: about 0.089"
+    assert float(post[0]) < 0.10, "under ten per cent, as StatLect states"
+    ev, post = bayes([Fr(1, 10), Fr(9, 10)], [Fr(98, 100), Fr(1, 100)])
+    assert post[0] == Fr(98, 107) and abs(float(post[0]) - 0.9159) < 5e-4, "10 per cent prevalence: 98/107"
+
+    # ---- card 12: the two shared-trial PYQs, by enumeration
+    triples = list(itertools.product([0, 1], repeat=3))
+    both = [t for t in triples if t[2] == 0 and (t[0] * t[1] ^ t[2]) == 0]
+    x3zero = [t for t in triples if t[2] == 0]
+    assert len(both) == 3 and len(x3zero) == 4 and Fr(3, 4) == Fr(len(both), len(x3zero)), \
+        "2015 Set 3 Q.37: 0.75"
+    assert Fr(3, 8) / Fr(4, 8) == Fr(3, 4), "the same by the definition"
+    six = list(itertools.product([0, 1], repeat=6))
+    def e1(t):
+        return t[1] + t[3] + t[5] >= 2
+    def e2(t):
+        return t[0] + t[1] + t[2] + t[4] == 2
+    in_e2 = [t for t in six if e2(t)]
+    joint = [t for t in in_e2 if e1(t)]
+    assert len(six) == 64 and len(in_e2) == 24, "E2 leaves 24 equally likely completions"
+    assert len(joint) == 12, "12 of the 24 satisfy E1"
+    assert Fr(len(joint), len(in_e2)) == Fr(1, 2), "2026 Set 2 Q.53: 0.5"
+    assert Fr(len(joint), 64) == Fr(12, 64) == Fr(3, 16), "the joint probability is 3/16"
+    assert Fr(1, 2) * Fr(6, 16) == Fr(3, 16), "and the product happens to coincide, which is why counting is safer"
+
+    # ---- the lesson's numbers, from the priors and the rates
+    pa_, pb_ = Fr(6, 10), Fr(4, 10)
+    ra, rb = Fr(2, 100), Fr(5, 100)
+    ba, bb = pa_ * ra, pb_ * rb
+    assert ba == Fr(12, 1000) and bb == Fr(20, 1000), "branch products 0.012 and 0.020"
+    assert ba + bb == Fr(32, 1000), "the evidence 0.032"
+    assert bb / (ba + bb) == Fr(5, 8) and ba / (ba + bb) == Fr(3, 8), "posteriors 0.625 and 0.375"
+    assert Fr(5, 8) + Fr(3, 8) == 1, "they sum to 1"
+    assert (Fr(1, 2) * rb) / (Fr(1, 2) * ra + Fr(1, 2) * rb) == Fr(5, 7), "equal priors give 5/7"
+    b2, a2 = Fr(9, 10) * rb, Fr(1, 10) * ra
+    assert b2 == Fr(45, 1000) and a2 == Fr(2, 1000) and b2 + a2 == Fr(47, 1000), "the high-prior branches"
+    assert abs(float(b2 / (a2 + b2)) - 0.9574) < 5e-5, "the high-prior posterior is 0.957"
+
+    ok("conditional probability and Bayes: every conditional probability, joint probability, posterior, "
+       "verdict and count published in the topic recomputed - by enumeration over the die, the two dice, the "
+       "coin spaces, the 24 two-ball draws and the 64 toss sequences, and in exact rational arithmetic for the "
+       "partition sums and the lesson's tree")
+
+
 def main():
     topics, tpath, pyqs, videos, playlists, sources = load_all()
     check_topics(topics, tpath, pyqs, videos)
@@ -5897,6 +6108,7 @@ def main():
     check_integration()
     check_probability_and_statistics()
     check_mean_median_mode()
+    check_conditional_probability()
     check_visuals()
     check_hygiene()
     for c in checks:

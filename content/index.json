@@ -29,8 +29,8 @@
   ],
   "counts": {
     "subjects": 4,
-    "topics": 202,
-    "pyqs": 155,
+    "topics": 214,
+    "pyqs": 165,
     "videos": 39,
     "playlists": 3
   },
@@ -3089,6 +3089,179 @@
       "path": "subjects/probability-and-statistics/mean-median-mode-standard-deviation/choosing-the-summary-and-reading-units.json",
       "videos": [],
       "pyqs": [],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "conditional-probability-and-the-restricted-space",
+      "title": "Conditional Probability and the Restricted Sample Space",
+      "subject": "probability-and-statistics",
+      "group": "conditional-probability-and-bayes",
+      "unit": "Conditional Probability and Bayes Theorem",
+      "priority": "P1",
+      "path": "subjects/probability-and-statistics/conditional-probability-and-bayes/conditional-probability-and-the-restricted-space.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2011-q3-conditional-two-coins"
+      ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "a-conditional-probability-is-still-a-probability",
+      "title": "A Conditional Probability Is Still a Probability",
+      "subject": "probability-and-statistics",
+      "group": "conditional-probability-and-bayes",
+      "unit": "Conditional Probability and Bayes Theorem",
+      "priority": "P2",
+      "path": "subjects/probability-and-statistics/conditional-probability-and-bayes/a-conditional-probability-is-still-a-probability.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2024-set1-q17-independence-set-algebra"
+      ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "multiplication-rule-and-sequential-draws",
+      "title": "The Multiplication Rule and Sequential Draws",
+      "subject": "probability-and-statistics",
+      "group": "conditional-probability-and-bayes",
+      "unit": "Conditional Probability and Bayes Theorem",
+      "priority": "P1",
+      "path": "subjects/probability-and-statistics/conditional-probability-and-bayes/multiplication-rule-and-sequential-draws.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2024-set1-q53-conditional-without-replacement"
+      ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "independence-and-the-product-test",
+      "title": "Independence and the Product Test",
+      "subject": "probability-and-statistics",
+      "group": "conditional-probability-and-bayes",
+      "unit": "Conditional Probability and Bayes Theorem",
+      "priority": "P1",
+      "path": "subjects/probability-and-statistics/conditional-probability-and-bayes/independence-and-the-product-test.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2023-q43-independence-two-coins"
+      ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "independent-events-cannot-be-mutually-exclusive",
+      "title": "Independent Events Cannot Be Mutually Exclusive",
+      "subject": "probability-and-statistics",
+      "group": "conditional-probability-and-bayes",
+      "unit": "Conditional Probability and Bayes Theorem",
+      "priority": "P1",
+      "path": "subjects/probability-and-statistics/conditional-probability-and-bayes/independent-events-cannot-be-mutually-exclusive.json",
+      "videos": [],
+      "pyqs": [],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "pairwise-and-mutual-independence",
+      "title": "Pairwise and Mutual Independence",
+      "subject": "probability-and-statistics",
+      "group": "conditional-probability-and-bayes",
+      "unit": "Conditional Probability and Bayes Theorem",
+      "priority": "P2",
+      "path": "subjects/probability-and-statistics/conditional-probability-and-bayes/pairwise-and-mutual-independence.json",
+      "videos": [],
+      "pyqs": [],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "conditional-independence",
+      "title": "Conditional Independence",
+      "subject": "probability-and-statistics",
+      "group": "conditional-probability-and-bayes",
+      "unit": "Conditional Probability and Bayes Theorem",
+      "priority": "P3",
+      "path": "subjects/probability-and-statistics/conditional-probability-and-bayes/conditional-independence.json",
+      "videos": [],
+      "pyqs": [],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "the-total-probability-theorem",
+      "title": "The Total Probability Theorem",
+      "subject": "probability-and-statistics",
+      "group": "conditional-probability-and-bayes",
+      "unit": "Conditional Probability and Bayes Theorem",
+      "priority": "P1",
+      "path": "subjects/probability-and-statistics/conditional-probability-and-bayes/the-total-probability-theorem.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2016-set2-q5-total-probability-led"
+      ],
+      "visual": "probability-and-statistics/conditional-probability-and-bayes/bayes-tree-and-the-base-rate",
+      "variations": 3
+    },
+    {
+      "topic": "bayes-theorem-from-evidence-to-cause",
+      "title": "Bayes' Theorem: From Evidence to Cause",
+      "subject": "probability-and-statistics",
+      "group": "conditional-probability-and-bayes",
+      "unit": "Conditional Probability and Bayes Theorem",
+      "priority": "P1",
+      "path": "subjects/probability-and-statistics/conditional-probability-and-bayes/bayes-theorem-from-evidence-to-cause.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2018-q44-bayes-temperature",
+        "gate-2021-set1-q54-bayes-signal",
+        "gate-2025-set1-q22-bayes-fake-coin"
+      ],
+      "visual": "probability-and-statistics/conditional-probability-and-bayes/bayes-tree-and-the-base-rate",
+      "variations": 3
+    },
+    {
+      "topic": "bayes-on-a-tree-and-in-odds",
+      "title": "Bayes on a Tree, and in Odds",
+      "subject": "probability-and-statistics",
+      "group": "conditional-probability-and-bayes",
+      "unit": "Conditional Probability and Bayes Theorem",
+      "priority": "P2",
+      "path": "subjects/probability-and-statistics/conditional-probability-and-bayes/bayes-on-a-tree-and-in-odds.json",
+      "videos": [],
+      "pyqs": [],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "the-base-rate-and-a-good-test",
+      "title": "The Base Rate, and Why a Good Test Can Be Wrong",
+      "subject": "probability-and-statistics",
+      "group": "conditional-probability-and-bayes",
+      "unit": "Conditional Probability and Bayes Theorem",
+      "priority": "P2",
+      "path": "subjects/probability-and-statistics/conditional-probability-and-bayes/the-base-rate-and-a-good-test.json",
+      "videos": [],
+      "pyqs": [],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "conditioning-on-a-count-and-on-shared-trials",
+      "title": "Conditioning on a Count, and on Shared Trials",
+      "subject": "probability-and-statistics",
+      "group": "conditional-probability-and-bayes",
+      "unit": "Conditional Probability and Bayes Theorem",
+      "priority": "P2",
+      "path": "subjects/probability-and-statistics/conditional-probability-and-bayes/conditioning-on-a-count-and-on-shared-trials.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2015-set3-q37-conditional-xor",
+        "gate-2026-set2-q53-conditional-shared-tosses"
+      ],
       "visual": null,
       "variations": 3
     }

@@ -1,0 +1,80 @@
+{
+  "id": "pairwise-and-mutual-independence",
+  "title": "Pairwise and Mutual Independence",
+  "priority": "P2",
+  "order": 330,
+  "unit": "Conditional Probability and Bayes Theorem",
+  "quickIdea": "For three events, pairwise independence is three products. Mutual independence needs a fourth, P(A and B and C) = P(A)P(B)P(C), and pairwise independence does not give it.",
+  "remember": [
+    "n events are mutually independent when every sub-family of size 2 or more satisfies the product rule: 2^n - n - 1 separate equations.",
+    "Mutual independence implies pairwise independence; the converse fails, and the standard counterexample is small enough to memorise.",
+    "The counterexample: two fair coins; A = head on the first, B = head on the second, C = the two coins differ. Each pair is independent and P(A and B and C) = 0, not 1/8.",
+    "Pairwise independence is not enough to multiply three probabilities, and not enough to add variances of three terms.",
+    "In a GATE MSQ, an option that says 'pairwise independent' is weaker than 'independent', and the difference is exactly the triple product.",
+    "When a question says only 'A and B', the two-event definition is all that is needed; do not import the three-event machinery into a two-event question."
+  ],
+  "example": {
+    "prompt": "Two fair coins are tossed. A = head on the first, B = head on the second, C = the coins show different faces. Test all three pairs, then the triple.",
+    "work": "The space is HH, HT, TH, TT; A = {HH, HT}, B = {HH, TH}, C = {HT, TH}, each of probability 1/2. P(A and B) = P(HH) = 1/4 = (1/2)(1/2); P(A and C) = P(HT) = 1/4; P(B and C) = P(TH) = 1/4. So every pair passes. But A and B and C would need HH, HT and TH at once, which is impossible: P(A and B and C) = 0, against the required (1/2)^3 = 1/8.",
+    "answer": "Pairwise independent but not mutually independent."
+  },
+  "gateAngle": "No CSE previous-year question in this topic asks for mutual independence of three events, so this card is P2 and rests on the standard construction and on recomputation rather than on a verified question.",
+  "variations": [
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "In the coin construction above, which single number shows that mutual independence fails?",
+      "answer": "P(A and B and C) = 0, which should be 1/8.",
+      "why": "All three pairwise products hold, so the only remaining condition is the triple product, and it fails as badly as possible."
+    },
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "Three events have P(A) = P(B) = P(C) = 1/2, all three pairwise intersections of probability 1/4, and P(A and B and C) = 1/8. Are they mutually independent?",
+      "answer": "Yes.",
+      "why": "All four required products hold: three pairwise and one triple. This is the case the counterexample fails to reach."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "How many product conditions must n events satisfy to be mutually independent?",
+      "answer": "2^n - n - 1.",
+      "why": "One condition for each sub-family of size 2 or more; there are 2^n sub-families, of which n are singletons and one is empty."
+    }
+  ],
+  "trap": {
+    "what": "Checking only the pairwise products and concluding mutual independence.",
+    "why": "Pairwise independence constrains every two-way overlap but says nothing about the three-way overlap, which can be forced to zero by the design of the events.",
+    "counterexample": "The two-coin construction: three pairwise products of 1/4 all hold, yet the triple intersection is empty."
+  },
+  "check": {
+    "question": "In the two-coin construction, what is P(A and B and C)?",
+    "answer": "0.",
+    "explanation": "C requires the coins to differ while A and B require both to be heads; no outcome satisfies all three, so the triple probability is 0 against the required 1/8."
+  },
+  "pyqIds": [],
+  "prereqs": [
+    "independence-and-the-product-test"
+  ],
+  "sources": [
+    {
+      "kind": "lecture-transcript",
+      "title": "Lecture 10 - Independence of Events",
+      "channel": "NPTEL, Probability and Statistics (Prof. Somesh Kumar, IIT Kharagpur)",
+      "url": "http://www.digimat.in/nptel/courses/video/111105090/lec10.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read from the opening through the definition of mutual independence for n events: the two-coin test of P(A|B) against P(A), the symmetric definition P(A and B) = P(A)P(B), and the four conditions needed for three events"
+    },
+    {
+      "kind": "text",
+      "title": "Conditional probability",
+      "channel": "StatLect (Marco Taboga)",
+      "url": "https://www.statlect.com/fundamentals-of-probability/conditional-probability",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read through the law of total probability: the two proofs of the formula, the die example, the division-by-zero discussion, the list of properties a conditional probability must satisfy, and the partition form of the total probability theorem"
+    }
+  ],
+  "sourceLine": "The four conditions for three events and the general 2^n - n - 1 count: NPTEL IIT Kharagpur Lecture 10 (English, read in part). The conditional-probability properties that the pairwise checks use: StatLect (English). The two-coin counterexample is verified by enumeration in scripts/validate.py.",
+  "videoRefs": []
+}

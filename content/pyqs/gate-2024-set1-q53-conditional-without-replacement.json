@@ -1,0 +1,14 @@
+{
+  "id": "gate-2024-set1-q53-conditional-without-replacement",
+  "year": "2024",
+  "paper": "GATE CSE 2024 Set 1",
+  "question_ref": "Question 53",
+  "type": "NAT",
+  "topic": "multiplication-rule-and-sequential-draws",
+  "text": "A bag contains 10 red balls and 15 blue balls. Two balls are drawn randomly without replacement. Given that the first ball drawn is red, the probability (rounded off to 3 decimal places) that both balls drawn are red is ____.",
+  "answer": "0.375",
+  "solution": "Given that the first ball is red, 9 red and 15 blue remain, so P(both red | first red) = 9/24 = 0.375. The unconditional probability of both red is (10/25)(9/24) = 0.15, which is a different quantity and does not answer the question.",
+  "source_url": "https://gateoverflow.in/422789/gate-cse-2024-set-1-question-53",
+  "source_label": "GATE Overflow question page, GATE CSE 2024 Set 1 Question 53, accepted answer",
+  "verification": "SOURCED"
+}

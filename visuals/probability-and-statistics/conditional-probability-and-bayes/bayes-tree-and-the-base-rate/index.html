@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bayes on a Tree and the Base Rate - Conditional Probability visual lesson</title>
+<link rel="stylesheet" href="../../../lesson.css">
+<script src="https://cdn.jsdelivr.net/npm/p5@1.9.4/lib/p5.min.js"></script>
+</head>
+<body>
+<div class="wrap">
+  <p class="small"><a href="../../../../index.html">&larr; back to the revision site</a></p>
+  <h1>Bayes on a Tree and the Base Rate</h1>
+  <div class="objective"><strong>Objective.</strong> Read one Bayes question as a tree - causes on the first level, evidence on the second - and see that the answer is one branch's share of the branches that end in the evidence. Then watch the same likelihoods give a different answer when only the priors change.</div>
+
+  <div class="canvas-wrap"><div id="canvas-holder"></div></div>
+  <div class="caption" id="caption" aria-live="polite"></div>
+
+  <div class="controls">
+    <button id="play" class="primary">Play</button>
+    <button id="prev">&larr; Prev</button>
+    <button id="next">Next &rarr;</button>
+    <button id="restart">Restart</button>
+    <span class="speed"><label for="speed">Speed</label>
+      <input id="speed" type="range" min="0.25" max="2" step="0.25" value="1">
+      <span id="speedLabel">1.00x</span></span>
+    <span class="counter" id="counter"></span>
+  </div>
+
+  <h2>Static explanation</h2>
+  <p>A factory receives 60 per cent of its items from machine A and 40 per cent from machine B. Machine A makes 2 per cent defective items and machine B makes 5 per cent. An item is drawn and found defective; the question asks which machine made it. That is a Bayes question, and it is a tree question.</p>
+  <p>The first level of the tree is the cause, which we do not observe: 0.6 and 0.4, summing to 1 because every item comes from exactly one machine. The second level is the evidence given the cause: 0.02 and 0.05, the two likelihoods. A branch's probability is the product along it, so machine A and defective is 0.6 times 0.02, which is 0.012, and machine B and defective is 0.4 times 0.05, which is 0.020.</p>
+  <p>The denominator is the total probability of the evidence: 0.012 + 0.020 = 0.032. Those are the only branches that end in the observation, so they are the only ones in the sum. Dividing, the defective item came from machine B with probability 0.020 / 0.032 = 5/8 = 0.625, and from machine A with probability 0.375. The two shares add to 1, which is the check to run on every Bayes answer.</p>
+  <p>The last step changes only the priors: machine B now supplies 90 per cent of the output. The branches become 0.002 and 0.045, the evidence 0.047, and the posterior for B 0.957. The machines did not improve. The population did. That is why a likelihood on its own can never answer a question about causes, and why the base rate has to be in the calculation.</p>
+
+  <div class="card warn"><div class="label">Common misconception</div><p>Reporting 0.05, the defect rate of machine B, as the answer. That is P(defective | B), a property of the machine; the question asks for P(B | defective), a share of the defectives. The two numbers are 0.05 and 0.625 on the same data. The second mistake is adding all four branch products in the denominator, which sums to 1 and turns the answer back into the joint probability 0.012 or 0.020.</p></div>
+  <div class="card ok"><div class="label">Quick check</div><p>With the original 60/40 split, what is P(A | defective), and what does it add to with P(B | defective)?</p><details><summary>Answer</summary><p><strong>0.012 / 0.032 = 0.375, and 0.375 + 0.625 = 1.</strong> The posterior probabilities over a partition always sum to 1, because every defective item came from one of the two machines.</p></details></div>
+  <p class="small">Topic: Conditional Probability and Bayes Theorem (Probability and Statistics), subtopics the total probability theorem, Bayes' theorem, the tree diagram, and the base rate. The machine A and machine B defective-item example: the Knowledge Gate AI GATE probability page (English), recomputed here. The prior, likelihood, evidence and posterior terminology and the branch-product structure: StatLect's Bayes' rule page (English). The advice to solve these questions with a tree diagram: GATE Overflow's probability notes (English). Every number shown here is recomputed in scripts/validate.py.</p>
+</div>
+<script src="../../../lesson.js"></script>
+<script src="sketch.js"></script>
+<script>
+/* p5.js is loaded from a CDN. If it is unreachable, say so plainly instead of showing an empty box. */
+window.addEventListener('load', function () {
+  if (window.p5) { return; }
+  var holder = document.getElementById('canvas-holder');
+  if (holder) {
+    holder.innerHTML = '<div style="padding:22px 18px;font-size:14.5px;color:#4a5260">' +
+      'The animation needs p5.js, which this page loads from a CDN, and the request failed (offline, or the CDN is blocked). ' +
+      'Everything below still works: the static explanation, the misconception and the quick check.</div>';
+  }
+  var cap = document.getElementById('caption');
+  if (cap && window.LESSON && window.LESSON.steps && window.LESSON.steps[0]) {
+    cap.innerHTML = window.LESSON.steps[0].caption;
+  }
+  ['play', 'prev', 'next', 'restart', 'speed'].forEach(function (id) {
+    var el = document.getElementById(id);
+    if (el) { el.disabled = true; }
+  });
+});
+</script>
+</body>
+</html>

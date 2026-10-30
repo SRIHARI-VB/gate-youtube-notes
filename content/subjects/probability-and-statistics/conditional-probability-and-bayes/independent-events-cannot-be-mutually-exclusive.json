@@ -1,0 +1,90 @@
+{
+  "id": "independent-events-cannot-be-mutually-exclusive",
+  "title": "Independent Events Cannot Be Mutually Exclusive",
+  "priority": "P1",
+  "order": 329,
+  "unit": "Conditional Probability and Bayes Theorem",
+  "quickIdea": "Mutually exclusive means P(A and B) = 0. Independent means P(A and B) = P(A)P(B). If both events have positive probability, no pair can be both.",
+  "remember": [
+    "Disjoint gives P(A or B) = P(A) + P(B). Independence gives P(A and B) = P(A)P(B). They answer different questions and are not two words for the same thing.",
+    "If P(A) > 0 and P(B) > 0 and A, B are disjoint, then 0 = P(A and B) < P(A)P(B), so the pair is dependent - as dependent as a pair can be.",
+    "The only events that are both disjoint and independent have probability zero: P(A) = 0 or P(B) = 0 makes both sides 0.",
+    "Independent events of positive probability must overlap, so for them P(A or B) < P(A) + P(B).",
+    "Repeated tosses are independent because they are separate experiments. The outcomes of one toss are disjoint because they are one experiment. Mixing the two constructions is where the confusion starts.",
+    "NCERT's class 12 chapter states the lemma in this form: independent events with non-zero probability can never be mutually exclusive."
+  ],
+  "example": {
+    "prompt": "A fair die is rolled. A = an odd number, B = an even number. Are A and B independent, mutually exclusive, or both?",
+    "work": "A and B cannot happen together, so P(A and B) = 0. But P(A) = 1/2 and P(B) = 1/2, so P(A)P(B) = 1/4. The product test fails, so the events are dependent; the disjointness is exactly what makes them dependent. Their union has probability 1 = 1/2 + 1/2, which is the disjoint addition rule at work.",
+    "answer": "Mutually exclusive and dependent, with P(A or B) = 1."
+  },
+  "gateAngle": "An option of the form 'A and B are mutually exclusive and independent' is false in every GATE question that offers it, unless one of the probabilities is zero - and no CSE paper has yet offered that degenerate case.",
+  "variations": [
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Two events have P(A) = 0.2 and P(B) = 0.3 and are disjoint. Are they independent?",
+      "answer": "No.",
+      "why": "P(A and B) = 0 but P(A)P(B) = 0.06, so the product test fails. Disjointness of positive-probability events always means dependence."
+    },
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "P(A) = 0.3, P(B) = 0.5, P(A and B) = 0.1. Are A and B independent? Are they mutually exclusive?",
+      "answer": "Dependent, and not mutually exclusive.",
+      "why": "P(A)P(B) = 0.15 is not 0.1, so they are dependent; P(A and B) = 0.1 is not 0, so they are not disjoint. This is the pair of verdicts GATE CSE 2024 Set 1 Q.17 asks for."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "Can two events with P(A) = 0 and P(B) = 0.7 be both disjoint and independent?",
+      "answer": "Yes, and this is the only way.",
+      "why": "P(A and B) = 0 because A is empty, and P(A)P(B) = 0 x 0.7 = 0, so both conditions hold. A zero-probability event is independent of everything."
+    }
+  ],
+  "trap": {
+    "what": "Reading 'independent' as 'unrelated' or 'cannot happen at the same time'.",
+    "why": "Independence is a statement that knowing one event leaves the other's probability unchanged. Disjointness is the strongest possible change: knowing one happened makes the other impossible.",
+    "counterexample": "Odd and even on a die are as disjoint as events get, and they are dependent for exactly that reason: P(odd|even) = 0 against P(odd) = 1/2."
+  },
+  "check": {
+    "question": "P(A) = 0.2 and P(B) = 0.3. Can A and B be both independent and mutually exclusive?",
+    "answer": "No.",
+    "explanation": "Independence would need P(A and B) = 0.06 while exclusivity needs P(A and B) = 0. Both cannot hold for positive probabilities."
+  },
+  "pyqIds": [],
+  "prereqs": [
+    "independence-and-the-product-test"
+  ],
+  "sources": [
+    {
+      "kind": "text",
+      "title": "Prayikta (probability): NCERT class 12 mathematics chapter 13 notes and summary",
+      "channel": "NCERT Hindi (ncerthindi.com)",
+      "url": "https://ncerthindi.com/ncert-books/class-12/mathematics/probability",
+      "language": "hi",
+      "transcript": "PARTIAL",
+      "translated": true,
+      "note": "read in full, in Hindi, and rendered into English here: conditional probability and the shrunken sample space, the multiplication rule, the definition of independence, the lemma that independent events of non-zero probability can never be mutually exclusive, the total probability theorem for a partition, and the Bayes formula with the defective-bolt and HIV-test applications"
+    },
+    {
+      "kind": "lecture-transcript",
+      "title": "Lecture 10 - Independence of Events",
+      "channel": "NPTEL, Probability and Statistics (Prof. Somesh Kumar, IIT Kharagpur)",
+      "url": "http://www.digimat.in/nptel/courses/video/111105090/lec10.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read from the opening through the definition of mutual independence for n events: the two-coin test of P(A|B) against P(A), the symmetric definition P(A and B) = P(A)P(B), and the four conditions needed for three events"
+    },
+    {
+      "kind": "text",
+      "title": "Probability for GATE CS: conditional, Bayes and expectation",
+      "channel": "Knowledge Gate AI",
+      "url": "https://www.knowledgegate.ai/blog/probability-gate-cs-conditional-bayes",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read in full: the two-dice sum-8 worked example, the machine A / machine B defective-item Bayes example, the independence against mutual-exclusivity warning with the odd/even die case, and the advice to rebuild the denominator whenever a stem says 'given'"
+    }
+  ],
+  "sourceLine": "The lemma that independent events of non-zero probability cannot be mutually exclusive, and the odd/even die illustration: the Hindi NCERT class 12 chapter 13 summary (Hindi, translated here) and the Knowledge Gate AI GATE probability page (English). The definitions of independence and of the disjoint addition rule: NPTEL IIT Kharagpur Lecture 10 (English, read in part).",
+  "videoRefs": []
+}

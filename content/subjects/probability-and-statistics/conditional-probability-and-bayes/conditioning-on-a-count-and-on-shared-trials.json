@@ -1,0 +1,94 @@
+{
+  "id": "conditioning-on-a-count-and-on-shared-trials",
+  "title": "Conditioning on a Count, and on Shared Trials",
+  "priority": "P2",
+  "order": 336,
+  "unit": "Conditional Probability and Bayes Theorem",
+  "quickIdea": "When the condition is an event about a random variable, write the ratio P(Y = y and C)/P(C) and count outcomes. When the two events share trials, break the count at the shared trial instead of assuming independence.",
+  "remember": [
+    "Given X3 = 0, any function of X3 is constant, so Y = X1X2 XOR X3 collapses to Y = X1X2 and the question becomes P(X1X2 = 0) = 3/4.",
+    "Enumerate when the space is small. Eight equally likely triples for GATE CSE 2015 Set 3 Q.37; sixty-four toss sequences for GATE CSE 2026 Set 2 Q.53, or twenty-four once the condition fixes two of the four tosses.",
+    "In GATE CSE 2026 Set 2 Q.53 the events share toss 2, so they are not independent and P(E1)P(E2) is not available; the answer 1/2 comes from counting twelve favourable completions out of twenty-four.",
+    "Conditioning on a symmetric event usually leaves the remaining trials uniform, which is why the answer can coincide with the unconditional one - as it does here.",
+    "A function of independent variables is independent of a function of the others, which is the licence to simplify P(Y = 0 | X3 = 0) into P(X1X2 = 0).",
+    "Never multiply two events that share a trial. Check which trials each event uses before reaching for the product rule."
+  ],
+  "example": {
+    "prompt": "X1, X2, X3 are independent, each 0 or 1 with probability 1/2. Y = X1X2 XOR X3. Find P(Y = 0 | X3 = 0).",
+    "work": "With X3 = 0 the XOR is the identity, so Y = 0 exactly when X1X2 = 0, that is for (0,0), (0,1) and (1,0): three of the four equally likely pairs. By the definition, P(Y = 0 and X3 = 0) = 3/8 and P(X3 = 0) = 4/8, so the ratio is 3/4.",
+    "answer": "0.75."
+  },
+  "gateAngle": "GATE CSE 2015 Set 3 Q.37 collapses a function of the conditioned variable; GATE CSE 2026 Set 2 Q.53 conditions on an event that shares a toss with the event asked about. Both are the definition plus counting, and neither is a product of independent probabilities.",
+  "variations": [
+    {
+      "label": "VERIFIED PYQ",
+      "question": "GATE CSE 2015 Set 3 Q.37: X1, X2, X3 are i.i.d. with P(Xi = 0) = P(Xi = 1) = 1/2 and Y = X1X2 XOR X3. Then P(Y = 0 | X3 = 0) = ____.",
+      "answer": "0.75.",
+      "why": "Three of the four pairs (X1, X2) make X1X2 = 0, so the conditional probability is 3/4."
+    },
+    {
+      "label": "VERIFIED PYQ",
+      "question": "GATE CSE 2026 Set 2 Q.53 (Q.63 in the official paper): an unbiased coin is tossed 6 times. E1 = at least two heads among tosses 2, 4, 6. E2 = equal numbers of heads and tails among tosses 1, 2, 3, 5. Find P(E1 | E2) to one decimal place.",
+      "answer": "0.5.",
+      "why": "E2 fixes two heads and two tails among tosses 1, 2, 3, 5: 6 patterns out of 16, and tosses 4 and 6 are free, giving 24 equally likely completions. Of those, 12 satisfy E1: 3 patterns x 3 completions where toss 2 is a head, plus 3 x 1 where toss 2 is a tail. So the probability is 12/24."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "In GATE CSE 2026 Set 2 Q.53, why is P(E1)P(E2) not the numerator?",
+      "answer": "Because E1 and E2 share toss 2, so they are not independent and the joint probability is not the product.",
+      "why": "P(E1) = 1/2 and P(E2) = 6/16, whose product is 3/16; the true joint probability is 12/64 = 3/16. The numbers coincide here by symmetry, which is exactly why the counting argument is the safe route."
+    }
+  ],
+  "trap": {
+    "what": "Multiplying two probabilities that share a trial, or forgetting that a function of the conditioned variable becomes constant.",
+    "why": "Sharing a trial makes the events dependent in general, so the product rule does not apply; and conditioning on X3 = 0 removes X3 from the expression entirely.",
+    "counterexample": "In GATE CSE 2015 Set 3 Q.37 the naive product P(Y = 0)P(X3 = 0) would be (1/2)(1/2) = 1/4, while the joint probability is 3/8 - the events are dependent because both involve X3."
+  },
+  "check": {
+    "question": "Three fair coins are tossed. What is the probability of exactly two heads, given at least one head?",
+    "answer": "3/7.",
+    "explanation": "Seven of the eight outcomes have at least one head, and three of those (HHT, HTH, THH) have exactly two, so the conditional probability is 3/7."
+  },
+  "pyqIds": [
+    "gate-2015-set3-q37-conditional-xor",
+    "gate-2026-set2-q53-conditional-shared-tosses"
+  ],
+  "prereqs": [
+    "conditional-probability-and-the-restricted-space",
+    "independence-and-the-product-test"
+  ],
+  "sources": [
+    {
+      "kind": "lecture-transcript",
+      "title": "Lecture 09 - Conditional Probability",
+      "channel": "NPTEL, Probability and Statistics (Prof. Somesh Kumar, IIT Kharagpur)",
+      "url": "http://www.digimat.in/nptel/courses/video/111105090/lec9.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read from the opening through the statement of Bayes' theorem: the die example that motivates conditioning, the definition, the proof that P(.|B) satisfies the three axioms, the multiplication rule, the total probability theorem for a disjoint exhaustive family, and the Bayes formula for a partition"
+    },
+    {
+      "kind": "lecture-transcript",
+      "title": "Lecture 10 - Independence of Events",
+      "channel": "NPTEL, Probability and Statistics (Prof. Somesh Kumar, IIT Kharagpur)",
+      "url": "http://www.digimat.in/nptel/courses/video/111105090/lec10.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read from the opening through the definition of mutual independence for n events: the two-coin test of P(A|B) against P(A), the symmetric definition P(A and B) = P(A)P(B), and the four conditions needed for three events"
+    },
+    {
+      "kind": "text",
+      "title": "Probability for GATE CS: conditional, Bayes and expectation",
+      "channel": "Knowledge Gate AI",
+      "url": "https://www.knowledgegate.ai/blog/probability-gate-cs-conditional-bayes",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read in full: the two-dice sum-8 worked example, the machine A / machine B defective-item Bayes example, the independence against mutual-exclusivity warning with the odd/even die case, and the advice to rebuild the denominator whenever a stem says 'given'"
+    }
+  ],
+  "sourceLine": "The definition and the counting route: NPTEL IIT Kharagpur Lecture 09 (English, read in part), with the independence facts from Lecture 10. The reminder to rebuild the denominator from the stated condition: the Knowledge Gate AI GATE probability page (English). Both PYQs are recomputed by enumeration in scripts/validate.py.",
+  "videoRefs": []
+}

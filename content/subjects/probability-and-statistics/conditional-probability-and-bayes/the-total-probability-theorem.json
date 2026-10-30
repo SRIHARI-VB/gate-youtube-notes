@@ -1,0 +1,94 @@
+{
+  "id": "the-total-probability-theorem",
+  "title": "The Total Probability Theorem",
+  "priority": "P1",
+  "order": 332,
+  "unit": "Conditional Probability and Bayes Theorem",
+  "quickIdea": "If B1 to Bn partition the space, then P(A) = sum over j of P(Bj)P(A|Bj): split the event by cause, weight each cause's conditional probability by that cause's own probability, and add.",
+  "remember": [
+    "A partition needs three things: the Bj are pairwise disjoint, they cover the whole space, and each has positive probability so every conditional probability is defined.",
+    "Two causes give the form that appears in most GATE stems: P(A) = P(B1)P(A|B1) + P(B2)P(A|B2).",
+    "The weights are the priors. An unweighted average of the conditional probabilities is wrong unless the priors happen to be equal - and in 2016 Set 2 Q.5 they do, which is why that question can be solved by an average as a shortcut, not as the rule.",
+    "The same sum is the denominator of Bayes' theorem. Compute it once, name it the evidence probability, and reuse it.",
+    "Choosing the partition is the whole skill: split by the thing you do not observe - the type, the machine, the urn, the coin, the source.",
+    "Every way A can happen must appear in exactly one term. A missing cause makes the total too small, and a cause counted twice makes it too large."
+  ],
+  "example": {
+    "prompt": "A shop has equal numbers of two types of LED bulb. P(lasts more than 100 hours | type 1) = 0.7 and P(lasts more than 100 hours | type 2) = 0.4. Find the probability that a uniformly chosen bulb lasts more than 100 hours.",
+    "work": "The two types partition the stock and each has probability 1/2. Total probability: P(more than 100) = (1/2)(0.7) + (1/2)(0.4) = 0.35 + 0.20 = 0.55. A counting shortcut gives the same answer: 10 bulbs of each type, 7 and 4 of them lasting, so 11 of 20.",
+    "answer": "0.55."
+  },
+  "gateAngle": "GATE CSE 2016 Set 2 Q.5 is a two-term total probability question with equal priors, and the same sum is the denominator in GATE CSE 2018 Q.44 (three causes) and GATE CSE 2021 Set 1 Q.54 (two causes).",
+  "variations": [
+    {
+      "label": "VERIFIED PYQ",
+      "question": "GATE CSE 2016 Set 2 Q.5: a shop has equal numbers of LED bulbs of two types. The probability of lasting more than 100 hours is 0.7 for type 1 and 0.4 for type 2. The probability that a uniformly chosen bulb lasts more than 100 hours is ____.",
+      "answer": "0.55.",
+      "why": "(1/2)(0.7) + (1/2)(0.4) = 0.55. The equal priors are what make the answer the plain average."
+    },
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "In a certain town the probability of rain in the afternoon is 0.6. If the noon temperature is at most 25 degrees the probability of rain is 0.4, and the temperature is equally likely to be above or at most 25 degrees. What is the probability of rain when the noon temperature is above 25 degrees?",
+      "answer": "0.8.",
+      "why": "0.6 = 0.5 x 0.4 + 0.5 x p, so p = 0.8. This is GATE IT 2006 Q.1, an Information Technology paper question, so it is used here as an original exercise rather than as a CSE PYQ."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "In the LED question, suppose 70% of the stock is type 1 and 30% is type 2. What is the probability now, and what does the unweighted average give?",
+      "answer": "0.61, against an unweighted average of 0.55.",
+      "why": "(0.7)(0.7) + (0.3)(0.4) = 0.49 + 0.12 = 0.61. The unweighted average ignores the sizes of the groups and is right only when they are equal."
+    }
+  ],
+  "trap": {
+    "what": "Averaging the conditional probabilities without weighting them by the prior probabilities.",
+    "why": "Each conditional probability describes a different group, and the group's size is the weight its contribution deserves in the total.",
+    "counterexample": "With 70% type 1 and 30% type 2 the true probability is 0.61 while the plain average is 0.55: a 0.06 error from one omitted weight."
+  },
+  "check": {
+    "question": "Three machines supply 50%, 30% and 20% of the output and produce 1%, 2% and 3% defective items. What is the probability that a random item is defective?",
+    "answer": "0.017.",
+    "explanation": "(0.5)(0.01) + (0.3)(0.02) + (0.2)(0.03) = 0.005 + 0.006 + 0.006 = 0.017."
+  },
+  "pyqIds": [
+    "gate-2016-set2-q5-total-probability-led"
+  ],
+  "prereqs": [
+    "conditional-probability-and-the-restricted-space",
+    "multiplication-rule-and-sequential-draws"
+  ],
+  "sources": [
+    {
+      "kind": "lecture-transcript",
+      "title": "Lecture 09 - Conditional Probability",
+      "channel": "NPTEL, Probability and Statistics (Prof. Somesh Kumar, IIT Kharagpur)",
+      "url": "http://www.digimat.in/nptel/courses/video/111105090/lec9.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read from the opening through the statement of Bayes' theorem: the die example that motivates conditioning, the definition, the proof that P(.|B) satisfies the three axioms, the multiplication rule, the total probability theorem for a disjoint exhaustive family, and the Bayes formula for a partition"
+    },
+    {
+      "kind": "text",
+      "title": "Conditional probability",
+      "channel": "StatLect (Marco Taboga)",
+      "url": "https://www.statlect.com/fundamentals-of-probability/conditional-probability",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read through the law of total probability: the two proofs of the formula, the die example, the division-by-zero discussion, the list of properties a conditional probability must satisfy, and the partition form of the total probability theorem"
+    },
+    {
+      "kind": "text",
+      "title": "Probability for GATE CS: conditional, Bayes and expectation",
+      "channel": "Knowledge Gate AI",
+      "url": "https://www.knowledgegate.ai/blog/probability-gate-cs-conditional-bayes",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read in full: the two-dice sum-8 worked example, the machine A / machine B defective-item Bayes example, the independence against mutual-exclusivity warning with the odd/even die case, and the advice to rebuild the denominator whenever a stem says 'given'"
+    }
+  ],
+  "sourceLine": "The theorem for a disjoint exhaustive family with its proof: NPTEL IIT Kharagpur Lecture 09 (English, read in part) and StatLect's partition form (English). The machine A / machine B defective-item arithmetic: the Knowledge Gate AI GATE probability page (English). The 2006 rain question is recorded in the source ledger as an excluded IT-paper question.",
+  "videoRefs": [],
+  "visual": "probability-and-statistics/conditional-probability-and-bayes/bayes-tree-and-the-base-rate"
+}

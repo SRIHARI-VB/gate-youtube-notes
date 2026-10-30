@@ -1,0 +1,20 @@
+{
+  "id": "gate-2024-set1-q17-independence-set-algebra",
+  "year": "2024",
+  "paper": "GATE CSE 2024 Set 1",
+  "question_ref": "Question 17 in the GATE Overflow numbering; Question 27 in the official paper",
+  "type": "MSQ",
+  "topic": "a-conditional-probability-is-still-a-probability",
+  "text": "Let A and B be two events in a probability space with P(A) = 0.3, P(B) = 0.5, and P(A and B) = 0.1. Which of the following statements is/are TRUE?",
+  "options": [
+    "The two events A and B are independent.",
+    "P(A or B) = 0.7.",
+    "P(A and B^c) = 0.2, where B^c is the complement of the event B.",
+    "P(A^c and B^c) = 0.4, where A^c and B^c are the complements of the events A and B respectively."
+  ],
+  "answer": "B and C",
+  "solution": "P(A)P(B) = 0.15 is not 0.1, so A is false. P(A or B) = 0.3 + 0.5 - 0.1 = 0.7, so B is true. P(A and B^c) = P(A) - P(A and B) = 0.2, so C is true. P(A^c and B^c) = 1 - P(A or B) = 0.3, not 0.4, so D is false.",
+  "source_url": "https://gateoverflow.in/422825/gate-cse-2024-set-1-question-17",
+  "source_label": "GATE Overflow question page, GATE CSE 2024 Set 1 Question 17, accepted answer; the official paper numbers it Q.27",
+  "verification": "SOURCED"
+}

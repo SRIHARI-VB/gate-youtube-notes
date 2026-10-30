@@ -1,0 +1,14 @@
+{
+  "id": "gate-2018-q44-bayes-temperature",
+  "year": "2018",
+  "paper": "GATE CSE 2018",
+  "question_ref": "Question 44",
+  "type": "NAT",
+  "topic": "bayes-theorem-from-evidence-to-cause",
+  "text": "Guwahati's temperature is high with probability P(HG) = 0.2, medium P(MG) = 0.5 and low P(LG) = 0.3. The paper tabulates Delhi's conditional distribution given Guwahati's: P(HD|HG) = 0.40, P(HD|MG) = 0.10, P(HD|LG) = 0.01, with the remaining rows given for the medium and low Delhi cases. Find, correct to two decimal places, the probability that Guwahati has high temperature given that Delhi has high temperature.",
+  "answer": "0.60",
+  "solution": "By the total probability theorem P(HD) = (0.40)(0.2) + (0.10)(0.5) + (0.01)(0.3) = 0.08 + 0.05 + 0.003 = 0.133. Bayes gives P(HG|HD) = 0.08/0.133 = 0.6015, which rounds to 0.60 as the question asks.",
+  "source_url": "https://gateoverflow.in/204119/gate-cse-2018-question-44",
+  "source_label": "GATE Overflow question page, GATE CSE 2018 Question 44, accepted answer",
+  "verification": "SOURCED"
+}

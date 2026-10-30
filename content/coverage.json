@@ -3,7 +3,7 @@
   "updated_at": "2026-10-30",
   "cycle": {
     "last_subject": "probability-and-statistics",
-    "last_topic": "mean-median-mode-standard-deviation",
+    "last_topic": "conditional-probability-and-bayes",
     "updated_at": "2026-10-30"
   },
   "subjects": [
@@ -537,10 +537,37 @@
         {
           "slug": "conditional-probability-and-bayes",
           "name": "Conditional Probability and Bayes Theorem",
-          "status": "not_started",
-          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
-          "runs": [],
-          "gaps": []
+          "status": "partial",
+          "coverage_note": "12 subtopics, 12 cards (the definition and the restricted space, the conditional probability as a probability measure, the multiplication rule and sequential draws, independence and the product test, independence against mutual exclusivity, pairwise and mutual independence, conditional independence, the total probability theorem, Bayes' theorem, the tree and the odds form, the base rate and the false-positive count, and conditioning on a count or on shared trials), 10 verified PYQs and 1 p5.js lesson. Partial because six gaps remain, named below.",
+          "runs": [
+            {
+              "date": "2026-10-30",
+              "sources": [
+                "nptel-iit-kharagpur-lec9-conditional-probability",
+                "nptel-iit-kharagpur-lec10-independence",
+                "statlect-conditional-probability",
+                "statlect-bayes-rule",
+                "gateoverflow-probability-notes",
+                "knowledgegate-ai-gate-probability-page",
+                "openstax-introductory-statistics-3-3",
+                "ncert-hindi-class-12-chapter-13"
+              ],
+              "cards": 12,
+              "pyqs": 10,
+              "lesson": "probability-and-statistics/conditional-probability-and-bayes/bayes-tree-and-the-base-rate",
+              "note": "Sources chosen on merit across two languages, with two lectures readable in the lecturer's own words: NPTEL IIT Kharagpur lectures 9 and 10 (English, read in part - the same course that answered 403 last run) for the definition, the three-axiom proof, the multiplication rule, total probability, Bayes and independence; StatLect's conditional probability and Bayes' rule pages (English, read in full) for the two proofs, the division-by-zero caveat, the terminology and the base-rate robot example; the GATE Overflow probability notes (English) for the GATE framing and the pitfall list; the Knowledge Gate AI GATE probability page (English) for the two-dice and machine A/B worked examples; OpenStax section 3.3 (English) for the two rules and the contingency-table independence test; and the Hindi NCERT class 12 chapter 13 summary (translated) for the independence-against-exclusivity lemma and the HIV-test application. Rejected with reasons in sources.json: three paywalled Hindi Unacademy lessons, the GO Classes lecture sequence and its DPP bank, MIT OCW 18.05, the GATE IT 2006 rain question (an IT paper question), GATE CSE 2026 Set 1 Q.1 (unverified this run), the GATE DA conditional-probability PYQs, the PYQLabs index and five answer aggregators that disagree on numbering. No YouTube caption track was readable, so no card quotes a video."
+            }
+          ],
+          "gaps": [
+            "no YouTube caption track was readable this run, so no card quotes or timestamps a lecture and videoRefs is empty on all twelve cards; the GO Classes Probability lectures 2A-2C, 3A-3D and 4A-4C, which match this topic lesson for lesson, are recorded as structure only",
+            "the three Hindi Unacademy lessons that match this topic most closely (Dileep Kumar Verma's 'Conditional Probability', Aman Raj's lesson with GATE PYQs, and Vinod Singh Jadon's multiplication-law lesson) are behind a subscription, so the only non-English source used is the Hindi NCERT summary and no GATE-level Hindi lecture was read",
+            "every PYQ in the topic is SOURCED against a GATE Overflow accepted answer rather than key-verified against an official key, and no marks field is recorded on any of the ten, because no official paper or key was fetched this run; the 2026 Set 2 question was seen in the official IIT Guwahati CS2 paper as Q.63 but its key was not fetched",
+            "GATE CSE 2026 Set 1 Q.1 (the urn that gains a ball of the colour drawn) is a sequential probability question in a CSE paper that would fit the multiplication card, but its answer was not verified and its page was not read, so it is not in the PYQ set",
+            "GATE IT 2006 Q.1, the rain and noon-temperature total-probability question, is the cleanest question of its shape after 2016 Set 2 Q.5 and belongs to the IT paper, so it is used only as an original PYQ-style question and is not in the PYQ set",
+            "four cards carry no previous-year question of their own - independence against mutual exclusivity, pairwise and mutual independence, conditional independence, and the base rate - because no verified CSE question in this topic is decided by them alone; they rest on the standard references and on recomputation",
+            "GATE Overflow's subject page lists further probability questions that were not individually read or recomputed, including 2018 Q.15, 2019 Q.20, Q.22 and Q.47, 2020 Q.45, 2021 Set 1 Q.18 and Q.35, 2021 Set 2 Q.22, Q.29 and Q.33, and 2025 Set 2 Q.54 and Q.55; only the ten recorded PYQs were verified",
+            "the odds form of the update, the likelihood ratio and the base-rate fallacy rest on StatLect and on recomputation alone, because no readable GATE-oriented source this run taught the odds form and no CSE question in the topic uses it"
+          ]
         }
       ]
     },

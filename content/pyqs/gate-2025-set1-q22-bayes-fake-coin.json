@@ -1,0 +1,14 @@
+{
+  "id": "gate-2025-set1-q22-bayes-fake-coin",
+  "year": "2025",
+  "paper": "GATE CSE 2025 Set 1",
+  "question_ref": "Question 22 in the GATE Overflow numbering",
+  "type": "NAT",
+  "topic": "bayes-theorem-from-evidence-to-cause",
+  "text": "A box contains 5 coins: 4 regular coins and 1 fake coin. When a regular coin is tossed, the probability P(head) = 0.5 and for a fake coin, P(head) = 1. You pick a coin at random and toss it twice, and get two heads. The probability that the coin you have chosen is the fake coin is ____. (rounded off to two decimal places)",
+  "answer": "0.50",
+  "solution": "P(fake) = 1/5 and P(regular) = 4/5; P(two heads | fake) = 1 and P(two heads | regular) = 0.25. Then P(two heads) = (1/5)(1) + (4/5)(0.25) = 0.4 and P(fake | two heads) = 0.2/0.4 = 0.50. The published answer key gives the range 0.49 to 0.51.",
+  "source_url": "https://gateoverflow.in/460058/gate-cse-2025-set-1-question-22",
+  "source_label": "GATE Overflow question page, GATE CSE 2025 Set 1 Question 22, accepted answer",
+  "verification": "SOURCED"
+}

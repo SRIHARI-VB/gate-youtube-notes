@@ -1,0 +1,93 @@
+{
+  "id": "conditional-probability-and-the-restricted-space",
+  "title": "Conditional Probability and the Restricted Sample Space",
+  "priority": "P1",
+  "order": 325,
+  "unit": "Conditional Probability and Bayes Theorem",
+  "quickIdea": "P(A|B) = P(A and B) / P(B), defined only when P(B) > 0. Learning that B happened throws away every outcome outside B and rescales what is left so that it still sums to 1.",
+  "remember": [
+    "The definition is a ratio of two probabilities of the same space: P(A|B) = P(A and B) / P(B). It is a ratio of counts, |A and B| / |B|, only when the outcomes are equally likely.",
+    "The denominator is P(B), the probability of the condition. Putting the probability of the event you want there is the commonest error in the topic.",
+    "Conditioning shrinks the sample space to B. An outcome outside B is no longer possible, so it stops counting anywhere - not in the numerator and not in the denominator.",
+    "Two ways to compute the same thing: restrict first and count inside B, or take the ratio of the two unconditional probabilities. They must agree, and disagreement means one of them used the wrong space.",
+    "P(A|B) exists only when P(B) > 0. A zero-probability condition cannot revise anything, which is why the definition carries the caveat.",
+    "P(A|B) and P(B|A) share the same numerator P(A and B) and are still different numbers: one is a share of B, the other a share of A.",
+    "P(A|B) >= P(A and B) always, because dividing by P(B) <= 1 can only enlarge the number."
+  ],
+  "example": {
+    "prompt": "A fair die is rolled. B is the event that an even number appears and E is the event that 2 appears. Compare P(E) with P(E|B).",
+    "work": "Unconditionally P(E) = 1/6, because 2 is one of six equally likely faces. Given B, the possible faces are 2, 4 and 6 only, so the space has three outcomes and 2 is one of them: P(E|B) = |{2}| / |{2,4,6}| = 1/3. By the formula, P(E and B) = 1/6 and P(B) = 1/2, so P(E|B) = (1/6)/(1/2) = 1/3.",
+    "answer": "P(E) = 1/6 and P(E|B) = 1/3; the information doubled the probability."
+  },
+  "gateAngle": "GATE CSE 2011 Q.3 is this card in one line: two fair coins, 'at least one of the outcomes is known to be a head', and the answer is 1/3 - not 1/2 (which forgets that HH is one of three survivors) and not 1/4 (which forgets the condition altogether).",
+  "variations": [
+    {
+      "label": "VERIFIED PYQ",
+      "question": "GATE CSE 2011 Q.3: two fair coins are flipped and at least one outcome is known to be a head. What is the probability that both outcomes are heads?",
+      "answer": "1/3.",
+      "why": "The four outcomes are equally likely; the condition removes TT and leaves HH, HT, TH. Exactly one of the three survivors is HH."
+    },
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "Two fair dice are rolled. Given that the sum is 8, what is the probability that the first die shows 3?",
+      "answer": "1/5.",
+      "why": "The ordered outcomes with sum 8 are (2,6), (3,5), (4,4), (5,3), (6,2): five of them. Only (3,5) has first die 3, so the restricted space gives 1/5. This is the worked example on the Knowledge Gate GATE page."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "In the dice example above, why is 1/36 the wrong answer, and what does it actually compute?",
+      "answer": "1/36 is P(first die 3 and sum 8), the unconditional probability of the single outcome (3,5). The question asks for a share of the five outcomes that already satisfy the condition, so the denominator must be 5, not 36.",
+      "why": "This is the whole content of the definition: the condition replaces the space."
+    }
+  ],
+  "trap": {
+    "what": "Dividing by the wrong space - using P(A) in the denominator, or the full space when the question has already restricted it.",
+    "why": "The condition is information about which outcomes are still possible. The definition normalises by exactly that information, so the denominator is the probability of the condition.",
+    "counterexample": "For the two coins of GATE CSE 2011 Q.3, P(both heads) / P(at least one head) = (1/4)/(3/4) = 1/3, but P(both heads)/P(both heads) = 1 and P(both heads)/1 = 1/4 are the two wrong denominators in their purest form."
+  },
+  "check": {
+    "question": "Two fair dice are rolled and the sum is known to be 9. What is the probability that the first die shows 4?",
+    "answer": "1/4.",
+    "explanation": "The outcomes with sum 9 are (3,6), (4,5), (5,4), (6,3) - four of them, all equally likely. Exactly one has first die 4, so the probability is 1/4. Equivalently (1/36)/(4/36) = 1/4."
+  },
+  "pyqIds": [
+    "gate-2011-q3-conditional-two-coins"
+  ],
+  "prereqs": [
+    "random-variable-as-a-function"
+  ],
+  "sources": [
+    {
+      "kind": "lecture-transcript",
+      "title": "Lecture 09 - Conditional Probability",
+      "channel": "NPTEL, Probability and Statistics (Prof. Somesh Kumar, IIT Kharagpur)",
+      "url": "http://www.digimat.in/nptel/courses/video/111105090/lec9.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read from the opening through the statement of Bayes' theorem: the die example that motivates conditioning, the definition, the proof that P(.|B) satisfies the three axioms, the multiplication rule, the total probability theorem for a disjoint exhaustive family, and the Bayes formula for a partition"
+    },
+    {
+      "kind": "text",
+      "title": "Conditional probability",
+      "channel": "StatLect (Marco Taboga)",
+      "url": "https://www.statlect.com/fundamentals-of-probability/conditional-probability",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read through the law of total probability: the two proofs of the formula, the die example, the division-by-zero discussion, the list of properties a conditional probability must satisfy, and the partition form of the total probability theorem"
+    },
+    {
+      "kind": "text",
+      "title": "Probability for GATE CS: conditional, Bayes and expectation",
+      "channel": "Knowledge Gate AI",
+      "url": "https://www.knowledgegate.ai/blog/probability-gate-cs-conditional-bayes",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read in full: the two-dice sum-8 worked example, the machine A / machine B defective-item Bayes example, the independence against mutual-exclusivity warning with the odd/even die case, and the advice to rebuild the denominator whenever a stem says 'given'"
+    }
+  ],
+  "sourceLine": "The definition, the die example and the shrunken sample space: NPTEL IIT Kharagpur Lecture 09 (English, read in part) and StatLect's conditional probability lecture (English). The two-dice sum-8 example and the 'rebuild the denominator when the stem says given' warning: the Knowledge Gate AI GATE probability page (English).",
+  "videoRefs": []
+}

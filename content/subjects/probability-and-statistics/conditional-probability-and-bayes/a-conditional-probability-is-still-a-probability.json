@@ -1,0 +1,92 @@
+{
+  "id": "a-conditional-probability-is-still-a-probability",
+  "title": "A Conditional Probability Is Still a Probability",
+  "priority": "P2",
+  "order": 326,
+  "unit": "Conditional Probability and Bayes Theorem",
+  "quickIdea": "Fix B and read P(.|B) as a new probability measure. It satisfies the three axioms, so the complement rule, the addition rule and monotonicity all survive inside the condition - and only inside it.",
+  "remember": [
+    "For a fixed B with P(B) > 0 the function A -> P(A|B) is a probability measure: P(A|B) >= 0, P(whole space|B) = 1, and disjoint events add. NPTEL Lecture 09 proves all three from the axioms.",
+    "So P(A^c|B) = 1 - P(A|B), P(A or C|B) = P(A|B) + P(C|B) - P(A and C|B), and A contained in C gives P(A|B) <= P(C|B).",
+    "P(B|B) = 1 and P(nothing|B) = 0 for every B with positive probability.",
+    "Different conditions are different measures. P(A|B) + P(A|B^c) need not be 1; for a die with A = {2} and B = even it is 1/3 + 0 = 1/3.",
+    "Conditional probabilities with different conditions cannot be added into an unconditional probability. The total probability theorem is the rule that does that job, and it uses weights.",
+    "The ordinary set algebra applies to the events before conditioning: A and B^c = A minus (A and B), and A^c and B^c = (A or B)^c. Most 'given' questions are solved by that algebra plus one division."
+  ],
+  "example": {
+    "prompt": "A fair die is rolled and B = {2, 4, 6}. Find P({1,2}|B), P({1,3,5}|B) and P({2,4}|B).",
+    "work": "Inside B the three outcomes are equally likely. {1,2} meets B in {2}, so P({1,2}|B) = 1/3. {1,3,5} meets B in nothing, so the probability is 0. {2,4} is contained in B, so its probability is 2/3. The three values 1/3, 0, 2/3 are exactly what the axioms demand of a probability measure on a three-point space.",
+    "answer": "1/3, 0 and 2/3."
+  },
+  "gateAngle": "GATE CSE 2024 Set 1 Q.17 is set algebra rather than conditioning, and it is the algebra every conditional solution uses: P(A or B) by inclusion-exclusion, P(A and B^c) = P(A) - P(A and B), and P(A^c and B^c) = 1 - P(A or B).",
+  "variations": [
+    {
+      "label": "VERIFIED PYQ",
+      "question": "GATE CSE 2024 Set 1 Q.17 (Q.27 in the official paper): P(A) = 0.3, P(B) = 0.5, P(A and B) = 0.1. Which are true? (A) A and B are independent. (B) P(A or B) = 0.7. (C) P(A and B^c) = 0.2. (D) P(A^c and B^c) = 0.4.",
+      "answer": "B and C.",
+      "why": "P(A or B) = 0.3 + 0.5 - 0.1 = 0.7; P(A and B^c) = 0.3 - 0.1 = 0.2; P(A^c and B^c) = 1 - 0.7 = 0.3, not 0.4; and P(A)P(B) = 0.15 is not 0.1, so A is false."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "For a die with A = {2} and B = even, compute P(A|B) + P(A|B^c) and say why the sum is not 1.",
+      "answer": "1/3 + 0 = 1/3.",
+      "why": "P(.|B) and P(.|B^c) are two different measures on two different spaces. The complement rule relates A to A^c inside one fixed condition; it never relates two different conditions."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "If P(A|B) = 0.3 and P(A and B) = 0.12, what is P(B)?",
+      "answer": "0.4.",
+      "why": "Rearrange the definition: P(B) = P(A and B)/P(A|B) = 0.12/0.3 = 0.4. GATE has not asked this inversion in a CSE paper, but it is one rearrangement away from the questions that do appear."
+    }
+  ],
+  "trap": {
+    "what": "Adding two conditional probabilities that share a condition but whose events overlap, or adding probabilities with different conditions.",
+    "why": "P(.|B) obeys the addition rule only with the intersection subtracted, and two different conditions are two different measures.",
+    "counterexample": "With B = {2,4,6}: P({2,4}|B) = 2/3 and P({4,6}|B) = 2/3, but their union has probability 1, not 4/3. The intersection {4} carries 1/3, which is exactly the double count."
+  },
+  "check": {
+    "question": "Given P(A|B) = 0.35, what is P(A^c|B)?",
+    "answer": "0.65.",
+    "explanation": "Inside the fixed condition B, A and A^c partition the space, so their conditional probabilities add to P(B|B) = 1."
+  },
+  "pyqIds": [
+    "gate-2024-set1-q17-independence-set-algebra"
+  ],
+  "prereqs": [
+    "conditional-probability-and-the-restricted-space"
+  ],
+  "sources": [
+    {
+      "kind": "lecture-transcript",
+      "title": "Lecture 09 - Conditional Probability",
+      "channel": "NPTEL, Probability and Statistics (Prof. Somesh Kumar, IIT Kharagpur)",
+      "url": "http://www.digimat.in/nptel/courses/video/111105090/lec9.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read from the opening through the statement of Bayes' theorem: the die example that motivates conditioning, the definition, the proof that P(.|B) satisfies the three axioms, the multiplication rule, the total probability theorem for a disjoint exhaustive family, and the Bayes formula for a partition"
+    },
+    {
+      "kind": "text",
+      "title": "Conditional probability",
+      "channel": "StatLect (Marco Taboga)",
+      "url": "https://www.statlect.com/fundamentals-of-probability/conditional-probability",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read through the law of total probability: the two proofs of the formula, the die example, the division-by-zero discussion, the list of properties a conditional probability must satisfy, and the partition form of the total probability theorem"
+    },
+    {
+      "kind": "text",
+      "title": "Introductory Statistics 2e, section 3.3: two basic rules of probability",
+      "channel": "OpenStax (Rice University)",
+      "url": "https://openstax.org/books/introductory-statistics-2e/pages/3-3-two-basic-rules-of-probability",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read in part: the multiplication rule in both directions, the addition rule, the Carlos free-kick example that tests independence by comparing P(B and A) with P(B)P(A), and the swim-team example that tests independence in a contingency table"
+    }
+  ],
+  "sourceLine": "The proof that P(.|B) satisfies the three axioms and the consequences drawn from it: NPTEL IIT Kharagpur Lecture 09 (English, read in part). The list of properties a conditional probability must satisfy and the division-by-zero discussion: StatLect (English). The multiplication and addition rules as GATE-level statements: OpenStax Introductory Statistics 3.3 (English).",
+  "videoRefs": []
+}

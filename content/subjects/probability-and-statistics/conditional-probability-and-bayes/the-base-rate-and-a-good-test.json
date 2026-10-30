@@ -1,0 +1,90 @@
+{
+  "id": "the-base-rate-and-a-good-test",
+  "title": "The Base Rate, and Why a Good Test Can Be Wrong",
+  "priority": "P2",
+  "order": 335,
+  "unit": "Conditional Probability and Bayes Theorem",
+  "quickIdea": "When the cause is rare, most positive results come from the large healthy group: a test with 98% sensitivity and 99% specificity applied at 1% prevalence gives a posterior near 0.50, and at 0.1% prevalence about 0.09.",
+  "remember": [
+    "The arithmetic: numerator = prevalence x sensitivity; denominator = that plus (1 - prevalence) x false-positive rate.",
+    "At 1% prevalence, 98% sensitivity and 1% false positives: 0.0098/(0.0098 + 0.0099) = 98/197, about 0.4975.",
+    "At 0.1% prevalence the same test gives 98/1097, about 0.089 - under 10 per cent, which is StatLect's robot example.",
+    "At 10% prevalence the same test gives 98/107, about 0.916. The test did not change; the population did.",
+    "The false positives scale with the size of the healthy group, so a rare disease generates more false positives than true ones however accurate the test is.",
+    "This is the base-rate fallacy: quoting the sensitivity as the posterior, which is the same error as confusing P(positive | disease) with P(disease | positive)."
+  ],
+  "example": {
+    "prompt": "A factory robot flags a defective item with probability 0.98 when the item really is defective, and stays silent with probability 0.99 when it is not. One item in a thousand is defective. The robot flags an item - what is the probability that it is right?",
+    "work": "Prior 0.001, likelihood 0.98, so the defective-and-flagged branch is 0.00098. The not-defective branch is 0.999 x 0.01 = 0.00999. Evidence = 0.01097. Posterior = 0.00098/0.01097 = 98/1097, about 0.0893.",
+    "answer": "About 0.089 - under 10 per cent, for a robot that is 98% sensitive and 99% specific."
+  },
+  "gateAngle": "No CSE previous-year question in this topic is a base-rate question, so the card is P2; its structure is GATE CSE 2025 Set 1 Q.22 with a much smaller prior, and that question's answer 0.50 is the same arithmetic at a prior of 1/5.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "A disease has prevalence 1%. A test has sensitivity 98% and specificity 99%. A random person tests positive. What is the probability that the person has the disease?",
+      "answer": "98/197, about 0.4975.",
+      "why": "0.0098/(0.0098 + 0.0099). About half the positives are false, because the 99% of the population without the disease is a hundred times larger than the 1% with it."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Why is 0.98 the wrong answer to the question above?",
+      "answer": "0.98 is P(positive | disease), a property of the test. The question asks for P(disease | positive), which also depends on how common the disease is.",
+      "why": "A conditional probability is a share of its denominator. Changing which group you divide by changes the answer, and the prevalence is what makes the two groups different sizes."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "With the same test, what is the posterior probability at 10% prevalence?",
+      "answer": "98/107, about 0.916.",
+      "why": "0.098/(0.098 + 0.009). A tenfold rise in prevalence turns a coin flip into a strong conclusion."
+    }
+  ],
+  "trap": {
+    "what": "Treating the accuracy of a test as the probability that its verdict is right.",
+    "why": "Accuracy is conditional on the true state; the question is conditional on the observed verdict. Bayes' theorem is what converts one into the other, and the base rate is the conversion factor.",
+    "counterexample": "The 1% prevalence test: 98% sensitive, 99% specific, and only 98/197 of its positives are true positives."
+  },
+  "check": {
+    "question": "At 1% prevalence with 98% sensitivity and 1% false positives, what is P(disease | positive)?",
+    "answer": "About 0.50.",
+    "explanation": "0.0098/(0.0098 + 0.0099) = 98/197 = 0.4975, which rounds to 0.50."
+  },
+  "pyqIds": [],
+  "prereqs": [
+    "bayes-theorem-from-evidence-to-cause"
+  ],
+  "sources": [
+    {
+      "kind": "text",
+      "title": "Bayes' rule",
+      "channel": "StatLect (Marco Taboga)",
+      "url": "https://www.statlect.com/fundamentals-of-probability/Bayes-rule",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read in full: the proposition and its proof, the defective-item robot example whose posterior is under 10 per cent, the prior / likelihood / marginal / posterior terminology, and three solved exercises including the two-headed coin"
+    },
+    {
+      "kind": "text",
+      "title": "Probability subject notes - the Bayes theorem section",
+      "channel": "GATE Overflow",
+      "url": "https://gateoverflow.in/subject/mathematics/probability?tab=notes",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read in part through the search service's extract: the Bayes theorem statement and its partition form, the listed pitfalls (confusing P(A|B) with P(B|A), an incomplete denominator, a misidentified prior), the tree-diagram advice, and the year-by-year table of probability question numbers from 2010 to 2026"
+    },
+    {
+      "kind": "text",
+      "title": "Prayikta (probability): NCERT class 12 mathematics chapter 13 notes and summary",
+      "channel": "NCERT Hindi (ncerthindi.com)",
+      "url": "https://ncerthindi.com/ncert-books/class-12/mathematics/probability",
+      "language": "hi",
+      "transcript": "PARTIAL",
+      "translated": true,
+      "note": "read in full, in Hindi, and rendered into English here: conditional probability and the shrunken sample space, the multiplication rule, the definition of independence, the lemma that independent events of non-zero probability can never be mutually exclusive, the total probability theorem for a partition, and the Bayes formula with the defective-bolt and HIV-test applications"
+    }
+  ],
+  "sourceLine": "The robot example with its under-10-per-cent posterior: StatLect's Bayes' rule page (English), read in full. The pitfall that the denominator must consider every case: GATE Overflow's probability notes (English). The HIV-test application of the same arithmetic in the NCERT chapter: the Hindi NCERT class 12 summary (Hindi, translated here).",
+  "videoRefs": []
+}

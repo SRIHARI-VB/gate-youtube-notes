@@ -1,0 +1,25 @@
+{
+  "slug": "bayes-tree-and-the-base-rate",
+  "topic": "conditional-probability-and-bayes",
+  "engine": "p5.js",
+  "steps": 6,
+  "example": {
+    "machine_a_prior": 0.6,
+    "machine_b_prior": 0.4,
+    "defect_rate_a": 0.02,
+    "defect_rate_b": 0.05,
+    "branch_a": 0.012,
+    "branch_b": 0.02,
+    "evidence": 0.032,
+    "posterior_b": 0.625,
+    "posterior_a": 0.375,
+    "posterior_b_at_equal_priors": 0.7142857142857143,
+    "prior_b_high": 0.9,
+    "prior_a_high": 0.1,
+    "branch_a_high": 0.002,
+    "branch_b_high": 0.045,
+    "evidence_high": 0.047,
+    "posterior_b_high": 0.9574468085106383,
+    "wrong_answer_if_the_likelihood_is_reported": 0.05
+  }
+}

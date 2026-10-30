@@ -1,0 +1,92 @@
+{
+  "id": "independence-and-the-product-test",
+  "title": "Independence and the Product Test",
+  "priority": "P1",
+  "order": 328,
+  "unit": "Conditional Probability and Bayes Theorem",
+  "quickIdea": "A and B are independent exactly when P(A and B) = P(A)P(B), equivalently P(A|B) = P(A) whenever P(B) > 0. The test is the product, computed on the numbers in the question - never read off the story.",
+  "remember": [
+    "The product form is the definition, because it needs no positivity assumption and is visibly symmetric in A and B.",
+    "Independence of A and B carries to A^c and B, to A and B^c, and to A^c and B^c. All four products hold together, so one of them failing is enough to disprove independence.",
+    "Compute both sides with the given numbers. A story that sounds unrelated proves nothing; a story that sounds connected proves nothing either.",
+    "Independence is a statement about probabilities, not about causation: two events can be independent through cancellation of causes.",
+    "P(A|B) = P(A) and P(B|A) = P(B) are equivalent when both conditionals exist, so either form may be used as the test.",
+    "For three or more events the pairwise products are not enough; mutual independence needs the higher-order products as well, which is the next card."
+  ],
+  "example": {
+    "prompt": "Two fair coins are tossed. A = head on both, B = head on the first, C = head on the second. Test each pair for independence.",
+    "work": "The space is HH, HT, TH, TT. P(A) = 1/4, P(B) = 1/2, P(C) = 1/2. P(A and B) = 1/4 (only HH), while P(A)P(B) = 1/8: not independent. P(A and C) = 1/4 against 1/8: not independent. P(B and C) = 1/4 = (1/2)(1/2): independent. And P(B|C) = (1/4)/(1/2) = 1/2 = P(B), which is the same statement.",
+    "answer": "B and C are independent; A is dependent on each of them."
+  },
+  "gateAngle": "GATE CSE 2023 Q.43 asks exactly these four verdicts as an MSQ, and the two true statements are C and D - the independent pair, and the conditional form of the same fact.",
+  "variations": [
+    {
+      "label": "VERIFIED PYQ",
+      "question": "GATE CSE 2023 Q.43: two fair coins are tossed. A = head on both throws, B = head on the first throw, C = head on the second throw. Which are true? (A) A and B independent. (B) A and C independent. (C) B and C independent. (D) P(B|C) = P(B).",
+      "answer": "C and D.",
+      "why": "P(B and C) = 1/4 = P(B)P(C) and P(B|C) = 1/2 = P(B). For A the joint probabilities are 1/4 against a product of 1/8, so A is dependent on both."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "If A and B are independent with P(A) = 0.6 and P(B) = 0.5, what is P(A^c and B)?",
+      "answer": "0.2.",
+      "why": "A^c and B are independent too, so P(A^c and B) = (1 - 0.6)(0.5) = 0.2. The complement carries independence with it."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "P(A) = 0.4, P(B) = 0.5, P(A and B) = 0.2. Are A and B independent, and what is P(A|B)?",
+      "answer": "Yes: P(A)P(B) = 0.2 = P(A and B), and P(A|B) = 0.2/0.5 = 0.4 = P(A).",
+      "why": "The two tests are the same test; this variation makes the equivalence visible on a single pair of numbers."
+    }
+  ],
+  "trap": {
+    "what": "Deciding independence from the wording of the question instead of from the product.",
+    "why": "Independence is a numerical relation between three probabilities. Two events in the same experiment can be independent, and two events in different experiments can fail to be independent if they are tied together by a condition.",
+    "counterexample": "In GATE CSE 2023 Q.43, 'head on both' sounds like it should depend on 'head on the first', and it does - but the same experiment's two single-coin events are independent, which is equally counter-intuitive until the products are written down."
+  },
+  "check": {
+    "question": "P(A) = 0.4, P(B) = 0.5 and P(A and B) = 0.2. Are A and B independent?",
+    "answer": "Yes.",
+    "explanation": "P(A)P(B) = 0.4 x 0.5 = 0.2, which equals P(A and B), so the product test passes."
+  },
+  "pyqIds": [
+    "gate-2023-q43-independence-two-coins"
+  ],
+  "prereqs": [
+    "conditional-probability-and-the-restricted-space"
+  ],
+  "sources": [
+    {
+      "kind": "lecture-transcript",
+      "title": "Lecture 10 - Independence of Events",
+      "channel": "NPTEL, Probability and Statistics (Prof. Somesh Kumar, IIT Kharagpur)",
+      "url": "http://www.digimat.in/nptel/courses/video/111105090/lec10.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read from the opening through the definition of mutual independence for n events: the two-coin test of P(A|B) against P(A), the symmetric definition P(A and B) = P(A)P(B), and the four conditions needed for three events"
+    },
+    {
+      "kind": "text",
+      "title": "Introductory Statistics 2e, section 3.3: two basic rules of probability",
+      "channel": "OpenStax (Rice University)",
+      "url": "https://openstax.org/books/introductory-statistics-2e/pages/3-3-two-basic-rules-of-probability",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read in part: the multiplication rule in both directions, the addition rule, the Carlos free-kick example that tests independence by comparing P(B and A) with P(B)P(A), and the swim-team example that tests independence in a contingency table"
+    },
+    {
+      "kind": "text",
+      "title": "Probability for GATE CS: conditional, Bayes and expectation",
+      "channel": "Knowledge Gate AI",
+      "url": "https://www.knowledgegate.ai/blog/probability-gate-cs-conditional-bayes",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read in full: the two-dice sum-8 worked example, the machine A / machine B defective-item Bayes example, the independence against mutual-exclusivity warning with the odd/even die case, and the advice to rebuild the denominator whenever a stem says 'given'"
+    }
+  ],
+  "sourceLine": "The definition of statistical independence, the symmetry argument and the four conditions for three events: NPTEL IIT Kharagpur Lecture 10 (English, read in part). The product test as a GATE-level statement with the free-kick example: OpenStax Introductory Statistics 3.3 (English). The independence against exclusivity warning: the Knowledge Gate AI GATE probability page (English).",
+  "videoRefs": []
+}

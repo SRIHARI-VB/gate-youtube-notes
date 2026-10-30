@@ -1,0 +1,14 @@
+{
+  "id": "gate-2026-set2-q53-conditional-shared-tosses",
+  "year": "2026",
+  "paper": "GATE CSE 2026 Set 2",
+  "question_ref": "Question 53 in the GATE Overflow numbering; Question 63 in the official paper",
+  "type": "NAT",
+  "topic": "conditioning-on-a-count-and-on-shared-trials",
+  "text": "Suppose an unbiased coin is tossed 6 times. Each coin toss is independent of all previous coin tosses. Let E1 be the event that among the second, fourth, and sixth coin tosses, there are at least two heads. Let E2 be the event that among the first, second, third, and fifth coin tosses, there are equal number of heads and tails. The conditional probability P(E1 | E2) is equal to ____. (rounded off to one decimal place)",
+  "answer": "0.5",
+  "solution": "E2 fixes two heads and two tails among tosses 1, 2, 3, 5, which can be done in C(4,2) = 6 ways out of 16; tosses 4 and 6 are free, so the conditional space has 6 x 4 = 24 equally likely completions. Of these, 12 satisfy E1: when toss 2 is a head, 3 patterns of E2 and 3 completions of (toss 4, toss 6); when toss 2 is a tail, 3 patterns and 1 completion. So P(E1 | E2) = 12/24 = 0.5.",
+  "source_url": "https://gateoverflow.in/523093/gate-cse-2026-set-2-question-53",
+  "source_label": "GATE Overflow question page, GATE CSE 2026 Set 2 Question 53, accepted answer; the question also appears as Q.63 in the official CS2 paper at gate2026.iitg.ac.in",
+  "verification": "SOURCED"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "gate-2021-set1-q54-bayes-signal",
+  "year": "2021",
+  "paper": "GATE CSE 2021 Set 1",
+  "question_ref": "Question 54",
+  "type": "NAT",
+  "topic": "bayes-theorem-from-evidence-to-cause",
+  "text": "A sender transmits a signal which can be H or L with probabilities 0.1 and 0.9 respectively. The weight of the edge (u, v) in the paper's graph is the probability of receiving v when u is transmitted; for example the probability that the received signal is L given that H was transmitted is 0.7. If the received signal is H, the probability that the transmitted signal was H (rounded to two decimal places) is ____.",
+  "answer": "0.04",
+  "solution": "From the graph P(receive H | send H) = 0.3 and P(receive H | send L) = 0.8. Then P(receive H) = (0.1)(0.3) + (0.9)(0.8) = 0.03 + 0.72 = 0.75, and P(send H | receive H) = 0.03/0.75 = 0.04.",
+  "source_url": "https://gateoverflow.in/357396/gate-cse-2021-set-1-question-54",
+  "source_label": "GATE Overflow question page, GATE CSE 2021 Set 1 Question 54, accepted answer",
+  "verification": "SOURCED"
+}

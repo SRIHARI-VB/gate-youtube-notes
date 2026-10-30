@@ -1,0 +1,14 @@
+{
+  "id": "gate-2016-set2-q5-total-probability-led",
+  "year": "2016",
+  "paper": "GATE CSE 2016 Set 2",
+  "question_ref": "Question 5",
+  "type": "NAT",
+  "topic": "the-total-probability-theorem",
+  "text": "Suppose that a shop has an equal number of LED bulbs of two different types. The probability of an LED bulb lasting more than 100 hours given that it is of Type 1 is 0.7, and given that it is of Type 2 is 0.4. The probability that an LED bulb chosen uniformly at random lasts more than 100 hours is ____.",
+  "answer": "0.55",
+  "solution": "The two types partition the stock with probability 1/2 each. By the total probability theorem, P(more than 100) = (1/2)(0.7) + (1/2)(0.4) = 0.35 + 0.20 = 0.55.",
+  "source_url": "https://gateoverflow.in/39541/gate-cse-2016-set-2-question-05",
+  "source_label": "GATE Overflow question page, GATE CSE 2016 Set 2 Question 5, accepted answer",
+  "verification": "SOURCED"
+}

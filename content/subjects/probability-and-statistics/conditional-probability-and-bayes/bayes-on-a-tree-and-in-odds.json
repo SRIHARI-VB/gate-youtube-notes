@@ -1,0 +1,91 @@
+{
+  "id": "bayes-on-a-tree-and-in-odds",
+  "title": "Bayes on a Tree, and in Odds",
+  "priority": "P2",
+  "order": 334,
+  "unit": "Conditional Probability and Bayes Theorem",
+  "quickIdea": "Draw the causes as the first branching and the evidence as the second: multiply along a branch, add across the branches that end in the evidence, and read the posterior as the chosen branch's share of that total.",
+  "remember": [
+    "Tree mechanics: the probabilities leaving each node sum to 1; a branch's probability is the product along it; the evidence is the sum of the branches that produce the observation.",
+    "The other branches are not in the denominator. Adding all four branch products instead of the two that end in the evidence is the standard tree error.",
+    "Odds form: posterior odds = prior odds x likelihood ratio. Updating is a multiplication in odds and a division in probability.",
+    "Convert with p = o/(1 + o) and o = p/(1 - p); a likelihood ratio of 4 quadruples the odds, which is not the same as quadrupling the probability.",
+    "The two-node graph in GATE CSE 2021 Set 1 Q.54 is exactly this tree drawn as a channel: transmitted H and L branch out, and the edge weights are the second-level probabilities.",
+    "A tree is also the cheapest check on a Bayes answer: the branch shares must add to 1 over the partition, and the branch you want must be one of them."
+  ],
+  "example": {
+    "prompt": "A sender transmits H with probability 0.1 and L with probability 0.9. A received H follows a transmitted H with probability 0.3, and a received H follows a transmitted L with probability 0.8. Given a received H, what is the probability that H was transmitted?",
+    "work": "Two branches end in a received H: transmitted H gives (0.1)(0.3) = 0.03, transmitted L gives (0.9)(0.8) = 0.72. The evidence is 0.75. The posterior is 0.03/0.75 = 0.04. The other two branches, which end in a received L, are not in the denominator.",
+    "answer": "0.04."
+  },
+  "gateAngle": "GATE CSE 2021 Set 1 Q.54 is this card: the tree is drawn as a graph, the answer is 0.04, and the mistake the question punishes is taking the prior 0.1 or the likelihood 0.3 as the answer.",
+  "variations": [
+    {
+      "label": "VERIFIED PYQ",
+      "question": "GATE CSE 2021 Set 1 Q.54: H and L are transmitted with probabilities 0.1 and 0.9; P(receive H | send H) = 0.3 and P(receive H | send L) = 0.8. If the received signal is H, the probability that H was transmitted is ____ (two decimal places).",
+      "answer": "0.04.",
+      "why": "(0.1 x 0.3)/((0.1 x 0.3) + (0.9 x 0.8)) = 0.03/0.75 = 0.04. The channel is unreliable in both directions, and the rare input stays rare."
+    },
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "Prior odds of a hypothesis are 1:3 and the evidence has a likelihood ratio of 5 in its favour. What are the posterior odds and the posterior probability?",
+      "answer": "5:3, so 5/8 = 0.625.",
+      "why": "Posterior odds = prior odds x likelihood ratio = (1/3) x 5 = 5/3. Converting, 5/(5 + 3) = 0.625."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "In the sender-receiver question, what would the wrong denominator 0.03 + 0.72 + 0.07 + 0.18 give, and what is that number?",
+      "answer": "0.03/1.00 = 0.03, which is the joint probability of sending H and receiving H.",
+      "why": "Adding every branch sums to 1, so dividing by it returns the joint probability, not a conditional one. Only the branches that end in the observed evidence belong in the denominator."
+    }
+  ],
+  "trap": {
+    "what": "Putting every branch product in the denominator, or adding along a branch instead of multiplying.",
+    "why": "The denominator is the probability of the evidence, which only the branches ending in that evidence contribute to; and a branch is a conjunction, so its probability is a product.",
+    "counterexample": "In the sender-receiver question the two wrong denominators give 0.03 (all four branches) and 0.3 (the prior times nothing), while the right one gives 0.04."
+  },
+  "check": {
+    "question": "Prior odds are 1:3 and the likelihood ratio is 5. What is the posterior probability?",
+    "answer": "5/8.",
+    "explanation": "Posterior odds 5:3, so p = 5/(5 + 3) = 5/8 = 0.625."
+  },
+  "pyqIds": [],
+  "prereqs": [
+    "bayes-theorem-from-evidence-to-cause",
+    "the-total-probability-theorem"
+  ],
+  "sources": [
+    {
+      "kind": "text",
+      "title": "Bayes' rule",
+      "channel": "StatLect (Marco Taboga)",
+      "url": "https://www.statlect.com/fundamentals-of-probability/Bayes-rule",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read in full: the proposition and its proof, the defective-item robot example whose posterior is under 10 per cent, the prior / likelihood / marginal / posterior terminology, and three solved exercises including the two-headed coin"
+    },
+    {
+      "kind": "text",
+      "title": "Probability subject notes - the Bayes theorem section",
+      "channel": "GATE Overflow",
+      "url": "https://gateoverflow.in/subject/mathematics/probability?tab=notes",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read in part through the search service's extract: the Bayes theorem statement and its partition form, the listed pitfalls (confusing P(A|B) with P(B|A), an incomplete denominator, a misidentified prior), the tree-diagram advice, and the year-by-year table of probability question numbers from 2010 to 2026"
+    },
+    {
+      "kind": "text",
+      "title": "Probability for GATE CS: conditional, Bayes and expectation",
+      "channel": "Knowledge Gate AI",
+      "url": "https://www.knowledgegate.ai/blog/probability-gate-cs-conditional-bayes",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read in full: the two-dice sum-8 worked example, the machine A / machine B defective-item Bayes example, the independence against mutual-exclusivity warning with the odd/even die case, and the advice to rebuild the denominator whenever a stem says 'given'"
+    }
+  ],
+  "sourceLine": "The prior / likelihood / marginal / posterior terminology and the branch-product structure: StatLect's Bayes' rule page (English). The advice to solve these questions with a tree diagram and the pitfall list: GATE Overflow's probability notes (English). The two-step recipe of evidence first, then the branch: the Knowledge Gate AI GATE probability page (English).",
+  "videoRefs": []
+}

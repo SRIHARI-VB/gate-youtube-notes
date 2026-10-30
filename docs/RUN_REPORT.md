@@ -1605,3 +1605,136 @@ written, with this note as the correction.
 
 The cycle pointer now sits on `probability-and-statistics/mean-median-mode-standard-deviation`. The next topic
 in syllabus order is `probability-and-statistics/conditional-probability-and-bayes`, which is `not_started`.
+
+## Run 10 - Conditional Probability and Bayes Theorem (2026-10-30)
+
+### The topic, and why it was next
+
+**Probability and Statistics > Conditional Probability and Bayes Theorem**
+(`conditional-probability-and-bayes`), the third and last topic of the GATE 2027 Probability and Statistics
+line: *"Random variables. Uniform, normal, exponential, Poisson and binomial distributions. Mean, median, mode
+and standard deviation. Conditional probability and Bayes theorem."*
+
+The cycle pointer was left by the previous run on `probability-and-statistics/mean-median-mode-standard-deviation`,
+and the first topic strictly after it in the enumerated syllabus order whose status is not `covered` is this one,
+which was `not_started`. Nothing was skipped: no topic sits between the pointer and this one, and no topic is
+`blocked`. The fifteen `partial` topics earlier in the cycle were not touched, because the cycle takes its second
+pass over `partial` topics only after a full pass finds no `not_started` topic left.
+
+### Subtopics enumerated before any source was chosen
+
+The definition P(A|B) = P(A and B)/P(B) with P(B) > 0 and the restricted sample space; the conditional
+probability as a probability measure, with the three axioms and their consequences inside a fixed condition; the
+multiplication rule, the chain rule, and draws with and without replacement; independence as the product test and
+the equivalent conditional form, including independence of complements; independence against mutual exclusivity,
+and the lemma that independent events of positive probability are never disjoint; pairwise against mutual
+independence for three or more events and the 2^n - n - 1 conditions; conditional independence and the two
+failures of implication between it and independence; the total probability theorem for a partition, with the
+weights and the choice of partition; Bayes' theorem with the prior, likelihood, evidence and posterior, for two
+causes and for a partition; the tree diagram, the odds form of the update and the likelihood ratio; the base
+rate, the false-positive count in the healthy group and the base-rate fallacy; and conditioning on an event about
+a random variable, on a count, and on events that share trials. Twelve subtopics, twelve cards.
+
+### Sources chosen, on merit
+
+Eight sources, in two languages, with two lectures readable in the lecturer's own words.
+
+**NPTEL, Probability and Statistics, IIT Kharagpur, Lecture 09 (Conditional Probability)** and **Lecture 10
+(Independence of Events)** - English, read in part. These are the same course whose transcripts answered 403 in
+the previous run and could not be used for the mean-median topic; this run they were served as full transcript
+PDFs. Lecture 9 supplied the definition, the proof that P(.|B) satisfies the three axioms, the multiplication
+rule, the total probability theorem and the statement of Bayes' theorem; Lecture 10 supplied the independence
+definitions and the four conditions for three events. They are the spine of the topic.
+
+**StatLect, "Conditional probability" and "Bayes' rule"** - English, read through the law of total probability and
+in full respectively. Chosen over the OpenStax section for the definition because it gives two proofs and names
+the division-by-zero problem as a real subtlety, and chosen for Bayes because it is the only readable source that
+supplies the base-rate example with its arithmetic and the prior / likelihood / marginal / posterior terminology.
+
+**GATE Overflow probability notes** - English, read in part. The GATE framing: the Bayes statement in GATE's
+notation, the three pitfalls in the words an answer key would use, the tree-diagram advice, and the year-by-year
+table of probability question numbers from 2010 to 2026 that made the PYQ search systematic.
+
+**Knowledge Gate AI, "Probability for GATE CS"** - English, read in full. The GATE-specific teaching order, the
+two-dice sum-8 example with its explicit 1/36 warning, and the machine A / machine B defective-item Bayes
+example that the visual lesson animates.
+
+**OpenStax, Introductory Statistics 2e, section 3.3** - English, read in part. An independent standard text for
+the multiplication and addition rules, and the only source read this run that tests independence in a
+contingency table, which is the shape GATE CSE 2018 Q.44 takes.
+
+**NCERT Hindi, class 12 chapter 13 summary** - Hindi, read in full, translated. The only readable non-English
+source, and the one that states the independence-against-exclusivity lemma outright, which is the whole of card 5.
+
+Rejected, with reasons in `sources.json`: three paywalled Hindi Unacademy lessons that match this topic most
+closely (Dileep Kumar Verma, Aman Raj, Vinod Singh Jadon); the Knowledge Gate AI video lesson, which is behind
+enrolment; the GO Classes Probability lectures 2A-2C, 3A-3D and 4A-4C, which match this topic lesson for lesson
+but carry no retrievable caption track; the GO Classes DPP conditional-probability bank, which is original
+practice and not previous-year material; MIT OCW 18.05, not needed once the two NPTEL lectures were readable;
+GATE IT 2006 Q.1, a genuine total-probability question from the IT paper, used only as a labelled original
+exercise; GATE CSE 2026 Set 1 Q.1, unverified this run; the GATE DA conditional-probability PYQs, from another
+paper; the PYQLabs index, which dates questions without naming the paper; and five answer aggregators that
+disagree on numbering. No YouTube caption track was readable, so `videoRefs` is empty on all twelve cards.
+
+### What was created
+
+Twelve cards, one per subtopic: the definition and the restricted space (P1); the conditional probability as a
+probability measure (P2); the multiplication rule and sequential draws (P1); independence and the product test
+(P1); independent events cannot be mutually exclusive (P1); pairwise and mutual independence (P2); conditional
+independence (P3); the total probability theorem (P1); Bayes' theorem (P1); Bayes on a tree and in odds (P2); the
+base rate and a good test (P2); and conditioning on a count and on shared trials (P2). Each carries a quick idea,
+the remember list, a worked example, the GATE angle, labelled variations, one trap with a counterexample, a quick
+check with an explanation, its PYQ links, its prerequisites and its source line.
+
+**Ten verified PYQs**, the largest set of any topic in the repository so far: GATE CSE 2011 Q.3 (1/3), 2015 Set 3
+Q.37 (0.75), 2016 Set 2 Q.5 (0.55), 2018 Q.44 (0.60), 2021 Set 1 Q.54 (0.04), 2023 Q.43 (C and D), 2024 Set 1
+Q.17 (B and C), 2024 Set 1 Q.53 (0.375), 2025 Set 1 Q.22 (0.50) and 2026 Set 2 Q.53 (0.5). Seven of the ten are
+NAT questions, which is the shape this topic takes in a modern paper. Every record carries a year, a question
+reference, a source URL and a derivation; two state where the official paper numbers the question differently
+(2024 Set 1 Q.27, 2026 Set 2 Q.63) and one states the published answer range (2025 Set 1, 0.49 to 0.51).
+
+**One p5.js lesson**, `visuals/probability-and-statistics/conditional-probability-and-bayes/bayes-tree-and-the-base-rate/`:
+six steps over one factory with two machines, showing the priors, the likelihoods, the branch products, the
+evidence as the denominator, the posterior as a share of the evidence, and finally the same likelihoods with
+different priors (0.9 and 0.1) giving a posterior of 0.957 instead of 0.625. It is linked from the total
+probability card and the Bayes card.
+
+`check_conditional_probability()` was added to `scripts/validate.py`. It recomputes every published number by
+enumeration where the space is finite - the die, the two dice, the two- and three-coin spaces, the 24 two-ball
+draws, the 64 toss sequences - and in exact rational arithmetic for the partition sums, the three posteriors, the
+odds form and the lesson's tree. It also proves the independence-against-exclusivity lemma exhaustively over every
+pair of events on a die: the only pairs that are both disjoint and independent have a zero-probability member.
+
+### Validation
+
+`python3 scripts/build-index.py` indexed 3 playlists, 39 videos, 214 topics and 165 PYQs.
+`python3 scripts/validate.py` reported 29 checks passed, 8 warnings, 0 failures; all eight warnings are
+pre-existing (seven `OFFICIAL_KEY` records with no answer evidence, two videos referenced by no card).
+`node tests/visual-lessons.js` passed on all 23 lessons, including the new one at 6 steps.
+
+### Gaps (the topic stays `partial`)
+
+1. No YouTube caption track was readable, so no card quotes or timestamps a lecture and `videoRefs` is empty on
+   all twelve cards; the GO Classes Probability lectures that match this topic lesson for lesson are recorded as
+   structure only.
+2. The three Hindi Unacademy lessons that match this topic most closely are paywalled, so the only non-English
+   source used is the Hindi NCERT summary and no GATE-level Hindi lecture was read.
+3. Every PYQ is `SOURCED` against a GATE Overflow accepted answer rather than key-verified, and no marks field is
+   recorded on any of the ten, because no official paper or key was fetched this run.
+4. GATE CSE 2026 Set 1 Q.1, the urn that gains a ball of the colour drawn, would fit the multiplication card but
+   was not verified this run, so it is not in the PYQ set.
+5. GATE IT 2006 Q.1 is the cleanest total-probability question after 2016 Set 2 Q.5 and belongs to the IT paper,
+   so it is used only as an original question.
+6. Four cards carry no PYQ of their own - independence against exclusivity, pairwise and mutual independence,
+   conditional independence, and the base rate - because no verified CSE question is decided by them alone.
+7. GATE Overflow's subject page lists further probability questions that were not individually read or
+   recomputed, including 2018 Q.15, 2019 Q.20, Q.22 and Q.47, 2020 Q.45, 2021 Set 1 Q.18 and Q.35, 2021 Set 2
+   Q.22, Q.29 and Q.33, and 2025 Set 2 Q.54 and Q.55.
+8. The odds form and the likelihood ratio rest on StatLect and on recomputation alone; no readable GATE-oriented
+   source taught the odds form and no CSE question in the topic uses it.
+
+### Next
+
+The cycle pointer now sits on `probability-and-statistics/conditional-probability-and-bayes`, which completes the
+Probability and Statistics line. The next topic in syllabus order is
+`digital-logic/number-systems-and-representation`, which is `not_started`.

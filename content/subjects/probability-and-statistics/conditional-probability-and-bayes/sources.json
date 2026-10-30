@@ -1,0 +1,258 @@
+{
+  "subject": "probability-and-statistics",
+  "topic": "conditional-probability-and-bayes",
+  "exam": "GATE CSE 2027",
+  "retrieved_at": "2026-10-30",
+  "subtopics": [
+    "the definition P(A|B) = P(A and B)/P(B) with P(B) > 0, and the restricted sample space",
+    "the conditional probability as a probability measure: the three axioms, the complement rule, the addition rule and monotonicity inside a fixed condition",
+    "the multiplication rule P(A and B) = P(A|B)P(B), the chain rule for several events, and draws with and without replacement",
+    "independence as the product test P(A and B) = P(A)P(B), the equivalent conditional form, and independence of complements",
+    "independence against mutual exclusivity, and the lemma that independent events of positive probability are never disjoint",
+    "pairwise against mutual independence for three or more events, and the 2^n - n - 1 conditions",
+    "conditional independence, and the two failures of implication between it and independence",
+    "the total probability theorem for a partition, the weights, and the choice of partition",
+    "Bayes' theorem: prior, likelihood, evidence and posterior, for two causes and for a partition",
+    "the tree diagram, the odds form of the update, and the likelihood ratio",
+    "the base rate, the false-positive count in the healthy group, and the base-rate fallacy",
+    "conditioning on an event about a random variable, on a count, and on events that share trials"
+  ],
+  "chosen": [
+    {
+      "id": "nptel-iit-kharagpur-lec9-conditional-probability",
+      "kind": "lecture-transcript",
+      "title": "Lecture 09 - Conditional Probability",
+      "channel": "NPTEL, Probability and Statistics (Prof. Somesh Kumar, IIT Kharagpur)",
+      "url": "http://www.digimat.in/nptel/courses/video/111105090/lec9.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "covers": [
+        "the die example that motivates conditioning, and the shrunken sample space",
+        "the formal definition with P(B) > 0",
+        "the proof that P(.|B) satisfies the three axioms of probability",
+        "the multiplication rule read as a consequence of the definition",
+        "the total probability theorem for a pairwise disjoint exhaustive family",
+        "the statement of Bayes' theorem for a partition, with the cause-and-effect reading"
+      ],
+      "why": "The only lecture read this run whose transcript runs through the definition, the proof that a conditional probability is a probability measure, the multiplication rule, the total probability theorem and Bayes' theorem in the lecturer's own order. It earns its place on two specific things no other source supplied: the three-axiom proof, which card 2 rests on, and the cause-and-effect statement of the partition form of Bayes. It is the same IIT Kharagpur course whose transcripts answered 403 in the previous run and could not be used then; this run they were served in full."
+    },
+    {
+      "id": "nptel-iit-kharagpur-lec10-independence",
+      "kind": "lecture-transcript",
+      "title": "Lecture 10 - Independence of Events",
+      "channel": "NPTEL, Probability and Statistics (Prof. Somesh Kumar, IIT Kharagpur)",
+      "url": "http://www.digimat.in/nptel/courses/video/111105090/lec10.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "covers": [
+        "the two-coin test of P(A|B) against P(A) that motivates independence",
+        "the symmetric definition P(A and B) = P(A)P(B) and why it needs no positivity caveat",
+        "the equivalence of the two conditional forms when both are defined",
+        "the four conditions required for three events, and the general 2^n - n - 1 count"
+      ],
+      "why": "The second half of the same course, and the source of the pairwise against mutual independence material on cards 4 and 6, including the lecturer's own statement that pairwise products are not enough. A second lecture of the same course was preferred to a second channel here because the two lectures are consecutive and their notation matches, which matters for a beginner reading the two cards together."
+    },
+    {
+      "id": "statlect-conditional-probability",
+      "kind": "text",
+      "title": "Conditional probability",
+      "channel": "StatLect (Marco Taboga)",
+      "url": "https://www.statlect.com/fundamentals-of-probability/conditional-probability",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "covers": [
+        "the equally likely case and the counting form |A and B| / |B|",
+        "two independent proofs of the formula",
+        "the division-by-zero problem and why the definition carries P(B) > 0",
+        "the list of properties a conditional probability must satisfy",
+        "the partition form of the law of total probability"
+      ],
+      "why": "Chosen over the OpenStax section for the definition card because it gives two proofs rather than a statement, and because it is the only readable source that names the division-by-zero problem as a real subtlety. It is also the source of the counting form of the definition, which is how a beginner should first compute a conditional probability."
+    },
+    {
+      "id": "statlect-bayes-rule",
+      "kind": "text",
+      "title": "Bayes' rule",
+      "channel": "StatLect (Marco Taboga)",
+      "url": "https://www.statlect.com/fundamentals-of-probability/Bayes-rule",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "covers": [
+        "the proposition, its proof, and the prior / likelihood / marginal / posterior terminology",
+        "the robot defective-item example whose posterior is under ten per cent",
+        "the two-urn exercise",
+        "the two-headed coin exercise"
+      ],
+      "why": "Read in full, and the only readable source that supplies the base-rate example with its arithmetic (card 11) and the formal terminology GATE answer keys use. Its robot example is the same structure as GATE CSE 2025 Set 1 Q.22 at a much smaller prior, which is exactly the contrast card 11 needs."
+    },
+    {
+      "id": "gateoverflow-probability-notes",
+      "kind": "text",
+      "title": "Probability subject notes - the Bayes theorem section",
+      "channel": "GATE Overflow",
+      "url": "https://gateoverflow.in/subject/mathematics/probability?tab=notes",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "covers": [
+        "the Bayes theorem statement and its partition form in GATE's notation",
+        "the three listed pitfalls: confusing P(A|B) with P(B|A), an incomplete denominator, a misidentified prior",
+        "the advice to solve these questions with a tree diagram",
+        "the year-by-year table of probability question numbers from 2010 to 2026"
+      ],
+      "why": "The GATE framing: it is the only readable source that states each pitfall in the words a GATE answer key would use, and its mark-distribution table is what made the PYQ search systematic rather than a guess. No question text was taken from it, because its text layer drops inline mathematics; the question text came from the individual question pages."
+    },
+    {
+      "id": "knowledgegate-ai-gate-probability-page",
+      "kind": "text",
+      "title": "Probability for GATE CS: conditional, Bayes and expectation",
+      "channel": "Knowledge Gate AI",
+      "url": "https://www.knowledgegate.ai/blog/probability-gate-cs-conditional-bayes",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "covers": [
+        "the two-dice sum-8 worked example, and why 1/36 is the wrong answer",
+        "the machine A / machine B defective-item Bayes example with both routes to 5/8",
+        "independence against mutual exclusivity with the odd/even die case",
+        "the instruction to rebuild the denominator whenever a stem says 'given'"
+      ],
+      "why": "The GATE-specific teaching order, and the source of the two worked examples on cards 1 and 11's neighbours. Its two-dice example is the smallest example that shows the restricted space, and it states the 1/36 error explicitly, which is the trap on card 1."
+    },
+    {
+      "id": "openstax-introductory-statistics-3-3",
+      "kind": "text",
+      "title": "Introductory Statistics 2e, section 3.3: two basic rules of probability",
+      "channel": "OpenStax (Rice University)",
+      "url": "https://openstax.org/books/introductory-statistics-2e/pages/3-3-two-basic-rules-of-probability",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "covers": [
+        "the multiplication rule in both directions",
+        "the addition rule and the mutually exclusive case",
+        "the free-kick example that tests independence by comparing the joint probability with the product",
+        "the swim-team example that tests independence in a contingency table"
+      ],
+      "why": "A standard text independent of both the NPTEL course and StatLect, used to corroborate the multiplication and addition rules as they are stated for GATE. It is the only source read this run that tests independence on a contingency table, which is the form GATE CSE 2018 Q.44 takes."
+    },
+    {
+      "id": "ncert-hindi-class-12-chapter-13",
+      "kind": "text",
+      "title": "Prayikta (probability): NCERT class 12 mathematics chapter 13 notes and summary",
+      "channel": "NCERT Hindi (ncerthindi.com)",
+      "url": "https://ncerthindi.com/ncert-books/class-12/mathematics/probability",
+      "language": "hi",
+      "transcript": "PARTIAL",
+      "translated": true,
+      "covers": [
+        "conditional probability as a shrunken sample space, and the multiplication rule",
+        "the definition of independence, and the lemma that independent events of non-zero probability can never be mutually exclusive",
+        "the total probability theorem for a partition",
+        "Bayes' theorem and its use on a defective-bolt problem and an HIV-test problem"
+      ],
+      "why": "The only readable non-English source, and the one that states the independence against exclusivity lemma outright, which is the whole of card 5. Its HIV-test application is the base-rate argument in the language of a school textbook, which is a useful second voice for card 11. Everything taken from it is rendered in English and the cards that use it say so."
+    }
+  ],
+  "rejected": [
+    {
+      "id": "unacademy-hindi-conditional-probability-dileep-verma",
+      "kind": "lecture",
+      "channel": "Unacademy, 'Conditional Probability (in Hindi)' by Dileep Kumar Verma, lesson 5 of 8",
+      "why": "Exactly the right scope - conditional probability, total probability, independent events and Bayes' theorem in 14 minutes - but it sits behind a subscription and no transcript is served. Its structure was read from the course listing only, so nothing rests on it."
+    },
+    {
+      "id": "unacademy-hindi-conditional-probability-aman-raj",
+      "kind": "lecture",
+      "channel": "Unacademy, 'Conditional Probability' by Aman Raj, lesson 6 of 17",
+      "why": "Advertised as conditional probability with GATE previous-year examples, which is the closest match to this topic of any candidate found. Paywalled, with only the lesson list readable, so it could not be used. Recorded because a later run with access to it would want it."
+    },
+    {
+      "id": "knowledgegate-ai-video-lesson-bayes-theorem",
+      "kind": "lecture",
+      "channel": "Knowledge Gate AI, 'Bayes theorem / inverse probability' video lesson and its PYQ set",
+      "why": "The GATE DA course's video lesson on inverse probability is the natural lecture for this topic on that platform, but the page says the lesson is available to enrolled students only. Its written blog page for GATE CS was used instead and is recorded above as a chosen source."
+    },
+    {
+      "id": "go-classes-probability-module-lectures-2a-4c",
+      "kind": "lecture",
+      "channel": "GO Classes for GATE CS, Probability and Statistics, Lectures 2A-2C, 3A-3D and 4A-4C (Sachin Mittal)",
+      "why": "The best-matched GATE lecture sequence found - conditional probability introduction and examples, tree diagrams, total probability, GATE PYQ tree method, Bayes theorem PYQs, independence and conditional independence. Only the course index is readable; the videos carry no retrievable caption track, so the sequence is recorded as structure only and no card quotes or timestamps a lecture."
+    },
+    {
+      "id": "go-classes-dpp-conditional-probability-bank",
+      "kind": "practice-bank",
+      "channel": "GO Classes DPP question bank, conditional probability and Bayes theorem sets",
+      "why": "Around twenty conditional-probability and Bayes practice questions, several well constructed. They are original practice questions, not previous-year questions, and this repository stores verified PYQs separately; using them as PYQs would misrepresent them. Two of their ideas (a shared-trial count, and a prior-odds question) reappear as clearly labelled original and predicted variations."
+    },
+    {
+      "id": "mit-ocw-18-05-conditional-probability",
+      "kind": "lecture",
+      "channel": "MIT OpenCourseWare 18.05, reading and class on conditional probability",
+      "why": "The canonical English alternative, considered and not fetched, because the two NPTEL lectures and the two StatLect pages already cover every subtopic on this topic's list with proofs. No claim rests on MIT material."
+    },
+    {
+      "id": "gate-it-2006-q1-rain-temperature",
+      "kind": "pyq",
+      "channel": "GATE IT 2006 Q.1, the rain and noon-temperature question",
+      "why": "A genuine total probability question and the cleanest one after 2016 Set 2 Q.5, but it belongs to the Information Technology paper, and this repository's PYQ set is GATE CSE only. It is used as an original PYQ-style question on the total probability card, labelled as such, and excluded from the PYQ set."
+    },
+    {
+      "id": "gate-cse-2026-set1-q1-priya-urn",
+      "kind": "pyq",
+      "channel": "GATE CSE 2026 Set 1 Q.1, the urn that gains a ball of the colour drawn",
+      "why": "A sequential probability question in a CSE paper, and one that would fit the multiplication card. Its answer was not verified this run and the GATE Overflow page was not read, so it is not recorded; a later run should read it rather than have this one guess."
+    },
+    {
+      "id": "gate-cse-2024-set2-q8-six-dice",
+      "kind": "pyq",
+      "channel": "GATE CSE 2024 Set 2 Q.8, six dice showing all distinct numbers",
+      "why": "A counting question in the same subject, already recorded in the ledger as excluded from the mean-median topic; it is not a conditional probability question and is excluded here too."
+    },
+    {
+      "id": "gate-da-and-ds-ai-conditional-probability",
+      "kind": "pyq",
+      "channel": "GATE DA 2024-2026 and GATE DS&AI conditional probability, joint and marginal probability questions",
+      "why": "A whole PYQ PDF exists for this subtopic in the Data Science and AI papers. Those papers are not CSE, and the repository does not mix papers, so they are excluded."
+    },
+    {
+      "id": "pyqlabs-probability-counting-index",
+      "kind": "pyq-index",
+      "channel": "PYQLabs, 'Probability and counting: every PYQ across 40 years'",
+      "why": "Used as an index and then distrusted: it dates the rain question to 2006 without saying which 2006 paper, and its question counts mix CSE with IT. Every question recorded here was read on its own GATE Overflow page instead."
+    },
+    {
+      "id": "answer-aggregator-pages",
+      "kind": "pyq-index",
+      "channel": "EduRev, Quorank, ExamSIDE, Success Tracker, trygateAI and IAE Academy pages for these questions",
+      "why": "Used as corroboration only. They disagree on numbering - the 2025 Set 1 coin question is Q.22 on GATE Overflow, Q.18 on Quorank and Q.9 on EduRev; the 2024 Set 1 independence question is Q.17 on GATE Overflow and Q.27 in the official paper - so no reference in this topic is taken from them. Two of them do supply the official answer key for the 2024 Set 1 MSQ, which is noted on that record."
+    },
+    {
+      "id": "youtube-caption-tracks",
+      "kind": "lecture",
+      "channel": "Every YouTube watch page tried this run",
+      "why": "No caption track was retrievable on any route, so no YouTube lecture is quoted anywhere in this topic and videoRefs is empty on all twelve cards. The teaching rests on the two NPTEL transcripts, two StatLect pages, OpenStax, two GATE-oriented written sources and one Hindi NCERT summary."
+    }
+  ],
+  "standard_refs": [
+    "Sheldon Ross, A First Course in Probability, chapter 3 (conditional probability and independence) and chapter 4 - the book the GATE Overflow probability page recommends for this subject",
+    "Ronald E. Walpole, Raymond H. Myers, Sharon L. Myers and Keying Ye, Probability and Statistics for Engineers and Scientists, chapter 2 (conditional probability, independence and Bayes' theorem)",
+    "NCERT Mathematics, Class 12, chapter 13 'Probability' (conditional probability, multiplication theorem, independence, total probability and Bayes' theorem)",
+    "OpenStax, Introductory Statistics 2e, chapter 3, sections 3.3 and 3.4 (the two basic rules of probability, and contingency tables)",
+    "GATE 2027 CS syllabus, Engineering Mathematics line 'Random variables. Uniform, normal, exponential, Poisson and binomial distributions. Mean, median, mode and standard deviation. Conditional probability and Bayes theorem.'"
+  ],
+  "notes": [
+    "The syllabus names this topic in four words, so the twelve subtopics above are this run's enumeration from the standard treatment (Ross chapter 3, Walpole chapter 2, NCERT class 12 chapter 13, the NPTEL lecture order and the GATE Overflow notes), not a quotation from the syllabus. Each of the four words - conditional probability, and Bayes theorem - gets six cards, and the independence, partition, tree, base-rate and shared-trial cases are included because they are where the words are actually examined.",
+    "Ten GATE CSE previous-year questions were verified for this topic, the largest set of any topic in the repository so far: 2011 Q.3, 2015 Set 3 Q.37, 2016 Set 2 Q.5, 2018 Q.44, 2021 Set 1 Q.54, 2023 Q.43, 2024 Set 1 Q.17, 2024 Set 1 Q.53, 2025 Set 1 Q.22 and 2026 Set 2 Q.53. Seven of the ten are NAT questions, which is the shape this topic takes in a modern paper.",
+    "Every PYQ is SOURCED against a GATE Overflow accepted answer, not key-verified against an official answer key: no official paper or key was fetched this run, so no marks field is recorded on any record. Two records state where the official paper numbers the question differently (2024 Set 1 Q.27, 2026 Set 2 Q.63) and one states the published answer range (2025 Set 1, 0.49 to 0.51).",
+    "No YouTube caption track was readable this run, so no card quotes or timestamps a video and videoRefs is empty on every card. The GO Classes lecture sequence that matches this topic lesson for lesson is recorded as structure only, and the Unacademy Hindi lessons that match it are paywalled.",
+    "One source is non-English and it is marked translated: the Hindi summary of NCERT class 12 chapter 13. Everything published is English. No card quotes a Hindi sentence; what is used is the lemma on independence against exclusivity, the partition form and two applications, all recomputed here before publication.",
+    "The NPTEL IIT Kharagpur probability course, whose transcripts answered 403 in the previous run, was readable this run: lectures 9 and 10 were served as full transcript PDFs. That is the one retrieval improvement over the previous topic and it is why this topic has a lecture-based spine.",
+    "Four of the twelve cards carry no previous-year question of their own - independence against exclusivity, pairwise and mutual independence, conditional independence, and the base rate - because no verified CSE question in this topic is decided by them alone. Each says so on the card rather than borrowing a question that does not test it.",
+    "The 2026 Set 2 Q.53 record notes that P(E1)P(E2) happens to equal the true joint probability 3/16 by symmetry, which is why the counting argument, not the product, is the safe route. The card states this rather than presenting the product as the method."
+  ]
+}

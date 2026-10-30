@@ -252,7 +252,7 @@ window.GATE_DATA = {
      {
       "slug": "conditional-probability-and-bayes",
       "name": "Conditional Probability and Bayes Theorem",
-      "material": "planned"
+      "material": "cards"
      }
     ]
    },
@@ -23978,6 +23978,1137 @@ window.GATE_DATA = {
    "subject": "probability-and-statistics",
    "topic": "mean-median-mode-standard-deviation",
    "path": "subjects/probability-and-statistics/mean-median-mode-standard-deviation/choosing-the-summary-and-reading-units.json"
+  },
+  {
+   "id": "conditional-probability-and-the-restricted-space",
+   "title": "Conditional Probability and the Restricted Sample Space",
+   "priority": "P1",
+   "order": 325,
+   "unit": "Conditional Probability and Bayes Theorem",
+   "quickIdea": "P(A|B) = P(A and B) / P(B), defined only when P(B) > 0. Learning that B happened throws away every outcome outside B and rescales what is left so that it still sums to 1.",
+   "remember": [
+    "The definition is a ratio of two probabilities of the same space: P(A|B) = P(A and B) / P(B). It is a ratio of counts, |A and B| / |B|, only when the outcomes are equally likely.",
+    "The denominator is P(B), the probability of the condition. Putting the probability of the event you want there is the commonest error in the topic.",
+    "Conditioning shrinks the sample space to B. An outcome outside B is no longer possible, so it stops counting anywhere - not in the numerator and not in the denominator.",
+    "Two ways to compute the same thing: restrict first and count inside B, or take the ratio of the two unconditional probabilities. They must agree, and disagreement means one of them used the wrong space.",
+    "P(A|B) exists only when P(B) > 0. A zero-probability condition cannot revise anything, which is why the definition carries the caveat.",
+    "P(A|B) and P(B|A) share the same numerator P(A and B) and are still different numbers: one is a share of B, the other a share of A.",
+    "P(A|B) >= P(A and B) always, because dividing by P(B) <= 1 can only enlarge the number."
+   ],
+   "example": {
+    "prompt": "A fair die is rolled. B is the event that an even number appears and E is the event that 2 appears. Compare P(E) with P(E|B).",
+    "work": "Unconditionally P(E) = 1/6, because 2 is one of six equally likely faces. Given B, the possible faces are 2, 4 and 6 only, so the space has three outcomes and 2 is one of them: P(E|B) = |{2}| / |{2,4,6}| = 1/3. By the formula, P(E and B) = 1/6 and P(B) = 1/2, so P(E|B) = (1/6)/(1/2) = 1/3.",
+    "answer": "P(E) = 1/6 and P(E|B) = 1/3; the information doubled the probability."
+   },
+   "gateAngle": "GATE CSE 2011 Q.3 is this card in one line: two fair coins, 'at least one of the outcomes is known to be a head', and the answer is 1/3 - not 1/2 (which forgets that HH is one of three survivors) and not 1/4 (which forgets the condition altogether).",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2011 Q.3: two fair coins are flipped and at least one outcome is known to be a head. What is the probability that both outcomes are heads?",
+     "answer": "1/3.",
+     "why": "The four outcomes are equally likely; the condition removes TT and leaves HH, HT, TH. Exactly one of the three survivors is HH."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "Two fair dice are rolled. Given that the sum is 8, what is the probability that the first die shows 3?",
+     "answer": "1/5.",
+     "why": "The ordered outcomes with sum 8 are (2,6), (3,5), (4,4), (5,3), (6,2): five of them. Only (3,5) has first die 3, so the restricted space gives 1/5. This is the worked example on the Knowledge Gate GATE page."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "In the dice example above, why is 1/36 the wrong answer, and what does it actually compute?",
+     "answer": "1/36 is P(first die 3 and sum 8), the unconditional probability of the single outcome (3,5). The question asks for a share of the five outcomes that already satisfy the condition, so the denominator must be 5, not 36.",
+     "why": "This is the whole content of the definition: the condition replaces the space."
+    }
+   ],
+   "trap": {
+    "what": "Dividing by the wrong space - using P(A) in the denominator, or the full space when the question has already restricted it.",
+    "why": "The condition is information about which outcomes are still possible. The definition normalises by exactly that information, so the denominator is the probability of the condition.",
+    "counterexample": "For the two coins of GATE CSE 2011 Q.3, P(both heads) / P(at least one head) = (1/4)/(3/4) = 1/3, but P(both heads)/P(both heads) = 1 and P(both heads)/1 = 1/4 are the two wrong denominators in their purest form."
+   },
+   "check": {
+    "question": "Two fair dice are rolled and the sum is known to be 9. What is the probability that the first die shows 4?",
+    "answer": "1/4.",
+    "explanation": "The outcomes with sum 9 are (3,6), (4,5), (5,4), (6,3) - four of them, all equally likely. Exactly one has first die 4, so the probability is 1/4. Equivalently (1/36)/(4/36) = 1/4."
+   },
+   "pyqIds": [
+    "gate-2011-q3-conditional-two-coins"
+   ],
+   "prereqs": [
+    "random-variable-as-a-function"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 09 - Conditional Probability",
+     "channel": "NPTEL, Probability and Statistics (Prof. Somesh Kumar, IIT Kharagpur)",
+     "url": "http://www.digimat.in/nptel/courses/video/111105090/lec9.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read from the opening through the statement of Bayes' theorem: the die example that motivates conditioning, the definition, the proof that P(.|B) satisfies the three axioms, the multiplication rule, the total probability theorem for a disjoint exhaustive family, and the Bayes formula for a partition"
+    },
+    {
+     "kind": "text",
+     "title": "Conditional probability",
+     "channel": "StatLect (Marco Taboga)",
+     "url": "https://www.statlect.com/fundamentals-of-probability/conditional-probability",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read through the law of total probability: the two proofs of the formula, the die example, the division-by-zero discussion, the list of properties a conditional probability must satisfy, and the partition form of the total probability theorem"
+    },
+    {
+     "kind": "text",
+     "title": "Probability for GATE CS: conditional, Bayes and expectation",
+     "channel": "Knowledge Gate AI",
+     "url": "https://www.knowledgegate.ai/blog/probability-gate-cs-conditional-bayes",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read in full: the two-dice sum-8 worked example, the machine A / machine B defective-item Bayes example, the independence against mutual-exclusivity warning with the odd/even die case, and the advice to rebuild the denominator whenever a stem says 'given'"
+    }
+   ],
+   "sourceLine": "The definition, the die example and the shrunken sample space: NPTEL IIT Kharagpur Lecture 09 (English, read in part) and StatLect's conditional probability lecture (English). The two-dice sum-8 example and the 'rebuild the denominator when the stem says given' warning: the Knowledge Gate AI GATE probability page (English).",
+   "videoRefs": [],
+   "subject": "probability-and-statistics",
+   "topic": "conditional-probability-and-bayes",
+   "path": "subjects/probability-and-statistics/conditional-probability-and-bayes/conditional-probability-and-the-restricted-space.json"
+  },
+  {
+   "id": "a-conditional-probability-is-still-a-probability",
+   "title": "A Conditional Probability Is Still a Probability",
+   "priority": "P2",
+   "order": 326,
+   "unit": "Conditional Probability and Bayes Theorem",
+   "quickIdea": "Fix B and read P(.|B) as a new probability measure. It satisfies the three axioms, so the complement rule, the addition rule and monotonicity all survive inside the condition - and only inside it.",
+   "remember": [
+    "For a fixed B with P(B) > 0 the function A -> P(A|B) is a probability measure: P(A|B) >= 0, P(whole space|B) = 1, and disjoint events add. NPTEL Lecture 09 proves all three from the axioms.",
+    "So P(A^c|B) = 1 - P(A|B), P(A or C|B) = P(A|B) + P(C|B) - P(A and C|B), and A contained in C gives P(A|B) <= P(C|B).",
+    "P(B|B) = 1 and P(nothing|B) = 0 for every B with positive probability.",
+    "Different conditions are different measures. P(A|B) + P(A|B^c) need not be 1; for a die with A = {2} and B = even it is 1/3 + 0 = 1/3.",
+    "Conditional probabilities with different conditions cannot be added into an unconditional probability. The total probability theorem is the rule that does that job, and it uses weights.",
+    "The ordinary set algebra applies to the events before conditioning: A and B^c = A minus (A and B), and A^c and B^c = (A or B)^c. Most 'given' questions are solved by that algebra plus one division."
+   ],
+   "example": {
+    "prompt": "A fair die is rolled and B = {2, 4, 6}. Find P({1,2}|B), P({1,3,5}|B) and P({2,4}|B).",
+    "work": "Inside B the three outcomes are equally likely. {1,2} meets B in {2}, so P({1,2}|B) = 1/3. {1,3,5} meets B in nothing, so the probability is 0. {2,4} is contained in B, so its probability is 2/3. The three values 1/3, 0, 2/3 are exactly what the axioms demand of a probability measure on a three-point space.",
+    "answer": "1/3, 0 and 2/3."
+   },
+   "gateAngle": "GATE CSE 2024 Set 1 Q.17 is set algebra rather than conditioning, and it is the algebra every conditional solution uses: P(A or B) by inclusion-exclusion, P(A and B^c) = P(A) - P(A and B), and P(A^c and B^c) = 1 - P(A or B).",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2024 Set 1 Q.17 (Q.27 in the official paper): P(A) = 0.3, P(B) = 0.5, P(A and B) = 0.1. Which are true? (A) A and B are independent. (B) P(A or B) = 0.7. (C) P(A and B^c) = 0.2. (D) P(A^c and B^c) = 0.4.",
+     "answer": "B and C.",
+     "why": "P(A or B) = 0.3 + 0.5 - 0.1 = 0.7; P(A and B^c) = 0.3 - 0.1 = 0.2; P(A^c and B^c) = 1 - 0.7 = 0.3, not 0.4; and P(A)P(B) = 0.15 is not 0.1, so A is false."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "For a die with A = {2} and B = even, compute P(A|B) + P(A|B^c) and say why the sum is not 1.",
+     "answer": "1/3 + 0 = 1/3.",
+     "why": "P(.|B) and P(.|B^c) are two different measures on two different spaces. The complement rule relates A to A^c inside one fixed condition; it never relates two different conditions."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "If P(A|B) = 0.3 and P(A and B) = 0.12, what is P(B)?",
+     "answer": "0.4.",
+     "why": "Rearrange the definition: P(B) = P(A and B)/P(A|B) = 0.12/0.3 = 0.4. GATE has not asked this inversion in a CSE paper, but it is one rearrangement away from the questions that do appear."
+    }
+   ],
+   "trap": {
+    "what": "Adding two conditional probabilities that share a condition but whose events overlap, or adding probabilities with different conditions.",
+    "why": "P(.|B) obeys the addition rule only with the intersection subtracted, and two different conditions are two different measures.",
+    "counterexample": "With B = {2,4,6}: P({2,4}|B) = 2/3 and P({4,6}|B) = 2/3, but their union has probability 1, not 4/3. The intersection {4} carries 1/3, which is exactly the double count."
+   },
+   "check": {
+    "question": "Given P(A|B) = 0.35, what is P(A^c|B)?",
+    "answer": "0.65.",
+    "explanation": "Inside the fixed condition B, A and A^c partition the space, so their conditional probabilities add to P(B|B) = 1."
+   },
+   "pyqIds": [
+    "gate-2024-set1-q17-independence-set-algebra"
+   ],
+   "prereqs": [
+    "conditional-probability-and-the-restricted-space"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 09 - Conditional Probability",
+     "channel": "NPTEL, Probability and Statistics (Prof. Somesh Kumar, IIT Kharagpur)",
+     "url": "http://www.digimat.in/nptel/courses/video/111105090/lec9.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read from the opening through the statement of Bayes' theorem: the die example that motivates conditioning, the definition, the proof that P(.|B) satisfies the three axioms, the multiplication rule, the total probability theorem for a disjoint exhaustive family, and the Bayes formula for a partition"
+    },
+    {
+     "kind": "text",
+     "title": "Conditional probability",
+     "channel": "StatLect (Marco Taboga)",
+     "url": "https://www.statlect.com/fundamentals-of-probability/conditional-probability",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read through the law of total probability: the two proofs of the formula, the die example, the division-by-zero discussion, the list of properties a conditional probability must satisfy, and the partition form of the total probability theorem"
+    },
+    {
+     "kind": "text",
+     "title": "Introductory Statistics 2e, section 3.3: two basic rules of probability",
+     "channel": "OpenStax (Rice University)",
+     "url": "https://openstax.org/books/introductory-statistics-2e/pages/3-3-two-basic-rules-of-probability",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read in part: the multiplication rule in both directions, the addition rule, the Carlos free-kick example that tests independence by comparing P(B and A) with P(B)P(A), and the swim-team example that tests independence in a contingency table"
+    }
+   ],
+   "sourceLine": "The proof that P(.|B) satisfies the three axioms and the consequences drawn from it: NPTEL IIT Kharagpur Lecture 09 (English, read in part). The list of properties a conditional probability must satisfy and the division-by-zero discussion: StatLect (English). The multiplication and addition rules as GATE-level statements: OpenStax Introductory Statistics 3.3 (English).",
+   "videoRefs": [],
+   "subject": "probability-and-statistics",
+   "topic": "conditional-probability-and-bayes",
+   "path": "subjects/probability-and-statistics/conditional-probability-and-bayes/a-conditional-probability-is-still-a-probability.json"
+  },
+  {
+   "id": "multiplication-rule-and-sequential-draws",
+   "title": "The Multiplication Rule and Sequential Draws",
+   "priority": "P1",
+   "order": 327,
+   "unit": "Conditional Probability and Bayes Theorem",
+   "quickIdea": "P(A and B) = P(A|B)P(B): multiply along the path. A chain of conditions gives P(A and B and C) = P(A)P(B|A)P(C|A and B), which is how every without-replacement draw is computed.",
+   "remember": [
+    "The multiplication rule is the definition rearranged, and it holds for dependent events. The independence product P(A)P(B) is the special case P(A|B) = P(A).",
+    "Chain rule: multiply the probability of the first event by the conditional probability of each later event given all the earlier ones.",
+    "Without replacement the denominator falls by one at each draw, and the numerator falls by one whenever the item drawn was of the kind being counted.",
+    "With replacement the fractions repeat, which is exactly the independent case; that is the cleanest way to see why replacement restores independence.",
+    "P(A and B) is symmetric, so P(A)P(B|A) and P(B)P(A|B) give the same number. The order of conditioning is free; the answer is not affected.",
+    "A question that says 'given that the first ball drawn is red' has already fixed the first draw. Multiplying by 10/25 as well counts the condition twice and is the classic wrong answer 0.3."
+   ],
+   "example": {
+    "prompt": "A bag holds 10 red and 15 blue balls. Two are drawn without replacement. Find P(both red) and P(second red | first red).",
+    "work": "P(first red) = 10/25. Given a red has gone, 9 red and 15 blue remain in 24 balls, so P(second red | first red) = 9/24 = 0.375. Multiplying: P(both red) = (10/25)(9/24) = 90/600 = 0.15. The conditional question asks only for the second factor.",
+    "answer": "P(both red) = 0.15 and P(second red | first red) = 0.375."
+   },
+   "gateAngle": "GATE CSE 2024 Set 1 Q.53 asks for exactly the conditional factor, 9/24 = 0.375, and the wrong answer 0.3 - the unconditional P(both red) - is the mistake the question is built to catch.",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2024 Set 1 Q.53: a bag contains 10 red and 15 blue balls. Two are drawn without replacement. Given that the first ball drawn is red, the probability (3 decimal places) that both drawn balls are red is ____.",
+     "answer": "0.375.",
+     "why": "After a red is removed, 9 red remain among 24 balls, so the required conditional probability is 9/24 = 0.375. The unconditional P(both red) = 0.15 is a different quantity."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "Three cards are drawn without replacement from a standard 52-card deck. What is the probability that all three are aces?",
+     "answer": "1/5525.",
+     "why": "Chain rule: (4/52)(3/51)(2/50) = 24/132600 = 1/5525. Each factor is a conditional probability given every earlier draw."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why is P(both red) = (10/25)(9/24) but the answer to GATE CSE 2024 Set 1 Q.53 is only 9/24?",
+     "answer": "Because the question conditions on the first ball being red, so P(first red) is already 1 and drops out of the ratio: P(both red)/P(first red) = 0.15/0.4 = 0.375.",
+     "why": "The chain rule multiplies the whole path; a conditional question starts halfway down the path."
+    }
+   ],
+   "trap": {
+    "what": "Multiplying the first draw's probability into a question that has already conditioned on the first draw.",
+    "why": "Conditioning divides by the probability of the condition, and multiplying by it again is the same as not dividing at all - the two cancel in the wrong direction.",
+    "counterexample": "0.15 is the probability that both balls are red; 0.375 is the probability that the second is red given the first is. A bag of 10 red and 15 blue gives both numbers, and only one of them answers GATE CSE 2024 Set 1 Q.53."
+   },
+   "check": {
+    "question": "A bag holds 3 red and 2 blue balls. Two are drawn without replacement. What is the probability that both are red?",
+    "answer": "3/10.",
+    "explanation": "(3/5)(2/4) = 6/20 = 3/10. The second factor uses the reduced bag of 2 red and 2 blue."
+   },
+   "pyqIds": [
+    "gate-2024-set1-q53-conditional-without-replacement"
+   ],
+   "prereqs": [
+    "conditional-probability-and-the-restricted-space"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 09 - Conditional Probability",
+     "channel": "NPTEL, Probability and Statistics (Prof. Somesh Kumar, IIT Kharagpur)",
+     "url": "http://www.digimat.in/nptel/courses/video/111105090/lec9.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read from the opening through the statement of Bayes' theorem: the die example that motivates conditioning, the definition, the proof that P(.|B) satisfies the three axioms, the multiplication rule, the total probability theorem for a disjoint exhaustive family, and the Bayes formula for a partition"
+    },
+    {
+     "kind": "text",
+     "title": "Introductory Statistics 2e, section 3.3: two basic rules of probability",
+     "channel": "OpenStax (Rice University)",
+     "url": "https://openstax.org/books/introductory-statistics-2e/pages/3-3-two-basic-rules-of-probability",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read in part: the multiplication rule in both directions, the addition rule, the Carlos free-kick example that tests independence by comparing P(B and A) with P(B)P(A), and the swim-team example that tests independence in a contingency table"
+    },
+    {
+     "kind": "text",
+     "title": "Probability for GATE CS: conditional, Bayes and expectation",
+     "channel": "Knowledge Gate AI",
+     "url": "https://www.knowledgegate.ai/blog/probability-gate-cs-conditional-bayes",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read in full: the two-dice sum-8 worked example, the machine A / machine B defective-item Bayes example, the independence against mutual-exclusivity warning with the odd/even die case, and the advice to rebuild the denominator whenever a stem says 'given'"
+    }
+   ],
+   "sourceLine": "The multiplication rule as a consequence of the definition and the statement of the chain for several events: NPTEL IIT Kharagpur Lecture 09 (English, read in part). The rule in both directions as a GATE-level statement: OpenStax Introductory Statistics 3.3 (English). The two-card ace example: the Knowledge Gate AI GATE probability page (English).",
+   "videoRefs": [],
+   "subject": "probability-and-statistics",
+   "topic": "conditional-probability-and-bayes",
+   "path": "subjects/probability-and-statistics/conditional-probability-and-bayes/multiplication-rule-and-sequential-draws.json"
+  },
+  {
+   "id": "independence-and-the-product-test",
+   "title": "Independence and the Product Test",
+   "priority": "P1",
+   "order": 328,
+   "unit": "Conditional Probability and Bayes Theorem",
+   "quickIdea": "A and B are independent exactly when P(A and B) = P(A)P(B), equivalently P(A|B) = P(A) whenever P(B) > 0. The test is the product, computed on the numbers in the question - never read off the story.",
+   "remember": [
+    "The product form is the definition, because it needs no positivity assumption and is visibly symmetric in A and B.",
+    "Independence of A and B carries to A^c and B, to A and B^c, and to A^c and B^c. All four products hold together, so one of them failing is enough to disprove independence.",
+    "Compute both sides with the given numbers. A story that sounds unrelated proves nothing; a story that sounds connected proves nothing either.",
+    "Independence is a statement about probabilities, not about causation: two events can be independent through cancellation of causes.",
+    "P(A|B) = P(A) and P(B|A) = P(B) are equivalent when both conditionals exist, so either form may be used as the test.",
+    "For three or more events the pairwise products are not enough; mutual independence needs the higher-order products as well, which is the next card."
+   ],
+   "example": {
+    "prompt": "Two fair coins are tossed. A = head on both, B = head on the first, C = head on the second. Test each pair for independence.",
+    "work": "The space is HH, HT, TH, TT. P(A) = 1/4, P(B) = 1/2, P(C) = 1/2. P(A and B) = 1/4 (only HH), while P(A)P(B) = 1/8: not independent. P(A and C) = 1/4 against 1/8: not independent. P(B and C) = 1/4 = (1/2)(1/2): independent. And P(B|C) = (1/4)/(1/2) = 1/2 = P(B), which is the same statement.",
+    "answer": "B and C are independent; A is dependent on each of them."
+   },
+   "gateAngle": "GATE CSE 2023 Q.43 asks exactly these four verdicts as an MSQ, and the two true statements are C and D - the independent pair, and the conditional form of the same fact.",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2023 Q.43: two fair coins are tossed. A = head on both throws, B = head on the first throw, C = head on the second throw. Which are true? (A) A and B independent. (B) A and C independent. (C) B and C independent. (D) P(B|C) = P(B).",
+     "answer": "C and D.",
+     "why": "P(B and C) = 1/4 = P(B)P(C) and P(B|C) = 1/2 = P(B). For A the joint probabilities are 1/4 against a product of 1/8, so A is dependent on both."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "If A and B are independent with P(A) = 0.6 and P(B) = 0.5, what is P(A^c and B)?",
+     "answer": "0.2.",
+     "why": "A^c and B are independent too, so P(A^c and B) = (1 - 0.6)(0.5) = 0.2. The complement carries independence with it."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "P(A) = 0.4, P(B) = 0.5, P(A and B) = 0.2. Are A and B independent, and what is P(A|B)?",
+     "answer": "Yes: P(A)P(B) = 0.2 = P(A and B), and P(A|B) = 0.2/0.5 = 0.4 = P(A).",
+     "why": "The two tests are the same test; this variation makes the equivalence visible on a single pair of numbers."
+    }
+   ],
+   "trap": {
+    "what": "Deciding independence from the wording of the question instead of from the product.",
+    "why": "Independence is a numerical relation between three probabilities. Two events in the same experiment can be independent, and two events in different experiments can fail to be independent if they are tied together by a condition.",
+    "counterexample": "In GATE CSE 2023 Q.43, 'head on both' sounds like it should depend on 'head on the first', and it does - but the same experiment's two single-coin events are independent, which is equally counter-intuitive until the products are written down."
+   },
+   "check": {
+    "question": "P(A) = 0.4, P(B) = 0.5 and P(A and B) = 0.2. Are A and B independent?",
+    "answer": "Yes.",
+    "explanation": "P(A)P(B) = 0.4 x 0.5 = 0.2, which equals P(A and B), so the product test passes."
+   },
+   "pyqIds": [
+    "gate-2023-q43-independence-two-coins"
+   ],
+   "prereqs": [
+    "conditional-probability-and-the-restricted-space"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 10 - Independence of Events",
+     "channel": "NPTEL, Probability and Statistics (Prof. Somesh Kumar, IIT Kharagpur)",
+     "url": "http://www.digimat.in/nptel/courses/video/111105090/lec10.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read from the opening through the definition of mutual independence for n events: the two-coin test of P(A|B) against P(A), the symmetric definition P(A and B) = P(A)P(B), and the four conditions needed for three events"
+    },
+    {
+     "kind": "text",
+     "title": "Introductory Statistics 2e, section 3.3: two basic rules of probability",
+     "channel": "OpenStax (Rice University)",
+     "url": "https://openstax.org/books/introductory-statistics-2e/pages/3-3-two-basic-rules-of-probability",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read in part: the multiplication rule in both directions, the addition rule, the Carlos free-kick example that tests independence by comparing P(B and A) with P(B)P(A), and the swim-team example that tests independence in a contingency table"
+    },
+    {
+     "kind": "text",
+     "title": "Probability for GATE CS: conditional, Bayes and expectation",
+     "channel": "Knowledge Gate AI",
+     "url": "https://www.knowledgegate.ai/blog/probability-gate-cs-conditional-bayes",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read in full: the two-dice sum-8 worked example, the machine A / machine B defective-item Bayes example, the independence against mutual-exclusivity warning with the odd/even die case, and the advice to rebuild the denominator whenever a stem says 'given'"
+    }
+   ],
+   "sourceLine": "The definition of statistical independence, the symmetry argument and the four conditions for three events: NPTEL IIT Kharagpur Lecture 10 (English, read in part). The product test as a GATE-level statement with the free-kick example: OpenStax Introductory Statistics 3.3 (English). The independence against exclusivity warning: the Knowledge Gate AI GATE probability page (English).",
+   "videoRefs": [],
+   "subject": "probability-and-statistics",
+   "topic": "conditional-probability-and-bayes",
+   "path": "subjects/probability-and-statistics/conditional-probability-and-bayes/independence-and-the-product-test.json"
+  },
+  {
+   "id": "independent-events-cannot-be-mutually-exclusive",
+   "title": "Independent Events Cannot Be Mutually Exclusive",
+   "priority": "P1",
+   "order": 329,
+   "unit": "Conditional Probability and Bayes Theorem",
+   "quickIdea": "Mutually exclusive means P(A and B) = 0. Independent means P(A and B) = P(A)P(B). If both events have positive probability, no pair can be both.",
+   "remember": [
+    "Disjoint gives P(A or B) = P(A) + P(B). Independence gives P(A and B) = P(A)P(B). They answer different questions and are not two words for the same thing.",
+    "If P(A) > 0 and P(B) > 0 and A, B are disjoint, then 0 = P(A and B) < P(A)P(B), so the pair is dependent - as dependent as a pair can be.",
+    "The only events that are both disjoint and independent have probability zero: P(A) = 0 or P(B) = 0 makes both sides 0.",
+    "Independent events of positive probability must overlap, so for them P(A or B) < P(A) + P(B).",
+    "Repeated tosses are independent because they are separate experiments. The outcomes of one toss are disjoint because they are one experiment. Mixing the two constructions is where the confusion starts.",
+    "NCERT's class 12 chapter states the lemma in this form: independent events with non-zero probability can never be mutually exclusive."
+   ],
+   "example": {
+    "prompt": "A fair die is rolled. A = an odd number, B = an even number. Are A and B independent, mutually exclusive, or both?",
+    "work": "A and B cannot happen together, so P(A and B) = 0. But P(A) = 1/2 and P(B) = 1/2, so P(A)P(B) = 1/4. The product test fails, so the events are dependent; the disjointness is exactly what makes them dependent. Their union has probability 1 = 1/2 + 1/2, which is the disjoint addition rule at work.",
+    "answer": "Mutually exclusive and dependent, with P(A or B) = 1."
+   },
+   "gateAngle": "An option of the form 'A and B are mutually exclusive and independent' is false in every GATE question that offers it, unless one of the probabilities is zero - and no CSE paper has yet offered that degenerate case.",
+   "variations": [
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Two events have P(A) = 0.2 and P(B) = 0.3 and are disjoint. Are they independent?",
+     "answer": "No.",
+     "why": "P(A and B) = 0 but P(A)P(B) = 0.06, so the product test fails. Disjointness of positive-probability events always means dependence."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "P(A) = 0.3, P(B) = 0.5, P(A and B) = 0.1. Are A and B independent? Are they mutually exclusive?",
+     "answer": "Dependent, and not mutually exclusive.",
+     "why": "P(A)P(B) = 0.15 is not 0.1, so they are dependent; P(A and B) = 0.1 is not 0, so they are not disjoint. This is the pair of verdicts GATE CSE 2024 Set 1 Q.17 asks for."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "Can two events with P(A) = 0 and P(B) = 0.7 be both disjoint and independent?",
+     "answer": "Yes, and this is the only way.",
+     "why": "P(A and B) = 0 because A is empty, and P(A)P(B) = 0 x 0.7 = 0, so both conditions hold. A zero-probability event is independent of everything."
+    }
+   ],
+   "trap": {
+    "what": "Reading 'independent' as 'unrelated' or 'cannot happen at the same time'.",
+    "why": "Independence is a statement that knowing one event leaves the other's probability unchanged. Disjointness is the strongest possible change: knowing one happened makes the other impossible.",
+    "counterexample": "Odd and even on a die are as disjoint as events get, and they are dependent for exactly that reason: P(odd|even) = 0 against P(odd) = 1/2."
+   },
+   "check": {
+    "question": "P(A) = 0.2 and P(B) = 0.3. Can A and B be both independent and mutually exclusive?",
+    "answer": "No.",
+    "explanation": "Independence would need P(A and B) = 0.06 while exclusivity needs P(A and B) = 0. Both cannot hold for positive probabilities."
+   },
+   "pyqIds": [],
+   "prereqs": [
+    "independence-and-the-product-test"
+   ],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "Prayikta (probability): NCERT class 12 mathematics chapter 13 notes and summary",
+     "channel": "NCERT Hindi (ncerthindi.com)",
+     "url": "https://ncerthindi.com/ncert-books/class-12/mathematics/probability",
+     "language": "hi",
+     "transcript": "PARTIAL",
+     "translated": true,
+     "note": "read in full, in Hindi, and rendered into English here: conditional probability and the shrunken sample space, the multiplication rule, the definition of independence, the lemma that independent events of non-zero probability can never be mutually exclusive, the total probability theorem for a partition, and the Bayes formula with the defective-bolt and HIV-test applications"
+    },
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 10 - Independence of Events",
+     "channel": "NPTEL, Probability and Statistics (Prof. Somesh Kumar, IIT Kharagpur)",
+     "url": "http://www.digimat.in/nptel/courses/video/111105090/lec10.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read from the opening through the definition of mutual independence for n events: the two-coin test of P(A|B) against P(A), the symmetric definition P(A and B) = P(A)P(B), and the four conditions needed for three events"
+    },
+    {
+     "kind": "text",
+     "title": "Probability for GATE CS: conditional, Bayes and expectation",
+     "channel": "Knowledge Gate AI",
+     "url": "https://www.knowledgegate.ai/blog/probability-gate-cs-conditional-bayes",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read in full: the two-dice sum-8 worked example, the machine A / machine B defective-item Bayes example, the independence against mutual-exclusivity warning with the odd/even die case, and the advice to rebuild the denominator whenever a stem says 'given'"
+    }
+   ],
+   "sourceLine": "The lemma that independent events of non-zero probability cannot be mutually exclusive, and the odd/even die illustration: the Hindi NCERT class 12 chapter 13 summary (Hindi, translated here) and the Knowledge Gate AI GATE probability page (English). The definitions of independence and of the disjoint addition rule: NPTEL IIT Kharagpur Lecture 10 (English, read in part).",
+   "videoRefs": [],
+   "subject": "probability-and-statistics",
+   "topic": "conditional-probability-and-bayes",
+   "path": "subjects/probability-and-statistics/conditional-probability-and-bayes/independent-events-cannot-be-mutually-exclusive.json"
+  },
+  {
+   "id": "pairwise-and-mutual-independence",
+   "title": "Pairwise and Mutual Independence",
+   "priority": "P2",
+   "order": 330,
+   "unit": "Conditional Probability and Bayes Theorem",
+   "quickIdea": "For three events, pairwise independence is three products. Mutual independence needs a fourth, P(A and B and C) = P(A)P(B)P(C), and pairwise independence does not give it.",
+   "remember": [
+    "n events are mutually independent when every sub-family of size 2 or more satisfies the product rule: 2^n - n - 1 separate equations.",
+    "Mutual independence implies pairwise independence; the converse fails, and the standard counterexample is small enough to memorise.",
+    "The counterexample: two fair coins; A = head on the first, B = head on the second, C = the two coins differ. Each pair is independent and P(A and B and C) = 0, not 1/8.",
+    "Pairwise independence is not enough to multiply three probabilities, and not enough to add variances of three terms.",
+    "In a GATE MSQ, an option that says 'pairwise independent' is weaker than 'independent', and the difference is exactly the triple product.",
+    "When a question says only 'A and B', the two-event definition is all that is needed; do not import the three-event machinery into a two-event question."
+   ],
+   "example": {
+    "prompt": "Two fair coins are tossed. A = head on the first, B = head on the second, C = the coins show different faces. Test all three pairs, then the triple.",
+    "work": "The space is HH, HT, TH, TT; A = {HH, HT}, B = {HH, TH}, C = {HT, TH}, each of probability 1/2. P(A and B) = P(HH) = 1/4 = (1/2)(1/2); P(A and C) = P(HT) = 1/4; P(B and C) = P(TH) = 1/4. So every pair passes. But A and B and C would need HH, HT and TH at once, which is impossible: P(A and B and C) = 0, against the required (1/2)^3 = 1/8.",
+    "answer": "Pairwise independent but not mutually independent."
+   },
+   "gateAngle": "No CSE previous-year question in this topic asks for mutual independence of three events, so this card is P2 and rests on the standard construction and on recomputation rather than on a verified question.",
+   "variations": [
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "In the coin construction above, which single number shows that mutual independence fails?",
+     "answer": "P(A and B and C) = 0, which should be 1/8.",
+     "why": "All three pairwise products hold, so the only remaining condition is the triple product, and it fails as badly as possible."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "Three events have P(A) = P(B) = P(C) = 1/2, all three pairwise intersections of probability 1/4, and P(A and B and C) = 1/8. Are they mutually independent?",
+     "answer": "Yes.",
+     "why": "All four required products hold: three pairwise and one triple. This is the case the counterexample fails to reach."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "How many product conditions must n events satisfy to be mutually independent?",
+     "answer": "2^n - n - 1.",
+     "why": "One condition for each sub-family of size 2 or more; there are 2^n sub-families, of which n are singletons and one is empty."
+    }
+   ],
+   "trap": {
+    "what": "Checking only the pairwise products and concluding mutual independence.",
+    "why": "Pairwise independence constrains every two-way overlap but says nothing about the three-way overlap, which can be forced to zero by the design of the events.",
+    "counterexample": "The two-coin construction: three pairwise products of 1/4 all hold, yet the triple intersection is empty."
+   },
+   "check": {
+    "question": "In the two-coin construction, what is P(A and B and C)?",
+    "answer": "0.",
+    "explanation": "C requires the coins to differ while A and B require both to be heads; no outcome satisfies all three, so the triple probability is 0 against the required 1/8."
+   },
+   "pyqIds": [],
+   "prereqs": [
+    "independence-and-the-product-test"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 10 - Independence of Events",
+     "channel": "NPTEL, Probability and Statistics (Prof. Somesh Kumar, IIT Kharagpur)",
+     "url": "http://www.digimat.in/nptel/courses/video/111105090/lec10.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read from the opening through the definition of mutual independence for n events: the two-coin test of P(A|B) against P(A), the symmetric definition P(A and B) = P(A)P(B), and the four conditions needed for three events"
+    },
+    {
+     "kind": "text",
+     "title": "Conditional probability",
+     "channel": "StatLect (Marco Taboga)",
+     "url": "https://www.statlect.com/fundamentals-of-probability/conditional-probability",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read through the law of total probability: the two proofs of the formula, the die example, the division-by-zero discussion, the list of properties a conditional probability must satisfy, and the partition form of the total probability theorem"
+    }
+   ],
+   "sourceLine": "The four conditions for three events and the general 2^n - n - 1 count: NPTEL IIT Kharagpur Lecture 10 (English, read in part). The conditional-probability properties that the pairwise checks use: StatLect (English). The two-coin counterexample is verified by enumeration in scripts/validate.py.",
+   "videoRefs": [],
+   "subject": "probability-and-statistics",
+   "topic": "conditional-probability-and-bayes",
+   "path": "subjects/probability-and-statistics/conditional-probability-and-bayes/pairwise-and-mutual-independence.json"
+  },
+  {
+   "id": "conditional-independence",
+   "title": "Conditional Independence",
+   "priority": "P3",
+   "order": 331,
+   "unit": "Conditional Probability and Bayes Theorem",
+   "quickIdea": "A and C are conditionally independent given B when P(A and C|B) = P(A|B)P(C|B). It is a different statement from independence, and neither direction of implication holds.",
+   "remember": [
+    "The definition applies the product test inside the conditional measure: same test, different measure.",
+    "Independence does not survive conditioning. Two independent coins, given that at least one is a head, become dependent: 1/3 against the required 1/4.",
+    "Conditional independence does not give unconditional independence either; the eight-outcome construction on this card is a counterexample with all the numbers small.",
+    "Conditional independence is the assumption behind naive Bayes classifiers and behind 'the trials are independent given the parameter' in Bayesian statistics.",
+    "Check the product inside the condition. Computing P(A and C) and comparing it with P(A)P(C) answers a different question.",
+    "In GATE CSE 2026 Set 2 Q.53 the two events share a toss, so they are not independent; the answer still comes out as 1/2 because the shared trial is handled by counting, not by multiplying."
+   ],
+   "example": {
+    "prompt": "Two fair coins are tossed. A = head on the first, C = head on the second, B = at least one head. Test A and C for independence, then for conditional independence given B.",
+    "work": "Unconditionally P(A and C) = 1/4 = (1/2)(1/2), so A and C are independent. Given B = {HH, HT, TH}, P(A|B) = 2/3, P(C|B) = 2/3 and P(A and C|B) = P(HH|B) = 1/3. The product (2/3)(2/3) = 4/9 is not 1/3, so they are conditionally dependent.",
+    "answer": "Independent, but dependent given at least one head."
+   },
+   "gateAngle": "This is the concept behind the two hardest questions in the topic: GATE CSE 2015 Set 3 Q.37 (a function of the conditioned variable is constant given the condition) and GATE CSE 2026 Set 2 Q.53 (two events that share a toss). Neither is solved by assuming independence.",
+   "variations": [
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "With A, C independent and B = at least one head, what is P(A and C|B), and what would conditional independence require?",
+     "answer": "1/3; conditional independence would require 4/9.",
+     "why": "The condition removes TT, which is the outcome that carried the independence; the remaining three outcomes favour agreement between the coins."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "Eight equally likely outcomes 1 to 8. B = {1,2,3,4}, A = {1,2}, C = {1,3,5,6,7,8}. Are A and C independent? Are they independent given B?",
+     "answer": "Dependent unconditionally; independent given B.",
+     "why": "P(A) = 1/4, P(C) = 3/4 and P(A and C) = 1/8, against a product of 3/16, so they are dependent. Inside B, P(A|B) = 1/2, P(C|B) = 1/2 and P(A and C|B) = 1/4, so the product holds."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "If A and C are conditionally independent given B and also given B^c, must they be independent?",
+     "answer": "No.",
+     "why": "The eight-outcome construction above is independent given B and (degenerately) given B^c, yet dependent overall; mixing two measures can destroy the product."
+    }
+   ],
+   "trap": {
+    "what": "Assuming that independence is preserved when a condition is added, or that conditional independence implies independence.",
+    "why": "Conditioning replaces the measure, and a product that held under one measure has no reason to hold under another.",
+    "counterexample": "Two independent coins become dependent given at least one head: 1/3 against 4/9."
+   },
+   "check": {
+    "question": "Two fair coins are tossed and at least one is a head. What is P(both heads | at least one head), and why is it not 1/2?",
+    "answer": "1/3.",
+    "explanation": "The surviving outcomes are HH, HT, TH. Only HH has both heads, so the probability is 1/3; 1/2 would be right only if the two coins stayed independent under the condition, which they do not."
+   },
+   "pyqIds": [],
+   "prereqs": [
+    "independence-and-the-product-test",
+    "a-conditional-probability-is-still-a-probability"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 09 - Conditional Probability",
+     "channel": "NPTEL, Probability and Statistics (Prof. Somesh Kumar, IIT Kharagpur)",
+     "url": "http://www.digimat.in/nptel/courses/video/111105090/lec9.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read from the opening through the statement of Bayes' theorem: the die example that motivates conditioning, the definition, the proof that P(.|B) satisfies the three axioms, the multiplication rule, the total probability theorem for a disjoint exhaustive family, and the Bayes formula for a partition"
+    },
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 10 - Independence of Events",
+     "channel": "NPTEL, Probability and Statistics (Prof. Somesh Kumar, IIT Kharagpur)",
+     "url": "http://www.digimat.in/nptel/courses/video/111105090/lec10.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read from the opening through the definition of mutual independence for n events: the two-coin test of P(A|B) against P(A), the symmetric definition P(A and B) = P(A)P(B), and the four conditions needed for three events"
+    },
+    {
+     "kind": "text",
+     "title": "Conditional probability",
+     "channel": "StatLect (Marco Taboga)",
+     "url": "https://www.statlect.com/fundamentals-of-probability/conditional-probability",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read through the law of total probability: the two proofs of the formula, the die example, the division-by-zero discussion, the list of properties a conditional probability must satisfy, and the partition form of the total probability theorem"
+    }
+   ],
+   "sourceLine": "The conditional measure and its properties: NPTEL IIT Kharagpur Lecture 09 and StatLect (English). The independence definitions that this card conditions on: NPTEL Lecture 10 (English, read in part). Every number on the card is recomputed by enumeration in scripts/validate.py.",
+   "videoRefs": [],
+   "subject": "probability-and-statistics",
+   "topic": "conditional-probability-and-bayes",
+   "path": "subjects/probability-and-statistics/conditional-probability-and-bayes/conditional-independence.json"
+  },
+  {
+   "id": "the-total-probability-theorem",
+   "title": "The Total Probability Theorem",
+   "priority": "P1",
+   "order": 332,
+   "unit": "Conditional Probability and Bayes Theorem",
+   "quickIdea": "If B1 to Bn partition the space, then P(A) = sum over j of P(Bj)P(A|Bj): split the event by cause, weight each cause's conditional probability by that cause's own probability, and add.",
+   "remember": [
+    "A partition needs three things: the Bj are pairwise disjoint, they cover the whole space, and each has positive probability so every conditional probability is defined.",
+    "Two causes give the form that appears in most GATE stems: P(A) = P(B1)P(A|B1) + P(B2)P(A|B2).",
+    "The weights are the priors. An unweighted average of the conditional probabilities is wrong unless the priors happen to be equal - and in 2016 Set 2 Q.5 they do, which is why that question can be solved by an average as a shortcut, not as the rule.",
+    "The same sum is the denominator of Bayes' theorem. Compute it once, name it the evidence probability, and reuse it.",
+    "Choosing the partition is the whole skill: split by the thing you do not observe - the type, the machine, the urn, the coin, the source.",
+    "Every way A can happen must appear in exactly one term. A missing cause makes the total too small, and a cause counted twice makes it too large."
+   ],
+   "example": {
+    "prompt": "A shop has equal numbers of two types of LED bulb. P(lasts more than 100 hours | type 1) = 0.7 and P(lasts more than 100 hours | type 2) = 0.4. Find the probability that a uniformly chosen bulb lasts more than 100 hours.",
+    "work": "The two types partition the stock and each has probability 1/2. Total probability: P(more than 100) = (1/2)(0.7) + (1/2)(0.4) = 0.35 + 0.20 = 0.55. A counting shortcut gives the same answer: 10 bulbs of each type, 7 and 4 of them lasting, so 11 of 20.",
+    "answer": "0.55."
+   },
+   "gateAngle": "GATE CSE 2016 Set 2 Q.5 is a two-term total probability question with equal priors, and the same sum is the denominator in GATE CSE 2018 Q.44 (three causes) and GATE CSE 2021 Set 1 Q.54 (two causes).",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2016 Set 2 Q.5: a shop has equal numbers of LED bulbs of two types. The probability of lasting more than 100 hours is 0.7 for type 1 and 0.4 for type 2. The probability that a uniformly chosen bulb lasts more than 100 hours is ____.",
+     "answer": "0.55.",
+     "why": "(1/2)(0.7) + (1/2)(0.4) = 0.55. The equal priors are what make the answer the plain average."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "In a certain town the probability of rain in the afternoon is 0.6. If the noon temperature is at most 25 degrees the probability of rain is 0.4, and the temperature is equally likely to be above or at most 25 degrees. What is the probability of rain when the noon temperature is above 25 degrees?",
+     "answer": "0.8.",
+     "why": "0.6 = 0.5 x 0.4 + 0.5 x p, so p = 0.8. This is GATE IT 2006 Q.1, an Information Technology paper question, so it is used here as an original exercise rather than as a CSE PYQ."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "In the LED question, suppose 70% of the stock is type 1 and 30% is type 2. What is the probability now, and what does the unweighted average give?",
+     "answer": "0.61, against an unweighted average of 0.55.",
+     "why": "(0.7)(0.7) + (0.3)(0.4) = 0.49 + 0.12 = 0.61. The unweighted average ignores the sizes of the groups and is right only when they are equal."
+    }
+   ],
+   "trap": {
+    "what": "Averaging the conditional probabilities without weighting them by the prior probabilities.",
+    "why": "Each conditional probability describes a different group, and the group's size is the weight its contribution deserves in the total.",
+    "counterexample": "With 70% type 1 and 30% type 2 the true probability is 0.61 while the plain average is 0.55: a 0.06 error from one omitted weight."
+   },
+   "check": {
+    "question": "Three machines supply 50%, 30% and 20% of the output and produce 1%, 2% and 3% defective items. What is the probability that a random item is defective?",
+    "answer": "0.017.",
+    "explanation": "(0.5)(0.01) + (0.3)(0.02) + (0.2)(0.03) = 0.005 + 0.006 + 0.006 = 0.017."
+   },
+   "pyqIds": [
+    "gate-2016-set2-q5-total-probability-led"
+   ],
+   "prereqs": [
+    "conditional-probability-and-the-restricted-space",
+    "multiplication-rule-and-sequential-draws"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 09 - Conditional Probability",
+     "channel": "NPTEL, Probability and Statistics (Prof. Somesh Kumar, IIT Kharagpur)",
+     "url": "http://www.digimat.in/nptel/courses/video/111105090/lec9.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read from the opening through the statement of Bayes' theorem: the die example that motivates conditioning, the definition, the proof that P(.|B) satisfies the three axioms, the multiplication rule, the total probability theorem for a disjoint exhaustive family, and the Bayes formula for a partition"
+    },
+    {
+     "kind": "text",
+     "title": "Conditional probability",
+     "channel": "StatLect (Marco Taboga)",
+     "url": "https://www.statlect.com/fundamentals-of-probability/conditional-probability",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read through the law of total probability: the two proofs of the formula, the die example, the division-by-zero discussion, the list of properties a conditional probability must satisfy, and the partition form of the total probability theorem"
+    },
+    {
+     "kind": "text",
+     "title": "Probability for GATE CS: conditional, Bayes and expectation",
+     "channel": "Knowledge Gate AI",
+     "url": "https://www.knowledgegate.ai/blog/probability-gate-cs-conditional-bayes",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read in full: the two-dice sum-8 worked example, the machine A / machine B defective-item Bayes example, the independence against mutual-exclusivity warning with the odd/even die case, and the advice to rebuild the denominator whenever a stem says 'given'"
+    }
+   ],
+   "sourceLine": "The theorem for a disjoint exhaustive family with its proof: NPTEL IIT Kharagpur Lecture 09 (English, read in part) and StatLect's partition form (English). The machine A / machine B defective-item arithmetic: the Knowledge Gate AI GATE probability page (English). The 2006 rain question is recorded in the source ledger as an excluded IT-paper question.",
+   "videoRefs": [],
+   "visual": "probability-and-statistics/conditional-probability-and-bayes/bayes-tree-and-the-base-rate",
+   "subject": "probability-and-statistics",
+   "topic": "conditional-probability-and-bayes",
+   "path": "subjects/probability-and-statistics/conditional-probability-and-bayes/the-total-probability-theorem.json"
+  },
+  {
+   "id": "bayes-theorem-from-evidence-to-cause",
+   "title": "Bayes' Theorem: From Evidence to Cause",
+   "priority": "P1",
+   "order": 333,
+   "unit": "Conditional Probability and Bayes Theorem",
+   "quickIdea": "P(Bj|A) = P(Bj)P(A|Bj) divided by the sum over k of P(Bk)P(A|Bk). The posterior is one branch product divided by the total of all branch products.",
+   "remember": [
+    "Four names for the four quantities: P(Bj) is the prior, P(A|Bj) the likelihood, the denominator the evidence, and the answer the posterior.",
+    "The numerator is a single branch product and the denominator is the total probability theorem. Over a partition the posteriors sum to 1, which is the quickest check that the arithmetic is right.",
+    "Bayes reverses the direction of a conditional: P(A|B) is a share of B, while P(B|A) is a share of A. They share the joint probability and differ in what they divide by.",
+    "A likelihood ratio r multiplies the odds by r, not the probability; the probability move depends on where you started.",
+    "Sanity check every answer: a rare cause stays rare after the evidence unless the evidence is much more likely under it than under its rivals.",
+    "Two causes need one division; three causes need a three-term denominator. The structure does not change with the number of causes."
+   ],
+   "example": {
+    "prompt": "A box has 5 coins: 4 regular (P(head) = 0.5) and 1 fake (P(head) = 1). A coin is picked at random and tossed twice, giving two heads. What is the probability it is the fake coin?",
+    "work": "Priors: fake 1/5, regular 4/5. Likelihoods of two heads: 1 for the fake, (0.5)(0.5) = 1/4 for a regular. Evidence: (1/5)(1) + (4/5)(1/4) = 0.2 + 0.2 = 0.4. Posterior: (0.2)/0.4 = 0.5. The two heads lifted the fake from 1/5 to 1/2 - strong evidence, but not proof, because four regular coins produce two heads a quarter of the time.",
+    "answer": "0.50."
+   },
+   "gateAngle": "Three GATE CSE questions of this topic are this card: 2018 Q.44 with three causes and a two-decimal answer, 2021 Set 1 Q.54 with a two-cause channel drawn as a graph, and 2025 Set 1 Q.22 with the coin box above.",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2025 Set 1 Q.22: 5 coins, 4 regular with P(head) = 0.5 and 1 fake with P(head) = 1. A coin is picked at random and tossed twice, giving two heads. The probability that it is the fake coin is ____ (two decimal places).",
+     "answer": "0.50.",
+     "why": "(1/5)/((1/5) + (4/5)(1/4)) = 0.2/0.4 = 0.5. The answer key reports a range around 0.50."
+    },
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2018 Q.44: Guwahati's temperature is high with probability 0.2, medium 0.5, low 0.3; Delhi's conditional distribution given each is tabulated. Find the probability that Guwahati is high given that Delhi is high (two decimal places).",
+     "answer": "0.60.",
+     "why": "P(D high) = (0.4)(0.2) + (0.1)(0.5) + (0.01)(0.3) = 0.133 and the numerator is 0.08, so the ratio is 0.6015, which rounds to 0.60."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "Two urns: urn 1 has 2 red and 3 blue, urn 2 has 4 red and 1 blue; an urn is chosen by a fair coin and a ball drawn is red. What is the probability it came from urn 1?",
+     "answer": "1/3.",
+     "why": "Branch products are (1/2)(2/5) = 0.2 and (1/2)(4/5) = 0.4, so the evidence is 0.6 and the posterior is 0.2/0.6 = 1/3."
+    }
+   ],
+   "trap": {
+    "what": "Reporting the likelihood as the answer - giving P(evidence | cause) when the question asks for P(cause | evidence).",
+    "why": "The two conditionals share a numerator and differ in their denominators: one divides by the prior, the other by the evidence. Only the second is a share of the observed data.",
+    "counterexample": "In the coin box, P(two heads | fake) = 1 while P(fake | two heads) = 0.5. In the machine example of the next card, P(defective | machine B) = 0.05 while P(machine B | defective) = 0.625."
+   },
+   "check": {
+    "question": "P(A1) = P(A2) = 0.5, P(E|A1) = 0.2 and P(E|A2) = 0.6. Find P(A1|E).",
+    "answer": "0.25.",
+    "explanation": "Evidence = (0.5)(0.2) + (0.5)(0.6) = 0.1 + 0.3 = 0.4; posterior = 0.1/0.4 = 0.25."
+   },
+   "pyqIds": [
+    "gate-2018-q44-bayes-temperature",
+    "gate-2021-set1-q54-bayes-signal",
+    "gate-2025-set1-q22-bayes-fake-coin"
+   ],
+   "prereqs": [
+    "the-total-probability-theorem",
+    "multiplication-rule-and-sequential-draws"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 09 - Conditional Probability",
+     "channel": "NPTEL, Probability and Statistics (Prof. Somesh Kumar, IIT Kharagpur)",
+     "url": "http://www.digimat.in/nptel/courses/video/111105090/lec9.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read from the opening through the statement of Bayes' theorem: the die example that motivates conditioning, the definition, the proof that P(.|B) satisfies the three axioms, the multiplication rule, the total probability theorem for a disjoint exhaustive family, and the Bayes formula for a partition"
+    },
+    {
+     "kind": "text",
+     "title": "Bayes' rule",
+     "channel": "StatLect (Marco Taboga)",
+     "url": "https://www.statlect.com/fundamentals-of-probability/Bayes-rule",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read in full: the proposition and its proof, the defective-item robot example whose posterior is under 10 per cent, the prior / likelihood / marginal / posterior terminology, and three solved exercises including the two-headed coin"
+    },
+    {
+     "kind": "text",
+     "title": "Probability subject notes - the Bayes theorem section",
+     "channel": "GATE Overflow",
+     "url": "https://gateoverflow.in/subject/mathematics/probability?tab=notes",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read in part through the search service's extract: the Bayes theorem statement and its partition form, the listed pitfalls (confusing P(A|B) with P(B|A), an incomplete denominator, a misidentified prior), the tree-diagram advice, and the year-by-year table of probability question numbers from 2010 to 2026"
+    }
+   ],
+   "sourceLine": "The Bayes formula for a partition and the cause-and-effect reading of it: NPTEL IIT Kharagpur Lecture 09 (English, read in part). The proof, the prior / likelihood / posterior terminology and the worked defective-item example: StatLect's Bayes' rule page (English). The GATE framing and the listed pitfalls: GATE Overflow's probability notes (English).",
+   "videoRefs": [],
+   "visual": "probability-and-statistics/conditional-probability-and-bayes/bayes-tree-and-the-base-rate",
+   "subject": "probability-and-statistics",
+   "topic": "conditional-probability-and-bayes",
+   "path": "subjects/probability-and-statistics/conditional-probability-and-bayes/bayes-theorem-from-evidence-to-cause.json"
+  },
+  {
+   "id": "bayes-on-a-tree-and-in-odds",
+   "title": "Bayes on a Tree, and in Odds",
+   "priority": "P2",
+   "order": 334,
+   "unit": "Conditional Probability and Bayes Theorem",
+   "quickIdea": "Draw the causes as the first branching and the evidence as the second: multiply along a branch, add across the branches that end in the evidence, and read the posterior as the chosen branch's share of that total.",
+   "remember": [
+    "Tree mechanics: the probabilities leaving each node sum to 1; a branch's probability is the product along it; the evidence is the sum of the branches that produce the observation.",
+    "The other branches are not in the denominator. Adding all four branch products instead of the two that end in the evidence is the standard tree error.",
+    "Odds form: posterior odds = prior odds x likelihood ratio. Updating is a multiplication in odds and a division in probability.",
+    "Convert with p = o/(1 + o) and o = p/(1 - p); a likelihood ratio of 4 quadruples the odds, which is not the same as quadrupling the probability.",
+    "The two-node graph in GATE CSE 2021 Set 1 Q.54 is exactly this tree drawn as a channel: transmitted H and L branch out, and the edge weights are the second-level probabilities.",
+    "A tree is also the cheapest check on a Bayes answer: the branch shares must add to 1 over the partition, and the branch you want must be one of them."
+   ],
+   "example": {
+    "prompt": "A sender transmits H with probability 0.1 and L with probability 0.9. A received H follows a transmitted H with probability 0.3, and a received H follows a transmitted L with probability 0.8. Given a received H, what is the probability that H was transmitted?",
+    "work": "Two branches end in a received H: transmitted H gives (0.1)(0.3) = 0.03, transmitted L gives (0.9)(0.8) = 0.72. The evidence is 0.75. The posterior is 0.03/0.75 = 0.04. The other two branches, which end in a received L, are not in the denominator.",
+    "answer": "0.04."
+   },
+   "gateAngle": "GATE CSE 2021 Set 1 Q.54 is this card: the tree is drawn as a graph, the answer is 0.04, and the mistake the question punishes is taking the prior 0.1 or the likelihood 0.3 as the answer.",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2021 Set 1 Q.54: H and L are transmitted with probabilities 0.1 and 0.9; P(receive H | send H) = 0.3 and P(receive H | send L) = 0.8. If the received signal is H, the probability that H was transmitted is ____ (two decimal places).",
+     "answer": "0.04.",
+     "why": "(0.1 x 0.3)/((0.1 x 0.3) + (0.9 x 0.8)) = 0.03/0.75 = 0.04. The channel is unreliable in both directions, and the rare input stays rare."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "Prior odds of a hypothesis are 1:3 and the evidence has a likelihood ratio of 5 in its favour. What are the posterior odds and the posterior probability?",
+     "answer": "5:3, so 5/8 = 0.625.",
+     "why": "Posterior odds = prior odds x likelihood ratio = (1/3) x 5 = 5/3. Converting, 5/(5 + 3) = 0.625."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "In the sender-receiver question, what would the wrong denominator 0.03 + 0.72 + 0.07 + 0.18 give, and what is that number?",
+     "answer": "0.03/1.00 = 0.03, which is the joint probability of sending H and receiving H.",
+     "why": "Adding every branch sums to 1, so dividing by it returns the joint probability, not a conditional one. Only the branches that end in the observed evidence belong in the denominator."
+    }
+   ],
+   "trap": {
+    "what": "Putting every branch product in the denominator, or adding along a branch instead of multiplying.",
+    "why": "The denominator is the probability of the evidence, which only the branches ending in that evidence contribute to; and a branch is a conjunction, so its probability is a product.",
+    "counterexample": "In the sender-receiver question the two wrong denominators give 0.03 (all four branches) and 0.3 (the prior times nothing), while the right one gives 0.04."
+   },
+   "check": {
+    "question": "Prior odds are 1:3 and the likelihood ratio is 5. What is the posterior probability?",
+    "answer": "5/8.",
+    "explanation": "Posterior odds 5:3, so p = 5/(5 + 3) = 5/8 = 0.625."
+   },
+   "pyqIds": [],
+   "prereqs": [
+    "bayes-theorem-from-evidence-to-cause",
+    "the-total-probability-theorem"
+   ],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "Bayes' rule",
+     "channel": "StatLect (Marco Taboga)",
+     "url": "https://www.statlect.com/fundamentals-of-probability/Bayes-rule",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read in full: the proposition and its proof, the defective-item robot example whose posterior is under 10 per cent, the prior / likelihood / marginal / posterior terminology, and three solved exercises including the two-headed coin"
+    },
+    {
+     "kind": "text",
+     "title": "Probability subject notes - the Bayes theorem section",
+     "channel": "GATE Overflow",
+     "url": "https://gateoverflow.in/subject/mathematics/probability?tab=notes",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read in part through the search service's extract: the Bayes theorem statement and its partition form, the listed pitfalls (confusing P(A|B) with P(B|A), an incomplete denominator, a misidentified prior), the tree-diagram advice, and the year-by-year table of probability question numbers from 2010 to 2026"
+    },
+    {
+     "kind": "text",
+     "title": "Probability for GATE CS: conditional, Bayes and expectation",
+     "channel": "Knowledge Gate AI",
+     "url": "https://www.knowledgegate.ai/blog/probability-gate-cs-conditional-bayes",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read in full: the two-dice sum-8 worked example, the machine A / machine B defective-item Bayes example, the independence against mutual-exclusivity warning with the odd/even die case, and the advice to rebuild the denominator whenever a stem says 'given'"
+    }
+   ],
+   "sourceLine": "The prior / likelihood / marginal / posterior terminology and the branch-product structure: StatLect's Bayes' rule page (English). The advice to solve these questions with a tree diagram and the pitfall list: GATE Overflow's probability notes (English). The two-step recipe of evidence first, then the branch: the Knowledge Gate AI GATE probability page (English).",
+   "videoRefs": [],
+   "subject": "probability-and-statistics",
+   "topic": "conditional-probability-and-bayes",
+   "path": "subjects/probability-and-statistics/conditional-probability-and-bayes/bayes-on-a-tree-and-in-odds.json"
+  },
+  {
+   "id": "the-base-rate-and-a-good-test",
+   "title": "The Base Rate, and Why a Good Test Can Be Wrong",
+   "priority": "P2",
+   "order": 335,
+   "unit": "Conditional Probability and Bayes Theorem",
+   "quickIdea": "When the cause is rare, most positive results come from the large healthy group: a test with 98% sensitivity and 99% specificity applied at 1% prevalence gives a posterior near 0.50, and at 0.1% prevalence about 0.09.",
+   "remember": [
+    "The arithmetic: numerator = prevalence x sensitivity; denominator = that plus (1 - prevalence) x false-positive rate.",
+    "At 1% prevalence, 98% sensitivity and 1% false positives: 0.0098/(0.0098 + 0.0099) = 98/197, about 0.4975.",
+    "At 0.1% prevalence the same test gives 98/1097, about 0.089 - under 10 per cent, which is StatLect's robot example.",
+    "At 10% prevalence the same test gives 98/107, about 0.916. The test did not change; the population did.",
+    "The false positives scale with the size of the healthy group, so a rare disease generates more false positives than true ones however accurate the test is.",
+    "This is the base-rate fallacy: quoting the sensitivity as the posterior, which is the same error as confusing P(positive | disease) with P(disease | positive)."
+   ],
+   "example": {
+    "prompt": "A factory robot flags a defective item with probability 0.98 when the item really is defective, and stays silent with probability 0.99 when it is not. One item in a thousand is defective. The robot flags an item - what is the probability that it is right?",
+    "work": "Prior 0.001, likelihood 0.98, so the defective-and-flagged branch is 0.00098. The not-defective branch is 0.999 x 0.01 = 0.00999. Evidence = 0.01097. Posterior = 0.00098/0.01097 = 98/1097, about 0.0893.",
+    "answer": "About 0.089 - under 10 per cent, for a robot that is 98% sensitive and 99% specific."
+   },
+   "gateAngle": "No CSE previous-year question in this topic is a base-rate question, so the card is P2; its structure is GATE CSE 2025 Set 1 Q.22 with a much smaller prior, and that question's answer 0.50 is the same arithmetic at a prior of 1/5.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "A disease has prevalence 1%. A test has sensitivity 98% and specificity 99%. A random person tests positive. What is the probability that the person has the disease?",
+     "answer": "98/197, about 0.4975.",
+     "why": "0.0098/(0.0098 + 0.0099). About half the positives are false, because the 99% of the population without the disease is a hundred times larger than the 1% with it."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why is 0.98 the wrong answer to the question above?",
+     "answer": "0.98 is P(positive | disease), a property of the test. The question asks for P(disease | positive), which also depends on how common the disease is.",
+     "why": "A conditional probability is a share of its denominator. Changing which group you divide by changes the answer, and the prevalence is what makes the two groups different sizes."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "With the same test, what is the posterior probability at 10% prevalence?",
+     "answer": "98/107, about 0.916.",
+     "why": "0.098/(0.098 + 0.009). A tenfold rise in prevalence turns a coin flip into a strong conclusion."
+    }
+   ],
+   "trap": {
+    "what": "Treating the accuracy of a test as the probability that its verdict is right.",
+    "why": "Accuracy is conditional on the true state; the question is conditional on the observed verdict. Bayes' theorem is what converts one into the other, and the base rate is the conversion factor.",
+    "counterexample": "The 1% prevalence test: 98% sensitive, 99% specific, and only 98/197 of its positives are true positives."
+   },
+   "check": {
+    "question": "At 1% prevalence with 98% sensitivity and 1% false positives, what is P(disease | positive)?",
+    "answer": "About 0.50.",
+    "explanation": "0.0098/(0.0098 + 0.0099) = 98/197 = 0.4975, which rounds to 0.50."
+   },
+   "pyqIds": [],
+   "prereqs": [
+    "bayes-theorem-from-evidence-to-cause"
+   ],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "Bayes' rule",
+     "channel": "StatLect (Marco Taboga)",
+     "url": "https://www.statlect.com/fundamentals-of-probability/Bayes-rule",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read in full: the proposition and its proof, the defective-item robot example whose posterior is under 10 per cent, the prior / likelihood / marginal / posterior terminology, and three solved exercises including the two-headed coin"
+    },
+    {
+     "kind": "text",
+     "title": "Probability subject notes - the Bayes theorem section",
+     "channel": "GATE Overflow",
+     "url": "https://gateoverflow.in/subject/mathematics/probability?tab=notes",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read in part through the search service's extract: the Bayes theorem statement and its partition form, the listed pitfalls (confusing P(A|B) with P(B|A), an incomplete denominator, a misidentified prior), the tree-diagram advice, and the year-by-year table of probability question numbers from 2010 to 2026"
+    },
+    {
+     "kind": "text",
+     "title": "Prayikta (probability): NCERT class 12 mathematics chapter 13 notes and summary",
+     "channel": "NCERT Hindi (ncerthindi.com)",
+     "url": "https://ncerthindi.com/ncert-books/class-12/mathematics/probability",
+     "language": "hi",
+     "transcript": "PARTIAL",
+     "translated": true,
+     "note": "read in full, in Hindi, and rendered into English here: conditional probability and the shrunken sample space, the multiplication rule, the definition of independence, the lemma that independent events of non-zero probability can never be mutually exclusive, the total probability theorem for a partition, and the Bayes formula with the defective-bolt and HIV-test applications"
+    }
+   ],
+   "sourceLine": "The robot example with its under-10-per-cent posterior: StatLect's Bayes' rule page (English), read in full. The pitfall that the denominator must consider every case: GATE Overflow's probability notes (English). The HIV-test application of the same arithmetic in the NCERT chapter: the Hindi NCERT class 12 summary (Hindi, translated here).",
+   "videoRefs": [],
+   "subject": "probability-and-statistics",
+   "topic": "conditional-probability-and-bayes",
+   "path": "subjects/probability-and-statistics/conditional-probability-and-bayes/the-base-rate-and-a-good-test.json"
+  },
+  {
+   "id": "conditioning-on-a-count-and-on-shared-trials",
+   "title": "Conditioning on a Count, and on Shared Trials",
+   "priority": "P2",
+   "order": 336,
+   "unit": "Conditional Probability and Bayes Theorem",
+   "quickIdea": "When the condition is an event about a random variable, write the ratio P(Y = y and C)/P(C) and count outcomes. When the two events share trials, break the count at the shared trial instead of assuming independence.",
+   "remember": [
+    "Given X3 = 0, any function of X3 is constant, so Y = X1X2 XOR X3 collapses to Y = X1X2 and the question becomes P(X1X2 = 0) = 3/4.",
+    "Enumerate when the space is small. Eight equally likely triples for GATE CSE 2015 Set 3 Q.37; sixty-four toss sequences for GATE CSE 2026 Set 2 Q.53, or twenty-four once the condition fixes two of the four tosses.",
+    "In GATE CSE 2026 Set 2 Q.53 the events share toss 2, so they are not independent and P(E1)P(E2) is not available; the answer 1/2 comes from counting twelve favourable completions out of twenty-four.",
+    "Conditioning on a symmetric event usually leaves the remaining trials uniform, which is why the answer can coincide with the unconditional one - as it does here.",
+    "A function of independent variables is independent of a function of the others, which is the licence to simplify P(Y = 0 | X3 = 0) into P(X1X2 = 0).",
+    "Never multiply two events that share a trial. Check which trials each event uses before reaching for the product rule."
+   ],
+   "example": {
+    "prompt": "X1, X2, X3 are independent, each 0 or 1 with probability 1/2. Y = X1X2 XOR X3. Find P(Y = 0 | X3 = 0).",
+    "work": "With X3 = 0 the XOR is the identity, so Y = 0 exactly when X1X2 = 0, that is for (0,0), (0,1) and (1,0): three of the four equally likely pairs. By the definition, P(Y = 0 and X3 = 0) = 3/8 and P(X3 = 0) = 4/8, so the ratio is 3/4.",
+    "answer": "0.75."
+   },
+   "gateAngle": "GATE CSE 2015 Set 3 Q.37 collapses a function of the conditioned variable; GATE CSE 2026 Set 2 Q.53 conditions on an event that shares a toss with the event asked about. Both are the definition plus counting, and neither is a product of independent probabilities.",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2015 Set 3 Q.37: X1, X2, X3 are i.i.d. with P(Xi = 0) = P(Xi = 1) = 1/2 and Y = X1X2 XOR X3. Then P(Y = 0 | X3 = 0) = ____.",
+     "answer": "0.75.",
+     "why": "Three of the four pairs (X1, X2) make X1X2 = 0, so the conditional probability is 3/4."
+    },
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2026 Set 2 Q.53 (Q.63 in the official paper): an unbiased coin is tossed 6 times. E1 = at least two heads among tosses 2, 4, 6. E2 = equal numbers of heads and tails among tosses 1, 2, 3, 5. Find P(E1 | E2) to one decimal place.",
+     "answer": "0.5.",
+     "why": "E2 fixes two heads and two tails among tosses 1, 2, 3, 5: 6 patterns out of 16, and tosses 4 and 6 are free, giving 24 equally likely completions. Of those, 12 satisfy E1: 3 patterns x 3 completions where toss 2 is a head, plus 3 x 1 where toss 2 is a tail. So the probability is 12/24."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "In GATE CSE 2026 Set 2 Q.53, why is P(E1)P(E2) not the numerator?",
+     "answer": "Because E1 and E2 share toss 2, so they are not independent and the joint probability is not the product.",
+     "why": "P(E1) = 1/2 and P(E2) = 6/16, whose product is 3/16; the true joint probability is 12/64 = 3/16. The numbers coincide here by symmetry, which is exactly why the counting argument is the safe route."
+    }
+   ],
+   "trap": {
+    "what": "Multiplying two probabilities that share a trial, or forgetting that a function of the conditioned variable becomes constant.",
+    "why": "Sharing a trial makes the events dependent in general, so the product rule does not apply; and conditioning on X3 = 0 removes X3 from the expression entirely.",
+    "counterexample": "In GATE CSE 2015 Set 3 Q.37 the naive product P(Y = 0)P(X3 = 0) would be (1/2)(1/2) = 1/4, while the joint probability is 3/8 - the events are dependent because both involve X3."
+   },
+   "check": {
+    "question": "Three fair coins are tossed. What is the probability of exactly two heads, given at least one head?",
+    "answer": "3/7.",
+    "explanation": "Seven of the eight outcomes have at least one head, and three of those (HHT, HTH, THH) have exactly two, so the conditional probability is 3/7."
+   },
+   "pyqIds": [
+    "gate-2015-set3-q37-conditional-xor",
+    "gate-2026-set2-q53-conditional-shared-tosses"
+   ],
+   "prereqs": [
+    "conditional-probability-and-the-restricted-space",
+    "independence-and-the-product-test"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 09 - Conditional Probability",
+     "channel": "NPTEL, Probability and Statistics (Prof. Somesh Kumar, IIT Kharagpur)",
+     "url": "http://www.digimat.in/nptel/courses/video/111105090/lec9.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read from the opening through the statement of Bayes' theorem: the die example that motivates conditioning, the definition, the proof that P(.|B) satisfies the three axioms, the multiplication rule, the total probability theorem for a disjoint exhaustive family, and the Bayes formula for a partition"
+    },
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 10 - Independence of Events",
+     "channel": "NPTEL, Probability and Statistics (Prof. Somesh Kumar, IIT Kharagpur)",
+     "url": "http://www.digimat.in/nptel/courses/video/111105090/lec10.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read from the opening through the definition of mutual independence for n events: the two-coin test of P(A|B) against P(A), the symmetric definition P(A and B) = P(A)P(B), and the four conditions needed for three events"
+    },
+    {
+     "kind": "text",
+     "title": "Probability for GATE CS: conditional, Bayes and expectation",
+     "channel": "Knowledge Gate AI",
+     "url": "https://www.knowledgegate.ai/blog/probability-gate-cs-conditional-bayes",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read in full: the two-dice sum-8 worked example, the machine A / machine B defective-item Bayes example, the independence against mutual-exclusivity warning with the odd/even die case, and the advice to rebuild the denominator whenever a stem says 'given'"
+    }
+   ],
+   "sourceLine": "The definition and the counting route: NPTEL IIT Kharagpur Lecture 09 (English, read in part), with the independence facts from Lecture 10. The reminder to rebuild the denominator from the stated condition: the Knowledge Gate AI GATE probability page (English). Both PYQs are recomputed by enumeration in scripts/validate.py.",
+   "videoRefs": [],
+   "subject": "probability-and-statistics",
+   "topic": "conditional-probability-and-bayes",
+   "path": "subjects/probability-and-statistics/conditional-probability-and-bayes/conditioning-on-a-count-and-on-shared-trials.json"
   }
  ],
  "pyqs": [
@@ -24851,6 +25982,26 @@ window.GATE_DATA = {
    "answer_evidence": "The accepted answer on the page states 'Answer - D' and explains that mean, median and mode are linear functions of the values while the standard deviation is not, concluding sigma_y = a*sigma_x. The same question appears in GATE Overflow Volume 1, chapter 7 under Random Variable, numbered Q.33 of GATE CSE 2011."
   },
   {
+   "id": "gate-2011-q3-conditional-two-coins",
+   "year": "2011",
+   "paper": "GATE CSE 2011",
+   "question_ref": "Question 3",
+   "type": "MCQ",
+   "topic": "conditional-probability-and-the-restricted-space",
+   "text": "If two fair coins are flipped and at least one of the outcomes is known to be a head, what is the probability that both outcomes are heads?",
+   "options": [
+    "1/3",
+    "1/4",
+    "1/2",
+    "2/3"
+   ],
+   "answer": "1/3 (option A)",
+   "solution": "The four outcomes HH, HT, TH, TT are equally likely. The condition removes TT, leaving three equally likely outcomes, of which only HH has both heads. So P(HH | at least one head) = (1/4)/(3/4) = 1/3.",
+   "source_url": "https://gateoverflow.in/2105/gate-cse-2011-question-3",
+   "source_label": "GATE Overflow question page, GATE CSE 2011 Question 3, accepted answer",
+   "verification": "SOURCED"
+  },
+  {
    "id": "gate-2012-21-cdf-at-minus-one-and-one",
    "year": "2012",
    "paper": "GATE CS 2012",
@@ -25446,6 +26597,20 @@ window.GATE_DATA = {
    "answer_evidence": "The accepted answer performs the same elimination and states 'Answer: A'. Recomputed here for a = 2, b = 1 by numerical quadrature of the explicit f."
   },
   {
+   "id": "gate-2015-set3-q37-conditional-xor",
+   "year": "2015",
+   "paper": "GATE CSE 2015 Set 3",
+   "question_ref": "Question 37",
+   "type": "NAT",
+   "topic": "conditioning-on-a-count-and-on-shared-trials",
+   "text": "Suppose Xi for i = 1, 2, 3 are independent and identically distributed random variables whose probability mass functions are Pr[Xi = 0] = Pr[Xi = 1] = 1/2 for i = 1, 2, 3. Define another random variable Y = X1X2 XOR X3, where XOR denotes exclusive or. Then Pr[Y = 0 | X3 = 0] = ____.",
+   "answer": "0.75",
+   "solution": "Given X3 = 0, Y = X1X2, so Y = 0 exactly when X1X2 = 0, which happens for (0,0), (0,1) and (1,0): three of the four equally likely pairs. Hence the conditional probability is 3/4. Equivalently P(Y = 0 and X3 = 0) = 3/8 and P(X3 = 0) = 4/8, and the ratio is 3/4.",
+   "source_url": "https://gateoverflow.in/8496/gate-cse-2015-set-3-question-37",
+   "source_label": "GATE Overflow question page, GATE CSE 2015 Set 3 Question 37, accepted answer",
+   "verification": "SOURCED"
+  },
+  {
    "id": "gate-2015-set3-relation-p-s-q-r",
    "year": "2015",
    "paper": "GATE CS 2015 Set 3",
@@ -25584,6 +26749,20 @@ window.GATE_DATA = {
    "source_label": "GATE Overflow question page for GATE CS 2016 Set 2 Q.27 with the even/odd counterexample",
    "verification": "SOURCED",
    "answer_evidence": "The accepted answer is (D), refuted by taking p as 'even' and q as 'odd' over the natural numbers."
+  },
+  {
+   "id": "gate-2016-set2-q5-total-probability-led",
+   "year": "2016",
+   "paper": "GATE CSE 2016 Set 2",
+   "question_ref": "Question 5",
+   "type": "NAT",
+   "topic": "the-total-probability-theorem",
+   "text": "Suppose that a shop has an equal number of LED bulbs of two different types. The probability of an LED bulb lasting more than 100 hours given that it is of Type 1 is 0.7, and given that it is of Type 2 is 0.4. The probability that an LED bulb chosen uniformly at random lasts more than 100 hours is ____.",
+   "answer": "0.55",
+   "solution": "The two types partition the stock with probability 1/2 each. By the total probability theorem, P(more than 100) = (1/2)(0.7) + (1/2)(0.4) = 0.35 + 0.20 = 0.55.",
+   "source_url": "https://gateoverflow.in/39541/gate-cse-2016-set-2-question-05",
+   "source_label": "GATE Overflow question page, GATE CSE 2016 Set 2 Question 5, accepted answer",
+   "verification": "SOURCED"
   },
   {
    "id": "gate-2016-set2-relation-reflexive-transitive",
@@ -25788,6 +26967,20 @@ window.GATE_DATA = {
    "source_label": "GATE Overflow question page for GATE CS 2018 Q.28 with published solutions on the small-model argument",
    "verification": "SOURCED",
    "answer_evidence": "The accepted answer is (A): a model of size at most 3 always exists, obtained by keeping the three existential witnesses."
+  },
+  {
+   "id": "gate-2018-q44-bayes-temperature",
+   "year": "2018",
+   "paper": "GATE CSE 2018",
+   "question_ref": "Question 44",
+   "type": "NAT",
+   "topic": "bayes-theorem-from-evidence-to-cause",
+   "text": "Guwahati's temperature is high with probability P(HG) = 0.2, medium P(MG) = 0.5 and low P(LG) = 0.3. The paper tabulates Delhi's conditional distribution given Guwahati's: P(HD|HG) = 0.40, P(HD|MG) = 0.10, P(HD|LG) = 0.01, with the remaining rows given for the medium and low Delhi cases. Find, correct to two decimal places, the probability that Guwahati has high temperature given that Delhi has high temperature.",
+   "answer": "0.60",
+   "solution": "By the total probability theorem P(HD) = (0.40)(0.2) + (0.10)(0.5) + (0.01)(0.3) = 0.08 + 0.05 + 0.003 = 0.133. Bayes gives P(HG|HD) = 0.08/0.133 = 0.6015, which rounds to 0.60 as the question asks.",
+   "source_url": "https://gateoverflow.in/204119/gate-cse-2018-question-44",
+   "source_label": "GATE Overflow question page, GATE CSE 2018 Question 44, accepted answer",
+   "verification": "SOURCED"
   },
   {
    "id": "gate-2019-13-x4-minus-81",
@@ -26023,6 +27216,20 @@ window.GATE_DATA = {
    "source_label": "GATE Overflow question page - GATE CSE 2021 Set 1 Q.52 with the accepted answer (3)",
    "verification": "SOURCED",
    "answer_evidence": "Accepted answer: 3, from the characteristic polynomial (3-lambda)(-1-lambda)^3. Corroborated by the gateforum reproduction of the GATE 2021 CS Set 1 paper, whose key for this question is (3)."
+  },
+  {
+   "id": "gate-2021-set1-q54-bayes-signal",
+   "year": "2021",
+   "paper": "GATE CSE 2021 Set 1",
+   "question_ref": "Question 54",
+   "type": "NAT",
+   "topic": "bayes-theorem-from-evidence-to-cause",
+   "text": "A sender transmits a signal which can be H or L with probabilities 0.1 and 0.9 respectively. The weight of the edge (u, v) in the paper's graph is the probability of receiving v when u is transmitted; for example the probability that the received signal is L given that H was transmitted is 0.7. If the received signal is H, the probability that the transmitted signal was H (rounded to two decimal places) is ____.",
+   "answer": "0.04",
+   "solution": "From the graph P(receive H | send H) = 0.3 and P(receive H | send L) = 0.8. Then P(receive H) = (0.1)(0.3) + (0.9)(0.8) = 0.03 + 0.72 = 0.75, and P(send H | receive H) = 0.03/0.75 = 0.04.",
+   "source_url": "https://gateoverflow.in/357396/gate-cse-2021-set-1-question-54",
+   "source_label": "GATE Overflow question page, GATE CSE 2021 Set 1 Question 54, accepted answer",
+   "verification": "SOURCED"
   },
   {
    "id": "gate-2021-set1-s1-tautology",
@@ -26308,6 +27515,26 @@ window.GATE_DATA = {
    "answer_evidence": "The accepted solutions conclude (B) and (C), using for all x for all y Q implies the conjecture, and there exists y for all x R implies for all x there exists y R."
   },
   {
+   "id": "gate-2023-q43-independence-two-coins",
+   "year": "2023",
+   "paper": "GATE CSE 2023",
+   "question_ref": "Question 43",
+   "type": "MSQ",
+   "topic": "independence-and-the-product-test",
+   "text": "Consider a random experiment where two fair coins are tossed. Let A be the event that denotes HEAD on both the throws, B be the event that denotes HEAD on the first throw, and C be the event that denotes HEAD on the second throw. Which of the following statements is/are TRUE?",
+   "options": [
+    "A and B are independent.",
+    "A and C are independent.",
+    "B and C are independent.",
+    "Prob(B | C) = Prob(B)."
+   ],
+   "answer": "C and D",
+   "solution": "P(A) = 1/4, P(B) = P(C) = 1/2. P(A and B) = 1/4 while P(A)P(B) = 1/8, so A is not independent of B; the same argument rules out option B. P(B and C) = 1/4 = P(B)P(C), so B and C are independent, and P(B|C) = (1/4)/(1/2) = 1/2 = P(B).",
+   "source_url": "https://gateoverflow.in/399268/gate-cse-2023-question-43",
+   "source_label": "GATE Overflow question page, GATE CSE 2023 Question 43, accepted answer",
+   "verification": "SOURCED"
+  },
+  {
    "id": "gate-2024-set1-1-max-x-x3",
    "year": "2024",
    "paper": "GATE CS 2024 Set 1",
@@ -26412,6 +27639,40 @@ window.GATE_DATA = {
    "source_label": "GATE Overflow question page - GATE CSE 2024 Set 1 Q.42 with the accepted solution (options 2 and 4)",
    "verification": "SOURCED",
    "answer_evidence": "Accepted answer: 'So, Option B and Option D are the Correct Answers.'"
+  },
+  {
+   "id": "gate-2024-set1-q17-independence-set-algebra",
+   "year": "2024",
+   "paper": "GATE CSE 2024 Set 1",
+   "question_ref": "Question 17 in the GATE Overflow numbering; Question 27 in the official paper",
+   "type": "MSQ",
+   "topic": "a-conditional-probability-is-still-a-probability",
+   "text": "Let A and B be two events in a probability space with P(A) = 0.3, P(B) = 0.5, and P(A and B) = 0.1. Which of the following statements is/are TRUE?",
+   "options": [
+    "The two events A and B are independent.",
+    "P(A or B) = 0.7.",
+    "P(A and B^c) = 0.2, where B^c is the complement of the event B.",
+    "P(A^c and B^c) = 0.4, where A^c and B^c are the complements of the events A and B respectively."
+   ],
+   "answer": "B and C",
+   "solution": "P(A)P(B) = 0.15 is not 0.1, so A is false. P(A or B) = 0.3 + 0.5 - 0.1 = 0.7, so B is true. P(A and B^c) = P(A) - P(A and B) = 0.2, so C is true. P(A^c and B^c) = 1 - P(A or B) = 0.3, not 0.4, so D is false.",
+   "source_url": "https://gateoverflow.in/422825/gate-cse-2024-set-1-question-17",
+   "source_label": "GATE Overflow question page, GATE CSE 2024 Set 1 Question 17, accepted answer; the official paper numbers it Q.27",
+   "verification": "SOURCED"
+  },
+  {
+   "id": "gate-2024-set1-q53-conditional-without-replacement",
+   "year": "2024",
+   "paper": "GATE CSE 2024 Set 1",
+   "question_ref": "Question 53",
+   "type": "NAT",
+   "topic": "multiplication-rule-and-sequential-draws",
+   "text": "A bag contains 10 red balls and 15 blue balls. Two balls are drawn randomly without replacement. Given that the first ball drawn is red, the probability (rounded off to 3 decimal places) that both balls drawn are red is ____.",
+   "answer": "0.375",
+   "solution": "Given that the first ball is red, 9 red and 15 blue remain, so P(both red | first red) = 9/24 = 0.375. The unconditional probability of both red is (10/25)(9/24) = 0.15, which is a different quantity and does not answer the question.",
+   "source_url": "https://gateoverflow.in/422789/gate-cse-2024-set-1-question-53",
+   "source_label": "GATE Overflow question page, GATE CSE 2024 Set 1 Question 53, accepted answer",
+   "verification": "SOURCED"
   },
   {
    "id": "gate-2024-set2-24-total-orders",
@@ -26660,6 +27921,20 @@ window.GATE_DATA = {
    "source_label": "GATE Overflow question page for GATE CS 2025 Set 1 Q.38 with the accepted answer",
    "verification": "SOURCED",
    "answer_evidence": "The accepted answer states 'B & D matches', after rewriting (B) into the equivalent form of (D)."
+  },
+  {
+   "id": "gate-2025-set1-q22-bayes-fake-coin",
+   "year": "2025",
+   "paper": "GATE CSE 2025 Set 1",
+   "question_ref": "Question 22 in the GATE Overflow numbering",
+   "type": "NAT",
+   "topic": "bayes-theorem-from-evidence-to-cause",
+   "text": "A box contains 5 coins: 4 regular coins and 1 fake coin. When a regular coin is tossed, the probability P(head) = 0.5 and for a fake coin, P(head) = 1. You pick a coin at random and toss it twice, and get two heads. The probability that the coin you have chosen is the fake coin is ____. (rounded off to two decimal places)",
+   "answer": "0.50",
+   "solution": "P(fake) = 1/5 and P(regular) = 4/5; P(two heads | fake) = 1 and P(two heads | regular) = 0.25. Then P(two heads) = (1/5)(1) + (4/5)(0.25) = 0.4 and P(fake | two heads) = 0.2/0.4 = 0.50. The published answer key gives the range 0.49 to 0.51.",
+   "source_url": "https://gateoverflow.in/460058/gate-cse-2025-set-1-question-22",
+   "source_label": "GATE Overflow question page, GATE CSE 2025 Set 1 Question 22, accepted answer",
+   "verification": "SOURCED"
   },
   {
    "id": "gate-2025-set2-1-matrix-powers-a8",
@@ -26983,6 +28258,20 @@ window.GATE_DATA = {
    "source_label": "GATE Overflow question page for GATE CSE 2026 Set 2 Q.1, with a published option-by-option reading",
    "verification": "SOURCED",
    "answer_evidence": "The page's accepted answers read option (A) as 'there is a person y such that every other person x knows y and y does not know x', and reject the other three quantifier patterns."
+  },
+  {
+   "id": "gate-2026-set2-q53-conditional-shared-tosses",
+   "year": "2026",
+   "paper": "GATE CSE 2026 Set 2",
+   "question_ref": "Question 53 in the GATE Overflow numbering; Question 63 in the official paper",
+   "type": "NAT",
+   "topic": "conditioning-on-a-count-and-on-shared-trials",
+   "text": "Suppose an unbiased coin is tossed 6 times. Each coin toss is independent of all previous coin tosses. Let E1 be the event that among the second, fourth, and sixth coin tosses, there are at least two heads. Let E2 be the event that among the first, second, third, and fifth coin tosses, there are equal number of heads and tails. The conditional probability P(E1 | E2) is equal to ____. (rounded off to one decimal place)",
+   "answer": "0.5",
+   "solution": "E2 fixes two heads and two tails among tosses 1, 2, 3, 5, which can be done in C(4,2) = 6 ways out of 16; tosses 4 and 6 are free, so the conditional space has 6 x 4 = 24 equally likely completions. Of these, 12 satisfy E1: when toss 2 is a head, 3 patterns of E2 and 3 completions of (toss 4, toss 6); when toss 2 is a tail, 3 patterns and 1 completion. So P(E1 | E2) = 12/24 = 0.5.",
+   "source_url": "https://gateoverflow.in/523093/gate-cse-2026-set-2-question-53",
+   "source_label": "GATE Overflow question page, GATE CSE 2026 Set 2 Question 53, accepted answer; the question also appears as Q.63 in the official CS2 paper at gate2026.iitg.ac.in",
+   "verification": "SOURCED"
   }
  ],
  "videos": [
