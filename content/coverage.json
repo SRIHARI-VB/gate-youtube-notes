@@ -2,8 +2,8 @@
  "exam": "GATE CSE 2027",
  "updated_at": "2026-10-30",
  "cycle": {
-  "last_subject": "digital-logic",
-  "last_topic": "computer-arithmetic",
+  "last_subject": "computer-organization-and-architecture",
+  "last_topic": "instruction-set-and-addressing-modes",
   "updated_at": "2026-10-30"
  },
  "subjects": [
@@ -755,10 +755,37 @@
     {
      "slug": "instruction-set-and-addressing-modes",
      "name": "Instruction Set and Addressing Modes",
-     "status": "not_started",
-     "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
-     "runs": [],
-     "gaps": []
+     "status": "partial",
+     "coverage_note": "13 subtopics, 13 cards (instruction format and fields; the bit budget of a format; what an ISA is with RISC against CISC mode richness; zero- to three-address formats; immediate; direct; indirect; register and register-indirect; displacement addressing with base, index and base-with-index; PC-relative and the branch offset; autoincrement, autodecrement and stack; effective address and the memory-cycle count; relocation and position-independent code), 14 verified PYQs and 1 p5.js lesson. Every one of the thirteen syllabus subtopics has a card, so the topic is not thinner than partial; partial because nine gaps remain, named below - above all that no video transcript was readable and that every PYQ is SOURCED rather than key-verified.",
+     "runs": [
+      {
+       "date": "2026-10-30",
+       "sources": [
+        "nptel-iitg-106103180-lecture-12-addressing-modes",
+        "nptel-nitm-106105163-lecture-07-instruction-format-and-addressing-modes",
+        "nptel-iitd-106102062-lecture-3-instruction-set-architecture-1",
+        "nptel-iitg-106103180-lecture-18-handling-different-addressing-modes",
+        "computernetworksite-hindi-addressing-modes",
+        "nptel-iitg-web-course-coa-module-4"
+       ],
+       "cards": 13,
+       "pyqs": 14,
+       "lesson": "computer-organization-and-architecture/instruction-set-and-addressing-modes/one-operand-five-modes",
+       "note": "Sources chosen on merit across two languages: NPTEL IIT Guwahati Lecture 12 (English, read in part) as the only source whose whole subject is this topic and which walks the modes as a ladder with the trade-off at each rung; NPTEL NIT Meghalaya Lecture 07 (English, read in part) for the destination-against-immediate rule and the 32-bit field example; NPTEL IIT Delhi Lecture 3 (English, read in part) for the instruction set as a contract with stated design goals; NPTEL IIT Guwahati Lecture 18 (English, read in part) for why the memory-cycle count differs by mode; the IIT Guwahati NPTEL web-course outline (English, read in part) for the attributes an ISA consists of; and one Hindi article (translated, read in part) as the only source giving all seven modes with their memory-reference counts and address-space reach side by side. Twelve candidates were rejected with reasons in sources.json, including two YouTube lectures whose watch pages carried no caption track, the ARM-based-development mode lectures, the High Performance Computer Architecture ISA lectures, the Gate Vidyalay and GeeksforGeeks mode lists, four GATE CSE questions seen only as titles, and the other-paper and test-series questions."
+      }
+     ],
+     "gaps": [
+      "no video transcript was readable this run: two YouTube watch pages were fetched and carried no caption track at all, and the timedtext endpoint returned an empty body, so videoRefs is empty on all thirteen cards and no card quotes or timestamps a lecture; the topic rests on NPTEL lecture transcripts, a web-course outline and one Hindi article, all read as text",
+      "every PYQ in the topic is SOURCED against a GATE Overflow or ExamSIDE accepted answer rather than key-verified against an official key, and no marks field comes from an official key: two secondary sites cite the official keys (GATE 2024 CS2 Q.57 = 32, GATE 2025 CS1 Q.37 = 20) and that is recorded in the answer_evidence without upgrading the label, because the key documents were not opened",
+      "four GATE CSE questions of exactly this topic were seen only as titles in GATE Overflow's addressing-modes tag listing and none of their pages was read, so none is in the PYQ set: 2000 Q.1.10, 2001 Q.2.9 and 2005 Q.66 (mode-to-high-level-construct matching) and 1996 Q.1.16 (relative mode for position-independent code). The 1996 fact is carried by 1998 Q.1.19 and the matching fact by 2026 Set 1 Q.4, but the 2005 matching question pairs modes with constructs the 2026 question does not",
+      "two further 2025 and 2026 questions that test this topic directly are absent because only stripped listings were read: GATE CSE 2025 Set 2 Q.18 (which properties are part of an instruction set architecture) and GATE CSE 2026 Set 1 Q.52 (memory-based, the load-store sequence for a high-level statement). The ISA card and the format card therefore carry no PYQ of their own and say so",
+      "the NPTEL NIT Meghalaya Lectures 5 (Instruction Set Architecture) and 8 (CISC and RISC Architecture) - the exact continuation of the one lecture of that course that was readable - were not fetched this run, so the RISC-against-CISC material rests on one sentence of Lecture 07, one paragraph of the web-course outline and one paragraph of the IIT Delhi lecture, and no readable source teaches the comparison at length",
+      "the ARM Based Development Lectures 9 to 11 are three NPTEL lectures whose whole subject is addressing modes, and they were rejected as ARM-specific with no retrievable transcript; a run that wants a mode-by-mode course in one voice should start there and check whether a transcript exists",
+      "the naming of the displacement form is unstable across papers and the topic records rather than resolves it: GATE CSE 2011 Q.21 accepts 'Base Indexed' for 20(R2), GATE CSE 2017 Set 1 Q.11 accepts 'Index addressing mode' for X(R1), and GATE CSE 2026 Set 1 Q.4 separates base-with-index from base-with-displacement. No single label is taught as correct; the card teaches EA = A + [R] and states which label each paper used",
+      "two questions are ambiguous as printed and their records say so instead of picking silently: GATE CSE 1999 Q.2.23 prints four options without saying that more than one may be chosen while the accepted answer is all four (recorded as MSQ), and GATE CSE 1998 Q.1.19 has answers on its own page arguing for base register addressing against the accepted PC-relative answer",
+      "the GATE CSE 2017 Set 1 PC-relative branch question is recorded with question number Q.14 as numbered on the ExamSIDE paper listing, because the paper itself was not fetched and other aggregators number it differently; it is the only record in the topic whose question number is uncertain",
+      "the only non-English source readable was one Hindi article on the seven modes, read in part and translated; no GATE-level Hindi, Tamil, Telugu or Bengali lecture on this topic could be read, and the three Hindi microprocessor articles found teach the 8085 or 8086 mode set rather than the general taxonomy GATE examines"
+     ]
     },
     {
      "slug": "alu-design",
