@@ -1,0 +1,16 @@
+{
+  "id": "gate-2017-set-1-q14-risc-branch-offset",
+  "year": "2017",
+  "paper": "GATE CSE 2017 Set 1",
+  "question_ref": "Q.14 as numbered on the ExamSIDE paper listing",
+  "type": "NAT",
+  "topic": "pc-relative-addressing-and-branch-offsets",
+  "text": "Consider a RISC machine where each instruction is exactly 4 bytes long. Conditional and unconditional branch instructions use PC-relative addressing mode with Offset specified in bytes to the target location of the branch instruction. Further the Offset is always with respect to the address of the next instruction in the program sequence. Consider the following instruction sequence: i: add R2, R3, R4; i+1: sub R5, R6, R7; i+2: cmp R1, R9, R10; i+3: beq R1, Offset. If the target of the branch instruction is i, then the decimal value of the Offset is ______.",
+  "options": [],
+  "answer": "-16",
+  "solution": "Let instruction i be at address X. The four instructions occupy X, X+4, X+8 and X+12, so the beq is at X+12 and the next instruction is at X+16. The target is i, at X. Offset = target - next instruction = X - (X+16) = -16 bytes, which is four instructions back.",
+  "source_url": "https://questions.examside.com/past-years/gate/question/pconsider-a-risc-machine-where-each-instruction-is-exactly-gate-cse-computer-organization-roocdbdhdxyodtv2",
+  "source_label": "ExamSIDE question page for the GATE CSE 2017 Set 1 RISC PC-relative branch question, with the answer -16",
+  "verification": "SOURCED",
+  "answer_evidence": "The ExamSIDE page prints 'Correct answer is -16' with the derivation 'Target address = next-instruction address + Offset'. The question number is not certain: ExamSIDE numbers it Q.14 in the 2017 Set 1 paper, other aggregators number it differently, and the paper itself was not fetched this run, so the reference records where the number comes from. Recomputed here from the instruction sequence: the answer is forced by the four 4-byte instructions and the next-instruction convention."
+}
