@@ -1,0 +1,90 @@
+{
+  "id": "isa-instruction-types-and-risc-cisc",
+  "title": "What an Instruction Set Is, and Why RISC Has Few Addressing Modes",
+  "priority": "P2",
+  "order": 482,
+  "unit": "Instruction Set and Addressing Modes",
+  "quickIdea": "The instruction set is the programmer-visible contract: which operations exist, what data they work on, how operands are addressed and how control moves. Organisation is how that contract is built, and the addressing-mode count is the sharpest visible difference between RISC and CISC.",
+  "remember": [
+    "Architecture is what a programmer must know: instruction set, data formats, addressing techniques, I/O mechanism. Organisation is how it is realised: control signals, interfaces, memory technology.",
+    "Four instruction families cover almost every ISA: data transfer, arithmetic and logic, control transfer (branch, call, return), and input/output.",
+    "RISC: fixed-length instructions, load-store only (memory is reached only by load and store), few addressing modes, many registers, hardwired control.",
+    "CISC: variable-length instructions, memory operands allowed inside arithmetic instructions, many addressing modes, microprogrammed control.",
+    "A load-store ISA pays for simplicity with instruction count: an arithmetic instruction can only see registers, so every memory operand costs a separate load or store.",
+    "The addressing-mode list of a machine is therefore not a detail of its encoding but a statement about its whole design school."
+  ],
+  "example": {
+    "prompt": "In a load-store machine, how many instructions does A = B + C need if A, B and C are all in memory, and how many in a two-address machine that allows one memory operand?",
+    "work": "Load-store: LOAD R1, B; LOAD R2, C; ADD R3, R1, R2; STORE R3, A - four instructions. Two-address with a memory operand: MOV R1, B; ADD R1, C; MOV A, R1 - three.",
+    "answer": "Four against three: the load-store machine spends an extra instruction to keep every arithmetic operand in a register."
+  },
+  "gateAngle": "GATE asks this as a definition rather than as a computation: which of a list of processor properties belong to the instruction set architecture and which belong to the implementation (GATE CSE 2025 Set 2 Q.18 is that question, and it is not recorded here because its option set could not be read this run). The load-store sequence question (GATE CSE 2026 Set 1 Q.52, memory-based) is the same idea asked as code.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "Which of these are part of the instruction set architecture: the number of general-purpose registers, the cache size, the addressing modes, the clock frequency?",
+      "answer": "The register count and the addressing modes. Cache size and clock frequency are organisation - a program runs correctly whatever they are.",
+      "why": "The test is visibility to the program. A compiler must know the registers and the modes to emit code; it need not know the cache size."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Why does a CISC machine with autoincrement and indexed modes need fewer instructions for an array loop than a load-store machine?",
+      "answer": "Because one CISC instruction can do the address arithmetic and the memory access together, while the RISC machine must issue separate add, load and store instructions for each element.",
+      "why": "Fewer, fatter instructions against more, simpler ones. The instruction count falls; the cycles per instruction rise, and the pipeline gets harder."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "A machine has autoincrement but no indexed mode. Which loop does it handle well and which badly?",
+      "answer": "Sequential traversal of an array is fine - autoincrement walks it - but a random or strided access A[i] with a computed i needs the index, so it must be turned into an add plus a register-indirect access.",
+      "why": "Each mode exists for a shape of access. Naming the shape is the GATE answer; naming the mode alone is not."
+    }
+  ],
+  "trap": {
+    "what": "Treating 'RISC has fewer addressing modes' as a performance claim.",
+    "why": "It is a design consequence: with a fixed 32-bit word and load-store semantics there is little room for mode bits, and no need for them because memory is reached only through load and store.",
+    "counterexample": "MIPS has essentially register, immediate and base-plus-displacement modes. That is not a weaker machine; it is a machine that moved the complexity into the compiler."
+  },
+  "check": {
+    "question": "Name the four instruction families and give one example instruction from each.",
+    "answer": "Data transfer (LOAD, STORE, MOV), arithmetic and logic (ADD, AND), control transfer (BEQ, CALL, RETURN), and input/output (IN, OUT).",
+    "explanation": "Every ISA enumerates roughly these four; what differs between machines is the operand forms each family may take, which is exactly the addressing-mode question."
+  },
+  "pyqIds": [],
+  "prereqs": [
+    "instruction-format-and-fields"
+  ],
+  "sources": [
+    {
+      "kind": "web-course-chapter",
+      "title": "Computer Organization and Architecture web course, Module 4 (machine instructions, instruction format and addressing modes)",
+      "channel": "NPTEL web course by Prof. J. K. Deka, IIT Guwahati (read through a published mirror of the course pages)",
+      "url": "https://studylib.net/doc/18434730/computer-organization-and-architecture",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read the module outline and the introduction chapters: the architecture-against-organization distinction with the instruction set, data formats and memory-addressing techniques listed as architectural, the statement that Module 4 covers addressing modes and instruction formats, and the evolution-of-instruction-sets paragraph naming load/store and RISC as the simple-addressing designs. The Module 4 chapter pages themselves were not in the returned extract, so no mode definition is attributed to this source"
+    },
+    {
+      "kind": "lecture-transcript",
+      "title": "Lecture 3 - Instruction Set Architecture - 1",
+      "channel": "NPTEL, Computer Architecture (Prof. Anshul Kumar, IIT Delhi)",
+      "url": "http://www.digimat.in/nptel/courses/video/106102062/lec3.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read from the opening through the start of the arithmetic instruction discussion: instructions as the interface between hardware and software, the design goals of an instruction set, the move from a toy machine to MIPS as a real RISC architecture, and the convention that the first listed register is the destination. The returned extract stopped early, so nothing is attributed to the later lectures or to the load/store and branch material"
+    },
+    {
+      "kind": "lecture-transcript",
+      "title": "Lecture 07 - Instruction Format and Addressing Modes",
+      "channel": "NPTEL, Computer Organization and Architecture (Prof. Kamalika Datta, NIT Meghalaya)",
+      "url": "http://www.digimat.in/nptel/courses/video/106105163/lec7.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read from the opening through the list of addressing modes: the opcode and operand parts of an instruction, the rule that a destination operand must be a register or a memory location while an immediate can only be a source, the zero- to three-address formats, the 32-bit field example with 32 registers costing 5 bits each, and the statement that load-store architectures support very few addressing modes. The returned extract stopped before the mode-by-mode teaching, so nothing is attributed to that part"
+    }
+  ],
+  "sourceLine": "The architecture-against-organisation distinction with the instruction set, data formats and memory-addressing techniques named as architectural attributes: Deka's NPTEL web course, introduction chapters (English, read in part through a published mirror). Instructions as the interface between hardware and software and MIPS as a real RISC design: Anshul Kumar, Lecture 3 (English, read in part). The statement that load-store architectures support very few addressing modes: Datta, Lecture 07 (English, read in part). No previous-year question is attached: the one that tests it directly, GATE CSE 2025 Set 2 Q.18, was seen only as a stripped listing and is not claimed here.",
+  "videoRefs": []
+}
