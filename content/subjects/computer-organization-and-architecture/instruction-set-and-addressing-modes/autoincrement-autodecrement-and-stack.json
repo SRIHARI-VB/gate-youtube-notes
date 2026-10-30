@@ -1,0 +1,83 @@
+{
+  "id": "autoincrement-autodecrement-and-stack",
+  "title": "Autoincrement, Autodecrement and Stack Addressing",
+  "priority": "P2",
+  "order": 490,
+  "unit": "Instruction Set and Addressing Modes",
+  "quickIdea": "Autoincrement and autodecrement use a register as a pointer and then move it, so one instruction both reads an element and steps to the next. Stack addressing is the same idea with the stack pointer as the register and the operand implied.",
+  "remember": [
+    "(R)+ : effective address is [R], and R is incremented after the access. -(R): R is decremented first, then used as the address.",
+    "The increment amount is the size of the data item accessed - 1 for a byte, 4 for a 32-bit word - not always 1.",
+    "They are the modes of sequential traversal: a loop body over an array shrinks by the address-update instruction.",
+    "Autoincrement is not a relocation mode: it depends on an absolute register value, so it does not help position-independent code.",
+    "It needs no extra ALU: a small incrementer in the address unit does the job. An extra ALU is a convenience, not a requirement.",
+    "Stack addressing is implicit: the operand is at the top of the stack, named by the stack pointer, and push and pop update it. A zero-address instruction is a stack instruction."
+  ],
+  "example": {
+    "prompt": "R5 = 1000 and words are 4 bytes. Give the effective address and the new value of R5 for (R5)+ used twice, and for -(R5) used once.",
+    "work": "(R5)+ reads M[1000] and leaves R5 = 1004; the second use reads M[1004] and leaves 1008. -(R5) first sets R5 = 996 and then reads M[996].",
+    "answer": "1000 then 1004 ascending, and 996 descending - the two modes walk the same array from opposite ends."
+  },
+  "gateAngle": "GATE CSE 2008 Q.33 asks which statements about autoincrement are true, and only 'the amount of increment depends on the size of the data item accessed' survives: it is not a self-relocating mode and it needs no extra ALU. GATE CSE 2017 Set 1 Q.11 uses (R1)+ and -(R1) as the two wrong options for accessing a struct field, precisely because they would destroy the base register.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "A loop copies 10 words from (R1) to (R2). Write it with autoincrement and count the instructions in the body.",
+      "answer": "MOV (R2)+, (R1)+; DEC R3; BNZ loop - three instructions, no separate address update.",
+      "why": "Compare the register-indirect form, which needs two extra register adds. That saving is the reason the modes exist."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Why does autoincrement not create position-independent code?",
+      "answer": "Because the register holds an absolute address, and if the program moves that address no longer points at the data.",
+      "why": "Position independence needs offsets, not absolute pointers. That is the distinction the 2008 question's first statement is testing."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "A machine increments by 1 always. What breaks when the array holds 4-byte words?",
+      "answer": "The traversal reads the middle of a word every time after the first, so it needs an explicit add of 3 between accesses.",
+      "why": "The increment amount must match the item size. Stating that as a rule is what the 2008 question rewards."
+    }
+  ],
+  "trap": {
+    "what": "Assuming the increment is always 1, or that autoincrement needs a second ALU.",
+    "why": "The step is the data item's size, and the incrementer is a small dedicated adder in the address path, not a general ALU.",
+    "counterexample": "A 32-bit word array stepped by 1 would read bytes 1, 2, 3 of the same word - three quarters of the values would be garbage."
+  },
+  "check": {
+    "question": "R6 = 500, bytes are addressed individually, and the instruction is MOVB (R6)+. What is read and what is R6 afterwards?",
+    "answer": "M[500] is read and R6 becomes 501.",
+    "explanation": "A byte access increments by one; a word access on the same machine would increment by the word size."
+  },
+  "pyqIds": [
+    "gate-2008-q33-autoincrement-mode"
+  ],
+  "prereqs": [
+    "register-and-register-indirect-addressing",
+    "registers-and-shift-registers"
+  ],
+  "sources": [
+    {
+      "kind": "text",
+      "title": "What is addressing modes in Hindi (addressing modes in hindi)",
+      "channel": "computernetworksite.in (Hindi article following Stallings' treatment of addressing modes)",
+      "url": "https://www.computernetworksite.in/2023/03/what-is-addressing-modes-in-hindi.html",
+      "language": "hi",
+      "transcript": "PARTIAL",
+      "translated": true,
+      "note": "read through the seven modes: immediate, direct, indirect, register, register indirect, displacement (relative, base register, indexing) and stack, each with its advantage and its disadvantage in memory references and address-space width. Translated into English here; the article's illustrative instruction examples are 8085-specific and are not used"
+    },
+    {
+      "kind": "lecture-transcript",
+      "title": "Lecture 18 - Handling Different Addressing Modes",
+      "channel": "NPTEL, Computer Organization and Architecture - A Pedagogical Aspect (IIT Guwahati)",
+      "url": "http://www.digimat.in/nptel/courses/video/106103180/lec18.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read from the opening through the direct-mode micro-operation sequence: the three fetch steps that are the same for every instruction, and the point that the control steps from step 4 onwards differ with the addressing mode, shown for direct mode as IR -> MAR, memory read, MDR -> operand. The closing summary was readable; the middle of the lecture was not, so the indirect and register-indirect micro-operation sequences are not attributed to it"
+    }
+  ],
+  "sourceLine": "The translated description of stack addressing as implicit addressing through the stack pointer, with no memory reference for the address itself: computernetworksite.in (Hindi, translated, read in part). The mode-by-mode control-step structure that makes the register update a distinct step: Deka et al., Lecture 18 (English, read in part). The autoincrement and autodecrement definitions and the increment-amount rule are recomputed in scripts/validate.py against the 2008 answer.",
+  "videoRefs": []
+}
