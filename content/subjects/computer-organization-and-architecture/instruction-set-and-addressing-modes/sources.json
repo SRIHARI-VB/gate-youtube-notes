@@ -1,1 +1,216 @@
-probe
+{
+  "subject": "computer-organization-and-architecture",
+  "topic": "instruction-set-and-addressing-modes",
+  "exam": "GATE CSE 2027",
+  "retrieved_at": "2026-10-30",
+  "subtopics": [
+    "the instruction format: opcode and operand fields, fixed against variable length, byte alignment",
+    "the bit budget of a format: ceil(log2) for opcode, register and mode fields, and the remainder for the immediate",
+    "what an instruction set is: architecture against organisation, the four instruction families, RISC against CISC mode richness",
+    "zero-, one-, two- and three-address formats and the instruction count each costs",
+    "immediate addressing: the value in the instruction, no memory reference, source only",
+    "direct (absolute) addressing: the address in the instruction, one memory reference, field-width address space",
+    "indirect addressing: an address pointing at an address, two memory references, word-width reach, pointers",
+    "register and register-indirect addressing: no memory reference against one, and the pointer in a register",
+    "displacement addressing: indexed, base-register and base-with-index, EA = A + [R], records against arrays",
+    "PC-relative addressing and the branch offset arithmetic measured from the next instruction",
+    "autoincrement, autodecrement and stack addressing, with the increment equal to the item size",
+    "effective address and the memory-cycle count per mode, with fetch excluded from the execution cycle",
+    "program relocation and position-independent code: which modes survive a move and what has to be reloaded"
+  ],
+  "chosen": [
+    {
+      "id": "nptel-iitg-106103180-lecture-12-addressing-modes",
+      "kind": "lecture-transcript",
+      "title": "Lecture 12 - Addressing Modes",
+      "channel": "NPTEL, Computer Organization and Architecture - A Pedagogical Aspect (Prof. Jatindra Kr. Deka, Dr. Santosh Biswas, Dr. Arnab Sarkar, IIT Guwahati)",
+      "url": "http://www.digimat.in/nptel/courses/video/106103180/lec12.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "covers": [
+        "the framing that an instruction needs an opcode and operands, and that the addressing mode is the rule for how the operands are present",
+        "the reason a high-precision operand is moved out of the instruction into memory: an immediate would lengthen the instruction",
+        "the immediate, direct, indirect, register and register-indirect ladder, with the size-and-speed trade-off of each rung",
+        "the statement that register addressing needs fewer bits and is faster but is limited by how few registers exist",
+        "displacement addressing as a two-part address, one part fixed in the instruction and one part in a register that can change"
+      ],
+      "why": "The only source read this run whose whole subject is this topic, and the only one that walks the modes as a ladder with the trade-off stated at each rung. It carries the definitions behind five cards: immediate, direct, indirect, register/register-indirect and the displacement framing. Read in part: the served extract runs from the opening through the first description of displacement addressing, so nothing is attributed to its indexed, relative, autoincrement or stack material."
+    },
+    {
+      "id": "nptel-nitm-106105163-lecture-07-instruction-format-and-addressing-modes",
+      "kind": "lecture-transcript",
+      "title": "Lecture 07 - Instruction Format and Addressing Modes",
+      "channel": "NPTEL, Computer Organization and Architecture (Prof. Kamalika Datta, NIT Meghalaya)",
+      "url": "http://www.digimat.in/nptel/courses/video/106105163/lec7.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "covers": [
+        "the opcode and operand parts of an instruction, worked on ADD R1, R2 and MOVE",
+        "the rule that a destination operand must be a register or a memory location while an immediate can only be a source",
+        "the zero- to three-address formats, with the note that the number of operands varies from instruction to instruction",
+        "the 32-bit field example in which 32 registers cost 5 bits each, and the enumeration of the mode list",
+        "the statement that load-store architectures support very few addressing modes, and that not every architecture has every mode"
+      ],
+      "why": "The only source read this run that states the destination-against-immediate rule and works a bit-budget example, which is what the format and bit-budget cards rest on. It is also the source that connects mode richness to load-store design. Read in part: the served extract runs from the opening through the list of mode names and the first sentences of the mode-by-mode teaching; nothing is attributed to the mode-by-mode section itself."
+    },
+    {
+      "id": "nptel-iitd-106102062-lecture-3-instruction-set-architecture-1",
+      "kind": "lecture-transcript",
+      "title": "Lecture 3 - Instruction Set Architecture - 1",
+      "channel": "NPTEL, Computer Architecture (Prof. Anshul Kumar, IIT Delhi)",
+      "url": "http://www.digimat.in/nptel/courses/video/106102062/lec3.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "covers": [
+        "instructions as the interface between hardware and software, and as the primitive operations computation is described in",
+        "the design goals of an instruction set: express computation efficiently, maximise performance, minimise hardware cost and design time",
+        "the move from a toy machine to MIPS as a real and simple RISC architecture",
+        "the convention that the first listed register is the destination, which is a convention of the format rather than of the semantics"
+      ],
+      "why": "The only source read this run that frames the instruction set as a contract with stated design goals, which is what the ISA card needs and what neither of the two Guwahati lectures supplies in the readable part. Read in part: the served extract runs from the opening through the beginning of the arithmetic-instruction discussion."
+    },
+    {
+      "id": "nptel-iitg-106103180-lecture-18-handling-different-addressing-modes",
+      "kind": "lecture-transcript",
+      "title": "Lecture 18 - Handling Different Addressing Modes",
+      "channel": "NPTEL, Computer Organization and Architecture - A Pedagogical Aspect (IIT Guwahati)",
+      "url": "http://www.digimat.in/nptel/courses/video/106103180/lec18.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "covers": [
+        "the three fetch micro-operations that are identical for every instruction, with the ALU incrementing the program counter during the fetch",
+        "the statement that from the fourth step onwards the control sequence depends on the addressing mode",
+        "the direct-mode sequence as IR -> MAR, memory read, MDR -> operand, which is one operand memory reference",
+        "the closing summary that a given instruction and mode determine a definite micro-operation sequence, and that different modes take different numbers of steps"
+      ],
+      "why": "The only source read this run that says why one mode costs more memory cycles than another - the control sequence itself changes - and it is the source behind the memory-cycle card's method of counting operations rather than recalling a table. Read in part: the opening, the direct-mode sequence and the closing summary were readable; the middle of the lecture, including the indirect and register-indirect sequences, was not, so nothing is attributed to it."
+    },
+    {
+      "id": "computernetworksite-hindi-addressing-modes",
+      "kind": "text",
+      "title": "What is addressing modes in Hindi (addressing modes in hindi)",
+      "channel": "computernetworksite.in - a Hindi article following the Stallings treatment of addressing modes",
+      "url": "https://www.computernetworksite.in/2023/03/what-is-addressing-modes-in-hindi.html",
+      "language": "hi",
+      "transcript": "PARTIAL",
+      "translated": true,
+      "covers": [
+        "the seven-mode taxonomy: immediate, direct, indirect, register, register indirect, displacement (relative, base register, indexing) and stack",
+        "the memory-reference cost of each mode, including that indirect needs three or more references for the whole instruction while direct needs one",
+        "the address-space reach of each mode, including that indirect reaches 2^N addresses for an N-bit word and register indirect is bounded by the register width",
+        "the advantage and disadvantage stated for every mode, which is the form a GATE matching question takes",
+        "displacement addressing split into relative, base register and indexing, with base holding a memory address and index holding a positive displacement"
+      ],
+      "why": "The only non-English source readable this run, and the only source that gives all seven modes with the memory-reference count and the address-space reach side by side - which is precisely the comparison GATE's matching and cycle-counting questions ask for. Read in part and translated into English here; every claim it contributes is recomputed in scripts/validate.py, because a translation sits between the source and the reader. Its instruction examples are 8085-specific and are not used. Two of its phrasings are loose against the standard treatment - it calls stack addressing 'implicit addressing' throughout, and its indirect count of 'three or more references' includes the instruction fetch - so the cards state the operand count (two) and say where the third reference comes from."
+    },
+    {
+      "id": "nptel-iitg-web-course-coa-module-4",
+      "kind": "web-course-chapter",
+      "title": "Computer Organization and Architecture web course, Module 4 - machine instructions, instruction format and addressing modes",
+      "channel": "NPTEL web course by Prof. J. K. Deka, IIT Guwahati (read through a published mirror of the course pages)",
+      "url": "https://studylib.net/doc/18434730/computer-organization-and-architecture",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "covers": [
+        "the architecture-against-organisation distinction, with the instruction set, data formats, I/O mechanisms and techniques for addressing memory listed as architectural attributes",
+        "the statement that Module 4 covers the architectural issues of addressing modes, machine instruction and instruction format in general rather than for one machine",
+        "the evolution-of-instruction-sets paragraph naming load/store designs and RISC as the simple-addressing machines and CISC as the complex ones",
+        "the course outline placing this material before the control-unit module, which is the order this topic's cards follow"
+      ],
+      "why": "The only source read this run that names the attributes an instruction set architecture consists of, which is what the ISA card is built on and what a definition question such as GATE CSE 2025 Set 2 Q.18 tests. Read in part: the outline and introduction chapters were readable through the mirror; the Module 4 chapter pages themselves were not in the returned extract, so no mode definition is attributed to this source."
+    }
+  ],
+  "rejected": [
+    {
+      "id": "youtube-lectures-addressing-modes-any-language",
+      "kind": "video",
+      "channel": "Two YouTube lectures returned by a search for 'gate smashers addressing modes', plus every other English and Hindi GATE lecture on this topic",
+      "why": "Both watch pages were fetched this run and answered HTTP 200 with no caption track in the page at all, and the timedtext endpoint returned an empty body, so nothing could be quoted or timestamped and no card cites a video. This is the same wall the previous four runs hit. The topic therefore rests on NPTEL lecture transcripts, a web-course chapter and one Hindi article, all of which exist as text."
+    },
+    {
+      "id": "nptel-106105163-lectures-5-6-8",
+      "kind": "lecture-transcript",
+      "channel": "NPTEL, Computer Organization and Architecture (NIT Meghalaya) - Lecture 5 'Instruction Set Architecture', Lecture 6 'Number Representation' and Lecture 8 'CISC and RISC Architecture'",
+      "why": "The exact continuation of the one lecture of this course that was readable: Lecture 8 is the RISC-against-CISC lecture the ISA card would have wanted, and Lecture 5 is the ISA definition itself. They were not fetched this run because the run had already found the same material in three other readable sources; a later run should read Lecture 8 before anything else if it revisits this topic."
+    },
+    {
+      "id": "nptel-117106111-arm-based-development-lectures-9-11",
+      "kind": "lecture-video",
+      "channel": "NPTEL, ARM Based Development - Lectures 9, 10 and 11 on addressing modes 1 to 4",
+      "why": "Three lectures whose subject is exactly addressing modes, with scaling and the barrel shifter, and the closest thing to a full mode-by-mode course in the NPTEL catalogue. Rejected because their material is ARM-specific (register-indirect with scaling, LDR/STR forms) and the digimat index gives titles only - no transcript was retrievable, and ARM's mode names would have confused a GATE answer key that uses base indexed, index and displacement interchangeably."
+    },
+    {
+      "id": "nptel-106105033-high-performance-computer-architecture",
+      "kind": "lecture-video",
+      "channel": "NPTEL, High Performance Computer Architecture - Lectures 3 to 5 on instruction set architecture and the MIPS ISA",
+      "why": "Right subject and the right level, but the course is about pipelining and ILP: its ISA lectures are MIPS programming rather than the mode taxonomy, so it would have supplied MIPS examples and none of the immediate/direct/indirect/displacement comparison GATE tests. No transcript was retrievable either."
+    },
+    {
+      "id": "gate-vidyalay-and-geeksforgeeks-addressing-modes",
+      "kind": "text",
+      "channel": "Gate Vidyalay 'Addressing Modes' notes and practice problems, and the GeeksforGeeks addressing-modes article",
+      "why": "Readable and on topic, and Gate Vidyalay's Problem-02 is GATE CSE 2002 Q.1.24 with the answer. Rejected as teaching sources because both are definition lists with the worked examples attached, neither states the memory-reference count per mode nor the address-space consequence that the GATE questions turn on, and the GeeksforGeeks article mixes 8086 and general material without saying which is which. Gate Vidyalay's answer to the 2002 question was used only as corroboration."
+    },
+    {
+      "id": "gate-2000-q1-10-2001-q2-9-2005-q66-1996-q1-16",
+      "kind": "pyq",
+      "channel": "GATE CSE 2000 Q.1.10, 2001 Q.2.9 and 2005 Q.66 (match addressing modes to high-level constructs) and 1996 Q.1.16 (relative mode is most relevant to writing position-independent code)",
+      "url": "https://gateoverflow.in/tag/addressing-modes",
+      "why": "Four verified-looking CSE questions of exactly this topic, seen only as titles in GATE Overflow's tag listing this run; none of the four question pages was read, so none is in the PYQ set. The 1996 question is the same fact as GATE CSE 1998 Q.1.19, which is recorded, and the three matching questions are the same fact as GATE CSE 2026 Set 1 Q.4, which is recorded. A later run should read all four, because the 2005 matching question pairs modes with constructs the 2026 question does not."
+    },
+    {
+      "id": "answer-aggregators-addressing-modes",
+      "kind": "pyq-index",
+      "channel": "GATE Overflow's CO & Architecture tag pages and its 1998 to 2004 question listings",
+      "why": "Used to find years, question numbers and accepted answers, never as the reference of record. Their numbering is inconsistent across pages: GATE CSE 2024 Set 2 Question 47 on GATE Overflow is Q.57 in the paper listing, GATE CSE 2025 Set 1 Question 27 is Q.37, and the 2017 Set 1 branch question is Q.14 on ExamSIDE and something else elsewhere. Each record states where its number comes from."
+    },
+    {
+      "id": "other-paper-questions-addressing-modes",
+      "kind": "pyq",
+      "channel": "GATE IT 2006 Q.39 and Q.40, ISRO CSE 2009 and 2011, UGC-NET December 2012, NIELIT Scientific Assistant 2025, and the coaching test-series questions on GATE Overflow",
+      "why": "Many of them are well matched - ISRO 2009's relative-addressing question and GATE IT 2006's autoincrement question in particular - but they belong to other papers, and this repository does not mix papers. The test-series questions are not from any paper at all."
+    },
+    {
+      "id": "hindi-microprocessor-articles-8085-specific",
+      "kind": "text",
+      "channel": "eHindiStudy and estudyhindi articles on addressing modes, and the javahindi 8086 chapter",
+      "why": "Readable Hindi material on the same subject, and the javahindi 8086 chapter gives a complete worked table of effective and physical addresses for all seven 8086 modes. Rejected because all three teach the mode set of one microprocessor rather than the general taxonomy GATE examines: 8085 has five modes and no displacement form, and the 8086 chapter's segment-and-offset arithmetic is outside this syllabus line. The computernetworksite article was chosen instead because it follows the general (Stallings) treatment."
+    },
+    {
+      "id": "examgoal-addressings-modes-pdf",
+      "kind": "pyq-index",
+      "channel": "ExamGOAL's 'Machine Instructions and Addressing Modes' PYQ PDF - 37 questions from 23 papers, 1987 to 2026",
+      "url": "https://pdf.questions.examgoal.com/past-years/gate/gate-cse/computer-organization/machine-instructions-and-addressing-modes",
+      "why": "The most complete index of this topic's questions found, and useful as a check that fourteen records is a fair sample of thirty-seven. Not used as a source: its question text renders as stripped LaTeX and its answers are keyed to ExamSIDE's numbering, so every question in this topic was instead read on its own GATE Overflow or ExamSIDE page."
+    },
+    {
+      "id": "gate-2026-set-1-q52-load-store-sequence",
+      "kind": "pyq",
+      "channel": "GATE CSE 2026 Set 1 Q.52 (memory-based) - the load-store sequence corresponding to a high-level statement",
+      "why": "Well matched to the ISA and format cards, and it is the natural companion to GATE CSE 2026 Set 1 Q.4. Not in the PYQ set because only the stripped listing was read this run and the memory-based numbering cannot be confirmed against a paper. The ISA card says so rather than attaching it."
+    }
+  ],
+  "standard_refs": [
+    "Carl Hamacher, Zvonko Vranesic and Safwat Zaky, Computer Organization, chapter 2 - the addressing-mode list, the effective-address formulas and the memory-reference counts this topic is built on",
+    "David A. Patterson and John L. Hennessy, Computer Organization and Design, chapter 2 - instruction formats, the RISC mode set and the PC-relative branch offset measured from the next instruction",
+    "William Stallings, Computer Organization and Architecture, the addressing-modes chapter - the seven-mode taxonomy and the advantage and disadvantage of each, which the Hindi article follows",
+    "M. Morris Mano, Computer System Architecture - base-register addressing and program relocation, quoted on the GATE Overflow page for GATE CSE 1998 Q.1.19",
+    "GATE 2027 CS syllabus, Computer Organization and Architecture line 'Instruction set and addressing modes'",
+    "Official GATE CSE papers and answer keys for the fourteen recorded questions - not fetched this run, which is why every PYQ here is SOURCED rather than key-verified"
+  ],
+  "notes": [
+    "The syllabus names this topic in five words, 'Instruction set and addressing modes', so the thirteen subtopics above are this run's enumeration from the standard treatment (Hamacher's chapter 2, Stallings' mode chapter, the IIT Guwahati module 4 outline) and from the GATE question record - not a quotation from the syllabus. Every one of the thirteen has a card, which is why the status is not lower than partial; the gaps below are what keep it from being covered.",
+    "Fourteen GATE CSE previous-year questions were verified, from 1998 to 2026, and every one is SOURCED against an accepted answer rather than key-verified against an official key, so no marks field comes from an official key. Where a secondary site cites the official key (GATE 2024 CS2 Q.57 = 32, GATE 2025 CS1 Q.37 = 20) that is recorded in the answer_evidence and not upgraded to OFFICIAL_KEY, because the key document itself was not opened.",
+    "No video transcript was readable this run: two YouTube watch pages were fetched and carried no caption track, and the timedtext endpoint returned an empty body. So videoRefs is empty on all thirteen cards and no card quotes or timestamps a lecture. The six chosen sources are lecture transcripts, a web-course chapter and one article, all read as text.",
+    "One non-English source was readable, a Hindi article on the seven addressing modes, and it is marked translated on every card it feeds. It supplies the memory-reference counts, the address-space reach and the displacement split; every number it touches is recomputed in scripts/validate.py.",
+    "Four cards carry no previous-year question: the instruction-format card, the ISA card, the immediate card and the register card. Each says why in its source line rather than borrowing a question that does not test it - the format card's arithmetic is tested by the three bit-budget questions on the next card, and the immediate card's definition is the wrong option in GATE CSE 2002 Q.1.24.",
+    "Two questions of this topic are ambiguous as printed and the records say so instead of picking silently: GATE CSE 1999 Q.2.23 prints four options without saying more than one may be chosen while the accepted answer is all four, and GATE CSE 1998 Q.1.19 has answers arguing for base register addressing against the accepted PC-relative answer.",
+    "The naming of the displacement form is genuinely unstable across papers: GATE CSE 2011 Q.21 accepts 'Base Indexed' for 20(R2), GATE CSE 2017 Set 1 Q.11 accepts 'Index addressing mode' for X(R1), and GATE CSE 2026 Set 1 Q.4 distinguishes base-with-index from base-with-displacement. The card teaches EA = A + [R] and then says which label each paper used, rather than pretending one naming is correct.",
+    "The visual lesson animates one operand reached five ways from the same address field, so the memory-cycle counts and the direct-against-indirect distinction are shown on one memory picture. Every address, register value and cycle count in it is recomputed in scripts/validate.py."
+  ]
+}
