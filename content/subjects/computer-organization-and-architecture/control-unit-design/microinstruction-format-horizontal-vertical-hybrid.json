@@ -1,0 +1,98 @@
+{
+ "id": "microinstruction-format-horizontal-vertical-hybrid",
+ "title": "Horizontal, Vertical and Hybrid Microinstruction Formats",
+ "priority": "P1",
+ "order": 512,
+ "unit": "Design of the Control Unit",
+ "quickIdea": "Horizontal microcode gives every control signal its own bit: wide words, no decoder, any number of signals at once. Vertical microcode encodes a group of signals into a binary field: narrow words, one decoder, at most one signal from that group at a time. Hybrid encodes only the groups whose members can never fire together.",
+ "remember": [
+  "Horizontal: one bit per control signal, so width equals the number of signals and no decoder is needed in the path.",
+  "Vertical: a group of n mutually exclusive signals needs ceil(log2(n + 1)) bits, the +1 being the no-operation code.",
+  "The trade is exact: vertical saves bits and costs a decoder delay, and it also makes it impossible to assert two members of one group together.",
+  "Hybrid, also called diagonal, groups only the signals that are genuinely mutually exclusive - the bus-source field, the ALU-function field - and leaves the rest as single bits.",
+  "The rule to memorise: a group may be encoded only if its members can never be needed simultaneously. If two signals must fire together, they must be in different fields or both horizontal."
+ ],
+ "example": {
+  "prompt": "A unit has 25 control signals and at most two may be active at any one time. How many bits does a horizontal word need, and what is the smallest vertical encoding?",
+  "work": "Horizontal: 25 bits. Vertical: two fields, each choosing one of 25 signals, so each needs ceil(log2 25) = 5 bits, and the word is 10 bits. If the two fields were merged into one field choosing an unordered pair, the number of states would be 1 + 25 + 300 = 326, which needs 9 bits - but then the two signals would have no order, and a decoder for 326 states is far larger than two 5-bit decoders.",
+  "answer": "25 bits horizontally against 10 bits vertically. The 9-bit figure is the information-theoretic floor, not the accepted exam answer."
+ },
+ "gateAngle": "GATE CSE 1996 Q.2.25 is this example and its accepted answer is 10 bits, read as two 5-bit fields. GATE CSE 1997 Q.5.3 is the same arithmetic split across two kinds of signal - 2 bits for none-or-one-of-three and 6 bits for any subset of six, giving 8. GATE CSE 2002 Q.2.7 tests the properties of the horizontal form, where all three statements - no decoders, larger than vertical, one bit per signal - are true.",
+ "variations": [
+  {
+   "label": "VERIFIED PYQ",
+   "question": "GATE CSE 1997 Q.5.3: a microinstruction is to specify none or one of three micro-operations of one kind, and none or up to six micro-operations of another kind. The minimum number of bits in the microinstruction is (A) 9 (B) 5 (C) 8 (D) none of the above.",
+   "answer": "(C) 8.",
+   "why": "The first kind is mutually exclusive, so 4 states (none, or one of three) take 2 bits. The second kind allows any subset of six, so 2^6 = 64 states take 6 bits. 2 + 6 = 8. Answering 9 means encoding the first kind horizontally, which is not the minimum."
+  },
+  {
+   "label": "ORIGINAL PYQ-STYLE QUESTION",
+   "question": "A control word has three fields of mutually exclusive signals holding 4, 6 and 9 signals, plus 7 signals that may be asserted freely. Give the vertical width and the horizontal width.",
+   "answer": "Vertical: 3 + 3 + 4 + 7 = 17 bits. Horizontal: 4 + 6 + 9 + 7 = 26 bits.",
+   "why": "Each encoded field costs ceil(log2(n + 1)): ceil(log2 5) = 3, ceil(log2 7) = 3, ceil(log2 10) = 4. The seven free signals cannot be encoded at all and stay one bit each."
+  },
+  {
+   "label": "CONCEPTUAL PRACTICE QUESTION",
+   "question": "Why does vertical microcode cost speed even though it saves memory?",
+   "answer": "Because every encoded field must pass through a decoder before it becomes a control signal, so the decoder's delay sits in the path from the control store to the datapath.",
+   "why": "That single extra delay is the whole reason the speed order is hardwired, then horizontal, then vertical, which is what GATE CSE 1999 Q.2.19 asks for."
+  }
+ ],
+ "trap": {
+  "what": "Encoding two signals into one vertical field when they can be needed at the same time.",
+  "why": "A field holds one code, so it can select one of its members; two signals that must both be active have no code that expresses both.",
+  "counterexample": "Putting memory-read and PC-increment in one 1-bit field looks like a saving, but the fetch step asserts both at once, so the machine can no longer fetch. They belong in two separate bits."
+ },
+ "check": {
+  "question": "How many bits does a vertical field need for a group of 12 mutually exclusive signals, and why is it not 4 bits of plain binary?",
+  "answer": "4 bits, because 12 + 1 = 13 states and 2^4 = 16 covers them. What the 4 bits are not is 12 signals in 12 bits: that is the horizontal form.",
+  "explanation": "The +1 is the no-operation code, and it is what makes a 3-signal group need 2 bits (4 states) rather than 2 bits for 3 states only. 16 codes cover 13, so four bits suffice with three codes left over."
+ },
+ "pyqIds": [
+  "gate-1996-2-25-control-word-bits-two-active",
+  "gate-1997-5-3-microinstruction-minimum-bits",
+  "gate-2002-2-7-horizontal-microprogramming"
+ ],
+ "prereqs": [
+  "microprogrammed-control-store-and-microinstruction"
+ ],
+ "sources": [
+  {
+   "kind": "lecture-slides",
+   "title": "Control Units: Hardwired and Microprogrammed (horizontal and vertical microcode)",
+   "channel": "Edward Bosworth, CPSC 5155, chapter 4 lecture",
+   "url": "http://www.edwardbosworth.com/CPSC5155/PH4/Ch04/Ch04_Microprogramming.pdf",
+   "language": "en",
+   "transcript": "PARTIAL",
+   "translated": false,
+   "note": "read the horizontal-against-vertical comparison, where a bus fed by seven sources takes 8 bits horizontally and 3 bits vertically, and the note that vertical microcode also prevents two sources being placed on one bus at once"
+  },
+  {
+   "kind": "text",
+   "title": "Control Unit (Hardwired and Microprogrammed) Hindi mein",
+   "channel": "DSWallah Learn (Hinglish study lesson on the control unit)",
+   "url": "https://www.dswallah.com/learn/computer-architecture/control-unit/",
+   "language": "hi",
+   "transcript": "PARTIAL",
+   "translated": true,
+   "note": "read the horizontal-against-vertical comparison, the CISC and RISC association, and the list of common mistakes about which unit is faster. Written in romanised Hindi and translated into English here; its worked control sequence and its analogy are not used"
+  }
+ ],
+ "sourceLine": "The horizontal and vertical comparison, with a bus fed by seven sources taking 8 bits horizontally and 3 bits vertically, and the point that vertical encoding also prevents two sources reaching one bus at once: Edward Bosworth, chapter 4 lecture (English, read in part). The horizontal and vertical definitions and the CISC and RISC association: DSWallah Learn (romanised Hindi, translated, read in part). The 1996 and 1997 arithmetic is recomputed in scripts/validate.py, including the 9-bit floor that the accepted 1996 answer does not use.",
+ "videoRefs": [],
+ "links": {
+  "visual": {
+   "slug": "control-unit-design",
+   "title": "From Opcode to Microprogram: Walking the Control Store",
+   "level": "topic-level",
+   "covers": [
+    "the control store as a memory of control words, with the fetch routine held at the top",
+    "each control word read out of the store as the control signals for one micro-operation",
+    "the mapping of an opcode to the start of that instruction's microprogram, and the return to fetch",
+    "the same microprogram written horizontally and vertically, and the width each costs"
+   ],
+   "url": "https://gate-visual-explainer.vercel.app/topics/control-unit-design/index.html"
+  },
+  "mapped_at": "2026-10-31"
+ }
+}

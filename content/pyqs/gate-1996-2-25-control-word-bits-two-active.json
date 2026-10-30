@@ -1,0 +1,22 @@
+{
+ "id": "gate-1996-2-25-control-word-bits-two-active",
+ "year": "1996",
+ "paper": "GATE CSE 1996",
+ "question_ref": "Q.2.25 on GATE Overflow and on the 1996 paper as hosted by Gateforum (Question 25 of the second section)",
+ "type": "MCQ",
+ "marks": null,
+ "topic": "microinstruction-format-horizontal-vertical-hybrid",
+ "text": "A micro program control unit is required to generate a total of 25 control signals. Assume that during any microinstruction, at most two control signals are active. The minimum number of bits required in the control word to generate the required control signals will be:",
+ "options": [
+  "2",
+  "2.5",
+  "10",
+  "12"
+ ],
+ "answer": "Option (C) - 10",
+ "solution": "Read as two encoded fields, each able to name one of the 25 signals: each field needs ceil(log2 25) = 5 bits, because 2^4 = 16 is too few and 2^5 = 32 is enough, and two such fields give 2 x 5 = 10 bits. This is the reading the accepted answer takes.",
+ "source_url": "https://gateoverflow.in/2754/gate-cse-1996-question-2-25",
+ "source_label": "GATE Overflow question page - GATE CSE 1996 Q.2.25 with the accepted answer (option C, 10 bits)",
+ "verification": "SOURCED",
+ "answer_evidence": "The accepted answer on the question page reasons that 25 signals in two fields of 5 bits give 10, and a second answer on the same page argues the same. The page also carries a dissent worth recording: the number of unordered states is 1 (none) + 25 (one signal) + C(25,2) = 300 (two signals) = 326, which needs only 9 bits, so 10 is the accepted answer rather than the information-theoretic minimum. The official key was not opened, so the record stays SOURCED."
+}

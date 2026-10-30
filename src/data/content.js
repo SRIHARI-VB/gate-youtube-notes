@@ -306,7 +306,7 @@ window.GATE_DATA = {
      {
       "slug": "control-unit-design",
       "name": "Design of the Control Unit",
-      "material": "planned"
+      "material": "cards"
      },
      {
       "slug": "memory-hierarchy-and-cache",
@@ -29679,15 +29679,15 @@ window.GATE_DATA = {
    "visual": "digital-logic/combinational-circuits/mux-to-minimal-sop",
    "links": {
     "visual": {
-     "slug": "mux-to-minimal-sop",
-     "title": "From a 4-to-1 Multiplexer to a Minimal Sum of Products",
-     "level": "subtopic-level",
+     "slug": "combinational-circuits",
+     "title": "Combinational Circuits: Adders, Multiplexers and Decoders",
+     "level": "topic-level",
      "covers": [
-      "the multiplexer output equation",
-      "implementing a function on a multiplexer",
-      "reading a minimal sum of products off a group"
+      "a multiplexer is a lookup table, universal for functions of its select lines",
+      "the 8-to-1 table method: data input k is row k of the table",
+      "the 4-to-1 variable method: each data input is 0, 1, the variable, or its complement"
      ],
-     "url": "visuals/digital-logic/combinational-circuits/mux-to-minimal-sop/index.html"
+     "url": "https://gate-visual-explainer.vercel.app/topics/combinational-circuits/index.html"
     },
     "mapped_at": "2026-10-31",
     "mock": {
@@ -36125,9 +36125,1300 @@ window.GATE_DATA = {
    "subject": "computer-organization-and-architecture",
    "topic": "alu-design",
    "path": "subjects/computer-organization-and-architecture/alu-design/alu-critical-path-and-delay.json"
+  },
+  {
+   "id": "control-unit-contract-and-control-word",
+   "title": "The Control Unit as a Block: Three Inputs, One Control Word Out",
+   "priority": "P1",
+   "order": 505,
+   "unit": "Design of the Control Unit",
+   "quickIdea": "The control unit reads what instruction is in the IR, which timing step the machine is in, and what the flags say, and from those three it emits the set of control signals that make the datapath perform exactly one micro-operation. That set of signals, at one instant, is the control word.",
+   "remember": [
+    "Its inputs are the instruction register (mainly the opcode), the timing state, the condition flags, and any external signal such as an interrupt request.",
+    "Its outputs are the control signals themselves: bus selects, register load and increment lines, memory read and write, and the ALU function code.",
+    "The control unit computes no data. It decides who may drive a bus, who may latch, and when.",
+    "A control word is the string of 1s and 0s that names every control variable at one instant; a micro-operation is what that word makes the datapath do.",
+    "The same control word can be produced by fixed logic (hardwired) or read out of a memory (microprogrammed). The datapath cannot tell the difference, which is why one machine design can be built either way."
+   ],
+   "example": {
+    "prompt": "A five-step ADD R1, R2, R3 on a bus machine. Which signals does the control unit issue at each step, and what does the control unit actually decide?",
+    "work": "Step 1: PC out, MAR in, memory read. Step 2: MDR out, IR in, PC increment. Step 3: decode, then R2 out and R3 out to the ALU with the add code. Step 4: the ALU result to R1. Step 5: end. At every step the control unit's only decision is which lines to assert; the arithmetic is the ALU's.",
+    "answer": "One control word per step, five words for the instruction. Each word is a choice of bus sources, latches and ALU function, and the sequence of words is the instruction."
+   },
+   "gateAngle": "Questions in this topic are almost always of one of two shapes: given a table of micro-operations, which control signal is asserted at step T, and when; or given a control-word width, how many bits are needed. Both are answered from this block contract, so the first thing to fix is what the inputs and outputs are. The 1987 and 1999 questions in this topic test the second half of the contract - which implementation you chose - rather than any arithmetic.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "A control unit is described as having the instruction register, the timing state and the flags as its only inputs. Which of these could it then NOT do? (i) skip a step because the branch was not taken (ii) change the ALU function mid-instruction (iii) hold a data value between two steps",
+     "answer": "Only (iii) is impossible.",
+     "why": "The flags arriving as an input are exactly what lets a conditional step be skipped, and the timing state lets the ALU function change from step to step. Holding data is the register file's job, not the control unit's."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why does the control unit need the flags as an input at all, when the ALU already computed them?",
+     "answer": "Because a conditional branch or a conditional micro-operation has to become a different sequence of control signals depending on the flag, and the control unit is what chooses the sequence.",
+     "why": "Without a flag input every instruction would execute the same fixed sequence of steps, which is exactly what an unconditional machine does and why it cannot branch."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "A machine has 40 control signals and issues one control word per clock. How many bits leave the control unit per clock, and does that number change if the machine is microprogrammed?",
+     "answer": "Forty bits leave per clock in the horizontal case, and the number of signals leaving does not change with the implementation - only the way the word is stored does.",
+     "why": "The datapath needs the same 40 lines whichever control unit drives them. A microprogrammed unit may store the word in fewer bits and decode it, but the wires to the datapath still number 40."
+    }
+   ],
+   "trap": {
+    "what": "Treating the control unit as the thing that does the arithmetic, or as a second ALU.",
+    "why": "The control unit only asserts lines. Every value it influences is produced by the ALU, the registers or memory, and every decision it makes is about timing and routing.",
+    "counterexample": "An ADD and an AND on the same datapath use the same control unit and the same registers; only the ALU function code differs. If the control unit computed, it would need an adder, and the ALU would have nothing to do."
+   },
+   "check": {
+    "question": "Name the three inputs and the one output group of the control unit, and say which of them the flags belong to.",
+    "answer": "Inputs: the instruction register, the timing state, and the flags plus external signals such as an interrupt request. Output: the control signals. The flags are an input, not an output - the ALU produces them, the control unit reads them.",
+    "explanation": "Swapping that direction is the most common way to get a flag question wrong: the control unit consumes flags and produces control signals."
+   },
+   "pyqIds": [],
+   "prereqs": [
+    "alu-block-contract",
+    "instruction-format-and-fields"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 20 - Design of Hardwired controlled Control Unit",
+     "channel": "NPTEL, Computer Organization and Architecture - A Pedagogical Aspect (Prof. J. K. Deka, Dr. Santosh Biswas, Dr. Arnab Sarkar, IIT Guwahati)",
+     "url": "http://www.digimat.in/nptel/courses/video/106103180/lec20.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read from the opening through the statement that a hardwired control unit is a sequential state machine whose states are the time steps and whose outputs are the control signals"
+    },
+    {
+     "kind": "text",
+     "title": "Control Unit (Hardwired and Microprogrammed) Hindi mein",
+     "channel": "DSWallah Learn (Hinglish study lesson on the control unit)",
+     "url": "https://www.dswallah.com/learn/computer-architecture/control-unit/",
+     "language": "hi",
+     "transcript": "PARTIAL",
+     "translated": true,
+     "note": "read the sections on what the control unit is, the three sources of its signals, the hardwired flow and the microprogrammed vocabulary. Written in romanised Hindi and translated into English here; its railway-station analogy and its interview advice are not used"
+    }
+   ],
+   "sourceLine": "The statement that a hardwired control unit is a sequential state machine whose outputs are the control signals: IIT Guwahati, Lecture 20 (English, read in part). The framing of the unit as the block that issues read, write, register-load, ALU and bus-enable signals without processing data, and the note that its signals come from the instruction register, the timing generator and the flags: DSWallah Learn (romanised Hindi, translated, read in part).",
+   "videoRefs": [],
+   "links": {
+    "visual": {
+     "slug": "control-unit-design",
+     "title": "From Opcode to Microprogram: Walking the Control Store",
+     "level": "topic-level",
+     "covers": [
+      "the control store as a memory of control words, with the fetch routine held at the top",
+      "each control word read out of the store as the control signals for one micro-operation",
+      "the mapping of an opcode to the start of that instruction's microprogram, and the return to fetch",
+      "the same microprogram written horizontally and vertically, and the width each costs"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/control-unit-design/index.html"
+    },
+    "mapped_at": "2026-10-31"
+   },
+   "subject": "computer-organization-and-architecture",
+   "topic": "control-unit-design",
+   "path": "subjects/computer-organization-and-architecture/control-unit-design/control-unit-contract-and-control-word.json"
+  },
+  {
+   "id": "instruction-cycle-as-micro-operation-sequence",
+   "title": "The Instruction Cycle as a Sequence of Micro-operations",
+   "priority": "P1",
+   "order": 506,
+   "unit": "Design of the Control Unit",
+   "quickIdea": "One machine instruction is not one action. It is a short ordered list of micro-operations - fetch, decode, maybe an indirect fetch, execute, and at the end a possible interrupt cycle - and the control unit's real output is the order of that list.",
+   "remember": [
+    "Each micro-operation is one clock period's worth of control signals; the sequence of micro-operations is the sequence of control words.",
+    "The fetch phase is the same for every instruction, which is why it is generated once and shared rather than repeated per instruction.",
+    "Decode is a micro-operation too: the opcode is put through a decoder so that exactly one instruction line becomes 1.",
+    "The interrupt cycle, when it runs, sits after execute and before the next fetch, and it is what saves the return address.",
+    "Counting clock cycles for an instruction means counting its micro-operations, and the fetch is part of that count."
+   ],
+   "example": {
+    "prompt": "A machine does its fetch in three micro-operations, its indirect-address phase in two, and the execute phase of a load in two. How many clock periods does a direct load take, and how many an indirect load?",
+    "work": "Direct: 3 fetch + 0 indirect + 2 execute = 5. Indirect: 3 + 2 + 2 = 7. The difference is exactly the indirect phase, and nothing else changes.",
+    "answer": "Five clock periods direct, seven indirect. Writing the micro-operations down is the whole method; there is no formula to recall."
+   },
+   "gateAngle": "GATE CSE 2013 Q.28 gives a four-line sequence of micro-operations and asks which operation it performs. The method is to ask what the sequence does to the PC and to memory: here the PC is copied into MBR, an address X is put in MAR, a new address Y is put in the PC, and the saved PC is finally written to memory. Saving the return address and loading a routine address is the initiation of interrupt service.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "A sequence reads: MAR <- PC, memory read, MDR -> IR, PC <- PC + 1. Which phase is this, and why can it not be the execute phase of an ADD?",
+     "answer": "It is the fetch phase. It ends by putting a word into the instruction register, and the execute phase of an ADD never writes the IR.",
+     "why": "The destination register is the tell. A micro-operation sequence is identified by where its last result lands: IR means fetch, MDR means an operand read, memory means a store or a saved return address."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why is the fetch sequence generated once for the whole instruction set instead of once per instruction?",
+     "answer": "Because it does not depend on the opcode: the instruction has not been decoded yet when fetch begins, so every instruction must begin with the same steps.",
+     "why": "This is also why a microprogrammed machine can keep one shared fetch routine in control memory and jump to it from every instruction's routine, which is the saving the next cards build on."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "An instruction needs 8 micro-operations and the machine adds an interrupt cycle of 2 micro-operations every 100 instructions. What is the average number of clock periods per instruction?",
+     "answer": "8.02: the 8 for the instruction plus 2/100 for its share of the interrupt cycle.",
+     "why": "Interrupt overhead is amortised, not added per instruction, which is why an interrupt-heavy machine is slower without any instruction changing."
+    }
+   ],
+   "trap": {
+    "what": "Reading a micro-operation sequence as if the registers held the values of the previous instruction.",
+    "why": "Each micro-operation happens in one clock and its effect is visible to the next one only; a sequence that copies the PC and then overwrites the PC is saving the old value, not using the new one.",
+    "counterexample": "In the interrupt sequence, MBR <- PC must be read as 'save the return address' and PC <- Y as 'load the handler address'. Read the other way round the sequence looks like a branch, which is exactly the wrong option offered in 2013 Q.28."
+   },
+   "check": {
+    "question": "A sequence ends with Memory <- MBR after having done MAR <- X and PC <- Y. What has it saved, and where?",
+    "answer": "It has saved the old program counter, which is the return address, into memory at address X. The new value Y in the PC is the address of the routine to run.",
+    "explanation": "Saving the return address is the signature of an interrupt (or a subroutine call); a plain branch would write the PC and never write memory."
+   },
+   "pyqIds": [
+    "gate-2013-28-interrupt-initiation-microops"
+   ],
+   "prereqs": [
+    "control-unit-contract-and-control-word"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 22 - Organization and Optimization of Microprogrammed controlled Control Unit",
+     "channel": "NPTEL, Computer Organization and Architecture - A Pedagogical Aspect (IIT Guwahati)",
+     "url": "http://www.digimat.in/nptel/courses/video/106103180/lec22.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read from the opening through the description of the shared fetch microprogram, the micro program counter pointing at it, and the jump to the microprogram of the decoded instruction"
+    },
+    {
+     "kind": "lecture-slides",
+     "title": "Overview of the Control Unit (slides following the Boz-5 didactic machine)",
+     "channel": "Edward Bosworth, CPSC 5155, Columbus State University",
+     "url": "http://edwardbosworth.com/My5155_Slides/Chapter09/Control_UnitOverview.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read the sections on the control unit's inputs and outputs, the three major states Fetch, Defer and Execute, the minor state register T0 to T3, and the micro-memory address and buffer registers"
+    }
+   ],
+   "sourceLine": "The description of an instruction as a fetch phase followed by the microprogram of the decoded instruction, and of the micro program counter being pointed at the shared fetch routine at the start of every instruction: IIT Guwahati, Lecture 22 (English, read in part). The division of instruction execution into the major states Fetch, Defer and Execute with minor states inside each: Edward Bosworth, Control Unit Overview (English, read in part). The identification of the 2013 sequence as the interrupt cycle follows the accepted solution recorded on the question page and is re-derived here step by step.",
+   "videoRefs": [],
+   "links": {
+    "visual": {
+     "slug": "control-unit-design",
+     "title": "From Opcode to Microprogram: Walking the Control Store",
+     "level": "topic-level",
+     "covers": [
+      "the control store as a memory of control words, with the fetch routine held at the top",
+      "each control word read out of the store as the control signals for one micro-operation",
+      "the mapping of an opcode to the start of that instruction's microprogram, and the return to fetch",
+      "the same microprogram written horizontally and vertically, and the width each costs"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/control-unit-design/index.html"
+    },
+    "mapped_at": "2026-10-31"
+   },
+   "subject": "computer-organization-and-architecture",
+   "topic": "control-unit-design",
+   "path": "subjects/computer-organization-and-architecture/control-unit-design/instruction-cycle-as-micro-operation-sequence.json"
+  },
+  {
+   "id": "hardwired-control-as-a-state-machine",
+   "title": "Hardwired Control: A State Machine Whose States Are Time Steps",
+   "priority": "P1",
+   "order": 507,
+   "unit": "Design of the Control Unit",
+   "quickIdea": "A hardwired control unit is a finite state machine built from gates and flip-flops: each state is one timing step of one instruction phase, and the outputs that belong to that state are the control signals. Because the machine is wired, the sequence cannot be changed afterwards.",
+   "remember": [
+    "The state register is split in two: a major state (Fetch, Defer or Execute) and a minor state (the step counter T0, T1, T2, ...).",
+    "A control signal is the AND of the state it belongs to with the instruction that needs it, so every signal is a small tree of AND gates feeding one OR gate.",
+    "Three major states need 2 bits and a modulo-3 counter; sixteen minor states need 4 bits and a 4-to-16 decoder.",
+    "Hardwired control is fast because no memory is read to obtain the signals, and inflexible because a new instruction means new wiring.",
+    "The same logic is used whatever the instruction set: the design effort grows with instructions times steps, which is why large instruction sets moved to microcode."
+   ],
+   "example": {
+    "prompt": "A hardwired unit has three major states and four minor states per major state. How many distinct states does it have, and how many bits are in the state registers?",
+    "work": "3 x 4 = 12 distinct states. The major state is a modulo-3 counter, which needs 2 bits (one of the four codes is unused); the minor state is a modulo-4 counter, which needs 2 bits. Four state bits in total.",
+    "answer": "Twelve states, and 4 state bits: 2 for the major register and 2 for the minor register."
+   },
+   "gateAngle": "The state count is the usual first question, because it fixes the width of the state register and hence how many AND terms the signal trees need. Note the asymmetry that catches people: three major states need 2 bits, not 1.5, and a modulo-3 counter has one unused code that the design must still handle.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "A machine has 5 phases and at most 12 steps in any phase. How many flip-flops does a sequence-counter hardwired control unit need, and how many timing signals does the decoder produce?",
+     "answer": "3 flip-flops for the 5 phases (2^2 = 4 is too few), 4 for the 12 steps, so 7 in total; the step decoder produces 16 timing signals of which 12 are used.",
+     "why": "Each counter is sized by its own range: ceil(log2 5) = 3 and ceil(log2 12) = 4. The decoder always produces a power of two, and the unused outputs are simply never asserted."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why is a hardwired unit described as fast even though its signal path runs through several gates?",
+     "answer": "Because the signals are produced by combinational logic within one clock, with no memory access in the path; a microprogrammed unit must first read the control word out of a memory.",
+     "why": "The comparison is against the control store's read time, not against zero. A hardwired unit is still several gate delays deep."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "If the number of minor states doubles, what happens to the number of AND terms in the signal trees?",
+     "answer": "It can double, because there is one term per (instruction, step) pair that asserts a given signal; the width of the state register grows by only one bit.",
+     "why": "This is the cost structure that makes hardwired control impractical for large instruction sets: bits grow logarithmically, terms grow with the product of instructions and steps."
+    }
+   ],
+   "trap": {
+    "what": "Assuming the major state and the minor state can be encoded in one counter.",
+    "why": "They count different things: the major state says which phase of the instruction is running and changes only when the minor counter wraps, while the minor counter counts steps inside a phase.",
+    "counterexample": "A modulo-12 counter would number the 12 states but could not tell the design that step T2 of Fetch and step T2 of Execute are the same step of different phases, so the signals for T2 would fire in both."
+   },
+   "check": {
+    "question": "How many state bits does a hardwired control unit need for 4 phases of at most 8 steps each, and how many distinct states are there?",
+    "answer": "2 bits for the 4 phases and 3 bits for the 8 steps, so 5 state bits; 32 distinct states of which 4 x 8 = 32 are all used.",
+    "explanation": "When the counts are exact powers of two no code is wasted. The 3-phase case wastes one code out of four, which is the case a designer must remember to decode."
+   },
+   "pyqIds": [],
+   "prereqs": [
+    "control-unit-contract-and-control-word"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 20 - Design of Hardwired controlled Control Unit",
+     "channel": "NPTEL, Computer Organization and Architecture - A Pedagogical Aspect (Prof. J. K. Deka, Dr. Santosh Biswas, Dr. Arnab Sarkar, IIT Guwahati)",
+     "url": "http://www.digimat.in/nptel/courses/video/106103180/lec20.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read from the opening through the statement that a hardwired control unit is a sequential state machine whose states are the time steps and whose outputs are the control signals"
+    },
+    {
+     "kind": "lecture-slides",
+     "title": "Overview of the Control Unit (slides following the Boz-5 didactic machine)",
+     "channel": "Edward Bosworth, CPSC 5155, Columbus State University",
+     "url": "http://edwardbosworth.com/My5155_Slides/Chapter09/Control_UnitOverview.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read the sections on the control unit's inputs and outputs, the three major states Fetch, Defer and Execute, the minor state register T0 to T3, and the micro-memory address and buffer registers"
+    }
+   ],
+   "sourceLine": "The statement, read in part, that a hardwired control unit is a sequential state machine which moves from state to state, each state corresponding to one time step of a micro-instruction, whose outputs are the control signals, and that once synthesised the machine cannot be changed: IIT Guwahati, Lecture 20 (English). The two-register structure - a modulo-3 major state register and a modulo-4 minor state register with the notation Fetch AND T0 - is Edward Bosworth's Control Unit Overview (English, read in part).",
+   "videoRefs": [],
+   "links": {
+    "visual": {
+     "slug": "control-unit-design",
+     "title": "From Opcode to Microprogram: Walking the Control Store",
+     "level": "topic-level",
+     "covers": [
+      "the control store as a memory of control words, with the fetch routine held at the top",
+      "each control word read out of the store as the control signals for one micro-operation",
+      "the mapping of an opcode to the start of that instruction's microprogram, and the return to fetch",
+      "the same microprogram written horizontally and vertically, and the width each costs"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/control-unit-design/index.html"
+    },
+    "mapped_at": "2026-10-31"
+   },
+   "subject": "computer-organization-and-architecture",
+   "topic": "control-unit-design",
+   "path": "subjects/computer-organization-and-architecture/control-unit-design/hardwired-control-as-a-state-machine.json"
+  },
+  {
+   "id": "instruction-decoder-and-signal-generation-tree",
+   "title": "The Instruction Decoder and the Signal Generation Tree",
+   "priority": "P1",
+   "order": 508,
+   "unit": "Design of the Control Unit",
+   "quickIdea": "One decoder turns the opcode into a single active instruction line, and each control signal is then one OR gate over a set of AND gates, one AND per instruction-and-step pair that needs that signal.",
+   "remember": [
+    "An m-bit opcode needs an m-to-2^m decoder; only one output is 1 at a time, and that output is the 'this instruction is running' term.",
+    "Each control signal is written as a sum of products: signal = sum over the pairs (instruction, step) that assert it of (instruction AND step).",
+    "The fetch steps are shared, so their terms carry the step alone and no instruction term - T0 asserts PC out for every instruction.",
+    "A signal asserted at the same step of every instruction therefore collapses to that step alone, which is the main saving in a hand design.",
+    "The number of AND gates is the number of asserted pairs, so a table of m instructions and n steps can need up to m x n of them before minimisation."
+   ],
+   "example": {
+    "prompt": "Three instructions I1, I2, I3 use five steps T1 to T5. The signal MARin is asserted in T1 for all three instructions and in T3 for I2 only. Write the control function for MARin.",
+    "work": "T1 is common to all three, so it contributes the single term T1. T3 is asserted for I2 only, so it contributes I2 AND T3. MARin = T1 + I2.T3.",
+    "answer": "MARin = T1 + (I2 AND T3). Two AND terms instead of four, because the shared step needs no instruction term."
+   },
+   "gateAngle": "This is the shape of every hardwired-control question: you are given a table of which signals are asserted at which step for which instruction, and asked for the function. Read the table column by column, group the rows that share an instruction, and factor the step out. A term that appears for every instruction loses its instruction literal entirely.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "In the three-instruction table above, the signal R1in is asserted in T2 for I1 and I3 and in T4 for I1 only. Which function is correct: (a) (I1 + I3).T2 + I1.T4, (b) I1.T2 + I3.T2 + I1.T4, (c) (I1 + I3).(T2 + T4)?",
+     "answer": "(a) and (b) are the same function; (c) is wrong.",
+     "why": "(c) also asserts R1in at T4 for I3, which the table does not allow. Factoring a step out of a sum of instructions is valid; multiplying two sums that came from different columns is not."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why does the decoder make the control logic smaller rather than larger?",
+     "answer": "Because it converts the m-bit opcode into one-hot lines once, and every control function then needs one literal per instruction instead of the m bits of the opcode repeated in every term.",
+     "why": "Without the decoder, each AND term would have to test the opcode bits directly, which costs m gate inputs per term instead of one."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "A machine has 32 instructions and 8 steps. What is the widest an AND gate can be in a signal tree, and what limits the real width?",
+     "answer": "At most two inputs - one instruction literal and one step literal - because the function is a sum of products over pairs.",
+     "why": "A pair is one instruction and one step, so each product has exactly two literals. What grows with 32 x 8 is the number of AND gates and the width of the OR gate, not the width of an AND."
+    }
+   ],
+   "trap": {
+    "what": "Writing the shared fetch step with an instruction term, as I1.T0 + I2.T0 + I3.T0.",
+    "why": "It is logically the same as T0 when the three instructions are the only ones, but it is wrong as soon as a fourth instruction exists, and it hides the fact that fetch is common.",
+    "counterexample": "Add I4 and the unfactored form silently stops asserting PC out during I4's fetch - a bug that no truth table over the original three instructions would reveal."
+   },
+   "check": {
+    "question": "A table has 4 instructions and 6 steps, and every one of the 24 cells asserts at least one signal. At least how many AND terms does the design need before minimisation?",
+    "answer": "24, one per asserted cell; the shared steps can reduce this, and every signal asserted in a whole row reduces by three.",
+    "explanation": "The cell count is the ceiling, not the answer. A step asserted for all four instructions contributes one term instead of four."
+   },
+   "pyqIds": [],
+   "prereqs": [
+    "hardwired-control-as-a-state-machine"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-slides",
+     "title": "Overview of the Control Unit (slides following the Boz-5 didactic machine)",
+     "channel": "Edward Bosworth, CPSC 5155, Columbus State University",
+     "url": "http://edwardbosworth.com/My5155_Slides/Chapter09/Control_UnitOverview.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read the sections on the control unit's inputs and outputs, the three major states Fetch, Defer and Execute, the minor state register T0 to T3, and the micro-memory address and buffer registers"
+    },
+    {
+     "kind": "lecture-slides",
+     "title": "The Hardwired Control Unit (the instruction decoder and the signal generation trees)",
+     "channel": "Edward Bosworth, CPSC 5155, chapter 11 slides",
+     "url": "http://edwardbosworth.com/My5155_Slides/Chapter11/HardwiredControlUnit.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read the two slides on the 5-to-32 active-high instruction decoder and on the signal generation trees whose inputs are the decoder output, the major state and the minor state"
+    }
+   ],
+   "sourceLine": "The instruction decoder as a 5-to-32 active-high decoder, and the hardwired unit as a set of signal generation trees whose inputs are the decoder output, the major state and the minor state: Edward Bosworth, chapter 11 slides and Control Unit Overview (English, read in part). The worked control function in the example is this repository's own and is recomputed in scripts/validate.py; no GATE CSE previous-year question on hardwired signal functions was found for the CSE paper (the two recorded in this family are GATE IT questions).",
+   "videoRefs": [],
+   "links": {
+    "visual": {
+     "slug": "control-unit-design",
+     "title": "From Opcode to Microprogram: Walking the Control Store",
+     "level": "topic-level",
+     "covers": [
+      "the control store as a memory of control words, with the fetch routine held at the top",
+      "each control word read out of the store as the control signals for one micro-operation",
+      "the mapping of an opcode to the start of that instruction's microprogram, and the return to fetch",
+      "the same microprogram written horizontally and vertically, and the width each costs"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/control-unit-design/index.html"
+    },
+    "mapped_at": "2026-10-31"
+   },
+   "subject": "computer-organization-and-architecture",
+   "topic": "control-unit-design",
+   "path": "subjects/computer-organization-and-architecture/control-unit-design/instruction-decoder-and-signal-generation-tree.json"
+  },
+  {
+   "id": "control-signal-equations-from-a-micro-operation-table",
+   "title": "Reading Control Equations off a Micro-operation Table",
+   "priority": "P1",
+   "order": 509,
+   "unit": "Design of the Control Unit",
+   "quickIdea": "To find the equation for one control signal, scan the whole micro-operation table for every line that writes the register that signal drives, and OR those conditions together. The table is the design; the equation is bookkeeping.",
+   "remember": [
+    "A load line for a register is asserted exactly on the steps whose micro-operation writes that register, and nowhere else.",
+    "A clear or increment line is derived the same way from the lines that clear or increment it, not from the lines that load it.",
+    "Include every condition on the line, not just the step: an indirect fetch needs the indirect bit I, and an interrupt cycle needs the interrupt flip-flop R.",
+    "Factor the step out of terms that share it, which is what keeps the gate count down.",
+    "The same scan gives every signal in the machine, so one pass over the table produces the whole control unit."
+   ],
+   "example": {
+    "prompt": "In a table, DR is written by D0 at T4, by D1 at T4, by D2 at T4 and by D6 at T4. Write the load line for DR, and say what changes if D6 also writes DR at T5.",
+    "work": "ldDR = D0.T4 + D1.T4 + D2.T4 + D6.T4 = (D0 + D1 + D2 + D6).T4. If D6 also writes at T5 the last term becomes D6.(T4 + T5), and no further factoring is possible.",
+    "answer": "ldDR = (D0 + D1 + D2 + D6).T4, with the four instructions ORed and the common step factored out."
+   },
+   "gateAngle": "This is the same skill the ALU topic used for its cycle-count questions, applied to logic: the marks come from scanning completely. The standard textbook example writes the load line for the address register as R'.T0 + R'.T2 + D7'.I.T3, where each term carries its own conditions and the interrupt flip-flop appears twice.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "In that textbook machine the address register is loaded at T0 unless an interrupt is running, at T2 unless an interrupt is running, and at T3 only for a memory-reference instruction with the indirect bit set. Write the load line and explain each literal.",
+     "answer": "ldAR = R'.T0 + R'.T2 + (D7' AND I AND T3).",
+     "why": "R' means no interrupt cycle is in progress, so T0 and T2 are suppressed while the return address is being saved. The third term needs both the instruction being a memory-reference one (D7' because D7 selects the register and I/O instructions) and the indirect bit I."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why is it a mistake to derive the increment line for the PC from the same rows as its load line?",
+     "answer": "Because they are different control inputs doing different things: a load replaces the PC, an increment adds one, and a row that increments does not necessarily load.",
+     "why": "One register can have several control inputs, and each one gets its own equation from the rows that use it."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "A table has 16 rows and a signal is asserted in 5 of them, two of which share a step. How many AND terms survive after factoring?",
+     "answer": "Four: the two rows sharing a step merge into one term, and the other three stay separate.",
+     "why": "Factoring only combines terms with an identical literal, which here is the step. Two rows that differ in instruction cannot be merged unless one instruction literal is common to all rows at that step."
+    }
+   ],
+   "trap": {
+    "what": "Dropping the indirect bit from the address-register term because the fetch steps do not need it.",
+    "why": "The indirect phase runs only for an instruction whose I bit is set, and that bit is part of the condition, not part of the step.",
+    "counterexample": "Without the I literal the address register is reloaded at T3 for every memory-reference instruction, which would overwrite the operand address just computed for a direct instruction."
+   },
+   "check": {
+    "question": "A register is loaded at T2 for I1 and I2, and cleared at T4 for I1. Write both lines.",
+    "answer": "load = (I1 + I2).T2, clear = I1.T4.",
+    "explanation": "Two different control inputs on one register, each derived from its own rows. Writing one line for both would clear the register whenever it was meant to load."
+   },
+   "pyqIds": [],
+   "prereqs": [
+    "instruction-decoder-and-signal-generation-tree"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-slides",
+     "title": "Timing and Control - the control unit of the basic computer",
+     "channel": "Government College Hamirpur, Computer System Architecture COMP201Th, Unit 2 Lecture 3 (following Mano)",
+     "url": "https://www.gchamirpur.org/pdf/lectures3/Unit2-Lecture-3-Timing-and-Control-Instruction-Cycle.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read the comparison of hardwired and microprogrammed control and the description of the control unit as two decoders, a sequence counter and control logic gates"
+    },
+    {
+     "kind": "text",
+     "title": "A Simulated Mano Machine - deriving the control signal equations from the micro-operation table",
+     "channel": "ASEE peer paper on a Mano-machine project (control equations worked out from the table)",
+     "url": "https://peer.asee.org/a-simulated-mano-machine-an-novel-project-for-computer-architecture-class.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read the worked derivations of ldDR = D0.T4 + D1.T4 + D2.T4 + D6.T4 and ldAR = T0./R + T2./R + T3.I./D7, which is what the example and the variation on this card are built on"
+    }
+   ],
+   "sourceLine": "The method of scanning the micro-operation table for every place a register is written, and the two worked equations ldDR and ldAR: the ASEE paper on a simulated Mano machine (English, read in part). The structure of the control unit as two decoders, a sequence counter and control logic gates: Government College Hamirpur, Unit 2 Lecture 3 following Mano (English, read in part). Every term quoted here is recomputed in scripts/validate.py.",
+   "videoRefs": [],
+   "links": {
+    "visual": {
+     "slug": "control-unit-design",
+     "title": "From Opcode to Microprogram: Walking the Control Store",
+     "level": "topic-level",
+     "covers": [
+      "the control store as a memory of control words, with the fetch routine held at the top",
+      "each control word read out of the store as the control signals for one micro-operation",
+      "the mapping of an opcode to the start of that instruction's microprogram, and the return to fetch",
+      "the same microprogram written horizontally and vertically, and the width each costs"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/control-unit-design/index.html"
+    },
+    "mapped_at": "2026-10-31"
+   },
+   "subject": "computer-organization-and-architecture",
+   "topic": "control-unit-design",
+   "path": "subjects/computer-organization-and-architecture/control-unit-design/control-signal-equations-from-a-micro-operation-table.json"
+  },
+  {
+   "id": "hardwired-design-methods-counter-delay-state-table",
+   "title": "Three Ways to Build the Hardwired Unit: Counter, Delay Element, State Table",
+   "priority": "P2",
+   "order": 510,
+   "unit": "Design of the Control Unit",
+   "quickIdea": "The sequence of steps can be timed three ways: a counter decoded into timing signals, a chain of delay elements each ending a step, or a full state-table design that treats the controller as any other sequential circuit.",
+   "remember": [
+    "Sequence-counter method: a modulo-k counter per phase, decoded into k timing signals, with a combinational block producing each control signal from (phase, step, instruction).",
+    "Delay-element method: a chain of delay blocks, one per step, each enabled when the previous one finishes; cheap for a fixed sequence and hard to branch with.",
+    "State-table method: assign states, minimise, encode, then synthesise - the general procedure, and the one that handles conditional steps cleanly.",
+    "The counter method needs ceil(log2 p) flip-flops for p phases and ceil(log2 k) for k steps, and the decoders are k-to-1 and p-to-1.",
+    "Whichever method is used, the controller is still combinational logic plus a state register, so the design remains fixed after fabrication."
+   ],
+   "example": {
+    "prompt": "A controller has 4 phases and at most 5 steps in any phase. Size the sequence-counter version.",
+    "work": "Phases: ceil(log2 4) = 2 flip-flops, decoded by a 2-to-4 decoder. Steps: ceil(log2 5) = 3 flip-flops, decoded by a 3-to-8 decoder of which 5 outputs are used. Five state bits in total, and the control logic sees 4 x 8 = 32 phase-step combinations of which 20 are reachable.",
+    "answer": "2 + 3 = 5 state flip-flops, a 2-to-4 phase decoder and a 3-to-8 step decoder, and 20 reachable phase-step combinations."
+   },
+   "gateAngle": "The exam question is nearly always the sizing: how many flip-flops, how many decoder outputs, how many timing signals. The trap is rounding down - ceil, never floor - and forgetting that a decoder always produces a power of two outputs whatever the count.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "Which method would you choose for a controller whose step sequence must sometimes skip a step when a flag is set, and why?",
+     "answer": "The state-table method, because a conditional transition is just another row of the state table, whereas a plain counter always walks the same sequence.",
+     "why": "The counter and delay-chain methods produce a fixed sequence; branching needs either extra logic to jam the counter or a full state-table design."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why does the delay-element method not need a decoder?",
+     "answer": "Because the delay chain itself produces one pulse per step in order: the end of one delay enables the next block, so the timing signals are the chain's outputs rather than decoded counter values.",
+     "why": "It trades a decoder for a chain of delay blocks, which is cheaper for short fixed sequences and unusable when the sequence must branch or repeat at a variable point."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "A sequence counter is 4 bits wide and drives a 4-to-16 decoder, but only 9 steps are ever used. How many timing signals exist and how many are wasted?",
+     "answer": "16 timing signals, 7 of them never asserted; the counter is still 4 bits because 3 bits would give only 8 steps.",
+     "why": "The waste is in the decoder, not in the counter: 4 bits are forced by the count of 9. A designer may clear the counter early to reuse codes, which is what the basic-computer design does at T4."
+    }
+   ],
+   "trap": {
+    "what": "Sizing the step counter by the number of steps in the longest instruction rather than the number of steps in a phase.",
+    "why": "The counter is cleared at the end of each phase, so it only has to count the steps inside one phase.",
+    "counterexample": "An instruction with 12 total steps arranged as three phases of four needs a 2-bit step counter, not a 4-bit one; sizing it for 12 wastes two flip-flops and lengthens every path through the decoder."
+   },
+   "check": {
+    "question": "Name the three design methods and the one property they share.",
+    "answer": "Sequence counter, delay element, and state table. All three produce a fixed controller: combinational logic plus a state register, whose behaviour cannot be changed after fabrication.",
+    "explanation": "The difference is only in how the step sequence is timed, which is why the same control equations serve all three."
+   },
+   "pyqIds": [],
+   "prereqs": [
+    "hardwired-control-as-a-state-machine"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-slides",
+     "title": "Unit III - Control Unit Design (sequence counter, delay element and state table methods)",
+     "channel": "SRM Institute of Science and Technology, control unit design course notes",
+     "url": "https://webstor.srmist.edu.in/web_assets/srm_mainsite/files/downloads/control_unit_design.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read the three named methods with their sizing steps, the ADD (R3), R1 control sequence, and the list of hardwired advantages and disadvantages"
+    }
+   ],
+   "sourceLine": "The three systematic design methods, their sizing steps and the worked ADD (R3), R1 sequence: SRM IST control unit design notes (English, read in part). The sizing arithmetic on this card is recomputed in scripts/validate.py. No GATE CSE previous-year question on the design methods themselves was found; the questions in this topic test the result, not the procedure.",
+   "videoRefs": [],
+   "links": {
+    "visual": {
+     "slug": "control-unit-design",
+     "title": "From Opcode to Microprogram: Walking the Control Store",
+     "level": "topic-level",
+     "covers": [
+      "the control store as a memory of control words, with the fetch routine held at the top",
+      "each control word read out of the store as the control signals for one micro-operation",
+      "the mapping of an opcode to the start of that instruction's microprogram, and the return to fetch",
+      "the same microprogram written horizontally and vertically, and the width each costs"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/control-unit-design/index.html"
+    },
+    "mapped_at": "2026-10-31"
+   },
+   "subject": "computer-organization-and-architecture",
+   "topic": "control-unit-design",
+   "path": "subjects/computer-organization-and-architecture/control-unit-design/hardwired-design-methods-counter-delay-state-table.json"
+  },
+  {
+   "id": "microprogrammed-control-store-and-microinstruction",
+   "title": "Microprogrammed Control: The Control Store and the Microinstruction",
+   "priority": "P1",
+   "order": 511,
+   "unit": "Design of the Control Unit",
+   "quickIdea": "Instead of wiring the control signals, write each control word into a memory. The unit then has two jobs: read a word out and put its bits on the control lines, which is trivial, and work out which word to read next, which is the whole design.",
+   "remember": [
+    "Control store (control memory): a ROM or writable RAM holding every microinstruction of every instruction's routine.",
+    "Control address register (CAR, also written micro-PC): holds the address of the microinstruction being fetched.",
+    "Control data register (CDR, also written micro-IR or pipeline register): holds the microinstruction just read, so its bits can drive the control lines while the next address is computed.",
+    "A microinstruction is one control word plus, usually, the bits that say how to find the next one.",
+    "A microprogram is the sequence of microinstructions for one machine instruction; a microroutine is that sequence for one phase.",
+    "The idea is Wilkes's, published in 1951; EDSAC 2 in 1958 was the first machine built with a microprogrammed control unit."
+   ],
+   "example": {
+    "prompt": "A control store holds 128 microinstructions of 20 bits. How many bits does it hold, and what does each register in the unit hold?",
+    "work": "128 x 20 = 2560 bits. The CAR holds a 7-bit address (2^7 = 128). The CDR holds one 20-bit microinstruction. The datapath receives the control-signal bits of that word directly.",
+    "answer": "2560 bits of control store, a 7-bit control address register and a 20-bit control data register."
+   },
+   "gateAngle": "Two things are asked: the size arithmetic (words times width) and the role of each register. The distinction that decides questions is that the CAR addresses the store and the CDR holds the word - swapping them is the standard wrong answer. GATE CSE 2004 Q.67 is exactly the size arithmetic, done on a 26-bit word.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "Why does a microprogrammed unit need a control data register at all, when the control word could drive the lines straight out of memory?",
+     "answer": "So the word stays stable on the control lines while the next address is computed and the next word is fetched; without it the control lines would change as soon as the memory output changed.",
+     "why": "It is a pipeline register: it holds this word while the store is read for the next. Some designs omit it and accept that the store's read time is part of every clock."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "What is the difference between a microinstruction and a machine instruction?",
+     "answer": "A machine instruction is what the programmer writes and the decoder recognises; a microinstruction is one internal step of executing it, held in the control store and never visible to the program.",
+     "why": "One machine instruction becomes several microinstructions, so microprogramming sits a level below the instruction set - which is why the two are confused in prose but never in hardware."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "A control store of 512 words holds 40-bit microinstructions. How many bits is the CAR, and how many control signals could the word drive horizontally?",
+     "answer": "9 bits for the CAR (2^9 = 512), and up to 40 signals if every bit were used horizontally - in practice some bits are spent on sequencing.",
+     "why": "The address width comes from the word count, the word width from the signal count plus sequencing, and the two are independent."
+    }
+   ],
+   "trap": {
+    "what": "Assuming that because the control word is stored, the unit no longer needs the opcode.",
+    "why": "The opcode is still needed, but only once per instruction: to find the start of that instruction's microprogram. After the jump, the sequencing comes from the microinstruction's own fields.",
+    "counterexample": "Without the opcode the unit could not choose between the ADD and the SUB routine; both consist of valid microinstructions, and nothing in the microprogram itself says which instruction it belongs to."
+   },
+   "check": {
+    "question": "Name the two registers of a microprogrammed control unit and the two jobs of the unit.",
+    "answer": "The control address register (which microinstruction) and the control data register (the microinstruction itself). The jobs are generating the control signals from the word, and sequencing - choosing the next address.",
+    "explanation": "The first job is a wire from each bit to a control line; the second is the only real logic in the unit, which is why the design is described as simple."
+   },
+   "pyqIds": [],
+   "prereqs": [
+    "control-unit-contract-and-control-word",
+    "instruction-cycle-as-micro-operation-sequence"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 21 - Microinstructions and Microprograms",
+     "channel": "NPTEL, Computer Organization and Architecture - A Pedagogical Aspect (IIT Guwahati)",
+     "url": "http://www.digimat.in/nptel/courses/video/106103180/lec21.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read from the opening through the statement that a control word holds the 1s and 0s of one micro-instruction and that a microprogrammed unit has two jobs, signal generation and sequencing"
+    },
+    {
+     "kind": "lecture-slides",
+     "title": "Control Units: Hardwired and Microprogrammed",
+     "channel": "Edward Bosworth, CPSC 5155, chapter 4 lecture",
+     "url": "http://www.edwardbosworth.com/CPSC5155/PH4/Ch04/Ch04_Microprogramming.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read the description of the micro-control unit as the block that computes the next CROM address, the four steps of reading a control word into the micro-MBR, and the Wilkes and EDSAC 2 history"
+    }
+   ],
+   "sourceLine": "The idea of a control word stored in a memory and read out as the control signals, and the two jobs of generating signals and sequencing: IIT Guwahati, Lecture 21 (English, read in part). The micro-control unit as the block whose only function is to compute the next control-store address, and the Wilkes 1951 and EDSAC 2 history: Edward Bosworth, chapter 4 lecture (English, read in part).",
+   "videoRefs": [],
+   "links": {
+    "visual": {
+     "slug": "control-unit-design",
+     "title": "From Opcode to Microprogram: Walking the Control Store",
+     "level": "topic-level",
+     "covers": [
+      "the control store as a memory of control words, with the fetch routine held at the top",
+      "each control word read out of the store as the control signals for one micro-operation",
+      "the mapping of an opcode to the start of that instruction's microprogram, and the return to fetch",
+      "the same microprogram written horizontally and vertically, and the width each costs"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/control-unit-design/index.html"
+    },
+    "mapped_at": "2026-10-31"
+   },
+   "subject": "computer-organization-and-architecture",
+   "topic": "control-unit-design",
+   "path": "subjects/computer-organization-and-architecture/control-unit-design/microprogrammed-control-store-and-microinstruction.json"
+  },
+  {
+   "id": "microinstruction-format-horizontal-vertical-hybrid",
+   "title": "Horizontal, Vertical and Hybrid Microinstruction Formats",
+   "priority": "P1",
+   "order": 512,
+   "unit": "Design of the Control Unit",
+   "quickIdea": "Horizontal microcode gives every control signal its own bit: wide words, no decoder, any number of signals at once. Vertical microcode encodes a group of signals into a binary field: narrow words, one decoder, at most one signal from that group at a time. Hybrid encodes only the groups whose members can never fire together.",
+   "remember": [
+    "Horizontal: one bit per control signal, so width equals the number of signals and no decoder is needed in the path.",
+    "Vertical: a group of n mutually exclusive signals needs ceil(log2(n + 1)) bits, the +1 being the no-operation code.",
+    "The trade is exact: vertical saves bits and costs a decoder delay, and it also makes it impossible to assert two members of one group together.",
+    "Hybrid, also called diagonal, groups only the signals that are genuinely mutually exclusive - the bus-source field, the ALU-function field - and leaves the rest as single bits.",
+    "The rule to memorise: a group may be encoded only if its members can never be needed simultaneously. If two signals must fire together, they must be in different fields or both horizontal."
+   ],
+   "example": {
+    "prompt": "A unit has 25 control signals and at most two may be active at any one time. How many bits does a horizontal word need, and what is the smallest vertical encoding?",
+    "work": "Horizontal: 25 bits. Vertical: two fields, each choosing one of 25 signals, so each needs ceil(log2 25) = 5 bits, and the word is 10 bits. If the two fields were merged into one field choosing an unordered pair, the number of states would be 1 + 25 + 300 = 326, which needs 9 bits - but then the two signals would have no order, and a decoder for 326 states is far larger than two 5-bit decoders.",
+    "answer": "25 bits horizontally against 10 bits vertically. The 9-bit figure is the information-theoretic floor, not the accepted exam answer."
+   },
+   "gateAngle": "GATE CSE 1996 Q.2.25 is this example and its accepted answer is 10 bits, read as two 5-bit fields. GATE CSE 1997 Q.5.3 is the same arithmetic split across two kinds of signal - 2 bits for none-or-one-of-three and 6 bits for any subset of six, giving 8. GATE CSE 2002 Q.2.7 tests the properties of the horizontal form, where all three statements - no decoders, larger than vertical, one bit per signal - are true.",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 1997 Q.5.3: a microinstruction is to specify none or one of three micro-operations of one kind, and none or up to six micro-operations of another kind. The minimum number of bits in the microinstruction is (A) 9 (B) 5 (C) 8 (D) none of the above.",
+     "answer": "(C) 8.",
+     "why": "The first kind is mutually exclusive, so 4 states (none, or one of three) take 2 bits. The second kind allows any subset of six, so 2^6 = 64 states take 6 bits. 2 + 6 = 8. Answering 9 means encoding the first kind horizontally, which is not the minimum."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "A control word has three fields of mutually exclusive signals holding 4, 6 and 9 signals, plus 7 signals that may be asserted freely. Give the vertical width and the horizontal width.",
+     "answer": "Vertical: 3 + 3 + 4 + 7 = 17 bits. Horizontal: 4 + 6 + 9 + 7 = 26 bits.",
+     "why": "Each encoded field costs ceil(log2(n + 1)): ceil(log2 5) = 3, ceil(log2 7) = 3, ceil(log2 10) = 4. The seven free signals cannot be encoded at all and stay one bit each."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why does vertical microcode cost speed even though it saves memory?",
+     "answer": "Because every encoded field must pass through a decoder before it becomes a control signal, so the decoder's delay sits in the path from the control store to the datapath.",
+     "why": "That single extra delay is the whole reason the speed order is hardwired, then horizontal, then vertical, which is what GATE CSE 1999 Q.2.19 asks for."
+    }
+   ],
+   "trap": {
+    "what": "Encoding two signals into one vertical field when they can be needed at the same time.",
+    "why": "A field holds one code, so it can select one of its members; two signals that must both be active have no code that expresses both.",
+    "counterexample": "Putting memory-read and PC-increment in one 1-bit field looks like a saving, but the fetch step asserts both at once, so the machine can no longer fetch. They belong in two separate bits."
+   },
+   "check": {
+    "question": "How many bits does a vertical field need for a group of 12 mutually exclusive signals, and why is it not 4 bits of plain binary?",
+    "answer": "4 bits, because 12 + 1 = 13 states and 2^4 = 16 covers them. What the 4 bits are not is 12 signals in 12 bits: that is the horizontal form.",
+    "explanation": "The +1 is the no-operation code, and it is what makes a 3-signal group need 2 bits (4 states) rather than 2 bits for 3 states only. 16 codes cover 13, so four bits suffice with three codes left over."
+   },
+   "pyqIds": [
+    "gate-1996-2-25-control-word-bits-two-active",
+    "gate-1997-5-3-microinstruction-minimum-bits",
+    "gate-2002-2-7-horizontal-microprogramming"
+   ],
+   "prereqs": [
+    "microprogrammed-control-store-and-microinstruction"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-slides",
+     "title": "Control Units: Hardwired and Microprogrammed (horizontal and vertical microcode)",
+     "channel": "Edward Bosworth, CPSC 5155, chapter 4 lecture",
+     "url": "http://www.edwardbosworth.com/CPSC5155/PH4/Ch04/Ch04_Microprogramming.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read the horizontal-against-vertical comparison, where a bus fed by seven sources takes 8 bits horizontally and 3 bits vertically, and the note that vertical microcode also prevents two sources being placed on one bus at once"
+    },
+    {
+     "kind": "text",
+     "title": "Control Unit (Hardwired and Microprogrammed) Hindi mein",
+     "channel": "DSWallah Learn (Hinglish study lesson on the control unit)",
+     "url": "https://www.dswallah.com/learn/computer-architecture/control-unit/",
+     "language": "hi",
+     "transcript": "PARTIAL",
+     "translated": true,
+     "note": "read the horizontal-against-vertical comparison, the CISC and RISC association, and the list of common mistakes about which unit is faster. Written in romanised Hindi and translated into English here; its worked control sequence and its analogy are not used"
+    }
+   ],
+   "sourceLine": "The horizontal and vertical comparison, with a bus fed by seven sources taking 8 bits horizontally and 3 bits vertically, and the point that vertical encoding also prevents two sources reaching one bus at once: Edward Bosworth, chapter 4 lecture (English, read in part). The horizontal and vertical definitions and the CISC and RISC association: DSWallah Learn (romanised Hindi, translated, read in part). The 1996 and 1997 arithmetic is recomputed in scripts/validate.py, including the 9-bit floor that the accepted 1996 answer does not use.",
+   "videoRefs": [],
+   "links": {
+    "visual": {
+     "slug": "control-unit-design",
+     "title": "From Opcode to Microprogram: Walking the Control Store",
+     "level": "topic-level",
+     "covers": [
+      "the control store as a memory of control words, with the fetch routine held at the top",
+      "each control word read out of the store as the control signals for one micro-operation",
+      "the mapping of an opcode to the start of that instruction's microprogram, and the return to fetch",
+      "the same microprogram written horizontally and vertically, and the width each costs"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/control-unit-design/index.html"
+    },
+    "mapped_at": "2026-10-31"
+   },
+   "subject": "computer-organization-and-architecture",
+   "topic": "control-unit-design",
+   "path": "subjects/computer-organization-and-architecture/control-unit-design/microinstruction-format-horizontal-vertical-hybrid.json"
+  },
+  {
+   "id": "field-width-and-control-memory-size-arithmetic",
+   "title": "Field Width and Control Memory Size: The Arithmetic Questions",
+   "priority": "P1",
+   "order": 513,
+   "unit": "Design of the Control Unit",
+   "quickIdea": "Every microinstruction width question is the same sum: the control fields plus the sequencing fields equal the word, the address field is wide enough to name every word, and the store size is words times width.",
+   "remember": [
+    "Word width = sum of the control-signal bits + the next-address bits + any condition-select and branch-type bits.",
+    "A field that selects one of n alternatives takes ceil(log2 n) bits; a vertical field that must also say 'none' takes ceil(log2(n + 1)).",
+    "The next-address field is as wide as the control address register, which is ceil(log2 W) for a store of W words - and that width also fixes W, since W = 2^(address width).",
+    "Store size in bits = number of words x word width; in words it is 2^(address width).",
+    "Give the answer in the units asked for. A question that asks for words wants 1024, not 1024 x 26."
+   ],
+   "example": {
+    "prompt": "GATE CSE 2004 Q.67: microinstructions are 26 bits wide, split into a 13-bit micro-operation field, a next-address field X and a multiplexer-select field Y. The multiplexer has 8 status bits on its inputs. Find X, Y and the number of words in the control memory.",
+    "work": "The multiplexer selects one of 8 status bits, so Y = ceil(log2 8) = 3. Then X = 26 - 13 - 3 = 10. A 10-bit next-address field addresses 2^10 = 1024 words, which is the size of the control memory.",
+    "answer": "X = 10, Y = 3, and 1024 words - option (A)."
+   },
+   "gateAngle": "This is the one arithmetic question the topic repeats, in different clothing: one field is given as a count and must be turned into bits, one field is the remainder, and the remainder's width is read back as a capacity. Two traps: using log2 instead of ceil, and treating the address field as data rather than as a width that determines the store.",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2004 Q.67, as above: how many bits are there in the X and Y fields, and what is the size of the control memory in words?",
+     "answer": "(A) 10, 3, 1024.",
+     "why": "Y = 3 because 8 status bits need three select lines; X = 26 - 13 - 3 = 10; and a 10-bit address names 2^10 = 1024 words."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "A microinstruction is 32 bits: 3 encoded fields of 5, 6 and 4 bits, 8 single-bit signals, a 2-bit branch field, a 3-bit condition field, and the rest is the address. How many words can the control store hold?",
+     "answer": "32 - (5 + 6 + 4 + 8 + 2 + 3) = 32 - 28 = 4 address bits, so 16 words.",
+     "why": "Add every non-address field, subtract from the word, and read the remainder as an address width. Four bits name 16 words, which is small enough that the designer would probably widen the store instead."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "The control store must hold 300 microinstructions. How wide is the control address register, and how many words are wasted?",
+     "answer": "9 bits, since 2^8 = 256 is too few and 2^9 = 512; 212 words are wasted.",
+     "why": "The address register can only be a whole number of bits, so the store is always a power of two and the waste is unavoidable."
+    }
+   ],
+   "trap": {
+    "what": "Answering the store size in bits when the question asks for words, or the reverse.",
+    "why": "The two differ by the word width, and both answers are usually present as options.",
+    "counterexample": "For the 2004 question, 1024 words is 1024 x 26 = 26624 bits. A candidate who computes the bit count and then looks for it in the options finds nothing and doubts a correct calculation."
+   },
+   "check": {
+    "question": "A control store has 256 words of 24 bits, of which the address field is 8 bits. How many bits are available for control signals and other fields?",
+    "answer": "16 bits: 24 - 8.",
+    "explanation": "The address field of 8 bits is exactly what 256 words needs, so the two figures agree - which is the consistency check worth running on any such question."
+   },
+   "pyqIds": [
+    "gate-2004-67-microinstruction-fields-control-memory-size"
+   ],
+   "prereqs": [
+    "microprogrammed-control-store-and-microinstruction",
+    "microinstruction-format-horizontal-vertical-hybrid"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-slides",
+     "title": "Unit III Part 1 - Microprogrammed Control: control memory, address sequencing, microprogram example, design of the control unit",
+     "channel": "P. C. E. Puri, computer organization course notes following Mano",
+     "url": "https://www.pcepurnia.org/wp-content/uploads/2020/03/Unit-III-part-1.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read the definitions of control word, microinstruction, microprogram, CAR and CDR, the four address-sequencing capabilities, the 20-bit microinstruction format, the 128-location example with its fetch routine, and the microprogram sequencer with its two multiplexers"
+    },
+    {
+     "kind": "lecture-slides",
+     "title": "Control Units: Hardwired and Microprogrammed (horizontal and vertical microcode)",
+     "channel": "Edward Bosworth, CPSC 5155, chapter 4 lecture",
+     "url": "http://www.edwardbosworth.com/CPSC5155/PH4/Ch04/Ch04_Microprogramming.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read the horizontal-against-vertical comparison, where a bus fed by seven sources takes 8 bits horizontally and 3 bits vertically, and the note that vertical microcode also prevents two sources being placed on one bus at once"
+    }
+   ],
+   "sourceLine": "The 20-bit microinstruction format with three 3-bit micro-operation fields, a 2-bit condition field, a 2-bit branch field and a 7-bit address field, and the 128-location control memory: P. C. E. Puri unit III notes following Mano (English, read in part). The encoded-field widths and the no-operation option in a vertical field: Edward Bosworth, chapter 4 lecture (English, read in part). Every number on this card is recomputed in scripts/validate.py.",
+   "videoRefs": [],
+   "links": {
+    "visual": {
+     "slug": "control-unit-design",
+     "title": "From Opcode to Microprogram: Walking the Control Store",
+     "level": "topic-level",
+     "covers": [
+      "the control store as a memory of control words, with the fetch routine held at the top",
+      "each control word read out of the store as the control signals for one micro-operation",
+      "the mapping of an opcode to the start of that instruction's microprogram, and the return to fetch",
+      "the same microprogram written horizontally and vertically, and the width each costs"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/control-unit-design/index.html"
+    },
+    "mapped_at": "2026-10-31"
+   },
+   "subject": "computer-organization-and-architecture",
+   "topic": "control-unit-design",
+   "path": "subjects/computer-organization-and-architecture/control-unit-design/field-width-and-control-memory-size-arithmetic.json"
+  },
+  {
+   "id": "microinstruction-sequencing-and-next-address",
+   "title": "Sequencing: Four Ways into the Control Address Register",
+   "priority": "P2",
+   "order": 514,
+   "unit": "Design of the Control Unit",
+   "quickIdea": "The control address register can be loaded from exactly four places - the incrementer, the branch-address field of the current microinstruction, the mapping logic fed by the opcode, and the subroutine register - and the branch and condition fields decide which.",
+   "remember": [
+    "Increment: CAR + 1, the default, so a routine can be a straight list of microinstructions.",
+    "Branch: an address field inside the microinstruction, taken unconditionally or only if a selected status bit is 1.",
+    "Mapping: an external address derived from the instruction's opcode, used once per instruction to enter its routine.",
+    "Subroutine: a return address saved in a subroutine register when a shared microroutine is called, and restored on return.",
+    "The condition field selects which status bit is tested, the branch field says what to do with the result, and the input logic turns those two into the select signals of the address multiplexer."
+   ],
+   "example": {
+    "prompt": "In the standard 20-bit format the condition field is 2 bits and the branch field is 2 bits. What do they allow, and why is the address field 7 bits?",
+    "work": "Two condition bits select one of 4 status bits to test; two branch bits select one of 4 actions (jump unconditionally, jump on the condition, call a subroutine, return). Seven address bits name 128 locations, which is the size of that control memory.",
+    "answer": "4 testable status bits and 4 branch types, with a 7-bit address for a 128-word store."
+   },
+   "gateAngle": "Sequencing is usually tested as a width or a count: how many status bits can be selected, how many branch types exist, how wide the address field is. The reasoning is always the same power-of-two arithmetic as the format card. It is also the part of the unit that a question can describe in prose - which of the four sources is used for a given microinstruction - so read the fields as a routing decision, not as an instruction.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "A microinstruction has a 1-bit condition field and a 1-bit branch field. What can it express, and what is lost?",
+     "answer": "It can test one status bit and either jump on it or not; there is no unconditional branch, no subroutine call and no return, so shared microroutines cannot be used.",
+     "why": "One bit per field leaves two choices each. The standard format's two bits per field are what make four branch types and four testable conditions possible."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why must the return address of a microroutine be kept in a register rather than in memory?",
+     "answer": "Because the microcode is sequencing itself: there is no stack pointer instruction at that level, so the unit needs a dedicated register to remember where to resume.",
+     "why": "At machine-instruction level the return address goes on the stack because software manages it. Inside the control unit there is no software, so the hardware keeps one address."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "A control store of 512 words uses a 3-bit condition field and a 3-bit branch field. What is the minimum microinstruction width if it drives 30 horizontal signals?",
+     "answer": "30 + 3 + 3 + 9 = 45 bits.",
+     "why": "The address field must be 9 bits to name 512 words. Add the control bits and both sequencing fields."
+    }
+   ],
+   "trap": {
+    "what": "Assuming the next microinstruction is always the next address in the store.",
+    "why": "The incrementer is only the default; the branch field overrides it, and the mapping logic overrides it once per instruction.",
+    "counterexample": "A routine that is a straight list works with the incrementer alone, but the moment the machine has two instructions, the unit must jump to a different block for each - and that jump cannot be an increment."
+   },
+   "check": {
+    "question": "Name the four sources of the control address register and say which one uses the opcode.",
+    "answer": "Incrementer, branch-address field, mapping logic and subroutine register; the mapping logic is the one fed by the opcode.",
+    "explanation": "The mapping logic is used once, at the boundary between fetch and the instruction's own routine; everything else within a routine comes from the other three."
+   },
+   "pyqIds": [],
+   "prereqs": [
+    "microprogrammed-control-store-and-microinstruction",
+    "field-width-and-control-memory-size-arithmetic"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-slides",
+     "title": "Unit III Part 1 - Microprogrammed Control: control memory, address sequencing, microprogram example, design of the control unit",
+     "channel": "P. C. E. Puri, computer organization course notes following Mano",
+     "url": "https://www.pcepurnia.org/wp-content/uploads/2020/03/Unit-III-part-1.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read the definitions of control word, microinstruction, microprogram, CAR and CDR, the four address-sequencing capabilities, the 20-bit microinstruction format, the 128-location example with its fetch routine, and the microprogram sequencer with its two multiplexers"
+    },
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 22 - Organization and Optimization of Microprogrammed controlled Control Unit",
+     "channel": "NPTEL, Computer Organization and Architecture - A Pedagogical Aspect (IIT Guwahati)",
+     "url": "http://www.digimat.in/nptel/courses/video/106103180/lec22.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read from the opening through the description of the shared fetch microprogram, the micro program counter pointing at it, and the jump to the microprogram of the decoded instruction"
+    }
+   ],
+   "sourceLine": "The four capabilities of address sequencing - incrementing, unconditional or conditional branch on a status bit, and the mapping process - together with the two multiplexers of the microprogram sequencer, the condition and branch fields, and the subroutine register: P. C. E. Puri unit III notes following Mano (English, read in part). The description of the micro program counter fetching microinstructions in sequence and jumping when required: IIT Guwahati, Lecture 22 (English, read in part).",
+   "videoRefs": [],
+   "links": {
+    "visual": {
+     "slug": "control-unit-design",
+     "title": "From Opcode to Microprogram: Walking the Control Store",
+     "level": "topic-level",
+     "covers": [
+      "the control store as a memory of control words, with the fetch routine held at the top",
+      "each control word read out of the store as the control signals for one micro-operation",
+      "the mapping of an opcode to the start of that instruction's microprogram, and the return to fetch",
+      "the same microprogram written horizontally and vertically, and the width each costs"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/control-unit-design/index.html"
+    },
+    "mapped_at": "2026-10-31"
+   },
+   "subject": "computer-organization-and-architecture",
+   "topic": "control-unit-design",
+   "path": "subjects/computer-organization-and-architecture/control-unit-design/microinstruction-sequencing-and-next-address.json"
+  },
+  {
+   "id": "mapping-opcode-to-microprogram-and-the-fetch-routine",
+   "title": "Mapping the Opcode to a Microprogram, and the Shared Fetch Routine",
+   "priority": "P2",
+   "order": 515,
+   "unit": "Design of the Control Unit",
+   "quickIdea": "Every instruction's routine needs its own block of the control store, and the opcode is turned into that block's start address by a fixed mapping - not by a table lookup. One block, the fetch routine, is shared by every instruction and is entered at the start of each cycle.",
+   "remember": [
+    "Mapping is a wiring rule: the opcode bits are placed at a fixed position in the address and the low bits are zeroed, so each opcode owns an equally sized block.",
+    "The block must be large enough for the longest routine; if it is, the mapped address is opcode x block size.",
+    "The fetch routine is stored once, usually at the top of the store, and every instruction's routine ends with an unconditional branch back to it.",
+    "A machine instruction's cycle is therefore: fetch block, mapping jump to the instruction block, execute, branch back to fetch.",
+    "Shared sections inside routines are handled by microroutines with a return register, which is the same idea one level down."
+   ],
+   "example": {
+    "prompt": "A control store has 128 words and the machine has 16 instructions of at most 4 microinstructions each. Where does each instruction's routine start, and where can the fetch routine go?",
+    "work": "16 instructions x 4 words = 64 words, so the routines occupy addresses 0 to 63. Mapping the 4-bit opcode with two zero bits below it gives start = 4 x opcode: opcode 0 starts at 0, opcode 1 at 4, and opcode 15 at 60. The remaining 64 words, 64 to 127, are free, and the fetch routine is put at 64.",
+    "answer": "Routine start = 4 x opcode, so 0, 4, 8, ..., 60; the fetch routine sits at 64 and needs three words, 64 to 66."
+   },
+   "gateAngle": "The questions here are about the size of the block and the arithmetic of the start address. Two mistakes recur: assuming the opcode is the address (it is not - the low bits are inserted), and forgetting that the fetch routine is shared, which is what makes the total smaller than instructions x (fetch + execute).",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "A machine has 8 instructions, each needing at most 6 microinstructions, and a 3-microinstruction fetch routine. How many words must the control store have at least, and how wide is the control address register?",
+     "answer": "At least 8 x 6 + 3 = 51 words, so a 64-word store, which needs a 6-bit control address register.",
+     "why": "Round the routine block up to a power of two so that the mapping stays a shift - 6 rounds to 8, giving 8 x 8 = 64, with the fetch routine in the spare space."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why is the mapping done in hardware rather than by a lookup table in the control store?",
+     "answer": "Because a fixed shift of the opcode bits is free - it is just wiring - whereas a table would cost a memory access before every instruction's routine could begin.",
+     "why": "The mapping logic is a few gates and some wiring; that is why the block size must be a power of two, so that the shift is exact."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "If one instruction needs 9 microinstructions but the block size is 8, what breaks, and what are the two fixes?",
+     "answer": "Its routine would overrun into the next instruction's block. The fixes are to double the block size, which doubles the store, or to let that routine branch into a shared extension area.",
+     "why": "The mapping assumes every block is the same size; a routine that needs more either forces a bigger block or has to be split across the store with an explicit branch."
+    }
+   ],
+   "trap": {
+    "what": "Giving every instruction its own copy of the fetch steps.",
+    "why": "The fetch steps are identical for all instructions and depend on no opcode, so repeating them multiplies the store for nothing.",
+    "counterexample": "Sixteen instructions with a three-step fetch would need 48 extra words if each had its own copy, against 3 for a single shared routine - and every copy would have to be kept in step by hand."
+   },
+   "check": {
+    "question": "A 4-bit opcode maps with two zero bits below it. What start address does opcode 0101 get, and how many words does its block hold?",
+    "answer": "4 x 5 = 20, and four words: 20, 21, 22, 23.",
+    "explanation": "Two inserted zero bits multiply the opcode by 4, which is exactly the block size. The block ends at the next opcode's start address minus one."
+   },
+   "pyqIds": [],
+   "prereqs": [
+    "microinstruction-sequencing-and-next-address"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-slides",
+     "title": "Unit III Part 1 - Microprogrammed Control: control memory, address sequencing, microprogram example, design of the control unit",
+     "channel": "P. C. E. Puri, computer organization course notes following Mano",
+     "url": "https://www.pcepurnia.org/wp-content/uploads/2020/03/Unit-III-part-1.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read the definitions of control word, microinstruction, microprogram, CAR and CDR, the four address-sequencing capabilities, the 20-bit microinstruction format, the 128-location example with its fetch routine, and the microprogram sequencer with its two multiplexers"
+    },
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 22 - Organization and Optimization of Microprogrammed controlled Control Unit",
+     "channel": "NPTEL, Computer Organization and Architecture - A Pedagogical Aspect (IIT Guwahati)",
+     "url": "http://www.digimat.in/nptel/courses/video/106103180/lec22.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read from the opening through the description of the shared fetch microprogram, the micro program counter pointing at it, and the jump to the microprogram of the decoded instruction"
+    }
+   ],
+   "sourceLine": "The mapping process as the transformation of instruction-code bits into a control-memory address, the four steps the control must undergo during one instruction (load an initial address, fetch, map on the opcode, branch back to fetch), and the 128-location example with the first 64 locations for 16 instructions and the fetch routine at 64: P. C. E. Puri unit III notes following Mano (English, read in part). The description of the micro program counter being pointed at the fetch part for every new instruction and jumping to the decoded instruction's own microprogram: IIT Guwahati, Lecture 22 (English, read in part). The start-address arithmetic on this card is this repository's own and is recomputed in scripts/validate.py, because the served extract of the notes stopped before the worked mapping figure.",
+   "videoRefs": [],
+   "links": {
+    "visual": {
+     "slug": "control-unit-design",
+     "title": "From Opcode to Microprogram: Walking the Control Store",
+     "level": "topic-level",
+     "covers": [
+      "the control store as a memory of control words, with the fetch routine held at the top",
+      "each control word read out of the store as the control signals for one micro-operation",
+      "the mapping of an opcode to the start of that instruction's microprogram, and the return to fetch",
+      "the same microprogram written horizontally and vertically, and the width each costs"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/control-unit-design/index.html"
+    },
+    "mapped_at": "2026-10-31"
+   },
+   "subject": "computer-organization-and-architecture",
+   "topic": "control-unit-design",
+   "path": "subjects/computer-organization-and-architecture/control-unit-design/mapping-opcode-to-microprogram-and-the-fetch-routine.json"
+  },
+  {
+   "id": "hardwired-versus-microprogrammed-trade-offs",
+   "title": "Hardwired against Microprogrammed: Speed, Cost and Flexibility",
+   "priority": "P1",
+   "order": 516,
+   "unit": "Design of the Control Unit",
+   "quickIdea": "Hardwired control is the fastest and the least flexible; horizontal microcode is next fastest and still flexible; vertical microcode is slowest because of its decoders. The choice follows the instruction set: small and fixed goes hardwired, large and changeable goes microprogrammed.",
+   "remember": [
+    "Speed order, and it is asked directly: hardwired, then horizontal microprogrammed, then vertical microprogrammed.",
+    "Hardwired wins on speed and chip area, loses on flexibility: a new instruction means new wiring.",
+    "Microprogrammed wins on flexibility and on handling complex instruction sets, loses on speed and on chip area for the control store.",
+    "The association to keep: RISC designs tend to be hardwired, CISC designs microprogrammed - but the association is a tendency, not a rule.",
+    "A writable control store lets a machine emulate another instruction set by loading a different microprogram, which is the one thing hardwired control cannot do."
+   ],
+   "example": {
+    "prompt": "A designer must add a new string-compare instruction to an existing processor. Which control unit makes this cheap, and what does the other one cost?",
+    "work": "With a microprogrammed unit the new instruction is a new microroutine in the control store, plus one entry in the mapping; no wiring changes. With a hardwired unit every control signal the new instruction uses must gain another AND term, and the state machine may need new states.",
+    "answer": "Microprogrammed control makes it a software change; hardwired control makes it a re-design of the signal trees and possibly of the state machine."
+   },
+   "gateAngle": "GATE CSE 1987 Q.1(vi) asks which statement about a microprogrammed control unit is true, and only 'facilitates easy implementation of new instructions' is. GATE CSE 1999 Q.2.19 asks for the speed order and the answer is hardwired, horizontal, vertical. Both questions are decided by the two facts on this card, not by any arithmetic.",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 1987 Q.1(vi): a microprogrammed control unit (1) is faster than a hard-wired control unit (2) facilitates easy implementation of new instructions (3) is useful when very small programs are to be run (4) usually refers to the control unit of a microprocessor.",
+     "answer": "Statement 2 only.",
+     "why": "Microcode is slower than hardwired logic, and small programs are exactly where the control store's cost is not justified. A microprocessor's control unit may be built either way, so statement 4 is false too."
+    },
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 1999 Q.2.19: arrange hardwired control, vertical microprogramming and horizontal microprogramming in decreasing order of operating speed.",
+     "answer": "Hardwired control, horizontal microprogramming, vertical microprogramming.",
+     "why": "Hardwired has no control-store access at all; horizontal has the access but no decoder in the signal path; vertical adds the decoder delay on top of the access."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "A machine must run programs compiled for an older instruction set. Which control unit makes that possible without a second processor, and why?",
+     "answer": "A microprogrammed unit with a writable control store: load the old instruction set's microprogram and the same hardware executes the old instructions.",
+     "why": "Emulation is a property of storing the control as data. Hardwired control would need the old instruction set built into the silicon as well."
+    }
+   ],
+   "trap": {
+    "what": "Saying a microprogrammed unit is faster because it is 'programmed' and programs are efficient.",
+    "why": "The program is not an optimisation: it adds a memory read and, for vertical microcode, a decode to every control signal's path.",
+    "counterexample": "Two identical datapaths, one driven hardwired and one driven from a control store, run at different clock rates for the same logic depth - the microprogrammed one cannot be faster, because it does strictly more work per control word."
+   },
+   "check": {
+    "question": "Give the speed order of the three control organisations and the one-sentence reason for each step in it.",
+    "answer": "Hardwired, then horizontal microprogrammed, then vertical microprogrammed: no store access, then a store access with no decoder, then a store access plus a decoder.",
+    "explanation": "Each step down the order adds one delay to the path from the state or the store to the datapath."
+   },
+   "pyqIds": [
+    "gate-1987-1-6-microprogrammed-control-unit",
+    "gate-1999-2-19-speed-order-control-units"
+   ],
+   "prereqs": [
+    "microinstruction-format-horizontal-vertical-hybrid",
+    "hardwired-control-as-a-state-machine"
+   ],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "Control Unit (Hardwired and Microprogrammed) Hindi mein",
+     "channel": "DSWallah Learn (Hinglish study lesson on the control unit)",
+     "url": "https://www.dswallah.com/learn/computer-architecture/control-unit/",
+     "language": "hi",
+     "transcript": "PARTIAL",
+     "translated": true,
+     "note": "read the horizontal-against-vertical comparison, the CISC and RISC association, and the list of common mistakes about which unit is faster. Written in romanised Hindi and translated into English here; its worked control sequence and its analogy are not used"
+    },
+    {
+     "kind": "lecture-slides",
+     "title": "Control Units: Hardwired and Microprogrammed (horizontal and vertical microcode)",
+     "channel": "Edward Bosworth, CPSC 5155, chapter 4 lecture",
+     "url": "http://www.edwardbosworth.com/CPSC5155/PH4/Ch04/Ch04_Microprogramming.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read the horizontal-against-vertical comparison, where a bus fed by seven sources takes 8 bits horizontally and 3 bits vertically, and the note that vertical microcode also prevents two sources being placed on one bus at once"
+    }
+   ],
+   "sourceLine": "The hardwired and microprogrammed comparison - speed, cost, flexibility, the RISC and CISC association - and the explicit warning that hardwired is the fast one: DSWallah Learn (romanised Hindi, translated, read in part). The history of why microprogramming was adopted and later abandoned for RISC designs, and the control-store read time as the limiting factor: Edward Bosworth, chapter 4 lecture (English, read in part).",
+   "videoRefs": [],
+   "links": {
+    "visual": {
+     "slug": "control-unit-design",
+     "title": "From Opcode to Microprogram: Walking the Control Store",
+     "level": "topic-level",
+     "covers": [
+      "the control store as a memory of control words, with the fetch routine held at the top",
+      "each control word read out of the store as the control signals for one micro-operation",
+      "the mapping of an opcode to the start of that instruction's microprogram, and the return to fetch",
+      "the same microprogram written horizontally and vertically, and the width each costs"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/control-unit-design/index.html"
+    },
+    "mapped_at": "2026-10-31"
+   },
+   "subject": "computer-organization-and-architecture",
+   "topic": "control-unit-design",
+   "path": "subjects/computer-organization-and-architecture/control-unit-design/hardwired-versus-microprogrammed-trade-offs.json"
+  },
+  {
+   "id": "control-unit-of-a-real-machine-the-basic-computer",
+   "title": "A Whole Control Unit: Two Decoders, a Sequence Counter and Control Gates",
+   "priority": "P2",
+   "order": 517,
+   "unit": "Design of the Control Unit",
+   "quickIdea": "The textbook basic computer shows the whole hardwired unit in one picture: a 3-to-8 opcode decoder, a 4-bit sequence counter decoded into 16 timing signals, and a block of control logic that ANDs instruction lines with timing lines.",
+   "remember": [
+    "The opcode field goes through a 3-to-8 decoder giving D0 to D7; the indirect bit goes to a flip-flop I; the 4-bit sequence counter gives T0 to T15 through a 4-to-16 decoder.",
+    "The counter has increment and clear inputs, and the clear is itself a control signal: the machine writes D3.T4: SC <- 0 to restart the timing at the end of an instruction.",
+    "The control logic inputs are the two decoder outputs, the flip-flops (I, S, E, R, IEN, FGI, FGO) and the register bits whose values the micro-operations test.",
+    "The counter is 4 bits because the longest instruction needs at most 16 steps; the decoder still produces all 16 timing signals.",
+    "This one picture contains both design ideas of the topic: the timing and decoding are hardwired, and the control signals are equations over instruction and timing lines."
+   ],
+   "example": {
+    "prompt": "In this machine the counter is cleared when D3 and T4 are both 1. What does that mean for the ADD instruction, whose execute phase ends at T4?",
+    "work": "D3 is the STA instruction line in that machine, so the clear condition is specific to STA: at its fourth step the counter returns to 0 and T0 restarts the fetch of the next instruction. Every other instruction needs its own clear term, ORed into the same control input.",
+    "answer": "It means the sequence counter's clear line is a control function, not a fixed timer: clear = the OR of the end-of-instruction terms, here D3.T4 plus the equivalent term for every other instruction."
+   },
+   "gateAngle": "Questions drawn from this machine are about the width of the decoders and the state count - how many timing signals, how many opcode lines, how many bits the counter needs for a given longest instruction. The clear condition is the part that distinguishes a real design from a schematic: it is a control signal like any other.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "The longest instruction in a machine needs 9 steps. How many bits must the sequence counter have, and how many timing signals does its decoder produce?",
+     "answer": "4 bits, and 16 timing signals of which 9 are used.",
+     "why": "ceil(log2 9) = 4. The decoder produces a power of two, so the unused outputs T9 to T15 simply never appear in any control equation."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why does this machine need a clear input on the counter at all, when it has an increment input?",
+     "answer": "Because the number of steps differs from instruction to instruction, so the counter must be reset at the end of each instruction rather than allowed to wrap round to the same place.",
+     "why": "A free-running counter would give every instruction the same length, which is a valid design but a different one - fixed-length control steps."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "A machine has 6 opcode bits and a longest instruction of 20 steps. Size the two decoders.",
+     "answer": "A 6-to-64 opcode decoder and a 5-bit counter with a 5-to-32 timing decoder.",
+     "why": "The opcode decoder is always m-to-2^m; the counter is ceil(log2 20) = 5 bits, and its decoder produces 32 signals of which 20 are used."
+    }
+   ],
+   "trap": {
+    "what": "Assuming the timing signals run continuously through all 16 values for every instruction.",
+    "why": "The counter is cleared by a control signal at the end of each instruction, so the number of timing signals an instruction uses is the number of its steps.",
+    "counterexample": "An instruction that finishes at T4 and one that finishes at T9 both restart at T0; without the clear, the second would begin its fetch at T10 and the fetch micro-operations, written for T0 and T1, would never fire."
+   },
+   "check": {
+    "question": "Name the four parts of this control unit and the width of each decoder.",
+    "answer": "A 3-to-8 opcode decoder, a 4-bit sequence counter, a 4-to-16 timing decoder, and the block of control logic gates.",
+    "explanation": "The two decoders and the counter produce the instruction lines and the timing lines; the control logic is the set of equations that combine them into the control signals."
+   },
+   "pyqIds": [],
+   "prereqs": [
+    "instruction-decoder-and-signal-generation-tree",
+    "control-signal-equations-from-a-micro-operation-table"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-slides",
+     "title": "Timing and Control - the control unit of the basic computer",
+     "channel": "Government College Hamirpur, Computer System Architecture COMP201Th, Unit 2 Lecture 3 (following Mano)",
+     "url": "https://www.gchamirpur.org/pdf/lectures3/Unit2-Lecture-3-Timing-and-Control-Instruction-Cycle.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read the description of the control unit as a 3x8 operation decoder and a 4x16 timing decoder fed by a 4-bit sequence counter, with the increment and clear inputs and the D3.T4 clear condition"
+    },
+    {
+     "kind": "lecture-slides",
+     "title": "Basic Computer Organization and Design (the control unit of Mano's basic computer)",
+     "channel": "Portland State University, ECE class slides on the basic computer",
+     "url": "http://web.cecs.pdx.edu/~mperkows/CLASS_573/573_2007/xx.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read the slides on the sequence counter, its increment and clear inputs, the D3.T4 clear example and the list of inputs to the control logic gates"
+    }
+   ],
+   "sourceLine": "The control unit as a 3-to-8 opcode decoder, a 4-bit sequence counter, a 4-to-16 timing decoder and control logic gates, with the D3.T4 clear condition: Government College Hamirpur, Unit 2 Lecture 3 following Mano (English, read in part) and Portland State University's basic-computer slides (English, read in part). The decoder and counter sizing on this card is recomputed in scripts/validate.py.",
+   "videoRefs": [],
+   "links": {
+    "visual": {
+     "slug": "control-unit-design",
+     "title": "From Opcode to Microprogram: Walking the Control Store",
+     "level": "topic-level",
+     "covers": [
+      "the control store as a memory of control words, with the fetch routine held at the top",
+      "each control word read out of the store as the control signals for one micro-operation",
+      "the mapping of an opcode to the start of that instruction's microprogram, and the return to fetch",
+      "the same microprogram written horizontally and vertically, and the width each costs"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/control-unit-design/index.html"
+    },
+    "mapped_at": "2026-10-31"
+   },
+   "subject": "computer-organization-and-architecture",
+   "topic": "control-unit-design",
+   "path": "subjects/computer-organization-and-architecture/control-unit-design/control-unit-of-a-real-machine-the-basic-computer.json"
   }
  ],
  "pyqs": [
+  {
+   "id": "gate-1987-1-6-microprogrammed-control-unit",
+   "year": "1987",
+   "paper": "GATE CSE 1987",
+   "question_ref": "Q.1(vi) on GATE Overflow (the sixth part of the first question of the paper)",
+   "type": "MCQ",
+   "marks": null,
+   "topic": "hardwired-versus-microprogrammed-trade-offs",
+   "text": "A microprogrammed control unit: (1) is faster than a hard-wired control unit (2) facilitates easy implementation of new instructions (3) is useful when very small programs are to be run (4) usually refers to the control unit of a microprocessor.",
+   "options": [
+    "is faster than a hard-wired control unit",
+    "facilitates easy implementation of new instructions",
+    "is useful when very small programs are to be run",
+    "usually refers to the control unit of a microprocessor"
+   ],
+   "answer": "Option 2 - facilitates easy implementation of new instructions",
+   "solution": "A microprogrammed unit adds a control-store read, and for vertical microcode a decode, to the path that produces each control signal, so it cannot be faster than hardwired logic: statement 1 is false. It does make a new instruction a matter of writing a new microroutine into the control store, so statement 2 is true. The control store's cost and its read delay are least justified exactly when the programs and the instruction set are tiny, so statement 3 is false. A microprocessor's control unit may be built either way, so statement 4 is false as well.",
+   "source_url": "https://gateoverflow.in/80199/gate-cse-1987-question-1-vi",
+   "source_label": "GATE Overflow question page - GATE CSE 1987 Q.1(vi) with the accepted answer (option 2)",
+   "verification": "SOURCED",
+   "answer_evidence": "The GATE Overflow accepted answer states 'Correct Answer: B' and reasons through all four statements. The official 1987 paper and key were not fetched this run, so the record stays SOURCED. One answer on the page points out that statement 3 is not generally true rather than false in every case, and that nuance is recorded on the card rather than smoothed over."
+  },
   {
    "id": "gate-1991-conjunction-not-satisfiable",
    "year": "1991",
@@ -36342,6 +37633,28 @@ window.GATE_DATA = {
    "answer_evidence": "Accepted answers state 'the false statement is C', with the counterexample A = [[1,0],[0,0]] given for both the no-solution and the infinite-solution cases."
   },
   {
+   "id": "gate-1996-2-25-control-word-bits-two-active",
+   "year": "1996",
+   "paper": "GATE CSE 1996",
+   "question_ref": "Q.2.25 on GATE Overflow and on the 1996 paper as hosted by Gateforum (Question 25 of the second section)",
+   "type": "MCQ",
+   "marks": null,
+   "topic": "microinstruction-format-horizontal-vertical-hybrid",
+   "text": "A micro program control unit is required to generate a total of 25 control signals. Assume that during any microinstruction, at most two control signals are active. The minimum number of bits required in the control word to generate the required control signals will be:",
+   "options": [
+    "2",
+    "2.5",
+    "10",
+    "12"
+   ],
+   "answer": "Option (C) - 10",
+   "solution": "Read as two encoded fields, each able to name one of the 25 signals: each field needs ceil(log2 25) = 5 bits, because 2^4 = 16 is too few and 2^5 = 32 is enough, and two such fields give 2 x 5 = 10 bits. This is the reading the accepted answer takes.",
+   "source_url": "https://gateoverflow.in/2754/gate-cse-1996-question-2-25",
+   "source_label": "GATE Overflow question page - GATE CSE 1996 Q.2.25 with the accepted answer (option C, 10 bits)",
+   "verification": "SOURCED",
+   "answer_evidence": "The accepted answer on the question page reasons that 25 signals in two fields of 5 bits give 10, and a second answer on the same page argues the same. The page also carries a dissent worth recording: the number of unordered states is 1 (none) + 25 (one signal) + C(25,2) = 300 (two signals) = 326, which needs only 9 bits, so 10 is the accepted answer rather than the information-theoretic minimum. The official key was not opened, so the record stays SOURCED."
+  },
+  {
    "id": "gate-1996-2-4-concatenation-monoid",
    "year": "1996",
    "paper": "GATE CS 1996",
@@ -36405,6 +37718,28 @@ window.GATE_DATA = {
    "source_label": "GATE Overflow question page - GATE CSE 1997 Q.4.1 with four agreeing answers (option B)",
    "verification": "SOURCED",
    "answer_evidence": "Every answer on the page concludes 10; one shows the completed-square form 2((x - 1/2)^2 + 11/4). GATE Overflow numbers it Q.4.1, ExamSIDE numbers the same question Q.19 of the 1997 paper."
+  },
+  {
+   "id": "gate-1997-5-3-microinstruction-minimum-bits",
+   "year": "1997",
+   "paper": "GATE CSE 1997",
+   "question_ref": "Q.5.3 on GATE Overflow; Question 38 on the GeeksforGeeks listing",
+   "type": "MCQ",
+   "marks": null,
+   "topic": "microinstruction-format-horizontal-vertical-hybrid",
+   "text": "A micro instruction is to be designed to specify (a) none or one of the three micro operations of one kind and (b) none or up to six micro operations of another kind. The minimum number of bits in the micro-instruction is:",
+   "options": [
+    "9",
+    "5",
+    "8",
+    "None of the above"
+   ],
+   "answer": "Option (C) - 8",
+   "solution": "Part (a) is mutually exclusive, so it has four states - none, or one of three - and takes 2 bits. Part (b) allows any subset of six signals, so it has 2^6 = 64 states and takes 6 bits. 2 + 6 = 8. Choosing 9 means encoding part (a) horizontally as three bits, which is not the minimum.",
+   "source_url": "https://gateoverflow.in/2254/gate-cse-1997-question-5-3",
+   "source_label": "GATE Overflow question page - GATE CSE 1997 Q.5.3 with the accepted answer (option C, 8 bits)",
+   "verification": "SOURCED",
+   "answer_evidence": "The accepted answer gives 2 bits for the exclusive group and 6 bits for the free group, total 8, and explicitly notes that 9 is what you get if the exclusive group is also coded horizontally. The official key was not fetched, so the record stays SOURCED. The number 8 is recomputed in scripts/validate.py."
   },
   {
    "id": "gate-1997-6-1-total-orders-n-factorial",
@@ -36618,6 +37953,28 @@ window.GATE_DATA = {
    "answer_evidence": "The accepted answer states that the LSB addition needs no full adder and that the subsequent positions do, giving 15 full adders and 1 half adder, option B. Recomputed here: 1 + 15 = 16 positions, and 15 positions have a carry-in."
   },
   {
+   "id": "gate-1999-2-19-speed-order-control-units",
+   "year": "1999",
+   "paper": "GATE CSE 1999",
+   "question_ref": "Q.2.19 on GATE Overflow; filed as GATE CSE 2001 (2 marks) by ExamSIDE and as GATE 1999 by Solutions Adda",
+   "type": "MCQ",
+   "marks": null,
+   "topic": "hardwired-versus-microprogrammed-trade-offs",
+   "text": "Arrange the following configuration for CPU in decreasing order of operating speeds: Hard wired control, Vertical microprogramming, Horizontal microprogramming.",
+   "options": [
+    "Hard wired control, Vertical microprogramming, Horizontal microprogramming",
+    "Hard wired control, Horizontal microprogramming, Vertical microprogramming",
+    "Horizontal microprogramming, Vertical microprogramming, Hard wired control",
+    "Vertical microprogramming, Horizontal microprogramming, Hard wired control"
+   ],
+   "answer": "Option (B) - Hardwired control, horizontal microprogramming, vertical microprogramming",
+   "solution": "Hardwired control produces the signals from gates with no control-memory access, so it leads. Horizontal microcode pays for the store read but not for a decoder in the signal path. Vertical microcode pays for both, because its encoded fields must be decoded before they become control signals.",
+   "source_url": "https://gateoverflow.in/1497/gate-cse-1999-question-2-19",
+   "source_label": "GATE Overflow question page - GATE CSE 1999 Q.2.19 with the accepted answer (option B)",
+   "verification": "SOURCED",
+   "answer_evidence": "The GATE Overflow accepted answer states 'Correct Answer: B' and gives the decoding argument; Solutions Adda gives the same answer for GATE 1999, and Knowledge Gate's GATE-oriented question set also gives (B). The year is unstable across sites: GATE Overflow and Solutions Adda place the question in 1999, while ExamSIDE files it under GATE CSE 2001 for 2 marks. The paper and key were not fetched this run, so the record stays SOURCED and both year attributions are stated."
+  },
+  {
    "id": "gate-1999-q2-23-immediate-and-direct-only",
    "year": "1999",
    "paper": "GATE CS 1999",
@@ -36763,6 +38120,28 @@ window.GATE_DATA = {
    "source_label": "GATE Overflow question page - GATE CSE 2002 Q.1.4 with the accepted answer (option D)",
    "verification": "SOURCED",
    "answer_evidence": "Accepted answer: 'Chromatic number will be 3 for when n is odd and will be 2 when n is even. Option (D) is a representation for this, hence the correct answer'."
+  },
+  {
+   "id": "gate-2002-2-7-horizontal-microprogramming",
+   "year": "2002",
+   "paper": "GATE CSE 2002",
+   "question_ref": "Q.2.7 on GATE Overflow; numbered 32 on one GeeksforGeeks listing and 16 on an EduRev listing",
+   "type": "MCQ",
+   "marks": null,
+   "topic": "microinstruction-format-horizontal-vertical-hybrid",
+   "text": "Horizontal microprogramming: (1) does not require use of signal decoders (2) results in larger sized microinstructions than vertical microprogramming (3) uses one bit for each control signal (4) all of the above.",
+   "options": [
+    "does not require use of signal decoders",
+    "results in larger sized microinstructions than vertical microprogramming",
+    "uses one bit for each control signal",
+    "all of the above"
+   ],
+   "answer": "Option (D) - all of the above",
+   "solution": "In horizontal microcode each control signal has its own bit in the word, so statement 3 holds and statement 2 follows: the word is wider than an encoded one. Because every bit drives its line directly there is nothing to decode, so statement 1 holds as well. All three are true.",
+   "source_url": "https://gateoverflow.in/837/gate-cse-2002-question-2-7",
+   "source_label": "GATE Overflow question page - GATE CSE 2002 Q.2.7 with the accepted answer (option D)",
+   "verification": "SOURCED",
+   "answer_evidence": "The accepted answer gives option (D) and cites a university microprogramming note for the three properties; a comment on the same page gives the 16-signals example (16 bits horizontal against 4 bits vertical). The official key was not fetched this run, so the record stays SOURCED."
   },
   {
    "id": "gate-2002-q1-24-absolute-addressing",
@@ -37015,6 +38394,28 @@ window.GATE_DATA = {
    "source_label": "GATE Overflow question page - GATE CSE 2004 Q.62 with the accepted answer (option B)",
    "verification": "SOURCED",
    "answer_evidence": "The accepted answer on the page gives 6 time units as 2 + 2 + 2 and is option (B). The page records a genuine disagreement: some answers argue for 4 time units by substituting the carries directly instead of forming Pi and Gi first, since the question does not require the Pi and Gi signals to be materialised. The accepted answer is recorded here; the disagreement is stated rather than resolved."
+  },
+  {
+   "id": "gate-2004-67-microinstruction-fields-control-memory-size",
+   "year": "2004",
+   "paper": "GATE CSE 2004",
+   "question_ref": "Q.67 on GATE Overflow; numbered 66 by GeeksforGeeks, 15 on an EduRev listing, 28 on an Electrical4U listing and 15 on the ExamSIDE topic page",
+   "type": "MCQ",
+   "marks": null,
+   "topic": "field-width-and-control-memory-size-arithmetic",
+   "text": "The microinstructions stored in the control memory of a processor have a width of 26 bits. Each microinstruction is divided into three fields: a micro-operation field of 13 bits, a next address field (X), and a MUX select field (Y). There are 8 status bits in the input of the MUX. How many bits are there in the X and Y fields, and what is the size of the control memory in number of words?",
+   "options": [
+    "10, 3, 1024",
+    "8, 5, 256",
+    "5, 8, 2048",
+    "10, 3, 512"
+   ],
+   "answer": "Option (A) - 10, 3, 1024",
+   "solution": "The multiplexer chooses one of 8 status bits, so Y = ceil(log2 8) = 3. Then X = 26 - 13 - 3 = 10. A 10-bit next-address field is a 10-bit control address register, so the control memory holds 2^10 = 1024 words.",
+   "source_url": "https://gateoverflow.in/1061/gate-cse-2004-question-67",
+   "source_label": "GATE Overflow question page - GATE CSE 2004 Q.67 with the accepted answer (option A)",
+   "verification": "SOURCED",
+   "answer_evidence": "The GATE Overflow accepted answer gives x + y + 13 = 26, y = 3 and x = 10, hence 1024 words; Electrical4U's solution page for the 2004 paper also records answer (A). The official key was not opened this run, so the record stays SOURCED. Every figure is recomputed in scripts/validate.py."
   },
   {
    "id": "gate-2004-73-complete-lattice",
@@ -37624,6 +39025,28 @@ window.GATE_DATA = {
    "source_label": "GATE Overflow question page, GATE CSE 2013 Q.22, with the accepted answer A",
    "verification": "SOURCED",
    "answer_evidence": "Every answer on the page reaches option (A) by computing LHL, RHL and f(3) for each option, and the alternatives name the type of discontinuity for (B), (C) and (D). The official key was not fetched, so this record rests on the accepted GATE Overflow answer; no marks field is recorded because the paper and key were not fetched either."
+  },
+  {
+   "id": "gate-2013-28-interrupt-initiation-microops",
+   "year": "2013",
+   "paper": "GATE CSE 2013",
+   "question_ref": "Q.28 on GATE Overflow and on the paper listing",
+   "type": "MCQ",
+   "marks": null,
+   "topic": "instruction-cycle-as-micro-operation-sequence",
+   "text": "Consider the following sequence of micro-operations: MBR <- PC; MAR <- X; PC <- Y; Memory <- MBR. Which one of the following is a possible operation performed by this sequence?",
+   "options": [
+    "Instruction fetch",
+    "Operand fetch",
+    "Conditional branch",
+    "Initiation of interrupt service"
+   ],
+   "answer": "Option (D) - initiation of interrupt service",
+   "solution": "The old program counter is copied into the MBR, a save address X is put into the MAR, a routine address Y is put into the PC, and the saved program counter is finally written to memory at X. Saving the return address and loading the address of a service routine is the interrupt cycle. A fetch would end by writing the instruction register, an operand fetch would end with the operand in the MDR, and a branch would write the PC and never write memory.",
+   "source_url": "https://gateoverflow.in/1539/gate-cse-2013-question-28",
+   "source_label": "GATE Overflow question page - GATE CSE 2013 Q.28 with the accepted answer (option D)",
+   "verification": "SOURCED",
+   "answer_evidence": "The GATE Overflow accepted answer gives option (D) and writes the interrupt cycle as t1: MBR <- PC, t2: MAR <- save address and PC <- routine address, t3: Memory <- MBR; the same answer is recorded by GateQA and by the IIT Madras CS2300 practice set, and trygateai attributes option (D) to the official key. The key document was not opened this run, so the record stays SOURCED. The question is filed under I/O interface and interrupts by trygateai and under ALU, data path and control unit by ExamSIDE; it is placed here because what it tests is the reading of a micro-operation sequence."
   },
   {
    "id": "gate-2013-not-equivalent-negated-exists",

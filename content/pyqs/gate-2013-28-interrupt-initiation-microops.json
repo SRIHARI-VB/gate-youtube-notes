@@ -1,0 +1,22 @@
+{
+ "id": "gate-2013-28-interrupt-initiation-microops",
+ "year": "2013",
+ "paper": "GATE CSE 2013",
+ "question_ref": "Q.28 on GATE Overflow and on the paper listing",
+ "type": "MCQ",
+ "marks": null,
+ "topic": "instruction-cycle-as-micro-operation-sequence",
+ "text": "Consider the following sequence of micro-operations: MBR <- PC; MAR <- X; PC <- Y; Memory <- MBR. Which one of the following is a possible operation performed by this sequence?",
+ "options": [
+  "Instruction fetch",
+  "Operand fetch",
+  "Conditional branch",
+  "Initiation of interrupt service"
+ ],
+ "answer": "Option (D) - initiation of interrupt service",
+ "solution": "The old program counter is copied into the MBR, a save address X is put into the MAR, a routine address Y is put into the PC, and the saved program counter is finally written to memory at X. Saving the return address and loading the address of a service routine is the interrupt cycle. A fetch would end by writing the instruction register, an operand fetch would end with the operand in the MDR, and a branch would write the PC and never write memory.",
+ "source_url": "https://gateoverflow.in/1539/gate-cse-2013-question-28",
+ "source_label": "GATE Overflow question page - GATE CSE 2013 Q.28 with the accepted answer (option D)",
+ "verification": "SOURCED",
+ "answer_evidence": "The GATE Overflow accepted answer gives option (D) and writes the interrupt cycle as t1: MBR <- PC, t2: MAR <- save address and PC <- routine address, t3: Memory <- MBR; the same answer is recorded by GateQA and by the IIT Madras CS2300 practice set, and trygateai attributes option (D) to the official key. The key document was not opened this run, so the record stays SOURCED. The question is filed under I/O interface and interrupts by trygateai and under ALU, data path and control unit by ExamSIDE; it is placed here because what it tests is the reading of a micro-operation sequence."
+}

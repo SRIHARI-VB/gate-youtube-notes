@@ -1,0 +1,96 @@
+{
+ "id": "instruction-cycle-as-micro-operation-sequence",
+ "title": "The Instruction Cycle as a Sequence of Micro-operations",
+ "priority": "P1",
+ "order": 506,
+ "unit": "Design of the Control Unit",
+ "quickIdea": "One machine instruction is not one action. It is a short ordered list of micro-operations - fetch, decode, maybe an indirect fetch, execute, and at the end a possible interrupt cycle - and the control unit's real output is the order of that list.",
+ "remember": [
+  "Each micro-operation is one clock period's worth of control signals; the sequence of micro-operations is the sequence of control words.",
+  "The fetch phase is the same for every instruction, which is why it is generated once and shared rather than repeated per instruction.",
+  "Decode is a micro-operation too: the opcode is put through a decoder so that exactly one instruction line becomes 1.",
+  "The interrupt cycle, when it runs, sits after execute and before the next fetch, and it is what saves the return address.",
+  "Counting clock cycles for an instruction means counting its micro-operations, and the fetch is part of that count."
+ ],
+ "example": {
+  "prompt": "A machine does its fetch in three micro-operations, its indirect-address phase in two, and the execute phase of a load in two. How many clock periods does a direct load take, and how many an indirect load?",
+  "work": "Direct: 3 fetch + 0 indirect + 2 execute = 5. Indirect: 3 + 2 + 2 = 7. The difference is exactly the indirect phase, and nothing else changes.",
+  "answer": "Five clock periods direct, seven indirect. Writing the micro-operations down is the whole method; there is no formula to recall."
+ },
+ "gateAngle": "GATE CSE 2013 Q.28 gives a four-line sequence of micro-operations and asks which operation it performs. The method is to ask what the sequence does to the PC and to memory: here the PC is copied into MBR, an address X is put in MAR, a new address Y is put in the PC, and the saved PC is finally written to memory. Saving the return address and loading a routine address is the initiation of interrupt service.",
+ "variations": [
+  {
+   "label": "ORIGINAL PYQ-STYLE QUESTION",
+   "question": "A sequence reads: MAR <- PC, memory read, MDR -> IR, PC <- PC + 1. Which phase is this, and why can it not be the execute phase of an ADD?",
+   "answer": "It is the fetch phase. It ends by putting a word into the instruction register, and the execute phase of an ADD never writes the IR.",
+   "why": "The destination register is the tell. A micro-operation sequence is identified by where its last result lands: IR means fetch, MDR means an operand read, memory means a store or a saved return address."
+  },
+  {
+   "label": "CONCEPTUAL PRACTICE QUESTION",
+   "question": "Why is the fetch sequence generated once for the whole instruction set instead of once per instruction?",
+   "answer": "Because it does not depend on the opcode: the instruction has not been decoded yet when fetch begins, so every instruction must begin with the same steps.",
+   "why": "This is also why a microprogrammed machine can keep one shared fetch routine in control memory and jump to it from every instruction's routine, which is the saving the next cards build on."
+  },
+  {
+   "label": "PREDICTED VARIATION",
+   "question": "An instruction needs 8 micro-operations and the machine adds an interrupt cycle of 2 micro-operations every 100 instructions. What is the average number of clock periods per instruction?",
+   "answer": "8.02: the 8 for the instruction plus 2/100 for its share of the interrupt cycle.",
+   "why": "Interrupt overhead is amortised, not added per instruction, which is why an interrupt-heavy machine is slower without any instruction changing."
+  }
+ ],
+ "trap": {
+  "what": "Reading a micro-operation sequence as if the registers held the values of the previous instruction.",
+  "why": "Each micro-operation happens in one clock and its effect is visible to the next one only; a sequence that copies the PC and then overwrites the PC is saving the old value, not using the new one.",
+  "counterexample": "In the interrupt sequence, MBR <- PC must be read as 'save the return address' and PC <- Y as 'load the handler address'. Read the other way round the sequence looks like a branch, which is exactly the wrong option offered in 2013 Q.28."
+ },
+ "check": {
+  "question": "A sequence ends with Memory <- MBR after having done MAR <- X and PC <- Y. What has it saved, and where?",
+  "answer": "It has saved the old program counter, which is the return address, into memory at address X. The new value Y in the PC is the address of the routine to run.",
+  "explanation": "Saving the return address is the signature of an interrupt (or a subroutine call); a plain branch would write the PC and never write memory."
+ },
+ "pyqIds": [
+  "gate-2013-28-interrupt-initiation-microops"
+ ],
+ "prereqs": [
+  "control-unit-contract-and-control-word"
+ ],
+ "sources": [
+  {
+   "kind": "lecture-transcript",
+   "title": "Lecture 22 - Organization and Optimization of Microprogrammed controlled Control Unit",
+   "channel": "NPTEL, Computer Organization and Architecture - A Pedagogical Aspect (IIT Guwahati)",
+   "url": "http://www.digimat.in/nptel/courses/video/106103180/lec22.pdf",
+   "language": "en",
+   "transcript": "PARTIAL",
+   "translated": false,
+   "note": "read from the opening through the description of the shared fetch microprogram, the micro program counter pointing at it, and the jump to the microprogram of the decoded instruction"
+  },
+  {
+   "kind": "lecture-slides",
+   "title": "Overview of the Control Unit (slides following the Boz-5 didactic machine)",
+   "channel": "Edward Bosworth, CPSC 5155, Columbus State University",
+   "url": "http://edwardbosworth.com/My5155_Slides/Chapter09/Control_UnitOverview.pdf",
+   "language": "en",
+   "transcript": "PARTIAL",
+   "translated": false,
+   "note": "read the sections on the control unit's inputs and outputs, the three major states Fetch, Defer and Execute, the minor state register T0 to T3, and the micro-memory address and buffer registers"
+  }
+ ],
+ "sourceLine": "The description of an instruction as a fetch phase followed by the microprogram of the decoded instruction, and of the micro program counter being pointed at the shared fetch routine at the start of every instruction: IIT Guwahati, Lecture 22 (English, read in part). The division of instruction execution into the major states Fetch, Defer and Execute with minor states inside each: Edward Bosworth, Control Unit Overview (English, read in part). The identification of the 2013 sequence as the interrupt cycle follows the accepted solution recorded on the question page and is re-derived here step by step.",
+ "videoRefs": [],
+ "links": {
+  "visual": {
+   "slug": "control-unit-design",
+   "title": "From Opcode to Microprogram: Walking the Control Store",
+   "level": "topic-level",
+   "covers": [
+    "the control store as a memory of control words, with the fetch routine held at the top",
+    "each control word read out of the store as the control signals for one micro-operation",
+    "the mapping of an opcode to the start of that instruction's microprogram, and the return to fetch",
+    "the same microprogram written horizontally and vertically, and the width each costs"
+   ],
+   "url": "https://gate-visual-explainer.vercel.app/topics/control-unit-design/index.html"
+  },
+  "mapped_at": "2026-10-31"
+ }
+}

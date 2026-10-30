@@ -1,0 +1,95 @@
+{
+ "id": "control-unit-of-a-real-machine-the-basic-computer",
+ "title": "A Whole Control Unit: Two Decoders, a Sequence Counter and Control Gates",
+ "priority": "P2",
+ "order": 517,
+ "unit": "Design of the Control Unit",
+ "quickIdea": "The textbook basic computer shows the whole hardwired unit in one picture: a 3-to-8 opcode decoder, a 4-bit sequence counter decoded into 16 timing signals, and a block of control logic that ANDs instruction lines with timing lines.",
+ "remember": [
+  "The opcode field goes through a 3-to-8 decoder giving D0 to D7; the indirect bit goes to a flip-flop I; the 4-bit sequence counter gives T0 to T15 through a 4-to-16 decoder.",
+  "The counter has increment and clear inputs, and the clear is itself a control signal: the machine writes D3.T4: SC <- 0 to restart the timing at the end of an instruction.",
+  "The control logic inputs are the two decoder outputs, the flip-flops (I, S, E, R, IEN, FGI, FGO) and the register bits whose values the micro-operations test.",
+  "The counter is 4 bits because the longest instruction needs at most 16 steps; the decoder still produces all 16 timing signals.",
+  "This one picture contains both design ideas of the topic: the timing and decoding are hardwired, and the control signals are equations over instruction and timing lines."
+ ],
+ "example": {
+  "prompt": "In this machine the counter is cleared when D3 and T4 are both 1. What does that mean for the ADD instruction, whose execute phase ends at T4?",
+  "work": "D3 is the STA instruction line in that machine, so the clear condition is specific to STA: at its fourth step the counter returns to 0 and T0 restarts the fetch of the next instruction. Every other instruction needs its own clear term, ORed into the same control input.",
+  "answer": "It means the sequence counter's clear line is a control function, not a fixed timer: clear = the OR of the end-of-instruction terms, here D3.T4 plus the equivalent term for every other instruction."
+ },
+ "gateAngle": "Questions drawn from this machine are about the width of the decoders and the state count - how many timing signals, how many opcode lines, how many bits the counter needs for a given longest instruction. The clear condition is the part that distinguishes a real design from a schematic: it is a control signal like any other.",
+ "variations": [
+  {
+   "label": "ORIGINAL PYQ-STYLE QUESTION",
+   "question": "The longest instruction in a machine needs 9 steps. How many bits must the sequence counter have, and how many timing signals does its decoder produce?",
+   "answer": "4 bits, and 16 timing signals of which 9 are used.",
+   "why": "ceil(log2 9) = 4. The decoder produces a power of two, so the unused outputs T9 to T15 simply never appear in any control equation."
+  },
+  {
+   "label": "CONCEPTUAL PRACTICE QUESTION",
+   "question": "Why does this machine need a clear input on the counter at all, when it has an increment input?",
+   "answer": "Because the number of steps differs from instruction to instruction, so the counter must be reset at the end of each instruction rather than allowed to wrap round to the same place.",
+   "why": "A free-running counter would give every instruction the same length, which is a valid design but a different one - fixed-length control steps."
+  },
+  {
+   "label": "PREDICTED VARIATION",
+   "question": "A machine has 6 opcode bits and a longest instruction of 20 steps. Size the two decoders.",
+   "answer": "A 6-to-64 opcode decoder and a 5-bit counter with a 5-to-32 timing decoder.",
+   "why": "The opcode decoder is always m-to-2^m; the counter is ceil(log2 20) = 5 bits, and its decoder produces 32 signals of which 20 are used."
+  }
+ ],
+ "trap": {
+  "what": "Assuming the timing signals run continuously through all 16 values for every instruction.",
+  "why": "The counter is cleared by a control signal at the end of each instruction, so the number of timing signals an instruction uses is the number of its steps.",
+  "counterexample": "An instruction that finishes at T4 and one that finishes at T9 both restart at T0; without the clear, the second would begin its fetch at T10 and the fetch micro-operations, written for T0 and T1, would never fire."
+ },
+ "check": {
+  "question": "Name the four parts of this control unit and the width of each decoder.",
+  "answer": "A 3-to-8 opcode decoder, a 4-bit sequence counter, a 4-to-16 timing decoder, and the block of control logic gates.",
+  "explanation": "The two decoders and the counter produce the instruction lines and the timing lines; the control logic is the set of equations that combine them into the control signals."
+ },
+ "pyqIds": [],
+ "prereqs": [
+  "instruction-decoder-and-signal-generation-tree",
+  "control-signal-equations-from-a-micro-operation-table"
+ ],
+ "sources": [
+  {
+   "kind": "lecture-slides",
+   "title": "Timing and Control - the control unit of the basic computer",
+   "channel": "Government College Hamirpur, Computer System Architecture COMP201Th, Unit 2 Lecture 3 (following Mano)",
+   "url": "https://www.gchamirpur.org/pdf/lectures3/Unit2-Lecture-3-Timing-and-Control-Instruction-Cycle.pdf",
+   "language": "en",
+   "transcript": "PARTIAL",
+   "translated": false,
+   "note": "read the description of the control unit as a 3x8 operation decoder and a 4x16 timing decoder fed by a 4-bit sequence counter, with the increment and clear inputs and the D3.T4 clear condition"
+  },
+  {
+   "kind": "lecture-slides",
+   "title": "Basic Computer Organization and Design (the control unit of Mano's basic computer)",
+   "channel": "Portland State University, ECE class slides on the basic computer",
+   "url": "http://web.cecs.pdx.edu/~mperkows/CLASS_573/573_2007/xx.pdf",
+   "language": "en",
+   "transcript": "PARTIAL",
+   "translated": false,
+   "note": "read the slides on the sequence counter, its increment and clear inputs, the D3.T4 clear example and the list of inputs to the control logic gates"
+  }
+ ],
+ "sourceLine": "The control unit as a 3-to-8 opcode decoder, a 4-bit sequence counter, a 4-to-16 timing decoder and control logic gates, with the D3.T4 clear condition: Government College Hamirpur, Unit 2 Lecture 3 following Mano (English, read in part) and Portland State University's basic-computer slides (English, read in part). The decoder and counter sizing on this card is recomputed in scripts/validate.py.",
+ "videoRefs": [],
+ "links": {
+  "visual": {
+   "slug": "control-unit-design",
+   "title": "From Opcode to Microprogram: Walking the Control Store",
+   "level": "topic-level",
+   "covers": [
+    "the control store as a memory of control words, with the fetch routine held at the top",
+    "each control word read out of the store as the control signals for one micro-operation",
+    "the mapping of an opcode to the start of that instruction's microprogram, and the return to fetch",
+    "the same microprogram written horizontally and vertically, and the width each costs"
+   ],
+   "url": "https://gate-visual-explainer.vercel.app/topics/control-unit-design/index.html"
+  },
+  "mapped_at": "2026-10-31"
+ }
+}

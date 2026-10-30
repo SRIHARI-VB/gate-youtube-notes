@@ -1,0 +1,94 @@
+{
+ "id": "instruction-decoder-and-signal-generation-tree",
+ "title": "The Instruction Decoder and the Signal Generation Tree",
+ "priority": "P1",
+ "order": 508,
+ "unit": "Design of the Control Unit",
+ "quickIdea": "One decoder turns the opcode into a single active instruction line, and each control signal is then one OR gate over a set of AND gates, one AND per instruction-and-step pair that needs that signal.",
+ "remember": [
+  "An m-bit opcode needs an m-to-2^m decoder; only one output is 1 at a time, and that output is the 'this instruction is running' term.",
+  "Each control signal is written as a sum of products: signal = sum over the pairs (instruction, step) that assert it of (instruction AND step).",
+  "The fetch steps are shared, so their terms carry the step alone and no instruction term - T0 asserts PC out for every instruction.",
+  "A signal asserted at the same step of every instruction therefore collapses to that step alone, which is the main saving in a hand design.",
+  "The number of AND gates is the number of asserted pairs, so a table of m instructions and n steps can need up to m x n of them before minimisation."
+ ],
+ "example": {
+  "prompt": "Three instructions I1, I2, I3 use five steps T1 to T5. The signal MARin is asserted in T1 for all three instructions and in T3 for I2 only. Write the control function for MARin.",
+  "work": "T1 is common to all three, so it contributes the single term T1. T3 is asserted for I2 only, so it contributes I2 AND T3. MARin = T1 + I2.T3.",
+  "answer": "MARin = T1 + (I2 AND T3). Two AND terms instead of four, because the shared step needs no instruction term."
+ },
+ "gateAngle": "This is the shape of every hardwired-control question: you are given a table of which signals are asserted at which step for which instruction, and asked for the function. Read the table column by column, group the rows that share an instruction, and factor the step out. A term that appears for every instruction loses its instruction literal entirely.",
+ "variations": [
+  {
+   "label": "ORIGINAL PYQ-STYLE QUESTION",
+   "question": "In the three-instruction table above, the signal R1in is asserted in T2 for I1 and I3 and in T4 for I1 only. Which function is correct: (a) (I1 + I3).T2 + I1.T4, (b) I1.T2 + I3.T2 + I1.T4, (c) (I1 + I3).(T2 + T4)?",
+   "answer": "(a) and (b) are the same function; (c) is wrong.",
+   "why": "(c) also asserts R1in at T4 for I3, which the table does not allow. Factoring a step out of a sum of instructions is valid; multiplying two sums that came from different columns is not."
+  },
+  {
+   "label": "CONCEPTUAL PRACTICE QUESTION",
+   "question": "Why does the decoder make the control logic smaller rather than larger?",
+   "answer": "Because it converts the m-bit opcode into one-hot lines once, and every control function then needs one literal per instruction instead of the m bits of the opcode repeated in every term.",
+   "why": "Without the decoder, each AND term would have to test the opcode bits directly, which costs m gate inputs per term instead of one."
+  },
+  {
+   "label": "PREDICTED VARIATION",
+   "question": "A machine has 32 instructions and 8 steps. What is the widest an AND gate can be in a signal tree, and what limits the real width?",
+   "answer": "At most two inputs - one instruction literal and one step literal - because the function is a sum of products over pairs.",
+   "why": "A pair is one instruction and one step, so each product has exactly two literals. What grows with 32 x 8 is the number of AND gates and the width of the OR gate, not the width of an AND."
+  }
+ ],
+ "trap": {
+  "what": "Writing the shared fetch step with an instruction term, as I1.T0 + I2.T0 + I3.T0.",
+  "why": "It is logically the same as T0 when the three instructions are the only ones, but it is wrong as soon as a fourth instruction exists, and it hides the fact that fetch is common.",
+  "counterexample": "Add I4 and the unfactored form silently stops asserting PC out during I4's fetch - a bug that no truth table over the original three instructions would reveal."
+ },
+ "check": {
+  "question": "A table has 4 instructions and 6 steps, and every one of the 24 cells asserts at least one signal. At least how many AND terms does the design need before minimisation?",
+  "answer": "24, one per asserted cell; the shared steps can reduce this, and every signal asserted in a whole row reduces by three.",
+  "explanation": "The cell count is the ceiling, not the answer. A step asserted for all four instructions contributes one term instead of four."
+ },
+ "pyqIds": [],
+ "prereqs": [
+  "hardwired-control-as-a-state-machine"
+ ],
+ "sources": [
+  {
+   "kind": "lecture-slides",
+   "title": "Overview of the Control Unit (slides following the Boz-5 didactic machine)",
+   "channel": "Edward Bosworth, CPSC 5155, Columbus State University",
+   "url": "http://edwardbosworth.com/My5155_Slides/Chapter09/Control_UnitOverview.pdf",
+   "language": "en",
+   "transcript": "PARTIAL",
+   "translated": false,
+   "note": "read the sections on the control unit's inputs and outputs, the three major states Fetch, Defer and Execute, the minor state register T0 to T3, and the micro-memory address and buffer registers"
+  },
+  {
+   "kind": "lecture-slides",
+   "title": "The Hardwired Control Unit (the instruction decoder and the signal generation trees)",
+   "channel": "Edward Bosworth, CPSC 5155, chapter 11 slides",
+   "url": "http://edwardbosworth.com/My5155_Slides/Chapter11/HardwiredControlUnit.pdf",
+   "language": "en",
+   "transcript": "PARTIAL",
+   "translated": false,
+   "note": "read the two slides on the 5-to-32 active-high instruction decoder and on the signal generation trees whose inputs are the decoder output, the major state and the minor state"
+  }
+ ],
+ "sourceLine": "The instruction decoder as a 5-to-32 active-high decoder, and the hardwired unit as a set of signal generation trees whose inputs are the decoder output, the major state and the minor state: Edward Bosworth, chapter 11 slides and Control Unit Overview (English, read in part). The worked control function in the example is this repository's own and is recomputed in scripts/validate.py; no GATE CSE previous-year question on hardwired signal functions was found for the CSE paper (the two recorded in this family are GATE IT questions).",
+ "videoRefs": [],
+ "links": {
+  "visual": {
+   "slug": "control-unit-design",
+   "title": "From Opcode to Microprogram: Walking the Control Store",
+   "level": "topic-level",
+   "covers": [
+    "the control store as a memory of control words, with the fetch routine held at the top",
+    "each control word read out of the store as the control signals for one micro-operation",
+    "the mapping of an opcode to the start of that instruction's microprogram, and the return to fetch",
+    "the same microprogram written horizontally and vertically, and the width each costs"
+   ],
+   "url": "https://gate-visual-explainer.vercel.app/topics/control-unit-design/index.html"
+  },
+  "mapped_at": "2026-10-31"
+ }
+}

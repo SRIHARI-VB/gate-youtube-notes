@@ -1,0 +1,94 @@
+{
+ "id": "control-signal-equations-from-a-micro-operation-table",
+ "title": "Reading Control Equations off a Micro-operation Table",
+ "priority": "P1",
+ "order": 509,
+ "unit": "Design of the Control Unit",
+ "quickIdea": "To find the equation for one control signal, scan the whole micro-operation table for every line that writes the register that signal drives, and OR those conditions together. The table is the design; the equation is bookkeeping.",
+ "remember": [
+  "A load line for a register is asserted exactly on the steps whose micro-operation writes that register, and nowhere else.",
+  "A clear or increment line is derived the same way from the lines that clear or increment it, not from the lines that load it.",
+  "Include every condition on the line, not just the step: an indirect fetch needs the indirect bit I, and an interrupt cycle needs the interrupt flip-flop R.",
+  "Factor the step out of terms that share it, which is what keeps the gate count down.",
+  "The same scan gives every signal in the machine, so one pass over the table produces the whole control unit."
+ ],
+ "example": {
+  "prompt": "In a table, DR is written by D0 at T4, by D1 at T4, by D2 at T4 and by D6 at T4. Write the load line for DR, and say what changes if D6 also writes DR at T5.",
+  "work": "ldDR = D0.T4 + D1.T4 + D2.T4 + D6.T4 = (D0 + D1 + D2 + D6).T4. If D6 also writes at T5 the last term becomes D6.(T4 + T5), and no further factoring is possible.",
+  "answer": "ldDR = (D0 + D1 + D2 + D6).T4, with the four instructions ORed and the common step factored out."
+ },
+ "gateAngle": "This is the same skill the ALU topic used for its cycle-count questions, applied to logic: the marks come from scanning completely. The standard textbook example writes the load line for the address register as R'.T0 + R'.T2 + D7'.I.T3, where each term carries its own conditions and the interrupt flip-flop appears twice.",
+ "variations": [
+  {
+   "label": "ORIGINAL PYQ-STYLE QUESTION",
+   "question": "In that textbook machine the address register is loaded at T0 unless an interrupt is running, at T2 unless an interrupt is running, and at T3 only for a memory-reference instruction with the indirect bit set. Write the load line and explain each literal.",
+   "answer": "ldAR = R'.T0 + R'.T2 + (D7' AND I AND T3).",
+   "why": "R' means no interrupt cycle is in progress, so T0 and T2 are suppressed while the return address is being saved. The third term needs both the instruction being a memory-reference one (D7' because D7 selects the register and I/O instructions) and the indirect bit I."
+  },
+  {
+   "label": "CONCEPTUAL PRACTICE QUESTION",
+   "question": "Why is it a mistake to derive the increment line for the PC from the same rows as its load line?",
+   "answer": "Because they are different control inputs doing different things: a load replaces the PC, an increment adds one, and a row that increments does not necessarily load.",
+   "why": "One register can have several control inputs, and each one gets its own equation from the rows that use it."
+  },
+  {
+   "label": "PREDICTED VARIATION",
+   "question": "A table has 16 rows and a signal is asserted in 5 of them, two of which share a step. How many AND terms survive after factoring?",
+   "answer": "Four: the two rows sharing a step merge into one term, and the other three stay separate.",
+   "why": "Factoring only combines terms with an identical literal, which here is the step. Two rows that differ in instruction cannot be merged unless one instruction literal is common to all rows at that step."
+  }
+ ],
+ "trap": {
+  "what": "Dropping the indirect bit from the address-register term because the fetch steps do not need it.",
+  "why": "The indirect phase runs only for an instruction whose I bit is set, and that bit is part of the condition, not part of the step.",
+  "counterexample": "Without the I literal the address register is reloaded at T3 for every memory-reference instruction, which would overwrite the operand address just computed for a direct instruction."
+ },
+ "check": {
+  "question": "A register is loaded at T2 for I1 and I2, and cleared at T4 for I1. Write both lines.",
+  "answer": "load = (I1 + I2).T2, clear = I1.T4.",
+  "explanation": "Two different control inputs on one register, each derived from its own rows. Writing one line for both would clear the register whenever it was meant to load."
+ },
+ "pyqIds": [],
+ "prereqs": [
+  "instruction-decoder-and-signal-generation-tree"
+ ],
+ "sources": [
+  {
+   "kind": "lecture-slides",
+   "title": "Timing and Control - the control unit of the basic computer",
+   "channel": "Government College Hamirpur, Computer System Architecture COMP201Th, Unit 2 Lecture 3 (following Mano)",
+   "url": "https://www.gchamirpur.org/pdf/lectures3/Unit2-Lecture-3-Timing-and-Control-Instruction-Cycle.pdf",
+   "language": "en",
+   "transcript": "PARTIAL",
+   "translated": false,
+   "note": "read the comparison of hardwired and microprogrammed control and the description of the control unit as two decoders, a sequence counter and control logic gates"
+  },
+  {
+   "kind": "text",
+   "title": "A Simulated Mano Machine - deriving the control signal equations from the micro-operation table",
+   "channel": "ASEE peer paper on a Mano-machine project (control equations worked out from the table)",
+   "url": "https://peer.asee.org/a-simulated-mano-machine-an-novel-project-for-computer-architecture-class.pdf",
+   "language": "en",
+   "transcript": "PARTIAL",
+   "translated": false,
+   "note": "read the worked derivations of ldDR = D0.T4 + D1.T4 + D2.T4 + D6.T4 and ldAR = T0./R + T2./R + T3.I./D7, which is what the example and the variation on this card are built on"
+  }
+ ],
+ "sourceLine": "The method of scanning the micro-operation table for every place a register is written, and the two worked equations ldDR and ldAR: the ASEE paper on a simulated Mano machine (English, read in part). The structure of the control unit as two decoders, a sequence counter and control logic gates: Government College Hamirpur, Unit 2 Lecture 3 following Mano (English, read in part). Every term quoted here is recomputed in scripts/validate.py.",
+ "videoRefs": [],
+ "links": {
+  "visual": {
+   "slug": "control-unit-design",
+   "title": "From Opcode to Microprogram: Walking the Control Store",
+   "level": "topic-level",
+   "covers": [
+    "the control store as a memory of control words, with the fetch routine held at the top",
+    "each control word read out of the store as the control signals for one micro-operation",
+    "the mapping of an opcode to the start of that instruction's microprogram, and the return to fetch",
+    "the same microprogram written horizontally and vertically, and the width each costs"
+   ],
+   "url": "https://gate-visual-explainer.vercel.app/topics/control-unit-design/index.html"
+  },
+  "mapped_at": "2026-10-31"
+ }
+}

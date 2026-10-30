@@ -1,0 +1,94 @@
+{
+ "id": "mapping-opcode-to-microprogram-and-the-fetch-routine",
+ "title": "Mapping the Opcode to a Microprogram, and the Shared Fetch Routine",
+ "priority": "P2",
+ "order": 515,
+ "unit": "Design of the Control Unit",
+ "quickIdea": "Every instruction's routine needs its own block of the control store, and the opcode is turned into that block's start address by a fixed mapping - not by a table lookup. One block, the fetch routine, is shared by every instruction and is entered at the start of each cycle.",
+ "remember": [
+  "Mapping is a wiring rule: the opcode bits are placed at a fixed position in the address and the low bits are zeroed, so each opcode owns an equally sized block.",
+  "The block must be large enough for the longest routine; if it is, the mapped address is opcode x block size.",
+  "The fetch routine is stored once, usually at the top of the store, and every instruction's routine ends with an unconditional branch back to it.",
+  "A machine instruction's cycle is therefore: fetch block, mapping jump to the instruction block, execute, branch back to fetch.",
+  "Shared sections inside routines are handled by microroutines with a return register, which is the same idea one level down."
+ ],
+ "example": {
+  "prompt": "A control store has 128 words and the machine has 16 instructions of at most 4 microinstructions each. Where does each instruction's routine start, and where can the fetch routine go?",
+  "work": "16 instructions x 4 words = 64 words, so the routines occupy addresses 0 to 63. Mapping the 4-bit opcode with two zero bits below it gives start = 4 x opcode: opcode 0 starts at 0, opcode 1 at 4, and opcode 15 at 60. The remaining 64 words, 64 to 127, are free, and the fetch routine is put at 64.",
+  "answer": "Routine start = 4 x opcode, so 0, 4, 8, ..., 60; the fetch routine sits at 64 and needs three words, 64 to 66."
+ },
+ "gateAngle": "The questions here are about the size of the block and the arithmetic of the start address. Two mistakes recur: assuming the opcode is the address (it is not - the low bits are inserted), and forgetting that the fetch routine is shared, which is what makes the total smaller than instructions x (fetch + execute).",
+ "variations": [
+  {
+   "label": "ORIGINAL PYQ-STYLE QUESTION",
+   "question": "A machine has 8 instructions, each needing at most 6 microinstructions, and a 3-microinstruction fetch routine. How many words must the control store have at least, and how wide is the control address register?",
+   "answer": "At least 8 x 6 + 3 = 51 words, so a 64-word store, which needs a 6-bit control address register.",
+   "why": "Round the routine block up to a power of two so that the mapping stays a shift - 6 rounds to 8, giving 8 x 8 = 64, with the fetch routine in the spare space."
+  },
+  {
+   "label": "CONCEPTUAL PRACTICE QUESTION",
+   "question": "Why is the mapping done in hardware rather than by a lookup table in the control store?",
+   "answer": "Because a fixed shift of the opcode bits is free - it is just wiring - whereas a table would cost a memory access before every instruction's routine could begin.",
+   "why": "The mapping logic is a few gates and some wiring; that is why the block size must be a power of two, so that the shift is exact."
+  },
+  {
+   "label": "PREDICTED VARIATION",
+   "question": "If one instruction needs 9 microinstructions but the block size is 8, what breaks, and what are the two fixes?",
+   "answer": "Its routine would overrun into the next instruction's block. The fixes are to double the block size, which doubles the store, or to let that routine branch into a shared extension area.",
+   "why": "The mapping assumes every block is the same size; a routine that needs more either forces a bigger block or has to be split across the store with an explicit branch."
+  }
+ ],
+ "trap": {
+  "what": "Giving every instruction its own copy of the fetch steps.",
+  "why": "The fetch steps are identical for all instructions and depend on no opcode, so repeating them multiplies the store for nothing.",
+  "counterexample": "Sixteen instructions with a three-step fetch would need 48 extra words if each had its own copy, against 3 for a single shared routine - and every copy would have to be kept in step by hand."
+ },
+ "check": {
+  "question": "A 4-bit opcode maps with two zero bits below it. What start address does opcode 0101 get, and how many words does its block hold?",
+  "answer": "4 x 5 = 20, and four words: 20, 21, 22, 23.",
+  "explanation": "Two inserted zero bits multiply the opcode by 4, which is exactly the block size. The block ends at the next opcode's start address minus one."
+ },
+ "pyqIds": [],
+ "prereqs": [
+  "microinstruction-sequencing-and-next-address"
+ ],
+ "sources": [
+  {
+   "kind": "lecture-slides",
+   "title": "Unit III Part 1 - Microprogrammed Control: control memory, address sequencing, microprogram example, design of the control unit",
+   "channel": "P. C. E. Puri, computer organization course notes following Mano",
+   "url": "https://www.pcepurnia.org/wp-content/uploads/2020/03/Unit-III-part-1.pdf",
+   "language": "en",
+   "transcript": "PARTIAL",
+   "translated": false,
+   "note": "read the definitions of control word, microinstruction, microprogram, CAR and CDR, the four address-sequencing capabilities, the 20-bit microinstruction format, the 128-location example with its fetch routine, and the microprogram sequencer with its two multiplexers"
+  },
+  {
+   "kind": "lecture-transcript",
+   "title": "Lecture 22 - Organization and Optimization of Microprogrammed controlled Control Unit",
+   "channel": "NPTEL, Computer Organization and Architecture - A Pedagogical Aspect (IIT Guwahati)",
+   "url": "http://www.digimat.in/nptel/courses/video/106103180/lec22.pdf",
+   "language": "en",
+   "transcript": "PARTIAL",
+   "translated": false,
+   "note": "read from the opening through the description of the shared fetch microprogram, the micro program counter pointing at it, and the jump to the microprogram of the decoded instruction"
+  }
+ ],
+ "sourceLine": "The mapping process as the transformation of instruction-code bits into a control-memory address, the four steps the control must undergo during one instruction (load an initial address, fetch, map on the opcode, branch back to fetch), and the 128-location example with the first 64 locations for 16 instructions and the fetch routine at 64: P. C. E. Puri unit III notes following Mano (English, read in part). The description of the micro program counter being pointed at the fetch part for every new instruction and jumping to the decoded instruction's own microprogram: IIT Guwahati, Lecture 22 (English, read in part). The start-address arithmetic on this card is this repository's own and is recomputed in scripts/validate.py, because the served extract of the notes stopped before the worked mapping figure.",
+ "videoRefs": [],
+ "links": {
+  "visual": {
+   "slug": "control-unit-design",
+   "title": "From Opcode to Microprogram: Walking the Control Store",
+   "level": "topic-level",
+   "covers": [
+    "the control store as a memory of control words, with the fetch routine held at the top",
+    "each control word read out of the store as the control signals for one micro-operation",
+    "the mapping of an opcode to the start of that instruction's microprogram, and the return to fetch",
+    "the same microprogram written horizontally and vertically, and the width each costs"
+   ],
+   "url": "https://gate-visual-explainer.vercel.app/topics/control-unit-design/index.html"
+  },
+  "mapped_at": "2026-10-31"
+ }
+}

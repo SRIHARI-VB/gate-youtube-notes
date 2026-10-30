@@ -1,0 +1,94 @@
+{
+ "id": "hardwired-control-as-a-state-machine",
+ "title": "Hardwired Control: A State Machine Whose States Are Time Steps",
+ "priority": "P1",
+ "order": 507,
+ "unit": "Design of the Control Unit",
+ "quickIdea": "A hardwired control unit is a finite state machine built from gates and flip-flops: each state is one timing step of one instruction phase, and the outputs that belong to that state are the control signals. Because the machine is wired, the sequence cannot be changed afterwards.",
+ "remember": [
+  "The state register is split in two: a major state (Fetch, Defer or Execute) and a minor state (the step counter T0, T1, T2, ...).",
+  "A control signal is the AND of the state it belongs to with the instruction that needs it, so every signal is a small tree of AND gates feeding one OR gate.",
+  "Three major states need 2 bits and a modulo-3 counter; sixteen minor states need 4 bits and a 4-to-16 decoder.",
+  "Hardwired control is fast because no memory is read to obtain the signals, and inflexible because a new instruction means new wiring.",
+  "The same logic is used whatever the instruction set: the design effort grows with instructions times steps, which is why large instruction sets moved to microcode."
+ ],
+ "example": {
+  "prompt": "A hardwired unit has three major states and four minor states per major state. How many distinct states does it have, and how many bits are in the state registers?",
+  "work": "3 x 4 = 12 distinct states. The major state is a modulo-3 counter, which needs 2 bits (one of the four codes is unused); the minor state is a modulo-4 counter, which needs 2 bits. Four state bits in total.",
+  "answer": "Twelve states, and 4 state bits: 2 for the major register and 2 for the minor register."
+ },
+ "gateAngle": "The state count is the usual first question, because it fixes the width of the state register and hence how many AND terms the signal trees need. Note the asymmetry that catches people: three major states need 2 bits, not 1.5, and a modulo-3 counter has one unused code that the design must still handle.",
+ "variations": [
+  {
+   "label": "ORIGINAL PYQ-STYLE QUESTION",
+   "question": "A machine has 5 phases and at most 12 steps in any phase. How many flip-flops does a sequence-counter hardwired control unit need, and how many timing signals does the decoder produce?",
+   "answer": "3 flip-flops for the 5 phases (2^2 = 4 is too few), 4 for the 12 steps, so 7 in total; the step decoder produces 16 timing signals of which 12 are used.",
+   "why": "Each counter is sized by its own range: ceil(log2 5) = 3 and ceil(log2 12) = 4. The decoder always produces a power of two, and the unused outputs are simply never asserted."
+  },
+  {
+   "label": "CONCEPTUAL PRACTICE QUESTION",
+   "question": "Why is a hardwired unit described as fast even though its signal path runs through several gates?",
+   "answer": "Because the signals are produced by combinational logic within one clock, with no memory access in the path; a microprogrammed unit must first read the control word out of a memory.",
+   "why": "The comparison is against the control store's read time, not against zero. A hardwired unit is still several gate delays deep."
+  },
+  {
+   "label": "PREDICTED VARIATION",
+   "question": "If the number of minor states doubles, what happens to the number of AND terms in the signal trees?",
+   "answer": "It can double, because there is one term per (instruction, step) pair that asserts a given signal; the width of the state register grows by only one bit.",
+   "why": "This is the cost structure that makes hardwired control impractical for large instruction sets: bits grow logarithmically, terms grow with the product of instructions and steps."
+  }
+ ],
+ "trap": {
+  "what": "Assuming the major state and the minor state can be encoded in one counter.",
+  "why": "They count different things: the major state says which phase of the instruction is running and changes only when the minor counter wraps, while the minor counter counts steps inside a phase.",
+  "counterexample": "A modulo-12 counter would number the 12 states but could not tell the design that step T2 of Fetch and step T2 of Execute are the same step of different phases, so the signals for T2 would fire in both."
+ },
+ "check": {
+  "question": "How many state bits does a hardwired control unit need for 4 phases of at most 8 steps each, and how many distinct states are there?",
+  "answer": "2 bits for the 4 phases and 3 bits for the 8 steps, so 5 state bits; 32 distinct states of which 4 x 8 = 32 are all used.",
+  "explanation": "When the counts are exact powers of two no code is wasted. The 3-phase case wastes one code out of four, which is the case a designer must remember to decode."
+ },
+ "pyqIds": [],
+ "prereqs": [
+  "control-unit-contract-and-control-word"
+ ],
+ "sources": [
+  {
+   "kind": "lecture-transcript",
+   "title": "Lecture 20 - Design of Hardwired controlled Control Unit",
+   "channel": "NPTEL, Computer Organization and Architecture - A Pedagogical Aspect (Prof. J. K. Deka, Dr. Santosh Biswas, Dr. Arnab Sarkar, IIT Guwahati)",
+   "url": "http://www.digimat.in/nptel/courses/video/106103180/lec20.pdf",
+   "language": "en",
+   "transcript": "PARTIAL",
+   "translated": false,
+   "note": "read from the opening through the statement that a hardwired control unit is a sequential state machine whose states are the time steps and whose outputs are the control signals"
+  },
+  {
+   "kind": "lecture-slides",
+   "title": "Overview of the Control Unit (slides following the Boz-5 didactic machine)",
+   "channel": "Edward Bosworth, CPSC 5155, Columbus State University",
+   "url": "http://edwardbosworth.com/My5155_Slides/Chapter09/Control_UnitOverview.pdf",
+   "language": "en",
+   "transcript": "PARTIAL",
+   "translated": false,
+   "note": "read the sections on the control unit's inputs and outputs, the three major states Fetch, Defer and Execute, the minor state register T0 to T3, and the micro-memory address and buffer registers"
+  }
+ ],
+ "sourceLine": "The statement, read in part, that a hardwired control unit is a sequential state machine which moves from state to state, each state corresponding to one time step of a micro-instruction, whose outputs are the control signals, and that once synthesised the machine cannot be changed: IIT Guwahati, Lecture 20 (English). The two-register structure - a modulo-3 major state register and a modulo-4 minor state register with the notation Fetch AND T0 - is Edward Bosworth's Control Unit Overview (English, read in part).",
+ "videoRefs": [],
+ "links": {
+  "visual": {
+   "slug": "control-unit-design",
+   "title": "From Opcode to Microprogram: Walking the Control Store",
+   "level": "topic-level",
+   "covers": [
+    "the control store as a memory of control words, with the fetch routine held at the top",
+    "each control word read out of the store as the control signals for one micro-operation",
+    "the mapping of an opcode to the start of that instruction's microprogram, and the return to fetch",
+    "the same microprogram written horizontally and vertically, and the width each costs"
+   ],
+   "url": "https://gate-visual-explainer.vercel.app/topics/control-unit-design/index.html"
+  },
+  "mapped_at": "2026-10-31"
+ }
+}

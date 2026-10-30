@@ -1,0 +1,84 @@
+{
+ "id": "hardwired-design-methods-counter-delay-state-table",
+ "title": "Three Ways to Build the Hardwired Unit: Counter, Delay Element, State Table",
+ "priority": "P2",
+ "order": 510,
+ "unit": "Design of the Control Unit",
+ "quickIdea": "The sequence of steps can be timed three ways: a counter decoded into timing signals, a chain of delay elements each ending a step, or a full state-table design that treats the controller as any other sequential circuit.",
+ "remember": [
+  "Sequence-counter method: a modulo-k counter per phase, decoded into k timing signals, with a combinational block producing each control signal from (phase, step, instruction).",
+  "Delay-element method: a chain of delay blocks, one per step, each enabled when the previous one finishes; cheap for a fixed sequence and hard to branch with.",
+  "State-table method: assign states, minimise, encode, then synthesise - the general procedure, and the one that handles conditional steps cleanly.",
+  "The counter method needs ceil(log2 p) flip-flops for p phases and ceil(log2 k) for k steps, and the decoders are k-to-1 and p-to-1.",
+  "Whichever method is used, the controller is still combinational logic plus a state register, so the design remains fixed after fabrication."
+ ],
+ "example": {
+  "prompt": "A controller has 4 phases and at most 5 steps in any phase. Size the sequence-counter version.",
+  "work": "Phases: ceil(log2 4) = 2 flip-flops, decoded by a 2-to-4 decoder. Steps: ceil(log2 5) = 3 flip-flops, decoded by a 3-to-8 decoder of which 5 outputs are used. Five state bits in total, and the control logic sees 4 x 8 = 32 phase-step combinations of which 20 are reachable.",
+  "answer": "2 + 3 = 5 state flip-flops, a 2-to-4 phase decoder and a 3-to-8 step decoder, and 20 reachable phase-step combinations."
+ },
+ "gateAngle": "The exam question is nearly always the sizing: how many flip-flops, how many decoder outputs, how many timing signals. The trap is rounding down - ceil, never floor - and forgetting that a decoder always produces a power of two outputs whatever the count.",
+ "variations": [
+  {
+   "label": "ORIGINAL PYQ-STYLE QUESTION",
+   "question": "Which method would you choose for a controller whose step sequence must sometimes skip a step when a flag is set, and why?",
+   "answer": "The state-table method, because a conditional transition is just another row of the state table, whereas a plain counter always walks the same sequence.",
+   "why": "The counter and delay-chain methods produce a fixed sequence; branching needs either extra logic to jam the counter or a full state-table design."
+  },
+  {
+   "label": "CONCEPTUAL PRACTICE QUESTION",
+   "question": "Why does the delay-element method not need a decoder?",
+   "answer": "Because the delay chain itself produces one pulse per step in order: the end of one delay enables the next block, so the timing signals are the chain's outputs rather than decoded counter values.",
+   "why": "It trades a decoder for a chain of delay blocks, which is cheaper for short fixed sequences and unusable when the sequence must branch or repeat at a variable point."
+  },
+  {
+   "label": "PREDICTED VARIATION",
+   "question": "A sequence counter is 4 bits wide and drives a 4-to-16 decoder, but only 9 steps are ever used. How many timing signals exist and how many are wasted?",
+   "answer": "16 timing signals, 7 of them never asserted; the counter is still 4 bits because 3 bits would give only 8 steps.",
+   "why": "The waste is in the decoder, not in the counter: 4 bits are forced by the count of 9. A designer may clear the counter early to reuse codes, which is what the basic-computer design does at T4."
+  }
+ ],
+ "trap": {
+  "what": "Sizing the step counter by the number of steps in the longest instruction rather than the number of steps in a phase.",
+  "why": "The counter is cleared at the end of each phase, so it only has to count the steps inside one phase.",
+  "counterexample": "An instruction with 12 total steps arranged as three phases of four needs a 2-bit step counter, not a 4-bit one; sizing it for 12 wastes two flip-flops and lengthens every path through the decoder."
+ },
+ "check": {
+  "question": "Name the three design methods and the one property they share.",
+  "answer": "Sequence counter, delay element, and state table. All three produce a fixed controller: combinational logic plus a state register, whose behaviour cannot be changed after fabrication.",
+  "explanation": "The difference is only in how the step sequence is timed, which is why the same control equations serve all three."
+ },
+ "pyqIds": [],
+ "prereqs": [
+  "hardwired-control-as-a-state-machine"
+ ],
+ "sources": [
+  {
+   "kind": "lecture-slides",
+   "title": "Unit III - Control Unit Design (sequence counter, delay element and state table methods)",
+   "channel": "SRM Institute of Science and Technology, control unit design course notes",
+   "url": "https://webstor.srmist.edu.in/web_assets/srm_mainsite/files/downloads/control_unit_design.pdf",
+   "language": "en",
+   "transcript": "PARTIAL",
+   "translated": false,
+   "note": "read the three named methods with their sizing steps, the ADD (R3), R1 control sequence, and the list of hardwired advantages and disadvantages"
+  }
+ ],
+ "sourceLine": "The three systematic design methods, their sizing steps and the worked ADD (R3), R1 sequence: SRM IST control unit design notes (English, read in part). The sizing arithmetic on this card is recomputed in scripts/validate.py. No GATE CSE previous-year question on the design methods themselves was found; the questions in this topic test the result, not the procedure.",
+ "videoRefs": [],
+ "links": {
+  "visual": {
+   "slug": "control-unit-design",
+   "title": "From Opcode to Microprogram: Walking the Control Store",
+   "level": "topic-level",
+   "covers": [
+    "the control store as a memory of control words, with the fetch routine held at the top",
+    "each control word read out of the store as the control signals for one micro-operation",
+    "the mapping of an opcode to the start of that instruction's microprogram, and the return to fetch",
+    "the same microprogram written horizontally and vertically, and the width each costs"
+   ],
+   "url": "https://gate-visual-explainer.vercel.app/topics/control-unit-design/index.html"
+  },
+  "mapped_at": "2026-10-31"
+ }
+}

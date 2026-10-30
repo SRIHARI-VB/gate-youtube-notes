@@ -1,0 +1,95 @@
+{
+ "id": "control-unit-contract-and-control-word",
+ "title": "The Control Unit as a Block: Three Inputs, One Control Word Out",
+ "priority": "P1",
+ "order": 505,
+ "unit": "Design of the Control Unit",
+ "quickIdea": "The control unit reads what instruction is in the IR, which timing step the machine is in, and what the flags say, and from those three it emits the set of control signals that make the datapath perform exactly one micro-operation. That set of signals, at one instant, is the control word.",
+ "remember": [
+  "Its inputs are the instruction register (mainly the opcode), the timing state, the condition flags, and any external signal such as an interrupt request.",
+  "Its outputs are the control signals themselves: bus selects, register load and increment lines, memory read and write, and the ALU function code.",
+  "The control unit computes no data. It decides who may drive a bus, who may latch, and when.",
+  "A control word is the string of 1s and 0s that names every control variable at one instant; a micro-operation is what that word makes the datapath do.",
+  "The same control word can be produced by fixed logic (hardwired) or read out of a memory (microprogrammed). The datapath cannot tell the difference, which is why one machine design can be built either way."
+ ],
+ "example": {
+  "prompt": "A five-step ADD R1, R2, R3 on a bus machine. Which signals does the control unit issue at each step, and what does the control unit actually decide?",
+  "work": "Step 1: PC out, MAR in, memory read. Step 2: MDR out, IR in, PC increment. Step 3: decode, then R2 out and R3 out to the ALU with the add code. Step 4: the ALU result to R1. Step 5: end. At every step the control unit's only decision is which lines to assert; the arithmetic is the ALU's.",
+  "answer": "One control word per step, five words for the instruction. Each word is a choice of bus sources, latches and ALU function, and the sequence of words is the instruction."
+ },
+ "gateAngle": "Questions in this topic are almost always of one of two shapes: given a table of micro-operations, which control signal is asserted at step T, and when; or given a control-word width, how many bits are needed. Both are answered from this block contract, so the first thing to fix is what the inputs and outputs are. The 1987 and 1999 questions in this topic test the second half of the contract - which implementation you chose - rather than any arithmetic.",
+ "variations": [
+  {
+   "label": "ORIGINAL PYQ-STYLE QUESTION",
+   "question": "A control unit is described as having the instruction register, the timing state and the flags as its only inputs. Which of these could it then NOT do? (i) skip a step because the branch was not taken (ii) change the ALU function mid-instruction (iii) hold a data value between two steps",
+   "answer": "Only (iii) is impossible.",
+   "why": "The flags arriving as an input are exactly what lets a conditional step be skipped, and the timing state lets the ALU function change from step to step. Holding data is the register file's job, not the control unit's."
+  },
+  {
+   "label": "CONCEPTUAL PRACTICE QUESTION",
+   "question": "Why does the control unit need the flags as an input at all, when the ALU already computed them?",
+   "answer": "Because a conditional branch or a conditional micro-operation has to become a different sequence of control signals depending on the flag, and the control unit is what chooses the sequence.",
+   "why": "Without a flag input every instruction would execute the same fixed sequence of steps, which is exactly what an unconditional machine does and why it cannot branch."
+  },
+  {
+   "label": "PREDICTED VARIATION",
+   "question": "A machine has 40 control signals and issues one control word per clock. How many bits leave the control unit per clock, and does that number change if the machine is microprogrammed?",
+   "answer": "Forty bits leave per clock in the horizontal case, and the number of signals leaving does not change with the implementation - only the way the word is stored does.",
+   "why": "The datapath needs the same 40 lines whichever control unit drives them. A microprogrammed unit may store the word in fewer bits and decode it, but the wires to the datapath still number 40."
+  }
+ ],
+ "trap": {
+  "what": "Treating the control unit as the thing that does the arithmetic, or as a second ALU.",
+  "why": "The control unit only asserts lines. Every value it influences is produced by the ALU, the registers or memory, and every decision it makes is about timing and routing.",
+  "counterexample": "An ADD and an AND on the same datapath use the same control unit and the same registers; only the ALU function code differs. If the control unit computed, it would need an adder, and the ALU would have nothing to do."
+ },
+ "check": {
+  "question": "Name the three inputs and the one output group of the control unit, and say which of them the flags belong to.",
+  "answer": "Inputs: the instruction register, the timing state, and the flags plus external signals such as an interrupt request. Output: the control signals. The flags are an input, not an output - the ALU produces them, the control unit reads them.",
+  "explanation": "Swapping that direction is the most common way to get a flag question wrong: the control unit consumes flags and produces control signals."
+ },
+ "pyqIds": [],
+ "prereqs": [
+  "alu-block-contract",
+  "instruction-format-and-fields"
+ ],
+ "sources": [
+  {
+   "kind": "lecture-transcript",
+   "title": "Lecture 20 - Design of Hardwired controlled Control Unit",
+   "channel": "NPTEL, Computer Organization and Architecture - A Pedagogical Aspect (Prof. J. K. Deka, Dr. Santosh Biswas, Dr. Arnab Sarkar, IIT Guwahati)",
+   "url": "http://www.digimat.in/nptel/courses/video/106103180/lec20.pdf",
+   "language": "en",
+   "transcript": "PARTIAL",
+   "translated": false,
+   "note": "read from the opening through the statement that a hardwired control unit is a sequential state machine whose states are the time steps and whose outputs are the control signals"
+  },
+  {
+   "kind": "text",
+   "title": "Control Unit (Hardwired and Microprogrammed) Hindi mein",
+   "channel": "DSWallah Learn (Hinglish study lesson on the control unit)",
+   "url": "https://www.dswallah.com/learn/computer-architecture/control-unit/",
+   "language": "hi",
+   "transcript": "PARTIAL",
+   "translated": true,
+   "note": "read the sections on what the control unit is, the three sources of its signals, the hardwired flow and the microprogrammed vocabulary. Written in romanised Hindi and translated into English here; its railway-station analogy and its interview advice are not used"
+  }
+ ],
+ "sourceLine": "The statement that a hardwired control unit is a sequential state machine whose outputs are the control signals: IIT Guwahati, Lecture 20 (English, read in part). The framing of the unit as the block that issues read, write, register-load, ALU and bus-enable signals without processing data, and the note that its signals come from the instruction register, the timing generator and the flags: DSWallah Learn (romanised Hindi, translated, read in part).",
+ "videoRefs": [],
+ "links": {
+  "visual": {
+   "slug": "control-unit-design",
+   "title": "From Opcode to Microprogram: Walking the Control Store",
+   "level": "topic-level",
+   "covers": [
+    "the control store as a memory of control words, with the fetch routine held at the top",
+    "each control word read out of the store as the control signals for one micro-operation",
+    "the mapping of an opcode to the start of that instruction's microprogram, and the return to fetch",
+    "the same microprogram written horizontally and vertically, and the width each costs"
+   ],
+   "url": "https://gate-visual-explainer.vercel.app/topics/control-unit-design/index.html"
+  },
+  "mapped_at": "2026-10-31"
+ }
+}

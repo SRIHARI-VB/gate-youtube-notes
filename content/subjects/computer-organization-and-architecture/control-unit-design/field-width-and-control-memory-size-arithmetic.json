@@ -1,0 +1,97 @@
+{
+ "id": "field-width-and-control-memory-size-arithmetic",
+ "title": "Field Width and Control Memory Size: The Arithmetic Questions",
+ "priority": "P1",
+ "order": 513,
+ "unit": "Design of the Control Unit",
+ "quickIdea": "Every microinstruction width question is the same sum: the control fields plus the sequencing fields equal the word, the address field is wide enough to name every word, and the store size is words times width.",
+ "remember": [
+  "Word width = sum of the control-signal bits + the next-address bits + any condition-select and branch-type bits.",
+  "A field that selects one of n alternatives takes ceil(log2 n) bits; a vertical field that must also say 'none' takes ceil(log2(n + 1)).",
+  "The next-address field is as wide as the control address register, which is ceil(log2 W) for a store of W words - and that width also fixes W, since W = 2^(address width).",
+  "Store size in bits = number of words x word width; in words it is 2^(address width).",
+  "Give the answer in the units asked for. A question that asks for words wants 1024, not 1024 x 26."
+ ],
+ "example": {
+  "prompt": "GATE CSE 2004 Q.67: microinstructions are 26 bits wide, split into a 13-bit micro-operation field, a next-address field X and a multiplexer-select field Y. The multiplexer has 8 status bits on its inputs. Find X, Y and the number of words in the control memory.",
+  "work": "The multiplexer selects one of 8 status bits, so Y = ceil(log2 8) = 3. Then X = 26 - 13 - 3 = 10. A 10-bit next-address field addresses 2^10 = 1024 words, which is the size of the control memory.",
+  "answer": "X = 10, Y = 3, and 1024 words - option (A)."
+ },
+ "gateAngle": "This is the one arithmetic question the topic repeats, in different clothing: one field is given as a count and must be turned into bits, one field is the remainder, and the remainder's width is read back as a capacity. Two traps: using log2 instead of ceil, and treating the address field as data rather than as a width that determines the store.",
+ "variations": [
+  {
+   "label": "VERIFIED PYQ",
+   "question": "GATE CSE 2004 Q.67, as above: how many bits are there in the X and Y fields, and what is the size of the control memory in words?",
+   "answer": "(A) 10, 3, 1024.",
+   "why": "Y = 3 because 8 status bits need three select lines; X = 26 - 13 - 3 = 10; and a 10-bit address names 2^10 = 1024 words."
+  },
+  {
+   "label": "ORIGINAL PYQ-STYLE QUESTION",
+   "question": "A microinstruction is 32 bits: 3 encoded fields of 5, 6 and 4 bits, 8 single-bit signals, a 2-bit branch field, a 3-bit condition field, and the rest is the address. How many words can the control store hold?",
+   "answer": "32 - (5 + 6 + 4 + 8 + 2 + 3) = 32 - 28 = 4 address bits, so 16 words.",
+   "why": "Add every non-address field, subtract from the word, and read the remainder as an address width. Four bits name 16 words, which is small enough that the designer would probably widen the store instead."
+  },
+  {
+   "label": "PREDICTED VARIATION",
+   "question": "The control store must hold 300 microinstructions. How wide is the control address register, and how many words are wasted?",
+   "answer": "9 bits, since 2^8 = 256 is too few and 2^9 = 512; 212 words are wasted.",
+   "why": "The address register can only be a whole number of bits, so the store is always a power of two and the waste is unavoidable."
+  }
+ ],
+ "trap": {
+  "what": "Answering the store size in bits when the question asks for words, or the reverse.",
+  "why": "The two differ by the word width, and both answers are usually present as options.",
+  "counterexample": "For the 2004 question, 1024 words is 1024 x 26 = 26624 bits. A candidate who computes the bit count and then looks for it in the options finds nothing and doubts a correct calculation."
+ },
+ "check": {
+  "question": "A control store has 256 words of 24 bits, of which the address field is 8 bits. How many bits are available for control signals and other fields?",
+  "answer": "16 bits: 24 - 8.",
+  "explanation": "The address field of 8 bits is exactly what 256 words needs, so the two figures agree - which is the consistency check worth running on any such question."
+ },
+ "pyqIds": [
+  "gate-2004-67-microinstruction-fields-control-memory-size"
+ ],
+ "prereqs": [
+  "microprogrammed-control-store-and-microinstruction",
+  "microinstruction-format-horizontal-vertical-hybrid"
+ ],
+ "sources": [
+  {
+   "kind": "lecture-slides",
+   "title": "Unit III Part 1 - Microprogrammed Control: control memory, address sequencing, microprogram example, design of the control unit",
+   "channel": "P. C. E. Puri, computer organization course notes following Mano",
+   "url": "https://www.pcepurnia.org/wp-content/uploads/2020/03/Unit-III-part-1.pdf",
+   "language": "en",
+   "transcript": "PARTIAL",
+   "translated": false,
+   "note": "read the definitions of control word, microinstruction, microprogram, CAR and CDR, the four address-sequencing capabilities, the 20-bit microinstruction format, the 128-location example with its fetch routine, and the microprogram sequencer with its two multiplexers"
+  },
+  {
+   "kind": "lecture-slides",
+   "title": "Control Units: Hardwired and Microprogrammed (horizontal and vertical microcode)",
+   "channel": "Edward Bosworth, CPSC 5155, chapter 4 lecture",
+   "url": "http://www.edwardbosworth.com/CPSC5155/PH4/Ch04/Ch04_Microprogramming.pdf",
+   "language": "en",
+   "transcript": "PARTIAL",
+   "translated": false,
+   "note": "read the horizontal-against-vertical comparison, where a bus fed by seven sources takes 8 bits horizontally and 3 bits vertically, and the note that vertical microcode also prevents two sources being placed on one bus at once"
+  }
+ ],
+ "sourceLine": "The 20-bit microinstruction format with three 3-bit micro-operation fields, a 2-bit condition field, a 2-bit branch field and a 7-bit address field, and the 128-location control memory: P. C. E. Puri unit III notes following Mano (English, read in part). The encoded-field widths and the no-operation option in a vertical field: Edward Bosworth, chapter 4 lecture (English, read in part). Every number on this card is recomputed in scripts/validate.py.",
+ "videoRefs": [],
+ "links": {
+  "visual": {
+   "slug": "control-unit-design",
+   "title": "From Opcode to Microprogram: Walking the Control Store",
+   "level": "topic-level",
+   "covers": [
+    "the control store as a memory of control words, with the fetch routine held at the top",
+    "each control word read out of the store as the control signals for one micro-operation",
+    "the mapping of an opcode to the start of that instruction's microprogram, and the return to fetch",
+    "the same microprogram written horizontally and vertically, and the width each costs"
+   ],
+   "url": "https://gate-visual-explainer.vercel.app/topics/control-unit-design/index.html"
+  },
+  "mapped_at": "2026-10-31"
+ }
+}

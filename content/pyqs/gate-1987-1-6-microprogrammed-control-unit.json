@@ -1,0 +1,22 @@
+{
+ "id": "gate-1987-1-6-microprogrammed-control-unit",
+ "year": "1987",
+ "paper": "GATE CSE 1987",
+ "question_ref": "Q.1(vi) on GATE Overflow (the sixth part of the first question of the paper)",
+ "type": "MCQ",
+ "marks": null,
+ "topic": "hardwired-versus-microprogrammed-trade-offs",
+ "text": "A microprogrammed control unit: (1) is faster than a hard-wired control unit (2) facilitates easy implementation of new instructions (3) is useful when very small programs are to be run (4) usually refers to the control unit of a microprocessor.",
+ "options": [
+  "is faster than a hard-wired control unit",
+  "facilitates easy implementation of new instructions",
+  "is useful when very small programs are to be run",
+  "usually refers to the control unit of a microprocessor"
+ ],
+ "answer": "Option 2 - facilitates easy implementation of new instructions",
+ "solution": "A microprogrammed unit adds a control-store read, and for vertical microcode a decode, to the path that produces each control signal, so it cannot be faster than hardwired logic: statement 1 is false. It does make a new instruction a matter of writing a new microroutine into the control store, so statement 2 is true. The control store's cost and its read delay are least justified exactly when the programs and the instruction set are tiny, so statement 3 is false. A microprocessor's control unit may be built either way, so statement 4 is false as well.",
+ "source_url": "https://gateoverflow.in/80199/gate-cse-1987-question-1-vi",
+ "source_label": "GATE Overflow question page - GATE CSE 1987 Q.1(vi) with the accepted answer (option 2)",
+ "verification": "SOURCED",
+ "answer_evidence": "The GATE Overflow accepted answer states 'Correct Answer: B' and reasons through all four statements. The official 1987 paper and key were not fetched this run, so the record stays SOURCED. One answer on the page points out that statement 3 is not generally true rather than false in every case, and that nuance is recorded on the card rather than smoothed over."
+}

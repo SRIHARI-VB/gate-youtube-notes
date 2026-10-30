@@ -421,6 +421,34 @@ MATH = [
     ("alu: zero-flag pairs after a 4-bit subtraction", 16, 16),
     ("alu: V-setting ordered pairs in 4-bit addition", 28 + 36, 64),
     ("alu: raw-sign-bit failures in 4-bit subtraction", 64, 64),
+    # control unit design
+    ("control unit: Y field of the 2004 question for 8 status bits", 3, 3),
+    ("control unit: X field of the 2004 question", 26 - 13 - 3, 10),
+    ("control unit: control memory words from a 10-bit address", 2 ** 10, 1024),
+    ("control unit: microinstruction bits of the 20-bit format", 3 * 3 + 2 + 2 + 7, 20),
+    ("control unit: control store bits of the 128 by 20 example", 128 * 20, 2560),
+    ("control unit: words for 16 instructions of 4 microinstructions", 16 * 4, 64),
+    ("control unit: highest mapped start address for opcode 15", 4 * 15, 60),
+    ("control unit: 1996 two encoded fields of 25 signals", 2 * 5, 10),
+    ("control unit: 1996 unordered states of at most two of 25", 1 + 25 + comb(25, 2), 326),
+    ("control unit: 1997 exclusive group bits", 2, 2),
+    ("control unit: 1997 free group bits", 6, 6),
+    ("control unit: 1997 microinstruction bits", 2 + 6, 8),
+    ("control unit: horizontal width of 25 signals", 25, 25),
+    ("control unit: bits saved by the vertical form of 25 signals", 25 - 10, 15),
+    ("control unit: states of a 3 major by 4 minor machine", 3 * 4, 12),
+    ("control unit: state bits of a 3 major by 4 minor machine", 2 + 2, 4),
+    ("control unit: counter bits for 5 phases", 3, 3),
+    ("control unit: counter bits for 9 steps", 4, 4),
+    ("control unit: timing signals of a 4-bit sequence counter", 2 ** 4, 16),
+    ("control unit: vertical field bits for 12 exclusive signals", 4, 4),
+    ("control unit: vertical width of the lesson's five fields", 2 + 2 + 2 + 1 + 1, 8),
+    ("control unit: horizontal width of the lesson's word", 10, 10),
+    ("control unit: bits in the lesson's visible store", 8 * 10, 80),
+    ("control unit: fetch words if 16 instructions kept their own copy", 16 * 3, 48),
+    ("control unit: quick check address for opcode 5 with 8-word blocks", 5 * 8, 40),
+    ("control unit: instructions mappable by a 3-bit opcode", 2 ** 3, 8),
+    ("control unit: address bits of a 64-word store", 6, 6),
 ]
 
 
@@ -2580,6 +2608,154 @@ def check_combinational_circuits():
        "propagate carry, multiplexer realisation, multiplexer-tree count, decoder, encoder, comparator, "
        "ROM size, parity and hazard claim published in the topic recomputed - by enumeration over the "
        "eight- and sixteen-row tables and against the thirteen recorded PYQs")
+
+
+def check_control_unit_design():
+    """Every width, address, bit pattern and encoding published in the Control Unit topic is recomputed."""
+    from math import ceil, log2
+
+    def bits_for(n):
+        """Bits to name one of n alternatives (no NOP)."""
+        return ceil(log2(n)) if n > 1 else 0
+
+    def vbits(n):
+        """Bits for a vertical field over n mutually exclusive signals, including the NOP code."""
+        return ceil(log2(n + 1))
+
+    # ---- field widths quoted on the cards
+    if bits_for(8) != 3 or 26 - 13 - bits_for(8) != 10 or 2 ** 10 != 1024:
+        fail("control unit: the 2004 Q.67 arithmetic is wrong")
+    if 3 * 3 + 2 + 2 + 7 != 20 or 128 * 20 != 2560:
+        fail("control unit: the 20-bit format or the 128 by 20 store is wrong")
+    if bits_for(25) != 5 or 2 * bits_for(25) != 10:
+        fail("control unit: 1996 Q.2.25 should give two 5-bit fields, 10 bits")
+    if 1 + 25 + comb(25, 2) != 326 or ceil(log2(326)) != 9:
+        fail("control unit: the 1996 floor should be 326 states and 9 bits")
+    if vbits(3) != 2 or bits_for(64) != 6 or 2 + 6 != 8:
+        fail("control unit: 1997 Q.5.3 should give 2 + 6 = 8 bits")
+    if vbits(3) != 2 or vbits(6) != 3 or vbits(9) != 4 or vbits(12) != 4 or vbits(2) != 2:
+        fail("control unit: a vertical field width is wrong")
+    if 3 * 3 + 2 + 2 + 7 != 20:
+        fail("control unit: the standard format does not sum to 20")
+
+    # ---- decoder and counter sizing
+    if bits_for(3) != 2 or 2 ** 2 != 4:
+        fail("control unit: three major states need a 2-bit counter and a 4-output decoder")
+    if bits_for(5) != 3 or bits_for(9) != 4 or bits_for(12) != 4 or bits_for(20) != 5:
+        fail("control unit: a sequence counter is sized by ceil(log2 steps)")
+    if 2 ** 4 != 16:
+        fail("control unit: a 4-bit sequence counter must give 16 timing signals")
+    if bits_for(16) != 4 or bits_for(32) != 5 or bits_for(8) != 3:
+        fail("control unit: opcode decoder widths are wrong")
+    if 3 * 4 != 12 or bits_for(4) + bits_for(3) != 4:
+        fail("control unit: the 3 major by 4 minor machine is not 12 states in 4 bits")
+
+    # ---- the mapping: distinct blocks, correct start addresses, no overrun
+    for n_ins, block in ((16, 4), (8, 8), (4, 16), (2, 32)):
+        starts = [block * op for op in range(n_ins)]
+        if len(set(starts)) != n_ins:
+            fail("control unit: two opcodes map to the same start address (%d, %d)" % (n_ins, block))
+        if starts[-1] + block != n_ins * block:
+            fail("control unit: the mapped blocks do not tile the routine area")
+        if max(starts) >= 128 and n_ins * block <= 128:
+            fail("control unit: a mapped address leaves the 128-word store")
+    if 4 * 15 != 60 or 60 + 4 != 64:
+        fail("control unit: opcode 15 must start at 60 and end before the fetch routine at 64")
+    if 16 * 4 != 64 or 64 + 3 != 67:
+        fail("control unit: the routines must occupy 0 to 63 and the fetch routine 64 to 66")
+    if 5 * 8 != 40 or 8 * 8 != 64 or bits_for(8) + bits_for(8) != 6:
+        fail("control unit: the lesson's quick check mapping is wrong")
+    if 16 * 3 != 48 or 48 - 3 != 45:
+        fail("control unit: sharing the fetch saves 45 of 48 words")
+
+    # ---- the visual lesson: horizontal and vertical words must mean the same thing
+    L = load(os.path.join(ROOT, "visuals", "computer-organization-and-architecture",
+                          "control-unit-design", "control-store-walk", "lesson.json"))
+    ex = L["example"]
+    sig = ex["signals_in_bit_order"]
+    if len(sig) != ex["horizontal_width"] or len(sig) != 10:
+        fail("control unit: the lesson's signal list and horizontal width disagree")
+    words = {}
+    for wd in ex["words"]:
+        if len(wd["bits"]) != ex["horizontal_width"]:
+            fail("control unit: lesson word %d is not %d bits" % (wd["address"], ex["horizontal_width"]))
+        asserted = [sig[i] for i, b in enumerate(wd["bits"]) if b == "1"]
+        if asserted != wd["asserted"]:
+            fail("control unit: lesson word %d asserts %r but claims %r"
+                 % (wd["address"], asserted, wd["asserted"]))
+        words[wd["address"]] = set(asserted)
+    if words[0] != {"PCout", "MARin", "MEMread"}:
+        fail("control unit: the lesson's fetch word 0 is wrong")
+    if words[1] != {"MDRout", "IRin", "PCinc"}:
+        fail("control unit: the lesson's fetch word 1 is wrong")
+    if words[2] != {"END"} or words[5] != {"END"}:
+        fail("control unit: the lesson's END words are wrong")
+    if words[4] != {"R2out", "R1in", "ALUadd"}:
+        fail("control unit: the lesson's ADD word is wrong")
+    if ex["store_words_visible"] * ex["horizontal_width"] != ex["store_bits_visible"]:
+        fail("control unit: the lesson's store size is wrong")
+    mp = ex["mapping"]
+    if mp["words_per_routine"] != 2 ** mp["zero_bits_inserted"]:
+        fail("control unit: the lesson's block size is not 2 to the inserted zeros")
+    if mp["example_opcode"] * mp["words_per_routine"] != mp["example_address"]:
+        fail("control unit: the lesson's mapped address is wrong")
+    if mp["opcode_bits"] + mp["zero_bits_inserted"] + mp["leading_zero_bits"] != mp["address_bits"]:
+        fail("control unit: the lesson's mapped address is not 7 bits")
+    if mp["highest_address_for_16_instructions"] != 4 * 15:
+        fail("control unit: the lesson's highest start address is wrong")
+    if mp["fetch_routine_address"] != 16 * 4:
+        fail("control unit: the lesson's fetch routine address is wrong")
+
+    # the vertical encoding must decode to exactly the horizontal words
+    vf = ex["vertical"]["fields"]
+    if sum(f["bits"] for f in vf) != ex["vertical"]["width"]:
+        fail("control unit: the lesson's vertical field widths do not sum to its width")
+    for f in vf:
+        if f["bits"] != vbits(len(f["members"])):
+            fail("control unit: vertical field %r is not sized by ceil(log2(n+1))" % f["name"])
+    covered = []
+    for f in vf:
+        covered.extend(f["members"])
+    if sorted(covered) != sorted(sig):
+        fail("control unit: the lesson's vertical fields do not cover every signal exactly once")
+    if ex["horizontal_width"] - ex["vertical"]["width"] != ex["vertical"]["saving"]:
+        fail("control unit: the lesson's saving does not match the widths")
+    for wd in ex["vertical"]["words"]:
+        codes = wd["bits"].split(" ")
+        if len(codes) != len(vf):
+            fail("control unit: vertical word %d has %d fields" % (wd["address"], len(codes)))
+            continue
+        back = set()
+        for code, f in zip(codes, vf):
+            if len(code) != f["bits"]:
+                fail("control unit: vertical word %d field %r is not %d bits"
+                     % (wd["address"], f["name"], f["bits"]))
+                continue
+            val = int(code, 2)
+            if val > len(f["members"]):
+                fail("control unit: vertical word %d uses code %d in a field of %d"
+                     % (wd["address"], val, len(f["members"])))
+                continue
+            if val > 0:
+                back.add(f["members"][val - 1])
+        if back != words[wd["address"]]:
+            fail("control unit: vertical word %d decodes to %r but the horizontal word asserts %r"
+                 % (wd["address"], sorted(back), sorted(words[wd["address"]])))
+
+    # a vertical field can never assert two of its members at once
+    for f in vf:
+        if len(f["members"]) > 1:
+            simultaneous = [m for m in f["members"]]
+            if len(set(simultaneous)) != len(simultaneous):
+                fail("control unit: a vertical field lists a signal twice")
+    if "MEMread" not in words[0] or "ALUadd" in words[0]:
+        fail("control unit: memory read must be asserted in word 0 and no ALU operation")
+
+    ok("control unit design: the 2004, 1996 and 1997 field-width arithmetic, the decoder and counter "
+       "sizing for 3 major states and 4 to 20 steps, the mapping blocks for 2 to 16 instructions with "
+       "their start addresses and the fetch routine at 64, the lesson's ten-signal words 0, 1, 2, 4 and 5 "
+       "re-derived from their bit patterns, and its eight-bit vertical encoding decoded back to the same "
+       "five asserted sets")
 
 
 def check_visuals():
@@ -8046,6 +8222,7 @@ def main():
     check_computer_arithmetic()
     check_instruction_set_and_addressing_modes()
     check_alu_design()
+    check_control_unit_design()
     check_visuals()
     check_hygiene()
     for c in checks:

@@ -1,0 +1,166 @@
+{
+ "slug": "control-store-walk",
+ "topic": "control-unit-design",
+ "engine": "p5.js",
+ "steps": 7,
+ "subtopics": [
+  "the control store as a memory of control words, with the shared fetch routine held at the top",
+  "each control word read out as the control signals of one micro-operation",
+  "the mapping of an opcode to the start address of that instruction's microprogram, and the return to fetch",
+  "the same microprogram written horizontally and vertically, and the width each costs"
+ ],
+ "example": {
+  "signals_in_bit_order": [
+   "PCout",
+   "MARin",
+   "MEMread",
+   "MDRout",
+   "IRin",
+   "PCinc",
+   "R2out",
+   "R1in",
+   "ALUadd",
+   "END"
+  ],
+  "horizontal_width": 10,
+  "store_words_visible": 8,
+  "words": [
+   {
+    "address": 0,
+    "bits": "1110000000",
+    "routine": "fetch",
+    "asserted": [
+     "PCout",
+     "MARin",
+     "MEMread"
+    ],
+    "action": "MAR <- PC, memory read"
+   },
+   {
+    "address": 1,
+    "bits": "0001110000",
+    "routine": "fetch",
+    "asserted": [
+     "MDRout",
+     "IRin",
+     "PCinc"
+    ],
+    "action": "IR <- MDR, PC <- PC + 1"
+   },
+   {
+    "address": 2,
+    "bits": "0000000001",
+    "routine": "fetch",
+    "asserted": [
+     "END"
+    ],
+    "action": "jump to the mapped address"
+   },
+   {
+    "address": 4,
+    "bits": "0000001110",
+    "routine": "add",
+    "asserted": [
+     "R2out",
+     "R1in",
+     "ALUadd"
+    ],
+    "action": "R1 <- R1 + R2"
+   },
+   {
+    "address": 5,
+    "bits": "0000000001",
+    "routine": "add",
+    "asserted": [
+     "END"
+    ],
+    "action": "branch back to fetch at 0"
+   }
+  ],
+  "mapping": {
+   "opcode_bits": 4,
+   "zero_bits_inserted": 2,
+   "words_per_routine": 4,
+   "example_opcode": 1,
+   "example_address": 4,
+   "highest_address_for_16_instructions": 60,
+   "fetch_routine_address": 64,
+   "leading_zero_bits": 1,
+   "address_bits": 7
+  },
+  "vertical": {
+   "fields": [
+    {
+     "name": "bus source",
+     "members": [
+      "PCout",
+      "MDRout",
+      "R2out"
+     ],
+     "bits": 2
+    },
+    {
+     "name": "destination",
+     "members": [
+      "MARin",
+      "IRin",
+      "R1in"
+     ],
+     "bits": 2
+    },
+    {
+     "name": "operation",
+     "members": [
+      "MEMread",
+      "ALUadd"
+     ],
+     "bits": 2
+    },
+    {
+     "name": "PCinc",
+     "members": [
+      "PCinc"
+     ],
+     "bits": 1
+    },
+    {
+     "name": "END",
+     "members": [
+      "END"
+     ],
+     "bits": 1
+    }
+   ],
+   "width": 8,
+   "saving": 2,
+   "words": [
+    {
+     "address": 0,
+     "bits": "01 01 01 0 0"
+    },
+    {
+     "address": 1,
+     "bits": "10 10 00 1 0"
+    },
+    {
+     "address": 2,
+     "bits": "00 00 00 0 1"
+    },
+    {
+     "address": 4,
+     "bits": "11 11 10 0 0"
+    },
+    {
+     "address": 5,
+     "bits": "00 00 00 0 1"
+    }
+   ]
+  },
+  "store_bits_visible": 80,
+  "fetch_shared_saving": {
+   "instructions": 16,
+   "fetch_words": 3,
+   "copies_if_not_shared": 48
+  }
+ }
+}

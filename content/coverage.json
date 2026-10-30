@@ -3,7 +3,7 @@
  "updated_at": "2026-10-31",
  "cycle": {
   "last_subject": "computer-organization-and-architecture",
-  "last_topic": "alu-design",
+  "last_topic": "control-unit-design",
   "updated_at": "2026-10-31"
  },
  "subjects": [
@@ -827,10 +827,41 @@
     {
      "slug": "control-unit-design",
      "name": "Design of the Control Unit",
-     "status": "not_started",
-     "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
-     "runs": [],
-     "gaps": []
+     "status": "partial",
+     "coverage_note": "13 subtopics, 13 cards (the control unit as a block and its control word, the instruction cycle as a sequence of micro-operations, hardwired control as a state machine, the instruction decoder and the signal generation tree, control equations read off a micro-operation table, the sequence-counter, delay-element and state-table design methods, the control store and the microinstruction, horizontal, vertical and hybrid formats, field-width and control-memory-size arithmetic, sequencing and the four sources of the control address register, opcode mapping and the shared fetch routine, the hardwired against microprogrammed trade-offs, and a complete worked control unit), 7 verified PYQs and 1 p5.js lesson. Partial because eight gaps remain, named below.",
+     "runs": [
+      {
+       "date": "2026-10-31",
+       "sources": [
+        "nptel-iitg-106103180-lecture-20-hardwired",
+        "nptel-iitg-106103180-lecture-21-microinstructions",
+        "nptel-iitg-106103180-lecture-22-organization",
+        "bosworth-cpsc5155-ch04-control-units",
+        "bosworth-cpsc5155-control-unit-overview",
+        "bosworth-cpsc5155-ch11-hardwired-control-unit",
+        "srmist-unit3-control-unit-design",
+        "pcepurnia-unit3-microprogrammed-control",
+        "manomachine-asee-control-equations",
+        "gchamirpur-mano-timing-and-control",
+        "pdx-basic-computer-control-unit",
+        "dswallah-hindi-control-unit"
+       ],
+       "cards": 13,
+       "pyqs": 7,
+       "lesson": "computer-organization-and-architecture/control-unit-design/control-store-walk",
+       "note": "Sources chosen on merit across two languages and five kinds of material: the IIT Guwahati NPTEL course's own three control-unit lectures (English, read in part) for the hardwired state-machine view, the control word and the shared fetch routine; Edward Bosworth's CPSC 5155 slides (English, read in part) for the major and minor state registers, the instruction decoder and signal trees, the horizontal against vertical widths and the Wilkes history; SRM IST's control unit notes (English, read in part) for the three systematic design methods; P. C. E. Puri's unit III notes following Mano (English, read in part) for the control address and data registers, the four sequencing capabilities, the 20-bit microinstruction format and the 128-location example; a Mano-machine ASEE paper (English, read in part) for the worked control equations; Government College Hamirpur and Portland State University slides (English, read in part) for the complete basic-computer control unit; and one romanised-Hindi lesson (translated, read in part) for the three-source framing and the horizontal and vertical vocabulary. Sixteen candidates were rejected with reasons in sources.json, including the course's Lectures 17 to 19 (already served by the ALU and instruction-set topics), the IIT Delhi control lectures (host unreachable this run), GeeksforGeeks (extracts only), the GATE Overflow revision digest, the machine-written Knowledge Gate explanations, five PYQ index sites, GATE IT 2005, ISRO 2009 and NIELTS questions (not CSE), GATE CSE 2018 Q.5 (instruction-set topic), the Hindi Mind Luster course (titles only) and a machine-translated Hindi encyclopaedia article. No YouTube watch page was opened as a transcript source."
+      }
+     ],
+     "gaps": [
+      "no video transcript was readable and none was attempted this run: the IIT Guwahati course that supplies the teaching is published as transcript PDFs on the NPTEL mirror, which is what the cards are built on, so videoRefs is empty on all thirteen cards and no card quotes or timestamps a lecture",
+      "every served transcript extract stopped after its opening pages, so each of the twelve chosen sources is recorded as read in part: the mapping card's start-address arithmetic is this repository's own, because the notes' served extract ended before the worked mapping figure, and it is recomputed rather than quoted",
+      "GATE CSE 1996 Q.2.25 is recorded with the accepted answer 10 bits and with the dissent that the information-theoretic floor is 9 (326 unordered states), which the question page argues and which no key document settles; the disagreement is stated rather than resolved",
+      "the year of the speed-order question is unstable: GATE Overflow and Solutions Adda place it in 1999 as Q.2.19, ExamSIDE files it under GATE CSE 2001 for 2 marks, and both attributions are recorded",
+      "no GATE CSE previous-year question on this topic after 2013 was found; the 2018 question that names a hardwired control unit is an instruction-set question and stays on the instruction-set card, and the closest remaining questions (GATE IT 2005 Q.9 and Q.10, ISRO 2009 Q.6, several NIELIT questions) are not CSE papers and are excluded",
+      "nano-programming and two-level control are named by the best-matched Hindi course and by no readable source this run, so no card covers them and the subtopic list does not claim them",
+      "every PYQ in the topic is SOURCED against a GATE Overflow accepted answer rather than key-verified against an official key, and no marks field is recorded, because no official paper or key was fetched this run",
+      "only one non-English source was readable, a romanised-Hindi study lesson marked as translated, and it contributes the three-source framing of the control signals and the horizontal, vertical, RISC and CISC vocabulary; no Hindi, Tamil, Telugu or Bengali lecture transcript on this topic could be read"
+     ]
     },
     {
      "slug": "memory-hierarchy-and-cache",

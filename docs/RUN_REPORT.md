@@ -2615,3 +2615,113 @@ token, no shell layout, no route, no navigation label and no shared component cl
 
 The cycle pointer now sits on `computer-organization-and-architecture/alu-design`. The next topic in
 syllabus order is `computer-organization-and-architecture/control-unit-design`, which is `not_started`.
+
+## Run: Computer Organization and Architecture - Design of the Control Unit (2026-10-31)
+
+### The topic, and why it was next
+
+**Computer Organization and Architecture > Design of the Control Unit** (`control-unit-design`), the third
+topic of the GATE 2027 COA line: *"Instruction set and addressing modes. Design of arithmetic and logic
+unit (ALU). Design of control unit - hardwired and microprogrammed. Memory interfacing and hierarchy:
+performance, cache memory mapping. I/O interface (interrupt and DMA). Instruction pipelining, pipeline
+hazards."*
+
+The cycle pointer was left by the previous run on `computer-organization-and-architecture/alu-design`, and
+the first topic strictly after it in the enumerated syllabus order whose status is not `covered` is this
+one, which was `not_started`. Nothing was skipped: no topic sits between the pointer and this one, no topic
+is `blocked`, and the twenty-five `partial` topics earlier in the cycle were left alone because the cycle takes
+its second pass over `partial` topics only after a full pass finds no `not_started` topic left. The three
+later COA topics - cache, I/O and pipelining - were deliberately not touched.
+
+### Subtopics enumerated before any source was chosen
+
+Thirteen, from the standard treatment (Mano chapters 5 and 7, Hamacher, Stallings), from the IIT Guwahati
+course's own control module (lectures 15 to 23) and from the GATE question record, because the syllabus
+names the topic in five words: the control unit as a block with three inputs and one output group, and the
+control word as one instant of them; the instruction cycle as an ordered sequence of micro-operations; the
+hardwired unit as a state machine with a major state register and a minor state or sequence counter; the
+instruction decoder and the signal generation tree; control equations read off a micro-operation table; the
+sequence-counter, delay-element and state-table design methods; the control store, the control address
+register and the control data register; horizontal, vertical and hybrid microinstruction formats; field
+width and control-memory-size arithmetic; microinstruction sequencing and the four sources of the control
+address register; opcode mapping and the shared fetch routine; the hardwired against microprogrammed
+trade-offs; and one complete worked control unit.
+
+### Sources chosen, on merit
+
+Twelve sources across two languages and five kinds of material, every one of them readable as text this run
+and every one recorded as read in part:
+
+- **NPTEL IIT Guwahati, Computer Organization and Architecture - A Pedagogical Aspect, Lectures 20, 21 and
+  22** (English, read in part) - the module's own three control-unit lectures: the hardwired unit as a
+  sequential state machine whose states are time steps, the control word stored in a memory with the two
+  jobs of signal generation and sequencing, and the shared fetch microprogram with the jump to the decoded
+  instruction's routine.
+- **Edward Bosworth, CPSC 5155**, three slide sets (English, read in part) - the major state register as a
+  modulo-3 counter and the minor state register as a modulo-4 counter, the 5-to-32 instruction decoder and
+  the signal generation trees, and the horizontal against vertical widths with the Wilkes and EDSAC 2
+  history.
+- **SRM IST, Unit III Control Unit Design** (English, read in part) - the only readable source that names
+  and sizes all three systematic design methods.
+- **P. C. E. Puri, Unit III Part 1** following Mano (English, read in part) - the richest single source: the
+  control address and data registers, the four address-sequencing capabilities, the complete 20-bit
+  microinstruction format, the 128-location example with its fetch routine, and the microprogram sequencer.
+- **A Mano-machine ASEE paper** (English, read in part) - the worked control equations, `ldDR` and `ldAR`,
+  derived line by line from the micro-operation table.
+- **Government College Hamirpur and Portland State University** slides (English, read in part) - the complete
+  basic-computer control unit down to the width of both decoders and the `D3.T4: SC <- 0` clear.
+- **DSWallah Learn**, a romanised-Hindi control-unit lesson (Hindi, **translated**, read in part) - the only
+  non-English source readable this run, and the only one that states the three sources of control signals as
+  a set. It is marked as translated on the three cards it feeds.
+
+Sixteen candidates were rejected with reasons in `sources.json`, including the same course's Lectures 17 to
+19 (their material is already served by the ALU topic's cycle-count cards and by the instruction-set
+topic), the IIT Delhi control lectures (the host refuses direct requests from the sandbox), GeeksforGeeks
+(extracts only, and a comparison list rather than a derivation), the GATE Overflow COA revision digest, the
+machine-written Knowledge Gate explanations, five PYQ index sites, GATE IT 2005 Q.9 and Q.10, ISRO 2009 Q.6
+and several NIELIT questions (not CSE papers), GATE CSE 2018 Q.5 (an instruction-set question already on
+that card), GATE CSE 1988 Q.4i (descriptive), the Hindi Mind Luster course (titles only, no transcript) and
+a machine-translated Hindi encyclopaedia article. No YouTube watch page was opened as a transcript source
+this run: the same course is published as transcript PDFs on the NPTEL mirror.
+
+### What was created
+
+Thirteen cards, seven verified PYQs (1987, 1996, 1997, 1999, 2002, 2004, 2013), one p5.js lesson
+(`control-store-walk`, seven steps, horizontal and vertical words decoded against each other), a
+`sources.json` ledger, and a new recomputation block `check_control_unit_design()` plus twenty-seven new
+numeric claims in `scripts/validate.py`. `content/syllabus.json` now marks the topic `cards` instead of
+`planned`, and `content/coverage.json` records the run, the status and the gaps.
+
+### Validation
+
+`python3 scripts/build-index.py` indexed 3 playlists, 39 videos, 319 topics and 248 PYQs.
+`python3 scripts/validate.py` reported 37 checks passed, 8 warnings, 0 failures; all eight warnings are
+pre-existing. `node tests/visual-lessons.js` passed on all 31 lessons. The validator caught two arithmetic
+errors in the first draft - a vertical field of 12 signals given 5 bits where 4 suffice, and a vertical
+control word that asserted a signal its horizontal twin did not - both of which were corrected rather than
+worked around. No frozen file was touched: no design token, no shell layout, no route, no navigation label
+and no shared component class changed.
+
+### Gaps (the topic stays `partial`)
+
+1. No video transcript was readable and none was attempted: the teaching comes from the same course's
+   transcript PDFs, so `videoRefs` is empty on all thirteen cards.
+2. Every served extract stopped after its opening pages, so the mapping card's start-address arithmetic is
+   this repository's own, recomputed rather than quoted, because the notes' extract ended before the worked
+   mapping figure.
+3. GATE CSE 1996 Q.2.25 keeps the accepted answer 10 with the recorded dissent that the information-theoretic
+   floor is 9 (326 unordered states); no key document settles it.
+4. The speed-order question's year is unstable - 1999 on GATE Overflow and Solutions Adda, 2001 on ExamSIDE -
+   and both attributions are recorded.
+5. No GATE CSE question on this topic after 2013 was found; the closest later questions are not CSE papers.
+6. Nano-programming and two-level control are named by the best-matched Hindi course and by no readable
+   source, so no card covers them.
+7. Every PYQ is `SOURCED`, not key-verified, and no marks field comes from an official paper.
+8. Only one non-English source was readable, and it is a written Hinglish lesson rather than a lecture; no
+   Hindi, Tamil, Telugu or Bengali transcript could be read.
+
+### Next
+
+The cycle pointer now sits on `computer-organization-and-architecture/control-unit-design`. The next topic
+in syllabus order is `computer-organization-and-architecture/memory-hierarchy-and-cache`, which is
+`not_started`.

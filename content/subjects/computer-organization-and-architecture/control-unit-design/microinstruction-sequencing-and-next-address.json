@@ -1,0 +1,95 @@
+{
+ "id": "microinstruction-sequencing-and-next-address",
+ "title": "Sequencing: Four Ways into the Control Address Register",
+ "priority": "P2",
+ "order": 514,
+ "unit": "Design of the Control Unit",
+ "quickIdea": "The control address register can be loaded from exactly four places - the incrementer, the branch-address field of the current microinstruction, the mapping logic fed by the opcode, and the subroutine register - and the branch and condition fields decide which.",
+ "remember": [
+  "Increment: CAR + 1, the default, so a routine can be a straight list of microinstructions.",
+  "Branch: an address field inside the microinstruction, taken unconditionally or only if a selected status bit is 1.",
+  "Mapping: an external address derived from the instruction's opcode, used once per instruction to enter its routine.",
+  "Subroutine: a return address saved in a subroutine register when a shared microroutine is called, and restored on return.",
+  "The condition field selects which status bit is tested, the branch field says what to do with the result, and the input logic turns those two into the select signals of the address multiplexer."
+ ],
+ "example": {
+  "prompt": "In the standard 20-bit format the condition field is 2 bits and the branch field is 2 bits. What do they allow, and why is the address field 7 bits?",
+  "work": "Two condition bits select one of 4 status bits to test; two branch bits select one of 4 actions (jump unconditionally, jump on the condition, call a subroutine, return). Seven address bits name 128 locations, which is the size of that control memory.",
+  "answer": "4 testable status bits and 4 branch types, with a 7-bit address for a 128-word store."
+ },
+ "gateAngle": "Sequencing is usually tested as a width or a count: how many status bits can be selected, how many branch types exist, how wide the address field is. The reasoning is always the same power-of-two arithmetic as the format card. It is also the part of the unit that a question can describe in prose - which of the four sources is used for a given microinstruction - so read the fields as a routing decision, not as an instruction.",
+ "variations": [
+  {
+   "label": "ORIGINAL PYQ-STYLE QUESTION",
+   "question": "A microinstruction has a 1-bit condition field and a 1-bit branch field. What can it express, and what is lost?",
+   "answer": "It can test one status bit and either jump on it or not; there is no unconditional branch, no subroutine call and no return, so shared microroutines cannot be used.",
+   "why": "One bit per field leaves two choices each. The standard format's two bits per field are what make four branch types and four testable conditions possible."
+  },
+  {
+   "label": "CONCEPTUAL PRACTICE QUESTION",
+   "question": "Why must the return address of a microroutine be kept in a register rather than in memory?",
+   "answer": "Because the microcode is sequencing itself: there is no stack pointer instruction at that level, so the unit needs a dedicated register to remember where to resume.",
+   "why": "At machine-instruction level the return address goes on the stack because software manages it. Inside the control unit there is no software, so the hardware keeps one address."
+  },
+  {
+   "label": "PREDICTED VARIATION",
+   "question": "A control store of 512 words uses a 3-bit condition field and a 3-bit branch field. What is the minimum microinstruction width if it drives 30 horizontal signals?",
+   "answer": "30 + 3 + 3 + 9 = 45 bits.",
+   "why": "The address field must be 9 bits to name 512 words. Add the control bits and both sequencing fields."
+  }
+ ],
+ "trap": {
+  "what": "Assuming the next microinstruction is always the next address in the store.",
+  "why": "The incrementer is only the default; the branch field overrides it, and the mapping logic overrides it once per instruction.",
+  "counterexample": "A routine that is a straight list works with the incrementer alone, but the moment the machine has two instructions, the unit must jump to a different block for each - and that jump cannot be an increment."
+ },
+ "check": {
+  "question": "Name the four sources of the control address register and say which one uses the opcode.",
+  "answer": "Incrementer, branch-address field, mapping logic and subroutine register; the mapping logic is the one fed by the opcode.",
+  "explanation": "The mapping logic is used once, at the boundary between fetch and the instruction's own routine; everything else within a routine comes from the other three."
+ },
+ "pyqIds": [],
+ "prereqs": [
+  "microprogrammed-control-store-and-microinstruction",
+  "field-width-and-control-memory-size-arithmetic"
+ ],
+ "sources": [
+  {
+   "kind": "lecture-slides",
+   "title": "Unit III Part 1 - Microprogrammed Control: control memory, address sequencing, microprogram example, design of the control unit",
+   "channel": "P. C. E. Puri, computer organization course notes following Mano",
+   "url": "https://www.pcepurnia.org/wp-content/uploads/2020/03/Unit-III-part-1.pdf",
+   "language": "en",
+   "transcript": "PARTIAL",
+   "translated": false,
+   "note": "read the definitions of control word, microinstruction, microprogram, CAR and CDR, the four address-sequencing capabilities, the 20-bit microinstruction format, the 128-location example with its fetch routine, and the microprogram sequencer with its two multiplexers"
+  },
+  {
+   "kind": "lecture-transcript",
+   "title": "Lecture 22 - Organization and Optimization of Microprogrammed controlled Control Unit",
+   "channel": "NPTEL, Computer Organization and Architecture - A Pedagogical Aspect (IIT Guwahati)",
+   "url": "http://www.digimat.in/nptel/courses/video/106103180/lec22.pdf",
+   "language": "en",
+   "transcript": "PARTIAL",
+   "translated": false,
+   "note": "read from the opening through the description of the shared fetch microprogram, the micro program counter pointing at it, and the jump to the microprogram of the decoded instruction"
+  }
+ ],
+ "sourceLine": "The four capabilities of address sequencing - incrementing, unconditional or conditional branch on a status bit, and the mapping process - together with the two multiplexers of the microprogram sequencer, the condition and branch fields, and the subroutine register: P. C. E. Puri unit III notes following Mano (English, read in part). The description of the micro program counter fetching microinstructions in sequence and jumping when required: IIT Guwahati, Lecture 22 (English, read in part).",
+ "videoRefs": [],
+ "links": {
+  "visual": {
+   "slug": "control-unit-design",
+   "title": "From Opcode to Microprogram: Walking the Control Store",
+   "level": "topic-level",
+   "covers": [
+    "the control store as a memory of control words, with the fetch routine held at the top",
+    "each control word read out of the store as the control signals for one micro-operation",
+    "the mapping of an opcode to the start of that instruction's microprogram, and the return to fetch",
+    "the same microprogram written horizontally and vertically, and the width each costs"
+   ],
+   "url": "https://gate-visual-explainer.vercel.app/topics/control-unit-design/index.html"
+  },
+  "mapped_at": "2026-10-31"
+ }
+}

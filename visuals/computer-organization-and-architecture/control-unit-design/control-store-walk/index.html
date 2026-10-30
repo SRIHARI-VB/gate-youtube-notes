@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>From opcode to microprogram - Control Unit visual lesson</title>
+<link rel="stylesheet" href="../../../lesson.css">
+<script src="https://cdn.jsdelivr.net/npm/p5@1.9.4/lib/p5.min.js"></script>
+</head>
+<body>
+<div class="wrap">
+  <p class="small"><a href="../../../../index.html">&larr; back to the revision site</a></p>
+  <h1>From Opcode to Microprogram: Walking the Control Store</h1>
+  <div class="objective"><strong>Objective.</strong> Watch a control store do the whole job of a control unit. Eight visible words of ten bits hold a two-word fetch routine, a mapping jump and a two-word ADD routine. Each word read out becomes the control signals of one micro-operation; the opcode decides where the jump lands; and the last step rewrites the same words vertically to show what the encoding costs.</div>
+
+  <div class="canvas-wrap"><div id="canvas-holder"></div></div>
+  <div class="caption" id="caption" aria-live="polite"></div>
+
+  <div class="controls">
+    <button id="play" class="primary">Play</button>
+    <button id="prev">&larr; Prev</button>
+    <button id="next">Next &rarr;</button>
+    <button id="restart">Restart</button>
+    <span class="speed"><label for="speed">Speed</label>
+      <input id="speed" type="range" min="0.25" max="2" step="0.25" value="1">
+      <span id="speedLabel">1.00x</span></span>
+    <span class="counter" id="counter"></span>
+  </div>
+
+  <h2>Static explanation</h2>
+  <p>A microprogrammed control unit replaces the signal-generation logic of a hardwired unit with a memory. Each word of the control store is a control word: its bits are the control signals for one micro-operation, and a sequence of words is a microprogram. The unit still has to work out which word to read next, and that sequencing is the only real logic in it - the signals themselves are just wires from the memory's output.</p>
+  <p>This lesson uses ten signals, in this bit order: PCout, MARin, MEMread, MDRout, IRin, PCinc, R2out, R1in, ALUadd and END. Word 0 is 1110000000, which asserts PCout, MARin and MEMread: the program counter goes to the memory address register and the memory is told to read. Word 1 is 0001110000, which asserts MDRout, IRin and PCinc: the fetched word goes into the instruction register and the program counter advances. Those two words are the whole fetch, and they are shared by every instruction because no opcode has been examined yet.</p>
+  <p>Word 2 is 0000000001, which asserts only END. That bit says the next address is not the next word. A 4-bit opcode with two zero bits inserted below it gives four times the opcode, so opcode 0001 enters its routine at word 4, and each routine owns four words: 0, 4, 8, 12 and so on. Word 4 is 0000001110, which asserts R2out, ALUadd and R1in: the second operand reaches the bus, the ALU adds, and the result is written back. Word 5 is an END again, branching back to address 0 so the next instruction is fetched by the same two words.</p>
+  <p>The last step rewrites the same words vertically. The three bus sources share one 2-bit field, the three destinations share another, memory-read and ALU-add share a third, and PCinc and END keep one bit each: eight bits instead of ten. The two bits are saved at the cost of a decoder in the path of every encoded field, and a field can name only one of its members at a time - which is the whole horizontal-against-vertical trade in one row.</p>
+
+  <div class="card warn"><div class="label">Common misconception</div><p>The usual mistake is to think a microprogrammed unit no longer needs the opcode. It does, but only once per instruction, and only to find the start of that instruction's microprogram: the opcode is mapped to an address, not decoded into signals. After the jump, everything comes from the microinstruction's own bits. The second mistake is to read the control word as an instruction. Word 4 is not "an ADD" - it is three bits that happen to assert R2out, ALUadd and R1in, and the same word would be meaningless in a datapath without those three signals.</p></div>
+  <div class="card ok"><div class="label">Quick check</div><p>A store has 64 words and each instruction's routine may be at most 8 words long. How many instructions can be mapped, and which address does opcode 0101 enter?</p><details><summary>Answer</summary><p><strong>8 instructions, and opcode 0101 enters at word 40.</strong> The mapping inserts three zero bits below a 3-bit opcode, because a block of 8 words is 2^3: 3 + 3 = 6 bits, which names 64 words. Opcode 0101 is 5, and 5 x 8 = 40, so its routine occupies words 40 to 47. A fourth instruction bit would double the block to 16 words and halve the number of mappable instructions, which is why block size and instruction count trade directly against each other.</p></details></div>
+  <p class="small">Topic: Design of the Control Unit (Computer Organization and Architecture), subtopics the control store and the microinstruction, the mapping of an opcode to a microprogram, the shared fetch routine, and horizontal against vertical microcode. The control word as a stored set of bits and the two jobs of signal generation and sequencing: NPTEL Computer Organization and Architecture, IIT Guwahati, Lecture 21 (English, read in part). The shared fetch microprogram, the jump to the decoded instruction's microprogram and the micro program counter: the same course, Lecture 22 (English, read in part). The horizontal and vertical widths and the decoder each encoded field needs: Edward Bosworth, CPSC 5155 chapter 4 (English, read in part). The four address-sequencing capabilities and the microprogram sequencer: P. C. E. Puri's unit III notes following Mano (English, read in part). The horizontal and vertical contrast in plain terms: DSWallah Learn (romanised Hindi, translated, read in part). Every bit pattern, width and address shown here is recomputed in scripts/validate.py.</p>
+</div>
+<script src="../../../lesson.js"></script>
+<script src="sketch.js"></script>
+<script>
+/* p5.js is loaded from a CDN. If it is unreachable, say so plainly instead of showing an empty box. */
+window.addEventListener('load', function () {
+  if (window.p5) { return; }
+  var holder = document.getElementById('canvas-holder');
+  if (holder) {
+    holder.innerHTML = '<div style="padding:22px 18px;font-size:14.5px;color:#4a5260">' +
+      'The animation needs p5.js, which this page loads from a CDN, and the request failed (offline, or the CDN is blocked). ' +
+      'Everything below still works: the static explanation, the misconception and the quick check.</div>';
+  }
+  var cap = document.getElementById('caption');
+  if (cap && window.LESSON && window.LESSON.steps && window.LESSON.steps[0]) {
+    cap.innerHTML = window.LESSON.steps[0].caption;
+  }
+  ['play', 'prev', 'next', 'restart', 'speed'].forEach(function (id) {
+    var el = document.getElementById(id);
+    if (el) { el.disabled = true; }
+  });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,96 @@
+{
+ "id": "microprogrammed-control-store-and-microinstruction",
+ "title": "Microprogrammed Control: The Control Store and the Microinstruction",
+ "priority": "P1",
+ "order": 511,
+ "unit": "Design of the Control Unit",
+ "quickIdea": "Instead of wiring the control signals, write each control word into a memory. The unit then has two jobs: read a word out and put its bits on the control lines, which is trivial, and work out which word to read next, which is the whole design.",
+ "remember": [
+  "Control store (control memory): a ROM or writable RAM holding every microinstruction of every instruction's routine.",
+  "Control address register (CAR, also written micro-PC): holds the address of the microinstruction being fetched.",
+  "Control data register (CDR, also written micro-IR or pipeline register): holds the microinstruction just read, so its bits can drive the control lines while the next address is computed.",
+  "A microinstruction is one control word plus, usually, the bits that say how to find the next one.",
+  "A microprogram is the sequence of microinstructions for one machine instruction; a microroutine is that sequence for one phase.",
+  "The idea is Wilkes's, published in 1951; EDSAC 2 in 1958 was the first machine built with a microprogrammed control unit."
+ ],
+ "example": {
+  "prompt": "A control store holds 128 microinstructions of 20 bits. How many bits does it hold, and what does each register in the unit hold?",
+  "work": "128 x 20 = 2560 bits. The CAR holds a 7-bit address (2^7 = 128). The CDR holds one 20-bit microinstruction. The datapath receives the control-signal bits of that word directly.",
+  "answer": "2560 bits of control store, a 7-bit control address register and a 20-bit control data register."
+ },
+ "gateAngle": "Two things are asked: the size arithmetic (words times width) and the role of each register. The distinction that decides questions is that the CAR addresses the store and the CDR holds the word - swapping them is the standard wrong answer. GATE CSE 2004 Q.67 is exactly the size arithmetic, done on a 26-bit word.",
+ "variations": [
+  {
+   "label": "ORIGINAL PYQ-STYLE QUESTION",
+   "question": "Why does a microprogrammed unit need a control data register at all, when the control word could drive the lines straight out of memory?",
+   "answer": "So the word stays stable on the control lines while the next address is computed and the next word is fetched; without it the control lines would change as soon as the memory output changed.",
+   "why": "It is a pipeline register: it holds this word while the store is read for the next. Some designs omit it and accept that the store's read time is part of every clock."
+  },
+  {
+   "label": "CONCEPTUAL PRACTICE QUESTION",
+   "question": "What is the difference between a microinstruction and a machine instruction?",
+   "answer": "A machine instruction is what the programmer writes and the decoder recognises; a microinstruction is one internal step of executing it, held in the control store and never visible to the program.",
+   "why": "One machine instruction becomes several microinstructions, so microprogramming sits a level below the instruction set - which is why the two are confused in prose but never in hardware."
+  },
+  {
+   "label": "PREDICTED VARIATION",
+   "question": "A control store of 512 words holds 40-bit microinstructions. How many bits is the CAR, and how many control signals could the word drive horizontally?",
+   "answer": "9 bits for the CAR (2^9 = 512), and up to 40 signals if every bit were used horizontally - in practice some bits are spent on sequencing.",
+   "why": "The address width comes from the word count, the word width from the signal count plus sequencing, and the two are independent."
+  }
+ ],
+ "trap": {
+  "what": "Assuming that because the control word is stored, the unit no longer needs the opcode.",
+  "why": "The opcode is still needed, but only once per instruction: to find the start of that instruction's microprogram. After the jump, the sequencing comes from the microinstruction's own fields.",
+  "counterexample": "Without the opcode the unit could not choose between the ADD and the SUB routine; both consist of valid microinstructions, and nothing in the microprogram itself says which instruction it belongs to."
+ },
+ "check": {
+  "question": "Name the two registers of a microprogrammed control unit and the two jobs of the unit.",
+  "answer": "The control address register (which microinstruction) and the control data register (the microinstruction itself). The jobs are generating the control signals from the word, and sequencing - choosing the next address.",
+  "explanation": "The first job is a wire from each bit to a control line; the second is the only real logic in the unit, which is why the design is described as simple."
+ },
+ "pyqIds": [],
+ "prereqs": [
+  "control-unit-contract-and-control-word",
+  "instruction-cycle-as-micro-operation-sequence"
+ ],
+ "sources": [
+  {
+   "kind": "lecture-transcript",
+   "title": "Lecture 21 - Microinstructions and Microprograms",
+   "channel": "NPTEL, Computer Organization and Architecture - A Pedagogical Aspect (IIT Guwahati)",
+   "url": "http://www.digimat.in/nptel/courses/video/106103180/lec21.pdf",
+   "language": "en",
+   "transcript": "PARTIAL",
+   "translated": false,
+   "note": "read from the opening through the statement that a control word holds the 1s and 0s of one micro-instruction and that a microprogrammed unit has two jobs, signal generation and sequencing"
+  },
+  {
+   "kind": "lecture-slides",
+   "title": "Control Units: Hardwired and Microprogrammed",
+   "channel": "Edward Bosworth, CPSC 5155, chapter 4 lecture",
+   "url": "http://www.edwardbosworth.com/CPSC5155/PH4/Ch04/Ch04_Microprogramming.pdf",
+   "language": "en",
+   "transcript": "PARTIAL",
+   "translated": false,
+   "note": "read the description of the micro-control unit as the block that computes the next CROM address, the four steps of reading a control word into the micro-MBR, and the Wilkes and EDSAC 2 history"
+  }
+ ],
+ "sourceLine": "The idea of a control word stored in a memory and read out as the control signals, and the two jobs of generating signals and sequencing: IIT Guwahati, Lecture 21 (English, read in part). The micro-control unit as the block whose only function is to compute the next control-store address, and the Wilkes 1951 and EDSAC 2 history: Edward Bosworth, chapter 4 lecture (English, read in part).",
+ "videoRefs": [],
+ "links": {
+  "visual": {
+   "slug": "control-unit-design",
+   "title": "From Opcode to Microprogram: Walking the Control Store",
+   "level": "topic-level",
+   "covers": [
+    "the control store as a memory of control words, with the fetch routine held at the top",
+    "each control word read out of the store as the control signals for one micro-operation",
+    "the mapping of an opcode to the start of that instruction's microprogram, and the return to fetch",
+    "the same microprogram written horizontally and vertically, and the width each costs"
+   ],
+   "url": "https://gate-visual-explainer.vercel.app/topics/control-unit-design/index.html"
+  },
+  "mapped_at": "2026-10-31"
+ }
+}

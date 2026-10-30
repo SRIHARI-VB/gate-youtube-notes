@@ -1,0 +1,352 @@
+{
+ "subject": "computer-organization-and-architecture",
+ "topic": "control-unit-design",
+ "exam": "GATE CSE 2027",
+ "retrieved_at": "2026-10-31",
+ "subtopics": [
+  "the control unit as a block: its three inputs (instruction register, timing state, flags and external signals) and its outputs, the control signals, and the control word as one instant of them",
+  "the instruction cycle as an ordered sequence of micro-operations: fetch, decode, indirect fetch, execute, interrupt, and one clock period per micro-operation",
+  "hardwired control as a sequential state machine: a major state register for the phases and a minor state register or sequence counter for the steps",
+  "the instruction decoder and the signal generation tree: each control signal as a sum of products over (instruction, step) pairs",
+  "deriving control equations from a micro-operation table, including the conditions on a line such as the indirect bit and the interrupt flip-flop",
+  "the three systematic design methods: sequence counter, delay element, and state table, with their sizing",
+  "microprogrammed control: the control store, the control address register and the control data register, and the two jobs of signal generation and sequencing",
+  "microinstruction formats: horizontal, vertical and hybrid, and the mutually-exclusive-group rule that decides what may be encoded",
+  "field width and control memory size arithmetic: bits per field, the address width, and words times width",
+  "microinstruction sequencing: the incrementer, the branch address field, conditional branching on a status bit, the subroutine register and the sequencer's multiplexers",
+  "mapping the opcode to the start of an instruction's microprogram, the shared fetch routine, and the return to fetch",
+  "the trade-offs between hardwired and microprogrammed control: speed order, cost, flexibility, chip area, RISC and CISC, and the writable control store",
+  "a complete worked control unit: the textbook basic computer with its opcode decoder, sequence counter, timing decoder and control logic gates"
+ ],
+ "chosen": [
+  {
+   "id": "nptel-iitg-106103180-lecture-20-hardwired",
+   "kind": "lecture-transcript",
+   "title": "Lecture 20 - Design of Hardwired controlled Control Unit",
+   "channel": "NPTEL, Computer Organization and Architecture - A Pedagogical Aspect (Prof. J. K. Deka, Dr. Santosh Biswas, Dr. Arnab Sarkar, IIT Guwahati)",
+   "url": "http://www.digimat.in/nptel/courses/video/106103180/lec20.pdf",
+   "language": "en",
+   "transcript": "PARTIAL",
+   "translated": false,
+   "covers": [
+    "the two ways of generating control signals, hardware and microprogrammed, named as the module's own split",
+    "the hardwired unit as a dedicated finite state machine which moves from state to state, each state being one time step of a micro-instruction",
+    "the inputs of that machine: the instruction register, the flag register and signals from the control bus and external memory",
+    "the statement that once the state machine is synthesised it cannot be changed, and that its outputs drive the ALU, the memory and the CPU"
+   ],
+   "why": "The clearest statement read this run of what a hardwired control unit is - a hardcoded sequential state machine whose states are time steps - and of the block contract that the first three cards are built on. Read in part: the served extract runs from the opening through the first statement of the state-machine view, so nothing is attributed to its later treatment of Mealy and Moore synthesis."
+  },
+  {
+   "id": "nptel-iitg-106103180-lecture-21-microinstructions",
+   "kind": "lecture-transcript",
+   "title": "Lecture 21 - Microinstructions and Microprograms",
+   "channel": "NPTEL, Computer Organization and Architecture - A Pedagogical Aspect (IIT Guwahati)",
+   "url": "http://www.digimat.in/nptel/courses/video/106103180/lec21.pdf",
+   "language": "en",
+   "transcript": "PARTIAL",
+   "translated": false,
+   "covers": [
+    "the definition of microprogrammed control as memory-based logic in which each memory word holds the control signals for one micro-instruction",
+    "the statement that a macro instruction has micro-instructions and that each micro-instruction's control bits are written into one word of a micro-program memory",
+    "the framing that such a unit has two parts, generating the control signals and sequencing them",
+    "the comparison with the hardwired unit: more flexible and changeable, but slower than a hardwired circuit"
+   ],
+   "why": "The source of the definition the microprogrammed cards are built on, and of the two-jobs framing that makes the sequencing card necessary. Read in part: the extract stops inside the discussion of sequencing, so the vertical and hybrid optimisation it goes on to describe is attributed to Lecture 22 only for what that lecture states."
+  },
+  {
+   "id": "nptel-iitg-106103180-lecture-22-organization",
+   "kind": "lecture-transcript",
+   "title": "Lecture 22 - Organization and Optimization of Microprogrammed controlled Control Unit",
+   "channel": "NPTEL, Computer Organization and Architecture - A Pedagogical Aspect (IIT Guwahati)",
+   "url": "http://www.digimat.in/nptel/courses/video/106103180/lec22.pdf",
+   "language": "en",
+   "transcript": "PARTIAL",
+   "translated": false,
+   "covers": [
+    "the full instruction cycle in microcode: the shared fetch microprogram that the micro program counter points at whenever a new instruction begins",
+    "the jump from the end of fetch to the microprogram of the decoded instruction, chosen by the opcode in the instruction register",
+    "the micro program counter fetching micro-instructions in sequence, with jumps where required",
+    "the statement that the previous unit had optimised the control store with vertical and hybrid microprogramming because of the many zeros in a horizontal store"
+   ],
+   "why": "The only readable source that describes the mapping jump and the shared fetch routine in the lecturer's own sequence of ideas, which the mapping card follows. Read in part: the extract covers the opening and the description of the fetch-to-routine jump, so the optimisation examples later in the lecture are not quoted."
+  },
+  {
+   "id": "bosworth-cpsc5155-ch04-control-units",
+   "kind": "lecture-slides",
+   "title": "Control Units: Hardwired and Microprogrammed",
+   "channel": "Edward Bosworth, CPSC 5155, Columbus State University",
+   "url": "http://www.edwardbosworth.com/CPSC5155/PH4/Ch04/Ch04_Microprogramming.pdf",
+   "language": "en",
+   "transcript": "PARTIAL",
+   "translated": false,
+   "covers": [
+    "the two options for the control unit stated side by side, with the hardwired signals coming out of gates and the microprogrammed ones out of a control ROM",
+    "the micro-control unit's only function being to compute the address of the next CROM word, and its consequent simplicity",
+    "horizontal against vertical microcode on a bus fed by seven sources: 8 bits against 3, and the point that vertical encoding also prevents two sources reaching one bus",
+    "the Wilkes 1951 paper, EDSAC 2 in 1958, the IBM 360, and the later reason RISC designs abandoned microcode"
+   ],
+   "why": "The only readable source that gives the horizontal and vertical widths as a worked pair, and the only one with the history that explains why the trade-off exists at all. The format and trade-off cards rest on it. Read in part: the extraction returned the text from the opening through the micro-control unit and the microcode comparison."
+  },
+  {
+   "id": "bosworth-cpsc5155-control-unit-overview",
+   "kind": "lecture-slides",
+   "title": "Overview of the Control Unit",
+   "channel": "Edward Bosworth, CPSC 5155, Columbus State University",
+   "url": "http://edwardbosworth.com/My5155_Slides/Chapter09/Control_UnitOverview.pdf",
+   "language": "en",
+   "transcript": "PARTIAL",
+   "translated": false,
+   "covers": [
+    "the control unit's inputs as the instruction being executed and the condition flags from the ALU",
+    "the three major states Fetch, Defer and Execute, each divided into minor states whose duration is one clock",
+    "the major state register as a modulo-3 counter with 00 Fetch, 01 Defer and 10 Execute, and the minor state register as a modulo-4 counter producing T0 to T3",
+    "the notation Fetch AND T0 read as a conjunction of major and minor state, and the micro-memory address and buffer registers of the microprogrammed alternative"
+   ],
+   "why": "The source of the two-register state structure and of the state counts the hardwired cards use, and of the Fetch/Defer/Execute phase naming that makes the three-major-state arithmetic concrete. Read in part: the extraction runs from the opening through the microprogrammed unit's registers."
+  },
+  {
+   "id": "bosworth-cpsc5155-ch11-hardwired-control-unit",
+   "kind": "lecture-slides",
+   "title": "The Hardwired Control Unit - the instruction decoder and the signal generation trees",
+   "channel": "Edward Bosworth, CPSC 5155, chapter 11 slides",
+   "url": "http://edwardbosworth.com/My5155_Slides/Chapter11/HardwiredControlUnit.pdf",
+   "language": "en",
+   "transcript": "PARTIAL",
+   "translated": false,
+   "covers": [
+    "the instruction decoder as a 5-to-32 active-high decoder, used by both control-unit styles",
+    "the hardwired unit as a number of signal generation trees whose inputs are the decoder output, the major state and the minor state",
+    "the caution that a decoder output such as Y14 is a Boolean signal in the microarchitecture, not the instruction itself",
+    "the worked fetch tree for F.T0, F.T1 and F.T2"
+   ],
+   "why": "The only source read this run that describes the signal generation tree as a structure with named inputs, which is what the decoder card teaches. Read in part: the extraction returned the two slides on the decoder and on the trees."
+  },
+  {
+   "id": "srmist-unit3-control-unit-design",
+   "kind": "lecture-slides",
+   "title": "Unit III - Control Unit Design",
+   "channel": "SRM Institute of Science and Technology, course notes on control unit design",
+   "url": "https://webstor.srmist.edu.in/web_assets/srm_mainsite/files/downloads/control_unit_design.pdf",
+   "language": "en",
+   "transcript": "PARTIAL",
+   "translated": false,
+   "covers": [
+    "the hardwired controller as a sequential logic circuit, with the fetch micro-operations assigned to a two-bit sequence counter and its decoded outputs",
+    "the three systematic design methods named as the sequence counter method, the delay element method and the state table method, with the sizing step for each",
+    "a six-step control sequence for ADD (R3), R1 in explicit control-signal notation",
+    "the list of hardwired advantages and disadvantages: speed and area against inflexibility and design turnaround"
+   ],
+   "why": "The only readable source that names and sizes all three design methods, which is the whole of one subtopic. Read in part: the extraction returned the hardwired half of the notes and the opening of the microprogrammed half."
+  },
+  {
+   "id": "pcepurnia-unit3-microprogrammed-control",
+   "kind": "lecture-slides",
+   "title": "Unit III Part 1 - Microprogrammed Control: control memory, address sequencing, microprogram example, design of the control unit",
+   "channel": "P. C. E. Puri, computer organization course notes following Mano",
+   "url": "https://www.pcepurnia.org/wp-content/uploads/2020/03/Unit-III-part-1.pdf",
+   "language": "en",
+   "transcript": "PARTIAL",
+   "translated": false,
+   "covers": [
+    "the definitions of control word, microinstruction, microprogram and microprogram control unit, and the statement that control memory is a ROM",
+    "the control address register and the control data register, with the note that the data register is sometimes called a pipeline register",
+    "the next address generator, also called the microprogram sequencer, and the four capabilities of address sequencing: increment, unconditional or conditional branch on a status bit, and the mapping process",
+    "the 20-bit microinstruction format with three 3-bit micro-operation fields, a 2-bit condition field, a 2-bit branch field and a 7-bit address field, and the 000 = NOP code",
+    "the 128-location control memory example with the first 64 locations for 16 instructions and the fetch routine at 64 to 66",
+    "the microprogram sequencer built from two multiplexers, a subroutine register, and input logic whose outputs are the select signals and the load line"
+   ],
+   "why": "The single richest source read this run: it supplies the register vocabulary, the four sequencing capabilities, the complete microinstruction format and the 128-location example that four cards are built on. Read in part: the extraction ran through the microprogram sequencer and its truth table but stopped before the mapping figure, so the start-address arithmetic on the mapping card is this repository's own and is recomputed."
+  },
+  {
+   "id": "manomachine-asee-control-equations",
+   "kind": "text",
+   "title": "A Simulated Mano Machine - a novel project for a computer architecture class",
+   "channel": "ASEE peer paper on a Mano-machine implementation",
+   "url": "https://peer.asee.org/a-simulated-mano-machine-an-novel-project-for-computer-architecture-class.pdf",
+   "language": "en",
+   "transcript": "PARTIAL",
+   "translated": false,
+   "covers": [
+    "the instruction format of the model machine: a 1-bit indirect field, a 3-bit opcode and a 12-bit address",
+    "the method of deriving a control signal by scanning the micro-operation table for every place the register is written",
+    "the worked load line for the data register, D0.T4 + D1.T4 + D2.T4 + D6.T4",
+    "the worked load line for the address register, T0./R + T2./R + T3.I./D7, with each literal explained"
+   ],
+   "why": "The only readable source that derives a control equation from a table line by line and explains each literal, which is exactly the skill the equations card teaches and the one GATE questions in this family test. Read in part: the extraction returned the equation derivations."
+  },
+  {
+   "id": "gchamirpur-mano-timing-and-control",
+   "kind": "lecture-slides",
+   "title": "Timing and Control - the control unit of the basic computer",
+   "channel": "Government College Hamirpur, Computer System Architecture COMP201Th, Unit 2 Lecture 3 (following Mano)",
+   "url": "https://www.gchamirpur.org/pdf/lectures3/Unit2-Lecture-3-Timing-and-Control-Instruction-Cycle.pdf",
+   "language": "en",
+   "transcript": "PARTIAL",
+   "translated": false,
+   "covers": [
+    "the hardwired and microprogrammed control organisations compared in a table: gates against a control memory, speed, and what a modification costs",
+    "the control unit of the basic computer as two decoders, a sequence counter and control logic gates",
+    "the 3x8 opcode decoder giving D0 to D7 and the 4-bit sequence counter decoded into T0 to T15",
+    "the counter's increment and clear inputs, and the D3.T4: SC <- 0 clear condition"
+   ],
+   "why": "The only readable source that describes a complete, named control unit down to the width of both decoders, which is the whole of the worked-machine card. Read in part: the extraction returned the timing and control section."
+  },
+  {
+   "id": "pdx-basic-computer-control-unit",
+   "kind": "lecture-slides",
+   "title": "Basic Computer Organization and Design",
+   "channel": "Portland State University, ECE class slides on the basic computer",
+   "url": "http://web.cecs.pdx.edu/~mperkows/CLASS_573/573_2007/xx.pdf",
+   "language": "en",
+   "transcript": "PARTIAL",
+   "translated": false,
+   "covers": [
+    "the registers and flip-flops of the model machine, including the sequence counter",
+    "the control unit's inputs: the two decoders, the seven flip-flops, the IR bits and the register bits tested",
+    "the sequence counter's increment and clear inputs and the worked D3.T4 clear",
+    "the timing diagram in which SC is cleared and T0 restarts the cycle"
+   ],
+   "why": "Corroborates the basic-computer card's decoder widths and its clear condition from a second, independent course, which matters because the clear condition is the part most often mis-stated. Read in part: the extraction returned the control-unit and timing slides."
+  },
+  {
+   "id": "dswallah-hindi-control-unit",
+   "kind": "text",
+   "title": "Control Unit (Hardwired and Microprogrammed) Hindi mein",
+   "channel": "DSWallah Learn (Hinglish study lesson on the control unit)",
+   "url": "https://www.dswallah.com/learn/computer-architecture/control-unit/",
+   "language": "hi",
+   "transcript": "PARTIAL",
+   "translated": true,
+   "covers": [
+    "the framing of the control unit as the block that issues read, write, register-load, ALU and bus-enable signals without processing data",
+    "the statement that its signals come from three places: the instruction register, the timing generator and the flags",
+    "the horizontal and vertical definitions with the parallel-against-encoded contrast, and the CISC and RISC association",
+    "the list of common mistakes, above all the warning that hardwired is the fast one and microprogrammed the slow one"
+   ],
+   "why": "The only non-English source readable this run, and the only source that states the three sources of control signals as a set. Written in romanised Hindi and translated into English here, and marked as translated on the three cards it feeds. Its railway-station analogy, its worked five-step sequence and its interview advice are not used; its loose statement that microprogramming is 'less expensive' is not repeated, because the control store costs chip area that the comparison card records."
+  }
+ ],
+ "rejected": [
+  {
+   "id": "youtube-iitg-coa-playlist-and-every-youtube-lecture",
+   "kind": "video",
+   "channel": "YouTube - the IIT Guwahati COA playlist (39 videos, module 03 lectures 01 to 08) and every other GATE or NPTEL control-unit lecture in any language",
+   "why": "No YouTube watch page was opened as a transcript source this run. The same course's lectures exist as readable transcript PDFs on the NPTEL mirror, which is what the cards are built on, and previous runs on this repository recorded that YouTube served no caption track on any page tried. The playlist listing was read only to confirm the lecture order and the module numbering. So no card quotes or timestamps a video, and videoRefs is empty on all thirteen cards."
+  },
+  {
+   "id": "nptel-iitg-106103180-lecture-17-control-signals",
+   "kind": "lecture-transcript",
+   "title": "Lecture 17 - Control Signals for Complete Instruction Execution",
+   "channel": "NPTEL, Computer Organization and Architecture - A Pedagogical Aspect (IIT Guwahati)",
+   "url": "http://www.digimat.in/nptel/courses/video/106103180/lec17.pdf",
+   "language": "en",
+   "transcript": "PARTIAL",
+   "translated": false,
+   "why": "Read in part this run, and rejected as a teaching source for this topic because its content is the control-signal sequence of the fetch phase and of a load, which the repository already publishes as micro-operation sequencing in the ALU topic's cycle-count cards and as this topic's instruction-cycle card. Its own summary sentence - that the first three stages of a single-bus fetch are constant for every instruction - is the one claim used, and it appears on the instruction-cycle card rather than as a source of its own."
+  },
+  {
+   "id": "nptel-iitg-106103180-lecture-18-19-addressing-and-transfer",
+   "kind": "lecture-transcript",
+   "title": "Lecture 18 - Handling Different Addressing Modes, Lecture 19 - Handling Control Transfer Instructions",
+   "channel": "NPTEL, Computer Organization and Architecture - A Pedagogical Aspect (IIT Guwahati)",
+   "why": "The natural continuation of the control-signals sequence, and rejected because addressing modes are the repository's instruction-set topic and control transfer is the procedure-call material of the runtime-environment topic. Using them here would have duplicated two published cards rather than covered a subtopic of this one. Not fetched this run; the titles and positions come from the course index."
+  },
+  {
+   "id": "nptel-iitd-106102062-control-lectures",
+   "kind": "lecture-video",
+   "channel": "NPTEL, Computer Architecture (Prof. Anshul Kumar, IIT Delhi) - the control unit lectures of the same course whose Lectures 11 and 12 supplied the ALU topic",
+   "why": "Not used. The digimat host refuses direct requests from this sandbox, and this run reached it only through the fetch service, which was spent on the Guwahati course that covers the same ground in more units. A later run should retry the IIT Delhi control lectures, because that course's ALU lectures were the clearest source the previous run had."
+  },
+  {
+   "id": "geeksforgeeks-hardwired-vs-microprogrammed",
+   "kind": "text",
+   "channel": "GeeksforGeeks 'Hardwired and Micro-programmed Control Unit' and 'Difference Between Hardwired and Microprogrammed Control Unit'",
+   "why": "Both were read only through search extracts, not fetched in full. The extracts are comparison lists - speed fast against slow, chip area less against more - which is the trade-off table the repository's own card already states from two other sources, and they teach neither the signal tree, the field widths nor the sequencing. Nothing rests on them. The GATE question numbers they cite (2004 Question 66, 2002 Question 32) are also a third numbering convention, recorded in those PYQ records rather than adopted."
+  },
+  {
+   "id": "gateoverflow-coa-subject-notes",
+   "kind": "text",
+   "channel": "GATE Overflow's Computer Organization and Architecture subject notes (control unit and microprogramming sections)",
+   "why": "Read as a search extract and used only to confirm which question families exist in this topic and roughly how often it is asked. Rejected as a reference of record because it is a revision digest: it gives the control-memory-size formula and the horizontal and vertical definitions but derives nothing, and one line of it mis-states RISC as having higher CPI than CISC, which is a claim this repository does not repeat."
+  },
+  {
+   "id": "knowledgegate-ai-pyq-explanations",
+   "kind": "pyq-index",
+   "channel": "Knowledge Gate AI question pages for GATE 1996 and GATE 1999, and its hardwired-and-microprogrammed MCQ blog",
+   "why": "Used to corroborate the accepted answers for GATE CSE 1996 Q.2.25 and GATE CSE 1999 Q.2.19, never as the reference of record: the explanations are machine-written, and its 1996 explanation adopts the two-fields reading without mentioning the 9-bit floor that the GATE Overflow page argues. Both facts are recorded in the PYQ records."
+  },
+  {
+   "id": "edurev-and-pyqbox-and-solutionsadda-listings",
+   "kind": "pyq-index",
+   "channel": "EduRev's 'Previous Year Questions ALU Data Path and Control Unit', pyqbox's GATE CSE computer-organization pages, Solutions Adda's 1999 page, ExamSIDE's topic page and trygateai",
+   "why": "Used to find the recorded questions and to check their numbering and years, never as the reference of record. Their numbering disagrees systematically: the 2004 question is 67 on GATE Overflow, 66 on GeeksforGeeks, 15 on two other listings and 28 on a third; the 1997 question is Q.5.3 on GATE Overflow and Question 38 on GeeksforGeeks; and the speed-order question is 1999 on GATE Overflow and Solutions Adda but 2001 on ExamSIDE. Each PYQ record states which number and year it uses and where the other ones come from."
+  },
+  {
+   "id": "gate-it-2005-hardwired-signal-expressions",
+   "kind": "pyq",
+   "channel": "GATE IT 2005 Q.9 (bits saved by vertical over horizontal microprogramming) and Q.10 (the hardwired expressions for S5 and S10 over four instructions and five steps)",
+   "why": "Both are the closest previous-year questions to the signal-generation-tree card, and both are from the Information Technology paper, not Computer Science. Excluded from this topic's PYQ set for that reason. Their shape informed the original question on the decoder card, which uses this repository's own three-instruction table rather than reproducing theirs."
+  },
+  {
+   "id": "isro-2009-microinstruction-width",
+   "kind": "pyq",
+   "channel": "ISRO CSE 2009 Q.6 - a 26-bit microinstruction split into a 13-bit micro-operation field, a next address field and a MUX select field with 8 status bits",
+   "why": "The same arithmetic as GATE CSE 2004 Q.67 under a different examination. Excluded because it is not a GATE CSE question; recording it beside the GATE one would have implied two previous-year questions where the CSE paper has one."
+  },
+  {
+   "id": "nielit-microprogrammed-questions",
+   "kind": "pyq",
+   "channel": "NIELIT 2016, 2017 and 2021 questions on microprogrammed control units, and several coaching test-series questions on control-word width",
+   "why": "Correct in subject and frequently cited on GATE Overflow, but not GATE CSE papers, so none of them can be recorded as a previous-year question of this examination. Excluded; the six GATE CSE questions plus the 2013 one are the whole verified set."
+  },
+  {
+   "id": "gate-2018-5-risc-characteristics",
+   "kind": "pyq",
+   "channel": "GATE CSE 2018 Q.5 - which processor design characteristics are used in a RISC processor, one of them being a hardwired control unit",
+   "why": "Tempting for the trade-off card, because one of its three characteristics is the hardwired control unit. Excluded because the question is decided by the instruction-set characteristics and the repository already holds it as a card in the instruction-set topic; adding it here would have put one question on two cards."
+  },
+  {
+   "id": "gate-1988-4i-alu-microcode-width",
+   "kind": "pyq",
+   "channel": "GATE CSE 1988 Q.4i - an 8-bit datapath built from two 4-bit ALUs, listing the control signals and estimating the microcode word width",
+   "why": "Already excluded by the previous run as descriptive and therefore unstorable in the repository's MCQ/MSQ/NAT schema; the exclusion still holds. Its substance is covered by the format card and the width-arithmetic card."
+  },
+  {
+   "id": "vigyanwiki-hindi-control-unit",
+   "kind": "text",
+   "channel": "Vigyanwiki's Hindi article on the control unit (a translation of the English encyclopaedia article)",
+   "why": "Read as a search extract and rejected: it is an encyclopaedia entry, its hardwired section is garbled in translation ('hardwired control units are generally faster' rendered with the opposite word), and it teaches none of the field widths, sequencing or signal trees this topic needs. A machine-translated encyclopaedia is the one kind of non-English source that adds risk without adding teaching."
+  },
+  {
+   "id": "mindluster-hindi-control-unit-course",
+   "kind": "video",
+   "channel": "Mind Luster's Hindi 'Control Unit of Computer Architecture' course (19 lessons, including hardwired control, Wilkes design, microprogrammed control, horizontal against vertical, nano-programming and microinstruction format)",
+   "why": "The best-matched non-English course found - its lesson list is almost exactly this topic's subtopic list - and rejected because only the lesson titles were readable: the lessons are video with no transcript, and the course page carries no text beyond the outline. A later run should retry it if a Hindi transcript route becomes available, since nano-programming is a subtopic no readable source this run covered."
+  },
+  {
+   "id": "rgpvnoteshub-coa-unit2-index",
+   "kind": "text",
+   "channel": "RGPV Notes Hub's COA Unit 2 page",
+   "why": "An index of what a university unit covers, with no content behind the headings: it lists control unit organization, microinstruction formats, the microprogram sequencer and the comparison, and answers 'what is the fetch cycle' in one line. Useful only as a cross-check that the subtopic enumeration of this run is complete, which it was used for, and rejected as a teaching source."
+  }
+ ],
+ "standard_refs": [
+  "M. Morris Mano, Computer System Architecture - chapter 5 for the hardwired control unit of the basic computer, the sequence counter, the timing decoder and the derivation of control functions such as LD(AR) = R'T0 + R'T2 + D7'I T3; chapter 7 for control memory, address sequencing, the mapping process, the 20-bit microinstruction format and the microprogram sequencer",
+  "David A. Patterson and John L. Hennessy, Computer Organization and Design - the control unit as the block that turns the opcode into control signals, and the contrast between a hardwired controller and a microcoded one",
+  "Carl Hamacher, Zvonko Vranesic and Safwat Zaky, Computer Organization - micro-operations, the control sequence of a complete instruction, and hardwired against microprogrammed control",
+  "William Stallings, Computer Organization and Architecture - the control unit's functions, hardwired control as a state machine, and Wilkes's microprogramming",
+  "M. V. Wilkes, 'The Best Way to Design an Automatic Calculating Machine' (1951), the origin of microprogramming; EDSAC 2 (1958) as the first machine built with a microprogrammed control unit",
+  "GATE 2027 CS syllabus, Computer Organization and Architecture line 'Design of control unit - hardwired and microprogrammed'",
+  "Official GATE CSE papers and answer keys for the seven recorded questions - not fetched this run, which is why every PYQ here is SOURCED rather than key-verified"
+ ],
+ "notes": [
+  "The syllabus names this topic in five words, 'Design of control unit - hardwired and microprogrammed', so the thirteen subtopics above are this run's enumeration from the standard treatment (Mano chapters 5 and 7, Hamacher, Stallings), from the IIT Guwahati course's own control module and from the GATE question record - not a quotation from the syllabus. Every one of the thirteen has a card, which is why the status is partial rather than lower; the gaps below are what keep it from being covered.",
+  "Seven GATE CSE previous-year questions were verified, from 1987 to 2013, and every one is SOURCED against an accepted answer rather than key-verified, so no marks field comes from an official key. GATE CSE 2013 Q.28 was deferred to this topic by the previous run and is recorded here; its home could equally be the I/O interface topic, and the record says so.",
+  "No video transcript was readable this run, and none was attempted: the same IIT Guwahati course is published as transcript PDFs on the NPTEL mirror, which is where every teaching claim comes from. So videoRefs is empty on all thirteen cards and no card quotes or timestamps a lecture.",
+  "One non-English source was readable, a Hinglish study lesson, and it is marked translated on the three cards it feeds. It supplies the three-source framing of the control signals and the horizontal, vertical and RISC, CISC vocabulary. No Hindi, Tamil, Telugu or Bengali lecture transcript could be read.",
+  "Every numeric claim published in this topic is recomputed in scripts/validate.py: the field widths, the control-store sizes, the decoder and counter sizes, the mapping addresses, the 9-bit floor of the 1996 question, and the horizontal and vertical widths of the visual lesson's microprogram.",
+  "The mapping card's start-address arithmetic is this repository's own, because the served extract of the notes stopped before the worked mapping figure; the arithmetic is consistent with the source's own statement that the first 64 locations hold the routines of 16 instructions, and it is recomputed.",
+  "GATE CSE 1996 Q.2.25 is recorded with the accepted answer 10 and with the dissent that the information-theoretic floor is 9, rather than resolving the disagreement silently.",
+  "The visual lesson walks a 10-bit horizontal control store and its 8-bit vertical equivalent through a fetch, an opcode mapping, an ADD routine and the return to fetch; every control word in it is listed in lesson.json and recomputed in scripts/validate.py."
+ ]
+}
