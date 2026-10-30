@@ -1,0 +1,21 @@
+{
+  "id": "gate-2026-set1-q38-minimal-sop-msq",
+  "year": "2026",
+  "paper": "GATE CS 2026 Set 1",
+  "question_ref": "Q.38",
+  "type": "MSQ",
+  "topic": "essential-prime-implicants-and-minimal-cover",
+  "text": "Consider a Boolean function F with the following minterm expression: F(P, Q, R, S) = Sigma m(1, 2, 3, 4, 5, 7, 10, 12, 13, 14). Which of the following options is/are the minimal sum-of-products expression(s) of F?",
+  "options": [
+    "P' S + Q R' + P' Q' R + Q' R S'",
+    "P' S + Q R' + P' Q' R + P R S'",
+    "P' S + Q R' + P Q S' + P R S'",
+    "P' S + Q R' + P Q S' + Q' R S'"
+  ],
+  "answer": "Options (B) and (D)",
+  "solution": "The prime implicants are P'S, QR', P'Q'R, PRS' and Q'RS' (plus PQR', which no minimal cover uses). P'S and QR' are essential. The three 1s left over - 1 and 3 and the pair 10 and 14 - can be covered either by P'Q'R with PRS' (option B) or by PQS' with Q'RS' (option D); both covers have four terms and ten literals, so both are minimal. Options A and C are not equivalent to F at all.",
+  "source_url": "https://gateoverflow.in/523042/gate-cse-2026-set-1-question-38",
+  "source_label": "GATE Overflow question page - GATE CSE 2026 Set 1 Q.38 with the accepted answers (options B and D)",
+  "verification": "SOURCED",
+  "answer_evidence": "The answer comment on the GATE Overflow page states that both B and D are correct, and a Quorank PYQ page for the same question records the answer as B, D. GateAI and Quorank number this question Q48 and GATE Overflow numbers it Q.38. Recomputed here by enumerating every implicant: options B and D each reproduce the function exactly with 4 terms and 10 literals, options A and C do not reproduce the function, and a third 4-term 10-literal cover exists (P'S + QR' + PRS' + Q'RS') which is not among the printed options."
+}

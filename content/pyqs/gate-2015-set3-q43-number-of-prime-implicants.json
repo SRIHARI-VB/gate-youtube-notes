@@ -1,0 +1,15 @@
+{
+  "id": "gate-2015-set3-q43-number-of-prime-implicants",
+  "year": "2015",
+  "paper": "GATE CS 2015 Set 3",
+  "question_ref": "Q.43",
+  "type": "NAT",
+  "topic": "quine-mccluskey-tabular-method",
+  "text": "The total number of prime implicants of the function f(w, x, y, z) = Sigma(0, 2, 4, 5, 6, 10) is ______.",
+  "answer": "3",
+  "solution": "Grouping by the number of 1s: 0 = 0000; 2 = 0010, 4 = 0100; 5 = 0101, 6 = 0110, 10 = 1010. Combining gives 00-0 and 0-00 from the first two groups, and 0-10, -010, 010-, 01-0 in the second pass; a third pass merges 00-0 with 01-0 into 0--0. The terms that never combine are 0--0, -010 and 010-, so there are three prime implicants: w'z', x'yz' and wx'y'.",
+  "source_url": "https://gateoverflow.in/8503/gate-cse-2015-set-3-question-43",
+  "source_label": "GATE Overflow question page - GATE CSE 2015 Set 3 Q.43 with the accepted answer (3)",
+  "verification": "SOURCED",
+  "answer_evidence": "The accepted answers build the minterm table, combine to 0--0, -010 and 010- and give 3; a GateQA record of the same question records the answer as 3. Recomputed here by exhaustive enumeration of implicants: exactly three prime implicants, each of which is also essential."
+}

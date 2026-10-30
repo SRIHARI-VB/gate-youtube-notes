@@ -1,0 +1,21 @@
+{
+  "id": "gate-2015-set3-q44-sigma-and-pi-forms",
+  "year": "2015",
+  "paper": "GATE CS 2015 Set 3",
+  "question_ref": "Q.44",
+  "type": "MCQ",
+  "topic": "canonical-forms-minterms-and-maxterms",
+  "text": "Given the function F = P' + QR, where F is a function in three Boolean variables P, Q and R and P' = !P, consider the following statements. (S1) F = Sigma(4, 5, 6)  (S2) F = Sigma(0, 1, 2, 3, 7)  (S3) F = Pi(4, 5, 6)  (S4) F = Pi(0, 1, 2, 3, 7). Which of the following is true?",
+  "options": [
+    "(S1)-False, (S2)-True, (S3)-True, (S4)-False",
+    "(S1)-True, (S2)-False, (S3)-False, (S4)-True",
+    "(S1)-False, (S2)-False, (S3)-True, (S4)-True",
+    "(S1)-True, (S2)-True, (S3)-False, (S4)-False"
+  ],
+  "answer": "Option (A) - (S1) False, (S2) True, (S3) True, (S4) False",
+  "solution": "P' is 1 on every row with P = 0, which is rows 0, 1, 2, 3; QR is 1 on rows 6 and 7, and of those only row 7 has P = 1, so the 1s of F are 0, 1, 2, 3 and 7. Hence F = Sigma(0,1,2,3,7), and the rows where F = 0 are 4, 5 and 6, so F = Pi(4,5,6). S1 and S4 describe the complement, F'.",
+  "source_url": "https://gateoverflow.in/8504/gate-cse-2015-set-3-question-44",
+  "source_label": "GATE Overflow question page - GATE CSE 2015 Set 3 Q.44 with the accepted answer (option A)",
+  "verification": "SOURCED",
+  "answer_evidence": "Several answers on the page expand P' + QR into minterms and into maxterms and conclude S2 and S3 are the true statements, which is option A. Recomputed here by evaluating P' + QR on all eight rows: 1s at 0,1,2,3,7 and 0s at 4,5,6."
+}

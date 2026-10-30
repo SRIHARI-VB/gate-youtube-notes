@@ -1,0 +1,21 @@
+{
+  "id": "gate-2014-set3-q7-minimal-sop-with-dont-cares",
+  "year": "2014",
+  "paper": "GATE CS 2014 Set 3",
+  "question_ref": "Q.7",
+  "type": "MCQ",
+  "topic": "dont-care-conditions",
+  "text": "Consider the following minterm expression for F: F(P, Q, R, S) = Sigma 0, 2, 5, 7, 8, 10, 13, 15. The minterms 2, 7, 8 and 13 are 'do not care' terms. The minimal sum-of-products form for F is",
+  "options": [
+    "Q S' + Q' S",
+    "Q' S' + Q S",
+    "Q'R'S' + Q'RS' + QR'S + QRS",
+    "P'Q'S' + P'QS + PQS + PQ'S'"
+  ],
+  "answer": "Option (B) - Q' S' + Q S",
+  "solution": "The required 1s are 0, 5, 10 and 15, and no two of them are adjacent. With the don't cares available, 0 joins 2, 8 and 10 to form the quad {0,2,8,10} in which Q = 0 and S = 0, giving Q'S'; and 5 joins 7, 13 and 15 to form the quad {5,7,13,15} in which Q = 1 and S = 1, giving QS. The answer is Q'S' + QS, which is Q XNOR S.",
+  "source_url": "https://gateoverflow.in/2041/gate-cse-2014-set-3-question-7",
+  "source_label": "GATE Overflow question page - GATE CSE 2014 Set 3 Q.7 with the accepted answer (option B)",
+  "verification": "SOURCED",
+  "answer_evidence": "The single answer on the page works the map with the swapped Gray-order columns and gives option B. Recomputed here: with the four don't cares the minimal SOP is Q'S' + QS (2 terms, 4 literals); option A is the opposite polarity and options C and D are non-minimal forms."
+}

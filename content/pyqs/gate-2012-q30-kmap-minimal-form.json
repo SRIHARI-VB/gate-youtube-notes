@@ -1,0 +1,21 @@
+{
+  "id": "gate-2012-q30-kmap-minimal-form",
+  "year": "2012",
+  "paper": "GATE CS 2012",
+  "question_ref": "Q.30",
+  "type": "MCQ",
+  "topic": "dont-care-conditions",
+  "text": "What is the minimal form of the Karnaugh map shown below? Assume that X denotes a don't care term",
+  "options": [
+    "b' d'",
+    "b' d' + b' c'",
+    "b' d' + a b' c' d",
+    "b' d' + b' c' + c' d'"
+  ],
+  "answer": "Option (B) - b' d' + b' c'",
+  "solution": "The 1s of the printed map are at m0, m2, m8 and m9 and the don't cares at m1, m4, m10 and m12. Two quads exist: {0,2,8,10} uses the don't care at 10 and gives b'd', and {0,1,8,9} uses the don't care at 1 and gives b'c'. Both are essential, since m2 lies only in the first and m9 only in the second, so the minimal form is b'd' + b'c'.",
+  "source_url": "https://gateoverflow.in/1615/gate-cse-2012-question-30",
+  "source_label": "GATE Overflow question page - GATE CSE 2012 Q.30 with the accepted answer (option B)",
+  "verification": "SOURCED",
+  "answer_evidence": "The accepted answers on the GATE Overflow page give the two quads as b'd' and b'c' and the answer as option B, and a GateAI solution page lists the same 1-cells (m0, m2, m8, m9) and the same don't cares (m1, m4, m10, m12). The printed figure is not reproduced here; the cells are taken from those two independent readings of it. Recomputed here from those cells: prime implicants b'c', b'd' and c'd', essential b'c' and b'd', minimal cover b'c' + b'd'."
+}

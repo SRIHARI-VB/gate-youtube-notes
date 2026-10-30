@@ -1,0 +1,21 @@
+{
+  "id": "gate-1998-q2-7-kmap-not-in-gray-order",
+  "year": "1998",
+  "paper": "GATE CS 1998",
+  "question_ref": "Q.2.7",
+  "type": "MCQ",
+  "topic": "karnaugh-map-layout-and-gray-code",
+  "text": "The function represented by the Karnaugh map given below is",
+  "options": [
+    "A.B",
+    "AB + BC + CA",
+    "NOT (B XOR C)",
+    "A.BC"
+  ],
+  "answer": "Option (C) - NOT (B XOR C)",
+  "solution": "The map as printed is not in Gray order: two variables change between consecutive columns, which makes merging adjacent 1s unsafe. Converted to the standard order the cells group as BC + B'C', which is B XNOR C, the complement of B XOR C.",
+  "source_url": "https://gateoverflow.in/1679/gate-cse-1998-question-2-7",
+  "source_label": "GATE Overflow question page - GATE CSE 1998 Q.2.7 with the accepted answer (option C)",
+  "verification": "SOURCED",
+  "answer_evidence": "The accepted answer states that the printed map is not standard, that two variables change between consecutive columns, and that converting it to standard form gives BC + B'bar C'bar = B XNOR C, that is option C. Recomputed here: BC + B'C' covers minterms 0, 3, 4, 7, which is exactly XNOR on B and C."
+}

@@ -1,0 +1,15 @@
+{
+  "id": "gate-2018-q49-number-of-essential-prime-implicants",
+  "year": "2018",
+  "paper": "GATE CS 2018",
+  "question_ref": "Q.49",
+  "type": "NAT",
+  "topic": "essential-prime-implicants-and-minimal-cover",
+  "text": "Consider the minterm list form of a Boolean function F given below. F(P, Q, R, S) = Sigma m(0, 2, 5, 7, 9, 11) + d(3, 8, 10, 12, 14). Here, m denotes a minterm and d denotes a don't care term. The number of essential prime implicants of the function F is ______.",
+  "answer": "3",
+  "solution": "The prime implicants are Q'S' = {0,2,8,10}, Q'R = {2,3,10,11}, PQ' = {8,9,10,11}, PS' = {8,10,12,14}, P'RS = {3,7} and P'QS = {5,7}. Minterm 0 is covered only by Q'S', minterm 5 only by P'QS and minterm 9 only by PQ', so those three are essential. The remaining 1s (2, 7, 11) are each covered by two prime implicants and are already covered by the three essential ones, so Q'R, PS' and P'RS are not essential. A don't care is never a witness.",
+  "source_url": "https://gateoverflow.in/204124/gate-cse-2018-question-49",
+  "source_label": "GATE Overflow question page - GATE CSE 2018 Q.49 with the accepted answer (3)",
+  "verification": "SOURCED",
+  "answer_evidence": "The accepted answer lists five prime implicants and three essential ones with the same witness minterms; an ExamSIDE solution page and a successtracker solution page independently give the same three essential prime implicants (Q'S', PQ', P'QS) and the answer 3, and an iaeacademy solution page attributes the answer 3 to the official GATE 2018 CS key. Recomputed here by enumerating all prime implicants and testing every required 1 for a unique cover: 6 prime implicants, 3 essential."
+}

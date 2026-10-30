@@ -1,0 +1,15 @@
+{
+  "id": "gate-2021-set2-q52-literals-in-minimal-sop",
+  "year": "2021",
+  "paper": "GATE CS 2021 Set 2",
+  "question_ref": "Q.52",
+  "type": "NAT",
+  "topic": "literal-and-gate-cost",
+  "text": "Consider a Boolean function f(w, x, y, z) such that f(w,0,0,z) = 1, f(1,x,1,z) = x + z and f(w,1,y,z) = wz + y. The number of literals in the minimal sum-of-products expression of f is ______.",
+  "answer": "6",
+  "solution": "The first equation fixes x = y = 0 and makes rows 0, 1, 8, 9 equal to 1. The second fixes w = y = 1 and gives row 10 = 0 and rows 11, 14, 15 = 1. The third fixes x = 1 and gives rows 4, 5, 12 = 0 and rows 6, 7, 13, 14, 15 = 1. Rows 2 and 3 (x = 0, y = 1) are fixed by no equation, so they are don't cares. The map gives three quads: x'y' (0,1,8,9), xy (6,7,14,15) and wz (11,15 plus the don't cares 2,3), that is x'y' + xy + wz, three terms of two literals.",
+  "source_url": "https://gateoverflow.in/357485/gate-cse-2021-set-2-question-52",
+  "source_label": "GATE Overflow question page - GATE CSE 2021 Set 2 Q.52 with the accepted answer (6)",
+  "verification": "SOURCED",
+  "answer_evidence": "Several answers on the page build the truth table, identify rows 2 and 3 as don't cares, and give x'y' + xy + wz with 6 literals; the accepted answer counts three quads at two literals each. Recomputed here: the minimal cover of the ten required 1s with don't cares at 2 and 3 has three terms and six literals."
+}
