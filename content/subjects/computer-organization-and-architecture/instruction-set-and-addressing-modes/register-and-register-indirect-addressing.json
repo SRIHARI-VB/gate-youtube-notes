@@ -1,0 +1,81 @@
+{
+  "id": "register-and-register-indirect-addressing",
+  "title": "Register and Register-Indirect Addressing",
+  "priority": "P1",
+  "order": 487,
+  "unit": "Instruction Set and Addressing Modes",
+  "quickIdea": "Register mode names a register instead of a memory location - no memory reference at all. Register indirect puts the address in a register - one memory reference, and a pointer you can update for free.",
+  "remember": [
+    "Register mode: operand = [R]. No effective address is computed and no memory is touched.",
+    "The register field is short - 3 bits for 8 registers, 4 for 16, 5 for 32 - so register operands keep instructions small.",
+    "Register indirect: effective address = [R], then one memory read for the operand. The pointer lives in a register, so updating it is a register add, not a memory write.",
+    "Register indirect is the workhorse of array and pointer loops: add to the register, read through it, repeat.",
+    "The reach of register indirect is the register width, not the instruction's field width - the same widening effect as memory indirection, at one read instead of two.",
+    "Register mode is the only mode a load-store arithmetic instruction can use, which is why RISC code is register-heavy."
+  ],
+  "example": {
+    "prompt": "R2 = 1500, M[1500] = 42. What is the operand of ADD R1, R2 and of ADD R1, (R2), and how many memory reads does each need?",
+    "work": "Register mode: the operand is the contents of R2, which is 1500 - no memory read. Register indirect: the effective address is [R2] = 1500, so the operand is M[1500] = 42, after one read.",
+    "answer": "1500 with zero reads against 42 with one read. Same register, two different operands."
+  },
+  "gateAngle": "The distinction GATE tests here is the memory-reference count, and it is tested inside larger questions rather than alone: GATE CSE 2005 Q.65 charges the indirect operand two reads and the indexed operand one, and GATE CSE 2002 Q.1.24 uses 'the register containing the address of the operand is specified inside the instruction' as the definition of register-indirect in a four-way discrimination. No CSE question asks register mode on its own.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "A loop reads 100 consecutive words. Write the body using register indirect and say how many memory reads the addressing costs beyond the instruction fetch.",
+      "answer": "LOAD R1, (R2); ADD R2, #4 per iteration: one operand read per element, plus the register add which touches no memory.",
+      "why": "The pointer update is free of memory traffic. That is why register indirect beats memory indirect for a traversal."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Why is a register field usually only 4 or 5 bits while an address field is 16 or more?",
+      "answer": "Because a machine has tens of registers and millions of memory locations; the field is sized to the thing it names.",
+      "why": "This is the reason register operands shorten instructions, and the reason a machine with many registers spends more bits per register field - the 2016 Set 2 question's 24 registers costing 5 bits."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "A machine has 64 registers. What does that do to a three-register instruction with a 6-bit opcode?",
+      "answer": "The registers take 18 bits, so the instruction needs 24 bits before any immediate - and a 16-bit format is impossible.",
+      "why": "Register width is not free. It is the hidden cost of a large register file, and it is why 32 registers is such a common compromise."
+    }
+  ],
+  "trap": {
+    "what": "Writing (R2) for register mode.",
+    "why": "The parentheses are the indirection operator: (R2) means the memory at the address in R2. R2 alone is the register's contents.",
+    "counterexample": "In the 2017 Set 1 struct question the options are written (R1)+, -(R1), R1 and X(R1); reading the brackets correctly is what separates the first three from the fourth."
+  },
+  "check": {
+    "question": "R3 = 2000, M[2000] = 7. Give the operand of ADD R1, R3 and of ADD R1, (R3).",
+    "answer": "2000 and 7.",
+    "explanation": "Register mode hands over the register's contents; register indirect uses them as an address and reads memory once."
+  },
+  "pyqIds": [],
+  "prereqs": [
+    "instruction-format-and-fields",
+    "registers-and-shift-registers"
+  ],
+  "sources": [
+    {
+      "kind": "lecture-transcript",
+      "title": "Lecture 12 - Addressing Modes",
+      "channel": "NPTEL, Computer Organization and Architecture - A Pedagogical Aspect (Prof. Jatindra Kr. Deka, Dr. Santosh Biswas, Dr. Arnab Sarkar, IIT Guwahati)",
+      "url": "http://www.digimat.in/nptel/courses/video/106103180/lec12.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read from the opening through the definition of displacement addressing: the reason a large operand is moved out of the instruction into memory, the immediate / direct / indirect / register / register-indirect ladder with the size-and-speed trade-off of each, and the two-part address of displacement addressing. The returned extract stopped inside the displacement discussion, so nothing is attributed to the indexed, relative, autoincrement or stack material of the same lecture"
+    },
+    {
+      "kind": "text",
+      "title": "What is addressing modes in Hindi (addressing modes in hindi)",
+      "channel": "computernetworksite.in (Hindi article following Stallings' treatment of addressing modes)",
+      "url": "https://www.computernetworksite.in/2023/03/what-is-addressing-modes-in-hindi.html",
+      "language": "hi",
+      "transcript": "PARTIAL",
+      "translated": true,
+      "note": "read through the seven modes: immediate, direct, indirect, register, register indirect, displacement (relative, base register, indexing) and stack, each with its advantage and its disadvantage in memory references and address-space width. Translated into English here; the article's illustrative instruction examples are 8085-specific and are not used"
+    }
+  ],
+  "sourceLine": "The register and register-indirect rungs, including the observation that register addressing needs fewer bits and no memory trip but is limited by how few registers there are: Deka et al., Lecture 12 (English, read in part). The translated statement that register indirect needs exactly one memory reference and is bounded by the register width: computernetworksite.in (Hindi, translated, read in part). No PYQ is attached because no CSE question of this topic is decided by register mode alone.",
+  "videoRefs": []
+}
