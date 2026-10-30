@@ -1,0 +1,64 @@
+{
+  "id": "unsigned-fixed-width-range",
+  "title": "Unsigned Fixed-Width Integers: Patterns, Range and Wrap-Around",
+  "priority": "P2",
+  "order": 404,
+  "unit": "Number Systems and Number Representation",
+  "quickIdea": "An n-bit word has 2^n patterns, so unsigned it holds 0 to 2^n - 1; one more than the top value wraps to zero and the carry leaves the word.",
+  "remember": [
+    "n bits unsigned: values 0 to 2^n - 1, and exactly 2^n of them.",
+    "8 bits: 0 to 255. 16 bits: 0 to 65535. 32 bits: 0 to 4294967295.",
+    "The width is part of the number. 101 and 0000 0101 are the same value in words of different width, and the same 8-bit pattern means something else in a 16-bit word only after it is sign-extended or zero-extended.",
+    "Wrap-around: 1111 1111 plus 1 is 1 0000 0000, and in an 8-bit word the ninth bit is discarded, leaving 0000 0000.",
+    "The carry out of the top bit is a fact about the word, not about the sign of the value. It is neither an overflow nor a proof of one.",
+    "Every later representation in this topic is a partition of these same 2^n patterns, so the pattern count never changes - only its interpretation."
+  ],
+  "example": {
+    "prompt": "An 8-bit unsigned counter holds 1111 1110. What does it hold after two increments?",
+    "work": "1111 1110 plus 1 is 1111 1111, which is 255, the largest 8-bit unsigned value. Adding 1 again gives 1 0000 0000; the ninth bit is the carry out and is discarded, so the word holds 0000 0000, which is 0.",
+    "answer": "0000 0000, that is 0, with a carry out of 1."
+  },
+  "gateAngle": "The wrap is the mechanism behind every later range question. GATE CSE 2013 Q.4 asks for the smallest 8-bit two's complement value, which exists only because the 256 patterns are split asymmetrically - and the split is a choice made inside this fixed set of patterns.",
+  "variations": [
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "How many distinct values does a 12-bit unsigned word hold, and what is its largest value?",
+      "answer": "4096 values, largest 4095.",
+      "why": "The count is 2^12 and the maximum is one less. The pair (count, maximum) is asked in both directions, and answering 4096 for the maximum is the usual error."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "A 16-bit unsigned register holds 0xFFFF. What is the result of adding 1, and what is the carry flag?",
+      "answer": "The register holds 0x0000 and the carry out is 1.",
+      "why": "0xFFFF is 65535, the maximum; the sum 65536 needs 17 bits, so the value cannot be held and only the wrap survives. This is the same statement as the 8-bit counter example at a wider word."
+    }
+  ],
+  "trap": {
+    "what": "Believing that n bits hold 2^n - 1 values, or that 8 bits reach 256.",
+    "why": "The count includes zero, so it is 2^n patterns for the values 0 to 2^n - 1. Confusing the count with the maximum off by one is the most common arithmetic slip in this topic.",
+    "counterexample": "0 to 255 is 256 values, not 255; the largest is 255 and the count is 256."
+  },
+  "check": {
+    "question": "What is the largest value in a 10-bit unsigned word, and how many values are there?",
+    "answer": "1023, and 1024 values.",
+    "explanation": "2^10 = 1024 patterns, numbered 0 to 1023."
+  },
+  "pyqIds": [],
+  "prereqs": [
+    "positional-number-systems"
+  ],
+  "sources": [
+    {
+      "kind": "lecture-transcript",
+      "title": "Lecture 21 - Number System",
+      "channel": "NPTEL, Digital Electronic Circuits (Prof. Goutam Saha, IIT Kharagpur)",
+      "url": "http://digimat.in/nptel/courses/video/108105132/lec21.pdf",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "read from the opening to the lecturer's own closing summary: place value and the odometer argument, the base-r digit rule 0 to r-1, the weighted sum with negative powers for the fraction, (1010.101)2 = 10.625, decimal-to-binary by successive division of the integer and successive multiplication of the fraction (0.625 -> 0.101), octal and hexadecimal with 3-bit and 4-bit grouping, the 8.3 / 8.4 / 8.2 reading of 10011110, the range and precision of a fixed-point word, and the first statement of normalised floating point. The captions are machine transcripts and several numerals in them are garbled, so every figure taken from this lecture was re-derived from its bits here."
+    }
+  ],
+  "sourceLine": "The power-of-two values and the odometer argument for wrap-around: NPTEL IIT Kharagpur Lecture 21 (English, read in full). The counts are recomputed in scripts/validate.py.",
+  "videoRefs": []
+}

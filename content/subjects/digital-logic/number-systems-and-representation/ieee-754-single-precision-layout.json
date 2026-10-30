@@ -1,0 +1,94 @@
+{
+  "id": "ieee-754-single-precision-layout",
+  "title": "IEEE 754 Single Precision: The 1 + 8 + 23 Layout and Decoding",
+  "priority": "P1",
+  "order": 412,
+  "unit": "Number Systems and Number Representation",
+  "quickIdea": "Thirty-two bits are 1 sign bit, 8 exponent bits biased by 127 and 23 fraction bits; for a normal number the value is (-1)^s x 1.F x 2^(E - 127).",
+  "remember": [
+    "Layout: 1 sign, 8 exponent, 23 fraction. Double precision is 1, 11 and 52 with bias 1023.",
+    "The value formula holds for normal numbers, that is for 1 <= E <= 254.",
+    "To decode: read the sign, read E as unsigned, subtract 127 to get the true exponent, then move the binary point that many places right in 1.F.",
+    "To encode: normalise, add 127 to the exponent, and drop the leading 1 of the significand. The fraction bits are the digits after the point.",
+    "A hexadecimal word is not a number until it is bits. The sign is the top bit of the first hex digit, and the exponent field straddles the first two hex digits.",
+    "The 23 fraction bits give about 7 significant decimal digits, which is why single precision prints as roughly seven digits and double as roughly sixteen."
+  ],
+  "example": {
+    "prompt": "Decode the single-precision word 0xC2710000.",
+    "work": "C2710000 is 1100 0010 0111 0001 followed by sixteen zeros. Sign 1, so negative. Exponent field 1000 0100 = 132, so the true exponent is 132 - 127 = 5. Fraction begins 1110001, so the significand is 1.1110001 = 1 + 0.5 + 0.25 + 0.125 + 0.0078125 = 1.8828125. Move the point five places: 111100.01, which is 60.25. With the sign, -60.25.",
+    "answer": "-60.25."
+  },
+  "gateAngle": "Three verified questions in this topic are pure decoding or encoding: 2012 Q.7 (0.5), 2021 Set 1 Q.24 (-7.75) and 2026 Set 2 Q.34 (0xC2710000 to -60.25). None needs arithmetic on the significand - only the bias and the hidden bit.",
+  "variations": [
+    {
+      "label": "VERIFIED PYQ",
+      "question": "GATE CSE 2021 Set 1 Q.24: S = 1, E = 10000001, F = 11110000000000000000000, bias 127. The decimal value rounded to two places is ______.",
+      "answer": "-7.75.",
+      "why": "E = 129, so the true exponent is 2. The significand is 1.1111 = 1.9375, and -1.9375 x 4 = -7.75."
+    },
+    {
+      "label": "VERIFIED PYQ",
+      "question": "GATE CSE 2026 Set 2 Q.34: The 32-bit IEEE 754 single-precision representation of a number is 0xC2710000. The number in decimal, to two places, is ______.",
+      "answer": "-60.25.",
+      "why": "Sign 1, exponent field 132 giving 5, significand 1.8828125; -1.8828125 x 32 = -60.25."
+    },
+    {
+      "label": "VERIFIED PYQ",
+      "question": "GATE CSE 2012 Q.7: The decimal value 0.5 in IEEE single precision representation has: (A) fraction bits 000...000 and exponent value 0, (B) fraction bits 000...000 and exponent value -1, (C) fraction bits 100...000 and exponent value 0, (D) no exact representation.",
+      "answer": "Option (B).",
+      "why": "0.5 = 1.0 x 2^(-1), so the fraction field is all zeros and the true exponent is -1, stored as 126. The hidden 1 supplies the leading digit, so the fraction field is empty rather than 100...000."
+    }
+  ],
+  "trap": {
+    "what": "Dropping the hidden leading 1, or forgetting to subtract the bias.",
+    "why": "The stored fraction is only the part after the binary point of the significand; the 1 in front of it is implied by the normal form. And the exponent field is 127 larger than the exponent used in the value.",
+    "counterexample": "For 0xC2710000, dropping the hidden 1 gives 0.8828125 x 32 = 28.25, and forgetting the bias gives 1.8828125 x 2^132. Both are far from -60.25, and both are common exam answers."
+  },
+  "check": {
+    "question": "Decode 0x3F800000 as a single-precision float.",
+    "answer": "1.0.",
+    "explanation": "Sign 0; exponent field 0111 1111 = 127, so the true exponent is 0; fraction all zeros, so the significand is 1.0. The value is 1.0 x 2^0 = 1."
+  },
+  "pyqIds": [
+    "gate-2012-q7-half-in-single-precision",
+    "gate-2021-set1-q24-decode-minus-7-75",
+    "gate-2026-set2-q34-decode-c2710000"
+  ],
+  "prereqs": [
+    "floating-point-normalisation-and-bias"
+  ],
+  "sources": [
+    {
+      "kind": "text",
+      "title": "CS1101 Lecture 31 - IEEE Floating-Point Standard 754",
+      "channel": "University College Cork, Department of Computer Science",
+      "url": "https://www.cs.ucc.ie/~osullb/cs1101/notes/notes31.pdf",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "read in full: the three formats, excess-127 and excess-1023, the reserved extreme exponents, the implied leading 1 and the term significand, the 0.5 worked conversion (fraction all zeros, exponent -1), denormalised numbers with exponent 0 and the smallest denormal 2^-150 by its argument, the two zeros, infinity as exponent all ones with a zero fraction, and NaN"
+    },
+    {
+      "kind": "text",
+      "title": "IEEE 754 Format - single-precision field descriptions",
+      "channel": "Intel, floating-point IP documentation",
+      "url": "https://www.intel.com/content/www/us/en/docs/programmable/683242/current/ieee-754-format.html",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read the field table and the special-value list: FRAC as the fraction with the hidden bit omitted, EXP biased by 127 with 0x0 reserved for zero and subnormals and 0xff for infinity and NaN, normal exponents 1 to 0xfe giving -126 to 127, and the four special values NaN (EXP=255, FRAC!=0), Infinity (255,0), Subnormal (0,!=0) and Zero (0,0)"
+    },
+    {
+      "kind": "text",
+      "title": "Floating-Point Training, Module 1 - The IEEE 754 Standard",
+      "channel": "Paul Zimmermann, INRIA/LORIA",
+      "url": "https://members.loria.fr/PZimmermann/talks/module1.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read the binary32 slides: the p = 24 digit count, e_max = 127, the largest positive value 1.111...1 x 2^127, the smallest positive normal 2^-126, the reserved exponent 255 for NaN and the infinities, the two signed zeros, the subnormal decoding 2^-126 x 0.b1...b23, the smallest positive subnormal 2^-149, the largest regular number 2^128(1 - 2^-24) with encoding 0x7f7fffff, and the four rounding attributes"
+    }
+  ],
+  "sourceLine": "The 1 / 8 / 23 layout, the bias and the implied leading 1: University College Cork CS1101 Lecture 31 (English, read in full) and the Intel single-precision field table (English, read in part). The p = 24 digit count and the extremal encodings: Zimmermann's IEEE 754 module (English, read in part). The three question texts and accepted answers: their GATE Overflow pages.",
+  "videoRefs": []
+}

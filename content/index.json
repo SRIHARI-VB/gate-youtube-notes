@@ -28,9 +28,9 @@
     }
   ],
   "counts": {
-    "subjects": 4,
-    "topics": 214,
-    "pyqs": 165,
+    "subjects": 5,
+    "topics": 227,
+    "pyqs": 174,
     "videos": 39,
     "playlists": 3
   },
@@ -3261,6 +3261,191 @@
       "pyqs": [
         "gate-2015-set3-q37-conditional-xor",
         "gate-2026-set2-q53-conditional-shared-tosses"
+      ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "positional-number-systems",
+      "title": "Positional Number Systems and Place Value",
+      "subject": "digital-logic",
+      "group": "number-systems-and-representation",
+      "unit": "Number Systems and Number Representation",
+      "priority": "P1",
+      "path": "subjects/digital-logic/number-systems-and-representation/positional-number-systems.json",
+      "videos": [],
+      "pyqs": [],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "base-conversion-integer-and-fraction",
+      "title": "Base Conversion: Repeated Division and Repeated Multiplication",
+      "subject": "digital-logic",
+      "group": "number-systems-and-representation",
+      "unit": "Number Systems and Number Representation",
+      "priority": "P1",
+      "path": "subjects/digital-logic/number-systems-and-representation/base-conversion-integer-and-fraction.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2021-set1-q6-base3-to-hex"
+      ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "octal-and-hexadecimal-by-bit-grouping",
+      "title": "Octal and Hexadecimal by Bit Grouping",
+      "subject": "digital-logic",
+      "group": "number-systems-and-representation",
+      "unit": "Number Systems and Number Representation",
+      "priority": "P2",
+      "path": "subjects/digital-logic/number-systems-and-representation/octal-and-hexadecimal-by-bit-grouping.json",
+      "videos": [],
+      "pyqs": [],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "unsigned-fixed-width-range",
+      "title": "Unsigned Fixed-Width Integers: Patterns, Range and Wrap-Around",
+      "subject": "digital-logic",
+      "group": "number-systems-and-representation",
+      "unit": "Number Systems and Number Representation",
+      "priority": "P2",
+      "path": "subjects/digital-logic/number-systems-and-representation/unsigned-fixed-width-range.json",
+      "videos": [],
+      "pyqs": [],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "sign-magnitude-representation",
+      "title": "Sign-Magnitude Representation",
+      "subject": "digital-logic",
+      "group": "number-systems-and-representation",
+      "unit": "Number Systems and Number Representation",
+      "priority": "P1",
+      "path": "subjects/digital-logic/number-systems-and-representation/sign-magnitude-representation.json",
+      "videos": [],
+      "pyqs": [],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "ones-complement-representation",
+      "title": "One's Complement Representation",
+      "subject": "digital-logic",
+      "group": "number-systems-and-representation",
+      "unit": "Number Systems and Number Representation",
+      "priority": "P2",
+      "path": "subjects/digital-logic/number-systems-and-representation/ones-complement-representation.json",
+      "videos": [],
+      "pyqs": [],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "twos-complement-definition-and-range",
+      "title": "Two's Complement: Definition, Range and Why It Is Asymmetric",
+      "subject": "digital-logic",
+      "group": "number-systems-and-representation",
+      "unit": "Number Systems and Number Representation",
+      "priority": "P1",
+      "path": "subjects/digital-logic/number-systems-and-representation/twos-complement-definition-and-range.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2013-q4-twos-complement-smallest"
+      ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "twos-complement-negation-and-subtraction",
+      "title": "Two's Complement Arithmetic: Subtraction, the Discarded Carry and Sign Extension",
+      "subject": "digital-logic",
+      "group": "number-systems-and-representation",
+      "unit": "Number Systems and Number Representation",
+      "priority": "P1",
+      "path": "subjects/digital-logic/number-systems-and-representation/twos-complement-negation-and-subtraction.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2016-set1-q7-16bit-pattern"
+      ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "distinct-values-and-duplicate-zero",
+      "title": "Counting Distinct Values: The Pattern Count Against the Value Count",
+      "subject": "digital-logic",
+      "group": "number-systems-and-representation",
+      "unit": "Number Systems and Number Representation",
+      "priority": "P2",
+      "path": "subjects/digital-logic/number-systems-and-representation/distinct-values-and-duplicate-zero.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2016-set2-q9-distinct-integers"
+      ],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "fixed-point-representation",
+      "title": "Fixed-Point Representation: Range, Resolution and the Position of the Point",
+      "subject": "digital-logic",
+      "group": "number-systems-and-representation",
+      "unit": "Number Systems and Number Representation",
+      "priority": "P1",
+      "path": "subjects/digital-logic/number-systems-and-representation/fixed-point-representation.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2017-set1-q7-fixed-point-range"
+      ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "floating-point-normalisation-and-bias",
+      "title": "Floating Point: Normalisation and the Biased Exponent",
+      "subject": "digital-logic",
+      "group": "number-systems-and-representation",
+      "unit": "Number Systems and Number Representation",
+      "priority": "P1",
+      "path": "subjects/digital-logic/number-systems-and-representation/floating-point-normalisation-and-bias.json",
+      "videos": [],
+      "pyqs": [],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "ieee-754-single-precision-layout",
+      "title": "IEEE 754 Single Precision: The 1 + 8 + 23 Layout and Decoding",
+      "subject": "digital-logic",
+      "group": "number-systems-and-representation",
+      "unit": "Number Systems and Number Representation",
+      "priority": "P1",
+      "path": "subjects/digital-logic/number-systems-and-representation/ieee-754-single-precision-layout.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2012-q7-half-in-single-precision",
+        "gate-2021-set1-q24-decode-minus-7-75",
+        "gate-2026-set2-q34-decode-c2710000"
+      ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "ieee-754-special-values-and-extremes",
+      "title": "IEEE 754 Special Values, Subnormals and the Extremes of the Format",
+      "subject": "digital-logic",
+      "group": "number-systems-and-representation",
+      "unit": "Number Systems and Number Representation",
+      "priority": "P1",
+      "path": "subjects/digital-logic/number-systems-and-representation/ieee-754-special-values-and-extremes.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2024-set2-q14-largest-float"
       ],
       "visual": null,
       "variations": 3

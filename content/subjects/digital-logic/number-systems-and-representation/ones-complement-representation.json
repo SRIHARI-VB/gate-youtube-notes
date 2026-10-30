@@ -1,0 +1,64 @@
+{
+  "id": "ones-complement-representation",
+  "title": "One's Complement Representation",
+  "priority": "P2",
+  "order": 406,
+  "unit": "Number Systems and Number Representation",
+  "quickIdea": "A negative number is the bit-by-bit complement of its positive form, so an n-bit pattern with a leading 1 is worth -(2^n - 1 - raw).",
+  "remember": [
+    "Negation is inversion of every bit, sign bit included. In n bits, -x is (2^n - 1) - x.",
+    "Range is the same as sign-magnitude, -(2^(n-1) - 1) to +(2^(n-1) - 1), with two zeros: 0000 0000 and 1111 1111.",
+    "It holds 2^n - 1 distinct values, one fewer than two's complement, because all-ones is a second zero.",
+    "Addition needs an end-around carry: a carry out of the top bit is added back at the bottom.",
+    "It is the intermediate step to two's complement: invert, then add one. That is why the negation rule is easy to remember and why one's complement is not itself used for integers.",
+    "Reading it back: if the top bit is 1, the magnitude is (2^n - 1) minus the raw value of the pattern."
+  ],
+  "example": {
+    "prompt": "Write -22 in 8-bit one's complement form, and check it.",
+    "work": "+22 is 0001 0110. Invert every bit: 1110 1001. Check by the reading rule: the raw value of 1110 1001 is 233, and 255 - 233 = 22, so the pattern is -22.",
+    "answer": "1110 1001."
+  },
+  "gateAngle": "GATE uses one's complement mostly as a comparison: which representation wastes a pattern, and what does 1111 1111 mean. The 2016 Set 2 Q.9 count question is the version that reaches the exam.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "What is -1 in 8-bit one's complement, and what is -1 in 8-bit two's complement?",
+      "answer": "1111 1110 in one's complement; 1111 1111 in two's complement.",
+      "why": "+1 is 0000 0001, so inversion gives 1111 1110 and inversion plus one gives 1111 1111. The two representations differ by exactly one pattern on every negative number, and they differ about which pattern is zero."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "Add +5 and -3 in 4-bit one's complement, showing the end-around carry.",
+      "answer": "0010, that is +2.",
+      "why": "0101 + 1100 = 1 0001; the carry out of the top bit is added back, giving 0010. Without the end-around carry the result would be 0001, which is +1 - the trap this representation sets."
+    }
+  ],
+  "trap": {
+    "what": "Dropping the end-around carry when adding in one's complement.",
+    "why": "The carry out is a real unit of value in this representation, not a discard. Two's complement discards it because the modulus is 2^n; one's complement has modulus 2^n - 1 and must return the carry to the bottom.",
+    "counterexample": "In 4 bits, 0101 + 1110 is 1 0011. Adding the carry back gives 0100, which is +4; the uncorrected 0011 reads as +3, one too small."
+  },
+  "check": {
+    "question": "How many distinct integers does an 8-bit one's complement word represent?",
+    "answer": "255.",
+    "explanation": "256 patterns minus the duplicate zero at 1111 1111, so 255 values from -127 to +127."
+  },
+  "pyqIds": [],
+  "prereqs": [
+    "sign-magnitude-representation"
+  ],
+  "sources": [
+    {
+      "kind": "lecture-transcript",
+      "title": "Lecture 22 - Negative Number and 2's Complement Arithmetic",
+      "channel": "NPTEL, Digital Electronic Circuits (Prof. Goutam Saha, IIT Kharagpur)",
+      "url": "http://digimat.in/nptel/courses/video/108105132/lec22.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "the served transcript runs through sign-magnitude with the +1 / -1 and +22 / -22 examples and the range -127 to +127 with a doubled zero, then one's complement by inversion with the same range and the same doubled zero, then two's complement as one's complement plus one with all eight ones no longer a second zero; the middle of the lecture (the worked arithmetic cases) is missing from the served text, so nothing is claimed about the case-by-case rules it works through there. The closing summary on two's complement arithmetic was readable."
+    }
+  ],
+  "sourceLine": "One's complement as inversion, its range and its doubled zero: NPTEL IIT Kharagpur Lecture 22 (English, read in part). The end-around-carry example is this run's own and is recomputed in scripts/validate.py.",
+  "videoRefs": []
+}

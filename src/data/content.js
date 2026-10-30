@@ -264,7 +264,7 @@ window.GATE_DATA = {
      {
       "slug": "number-systems-and-representation",
       "name": "Number Systems and Number Representation",
-      "material": "planned"
+      "material": "cards"
      },
      {
       "slug": "boolean-algebra-and-minimization",
@@ -25109,6 +25109,1003 @@ window.GATE_DATA = {
    "subject": "probability-and-statistics",
    "topic": "conditional-probability-and-bayes",
    "path": "subjects/probability-and-statistics/conditional-probability-and-bayes/conditioning-on-a-count-and-on-shared-trials.json"
+  },
+  {
+   "id": "positional-number-systems",
+   "title": "Positional Number Systems and Place Value",
+   "priority": "P1",
+   "order": 401,
+   "unit": "Number Systems and Number Representation",
+   "quickIdea": "In base r a number is a weighted sum of its digits: a digit in position k contributes d times r to the power k. Only the digits 0 to r-1 exist in that base.",
+   "remember": [
+    "A base (radix) r has exactly the digits 0 to r-1. Binary has 0 and 1, octal 0 to 7, decimal 0 to 9, hexadecimal 0 to 9 then A to F for 10 to 15.",
+    "Value = sum of d_k times r^k, with k = 0 at the units place and negative k to the right of the point. The point is named after the base: binary point, octal point, hexadecimal point.",
+    "The same digit string is a different number in a different base. 10 is 2 in binary, 8 in octal, 10 in decimal and 16 in hexadecimal.",
+    "(1010.101) in base 2 is 10.625: the integer part is 8 + 2, the fraction is 0.5 + 0.125.",
+    "Powers of two worth recognising: 2^8 = 256, 2^10 = 1024 (the 'K' of computing), 2^16 = 65536, 2^20 = 1048576 (the 'M').",
+    "The base is part of the number's identity, not decoration: a GATE stem that writes (210) in base 3 is not asking about two hundred and ten."
+   ],
+   "example": {
+    "prompt": "What is (1010.101) in base 2, in decimal?",
+    "work": "Integer part: 1x8 + 0x4 + 1x2 + 0x1 = 10. Fraction part: 1x1/2 + 0x1/4 + 1x1/8 = 0.5 + 0.125 = 0.625. Add: 10 + 0.625 = 10.625.",
+    "answer": "10.625."
+   },
+   "gateAngle": "Every base question in this topic starts by expanding the weighted sum. GATE CSE 2021 Set 1 Q.6 gives 210 in base 3 and asks for its hexadecimal form, which is a conversion question only after the value 21 is extracted from the weights.",
+   "variations": [
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "In base 7, which digits are legal, and what is the value of (123) in base 7?",
+     "answer": "Digits 0 to 6; the value is 1x49 + 2x7 + 3 = 66.",
+     "why": "Tests the digit rule and the weights together. A digit of 7 or 8 in a base-7 string makes the string invalid, which is the usual distractor."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "The number (2A) in base 16 equals (52) in base b. What is b?",
+     "answer": "b = 8.",
+     "why": "(2A) in base 16 is 2x16 + 10 = 42. Then 5b + 2 = 42 gives 5b = 40, so b = 8, and (52) in base 8 is 5x8 + 2 = 42, which checks."
+    }
+   ],
+   "trap": {
+    "what": "Reading a base-r string as if it were decimal, or accepting a digit that the base does not have.",
+    "why": "The place values are powers of r, not powers of ten, and a string with a digit at or above r is not a number in that base at all.",
+    "counterexample": "(11) in base 2 is 3, not 11; and (19) is not a base-8 number, because 9 is not a digit in base 8."
+   },
+   "check": {
+    "question": "What is the decimal value of (210) in base 3?",
+    "answer": "21.",
+    "explanation": "2x9 + 1x3 + 0x1 = 18 + 3 = 21. The same digits read as decimal would be 210, which is ten times larger."
+   },
+   "pyqIds": [],
+   "prereqs": [],
+   "sources": [
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 21 - Number System",
+     "channel": "NPTEL, Digital Electronic Circuits (Prof. Goutam Saha, IIT Kharagpur)",
+     "url": "http://digimat.in/nptel/courses/video/108105132/lec21.pdf",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "read from the opening to the lecturer's own closing summary: place value and the odometer argument, the base-r digit rule 0 to r-1, the weighted sum with negative powers for the fraction, (1010.101)2 = 10.625, decimal-to-binary by successive division of the integer and successive multiplication of the fraction (0.625 -> 0.101), octal and hexadecimal with 3-bit and 4-bit grouping, the 8.3 / 8.4 / 8.2 reading of 10011110, the range and precision of a fixed-point word, and the first statement of normalised floating point. The captions are machine transcripts and several numerals in them are garbled, so every figure taken from this lecture was re-derived from its bits here."
+    }
+   ],
+   "sourceLine": "Place value, the digit rule and the weighted sum: NPTEL IIT Kharagpur Digital Electronic Circuits Lecture 21 (English, read in full, every numeral re-derived here).",
+   "videoRefs": [],
+   "subject": "digital-logic",
+   "topic": "number-systems-and-representation",
+   "path": "subjects/digital-logic/number-systems-and-representation/positional-number-systems.json"
+  },
+  {
+   "id": "base-conversion-integer-and-fraction",
+   "title": "Base Conversion: Repeated Division and Repeated Multiplication",
+   "priority": "P1",
+   "order": 402,
+   "unit": "Number Systems and Number Representation",
+   "quickIdea": "Integer part: divide by the target base again and again and read the remainders bottom-up. Fraction part: multiply by the target base again and again and read the carries top-down.",
+   "remember": [
+    "Integer: successive division by r, keep each remainder, stop at quotient 0, then read the remainders from the last to the first.",
+    "Fraction: successive multiplication by r, keep the integer part (the carry) each time, stop when the fraction becomes 0 or when the required number of places is reached, then read the carries from the first to the last.",
+    "A decimal fraction that terminates need not terminate in binary. 0.625 terminates (0.101), but 0.1 in decimal is an infinite repeating binary fraction.",
+    "Convert between two unrelated bases through decimal, or by expanding weights directly; grouping only works when one base is a power of the other.",
+    "Always check by expanding the answer back into a weighted sum. That check catches a reversed digit order immediately.",
+    "Hexadecimal digits above 9 are letters: 21 decimal is (15) in base 16, and the digits are 1 and 5, not the decimal number fifteen written as one digit."
+   ],
+   "example": {
+    "prompt": "Convert (210) in base 3 to hexadecimal.",
+    "work": "First to decimal: 2x9 + 1x3 + 0x1 = 21. Then to base 16: 21 divided by 16 is 1 remainder 5, and 1 divided by 16 is 0 remainder 1. Read the remainders bottom-up: 1 then 5, so the answer is (15) in base 16.",
+    "answer": "(15) in base 16, that is 21 in decimal."
+   },
+   "gateAngle": "GATE CSE 2021 Set 1 Q.6 is exactly this: 210 in base 3, asked in hexadecimal. The options included 21, which is the decimal value and the most common wrong answer.",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2021 Set 1 Q.6: Let the representation of a number in base 3 be 210. What is the hexadecimal representation of the number?",
+     "answer": "(15) in base 16, option (A).",
+     "why": "(210) in base 3 is 21 in decimal, and 21 = 1x16 + 5."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "The number (132) in base 4 equals which number in base 5?",
+     "answer": "(110) in base 5.",
+     "why": "1x16 + 3x4 + 2 = 30 in decimal; 30 = 1x25 + 1x5 + 0, so the digits are 1, 1, 0. Changing the base changes the digit count, so counting digits is not a shortcut."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "Write the decimal fraction 0.375 in binary.",
+     "answer": "0.011.",
+     "why": "0.375 x 2 = 0.75 carry 0; 0.75 x 2 = 1.5 carry 1; 0.5 x 2 = 1.0 carry 1, and the fraction is now 0. The carries read top-down are 0, 1, 1. This tests the multiplication direction, which is the half of the method candidates reverse."
+    }
+   ],
+   "trap": {
+    "what": "Reading the division remainders top-down, which reverses the digits.",
+    "why": "The first remainder is the least significant digit, because the first division is by r^1. The last remainder, produced by the final division that gives quotient 0, is the most significant digit.",
+    "counterexample": "Six in base 2: the remainders are 0, then 1, then 1, and reading them bottom-up gives 110, which is 6. Read top-down they give 011, which is 3 - half the number, and the classic wrong answer."
+   },
+   "check": {
+    "question": "What is (43) in base 5, in decimal?",
+    "answer": "23.",
+    "explanation": "4x5 + 3 = 23. Expanding the weights is the fastest conversion into decimal and is also the check on the division method."
+   },
+   "pyqIds": [
+    "gate-2021-set1-q6-base3-to-hex"
+   ],
+   "prereqs": [
+    "positional-number-systems"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 21 - Number System",
+     "channel": "NPTEL, Digital Electronic Circuits (Prof. Goutam Saha, IIT Kharagpur)",
+     "url": "http://digimat.in/nptel/courses/video/108105132/lec21.pdf",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "read from the opening to the lecturer's own closing summary: place value and the odometer argument, the base-r digit rule 0 to r-1, the weighted sum with negative powers for the fraction, (1010.101)2 = 10.625, decimal-to-binary by successive division of the integer and successive multiplication of the fraction (0.625 -> 0.101), octal and hexadecimal with 3-bit and 4-bit grouping, the 8.3 / 8.4 / 8.2 reading of 10011110, the range and precision of a fixed-point word, and the first statement of normalised floating point. The captions are machine transcripts and several numerals in them are garbled, so every figure taken from this lecture was re-derived from its bits here."
+    }
+   ],
+   "sourceLine": "Successive division for the integer and successive multiplication for the fraction, with the 0.625 worked case: NPTEL IIT Kharagpur Lecture 21 (English, read in full). The question text and accepted answer of 2021 Set 1 Q.6: its GATE Overflow page.",
+   "videoRefs": [],
+   "subject": "digital-logic",
+   "topic": "number-systems-and-representation",
+   "path": "subjects/digital-logic/number-systems-and-representation/base-conversion-integer-and-fraction.json"
+  },
+  {
+   "id": "octal-and-hexadecimal-by-bit-grouping",
+   "title": "Octal and Hexadecimal by Bit Grouping",
+   "priority": "P2",
+   "order": 403,
+   "unit": "Number Systems and Number Representation",
+   "quickIdea": "8 is 2 to the 3 and 16 is 2 to the 4, so one octal digit is exactly three bits and one hex digit exactly four. Convert by regrouping bits, never through decimal.",
+   "remember": [
+    "Group from the binary point outward: three bits per octal digit, four bits per hexadecimal digit.",
+    "Pad on the outside of the number only: leading zeros on the integer part, trailing zeros on the fraction part. Padding the fraction on the left changes its value.",
+    "One hex digit is four bits, so a byte is exactly two hex digits and a 32-bit word is eight.",
+    "The method depends on the bases being powers of two. It does not work for base 3 or base 5, which must go through the weighted sum.",
+    "Octal is a compression of binary, not a separate number system: (0.11) in binary is (0.6) in octal because 110 is the three-bit group."
+   ],
+   "example": {
+    "prompt": "Convert (2E7) in base 16 to octal.",
+    "work": "Each hex digit to four bits: 2 is 0010, E is 1110, 7 is 0111, giving 0010 1110 0111. Regroup in threes from the right: 001 011 100 111, which is 1, 3, 4, 7. Check: (2E7) is 2x256 + 14x16 + 7 = 743, and (1347) in octal is 512 + 192 + 32 + 7 = 743.",
+    "answer": "(1347) in base 8."
+   },
+   "gateAngle": "GATE asks the hex-to-octal direction because it tests the 3-bit and 4-bit grouping at once, and because a candidate who goes through decimal usually makes an arithmetic slip on the way.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "Convert (253) in base 8 to hexadecimal.",
+     "answer": "(AB) in base 16.",
+     "why": "253 in octal is 010 101 011, regrouped as 1010 1011, which is A then B. Check: 2x64 + 5x8 + 3 = 171 = 10x16 + 11."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "The binary fraction 0.11 is which octal fraction, and is the same grouping valid for base 5?",
+     "answer": "0.6 in octal, because 110 is one three-bit group with the fraction padded on the right; grouping is not valid for base 5.",
+     "why": "The padding side is the trap, and base 5 is not a power of two, so no fixed group size exists. GATE uses base-5 questions (2024 Set 2 Q.49) precisely to break the grouping habit."
+    }
+   ],
+   "trap": {
+    "what": "Padding the fraction part on the left instead of the right, or grouping from the left end of the integer part.",
+    "why": "Place values grow to the left and shrink to the right, so a group must always be aligned to the binary point. Leading zeros of the integer part and trailing zeros of the fraction change nothing; zeros inserted anywhere else change everything.",
+    "counterexample": "0.1 in binary padded on the left to 001 is still 0.1 and groups as 0.1 - but grouping 0.1 from the point gives the single group 100 only if you pad on the right to 0.100, which is 0.4 in octal. The left-padded 001 would read as 1 in octal, eight times too large."
+   },
+   "check": {
+    "question": "What is (AB) in base 16, in octal?",
+    "answer": "(253) in base 8.",
+    "explanation": "A is 1010 and B is 1011, so 1010 1011 regroups as 010 101 011 = 2, 5, 3. Check: 10x16 + 11 = 171 and 2x64 + 5x8 + 3 = 171."
+   },
+   "pyqIds": [],
+   "prereqs": [
+    "positional-number-systems",
+    "base-conversion-integer-and-fraction"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 21 - Number System",
+     "channel": "NPTEL, Digital Electronic Circuits (Prof. Goutam Saha, IIT Kharagpur)",
+     "url": "http://digimat.in/nptel/courses/video/108105132/lec21.pdf",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "read from the opening to the lecturer's own closing summary: place value and the odometer argument, the base-r digit rule 0 to r-1, the weighted sum with negative powers for the fraction, (1010.101)2 = 10.625, decimal-to-binary by successive division of the integer and successive multiplication of the fraction (0.625 -> 0.101), octal and hexadecimal with 3-bit and 4-bit grouping, the 8.3 / 8.4 / 8.2 reading of 10011110, the range and precision of a fixed-point word, and the first statement of normalised floating point. The captions are machine transcripts and several numerals in them are garbled, so every figure taken from this lecture was re-derived from its bits here."
+    }
+   ],
+   "sourceLine": "The 3-bit and 4-bit grouping rule, with the octal and hexadecimal examples: NPTEL IIT Kharagpur Lecture 21 (English, read in full). The base-5 counterexample is this run's own, from the shape of GATE CSE 2024 Set 2 Q.49.",
+   "videoRefs": [],
+   "subject": "digital-logic",
+   "topic": "number-systems-and-representation",
+   "path": "subjects/digital-logic/number-systems-and-representation/octal-and-hexadecimal-by-bit-grouping.json"
+  },
+  {
+   "id": "unsigned-fixed-width-range",
+   "title": "Unsigned Fixed-Width Integers: Patterns, Range and Wrap-Around",
+   "priority": "P2",
+   "order": 404,
+   "unit": "Number Systems and Number Representation",
+   "quickIdea": "An n-bit word has 2^n patterns, so unsigned it holds 0 to 2^n - 1; one more than the top value wraps to zero and the carry leaves the word.",
+   "remember": [
+    "n bits unsigned: values 0 to 2^n - 1, and exactly 2^n of them.",
+    "8 bits: 0 to 255. 16 bits: 0 to 65535. 32 bits: 0 to 4294967295.",
+    "The width is part of the number. 101 and 0000 0101 are the same value in words of different width, and the same 8-bit pattern means something else in a 16-bit word only after it is sign-extended or zero-extended.",
+    "Wrap-around: 1111 1111 plus 1 is 1 0000 0000, and in an 8-bit word the ninth bit is discarded, leaving 0000 0000.",
+    "The carry out of the top bit is a fact about the word, not about the sign of the value. It is neither an overflow nor a proof of one.",
+    "Every later representation in this topic is a partition of these same 2^n patterns, so the pattern count never changes - only its interpretation."
+   ],
+   "example": {
+    "prompt": "An 8-bit unsigned counter holds 1111 1110. What does it hold after two increments?",
+    "work": "1111 1110 plus 1 is 1111 1111, which is 255, the largest 8-bit unsigned value. Adding 1 again gives 1 0000 0000; the ninth bit is the carry out and is discarded, so the word holds 0000 0000, which is 0.",
+    "answer": "0000 0000, that is 0, with a carry out of 1."
+   },
+   "gateAngle": "The wrap is the mechanism behind every later range question. GATE CSE 2013 Q.4 asks for the smallest 8-bit two's complement value, which exists only because the 256 patterns are split asymmetrically - and the split is a choice made inside this fixed set of patterns.",
+   "variations": [
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "How many distinct values does a 12-bit unsigned word hold, and what is its largest value?",
+     "answer": "4096 values, largest 4095.",
+     "why": "The count is 2^12 and the maximum is one less. The pair (count, maximum) is asked in both directions, and answering 4096 for the maximum is the usual error."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "A 16-bit unsigned register holds 0xFFFF. What is the result of adding 1, and what is the carry flag?",
+     "answer": "The register holds 0x0000 and the carry out is 1.",
+     "why": "0xFFFF is 65535, the maximum; the sum 65536 needs 17 bits, so the value cannot be held and only the wrap survives. This is the same statement as the 8-bit counter example at a wider word."
+    }
+   ],
+   "trap": {
+    "what": "Believing that n bits hold 2^n - 1 values, or that 8 bits reach 256.",
+    "why": "The count includes zero, so it is 2^n patterns for the values 0 to 2^n - 1. Confusing the count with the maximum off by one is the most common arithmetic slip in this topic.",
+    "counterexample": "0 to 255 is 256 values, not 255; the largest is 255 and the count is 256."
+   },
+   "check": {
+    "question": "What is the largest value in a 10-bit unsigned word, and how many values are there?",
+    "answer": "1023, and 1024 values.",
+    "explanation": "2^10 = 1024 patterns, numbered 0 to 1023."
+   },
+   "pyqIds": [],
+   "prereqs": [
+    "positional-number-systems"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 21 - Number System",
+     "channel": "NPTEL, Digital Electronic Circuits (Prof. Goutam Saha, IIT Kharagpur)",
+     "url": "http://digimat.in/nptel/courses/video/108105132/lec21.pdf",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "read from the opening to the lecturer's own closing summary: place value and the odometer argument, the base-r digit rule 0 to r-1, the weighted sum with negative powers for the fraction, (1010.101)2 = 10.625, decimal-to-binary by successive division of the integer and successive multiplication of the fraction (0.625 -> 0.101), octal and hexadecimal with 3-bit and 4-bit grouping, the 8.3 / 8.4 / 8.2 reading of 10011110, the range and precision of a fixed-point word, and the first statement of normalised floating point. The captions are machine transcripts and several numerals in them are garbled, so every figure taken from this lecture was re-derived from its bits here."
+    }
+   ],
+   "sourceLine": "The power-of-two values and the odometer argument for wrap-around: NPTEL IIT Kharagpur Lecture 21 (English, read in full). The counts are recomputed in scripts/validate.py.",
+   "videoRefs": [],
+   "subject": "digital-logic",
+   "topic": "number-systems-and-representation",
+   "path": "subjects/digital-logic/number-systems-and-representation/unsigned-fixed-width-range.json"
+  },
+  {
+   "id": "sign-magnitude-representation",
+   "title": "Sign-Magnitude Representation",
+   "priority": "P1",
+   "order": 405,
+   "unit": "Number Systems and Number Representation",
+   "quickIdea": "The leftmost bit is a sign, 0 for positive and 1 for negative, and the other n-1 bits are the magnitude.",
+   "remember": [
+    "The most significant bit is the sign bit and carries no place value: it is not worth 2^(n-1).",
+    "Range: -(2^(n-1) - 1) to +(2^(n-1) - 1). Eight bits give -127 to +127.",
+    "Zero has two patterns, 0000 0000 and 1000 0000, so the word holds only 2^n - 1 distinct values.",
+    "Negation is one bit flip, which is cheap in hardware, but addition needs a comparator and separate sign logic, which is why it is not used for integer arithmetic.",
+    "IEEE 754 keeps a sign-magnitude sign bit for floating point, and stores the exponent and the fraction as separate fields.",
+    "Reading it back: strip the sign bit, evaluate the remaining bits as unsigned, then attach the sign. There is no subtraction step."
+   ],
+   "example": {
+    "prompt": "Write -22 in 8-bit sign-magnitude form.",
+    "work": "Magnitude 22 = 16 + 4 + 2 = 0001 0110 in seven bits. Set the sign bit for a negative number: 1 001 0110.",
+    "answer": "1001 0110."
+   },
+   "gateAngle": "The doubled zero is the whole point of GATE CSE 2016 Set 2 Q.9, which asks how many more distinct integers two's complement holds than sign-magnitude at 16 bits. The answer is one, and it is exactly this -0.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "Write -45 in 8-bit sign-magnitude form, and give the pattern for negative zero.",
+     "answer": "1010 1101 for -45; 1000 0000 for negative zero.",
+     "why": "45 is 32 + 8 + 4 + 1 = 010 1101 in seven bits, so the signed form is 1 followed by 0101101. Negative zero is the sign bit alone, and it is the pattern that costs the representation one value."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "What are the largest and smallest values in 8-bit sign-magnitude, and what is 1000 0000?",
+     "answer": "+127, -127, and 1000 0000 is negative zero.",
+     "why": "The negative side stops at -127 because -128 would need the magnitude 128, which needs eight magnitude bits. The spare pattern becomes -0."
+    }
+   ],
+   "trap": {
+    "what": "Assuming sign-magnitude reaches -128 at 8 bits, as two's complement does.",
+    "why": "Seven magnitude bits hold at most 127. The pattern 1000 0000 is spent on negative zero, so no pattern is left for -128.",
+    "counterexample": "1000 0000 is -0 in sign-magnitude and -128 in two's complement. The same eight bits, two different values, which is why the representation must be stated in every question."
+   },
+   "check": {
+    "question": "How many distinct integers does an 8-bit sign-magnitude word represent?",
+    "answer": "255.",
+    "explanation": "There are 256 patterns and two of them are zero, so 255 distinct values from -127 to +127."
+   },
+   "pyqIds": [],
+   "prereqs": [
+    "unsigned-fixed-width-range"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 22 - Negative Number and 2's Complement Arithmetic",
+     "channel": "NPTEL, Digital Electronic Circuits (Prof. Goutam Saha, IIT Kharagpur)",
+     "url": "http://digimat.in/nptel/courses/video/108105132/lec22.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "the served transcript runs through sign-magnitude with the +1 / -1 and +22 / -22 examples and the range -127 to +127 with a doubled zero, then one's complement by inversion with the same range and the same doubled zero, then two's complement as one's complement plus one with all eight ones no longer a second zero; the middle of the lecture (the worked arithmetic cases) is missing from the served text, so nothing is claimed about the case-by-case rules it works through there. The closing summary on two's complement arithmetic was readable."
+    }
+   ],
+   "sourceLine": "Sign-magnitude with the +1 / -1 and +22 / -22 examples, the range -127 to +127 and the doubled zero: NPTEL IIT Kharagpur Digital Electronic Circuits Lecture 22 (English, read in part).",
+   "videoRefs": [],
+   "subject": "digital-logic",
+   "topic": "number-systems-and-representation",
+   "path": "subjects/digital-logic/number-systems-and-representation/sign-magnitude-representation.json"
+  },
+  {
+   "id": "ones-complement-representation",
+   "title": "One's Complement Representation",
+   "priority": "P2",
+   "order": 406,
+   "unit": "Number Systems and Number Representation",
+   "quickIdea": "A negative number is the bit-by-bit complement of its positive form, so an n-bit pattern with a leading 1 is worth -(2^n - 1 - raw).",
+   "remember": [
+    "Negation is inversion of every bit, sign bit included. In n bits, -x is (2^n - 1) - x.",
+    "Range is the same as sign-magnitude, -(2^(n-1) - 1) to +(2^(n-1) - 1), with two zeros: 0000 0000 and 1111 1111.",
+    "It holds 2^n - 1 distinct values, one fewer than two's complement, because all-ones is a second zero.",
+    "Addition needs an end-around carry: a carry out of the top bit is added back at the bottom.",
+    "It is the intermediate step to two's complement: invert, then add one. That is why the negation rule is easy to remember and why one's complement is not itself used for integers.",
+    "Reading it back: if the top bit is 1, the magnitude is (2^n - 1) minus the raw value of the pattern."
+   ],
+   "example": {
+    "prompt": "Write -22 in 8-bit one's complement form, and check it.",
+    "work": "+22 is 0001 0110. Invert every bit: 1110 1001. Check by the reading rule: the raw value of 1110 1001 is 233, and 255 - 233 = 22, so the pattern is -22.",
+    "answer": "1110 1001."
+   },
+   "gateAngle": "GATE uses one's complement mostly as a comparison: which representation wastes a pattern, and what does 1111 1111 mean. The 2016 Set 2 Q.9 count question is the version that reaches the exam.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "What is -1 in 8-bit one's complement, and what is -1 in 8-bit two's complement?",
+     "answer": "1111 1110 in one's complement; 1111 1111 in two's complement.",
+     "why": "+1 is 0000 0001, so inversion gives 1111 1110 and inversion plus one gives 1111 1111. The two representations differ by exactly one pattern on every negative number, and they differ about which pattern is zero."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "Add +5 and -3 in 4-bit one's complement, showing the end-around carry.",
+     "answer": "0010, that is +2.",
+     "why": "0101 + 1100 = 1 0001; the carry out of the top bit is added back, giving 0010. Without the end-around carry the result would be 0001, which is +1 - the trap this representation sets."
+    }
+   ],
+   "trap": {
+    "what": "Dropping the end-around carry when adding in one's complement.",
+    "why": "The carry out is a real unit of value in this representation, not a discard. Two's complement discards it because the modulus is 2^n; one's complement has modulus 2^n - 1 and must return the carry to the bottom.",
+    "counterexample": "In 4 bits, 0101 + 1110 is 1 0011. Adding the carry back gives 0100, which is +4; the uncorrected 0011 reads as +3, one too small."
+   },
+   "check": {
+    "question": "How many distinct integers does an 8-bit one's complement word represent?",
+    "answer": "255.",
+    "explanation": "256 patterns minus the duplicate zero at 1111 1111, so 255 values from -127 to +127."
+   },
+   "pyqIds": [],
+   "prereqs": [
+    "sign-magnitude-representation"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 22 - Negative Number and 2's Complement Arithmetic",
+     "channel": "NPTEL, Digital Electronic Circuits (Prof. Goutam Saha, IIT Kharagpur)",
+     "url": "http://digimat.in/nptel/courses/video/108105132/lec22.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "the served transcript runs through sign-magnitude with the +1 / -1 and +22 / -22 examples and the range -127 to +127 with a doubled zero, then one's complement by inversion with the same range and the same doubled zero, then two's complement as one's complement plus one with all eight ones no longer a second zero; the middle of the lecture (the worked arithmetic cases) is missing from the served text, so nothing is claimed about the case-by-case rules it works through there. The closing summary on two's complement arithmetic was readable."
+    }
+   ],
+   "sourceLine": "One's complement as inversion, its range and its doubled zero: NPTEL IIT Kharagpur Lecture 22 (English, read in part). The end-around-carry example is this run's own and is recomputed in scripts/validate.py.",
+   "videoRefs": [],
+   "subject": "digital-logic",
+   "topic": "number-systems-and-representation",
+   "path": "subjects/digital-logic/number-systems-and-representation/ones-complement-representation.json"
+  },
+  {
+   "id": "twos-complement-definition-and-range",
+   "title": "Two's Complement: Definition, Range and Why It Is Asymmetric",
+   "priority": "P1",
+   "order": 407,
+   "unit": "Number Systems and Number Representation",
+   "quickIdea": "Negate by inverting every bit and adding one. Then every one of the 2^n patterns is a different value, from -2^(n-1) up to 2^(n-1) - 1.",
+   "remember": [
+    "Negation: invert all bits, then add 1. In n bits, -x is 2^n - x.",
+    "Range: -2^(n-1) to 2^(n-1) - 1. Eight bits: -128 to +127. Sixteen bits: -32768 to +32767. Twelve bits: -2048 to 2047.",
+    "Exactly 2^n distinct values, because zero has one pattern only.",
+    "The top bit's weight is -2^(n-1), not +2^(n-1). That single negative weight makes the weighted sum equal the two's complement value with no separate sign step.",
+    "1000...0 is the most negative value and has no positive counterpart. Negating it returns itself, which is an overflow, not a failure of the rule.",
+    "The range is asymmetric because zero is counted once and there are an even number of patterns: one pattern is left over, and it goes to the negative side as -2^(n-1)."
+   ],
+   "example": {
+    "prompt": "Write -22 in 8-bit two's complement form, and read it back by weights.",
+    "work": "Invert 0001 0110 to get 1110 1001, then add 1: 1110 1010. Reading back with the negative top weight: -128 + 64 + 32 + 8 + 2 = -22.",
+    "answer": "1110 1010."
+   },
+   "gateAngle": "GATE CSE 2013 Q.4 asks for the smallest 8-bit two's complement value, and the four options are exactly the four candidate ranges a careless reader produces: -256 (unsigned wrap), -128 (correct), -127 (sign-magnitude) and 0.",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2013 Q.4: The smallest integer that can be represented by an 8-bit number in 2's complement form is: -256, -128, -127, or 0.",
+     "answer": "-128, option (B).",
+     "why": "The range is -2^7 to 2^7 - 1, so the minimum is -128 and the pattern is 1000 0000."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "What is the smallest value in 12-bit two's complement, and what is the minimum number of bits needed to represent -92?",
+     "answer": "-2048; and 8 bits, as 1010 0100.",
+     "why": "Twelve bits give -2^11 = -2048. For -92, seven bits reach only -64, so eight bits are needed: -128 + 32 + 4 = -92, pattern 1010 0100."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "What is the 4-bit two's complement range, and which pattern is the most negative value?",
+     "answer": "-8 to +7; 1000 is -8.",
+     "why": "Four bits give -2^3 to 2^3 - 1. Checking 1000 by the weight rule gives -8 + 0 = -8, and negating it returns 1000, which is the overflow the card warns about."
+    }
+   ],
+   "trap": {
+    "what": "Quoting -2^(n-1) + 1 as the minimum, which is the sign-magnitude and one's complement answer.",
+    "why": "Those two representations spend a pattern on negative zero, so their negative side stops one short. Two's complement has no negative zero, so the spare pattern extends the negative side by one.",
+    "counterexample": "Eight bits: sign-magnitude and one's complement reach -127, two's complement reaches -128. All three have 256 patterns; only two's complement uses every one of them for a distinct value."
+   },
+   "check": {
+    "question": "What is the 6-bit two's complement range, and what is the pattern for its minimum?",
+    "answer": "-32 to +31; the minimum is 100000.",
+    "explanation": "-2^5 = -32 and 2^5 - 1 = 31. The minimum is the sign bit alone, 100000."
+   },
+   "pyqIds": [
+    "gate-2013-q4-twos-complement-smallest"
+   ],
+   "prereqs": [
+    "unsigned-fixed-width-range",
+    "ones-complement-representation"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 22 - Negative Number and 2's Complement Arithmetic",
+     "channel": "NPTEL, Digital Electronic Circuits (Prof. Goutam Saha, IIT Kharagpur)",
+     "url": "http://digimat.in/nptel/courses/video/108105132/lec22.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "the served transcript runs through sign-magnitude with the +1 / -1 and +22 / -22 examples and the range -127 to +127 with a doubled zero, then one's complement by inversion with the same range and the same doubled zero, then two's complement as one's complement plus one with all eight ones no longer a second zero; the middle of the lecture (the worked arithmetic cases) is missing from the served text, so nothing is claimed about the case-by-case rules it works through there. The closing summary on two's complement arithmetic was readable."
+    }
+   ],
+   "sourceLine": "Two's complement as one's complement plus one, and the range -128 to +127: NPTEL IIT Kharagpur Lecture 22 (English, read in part). The question text and accepted answer of 2013 Q.4: its GATE Overflow page.",
+   "videoRefs": [],
+   "subject": "digital-logic",
+   "topic": "number-systems-and-representation",
+   "path": "subjects/digital-logic/number-systems-and-representation/twos-complement-definition-and-range.json"
+  },
+  {
+   "id": "twos-complement-negation-and-subtraction",
+   "title": "Two's Complement Arithmetic: Subtraction, the Discarded Carry and Sign Extension",
+   "priority": "P1",
+   "order": 408,
+   "unit": "Number Systems and Number Representation",
+   "quickIdea": "a - b is computed as a + (-b), that is a + inverted b + 1, and the carry out of the top bit is thrown away because the word is n bits wide.",
+   "remember": [
+    "a - b = a + (invert b) + 1. One adder does both operations, which is the reason two's complement won.",
+    "The final carry out is discarded in an n-bit addition. Its presence is not the sign of the result and is not by itself an overflow.",
+    "Sign extension widens a number by copying the top bit into the new high positions, and preserves the value. Zero extension is correct only for unsigned numbers.",
+    "Read a pattern back by the weight rule: value = -b(n-1) x 2^(n-1) + sum of the lower bits' weights. No inversion is needed.",
+    "Subtracting a larger number from a smaller one gives a negative result with no borrow flag to interpret - the pattern is simply a negative two's complement number.",
+    "A hexadecimal word is read as bits first: 0xFFF5 is 1111 1111 1111 0101 before it is a number."
+   ],
+   "example": {
+    "prompt": "Compute 11 - 22 in 8 bits, and read the same pattern as a 16-bit word.",
+    "work": "In 8 bits: 0000 1011 + (-22 = 1110 1010) = 1111 0101, with no carry out. By weights: -128 + 64 + 32 + 16 + 4 + 1 = -11. Sign-extended to 16 bits it is 1111 1111 1111 0101, which reads -65536 + 65525 = -11.",
+    "answer": "-11, as 1111 0101 in 8 bits and 1111 1111 1111 0101 in 16 bits."
+   },
+   "gateAngle": "GATE CSE 2016 Set 1 Q.7 gives the 16-bit pattern 1111 1111 1111 0101 and asks for the decimal value. The two reliable routes are invert-and-add-one and the weight rule; both give -11.",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2016 Set 1 Q.7: The 16-bit 2's complement representation of an integer is 1111 1111 1111 0101; its decimal representation is ______.",
+     "answer": "-11.",
+     "why": "Invert: 0000 0000 0000 1010; add 1: 0000 0000 0000 1011 = 11; the sign bit was 1, so the value is -11. The weight rule agrees: -32768 + 32757 = -11."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "Write -100 in 16-bit two's complement, in hexadecimal.",
+     "answer": "0xFF9C.",
+     "why": "100 is 0000 0000 0110 0100. Invert to 1111 1111 1001 1011, add 1 to get 1111 1111 1001 1100, which is F F 9 C. Check: 0xFF9C is 65436, and 65436 - 65536 = -100."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "The 8-bit two's complement number 0xA7 is widened to 16 bits. What is the new pattern and the value?",
+     "answer": "0xFFA7, value -89.",
+     "why": "0xA7 has a 1 in the top bit, so sign extension copies ones: 1111 1111 1010 0111. Zero-extending instead would give 0x00A7 = +167, a different number - the trap the card names."
+    }
+   ],
+   "trap": {
+    "what": "Zero-extending a negative number, or treating the discarded carry as an overflow signal.",
+    "why": "The high bits of a negative two's complement number are ones, so widening must copy the sign bit. And the carry out of an n-bit addition is exactly what the modulus 2^n absorbs, so it is discarded; overflow is a statement about the sign, not about the carry.",
+    "counterexample": "0xA7 as 8 bits is -89 and as 16 bits zero-extended is +167. And 0x7F + 0x01 gives 0x80 with no carry out, yet the answer -128 is not 128: that is an overflow with no carry."
+   },
+   "check": {
+    "question": "In 8 bits, what is 0x0B - 0x16, and what does the pattern mean if read as unsigned?",
+    "answer": "-11, pattern 1111 0101; read unsigned it is 245.",
+    "explanation": "11 - 22 = -11. The same eight bits are 245 unsigned, which is 256 - 11. The pattern is fixed; only its interpretation changes."
+   },
+   "pyqIds": [
+    "gate-2016-set1-q7-16bit-pattern"
+   ],
+   "prereqs": [
+    "twos-complement-definition-and-range"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 22 - Negative Number and 2's Complement Arithmetic",
+     "channel": "NPTEL, Digital Electronic Circuits (Prof. Goutam Saha, IIT Kharagpur)",
+     "url": "http://digimat.in/nptel/courses/video/108105132/lec22.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "the served transcript runs through sign-magnitude with the +1 / -1 and +22 / -22 examples and the range -127 to +127 with a doubled zero, then one's complement by inversion with the same range and the same doubled zero, then two's complement as one's complement plus one with all eight ones no longer a second zero; the middle of the lecture (the worked arithmetic cases) is missing from the served text, so nothing is claimed about the case-by-case rules it works through there. The closing summary on two's complement arithmetic was readable."
+    }
+   ],
+   "sourceLine": "Subtraction as addition of the negated subtrahend, and the closing summary on two's complement arithmetic: NPTEL IIT Kharagpur Lecture 22 (English, read in part). The question text and accepted answer of 2016 Set 1 Q.7: its GATE Overflow page.",
+   "videoRefs": [],
+   "subject": "digital-logic",
+   "topic": "number-systems-and-representation",
+   "path": "subjects/digital-logic/number-systems-and-representation/twos-complement-negation-and-subtraction.json"
+  },
+  {
+   "id": "distinct-values-and-duplicate-zero",
+   "title": "Counting Distinct Values: The Pattern Count Against the Value Count",
+   "priority": "P2",
+   "order": 409,
+   "unit": "Number Systems and Number Representation",
+   "quickIdea": "A word of n bits always has 2^n patterns, but only two's complement turns all of them into different integers; the other two representations spend one pattern on negative zero.",
+   "remember": [
+    "n-bit two's complement: 2^n patterns, 2^n distinct values, from -2^(n-1) to 2^(n-1) - 1.",
+    "n-bit sign-magnitude and one's complement: 2^n patterns, 2^n - 1 distinct values.",
+    "The wasted pattern is negative zero: 1000...0 in sign-magnitude and 1111...1 in one's complement.",
+    "Sixteen bits: 65536 against 65535, a difference of 1. The difference is 1 at every width, because the waste is always exactly one pattern.",
+    "The count is a property of the representation, not of the value being stored, so it does not depend on which numbers a program happens to use.",
+    "This is the cheapest way GATE asks whether you know that -0 exists: it asks for a count, not for a value."
+   ],
+   "example": {
+    "prompt": "Let X be the number of distinct 16-bit integers in two's complement and Y the number in sign-magnitude. What is X - Y?",
+    "work": "Two's complement covers -32768 to 32767, which is 65536 values, and every pattern is used. Sign-magnitude covers -32767 to 32767, which is 65535 values, because 1000 0000 0000 0000 and 0000 0000 0000 0000 are both zero. X - Y = 65536 - 65535 = 1.",
+    "answer": "1."
+   },
+   "gateAngle": "GATE CSE 2016 Set 2 Q.9 is this exact count. The question is deliberately asked at 16 bits so that the answer cannot be reached by listing values - only by knowing the double zero.",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2016 Set 2 Q.9: Let X be the number of distinct 16-bit integers in 2's complement representation and Y the number of distinct 16-bit integers in sign magnitude representation. Then X - Y is ______.",
+     "answer": "1.",
+     "why": "65536 - 65535. The single extra value is -32768, which sign-magnitude cannot hold because its magnitude needs 16 bits."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "What is X - Y for 8-bit words, and does the answer depend on the width?",
+     "answer": "Also 1, and no: it is 1 at every width.",
+     "why": "The waste is one pattern whatever the width, so 2^n - (2^n - 1) = 1 always. Recognising the invariance turns a calculation into a fact."
+    }
+   ],
+   "trap": {
+    "what": "Assuming the extra value in two's complement is an extra positive number.",
+    "why": "The extra pattern sits at the negative end, 1000...0, because the negative side has no negative zero to spend a pattern on. Two's complement gains -2^(n-1), it does not gain a larger positive.",
+    "counterexample": "Eight bits: two's complement reaches +127, the same maximum as sign-magnitude; what it adds is -128, not +128."
+   },
+   "check": {
+    "question": "How many distinct integers does an 8-bit one's complement word hold, and how many patterns does it have?",
+    "answer": "255 distinct integers from 256 patterns.",
+    "explanation": "The duplicate is 1111 1111, the second zero. All other patterns are distinct."
+   },
+   "pyqIds": [
+    "gate-2016-set2-q9-distinct-integers"
+   ],
+   "prereqs": [
+    "sign-magnitude-representation",
+    "twos-complement-definition-and-range"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 22 - Negative Number and 2's Complement Arithmetic",
+     "channel": "NPTEL, Digital Electronic Circuits (Prof. Goutam Saha, IIT Kharagpur)",
+     "url": "http://digimat.in/nptel/courses/video/108105132/lec22.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "the served transcript runs through sign-magnitude with the +1 / -1 and +22 / -22 examples and the range -127 to +127 with a doubled zero, then one's complement by inversion with the same range and the same doubled zero, then two's complement as one's complement plus one with all eight ones no longer a second zero; the middle of the lecture (the worked arithmetic cases) is missing from the served text, so nothing is claimed about the case-by-case rules it works through there. The closing summary on two's complement arithmetic was readable."
+    }
+   ],
+   "sourceLine": "The doubled zero in sign-magnitude and one's complement, and its disappearance in two's complement: NPTEL IIT Kharagpur Lecture 22 (English, read in part). The question text and answer of 2016 Set 2 Q.9: the question page read this run, with both counts recomputed here.",
+   "videoRefs": [],
+   "subject": "digital-logic",
+   "topic": "number-systems-and-representation",
+   "path": "subjects/digital-logic/number-systems-and-representation/distinct-values-and-duplicate-zero.json"
+  },
+  {
+   "id": "fixed-point-representation",
+   "title": "Fixed-Point Representation: Range, Resolution and the Position of the Point",
+   "priority": "P1",
+   "order": 410,
+   "unit": "Number Systems and Number Representation",
+   "quickIdea": "Choose where the binary point sits: i bits before it and f bits after, so the value is the integer in the word divided by 2^f.",
+   "remember": [
+    "An n-bit unsigned word with f fraction bits holds multiples of 2^(-f) from 0 to 2^i - 2^(-f), where i = n - f.",
+    "The resolution is 2^(-f), the gap between neighbouring values; the range is about 2^i. Moving one bit from the integer side to the fraction side halves the range and doubles the resolution.",
+    "The same bit pattern is a different number under a different split: 10011110 is 19.75 as an 8.3 number, 9.875 as 8.4 and 39.5 as 8.2.",
+    "Shifting the point one place left divides the value by 2 and multiplies the resolution by 2; one place right doubles the value.",
+    "Fixed point keeps the resolution constant across the whole range and needs no exponent field, which is why integer arithmetic circuits work unchanged - an integer is fixed point with f = 0.",
+    "A decimal fraction is exact in fixed point only when it is a multiple of 2^(-f): 0.875 is a multiple of 1/8, 0.3 is not a multiple of 1/16."
+   ],
+   "example": {
+    "prompt": "The 8-bit pattern 10011110 is read as an unsigned 8.3 fixed-point number. What is its value, and what would it be as 8.4?",
+    "work": "As 8.3 the point goes after the fifth bit: 10011.110, which is 16 + 2 + 1 + 0.5 + 0.25 = 19.75. As 8.4 the point moves one place left: 1001.1110, which is 8 + 1 + 0.5 + 0.25 + 0.125 = 9.875, exactly half.",
+    "answer": "19.75 as 8.3 and 9.875 as 8.4."
+   },
+   "gateAngle": "GATE CSE 2017 Set 1 Q.7 asks for the range of an n-bit unsigned fixed-point number with f fraction bits, and the answer 0 to 2^i - 2^(-f) is only reachable if you see that the fraction contributes up to 1 - 2^(-f), not up to 1.",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2017 Set 1 Q.7: The n-bit fixed-point representation of an unsigned real number X uses f bits for the fraction part. Let i = n - f. The range of decimal values for X is: (A) 2^-f to 2^i, (B) 2^-f to (2^i - 2^-f), (C) 0 to 2^i, (D) 0 to (2^i - 2^-f).",
+     "answer": "Option (D), 0 to 2^i - 2^-f.",
+     "why": "All-zero bits give 0, so the lower end is 0 and not 2^-f. All-ones gives (2^i - 1) + (1 - 2^-f) = 2^i - 2^-f. Scaling the integer 2^n - 1 by 2^-f gives the same expression."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "An unsigned 10-bit word is read with 2 fraction bits. What are its range and its resolution?",
+     "answer": "0 to 255.75, resolution 0.25.",
+     "why": "i = 8 and f = 2, so the maximum is 2^8 - 2^(-2) = 255.75 and the gap is 2^(-2) = 0.25. The maximum is not 256 and not 255."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "Which of 0.875 and 0.3 is exact in an unsigned 8.4 fixed-point word?",
+     "answer": "0.875 is exact; 0.3 is not.",
+     "why": "0.875 = 7/8 is a multiple of 1/16, so it needs the bits 0000 1110. 0.3 is not a multiple of 1/16 - 0.3 x 16 = 4.8 - so it cannot be stored exactly at any width with a power-of-two resolution."
+    }
+   ],
+   "trap": {
+    "what": "Giving 2^i as the maximum, or 2^(-f) as the minimum of an unsigned fixed-point number.",
+    "why": "The fraction field can reach 1 - 2^(-f) but never 1, so the maximum falls short of 2^i by exactly 2^(-f). And zero is representable, so the minimum is 0, not the resolution.",
+    "counterexample": "An 8.4 unsigned word: the maximum is 15.9375, not 16, and the minimum is 0, not 0.0625."
+   },
+   "check": {
+    "question": "What are the range and resolution of an unsigned 8-bit word read with 4 fraction bits?",
+    "answer": "0 to 15.9375, resolution 0.0625.",
+    "explanation": "i = 4 and f = 4, so the maximum is 2^4 - 2^(-4) = 15.9375 and the gap is 2^(-4) = 0.0625."
+   },
+   "pyqIds": [
+    "gate-2017-set1-q7-fixed-point-range"
+   ],
+   "prereqs": [
+    "positional-number-systems",
+    "unsigned-fixed-width-range"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 21 - Number System",
+     "channel": "NPTEL, Digital Electronic Circuits (Prof. Goutam Saha, IIT Kharagpur)",
+     "url": "http://digimat.in/nptel/courses/video/108105132/lec21.pdf",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "read from the opening to the lecturer's own closing summary: place value and the odometer argument, the base-r digit rule 0 to r-1, the weighted sum with negative powers for the fraction, (1010.101)2 = 10.625, decimal-to-binary by successive division of the integer and successive multiplication of the fraction (0.625 -> 0.101), octal and hexadecimal with 3-bit and 4-bit grouping, the 8.3 / 8.4 / 8.2 reading of 10011110, the range and precision of a fixed-point word, and the first statement of normalised floating point. The captions are machine transcripts and several numerals in them are garbled, so every figure taken from this lecture was re-derived from its bits here."
+    }
+   ],
+   "sourceLine": "The 8.3 / 8.4 / 8.2 readings of 10011110, the range formula and the point-shifting argument: NPTEL IIT Kharagpur Lecture 21 (English, read in full, figures re-derived here). The question text and accepted answer of 2017 Set 1 Q.7: its GATE Overflow page.",
+   "videoRefs": [],
+   "subject": "digital-logic",
+   "topic": "number-systems-and-representation",
+   "path": "subjects/digital-logic/number-systems-and-representation/fixed-point-representation.json"
+  },
+  {
+   "id": "floating-point-normalisation-and-bias",
+   "title": "Floating Point: Normalisation and the Biased Exponent",
+   "priority": "P1",
+   "order": 411,
+   "unit": "Number Systems and Number Representation",
+   "quickIdea": "Write the number as a significand between 1 and 2 times a power of two, store the sign, the exponent and the fraction; the exponent is stored with a bias added.",
+   "remember": [
+    "Normal form: exactly one 1 before the binary point, so 1 <= significand < 2. 1101.01 becomes 1.10101 x 2^3.",
+    "Because the leading 1 is always there, it need not be stored. That hidden bit buys one extra bit of precision for free.",
+    "The stored exponent is the true exponent plus a bias, so every stored value is non-negative. Single precision uses 127, double 1023.",
+    "With a bias, comparing two positive floats is the same as comparing their bit patterns as unsigned integers, which makes hardware comparison cheap.",
+    "The exponent width sets the magnitude range and the fraction width sets the precision. They are separate budgets, and fixed point has only one.",
+    "The bias is 127 rather than 128 so that the reciprocal of the smallest normal number does not overflow: the smallest normal is 2^-126 and its reciprocal 2^126 is still inside the largest exponent."
+   ],
+   "example": {
+    "prompt": "Normalise 1101.01 and write its exponent in single precision form.",
+    "work": "Shift the point three places left: 1.10101 x 2^3, so the true exponent is 3 and the fraction bits are 10101. Check the value: 1 + 0.5 + 0.125 + 0.03125 = 1.65625, and 1.65625 x 8 = 13.25, which is 1101.01 in binary. The stored exponent is 3 + 127 = 130.",
+    "answer": "1.10101 x 2^3, stored exponent 130."
+   },
+   "gateAngle": "GATE CSE 2012 Q.7 asks about 0.5, whose normal form is 1.0 x 2^(-1): the fraction is all zeros and the exponent is -1, so the option claiming an exponent of 0 is the trap.",
+   "variations": [
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why is the single-precision bias 127 and not 128?",
+     "answer": "So that 1/x_min does not overflow.",
+     "why": "The smallest normal number is 2^-126, and its reciprocal is 2^126, which must still be representable. With a bias of 128 the symmetric exponent range would push the reciprocal outside the format. The same self-consistency argument applies at any width."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "What stored exponent encodes a true exponent of 0 in single precision, and what true exponent does a stored 0 encode?",
+     "answer": "Stored 127 (0111 1111) encodes 0; a stored 0 is not an exponent at all - it marks zero and subnormal numbers.",
+     "why": "Decoding subtracts the bias, so stored = true + 127. The value 0 in the exponent field is reserved, which is why the true exponent range starts at -126 rather than -127."
+    }
+   ],
+   "trap": {
+    "what": "Reading the stored exponent as the true exponent, or assuming a stored 0 means a true exponent of 0.",
+    "why": "Every stored exponent is 127 larger than the true one. And the two extreme stored values, 0 and 255, are reserved for the special numbers, so they never denote an ordinary exponent.",
+    "counterexample": "0.5 is 1.0 x 2^(-1) with stored exponent 126, not 0 and not -1. A pattern whose exponent field is 00000000 is a zero or a subnormal, never 1.xxx x 2^(-127)."
+   },
+   "check": {
+    "question": "What is the stored exponent field for the number 8 in single precision?",
+    "answer": "130, which is 10000010.",
+    "explanation": "8 = 1.0 x 2^3, so the true exponent is 3 and the stored field is 3 + 127 = 130."
+   },
+   "pyqIds": [],
+   "prereqs": [
+    "fixed-point-representation",
+    "unsigned-fixed-width-range"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 21 - Number System",
+     "channel": "NPTEL, Digital Electronic Circuits (Prof. Goutam Saha, IIT Kharagpur)",
+     "url": "http://digimat.in/nptel/courses/video/108105132/lec21.pdf",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "read from the opening to the lecturer's own closing summary: place value and the odometer argument, the base-r digit rule 0 to r-1, the weighted sum with negative powers for the fraction, (1010.101)2 = 10.625, decimal-to-binary by successive division of the integer and successive multiplication of the fraction (0.625 -> 0.101), octal and hexadecimal with 3-bit and 4-bit grouping, the 8.3 / 8.4 / 8.2 reading of 10011110, the range and precision of a fixed-point word, and the first statement of normalised floating point. The captions are machine transcripts and several numerals in them are garbled, so every figure taken from this lecture was re-derived from its bits here."
+    },
+    {
+     "kind": "text",
+     "title": "CS1101 Lecture 31 - IEEE Floating-Point Standard 754",
+     "channel": "University College Cork, Department of Computer Science",
+     "url": "https://www.cs.ucc.ie/~osullb/cs1101/notes/notes31.pdf",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "read in full: the three formats, excess-127 and excess-1023, the reserved extreme exponents, the implied leading 1 and the term significand, the 0.5 worked conversion (fraction all zeros, exponent -1), denormalised numbers with exponent 0 and the smallest denormal 2^-150 by its argument, the two zeros, infinity as exponent all ones with a zero fraction, and NaN"
+    },
+    {
+     "kind": "text",
+     "title": "Computer Representation of Numbers and Computer Arithmetic",
+     "channel": "Virginia Tech, CS3414 course notes (A. Sandu)",
+     "url": "https://people.cs.vt.edu/~asandu/Courses/CS3414/comp_arithm.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read through the extract: the biased representation x + 2^(m-1) with the m = 3 table, the argument that the bias is chosen so that 1/x_min does not overflow, the normalisation argument, the single-precision table of exponent-field cases, the exponent ranges -126..127 and -1022..1023, machine precision and the four rounding modes"
+    }
+   ],
+   "sourceLine": "Normalisation with the 1101.01 example and the first statement of floating point: NPTEL IIT Kharagpur Lecture 21 (English, read in full). Excess-127, the hidden bit and the term significand: University College Cork CS1101 Lecture 31 (English, read in full). The bias argument from the reciprocal of the smallest normal number: Virginia Tech CS3414 notes (English, read in part).",
+   "videoRefs": [],
+   "subject": "digital-logic",
+   "topic": "number-systems-and-representation",
+   "path": "subjects/digital-logic/number-systems-and-representation/floating-point-normalisation-and-bias.json"
+  },
+  {
+   "id": "ieee-754-single-precision-layout",
+   "title": "IEEE 754 Single Precision: The 1 + 8 + 23 Layout and Decoding",
+   "priority": "P1",
+   "order": 412,
+   "unit": "Number Systems and Number Representation",
+   "quickIdea": "Thirty-two bits are 1 sign bit, 8 exponent bits biased by 127 and 23 fraction bits; for a normal number the value is (-1)^s x 1.F x 2^(E - 127).",
+   "remember": [
+    "Layout: 1 sign, 8 exponent, 23 fraction. Double precision is 1, 11 and 52 with bias 1023.",
+    "The value formula holds for normal numbers, that is for 1 <= E <= 254.",
+    "To decode: read the sign, read E as unsigned, subtract 127 to get the true exponent, then move the binary point that many places right in 1.F.",
+    "To encode: normalise, add 127 to the exponent, and drop the leading 1 of the significand. The fraction bits are the digits after the point.",
+    "A hexadecimal word is not a number until it is bits. The sign is the top bit of the first hex digit, and the exponent field straddles the first two hex digits.",
+    "The 23 fraction bits give about 7 significant decimal digits, which is why single precision prints as roughly seven digits and double as roughly sixteen."
+   ],
+   "example": {
+    "prompt": "Decode the single-precision word 0xC2710000.",
+    "work": "C2710000 is 1100 0010 0111 0001 followed by sixteen zeros. Sign 1, so negative. Exponent field 1000 0100 = 132, so the true exponent is 132 - 127 = 5. Fraction begins 1110001, so the significand is 1.1110001 = 1 + 0.5 + 0.25 + 0.125 + 0.0078125 = 1.8828125. Move the point five places: 111100.01, which is 60.25. With the sign, -60.25.",
+    "answer": "-60.25."
+   },
+   "gateAngle": "Three verified questions in this topic are pure decoding or encoding: 2012 Q.7 (0.5), 2021 Set 1 Q.24 (-7.75) and 2026 Set 2 Q.34 (0xC2710000 to -60.25). None needs arithmetic on the significand - only the bias and the hidden bit.",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2021 Set 1 Q.24: S = 1, E = 10000001, F = 11110000000000000000000, bias 127. The decimal value rounded to two places is ______.",
+     "answer": "-7.75.",
+     "why": "E = 129, so the true exponent is 2. The significand is 1.1111 = 1.9375, and -1.9375 x 4 = -7.75."
+    },
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2026 Set 2 Q.34: The 32-bit IEEE 754 single-precision representation of a number is 0xC2710000. The number in decimal, to two places, is ______.",
+     "answer": "-60.25.",
+     "why": "Sign 1, exponent field 132 giving 5, significand 1.8828125; -1.8828125 x 32 = -60.25."
+    },
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2012 Q.7: The decimal value 0.5 in IEEE single precision representation has: (A) fraction bits 000...000 and exponent value 0, (B) fraction bits 000...000 and exponent value -1, (C) fraction bits 100...000 and exponent value 0, (D) no exact representation.",
+     "answer": "Option (B).",
+     "why": "0.5 = 1.0 x 2^(-1), so the fraction field is all zeros and the true exponent is -1, stored as 126. The hidden 1 supplies the leading digit, so the fraction field is empty rather than 100...000."
+    }
+   ],
+   "trap": {
+    "what": "Dropping the hidden leading 1, or forgetting to subtract the bias.",
+    "why": "The stored fraction is only the part after the binary point of the significand; the 1 in front of it is implied by the normal form. And the exponent field is 127 larger than the exponent used in the value.",
+    "counterexample": "For 0xC2710000, dropping the hidden 1 gives 0.8828125 x 32 = 28.25, and forgetting the bias gives 1.8828125 x 2^132. Both are far from -60.25, and both are common exam answers."
+   },
+   "check": {
+    "question": "Decode 0x3F800000 as a single-precision float.",
+    "answer": "1.0.",
+    "explanation": "Sign 0; exponent field 0111 1111 = 127, so the true exponent is 0; fraction all zeros, so the significand is 1.0. The value is 1.0 x 2^0 = 1."
+   },
+   "pyqIds": [
+    "gate-2012-q7-half-in-single-precision",
+    "gate-2021-set1-q24-decode-minus-7-75",
+    "gate-2026-set2-q34-decode-c2710000"
+   ],
+   "prereqs": [
+    "floating-point-normalisation-and-bias"
+   ],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "CS1101 Lecture 31 - IEEE Floating-Point Standard 754",
+     "channel": "University College Cork, Department of Computer Science",
+     "url": "https://www.cs.ucc.ie/~osullb/cs1101/notes/notes31.pdf",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "read in full: the three formats, excess-127 and excess-1023, the reserved extreme exponents, the implied leading 1 and the term significand, the 0.5 worked conversion (fraction all zeros, exponent -1), denormalised numbers with exponent 0 and the smallest denormal 2^-150 by its argument, the two zeros, infinity as exponent all ones with a zero fraction, and NaN"
+    },
+    {
+     "kind": "text",
+     "title": "IEEE 754 Format - single-precision field descriptions",
+     "channel": "Intel, floating-point IP documentation",
+     "url": "https://www.intel.com/content/www/us/en/docs/programmable/683242/current/ieee-754-format.html",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read the field table and the special-value list: FRAC as the fraction with the hidden bit omitted, EXP biased by 127 with 0x0 reserved for zero and subnormals and 0xff for infinity and NaN, normal exponents 1 to 0xfe giving -126 to 127, and the four special values NaN (EXP=255, FRAC!=0), Infinity (255,0), Subnormal (0,!=0) and Zero (0,0)"
+    },
+    {
+     "kind": "text",
+     "title": "Floating-Point Training, Module 1 - The IEEE 754 Standard",
+     "channel": "Paul Zimmermann, INRIA/LORIA",
+     "url": "https://members.loria.fr/PZimmermann/talks/module1.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read the binary32 slides: the p = 24 digit count, e_max = 127, the largest positive value 1.111...1 x 2^127, the smallest positive normal 2^-126, the reserved exponent 255 for NaN and the infinities, the two signed zeros, the subnormal decoding 2^-126 x 0.b1...b23, the smallest positive subnormal 2^-149, the largest regular number 2^128(1 - 2^-24) with encoding 0x7f7fffff, and the four rounding attributes"
+    }
+   ],
+   "sourceLine": "The 1 / 8 / 23 layout, the bias and the implied leading 1: University College Cork CS1101 Lecture 31 (English, read in full) and the Intel single-precision field table (English, read in part). The p = 24 digit count and the extremal encodings: Zimmermann's IEEE 754 module (English, read in part). The three question texts and accepted answers: their GATE Overflow pages.",
+   "videoRefs": [],
+   "subject": "digital-logic",
+   "topic": "number-systems-and-representation",
+   "path": "subjects/digital-logic/number-systems-and-representation/ieee-754-single-precision-layout.json"
+  },
+  {
+   "id": "ieee-754-special-values-and-extremes",
+   "title": "IEEE 754 Special Values, Subnormals and the Extremes of the Format",
+   "priority": "P1",
+   "order": 413,
+   "unit": "Number Systems and Number Representation",
+   "quickIdea": "The two extreme exponent fields are reserved: all zeros carries zero and the subnormals, all ones carries infinity and NaN, so the largest finite number stops one exponent short.",
+   "remember": [
+    "E = 0 and F = 0: positive or negative zero. The sign bit is kept, so +0 and -0 are different patterns that compare equal.",
+    "E = 0 and F not 0: subnormal, value = (-1)^s x 0.F x 2^(-126). There is no hidden 1, which is what makes the step to zero gradual.",
+    "E = 255 and F = 0: positive or negative infinity.",
+    "E = 255 and F not 0: NaN, the only value that is not equal to itself.",
+    "Largest finite single: (2 - 2^(-23)) x 2^127, about 3.40 x 10^38, pattern 0x7F7FFFFF.",
+    "Smallest positive normal 2^(-126), about 1.18 x 10^(-38); smallest positive subnormal 2^(-149), about 1.40 x 10^(-45); machine epsilon 2^(-23), about 1.19 x 10^(-7).",
+    "The spacing between representable numbers grows with the exponent: it is 2^(-23) near 1 and 2^(-3) near 2^20."
+   ],
+   "example": {
+    "prompt": "Which of these single-precision words is the largest finite positive number: 0x7F7FFFFF or 0x7F800000?",
+    "work": "0x7F7FFFFF has exponent field 1111 1110 = 254 and a fraction of all ones, so it is (2 - 2^(-23)) x 2^127, about 3.4028 x 10^38 - the largest finite value. 0x7F800000 has exponent field 1111 1111 and a zero fraction, so it is positive infinity, which is not a finite number at all and is larger than every finite value but cannot be used as one.",
+    "answer": "0x7F7FFFFF is the largest finite value; 0x7F800000 is infinity."
+   },
+   "gateAngle": "GATE CSE 2024 Set 2 Q.14 shows four single-precision words and asks for the largest number. The option with an all-ones exponent and an all-ones mantissa is NaN, so the largest finite number is the one with exponent 1111 1110 and a full mantissa.",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2024 Set 2 Q.14: With the IEEE 754 single-precision layout, choose the largest floating-point number: (A) sign 0, exponent 0111 1111, mantissa all ones; (B) sign 0, exponent 1111 1110, mantissa all ones; (C) sign 0, exponent 1111 1111, mantissa all ones; (D) sign 0, exponent 0111 1111, mantissa all zeros.",
+     "answer": "Option (B).",
+     "why": "B is (2 - 2^(-23)) x 2^127, the largest finite value. A is about 2, C is NaN because the exponent is all ones with a non-zero mantissa, and D is exactly 1. The largest exponent field that still denotes a number is 254, not 255."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "What is the value of the single-precision word 0x00000001, and what is the value of 0x00800000?",
+     "answer": "2^(-149), the smallest positive subnormal; and 2^(-126), the smallest positive normal.",
+     "why": "0x00000001 has an all-zero exponent and a single 1 in the last fraction bit, so it is 2^(-126) x 2^(-23) = 2^(-149). 0x00800000 has exponent field 1 and a zero fraction, so it is 1.0 x 2^(-126)."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "How far apart are neighbouring single-precision numbers near 1 and near 2^20?",
+     "answer": "2^(-23) near 1, and 2^(-3) = 0.125 near 2^20.",
+     "why": "The gap is 2^(-23) times the power of two of the exponent, so it scales with magnitude. This is why a float cannot represent 1 + 2^(-24) but can represent 2^20 + 0.125."
+    }
+   ],
+   "trap": {
+    "what": "Choosing the all-ones exponent as the largest number, or treating subnormals as zero.",
+    "why": "An all-ones exponent is not an exponent: with a zero fraction it is infinity and with a non-zero fraction it is NaN. And an all-zero exponent with a non-zero fraction is a subnormal, a real number smaller than the smallest normal, not zero.",
+    "counterexample": "0x7FFFFFFF is NaN, not the largest number; 0x7F7FFFFF is. And 0x00000001 is 2^(-149), not 0, although it is closer to zero than any normal number."
+   },
+   "check": {
+    "question": "What are the four special cases of the exponent field in single precision?",
+    "answer": "All zeros with a zero fraction is zero; all zeros with a non-zero fraction is subnormal; all ones with a zero fraction is infinity; all ones with a non-zero fraction is NaN.",
+    "explanation": "Everything else, that is E from 1 to 254, is a normal number with an implied leading 1 and the bias of 127."
+   },
+   "pyqIds": [
+    "gate-2024-set2-q14-largest-float"
+   ],
+   "prereqs": [
+    "ieee-754-single-precision-layout",
+    "floating-point-normalisation-and-bias"
+   ],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "CS1101 Lecture 31 - IEEE Floating-Point Standard 754",
+     "channel": "University College Cork, Department of Computer Science",
+     "url": "https://www.cs.ucc.ie/~osullb/cs1101/notes/notes31.pdf",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "read in full: the three formats, excess-127 and excess-1023, the reserved extreme exponents, the implied leading 1 and the term significand, the 0.5 worked conversion (fraction all zeros, exponent -1), denormalised numbers with exponent 0 and the smallest denormal 2^-150 by its argument, the two zeros, infinity as exponent all ones with a zero fraction, and NaN"
+    },
+    {
+     "kind": "text",
+     "title": "CS107 Lecture 09 - Floating Point",
+     "channel": "Stanford University, CS107 (Computer Organization and Systems)",
+     "url": "https://web.stanford.edu/class/archive/cs/cs107/cs107.1224/lectures/09/09-FloatingPoint.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read through the extract: the sign / exponent / fraction split, the bias 2^(k-1) - 1 and the exponent range -126 to 127 for floats, M = 1 + f with the implied leading 1, denormalised form as exponent 1 - bias with no leading 1 and the two zeros, and the exceptional values with the exact bit patterns for +infinity and -infinity plus the operations that produce NaN"
+    },
+    {
+     "kind": "text",
+     "title": "IEEE 754 Format - single-precision field descriptions",
+     "channel": "Intel, floating-point IP documentation",
+     "url": "https://www.intel.com/content/www/us/en/docs/programmable/683242/current/ieee-754-format.html",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read the field table and the special-value list: FRAC as the fraction with the hidden bit omitted, EXP biased by 127 with 0x0 reserved for zero and subnormals and 0xff for infinity and NaN, normal exponents 1 to 0xfe giving -126 to 127, and the four special values NaN (EXP=255, FRAC!=0), Infinity (255,0), Subnormal (0,!=0) and Zero (0,0)"
+    },
+    {
+     "kind": "text",
+     "title": "Floating-Point Training, Module 1 - The IEEE 754 Standard",
+     "channel": "Paul Zimmermann, INRIA/LORIA",
+     "url": "https://members.loria.fr/PZimmermann/talks/module1.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read the binary32 slides: the p = 24 digit count, e_max = 127, the largest positive value 1.111...1 x 2^127, the smallest positive normal 2^-126, the reserved exponent 255 for NaN and the infinities, the two signed zeros, the subnormal decoding 2^-126 x 0.b1...b23, the smallest positive subnormal 2^-149, the largest regular number 2^128(1 - 2^-24) with encoding 0x7f7fffff, and the four rounding attributes"
+    }
+   ],
+   "sourceLine": "Denormals, the two zeros, infinity and NaN: University College Cork CS1101 Lecture 31 (English, read in full) and Stanford CS107 Lecture 09 (English, read in part). The special-value table and the normal exponent range 1 to 0xfe: Intel's IEEE 754 field documentation (English, read in part). The extremal values 2^-126, 2^-149 and 0x7f7fffff: Zimmermann's IEEE 754 module (English, read in part). The question text and answer of 2024 Set 2 Q.14: its GATE Overflow page.",
+   "videoRefs": [],
+   "subject": "digital-logic",
+   "topic": "number-systems-and-representation",
+   "path": "subjects/digital-logic/number-systems-and-representation/ieee-754-special-values-and-extremes.json"
   }
  ],
  "pyqs": [
@@ -26044,6 +27041,27 @@ window.GATE_DATA = {
    "answer_evidence": "The accepted answers state option (D) and justify the endpoint by noting that sin is increasing up to pi/2, so pi/4 is a local minimum. The point is definitional: under the strict interior convention the count would be one, at 3pi/2, and the card on endpoint extrema states both readings."
   },
   {
+   "id": "gate-2012-q7-half-in-single-precision",
+   "year": "2012",
+   "paper": "GATE CS 2012",
+   "question_ref": "Q.7",
+   "type": "MCQ",
+   "topic": "ieee-754-single-precision-layout",
+   "text": "The decimal value 0.5 in IEEE single precision floating point representation has",
+   "options": [
+    "fraction bits of 000...000 and exponent value of 0",
+    "fraction bits of 000...000 and exponent value of -1",
+    "fraction bits of 100...000 and exponent value of 0",
+    "no exact representation"
+   ],
+   "answer": "Option (B) - fraction bits of 000...000 and exponent value of -1",
+   "solution": "0.5 = 1.0 x 2^(-1) in normalised form. The significand is exactly 1.0, so every stored fraction bit is 0 and the implied leading 1 supplies the integer part; the true exponent is -1, stored as 126. The value is exactly representable, so option (D) is wrong.",
+   "source_url": "https://gateoverflow.in/39/gate-cse-2012-question-7",
+   "source_label": "GATE Overflow question page - GATE CSE 2012 Q.7 with the accepted answer (option B)",
+   "verification": "SOURCED",
+   "answer_evidence": "The accepted answer normalises 0.5 to 1.0 x 2^(-1), notes that the exponent field is 126 and the fraction field all zeros. Recomputed here from the normal form."
+  },
+  {
    "id": "gate-2013-2-poisson-fewer-than-three-cars",
    "year": "2013",
    "paper": "GATE CS 2013",
@@ -26105,6 +27123,27 @@ window.GATE_DATA = {
    "source_label": "GATE Overflow question page for GATE CS 2013 Q.47, whose accepted solutions note that marks were given to all",
    "verification": "SOURCED",
    "answer_evidence": "The accepted solutions show (B) and (C) match the given formula and (A) and (D) do not, and record that GATE awarded marks to all for the question."
+  },
+  {
+   "id": "gate-2013-q4-twos-complement-smallest",
+   "year": "2013",
+   "paper": "GATE CS 2013",
+   "question_ref": "Q.4",
+   "type": "MCQ",
+   "topic": "twos-complement-definition-and-range",
+   "text": "The smallest integer that can be represented by an 8-bit number in 2's complement form is",
+   "options": [
+    "-256",
+    "-128",
+    "-127",
+    "0"
+   ],
+   "answer": "Option (B) - -128",
+   "solution": "An n-bit two's complement word represents -2^(n-1) to 2^(n-1) - 1, so with n = 8 the minimum is -2^7 = -128, at the pattern 1000 0000. -256 is the unsigned wrap-around value and -127 is the sign-magnitude and one's complement minimum, so both distractors come from using the wrong representation.",
+   "source_url": "https://gateoverflow.in/1413/gate-cse-2013-question-4",
+   "source_label": "GATE Overflow question page - GATE CSE 2013 Q.4 with the accepted answer (option B)",
+   "verification": "SOURCED",
+   "answer_evidence": "The accepted answer derives the range -2^(n-1) to 2^(n-1) - 1 and substitutes n = 8; several answers on the page agree and one lists the pattern 10000000 explicitly. Recomputed here."
   },
   {
    "id": "gate-2014-1-49",
@@ -26678,6 +27717,21 @@ window.GATE_DATA = {
    "answer_evidence": "The accepted answer substitutes h = x - 4 to reach the standard limit, and a second answer applies L'Hopital's rule to the same conclusion. Both routes were re-derived and the value is recomputed numerically in scripts/validate.py. The official key was not fetched and no marks field is recorded."
   },
   {
+   "id": "gate-2016-set1-q7-16bit-pattern",
+   "year": "2016",
+   "paper": "GATE CS 2016 Set 1",
+   "question_ref": "Q.7",
+   "type": "NAT",
+   "topic": "twos-complement-negation-and-subtraction",
+   "text": "The 16-bit 2's complement representation of an integer is 1111 1111 1111 0101; its decimal representation is ______.",
+   "answer": "-11",
+   "solution": "The top bit is 1, so the value is negative. Inverting gives 0000 0000 0000 1010 and adding 1 gives 0000 0000 0000 1011, which is 11, so the value is -11. The weight rule agrees: -2^15 + 2^14 + ... + 2^4 + 2^2 + 2^0 = -32768 + 32757 = -11.",
+   "source_url": "https://gateoverflow.in/39649/gate-cse-2016-set-1-question-07",
+   "source_label": "GATE Overflow question page - GATE CSE 2016 Set 1 Q.7 with the accepted answer",
+   "verification": "SOURCED",
+   "answer_evidence": "The accepted answers use invert-and-add-one and the weighted sum, both reaching -11; one answer notes the hexadecimal form FFF5. Recomputed here both ways."
+  },
+  {
    "id": "gate-2016-set2-06-determinant-of-inverse-transpose",
    "year": "2016",
    "paper": "GATE CS 2016 Set 2",
@@ -26763,6 +27817,21 @@ window.GATE_DATA = {
    "source_url": "https://gateoverflow.in/39541/gate-cse-2016-set-2-question-05",
    "source_label": "GATE Overflow question page, GATE CSE 2016 Set 2 Question 5, accepted answer",
    "verification": "SOURCED"
+  },
+  {
+   "id": "gate-2016-set2-q9-distinct-integers",
+   "year": "2016",
+   "paper": "GATE CS 2016 Set 2",
+   "question_ref": "Q.9",
+   "type": "NAT",
+   "topic": "distinct-values-and-duplicate-zero",
+   "text": "Let X be the number of distinct 16-bit integers in 2's complement representation. Let Y be the number of distinct 16-bit integers in sign magnitude representation. Then X - Y is ______.",
+   "answer": "1",
+   "solution": "Two's complement uses all 2^16 patterns for distinct values, -32768 to 32767, so X = 65536. Sign-magnitude covers -32767 to 32767 with two patterns for zero, so Y = 65535. X - Y = 1, and the single missing value is -32768.",
+   "source_url": "https://www.trygateai.com/pyq/digital-logic/number-representation-and-arithmetic/gate-cse-2016-set-2-q9",
+   "source_label": "Question page for GATE CSE 2016 Set 2 Q.9 with the recorded answer; the GATE Overflow page for this question was not located this run",
+   "verification": "SOURCED",
+   "answer_evidence": "The page records the answer 1 and derives both counts. Both counts are also recomputed here directly from the pattern counts, so the answer does not rest on the page alone."
   },
   {
    "id": "gate-2016-set2-relation-reflexive-transitive",
@@ -26878,6 +27947,27 @@ window.GATE_DATA = {
    "source_label": "GATE Overflow question page - GATE CSE 2017 Set 1 Q.31 with the accepted answer (option B, I only)",
    "verification": "SOURCED",
    "answer_evidence": "Accepted answer: option B, I only, with the 2 x 2 counterexample [[5,0],[0,5]] refuting statement II."
+  },
+  {
+   "id": "gate-2017-set1-q7-fixed-point-range",
+   "year": "2017",
+   "paper": "GATE CS 2017 Set 1",
+   "question_ref": "Q.7",
+   "type": "MCQ",
+   "topic": "fixed-point-representation",
+   "text": "The n-bit fixed-point representation of an unsigned real number X uses f bits for the fraction part. Let i = n - f. The range of decimal values for X in this representation is",
+   "options": [
+    "2^(-f) to 2^i",
+    "2^(-f) to (2^i - 2^(-f))",
+    "0 to 2^i",
+    "0 to (2^i - 2^(-f))"
+   ],
+   "answer": "Option (D) - 0 to (2^i - 2^(-f))",
+   "solution": "All-zero bits represent 0, so the lower end is 0. All-ones bits give the integer part 2^i - 1 and the fraction part 1 - 2^(-f), summing to 2^i - 2^(-f). Equivalently, the largest stored integer 2^n - 1 scaled by 2^(-f) is 2^(n-f) - 2^(-f).",
+   "source_url": "https://gateoverflow.in/118287/gate-cse-2017-set-1-question-7",
+   "source_label": "GATE Overflow question page - GATE CSE 2017 Set 1 Q.7 with the accepted answer (option D)",
+   "verification": "SOURCED",
+   "answer_evidence": "The accepted answers sum the integer and fraction maxima as a geometric series, reaching 2^i - 2^(-f), and eliminate the options that put the minimum at 2^(-f). Recomputed here for i = 8, f = 4 as 15.9375."
   },
   {
    "id": "gate-2017-set2-21-lattice-pairs-to-add",
@@ -27218,6 +28308,21 @@ window.GATE_DATA = {
    "answer_evidence": "Accepted answer: 3, from the characteristic polynomial (3-lambda)(-1-lambda)^3. Corroborated by the gateforum reproduction of the GATE 2021 CS Set 1 paper, whose key for this question is (3)."
   },
   {
+   "id": "gate-2021-set1-q24-decode-minus-7-75",
+   "year": "2021",
+   "paper": "GATE CS 2021 Set 1",
+   "question_ref": "Q.24",
+   "type": "NAT",
+   "topic": "ieee-754-single-precision-layout",
+   "text": "Consider the following representation of a number in IEEE 754 single-precision floating point format with a bias of 127. S: 1, E: 10000001, F: 11110000000000000000000. Here S, E and F denote the sign, exponent and fraction components. The decimal value corresponding to the above representation (rounded to 2 decimal places) is ______.",
+   "answer": "-7.75",
+   "solution": "The sign bit is 1, so the value is negative. E = 129, so the true exponent is 129 - 127 = 2. The significand is 1.1111 = 1 + 0.5 + 0.25 + 0.125 + 0.0625 = 1.9375. The value is -1.9375 x 4 = -7.75, which is exact at two decimal places.",
+   "source_url": "https://gateoverflow.in/357427/gate-cse-2021-set-1-question-24",
+   "source_label": "GATE Overflow question page - GATE CSE 2021 Set 1 Q.24 with the accepted answer",
+   "verification": "SOURCED",
+   "answer_evidence": "The accepted answers decode E = 129 to a true exponent of 2 and read the fraction as 1.1111, reaching -7.75; one states the binary intermediate -111.11. Recomputed here."
+  },
+  {
    "id": "gate-2021-set1-q54-bayes-signal",
    "year": "2021",
    "paper": "GATE CSE 2021 Set 1",
@@ -27230,6 +28335,27 @@ window.GATE_DATA = {
    "source_url": "https://gateoverflow.in/357396/gate-cse-2021-set-1-question-54",
    "source_label": "GATE Overflow question page, GATE CSE 2021 Set 1 Question 54, accepted answer",
    "verification": "SOURCED"
+  },
+  {
+   "id": "gate-2021-set1-q6-base3-to-hex",
+   "year": "2021",
+   "paper": "GATE CS 2021 Set 1",
+   "question_ref": "Q.6",
+   "type": "MCQ",
+   "topic": "base-conversion-integer-and-fraction",
+   "text": "Let the representation of a number in base 3 be 210. What is the hexadecimal representation of the number?",
+   "options": [
+    "15",
+    "21",
+    "D2",
+    "528"
+   ],
+   "answer": "Option (A) - 15",
+   "solution": "(210) in base 3 is 2x9 + 1x3 + 0x1 = 21 in decimal, and 21 = 1x16 + 5, so the hexadecimal form is (15). Option 21 is the decimal value written unchanged, which is the intended error.",
+   "source_url": "https://gateoverflow.in/357446/gate-cse-2021-set-1-question-6",
+   "source_label": "GATE Overflow question page - GATE CSE 2021 Set 1 Q.6 with the accepted answer (option A)",
+   "verification": "SOURCED",
+   "answer_evidence": "The accepted answers expand the base-3 weights to 21 and divide by 16; one comment states the chain (210)3 = (21)10 = (15)16. Recomputed here."
   },
   {
    "id": "gate-2021-set1-s1-tautology",
@@ -27792,6 +28918,27 @@ window.GATE_DATA = {
    "answer_evidence": "12 6 MCQ CS-2 A 1"
   },
   {
+   "id": "gate-2024-set2-q14-largest-float",
+   "year": "2024",
+   "paper": "GATE CS 2024 Set 2",
+   "question_ref": "Q.14 (numbered Q.4 on the GATE Overflow page)",
+   "type": "MCQ",
+   "topic": "ieee-754-special-values-and-extremes",
+   "text": "The format of a single-precision floating-point number as per the IEEE 754 standard is: sign (1 bit), exponent (8 bits), mantissa (23 bits). Choose the largest floating-point number among the following options: (A) sign 0, exponent 01111111, mantissa 11111111111111111111111; (B) sign 0, exponent 11111110, mantissa 11111111111111111111111; (C) sign 0, exponent 11111111, mantissa 11111111111111111111111; (D) sign 0, exponent 01111111, mantissa 00000000000000000000000.",
+   "options": [
+    "Sign 0, exponent 01111111, mantissa all ones",
+    "Sign 0, exponent 11111110, mantissa all ones",
+    "Sign 0, exponent 11111111, mantissa all ones",
+    "Sign 0, exponent 01111111, mantissa all zeros"
+   ],
+   "answer": "Option (B) - sign 0, exponent 11111110, mantissa all ones",
+   "solution": "Option B has the largest exponent field that still denotes a number, 254, and a full mantissa, so it is (2 - 2^(-23)) x 2^127, about 3.40 x 10^38. Option C has an all-ones exponent with a non-zero mantissa, which is NaN, not a number. Option A is about 2 and option D is exactly 1.",
+   "source_url": "https://gateoverflow.in/422893/gate-cse-2024-set-2-question-4",
+   "source_label": "GATE Overflow question page for GATE CSE 2024 Set 2 Q.14 with the accepted answer (option B)",
+   "verification": "SOURCED",
+   "answer_evidence": "The accepted answers state that an all-ones exponent is reserved and therefore option C is not a number, leaving B as the largest; one answer names the reserved values as the two zeros and the two infinities. Recomputed here: B evaluates to about 3.4028e38."
+  },
+  {
    "id": "gate-2025-1-30",
    "year": "2025",
    "paper": "GATE CS 2025 Set 1",
@@ -28258,6 +29405,21 @@ window.GATE_DATA = {
    "source_label": "GATE Overflow question page for GATE CSE 2026 Set 2 Q.1, with a published option-by-option reading",
    "verification": "SOURCED",
    "answer_evidence": "The page's accepted answers read option (A) as 'there is a person y such that every other person x knows y and y does not know x', and reject the other three quantifier patterns."
+  },
+  {
+   "id": "gate-2026-set2-q34-decode-c2710000",
+   "year": "2026",
+   "paper": "GATE CS 2026 Set 2",
+   "question_ref": "Q.34 (numbered Q.45 on the GATE Overflow page, which files it under Computer Organization as a memory-based question)",
+   "type": "NAT",
+   "topic": "ieee-754-single-precision-layout",
+   "text": "The 32-bit IEEE 754 single precision representation of a number is 0xC2710000. The number in decimal representation is ______. (rounded off to two decimal places)",
+   "answer": "-60.25",
+   "solution": "0xC2710000 is 1100 0010 0111 0001 followed by sixteen zeros. The sign bit is 1. The exponent field is 1000 0100 = 132, so the true exponent is 5. The significand is 1.1110001 = 1 + 0.5 + 0.25 + 0.125 + 0.0078125 = 1.8828125. The value is -1.8828125 x 32 = -60.25, already exact at two decimal places.",
+   "source_url": "https://gateoverflow.in/521519/gate-cse-2026-set-2-coa-memory-based-question-45",
+   "source_label": "GATE Overflow question page for this 2026 Set 2 question with the accepted answer",
+   "verification": "SOURCED",
+   "answer_evidence": "The accepted answer splits the word into 1 / 10000100 / 1110001..., decodes the exponent to 5 and reaches -60.25; a second page read this run cites the official 2026 CS2 answer key at -60.25. Recomputed here bit by bit."
   },
   {
    "id": "gate-2026-set2-q53-conditional-shared-tosses",

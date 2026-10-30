@@ -1,0 +1,15 @@
+{
+  "id": "gate-2016-set2-q9-distinct-integers",
+  "year": "2016",
+  "paper": "GATE CS 2016 Set 2",
+  "question_ref": "Q.9",
+  "type": "NAT",
+  "topic": "distinct-values-and-duplicate-zero",
+  "text": "Let X be the number of distinct 16-bit integers in 2's complement representation. Let Y be the number of distinct 16-bit integers in sign magnitude representation. Then X - Y is ______.",
+  "answer": "1",
+  "solution": "Two's complement uses all 2^16 patterns for distinct values, -32768 to 32767, so X = 65536. Sign-magnitude covers -32767 to 32767 with two patterns for zero, so Y = 65535. X - Y = 1, and the single missing value is -32768.",
+  "source_url": "https://www.trygateai.com/pyq/digital-logic/number-representation-and-arithmetic/gate-cse-2016-set-2-q9",
+  "source_label": "Question page for GATE CSE 2016 Set 2 Q.9 with the recorded answer; the GATE Overflow page for this question was not located this run",
+  "verification": "SOURCED",
+  "answer_evidence": "The page records the answer 1 and derives both counts. Both counts are also recomputed here directly from the pattern counts, so the answer does not rest on the page alone."
+}

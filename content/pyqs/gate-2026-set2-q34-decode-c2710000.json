@@ -1,0 +1,15 @@
+{
+  "id": "gate-2026-set2-q34-decode-c2710000",
+  "year": "2026",
+  "paper": "GATE CS 2026 Set 2",
+  "question_ref": "Q.34 (numbered Q.45 on the GATE Overflow page, which files it under Computer Organization as a memory-based question)",
+  "type": "NAT",
+  "topic": "ieee-754-single-precision-layout",
+  "text": "The 32-bit IEEE 754 single precision representation of a number is 0xC2710000. The number in decimal representation is ______. (rounded off to two decimal places)",
+  "answer": "-60.25",
+  "solution": "0xC2710000 is 1100 0010 0111 0001 followed by sixteen zeros. The sign bit is 1. The exponent field is 1000 0100 = 132, so the true exponent is 5. The significand is 1.1110001 = 1 + 0.5 + 0.25 + 0.125 + 0.0078125 = 1.8828125. The value is -1.8828125 x 32 = -60.25, already exact at two decimal places.",
+  "source_url": "https://gateoverflow.in/521519/gate-cse-2026-set-2-coa-memory-based-question-45",
+  "source_label": "GATE Overflow question page for this 2026 Set 2 question with the accepted answer",
+  "verification": "SOURCED",
+  "answer_evidence": "The accepted answer splits the word into 1 / 10000100 / 1110001..., decodes the exponent to 5 and reaches -60.25; a second page read this run cites the official 2026 CS2 answer key at -60.25. Recomputed here bit by bit."
+}

@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IEEE 754 bit fields to value - Number Systems visual lesson</title>
+<link rel="stylesheet" href="../../../lesson.css">
+<script src="https://cdn.jsdelivr.net/npm/p5@1.9.4/lib/p5.min.js"></script>
+</head>
+<body>
+<div class="wrap">
+  <p class="small"><a href="../../../../index.html">&larr; back to the revision site</a></p>
+  <h1>IEEE 754 Bit Fields to Value</h1>
+  <div class="objective"><strong>Objective.</strong> Decode one single-precision word - 0xC2710000 - in the order that works: expand the hex to bits, cut 1 / 8 / 23, read the sign, unbias the exponent, restore the hidden 1, then move the point. Then see why the largest finite number cannot use an all-ones exponent.</div>
+
+  <div class="canvas-wrap"><div id="canvas-holder"></div></div>
+  <div class="caption" id="caption" aria-live="polite"></div>
+
+  <div class="controls">
+    <button id="play" class="primary">Play</button>
+    <button id="prev">&larr; Prev</button>
+    <button id="next">Next &rarr;</button>
+    <button id="restart">Restart</button>
+    <span class="speed"><label for="speed">Speed</label>
+      <input id="speed" type="range" min="0.25" max="2" step="0.25" value="1">
+      <span id="speedLabel">1.00x</span></span>
+    <span class="counter" id="counter"></span>
+  </div>
+
+  <h2>Static explanation</h2>
+  <p>Single precision is thirty-two bits: one sign bit, eight exponent bits and twenty-three fraction bits, always cut from the left. The word 0xC2710000 expands digit by digit to 1100 0010 0111 0001 0000 0000 0000 0000, so the sign bit is 1 and the number is negative, the exponent field is 10000100 = 132, and the fraction field begins 1110001.</p>
+  <p>The exponent field is stored with a bias of 127 added, so the exponent used in the value is 132 - 127 = 5. The fraction field holds only what comes after the binary point of the significand; in normal form there is a 1 in front of the point that is never stored, so the significand is 1.1110001. Adding the place values gives 1 + 0.5 + 0.25 + 0.125 + 0.0078125 = 1.8828125.</p>
+  <p>The value is that significand times two to the true exponent: 1.8828125 x 32 = 60.25. Equivalently, move the binary point five places right and read 111100.01, which is 32 + 16 + 8 + 4 + 0.25. Applying the sign bit gives -60.25, and the answer is exact at two decimal places.</p>
+  <p>The last step is about the two reserved exponent fields. All zeros means zero (with a zero fraction) or a subnormal (with a non-zero fraction, and no hidden 1). All ones means infinity (zero fraction) or NaN (non-zero fraction). So the largest finite single-precision number has exponent field 1111 1110, which is 254, and a full fraction: about 3.40 x 10^38.</p>
+
+  <div class="card warn"><div class="label">Common misconception</div><p>Two mistakes dominate. Dropping the hidden 1 gives 0.8828125 x 32 = 28.25, and forgetting the bias gives 1.8828125 x 2^132. A third: reading the eight hex digits as a decimal magnitude, which is not a decode at all. And on the largest-number question, choosing the word whose exponent field is all ones - that word is NaN or infinity, not the largest finite number, because the field 255 is reserved.</p></div>
+  <div class="card ok"><div class="label">Quick check</div><p>Decode 0x3F800000, and say what exponent field the largest finite positive number has.</p><details><summary>Answer</summary><p><strong>0x3F800000 is 1.0.</strong> The sign is 0, the exponent field is 0111 1111 = 127 so the true exponent is 0, and the fraction is all zeros so the significand is 1.0. The largest finite positive number has exponent field 1111 1110 = 254 with a full fraction; an all-ones exponent is infinity or NaN.</p></details></div>
+  <p class="small">Topic: Number Systems and Number Representation (Digital Logic), subtopics the IEEE 754 single-precision layout, floating-point normalisation and the biased exponent, and the special values. The layout, the bias and the implied leading 1: University College Cork CS1101 Lecture 31 (English), read in full. The reserved exponent fields and the normal range 1 to 0xfe: Intel's IEEE 754 field documentation (English). The extremal values: Zimmermann's IEEE 754 module (English). Every number shown here is recomputed in scripts/validate.py.</p>
+</div>
+<script src="../../../lesson.js"></script>
+<script src="sketch.js"></script>
+<script>
+/* p5.js is loaded from a CDN. If it is unreachable, say so plainly instead of showing an empty box. */
+window.addEventListener('load', function () {
+  if (window.p5) { return; }
+  var holder = document.getElementById('canvas-holder');
+  if (holder) {
+    holder.innerHTML = '<div style="padding:22px 18px;font-size:14.5px;color:#4a5260">' +
+      'The animation needs p5.js, which this page loads from a CDN, and the request failed (offline, or the CDN is blocked). ' +
+      'Everything below still works: the static explanation, the misconception and the quick check.</div>';
+  }
+  var cap = document.getElementById('caption');
+  if (cap && window.LESSON && window.LESSON.steps && window.LESSON.steps[0]) {
+    cap.innerHTML = window.LESSON.steps[0].caption;
+  }
+  ['play', 'prev', 'next', 'restart', 'speed'].forEach(function (id) {
+    var el = document.getElementById(id);
+    if (el) { el.disabled = true; }
+  });
+});
+</script>
+</body>
+</html>

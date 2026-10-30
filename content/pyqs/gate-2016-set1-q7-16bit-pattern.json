@@ -1,0 +1,15 @@
+{
+  "id": "gate-2016-set1-q7-16bit-pattern",
+  "year": "2016",
+  "paper": "GATE CS 2016 Set 1",
+  "question_ref": "Q.7",
+  "type": "NAT",
+  "topic": "twos-complement-negation-and-subtraction",
+  "text": "The 16-bit 2's complement representation of an integer is 1111 1111 1111 0101; its decimal representation is ______.",
+  "answer": "-11",
+  "solution": "The top bit is 1, so the value is negative. Inverting gives 0000 0000 0000 1010 and adding 1 gives 0000 0000 0000 1011, which is 11, so the value is -11. The weight rule agrees: -2^15 + 2^14 + ... + 2^4 + 2^2 + 2^0 = -32768 + 32757 = -11.",
+  "source_url": "https://gateoverflow.in/39649/gate-cse-2016-set-1-question-07",
+  "source_label": "GATE Overflow question page - GATE CSE 2016 Set 1 Q.7 with the accepted answer",
+  "verification": "SOURCED",
+  "answer_evidence": "The accepted answers use invert-and-add-one and the weighted sum, both reaching -11; one answer notes the hexadecimal form FFF5. Recomputed here both ways."
+}

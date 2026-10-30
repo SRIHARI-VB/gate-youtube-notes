@@ -1738,3 +1738,128 @@ pre-existing (seven `OFFICIAL_KEY` records with no answer evidence, two videos r
 The cycle pointer now sits on `probability-and-statistics/conditional-probability-and-bayes`, which completes the
 Probability and Statistics line. The next topic in syllabus order is
 `digital-logic/number-systems-and-representation`, which is `not_started`.
+
+## Run 11 - Number Systems and Number Representation
+
+### The topic, and why it was next
+
+**Digital Logic > Number Systems and Number Representation** (`number-systems-and-representation`), the
+first topic of the GATE 2027 Digital Logic line: *"Number representation and arithmetic (fixed and floating
+point)."*
+
+The cycle pointer was left by the previous run on
+`probability-and-statistics/conditional-probability-and-bayes`, the last topic of the Probability and
+Statistics line. The first topic strictly after it in the enumerated syllabus order whose status is not
+`covered` is this one, which was `not_started` and is the first topic of the next subject. Nothing was
+skipped: no topic sits between the pointer and this one, and no topic is `blocked`. The eighteen `partial`
+topics earlier in the cycle were not touched, because the cycle takes its second pass over `partial` topics
+only after a full pass finds no `not_started` topic left.
+
+### Subtopics enumerated before any source was chosen
+
+The syllabus names the whole line in six words, so the topic was enumerated from the standard treatment
+(Mano, *Digital Design*, ch. 1; the NPTEL lecture order; the IEEE 754 references) and split from the
+arithmetic half of the line, which is the next topic of this subject: positional number systems with the
+digit rule and place value; base conversion by repeated division and repeated multiplication; octal and
+hexadecimal by 3-bit and 4-bit grouping; unsigned fixed-width range, the pattern count and wrap-around;
+sign-magnitude with its doubled zero; one's complement with its end-around carry; two's complement with its
+asymmetric range and the reason for it; two's complement subtraction, the discarded carry and sign
+extension; the distinct-value count against the pattern count; fixed point with its range, resolution and
+point-shifting; floating-point normalisation, the hidden bit and the biased exponent; the IEEE 754
+single-precision layout and encoding and decoding; and the special values with the extremes of the format.
+Thirteen subtopics, thirteen cards.
+
+### Sources chosen, on merit
+
+Seven sources were chosen, none of them because it was the largest or the first result, and no video was
+used at all.
+
+- **NPTEL, Digital Electronic Circuits (Prof. Goutam Saha, IIT Kharagpur), Lecture 21 - Number System**
+  (English, read in full). The spine of cards 1, 2, 3, 4, 10 and 11: place value, the digit rule, the
+  weighted sum, successive division and multiplication, 3-bit and 4-bit grouping, one pattern read three
+  ways as 8.3, 8.4 and 8.2 fixed point, and the first statement of normalised floating point. It was
+  chosen because it is the only readable lecture that carries a single bit pattern from place value to
+  fixed point, which is what cards 10 and 11 are built on.
+- **The same course, Lecture 22 - Negative Number and 2's Complement Arithmetic** (English, read in part).
+  The spine of cards 5, 6, 7, 8 and 9: the three signed representations in the lecturer's own sequence,
+  with the doubled zero and the -128 to +127 range. Chosen for the sequence, so that the comparison the
+  cards need is not a reconstruction.
+- **University College Cork, CS1101 Lecture 31 - IEEE Floating-Point Standard 754** (English, read in
+  full). The cleanest treatment of the special values found, and the source of the 0.5 conversion that is
+  the subject of GATE CSE 2012 Q.7.
+- **Stanford CS107 Lecture 09 - Floating Point** (English, read in part). The second voice on the special
+  values, and the only source read that gives the infinity bit patterns literally.
+- **Intel, IEEE 754 single-precision field descriptions** (English, read in part). A vendor specification
+  rather than a lecture, used to settle the field boundaries: normal exponents 1 to 0xfe, and the four
+  special cases.
+- **Paul Zimmermann (INRIA/LORIA), Floating-Point Training Module 1** (English, read in part). The
+  extremal values with their encodings - 2^-126, 2^-149, 0x7F7FFFFF - so that card 13 is traceable to a
+  written reference and not only to recomputation.
+- **Virginia Tech CS3414 notes on computer representation of numbers** (English, read in part). The
+  argument that the bias is 127 rather than 128 so that 1/x_min does not overflow, which is the one
+  conceptual question here with no PYQ of its own.
+
+Rejected, with reasons recorded in `content/subjects/digital-logic/number-systems-and-representation/sources.json`:
+the NPTEL **Digital Circuits** sequence (Prof. Santanu Chattopadhyay, IIT Kharagpur, lectures 03-07), which
+is the closest match lesson for lesson but whose transcript files for the negative-number and floating-point
+lectures returned no text at the mirror; the same course's **Lecture 23, Arithmetic Building Blocks**, and
+Mark Smotherman's Clemson floating-point notes, both read this run and both arithmetic rather than
+representation, so they are recorded for the computer-arithmetic run; the GATE-oriented YouTube channels
+covering this topic, none of which had a caption track retrieved, so nothing is quoted or timestamped from
+one; the GO Classes practice bank, whose questions are original practice and not PYQs; the answer
+aggregators, used only to find question numbers; and four genuine questions seen only in listings and
+therefore not recorded (2017 Set 2 Q.1, 2019 Q.4, 2021 Set 2 Q.4 and Q.18, and the two 2026 overflow MSQs).
+
+### What was created
+
+Thirteen revision cards, nine verified PYQs and one p5.js lesson.
+
+The cards run from positional systems to the special values, each with the remember list, a worked
+example, a GATE angle, two or three labelled variations, one trap with a counterexample, and a quick check
+with its answer. The nine PYQs are GATE CSE 2013 Q.4, 2016 Set 1 Q.7, 2016 Set 2 Q.9, 2017 Set 1 Q.7,
+2021 Set 1 Q.6, 2021 Set 1 Q.24, 2012 Q.7, 2026 Set 2 Q.34 and 2024 Set 2 Q.14. All nine are `SOURCED`
+against an accepted answer, none is key-verified, so no marks field is recorded on any of them.
+
+The lesson, `visuals/digital-logic/number-systems-and-representation/ieee754-bit-fields-to-value`, decodes
+0xC2710000 in seven steps: hex to bits, the 1/8/23 cut, the sign, the exponent field and the bias, the
+hidden 1, the value, and finally the two reserved exponent fields. It was chosen because the order of the
+steps is the difficulty in every decoding question, and because the last step is exactly what the
+largest-number question tests.
+
+`check_number_representation()` was added to `scripts/validate.py`. It recomputes every published number
+from its bits: the base conversions in both directions, every signed range, the doubled-zero counts, the
+fixed-point range and resolution for four different widths, the bias chain, the decode of all three
+verified floating-point words, the hidden-1 and no-bias traps, and every special-value pattern with its
+exponent and fraction fields.
+
+### Validation
+
+`python3 scripts/build-index.py` indexed 3 playlists, 39 videos, 227 topics and 174 PYQs.
+`python3 scripts/validate.py` reported 30 checks passed, 8 warnings, 0 failures; all eight warnings are
+pre-existing (seven `OFFICIAL_KEY` records with no answer evidence, two videos referenced by no card).
+`node tests/visual-lessons.js` passed on all 24 lessons, including the new one at 7 steps.
+
+### Gaps (the topic stays `partial`)
+
+1. No YouTube caption track was retrieved this run, so no card quotes or timestamps a lecture and
+   `videoRefs` is empty on all thirteen cards. The two NPTEL transcripts used are machine transcripts and
+   several of their numerals are garbled, so every figure taken from them was re-derived from its bits.
+2. The NPTEL Digital Circuits sequence that matches this topic lesson for lesson returned no transcript
+   text for its negative-number and floating-point lectures, so its structure is recorded and nothing
+   rests on it.
+3. Every PYQ is `SOURCED` rather than key-verified, and two records carry two question numbers each,
+   because the sources disagree: the 2026 Set 2 decoding question is Q.34 on ExamSIDE and GateAI but Q.45
+   on GATE Overflow, which files it under Computer Organization; the 2024 Set 2 largest-number question is
+   Q.14 on ExamSIDE and Q.4 on GATE Overflow.
+4. Binary-coded decimal, excess-3 and Gray code are not carded. The GATE 2027 CS syllabus line names
+   number representation and arithmetic only, and no verified CSE question in this topic is decided by
+   those codes; Gray code belongs to Boolean minimisation in this syllabus.
+5. No verified PYQ was read for hex-to-octal grouping, for the loss of precision in a non-dyadic decimal
+   fraction, or for the smallest normalised positive number, so those cards carry original and predicted
+   variations only, and 2017 Set 2 Q.1, 2021 Set 2 Q.4 and 2021 Set 2 Q.18 are recorded as unread
+   candidates for a later run.
+
+### Next
+
+The cycle pointer now sits on `digital-logic/number-systems-and-representation`. The next topic in syllabus
+order is `digital-logic/boolean-algebra-and-minimization`, which is `not_started`.

@@ -1,0 +1,72 @@
+{
+  "id": "base-conversion-integer-and-fraction",
+  "title": "Base Conversion: Repeated Division and Repeated Multiplication",
+  "priority": "P1",
+  "order": 402,
+  "unit": "Number Systems and Number Representation",
+  "quickIdea": "Integer part: divide by the target base again and again and read the remainders bottom-up. Fraction part: multiply by the target base again and again and read the carries top-down.",
+  "remember": [
+    "Integer: successive division by r, keep each remainder, stop at quotient 0, then read the remainders from the last to the first.",
+    "Fraction: successive multiplication by r, keep the integer part (the carry) each time, stop when the fraction becomes 0 or when the required number of places is reached, then read the carries from the first to the last.",
+    "A decimal fraction that terminates need not terminate in binary. 0.625 terminates (0.101), but 0.1 in decimal is an infinite repeating binary fraction.",
+    "Convert between two unrelated bases through decimal, or by expanding weights directly; grouping only works when one base is a power of the other.",
+    "Always check by expanding the answer back into a weighted sum. That check catches a reversed digit order immediately.",
+    "Hexadecimal digits above 9 are letters: 21 decimal is (15) in base 16, and the digits are 1 and 5, not the decimal number fifteen written as one digit."
+  ],
+  "example": {
+    "prompt": "Convert (210) in base 3 to hexadecimal.",
+    "work": "First to decimal: 2x9 + 1x3 + 0x1 = 21. Then to base 16: 21 divided by 16 is 1 remainder 5, and 1 divided by 16 is 0 remainder 1. Read the remainders bottom-up: 1 then 5, so the answer is (15) in base 16.",
+    "answer": "(15) in base 16, that is 21 in decimal."
+  },
+  "gateAngle": "GATE CSE 2021 Set 1 Q.6 is exactly this: 210 in base 3, asked in hexadecimal. The options included 21, which is the decimal value and the most common wrong answer.",
+  "variations": [
+    {
+      "label": "VERIFIED PYQ",
+      "question": "GATE CSE 2021 Set 1 Q.6: Let the representation of a number in base 3 be 210. What is the hexadecimal representation of the number?",
+      "answer": "(15) in base 16, option (A).",
+      "why": "(210) in base 3 is 21 in decimal, and 21 = 1x16 + 5."
+    },
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "The number (132) in base 4 equals which number in base 5?",
+      "answer": "(110) in base 5.",
+      "why": "1x16 + 3x4 + 2 = 30 in decimal; 30 = 1x25 + 1x5 + 0, so the digits are 1, 1, 0. Changing the base changes the digit count, so counting digits is not a shortcut."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "Write the decimal fraction 0.375 in binary.",
+      "answer": "0.011.",
+      "why": "0.375 x 2 = 0.75 carry 0; 0.75 x 2 = 1.5 carry 1; 0.5 x 2 = 1.0 carry 1, and the fraction is now 0. The carries read top-down are 0, 1, 1. This tests the multiplication direction, which is the half of the method candidates reverse."
+    }
+  ],
+  "trap": {
+    "what": "Reading the division remainders top-down, which reverses the digits.",
+    "why": "The first remainder is the least significant digit, because the first division is by r^1. The last remainder, produced by the final division that gives quotient 0, is the most significant digit.",
+    "counterexample": "Six in base 2: the remainders are 0, then 1, then 1, and reading them bottom-up gives 110, which is 6. Read top-down they give 011, which is 3 - half the number, and the classic wrong answer."
+  },
+  "check": {
+    "question": "What is (43) in base 5, in decimal?",
+    "answer": "23.",
+    "explanation": "4x5 + 3 = 23. Expanding the weights is the fastest conversion into decimal and is also the check on the division method."
+  },
+  "pyqIds": [
+    "gate-2021-set1-q6-base3-to-hex"
+  ],
+  "prereqs": [
+    "positional-number-systems"
+  ],
+  "sources": [
+    {
+      "kind": "lecture-transcript",
+      "title": "Lecture 21 - Number System",
+      "channel": "NPTEL, Digital Electronic Circuits (Prof. Goutam Saha, IIT Kharagpur)",
+      "url": "http://digimat.in/nptel/courses/video/108105132/lec21.pdf",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "read from the opening to the lecturer's own closing summary: place value and the odometer argument, the base-r digit rule 0 to r-1, the weighted sum with negative powers for the fraction, (1010.101)2 = 10.625, decimal-to-binary by successive division of the integer and successive multiplication of the fraction (0.625 -> 0.101), octal and hexadecimal with 3-bit and 4-bit grouping, the 8.3 / 8.4 / 8.2 reading of 10011110, the range and precision of a fixed-point word, and the first statement of normalised floating point. The captions are machine transcripts and several numerals in them are garbled, so every figure taken from this lecture was re-derived from its bits here."
+    }
+  ],
+  "sourceLine": "Successive division for the integer and successive multiplication for the fraction, with the 0.625 worked case: NPTEL IIT Kharagpur Lecture 21 (English, read in full). The question text and accepted answer of 2021 Set 1 Q.6: its GATE Overflow page.",
+  "videoRefs": []
+}

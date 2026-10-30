@@ -1,0 +1,230 @@
+{
+  "subject": "digital-logic",
+  "topic": "number-systems-and-representation",
+  "exam": "GATE CSE 2027",
+  "retrieved_at": "2026-10-30",
+  "subtopics": [
+    "positional number systems: the radix, the digit rule 0 to r-1, place value and the weighted sum",
+    "base conversion: repeated division for the integer part, repeated multiplication for the fraction part, and the non-terminating case",
+    "octal and hexadecimal by 3-bit and 4-bit grouping, and why grouping fails for bases that are not powers of two",
+    "unsigned fixed-width integers: 2^n patterns, the range 0 to 2^n - 1, and wrap-around",
+    "sign-magnitude representation: sign bit and magnitude, the range, and the doubled zero",
+    "one's complement: inversion, the range, the doubled zero and the end-around carry",
+    "two's complement: invert and add one, the unique zero, the range -2^(n-1) to 2^(n-1) - 1, and why it is asymmetric",
+    "two's complement arithmetic: subtraction as addition, the discarded carry, and sign extension",
+    "distinct values against pattern count across the three signed representations",
+    "fixed-point representation: i and f bits, the range 2^i - 2^(-f), the resolution 2^(-f) and the shifting of the point",
+    "floating-point normalisation, the significand between 1 and 2, the hidden bit and the biased exponent",
+    "IEEE 754 single-precision layout, the value formula and encoding and decoding between bits and decimal",
+    "IEEE 754 special values: signed zeros, subnormals, infinities and NaN, with the extremal values and the spacing of representable numbers"
+  ],
+  "chosen": [
+    {
+      "id": "nptel-dec-108105132-lec21-number-system",
+      "kind": "lecture-transcript",
+      "title": "Lecture 21 - Number System",
+      "channel": "NPTEL, Digital Electronic Circuits (Prof. Goutam Saha, IIT Kharagpur)",
+      "url": "http://digimat.in/nptel/courses/video/108105132/lec21.pdf",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "covers": [
+        "the odometer argument for place value, and the digit rule 0 to r-1",
+        "the weighted sum with negative powers, and (1010.101)2 = 10.625",
+        "decimal to binary by successive division of the integer and successive multiplication of the fraction, with 0.625 -> 0.101",
+        "octal and hexadecimal, and conversion by 3-bit and 4-bit grouping",
+        "fixed point read three ways from one pattern: 10011110 as 8.3, 8.4 and 8.2",
+        "the range and precision of a fixed-point word, and the first statement of normalised floating point"
+      ],
+      "why": "The only readable lecture that starts from place value and reaches fixed point and normalised floating point in the lecturer's own order, with one bit pattern carried through three different point positions. That single example is what cards 10 and 11 are built on, and no other source read this run supplies it. It is an IIT Kharagpur course transcript, not a GATE-coaching video, so the GATE framing is added from the questions rather than taken from the lecturer."
+    },
+    {
+      "id": "nptel-dec-108105132-lec22-negative-numbers",
+      "kind": "lecture-transcript",
+      "title": "Lecture 22 - Negative Number and 2's Complement Arithmetic",
+      "channel": "NPTEL, Digital Electronic Circuits (Prof. Goutam Saha, IIT Kharagpur)",
+      "url": "http://digimat.in/nptel/courses/video/108105132/lec22.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "covers": [
+        "sign-magnitude with the +1 / -1 and +22 / -22 examples, and the sign bit carrying no place value",
+        "the sign-magnitude range -127 to +127 with a doubled zero, and the count of 255 distinct numbers",
+        "one's complement by inversion, the same range and the same doubled zero",
+        "two's complement as one's complement plus one, with all-ones no longer a second zero",
+        "the range -128 to +127 for eight bits",
+        "the closing summary: subtraction as addition of the negated number, so one adder does both"
+      ],
+      "why": "The only lecture read this run that derives the three signed representations in sequence, so the comparison the cards need is the lecturer's own sequence rather than a reconstruction. It earns its place on the doubled-zero count, which is the whole of card 9 and of GATE CSE 2016 Set 2 Q.9. The middle of the transcript is missing from the served text, so the case-by-case arithmetic rules it works through are not claimed anywhere."
+    },
+    {
+      "id": "ucc-cs1101-lecture31-ieee754",
+      "kind": "text",
+      "title": "CS1101 Lecture 31 - IEEE Floating-Point Standard 754",
+      "channel": "University College Cork, Department of Computer Science",
+      "url": "https://www.cs.ucc.ie/~osullb/cs1101/notes/notes31.pdf",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "covers": [
+        "the three formats, excess-127 and excess-1023, and the reserved extreme exponents",
+        "the implied leading 1 and the term significand with 1 <= s < 2",
+        "the 0.5 conversion whose fraction is all zeros and whose exponent is -1",
+        "denormalised numbers, the smallest denormal and the gradual-underflow argument",
+        "the two zeros, infinity as an all-ones exponent with a zero fraction, and NaN"
+      ],
+      "why": "Read in full, and the cleanest treatment of the special values found: it gives the reason for each reserved case rather than a table, which is what card 13 needs. Its 0.5 worked conversion is the same number as GATE CSE 2012 Q.7, so the card and the question rest on the same derivation."
+    },
+    {
+      "id": "stanford-cs107-lecture09-floating-point",
+      "kind": "text",
+      "title": "CS107 Lecture 09 - Floating Point",
+      "channel": "Stanford University, CS107",
+      "url": "https://web.stanford.edu/class/archive/cs/cs107/cs107.1224/lectures/09/09-FloatingPoint.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "covers": [
+        "the sign / exponent / fraction split and the bias 2^(k-1) - 1",
+        "the float exponent range -126 to 127 and M = 1 + f",
+        "denormalised form as exponent 1 - bias with no leading 1, and the two zeros",
+        "the exact bit patterns for +infinity and -infinity, and the operations that produce NaN"
+      ],
+      "why": "The second voice on the special values, and the only source read that gives the infinity bit patterns literally, which is what the largest-number question turns on. Used together with the Cork notes so that no card's special-value claim rests on one page."
+    },
+    {
+      "id": "intel-ieee754-format-table",
+      "kind": "text",
+      "title": "IEEE 754 Format - single-precision field descriptions",
+      "channel": "Intel, floating-point IP documentation",
+      "url": "https://www.intel.com/content/www/us/en/docs/programmable/683242/current/ieee-754-format.html",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "covers": [
+        "FRAC as the fraction with the hidden bit omitted, and the mantissa range [1.0, 2.0)",
+        "EXP biased by 127, with 0x0 reserved for zero and subnormals and 0xff for infinity and NaN",
+        "normal exponents 1 to 0xfe, that is -126 to 127",
+        "the four special values with their exact field conditions"
+      ],
+      "why": "A vendor specification rather than a lecture, used to settle the field boundaries: the normal exponent range 1 to 0xfe and the four special cases. It is the reference the cards quote when they say that 254, not 255, is the largest exponent that still denotes a number."
+    },
+    {
+      "id": "zimmermann-ieee754-module1",
+      "kind": "text",
+      "title": "Floating-Point Training, Module 1 - The IEEE 754 Standard",
+      "channel": "Paul Zimmermann, INRIA/LORIA",
+      "url": "https://members.loria.fr/PZimmermann/talks/module1.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "covers": [
+        "p = 24 digits and e_max = 127 for binary32",
+        "the smallest positive normal 2^-126 and the smallest positive subnormal 2^-149",
+        "the largest regular number 2^128(1 - 2^-24) with its encoding 0x7f7fffff",
+        "subnormal decoding, the two signed zeros, and the four rounding attributes"
+      ],
+      "why": "The only source read that states the extremal values with their encodings, so card 13's 0x7F7FFFFF, 2^-126 and 2^-149 are traceable to a written reference rather than only to recomputation. Its notation is that of the standard, which keeps the card's symbols unambiguous."
+    },
+    {
+      "id": "vt-cs3414-computer-arithmetic-notes",
+      "kind": "text",
+      "title": "Computer Representation of Numbers and Computer Arithmetic",
+      "channel": "Virginia Tech, CS3414 course notes (A. Sandu)",
+      "url": "https://people.cs.vt.edu/~asandu/Courses/CS3414/comp_arithm.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "covers": [
+        "the biased representation x + 2^(m-1) with the m = 3 table",
+        "the argument that the bias is chosen so that 1/x_min does not overflow",
+        "the normalisation argument, and the single-precision table of exponent-field cases",
+        "the exponent ranges -126..127 and -1022..1023, machine precision and the rounding modes"
+      ],
+      "why": "The source of the bias argument on card 11 - that the bias is 127 rather than 128 so that the reciprocal of the smallest normal number stays inside the format. That is the one conceptual question in this topic with no PYQ of its own, and it is worth a cited derivation rather than a bare assertion."
+    }
+  ],
+  "rejected": [
+    {
+      "id": "nptel-digital-circuits-chattopadhyay-lec03-07",
+      "kind": "lecture-sequence",
+      "channel": "NPTEL, Digital Circuits (Prof. Santanu Chattopadhyay, IIT Kharagpur), Lectures 03-07: Common Number Systems, Number System Conversion, Negative Numbers, Floating Point Numbers, Floating Point Numbers (continued)",
+      "why": "The best-matched lecture sequence found: it opens the course with exactly this topic, five lectures of it, before Boolean algebra. Its transcript files at the digimat mirror returned no text for lectures 05 and 06 - the negative-numbers and floating-point lectures - so the part that matters could not be read. The lecture list is recorded here as structure only and no card rests on it. A later run should retry these transcripts rather than treat the sequence as unusable."
+    },
+    {
+      "id": "nptel-dec-108105132-lec23-arithmetic-building-blocks",
+      "kind": "lecture-transcript",
+      "channel": "NPTEL, Digital Electronic Circuits, Lecture 23 - Arithmetic Building Blocks I",
+      "why": "Read this run, and it is genuinely on two's complement subtraction: half adder, full adder, ripple carry and the adder-subtractor unit with the NOT bank and the carry-in of 1. But it is arithmetic hardware, which belongs to the computer-arithmetic topic of this subject, not to representation. Excluded here and noted for that run."
+    },
+    {
+      "id": "clemson-smotherman-floating-point-notes",
+      "kind": "text",
+      "channel": "Mark Smotherman, Clemson University, floating-point course notes",
+      "why": "Read this run through the extract and it is strong on the arithmetic: alignment by shifting the smaller operand, guard, round and sticky bits, and the carry-in against carry-out overflow test. All of that is the next topic. Its representation section adds nothing the Cork, Stanford and Intel sources do not already say, so it is rejected here and recommended for the computer-arithmetic run."
+    },
+    {
+      "id": "youtube-gate-coaching-lectures",
+      "kind": "lecture",
+      "channel": "The GATE-oriented YouTube channels whose Digital Logic series cover this topic (including GO Classes for GATE CS, Gate Smashers, Knowledge Gate and Neso Academy)",
+      "why": "Considered and not fetched: no caption track was retrieved for any of them this run, and nothing may be quoted or timestamped from a video that was not read. The written NPTEL transcripts and the IEEE 754 references already cover all thirteen subtopics, so no card was padded from a weaker source. videoRefs is therefore empty on every card in this topic, which is a gap and not a claim."
+    },
+    {
+      "id": "answer-aggregator-pages",
+      "kind": "pyq-index",
+      "channel": "ExamSIDE, GateAI, Quorank, EduRev, iaeacademy, PYQLabs and freeatzeal pages for these questions",
+      "why": "Used to find question numbers and to corroborate answers, never as the reference of record. They disagree on numbering: the 2026 Set 2 decoding question is Q.34 on ExamSIDE and GateAI but Q.45 on GATE Overflow, which files it under Computer Organization; the 2024 Set 2 largest-number question is Q.14 on ExamSIDE and Q.4 on GATE Overflow. Both disagreements are recorded in the PYQ records themselves. One of them does cite the official 2026 CS2 key for -60.25, and that is noted rather than relied on."
+    },
+    {
+      "id": "go-classes-dpp-number-representation-bank",
+      "kind": "practice-bank",
+      "channel": "GO Classes daily practice problems, Digital Logic: number representation sets",
+      "why": "Around twenty well-constructed questions on base conversion, complement values, sign extension, overflow and binary fractions. They are original practice questions, not previous-year questions, and this repository keeps the two apart; presenting them as PYQs would misrepresent them. Two of their shapes - an 8-bit pattern read as two different representations, and a minimum-bit-count question - reappear as clearly labelled original and predicted variations."
+    },
+    {
+      "id": "gate-cse-2017-set2-q1-bca9-octal",
+      "kind": "pyq",
+      "channel": "GATE CSE 2017 Set 2 Q.1, the 16-bit unsigned value BCA9 written in octal",
+      "why": "A genuine and well-matched question for the bit-grouping card, seen in a listing this run but not read on its own page, so its question number and answer were not checked. Not recorded, and the grouping card carries original variations instead. A later run should read it rather than have this one guess."
+    },
+    {
+      "id": "gate-cse-2019-q4-minus-28-and-2021-set2-q4-smallest-normal",
+      "kind": "pyq",
+      "channel": "GATE CSE 2019 Q.4 (the decimal -28 in 16-bit two's complement) and GATE CSE 2021 Set 2 Q.4 (the smallest normalised positive number)",
+      "why": "Both are on this topic and both would fit a card, but neither was read on its own page this run, only in listings. The 2019 question's answer is recomputed in the negation card's example space, and the 2021 Set 2 question is the subject of the special-values card's check, but neither is recorded as a PYQ because the reference was not checked."
+    },
+    {
+      "id": "gate-cse-2021-set2-q18-binary-decimal-0-1101",
+      "kind": "pyq",
+      "channel": "GATE CSE 2021 Set 2 Q.18, the decimal digits x and y in (0.1101)2 = (0.8xy5)10",
+      "why": "A good loss-of-precision question for the base-conversion card: (0.1101)2 is 0.8125, so x = 1 and y = 2. Seen in a listing only and not read on its own page, so it is not in the PYQ set. It is recomputed here (0.8125) so a later run can add it quickly."
+    },
+    {
+      "id": "gate-cse-2026-set1-q22-and-2026-set2-q28-overflow-msqs",
+      "kind": "pyq",
+      "channel": "GATE CSE 2026 Set 1 Q.22 (sign-magnitude overflow) and 2026 Set 2 Q.28 (4-bit two's complement overflow)",
+      "why": "Both are genuine overflow questions and both belong to the arithmetic side of the syllabus line, which this run leaves to the computer-arithmetic topic. They are recorded here so that run does not have to rediscover them."
+    },
+    {
+      "id": "gate-it-and-gate-da-number-representation-papers",
+      "kind": "pyq",
+      "channel": "GATE IT papers and GATE DA / DS&AI papers on number representation and floating point",
+      "why": "Those papers are not CSE, and this repository does not mix papers. Excluded."
+    }
+  ],
+  "standard_refs": [
+    "M. Morris Mano and Michael D. Ciletti, Digital Design, chapter 1 (binary systems: number base conversion, complements, signed binary numbers, binary codes) - the reference the NPTEL Digital Electronic Circuits course itself lists",
+    "Donald P. Leach, Albert P. Malvino and Goutam Saha, Digital Principles and Applications, the number systems and signed-number chapters",
+    "David A. Patterson and John L. Hennessy, Computer Organization and Design, chapter 3 (computer arithmetic: signed and unsigned numbers, IEEE 754 floating point)",
+    "IEEE 754-2019, Standard for Floating-Point Arithmetic, as summarised by the Intel and Zimmermann references above",
+    "GATE 2027 CS syllabus, Digital Logic line 'Number representation and arithmetic (fixed and floating point)'"
+  ],
+  "notes": [
+    "The syllabus names this topic in six words, so the thirteen subtopics above are this run's enumeration from the standard treatment (Mano chapter 1, the NPTEL lecture order, the IEEE 754 references) and not a quotation from the syllabus. The two halves of the line are split deliberately: representation is this topic, and arithmetic - adders, overflow detection, guard and round bits - is the next topic of the same subject.",
+    "Nine GATE CSE previous-year questions were verified, and every one is SOURCED against an accepted answer rather than key-verified against an official paper, so no marks field is recorded. The one official key encountered (the 2026 CS2 key, quoted second-hand) agrees with the recorded answer.",
+    "All seven chosen sources are English. No source was translated this run, so no card carries a translation note. The site is English only and every published word is English.",
+    "The NPTEL transcripts are machine transcripts. The numerals in them are unreliable - lecture 21's own text mangles several - so every figure taken from a lecture was re-derived from its bits and is recomputed in scripts/validate.py. No lecture sentence is quoted.",
+    "Binary-coded decimal, excess-3 and Gray code are not carded. The GATE 2027 CS syllabus line names number representation and arithmetic only, and no verified CSE question in this topic is decided by those codes; Gray code appears in this syllabus under Boolean minimisation and will be carded there.",
+    "The visual lesson decodes 0xC2710000 into -60.25 step by step, because that is the one operation in this topic where the order of the steps is the difficulty: split, read the sign, unbias, restore the hidden 1, then move the point. Its numbers are recomputed in check_number_representation()."
+  ]
+}

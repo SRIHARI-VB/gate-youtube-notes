@@ -1,0 +1,15 @@
+{
+  "id": "gate-2021-set1-q24-decode-minus-7-75",
+  "year": "2021",
+  "paper": "GATE CS 2021 Set 1",
+  "question_ref": "Q.24",
+  "type": "NAT",
+  "topic": "ieee-754-single-precision-layout",
+  "text": "Consider the following representation of a number in IEEE 754 single-precision floating point format with a bias of 127. S: 1, E: 10000001, F: 11110000000000000000000. Here S, E and F denote the sign, exponent and fraction components. The decimal value corresponding to the above representation (rounded to 2 decimal places) is ______.",
+  "answer": "-7.75",
+  "solution": "The sign bit is 1, so the value is negative. E = 129, so the true exponent is 129 - 127 = 2. The significand is 1.1111 = 1 + 0.5 + 0.25 + 0.125 + 0.0625 = 1.9375. The value is -1.9375 x 4 = -7.75, which is exact at two decimal places.",
+  "source_url": "https://gateoverflow.in/357427/gate-cse-2021-set-1-question-24",
+  "source_label": "GATE Overflow question page - GATE CSE 2021 Set 1 Q.24 with the accepted answer",
+  "verification": "SOURCED",
+  "answer_evidence": "The accepted answers decode E = 129 to a true exponent of 2 and read the fraction as 1.1111, reaching -7.75; one states the binary intermediate -111.11. Recomputed here."
+}

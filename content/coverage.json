@@ -1,1077 +1,1100 @@
 {
-  "exam": "GATE CSE 2027",
-  "updated_at": "2026-10-30",
-  "cycle": {
-    "last_subject": "probability-and-statistics",
-    "last_topic": "conditional-probability-and-bayes",
-    "updated_at": "2026-10-30"
-  },
-  "subjects": [
+ "exam": "GATE CSE 2027",
+ "updated_at": "2026-10-30",
+ "cycle": {
+  "last_subject": "digital-logic",
+  "last_topic": "number-systems-and-representation",
+  "updated_at": "2026-10-30"
+ },
+ "subjects": [
+  {
+   "slug": "discrete-mathematics",
+   "name": "Discrete Mathematics",
+   "topics": [
     {
-      "slug": "discrete-mathematics",
-      "name": "Discrete Mathematics",
-      "topics": [
-        {
-          "slug": "propositional-logic",
-          "name": "Propositional Logic",
-          "status": "partial",
-          "coverage_note": "Built in run 2 from one playlist only (GO Classes for GATE CS, Propositional Logic). Four videos had Devanagari ASR captions only and were not used for any formula. Nineteen of the topic's PYQs are SOURCED rather than key-verified.",
-          "runs": [
-            {
-              "date": null,
-              "sources": [
-                "PLIPZ2_p3RNHillKxh1_iFeZhy9MftHeWW"
-              ],
-              "cards": 12,
-              "pyqs": 14,
-              "note": "date not recorded in docs/RUN_REPORT.md"
-            }
-          ],
-          "gaps": [
-            "four videos readable only as Hindi ASR fragments; two GATE questions they cover (2006, 2015 Q.28) are not in the PYQ set",
-            "no re-audit of the syllabus subtopics since the topic was built from a single playlist"
-          ]
-        },
-        {
-          "slug": "first-order-logic",
-          "name": "First Order Logic",
-          "status": "partial",
-          "coverage_note": "Built in run 3 from one playlist only (GO Classes for GATE CS, First Order Logic). One video returned no caption text at all; the rest were readable only in their opening minutes.",
-          "runs": [
-            {
-              "date": null,
-              "sources": [
-                "PLIPZ2_p3RNHidhFvyKH4U_VE1rFAyvG8U"
-              ],
-              "cards": 10,
-              "pyqs": 10,
-              "note": "date not recorded in docs/RUN_REPORT.md"
-            }
-          ],
-          "gaps": [
-            "video zdeKQ-nABtk returned no caption text on any route, so nothing is claimed about what it teaches",
-            "resolution and prenex normal form in first order logic are not taught by any processed source"
-          ]
-        },
-        {
-          "slug": "sets-relations-functions",
-          "name": "Sets, Relations, Functions",
-          "status": "partial",
-          "coverage_note": "11 cards, one per subtopic (sets and cardinality, power sets, set identities, Cartesian product, countability, relation representation and counting, relation properties, transitivity and closure, equivalence relations and partitions, function counting, composition and inverse), 7 verified PYQs and 1 p5.js lesson. Partial because three gaps remain, named below.",
-          "runs": [
-            {
-              "date": "2026-10-28",
-              "sources": [
-                "7djvJetFiSY",
-                "tyDKR4FG3Yw",
-                "PpA4LWPh40M",
-                "Z9khyLCt2-I"
-              ],
-              "playlists": [
-                "PLIPZ2_p3RNHjHnhdkPWFAlcizVQJ8w4TX"
-              ],
-              "cards": 11,
-              "pyqs": 7,
-              "note": "Sources chosen on merit: one IIT/NPTEL-style lecture for set identities, Cartesian product and relation properties (full transcript); two TrevTutor lectures for set basics and for injective/surjective/bijective functions (full transcripts); the GO Classes Set Theory playlist for GATE question patterns (opening readable only)."
-            }
-          ],
-          "gaps": [
-            "no verified GATE CSE previous-year question exists in this topic for countability of infinite sets; GATE tests countability inside Theory of Computation questions (for example GATE CSE 2019 Q.34 on recursively enumerable languages), so that question is left for the Theory of Computation run",
-            "relation closures (reflexive, symmetric, transitive closure and Warshall) are taught from Rosen ch. 9.4 only - no lecture transcript for closures was readable",
-            "the GO Classes Set Theory PYQ lecture used here (Relations - GATE PYQs Part 2) was readable only in its opening, so its later question types are not recorded"
-          ]
-        },
-        {
-          "slug": "partial-orders-and-lattices",
-          "name": "Partial Orders and Lattices",
-          "status": "partial",
-          "coverage_note": "11 subtopics, 12 cards (poset axioms, Hasse diagram and covering, chains/antichains and total orders, minimal/maximal/least/greatest, bounds and LUB/GLB, the lattice test, the lattice laws, sublattices, bounded and complemented lattices, distributive lattices, Boolean and divisor lattices, complete lattices), 6 verified PYQs and 1 p5.js lesson. Partial because three gaps remain, named below.",
-          "runs": [
-            {
-              "date": "2026-10-28",
-              "sources": [
-                "lec40-iitm-lattices",
-                "PLwdnzlV3ogoVxVxCTlI45pDVM1aoYoMHf",
-                "3chjsP_NNnY",
-                "WyV6YtqCvGE"
-              ],
-              "cards": 12,
-              "pyqs": 6,
-              "lesson": "discrete-mathematics/partial-orders-and-lattices/poset-to-lattice-pair-test",
-              "note": "Sources chosen on merit across three channels: the IIT Madras Lecture 40 transcript (English, read in full) for the lattice laws, the M3 and pentagon counterexamples, complements and the antichain decomposition; NPTEL IIT Guwahati Lec 21-23 for the poset-to-lattice sequence and the divisor example (captions unavailable); GO Classes for the GATE question patterns (1993, 1996, 2003 readable as an auto-caption excerpt; 2017, 2024, 1997 video captions unavailable). A 16-video Hindi playlist by Sandeep Kumar Gour, the NPTEL IIT Roorkee 2015 chapters and the Neso Academy sequence were considered and rejected, with reasons in sources.json. No card is translated: no readable source was non-English."
-            }
-          ],
-          "gaps": [
-            "video captions could not be retrieved in this run (YouTube caption endpoints answered LOGIN_REQUIRED and the third-party transcript service was blocked), so four chosen video sources are recorded as structure-only and no card quotes or timestamps them; Lecture 40 exists as a published transcript PDF and was read in full",
-            "three Hasse-diagram PYQs are figure-only in the papers and could not be recomputed from text, so they are not in the PYQ set: GATE CSE 1997 Q.3.3 (complements of an element, quoted from GATE Overflow as three), GATE CSE 2005 Q.9 (lattice but not distributive) and GATE CSE 2015 Set 1 Q.34 (probability that the distributive law holds in a five-element lattice)",
-            "Birkhoff's forbidden-sublattice characterisation (distributive iff no M3 or N5 sublattice) is stated from the standard reference only - it is not recomputed by enumeration in scripts/validate.py, which checks only the one direction on the two counterexamples"
-          ]
-        },
-        {
-          "slug": "monoids-and-groups",
-          "name": "Monoids and Groups",
-          "status": "partial",
-          "coverage_note": "11 subtopics, 11 cards (the algebraic-structure ladder, monoids and the identity, group axioms and the reversal rule, order of a group and of an element, abelian groups and the two commutativity tests, subgroups and the one-step test, cyclic groups and generators, cosets and Lagrange's theorem, the small cast of groups GATE reuses, group homomorphisms and the kernel, permutation groups), 13 verified PYQs and 1 p5.js lesson. Partial because four gaps remain, named below.",
-          "runs": [
-            {
-              "date": "2026-10-28",
-              "sources": [
-                "gfg-group-theory-notes-gate",
-                "pradeep-giri-algebraic-structure-hindi",
-                "go-classes-group-theory-module-7"
-              ],
-              "cards": 11,
-              "pyqs": 13,
-              "lesson": "discrete-mathematics/monoids-and-groups/cyclic-subgroup-and-lagrange",
-              "note": "Sources chosen on merit across two languages: the GeeksforGeeks GATE group-theory notes (English) for the ladder, the group properties, the subgroup tests and Lagrange's theorem, because it was the only GATE-oriented written source whose full text could be read this run; the Pradeep Giri 'Algebraic Structure' lecture (Hindi auto-captions, read in part) for the rung-by-rung construction, the only non-English source used and the only translated material in the topic; the GO Classes Module 7 lecture list (structure only) to confirm the subtopic enumeration is complete. The NPTEL IIT Madras 'Algebras' lectures 35-37, the NPTEL Introduction to Abstract Group Theory, the Knowledge Gate Hindi playlist, the Dr. Gajendra Purohit playlist and several GATE answer aggregators were considered and rejected, with reasons in sources.json."
-            }
-          ],
-          "gaps": [
-            "video captions could not be retrieved in this run (YouTube watch pages carried no caption tracks and the timedtext endpoint returned an empty body), so the GO Classes lecture sequence is recorded as structure-only and no card quotes or timestamps a lecture",
-            "the NPTEL IIT Madras 'Algebras' transcripts (lectures 35-37) - the same course that supplied the full-text Lecture 40 used for the previous topic - could not be fetched, because the host refused the request from the sandbox; no claim rests on them and a later run should retry",
-            "quotient groups, normal subgroups, Cauchy's and Sylow's theorems and group actions are outside the GATE line and are not covered at all; the homomorphism card is the only material beyond the two words 'Monoids, Groups'",
-            "GATE CSE 1999 Q.4 (the three-part descriptive question that proves Lagrange from cosets) is excluded because the repository's PYQ schema holds only MCQ, MSQ and NAT records; the cosets card covers the same content",
-            "only one non-English source was readable (Hindi auto-captions) and its contribution is the structure ladder alone; no Tamil, Telugu or Bengali group-theory lecture could be read this run"
-          ]
-        },
-        {
-          "slug": "graphs",
-          "name": "Graphs: Connectivity, Matching, Colouring",
-          "status": "partial",
-          "coverage_note": "11 subtopics, 11 cards (graph vocabulary and the handshake lemma, paths/cycles/components and the n-k and C(n-k+1,2) bounds, cut vertices and bridges with both DFS rules, vertex and edge connectivity, Eulerian and Hamiltonian graphs, bipartite graphs and the odd-cycle criterion, matching maximal versus maximum with augmenting paths, Hall's marriage theorem, vertex cover/independent set/Koenig, chromatic number with greedy and Brooks bounds, chromatic polynomial), 9 verified PYQs and 1 p5.js lesson. Partial because five gaps remain, named below.",
-          "runs": [
-            {
-              "date": "2026-10-28",
-              "sources": [
-                "go-classroom-graph-theory-deck",
-                "go-graph-theory-subject-notes",
-                "nptel-iiitb-discrete-mathematics-graph-theory-44-52"
-              ],
-              "cards": 11,
-              "pyqs": 9,
-              "lesson": "discrete-mathematics/graphs/bipartite-matching-augmenting-path",
-              "note": "Sources chosen on merit: the GATE Overflow GO Classroom deck 'Graph Theory: Connectivity, Coloring, Matching' (English, read in part) because its title is the syllabus line and its pages were the only GATE-oriented graph text readable this run; the GATE Overflow subject notes (English, read in part) to confirm the subtopic enumeration against GATE's own question record; the NPTEL IIITB lectures 44-52 (English, structure only) to confirm the teaching order. Rejected with reasons in sources.json: the NPTEL 'Graph Theory' course by Soumen Maity (right scope, no readable transcript), GeeksforGeeks (host unreachable), Gate Vidyalay (snippet only), the Knowledge Gate AI colouring blog (a question dump), the answer aggregators (numbering disagreements) and every video in every language (YouTube consent wall, no caption tracks). No translated material appears: no non-English source was readable, so no card is marked as translated."
-            }
-          ],
-          "gaps": [
-            "no video source was readable this run - YouTube served a consent wall with no caption tracks for every video tried, so no English, Hindi, Tamil, Telugu or Bengali lecture supplied a single sentence and no card quotes or timestamps one",
-            "four PYQs of this topic are figure-only in the papers and are therefore not in the PYQ set: GATE CSE 2024 Set 2 Q.50 (chromatic number of a drawn graph), GATE CSE 2018 Q.18 (chromatic number of a drawn graph) and GATE CSE 1999 Q.1.15 (number of articulation points of a drawn graph); GATE CSE 2022 Q.40 is included but its isomorphism option rests on the paper's drawing, which is not re-derived here",
-            "planar graphs, Euler's formula for plane graphs, edge colouring and network flow beyond bipartite matching are outside the three words of this syllabus line and are not covered at all",
-            "GATE Overflow's subject page lists further graph-theory questions from 2010 to 2023 (for example 2012 Q.38, 2016 Set 2 Q.3, 2019 Q.38, 2020 Q.52, 2023 Q.45) that were not individually read or recomputed in this run; only the nine recorded PYQs were verified",
-            "the chromatic polynomial card rests on the standard references and on recomputation, because no verified GATE CSE previous-year question on the chromatic polynomial was found in this run",
-            "no marks field is recorded on any PYQ of this topic: the official papers were not fetched, so question numbers follow the GATE Overflow paper numbering and marks are left out rather than guessed"
-          ]
-        },
-        {
-          "slug": "combinatorics",
-          "name": "Combinatorics: Counting, Recurrence Relations, Generating Functions",
-          "status": "partial",
-          "coverage_note": "Built in runs 1 and 2 from one playlist only (GO Classes for GATE CS, Combinatorics). The run reports record partial transcripts for the long lectures. The subtopic list has not been re-audited against the GATE 2027 line since.",
-          "runs": [
-            {
-              "date": null,
-              "sources": [
-                "PLIPZ2_p3RNHjlC6eceG_vWSu-oA6Dc6aX"
-              ],
-              "cards": 15,
-              "pyqs": 14,
-              "note": "date not recorded in docs/RUN_REPORT.md"
-            }
-          ],
-          "gaps": [
-            "no re-audit of the syllabus subtopics since the topic was built from a single playlist",
-            "long lecture transcripts were readable only in their opening minutes"
-          ]
-        }
-      ]
+     "slug": "propositional-logic",
+     "name": "Propositional Logic",
+     "status": "partial",
+     "coverage_note": "Built in run 2 from one playlist only (GO Classes for GATE CS, Propositional Logic). Four videos had Devanagari ASR captions only and were not used for any formula. Nineteen of the topic's PYQs are SOURCED rather than key-verified.",
+     "runs": [
+      {
+       "date": null,
+       "sources": [
+        "PLIPZ2_p3RNHillKxh1_iFeZhy9MftHeWW"
+       ],
+       "cards": 12,
+       "pyqs": 14,
+       "note": "date not recorded in docs/RUN_REPORT.md"
+      }
+     ],
+     "gaps": [
+      "four videos readable only as Hindi ASR fragments; two GATE questions they cover (2006, 2015 Q.28) are not in the PYQ set",
+      "no re-audit of the syllabus subtopics since the topic was built from a single playlist"
+     ]
     },
     {
-      "slug": "linear-algebra",
-      "name": "Linear Algebra",
-      "topics": [
-        {
-          "slug": "matrices-and-determinants",
-          "name": "Matrices and Determinants",
-          "status": "partial",
-          "coverage_note": "11 subtopics, 11 cards (matrix vocabulary and types, addition and scalar multiplication, the multiplication conformability rule and non-commutativity, transpose with symmetric and skew-symmetric matrices, powers with the idempotent/involutory/nilpotent/orthogonal identities, trace and the cyclic law, the determinant by minors and cofactors, the row and column operation laws, adjoint and inverse, rank with its bounds, and the singular-matrix equivalence list), 13 verified PYQs and 1 p5.js lesson. Partial because seven gaps remain, named below.",
-          "runs": [
-            {
-              "date": "2026-10-28",
-              "sources": [
-                "iitm-larp-2018-linear-algebra-slides",
-                "gateoverflow-linear-algebra-notes",
-                "geeksforgeeks-matrices-determinants-gate-notes",
-                "ashish-singh-matrices-determinants-hindi-oneshot",
-                "nptel-iit-roorkee-numerical-linear-algebra"
-              ],
-              "cards": 11,
-              "pyqs": 13,
-              "lesson": "linear-algebra/matrices-and-determinants/determinant-as-area-scaling",
-              "note": "Sources chosen on merit across two languages: five full-text IIT Madras CS6015 slide decks (English, every page carrying a text layer) for the definitions, the multiplication and transpose rules, the elimination pivot count, the inverse and the determinant as a signed volume; the GATE Overflow linear algebra notes (English, read in part) for the GATE property and pitfall lists; the GeeksforGeeks GATE notes (English, read in part) for the adjoint, inverse, trace and rank property lists; one Hindi Class-12 one-shot (read only in its opening, translated, marked as translated) for the elementary vocabulary and operation laws; and the NPTEL IIT Roorkee Numerical Linear Algebra lecture list (structure only) to confirm the subtopic enumeration. The only non-English source used is Hindi."
-            }
-          ],
-          "gaps": [
-            "no GATE-oriented lecture was readable: every English GATE linear-algebra video page tried carried no caption track, so the teaching rests on the IIT Madras slide decks and two GATE revision texts, and no card quotes or timestamps a GATE lecture",
-            "the adjoint and inverse card carries no verified PYQ: the only GATE CSE inverse question found in this topic, 1994 Q.3.12 ('Find the inverse of the matrix ...'), is descriptive, and the repository's PYQ schema holds only MCQ, MSQ and NAT records",
-            "no marks field is recorded on any PYQ of this topic: the official papers and keys were not fetched, so every question reference follows the numbering on the GATE Overflow question page and marks are left out rather than guessed",
-            "the one non-English source is a Class-12 Hindi one-shot read only in its opening, and it contributes only the elementary vocabulary, the matrix types and the operation laws; no GATE-level Hindi, Tamil, Telugu or Bengali lecture could be read this run",
-            "three full-text GATE note sets that would have deepened the topic could not be fetched from the sandbox (Ankur Gupta's GATE engineering-mathematics PDF, the Vidyalankar GATE mathematics notes, and the NPTEL IIT Kanpur Linear Algebra book, whose host returned 404); nothing rests on them and a later run should retry",
-            "every PYQ in the topic is SOURCED against a GATE Overflow accepted answer rather than key-verified against an official answer key; only GATE CSE 2022 Q.10 has an independent corroboration of the official option, from the GateAI PYQ page and the GeeksforGeeks answer key",
-            "the GATE Overflow subject page lists further linear algebra questions from 2010 to 2019 that were not individually read or recomputed; only the thirteen recorded PYQs were verified"
-          ]
-        },
-        {
-          "slug": "system-of-linear-equations",
-          "name": "System of Linear Equations",
-          "status": "partial",
-          "coverage_note": "11 subtopics, 11 cards (matrix form with the row and column pictures, the consistency test by rank, the square determinant test, free variables and the shape of the solution set, homogeneous systems, Gaussian elimination with back substitution, parameter-dependent systems, overdetermined and underdetermined systems, the inverse and Cramer's rule, the geometry of the three cases, and telling no solution apart from infinitely many), 12 verified PYQs and 1 p5.js lesson. Partial because nine gaps remain, named below.",
-          "runs": [
-            {
-              "date": "2026-10-29",
-              "sources": [
-                "gateoverflow-strang-notes-lectures-1-10",
-                "sathee-iitk-consistency-and-solution",
-                "vidyalankar-gate-engineering-mathematics-1-4",
-                "careercraftlabs-hindi-linear-systems",
-                "ohio-math3200-lecture-27",
-                "go-classes-engineering-mathematics-linear-algebra"
-              ],
-              "cards": 11,
-              "pyqs": 12,
-              "lesson": "linear-algebra/system-of-linear-equations/row-and-column-picture",
-              "note": "Sources chosen on merit across two languages: the GATE Overflow notes on Strang's first ten lectures (English, read in part) for the column picture and the particular-plus-null-space decomposition; SATHEE IIT Kanpur (English, read in part) for the rank criterion and the plane-arrangement table; the Vidyalankar GATE notes section 1.4 (English, read in part) for the consistency cases, Cramer's rule and the homogeneous condition; an Ohio University lecture (English, read in part) for the rank theorem and the rank(A) = m corollary; one Hindi chapter (translated, read in part) for the three-case table and the zero-determinant warning; and the GO Classes lecture list (structure only) to confirm the subtopic enumeration. No video transcript could be retrieved this run, so no card quotes or timestamps a lecture. Rejected with reasons in sources.json: the NPTEL IIT Roorkee Matrix Analysis lectures 4-5, the NPTEL IIT Kharagpur lectures 36-38, MIT OCW 18.06 Lecture 8, two Hindi Unacademy lessons, the Knowledge Gate Hindi live class (only an English AI summary is readable), a Testbook Hindi question bank drawn from other branches, and a GATE Overflow discussion thread that states one rule wrongly."
-            }
-          ],
-          "gaps": [
-            "no video transcript could be retrieved this run: every YouTube watch page tried carried no caption track and the transcript service was refused by the egress proxy, so the GO Classes linear algebra lecture sequence (3B-3D, 5D-5E, 6A-6C) is recorded as structure-only and no card quotes or timestamps a lecture",
-            "the two best-scoped lecture series found, the NPTEL IIT Roorkee 'Matrix Analysis with Applications' lectures 4-5 and the NPTEL IIT Kharagpur 'Engineering Mathematics I' lectures 36-38, answered 404 on every transcript path tried from the sandbox; nothing rests on them and a later run should retry",
-            "two chosen English sources (Vidyalankar, Ohio University) were readable only through the search service extract because their PDFs returned 502 from the sandbox, so their contribution is limited to the sections quoted and neither was read in full",
-            "MIT OCW 18.06 Lecture 8, the canonical treatment of the complete solution, returned an empty body to the fetch service; its content reached the topic only indirectly through the GATE Overflow notes that summarise the same lectures",
-            "no marks field is recorded on any PYQ of this topic: only the GATE 2026 CS2 paper was fetched, and every other question reference follows the GATE Overflow numbering",
-            "every PYQ in the topic is SOURCED against a GATE Overflow accepted answer rather than key-verified; GATE CSE 2026 Set 2 Q.31 was located in the official paper at IIT Guwahati but the official answer key was not fetched, and GATE CSE 2014 Set 1 Q.52 rests on three secondary sources agreeing on 1",
-            "GATE CSE 2008 Q.3 is a defective question: a unique solution needs alpha other than 5, and no printed option states that, so the record says so instead of picking the nearest option",
-            "the only non-English source is a Hindi JEE-oriented chapter read in part; no GATE-level Hindi, Tamil, Telugu or Bengali lecture on this topic could be read this run",
-            "GATE Overflow lists further linear-systems questions that were not individually read or recomputed, including GATE CSE 2004 Q.33 on finding x, y, z and GATE CSE 2001 Q.37 on sums of singular matrices"
-          ]
-        },
-        {
-          "slug": "eigenvalues-and-eigenvectors",
-          "name": "Eigenvalues and Eigenvectors",
-          "status": "partial",
-          "coverage_note": "12 subtopics, 11 cards (the definition with v nonzero, the characteristic equation and its degree-n roots, the eigenspace and computing eigenvectors, the trace and determinant identities with the eigenvalues of A^k, A^-1, A^T and p(A), algebraic against geometric multiplicity, diagonalisability, real symmetric matrices with orthogonal eigenvectors, complex conjugate pairs in a real matrix, the triangular / row-sum / all-ones / rank-one shortcuts, what preserves eigenvalues and the row-operation trap, and Cayley-Hamilton with the inverse from it), 10 verified PYQs and 1 p5.js lesson. Partial because six gaps remain, named below.",
-          "runs": [
-            {
-              "date": "2026-10-29",
-              "sources": [
-                "nptel-iit-kharagpur-lecture-46",
-                "nptel-noc-iitm-deep-learning-6-1",
-                "ganitank-hindi-eigen-oneshot",
-                "gateoverflow-linear-algebra-notes",
-                "nptel-course-outline-111105121"
-              ],
-              "cards": 11,
-              "pyqs": 10,
-              "lesson": "linear-algebra/eigenvalues-and-eigenvectors/eigen-directions",
-              "note": "Sources chosen on merit across two languages, with one lecture readable end to end. NPTEL IIT Kharagpur Lecture 46 (English, read in full) carries the definition, the characteristic equation, the eigenspace and Cayley-Hamilton, and is the only lecture this run whose transcript ran from the opening to the closing references. NPTEL-NOC IIT Madras CS7015 Lec 6.1 (English, read in part) supplies the geometric framing and the steady-state motivation. GanitAnk's Hindi one-shot (translated, read in part) is the only readable non-English source and gives the 3x3 principal-minor form of the characteristic polynomial and the Cayley-Hamilton inverse example. The GATE Overflow linear algebra notes (English, read in part) give the AM and GM definitions and the property list. The NPTEL course index is recorded as structure only. Rejected with reasons in sources.json: MIT OCW 18.06 Lecture 21 (page carried a summary and a transcript link, no transcript body), NPTEL IIT Kharagpur Lecture 49 (index only), the Unacademy Hindi eigen lesson series (paywalled, no transcript), the formula-list pages (properties without derivation, one of them stating the symmetric facts as general), the GO Classes DPP question bank (practice questions, not PYQs) and the answer aggregators (corroboration only, and they disagree on question numbering)."
-            }
-          ],
-          "gaps": [
-            "no GATE-oriented coaching lecture on this topic could be read: the readable lecture is a general engineering-mathematics NPTEL course, so the GATE-specific teaching order and PYQ walkthroughs are recorded as structure only",
-            "MIT OCW 18.06 Lecture 21, the canonical English treatment, returned a page with a one-sentence summary and a transcript link but no transcript body, so nothing could be read from it; a later run should retry",
-            "NPTEL IIT Kharagpur Lecture 49, the continuation that would have covered diagonalisation and symmetric matrices in the lecturer's voice, had no retrievable transcript, so the symmetric-matrix card rests on the standard references plus computation",
-            "the Hindi source was read in part only, and no GATE-level Hindi, Tamil, Telugu or Bengali lecture with a readable transcript was found this run; the Unacademy Hindi series that matched the topic lesson-for-lesson is paywalled",
-            "every PYQ in this topic is SOURCED against a GATE Overflow accepted answer rather than key-verified against an official key, and no marks field is recorded: the official papers were not fetched this run, so references follow the GATE Overflow numbering and each record says where another site numbers the question differently",
-            "GATE Overflow lists further eigenvalue questions in this subject that were not individually read or recomputed, including the 2010 to 2013 entries, 2019 Q.44, 2022 Q.35 and Q.43, 2023 Q.8 and Q.20, 2024 Set 2 Q.37, 2025 Set 2 and 2026 Set 1 Q.10; Cayley-Hamilton has no verified CSE PYQ recorded at all, which is why that card is P3"
-          ]
-        },
-        {
-          "slug": "lu-decomposition",
-          "name": "LU Decomposition",
-          "status": "partial",
-          "coverage_note": "12 subtopics, 12 cards (the factorization A = LU, the multipliers of elimination, the Doolittle, Crout and LDU conventions, existence by the leading principal minors, pivoting and PA = LU, forward and back substitution, the determinant from the pivots, rank and singularity from U, the cost of the factorization, the inverse and repeated solves, LDL^T and Cholesky, and reading single entries under exam conditions), 3 verified PYQs and 1 p5.js lesson. Partial because eight gaps remain, named below.",
-          "runs": [
-            {
-              "date": "2026-10-29",
-              "sources": [
-                "engineering-wing-lu-method",
-                "double-vibe-lu-factorisation",
-                "dheeraj-mishra-gate-da-lu",
-                "statlect-lu-decomposition",
-                "go-classes-lecture-11a-lu"
-              ],
-              "cards": 12,
-              "pyqs": 3,
-              "lesson": "linear-algebra/lu-decomposition/elimination-multipliers",
-              "note": "Sources chosen on merit across two readable lectures and two references: Engineering Wing's Lec23 (English, read in full) for the elimination recipe that records multipliers into L, and The Double Vibe's worked factorization (English, read in full) for the entry-by-entry reading of the product; Dheeraj Mishra's GATE DA lecture (English, read in part) for the existence condition and the choice of diagonal convention; StatLect (English, read in part) for the proofs of non-existence and non-uniqueness and for PA = LU; and the GO Classes lecture index (structure only) to confirm the GATE teaching order. Rejected with reasons in sources.json: MIT OCW 18.06 Lecture 4 (transcript described but not served), the NPTEL IIT Kharagpur Matrix Solvers Lecture 08, the NPTEL-NOC Matrix Solver Lecture 8, the NPTEL Matrix Theory Lecture 53, the NPTEL IIT Delhi numerical-methods Lecture 14, the Unacademy Hindi LU lesson (paywalled), the Gate Smashers Hindi linear algebra playlist (no lecture on this topic), the GeeksforGeeks GATE Launchpad episode and the EduRev course mirrors. No translated material appears: no non-English source was readable this run."
-            }
-          ],
-          "gaps": [
-            "no GATE-oriented lecture transcript was readable: the GO Classes Lecture 11A is recorded as structure only, and MIT OCW 18.06 Lecture 4, the canonical English treatment, served a resource page describing its 92 kB transcript without the transcript text",
-            "only three CSE previous-year questions exist in this topic (2015 Set 1 Q.18, 2022 Q.35, 2025 Set 2 Q.34) and all three are SOURCED against GATE Overflow accepted answers rather than key-verified, because the official papers and answer keys were not fetched; no marks field comes from an official key either, and the number the 2025 Set 2 question carries in the master paper could not be confirmed",
-            "GATE CSE 2022 Q.35 is defective as printed: with the diagonal convention left open, options (C) and (D) are both defensible, since a second factorization with L33 = -1/4 also reproduces A. The record states the disagreement and reports the official option D rather than picking silently",
-            "pivoting (PA = LU) and the LDL^T / Cholesky material rest on the standard references and on recomputation alone: no readable source this run taught either, so no card quotes or timestamps a lecture for them",
-            "no non-English source was readable: the Hindi Unacademy lesson is behind a subscription and the Gate Smashers Hindi playlist stops before matrices, so the topic contains no translated material and no card is marked as translated",
-            "two subtopics have no GATE CSE previous-year question at all - the operation count of the factorization and the inverse from the factors - which is why those cards are P3; the one inverse question, GATE CSE 1994 Q.3.12, is descriptive and cannot be stored in the repository's MCQ/MSQ/NAT schema",
-            "GATE 2008 MA contains an LU decomposition question, but it belongs to the Mathematics paper and not to Computer Science, so it is deliberately excluded from this topic's PYQ set",
-            "Dheeraj Mishra's lecture states the existence condition as 'principal minors' where the standard statement is 'leading principal minors'; the card uses the standard wording from the references, so the source and this repository disagree on the phrasing and the gap is recorded rather than smoothed over"
-          ]
-        }
-      ]
+     "slug": "first-order-logic",
+     "name": "First Order Logic",
+     "status": "partial",
+     "coverage_note": "Built in run 3 from one playlist only (GO Classes for GATE CS, First Order Logic). One video returned no caption text at all; the rest were readable only in their opening minutes.",
+     "runs": [
+      {
+       "date": null,
+       "sources": [
+        "PLIPZ2_p3RNHidhFvyKH4U_VE1rFAyvG8U"
+       ],
+       "cards": 10,
+       "pyqs": 10,
+       "note": "date not recorded in docs/RUN_REPORT.md"
+      }
+     ],
+     "gaps": [
+      "video zdeKQ-nABtk returned no caption text on any route, so nothing is claimed about what it teaches",
+      "resolution and prenex normal form in first order logic are not taught by any processed source"
+     ]
     },
     {
-      "slug": "calculus",
-      "name": "Calculus",
-      "topics": [
-        {
-          "slug": "limits-continuity-differentiability",
-          "name": "Limits, Continuity and Differentiability",
-          "status": "partial",
-          "coverage_note": "15 subtopics, 12 cards (the limit at a point and one-sided limits, the algebra of limits, the standard limits, L'Hopital's rule and its conditions, the other indeterminate forms, limits at infinity and orders of growth, continuity at a point, the types of discontinuity, continuity on an interval and the IVT, differentiability and its link to continuity, matching value and slope at a join, and corners, cusps and max/min functions), 12 verified PYQs and 2 p5.js lessons. Partial because eight gaps remain, named below - above all that no video transcript was readable this run.",
-          "runs": [
-            {
-              "date": "2026-10-29",
-              "sources": [
-                "knowledgegate-calculus-part-2",
-                "pauls-notes-limits-and-continuity",
-                "nptel-basic-calculus-1-iit-madras",
-                "gateoverflow-calculus-solutions"
-              ],
-              "cards": 12,
-              "pyqs": 12,
-              "lesson": "calculus/limits-continuity-differentiability/one-sided-limits-and-the-hole",
-              "note": "Sources chosen on merit: a GATE-oriented Hindi-medium lecture read through its published English AI chapter summary with timestamps (Knowledge Gate, 11 Oct EM Calculus Part 2) for the teaching order and the technique sequence; Paul's Online Math Notes (English, read in full) for the definitions and the continuity hypotheses; the NPTEL IIT Madras Basic Calculus-1 outline as structure only; and GATE Overflow question pages for every PYQ. Rejected: an English EduRev video whose page is boilerplate and whose captions were refused, the NPTEL IIT Kanpur Calculus of One Variable playlist (right sequence, no readable transcript), the NPTEL Engineering Mathematics-I indeterminate-forms lectures (index only, and the course is mostly multivariable), a paywalled Hindi Unacademy lesson, a readable SlideShare formula dump, and the PYQLabs index whose year labels are wrong. YouTube answered LOGIN_REQUIRED for every watch page and yt-dlp returned 403, so no lecture transcript was read."
-            }
-          ],
-          "gaps": [
-            "no video transcript was readable this run: every YouTube watch page answered LOGIN_REQUIRED ('Sign in to confirm you are not a bot') and yt-dlp returned HTTP 403 even with a consent cookie, so the one GATE-oriented lecture in the chosen list is recorded from the platform's published English AI chapter summary with timestamps (SUMMARY_ONLY) and no card quotes a lecturer's sentence",
-            "no Hindi, Tamil, Telugu or Bengali lecture transcript was readable; the single non-English source is a Hindi-medium GATE lecture whose readable text is an English AI summary of it, so the translation sits two layers from the lecture and the cards say so rather than implying a verbatim translation",
-            "the informal epsilon-delta meaning of a limit is stated on one card from the standard references only: no readable source this run taught it in GATE framing, and the card does not attempt a formal epsilon-delta proof",
-            "the algebra-of-limits and types-of-discontinuity cards carry no previous-year question of their own, because no question in this topic's verified set is decided by the limit laws or by the classification alone; both are the steps inside the neighbouring questions",
-            "every PYQ in the topic is SOURCED against a GATE Overflow accepted answer rather than key-verified against an official answer key, and no marks field is recorded on any of the twelve, because neither the official papers nor the keys were fetched this run; question references follow the GATE Overflow numbering, and GATE CSE 2022 Q.24 is numbered Q.34 on at least one other site, which its record states",
-            "GATE CSE 2026 Set 1 Q.22 is recorded as printed, and a commenter on the memory-based version of the same question argues that the printed form is defective; the record reports the accepted answer 3 and the disagreement rather than resolving it",
-            "three question families of this topic are deliberately absent: the descriptive questions GATE CSE 1995 Q.7(B) (compute lim sin x / x without a power series) and GATE CSE 1996 Q.3 (find a, b, c, d for a piecewise function to be continuous and differentiable) cannot be stored in the repository's MCQ/MSQ/NAT schema, and GATE CSE 2026 Set 2 Q.54 (the number of discontinuities of a digit-defined function) was seen only in a listing and was not verified or read, so it is not in the PYQ set",
-            "maxima and minima, the mean value theorem and integration are the next three topics in the cycle; their questions, including GATE CSE 2021 Set 2 Q.25 and GATE CSE 2023 Q.28, were left for those runs and are not counted here"
-          ]
-        },
-        {
-          "slug": "maxima-and-minima",
-          "name": "Maxima and Minima",
-          "status": "partial",
-          "coverage_note": "15 subtopics, 14 cards (local and global extrema, stationary against critical points, Fermat's theorem and its false converse, the first-derivative sign test, the second-derivative test with its inconclusive case, the higher-derivative test, the closed-interval candidate list, monotonicity, piecewise and absolute-value functions, endpoint extrema and the definitional dispute, counting the extrema of cubics and quartics, trigonometric extrema on an interval, the two-variable rt - s^2 test, and optimisation set-up), 6 verified PYQs and 1 p5.js lesson. Partial because eight gaps remain, named below - above all that no YouTube caption track was readable this run.",
-          "runs": [
-            {
-              "date": "2026-10-29",
-              "sources": [
-                "mit-ocw-18-01-lecture-12-maxima-minima",
-                "knowledgegate-maxima-minima-lesson",
-                "knowledgegate-26-jan-em-calculus-part-2",
-                "pauls-notes-min-max-values"
-              ],
-              "cards": 14,
-              "pyqs": 6,
-              "lesson": "calculus/maxima-and-minima/sign-chart-of-the-derivative",
-              "note": "Sources chosen on merit across two languages, with one lecture read end to end: the MIT 18.01 Lecture 12 transcript (English, read in full) for the closed-interval candidate list, the wire-into-two-squares worked example and the warning that the critical point gave the opposite of the extremum asked for; the Knowledge Gate 'Maxima & Minima' lesson (Hindi-medium, read through its published English AI chapter summary with timestamps, translated) for the GATE teaching order, the three true/false statements, the x^3 saddle point, the cusp maximum and the closed-interval algorithm; the Knowledge Gate '26 Jan EM Calculus Part 2' summary (Hindi-medium, translated) for the stationary/critical distinction and the second-derivative test with its inconclusive case; and Paul's Online Math Notes section 4.3 (English, read in full) for the definitions, the |x| counterexample and the endpoint convention stated as a disagreement. Rejected with reasons in sources.json: the NPTEL IIT Madras Basic Calculus 1 lectures 33-34 and 39-40, the NPTEL IIT Kharagpur lectures 17-20 on two-variable extrema, the HV Sir GATE lecture 0wRR_97a9Zk, the GATE Overflow maxima-minima tag page, the EduRev PYQ listing, the Solutions Adda 1993 page, the GATE CSE 2015 Set 2 GA-3 aptitude question and the 1998 descriptive question. YouTube served no caption track for any video tried, so no YouTube lecture is quoted; the transcript that could be read is MIT's published lecture transcript."
-            }
-          ],
-          "gaps": [
-            "no YouTube caption track was readable this run: every watch page tried carried none, so no YouTube lecture is quoted and the two GATE-oriented sources are recorded as SUMMARY_ONLY against their platforms' published English AI chapter summaries of Hindi-medium classes",
-            "the NPTEL IIT Madras Basic Calculus 1 lectures 33-34 (Maxima and minima) and 39-40 (First derivative test), the closest English sequence to this topic, and the NPTEL IIT Kharagpur lectures 17-20 on maxima and minima of functions of two variables, served lecture titles only - no transcript could be read, so nothing is attributed to them and a later run should retry",
-            "GATE CSE 1998's 5-mark descriptive question (points of local maxima and minima of x^3 - 6x^2 + 9x + 15 on 0 <= x <= 6) is a genuine CSE question but the repository's PYQ schema holds only MCQ, MSQ and NAT records, so it is not in the PYQ set; the closed-interval card covers the same computation",
-            "GATE CSE 2015 Set 2 GA-3 (the maximum of 1 - |x| on [-1, 1], answer 0 and 1) is a General Aptitude question, not an Engineering Mathematics one, and is deliberately excluded from the PYQ set",
-            "GATE CSE 2012 Q.9 is recorded with the accepted answer (two local minima, at pi/4 and 3pi/2) but the question is definitional: under the strict interior convention the count is one, at 3pi/2. Both readings are stated on the endpoint card and in the PYQ record rather than resolved silently",
-            "every PYQ in the topic is SOURCED against a GATE Overflow accepted answer rather than key-verified against an official answer key, and no marks field is recorded on any of the six, because no official paper or key was fetched this run",
-            "the two-variable case rests on one 1993 question that one solution site marks out of syllabus, so it is a P3 card; no readable lecture on the two-variable test was found, and the GATE CSE line 'Maxima and minima' has been single-variable in every paper since",
-            "three cards carry no previous-year question of their own - the higher-derivative test, monotonicity, and optimisation set-up - because no verified CSE question in this topic is decided by them alone; they are the steps inside 2008 Q.25, 2023 Q.18 and 1997 Q.4.1 respectively"
-          ]
-        },
-        {
-          "slug": "mean-value-theorem",
-          "name": "Mean Value Theorem",
-          "status": "partial",
-          "coverage_note": "12 subtopics, 12 cards (Rolle's theorem, Lagrange's form and the secant picture, bounds on a function value, the hypotheses and their failure, finding the point c, existence against uniqueness, the three corollaries, root counting, Cauchy's extended form, the auxiliary-function construction, inequalities, and one zero of f' against zero everywhere), 3 verified PYQs and 1 p5.js lesson. Partial because four gaps remain, named below.",
-          "runs": [
-            {
-              "date": "2026-10-29",
-              "sources": [
-                "openstax-calculus-v1-4-4-mvt",
-                "pauls-notes-calculus-1-4-7-mvt",
-                "knowledgegate-13-oct-em-calculus-part-3"
-              ],
-              "cards": 12,
-              "pyqs": 3,
-              "lesson": "calculus/mean-value-theorem/secant-parallel-tangent",
-              "note": "Sources chosen on merit across two languages: the OpenStax Calculus Volume 1 section 4.4 (English, read through the proof of the mean value theorem) for Rolle's statement, its three-case proof, the |x| counterexample and the auxiliary-function proof; Paul's Online Math Notes section 4.7 (English, read through the geometric interpretation) for root counting and the explicit note that the theorem never identifies c; the Knowledge Gate '13 Oct - EM - Calculus Part 3' English AI chapter summary (Hindi-medium lecture - translated) for the GATE framing, the 2014 determinant question and Cauchy's form. Twelve candidates were rejected with reasons in sources.json, including the MIT 18.01 Lecture 14 transcript (the theorem sits past the readable part), two YouTube GATE lectures (no caption track) and an Unacademy Hindi lesson (paywalled)."
-            }
-          ],
-          "gaps": [
-            "no verified GATE CSE previous-year question exists for Cauchy's extended mean value theorem or for an inequality proved by the mean value theorem, so those two cards (P2 and P3) rest on the standard references and on recomputation alone",
-            "YouTube served no caption track on any watch page tried this run, so no lecture is quoted; the one GATE-oriented source is recorded from the platform's published English AI chapter summary of a Hindi-medium class and is marked translated, which puts the translation two layers from the lecturer",
-            "both English textbook sources were read only in part - the extraction service returned each page from its opening to the proof of the mean value theorem, so the corollary subsections are not quoted and the three corollary cards derive their statements from the theorem instead",
-            "GATE CSE 2014 Set 2 Q.5 (a cubic with roots at 1, 2 and 3) is Rolle-adjacent but its accepted solution factors the polynomial, and GATE EE 1995's mean-value-theorem bounds question is from a different paper; both are excluded from the PYQ set, so the topic rests on three CSE records only",
-            "all three PYQs are SOURCED against GATE Overflow accepted answers rather than key-verified against an official answer key, and no marks field is recorded because no official paper was fetched"
-          ]
-        },
-        {
-          "slug": "integration",
-          "name": "Integration",
-          "status": "partial",
-          "coverage_note": "13 subtopics, 13 cards (the antiderivative and the constant, the definite integral as a limit of sums and signed area, the fundamental theorem both parts, the property list, the symmetry and reflection rules, substitution with the limits changed, integration by parts, splitting at a sign change, improper integrals, area between two curves, average value, integrating a functional equation, and iterated integrals with odd symmetry), 10 verified PYQs and 1 p5.js lesson. Partial because seven gaps remain, named below - above all that no YouTube caption track was readable and that no read source states the two parts of the fundamental theorem.",
-          "runs": [
-            {
-              "date": "2026-10-29",
-              "sources": [
-                "kg-definite",
-                "kg-properties",
-                "kg-substitution",
-                "kg-13oct",
-                "pauls-definite",
-                "openstax-ftc",
-                "openstax-substitution",
-                "openstax-by-parts"
-              ],
-              "cards": 13,
-              "pyqs": 10,
-              "lesson": "calculus/integration/signed-area-and-running-total",
-              "note": "Sources chosen on merit across two languages: four Knowledge Gate lessons read through the platform's published English AI chapter summaries with timestamps (Hindi-medium lectures, translated) for the GATE teaching order, the signed-area convention, the property list in GATE's order and a worked definite integral with the limits changed; Paul's Online Math Notes section 5.6 (English, read in part) for the limit-of-sums definition and properties 1-6 including additivity with the split point outside the interval; OpenStax Calculus Volume 1 sections 5.3 and 5.5 and Volume 2 section 3.1 (English, read in part) for the mean value theorem for integrals, the substitution rule with its proof, and integration by parts with the LIATE argument. Ten CSE previous-year questions verified, the largest set in any calculus topic so far: 2026 Set 2 Q.17, 2025 Set 2 Q.2, 2024 Set 2 Q.6, 2023 Q.21, 2015 Set 1 Q.44, 2015 Set 2 Q.26, 2015 Set 3 Q.45, 2014 Set 3 Q.47, 2014 Set 3 Q.6 and 2009 Q.25. Rejected with reasons in sources.json: the Paul's FTC, substitution, by-parts and improper-integral pages (empty body), the MIT 18.01 lecture transcripts 18-20 (HTTP 502), the NPTEL integration lectures (titles only), every YouTube lecture tried (no caption track, yt-dlp absent), the Knowledge Gate by-parts lesson (summary not retrieved), GATE CSE 2011 Q.31 (option-letter conflict), GATE CSE 2014 Set 3 Q.46 (numerical methods, outside this topic), and two PYQ index sites used only as indexes."
-            }
-          ],
-          "gaps": [
-            "no YouTube caption track was readable this run - yt-dlp is not installed in this environment and the watch pages carry no caption text - so no YouTube lecture is quoted; the GATE-oriented material is the Knowledge Gate platform's published English AI chapter summaries of Hindi-medium classes, which puts a translation two layers from the lecturer",
-            "neither part of the fundamental theorem of calculus is quoted from a source read this run: the OpenStax section 5.3 extract stopped before the statements, the MIT 18.01 transcript mirror that supplied a full lecture to an earlier topic answered HTTP 502 for lectures 18-20, and the NPTEL lectures carry no transcript; the card states both parts from the standard form and both are recomputed in scripts/validate.py, so nothing is unverified, but the card has no teaching source behind its statement",
-            "integration by parts has no readable GATE lecture: the Knowledge Gate by-parts lesson exists in the same module as the substitution lesson but its summary was not retrieved, so the card rests on OpenStax Volume 2 section 3.1 and on the two previous-year solutions alone",
-            "improper integrals and iterated (multiple) integrals are taught by no readable source this run: the Paul's section 7.8 page returned an empty body, so the convergence rules rest on the standard p-test, and the order-of-integration statements rest on the standard treatment, with every value recomputed",
-            "four of the thirteen cards carry no previous-year question of their own - the antiderivative, the properties, the area between two curves and the average value - because no verified CSE question in this topic is decided by them alone; no CSE question on the average value or on the area between two curves was found at all",
-            "every PYQ in the topic is SOURCED against a GATE Overflow accepted answer rather than key-verified against an official key, and no marks field is recorded on any of the ten, because no official paper or key was fetched this run; two records (2014 Set 3 Q.47 and 2014 Set 3 Q.6) carry an independent corroboration of the official option from another site's key page",
-            "the GATE Overflow calculus listing and the Knowledge Gate integration module both name further previous-year questions that were not individually read this run, including GATE CS 2000 and the 2007, 2008, 2016 and 2018 calculus questions; GATE CSE 2011 Q.31 is excluded because its option letter is in conflict between the question page and its accepted answer, and GATE CSE 2014 Set 3 Q.46 is excluded because it is a numerical-methods question"
-          ]
-        }
-      ]
+     "slug": "sets-relations-functions",
+     "name": "Sets, Relations, Functions",
+     "status": "partial",
+     "coverage_note": "11 cards, one per subtopic (sets and cardinality, power sets, set identities, Cartesian product, countability, relation representation and counting, relation properties, transitivity and closure, equivalence relations and partitions, function counting, composition and inverse), 7 verified PYQs and 1 p5.js lesson. Partial because three gaps remain, named below.",
+     "runs": [
+      {
+       "date": "2026-10-28",
+       "sources": [
+        "7djvJetFiSY",
+        "tyDKR4FG3Yw",
+        "PpA4LWPh40M",
+        "Z9khyLCt2-I"
+       ],
+       "playlists": [
+        "PLIPZ2_p3RNHjHnhdkPWFAlcizVQJ8w4TX"
+       ],
+       "cards": 11,
+       "pyqs": 7,
+       "note": "Sources chosen on merit: one IIT/NPTEL-style lecture for set identities, Cartesian product and relation properties (full transcript); two TrevTutor lectures for set basics and for injective/surjective/bijective functions (full transcripts); the GO Classes Set Theory playlist for GATE question patterns (opening readable only)."
+      }
+     ],
+     "gaps": [
+      "no verified GATE CSE previous-year question exists in this topic for countability of infinite sets; GATE tests countability inside Theory of Computation questions (for example GATE CSE 2019 Q.34 on recursively enumerable languages), so that question is left for the Theory of Computation run",
+      "relation closures (reflexive, symmetric, transitive closure and Warshall) are taught from Rosen ch. 9.4 only - no lecture transcript for closures was readable",
+      "the GO Classes Set Theory PYQ lecture used here (Relations - GATE PYQs Part 2) was readable only in its opening, so its later question types are not recorded"
+     ]
     },
     {
-      "slug": "probability-and-statistics",
-      "name": "Probability and Statistics",
-      "topics": [
-        {
-          "slug": "random-variables-and-distributions",
-          "name": "Random Variables and Distributions",
-          "status": "partial",
-          "coverage_note": "12 subtopics, 12 cards (the random variable as a function, the distribution and the CDF, normalising a density and reading an interval, expectation and linearity, variance and standard deviation, the binomial, the Poisson, the exponential, the continuous uniform, the normal with standardisation, choosing the distribution a word problem describes, and sums of independent variables), 10 verified PYQs and 1 p5.js lesson. Partial because eight gaps remain, named below - above all that no video transcript and no official answer key could be read this run.",
-          "runs": [
-            {
-              "date": "2026-10-29",
-              "sources": [
-                "nptel-111105090-lec13",
-                "nptel-111105090-lec15",
-                "nptel-111105090-lec19",
-                "nptel-111105090-lec20",
-                "nptel-111105090-lec21",
-                "nptel-111105090-lec22",
-                "nptel-111105090-lec24",
-                "nptel-111105090-lec25",
-                "nptel-111105090-lec29",
-                "nptel-111105090-index",
-                "nptel-111102111-lec30",
-                "gateoverflow-probability-notes",
-                "openstax-introductory-statistics-5-3",
-                "openstax-introductory-statistics-5-2",
-                "codingmarble-hindi-probability-distributions",
-                "cbse-applied-maths-ch4-probability-distributions",
-                "cowan-poisson-note",
-                "knowledgegate-2019-uniform-pyq"
-              ],
-              "cards": 12,
-              "pyqs": 10,
-              "lesson": "probability-and-statistics/random-variables-and-distributions/pmf-cdf-and-the-balance-point",
-              "note": "Sources chosen on merit across two languages and two NPTEL courses: nine lecture transcripts of NPTEL Probability and Statistics (IIT Kharagpur, Prof. Somesh Kumar, English, each read from its opening to the point named in sources.json) for the definition of a random variable, the PMF/PDF/CDF chain, the binomial and its hypergeometric boundary, the Poisson derivation with the rate rescaled to the window, the uniform mean and variance by integration, the exponential and its memorylessness, and the normal with standardisation; one lecture of the IIT Delhi course by Prof. Dharmaraja (English) for the reproductive property, deliberately from a second course; the GATE Overflow probability notes (English, read in part) for the GATE pitfall list; two OpenStax sections (English) to corroborate the uniform and exponential formulas independently of NPTEL; the CBSE Applied Mathematics chapter 4 (English) for the four Bernoulli-trial conditions; Glen Cowan's Poisson note (English) for the mean-equals-variance derivation; one Hindi page on probability distributions (translated) for three of the trap alerts and the balance-point reading of E(X); and the Knowledge Gate walkthrough of the 2019 question (English) as an independent corroboration of 0.8. Rejected with reasons in sources.json: every YouTube lecture (the one watch page fetched returned an empty body), the NPTEL moments lectures 16-18 (not fetched), the GATE DA, GATE BT and GATE Mechanical distribution questions (wrong paper), four CSE questions that belong to the next two topics, MIT OCW 18.05 and 6.041SC (not fetched), the GateIQ and ExamSIDE listings (indexes only) and the GO Classes DPP set (practice, not PYQs)."
-            }
-          ],
-          "gaps": [
-            "no video transcript was readable this run: the one YouTube watch page fetched returned an empty body to the fetch service and no caption text could be retrieved, so no card quotes or timestamps a lecture and videoRefs is empty on every card; the readable teaching is NPTEL transcripts served as PDFs, read from their openings only",
-            "no official GATE paper or answer key was fetched, so every one of the ten PYQs is SOURCED against a GATE Overflow accepted answer rather than key-verified, and no marks field is recorded on any of them; question references follow the GATE Overflow numbering",
-            "the only non-English source is a Hindi web page on probability distributions, read in part and marked translated on the three cards that use it; no Hindi, Tamil, Telugu or Bengali lecture could be read, so no card is translated from a lecture",
-            "GATE Overflow itself refused direct requests from this sandbox (403 on CONNECT, then 502), so every GATE Overflow page cited here was read through the search service's extract, that is in part rather than in full",
-            "the distribution of a function of a random variable (Y = g(X), min and max of independent variables, the Jacobian method) is taught by NPTEL lectures 33-34 and 43, none of which was fetched, so the topic has no card for it; GATE CSE 2017 Set 1 Q.37, the median of max(X, 0), is the one CSE question that would have used it and it is left for the mean-median-mode run",
-            "the discrete uniform distribution on {1, ..., N} appears only as a contrast inside the continuous-uniform card, because the syllabus line names 'uniform' once and every verified CSE uniform question is continuous; a later run should decide whether the discrete case deserves its own card",
-            "no verified GATE CSE question was found for the sums-of-independent-variables card or for the choosing-the-distribution card, which is why both carry no PYQ (one is P3, one is P2 and names the ten questions as its evidence); the reproductive property is standard but untested in the CSE papers read this run",
-            "the GATE Overflow probability subject page lists further distribution questions that were not individually read or recomputed, including 2014 Set 1 and Set 2 Q.48 (normal), 2011 Q.33 and Q.34, 2021 Set 2 Q.29 and Q.33, 2023 Q.43, 2024 Set 1 Q.53 and 2025 Set 2 Q.54 and Q.55; only the ten recorded PYQs were verified"
-          ]
-        },
-        {
-          "slug": "mean-median-mode-standard-deviation",
-          "name": "Mean, Median, Mode and Standard Deviation",
-          "status": "partial",
-          "coverage_note": "12 subtopics, 12 cards (the arithmetic mean and the weighted and grouped means, the median and its position, the mode and multimodality, how the three sit together under skew with the empirical relation, the grouped-table formulas, the variance and standard deviation of a data set with both divisors, the shift and scale identities, the two deviation minimisations, the median and mode of a random variable, the standard deviation of a binomial and a Poisson count, one changed observation and the combination of two groups, and choosing the summary with its units), 5 verified PYQs and 1 p5.js lesson. Partial because eleven gaps remain, named below - above all that no YouTube caption track was readable and that seven of the twelve cards carry no previous-year question of their own.",
-          "runs": [
-            {
-              "date": "2026-10-30",
-              "sources": [
-                "iaeacademy-descriptive-statistics-formulas",
-                "iit-roorkee-lec4-central-tendency-and-dispersion",
-                "nptel-forest-biometry-lec4",
-                "openstax-introductory-statistics-2-6-and-2-7",
-                "ncert-class-11-chapter-13-hindi",
-                "tamil-mean-median-mode-continuous",
-                "gateoverflow-go-pdfs-volume-1",
-                "gateoverflow-probability-statistics-notes"
-              ],
-              "cards": 12,
-              "pyqs": 5,
-              "lesson": "probability-and-statistics/mean-median-mode-standard-deviation/mean-median-and-spread",
-              "note": "Sources chosen on merit across three languages: a GATE-oriented descriptive-statistics formula sheet (English, read in full through the search service's extract) for the grouped median and mode, both deviation minimisations and the combined variance; the IIT Roorkee Lecture 4 transcript (English, read through a transcript page) for the teaching order, the weighted mean, the skew-based choice of centre and the two reasons for squaring; the NPTEL Forest Biometry Lecture 4 transcript (English, read in part) for the same data set analysed by all three summaries and for the empirical relation; OpenStax Introductory Statistics 2e sections 2.6 and 2.7 (English, read in part) for the skew direction and the two divisors; a Hindi summary of the NCERT class 11 statistics chapter (translated) for why dispersion is needed at all; a Tamil lecture on grouped data (translated) for one fully recomputed worked table; and the GATE Overflow Volume 1 index for the question numbering. Rejected with reasons in sources.json: the Unacademy Hindi lesson on exactly this topic (paywalled), the NPTEL IIT Kharagpur probability course (403 on every transcript URL), a Khan Academy Hindi lesson (client challenge), a Knowledge Gate AI grouped-data asset (snippet only), the GATE CSE 2012 Q.64 General Aptitude question, ISRO CSE 2014 Q.74, the GATE DA and DS&AI statistics questions, GATE CSE 2024 Set 2 Q.8 (a dice question, not a standard deviation one), GATE CSE 2011 Q.18 (the previous topic's variance card), MIT OCW 18.05 and the EduRev course mirror."
-            }
-          ],
-          "gaps": [
-            "no YouTube caption track was readable this run: every watch page fetched carried no captionTracks entry, so both lectures used were read through third-party transcript pages, no card quotes or timestamps a lecturer's sentence, and videoRefs is empty on all twelve cards",
-            "the IIT Roorkee Lecture 4 transcript page served only its opening through the weighted-average example, so its later half (grouped median and mode, percentiles, quartiles, mean absolute deviation, variance) is recorded from the search service's longer extract of the same transcript; the source is PARTIAL, not read end to end",
-            "every digimat NPTEL transcript URL for the IIT Kharagpur Probability and Statistics course (111105090) - the course that supplied nine lectures to the previous topic - answered 403 to a direct request from the sandbox this run, so its descriptive-statistics lectures were not read and nothing rests on them; a later run should retry",
-            "seven of the twelve cards carry no previous-year question of their own (the median, the mode, the grouped table, the deviation identities, the standard deviation of a data set, one changed observation, and the choice of summary): no verified GATE CSE question in this topic is decided by them alone, and each card says so rather than borrowing a question that does not test it",
-            "GATE CSE 2012 Q.64 (the P, Q, R, S statements on adding 7 to and doubling every entry of a list) is the closest CSE-paper test of the shift-and-scale identities, but it sits in that paper's General Aptitude section (questions 56 to 65), so it is excluded from the PYQ set by the repository's CSE-only rule and appears only as an original PYQ-style question",
-            "ISRO CSE 2014 Q.74 (median from mode 15 and mean 30) is a genuine mean-median-mode question but not a GATE one, although at least one site labels it 'GATE CSE 2014 Q.31'; it is excluded and the mislabelling is recorded rather than repeated",
-            "no marks field is recorded on any of the five PYQs: the official papers and answer keys were not fetched, so every reference follows the paper numbering as reproduced by the sources, with GATE Overflow's numbering stated where it differs (GATE CSE 2024 Set 2 Q.44 is Q.34 on GATE Overflow, and GATE CSE 2017 Set 1 Q.19 is numbered 37 on a duplicate GATE Overflow page and 30 on one solution site)",
-            "all five PYQs are SOURCED against GATE Overflow accepted answers rather than key-verified against an official answer key; two of them (2014 Set 2 Q.2 and 2021 Set 2 Q.22) have an independent worked-solution page recording the official answer and its accepted range, and the other three rest on the GATE Overflow accepted answers alone",
-            "GATE CSE 2024 Set 2 Q.44 is a statement about means of random variables and therefore sits on the boundary between this topic and Random Variables; it is recorded once, here, and deliberately not duplicated on the earlier topic's mean or expectation cards",
-            "quartiles and percentiles, the mean absolute deviation, the harmonic and geometric means, and the coefficient of variation beyond one contrast card are outside the four words of the syllabus line and have no card of their own; the IIT Roorkee lecture taught them but they are not examined by any verified CSE question found this run",
-            "the grouped-data formulas rest on one GATE-oriented formula sheet and one Tamil lecture, with no readable English lecture teaching them; the interpolation is an approximation and the cards say so, but no source read this run discussed when the approximation fails or how large the error can be"
-          ]
-        },
-        {
-          "slug": "conditional-probability-and-bayes",
-          "name": "Conditional Probability and Bayes Theorem",
-          "status": "partial",
-          "coverage_note": "12 subtopics, 12 cards (the definition and the restricted space, the conditional probability as a probability measure, the multiplication rule and sequential draws, independence and the product test, independence against mutual exclusivity, pairwise and mutual independence, conditional independence, the total probability theorem, Bayes' theorem, the tree and the odds form, the base rate and the false-positive count, and conditioning on a count or on shared trials), 10 verified PYQs and 1 p5.js lesson. Partial because six gaps remain, named below.",
-          "runs": [
-            {
-              "date": "2026-10-30",
-              "sources": [
-                "nptel-iit-kharagpur-lec9-conditional-probability",
-                "nptel-iit-kharagpur-lec10-independence",
-                "statlect-conditional-probability",
-                "statlect-bayes-rule",
-                "gateoverflow-probability-notes",
-                "knowledgegate-ai-gate-probability-page",
-                "openstax-introductory-statistics-3-3",
-                "ncert-hindi-class-12-chapter-13"
-              ],
-              "cards": 12,
-              "pyqs": 10,
-              "lesson": "probability-and-statistics/conditional-probability-and-bayes/bayes-tree-and-the-base-rate",
-              "note": "Sources chosen on merit across two languages, with two lectures readable in the lecturer's own words: NPTEL IIT Kharagpur lectures 9 and 10 (English, read in part - the same course that answered 403 last run) for the definition, the three-axiom proof, the multiplication rule, total probability, Bayes and independence; StatLect's conditional probability and Bayes' rule pages (English, read in full) for the two proofs, the division-by-zero caveat, the terminology and the base-rate robot example; the GATE Overflow probability notes (English) for the GATE framing and the pitfall list; the Knowledge Gate AI GATE probability page (English) for the two-dice and machine A/B worked examples; OpenStax section 3.3 (English) for the two rules and the contingency-table independence test; and the Hindi NCERT class 12 chapter 13 summary (translated) for the independence-against-exclusivity lemma and the HIV-test application. Rejected with reasons in sources.json: three paywalled Hindi Unacademy lessons, the GO Classes lecture sequence and its DPP bank, MIT OCW 18.05, the GATE IT 2006 rain question (an IT paper question), GATE CSE 2026 Set 1 Q.1 (unverified this run), the GATE DA conditional-probability PYQs, the PYQLabs index and five answer aggregators that disagree on numbering. No YouTube caption track was readable, so no card quotes a video."
-            }
-          ],
-          "gaps": [
-            "no YouTube caption track was readable this run, so no card quotes or timestamps a lecture and videoRefs is empty on all twelve cards; the GO Classes Probability lectures 2A-2C, 3A-3D and 4A-4C, which match this topic lesson for lesson, are recorded as structure only",
-            "the three Hindi Unacademy lessons that match this topic most closely (Dileep Kumar Verma's 'Conditional Probability', Aman Raj's lesson with GATE PYQs, and Vinod Singh Jadon's multiplication-law lesson) are behind a subscription, so the only non-English source used is the Hindi NCERT summary and no GATE-level Hindi lecture was read",
-            "every PYQ in the topic is SOURCED against a GATE Overflow accepted answer rather than key-verified against an official key, and no marks field is recorded on any of the ten, because no official paper or key was fetched this run; the 2026 Set 2 question was seen in the official IIT Guwahati CS2 paper as Q.63 but its key was not fetched",
-            "GATE CSE 2026 Set 1 Q.1 (the urn that gains a ball of the colour drawn) is a sequential probability question in a CSE paper that would fit the multiplication card, but its answer was not verified and its page was not read, so it is not in the PYQ set",
-            "GATE IT 2006 Q.1, the rain and noon-temperature total-probability question, is the cleanest question of its shape after 2016 Set 2 Q.5 and belongs to the IT paper, so it is used only as an original PYQ-style question and is not in the PYQ set",
-            "four cards carry no previous-year question of their own - independence against mutual exclusivity, pairwise and mutual independence, conditional independence, and the base rate - because no verified CSE question in this topic is decided by them alone; they rest on the standard references and on recomputation",
-            "GATE Overflow's subject page lists further probability questions that were not individually read or recomputed, including 2018 Q.15, 2019 Q.20, Q.22 and Q.47, 2020 Q.45, 2021 Set 1 Q.18 and Q.35, 2021 Set 2 Q.22, Q.29 and Q.33, and 2025 Set 2 Q.54 and Q.55; only the ten recorded PYQs were verified",
-            "the odds form of the update, the likelihood ratio and the base-rate fallacy rest on StatLect and on recomputation alone, because no readable GATE-oriented source this run taught the odds form and no CSE question in the topic uses it"
-          ]
-        }
-      ]
+     "slug": "partial-orders-and-lattices",
+     "name": "Partial Orders and Lattices",
+     "status": "partial",
+     "coverage_note": "11 subtopics, 12 cards (poset axioms, Hasse diagram and covering, chains/antichains and total orders, minimal/maximal/least/greatest, bounds and LUB/GLB, the lattice test, the lattice laws, sublattices, bounded and complemented lattices, distributive lattices, Boolean and divisor lattices, complete lattices), 6 verified PYQs and 1 p5.js lesson. Partial because three gaps remain, named below.",
+     "runs": [
+      {
+       "date": "2026-10-28",
+       "sources": [
+        "lec40-iitm-lattices",
+        "PLwdnzlV3ogoVxVxCTlI45pDVM1aoYoMHf",
+        "3chjsP_NNnY",
+        "WyV6YtqCvGE"
+       ],
+       "cards": 12,
+       "pyqs": 6,
+       "lesson": "discrete-mathematics/partial-orders-and-lattices/poset-to-lattice-pair-test",
+       "note": "Sources chosen on merit across three channels: the IIT Madras Lecture 40 transcript (English, read in full) for the lattice laws, the M3 and pentagon counterexamples, complements and the antichain decomposition; NPTEL IIT Guwahati Lec 21-23 for the poset-to-lattice sequence and the divisor example (captions unavailable); GO Classes for the GATE question patterns (1993, 1996, 2003 readable as an auto-caption excerpt; 2017, 2024, 1997 video captions unavailable). A 16-video Hindi playlist by Sandeep Kumar Gour, the NPTEL IIT Roorkee 2015 chapters and the Neso Academy sequence were considered and rejected, with reasons in sources.json. No card is translated: no readable source was non-English."
+      }
+     ],
+     "gaps": [
+      "video captions could not be retrieved in this run (YouTube caption endpoints answered LOGIN_REQUIRED and the third-party transcript service was blocked), so four chosen video sources are recorded as structure-only and no card quotes or timestamps them; Lecture 40 exists as a published transcript PDF and was read in full",
+      "three Hasse-diagram PYQs are figure-only in the papers and could not be recomputed from text, so they are not in the PYQ set: GATE CSE 1997 Q.3.3 (complements of an element, quoted from GATE Overflow as three), GATE CSE 2005 Q.9 (lattice but not distributive) and GATE CSE 2015 Set 1 Q.34 (probability that the distributive law holds in a five-element lattice)",
+      "Birkhoff's forbidden-sublattice characterisation (distributive iff no M3 or N5 sublattice) is stated from the standard reference only - it is not recomputed by enumeration in scripts/validate.py, which checks only the one direction on the two counterexamples"
+     ]
     },
     {
-      "slug": "digital-logic",
-      "name": "Digital Logic",
-      "topics": [
-        {
-          "slug": "number-systems-and-representation",
-          "name": "Number Systems and Number Representation",
-          "status": "not_started",
-          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
-          "runs": [],
-          "gaps": []
-        },
-        {
-          "slug": "boolean-algebra-and-minimization",
-          "name": "Boolean Algebra and Minimization",
-          "status": "not_started",
-          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
-          "runs": [],
-          "gaps": []
-        },
-        {
-          "slug": "combinational-circuits",
-          "name": "Combinational Circuits",
-          "status": "not_started",
-          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
-          "runs": [],
-          "gaps": []
-        },
-        {
-          "slug": "sequential-circuits",
-          "name": "Sequential Circuits",
-          "status": "not_started",
-          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
-          "runs": [],
-          "gaps": []
-        },
-        {
-          "slug": "computer-arithmetic",
-          "name": "Computer Arithmetic: Fixed and Floating Point",
-          "status": "not_started",
-          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
-          "runs": [],
-          "gaps": []
-        }
-      ]
+     "slug": "monoids-and-groups",
+     "name": "Monoids and Groups",
+     "status": "partial",
+     "coverage_note": "11 subtopics, 11 cards (the algebraic-structure ladder, monoids and the identity, group axioms and the reversal rule, order of a group and of an element, abelian groups and the two commutativity tests, subgroups and the one-step test, cyclic groups and generators, cosets and Lagrange's theorem, the small cast of groups GATE reuses, group homomorphisms and the kernel, permutation groups), 13 verified PYQs and 1 p5.js lesson. Partial because four gaps remain, named below.",
+     "runs": [
+      {
+       "date": "2026-10-28",
+       "sources": [
+        "gfg-group-theory-notes-gate",
+        "pradeep-giri-algebraic-structure-hindi",
+        "go-classes-group-theory-module-7"
+       ],
+       "cards": 11,
+       "pyqs": 13,
+       "lesson": "discrete-mathematics/monoids-and-groups/cyclic-subgroup-and-lagrange",
+       "note": "Sources chosen on merit across two languages: the GeeksforGeeks GATE group-theory notes (English) for the ladder, the group properties, the subgroup tests and Lagrange's theorem, because it was the only GATE-oriented written source whose full text could be read this run; the Pradeep Giri 'Algebraic Structure' lecture (Hindi auto-captions, read in part) for the rung-by-rung construction, the only non-English source used and the only translated material in the topic; the GO Classes Module 7 lecture list (structure only) to confirm the subtopic enumeration is complete. The NPTEL IIT Madras 'Algebras' lectures 35-37, the NPTEL Introduction to Abstract Group Theory, the Knowledge Gate Hindi playlist, the Dr. Gajendra Purohit playlist and several GATE answer aggregators were considered and rejected, with reasons in sources.json."
+      }
+     ],
+     "gaps": [
+      "video captions could not be retrieved in this run (YouTube watch pages carried no caption tracks and the timedtext endpoint returned an empty body), so the GO Classes lecture sequence is recorded as structure-only and no card quotes or timestamps a lecture",
+      "the NPTEL IIT Madras 'Algebras' transcripts (lectures 35-37) - the same course that supplied the full-text Lecture 40 used for the previous topic - could not be fetched, because the host refused the request from the sandbox; no claim rests on them and a later run should retry",
+      "quotient groups, normal subgroups, Cauchy's and Sylow's theorems and group actions are outside the GATE line and are not covered at all; the homomorphism card is the only material beyond the two words 'Monoids, Groups'",
+      "GATE CSE 1999 Q.4 (the three-part descriptive question that proves Lagrange from cosets) is excluded because the repository's PYQ schema holds only MCQ, MSQ and NAT records; the cosets card covers the same content",
+      "only one non-English source was readable (Hindi auto-captions) and its contribution is the structure ladder alone; no Tamil, Telugu or Bengali group-theory lecture could be read this run"
+     ]
     },
     {
-      "slug": "computer-organization-and-architecture",
-      "name": "Computer Organization and Architecture",
-      "topics": [
-        {
-          "slug": "instruction-set-and-addressing-modes",
-          "name": "Instruction Set and Addressing Modes",
-          "status": "not_started",
-          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
-          "runs": [],
-          "gaps": []
-        },
-        {
-          "slug": "alu-design",
-          "name": "Design of the Arithmetic and Logic Unit",
-          "status": "not_started",
-          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
-          "runs": [],
-          "gaps": []
-        },
-        {
-          "slug": "control-unit-design",
-          "name": "Design of the Control Unit",
-          "status": "not_started",
-          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
-          "runs": [],
-          "gaps": []
-        },
-        {
-          "slug": "memory-hierarchy-and-cache",
-          "name": "Memory Interfacing, Hierarchy and Cache Mapping",
-          "status": "not_started",
-          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
-          "runs": [],
-          "gaps": []
-        },
-        {
-          "slug": "io-interface",
-          "name": "I/O Interface: Interrupt and DMA",
-          "status": "not_started",
-          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
-          "runs": [],
-          "gaps": []
-        },
-        {
-          "slug": "instruction-pipelining-and-hazards",
-          "name": "Instruction Pipelining and Pipeline Hazards",
-          "status": "not_started",
-          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
-          "runs": [],
-          "gaps": []
-        }
-      ]
+     "slug": "graphs",
+     "name": "Graphs: Connectivity, Matching, Colouring",
+     "status": "partial",
+     "coverage_note": "11 subtopics, 11 cards (graph vocabulary and the handshake lemma, paths/cycles/components and the n-k and C(n-k+1,2) bounds, cut vertices and bridges with both DFS rules, vertex and edge connectivity, Eulerian and Hamiltonian graphs, bipartite graphs and the odd-cycle criterion, matching maximal versus maximum with augmenting paths, Hall's marriage theorem, vertex cover/independent set/Koenig, chromatic number with greedy and Brooks bounds, chromatic polynomial), 9 verified PYQs and 1 p5.js lesson. Partial because five gaps remain, named below.",
+     "runs": [
+      {
+       "date": "2026-10-28",
+       "sources": [
+        "go-classroom-graph-theory-deck",
+        "go-graph-theory-subject-notes",
+        "nptel-iiitb-discrete-mathematics-graph-theory-44-52"
+       ],
+       "cards": 11,
+       "pyqs": 9,
+       "lesson": "discrete-mathematics/graphs/bipartite-matching-augmenting-path",
+       "note": "Sources chosen on merit: the GATE Overflow GO Classroom deck 'Graph Theory: Connectivity, Coloring, Matching' (English, read in part) because its title is the syllabus line and its pages were the only GATE-oriented graph text readable this run; the GATE Overflow subject notes (English, read in part) to confirm the subtopic enumeration against GATE's own question record; the NPTEL IIITB lectures 44-52 (English, structure only) to confirm the teaching order. Rejected with reasons in sources.json: the NPTEL 'Graph Theory' course by Soumen Maity (right scope, no readable transcript), GeeksforGeeks (host unreachable), Gate Vidyalay (snippet only), the Knowledge Gate AI colouring blog (a question dump), the answer aggregators (numbering disagreements) and every video in every language (YouTube consent wall, no caption tracks). No translated material appears: no non-English source was readable, so no card is marked as translated."
+      }
+     ],
+     "gaps": [
+      "no video source was readable this run - YouTube served a consent wall with no caption tracks for every video tried, so no English, Hindi, Tamil, Telugu or Bengali lecture supplied a single sentence and no card quotes or timestamps one",
+      "four PYQs of this topic are figure-only in the papers and are therefore not in the PYQ set: GATE CSE 2024 Set 2 Q.50 (chromatic number of a drawn graph), GATE CSE 2018 Q.18 (chromatic number of a drawn graph) and GATE CSE 1999 Q.1.15 (number of articulation points of a drawn graph); GATE CSE 2022 Q.40 is included but its isomorphism option rests on the paper's drawing, which is not re-derived here",
+      "planar graphs, Euler's formula for plane graphs, edge colouring and network flow beyond bipartite matching are outside the three words of this syllabus line and are not covered at all",
+      "GATE Overflow's subject page lists further graph-theory questions from 2010 to 2023 (for example 2012 Q.38, 2016 Set 2 Q.3, 2019 Q.38, 2020 Q.52, 2023 Q.45) that were not individually read or recomputed in this run; only the nine recorded PYQs were verified",
+      "the chromatic polynomial card rests on the standard references and on recomputation, because no verified GATE CSE previous-year question on the chromatic polynomial was found in this run",
+      "no marks field is recorded on any PYQ of this topic: the official papers were not fetched, so question numbers follow the GATE Overflow paper numbering and marks are left out rather than guessed"
+     ]
     },
     {
-      "slug": "programming-and-data-structures",
-      "name": "Programming and Data Structures",
-      "topics": [
-        {
-          "slug": "programming-in-c",
-          "name": "Programming in C",
-          "status": "not_started",
-          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
-          "runs": [],
-          "gaps": []
-        },
-        {
-          "slug": "recursion",
-          "name": "Recursion",
-          "status": "not_started",
-          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
-          "runs": [],
-          "gaps": []
-        },
-        {
-          "slug": "arrays-stacks-queues",
-          "name": "Arrays, Stacks and Queues",
-          "status": "not_started",
-          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
-          "runs": [],
-          "gaps": []
-        },
-        {
-          "slug": "linked-lists",
-          "name": "Linked Lists",
-          "status": "not_started",
-          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
-          "runs": [],
-          "gaps": []
-        },
-        {
-          "slug": "trees-and-binary-search-trees",
-          "name": "Trees and Binary Search Trees",
-          "status": "not_started",
-          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
-          "runs": [],
-          "gaps": []
-        },
-        {
-          "slug": "binary-heaps",
-          "name": "Binary Heaps",
-          "status": "not_started",
-          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
-          "runs": [],
-          "gaps": []
-        },
-        {
-          "slug": "graphs-data-structure",
-          "name": "Graphs as a Data Structure",
-          "status": "not_started",
-          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
-          "runs": [],
-          "gaps": []
-        }
-      ]
-    },
-    {
-      "slug": "algorithms",
-      "name": "Algorithms",
-      "topics": [
-        {
-          "slug": "searching-sorting-hashing",
-          "name": "Searching, Sorting and Hashing",
-          "status": "not_started",
-          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
-          "runs": [],
-          "gaps": []
-        },
-        {
-          "slug": "asymptotic-complexity",
-          "name": "Asymptotic Worst Case Time and Space Complexity",
-          "status": "not_started",
-          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
-          "runs": [],
-          "gaps": []
-        },
-        {
-          "slug": "greedy-algorithms",
-          "name": "Greedy Algorithms",
-          "status": "not_started",
-          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
-          "runs": [],
-          "gaps": []
-        },
-        {
-          "slug": "dynamic-programming",
-          "name": "Dynamic Programming",
-          "status": "not_started",
-          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
-          "runs": [],
-          "gaps": []
-        },
-        {
-          "slug": "divide-and-conquer",
-          "name": "Divide and Conquer",
-          "status": "not_started",
-          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
-          "runs": [],
-          "gaps": []
-        },
-        {
-          "slug": "graph-traversals",
-          "name": "Graph Traversals",
-          "status": "not_started",
-          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
-          "runs": [],
-          "gaps": []
-        },
-        {
-          "slug": "minimum-spanning-trees",
-          "name": "Minimum Spanning Trees",
-          "status": "not_started",
-          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
-          "runs": [],
-          "gaps": []
-        },
-        {
-          "slug": "shortest-paths",
-          "name": "Shortest Paths",
-          "status": "not_started",
-          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
-          "runs": [],
-          "gaps": []
-        }
-      ]
-    },
-    {
-      "slug": "theory-of-computation",
-      "name": "Theory of Computation",
-      "topics": [
-        {
-          "slug": "regular-expressions-and-finite-automata",
-          "name": "Regular Expressions and Finite Automata",
-          "status": "not_started",
-          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
-          "runs": [],
-          "gaps": []
-        },
-        {
-          "slug": "context-free-grammars-and-pda",
-          "name": "Context-Free Grammars and Push-Down Automata",
-          "status": "not_started",
-          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
-          "runs": [],
-          "gaps": []
-        },
-        {
-          "slug": "pumping-lemma",
-          "name": "Pumping Lemma",
-          "status": "not_started",
-          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
-          "runs": [],
-          "gaps": []
-        },
-        {
-          "slug": "turing-machines-and-undecidability",
-          "name": "Turing Machines and Undecidability",
-          "status": "not_started",
-          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
-          "runs": [],
-          "gaps": []
-        }
-      ]
-    },
-    {
-      "slug": "compiler-design",
-      "name": "Compiler Design",
-      "topics": [
-        {
-          "slug": "lexical-analysis",
-          "name": "Lexical Analysis",
-          "status": "not_started",
-          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
-          "runs": [],
-          "gaps": []
-        },
-        {
-          "slug": "parsing",
-          "name": "Parsing",
-          "status": "not_started",
-          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
-          "runs": [],
-          "gaps": []
-        },
-        {
-          "slug": "syntax-directed-translation",
-          "name": "Syntax-Directed Translation",
-          "status": "not_started",
-          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
-          "runs": [],
-          "gaps": []
-        },
-        {
-          "slug": "runtime-environments",
-          "name": "Runtime Environments",
-          "status": "not_started",
-          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
-          "runs": [],
-          "gaps": []
-        },
-        {
-          "slug": "intermediate-code-generation",
-          "name": "Intermediate Code Generation",
-          "status": "not_started",
-          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
-          "runs": [],
-          "gaps": []
-        },
-        {
-          "slug": "local-optimisation",
-          "name": "Local Optimisation",
-          "status": "not_started",
-          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
-          "runs": [],
-          "gaps": []
-        },
-        {
-          "slug": "data-flow-analysis",
-          "name": "Data Flow Analyses",
-          "status": "not_started",
-          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
-          "runs": [],
-          "gaps": []
-        }
-      ]
-    },
-    {
-      "slug": "operating-system",
-      "name": "Operating System",
-      "topics": [
-        {
-          "slug": "processes-and-threads",
-          "name": "System Calls, Processes and Threads",
-          "status": "not_started",
-          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
-          "runs": [],
-          "gaps": []
-        },
-        {
-          "slug": "ipc-and-synchronization",
-          "name": "Inter-Process Communication and Synchronization",
-          "status": "not_started",
-          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
-          "runs": [],
-          "gaps": []
-        },
-        {
-          "slug": "deadlock",
-          "name": "Deadlock",
-          "status": "not_started",
-          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
-          "runs": [],
-          "gaps": []
-        },
-        {
-          "slug": "cpu-and-io-scheduling",
-          "name": "CPU and I/O Scheduling",
-          "status": "not_started",
-          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
-          "runs": [],
-          "gaps": []
-        },
-        {
-          "slug": "memory-management-and-virtual-memory",
-          "name": "Memory Management and Virtual Memory",
-          "status": "not_started",
-          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
-          "runs": [],
-          "gaps": []
-        },
-        {
-          "slug": "file-systems",
-          "name": "File Systems",
-          "status": "not_started",
-          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
-          "runs": [],
-          "gaps": []
-        }
-      ]
-    },
-    {
-      "slug": "databases",
-      "name": "Databases",
-      "topics": [
-        {
-          "slug": "er-model",
-          "name": "ER Model",
-          "status": "not_started",
-          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
-          "runs": [],
-          "gaps": []
-        },
-        {
-          "slug": "relational-algebra-and-tuple-calculus",
-          "name": "Relational Model: Algebra and Tuple Calculus",
-          "status": "not_started",
-          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
-          "runs": [],
-          "gaps": []
-        },
-        {
-          "slug": "sql",
-          "name": "SQL",
-          "status": "not_started",
-          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
-          "runs": [],
-          "gaps": []
-        },
-        {
-          "slug": "integrity-constraints-and-normal-forms",
-          "name": "Integrity Constraints and Normal Forms",
-          "status": "not_started",
-          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
-          "runs": [],
-          "gaps": []
-        },
-        {
-          "slug": "file-organization-and-indexing",
-          "name": "File Organization and Indexing",
-          "status": "not_started",
-          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
-          "runs": [],
-          "gaps": []
-        },
-        {
-          "slug": "transactions-and-concurrency-control",
-          "name": "Transactions and Concurrency Control",
-          "status": "not_started",
-          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
-          "runs": [],
-          "gaps": []
-        }
-      ]
-    },
-    {
-      "slug": "computer-networks",
-      "name": "Computer Networks",
-      "topics": [
-        {
-          "slug": "principles-of-layering",
-          "name": "Principles of Layering",
-          "status": "not_started",
-          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
-          "runs": [],
-          "gaps": []
-        },
-        {
-          "slug": "switching-and-performance-metrics",
-          "name": "Switching and Performance Metrics",
-          "status": "not_started",
-          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
-          "runs": [],
-          "gaps": []
-        },
-        {
-          "slug": "data-link-layer",
-          "name": "Data Link Layer: Error Detection and MAC",
-          "status": "not_started",
-          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
-          "runs": [],
-          "gaps": []
-        },
-        {
-          "slug": "routing-algorithms",
-          "name": "Distance Vector and Link State Routing",
-          "status": "not_started",
-          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
-          "runs": [],
-          "gaps": []
-        },
-        {
-          "slug": "ipv4-addressing",
-          "name": "IPv4: Fragmentation, CIDR and NAT",
-          "status": "not_started",
-          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
-          "runs": [],
-          "gaps": []
-        },
-        {
-          "slug": "tcp-and-congestion-control",
-          "name": "TCP: Flow Control and Congestion Control",
-          "status": "not_started",
-          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
-          "runs": [],
-          "gaps": []
-        },
-        {
-          "slug": "application-layer-protocols",
-          "name": "Application Layer Protocols: DNS and HTTP",
-          "status": "not_started",
-          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
-          "runs": [],
-          "gaps": []
-        }
-      ]
+     "slug": "combinatorics",
+     "name": "Combinatorics: Counting, Recurrence Relations, Generating Functions",
+     "status": "partial",
+     "coverage_note": "Built in runs 1 and 2 from one playlist only (GO Classes for GATE CS, Combinatorics). The run reports record partial transcripts for the long lectures. The subtopic list has not been re-audited against the GATE 2027 line since.",
+     "runs": [
+      {
+       "date": null,
+       "sources": [
+        "PLIPZ2_p3RNHjlC6eceG_vWSu-oA6Dc6aX"
+       ],
+       "cards": 15,
+       "pyqs": 14,
+       "note": "date not recorded in docs/RUN_REPORT.md"
+      }
+     ],
+     "gaps": [
+      "no re-audit of the syllabus subtopics since the topic was built from a single playlist",
+      "long lecture transcripts were readable only in their opening minutes"
+     ]
     }
-  ]
+   ]
+  },
+  {
+   "slug": "linear-algebra",
+   "name": "Linear Algebra",
+   "topics": [
+    {
+     "slug": "matrices-and-determinants",
+     "name": "Matrices and Determinants",
+     "status": "partial",
+     "coverage_note": "11 subtopics, 11 cards (matrix vocabulary and types, addition and scalar multiplication, the multiplication conformability rule and non-commutativity, transpose with symmetric and skew-symmetric matrices, powers with the idempotent/involutory/nilpotent/orthogonal identities, trace and the cyclic law, the determinant by minors and cofactors, the row and column operation laws, adjoint and inverse, rank with its bounds, and the singular-matrix equivalence list), 13 verified PYQs and 1 p5.js lesson. Partial because seven gaps remain, named below.",
+     "runs": [
+      {
+       "date": "2026-10-28",
+       "sources": [
+        "iitm-larp-2018-linear-algebra-slides",
+        "gateoverflow-linear-algebra-notes",
+        "geeksforgeeks-matrices-determinants-gate-notes",
+        "ashish-singh-matrices-determinants-hindi-oneshot",
+        "nptel-iit-roorkee-numerical-linear-algebra"
+       ],
+       "cards": 11,
+       "pyqs": 13,
+       "lesson": "linear-algebra/matrices-and-determinants/determinant-as-area-scaling",
+       "note": "Sources chosen on merit across two languages: five full-text IIT Madras CS6015 slide decks (English, every page carrying a text layer) for the definitions, the multiplication and transpose rules, the elimination pivot count, the inverse and the determinant as a signed volume; the GATE Overflow linear algebra notes (English, read in part) for the GATE property and pitfall lists; the GeeksforGeeks GATE notes (English, read in part) for the adjoint, inverse, trace and rank property lists; one Hindi Class-12 one-shot (read only in its opening, translated, marked as translated) for the elementary vocabulary and operation laws; and the NPTEL IIT Roorkee Numerical Linear Algebra lecture list (structure only) to confirm the subtopic enumeration. The only non-English source used is Hindi."
+      }
+     ],
+     "gaps": [
+      "no GATE-oriented lecture was readable: every English GATE linear-algebra video page tried carried no caption track, so the teaching rests on the IIT Madras slide decks and two GATE revision texts, and no card quotes or timestamps a GATE lecture",
+      "the adjoint and inverse card carries no verified PYQ: the only GATE CSE inverse question found in this topic, 1994 Q.3.12 ('Find the inverse of the matrix ...'), is descriptive, and the repository's PYQ schema holds only MCQ, MSQ and NAT records",
+      "no marks field is recorded on any PYQ of this topic: the official papers and keys were not fetched, so every question reference follows the numbering on the GATE Overflow question page and marks are left out rather than guessed",
+      "the one non-English source is a Class-12 Hindi one-shot read only in its opening, and it contributes only the elementary vocabulary, the matrix types and the operation laws; no GATE-level Hindi, Tamil, Telugu or Bengali lecture could be read this run",
+      "three full-text GATE note sets that would have deepened the topic could not be fetched from the sandbox (Ankur Gupta's GATE engineering-mathematics PDF, the Vidyalankar GATE mathematics notes, and the NPTEL IIT Kanpur Linear Algebra book, whose host returned 404); nothing rests on them and a later run should retry",
+      "every PYQ in the topic is SOURCED against a GATE Overflow accepted answer rather than key-verified against an official answer key; only GATE CSE 2022 Q.10 has an independent corroboration of the official option, from the GateAI PYQ page and the GeeksforGeeks answer key",
+      "the GATE Overflow subject page lists further linear algebra questions from 2010 to 2019 that were not individually read or recomputed; only the thirteen recorded PYQs were verified"
+     ]
+    },
+    {
+     "slug": "system-of-linear-equations",
+     "name": "System of Linear Equations",
+     "status": "partial",
+     "coverage_note": "11 subtopics, 11 cards (matrix form with the row and column pictures, the consistency test by rank, the square determinant test, free variables and the shape of the solution set, homogeneous systems, Gaussian elimination with back substitution, parameter-dependent systems, overdetermined and underdetermined systems, the inverse and Cramer's rule, the geometry of the three cases, and telling no solution apart from infinitely many), 12 verified PYQs and 1 p5.js lesson. Partial because nine gaps remain, named below.",
+     "runs": [
+      {
+       "date": "2026-10-29",
+       "sources": [
+        "gateoverflow-strang-notes-lectures-1-10",
+        "sathee-iitk-consistency-and-solution",
+        "vidyalankar-gate-engineering-mathematics-1-4",
+        "careercraftlabs-hindi-linear-systems",
+        "ohio-math3200-lecture-27",
+        "go-classes-engineering-mathematics-linear-algebra"
+       ],
+       "cards": 11,
+       "pyqs": 12,
+       "lesson": "linear-algebra/system-of-linear-equations/row-and-column-picture",
+       "note": "Sources chosen on merit across two languages: the GATE Overflow notes on Strang's first ten lectures (English, read in part) for the column picture and the particular-plus-null-space decomposition; SATHEE IIT Kanpur (English, read in part) for the rank criterion and the plane-arrangement table; the Vidyalankar GATE notes section 1.4 (English, read in part) for the consistency cases, Cramer's rule and the homogeneous condition; an Ohio University lecture (English, read in part) for the rank theorem and the rank(A) = m corollary; one Hindi chapter (translated, read in part) for the three-case table and the zero-determinant warning; and the GO Classes lecture list (structure only) to confirm the subtopic enumeration. No video transcript could be retrieved this run, so no card quotes or timestamps a lecture. Rejected with reasons in sources.json: the NPTEL IIT Roorkee Matrix Analysis lectures 4-5, the NPTEL IIT Kharagpur lectures 36-38, MIT OCW 18.06 Lecture 8, two Hindi Unacademy lessons, the Knowledge Gate Hindi live class (only an English AI summary is readable), a Testbook Hindi question bank drawn from other branches, and a GATE Overflow discussion thread that states one rule wrongly."
+      }
+     ],
+     "gaps": [
+      "no video transcript could be retrieved this run: every YouTube watch page tried carried no caption track and the transcript service was refused by the egress proxy, so the GO Classes linear algebra lecture sequence (3B-3D, 5D-5E, 6A-6C) is recorded as structure-only and no card quotes or timestamps a lecture",
+      "the two best-scoped lecture series found, the NPTEL IIT Roorkee 'Matrix Analysis with Applications' lectures 4-5 and the NPTEL IIT Kharagpur 'Engineering Mathematics I' lectures 36-38, answered 404 on every transcript path tried from the sandbox; nothing rests on them and a later run should retry",
+      "two chosen English sources (Vidyalankar, Ohio University) were readable only through the search service extract because their PDFs returned 502 from the sandbox, so their contribution is limited to the sections quoted and neither was read in full",
+      "MIT OCW 18.06 Lecture 8, the canonical treatment of the complete solution, returned an empty body to the fetch service; its content reached the topic only indirectly through the GATE Overflow notes that summarise the same lectures",
+      "no marks field is recorded on any PYQ of this topic: only the GATE 2026 CS2 paper was fetched, and every other question reference follows the GATE Overflow numbering",
+      "every PYQ in the topic is SOURCED against a GATE Overflow accepted answer rather than key-verified; GATE CSE 2026 Set 2 Q.31 was located in the official paper at IIT Guwahati but the official answer key was not fetched, and GATE CSE 2014 Set 1 Q.52 rests on three secondary sources agreeing on 1",
+      "GATE CSE 2008 Q.3 is a defective question: a unique solution needs alpha other than 5, and no printed option states that, so the record says so instead of picking the nearest option",
+      "the only non-English source is a Hindi JEE-oriented chapter read in part; no GATE-level Hindi, Tamil, Telugu or Bengali lecture on this topic could be read this run",
+      "GATE Overflow lists further linear-systems questions that were not individually read or recomputed, including GATE CSE 2004 Q.33 on finding x, y, z and GATE CSE 2001 Q.37 on sums of singular matrices"
+     ]
+    },
+    {
+     "slug": "eigenvalues-and-eigenvectors",
+     "name": "Eigenvalues and Eigenvectors",
+     "status": "partial",
+     "coverage_note": "12 subtopics, 11 cards (the definition with v nonzero, the characteristic equation and its degree-n roots, the eigenspace and computing eigenvectors, the trace and determinant identities with the eigenvalues of A^k, A^-1, A^T and p(A), algebraic against geometric multiplicity, diagonalisability, real symmetric matrices with orthogonal eigenvectors, complex conjugate pairs in a real matrix, the triangular / row-sum / all-ones / rank-one shortcuts, what preserves eigenvalues and the row-operation trap, and Cayley-Hamilton with the inverse from it), 10 verified PYQs and 1 p5.js lesson. Partial because six gaps remain, named below.",
+     "runs": [
+      {
+       "date": "2026-10-29",
+       "sources": [
+        "nptel-iit-kharagpur-lecture-46",
+        "nptel-noc-iitm-deep-learning-6-1",
+        "ganitank-hindi-eigen-oneshot",
+        "gateoverflow-linear-algebra-notes",
+        "nptel-course-outline-111105121"
+       ],
+       "cards": 11,
+       "pyqs": 10,
+       "lesson": "linear-algebra/eigenvalues-and-eigenvectors/eigen-directions",
+       "note": "Sources chosen on merit across two languages, with one lecture readable end to end. NPTEL IIT Kharagpur Lecture 46 (English, read in full) carries the definition, the characteristic equation, the eigenspace and Cayley-Hamilton, and is the only lecture this run whose transcript ran from the opening to the closing references. NPTEL-NOC IIT Madras CS7015 Lec 6.1 (English, read in part) supplies the geometric framing and the steady-state motivation. GanitAnk's Hindi one-shot (translated, read in part) is the only readable non-English source and gives the 3x3 principal-minor form of the characteristic polynomial and the Cayley-Hamilton inverse example. The GATE Overflow linear algebra notes (English, read in part) give the AM and GM definitions and the property list. The NPTEL course index is recorded as structure only. Rejected with reasons in sources.json: MIT OCW 18.06 Lecture 21 (page carried a summary and a transcript link, no transcript body), NPTEL IIT Kharagpur Lecture 49 (index only), the Unacademy Hindi eigen lesson series (paywalled, no transcript), the formula-list pages (properties without derivation, one of them stating the symmetric facts as general), the GO Classes DPP question bank (practice questions, not PYQs) and the answer aggregators (corroboration only, and they disagree on question numbering)."
+      }
+     ],
+     "gaps": [
+      "no GATE-oriented coaching lecture on this topic could be read: the readable lecture is a general engineering-mathematics NPTEL course, so the GATE-specific teaching order and PYQ walkthroughs are recorded as structure only",
+      "MIT OCW 18.06 Lecture 21, the canonical English treatment, returned a page with a one-sentence summary and a transcript link but no transcript body, so nothing could be read from it; a later run should retry",
+      "NPTEL IIT Kharagpur Lecture 49, the continuation that would have covered diagonalisation and symmetric matrices in the lecturer's voice, had no retrievable transcript, so the symmetric-matrix card rests on the standard references plus computation",
+      "the Hindi source was read in part only, and no GATE-level Hindi, Tamil, Telugu or Bengali lecture with a readable transcript was found this run; the Unacademy Hindi series that matched the topic lesson-for-lesson is paywalled",
+      "every PYQ in this topic is SOURCED against a GATE Overflow accepted answer rather than key-verified against an official key, and no marks field is recorded: the official papers were not fetched this run, so references follow the GATE Overflow numbering and each record says where another site numbers the question differently",
+      "GATE Overflow lists further eigenvalue questions in this subject that were not individually read or recomputed, including the 2010 to 2013 entries, 2019 Q.44, 2022 Q.35 and Q.43, 2023 Q.8 and Q.20, 2024 Set 2 Q.37, 2025 Set 2 and 2026 Set 1 Q.10; Cayley-Hamilton has no verified CSE PYQ recorded at all, which is why that card is P3"
+     ]
+    },
+    {
+     "slug": "lu-decomposition",
+     "name": "LU Decomposition",
+     "status": "partial",
+     "coverage_note": "12 subtopics, 12 cards (the factorization A = LU, the multipliers of elimination, the Doolittle, Crout and LDU conventions, existence by the leading principal minors, pivoting and PA = LU, forward and back substitution, the determinant from the pivots, rank and singularity from U, the cost of the factorization, the inverse and repeated solves, LDL^T and Cholesky, and reading single entries under exam conditions), 3 verified PYQs and 1 p5.js lesson. Partial because eight gaps remain, named below.",
+     "runs": [
+      {
+       "date": "2026-10-29",
+       "sources": [
+        "engineering-wing-lu-method",
+        "double-vibe-lu-factorisation",
+        "dheeraj-mishra-gate-da-lu",
+        "statlect-lu-decomposition",
+        "go-classes-lecture-11a-lu"
+       ],
+       "cards": 12,
+       "pyqs": 3,
+       "lesson": "linear-algebra/lu-decomposition/elimination-multipliers",
+       "note": "Sources chosen on merit across two readable lectures and two references: Engineering Wing's Lec23 (English, read in full) for the elimination recipe that records multipliers into L, and The Double Vibe's worked factorization (English, read in full) for the entry-by-entry reading of the product; Dheeraj Mishra's GATE DA lecture (English, read in part) for the existence condition and the choice of diagonal convention; StatLect (English, read in part) for the proofs of non-existence and non-uniqueness and for PA = LU; and the GO Classes lecture index (structure only) to confirm the GATE teaching order. Rejected with reasons in sources.json: MIT OCW 18.06 Lecture 4 (transcript described but not served), the NPTEL IIT Kharagpur Matrix Solvers Lecture 08, the NPTEL-NOC Matrix Solver Lecture 8, the NPTEL Matrix Theory Lecture 53, the NPTEL IIT Delhi numerical-methods Lecture 14, the Unacademy Hindi LU lesson (paywalled), the Gate Smashers Hindi linear algebra playlist (no lecture on this topic), the GeeksforGeeks GATE Launchpad episode and the EduRev course mirrors. No translated material appears: no non-English source was readable this run."
+      }
+     ],
+     "gaps": [
+      "no GATE-oriented lecture transcript was readable: the GO Classes Lecture 11A is recorded as structure only, and MIT OCW 18.06 Lecture 4, the canonical English treatment, served a resource page describing its 92 kB transcript without the transcript text",
+      "only three CSE previous-year questions exist in this topic (2015 Set 1 Q.18, 2022 Q.35, 2025 Set 2 Q.34) and all three are SOURCED against GATE Overflow accepted answers rather than key-verified, because the official papers and answer keys were not fetched; no marks field comes from an official key either, and the number the 2025 Set 2 question carries in the master paper could not be confirmed",
+      "GATE CSE 2022 Q.35 is defective as printed: with the diagonal convention left open, options (C) and (D) are both defensible, since a second factorization with L33 = -1/4 also reproduces A. The record states the disagreement and reports the official option D rather than picking silently",
+      "pivoting (PA = LU) and the LDL^T / Cholesky material rest on the standard references and on recomputation alone: no readable source this run taught either, so no card quotes or timestamps a lecture for them",
+      "no non-English source was readable: the Hindi Unacademy lesson is behind a subscription and the Gate Smashers Hindi playlist stops before matrices, so the topic contains no translated material and no card is marked as translated",
+      "two subtopics have no GATE CSE previous-year question at all - the operation count of the factorization and the inverse from the factors - which is why those cards are P3; the one inverse question, GATE CSE 1994 Q.3.12, is descriptive and cannot be stored in the repository's MCQ/MSQ/NAT schema",
+      "GATE 2008 MA contains an LU decomposition question, but it belongs to the Mathematics paper and not to Computer Science, so it is deliberately excluded from this topic's PYQ set",
+      "Dheeraj Mishra's lecture states the existence condition as 'principal minors' where the standard statement is 'leading principal minors'; the card uses the standard wording from the references, so the source and this repository disagree on the phrasing and the gap is recorded rather than smoothed over"
+     ]
+    }
+   ]
+  },
+  {
+   "slug": "calculus",
+   "name": "Calculus",
+   "topics": [
+    {
+     "slug": "limits-continuity-differentiability",
+     "name": "Limits, Continuity and Differentiability",
+     "status": "partial",
+     "coverage_note": "15 subtopics, 12 cards (the limit at a point and one-sided limits, the algebra of limits, the standard limits, L'Hopital's rule and its conditions, the other indeterminate forms, limits at infinity and orders of growth, continuity at a point, the types of discontinuity, continuity on an interval and the IVT, differentiability and its link to continuity, matching value and slope at a join, and corners, cusps and max/min functions), 12 verified PYQs and 2 p5.js lessons. Partial because eight gaps remain, named below - above all that no video transcript was readable this run.",
+     "runs": [
+      {
+       "date": "2026-10-29",
+       "sources": [
+        "knowledgegate-calculus-part-2",
+        "pauls-notes-limits-and-continuity",
+        "nptel-basic-calculus-1-iit-madras",
+        "gateoverflow-calculus-solutions"
+       ],
+       "cards": 12,
+       "pyqs": 12,
+       "lesson": "calculus/limits-continuity-differentiability/one-sided-limits-and-the-hole",
+       "note": "Sources chosen on merit: a GATE-oriented Hindi-medium lecture read through its published English AI chapter summary with timestamps (Knowledge Gate, 11 Oct EM Calculus Part 2) for the teaching order and the technique sequence; Paul's Online Math Notes (English, read in full) for the definitions and the continuity hypotheses; the NPTEL IIT Madras Basic Calculus-1 outline as structure only; and GATE Overflow question pages for every PYQ. Rejected: an English EduRev video whose page is boilerplate and whose captions were refused, the NPTEL IIT Kanpur Calculus of One Variable playlist (right sequence, no readable transcript), the NPTEL Engineering Mathematics-I indeterminate-forms lectures (index only, and the course is mostly multivariable), a paywalled Hindi Unacademy lesson, a readable SlideShare formula dump, and the PYQLabs index whose year labels are wrong. YouTube answered LOGIN_REQUIRED for every watch page and yt-dlp returned 403, so no lecture transcript was read."
+      }
+     ],
+     "gaps": [
+      "no video transcript was readable this run: every YouTube watch page answered LOGIN_REQUIRED ('Sign in to confirm you are not a bot') and yt-dlp returned HTTP 403 even with a consent cookie, so the one GATE-oriented lecture in the chosen list is recorded from the platform's published English AI chapter summary with timestamps (SUMMARY_ONLY) and no card quotes a lecturer's sentence",
+      "no Hindi, Tamil, Telugu or Bengali lecture transcript was readable; the single non-English source is a Hindi-medium GATE lecture whose readable text is an English AI summary of it, so the translation sits two layers from the lecture and the cards say so rather than implying a verbatim translation",
+      "the informal epsilon-delta meaning of a limit is stated on one card from the standard references only: no readable source this run taught it in GATE framing, and the card does not attempt a formal epsilon-delta proof",
+      "the algebra-of-limits and types-of-discontinuity cards carry no previous-year question of their own, because no question in this topic's verified set is decided by the limit laws or by the classification alone; both are the steps inside the neighbouring questions",
+      "every PYQ in the topic is SOURCED against a GATE Overflow accepted answer rather than key-verified against an official answer key, and no marks field is recorded on any of the twelve, because neither the official papers nor the keys were fetched this run; question references follow the GATE Overflow numbering, and GATE CSE 2022 Q.24 is numbered Q.34 on at least one other site, which its record states",
+      "GATE CSE 2026 Set 1 Q.22 is recorded as printed, and a commenter on the memory-based version of the same question argues that the printed form is defective; the record reports the accepted answer 3 and the disagreement rather than resolving it",
+      "three question families of this topic are deliberately absent: the descriptive questions GATE CSE 1995 Q.7(B) (compute lim sin x / x without a power series) and GATE CSE 1996 Q.3 (find a, b, c, d for a piecewise function to be continuous and differentiable) cannot be stored in the repository's MCQ/MSQ/NAT schema, and GATE CSE 2026 Set 2 Q.54 (the number of discontinuities of a digit-defined function) was seen only in a listing and was not verified or read, so it is not in the PYQ set",
+      "maxima and minima, the mean value theorem and integration are the next three topics in the cycle; their questions, including GATE CSE 2021 Set 2 Q.25 and GATE CSE 2023 Q.28, were left for those runs and are not counted here"
+     ]
+    },
+    {
+     "slug": "maxima-and-minima",
+     "name": "Maxima and Minima",
+     "status": "partial",
+     "coverage_note": "15 subtopics, 14 cards (local and global extrema, stationary against critical points, Fermat's theorem and its false converse, the first-derivative sign test, the second-derivative test with its inconclusive case, the higher-derivative test, the closed-interval candidate list, monotonicity, piecewise and absolute-value functions, endpoint extrema and the definitional dispute, counting the extrema of cubics and quartics, trigonometric extrema on an interval, the two-variable rt - s^2 test, and optimisation set-up), 6 verified PYQs and 1 p5.js lesson. Partial because eight gaps remain, named below - above all that no YouTube caption track was readable this run.",
+     "runs": [
+      {
+       "date": "2026-10-29",
+       "sources": [
+        "mit-ocw-18-01-lecture-12-maxima-minima",
+        "knowledgegate-maxima-minima-lesson",
+        "knowledgegate-26-jan-em-calculus-part-2",
+        "pauls-notes-min-max-values"
+       ],
+       "cards": 14,
+       "pyqs": 6,
+       "lesson": "calculus/maxima-and-minima/sign-chart-of-the-derivative",
+       "note": "Sources chosen on merit across two languages, with one lecture read end to end: the MIT 18.01 Lecture 12 transcript (English, read in full) for the closed-interval candidate list, the wire-into-two-squares worked example and the warning that the critical point gave the opposite of the extremum asked for; the Knowledge Gate 'Maxima & Minima' lesson (Hindi-medium, read through its published English AI chapter summary with timestamps, translated) for the GATE teaching order, the three true/false statements, the x^3 saddle point, the cusp maximum and the closed-interval algorithm; the Knowledge Gate '26 Jan EM Calculus Part 2' summary (Hindi-medium, translated) for the stationary/critical distinction and the second-derivative test with its inconclusive case; and Paul's Online Math Notes section 4.3 (English, read in full) for the definitions, the |x| counterexample and the endpoint convention stated as a disagreement. Rejected with reasons in sources.json: the NPTEL IIT Madras Basic Calculus 1 lectures 33-34 and 39-40, the NPTEL IIT Kharagpur lectures 17-20 on two-variable extrema, the HV Sir GATE lecture 0wRR_97a9Zk, the GATE Overflow maxima-minima tag page, the EduRev PYQ listing, the Solutions Adda 1993 page, the GATE CSE 2015 Set 2 GA-3 aptitude question and the 1998 descriptive question. YouTube served no caption track for any video tried, so no YouTube lecture is quoted; the transcript that could be read is MIT's published lecture transcript."
+      }
+     ],
+     "gaps": [
+      "no YouTube caption track was readable this run: every watch page tried carried none, so no YouTube lecture is quoted and the two GATE-oriented sources are recorded as SUMMARY_ONLY against their platforms' published English AI chapter summaries of Hindi-medium classes",
+      "the NPTEL IIT Madras Basic Calculus 1 lectures 33-34 (Maxima and minima) and 39-40 (First derivative test), the closest English sequence to this topic, and the NPTEL IIT Kharagpur lectures 17-20 on maxima and minima of functions of two variables, served lecture titles only - no transcript could be read, so nothing is attributed to them and a later run should retry",
+      "GATE CSE 1998's 5-mark descriptive question (points of local maxima and minima of x^3 - 6x^2 + 9x + 15 on 0 <= x <= 6) is a genuine CSE question but the repository's PYQ schema holds only MCQ, MSQ and NAT records, so it is not in the PYQ set; the closed-interval card covers the same computation",
+      "GATE CSE 2015 Set 2 GA-3 (the maximum of 1 - |x| on [-1, 1], answer 0 and 1) is a General Aptitude question, not an Engineering Mathematics one, and is deliberately excluded from the PYQ set",
+      "GATE CSE 2012 Q.9 is recorded with the accepted answer (two local minima, at pi/4 and 3pi/2) but the question is definitional: under the strict interior convention the count is one, at 3pi/2. Both readings are stated on the endpoint card and in the PYQ record rather than resolved silently",
+      "every PYQ in the topic is SOURCED against a GATE Overflow accepted answer rather than key-verified against an official answer key, and no marks field is recorded on any of the six, because no official paper or key was fetched this run",
+      "the two-variable case rests on one 1993 question that one solution site marks out of syllabus, so it is a P3 card; no readable lecture on the two-variable test was found, and the GATE CSE line 'Maxima and minima' has been single-variable in every paper since",
+      "three cards carry no previous-year question of their own - the higher-derivative test, monotonicity, and optimisation set-up - because no verified CSE question in this topic is decided by them alone; they are the steps inside 2008 Q.25, 2023 Q.18 and 1997 Q.4.1 respectively"
+     ]
+    },
+    {
+     "slug": "mean-value-theorem",
+     "name": "Mean Value Theorem",
+     "status": "partial",
+     "coverage_note": "12 subtopics, 12 cards (Rolle's theorem, Lagrange's form and the secant picture, bounds on a function value, the hypotheses and their failure, finding the point c, existence against uniqueness, the three corollaries, root counting, Cauchy's extended form, the auxiliary-function construction, inequalities, and one zero of f' against zero everywhere), 3 verified PYQs and 1 p5.js lesson. Partial because four gaps remain, named below.",
+     "runs": [
+      {
+       "date": "2026-10-29",
+       "sources": [
+        "openstax-calculus-v1-4-4-mvt",
+        "pauls-notes-calculus-1-4-7-mvt",
+        "knowledgegate-13-oct-em-calculus-part-3"
+       ],
+       "cards": 12,
+       "pyqs": 3,
+       "lesson": "calculus/mean-value-theorem/secant-parallel-tangent",
+       "note": "Sources chosen on merit across two languages: the OpenStax Calculus Volume 1 section 4.4 (English, read through the proof of the mean value theorem) for Rolle's statement, its three-case proof, the |x| counterexample and the auxiliary-function proof; Paul's Online Math Notes section 4.7 (English, read through the geometric interpretation) for root counting and the explicit note that the theorem never identifies c; the Knowledge Gate '13 Oct - EM - Calculus Part 3' English AI chapter summary (Hindi-medium lecture - translated) for the GATE framing, the 2014 determinant question and Cauchy's form. Twelve candidates were rejected with reasons in sources.json, including the MIT 18.01 Lecture 14 transcript (the theorem sits past the readable part), two YouTube GATE lectures (no caption track) and an Unacademy Hindi lesson (paywalled)."
+      }
+     ],
+     "gaps": [
+      "no verified GATE CSE previous-year question exists for Cauchy's extended mean value theorem or for an inequality proved by the mean value theorem, so those two cards (P2 and P3) rest on the standard references and on recomputation alone",
+      "YouTube served no caption track on any watch page tried this run, so no lecture is quoted; the one GATE-oriented source is recorded from the platform's published English AI chapter summary of a Hindi-medium class and is marked translated, which puts the translation two layers from the lecturer",
+      "both English textbook sources were read only in part - the extraction service returned each page from its opening to the proof of the mean value theorem, so the corollary subsections are not quoted and the three corollary cards derive their statements from the theorem instead",
+      "GATE CSE 2014 Set 2 Q.5 (a cubic with roots at 1, 2 and 3) is Rolle-adjacent but its accepted solution factors the polynomial, and GATE EE 1995's mean-value-theorem bounds question is from a different paper; both are excluded from the PYQ set, so the topic rests on three CSE records only",
+      "all three PYQs are SOURCED against GATE Overflow accepted answers rather than key-verified against an official answer key, and no marks field is recorded because no official paper was fetched"
+     ]
+    },
+    {
+     "slug": "integration",
+     "name": "Integration",
+     "status": "partial",
+     "coverage_note": "13 subtopics, 13 cards (the antiderivative and the constant, the definite integral as a limit of sums and signed area, the fundamental theorem both parts, the property list, the symmetry and reflection rules, substitution with the limits changed, integration by parts, splitting at a sign change, improper integrals, area between two curves, average value, integrating a functional equation, and iterated integrals with odd symmetry), 10 verified PYQs and 1 p5.js lesson. Partial because seven gaps remain, named below - above all that no YouTube caption track was readable and that no read source states the two parts of the fundamental theorem.",
+     "runs": [
+      {
+       "date": "2026-10-29",
+       "sources": [
+        "kg-definite",
+        "kg-properties",
+        "kg-substitution",
+        "kg-13oct",
+        "pauls-definite",
+        "openstax-ftc",
+        "openstax-substitution",
+        "openstax-by-parts"
+       ],
+       "cards": 13,
+       "pyqs": 10,
+       "lesson": "calculus/integration/signed-area-and-running-total",
+       "note": "Sources chosen on merit across two languages: four Knowledge Gate lessons read through the platform's published English AI chapter summaries with timestamps (Hindi-medium lectures, translated) for the GATE teaching order, the signed-area convention, the property list in GATE's order and a worked definite integral with the limits changed; Paul's Online Math Notes section 5.6 (English, read in part) for the limit-of-sums definition and properties 1-6 including additivity with the split point outside the interval; OpenStax Calculus Volume 1 sections 5.3 and 5.5 and Volume 2 section 3.1 (English, read in part) for the mean value theorem for integrals, the substitution rule with its proof, and integration by parts with the LIATE argument. Ten CSE previous-year questions verified, the largest set in any calculus topic so far: 2026 Set 2 Q.17, 2025 Set 2 Q.2, 2024 Set 2 Q.6, 2023 Q.21, 2015 Set 1 Q.44, 2015 Set 2 Q.26, 2015 Set 3 Q.45, 2014 Set 3 Q.47, 2014 Set 3 Q.6 and 2009 Q.25. Rejected with reasons in sources.json: the Paul's FTC, substitution, by-parts and improper-integral pages (empty body), the MIT 18.01 lecture transcripts 18-20 (HTTP 502), the NPTEL integration lectures (titles only), every YouTube lecture tried (no caption track, yt-dlp absent), the Knowledge Gate by-parts lesson (summary not retrieved), GATE CSE 2011 Q.31 (option-letter conflict), GATE CSE 2014 Set 3 Q.46 (numerical methods, outside this topic), and two PYQ index sites used only as indexes."
+      }
+     ],
+     "gaps": [
+      "no YouTube caption track was readable this run - yt-dlp is not installed in this environment and the watch pages carry no caption text - so no YouTube lecture is quoted; the GATE-oriented material is the Knowledge Gate platform's published English AI chapter summaries of Hindi-medium classes, which puts a translation two layers from the lecturer",
+      "neither part of the fundamental theorem of calculus is quoted from a source read this run: the OpenStax section 5.3 extract stopped before the statements, the MIT 18.01 transcript mirror that supplied a full lecture to an earlier topic answered HTTP 502 for lectures 18-20, and the NPTEL lectures carry no transcript; the card states both parts from the standard form and both are recomputed in scripts/validate.py, so nothing is unverified, but the card has no teaching source behind its statement",
+      "integration by parts has no readable GATE lecture: the Knowledge Gate by-parts lesson exists in the same module as the substitution lesson but its summary was not retrieved, so the card rests on OpenStax Volume 2 section 3.1 and on the two previous-year solutions alone",
+      "improper integrals and iterated (multiple) integrals are taught by no readable source this run: the Paul's section 7.8 page returned an empty body, so the convergence rules rest on the standard p-test, and the order-of-integration statements rest on the standard treatment, with every value recomputed",
+      "four of the thirteen cards carry no previous-year question of their own - the antiderivative, the properties, the area between two curves and the average value - because no verified CSE question in this topic is decided by them alone; no CSE question on the average value or on the area between two curves was found at all",
+      "every PYQ in the topic is SOURCED against a GATE Overflow accepted answer rather than key-verified against an official key, and no marks field is recorded on any of the ten, because no official paper or key was fetched this run; two records (2014 Set 3 Q.47 and 2014 Set 3 Q.6) carry an independent corroboration of the official option from another site's key page",
+      "the GATE Overflow calculus listing and the Knowledge Gate integration module both name further previous-year questions that were not individually read this run, including GATE CS 2000 and the 2007, 2008, 2016 and 2018 calculus questions; GATE CSE 2011 Q.31 is excluded because its option letter is in conflict between the question page and its accepted answer, and GATE CSE 2014 Set 3 Q.46 is excluded because it is a numerical-methods question"
+     ]
+    }
+   ]
+  },
+  {
+   "slug": "probability-and-statistics",
+   "name": "Probability and Statistics",
+   "topics": [
+    {
+     "slug": "random-variables-and-distributions",
+     "name": "Random Variables and Distributions",
+     "status": "partial",
+     "coverage_note": "12 subtopics, 12 cards (the random variable as a function, the distribution and the CDF, normalising a density and reading an interval, expectation and linearity, variance and standard deviation, the binomial, the Poisson, the exponential, the continuous uniform, the normal with standardisation, choosing the distribution a word problem describes, and sums of independent variables), 10 verified PYQs and 1 p5.js lesson. Partial because eight gaps remain, named below - above all that no video transcript and no official answer key could be read this run.",
+     "runs": [
+      {
+       "date": "2026-10-29",
+       "sources": [
+        "nptel-111105090-lec13",
+        "nptel-111105090-lec15",
+        "nptel-111105090-lec19",
+        "nptel-111105090-lec20",
+        "nptel-111105090-lec21",
+        "nptel-111105090-lec22",
+        "nptel-111105090-lec24",
+        "nptel-111105090-lec25",
+        "nptel-111105090-lec29",
+        "nptel-111105090-index",
+        "nptel-111102111-lec30",
+        "gateoverflow-probability-notes",
+        "openstax-introductory-statistics-5-3",
+        "openstax-introductory-statistics-5-2",
+        "codingmarble-hindi-probability-distributions",
+        "cbse-applied-maths-ch4-probability-distributions",
+        "cowan-poisson-note",
+        "knowledgegate-2019-uniform-pyq"
+       ],
+       "cards": 12,
+       "pyqs": 10,
+       "lesson": "probability-and-statistics/random-variables-and-distributions/pmf-cdf-and-the-balance-point",
+       "note": "Sources chosen on merit across two languages and two NPTEL courses: nine lecture transcripts of NPTEL Probability and Statistics (IIT Kharagpur, Prof. Somesh Kumar, English, each read from its opening to the point named in sources.json) for the definition of a random variable, the PMF/PDF/CDF chain, the binomial and its hypergeometric boundary, the Poisson derivation with the rate rescaled to the window, the uniform mean and variance by integration, the exponential and its memorylessness, and the normal with standardisation; one lecture of the IIT Delhi course by Prof. Dharmaraja (English) for the reproductive property, deliberately from a second course; the GATE Overflow probability notes (English, read in part) for the GATE pitfall list; two OpenStax sections (English) to corroborate the uniform and exponential formulas independently of NPTEL; the CBSE Applied Mathematics chapter 4 (English) for the four Bernoulli-trial conditions; Glen Cowan's Poisson note (English) for the mean-equals-variance derivation; one Hindi page on probability distributions (translated) for three of the trap alerts and the balance-point reading of E(X); and the Knowledge Gate walkthrough of the 2019 question (English) as an independent corroboration of 0.8. Rejected with reasons in sources.json: every YouTube lecture (the one watch page fetched returned an empty body), the NPTEL moments lectures 16-18 (not fetched), the GATE DA, GATE BT and GATE Mechanical distribution questions (wrong paper), four CSE questions that belong to the next two topics, MIT OCW 18.05 and 6.041SC (not fetched), the GateIQ and ExamSIDE listings (indexes only) and the GO Classes DPP set (practice, not PYQs)."
+      }
+     ],
+     "gaps": [
+      "no video transcript was readable this run: the one YouTube watch page fetched returned an empty body to the fetch service and no caption text could be retrieved, so no card quotes or timestamps a lecture and videoRefs is empty on every card; the readable teaching is NPTEL transcripts served as PDFs, read from their openings only",
+      "no official GATE paper or answer key was fetched, so every one of the ten PYQs is SOURCED against a GATE Overflow accepted answer rather than key-verified, and no marks field is recorded on any of them; question references follow the GATE Overflow numbering",
+      "the only non-English source is a Hindi web page on probability distributions, read in part and marked translated on the three cards that use it; no Hindi, Tamil, Telugu or Bengali lecture could be read, so no card is translated from a lecture",
+      "GATE Overflow itself refused direct requests from this sandbox (403 on CONNECT, then 502), so every GATE Overflow page cited here was read through the search service's extract, that is in part rather than in full",
+      "the distribution of a function of a random variable (Y = g(X), min and max of independent variables, the Jacobian method) is taught by NPTEL lectures 33-34 and 43, none of which was fetched, so the topic has no card for it; GATE CSE 2017 Set 1 Q.37, the median of max(X, 0), is the one CSE question that would have used it and it is left for the mean-median-mode run",
+      "the discrete uniform distribution on {1, ..., N} appears only as a contrast inside the continuous-uniform card, because the syllabus line names 'uniform' once and every verified CSE uniform question is continuous; a later run should decide whether the discrete case deserves its own card",
+      "no verified GATE CSE question was found for the sums-of-independent-variables card or for the choosing-the-distribution card, which is why both carry no PYQ (one is P3, one is P2 and names the ten questions as its evidence); the reproductive property is standard but untested in the CSE papers read this run",
+      "the GATE Overflow probability subject page lists further distribution questions that were not individually read or recomputed, including 2014 Set 1 and Set 2 Q.48 (normal), 2011 Q.33 and Q.34, 2021 Set 2 Q.29 and Q.33, 2023 Q.43, 2024 Set 1 Q.53 and 2025 Set 2 Q.54 and Q.55; only the ten recorded PYQs were verified"
+     ]
+    },
+    {
+     "slug": "mean-median-mode-standard-deviation",
+     "name": "Mean, Median, Mode and Standard Deviation",
+     "status": "partial",
+     "coverage_note": "12 subtopics, 12 cards (the arithmetic mean and the weighted and grouped means, the median and its position, the mode and multimodality, how the three sit together under skew with the empirical relation, the grouped-table formulas, the variance and standard deviation of a data set with both divisors, the shift and scale identities, the two deviation minimisations, the median and mode of a random variable, the standard deviation of a binomial and a Poisson count, one changed observation and the combination of two groups, and choosing the summary with its units), 5 verified PYQs and 1 p5.js lesson. Partial because eleven gaps remain, named below - above all that no YouTube caption track was readable and that seven of the twelve cards carry no previous-year question of their own.",
+     "runs": [
+      {
+       "date": "2026-10-30",
+       "sources": [
+        "iaeacademy-descriptive-statistics-formulas",
+        "iit-roorkee-lec4-central-tendency-and-dispersion",
+        "nptel-forest-biometry-lec4",
+        "openstax-introductory-statistics-2-6-and-2-7",
+        "ncert-class-11-chapter-13-hindi",
+        "tamil-mean-median-mode-continuous",
+        "gateoverflow-go-pdfs-volume-1",
+        "gateoverflow-probability-statistics-notes"
+       ],
+       "cards": 12,
+       "pyqs": 5,
+       "lesson": "probability-and-statistics/mean-median-mode-standard-deviation/mean-median-and-spread",
+       "note": "Sources chosen on merit across three languages: a GATE-oriented descriptive-statistics formula sheet (English, read in full through the search service's extract) for the grouped median and mode, both deviation minimisations and the combined variance; the IIT Roorkee Lecture 4 transcript (English, read through a transcript page) for the teaching order, the weighted mean, the skew-based choice of centre and the two reasons for squaring; the NPTEL Forest Biometry Lecture 4 transcript (English, read in part) for the same data set analysed by all three summaries and for the empirical relation; OpenStax Introductory Statistics 2e sections 2.6 and 2.7 (English, read in part) for the skew direction and the two divisors; a Hindi summary of the NCERT class 11 statistics chapter (translated) for why dispersion is needed at all; a Tamil lecture on grouped data (translated) for one fully recomputed worked table; and the GATE Overflow Volume 1 index for the question numbering. Rejected with reasons in sources.json: the Unacademy Hindi lesson on exactly this topic (paywalled), the NPTEL IIT Kharagpur probability course (403 on every transcript URL), a Khan Academy Hindi lesson (client challenge), a Knowledge Gate AI grouped-data asset (snippet only), the GATE CSE 2012 Q.64 General Aptitude question, ISRO CSE 2014 Q.74, the GATE DA and DS&AI statistics questions, GATE CSE 2024 Set 2 Q.8 (a dice question, not a standard deviation one), GATE CSE 2011 Q.18 (the previous topic's variance card), MIT OCW 18.05 and the EduRev course mirror."
+      }
+     ],
+     "gaps": [
+      "no YouTube caption track was readable this run: every watch page fetched carried no captionTracks entry, so both lectures used were read through third-party transcript pages, no card quotes or timestamps a lecturer's sentence, and videoRefs is empty on all twelve cards",
+      "the IIT Roorkee Lecture 4 transcript page served only its opening through the weighted-average example, so its later half (grouped median and mode, percentiles, quartiles, mean absolute deviation, variance) is recorded from the search service's longer extract of the same transcript; the source is PARTIAL, not read end to end",
+      "every digimat NPTEL transcript URL for the IIT Kharagpur Probability and Statistics course (111105090) - the course that supplied nine lectures to the previous topic - answered 403 to a direct request from the sandbox this run, so its descriptive-statistics lectures were not read and nothing rests on them; a later run should retry",
+      "seven of the twelve cards carry no previous-year question of their own (the median, the mode, the grouped table, the deviation identities, the standard deviation of a data set, one changed observation, and the choice of summary): no verified GATE CSE question in this topic is decided by them alone, and each card says so rather than borrowing a question that does not test it",
+      "GATE CSE 2012 Q.64 (the P, Q, R, S statements on adding 7 to and doubling every entry of a list) is the closest CSE-paper test of the shift-and-scale identities, but it sits in that paper's General Aptitude section (questions 56 to 65), so it is excluded from the PYQ set by the repository's CSE-only rule and appears only as an original PYQ-style question",
+      "ISRO CSE 2014 Q.74 (median from mode 15 and mean 30) is a genuine mean-median-mode question but not a GATE one, although at least one site labels it 'GATE CSE 2014 Q.31'; it is excluded and the mislabelling is recorded rather than repeated",
+      "no marks field is recorded on any of the five PYQs: the official papers and answer keys were not fetched, so every reference follows the paper numbering as reproduced by the sources, with GATE Overflow's numbering stated where it differs (GATE CSE 2024 Set 2 Q.44 is Q.34 on GATE Overflow, and GATE CSE 2017 Set 1 Q.19 is numbered 37 on a duplicate GATE Overflow page and 30 on one solution site)",
+      "all five PYQs are SOURCED against GATE Overflow accepted answers rather than key-verified against an official answer key; two of them (2014 Set 2 Q.2 and 2021 Set 2 Q.22) have an independent worked-solution page recording the official answer and its accepted range, and the other three rest on the GATE Overflow accepted answers alone",
+      "GATE CSE 2024 Set 2 Q.44 is a statement about means of random variables and therefore sits on the boundary between this topic and Random Variables; it is recorded once, here, and deliberately not duplicated on the earlier topic's mean or expectation cards",
+      "quartiles and percentiles, the mean absolute deviation, the harmonic and geometric means, and the coefficient of variation beyond one contrast card are outside the four words of the syllabus line and have no card of their own; the IIT Roorkee lecture taught them but they are not examined by any verified CSE question found this run",
+      "the grouped-data formulas rest on one GATE-oriented formula sheet and one Tamil lecture, with no readable English lecture teaching them; the interpolation is an approximation and the cards say so, but no source read this run discussed when the approximation fails or how large the error can be"
+     ]
+    },
+    {
+     "slug": "conditional-probability-and-bayes",
+     "name": "Conditional Probability and Bayes Theorem",
+     "status": "partial",
+     "coverage_note": "12 subtopics, 12 cards (the definition and the restricted space, the conditional probability as a probability measure, the multiplication rule and sequential draws, independence and the product test, independence against mutual exclusivity, pairwise and mutual independence, conditional independence, the total probability theorem, Bayes' theorem, the tree and the odds form, the base rate and the false-positive count, and conditioning on a count or on shared trials), 10 verified PYQs and 1 p5.js lesson. Partial because six gaps remain, named below.",
+     "runs": [
+      {
+       "date": "2026-10-30",
+       "sources": [
+        "nptel-iit-kharagpur-lec9-conditional-probability",
+        "nptel-iit-kharagpur-lec10-independence",
+        "statlect-conditional-probability",
+        "statlect-bayes-rule",
+        "gateoverflow-probability-notes",
+        "knowledgegate-ai-gate-probability-page",
+        "openstax-introductory-statistics-3-3",
+        "ncert-hindi-class-12-chapter-13"
+       ],
+       "cards": 12,
+       "pyqs": 10,
+       "lesson": "probability-and-statistics/conditional-probability-and-bayes/bayes-tree-and-the-base-rate",
+       "note": "Sources chosen on merit across two languages, with two lectures readable in the lecturer's own words: NPTEL IIT Kharagpur lectures 9 and 10 (English, read in part - the same course that answered 403 last run) for the definition, the three-axiom proof, the multiplication rule, total probability, Bayes and independence; StatLect's conditional probability and Bayes' rule pages (English, read in full) for the two proofs, the division-by-zero caveat, the terminology and the base-rate robot example; the GATE Overflow probability notes (English) for the GATE framing and the pitfall list; the Knowledge Gate AI GATE probability page (English) for the two-dice and machine A/B worked examples; OpenStax section 3.3 (English) for the two rules and the contingency-table independence test; and the Hindi NCERT class 12 chapter 13 summary (translated) for the independence-against-exclusivity lemma and the HIV-test application. Rejected with reasons in sources.json: three paywalled Hindi Unacademy lessons, the GO Classes lecture sequence and its DPP bank, MIT OCW 18.05, the GATE IT 2006 rain question (an IT paper question), GATE CSE 2026 Set 1 Q.1 (unverified this run), the GATE DA conditional-probability PYQs, the PYQLabs index and five answer aggregators that disagree on numbering. No YouTube caption track was readable, so no card quotes a video."
+      }
+     ],
+     "gaps": [
+      "no YouTube caption track was readable this run, so no card quotes or timestamps a lecture and videoRefs is empty on all twelve cards; the GO Classes Probability lectures 2A-2C, 3A-3D and 4A-4C, which match this topic lesson for lesson, are recorded as structure only",
+      "the three Hindi Unacademy lessons that match this topic most closely (Dileep Kumar Verma's 'Conditional Probability', Aman Raj's lesson with GATE PYQs, and Vinod Singh Jadon's multiplication-law lesson) are behind a subscription, so the only non-English source used is the Hindi NCERT summary and no GATE-level Hindi lecture was read",
+      "every PYQ in the topic is SOURCED against a GATE Overflow accepted answer rather than key-verified against an official key, and no marks field is recorded on any of the ten, because no official paper or key was fetched this run; the 2026 Set 2 question was seen in the official IIT Guwahati CS2 paper as Q.63 but its key was not fetched",
+      "GATE CSE 2026 Set 1 Q.1 (the urn that gains a ball of the colour drawn) is a sequential probability question in a CSE paper that would fit the multiplication card, but its answer was not verified and its page was not read, so it is not in the PYQ set",
+      "GATE IT 2006 Q.1, the rain and noon-temperature total-probability question, is the cleanest question of its shape after 2016 Set 2 Q.5 and belongs to the IT paper, so it is used only as an original PYQ-style question and is not in the PYQ set",
+      "four cards carry no previous-year question of their own - independence against mutual exclusivity, pairwise and mutual independence, conditional independence, and the base rate - because no verified CSE question in this topic is decided by them alone; they rest on the standard references and on recomputation",
+      "GATE Overflow's subject page lists further probability questions that were not individually read or recomputed, including 2018 Q.15, 2019 Q.20, Q.22 and Q.47, 2020 Q.45, 2021 Set 1 Q.18 and Q.35, 2021 Set 2 Q.22, Q.29 and Q.33, and 2025 Set 2 Q.54 and Q.55; only the ten recorded PYQs were verified",
+      "the odds form of the update, the likelihood ratio and the base-rate fallacy rest on StatLect and on recomputation alone, because no readable GATE-oriented source this run taught the odds form and no CSE question in the topic uses it"
+     ]
+    }
+   ]
+  },
+  {
+   "slug": "digital-logic",
+   "name": "Digital Logic",
+   "topics": [
+    {
+     "slug": "number-systems-and-representation",
+     "name": "Number Systems and Number Representation",
+     "status": "partial",
+     "coverage_note": "13 cards, one per enumerated subtopic (positional systems and place value, base conversion, octal and hexadecimal by bit grouping, unsigned fixed-width range and wrap-around, sign-magnitude, one's complement, two's complement definition and range, two's complement subtraction and sign extension, distinct-value counting against pattern count, fixed point, floating-point normalisation and bias, the IEEE 754 single-precision layout, and the special values and extremes), 9 verified PYQs and 1 p5.js lesson. Partial because five gaps remain, named below.",
+     "runs": [
+      {
+       "date": "2026-10-30",
+       "sources": [
+        "nptel-dec-108105132-lec21-number-system",
+        "nptel-dec-108105132-lec22-negative-numbers",
+        "ucc-cs1101-lecture31-ieee754",
+        "stanford-cs107-lecture09-floating-point",
+        "intel-ieee754-format-table",
+        "zimmermann-ieee754-module1",
+        "vt-cs3414-computer-arithmetic-notes"
+       ],
+       "cards": 13,
+       "pyqs": 9,
+       "lesson": "digital-logic/number-systems-and-representation/ieee754-bit-fields-to-value",
+       "note": "Sources chosen on merit: two NPTEL IIT Kharagpur Digital Electronic Circuits lecture transcripts (place value through fixed point, and the three signed representations), one university IEEE 754 lecture read in full, two more university floating-point lectures, a vendor field specification and an INRIA standard module for the extremal values and the bias argument. No video was used, so videoRefs is empty on all thirteen cards. Nine GATE CSE questions verified across 2012-2026; every one SOURCED against an accepted answer, none key-verified."
+      }
+     ],
+     "gaps": [
+      "no YouTube caption track was retrieved this run, so videoRefs is empty on all thirteen cards and no lecture is quoted or timestamped; the two NPTEL transcripts used are machine transcripts whose numerals are unreliable and were re-derived from the bits",
+      "the NPTEL Digital Circuits sequence (Chattopadhyay, IIT Kharagpur, lectures 03-07) is the closest match to this topic lesson for lesson, but its transcript files for the negative-number and floating-point lectures returned no text at the mirror, so its structure is recorded and nothing rests on it",
+      "every PYQ is SOURCED against an accepted answer rather than key-verified, so no marks field is recorded, and two records carry two question numbers each (2026 Set 2 Q.34 or Q.45; 2024 Set 2 Q.14 or Q.4) because the sources disagree on the numbering",
+      "binary-coded decimal, excess-3 and Gray code are not carded: the GATE 2027 CS syllabus line names number representation and arithmetic only, and no verified CSE question in this topic is decided by those codes",
+      "no verified PYQ was read for hex-to-octal bit grouping, for loss of precision in a non-dyadic decimal fraction, or for the smallest normalised positive number, so those cards carry original and predicted variations only, and 2017 Set 2 Q.1, 2021 Set 2 Q.4 and 2021 Set 2 Q.18 are recorded as unread candidates for a later run"
+     ]
+    },
+    {
+     "slug": "boolean-algebra-and-minimization",
+     "name": "Boolean Algebra and Minimization",
+     "status": "not_started",
+     "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+     "runs": [],
+     "gaps": []
+    },
+    {
+     "slug": "combinational-circuits",
+     "name": "Combinational Circuits",
+     "status": "not_started",
+     "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+     "runs": [],
+     "gaps": []
+    },
+    {
+     "slug": "sequential-circuits",
+     "name": "Sequential Circuits",
+     "status": "not_started",
+     "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+     "runs": [],
+     "gaps": []
+    },
+    {
+     "slug": "computer-arithmetic",
+     "name": "Computer Arithmetic: Fixed and Floating Point",
+     "status": "not_started",
+     "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+     "runs": [],
+     "gaps": []
+    }
+   ]
+  },
+  {
+   "slug": "computer-organization-and-architecture",
+   "name": "Computer Organization and Architecture",
+   "topics": [
+    {
+     "slug": "instruction-set-and-addressing-modes",
+     "name": "Instruction Set and Addressing Modes",
+     "status": "not_started",
+     "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+     "runs": [],
+     "gaps": []
+    },
+    {
+     "slug": "alu-design",
+     "name": "Design of the Arithmetic and Logic Unit",
+     "status": "not_started",
+     "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+     "runs": [],
+     "gaps": []
+    },
+    {
+     "slug": "control-unit-design",
+     "name": "Design of the Control Unit",
+     "status": "not_started",
+     "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+     "runs": [],
+     "gaps": []
+    },
+    {
+     "slug": "memory-hierarchy-and-cache",
+     "name": "Memory Interfacing, Hierarchy and Cache Mapping",
+     "status": "not_started",
+     "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+     "runs": [],
+     "gaps": []
+    },
+    {
+     "slug": "io-interface",
+     "name": "I/O Interface: Interrupt and DMA",
+     "status": "not_started",
+     "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+     "runs": [],
+     "gaps": []
+    },
+    {
+     "slug": "instruction-pipelining-and-hazards",
+     "name": "Instruction Pipelining and Pipeline Hazards",
+     "status": "not_started",
+     "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+     "runs": [],
+     "gaps": []
+    }
+   ]
+  },
+  {
+   "slug": "programming-and-data-structures",
+   "name": "Programming and Data Structures",
+   "topics": [
+    {
+     "slug": "programming-in-c",
+     "name": "Programming in C",
+     "status": "not_started",
+     "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+     "runs": [],
+     "gaps": []
+    },
+    {
+     "slug": "recursion",
+     "name": "Recursion",
+     "status": "not_started",
+     "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+     "runs": [],
+     "gaps": []
+    },
+    {
+     "slug": "arrays-stacks-queues",
+     "name": "Arrays, Stacks and Queues",
+     "status": "not_started",
+     "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+     "runs": [],
+     "gaps": []
+    },
+    {
+     "slug": "linked-lists",
+     "name": "Linked Lists",
+     "status": "not_started",
+     "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+     "runs": [],
+     "gaps": []
+    },
+    {
+     "slug": "trees-and-binary-search-trees",
+     "name": "Trees and Binary Search Trees",
+     "status": "not_started",
+     "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+     "runs": [],
+     "gaps": []
+    },
+    {
+     "slug": "binary-heaps",
+     "name": "Binary Heaps",
+     "status": "not_started",
+     "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+     "runs": [],
+     "gaps": []
+    },
+    {
+     "slug": "graphs-data-structure",
+     "name": "Graphs as a Data Structure",
+     "status": "not_started",
+     "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+     "runs": [],
+     "gaps": []
+    }
+   ]
+  },
+  {
+   "slug": "algorithms",
+   "name": "Algorithms",
+   "topics": [
+    {
+     "slug": "searching-sorting-hashing",
+     "name": "Searching, Sorting and Hashing",
+     "status": "not_started",
+     "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+     "runs": [],
+     "gaps": []
+    },
+    {
+     "slug": "asymptotic-complexity",
+     "name": "Asymptotic Worst Case Time and Space Complexity",
+     "status": "not_started",
+     "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+     "runs": [],
+     "gaps": []
+    },
+    {
+     "slug": "greedy-algorithms",
+     "name": "Greedy Algorithms",
+     "status": "not_started",
+     "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+     "runs": [],
+     "gaps": []
+    },
+    {
+     "slug": "dynamic-programming",
+     "name": "Dynamic Programming",
+     "status": "not_started",
+     "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+     "runs": [],
+     "gaps": []
+    },
+    {
+     "slug": "divide-and-conquer",
+     "name": "Divide and Conquer",
+     "status": "not_started",
+     "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+     "runs": [],
+     "gaps": []
+    },
+    {
+     "slug": "graph-traversals",
+     "name": "Graph Traversals",
+     "status": "not_started",
+     "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+     "runs": [],
+     "gaps": []
+    },
+    {
+     "slug": "minimum-spanning-trees",
+     "name": "Minimum Spanning Trees",
+     "status": "not_started",
+     "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+     "runs": [],
+     "gaps": []
+    },
+    {
+     "slug": "shortest-paths",
+     "name": "Shortest Paths",
+     "status": "not_started",
+     "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+     "runs": [],
+     "gaps": []
+    }
+   ]
+  },
+  {
+   "slug": "theory-of-computation",
+   "name": "Theory of Computation",
+   "topics": [
+    {
+     "slug": "regular-expressions-and-finite-automata",
+     "name": "Regular Expressions and Finite Automata",
+     "status": "not_started",
+     "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+     "runs": [],
+     "gaps": []
+    },
+    {
+     "slug": "context-free-grammars-and-pda",
+     "name": "Context-Free Grammars and Push-Down Automata",
+     "status": "not_started",
+     "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+     "runs": [],
+     "gaps": []
+    },
+    {
+     "slug": "pumping-lemma",
+     "name": "Pumping Lemma",
+     "status": "not_started",
+     "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+     "runs": [],
+     "gaps": []
+    },
+    {
+     "slug": "turing-machines-and-undecidability",
+     "name": "Turing Machines and Undecidability",
+     "status": "not_started",
+     "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+     "runs": [],
+     "gaps": []
+    }
+   ]
+  },
+  {
+   "slug": "compiler-design",
+   "name": "Compiler Design",
+   "topics": [
+    {
+     "slug": "lexical-analysis",
+     "name": "Lexical Analysis",
+     "status": "not_started",
+     "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+     "runs": [],
+     "gaps": []
+    },
+    {
+     "slug": "parsing",
+     "name": "Parsing",
+     "status": "not_started",
+     "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+     "runs": [],
+     "gaps": []
+    },
+    {
+     "slug": "syntax-directed-translation",
+     "name": "Syntax-Directed Translation",
+     "status": "not_started",
+     "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+     "runs": [],
+     "gaps": []
+    },
+    {
+     "slug": "runtime-environments",
+     "name": "Runtime Environments",
+     "status": "not_started",
+     "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+     "runs": [],
+     "gaps": []
+    },
+    {
+     "slug": "intermediate-code-generation",
+     "name": "Intermediate Code Generation",
+     "status": "not_started",
+     "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+     "runs": [],
+     "gaps": []
+    },
+    {
+     "slug": "local-optimisation",
+     "name": "Local Optimisation",
+     "status": "not_started",
+     "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+     "runs": [],
+     "gaps": []
+    },
+    {
+     "slug": "data-flow-analysis",
+     "name": "Data Flow Analyses",
+     "status": "not_started",
+     "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+     "runs": [],
+     "gaps": []
+    }
+   ]
+  },
+  {
+   "slug": "operating-system",
+   "name": "Operating System",
+   "topics": [
+    {
+     "slug": "processes-and-threads",
+     "name": "System Calls, Processes and Threads",
+     "status": "not_started",
+     "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+     "runs": [],
+     "gaps": []
+    },
+    {
+     "slug": "ipc-and-synchronization",
+     "name": "Inter-Process Communication and Synchronization",
+     "status": "not_started",
+     "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+     "runs": [],
+     "gaps": []
+    },
+    {
+     "slug": "deadlock",
+     "name": "Deadlock",
+     "status": "not_started",
+     "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+     "runs": [],
+     "gaps": []
+    },
+    {
+     "slug": "cpu-and-io-scheduling",
+     "name": "CPU and I/O Scheduling",
+     "status": "not_started",
+     "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+     "runs": [],
+     "gaps": []
+    },
+    {
+     "slug": "memory-management-and-virtual-memory",
+     "name": "Memory Management and Virtual Memory",
+     "status": "not_started",
+     "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+     "runs": [],
+     "gaps": []
+    },
+    {
+     "slug": "file-systems",
+     "name": "File Systems",
+     "status": "not_started",
+     "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+     "runs": [],
+     "gaps": []
+    }
+   ]
+  },
+  {
+   "slug": "databases",
+   "name": "Databases",
+   "topics": [
+    {
+     "slug": "er-model",
+     "name": "ER Model",
+     "status": "not_started",
+     "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+     "runs": [],
+     "gaps": []
+    },
+    {
+     "slug": "relational-algebra-and-tuple-calculus",
+     "name": "Relational Model: Algebra and Tuple Calculus",
+     "status": "not_started",
+     "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+     "runs": [],
+     "gaps": []
+    },
+    {
+     "slug": "sql",
+     "name": "SQL",
+     "status": "not_started",
+     "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+     "runs": [],
+     "gaps": []
+    },
+    {
+     "slug": "integrity-constraints-and-normal-forms",
+     "name": "Integrity Constraints and Normal Forms",
+     "status": "not_started",
+     "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+     "runs": [],
+     "gaps": []
+    },
+    {
+     "slug": "file-organization-and-indexing",
+     "name": "File Organization and Indexing",
+     "status": "not_started",
+     "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+     "runs": [],
+     "gaps": []
+    },
+    {
+     "slug": "transactions-and-concurrency-control",
+     "name": "Transactions and Concurrency Control",
+     "status": "not_started",
+     "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+     "runs": [],
+     "gaps": []
+    }
+   ]
+  },
+  {
+   "slug": "computer-networks",
+   "name": "Computer Networks",
+   "topics": [
+    {
+     "slug": "principles-of-layering",
+     "name": "Principles of Layering",
+     "status": "not_started",
+     "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+     "runs": [],
+     "gaps": []
+    },
+    {
+     "slug": "switching-and-performance-metrics",
+     "name": "Switching and Performance Metrics",
+     "status": "not_started",
+     "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+     "runs": [],
+     "gaps": []
+    },
+    {
+     "slug": "data-link-layer",
+     "name": "Data Link Layer: Error Detection and MAC",
+     "status": "not_started",
+     "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+     "runs": [],
+     "gaps": []
+    },
+    {
+     "slug": "routing-algorithms",
+     "name": "Distance Vector and Link State Routing",
+     "status": "not_started",
+     "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+     "runs": [],
+     "gaps": []
+    },
+    {
+     "slug": "ipv4-addressing",
+     "name": "IPv4: Fragmentation, CIDR and NAT",
+     "status": "not_started",
+     "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+     "runs": [],
+     "gaps": []
+    },
+    {
+     "slug": "tcp-and-congestion-control",
+     "name": "TCP: Flow Control and Congestion Control",
+     "status": "not_started",
+     "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+     "runs": [],
+     "gaps": []
+    },
+    {
+     "slug": "application-layer-protocols",
+     "name": "Application Layer Protocols: DNS and HTTP",
+     "status": "not_started",
+     "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
+     "runs": [],
+     "gaps": []
+    }
+   ]
+  }
+ ]
 }

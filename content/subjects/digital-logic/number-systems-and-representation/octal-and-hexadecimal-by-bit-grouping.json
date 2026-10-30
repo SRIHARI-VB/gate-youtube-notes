@@ -1,0 +1,64 @@
+{
+  "id": "octal-and-hexadecimal-by-bit-grouping",
+  "title": "Octal and Hexadecimal by Bit Grouping",
+  "priority": "P2",
+  "order": 403,
+  "unit": "Number Systems and Number Representation",
+  "quickIdea": "8 is 2 to the 3 and 16 is 2 to the 4, so one octal digit is exactly three bits and one hex digit exactly four. Convert by regrouping bits, never through decimal.",
+  "remember": [
+    "Group from the binary point outward: three bits per octal digit, four bits per hexadecimal digit.",
+    "Pad on the outside of the number only: leading zeros on the integer part, trailing zeros on the fraction part. Padding the fraction on the left changes its value.",
+    "One hex digit is four bits, so a byte is exactly two hex digits and a 32-bit word is eight.",
+    "The method depends on the bases being powers of two. It does not work for base 3 or base 5, which must go through the weighted sum.",
+    "Octal is a compression of binary, not a separate number system: (0.11) in binary is (0.6) in octal because 110 is the three-bit group."
+  ],
+  "example": {
+    "prompt": "Convert (2E7) in base 16 to octal.",
+    "work": "Each hex digit to four bits: 2 is 0010, E is 1110, 7 is 0111, giving 0010 1110 0111. Regroup in threes from the right: 001 011 100 111, which is 1, 3, 4, 7. Check: (2E7) is 2x256 + 14x16 + 7 = 743, and (1347) in octal is 512 + 192 + 32 + 7 = 743.",
+    "answer": "(1347) in base 8."
+  },
+  "gateAngle": "GATE asks the hex-to-octal direction because it tests the 3-bit and 4-bit grouping at once, and because a candidate who goes through decimal usually makes an arithmetic slip on the way.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "Convert (253) in base 8 to hexadecimal.",
+      "answer": "(AB) in base 16.",
+      "why": "253 in octal is 010 101 011, regrouped as 1010 1011, which is A then B. Check: 2x64 + 5x8 + 3 = 171 = 10x16 + 11."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "The binary fraction 0.11 is which octal fraction, and is the same grouping valid for base 5?",
+      "answer": "0.6 in octal, because 110 is one three-bit group with the fraction padded on the right; grouping is not valid for base 5.",
+      "why": "The padding side is the trap, and base 5 is not a power of two, so no fixed group size exists. GATE uses base-5 questions (2024 Set 2 Q.49) precisely to break the grouping habit."
+    }
+  ],
+  "trap": {
+    "what": "Padding the fraction part on the left instead of the right, or grouping from the left end of the integer part.",
+    "why": "Place values grow to the left and shrink to the right, so a group must always be aligned to the binary point. Leading zeros of the integer part and trailing zeros of the fraction change nothing; zeros inserted anywhere else change everything.",
+    "counterexample": "0.1 in binary padded on the left to 001 is still 0.1 and groups as 0.1 - but grouping 0.1 from the point gives the single group 100 only if you pad on the right to 0.100, which is 0.4 in octal. The left-padded 001 would read as 1 in octal, eight times too large."
+  },
+  "check": {
+    "question": "What is (AB) in base 16, in octal?",
+    "answer": "(253) in base 8.",
+    "explanation": "A is 1010 and B is 1011, so 1010 1011 regroups as 010 101 011 = 2, 5, 3. Check: 10x16 + 11 = 171 and 2x64 + 5x8 + 3 = 171."
+  },
+  "pyqIds": [],
+  "prereqs": [
+    "positional-number-systems",
+    "base-conversion-integer-and-fraction"
+  ],
+  "sources": [
+    {
+      "kind": "lecture-transcript",
+      "title": "Lecture 21 - Number System",
+      "channel": "NPTEL, Digital Electronic Circuits (Prof. Goutam Saha, IIT Kharagpur)",
+      "url": "http://digimat.in/nptel/courses/video/108105132/lec21.pdf",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "read from the opening to the lecturer's own closing summary: place value and the odometer argument, the base-r digit rule 0 to r-1, the weighted sum with negative powers for the fraction, (1010.101)2 = 10.625, decimal-to-binary by successive division of the integer and successive multiplication of the fraction (0.625 -> 0.101), octal and hexadecimal with 3-bit and 4-bit grouping, the 8.3 / 8.4 / 8.2 reading of 10011110, the range and precision of a fixed-point word, and the first statement of normalised floating point. The captions are machine transcripts and several numerals in them are garbled, so every figure taken from this lecture was re-derived from its bits here."
+    }
+  ],
+  "sourceLine": "The 3-bit and 4-bit grouping rule, with the octal and hexadecimal examples: NPTEL IIT Kharagpur Lecture 21 (English, read in full). The base-5 counterexample is this run's own, from the shape of GATE CSE 2024 Set 2 Q.49.",
+  "videoRefs": []
+}

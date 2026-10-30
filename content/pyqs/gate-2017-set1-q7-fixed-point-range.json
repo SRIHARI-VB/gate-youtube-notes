@@ -1,0 +1,21 @@
+{
+  "id": "gate-2017-set1-q7-fixed-point-range",
+  "year": "2017",
+  "paper": "GATE CS 2017 Set 1",
+  "question_ref": "Q.7",
+  "type": "MCQ",
+  "topic": "fixed-point-representation",
+  "text": "The n-bit fixed-point representation of an unsigned real number X uses f bits for the fraction part. Let i = n - f. The range of decimal values for X in this representation is",
+  "options": [
+    "2^(-f) to 2^i",
+    "2^(-f) to (2^i - 2^(-f))",
+    "0 to 2^i",
+    "0 to (2^i - 2^(-f))"
+  ],
+  "answer": "Option (D) - 0 to (2^i - 2^(-f))",
+  "solution": "All-zero bits represent 0, so the lower end is 0. All-ones bits give the integer part 2^i - 1 and the fraction part 1 - 2^(-f), summing to 2^i - 2^(-f). Equivalently, the largest stored integer 2^n - 1 scaled by 2^(-f) is 2^(n-f) - 2^(-f).",
+  "source_url": "https://gateoverflow.in/118287/gate-cse-2017-set-1-question-7",
+  "source_label": "GATE Overflow question page - GATE CSE 2017 Set 1 Q.7 with the accepted answer (option D)",
+  "verification": "SOURCED",
+  "answer_evidence": "The accepted answers sum the integer and fraction maxima as a geometric series, reaching 2^i - 2^(-f), and eliminate the options that put the minimum at 2^(-f). Recomputed here for i = 8, f = 4 as 15.9375."
+}

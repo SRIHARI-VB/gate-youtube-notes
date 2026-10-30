@@ -1,0 +1,21 @@
+{
+  "slug": "ieee754-bit-fields-to-value",
+  "topic": "number-systems-and-representation",
+  "engine": "p5.js",
+  "steps": 7,
+  "example": {
+    "word_hex": "C2710000",
+    "sign_bit": 1,
+    "exponent_field": 132,
+    "bias": 127,
+    "true_exponent": 5,
+    "significand": 1.8828125,
+    "value": -60.25,
+    "one_point_zero_hex": "3F800000",
+    "one_point_zero_exponent_field": 127,
+    "largest_finite_exponent_field": 254,
+    "largest_finite_value": 3.4028234663852886e+38,
+    "smallest_positive_normal": 1.1754943508222875e-38,
+    "smallest_positive_subnormal": 1.401298464324817e-45
+  }
+}

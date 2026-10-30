@@ -1,0 +1,73 @@
+{
+  "id": "fixed-point-representation",
+  "title": "Fixed-Point Representation: Range, Resolution and the Position of the Point",
+  "priority": "P1",
+  "order": 410,
+  "unit": "Number Systems and Number Representation",
+  "quickIdea": "Choose where the binary point sits: i bits before it and f bits after, so the value is the integer in the word divided by 2^f.",
+  "remember": [
+    "An n-bit unsigned word with f fraction bits holds multiples of 2^(-f) from 0 to 2^i - 2^(-f), where i = n - f.",
+    "The resolution is 2^(-f), the gap between neighbouring values; the range is about 2^i. Moving one bit from the integer side to the fraction side halves the range and doubles the resolution.",
+    "The same bit pattern is a different number under a different split: 10011110 is 19.75 as an 8.3 number, 9.875 as 8.4 and 39.5 as 8.2.",
+    "Shifting the point one place left divides the value by 2 and multiplies the resolution by 2; one place right doubles the value.",
+    "Fixed point keeps the resolution constant across the whole range and needs no exponent field, which is why integer arithmetic circuits work unchanged - an integer is fixed point with f = 0.",
+    "A decimal fraction is exact in fixed point only when it is a multiple of 2^(-f): 0.875 is a multiple of 1/8, 0.3 is not a multiple of 1/16."
+  ],
+  "example": {
+    "prompt": "The 8-bit pattern 10011110 is read as an unsigned 8.3 fixed-point number. What is its value, and what would it be as 8.4?",
+    "work": "As 8.3 the point goes after the fifth bit: 10011.110, which is 16 + 2 + 1 + 0.5 + 0.25 = 19.75. As 8.4 the point moves one place left: 1001.1110, which is 8 + 1 + 0.5 + 0.25 + 0.125 = 9.875, exactly half.",
+    "answer": "19.75 as 8.3 and 9.875 as 8.4."
+  },
+  "gateAngle": "GATE CSE 2017 Set 1 Q.7 asks for the range of an n-bit unsigned fixed-point number with f fraction bits, and the answer 0 to 2^i - 2^(-f) is only reachable if you see that the fraction contributes up to 1 - 2^(-f), not up to 1.",
+  "variations": [
+    {
+      "label": "VERIFIED PYQ",
+      "question": "GATE CSE 2017 Set 1 Q.7: The n-bit fixed-point representation of an unsigned real number X uses f bits for the fraction part. Let i = n - f. The range of decimal values for X is: (A) 2^-f to 2^i, (B) 2^-f to (2^i - 2^-f), (C) 0 to 2^i, (D) 0 to (2^i - 2^-f).",
+      "answer": "Option (D), 0 to 2^i - 2^-f.",
+      "why": "All-zero bits give 0, so the lower end is 0 and not 2^-f. All-ones gives (2^i - 1) + (1 - 2^-f) = 2^i - 2^-f. Scaling the integer 2^n - 1 by 2^-f gives the same expression."
+    },
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "An unsigned 10-bit word is read with 2 fraction bits. What are its range and its resolution?",
+      "answer": "0 to 255.75, resolution 0.25.",
+      "why": "i = 8 and f = 2, so the maximum is 2^8 - 2^(-2) = 255.75 and the gap is 2^(-2) = 0.25. The maximum is not 256 and not 255."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "Which of 0.875 and 0.3 is exact in an unsigned 8.4 fixed-point word?",
+      "answer": "0.875 is exact; 0.3 is not.",
+      "why": "0.875 = 7/8 is a multiple of 1/16, so it needs the bits 0000 1110. 0.3 is not a multiple of 1/16 - 0.3 x 16 = 4.8 - so it cannot be stored exactly at any width with a power-of-two resolution."
+    }
+  ],
+  "trap": {
+    "what": "Giving 2^i as the maximum, or 2^(-f) as the minimum of an unsigned fixed-point number.",
+    "why": "The fraction field can reach 1 - 2^(-f) but never 1, so the maximum falls short of 2^i by exactly 2^(-f). And zero is representable, so the minimum is 0, not the resolution.",
+    "counterexample": "An 8.4 unsigned word: the maximum is 15.9375, not 16, and the minimum is 0, not 0.0625."
+  },
+  "check": {
+    "question": "What are the range and resolution of an unsigned 8-bit word read with 4 fraction bits?",
+    "answer": "0 to 15.9375, resolution 0.0625.",
+    "explanation": "i = 4 and f = 4, so the maximum is 2^4 - 2^(-4) = 15.9375 and the gap is 2^(-4) = 0.0625."
+  },
+  "pyqIds": [
+    "gate-2017-set1-q7-fixed-point-range"
+  ],
+  "prereqs": [
+    "positional-number-systems",
+    "unsigned-fixed-width-range"
+  ],
+  "sources": [
+    {
+      "kind": "lecture-transcript",
+      "title": "Lecture 21 - Number System",
+      "channel": "NPTEL, Digital Electronic Circuits (Prof. Goutam Saha, IIT Kharagpur)",
+      "url": "http://digimat.in/nptel/courses/video/108105132/lec21.pdf",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "read from the opening to the lecturer's own closing summary: place value and the odometer argument, the base-r digit rule 0 to r-1, the weighted sum with negative powers for the fraction, (1010.101)2 = 10.625, decimal-to-binary by successive division of the integer and successive multiplication of the fraction (0.625 -> 0.101), octal and hexadecimal with 3-bit and 4-bit grouping, the 8.3 / 8.4 / 8.2 reading of 10011110, the range and precision of a fixed-point word, and the first statement of normalised floating point. The captions are machine transcripts and several numerals in them are garbled, so every figure taken from this lecture was re-derived from its bits here."
+    }
+  ],
+  "sourceLine": "The 8.3 / 8.4 / 8.2 readings of 10011110, the range formula and the point-shifting argument: NPTEL IIT Kharagpur Lecture 21 (English, read in full, figures re-derived here). The question text and accepted answer of 2017 Set 1 Q.7: its GATE Overflow page.",
+  "videoRefs": []
+}

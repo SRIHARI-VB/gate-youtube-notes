@@ -1,0 +1,21 @@
+{
+  "id": "gate-2024-set2-q14-largest-float",
+  "year": "2024",
+  "paper": "GATE CS 2024 Set 2",
+  "question_ref": "Q.14 (numbered Q.4 on the GATE Overflow page)",
+  "type": "MCQ",
+  "topic": "ieee-754-special-values-and-extremes",
+  "text": "The format of a single-precision floating-point number as per the IEEE 754 standard is: sign (1 bit), exponent (8 bits), mantissa (23 bits). Choose the largest floating-point number among the following options: (A) sign 0, exponent 01111111, mantissa 11111111111111111111111; (B) sign 0, exponent 11111110, mantissa 11111111111111111111111; (C) sign 0, exponent 11111111, mantissa 11111111111111111111111; (D) sign 0, exponent 01111111, mantissa 00000000000000000000000.",
+  "options": [
+    "Sign 0, exponent 01111111, mantissa all ones",
+    "Sign 0, exponent 11111110, mantissa all ones",
+    "Sign 0, exponent 11111111, mantissa all ones",
+    "Sign 0, exponent 01111111, mantissa all zeros"
+  ],
+  "answer": "Option (B) - sign 0, exponent 11111110, mantissa all ones",
+  "solution": "Option B has the largest exponent field that still denotes a number, 254, and a full mantissa, so it is (2 - 2^(-23)) x 2^127, about 3.40 x 10^38. Option C has an all-ones exponent with a non-zero mantissa, which is NaN, not a number. Option A is about 2 and option D is exactly 1.",
+  "source_url": "https://gateoverflow.in/422893/gate-cse-2024-set-2-question-4",
+  "source_label": "GATE Overflow question page for GATE CSE 2024 Set 2 Q.14 with the accepted answer (option B)",
+  "verification": "SOURCED",
+  "answer_evidence": "The accepted answers state that an all-ones exponent is reserved and therefore option C is not a number, leaving B as the largest; one answer names the reserved values as the two zeros and the two infinities. Recomputed here: B evaluates to about 3.4028e38."
+}

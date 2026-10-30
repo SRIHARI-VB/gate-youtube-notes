@@ -1,0 +1,21 @@
+{
+  "id": "gate-2021-set1-q6-base3-to-hex",
+  "year": "2021",
+  "paper": "GATE CS 2021 Set 1",
+  "question_ref": "Q.6",
+  "type": "MCQ",
+  "topic": "base-conversion-integer-and-fraction",
+  "text": "Let the representation of a number in base 3 be 210. What is the hexadecimal representation of the number?",
+  "options": [
+    "15",
+    "21",
+    "D2",
+    "528"
+  ],
+  "answer": "Option (A) - 15",
+  "solution": "(210) in base 3 is 2x9 + 1x3 + 0x1 = 21 in decimal, and 21 = 1x16 + 5, so the hexadecimal form is (15). Option 21 is the decimal value written unchanged, which is the intended error.",
+  "source_url": "https://gateoverflow.in/357446/gate-cse-2021-set-1-question-6",
+  "source_label": "GATE Overflow question page - GATE CSE 2021 Set 1 Q.6 with the accepted answer (option A)",
+  "verification": "SOURCED",
+  "answer_evidence": "The accepted answers expand the base-3 weights to 21 and divide by 16; one comment states the chain (210)3 = (21)10 = (15)16. Recomputed here."
+}

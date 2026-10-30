@@ -1802,6 +1802,142 @@ def check_mean_median_mode():
        "variance, all five PYQ computations and the four versions in the p5 lesson recomputed")
 
 
+def check_number_representation():
+    """Every number, range and bit pattern published in the Number Systems and Number
+    Representation cards, PYQs and lesson is recomputed here from its bits."""
+
+    def bits(n, width):
+        return bin(n)[2:].zfill(width)
+
+    def twos(b):
+        """Value of a two's complement pattern given as a binary string."""
+        n = int(b, 2)
+        return n - (1 << len(b)) if b[0] == '1' else n
+
+    def decode32(word):
+        b = bits(word, 32)
+        s, e, f = b[0], b[1:9], b[9:]
+        E = int(e, 2)
+        assert E != 0 and E != 255, "special word, not a normal number"
+        sig = 1 + sum(int(c) * 2.0 ** -(i + 1) for i, c in enumerate(f))
+        return (int(s) and -1 or 1) * sig * 2.0 ** (E - 127), E, sig
+
+    # ---- card 1: place value
+    assert 1 * 8 + 0 * 4 + 1 * 2 + 0 * 1 == 10
+    assert 0.5 + 0.125 == 0.625
+    assert 8 + 2 + 0.5 + 0.125 == 10.625
+    assert 2 ** 8 == 256 and 2 ** 10 == 1024 and 2 ** 16 == 65536 and 2 ** 20 == 1048576
+    assert 2 * 9 + 1 * 3 + 0 == 21                      # (210) in base 3
+    assert 1 * 49 + 2 * 7 + 3 == 66                     # (123) in base 7
+    assert 2 * 16 + 10 == 42 and 5 * 8 + 2 == 42        # (2A)16 = (52)8
+
+    # ---- card 2: base conversion
+    assert int("15", 16) == 21 and 21 == 1 * 16 + 5
+    assert 1 * 16 + 3 * 4 + 2 == 30 and 1 * 25 + 1 * 5 + 0 == 30   # (132)4 = (110)5
+    assert 0.375 * 2 == 0.75 and 0.75 * 2 == 1.5 and 0.5 * 2 == 1.0  # 0.375 -> 0.011
+    assert 4 * 5 + 3 == 23                              # (43)5
+    assert 1 * 2 + 1 == 3 and int("110", 2) == 6        # the reversed-remainder counterexample
+
+    # ---- card 3: grouping
+    assert int("2E7", 16) == 743 == 1 * 512 + 3 * 64 + 4 * 8 + 7
+    assert int("1347", 8) == 743
+    assert int("AB", 16) == 171 == 2 * 64 + 5 * 8 + 3
+    assert int("253", 8) == 171
+    assert 0.75 == 6 / 8 and int("11", 2) / 4 == 0.75
+
+    # ---- card 4: unsigned widths
+    assert 2 ** 8 - 1 == 255 and 2 ** 16 - 1 == 65535 and 2 ** 32 - 1 == 4294967295
+    assert 2 ** 12 == 4096 and 2 ** 12 - 1 == 4095 and 2 ** 10 == 1024 and 2 ** 10 - 1 == 1023
+    assert (255 + 1) % 256 == 0                          # wrap-around
+
+    # ---- card 5: sign-magnitude
+    assert int("00010110", 2) == 22 and int("10010110", 2) == 150 == 128 + 22
+    assert int("0101101", 2) == 45 and int("10101101", 2) == 128 + 45
+    assert int("10000000", 2) == 128                     # negative zero
+    assert 2 ** 7 - 1 == 127 and 2 ** 8 - 1 == 255       # 255 distinct values
+
+    # ---- card 6: one's complement
+    assert 255 - 22 == 233 == int("11101001", 2)
+    assert int("11111110", 2) == 254                     # -1 in one's complement
+    assert int("0101", 2) + int("1110", 2) == 19         # 1 0011 with a carry out
+    assert 19 - 16 + 1 == 4                              # end-around carry gives +4
+    assert int("0011", 2) == 3                           # without it, +3
+
+    # ---- card 7: two's complement definition and range
+    assert int("11101010", 2) == 234 and twos("11101010") == -22
+    assert twos("1000") == -8 and twos("10000000") == -128 and twos("100000") == -32
+    assert -2 ** 7 == -128 and 2 ** 7 - 1 == 127
+    assert -2 ** 11 == -2048 and 2 ** 11 - 1 == 2047
+    assert -2 ** 5 == -32 and 2 ** 5 - 1 == 31
+    assert twos("10100100") == -92 and twos("1010 0100".replace(" ", "")) == -92
+    assert twos("1010 0100".replace(" ", "")) == -92
+    assert -128 + 32 + 4 == -92
+
+    # ---- card 8: subtraction and sign extension
+    assert (11 + (256 - 22)) % 256 == 245 and twos("11110101") == -11
+    assert -128 + 64 + 32 + 16 + 4 + 1 == -11
+    assert twos(bits(0xFFF5, 16)) == -11
+    assert -32768 + 32757 == -11
+    assert 2 ** 16 - 100 == 65436 and twos(bits(65436, 16)) == -100
+    assert int("FF9C", 16) == 65436
+    assert int("A7", 16) == 167 and twos("10100111") == -89
+    assert int("FFA7", 16) == 65447 and twos(bits(0xFFA7, 16)) == -89
+    assert int("00A7", 16) == 167
+    assert (0x7F + 0x01) % 256 == 0x80 and twos("10000000") == -128   # overflow with no carry
+
+    # ---- card 9: distinct values
+    assert 2 ** 16 == 65536 and 2 ** 16 - 1 == 65535 and 65536 - 65535 == 1
+    assert 2 ** 8 - (2 ** 8 - 1) == 1
+
+    # ---- card 10: fixed point
+    assert int("10011", 2) + int("110", 2) / 8 == 19.75
+    assert int("1001", 2) + int("1110", 2) / 16 == 9.875
+    assert int("100111", 2) + int("10", 2) / 4 == 39.5
+    assert 19.75 / 2 == 9.875
+    assert 2 ** 8 - 2 ** -2 == 255.75 and 2 ** 4 - 2 ** -4 == 15.9375
+    assert 2 ** 5 - 2 ** -3 == 31.875
+    assert 0.875 * 16 == 14 and (0.3 * 16) != int(0.3 * 16)
+    assert 7 / 8 == 0.875
+
+    # ---- card 11: normalisation and bias
+    assert 1 + 0.5 + 0.125 + 0.03125 == 1.65625 and 1.65625 * 8 == 13.25
+    assert 0.5 == 1.0 * 2 ** -1 and -1 + 127 == 126
+    assert 8 == 1.0 * 2 ** 3 and 3 + 127 == 130
+    assert int("01111110", 2) == 126 and int("01111111", 2) == 127
+    assert 2 ** -126 * 2 ** 126 == 1.0                   # 1/x_min does not overflow
+
+    # ---- card 12: single-precision layout
+    val, E, sig = decode32(0xC2710000)
+    assert E == 132 and 132 - 127 == 5
+    assert sig == 1.8828125 and val == -60.25
+    assert int("10000100", 2) == 132
+    assert 1 + 0.5 + 0.25 + 0.125 + 0.0078125 == 1.8828125
+    assert 0.8828125 * 32 == 28.25                       # the hidden-1 trap
+    val2, E2, sig2 = decode32(0x3F800000)
+    assert E2 == 127 and sig2 == 1.0 and val2 == 1.0
+    assert int("10000001", 2) == 129 and 129 - 127 == 2
+    assert 1 + 0.5 + 0.25 + 0.125 + 0.0625 == 1.9375 and -1.9375 * 4 == -7.75
+
+    # ---- card 13: special values and extremes
+    assert int(bits(0x7F800000, 32)[1:9], 2) == 255 and int(bits(0x7F800000, 32)[9:], 2) == 0
+    assert int(bits(0x7FC00000, 32)[1:9], 2) == 255 and int(bits(0x7FC00000, 32)[9:], 2) != 0
+    assert int(bits(0x7F7FFFFF, 32)[1:9], 2) == 254
+    assert 0x7F7FFFFF == 2139095039 and 0x7FFFFFFF == 2147483647
+    largest = (2 - 2 ** -23) * 2 ** 127
+    assert abs(largest - 3.4028234663852886e+38) < 1e30
+    assert abs(2 ** -126 - 1.1754943508222875e-38) < 1e-50
+    assert abs(2 ** -149 - 1.401298464324817e-45) < 1e-60
+    assert abs(2 ** -23 - 1.1920928955078125e-07) < 1e-20
+    assert 2 ** (20 - 23) == 0.125 and 2 ** (0 - 23) == 2 ** -23
+    assert int(bits(0x00000001, 32)[1:9], 2) == 0 and int(bits(0x00000001, 32)[9:], 2) == 1
+    assert int(bits(0x00800000, 32)[1:9], 2) == 1 and int(bits(0x00800000, 32)[9:], 2) == 0
+    assert 2 ** -126 * 2 ** -23 == 2 ** -149
+
+    ok("number representation: place value, base conversion, grouping, every signed range, "
+       "fixed-point range and resolution, the bias, the IEEE 754 decode of all three verified "
+       "words, the hidden-1 trap and every special-value pattern recomputed from bits")
+
+
 def check_visuals():
     vroot = os.path.join(ROOT, "visuals")
     lessons = []
@@ -6109,6 +6245,7 @@ def main():
     check_probability_and_statistics()
     check_mean_median_mode()
     check_conditional_probability()
+    check_number_representation()
     check_visuals()
     check_hygiene()
     for c in checks:

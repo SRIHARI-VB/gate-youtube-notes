@@ -1,0 +1,64 @@
+{
+  "id": "sign-magnitude-representation",
+  "title": "Sign-Magnitude Representation",
+  "priority": "P1",
+  "order": 405,
+  "unit": "Number Systems and Number Representation",
+  "quickIdea": "The leftmost bit is a sign, 0 for positive and 1 for negative, and the other n-1 bits are the magnitude.",
+  "remember": [
+    "The most significant bit is the sign bit and carries no place value: it is not worth 2^(n-1).",
+    "Range: -(2^(n-1) - 1) to +(2^(n-1) - 1). Eight bits give -127 to +127.",
+    "Zero has two patterns, 0000 0000 and 1000 0000, so the word holds only 2^n - 1 distinct values.",
+    "Negation is one bit flip, which is cheap in hardware, but addition needs a comparator and separate sign logic, which is why it is not used for integer arithmetic.",
+    "IEEE 754 keeps a sign-magnitude sign bit for floating point, and stores the exponent and the fraction as separate fields.",
+    "Reading it back: strip the sign bit, evaluate the remaining bits as unsigned, then attach the sign. There is no subtraction step."
+  ],
+  "example": {
+    "prompt": "Write -22 in 8-bit sign-magnitude form.",
+    "work": "Magnitude 22 = 16 + 4 + 2 = 0001 0110 in seven bits. Set the sign bit for a negative number: 1 001 0110.",
+    "answer": "1001 0110."
+  },
+  "gateAngle": "The doubled zero is the whole point of GATE CSE 2016 Set 2 Q.9, which asks how many more distinct integers two's complement holds than sign-magnitude at 16 bits. The answer is one, and it is exactly this -0.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "Write -45 in 8-bit sign-magnitude form, and give the pattern for negative zero.",
+      "answer": "1010 1101 for -45; 1000 0000 for negative zero.",
+      "why": "45 is 32 + 8 + 4 + 1 = 010 1101 in seven bits, so the signed form is 1 followed by 0101101. Negative zero is the sign bit alone, and it is the pattern that costs the representation one value."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "What are the largest and smallest values in 8-bit sign-magnitude, and what is 1000 0000?",
+      "answer": "+127, -127, and 1000 0000 is negative zero.",
+      "why": "The negative side stops at -127 because -128 would need the magnitude 128, which needs eight magnitude bits. The spare pattern becomes -0."
+    }
+  ],
+  "trap": {
+    "what": "Assuming sign-magnitude reaches -128 at 8 bits, as two's complement does.",
+    "why": "Seven magnitude bits hold at most 127. The pattern 1000 0000 is spent on negative zero, so no pattern is left for -128.",
+    "counterexample": "1000 0000 is -0 in sign-magnitude and -128 in two's complement. The same eight bits, two different values, which is why the representation must be stated in every question."
+  },
+  "check": {
+    "question": "How many distinct integers does an 8-bit sign-magnitude word represent?",
+    "answer": "255.",
+    "explanation": "There are 256 patterns and two of them are zero, so 255 distinct values from -127 to +127."
+  },
+  "pyqIds": [],
+  "prereqs": [
+    "unsigned-fixed-width-range"
+  ],
+  "sources": [
+    {
+      "kind": "lecture-transcript",
+      "title": "Lecture 22 - Negative Number and 2's Complement Arithmetic",
+      "channel": "NPTEL, Digital Electronic Circuits (Prof. Goutam Saha, IIT Kharagpur)",
+      "url": "http://digimat.in/nptel/courses/video/108105132/lec22.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "the served transcript runs through sign-magnitude with the +1 / -1 and +22 / -22 examples and the range -127 to +127 with a doubled zero, then one's complement by inversion with the same range and the same doubled zero, then two's complement as one's complement plus one with all eight ones no longer a second zero; the middle of the lecture (the worked arithmetic cases) is missing from the served text, so nothing is claimed about the case-by-case rules it works through there. The closing summary on two's complement arithmetic was readable."
+    }
+  ],
+  "sourceLine": "Sign-magnitude with the +1 / -1 and +22 / -22 examples, the range -127 to +127 and the doubled zero: NPTEL IIT Kharagpur Digital Electronic Circuits Lecture 22 (English, read in part).",
+  "videoRefs": []
+}

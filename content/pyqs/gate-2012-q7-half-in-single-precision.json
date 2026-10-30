@@ -1,0 +1,21 @@
+{
+  "id": "gate-2012-q7-half-in-single-precision",
+  "year": "2012",
+  "paper": "GATE CS 2012",
+  "question_ref": "Q.7",
+  "type": "MCQ",
+  "topic": "ieee-754-single-precision-layout",
+  "text": "The decimal value 0.5 in IEEE single precision floating point representation has",
+  "options": [
+    "fraction bits of 000...000 and exponent value of 0",
+    "fraction bits of 000...000 and exponent value of -1",
+    "fraction bits of 100...000 and exponent value of 0",
+    "no exact representation"
+  ],
+  "answer": "Option (B) - fraction bits of 000...000 and exponent value of -1",
+  "solution": "0.5 = 1.0 x 2^(-1) in normalised form. The significand is exactly 1.0, so every stored fraction bit is 0 and the implied leading 1 supplies the integer part; the true exponent is -1, stored as 126. The value is exactly representable, so option (D) is wrong.",
+  "source_url": "https://gateoverflow.in/39/gate-cse-2012-question-7",
+  "source_label": "GATE Overflow question page - GATE CSE 2012 Q.7 with the accepted answer (option B)",
+  "verification": "SOURCED",
+  "answer_evidence": "The accepted answer normalises 0.5 to 1.0 x 2^(-1), notes that the exponent field is 126 and the fraction field all zeros. Recomputed here from the normal form."
+}

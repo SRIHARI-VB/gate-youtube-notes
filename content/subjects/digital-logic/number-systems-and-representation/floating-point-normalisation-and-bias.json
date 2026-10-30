@@ -1,0 +1,85 @@
+{
+  "id": "floating-point-normalisation-and-bias",
+  "title": "Floating Point: Normalisation and the Biased Exponent",
+  "priority": "P1",
+  "order": 411,
+  "unit": "Number Systems and Number Representation",
+  "quickIdea": "Write the number as a significand between 1 and 2 times a power of two, store the sign, the exponent and the fraction; the exponent is stored with a bias added.",
+  "remember": [
+    "Normal form: exactly one 1 before the binary point, so 1 <= significand < 2. 1101.01 becomes 1.10101 x 2^3.",
+    "Because the leading 1 is always there, it need not be stored. That hidden bit buys one extra bit of precision for free.",
+    "The stored exponent is the true exponent plus a bias, so every stored value is non-negative. Single precision uses 127, double 1023.",
+    "With a bias, comparing two positive floats is the same as comparing their bit patterns as unsigned integers, which makes hardware comparison cheap.",
+    "The exponent width sets the magnitude range and the fraction width sets the precision. They are separate budgets, and fixed point has only one.",
+    "The bias is 127 rather than 128 so that the reciprocal of the smallest normal number does not overflow: the smallest normal is 2^-126 and its reciprocal 2^126 is still inside the largest exponent."
+  ],
+  "example": {
+    "prompt": "Normalise 1101.01 and write its exponent in single precision form.",
+    "work": "Shift the point three places left: 1.10101 x 2^3, so the true exponent is 3 and the fraction bits are 10101. Check the value: 1 + 0.5 + 0.125 + 0.03125 = 1.65625, and 1.65625 x 8 = 13.25, which is 1101.01 in binary. The stored exponent is 3 + 127 = 130.",
+    "answer": "1.10101 x 2^3, stored exponent 130."
+  },
+  "gateAngle": "GATE CSE 2012 Q.7 asks about 0.5, whose normal form is 1.0 x 2^(-1): the fraction is all zeros and the exponent is -1, so the option claiming an exponent of 0 is the trap.",
+  "variations": [
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Why is the single-precision bias 127 and not 128?",
+      "answer": "So that 1/x_min does not overflow.",
+      "why": "The smallest normal number is 2^-126, and its reciprocal is 2^126, which must still be representable. With a bias of 128 the symmetric exponent range would push the reciprocal outside the format. The same self-consistency argument applies at any width."
+    },
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "What stored exponent encodes a true exponent of 0 in single precision, and what true exponent does a stored 0 encode?",
+      "answer": "Stored 127 (0111 1111) encodes 0; a stored 0 is not an exponent at all - it marks zero and subnormal numbers.",
+      "why": "Decoding subtracts the bias, so stored = true + 127. The value 0 in the exponent field is reserved, which is why the true exponent range starts at -126 rather than -127."
+    }
+  ],
+  "trap": {
+    "what": "Reading the stored exponent as the true exponent, or assuming a stored 0 means a true exponent of 0.",
+    "why": "Every stored exponent is 127 larger than the true one. And the two extreme stored values, 0 and 255, are reserved for the special numbers, so they never denote an ordinary exponent.",
+    "counterexample": "0.5 is 1.0 x 2^(-1) with stored exponent 126, not 0 and not -1. A pattern whose exponent field is 00000000 is a zero or a subnormal, never 1.xxx x 2^(-127)."
+  },
+  "check": {
+    "question": "What is the stored exponent field for the number 8 in single precision?",
+    "answer": "130, which is 10000010.",
+    "explanation": "8 = 1.0 x 2^3, so the true exponent is 3 and the stored field is 3 + 127 = 130."
+  },
+  "pyqIds": [],
+  "prereqs": [
+    "fixed-point-representation",
+    "unsigned-fixed-width-range"
+  ],
+  "sources": [
+    {
+      "kind": "lecture-transcript",
+      "title": "Lecture 21 - Number System",
+      "channel": "NPTEL, Digital Electronic Circuits (Prof. Goutam Saha, IIT Kharagpur)",
+      "url": "http://digimat.in/nptel/courses/video/108105132/lec21.pdf",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "read from the opening to the lecturer's own closing summary: place value and the odometer argument, the base-r digit rule 0 to r-1, the weighted sum with negative powers for the fraction, (1010.101)2 = 10.625, decimal-to-binary by successive division of the integer and successive multiplication of the fraction (0.625 -> 0.101), octal and hexadecimal with 3-bit and 4-bit grouping, the 8.3 / 8.4 / 8.2 reading of 10011110, the range and precision of a fixed-point word, and the first statement of normalised floating point. The captions are machine transcripts and several numerals in them are garbled, so every figure taken from this lecture was re-derived from its bits here."
+    },
+    {
+      "kind": "text",
+      "title": "CS1101 Lecture 31 - IEEE Floating-Point Standard 754",
+      "channel": "University College Cork, Department of Computer Science",
+      "url": "https://www.cs.ucc.ie/~osullb/cs1101/notes/notes31.pdf",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "read in full: the three formats, excess-127 and excess-1023, the reserved extreme exponents, the implied leading 1 and the term significand, the 0.5 worked conversion (fraction all zeros, exponent -1), denormalised numbers with exponent 0 and the smallest denormal 2^-150 by its argument, the two zeros, infinity as exponent all ones with a zero fraction, and NaN"
+    },
+    {
+      "kind": "text",
+      "title": "Computer Representation of Numbers and Computer Arithmetic",
+      "channel": "Virginia Tech, CS3414 course notes (A. Sandu)",
+      "url": "https://people.cs.vt.edu/~asandu/Courses/CS3414/comp_arithm.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read through the extract: the biased representation x + 2^(m-1) with the m = 3 table, the argument that the bias is chosen so that 1/x_min does not overflow, the normalisation argument, the single-precision table of exponent-field cases, the exponent ranges -126..127 and -1022..1023, machine precision and the four rounding modes"
+    }
+  ],
+  "sourceLine": "Normalisation with the 1101.01 example and the first statement of floating point: NPTEL IIT Kharagpur Lecture 21 (English, read in full). Excess-127, the hidden bit and the term significand: University College Cork CS1101 Lecture 31 (English, read in full). The bias argument from the reciprocal of the smallest normal number: Virginia Tech CS3414 notes (English, read in part).",
+  "videoRefs": []
+}
