@@ -1,0 +1,16 @@
+{
+  "id": "gate-2016-set-2-q10-immediate-field",
+  "year": "2016",
+  "paper": "GATE CSE 2016 Set 2",
+  "question_ref": "Q.10",
+  "type": "NAT",
+  "topic": "instruction-field-bit-budget",
+  "text": "A processor has 40 distinct instructions and 24 general purpose registers. A 32-bit instruction word has an opcode, two register operands and an immediate operand. The number of bits available for the immediate operand field is ______.",
+  "options": [],
+  "answer": "16",
+  "solution": "40 instructions need ceil(log2 40) = 6 bits of opcode, since 2^5 = 32 < 40 <= 64 = 2^6. 24 registers need ceil(log2 24) = 5 bits each, so the two register fields take 10. The immediate field gets 32 - 6 - 10 = 16 bits.",
+  "source_url": "https://gateoverflow.in/39547/gate-cse-2016-set-2-question-10",
+  "source_label": "GATE Overflow question page - GATE CSE 2016 Set 2 Q.10 with the accepted answer (16)",
+  "verification": "SOURCED",
+  "answer_evidence": "The accepted answer computes '6 + 2 x 5 = 16' bits used and '32 - 16 = 16' bits available. Corroborated by the Testbook page for the GATE CS 2016 Shift 2 paper, which gives 16, and by the ExamSIDE solution, which also gives 16."
+}
