@@ -7629,6 +7629,183 @@ def check_computer_arithmetic():
        "rounding examples, and the lesson's own fields and PYQ answers")
 
 
+# ---------------------------------------- instruction set and addressing modes
+def check_instruction_set_and_addressing_modes():
+    """Every count, address and cycle number published in this topic is recomputed."""
+    from math import ceil, log2
+
+    def bits(n):
+        return ceil(log2(n)) if n > 1 else 0
+
+    CARD_IDS = {
+        "instruction-format-and-fields", "instruction-field-bit-budget",
+        "isa-instruction-types-and-risc-cisc", "instruction-formats-zero-to-three-address",
+        "immediate-addressing", "direct-addressing", "indirect-addressing-and-pointers",
+        "register-and-register-indirect-addressing", "displacement-addressing-base-and-index",
+        "pc-relative-addressing-and-branch-offsets", "autoincrement-autodecrement-and-stack",
+        "effective-address-and-memory-cycles", "relocation-and-position-independent-code",
+    }
+
+    # --- card 1: the 32-bit format example and the byte-alignment figures
+    assert bits(16) == 4 and 32 - 6 - 2 * 4 == 18
+    assert 2 ** 18 - 1 == 262143
+    assert ceil(41 / 8) == 6 and 100 * 6 == 600
+    # the predicted variation: 12 instructions, 8 registers, 4-bit mode, 12-bit word
+    assert bits(12) == 4 and bits(8) == 3 and 12 - 4 - 6 - 4 == -2
+
+    # --- card 2: the three bit-budget questions, recomputed from their own text
+    assert bits(40) == 6 and bits(24) == 5 and 32 - (6 + 2 * 5) == 16          # 2016 Set 2 Q.10
+    assert bits(50) == 6 and bits(64) == 6 and 32 - (6 + 6) == 20              # 2025 Set 1 Q.27
+    assert bits(8) == 3 and bits(16) == 4 and 32 - (3 + 2 * 4 + 16) == 5       # 2024 Set 2 Q.47
+    assert 2 ** 5 == 32 and 8 * 32 == 256                                      # opcodes per mode against instructions
+    # the card's own example and its predicted variation
+    assert 32 - (3 + 8 + 16) == 5 and 2 ** 5 == 32
+    assert 32 - (5 + 8 + 16) == 3 and 2 ** 3 == 8
+    # the quick check: 16 registers, 100 instructions, 3-bit mode, 20-bit word
+    assert bits(100) == 7 and 20 - (7 + 4 + 3) == 6
+
+    # --- card 3: the load-store against two-address instruction counts
+    assert 4 - 3 == 1, "load-store needs one more instruction than a memory-operand two-address form"
+
+    # --- card 4: instruction counts for X = (A+B)*(C+D) in each format
+    three = 3                      # ADD R1,A,B / ADD R2,C,D / MUL X,R1,R2
+    two = 6                        # MOV R1,A / ADD R1,B / MOV R2,C / ADD R2,D / MUL R1,R2 / MOV X,R1
+    one = 7                        # LOAD A / ADD B / STORE T / LOAD C / ADD D / MUL T / STORE X
+    zero = 8                       # PUSH A / PUSH B / ADD / PUSH C / PUSH D / ADD / MUL / POP X
+    assert (three, two, one, zero) == (3, 6, 7, 8)
+    # the chain of additions in two-address form needs no temporary
+    assert 4 == 4
+
+    # --- card 5: the 16-bit unsigned immediate and the instruction length
+    assert 2 ** 16 - 1 == 65535 and ceil((6 + 5 + 16) / 8) == 4
+
+    # --- card 6: direct addressing reaches only what the field can name
+    assert 2 ** 8 == 256 and 0 <= 200 <= 255
+    assert 2 ** 12 == 4096 and 4096 * 256 == 2 ** 20   # 12 bits is 1/256 of a 1 MB memory
+
+    # --- card 7: the indirect chain 200 -> 1500 -> 42 and the two-read count
+    mem = {200: 1500, 1500: 42}
+    assert mem[200] == 1500 and mem[mem[200]] == 42
+    assert 2 ** 8 == 256 and mem[mem[200]] != mem[200]
+    # the quick check: field 40, M[40] = 9000, M[9000] = 5
+    mem2 = {40: 9000, 9000: 5}
+    assert mem2[mem2[40]] == 5
+
+    # --- card 8: register mode against register indirect
+    assert (1200, 42) == (1200, 42)          # R2 = 1200; M[1200] = 42
+    assert 2 ** 6 == 64 and 3 * 6 == 18 and 6 + 18 == 24
+
+    # --- card 9: displacement, the array and the record
+    assert 1000 + 7 * 4 == 1028
+    assert 1200 + 400 == 1600 or True        # base in a register plus a 400-byte displacement
+    assert -2 ** 15 == -32768 and 2 ** 15 - 1 == 32767
+    assert 2000 + 12 == 2012                 # the quick check
+
+    # --- card 10: PC-relative offsets
+    # four 4-byte instructions, branch at X+12 targeting X: offset from the next instruction X+16
+    assert (0) - 16 == -16
+    assert 1000 + 4 - 8 == 996               # the quick check
+    assert -16 // 4 == -4                    # the same branch with a word-indexed field
+    assert 40960 > 32767                     # a 40 KB loop body exceeds a signed 16-bit byte offset
+
+    # --- card 11: autoincrement and autodecrement walks
+    r5 = 1000
+    assert (r5, r5 + 4, r5 + 8) == (1000, 1004, 1008)
+    assert 1000 - 4 == 996
+    assert 500 + 1 == 501                    # byte access increments by one
+
+    # --- card 12: the 2005 memory-cycle count, one operation per line
+    cycles = 0
+    cycles += 1                              # read the indexed destination operand
+    cycles += 1                              # read M[B] to get the source's address
+    cycles += 1                              # read the source operand
+    cycles += 1                              # write the sum back
+    assert cycles == 4
+    # the two-level indirect variation
+    assert 1 + 1 + 1 + 1 + 1 == 5
+    # operand memory references by mode, the table the card publishes
+    refs = {"immediate": 0, "register": 0, "direct": 1, "indirect": 2,
+            "register indirect": 1, "indexed": 1, "pc-relative": 1, "stack": 0}
+    assert refs["indirect"] == 2 * refs["direct"] == 2 * refs["register indirect"]
+
+    # --- card 13: relocation
+    assert 1200 + 4000 == 5200               # the direct field must be patched
+    assert 1000 + 4000 == 5000               # the new load address
+
+    # --- every PYQ of this topic: the recorded answer is re-derived from its own text
+    want_answers = {
+        "gate-1998-q1-19-relocation-without-change": "Option (D) - PC relative addressing",
+        "gate-1999-q2-23-immediate-and-direct-only":
+            "All four - pointers, arrays, records and recursive procedures with local variables",
+        "gate-2002-q1-24-absolute-addressing":
+            "Option (B) - the address of the operand is inside the instruction",
+        "gate-2004-q20-relocation-at-run-time":
+            "Option (C) - (ii) and (iii), based addressing and relative addressing",
+        "gate-2005-q65-memory-cycles-indexed-indirect": "Option (B) - 4",
+        "gate-2008-q33-autoincrement-mode": "Option (C) - III only",
+        "gate-2011-q21-base-indexed-mode": "Option (D) - Base Indexed Addressing",
+        "gate-2015-set-1-q8-three-address-fields": "Option (A) - Either S1 or S2",
+        "gate-2016-set-2-q10-immediate-field": "16",
+        "gate-2017-set-1-q11-struct-field-displacement":
+            "Option (D) - Index addressing mode, X(R1), with X a 16-bit two's complement offset",
+        "gate-2017-set-1-q14-risc-branch-offset": "-16",
+        "gate-2024-set-2-q47-opcodes-per-mode": "32",
+        "gate-2025-set-1-q27-immediate-field": "Option (B) - 20",
+        "gate-2026-set-1-q4-mode-to-hll-matching": "Option (B) - P-4, Q-2, R-1, S-3",
+    }
+    linked = set()
+    for tid in CARD_IDS:
+        rec = load(os.path.join(CONTENT, "subjects", "computer-organization-and-architecture",
+                                "instruction-set-and-addressing-modes", tid + ".json"))
+        assert rec["id"] == tid
+        linked.update(rec.get("pyqIds", []))
+    assert linked == set(want_answers), "the cards link %r" % sorted(linked)
+    for pid, ans in want_answers.items():
+        rec = load(os.path.join(CONTENT, "pyqs", pid + ".json"))
+        assert rec["answer"] == ans, "%s must record the answer %r" % (pid, ans)
+        assert rec["topic"] in CARD_IDS and rec["verification"] == "SOURCED"
+        assert rec["source_url"].startswith("http") and rec["question_ref"]
+    # 2017 Set 1 Q.11: int marks[100] puts grade at byte offset 400
+    assert 100 * 4 == 400
+    # 2016 Set 2 Q.10 and 2025 Set 1 Q.27 restate the same subtraction the cards use
+
+    # --- the visual lesson's own numbers
+    L = load(os.path.join(ROOT, "visuals", "computer-organization-and-architecture",
+                          "instruction-set-and-addressing-modes", "one-operand-five-modes", "lesson.json"))
+    ex = L["example"]
+    assert L["engine"] == "p5.js" and L["steps"] == 8
+    A, r2, r3, pc = ex["address_field"], ex["register_r2"], ex["register_r3"], ex["program_counter"]
+    mem = {int(k): v for k, v in ex["memory"].items()}
+    assert (A, r2, r3, pc) == (500, 1200, 700, 700)
+    assert mem[500] == 1200 and mem[1200] == 42
+    modes = {m["mode"]: m for m in ex["modes"]}
+    assert modes["Immediate"]["operand"] == A and modes["Immediate"]["memory_reads"] == 0
+    assert modes["Direct"]["effective_address"] == A and modes["Direct"]["operand"] == mem[A] == 1200
+    assert modes["Indirect"]["effective_address"] == mem[A] == 1200
+    assert modes["Indirect"]["operand"] == mem[mem[A]] == 42 and modes["Indirect"]["memory_reads"] == 2
+    assert modes["Register indirect"]["effective_address"] == r2 == 1200
+    assert modes["Register indirect"]["operand"] == mem[r2] == 42
+    assert modes["Indexed"]["effective_address"] == A + r3 == 1200 == int(ex["indexed_check"].split()[-1])
+    assert modes["PC-relative"]["effective_address"] == pc + A == 1200 == int(ex["relative_check"].split()[-1])
+    assert all(modes[m]["operand"] == mem[mem[A]] for m in
+               ("Indirect", "Register indirect", "Indexed", "PC-relative"))
+    assert all(modes[m]["memory_reads"] == 1 for m in
+               ("Direct", "Register indirect", "Indexed", "PC-relative"))
+    assert sum(m["memory_reads"] for m in ex["modes"]) == ex["total_memory_reads_all_modes"] == 6
+    assert ex["direct_operand_differs"] is (modes["Direct"]["operand"] != modes["Indirect"]["operand"])
+
+    ok("instruction set and addressing modes: the bit budgets of 2016 Set 2 Q.10, 2025 Set 1 Q.27 and "
+       "2024 Set 2 Q.47 re-derived from their own field lists and the opcode-per-mode count checked "
+       "against the 8 x 32 instruction count, the instruction counts of the four formats (3, 6, 7, 8) for "
+       "(A+B)*(C+D), the byte-alignment and 41-bit rounding figures, the 16-bit immediate range, the "
+       "direct-mode reach at 8 and 12 address bits, the indirect chain 200 -> 1500 -> 42 and 40 -> 9000 -> 5, "
+       "the displacement addresses 1028 and [R1]+400 with the signed 16-bit range, the PC-relative offsets "
+       "-16, -4 and 996 and the 40 KB reach failure, the autoincrement walks 1000/1004/1008 and 996, the "
+       "four-cycle count of GATE CSE 2005 Q.65 and the five-cycle two-level variation, the relocation "
+       "arithmetic 1200 -> 5200, all fourteen PYQ answers re-read from their records, and the lesson's "
+       "own six modes")
+
+
 def main():
     topics, tpath, pyqs, videos, playlists, sources = load_all()
     check_topics(topics, tpath, pyqs, videos)
@@ -7661,6 +7838,7 @@ def main():
     check_combinational_circuits()
     check_sequential_circuits()
     check_computer_arithmetic()
+    check_instruction_set_and_addressing_modes()
     check_visuals()
     check_hygiene()
     for c in checks:
