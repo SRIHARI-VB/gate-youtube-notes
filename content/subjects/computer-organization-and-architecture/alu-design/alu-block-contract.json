@@ -1,0 +1,94 @@
+{
+ "id": "alu-block-contract",
+ "title": "The ALU as a Block: Two Operands, One Result, Control In, Status Out",
+ "priority": "P1",
+ "order": 493,
+ "unit": "Design of the Arithmetic and Logic Unit",
+ "quickIdea": "The ALU is a single combinational block: two n-bit operands go in, one n-bit result comes out, a few control lines say which function to perform, and a few status lines report what the result was like.",
+ "remember": [
+  "Both operands and the result are the same width n, usually the machine word, so a 32-bit machine has a 32-bit ALU.",
+  "The operation is not stored inside the ALU: it arrives as control signals decoded from the instruction, which is why the same hardware performs ADD for one instruction and AND for the next.",
+  "The ALU is combinational, not clocked. It holds no state; the register file, not the ALU, is what remembers the result.",
+  "Its outputs are the result plus the status bits - zero, sign, carry and overflow - which the control unit latches into a flag register and later reads to decide a branch.",
+  "An ALU does not fetch operands. Multiplexers in front of its two inputs decide whether each operand comes from a register, from the immediate field or from another unit."
+ ],
+ "example": {
+  "prompt": "A 32-bit machine executes ADD R1, R2, R3 and then AND R4, R1, R5. What changes between the two cycles inside the ALU?",
+  "work": "The operands are two 32-bit values in both cases and the result path is the same 32 bits. The only thing that differs is the ALU's control code: the first instruction asks for the adder's output, the second for the bitwise AND output. Both results are ready in the same clock cycle.",
+  "answer": "Only the function-select code changes. The datapath, the widths and the output lines are identical, which is why one ALU serves the whole instruction set."
+ },
+ "gateAngle": "The block contract is what GATE CSE 2025 Set 1 Q.27 tests from the outside: with a multiplexer on each ALU input, the ALU can be fed register-register, register-immediate or immediate-immediate, so all three of those statements are true and only the claim of exclusivity is false. Read the question as 'what can reach the two inputs', not as 'what does the ALU compute'.",
+ "variations": [
+  {
+   "label": "ORIGINAL PYQ-STYLE QUESTION",
+   "question": "An ALU is described as combinational. Which of these statements must then be false? (i) the ALU stores the last result until the next instruction (ii) the ALU needs a clock to select its function (iii) the ALU output is valid only while its inputs and control are stable",
+   "answer": "(i) and (ii) are false; (iii) is true.",
+   "why": "A combinational block has no memory and no clock. Anything that remembers the result is a register outside the ALU."
+  },
+  {
+   "label": "CONCEPTUAL PRACTICE QUESTION",
+   "question": "Why does the ALU not need to know which instruction is executing?",
+   "answer": "Because the decode has already happened: the control unit converts the opcode into a function-select code, and the ALU only ever sees that code.",
+   "why": "This separation is what lets one ALU serve every instruction, and it is the reason the ALU-control decoder is a separate block."
+  },
+  {
+   "label": "PREDICTED VARIATION",
+   "question": "An ALU has 4 function-select bits. What is the largest number of distinct operations it can be given, and what limits it in practice?",
+   "answer": "At most 16 operations, because 4 bits name 16 codes. In practice the limit is what the designer built: unused codes usually decode to a do-nothing or a pass-through.",
+   "why": "The code space is a ceiling, not a promise. The same arithmetic gives the 2-select-line ALU in the lesson its four functions."
+  }
+ ],
+ "trap": {
+  "what": "Assuming the ALU holds the result, so the next instruction can read it from the ALU.",
+  "why": "The result exists only as a voltage pattern on the output lines while the inputs and control are stable. Something clocked must capture it.",
+  "counterexample": "Two back-to-back ADDs that both write R1 would otherwise leave the first result nowhere: the register file writes on the clock edge, and the ALU has already moved on to the second operation."
+ },
+ "check": {
+  "question": "Name the four kinds of signal at the boundary of an ALU.",
+  "answer": "Two operand inputs, a function-select control input, a result output, and status outputs (zero, sign, carry, overflow).",
+  "explanation": "Everything else - operand fetch, result storage, branch decision - happens outside the block. Confusing the ALU with the datapath around it is the usual source of wrong answers."
+ },
+ "pyqIds": [],
+ "prereqs": [
+  "instruction-format-and-fields",
+  "isa-instruction-types-and-risc-cisc"
+ ],
+ "sources": [
+  {
+   "kind": "lecture-transcript",
+   "title": "Lecture 11 - Binary Arithmetic, ALU Design",
+   "channel": "NPTEL, Computer Architecture (Prof. Anshul Kumar, IIT Delhi)",
+   "url": "http://www.digimat.in/nptel/courses/video/106102062/lec11.pdf",
+   "language": "en",
+   "transcript": "PARTIAL",
+   "translated": false,
+   "note": "read from the opening through the statement of what the ALU is for: the move from instruction set architecture to micro-architecture, and the ALU as a unit that takes two 32-bit operands and produces a result under control signals determined by the instruction. The returned extract stopped inside the discussion of binary representation, so nothing is attributed to its treatment of signed numbers"
+  },
+  {
+   "kind": "text",
+   "title": "ALU in computer system and its main functions in Hindi",
+   "channel": "notesinhindi.com (Hindi study article on the arithmetic logic unit)",
+   "url": "https://www.notesinhindi.com/blog/alu-in-computer-system-and-its-main-functions-in-hindi",
+   "language": "hi",
+   "transcript": "PARTIAL",
+   "translated": true,
+   "note": "read through the sections that describe the ALU as two sections, arithmetic and logic, that it takes its data from registers and returns the result to a register, and that the control unit drives it with control lines while the status flags feed later decisions. Translated into English here; its worked decimal and binary examples are not used"
+  }
+ ],
+ "sourceLine": "The framing of the ALU as the block that turns an instruction's control signals into one operation on two word-wide operands: Anshul Kumar, Lecture 11 (English, read in part). The statement, translated from Hindi, that the unit is split into an arithmetic section and a logic section, that data arrives from registers and the result returns to a register, and that the control unit drives it while the flags it sets are read later: notesinhindi.com (Hindi, translated, read in part).",
+ "videoRefs": [],
+ "links": {
+  "visual": {
+   "slug": "alu-design",
+   "title": "One Bit Slice, Four Functions: the ALU and Its Flags",
+   "level": "topic-level",
+   "covers": [
+    "one bit of an ALU: an adder, an AND gate, an OR gate and an output multiplexer",
+    "the function-select code chooses among at most 2^k operations for k select bits",
+    "the result and the four status flags for each selected function"
+   ],
+   "url": "https://gate-visual-explainer.vercel.app/topics/alu-design/index.html"
+  },
+  "mapped_at": "2026-10-31"
+ }
+}

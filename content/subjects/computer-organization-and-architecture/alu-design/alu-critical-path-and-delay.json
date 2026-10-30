@@ -1,0 +1,95 @@
+{
+ "id": "alu-critical-path-and-delay",
+ "title": "What Makes the ALU Slow: the Carry Chain, Not the Gates",
+ "priority": "P2",
+ "order": 504,
+ "unit": "Design of the Arithmetic and Logic Unit",
+ "quickIdea": "The ALU is as fast as its slowest function, and that is always addition. The AND and OR outputs are one gate deep, but the sum waits for the carry to walk the chain, so the adder sets the clock.",
+ "remember": [
+  "A ripple-carry adder produces the top sum bit after 2n+1 gate delays for n bits: 9 delays for 4 bits, 65 for 32.",
+  "Carry look-ahead replaces the ripple with generate and propagate terms, so every carry is ready two gate delays after G and P, at the cost of wide AND gates.",
+  "The output multiplexer adds one gate delay to whichever function is selected, including the adder's sum.",
+  "The logic functions are one gate deep per bit, so they finish long before the carry arrives; the ALU's worst case is the add.",
+  "Because the ALU's delay sits inside the clock period, the carry chain is the usual reason a simple processor cannot be clocked faster."
+ ],
+ "example": {
+  "prompt": "A 32-bit ALU uses a ripple-carry adder with a 1-gate output multiplexer. How many gate delays for an ADD, and how many for an AND?",
+  "work": "The top sum bit of a 32-bit ripple adder is valid after 2 x 32 + 1 = 65 gate delays, and the multiplexer adds one, so 66. The AND output is one gate deep, plus the multiplexer, so two.",
+  "answer": "66 gate delays for an ADD against 2 for an AND, so the ALU's cycle time is set by the add."
+ },
+ "gateAngle": "Delay questions in this topic ask which function sets the critical path and how the adder's depth scales. The verified CLA delay and gate-count questions (GATE CSE 2004 Q.62 and 2007 Q.35) belong to the carry look-ahead card of the Digital Logic subject, and are deliberately not duplicated here; what this card adds is why the ALU, not the adder alone, is as slow as it is.",
+ "variations": [
+  {
+   "label": "ORIGINAL PYQ-STYLE QUESTION",
+   "question": "An 8-bit ALU uses a ripple adder and a 2-gate output multiplexer. What is its worst-case delay, and what would a carry look-ahead adder with unlimited fan-in make it?",
+   "answer": "About 19 gate delays with the ripple adder against roughly 7 with look-ahead.",
+   "why": "Ripple: 2 x 8 + 1 = 17 gate delays for the sum, plus 2 for the multiplexer, so 19. With look-ahead, every carry is ready 2 delays after the generate and propagate signals, and the sum one XOR later, so roughly 5 delays plus the multiplexer."
+  },
+  {
+   "label": "CONCEPTUAL PRACTICE QUESTION",
+   "question": "Why can the ALU not simply be clocked as fast as its AND gate?",
+   "answer": "Because the clock must be long enough for the slowest function the ALU can be asked to perform, which is the add.",
+   "why": "A single clock serves every function, so the worst case sets the period unless the design adds a faster path for the common cases."
+  },
+  {
+   "label": "PREDICTED VARIATION",
+   "question": "A design needs the ALU's compare result earlier than its add result. What could it do?",
+   "answer": "Compute the comparison in parallel from the sign and overflow signals as they become available, rather than waiting for the full sum.",
+   "why": "This is the same idea as look-ahead: do not wait for a later stage when the answer is already determined."
+  }
+ ],
+ "trap": {
+  "what": "Assuming all ALU operations take the same time because they share one block.",
+  "why": "They share the block but not the depth: a logic function is one gate deep, an addition is a carry chain deep.",
+  "counterexample": "32-bit: the AND result is stable after one gate delay while the sum needs 65, yet both are 'one ALU cycle' because the clock is set by the slower one."
+ },
+ "check": {
+  "question": "How many gate delays does the top sum bit of a 16-bit ripple-carry adder need, using 2n+1?",
+  "answer": "33.",
+  "explanation": "2 x 16 + 1 = 33, which is one carry delay per stage plus the three delays of the last full adder's sum path."
+ },
+ "pyqIds": [],
+ "prereqs": [
+  "ripple-carry-adder-and-delay",
+  "carry-lookahead-adder",
+  "one-bit-slice-and-output-mux"
+ ],
+ "sources": [
+  {
+   "kind": "lecture-slides",
+   "title": "Design of the ALU Adder, Logic, and the Control Unit",
+   "channel": "Edward Bosworth, CPSC 2105 Computer Organization, chapter 5 slides",
+   "url": "http://www.edwardbosworth.com/CPSC2105/Lectures/Slides_06/Chapter_05/ALU_Design.pdf",
+   "language": "en",
+   "transcript": "PARTIAL",
+   "translated": false,
+   "note": "read the timing analysis: the full adder's carry out is valid two gate delays after its inputs and the sum three, a four-bit ripple adder's sum is valid after nine gate delays, a 16-bit adder built from four-bit blocks is timed, and in general an n-bit ripple-carry adder produces a valid sum after 2n+1 gate delays, with a 32-bit sum needing 65. Also read: the carry look-ahead carries each ready two gate delays after the generate and propagate terms"
+  },
+  {
+   "kind": "lecture-slides",
+   "title": "Chapter 3 - ALU Design (slides following Patterson and Hennessy)",
+   "channel": "Curt Nelson, Walla Walla University, CPTR 380 Computer Organization",
+   "url": "https://gab.wallawalla.edu/~curt.nelson/cptr380/lecture/chapter3%20-%20alu%20design.pdf",
+   "language": "en",
+   "transcript": "PARTIAL",
+   "translated": false,
+   "note": "read the speed-of-ripple-carry section: the carry propagates through every one-bit box, so the total delay is the time through 64 gates for a 32-bit adder, and the compromise of grouping bits into blocks of four so that each gate has few inputs"
+  }
+ ],
+ "sourceLine": "The gate-delay arithmetic of the ripple adder (carry in two delays, sum in three, a valid n-bit sum after 2n+1), the four-bit figure of nine, and the look-ahead carries ready two delays after generate and propagate: Edward Bosworth's chapter 5 slides (English, read in part). The critical-path framing and the four-bit grouping compromise: Curt Nelson's chapter 3 slides (English, read in part). Every delay figure quoted here is recomputed in scripts/validate.py.",
+ "videoRefs": [],
+ "links": {
+  "visual": {
+   "slug": "alu-design",
+   "title": "One Bit Slice, Four Functions: the ALU and Its Flags",
+   "level": "topic-level",
+   "covers": [
+    "one bit of an ALU: an adder, an AND gate, an OR gate and an output multiplexer",
+    "the function-select code chooses among at most 2^k operations for k select bits",
+    "the result and the four status flags for each selected function"
+   ],
+   "url": "https://gate-visual-explainer.vercel.app/topics/alu-design/index.html"
+  },
+  "mapped_at": "2026-10-31"
+ }
+}

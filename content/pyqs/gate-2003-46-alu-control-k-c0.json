@@ -1,0 +1,22 @@
+{
+ "id": "gate-2003-46-alu-control-k-c0",
+ "year": "2003",
+ "paper": "GATE CSE 2003",
+ "question_ref": "Q.46 (filed by GATE Overflow under Digital Logic)",
+ "type": "MCQ",
+ "marks": "2",
+ "topic": "function-select-encoding",
+ "text": "Consider the ALU shown below: an n-bit parallel adder in which every bit of B passes through an XOR gate controlled by the line K before entering the adder, and the line C0 supplies the carry into the least significant bit. If the operands are in 2's complement representation, which of the following operations can be performed by suitably setting the control lines K and C0 only (+ and - denote addition and subtraction respectively)?",
+ "options": [
+  "A + B, and A - B, but not A + 1",
+  "A + B, and A + 1, but not A - B",
+  "A + B, but not A - B or A + 1",
+  "A + B, and A - B, and A + 1"
+ ],
+ "answer": "Option (A) - A + B and A - B, but not A + 1",
+ "solution": "Two control lines give four settings. K = 0, C0 = 0 gives A + B. K = 0, C0 = 1 gives A + B + 1. K = 1, C0 = 0 gives A - B - 1. K = 1, C0 = 1 gives A - B. So A + B and A - B are both available, but A + 1 is not: producing it would need every bit of B forced to 0 with C0 = 1, and no setting of K and C0 can zero the operand B. Recomputed here by enumerating all four settings over 4-bit operands and testing the identity A + 1.",
+ "source_url": "https://gateoverflow.in/937/gate-cse-2003-question-46",
+ "source_label": "GATE Overflow question page - GATE CSE 2003 Q.46 with the accepted answer (option A)",
+ "verification": "SOURCED",
+ "answer_evidence": "Several answers on the page build the same four-row table of (K, C0) against the operation performed and all conclude option (A), with the reason that A + 1 cannot be obtained without manipulating B. Recomputed here by enumeration over all 4-bit pairs: K = 0, C0 = 0 reproduces A + B, K = 1, C0 = 1 reproduces A - B, and no setting reproduces A + 1 for every A. GATE Overflow files this question under Digital Logic; it is placed here because its subject is the ALU's control lines."
+}

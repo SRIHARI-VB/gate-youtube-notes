@@ -1,0 +1,95 @@
+{
+ "id": "alu-control-from-opcode",
+ "title": "ALU Control: From Opcode to the Function-Select Code",
+ "priority": "P1",
+ "order": 501,
+ "unit": "Design of the Arithmetic and Logic Unit",
+ "quickIdea": "The ALU never sees an opcode. A first decoder turns the opcode into a coarse ALUOp, and a second, smaller decoder turns ALUOp plus the funct field into the ALU's function code - which is why one 4-bit code can mean 'add' for a load and 'subtract' for a branch.",
+ "remember": [
+  "Two levels: the main control decodes the opcode into ALUOp, and the ALU control decodes ALUOp (plus the funct field for register-type instructions) into the ALU's select code.",
+  "A load or store uses the ALU to compute an address, so its ALUOp means 'add' even though the instruction is not arithmetic.",
+  "A branch uses the ALU to subtract, because the branch tests equality or ordering; the difference is discarded and only the flags matter.",
+  "The same ALU code can therefore serve several instructions: 'add' is the address computation for a load and the sum for an ADD.",
+  "The ALU control is a small combinational block - a truth table or a PLA - and it is the natural place for the next topic, the control unit, to take over."
+ ],
+ "example": {
+  "prompt": "A MIPS-like machine has ALUOp = 00 for load and store, 01 for beq, and 10 for register-type instructions. What does the ALU do for each, and what does the funct field add?",
+  "work": "ALUOp 00 forces the function code for add, because the ALU is computing a memory address. ALUOp 01 forces subtract, because beq needs to know whether the two registers are equal. ALUOp 10 leaves the choice to the funct field: 100000 selects add, 100010 subtract, 100100 AND, 100101 OR, 101010 set-on-less-than.",
+  "answer": "Add for load and store, subtract for the branch, and the funct field decides among add, subtract, AND, OR and SLT for register-type instructions."
+ },
+ "gateAngle": "This card has no previous-year question of its own in the CSE papers read this run, and that is recorded as a gap rather than papered over with a borrowed question. The related PYQ is GATE CSE 2003 Q.46, which fixes the ALU's control lines and asks what they can produce - the same table read backwards.",
+ "variations": [
+  {
+   "label": "ORIGINAL PYQ-STYLE QUESTION",
+   "question": "An instruction set has 8 register-type operations plus loads, stores and one branch. How many bits does the ALU control need, and how many does ALUOp need if it has four coarse classes?",
+   "answer": "The ALU control needs 3 bits for the operations it must name (8 of them, if that is the count), and ALUOp needs 2 bits for four classes.",
+   "why": "Both are code-space questions: the widths follow the counts by ceil(log2), not from the opcode width."
+  },
+  {
+   "label": "CONCEPTUAL PRACTICE QUESTION",
+   "question": "Why does a branch instruction need the ALU at all?",
+   "answer": "Because the branch condition is a property of a subtraction: equal means the difference is zero, and less-than means its sign (corrected for overflow).",
+   "why": "The ALU is the cheapest comparator available, and the control already has to select a function for it."
+  },
+  {
+   "label": "PREDICTED VARIATION",
+   "question": "The funct field is 6 bits but the ALU control is 3. What happens to the unused funct codes?",
+   "answer": "They are decoded to an illegal-instruction or a do-nothing code; the width of the field does not force the ALU to have 64 functions.",
+   "why": "Field width and function count are separate: the field is what the encoding allows, the ALU control is what the hardware provides."
+  }
+ ],
+ "trap": {
+  "what": "Assuming the ALU's function follows the instruction's category.",
+  "why": "A load performs an addition; a branch performs a subtraction. The ALU's job is set by the datapath's needs, not by the instruction's name.",
+  "counterexample": "lw R1, 100(R2) computes R2 + 100 in the ALU - an ADD - even though nothing is being added in the programmer's sense."
+ },
+ "check": {
+  "question": "Which block converts an opcode into the ALU's function code, and what else does it need for register-type instructions?",
+  "answer": "The ALU control block, which needs ALUOp from the main control plus the funct field for register-type instructions.",
+  "explanation": "Without the second input, every register-type instruction would get the same ALU function, and ADD and SUB would be indistinguishable."
+ },
+ "pyqIds": [],
+ "prereqs": [
+  "alu-block-contract",
+  "function-select-encoding",
+  "isa-instruction-types-and-risc-cisc"
+ ],
+ "sources": [
+  {
+   "kind": "lecture-slides",
+   "title": "Chapter 3 - ALU Design (slides following Patterson and Hennessy)",
+   "channel": "Curt Nelson, Walla Walla University, CPTR 380 Computer Organization",
+   "url": "https://gab.wallawalla.edu/~curt.nelson/cptr380/lecture/chapter3%20-%20alu%20design.pdf",
+   "language": "en",
+   "transcript": "PARTIAL",
+   "translated": false,
+   "note": "read the control-lines section: the values of the control lines and the operations they correspond to, tabulated as Ai, Bn and Op against AND, OR, Add, Sub, SLT and NOR, and the note that the 1-bit ALUs are wired in series with the carry out of one box into the carry in of the next"
+  },
+  {
+   "kind": "lecture-transcript",
+   "title": "Lecture 12 - ALU Design, Overflow",
+   "channel": "NPTEL, Computer Architecture (Prof. Anshul Kumar, IIT Delhi)",
+   "url": "http://www.digimat.in/nptel/courses/video/106102062/lec12.pdf",
+   "language": "en",
+   "transcript": "PARTIAL",
+   "translated": false,
+   "note": "read the statement that the operation is chosen by the control inputs and that the number of control signals depends on how many different operations the unit can perform"
+  }
+ ],
+ "sourceLine": "The control-line table that maps a small control code to AND, OR, Add, Sub, SLT and NOR, and the serial carry wiring of the 1-bit boxes: Curt Nelson's chapter 3 slides (English, read in part). The statement that the operation is chosen by the control inputs and that their number follows the number of operations: Anshul Kumar, Lecture 12 (English, read in part). The two-level ALUOp plus funct arrangement follows the standard reference and is stated as such, because no readable source this run walked it through.",
+ "videoRefs": [],
+ "links": {
+  "visual": {
+   "slug": "alu-design",
+   "title": "One Bit Slice, Four Functions: the ALU and Its Flags",
+   "level": "topic-level",
+   "covers": [
+    "one bit of an ALU: an adder, an AND gate, an OR gate and an output multiplexer",
+    "the function-select code chooses among at most 2^k operations for k select bits",
+    "the result and the four status flags for each selected function"
+   ],
+   "url": "https://gate-visual-explainer.vercel.app/topics/alu-design/index.html"
+  },
+  "mapped_at": "2026-10-31"
+ }
+}

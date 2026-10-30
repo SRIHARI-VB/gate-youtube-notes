@@ -1,0 +1,95 @@
+{
+ "id": "status-flags-z-n-c-v",
+ "title": "The Four Status Flags: Zero, Sign, Carry and Overflow",
+ "priority": "P1",
+ "order": 499,
+ "unit": "Design of the Arithmetic and Logic Unit",
+ "quickIdea": "Every ALU operation leaves four status bits behind: Z says the result was zero, N repeats the result's top bit, C reports the carry out, and V reports that a signed result did not fit. C and V answer different questions and are never interchangeable.",
+ "remember": [
+  "Z = 1 when every result bit is 0; N = the result's most significant bit, which is the sign only for signed values.",
+  "C is the carry out of the top bit: for an addition it means the unsigned result needed n+1 bits, and for A - B it means there was no borrow, so A >= B.",
+  "V = the exclusive-or of the carry into the sign column and the carry out of it; it means a signed result fell outside the n-bit two's complement range.",
+  "C and V can differ: adding 1111 and 0001 in 4 bits gives carry out 1 with no overflow, because -1 + 1 = 0 fits.",
+  "The flags are captured into a status register at the end of the cycle and are read by later conditional instructions; an instruction that does not write them leaves the old values in place.",
+  "In 4-bit addition, 64 of the 256 ordered operand pairs set V, and 64 of the 256 ordered subtraction pairs give the wrong answer from the raw sign bit."
+ ],
+ "example": {
+  "prompt": "A 4-bit ALU adds 0111 and 0001. Give the result and all four flags, and say which instruction would be misled by each.",
+  "work": "0111 + 0001 = 1000, with carry out 0. The result is 1000, whose top bit is 1, so N = 1 and Z = 0. The carry into the sign column was 1 (from adding 1+1 in bit 2) and the carry out was 0, so V = 1: signed, 7 + 1 = 8 does not fit in -8..7. C = 0, so an unsigned reading would think the sum fits, which it does - 7 + 1 = 8 fits in 0..15.",
+  "answer": "Result 1000, Z = 0, N = 1, C = 0, V = 1: no unsigned carry, but a signed overflow."
+ },
+ "gateAngle": "Flag questions are decided by recomputing the two carries into and out of the top column. GATE CSE 2022 Q.8 (in the fixed-point card of the Digital Logic subject) asks exactly this for four candidate operand pairs; the same two-carry test also tells you when a comparison flag is trustworthy, which is the SLT card's correction.",
+ "variations": [
+  {
+   "label": "ORIGINAL PYQ-STYLE QUESTION",
+   "question": "In 4-bit two's complement, subtract 0001 from 1000. Give Z, N, C and V and say what each means.",
+   "answer": "Z = 0, N = 0, C = 1, V = 0: unsigned, -8 seen as 8 is >= 1; signed, -8 - 1 = -9 does not fit, and the C = 1 answer is nonsense for signed values - which is why V exists.",
+   "why": "1000 - 0001 = 1000 + 1110 + 1 = 1 0111. Kept result 0111: Z = 0, N = 0. Carry out 1, so C = 1 and, for a subtraction, there was no borrow, meaning -8 >= 1 is claimed. The carries into and out of the sign column are 1 and 1, so V = 0."
+  },
+  {
+   "label": "CONCEPTUAL PRACTICE QUESTION",
+   "question": "Why does the carry flag not report signed overflow?",
+   "answer": "Because the carry out of the top bit only says the unsigned value needed an extra bit; a signed result can overflow with no carry out at all.",
+   "why": "The two questions have different answers on the same addition, so two bits are needed."
+  },
+  {
+   "label": "PREDICTED VARIATION",
+   "question": "Which flags does a logic operation such as AND normally affect, and which does it leave alone?",
+   "answer": "It sets Z and N from the result and leaves C and V alone, since a bitwise operation has no carry and no range.",
+   "why": "The flags a design chooses to write are part of the instruction set contract, and questions about stale flags depend on it."
+  }
+ ],
+ "trap": {
+  "what": "Treating C and V as the same bit under two names.",
+  "why": "C reports the unsigned range, V the signed range, and one addition can set one without the other.",
+  "counterexample": "4-bit: 1111 + 0001 = 1 0000. Carry out 1, so C = 1; carries into and out of the sign column are both 1, so V = 0. Nothing overflowed in signed terms, because -1 + 1 = 0."
+ },
+ "check": {
+  "question": "For 4-bit two's complement addition, how many of the 256 ordered operand pairs set V, and why is the count not symmetric?",
+  "answer": "64: 28 pairs of two non-negative operands whose sum reaches 8 or more, and 36 pairs of two negative operands whose sum falls below -8.",
+  "explanation": "The asymmetry comes from -8 having no positive counterpart, so the negative side has eight values that can overflow downwards but only seven that cannot. Recomputed by enumerating all 256 ordered pairs in scripts/validate.py."
+ },
+ "pyqIds": [],
+ "prereqs": [
+  "fixed-point-add-subtract-overflow",
+  "one-bit-slice-and-output-mux"
+ ],
+ "sources": [
+  {
+   "kind": "lecture-transcript",
+   "title": "Lecture 13 - Flags and Conditional Instructions",
+   "channel": "NPTEL, Computer Organization and Architecture - A Pedagogical Aspect (IIT Guwahati)",
+   "url": "http://www.digimat.in/nptel/courses/video/106103180/lec13.pdf",
+   "language": "en",
+   "transcript": "PARTIAL",
+   "translated": false,
+   "note": "read the opening of the lecture: flags are bits that are set or reset depending on the operation, a conditional instruction tests them to decide whether to branch or fall through, and conditional and unconditional branches are distinguished by whether a condition is tested. The lecture's later per-flag detail was not in the returned extract, so the four flag definitions rest on the standard references and on recomputation"
+  },
+  {
+   "kind": "text",
+   "title": "ALU in computer system and its main functions in Hindi",
+   "channel": "notesinhindi.com (Hindi study article on the arithmetic logic unit)",
+   "url": "https://www.notesinhindi.com/blog/alu-in-computer-system-and-its-main-functions-in-hindi",
+   "language": "hi",
+   "transcript": "PARTIAL",
+   "translated": true,
+   "note": "read the section listing the flags an ALU sets after every operation - Zero, Carry, Overflow and Sign - and the statement that later decisions such as branches and loops are taken from them in the status register. Translated into English here"
+  }
+ ],
+ "sourceLine": "The framing that a condition becomes a flag bit tested by a conditional instruction: IIT Guwahati, Lecture 13 (English, read in part). The list of the four flags, translated from Hindi, as the set the ALU leaves behind for later decisions: notesinhindi.com (Hindi, translated, read in part). The definitions themselves and every number in the examples are recomputed over all 4-bit operand pairs in scripts/validate.py, because the lecture's per-flag material was not readable this run.",
+ "videoRefs": [],
+ "links": {
+  "visual": {
+   "slug": "alu-design",
+   "title": "One Bit Slice, Four Functions: the ALU and Its Flags",
+   "level": "topic-level",
+   "covers": [
+    "one bit of an ALU: an adder, an AND gate, an OR gate and an output multiplexer",
+    "the function-select code chooses among at most 2^k operations for k select bits",
+    "the result and the four status flags for each selected function"
+   ],
+   "url": "https://gate-visual-explainer.vercel.app/topics/alu-design/index.html"
+  },
+  "mapped_at": "2026-10-31"
+ }
+}

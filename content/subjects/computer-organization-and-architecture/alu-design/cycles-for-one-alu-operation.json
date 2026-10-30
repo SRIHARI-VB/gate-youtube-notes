@@ -1,0 +1,96 @@
+{
+ "id": "cycles-for-one-alu-operation",
+ "title": "Counting Cycles for One ALU Operation: One Bus Source per Cycle",
+ "priority": "P1",
+ "order": 503,
+ "unit": "Design of the Arithmetic and Logic Unit",
+ "quickIdea": "To count cycles on a bus-based datapath, count the distinct sources that must drive the bus, one per cycle, and remember that the question may be asking for the execute phase only, with the fetch excluded.",
+ "remember": [
+  "One cycle per distinct bus source; two sources can share a cycle only if the hardware gives them separate paths.",
+  "A memory access is not one cycle unless the question says so: many papers give two cycles for a read, one to load MAR and one to load MDR.",
+  "The fetch phase is separate from the execute phase, and a question that says 'execution cycle' is excluding the fetch.",
+  "A local operation such as decrementing a stack pointer may be free if the hardware does it without the bus.",
+  "Always write the micro-operation list first and then count: the count is a consequence of the list, not a guess."
+ ],
+ "example": {
+  "prompt": "An instruction 'add R0, R1' means R0 <- R0 + R1 on a single-bus CPU with two temporaries, where every operation including increments goes through the ALU. How many cycles does the execution phase need?",
+  "work": "Three transfers are unavoidable: R0 into the first temporary, R1 into the second, then the ALU sum into R0. Each needs the bus for one source, so three cycles. The fetch is two more cycles (MAR <- PC, then MDR <- memory), which is why the instruction-cycle answer is five.",
+  "answer": "Three execution cycles, five including the fetch."
+ },
+ "gateAngle": "This is GATE CSE 2005 Q.79 on GATE Overflow, printed as Q.12 in the paper listing, whose accepted answer is three: the question asks for the execution cycle, and the two-cycle fetch is deliberately excluded. The distractors include five, which is the instruction-cycle answer - the single most common wrong answer in this family.",
+ "variations": [
+  {
+   "label": "ORIGINAL PYQ-STYLE QUESTION",
+   "question": "The same datapath must execute 'sub R0, R1' with the result written back to R1 instead of R0. Does the count change?",
+   "answer": "No: still three cycles, since the two operand loads and one write-back are the same shape.",
+   "why": "The count depends on how many values must cross the bus, not on which register is the destination."
+  },
+  {
+   "label": "CONCEPTUAL PRACTICE QUESTION",
+   "question": "Why does a two-cycle memory read double the cost of an indirect operand?",
+   "answer": "Because an indirect operand needs two reads in sequence, and each read is itself two bus cycles on this datapath.",
+   "why": "Cycle counting composes: the addressing-mode cost multiplies by the per-access cost of the memory interface."
+  },
+  {
+   "label": "PREDICTED VARIATION",
+   "question": "A machine has two buses, one feeding each ALU input, and a memory read still takes two cycles. How many execution cycles does 'add R0, R1' need?",
+   "answer": "One, if both operands can reach the ALU in the same cycle and the result is written in that cycle; otherwise two.",
+   "why": "The bus count, not the instruction, sets the floor; this is why the same question has different answers on different datapaths."
+  }
+ ],
+ "trap": {
+  "what": "Adding the fetch cycles when the question asked for the execution cycle.",
+  "why": "The two phases are named separately in the paper, and the phrase 'execution cycle' excludes the fetch by definition.",
+  "counterexample": "2005 Q.79: three is correct for the execution cycle, five is correct for the whole instruction - and five is offered as a distractor."
+ },
+ "check": {
+  "question": "On a single-bus datapath, how many cycles does R0 <- R1 + R2 take in the execute phase if the ALU result is written straight to R0 in the same cycle the operands leave?",
+  "answer": "Two: one to latch an operand, one to add and write back.",
+  "explanation": "The write-back needs no separate cycle when the destination loads from the ALU output while the bus carries the second operand."
+ },
+ "pyqIds": [
+  "gate-2005-79-add-execution-cycles"
+ ],
+ "prereqs": [
+  "single-bus-datapath-and-temporaries",
+  "effective-address-and-memory-cycles"
+ ],
+ "sources": [
+  {
+   "kind": "lecture-transcript",
+   "title": "Lecture 23 - Different Internal CPU Bus Organization",
+   "channel": "NPTEL, Computer Organization and Architecture - A Pedagogical Aspect (IIT Guwahati)",
+   "url": "http://www.digimat.in/nptel/courses/video/106103180/lec23.pdf",
+   "language": "en",
+   "transcript": "PARTIAL",
+   "translated": false,
+   "note": "read the argument that a single bus forces sequential operand transfers while multiple buses allow parallel ones, which is the rule used here to count one cycle per source"
+  },
+  {
+   "kind": "lecture-transcript",
+   "title": "Lecture 16 - Instruction Cycle and Micro-operations",
+   "channel": "NPTEL, Computer Organization and Architecture - A Pedagogical Aspect (IIT Guwahati)",
+   "url": "http://www.digimat.in/nptel/courses/video/106103180/lec15.pdf",
+   "language": "en",
+   "transcript": "PARTIAL",
+   "translated": false,
+   "note": "read the statement that an instruction divides into micro-operations and that the control signals sequence them, which is the basis for counting micro-operations as cycles"
+  }
+ ],
+ "sourceLine": "One bus source per cycle, and the reduction in control steps when buses are added: IIT Guwahati, Lecture 23 (English, read in part). The division of an instruction into micro-operations sequenced by control signals: IIT Guwahati, Lecture 16 (English, read in part). The three-cycle and five-cycle counts of GATE CSE 2005 Q.79 are recomputed in scripts/validate.py.",
+ "videoRefs": [],
+ "links": {
+  "visual": {
+   "slug": "alu-design",
+   "title": "One Bit Slice, Four Functions: the ALU and Its Flags",
+   "level": "topic-level",
+   "covers": [
+    "one bit of an ALU: an adder, an AND gate, an OR gate and an output multiplexer",
+    "the function-select code chooses among at most 2^k operations for k select bits",
+    "the result and the four status flags for each selected function"
+   ],
+   "url": "https://gate-visual-explainer.vercel.app/topics/alu-design/index.html"
+  },
+  "mapped_at": "2026-10-31"
+ }
+}

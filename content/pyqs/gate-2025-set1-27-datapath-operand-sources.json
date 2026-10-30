@@ -1,0 +1,22 @@
+{
+ "id": "gate-2025-set1-27-datapath-operand-sources",
+ "year": "2025",
+ "paper": "GATE CSE 2025 Set 1",
+ "question_ref": "Q.17 on GATE Overflow; Q.27 on the paper listing, on ExamSIDE and on GateAI; listed as question 1 of the ExamSIDE topic page",
+ "type": "MSQ",
+ "marks": "1",
+ "topic": "alu-input-multiplexers-and-operand-sources",
+ "text": "A partial data path of a processor is given in the figure, where RA, RB and RZ are 32-bit registers. Mux_A selects between RA and a 32-bit immediate value, Mux_B selects between RB and a 32-bit immediate value, and the outputs of Mux_A and Mux_B feed the ALU, whose output goes to RZ. Which option(s) is/are CORRECT related to arithmetic operations using the data path as shown?",
+ "options": [
+  "The data path can implement arithmetic operations involving two registers.",
+  "The data path can implement arithmetic operations involving one register and one immediate value.",
+  "The data path can implement arithmetic operations involving two immediate values.",
+  "The data path can only implement arithmetic operations involving one register and one immediate value."
+ ],
+ "answer": "Options (A), (B) and (C)",
+ "solution": "Each ALU input has its own 2:1 multiplexer with its own select line, so the two operand sources are chosen independently: (RA, RB), (RA, immediate), (immediate, RB) and (immediate, immediate). Two registers, one register with one immediate and two immediates are therefore all implementable. Option (D) is false because it claims the datapath is limited to one register and one immediate, which the independent select lines do not impose. Recomputed here as 2 x 2 = 4 operand combinations.",
+ "source_url": "https://gateoverflow.in/460063/gate-cse-2025-set-1-question-17",
+ "source_label": "GATE Overflow question page - GATE CSE 2025 Set 1 Question 17 with three accepted answers agreeing on A, B and C",
+ "verification": "SOURCED",
+ "answer_evidence": "The GATE Overflow page records three answers, all giving (A), (B) and (C) from the independence of the two multiplexer select lines. Two secondary sites state that the official GATE 2025 final answer key gives A, B and C: gateiit.in records 'Answer: A, B, C (official GATE 2025 final answer key)' and trygateai records the same options as the official answer. The key document itself was not opened this run, so the record stays SOURCED rather than OFFICIAL_KEY. The numbering is genuinely unstable: GATE Overflow files this question as Question 17 of the set while the paper listings and three other sites call it Q.27."
+}

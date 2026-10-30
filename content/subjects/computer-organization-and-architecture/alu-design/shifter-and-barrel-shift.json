@@ -1,0 +1,95 @@
+{
+ "id": "shifter-and-barrel-shift",
+ "title": "The Shifter Beside the ALU: Logical, Arithmetic and the Barrel",
+ "priority": "P2",
+ "order": 500,
+ "unit": "Design of the Arithmetic and Logic Unit",
+ "quickIdea": "Shifting is a datapath operation, not an arithmetic one. A shift by a fixed amount is just wiring; a shift by a variable amount is a barrel shifter, a stack of multiplexers log2 n deep that shifts by 1, 2, 4, 8, 16 in whichever stages the amount selects.",
+ "remember": [
+  "Logical left and right shift fill the vacated bits with 0; arithmetic right shift fills with a copy of the sign bit; rotate wraps the bits that fall off back in.",
+  "A left shift by k multiplies by 2^k modulo 2^n, and a logical right shift by k divides by 2^k, discarding the remainder.",
+  "An arithmetic right shift of a negative number rounds towards minus infinity, not towards zero: -3 shifted right by 1 gives -2.",
+  "A barrel shifter for n bits and any shift amount needs log2 n stages, each a 2:1 multiplexer per bit: 32 bits need 5 stages and 32 x 5 = 160 multiplexers.",
+  "The shifter is usually a separate unit beside the ALU, because putting it inside the adder's path would slow the add."
+ ],
+ "example": {
+  "prompt": "Shift 0011 0100 left by 2 in 8 bits, then right arithmetically by 1 from 1111 0100. Give both answers and the arithmetic meaning.",
+  "work": "0011 0100 is 52. Left by 2 gives 1101 0000, which is 208 = 52 x 4, with the top two bits falling off. From 1111 0100 (-12), an arithmetic right shift by 1 keeps the sign: 1111 1010, which is -6, and the bit shifted out was 0.",
+  "answer": "1101 0000 = 208, and 1111 1010 = -6."
+ },
+ "gateAngle": "Shift questions appear as datapath questions - does this ALU need a shifter, how many stages, how many multiplexers - or as arithmetic ones, where the answer depends on which fill rule is meant. When a question says 'arithmetic shift', the sign fill is the whole point; when it says 'logical', the zero fill is.",
+ "variations": [
+  {
+   "label": "ORIGINAL PYQ-STYLE QUESTION",
+   "question": "A 16-bit barrel shifter must support every shift amount from 0 to 15. How many stages and how many 2:1 multiplexers does it need?",
+   "answer": "4 stages, since log2 16 = 4, and 16 x 4 = 64 multiplexers.",
+   "why": "Each stage doubles the range of amounts reachable, so the depth is logarithmic in the word size."
+  },
+  {
+   "label": "CONCEPTUAL PRACTICE QUESTION",
+   "question": "Why is a shift by a constant free, while a shift by a variable costs a barrel?",
+   "answer": "A constant shift is a fixed rewiring, so the bits simply arrive at different places; a variable shift needs a multiplexer at each bit to choose between the shifted and unshifted value.",
+   "why": "This is the same distinction as direct against register-indirect addressing: the value being fixed in the instruction removes a selection stage."
+  },
+  {
+   "label": "PREDICTED VARIATION",
+   "question": "A processor implements multiplication by a power of two with a shift. What goes wrong at the top of the range?",
+   "answer": "The bits shifted out are lost, so the result is the product modulo 2^n and is silently wrong when it does not fit.",
+   "why": "That is exactly the unsigned overflow the carry flag would report for an addition; a shift reports nothing at all unless the design checks the discarded bits."
+  }
+ ],
+ "trap": {
+  "what": "Assuming an arithmetic right shift rounds a negative number towards zero.",
+  "why": "Arithmetic right shift replicates the sign bit, which is a floor operation on two's complement values.",
+  "counterexample": "In 4 bits, -3 is 1101. An arithmetic right shift by 1 gives 1110 = -2, not -1, because -1.5 floors to -2."
+ },
+ "check": {
+  "question": "How many stages does a barrel shifter for 64-bit words need, and how many 2:1 multiplexers?",
+  "answer": "6 stages, since log2 64 = 6, and 64 x 6 = 384 multiplexers.",
+  "explanation": "Each stage handles one bit of the shift amount, so the count is the word width times the number of bits in the amount."
+ },
+ "pyqIds": [],
+ "prereqs": [
+  "multiplexer-and-select-lines",
+  "registers-and-shift-registers",
+  "twos-complement-negation-and-subtraction"
+ ],
+ "sources": [
+  {
+   "kind": "lecture-slides",
+   "title": "Design of the ALU Adder, Logic, and the Control Unit",
+   "channel": "Edward Bosworth, CPSC 2105 Computer Organization, chapter 5 slides",
+   "url": "http://www.edwardbosworth.com/CPSC2105/Lectures/Slides_06/Chapter_05/ALU_Design.pdf",
+   "language": "en",
+   "transcript": "PARTIAL",
+   "translated": false,
+   "note": "read the shift-unit section: the shift unit is part of the ALU, there are three kinds of shift (logical, arithmetic, circular), arithmetic shifts differ from logical only in preserving the sign bit, and the shifts move bits within a register without corresponding to a logical or arithmetic operator as such"
+  },
+  {
+   "kind": "lecture-transcript",
+   "title": "Lecture 12 - ALU Design, Overflow",
+   "channel": "NPTEL, Computer Architecture (Prof. Anshul Kumar, IIT Delhi)",
+   "url": "http://www.digimat.in/nptel/courses/video/106102062/lec12.pdf",
+   "language": "en",
+   "transcript": "PARTIAL",
+   "translated": false,
+   "note": "read the closing part of the lecture plan and the summary sentence: the last operation discussed is not an arithmetic operation but one that manipulates the pattern of bits in a register, called the shift operation, and shift operations were covered before the lecture closed"
+  }
+ ],
+ "sourceLine": "The shift unit as part of the ALU, the three kinds of shift and the sign-preserving rule of the arithmetic shift: Edward Bosworth's chapter 5 slides (English, read in part). The framing of a shift as a bit-pattern operation rather than an arithmetic one: Anshul Kumar, Lecture 12 (English, read in part). The barrel-shifter stage and multiplexer counts and the shift examples are recomputed in scripts/validate.py.",
+ "videoRefs": [],
+ "links": {
+  "visual": {
+   "slug": "alu-design",
+   "title": "One Bit Slice, Four Functions: the ALU and Its Flags",
+   "level": "topic-level",
+   "covers": [
+    "one bit of an ALU: an adder, an AND gate, an OR gate and an output multiplexer",
+    "the function-select code chooses among at most 2^k operations for k select bits",
+    "the result and the four status flags for each selected function"
+   ],
+   "url": "https://gate-visual-explainer.vercel.app/topics/alu-design/index.html"
+  },
+  "mapped_at": "2026-10-31"
+ }
+}

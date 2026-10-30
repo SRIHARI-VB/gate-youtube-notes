@@ -1,0 +1,22 @@
+{
+ "id": "gate-2020-4-alu-microop-order",
+ "year": "2020",
+ "paper": "GATE CSE 2020",
+ "question_ref": "Q.4 on GATE Overflow; Q.14 on the paper listing and on two other sites",
+ "type": "MCQ",
+ "marks": "1",
+ "topic": "single-bus-datapath-and-temporaries",
+ "text": "Consider the following data path diagram: a single bus connects MAR, MDR, IR, PC, a register file holding R0 to R7, TEMP2 and an ALU, with TEMP1 feeding one ALU input and TEMP2 the other. Consider the instruction R0 <- R1 + R2. The following steps are used to execute it over the given data path, with subscripts r and w meaning read and write. 1. R2_r, TEMP1_r, ALU_add, TEMP2_w  2. R1_r, TEMP1_w  3. PC_r, MAR_w, MEM_r  4. TEMP2_r, R0_w  5. MDR_r, IR_w. Which one of the following is the correct order of execution of the above steps?",
+ "options": [
+  "2, 1, 4, 5, 3",
+  "1, 2, 4, 3, 5",
+  "3, 5, 2, 1, 4",
+  "3, 5, 1, 2, 4"
+ ],
+ "answer": "Option (C) - 3, 5, 2, 1, 4",
+ "solution": "The fetch must come first: step 3 sends PC to MAR and starts the read, and step 5 moves the fetched word from MDR to IR, so 3 precedes 5. In the execute phase, step 1 reads TEMP1 as one of its ALU inputs, so the step that writes TEMP1, which is step 2, must come before it; that rules out option (D). Step 4 writes the ALU result into R0, so it must come after step 1 has loaded TEMP2. The order is therefore 3, 5, 2, 1, 4. Recomputed here by checking the four dependencies (5 after 3, 1 after 2, 4 after 1, and the fetch before both execute steps).",
+ "source_url": "https://gateoverflow.in/333227/gate-cse-2020-question-4",
+ "source_label": "GATE Overflow question page - GATE CSE 2020 Q.4 with the accepted answer (option C, order 3, 5, 2, 1, 4)",
+ "verification": "SOURCED",
+ "answer_evidence": "The GATE Overflow accepted answer derives 3, 5, 2, 1, 4 from the fetch pair followed by the execute steps. Two secondary sites attribute option (C) to the official key: iaeacademy records 'Official answer: C, Source: Official answer key, GATE 2020 CS (IIT Delhi)' and gateiit records 'Answer: C (official GATE 2020 final answer key)'. The key document was not opened this run, so the record stays SOURCED. The numbering differs across sites: GATE Overflow calls it Question 4, the paper listings call it Q.14."
+}

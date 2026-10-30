@@ -2504,3 +2504,114 @@ token, no shell layout, no route, no navigation label and no shared component cl
 The cycle pointer now sits on `computer-organization-and-architecture/instruction-set-and-addressing-modes`.
 The next topic in syllabus order is `computer-organization-and-architecture/alu-design`, which is
 `not_started`.
+
+## Run: Computer Organization and Architecture - Design of the Arithmetic and Logic Unit (2026-10-31)
+
+### Why this topic
+
+**Computer Organization and Architecture > Design of the Arithmetic and Logic Unit** (`alu-design`), the
+second topic of the GATE 2027 COA line: *"Instruction set and addressing modes. Design of arithmetic and
+logic unit (ALU). Design of control unit - hardwired and microprogrammed. Memory interfacing and
+hierarchy... I/O interface (interrupt and DMA). Instruction pipelining, pipeline hazards."*
+
+The cycle pointer was left by the previous run on
+`computer-organization-and-architecture/instruction-set-and-addressing-modes`, and the first topic strictly
+after it in the enumerated syllabus order whose status is not `covered` is this one, which was
+`not_started`. Nothing was skipped: no topic sits between the pointer and this one, no topic is `blocked`,
+and the twenty-four `partial` topics earlier in the cycle were left alone because the cycle takes its second
+pass over `partial` topics only after a full pass finds no `not_started` topic left. The control-unit half
+of the next syllabus sentence belongs to `control-unit-design`, which is the next topic and was
+deliberately not touched: two questions that would have fitted this run (GATE CSE 2013 Q.28 and the 2005
+"call Rn, sub" cycle count) are micro-operation and control-transfer questions and were left there.
+
+### The syllabus subtopics, enumerated first
+
+The syllabus names the topic in seven words, so the thirteen subtopics below are this run's enumeration
+from the standard treatment (Patterson and Hennessy's ALU chapter, Hamacher's ALU and datapath chapters,
+the IIT Delhi and IIT Guwahati lecture sequences) and from the GATE question record, not a quotation:
+
+1. the ALU as a block: two n-bit operands, one result, function-select inputs, status outputs, combinational
+2. the 1-bit slice: a full adder, an AND gate, an OR gate and one output multiplexer, with the carry chained
+3. function selection by code: k select bits for at most 2^k operations, one-hot against decoded control,
+   and the do-nothing code on a shared bus
+4. the multiplexers in front of the ALU inputs and the operand sources they allow
+5. subtraction inside the ALU as the adder with B inverted and the carry-in at 1
+6. comparison by subtraction: the Less signal, the overflow correction, the unsigned comparison by carry
+7. equality and the zero flag, and the branch that reads it
+8. the four status flags Z, N, C and V, and why carry and overflow are different bits
+9. the shifter beside the ALU: logical, arithmetic and circular shifts, and the barrel shifter
+10. ALU control: ALUOp from the main control, and the ALU function code from ALUOp plus the funct field
+11. the datapath around the ALU: the register file, the bus and the temporary registers a single bus forces
+12. counting the cycles of one ALU operation, with the fetch separated from the execution cycle
+13. the critical path of the ALU: the carry chain and the output multiplexer's extra delay
+
+Every one of the thirteen has a card, which is why the status is `partial` rather than lower.
+
+### Sources chosen, on merit
+
+Nine sources, across two NPTEL courses, two university slide sets, one IIT laboratory page and one Hindi
+article, recorded with reasons in `sources.json`:
+
+- NPTEL **IIT Delhi, Computer Architecture, Lecture 11 Binary Arithmetic, ALU Design** (English, read in
+  part) - the block contract: two 32-bit operands, one result, control from the instruction.
+- NPTEL **IIT Delhi, Computer Architecture, Lecture 12 ALU Design, Overflow** (English, read in part) - the
+  1-bit slice, the output multiplexer, the control-bit count, the carry chain and comparison.
+- **Curt Nelson, Walla Walla University, chapter 3 ALU Design** slides following Patterson and Hennessy
+  (English, read in part) - SLT and BEQ as ALU operations, the Less line, and the control-line table.
+- **Edward Bosworth, CPSC 2105, chapter 5** slides (English, read in part) - the gate-delay arithmetic, the
+  decoded function code with its do-nothing code, and the shift unit.
+- **IIT Kharagpur virtual lab, Design of ALU** (English, read in part) - a concrete two-select-line
+  four-function encoding and the parts list of a 4-bit ALU.
+- NPTEL **IIT Guwahati, Lecture 13 Flags and Conditional Instructions** (English, read in part) - why the
+  ALU produces flags at all.
+- NPTEL **IIT Guwahati, Lecture 16 Instruction Cycle and Micro-operations** (English, read in part) - an
+  instruction as a sequence of micro-operations.
+- NPTEL **IIT Guwahati, Lecture 23 Different Internal CPU Bus Organization** (English, read in part) - why a
+  single bus forces temporary registers.
+- **notesinhindi.com**, a Hindi article on the ALU (Hindi, **translated**, read in part) - the two-section
+  view of the ALU and the list of the four status flags. It is the only non-English source used.
+
+Thirteen candidates were rejected with reasons, including the one YouTube watch page fetched (HTTP 200, no
+caption track), IIT Delhi Lectures 13-16 on multiplication, division and floating point (already served by
+`digital-logic/computer-arithmetic`), two NPTEL adder lectures that duplicate the existing carry-look-ahead
+card, GeeksforGeeks, Tutorialspoint and Javatpoint (all HTTP 502), Wikipedia (read, but no teaching),
+iaeacademy (read, used only to corroborate answers), GATE CSE 2001 Q.2.13 (answers disagree), GATE CSE 2013
+Q.28 and the 2005 call question (control-unit material), GATE CSE 2016 Set 1 Q.33 (a CLA question already on
+the Digital Logic card), GATE CSE 1988 Q.4i (descriptive, cannot be stored), the GO Classes COA playlist and
+the answer aggregators.
+
+### What was created
+
+Twelve cards, four verified PYQs (2003, 2005, 2020, 2025), one p5.js lesson (`one-bit-four-functions`,
+seven steps), a `sources.json` ledger, and a new recomputation block `check_alu_design()` plus
+twenty-nine new numeric claims in `scripts/validate.py`. `content/syllabus.json` now marks the topic
+`cards` instead of `planned`.
+
+### Validation
+
+`python3 scripts/build-index.py` indexed 3 playlists, 39 videos, 306 topics and 241 PYQs.
+`python3 scripts/validate.py` reported 36 checks passed, 8 warnings, 0 failures; all eight warnings are
+pre-existing. `node tests/visual-lessons.js` passed on all 30 lessons. No frozen file was touched: no design
+token, no shell layout, no route, no navigation label and no shared component class changed.
+
+### Gaps (the topic stays `partial`)
+
+1. No video transcript was readable: the one YouTube watch page fetched carried no caption track, so
+   `videoRefs` is empty on all twelve cards.
+2. The two-level ALU-control arrangement rests on the standard reference and on a control-line table, not on
+   a source that walks the split through; that card quotes no lecture.
+3. GATE CSE 2001 Q.2.13 (the "push r" cycle count) is excluded because its answers disagree without
+   resolution - 5, 3 and 2 are all argued on one page.
+4. GATE CSE 1988 Q.4i is descriptive and cannot be stored in the repository's MCQ/MSQ/NAT schema.
+5. GATE CSE 2016 Set 1 Q.33 is left on the Digital Logic carry-look-ahead card rather than duplicated, so
+   the critical-path card has no PYQ of its own; five cards are in that position.
+6. Every PYQ is `SOURCED`, not key-verified, and no marks field comes from an official paper.
+7. The numbering of this question family is unstable across sites and each record states both numbers.
+8. Only one non-English source was readable, a Hindi article, and it contributes only the two-section view
+   and the flag list; no Hindi, Tamil, Telugu or Bengali GATE lecture on this topic could be read.
+9. GeeksforGeeks, Tutorialspoint and Javatpoint all answered HTTP 502; a later run should retry them.
+
+### Next
+
+The cycle pointer now sits on `computer-organization-and-architecture/alu-design`. The next topic in
+syllabus order is `computer-organization-and-architecture/control-unit-design`, which is `not_started`.

@@ -29,8 +29,8 @@
   ],
   "counts": {
     "subjects": 6,
-    "topics": 294,
-    "pyqs": 237,
+    "topics": 306,
+    "pyqs": 241,
     "videos": 39,
     "playlists": 3
   },
@@ -4428,6 +4428,172 @@
         "gate-2004-q20-relocation-at-run-time",
         "gate-1998-q1-19-relocation-without-change"
       ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "alu-block-contract",
+      "title": "The ALU as a Block: Two Operands, One Result, Control In, Status Out",
+      "subject": "computer-organization-and-architecture",
+      "group": "alu-design",
+      "unit": "Design of the Arithmetic and Logic Unit",
+      "priority": "P1",
+      "path": "subjects/computer-organization-and-architecture/alu-design/alu-block-contract.json",
+      "videos": [],
+      "pyqs": [],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "one-bit-slice-and-output-mux",
+      "title": "One Bit of the ALU: Adder, AND, OR and an Output Multiplexer",
+      "subject": "computer-organization-and-architecture",
+      "group": "alu-design",
+      "unit": "Design of the Arithmetic and Logic Unit",
+      "priority": "P1",
+      "path": "subjects/computer-organization-and-architecture/alu-design/one-bit-slice-and-output-mux.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2003-46-alu-control-k-c0"
+      ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "function-select-encoding",
+      "title": "Function Selection: k Select Bits Buy at Most 2^k Operations",
+      "subject": "computer-organization-and-architecture",
+      "group": "alu-design",
+      "unit": "Design of the Arithmetic and Logic Unit",
+      "priority": "P1",
+      "path": "subjects/computer-organization-and-architecture/alu-design/function-select-encoding.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2003-46-alu-control-k-c0"
+      ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "alu-input-multiplexers-and-operand-sources",
+      "title": "Multiplexers in Front of the ALU: What Can Reach Each Input",
+      "subject": "computer-organization-and-architecture",
+      "group": "alu-design",
+      "unit": "Design of the Arithmetic and Logic Unit",
+      "priority": "P1",
+      "path": "subjects/computer-organization-and-architecture/alu-design/alu-input-multiplexers-and-operand-sources.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2025-set1-27-datapath-operand-sources"
+      ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "comparison-and-slt",
+      "title": "Comparison Inside the ALU: SLT, the Sign Bit and the Overflow Correction",
+      "subject": "computer-organization-and-architecture",
+      "group": "alu-design",
+      "unit": "Design of the Arithmetic and Logic Unit",
+      "priority": "P2",
+      "path": "subjects/computer-organization-and-architecture/alu-design/comparison-and-slt.json",
+      "videos": [],
+      "pyqs": [],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "zero-detect-and-equality",
+      "title": "Zero Detect: One NOR Tree, and the Branch That Reads It",
+      "subject": "computer-organization-and-architecture",
+      "group": "alu-design",
+      "unit": "Design of the Arithmetic and Logic Unit",
+      "priority": "P2",
+      "path": "subjects/computer-organization-and-architecture/alu-design/zero-detect-and-equality.json",
+      "videos": [],
+      "pyqs": [],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "status-flags-z-n-c-v",
+      "title": "The Four Status Flags: Zero, Sign, Carry and Overflow",
+      "subject": "computer-organization-and-architecture",
+      "group": "alu-design",
+      "unit": "Design of the Arithmetic and Logic Unit",
+      "priority": "P1",
+      "path": "subjects/computer-organization-and-architecture/alu-design/status-flags-z-n-c-v.json",
+      "videos": [],
+      "pyqs": [],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "shifter-and-barrel-shift",
+      "title": "The Shifter Beside the ALU: Logical, Arithmetic and the Barrel",
+      "subject": "computer-organization-and-architecture",
+      "group": "alu-design",
+      "unit": "Design of the Arithmetic and Logic Unit",
+      "priority": "P2",
+      "path": "subjects/computer-organization-and-architecture/alu-design/shifter-and-barrel-shift.json",
+      "videos": [],
+      "pyqs": [],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "alu-control-from-opcode",
+      "title": "ALU Control: From Opcode to the Function-Select Code",
+      "subject": "computer-organization-and-architecture",
+      "group": "alu-design",
+      "unit": "Design of the Arithmetic and Logic Unit",
+      "priority": "P1",
+      "path": "subjects/computer-organization-and-architecture/alu-design/alu-control-from-opcode.json",
+      "videos": [],
+      "pyqs": [],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "single-bus-datapath-and-temporaries",
+      "title": "The Single-Bus Datapath and Its Temporary Registers",
+      "subject": "computer-organization-and-architecture",
+      "group": "alu-design",
+      "unit": "Design of the Arithmetic and Logic Unit",
+      "priority": "P1",
+      "path": "subjects/computer-organization-and-architecture/alu-design/single-bus-datapath-and-temporaries.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2020-4-alu-microop-order"
+      ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "cycles-for-one-alu-operation",
+      "title": "Counting Cycles for One ALU Operation: One Bus Source per Cycle",
+      "subject": "computer-organization-and-architecture",
+      "group": "alu-design",
+      "unit": "Design of the Arithmetic and Logic Unit",
+      "priority": "P1",
+      "path": "subjects/computer-organization-and-architecture/alu-design/cycles-for-one-alu-operation.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2005-79-add-execution-cycles"
+      ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "alu-critical-path-and-delay",
+      "title": "What Makes the ALU Slow: the Carry Chain, Not the Gates",
+      "subject": "computer-organization-and-architecture",
+      "group": "alu-design",
+      "unit": "Design of the Arithmetic and Logic Unit",
+      "priority": "P2",
+      "path": "subjects/computer-organization-and-architecture/alu-design/alu-critical-path-and-delay.json",
+      "videos": [],
+      "pyqs": [],
       "visual": null,
       "variations": 3
     }

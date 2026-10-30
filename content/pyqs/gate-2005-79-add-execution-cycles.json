@@ -1,0 +1,22 @@
+{
+ "id": "gate-2005-79-add-execution-cycles",
+ "year": "2005",
+ "paper": "GATE CSE 2005",
+ "question_ref": "Q.79 on GATE Overflow; Q.12 on the paper listing and on ExamSIDE",
+ "type": "MCQ",
+ "marks": "2",
+ "topic": "cycles-for-one-alu-operation",
+ "text": "Consider the following data path of a CPU. The ALU, the bus and all the registers in the data path are of identical size. All operations including incrementation of the PC and the GPRs are to be carried out in the ALU. Two clock cycles are needed for a memory read operation - the first one for loading the address in the MAR and the next one for loading data from the memory bus into the MDR. The instruction 'add R0, R1' has the register transfer interpretation R0 <- R0 + R1. The minimum number of clock cycles needed for the execution cycle of this instruction is:",
+ "options": [
+  "5",
+  "4",
+  "3",
+  "2"
+ ],
+ "answer": "3 clock cycles - option (B) on the GATE Overflow page",
+ "solution": "The execution cycle needs one cycle to place R0 in the first temporary, one to place R1 in the second temporary (the single bus carries one source per cycle), and one to add the two temporaries and write the result to R0. That is three cycles. The two-cycle fetch is excluded because the question asks for the execution cycle; counting it gives five, which is the most common wrong answer and is offered as a distractor. Recomputed here as 2 operand loads plus 1 write-back.",
+ "source_url": "https://gateoverflow.in/1402/gate-cse-2005-question-79",
+ "source_label": "GATE Overflow question page - GATE CSE 2005 Question 79 with the accepted answer of 3 cycles",
+ "verification": "SOURCED",
+ "answer_evidence": "The accepted answer on the GATE Overflow page lists the three execution micro-operations and gives 3, noting explicitly that 5 would be the answer for the instruction cycle rather than the execution cycle. The option letters are not stable: the GATE Overflow page prints the options as 5, 4, 3, 2 with 3 in position (B), while one listing prints them as 2, 3, 4, 5 with 3 in position (B) again but a different order, so the record gives the number of cycles and the letter together."
+}

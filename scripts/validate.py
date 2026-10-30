@@ -392,6 +392,35 @@ MATH = [
     ("lu: one substitution pair at n = 100", 2 * 100 ** 2, 20000),
     ("lu: five solves at n = 100", 5 * 2 * 100 ** 2, 100000),
     ("lu: total work at n = 100 and m = 5", 2 * 100 ** 3 // 3 + 5 * 2 * 100 ** 2, 766666),
+    ("alu: functions from two select bits", 2 ** 2, 4),
+    ("alu: select bits for three sources in the output mux", 2, 2),
+    ("alu: control bits for AND, OR, add and subtract", 2 + 1, 3),
+    ("alu: select bits for six operations", 3, 3),
+    ("alu: select bits for four ALUOp classes", 2, 2),
+    ("alu: 32-bit ALU slices", 32, 32),
+    ("alu: four-bit ripple-carry top sum bit delay in gates", 2 * 4 + 1, 9),
+    ("alu: eight-bit ripple-carry top sum bit delay", 2 * 8 + 1, 17),
+    ("alu: sixteen-bit ripple-carry top sum bit delay", 2 * 16 + 1, 33),
+    ("alu: 32-bit ripple-carry top sum bit delay", 2 * 32 + 1, 65),
+    ("alu: eight-bit ALU delay with a two-gate output mux", 2 * 8 + 1 + 2, 19),
+    ("alu: 32-bit ALU delay with a one-gate output mux", 2 * 32 + 1 + 1, 66),
+    ("alu: operand combinations from two independent 2:1 muxes", 2 * 2, 4),
+    ("alu: operand combinations from two independent 4:1 muxes", 4 * 4, 16),
+    ("alu: barrel shifter stages for 16 bits", 4, 4),
+    ("alu: 2:1 muxes in a 16-bit barrel shifter", 16 * 4, 64),
+    ("alu: barrel shifter stages for 32 bits", 5, 5),
+    ("alu: 2:1 muxes in a 32-bit barrel shifter", 32 * 5, 160),
+    ("alu: barrel shifter stages for 64 bits", 6, 6),
+    ("alu: 2:1 muxes in a 64-bit barrel shifter", 64 * 6, 384),
+    ("alu: shift 0b00110100 left by two", (0b00110100 << 2) & 0xFF, 208),
+    ("alu: 52 times four", 52 * 4, 208),
+    ("alu: arithmetic right shift of -12 by one", -12 >> 1, -6),
+    ("alu: arithmetic right shift of -3 by one floors to -2", -3 >> 1, -2),
+    ("alu: execution cycles of 2005 Q.79, add R0, R1", 2 + 1, 3),
+    ("alu: instruction cycles of 2005 Q.79 including the fetch", 2 + 1 + 2, 5),
+    ("alu: zero-flag pairs after a 4-bit subtraction", 16, 16),
+    ("alu: V-setting ordered pairs in 4-bit addition", 28 + 36, 64),
+    ("alu: raw-sign-bit failures in 4-bit subtraction", 64, 64),
 ]
 
 
@@ -7806,6 +7835,183 @@ def check_instruction_set_and_addressing_modes():
        "own six modes")
 
 
+
+# ------------------------------------------------------- ALU design
+def check_alu_design():
+    """Every number and verdict published in the ALU Design cards and in the slice lesson."""
+    from math import ceil, log2
+
+    def carries(a, b, n=4, c0=0):
+        """The carry into the top bit and the carry out of it, for a + b + c0."""
+        carry = c0
+        cin_top = None
+        for i in range(n):
+            if i == n - 1:
+                cin_top = carry
+            ai, bi = (a >> i) & 1, (b >> i) & 1
+            carry = (ai & bi) | (carry & (ai ^ bi))
+        return cin_top, carry
+
+    def signed(x, n=4):
+        return x - (1 << n) if x >> (n - 1) & 1 else x
+
+    # the full adder, over all eight input combinations
+    for a in (0, 1):
+        for b in (0, 1):
+            for c in (0, 1):
+                assert (a ^ b ^ c) == ((a + b + c) & 1), "full adder sum"
+                assert ((a & b) | (c & (a ^ b))) == ((a + b + c) >> 1), "full adder carry"
+
+    # the control-bit arithmetic
+    assert 2 ** 2 == 4 and ceil(log2(3)) == 2 and 2 + 1 == 3, "slice control bits"
+    assert ceil(log2(6)) == 3 and ceil(log2(4)) == 2, "select bits from a function count"
+
+    # the slice example of the lesson: A = 1, B = 1, carry in 1
+    A, B, CIN = 1, 1, 1
+    assert (A & B) == 1 and (A | B) == 1, "AND and OR agree on 1, 1"
+    assert ((A + B + CIN) & 1) == 1 and ((A + B + CIN) >> 1) == 1, "ADD gives sum 1, carry 1"
+    assert ((A + (1 - B) + CIN) & 1) == 0 and ((A + (1 - B) + CIN) >> 1) == 1, \
+        "SUB gives sum 0, carry 1"
+    assert (A - B) & 1 == 0, "1 - 1 is 0"
+    # and the lesson's quick check: A = 1, B = 0, carry in 0
+    a, b, c = 1, 0, 0
+    assert (a & b) == 0 and (a | b) == 1
+    assert ((a + b + c) & 1) == 1 and ((a + b + c) >> 1) == 0
+    assert ((a + (1 - b) + 1) & 1) == 1 and ((a + (1 - b) + 1) >> 1) == 1, \
+        "subtraction forces the carry-in to 1, so 1 + 1 + 1 gives sum 1 and carry 1"
+
+    # GATE CSE 2003 Q.46: the four settings of K and C0, over all 4-bit operands
+    for a in range(16):
+        for b in range(16):
+            r = lambda K, C0: (a + ((b ^ 15) if K else b) + C0) % 16
+            assert r(0, 0) == (a + b) % 16, "K=0 C0=0 is A+B"
+            assert r(0, 1) == (a + b + 1) % 16, "K=0 C0=1 is A+B+1"
+            assert r(1, 0) == (a - b - 1) % 16, "K=1 C0=0 is A-B-1"
+            assert r(1, 1) == (a - b) % 16, "K=1 C0=1 is A-B"
+    # A + 1 cannot be produced for every operand pair by any single setting
+    for K in (0, 1):
+        for C0 in (0, 1):
+            assert not all((a + ((b ^ 15) if K else b) + C0) % 16 == (a + 1) % 16
+                           for a in range(16) for b in range(16)), \
+                "no setting of K and C0 gives A + 1 for every operand"
+
+    # subtraction as the adder with B inverted and carry-in 1
+    for a in range(16):
+        for b in range(16):
+            assert ((a + (b ^ 15) + 1) & 15) == ((a - b) % 16), "subtraction by inversion"
+            # the carry out of the top bit says "no borrow"
+            assert carries(a, b ^ 15, c0=1)[1] == (1 if a >= b else 0), "carry out of A-B"
+
+    # V = carry into the sign column xor carry out of it, and it means the signed sum did not fit
+    v_pairs = 0
+    for a in range(16):
+        for b in range(16):
+            cin_top, cout = carries(a, b)
+            V = cin_top ^ cout
+            assert V == (0 if -8 <= signed(a) + signed(b) <= 7 else 1), "overflow flag"
+            if V:
+                v_pairs += 1
+    assert v_pairs == 64, "64 ordered pairs overflow a 4-bit signed addition"
+    positive = sum(1 for a in range(8) for b in range(8) if a + b >= 8)
+    negative = sum(1 for a in range(8, 16) for b in range(8, 16) if signed(a) + signed(b) < -8)
+    assert (positive, negative) == (28, 36), "the 28 and 36 of the status-flag card"
+
+    # the carry flag alone does not report signed overflow, and vice versa
+    assert carries(15, 1)[1] == 1 and (carries(15, 1)[0] ^ carries(15, 1)[1]) == 0, \
+        "-1 + 1 sets C but not V"
+    assert carries(7, 1)[1] == 0 and (carries(7, 1)[0] ^ carries(7, 1)[1]) == 1, \
+        "7 + 1 sets V but not C"
+
+    # the zero flag after a subtraction is exactly equality
+    z_pairs = 0
+    for a in range(16):
+        for b in range(16):
+            d = (a + (b ^ 15) + 1) & 15
+            assert (d == 0) == (a == b), "zero flag means equality"
+            if d == 0:
+                z_pairs += 1
+    assert z_pairs == 16, "16 ordered pairs give a zero result"
+
+    # SLT: the raw sign bit fails exactly on the overflow cases, and sign xor overflow is always right
+    wrong = 0
+    for a in range(16):
+        for b in range(16):
+            d = (a + (b ^ 15) + 1) & 15
+            sign = (d >> 3) & 1
+            cin_top, cout = carries(a, b ^ 15, c0=1)
+            V = cin_top ^ cout
+            truth = 1 if signed(a) < signed(b) else 0
+            assert (sign ^ V) == truth, "sign xor overflow is the comparison"
+            if sign != truth:
+                wrong += 1
+    assert wrong == 64, "the raw sign bit is wrong on 64 of the 256 ordered subtraction pairs"
+    # the worked counterexample: -8 - 1 wraps to +7 with sign 0
+    d = (8 + (1 ^ 15) + 1) & 15
+    assert d == 7 and (d >> 3) == 0, "-8 - 1 wraps to +7 in four bits"
+    assert (carries(8, 1 ^ 15, c0=1)[0] ^ carries(8, 1 ^ 15, c0=1)[1]) == 1, "that subtraction overflows"
+    # and the check question: 7 - (-8) wraps to -1 with sign 1 and overflow 1
+    d = (7 + (8 ^ 15) + 1) & 15
+    assert d == 15 and (d >> 3) == 1, "7 - (-8) wraps to -1"
+    assert (carries(7, 8 ^ 15, c0=1)[0] ^ carries(7, 8 ^ 15, c0=1)[1]) == 1, "that subtraction overflows too"
+
+    # shifts
+    assert ((0b00110100 << 2) & 0xFF) == 0xD0 == 208 and 52 * 4 == 208, "left shift multiplies"
+    assert (-12 >> 1) == -6 and (-3 >> 1) == -2, "arithmetic right shift floors"
+    for n in (16, 32, 64):
+        stages = int(log2(n))
+        assert stages == {16: 4, 32: 5, 64: 6}[n], "barrel shifter stages"
+        assert n * stages == {16: 64, 32: 160, 64: 384}[n], "barrel shifter multiplexers"
+    # a barrel shifter by 0 to 15 on 16 bits reproduces a logical left shift
+    for amount in range(16):
+        stages = [(amount >> i) & 1 for i in range(4)]
+        assert sum(s * (1 << i) for i, s in enumerate(stages)) == amount, "barrel stages compose"
+    for n in (4, 8, 16, 32):
+        assert 2 * n + 1 == {4: 9, 8: 17, 16: 33, 32: 65}[n], "ripple-carry sum delay"
+    assert 2 * 8 + 1 + 2 == 19 and 2 * 32 + 1 + 1 == 66, "ALU delay with the output multiplexer"
+
+    # GATE CSE 2025 Q.27: two independent 2:1 multiplexers give four operand-source combinations
+    sources_a = ('RA', 'imm')
+    sources_b = ('RB', 'imm')
+    combos = {(x, y) for x in sources_a for y in sources_b}
+    assert len(combos) == 4, "four operand combinations"
+    assert ('RA', 'RB') in combos and ('imm', 'imm') in combos, "registers and two immediates both reachable"
+    # one shared select line would leave only two
+    shared = {(sources_a[s], sources_b[s]) for s in (0, 1)}
+    assert len(shared) == 2, "one shared select line gives two combinations"
+
+    # GATE CSE 2020 Q.4: the ordering, checked as a dependency graph over the five steps
+    steps = {1: {'reads': {'TEMP1'}, 'writes': {'TEMP2'}},
+             2: {'reads': {'R1'}, 'writes': {'TEMP1'}},
+             3: {'reads': {'PC'}, 'writes': {'MAR', 'MDR'}},
+             4: {'reads': {'TEMP2'}, 'writes': {'R0'}},
+             5: {'reads': {'MDR'}, 'writes': {'IR'}}}
+    before = [(3, 5), (2, 1), (1, 4)]
+    order = [3, 5, 2, 1, 4]
+    for x, y in before:
+        assert order.index(x) < order.index(y), "step %d must precede step %d" % (x, y)
+        assert steps[y]['reads'] & steps[x]['writes'], \
+            "step %d reads what step %d writes" % (y, x)
+    for other in ([2, 1, 4, 5, 3], [1, 2, 4, 3, 5], [3, 5, 1, 2, 4]):
+        assert any(other.index(x) > other.index(y) for x, y in before), \
+            "a distractor order breaks a dependency"
+
+    # GATE CSE 2005 Q.79: one cycle per bus source, and the fetch is separate
+    execution = 2 + 1
+    assert execution == 3 and execution + 2 == 5, "three execution cycles, five with the fetch"
+
+    # the ALU-control widths quoted on the card
+    assert ceil(log2(6)) == 3 and ceil(log2(4)) == 2
+
+    ok("ALU design: the full adder over all eight inputs, the control-bit counts, the lesson's four "
+       "codes and its quick check, the four settings of K and C0 in 2003 Q.46 with A+1 unreachable, "
+       "subtraction by inversion and the no-borrow carry over all 256 pairs, the overflow flag against "
+       "the true signed sum with its 28 and 36 split, carry against overflow on 1111+0001 and 0111+0001, "
+       "the zero flag as equality, sign xor overflow as the comparison with the raw sign bit wrong on 64 "
+       "pairs, the shift examples and the barrel counts for 16, 32 and 64 bits, the ripple-carry delays "
+       "9, 17, 33, 65 and the ALU delays 19 and 66, the four operand combinations of 2025 Q.27, and the "
+       "dependency order of 2020 Q.4 against all three distractors")
+
+
 def main():
     topics, tpath, pyqs, videos, playlists, sources = load_all()
     check_topics(topics, tpath, pyqs, videos)
@@ -7839,6 +8045,7 @@ def main():
     check_sequential_circuits()
     check_computer_arithmetic()
     check_instruction_set_and_addressing_modes()
+    check_alu_design()
     check_visuals()
     check_hygiene()
     for c in checks:

@@ -1,10 +1,10 @@
 {
  "exam": "GATE CSE 2027",
- "updated_at": "2026-10-30",
+ "updated_at": "2026-10-31",
  "cycle": {
   "last_subject": "computer-organization-and-architecture",
-  "last_topic": "instruction-set-and-addressing-modes",
-  "updated_at": "2026-10-30"
+  "last_topic": "alu-design",
+  "updated_at": "2026-10-31"
  },
  "subjects": [
   {
@@ -790,10 +790,39 @@
     {
      "slug": "alu-design",
      "name": "Design of the Arithmetic and Logic Unit",
-     "status": "not_started",
-     "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
-     "runs": [],
-     "gaps": []
+     "status": "partial",
+     "coverage_note": "13 subtopics, 12 cards (the ALU block contract, the 1-bit slice with its output multiplexer, function selection by code, the input multiplexers and operand sources, comparison and SLT, zero detect and equality, the four status flags, the shifter and the barrel, ALU control from the opcode, the single-bus datapath and its temporaries, cycle counting for one ALU operation, and the ALU critical path), 4 verified PYQs and 1 p5.js lesson. Partial because seven gaps remain, named below - above all that no video transcript was readable, that the ALU-control split rests on the standard reference, and that one well-matched question is contested.",
+     "runs": [
+      {
+       "date": "2026-10-31",
+       "sources": [
+        "nptel-iitd-106102062-lecture-11",
+        "nptel-iitd-106102062-lecture-12",
+        "wallawalla-nelson-cptr380-chapter-3-alu-design",
+        "edwardbosworth-cpsc2105-alu-design-slides",
+        "iitkgp-virtual-lab-alu-design",
+        "nptel-iitg-106103180-lecture-13-flags",
+        "nptel-iitg-106103180-lecture-16-microoperations",
+        "nptel-iitg-106103180-lecture-23-bus-organization",
+        "notesinhindi-alu-in-computer-system"
+       ],
+       "cards": 12,
+       "pyqs": 4,
+       "lesson": "computer-organization-and-architecture/alu-design/one-bit-four-functions",
+       "note": "Sources chosen on merit across two NPTEL courses, two university slide sets, one IIT laboratory page and one Hindi article: IIT Delhi Lectures 11 and 12 (English, read in part) for the block contract, the 1-bit slice, the control-bit count and comparison; Curt Nelson's chapter 3 slides (English, read in part) for the SLT and BEQ operations and the ALU control-line table; Edward Bosworth's chapter 5 slides (English, read in part) for the gate-delay arithmetic, the decoded function code and the shift unit; the IIT Kharagpur virtual-lab page (English, read in part) for a concrete two-select-line four-function encoding; IIT Guwahati Lectures 13, 16 and 23 (English, read in part) for flags and conditional instructions, the micro-operation framing and the single-bus temporaries; and notesinhindi.com's Hindi article (translated, read in part) for the two-section view of the ALU and the list of the four flags - the only non-English source used and the only translated material in the topic. No video transcript was readable: the one YouTube watch page fetched carried no caption track. Rejected with reasons in sources.json: IIT Delhi Lectures 13-16 (multiplication, division, floating point - already in digital-logic/computer-arithmetic), two NPTEL adder lectures that duplicate the existing carry-look-ahead card, GeeksforGeeks, Tutorialspoint and Javatpoint (all HTTP 502), Wikipedia (read, but no teaching), iaeacademy (read, used only to corroborate answers), GATE CSE 2001 Q.2.13 (answers disagree without resolution), GATE CSE 2013 Q.28 and the 2005 call question (control-unit material), GATE CSE 2016 Set 1 Q.33 (a CLA question already on the digital-logic CLA card), GATE CSE 1988 Q.4i (descriptive, cannot be stored), the GO Classes COA playlist (structure only) and the answer aggregators (numbering only)."
+      }
+     ],
+     "gaps": [
+      "no video transcript was readable this run: the one YouTube watch page fetched returned HTTP 200 with no caption track at all, so videoRefs is empty on all twelve cards and no card quotes or timestamps a lecture; the nine chosen sources are lecture transcripts, slide sets, a laboratory page and one Hindi article, all read as text",
+      "the two-level ALU control arrangement (the main control producing ALUOp, and a second decoder producing the ALU function code from ALUOp plus the funct field) rests on the standard reference and on Curt Nelson's control-line table, not on a source that walks the split through: no readable source this run taught the ALU-control decoder, so that card quotes no lecture",
+      "GATE CSE 2001 Q.2.13 (the 'push r' cycle count) is excluded because the answers on its GATE Overflow page disagree without resolution - 5 under the accepted reasoning, 3 and 2 under others - and the disagreement turns on whether a 16-bit stack pointer can reach a 16-bit MAR in one cycle over an 8-bit bus; reporting one answer would have invented a consensus",
+      "GATE CSE 1988 Q.4i, the best-matched descriptive question (an 8-bit datapath from two 4-bit ALUs, list the control signals and estimate the microcode width), cannot be stored because the repository's PYQ schema holds only MCQ, MSQ and NAT records; its substance is covered by the input-multiplexer and function-select cards",
+      "GATE CSE 2016 Set 1 Q.33 (carry look-ahead with fan-in at most two) is left on the digital-logic carry-look-ahead card rather than duplicated here, so the critical-path card has no previous-year question of its own; the same is true of the shifter, the block contract, the ALU control, comparison and zero detect, which is why five of the twelve cards are P2 or carry no PYQ",
+      "every PYQ in the topic is SOURCED against a GATE Overflow accepted answer rather than key-verified against an official answer key, and no marks field comes from an official paper: two secondary sites state that the 2025 and 2020 keys give A, B, C and C, and that is recorded as evidence rather than upgraded to OFFICIAL_KEY",
+      "the question numbering of this family is unstable across sites (the 2025 datapath question is Question 17 on GATE Overflow and Q.27 on the paper listings; the 2020 one is Question 4 and Q.14; the 2005 one is Question 79 and Q.12), and every record states which number it uses",
+      "the only non-English source is one Hindi article read in part, and it contributes only the two-section view of the ALU and the list of the four flags; no GATE-level Hindi, Tamil, Telugu or Bengali lecture on this topic could be read this run, and the article's claim that comparison is itself a logic operation is corrected on the comparison card rather than repeated",
+      "GeeksforGeeks, Tutorialspoint and Javatpoint, the three pages most GATE candidates start from, all answered HTTP 502 from the sandbox; nothing rests on them and a later run should retry"
+     ]
     },
     {
      "slug": "control-unit-design",

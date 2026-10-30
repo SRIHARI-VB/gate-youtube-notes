@@ -1,0 +1,97 @@
+{
+ "id": "one-bit-slice-and-output-mux",
+ "title": "One Bit of the ALU: Adder, AND, OR and an Output Multiplexer",
+ "priority": "P1",
+ "order": 494,
+ "unit": "Design of the Arithmetic and Logic Unit",
+ "quickIdea": "An n-bit ALU is n copies of one bit slice. Each slice holds a full adder, an AND gate and an OR gate, and a multiplexer picks which of those three outputs leaves the slice; the carry is chained from slice to slice.",
+ "remember": [
+  "One slice per bit position: bit i of A, bit i of B, the carry in from slice i-1, and bit i of the result.",
+  "Inside a slice sit a 1-bit adder, an AND gate and an OR gate, all fed by the same two operand bits.",
+  "A multiplexer selects between the adder's sum and the logic gate outputs, so the arithmetic and the logic share the same output pin.",
+  "Choosing among three sources needs 2 select bits, and the add-or-subtract choice needs one more control bit, so four functions cost three control signals.",
+  "The carry chain is the only signal that crosses slices, which is why the adder's carry path, not the logic gates, decides the ALU's speed."
+ ],
+ "example": {
+  "prompt": "Build the bit-0 slice of a 4-bit ALU with functions AND, OR, add and subtract. How many control signals does the whole ALU need?",
+  "work": "The slice has an AND gate, an OR gate and a full adder; a 3-to-1 multiplexer (2 select bits) chooses among them. Subtraction is not a fourth source: it is the adder with B inverted and the first carry-in set to 1, so one extra mode bit drives the inverter bank and the carry-in. Total: 2 + 1 = 3 control signals for all four functions.",
+  "answer": "Three control signals: two for the output multiplexer, one for the add/subtract mode."
+ },
+ "gateAngle": "GATE CSE 2003 Q.46 is this slice seen from the control side: with only the two control lines K and C0 available, the slice can add, subtract, and also produce A+B+1 and A-B-1, but it cannot produce A+1, because that would need the whole B input forced to zero. The question is decided by enumerating the four settings of K and C0.",
+ "variations": [
+  {
+   "label": "ORIGINAL PYQ-STYLE QUESTION",
+   "question": "A bit slice offers AND, OR and ADD. How many select lines does its output multiplexer need, and how many codes are wasted?",
+   "answer": "Two select lines, since ceil(log2 3) = 2; one of the four codes is unused.",
+   "why": "The wasted code is usually given to a fourth function rather than left dangling, which is how XOR and NOT appear in real ALUs."
+  },
+  {
+   "label": "CONCEPTUAL PRACTICE QUESTION",
+   "question": "Why does the ALU need an output multiplexer at all, instead of wiring the adder and the logic gates together?",
+   "answer": "Because all the candidate results exist at once and only one may drive the output; wired together, an adder output of 1 and an AND output of 0 would fight.",
+   "why": "The multiplexer is also what makes the function-select code meaningful: the code is the multiplexer's select input."
+  },
+  {
+   "label": "PREDICTED VARIATION",
+   "question": "A 16-bit ALU is built from 16 identical slices. How many full adders, AND gates and output multiplexers does it contain?",
+   "answer": "16 of each: 16 full adders, 16 two-input AND gates and 16 output multiplexers.",
+   "why": "The design is regular by construction; the only irregular slice is bit 0, whose carry-in is the mode signal rather than a carry from below."
+  }
+ ],
+ "trap": {
+  "what": "Believing subtraction needs a second adder or a separate subtractor block.",
+  "why": "Subtraction is addition of the two's complement, so the same adder does it once B is inverted and 1 is added at the low end.",
+  "counterexample": "In a 4-bit ALU, 5 - 3 is computed as 0101 + 1100 + 1 = 1 0010, keeping 0010 = 2. Only the inverter bank and the carry-in changed; the adder is untouched."
+ },
+ "check": {
+  "question": "Which signal inside a bit slice reaches every other slice, and why does that matter?",
+  "answer": "The carry. It is the only cross-slice signal, so the time for a carry to walk the chain is the ALU's worst-case delay for addition.",
+  "explanation": "The logic functions are one gate deep per bit and finish almost immediately; the adder is what makes the ALU slow, which is why the next topic's carry look-ahead exists."
+ },
+ "pyqIds": [
+  "gate-2003-46-alu-control-k-c0"
+ ],
+ "prereqs": [
+  "half-adder-and-full-adder",
+  "multiplexer-and-select-lines",
+  "adder-subtractor"
+ ],
+ "sources": [
+  {
+   "kind": "lecture-transcript",
+   "title": "Lecture 12 - ALU Design, Overflow",
+   "channel": "NPTEL, Computer Architecture (Prof. Anshul Kumar, IIT Delhi)",
+   "url": "http://www.digimat.in/nptel/courses/video/106102062/lec12.pdf",
+   "language": "en",
+   "transcript": "PARTIAL",
+   "translated": false,
+   "note": "read through the description of the slice: a 1-bit adder, an inverter and a small multiplexer so that the same adder adds or subtracts, an AND gate and an OR gate for the logic functions, and an output multiplexer that selects between the AND, the OR and the adder. Also read: two bits select among the three sources and one more signal chooses addition or subtraction, and thirty-two such blocks are chained by the carry to form a 32-bit ALU"
+  },
+  {
+   "kind": "web-course-page",
+   "title": "Virtual Lab for Computer Organisation and Architecture - Design of ALU",
+   "channel": "IIT Kharagpur, Department of Computer Science and Engineering (virtual lab experiment page)",
+   "url": "https://cse.iitkgp.ac.in/~chitta/coldvl/alu.html",
+   "language": "en",
+   "transcript": "PARTIAL",
+   "translated": false,
+   "note": "read the design section: a 4-bit ALU is four 1-bit ALU blocks, the 1-bit block is built from AND, OR and XOR gates, a full adder and a 4-to-1 multiplexer, and its two select lines S1 S0 give AND, OR, XOR and ADD. Its 74181-style function table is read but not reproduced"
+  }
+ ],
+ "sourceLine": "The slice structure - a 1-bit adder with an inverter and a multiplexer for add against subtract, AND and OR gates, and an output multiplexer over the three sources, needing two select bits plus one mode bit, chained across 32 blocks: Anshul Kumar, Lecture 12 (English, read in part). The statement that a 4-bit ALU is four 1-bit blocks built from AND, OR, XOR, a full adder and a 4-to-1 multiplexer, with two select lines giving four functions: the IIT Kharagpur virtual-lab page (English, read in part). The 2003 question's four settings of K and C0 are recomputed in scripts/validate.py.",
+ "videoRefs": [],
+ "links": {
+  "visual": {
+   "slug": "alu-design",
+   "title": "One Bit Slice, Four Functions: the ALU and Its Flags",
+   "level": "topic-level",
+   "covers": [
+    "one bit of an ALU: an adder, an AND gate, an OR gate and an output multiplexer",
+    "the function-select code chooses among at most 2^k operations for k select bits",
+    "the result and the four status flags for each selected function"
+   ],
+   "url": "https://gate-visual-explainer.vercel.app/topics/alu-design/index.html"
+  },
+  "mapped_at": "2026-10-31"
+ }
+}

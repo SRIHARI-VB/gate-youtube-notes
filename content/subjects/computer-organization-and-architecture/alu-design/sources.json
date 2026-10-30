@@ -1,0 +1,279 @@
+{
+  "subject": "computer-organization-and-architecture",
+  "topic": "alu-design",
+  "exam": "GATE CSE 2027",
+  "retrieved_at": "2026-10-31",
+  "subtopics": [
+    "the ALU as a block: two n-bit operands, one n-bit result, function-select inputs and status outputs, combinational and stateless",
+    "the 1-bit slice: a full adder, an AND gate and an OR gate sharing one output multiplexer, with the carry chained between slices",
+    "function selection by code: k select bits for at most 2^k operations, one-hot against decoded control, and the do-nothing code on a shared bus",
+    "the multiplexers in front of the ALU inputs: independent select lines, register against immediate operands, and the combinations they allow",
+    "subtraction inside the ALU as the adder with an inverted B and a carry-in of 1, which is one mode bit rather than a second adder",
+    "comparison by subtraction: the Less signal from the sign bit, the overflow correction, and the unsigned comparison by carry",
+    "equality and the zero flag: the NOR of the result bits, and the branch that reads it",
+    "the four status flags Z, N, C and V, what each reports, and why carry and overflow are different bits",
+    "the shifter beside the ALU: logical, arithmetic and circular shifts, and the barrel shifter with log2 n stages",
+    "ALU control: the main control producing ALUOp, and a second decoder producing the ALU function code from ALUOp and the funct field",
+    "the datapath around the ALU: the register file, the bus, and the temporary registers a single-bus organisation forces",
+    "counting the cycles of one ALU operation on a bus-based datapath, with the fetch separated from the execution cycle",
+    "the critical path of the ALU: the adder's carry chain, the output multiplexer's extra delay, and why the ALU is as slow as its adder"
+  ],
+  "chosen": [
+    {
+      "id": "nptel-iitd-106102062-lecture-11",
+      "kind": "lecture-transcript",
+      "title": "Lecture 11 - Binary Arithmetic, ALU Design",
+      "channel": "NPTEL, Computer Architecture (Prof. Anshul Kumar, IIT Delhi)",
+      "url": "http://www.digimat.in/nptel/courses/video/106102062/lec11.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "covers": [
+        "the move from instruction set architecture to micro-architecture, and the ALU as the unit where the two meet",
+        "the ALU as a block with two 32-bit operands and a result produced under control signals determined by the instruction",
+        "the statement that the same unit performs addition, subtraction, multiplication, division, comparison or a logical operation depending on the instruction",
+        "the course's own ordering of the material, which places ALU design before overflow, multiplication, floating point and the datapath"
+      ],
+      "why": "The clearest statement read this run of what an ALU is for and of the block contract that the first card is built on: two operands in, one result out, control from the instruction. It is also the source that fixes the teaching order this topic's cards follow. Read in part: the served extract runs from the opening through the beginning of the binary-representation refresher, so nothing is attributed to its treatment of signed numbers or of subtraction."
+    },
+    {
+      "id": "nptel-iitd-106102062-lecture-12",
+      "kind": "lecture-transcript",
+      "title": "Lecture 12 - ALU Design, Overflow",
+      "channel": "NPTEL, Computer Architecture (Prof. Anshul Kumar, IIT Delhi)",
+      "url": "http://www.digimat.in/nptel/courses/video/106102062/lec12.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "covers": [
+        "the 1-bit slice: a 1-bit adder with an inverter and a small multiplexer so that it adds or subtracts, plus an AND gate and an OR gate",
+        "the output multiplexer that selects between the AND output, the OR output and the adder's sum",
+        "the control count: two bits to choose among three sources and one more bit to choose addition against subtraction",
+        "thirty-two such blocks chained by the carry to make a 32-bit ALU",
+        "comparison by subtraction against a direct comparator built from a recursive greater-than definition, and the note that the sign is meaningful only for signed numbers",
+        "overflow detection differing between signed and unsigned operands, and the closing treatment of shift operations as bit-pattern manipulation"
+      ],
+      "why": "The single most useful source for this topic: it is the only readable lecture that walks the slice, the multiplexer, the control-bit count and the carry chain in one place, and it is what the slice, function-select and comparison cards rest on. Read in part: the returned extract runs from the opening through the comparison discussion and the closing summary, so the overflow and shift material is used only for what the summary sentence states."
+    },
+    {
+      "id": "wallawalla-nelson-cptr380-chapter-3-alu-design",
+      "kind": "lecture-slides",
+      "title": "Chapter 3 - ALU Design (slides following Patterson and Hennessy)",
+      "channel": "Curt Nelson, Walla Walla University, CPTR 380 Computer Organization",
+      "url": "https://gab.wallawalla.edu/~curt.nelson/cptr380/lecture/chapter3%20-%20alu%20design.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "covers": [
+        "the 1-bit ALU with a multiplexer selecting Add, Or and And, and 32 such boxes chained by the carry",
+        "incorporating subtraction: invert the bits of B and set the first carry-in to 1, with the CarryIn signal able to be the same as the Binvert signal",
+        "incorporating SLT: perform a - b and check the sign, with a Less signal that is zero for boxes 1 to 31 and the sign bit serving as Less for box 0",
+        "incorporating BEQ: perform a - b and confirm the result is all zeros, with the list of instructions that need the zero detect",
+        "the control-line table: Ai, Bn and Op against AND, OR, Add, Sub, SLT and NOR",
+        "the speed of ripple carry, the generate and propagate rewriting, and the four-bit block P and G grouping"
+      ],
+      "why": "The only source read this run that gives the ALU control-line table as a table, and the only one that shows SLT and BEQ as ALU operations rather than as abstract comparisons. The comparison, zero-detect and ALU-control cards are built on it. Read in part: the extraction returned the slides' text from the opening through the datapath overview, which is enough for the tables quoted; the group P and G arithmetic is used only for the delay card's framing."
+    },
+    {
+      "id": "edwardbosworth-cpsc2105-alu-design-slides",
+      "kind": "lecture-slides",
+      "title": "Design of the ALU Adder, Logic, and the Control Unit",
+      "channel": "Edward Bosworth, CPSC 2105 Computer Organization, chapter 5 slides",
+      "url": "http://www.edwardbosworth.com/CPSC2105/Lectures/Slides_06/Chapter_05/ALU_Design.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "covers": [
+        "the full adder's output timings: carry out valid two gate delays after the inputs, sum three",
+        "the four-bit ripple adder's sum valid after nine gate delays, the 16-bit adder built from four-bit blocks, and the general rule that an n-bit ripple adder produces a valid sum after 2n+1 gate delays, with a 32-bit sum needing 65",
+        "the carry look-ahead equations in generate and propagate form, with every carry ready two gate delays after G and P",
+        "a three-function ALU controlled by one asserted signal per function, the fault of asserting two at once, and the move to a function code with a decoder",
+        "the function codes 00 do nothing, 01 XOR, 10 AND, 11 OR, and why the do-nothing code exists when the ALU shares a bus",
+        "the shift unit as part of the ALU, with logical, arithmetic and circular shifts and the sign preserved by arithmetic shifts"
+      ],
+      "why": "The only source read this run that supplies the delay arithmetic, the argument for a decoded function code, and the reason a do-nothing code exists - three things no other readable source states. The function-select, shifter and critical-path cards rest on it. Read in part: the extraction returned the slide text from the opening through the shift discussion; the later control-unit slides belong to the next topic and are not used."
+    },
+    {
+      "id": "iitkgp-virtual-lab-alu-design",
+      "kind": "web-course-page",
+      "title": "Virtual Lab for Computer Organisation and Architecture - Design of ALU",
+      "channel": "IIT Kharagpur, Department of Computer Science and Engineering (virtual lab experiment page)",
+      "url": "https://cse.iitkgp.ac.in/~chitta/coldvl/alu.html",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "covers": [
+        "a 4-bit ALU built from four 1-bit ALU blocks, and the list of parts: AND, OR and XOR gates, a full adder, a 4-to-1 multiplexer and wires",
+        "the 1-bit ALU's function table: S1 S0 = 00 AND, 01 OR, 10 XOR, 11 ADD",
+        "the statement that only the carry propagates to the next level when 4-bit ALUs are cascaded for addition",
+        "the 74181-style 16-row function table, read but not reproduced here"
+      ],
+      "why": "The only source read this run that states a concrete two-select-line four-function encoding, which is what the function-select card's worked example uses. It is a laboratory page rather than a lecture, so it is used only for that encoding and for the parts list, and the 74181 table is recorded as read but not reproduced. Read in part: the theory and design-issues sections were returned; the simulator instructions were not used."
+    },
+    {
+      "id": "nptel-iitg-106103180-lecture-13-flags",
+      "kind": "lecture-transcript",
+      "title": "Lecture 13 - Flags and Conditional Instructions",
+      "channel": "NPTEL, Computer Organization and Architecture - A Pedagogical Aspect (Prof. J. K. Deka, Dr. Santosh Biswas, Dr. Arnab Sarkar, IIT Guwahati)",
+      "url": "http://www.digimat.in/nptel/courses/video/106103180/lec13.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "covers": [
+        "the framing that a condition such as x greater than y is checked in hardware by flag bits that are set or reset by an operation",
+        "the statement that a conditional instruction tests those flags and decides whether to branch or to fall through",
+        "the distinction between conditional and unconditional branches, with the program counter changing only when the condition holds",
+        "the note that without conditional instructions no coding paradigm is complete"
+      ],
+      "why": "The only source read this run that explains why the ALU produces flags at all: they are what conditional instructions test. The status-flag and zero-detect cards use it for that framing. Read in part: the extract runs through the unit summary and the opening of the flag discussion, so no per-flag definition is attributed to it - the four definitions rest on the standard references and on recomputation."
+    },
+    {
+      "id": "nptel-iitg-106103180-lecture-16-microoperations",
+      "kind": "lecture-transcript",
+      "title": "Lecture 16 - Instruction Cycle and Micro-operations",
+      "channel": "NPTEL, Computer Organization and Architecture - A Pedagogical Aspect (IIT Guwahati)",
+      "url": "http://www.digimat.in/nptel/courses/video/106103180/lec15.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "covers": [
+        "an instruction divided into micro-operations, and control signals that sequence the flow of data over the CPU buses",
+        "the three interconnect styles - a single bus, two buses and three buses - and that the number of buses changes both the control signals and the speed",
+        "the statement that a three-bus system executes faster because it needs far less multiplexing than a single bus"
+      ],
+      "why": "Used for the framing of a machine instruction as a sequence of micro-operations, which is what makes cycle counting a matter of listing micro-operations rather than recalling a number. Read in part: the served file is the lecture titled Instruction Cycle and Micro-operations (its header reads Lecture 16 while the course index calls it Lecture 15), and the extract covers the module summary; nothing is attributed to its control-signal or timing sections."
+    },
+    {
+      "id": "nptel-iitg-106103180-lecture-23-bus-organization",
+      "kind": "lecture-transcript",
+      "title": "Lecture 23 - Different Internal CPU Bus Organization",
+      "channel": "NPTEL, Computer Organization and Architecture - A Pedagogical Aspect (IIT Guwahati)",
+      "url": "http://www.digimat.in/nptel/courses/video/106103180/lec23.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "covers": [
+        "the single-bus CPU assumption used throughout the control-unit module",
+        "the worked argument that adding two values on one bus needs one operand parked in a temporary, the second operand driven through the bus, and the result stored in another temporary because the bus is busy",
+        "the three-bus alternative: fewer control steps, fewer temporary registers, more cost and harder control",
+        "the point that two buses can feed the ALU's two inputs directly, removing the temporaries altogether"
+      ],
+      "why": "The only source read this run that derives the temporary registers of a single-bus datapath instead of asserting them, which is exactly the reasoning GATE CSE 2020 Q.4 and 2005 Q.79 test. The datapath and cycle-count cards rest on it. Read in part: the extract runs from the opening through the single-bus against three-bus comparison."
+    },
+    {
+      "id": "notesinhindi-alu-in-computer-system",
+      "kind": "text",
+      "title": "ALU in computer system and its main functions in Hindi",
+      "channel": "notesinhindi.com (Hindi study article on the arithmetic logic unit)",
+      "url": "https://www.notesinhindi.com/blog/alu-in-computer-system-and-its-main-functions-in-hindi",
+      "language": "hi",
+      "transcript": "PARTIAL",
+      "translated": true,
+      "covers": [
+        "the split of the ALU into an arithmetic section and a logic section",
+        "the statement that data arrives from the registers, the result returns to a register or memory, and the control unit tells the ALU which operation to perform",
+        "the list of status flags the ALU sets after every operation - Zero, Carry, Overflow and Sign - held in a status register",
+        "the statement that later decisions such as branches and loops are taken from those flags, and that the control unit drives the ALU over control lines"
+      ],
+      "why": "The only non-English source readable this run, and the only source that lists the four flags as a set with the status-register framing. It supplies the flag list and the two-section view of the ALU, both translated into English here and marked as translated on every card they feed. Its arithmetic and logic example tables and its worked decimal examples are not used, and its loose claim that comparison is itself a logic operation is corrected on the comparison card, where comparison is taught as subtraction plus a flag."
+    }
+  ],
+  "rejected": [
+    {
+      "id": "youtube-lectures-alu-design-any-language",
+      "kind": "video",
+      "channel": "YouTube GATE and NPTEL lectures on ALU design, including the NPTEL Digital Design with Verilog Lec 25 'Adder/Subtractor' (8k0TF2STFMM) whose transcript text a search engine could surface",
+      "why": "The watch page for Lec 25 was fetched this run and returned HTTP 200 with no captionTracks block at all, so no caption track could be read and no card quotes or timestamps a video. The search engine's own extract of that lecture's audio was readable, but it is a machine transcription of speech returned by a third party with no timestamps and no guarantee of wording, so it was not used as a source of any card's claims. This is the same caption wall the previous runs hit."
+    },
+    {
+      "id": "nptel-iitd-106102062-lectures-13-to-16",
+      "kind": "lecture-transcript",
+      "channel": "NPTEL, Computer Architecture (IIT Delhi) - Lecture 13 Multiplier Design, 14 Divider Design, 15 Fast Addition and Multiplication, 16 Floating Point Arithmetic",
+      "why": "The direct continuation of the two lectures that carry this topic, and Lecture 15 is the natural companion to the critical-path card. Rejected because their subject is multiplication, division and floating point, which the repository already covers in digital-logic/computer-arithmetic; using them here would have duplicated cards rather than covered new subtopics. A later run should read Lecture 15 if it revisits the ALU's delay."
+    },
+    {
+      "id": "nptel-digimat-106103358-lecture-24-25",
+      "kind": "lecture-video",
+      "channel": "NPTEL NOC Digital Design with Verilog - Lecture 24 Ripple Carry Adder and Carry Look ahead Adder, Lecture 25 Adder/Subtractor",
+      "why": "Right subject, wrong scope for this topic: both lectures are the carry-look-ahead and adder-subtractor material that the repository already holds as cards in digital-logic/combinational-circuits, and the course is a Verilog design course rather than a computer-architecture one. Only the lecture index was readable; no transcript was retrieved."
+    },
+    {
+      "id": "nptel-digimat-117106086-lecture-12-cla",
+      "kind": "lecture-video",
+      "channel": "NPTEL Digital Circuits and Systems (Electronics and Communication Engineering) - Lecture 12 Carry Look Ahead Adders",
+      "why": "A well-matched lecture on the carry chain, but from the ECE paper's course, and its material is already covered by the repository's carry-look-ahead card. No transcript was retrievable from the index page, and nothing would have been added to this topic's subtopic list."
+    },
+    {
+      "id": "geeksforgeeks-tutorialspoint-javatpoint-alu",
+      "kind": "text",
+      "channel": "GeeksforGeeks 'Arithmetic Logic Unit', Tutorialspoint 'Arithmetic Logic Unit' and Javatpoint COA ALU pages",
+      "why": "All three answered HTTP 502 from the sandbox, so none could be read. They are the obvious first results for this topic and a later run should retry them, because the GeeksforGeeks ALU page is the one most GATE candidates start from."
+    },
+    {
+      "id": "wikipedia-arithmetic-logic-unit",
+      "kind": "text",
+      "channel": "Wikipedia, 'Arithmetic logic unit'",
+      "why": "Reachable and accurate as an overview, and it was read. Rejected as a teaching source because it is an encyclopaedia entry: it names the ALU's functions and history but teaches neither the slice, the function-select encoding, the flags nor the datapath, which is everything this topic's cards have to establish. Nothing in the topic rests on it."
+    },
+    {
+      "id": "iaeacademy-alu-control-unit-notes",
+      "kind": "text",
+      "channel": "iaeacademy.in study page 'ALU design and the control unit'",
+      "why": "The closest GATE-oriented written treatment found, and it covers the slice, the function-select lines, the ripple and look-ahead delays and the single-bus cycle-counting tip. Rejected as a teaching source because it interleaves this topic with the control unit, which is the next topic in the cycle, and because its per-topic question lists mix ALU questions with microprogramming ones. Its solved versions of GATE CSE 2025 Q.27, 2020 Q.4 and 2022 Q.18 were used only to corroborate the accepted answers, and its statement that the 2020 and 2025 keys are official is recorded in those PYQ records rather than upgraded to OFFICIAL_KEY."
+    },
+    {
+      "id": "gate-2001-q2-13-push-r-cycles",
+      "kind": "pyq",
+      "channel": "GATE CSE 2001 Q.2.13 on GATE Overflow (Q.20 on the paper listing, Q.17 on one topic page) - the number of clock cycles for the 'push r' instruction",
+      "why": "Well matched to the cycle-counting card, and it is a genuine CSE question. Excluded because the answers on the page disagree without resolution: the accepted reasoning gives 5 cycles (SP to MAR needs two 8-bit transfers, r to MDR one, the memory write two), while other answers argue 3 and one argues 2, and the disagreement turns on whether a 16-bit SP can reach a 16-bit MAR in one cycle over an 8-bit bus. A record that reported a single answer would be inventing a consensus, so the question is left out and named as a gap."
+    },
+    {   "id": "gate-2013-q28-and-2005-call-cycle-count",
+   "kind": "pyq",
+   "channel": "GATE CSE 2013 Q.28 (a sequence of micro-operations MBR <- PC, MAR <- X, PC <- Y, Memory <- MBR, and which operation it performs) and the 'call Rn, sub' cycle-count question printed beside the recorded 2005 question",
+      "why": "Both are micro-operation questions of the kind this topic touches, but both are about control transfer and interrupt sequencing rather than the ALU or its datapath. They belong to the control-unit-design topic, which is next in the cycle after this one, and were left there rather than borrowed here."
+    },
+    {
+      "id": "gate-2016-set1-q33-cla-fanin",
+      "kind": "pyq",
+      "channel": "GATE CSE 2016 Set 1 Q.33 - the time for a carry lookahead adder built with gates of fan-in at most two",
+      "why": "The one adder-timing question not already in the repository, and a good match for the critical-path card. Excluded because it is a carry look-ahead question, and the repository already has a carry-look-ahead card in digital-logic/combinational-circuits carrying GATE CSE 2004 Q.62 and 2007 Q.35; adding it here would have put one concept in two places. The critical-path card states this explicitly rather than leaving the omission silent."
+    },
+    {
+      "id": "gate-1988-q4i-alu-microcode-width",
+      "kind": "pyq",
+      "channel": "GATE CSE 1988 Q.4i - an 8-bit datapath from two 4-bit ALUs, listing the control signals and estimating the microcode word width",
+      "why": "The best-matched descriptive question in the whole record and the only one that asks for the control-signal list of an ALU datapath. It cannot be stored: the repository's PYQ schema holds only MCQ, MSQ and NAT records. Its substance is covered by the input-multiplexer and function-select cards."
+    },
+    {
+      "id": "go-classes-and-answer-aggregators-alu-design",
+      "kind": "pyq-index",
+      "channel": "GATE Overflow topic and tag pages, ExamSIDE's 'ALU Data Path and Control Unit' topic page, pyqbox, battleexam, trygateai, gateiit, quorank, successtracker and EduRev listings",
+      "why": "Used to find the four recorded questions, their years and their accepted answers, never as the reference of record. Their numbering disagrees systematically: the 2025 datapath question is Question 17 on GATE Overflow and Q.27 on the paper listings, the 2020 datapath question is Question 4 on GATE Overflow and Q.14 elsewhere, and the 2005 cycle question is Question 79 on GATE Overflow and Q.12 elsewhere. Each record states which number it uses and where the other one comes from. EduRev's listing also numbers the 2005 questions 11, 12 and 13, a third convention."
+    },
+    {
+      "id": "go-classes-coa-playlist",
+      "kind": "playlist",
+      "channel": "GO Classes for GATE CS, Computer Organization and Architecture",
+      "why": "Not used, and deliberately not defaulted to: the repository already holds three of this channel's playlists for other subjects, and no lecture of this one could be read as text this run. The topic is served instead by two NPTEL courses, two university slide sets and one IIT laboratory page, which between them cover more of the subtopic list than a single coaching playlist would have."
+    }
+  ],
+  "standard_refs": [
+    "David A. Patterson and John L. Hennessy, Computer Organization and Design - the 1-bit ALU, the 32-bit ALU built from slices, subtraction by inverting B, SLT and the Less line, the zero detect for BEQ, and the two-level ALU control built from ALUOp and the funct field; the source of the arrangement taught in the ALU-control card and behind the slides by Curt Nelson used here",
+    "Carl Hamacher, Zvonko Vranesic and Safwat Zaky, Computer Organization - the ALU as a combinational block, the status flags and the datapath with its bus and temporary registers",
+    "William Stallings, Computer Organization and Architecture - the ALU's inputs and outputs, the arithmetic and logic sections, and the overflow rule for two's complement",
+    "M. Morris Mano, Computer System Architecture - the single-bus datapath, the register-transfer notation and the micro-operation sequences counted in the cycle cards",
+    "GATE 2027 CS syllabus, Computer Organization and Architecture line 'Design of arithmetic and logic unit (ALU)'",
+    "Official GATE CSE papers and answer keys for the four recorded questions - not fetched this run, which is why every PYQ here is SOURCED rather than key-verified"
+  ],
+  "notes": [
+    "The syllabus names this topic in seven words, 'Design of arithmetic and logic unit (ALU)', so the thirteen subtopics above are this run's enumeration from the standard treatment (Patterson and Hennessy's chapter 3, Hamacher's ALU and datapath chapters, the IIT Delhi and IIT Guwahati lecture sequences) and from the GATE question record - not a quotation from the syllabus. Every one of the thirteen has a card, which is why the status is partial rather than lower; the gaps below are what keep it from being covered.",
+    "Four GATE CSE previous-year questions were verified, from 2003 to 2025, and every one is SOURCED against an accepted answer rather than key-verified, so no marks field comes from an official key. Where a secondary site cites the official key (GATE 2025 CS1 Q.27 = A, B, C; GATE 2020 CS Q.14 = C) that is recorded in the answer_evidence and not upgraded to OFFICIAL_KEY, because the key documents were not opened.",
+    "No video transcript was readable this run: the one YouTube watch page fetched carried no caption track, and no card quotes or timestamps a lecture. So videoRefs is empty on all twelve cards. The nine chosen sources are lecture transcripts, lecture slides, a laboratory page and one Hindi article, all read as text.",
+    "One non-English source was readable, a Hindi article on the ALU, and it is marked translated on every card it feeds. It supplies the two-section view of the ALU and the list of the four status flags; its worked examples are not used, and its statement that comparison is a logic operation is corrected rather than repeated.",
+    "Five cards carry no previous-year question of their own - the block contract, comparison and SLT, zero detect, the shifter, the ALU control and the critical path - and each says why in its source line instead of borrowing a question that does not test it. The carry look-ahead questions that would have fitted the delay card sit in the repository's carry-look-ahead card in the Digital Logic subject, and the critical-path card says so.",
+    "The ALU-control card's two-level ALUOp-plus-funct arrangement is stated from the standard reference rather than from a readable source, and the card says so. No readable source this run walked through the main-control-to-ALU-control split.",
+    "Two questions of this family are deliberately absent and named below: GATE CSE 2001 Q.2.13, whose answers on one page disagree without resolution, and GATE CSE 1988 Q.4i, which is descriptive and cannot be stored in an MCQ/MSQ/NAT schema.",
+    "The numbering of every recorded question is unstable across sites, and each record states the number it uses and the number another listing gives. No marks field is recorded from an official paper: only the ExamSIDE and GateAI listings state marks, and they were not opened as papers.",
+    "The visual lesson animates one bit slice with an adder, an AND gate, an OR gate and an output multiplexer, steps the function code through all four operations, and shows the result and the four flags changing with it. Every value shown in it is recomputed in scripts/validate.py."
+  ]
+}

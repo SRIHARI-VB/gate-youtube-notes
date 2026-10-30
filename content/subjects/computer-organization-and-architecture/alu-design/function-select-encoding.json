@@ -1,0 +1,97 @@
+{
+ "id": "function-select-encoding",
+ "title": "Function Selection: k Select Bits Buy at Most 2^k Operations",
+ "priority": "P1",
+ "order": 495,
+ "unit": "Design of the Arithmetic and Logic Unit",
+ "quickIdea": "The ALU's function is a code, not a wire per operation: k select bits name at most 2^k functions, a decoder turns the code into the internal selects, and one code is usually reserved for doing nothing so that the ALU can leave a shared bus alone.",
+ "remember": [
+  "k select bits address at most 2^k operations; 2 bits give 4, 3 bits give 8, 4 bits give 16.",
+  "Two encodings are possible: one wire per operation (a control signal that is simply asserted) or a binary code plus a decoder. The code is cheaper in bits, the one-hot form needs no decoder.",
+  "Asserting two operation wires at once is a fault, not a combination: the outputs fight. A decoder makes that impossible by construction.",
+  "A do-nothing code is a real function, not padding: when several units drive one bus, the ALU must be able to assert nothing.",
+  "The number of functions the instruction set needs sets the width, not the other way round: 6 operations need 3 select bits, with 2 codes spare."
+ ],
+ "example": {
+  "prompt": "An ALU must perform AND, OR, XOR, ADD, SUB and SLT. How many function-select bits does it need, and what does the decoder do with the spare codes?",
+  "work": "Six operations need ceil(log2 6) = 3 bits, which give 8 codes. Two codes are spare; a designer typically maps them to a pass-through or a do-nothing so that a corrupt code cannot assert two results at once.",
+  "answer": "Three select bits; two of the eight codes are unused and are usually decoded to do nothing."
+ },
+ "gateAngle": "GATE CSE 2003 Q.46 is the purest form of this card. The circuit offers exactly two control lines, K and C0, so there are four settings, and the four settings produce A+B, A+B+1, A-B-1 and A-B. A+1 is not among them, because producing it would require the B input to be zero, which no setting of K and C0 can arrange. The accepted answer is option (A): A+B and A-B, but not A+1.",
+ "variations": [
+  {
+   "label": "ORIGINAL PYQ-STYLE QUESTION",
+   "question": "An ALU has 3 select lines and its designer wants 9 operations. What is wrong, and what are the two honest options?",
+   "answer": "3 select lines give only 8 codes, so 9 operations do not fit. The options are a fourth select line, or a second-level control that reuses a code with an extra qualifier.",
+   "why": "This is exactly the arithmetic GATE uses for opcode and field widths: the code space is a ceiling, and the count must fit under it."
+  },
+  {
+   "label": "CONCEPTUAL PRACTICE QUESTION",
+   "question": "Why is a one-hot control scheme sometimes preferred to a binary code with a decoder, even though it uses more bits?",
+   "answer": "Because the decoder's delay is removed from the critical path, and because horizontal control words are easier to microprogram.",
+   "why": "This is the horizontal-versus-vertical microinstruction trade-off in miniature: bits against decoding time."
+  },
+  {
+   "label": "PREDICTED VARIATION",
+   "question": "With the do-nothing code removed, an ALU with 2 select bits loses one of its four codes. What operation would a designer most likely give up?",
+   "answer": "One that can be built from the others at no cost, such as XOR from AND/OR/NOT, rather than one that needs the adder.",
+   "why": "Giving up an adder-based operation would cost hardware; giving up a logic operation costs a gate at most."
+  }
+ ],
+ "trap": {
+  "what": "Counting operations instead of codes, and answering 'one control line per operation'.",
+  "why": "A control line per operation is one valid design, but the question usually asks for the minimum number of bits, which is logarithmic.",
+  "counterexample": "Six operations: six wires in the one-hot design, three bits in the coded design. Both are correct hardware; only one is the minimum-bit answer."
+ },
+ "check": {
+  "question": "A function code of 00 is decoded to do nothing. Why would an ALU want such a code?",
+  "answer": "So that it can stop driving a shared output bus while another unit drives it.",
+  "explanation": "With several sources on one bus, exactly one may drive at a time. A do-nothing code is how the ALU takes its turn off the bus."
+ },
+ "pyqIds": [
+  "gate-2003-46-alu-control-k-c0"
+ ],
+ "prereqs": [
+  "one-bit-slice-and-output-mux",
+  "multiplexer-and-select-lines",
+  "decoder-and-minterm-generation"
+ ],
+ "sources": [
+  {
+   "kind": "lecture-slides",
+   "title": "Design of the ALU Adder, Logic, and the Control Unit",
+   "channel": "Edward Bosworth, CPSC 2105 Computer Organization, chapter 5 slides",
+   "url": "http://www.edwardbosworth.com/CPSC2105/Lectures/Slides_06/Chapter_05/ALU_Design.pdf",
+   "language": "en",
+   "transcript": "PARTIAL",
+   "translated": false,
+   "note": "read the control section: a three-function ALU (AND, OR, XOR) driven by one asserted control signal per function, the warning that asserting two at once makes the circuit malfunction, the move to a binary function code with a decoder (00 do nothing, 01 XOR, 10 AND, 11 OR), and the explanation that the unused do-nothing code exists because the ALU shares a bus with other devices. Also read: the shift unit as part of the ALU, with logical, arithmetic and circular shifts"
+  },
+  {
+   "kind": "web-course-page",
+   "title": "Virtual Lab for Computer Organisation and Architecture - Design of ALU",
+   "channel": "IIT Kharagpur, Department of Computer Science and Engineering (virtual lab experiment page)",
+   "url": "https://cse.iitkgp.ac.in/~chitta/coldvl/alu.html",
+   "language": "en",
+   "transcript": "PARTIAL",
+   "translated": false,
+   "note": "read the design-issues table: with control signals S1 and S0 the 1-bit block gives AND for 00, OR for 01, XOR for 10 and ADD for 11, which is the two-bit four-function encoding used in the card's example"
+  }
+ ],
+ "sourceLine": "One control signal per function, the fault of asserting two at once, the binary function code with a decoder and the reason for a do-nothing code on a shared bus: Edward Bosworth's chapter 5 slides (English, read in part). The two-select-line encoding AND/OR/XOR/ADD: the IIT Kharagpur virtual-lab page (English, read in part). The 2003 question's answer is recomputed by enumerating its four control settings in scripts/validate.py.",
+ "videoRefs": [],
+ "links": {
+  "visual": {
+   "slug": "alu-design",
+   "title": "One Bit Slice, Four Functions: the ALU and Its Flags",
+   "level": "topic-level",
+   "covers": [
+    "one bit of an ALU: an adder, an AND gate, an OR gate and an output multiplexer",
+    "the function-select code chooses among at most 2^k operations for k select bits",
+    "the result and the four status flags for each selected function"
+   ],
+   "url": "https://gate-visual-explainer.vercel.app/topics/alu-design/index.html"
+  },
+  "mapped_at": "2026-10-31"
+ }
+}
