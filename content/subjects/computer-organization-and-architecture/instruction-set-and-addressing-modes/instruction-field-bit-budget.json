@@ -1,0 +1,75 @@
+{
+  "id": "instruction-field-bit-budget",
+  "title": "Splitting the Word: The Bit Budget for Opcode, Registers, Mode and Immediate",
+  "priority": "P1",
+  "order": 481,
+  "unit": "Instruction Set and Addressing Modes",
+  "quickIdea": "Every instruction-encoding question in GATE is one subtraction: total bits minus ceil(log2) of each enumerated field leaves the rest.",
+  "remember": [
+    "Fields need ceil(log2 n) bits: 40 instructions need 6, 24 registers need 5, 8 addressing modes need 3, 50 instruction types need 6.",
+    "The remainder is not always a clean power of two, and that is fine: the field simply has unused codes.",
+    "An addressing-mode field is spent before the opcode is computed. Ignoring it is the single commonest error.",
+    "Count the register fields the instruction actually encodes. ADD R1, #25 names one register, not two, because R1 is both source and destination.",
+    "Variable-length opcodes (expanding opcodes) let one short opcode release its spare codes to longer formats; the budget then has to be done per format.",
+    "A question that says 'maximum number of bits' wants the largest field the format allows, not the field some real machine uses."
+  ],
+  "example": {
+    "prompt": "A 32-bit instruction has an opcode, an addressing-mode field for 8 modes, two register fields for a 16-register file, and a 16-bit scalar field. How many distinct opcodes can each mode carry?",
+    "work": "Mode field 3 bits, registers 4 + 4 = 8 bits, scalar 16 bits: 3 + 8 + 16 = 27 bits used, so the opcode gets 32 - 27 = 5 bits and 2^5 = 32 opcodes.",
+    "answer": "32 opcodes for every mode - 32, not 8 x 32 = 256, which would be the count of distinct instructions."
+  },
+  "gateAngle": "Three verified questions are the same subtraction from three directions: GATE CSE 2016 Set 2 Q.10 (32 bits, 40 instructions, 24 registers, two register fields - immediate 16), GATE CSE 2025 Set 1 Q.27 (32 bits, 50 types, 64 registers, one register field - immediate 20) and GATE CSE 2024 Set 2 Q.47 (32 bits, 8 modes, 16 registers, 16-bit scalar - 32 opcodes per mode). The 2024 question adds the one twist the older two do not have: the mode field.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "A 24-bit instruction carries an opcode, one 4-bit mode field, two register fields for a 32-register file, and an immediate. There are 200 instructions. How wide is the immediate?",
+      "answer": "Opcode ceil(log2 200) = 8, mode 4, registers 5 + 5 = 10: 8 + 4 + 10 = 22, so the immediate is 2 bits.",
+      "why": "Same subtraction, but the opcode is no longer a power of two, so the ceiling has to be taken. A candidate who writes log2 200 = 7.64 and rounds down gets 3 bits and a wrong answer."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Why is the count of distinct instructions 8 x 32 and not 32 in the 2024 Set 2 question?",
+      "answer": "Because the opcode is reused under each of the 8 mode values: the pair (mode, opcode) identifies an instruction, so 8 x 32 distinct instructions share 32 opcode codes.",
+      "why": "The question asks for opcodes per mode, not instructions. The 256 figure is the instruction count, and it is the distractor the paper puts there."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "The same 32-bit format as the 2024 question is extended to 32 addressing modes. What happens to the opcode count?",
+      "answer": "The mode field grows from 3 to 5 bits, the opcode drops from 5 bits to 3, and the count falls from 32 to 8.",
+      "why": "Every extra mode bit is taken straight from the opcode. That is the trade the format designer is making, and GATE can ask it in either direction."
+    }
+  ],
+  "trap": {
+    "what": "Forgetting the addressing-mode field, or assuming every instruction encodes two registers.",
+    "why": "The mode field is part of the format even when the question does not draw it, and the number of encoded register fields is a property of the instruction shown, not of the machine.",
+    "counterexample": "In ADD R1, #25 there is one register field. Taking two 6-bit register fields leaves 14 bits for the immediate, which is not one of the printed options - the option set itself tells you the field count is one."
+  },
+  "check": {
+    "question": "16 registers, 100 instructions, a 3-bit mode field, a 20-bit instruction and one register field. How wide is the immediate field?",
+    "answer": "6 bits.",
+    "explanation": "Opcode ceil(log2 100) = 7 bits, one register field 4 bits, mode 3 bits: 20 - 7 - 4 - 3 = 6. The check is that 7 + 4 + 3 + 6 = 20 exactly."
+  },
+  "pyqIds": [
+    "gate-2016-set-2-q10-immediate-field",
+    "gate-2025-set-1-q27-immediate-field",
+    "gate-2024-set-2-q47-opcodes-per-mode"
+  ],
+  "prereqs": [
+    "instruction-format-and-fields",
+    "unsigned-fixed-width-range"
+  ],
+  "sources": [
+    {
+      "kind": "lecture-transcript",
+      "title": "Lecture 07 - Instruction Format and Addressing Modes",
+      "channel": "NPTEL, Computer Organization and Architecture (Prof. Kamalika Datta, NIT Meghalaya)",
+      "url": "http://www.digimat.in/nptel/courses/video/106105163/lec7.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read from the opening through the list of addressing modes: the opcode and operand parts of an instruction, the rule that a destination operand must be a register or a memory location while an immediate can only be a source, the zero- to three-address formats, the 32-bit field example with 32 registers costing 5 bits each, and the statement that load-store architectures support very few addressing modes. The returned extract stopped before the mode-by-mode teaching, so nothing is attributed to that part"
+    }
+  ],
+  "sourceLine": "The worked 32-bit field split with 32 registers costing 5 bits each, and the statement that the number of operands varies with the instruction: Datta, Lecture 07 (English, read in part). The expanding-opcode consequence and every number in the three verified questions are recomputed in scripts/validate.py, which also re-derives all three GATE answers from the question text.",
+  "videoRefs": []
+}
