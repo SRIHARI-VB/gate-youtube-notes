@@ -28,9 +28,9 @@
     }
   ],
   "counts": {
-    "subjects": 5,
-    "topics": 281,
-    "pyqs": 223,
+    "subjects": 6,
+    "topics": 294,
+    "pyqs": 237,
     "videos": 39,
     "playlists": 3
   },
@@ -4236,6 +4236,198 @@
       "path": "subjects/digital-logic/computer-arithmetic/fixed-versus-floating-point.json",
       "videos": [],
       "pyqs": [],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "instruction-format-and-fields",
+      "title": "The Instruction Format: Opcode, Operand Fields and Length",
+      "subject": "computer-organization-and-architecture",
+      "group": "instruction-set-and-addressing-modes",
+      "unit": "Instruction Set and Addressing Modes",
+      "priority": "P1",
+      "path": "subjects/computer-organization-and-architecture/instruction-set-and-addressing-modes/instruction-format-and-fields.json",
+      "videos": [],
+      "pyqs": [],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "instruction-field-bit-budget",
+      "title": "Splitting the Word: The Bit Budget for Opcode, Registers, Mode and Immediate",
+      "subject": "computer-organization-and-architecture",
+      "group": "instruction-set-and-addressing-modes",
+      "unit": "Instruction Set and Addressing Modes",
+      "priority": "P1",
+      "path": "subjects/computer-organization-and-architecture/instruction-set-and-addressing-modes/instruction-field-bit-budget.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2016-set-2-q10-immediate-field",
+        "gate-2025-set-1-q27-immediate-field",
+        "gate-2024-set-2-q47-opcodes-per-mode"
+      ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "isa-instruction-types-and-risc-cisc",
+      "title": "What an Instruction Set Is, and Why RISC Has Few Addressing Modes",
+      "subject": "computer-organization-and-architecture",
+      "group": "instruction-set-and-addressing-modes",
+      "unit": "Instruction Set and Addressing Modes",
+      "priority": "P2",
+      "path": "subjects/computer-organization-and-architecture/instruction-set-and-addressing-modes/isa-instruction-types-and-risc-cisc.json",
+      "videos": [],
+      "pyqs": [],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "instruction-formats-zero-to-three-address",
+      "title": "Zero-, One-, Two- and Three-Address Formats",
+      "subject": "computer-organization-and-architecture",
+      "group": "instruction-set-and-addressing-modes",
+      "unit": "Instruction Set and Addressing Modes",
+      "priority": "P1",
+      "path": "subjects/computer-organization-and-architecture/instruction-set-and-addressing-modes/instruction-formats-zero-to-three-address.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2015-set-1-q8-three-address-fields"
+      ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "immediate-addressing",
+      "title": "Immediate Addressing: The Operand Is in the Instruction",
+      "subject": "computer-organization-and-architecture",
+      "group": "instruction-set-and-addressing-modes",
+      "unit": "Instruction Set and Addressing Modes",
+      "priority": "P1",
+      "path": "subjects/computer-organization-and-architecture/instruction-set-and-addressing-modes/immediate-addressing.json",
+      "videos": [],
+      "pyqs": [],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "direct-addressing",
+      "title": "Direct (Absolute) Addressing: The Address Is in the Instruction",
+      "subject": "computer-organization-and-architecture",
+      "group": "instruction-set-and-addressing-modes",
+      "unit": "Instruction Set and Addressing Modes",
+      "priority": "P1",
+      "path": "subjects/computer-organization-and-architecture/instruction-set-and-addressing-modes/direct-addressing.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2002-q1-24-absolute-addressing"
+      ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "indirect-addressing-and-pointers",
+      "title": "Indirect Addressing: An Address That Points at an Address",
+      "subject": "computer-organization-and-architecture",
+      "group": "instruction-set-and-addressing-modes",
+      "unit": "Instruction Set and Addressing Modes",
+      "priority": "P1",
+      "path": "subjects/computer-organization-and-architecture/instruction-set-and-addressing-modes/indirect-addressing-and-pointers.json",
+      "videos": [],
+      "pyqs": [
+        "gate-1999-q2-23-immediate-and-direct-only"
+      ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "register-and-register-indirect-addressing",
+      "title": "Register and Register-Indirect Addressing",
+      "subject": "computer-organization-and-architecture",
+      "group": "instruction-set-and-addressing-modes",
+      "unit": "Instruction Set and Addressing Modes",
+      "priority": "P1",
+      "path": "subjects/computer-organization-and-architecture/instruction-set-and-addressing-modes/register-and-register-indirect-addressing.json",
+      "videos": [],
+      "pyqs": [],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "displacement-addressing-base-and-index",
+      "title": "Displacement Addressing: Base, Index and the Same Arithmetic Under Three Names",
+      "subject": "computer-organization-and-architecture",
+      "group": "instruction-set-and-addressing-modes",
+      "unit": "Instruction Set and Addressing Modes",
+      "priority": "P1",
+      "path": "subjects/computer-organization-and-architecture/instruction-set-and-addressing-modes/displacement-addressing-base-and-index.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2011-q21-base-indexed-mode",
+        "gate-2017-set-1-q11-struct-field-displacement",
+        "gate-2026-set-1-q4-mode-to-hll-matching"
+      ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "pc-relative-addressing-and-branch-offsets",
+      "title": "PC-Relative Addressing and the Branch Offset Arithmetic",
+      "subject": "computer-organization-and-architecture",
+      "group": "instruction-set-and-addressing-modes",
+      "unit": "Instruction Set and Addressing Modes",
+      "priority": "P2",
+      "path": "subjects/computer-organization-and-architecture/instruction-set-and-addressing-modes/pc-relative-addressing-and-branch-offsets.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2017-set-1-q14-risc-branch-offset"
+      ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "autoincrement-autodecrement-and-stack",
+      "title": "Autoincrement, Autodecrement and Stack Addressing",
+      "subject": "computer-organization-and-architecture",
+      "group": "instruction-set-and-addressing-modes",
+      "unit": "Instruction Set and Addressing Modes",
+      "priority": "P2",
+      "path": "subjects/computer-organization-and-architecture/instruction-set-and-addressing-modes/autoincrement-autodecrement-and-stack.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2008-q33-autoincrement-mode"
+      ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "effective-address-and-memory-cycles",
+      "title": "Effective Address and Counting Memory Cycles",
+      "subject": "computer-organization-and-architecture",
+      "group": "instruction-set-and-addressing-modes",
+      "unit": "Instruction Set and Addressing Modes",
+      "priority": "P1",
+      "path": "subjects/computer-organization-and-architecture/instruction-set-and-addressing-modes/effective-address-and-memory-cycles.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2005-q65-memory-cycles-indexed-indirect"
+      ],
+      "visual": "computer-organization-and-architecture/instruction-set-and-addressing-modes/one-operand-five-modes",
+      "variations": 3
+    },
+    {
+      "topic": "relocation-and-position-independent-code",
+      "title": "Relocation and Position-Independent Code",
+      "subject": "computer-organization-and-architecture",
+      "group": "instruction-set-and-addressing-modes",
+      "unit": "Instruction Set and Addressing Modes",
+      "priority": "P2",
+      "path": "subjects/computer-organization-and-architecture/instruction-set-and-addressing-modes/relocation-and-position-independent-code.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2004-q20-relocation-at-run-time",
+        "gate-1998-q1-19-relocation-without-change"
+      ],
       "visual": null,
       "variations": 3
     }
