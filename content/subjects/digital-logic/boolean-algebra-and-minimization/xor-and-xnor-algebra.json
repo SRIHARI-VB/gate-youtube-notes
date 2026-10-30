@@ -1,0 +1,76 @@
+{
+  "unit": "Boolean Algebra and Minimization",
+  "videoRefs": [],
+  "id": "xor-and-xnor-algebra",
+  "title": "XOR and XNOR: The Identities GATE Reuses",
+  "priority": "P2",
+  "order": 422,
+  "quickIdea": "XOR is parity: x + y = xy' + x'y, it is associative and commutative, and it is NOT the same operation as OR - which is what most XOR questions turn on.",
+  "remember": [
+    "x XOR y = xy' + x'y, and x XNOR y = xy + x'y' = (x XOR y)'. Both are 1 for exactly two of the four input pairs.",
+    "XOR is commutative and associative: (x XOR y) XOR z = x XOR (y XOR z). XNOR is also commutative and associative. NAND and NOR are commutative but NOT associative - that contrast is a standing GATE favourite.",
+    "x XOR x = 0, x XOR x' = 1, x XOR 0 = x, x XOR 1 = x'. XOR with a constant either passes the value or inverts it.",
+    "If xy = 0 then x XOR y = x + y, because the two cannot both be 1 and so the ordinary OR loses nothing. Without that condition the two differ at x = y = 1.",
+    "x XOR y = (xy + x'y')', that is, XOR is the complement of XNOR - a rewrite GATE uses as an option.",
+    "Chained XOR is parity: x1 XOR ... XOR xn is 1 exactly when an odd number of the inputs are 1, so a chain of XORs is an odd-parity checker."
+  ],
+  "example": {
+    "prompt": "Show that x XOR y = (xy + x'y')', without a truth table.",
+    "work": "(xy + x'y')' = (xy)'.(x'y')' by De Morgan = (x' + y')(x + y) by De Morgan twice more. Multiplying out: x'x + x'y + y'x + y'y = 0 + x'y + xy' + 0 = x'y + xy'.",
+    "answer": "x XOR y = (xy + x'y')', which is the same statement as XOR being the complement of XNOR."
+  },
+  "gateAngle": "GATE CSE 2019 Q.6 offers four identities and marks the one that treats XOR as if it were OR: (x + y) XOR z is not x XOR (y + z). Expanding both sides shows the left is xz' + yz' + x'y'z and the right is xy'z' + x'y + x'z.",
+  "variations": [
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Is NAND associative? Test (x NAND y) NAND z against x NAND (y NAND z).",
+      "answer": "No. At x = 0, y = 0, z = 1: (0 NAND 0) NAND 1 = 1 NAND 1 = 0, while 0 NAND (0 NAND 1) = 0 NAND 1 = 1.",
+      "why": "NAND and NOR are commutative but not associative, which is why a chain of NANDs has to be bracketed and why the 'NAND of NANDs' realisation is written as a two-level form. XOR and XNOR, by contrast, may be chained freely."
+    },
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "Which one of the following is NOT a valid identity? (A) (x XOR y) XOR z = x XOR (y XOR z)   (B) (x + y) XOR z = x XOR (y + z)   (C) x XOR y = x + y when xy = 0   (D) x XOR y = (xy + x'y')'",
+      "answer": "Option (B).",
+      "why": "XOR is associative (A) and is the complement of XNOR (D); (C) holds because xy = 0 removes the only row where OR and XOR disagree. Option (B) fails at x = 1, y = 1, z = 0, where the left side is 0 and the right side is 1."
+    }
+  ],
+  "trap": {
+    "what": "Replacing XOR by OR, or by addition, in an identity.",
+    "why": "XOR and OR agree on three of the four input pairs and differ only at 11. Every invalid XOR identity in the papers is one that quietly assumes they agree there.",
+    "counterexample": "1 XOR 1 = 0 but 1 + 1 = 1; so x XOR x = 0 while x + x = x. The same distinction is why x XOR y = x + y needs the side condition xy = 0."
+  },
+  "check": {
+    "question": "Evaluate (1 XOR 0) XOR 1 and 1 XOR (0 XOR 1), and say what the coincidence shows.",
+    "answer": "Both are 0, which is the associativity of XOR on this row.",
+    "explanation": "1 XOR 0 = 1 and 1 XOR 1 = 0; 0 XOR 1 = 1 and 1 XOR 1 = 0. Two ones in the chain give an even parity, so the result is 0 - the parity reading of XOR."
+  },
+  "pyqIds": [
+    "gate-2019-q6-not-a-valid-identity"
+  ],
+  "prereqs": [
+    "boolean-theorems-absorption-and-consensus"
+  ],
+  "sources": [
+    {
+      "kind": "lecture-transcript",
+      "title": "Lecture 07 - Fundamentals of Boolean Algebra",
+      "channel": "NPTEL, Digital Electronic Circuits (Prof. Goutam Saha, IIT Kharagpur)",
+      "url": "http://digimat.in/nptel/courses/video/108105132/lec7.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read from the opening to the statement of the distributive postulate, plus the lecturer's closing summary: the 16 functions of two variables and the 2^(2^n) count, the six Huntington postulates one by one (closure, identity elements 0 and 1, commutativity, distributivity of AND over OR and of OR over AND, complement), the duality rule (swap OR and AND, swap 0 and 1, leave the literals alone), and the closing warning that AND and OR are associative and distributive over each other while NAND and NOR are not. The served transcript stops partway through the worked theorem derivations, so no derivation is attributed to it."
+    },
+    {
+      "kind": "text",
+      "title": "Digital Logic subject notes: K Map, MSOP and MPOS",
+      "channel": "GATE Overflow, subject page for Digital Logic",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "url": "https://gateoverflow.in/subject/digital-logic?tab=exams",
+      "note": "read the K Map, Min Sum of Products Form and Min Products of Sum Form sections: the grouping rules (powers of two, rectangular, wrap-around, every 1 covered, largest groups first), the definitions of prime implicant and essential prime implicant, the don't-care rule, and the three-step algorithm for a minimal SOP (circle the PIs, take all EPIs, then a minimum subset for the rest). Used as the GATE-oriented statement of the rules, not as a source of questions."
+    }
+  ],
+  "sourceLine": "The associativity contrast between AND/OR and NAND/NOR: NPTEL IIT Kharagpur Digital Electronic Circuits Lecture 07 closing summary (English). The XOR identities and their rewrites: recomputed on all rows in scripts/validate.py, with GATE Overflow's subject notes (English) as the GATE-side statement of the operator list."
+}

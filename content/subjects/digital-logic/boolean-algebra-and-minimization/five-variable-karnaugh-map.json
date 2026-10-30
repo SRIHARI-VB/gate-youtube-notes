@@ -1,0 +1,74 @@
+{
+  "unit": "Boolean Algebra and Minimization",
+  "videoRefs": [],
+  "id": "five-variable-karnaugh-map",
+  "title": "The Five-Variable Map: Two Four-Variable Maps and the Reflection Axis",
+  "priority": "P3",
+  "order": 430,
+  "quickIdea": "Five variables give 32 cells, drawn as two four-variable maps side by side; a cell and the cell 16 places away are adjacent, so a group may cross the axis and drop the fifth variable.",
+  "remember": [
+    "A five-variable map has 2^5 = 32 cells. It is drawn as two four-variable maps: the left one for the fifth variable = 0, the right one for it = 1.",
+    "Cell m sits at the same position as cell m + 16 in the other half, and those two differ only in the fifth variable - so they are adjacent. A pair across the axis drops that variable.",
+    "Adjacency inside each half follows the four-variable rules, wrap-around included; adjacency across the halves is only through the matching position.",
+    "The reflection method and the overlay method are two pictures of the same adjacency: reflect across the axis, or stack the two maps and read the cell directly above.",
+    "Group sizes are still powers of two and still drop one variable per doubling, so an octet in a five-variable map is a 2-literal term.",
+    "Beyond five variables the map stops being readable and the tabular method takes over - which is exactly why the syllabus names the tabular method as a separate technique."
+  ],
+  "example": {
+    "prompt": "Minimise F(A,B,C,D,E) = Sigma m(0, 1, 2, 3, 16, 17, 18, 19).",
+    "work": "Cells 0 to 3 are A = 0, B = 0, C = 0 with D and E free; cells 16 to 19 are A = 1, B = 0, C = 0 with D and E free. Each is a group of four inside its own half, and the two halves match position for position, so together they form one group of eight across the reflection axis. A changes across the axis and B = 0, C = 0 throughout; D and E take every value.",
+    "answer": "F = B'C', one 2-literal term for eight minterms."
+  },
+  "gateAngle": "The five-variable map is not itself a common GATE question, but the reflection idea is: GATE CSE 2025 Set 2 Q.43 gives a map as a diagram and asks which expressions represent it, and every such question depends on reading adjacency from the labels rather than from the drawing. This card is P3 because the verified question record shows the papers staying at four variables.",
+  "variations": [
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "In a five-variable map, is cell 5 adjacent to cell 21? To cell 14?",
+      "answer": "Yes to 21, no to 14.",
+      "why": "5 = 00101 and 21 = 10101 differ only in the fifth variable, so they are matched positions across the axis. 5 = 00101 and 14 = 01110 differ in the second, fourth and fifth bits, so they are not adjacent by any route."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "A five-variable function has 1s at every cell in which B = 1 and D = 1. What is its minimal SOP, and how many cells does the term cover?",
+      "answer": "F = BD, covering 8 cells.",
+      "why": "B = 1 and D = 1 fixes two variables and leaves A, C and E free, which is 2^3 = 8 cells - a group of eight spread over both halves of the map. Two literals for eight minterms is the n - k rule with n = 5 and k = 3."
+    }
+  ],
+  "trap": {
+    "what": "Treating the two halves as separate maps and never grouping across the axis.",
+    "why": "The whole point of the five-variable picture is that the two halves are adjacent at matching positions. A cover that ignores the axis is valid but larger than necessary.",
+    "counterexample": "For Sigma m(0,1,2,3,16,17,18,19), ignoring the axis gives two 3-literal quads (A'B'C' + AB'C') and needs a combine step to reach B'C'; crossing the axis gives B'C' in one group of eight."
+  },
+  "check": {
+    "question": "How many neighbours has cell 0 in a five-variable map, and name them.",
+    "answer": "Five: cells 1, 2, 4, 8 and 16.",
+    "explanation": "Each neighbour flips exactly one of the five bits of 00000: 00001, 00010, 00100, 01000 and 10000. The last one is the cell in the other half at the same position, which is why the reflection axis has to be part of the picture."
+  },
+  "pyqIds": [],
+  "prereqs": [
+    "karnaugh-map-layout-and-gray-code"
+  ],
+  "sources": [
+    {
+      "kind": "lecture-transcript",
+      "title": "Lecture 11 - Karnaugh Map to Entered Variable Map",
+      "channel": "NPTEL, Digital Electronic Circuits (Prof. Goutam Saha, IIT Kharagpur)",
+      "url": "http://digimat.in/nptel/courses/video/108105132/lec11.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read from the week-3 recap to the reflection-map construction: five variables give 32 cells, the four-variable map is drawn twice with the fifth variable fixed at 0 and 1, the reflection axis makes a cell and the cell 16 places away adjacent, and the lecturer's own adjacency examples are cells 3 and 7, then 1 and 5. The overlay alternative and the closing statement are also read; the entered-variable-map material is outside this repository's scope."
+    },
+    {
+      "kind": "text",
+      "title": "Minimization of Switching Functions (Unit II instructional material)",
+      "channel": "Aditya Engineering College, digital logic course notes",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "url": "https://aec.edu.in/aec/Instruction_Material/DELD%20Unit-2.pdf",
+      "note": "read through the search service's extract: logical adjacency defined as differing in one literal, the six grouping rules, the implicant, prime implicant and essential prime implicant definitions, the three-step minimal-SOP algorithm, the five-variable map layout with rows ABC and columns DE in Gray order, and the tabulation method's two phases with the cover table, distinguished columns, row and column dominance and the cyclic cover table. Read as a reference for the rules, not as a source of questions."
+    }
+  ],
+  "sourceLine": "The reflection map, the 32 cells and the adjacency of a cell with the cell 16 places away: NPTEL IIT Kharagpur Digital Electronic Circuits Lecture 11 (English, read from the recap to the reflection construction). The overlay alternative and the five-variable layout: the same lecture and the Aditya Engineering College switching-functions notes (English, read in part). Adjacency is recomputed cell by cell in scripts/validate.py. No verified GATE question is decided by this card alone."
+}

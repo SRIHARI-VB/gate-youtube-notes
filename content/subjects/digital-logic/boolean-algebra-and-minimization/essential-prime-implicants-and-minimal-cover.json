@@ -1,0 +1,93 @@
+{
+  "unit": "Boolean Algebra and Minimization",
+  "videoRefs": [],
+  "id": "essential-prime-implicants-and-minimal-cover",
+  "title": "Prime Implicants, Essential Prime Implicants and the Minimal Cover",
+  "priority": "P1",
+  "order": 427,
+  "quickIdea": "A prime implicant is a group that cannot be enlarged; an essential one covers a 1 that no other group covers; the minimal SOP is every essential prime implicant plus the cheapest way to cover what is left.",
+  "remember": [
+    "An implicant is any product term that is 1 wherever the function is 1 - it never covers a 0. A prime implicant is an implicant that no larger implicant contains, so it is a maximal group on the map.",
+    "An essential prime implicant covers at least one 1 that no other prime implicant covers. That 1 is its witness, and every minimal SOP must contain the prime implicant.",
+    "The algorithm: circle every prime implicant, take all the essential ones, delete the 1s they cover, then choose the smallest set of the remaining prime implicants that covers the rest.",
+    "The cover is not always unique. When the leftover 1s can be covered in two equally cheap ways, two minimal SOPs exist with the same term and literal counts - and a multiple-select question can ask for both.",
+    "A don't care can never make a prime implicant essential. Only a real 1 can be a witness, which is why a group made entirely of don't cares is never forced into the answer.",
+    "Compare covers by literals, not by terms: three terms of two literals beat two terms of four literals when the cost is the number of gate inputs."
+  ],
+  "example": {
+    "prompt": "Find every prime implicant and every essential prime implicant of F(A,B,C) = Sigma m(0, 1, 2, 5, 6), and give all minimal SOPs.",
+    "work": "On the 3-variable map the 1s are 000, 001, 010, 101, 110. Pairs: (0,1) gives A'B'; (0,2) gives A'C'; (1,5) gives B'C; (2,6) gives BC'. No pair can grow, so these four are the prime implicants. Minterm 5 is only in B'C and minterm 6 is only in BC', so both are essential. The leftover 1s are 0 and 2, and either A'B' or A'C' covers them - so two covers of equal cost exist.",
+    "answer": "Prime implicants: A'B', A'C', B'C, BC'. Essential: B'C and BC'. The two minimal SOPs are A'B' + B'C + BC' and A'C' + B'C + BC', each three terms and six literals."
+  },
+  "gateAngle": "Two verified questions sit exactly here. GATE CSE 2018 Q.49 asks only for the number of essential prime implicants of a function with five don't cares (the answer is 3), and GATE CSE 2026 Set 1 Q.38 offers four four-term forms of which two are minimal - the two minimal covers of a function whose leftover 1s can be covered two ways.",
+  "variations": [
+    {
+      "label": "VERIFIED PYQ",
+      "question": "GATE CSE 2018 Q.49: F(P,Q,R,S) = Sigma m(0,2,5,7,9,11) + d(3,8,10,12,14). The number of essential prime implicants is ______.",
+      "answer": "3.",
+      "why": "The prime implicants are Q'S', Q'R, PQ', PS', P'RS and P'QS. Minterm 0 is covered only by Q'S', minterm 5 only by P'QS and minterm 9 only by PQ', so those three are essential; the other three cover 1s that are already covered. The don't cares let Q'S' and PQ' grow to quads, but no don't care makes anything essential."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Why can a group made only of don't cares never be an essential prime implicant?",
+      "answer": "Because an essential prime implicant needs a witness 1 that no other prime implicant covers, and a don't care is not a 1 that has to be covered at all.",
+      "why": "Leaving a don't care ungrouped costs nothing, so no cover is ever forced by one. This is the single most common mistake in counting essential prime implicants - GATE CSE 2018 Q.49 is built to punish it."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "A four-variable function has prime implicants P1 = {0,1,8,9}, P2 = {0,2,8,10}, P3 = {5,7,13,15} and required 1s at 0, 1, 2, 5, 7, 8, 9, 10, 13, 15. How many minimal SOPs are there?",
+      "answer": "One: P3 is essential (minterm 5 and 15 appear nowhere else), and then P1 and P2 are both needed to cover 0, 1, 2, 8, 9 and 10, so the cover is P1 + P2 + P3.",
+      "why": "After taking the essential prime implicant, minterms 1 and 2 remain, and only P1 covers 1 while only P2 covers 2 - so both are forced. A cover is unique exactly when every leftover 1 is forced in this way."
+    }
+  ],
+  "trap": {
+    "what": "Counting a prime implicant as essential because it is the only group covering a don't care.",
+    "why": "Essentiality is defined on the 1s. A don't care is free to be 0, so a group whose only unique cell is a don't care is never forced.",
+    "counterexample": "In GATE CSE 2018 Q.49 the prime implicant PS' covers minterm 12 only as a don't care; taking PS' as essential would give 4 instead of the correct 3."
+  },
+  "check": {
+    "question": "A 3-variable function has 1s at 0, 1, 2, 3, 4. List its prime implicants and say which are essential.",
+    "answer": "Prime implicants: A' (cells 0,1,2,3) and B'C' (cells 0,4). A' is essential because minterms 1, 2 and 3 lie in no other prime implicant; B'C' is essential because minterm 4 lies in no other. So the minimal SOP is A' + B'C'.",
+    "explanation": "The four cells of the first row form a quad and collapse to A'. Minterm 4 = 100 is alone in its row, and its only possible partner is m0, giving the pair B'C'. Both prime implicants have a witness, so both are essential and the cover is unique."
+  },
+  "pyqIds": [
+    "gate-2026-set1-q38-minimal-sop-msq",
+    "gate-2018-q49-number-of-essential-prime-implicants"
+  ],
+  "prereqs": [
+    "karnaugh-grouping-and-reading-a-term"
+  ],
+  "sources": [
+    {
+      "kind": "lecture-transcript",
+      "title": "Lecture 10 - Karnaugh Map and Digital Circuit Realization",
+      "channel": "NPTEL, Digital Electronic Circuits (Prof. Goutam Saha, IIT Kharagpur)",
+      "url": "http://digimat.in/nptel/courses/video/108105132/lec10.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read from the opening to the two-variable map, plus the closing summary: truth table to grid, minterm numbering, AB' + AB = A as the first grouping, and the summary's rules - SOP covers every 1 with the fewest and largest power-of-two groups, POS covers the 0s, and a don't care is taken as 0 or 1 according to which makes the group larger. The middle of the served transcript is missing, so no 3- or 4-variable worked example is attributed to it."
+    },
+    {
+      "kind": "text",
+      "title": "Digital Logic subject notes: K Map, MSOP and MPOS",
+      "channel": "GATE Overflow, subject page for Digital Logic",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "url": "https://gateoverflow.in/subject/digital-logic?tab=exams",
+      "note": "read the K Map, Min Sum of Products Form and Min Products of Sum Form sections: grouping rules, prime and essential prime implicant definitions, the don't-care rule, the three-step minimal-SOP algorithm (circle the PIs, take every EPI, then the smallest subset that covers the rest) and the POS derivation from the zeros."
+    },
+    {
+      "kind": "text",
+      "title": "Minimization of Switching Functions (Unit II instructional material)",
+      "channel": "Aditya Engineering College, digital logic course notes",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "url": "https://aec.edu.in/aec/Instruction_Material/DELD%20Unit-2.pdf",
+      "note": "read through the search service's extract: logical adjacency defined as differing in one literal, the six grouping rules, the implicant, prime implicant and essential prime implicant definitions, the three-step minimal-SOP algorithm, the five-variable map layout with rows ABC and columns DE in Gray order, and the tabulation method's two phases with the cover table, distinguished columns, row and column dominance and the cyclic cover table. Read as a reference for the rules, not as a source of questions."
+    }
+  ],
+  "sourceLine": "The definitions of implicant, prime implicant and essential prime implicant and the three-step cover algorithm: GATE Overflow's Digital Logic subject notes (English) and the Aditya Engineering College switching-functions notes (English, read in part). The cover-every-1 rule: NPTEL IIT Kharagpur Digital Electronic Circuits Lecture 10 closing summary (English). Every prime implicant and essential prime implicant in this card is enumerated by brute force in scripts/validate.py."
+}

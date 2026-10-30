@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Don't-care grouping on a K-map - Boolean Algebra visual lesson</title>
+<link rel="stylesheet" href="../../../lesson.css">
+<script src="https://cdn.jsdelivr.net/npm/p5@1.9.4/lib/p5.min.js"></script>
+</head>
+<body>
+<div class="wrap">
+  <p class="small"><a href="../../../../index.html">&larr; back to the revision site</a></p>
+  <h1>Don't-Care Grouping on a Karnaugh Map</h1>
+  <div class="objective"><strong>Objective.</strong> Take one four-variable function - 1s at 0, 5, 10 and 15, don't cares at 2, 7, 8 and 13 - and watch the two quads appear. The order is the lesson: number the cells from the Gray-code labels, place the 1s, place the Xs, let an X join a group, read the variables that never change, then compare the cost with the answer you get by ignoring the don't cares.</div>
+
+  <div class="canvas-wrap"><div id="canvas-holder"></div></div>
+  <div class="caption" id="caption" aria-live="polite"></div>
+
+  <div class="controls">
+    <button id="play" class="primary">Play</button>
+    <button id="prev">&larr; Prev</button>
+    <button id="next">Next &rarr;</button>
+    <button id="restart">Restart</button>
+    <span class="speed"><label for="speed">Speed</label>
+      <input id="speed" type="range" min="0.25" max="2" step="0.25" value="1">
+      <span id="speedLabel">1.00x</span></span>
+    <span class="counter" id="counter"></span>
+  </div>
+
+  <h2>Static explanation</h2>
+  <p>A four-variable map has sixteen cells, and the row and column labels are in Gray code: PQ runs 00, 01, 11, 10 and RS runs 00, 01, 11, 10. That ordering is what makes neighbours differ in exactly one bit, and it is why the third cell of the top row is minterm 3 while minterm 2 sits to its right. Always number a cell from its labels, never from its position on the page.</p>
+  <p>The function has four required 1s, at minterms 0, 5, 10 and 15. In binary they are 0000, 0101, 1010 and 1111, and no two of them differ in a single bit: 0 and 5 differ in two positions, 0 and 10 in two, 5 and 15 in two, 0 and 15 in four. So without help every 1 is a group of one cell, and the sum of products is the canonical form of four 4-literal terms, sixteen literals in all.</p>
+  <p>The question also supplies four don't cares, at 2, 7, 8 and 13. A don't care is a row whose output does not matter, so it may be taken as 1 whenever that enlarges a group - and it never has to be covered. Using 2 and 8, the corners 0, 2, 8 and 10 become a group of four: P and R take both values inside it while Q stays 0 and S stays 0, so the term is Q'S'. Using 7 and 13, the cells 5, 7, 13 and 15 become a second group of four: Q and S stay 1, so the term is QS.</p>
+  <p>The minimal sum of products is therefore Q'S' + QS, which is Q XNOR S: two terms and four literals, against four terms and sixteen literals for the canonical form. The don't cares were used inside the groups and excluded from the list of required 1s, and that is the rule to carry into the exam.</p>
+
+  <div class="card warn"><div class="label">Common misconception</div><p>Two mistakes dominate this question. Treating a don't care as a 1 that must be covered, which makes the answer larger instead of smaller; and grouping only along the drawn edges, which loses the corner quad, because a Karnaugh map wraps around - the left edge touches the right and the top touches the bottom. A third: reading the term from the position of the group rather than from the variables that stay constant, which flips Q'S' into QS.</p></div>
+  <div class="card ok"><div class="label">Quick check</div><p>Which cells of this map are used by the group QS, and how many of them are don't cares?</p><details><summary>Answer</summary><p><strong>Minterms 5, 7, 13 and 15, of which 7 and 13 are don't cares.</strong> All four have Q = 1 and S = 1 while P and R take both values, so the term keeps Q and S only. The two required 1s in the group are 5 and 15; the other two cells were borrowed from the don't-care list.</p></details></div>
+  <p class="small">Topic: Boolean Algebra and Minimization (Digital Logic), subtopics the K-map layout, the grouping rules and don't-care conditions. The map layout, the SOP-cover rule and the don't-care rule: NPTEL IIT Kharagpur Digital Electronic Circuits Lecture 10 (English). Wrap-around adjacency and the rule for reading a term off a group: the Wikipedia Karnaugh map article (English). The grouping ladder in Hindi, translated: eHindiStudy's K-map chapter (Hindi). The function is GATE CSE 2014 Set 3 Q.7, whose accepted answer on GATE Overflow is option (B), Q'S' + QS. Every cell, group and literal count shown here is recomputed in scripts/validate.py.</p>
+</div>
+<script src="../../../lesson.js"></script>
+<script src="sketch.js"></script>
+<script>
+/* p5.js is loaded from a CDN. If it is unreachable, say so plainly instead of showing an empty box. */
+window.addEventListener('load', function () {
+  if (window.p5) { return; }
+  var holder = document.getElementById('canvas-holder');
+  if (holder) {
+    holder.innerHTML = '<div style="padding:22px 18px;font-size:14.5px;color:#4a5260">' +
+      'The animation needs p5.js, which this page loads from a CDN, and the request failed (offline, or the CDN is blocked). ' +
+      'Everything below still works: the static explanation, the misconception and the quick check.</div>';
+  }
+  var cap = document.getElementById('caption');
+  if (cap && window.LESSON && window.LESSON.steps && window.LESSON.steps[0]) {
+    cap.innerHTML = window.LESSON.steps[0].caption;
+  }
+  ['play', 'prev', 'next', 'restart', 'speed'].forEach(function (id) {
+    var el = document.getElementById(id);
+    if (el) { el.disabled = true; }
+  });
+});
+</script>
+</body>
+</html>

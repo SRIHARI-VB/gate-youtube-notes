@@ -1,0 +1,80 @@
+{
+  "unit": "Boolean Algebra and Minimization",
+  "videoRefs": [],
+  "id": "boolean-algebra-postulates-and-duality",
+  "title": "Boolean Algebra: The Postulates, the Two Elements, and Duality",
+  "priority": "P1",
+  "order": 420,
+  "quickIdea": "Boolean algebra is algebra on two values, 0 and 1, with + for OR, . for AND and ' for NOT; six postulates generate every identity, and the duality rule hands you a second identity for free.",
+  "remember": [
+    "The set is {0, 1} with 0 not equal to 1, and every operation returns an element of the set: that closure is the first postulate.",
+    "Huntington's postulates: closure; identity (x + 0 = x and x.1 = x); commutativity (x + y = y + x, xy = yx); distributivity (x(y + z) = xy + xz AND x + yz = (x + y)(x + z)); complement (x + x' = 1 and x.x' = 0).",
+    "The second distributive law, x + yz = (x + y)(x + z), has no counterpart in ordinary algebra and is the one beginners forget.",
+    "The complement postulate is the pair x + x' = 1 and x.x' = 0. Mixing the two - writing x.x' = 1 - is a wrong identity, not a slip of notation.",
+    "Duality: swap + with ., swap 0 with 1, leave every literal alone, and a valid identity stays valid. x + x'y = x + y duals to x(x' + y) = xy.",
+    "There are 2^(2^n) Boolean functions of n variables, because a truth table has 2^n rows and each row's output is free: 16 for two variables, 256 for three, 65536 for four. A function is self-dual when F equals its own dual, and there are 2^(2^(n-1)) of those: 2 for one variable, 4 for two, 16 for three."
+  ],
+  "example": {
+    "prompt": "Prove a + a'b = a + b from the postulates, then write the dual identity and check it.",
+    "work": "a + a'b = (a + a')(a + b) by the second distributive law x + yz = (x + y)(x + z) with y = a' and z = b. Then a + a' = 1 by the complement postulate, and 1.(a + b) = a + b by the identity postulate.",
+    "answer": "a + a'b = a + b. Its dual is a(a' + b) = ab, and that checks directly: a(a' + b) = aa' + ab = 0 + ab = ab."
+  },
+  "gateAngle": "GATE asks the postulates in their plainest form. GATE CSE 2026 Set 2 Q.6 is a one-mark question offering four identities in which the only wrong one is a.a' = 1. The counting results - the number of Boolean functions of n variables and the number of self-dual functions - are the other standard question shape in this subtopic.",
+  "variations": [
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "How many Boolean functions are there of four variables, and how many of them are self-dual?",
+      "answer": "65536 functions, of which 256 are self-dual.",
+      "why": "The count of functions is 2^(2^4) = 2^16 = 65536. A self-dual function must satisfy F(x) = NOT F(NOT x), so the 16 rows pair into 8 complementary pairs and each pair has one free choice, giving 2^8 = 256."
+    },
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "Which one of the following is NOT an identity of Boolean algebra? (A) a + a'b = a + b   (B) a(a' + b) = ab   (C) a.a' = 1   (D) a + ab = a",
+      "answer": "Option (C).",
+      "why": "a.a' = 0 for both a = 0 and a = 1, because the complement postulate pairs a + a' = 1 with a.a' = 0. Options A and B are duals of each other, and D is absorption."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "Write the dual of F = x.y' + 0.z and say whether F and its dual are equal for every assignment.",
+      "answer": "F = x.y', its dual is F^D = (x + y').(1 + z), and the two are not equal: at x = 1, y = 1, z = 0, F = 0 while F^D = 1.",
+      "why": "The dual swaps OR with AND and 0 with 1 and changes nothing else. Since the swap changes the value on some rows, the function is not self-dual - and self-duality is a property of a function, not of the way it is written."
+    }
+  ],
+  "trap": {
+    "what": "Treating a.a' as 1 because a + a' = 1.",
+    "why": "The complement postulate is a pair of statements, one for OR and one for AND. a + a' = 1 says one of the two values is 1; a.a' = 0 says they cannot both be 1, and one of them is always 0.",
+    "counterexample": "For a = 0: a.a' = 0.1 = 0. For a = 1: a.a' = 1.0 = 0. Never 1 - which is exactly the option GATE CSE 2026 Set 2 Q.6 marks as not a property of Boolean algebra."
+  },
+  "check": {
+    "question": "Write the dual of x + x'y = x + y and evaluate both sides at x = 0, y = 1.",
+    "answer": "The dual is x(x' + y) = xy. At x = 0, y = 1: the left side is 0.(1 + 1) = 0 and the right side is 0.1 = 0, so it holds.",
+    "explanation": "Swapping + with . gives x(x' + y) on the left and xy on the right. The substitution confirms the dual of a valid identity is itself valid - which is the whole content of the duality principle."
+  },
+  "pyqIds": [
+    "gate-2026-set2-q6-not-a-boolean-property"
+  ],
+  "prereqs": [],
+  "sources": [
+    {
+      "kind": "lecture-transcript",
+      "title": "Lecture 07 - Fundamentals of Boolean Algebra",
+      "channel": "NPTEL, Digital Electronic Circuits (Prof. Goutam Saha, IIT Kharagpur)",
+      "url": "http://digimat.in/nptel/courses/video/108105132/lec7.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read from the opening to the statement of the distributive postulate, plus the lecturer's closing summary: the 16 functions of two variables and the 2^(2^n) count, the six Huntington postulates one by one (closure, identity elements 0 and 1, commutativity, distributivity of AND over OR and of OR over AND, complement), the duality rule (swap OR and AND, swap 0 and 1, leave the literals alone), and the closing warning that AND and OR are associative and distributive over each other while NAND and NOR are not. The served transcript stops partway through the worked theorem derivations, so no derivation is attributed to it."
+    },
+    {
+      "kind": "lecture-transcript",
+      "title": "Lecture 10 - Karnaugh Map and Digital Circuit Realization",
+      "channel": "NPTEL, Digital Electronic Circuits (Prof. Goutam Saha, IIT Kharagpur)",
+      "url": "http://digimat.in/nptel/courses/video/108105132/lec10.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read from the opening to the two-variable map and its minterm numbering, plus the closing summary: the truth table rewritten as a grid, the A/B axis reading, the minterm numbering m0..m3, the first grouping (AB' + AB = A), and the summary's four rules - logical adjacency is the whole method, SOP covers every 1 with the fewest and largest power-of-two groups, POS covers the 0s, and a don't care is treated as 0 or 1 according to which makes the group larger. The middle of the transcript was not served, so the 3- and 4-variable worked examples are not attributed to it."
+    }
+  ],
+  "sourceLine": "The postulates, the 2^(2^n) count and the duality rule: NPTEL IIT Kharagpur Digital Electronic Circuits Lecture 07 (English, opening and closing summary read). The self-dual function and its count: the same course's Lecture 10 opening (English), where the dual circuit and the self-dual function are introduced. Every count in this card is recomputed in scripts/validate.py."
+}

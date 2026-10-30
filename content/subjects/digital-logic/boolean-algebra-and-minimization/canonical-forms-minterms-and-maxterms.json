@@ -1,0 +1,92 @@
+{
+  "unit": "Boolean Algebra and Minimization",
+  "videoRefs": [],
+  "id": "canonical-forms-minterms-and-maxterms",
+  "title": "Canonical Forms: Minterms, Maxterms, Sigma-m and Pi-M",
+  "priority": "P1",
+  "order": 423,
+  "quickIdea": "Every row of a truth table has one minterm that is 1 there and one maxterm that is 0 there; F is the OR of the minterms where it is 1 and the AND of the maxterms where it is 0.",
+  "remember": [
+    "A minterm of n variables is a product with every variable in it exactly once, plain or complemented; it is 1 on exactly one row. A maxterm is a sum of the same shape and is 0 on exactly one row.",
+    "Minterm m_i reads the bits of i with 1 = plain and 0 = complemented. Maxterm M_i is its complement, M_i = (m_i)', so it is 0 on row i.",
+    "Canonical SOP: F = OR of the minterms where F = 1, written F = Sigma m(the set of those rows). Canonical POS: F = AND of the maxterms where F = 0, written F = Pi M(that set).",
+    "The two lists are complementary sets of rows: F = Sigma m(S) is the same function as F = Pi M(complement of S), and F' = Sigma m(complement of S) = Pi M(S).",
+    "Any expression reaches canonical form by expanding the missing variables: x = x(y + y') = xy + xy'.",
+    "Canonical forms are unique - one function has exactly one canonical SOP - but minimal forms are not, so 'the minimal SOP' may be one of several equally cheap answers."
+  ],
+  "example": {
+    "prompt": "Write F = P' + QR as a canonical SOP and as a canonical POS.",
+    "work": "P' is 1 on every row with P = 0, which is rows 0, 1, 2 and 3. QR is 1 on rows 6 and 7, but row 6 has P = 1 and row 7 has P = 1, so only row 7 is new: QR contributes 7. Hence the 1s are 0, 1, 2, 3 and 7, and the 0s are 4, 5 and 6.",
+    "answer": "F = Sigma m(0, 1, 2, 3, 7) = Pi M(4, 5, 6), three literals in the original, eight rows accounted for."
+  },
+  "gateAngle": "GATE CSE 2015 Set 3 Q.44 is this conversion exactly: given F = P' + QR it offers four statements about Sigma m and Pi M and asks which are true, and the answer is that Sigma(0,1,2,3,7) and Pi(4,5,6) are right while Sigma(4,5,6) and Pi(0,1,2,3,7) are the complement's forms.",
+  "variations": [
+    {
+      "label": "VERIFIED PYQ",
+      "question": "GATE CSE 2015 Set 3 Q.44: F = P' + QR over three variables. Which is true? (S1) F = Sigma(4,5,6)  (S2) F = Sigma(0,1,2,3,7)  (S3) F = Pi(4,5,6)  (S4) F = Pi(0,1,2,3,7)",
+      "answer": "S1 false, S2 true, S3 true, S4 false - the first option.",
+      "why": "P' is 1 on rows 0 to 3 and QR adds row 7, so the 1s are 0,1,2,3,7 and the 0s are 4,5,6. A POS lists the rows where the function is 0, which is why Pi(4,5,6) is the correct POS and Sigma(4,5,6) is the form of F', not of F."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "A four-variable function is given as F = Pi M(0, 1, 4, 5, 8, 9, 12, 13). What is its canonical SOP, and what does the pattern suggest?",
+      "answer": "F = Sigma m(2, 3, 6, 7, 10, 11, 14, 15), which is C.",
+      "why": "The two lists partition the 16 rows, so the SOP list is the complement. All eight rows in the SOP list have C = 1 and all eight in the POS list have C = 0, so F = C - the canonical form is long but the function is one literal."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "How many minterms does a five-variable function have in its canonical SOP if exactly 12 of the 32 rows are 1, and how many maxterms does its canonical POS have?",
+      "answer": "12 minterms and 20 maxterms.",
+      "why": "The minterms are the 1-rows and the maxterms are the 0-rows, and 12 + 20 = 32. Writing the shorter list is a legitimate exam move, but the answer must say which form it is in."
+    }
+  ],
+  "trap": {
+    "what": "Writing the minterm list of F where the question asked for the maxterm list, or reading a maxterm index as if it were a minterm index.",
+    "why": "Sigma m lists the rows where F = 1 and Pi M lists the rows where F = 0. The same set of numbers therefore describes two different functions, one the complement of the other.",
+    "counterexample": "For F = P' + QR, Sigma(4,5,6) is F' and Pi(4,5,6) is F. GATE CSE 2015 Set 3 Q.44 puts both in the options for exactly this reason."
+  },
+  "check": {
+    "question": "Write the canonical SOP of F = x XOR y.",
+    "answer": "F = Sigma m(1, 2), that is x'y + xy'.",
+    "explanation": "XOR is 1 on the rows 01 and 10 and 0 on 00 and 11, so the minterm list is {1, 2} and the POS form is Pi M(0, 3) = (x + y)(x' + y'). Both forms describe the same two rows."
+  },
+  "pyqIds": [
+    "gate-2015-set3-q44-sigma-and-pi-forms"
+  ],
+  "prereqs": [
+    "boolean-algebra-postulates-and-duality"
+  ],
+  "sources": [
+    {
+      "kind": "lecture-transcript",
+      "title": "Lecture 10 - Karnaugh Map and Digital Circuit Realization",
+      "channel": "NPTEL, Digital Electronic Circuits (Prof. Goutam Saha, IIT Kharagpur)",
+      "url": "http://digimat.in/nptel/courses/video/108105132/lec10.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read from the opening to the two-variable map and its minterm numbering, plus the closing summary: the truth table rewritten as a grid, the A/B axis reading, the minterm numbering m0..m3, the first grouping (AB' + AB = A), and the summary's four rules - logical adjacency is the whole method, SOP covers every 1 with the fewest and largest power-of-two groups, POS covers the 0s, and a don't care is treated as 0 or 1 according to which makes the group larger. The middle of the transcript was not served, so the 3- and 4-variable worked examples are not attributed to it."
+    },
+    {
+      "kind": "lecture-transcript",
+      "title": "Lecture 07 - Fundamentals of Boolean Algebra",
+      "channel": "NPTEL, Digital Electronic Circuits (Prof. Goutam Saha, IIT Kharagpur)",
+      "url": "http://digimat.in/nptel/courses/video/108105132/lec7.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read from the opening to the statement of the distributive postulate, plus the lecturer's closing summary: the 16 functions of two variables and the 2^(2^n) count, the six Huntington postulates one by one (closure, identity elements 0 and 1, commutativity, distributivity of AND over OR and of OR over AND, complement), the duality rule (swap OR and AND, swap 0 and 1, leave the literals alone), and the closing warning that AND and OR are associative and distributive over each other while NAND and NOR are not. The served transcript stops partway through the worked theorem derivations, so no derivation is attributed to it."
+    },
+    {
+      "kind": "text",
+      "title": "Digital Logic subject notes: K Map, MSOP and MPOS",
+      "channel": "GATE Overflow, subject page for Digital Logic",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "url": "https://gateoverflow.in/subject/digital-logic?tab=exams",
+      "note": "read the K Map, Min Sum of Products Form and Min Products of Sum Form sections: the grouping rules (powers of two, rectangular, wrap-around, every 1 covered, largest groups first), the definitions of prime implicant and essential prime implicant, the don't-care rule, and the three-step algorithm for a minimal SOP (circle the PIs, take all EPIs, then a minimum subset for the rest). Used as the GATE-oriented statement of the rules, not as a source of questions."
+    }
+  ],
+  "sourceLine": "The truth table to minterm/maxterm conversion and the two-level reading: NPTEL IIT Kharagpur Digital Electronic Circuits Lecture 10 opening (English), which recaps Lecture 09's conversion. The complement pairing of Sigma m and Pi M: recomputed row by row in scripts/validate.py, and stated in GATE Overflow's subject notes (English)."
+}

@@ -1,0 +1,82 @@
+{
+  "unit": "Boolean Algebra and Minimization",
+  "videoRefs": [],
+  "id": "boolean-theorems-absorption-and-consensus",
+  "title": "The Working Theorems: Idempotent, Absorption, De Morgan and Consensus",
+  "priority": "P1",
+  "order": 421,
+  "quickIdea": "Six postulates are enough to prove everything, but simplification is done with a short list of theorems - and the consensus theorem is the one that tells you when a term is genuinely redundant.",
+  "remember": [
+    "Idempotent x + x = x and x.x = x; involution (x')' = x; domination x + 1 = 1 and x.0 = 0.",
+    "Absorption x + xy = x and x(x + y) = x. The mixed form x + x'y = x + y is the one that removes a literal.",
+    "De Morgan: (x + y)' = x'.y' and (x.y)' = x' + y'. It converts an OR of terms into a NAND of complemented terms, which is why a two-level SOP becomes a NAND-NAND circuit.",
+    "Consensus: xy + x'z + yz = xy + x'z. The term yz is redundant, so it may be dropped; adding it back is also legal and is sometimes done deliberately to remove a hazard.",
+    "Multiplying out and factoring are both legal: x(y + z) = xy + xz turns a POS into a SOP, and xy + xz = x(y + z) turns a SOP into a POS.",
+    "Every theorem is proved either from the postulates or by exhaustion over the two values of each variable; a check on all 0/1 rows is a complete proof for a Boolean identity."
+  ],
+  "example": {
+    "prompt": "Minimise F = AB + A'C + BC using the theorems.",
+    "work": "The consensus theorem applies with x = A, y = B, z = C: AB + A'C already absorbs the third term BC. To see it without the theorem, write BC = BC(A + A') = ABC + A'BC. Then F = AB + ABC + A'C + A'BC = AB(1 + C) + A'C(1 + B) = AB + A'C, using domination 1 + C = 1.",
+    "answer": "F = AB + A'C, two terms and four literals instead of three terms and six."
+  },
+  "gateAngle": "This is the 'algebraic technique' the syllabus names. GATE tests it two ways: ask which identity is invalid (GATE CSE 2019 Q.6 does exactly that with four identities) or ask which of several expressions is equivalent to a given one (GATE CSE 2026 Set 1 Q.38, where two of the four offered four-term forms are minimal and two are not).",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "The Boolean expression A + BC is a reduced form of which of the following? (A) AB + BC   (B) (A + B)(A + C)   (C) A'B + AB'C   (D) (A + C)B",
+      "answer": "Option (B).",
+      "why": "The second distributive law gives A + BC = (A + B)(A + C) directly. Option (A) fails at A = 1, B = 0, C = 1, where A + BC = 1 but AB + BC = 0, so it is not even equivalent."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Simplify x + x'y and then x(x' + y).",
+      "answer": "Both simplify to x + y and to xy respectively: x + x'y = x + y, and x(x' + y) = xy.",
+      "why": "The first is the eliminate theorem; the second is its dual and also follows by multiplying out: xx' + xy = 0 + xy. The two answers are duals, which is the quickest check that neither is wrong."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "Is xy + x'z + yz equal to xy + x'z? Answer by truth table, then say what happens if either of the first two terms is dropped instead.",
+      "answer": "Yes, the two expressions are equal on all eight rows. Dropping xy or dropping x'z changes the function: at x = 1, y = 0, z = 1 the first expression is 0 while the second is 1.",
+      "why": "yz is covered by the other two terms, which is the consensus theorem. The other two terms are not covered by anything, so they are not removable - the usual error is to see three terms, remove the wrong one, and still believe the count went down."
+    }
+  ],
+  "trap": {
+    "what": "Dropping a term that looks redundant but is not, or forgetting that consensus only removes the third term.",
+    "why": "Consensus is asymmetric: xy + x'z is minimal, and only the term that is the product of the other two terms' remaining literals (yz here) is redundant. Any other removal changes the function.",
+    "counterexample": "xy + x'z at x = 1, y = 0, z = 1 gives 0 + 1 = 1; removing x'z leaves 0. The term yz, by contrast, is 1 only on rows where one of the other two is already 1."
+  },
+  "check": {
+    "question": "Simplify F = AB + AB' + A'B.",
+    "answer": "F = A + B.",
+    "explanation": "AB + AB' = A(1) = A by combining. Then A + A'B = A + B by the eliminate theorem. Checking row A = 0, B = 1: the original gives 0 + 0 + 1 = 1 and A + B gives 1, so the simplification is sound."
+  },
+  "pyqIds": [
+    "gate-2019-q6-not-a-valid-identity"
+  ],
+  "prereqs": [
+    "boolean-algebra-postulates-and-duality"
+  ],
+  "sources": [
+    {
+      "kind": "lecture-transcript",
+      "title": "Lecture 07 - Fundamentals of Boolean Algebra",
+      "channel": "NPTEL, Digital Electronic Circuits (Prof. Goutam Saha, IIT Kharagpur)",
+      "url": "http://digimat.in/nptel/courses/video/108105132/lec7.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read from the opening to the statement of the distributive postulate, plus the lecturer's closing summary: the 16 functions of two variables and the 2^(2^n) count, the six Huntington postulates one by one (closure, identity elements 0 and 1, commutativity, distributivity of AND over OR and of OR over AND, complement), the duality rule (swap OR and AND, swap 0 and 1, leave the literals alone), and the closing warning that AND and OR are associative and distributive over each other while NAND and NOR are not. The served transcript stops partway through the worked theorem derivations, so no derivation is attributed to it."
+    },
+    {
+      "kind": "text",
+      "title": "Digital Logic subject notes: K Map, MSOP and MPOS",
+      "channel": "GATE Overflow, subject page for Digital Logic",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "url": "https://gateoverflow.in/subject/digital-logic?tab=exams",
+      "note": "read the K Map, Min Sum of Products Form and Min Products of Sum Form sections: the grouping rules (powers of two, rectangular, wrap-around, every 1 covered, largest groups first), the definitions of prime implicant and essential prime implicant, the don't-care rule, and the three-step algorithm for a minimal SOP (circle the PIs, take all EPIs, then a minimum subset for the rest). Used as the GATE-oriented statement of the rules, not as a source of questions."
+    }
+  ],
+  "sourceLine": "The theorem list and the NAND-NOR observation: NPTEL IIT Kharagpur Digital Electronic Circuits Lecture 07 (English, opening and closing summary read). The prime-implicant and simplification vocabulary in GATE's own phrasing: GATE Overflow's Digital Logic subject notes (English, read in part). Every identity used here is recomputed on all 0/1 rows in scripts/validate.py."
+}

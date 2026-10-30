@@ -1,0 +1,263 @@
+{
+  "subject": "digital-logic",
+  "topic": "boolean-algebra-and-minimization",
+  "exam": "GATE CSE 2027",
+  "retrieved_at": "2026-10-30",
+  "subtopics": [
+    "Boolean algebra postulates (closure, identity elements, commutativity, the two distributive laws, complement) and the count of Boolean functions 2^(2^n)",
+    "duality: the dual of an expression, self-dual functions and the count 2^(2^(n-1))",
+    "the working theorems: idempotent, involution, domination, absorption, De Morgan and consensus",
+    "XOR and XNOR algebra: the identities, associativity, and where XOR differs from OR",
+    "canonical forms: minterms, maxterms, Sigma m and Pi M, and conversion between canonical SOP and POS",
+    "the algebraic minimisation technique: combine, absorb, eliminate, factor and multiply out",
+    "Karnaugh map layout: Gray-code ordering, cell numbering, adjacency and wrap-around",
+    "grouping rules and reading a product term off a group (pair, quad, octet; prime implicants)",
+    "essential prime implicants and the minimal cover, including functions with several minimal SOPs",
+    "don't-care conditions: X as 0 or 1, in SOP and in POS, and the rule that X never makes a prime implicant essential",
+    "POS minimisation: grouping the zeros and reading sum terms with inverted polarity",
+    "the five-variable map: two four-variable maps, the reflection axis and the overlay view",
+    "the tabular (Quine-McCluskey) method: grouping by number of 1s, dash combination, the prime implicant chart, essential rows, dominance and cyclic charts",
+    "cost: literals, terms, gate counts and the n - k literal rule"
+  ],
+  "chosen": [
+    {
+      "id": "nptel-dec-108105132-lec07-boolean-algebra",
+      "kind": "lecture-transcript",
+      "title": "Lecture 07 - Fundamentals of Boolean Algebra",
+      "channel": "NPTEL, Digital Electronic Circuits (Prof. Goutam Saha, IIT Kharagpur)",
+      "url": "http://digimat.in/nptel/courses/video/108105132/lec7.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "covers": [
+        "the 16 functions of two variables and the 2^(2^n) count",
+        "the six Huntington postulates, including the second distributive law",
+        "the duality rule, with the 0/1 and OR/AND swap",
+        "the closing warning that AND and OR are associative and distributive over each other while NAND and NOR are not"
+      ],
+      "why": "The only readable lecture this run that derives the postulates one by one in the lecturer's own order and then states the duality rule as a working tool rather than a slogan. It is also the source of the function-count argument (2^n rows, each output free), which is the one counting result GATE keeps asking. Its closing summary supplies the NAND/NOR associativity contrast that GATE CSE 2019 Q.6 turns on. The served transcript stops before the worked theorem derivations, so those are recomputed here instead of quoted."
+    },
+    {
+      "id": "nptel-dec-108105132-lec10-karnaugh-map",
+      "kind": "lecture-transcript",
+      "title": "Lecture 10 - Karnaugh Map and Digital Circuit Realization",
+      "channel": "NPTEL, Digital Electronic Circuits (Prof. Goutam Saha, IIT Kharagpur)",
+      "url": "http://digimat.in/nptel/courses/video/108105132/lec10.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "covers": [
+        "truth table to grid, with the axis labels read as variables",
+        "minterm numbering m0..m3 in the two-variable map",
+        "the first grouping, AB' + AB = A",
+        "the closing summary: adjacency is the method; SOP covers every 1 with the fewest and largest power-of-two groups; POS covers the 0s; a don't care is taken as 0 or 1 according to which enlarges the group",
+        "the introduction of the dual circuit and the self-dual function"
+      ],
+      "why": "The closest readable match to the syllabus words 'Karnaugh map': it builds the map from the truth table and then states the four grouping rules in a closing summary that is exactly the checklist the cards use. No other readable source states the SOP-cover and POS-cover rules in one place, and its don't-care rule is the one both don't-care cards rest on."
+    },
+    {
+      "id": "nptel-dec-108105132-lec11-five-variable-map",
+      "kind": "lecture-transcript",
+      "title": "Lecture 11 - Karnaugh Map to Entered Variable Map",
+      "channel": "NPTEL, Digital Electronic Circuits (Prof. Goutam Saha, IIT Kharagpur)",
+      "url": "http://digimat.in/nptel/courses/video/108105132/lec11.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "covers": [
+        "32 cells for five variables",
+        "two four-variable maps with the fifth variable fixed at 0 and at 1",
+        "the reflection axis, with cells 3 and 7 and cells 1 and 5 as the lecturer's adjacency examples",
+        "the overlay alternative and the closing statement that five-variable adjacency needs three-dimensional visualisation"
+      ],
+      "why": "The only readable source that constructs the five-variable map rather than asserting its layout. The reflection argument - a cell is adjacent to the cell 16 places away because only the fifth variable changes - is what the five-variable card teaches, and it is the lecturer's own worked adjacency pair rather than a reconstruction."
+    },
+    {
+      "id": "nptel-dec-108105132-lec12-quine-mccluskey",
+      "kind": "lecture-transcript",
+      "title": "Lecture 12 - Quine-McCluskey (QM) Algorithm",
+      "channel": "NPTEL, Digital Electronic Circuits (Prof. Goutam Saha, IIT Kharagpur)",
+      "url": "http://digimat.in/nptel/courses/video/108105132/lec12.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "covers": [
+        "the three steps: prime implicants, essential prime implicants, minimal set",
+        "implicant and prime implicant defined",
+        "grouping minterms by the number of 1s, and the iterative combination",
+        "the closing rule that don't cares are included when finding prime implicants and excluded when finding essential prime implicants"
+      ],
+      "why": "The syllabus names the 'tabular method' explicitly and this is the readable lecture on it. Its closing rule about don't cares is the exact distinction GATE CSE 2018 Q.49 is built on, and no other source read this run states it in that form. The stage-1 table of its four-variable example is quoted; the chart stage is taken from the written reference instead."
+    },
+    {
+      "id": "wikipedia-karnaugh-map",
+      "kind": "text",
+      "title": "Karnaugh map",
+      "channel": "Wikipedia",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "url": "https://en.wikipedia.org/wiki/Karnaugh_map",
+      "covers": [
+        "Gray-code ordering so that adjacent cells differ in one variable",
+        "power-of-two rectangles that may overlap",
+        "toroidal connectivity and the wrap-around groups",
+        "the reading rule: keep the variables constant across the box and drop the rest",
+        "don't cares that may be included or excluded from a group",
+        "the POS obtained by minimising the complement and applying De Morgan"
+      ],
+      "why": "Used as the standard reference for the two facts the cards state most often and that no lecture read this run states cleanly: the toroidal (wrap-around) adjacency, and the reading rule for a group. It is also the second voice on the POS-by-complement route, so that no card's POS claim rests on one page."
+    },
+    {
+      "id": "wikipedia-quine-mccluskey",
+      "kind": "text",
+      "title": "Quine-McCluskey algorithm",
+      "channel": "Wikipedia",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "url": "https://en.wikipedia.org/wiki/Quine%E2%80%93McCluskey_algorithm",
+      "covers": [
+        "the algorithm's two phases and its equivalence to the map",
+        "a four-variable worked example with two don't cares, showing the grouping by number of 1s and the dash notation",
+        "the prime implicant chart, and the essential prime implicants read off as columns with a single tick",
+        "the complexity note: the chart stage is a set-cover problem"
+      ],
+      "why": "The lecture gives the grouping stage but its chart stage was not served, and the chart is the half of the method that GATE's counting questions need. This reference supplies the chart and the single-tick rule, and its worked example is the only place read this run where a don't care is carried through the table explicitly."
+    },
+    {
+      "id": "aec-deld-unit2-minimization-of-switching-functions",
+      "kind": "text",
+      "title": "Minimization of Switching Functions (Unit II instructional material)",
+      "channel": "Aditya Engineering College, digital logic course notes",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "url": "https://aec.edu.in/aec/Instruction_Material/DELD%20Unit-2.pdf",
+      "covers": [
+        "logical adjacency defined as differing in one literal",
+        "the six grouping rules and the 'loneliest square first' advice",
+        "implicant, prime implicant, essential prime implicant and cover defined",
+        "the three-step minimal-SOP algorithm",
+        "the five-variable map layout and a five-variable worked function",
+        "the tabular method's two phases, the cover table, distinguished columns, row and column dominance and the cyclic cover table",
+        "the cost criteria: fewest literals, fewest terms"
+      ],
+      "why": "The only readable source that covers the tabular method's chart stage with dominance and the cyclic case, which the lecture did not reach and Wikipedia mentions only in passing. It also supplies the cost vocabulary (fewest literals, fewest terms) that the literal-count card needs, and it states the essential-prime-implicant definition in the form the 2018 question tests."
+    },
+    {
+      "id": "ehindistudy-k-map-hindi",
+      "kind": "text",
+      "title": "K-Map in Hindi - what a K-map is, with examples",
+      "channel": "eHindiStudy, digital electronics notes (Hindi)",
+      "language": "hi",
+      "transcript": "PARTIAL",
+      "translated": true,
+      "url": "https://ehindistudy.com/2019/09/11/k-map-in-hindi/",
+      "covers": [
+        "cells number 2^n and are numbered in Gray code",
+        "minterms for SOP and maxterms for POS",
+        "1s grouped for SOP and 0s grouped for POS",
+        "pairs, quads and octets, with one variable removed per doubling",
+        "overlapping groups, and edge cells joined by rolling the map"
+      ],
+      "why": "Chosen deliberately so the topic is not built from English alone, and the only readable non-English source found this run. It is a Hindi-medium treatment of the same grouping rules, and it names the pair/quad/octet ladder and the rolling of the map in Hindi, which is how a large part of the GATE audience first meets the method. Every sentence taken from it is translated here and marked as translated on the cards that use it; it contributes terminology and the grouping ladder, not any number."
+    },
+    {
+      "id": "gateoverflow-digital-logic-subject-notes",
+      "kind": "text",
+      "title": "Digital Logic subject notes: K Map, MSOP and MPOS",
+      "channel": "GATE Overflow, subject page for Digital Logic",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "url": "https://gateoverflow.in/subject/digital-logic?tab=exams",
+      "covers": [
+        "the grouping rules in GATE's own phrasing",
+        "prime implicant and essential prime implicant defined",
+        "the don't-care rule",
+        "the three-step minimal-SOP algorithm and the MPOS derivation from the zeros",
+        "the paper-by-paper mark distribution for Digital Logic, used to check which years asked this topic"
+      ],
+      "why": "The GATE-oriented statement of the rules, used to phrase the cards the way the exam phrases the question and to check the subtopic enumeration against the questions actually asked. It is a revision text, not a lecture, so nothing is attributed to it that is not a definition or a rule."
+    }
+  ],
+  "rejected": [
+    {
+      "id": "nptel-digital-circuits-chattopadhyay-boolean-lectures",
+      "kind": "lecture-sequence",
+      "channel": "NPTEL, Digital Circuits (Prof. Santanu Chattopadhyay, IIT Kharagpur), the Boolean-algebra and minimisation lectures",
+      "why": "The obvious second NPTEL sequence, and the one an earlier run used for number systems. Not fetched this run: the Digital Electronic Circuits sequence (Lectures 07, 10, 11, 12) covers the identical syllabus line lecture for lecture - postulates, map, five variables, tabular method - and was readable through the extraction service, so a second sequence would have added no subtopic. A later run that wants a second voice should read these rather than re-reading the first."
+    },
+    {
+      "id": "gate-smashers-digital-logic-playlist",
+      "kind": "playlist",
+      "channel": "Gate Smashers, Digital Logic (Complete Playlist), Lectures 7-14: Canonical SOP, Duality Theorem, Self Dual Function, Boolean functions with n variables, K-Map introduction, 3-variable K-Map, 4-variable K-Map, Essential versus Prime Implicants",
+      "why": "The closest video match found - eight consecutive lectures on exactly this topic, in Hindi/Hinglish, with a lecture-by-lecture title list that maps onto this topic's subtopics. It is rejected for this run only because no transcript could be read: the YouTube watch pages returned boilerplate to the extraction service and no caption track was retrievable, so nothing may be quoted or timestamped. Its Hindi content reaches the topic instead through the ehindistudy Hindi notes. videoRefs is empty on every card, which is a gap and not a claim."
+    },
+    {
+      "id": "go-classes-digital-logic-boolean-algebra",
+      "kind": "lecture-sequence",
+      "channel": "GO Classes for GATE CS, Digital Logic: Boolean algebra and K-map lectures",
+      "why": "Considered because this repository already holds three GO Classes playlists for Discrete Mathematics. Not used here: the same caption problem as above, and the repository's own rule forbids defaulting to a channel that is already present. The written sources cover all fourteen subtopics, so no card was padded from a weaker source."
+    },
+    {
+      "id": "unacademy-hindi-k-map-lessons",
+      "kind": "lesson-series",
+      "channel": "Unacademy, 'Theory and PYQs on Boolean Algebra and Logic Gates' (Hindi) and 'Boolean Algebra: Class 12 NCERT' (Hindi), K-map lessons",
+      "why": "Two Hindi lesson series whose lesson lists match this topic closely, including a lesson on don't-care conditions and one on POS K-map questions. Both are behind a subscription with no readable transcript, so nothing could be read; the freely readable ehindistudy Hindi notes were used instead."
+    },
+    {
+      "id": "testbook-hindi-four-variable-k-map-mcq",
+      "kind": "practice-bank",
+      "channel": "Testbook, Four Variable K-Map MCQ bank (Hindi)",
+      "why": "Readable, in Hindi, and on the right topic - but it is a bank of practice questions drawn from banking, SSC and other examinations rather than GATE CSE, and this repository keeps practice questions and previous-year questions apart. Using it would have meant presenting non-GATE questions as GATE-style practice with a misleading pedigree."
+    },
+    {
+      "id": "gateoffline-kmap-sop-pos-question-list",
+      "kind": "pyq-index",
+      "channel": "gateoffline.blogspot.com, 'Previous GATE Questions on K-Map, SOP and POS expressions (1987 to date)'",
+      "why": "A useful index of the older descriptive-era questions (1987-2007) and the place where GATE 1997 Q.1 (A + BC is a reduced form of (A+B)(A+C)) was found. Rejected as a reference of record: its answers are given without working, several of its questions are figure-only, and its solutions are links to videos that could not be watched. The 1997 question appears in this topic as a labelled ORIGINAL PYQ-STYLE variation, not as a verified PYQ, because its own page on a question site was not read."
+    },
+    {
+      "id": "answer-aggregators-boolean-algebra",
+      "kind": "pyq-index",
+      "channel": "ExamSIDE, GateAI, Quorank, GateQA, successtracker, iaeacademy, EduRev and freeatzeal pages for these questions",
+      "why": "Used to find question numbers, marks and type, and to corroborate answers, never as the reference of record. They disagree on numbering: the 2026 Set 2 octet question is Q.30 on GATE Overflow but Q40 on GateAI and 32 on ExamSIDE, the 2026 Set 1 minimal-SOP question is Q.38 on GATE Overflow but Q48 on GateAI and Quorank, and the 2026 Set 2 property question is Q.6 on GATE Overflow but 29 on an ExamSIDE year page. Each disagreement is recorded in the PYQ record itself."
+    },
+    {
+      "id": "gate-cse-2008-q5-and-2017-set1-q21-and-2025-set2-q43",
+      "kind": "pyq",
+      "channel": "GATE CSE 2008 Q.5 (minimal form of a K-map with don't cares), GATE CSE 2017 Set 1 Q.21 (minimum number of 2-input NOR gates for a map), GATE CSE 2025 Set 2 Q.43 (a map drawn as a diagram, which expressions represent it)",
+      "why": "All three are genuine and on this topic. 2008 Q.5 is excluded because the readable answers on its page disagree about which cells the figure holds (one gives the quad 0,3,8,10, which is not a legal quad, against 0,1,8,9 and 0,2,8,10), so the cells could not be pinned down. 2017 Set 1 Q.21 and 2025 Set 2 Q.43 are diagram questions whose figures were not reproduced in any readable source, so neither could be recomputed. They are recorded here so a later run with access to the papers can add them."
+    },
+    {
+      "id": "gate-cse-2015-set3-q43-already-included-note",
+      "kind": "note",
+      "channel": "Cross-check note on the two 2015 Set 3 questions",
+      "why": "Q.43 (number of prime implicants) and Q.44 (Sigma/Pi forms) are adjacent questions in the same paper and are both in this topic's set; they are recorded separately because one is a tabular-method count and the other a canonical-form conversion. Noting it here so a later audit does not mistake them for a duplicate."
+    },
+    {
+      "id": "gate-it-and-gate-da-boolean-papers",
+      "kind": "pyq",
+      "channel": "GATE IT papers and GATE DA / DS&AI papers on Boolean algebra and minimisation",
+      "why": "Those papers are not CSE, and this repository does not mix papers. Excluded."
+    }
+  ],
+  "standard_refs": [
+    "M. Morris Mano and Michael D. Ciletti, Digital Design, chapter 2 (Boolean algebra and logic gates) and chapter 3 (gate-level minimisation: the map method, four- and five-variable maps, don't-care conditions, NAND and NOR implementation, the tabulation method) - the reference the NPTEL Digital Electronic Circuits course itself lists",
+    "Donald P. Leach, Albert P. Malvino and Goutam Saha, Digital Principles and Applications, the Boolean algebra and minimisation chapters",
+    "Thomas L. Floyd, Digital Fundamentals, the Boolean analysis and combinational logic chapters",
+    "GATE 2027 CS syllabus, Digital Logic line 'Boolean algebra and minimization - algebraic technique, Karnaugh map, tabular method'"
+  ],
+  "notes": [
+    "The syllabus names this topic in one line of eight words, so the fourteen subtopics above are this run's enumeration from the standard treatment (Mano chapters 2-3, the NPTEL lecture order, the GATE question record) and not a quotation from the syllabus. The three techniques the line names - algebraic, map, tabular - are the spine; the rest are the sub-skills each one needs.",
+    "Twelve GATE CSE previous-year questions were verified, from 1998 to 2026, and every one is SOURCED against an accepted answer rather than key-verified against an official paper, so no marks field is recorded. One secondary page attributes the answer 3 of GATE CSE 2018 Q.49 to the official key, which is noted in that record and not relied on.",
+    "Functional completeness (NAND and NOR as universal gates, and the completeness tests) is not carded here: the repository already carries it as content/subjects/discrete-mathematics/propositional-logic/functional-completeness.json, and one concept gets one card at one path. That card, not this topic, is where the completeness tests live.",
+    "Gray code is carded here, as the number-systems source ledger promised it would be: it is the ordering rule of the map and the reason adjacency works.",
+    "The entered-variable map (EVM), multiple-output minimisation, static and dynamic hazards, and the cost criteria beyond literal counting are taught by the chosen NPTEL lectures (11 and 13) but are outside the eight words of the syllabus line and are not carded. They are named here so a later run does not think they were missed.",
+    "The one non-English source is a Hindi K-map chapter (ehindistudy). Its contribution is the grouping ladder, the rolling of the map and the pair/quad/octet naming, all translated into English and marked as translated on the cards that use them. No Hindi, Tamil, Telugu or Bengali lecture transcript was readable this run.",
+    "No video transcript was readable: the Gate Smashers playlist that matches this topic lecture for lecture is recorded as structure only, and videoRefs is empty on every card. That is a gap, not a claim.",
+    "The visual lesson animates one map end to end - GATE CSE 2014 Set 3 Q.7's function - because the order of the steps is the difficulty: place the 1s, place the don't cares, let a don't care join a group, read the constant variables, then check that leaving the don't cares out would have cost four 4-literal terms. Its cells and terms are recomputed in scripts/validate.py."
+  ]
+}

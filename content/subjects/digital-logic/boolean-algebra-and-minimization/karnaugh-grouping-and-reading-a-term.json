@@ -1,0 +1,83 @@
+{
+  "unit": "Boolean Algebra and Minimization",
+  "videoRefs": [],
+  "id": "karnaugh-grouping-and-reading-a-term",
+  "title": "Grouping Rules and Reading a Product Term Off a Group",
+  "priority": "P1",
+  "order": 426,
+  "quickIdea": "A group must be a rectangle of 1, 2, 4, 8 or 16 cells; keep the variables that are constant across it, drop the ones that change, and prefer the largest groups and the fewest of them.",
+  "remember": [
+    "Group size must be a power of two - 1, 2, 4, 8, 16 - and the shape must be a rectangle or square, including the wrap-around rectangles.",
+    "Read the term by inspection: a variable that is 0 in every cell of the group appears complemented, a variable that is 1 in every cell appears plain, and a variable that takes both values is dropped.",
+    "A group of 2^k cells drops exactly k variables, so the term has n - k literals. A group of 4 in a four-variable map is a 2-literal term.",
+    "Groups may overlap, and overlapping is often required: a cell may belong to several groups, and it must belong to at least one.",
+    "Cover every 1 at least once, with the fewest groups and each as large as possible; a 1 that cannot combine is a legal group of one cell, a full minterm.",
+    "Start with the loneliest 1 - the cell with the fewest 1-neighbours - because its group is forced, and that group often determines the rest."
+  ],
+  "example": {
+    "prompt": "Minimise F(A,B,C,D) = Sigma m(0, 1, 4, 5, 8, 9, 12, 13) on the map.",
+    "work": "These eight cells are 0000, 0001, 0100, 0101, 1000, 1001, 1100 and 1101: every combination of A, B and D with C = 0. They form two quads (rows AB = 00 and 01, and rows AB = 11 and 10, both in columns CD = 00 and 01), and the two quads merge into one group of eight across the A boundary. C is 0 in all eight cells; A, B and D each take both values.",
+    "answer": "F = C', one term of one literal from eight minterms."
+  },
+  "gateAngle": "This is the mechanical core of every map question: GATE CSE 2026 Set 2 Q.30 is an octet that collapses to B', and GATE CSE 2012 Q.30 asks which two quads a four-1 map with don't cares admits. Both are decided by group size and by reading the constant variables.",
+  "variations": [
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "A group of four cells in a five-variable map: how many literals has its term, and which cells could it be?",
+      "answer": "Three literals (5 - 2), and it could be any rectangle of four cells - for example cells 0, 1, 8 and 9, which is B'C'D'.",
+      "why": "The rule n - k literals holds in every map size; what changes with the size is the shape of the rectangles and whether a group can cross the reflection axis."
+    },
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "In a four-variable map the cells m2, m3, m10 and m11 are 1. What is the minimal SOP?",
+      "answer": "F = B'C.",
+      "why": "m2 = 0010, m3 = 0011, m10 = 1010, m11 = 1011: B = 0 and C = 1 in all four, A and D vary, so the quad is B'C - two literals from four minterms."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "A function has 1s at m0, m1 and m8 only. What is its minimal SOP, and why is the answer not a group of four?",
+      "answer": "F = A'B'C' + B'C'D', that is the pair {m0, m1} and the pair {m0, m8}.",
+      "why": "m0, m1, m8 and m9 would be a quad, but m9 is 0, so the quad is illegal; the largest legal groups are the two pairs, each of three literals, and m0 is shared between them. This is the standard example of overlapping groups being necessary."
+    }
+  ],
+  "trap": {
+    "what": "Drawing a group of three, of six, or an L-shape, or reading the term from the map position instead of the labels.",
+    "why": "Only power-of-two rectangles correspond to a single product term: combining three cells would need two terms, not one. And a group's term is fixed by the variable values in its cells, not by where it sits on the page.",
+    "counterexample": "Cells 0, 1 and 3 are three cells and do not form one term; the minimal cover is (0,1) plus (1,3), giving A'B' + A'C - two terms, which is why the count of groups, not the count of cells, is the cost."
+  },
+  "check": {
+    "question": "Read the term for the group {m0, m4, m12, m8} in a four-variable map.",
+    "answer": "C'D'.",
+    "explanation": "The four cells are 0000, 0100, 1100, 1000: C = 0 and D = 0 in all four while A and B vary, so the term keeps C' and D' only. This group is the whole left-hand column pair of the map, which is why the wrap-around matters."
+  },
+  "pyqIds": [
+    "gate-2026-set2-q30-minimal-sop-is-b-bar"
+  ],
+  "prereqs": [
+    "karnaugh-map-layout-and-gray-code"
+  ],
+  "sources": [
+    {
+      "kind": "lecture-transcript",
+      "title": "Lecture 10 - Karnaugh Map and Digital Circuit Realization",
+      "channel": "NPTEL, Digital Electronic Circuits (Prof. Goutam Saha, IIT Kharagpur)",
+      "url": "http://digimat.in/nptel/courses/video/108105132/lec10.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read from the opening to the two-variable map and its minterm numbering, plus the closing summary: the truth table rewritten as a grid, the A/B axis reading, the minterm numbering m0..m3, the first grouping (AB' + AB = A), and the summary's four rules - logical adjacency is the whole method, SOP covers every 1 with the fewest and largest power-of-two groups, POS covers the 0s, and a don't care is treated as 0 or 1 according to which makes the group larger. The middle of the transcript was not served, so the 3- and 4-variable worked examples are not attributed to it."
+    },
+    {
+      "kind": "text",
+      "title": "Digital Logic subject notes: K Map, MSOP and MPOS",
+      "channel": "GATE Overflow, subject page for Digital Logic",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "url": "https://gateoverflow.in/subject/digital-logic?tab=exams",
+      "note": "read the K Map, Min Sum of Products Form and Min Products of Sum Form sections: the grouping rules (powers of two, rectangular, wrap-around, every 1 covered, largest groups first), the definitions of prime implicant and essential prime implicant, the don't-care rule, and the three-step algorithm for a minimal SOP (circle the PIs, take all EPIs, then a minimum subset for the rest). Used as the GATE-oriented statement of the rules, not as a source of questions."
+    }
+  ],
+  "sourceLine": "The grouping rules and the cover requirement: NPTEL IIT Kharagpur Digital Electronic Circuits Lecture 10 closing summary (English) - logical adjacency is the key, every 1 is covered by the fewest and largest power-of-two groups. The reading rule (keep the constant variables): GATE Overflow's Digital Logic subject notes (English, read in part) and recomputation in scripts/validate.py.",
+  "visual": "digital-logic/boolean-algebra-and-minimization/kmap-dont-care-grouping"
+}

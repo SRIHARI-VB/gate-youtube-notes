@@ -1,0 +1,92 @@
+{
+  "unit": "Boolean Algebra and Minimization",
+  "videoRefs": [],
+  "id": "literal-and-gate-cost",
+  "title": "Cost: Literals, Terms and Gate Counts",
+  "priority": "P2",
+  "order": 432,
+  "quickIdea": "A literal is one appearance of a variable, plain or complemented; minimisation is about fewest literals and fewest terms, and a group of 2^k cells is exactly a term of n - k literals.",
+  "remember": [
+    "A literal is one appearance of a variable or its complement. In x'y' + xy + wz there are six literals, even though x and y each appear twice.",
+    "The usual cost of a two-level SOP is one gate per term plus one gate for the OR, and the number of gate inputs is the number of literals. So fewer literals and fewer terms is cheaper.",
+    "A group of 2^k cells in an n-variable map gives a term of n - k literals; that single fact links the grouping rules to the cost rules.",
+    "A question may fix the form: a minimal POS and a minimal SOP of the same function can have different costs, so minimise in the form asked for.",
+    "The number of literals and the number of 2-input gates are different questions. A NAND-only realisation adds inverters for the complemented literals, and a multi-input gate counts as one gate.",
+    "Count literals in the expression as written, not in some expanded form; a question that asks for the number of literals is asking about the printed minimal expression."
+  ],
+  "example": {
+    "prompt": "Find the number of literals in the minimal SOP of the function defined by f(w,0,0,z) = 1, f(1,x,1,z) = x + z and f(w,1,y,z) = wz + y.",
+    "work": "The first equation fixes x = y = 0 and gives 1s at 0, 1, 8, 9. The second fixes w = y = 1 and gives x + z, so 0 at 10 and 1 at 11, 14, 15. The third fixes x = 1 and gives wz + y, so 1 at 6, 7, 13, 14, 15 and 0 at 4, 5, 12. Rows 2 and 3 (x = 0, y = 1) are fixed by nothing, so they are don't cares.",
+    "answer": "The 1s are 0, 1, 6, 7, 8, 9, 11, 13, 14, 15 with don't cares at 2 and 3; the minimal SOP is x'y' + xy + wz, three 2-literal terms, so the number of literals is 6."
+  },
+  "gateAngle": "GATE CSE 2021 Set 2 Q.52 is this exact count and the accepted answer is 6; GATE CSE 2017 Set 1 Q.21 asks the companion question, the minimum number of 2-input NOR gates for a map given as a figure. Both are cost questions, and both are decided after the minimisation, not before it.",
+  "variations": [
+    {
+      "label": "VERIFIED PYQ",
+      "question": "GATE CSE 2021 Set 2 Q.52: f(w,x,y,z) with f(w,0,0,z) = 1, f(1,x,1,z) = x + z and f(w,1,y,z) = wz + y. The number of literals in the minimal SOP of f is ______.",
+      "answer": "6.",
+      "why": "The three equations fix ten of the sixteen rows and leave rows 2 and 3 (x = 0, y = 1) as don't cares. The 1s group into three quads: {0,1,8,9} = x'y', {6,7,14,15} = xy and {9,11,13,15} = wz. Those three cover all ten 1s, each has two literals, and no cover with fewer literals exists - so the number of literals is 6. The don't cares are not needed for this cover."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Which is cheaper as a two-level SOP: three terms of two literals, or two terms of four literals?",
+      "answer": "Three terms of two literals: 6 literals and 4 gates, against 8 literals and 3 gates.",
+      "why": "The literal count, which is the number of gate inputs, is the standard measure and it favours the first. The gate count favours the second, so the answer depends on which cost the question names - and a GATE question almost always names literals."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "How many literals has the minimal POS of F(w,x,y,z) whose only 0s are at 0 and 15?",
+      "answer": "Eight: F = (w + x + y + z)(w' + x' + y' + z').",
+      "why": "Each isolated 0 is a group of one cell, and a group of one in a four-variable map gives a four-literal sum term. Two such factors give eight literals, while the SOP of the same function is w'x'y'z' + wxyz, also eight - the two forms tie here, which is not the general case."
+    }
+  ],
+  "trap": {
+    "what": "Counting a variable once when it appears several times, or counting the literals of the canonical form instead of the minimal one.",
+    "why": "A literal is an appearance, so x appears twice in x'y' + xy and contributes two to the count. And the canonical form is not minimal, so its literal count is not the answer to a question about the minimal expression.",
+    "counterexample": "x'y' + xy + wz has 6 literals but only 4 distinct variables; the canonical form of the same function has 10 minterms and would give 40 literals."
+  },
+  "check": {
+    "question": "How many literals has the expression AB + A'C + BC, and how many has its minimal form?",
+    "answer": "Six literals as written; four in the minimal form AB + A'C.",
+    "explanation": "AB has two literals, A'C two and BC two, so the printed expression has six. The consensus theorem removes BC, leaving AB + A'C with four - which is why the literal count is the right way to compare two candidate answers."
+  },
+  "pyqIds": [
+    "gate-2021-set2-q52-literals-in-minimal-sop"
+  ],
+  "prereqs": [
+    "quine-mccluskey-tabular-method"
+  ],
+  "sources": [
+    {
+      "kind": "text",
+      "title": "Digital Logic subject notes: K Map, MSOP and MPOS",
+      "channel": "GATE Overflow, subject page for Digital Logic",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "url": "https://gateoverflow.in/subject/digital-logic?tab=exams",
+      "note": "read the K Map, Min Sum of Products Form and Min Products of Sum Form sections: grouping rules, prime and essential prime implicant definitions, the don't-care rule, the three-step minimal-SOP algorithm (circle the PIs, take every EPI, then the smallest subset that covers the rest) and the POS derivation from the zeros."
+    },
+    {
+      "kind": "text",
+      "title": "Minimization of Switching Functions (Unit II instructional material)",
+      "channel": "Aditya Engineering College, digital logic course notes",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "url": "https://aec.edu.in/aec/Instruction_Material/DELD%20Unit-2.pdf",
+      "note": "read through the search service's extract: logical adjacency defined as differing in one literal, the six grouping rules, the implicant, prime implicant and essential prime implicant definitions, the three-step minimal-SOP algorithm, the five-variable map layout with rows ABC and columns DE in Gray order, and the tabulation method's two phases with the cover table, distinguished columns, row and column dominance and the cyclic cover table. Read as a reference for the rules, not as a source of questions."
+    },
+    {
+      "kind": "lecture-transcript",
+      "title": "Lecture 12 - Quine-McCluskey (QM) Algorithm",
+      "channel": "NPTEL, Digital Electronic Circuits (Prof. Goutam Saha, IIT Kharagpur)",
+      "url": "http://digimat.in/nptel/courses/video/108105132/lec12.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read from the opening to the stage-2 combination of the four-variable example, plus the closing summary: the three steps, implicant and prime implicant defined, grouping by the number of 1s, the iterative combination, and the closing rule that don't cares are included when finding prime implicants and excluded when finding essential prime implicants."
+    }
+  ],
+  "sourceLine": "The cost vocabulary (fewest literals, fewest terms) and the n - k literal rule: the Aditya Engineering College switching-functions notes (English, read in part) and GATE Overflow's Digital Logic subject notes (English). The minimisation itself for the worked example: the NPTEL IIT Kharagpur Lecture 12 method (English, read in part), with every count recomputed in scripts/validate.py."
+}

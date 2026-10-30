@@ -1,0 +1,92 @@
+{
+  "unit": "Boolean Algebra and Minimization",
+  "videoRefs": [],
+  "id": "quine-mccluskey-tabular-method",
+  "title": "The Tabular Method: Quine-McCluskey, the Chart and the Essential Rows",
+  "priority": "P2",
+  "order": 431,
+  "quickIdea": "The tabular method is the map written as a table: group minterms by how many 1s they have, combine neighbours into dashed terms, then read essential prime implicants off a chart as the columns with a single tick.",
+  "remember": [
+    "Step 1: write every minterm, and every don't care, in binary, grouped by the number of 1s. Terms can only combine with terms in an adjacent group.",
+    "Step 2: combine two terms that differ in exactly one bit, replacing that bit by a dash, and repeat on the new list. A term that combines is ticked; the unticked terms at the end are the prime implicants.",
+    "Step 3: build the prime implicant chart - prime implicants down the side, the required minterms across the top, a tick where the prime implicant covers the minterm.",
+    "A column with a single tick marks an essential prime implicant. Take it, delete its row and the columns it covers, and repeat on the reduced chart.",
+    "When no single-tick column is left, use row dominance (a more expensive row that covers a subset of another row's columns can be dropped) or branch on the choice. A chart with no essential prime implicant at all is cyclic and has several equally minimal covers.",
+    "Don't cares go into steps 1 and 2, so that groups can grow, but never into the chart, because they are never required to be covered."
+  ],
+  "example": {
+    "prompt": "Minimise f(w,x,y,z) = Sigma m(0, 2, 4, 5, 6, 10) by the tabular method.",
+    "work": "Group by the number of 1s: 0 = 0000; 2 = 0010, 4 = 0100; 5 = 0101, 6 = 0110, 10 = 1010. Combine adjacent groups: 0 with 2 gives 00-0, 0 with 4 gives 0-00; 2 with 6 gives 0-10, 2 with 10 gives -010, 4 with 5 gives 010-, 4 with 6 gives 01-0. Second pass: 00-0 and 01-0 differ only in the second bit, so they merge to 0--0; the others differ in two positions, so they stop. The prime implicants are 0--0, -010 and 010-.",
+    "answer": "0--0 is w'z', -010 is x'yz' and 010- is wx'y'. In the chart, minterm 0 appears only under w'z', minterm 10 only under x'yz' and minterm 5 only under wx'y', so all three are essential: f = w'z' + x'yz' + wx'y', three terms and eight literals."
+  },
+  "gateAngle": "GATE asks for counts rather than tables, because a table is slow to print: GATE CSE 2015 Set 3 Q.43 asks only for the total number of prime implicants of Sigma(0,2,4,5,6,10), and GATE CSE 2018 Q.49 for the number of essential prime implicants. The tabular method is the reliable way to get both counts without drawing a map.",
+  "variations": [
+    {
+      "label": "VERIFIED PYQ",
+      "question": "GATE CSE 2015 Set 3 Q.43: The total number of prime implicants of f(w,x,y,z) = Sigma(0,2,4,5,6,10) is ______.",
+      "answer": "3.",
+      "why": "The tabulation ends with 0--0 (covering 0,2,4,6), -010 (2,10) and 010- (4,5); none of the three can be combined further, and no other term survives, so there are exactly three prime implicants - and, in this function, all three are also essential."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Why may two terms be combined only when they differ in exactly one bit, and what does the dash mean?",
+      "answer": "Because xy + xy' = x: two terms that differ in one literal collapse to the common part. The dash marks the position where the literal disappeared, so a dashed term stands for every minterm that matches the fixed bits.",
+      "why": "A dash is not a third value; it is a shorthand for 'this variable has been eliminated'. That is why two dashed terms can only combine when their dashes are in the same positions - otherwise they differ in more than one bit."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "A prime implicant chart has four prime implicants P1 = {0,1}, P2 = {1,2}, P3 = {2,3} and P4 = {3,0}, with required minterms 0, 1, 2 and 3. How many essential prime implicants are there, and how many minimal covers?",
+      "answer": "No essential prime implicant, and two minimal covers: P1 + P3, or P2 + P4.",
+      "why": "Every column has exactly two ticks - minterm 0 is covered by P1 and P4, 1 by P1 and P2, 2 by P2 and P3, 3 by P3 and P4 - so no row is forced. This is a cyclic chart: two two-row covers exist and both are minimal. A chart with no essential prime implicant is therefore not the same as a chart with no answer."
+    }
+  ],
+  "trap": {
+    "what": "Combining terms whose dashes are not in the same positions, or putting the don't cares into the chart.",
+    "why": "Two dashed terms must agree on every dash position before they can merge; otherwise they differ in more than one bit and the merge is invalid. And a chart that includes don't care columns produces essential prime implicants that are not actually required.",
+    "counterexample": "0-10 and -010 have dashes in different positions and differ in two bits, so they cannot merge - a merge here would produce a term that covers minterms not in the function. Including don't care 3 in the chart would wrongly make a prime implicant essential in GATE CSE 2018 Q.49."
+  },
+  "check": {
+    "question": "Apply the tabular method to f(a,b,c) = Sigma(0, 1, 2, 5, 6, 7). How many prime implicants are there?",
+    "answer": "Six: a'b' {0,1}, a'c' {0,2}, b'c {1,5}, bc' {2,6}, ab {6,7} and ac {5,7}.",
+    "explanation": "Grouping by the number of 1s gives 0 = 000; 1 = 001, 2 = 010; 5 = 101, 6 = 110; 7 = 111. Every combination of adjacent groups produces a pair, and no pair can grow: {0,1,2,3} would need minterm 3, {0,1,4,5} would need 4, {1,3,5,7} would need 3, and {4,5,6,7} would need 4, none of which is a 1. So all six pairs are prime, and all six are essential as well."
+  },
+  "pyqIds": [
+    "gate-2015-set3-q43-number-of-prime-implicants"
+  ],
+  "prereqs": [
+    "essential-prime-implicants-and-minimal-cover"
+  ],
+  "sources": [
+    {
+      "kind": "lecture-transcript",
+      "title": "Lecture 12 - Quine-McCluskey (QM) Algorithm",
+      "channel": "NPTEL, Digital Electronic Circuits (Prof. Goutam Saha, IIT Kharagpur)",
+      "url": "http://digimat.in/nptel/courses/video/108105132/lec12.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read from the opening to the stage-2 combination of the four-variable example, plus the closing summary: the three steps, implicant and prime implicant defined, grouping by the number of 1s, the iterative combination, and the closing rule that don't cares are included when finding prime implicants and excluded when finding essential prime implicants."
+    },
+    {
+      "kind": "text",
+      "title": "Quine-McCluskey algorithm: the tabulation method",
+      "channel": "Wikipedia",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "url": "https://en.wikipedia.org/wiki/Quine%E2%80%93McCluskey_algorithm",
+      "note": "read the algorithm statement, the four-variable worked example with two don't cares, and the prime implicant chart section: minterms grouped by the number of 1s, combination when two terms differ in one digit with a dash for the eliminated digit, unticked terms as prime implicants, the chart of prime implicants against required minterms, and the essential prime implicants read off as the columns with a single tick."
+    },
+    {
+      "kind": "text",
+      "title": "Minimization of Switching Functions (Unit II instructional material)",
+      "channel": "Aditya Engineering College, digital logic course notes",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "url": "https://aec.edu.in/aec/Instruction_Material/DELD%20Unit-2.pdf",
+      "note": "read through the search service's extract: logical adjacency defined as differing in one literal, the six grouping rules, the implicant, prime implicant and essential prime implicant definitions, the three-step minimal-SOP algorithm, the five-variable map layout with rows ABC and columns DE in Gray order, and the tabulation method's two phases with the cover table, distinguished columns, row and column dominance and the cyclic cover table. Read as a reference for the rules, not as a source of questions."
+    }
+  ],
+  "sourceLine": "The three steps, the grouping by number of 1s and the don't-care rule: NPTEL IIT Kharagpur Digital Electronic Circuits Lecture 12 (English, opening, stage 1 and closing summary read). The combination rule, the chart and the single-tick reading of an essential prime implicant: the Wikipedia Quine-McCluskey article (English, read in part). Row and column dominance and the cyclic chart: the Aditya Engineering College switching-functions notes (English, read in part). The worked example's prime implicants are recomputed in scripts/validate.py."
+}

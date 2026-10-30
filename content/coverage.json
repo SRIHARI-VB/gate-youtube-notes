@@ -3,7 +3,7 @@
  "updated_at": "2026-10-30",
  "cycle": {
   "last_subject": "digital-logic",
-  "last_topic": "number-systems-and-representation",
+  "last_topic": "boolean-algebra-and-minimization",
   "updated_at": "2026-10-30"
  },
  "subjects": [
@@ -609,10 +609,39 @@
     {
      "slug": "boolean-algebra-and-minimization",
      "name": "Boolean Algebra and Minimization",
-     "status": "not_started",
-     "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
-     "runs": [],
-     "gaps": []
+     "status": "partial",
+     "coverage_note": "14 subtopics, 13 cards (the postulates and duality, the working theorems, XOR/XNOR algebra, canonical forms, the algebraic technique, the map layout and Gray code, the grouping rules, essential prime implicants and the minimal cover, don't-care conditions, POS minimisation, the five-variable map, the tabular method, and literal/gate cost), 12 verified PYQs from 1998 to 2026 and 1 p5.js lesson. Partial because nine gaps remain, named below.",
+     "runs": [
+      {
+       "date": "2026-10-30",
+       "sources": [
+        "nptel-dec-108105132-lec07-boolean-algebra",
+        "nptel-dec-108105132-lec10-karnaugh-map",
+        "nptel-dec-108105132-lec11-five-variable-map",
+        "nptel-dec-108105132-lec12-quine-mccluskey",
+        "wikipedia-karnaugh-map",
+        "wikipedia-quine-mccluskey",
+        "aec-deld-unit2-minimization-of-switching-functions",
+        "ehindistudy-k-map-hindi",
+        "gateoverflow-digital-logic-subject-notes"
+       ],
+       "cards": 13,
+       "pyqs": 12,
+       "lesson": "digital-logic/boolean-algebra-and-minimization/kmap-dont-care-grouping",
+       "note": "Sources chosen on merit across two languages, with the syllabus line covered lecture for lecture: the NPTEL IIT Kharagpur Digital Electronic Circuits sequence - Lecture 07 on the postulates and duality, Lecture 10 on the map and the SOP/POS/don't-care rules, Lecture 11 on the five-variable map, Lecture 12 on the tabular method - each read from its opening to its closing summary, all in English. Two standard references fill what the lectures did not serve: the Wikipedia Karnaugh map article (Gray ordering, wrap-around, reading a rule off a group, POS by complement) and the Wikipedia Quine-McCluskey article (the prime implicant chart and the single-tick rule). The Aditya Engineering College switching-functions notes supply the tabular method's dominance and cyclic-chart material and the cost criteria. The one non-English source is eHindiStudy's Hindi K-map chapter, read in full and translated, which contributes the pair/quad/octet ladder and the rolling of the map. Rejected with reasons in sources.json: the NPTEL Digital Circuits sequence (Chattopadhyay), the Gate Smashers Digital Logic playlist (the closest video match, lecture for lecture, but no transcript was readable), the GO Classes Boolean algebra lectures, two Hindi Unacademy lesson series (paywalled), a Hindi Testbook practice bank drawn from other examinations, a blog PYQ index, the answer aggregators, and three genuine PYQs whose figures could not be pinned down or recomputed."
+      }
+     ],
+     "gaps": [
+      "no video transcript was readable this run: the Gate Smashers Digital Logic playlist covers this topic lecture for lecture (Lec 7-14, in Hindi/Hinglish) but its watch pages returned only boilerplate and no caption track could be retrieved, so it is recorded as structure only and videoRefs is empty on every card in this topic",
+      "every PYQ is SOURCED against a GATE Overflow accepted answer rather than key-verified against an official answer key, and no marks field is recorded; one secondary page attributes the answer 3 of GATE CSE 2018 Q.49 to the official GATE 2018 CS key, which is noted in that record and not relied on. The aggregators disagree on numbering, and each disagreement is recorded in the PYQ record it affects: 2026 Set 2 Q.30 here is Q40 on GateAI and 32 on ExamSIDE, 2026 Set 1 Q.38 here is Q48 on GateAI and Quorank, 2026 Set 2 Q.6 here is 29 on an ExamSIDE year page",
+      "the tabular method's chart stage rests on written references only - the Wikipedia Quine-McCluskey article and the Aditya Engineering College notes - because the NPTEL Lecture 12 transcript was served only up to its stage-2 combination; no verified CSE question asks for a full chart, so the two tabular-method questions recorded (2015 Set 3 Q.43 and 2018 Q.49) are both counts",
+      "three genuine PYQs of this topic are excluded and should be added by a later run with access to the papers: GATE CSE 2008 Q.5, whose readable answers disagree about which cells the figure holds (one gives the illegal quad 0,3,8,10), GATE CSE 2017 Set 1 Q.21 (minimum number of 2-input NOR gates for a map given as a figure) and GATE CSE 2025 Set 2 Q.43 (a map drawn as a diagram), neither of whose figures was reproduced in any readable source",
+      "GATE CSE 2026 Set 1 Q.38 has a third minimal cover that is not among its printed options (P'S + QR' + PRS' + Q'RS', four terms and ten literals); the record states this so that the two printed correct options are not mistaken for the only minimal forms",
+      "entered-variable maps, multiple-output minimisation, static and dynamic hazards and the cost criteria beyond literal counting are taught by the chosen NPTEL lectures but sit outside the eight words of the syllabus line and are not carded at all",
+      "the algebraic technique, the five-variable map and the cost/literal rules have no verified CSE question decided by them alone, which is why those three cards are P2, P3 and P2; the five-variable card rests on one lecture and one set of notes",
+      "only one non-English source was readable (a Hindi K-map chapter, translated); no Hindi, Tamil, Telugu or Bengali lecture transcript on this topic could be read this run",
+      "functional completeness is deliberately not carded here even though the NPTEL sequence teaches it in the same week: it already exists as content/subjects/discrete-mathematics/propositional-logic/functional-completeness.json, and one concept gets one card at one path. A reader of this topic is pointed there by the sources ledger, not by a duplicate card"
+     ]
     },
     {
      "slug": "combinational-circuits",

@@ -1,0 +1,80 @@
+{
+  "unit": "Boolean Algebra and Minimization",
+  "videoRefs": [],
+  "id": "algebraic-minimization-technique",
+  "title": "Algebraic Minimisation: Combine, Absorb, Eliminate, Factor",
+  "priority": "P1",
+  "order": 424,
+  "quickIdea": "Hand simplification is four moves repeated until nothing changes: combine two terms that differ in one literal, absorb a term contained in another, eliminate a complemented variable, and factor or multiply out to switch between SOP and POS.",
+  "remember": [
+    "Combine: xy + xy' = x. Each combine step removes one literal, so the target is the fewest literals first and the fewest terms second.",
+    "Absorb: x + xy = x. A term contained in another is redundant and can be deleted.",
+    "Eliminate: x + x'y = x + y. The complemented variable disappears rather than the whole term.",
+    "Consensus: xy + x'z + yz = xy + x'z. Only the term formed from the leftover literals of the other two is redundant.",
+    "To reach POS, factor: xy + xz = x(y + z), and A + BC = (A + B)(A + C). To reach SOP, multiply out first, because combining only works on a sum of products.",
+    "Algebraic simplification has no guarantee of reaching the minimum - a different order of moves can land on a different expression, and proving minimality needs the map or the tabular method."
+  ],
+  "example": {
+    "prompt": "Minimise F = A'BC + AB'C + ABC' + ABC.",
+    "work": "Pair the terms that differ in one literal: ABC' + ABC = AB, AB'C + ABC = AC, and A'BC + ABC = BC. That is three combines, and each pair leaves a two-literal term. No term is contained in another, so nothing can be absorbed.",
+    "answer": "F = AB + AC + BC: four 3-literal terms (12 literals) reduced to three 2-literal terms (6 literals). This is the 3-variable majority function."
+  },
+  "gateAngle": "The syllabus names the algebraic technique before the map and the tabular method, and the papers still ask it: GATE CSE 2019 Q.6 is a pure identity question, and GATE CSE 2026 Set 1 Q.38 asks which of four four-term expressions are minimal - a question you can settle by counting literals and testing one row.",
+  "variations": [
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Minimise F = x'y'z + x'yz + xy'z + xyz.",
+      "answer": "F = z.",
+      "why": "Group the first two: x'y'z + x'yz = x'z. Group the last two: xy'z + xyz = xz. Then x'z + xz = z. Four 3-literal terms become one literal, which is the best a one-variable function can do."
+    },
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "Which of the following is the minimal sum of products for F = A'B'C + A'BC + AB'C' + AB'C?",
+      "answer": "F = A'C + AB'.",
+      "why": "A'B'C + A'BC = A'C and AB'C' + AB'C = AB'. Neither remaining term is contained in the other and they differ in two literals, so nothing more combines; two 2-literal terms is minimal."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "Rewrite F = (A + B)(A + C) as a sum of products, then minimise it.",
+      "answer": "F = A + BC.",
+      "why": "Multiplying out gives AA + AC + AB + BC = A + AC + AB + BC = A(1 + C + B) + BC = A + BC. The POS form had four literals; the minimal SOP has three, which is why the choice of form matters for cost."
+    }
+  ],
+  "trap": {
+    "what": "Applying combine to terms that differ in more than one literal, or forgetting to multiply out before combining.",
+    "why": "xy + xy' = x works because exactly one literal differs. Terms that differ in two literals need an intermediate expansion, and terms inside a product of sums cannot be combined at all until the expression is a sum of products.",
+    "counterexample": "A'BC + AB'C differ in two literals, so they do not combine to C; the correct move is A'BC + ABC = BC and AB'C + ABC = AC, using ABC as the bridge - which is only visible after noting that ABC is itself a minterm of the function."
+  },
+  "check": {
+    "question": "Minimise F = xy + x'y + xy'.",
+    "answer": "F = x + y.",
+    "explanation": "xy + xy' = x, and then x + x'y = x + y by eliminate. Check row x = 0, y = 1: the original gives 0 + 1 + 0 = 1 and x + y gives 1."
+  },
+  "pyqIds": [],
+  "prereqs": [
+    "boolean-theorems-absorption-and-consensus"
+  ],
+  "sources": [
+    {
+      "kind": "lecture-transcript",
+      "title": "Lecture 07 - Fundamentals of Boolean Algebra",
+      "channel": "NPTEL, Digital Electronic Circuits (Prof. Goutam Saha, IIT Kharagpur)",
+      "url": "http://digimat.in/nptel/courses/video/108105132/lec7.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read from the opening to the statement of the distributive postulate, plus the lecturer's closing summary: the 16 functions of two variables and the 2^(2^n) count, the six Huntington postulates one by one (closure, identity elements 0 and 1, commutativity, distributivity of AND over OR and of OR over AND, complement), the duality rule (swap OR and AND, swap 0 and 1, leave the literals alone), and the closing warning that AND and OR are associative and distributive over each other while NAND and NOR are not. The served transcript stops partway through the worked theorem derivations, so no derivation is attributed to it."
+    },
+    {
+      "kind": "text",
+      "title": "Digital Logic subject notes: K Map, MSOP and MPOS",
+      "channel": "GATE Overflow, subject page for Digital Logic",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "url": "https://gateoverflow.in/subject/digital-logic?tab=exams",
+      "note": "read the K Map, Min Sum of Products Form and Min Products of Sum Form sections: the grouping rules (powers of two, rectangular, wrap-around, every 1 covered, largest groups first), the definitions of prime implicant and essential prime implicant, the don't-care rule, and the three-step algorithm for a minimal SOP (circle the PIs, take all EPIs, then a minimum subset for the rest). Used as the GATE-oriented statement of the rules, not as a source of questions."
+    }
+  ],
+  "sourceLine": "The four moves and their justification: NPTEL IIT Kharagpur Digital Electronic Circuits Lecture 07 (English, postulates and duality read), with the simplification rules in GATE Overflow's subject notes (English). No verified GATE question is decided by this card alone, so it carries no PYQ of its own - the two that test the technique are linked from the theorem and XOR cards."
+}

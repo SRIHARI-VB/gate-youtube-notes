@@ -1,0 +1,94 @@
+{
+  "unit": "Boolean Algebra and Minimization",
+  "videoRefs": [],
+  "id": "dont-care-conditions",
+  "title": "Don't-Care Conditions: X as 0 or 1, and What X Must Never Do",
+  "priority": "P1",
+  "order": 428,
+  "quickIdea": "A don't care is a row whose output does not matter; take it as 0 or as 1, per cell, whichever makes the group bigger - but never count it as a 1 that has to be covered.",
+  "remember": [
+    "A don't care (X on the map, d in Sigma m + Sigma d) is an input combination that cannot occur or whose output is irrelevant to the specification.",
+    "For a minimal SOP, X may be grouped with the 1s to enlarge a group. For a minimal POS, X may be grouped with the 0s. In both cases the choice is made cell by cell.",
+    "An X never has to be covered. Leaving it ungrouped costs nothing, so no group is forced by a don't care.",
+    "An X never makes a prime implicant essential; only a real 1 can be a witness.",
+    "Choosing X = 1 in one group and X = 0 elsewhere is legal: the don't cares are independent, and each assignment gives a different function that all satisfy the specification.",
+    "Write the Xs on the map before grouping, then read the cover from the 1s only - that order avoids the usual mistake of covering a don't care and calling it a required minterm."
+  ],
+  "example": {
+    "prompt": "Minimise F(P,Q,R,S) = Sigma m(0, 2, 5, 7, 8, 10, 13, 15) where the minterms 2, 7, 8 and 13 are don't cares.",
+    "work": "The required 1s are 0, 5, 10 and 15. Taken alone, no two of them are adjacent: 0 = 0000 is two bits from 5 = 0101 and from 10 = 1010, and four bits from 15. With the don't cares allowed, 0 joins 2, 8 and 10 to form the quad {0,2,8,10}, in which Q = 0 and S = 0, giving Q'S'. And 5 joins 7, 13 and 15 to form {5,7,13,15}, in which Q = 1 and S = 1, giving QS.",
+    "answer": "F = Q'S' + QS, that is Q XNOR S - two 2-literal terms instead of four 4-literal minterms."
+  },
+  "gateAngle": "GATE uses don't cares in almost every map question: GATE CSE 2014 Set 3 Q.7 (four don't cares that turn four isolated 1s into two quads), GATE CSE 2012 Q.30 and GATE CSE 2018 Q.49. The recurring distractor is a cover that treats a don't care as a required minterm.",
+  "variations": [
+    {
+      "label": "VERIFIED PYQ",
+      "question": "GATE CSE 2014 Set 3 Q.7: F(P,Q,R,S) = Sigma 0,2,5,7,8,10,13,15 with 2, 7, 8 and 13 as 'do not care' terms. The minimal SOP is (A) Q S' + Q' S (B) Q' S' + Q S (C) Q'R'S' + Q'RS' + QR'S + QRS (D) P'Q'S' + P'QS + PQS + PQ'S'",
+      "answer": "Option (B), Q'S' + QS.",
+      "why": "The four required 1s are 0, 5, 10 and 15. Using the don't cares, {0,2,8,10} gives Q'S' and {5,7,13,15} gives QS. Option (A) is the opposite polarity - Q XOR S, not Q XNOR S - and is the intended error."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "A four-variable function has 1s at 0 and 15 and don't cares at 3, 5, 10 and 12. What is the best use of the don't cares?",
+      "answer": "None helps: 0 = 0000 has neighbours 1, 2, 4 and 8, none of which is a 1 or a don't care, and 15 = 1111 has neighbours 7, 11, 13 and 14, also none. So F = P'Q'R'S' + PQRS, four literals per term.",
+      "why": "A don't care helps only when it is adjacent to a 1 (or to another don't care that is). Here every don't care sits two bits away from both 1s, so no group can grow - and the correct answer is the canonical form."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "The same function is asked for as a minimal POS instead of a minimal SOP. Do the don't cares still help, and how do you use them?",
+      "answer": "They may still help, but on the other side: group the 0s, and let an X join a group of 0s if that makes the group larger. Then read each group as a sum term with inverted polarity.",
+      "why": "A POS is the minimal cover of the complement, so the Xs are grouped with the 0s exactly as they were grouped with the 1s for the SOP. Grouping an X with 0s is legal even if the same X was grouped with 1s in the SOP answer, because the two minimisations are separate choices."
+    }
+  ],
+  "trap": {
+    "what": "Treating a don't care as a 1 that must be covered, or as a 0 that blocks a group.",
+    "why": "An X is a free variable: it can be inside a group or outside, and it can take a different value in different groups. Both over- and under-use of the X's produce a valid function that is not minimal.",
+    "counterexample": "In GATE CSE 2014 Set 3 Q.7, writing the four required 1s as four minterms (the canonical form) is correct but 16 literals; the two quads give 4 literals. Conversely, forcing a group through the don't care at 2 in a direction that leaves minterm 5 uncovered loses a required 1."
+  },
+  "check": {
+    "question": "F(A,B,C,D) has 1s at 4 and 6 and don't cares at 5 and 7. What is the minimal SOP, and what would it be without the don't cares?",
+    "answer": "With the don't cares, F = A'B; without them, F = A'BC'D' + A'BCD' = A'BD', two 3-literal terms.",
+    "explanation": "Cells 4, 5, 6 and 7 all have A = 0 and B = 1, so the quad is A'B. Without the don't cares only 4 and 6 are 1s, and they form a pair in which A = 0, B = 1 and D = 0 - the term A'BD', with C dropping out."
+  },
+  "pyqIds": [
+    "gate-2014-set3-q7-minimal-sop-with-dont-cares",
+    "gate-2012-q30-kmap-minimal-form"
+  ],
+  "prereqs": [
+    "essential-prime-implicants-and-minimal-cover"
+  ],
+  "sources": [
+    {
+      "kind": "lecture-transcript",
+      "title": "Lecture 10 - Karnaugh Map and Digital Circuit Realization",
+      "channel": "NPTEL, Digital Electronic Circuits (Prof. Goutam Saha, IIT Kharagpur)",
+      "url": "http://digimat.in/nptel/courses/video/108105132/lec10.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read from the opening to the two-variable map, plus the closing summary: truth table to grid, minterm numbering, AB' + AB = A as the first grouping, and the summary's rules - SOP covers every 1 with the fewest and largest power-of-two groups, POS covers the 0s, and a don't care is taken as 0 or 1 according to which makes the group larger. The middle of the served transcript is missing, so no 3- or 4-variable worked example is attributed to it."
+    },
+    {
+      "kind": "lecture-transcript",
+      "title": "Lecture 12 - Quine-McCluskey (QM) Algorithm",
+      "channel": "NPTEL, Digital Electronic Circuits (Prof. Goutam Saha, IIT Kharagpur)",
+      "url": "http://digimat.in/nptel/courses/video/108105132/lec12.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read from the opening to the stage-2 combination of the four-variable example, plus the closing summary: the three steps, implicant and prime implicant defined, grouping by the number of 1s, the iterative combination, and the closing rule that don't cares are included when finding prime implicants and excluded when finding essential prime implicants."
+    },
+    {
+      "kind": "text",
+      "title": "Karnaugh map: Gray-code ordering, grouping and wrap-around",
+      "channel": "Wikipedia",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "url": "https://en.wikipedia.org/wiki/Karnaugh_map",
+      "note": "read the construction, grouping and solution sections: Gray-code ordering so neighbours differ in one variable, power-of-two rectangles that may overlap, toroidal connectivity for wrap-around, the reading rule (keep the variables constant across the box, drop the rest), don't cares that may be included in a group or left out, and the POS form obtained by minimising the complement and applying De Morgan."
+    }
+  ],
+  "sourceLine": "The don't-care rule (take X as 0 or 1 according to which makes the group larger): NPTEL IIT Kharagpur Digital Electronic Circuits Lecture 10 closing summary (English), restated by the same course's Lecture 12 summary for the tabular method (included when finding prime implicants, excluded when finding essential ones). The same rule in reference form: the Wikipedia Karnaugh map article (English, read in part). Every cover in this card is recomputed in scripts/validate.py.",
+  "visual": "digital-logic/boolean-algebra-and-minimization/kmap-dont-care-grouping"
+}
