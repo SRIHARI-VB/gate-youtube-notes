@@ -88,5 +88,17 @@
     }
   ],
   "sourceLine": "The definition of statistical independence, the symmetry argument and the four conditions for three events: NPTEL IIT Kharagpur Lecture 10 (English, read in part). The product test as a GATE-level statement with the free-kick example: OpenStax Introductory Statistics 3.3 (English). The independence against exclusivity warning: the Knowledge Gate AI GATE probability page (English).",
-  "videoRefs": []
+  "videoRefs": [],
+  "links": {
+    "visual": {
+      "slug": "probability-and-random-variables",
+      "title": "Probability, Random Variables and Distributions",
+      "level": "topic-level",
+      "covers": [
+        "conditional probability and independence"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/probability-and-random-variables/index.html"
+    },
+    "mapped_at": "2026-10-30"
+  }
 }

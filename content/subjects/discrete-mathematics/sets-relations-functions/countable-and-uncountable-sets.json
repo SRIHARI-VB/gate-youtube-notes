@@ -81,28 +81,37 @@
       "question_count": 50,
       "subtopics": [
         {
-          "label": "Subsets & power sets",
+          "label": "cardinality",
           "questions": 10
         },
         {
-          "label": "Cardinality",
+          "label": "inclusion-exclusion",
           "questions": 10
         },
         {
-          "label": "Set algebra & De Morgan",
+          "label": "partitions-and-cartesian-products",
           "questions": 10
         },
         {
-          "label": "Inclusion-exclusion",
+          "label": "set-algebra-de-morgan",
           "questions": 10
         },
         {
-          "label": "Partitions & Cartesian products",
+          "label": "subsets-and-power-sets",
           "questions": 10
         }
       ],
-      "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/set-theory/gate_dm_mock_3_2026-10-25.html"
+      "url": "https://gate-cse-mocks.vercel.app/"
     },
-    "mapped_at": "2026-10-28"
+    "visual": {
+      "slug": "sets-and-set-operations",
+      "title": "Sets and Set Operations",
+      "level": "topic-level",
+      "covers": [
+        "cardinality and counting of finite sets"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/sets-and-set-operations/index.html"
+    },
+    "mapped_at": "2026-10-30"
   }
 }

@@ -89,12 +89,12 @@
       "question_count": 50,
       "subtopics": [
         {
-          "label": "indeterminate-forms-lhopital",
-          "questions": 14
-        },
-        {
           "label": "continuity-analysis",
           "questions": 12
+        },
+        {
+          "label": "indeterminate-forms-lhopital",
+          "questions": 14
         },
         {
           "label": "mean-value-theorems",
@@ -112,11 +112,10 @@
       "title": "Calculus: Limits, Extrema and Integration",
       "level": "topic-level",
       "covers": [
-        "a limit is the value approached, not the value reached",
-        "two one-sided limits plus the value decide continuity at a point"
+        "limits and standard forms"
       ],
       "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
     },
-    "mapped_at": "2026-10-29"
+    "mapped_at": "2026-10-30"
   }
 }

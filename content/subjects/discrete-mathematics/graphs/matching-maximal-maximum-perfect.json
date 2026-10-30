@@ -77,11 +77,11 @@
       "title": "Graphs: Matching and Colouring",
       "level": "topic-level",
       "covers": [
-        "matching, saturated, free, maximal, maximum, perfect, near-perfect, matching number",
-        "Berge's theorem and the augmenting-path algorithm"
+        "matchings and maximum matchings",
+        "perfect and maximum matchings"
       ],
       "url": "https://gate-visual-explainer.vercel.app/topics/matching-and-colouring/index.html"
     },
-    "mapped_at": "2026-10-28"
+    "mapped_at": "2026-10-30"
   }
 }

@@ -78,5 +78,19 @@
       "note": "published lecture list read; the video captions themselves could not be retrieved in this run, so this is a structure reference only and no card quotes it"
     }
   ],
-  "sourceLine": "Homomorphism, kernel and isomorphism statements: GeeksforGeeks GATE group-theory notes (English, read in full) for the group vocabulary, with every claim here recomputed in scripts/validate.py on the reduction map Z to Z_6 and on the exponential map. This material is outside the two-word GATE line and no verified PYQ in the repository tests it."
+  "sourceLine": "Homomorphism, kernel and isomorphism statements: GeeksforGeeks GATE group-theory notes (English, read in full) for the group vocabulary, with every claim here recomputed in scripts/validate.py on the reduction map Z to Z_6 and on the exponential map. This material is outside the two-word GATE line and no verified PYQ in the repository tests it.",
+  "links": {
+    "visual": {
+      "slug": "monoids-and-groups",
+      "title": "Monoids and Groups",
+      "level": "topic-level",
+      "covers": [
+        "semigroups and monoids",
+        "groups, subgroups",
+        "cyclic groups and generators"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/monoids-and-groups/index.html"
+    },
+    "mapped_at": "2026-10-30"
+  }
 }

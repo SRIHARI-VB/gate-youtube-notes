@@ -101,16 +101,48 @@
   "sourceLine": "The three assumptions of the Poisson process, the derivation of the PMF and the worked example with lambda t rescaled to the window: NPTEL Lecture 22 (English). The derivation of the mean and the standard deviation sqrt(lambda): Glen Cowan's Poisson note (English). The mean-equals-variance signature and the 'at least / at most' pitfalls: the GATE Overflow probability notes and the Hindi page (translated).",
   "videoRefs": [],
   "links": {
-    "visual": {
-      "slug": "probability-and-random-variables",
-      "title": "Probability, Random Variables and Distributions",
-      "level": "topic-level",
-      "url": "https://gate-visual-explainer.vercel.app/topics/probability-and-random-variables/index.html",
-      "covers": [
-        "Poisson PMF with mean and variance both lambda",
-        "Poisson as the large-n small-p binomial limit"
-      ]
+    "mock": {
+      "subject": "engineering-mathematics",
+      "unit_slug": "probability-distributions",
+      "unit_name": "Continuous Probability & Distributions",
+      "unit_number": 5,
+      "question_count": 25,
+      "subtopics": [
+        {
+          "label": "correlation-and-covariance",
+          "questions": 5
+        },
+        {
+          "label": "exponential-distribution",
+          "questions": 5
+        },
+        {
+          "label": "normal-distribution",
+          "questions": 5
+        },
+        {
+          "label": "random-variables-cdf-pdf",
+          "questions": 5
+        },
+        {
+          "label": "uniform-distribution",
+          "questions": 5
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/probability-distributions/gate_em_mock_5_2026-10-30.html"
     },
-    "mapped_at": "2026-10-29"
+    "visual": {
+      "slug": "exponential-and-poisson-distributions",
+      "title": "The Exponential and Poisson Distributions: One Rate, Two Questions, and the Four Places the Arithmetic Breaks",
+      "level": "subtopic-level",
+      "covers": [
+        "the count against the wait: Poisson on the whole numbers, exponential on the positive reals",
+        "the Poisson mass function e^-lambda lambda^k / k! and its normalisation",
+        "the Poisson mean and variance, both equal to lambda",
+        "the Poisson as the limit of the binomial with np fixed"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/exponential-and-poisson-distributions/index.html"
+    },
+    "mapped_at": "2026-10-30"
   }
 }

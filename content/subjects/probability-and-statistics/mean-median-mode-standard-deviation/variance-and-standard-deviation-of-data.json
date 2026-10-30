@@ -100,14 +100,16 @@
   "videoRefs": [],
   "links": {
     "visual": {
-      "slug": "probability-and-random-variables",
-      "title": "Probability, Random Variables and Distributions",
+      "slug": "mean-median-mode-standard-deviation",
+      "title": "Mean, Median, Mode and Standard Deviation: Three Middles, One Spread, and When Each Rule Fails",
       "level": "topic-level",
-      "url": "https://gate-visual-explainer.vercel.app/topics/probability-and-random-variables/index.html",
       "covers": [
-        "variance as E[X^2] - (E[X])^2",
-        "the standard deviation as the square root of the variance"
-      ]
+        "mean of raw data",
+        "mean of grouped data by midpoints",
+        "median of raw data, odd and even n",
+        "median of grouped data by cumulative frequency"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/mean-median-mode-standard-deviation/index.html"
     },
     "mapped_at": "2026-10-30"
   }

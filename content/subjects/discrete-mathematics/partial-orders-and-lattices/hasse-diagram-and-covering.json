@@ -97,42 +97,41 @@
       "question_count": 50,
       "subtopics": [
         {
-          "label": "Relation properties",
+          "label": "composition-transitive-closure",
+          "questions": 8
+        },
+        {
+          "label": "counting-relations",
+          "questions": 8
+        },
+        {
+          "label": "equivalence-relations-classes",
           "questions": 9
         },
         {
-          "label": "Equivalence relations & classes",
+          "label": "lattices-in-posets",
+          "questions": 8
+        },
+        {
+          "label": "partial-orders-hasse-diagrams",
+          "questions": 8
+        },
+        {
+          "label": "relation-properties",
           "questions": 9
-        },
-        {
-          "label": "Partial orders & Hasse diagrams",
-          "questions": 8
-        },
-        {
-          "label": "Lattices in posets",
-          "questions": 8
-        },
-        {
-          "label": "Composition & transitive closure",
-          "questions": 8
-        },
-        {
-          "label": "Counting relations",
-          "questions": 8
         }
       ],
-      "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html"
+      "url": "https://gate-cse-mocks.vercel.app/"
     },
     "visual": {
       "slug": "partial-orders-and-lattices",
       "title": "Partial Orders, Hasse Diagrams and Lattices",
       "level": "topic-level",
       "covers": [
-        "the covering relation and transitive reduction",
-        "drawing the Hasse diagram"
+        "Hasse diagrams"
       ],
       "url": "https://gate-visual-explainer.vercel.app/topics/partial-orders-and-lattices/index.html"
     },
-    "mapped_at": "2026-10-28"
+    "mapped_at": "2026-10-30"
   }
 }

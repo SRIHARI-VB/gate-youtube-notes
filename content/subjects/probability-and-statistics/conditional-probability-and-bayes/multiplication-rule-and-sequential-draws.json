@@ -88,5 +88,18 @@
     }
   ],
   "sourceLine": "The multiplication rule as a consequence of the definition and the statement of the chain for several events: NPTEL IIT Kharagpur Lecture 09 (English, read in part). The rule in both directions as a GATE-level statement: OpenStax Introductory Statistics 3.3 (English). The two-card ace example: the Knowledge Gate AI GATE probability page (English).",
-  "videoRefs": []
+  "videoRefs": [],
+  "links": {
+    "visual": {
+      "slug": "probability-and-random-variables",
+      "title": "Probability, Random Variables and Distributions",
+      "level": "topic-level",
+      "covers": [
+        "addition rule and complement",
+        "multiplication rule and chains"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/probability-and-random-variables/index.html"
+    },
+    "mapped_at": "2026-10-30"
+  }
 }

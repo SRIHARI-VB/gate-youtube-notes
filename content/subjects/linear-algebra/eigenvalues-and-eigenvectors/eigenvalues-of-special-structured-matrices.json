@@ -90,8 +90,8 @@
       "question_count": 50,
       "subtopics": [
         {
-          "label": "eigenvalue-properties",
-          "questions": 16
+          "label": "cayley-hamilton-theorem",
+          "questions": 10
         },
         {
           "label": "characteristic-equations",
@@ -102,8 +102,8 @@
           "questions": 12
         },
         {
-          "label": "cayley-hamilton-theorem",
-          "questions": 10
+          "label": "eigenvalue-properties",
+          "questions": 16
         }
       ],
       "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/eigenvalues-eigenvectors/gate_em_mock_2_2026-10-27.html"
@@ -113,11 +113,10 @@
       "title": "Matrices, Systems and Eigenvalues",
       "level": "topic-level",
       "covers": [
-        "triangular, all-ones, idempotent, nilpotent and rotation patterns",
-        "the row-sum shortcut gives the largest eigenvalue only, not the whole list"
+        "eigenvalues and eigenvectors"
       ],
       "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },
-    "mapped_at": "2026-10-29"
+    "mapped_at": "2026-10-30"
   }
 }

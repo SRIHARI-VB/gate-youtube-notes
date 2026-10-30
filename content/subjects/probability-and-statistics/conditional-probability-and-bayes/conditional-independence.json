@@ -87,5 +87,17 @@
     }
   ],
   "sourceLine": "The conditional measure and its properties: NPTEL IIT Kharagpur Lecture 09 and StatLect (English). The independence definitions that this card conditions on: NPTEL Lecture 10 (English, read in part). Every number on the card is recomputed by enumeration in scripts/validate.py.",
-  "videoRefs": []
+  "videoRefs": [],
+  "links": {
+    "visual": {
+      "slug": "probability-and-random-variables",
+      "title": "Probability, Random Variables and Distributions",
+      "level": "topic-level",
+      "covers": [
+        "conditional probability and independence"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/probability-and-random-variables/index.html"
+    },
+    "mapped_at": "2026-10-30"
+  }
 }

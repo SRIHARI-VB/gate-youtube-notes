@@ -76,10 +76,13 @@
       "title": "Graphs: Connectivity and Structure",
       "level": "topic-level",
       "covers": [
-        "bipartite iff no odd cycle, decided by BFS parity"
+        "graph as two sets, adjacency matrix and adjacency list",
+        "walks, trails, paths, cycles, components and distance",
+        "bipartite graphs and odd cycles",
+        "Euler trails and Hamiltonian cycles"
       ],
       "url": "https://gate-visual-explainer.vercel.app/topics/graphs-connectivity/index.html"
     },
-    "mapped_at": "2026-10-28"
+    "mapped_at": "2026-10-30"
   }
 }

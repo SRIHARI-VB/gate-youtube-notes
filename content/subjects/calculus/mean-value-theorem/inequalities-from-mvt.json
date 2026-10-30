@@ -69,12 +69,12 @@
       "question_count": 50,
       "subtopics": [
         {
-          "label": "indeterminate-forms-lhopital",
-          "questions": 14
-        },
-        {
           "label": "continuity-analysis",
           "questions": 12
+        },
+        {
+          "label": "indeterminate-forms-lhopital",
+          "questions": 14
         },
         {
           "label": "mean-value-theorems",
@@ -92,13 +92,10 @@
       "title": "Calculus: Limits, Extrema and Integration",
       "level": "topic-level",
       "covers": [
-        "the mean value theorem as an inequality bounding a function's value",
-        "Rolle's theorem as the equal-endpoint special case",
-        "continuity on the closed interval and differentiability on the open one",
-        "the failure case where no interior point carries the average slope"
+        "the mean value theorem used as an inequality, and sharpness"
       ],
       "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
     },
-    "mapped_at": "2026-10-29"
+    "mapped_at": "2026-10-30"
   }
 }

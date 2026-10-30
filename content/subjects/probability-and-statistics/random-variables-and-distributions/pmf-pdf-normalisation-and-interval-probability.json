@@ -91,16 +91,42 @@
   "sourceLine": "The two conditions on a density and the interval formula: NPTEL Probability and Statistics Lecture 15 (English). The GATE statement of the same trap, that a computed probability outside [0, 1] means the constant was forgotten: the Knowledge Gate walkthrough of the 2025 question and the GATE Overflow probability notes (English). The Hindi page states the area-under-the-curve reading and the zero probability of a single value (translated).",
   "videoRefs": [],
   "links": {
+    "mock": {
+      "subject": "engineering-mathematics",
+      "unit_slug": "probability-distributions",
+      "unit_name": "Continuous Probability & Distributions",
+      "unit_number": 5,
+      "question_count": 25,
+      "subtopics": [
+        {
+          "label": "correlation-and-covariance",
+          "questions": 5
+        },
+        {
+          "label": "exponential-distribution",
+          "questions": 5
+        },
+        {
+          "label": "normal-distribution",
+          "questions": 5
+        },
+        {
+          "label": "random-variables-cdf-pdf",
+          "questions": 5
+        },
+        {
+          "label": "uniform-distribution",
+          "questions": 5
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/probability-distributions/gate_em_mock_5_2026-10-30.html"
+    },
     "visual": {
       "slug": "probability-and-random-variables",
       "title": "Probability, Random Variables and Distributions",
       "level": "topic-level",
-      "url": "https://gate-visual-explainer.vercel.app/topics/probability-and-random-variables/index.html",
-      "covers": [
-        "probability as area under the density",
-        "the density may exceed 1 and P(X = a) = 0"
-      ]
+      "url": "https://gate-visual-explainer.vercel.app/topics/probability-and-random-variables/index.html"
     },
-    "mapped_at": "2026-10-29"
+    "mapped_at": "2026-10-30"
   }
 }

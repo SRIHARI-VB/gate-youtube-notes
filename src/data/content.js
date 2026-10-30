@@ -1332,17 +1332,43 @@ window.GATE_DATA = {
    ],
    "prereqs": [],
    "links": {
+    "mock": {
+     "subject": "discrete-mathematics",
+     "unit_slug": "combinatorics",
+     "unit_name": "Counting & Combinatorics",
+     "unit_number": 7,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "binomial-multinomial-coefficients",
+       "questions": 10
+      },
+      {
+       "label": "double-counting",
+       "questions": 10
+      },
+      {
+       "label": "inclusion-exclusion-counting",
+       "questions": 10
+      },
+      {
+       "label": "permutations-combinations",
+       "questions": 10
+      },
+      {
+       "label": "stars-and-bars",
+       "questions": 10
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/combinatorics/gate_dm_mock_7_2026-10-28.html"
+    },
     "visual": {
      "slug": "counting-and-combinatorics",
      "title": "Counting and Combinatorics",
      "level": "topic-level",
-     "covers": [
-      "sum and product rules",
-      "the four counting boxes"
-     ],
      "url": "https://gate-visual-explainer.vercel.app/topics/counting-and-combinatorics/index.html"
     },
-    "mapped_at": "2026-10-27"
+    "mapped_at": "2026-10-30"
    },
    "subject": "discrete-mathematics",
    "topic": "combinatorics",
@@ -1402,23 +1428,23 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "Permutations & combinations",
+       "label": "binomial-multinomial-coefficients",
        "questions": 10
       },
       {
-       "label": "Binomial & multinomial coefficients",
+       "label": "double-counting",
        "questions": 10
       },
       {
-       "label": "Double counting",
+       "label": "inclusion-exclusion-counting",
        "questions": 10
       },
       {
-       "label": "Stars and bars",
+       "label": "permutations-combinations",
        "questions": 10
       },
       {
-       "label": "Inclusion-exclusion counting",
+       "label": "stars-and-bars",
        "questions": 10
       }
      ],
@@ -1433,7 +1459,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/counting-and-combinatorics/index.html"
     },
-    "mapped_at": "2026-10-28"
+    "mapped_at": "2026-10-30"
    },
    "subject": "discrete-mathematics",
    "topic": "combinatorics",
@@ -1504,23 +1530,23 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "Permutations & combinations",
+       "label": "binomial-multinomial-coefficients",
        "questions": 10
       },
       {
-       "label": "Binomial & multinomial coefficients",
+       "label": "double-counting",
        "questions": 10
       },
       {
-       "label": "Double counting",
+       "label": "inclusion-exclusion-counting",
        "questions": 10
       },
       {
-       "label": "Stars and bars",
+       "label": "permutations-combinations",
        "questions": 10
       },
       {
-       "label": "Inclusion-exclusion counting",
+       "label": "stars-and-bars",
        "questions": 10
       }
      ],
@@ -1535,7 +1561,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/counting-and-combinatorics/index.html"
     },
-    "mapped_at": "2026-10-28"
+    "mapped_at": "2026-10-30"
    },
    "subject": "discrete-mathematics",
    "topic": "combinatorics",
@@ -1596,23 +1622,23 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "Permutations & combinations",
+       "label": "binomial-multinomial-coefficients",
        "questions": 10
       },
       {
-       "label": "Binomial & multinomial coefficients",
+       "label": "double-counting",
        "questions": 10
       },
       {
-       "label": "Double counting",
+       "label": "inclusion-exclusion-counting",
        "questions": 10
       },
       {
-       "label": "Stars and bars",
+       "label": "permutations-combinations",
        "questions": 10
       },
       {
-       "label": "Inclusion-exclusion counting",
+       "label": "stars-and-bars",
        "questions": 10
       }
      ],
@@ -1623,11 +1649,11 @@ window.GATE_DATA = {
      "title": "Counting and Combinatorics",
      "level": "topic-level",
      "covers": [
-      "binomial coefficients"
+      "binomial coefficients and identities"
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/counting-and-combinatorics/index.html"
     },
-    "mapped_at": "2026-10-28"
+    "mapped_at": "2026-10-30"
    },
    "subject": "discrete-mathematics",
    "topic": "combinatorics",
@@ -1686,23 +1712,23 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "Permutations & combinations",
+       "label": "binomial-multinomial-coefficients",
        "questions": 10
       },
       {
-       "label": "Binomial & multinomial coefficients",
+       "label": "double-counting",
        "questions": 10
       },
       {
-       "label": "Double counting",
+       "label": "inclusion-exclusion-counting",
        "questions": 10
       },
       {
-       "label": "Stars and bars",
+       "label": "permutations-combinations",
        "questions": 10
       },
       {
-       "label": "Inclusion-exclusion counting",
+       "label": "stars-and-bars",
        "questions": 10
       }
      ],
@@ -1713,11 +1739,11 @@ window.GATE_DATA = {
      "title": "Counting and Combinatorics",
      "level": "topic-level",
      "covers": [
-      "permutations with repeated elements"
+      "permutations and combinations"
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/counting-and-combinatorics/index.html"
     },
-    "mapped_at": "2026-10-28"
+    "mapped_at": "2026-10-30"
    },
    "subject": "discrete-mathematics",
    "topic": "combinatorics",
@@ -1782,23 +1808,23 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "Permutations & combinations",
+       "label": "binomial-multinomial-coefficients",
        "questions": 10
       },
       {
-       "label": "Binomial & multinomial coefficients",
+       "label": "double-counting",
        "questions": 10
       },
       {
-       "label": "Double counting",
+       "label": "inclusion-exclusion-counting",
        "questions": 10
       },
       {
-       "label": "Stars and bars",
+       "label": "permutations-combinations",
        "questions": 10
       },
       {
-       "label": "Inclusion-exclusion counting",
+       "label": "stars-and-bars",
        "questions": 10
       }
      ],
@@ -1808,13 +1834,9 @@ window.GATE_DATA = {
      "slug": "counting-and-combinatorics",
      "title": "Counting and Combinatorics",
      "level": "topic-level",
-     "covers": [
-      "the four counting boxes",
-      "stars and bars"
-     ],
      "url": "https://gate-visual-explainer.vercel.app/topics/counting-and-combinatorics/index.html"
     },
-    "mapped_at": "2026-10-28"
+    "mapped_at": "2026-10-30"
    },
    "subject": "discrete-mathematics",
    "topic": "combinatorics",
@@ -1872,38 +1894,35 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "Injective / surjective / bijective",
+       "label": "composition-and-inverses",
        "questions": 10
       },
       {
-       "label": "Composition & inverses",
+       "label": "counting-functions",
        "questions": 10
       },
       {
-       "label": "Counting functions",
+       "label": "floor-ceiling-recursion",
        "questions": 10
       },
       {
-       "label": "Pigeonhole principle",
+       "label": "pigeonhole-principle",
        "questions": 10
       },
       {
-       "label": "Floor, ceiling & recursion",
+       "label": "types-injective-surjective-bijective",
        "questions": 10
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/functions/gate_dm_mock_5_2026-10-26.html"
+     "url": "https://gate-cse-mocks.vercel.app/"
     },
     "visual": {
      "slug": "functions-and-their-properties",
      "title": "Functions and Their Properties",
      "level": "topic-level",
-     "covers": [
-      "counting functions"
-     ],
      "url": "https://gate-visual-explainer.vercel.app/topics/functions-and-their-properties/index.html"
     },
-    "mapped_at": "2026-10-27"
+    "mapped_at": "2026-10-30"
    },
    "subject": "discrete-mathematics",
    "topic": "combinatorics",
@@ -1975,23 +1994,23 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "Permutations & combinations",
+       "label": "binomial-multinomial-coefficients",
        "questions": 10
       },
       {
-       "label": "Binomial & multinomial coefficients",
+       "label": "double-counting",
        "questions": 10
       },
       {
-       "label": "Double counting",
+       "label": "inclusion-exclusion-counting",
        "questions": 10
       },
       {
-       "label": "Stars and bars",
+       "label": "permutations-combinations",
        "questions": 10
       },
       {
-       "label": "Inclusion-exclusion counting",
+       "label": "stars-and-bars",
        "questions": 10
       }
      ],
@@ -2006,7 +2025,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/counting-and-combinatorics/index.html"
     },
-    "mapped_at": "2026-10-28"
+    "mapped_at": "2026-10-30"
    },
    "subject": "discrete-mathematics",
    "topic": "combinatorics",
@@ -2065,29 +2084,35 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "Subsets & power sets",
+       "label": "cardinality",
        "questions": 10
       },
       {
-       "label": "Cardinality",
+       "label": "inclusion-exclusion",
        "questions": 10
       },
       {
-       "label": "Set algebra & De Morgan",
+       "label": "partitions-and-cartesian-products",
        "questions": 10
       },
       {
-       "label": "Inclusion-exclusion",
+       "label": "set-algebra-de-morgan",
        "questions": 10
       },
       {
-       "label": "Partitions & Cartesian products",
+       "label": "subsets-and-power-sets",
        "questions": 10
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/set-theory/gate_dm_mock_3_2026-10-25.html"
+     "url": "https://gate-cse-mocks.vercel.app/"
     },
-    "mapped_at": "2026-10-27"
+    "visual": {
+     "slug": "counting-and-combinatorics",
+     "title": "Counting and Combinatorics",
+     "level": "topic-level",
+     "url": "https://gate-visual-explainer.vercel.app/topics/counting-and-combinatorics/index.html"
+    },
+    "mapped_at": "2026-10-30"
    },
    "subject": "discrete-mathematics",
    "topic": "combinatorics",
@@ -2140,6 +2165,15 @@ window.GATE_DATA = {
     "distribution-templates",
     "doib-stirling"
    ],
+   "links": {
+    "visual": {
+     "slug": "counting-and-combinatorics",
+     "title": "Counting and Combinatorics",
+     "level": "topic-level",
+     "url": "https://gate-visual-explainer.vercel.app/topics/counting-and-combinatorics/index.html"
+    },
+    "mapped_at": "2026-10-30"
+   },
    "subject": "discrete-mathematics",
    "topic": "combinatorics",
    "path": "subjects/discrete-mathematics/combinatorics/ioib-partitions.json"
@@ -2202,23 +2236,23 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "Permutations & combinations",
+       "label": "binomial-multinomial-coefficients",
        "questions": 10
       },
       {
-       "label": "Binomial & multinomial coefficients",
+       "label": "double-counting",
        "questions": 10
       },
       {
-       "label": "Double counting",
+       "label": "inclusion-exclusion-counting",
        "questions": 10
       },
       {
-       "label": "Stars and bars",
+       "label": "permutations-combinations",
        "questions": 10
       },
       {
-       "label": "Inclusion-exclusion counting",
+       "label": "stars-and-bars",
        "questions": 10
       }
      ],
@@ -2233,7 +2267,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/counting-and-combinatorics/index.html"
     },
-    "mapped_at": "2026-10-28"
+    "mapped_at": "2026-10-30"
    },
    "subject": "discrete-mathematics",
    "topic": "combinatorics",
@@ -2297,23 +2331,23 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "Permutations & combinations",
+       "label": "binomial-multinomial-coefficients",
        "questions": 10
       },
       {
-       "label": "Binomial & multinomial coefficients",
+       "label": "double-counting",
        "questions": 10
       },
       {
-       "label": "Double counting",
+       "label": "inclusion-exclusion-counting",
        "questions": 10
       },
       {
-       "label": "Stars and bars",
+       "label": "permutations-combinations",
        "questions": 10
       },
       {
-       "label": "Inclusion-exclusion counting",
+       "label": "stars-and-bars",
        "questions": 10
       }
      ],
@@ -2323,12 +2357,9 @@ window.GATE_DATA = {
      "slug": "counting-and-combinatorics",
      "title": "Counting and Combinatorics",
      "level": "topic-level",
-     "covers": [
-      "derangements"
-     ],
      "url": "https://gate-visual-explainer.vercel.app/topics/counting-and-combinatorics/index.html"
     },
-    "mapped_at": "2026-10-28"
+    "mapped_at": "2026-10-30"
    },
    "subject": "discrete-mathematics",
    "topic": "combinatorics",
@@ -2388,39 +2419,41 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "Injective / surjective / bijective",
+       "label": "composition-and-inverses",
        "questions": 10
       },
       {
-       "label": "Composition & inverses",
+       "label": "counting-functions",
        "questions": 10
       },
       {
-       "label": "Counting functions",
+       "label": "floor-ceiling-recursion",
        "questions": 10
       },
       {
-       "label": "Pigeonhole principle",
+       "label": "pigeonhole-principle",
        "questions": 10
       },
       {
-       "label": "Floor, ceiling & recursion",
+       "label": "types-injective-surjective-bijective",
        "questions": 10
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/functions/gate_dm_mock_5_2026-10-26.html"
+     "url": "https://gate-cse-mocks.vercel.app/"
     },
     "visual": {
      "slug": "functions-and-their-properties",
      "title": "Functions and Their Properties",
      "level": "topic-level",
      "covers": [
-      "surjective functions",
-      "counting surjections by inclusion-exclusion"
+      "a function as a total, single-valued relation",
+      "counting functions, injections, surjections and bijections",
+      "composition of functions",
+      "the inverse function versus the preimage of a set"
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/functions-and-their-properties/index.html"
     },
-    "mapped_at": "2026-10-27"
+    "mapped_at": "2026-10-30"
    },
    "subject": "discrete-mathematics",
    "topic": "combinatorics",
@@ -2489,38 +2522,38 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "Injective / surjective / bijective",
+       "label": "composition-and-inverses",
        "questions": 10
       },
       {
-       "label": "Composition & inverses",
+       "label": "counting-functions",
        "questions": 10
       },
       {
-       "label": "Counting functions",
+       "label": "floor-ceiling-recursion",
        "questions": 10
       },
       {
-       "label": "Pigeonhole principle",
+       "label": "pigeonhole-principle",
        "questions": 10
       },
       {
-       "label": "Floor, ceiling & recursion",
+       "label": "types-injective-surjective-bijective",
        "questions": 10
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/functions/gate_dm_mock_5_2026-10-26.html"
+     "url": "https://gate-cse-mocks.vercel.app/"
     },
     "visual": {
      "slug": "counting-and-combinatorics",
      "title": "Counting and Combinatorics",
      "level": "topic-level",
      "covers": [
-      "the pigeonhole principle"
+      "pigeonhole principle"
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/counting-and-combinatorics/index.html"
     },
-    "mapped_at": "2026-10-27"
+    "mapped_at": "2026-10-30"
    },
    "subject": "discrete-mathematics",
    "topic": "combinatorics",
@@ -2579,24 +2612,24 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "Characteristic equations",
+       "label": "characteristic-equations",
        "questions": 11
       },
       {
-       "label": "Homogeneous & non-homogeneous",
+       "label": "coefficient-extraction",
        "questions": 10
       },
       {
-       "label": "Ordinary generating functions",
-       "questions": 10
-      },
-      {
-       "label": "Coefficient extraction",
-       "questions": 10
-      },
-      {
-       "label": "Divide-and-conquer recurrences",
+       "label": "divide-and-conquer-recurrences",
        "questions": 9
+      },
+      {
+       "label": "homogeneous-nonhomogeneous",
+       "questions": 10
+      },
+      {
+       "label": "ordinary-generating-functions",
+       "questions": 10
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/recurrence-generating-functions/gate_dm_mock_8_2026-10-30.html"
@@ -2606,9 +2639,9 @@ window.GATE_DATA = {
      "title": "Recurrence Relations",
      "level": "topic-level",
      "covers": [
-      "building a recurrence from a constraint",
-      "characteristic equations and repeated roots",
-      "master theorem and divide-and-conquer recurrences"
+      "linear homogeneous recurrences",
+      "non-homogeneous recurrences",
+      "recurrences from divide-and-conquer algorithms"
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/recurrence-relations/index.html"
     },
@@ -2680,31 +2713,31 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "Propositions & connectives",
+       "label": "cnf-dnf",
+       "questions": 8
+      },
+      {
+       "label": "implications-and-inference",
        "questions": 9
       },
       {
-       "label": "Truth tables",
-       "questions": 9
-      },
-      {
-       "label": "Logical equivalences",
+       "label": "logical-equivalences",
        "questions": 7
       },
       {
-       "label": "Implications & inference",
+       "label": "propositions-and-connectives",
        "questions": 9
       },
       {
-       "label": "CNF / DNF",
-       "questions": 8
+       "label": "truth-tables",
+       "questions": 9
       },
       {
-       "label": "Validity & satisfiability",
+       "label": "validity-and-satisfiability",
        "questions": 8
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/propositional-logic/gate_dm_mock_1_2026-10-25.html"
+     "url": "https://gate-cse-mocks.vercel.app/"
     },
     "visual": {
      "slug": "propositional-logic",
@@ -2716,7 +2749,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/propositional-logic/index.html"
     },
-    "mapped_at": "2026-10-27"
+    "mapped_at": "2026-10-30"
    },
    "subject": "discrete-mathematics",
    "topic": "propositional-logic",
@@ -2788,43 +2821,44 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "Propositions & connectives",
+       "label": "cnf-dnf",
+       "questions": 8
+      },
+      {
+       "label": "implications-and-inference",
        "questions": 9
       },
       {
-       "label": "Truth tables",
-       "questions": 9
-      },
-      {
-       "label": "Logical equivalences",
+       "label": "logical-equivalences",
        "questions": 7
       },
       {
-       "label": "Implications & inference",
+       "label": "propositions-and-connectives",
        "questions": 9
       },
       {
-       "label": "CNF / DNF",
-       "questions": 8
+       "label": "truth-tables",
+       "questions": 9
       },
       {
-       "label": "Validity & satisfiability",
+       "label": "validity-and-satisfiability",
        "questions": 8
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/propositional-logic/gate_dm_mock_1_2026-10-25.html"
+     "url": "https://gate-cse-mocks.vercel.app/"
     },
     "visual": {
      "slug": "propositional-logic",
      "title": "Propositional Logic",
      "level": "topic-level",
      "covers": [
+      "propositions and truth values",
       "truth tables",
       "tautology, contradiction, contingency"
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/propositional-logic/index.html"
     },
-    "mapped_at": "2026-10-27"
+    "mapped_at": "2026-10-30"
    },
    "subject": "discrete-mathematics",
    "topic": "propositional-logic",
@@ -2902,31 +2936,31 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "Propositions & connectives",
+       "label": "cnf-dnf",
+       "questions": 8
+      },
+      {
+       "label": "implications-and-inference",
        "questions": 9
       },
       {
-       "label": "Truth tables",
-       "questions": 9
-      },
-      {
-       "label": "Logical equivalences",
+       "label": "logical-equivalences",
        "questions": 7
       },
       {
-       "label": "Implications & inference",
+       "label": "propositions-and-connectives",
        "questions": 9
       },
       {
-       "label": "CNF / DNF",
-       "questions": 8
+       "label": "truth-tables",
+       "questions": 9
       },
       {
-       "label": "Validity & satisfiability",
+       "label": "validity-and-satisfiability",
        "questions": 8
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/propositional-logic/gate_dm_mock_1_2026-10-25.html"
+     "url": "https://gate-cse-mocks.vercel.app/"
     },
     "visual": {
      "slug": "propositional-logic",
@@ -2934,11 +2968,12 @@ window.GATE_DATA = {
      "level": "topic-level",
      "covers": [
       "implication and its single false row",
-      "converse, inverse, contrapositive"
+      "converse, inverse, contrapositive",
+      "precedence and right associativity of implication"
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/propositional-logic/index.html"
     },
-    "mapped_at": "2026-10-27"
+    "mapped_at": "2026-10-30"
    },
    "subject": "discrete-mathematics",
    "topic": "propositional-logic",
@@ -3010,42 +3045,42 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "Propositions & connectives",
+       "label": "cnf-dnf",
+       "questions": 8
+      },
+      {
+       "label": "implications-and-inference",
        "questions": 9
       },
       {
-       "label": "Truth tables",
-       "questions": 9
-      },
-      {
-       "label": "Logical equivalences",
+       "label": "logical-equivalences",
        "questions": 7
       },
       {
-       "label": "Implications & inference",
+       "label": "propositions-and-connectives",
        "questions": 9
       },
       {
-       "label": "CNF / DNF",
-       "questions": 8
+       "label": "truth-tables",
+       "questions": 9
       },
       {
-       "label": "Validity & satisfiability",
+       "label": "validity-and-satisfiability",
        "questions": 8
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/propositional-logic/gate_dm_mock_1_2026-10-25.html"
+     "url": "https://gate-cse-mocks.vercel.app/"
     },
     "visual": {
      "slug": "propositional-logic",
      "title": "Propositional Logic",
      "level": "topic-level",
      "covers": [
-      "logical equivalence and De Morgan"
+      "logical equivalence"
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/propositional-logic/index.html"
     },
-    "mapped_at": "2026-10-27"
+    "mapped_at": "2026-10-30"
    },
    "subject": "discrete-mathematics",
    "topic": "propositional-logic",
@@ -3116,33 +3151,39 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "Propositions & connectives",
+       "label": "cnf-dnf",
+       "questions": 8
+      },
+      {
+       "label": "implications-and-inference",
        "questions": 9
       },
       {
-       "label": "Truth tables",
-       "questions": 9
-      },
-      {
-       "label": "Logical equivalences",
+       "label": "logical-equivalences",
        "questions": 7
       },
       {
-       "label": "Implications & inference",
+       "label": "propositions-and-connectives",
        "questions": 9
       },
       {
-       "label": "CNF / DNF",
-       "questions": 8
+       "label": "truth-tables",
+       "questions": 9
       },
       {
-       "label": "Validity & satisfiability",
+       "label": "validity-and-satisfiability",
        "questions": 8
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/propositional-logic/gate_dm_mock_1_2026-10-25.html"
+     "url": "https://gate-cse-mocks.vercel.app/"
     },
-    "mapped_at": "2026-10-27"
+    "visual": {
+     "slug": "propositional-logic",
+     "title": "Propositional Logic",
+     "level": "topic-level",
+     "url": "https://gate-visual-explainer.vercel.app/topics/propositional-logic/index.html"
+    },
+    "mapped_at": "2026-10-30"
    },
    "subject": "discrete-mathematics",
    "topic": "propositional-logic",
@@ -3213,43 +3254,42 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "Propositions & connectives",
+       "label": "cnf-dnf",
+       "questions": 8
+      },
+      {
+       "label": "implications-and-inference",
        "questions": 9
       },
       {
-       "label": "Truth tables",
-       "questions": 9
-      },
-      {
-       "label": "Logical equivalences",
+       "label": "logical-equivalences",
        "questions": 7
       },
       {
-       "label": "Implications & inference",
+       "label": "propositions-and-connectives",
        "questions": 9
       },
       {
-       "label": "CNF / DNF",
-       "questions": 8
+       "label": "truth-tables",
+       "questions": 9
       },
       {
-       "label": "Validity & satisfiability",
+       "label": "validity-and-satisfiability",
        "questions": 8
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/propositional-logic/gate_dm_mock_1_2026-10-25.html"
+     "url": "https://gate-cse-mocks.vercel.app/"
     },
     "visual": {
      "slug": "propositional-logic",
      "title": "Propositional Logic",
      "level": "topic-level",
      "covers": [
-      "satisfiability",
-      "validity as a tautology test"
+      "satisfiability"
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/propositional-logic/index.html"
     },
-    "mapped_at": "2026-10-27"
+    "mapped_at": "2026-10-30"
    },
    "subject": "discrete-mathematics",
    "topic": "propositional-logic",
@@ -3320,43 +3360,42 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "Propositions & connectives",
+       "label": "cnf-dnf",
+       "questions": 8
+      },
+      {
+       "label": "implications-and-inference",
        "questions": 9
       },
       {
-       "label": "Truth tables",
-       "questions": 9
-      },
-      {
-       "label": "Logical equivalences",
+       "label": "logical-equivalences",
        "questions": 7
       },
       {
-       "label": "Implications & inference",
+       "label": "propositions-and-connectives",
        "questions": 9
       },
       {
-       "label": "CNF / DNF",
-       "questions": 8
+       "label": "truth-tables",
+       "questions": 9
       },
       {
-       "label": "Validity & satisfiability",
+       "label": "validity-and-satisfiability",
        "questions": 8
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/propositional-logic/gate_dm_mock_1_2026-10-25.html"
+     "url": "https://gate-cse-mocks.vercel.app/"
     },
     "visual": {
      "slug": "propositional-logic",
      "title": "Propositional Logic",
      "level": "topic-level",
      "covers": [
-      "satisfiability",
-      "validity as a tautology test"
+      "logical equivalence"
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/propositional-logic/index.html"
     },
-    "mapped_at": "2026-10-27"
+    "mapped_at": "2026-10-30"
    },
    "subject": "discrete-mathematics",
    "topic": "propositional-logic",
@@ -3428,43 +3467,39 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "Propositions & connectives",
+       "label": "cnf-dnf",
+       "questions": 8
+      },
+      {
+       "label": "implications-and-inference",
        "questions": 9
       },
       {
-       "label": "Truth tables",
-       "questions": 9
-      },
-      {
-       "label": "Logical equivalences",
+       "label": "logical-equivalences",
        "questions": 7
       },
       {
-       "label": "Implications & inference",
+       "label": "propositions-and-connectives",
        "questions": 9
       },
       {
-       "label": "CNF / DNF",
-       "questions": 8
+       "label": "truth-tables",
+       "questions": 9
       },
       {
-       "label": "Validity & satisfiability",
+       "label": "validity-and-satisfiability",
        "questions": 8
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/propositional-logic/gate_dm_mock_1_2026-10-25.html"
+     "url": "https://gate-cse-mocks.vercel.app/"
     },
     "visual": {
      "slug": "propositional-logic",
      "title": "Propositional Logic",
      "level": "topic-level",
-     "covers": [
-      "modus ponens and modus tollens",
-      "valid argument forms"
-     ],
      "url": "https://gate-visual-explainer.vercel.app/topics/propositional-logic/index.html"
     },
-    "mapped_at": "2026-10-27"
+    "mapped_at": "2026-10-30"
    },
    "subject": "discrete-mathematics",
    "topic": "propositional-logic",
@@ -3534,33 +3569,39 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "Propositions & connectives",
+       "label": "cnf-dnf",
+       "questions": 8
+      },
+      {
+       "label": "implications-and-inference",
        "questions": 9
       },
       {
-       "label": "Truth tables",
-       "questions": 9
-      },
-      {
-       "label": "Logical equivalences",
+       "label": "logical-equivalences",
        "questions": 7
       },
       {
-       "label": "Implications & inference",
+       "label": "propositions-and-connectives",
        "questions": 9
       },
       {
-       "label": "CNF / DNF",
-       "questions": 8
+       "label": "truth-tables",
+       "questions": 9
       },
       {
-       "label": "Validity & satisfiability",
+       "label": "validity-and-satisfiability",
        "questions": 8
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/propositional-logic/gate_dm_mock_1_2026-10-25.html"
+     "url": "https://gate-cse-mocks.vercel.app/"
     },
-    "mapped_at": "2026-10-27"
+    "visual": {
+     "slug": "propositional-logic",
+     "title": "Propositional Logic",
+     "level": "topic-level",
+     "url": "https://gate-visual-explainer.vercel.app/topics/propositional-logic/index.html"
+    },
+    "mapped_at": "2026-10-30"
    },
    "subject": "discrete-mathematics",
    "topic": "propositional-logic",
@@ -3630,33 +3671,39 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "Propositions & connectives",
+       "label": "cnf-dnf",
+       "questions": 8
+      },
+      {
+       "label": "implications-and-inference",
        "questions": 9
       },
       {
-       "label": "Truth tables",
-       "questions": 9
-      },
-      {
-       "label": "Logical equivalences",
+       "label": "logical-equivalences",
        "questions": 7
       },
       {
-       "label": "Implications & inference",
+       "label": "propositions-and-connectives",
        "questions": 9
       },
       {
-       "label": "CNF / DNF",
-       "questions": 8
+       "label": "truth-tables",
+       "questions": 9
       },
       {
-       "label": "Validity & satisfiability",
+       "label": "validity-and-satisfiability",
        "questions": 8
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/propositional-logic/gate_dm_mock_1_2026-10-25.html"
+     "url": "https://gate-cse-mocks.vercel.app/"
     },
-    "mapped_at": "2026-10-27"
+    "visual": {
+     "slug": "propositional-logic",
+     "title": "Propositional Logic",
+     "level": "topic-level",
+     "url": "https://gate-visual-explainer.vercel.app/topics/propositional-logic/index.html"
+    },
+    "mapped_at": "2026-10-30"
    },
    "subject": "discrete-mathematics",
    "topic": "propositional-logic",
@@ -3725,27 +3772,27 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "Predicates & domain",
+       "label": "english-to-fol-translation",
        "questions": 10
       },
       {
-       "label": "Universal & existential quantifiers",
+       "label": "negation-nested-quantifiers",
        "questions": 10
       },
       {
-       "label": "Negation of nested quantifiers",
+       "label": "predicates-and-domain",
        "questions": 10
       },
       {
-       "label": "Scope & order of quantifiers",
+       "label": "quantifiers-universal-existential",
        "questions": 10
       },
       {
-       "label": "English to FOL translation",
+       "label": "scope-and-order",
        "questions": 10
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/predicate-logic/gate_dm_mock_2_2026-10-25.html"
+     "url": "https://gate-cse-mocks.vercel.app/"
     },
     "visual": {
      "slug": "first-order-logic",
@@ -3753,11 +3800,12 @@ window.GATE_DATA = {
      "level": "topic-level",
      "covers": [
       "universal and existential quantifiers",
-      "free and bound variables; scope"
+      "nested quantifiers and order",
+      "quantifier negation"
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/first-order-logic/index.html"
     },
-    "mapped_at": "2026-10-27"
+    "mapped_at": "2026-10-30"
    },
    "subject": "discrete-mathematics",
    "topic": "propositional-logic",
@@ -3826,43 +3874,39 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "Propositions & connectives",
+       "label": "cnf-dnf",
+       "questions": 8
+      },
+      {
+       "label": "implications-and-inference",
        "questions": 9
       },
       {
-       "label": "Truth tables",
-       "questions": 9
-      },
-      {
-       "label": "Logical equivalences",
+       "label": "logical-equivalences",
        "questions": 7
       },
       {
-       "label": "Implications & inference",
+       "label": "propositions-and-connectives",
        "questions": 9
       },
       {
-       "label": "CNF / DNF",
-       "questions": 8
+       "label": "truth-tables",
+       "questions": 9
       },
       {
-       "label": "Validity & satisfiability",
+       "label": "validity-and-satisfiability",
        "questions": 8
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/propositional-logic/gate_dm_mock_1_2026-10-25.html"
+     "url": "https://gate-cse-mocks.vercel.app/"
     },
     "visual": {
      "slug": "propositional-logic",
      "title": "Propositional Logic",
      "level": "topic-level",
-     "covers": [
-      "logical equivalence and De Morgan",
-      "valid argument forms"
-     ],
      "url": "https://gate-visual-explainer.vercel.app/topics/propositional-logic/index.html"
     },
-    "mapped_at": "2026-10-27"
+    "mapped_at": "2026-10-30"
    },
    "subject": "discrete-mathematics",
    "topic": "propositional-logic",
@@ -3930,39 +3974,41 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "Predicates & domain",
+       "label": "english-to-fol-translation",
        "questions": 10
       },
       {
-       "label": "Universal & existential quantifiers",
+       "label": "negation-nested-quantifiers",
        "questions": 10
       },
       {
-       "label": "Negation of nested quantifiers",
+       "label": "predicates-and-domain",
        "questions": 10
       },
       {
-       "label": "Scope & order of quantifiers",
+       "label": "quantifiers-universal-existential",
        "questions": 10
       },
       {
-       "label": "English to FOL translation",
+       "label": "scope-and-order",
        "questions": 10
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/predicate-logic/gate_dm_mock_2_2026-10-25.html"
+     "url": "https://gate-cse-mocks.vercel.app/"
     },
     "visual": {
      "slug": "first-order-logic",
      "title": "First-Order Logic",
      "level": "topic-level",
      "covers": [
-      "predicate vs proposition; the domain as part of the meaning",
-      "universal and existential quantifiers"
+      "predicates and the domain of discourse",
+      "universal and existential quantifiers",
+      "nested quantifiers and order",
+      "quantifier negation"
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/first-order-logic/index.html"
     },
-    "mapped_at": "2026-10-27"
+    "mapped_at": "2026-10-30"
    },
    "subject": "discrete-mathematics",
    "topic": "first-order-logic",
@@ -4043,38 +4089,38 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "Predicates & domain",
+       "label": "english-to-fol-translation",
        "questions": 10
       },
       {
-       "label": "Universal & existential quantifiers",
+       "label": "negation-nested-quantifiers",
        "questions": 10
       },
       {
-       "label": "Negation of nested quantifiers",
+       "label": "predicates-and-domain",
        "questions": 10
       },
       {
-       "label": "Scope & order of quantifiers",
+       "label": "quantifiers-universal-existential",
        "questions": 10
       },
       {
-       "label": "English to FOL translation",
+       "label": "scope-and-order",
        "questions": 10
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/predicate-logic/gate_dm_mock_2_2026-10-25.html"
+     "url": "https://gate-cse-mocks.vercel.app/"
     },
     "visual": {
      "slug": "first-order-logic",
      "title": "First-Order Logic",
      "level": "topic-level",
      "covers": [
-      "translating restricted English sentences into the correct shape"
+      "translating English into quantified formulas"
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/first-order-logic/index.html"
     },
-    "mapped_at": "2026-10-27"
+    "mapped_at": "2026-10-30"
    },
    "subject": "discrete-mathematics",
    "topic": "first-order-logic",
@@ -4143,39 +4189,40 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "Predicates & domain",
+       "label": "english-to-fol-translation",
        "questions": 10
       },
       {
-       "label": "Universal & existential quantifiers",
+       "label": "negation-nested-quantifiers",
        "questions": 10
       },
       {
-       "label": "Negation of nested quantifiers",
+       "label": "predicates-and-domain",
        "questions": 10
       },
       {
-       "label": "Scope & order of quantifiers",
+       "label": "quantifiers-universal-existential",
        "questions": 10
       },
       {
-       "label": "English to FOL translation",
+       "label": "scope-and-order",
        "questions": 10
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/predicate-logic/gate_dm_mock_2_2026-10-25.html"
+     "url": "https://gate-cse-mocks.vercel.app/"
     },
     "visual": {
      "slug": "first-order-logic",
      "title": "First-Order Logic",
      "level": "topic-level",
      "covers": [
-      "order of unlike quantifiers; for-all-there-exists vs there-exists-for-all",
-      "there-exists-for-all implies for-all-there-exists, never the reverse"
+      "universal and existential quantifiers",
+      "nested quantifiers and order",
+      "quantifier negation"
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/first-order-logic/index.html"
     },
-    "mapped_at": "2026-10-27"
+    "mapped_at": "2026-10-30"
    },
    "subject": "discrete-mathematics",
    "topic": "first-order-logic",
@@ -4247,38 +4294,38 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "Predicates & domain",
+       "label": "english-to-fol-translation",
        "questions": 10
       },
       {
-       "label": "Universal & existential quantifiers",
+       "label": "negation-nested-quantifiers",
        "questions": 10
       },
       {
-       "label": "Negation of nested quantifiers",
+       "label": "predicates-and-domain",
        "questions": 10
       },
       {
-       "label": "Scope & order of quantifiers",
+       "label": "quantifiers-universal-existential",
        "questions": 10
       },
       {
-       "label": "English to FOL translation",
+       "label": "scope-and-order",
        "questions": 10
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/predicate-logic/gate_dm_mock_2_2026-10-25.html"
+     "url": "https://gate-cse-mocks.vercel.app/"
     },
     "visual": {
      "slug": "first-order-logic",
      "title": "First-Order Logic",
      "level": "topic-level",
      "covers": [
-      "same formula, different domains, different truth value"
+      "validity and satisfiability; tautology vs validity in FOL"
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/first-order-logic/index.html"
     },
-    "mapped_at": "2026-10-27"
+    "mapped_at": "2026-10-30"
    },
    "subject": "discrete-mathematics",
    "topic": "first-order-logic",
@@ -4348,38 +4395,40 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "Predicates & domain",
+       "label": "english-to-fol-translation",
        "questions": 10
       },
       {
-       "label": "Universal & existential quantifiers",
+       "label": "negation-nested-quantifiers",
        "questions": 10
       },
       {
-       "label": "Negation of nested quantifiers",
+       "label": "predicates-and-domain",
        "questions": 10
       },
       {
-       "label": "Scope & order of quantifiers",
+       "label": "quantifiers-universal-existential",
        "questions": 10
       },
       {
-       "label": "English to FOL translation",
+       "label": "scope-and-order",
        "questions": 10
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/predicate-logic/gate_dm_mock_2_2026-10-25.html"
+     "url": "https://gate-cse-mocks.vercel.app/"
     },
     "visual": {
      "slug": "first-order-logic",
      "title": "First-Order Logic",
      "level": "topic-level",
      "covers": [
-      "quantifier negation: not-for-all is exists-not; not-exists is for-all-not"
+      "universal and existential quantifiers",
+      "nested quantifiers and order",
+      "quantifier negation"
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/first-order-logic/index.html"
     },
-    "mapped_at": "2026-10-27"
+    "mapped_at": "2026-10-30"
    },
    "subject": "discrete-mathematics",
    "topic": "first-order-logic",
@@ -4460,38 +4509,39 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "Predicates & domain",
+       "label": "english-to-fol-translation",
        "questions": 10
       },
       {
-       "label": "Universal & existential quantifiers",
+       "label": "negation-nested-quantifiers",
        "questions": 10
       },
       {
-       "label": "Negation of nested quantifiers",
+       "label": "predicates-and-domain",
        "questions": 10
       },
       {
-       "label": "Scope & order of quantifiers",
+       "label": "quantifiers-universal-existential",
        "questions": 10
       },
       {
-       "label": "English to FOL translation",
+       "label": "scope-and-order",
        "questions": 10
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/predicate-logic/gate_dm_mock_2_2026-10-25.html"
+     "url": "https://gate-cse-mocks.vercel.app/"
     },
     "visual": {
      "slug": "first-order-logic",
      "title": "First-Order Logic",
      "level": "topic-level",
      "covers": [
-      "there-exists-for-all implies for-all-there-exists, never the reverse"
+      "implication for a restricted for-all, conjunction for a restricted there-exists",
+      "validity and satisfiability; tautology vs validity in FOL"
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/first-order-logic/index.html"
     },
-    "mapped_at": "2026-10-27"
+    "mapped_at": "2026-10-30"
    },
    "subject": "discrete-mathematics",
    "topic": "first-order-logic",
@@ -4562,29 +4612,38 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "Predicates & domain",
+       "label": "english-to-fol-translation",
        "questions": 10
       },
       {
-       "label": "Universal & existential quantifiers",
+       "label": "negation-nested-quantifiers",
        "questions": 10
       },
       {
-       "label": "Negation of nested quantifiers",
+       "label": "predicates-and-domain",
        "questions": 10
       },
       {
-       "label": "Scope & order of quantifiers",
+       "label": "quantifiers-universal-existential",
        "questions": 10
       },
       {
-       "label": "English to FOL translation",
+       "label": "scope-and-order",
        "questions": 10
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/predicate-logic/gate_dm_mock_2_2026-10-25.html"
+     "url": "https://gate-cse-mocks.vercel.app/"
     },
-    "mapped_at": "2026-10-27"
+    "visual": {
+     "slug": "first-order-logic",
+     "title": "First-Order Logic",
+     "level": "topic-level",
+     "covers": [
+      "validity and satisfiability; tautology vs validity in FOL"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/first-order-logic/index.html"
+    },
+    "mapped_at": "2026-10-30"
    },
    "subject": "discrete-mathematics",
    "topic": "first-order-logic",
@@ -4652,29 +4711,35 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "Predicates & domain",
+       "label": "english-to-fol-translation",
        "questions": 10
       },
       {
-       "label": "Universal & existential quantifiers",
+       "label": "negation-nested-quantifiers",
        "questions": 10
       },
       {
-       "label": "Negation of nested quantifiers",
+       "label": "predicates-and-domain",
        "questions": 10
       },
       {
-       "label": "Scope & order of quantifiers",
+       "label": "quantifiers-universal-existential",
        "questions": 10
       },
       {
-       "label": "English to FOL translation",
+       "label": "scope-and-order",
        "questions": 10
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/predicate-logic/gate_dm_mock_2_2026-10-25.html"
+     "url": "https://gate-cse-mocks.vercel.app/"
     },
-    "mapped_at": "2026-10-27"
+    "visual": {
+     "slug": "first-order-logic",
+     "title": "First-Order Logic",
+     "level": "topic-level",
+     "url": "https://gate-visual-explainer.vercel.app/topics/first-order-logic/index.html"
+    },
+    "mapped_at": "2026-10-30"
    },
    "subject": "discrete-mathematics",
    "topic": "first-order-logic",
@@ -4741,38 +4806,35 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "Predicates & domain",
+       "label": "english-to-fol-translation",
        "questions": 10
       },
       {
-       "label": "Universal & existential quantifiers",
+       "label": "negation-nested-quantifiers",
        "questions": 10
       },
       {
-       "label": "Negation of nested quantifiers",
+       "label": "predicates-and-domain",
        "questions": 10
       },
       {
-       "label": "Scope & order of quantifiers",
+       "label": "quantifiers-universal-existential",
        "questions": 10
       },
       {
-       "label": "English to FOL translation",
+       "label": "scope-and-order",
        "questions": 10
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/predicate-logic/gate_dm_mock_2_2026-10-25.html"
+     "url": "https://gate-cse-mocks.vercel.app/"
     },
     "visual": {
      "slug": "first-order-logic",
      "title": "First-Order Logic",
      "level": "topic-level",
-     "covers": [
-      "model counts for mixed quantifiers"
-     ],
      "url": "https://gate-visual-explainer.vercel.app/topics/first-order-logic/index.html"
     },
-    "mapped_at": "2026-10-27"
+    "mapped_at": "2026-10-30"
    },
    "subject": "discrete-mathematics",
    "topic": "first-order-logic",
@@ -4839,29 +4901,40 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "Predicates & domain",
+       "label": "english-to-fol-translation",
        "questions": 10
       },
       {
-       "label": "Universal & existential quantifiers",
+       "label": "negation-nested-quantifiers",
        "questions": 10
       },
       {
-       "label": "Negation of nested quantifiers",
+       "label": "predicates-and-domain",
        "questions": 10
       },
       {
-       "label": "Scope & order of quantifiers",
+       "label": "quantifiers-universal-existential",
        "questions": 10
       },
       {
-       "label": "English to FOL translation",
+       "label": "scope-and-order",
        "questions": 10
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/predicate-logic/gate_dm_mock_2_2026-10-25.html"
+     "url": "https://gate-cse-mocks.vercel.app/"
     },
-    "mapped_at": "2026-10-27"
+    "visual": {
+     "slug": "first-order-logic",
+     "title": "First-Order Logic",
+     "level": "topic-level",
+     "covers": [
+      "universal and existential quantifiers",
+      "nested quantifiers and order",
+      "quantifier negation"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/first-order-logic/index.html"
+    },
+    "mapped_at": "2026-10-30"
    },
    "subject": "discrete-mathematics",
    "topic": "first-order-logic",
@@ -4954,40 +5027,39 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "Subsets & power sets",
+       "label": "cardinality",
        "questions": 10
       },
       {
-       "label": "Cardinality",
+       "label": "inclusion-exclusion",
        "questions": 10
       },
       {
-       "label": "Set algebra & De Morgan",
+       "label": "partitions-and-cartesian-products",
        "questions": 10
       },
       {
-       "label": "Inclusion-exclusion",
+       "label": "set-algebra-de-morgan",
        "questions": 10
       },
       {
-       "label": "Partitions & Cartesian products",
+       "label": "subsets-and-power-sets",
        "questions": 10
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/set-theory/gate_dm_mock_3_2026-10-25.html"
+     "url": "https://gate-cse-mocks.vercel.app/"
     },
     "visual": {
      "slug": "sets-and-set-operations",
      "title": "Sets and Set Operations",
      "level": "topic-level",
      "covers": [
-      "membership, roster and set-builder form",
-      "the empty set and the sets that look like it",
-      "subset is an implication over the universe"
+      "subset and proper subset",
+      "cardinality and counting of finite sets"
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/sets-and-set-operations/index.html"
     },
-    "mapped_at": "2026-10-28"
+    "mapped_at": "2026-10-30"
    },
    "subject": "discrete-mathematics",
    "topic": "sets-relations-functions",
@@ -5082,39 +5154,38 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "Subsets & power sets",
+       "label": "cardinality",
        "questions": 10
       },
       {
-       "label": "Cardinality",
+       "label": "inclusion-exclusion",
        "questions": 10
       },
       {
-       "label": "Set algebra & De Morgan",
+       "label": "partitions-and-cartesian-products",
        "questions": 10
       },
       {
-       "label": "Inclusion-exclusion",
+       "label": "set-algebra-de-morgan",
        "questions": 10
       },
       {
-       "label": "Partitions & Cartesian products",
+       "label": "subsets-and-power-sets",
        "questions": 10
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/set-theory/gate_dm_mock_3_2026-10-25.html"
+     "url": "https://gate-cse-mocks.vercel.app/"
     },
     "visual": {
      "slug": "sets-and-set-operations",
      "title": "Sets and Set Operations",
      "level": "topic-level",
      "covers": [
-      "the power set and its size 2^n",
-      "every subset is a bit string"
+      "power set"
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/sets-and-set-operations/index.html"
     },
-    "mapped_at": "2026-10-28"
+    "mapped_at": "2026-10-30"
    },
    "subject": "discrete-mathematics",
    "topic": "sets-relations-functions",
@@ -5207,40 +5278,35 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "Subsets & power sets",
+       "label": "cardinality",
        "questions": 10
       },
       {
-       "label": "Cardinality",
+       "label": "inclusion-exclusion",
        "questions": 10
       },
       {
-       "label": "Set algebra & De Morgan",
+       "label": "partitions-and-cartesian-products",
        "questions": 10
       },
       {
-       "label": "Inclusion-exclusion",
+       "label": "set-algebra-de-morgan",
        "questions": 10
       },
       {
-       "label": "Partitions & Cartesian products",
+       "label": "subsets-and-power-sets",
        "questions": 10
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/set-theory/gate_dm_mock_3_2026-10-25.html"
+     "url": "https://gate-cse-mocks.vercel.app/"
     },
     "visual": {
      "slug": "sets-and-set-operations",
      "title": "Sets and Set Operations",
      "level": "topic-level",
-     "covers": [
-      "union, intersection, difference, symmetric difference, complement",
-      "De Morgan for sets is De Morgan for logic",
-      "counting a union by inclusion and exclusion"
-     ],
      "url": "https://gate-visual-explainer.vercel.app/topics/sets-and-set-operations/index.html"
     },
-    "mapped_at": "2026-10-28"
+    "mapped_at": "2026-10-30"
    },
    "subject": "discrete-mathematics",
    "topic": "sets-relations-functions",
@@ -5333,38 +5399,38 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "Subsets & power sets",
+       "label": "cardinality",
        "questions": 10
       },
       {
-       "label": "Cardinality",
+       "label": "inclusion-exclusion",
        "questions": 10
       },
       {
-       "label": "Set algebra & De Morgan",
+       "label": "partitions-and-cartesian-products",
        "questions": 10
       },
       {
-       "label": "Inclusion-exclusion",
+       "label": "set-algebra-de-morgan",
        "questions": 10
       },
       {
-       "label": "Partitions & Cartesian products",
+       "label": "subsets-and-power-sets",
        "questions": 10
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/set-theory/gate_dm_mock_3_2026-10-25.html"
+     "url": "https://gate-cse-mocks.vercel.app/"
     },
     "visual": {
      "slug": "sets-and-set-operations",
      "title": "Sets and Set Operations",
      "level": "topic-level",
      "covers": [
-      "the Cartesian product is a set of ordered pairs"
+      "Cartesian product"
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/sets-and-set-operations/index.html"
     },
-    "mapped_at": "2026-10-28"
+    "mapped_at": "2026-10-30"
    },
    "subject": "discrete-mathematics",
    "topic": "sets-relations-functions",
@@ -5453,29 +5519,38 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "Subsets & power sets",
+       "label": "cardinality",
        "questions": 10
       },
       {
-       "label": "Cardinality",
+       "label": "inclusion-exclusion",
        "questions": 10
       },
       {
-       "label": "Set algebra & De Morgan",
+       "label": "partitions-and-cartesian-products",
        "questions": 10
       },
       {
-       "label": "Inclusion-exclusion",
+       "label": "set-algebra-de-morgan",
        "questions": 10
       },
       {
-       "label": "Partitions & Cartesian products",
+       "label": "subsets-and-power-sets",
        "questions": 10
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/set-theory/gate_dm_mock_3_2026-10-25.html"
+     "url": "https://gate-cse-mocks.vercel.app/"
     },
-    "mapped_at": "2026-10-28"
+    "visual": {
+     "slug": "sets-and-set-operations",
+     "title": "Sets and Set Operations",
+     "level": "topic-level",
+     "covers": [
+      "cardinality and counting of finite sets"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/sets-and-set-operations/index.html"
+    },
+    "mapped_at": "2026-10-30"
    },
    "subject": "discrete-mathematics",
    "topic": "sets-relations-functions",
@@ -5581,43 +5656,45 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "Relation properties",
+       "label": "composition-transitive-closure",
+       "questions": 8
+      },
+      {
+       "label": "counting-relations",
+       "questions": 8
+      },
+      {
+       "label": "equivalence-relations-classes",
        "questions": 9
       },
       {
-       "label": "Equivalence relations & classes",
+       "label": "lattices-in-posets",
+       "questions": 8
+      },
+      {
+       "label": "partial-orders-hasse-diagrams",
+       "questions": 8
+      },
+      {
+       "label": "relation-properties",
        "questions": 9
-      },
-      {
-       "label": "Partial orders & Hasse diagrams",
-       "questions": 8
-      },
-      {
-       "label": "Lattices in posets",
-       "questions": 8
-      },
-      {
-       "label": "Composition & transitive closure",
-       "questions": 8
-      },
-      {
-       "label": "Counting relations",
-       "questions": 8
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html"
+     "url": "https://gate-cse-mocks.vercel.app/"
     },
     "visual": {
      "slug": "relations-and-their-properties",
      "title": "Relations and Their Properties",
      "level": "topic-level",
      "covers": [
-      "a relation is a set of ordered pairs, and nothing more",
-      "the counting table, every entry enumerated in code"
+      "binary relations as subsets of a product",
+      "equivalence relations and partitions",
+      "closure of a relation",
+      "composition of relations"
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/relations-and-their-properties/index.html"
     },
-    "mapped_at": "2026-10-28"
+    "mapped_at": "2026-10-30"
    },
    "subject": "discrete-mathematics",
    "topic": "sets-relations-functions",
@@ -5724,44 +5801,45 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "Relation properties",
+       "label": "composition-transitive-closure",
+       "questions": 8
+      },
+      {
+       "label": "counting-relations",
+       "questions": 8
+      },
+      {
+       "label": "equivalence-relations-classes",
        "questions": 9
       },
       {
-       "label": "Equivalence relations & classes",
+       "label": "lattices-in-posets",
+       "questions": 8
+      },
+      {
+       "label": "partial-orders-hasse-diagrams",
+       "questions": 8
+      },
+      {
+       "label": "relation-properties",
        "questions": 9
-      },
-      {
-       "label": "Partial orders & Hasse diagrams",
-       "questions": 8
-      },
-      {
-       "label": "Lattices in posets",
-       "questions": 8
-      },
-      {
-       "label": "Composition & transitive closure",
-       "questions": 8
-      },
-      {
-       "label": "Counting relations",
-       "questions": 8
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html"
+     "url": "https://gate-cse-mocks.vercel.app/"
     },
     "visual": {
      "slug": "relations-and-their-properties",
      "title": "Relations and Their Properties",
      "level": "topic-level",
      "covers": [
-      "reflexive and irreflexive are about the diagonal",
-      "symmetric means the matrix equals its mirror image",
-      "antisymmetric is not the opposite of symmetric"
+      "binary relations as subsets of a product",
+      "reflexive, symmetric, antisymmetric, transitive",
+      "equivalence relations and partitions",
+      "closure of a relation"
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/relations-and-their-properties/index.html"
     },
-    "mapped_at": "2026-10-28"
+    "mapped_at": "2026-10-30"
    },
    "subject": "discrete-mathematics",
    "topic": "sets-relations-functions",
@@ -5856,43 +5934,42 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "Relation properties",
+       "label": "composition-transitive-closure",
+       "questions": 8
+      },
+      {
+       "label": "counting-relations",
+       "questions": 8
+      },
+      {
+       "label": "equivalence-relations-classes",
        "questions": 9
       },
       {
-       "label": "Equivalence relations & classes",
+       "label": "lattices-in-posets",
+       "questions": 8
+      },
+      {
+       "label": "partial-orders-hasse-diagrams",
+       "questions": 8
+      },
+      {
+       "label": "relation-properties",
        "questions": 9
-      },
-      {
-       "label": "Partial orders & Hasse diagrams",
-       "questions": 8
-      },
-      {
-       "label": "Lattices in posets",
-       "questions": 8
-      },
-      {
-       "label": "Composition & transitive closure",
-       "questions": 8
-      },
-      {
-       "label": "Counting relations",
-       "questions": 8
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html"
+     "url": "https://gate-cse-mocks.vercel.app/"
     },
     "visual": {
      "slug": "relations-and-their-properties",
      "title": "Relations and Their Properties",
      "level": "topic-level",
      "covers": [
-      "transitive closes a two-step path with a one-step shortcut",
-      "the closure is the smallest relation that fixes the defect"
+      "closure of a relation"
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/relations-and-their-properties/index.html"
     },
-    "mapped_at": "2026-10-28"
+    "mapped_at": "2026-10-30"
    },
    "subject": "discrete-mathematics",
    "topic": "sets-relations-functions",
@@ -5987,42 +6064,45 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "Relation properties",
+       "label": "composition-transitive-closure",
+       "questions": 8
+      },
+      {
+       "label": "counting-relations",
+       "questions": 8
+      },
+      {
+       "label": "equivalence-relations-classes",
        "questions": 9
       },
       {
-       "label": "Equivalence relations & classes",
+       "label": "lattices-in-posets",
+       "questions": 8
+      },
+      {
+       "label": "partial-orders-hasse-diagrams",
+       "questions": 8
+      },
+      {
+       "label": "relation-properties",
        "questions": 9
-      },
-      {
-       "label": "Partial orders & Hasse diagrams",
-       "questions": 8
-      },
-      {
-       "label": "Lattices in posets",
-       "questions": 8
-      },
-      {
-       "label": "Composition & transitive closure",
-       "questions": 8
-      },
-      {
-       "label": "Counting relations",
-       "questions": 8
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html"
+     "url": "https://gate-cse-mocks.vercel.app/"
     },
     "visual": {
      "slug": "relations-and-their-properties",
      "title": "Relations and Their Properties",
      "level": "topic-level",
      "covers": [
-      "reflexive, symmetric and transitive together make a partition"
+      "binary relations as subsets of a product",
+      "equivalence relations and partitions",
+      "closure of a relation",
+      "composition of relations"
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/relations-and-their-properties/index.html"
     },
-    "mapped_at": "2026-10-28"
+    "mapped_at": "2026-10-30"
    },
    "subject": "discrete-mathematics",
    "topic": "sets-relations-functions",
@@ -6119,41 +6199,41 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "Injective / surjective / bijective",
+       "label": "composition-and-inverses",
        "questions": 10
       },
       {
-       "label": "Composition & inverses",
+       "label": "counting-functions",
        "questions": 10
       },
       {
-       "label": "Counting functions",
+       "label": "floor-ceiling-recursion",
        "questions": 10
       },
       {
-       "label": "Pigeonhole principle",
+       "label": "pigeonhole-principle",
        "questions": 10
       },
       {
-       "label": "Floor, ceiling & recursion",
+       "label": "types-injective-surjective-bijective",
        "questions": 10
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/functions/gate_dm_mock_5_2026-10-26.html"
+     "url": "https://gate-cse-mocks.vercel.app/"
     },
     "visual": {
      "slug": "functions-and-their-properties",
      "title": "Functions and Their Properties",
      "level": "topic-level",
      "covers": [
-      "injective means no two elements share an image",
-      "surjective means every codomain element is hit",
-      "on equal finite sizes the three properties collapse",
-      "four counts, and only one of them is a product"
+      "a function as a total, single-valued relation",
+      "injective, surjective, bijective",
+      "counting functions, injections, surjections and bijections",
+      "composition of functions"
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/functions-and-their-properties/index.html"
     },
-    "mapped_at": "2026-10-28"
+    "mapped_at": "2026-10-30"
    },
    "subject": "discrete-mathematics",
    "topic": "sets-relations-functions",
@@ -6246,39 +6326,41 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "Injective / surjective / bijective",
+       "label": "composition-and-inverses",
        "questions": 10
       },
       {
-       "label": "Composition & inverses",
+       "label": "counting-functions",
        "questions": 10
       },
       {
-       "label": "Counting functions",
+       "label": "floor-ceiling-recursion",
        "questions": 10
       },
       {
-       "label": "Pigeonhole principle",
+       "label": "pigeonhole-principle",
        "questions": 10
       },
       {
-       "label": "Floor, ceiling & recursion",
+       "label": "types-injective-surjective-bijective",
        "questions": 10
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/functions/gate_dm_mock_5_2026-10-26.html"
+     "url": "https://gate-cse-mocks.vercel.app/"
     },
     "visual": {
      "slug": "functions-and-their-properties",
      "title": "Functions and Their Properties",
      "level": "topic-level",
      "covers": [
-      "composition: what survives, and only in one direction",
-      "the inverse function exists only for a bijection"
+      "a function as a total, single-valued relation",
+      "counting functions, injections, surjections and bijections",
+      "composition of functions",
+      "the inverse function versus the preimage of a set"
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/functions-and-their-properties/index.html"
     },
-    "mapped_at": "2026-10-28"
+    "mapped_at": "2026-10-30"
    },
    "subject": "discrete-mathematics",
    "topic": "sets-relations-functions",
@@ -6380,43 +6462,42 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "Relation properties",
+       "label": "composition-transitive-closure",
+       "questions": 8
+      },
+      {
+       "label": "counting-relations",
+       "questions": 8
+      },
+      {
+       "label": "equivalence-relations-classes",
        "questions": 9
       },
       {
-       "label": "Equivalence relations & classes",
+       "label": "lattices-in-posets",
+       "questions": 8
+      },
+      {
+       "label": "partial-orders-hasse-diagrams",
+       "questions": 8
+      },
+      {
+       "label": "relation-properties",
        "questions": 9
-      },
-      {
-       "label": "Partial orders & Hasse diagrams",
-       "questions": 8
-      },
-      {
-       "label": "Lattices in posets",
-       "questions": 8
-      },
-      {
-       "label": "Composition & transitive closure",
-       "questions": 8
-      },
-      {
-       "label": "Counting relations",
-       "questions": 8
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html"
+     "url": "https://gate-cse-mocks.vercel.app/"
     },
     "visual": {
      "slug": "partial-orders-and-lattices",
      "title": "Partial Orders, Hasse Diagrams and Lattices",
      "level": "topic-level",
      "covers": [
-      "a partial order as three separate promises",
-      "divisibility as a partial order"
+      "partial order definitions"
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/partial-orders-and-lattices/index.html"
     },
-    "mapped_at": "2026-10-28"
+    "mapped_at": "2026-10-30"
    },
    "subject": "discrete-mathematics",
    "topic": "partial-orders-and-lattices",
@@ -6521,43 +6602,42 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "Relation properties",
+       "label": "composition-transitive-closure",
+       "questions": 8
+      },
+      {
+       "label": "counting-relations",
+       "questions": 8
+      },
+      {
+       "label": "equivalence-relations-classes",
        "questions": 9
       },
       {
-       "label": "Equivalence relations & classes",
+       "label": "lattices-in-posets",
+       "questions": 8
+      },
+      {
+       "label": "partial-orders-hasse-diagrams",
+       "questions": 8
+      },
+      {
+       "label": "relation-properties",
        "questions": 9
-      },
-      {
-       "label": "Partial orders & Hasse diagrams",
-       "questions": 8
-      },
-      {
-       "label": "Lattices in posets",
-       "questions": 8
-      },
-      {
-       "label": "Composition & transitive closure",
-       "questions": 8
-      },
-      {
-       "label": "Counting relations",
-       "questions": 8
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html"
+     "url": "https://gate-cse-mocks.vercel.app/"
     },
     "visual": {
      "slug": "partial-orders-and-lattices",
      "title": "Partial Orders, Hasse Diagrams and Lattices",
      "level": "topic-level",
      "covers": [
-      "the covering relation and transitive reduction",
-      "drawing the Hasse diagram"
+      "Hasse diagrams"
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/partial-orders-and-lattices/index.html"
     },
-    "mapped_at": "2026-10-28"
+    "mapped_at": "2026-10-30"
    },
    "subject": "discrete-mathematics",
    "topic": "partial-orders-and-lattices",
@@ -6673,42 +6753,42 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "Relation properties",
+       "label": "composition-transitive-closure",
+       "questions": 8
+      },
+      {
+       "label": "counting-relations",
+       "questions": 8
+      },
+      {
+       "label": "equivalence-relations-classes",
        "questions": 9
       },
       {
-       "label": "Equivalence relations & classes",
+       "label": "lattices-in-posets",
+       "questions": 8
+      },
+      {
+       "label": "partial-orders-hasse-diagrams",
+       "questions": 8
+      },
+      {
+       "label": "relation-properties",
        "questions": 9
-      },
-      {
-       "label": "Partial orders & Hasse diagrams",
-       "questions": 8
-      },
-      {
-       "label": "Lattices in posets",
-       "questions": 8
-      },
-      {
-       "label": "Composition & transitive closure",
-       "questions": 8
-      },
-      {
-       "label": "Counting relations",
-       "questions": 8
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html"
+     "url": "https://gate-cse-mocks.vercel.app/"
     },
     "visual": {
      "slug": "partial-orders-and-lattices",
      "title": "Partial Orders, Hasse Diagrams and Lattices",
      "level": "topic-level",
      "covers": [
-      "comparable pairs, chains and antichains"
+      "chain versus antichain"
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/partial-orders-and-lattices/index.html"
     },
-    "mapped_at": "2026-10-28"
+    "mapped_at": "2026-10-30"
    },
    "subject": "discrete-mathematics",
    "topic": "partial-orders-and-lattices",
@@ -6810,43 +6890,42 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "Relation properties",
+       "label": "composition-transitive-closure",
+       "questions": 8
+      },
+      {
+       "label": "counting-relations",
+       "questions": 8
+      },
+      {
+       "label": "equivalence-relations-classes",
        "questions": 9
       },
       {
-       "label": "Equivalence relations & classes",
+       "label": "lattices-in-posets",
+       "questions": 8
+      },
+      {
+       "label": "partial-orders-hasse-diagrams",
+       "questions": 8
+      },
+      {
+       "label": "relation-properties",
        "questions": 9
-      },
-      {
-       "label": "Partial orders & Hasse diagrams",
-       "questions": 8
-      },
-      {
-       "label": "Lattices in posets",
-       "questions": 8
-      },
-      {
-       "label": "Composition & transitive closure",
-       "questions": 8
-      },
-      {
-       "label": "Counting relations",
-       "questions": 8
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html"
+     "url": "https://gate-cse-mocks.vercel.app/"
     },
     "visual": {
      "slug": "partial-orders-and-lattices",
      "title": "Partial Orders, Hasse Diagrams and Lattices",
      "level": "topic-level",
      "covers": [
-      "maximal versus greatest",
-      "minimal versus least"
+      "maximal, minimal, greatest, least elements"
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/partial-orders-and-lattices/index.html"
     },
-    "mapped_at": "2026-10-28"
+    "mapped_at": "2026-10-30"
    },
    "subject": "discrete-mathematics",
    "topic": "partial-orders-and-lattices",
@@ -6937,43 +7016,42 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "Relation properties",
+       "label": "composition-transitive-closure",
+       "questions": 8
+      },
+      {
+       "label": "counting-relations",
+       "questions": 8
+      },
+      {
+       "label": "equivalence-relations-classes",
        "questions": 9
       },
       {
-       "label": "Equivalence relations & classes",
+       "label": "lattices-in-posets",
+       "questions": 8
+      },
+      {
+       "label": "partial-orders-hasse-diagrams",
+       "questions": 8
+      },
+      {
+       "label": "relation-properties",
        "questions": 9
-      },
-      {
-       "label": "Partial orders & Hasse diagrams",
-       "questions": 8
-      },
-      {
-       "label": "Lattices in posets",
-       "questions": 8
-      },
-      {
-       "label": "Composition & transitive closure",
-       "questions": 8
-      },
-      {
-       "label": "Counting relations",
-       "questions": 8
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html"
+     "url": "https://gate-cse-mocks.vercel.app/"
     },
     "visual": {
      "slug": "partial-orders-and-lattices",
      "title": "Partial Orders, Hasse Diagrams and Lattices",
      "level": "topic-level",
      "covers": [
-      "upper and lower bounds",
-      "lub and glb as join and meet"
+      "upper and lower bounds"
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/partial-orders-and-lattices/index.html"
     },
-    "mapped_at": "2026-10-28"
+    "mapped_at": "2026-10-30"
    },
    "subject": "discrete-mathematics",
    "topic": "partial-orders-and-lattices",
@@ -7078,43 +7156,44 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "Relation properties",
+       "label": "composition-transitive-closure",
+       "questions": 8
+      },
+      {
+       "label": "counting-relations",
+       "questions": 8
+      },
+      {
+       "label": "equivalence-relations-classes",
        "questions": 9
       },
       {
-       "label": "Equivalence relations & classes",
+       "label": "lattices-in-posets",
+       "questions": 8
+      },
+      {
+       "label": "partial-orders-hasse-diagrams",
+       "questions": 8
+      },
+      {
+       "label": "relation-properties",
        "questions": 9
-      },
-      {
-       "label": "Partial orders & Hasse diagrams",
-       "questions": 8
-      },
-      {
-       "label": "Lattices in posets",
-       "questions": 8
-      },
-      {
-       "label": "Composition & transitive closure",
-       "questions": 8
-      },
-      {
-       "label": "Counting relations",
-       "questions": 8
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html"
+     "url": "https://gate-cse-mocks.vercel.app/"
     },
     "visual": {
      "slug": "partial-orders-and-lattices",
      "title": "Partial Orders, Hasse Diagrams and Lattices",
      "level": "topic-level",
      "covers": [
-      "a lattice needs a join and a meet for every pair",
-      "the pairwise lattice test"
+      "partial order definitions",
+      "lattices and their properties",
+      "distributive and complemented lattices"
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/partial-orders-and-lattices/index.html"
     },
-    "mapped_at": "2026-10-28"
+    "mapped_at": "2026-10-30"
    },
    "subject": "discrete-mathematics",
    "topic": "partial-orders-and-lattices",
@@ -7205,33 +7284,43 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "Relation properties",
+       "label": "composition-transitive-closure",
+       "questions": 8
+      },
+      {
+       "label": "counting-relations",
+       "questions": 8
+      },
+      {
+       "label": "equivalence-relations-classes",
        "questions": 9
       },
       {
-       "label": "Equivalence relations & classes",
+       "label": "lattices-in-posets",
+       "questions": 8
+      },
+      {
+       "label": "partial-orders-hasse-diagrams",
+       "questions": 8
+      },
+      {
+       "label": "relation-properties",
        "questions": 9
-      },
-      {
-       "label": "Partial orders & Hasse diagrams",
-       "questions": 8
-      },
-      {
-       "label": "Lattices in posets",
-       "questions": 8
-      },
-      {
-       "label": "Composition & transitive closure",
-       "questions": 8
-      },
-      {
-       "label": "Counting relations",
-       "questions": 8
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html"
+     "url": "https://gate-cse-mocks.vercel.app/"
     },
-    "mapped_at": "2026-10-28"
+    "visual": {
+     "slug": "partial-orders-and-lattices",
+     "title": "Partial Orders, Hasse Diagrams and Lattices",
+     "level": "topic-level",
+     "covers": [
+      "lattices and their properties",
+      "distributive and complemented lattices"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/partial-orders-and-lattices/index.html"
+    },
+    "mapped_at": "2026-10-30"
    },
    "subject": "discrete-mathematics",
    "topic": "partial-orders-and-lattices",
@@ -7333,33 +7422,39 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "Relation properties",
+       "label": "composition-transitive-closure",
+       "questions": 8
+      },
+      {
+       "label": "counting-relations",
+       "questions": 8
+      },
+      {
+       "label": "equivalence-relations-classes",
        "questions": 9
       },
       {
-       "label": "Equivalence relations & classes",
+       "label": "lattices-in-posets",
+       "questions": 8
+      },
+      {
+       "label": "partial-orders-hasse-diagrams",
+       "questions": 8
+      },
+      {
+       "label": "relation-properties",
        "questions": 9
-      },
-      {
-       "label": "Partial orders & Hasse diagrams",
-       "questions": 8
-      },
-      {
-       "label": "Lattices in posets",
-       "questions": 8
-      },
-      {
-       "label": "Composition & transitive closure",
-       "questions": 8
-      },
-      {
-       "label": "Counting relations",
-       "questions": 8
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html"
+     "url": "https://gate-cse-mocks.vercel.app/"
     },
-    "mapped_at": "2026-10-28"
+    "visual": {
+     "slug": "partial-orders-and-lattices",
+     "title": "Partial Orders, Hasse Diagrams and Lattices",
+     "level": "topic-level",
+     "url": "https://gate-visual-explainer.vercel.app/topics/partial-orders-and-lattices/index.html"
+    },
+    "mapped_at": "2026-10-30"
    },
    "subject": "discrete-mathematics",
    "topic": "partial-orders-and-lattices",
@@ -7461,42 +7556,43 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "Relation properties",
+       "label": "composition-transitive-closure",
+       "questions": 8
+      },
+      {
+       "label": "counting-relations",
+       "questions": 8
+      },
+      {
+       "label": "equivalence-relations-classes",
        "questions": 9
       },
       {
-       "label": "Equivalence relations & classes",
+       "label": "lattices-in-posets",
+       "questions": 8
+      },
+      {
+       "label": "partial-orders-hasse-diagrams",
+       "questions": 8
+      },
+      {
+       "label": "relation-properties",
        "questions": 9
-      },
-      {
-       "label": "Partial orders & Hasse diagrams",
-       "questions": 8
-      },
-      {
-       "label": "Lattices in posets",
-       "questions": 8
-      },
-      {
-       "label": "Composition & transitive closure",
-       "questions": 8
-      },
-      {
-       "label": "Counting relations",
-       "questions": 8
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html"
+     "url": "https://gate-cse-mocks.vercel.app/"
     },
     "visual": {
      "slug": "partial-orders-and-lattices",
      "title": "Partial Orders, Hasse Diagrams and Lattices",
      "level": "topic-level",
      "covers": [
-      "complements and counting them"
+      "lattices and their properties",
+      "distributive and complemented lattices"
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/partial-orders-and-lattices/index.html"
     },
-    "mapped_at": "2026-10-28"
+    "mapped_at": "2026-10-30"
    },
    "subject": "discrete-mathematics",
    "topic": "partial-orders-and-lattices",
@@ -7588,43 +7684,43 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "Relation properties",
+       "label": "composition-transitive-closure",
+       "questions": 8
+      },
+      {
+       "label": "counting-relations",
+       "questions": 8
+      },
+      {
+       "label": "equivalence-relations-classes",
        "questions": 9
       },
       {
-       "label": "Equivalence relations & classes",
+       "label": "lattices-in-posets",
+       "questions": 8
+      },
+      {
+       "label": "partial-orders-hasse-diagrams",
+       "questions": 8
+      },
+      {
+       "label": "relation-properties",
        "questions": 9
-      },
-      {
-       "label": "Partial orders & Hasse diagrams",
-       "questions": 8
-      },
-      {
-       "label": "Lattices in posets",
-       "questions": 8
-      },
-      {
-       "label": "Composition & transitive closure",
-       "questions": 8
-      },
-      {
-       "label": "Counting relations",
-       "questions": 8
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html"
+     "url": "https://gate-cse-mocks.vercel.app/"
     },
     "visual": {
      "slug": "partial-orders-and-lattices",
      "title": "Partial Orders, Hasse Diagrams and Lattices",
      "level": "topic-level",
      "covers": [
-      "distributivity tested on one triple",
-      "M3 and N5 as the two obstructions"
+      "lattices and their properties",
+      "distributive and complemented lattices"
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/partial-orders-and-lattices/index.html"
     },
-    "mapped_at": "2026-10-28"
+    "mapped_at": "2026-10-30"
    },
    "subject": "discrete-mathematics",
    "topic": "partial-orders-and-lattices",
@@ -7730,42 +7826,43 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "Relation properties",
+       "label": "composition-transitive-closure",
+       "questions": 8
+      },
+      {
+       "label": "counting-relations",
+       "questions": 8
+      },
+      {
+       "label": "equivalence-relations-classes",
        "questions": 9
       },
       {
-       "label": "Equivalence relations & classes",
+       "label": "lattices-in-posets",
+       "questions": 8
+      },
+      {
+       "label": "partial-orders-hasse-diagrams",
+       "questions": 8
+      },
+      {
+       "label": "relation-properties",
        "questions": 9
-      },
-      {
-       "label": "Partial orders & Hasse diagrams",
-       "questions": 8
-      },
-      {
-       "label": "Lattices in posets",
-       "questions": 8
-      },
-      {
-       "label": "Composition & transitive closure",
-       "questions": 8
-      },
-      {
-       "label": "Counting relations",
-       "questions": 8
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html"
+     "url": "https://gate-cse-mocks.vercel.app/"
     },
     "visual": {
      "slug": "partial-orders-and-lattices",
      "title": "Partial Orders, Hasse Diagrams and Lattices",
      "level": "topic-level",
      "covers": [
-      "the power set as a distributive lattice with unique complements"
+      "lattices and their properties",
+      "distributive and complemented lattices"
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/partial-orders-and-lattices/index.html"
     },
-    "mapped_at": "2026-10-28"
+    "mapped_at": "2026-10-30"
    },
    "subject": "discrete-mathematics",
    "topic": "partial-orders-and-lattices",
@@ -7858,33 +7955,43 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "Relation properties",
+       "label": "composition-transitive-closure",
+       "questions": 8
+      },
+      {
+       "label": "counting-relations",
+       "questions": 8
+      },
+      {
+       "label": "equivalence-relations-classes",
        "questions": 9
       },
       {
-       "label": "Equivalence relations & classes",
+       "label": "lattices-in-posets",
+       "questions": 8
+      },
+      {
+       "label": "partial-orders-hasse-diagrams",
+       "questions": 8
+      },
+      {
+       "label": "relation-properties",
        "questions": 9
-      },
-      {
-       "label": "Partial orders & Hasse diagrams",
-       "questions": 8
-      },
-      {
-       "label": "Lattices in posets",
-       "questions": 8
-      },
-      {
-       "label": "Composition & transitive closure",
-       "questions": 8
-      },
-      {
-       "label": "Counting relations",
-       "questions": 8
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html"
+     "url": "https://gate-cse-mocks.vercel.app/"
     },
-    "mapped_at": "2026-10-28"
+    "visual": {
+     "slug": "partial-orders-and-lattices",
+     "title": "Partial Orders, Hasse Diagrams and Lattices",
+     "level": "topic-level",
+     "covers": [
+      "lattices and their properties",
+      "distributive and complemented lattices"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/partial-orders-and-lattices/index.html"
+    },
+    "mapped_at": "2026-10-30"
    },
    "subject": "discrete-mathematics",
    "topic": "partial-orders-and-lattices",
@@ -7988,13 +8095,9 @@ window.GATE_DATA = {
      "slug": "monoids-and-groups",
      "title": "Monoids and Groups",
      "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/monoids-and-groups/index.html",
-     "covers": [
-      "closure and associativity",
-      "the semigroup-monoid-group ladder"
-     ]
+     "url": "https://gate-visual-explainer.vercel.app/topics/monoids-and-groups/index.html"
     },
-    "mapped_at": "2026-10-28"
+    "mapped_at": "2026-10-30"
    },
    "subject": "discrete-mathematics",
    "topic": "monoids-and-groups",
@@ -8100,13 +8203,12 @@ window.GATE_DATA = {
      "slug": "monoids-and-groups",
      "title": "Monoids and Groups",
      "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/monoids-and-groups/index.html",
      "covers": [
-      "identity and its uniqueness",
-      "multiplication modulo 6 as a monoid that is not a group"
-     ]
+      "semigroups and monoids"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/monoids-and-groups/index.html"
     },
-    "mapped_at": "2026-10-28"
+    "mapped_at": "2026-10-30"
    },
    "subject": "discrete-mathematics",
    "topic": "monoids-and-groups",
@@ -8197,13 +8299,14 @@ window.GATE_DATA = {
      "slug": "monoids-and-groups",
      "title": "Monoids and Groups",
      "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/monoids-and-groups/index.html",
      "covers": [
-      "checking the four group axioms",
-      "inverses in a group"
-     ]
+      "semigroups and monoids",
+      "groups, subgroups",
+      "cyclic groups and generators"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/monoids-and-groups/index.html"
     },
-    "mapped_at": "2026-10-28"
+    "mapped_at": "2026-10-30"
    },
    "subject": "discrete-mathematics",
    "topic": "monoids-and-groups",
@@ -8297,13 +8400,15 @@ window.GATE_DATA = {
      "slug": "monoids-and-groups",
      "title": "Monoids and Groups",
      "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/monoids-and-groups/index.html",
      "covers": [
-      "order of an element",
-      "order divides group order"
-     ]
+      "semigroups and monoids",
+      "groups, subgroups",
+      "cyclic groups and generators",
+      "order of an element"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/monoids-and-groups/index.html"
     },
-    "mapped_at": "2026-10-28"
+    "mapped_at": "2026-10-30"
    },
    "subject": "discrete-mathematics",
    "topic": "monoids-and-groups",
@@ -8396,13 +8501,14 @@ window.GATE_DATA = {
      "slug": "monoids-and-groups",
      "title": "Monoids and Groups",
      "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/monoids-and-groups/index.html",
      "covers": [
-      "Z6 against S3 on commutativity",
-      "the (xy)^2 = x^2y^2 test"
-     ]
+      "semigroups and monoids",
+      "groups, subgroups",
+      "cyclic groups and generators"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/monoids-and-groups/index.html"
     },
-    "mapped_at": "2026-10-28"
+    "mapped_at": "2026-10-30"
    },
    "subject": "discrete-mathematics",
    "topic": "monoids-and-groups",
@@ -8493,13 +8599,12 @@ window.GATE_DATA = {
      "slug": "monoids-and-groups",
      "title": "Monoids and Groups",
      "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/monoids-and-groups/index.html",
      "covers": [
-      "subgroup tests",
-      "counting the subgroups of Z6"
-     ]
+      "groups, subgroups"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/monoids-and-groups/index.html"
     },
-    "mapped_at": "2026-10-28"
+    "mapped_at": "2026-10-30"
    },
    "subject": "discrete-mathematics",
    "topic": "monoids-and-groups",
@@ -8593,13 +8698,14 @@ window.GATE_DATA = {
      "slug": "monoids-and-groups",
      "title": "Monoids and Groups",
      "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/monoids-and-groups/index.html",
      "covers": [
-      "cyclic groups and generators",
-      "one subgroup per divisor"
-     ]
+      "semigroups and monoids",
+      "groups, subgroups",
+      "cyclic groups and generators"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/monoids-and-groups/index.html"
     },
-    "mapped_at": "2026-10-28"
+    "mapped_at": "2026-10-30"
    },
    "subject": "discrete-mathematics",
    "topic": "monoids-and-groups",
@@ -8696,13 +8802,12 @@ window.GATE_DATA = {
      "slug": "monoids-and-groups",
      "title": "Monoids and Groups",
      "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/monoids-and-groups/index.html",
      "covers": [
-      "subgroups and the coset split",
-      "Lagrange's theorem and the A4 counterexample"
-     ]
+      "cosets and Lagrange's theorem"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/monoids-and-groups/index.html"
     },
-    "mapped_at": "2026-10-28"
+    "mapped_at": "2026-10-30"
    },
    "subject": "discrete-mathematics",
    "topic": "monoids-and-groups",
@@ -8797,13 +8902,14 @@ window.GATE_DATA = {
      "slug": "monoids-and-groups",
      "title": "Monoids and Groups",
      "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/monoids-and-groups/index.html",
      "covers": [
-      "Z6, S3, Z4 and U(8) as worked examples",
-      "same order, different group"
-     ]
+      "semigroups and monoids",
+      "groups, subgroups",
+      "cyclic groups and generators"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/monoids-and-groups/index.html"
     },
-    "mapped_at": "2026-10-28"
+    "mapped_at": "2026-10-30"
    },
    "subject": "discrete-mathematics",
    "topic": "monoids-and-groups",
@@ -8890,6 +8996,20 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "Homomorphism, kernel and isomorphism statements: GeeksforGeeks GATE group-theory notes (English, read in full) for the group vocabulary, with every claim here recomputed in scripts/validate.py on the reduction map Z to Z_6 and on the exponential map. This material is outside the two-word GATE line and no verified PYQ in the repository tests it.",
+   "links": {
+    "visual": {
+     "slug": "monoids-and-groups",
+     "title": "Monoids and Groups",
+     "level": "topic-level",
+     "covers": [
+      "semigroups and monoids",
+      "groups, subgroups",
+      "cyclic groups and generators"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/monoids-and-groups/index.html"
+    },
+    "mapped_at": "2026-10-30"
+   },
    "subject": "discrete-mathematics",
    "topic": "monoids-and-groups",
    "path": "subjects/discrete-mathematics/monoids-and-groups/group-homomorphism-and-kernel.json"
@@ -8982,13 +9102,14 @@ window.GATE_DATA = {
      "slug": "monoids-and-groups",
      "title": "Monoids and Groups",
      "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/monoids-and-groups/index.html",
      "covers": [
-      "S3 as the symmetric group",
-      "S3 is not abelian"
-     ]
+      "semigroups and monoids",
+      "groups, subgroups",
+      "cyclic groups and generators"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/monoids-and-groups/index.html"
     },
-    "mapped_at": "2026-10-28"
+    "mapped_at": "2026-10-30"
    },
    "subject": "discrete-mathematics",
    "topic": "monoids-and-groups",
@@ -9080,12 +9201,12 @@ window.GATE_DATA = {
      "level": "topic-level",
      "covers": [
       "graph as two sets, adjacency matrix and adjacency list",
-      "degree sum equals twice the edge count",
-      "handshake lemma and the parity of odd-degree vertices"
+      "degree sequences and the handshake lemma",
+      "bipartite graphs and odd cycles"
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/graphs-connectivity/index.html"
     },
-    "mapped_at": "2026-10-28"
+    "mapped_at": "2026-10-30"
    },
    "subject": "discrete-mathematics",
    "topic": "graphs",
@@ -9166,11 +9287,13 @@ window.GATE_DATA = {
      "title": "Graphs: Connectivity and Structure",
      "level": "topic-level",
      "covers": [
-      "walks, trails, paths, cycles, components and distance"
+      "walks, trails, paths, cycles, components and distance",
+      "bipartite graphs and odd cycles",
+      "Euler trails and Hamiltonian cycles"
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/graphs-connectivity/index.html"
     },
-    "mapped_at": "2026-10-28"
+    "mapped_at": "2026-10-30"
    },
    "subject": "discrete-mathematics",
    "topic": "graphs",
@@ -9255,11 +9378,11 @@ window.GATE_DATA = {
      "title": "Graphs: Connectivity and Structure",
      "level": "topic-level",
      "covers": [
-      "cut vertex vs bridge"
+      "cut vertices and bridges"
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/graphs-connectivity/index.html"
     },
-    "mapped_at": "2026-10-28"
+    "mapped_at": "2026-10-30"
    },
    "subject": "discrete-mathematics",
    "topic": "graphs",
@@ -9341,12 +9464,11 @@ window.GATE_DATA = {
      "title": "Graphs: Connectivity and Structure",
      "level": "topic-level",
      "covers": [
-      "kappa <= lambda <= delta (Whitney)",
-      "kappa of a complete graph is n - 1 by convention"
+      "vertex and edge connectivity"
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/graphs-connectivity/index.html"
     },
-    "mapped_at": "2026-10-28"
+    "mapped_at": "2026-10-30"
    },
    "subject": "discrete-mathematics",
    "topic": "graphs",
@@ -9428,12 +9550,13 @@ window.GATE_DATA = {
      "title": "Graphs: Connectivity and Structure",
      "level": "topic-level",
      "covers": [
-      "Euler criterion and its one-component condition",
-      "Euler and Hamiltonian are independent"
+      "graph as two sets, adjacency matrix and adjacency list",
+      "bipartite graphs and odd cycles",
+      "Euler trails and Hamiltonian cycles"
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/graphs-connectivity/index.html"
     },
-    "mapped_at": "2026-10-28"
+    "mapped_at": "2026-10-30"
    },
    "subject": "discrete-mathematics",
    "topic": "graphs",
@@ -9517,11 +9640,14 @@ window.GATE_DATA = {
      "title": "Graphs: Connectivity and Structure",
      "level": "topic-level",
      "covers": [
-      "bipartite iff no odd cycle, decided by BFS parity"
+      "graph as two sets, adjacency matrix and adjacency list",
+      "walks, trails, paths, cycles, components and distance",
+      "bipartite graphs and odd cycles",
+      "Euler trails and Hamiltonian cycles"
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/graphs-connectivity/index.html"
     },
-    "mapped_at": "2026-10-28"
+    "mapped_at": "2026-10-30"
    },
    "subject": "discrete-mathematics",
    "topic": "graphs",
@@ -9606,12 +9732,12 @@ window.GATE_DATA = {
      "title": "Graphs: Matching and Colouring",
      "level": "topic-level",
      "covers": [
-      "matching, saturated, free, maximal, maximum, perfect, near-perfect, matching number",
-      "Berge's theorem and the augmenting-path algorithm"
+      "matchings and maximum matchings",
+      "perfect and maximum matchings"
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/matching-and-colouring/index.html"
     },
-    "mapped_at": "2026-10-28"
+    "mapped_at": "2026-10-30"
    },
    "subject": "discrete-mathematics",
    "topic": "graphs",
@@ -9692,11 +9818,11 @@ window.GATE_DATA = {
      "title": "Graphs: Matching and Colouring",
      "level": "topic-level",
      "covers": [
-      "Hall's condition as a necessary and sufficient test for a matching saturating one side"
+      "Hall's condition and Hall's theorem"
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/matching-and-colouring/index.html"
     },
-    "mapped_at": "2026-10-28"
+    "mapped_at": "2026-10-30"
    },
    "subject": "discrete-mathematics",
    "topic": "graphs",
@@ -9781,11 +9907,11 @@ window.GATE_DATA = {
      "title": "Graphs: Matching and Colouring",
      "level": "topic-level",
      "covers": [
-      "Konig's theorem, the constructive cover, and its failure on an odd cycle"
+      "vertex colouring and the chromatic number"
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/matching-and-colouring/index.html"
     },
-    "mapped_at": "2026-10-28"
+    "mapped_at": "2026-10-30"
    },
    "subject": "discrete-mathematics",
    "topic": "graphs",
@@ -9871,14 +9997,12 @@ window.GATE_DATA = {
      "title": "Graphs: Matching and Colouring",
      "level": "topic-level",
      "covers": [
-      "chromatic number of common families (cycles, complete graphs, bipartite graphs, trees)",
-      "clique number as a lower bound, and the Mycielskian gap",
-      "first-fit greedy, order dependence, chromatic number at most maximum degree plus one",
-      "Brooks' theorem and its two exceptions"
+      "vertex colouring and the chromatic number",
+      "greedy colouring bounds"
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/matching-and-colouring/index.html"
     },
-    "mapped_at": "2026-10-28"
+    "mapped_at": "2026-10-30"
    },
    "subject": "discrete-mathematics",
    "topic": "graphs",
@@ -9953,6 +10077,18 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "The chromatic polynomial, its values on complete graphs, trees and cycles, and the deletion-contraction identity: Rosen ch. 10 and West (standard references; no lecture transcript was readable for this subtopic). Standard references used to verify, never copied: Rosen, Discrete Mathematics and Its Applications, ch. 10; West, Introduction to Graph Theory (Brooks, Dirac, Koenig, chromatic polynomial); CLRS ch. 22 (articulation points, bridges) and ch. 26 (bipartite matching); Diestel, Graph Theory (Menger). Every polynomial value, coefficient and count in this card is recomputed in scripts/validate.py by counting colourings directly.",
+   "links": {
+    "visual": {
+     "slug": "matching-and-colouring",
+     "title": "Graphs: Matching and Colouring",
+     "level": "topic-level",
+     "covers": [
+      "vertex colouring and the chromatic number"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/matching-and-colouring/index.html"
+    },
+    "mapped_at": "2026-10-30"
+   },
    "subject": "discrete-mathematics",
    "topic": "graphs",
    "path": "subjects/discrete-mathematics/graphs/chromatic-polynomial.json"
@@ -10052,6 +10188,10 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
+       "label": "gauss-elimination",
+       "questions": 9
+      },
+      {
        "label": "matrix-operations",
        "questions": 15
       },
@@ -10062,10 +10202,6 @@ window.GATE_DATA = {
       {
        "label": "systems-of-linear-equations",
        "questions": 12
-      },
-      {
-       "label": "gauss-elimination",
-       "questions": 9
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
@@ -10074,13 +10210,12 @@ window.GATE_DATA = {
      "slug": "matrices-systems-and-eigenvalues",
      "title": "Matrices, Systems and Eigenvalues",
      "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html",
      "covers": [
-      "a matrix as a function; shape caps the rank at the smaller side",
-      "square matrices get the invertibility vocabulary"
-     ]
+      "matrix operations"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },
-    "mapped_at": "2026-10-29"
+    "mapped_at": "2026-10-30"
    },
    "subject": "linear-algebra",
    "topic": "matrices-and-determinants",
@@ -10173,6 +10308,10 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
+       "label": "gauss-elimination",
+       "questions": 9
+      },
+      {
        "label": "matrix-operations",
        "questions": 15
       },
@@ -10183,15 +10322,20 @@ window.GATE_DATA = {
       {
        "label": "systems-of-linear-equations",
        "questions": 12
-      },
-      {
-       "label": "gauss-elimination",
-       "questions": 9
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
     },
-    "mapped_at": "2026-10-29"
+    "visual": {
+     "slug": "matrices-systems-and-eigenvalues",
+     "title": "Matrices, Systems and Eigenvalues",
+     "level": "topic-level",
+     "covers": [
+      "matrix operations"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
+    },
+    "mapped_at": "2026-10-30"
    },
    "subject": "linear-algebra",
    "topic": "matrices-and-determinants",
@@ -10296,6 +10440,10 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
+       "label": "gauss-elimination",
+       "questions": 9
+      },
+      {
        "label": "matrix-operations",
        "questions": 15
       },
@@ -10306,10 +10454,6 @@ window.GATE_DATA = {
       {
        "label": "systems-of-linear-equations",
        "questions": 12
-      },
-      {
-       "label": "gauss-elimination",
-       "questions": 9
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
@@ -10318,12 +10462,12 @@ window.GATE_DATA = {
      "slug": "matrices-systems-and-eigenvalues",
      "title": "Matrices, Systems and Eigenvalues",
      "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html",
      "covers": [
-      "products are compositions; a product needs the inner sizes to agree"
-     ]
+      "matrix operations"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },
-    "mapped_at": "2026-10-29"
+    "mapped_at": "2026-10-30"
    },
    "subject": "linear-algebra",
    "topic": "matrices-and-determinants",
@@ -10427,6 +10571,10 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
+       "label": "gauss-elimination",
+       "questions": 9
+      },
+      {
        "label": "matrix-operations",
        "questions": 15
       },
@@ -10437,10 +10585,6 @@ window.GATE_DATA = {
       {
        "label": "systems-of-linear-equations",
        "questions": 12
-      },
-      {
-       "label": "gauss-elimination",
-       "questions": 9
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
@@ -10449,12 +10593,12 @@ window.GATE_DATA = {
      "slug": "matrices-systems-and-eigenvalues",
      "title": "Matrices, Systems and Eigenvalues",
      "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html",
      "covers": [
-      "real symmetric matrices: real eigenvalues, perpendicular eigenvectors"
-     ]
+      "symmetric matrices: real eigenvalues, orthogonal eigenvectors"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },
-    "mapped_at": "2026-10-29"
+    "mapped_at": "2026-10-30"
    },
    "subject": "linear-algebra",
    "topic": "matrices-and-determinants",
@@ -10561,6 +10705,10 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
+       "label": "gauss-elimination",
+       "questions": 9
+      },
+      {
        "label": "matrix-operations",
        "questions": 15
       },
@@ -10571,10 +10719,6 @@ window.GATE_DATA = {
       {
        "label": "systems-of-linear-equations",
        "questions": 12
-      },
-      {
-       "label": "gauss-elimination",
-       "questions": 9
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
@@ -10583,13 +10727,12 @@ window.GATE_DATA = {
      "slug": "matrices-systems-and-eigenvalues",
      "title": "Matrices, Systems and Eigenvalues",
      "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html",
      "covers": [
-      "powers: A^k has lambda^k; the inverse has 1/lambda",
-      "triangular, all-ones, idempotent, nilpotent and rotation patterns"
-     ]
+      "matrix operations"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },
-    "mapped_at": "2026-10-29"
+    "mapped_at": "2026-10-30"
    },
    "subject": "linear-algebra",
    "topic": "matrices-and-determinants",
@@ -10694,6 +10837,10 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
+       "label": "gauss-elimination",
+       "questions": 9
+      },
+      {
        "label": "matrix-operations",
        "questions": 15
       },
@@ -10704,10 +10851,6 @@ window.GATE_DATA = {
       {
        "label": "systems-of-linear-equations",
        "questions": 12
-      },
-      {
-       "label": "gauss-elimination",
-       "questions": 9
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
@@ -10716,12 +10859,12 @@ window.GATE_DATA = {
      "slug": "matrices-systems-and-eigenvalues",
      "title": "Matrices, Systems and Eigenvalues",
      "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html",
      "covers": [
       "trace is the sum and determinant the product of the eigenvalues"
-     ]
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },
-    "mapped_at": "2026-10-29"
+    "mapped_at": "2026-10-30"
    },
    "subject": "linear-algebra",
    "topic": "matrices-and-determinants",
@@ -10826,6 +10969,10 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
+       "label": "gauss-elimination",
+       "questions": 9
+      },
+      {
        "label": "matrix-operations",
        "questions": 15
       },
@@ -10836,10 +10983,6 @@ window.GATE_DATA = {
       {
        "label": "systems-of-linear-equations",
        "questions": 12
-      },
-      {
-       "label": "gauss-elimination",
-       "questions": 9
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
@@ -10848,13 +10991,12 @@ window.GATE_DATA = {
      "slug": "matrices-systems-and-eigenvalues",
      "title": "Matrices, Systems and Eigenvalues",
      "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html",
      "covers": [
-      "the determinant as an area factor, and its sign as orientation",
-      "det(AB) = det A det B"
-     ]
+      "determinants and their properties"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },
-    "mapped_at": "2026-10-29"
+    "mapped_at": "2026-10-30"
    },
    "subject": "linear-algebra",
    "topic": "matrices-and-determinants",
@@ -10964,6 +11106,10 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
+       "label": "gauss-elimination",
+       "questions": 9
+      },
+      {
        "label": "matrix-operations",
        "questions": 15
       },
@@ -10974,10 +11120,6 @@ window.GATE_DATA = {
       {
        "label": "systems-of-linear-equations",
        "questions": 12
-      },
-      {
-       "label": "gauss-elimination",
-       "questions": 9
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
@@ -10986,12 +11128,13 @@ window.GATE_DATA = {
      "slug": "matrices-systems-and-eigenvalues",
      "title": "Matrices, Systems and Eigenvalues",
      "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html",
      "covers": [
-      "row swap negates, row addition preserves, row scaling scales"
-     ]
+      "matrix operations",
+      "determinants and their properties"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },
-    "mapped_at": "2026-10-29"
+    "mapped_at": "2026-10-30"
    },
    "subject": "linear-algebra",
    "topic": "matrices-and-determinants",
@@ -11096,6 +11239,10 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
+       "label": "gauss-elimination",
+       "questions": 9
+      },
+      {
        "label": "matrix-operations",
        "questions": 15
       },
@@ -11106,10 +11253,6 @@ window.GATE_DATA = {
       {
        "label": "systems-of-linear-equations",
        "questions": 12
-      },
-      {
-       "label": "gauss-elimination",
-       "questions": 9
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
@@ -11118,13 +11261,12 @@ window.GATE_DATA = {
      "slug": "matrices-systems-and-eigenvalues",
      "title": "Matrices, Systems and Eigenvalues",
      "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html",
      "covers": [
-      "determinant, pivots or eigenvalue decide invertibility",
-      "the inverse stretches by 1/lambda on the same directions"
-     ]
+      "powers: A^k has lambda^k; the inverse has 1/lambda"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },
-    "mapped_at": "2026-10-29"
+    "mapped_at": "2026-10-30"
    },
    "subject": "linear-algebra",
    "topic": "matrices-and-determinants",
@@ -11234,6 +11376,10 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
+       "label": "gauss-elimination",
+       "questions": 9
+      },
+      {
        "label": "matrix-operations",
        "questions": 15
       },
@@ -11244,10 +11390,6 @@ window.GATE_DATA = {
       {
        "label": "systems-of-linear-equations",
        "questions": 12
-      },
-      {
-       "label": "gauss-elimination",
-       "questions": 9
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
@@ -11256,13 +11398,12 @@ window.GATE_DATA = {
      "slug": "matrices-systems-and-eigenvalues",
      "title": "Matrices, Systems and Eigenvalues",
      "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html",
      "covers": [
-      "rank as a pivot count; elimination preserves it",
-      "rank + nullity = number of columns, not rows"
-     ]
+      "rank"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },
-    "mapped_at": "2026-10-29"
+    "mapped_at": "2026-10-30"
    },
    "subject": "linear-algebra",
    "topic": "matrices-and-determinants",
@@ -11368,6 +11509,10 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
+       "label": "gauss-elimination",
+       "questions": 9
+      },
+      {
        "label": "matrix-operations",
        "questions": 15
       },
@@ -11378,10 +11523,6 @@ window.GATE_DATA = {
       {
        "label": "systems-of-linear-equations",
        "questions": 12
-      },
-      {
-       "label": "gauss-elimination",
-       "questions": 9
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
@@ -11390,13 +11531,9 @@ window.GATE_DATA = {
      "slug": "matrices-systems-and-eigenvalues",
      "title": "Matrices, Systems and Eigenvalues",
      "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html",
-     "covers": [
-      "a zero determinant is the definition of singular",
-      "three equivalent ways to see invertibility"
-     ]
+     "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },
-    "mapped_at": "2026-10-29"
+    "mapped_at": "2026-10-30"
    },
    "subject": "linear-algebra",
    "topic": "matrices-and-determinants",
@@ -11487,6 +11624,10 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
+       "label": "gauss-elimination",
+       "questions": 9
+      },
+      {
        "label": "matrix-operations",
        "questions": 15
       },
@@ -11497,10 +11638,6 @@ window.GATE_DATA = {
       {
        "label": "systems-of-linear-equations",
        "questions": 12
-      },
-      {
-       "label": "gauss-elimination",
-       "questions": 9
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
@@ -11510,11 +11647,11 @@ window.GATE_DATA = {
      "title": "Matrices, Systems and Eigenvalues",
      "level": "topic-level",
      "covers": [
-      "a matrix as a function; Ax mixes the columns of A"
+      "matrix operations"
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },
-    "mapped_at": "2026-10-29"
+    "mapped_at": "2026-10-30"
    },
    "subject": "linear-algebra",
    "topic": "system-of-linear-equations",
@@ -11616,6 +11753,10 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
+       "label": "gauss-elimination",
+       "questions": 9
+      },
+      {
        "label": "matrix-operations",
        "questions": 15
       },
@@ -11626,10 +11767,6 @@ window.GATE_DATA = {
       {
        "label": "systems-of-linear-equations",
        "questions": 12
-      },
-      {
-       "label": "gauss-elimination",
-       "questions": 9
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
@@ -11639,11 +11776,12 @@ window.GATE_DATA = {
      "title": "Matrices, Systems and Eigenvalues",
      "level": "topic-level",
      "covers": [
-      "consistency by rank(A) against rank([A|b])"
+      "rank",
+      "solving systems: consistency and uniqueness"
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },
-    "mapped_at": "2026-10-29"
+    "mapped_at": "2026-10-30"
    },
    "subject": "linear-algebra",
    "topic": "system-of-linear-equations",
@@ -11735,6 +11873,10 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
+       "label": "gauss-elimination",
+       "questions": 9
+      },
+      {
        "label": "matrix-operations",
        "questions": 15
       },
@@ -11745,10 +11887,6 @@ window.GATE_DATA = {
       {
        "label": "systems-of-linear-equations",
        "questions": 12
-      },
-      {
-       "label": "gauss-elimination",
-       "questions": 9
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
@@ -11758,11 +11896,11 @@ window.GATE_DATA = {
      "title": "Matrices, Systems and Eigenvalues",
      "level": "topic-level",
      "covers": [
-      "the determinant as an area factor, and its sign as orientation"
+      "determinants and their properties"
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },
-    "mapped_at": "2026-10-29"
+    "mapped_at": "2026-10-30"
    },
    "subject": "linear-algebra",
    "topic": "system-of-linear-equations",
@@ -11853,6 +11991,10 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
+       "label": "gauss-elimination",
+       "questions": 9
+      },
+      {
        "label": "matrix-operations",
        "questions": 15
       },
@@ -11863,10 +12005,6 @@ window.GATE_DATA = {
       {
        "label": "systems-of-linear-equations",
        "questions": 12
-      },
-      {
-       "label": "gauss-elimination",
-       "questions": 9
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
@@ -11880,7 +12018,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },
-    "mapped_at": "2026-10-29"
+    "mapped_at": "2026-10-30"
    },
    "subject": "linear-algebra",
    "topic": "system-of-linear-equations",
@@ -11981,6 +12119,10 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
+       "label": "gauss-elimination",
+       "questions": 9
+      },
+      {
        "label": "matrix-operations",
        "questions": 15
       },
@@ -11991,10 +12133,6 @@ window.GATE_DATA = {
       {
        "label": "systems-of-linear-equations",
        "questions": 12
-      },
-      {
-       "label": "gauss-elimination",
-       "questions": 9
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
@@ -12004,12 +12142,11 @@ window.GATE_DATA = {
      "title": "Matrices, Systems and Eigenvalues",
      "level": "topic-level",
      "covers": [
-      "free variables = columns - rank; the homogeneous case",
-      "wide matrix: nullity at least m - n (GATE 2024 Set 1 Q39)"
+      "free variables = columns - rank; the homogeneous case"
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },
-    "mapped_at": "2026-10-29"
+    "mapped_at": "2026-10-30"
    },
    "subject": "linear-algebra",
    "topic": "system-of-linear-equations",
@@ -12101,6 +12238,10 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
+       "label": "gauss-elimination",
+       "questions": 9
+      },
+      {
        "label": "matrix-operations",
        "questions": 15
       },
@@ -12111,10 +12252,6 @@ window.GATE_DATA = {
       {
        "label": "systems-of-linear-equations",
        "questions": 12
-      },
-      {
-       "label": "gauss-elimination",
-       "questions": 9
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
@@ -12129,7 +12266,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },
-    "mapped_at": "2026-10-29"
+    "mapped_at": "2026-10-30"
    },
    "subject": "linear-algebra",
    "topic": "system-of-linear-equations",
@@ -12222,6 +12359,10 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
+       "label": "gauss-elimination",
+       "questions": 9
+      },
+      {
        "label": "matrix-operations",
        "questions": 15
       },
@@ -12232,10 +12373,6 @@ window.GATE_DATA = {
       {
        "label": "systems-of-linear-equations",
        "questions": 12
-      },
-      {
-       "label": "gauss-elimination",
-       "questions": 9
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
@@ -12244,12 +12381,9 @@ window.GATE_DATA = {
      "slug": "matrices-systems-and-eigenvalues",
      "title": "Matrices, Systems and Eigenvalues",
      "level": "topic-level",
-     "covers": [
-      "consistency by rank(A) against rank([A|b])"
-     ],
      "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },
-    "mapped_at": "2026-10-29"
+    "mapped_at": "2026-10-30"
    },
    "subject": "linear-algebra",
    "topic": "system-of-linear-equations",
@@ -12341,6 +12475,10 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
+       "label": "gauss-elimination",
+       "questions": 9
+      },
+      {
        "label": "matrix-operations",
        "questions": 15
       },
@@ -12351,10 +12489,6 @@ window.GATE_DATA = {
       {
        "label": "systems-of-linear-equations",
        "questions": 12
-      },
-      {
-       "label": "gauss-elimination",
-       "questions": 9
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
@@ -12363,12 +12497,9 @@ window.GATE_DATA = {
      "slug": "matrices-systems-and-eigenvalues",
      "title": "Matrices, Systems and Eigenvalues",
      "level": "topic-level",
-     "covers": [
-      "wide matrix: nullity at least m - n (GATE 2024 Set 1 Q39)"
-     ],
      "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },
-    "mapped_at": "2026-10-29"
+    "mapped_at": "2026-10-30"
    },
    "subject": "linear-algebra",
    "topic": "system-of-linear-equations",
@@ -12459,6 +12590,10 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
+       "label": "gauss-elimination",
+       "questions": 9
+      },
+      {
        "label": "matrix-operations",
        "questions": 15
       },
@@ -12469,15 +12604,21 @@ window.GATE_DATA = {
       {
        "label": "systems-of-linear-equations",
        "questions": 12
-      },
-      {
-       "label": "gauss-elimination",
-       "questions": 9
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
     },
-    "mapped_at": "2026-10-29"
+    "visual": {
+     "slug": "matrices-systems-and-eigenvalues",
+     "title": "Matrices, Systems and Eigenvalues",
+     "level": "topic-level",
+     "covers": [
+      "powers: A^k has lambda^k; the inverse has 1/lambda",
+      "the four sum rules that do not hold"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
+    },
+    "mapped_at": "2026-10-30"
    },
    "subject": "linear-algebra",
    "topic": "system-of-linear-equations",
@@ -12569,6 +12710,10 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
+       "label": "gauss-elimination",
+       "questions": 9
+      },
+      {
        "label": "matrix-operations",
        "questions": 15
       },
@@ -12579,15 +12724,17 @@ window.GATE_DATA = {
       {
        "label": "systems-of-linear-equations",
        "questions": 12
-      },
-      {
-       "label": "gauss-elimination",
-       "questions": 9
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
     },
-    "mapped_at": "2026-10-29"
+    "visual": {
+     "slug": "matrices-systems-and-eigenvalues",
+     "title": "Matrices, Systems and Eigenvalues",
+     "level": "topic-level",
+     "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
+    },
+    "mapped_at": "2026-10-30"
    },
    "subject": "linear-algebra",
    "topic": "system-of-linear-equations",
@@ -12690,6 +12837,10 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
+       "label": "gauss-elimination",
+       "questions": 9
+      },
+      {
        "label": "matrix-operations",
        "questions": 15
       },
@@ -12700,10 +12851,6 @@ window.GATE_DATA = {
       {
        "label": "systems-of-linear-equations",
        "questions": 12
-      },
-      {
-       "label": "gauss-elimination",
-       "questions": 9
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
@@ -12712,13 +12859,9 @@ window.GATE_DATA = {
      "slug": "matrices-systems-and-eigenvalues",
      "title": "Matrices, Systems and Eigenvalues",
      "level": "topic-level",
-     "covers": [
-      "consistency by rank(A) against rank([A|b])",
-      "free variables = columns - rank; the homogeneous case"
-     ],
      "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },
-    "mapped_at": "2026-10-29"
+    "mapped_at": "2026-10-30"
    },
    "subject": "linear-algebra",
    "topic": "system-of-linear-equations",
@@ -12824,8 +12967,8 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "eigenvalue-properties",
-       "questions": 16
+       "label": "cayley-hamilton-theorem",
+       "questions": 10
       },
       {
        "label": "characteristic-equations",
@@ -12836,8 +12979,8 @@ window.GATE_DATA = {
        "questions": 12
       },
       {
-       "label": "cayley-hamilton-theorem",
-       "questions": 10
+       "label": "eigenvalue-properties",
+       "questions": 16
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/eigenvalues-eigenvectors/gate_em_mock_2_2026-10-27.html"
@@ -12847,12 +12990,11 @@ window.GATE_DATA = {
      "title": "Matrices, Systems and Eigenvalues",
      "level": "topic-level",
      "covers": [
-      "eigenvectors as preserved directions; Av = lambda v",
-      "the eigenvalue may be negative (a flip) or zero (a crush); the zero vector is not an eigenvector"
+      "eigenvalues and eigenvectors"
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },
-    "mapped_at": "2026-10-29"
+    "mapped_at": "2026-10-30"
    },
    "subject": "linear-algebra",
    "topic": "eigenvalues-and-eigenvectors",
@@ -12948,8 +13090,8 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "eigenvalue-properties",
-       "questions": 16
+       "label": "cayley-hamilton-theorem",
+       "questions": 10
       },
       {
        "label": "characteristic-equations",
@@ -12960,8 +13102,8 @@ window.GATE_DATA = {
        "questions": 12
       },
       {
-       "label": "cayley-hamilton-theorem",
-       "questions": 10
+       "label": "eigenvalue-properties",
+       "questions": 16
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/eigenvalues-eigenvectors/gate_em_mock_2_2026-10-27.html"
@@ -12971,12 +13113,11 @@ window.GATE_DATA = {
      "title": "Matrices, Systems and Eigenvalues",
      "level": "topic-level",
      "covers": [
-      "characteristic polynomial det(A - lambda I) = 0 and its roots",
-      "trace is the sum and determinant the product of the eigenvalues"
+      "characteristic polynomial det(A - lambda I) = 0"
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },
-    "mapped_at": "2026-10-29"
+    "mapped_at": "2026-10-30"
    },
    "subject": "linear-algebra",
    "topic": "eigenvalues-and-eigenvectors",
@@ -13072,8 +13213,8 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "eigenvalue-properties",
-       "questions": 16
+       "label": "cayley-hamilton-theorem",
+       "questions": 10
       },
       {
        "label": "characteristic-equations",
@@ -13084,8 +13225,8 @@ window.GATE_DATA = {
        "questions": 12
       },
       {
-       "label": "cayley-hamilton-theorem",
-       "questions": 10
+       "label": "eigenvalue-properties",
+       "questions": 16
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/eigenvalues-eigenvectors/gate_em_mock_2_2026-10-27.html"
@@ -13095,11 +13236,11 @@ window.GATE_DATA = {
      "title": "Matrices, Systems and Eigenvalues",
      "level": "topic-level",
      "covers": [
-      "nullity of A - lambda I is the count of independent directions"
+      "eigenvalues and eigenvectors"
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },
-    "mapped_at": "2026-10-29"
+    "mapped_at": "2026-10-30"
    },
    "subject": "linear-algebra",
    "topic": "eigenvalues-and-eigenvectors",
@@ -13196,8 +13337,8 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "eigenvalue-properties",
-       "questions": 16
+       "label": "cayley-hamilton-theorem",
+       "questions": 10
       },
       {
        "label": "characteristic-equations",
@@ -13208,8 +13349,8 @@ window.GATE_DATA = {
        "questions": 12
       },
       {
-       "label": "cayley-hamilton-theorem",
-       "questions": 10
+       "label": "eigenvalue-properties",
+       "questions": 16
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/eigenvalues-eigenvectors/gate_em_mock_2_2026-10-27.html"
@@ -13219,11 +13360,12 @@ window.GATE_DATA = {
      "title": "Matrices, Systems and Eigenvalues",
      "level": "topic-level",
      "covers": [
-      "powers: A^k has lambda^k, and the inverse has 1/lambda on the same directions"
+      "matrix operations",
+      "eigenvalues and eigenvectors"
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },
-    "mapped_at": "2026-10-29"
+    "mapped_at": "2026-10-30"
    },
    "subject": "linear-algebra",
    "topic": "eigenvalues-and-eigenvectors",
@@ -13320,8 +13462,8 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "eigenvalue-properties",
-       "questions": 16
+       "label": "cayley-hamilton-theorem",
+       "questions": 10
       },
       {
        "label": "characteristic-equations",
@@ -13332,8 +13474,8 @@ window.GATE_DATA = {
        "questions": 12
       },
       {
-       "label": "cayley-hamilton-theorem",
-       "questions": 10
+       "label": "eigenvalue-properties",
+       "questions": 16
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/eigenvalues-eigenvectors/gate_em_mock_2_2026-10-27.html"
@@ -13347,7 +13489,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },
-    "mapped_at": "2026-10-29"
+    "mapped_at": "2026-10-30"
    },
    "subject": "linear-algebra",
    "topic": "eigenvalues-and-eigenvectors",
@@ -13442,8 +13584,8 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "eigenvalue-properties",
-       "questions": 16
+       "label": "cayley-hamilton-theorem",
+       "questions": 10
       },
       {
        "label": "characteristic-equations",
@@ -13454,8 +13596,8 @@ window.GATE_DATA = {
        "questions": 12
       },
       {
-       "label": "cayley-hamilton-theorem",
-       "questions": 10
+       "label": "eigenvalue-properties",
+       "questions": 16
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/eigenvalues-eigenvectors/gate_em_mock_2_2026-10-27.html"
@@ -13464,13 +13606,9 @@ window.GATE_DATA = {
      "slug": "matrices-systems-and-eigenvalues",
      "title": "Matrices, Systems and Eigenvalues",
      "level": "topic-level",
-     "covers": [
-      "diagonalisation A = P D P^-1 and powers through D",
-      "a repeated eigenvalue may fail to supply enough independent eigenvectors"
-     ],
      "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },
-    "mapped_at": "2026-10-29"
+    "mapped_at": "2026-10-30"
    },
    "subject": "linear-algebra",
    "topic": "eigenvalues-and-eigenvectors",
@@ -13566,8 +13704,8 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "eigenvalue-properties",
-       "questions": 16
+       "label": "cayley-hamilton-theorem",
+       "questions": 10
       },
       {
        "label": "characteristic-equations",
@@ -13578,8 +13716,8 @@ window.GATE_DATA = {
        "questions": 12
       },
       {
-       "label": "cayley-hamilton-theorem",
-       "questions": 10
+       "label": "eigenvalue-properties",
+       "questions": 16
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/eigenvalues-eigenvectors/gate_em_mock_2_2026-10-27.html"
@@ -13589,12 +13727,11 @@ window.GATE_DATA = {
      "title": "Matrices, Systems and Eigenvalues",
      "level": "topic-level",
      "covers": [
-      "symmetric matrices: real eigenvalues, orthogonal eigenvectors",
-      "the eigenvector basis can be made orthonormal (spectral theorem)"
+      "eigenvalues and eigenvectors"
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },
-    "mapped_at": "2026-10-29"
+    "mapped_at": "2026-10-30"
    },
    "subject": "linear-algebra",
    "topic": "eigenvalues-and-eigenvectors",
@@ -13679,8 +13816,8 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "eigenvalue-properties",
-       "questions": 16
+       "label": "cayley-hamilton-theorem",
+       "questions": 10
       },
       {
        "label": "characteristic-equations",
@@ -13691,8 +13828,8 @@ window.GATE_DATA = {
        "questions": 12
       },
       {
-       "label": "cayley-hamilton-theorem",
-       "questions": 10
+       "label": "eigenvalue-properties",
+       "questions": 16
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/eigenvalues-eigenvectors/gate_em_mock_2_2026-10-27.html"
@@ -13702,12 +13839,11 @@ window.GATE_DATA = {
      "title": "Matrices, Systems and Eigenvalues",
      "level": "topic-level",
      "covers": [
-      "a real matrix with no real eigenvalue",
-      "a quarter turn sends every vector to a perpendicular one, giving plus and minus i"
+      "eigenvalues and eigenvectors"
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },
-    "mapped_at": "2026-10-29"
+    "mapped_at": "2026-10-30"
    },
    "subject": "linear-algebra",
    "topic": "eigenvalues-and-eigenvectors",
@@ -13805,8 +13941,8 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "eigenvalue-properties",
-       "questions": 16
+       "label": "cayley-hamilton-theorem",
+       "questions": 10
       },
       {
        "label": "characteristic-equations",
@@ -13817,8 +13953,8 @@ window.GATE_DATA = {
        "questions": 12
       },
       {
-       "label": "cayley-hamilton-theorem",
-       "questions": 10
+       "label": "eigenvalue-properties",
+       "questions": 16
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/eigenvalues-eigenvectors/gate_em_mock_2_2026-10-27.html"
@@ -13828,12 +13964,11 @@ window.GATE_DATA = {
      "title": "Matrices, Systems and Eigenvalues",
      "level": "topic-level",
      "covers": [
-      "triangular, all-ones, idempotent, nilpotent and rotation patterns",
-      "the row-sum shortcut gives the largest eigenvalue only, not the whole list"
+      "eigenvalues and eigenvectors"
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },
-    "mapped_at": "2026-10-29"
+    "mapped_at": "2026-10-30"
    },
    "subject": "linear-algebra",
    "topic": "eigenvalues-and-eigenvectors",
@@ -13927,8 +14062,8 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "eigenvalue-properties",
-       "questions": 16
+       "label": "cayley-hamilton-theorem",
+       "questions": 10
       },
       {
        "label": "characteristic-equations",
@@ -13939,13 +14074,22 @@ window.GATE_DATA = {
        "questions": 12
       },
       {
-       "label": "cayley-hamilton-theorem",
-       "questions": 10
+       "label": "eigenvalue-properties",
+       "questions": 16
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/eigenvalues-eigenvectors/gate_em_mock_2_2026-10-27.html"
     },
-    "mapped_at": "2026-10-29"
+    "visual": {
+     "slug": "matrices-systems-and-eigenvalues",
+     "title": "Matrices, Systems and Eigenvalues",
+     "level": "topic-level",
+     "covers": [
+      "eigenvalues and eigenvectors"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
+    },
+    "mapped_at": "2026-10-30"
    },
    "subject": "linear-algebra",
    "topic": "eigenvalues-and-eigenvectors",
@@ -14039,8 +14183,8 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "eigenvalue-properties",
-       "questions": 16
+       "label": "cayley-hamilton-theorem",
+       "questions": 10
       },
       {
        "label": "characteristic-equations",
@@ -14051,13 +14195,22 @@ window.GATE_DATA = {
        "questions": 12
       },
       {
-       "label": "cayley-hamilton-theorem",
-       "questions": 10
+       "label": "eigenvalue-properties",
+       "questions": 16
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/eigenvalues-eigenvectors/gate_em_mock_2_2026-10-27.html"
     },
-    "mapped_at": "2026-10-29"
+    "visual": {
+     "slug": "matrices-systems-and-eigenvalues",
+     "title": "Matrices, Systems and Eigenvalues",
+     "level": "topic-level",
+     "covers": [
+      "matrix operations"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
+    },
+    "mapped_at": "2026-10-30"
    },
    "subject": "linear-algebra",
    "topic": "eigenvalues-and-eigenvectors",
@@ -14164,6 +14317,10 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
+       "label": "gauss-elimination",
+       "questions": 9
+      },
+      {
        "label": "matrix-operations",
        "questions": 15
       },
@@ -14174,10 +14331,6 @@ window.GATE_DATA = {
       {
        "label": "systems-of-linear-equations",
        "questions": 12
-      },
-      {
-       "label": "gauss-elimination",
-       "questions": 9
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
@@ -14186,12 +14339,9 @@ window.GATE_DATA = {
      "slug": "matrices-systems-and-eigenvalues",
      "title": "Matrices, Systems and Eigenvalues",
      "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html",
-     "covers": [
-      "LU: L unit lower triangular, U upper, multipliers and pivots"
-     ]
+     "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },
-    "mapped_at": "2026-10-29"
+    "mapped_at": "2026-10-30"
    },
    "subject": "linear-algebra",
    "topic": "lu-decomposition",
@@ -14287,6 +14437,10 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
+       "label": "gauss-elimination",
+       "questions": 9
+      },
+      {
        "label": "matrix-operations",
        "questions": 15
       },
@@ -14297,10 +14451,6 @@ window.GATE_DATA = {
       {
        "label": "systems-of-linear-equations",
        "questions": 12
-      },
-      {
-       "label": "gauss-elimination",
-       "questions": 9
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
@@ -14309,12 +14459,13 @@ window.GATE_DATA = {
      "slug": "matrices-systems-and-eigenvalues",
      "title": "Matrices, Systems and Eigenvalues",
      "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html",
      "covers": [
+      "rank as a pivot count; elimination preserves it",
       "LU: L unit lower triangular, U upper, multipliers and pivots"
-     ]
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },
-    "mapped_at": "2026-10-29"
+    "mapped_at": "2026-10-30"
    },
    "subject": "linear-algebra",
    "topic": "lu-decomposition",
@@ -14420,6 +14571,10 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
+       "label": "gauss-elimination",
+       "questions": 9
+      },
+      {
        "label": "matrix-operations",
        "questions": 15
       },
@@ -14430,15 +14585,17 @@ window.GATE_DATA = {
       {
        "label": "systems-of-linear-equations",
        "questions": 12
-      },
-      {
-       "label": "gauss-elimination",
-       "questions": 9
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
     },
-    "mapped_at": "2026-10-29"
+    "visual": {
+     "slug": "matrices-systems-and-eigenvalues",
+     "title": "Matrices, Systems and Eigenvalues",
+     "level": "topic-level",
+     "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
+    },
+    "mapped_at": "2026-10-30"
    },
    "subject": "linear-algebra",
    "topic": "lu-decomposition",
@@ -14534,6 +14691,10 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
+       "label": "gauss-elimination",
+       "questions": 9
+      },
+      {
        "label": "matrix-operations",
        "questions": 15
       },
@@ -14544,10 +14705,6 @@ window.GATE_DATA = {
       {
        "label": "systems-of-linear-equations",
        "questions": 12
-      },
-      {
-       "label": "gauss-elimination",
-       "questions": 9
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
@@ -14556,12 +14713,12 @@ window.GATE_DATA = {
      "slug": "matrices-systems-and-eigenvalues",
      "title": "Matrices, Systems and Eigenvalues",
      "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html",
      "covers": [
       "existence by leading principal minors; PA = LU with a permutation"
-     ]
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },
-    "mapped_at": "2026-10-29"
+    "mapped_at": "2026-10-30"
    },
    "subject": "linear-algebra",
    "topic": "lu-decomposition",
@@ -14644,6 +14801,10 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
+       "label": "gauss-elimination",
+       "questions": 9
+      },
+      {
        "label": "matrix-operations",
        "questions": 15
       },
@@ -14654,10 +14815,6 @@ window.GATE_DATA = {
       {
        "label": "systems-of-linear-equations",
        "questions": 12
-      },
-      {
-       "label": "gauss-elimination",
-       "questions": 9
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
@@ -14666,13 +14823,9 @@ window.GATE_DATA = {
      "slug": "matrices-systems-and-eigenvalues",
      "title": "Matrices, Systems and Eigenvalues",
      "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html",
-     "covers": [
-      "existence by leading principal minors; PA = LU with a permutation",
-      "det A = (-1)^swaps times the pivot product"
-     ]
+     "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },
-    "mapped_at": "2026-10-29"
+    "mapped_at": "2026-10-30"
    },
    "subject": "linear-algebra",
    "topic": "lu-decomposition",
@@ -14769,6 +14922,10 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
+       "label": "gauss-elimination",
+       "questions": 9
+      },
+      {
        "label": "matrix-operations",
        "questions": 15
       },
@@ -14779,10 +14936,6 @@ window.GATE_DATA = {
       {
        "label": "systems-of-linear-equations",
        "questions": 12
-      },
-      {
-       "label": "gauss-elimination",
-       "questions": 9
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
@@ -14791,12 +14944,12 @@ window.GATE_DATA = {
      "slug": "matrices-systems-and-eigenvalues",
      "title": "Matrices, Systems and Eigenvalues",
      "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html",
      "covers": [
-      "forward and back substitution through L then U, each pass quadratic"
-     ]
+      "solving systems: consistency and uniqueness"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },
-    "mapped_at": "2026-10-29"
+    "mapped_at": "2026-10-30"
    },
    "subject": "linear-algebra",
    "topic": "lu-decomposition",
@@ -14882,6 +15035,10 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
+       "label": "gauss-elimination",
+       "questions": 9
+      },
+      {
        "label": "matrix-operations",
        "questions": 15
       },
@@ -14892,10 +15049,6 @@ window.GATE_DATA = {
       {
        "label": "systems-of-linear-equations",
        "questions": 12
-      },
-      {
-       "label": "gauss-elimination",
-       "questions": 9
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
@@ -14904,12 +15057,12 @@ window.GATE_DATA = {
      "slug": "matrices-systems-and-eigenvalues",
      "title": "Matrices, Systems and Eigenvalues",
      "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html",
      "covers": [
-      "det A = (-1)^swaps times the pivot product"
-     ]
+      "determinants and their properties"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },
-    "mapped_at": "2026-10-29"
+    "mapped_at": "2026-10-30"
    },
    "subject": "linear-algebra",
    "topic": "lu-decomposition",
@@ -14995,6 +15148,10 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
+       "label": "gauss-elimination",
+       "questions": 9
+      },
+      {
        "label": "matrix-operations",
        "questions": 15
       },
@@ -15005,10 +15162,6 @@ window.GATE_DATA = {
       {
        "label": "systems-of-linear-equations",
        "questions": 12
-      },
-      {
-       "label": "gauss-elimination",
-       "questions": 9
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
@@ -15017,12 +15170,12 @@ window.GATE_DATA = {
      "slug": "matrices-systems-and-eigenvalues",
      "title": "Matrices, Systems and Eigenvalues",
      "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html",
      "covers": [
-      "rank as a pivot count; elimination preserves it"
-     ]
+      "rank"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },
-    "mapped_at": "2026-10-29"
+    "mapped_at": "2026-10-30"
    },
    "subject": "linear-algebra",
    "topic": "lu-decomposition",
@@ -15105,6 +15258,10 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
+       "label": "gauss-elimination",
+       "questions": 9
+      },
+      {
        "label": "matrix-operations",
        "questions": 15
       },
@@ -15115,10 +15272,6 @@ window.GATE_DATA = {
       {
        "label": "systems-of-linear-equations",
        "questions": 12
-      },
-      {
-       "label": "gauss-elimination",
-       "questions": 9
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
@@ -15127,12 +15280,9 @@ window.GATE_DATA = {
      "slug": "matrices-systems-and-eigenvalues",
      "title": "Matrices, Systems and Eigenvalues",
      "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html",
-     "covers": [
-      "each triangular pass is quadratic, so factor once for several right-hand sides"
-     ]
+     "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },
-    "mapped_at": "2026-10-29"
+    "mapped_at": "2026-10-30"
    },
    "subject": "linear-algebra",
    "topic": "lu-decomposition",
@@ -15216,6 +15366,10 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
+       "label": "gauss-elimination",
+       "questions": 9
+      },
+      {
        "label": "matrix-operations",
        "questions": 15
       },
@@ -15226,15 +15380,20 @@ window.GATE_DATA = {
       {
        "label": "systems-of-linear-equations",
        "questions": 12
-      },
-      {
-       "label": "gauss-elimination",
-       "questions": 9
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
     },
-    "mapped_at": "2026-10-29"
+    "visual": {
+     "slug": "matrices-systems-and-eigenvalues",
+     "title": "Matrices, Systems and Eigenvalues",
+     "level": "topic-level",
+     "covers": [
+      "solving systems: consistency and uniqueness"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
+    },
+    "mapped_at": "2026-10-30"
    },
    "subject": "linear-algebra",
    "topic": "lu-decomposition",
@@ -15320,6 +15479,10 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
+       "label": "gauss-elimination",
+       "questions": 9
+      },
+      {
        "label": "matrix-operations",
        "questions": 15
       },
@@ -15330,15 +15493,17 @@ window.GATE_DATA = {
       {
        "label": "systems-of-linear-equations",
        "questions": 12
-      },
-      {
-       "label": "gauss-elimination",
-       "questions": 9
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
     },
-    "mapped_at": "2026-10-29"
+    "visual": {
+     "slug": "matrices-systems-and-eigenvalues",
+     "title": "Matrices, Systems and Eigenvalues",
+     "level": "topic-level",
+     "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
+    },
+    "mapped_at": "2026-10-30"
    },
    "subject": "linear-algebra",
    "topic": "lu-decomposition",
@@ -15435,6 +15600,10 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
+       "label": "gauss-elimination",
+       "questions": 9
+      },
+      {
        "label": "matrix-operations",
        "questions": 15
       },
@@ -15445,15 +15614,21 @@ window.GATE_DATA = {
       {
        "label": "systems-of-linear-equations",
        "questions": 12
-      },
-      {
-       "label": "gauss-elimination",
-       "questions": 9
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
     },
-    "mapped_at": "2026-10-29"
+    "visual": {
+     "slug": "matrices-systems-and-eigenvalues",
+     "title": "Matrices, Systems and Eigenvalues",
+     "level": "topic-level",
+     "covers": [
+      "row swap negates, row addition preserves, row scaling scales",
+      "wide matrix: nullity at least m - n (GATE 2024 Set 1 Q39)"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
+    },
+    "mapped_at": "2026-10-30"
    },
    "subject": "linear-algebra",
    "topic": "lu-decomposition",
@@ -15550,12 +15725,12 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "indeterminate-forms-lhopital",
-       "questions": 14
-      },
-      {
        "label": "continuity-analysis",
        "questions": 12
+      },
+      {
+       "label": "indeterminate-forms-lhopital",
+       "questions": 14
       },
       {
        "label": "mean-value-theorems",
@@ -15573,12 +15748,11 @@ window.GATE_DATA = {
      "title": "Calculus: Limits, Extrema and Integration",
      "level": "topic-level",
      "covers": [
-      "a limit is the value approached, not the value reached",
-      "two one-sided limits plus the value decide continuity at a point"
+      "limits and standard forms"
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
     },
-    "mapped_at": "2026-10-29"
+    "mapped_at": "2026-10-30"
    },
    "subject": "calculus",
    "topic": "limits-continuity-differentiability",
@@ -15656,12 +15830,12 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "indeterminate-forms-lhopital",
-       "questions": 14
-      },
-      {
        "label": "continuity-analysis",
        "questions": 12
+      },
+      {
+       "label": "indeterminate-forms-lhopital",
+       "questions": 14
       },
       {
        "label": "mean-value-theorems",
@@ -15674,7 +15848,16 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-limits-derivatives/gate_em_mock_3_2026-10-27.html"
     },
-    "mapped_at": "2026-10-29"
+    "visual": {
+     "slug": "calculus-limits-extrema-and-integration",
+     "title": "Calculus: Limits, Extrema and Integration",
+     "level": "topic-level",
+     "covers": [
+      "limits and standard forms"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
+    },
+    "mapped_at": "2026-10-30"
    },
    "subject": "calculus",
    "topic": "limits-continuity-differentiability",
@@ -15770,12 +15953,12 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "indeterminate-forms-lhopital",
-       "questions": 14
-      },
-      {
        "label": "continuity-analysis",
        "questions": 12
+      },
+      {
+       "label": "indeterminate-forms-lhopital",
+       "questions": 14
       },
       {
        "label": "mean-value-theorems",
@@ -15788,7 +15971,16 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-limits-derivatives/gate_em_mock_3_2026-10-27.html"
     },
-    "mapped_at": "2026-10-29"
+    "visual": {
+     "slug": "calculus-limits-extrema-and-integration",
+     "title": "Calculus: Limits, Extrema and Integration",
+     "level": "topic-level",
+     "covers": [
+      "limits and standard forms"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
+    },
+    "mapped_at": "2026-10-30"
    },
    "subject": "calculus",
    "topic": "limits-continuity-differentiability",
@@ -15887,12 +16079,12 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "indeterminate-forms-lhopital",
-       "questions": 14
-      },
-      {
        "label": "continuity-analysis",
        "questions": 12
+      },
+      {
+       "label": "indeterminate-forms-lhopital",
+       "questions": 14
       },
       {
        "label": "mean-value-theorems",
@@ -15910,12 +16102,11 @@ window.GATE_DATA = {
      "title": "Calculus: Limits, Extrema and Integration",
      "level": "topic-level",
      "covers": [
-      "L'Hopital is legal only on 0/0 and infinity over infinity",
-      "one application is often not enough"
+      "differentiation rules"
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
     },
-    "mapped_at": "2026-10-29"
+    "mapped_at": "2026-10-30"
    },
    "subject": "calculus",
    "topic": "limits-continuity-differentiability",
@@ -16010,12 +16201,12 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "indeterminate-forms-lhopital",
-       "questions": 14
-      },
-      {
        "label": "continuity-analysis",
        "questions": 12
+      },
+      {
+       "label": "indeterminate-forms-lhopital",
+       "questions": 14
       },
       {
        "label": "mean-value-theorems",
@@ -16033,12 +16224,11 @@ window.GATE_DATA = {
      "title": "Calculus: Limits, Extrema and Integration",
      "level": "topic-level",
      "covers": [
-      "the five indeterminate forms and the move for each",
-      "a 1 to the infinity power goes through e to the g ln f"
+      "the five indeterminate forms and the move for each"
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
     },
-    "mapped_at": "2026-10-29"
+    "mapped_at": "2026-10-30"
    },
    "subject": "calculus",
    "topic": "limits-continuity-differentiability",
@@ -16134,12 +16324,12 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "indeterminate-forms-lhopital",
-       "questions": 14
-      },
-      {
        "label": "continuity-analysis",
        "questions": 12
+      },
+      {
+       "label": "indeterminate-forms-lhopital",
+       "questions": 14
       },
       {
        "label": "mean-value-theorems",
@@ -16157,12 +16347,11 @@ window.GATE_DATA = {
      "title": "Calculus: Limits, Extrema and Integration",
      "level": "topic-level",
      "covers": [
-      "the exponential beats a polynomial as x goes to infinity",
-      "x to the 1 over x is infinity to the zero, so the limit is 1"
+      "limits and standard forms"
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
     },
-    "mapped_at": "2026-10-29"
+    "mapped_at": "2026-10-30"
    },
    "subject": "calculus",
    "topic": "limits-continuity-differentiability",
@@ -16259,12 +16448,12 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "indeterminate-forms-lhopital",
-       "questions": 14
-      },
-      {
        "label": "continuity-analysis",
        "questions": 12
+      },
+      {
+       "label": "indeterminate-forms-lhopital",
+       "questions": 14
       },
       {
        "label": "mean-value-theorems",
@@ -16282,12 +16471,11 @@ window.GATE_DATA = {
      "title": "Calculus: Limits, Extrema and Integration",
      "level": "topic-level",
      "covers": [
-      "continuity at a point: limit exists, value exists, they are equal",
-      "solving for the constant that makes a piecewise function continuous"
+      "continuity"
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
     },
-    "mapped_at": "2026-10-29"
+    "mapped_at": "2026-10-30"
    },
    "subject": "calculus",
    "topic": "limits-continuity-differentiability",
@@ -16375,12 +16563,12 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "indeterminate-forms-lhopital",
-       "questions": 14
-      },
-      {
        "label": "continuity-analysis",
        "questions": 12
+      },
+      {
+       "label": "indeterminate-forms-lhopital",
+       "questions": 14
       },
       {
        "label": "mean-value-theorems",
@@ -16397,12 +16585,9 @@ window.GATE_DATA = {
      "slug": "calculus-limits-extrema-and-integration",
      "title": "Calculus: Limits, Extrema and Integration",
      "level": "topic-level",
-     "covers": [
-      "the three ways continuity fails: jump, blow-up, hole"
-     ],
      "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
     },
-    "mapped_at": "2026-10-29"
+    "mapped_at": "2026-10-30"
    },
    "subject": "calculus",
    "topic": "limits-continuity-differentiability",
@@ -16499,12 +16684,12 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "indeterminate-forms-lhopital",
-       "questions": 14
-      },
-      {
        "label": "continuity-analysis",
        "questions": 12
+      },
+      {
+       "label": "indeterminate-forms-lhopital",
+       "questions": 14
       },
       {
        "label": "mean-value-theorems",
@@ -16517,7 +16702,16 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-limits-derivatives/gate_em_mock_3_2026-10-27.html"
     },
-    "mapped_at": "2026-10-29"
+    "visual": {
+     "slug": "calculus-limits-extrema-and-integration",
+     "title": "Calculus: Limits, Extrema and Integration",
+     "level": "topic-level",
+     "covers": [
+      "continuity"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
+    },
+    "mapped_at": "2026-10-30"
    },
    "subject": "calculus",
    "topic": "limits-continuity-differentiability",
@@ -16613,12 +16807,12 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "indeterminate-forms-lhopital",
-       "questions": 14
-      },
-      {
        "label": "continuity-analysis",
        "questions": 12
+      },
+      {
+       "label": "indeterminate-forms-lhopital",
+       "questions": 14
       },
       {
        "label": "mean-value-theorems",
@@ -16636,12 +16830,11 @@ window.GATE_DATA = {
      "title": "Calculus: Limits, Extrema and Integration",
      "level": "topic-level",
      "covers": [
-      "two one-sided slopes must agree for a derivative to exist",
-      "differentiable implies continuous, never the reverse; |x| at zero"
+      "continuity"
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
     },
-    "mapped_at": "2026-10-29"
+    "mapped_at": "2026-10-30"
    },
    "subject": "calculus",
    "topic": "limits-continuity-differentiability",
@@ -16739,12 +16932,12 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "indeterminate-forms-lhopital",
-       "questions": 14
-      },
-      {
        "label": "continuity-analysis",
        "questions": 12
+      },
+      {
+       "label": "indeterminate-forms-lhopital",
+       "questions": 14
       },
       {
        "label": "mean-value-theorems",
@@ -16762,12 +16955,11 @@ window.GATE_DATA = {
      "title": "Calculus: Limits, Extrema and Integration",
      "level": "topic-level",
      "covers": [
-      "solving for the constant that makes the value match at a join",
-      "two one-sided slopes as the test for differentiability at a join"
+      "two one-sided slopes as the test for differentiability"
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
     },
-    "mapped_at": "2026-10-29"
+    "mapped_at": "2026-10-30"
    },
    "subject": "calculus",
    "topic": "limits-continuity-differentiability",
@@ -16857,16 +17049,16 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "single-variable-extrema",
-       "questions": 15
-      },
-      {
        "label": "definite-integrals",
        "questions": 13
       },
       {
        "label": "multivariable-extrema-saddle-points",
        "questions": 11
+      },
+      {
+       "label": "single-variable-extrema",
+       "questions": 15
       },
       {
        "label": "vector-calculus-basics",
@@ -16880,12 +17072,11 @@ window.GATE_DATA = {
      "title": "Calculus: Limits, Extrema and Integration",
      "level": "topic-level",
      "covers": [
-      "the max of x and x cubed has corners at minus 1, 0 and 1",
-      "critical points, sign chart, then the second derivative test"
+      "the closed-interval candidate list: critical points, corners, endpoints"
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
     },
-    "mapped_at": "2026-10-29"
+    "mapped_at": "2026-10-30"
    },
    "subject": "calculus",
    "topic": "limits-continuity-differentiability",
@@ -16975,16 +17166,16 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "single-variable-extrema",
-       "questions": 15
-      },
-      {
        "label": "definite-integrals",
        "questions": 13
       },
       {
        "label": "multivariable-extrema-saddle-points",
        "questions": 11
+      },
+      {
+       "label": "single-variable-extrema",
+       "questions": 15
       },
       {
        "label": "vector-calculus-basics",
@@ -16997,13 +17188,9 @@ window.GATE_DATA = {
      "slug": "calculus-limits-extrema-and-integration",
      "title": "Calculus: Limits, Extrema and Integration",
      "level": "topic-level",
-     "covers": [
-      "a local extremum can occur only at a critical point or at an endpoint",
-      "the closed-interval comparison that settles the global value"
-     ],
      "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
     },
-    "mapped_at": "2026-10-29"
+    "mapped_at": "2026-10-30"
    },
    "subject": "calculus",
    "topic": "maxima-and-minima",
@@ -17092,16 +17279,16 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "single-variable-extrema",
-       "questions": 15
-      },
-      {
        "label": "definite-integrals",
        "questions": 13
       },
       {
        "label": "multivariable-extrema-saddle-points",
        "questions": 11
+      },
+      {
+       "label": "single-variable-extrema",
+       "questions": 15
       },
       {
        "label": "vector-calculus-basics",
@@ -17115,12 +17302,11 @@ window.GATE_DATA = {
      "title": "Calculus: Limits, Extrema and Integration",
      "level": "topic-level",
      "covers": [
-      "two kinds of interior candidate: derivative zero or derivative missing",
-      "solving f prime = 0 and then reading the sign chart"
+      "the closed-interval candidate list: critical points, corners, endpoints"
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
     },
-    "mapped_at": "2026-10-29"
+    "mapped_at": "2026-10-30"
    },
    "subject": "calculus",
    "topic": "maxima-and-minima",
@@ -17209,16 +17395,16 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "single-variable-extrema",
-       "questions": 15
-      },
-      {
        "label": "definite-integrals",
        "questions": 13
       },
       {
        "label": "multivariable-extrema-saddle-points",
        "questions": 11
+      },
+      {
+       "label": "single-variable-extrema",
+       "questions": 15
       },
       {
        "label": "vector-calculus-basics",
@@ -17231,13 +17417,9 @@ window.GATE_DATA = {
      "slug": "calculus-limits-extrema-and-integration",
      "title": "Calculus: Limits, Extrema and Integration",
      "level": "topic-level",
-     "covers": [
-      "derivative zero does not mean extremum: x cubed at zero",
-      "the sign of f prime must change, or the second derivative must be non-zero"
-     ],
      "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
     },
-    "mapped_at": "2026-10-29"
+    "mapped_at": "2026-10-30"
    },
    "subject": "calculus",
    "topic": "maxima-and-minima",
@@ -17327,16 +17509,16 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "single-variable-extrema",
-       "questions": 15
-      },
-      {
        "label": "definite-integrals",
        "questions": 13
       },
       {
        "label": "multivariable-extrema-saddle-points",
        "questions": 11
+      },
+      {
+       "label": "single-variable-extrema",
+       "questions": 15
       },
       {
        "label": "vector-calculus-basics",
@@ -17350,12 +17532,11 @@ window.GATE_DATA = {
      "title": "Calculus: Limits, Extrema and Integration",
      "level": "topic-level",
      "covers": [
-      "the sign chart of f prime classifies each critical point",
-      "climb-then-fall versus fall-then-climb"
+      "first and second derivative tests"
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
     },
-    "mapped_at": "2026-10-29"
+    "mapped_at": "2026-10-30"
    },
    "subject": "calculus",
    "topic": "maxima-and-minima",
@@ -17445,16 +17626,16 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "single-variable-extrema",
-       "questions": 15
-      },
-      {
        "label": "definite-integrals",
        "questions": 13
       },
       {
        "label": "multivariable-extrema-saddle-points",
        "questions": 11
+      },
+      {
+       "label": "single-variable-extrema",
+       "questions": 15
       },
       {
        "label": "vector-calculus-basics",
@@ -17468,12 +17649,11 @@ window.GATE_DATA = {
      "title": "Calculus: Limits, Extrema and Integration",
      "level": "topic-level",
      "covers": [
-      "confirming the classification with the second derivative",
-      "concave up or concave down at the critical point"
+      "first and second derivative tests"
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
     },
-    "mapped_at": "2026-10-29"
+    "mapped_at": "2026-10-30"
    },
    "subject": "calculus",
    "topic": "maxima-and-minima",
@@ -17562,10 +17742,6 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "single-variable-extrema",
-       "questions": 15
-      },
-      {
        "label": "definite-integrals",
        "questions": 13
       },
@@ -17574,13 +17750,26 @@ window.GATE_DATA = {
        "questions": 11
       },
       {
+       "label": "single-variable-extrema",
+       "questions": 15
+      },
+      {
        "label": "vector-calculus-basics",
        "questions": 11
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-29.html"
     },
-    "mapped_at": "2026-10-29"
+    "visual": {
+     "slug": "calculus-limits-extrema-and-integration",
+     "title": "Calculus: Limits, Extrema and Integration",
+     "level": "topic-level",
+     "covers": [
+      "first and second derivative tests"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
+    },
+    "mapped_at": "2026-10-30"
    },
    "subject": "calculus",
    "topic": "maxima-and-minima",
@@ -17670,16 +17859,16 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "single-variable-extrema",
-       "questions": 15
-      },
-      {
        "label": "definite-integrals",
        "questions": 13
       },
       {
        "label": "multivariable-extrema-saddle-points",
        "questions": 11
+      },
+      {
+       "label": "single-variable-extrema",
+       "questions": 15
       },
       {
        "label": "vector-calculus-basics",
@@ -17693,12 +17882,12 @@ window.GATE_DATA = {
      "title": "Calculus: Limits, Extrema and Integration",
      "level": "topic-level",
      "covers": [
-      "the candidate list: critical points plus both endpoints",
-      "evaluate at every candidate and compare the values"
+      "the closed-interval candidate list: critical points, corners, endpoints",
+      "odd and even integrands over symmetric intervals"
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
     },
-    "mapped_at": "2026-10-29"
+    "mapped_at": "2026-10-30"
    },
    "subject": "calculus",
    "topic": "maxima-and-minima",
@@ -17785,16 +17974,16 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "single-variable-extrema",
-       "questions": 15
-      },
-      {
        "label": "definite-integrals",
        "questions": 13
       },
       {
        "label": "multivariable-extrema-saddle-points",
        "questions": 11
+      },
+      {
+       "label": "single-variable-extrema",
+       "questions": 15
       },
       {
        "label": "vector-calculus-basics",
@@ -17808,11 +17997,12 @@ window.GATE_DATA = {
      "title": "Calculus: Limits, Extrema and Integration",
      "level": "topic-level",
      "covers": [
-      "reading where f prime is positive or negative to get climb or fall"
+      "first and second derivative tests",
+      "substitution with its sign and its new limits"
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
     },
-    "mapped_at": "2026-10-29"
+    "mapped_at": "2026-10-30"
    },
    "subject": "calculus",
    "topic": "maxima-and-minima",
@@ -17902,16 +18092,16 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "single-variable-extrema",
-       "questions": 15
-      },
-      {
        "label": "definite-integrals",
        "questions": 13
       },
       {
        "label": "multivariable-extrema-saddle-points",
        "questions": 11
+      },
+      {
+       "label": "single-variable-extrema",
+       "questions": 15
       },
       {
        "label": "vector-calculus-basics",
@@ -17924,13 +18114,9 @@ window.GATE_DATA = {
      "slug": "calculus-limits-extrema-and-integration",
      "title": "Calculus: Limits, Extrema and Integration",
      "level": "topic-level",
-     "covers": [
-      "a maximum at a corner where no derivative exists: one minus |x| on [-1, 1]",
-      "the candidate list has two kinds of interior point"
-     ],
      "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
     },
-    "mapped_at": "2026-10-29"
+    "mapped_at": "2026-10-30"
    },
    "subject": "calculus",
    "topic": "maxima-and-minima",
@@ -18019,16 +18205,16 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "single-variable-extrema",
-       "questions": 15
-      },
-      {
        "label": "definite-integrals",
        "questions": 13
       },
       {
        "label": "multivariable-extrema-saddle-points",
        "questions": 11
+      },
+      {
+       "label": "single-variable-extrema",
+       "questions": 15
       },
       {
        "label": "vector-calculus-basics",
@@ -18042,12 +18228,11 @@ window.GATE_DATA = {
      "title": "Calculus: Limits, Extrema and Integration",
      "level": "topic-level",
      "covers": [
-      "on a closed interval the endpoints are candidates too",
-      "a maximum can sit where the derivative has nothing to say"
+      "the closed-interval candidate list: critical points, corners, endpoints"
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
     },
-    "mapped_at": "2026-10-29"
+    "mapped_at": "2026-10-30"
    },
    "subject": "calculus",
    "topic": "maxima-and-minima",
@@ -18138,16 +18323,16 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "single-variable-extrema",
-       "questions": 15
-      },
-      {
        "label": "definite-integrals",
        "questions": 13
       },
       {
        "label": "multivariable-extrema-saddle-points",
        "questions": 11
+      },
+      {
+       "label": "single-variable-extrema",
+       "questions": 15
       },
       {
        "label": "vector-calculus-basics",
@@ -18160,12 +18345,9 @@ window.GATE_DATA = {
      "slug": "calculus-limits-extrema-and-integration",
      "title": "Calculus: Limits, Extrema and Integration",
      "level": "topic-level",
-     "covers": [
-      "the cubic worked example with two critical points, both classified"
-     ],
      "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
     },
-    "mapped_at": "2026-10-29"
+    "mapped_at": "2026-10-30"
    },
    "subject": "calculus",
    "topic": "maxima-and-minima",
@@ -18255,10 +18437,6 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "single-variable-extrema",
-       "questions": 15
-      },
-      {
        "label": "definite-integrals",
        "questions": 13
       },
@@ -18267,13 +18445,27 @@ window.GATE_DATA = {
        "questions": 11
       },
       {
+       "label": "single-variable-extrema",
+       "questions": 15
+      },
+      {
        "label": "vector-calculus-basics",
        "questions": 11
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-29.html"
     },
-    "mapped_at": "2026-10-29"
+    "visual": {
+     "slug": "calculus-limits-extrema-and-integration",
+     "title": "Calculus: Limits, Extrema and Integration",
+     "level": "topic-level",
+     "covers": [
+      "the closed-interval candidate list: critical points, corners, endpoints",
+      "odd and even integrands over symmetric intervals"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
+    },
+    "mapped_at": "2026-10-30"
    },
    "subject": "calculus",
    "topic": "maxima-and-minima",
@@ -18362,10 +18554,6 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "single-variable-extrema",
-       "questions": 15
-      },
-      {
        "label": "definite-integrals",
        "questions": 13
       },
@@ -18374,13 +18562,26 @@ window.GATE_DATA = {
        "questions": 11
       },
       {
+       "label": "single-variable-extrema",
+       "questions": 15
+      },
+      {
        "label": "vector-calculus-basics",
        "questions": 11
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-29.html"
     },
-    "mapped_at": "2026-10-29"
+    "visual": {
+     "slug": "calculus-limits-extrema-and-integration",
+     "title": "Calculus: Limits, Extrema and Integration",
+     "level": "topic-level",
+     "covers": [
+      "the closed-interval candidate list: critical points, corners, endpoints"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
+    },
+    "mapped_at": "2026-10-30"
    },
    "subject": "calculus",
    "topic": "maxima-and-minima",
@@ -18468,10 +18669,6 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "single-variable-extrema",
-       "questions": 15
-      },
-      {
        "label": "definite-integrals",
        "questions": 13
       },
@@ -18480,13 +18677,23 @@ window.GATE_DATA = {
        "questions": 11
       },
       {
+       "label": "single-variable-extrema",
+       "questions": 15
+      },
+      {
        "label": "vector-calculus-basics",
        "questions": 11
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-29.html"
     },
-    "mapped_at": "2026-10-29"
+    "visual": {
+     "slug": "calculus-limits-extrema-and-integration",
+     "title": "Calculus: Limits, Extrema and Integration",
+     "level": "topic-level",
+     "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
+    },
+    "mapped_at": "2026-10-30"
    },
    "subject": "calculus",
    "topic": "maxima-and-minima",
@@ -18576,12 +18783,12 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "indeterminate-forms-lhopital",
-       "questions": 14
-      },
-      {
        "label": "continuity-analysis",
        "questions": 12
+      },
+      {
+       "label": "indeterminate-forms-lhopital",
+       "questions": 14
       },
       {
        "label": "mean-value-theorems",
@@ -18598,15 +18805,9 @@ window.GATE_DATA = {
      "slug": "calculus-limits-extrema-and-integration",
      "title": "Calculus: Limits, Extrema and Integration",
      "level": "topic-level",
-     "covers": [
-      "the mean value theorem as an inequality bounding a function's value",
-      "Rolle's theorem as the equal-endpoint special case",
-      "continuity on the closed interval and differentiability on the open one",
-      "the failure case where no interior point carries the average slope"
-     ],
      "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
     },
-    "mapped_at": "2026-10-29"
+    "mapped_at": "2026-10-30"
    },
    "subject": "calculus",
    "topic": "mean-value-theorem",
@@ -18704,12 +18905,12 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "indeterminate-forms-lhopital",
-       "questions": 14
-      },
-      {
        "label": "continuity-analysis",
        "questions": 12
+      },
+      {
+       "label": "indeterminate-forms-lhopital",
+       "questions": 14
       },
       {
        "label": "mean-value-theorems",
@@ -18727,14 +18928,11 @@ window.GATE_DATA = {
      "title": "Calculus: Limits, Extrema and Integration",
      "level": "topic-level",
      "covers": [
-      "the mean value theorem as an inequality bounding a function's value",
-      "Rolle's theorem as the equal-endpoint special case",
-      "continuity on the closed interval and differentiability on the open one",
-      "the failure case where no interior point carries the average slope"
+      "two one-sided slopes as the test for differentiability"
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
     },
-    "mapped_at": "2026-10-29"
+    "mapped_at": "2026-10-30"
    },
    "subject": "calculus",
    "topic": "mean-value-theorem",
@@ -18823,12 +19021,12 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "indeterminate-forms-lhopital",
-       "questions": 14
-      },
-      {
        "label": "continuity-analysis",
        "questions": 12
+      },
+      {
+       "label": "indeterminate-forms-lhopital",
+       "questions": 14
       },
       {
        "label": "mean-value-theorems",
@@ -18846,14 +19044,11 @@ window.GATE_DATA = {
      "title": "Calculus: Limits, Extrema and Integration",
      "level": "topic-level",
      "covers": [
-      "the mean value theorem as an inequality bounding a function's value",
-      "Rolle's theorem as the equal-endpoint special case",
-      "continuity on the closed interval and differentiability on the open one",
-      "the failure case where no interior point carries the average slope"
+      "mean value theorem"
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
     },
-    "mapped_at": "2026-10-29"
+    "mapped_at": "2026-10-30"
    },
    "subject": "calculus",
    "topic": "mean-value-theorem",
@@ -18932,12 +19127,12 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "indeterminate-forms-lhopital",
-       "questions": 14
-      },
-      {
        "label": "continuity-analysis",
        "questions": 12
+      },
+      {
+       "label": "indeterminate-forms-lhopital",
+       "questions": 14
       },
       {
        "label": "mean-value-theorems",
@@ -18955,14 +19150,11 @@ window.GATE_DATA = {
      "title": "Calculus: Limits, Extrema and Integration",
      "level": "topic-level",
      "covers": [
-      "the mean value theorem as an inequality bounding a function's value",
-      "Rolle's theorem as the equal-endpoint special case",
-      "continuity on the closed interval and differentiability on the open one",
-      "the failure case where no interior point carries the average slope"
+      "one-sided limits and the three ways continuity fails"
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
     },
-    "mapped_at": "2026-10-29"
+    "mapped_at": "2026-10-30"
    },
    "subject": "calculus",
    "topic": "mean-value-theorem",
@@ -19049,12 +19241,12 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "indeterminate-forms-lhopital",
-       "questions": 14
-      },
-      {
        "label": "continuity-analysis",
        "questions": 12
+      },
+      {
+       "label": "indeterminate-forms-lhopital",
+       "questions": 14
       },
       {
        "label": "mean-value-theorems",
@@ -19072,14 +19264,11 @@ window.GATE_DATA = {
      "title": "Calculus: Limits, Extrema and Integration",
      "level": "topic-level",
      "covers": [
-      "the mean value theorem as an inequality bounding a function's value",
-      "Rolle's theorem as the equal-endpoint special case",
-      "continuity on the closed interval and differentiability on the open one",
-      "the failure case where no interior point carries the average slope"
+      "the closed-interval candidate list: critical points, corners, endpoints"
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
     },
-    "mapped_at": "2026-10-29"
+    "mapped_at": "2026-10-30"
    },
    "subject": "calculus",
    "topic": "mean-value-theorem",
@@ -19167,12 +19356,12 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "indeterminate-forms-lhopital",
-       "questions": 14
-      },
-      {
        "label": "continuity-analysis",
        "questions": 12
+      },
+      {
+       "label": "indeterminate-forms-lhopital",
+       "questions": 14
       },
       {
        "label": "mean-value-theorems",
@@ -19189,15 +19378,9 @@ window.GATE_DATA = {
      "slug": "calculus-limits-extrema-and-integration",
      "title": "Calculus: Limits, Extrema and Integration",
      "level": "topic-level",
-     "covers": [
-      "the mean value theorem as an inequality bounding a function's value",
-      "Rolle's theorem as the equal-endpoint special case",
-      "continuity on the closed interval and differentiability on the open one",
-      "the failure case where no interior point carries the average slope"
-     ],
      "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
     },
-    "mapped_at": "2026-10-29"
+    "mapped_at": "2026-10-30"
    },
    "subject": "calculus",
    "topic": "mean-value-theorem",
@@ -19287,12 +19470,12 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "indeterminate-forms-lhopital",
-       "questions": 14
-      },
-      {
        "label": "continuity-analysis",
        "questions": 12
+      },
+      {
+       "label": "indeterminate-forms-lhopital",
+       "questions": 14
       },
       {
        "label": "mean-value-theorems",
@@ -19309,15 +19492,9 @@ window.GATE_DATA = {
      "slug": "calculus-limits-extrema-and-integration",
      "title": "Calculus: Limits, Extrema and Integration",
      "level": "topic-level",
-     "covers": [
-      "the mean value theorem as an inequality bounding a function's value",
-      "Rolle's theorem as the equal-endpoint special case",
-      "continuity on the closed interval and differentiability on the open one",
-      "the failure case where no interior point carries the average slope"
-     ],
      "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
     },
-    "mapped_at": "2026-10-29"
+    "mapped_at": "2026-10-30"
    },
    "subject": "calculus",
    "topic": "mean-value-theorem",
@@ -19405,12 +19582,12 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "indeterminate-forms-lhopital",
-       "questions": 14
-      },
-      {
        "label": "continuity-analysis",
        "questions": 12
+      },
+      {
+       "label": "indeterminate-forms-lhopital",
+       "questions": 14
       },
       {
        "label": "mean-value-theorems",
@@ -19427,15 +19604,9 @@ window.GATE_DATA = {
      "slug": "calculus-limits-extrema-and-integration",
      "title": "Calculus: Limits, Extrema and Integration",
      "level": "topic-level",
-     "covers": [
-      "the mean value theorem as an inequality bounding a function's value",
-      "Rolle's theorem as the equal-endpoint special case",
-      "continuity on the closed interval and differentiability on the open one",
-      "the failure case where no interior point carries the average slope"
-     ],
      "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
     },
-    "mapped_at": "2026-10-29"
+    "mapped_at": "2026-10-30"
    },
    "subject": "calculus",
    "topic": "mean-value-theorem",
@@ -19513,12 +19684,12 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "indeterminate-forms-lhopital",
-       "questions": 14
-      },
-      {
        "label": "continuity-analysis",
        "questions": 12
+      },
+      {
+       "label": "indeterminate-forms-lhopital",
+       "questions": 14
       },
       {
        "label": "mean-value-theorems",
@@ -19535,15 +19706,9 @@ window.GATE_DATA = {
      "slug": "calculus-limits-extrema-and-integration",
      "title": "Calculus: Limits, Extrema and Integration",
      "level": "topic-level",
-     "covers": [
-      "the mean value theorem as an inequality bounding a function's value",
-      "Rolle's theorem as the equal-endpoint special case",
-      "continuity on the closed interval and differentiability on the open one",
-      "the failure case where no interior point carries the average slope"
-     ],
      "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
     },
-    "mapped_at": "2026-10-29"
+    "mapped_at": "2026-10-30"
    },
    "subject": "calculus",
    "topic": "mean-value-theorem",
@@ -19631,12 +19796,12 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "indeterminate-forms-lhopital",
-       "questions": 14
-      },
-      {
        "label": "continuity-analysis",
        "questions": 12
+      },
+      {
+       "label": "indeterminate-forms-lhopital",
+       "questions": 14
       },
       {
        "label": "mean-value-theorems",
@@ -19653,15 +19818,9 @@ window.GATE_DATA = {
      "slug": "calculus-limits-extrema-and-integration",
      "title": "Calculus: Limits, Extrema and Integration",
      "level": "topic-level",
-     "covers": [
-      "the mean value theorem as an inequality bounding a function's value",
-      "Rolle's theorem as the equal-endpoint special case",
-      "continuity on the closed interval and differentiability on the open one",
-      "the failure case where no interior point carries the average slope"
-     ],
      "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
     },
-    "mapped_at": "2026-10-29"
+    "mapped_at": "2026-10-30"
    },
    "subject": "calculus",
    "topic": "mean-value-theorem",
@@ -19738,12 +19897,12 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "indeterminate-forms-lhopital",
-       "questions": 14
-      },
-      {
        "label": "continuity-analysis",
        "questions": 12
+      },
+      {
+       "label": "indeterminate-forms-lhopital",
+       "questions": 14
       },
       {
        "label": "mean-value-theorems",
@@ -19761,14 +19920,11 @@ window.GATE_DATA = {
      "title": "Calculus: Limits, Extrema and Integration",
      "level": "topic-level",
      "covers": [
-      "the mean value theorem as an inequality bounding a function's value",
-      "Rolle's theorem as the equal-endpoint special case",
-      "continuity on the closed interval and differentiability on the open one",
-      "the failure case where no interior point carries the average slope"
+      "the mean value theorem used as an inequality, and sharpness"
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
     },
-    "mapped_at": "2026-10-29"
+    "mapped_at": "2026-10-30"
    },
    "subject": "calculus",
    "topic": "mean-value-theorem",
@@ -19858,12 +20014,12 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "indeterminate-forms-lhopital",
-       "questions": 14
-      },
-      {
        "label": "continuity-analysis",
        "questions": 12
+      },
+      {
+       "label": "indeterminate-forms-lhopital",
+       "questions": 14
       },
       {
        "label": "mean-value-theorems",
@@ -19881,14 +20037,11 @@ window.GATE_DATA = {
      "title": "Calculus: Limits, Extrema and Integration",
      "level": "topic-level",
      "covers": [
-      "the mean value theorem as an inequality bounding a function's value",
-      "Rolle's theorem as the equal-endpoint special case",
-      "continuity on the closed interval and differentiability on the open one",
-      "the failure case where no interior point carries the average slope"
+      "first and second derivative tests"
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
     },
-    "mapped_at": "2026-10-29"
+    "mapped_at": "2026-10-30"
    },
    "subject": "calculus",
    "topic": "mean-value-theorem",
@@ -19975,10 +20128,6 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "single-variable-extrema",
-       "questions": 15
-      },
-      {
        "label": "definite-integrals",
        "questions": 13
       },
@@ -19987,13 +20136,26 @@ window.GATE_DATA = {
        "questions": 11
       },
       {
+       "label": "single-variable-extrema",
+       "questions": 15
+      },
+      {
        "label": "vector-calculus-basics",
        "questions": 11
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-29.html"
     },
-    "mapped_at": "2026-10-29"
+    "visual": {
+     "slug": "calculus-limits-extrema-and-integration",
+     "title": "Calculus: Limits, Extrema and Integration",
+     "level": "topic-level",
+     "covers": [
+      "integration"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
+    },
+    "mapped_at": "2026-10-30"
    },
    "subject": "calculus",
    "topic": "integration",
@@ -20082,10 +20244,6 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "single-variable-extrema",
-       "questions": 15
-      },
-      {
        "label": "definite-integrals",
        "questions": 13
       },
@@ -20094,13 +20252,23 @@ window.GATE_DATA = {
        "questions": 11
       },
       {
+       "label": "single-variable-extrema",
+       "questions": 15
+      },
+      {
        "label": "vector-calculus-basics",
        "questions": 11
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-29.html"
     },
-    "mapped_at": "2026-10-29"
+    "visual": {
+     "slug": "calculus-limits-extrema-and-integration",
+     "title": "Calculus: Limits, Extrema and Integration",
+     "level": "topic-level",
+     "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
+    },
+    "mapped_at": "2026-10-30"
    },
    "subject": "calculus",
    "topic": "integration",
@@ -20190,10 +20358,6 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "single-variable-extrema",
-       "questions": 15
-      },
-      {
        "label": "definite-integrals",
        "questions": 13
       },
@@ -20202,13 +20366,23 @@ window.GATE_DATA = {
        "questions": 11
       },
       {
+       "label": "single-variable-extrema",
+       "questions": 15
+      },
+      {
        "label": "vector-calculus-basics",
        "questions": 11
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-29.html"
     },
-    "mapped_at": "2026-10-29"
+    "visual": {
+     "slug": "calculus-limits-extrema-and-integration",
+     "title": "Calculus: Limits, Extrema and Integration",
+     "level": "topic-level",
+     "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
+    },
+    "mapped_at": "2026-10-30"
    },
    "subject": "calculus",
    "topic": "integration",
@@ -20296,10 +20470,6 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "single-variable-extrema",
-       "questions": 15
-      },
-      {
        "label": "definite-integrals",
        "questions": 13
       },
@@ -20308,13 +20478,23 @@ window.GATE_DATA = {
        "questions": 11
       },
       {
+       "label": "single-variable-extrema",
+       "questions": 15
+      },
+      {
        "label": "vector-calculus-basics",
        "questions": 11
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-29.html"
     },
-    "mapped_at": "2026-10-29"
+    "visual": {
+     "slug": "calculus-limits-extrema-and-integration",
+     "title": "Calculus: Limits, Extrema and Integration",
+     "level": "topic-level",
+     "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
+    },
+    "mapped_at": "2026-10-30"
    },
    "subject": "calculus",
    "topic": "integration",
@@ -20406,16 +20586,16 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "single-variable-extrema",
-       "questions": 15
-      },
-      {
        "label": "definite-integrals",
        "questions": 13
       },
       {
        "label": "multivariable-extrema-saddle-points",
        "questions": 11
+      },
+      {
+       "label": "single-variable-extrema",
+       "questions": 15
       },
       {
        "label": "vector-calculus-basics",
@@ -20428,12 +20608,9 @@ window.GATE_DATA = {
      "slug": "calculus-limits-extrema-and-integration",
      "title": "Calculus: Limits, Extrema and Integration",
      "level": "topic-level",
-     "covers": [
-      "odd and even integrands over symmetric intervals"
-     ],
      "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
     },
-    "mapped_at": "2026-10-29"
+    "mapped_at": "2026-10-30"
    },
    "subject": "calculus",
    "topic": "integration",
@@ -20531,16 +20708,16 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "single-variable-extrema",
-       "questions": 15
-      },
-      {
        "label": "definite-integrals",
        "questions": 13
       },
       {
        "label": "multivariable-extrema-saddle-points",
        "questions": 11
+      },
+      {
+       "label": "single-variable-extrema",
+       "questions": 15
       },
       {
        "label": "vector-calculus-basics",
@@ -20558,7 +20735,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
     },
-    "mapped_at": "2026-10-29"
+    "mapped_at": "2026-10-30"
    },
    "subject": "calculus",
    "topic": "integration",
@@ -20655,10 +20832,6 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "single-variable-extrema",
-       "questions": 15
-      },
-      {
        "label": "definite-integrals",
        "questions": 13
       },
@@ -20667,13 +20840,26 @@ window.GATE_DATA = {
        "questions": 11
       },
       {
+       "label": "single-variable-extrema",
+       "questions": 15
+      },
+      {
        "label": "vector-calculus-basics",
        "questions": 11
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-29.html"
     },
-    "mapped_at": "2026-10-29"
+    "visual": {
+     "slug": "calculus-limits-extrema-and-integration",
+     "title": "Calculus: Limits, Extrema and Integration",
+     "level": "topic-level",
+     "covers": [
+      "integration"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
+    },
+    "mapped_at": "2026-10-30"
    },
    "subject": "calculus",
    "topic": "integration",
@@ -20764,10 +20950,6 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "single-variable-extrema",
-       "questions": 15
-      },
-      {
        "label": "definite-integrals",
        "questions": 13
       },
@@ -20776,13 +20958,28 @@ window.GATE_DATA = {
        "questions": 11
       },
       {
+       "label": "single-variable-extrema",
+       "questions": 15
+      },
+      {
        "label": "vector-calculus-basics",
        "questions": 11
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-29.html"
     },
-    "mapped_at": "2026-10-29"
+    "visual": {
+     "slug": "calculus-limits-extrema-and-integration",
+     "title": "Calculus: Limits, Extrema and Integration",
+     "level": "topic-level",
+     "covers": [
+      "the closed-interval candidate list: critical points, corners, endpoints",
+      "substitution with its sign and its new limits",
+      "odd and even integrands over symmetric intervals"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
+    },
+    "mapped_at": "2026-10-30"
    },
    "subject": "calculus",
    "topic": "integration",
@@ -20873,10 +21070,6 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "single-variable-extrema",
-       "questions": 15
-      },
-      {
        "label": "definite-integrals",
        "questions": 13
       },
@@ -20885,13 +21078,23 @@ window.GATE_DATA = {
        "questions": 11
       },
       {
+       "label": "single-variable-extrema",
+       "questions": 15
+      },
+      {
        "label": "vector-calculus-basics",
        "questions": 11
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-29.html"
     },
-    "mapped_at": "2026-10-29"
+    "visual": {
+     "slug": "calculus-limits-extrema-and-integration",
+     "title": "Calculus: Limits, Extrema and Integration",
+     "level": "topic-level",
+     "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
+    },
+    "mapped_at": "2026-10-30"
    },
    "subject": "calculus",
    "topic": "integration",
@@ -20980,10 +21183,6 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "single-variable-extrema",
-       "questions": 15
-      },
-      {
        "label": "definite-integrals",
        "questions": 13
       },
@@ -20992,13 +21191,23 @@ window.GATE_DATA = {
        "questions": 11
       },
       {
+       "label": "single-variable-extrema",
+       "questions": 15
+      },
+      {
        "label": "vector-calculus-basics",
        "questions": 11
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-29.html"
     },
-    "mapped_at": "2026-10-29"
+    "visual": {
+     "slug": "calculus-limits-extrema-and-integration",
+     "title": "Calculus: Limits, Extrema and Integration",
+     "level": "topic-level",
+     "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
+    },
+    "mapped_at": "2026-10-30"
    },
    "subject": "calculus",
    "topic": "integration",
@@ -21077,10 +21286,6 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "single-variable-extrema",
-       "questions": 15
-      },
-      {
        "label": "definite-integrals",
        "questions": 13
       },
@@ -21089,13 +21294,26 @@ window.GATE_DATA = {
        "questions": 11
       },
       {
+       "label": "single-variable-extrema",
+       "questions": 15
+      },
+      {
        "label": "vector-calculus-basics",
        "questions": 11
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-29.html"
     },
-    "mapped_at": "2026-10-29"
+    "visual": {
+     "slug": "calculus-limits-extrema-and-integration",
+     "title": "Calculus: Limits, Extrema and Integration",
+     "level": "topic-level",
+     "covers": [
+      "mean value theorem"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
+    },
+    "mapped_at": "2026-10-30"
    },
    "subject": "calculus",
    "topic": "integration",
@@ -21187,10 +21405,6 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "single-variable-extrema",
-       "questions": 15
-      },
-      {
        "label": "definite-integrals",
        "questions": 13
       },
@@ -21199,13 +21413,23 @@ window.GATE_DATA = {
        "questions": 11
       },
       {
+       "label": "single-variable-extrema",
+       "questions": 15
+      },
+      {
        "label": "vector-calculus-basics",
        "questions": 11
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-29.html"
     },
-    "mapped_at": "2026-10-29"
+    "visual": {
+     "slug": "calculus-limits-extrema-and-integration",
+     "title": "Calculus: Limits, Extrema and Integration",
+     "level": "topic-level",
+     "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
+    },
+    "mapped_at": "2026-10-30"
    },
    "subject": "calculus",
    "topic": "integration",
@@ -21296,10 +21520,6 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "single-variable-extrema",
-       "questions": 15
-      },
-      {
        "label": "definite-integrals",
        "questions": 13
       },
@@ -21308,13 +21528,23 @@ window.GATE_DATA = {
        "questions": 11
       },
       {
+       "label": "single-variable-extrema",
+       "questions": 15
+      },
+      {
        "label": "vector-calculus-basics",
        "questions": 11
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-29.html"
     },
-    "mapped_at": "2026-10-29"
+    "visual": {
+     "slug": "calculus-limits-extrema-and-integration",
+     "title": "Calculus: Limits, Extrema and Integration",
+     "level": "topic-level",
+     "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
+    },
+    "mapped_at": "2026-10-30"
    },
    "subject": "calculus",
    "topic": "integration",
@@ -21410,16 +21640,46 @@ window.GATE_DATA = {
    "sourceLine": "The definition as a measurable function and the motivation for replacing outcomes by numbers: NPTEL Probability and Statistics Lecture 13 (English, IIT Kharagpur). The discrete-versus-continuous contrast and the distribution-table rules: CBSE Applied Mathematics chapter 4 (English) and the Hindi page on probability distributions (translated). The density as a height rather than a probability: NPTEL Lecture 15 (English).",
    "videoRefs": [],
    "links": {
+    "mock": {
+     "subject": "engineering-mathematics",
+     "unit_slug": "probability-distributions",
+     "unit_name": "Continuous Probability & Distributions",
+     "unit_number": 5,
+     "question_count": 25,
+     "subtopics": [
+      {
+       "label": "correlation-and-covariance",
+       "questions": 5
+      },
+      {
+       "label": "exponential-distribution",
+       "questions": 5
+      },
+      {
+       "label": "normal-distribution",
+       "questions": 5
+      },
+      {
+       "label": "random-variables-cdf-pdf",
+       "questions": 5
+      },
+      {
+       "label": "uniform-distribution",
+       "questions": 5
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/probability-distributions/gate_em_mock_5_2026-10-30.html"
+    },
     "visual": {
      "slug": "probability-and-random-variables",
      "title": "Probability, Random Variables and Distributions",
      "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/probability-and-random-variables/index.html",
      "covers": [
       "random variable as a function on outcomes"
-     ]
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/probability-and-random-variables/index.html"
     },
-    "mapped_at": "2026-10-29"
+    "mapped_at": "2026-10-30"
    },
    "subject": "probability-and-statistics",
    "topic": "random-variables-and-distributions",
@@ -21511,17 +21771,43 @@ window.GATE_DATA = {
    "sourceLine": "The definition of the CDF, the absolutely-continuous case and the density as its derivative: NPTEL Probability and Statistics Lecture 15 (English, IIT Kharagpur). The GATE framing of the staircase and the pitfall list: GATE Overflow probability notes (English, read in part). The probability-distribution table and the sum-to-one rule: CBSE Applied Mathematics chapter 4 (English).",
    "videoRefs": [],
    "links": {
+    "mock": {
+     "subject": "engineering-mathematics",
+     "unit_slug": "probability-distributions",
+     "unit_name": "Continuous Probability & Distributions",
+     "unit_number": 5,
+     "question_count": 25,
+     "subtopics": [
+      {
+       "label": "correlation-and-covariance",
+       "questions": 5
+      },
+      {
+       "label": "exponential-distribution",
+       "questions": 5
+      },
+      {
+       "label": "normal-distribution",
+       "questions": 5
+      },
+      {
+       "label": "random-variables-cdf-pdf",
+       "questions": 5
+      },
+      {
+       "label": "uniform-distribution",
+       "questions": 5
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/probability-distributions/gate_em_mock_5_2026-10-30.html"
+    },
     "visual": {
      "slug": "probability-and-random-variables",
      "title": "Probability, Random Variables and Distributions",
      "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/probability-and-random-variables/index.html",
-     "covers": [
-      "PMF sums to 1",
-      "CDF as a staircase: non-decreasing, flat between values, reaching 1"
-     ]
+     "url": "https://gate-visual-explainer.vercel.app/topics/probability-and-random-variables/index.html"
     },
-    "mapped_at": "2026-10-29"
+    "mapped_at": "2026-10-30"
    },
    "subject": "probability-and-statistics",
    "topic": "random-variables-and-distributions",
@@ -21620,17 +21906,43 @@ window.GATE_DATA = {
    "sourceLine": "The two conditions on a density and the interval formula: NPTEL Probability and Statistics Lecture 15 (English). The GATE statement of the same trap, that a computed probability outside [0, 1] means the constant was forgotten: the Knowledge Gate walkthrough of the 2025 question and the GATE Overflow probability notes (English). The Hindi page states the area-under-the-curve reading and the zero probability of a single value (translated).",
    "videoRefs": [],
    "links": {
+    "mock": {
+     "subject": "engineering-mathematics",
+     "unit_slug": "probability-distributions",
+     "unit_name": "Continuous Probability & Distributions",
+     "unit_number": 5,
+     "question_count": 25,
+     "subtopics": [
+      {
+       "label": "correlation-and-covariance",
+       "questions": 5
+      },
+      {
+       "label": "exponential-distribution",
+       "questions": 5
+      },
+      {
+       "label": "normal-distribution",
+       "questions": 5
+      },
+      {
+       "label": "random-variables-cdf-pdf",
+       "questions": 5
+      },
+      {
+       "label": "uniform-distribution",
+       "questions": 5
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/probability-distributions/gate_em_mock_5_2026-10-30.html"
+    },
     "visual": {
      "slug": "probability-and-random-variables",
      "title": "Probability, Random Variables and Distributions",
      "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/probability-and-random-variables/index.html",
-     "covers": [
-      "probability as area under the density",
-      "the density may exceed 1 and P(X = a) = 0"
-     ]
+     "url": "https://gate-visual-explainer.vercel.app/topics/probability-and-random-variables/index.html"
     },
-    "mapped_at": "2026-10-29"
+    "mapped_at": "2026-10-30"
    },
    "subject": "probability-and-statistics",
    "topic": "random-variables-and-distributions",
@@ -21740,15 +22052,44 @@ window.GATE_DATA = {
    "videoRefs": [],
    "visual": "probability-and-statistics/random-variables-and-distributions/pmf-cdf-and-the-balance-point",
    "links": {
+    "mock": {
+     "subject": "engineering-mathematics",
+     "unit_slug": "probability-distributions",
+     "unit_name": "Continuous Probability & Distributions",
+     "unit_number": 5,
+     "question_count": 25,
+     "subtopics": [
+      {
+       "label": "correlation-and-covariance",
+       "questions": 5
+      },
+      {
+       "label": "exponential-distribution",
+       "questions": 5
+      },
+      {
+       "label": "normal-distribution",
+       "questions": 5
+      },
+      {
+       "label": "random-variables-cdf-pdf",
+       "questions": 5
+      },
+      {
+       "label": "uniform-distribution",
+       "questions": 5
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/probability-distributions/gate_em_mock_5_2026-10-30.html"
+    },
     "visual": {
      "slug": "linearity-of-expectation",
      "title": "Linearity of Expectation: Sums, Indicators and the Counts GATE Asks For",
      "level": "subtopic-level",
      "covers": [
+      "expectation as a weighted average and a linear functional",
       "linearity of expectation for any joint distribution",
-      "indicator random variables and E[I(A)] = P(A)",
-      "the tail-sum identity for non-negative integer variables",
-      "E[XY] = E[X]E[Y] only under independence"
+      "expectation of a product and where independence is required"
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/linearity-of-expectation/index.html"
     },
@@ -21854,14 +22195,13 @@ window.GATE_DATA = {
      "slug": "probability-and-random-variables",
      "title": "Probability, Random Variables and Distributions",
      "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/probability-and-random-variables/index.html",
      "covers": [
-      "variance as E[X squared] minus the square of E[X]",
-      "Var(aX + b) = a^2 Var(X)",
-      "standard deviation as the square root of the variance"
-     ]
+      "variance",
+      "mean, median, mode, standard deviation"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/probability-and-random-variables/index.html"
     },
-    "mapped_at": "2026-10-29"
+    "mapped_at": "2026-10-30"
    },
    "subject": "probability-and-statistics",
    "topic": "random-variables-and-distributions",
@@ -21980,17 +22320,49 @@ window.GATE_DATA = {
    "sourceLine": "The Bernoulli trial setup and the discrete uniform contrast: NPTEL Lecture 19 (English). A binomial application solved end to end, the airline overbooking example with binomial(52, 0.95): NPTEL Lecture 20 (English). The boundary of the model, sampling without replacement and the hypergeometric: NPTEL Lecture 21 (English). The four trial conditions in one list: CBSE Applied Mathematics chapter 4 (English). The mean np and variance np(1-p) with the 'p changing between trials' warning: the Hindi page (translated).",
    "videoRefs": [],
    "links": {
-    "visual": {
-     "slug": "probability-and-random-variables",
-     "title": "Probability, Random Variables and Distributions",
-     "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/probability-and-random-variables/index.html",
-     "covers": [
-      "Bernoulli trials and the binomial PMF",
-      "binomial mean np and variance np(1-p)"
-     ]
+    "mock": {
+     "subject": "engineering-mathematics",
+     "unit_slug": "probability-distributions",
+     "unit_name": "Continuous Probability & Distributions",
+     "unit_number": 5,
+     "question_count": 25,
+     "subtopics": [
+      {
+       "label": "correlation-and-covariance",
+       "questions": 5
+      },
+      {
+       "label": "exponential-distribution",
+       "questions": 5
+      },
+      {
+       "label": "normal-distribution",
+       "questions": 5
+      },
+      {
+       "label": "random-variables-cdf-pdf",
+       "questions": 5
+      },
+      {
+       "label": "uniform-distribution",
+       "questions": 5
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/probability-distributions/gate_em_mock_5_2026-10-30.html"
     },
-    "mapped_at": "2026-10-29"
+    "visual": {
+     "slug": "binomial-distribution",
+     "title": "The Binomial Distribution: Three Conditions, One Count",
+     "level": "subtopic-level",
+     "covers": [
+      "the binomial count as a sum of n indicator variables",
+      "the mass function summing to 1 by the binomial theorem",
+      "the standard deviation root(npq), and why a variance above the mean rules out a binomial",
+      "adding two binomials with equal p, and the unequal-p sum that is not binomial"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/binomial-distribution/index.html"
+    },
+    "mapped_at": "2026-10-30"
    },
    "subject": "probability-and-statistics",
    "topic": "random-variables-and-distributions",
@@ -22099,17 +22471,49 @@ window.GATE_DATA = {
    "sourceLine": "The three assumptions of the Poisson process, the derivation of the PMF and the worked example with lambda t rescaled to the window: NPTEL Lecture 22 (English). The derivation of the mean and the standard deviation sqrt(lambda): Glen Cowan's Poisson note (English). The mean-equals-variance signature and the 'at least / at most' pitfalls: the GATE Overflow probability notes and the Hindi page (translated).",
    "videoRefs": [],
    "links": {
-    "visual": {
-     "slug": "probability-and-random-variables",
-     "title": "Probability, Random Variables and Distributions",
-     "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/probability-and-random-variables/index.html",
-     "covers": [
-      "Poisson PMF with mean and variance both lambda",
-      "Poisson as the large-n small-p binomial limit"
-     ]
+    "mock": {
+     "subject": "engineering-mathematics",
+     "unit_slug": "probability-distributions",
+     "unit_name": "Continuous Probability & Distributions",
+     "unit_number": 5,
+     "question_count": 25,
+     "subtopics": [
+      {
+       "label": "correlation-and-covariance",
+       "questions": 5
+      },
+      {
+       "label": "exponential-distribution",
+       "questions": 5
+      },
+      {
+       "label": "normal-distribution",
+       "questions": 5
+      },
+      {
+       "label": "random-variables-cdf-pdf",
+       "questions": 5
+      },
+      {
+       "label": "uniform-distribution",
+       "questions": 5
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/probability-distributions/gate_em_mock_5_2026-10-30.html"
     },
-    "mapped_at": "2026-10-29"
+    "visual": {
+     "slug": "exponential-and-poisson-distributions",
+     "title": "The Exponential and Poisson Distributions: One Rate, Two Questions, and the Four Places the Arithmetic Breaks",
+     "level": "subtopic-level",
+     "covers": [
+      "the count against the wait: Poisson on the whole numbers, exponential on the positive reals",
+      "the Poisson mass function e^-lambda lambda^k / k! and its normalisation",
+      "the Poisson mean and variance, both equal to lambda",
+      "the Poisson as the limit of the binomial with np fixed"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/exponential-and-poisson-distributions/index.html"
+    },
+    "mapped_at": "2026-10-30"
    },
    "subject": "probability-and-statistics",
    "topic": "random-variables-and-distributions",
@@ -22209,17 +22613,48 @@ window.GATE_DATA = {
    "sourceLine": "The exponential as the waiting time of a Poisson process, the memorylessness identity derived from the survival function and the mean 1/lambda: NPTEL Lecture 25 (English). The decay parameter m = 1/mu, the standard deviation equal to the mean and the median below the mean: OpenStax Introductory Statistics 2e section 5.3 (English). The rate-versus-mean pitfall: the GATE Overflow probability notes (English).",
    "videoRefs": [],
    "links": {
-    "visual": {
-     "slug": "probability-and-random-variables",
-     "title": "Probability, Random Variables and Distributions",
-     "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/probability-and-random-variables/index.html",
-     "covers": [
-      "exponential density and the tail e^(-lambda t)",
-      "memorylessness and the condition that makes it true"
-     ]
+    "mock": {
+     "subject": "engineering-mathematics",
+     "unit_slug": "probability-distributions",
+     "unit_name": "Continuous Probability & Distributions",
+     "unit_number": 5,
+     "question_count": 25,
+     "subtopics": [
+      {
+       "label": "correlation-and-covariance",
+       "questions": 5
+      },
+      {
+       "label": "exponential-distribution",
+       "questions": 5
+      },
+      {
+       "label": "normal-distribution",
+       "questions": 5
+      },
+      {
+       "label": "random-variables-cdf-pdf",
+       "questions": 5
+      },
+      {
+       "label": "uniform-distribution",
+       "questions": 5
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/probability-distributions/gate_em_mock_5_2026-10-30.html"
     },
-    "mapped_at": "2026-10-29"
+    "visual": {
+     "slug": "exponential-and-poisson-distributions",
+     "title": "The Exponential and Poisson Distributions: One Rate, Two Questions, and the Four Places the Arithmetic Breaks",
+     "level": "subtopic-level",
+     "covers": [
+      "the count against the wait: Poisson on the whole numbers, exponential on the positive reals",
+      "the exponential density lambda e^-lambda x and its tail e^-lambda x",
+      "the counting process: exponential gaps against a Poisson count"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/exponential-and-poisson-distributions/index.html"
+    },
+    "mapped_at": "2026-10-30"
    },
    "subject": "probability-and-statistics",
    "topic": "random-variables-and-distributions",
@@ -22328,17 +22763,49 @@ window.GATE_DATA = {
    "sourceLine": "The density fixed by normalisation, the mean (a+b)/2 and the variance (b-a)^2/12 with the standard deviation (b-a)/(2 sqrt 3): NPTEL Lecture 24 (English). The rectangle-area method and the standard deviation (b-a)/sqrt(12): OpenStax Introductory Statistics 2e section 5.2 (English). The discriminant argument for the 2019 question: the Knowledge Gate PYQ walkthrough (English), which agrees with the GATE Overflow accepted answer. The discrete-uniform mean and variance, for the contrast: NPTEL Lecture 19 (English).",
    "videoRefs": [],
    "links": {
-    "visual": {
-     "slug": "probability-and-random-variables",
-     "title": "Probability, Random Variables and Distributions",
-     "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/probability-and-random-variables/index.html",
-     "covers": [
-      "uniform density and its mean and variance",
-      "density as area; P(X = a) = 0; density may exceed 1"
-     ]
+    "mock": {
+     "subject": "engineering-mathematics",
+     "unit_slug": "probability-distributions",
+     "unit_name": "Continuous Probability & Distributions",
+     "unit_number": 5,
+     "question_count": 25,
+     "subtopics": [
+      {
+       "label": "correlation-and-covariance",
+       "questions": 5
+      },
+      {
+       "label": "exponential-distribution",
+       "questions": 5
+      },
+      {
+       "label": "normal-distribution",
+       "questions": 5
+      },
+      {
+       "label": "random-variables-cdf-pdf",
+       "questions": 5
+      },
+      {
+       "label": "uniform-distribution",
+       "questions": 5
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/probability-distributions/gate_em_mock_5_2026-10-30.html"
     },
-    "mapped_at": "2026-10-29"
+    "visual": {
+     "slug": "uniform-distribution",
+     "title": "The Uniform Distribution: Equal Size Means Equal Probability",
+     "level": "subtopic-level",
+     "covers": [
+      "the discrete uniform on 1..n: equal masses, mean (n+1)/2, variance (n^2-1)/12",
+      "the continuous uniform on [a,b]: density 1/(b-a), CDF ramp, interval probability as a length ratio",
+      "P(X=c)=0 continuous against P(X=c)=1/n discrete",
+      "rounding a uniform into a discrete one, and the failure on a non-uniform input"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/uniform-distribution/index.html"
+    },
+    "mapped_at": "2026-10-30"
    },
    "subject": "probability-and-statistics",
    "topic": "random-variables-and-distributions",
@@ -22438,19 +22905,46 @@ window.GATE_DATA = {
    "sourceLine": "The density, the standardisation Z = (X - mu)/sigma and the vanishing of the odd central moments by symmetry: NPTEL Lecture 29 (English). The empirical rule, the standard-normal table cautions and the 'variance versus standard deviation' pitfall: the GATE Overflow probability notes (English). The mean-median-mode equality and the symmetry statement: CBSE Applied Mathematics chapter 4 (English).",
    "videoRefs": [],
    "links": {
+    "mock": {
+     "subject": "engineering-mathematics",
+     "unit_slug": "probability-distributions",
+     "unit_name": "Continuous Probability & Distributions",
+     "unit_number": 5,
+     "question_count": 25,
+     "subtopics": [
+      {
+       "label": "correlation-and-covariance",
+       "questions": 5
+      },
+      {
+       "label": "exponential-distribution",
+       "questions": 5
+      },
+      {
+       "label": "normal-distribution",
+       "questions": 5
+      },
+      {
+       "label": "random-variables-cdf-pdf",
+       "questions": 5
+      },
+      {
+       "label": "uniform-distribution",
+       "questions": 5
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/probability-distributions/gate_em_mock_5_2026-10-30.html"
+    },
     "visual": {
      "slug": "normal-distribution",
      "title": "The Normal Distribution: Standardise First, Then Read the Tail",
-     "url": "https://gate-visual-explainer.vercel.app/topics/normal-distribution/index.html",
      "level": "subtopic-level",
      "covers": [
-      "the density integrates to 1.0000000000 at three parameter pairs",
-      "GATE CSE 2026 Set 2: 1/(3 root 2 pi) exp(-x^2/18) is N(0,9), so sigma is 3 and the variance 9",
-      "z = (x - mu)/sigma, and P(X <= x) = Phi(z) exactly, with no approximation",
-      "Phi(z) + Phi(-z) = 1 to 1e-12 at six values of z",
-      "within 1 sigma 0.682689, within 2 sigma 0.954500, within 3 sigma 0.997300, within 4 sigma 0.999937",
-      "GATE CSE 2008 Q29: 1 - Phi(3/sigma) matches only at sigma 3 (key 3)"
-     ]
+      "standardisation z = (x - mu)/sigma and P(X <= x) = Phi(z)",
+      "the affine map aX + b and the sum of independent normals by convolution",
+      "the normal approximation to the binomial with and without the continuity correction"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/normal-distribution/index.html"
     },
     "mapped_at": "2026-10-30"
    },
@@ -22562,16 +23056,46 @@ window.GATE_DATA = {
    "sourceLine": "The origins of the discrete models, one experiment at a time: NPTEL Lectures 19 and 22 (English). The explicit statement that the exponential is the waiting time of a Poisson process, and the relation lambda = 1/mu between the two rates: OpenStax Introductory Statistics 2e section 5.3 (English). The Bernoulli-trial conditions that decide between binomial and hypergeometric: CBSE Applied Mathematics chapter 4 (English).",
    "videoRefs": [],
    "links": {
+    "mock": {
+     "subject": "engineering-mathematics",
+     "unit_slug": "probability-distributions",
+     "unit_name": "Continuous Probability & Distributions",
+     "unit_number": 5,
+     "question_count": 25,
+     "subtopics": [
+      {
+       "label": "correlation-and-covariance",
+       "questions": 5
+      },
+      {
+       "label": "exponential-distribution",
+       "questions": 5
+      },
+      {
+       "label": "normal-distribution",
+       "questions": 5
+      },
+      {
+       "label": "random-variables-cdf-pdf",
+       "questions": 5
+      },
+      {
+       "label": "uniform-distribution",
+       "questions": 5
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/probability-distributions/gate_em_mock_5_2026-10-30.html"
+    },
     "visual": {
      "slug": "probability-and-random-variables",
      "title": "Probability, Random Variables and Distributions",
      "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/probability-and-random-variables/index.html",
      "covers": [
-      "the procedure: name the type, write the event, compute, check the answer is a probability"
-     ]
+      "CDF staircase, monotone and right-continuous"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/probability-and-random-variables/index.html"
     },
-    "mapped_at": "2026-10-29"
+    "mapped_at": "2026-10-30"
    },
    "subject": "probability-and-statistics",
    "topic": "random-variables-and-distributions",
@@ -22660,16 +23184,44 @@ window.GATE_DATA = {
    "sourceLine": "The reproductive property derived for the Poisson sum, and the statements that binomial and normal share it while the Bernoulli family does not: NPTEL Introduction to Probability Theory and Stochastic Processes, Lecture 30, IIT Delhi (English). The variance-addition condition: the GATE Overflow probability notes (English).",
    "videoRefs": [],
    "links": {
+    "mock": {
+     "subject": "engineering-mathematics",
+     "unit_slug": "probability-distributions",
+     "unit_name": "Continuous Probability & Distributions",
+     "unit_number": 5,
+     "question_count": 25,
+     "subtopics": [
+      {
+       "label": "correlation-and-covariance",
+       "questions": 5
+      },
+      {
+       "label": "exponential-distribution",
+       "questions": 5
+      },
+      {
+       "label": "normal-distribution",
+       "questions": 5
+      },
+      {
+       "label": "random-variables-cdf-pdf",
+       "questions": 5
+      },
+      {
+       "label": "uniform-distribution",
+       "questions": 5
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/probability-distributions/gate_em_mock_5_2026-10-30.html"
+    },
     "visual": {
      "slug": "normal-distribution",
      "title": "The Normal Distribution: Standardise First, Then Read the Tail",
-     "url": "https://gate-visual-explainer.vercel.app/topics/normal-distribution/index.html",
      "level": "topic-level",
      "covers": [
-      "independent normals add in mean and in variance: N(1,4) + N(2,9) = N(3,13), sigma root 13 = 3.6056, not 5",
-      "the convolution of the two densities agrees with Phi(3/root 13) at 0, 4 and 6",
-      "the central limit theorem needs a finite mean and a finite variance"
-     ]
+      "the affine map aX + b and the sum of independent normals by convolution"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/normal-distribution/index.html"
     },
     "mapped_at": "2026-10-30"
    },
@@ -22770,14 +23322,16 @@ window.GATE_DATA = {
    "videoRefs": [],
    "links": {
     "visual": {
-     "slug": "probability-and-random-variables",
-     "title": "Probability, Random Variables and Distributions",
+     "slug": "mean-median-mode-standard-deviation",
+     "title": "Mean, Median, Mode and Standard Deviation: Three Middles, One Spread, and When Each Rule Fails",
      "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/probability-and-random-variables/index.html",
      "covers": [
-      "expectation as a probability-weighted average",
-      "expectation as a balance point"
-     ]
+      "mean of raw data",
+      "mean of grouped data by midpoints",
+      "median of raw data, odd and even n",
+      "median of grouped data by cumulative frequency"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/mean-median-mode-standard-deviation/index.html"
     },
     "mapped_at": "2026-10-30"
    },
@@ -22875,14 +23429,15 @@ window.GATE_DATA = {
    "videoRefs": [],
    "links": {
     "visual": {
-     "slug": "probability-and-random-variables",
-     "title": "Probability, Random Variables and Distributions",
+     "slug": "mean-median-mode-standard-deviation",
+     "title": "Mean, Median, Mode and Standard Deviation: Three Middles, One Spread, and When Each Rule Fails",
      "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/probability-and-random-variables/index.html",
      "covers": [
-      "mean, median and mode on skewed data",
-      "the median of a distribution with an atom at zero"
-     ]
+      "median of raw data, odd and even n",
+      "median of grouped data by cumulative frequency",
+      "mean, median and mode of the five named distributions"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/mean-median-mode-standard-deviation/index.html"
     },
     "mapped_at": "2026-10-30"
    },
@@ -22980,14 +23535,14 @@ window.GATE_DATA = {
    "videoRefs": [],
    "links": {
     "visual": {
-     "slug": "probability-and-random-variables",
-     "title": "Probability, Random Variables and Distributions",
+     "slug": "mean-median-mode-standard-deviation",
+     "title": "Mean, Median, Mode and Standard Deviation: Three Middles, One Spread, and When Each Rule Fails",
      "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/probability-and-random-variables/index.html",
      "covers": [
-      "mean, median and mode on skewed data",
-      "when np is not an integer the mode is one of the two integers beside it"
-     ]
+      "mode of raw data and the modal class",
+      "mean, median and mode of the five named distributions"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/mean-median-mode-standard-deviation/index.html"
     },
     "mapped_at": "2026-10-30"
    },
@@ -23089,14 +23644,16 @@ window.GATE_DATA = {
    "videoRefs": [],
    "links": {
     "visual": {
-     "slug": "probability-and-random-variables",
-     "title": "Probability, Random Variables and Distributions",
+     "slug": "mean-median-mode-standard-deviation",
+     "title": "Mean, Median, Mode and Standard Deviation: Three Middles, One Spread, and When Each Rule Fails",
      "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/probability-and-random-variables/index.html",
      "covers": [
-      "mean, median and mode on skewed data",
-      "for skewed data the mean runs towards the tail and the median does not"
-     ]
+      "mean of raw data",
+      "mean of grouped data by midpoints",
+      "median of raw data, odd and even n",
+      "median of grouped data by cumulative frequency"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/mean-median-mode-standard-deviation/index.html"
     },
     "mapped_at": "2026-10-30"
    },
@@ -23212,9 +23769,8 @@ window.GATE_DATA = {
      "title": "Mean, Median, Mode and Standard Deviation: Three Middles, One Spread, and When Each Rule Fails",
      "level": "topic-level",
      "covers": [
-      "grouped mean by class midpoints, and its approximation error",
-      "median class by cumulative frequency and the interpolation formula",
-      "modal class and the mode interpolation formula"
+      "mean of grouped data by midpoints",
+      "median of grouped data by cumulative frequency"
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/mean-median-mode-standard-deviation/index.html"
     },
@@ -23326,14 +23882,16 @@ window.GATE_DATA = {
    "videoRefs": [],
    "links": {
     "visual": {
-     "slug": "probability-and-random-variables",
-     "title": "Probability, Random Variables and Distributions",
+     "slug": "mean-median-mode-standard-deviation",
+     "title": "Mean, Median, Mode and Standard Deviation: Three Middles, One Spread, and When Each Rule Fails",
      "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/probability-and-random-variables/index.html",
      "covers": [
-      "variance as E[X^2] - (E[X])^2",
-      "the standard deviation as the square root of the variance"
-     ]
+      "mean of raw data",
+      "mean of grouped data by midpoints",
+      "median of raw data, odd and even n",
+      "median of grouped data by cumulative frequency"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/mean-median-mode-standard-deviation/index.html"
     },
     "mapped_at": "2026-10-30"
    },
@@ -23440,9 +23998,8 @@ window.GATE_DATA = {
      "title": "Mean, Median, Mode and Standard Deviation: Three Middles, One Spread, and When Each Rule Fails",
      "level": "topic-level",
      "covers": [
-      "adding a constant moves the mean, median and mode and not sigma",
-      "scaling multiplies all three averages and sigma by the factor, sigma by |a|",
-      "a negative multiplier reverses the median index position"
+      "variance and standard deviation",
+      "shift and scale rules"
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/mean-median-mode-standard-deviation/index.html"
     },
@@ -23546,13 +24103,13 @@ window.GATE_DATA = {
    "videoRefs": [],
    "links": {
     "visual": {
-     "slug": "probability-and-random-variables",
-     "title": "Probability, Random Variables and Distributions",
+     "slug": "mean-median-mode-standard-deviation",
+     "title": "Mean, Median, Mode and Standard Deviation: Three Middles, One Spread, and When Each Rule Fails",
      "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/probability-and-random-variables/index.html",
      "covers": [
-      "variance as the mean squared distance from the mean"
-     ]
+      "variance and standard deviation"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/mean-median-mode-standard-deviation/index.html"
     },
     "mapped_at": "2026-10-30"
    },
@@ -23655,14 +24212,16 @@ window.GATE_DATA = {
    "videoRefs": [],
    "links": {
     "visual": {
-     "slug": "probability-and-random-variables",
-     "title": "Probability, Random Variables and Distributions",
+     "slug": "mean-median-mode-standard-deviation",
+     "title": "Mean, Median, Mode and Standard Deviation: Three Middles, One Spread, and When Each Rule Fails",
      "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/probability-and-random-variables/index.html",
      "covers": [
-      "the median of a distribution with an atom at zero",
-      "when np is not an integer the mode is one of the two integers beside it"
-     ]
+      "median of raw data, odd and even n",
+      "median of grouped data by cumulative frequency",
+      "mode of raw data and the modal class",
+      "mean, median and mode of the five named distributions"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/mean-median-mode-standard-deviation/index.html"
     },
     "mapped_at": "2026-10-30"
    },
@@ -23765,13 +24324,13 @@ window.GATE_DATA = {
    "videoRefs": [],
    "links": {
     "visual": {
-     "slug": "probability-and-random-variables",
-     "title": "Probability, Random Variables and Distributions",
+     "slug": "mean-median-mode-standard-deviation",
+     "title": "Mean, Median, Mode and Standard Deviation: Three Middles, One Spread, and When Each Rule Fails",
      "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/probability-and-random-variables/index.html",
      "covers": [
-      "binomial mean np and variance np(1-p)"
-     ]
+      "variance and standard deviation"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/mean-median-mode-standard-deviation/index.html"
     },
     "mapped_at": "2026-10-30"
    },
@@ -23871,6 +24430,19 @@ window.GATE_DATA = {
    ],
    "sourceLine": "The combined mean, the combined variance with its between-group term, and the conversion between the sample and population conventions: the IAE Academy GATE formula sheet (English). The effect of a single value on the mean and on the median: the IIT Roorkee Lecture 4 transcript (English). The definition of the standard deviation that makes it respond to any change: OpenStax Introductory Statistics 2e section 2.7 (English).",
    "videoRefs": [],
+   "links": {
+    "visual": {
+     "slug": "mean-median-mode-standard-deviation",
+     "title": "Mean, Median, Mode and Standard Deviation: Three Middles, One Spread, and When Each Rule Fails",
+     "level": "topic-level",
+     "covers": [
+      "mean of grouped data by midpoints",
+      "median of grouped data by cumulative frequency"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/mean-median-mode-standard-deviation/index.html"
+    },
+    "mapped_at": "2026-10-30"
+   },
    "subject": "probability-and-statistics",
    "topic": "mean-median-mode-standard-deviation",
    "path": "subjects/probability-and-statistics/mean-median-mode-standard-deviation/effect-of-one-observation-and-combined-groups.json"
@@ -23969,13 +24541,13 @@ window.GATE_DATA = {
    "videoRefs": [],
    "links": {
     "visual": {
-     "slug": "probability-and-random-variables",
-     "title": "Probability, Random Variables and Distributions",
+     "slug": "mean-median-mode-standard-deviation",
+     "title": "Mean, Median, Mode and Standard Deviation: Three Middles, One Spread, and When Each Rule Fails",
      "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/probability-and-random-variables/index.html",
      "covers": [
-      "mean, median and mode are three different questions: balance, middle, peak"
-     ]
+      "reading a frequency table without the raw values"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/mean-median-mode-standard-deviation/index.html"
     },
     "mapped_at": "2026-10-30"
    },
@@ -24075,6 +24647,19 @@ window.GATE_DATA = {
    ],
    "sourceLine": "The definition, the die example and the shrunken sample space: NPTEL IIT Kharagpur Lecture 09 (English, read in part) and StatLect's conditional probability lecture (English). The two-dice sum-8 example and the 'rebuild the denominator when the stem says given' warning: the Knowledge Gate AI GATE probability page (English).",
    "videoRefs": [],
+   "links": {
+    "visual": {
+     "slug": "probability-and-random-variables",
+     "title": "Probability, Random Variables and Distributions",
+     "level": "topic-level",
+     "covers": [
+      "sample space and axioms",
+      "conditional probability and independence"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/probability-and-random-variables/index.html"
+    },
+    "mapped_at": "2026-10-30"
+   },
    "subject": "probability-and-statistics",
    "topic": "conditional-probability-and-bayes",
    "path": "subjects/probability-and-statistics/conditional-probability-and-bayes/conditional-probability-and-the-restricted-space.json"
@@ -24170,6 +24755,18 @@ window.GATE_DATA = {
    ],
    "sourceLine": "The proof that P(.|B) satisfies the three axioms and the consequences drawn from it: NPTEL IIT Kharagpur Lecture 09 (English, read in part). The list of properties a conditional probability must satisfy and the division-by-zero discussion: StatLect (English). The multiplication and addition rules as GATE-level statements: OpenStax Introductory Statistics 3.3 (English).",
    "videoRefs": [],
+   "links": {
+    "visual": {
+     "slug": "probability-and-random-variables",
+     "title": "Probability, Random Variables and Distributions",
+     "level": "topic-level",
+     "covers": [
+      "conditional probability and independence"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/probability-and-random-variables/index.html"
+    },
+    "mapped_at": "2026-10-30"
+   },
    "subject": "probability-and-statistics",
    "topic": "conditional-probability-and-bayes",
    "path": "subjects/probability-and-statistics/conditional-probability-and-bayes/a-conditional-probability-is-still-a-probability.json"
@@ -24265,6 +24862,19 @@ window.GATE_DATA = {
    ],
    "sourceLine": "The multiplication rule as a consequence of the definition and the statement of the chain for several events: NPTEL IIT Kharagpur Lecture 09 (English, read in part). The rule in both directions as a GATE-level statement: OpenStax Introductory Statistics 3.3 (English). The two-card ace example: the Knowledge Gate AI GATE probability page (English).",
    "videoRefs": [],
+   "links": {
+    "visual": {
+     "slug": "probability-and-random-variables",
+     "title": "Probability, Random Variables and Distributions",
+     "level": "topic-level",
+     "covers": [
+      "addition rule and complement",
+      "multiplication rule and chains"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/probability-and-random-variables/index.html"
+    },
+    "mapped_at": "2026-10-30"
+   },
    "subject": "probability-and-statistics",
    "topic": "conditional-probability-and-bayes",
    "path": "subjects/probability-and-statistics/conditional-probability-and-bayes/multiplication-rule-and-sequential-draws.json"
@@ -24360,6 +24970,18 @@ window.GATE_DATA = {
    ],
    "sourceLine": "The definition of statistical independence, the symmetry argument and the four conditions for three events: NPTEL IIT Kharagpur Lecture 10 (English, read in part). The product test as a GATE-level statement with the free-kick example: OpenStax Introductory Statistics 3.3 (English). The independence against exclusivity warning: the Knowledge Gate AI GATE probability page (English).",
    "videoRefs": [],
+   "links": {
+    "visual": {
+     "slug": "probability-and-random-variables",
+     "title": "Probability, Random Variables and Distributions",
+     "level": "topic-level",
+     "covers": [
+      "conditional probability and independence"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/probability-and-random-variables/index.html"
+    },
+    "mapped_at": "2026-10-30"
+   },
    "subject": "probability-and-statistics",
    "topic": "conditional-probability-and-bayes",
    "path": "subjects/probability-and-statistics/conditional-probability-and-bayes/independence-and-the-product-test.json"
@@ -24453,6 +25075,15 @@ window.GATE_DATA = {
    ],
    "sourceLine": "The lemma that independent events of non-zero probability cannot be mutually exclusive, and the odd/even die illustration: the Hindi NCERT class 12 chapter 13 summary (Hindi, translated here) and the Knowledge Gate AI GATE probability page (English). The definitions of independence and of the disjoint addition rule: NPTEL IIT Kharagpur Lecture 10 (English, read in part).",
    "videoRefs": [],
+   "links": {
+    "visual": {
+     "slug": "probability-and-random-variables",
+     "title": "Probability, Random Variables and Distributions",
+     "level": "topic-level",
+     "url": "https://gate-visual-explainer.vercel.app/topics/probability-and-random-variables/index.html"
+    },
+    "mapped_at": "2026-10-30"
+   },
    "subject": "probability-and-statistics",
    "topic": "conditional-probability-and-bayes",
    "path": "subjects/probability-and-statistics/conditional-probability-and-bayes/independent-events-cannot-be-mutually-exclusive.json"
@@ -24536,6 +25167,18 @@ window.GATE_DATA = {
    ],
    "sourceLine": "The four conditions for three events and the general 2^n - n - 1 count: NPTEL IIT Kharagpur Lecture 10 (English, read in part). The conditional-probability properties that the pairwise checks use: StatLect (English). The two-coin counterexample is verified by enumeration in scripts/validate.py.",
    "videoRefs": [],
+   "links": {
+    "visual": {
+     "slug": "probability-and-random-variables",
+     "title": "Probability, Random Variables and Distributions",
+     "level": "topic-level",
+     "covers": [
+      "conditional probability and independence"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/probability-and-random-variables/index.html"
+    },
+    "mapped_at": "2026-10-30"
+   },
    "subject": "probability-and-statistics",
    "topic": "conditional-probability-and-bayes",
    "path": "subjects/probability-and-statistics/conditional-probability-and-bayes/pairwise-and-mutual-independence.json"
@@ -24630,6 +25273,18 @@ window.GATE_DATA = {
    ],
    "sourceLine": "The conditional measure and its properties: NPTEL IIT Kharagpur Lecture 09 and StatLect (English). The independence definitions that this card conditions on: NPTEL Lecture 10 (English, read in part). Every number on the card is recomputed by enumeration in scripts/validate.py.",
    "videoRefs": [],
+   "links": {
+    "visual": {
+     "slug": "probability-and-random-variables",
+     "title": "Probability, Random Variables and Distributions",
+     "level": "topic-level",
+     "covers": [
+      "conditional probability and independence"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/probability-and-random-variables/index.html"
+    },
+    "mapped_at": "2026-10-30"
+   },
    "subject": "probability-and-statistics",
    "topic": "conditional-probability-and-bayes",
    "path": "subjects/probability-and-statistics/conditional-probability-and-bayes/conditional-independence.json"
@@ -24727,6 +25382,18 @@ window.GATE_DATA = {
    "sourceLine": "The theorem for a disjoint exhaustive family with its proof: NPTEL IIT Kharagpur Lecture 09 (English, read in part) and StatLect's partition form (English). The machine A / machine B defective-item arithmetic: the Knowledge Gate AI GATE probability page (English). The 2006 rain question is recorded in the source ledger as an excluded IT-paper question.",
    "videoRefs": [],
    "visual": "probability-and-statistics/conditional-probability-and-bayes/bayes-tree-and-the-base-rate",
+   "links": {
+    "visual": {
+     "slug": "bayes-theorem-as-revision",
+     "title": "Bayes' Theorem as a Revision Rule: Prior, Likelihood, Evidence, Posterior",
+     "level": "subtopic-level",
+     "covers": [
+      "the law of total probability as the denominator"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/bayes-theorem-as-revision/index.html"
+    },
+    "mapped_at": "2026-10-30"
+   },
    "subject": "probability-and-statistics",
    "topic": "conditional-probability-and-bayes",
    "path": "subjects/probability-and-statistics/conditional-probability-and-bayes/the-total-probability-theorem.json"
@@ -24826,6 +25493,19 @@ window.GATE_DATA = {
    "sourceLine": "The Bayes formula for a partition and the cause-and-effect reading of it: NPTEL IIT Kharagpur Lecture 09 (English, read in part). The proof, the prior / likelihood / posterior terminology and the worked defective-item example: StatLect's Bayes' rule page (English). The GATE framing and the listed pitfalls: GATE Overflow's probability notes (English).",
    "videoRefs": [],
    "visual": "probability-and-statistics/conditional-probability-and-bayes/bayes-tree-and-the-base-rate",
+   "links": {
+    "visual": {
+     "slug": "bayes-theorem-as-revision",
+     "title": "Bayes' Theorem as a Revision Rule: Prior, Likelihood, Evidence, Posterior",
+     "level": "subtopic-level",
+     "covers": [
+      "the three inputs of a Bayes question: prior, likelihood, evidence",
+      "the partition requirement: disjoint, exhaustive, positive evidence"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/bayes-theorem-as-revision/index.html"
+    },
+    "mapped_at": "2026-10-30"
+   },
    "subject": "probability-and-statistics",
    "topic": "conditional-probability-and-bayes",
    "path": "subjects/probability-and-statistics/conditional-probability-and-bayes/bayes-theorem-from-evidence-to-cause.json"
@@ -24920,6 +25600,18 @@ window.GATE_DATA = {
    ],
    "sourceLine": "The prior / likelihood / marginal / posterior terminology and the branch-product structure: StatLect's Bayes' rule page (English). The advice to solve these questions with a tree diagram and the pitfall list: GATE Overflow's probability notes (English). The two-step recipe of evidence first, then the branch: the Knowledge Gate AI GATE probability page (English).",
    "videoRefs": [],
+   "links": {
+    "visual": {
+     "slug": "bayes-theorem-as-revision",
+     "title": "Bayes' Theorem as a Revision Rule: Prior, Likelihood, Evidence, Posterior",
+     "level": "subtopic-level",
+     "covers": [
+      "the odds form and the likelihood ratio"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/bayes-theorem-as-revision/index.html"
+    },
+    "mapped_at": "2026-10-30"
+   },
    "subject": "probability-and-statistics",
    "topic": "conditional-probability-and-bayes",
    "path": "subjects/probability-and-statistics/conditional-probability-and-bayes/bayes-on-a-tree-and-in-odds.json"
@@ -25013,6 +25705,18 @@ window.GATE_DATA = {
    ],
    "sourceLine": "The robot example with its under-10-per-cent posterior: StatLect's Bayes' rule page (English), read in full. The pitfall that the denominator must consider every case: GATE Overflow's probability notes (English). The HIV-test application of the same arithmetic in the NCERT chapter: the Hindi NCERT class 12 summary (Hindi, translated here).",
    "videoRefs": [],
+   "links": {
+    "visual": {
+     "slug": "bayes-theorem-as-revision",
+     "title": "Bayes' Theorem as a Revision Rule: Prior, Likelihood, Evidence, Posterior",
+     "level": "subtopic-level",
+     "covers": [
+      "the base-rate case: prevalence, sensitivity and specificity"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/bayes-theorem-as-revision/index.html"
+    },
+    "mapped_at": "2026-10-30"
+   },
    "subject": "probability-and-statistics",
    "topic": "conditional-probability-and-bayes",
    "path": "subjects/probability-and-statistics/conditional-probability-and-bayes/the-base-rate-and-a-good-test.json"
@@ -25110,6 +25814,19 @@ window.GATE_DATA = {
    ],
    "sourceLine": "The definition and the counting route: NPTEL IIT Kharagpur Lecture 09 (English, read in part), with the independence facts from Lecture 10. The reminder to rebuild the denominator from the stated condition: the Knowledge Gate AI GATE probability page (English). Both PYQs are recomputed by enumeration in scripts/validate.py.",
    "videoRefs": [],
+   "links": {
+    "visual": {
+     "slug": "probability-and-random-variables",
+     "title": "Probability, Random Variables and Distributions",
+     "level": "topic-level",
+     "covers": [
+      "equally likely outcomes and counting",
+      "Bernoulli trials and the binomial PMF"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/probability-and-random-variables/index.html"
+    },
+    "mapped_at": "2026-10-30"
+   },
    "subject": "probability-and-statistics",
    "topic": "conditional-probability-and-bayes",
    "path": "subjects/probability-and-statistics/conditional-probability-and-bayes/conditioning-on-a-count-and-on-shared-trials.json"
@@ -25184,23 +25901,29 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "Base conversions",
+       "label": "base-conversions",
        "questions": 15
       },
       {
-       "label": "One's & two's complement",
-       "questions": 13
-      },
-      {
-       "label": "Range & overflow",
+       "label": "floating-point-ieee-754",
        "questions": 11
       },
       {
-       "label": "Floating point & IEEE 754",
+       "label": "ones-twos-complement",
+       "questions": 13
+      },
+      {
+       "label": "range-and-overflow",
        "questions": 11
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-10-27.html"
+    },
+    "visual": {
+     "slug": "number-representation-and-arithmetic",
+     "title": "Number Representation and Arithmetic",
+     "level": "topic-level",
+     "url": "https://gate-visual-explainer.vercel.app/topics/number-representation-and-arithmetic/index.html"
     },
     "mapped_at": "2026-10-30"
    },
@@ -25288,23 +26011,32 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "Base conversions",
+       "label": "base-conversions",
        "questions": 15
       },
       {
-       "label": "One's & two's complement",
-       "questions": 13
-      },
-      {
-       "label": "Range & overflow",
+       "label": "floating-point-ieee-754",
        "questions": 11
       },
       {
-       "label": "Floating point & IEEE 754",
+       "label": "ones-twos-complement",
+       "questions": 13
+      },
+      {
+       "label": "range-and-overflow",
        "questions": 11
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-10-27.html"
+    },
+    "visual": {
+     "slug": "number-representation-and-arithmetic",
+     "title": "Number Representation and Arithmetic",
+     "level": "topic-level",
+     "covers": [
+      "range -2^(n-1) to 2^(n-1)-1 and the smallest integer (GATE 2013 Q4)"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/number-representation-and-arithmetic/index.html"
     },
     "mapped_at": "2026-10-30"
    },
@@ -25384,23 +26116,29 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "Base conversions",
+       "label": "base-conversions",
        "questions": 15
       },
       {
-       "label": "One's & two's complement",
-       "questions": 13
-      },
-      {
-       "label": "Range & overflow",
+       "label": "floating-point-ieee-754",
        "questions": 11
       },
       {
-       "label": "Floating point & IEEE 754",
+       "label": "ones-twos-complement",
+       "questions": 13
+      },
+      {
+       "label": "range-and-overflow",
        "questions": 11
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-10-27.html"
+    },
+    "visual": {
+     "slug": "number-representation-and-arithmetic",
+     "title": "Number Representation and Arithmetic",
+     "level": "topic-level",
+     "url": "https://gate-visual-explainer.vercel.app/topics/number-representation-and-arithmetic/index.html"
     },
     "mapped_at": "2026-10-30"
    },
@@ -25480,19 +26218,19 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "Base conversions",
+       "label": "base-conversions",
        "questions": 15
       },
       {
-       "label": "One's & two's complement",
-       "questions": 13
-      },
-      {
-       "label": "Range & overflow",
+       "label": "floating-point-ieee-754",
        "questions": 11
       },
       {
-       "label": "Floating point & IEEE 754",
+       "label": "ones-twos-complement",
+       "questions": 13
+      },
+      {
+       "label": "range-and-overflow",
        "questions": 11
       }
      ],
@@ -25502,12 +26240,10 @@ window.GATE_DATA = {
      "slug": "number-representation-and-arithmetic",
      "title": "Number Representation and Arithmetic",
      "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/number-representation-and-arithmetic/index.html",
      "covers": [
-      "fixed point range 0 to 2^i - 2^-f and step 2^-f",
-      "resolution against range at fixed width",
-      "carry out as the fifth bit of an unsigned sum"
-     ]
+      "fixed point representations"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/number-representation-and-arithmetic/index.html"
     },
     "mapped_at": "2026-10-30"
    },
@@ -25587,19 +26323,19 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "Base conversions",
+       "label": "base-conversions",
        "questions": 15
       },
       {
-       "label": "One's & two's complement",
-       "questions": 13
-      },
-      {
-       "label": "Range & overflow",
+       "label": "floating-point-ieee-754",
        "questions": 11
       },
       {
-       "label": "Floating point & IEEE 754",
+       "label": "ones-twos-complement",
+       "questions": 13
+      },
+      {
+       "label": "range-and-overflow",
        "questions": 11
       }
      ],
@@ -25609,11 +26345,10 @@ window.GATE_DATA = {
      "slug": "number-representation-and-arithmetic",
      "title": "Number Representation and Arithmetic",
      "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/number-representation-and-arithmetic/index.html",
      "covers": [
-      "sign-magnitude, ones' complement, two's complement encodings",
-      "two zeros in sign-magnitude and ones' complement, one in two's complement"
-     ]
+      "signed number systems"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/number-representation-and-arithmetic/index.html"
     },
     "mapped_at": "2026-10-30"
    },
@@ -25693,19 +26428,19 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "Base conversions",
+       "label": "base-conversions",
        "questions": 15
       },
       {
-       "label": "One's & two's complement",
-       "questions": 13
-      },
-      {
-       "label": "Range & overflow",
+       "label": "floating-point-ieee-754",
        "questions": 11
       },
       {
-       "label": "Floating point & IEEE 754",
+       "label": "ones-twos-complement",
+       "questions": 13
+      },
+      {
+       "label": "range-and-overflow",
        "questions": 11
       }
      ],
@@ -25715,11 +26450,12 @@ window.GATE_DATA = {
      "slug": "number-representation-and-arithmetic",
      "title": "Number Representation and Arithmetic",
      "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/number-representation-and-arithmetic/index.html",
      "covers": [
       "sign-magnitude, ones' complement, two's complement encodings",
-      "two zeros in sign-magnitude and ones' complement, one in two's complement"
-     ]
+      "two zeros in sign-magnitude and ones' complement, one in two's complement",
+      "two's complement decode as unsigned minus 2^n, or a negative top weight"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/number-representation-and-arithmetic/index.html"
     },
     "mapped_at": "2026-10-30"
    },
@@ -25808,19 +26544,19 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "Base conversions",
+       "label": "base-conversions",
        "questions": 15
       },
       {
-       "label": "One's & two's complement",
-       "questions": 13
-      },
-      {
-       "label": "Range & overflow",
+       "label": "floating-point-ieee-754",
        "questions": 11
       },
       {
-       "label": "Floating point & IEEE 754",
+       "label": "ones-twos-complement",
+       "questions": 13
+      },
+      {
+       "label": "range-and-overflow",
        "questions": 11
       }
      ],
@@ -25830,12 +26566,13 @@ window.GATE_DATA = {
      "slug": "number-representation-and-arithmetic",
      "title": "Number Representation and Arithmetic",
      "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/number-representation-and-arithmetic/index.html",
      "covers": [
-      "two's complement decode as unsigned minus 2^n, or a negative top weight",
-      "range -2^(n-1) to 2^(n-1)-1 and the smallest integer (GATE 2013 Q4)",
-      "the pattern wheel and arithmetic modulo 2^n"
-     ]
+      "fixed point range 0 to 2^i - 2^-f and step 2^-f",
+      "resolution against range at fixed width",
+      "sign-magnitude, ones' complement, two's complement encodings",
+      "two zeros in sign-magnitude and ones' complement, one in two's complement"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/number-representation-and-arithmetic/index.html"
     },
     "mapped_at": "2026-10-30"
    },
@@ -25923,19 +26660,19 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "Base conversions",
+       "label": "base-conversions",
        "questions": 15
       },
       {
-       "label": "One's & two's complement",
-       "questions": 13
-      },
-      {
-       "label": "Range & overflow",
+       "label": "floating-point-ieee-754",
        "questions": 11
       },
       {
-       "label": "Floating point & IEEE 754",
+       "label": "ones-twos-complement",
+       "questions": 13
+      },
+      {
+       "label": "range-and-overflow",
        "questions": 11
       }
      ],
@@ -25945,12 +26682,13 @@ window.GATE_DATA = {
      "slug": "number-representation-and-arithmetic",
      "title": "Number Representation and Arithmetic",
      "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/number-representation-and-arithmetic/index.html",
      "covers": [
-      "negation as invert-and-add-one, and its single fixed point",
-      "the one-pass negation shortcut",
-      "one adder for addition and subtraction; the discarded carry"
-     ]
+      "sign-magnitude, ones' complement, two's complement encodings",
+      "two zeros in sign-magnitude and ones' complement, one in two's complement",
+      "two's complement decode as unsigned minus 2^n, or a negative top weight",
+      "negation as invert-and-add-one, and its single fixed point"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/number-representation-and-arithmetic/index.html"
     },
     "mapped_at": "2026-10-30"
    },
@@ -26033,19 +26771,19 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "Base conversions",
+       "label": "base-conversions",
        "questions": 15
       },
       {
-       "label": "One's & two's complement",
-       "questions": 13
-      },
-      {
-       "label": "Range & overflow",
+       "label": "floating-point-ieee-754",
        "questions": 11
       },
       {
-       "label": "Floating point & IEEE 754",
+       "label": "ones-twos-complement",
+       "questions": 13
+      },
+      {
+       "label": "range-and-overflow",
        "questions": 11
       }
      ],
@@ -26055,11 +26793,13 @@ window.GATE_DATA = {
      "slug": "number-representation-and-arithmetic",
      "title": "Number Representation and Arithmetic",
      "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/number-representation-and-arithmetic/index.html",
      "covers": [
+      "two zeros in sign-magnitude and ones' complement, one in two's complement",
       "distinct values 2^n against 2^n - 1 (GATE 2016 Set 2 Q9)",
-      "two zeros in sign-magnitude and ones' complement, one in two's complement"
-     ]
+      "sign extension against zero padding (GATE 2019 Q4)",
+      "subtracting the most negative value and its spurious overflow"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/number-representation-and-arithmetic/index.html"
     },
     "mapped_at": "2026-10-30"
    },
@@ -26148,19 +26888,19 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "Base conversions",
+       "label": "base-conversions",
        "questions": 15
       },
       {
-       "label": "One's & two's complement",
-       "questions": 13
-      },
-      {
-       "label": "Range & overflow",
+       "label": "floating-point-ieee-754",
        "questions": 11
       },
       {
-       "label": "Floating point & IEEE 754",
+       "label": "ones-twos-complement",
+       "questions": 13
+      },
+      {
+       "label": "range-and-overflow",
        "questions": 11
       }
      ],
@@ -26170,12 +26910,11 @@ window.GATE_DATA = {
      "slug": "number-representation-and-arithmetic",
      "title": "Number Representation and Arithmetic",
      "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/number-representation-and-arithmetic/index.html",
      "covers": [
-      "fixed point: weights 2^k from k = -f to i-1, i = n - f",
-      "fixed point range 0 to 2^i - 2^-f and step 2^-f",
-      "resolution against range at fixed width"
-     ]
+      "fixed point representations",
+      "floating point (IEEE 754)"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/number-representation-and-arithmetic/index.html"
     },
     "mapped_at": "2026-10-30"
    },
@@ -26276,19 +27015,19 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "Base conversions",
+       "label": "base-conversions",
        "questions": 15
       },
       {
-       "label": "One's & two's complement",
-       "questions": 13
-      },
-      {
-       "label": "Range & overflow",
+       "label": "floating-point-ieee-754",
        "questions": 11
       },
       {
-       "label": "Floating point & IEEE 754",
+       "label": "ones-twos-complement",
+       "questions": 13
+      },
+      {
+       "label": "range-and-overflow",
        "questions": 11
       }
      ],
@@ -26298,11 +27037,11 @@ window.GATE_DATA = {
      "slug": "number-representation-and-arithmetic",
      "title": "Number Representation and Arithmetic",
      "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/number-representation-and-arithmetic/index.html",
      "covers": [
-      "normalised binary scientific notation and the implied leading one",
-      "exponent bias 127 and 1023, and why a bias rather than a sign bit"
-     ]
+      "fixed point representations",
+      "floating point (IEEE 754)"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/number-representation-and-arithmetic/index.html"
     },
     "mapped_at": "2026-10-30"
    },
@@ -26412,19 +27151,19 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "Base conversions",
+       "label": "base-conversions",
        "questions": 15
       },
       {
-       "label": "One's & two's complement",
-       "questions": 13
-      },
-      {
-       "label": "Range & overflow",
+       "label": "floating-point-ieee-754",
        "questions": 11
       },
       {
-       "label": "Floating point & IEEE 754",
+       "label": "ones-twos-complement",
+       "questions": 13
+      },
+      {
+       "label": "range-and-overflow",
        "questions": 11
       }
      ],
@@ -26434,12 +27173,10 @@ window.GATE_DATA = {
      "slug": "number-representation-and-arithmetic",
      "title": "Number Representation and Arithmetic",
      "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/number-representation-and-arithmetic/index.html",
      "covers": [
-      "IEEE 754 single 1/8/23 and double 1/11/52 field layout",
-      "decoding a field triple, a bit string or a hex constant",
-      "encoding a decimal value and checking by decoding (GATE 2014 Set 2 Q45)"
-     ]
+      "floating point (IEEE 754)"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/number-representation-and-arithmetic/index.html"
     },
     "mapped_at": "2026-10-30"
    },
@@ -26559,19 +27296,19 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "Base conversions",
+       "label": "base-conversions",
        "questions": 15
       },
       {
-       "label": "One's & two's complement",
-       "questions": 13
-      },
-      {
-       "label": "Range & overflow",
+       "label": "floating-point-ieee-754",
        "questions": 11
       },
       {
-       "label": "Floating point & IEEE 754",
+       "label": "ones-twos-complement",
+       "questions": 13
+      },
+      {
+       "label": "range-and-overflow",
        "questions": 11
       }
      ],
@@ -26581,13 +27318,10 @@ window.GATE_DATA = {
      "slug": "number-representation-and-arithmetic",
      "title": "Number Representation and Arithmetic",
      "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/number-representation-and-arithmetic/index.html",
      "covers": [
-      "four exponent regimes: zero, denormal, normal, infinity and NaN",
-      "denormals: hidden bit 0, exponent pinned at -126, spacing 2^-149",
-      "largest finite single (2 - 2^-23) x 2^127",
-      "signed zero and NaN not equal to itself"
-     ]
+      "floating point (IEEE 754)"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/number-representation-and-arithmetic/index.html"
     },
     "mapped_at": "2026-10-30"
    },

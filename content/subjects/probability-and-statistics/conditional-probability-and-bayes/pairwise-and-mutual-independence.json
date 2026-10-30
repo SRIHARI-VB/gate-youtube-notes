@@ -76,5 +76,17 @@
     }
   ],
   "sourceLine": "The four conditions for three events and the general 2^n - n - 1 count: NPTEL IIT Kharagpur Lecture 10 (English, read in part). The conditional-probability properties that the pairwise checks use: StatLect (English). The two-coin counterexample is verified by enumeration in scripts/validate.py.",
-  "videoRefs": []
+  "videoRefs": [],
+  "links": {
+    "visual": {
+      "slug": "probability-and-random-variables",
+      "title": "Probability, Random Variables and Distributions",
+      "level": "topic-level",
+      "covers": [
+        "conditional probability and independence"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/probability-and-random-variables/index.html"
+    },
+    "mapped_at": "2026-10-30"
+  }
 }

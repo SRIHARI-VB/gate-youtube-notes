@@ -98,12 +98,11 @@
       "slug": "monoids-and-groups",
       "title": "Monoids and Groups",
       "level": "topic-level",
-      "url": "https://gate-visual-explainer.vercel.app/topics/monoids-and-groups/index.html",
       "covers": [
-        "identity and its uniqueness",
-        "multiplication modulo 6 as a monoid that is not a group"
-      ]
+        "semigroups and monoids"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/monoids-and-groups/index.html"
     },
-    "mapped_at": "2026-10-28"
+    "mapped_at": "2026-10-30"
   }
 }

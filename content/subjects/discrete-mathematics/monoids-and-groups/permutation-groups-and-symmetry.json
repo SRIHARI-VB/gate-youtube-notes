@@ -86,12 +86,13 @@
       "slug": "monoids-and-groups",
       "title": "Monoids and Groups",
       "level": "topic-level",
-      "url": "https://gate-visual-explainer.vercel.app/topics/monoids-and-groups/index.html",
       "covers": [
-        "S3 as the symmetric group",
-        "S3 is not abelian"
-      ]
+        "semigroups and monoids",
+        "groups, subgroups",
+        "cyclic groups and generators"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/monoids-and-groups/index.html"
     },
-    "mapped_at": "2026-10-28"
+    "mapped_at": "2026-10-30"
   }
 }

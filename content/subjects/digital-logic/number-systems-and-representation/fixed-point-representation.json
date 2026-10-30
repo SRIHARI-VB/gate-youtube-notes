@@ -79,19 +79,19 @@
       "question_count": 50,
       "subtopics": [
         {
-          "label": "Base conversions",
+          "label": "base-conversions",
           "questions": 15
         },
         {
-          "label": "One's & two's complement",
-          "questions": 13
-        },
-        {
-          "label": "Range & overflow",
+          "label": "floating-point-ieee-754",
           "questions": 11
         },
         {
-          "label": "Floating point & IEEE 754",
+          "label": "ones-twos-complement",
+          "questions": 13
+        },
+        {
+          "label": "range-and-overflow",
           "questions": 11
         }
       ],
@@ -101,12 +101,11 @@
       "slug": "number-representation-and-arithmetic",
       "title": "Number Representation and Arithmetic",
       "level": "topic-level",
-      "url": "https://gate-visual-explainer.vercel.app/topics/number-representation-and-arithmetic/index.html",
       "covers": [
-        "fixed point: weights 2^k from k = -f to i-1, i = n - f",
-        "fixed point range 0 to 2^i - 2^-f and step 2^-f",
-        "resolution against range at fixed width"
-      ]
+        "fixed point representations",
+        "floating point (IEEE 754)"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/number-representation-and-arithmetic/index.html"
     },
     "mapped_at": "2026-10-30"
   }

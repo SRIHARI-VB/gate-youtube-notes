@@ -89,5 +89,18 @@
     }
   ],
   "sourceLine": "The combined mean, the combined variance with its between-group term, and the conversion between the sample and population conventions: the IAE Academy GATE formula sheet (English). The effect of a single value on the mean and on the median: the IIT Roorkee Lecture 4 transcript (English). The definition of the standard deviation that makes it respond to any change: OpenStax Introductory Statistics 2e section 2.7 (English).",
-  "videoRefs": []
+  "videoRefs": [],
+  "links": {
+    "visual": {
+      "slug": "mean-median-mode-standard-deviation",
+      "title": "Mean, Median, Mode and Standard Deviation: Three Middles, One Spread, and When Each Rule Fails",
+      "level": "topic-level",
+      "covers": [
+        "mean of grouped data by midpoints",
+        "median of grouped data by cumulative frequency"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/mean-median-mode-standard-deviation/index.html"
+    },
+    "mapped_at": "2026-10-30"
+  }
 }

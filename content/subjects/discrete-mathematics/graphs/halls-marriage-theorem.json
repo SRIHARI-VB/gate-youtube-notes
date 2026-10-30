@@ -73,10 +73,10 @@
       "title": "Graphs: Matching and Colouring",
       "level": "topic-level",
       "covers": [
-        "Hall's condition as a necessary and sufficient test for a matching saturating one side"
+        "Hall's condition and Hall's theorem"
       ],
       "url": "https://gate-visual-explainer.vercel.app/topics/matching-and-colouring/index.html"
     },
-    "mapped_at": "2026-10-28"
+    "mapped_at": "2026-10-30"
   }
 }

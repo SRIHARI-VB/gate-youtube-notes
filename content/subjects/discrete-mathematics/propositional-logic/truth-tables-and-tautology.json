@@ -64,42 +64,43 @@
       "question_count": 50,
       "subtopics": [
         {
-          "label": "Propositions & connectives",
+          "label": "cnf-dnf",
+          "questions": 8
+        },
+        {
+          "label": "implications-and-inference",
           "questions": 9
         },
         {
-          "label": "Truth tables",
-          "questions": 9
-        },
-        {
-          "label": "Logical equivalences",
+          "label": "logical-equivalences",
           "questions": 7
         },
         {
-          "label": "Implications & inference",
+          "label": "propositions-and-connectives",
           "questions": 9
         },
         {
-          "label": "CNF / DNF",
-          "questions": 8
+          "label": "truth-tables",
+          "questions": 9
         },
         {
-          "label": "Validity & satisfiability",
+          "label": "validity-and-satisfiability",
           "questions": 8
         }
       ],
-      "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/propositional-logic/gate_dm_mock_1_2026-10-25.html"
+      "url": "https://gate-cse-mocks.vercel.app/"
     },
     "visual": {
       "slug": "propositional-logic",
       "title": "Propositional Logic",
       "level": "topic-level",
       "covers": [
+        "propositions and truth values",
         "truth tables",
         "tautology, contradiction, contingency"
       ],
       "url": "https://gate-visual-explainer.vercel.app/topics/propositional-logic/index.html"
     },
-    "mapped_at": "2026-10-27"
+    "mapped_at": "2026-10-30"
   }
 }

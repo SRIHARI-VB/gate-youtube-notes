@@ -66,5 +66,17 @@
       "note": "read through the counting and graph-algorithm sections before the fetch was truncated; used for the topic's GATE weightage table and the counting formulas, not for any card claim"
     }
   ],
-  "sourceLine": "The chromatic polynomial, its values on complete graphs, trees and cycles, and the deletion-contraction identity: Rosen ch. 10 and West (standard references; no lecture transcript was readable for this subtopic). Standard references used to verify, never copied: Rosen, Discrete Mathematics and Its Applications, ch. 10; West, Introduction to Graph Theory (Brooks, Dirac, Koenig, chromatic polynomial); CLRS ch. 22 (articulation points, bridges) and ch. 26 (bipartite matching); Diestel, Graph Theory (Menger). Every polynomial value, coefficient and count in this card is recomputed in scripts/validate.py by counting colourings directly."
+  "sourceLine": "The chromatic polynomial, its values on complete graphs, trees and cycles, and the deletion-contraction identity: Rosen ch. 10 and West (standard references; no lecture transcript was readable for this subtopic). Standard references used to verify, never copied: Rosen, Discrete Mathematics and Its Applications, ch. 10; West, Introduction to Graph Theory (Brooks, Dirac, Koenig, chromatic polynomial); CLRS ch. 22 (articulation points, bridges) and ch. 26 (bipartite matching); Diestel, Graph Theory (Menger). Every polynomial value, coefficient and count in this card is recomputed in scripts/validate.py by counting colourings directly.",
+  "links": {
+    "visual": {
+      "slug": "matching-and-colouring",
+      "title": "Graphs: Matching and Colouring",
+      "level": "topic-level",
+      "covers": [
+        "vertex colouring and the chromatic number"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/matching-and-colouring/index.html"
+    },
+    "mapped_at": "2026-10-30"
+  }
 }

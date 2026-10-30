@@ -89,12 +89,11 @@
       "slug": "monoids-and-groups",
       "title": "Monoids and Groups",
       "level": "topic-level",
-      "url": "https://gate-visual-explainer.vercel.app/topics/monoids-and-groups/index.html",
       "covers": [
-        "subgroups and the coset split",
-        "Lagrange's theorem and the A4 counterexample"
-      ]
+        "cosets and Lagrange's theorem"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/monoids-and-groups/index.html"
     },
-    "mapped_at": "2026-10-28"
+    "mapped_at": "2026-10-30"
   }
 }

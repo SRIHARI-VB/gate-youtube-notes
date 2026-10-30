@@ -94,6 +94,10 @@
       "question_count": 50,
       "subtopics": [
         {
+          "label": "gauss-elimination",
+          "questions": 9
+        },
+        {
           "label": "matrix-operations",
           "questions": 15
         },
@@ -104,10 +108,6 @@
         {
           "label": "systems-of-linear-equations",
           "questions": 12
-        },
-        {
-          "label": "gauss-elimination",
-          "questions": 9
         }
       ],
       "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
@@ -117,10 +117,11 @@
       "title": "Matrices, Systems and Eigenvalues",
       "level": "topic-level",
       "covers": [
-        "consistency by rank(A) against rank([A|b])"
+        "rank",
+        "solving systems: consistency and uniqueness"
       ],
       "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },
-    "mapped_at": "2026-10-29"
+    "mapped_at": "2026-10-30"
   }
 }

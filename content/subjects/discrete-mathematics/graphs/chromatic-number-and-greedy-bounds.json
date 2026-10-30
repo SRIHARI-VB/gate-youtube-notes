@@ -78,13 +78,11 @@
       "title": "Graphs: Matching and Colouring",
       "level": "topic-level",
       "covers": [
-        "chromatic number of common families (cycles, complete graphs, bipartite graphs, trees)",
-        "clique number as a lower bound, and the Mycielskian gap",
-        "first-fit greedy, order dependence, chromatic number at most maximum degree plus one",
-        "Brooks' theorem and its two exceptions"
+        "vertex colouring and the chromatic number",
+        "greedy colouring bounds"
       ],
       "url": "https://gate-visual-explainer.vercel.app/topics/matching-and-colouring/index.html"
     },
-    "mapped_at": "2026-10-28"
+    "mapped_at": "2026-10-30"
   }
 }

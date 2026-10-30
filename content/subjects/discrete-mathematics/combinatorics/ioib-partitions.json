@@ -44,5 +44,14 @@
   "prereqs": [
     "distribution-templates",
     "doib-stirling"
-  ]
+  ],
+  "links": {
+    "visual": {
+      "slug": "counting-and-combinatorics",
+      "title": "Counting and Combinatorics",
+      "level": "topic-level",
+      "url": "https://gate-visual-explainer.vercel.app/topics/counting-and-combinatorics/index.html"
+    },
+    "mapped_at": "2026-10-30"
+  }
 }

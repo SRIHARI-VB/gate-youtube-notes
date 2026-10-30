@@ -90,5 +90,18 @@
     }
   ],
   "sourceLine": "The definition and the counting route: NPTEL IIT Kharagpur Lecture 09 (English, read in part), with the independence facts from Lecture 10. The reminder to rebuild the denominator from the stated condition: the Knowledge Gate AI GATE probability page (English). Both PYQs are recomputed by enumeration in scripts/validate.py.",
-  "videoRefs": []
+  "videoRefs": [],
+  "links": {
+    "visual": {
+      "slug": "probability-and-random-variables",
+      "title": "Probability, Random Variables and Distributions",
+      "level": "topic-level",
+      "covers": [
+        "equally likely outcomes and counting",
+        "Bernoulli trials and the binomial PMF"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/probability-and-random-variables/index.html"
+    },
+    "mapped_at": "2026-10-30"
+  }
 }

@@ -87,5 +87,17 @@
     }
   ],
   "sourceLine": "The prior / likelihood / marginal / posterior terminology and the branch-product structure: StatLect's Bayes' rule page (English). The advice to solve these questions with a tree diagram and the pitfall list: GATE Overflow's probability notes (English). The two-step recipe of evidence first, then the branch: the Knowledge Gate AI GATE probability page (English).",
-  "videoRefs": []
+  "videoRefs": [],
+  "links": {
+    "visual": {
+      "slug": "bayes-theorem-as-revision",
+      "title": "Bayes' Theorem as a Revision Rule: Prior, Likelihood, Evidence, Posterior",
+      "level": "subtopic-level",
+      "covers": [
+        "the odds form and the likelihood ratio"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/bayes-theorem-as-revision/index.html"
+    },
+    "mapped_at": "2026-10-30"
+  }
 }

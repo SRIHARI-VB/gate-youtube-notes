@@ -86,5 +86,17 @@
     }
   ],
   "sourceLine": "The robot example with its under-10-per-cent posterior: StatLect's Bayes' rule page (English), read in full. The pitfall that the denominator must consider every case: GATE Overflow's probability notes (English). The HIV-test application of the same arithmetic in the NCERT chapter: the Hindi NCERT class 12 summary (Hindi, translated here).",
-  "videoRefs": []
+  "videoRefs": [],
+  "links": {
+    "visual": {
+      "slug": "bayes-theorem-as-revision",
+      "title": "Bayes' Theorem as a Revision Rule: Prior, Likelihood, Evidence, Posterior",
+      "level": "subtopic-level",
+      "covers": [
+        "the base-rate case: prevalence, sensitivity and specificity"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/bayes-theorem-as-revision/index.html"
+    },
+    "mapped_at": "2026-10-30"
+  }
 }

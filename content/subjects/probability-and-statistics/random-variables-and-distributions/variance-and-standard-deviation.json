@@ -94,13 +94,12 @@
       "slug": "probability-and-random-variables",
       "title": "Probability, Random Variables and Distributions",
       "level": "topic-level",
-      "url": "https://gate-visual-explainer.vercel.app/topics/probability-and-random-variables/index.html",
       "covers": [
-        "variance as E[X squared] minus the square of E[X]",
-        "Var(aX + b) = a^2 Var(X)",
-        "standard deviation as the square root of the variance"
-      ]
+        "variance",
+        "mean, median, mode, standard deviation"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/probability-and-random-variables/index.html"
     },
-    "mapped_at": "2026-10-29"
+    "mapped_at": "2026-10-30"
   }
 }

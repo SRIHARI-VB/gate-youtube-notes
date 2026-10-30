@@ -84,11 +84,11 @@
       "level": "topic-level",
       "covers": [
         "graph as two sets, adjacency matrix and adjacency list",
-        "degree sum equals twice the edge count",
-        "handshake lemma and the parity of odd-degree vertices"
+        "degree sequences and the handshake lemma",
+        "bipartite graphs and odd cycles"
       ],
       "url": "https://gate-visual-explainer.vercel.app/topics/graphs-connectivity/index.html"
     },
-    "mapped_at": "2026-10-28"
+    "mapped_at": "2026-10-30"
   }
 }

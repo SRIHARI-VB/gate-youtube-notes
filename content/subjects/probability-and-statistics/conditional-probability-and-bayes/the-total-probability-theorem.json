@@ -90,5 +90,17 @@
   ],
   "sourceLine": "The theorem for a disjoint exhaustive family with its proof: NPTEL IIT Kharagpur Lecture 09 (English, read in part) and StatLect's partition form (English). The machine A / machine B defective-item arithmetic: the Knowledge Gate AI GATE probability page (English). The 2006 rain question is recorded in the source ledger as an excluded IT-paper question.",
   "videoRefs": [],
-  "visual": "probability-and-statistics/conditional-probability-and-bayes/bayes-tree-and-the-base-rate"
+  "visual": "probability-and-statistics/conditional-probability-and-bayes/bayes-tree-and-the-base-rate",
+  "links": {
+    "visual": {
+      "slug": "bayes-theorem-as-revision",
+      "title": "Bayes' Theorem as a Revision Rule: Prior, Likelihood, Evidence, Posterior",
+      "level": "subtopic-level",
+      "covers": [
+        "the law of total probability as the denominator"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/bayes-theorem-as-revision/index.html"
+    },
+    "mapped_at": "2026-10-30"
+  }
 }

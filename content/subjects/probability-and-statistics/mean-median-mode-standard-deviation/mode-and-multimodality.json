@@ -88,14 +88,14 @@
   "videoRefs": [],
   "links": {
     "visual": {
-      "slug": "probability-and-random-variables",
-      "title": "Probability, Random Variables and Distributions",
+      "slug": "mean-median-mode-standard-deviation",
+      "title": "Mean, Median, Mode and Standard Deviation: Three Middles, One Spread, and When Each Rule Fails",
       "level": "topic-level",
-      "url": "https://gate-visual-explainer.vercel.app/topics/probability-and-random-variables/index.html",
       "covers": [
-        "mean, median and mode on skewed data",
-        "when np is not an integer the mode is one of the two integers beside it"
-      ]
+        "mode of raw data and the modal class",
+        "mean, median and mode of the five named distributions"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/mean-median-mode-standard-deviation/index.html"
     },
     "mapped_at": "2026-10-30"
   }

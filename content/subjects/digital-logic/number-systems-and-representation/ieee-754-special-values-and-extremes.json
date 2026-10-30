@@ -110,19 +110,19 @@
       "question_count": 50,
       "subtopics": [
         {
-          "label": "Base conversions",
+          "label": "base-conversions",
           "questions": 15
         },
         {
-          "label": "One's & two's complement",
-          "questions": 13
-        },
-        {
-          "label": "Range & overflow",
+          "label": "floating-point-ieee-754",
           "questions": 11
         },
         {
-          "label": "Floating point & IEEE 754",
+          "label": "ones-twos-complement",
+          "questions": 13
+        },
+        {
+          "label": "range-and-overflow",
           "questions": 11
         }
       ],
@@ -132,13 +132,10 @@
       "slug": "number-representation-and-arithmetic",
       "title": "Number Representation and Arithmetic",
       "level": "topic-level",
-      "url": "https://gate-visual-explainer.vercel.app/topics/number-representation-and-arithmetic/index.html",
       "covers": [
-        "four exponent regimes: zero, denormal, normal, infinity and NaN",
-        "denormals: hidden bit 0, exponent pinned at -126, spacing 2^-149",
-        "largest finite single (2 - 2^-23) x 2^127",
-        "signed zero and NaN not equal to itself"
-      ]
+        "floating point (IEEE 754)"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/number-representation-and-arithmetic/index.html"
     },
     "mapped_at": "2026-10-30"
   }

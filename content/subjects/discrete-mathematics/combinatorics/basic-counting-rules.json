@@ -53,16 +53,42 @@
   ],
   "prereqs": [],
   "links": {
+    "mock": {
+      "subject": "discrete-mathematics",
+      "unit_slug": "combinatorics",
+      "unit_name": "Counting & Combinatorics",
+      "unit_number": 7,
+      "question_count": 50,
+      "subtopics": [
+        {
+          "label": "binomial-multinomial-coefficients",
+          "questions": 10
+        },
+        {
+          "label": "double-counting",
+          "questions": 10
+        },
+        {
+          "label": "inclusion-exclusion-counting",
+          "questions": 10
+        },
+        {
+          "label": "permutations-combinations",
+          "questions": 10
+        },
+        {
+          "label": "stars-and-bars",
+          "questions": 10
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/combinatorics/gate_dm_mock_7_2026-10-28.html"
+    },
     "visual": {
       "slug": "counting-and-combinatorics",
       "title": "Counting and Combinatorics",
       "level": "topic-level",
-      "covers": [
-        "sum and product rules",
-        "the four counting boxes"
-      ],
       "url": "https://gate-visual-explainer.vercel.app/topics/counting-and-combinatorics/index.html"
     },
-    "mapped_at": "2026-10-27"
+    "mapped_at": "2026-10-30"
   }
 }

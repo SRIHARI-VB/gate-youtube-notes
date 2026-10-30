@@ -86,5 +86,14 @@
     }
   ],
   "sourceLine": "The lemma that independent events of non-zero probability cannot be mutually exclusive, and the odd/even die illustration: the Hindi NCERT class 12 chapter 13 summary (Hindi, translated here) and the Knowledge Gate AI GATE probability page (English). The definitions of independence and of the disjoint addition rule: NPTEL IIT Kharagpur Lecture 10 (English, read in part).",
-  "videoRefs": []
+  "videoRefs": [],
+  "links": {
+    "visual": {
+      "slug": "probability-and-random-variables",
+      "title": "Probability, Random Variables and Distributions",
+      "level": "topic-level",
+      "url": "https://gate-visual-explainer.vercel.app/topics/probability-and-random-variables/index.html"
+    },
+    "mapped_at": "2026-10-30"
+  }
 }

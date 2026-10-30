@@ -85,12 +85,13 @@
       "slug": "monoids-and-groups",
       "title": "Monoids and Groups",
       "level": "topic-level",
-      "url": "https://gate-visual-explainer.vercel.app/topics/monoids-and-groups/index.html",
       "covers": [
-        "Z6 against S3 on commutativity",
-        "the (xy)^2 = x^2y^2 test"
-      ]
+        "semigroups and monoids",
+        "groups, subgroups",
+        "cyclic groups and generators"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/monoids-and-groups/index.html"
     },
-    "mapped_at": "2026-10-28"
+    "mapped_at": "2026-10-30"
   }
 }

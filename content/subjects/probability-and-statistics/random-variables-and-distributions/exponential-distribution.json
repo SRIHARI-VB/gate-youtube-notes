@@ -92,16 +92,47 @@
   "sourceLine": "The exponential as the waiting time of a Poisson process, the memorylessness identity derived from the survival function and the mean 1/lambda: NPTEL Lecture 25 (English). The decay parameter m = 1/mu, the standard deviation equal to the mean and the median below the mean: OpenStax Introductory Statistics 2e section 5.3 (English). The rate-versus-mean pitfall: the GATE Overflow probability notes (English).",
   "videoRefs": [],
   "links": {
-    "visual": {
-      "slug": "probability-and-random-variables",
-      "title": "Probability, Random Variables and Distributions",
-      "level": "topic-level",
-      "url": "https://gate-visual-explainer.vercel.app/topics/probability-and-random-variables/index.html",
-      "covers": [
-        "exponential density and the tail e^(-lambda t)",
-        "memorylessness and the condition that makes it true"
-      ]
+    "mock": {
+      "subject": "engineering-mathematics",
+      "unit_slug": "probability-distributions",
+      "unit_name": "Continuous Probability & Distributions",
+      "unit_number": 5,
+      "question_count": 25,
+      "subtopics": [
+        {
+          "label": "correlation-and-covariance",
+          "questions": 5
+        },
+        {
+          "label": "exponential-distribution",
+          "questions": 5
+        },
+        {
+          "label": "normal-distribution",
+          "questions": 5
+        },
+        {
+          "label": "random-variables-cdf-pdf",
+          "questions": 5
+        },
+        {
+          "label": "uniform-distribution",
+          "questions": 5
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/probability-distributions/gate_em_mock_5_2026-10-30.html"
     },
-    "mapped_at": "2026-10-29"
+    "visual": {
+      "slug": "exponential-and-poisson-distributions",
+      "title": "The Exponential and Poisson Distributions: One Rate, Two Questions, and the Four Places the Arithmetic Breaks",
+      "level": "subtopic-level",
+      "covers": [
+        "the count against the wait: Poisson on the whole numbers, exponential on the positive reals",
+        "the exponential density lambda e^-lambda x and its tail e^-lambda x",
+        "the counting process: exponential gaps against a Poisson count"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/exponential-and-poisson-distributions/index.html"
+    },
+    "mapped_at": "2026-10-30"
   }
 }

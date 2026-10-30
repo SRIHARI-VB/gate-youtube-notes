@@ -106,9 +106,8 @@
       "title": "Mean, Median, Mode and Standard Deviation: Three Middles, One Spread, and When Each Rule Fails",
       "level": "topic-level",
       "covers": [
-        "grouped mean by class midpoints, and its approximation error",
-        "median class by cumulative frequency and the interpolation formula",
-        "modal class and the mode interpolation formula"
+        "mean of grouped data by midpoints",
+        "median of grouped data by cumulative frequency"
       ],
       "url": "https://gate-visual-explainer.vercel.app/topics/mean-median-mode-standard-deviation/index.html"
     },

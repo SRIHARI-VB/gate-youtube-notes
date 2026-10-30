@@ -61,27 +61,27 @@
       "question_count": 50,
       "subtopics": [
         {
-          "label": "Predicates & domain",
+          "label": "english-to-fol-translation",
           "questions": 10
         },
         {
-          "label": "Universal & existential quantifiers",
+          "label": "negation-nested-quantifiers",
           "questions": 10
         },
         {
-          "label": "Negation of nested quantifiers",
+          "label": "predicates-and-domain",
           "questions": 10
         },
         {
-          "label": "Scope & order of quantifiers",
+          "label": "quantifiers-universal-existential",
           "questions": 10
         },
         {
-          "label": "English to FOL translation",
+          "label": "scope-and-order",
           "questions": 10
         }
       ],
-      "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/predicate-logic/gate_dm_mock_2_2026-10-25.html"
+      "url": "https://gate-cse-mocks.vercel.app/"
     },
     "visual": {
       "slug": "first-order-logic",
@@ -89,10 +89,11 @@
       "level": "topic-level",
       "covers": [
         "universal and existential quantifiers",
-        "free and bound variables; scope"
+        "nested quantifiers and order",
+        "quantifier negation"
       ],
       "url": "https://gate-visual-explainer.vercel.app/topics/first-order-logic/index.html"
     },
-    "mapped_at": "2026-10-27"
+    "mapped_at": "2026-10-30"
   }
 }

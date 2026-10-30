@@ -88,5 +88,17 @@
     }
   ],
   "sourceLine": "The proof that P(.|B) satisfies the three axioms and the consequences drawn from it: NPTEL IIT Kharagpur Lecture 09 (English, read in part). The list of properties a conditional probability must satisfy and the division-by-zero discussion: StatLect (English). The multiplication and addition rules as GATE-level statements: OpenStax Introductory Statistics 3.3 (English).",
-  "videoRefs": []
+  "videoRefs": [],
+  "links": {
+    "visual": {
+      "slug": "probability-and-random-variables",
+      "title": "Probability, Random Variables and Distributions",
+      "level": "topic-level",
+      "covers": [
+        "conditional probability and independence"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/probability-and-random-variables/index.html"
+    },
+    "mapped_at": "2026-10-30"
+  }
 }

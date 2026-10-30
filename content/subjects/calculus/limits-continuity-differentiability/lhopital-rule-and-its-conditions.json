@@ -91,12 +91,12 @@
       "question_count": 50,
       "subtopics": [
         {
-          "label": "indeterminate-forms-lhopital",
-          "questions": 14
-        },
-        {
           "label": "continuity-analysis",
           "questions": 12
+        },
+        {
+          "label": "indeterminate-forms-lhopital",
+          "questions": 14
         },
         {
           "label": "mean-value-theorems",
@@ -114,11 +114,10 @@
       "title": "Calculus: Limits, Extrema and Integration",
       "level": "topic-level",
       "covers": [
-        "L'Hopital is legal only on 0/0 and infinity over infinity",
-        "one application is often not enough"
+        "differentiation rules"
       ],
       "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
     },
-    "mapped_at": "2026-10-29"
+    "mapped_at": "2026-10-30"
   }
 }

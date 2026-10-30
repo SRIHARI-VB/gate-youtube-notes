@@ -77,10 +77,10 @@
       "title": "Graphs: Matching and Colouring",
       "level": "topic-level",
       "covers": [
-        "Konig's theorem, the constructive cover, and its failure on an odd cycle"
+        "vertex colouring and the chromatic number"
       ],
       "url": "https://gate-visual-explainer.vercel.app/topics/matching-and-colouring/index.html"
     },
-    "mapped_at": "2026-10-28"
+    "mapped_at": "2026-10-30"
   }
 }

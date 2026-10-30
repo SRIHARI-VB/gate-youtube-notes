@@ -97,9 +97,8 @@
       "title": "Mean, Median, Mode and Standard Deviation: Three Middles, One Spread, and When Each Rule Fails",
       "level": "topic-level",
       "covers": [
-        "adding a constant moves the mean, median and mode and not sigma",
-        "scaling multiplies all three averages and sigma by the factor, sigma by |a|",
-        "a negative multiplier reverses the median index position"
+        "variance and standard deviation",
+        "shift and scale rules"
       ],
       "url": "https://gate-visual-explainer.vercel.app/topics/mean-median-mode-standard-deviation/index.html"
     },

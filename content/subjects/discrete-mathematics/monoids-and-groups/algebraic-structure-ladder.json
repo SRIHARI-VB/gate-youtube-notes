@@ -96,12 +96,8 @@
       "slug": "monoids-and-groups",
       "title": "Monoids and Groups",
       "level": "topic-level",
-      "url": "https://gate-visual-explainer.vercel.app/topics/monoids-and-groups/index.html",
-      "covers": [
-        "closure and associativity",
-        "the semigroup-monoid-group ladder"
-      ]
+      "url": "https://gate-visual-explainer.vercel.app/topics/monoids-and-groups/index.html"
     },
-    "mapped_at": "2026-10-28"
+    "mapped_at": "2026-10-30"
   }
 }

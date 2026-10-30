@@ -70,23 +70,29 @@
       "question_count": 50,
       "subtopics": [
         {
-          "label": "Base conversions",
+          "label": "base-conversions",
           "questions": 15
         },
         {
-          "label": "One's & two's complement",
-          "questions": 13
-        },
-        {
-          "label": "Range & overflow",
+          "label": "floating-point-ieee-754",
           "questions": 11
         },
         {
-          "label": "Floating point & IEEE 754",
+          "label": "ones-twos-complement",
+          "questions": 13
+        },
+        {
+          "label": "range-and-overflow",
           "questions": 11
         }
       ],
       "url": "https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-10-27.html"
+    },
+    "visual": {
+      "slug": "number-representation-and-arithmetic",
+      "title": "Number Representation and Arithmetic",
+      "level": "topic-level",
+      "url": "https://gate-visual-explainer.vercel.app/topics/number-representation-and-arithmetic/index.html"
     },
     "mapped_at": "2026-10-30"
   }

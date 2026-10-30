@@ -51,24 +51,24 @@
       "question_count": 50,
       "subtopics": [
         {
-          "label": "Characteristic equations",
+          "label": "characteristic-equations",
           "questions": 11
         },
         {
-          "label": "Homogeneous & non-homogeneous",
+          "label": "coefficient-extraction",
           "questions": 10
         },
         {
-          "label": "Ordinary generating functions",
-          "questions": 10
-        },
-        {
-          "label": "Coefficient extraction",
-          "questions": 10
-        },
-        {
-          "label": "Divide-and-conquer recurrences",
+          "label": "divide-and-conquer-recurrences",
           "questions": 9
+        },
+        {
+          "label": "homogeneous-nonhomogeneous",
+          "questions": 10
+        },
+        {
+          "label": "ordinary-generating-functions",
+          "questions": 10
         }
       ],
       "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/recurrence-generating-functions/gate_dm_mock_8_2026-10-30.html"
@@ -78,9 +78,9 @@
       "title": "Recurrence Relations",
       "level": "topic-level",
       "covers": [
-        "building a recurrence from a constraint",
-        "characteristic equations and repeated roots",
-        "master theorem and divide-and-conquer recurrences"
+        "linear homogeneous recurrences",
+        "non-homogeneous recurrences",
+        "recurrences from divide-and-conquer algorithms"
       ],
       "url": "https://gate-visual-explainer.vercel.app/topics/recurrence-relations/index.html"
     },

@@ -81,16 +81,16 @@
       "question_count": 50,
       "subtopics": [
         {
-          "label": "single-variable-extrema",
-          "questions": 15
-        },
-        {
           "label": "definite-integrals",
           "questions": 13
         },
         {
           "label": "multivariable-extrema-saddle-points",
           "questions": 11
+        },
+        {
+          "label": "single-variable-extrema",
+          "questions": 15
         },
         {
           "label": "vector-calculus-basics",
@@ -104,11 +104,10 @@
       "title": "Calculus: Limits, Extrema and Integration",
       "level": "topic-level",
       "covers": [
-        "on a closed interval the endpoints are candidates too",
-        "a maximum can sit where the derivative has nothing to say"
+        "the closed-interval candidate list: critical points, corners, endpoints"
       ],
       "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
     },
-    "mapped_at": "2026-10-29"
+    "mapped_at": "2026-10-30"
   }
 }

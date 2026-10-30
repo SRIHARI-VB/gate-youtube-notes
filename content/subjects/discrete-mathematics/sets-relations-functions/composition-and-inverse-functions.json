@@ -85,38 +85,40 @@
       "question_count": 50,
       "subtopics": [
         {
-          "label": "Injective / surjective / bijective",
+          "label": "composition-and-inverses",
           "questions": 10
         },
         {
-          "label": "Composition & inverses",
+          "label": "counting-functions",
           "questions": 10
         },
         {
-          "label": "Counting functions",
+          "label": "floor-ceiling-recursion",
           "questions": 10
         },
         {
-          "label": "Pigeonhole principle",
+          "label": "pigeonhole-principle",
           "questions": 10
         },
         {
-          "label": "Floor, ceiling & recursion",
+          "label": "types-injective-surjective-bijective",
           "questions": 10
         }
       ],
-      "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/functions/gate_dm_mock_5_2026-10-26.html"
+      "url": "https://gate-cse-mocks.vercel.app/"
     },
     "visual": {
       "slug": "functions-and-their-properties",
       "title": "Functions and Their Properties",
       "level": "topic-level",
       "covers": [
-        "composition: what survives, and only in one direction",
-        "the inverse function exists only for a bijection"
+        "a function as a total, single-valued relation",
+        "counting functions, injections, surjections and bijections",
+        "composition of functions",
+        "the inverse function versus the preimage of a set"
       ],
       "url": "https://gate-visual-explainer.vercel.app/topics/functions-and-their-properties/index.html"
     },
-    "mapped_at": "2026-10-28"
+    "mapped_at": "2026-10-30"
   }
 }

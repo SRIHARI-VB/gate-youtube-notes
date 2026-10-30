@@ -88,12 +88,12 @@
       "question_count": 50,
       "subtopics": [
         {
-          "label": "indeterminate-forms-lhopital",
-          "questions": 14
-        },
-        {
           "label": "continuity-analysis",
           "questions": 12
+        },
+        {
+          "label": "indeterminate-forms-lhopital",
+          "questions": 14
         },
         {
           "label": "mean-value-theorems",
@@ -111,11 +111,10 @@
       "title": "Calculus: Limits, Extrema and Integration",
       "level": "topic-level",
       "covers": [
-        "two one-sided slopes must agree for a derivative to exist",
-        "differentiable implies continuous, never the reverse; |x| at zero"
+        "continuity"
       ],
       "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
     },
-    "mapped_at": "2026-10-29"
+    "mapped_at": "2026-10-30"
   }
 }
