@@ -88,5 +88,17 @@
       "note": "read the construction, grouping and solution sections: Gray-code ordering so neighbours differ in one variable, power-of-two rectangles that may overlap, toroidal connectivity for wrap-around, the reading rule (keep the variables constant across the box, drop the rest), don't cares that may be included in a group or left out, and the POS form obtained by minimising the complement and applying De Morgan."
     }
   ],
-  "sourceLine": "The POS rule (cover the 0s, and a don't care may join a group of 0s): NPTEL IIT Kharagpur Digital Electronic Circuits Lecture 10 closing summary (English) and GATE Overflow's Digital Logic subject notes (English). The inverted reading of a sum term and the De Morgan route from the complement: the Wikipedia Karnaugh map article (English, read in part). Both forms of the worked example are recomputed in scripts/validate.py."
+  "sourceLine": "The POS rule (cover the 0s, and a don't care may join a group of 0s): NPTEL IIT Kharagpur Digital Electronic Circuits Lecture 10 closing summary (English) and GATE Overflow's Digital Logic subject notes (English). The inverted reading of a sum term and the De Morgan route from the complement: the Wikipedia Karnaugh map article (English, read in part). Both forms of the worked example are recomputed in scripts/validate.py.",
+  "links": {
+    "visual": {
+      "slug": "boolean-algebra-and-minimisation",
+      "title": "Boolean Algebra and Minimisation",
+      "level": "topic-level",
+      "covers": [
+        "product of sums by grouping the zeros"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/boolean-algebra-and-minimisation/index.html"
+    },
+    "mapped_at": "2026-10-30"
+  }
 }

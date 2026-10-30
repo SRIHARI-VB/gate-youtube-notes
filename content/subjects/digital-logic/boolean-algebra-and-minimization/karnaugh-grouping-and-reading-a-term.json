@@ -79,5 +79,17 @@
     }
   ],
   "sourceLine": "The grouping rules and the cover requirement: NPTEL IIT Kharagpur Digital Electronic Circuits Lecture 10 closing summary (English) - logical adjacency is the key, every 1 is covered by the fewest and largest power-of-two groups. The reading rule (keep the constant variables): GATE Overflow's Digital Logic subject notes (English, read in part) and recomputation in scripts/validate.py.",
-  "visual": "digital-logic/boolean-algebra-and-minimization/kmap-dont-care-grouping"
+  "visual": "digital-logic/boolean-algebra-and-minimization/kmap-dont-care-grouping",
+  "links": {
+    "visual": {
+      "slug": "boolean-algebra-and-minimisation",
+      "title": "Boolean Algebra and Minimisation",
+      "level": "topic-level",
+      "covers": [
+        "grouping rules and reading a product term off a group"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/boolean-algebra-and-minimisation/index.html"
+    },
+    "mapped_at": "2026-10-30"
+  }
 }

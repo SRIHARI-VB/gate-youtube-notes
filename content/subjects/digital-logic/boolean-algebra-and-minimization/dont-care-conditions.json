@@ -90,5 +90,17 @@
     }
   ],
   "sourceLine": "The don't-care rule (take X as 0 or 1 according to which makes the group larger): NPTEL IIT Kharagpur Digital Electronic Circuits Lecture 10 closing summary (English), restated by the same course's Lecture 12 summary for the tabular method (included when finding prime implicants, excluded when finding essential ones). The same rule in reference form: the Wikipedia Karnaugh map article (English, read in part). Every cover in this card is recomputed in scripts/validate.py.",
-  "visual": "digital-logic/boolean-algebra-and-minimization/kmap-dont-care-grouping"
+  "visual": "digital-logic/boolean-algebra-and-minimization/kmap-dont-care-grouping",
+  "links": {
+    "visual": {
+      "slug": "boolean-algebra-and-minimisation",
+      "title": "Boolean Algebra and Minimisation",
+      "level": "topic-level",
+      "covers": [
+        "don't-cares as optional ones that can never make an implicant essential"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/boolean-algebra-and-minimisation/index.html"
+    },
+    "mapped_at": "2026-10-30"
+  }
 }

@@ -88,5 +88,18 @@
       "note": "read from the opening to the stage-2 combination of the four-variable example, plus the closing summary: the three steps, implicant and prime implicant defined, grouping by the number of 1s, the iterative combination, and the closing rule that don't cares are included when finding prime implicants and excluded when finding essential prime implicants."
     }
   ],
-  "sourceLine": "The cost vocabulary (fewest literals, fewest terms) and the n - k literal rule: the Aditya Engineering College switching-functions notes (English, read in part) and GATE Overflow's Digital Logic subject notes (English). The minimisation itself for the worked example: the NPTEL IIT Kharagpur Lecture 12 method (English, read in part), with every count recomputed in scripts/validate.py."
+  "sourceLine": "The cost vocabulary (fewest literals, fewest terms) and the n - k literal rule: the Aditya Engineering College switching-functions notes (English, read in part) and GATE Overflow's Digital Logic subject notes (English). The minimisation itself for the worked example: the NPTEL IIT Kharagpur Lecture 12 method (English, read in part), with every count recomputed in scripts/validate.py.",
+  "links": {
+    "visual": {
+      "slug": "boolean-algebra-and-minimisation",
+      "title": "Boolean Algebra and Minimisation",
+      "level": "topic-level",
+      "covers": [
+        "fewer terms and fewer literals",
+        "fewest terms is not always fewest literals"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/boolean-algebra-and-minimisation/index.html"
+    },
+    "mapped_at": "2026-10-30"
+  }
 }

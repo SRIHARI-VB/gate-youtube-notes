@@ -27408,6 +27408,18 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "The postulates, the 2^(2^n) count and the duality rule: NPTEL IIT Kharagpur Digital Electronic Circuits Lecture 07 (English, opening and closing summary read). The self-dual function and its count: the same course's Lecture 10 opening (English), where the dual circuit and the self-dual function are introduced. Every count in this card is recomputed in scripts/validate.py.",
+   "links": {
+    "visual": {
+     "slug": "boolean-algebra-and-minimisation",
+     "title": "Boolean Algebra and Minimisation",
+     "level": "topic-level",
+     "covers": [
+      "the identities, and the principle of duality"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/boolean-algebra-and-minimisation/index.html"
+    },
+    "mapped_at": "2026-10-30"
+   },
    "subject": "digital-logic",
    "topic": "boolean-algebra-and-minimization",
    "path": "subjects/digital-logic/boolean-algebra-and-minimization/boolean-algebra-postulates-and-duality.json"
@@ -27493,6 +27505,20 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "The theorem list and the NAND-NOR observation: NPTEL IIT Kharagpur Digital Electronic Circuits Lecture 07 (English, opening and closing summary read). The prime-implicant and simplification vocabulary in GATE's own phrasing: GATE Overflow's Digital Logic subject notes (English, read in part). Every identity used here is recomputed on all 0/1 rows in scripts/validate.py.",
+   "links": {
+    "visual": {
+     "slug": "boolean-algebra-and-minimisation",
+     "title": "Boolean Algebra and Minimisation",
+     "level": "topic-level",
+     "covers": [
+      "absorption",
+      "the consensus theorem",
+      "De Morgan as a statement about a truth table"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/boolean-algebra-and-minimisation/index.html"
+    },
+    "mapped_at": "2026-10-30"
+   },
    "subject": "digital-logic",
    "topic": "boolean-algebra-and-minimization",
    "path": "subjects/digital-logic/boolean-algebra-and-minimization/boolean-theorems-absorption-and-consensus.json"
@@ -27667,6 +27693,18 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "The truth table to minterm/maxterm conversion and the two-level reading: NPTEL IIT Kharagpur Digital Electronic Circuits Lecture 10 opening (English), which recaps Lecture 09's conversion. The complement pairing of Sigma m and Pi M: recomputed row by row in scripts/validate.py, and stated in GATE Overflow's subject notes (English).",
+   "links": {
+    "visual": {
+     "slug": "boolean-algebra-and-minimisation",
+     "title": "Boolean Algebra and Minimisation",
+     "level": "topic-level",
+     "covers": [
+      "minterms, maxterms and the two canonical forms"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/boolean-algebra-and-minimisation/index.html"
+    },
+    "mapped_at": "2026-10-30"
+   },
    "subject": "digital-logic",
    "topic": "boolean-algebra-and-minimization",
    "path": "subjects/digital-logic/boolean-algebra-and-minimization/canonical-forms-minterms-and-maxterms.json"
@@ -27750,6 +27788,18 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "The four moves and their justification: NPTEL IIT Kharagpur Digital Electronic Circuits Lecture 07 (English, postulates and duality read), with the simplification rules in GATE Overflow's subject notes (English). No verified GATE question is decided by this card alone, so it carries no PYQ of its own - the two that test the technique are linked from the theorem and XOR cards.",
+   "links": {
+    "visual": {
+     "slug": "boolean-algebra-and-minimisation",
+     "title": "Boolean Algebra and Minimisation",
+     "level": "topic-level",
+     "covers": [
+      "algebraic minimisation with absorption and consensus, and where it stops"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/boolean-algebra-and-minimisation/index.html"
+    },
+    "mapped_at": "2026-10-30"
+   },
    "subject": "digital-logic",
    "topic": "boolean-algebra-and-minimization",
    "path": "subjects/digital-logic/boolean-algebra-and-minimization/algebraic-minimization-technique.json"
@@ -27829,6 +27879,18 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "The grid, the minterm numbering and the adjacency argument: NPTEL IIT Kharagpur Digital Electronic Circuits Lecture 10 (English, opening read). Gray-code ordering, wrap-around and the reading rule: the Wikipedia Karnaugh map article (English, read in part). Every adjacency and every cell number is recomputed in scripts/validate.py.",
+   "links": {
+    "visual": {
+     "slug": "boolean-algebra-and-minimisation",
+     "title": "Boolean Algebra and Minimisation",
+     "level": "topic-level",
+     "covers": [
+      "the map's Gray-code labels, wrapping edges and power-of-two blocks"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/boolean-algebra-and-minimisation/index.html"
+    },
+    "mapped_at": "2026-10-30"
+   },
    "subject": "digital-logic",
    "topic": "boolean-algebra-and-minimization",
    "path": "subjects/digital-logic/boolean-algebra-and-minimization/karnaugh-map-layout-and-gray-code.json"
@@ -27915,6 +27977,18 @@ window.GATE_DATA = {
    ],
    "sourceLine": "The grouping rules and the cover requirement: NPTEL IIT Kharagpur Digital Electronic Circuits Lecture 10 closing summary (English) - logical adjacency is the key, every 1 is covered by the fewest and largest power-of-two groups. The reading rule (keep the constant variables): GATE Overflow's Digital Logic subject notes (English, read in part) and recomputation in scripts/validate.py.",
    "visual": "digital-logic/boolean-algebra-and-minimization/kmap-dont-care-grouping",
+   "links": {
+    "visual": {
+     "slug": "boolean-algebra-and-minimisation",
+     "title": "Boolean Algebra and Minimisation",
+     "level": "topic-level",
+     "covers": [
+      "grouping rules and reading a product term off a group"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/boolean-algebra-and-minimisation/index.html"
+    },
+    "mapped_at": "2026-10-30"
+   },
    "subject": "digital-logic",
    "topic": "boolean-algebra-and-minimization",
    "path": "subjects/digital-logic/boolean-algebra-and-minimization/karnaugh-grouping-and-reading-a-term.json"
@@ -28011,6 +28085,19 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "The definitions of implicant, prime implicant and essential prime implicant and the three-step cover algorithm: GATE Overflow's Digital Logic subject notes (English) and the Aditya Engineering College switching-functions notes (English, read in part). The cover-every-1 rule: NPTEL IIT Kharagpur Digital Electronic Circuits Lecture 10 closing summary (English). Every prime implicant and essential prime implicant in this card is enumerated by brute force in scripts/validate.py.",
+   "links": {
+    "visual": {
+     "slug": "boolean-algebra-and-minimisation",
+     "title": "Boolean Algebra and Minimisation",
+     "level": "topic-level",
+     "covers": [
+      "prime implicants against a cover",
+      "essential prime implicants"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/boolean-algebra-and-minimisation/index.html"
+    },
+    "mapped_at": "2026-10-30"
+   },
    "subject": "digital-logic",
    "topic": "boolean-algebra-and-minimization",
    "path": "subjects/digital-logic/boolean-algebra-and-minimization/essential-prime-implicants-and-minimal-cover.json"
@@ -28108,6 +28195,18 @@ window.GATE_DATA = {
    ],
    "sourceLine": "The don't-care rule (take X as 0 or 1 according to which makes the group larger): NPTEL IIT Kharagpur Digital Electronic Circuits Lecture 10 closing summary (English), restated by the same course's Lecture 12 summary for the tabular method (included when finding prime implicants, excluded when finding essential ones). The same rule in reference form: the Wikipedia Karnaugh map article (English, read in part). Every cover in this card is recomputed in scripts/validate.py.",
    "visual": "digital-logic/boolean-algebra-and-minimization/kmap-dont-care-grouping",
+   "links": {
+    "visual": {
+     "slug": "boolean-algebra-and-minimisation",
+     "title": "Boolean Algebra and Minimisation",
+     "level": "topic-level",
+     "covers": [
+      "don't-cares as optional ones that can never make an implicant essential"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/boolean-algebra-and-minimisation/index.html"
+    },
+    "mapped_at": "2026-10-30"
+   },
    "subject": "digital-logic",
    "topic": "boolean-algebra-and-minimization",
    "path": "subjects/digital-logic/boolean-algebra-and-minimization/dont-care-conditions.json"
@@ -28203,6 +28302,18 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "The POS rule (cover the 0s, and a don't care may join a group of 0s): NPTEL IIT Kharagpur Digital Electronic Circuits Lecture 10 closing summary (English) and GATE Overflow's Digital Logic subject notes (English). The inverted reading of a sum term and the De Morgan route from the complement: the Wikipedia Karnaugh map article (English, read in part). Both forms of the worked example are recomputed in scripts/validate.py.",
+   "links": {
+    "visual": {
+     "slug": "boolean-algebra-and-minimisation",
+     "title": "Boolean Algebra and Minimisation",
+     "level": "topic-level",
+     "covers": [
+      "product of sums by grouping the zeros"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/boolean-algebra-and-minimisation/index.html"
+    },
+    "mapped_at": "2026-10-30"
+   },
    "subject": "digital-logic",
    "topic": "boolean-algebra-and-minimization",
    "path": "subjects/digital-logic/boolean-algebra-and-minimization/pos-minimization-on-the-map.json"
@@ -28375,6 +28486,18 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "The three steps, the grouping by number of 1s and the don't-care rule: NPTEL IIT Kharagpur Digital Electronic Circuits Lecture 12 (English, opening, stage 1 and closing summary read). The combination rule, the chart and the single-tick reading of an essential prime implicant: the Wikipedia Quine-McCluskey article (English, read in part). Row and column dominance and the cyclic chart: the Aditya Engineering College switching-functions notes (English, read in part). The worked example's prime implicants are recomputed in scripts/validate.py.",
+   "links": {
+    "visual": {
+     "slug": "boolean-algebra-and-minimisation",
+     "title": "Boolean Algebra and Minimisation",
+     "level": "topic-level",
+     "covers": [
+      "the tabular Quine-McCluskey method"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/boolean-algebra-and-minimisation/index.html"
+    },
+    "mapped_at": "2026-10-30"
+   },
    "subject": "digital-logic",
    "topic": "boolean-algebra-and-minimization",
    "path": "subjects/digital-logic/boolean-algebra-and-minimization/quine-mccluskey-tabular-method.json"
@@ -28470,6 +28593,19 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "The cost vocabulary (fewest literals, fewest terms) and the n - k literal rule: the Aditya Engineering College switching-functions notes (English, read in part) and GATE Overflow's Digital Logic subject notes (English). The minimisation itself for the worked example: the NPTEL IIT Kharagpur Lecture 12 method (English, read in part), with every count recomputed in scripts/validate.py.",
+   "links": {
+    "visual": {
+     "slug": "boolean-algebra-and-minimisation",
+     "title": "Boolean Algebra and Minimisation",
+     "level": "topic-level",
+     "covers": [
+      "fewer terms and fewer literals",
+      "fewest terms is not always fewest literals"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/boolean-algebra-and-minimisation/index.html"
+    },
+    "mapped_at": "2026-10-30"
+   },
    "subject": "digital-logic",
    "topic": "boolean-algebra-and-minimization",
    "path": "subjects/digital-logic/boolean-algebra-and-minimization/literal-and-gate-cost.json"

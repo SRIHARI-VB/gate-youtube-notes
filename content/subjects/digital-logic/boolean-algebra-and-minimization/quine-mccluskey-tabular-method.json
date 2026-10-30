@@ -88,5 +88,17 @@
       "note": "read through the search service's extract: logical adjacency defined as differing in one literal, the six grouping rules, the implicant, prime implicant and essential prime implicant definitions, the three-step minimal-SOP algorithm, the five-variable map layout with rows ABC and columns DE in Gray order, and the tabulation method's two phases with the cover table, distinguished columns, row and column dominance and the cyclic cover table. Read as a reference for the rules, not as a source of questions."
     }
   ],
-  "sourceLine": "The three steps, the grouping by number of 1s and the don't-care rule: NPTEL IIT Kharagpur Digital Electronic Circuits Lecture 12 (English, opening, stage 1 and closing summary read). The combination rule, the chart and the single-tick reading of an essential prime implicant: the Wikipedia Quine-McCluskey article (English, read in part). Row and column dominance and the cyclic chart: the Aditya Engineering College switching-functions notes (English, read in part). The worked example's prime implicants are recomputed in scripts/validate.py."
+  "sourceLine": "The three steps, the grouping by number of 1s and the don't-care rule: NPTEL IIT Kharagpur Digital Electronic Circuits Lecture 12 (English, opening, stage 1 and closing summary read). The combination rule, the chart and the single-tick reading of an essential prime implicant: the Wikipedia Quine-McCluskey article (English, read in part). Row and column dominance and the cyclic chart: the Aditya Engineering College switching-functions notes (English, read in part). The worked example's prime implicants are recomputed in scripts/validate.py.",
+  "links": {
+    "visual": {
+      "slug": "boolean-algebra-and-minimisation",
+      "title": "Boolean Algebra and Minimisation",
+      "level": "topic-level",
+      "covers": [
+        "the tabular Quine-McCluskey method"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/boolean-algebra-and-minimisation/index.html"
+    },
+    "mapped_at": "2026-10-30"
+  }
 }

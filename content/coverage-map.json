@@ -1959,6 +1959,248 @@
     },
     {
       "subject": "digital-logic",
+      "group": "boolean-algebra-and-minimization",
+      "topic": "boolean-algebra-postulates-and-duality",
+      "title": "Boolean Algebra: The Postulates, the Two Elements, and Duality",
+      "priority": "P1",
+      "path": "subjects/digital-logic/boolean-algebra-and-minimization/boolean-algebra-postulates-and-duality.json",
+      "transcript_status": "PARTIAL",
+      "visual": {
+        "slug": "boolean-algebra-and-minimisation",
+        "title": "Boolean Algebra and Minimisation",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json map[].path = subjects/digital-logic/boolean-algebra-and-minimization/boolean-algebra-postulates-and-duality.json",
+        "visual: topics.json slug=boolean-algebra-and-minimisation; syllabus-coverage.json subtopics/microtopics checked against topics/boolean-algebra-and-minimisation/transcript.md scene list",
+        "visual url: topics/boolean-algebra-and-minimisation/index.html"
+      ],
+      "row_verdict": "VISUAL_ONLY"
+    },
+    {
+      "subject": "digital-logic",
+      "group": "boolean-algebra-and-minimization",
+      "topic": "boolean-theorems-absorption-and-consensus",
+      "title": "The Working Theorems: Idempotent, Absorption, De Morgan and Consensus",
+      "priority": "P1",
+      "path": "subjects/digital-logic/boolean-algebra-and-minimization/boolean-theorems-absorption-and-consensus.json",
+      "transcript_status": "PARTIAL",
+      "visual": {
+        "slug": "boolean-algebra-and-minimisation",
+        "title": "Boolean Algebra and Minimisation",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json map[].path = subjects/digital-logic/boolean-algebra-and-minimization/boolean-theorems-absorption-and-consensus.json",
+        "visual: topics.json slug=boolean-algebra-and-minimisation; syllabus-coverage.json subtopics/microtopics checked against topics/boolean-algebra-and-minimisation/transcript.md scene list",
+        "visual url: topics/boolean-algebra-and-minimisation/index.html"
+      ],
+      "row_verdict": "VISUAL_ONLY"
+    },
+    {
+      "subject": "digital-logic",
+      "group": "boolean-algebra-and-minimization",
+      "topic": "canonical-forms-minterms-and-maxterms",
+      "title": "Canonical Forms: Minterms, Maxterms, Sigma-m and Pi-M",
+      "priority": "P1",
+      "path": "subjects/digital-logic/boolean-algebra-and-minimization/canonical-forms-minterms-and-maxterms.json",
+      "transcript_status": "PARTIAL",
+      "visual": {
+        "slug": "boolean-algebra-and-minimisation",
+        "title": "Boolean Algebra and Minimisation",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json map[].path = subjects/digital-logic/boolean-algebra-and-minimization/canonical-forms-minterms-and-maxterms.json",
+        "visual: topics.json slug=boolean-algebra-and-minimisation; syllabus-coverage.json subtopics/microtopics checked against topics/boolean-algebra-and-minimisation/transcript.md scene list",
+        "visual url: topics/boolean-algebra-and-minimisation/index.html"
+      ],
+      "row_verdict": "VISUAL_ONLY"
+    },
+    {
+      "subject": "digital-logic",
+      "group": "boolean-algebra-and-minimization",
+      "topic": "algebraic-minimization-technique",
+      "title": "Algebraic Minimisation: Combine, Absorb, Eliminate, Factor",
+      "priority": "P1",
+      "path": "subjects/digital-logic/boolean-algebra-and-minimization/algebraic-minimization-technique.json",
+      "transcript_status": "PARTIAL",
+      "visual": {
+        "slug": "boolean-algebra-and-minimisation",
+        "title": "Boolean Algebra and Minimisation",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json map[].path = subjects/digital-logic/boolean-algebra-and-minimization/algebraic-minimization-technique.json",
+        "visual: topics.json slug=boolean-algebra-and-minimisation; syllabus-coverage.json subtopics/microtopics checked against topics/boolean-algebra-and-minimisation/transcript.md scene list",
+        "visual url: topics/boolean-algebra-and-minimisation/index.html"
+      ],
+      "row_verdict": "VISUAL_ONLY"
+    },
+    {
+      "subject": "digital-logic",
+      "group": "boolean-algebra-and-minimization",
+      "topic": "karnaugh-map-layout-and-gray-code",
+      "title": "The Karnaugh Map: Gray-Code Cells, Numbering and Wrap-Around",
+      "priority": "P1",
+      "path": "subjects/digital-logic/boolean-algebra-and-minimization/karnaugh-map-layout-and-gray-code.json",
+      "transcript_status": "PARTIAL",
+      "visual": {
+        "slug": "boolean-algebra-and-minimisation",
+        "title": "Boolean Algebra and Minimisation",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json map[].path = subjects/digital-logic/boolean-algebra-and-minimization/karnaugh-map-layout-and-gray-code.json",
+        "visual: topics.json slug=boolean-algebra-and-minimisation; syllabus-coverage.json subtopics/microtopics checked against topics/boolean-algebra-and-minimisation/transcript.md scene list",
+        "visual url: topics/boolean-algebra-and-minimisation/index.html"
+      ],
+      "row_verdict": "VISUAL_ONLY"
+    },
+    {
+      "subject": "digital-logic",
+      "group": "boolean-algebra-and-minimization",
+      "topic": "karnaugh-grouping-and-reading-a-term",
+      "title": "Grouping Rules and Reading a Product Term Off a Group",
+      "priority": "P1",
+      "path": "subjects/digital-logic/boolean-algebra-and-minimization/karnaugh-grouping-and-reading-a-term.json",
+      "transcript_status": "PARTIAL",
+      "visual": {
+        "slug": "boolean-algebra-and-minimisation",
+        "title": "Boolean Algebra and Minimisation",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json map[].path = subjects/digital-logic/boolean-algebra-and-minimization/karnaugh-grouping-and-reading-a-term.json",
+        "visual: topics.json slug=boolean-algebra-and-minimisation; syllabus-coverage.json subtopics/microtopics checked against topics/boolean-algebra-and-minimisation/transcript.md scene list",
+        "visual url: topics/boolean-algebra-and-minimisation/index.html"
+      ],
+      "row_verdict": "VISUAL_ONLY"
+    },
+    {
+      "subject": "digital-logic",
+      "group": "boolean-algebra-and-minimization",
+      "topic": "essential-prime-implicants-and-minimal-cover",
+      "title": "Prime Implicants, Essential Prime Implicants and the Minimal Cover",
+      "priority": "P1",
+      "path": "subjects/digital-logic/boolean-algebra-and-minimization/essential-prime-implicants-and-minimal-cover.json",
+      "transcript_status": "PARTIAL",
+      "visual": {
+        "slug": "boolean-algebra-and-minimisation",
+        "title": "Boolean Algebra and Minimisation",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json map[].path = subjects/digital-logic/boolean-algebra-and-minimization/essential-prime-implicants-and-minimal-cover.json",
+        "visual: topics.json slug=boolean-algebra-and-minimisation; syllabus-coverage.json subtopics/microtopics checked against topics/boolean-algebra-and-minimisation/transcript.md scene list",
+        "visual url: topics/boolean-algebra-and-minimisation/index.html"
+      ],
+      "row_verdict": "VISUAL_ONLY"
+    },
+    {
+      "subject": "digital-logic",
+      "group": "boolean-algebra-and-minimization",
+      "topic": "dont-care-conditions",
+      "title": "Don't-Care Conditions: X as 0 or 1, and What X Must Never Do",
+      "priority": "P1",
+      "path": "subjects/digital-logic/boolean-algebra-and-minimization/dont-care-conditions.json",
+      "transcript_status": "PARTIAL",
+      "visual": {
+        "slug": "boolean-algebra-and-minimisation",
+        "title": "Boolean Algebra and Minimisation",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json map[].path = subjects/digital-logic/boolean-algebra-and-minimization/dont-care-conditions.json",
+        "visual: topics.json slug=boolean-algebra-and-minimisation; syllabus-coverage.json subtopics/microtopics checked against topics/boolean-algebra-and-minimisation/transcript.md scene list",
+        "visual url: topics/boolean-algebra-and-minimisation/index.html"
+      ],
+      "row_verdict": "VISUAL_ONLY"
+    },
+    {
+      "subject": "digital-logic",
+      "group": "boolean-algebra-and-minimization",
+      "topic": "pos-minimization-on-the-map",
+      "title": "Minimal POS: Group the Zeros and Read the Sum Terms",
+      "priority": "P2",
+      "path": "subjects/digital-logic/boolean-algebra-and-minimization/pos-minimization-on-the-map.json",
+      "transcript_status": "PARTIAL",
+      "visual": {
+        "slug": "boolean-algebra-and-minimisation",
+        "title": "Boolean Algebra and Minimisation",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json map[].path = subjects/digital-logic/boolean-algebra-and-minimization/pos-minimization-on-the-map.json",
+        "visual: topics.json slug=boolean-algebra-and-minimisation; syllabus-coverage.json subtopics/microtopics checked against topics/boolean-algebra-and-minimisation/transcript.md scene list",
+        "visual url: topics/boolean-algebra-and-minimisation/index.html"
+      ],
+      "row_verdict": "VISUAL_ONLY"
+    },
+    {
+      "subject": "digital-logic",
+      "group": "boolean-algebra-and-minimization",
+      "topic": "quine-mccluskey-tabular-method",
+      "title": "The Tabular Method: Quine-McCluskey, the Chart and the Essential Rows",
+      "priority": "P2",
+      "path": "subjects/digital-logic/boolean-algebra-and-minimization/quine-mccluskey-tabular-method.json",
+      "transcript_status": "PARTIAL",
+      "visual": {
+        "slug": "boolean-algebra-and-minimisation",
+        "title": "Boolean Algebra and Minimisation",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json map[].path = subjects/digital-logic/boolean-algebra-and-minimization/quine-mccluskey-tabular-method.json",
+        "visual: topics.json slug=boolean-algebra-and-minimisation; syllabus-coverage.json subtopics/microtopics checked against topics/boolean-algebra-and-minimisation/transcript.md scene list",
+        "visual url: topics/boolean-algebra-and-minimisation/index.html"
+      ],
+      "row_verdict": "VISUAL_ONLY"
+    },
+    {
+      "subject": "digital-logic",
+      "group": "boolean-algebra-and-minimization",
+      "topic": "literal-and-gate-cost",
+      "title": "Cost: Literals, Terms and Gate Counts",
+      "priority": "P2",
+      "path": "subjects/digital-logic/boolean-algebra-and-minimization/literal-and-gate-cost.json",
+      "transcript_status": "PARTIAL",
+      "visual": {
+        "slug": "boolean-algebra-and-minimisation",
+        "title": "Boolean Algebra and Minimisation",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json map[].path = subjects/digital-logic/boolean-algebra-and-minimization/literal-and-gate-cost.json",
+        "visual: topics.json slug=boolean-algebra-and-minimisation; syllabus-coverage.json subtopics/microtopics checked against topics/boolean-algebra-and-minimisation/transcript.md scene list",
+        "visual url: topics/boolean-algebra-and-minimisation/index.html"
+      ],
+      "row_verdict": "VISUAL_ONLY"
+    },
+    {
+      "subject": "digital-logic",
       "group": "number-systems-and-representation",
       "topic": "base-conversion-integer-and-fraction",
       "title": "Base Conversion: Repeated Division and Repeated Multiplication",
@@ -8033,6 +8275,11 @@
     },
     {
       "kind": "notes",
+      "placement": "computer-architecture › memory-management-unit",
+      "detail": "mock unit \"Main Memory & Virtual Memory Interface\" (unit_number 4, 25 questions) serves no notes card; subtopic groups: dram-sram-organization 6, effective-access-time 6, paging-tlb-hit-ratio 8, segmentation 5"
+    },
+    {
+      "kind": "notes",
       "placement": "computer-networks › data-link-mac",
       "detail": "mock unit \"Data Link Protocols & MAC\" (unit_number 2, 50 questions) serves no notes card; subtopic groups: csma-cd-csma-ca-backoff 10, ethernet-standards-switches-bridges 10, go-back-n-selective-repeat-efficiency 10, pure-and-slotted-aloha 10, stop-and-wait-arq 10"
     },
@@ -8240,6 +8487,11 @@
       "kind": "notes",
       "placement": "lesson context-free-grammars-and-pushdown-automata",
       "detail": "published lesson \"CFG, PDA and pumping lemma\" (PUBLISHED) serves no notes card"
+    },
+    {
+      "kind": "notes",
+      "placement": "lesson counting-spanning-trees",
+      "detail": "published lesson \"Counting spanning trees: enumeration, deletion-contraction, Pruefer codes and the Matrix-Tree theorem\" (PUBLISHED) serves no notes card; closest existing card is discrete-mathematics › graphs › paths-cycles-and-components, which touches spanning trees only through the n-1 edge count"
     },
     {
       "kind": "notes",
@@ -8505,6 +8757,16 @@
       "kind": "notes",
       "placement": "lesson verbal-aptitude",
       "detail": "published lesson \"Verbal aptitude\" (PUBLISHED) serves no notes card"
+    },
+    {
+      "kind": "visual",
+      "placement": "digital-logic › boolean-algebra-and-minimization › xor-and-xnor-algebra",
+      "detail": "no published lesson covers XOR/XNOR algebra; boolean-algebra-and-minimisation (PUBLISHED) never introduces XOR, and no mock unit matches"
+    },
+    {
+      "kind": "visual",
+      "placement": "digital-logic › boolean-algebra-and-minimization › five-variable-karnaugh-map",
+      "detail": "no published lesson covers the five-variable map; boolean-algebra-and-minimisation stops at four variables and then switches to Quine-McCluskey, and no mock unit matches"
     }
   ]
 }

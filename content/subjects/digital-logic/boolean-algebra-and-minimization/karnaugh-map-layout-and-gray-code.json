@@ -72,5 +72,17 @@
       "note": "read the construction and grouping sections: the grid ordered in Gray code so that adjacent cells differ in one variable, groups rectangular with an area a power of two, groups allowed to overlap, toroidal connectivity so that the extreme right column is adjacent to the far left and the top row to the bottom, and the rule for reading a term by keeping the variables that do not change across the box."
     }
   ],
-  "sourceLine": "The grid, the minterm numbering and the adjacency argument: NPTEL IIT Kharagpur Digital Electronic Circuits Lecture 10 (English, opening read). Gray-code ordering, wrap-around and the reading rule: the Wikipedia Karnaugh map article (English, read in part). Every adjacency and every cell number is recomputed in scripts/validate.py."
+  "sourceLine": "The grid, the minterm numbering and the adjacency argument: NPTEL IIT Kharagpur Digital Electronic Circuits Lecture 10 (English, opening read). Gray-code ordering, wrap-around and the reading rule: the Wikipedia Karnaugh map article (English, read in part). Every adjacency and every cell number is recomputed in scripts/validate.py.",
+  "links": {
+    "visual": {
+      "slug": "boolean-algebra-and-minimisation",
+      "title": "Boolean Algebra and Minimisation",
+      "level": "topic-level",
+      "covers": [
+        "the map's Gray-code labels, wrapping edges and power-of-two blocks"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/boolean-algebra-and-minimisation/index.html"
+    },
+    "mapped_at": "2026-10-30"
+  }
 }

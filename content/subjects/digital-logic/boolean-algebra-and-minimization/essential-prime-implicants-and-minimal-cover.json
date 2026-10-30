@@ -89,5 +89,18 @@
       "note": "read through the search service's extract: logical adjacency defined as differing in one literal, the six grouping rules, the implicant, prime implicant and essential prime implicant definitions, the three-step minimal-SOP algorithm, the five-variable map layout with rows ABC and columns DE in Gray order, and the tabulation method's two phases with the cover table, distinguished columns, row and column dominance and the cyclic cover table. Read as a reference for the rules, not as a source of questions."
     }
   ],
-  "sourceLine": "The definitions of implicant, prime implicant and essential prime implicant and the three-step cover algorithm: GATE Overflow's Digital Logic subject notes (English) and the Aditya Engineering College switching-functions notes (English, read in part). The cover-every-1 rule: NPTEL IIT Kharagpur Digital Electronic Circuits Lecture 10 closing summary (English). Every prime implicant and essential prime implicant in this card is enumerated by brute force in scripts/validate.py."
+  "sourceLine": "The definitions of implicant, prime implicant and essential prime implicant and the three-step cover algorithm: GATE Overflow's Digital Logic subject notes (English) and the Aditya Engineering College switching-functions notes (English, read in part). The cover-every-1 rule: NPTEL IIT Kharagpur Digital Electronic Circuits Lecture 10 closing summary (English). Every prime implicant and essential prime implicant in this card is enumerated by brute force in scripts/validate.py.",
+  "links": {
+    "visual": {
+      "slug": "boolean-algebra-and-minimisation",
+      "title": "Boolean Algebra and Minimisation",
+      "level": "topic-level",
+      "covers": [
+        "prime implicants against a cover",
+        "essential prime implicants"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/boolean-algebra-and-minimisation/index.html"
+    },
+    "mapped_at": "2026-10-30"
+  }
 }

@@ -78,5 +78,19 @@
       "note": "read the K Map, Min Sum of Products Form and Min Products of Sum Form sections: the grouping rules (powers of two, rectangular, wrap-around, every 1 covered, largest groups first), the definitions of prime implicant and essential prime implicant, the don't-care rule, and the three-step algorithm for a minimal SOP (circle the PIs, take all EPIs, then a minimum subset for the rest). Used as the GATE-oriented statement of the rules, not as a source of questions."
     }
   ],
-  "sourceLine": "The theorem list and the NAND-NOR observation: NPTEL IIT Kharagpur Digital Electronic Circuits Lecture 07 (English, opening and closing summary read). The prime-implicant and simplification vocabulary in GATE's own phrasing: GATE Overflow's Digital Logic subject notes (English, read in part). Every identity used here is recomputed on all 0/1 rows in scripts/validate.py."
+  "sourceLine": "The theorem list and the NAND-NOR observation: NPTEL IIT Kharagpur Digital Electronic Circuits Lecture 07 (English, opening and closing summary read). The prime-implicant and simplification vocabulary in GATE's own phrasing: GATE Overflow's Digital Logic subject notes (English, read in part). Every identity used here is recomputed on all 0/1 rows in scripts/validate.py.",
+  "links": {
+    "visual": {
+      "slug": "boolean-algebra-and-minimisation",
+      "title": "Boolean Algebra and Minimisation",
+      "level": "topic-level",
+      "covers": [
+        "absorption",
+        "the consensus theorem",
+        "De Morgan as a statement about a truth table"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/boolean-algebra-and-minimisation/index.html"
+    },
+    "mapped_at": "2026-10-30"
+  }
 }
