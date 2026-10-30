@@ -1,108 +1,108 @@
 {
-  "id": "distinct-values-and-duplicate-zero",
-  "title": "Counting Distinct Values: The Pattern Count Against the Value Count",
-  "priority": "P2",
-  "order": 409,
-  "unit": "Number Systems and Number Representation",
-  "quickIdea": "A word of n bits always has 2^n patterns, but only two's complement turns all of them into different integers; the other two representations spend one pattern on negative zero.",
-  "remember": [
-    "n-bit two's complement: 2^n patterns, 2^n distinct values, from -2^(n-1) to 2^(n-1) - 1.",
-    "n-bit sign-magnitude and one's complement: 2^n patterns, 2^n - 1 distinct values.",
-    "The wasted pattern is negative zero: 1000...0 in sign-magnitude and 1111...1 in one's complement.",
-    "Sixteen bits: 65536 against 65535, a difference of 1. The difference is 1 at every width, because the waste is always exactly one pattern.",
-    "The count is a property of the representation, not of the value being stored, so it does not depend on which numbers a program happens to use.",
-    "This is the cheapest way GATE asks whether you know that -0 exists: it asks for a count, not for a value."
-  ],
-  "example": {
-    "prompt": "Let X be the number of distinct 16-bit integers in two's complement and Y the number in sign-magnitude. What is X - Y?",
-    "work": "Two's complement covers -32768 to 32767, which is 65536 values, and every pattern is used. Sign-magnitude covers -32767 to 32767, which is 65535 values, because 1000 0000 0000 0000 and 0000 0000 0000 0000 are both zero. X - Y = 65536 - 65535 = 1.",
-    "answer": "1."
+ "id": "distinct-values-and-duplicate-zero",
+ "title": "Counting Distinct Values: The Pattern Count Against the Value Count",
+ "priority": "P2",
+ "order": 409,
+ "unit": "Number Systems and Number Representation",
+ "quickIdea": "A word of n bits always has 2^n patterns, but only two's complement turns all of them into different integers; the other two representations spend one pattern on negative zero.",
+ "remember": [
+  "n-bit two's complement: 2^n patterns, 2^n distinct values, from -2^(n-1) to 2^(n-1) - 1.",
+  "n-bit sign-magnitude and one's complement: 2^n patterns, 2^n - 1 distinct values.",
+  "The wasted pattern is negative zero: 1000...0 in sign-magnitude and 1111...1 in one's complement.",
+  "Sixteen bits: 65536 against 65535, a difference of 1. The difference is 1 at every width, because the waste is always exactly one pattern.",
+  "The count is a property of the representation, not of the value being stored, so it does not depend on which numbers a program happens to use.",
+  "This is the cheapest way GATE asks whether you know that -0 exists: it asks for a count, not for a value."
+ ],
+ "example": {
+  "prompt": "Let X be the number of distinct 16-bit integers in two's complement and Y the number in sign-magnitude. What is X - Y?",
+  "work": "Two's complement covers -32768 to 32767, which is 65536 values, and every pattern is used. Sign-magnitude covers -32767 to 32767, which is 65535 values, because 1000 0000 0000 0000 and 0000 0000 0000 0000 are both zero. X - Y = 65536 - 65535 = 1.",
+  "answer": "1."
+ },
+ "gateAngle": "GATE CSE 2016 Set 2 Q.9 is this exact count. The question is deliberately asked at 16 bits so that the answer cannot be reached by listing values - only by knowing the double zero.",
+ "variations": [
+  {
+   "label": "VERIFIED PYQ",
+   "question": "GATE CSE 2016 Set 2 Q.9: Let X be the number of distinct 16-bit integers in 2's complement representation and Y the number of distinct 16-bit integers in sign magnitude representation. Then X - Y is ______.",
+   "answer": "1.",
+   "why": "65536 - 65535. The single extra value is -32768, which sign-magnitude cannot hold because its magnitude needs 16 bits."
   },
-  "gateAngle": "GATE CSE 2016 Set 2 Q.9 is this exact count. The question is deliberately asked at 16 bits so that the answer cannot be reached by listing values - only by knowing the double zero.",
-  "variations": [
-    {
-      "label": "VERIFIED PYQ",
-      "question": "GATE CSE 2016 Set 2 Q.9: Let X be the number of distinct 16-bit integers in 2's complement representation and Y the number of distinct 16-bit integers in sign magnitude representation. Then X - Y is ______.",
-      "answer": "1.",
-      "why": "65536 - 65535. The single extra value is -32768, which sign-magnitude cannot hold because its magnitude needs 16 bits."
-    },
-    {
-      "label": "CONCEPTUAL PRACTICE QUESTION",
-      "question": "What is X - Y for 8-bit words, and does the answer depend on the width?",
-      "answer": "Also 1, and no: it is 1 at every width.",
-      "why": "The waste is one pattern whatever the width, so 2^n - (2^n - 1) = 1 always. Recognising the invariance turns a calculation into a fact."
-    }
-  ],
-  "trap": {
-    "what": "Assuming the extra value in two's complement is an extra positive number.",
-    "why": "The extra pattern sits at the negative end, 1000...0, because the negative side has no negative zero to spend a pattern on. Two's complement gains -2^(n-1), it does not gain a larger positive.",
-    "counterexample": "Eight bits: two's complement reaches +127, the same maximum as sign-magnitude; what it adds is -128, not +128."
-  },
-  "check": {
-    "question": "How many distinct integers does an 8-bit one's complement word hold, and how many patterns does it have?",
-    "answer": "255 distinct integers from 256 patterns.",
-    "explanation": "The duplicate is 1111 1111, the second zero. All other patterns are distinct."
-  },
-  "pyqIds": [
-    "gate-2016-set2-q9-distinct-integers"
-  ],
-  "prereqs": [
-    "sign-magnitude-representation",
-    "twos-complement-definition-and-range"
-  ],
-  "sources": [
-    {
-      "kind": "lecture-transcript",
-      "title": "Lecture 22 - Negative Number and 2's Complement Arithmetic",
-      "channel": "NPTEL, Digital Electronic Circuits (Prof. Goutam Saha, IIT Kharagpur)",
-      "url": "http://digimat.in/nptel/courses/video/108105132/lec22.pdf",
-      "language": "en",
-      "transcript": "PARTIAL",
-      "translated": false,
-      "note": "the served transcript runs through sign-magnitude with the +1 / -1 and +22 / -22 examples and the range -127 to +127 with a doubled zero, then one's complement by inversion with the same range and the same doubled zero, then two's complement as one's complement plus one with all eight ones no longer a second zero; the middle of the lecture (the worked arithmetic cases) is missing from the served text, so nothing is claimed about the case-by-case rules it works through there. The closing summary on two's complement arithmetic was readable."
-    }
-  ],
-  "sourceLine": "The doubled zero in sign-magnitude and one's complement, and its disappearance in two's complement: NPTEL IIT Kharagpur Lecture 22 (English, read in part). The question text and answer of 2016 Set 2 Q.9: the question page read this run, with both counts recomputed here.",
-  "videoRefs": [],
-  "links": {
-    "mock": {
-      "subject": "digital-logic",
-      "unit_slug": "number-systems",
-      "unit_name": "Number Systems & Representation",
-      "unit_number": 1,
-      "question_count": 50,
-      "subtopics": [
-        {
-          "label": "base-conversions",
-          "questions": 15
-        },
-        {
-          "label": "floating-point-ieee-754",
-          "questions": 11
-        },
-        {
-          "label": "ones-twos-complement",
-          "questions": 13
-        },
-        {
-          "label": "range-and-overflow",
-          "questions": 11
-        }
-      ],
-      "url": "https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-10-27.html"
-    },
-    "visual": {
-      "slug": "number-representation-and-arithmetic",
-      "title": "Number Representation and Arithmetic",
-      "level": "topic-level",
-      "covers": [
-        "two zeros in sign-magnitude and ones' complement, one in two's complement",
-        "distinct values 2^n against 2^n - 1 (GATE 2016 Set 2 Q9)",
-        "sign extension against zero padding (GATE 2019 Q4)",
-        "subtracting the most negative value and its spurious overflow"
-      ],
-      "url": "https://gate-visual-explainer.vercel.app/topics/number-representation-and-arithmetic/index.html"
-    },
-    "mapped_at": "2026-10-30"
+  {
+   "label": "CONCEPTUAL PRACTICE QUESTION",
+   "question": "What is X - Y for 8-bit words, and does the answer depend on the width?",
+   "answer": "Also 1, and no: it is 1 at every width.",
+   "why": "The waste is one pattern whatever the width, so 2^n - (2^n - 1) = 1 always. Recognising the invariance turns a calculation into a fact."
   }
+ ],
+ "trap": {
+  "what": "Assuming the extra value in two's complement is an extra positive number.",
+  "why": "The extra pattern sits at the negative end, 1000...0, because the negative side has no negative zero to spend a pattern on. Two's complement gains -2^(n-1), it does not gain a larger positive.",
+  "counterexample": "Eight bits: two's complement reaches +127, the same maximum as sign-magnitude; what it adds is -128, not +128."
+ },
+ "check": {
+  "question": "How many distinct integers does an 8-bit one's complement word hold, and how many patterns does it have?",
+  "answer": "255 distinct integers from 256 patterns.",
+  "explanation": "The duplicate is 1111 1111, the second zero. All other patterns are distinct."
+ },
+ "pyqIds": [
+  "gate-2016-set2-q9-distinct-integers"
+ ],
+ "prereqs": [
+  "sign-magnitude-representation",
+  "twos-complement-definition-and-range"
+ ],
+ "sources": [
+  {
+   "kind": "lecture-transcript",
+   "title": "Lecture 22 - Negative Number and 2's Complement Arithmetic",
+   "channel": "NPTEL, Digital Electronic Circuits (Prof. Goutam Saha, IIT Kharagpur)",
+   "url": "http://digimat.in/nptel/courses/video/108105132/lec22.pdf",
+   "language": "en",
+   "transcript": "PARTIAL",
+   "translated": false,
+   "note": "the served transcript runs through sign-magnitude with the +1 / -1 and +22 / -22 examples and the range -127 to +127 with a doubled zero, then one's complement by inversion with the same range and the same doubled zero, then two's complement as one's complement plus one with all eight ones no longer a second zero; the middle of the lecture (the worked arithmetic cases) is missing from the served text, so nothing is claimed about the case-by-case rules it works through there. The closing summary on two's complement arithmetic was readable."
+  }
+ ],
+ "sourceLine": "The doubled zero in sign-magnitude and one's complement, and its disappearance in two's complement: NPTEL IIT Kharagpur Lecture 22 (English, read in part). The question text and answer of 2016 Set 2 Q.9: the question page read this run, with both counts recomputed here.",
+ "videoRefs": [],
+ "links": {
+  "mock": {
+   "subject": "digital-logic",
+   "unit_slug": "number-systems",
+   "unit_name": "Number Systems & Representation",
+   "unit_number": 1,
+   "question_count": 75,
+   "subtopics": [
+    {
+     "label": "base-conversions",
+     "questions": 22
+    },
+    {
+     "label": "ones-twos-complement",
+     "questions": 19
+    },
+    {
+     "label": "floating-point-ieee-754",
+     "questions": 17
+    },
+    {
+     "label": "range-and-overflow",
+     "questions": 17
+    }
+   ],
+   "url": "https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-10-31.html"
+  },
+  "visual": {
+   "slug": "number-representation-and-arithmetic",
+   "title": "Number Representation and Arithmetic",
+   "level": "topic-level",
+   "covers": [
+    "two zeros in sign-magnitude and ones' complement, one in two's complement",
+    "distinct values 2^n against 2^n - 1 (GATE 2016 Set 2 Q9)",
+    "sign extension against zero padding (GATE 2019 Q4)",
+    "subtracting the most negative value and its spurious overflow"
+   ],
+   "url": "https://gate-visual-explainer.vercel.app/topics/number-representation-and-arithmetic/index.html"
+  },
+  "mapped_at": "2026-10-31"
+ }
 }

@@ -1,142 +1,142 @@
 {
-  "id": "ieee-754-special-values-and-extremes",
-  "title": "IEEE 754 Special Values, Subnormals and the Extremes of the Format",
-  "priority": "P1",
-  "order": 413,
-  "unit": "Number Systems and Number Representation",
-  "quickIdea": "The two extreme exponent fields are reserved: all zeros carries zero and the subnormals, all ones carries infinity and NaN, so the largest finite number stops one exponent short.",
-  "remember": [
-    "E = 0 and F = 0: positive or negative zero. The sign bit is kept, so +0 and -0 are different patterns that compare equal.",
-    "E = 0 and F not 0: subnormal, value = (-1)^s x 0.F x 2^(-126). There is no hidden 1, which is what makes the step to zero gradual.",
-    "E = 255 and F = 0: positive or negative infinity.",
-    "E = 255 and F not 0: NaN, the only value that is not equal to itself.",
-    "Largest finite single: (2 - 2^(-23)) x 2^127, about 3.40 x 10^38, pattern 0x7F7FFFFF.",
-    "Smallest positive normal 2^(-126), about 1.18 x 10^(-38); smallest positive subnormal 2^(-149), about 1.40 x 10^(-45); machine epsilon 2^(-23), about 1.19 x 10^(-7).",
-    "The spacing between representable numbers grows with the exponent: it is 2^(-23) near 1 and 2^(-3) near 2^20."
-  ],
-  "example": {
-    "prompt": "Which of these single-precision words is the largest finite positive number: 0x7F7FFFFF or 0x7F800000?",
-    "work": "0x7F7FFFFF has exponent field 1111 1110 = 254 and a fraction of all ones, so it is (2 - 2^(-23)) x 2^127, about 3.4028 x 10^38 - the largest finite value. 0x7F800000 has exponent field 1111 1111 and a zero fraction, so it is positive infinity, which is not a finite number at all and is larger than every finite value but cannot be used as one.",
-    "answer": "0x7F7FFFFF is the largest finite value; 0x7F800000 is infinity."
+ "id": "ieee-754-special-values-and-extremes",
+ "title": "IEEE 754 Special Values, Subnormals and the Extremes of the Format",
+ "priority": "P1",
+ "order": 413,
+ "unit": "Number Systems and Number Representation",
+ "quickIdea": "The two extreme exponent fields are reserved: all zeros carries zero and the subnormals, all ones carries infinity and NaN, so the largest finite number stops one exponent short.",
+ "remember": [
+  "E = 0 and F = 0: positive or negative zero. The sign bit is kept, so +0 and -0 are different patterns that compare equal.",
+  "E = 0 and F not 0: subnormal, value = (-1)^s x 0.F x 2^(-126). There is no hidden 1, which is what makes the step to zero gradual.",
+  "E = 255 and F = 0: positive or negative infinity.",
+  "E = 255 and F not 0: NaN, the only value that is not equal to itself.",
+  "Largest finite single: (2 - 2^(-23)) x 2^127, about 3.40 x 10^38, pattern 0x7F7FFFFF.",
+  "Smallest positive normal 2^(-126), about 1.18 x 10^(-38); smallest positive subnormal 2^(-149), about 1.40 x 10^(-45); machine epsilon 2^(-23), about 1.19 x 10^(-7).",
+  "The spacing between representable numbers grows with the exponent: it is 2^(-23) near 1 and 2^(-3) near 2^20."
+ ],
+ "example": {
+  "prompt": "Which of these single-precision words is the largest finite positive number: 0x7F7FFFFF or 0x7F800000?",
+  "work": "0x7F7FFFFF has exponent field 1111 1110 = 254 and a fraction of all ones, so it is (2 - 2^(-23)) x 2^127, about 3.4028 x 10^38 - the largest finite value. 0x7F800000 has exponent field 1111 1111 and a zero fraction, so it is positive infinity, which is not a finite number at all and is larger than every finite value but cannot be used as one.",
+  "answer": "0x7F7FFFFF is the largest finite value; 0x7F800000 is infinity."
+ },
+ "gateAngle": "GATE CSE 2024 Set 2 Q.14 shows four single-precision words and asks for the largest number. The option with an all-ones exponent and an all-ones mantissa is NaN, so the largest finite number is the one with exponent 1111 1110 and a full mantissa.",
+ "variations": [
+  {
+   "label": "VERIFIED PYQ",
+   "question": "GATE CSE 2024 Set 2 Q.14: With the IEEE 754 single-precision layout, choose the largest floating-point number: (A) sign 0, exponent 0111 1111, mantissa all ones; (B) sign 0, exponent 1111 1110, mantissa all ones; (C) sign 0, exponent 1111 1111, mantissa all ones; (D) sign 0, exponent 0111 1111, mantissa all zeros.",
+   "answer": "Option (B).",
+   "why": "B is (2 - 2^(-23)) x 2^127, the largest finite value. A is about 2, C is NaN because the exponent is all ones with a non-zero mantissa, and D is exactly 1. The largest exponent field that still denotes a number is 254, not 255."
   },
-  "gateAngle": "GATE CSE 2024 Set 2 Q.14 shows four single-precision words and asks for the largest number. The option with an all-ones exponent and an all-ones mantissa is NaN, so the largest finite number is the one with exponent 1111 1110 and a full mantissa.",
-  "variations": [
-    {
-      "label": "VERIFIED PYQ",
-      "question": "GATE CSE 2024 Set 2 Q.14: With the IEEE 754 single-precision layout, choose the largest floating-point number: (A) sign 0, exponent 0111 1111, mantissa all ones; (B) sign 0, exponent 1111 1110, mantissa all ones; (C) sign 0, exponent 1111 1111, mantissa all ones; (D) sign 0, exponent 0111 1111, mantissa all zeros.",
-      "answer": "Option (B).",
-      "why": "B is (2 - 2^(-23)) x 2^127, the largest finite value. A is about 2, C is NaN because the exponent is all ones with a non-zero mantissa, and D is exactly 1. The largest exponent field that still denotes a number is 254, not 255."
-    },
-    {
-      "label": "ORIGINAL PYQ-STYLE QUESTION",
-      "question": "What is the value of the single-precision word 0x00000001, and what is the value of 0x00800000?",
-      "answer": "2^(-149), the smallest positive subnormal; and 2^(-126), the smallest positive normal.",
-      "why": "0x00000001 has an all-zero exponent and a single 1 in the last fraction bit, so it is 2^(-126) x 2^(-23) = 2^(-149). 0x00800000 has exponent field 1 and a zero fraction, so it is 1.0 x 2^(-126)."
-    },
-    {
-      "label": "PREDICTED VARIATION",
-      "question": "How far apart are neighbouring single-precision numbers near 1 and near 2^20?",
-      "answer": "2^(-23) near 1, and 2^(-3) = 0.125 near 2^20.",
-      "why": "The gap is 2^(-23) times the power of two of the exponent, so it scales with magnitude. This is why a float cannot represent 1 + 2^(-24) but can represent 2^20 + 0.125."
-    }
-  ],
-  "trap": {
-    "what": "Choosing the all-ones exponent as the largest number, or treating subnormals as zero.",
-    "why": "An all-ones exponent is not an exponent: with a zero fraction it is infinity and with a non-zero fraction it is NaN. And an all-zero exponent with a non-zero fraction is a subnormal, a real number smaller than the smallest normal, not zero.",
-    "counterexample": "0x7FFFFFFF is NaN, not the largest number; 0x7F7FFFFF is. And 0x00000001 is 2^(-149), not 0, although it is closer to zero than any normal number."
+  {
+   "label": "ORIGINAL PYQ-STYLE QUESTION",
+   "question": "What is the value of the single-precision word 0x00000001, and what is the value of 0x00800000?",
+   "answer": "2^(-149), the smallest positive subnormal; and 2^(-126), the smallest positive normal.",
+   "why": "0x00000001 has an all-zero exponent and a single 1 in the last fraction bit, so it is 2^(-126) x 2^(-23) = 2^(-149). 0x00800000 has exponent field 1 and a zero fraction, so it is 1.0 x 2^(-126)."
   },
-  "check": {
-    "question": "What are the four special cases of the exponent field in single precision?",
-    "answer": "All zeros with a zero fraction is zero; all zeros with a non-zero fraction is subnormal; all ones with a zero fraction is infinity; all ones with a non-zero fraction is NaN.",
-    "explanation": "Everything else, that is E from 1 to 254, is a normal number with an implied leading 1 and the bias of 127."
-  },
-  "pyqIds": [
-    "gate-2024-set2-q14-largest-float"
-  ],
-  "prereqs": [
-    "ieee-754-single-precision-layout",
-    "floating-point-normalisation-and-bias"
-  ],
-  "sources": [
-    {
-      "kind": "text",
-      "title": "CS1101 Lecture 31 - IEEE Floating-Point Standard 754",
-      "channel": "University College Cork, Department of Computer Science",
-      "url": "https://www.cs.ucc.ie/~osullb/cs1101/notes/notes31.pdf",
-      "language": "en",
-      "transcript": "FULL",
-      "translated": false,
-      "note": "read in full: the three formats, excess-127 and excess-1023, the reserved extreme exponents, the implied leading 1 and the term significand, the 0.5 worked conversion (fraction all zeros, exponent -1), denormalised numbers with exponent 0 and the smallest denormal 2^-150 by its argument, the two zeros, infinity as exponent all ones with a zero fraction, and NaN"
-    },
-    {
-      "kind": "text",
-      "title": "CS107 Lecture 09 - Floating Point",
-      "channel": "Stanford University, CS107 (Computer Organization and Systems)",
-      "url": "https://web.stanford.edu/class/archive/cs/cs107/cs107.1224/lectures/09/09-FloatingPoint.pdf",
-      "language": "en",
-      "transcript": "PARTIAL",
-      "translated": false,
-      "note": "read through the extract: the sign / exponent / fraction split, the bias 2^(k-1) - 1 and the exponent range -126 to 127 for floats, M = 1 + f with the implied leading 1, denormalised form as exponent 1 - bias with no leading 1 and the two zeros, and the exceptional values with the exact bit patterns for +infinity and -infinity plus the operations that produce NaN"
-    },
-    {
-      "kind": "text",
-      "title": "IEEE 754 Format - single-precision field descriptions",
-      "channel": "Intel, floating-point IP documentation",
-      "url": "https://www.intel.com/content/www/us/en/docs/programmable/683242/current/ieee-754-format.html",
-      "language": "en",
-      "transcript": "PARTIAL",
-      "translated": false,
-      "note": "read the field table and the special-value list: FRAC as the fraction with the hidden bit omitted, EXP biased by 127 with 0x0 reserved for zero and subnormals and 0xff for infinity and NaN, normal exponents 1 to 0xfe giving -126 to 127, and the four special values NaN (EXP=255, FRAC!=0), Infinity (255,0), Subnormal (0,!=0) and Zero (0,0)"
-    },
-    {
-      "kind": "text",
-      "title": "Floating-Point Training, Module 1 - The IEEE 754 Standard",
-      "channel": "Paul Zimmermann, INRIA/LORIA",
-      "url": "https://members.loria.fr/PZimmermann/talks/module1.pdf",
-      "language": "en",
-      "transcript": "PARTIAL",
-      "translated": false,
-      "note": "read the binary32 slides: the p = 24 digit count, e_max = 127, the largest positive value 1.111...1 x 2^127, the smallest positive normal 2^-126, the reserved exponent 255 for NaN and the infinities, the two signed zeros, the subnormal decoding 2^-126 x 0.b1...b23, the smallest positive subnormal 2^-149, the largest regular number 2^128(1 - 2^-24) with encoding 0x7f7fffff, and the four rounding attributes"
-    }
-  ],
-  "sourceLine": "Denormals, the two zeros, infinity and NaN: University College Cork CS1101 Lecture 31 (English, read in full) and Stanford CS107 Lecture 09 (English, read in part). The special-value table and the normal exponent range 1 to 0xfe: Intel's IEEE 754 field documentation (English, read in part). The extremal values 2^-126, 2^-149 and 0x7f7fffff: Zimmermann's IEEE 754 module (English, read in part). The question text and answer of 2024 Set 2 Q.14: its GATE Overflow page.",
-  "videoRefs": [],
-  "links": {
-    "mock": {
-      "subject": "digital-logic",
-      "unit_slug": "number-systems",
-      "unit_name": "Number Systems & Representation",
-      "unit_number": 1,
-      "question_count": 50,
-      "subtopics": [
-        {
-          "label": "base-conversions",
-          "questions": 15
-        },
-        {
-          "label": "floating-point-ieee-754",
-          "questions": 11
-        },
-        {
-          "label": "ones-twos-complement",
-          "questions": 13
-        },
-        {
-          "label": "range-and-overflow",
-          "questions": 11
-        }
-      ],
-      "url": "https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-10-27.html"
-    },
-    "visual": {
-      "slug": "number-representation-and-arithmetic",
-      "title": "Number Representation and Arithmetic",
-      "level": "topic-level",
-      "covers": [
-        "floating point (IEEE 754)"
-      ],
-      "url": "https://gate-visual-explainer.vercel.app/topics/number-representation-and-arithmetic/index.html"
-    },
-    "mapped_at": "2026-10-30"
+  {
+   "label": "PREDICTED VARIATION",
+   "question": "How far apart are neighbouring single-precision numbers near 1 and near 2^20?",
+   "answer": "2^(-23) near 1, and 2^(-3) = 0.125 near 2^20.",
+   "why": "The gap is 2^(-23) times the power of two of the exponent, so it scales with magnitude. This is why a float cannot represent 1 + 2^(-24) but can represent 2^20 + 0.125."
   }
+ ],
+ "trap": {
+  "what": "Choosing the all-ones exponent as the largest number, or treating subnormals as zero.",
+  "why": "An all-ones exponent is not an exponent: with a zero fraction it is infinity and with a non-zero fraction it is NaN. And an all-zero exponent with a non-zero fraction is a subnormal, a real number smaller than the smallest normal, not zero.",
+  "counterexample": "0x7FFFFFFF is NaN, not the largest number; 0x7F7FFFFF is. And 0x00000001 is 2^(-149), not 0, although it is closer to zero than any normal number."
+ },
+ "check": {
+  "question": "What are the four special cases of the exponent field in single precision?",
+  "answer": "All zeros with a zero fraction is zero; all zeros with a non-zero fraction is subnormal; all ones with a zero fraction is infinity; all ones with a non-zero fraction is NaN.",
+  "explanation": "Everything else, that is E from 1 to 254, is a normal number with an implied leading 1 and the bias of 127."
+ },
+ "pyqIds": [
+  "gate-2024-set2-q14-largest-float"
+ ],
+ "prereqs": [
+  "ieee-754-single-precision-layout",
+  "floating-point-normalisation-and-bias"
+ ],
+ "sources": [
+  {
+   "kind": "text",
+   "title": "CS1101 Lecture 31 - IEEE Floating-Point Standard 754",
+   "channel": "University College Cork, Department of Computer Science",
+   "url": "https://www.cs.ucc.ie/~osullb/cs1101/notes/notes31.pdf",
+   "language": "en",
+   "transcript": "FULL",
+   "translated": false,
+   "note": "read in full: the three formats, excess-127 and excess-1023, the reserved extreme exponents, the implied leading 1 and the term significand, the 0.5 worked conversion (fraction all zeros, exponent -1), denormalised numbers with exponent 0 and the smallest denormal 2^-150 by its argument, the two zeros, infinity as exponent all ones with a zero fraction, and NaN"
+  },
+  {
+   "kind": "text",
+   "title": "CS107 Lecture 09 - Floating Point",
+   "channel": "Stanford University, CS107 (Computer Organization and Systems)",
+   "url": "https://web.stanford.edu/class/archive/cs/cs107/cs107.1224/lectures/09/09-FloatingPoint.pdf",
+   "language": "en",
+   "transcript": "PARTIAL",
+   "translated": false,
+   "note": "read through the extract: the sign / exponent / fraction split, the bias 2^(k-1) - 1 and the exponent range -126 to 127 for floats, M = 1 + f with the implied leading 1, denormalised form as exponent 1 - bias with no leading 1 and the two zeros, and the exceptional values with the exact bit patterns for +infinity and -infinity plus the operations that produce NaN"
+  },
+  {
+   "kind": "text",
+   "title": "IEEE 754 Format - single-precision field descriptions",
+   "channel": "Intel, floating-point IP documentation",
+   "url": "https://www.intel.com/content/www/us/en/docs/programmable/683242/current/ieee-754-format.html",
+   "language": "en",
+   "transcript": "PARTIAL",
+   "translated": false,
+   "note": "read the field table and the special-value list: FRAC as the fraction with the hidden bit omitted, EXP biased by 127 with 0x0 reserved for zero and subnormals and 0xff for infinity and NaN, normal exponents 1 to 0xfe giving -126 to 127, and the four special values NaN (EXP=255, FRAC!=0), Infinity (255,0), Subnormal (0,!=0) and Zero (0,0)"
+  },
+  {
+   "kind": "text",
+   "title": "Floating-Point Training, Module 1 - The IEEE 754 Standard",
+   "channel": "Paul Zimmermann, INRIA/LORIA",
+   "url": "https://members.loria.fr/PZimmermann/talks/module1.pdf",
+   "language": "en",
+   "transcript": "PARTIAL",
+   "translated": false,
+   "note": "read the binary32 slides: the p = 24 digit count, e_max = 127, the largest positive value 1.111...1 x 2^127, the smallest positive normal 2^-126, the reserved exponent 255 for NaN and the infinities, the two signed zeros, the subnormal decoding 2^-126 x 0.b1...b23, the smallest positive subnormal 2^-149, the largest regular number 2^128(1 - 2^-24) with encoding 0x7f7fffff, and the four rounding attributes"
+  }
+ ],
+ "sourceLine": "Denormals, the two zeros, infinity and NaN: University College Cork CS1101 Lecture 31 (English, read in full) and Stanford CS107 Lecture 09 (English, read in part). The special-value table and the normal exponent range 1 to 0xfe: Intel's IEEE 754 field documentation (English, read in part). The extremal values 2^-126, 2^-149 and 0x7f7fffff: Zimmermann's IEEE 754 module (English, read in part). The question text and answer of 2024 Set 2 Q.14: its GATE Overflow page.",
+ "videoRefs": [],
+ "links": {
+  "mock": {
+   "subject": "digital-logic",
+   "unit_slug": "number-systems",
+   "unit_name": "Number Systems & Representation",
+   "unit_number": 1,
+   "question_count": 75,
+   "subtopics": [
+    {
+     "label": "base-conversions",
+     "questions": 22
+    },
+    {
+     "label": "ones-twos-complement",
+     "questions": 19
+    },
+    {
+     "label": "floating-point-ieee-754",
+     "questions": 17
+    },
+    {
+     "label": "range-and-overflow",
+     "questions": 17
+    }
+   ],
+   "url": "https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-10-31.html"
+  },
+  "visual": {
+   "slug": "number-representation-and-arithmetic",
+   "title": "Number Representation and Arithmetic",
+   "level": "topic-level",
+   "covers": [
+    "floating point (IEEE 754)"
+   ],
+   "url": "https://gate-visual-explainer.vercel.app/topics/number-representation-and-arithmetic/index.html"
+  },
+  "mapped_at": "2026-10-31"
+ }
 }

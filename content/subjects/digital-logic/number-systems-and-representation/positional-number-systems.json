@@ -1,97 +1,97 @@
 {
-  "id": "positional-number-systems",
-  "title": "Positional Number Systems and Place Value",
-  "priority": "P1",
-  "order": 401,
-  "unit": "Number Systems and Number Representation",
-  "quickIdea": "In base r a number is a weighted sum of its digits: a digit in position k contributes d times r to the power k. Only the digits 0 to r-1 exist in that base.",
-  "remember": [
-    "A base (radix) r has exactly the digits 0 to r-1. Binary has 0 and 1, octal 0 to 7, decimal 0 to 9, hexadecimal 0 to 9 then A to F for 10 to 15.",
-    "Value = sum of d_k times r^k, with k = 0 at the units place and negative k to the right of the point. The point is named after the base: binary point, octal point, hexadecimal point.",
-    "The same digit string is a different number in a different base. 10 is 2 in binary, 8 in octal, 10 in decimal and 16 in hexadecimal.",
-    "(1010.101) in base 2 is 10.625: the integer part is 8 + 2, the fraction is 0.5 + 0.125.",
-    "Powers of two worth recognising: 2^8 = 256, 2^10 = 1024 (the 'K' of computing), 2^16 = 65536, 2^20 = 1048576 (the 'M').",
-    "The base is part of the number's identity, not decoration: a GATE stem that writes (210) in base 3 is not asking about two hundred and ten."
-  ],
-  "example": {
-    "prompt": "What is (1010.101) in base 2, in decimal?",
-    "work": "Integer part: 1x8 + 0x4 + 1x2 + 0x1 = 10. Fraction part: 1x1/2 + 0x1/4 + 1x1/8 = 0.5 + 0.125 = 0.625. Add: 10 + 0.625 = 10.625.",
-    "answer": "10.625."
+ "id": "positional-number-systems",
+ "title": "Positional Number Systems and Place Value",
+ "priority": "P1",
+ "order": 401,
+ "unit": "Number Systems and Number Representation",
+ "quickIdea": "In base r a number is a weighted sum of its digits: a digit in position k contributes d times r to the power k. Only the digits 0 to r-1 exist in that base.",
+ "remember": [
+  "A base (radix) r has exactly the digits 0 to r-1. Binary has 0 and 1, octal 0 to 7, decimal 0 to 9, hexadecimal 0 to 9 then A to F for 10 to 15.",
+  "Value = sum of d_k times r^k, with k = 0 at the units place and negative k to the right of the point. The point is named after the base: binary point, octal point, hexadecimal point.",
+  "The same digit string is a different number in a different base. 10 is 2 in binary, 8 in octal, 10 in decimal and 16 in hexadecimal.",
+  "(1010.101) in base 2 is 10.625: the integer part is 8 + 2, the fraction is 0.5 + 0.125.",
+  "Powers of two worth recognising: 2^8 = 256, 2^10 = 1024 (the 'K' of computing), 2^16 = 65536, 2^20 = 1048576 (the 'M').",
+  "The base is part of the number's identity, not decoration: a GATE stem that writes (210) in base 3 is not asking about two hundred and ten."
+ ],
+ "example": {
+  "prompt": "What is (1010.101) in base 2, in decimal?",
+  "work": "Integer part: 1x8 + 0x4 + 1x2 + 0x1 = 10. Fraction part: 1x1/2 + 0x1/4 + 1x1/8 = 0.5 + 0.125 = 0.625. Add: 10 + 0.625 = 10.625.",
+  "answer": "10.625."
+ },
+ "gateAngle": "Every base question in this topic starts by expanding the weighted sum. GATE CSE 2021 Set 1 Q.6 gives 210 in base 3 and asks for its hexadecimal form, which is a conversion question only after the value 21 is extracted from the weights.",
+ "variations": [
+  {
+   "label": "CONCEPTUAL PRACTICE QUESTION",
+   "question": "In base 7, which digits are legal, and what is the value of (123) in base 7?",
+   "answer": "Digits 0 to 6; the value is 1x49 + 2x7 + 3 = 66.",
+   "why": "Tests the digit rule and the weights together. A digit of 7 or 8 in a base-7 string makes the string invalid, which is the usual distractor."
   },
-  "gateAngle": "Every base question in this topic starts by expanding the weighted sum. GATE CSE 2021 Set 1 Q.6 gives 210 in base 3 and asks for its hexadecimal form, which is a conversion question only after the value 21 is extracted from the weights.",
-  "variations": [
-    {
-      "label": "CONCEPTUAL PRACTICE QUESTION",
-      "question": "In base 7, which digits are legal, and what is the value of (123) in base 7?",
-      "answer": "Digits 0 to 6; the value is 1x49 + 2x7 + 3 = 66.",
-      "why": "Tests the digit rule and the weights together. A digit of 7 or 8 in a base-7 string makes the string invalid, which is the usual distractor."
-    },
-    {
-      "label": "ORIGINAL PYQ-STYLE QUESTION",
-      "question": "The number (2A) in base 16 equals (52) in base b. What is b?",
-      "answer": "b = 8.",
-      "why": "(2A) in base 16 is 2x16 + 10 = 42. Then 5b + 2 = 42 gives 5b = 40, so b = 8, and (52) in base 8 is 5x8 + 2 = 42, which checks."
-    }
-  ],
-  "trap": {
-    "what": "Reading a base-r string as if it were decimal, or accepting a digit that the base does not have.",
-    "why": "The place values are powers of r, not powers of ten, and a string with a digit at or above r is not a number in that base at all.",
-    "counterexample": "(11) in base 2 is 3, not 11; and (19) is not a base-8 number, because 9 is not a digit in base 8."
-  },
-  "check": {
-    "question": "What is the decimal value of (210) in base 3?",
-    "answer": "21.",
-    "explanation": "2x9 + 1x3 + 0x1 = 18 + 3 = 21. The same digits read as decimal would be 210, which is ten times larger."
-  },
-  "pyqIds": [],
-  "prereqs": [],
-  "sources": [
-    {
-      "kind": "lecture-transcript",
-      "title": "Lecture 21 - Number System",
-      "channel": "NPTEL, Digital Electronic Circuits (Prof. Goutam Saha, IIT Kharagpur)",
-      "url": "http://digimat.in/nptel/courses/video/108105132/lec21.pdf",
-      "language": "en",
-      "transcript": "FULL",
-      "translated": false,
-      "note": "read from the opening to the lecturer's own closing summary: place value and the odometer argument, the base-r digit rule 0 to r-1, the weighted sum with negative powers for the fraction, (1010.101)2 = 10.625, decimal-to-binary by successive division of the integer and successive multiplication of the fraction (0.625 -> 0.101), octal and hexadecimal with 3-bit and 4-bit grouping, the 8.3 / 8.4 / 8.2 reading of 10011110, the range and precision of a fixed-point word, and the first statement of normalised floating point. The captions are machine transcripts and several numerals in them are garbled, so every figure taken from this lecture was re-derived from its bits here."
-    }
-  ],
-  "sourceLine": "Place value, the digit rule and the weighted sum: NPTEL IIT Kharagpur Digital Electronic Circuits Lecture 21 (English, read in full, every numeral re-derived here).",
-  "videoRefs": [],
-  "links": {
-    "mock": {
-      "subject": "digital-logic",
-      "unit_slug": "number-systems",
-      "unit_name": "Number Systems & Representation",
-      "unit_number": 1,
-      "question_count": 50,
-      "subtopics": [
-        {
-          "label": "base-conversions",
-          "questions": 15
-        },
-        {
-          "label": "floating-point-ieee-754",
-          "questions": 11
-        },
-        {
-          "label": "ones-twos-complement",
-          "questions": 13
-        },
-        {
-          "label": "range-and-overflow",
-          "questions": 11
-        }
-      ],
-      "url": "https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-10-27.html"
-    },
-    "visual": {
-      "slug": "number-representation-and-arithmetic",
-      "title": "Number Representation and Arithmetic",
-      "level": "topic-level",
-      "url": "https://gate-visual-explainer.vercel.app/topics/number-representation-and-arithmetic/index.html"
-    },
-    "mapped_at": "2026-10-30"
+  {
+   "label": "ORIGINAL PYQ-STYLE QUESTION",
+   "question": "The number (2A) in base 16 equals (52) in base b. What is b?",
+   "answer": "b = 8.",
+   "why": "(2A) in base 16 is 2x16 + 10 = 42. Then 5b + 2 = 42 gives 5b = 40, so b = 8, and (52) in base 8 is 5x8 + 2 = 42, which checks."
   }
+ ],
+ "trap": {
+  "what": "Reading a base-r string as if it were decimal, or accepting a digit that the base does not have.",
+  "why": "The place values are powers of r, not powers of ten, and a string with a digit at or above r is not a number in that base at all.",
+  "counterexample": "(11) in base 2 is 3, not 11; and (19) is not a base-8 number, because 9 is not a digit in base 8."
+ },
+ "check": {
+  "question": "What is the decimal value of (210) in base 3?",
+  "answer": "21.",
+  "explanation": "2x9 + 1x3 + 0x1 = 18 + 3 = 21. The same digits read as decimal would be 210, which is ten times larger."
+ },
+ "pyqIds": [],
+ "prereqs": [],
+ "sources": [
+  {
+   "kind": "lecture-transcript",
+   "title": "Lecture 21 - Number System",
+   "channel": "NPTEL, Digital Electronic Circuits (Prof. Goutam Saha, IIT Kharagpur)",
+   "url": "http://digimat.in/nptel/courses/video/108105132/lec21.pdf",
+   "language": "en",
+   "transcript": "FULL",
+   "translated": false,
+   "note": "read from the opening to the lecturer's own closing summary: place value and the odometer argument, the base-r digit rule 0 to r-1, the weighted sum with negative powers for the fraction, (1010.101)2 = 10.625, decimal-to-binary by successive division of the integer and successive multiplication of the fraction (0.625 -> 0.101), octal and hexadecimal with 3-bit and 4-bit grouping, the 8.3 / 8.4 / 8.2 reading of 10011110, the range and precision of a fixed-point word, and the first statement of normalised floating point. The captions are machine transcripts and several numerals in them are garbled, so every figure taken from this lecture was re-derived from its bits here."
+  }
+ ],
+ "sourceLine": "Place value, the digit rule and the weighted sum: NPTEL IIT Kharagpur Digital Electronic Circuits Lecture 21 (English, read in full, every numeral re-derived here).",
+ "videoRefs": [],
+ "links": {
+  "mock": {
+   "subject": "digital-logic",
+   "unit_slug": "number-systems",
+   "unit_name": "Number Systems & Representation",
+   "unit_number": 1,
+   "question_count": 75,
+   "subtopics": [
+    {
+     "label": "base-conversions",
+     "questions": 22
+    },
+    {
+     "label": "ones-twos-complement",
+     "questions": 19
+    },
+    {
+     "label": "floating-point-ieee-754",
+     "questions": 17
+    },
+    {
+     "label": "range-and-overflow",
+     "questions": 17
+    }
+   ],
+   "url": "https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-10-31.html"
+  },
+  "visual": {
+   "slug": "number-representation-and-arithmetic",
+   "title": "Number Representation and Arithmetic",
+   "level": "topic-level",
+   "url": "https://gate-visual-explainer.vercel.app/topics/number-representation-and-arithmetic/index.html"
+  },
+  "mapped_at": "2026-10-31"
+ }
 }

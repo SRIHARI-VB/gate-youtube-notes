@@ -26109,26 +26109,26 @@ window.GATE_DATA = {
      "unit_slug": "number-systems",
      "unit_name": "Number Systems & Representation",
      "unit_number": 1,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
        "label": "base-conversions",
-       "questions": 15
-      },
-      {
-       "label": "floating-point-ieee-754",
-       "questions": 11
+       "questions": 22
       },
       {
        "label": "ones-twos-complement",
-       "questions": 13
+       "questions": 19
+      },
+      {
+       "label": "floating-point-ieee-754",
+       "questions": 17
       },
       {
        "label": "range-and-overflow",
-       "questions": 11
+       "questions": 17
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-10-27.html"
+     "url": "https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-10-31.html"
     },
     "visual": {
      "slug": "number-representation-and-arithmetic",
@@ -26136,7 +26136,7 @@ window.GATE_DATA = {
      "level": "topic-level",
      "url": "https://gate-visual-explainer.vercel.app/topics/number-representation-and-arithmetic/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-10-31"
    },
    "subject": "digital-logic",
    "topic": "number-systems-and-representation",
@@ -26219,26 +26219,26 @@ window.GATE_DATA = {
      "unit_slug": "number-systems",
      "unit_name": "Number Systems & Representation",
      "unit_number": 1,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
        "label": "base-conversions",
-       "questions": 15
-      },
-      {
-       "label": "floating-point-ieee-754",
-       "questions": 11
+       "questions": 22
       },
       {
        "label": "ones-twos-complement",
-       "questions": 13
+       "questions": 19
+      },
+      {
+       "label": "floating-point-ieee-754",
+       "questions": 17
       },
       {
        "label": "range-and-overflow",
-       "questions": 11
+       "questions": 17
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-10-27.html"
+     "url": "https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-10-31.html"
     },
     "visual": {
      "slug": "number-representation-and-arithmetic",
@@ -26249,7 +26249,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/number-representation-and-arithmetic/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-10-31"
    },
    "subject": "digital-logic",
    "topic": "number-systems-and-representation",
@@ -26324,26 +26324,26 @@ window.GATE_DATA = {
      "unit_slug": "number-systems",
      "unit_name": "Number Systems & Representation",
      "unit_number": 1,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
        "label": "base-conversions",
-       "questions": 15
-      },
-      {
-       "label": "floating-point-ieee-754",
-       "questions": 11
+       "questions": 22
       },
       {
        "label": "ones-twos-complement",
-       "questions": 13
+       "questions": 19
+      },
+      {
+       "label": "floating-point-ieee-754",
+       "questions": 17
       },
       {
        "label": "range-and-overflow",
-       "questions": 11
+       "questions": 17
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-10-27.html"
+     "url": "https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-10-31.html"
     },
     "visual": {
      "slug": "number-representation-and-arithmetic",
@@ -26351,7 +26351,7 @@ window.GATE_DATA = {
      "level": "topic-level",
      "url": "https://gate-visual-explainer.vercel.app/topics/number-representation-and-arithmetic/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-10-31"
    },
    "subject": "digital-logic",
    "topic": "number-systems-and-representation",
@@ -26426,26 +26426,26 @@ window.GATE_DATA = {
      "unit_slug": "number-systems",
      "unit_name": "Number Systems & Representation",
      "unit_number": 1,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
        "label": "base-conversions",
-       "questions": 15
-      },
-      {
-       "label": "floating-point-ieee-754",
-       "questions": 11
+       "questions": 22
       },
       {
        "label": "ones-twos-complement",
-       "questions": 13
+       "questions": 19
+      },
+      {
+       "label": "floating-point-ieee-754",
+       "questions": 17
       },
       {
        "label": "range-and-overflow",
-       "questions": 11
+       "questions": 17
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-10-27.html"
+     "url": "https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-10-31.html"
     },
     "visual": {
      "slug": "number-representation-and-arithmetic",
@@ -26456,7 +26456,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/number-representation-and-arithmetic/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-10-31"
    },
    "subject": "digital-logic",
    "topic": "number-systems-and-representation",
@@ -26531,26 +26531,26 @@ window.GATE_DATA = {
      "unit_slug": "number-systems",
      "unit_name": "Number Systems & Representation",
      "unit_number": 1,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
        "label": "base-conversions",
-       "questions": 15
-      },
-      {
-       "label": "floating-point-ieee-754",
-       "questions": 11
+       "questions": 22
       },
       {
        "label": "ones-twos-complement",
-       "questions": 13
+       "questions": 19
+      },
+      {
+       "label": "floating-point-ieee-754",
+       "questions": 17
       },
       {
        "label": "range-and-overflow",
-       "questions": 11
+       "questions": 17
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-10-27.html"
+     "url": "https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-10-31.html"
     },
     "visual": {
      "slug": "number-representation-and-arithmetic",
@@ -26561,7 +26561,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/number-representation-and-arithmetic/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-10-31"
    },
    "subject": "digital-logic",
    "topic": "number-systems-and-representation",
@@ -26636,26 +26636,26 @@ window.GATE_DATA = {
      "unit_slug": "number-systems",
      "unit_name": "Number Systems & Representation",
      "unit_number": 1,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
        "label": "base-conversions",
-       "questions": 15
-      },
-      {
-       "label": "floating-point-ieee-754",
-       "questions": 11
+       "questions": 22
       },
       {
        "label": "ones-twos-complement",
-       "questions": 13
+       "questions": 19
+      },
+      {
+       "label": "floating-point-ieee-754",
+       "questions": 17
       },
       {
        "label": "range-and-overflow",
-       "questions": 11
+       "questions": 17
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-10-27.html"
+     "url": "https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-10-31.html"
     },
     "visual": {
      "slug": "number-representation-and-arithmetic",
@@ -26668,7 +26668,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/number-representation-and-arithmetic/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-10-31"
    },
    "subject": "digital-logic",
    "topic": "number-systems-and-representation",
@@ -26752,26 +26752,26 @@ window.GATE_DATA = {
      "unit_slug": "number-systems",
      "unit_name": "Number Systems & Representation",
      "unit_number": 1,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
        "label": "base-conversions",
-       "questions": 15
-      },
-      {
-       "label": "floating-point-ieee-754",
-       "questions": 11
+       "questions": 22
       },
       {
        "label": "ones-twos-complement",
-       "questions": 13
+       "questions": 19
+      },
+      {
+       "label": "floating-point-ieee-754",
+       "questions": 17
       },
       {
        "label": "range-and-overflow",
-       "questions": 11
+       "questions": 17
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-10-27.html"
+     "url": "https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-10-31.html"
     },
     "visual": {
      "slug": "number-representation-and-arithmetic",
@@ -26785,7 +26785,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/number-representation-and-arithmetic/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-10-31"
    },
    "subject": "digital-logic",
    "topic": "number-systems-and-representation",
@@ -26868,26 +26868,26 @@ window.GATE_DATA = {
      "unit_slug": "number-systems",
      "unit_name": "Number Systems & Representation",
      "unit_number": 1,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
        "label": "base-conversions",
-       "questions": 15
-      },
-      {
-       "label": "floating-point-ieee-754",
-       "questions": 11
+       "questions": 22
       },
       {
        "label": "ones-twos-complement",
-       "questions": 13
+       "questions": 19
+      },
+      {
+       "label": "floating-point-ieee-754",
+       "questions": 17
       },
       {
        "label": "range-and-overflow",
-       "questions": 11
+       "questions": 17
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-10-27.html"
+     "url": "https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-10-31.html"
     },
     "visual": {
      "slug": "number-representation-and-arithmetic",
@@ -26901,7 +26901,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/number-representation-and-arithmetic/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-10-31"
    },
    "subject": "digital-logic",
    "topic": "number-systems-and-representation",
@@ -26979,26 +26979,26 @@ window.GATE_DATA = {
      "unit_slug": "number-systems",
      "unit_name": "Number Systems & Representation",
      "unit_number": 1,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
        "label": "base-conversions",
-       "questions": 15
-      },
-      {
-       "label": "floating-point-ieee-754",
-       "questions": 11
+       "questions": 22
       },
       {
        "label": "ones-twos-complement",
-       "questions": 13
+       "questions": 19
+      },
+      {
+       "label": "floating-point-ieee-754",
+       "questions": 17
       },
       {
        "label": "range-and-overflow",
-       "questions": 11
+       "questions": 17
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-10-27.html"
+     "url": "https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-10-31.html"
     },
     "visual": {
      "slug": "number-representation-and-arithmetic",
@@ -27012,7 +27012,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/number-representation-and-arithmetic/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-10-31"
    },
    "subject": "digital-logic",
    "topic": "number-systems-and-representation",
@@ -27096,26 +27096,26 @@ window.GATE_DATA = {
      "unit_slug": "number-systems",
      "unit_name": "Number Systems & Representation",
      "unit_number": 1,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
        "label": "base-conversions",
-       "questions": 15
-      },
-      {
-       "label": "floating-point-ieee-754",
-       "questions": 11
+       "questions": 22
       },
       {
        "label": "ones-twos-complement",
-       "questions": 13
+       "questions": 19
+      },
+      {
+       "label": "floating-point-ieee-754",
+       "questions": 17
       },
       {
        "label": "range-and-overflow",
-       "questions": 11
+       "questions": 17
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-10-27.html"
+     "url": "https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-10-31.html"
     },
     "visual": {
      "slug": "number-representation-and-arithmetic",
@@ -27127,7 +27127,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/number-representation-and-arithmetic/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-10-31"
    },
    "subject": "digital-logic",
    "topic": "number-systems-and-representation",
@@ -27223,26 +27223,26 @@ window.GATE_DATA = {
      "unit_slug": "number-systems",
      "unit_name": "Number Systems & Representation",
      "unit_number": 1,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
        "label": "base-conversions",
-       "questions": 15
-      },
-      {
-       "label": "floating-point-ieee-754",
-       "questions": 11
+       "questions": 22
       },
       {
        "label": "ones-twos-complement",
-       "questions": 13
+       "questions": 19
+      },
+      {
+       "label": "floating-point-ieee-754",
+       "questions": 17
       },
       {
        "label": "range-and-overflow",
-       "questions": 11
+       "questions": 17
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-10-27.html"
+     "url": "https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-10-31.html"
     },
     "visual": {
      "slug": "number-representation-and-arithmetic",
@@ -27254,7 +27254,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/number-representation-and-arithmetic/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-10-31"
    },
    "subject": "digital-logic",
    "topic": "number-systems-and-representation",
@@ -27359,26 +27359,26 @@ window.GATE_DATA = {
      "unit_slug": "number-systems",
      "unit_name": "Number Systems & Representation",
      "unit_number": 1,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
        "label": "base-conversions",
-       "questions": 15
-      },
-      {
-       "label": "floating-point-ieee-754",
-       "questions": 11
+       "questions": 22
       },
       {
        "label": "ones-twos-complement",
-       "questions": 13
+       "questions": 19
+      },
+      {
+       "label": "floating-point-ieee-754",
+       "questions": 17
       },
       {
        "label": "range-and-overflow",
-       "questions": 11
+       "questions": 17
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-10-27.html"
+     "url": "https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-10-31.html"
     },
     "visual": {
      "slug": "number-representation-and-arithmetic",
@@ -27389,7 +27389,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/number-representation-and-arithmetic/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-10-31"
    },
    "subject": "digital-logic",
    "topic": "number-systems-and-representation",
@@ -27504,26 +27504,26 @@ window.GATE_DATA = {
      "unit_slug": "number-systems",
      "unit_name": "Number Systems & Representation",
      "unit_number": 1,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
        "label": "base-conversions",
-       "questions": 15
-      },
-      {
-       "label": "floating-point-ieee-754",
-       "questions": 11
+       "questions": 22
       },
       {
        "label": "ones-twos-complement",
-       "questions": 13
+       "questions": 19
+      },
+      {
+       "label": "floating-point-ieee-754",
+       "questions": 17
       },
       {
        "label": "range-and-overflow",
-       "questions": 11
+       "questions": 17
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-10-27.html"
+     "url": "https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-10-31.html"
     },
     "visual": {
      "slug": "number-representation-and-arithmetic",
@@ -27534,7 +27534,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/number-representation-and-arithmetic/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-10-31"
    },
    "subject": "digital-logic",
    "topic": "number-systems-and-representation",
@@ -36206,17 +36206,45 @@ window.GATE_DATA = {
    "sourceLine": "The statement that a hardwired control unit is a sequential state machine whose outputs are the control signals: IIT Guwahati, Lecture 20 (English, read in part). The framing of the unit as the block that issues read, write, register-load, ALU and bus-enable signals without processing data, and the note that its signals come from the instruction register, the timing generator and the flags: DSWallah Learn (romanised Hindi, translated, read in part).",
    "videoRefs": [],
    "links": {
+    "mock": {
+     "subject": "computer-architecture",
+     "unit_slug": "datapath-control-unit",
+     "unit_name": "CPU Control Design & Data Path",
+     "unit_number": 2,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "alu-datapath-timing",
+       "questions": 13
+      },
+      {
+       "label": "hardwired-control",
+       "questions": 13
+      },
+      {
+       "label": "bus-architectures",
+       "questions": 12
+      },
+      {
+       "label": "microprogrammed-control",
+       "questions": 12
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-10-28.html"
+    },
     "visual": {
-     "slug": "control-unit-design",
-     "title": "From Opcode to Microprogram: Walking the Control Store",
+     "slug": "alu-and-control-unit-design",
+     "title": "ALU and Control Unit Design: Datapath, Hardwired and Microprogrammed Control",
      "level": "topic-level",
      "covers": [
-      "the control store as a memory of control words, with the fetch routine held at the top",
-      "each control word read out of the store as the control signals for one micro-operation",
-      "the mapping of an opcode to the start of that instruction's microprogram, and the return to fetch",
-      "the same microprogram written horizontally and vertically, and the width each costs"
+      "hardwired control as an instruction decoder, a step counter and a gate matrix",
+      "microinstruction fields: control signals, condition select and next address",
+      "the shared fetch routine and branching at the microinstruction level",
+      "horizontal against vertical encoding, and ceil(log2(n+1)) bits for n mutually exclusive signals",
+      "word width and control memory size as words times width",
+      "speed order hardwired > horizontal > vertical and the trade each one makes"
      ],
-     "url": "https://gate-visual-explainer.vercel.app/topics/control-unit-design/index.html"
+     "url": "https://gate-visual-explainer.vercel.app/topics/alu-and-control-unit-design/index.html"
     },
     "mapped_at": "2026-10-31"
    },
@@ -36305,17 +36333,45 @@ window.GATE_DATA = {
    "sourceLine": "The description of an instruction as a fetch phase followed by the microprogram of the decoded instruction, and of the micro program counter being pointed at the shared fetch routine at the start of every instruction: IIT Guwahati, Lecture 22 (English, read in part). The division of instruction execution into the major states Fetch, Defer and Execute with minor states inside each: Edward Bosworth, Control Unit Overview (English, read in part). The identification of the 2013 sequence as the interrupt cycle follows the accepted solution recorded on the question page and is re-derived here step by step.",
    "videoRefs": [],
    "links": {
+    "mock": {
+     "subject": "computer-architecture",
+     "unit_slug": "datapath-control-unit",
+     "unit_name": "CPU Control Design & Data Path",
+     "unit_number": 2,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "alu-datapath-timing",
+       "questions": 13
+      },
+      {
+       "label": "hardwired-control",
+       "questions": 13
+      },
+      {
+       "label": "bus-architectures",
+       "questions": 12
+      },
+      {
+       "label": "microprogrammed-control",
+       "questions": 12
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-10-28.html"
+    },
     "visual": {
-     "slug": "control-unit-design",
-     "title": "From Opcode to Microprogram: Walking the Control Store",
+     "slug": "alu-and-control-unit-design",
+     "title": "ALU and Control Unit Design: Datapath, Hardwired and Microprogrammed Control",
      "level": "topic-level",
      "covers": [
-      "the control store as a memory of control words, with the fetch routine held at the top",
-      "each control word read out of the store as the control signals for one micro-operation",
-      "the mapping of an opcode to the start of that instruction's microprogram, and the return to fetch",
-      "the same microprogram written horizontally and vertically, and the width each costs"
+      "hardwired control as an instruction decoder, a step counter and a gate matrix",
+      "microinstruction fields: control signals, condition select and next address",
+      "the shared fetch routine and branching at the microinstruction level",
+      "horizontal against vertical encoding, and ceil(log2(n+1)) bits for n mutually exclusive signals",
+      "word width and control memory size as words times width",
+      "speed order hardwired > horizontal > vertical and the trade each one makes"
      ],
-     "url": "https://gate-visual-explainer.vercel.app/topics/control-unit-design/index.html"
+     "url": "https://gate-visual-explainer.vercel.app/topics/alu-and-control-unit-design/index.html"
     },
     "mapped_at": "2026-10-31"
    },
@@ -36402,17 +36458,45 @@ window.GATE_DATA = {
    "sourceLine": "The statement, read in part, that a hardwired control unit is a sequential state machine which moves from state to state, each state corresponding to one time step of a micro-instruction, whose outputs are the control signals, and that once synthesised the machine cannot be changed: IIT Guwahati, Lecture 20 (English). The two-register structure - a modulo-3 major state register and a modulo-4 minor state register with the notation Fetch AND T0 - is Edward Bosworth's Control Unit Overview (English, read in part).",
    "videoRefs": [],
    "links": {
+    "mock": {
+     "subject": "computer-architecture",
+     "unit_slug": "datapath-control-unit",
+     "unit_name": "CPU Control Design & Data Path",
+     "unit_number": 2,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "alu-datapath-timing",
+       "questions": 13
+      },
+      {
+       "label": "hardwired-control",
+       "questions": 13
+      },
+      {
+       "label": "bus-architectures",
+       "questions": 12
+      },
+      {
+       "label": "microprogrammed-control",
+       "questions": 12
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-10-28.html"
+    },
     "visual": {
-     "slug": "control-unit-design",
-     "title": "From Opcode to Microprogram: Walking the Control Store",
+     "slug": "alu-and-control-unit-design",
+     "title": "ALU and Control Unit Design: Datapath, Hardwired and Microprogrammed Control",
      "level": "topic-level",
      "covers": [
-      "the control store as a memory of control words, with the fetch routine held at the top",
-      "each control word read out of the store as the control signals for one micro-operation",
-      "the mapping of an opcode to the start of that instruction's microprogram, and the return to fetch",
-      "the same microprogram written horizontally and vertically, and the width each costs"
+      "hardwired control as an instruction decoder, a step counter and a gate matrix",
+      "microinstruction fields: control signals, condition select and next address",
+      "the shared fetch routine and branching at the microinstruction level",
+      "horizontal against vertical encoding, and ceil(log2(n+1)) bits for n mutually exclusive signals",
+      "word width and control memory size as words times width",
+      "speed order hardwired > horizontal > vertical and the trade each one makes"
      ],
-     "url": "https://gate-visual-explainer.vercel.app/topics/control-unit-design/index.html"
+     "url": "https://gate-visual-explainer.vercel.app/topics/alu-and-control-unit-design/index.html"
     },
     "mapped_at": "2026-10-31"
    },
@@ -36499,17 +36583,45 @@ window.GATE_DATA = {
    "sourceLine": "The instruction decoder as a 5-to-32 active-high decoder, and the hardwired unit as a set of signal generation trees whose inputs are the decoder output, the major state and the minor state: Edward Bosworth, chapter 11 slides and Control Unit Overview (English, read in part). The worked control function in the example is this repository's own and is recomputed in scripts/validate.py; no GATE CSE previous-year question on hardwired signal functions was found for the CSE paper (the two recorded in this family are GATE IT questions).",
    "videoRefs": [],
    "links": {
+    "mock": {
+     "subject": "computer-architecture",
+     "unit_slug": "datapath-control-unit",
+     "unit_name": "CPU Control Design & Data Path",
+     "unit_number": 2,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "alu-datapath-timing",
+       "questions": 13
+      },
+      {
+       "label": "hardwired-control",
+       "questions": 13
+      },
+      {
+       "label": "bus-architectures",
+       "questions": 12
+      },
+      {
+       "label": "microprogrammed-control",
+       "questions": 12
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-10-28.html"
+    },
     "visual": {
-     "slug": "control-unit-design",
-     "title": "From Opcode to Microprogram: Walking the Control Store",
+     "slug": "alu-and-control-unit-design",
+     "title": "ALU and Control Unit Design: Datapath, Hardwired and Microprogrammed Control",
      "level": "topic-level",
      "covers": [
-      "the control store as a memory of control words, with the fetch routine held at the top",
-      "each control word read out of the store as the control signals for one micro-operation",
-      "the mapping of an opcode to the start of that instruction's microprogram, and the return to fetch",
-      "the same microprogram written horizontally and vertically, and the width each costs"
+      "hardwired control as an instruction decoder, a step counter and a gate matrix",
+      "microinstruction fields: control signals, condition select and next address",
+      "the shared fetch routine and branching at the microinstruction level",
+      "horizontal against vertical encoding, and ceil(log2(n+1)) bits for n mutually exclusive signals",
+      "word width and control memory size as words times width",
+      "speed order hardwired > horizontal > vertical and the trade each one makes"
      ],
-     "url": "https://gate-visual-explainer.vercel.app/topics/control-unit-design/index.html"
+     "url": "https://gate-visual-explainer.vercel.app/topics/alu-and-control-unit-design/index.html"
     },
     "mapped_at": "2026-10-31"
    },
@@ -36596,17 +36708,45 @@ window.GATE_DATA = {
    "sourceLine": "The method of scanning the micro-operation table for every place a register is written, and the two worked equations ldDR and ldAR: the ASEE paper on a simulated Mano machine (English, read in part). The structure of the control unit as two decoders, a sequence counter and control logic gates: Government College Hamirpur, Unit 2 Lecture 3 following Mano (English, read in part). Every term quoted here is recomputed in scripts/validate.py.",
    "videoRefs": [],
    "links": {
+    "mock": {
+     "subject": "computer-architecture",
+     "unit_slug": "datapath-control-unit",
+     "unit_name": "CPU Control Design & Data Path",
+     "unit_number": 2,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "alu-datapath-timing",
+       "questions": 13
+      },
+      {
+       "label": "hardwired-control",
+       "questions": 13
+      },
+      {
+       "label": "bus-architectures",
+       "questions": 12
+      },
+      {
+       "label": "microprogrammed-control",
+       "questions": 12
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-10-28.html"
+    },
     "visual": {
-     "slug": "control-unit-design",
-     "title": "From Opcode to Microprogram: Walking the Control Store",
+     "slug": "alu-and-control-unit-design",
+     "title": "ALU and Control Unit Design: Datapath, Hardwired and Microprogrammed Control",
      "level": "topic-level",
      "covers": [
-      "the control store as a memory of control words, with the fetch routine held at the top",
-      "each control word read out of the store as the control signals for one micro-operation",
-      "the mapping of an opcode to the start of that instruction's microprogram, and the return to fetch",
-      "the same microprogram written horizontally and vertically, and the width each costs"
+      "hardwired control as an instruction decoder, a step counter and a gate matrix",
+      "microinstruction fields: control signals, condition select and next address",
+      "the shared fetch routine and branching at the microinstruction level",
+      "horizontal against vertical encoding, and ceil(log2(n+1)) bits for n mutually exclusive signals",
+      "word width and control memory size as words times width",
+      "speed order hardwired > horizontal > vertical and the trade each one makes"
      ],
-     "url": "https://gate-visual-explainer.vercel.app/topics/control-unit-design/index.html"
+     "url": "https://gate-visual-explainer.vercel.app/topics/alu-and-control-unit-design/index.html"
     },
     "mapped_at": "2026-10-31"
    },
@@ -36683,17 +36823,45 @@ window.GATE_DATA = {
    "sourceLine": "The three systematic design methods, their sizing steps and the worked ADD (R3), R1 sequence: SRM IST control unit design notes (English, read in part). The sizing arithmetic on this card is recomputed in scripts/validate.py. No GATE CSE previous-year question on the design methods themselves was found; the questions in this topic test the result, not the procedure.",
    "videoRefs": [],
    "links": {
+    "mock": {
+     "subject": "computer-architecture",
+     "unit_slug": "datapath-control-unit",
+     "unit_name": "CPU Control Design & Data Path",
+     "unit_number": 2,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "alu-datapath-timing",
+       "questions": 13
+      },
+      {
+       "label": "hardwired-control",
+       "questions": 13
+      },
+      {
+       "label": "bus-architectures",
+       "questions": 12
+      },
+      {
+       "label": "microprogrammed-control",
+       "questions": 12
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-10-28.html"
+    },
     "visual": {
-     "slug": "control-unit-design",
-     "title": "From Opcode to Microprogram: Walking the Control Store",
+     "slug": "alu-and-control-unit-design",
+     "title": "ALU and Control Unit Design: Datapath, Hardwired and Microprogrammed Control",
      "level": "topic-level",
      "covers": [
-      "the control store as a memory of control words, with the fetch routine held at the top",
-      "each control word read out of the store as the control signals for one micro-operation",
-      "the mapping of an opcode to the start of that instruction's microprogram, and the return to fetch",
-      "the same microprogram written horizontally and vertically, and the width each costs"
+      "hardwired control as an instruction decoder, a step counter and a gate matrix",
+      "microinstruction fields: control signals, condition select and next address",
+      "the shared fetch routine and branching at the microinstruction level",
+      "horizontal against vertical encoding, and ceil(log2(n+1)) bits for n mutually exclusive signals",
+      "word width and control memory size as words times width",
+      "speed order hardwired > horizontal > vertical and the trade each one makes"
      ],
-     "url": "https://gate-visual-explainer.vercel.app/topics/control-unit-design/index.html"
+     "url": "https://gate-visual-explainer.vercel.app/topics/alu-and-control-unit-design/index.html"
     },
     "mapped_at": "2026-10-31"
    },
@@ -36782,17 +36950,45 @@ window.GATE_DATA = {
    "sourceLine": "The idea of a control word stored in a memory and read out as the control signals, and the two jobs of generating signals and sequencing: IIT Guwahati, Lecture 21 (English, read in part). The micro-control unit as the block whose only function is to compute the next control-store address, and the Wilkes 1951 and EDSAC 2 history: Edward Bosworth, chapter 4 lecture (English, read in part).",
    "videoRefs": [],
    "links": {
+    "mock": {
+     "subject": "computer-architecture",
+     "unit_slug": "datapath-control-unit",
+     "unit_name": "CPU Control Design & Data Path",
+     "unit_number": 2,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "alu-datapath-timing",
+       "questions": 13
+      },
+      {
+       "label": "hardwired-control",
+       "questions": 13
+      },
+      {
+       "label": "bus-architectures",
+       "questions": 12
+      },
+      {
+       "label": "microprogrammed-control",
+       "questions": 12
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-10-28.html"
+    },
     "visual": {
-     "slug": "control-unit-design",
-     "title": "From Opcode to Microprogram: Walking the Control Store",
+     "slug": "alu-and-control-unit-design",
+     "title": "ALU and Control Unit Design: Datapath, Hardwired and Microprogrammed Control",
      "level": "topic-level",
      "covers": [
-      "the control store as a memory of control words, with the fetch routine held at the top",
-      "each control word read out of the store as the control signals for one micro-operation",
-      "the mapping of an opcode to the start of that instruction's microprogram, and the return to fetch",
-      "the same microprogram written horizontally and vertically, and the width each costs"
+      "hardwired control as an instruction decoder, a step counter and a gate matrix",
+      "microinstruction fields: control signals, condition select and next address",
+      "the shared fetch routine and branching at the microinstruction level",
+      "horizontal against vertical encoding, and ceil(log2(n+1)) bits for n mutually exclusive signals",
+      "word width and control memory size as words times width",
+      "speed order hardwired > horizontal > vertical and the trade each one makes"
      ],
-     "url": "https://gate-visual-explainer.vercel.app/topics/control-unit-design/index.html"
+     "url": "https://gate-visual-explainer.vercel.app/topics/alu-and-control-unit-design/index.html"
     },
     "mapped_at": "2026-10-31"
    },
@@ -36883,17 +37079,45 @@ window.GATE_DATA = {
    "sourceLine": "The horizontal and vertical comparison, with a bus fed by seven sources taking 8 bits horizontally and 3 bits vertically, and the point that vertical encoding also prevents two sources reaching one bus at once: Edward Bosworth, chapter 4 lecture (English, read in part). The horizontal and vertical definitions and the CISC and RISC association: DSWallah Learn (romanised Hindi, translated, read in part). The 1996 and 1997 arithmetic is recomputed in scripts/validate.py, including the 9-bit floor that the accepted 1996 answer does not use.",
    "videoRefs": [],
    "links": {
+    "mock": {
+     "subject": "computer-architecture",
+     "unit_slug": "datapath-control-unit",
+     "unit_name": "CPU Control Design & Data Path",
+     "unit_number": 2,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "alu-datapath-timing",
+       "questions": 13
+      },
+      {
+       "label": "hardwired-control",
+       "questions": 13
+      },
+      {
+       "label": "bus-architectures",
+       "questions": 12
+      },
+      {
+       "label": "microprogrammed-control",
+       "questions": 12
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-10-28.html"
+    },
     "visual": {
-     "slug": "control-unit-design",
-     "title": "From Opcode to Microprogram: Walking the Control Store",
+     "slug": "alu-and-control-unit-design",
+     "title": "ALU and Control Unit Design: Datapath, Hardwired and Microprogrammed Control",
      "level": "topic-level",
      "covers": [
-      "the control store as a memory of control words, with the fetch routine held at the top",
-      "each control word read out of the store as the control signals for one micro-operation",
-      "the mapping of an opcode to the start of that instruction's microprogram, and the return to fetch",
-      "the same microprogram written horizontally and vertically, and the width each costs"
+      "hardwired control as an instruction decoder, a step counter and a gate matrix",
+      "microinstruction fields: control signals, condition select and next address",
+      "the shared fetch routine and branching at the microinstruction level",
+      "horizontal against vertical encoding, and ceil(log2(n+1)) bits for n mutually exclusive signals",
+      "word width and control memory size as words times width",
+      "speed order hardwired > horizontal > vertical and the trade each one makes"
      ],
-     "url": "https://gate-visual-explainer.vercel.app/topics/control-unit-design/index.html"
+     "url": "https://gate-visual-explainer.vercel.app/topics/alu-and-control-unit-design/index.html"
     },
     "mapped_at": "2026-10-31"
    },
@@ -36983,17 +37207,45 @@ window.GATE_DATA = {
    "sourceLine": "The 20-bit microinstruction format with three 3-bit micro-operation fields, a 2-bit condition field, a 2-bit branch field and a 7-bit address field, and the 128-location control memory: P. C. E. Puri unit III notes following Mano (English, read in part). The encoded-field widths and the no-operation option in a vertical field: Edward Bosworth, chapter 4 lecture (English, read in part). Every number on this card is recomputed in scripts/validate.py.",
    "videoRefs": [],
    "links": {
+    "mock": {
+     "subject": "computer-architecture",
+     "unit_slug": "datapath-control-unit",
+     "unit_name": "CPU Control Design & Data Path",
+     "unit_number": 2,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "alu-datapath-timing",
+       "questions": 13
+      },
+      {
+       "label": "hardwired-control",
+       "questions": 13
+      },
+      {
+       "label": "bus-architectures",
+       "questions": 12
+      },
+      {
+       "label": "microprogrammed-control",
+       "questions": 12
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-10-28.html"
+    },
     "visual": {
-     "slug": "control-unit-design",
-     "title": "From Opcode to Microprogram: Walking the Control Store",
+     "slug": "alu-and-control-unit-design",
+     "title": "ALU and Control Unit Design: Datapath, Hardwired and Microprogrammed Control",
      "level": "topic-level",
      "covers": [
-      "the control store as a memory of control words, with the fetch routine held at the top",
-      "each control word read out of the store as the control signals for one micro-operation",
-      "the mapping of an opcode to the start of that instruction's microprogram, and the return to fetch",
-      "the same microprogram written horizontally and vertically, and the width each costs"
+      "hardwired control as an instruction decoder, a step counter and a gate matrix",
+      "microinstruction fields: control signals, condition select and next address",
+      "the shared fetch routine and branching at the microinstruction level",
+      "horizontal against vertical encoding, and ceil(log2(n+1)) bits for n mutually exclusive signals",
+      "word width and control memory size as words times width",
+      "speed order hardwired > horizontal > vertical and the trade each one makes"
      ],
-     "url": "https://gate-visual-explainer.vercel.app/topics/control-unit-design/index.html"
+     "url": "https://gate-visual-explainer.vercel.app/topics/alu-and-control-unit-design/index.html"
     },
     "mapped_at": "2026-10-31"
    },
@@ -37081,17 +37333,45 @@ window.GATE_DATA = {
    "sourceLine": "The four capabilities of address sequencing - incrementing, unconditional or conditional branch on a status bit, and the mapping process - together with the two multiplexers of the microprogram sequencer, the condition and branch fields, and the subroutine register: P. C. E. Puri unit III notes following Mano (English, read in part). The description of the micro program counter fetching microinstructions in sequence and jumping when required: IIT Guwahati, Lecture 22 (English, read in part).",
    "videoRefs": [],
    "links": {
+    "mock": {
+     "subject": "computer-architecture",
+     "unit_slug": "datapath-control-unit",
+     "unit_name": "CPU Control Design & Data Path",
+     "unit_number": 2,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "alu-datapath-timing",
+       "questions": 13
+      },
+      {
+       "label": "hardwired-control",
+       "questions": 13
+      },
+      {
+       "label": "bus-architectures",
+       "questions": 12
+      },
+      {
+       "label": "microprogrammed-control",
+       "questions": 12
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-10-28.html"
+    },
     "visual": {
-     "slug": "control-unit-design",
-     "title": "From Opcode to Microprogram: Walking the Control Store",
+     "slug": "alu-and-control-unit-design",
+     "title": "ALU and Control Unit Design: Datapath, Hardwired and Microprogrammed Control",
      "level": "topic-level",
      "covers": [
-      "the control store as a memory of control words, with the fetch routine held at the top",
-      "each control word read out of the store as the control signals for one micro-operation",
-      "the mapping of an opcode to the start of that instruction's microprogram, and the return to fetch",
-      "the same microprogram written horizontally and vertically, and the width each costs"
+      "hardwired control as an instruction decoder, a step counter and a gate matrix",
+      "microinstruction fields: control signals, condition select and next address",
+      "the shared fetch routine and branching at the microinstruction level",
+      "horizontal against vertical encoding, and ceil(log2(n+1)) bits for n mutually exclusive signals",
+      "word width and control memory size as words times width",
+      "speed order hardwired > horizontal > vertical and the trade each one makes"
      ],
-     "url": "https://gate-visual-explainer.vercel.app/topics/control-unit-design/index.html"
+     "url": "https://gate-visual-explainer.vercel.app/topics/alu-and-control-unit-design/index.html"
     },
     "mapped_at": "2026-10-31"
    },
@@ -37178,17 +37458,45 @@ window.GATE_DATA = {
    "sourceLine": "The mapping process as the transformation of instruction-code bits into a control-memory address, the four steps the control must undergo during one instruction (load an initial address, fetch, map on the opcode, branch back to fetch), and the 128-location example with the first 64 locations for 16 instructions and the fetch routine at 64: P. C. E. Puri unit III notes following Mano (English, read in part). The description of the micro program counter being pointed at the fetch part for every new instruction and jumping to the decoded instruction's own microprogram: IIT Guwahati, Lecture 22 (English, read in part). The start-address arithmetic on this card is this repository's own and is recomputed in scripts/validate.py, because the served extract of the notes stopped before the worked mapping figure.",
    "videoRefs": [],
    "links": {
+    "mock": {
+     "subject": "computer-architecture",
+     "unit_slug": "datapath-control-unit",
+     "unit_name": "CPU Control Design & Data Path",
+     "unit_number": 2,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "alu-datapath-timing",
+       "questions": 13
+      },
+      {
+       "label": "hardwired-control",
+       "questions": 13
+      },
+      {
+       "label": "bus-architectures",
+       "questions": 12
+      },
+      {
+       "label": "microprogrammed-control",
+       "questions": 12
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-10-28.html"
+    },
     "visual": {
-     "slug": "control-unit-design",
-     "title": "From Opcode to Microprogram: Walking the Control Store",
+     "slug": "alu-and-control-unit-design",
+     "title": "ALU and Control Unit Design: Datapath, Hardwired and Microprogrammed Control",
      "level": "topic-level",
      "covers": [
-      "the control store as a memory of control words, with the fetch routine held at the top",
-      "each control word read out of the store as the control signals for one micro-operation",
-      "the mapping of an opcode to the start of that instruction's microprogram, and the return to fetch",
-      "the same microprogram written horizontally and vertically, and the width each costs"
+      "hardwired control as an instruction decoder, a step counter and a gate matrix",
+      "microinstruction fields: control signals, condition select and next address",
+      "the shared fetch routine and branching at the microinstruction level",
+      "horizontal against vertical encoding, and ceil(log2(n+1)) bits for n mutually exclusive signals",
+      "word width and control memory size as words times width",
+      "speed order hardwired > horizontal > vertical and the trade each one makes"
      ],
-     "url": "https://gate-visual-explainer.vercel.app/topics/control-unit-design/index.html"
+     "url": "https://gate-visual-explainer.vercel.app/topics/alu-and-control-unit-design/index.html"
     },
     "mapped_at": "2026-10-31"
    },
@@ -37279,17 +37587,45 @@ window.GATE_DATA = {
    "sourceLine": "The hardwired and microprogrammed comparison - speed, cost, flexibility, the RISC and CISC association - and the explicit warning that hardwired is the fast one: DSWallah Learn (romanised Hindi, translated, read in part). The history of why microprogramming was adopted and later abandoned for RISC designs, and the control-store read time as the limiting factor: Edward Bosworth, chapter 4 lecture (English, read in part).",
    "videoRefs": [],
    "links": {
+    "mock": {
+     "subject": "computer-architecture",
+     "unit_slug": "datapath-control-unit",
+     "unit_name": "CPU Control Design & Data Path",
+     "unit_number": 2,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "alu-datapath-timing",
+       "questions": 13
+      },
+      {
+       "label": "hardwired-control",
+       "questions": 13
+      },
+      {
+       "label": "bus-architectures",
+       "questions": 12
+      },
+      {
+       "label": "microprogrammed-control",
+       "questions": 12
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-10-28.html"
+    },
     "visual": {
-     "slug": "control-unit-design",
-     "title": "From Opcode to Microprogram: Walking the Control Store",
+     "slug": "alu-and-control-unit-design",
+     "title": "ALU and Control Unit Design: Datapath, Hardwired and Microprogrammed Control",
      "level": "topic-level",
      "covers": [
-      "the control store as a memory of control words, with the fetch routine held at the top",
-      "each control word read out of the store as the control signals for one micro-operation",
-      "the mapping of an opcode to the start of that instruction's microprogram, and the return to fetch",
-      "the same microprogram written horizontally and vertically, and the width each costs"
+      "hardwired control as an instruction decoder, a step counter and a gate matrix",
+      "microinstruction fields: control signals, condition select and next address",
+      "the shared fetch routine and branching at the microinstruction level",
+      "horizontal against vertical encoding, and ceil(log2(n+1)) bits for n mutually exclusive signals",
+      "word width and control memory size as words times width",
+      "speed order hardwired > horizontal > vertical and the trade each one makes"
      ],
-     "url": "https://gate-visual-explainer.vercel.app/topics/control-unit-design/index.html"
+     "url": "https://gate-visual-explainer.vercel.app/topics/alu-and-control-unit-design/index.html"
     },
     "mapped_at": "2026-10-31"
    },
@@ -37377,17 +37713,45 @@ window.GATE_DATA = {
    "sourceLine": "The control unit as a 3-to-8 opcode decoder, a 4-bit sequence counter, a 4-to-16 timing decoder and control logic gates, with the D3.T4 clear condition: Government College Hamirpur, Unit 2 Lecture 3 following Mano (English, read in part) and Portland State University's basic-computer slides (English, read in part). The decoder and counter sizing on this card is recomputed in scripts/validate.py.",
    "videoRefs": [],
    "links": {
+    "mock": {
+     "subject": "computer-architecture",
+     "unit_slug": "datapath-control-unit",
+     "unit_name": "CPU Control Design & Data Path",
+     "unit_number": 2,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "alu-datapath-timing",
+       "questions": 13
+      },
+      {
+       "label": "hardwired-control",
+       "questions": 13
+      },
+      {
+       "label": "bus-architectures",
+       "questions": 12
+      },
+      {
+       "label": "microprogrammed-control",
+       "questions": 12
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-10-28.html"
+    },
     "visual": {
-     "slug": "control-unit-design",
-     "title": "From Opcode to Microprogram: Walking the Control Store",
+     "slug": "alu-and-control-unit-design",
+     "title": "ALU and Control Unit Design: Datapath, Hardwired and Microprogrammed Control",
      "level": "topic-level",
      "covers": [
-      "the control store as a memory of control words, with the fetch routine held at the top",
-      "each control word read out of the store as the control signals for one micro-operation",
-      "the mapping of an opcode to the start of that instruction's microprogram, and the return to fetch",
-      "the same microprogram written horizontally and vertically, and the width each costs"
+      "hardwired control as an instruction decoder, a step counter and a gate matrix",
+      "microinstruction fields: control signals, condition select and next address",
+      "the shared fetch routine and branching at the microinstruction level",
+      "horizontal against vertical encoding, and ceil(log2(n+1)) bits for n mutually exclusive signals",
+      "word width and control memory size as words times width",
+      "speed order hardwired > horizontal > vertical and the trade each one makes"
      ],
-     "url": "https://gate-visual-explainer.vercel.app/topics/control-unit-design/index.html"
+     "url": "https://gate-visual-explainer.vercel.app/topics/alu-and-control-unit-design/index.html"
     },
     "mapped_at": "2026-10-31"
    },

@@ -78,17 +78,45 @@
  "sourceLine": "The statement that a hardwired control unit is a sequential state machine whose outputs are the control signals: IIT Guwahati, Lecture 20 (English, read in part). The framing of the unit as the block that issues read, write, register-load, ALU and bus-enable signals without processing data, and the note that its signals come from the instruction register, the timing generator and the flags: DSWallah Learn (romanised Hindi, translated, read in part).",
  "videoRefs": [],
  "links": {
+  "mock": {
+   "subject": "computer-architecture",
+   "unit_slug": "datapath-control-unit",
+   "unit_name": "CPU Control Design & Data Path",
+   "unit_number": 2,
+   "question_count": 50,
+   "subtopics": [
+    {
+     "label": "alu-datapath-timing",
+     "questions": 13
+    },
+    {
+     "label": "hardwired-control",
+     "questions": 13
+    },
+    {
+     "label": "bus-architectures",
+     "questions": 12
+    },
+    {
+     "label": "microprogrammed-control",
+     "questions": 12
+    }
+   ],
+   "url": "https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-10-28.html"
+  },
   "visual": {
-   "slug": "control-unit-design",
-   "title": "From Opcode to Microprogram: Walking the Control Store",
+   "slug": "alu-and-control-unit-design",
+   "title": "ALU and Control Unit Design: Datapath, Hardwired and Microprogrammed Control",
    "level": "topic-level",
    "covers": [
-    "the control store as a memory of control words, with the fetch routine held at the top",
-    "each control word read out of the store as the control signals for one micro-operation",
-    "the mapping of an opcode to the start of that instruction's microprogram, and the return to fetch",
-    "the same microprogram written horizontally and vertically, and the width each costs"
+    "hardwired control as an instruction decoder, a step counter and a gate matrix",
+    "microinstruction fields: control signals, condition select and next address",
+    "the shared fetch routine and branching at the microinstruction level",
+    "horizontal against vertical encoding, and ceil(log2(n+1)) bits for n mutually exclusive signals",
+    "word width and control memory size as words times width",
+    "speed order hardwired > horizontal > vertical and the trade each one makes"
    ],
-   "url": "https://gate-visual-explainer.vercel.app/topics/control-unit-design/index.html"
+   "url": "https://gate-visual-explainer.vercel.app/topics/alu-and-control-unit-design/index.html"
   },
   "mapped_at": "2026-10-31"
  }
