@@ -23204,7 +23204,7 @@ window.GATE_DATA = {
    "links": {
     "visual": {
      "slug": "mean-median-mode-standard-deviation",
-     "title": "Mean, Median, Mode and Standard Deviation",
+     "title": "Mean, Median, Mode and Standard Deviation: Three Middles, One Spread, and When Each Rule Fails",
      "level": "topic-level",
      "covers": [
       "grouped mean by class midpoints, and its approximation error",
@@ -23432,7 +23432,7 @@ window.GATE_DATA = {
    "links": {
     "visual": {
      "slug": "mean-median-mode-standard-deviation",
-     "title": "Mean, Median, Mode and Standard Deviation",
+     "title": "Mean, Median, Mode and Standard Deviation: Three Middles, One Spread, and When Each Rule Fails",
      "level": "topic-level",
      "covers": [
       "adding a constant moves the mean, median and mode and not sigma",
