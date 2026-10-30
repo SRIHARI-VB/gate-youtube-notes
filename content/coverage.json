@@ -756,7 +756,7 @@
      "slug": "instruction-set-and-addressing-modes",
      "name": "Instruction Set and Addressing Modes",
      "status": "partial",
-     "coverage_note": "13 subtopics, 13 cards (instruction format and fields; the bit budget of a format; what an ISA is with RISC against CISC mode richness; zero- to three-address formats; immediate; direct; indirect; register and register-indirect; displacement addressing with base, index and base-with-index; PC-relative and the branch offset; autoincrement, autodecrement and stack; effective address and the memory-cycle count; relocation and position-independent code), 14 verified PYQs and 1 p5.js lesson. Every one of the thirteen syllabus subtopics has a card, so the topic is not thinner than partial; partial because nine gaps remain, named below - above all that no video transcript was readable and that every PYQ is SOURCED rather than key-verified.",
+     "coverage_note": "13 subtopics, 13 cards (instruction format and fields; the bit budget of a format; what an ISA is with RISC against CISC mode richness; zero- to three-address formats; immediate; direct; indirect; register and register-indirect; displacement addressing with base, index and base-with-index; PC-relative and the branch offset; autoincrement, autodecrement and stack; effective address and the memory-cycle count; relocation and position-independent code), 14 verified PYQs and 1 p5.js lesson. Every one of the thirteen syllabus subtopics has a card, so the topic is not thinner than partial; partial because ten gaps remain, named below - above all that no video transcript was readable and that every PYQ is SOURCED rather than key-verified.",
      "runs": [
       {
        "date": "2026-10-30",
