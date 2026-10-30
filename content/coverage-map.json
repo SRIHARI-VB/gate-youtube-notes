@@ -9581,7 +9581,7 @@
         "unit_slug": "probability-distributions",
         "unit_name": "Continuous Probability & Distributions",
         "unit_number": 5,
-        "question_count": 25,
+        "question_count": 50,
         "subtopic_labels": [
           "correlation-and-covariance",
           "exponential-distribution",
@@ -9589,7 +9589,7 @@
           "random-variables-cdf-pdf",
           "uniform-distribution"
         ],
-        "verdict": "MOCK_READY"
+        "verdict": "MOCK_CAPPED"
       },
       "visual": {
         "slug": "probability-and-random-variables",
@@ -9600,7 +9600,7 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/probability-and-statistics/random-variables-and-distributions/random-variable-as-a-function.json",
-        "mock: engineering-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=probability-distributions (25 records)",
+        "mock: engineering-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=probability-distributions (50 records)",
         "mock url: runs[] last entry for probability-distributions -> https://gate-cse-mocks.vercel.app/engineering-mathematics/probability-distributions/gate_em_mock_5_2026-10-30.html",
         "visual: topics.json slug=probability-and-random-variables; syllabus-coverage.json subtopics/microtopics checked against the card text",
         "visual url: topics/probability-and-random-variables/index.html"
@@ -9620,7 +9620,7 @@
         "unit_slug": "probability-distributions",
         "unit_name": "Continuous Probability & Distributions",
         "unit_number": 5,
-        "question_count": 25,
+        "question_count": 50,
         "subtopic_labels": [
           "correlation-and-covariance",
           "exponential-distribution",
@@ -9628,7 +9628,7 @@
           "random-variables-cdf-pdf",
           "uniform-distribution"
         ],
-        "verdict": "MOCK_READY"
+        "verdict": "MOCK_CAPPED"
       },
       "visual": {
         "slug": "probability-and-random-variables",
@@ -9639,7 +9639,7 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/probability-and-statistics/random-variables-and-distributions/probability-distribution-and-cdf.json",
-        "mock: engineering-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=probability-distributions (25 records)",
+        "mock: engineering-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=probability-distributions (50 records)",
         "mock url: runs[] last entry for probability-distributions -> https://gate-cse-mocks.vercel.app/engineering-mathematics/probability-distributions/gate_em_mock_5_2026-10-30.html",
         "visual: topics.json slug=probability-and-random-variables; syllabus-coverage.json subtopics/microtopics checked against the card text",
         "visual url: topics/probability-and-random-variables/index.html"
@@ -9659,7 +9659,7 @@
         "unit_slug": "probability-distributions",
         "unit_name": "Continuous Probability & Distributions",
         "unit_number": 5,
-        "question_count": 25,
+        "question_count": 50,
         "subtopic_labels": [
           "correlation-and-covariance",
           "exponential-distribution",
@@ -9667,7 +9667,7 @@
           "random-variables-cdf-pdf",
           "uniform-distribution"
         ],
-        "verdict": "MOCK_READY"
+        "verdict": "MOCK_CAPPED"
       },
       "visual": {
         "slug": "probability-and-random-variables",
@@ -9678,7 +9678,7 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/probability-and-statistics/random-variables-and-distributions/pmf-pdf-normalisation-and-interval-probability.json",
-        "mock: engineering-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=probability-distributions (25 records)",
+        "mock: engineering-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=probability-distributions (50 records)",
         "mock url: runs[] last entry for probability-distributions -> https://gate-cse-mocks.vercel.app/engineering-mathematics/probability-distributions/gate_em_mock_5_2026-10-30.html",
         "visual: topics.json slug=probability-and-random-variables; syllabus-coverage.json subtopics/microtopics checked against the card text",
         "visual url: topics/probability-and-random-variables/index.html"
@@ -9698,7 +9698,7 @@
         "unit_slug": "probability-distributions",
         "unit_name": "Continuous Probability & Distributions",
         "unit_number": 5,
-        "question_count": 25,
+        "question_count": 50,
         "subtopic_labels": [
           "correlation-and-covariance",
           "exponential-distribution",
@@ -9706,7 +9706,7 @@
           "random-variables-cdf-pdf",
           "uniform-distribution"
         ],
-        "verdict": "MOCK_READY"
+        "verdict": "MOCK_CAPPED"
       },
       "visual": {
         "slug": "linearity-of-expectation",
@@ -9717,7 +9717,7 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/probability-and-statistics/random-variables-and-distributions/expectation-and-linearity.json",
-        "mock: engineering-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=probability-distributions (25 records)",
+        "mock: engineering-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=probability-distributions (50 records)",
         "mock url: runs[] last entry for probability-distributions -> https://gate-cse-mocks.vercel.app/engineering-mathematics/probability-distributions/gate_em_mock_5_2026-10-30.html",
         "visual: topics.json slug=linearity-of-expectation; syllabus-coverage.json subtopics/microtopics checked against the card text",
         "visual url: topics/linearity-of-expectation/index.html"
@@ -9759,7 +9759,7 @@
         "unit_slug": "probability-distributions",
         "unit_name": "Continuous Probability & Distributions",
         "unit_number": 5,
-        "question_count": 25,
+        "question_count": 50,
         "subtopic_labels": [
           "correlation-and-covariance",
           "exponential-distribution",
@@ -9767,7 +9767,7 @@
           "random-variables-cdf-pdf",
           "uniform-distribution"
         ],
-        "verdict": "MOCK_READY"
+        "verdict": "MOCK_CAPPED"
       },
       "visual": {
         "slug": "binomial-distribution",
@@ -9778,7 +9778,7 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/probability-and-statistics/random-variables-and-distributions/binomial-distribution.json",
-        "mock: engineering-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=probability-distributions (25 records)",
+        "mock: engineering-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=probability-distributions (50 records)",
         "mock url: runs[] last entry for probability-distributions -> https://gate-cse-mocks.vercel.app/engineering-mathematics/probability-distributions/gate_em_mock_5_2026-10-30.html",
         "visual: topics.json slug=binomial-distribution; syllabus-coverage.json subtopics/microtopics checked against the card text",
         "visual url: topics/binomial-distribution/index.html"
@@ -9798,7 +9798,7 @@
         "unit_slug": "probability-distributions",
         "unit_name": "Continuous Probability & Distributions",
         "unit_number": 5,
-        "question_count": 25,
+        "question_count": 50,
         "subtopic_labels": [
           "correlation-and-covariance",
           "exponential-distribution",
@@ -9806,7 +9806,7 @@
           "random-variables-cdf-pdf",
           "uniform-distribution"
         ],
-        "verdict": "MOCK_READY"
+        "verdict": "MOCK_CAPPED"
       },
       "visual": {
         "slug": "exponential-and-poisson-distributions",
@@ -9817,7 +9817,7 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/probability-and-statistics/random-variables-and-distributions/poisson-distribution.json",
-        "mock: engineering-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=probability-distributions (25 records)",
+        "mock: engineering-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=probability-distributions (50 records)",
         "mock url: runs[] last entry for probability-distributions -> https://gate-cse-mocks.vercel.app/engineering-mathematics/probability-distributions/gate_em_mock_5_2026-10-30.html",
         "visual: topics.json slug=exponential-and-poisson-distributions; syllabus-coverage.json subtopics/microtopics checked against the card text",
         "visual url: topics/exponential-and-poisson-distributions/index.html"
@@ -9837,7 +9837,7 @@
         "unit_slug": "probability-distributions",
         "unit_name": "Continuous Probability & Distributions",
         "unit_number": 5,
-        "question_count": 25,
+        "question_count": 50,
         "subtopic_labels": [
           "correlation-and-covariance",
           "exponential-distribution",
@@ -9845,7 +9845,7 @@
           "random-variables-cdf-pdf",
           "uniform-distribution"
         ],
-        "verdict": "MOCK_READY"
+        "verdict": "MOCK_CAPPED"
       },
       "visual": {
         "slug": "exponential-and-poisson-distributions",
@@ -9856,7 +9856,7 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/probability-and-statistics/random-variables-and-distributions/exponential-distribution.json",
-        "mock: engineering-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=probability-distributions (25 records)",
+        "mock: engineering-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=probability-distributions (50 records)",
         "mock url: runs[] last entry for probability-distributions -> https://gate-cse-mocks.vercel.app/engineering-mathematics/probability-distributions/gate_em_mock_5_2026-10-30.html",
         "visual: topics.json slug=exponential-and-poisson-distributions; syllabus-coverage.json subtopics/microtopics checked against the card text",
         "visual url: topics/exponential-and-poisson-distributions/index.html"
@@ -9876,7 +9876,7 @@
         "unit_slug": "probability-distributions",
         "unit_name": "Continuous Probability & Distributions",
         "unit_number": 5,
-        "question_count": 25,
+        "question_count": 50,
         "subtopic_labels": [
           "correlation-and-covariance",
           "exponential-distribution",
@@ -9884,7 +9884,7 @@
           "random-variables-cdf-pdf",
           "uniform-distribution"
         ],
-        "verdict": "MOCK_READY"
+        "verdict": "MOCK_CAPPED"
       },
       "visual": {
         "slug": "uniform-distribution",
@@ -9895,7 +9895,7 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/probability-and-statistics/random-variables-and-distributions/continuous-uniform-distribution.json",
-        "mock: engineering-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=probability-distributions (25 records)",
+        "mock: engineering-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=probability-distributions (50 records)",
         "mock url: runs[] last entry for probability-distributions -> https://gate-cse-mocks.vercel.app/engineering-mathematics/probability-distributions/gate_em_mock_5_2026-10-30.html",
         "visual: topics.json slug=uniform-distribution; syllabus-coverage.json subtopics/microtopics checked against the card text",
         "visual url: topics/uniform-distribution/index.html"
@@ -9915,7 +9915,7 @@
         "unit_slug": "probability-distributions",
         "unit_name": "Continuous Probability & Distributions",
         "unit_number": 5,
-        "question_count": 25,
+        "question_count": 50,
         "subtopic_labels": [
           "correlation-and-covariance",
           "exponential-distribution",
@@ -9923,7 +9923,7 @@
           "random-variables-cdf-pdf",
           "uniform-distribution"
         ],
-        "verdict": "MOCK_READY"
+        "verdict": "MOCK_CAPPED"
       },
       "visual": {
         "slug": "normal-distribution",
@@ -9934,7 +9934,7 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/probability-and-statistics/random-variables-and-distributions/normal-distribution-and-standardisation.json",
-        "mock: engineering-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=probability-distributions (25 records)",
+        "mock: engineering-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=probability-distributions (50 records)",
         "mock url: runs[] last entry for probability-distributions -> https://gate-cse-mocks.vercel.app/engineering-mathematics/probability-distributions/gate_em_mock_5_2026-10-30.html",
         "visual: topics.json slug=normal-distribution; syllabus-coverage.json subtopics/microtopics checked against the card text",
         "visual url: topics/normal-distribution/index.html"
@@ -9954,7 +9954,7 @@
         "unit_slug": "probability-distributions",
         "unit_name": "Continuous Probability & Distributions",
         "unit_number": 5,
-        "question_count": 25,
+        "question_count": 50,
         "subtopic_labels": [
           "correlation-and-covariance",
           "exponential-distribution",
@@ -9962,7 +9962,7 @@
           "random-variables-cdf-pdf",
           "uniform-distribution"
         ],
-        "verdict": "MOCK_READY"
+        "verdict": "MOCK_CAPPED"
       },
       "visual": {
         "slug": "probability-and-random-variables",
@@ -9973,7 +9973,7 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/probability-and-statistics/random-variables-and-distributions/choosing-the-right-distribution.json",
-        "mock: engineering-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=probability-distributions (25 records)",
+        "mock: engineering-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=probability-distributions (50 records)",
         "mock url: runs[] last entry for probability-distributions -> https://gate-cse-mocks.vercel.app/engineering-mathematics/probability-distributions/gate_em_mock_5_2026-10-30.html",
         "visual: topics.json slug=probability-and-random-variables; syllabus-coverage.json subtopics/microtopics checked against the card text",
         "visual url: topics/probability-and-random-variables/index.html"
@@ -9993,7 +9993,7 @@
         "unit_slug": "probability-distributions",
         "unit_name": "Continuous Probability & Distributions",
         "unit_number": 5,
-        "question_count": 25,
+        "question_count": 50,
         "subtopic_labels": [
           "correlation-and-covariance",
           "exponential-distribution",
@@ -10001,7 +10001,7 @@
           "random-variables-cdf-pdf",
           "uniform-distribution"
         ],
-        "verdict": "MOCK_READY"
+        "verdict": "MOCK_CAPPED"
       },
       "visual": {
         "slug": "normal-distribution",
@@ -10012,7 +10012,7 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/probability-and-statistics/random-variables-and-distributions/sums-of-independent-random-variables.json",
-        "mock: engineering-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=probability-distributions (25 records)",
+        "mock: engineering-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=probability-distributions (50 records)",
         "mock url: runs[] last entry for probability-distributions -> https://gate-cse-mocks.vercel.app/engineering-mathematics/probability-distributions/gate_em_mock_5_2026-10-30.html",
         "visual: topics.json slug=normal-distribution; syllabus-coverage.json subtopics/microtopics checked against the card text",
         "visual url: topics/normal-distribution/index.html"
@@ -10585,6 +10585,11 @@
       "kind": "notes",
       "placement": "compiler-design › runtime-environments",
       "detail": "visual lesson \"runtime-environments-and-activation-records\" (PUBLISHED 2026-10-31) serves no notes card; it covers activation-record fields, control vs access link, displays and the four parameter modes, which the compiler-design unit \"Runtime Environments & Code Optimization\" (unit_number 5, 50 questions, group activation-records-call-stack 12) also exercises"
+    },
+    {
+      "kind": "notes",
+      "placement": "computer-networks › application-layer-security",
+      "detail": "mock unit \"Application Layer & Network Security\" (unit_number 6, 25 questions) serves no notes card; subtopic groups: DNS hierarchy & resolution 6, Digital signatures & firewalls 5, HTTP, HTTPS, SMTP & FTP 7, Symmetric, asymmetric & RSA 7"
     }
   ]
 }
