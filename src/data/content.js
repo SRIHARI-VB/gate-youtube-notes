@@ -296,7 +296,7 @@ window.GATE_DATA = {
      {
       "slug": "instruction-set-and-addressing-modes",
       "name": "Instruction Set and Addressing Modes",
-      "material": "planned"
+      "material": "cards"
      },
      {
       "slug": "alu-design",
@@ -32846,6 +32846,1132 @@ window.GATE_DATA = {
    "subject": "digital-logic",
    "topic": "computer-arithmetic",
    "path": "subjects/digital-logic/computer-arithmetic/fixed-versus-floating-point.json"
+  },
+  {
+   "id": "instruction-format-and-fields",
+   "title": "The Instruction Format: Opcode, Operand Fields and Length",
+   "priority": "P1",
+   "order": 480,
+   "unit": "Instruction Set and Addressing Modes",
+   "quickIdea": "A machine instruction is an opcode plus the fields that locate its operands. The format decides how many bits each field gets, and that is the whole of what a 'format' means.",
+   "remember": [
+    "Two parts, always: the opcode says what to do, the operand field says where the data is. The addressing mode is the rule for reading that operand field.",
+    "A destination operand can be a register or a memory location. An immediate value can only ever be a source, never a destination.",
+    "Fixed-length instructions (a 32-bit RISC word) are decoded in one step; variable-length instructions (x86, 1 to 15 bytes) must be decoded byte by byte.",
+    "An address field of n bits can name only 2^n locations, which is why direct addressing caps the address space at the width of that field.",
+    "Byte-aligned storage: an instruction of b bits occupies ceil(b/8) bytes, and the rounding up is part of the answer to a program-size question.",
+    "The register fields are sized by the register file, not by the opcode: 32 registers cost 5 bits per register field, 64 cost 6."
+   ],
+   "example": {
+    "prompt": "A 32-bit instruction has a 6-bit opcode, two register fields for a 16-register file, and an immediate field. How wide is the immediate field, and what unsigned range does it hold?",
+    "work": "Each register field is log2(16) = 4 bits, so the two of them take 8. The immediate field is 32 - 6 - 8 = 18 bits. An 18-bit unsigned field holds 0 to 2^18 - 1 = 262143.",
+    "answer": "18 bits, holding 0 to 262143."
+   },
+   "gateAngle": "GATE tests the format as an arithmetic budget far more often than as a diagram: the immediate width of a fixed word (GATE CSE 2016 Set 2 Q.10), the widest immediate an ADD can carry (GATE CSE 2025 Set 1 Q.27), and the opcode count once an addressing-mode field is carved out (GATE CSE 2024 Set 2 Q.47). All three are the same subtraction, done from a different starting point.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "A 16-bit instruction has a 4-bit opcode, one 4-bit register field and one address field. How much memory can the address field name, and what happens to that reach if the machine is byte addressable rather than word addressable?",
+     "answer": "The address field is 16 - 4 - 4 = 8 bits, so it names 2^8 = 256 locations. Byte addressable that is 256 bytes; word addressable with 2-byte words it is 512 bytes.",
+     "why": "The field width fixes the number of addressable units, and the unit size then fixes the number of bytes. GATE asks the two halves separately; the mistake is to answer 256 bytes without asking what a location is."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why does a fixed-length instruction set decode faster than a variable-length one?",
+     "answer": "Because the opcode always sits in the same bit positions, so the decoder can read it before it knows how long the instruction is; with variable length the opcode's position depends on the bytes already consumed.",
+     "why": "This is the design reason RISC fixes the length, and it is the sentence behind the RISC-against-CISC comparison rather than a separate fact."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "A machine has 12 instructions, 8 registers and a two-address format in a 12-bit word, with a 4-bit mode field. What is the largest immediate the remaining bits can carry?",
+     "answer": "4 bits of opcode (12 instructions needs 4), 3 + 3 bits of registers, 4 bits of mode: 12 - 4 - 6 - 4 = -2, so no bits are left. The format does not fit and one field must shrink.",
+     "why": "The budget can go negative. GATE has asked for a maximum, but the negative case is the one that exposes whether you are adding the fields or guessing."
+    }
+   ],
+   "trap": {
+    "what": "Reading the operand field as if it were always an address.",
+    "why": "The field is bits; the mode tells you what those bits mean. In immediate mode they are the value, in register mode they are a register number, in direct mode they are a memory address.",
+    "counterexample": "In ADD R1, #25 the second field holds the number 25. Nothing is fetched from memory location 25, and the instruction is one word long, not two."
+   },
+   "check": {
+    "question": "An instruction set has 41-bit instructions that must be byte aligned. How many bytes does a 100-instruction program occupy?",
+    "answer": "600 bytes.",
+    "explanation": "41 bits rounds up to ceil(41/8) = 6 bytes per instruction, so 100 x 6 = 600. The 7 wasted bits per instruction are the price of byte alignment."
+   },
+   "pyqIds": [],
+   "prereqs": [
+    "unsigned-fixed-width-range",
+    "base-conversion-integer-and-fraction"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 07 - Instruction Format and Addressing Modes",
+     "channel": "NPTEL, Computer Organization and Architecture (Prof. Kamalika Datta, NIT Meghalaya)",
+     "url": "http://www.digimat.in/nptel/courses/video/106105163/lec7.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read from the opening through the list of addressing modes: the opcode and operand parts of an instruction, the rule that a destination operand must be a register or a memory location while an immediate can only be a source, the zero- to three-address formats, the 32-bit field example with 32 registers costing 5 bits each, and the statement that load-store architectures support very few addressing modes. The returned extract stopped before the mode-by-mode teaching, so nothing is attributed to that part"
+    },
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 12 - Addressing Modes",
+     "channel": "NPTEL, Computer Organization and Architecture - A Pedagogical Aspect (Prof. Jatindra Kr. Deka, Dr. Santosh Biswas, Dr. Arnab Sarkar, IIT Guwahati)",
+     "url": "http://www.digimat.in/nptel/courses/video/106103180/lec12.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read from the opening through the definition of displacement addressing: the reason a large operand is moved out of the instruction into memory, the immediate / direct / indirect / register / register-indirect ladder with the size-and-speed trade-off of each, and the two-part address of displacement addressing. The returned extract stopped inside the displacement discussion, so nothing is attributed to the indexed, relative, autoincrement or stack material of the same lecture"
+    }
+   ],
+   "sourceLine": "The opcode-and-operand split, the rule that a destination must be a register or a memory location while an immediate is only a source, the zero- to three-address formats and the 32-bit field example with 5 bits per register: Datta, Lecture 07 (English, read in part). The statement that a high-precision operand forces a long instruction and is therefore moved into memory, which is the format-versus-mode trade: Deka et al., Lecture 12 (English, read in part). Every number here is recomputed in scripts/validate.py.",
+   "videoRefs": [],
+   "subject": "computer-organization-and-architecture",
+   "topic": "instruction-set-and-addressing-modes",
+   "path": "subjects/computer-organization-and-architecture/instruction-set-and-addressing-modes/instruction-format-and-fields.json"
+  },
+  {
+   "id": "instruction-field-bit-budget",
+   "title": "Splitting the Word: The Bit Budget for Opcode, Registers, Mode and Immediate",
+   "priority": "P1",
+   "order": 481,
+   "unit": "Instruction Set and Addressing Modes",
+   "quickIdea": "Every instruction-encoding question in GATE is one subtraction: total bits minus ceil(log2) of each enumerated field leaves the rest.",
+   "remember": [
+    "Fields need ceil(log2 n) bits: 40 instructions need 6, 24 registers need 5, 8 addressing modes need 3, 50 instruction types need 6.",
+    "The remainder is not always a clean power of two, and that is fine: the field simply has unused codes.",
+    "An addressing-mode field is spent before the opcode is computed. Ignoring it is the single commonest error.",
+    "Count the register fields the instruction actually encodes. ADD R1, #25 names one register, not two, because R1 is both source and destination.",
+    "Variable-length opcodes (expanding opcodes) let one short opcode release its spare codes to longer formats; the budget then has to be done per format.",
+    "A question that says 'maximum number of bits' wants the largest field the format allows, not the field some real machine uses."
+   ],
+   "example": {
+    "prompt": "A 32-bit instruction has an opcode, an addressing-mode field for 8 modes, two register fields for a 16-register file, and a 16-bit scalar field. How many distinct opcodes can each mode carry?",
+    "work": "Mode field 3 bits, registers 4 + 4 = 8 bits, scalar 16 bits: 3 + 8 + 16 = 27 bits used, so the opcode gets 32 - 27 = 5 bits and 2^5 = 32 opcodes.",
+    "answer": "32 opcodes for every mode - 32, not 8 x 32 = 256, which would be the count of distinct instructions."
+   },
+   "gateAngle": "Three verified questions are the same subtraction from three directions: GATE CSE 2016 Set 2 Q.10 (32 bits, 40 instructions, 24 registers, two register fields - immediate 16), GATE CSE 2025 Set 1 Q.27 (32 bits, 50 types, 64 registers, one register field - immediate 20) and GATE CSE 2024 Set 2 Q.47 (32 bits, 8 modes, 16 registers, 16-bit scalar - 32 opcodes per mode). The 2024 question adds the one twist the older two do not have: the mode field.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "A 24-bit instruction carries an opcode, one 4-bit mode field, two register fields for a 32-register file, and an immediate. There are 200 instructions. How wide is the immediate?",
+     "answer": "Opcode ceil(log2 200) = 8, mode 4, registers 5 + 5 = 10: 8 + 4 + 10 = 22, so the immediate is 2 bits.",
+     "why": "Same subtraction, but the opcode is no longer a power of two, so the ceiling has to be taken. A candidate who writes log2 200 = 7.64 and rounds down gets 3 bits and a wrong answer."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why is the count of distinct instructions 8 x 32 and not 32 in the 2024 Set 2 question?",
+     "answer": "Because the opcode is reused under each of the 8 mode values: the pair (mode, opcode) identifies an instruction, so 8 x 32 distinct instructions share 32 opcode codes.",
+     "why": "The question asks for opcodes per mode, not instructions. The 256 figure is the instruction count, and it is the distractor the paper puts there."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "The same 32-bit format as the 2024 question is extended to 32 addressing modes. What happens to the opcode count?",
+     "answer": "The mode field grows from 3 to 5 bits, the opcode drops from 5 bits to 3, and the count falls from 32 to 8.",
+     "why": "Every extra mode bit is taken straight from the opcode. That is the trade the format designer is making, and GATE can ask it in either direction."
+    }
+   ],
+   "trap": {
+    "what": "Forgetting the addressing-mode field, or assuming every instruction encodes two registers.",
+    "why": "The mode field is part of the format even when the question does not draw it, and the number of encoded register fields is a property of the instruction shown, not of the machine.",
+    "counterexample": "In ADD R1, #25 there is one register field. Taking two 6-bit register fields leaves 14 bits for the immediate, which is not one of the printed options - the option set itself tells you the field count is one."
+   },
+   "check": {
+    "question": "16 registers, 100 instructions, a 3-bit mode field, a 20-bit instruction and one register field. How wide is the immediate field?",
+    "answer": "6 bits.",
+    "explanation": "Opcode ceil(log2 100) = 7 bits, one register field 4 bits, mode 3 bits: 20 - 7 - 4 - 3 = 6. The check is that 7 + 4 + 3 + 6 = 20 exactly."
+   },
+   "pyqIds": [
+    "gate-2016-set-2-q10-immediate-field",
+    "gate-2025-set-1-q27-immediate-field",
+    "gate-2024-set-2-q47-opcodes-per-mode"
+   ],
+   "prereqs": [
+    "instruction-format-and-fields",
+    "unsigned-fixed-width-range"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 07 - Instruction Format and Addressing Modes",
+     "channel": "NPTEL, Computer Organization and Architecture (Prof. Kamalika Datta, NIT Meghalaya)",
+     "url": "http://www.digimat.in/nptel/courses/video/106105163/lec7.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read from the opening through the list of addressing modes: the opcode and operand parts of an instruction, the rule that a destination operand must be a register or a memory location while an immediate can only be a source, the zero- to three-address formats, the 32-bit field example with 32 registers costing 5 bits each, and the statement that load-store architectures support very few addressing modes. The returned extract stopped before the mode-by-mode teaching, so nothing is attributed to that part"
+    }
+   ],
+   "sourceLine": "The worked 32-bit field split with 32 registers costing 5 bits each, and the statement that the number of operands varies with the instruction: Datta, Lecture 07 (English, read in part). The expanding-opcode consequence and every number in the three verified questions are recomputed in scripts/validate.py, which also re-derives all three GATE answers from the question text.",
+   "videoRefs": [],
+   "subject": "computer-organization-and-architecture",
+   "topic": "instruction-set-and-addressing-modes",
+   "path": "subjects/computer-organization-and-architecture/instruction-set-and-addressing-modes/instruction-field-bit-budget.json"
+  },
+  {
+   "id": "isa-instruction-types-and-risc-cisc",
+   "title": "What an Instruction Set Is, and Why RISC Has Few Addressing Modes",
+   "priority": "P2",
+   "order": 482,
+   "unit": "Instruction Set and Addressing Modes",
+   "quickIdea": "The instruction set is the programmer-visible contract: which operations exist, what data they work on, how operands are addressed and how control moves. Organisation is how that contract is built, and the addressing-mode count is the sharpest visible difference between RISC and CISC.",
+   "remember": [
+    "Architecture is what a programmer must know: instruction set, data formats, addressing techniques, I/O mechanism. Organisation is how it is realised: control signals, interfaces, memory technology.",
+    "Four instruction families cover almost every ISA: data transfer, arithmetic and logic, control transfer (branch, call, return), and input/output.",
+    "RISC: fixed-length instructions, load-store only (memory is reached only by load and store), few addressing modes, many registers, hardwired control.",
+    "CISC: variable-length instructions, memory operands allowed inside arithmetic instructions, many addressing modes, microprogrammed control.",
+    "A load-store ISA pays for simplicity with instruction count: an arithmetic instruction can only see registers, so every memory operand costs a separate load or store.",
+    "The addressing-mode list of a machine is therefore not a detail of its encoding but a statement about its whole design school."
+   ],
+   "example": {
+    "prompt": "In a load-store machine, how many instructions does A = B + C need if A, B and C are all in memory, and how many in a two-address machine that allows one memory operand?",
+    "work": "Load-store: LOAD R1, B; LOAD R2, C; ADD R3, R1, R2; STORE R3, A - four instructions. Two-address with a memory operand: MOV R1, B; ADD R1, C; MOV A, R1 - three.",
+    "answer": "Four against three: the load-store machine spends an extra instruction to keep every arithmetic operand in a register."
+   },
+   "gateAngle": "GATE asks this as a definition rather than as a computation: which of a list of processor properties belong to the instruction set architecture and which belong to the implementation (GATE CSE 2025 Set 2 Q.18 is that question, and it is not recorded here because its option set could not be read this run). The load-store sequence question (GATE CSE 2026 Set 1 Q.52, memory-based) is the same idea asked as code.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "Which of these are part of the instruction set architecture: the number of general-purpose registers, the cache size, the addressing modes, the clock frequency?",
+     "answer": "The register count and the addressing modes. Cache size and clock frequency are organisation - a program runs correctly whatever they are.",
+     "why": "The test is visibility to the program. A compiler must know the registers and the modes to emit code; it need not know the cache size."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why does a CISC machine with autoincrement and indexed modes need fewer instructions for an array loop than a load-store machine?",
+     "answer": "Because one CISC instruction can do the address arithmetic and the memory access together, while the RISC machine must issue separate add, load and store instructions for each element.",
+     "why": "Fewer, fatter instructions against more, simpler ones. The instruction count falls; the cycles per instruction rise, and the pipeline gets harder."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "A machine has autoincrement but no indexed mode. Which loop does it handle well and which badly?",
+     "answer": "Sequential traversal of an array is fine - autoincrement walks it - but a random or strided access A[i] with a computed i needs the index, so it must be turned into an add plus a register-indirect access.",
+     "why": "Each mode exists for a shape of access. Naming the shape is the GATE answer; naming the mode alone is not."
+    }
+   ],
+   "trap": {
+    "what": "Treating 'RISC has fewer addressing modes' as a performance claim.",
+    "why": "It is a design consequence: with a fixed 32-bit word and load-store semantics there is little room for mode bits, and no need for them because memory is reached only through load and store.",
+    "counterexample": "MIPS has essentially register, immediate and base-plus-displacement modes. That is not a weaker machine; it is a machine that moved the complexity into the compiler."
+   },
+   "check": {
+    "question": "Name the four instruction families and give one example instruction from each.",
+    "answer": "Data transfer (LOAD, STORE, MOV), arithmetic and logic (ADD, AND), control transfer (BEQ, CALL, RETURN), and input/output (IN, OUT).",
+    "explanation": "Every ISA enumerates roughly these four; what differs between machines is the operand forms each family may take, which is exactly the addressing-mode question."
+   },
+   "pyqIds": [],
+   "prereqs": [
+    "instruction-format-and-fields"
+   ],
+   "sources": [
+    {
+     "kind": "web-course-chapter",
+     "title": "Computer Organization and Architecture web course, Module 4 (machine instructions, instruction format and addressing modes)",
+     "channel": "NPTEL web course by Prof. J. K. Deka, IIT Guwahati (read through a published mirror of the course pages)",
+     "url": "https://studylib.net/doc/18434730/computer-organization-and-architecture",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read the module outline and the introduction chapters: the architecture-against-organization distinction with the instruction set, data formats and memory-addressing techniques listed as architectural, the statement that Module 4 covers addressing modes and instruction formats, and the evolution-of-instruction-sets paragraph naming load/store and RISC as the simple-addressing designs. The Module 4 chapter pages themselves were not in the returned extract, so no mode definition is attributed to this source"
+    },
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 3 - Instruction Set Architecture - 1",
+     "channel": "NPTEL, Computer Architecture (Prof. Anshul Kumar, IIT Delhi)",
+     "url": "http://www.digimat.in/nptel/courses/video/106102062/lec3.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read from the opening through the start of the arithmetic instruction discussion: instructions as the interface between hardware and software, the design goals of an instruction set, the move from a toy machine to MIPS as a real RISC architecture, and the convention that the first listed register is the destination. The returned extract stopped early, so nothing is attributed to the later lectures or to the load/store and branch material"
+    },
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 07 - Instruction Format and Addressing Modes",
+     "channel": "NPTEL, Computer Organization and Architecture (Prof. Kamalika Datta, NIT Meghalaya)",
+     "url": "http://www.digimat.in/nptel/courses/video/106105163/lec7.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read from the opening through the list of addressing modes: the opcode and operand parts of an instruction, the rule that a destination operand must be a register or a memory location while an immediate can only be a source, the zero- to three-address formats, the 32-bit field example with 32 registers costing 5 bits each, and the statement that load-store architectures support very few addressing modes. The returned extract stopped before the mode-by-mode teaching, so nothing is attributed to that part"
+    }
+   ],
+   "sourceLine": "The architecture-against-organisation distinction with the instruction set, data formats and memory-addressing techniques named as architectural attributes: Deka's NPTEL web course, introduction chapters (English, read in part through a published mirror). Instructions as the interface between hardware and software and MIPS as a real RISC design: Anshul Kumar, Lecture 3 (English, read in part). The statement that load-store architectures support very few addressing modes: Datta, Lecture 07 (English, read in part). No previous-year question is attached: the one that tests it directly, GATE CSE 2025 Set 2 Q.18, was seen only as a stripped listing and is not claimed here.",
+   "videoRefs": [],
+   "subject": "computer-organization-and-architecture",
+   "topic": "instruction-set-and-addressing-modes",
+   "path": "subjects/computer-organization-and-architecture/instruction-set-and-addressing-modes/isa-instruction-types-and-risc-cisc.json"
+  },
+  {
+   "id": "instruction-formats-zero-to-three-address",
+   "title": "Zero-, One-, Two- and Three-Address Formats",
+   "priority": "P1",
+   "order": 483,
+   "unit": "Instruction Set and Addressing Modes",
+   "quickIdea": "How many operands an instruction names decides how many instructions a statement costs. The more addresses per instruction, the fewer instructions - and the more bits per instruction.",
+   "remember": [
+    "0-address: operands are on a stack, pushed and popped. 1-address: one operand, the other is the implied accumulator. 2-address: one operand is also the destination. 3-address: two sources and a separate destination.",
+    "An address field may name a memory location or a processor register. It may not name an implied accumulator, because an implied operand is by definition not written down.",
+    "Fewer addresses means a shorter instruction but a longer program. This is a straight trade, not an improvement.",
+    "Typical counts for X = (A + B) * (C + D): 3 three-address, 6 two-address, 7 one-address, 8 zero-address.",
+    "Two-address arithmetic destroys one source operand, so a compiler must copy it first if it is needed again.",
+    "The three-address form is what makes expression evaluation short; the bit cost of three address fields is why it is not universal."
+   ],
+   "example": {
+    "prompt": "Count the instructions needed for X = (A + B) * (C + D) in one-address and two-address form.",
+    "work": "One-address (accumulator): LOAD A; ADD B; STORE T; LOAD C; ADD D; MUL T; STORE X - 7 instructions. Two-address: MOV R1, A; ADD R1, B; MOV R2, C; ADD R2, D; MUL R1, R2; MOV X, R1 - 6 instructions. Three-address would be ADD R1, A, B; ADD R2, C, D; MUL X, R1, R2 - 3.",
+    "answer": "7 in one-address form, 6 in two-address form, 3 in three-address form."
+   },
+   "gateAngle": "GATE CSE 2015 Set 1 Q.8 asks what a single address field of a three-address format may specify, and the answer is memory or register but never an implied accumulator - the question is testing whether you know that 'three-address' is about fields, not about a machine with three registers. The instruction-count comparison is the standard companion and appears in the textbook exercises rather than in a CSE paper.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "In a two-address machine, how many instructions does X = A + B + C + D take, and how many temporaries are needed?",
+     "answer": "Four instructions - MOV R1, A; ADD R1, B; ADD R1, C; ADD R1, D - and no temporaries.",
+     "why": "Two-address form can accumulate into one register when the expression is a chain of additions, so no temporary is needed. A tree-shaped expression such as (A+B)*(C+D) does need one."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why can a zero-address machine evaluate (A+B)*(C+D) with no temporaries?",
+     "answer": "Because the stack itself holds the intermediate values: after pushing A and B and adding, the partial sum is on the stack, and the second sum goes above it.",
+     "why": "The stack is the temporary store. That is why stack machines have such short opcodes and such long programs."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "A three-address format has three 8-bit address fields and a 4-bit opcode. How wide must the word be, and what does that say about three-address designs?",
+     "answer": "28 bits. Three 8-bit fields reach only 256 locations each, so three-address designs are usually paired with a register file rather than a large memory.",
+     "why": "This is precisely why real three-address machines name registers in two fields and memory in none."
+    }
+   ],
+   "trap": {
+    "what": "Assuming a three-address instruction must name three memory addresses.",
+    "why": "The address field may hold a register number. In a load-store machine all three fields are registers and memory never appears in the instruction.",
+    "counterexample": "ADD R1, R2, R3 has three address fields and touches no memory at all. Only a load or a store instruction reaches memory."
+   },
+   "check": {
+    "question": "How many instructions does X = A * B take in zero-address form?",
+    "answer": "Four: PUSH A; PUSH B; MUL; POP X.",
+    "explanation": "Two pushes put the operands on the stack, MUL replaces the top two by their product, and POP stores the result. A one-address machine needs three: LOAD A; MUL B; STORE X."
+   },
+   "pyqIds": [
+    "gate-2015-set-1-q8-three-address-fields"
+   ],
+   "prereqs": [
+    "instruction-format-and-fields"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 07 - Instruction Format and Addressing Modes",
+     "channel": "NPTEL, Computer Organization and Architecture (Prof. Kamalika Datta, NIT Meghalaya)",
+     "url": "http://www.digimat.in/nptel/courses/video/106105163/lec7.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read from the opening through the list of addressing modes: the opcode and operand parts of an instruction, the rule that a destination operand must be a register or a memory location while an immediate can only be a source, the zero- to three-address formats, the 32-bit field example with 32 registers costing 5 bits each, and the statement that load-store architectures support very few addressing modes. The returned extract stopped before the mode-by-mode teaching, so nothing is attributed to that part"
+    }
+   ],
+   "sourceLine": "The zero- to three-address enumeration, the worked formats and the statement that the number of operands varies with the instruction: Datta, Lecture 07 (English, read in part). The instruction counts in the example and the quick check are recomputed in scripts/validate.py.",
+   "videoRefs": [],
+   "subject": "computer-organization-and-architecture",
+   "topic": "instruction-set-and-addressing-modes",
+   "path": "subjects/computer-organization-and-architecture/instruction-set-and-addressing-modes/instruction-formats-zero-to-three-address.json"
+  },
+  {
+   "id": "immediate-addressing",
+   "title": "Immediate Addressing: The Operand Is in the Instruction",
+   "priority": "P1",
+   "order": 484,
+   "unit": "Instruction Set and Addressing Modes",
+   "quickIdea": "Immediate mode puts the value itself in the operand field. It costs no data memory reference and it cannot be written to.",
+   "remember": [
+    "Operand = the value in the address field. No effective address is computed, and there is no operand memory reference - only the instruction fetch.",
+    "It is the fastest mode and the narrowest: the value is limited to the field width, which is usually much less than a word.",
+    "An immediate can only be a source. A destination must be a register or a memory location.",
+    "In a high-level language it is a constant: the 5 in x = 5, or the 6 in A = B + 6.",
+    "Two immediate forms are distinguished in practice: a short literal in the operand field, and a long literal carried in a following word.",
+    "Because the value is fixed at assembly time, a program that needs the same constant twice carries it twice."
+   ],
+   "example": {
+    "prompt": "A 16-bit immediate field is unsigned. What is the largest constant ADD R1, #c can add, and what is the instruction's own length if the opcode is 6 bits and R1 is 5 bits?",
+    "work": "16 unsigned bits hold 0 to 65535, so c <= 65535. The instruction is 6 + 5 + 16 = 27 bits, which byte-aligns to 4 bytes.",
+    "answer": "65535 at most, in a 4-byte instruction."
+   },
+   "gateAngle": "The immediate field's width is the arithmetic GATE actually asks for (GATE CSE 2016 Set 2 Q.10 gives 16 bits; GATE CSE 2025 Set 1 Q.27 gives 20). The mode itself is asked as a classification - GATE CSE 2026 Set 1 Q.4 pairs immediate with a constant, and GATE CSE 2002 Q.1.24 uses 'the operand is inside the instruction' as the wrong option for absolute addressing, which is the immediate definition used as a distractor.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "Is ADD R1, #25 a one-word or a two-word instruction, and how many memory references does its operand need?",
+     "answer": "One word if the field is wide enough for 25, and zero operand memory references.",
+     "why": "The constant travels inside the fetched instruction. That is the whole advantage, and it is why an immediate field is worth its bits."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why is the immediate value limited to the address field's width, and what do designers do about it?",
+     "answer": "Because it must fit in the instruction word. Designers add a second form that carries a full-width literal in the next word, or build the constant by shifting a shorter one.",
+     "why": "This is the origin of the 'load upper immediate' pair of instructions in MIPS-like designs, and of the length penalty a long literal carries."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "A loop adds 1 to a counter a million times. Is immediate addressing the right choice, and what does the instruction count look like?",
+     "answer": "Yes - the 1 is a constant - and the loop needs one ADD R1, #1 per iteration rather than a load of a constant plus an add.",
+     "why": "Using a memory constant instead would add one memory reference per iteration. That is the trade the mode exists to avoid."
+    }
+   ],
+   "trap": {
+    "what": "Saying the operand of an immediate instruction is the address 25 rather than the value 25.",
+    "why": "The bits in the field are the value. There is no second level of interpretation and nothing is fetched.",
+    "counterexample": "GATE CSE 2002 Q.1.24 offers 'the operand is inside the instruction' as an option for absolute addressing; it is wrong there and right here. The two modes are exactly each other's distractor."
+   },
+   "check": {
+    "question": "Which of these can never be an immediate operand: a source in an ADD, a destination in a MOV, an argument to a branch?",
+    "answer": "The destination. An immediate has no location to be written into.",
+    "explanation": "MOV #5, R1 is legal; MOV R1, #5 is not. The immediate is a value without an address, so it can only be read."
+   },
+   "pyqIds": [],
+   "prereqs": [
+    "instruction-format-and-fields"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 12 - Addressing Modes",
+     "channel": "NPTEL, Computer Organization and Architecture - A Pedagogical Aspect (Prof. Jatindra Kr. Deka, Dr. Santosh Biswas, Dr. Arnab Sarkar, IIT Guwahati)",
+     "url": "http://www.digimat.in/nptel/courses/video/106103180/lec12.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read from the opening through the definition of displacement addressing: the reason a large operand is moved out of the instruction into memory, the immediate / direct / indirect / register / register-indirect ladder with the size-and-speed trade-off of each, and the two-part address of displacement addressing. The returned extract stopped inside the displacement discussion, so nothing is attributed to the indexed, relative, autoincrement or stack material of the same lecture"
+    },
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 07 - Instruction Format and Addressing Modes",
+     "channel": "NPTEL, Computer Organization and Architecture (Prof. Kamalika Datta, NIT Meghalaya)",
+     "url": "http://www.digimat.in/nptel/courses/video/106105163/lec7.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read from the opening through the list of addressing modes: the opcode and operand parts of an instruction, the rule that a destination operand must be a register or a memory location while an immediate can only be a source, the zero- to three-address formats, the 32-bit field example with 32 registers costing 5 bits each, and the statement that load-store architectures support very few addressing modes. The returned extract stopped before the mode-by-mode teaching, so nothing is attributed to that part"
+    },
+    {
+     "kind": "text",
+     "title": "What is addressing modes in Hindi (addressing modes in hindi)",
+     "channel": "computernetworksite.in (Hindi article following Stallings' treatment of addressing modes)",
+     "url": "https://www.computernetworksite.in/2023/03/what-is-addressing-modes-in-hindi.html",
+     "language": "hi",
+     "transcript": "PARTIAL",
+     "translated": true,
+     "note": "read through the seven modes: immediate, direct, indirect, register, register indirect, displacement (relative, base register, indexing) and stack, each with its advantage and its disadvantage in memory references and address-space width. Translated into English here; the article's illustrative instruction examples are 8085-specific and are not used"
+    }
+   ],
+   "sourceLine": "The immediate rung of the ladder, and the argument that a high-precision constant is pushed into memory precisely because an immediate would lengthen the instruction: Deka et al., Lecture 12 (English, read in part). The rule that an immediate is only ever a source: Datta, Lecture 07 (English, read in part). The statement, translated from Hindi, that immediate mode needs no memory reference beyond the instruction fetch and is limited by the address field's width: computernetworksite.in (Hindi, translated, read in part). No PYQ is attached because the immediate questions of this topic are field-width questions and sit on the bit-budget card.",
+   "videoRefs": [],
+   "subject": "computer-organization-and-architecture",
+   "topic": "instruction-set-and-addressing-modes",
+   "path": "subjects/computer-organization-and-architecture/instruction-set-and-addressing-modes/immediate-addressing.json"
+  },
+  {
+   "id": "direct-addressing",
+   "title": "Direct (Absolute) Addressing: The Address Is in the Instruction",
+   "priority": "P1",
+   "order": 485,
+   "unit": "Instruction Set and Addressing Modes",
+   "quickIdea": "Direct mode puts the memory address of the operand in the instruction. One operand memory reference, and an address space capped by the field width.",
+   "remember": [
+    "Effective address = the address field itself. No arithmetic, no indirection.",
+    "Exactly one operand memory reference: read the location named.",
+    "Address space is limited to 2^n locations for an n-bit field, which is usually narrower than the machine's word.",
+    "It is the natural mode for a global or static variable, whose address is fixed at compile time.",
+    "It is not relocatable: the absolute address is baked into the instruction, so moving the program breaks it unless the loader rewrites the field.",
+    "'Absolute' and 'direct' are the same mode under two names; a question may use either."
+   ],
+   "example": {
+    "prompt": "LOAD 200 is a direct-mode instruction with an 8-bit address field. What does it fetch, and how much memory can such an instruction reach at all?",
+    "work": "It reads M[200] and loads that value - the field is the effective address. An 8-bit field names 2^8 = 256 locations, so the reachable addresses are 0 to 255 and the 200 fits.",
+    "answer": "It fetches M[200], and the field can reach only 0 to 255."
+   },
+   "gateAngle": "GATE CSE 2002 Q.1.24 asks what absolute addressing means and the answer is that the address of the operand is inside the instruction - the other three options are the definitions of immediate, register-indirect and implicit addressing, so the question is really a four-mode discrimination. The relocation question (GATE CSE 2004 Q.20) uses direct addressing as the mode that cannot be relocated, which is the same fact seen from the other side.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "A machine's address field is 12 bits and its memory is 1 MB. What fraction of memory can direct addressing reach?",
+     "answer": "4096 of 1048576 locations, which is 1/256 of memory.",
+     "why": "The field, not the memory, sets the reach. This is the reason indirect and base modes exist at all."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why does a compiler prefer direct addressing for a global variable but not for a local one?",
+     "answer": "A global's address is fixed for the life of the program, so it can be written into the instruction; a local's address depends on the run-time stack frame, so it needs a base register.",
+     "why": "This is the same distinction the two displacement flavours carry: a fixed address against a fixed offset from a changing base."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "The same program is loaded at a different address. Which instructions break under direct addressing and why?",
+     "answer": "Every instruction that names an address inside the program or its data, because those absolute numbers now point at the old location.",
+     "why": "That is why relocation either rewrites the address fields (a relocating loader) or is avoided by using base or PC-relative modes."
+    }
+   ],
+   "trap": {
+    "what": "Confusing direct with immediate: both put something in the instruction.",
+    "why": "Direct puts an address there and reads memory once; immediate puts the value there and reads nothing.",
+    "counterexample": "LOAD 500 in direct mode gives M[500]. The same bits read as immediate give the number 500. Nothing in the bits tells you which - the mode field does."
+   },
+   "check": {
+    "question": "How many operand memory references does a direct-mode instruction need, and what is its effective address?",
+    "answer": "One; the effective address is the address field unchanged.",
+    "explanation": "Compare with indirect, which needs two, and with register mode, which needs none. The count is the standard way GATE distinguishes the modes."
+   },
+   "pyqIds": [
+    "gate-2002-q1-24-absolute-addressing"
+   ],
+   "prereqs": [
+    "instruction-format-and-fields",
+    "unsigned-fixed-width-range"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 12 - Addressing Modes",
+     "channel": "NPTEL, Computer Organization and Architecture - A Pedagogical Aspect (Prof. Jatindra Kr. Deka, Dr. Santosh Biswas, Dr. Arnab Sarkar, IIT Guwahati)",
+     "url": "http://www.digimat.in/nptel/courses/video/106103180/lec12.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read from the opening through the definition of displacement addressing: the reason a large operand is moved out of the instruction into memory, the immediate / direct / indirect / register / register-indirect ladder with the size-and-speed trade-off of each, and the two-part address of displacement addressing. The returned extract stopped inside the displacement discussion, so nothing is attributed to the indexed, relative, autoincrement or stack material of the same lecture"
+    },
+    {
+     "kind": "text",
+     "title": "What is addressing modes in Hindi (addressing modes in hindi)",
+     "channel": "computernetworksite.in (Hindi article following Stallings' treatment of addressing modes)",
+     "url": "https://www.computernetworksite.in/2023/03/what-is-addressing-modes-in-hindi.html",
+     "language": "hi",
+     "transcript": "PARTIAL",
+     "translated": true,
+     "note": "read through the seven modes: immediate, direct, indirect, register, register indirect, displacement (relative, base register, indexing) and stack, each with its advantage and its disadvantage in memory references and address-space width. Translated into English here; the article's illustrative instruction examples are 8085-specific and are not used"
+    }
+   ],
+   "sourceLine": "The direct rung of the ladder and the reason a large operand is held in memory rather than in the instruction: Deka et al., Lecture 12 (English, read in part). The statement, translated from Hindi, that direct addressing gives the effective address in the address field, needs one memory reference and reaches only the address space the field can name: computernetworksite.in (Hindi, translated, read in part). The 2002 question is recomputed against the four mode definitions in scripts/validate.py.",
+   "videoRefs": [],
+   "subject": "computer-organization-and-architecture",
+   "topic": "instruction-set-and-addressing-modes",
+   "path": "subjects/computer-organization-and-architecture/instruction-set-and-addressing-modes/direct-addressing.json"
+  },
+  {
+   "id": "indirect-addressing-and-pointers",
+   "title": "Indirect Addressing: An Address That Points at an Address",
+   "priority": "P1",
+   "order": 486,
+   "unit": "Instruction Set and Addressing Modes",
+   "quickIdea": "Indirect mode reads a pointer first: the instruction names a location, and that location holds the effective address. Two operand memory references buy a much larger address space.",
+   "remember": [
+    "Effective address = [address field]: read the named location, and what you read is the address of the operand.",
+    "Two operand memory references, not one: one to fetch the pointer, one to fetch the operand.",
+    "The reach is not the field width but the word width: an n-bit word gives 2^n addresses even when the field is short.",
+    "It is the mode for pointers, for passing an array by reference, and for any access whose target address is computed at run time.",
+    "Its cost is the extra memory reference and the extra latency, which is why a compiler keeps the pointer in a register (register indirect) when it can.",
+    "Multi-level indirection (a pointer to a pointer) simply adds another read per level."
+   ],
+   "example": {
+    "prompt": "An instruction has an 8-bit address field holding 200, M[200] = 1500 and M[1500] = 42. What does an indirect-mode operand give, and how many memory reads does it take?",
+    "work": "Read M[200] to get 1500 - that is the effective address - then read M[1500] to get 42. Two reads.",
+    "answer": "The operand is 42, reached in two memory reads, from an 8-bit field that alone could only have named 256 locations."
+   },
+   "gateAngle": "GATE CSE 1999 Q.2.23 is the mode-power question: with only immediate and direct addressing, which language features are out of reach? Pointers need indirection, and arrays, records and recursive-procedure locals are all reached through a computed address, so the accepted answer is all four. The memory-cycle cost of indirection is the second half: GATE CSE 2005 Q.65 charges an indirect operand two reads and an indexed operand one.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "A processor has only immediate and direct modes. Can it implement a linked list traversal?",
+     "answer": "Not in the ordinary way: following a next pointer needs the address to come from memory, which is indirection. It can only be done by self-modifying code, which most ISAs forbid.",
+     "why": "This is the same argument the 1999 question makes for pointers, applied to a concrete data structure."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why does indirect addressing widen the address space without widening the instruction?",
+     "answer": "Because the pointer stored in memory is a full word wide, while the field that names the pointer is only as wide as the instruction allows.",
+     "why": "The instruction supplies a small address; the machine supplies the rest of the width from the word it reads. This is the exact trade against direct addressing."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "How many memory reads does a two-level indirect operand take, and what does each one deliver?",
+     "answer": "Three: the pointer's pointer, the pointer, then the operand.",
+     "why": "Each level of indirection is one more dependent read, which is why deep pointer chains are slow even on machines that support them."
+    }
+   ],
+   "trap": {
+    "what": "Counting one memory reference for indirect mode.",
+    "why": "The pointer is itself in memory, so the effective address is not known until a read completes.",
+    "counterexample": "Register indirect needs one read, because the pointer is already in a register; memory indirect needs two. GATE distinguishes the two precisely by this count."
+   },
+   "check": {
+    "question": "An 8-bit address field holds 40, M[40] = 9000 and M[9000] = 5. What is the indirect operand, and how many memory reads does it take?",
+    "answer": "5, after two reads.",
+    "explanation": "The first read takes M[40] = 9000, which is the effective address; the second takes M[9000] = 5, which is the operand. The 8-bit field alone could only have named 256 locations, so indirection has widened the reach to the word width."
+   },
+   "pyqIds": [
+    "gate-1999-q2-23-immediate-and-direct-only"
+   ],
+   "prereqs": [
+    "direct-addressing",
+    "instruction-format-and-fields"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 12 - Addressing Modes",
+     "channel": "NPTEL, Computer Organization and Architecture - A Pedagogical Aspect (Prof. Jatindra Kr. Deka, Dr. Santosh Biswas, Dr. Arnab Sarkar, IIT Guwahati)",
+     "url": "http://www.digimat.in/nptel/courses/video/106103180/lec12.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read from the opening through the definition of displacement addressing: the reason a large operand is moved out of the instruction into memory, the immediate / direct / indirect / register / register-indirect ladder with the size-and-speed trade-off of each, and the two-part address of displacement addressing. The returned extract stopped inside the displacement discussion, so nothing is attributed to the indexed, relative, autoincrement or stack material of the same lecture"
+    },
+    {
+     "kind": "text",
+     "title": "What is addressing modes in Hindi (addressing modes in hindi)",
+     "channel": "computernetworksite.in (Hindi article following Stallings' treatment of addressing modes)",
+     "url": "https://www.computernetworksite.in/2023/03/what-is-addressing-modes-in-hindi.html",
+     "language": "hi",
+     "transcript": "PARTIAL",
+     "translated": true,
+     "note": "read through the seven modes: immediate, direct, indirect, register, register indirect, displacement (relative, base register, indexing) and stack, each with its advantage and its disadvantage in memory references and address-space width. Translated into English here; the article's illustrative instruction examples are 8085-specific and are not used"
+    }
+   ],
+   "sourceLine": "The indirect rung, described as the instruction naming a location which in turn names the data, and the note that indirection is what expands the reachable space: Deka et al., Lecture 12 (English, read in part). The statement, translated from Hindi, that indirect mode needs three or more memory references for the whole instruction and reaches 2^N addresses for an N-bit word: computernetworksite.in (Hindi, translated, read in part). The two-read operand count used on this card is the operand half of that figure, and the distinction is stated in scripts/validate.py.",
+   "videoRefs": [],
+   "subject": "computer-organization-and-architecture",
+   "topic": "instruction-set-and-addressing-modes",
+   "path": "subjects/computer-organization-and-architecture/instruction-set-and-addressing-modes/indirect-addressing-and-pointers.json"
+  },
+  {
+   "id": "register-and-register-indirect-addressing",
+   "title": "Register and Register-Indirect Addressing",
+   "priority": "P1",
+   "order": 487,
+   "unit": "Instruction Set and Addressing Modes",
+   "quickIdea": "Register mode names a register instead of a memory location - no memory reference at all. Register indirect puts the address in a register - one memory reference, and a pointer you can update for free.",
+   "remember": [
+    "Register mode: operand = [R]. No effective address is computed and no memory is touched.",
+    "The register field is short - 3 bits for 8 registers, 4 for 16, 5 for 32 - so register operands keep instructions small.",
+    "Register indirect: effective address = [R], then one memory read for the operand. The pointer lives in a register, so updating it is a register add, not a memory write.",
+    "Register indirect is the workhorse of array and pointer loops: add to the register, read through it, repeat.",
+    "The reach of register indirect is the register width, not the instruction's field width - the same widening effect as memory indirection, at one read instead of two.",
+    "Register mode is the only mode a load-store arithmetic instruction can use, which is why RISC code is register-heavy."
+   ],
+   "example": {
+    "prompt": "R2 = 1500, M[1500] = 42. What is the operand of ADD R1, R2 and of ADD R1, (R2), and how many memory reads does each need?",
+    "work": "Register mode: the operand is the contents of R2, which is 1500 - no memory read. Register indirect: the effective address is [R2] = 1500, so the operand is M[1500] = 42, after one read.",
+    "answer": "1500 with zero reads against 42 with one read. Same register, two different operands."
+   },
+   "gateAngle": "The distinction GATE tests here is the memory-reference count, and it is tested inside larger questions rather than alone: GATE CSE 2005 Q.65 charges the indirect operand two reads and the indexed operand one, and GATE CSE 2002 Q.1.24 uses 'the register containing the address of the operand is specified inside the instruction' as the definition of register-indirect in a four-way discrimination. No CSE question asks register mode on its own.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "A loop reads 100 consecutive words. Write the body using register indirect and say how many memory reads the addressing costs beyond the instruction fetch.",
+     "answer": "LOAD R1, (R2); ADD R2, #4 per iteration: one operand read per element, plus the register add which touches no memory.",
+     "why": "The pointer update is free of memory traffic. That is why register indirect beats memory indirect for a traversal."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why is a register field usually only 4 or 5 bits while an address field is 16 or more?",
+     "answer": "Because a machine has tens of registers and millions of memory locations; the field is sized to the thing it names.",
+     "why": "This is the reason register operands shorten instructions, and the reason a machine with many registers spends more bits per register field - the 2016 Set 2 question's 24 registers costing 5 bits."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "A machine has 64 registers. What does that do to a three-register instruction with a 6-bit opcode?",
+     "answer": "The registers take 18 bits, so the instruction needs 24 bits before any immediate - and a 16-bit format is impossible.",
+     "why": "Register width is not free. It is the hidden cost of a large register file, and it is why 32 registers is such a common compromise."
+    }
+   ],
+   "trap": {
+    "what": "Writing (R2) for register mode.",
+    "why": "The parentheses are the indirection operator: (R2) means the memory at the address in R2. R2 alone is the register's contents.",
+    "counterexample": "In the 2017 Set 1 struct question the options are written (R1)+, -(R1), R1 and X(R1); reading the brackets correctly is what separates the first three from the fourth."
+   },
+   "check": {
+    "question": "R3 = 2000, M[2000] = 7. Give the operand of ADD R1, R3 and of ADD R1, (R3).",
+    "answer": "2000 and 7.",
+    "explanation": "Register mode hands over the register's contents; register indirect uses them as an address and reads memory once."
+   },
+   "pyqIds": [],
+   "prereqs": [
+    "instruction-format-and-fields",
+    "registers-and-shift-registers"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 12 - Addressing Modes",
+     "channel": "NPTEL, Computer Organization and Architecture - A Pedagogical Aspect (Prof. Jatindra Kr. Deka, Dr. Santosh Biswas, Dr. Arnab Sarkar, IIT Guwahati)",
+     "url": "http://www.digimat.in/nptel/courses/video/106103180/lec12.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read from the opening through the definition of displacement addressing: the reason a large operand is moved out of the instruction into memory, the immediate / direct / indirect / register / register-indirect ladder with the size-and-speed trade-off of each, and the two-part address of displacement addressing. The returned extract stopped inside the displacement discussion, so nothing is attributed to the indexed, relative, autoincrement or stack material of the same lecture"
+    },
+    {
+     "kind": "text",
+     "title": "What is addressing modes in Hindi (addressing modes in hindi)",
+     "channel": "computernetworksite.in (Hindi article following Stallings' treatment of addressing modes)",
+     "url": "https://www.computernetworksite.in/2023/03/what-is-addressing-modes-in-hindi.html",
+     "language": "hi",
+     "transcript": "PARTIAL",
+     "translated": true,
+     "note": "read through the seven modes: immediate, direct, indirect, register, register indirect, displacement (relative, base register, indexing) and stack, each with its advantage and its disadvantage in memory references and address-space width. Translated into English here; the article's illustrative instruction examples are 8085-specific and are not used"
+    }
+   ],
+   "sourceLine": "The register and register-indirect rungs, including the observation that register addressing needs fewer bits and no memory trip but is limited by how few registers there are: Deka et al., Lecture 12 (English, read in part). The translated statement that register indirect needs exactly one memory reference and is bounded by the register width: computernetworksite.in (Hindi, translated, read in part). No PYQ is attached because no CSE question of this topic is decided by register mode alone.",
+   "videoRefs": [],
+   "subject": "computer-organization-and-architecture",
+   "topic": "instruction-set-and-addressing-modes",
+   "path": "subjects/computer-organization-and-architecture/instruction-set-and-addressing-modes/register-and-register-indirect-addressing.json"
+  },
+  {
+   "id": "displacement-addressing-base-and-index",
+   "title": "Displacement Addressing: Base, Index and the Same Arithmetic Under Three Names",
+   "priority": "P1",
+   "order": 488,
+   "unit": "Instruction Set and Addressing Modes",
+   "quickIdea": "One formula, EA = A + [R], covers indexed, base-register and PC-relative addressing. What changes is which part is fixed and what the register is being used to mean.",
+   "remember": [
+    "Effective address = address field + contents of a register. Two parts: one fixed in the instruction, one that can change.",
+    "Indexed: the register holds an offset (an index), the field holds a base address. Arrays, A[i].",
+    "Base register: the register holds the base address, the field holds a displacement. Records, structure fields, and a relocatable segment.",
+    "Base with index: two registers plus a displacement. The most general form, and the one that costs the most bits.",
+    "PC-relative is displacement addressing with the program counter as the register; the field is a signed offset in words or bytes.",
+    "One operand memory reference in every one of these forms - the address arithmetic is not a memory read.",
+    "The register is not modified by the address computation, which is what separates these modes from autoincrement and autodecrement."
+   ],
+   "example": {
+    "prompt": "A struct is at the address in R1 and its grade field is 400 bytes in. Separately, an int array A starts at 1000 and each element is 4 bytes. Give the effective addresses for A[7] and for grade, and name the mode each needs.",
+    "work": "A[7] = 1000 + 7 x 4 = 1028, which is base-plus-index with the base 1000 in the instruction and the index 7 in a register (scaled). grade = [R1] + 400, which is base-plus-displacement with 400 fixed in the instruction and the base in the register.",
+    "answer": "1028 by base-with-index; [R1] + 400 by base-with-displacement. The array's index varies at run time; the record's displacement does not."
+   },
+   "gateAngle": "GATE has asked this form three times and named it differently each time. GATE CSE 2011 Q.21 calls 20(R2) 'Base Indexed Addressing' and accepts that; GATE CSE 2017 Set 1 Q.11 calls X(R1) 'Index addressing mode' and accepts that; GATE CSE 2026 Set 1 Q.4 pairs base-with-index with an array element and base-with-displacement with a record element. The safe reading is the formula EA = A + [R] plus the question 'does the register or the constant change?' - the naming is the paper's, not a fact to memorise.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "A 16-bit two's complement displacement field is added to a base register. What range of fields can it express, and is that enough for a 1 MB structure?",
+     "answer": "-32768 to +32767 bytes, which covers the first 32 KB of the structure and nothing beyond.",
+     "why": "The 2017 Set 1 question turns on exactly this: 400 bytes fits comfortably, which is part of why the displacement form is the efficient answer there."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why does base-with-displacement suit a record and base-with-index suit an array?",
+     "answer": "A record's field offsets are known at compile time, so they can be constants in the instruction; an array's index is known only at run time, so it must come from a register.",
+     "why": "Which operand varies decides which operand goes in the instruction. This is the single idea behind all three displacement flavours."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "The same code is loaded at a different address. Which displacement flavour still works without change?",
+     "answer": "PC-relative, because both the instruction and its target moved by the same amount, so the offset is unchanged. Base-with-displacement works too, provided the base register is reloaded.",
+     "why": "This is the bridge to the relocation card, and the reason GATE's 1998 and 2004 relocation questions give different answers to what look like the same question."
+    }
+   ],
+   "trap": {
+    "what": "Trying to decide whether a form like 20(R2) is 'indexed' or 'base' from the notation.",
+    "why": "The notation is identical. Only the intent - which operand is fixed and which varies - separates them, and different papers use the names differently.",
+    "counterexample": "GATE accepted 'Base Indexed' for 20(R2) in 2011 and 'Index addressing mode' for X(R1) in 2017. Both are EA = A + [R]. Answer the arithmetic, then answer the paper's label."
+   },
+   "check": {
+    "question": "R4 = 2000 and the instruction holds 12. What is the effective address, and how many memory reads does the operand take?",
+    "answer": "EA = 2012, and one memory read for the operand.",
+    "explanation": "The addition is done in the address unit, not in memory. Only the final fetch of M[2012] touches memory."
+   },
+   "pyqIds": [
+    "gate-2011-q21-base-indexed-mode",
+    "gate-2017-set-1-q11-struct-field-displacement",
+    "gate-2026-set-1-q4-mode-to-hll-matching"
+   ],
+   "prereqs": [
+    "instruction-format-and-fields",
+    "twos-complement-definition-and-range"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 12 - Addressing Modes",
+     "channel": "NPTEL, Computer Organization and Architecture - A Pedagogical Aspect (Prof. Jatindra Kr. Deka, Dr. Santosh Biswas, Dr. Arnab Sarkar, IIT Guwahati)",
+     "url": "http://www.digimat.in/nptel/courses/video/106103180/lec12.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read from the opening through the definition of displacement addressing: the reason a large operand is moved out of the instruction into memory, the immediate / direct / indirect / register / register-indirect ladder with the size-and-speed trade-off of each, and the two-part address of displacement addressing. The returned extract stopped inside the displacement discussion, so nothing is attributed to the indexed, relative, autoincrement or stack material of the same lecture"
+    },
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 18 - Handling Different Addressing Modes",
+     "channel": "NPTEL, Computer Organization and Architecture - A Pedagogical Aspect (IIT Guwahati)",
+     "url": "http://www.digimat.in/nptel/courses/video/106103180/lec18.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read from the opening through the direct-mode micro-operation sequence: the three fetch steps that are the same for every instruction, and the point that the control steps from step 4 onwards differ with the addressing mode, shown for direct mode as IR -> MAR, memory read, MDR -> operand. The closing summary was readable; the middle of the lecture was not, so the indirect and register-indirect micro-operation sequences are not attributed to it"
+    },
+    {
+     "kind": "text",
+     "title": "What is addressing modes in Hindi (addressing modes in hindi)",
+     "channel": "computernetworksite.in (Hindi article following Stallings' treatment of addressing modes)",
+     "url": "https://www.computernetworksite.in/2023/03/what-is-addressing-modes-in-hindi.html",
+     "language": "hi",
+     "transcript": "PARTIAL",
+     "translated": true,
+     "note": "read through the seven modes: immediate, direct, indirect, register, register indirect, displacement (relative, base register, indexing) and stack, each with its advantage and its disadvantage in memory references and address-space width. Translated into English here; the article's illustrative instruction examples are 8085-specific and are not used"
+    }
+   ],
+   "sourceLine": "The two-part address of displacement addressing - one part fixed in the instruction and one part held in a register that can change - is the last thing read from Deka et al., Lecture 12 (English, read in part). The statement that the control steps differ by mode and that address arithmetic happens in the address unit: Deka et al., Lecture 18 (English, read in part). The translated three-way split of displacement addressing into relative, base-register and indexing, with base register holding a memory address and index holding a positive displacement: computernetworksite.in (Hindi, translated, read in part). The three GATE answers are recomputed in scripts/validate.py.",
+   "videoRefs": [],
+   "subject": "computer-organization-and-architecture",
+   "topic": "instruction-set-and-addressing-modes",
+   "path": "subjects/computer-organization-and-architecture/instruction-set-and-addressing-modes/displacement-addressing-base-and-index.json"
+  },
+  {
+   "id": "pc-relative-addressing-and-branch-offsets",
+   "title": "PC-Relative Addressing and the Branch Offset Arithmetic",
+   "priority": "P2",
+   "order": 489,
+   "unit": "Instruction Set and Addressing Modes",
+   "quickIdea": "PC-relative means the effective address is the program counter plus a signed offset. The only thing to get right is which value of the PC is added - usually the address of the next instruction.",
+   "remember": [
+    "Effective address = PC + offset. The offset is signed, so a branch can go backwards.",
+    "The PC used is the address of the next instruction (the one after the branch), not the branch's own address, on RISC designs that increment during fetch.",
+    "If the offset is in bytes and instructions are 4 bytes, divide the address difference by 4 to get the offset a word-indexed field would hold - and do not divide if the field is byte-indexed.",
+    "The offset is position independent: move the whole program and every offset is unchanged, which is what makes the mode relocatable.",
+    "Branch targets, not data, are its main use, which is why it is the one mode whose offset field is signed.",
+    "The reach is small and local - a signed 16-bit byte offset is +-32 KB - which is why long jumps need a register form."
+   ],
+   "example": {
+    "prompt": "A RISC machine has 4-byte instructions. A beq at index i+3 targets the instruction at index i, and the offset field is in bytes relative to the next instruction. What is the offset?",
+    "work": "If the beq is at address X, the next instruction is at X + 4. The target is at X - 12. Offset = target - next = (X - 12) - (X + 4) = -16.",
+    "answer": "-16 bytes, which is -4 instructions."
+   },
+   "gateAngle": "GATE CSE 2017 Set 1 asks exactly this for a four-instruction sequence and the answer is -16. GATE CSE 1998 Q.1.19 asks the design consequence - which mode permits relocation without any change in the code - and PC-relative is the accepted answer. The two together are the whole of what the mode is for.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "Same machine, but the offset field is in words rather than bytes. What is the offset for the same branch?",
+     "answer": "-4.",
+     "why": "One word is 4 bytes, so -16 bytes is -4 words. Reading whether the field counts bytes or words is the first step of every such question."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why is the PC value used the next instruction's address rather than the branch's own?",
+     "answer": "Because the PC has already been incremented by the time the offset is added - the fetch unit advanced it, so that is the value available.",
+     "why": "It is a hardware fact, not a convention chosen for convenience. On a machine that does not pre-increment, the offset is measured from the branch itself, and a question will say which."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "A loop body is 40 KB long and the machine has a signed 16-bit byte offset. What happens?",
+     "answer": "The backward branch cannot reach the loop head: 40960 exceeds the +-32768 reach, so the compiler must invert the branch and add an unconditional jump.",
+     "why": "Reach is a real constraint on real code, and it is the reason branch relaxation exists in assemblers."
+    }
+   ],
+   "trap": {
+    "what": "Measuring the offset from the branch instruction's own address.",
+    "why": "The PC has already moved on. Using the branch's address makes every answer wrong by exactly one instruction length.",
+    "counterexample": "In the 2017 Set 1 sequence, measuring from the beq itself gives -12 rather than -16. Both are plausible-looking numbers, which is why the question is a good discriminator."
+   },
+   "check": {
+    "question": "A 4-byte-instruction machine has a branch at address 1000 with offset -8, measured from the next instruction. Where does it go?",
+    "answer": "1000 + 4 - 8 = 996.",
+    "explanation": "Next instruction at 1004, minus 8 gives 996, which is two instructions back from the branch."
+   },
+   "pyqIds": [
+    "gate-2017-set-1-q14-risc-branch-offset"
+   ],
+   "prereqs": [
+    "displacement-addressing-base-and-index",
+    "twos-complement-definition-and-range"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 12 - Addressing Modes",
+     "channel": "NPTEL, Computer Organization and Architecture - A Pedagogical Aspect (Prof. Jatindra Kr. Deka, Dr. Santosh Biswas, Dr. Arnab Sarkar, IIT Guwahati)",
+     "url": "http://www.digimat.in/nptel/courses/video/106103180/lec12.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read from the opening through the definition of displacement addressing: the reason a large operand is moved out of the instruction into memory, the immediate / direct / indirect / register / register-indirect ladder with the size-and-speed trade-off of each, and the two-part address of displacement addressing. The returned extract stopped inside the displacement discussion, so nothing is attributed to the indexed, relative, autoincrement or stack material of the same lecture"
+    },
+    {
+     "kind": "text",
+     "title": "What is addressing modes in Hindi (addressing modes in hindi)",
+     "channel": "computernetworksite.in (Hindi article following Stallings' treatment of addressing modes)",
+     "url": "https://www.computernetworksite.in/2023/03/what-is-addressing-modes-in-hindi.html",
+     "language": "hi",
+     "transcript": "PARTIAL",
+     "translated": true,
+     "note": "read through the seven modes: immediate, direct, indirect, register, register indirect, displacement (relative, base register, indexing) and stack, each with its advantage and its disadvantage in memory references and address-space width. Translated into English here; the article's illustrative instruction examples are 8085-specific and are not used"
+    }
+   ],
+   "sourceLine": "The translated definition of relative addressing as displacement addressing with the program counter in place of the general register, with the address field treated as a two's complement number: computernetworksite.in (Hindi, translated, read in part). The general two-part displacement structure behind it: Deka et al., Lecture 12 (English, read in part). The offset arithmetic and the reach figures are recomputed in scripts/validate.py.",
+   "videoRefs": [],
+   "subject": "computer-organization-and-architecture",
+   "topic": "instruction-set-and-addressing-modes",
+   "path": "subjects/computer-organization-and-architecture/instruction-set-and-addressing-modes/pc-relative-addressing-and-branch-offsets.json"
+  },
+  {
+   "id": "autoincrement-autodecrement-and-stack",
+   "title": "Autoincrement, Autodecrement and Stack Addressing",
+   "priority": "P2",
+   "order": 490,
+   "unit": "Instruction Set and Addressing Modes",
+   "quickIdea": "Autoincrement and autodecrement use a register as a pointer and then move it, so one instruction both reads an element and steps to the next. Stack addressing is the same idea with the stack pointer as the register and the operand implied.",
+   "remember": [
+    "(R)+ : effective address is [R], and R is incremented after the access. -(R): R is decremented first, then used as the address.",
+    "The increment amount is the size of the data item accessed - 1 for a byte, 4 for a 32-bit word - not always 1.",
+    "They are the modes of sequential traversal: a loop body over an array shrinks by the address-update instruction.",
+    "Autoincrement is not a relocation mode: it depends on an absolute register value, so it does not help position-independent code.",
+    "It needs no extra ALU: a small incrementer in the address unit does the job. An extra ALU is a convenience, not a requirement.",
+    "Stack addressing is implicit: the operand is at the top of the stack, named by the stack pointer, and push and pop update it. A zero-address instruction is a stack instruction."
+   ],
+   "example": {
+    "prompt": "R5 = 1000 and words are 4 bytes. Give the effective address and the new value of R5 for (R5)+ used twice, and for -(R5) used once.",
+    "work": "(R5)+ reads M[1000] and leaves R5 = 1004; the second use reads M[1004] and leaves 1008. -(R5) first sets R5 = 996 and then reads M[996].",
+    "answer": "1000 then 1004 ascending, and 996 descending - the two modes walk the same array from opposite ends."
+   },
+   "gateAngle": "GATE CSE 2008 Q.33 asks which statements about autoincrement are true, and only 'the amount of increment depends on the size of the data item accessed' survives: it is not a self-relocating mode and it needs no extra ALU. GATE CSE 2017 Set 1 Q.11 uses (R1)+ and -(R1) as the two wrong options for accessing a struct field, precisely because they would destroy the base register.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "A loop copies 10 words from (R1) to (R2). Write it with autoincrement and count the instructions in the body.",
+     "answer": "MOV (R2)+, (R1)+; DEC R3; BNZ loop - three instructions, no separate address update.",
+     "why": "Compare the register-indirect form, which needs two extra register adds. That saving is the reason the modes exist."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why does autoincrement not create position-independent code?",
+     "answer": "Because the register holds an absolute address, and if the program moves that address no longer points at the data.",
+     "why": "Position independence needs offsets, not absolute pointers. That is the distinction the 2008 question's first statement is testing."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "A machine increments by 1 always. What breaks when the array holds 4-byte words?",
+     "answer": "The traversal reads the middle of a word every time after the first, so it needs an explicit add of 3 between accesses.",
+     "why": "The increment amount must match the item size. Stating that as a rule is what the 2008 question rewards."
+    }
+   ],
+   "trap": {
+    "what": "Assuming the increment is always 1, or that autoincrement needs a second ALU.",
+    "why": "The step is the data item's size, and the incrementer is a small dedicated adder in the address path, not a general ALU.",
+    "counterexample": "A 32-bit word array stepped by 1 would read bytes 1, 2, 3 of the same word - three quarters of the values would be garbage."
+   },
+   "check": {
+    "question": "R6 = 500, bytes are addressed individually, and the instruction is MOVB (R6)+. What is read and what is R6 afterwards?",
+    "answer": "M[500] is read and R6 becomes 501.",
+    "explanation": "A byte access increments by one; a word access on the same machine would increment by the word size."
+   },
+   "pyqIds": [
+    "gate-2008-q33-autoincrement-mode"
+   ],
+   "prereqs": [
+    "register-and-register-indirect-addressing",
+    "registers-and-shift-registers"
+   ],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "What is addressing modes in Hindi (addressing modes in hindi)",
+     "channel": "computernetworksite.in (Hindi article following Stallings' treatment of addressing modes)",
+     "url": "https://www.computernetworksite.in/2023/03/what-is-addressing-modes-in-hindi.html",
+     "language": "hi",
+     "transcript": "PARTIAL",
+     "translated": true,
+     "note": "read through the seven modes: immediate, direct, indirect, register, register indirect, displacement (relative, base register, indexing) and stack, each with its advantage and its disadvantage in memory references and address-space width. Translated into English here; the article's illustrative instruction examples are 8085-specific and are not used"
+    },
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 18 - Handling Different Addressing Modes",
+     "channel": "NPTEL, Computer Organization and Architecture - A Pedagogical Aspect (IIT Guwahati)",
+     "url": "http://www.digimat.in/nptel/courses/video/106103180/lec18.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read from the opening through the direct-mode micro-operation sequence: the three fetch steps that are the same for every instruction, and the point that the control steps from step 4 onwards differ with the addressing mode, shown for direct mode as IR -> MAR, memory read, MDR -> operand. The closing summary was readable; the middle of the lecture was not, so the indirect and register-indirect micro-operation sequences are not attributed to it"
+    }
+   ],
+   "sourceLine": "The translated description of stack addressing as implicit addressing through the stack pointer, with no memory reference for the address itself: computernetworksite.in (Hindi, translated, read in part). The mode-by-mode control-step structure that makes the register update a distinct step: Deka et al., Lecture 18 (English, read in part). The autoincrement and autodecrement definitions and the increment-amount rule are recomputed in scripts/validate.py against the 2008 answer.",
+   "videoRefs": [],
+   "subject": "computer-organization-and-architecture",
+   "topic": "instruction-set-and-addressing-modes",
+   "path": "subjects/computer-organization-and-architecture/instruction-set-and-addressing-modes/autoincrement-autodecrement-and-stack.json"
+  },
+  {
+   "id": "effective-address-and-memory-cycles",
+   "title": "Effective Address and Counting Memory Cycles",
+   "priority": "P1",
+   "order": 491,
+   "unit": "Instruction Set and Addressing Modes",
+   "visual": "computer-organization-and-architecture/instruction-set-and-addressing-modes/one-operand-five-modes",
+   "quickIdea": "Every mode is a recipe for the effective address and a count of memory reads. GATE's execution-cycle questions are that count, done carefully.",
+   "remember": [
+    "Operand memory references by mode: immediate 0, register 0, direct 1, indirect 2, register indirect 1, indexed or base 1, PC-relative 1, stack 0 for the address itself.",
+    "The extra words of a multi-word instruction are read during instruction fetch, not during the execution cycle. A question that says 'during the execution cycle' excludes them.",
+    "A read-modify-write destination costs two cycles: one read and one write.",
+    "An indirect operand costs two because the pointer must be read before the operand can be.",
+    "Address arithmetic - the addition of a base, an index or the PC - costs no memory cycle; it happens in the address unit.",
+    "The safe method is to write the mode chain as a list of memory operations and count the list, rather than to recall a table."
+   ],
+   "example": {
+    "prompt": "ADD A[R0], @B is a three-word instruction: indexed destination, indirect source. How many memory cycles does its execution cycle take?",
+    "work": "Read M[A + [R0]] for the destination operand (1). Read M[B] to get the source's address (2). Read that address for the source operand (3). Write the sum back to A + [R0] (4).",
+    "answer": "Four. The second and third words of the instruction were read in the fetch, so they are not counted here."
+   },
+   "gateAngle": "GATE CSE 2005 Q.65 is this count and the accepted answer is 4. The counting habit it rewards - one operation per line, fetch excluded - is the same habit the mode definitions in GATE CSE 2002 Q.1.24 test in words. No CSE question of this topic asks for cycles rather than references, so answer in references unless the paper says otherwise.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "Same instruction, but the destination is written to memory before the source is read. How many cycles, and does the order matter?",
+     "answer": "Still four. The order does not change the count, only the dependency chain and the latency.",
+     "why": "Counting is about how many accesses, not when. Latency questions ask something else."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why does an immediate operand cost no memory reference while a direct one costs exactly one?",
+     "answer": "The immediate value is already inside the fetched instruction; the direct operand's value is at the address the instruction names, so it must be read.",
+     "why": "The instruction fetch delivers the field, not the memory contents. Everything else is one read per level of addressing."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "A two-level indirect source with an indexed destination and a write-back: how many cycles in the execution cycle?",
+     "answer": "Five: destination read (1), first pointer (2), second pointer (3), operand read (4), write-back (5).",
+     "why": "Each added level of indirection is exactly one more read. The pattern generalises without a new rule."
+    }
+   ],
+   "trap": {
+    "what": "Counting the extra words of a multi-word instruction as execution cycles.",
+    "why": "The question usually says 'during the execution cycle'. The operand words arrive with the instruction during fetch.",
+    "counterexample": "The 2005 question's instruction is three words long, so a naive count of six includes the two fetch reads. The accepted answer is 4, and the option 6 is printed as a distractor."
+   },
+   "check": {
+    "question": "How many operand memory references does ADD R1, (R2) need, and how many does ADD R1, @B need?",
+    "answer": "One and two.",
+    "explanation": "Register indirect reads memory once through a pointer already in a register; memory indirect must first read the pointer out of memory."
+   },
+   "pyqIds": [
+    "gate-2005-q65-memory-cycles-indexed-indirect"
+   ],
+   "prereqs": [
+    "direct-addressing",
+    "indirect-addressing-and-pointers",
+    "displacement-addressing-base-and-index"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 18 - Handling Different Addressing Modes",
+     "channel": "NPTEL, Computer Organization and Architecture - A Pedagogical Aspect (IIT Guwahati)",
+     "url": "http://www.digimat.in/nptel/courses/video/106103180/lec18.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read from the opening through the direct-mode micro-operation sequence: the three fetch steps that are the same for every instruction, and the point that the control steps from step 4 onwards differ with the addressing mode, shown for direct mode as IR -> MAR, memory read, MDR -> operand. The closing summary was readable; the middle of the lecture was not, so the indirect and register-indirect micro-operation sequences are not attributed to it"
+    },
+    {
+     "kind": "text",
+     "title": "What is addressing modes in Hindi (addressing modes in hindi)",
+     "channel": "computernetworksite.in (Hindi article following Stallings' treatment of addressing modes)",
+     "url": "https://www.computernetworksite.in/2023/03/what-is-addressing-modes-in-hindi.html",
+     "language": "hi",
+     "transcript": "PARTIAL",
+     "translated": true,
+     "note": "read through the seven modes: immediate, direct, indirect, register, register indirect, displacement (relative, base register, indexing) and stack, each with its advantage and its disadvantage in memory references and address-space width. Translated into English here; the article's illustrative instruction examples are 8085-specific and are not used"
+    }
+   ],
+   "sourceLine": "The mode-by-mode control-step sequences, shown for direct mode as IR -> MAR, memory read, MDR -> operand, and the statement that the fetch steps 1 to 3 are the same for every instruction while the later steps differ by mode: Deka et al., Lecture 18 (English, read in part). The translated statement that indirect addressing needs three or more memory references for the whole instruction while direct needs one: computernetworksite.in (Hindi, translated, read in part). The full count for the 2005 instruction is recomputed in scripts/validate.py.",
+   "videoRefs": [],
+   "subject": "computer-organization-and-architecture",
+   "topic": "instruction-set-and-addressing-modes",
+   "path": "subjects/computer-organization-and-architecture/instruction-set-and-addressing-modes/effective-address-and-memory-cycles.json"
+  },
+  {
+   "id": "relocation-and-position-independent-code",
+   "title": "Relocation and Position-Independent Code",
+   "priority": "P2",
+   "order": 492,
+   "unit": "Instruction Set and Addressing Modes",
+   "quickIdea": "A mode is relocatable when the address it computes does not depend on where the program was loaded. Relative and base modes qualify; absolute and indirect do not.",
+   "remember": [
+    "Absolute (direct) addressing hard-codes an address, so relocation breaks it unless the loader rewrites the field.",
+    "Base-register addressing survives relocation because the base register can be reloaded at run time; the displacement inside the instruction never changes.",
+    "PC-relative addressing survives it with nothing to reload at all, because the instruction and its target move together.",
+    "Indirect addressing does not help: the pointer holds an absolute address that still points at the old location.",
+    "Two GATE questions look identical and have different accepted answers because 'relocation at run time' (base or relative will do) and 'no change whatsoever in the code' (only relative needs nothing done) are different requirements.",
+    "Position-independent code is what a shared library must be, which is why the mode question is a systems question and not only an encoding one."
+   ],
+   "example": {
+    "prompt": "A program is loaded at 5000 instead of 1000. What happens to an instruction using direct addressing, one using base-register addressing with the base in R3, and one using PC-relative addressing?",
+    "work": "Direct: the field still says 1200, which is now outside the program, so it must be rewritten to 5200. Base: the displacement is unchanged and only R3 must be set to the new base. PC-relative: nothing changes at all, because the offset between the instruction and its target is the same.",
+    "answer": "Direct needs the code changed; base needs a register reloaded; relative needs nothing."
+   },
+   "gateAngle": "GATE CSE 2004 Q.20 asks which modes suit program relocation at run time and accepts based and relative addressing. GATE CSE 1998 Q.1.19 asks which permits relocation without any change whatsoever in the code and accepts PC-relative. Read carefully, the two are consistent: the base register must be updated, and updating a register is a change even though the instruction bits are untouched.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "A loader relocates a program by 4000. Which fields must it patch: an immediate, a direct address, a base displacement, a PC-relative offset?",
+     "answer": "Only the direct address. The immediate is data, the base displacement is relative to a register, and the PC-relative offset is relative to the PC.",
+     "why": "This is what a relocating loader's relocation table lists, and it is the practical form of the GATE question."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why can a shared library not use absolute addressing for its internal references?",
+     "answer": "Because it is mapped at a different address in every process, so an absolute address baked in at link time would point into whatever happened to be there.",
+     "why": "Position independence is the requirement that makes shared libraries possible, and PC-relative plus base modes are how it is met."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "Is autoincrement a relocation mode? Justify from the register contents.",
+     "answer": "No. The register holds an absolute address, and moving the program leaves that address pointing at the old data.",
+     "why": "This is the first statement of GATE CSE 2008 Q.33, and it is the same argument as the indirect case."
+    }
+   ],
+   "trap": {
+    "what": "Concluding that base-register addressing changes the code, because the base register must be updated.",
+    "why": "The instruction bits do not change; a register does. Whether that counts as 'a change in the code' is exactly what separates the 2004 answer from the 1998 answer.",
+    "counterexample": "GATE CSE 2004 Q.20 accepts both based and relative for relocation at run time, while GATE CSE 1998 Q.1.19 accepts only PC-relative for relocation 'without any change whatsoever'. Both answers are the papers', and the wording is the difference."
+   },
+   "check": {
+    "question": "Which two modes does GATE CSE 2004 Q.20 accept as suitable for relocation at run time?",
+    "answer": "Based addressing and relative addressing.",
+    "explanation": "Both compute an address from a base that can move with the program. Absolute addressing cannot, and indirect addressing carries an absolute pointer that goes stale."
+   },
+   "pyqIds": [
+    "gate-2004-q20-relocation-at-run-time",
+    "gate-1998-q1-19-relocation-without-change"
+   ],
+   "prereqs": [
+    "direct-addressing",
+    "displacement-addressing-base-and-index",
+    "pc-relative-addressing-and-branch-offsets"
+   ],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "What is addressing modes in Hindi (addressing modes in hindi)",
+     "channel": "computernetworksite.in (Hindi article following Stallings' treatment of addressing modes)",
+     "url": "https://www.computernetworksite.in/2023/03/what-is-addressing-modes-in-hindi.html",
+     "language": "hi",
+     "transcript": "PARTIAL",
+     "translated": true,
+     "note": "read through the seven modes: immediate, direct, indirect, register, register indirect, displacement (relative, base register, indexing) and stack, each with its advantage and its disadvantage in memory references and address-space width. Translated into English here; the article's illustrative instruction examples are 8085-specific and are not used"
+    },
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 12 - Addressing Modes",
+     "channel": "NPTEL, Computer Organization and Architecture - A Pedagogical Aspect (Prof. Jatindra Kr. Deka, Dr. Santosh Biswas, Dr. Arnab Sarkar, IIT Guwahati)",
+     "url": "http://www.digimat.in/nptel/courses/video/106103180/lec12.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read from the opening through the definition of displacement addressing: the reason a large operand is moved out of the instruction into memory, the immediate / direct / indirect / register / register-indirect ladder with the size-and-speed trade-off of each, and the two-part address of displacement addressing. The returned extract stopped inside the displacement discussion, so nothing is attributed to the indexed, relative, autoincrement or stack material of the same lecture"
+    }
+   ],
+   "sourceLine": "The translated statement that relative addressing's effective address is a displacement from the program counter, which is what makes it independent of the load address: computernetworksite.in (Hindi, translated, read in part). The displacement structure in which the instruction holds a constant and a register holds the changeable part: Deka et al., Lecture 12 (English, read in part). The relocation arithmetic is recomputed in scripts/validate.py, and both GATE answers are re-derived there from the question text.",
+   "videoRefs": [],
+   "subject": "computer-organization-and-architecture",
+   "topic": "instruction-set-and-addressing-modes",
+   "path": "subjects/computer-organization-and-architecture/instruction-set-and-addressing-modes/relocation-and-position-independent-code.json"
   }
  ],
  "pyqs": [
@@ -33255,6 +34381,27 @@ window.GATE_DATA = {
    "answer_evidence": "Converse (A→B)=B→A \"If you go then I stay\" Answer is (A)."
   },
   {
+   "id": "gate-1998-q1-19-relocation-without-change",
+   "year": "1998",
+   "paper": "GATE CS 1998",
+   "question_ref": "Q.1.19",
+   "type": "MCQ",
+   "topic": "relocation-and-position-independent-code",
+   "text": "Which of the following addressing modes permits relocation without any change whatsoever in the code?",
+   "options": [
+    "Indirect addressing",
+    "Indexed addressing",
+    "Base register addressing",
+    "PC relative addressing"
+   ],
+   "answer": "Option (D) - PC relative addressing",
+   "solution": "A PC-relative address is computed as the program counter plus a constant offset. Move the whole program and the PC and its target move by the same amount, so the offset - which is the only thing stored in the instruction - is still correct. Base-register addressing also survives relocation, but the base register has to be loaded with the new base, and that is a change made at run time even though the instruction bits are untouched; the question's phrase 'without any change whatsoever' is what excludes it.",
+   "source_url": "https://gateoverflow.in/1656/gate-cse-1998-question-1-19",
+   "source_label": "GATE Overflow question page - GATE CSE 1998 Q.1.19 with the accepted answer (option D)",
+   "verification": "SOURCED",
+   "answer_evidence": "The top-voted answer on the page states 'PC relative addressing is the best option. For base register addressing, we have to change the address in the base register while in PC relative there is absolutely no change in code needed.' Several answers on the same page argue for base register addressing instead, and one quotes Mano on the base register's role in relocation; the disagreement is recorded rather than hidden. Recomputed here: with a 4-byte instruction at X branching to X-12, a PC-relative offset of -16 is unchanged by any load address, while a base-register displacement needs the base reloaded."
+  },
+  {
    "id": "gate-1998-q2-7-kmap-not-in-gray-order",
    "year": "1998",
    "paper": "GATE CS 1998",
@@ -33316,6 +34463,27 @@ window.GATE_DATA = {
    "source_label": "GATE Overflow question page - GATE CSE 1999 Q.2.16 with the accepted answer (option B)",
    "verification": "SOURCED",
    "answer_evidence": "The accepted answer states that the LSB addition needs no full adder and that the subsequent positions do, giving 15 full adders and 1 half adder, option B. Recomputed here: 1 + 15 = 16 positions, and 15 positions have a carry-in."
+  },
+  {
+   "id": "gate-1999-q2-23-immediate-and-direct-only",
+   "year": "1999",
+   "paper": "GATE CS 1999",
+   "question_ref": "Q.2.23",
+   "type": "MSQ",
+   "topic": "indirect-addressing-and-pointers",
+   "text": "A certain processor supports only the immediate and the direct addressing modes. Which of the following programming language features cannot be implemented on this processor?",
+   "options": [
+    "Pointers",
+    "Arrays",
+    "Records",
+    "Recursive procedures with local variable"
+   ],
+   "answer": "All four - pointers, arrays, records and recursive procedures with local variables",
+   "solution": "Pointers need an address to be fetched from memory, which is indirection; immediate mode carries a value and direct mode carries a fixed address, and neither can read a pointer. An array element A[i] and a record field both need an address computed at run time from a base plus an index or offset. A recursive procedure needs a stack, and a local variable in the current frame is reached as *(SP + offset), which is again an indirect access. So every one of the four is out of reach.",
+   "source_url": "https://gateoverflow.in/1500/gate-cse-1999-question-2-23",
+   "source_label": "GATE Overflow question page - GATE CSE 1999 Q.2.23 with the accepted answer (all four)",
+   "verification": "SOURCED",
+   "answer_evidence": "The 118-vote accepted answer on the page argues each of the four and concludes 'options (A), (B), (C) and (D) are correct'. The paper prints four options without saying that more than one may be chosen, so the question is ambiguous as printed and is recorded here as MSQ rather than silently narrowed to one letter. Recomputed here: immediate mode supplies no address at all and direct mode supplies only a constant address, so no mode in the set can produce an address that varies at run time."
   },
   {
    "id": "gate-2000-1-3-determinant-expansion",
@@ -33442,6 +34610,27 @@ window.GATE_DATA = {
    "source_label": "GATE Overflow question page - GATE CSE 2002 Q.1.4 with the accepted answer (option D)",
    "verification": "SOURCED",
    "answer_evidence": "Accepted answer: 'Chromatic number will be 3 for when n is odd and will be 2 when n is even. Option (D) is a representation for this, hence the correct answer'."
+  },
+  {
+   "id": "gate-2002-q1-24-absolute-addressing",
+   "year": "2002",
+   "paper": "GATE CS 2002",
+   "question_ref": "Q.1.24",
+   "type": "MCQ",
+   "topic": "direct-addressing",
+   "text": "In the absolute addressing mode:",
+   "options": [
+    "the operand is inside the instruction",
+    "the address of the operand is inside the instruction",
+    "the register containing the address of the operand is specified inside the instruction",
+    "the location of the operand is implicit"
+   ],
+   "answer": "Option (B) - the address of the operand is inside the instruction",
+   "solution": "Absolute and direct are the same mode: the address field holds the effective address, so the operand's address travels in the instruction and one memory read fetches the operand. The other three options are the definitions of the other modes - the operand itself inside the instruction is immediate, the register holding the address is register indirect, and an implicit location is implied or stack addressing - which is what makes the question a four-mode discrimination.",
+   "source_url": "https://gateoverflow.in/829/gate-cse-2002-question-1-24",
+   "source_label": "GATE Overflow question page - GATE CSE 2002 Q.1.24 with the accepted answer (option B)",
+   "verification": "SOURCED",
+   "answer_evidence": "The accepted answer states '(B) is the answer. Absolute addressing mode means address of operand is given in the instruction' and maps each of the other three options to the mode it actually defines. Corroborated by Solutions Adda's GATE 2002 key page for Question 24, which gives the same option."
   },
   {
    "id": "gate-2002-unless-translation",
@@ -33696,6 +34885,27 @@ window.GATE_DATA = {
    "verification": "SOURCED"
   },
   {
+   "id": "gate-2004-q20-relocation-at-run-time",
+   "year": "2004",
+   "paper": "GATE CS 2004",
+   "question_ref": "Q.20",
+   "type": "MCQ",
+   "topic": "relocation-and-position-independent-code",
+   "text": "Which of the following addressing modes are suitable for program relocation at run time? (i) Absolute addressing (ii) Based addressing (iii) Relative addressing (iv) Indirect addressing",
+   "options": [
+    "(i) and (iv)",
+    "(i) and (ii)",
+    "(ii) and (iii)",
+    "(i), (ii) and (iv)"
+   ],
+   "answer": "Option (C) - (ii) and (iii), based addressing and relative addressing",
+   "solution": "Both based and relative addressing compute the address from a value that can move with the program: the base register is reloaded at run time, and the program counter moves with the code. Absolute addressing hard-codes an address that stops being correct the moment the program moves. Indirect addressing is no help either, because the pointer it reads still holds an absolute address pointing at the old location - and it costs an extra memory reference into the bargain.",
+   "source_url": "https://gateoverflow.in/1017/gate-cse-2004-question-20",
+   "source_label": "GATE Overflow question page - GATE CSE 2004 Q.20 with the accepted answer (option C)",
+   "verification": "SOURCED",
+   "answer_evidence": "The accepted answer begins 'Answer: (C) A displacement type addressing should be preferred. So, (I) is not the answer. Indirect Addressing leads to extra memory reference which is not preferable at run time.' Several answers on the page reach the same option by the base-register argument. Corroborated by the GeeksforGeeks GATE CS 2004 Question 20 page, which lists the same option set."
+  },
+  {
    "id": "gate-2004-satisfiable-but-not-valid",
    "year": "2004",
    "paper": "GATE CS 2004",
@@ -33799,6 +35009,27 @@ window.GATE_DATA = {
    "source_url": "https://gateoverflow.in/264/gate-cse-2005-question-62",
    "source_label": "GATE Overflow discussion of GATE CS 2005 Q.62 (accepted answer option A)",
    "verification": "SOURCED"
+  },
+  {
+   "id": "gate-2005-q65-memory-cycles-indexed-indirect",
+   "year": "2005",
+   "paper": "GATE CS 2005",
+   "question_ref": "Q.65",
+   "type": "MCQ",
+   "topic": "effective-address-and-memory-cycles",
+   "text": "Consider a three word machine instruction ADD A[R0], @B. The first operand (destination) 'A[R0]' uses indexed addressing mode with R0 as the index register. The second operand (source) '@B' uses indirect addressing mode. A and B are memory addresses residing at the second and third words, respectively. The first word of the instruction specifies the opcode, the index register designation and the source and destination addressing modes. During execution of the ADD instruction, the two operands are added and stored in the destination. The number of memory cycles needed during the execution cycle of the instruction is:",
+   "options": [
+    "3",
+    "4",
+    "5",
+    "6"
+   ],
+   "answer": "Option (B) - 4",
+   "solution": "One read to fetch the destination operand from address A + [R0]. One read of M[B] to obtain the source operand's address, since @B is indirect. One read of that address to obtain the source operand itself. One write back to A + [R0] to store the sum. The second and third words of the instruction were read while the instruction was being fetched, so they are not part of the execution cycle.",
+   "source_url": "https://gateoverflow.in/1388/gate-cse-2005-question-65",
+   "source_label": "GATE Overflow question page - GATE CSE 2005 Q.65 with the accepted answer (option B)",
+   "verification": "SOURCED",
+   "answer_evidence": "The accepted answer lists the four accesses and concludes 'So, total of 4 memory cycles once the instruction is fetched', and notes that the second and third words are loaded during instruction fetch. Corroborated by the Electrical4u GATE CS 2005 solutions page, which gives Answer (B). One answer on the GATE Overflow page argues for 6 by counting the fetch words; the accepted answer and this record use 4, and the disagreement is stated here rather than smoothed over."
   },
   {
    "id": "gate-2006-21-exactly-n-of-2n-chosen",
@@ -33948,6 +35179,27 @@ window.GATE_DATA = {
    "answer_evidence": "Accepted answer: 'if alpha = 5 then there'll be a free variable ... So alpha != 5 will always give a unique solution', and the IIT Delhi solution for GATE 2008 Q.3 concludes 'alpha can be any real number except 5. So none of the options is correct'."
   },
   {
+   "id": "gate-2008-q33-autoincrement-mode",
+   "year": "2008",
+   "paper": "GATE CS 2008",
+   "question_ref": "Q.33",
+   "type": "MCQ",
+   "topic": "autoincrement-autodecrement-and-stack",
+   "text": "Which of the following is/are true of the auto-increment addressing mode? I. It is useful in creating self-relocating code. II. If it is included in an Instruction Set Architecture, then an additional ALU is required for effective address calculation. III. The amount of increment depends on the size of the data item accessed.",
+   "options": [
+    "I only",
+    "II only",
+    "III only",
+    "II and III only"
+   ],
+   "answer": "Option (C) - III only",
+   "solution": "Statement I is false: autoincrement uses the absolute value in a register as the address, so moving the program leaves that address pointing at the old data, which is the opposite of self-relocating. Statement II is false: the increment can be done by a small dedicated incrementer in the address unit, and an extra general ALU is a convenience rather than a requirement. Statement III is true: the pointer must advance by exactly the size of the item just accessed, one byte for a byte and four for a word, or the next access lands inside the previous item.",
+   "source_url": "https://gateoverflow.in/444/gate-cse-2008-question-33-isro2009-80",
+   "source_label": "GATE Overflow question page - GATE CSE 2008 Q.33 with the accepted answer (option C)",
+   "verification": "SOURCED",
+   "answer_evidence": "The accepted answer concludes 'So, answer must be C only', with the argument that autoincrement works from an initial base address and so does not relocate, that an additional ALU is desirable but never a necessity, and that the increment matches the item size. Corroborated by the Solutions Adda GATE 2008 Question 33 page, which gives option C with the same three-way reasoning."
+  },
+  {
    "id": "gate-2009-25-tan-half-angle-substitution",
    "year": "2009",
    "paper": "GATE CS 2009",
@@ -34008,6 +35260,27 @@ window.GATE_DATA = {
    "source_label": "GATE Overflow question page - GATE CSE 2011 Q.33, with community solutions and an accepted answer",
    "verification": "SOURCED",
    "answer_evidence": "The accepted answer on the page states 'Answer - D' and explains that mean, median and mode are linear functions of the values while the standard deviation is not, concluding sigma_y = a*sigma_x. The same question appears in GATE Overflow Volume 1, chapter 7 under Random Variable, numbered Q.33 of GATE CSE 2011."
+  },
+  {
+   "id": "gate-2011-q21-base-indexed-mode",
+   "year": "2011",
+   "paper": "GATE CS 2011",
+   "question_ref": "Q.21",
+   "type": "MCQ",
+   "topic": "displacement-addressing-base-and-index",
+   "text": "Consider a hypothetical processor with an instruction of type LW R1, 20(R2), which during execution reads a 32-bit word from memory and stores it in a 32-bit register R1. The effective address of the memory location is obtained by the addition of a constant 20 and the contents of register R2. Which of the following best reflects the addressing mode implemented by this instruction for the operand in memory?",
+   "options": [
+    "Immediate addressing",
+    "Register addressing",
+    "Register Indirect Scaled Addressing",
+    "Base Indexed Addressing"
+   ],
+   "answer": "Option (D) - Base Indexed Addressing",
+   "solution": "The effective address is 20 + [R2]: a constant supplied by the instruction plus the contents of a register. That is displacement addressing, which this paper names base indexed. Immediate mode would carry the operand itself, register mode would name R2 alone with no offset, and there is no scaling of the register in the instruction, so the other three options do not describe the address computation.",
+   "source_url": "https://gateoverflow.in/2123/gate-cse-2011-question-21",
+   "source_label": "GATE Overflow question page - GATE CSE 2011 Q.21 with the accepted answer (option D)",
+   "verification": "SOURCED",
+   "answer_evidence": "The accepted answer states 'The answer is (D). Base Index Addressing, as the content of register R2 will serve as the index, and 20 will be the Base address.' Corroborated by the GATE Forum official-paper PDF for CS 2011, which prints 'Answer: - (D)' for this question. Several answers on the GATE Overflow page argue the mode should be called indexed rather than base indexed, so the record states the paper's label and the arithmetic separately."
   },
   {
    "id": "gate-2011-q3-conditional-two-coins",
@@ -34554,6 +35827,27 @@ window.GATE_DATA = {
    "verification": "SOURCED"
   },
   {
+   "id": "gate-2015-set-1-q8-three-address-fields",
+   "year": "2015",
+   "paper": "GATE CSE 2015 Set 1",
+   "question_ref": "Q.8",
+   "type": "MCQ",
+   "topic": "instruction-formats-zero-to-three-address",
+   "text": "For computers based on three-address instruction formats, each address field can be used to specify which of the following: (S1) A memory operand (S2) A processor register (S3) An implied accumulator register",
+   "options": [
+    "Either S1 or S2",
+    "Either S2 or S3",
+    "Only S2 and S3",
+    "All of S1, S2 and S3"
+   ],
+   "answer": "Option (A) - Either S1 or S2",
+   "solution": "An address field names something: a memory location or a processor register. An implied accumulator is by definition not named - that is what 'implied' means - so it can never occupy an address field. A three-address format therefore spends its three fields on memory operands or registers in any mixture.",
+   "source_url": "https://gateoverflow.in/8096/gate-cse-2015-set-1-question-8",
+   "source_label": "GATE Overflow question page - GATE CSE 2015 Set 1 Q.8 with the accepted answer (option A)",
+   "verification": "SOURCED",
+   "answer_evidence": "The accepted answer states 'Each address field (i.e., A, B, C) can point to' either a memory operand or a processor register and records 'Correct Answer: A', with the argument that an implied accumulator is never mentioned in an instruction. The page is filed under Compiler Design on GATE Overflow although the content is instruction-format material, which is why it was easy to miss."
+  },
+  {
    "id": "gate-2015-set-2-48-ripple-carry-delay",
    "year": "2015",
    "paper": "GATE CSE 2015 Set 2",
@@ -34945,6 +36239,22 @@ window.GATE_DATA = {
    "verification": "SOURCED"
   },
   {
+   "id": "gate-2016-set-2-q10-immediate-field",
+   "year": "2016",
+   "paper": "GATE CSE 2016 Set 2",
+   "question_ref": "Q.10",
+   "type": "NAT",
+   "topic": "instruction-field-bit-budget",
+   "text": "A processor has 40 distinct instructions and 24 general purpose registers. A 32-bit instruction word has an opcode, two register operands and an immediate operand. The number of bits available for the immediate operand field is ______.",
+   "options": [],
+   "answer": "16",
+   "solution": "40 instructions need ceil(log2 40) = 6 bits of opcode, since 2^5 = 32 < 40 <= 64 = 2^6. 24 registers need ceil(log2 24) = 5 bits each, so the two register fields take 10. The immediate field gets 32 - 6 - 10 = 16 bits.",
+   "source_url": "https://gateoverflow.in/39547/gate-cse-2016-set-2-question-10",
+   "source_label": "GATE Overflow question page - GATE CSE 2016 Set 2 Q.10 with the accepted answer (16)",
+   "verification": "SOURCED",
+   "answer_evidence": "The accepted answer computes '6 + 2 x 5 = 16' bits used and '32 - 16 = 16' bits available. Corroborated by the Testbook page for the GATE CS 2016 Shift 2 paper, which gives 16, and by the ExamSIDE solution, which also gives 16."
+  },
+  {
    "id": "gate-2016-set1-05-determinant-from-eigenvalues",
    "year": "2016",
    "paper": "GATE CS 2016 Set 1",
@@ -35168,6 +36478,43 @@ window.GATE_DATA = {
    "source_url": "https://gateoverflow.in/118557/gate-cse-2017-set-2-question-42",
    "source_label": "GATE Overflow discussion of GATE CS 2017 Set 2 Q.42 (accepted answer option B)",
    "verification": "SOURCED"
+  },
+  {
+   "id": "gate-2017-set-1-q11-struct-field-displacement",
+   "year": "2017",
+   "paper": "GATE CSE 2017 Set 1",
+   "question_ref": "Q.11",
+   "type": "MCQ",
+   "topic": "displacement-addressing-base-and-index",
+   "text": "Consider the C struct defined below: struct data { int marks[100]; char grade; int cnumber; }; struct data student; The base address of student is available in register R1. The field student.grade can be accessed efficiently using",
+   "options": [
+    "Post-increment addressing mode, (R1)+",
+    "Pre-decrement addressing mode, -(R1)",
+    "Register direct addressing mode, R1",
+    "Index addressing mode, X(R1), where X is an offset represented in 2's complement 16-bit representation"
+   ],
+   "answer": "Option (D) - Index addressing mode, X(R1), with X a 16-bit two's complement offset",
+   "solution": "The fields of a struct sit at fixed compile-time offsets from its base. With int at 4 bytes, marks[100] occupies the first 400 bytes, so grade is at offset 400 from the base in R1 and the access is X(R1) with X = 400. The two auto modes would modify R1, which would destroy the base needed for the other fields, and register direct mode gives the base itself rather than the field at an offset from it.",
+   "source_url": "https://gateoverflow.in/118291/gate-cse-2017-set-1-question-11",
+   "source_label": "GATE Overflow question page - GATE CSE 2017 Set 1 Q.11 with the accepted answer (option D)",
+   "verification": "SOURCED",
+   "answer_evidence": "The accepted answer gives 'Answer is option (D)' with the computation X = 400 from 100 four-byte ints. Corroborated by the Testbook page for the GATE CS 2017 Shift 1 paper, which gives Option 4, and by GateAI's PYQ page, which records the official answer as D."
+  },
+  {
+   "id": "gate-2017-set-1-q14-risc-branch-offset",
+   "year": "2017",
+   "paper": "GATE CSE 2017 Set 1",
+   "question_ref": "Q.14 as numbered on the ExamSIDE paper listing",
+   "type": "NAT",
+   "topic": "pc-relative-addressing-and-branch-offsets",
+   "text": "Consider a RISC machine where each instruction is exactly 4 bytes long. Conditional and unconditional branch instructions use PC-relative addressing mode with Offset specified in bytes to the target location of the branch instruction. Further the Offset is always with respect to the address of the next instruction in the program sequence. Consider the following instruction sequence: i: add R2, R3, R4; i+1: sub R5, R6, R7; i+2: cmp R1, R9, R10; i+3: beq R1, Offset. If the target of the branch instruction is i, then the decimal value of the Offset is ______.",
+   "options": [],
+   "answer": "-16",
+   "solution": "Let instruction i be at address X. The four instructions occupy X, X+4, X+8 and X+12, so the beq is at X+12 and the next instruction is at X+16. The target is i, at X. Offset = target - next instruction = X - (X+16) = -16 bytes, which is four instructions back.",
+   "source_url": "https://questions.examside.com/past-years/gate/question/pconsider-a-risc-machine-where-each-instruction-is-exactly-gate-cse-computer-organization-roocdbdhdxyodtv2",
+   "source_label": "ExamSIDE question page for the GATE CSE 2017 Set 1 RISC PC-relative branch question, with the answer -16",
+   "verification": "SOURCED",
+   "answer_evidence": "The ExamSIDE page prints 'Correct answer is -16' with the derivation 'Target address = next-instruction address + Offset'. The question number is not certain: ExamSIDE numbers it Q.14 in the 2017 Set 1 paper, other aggregators number it differently, and the paper itself was not fetched this run, so the reference records where the number comes from. Recomputed here from the instruction sequence: the answer is forced by the four 4-byte instructions and the next-instruction convention."
   },
   {
    "id": "gate-2017-set1-19-median-of-max-x-zero",
@@ -36189,6 +37536,22 @@ window.GATE_DATA = {
    "answer_evidence": "The accepted answer reduces M1 to 1 and M2 to 0 and concludes Y = C', giving 4 of the 8 combinations; another site records the same question with the answer 4. The question number is disputed: GATE Overflow numbers it Q.54, GateAI numbers the same question Q64 of the paper and one year-wise listing places it at 32. Recomputed here by enumerating all 8 combinations of (A, B, C)."
   },
   {
+   "id": "gate-2024-set-2-q47-opcodes-per-mode",
+   "year": "2024",
+   "paper": "GATE CSE 2024 Set 2",
+   "question_ref": "Q.47 on GATE Overflow; Q.57 on the paper listings",
+   "type": "NAT",
+   "topic": "instruction-field-bit-budget",
+   "text": "A processor with 16 general purpose registers uses a 32-bit instruction format. The instruction format consists of an opcode field, an addressing mode field, two register operand fields, and a 16-bit scalar field. If 8 addressing modes are to be supported, the maximum number of unique opcodes possible for every addressing mode is ______.",
+   "options": [],
+   "answer": "32",
+   "solution": "Two register fields for 16 registers take 4 + 4 = 8 bits, the scalar field is 16 bits, and 8 addressing modes need 3 bits. That is 8 + 16 + 3 = 27 bits, so the opcode gets 32 - 27 = 5 bits and carries 2^5 = 32 unique opcodes for each mode. The answer is 32 opcodes per mode, not 8 x 32 = 256, which would be the total number of distinct instructions.",
+   "source_url": "https://gateoverflow.in/422850/gate-cse-2024-set-2-question-47",
+   "source_label": "GATE Overflow question page - GATE CSE 2024 Set 2 Question 47 with the accepted answer (32)",
+   "verification": "SOURCED",
+   "answer_evidence": "The accepted answer computes '32 - (3 + 2*4 + 16) = 5' bits and '2^5 = 32', and notes that 256 is the instruction count rather than the opcode count. Corroborated by GateAI's PYQ page, which records the official answer as 32, and by iaeacademy, which cites the official GATE 2024 CS2 key. The question is numbered Q.57 in the paper listings and Q.47 on GATE Overflow, and both numbers are recorded."
+  },
+  {
    "id": "gate-2024-set1-1-max-x-x3",
    "year": "2024",
    "paper": "GATE CS 2024 Set 1",
@@ -36551,6 +37914,27 @@ window.GATE_DATA = {
    "answer_evidence": "The paper page lists Q.49 as a 2-mark MSQ with official answer A, B, C, and the GateAI PYQ page for the same question decodes the registers as -9, 6 and 12 and reaches the same three options. Recomputed here from the bit patterns. GATE Overflow and ExamSIDE number it Q.49 while one other site numbers it Q.53."
   },
   {
+   "id": "gate-2025-set-1-q27-immediate-field",
+   "year": "2025",
+   "paper": "GATE CSE 2025 Set 1",
+   "question_ref": "Q.27 on GATE Overflow; Q.37 on the paper listings",
+   "type": "MCQ",
+   "topic": "instruction-field-bit-budget",
+   "text": "A processor has 64 general-purpose registers and 50 distinct instruction types. An instruction is encoded in 32-bits. What is the maximum number of bits that can be used to store the immediate operand for the given instruction? ADD R1, #25 // R1 = R1 + 25",
+   "options": [
+    "16",
+    "20",
+    "22",
+    "24"
+   ],
+   "answer": "Option (B) - 20",
+   "solution": "50 instruction types need ceil(log2 50) = 6 bits, and 64 registers need log2 64 = 6 bits per register field. The instruction ADD R1, #25 names only one register, because R1 is both the source and the destination, so the fields are 6 + 6 = 12 bits and the immediate gets 32 - 12 = 20 bits. Assuming two register fields would leave 14 bits, which is not among the options.",
+   "source_url": "https://gateoverflow.in/460053/gate-cse-2025-set-1-question-27",
+   "source_label": "GATE Overflow question page - GATE CSE 2025 Set 1 Question 27 with the accepted answer (option B)",
+   "verification": "SOURCED",
+   "answer_evidence": "The accepted answer gives '(B) 20' from '32 - (6 + 6) = 20'. Corroborated by iaeacademy, which cites the official GATE 2025 CS1 key (IIT Roorkee) as option B, and by GateAI, which records the official answer as 20. The question is numbered Q.27 on GATE Overflow and Q.37 in the paper listing."
+  },
+  {
    "id": "gate-2025-set1-13-k-system",
    "year": "2025",
    "paper": "GATE CS 2025 Set 1",
@@ -36800,6 +38184,27 @@ window.GATE_DATA = {
    "source_label": "GATE Overflow question page - GATE CSE 2026 Set 1 Q.26 with the accepted answer (option C)",
    "verification": "SOURCED",
    "answer_evidence": "The accepted answer decodes both operands, aligns Y to exponent -20 and reaches 0x35E80000, option C. Recomputed here: 1.5 x 2^-20 + 1.25 x 2^-22 = 1.8125 x 2^-20, which encodes to 0x35e80000. Another site numbers this question Q.36."
+  },
+  {
+   "id": "gate-2026-set-1-q4-mode-to-hll-matching",
+   "year": "2026",
+   "paper": "GATE CSE 2026 Set 1",
+   "question_ref": "Q.4",
+   "type": "MCQ",
+   "topic": "displacement-addressing-base-and-index",
+   "text": "Match each addressing mode in List I with a data element or an element of a data structure (in a high-level language) in List II. List I: P. Immediate, Q. Indirect, R. Base with index, S. Base with offset/displacement. List II: 1. Element of an array, 2. Pointer, 3. Element of a record, 4. Constant.",
+   "options": [
+    "P-4, Q-3, R-1, S-2",
+    "P-4, Q-2, R-1, S-3",
+    "P-1, Q-4, R-3, S-2",
+    "P-2, Q-3, R-1, S-4"
+   ],
+   "answer": "Option (B) - P-4, Q-2, R-1, S-3",
+   "solution": "Immediate mode carries the value itself, which is a constant. Indirect mode reads an address from a location, which is what a pointer is. Base with index adds a run-time index to a base, which is how an array element is addressed. Base with offset adds a compile-time displacement to a base, which is how a record field is addressed. The other three options misplace at least one of the four.",
+   "source_url": "https://gateoverflow.in/523076/gate-cse-2026-set-1-question-4",
+   "source_label": "GATE Overflow question page - GATE CSE 2026 Set 1 Q.4 with the accepted answer (option B)",
+   "verification": "SOURCED",
+   "answer_evidence": "The accepted answer states 'Answer is option B. P-4, Q-2, R-1, S-3' and gives the four justifications, linking the same distinction to GATE CSE 2017 Set 1 Q.11. Corroborated by the ExamSIDE 2026 Set 1 paper page, whose solution matches base-with-index to an array element and base-with-displacement to a record element, and by EduRev's PYQ page, which records Answer: B."
   },
   {
    "id": "gate-2026-set-2-49-decoder-and-mux-count",
