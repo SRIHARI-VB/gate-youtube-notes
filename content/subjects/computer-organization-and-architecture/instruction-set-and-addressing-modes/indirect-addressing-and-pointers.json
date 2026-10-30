@@ -1,0 +1,83 @@
+{
+  "id": "indirect-addressing-and-pointers",
+  "title": "Indirect Addressing: An Address That Points at an Address",
+  "priority": "P1",
+  "order": 486,
+  "unit": "Instruction Set and Addressing Modes",
+  "quickIdea": "Indirect mode reads a pointer first: the instruction names a location, and that location holds the effective address. Two operand memory references buy a much larger address space.",
+  "remember": [
+    "Effective address = [address field]: read the named location, and what you read is the address of the operand.",
+    "Two operand memory references, not one: one to fetch the pointer, one to fetch the operand.",
+    "The reach is not the field width but the word width: an n-bit word gives 2^n addresses even when the field is short.",
+    "It is the mode for pointers, for passing an array by reference, and for any access whose target address is computed at run time.",
+    "Its cost is the extra memory reference and the extra latency, which is why a compiler keeps the pointer in a register (register indirect) when it can.",
+    "Multi-level indirection (a pointer to a pointer) simply adds another read per level."
+  ],
+  "example": {
+    "prompt": "An instruction has an 8-bit address field holding 200, M[200] = 1500 and M[1500] = 42. What does an indirect-mode operand give, and how many memory reads does it take?",
+    "work": "Read M[200] to get 1500 - that is the effective address - then read M[1500] to get 42. Two reads.",
+    "answer": "The operand is 42, reached in two memory reads, from an 8-bit field that alone could only have named 256 locations."
+  },
+  "gateAngle": "GATE CSE 1999 Q.2.23 is the mode-power question: with only immediate and direct addressing, which language features are out of reach? Pointers need indirection, and arrays, records and recursive-procedure locals are all reached through a computed address, so the accepted answer is all four. The memory-cycle cost of indirection is the second half: GATE CSE 2005 Q.65 charges an indirect operand two reads and an indexed operand one.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "A processor has only immediate and direct modes. Can it implement a linked list traversal?",
+      "answer": "Not in the ordinary way: following a next pointer needs the address to come from memory, which is indirection. It can only be done by self-modifying code, which most ISAs forbid.",
+      "why": "This is the same argument the 1999 question makes for pointers, applied to a concrete data structure."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Why does indirect addressing widen the address space without widening the instruction?",
+      "answer": "Because the pointer stored in memory is a full word wide, while the field that names the pointer is only as wide as the instruction allows.",
+      "why": "The instruction supplies a small address; the machine supplies the rest of the width from the word it reads. This is the exact trade against direct addressing."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "How many memory reads does a two-level indirect operand take, and what does each one deliver?",
+      "answer": "Three: the pointer's pointer, the pointer, then the operand.",
+      "why": "Each level of indirection is one more dependent read, which is why deep pointer chains are slow even on machines that support them."
+    }
+  ],
+  "trap": {
+    "what": "Counting one memory reference for indirect mode.",
+    "why": "The pointer is itself in memory, so the effective address is not known until a read completes.",
+    "counterexample": "Register indirect needs one read, because the pointer is already in a register; memory indirect needs two. GATE distinguishes the two precisely by this count."
+  },
+  "check": {
+    "question": "An 8-bit address field holds 40, M[40] = 9000 and M[9000] = 5. What is the indirect operand, and how many memory reads does it take?",
+    "answer": "5, after two reads.",
+    "explanation": "The first read takes M[40] = 9000, which is the effective address; the second takes M[9000] = 5, which is the operand. The 8-bit field alone could only have named 256 locations, so indirection has widened the reach to the word width."
+  },
+  "pyqIds": [
+    "gate-1999-q2-23-immediate-and-direct-only"
+  ],
+  "prereqs": [
+    "direct-addressing",
+    "instruction-format-and-fields"
+  ],
+  "sources": [
+    {
+      "kind": "lecture-transcript",
+      "title": "Lecture 12 - Addressing Modes",
+      "channel": "NPTEL, Computer Organization and Architecture - A Pedagogical Aspect (Prof. Jatindra Kr. Deka, Dr. Santosh Biswas, Dr. Arnab Sarkar, IIT Guwahati)",
+      "url": "http://www.digimat.in/nptel/courses/video/106103180/lec12.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read from the opening through the definition of displacement addressing: the reason a large operand is moved out of the instruction into memory, the immediate / direct / indirect / register / register-indirect ladder with the size-and-speed trade-off of each, and the two-part address of displacement addressing. The returned extract stopped inside the displacement discussion, so nothing is attributed to the indexed, relative, autoincrement or stack material of the same lecture"
+    },
+    {
+      "kind": "text",
+      "title": "What is addressing modes in Hindi (addressing modes in hindi)",
+      "channel": "computernetworksite.in (Hindi article following Stallings' treatment of addressing modes)",
+      "url": "https://www.computernetworksite.in/2023/03/what-is-addressing-modes-in-hindi.html",
+      "language": "hi",
+      "transcript": "PARTIAL",
+      "translated": true,
+      "note": "read through the seven modes: immediate, direct, indirect, register, register indirect, displacement (relative, base register, indexing) and stack, each with its advantage and its disadvantage in memory references and address-space width. Translated into English here; the article's illustrative instruction examples are 8085-specific and are not used"
+    }
+  ],
+  "sourceLine": "The indirect rung, described as the instruction naming a location which in turn names the data, and the note that indirection is what expands the reachable space: Deka et al., Lecture 12 (English, read in part). The statement, translated from Hindi, that indirect mode needs three or more memory references for the whole instruction and reaches 2^N addresses for an N-bit word: computernetworksite.in (Hindi, translated, read in part). The two-read operand count used on this card is the operand half of that figure, and the distinction is stated in scripts/validate.py.",
+  "videoRefs": []
+}
