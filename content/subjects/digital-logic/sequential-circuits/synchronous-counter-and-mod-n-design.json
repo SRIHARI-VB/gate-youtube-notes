@@ -86,5 +86,44 @@
       "note": "Read the characteristics, the synchronous and asynchronous sections, the binary counter, the ring counter and the Johnson counter sections. Used for the mod-2^n, mod-n and mod-2n statements and for the frequency-halving and settling-time statements, never for a GATE claim."
     }
   ],
-  "sourceLine": "The modulo-N definition, the synchronous counter and the reset-based BCD counter: KFUPM COE 202 Lecture 16 (English, read in full). The Nff = ceil(log2 Ns) count and the state-counting argument: Auburn ELEC 2200 Lecture 7 (English, read in full). The mod-2^n ceiling and the synchronous and asynchronous difference: the English Wikipedia article on digital counters (read in part). The three verified questions are GATE CSE 2011 Q.15, 2015 Set 2 Q.7 and 2016 Set 1 Q.8."
+  "sourceLine": "The modulo-N definition, the synchronous counter and the reset-based BCD counter: KFUPM COE 202 Lecture 16 (English, read in full). The Nff = ceil(log2 Ns) count and the state-counting argument: Auburn ELEC 2200 Lecture 7 (English, read in full). The mod-2^n ceiling and the synchronous and asynchronous difference: the English Wikipedia article on digital counters (read in part). The three verified questions are GATE CSE 2011 Q.15, 2015 Set 2 Q.7 and 2016 Set 1 Q.8.",
+  "links": {
+    "mock": {
+      "subject": "digital-logic",
+      "unit_slug": "sequential-fsm-counters",
+      "unit_name": "Sequential Circuits: Counters & State Machines",
+      "unit_number": 4,
+      "question_count": 50,
+      "subtopics": [
+        {
+          "label": "Synchronous & asynchronous counters",
+          "questions": 13
+        },
+        {
+          "label": "FSM: Mealy & Moore machines",
+          "questions": 12
+        },
+        {
+          "label": "State reduction & assignment",
+          "questions": 12
+        },
+        {
+          "label": "Timing analysis",
+          "questions": 13
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/digital-logic/sequential-fsm-counters/gate_dl_mock_4_2026-10-30.html"
+    },
+    "visual": {
+      "slug": "sequential-circuits",
+      "title": "Sequential Circuits: Latches, Flip-Flops, Counters and Machines",
+      "level": "topic-level",
+      "covers": [
+        "synchronous counter toggle rule T k = Q0 Q1 ... Q(k-1)",
+        "mod-N counter: ceil(log2 N) flip-flops, nine for mod 258 (GATE CSE 2011 Q15)"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/sequential-circuits/index.html"
+    },
+    "mapped_at": "2026-10-30"
+  }
 }

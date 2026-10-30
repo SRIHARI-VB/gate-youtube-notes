@@ -74,5 +74,51 @@
       "note": "The complete slide text was served and read: the register and its load or enable input, the four shift-register kinds, the universal shift register with its four control functions, the modulo-N definition, the ripple counter and its per-stage delay, the synchronous counter, the frequency-division table F/2 to F/16, and the BCD counter reset."
     }
   ],
-  "sourceLine": "The three-latch edge-triggered D flip-flop, setup and hold, and the sampling-at-the-edge argument: IIT Bombay CS 226 Lecture 7 (English, read in full). The synchronous-counter timing argument and the per-stage delay model: KFUPM COE 202 Lecture 16 (English, read in full). The two verified questions are GATE CSE 2015 Set 1 Q.37 and GATE CSE 2005 Q.62, both on their GATE Overflow pages."
+  "sourceLine": "The three-latch edge-triggered D flip-flop, setup and hold, and the sampling-at-the-edge argument: IIT Bombay CS 226 Lecture 7 (English, read in full). The synchronous-counter timing argument and the per-stage delay model: KFUPM COE 202 Lecture 16 (English, read in full). The two verified questions are GATE CSE 2015 Set 1 Q.37 and GATE CSE 2005 Q.62, both on their GATE Overflow pages.",
+  "links": {
+    "mock": {
+      "subject": "digital-logic",
+      "unit_slug": "sequential-flipflops",
+      "unit_name": "Sequential Circuits: Flip-Flops & Registers",
+      "unit_number": 3,
+      "question_count": 50,
+      "subtopics": [
+        {
+          "label": "Latches vs flip-flops",
+          "questions": 13
+        },
+        {
+          "label": "Characteristic equations",
+          "questions": 11
+        },
+        {
+          "label": "Shift registers",
+          "questions": 13
+        },
+        {
+          "label": "Setup &amp; hold times",
+          "questions": 6
+        },
+        {
+          "label": "Setup and hold times",
+          "questions": 7
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/digital-logic/sequential-flipflops/gate_dl_mock_3_2026-10-28.html"
+    },
+    "visual": {
+      "slug": "sequential-circuits",
+      "title": "Sequential Circuits: Latches, Flip-Flops, Counters and Machines",
+      "level": "topic-level",
+      "covers": [
+        "master-slave D flip-flop: two latches, opposite enables, one sample per edge",
+        "latch versus flip-flop: level-sensitive against edge-triggered",
+        "clock-to-Q, setup time and hold time",
+        "the setup constraint and f max = 1/(t cq + t comb,max + t su)",
+        "the hold constraint t cq,min + t comb,min >= t h, with no clock period in it"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/sequential-circuits/index.html"
+    },
+    "mapped_at": "2026-10-30"
+  }
 }

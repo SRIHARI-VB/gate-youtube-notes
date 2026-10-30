@@ -71,5 +71,49 @@
       "note": "The article was read in full and translated into English here. It states that sequential logic has an output that depends on past inputs and not only on the present ones, that this is memory, that combinational logic has no such dependence, and it defines the Moore and Mealy machines and the synchronous and asynchronous split. Contributes terminology only; no number in this topic comes from it."
     }
   ],
-  "sourceLine": "The sequential definition, the state as the contents of the memory elements, the synchronous and asynchronous split and the clock-period argument: IIT Bombay CS 226 Lecture 7 (English, read in full). The memory reading of sequential logic and the Moore and Mealy definitions: the Hindi Wikipedia article on sequential logic (translated). No card of this topic rests on a YouTube transcript, because no caption track was readable this run."
+  "sourceLine": "The sequential definition, the state as the contents of the memory elements, the synchronous and asynchronous split and the clock-period argument: IIT Bombay CS 226 Lecture 7 (English, read in full). The memory reading of sequential logic and the Moore and Mealy definitions: the Hindi Wikipedia article on sequential logic (translated). No card of this topic rests on a YouTube transcript, because no caption track was readable this run.",
+  "links": {
+    "mock": {
+      "subject": "digital-logic",
+      "unit_slug": "sequential-flipflops",
+      "unit_name": "Sequential Circuits: Flip-Flops & Registers",
+      "unit_number": 3,
+      "question_count": 50,
+      "subtopics": [
+        {
+          "label": "Latches vs flip-flops",
+          "questions": 13
+        },
+        {
+          "label": "Characteristic equations",
+          "questions": 11
+        },
+        {
+          "label": "Shift registers",
+          "questions": 13
+        },
+        {
+          "label": "Setup &amp; hold times",
+          "questions": 6
+        },
+        {
+          "label": "Setup and hold times",
+          "questions": 7
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/digital-logic/sequential-flipflops/gate_dl_mock_3_2026-10-28.html"
+    },
+    "visual": {
+      "slug": "sequential-circuits",
+      "title": "Sequential Circuits: Latches, Flip-Flops, Counters and Machines",
+      "level": "topic-level",
+      "covers": [
+        "state, next-state function and output function; the state table is not a truth table",
+        "Moore against Mealy: output from the state alone, or from state and input",
+        "n flip-flops give 2^n encodings; N states need ceil(log2 N) flip-flops"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/sequential-circuits/index.html"
+    },
+    "mapped_at": "2026-10-30"
+  }
 }

@@ -81,6 +81,40 @@
       ],
       "url": "https://gate-visual-explainer.vercel.app/topics/graphs-connectivity/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-10-30",
+    "mock": {
+      "subject": "discrete-mathematics",
+      "unit_slug": "graph-theory-fundamentals",
+      "unit_name": "Graph Theory Fundamentals",
+      "unit_number": 9,
+      "question_count": 25,
+      "subtopics": [
+        {
+          "label": "Degree sum & handshaking lemma",
+          "questions": 4
+        },
+        {
+          "label": "Graph representations",
+          "questions": 4
+        },
+        {
+          "label": "Walks, trails, paths & circuits",
+          "questions": 5
+        },
+        {
+          "label": "Complete & bipartite graphs",
+          "questions": 3
+        },
+        {
+          "label": "Graph connectivity",
+          "questions": 4
+        },
+        {
+          "label": "Isomorphism",
+          "questions": 5
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/graph-theory-fundamentals/gate_dm_mock_9_2026-10-30.html"
+    }
   }
 }

@@ -71,5 +71,48 @@
       "note": "The article was read in full and translated into English here. It gives the two stable output states, the latch name, the four kinds (SR, D, T, JK), the T characteristic equation Q_next = T XOR Q, and the combined characteristic and excitation table for D, T, SR and JK. The excitation table is the one place where a Hindi source supplied a table this repository publishes, and the table is recomputed in scripts/validate.py rather than trusted."
     }
   ],
-  "sourceLine": "The gated SR latch table, the D latch table, the transparency argument and the three-case analysis of a positive-edge-triggered D flip-flop: IIT Bombay CS 226 Lecture 7 (English, read in full). The latch and flip-flop naming: the Hindi Wikipedia article on flip-flops (translated). No verified GATE CSE question of this topic is decided by a latch table alone."
+  "sourceLine": "The gated SR latch table, the D latch table, the transparency argument and the three-case analysis of a positive-edge-triggered D flip-flop: IIT Bombay CS 226 Lecture 7 (English, read in full). The latch and flip-flop naming: the Hindi Wikipedia article on flip-flops (translated). No verified GATE CSE question of this topic is decided by a latch table alone.",
+  "links": {
+    "mock": {
+      "subject": "digital-logic",
+      "unit_slug": "sequential-flipflops",
+      "unit_name": "Sequential Circuits: Flip-Flops & Registers",
+      "unit_number": 3,
+      "question_count": 50,
+      "subtopics": [
+        {
+          "label": "Latches vs flip-flops",
+          "questions": 13
+        },
+        {
+          "label": "Characteristic equations",
+          "questions": 11
+        },
+        {
+          "label": "Shift registers",
+          "questions": 13
+        },
+        {
+          "label": "Setup &amp; hold times",
+          "questions": 6
+        },
+        {
+          "label": "Setup and hold times",
+          "questions": 7
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/digital-logic/sequential-flipflops/gate_dl_mock_3_2026-10-28.html"
+    },
+    "visual": {
+      "slug": "sequential-circuits",
+      "title": "Sequential Circuits: Latches, Flip-Flops, Counters and Machines",
+      "level": "topic-level",
+      "covers": [
+        "the gated D latch and the inverter that removes the forbidden input",
+        "transparency: while enabled the output follows every glitch on the data line"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/sequential-circuits/index.html"
+    },
+    "mapped_at": "2026-10-30"
+  }
 }

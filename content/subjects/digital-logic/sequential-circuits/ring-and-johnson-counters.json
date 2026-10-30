@@ -84,5 +84,45 @@
       "note": "The complete slide text was served and read: the SR latch characteristic equation Q* = S + R'Q, the Huffman model of an FSM, the Nff = ceil(log2 Ns) flip-flop count, equivalent states and the A-to-I minimisation example that reduces nine states to four, the two state-assignment adjacency rules, the literal-cost comparison of the optimal and arbitrary assignments, and the Mealy and Moore diagrams under binary, Gray and one-hot encoding."
     }
   ],
-  "sourceLine": "The ring and Johnson definitions, mod-n and mod-2n, the frequency and settling remarks: the English Wikipedia article on digital counters (read in part). The shift register as the parent circuit and the BCD and modulo remarks: KFUPM COE 202 Lecture 16 (English, read in full). The state count and the Gray-code property: Auburn ELEC 2200 Lecture 7 (English, read in full). Both verified questions are on their GATE Overflow pages: 2015 Set 1 Q.20 and 2025 Set 1 Q.50. The lesson animates the same 4-bit cycle."
+  "sourceLine": "The ring and Johnson definitions, mod-n and mod-2n, the frequency and settling remarks: the English Wikipedia article on digital counters (read in part). The shift register as the parent circuit and the BCD and modulo remarks: KFUPM COE 202 Lecture 16 (English, read in full). The state count and the Gray-code property: Auburn ELEC 2200 Lecture 7 (English, read in full). Both verified questions are on their GATE Overflow pages: 2015 Set 1 Q.20 and 2025 Set 1 Q.50. The lesson animates the same 4-bit cycle.",
+  "links": {
+    "mock": {
+      "subject": "digital-logic",
+      "unit_slug": "sequential-fsm-counters",
+      "unit_name": "Sequential Circuits: Counters & State Machines",
+      "unit_number": 4,
+      "question_count": 50,
+      "subtopics": [
+        {
+          "label": "Synchronous & asynchronous counters",
+          "questions": 13
+        },
+        {
+          "label": "FSM: Mealy & Moore machines",
+          "questions": 12
+        },
+        {
+          "label": "State reduction & assignment",
+          "questions": 12
+        },
+        {
+          "label": "Timing analysis",
+          "questions": 13
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/digital-logic/sequential-fsm-counters/gate_dl_mock_4_2026-10-30.html"
+    },
+    "visual": {
+      "slug": "sequential-circuits",
+      "title": "Sequential Circuits: Latches, Flip-Flops, Counters and Machines",
+      "level": "topic-level",
+      "covers": [
+        "ring counter: n states, and all zeros as a locked state",
+        "Johnson counter: 2n states from n flip-flops (GATE CSE 2015 Set 1 Q11)",
+        "ring versus Johnson, latch versus flip-flop, setup versus hold, ripple versus synchronous"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/sequential-circuits/index.html"
+    },
+    "mapped_at": "2026-10-30"
+  }
 }

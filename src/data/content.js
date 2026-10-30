@@ -9206,7 +9206,41 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/graphs-connectivity/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-10-30",
+    "mock": {
+     "subject": "discrete-mathematics",
+     "unit_slug": "graph-theory-fundamentals",
+     "unit_name": "Graph Theory Fundamentals",
+     "unit_number": 9,
+     "question_count": 25,
+     "subtopics": [
+      {
+       "label": "Degree sum & handshaking lemma",
+       "questions": 4
+      },
+      {
+       "label": "Graph representations",
+       "questions": 4
+      },
+      {
+       "label": "Walks, trails, paths & circuits",
+       "questions": 5
+      },
+      {
+       "label": "Complete & bipartite graphs",
+       "questions": 3
+      },
+      {
+       "label": "Graph connectivity",
+       "questions": 4
+      },
+      {
+       "label": "Isomorphism",
+       "questions": 5
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/graph-theory-fundamentals/gate_dm_mock_9_2026-10-30.html"
+    }
    },
    "subject": "discrete-mathematics",
    "topic": "graphs",
@@ -9293,7 +9327,41 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/graphs-connectivity/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-10-30",
+    "mock": {
+     "subject": "discrete-mathematics",
+     "unit_slug": "graph-theory-fundamentals",
+     "unit_name": "Graph Theory Fundamentals",
+     "unit_number": 9,
+     "question_count": 25,
+     "subtopics": [
+      {
+       "label": "Degree sum & handshaking lemma",
+       "questions": 4
+      },
+      {
+       "label": "Graph representations",
+       "questions": 4
+      },
+      {
+       "label": "Walks, trails, paths & circuits",
+       "questions": 5
+      },
+      {
+       "label": "Complete & bipartite graphs",
+       "questions": 3
+      },
+      {
+       "label": "Graph connectivity",
+       "questions": 4
+      },
+      {
+       "label": "Isomorphism",
+       "questions": 5
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/graph-theory-fundamentals/gate_dm_mock_9_2026-10-30.html"
+    }
    },
    "subject": "discrete-mathematics",
    "topic": "graphs",
@@ -9382,7 +9450,41 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/graphs-connectivity/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-10-30",
+    "mock": {
+     "subject": "discrete-mathematics",
+     "unit_slug": "graph-theory-fundamentals",
+     "unit_name": "Graph Theory Fundamentals",
+     "unit_number": 9,
+     "question_count": 25,
+     "subtopics": [
+      {
+       "label": "Degree sum & handshaking lemma",
+       "questions": 4
+      },
+      {
+       "label": "Graph representations",
+       "questions": 4
+      },
+      {
+       "label": "Walks, trails, paths & circuits",
+       "questions": 5
+      },
+      {
+       "label": "Complete & bipartite graphs",
+       "questions": 3
+      },
+      {
+       "label": "Graph connectivity",
+       "questions": 4
+      },
+      {
+       "label": "Isomorphism",
+       "questions": 5
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/graph-theory-fundamentals/gate_dm_mock_9_2026-10-30.html"
+    }
    },
    "subject": "discrete-mathematics",
    "topic": "graphs",
@@ -9468,7 +9570,41 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/graphs-connectivity/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-10-30",
+    "mock": {
+     "subject": "discrete-mathematics",
+     "unit_slug": "graph-theory-fundamentals",
+     "unit_name": "Graph Theory Fundamentals",
+     "unit_number": 9,
+     "question_count": 25,
+     "subtopics": [
+      {
+       "label": "Degree sum & handshaking lemma",
+       "questions": 4
+      },
+      {
+       "label": "Graph representations",
+       "questions": 4
+      },
+      {
+       "label": "Walks, trails, paths & circuits",
+       "questions": 5
+      },
+      {
+       "label": "Complete & bipartite graphs",
+       "questions": 3
+      },
+      {
+       "label": "Graph connectivity",
+       "questions": 4
+      },
+      {
+       "label": "Isomorphism",
+       "questions": 5
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/graph-theory-fundamentals/gate_dm_mock_9_2026-10-30.html"
+    }
    },
    "subject": "discrete-mathematics",
    "topic": "graphs",
@@ -9647,7 +9783,41 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/graphs-connectivity/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-10-30",
+    "mock": {
+     "subject": "discrete-mathematics",
+     "unit_slug": "graph-theory-fundamentals",
+     "unit_name": "Graph Theory Fundamentals",
+     "unit_number": 9,
+     "question_count": 25,
+     "subtopics": [
+      {
+       "label": "Degree sum & handshaking lemma",
+       "questions": 4
+      },
+      {
+       "label": "Graph representations",
+       "questions": 4
+      },
+      {
+       "label": "Walks, trails, paths & circuits",
+       "questions": 5
+      },
+      {
+       "label": "Complete & bipartite graphs",
+       "questions": 3
+      },
+      {
+       "label": "Graph connectivity",
+       "questions": 4
+      },
+      {
+       "label": "Isomorphism",
+       "questions": 5
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/graph-theory-fundamentals/gate_dm_mock_9_2026-10-30.html"
+    }
    },
    "subject": "discrete-mathematics",
    "topic": "graphs",
@@ -29842,6 +30012,50 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "The sequential definition, the state as the contents of the memory elements, the synchronous and asynchronous split and the clock-period argument: IIT Bombay CS 226 Lecture 7 (English, read in full). The memory reading of sequential logic and the Moore and Mealy definitions: the Hindi Wikipedia article on sequential logic (translated). No card of this topic rests on a YouTube transcript, because no caption track was readable this run.",
+   "links": {
+    "mock": {
+     "subject": "digital-logic",
+     "unit_slug": "sequential-flipflops",
+     "unit_name": "Sequential Circuits: Flip-Flops & Registers",
+     "unit_number": 3,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Latches vs flip-flops",
+       "questions": 13
+      },
+      {
+       "label": "Characteristic equations",
+       "questions": 11
+      },
+      {
+       "label": "Shift registers",
+       "questions": 13
+      },
+      {
+       "label": "Setup &amp; hold times",
+       "questions": 6
+      },
+      {
+       "label": "Setup and hold times",
+       "questions": 7
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/digital-logic/sequential-flipflops/gate_dl_mock_3_2026-10-28.html"
+    },
+    "visual": {
+     "slug": "sequential-circuits",
+     "title": "Sequential Circuits: Latches, Flip-Flops, Counters and Machines",
+     "level": "topic-level",
+     "covers": [
+      "state, next-state function and output function; the state table is not a truth table",
+      "Moore against Mealy: output from the state alone, or from state and input",
+      "n flip-flops give 2^n encodings; N states need ceil(log2 N) flip-flops"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/sequential-circuits/index.html"
+    },
+    "mapped_at": "2026-10-30"
+   },
    "subject": "digital-logic",
    "topic": "sequential-circuits",
    "path": "subjects/digital-logic/sequential-circuits/sequential-circuit-definition-and-clock.json"
@@ -29920,6 +30134,51 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "Both latch tables, the active-high and active-low reading, the gated version and the forbidden row: IIT Bombay CS 226 Lecture 7 (English, read in full). The characteristic equation Q* = S + R'Q: Auburn ELEC 2200 Lecture 7 (English, read in full). The latch as a two-state memory element: the Hindi Wikipedia article on flip-flops (translated). No verified GATE CSE question of this topic is decided by a bare latch table, which is why this card carries none.",
+   "links": {
+    "mock": {
+     "subject": "digital-logic",
+     "unit_slug": "sequential-flipflops",
+     "unit_name": "Sequential Circuits: Flip-Flops & Registers",
+     "unit_number": 3,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Latches vs flip-flops",
+       "questions": 13
+      },
+      {
+       "label": "Characteristic equations",
+       "questions": 11
+      },
+      {
+       "label": "Shift registers",
+       "questions": 13
+      },
+      {
+       "label": "Setup &amp; hold times",
+       "questions": 6
+      },
+      {
+       "label": "Setup and hold times",
+       "questions": 7
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/digital-logic/sequential-flipflops/gate_dl_mock_3_2026-10-28.html"
+    },
+    "visual": {
+     "slug": "sequential-circuits",
+     "title": "Sequential Circuits: Latches, Flip-Flops, Counters and Machines",
+     "level": "topic-level",
+     "covers": [
+      "the NOR SR latch solved by iterating its two gate equations",
+      "two stable states, and holding as a fixed point rather than an absence of behaviour",
+      "S = R = 1 collapses to (0,0): the pair is no longer complementary",
+      "the release from S = R = 1 oscillates with period 2: the next state is undefined"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/sequential-circuits/index.html"
+    },
+    "mapped_at": "2026-10-30"
+   },
    "subject": "digital-logic",
    "topic": "sequential-circuits",
    "path": "subjects/digital-logic/sequential-circuits/sr-latch-nor-and-nand.json"
@@ -29998,6 +30257,49 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "The gated SR latch table, the D latch table, the transparency argument and the three-case analysis of a positive-edge-triggered D flip-flop: IIT Bombay CS 226 Lecture 7 (English, read in full). The latch and flip-flop naming: the Hindi Wikipedia article on flip-flops (translated). No verified GATE CSE question of this topic is decided by a latch table alone.",
+   "links": {
+    "mock": {
+     "subject": "digital-logic",
+     "unit_slug": "sequential-flipflops",
+     "unit_name": "Sequential Circuits: Flip-Flops & Registers",
+     "unit_number": 3,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Latches vs flip-flops",
+       "questions": 13
+      },
+      {
+       "label": "Characteristic equations",
+       "questions": 11
+      },
+      {
+       "label": "Shift registers",
+       "questions": 13
+      },
+      {
+       "label": "Setup &amp; hold times",
+       "questions": 6
+      },
+      {
+       "label": "Setup and hold times",
+       "questions": 7
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/digital-logic/sequential-flipflops/gate_dl_mock_3_2026-10-28.html"
+    },
+    "visual": {
+     "slug": "sequential-circuits",
+     "title": "Sequential Circuits: Latches, Flip-Flops, Counters and Machines",
+     "level": "topic-level",
+     "covers": [
+      "the gated D latch and the inverter that removes the forbidden input",
+      "transparency: while enabled the output follows every glitch on the data line"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/sequential-circuits/index.html"
+    },
+    "mapped_at": "2026-10-30"
+   },
    "subject": "digital-logic",
    "topic": "sequential-circuits",
    "path": "subjects/digital-logic/sequential-circuits/gated-sr-latch-and-d-latch.json"
@@ -30079,6 +30381,52 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "The three-latch edge-triggered D flip-flop, setup and hold, and the sampling-at-the-edge argument: IIT Bombay CS 226 Lecture 7 (English, read in full). The synchronous-counter timing argument and the per-stage delay model: KFUPM COE 202 Lecture 16 (English, read in full). The two verified questions are GATE CSE 2015 Set 1 Q.37 and GATE CSE 2005 Q.62, both on their GATE Overflow pages.",
+   "links": {
+    "mock": {
+     "subject": "digital-logic",
+     "unit_slug": "sequential-flipflops",
+     "unit_name": "Sequential Circuits: Flip-Flops & Registers",
+     "unit_number": 3,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Latches vs flip-flops",
+       "questions": 13
+      },
+      {
+       "label": "Characteristic equations",
+       "questions": 11
+      },
+      {
+       "label": "Shift registers",
+       "questions": 13
+      },
+      {
+       "label": "Setup &amp; hold times",
+       "questions": 6
+      },
+      {
+       "label": "Setup and hold times",
+       "questions": 7
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/digital-logic/sequential-flipflops/gate_dl_mock_3_2026-10-28.html"
+    },
+    "visual": {
+     "slug": "sequential-circuits",
+     "title": "Sequential Circuits: Latches, Flip-Flops, Counters and Machines",
+     "level": "topic-level",
+     "covers": [
+      "master-slave D flip-flop: two latches, opposite enables, one sample per edge",
+      "latch versus flip-flop: level-sensitive against edge-triggered",
+      "clock-to-Q, setup time and hold time",
+      "the setup constraint and f max = 1/(t cq + t comb,max + t su)",
+      "the hold constraint t cq,min + t comb,min >= t h, with no clock period in it"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/sequential-circuits/index.html"
+    },
+    "mapped_at": "2026-10-30"
+   },
    "subject": "digital-logic",
    "topic": "sequential-circuits",
    "path": "subjects/digital-logic/sequential-circuits/edge-triggered-flip-flop-and-timing.json"
@@ -30159,6 +30507,50 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "The JK characteristic table and equation, the D = JQ' + K'Q construction, the four modes and the race-around warning: IIT Bombay CS 226 Lecture 7 (English, read in full). The gated-latch-plus-feedback construction of the JK flip-flop: Auburn ELEC 2200 Lecture 7 (English, read in full). The verified question is GATE CSE 2014 Set 3 Q.45.",
+   "links": {
+    "mock": {
+     "subject": "digital-logic",
+     "unit_slug": "sequential-flipflops",
+     "unit_name": "Sequential Circuits: Flip-Flops & Registers",
+     "unit_number": 3,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Latches vs flip-flops",
+       "questions": 13
+      },
+      {
+       "label": "Characteristic equations",
+       "questions": 11
+      },
+      {
+       "label": "Shift registers",
+       "questions": 13
+      },
+      {
+       "label": "Setup &amp; hold times",
+       "questions": 6
+      },
+      {
+       "label": "Setup and hold times",
+       "questions": 7
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/digital-logic/sequential-flipflops/gate_dl_mock_3_2026-10-28.html"
+    },
+    "visual": {
+     "slug": "sequential-circuits",
+     "title": "Sequential Circuits: Latches, Flip-Flops, Counters and Machines",
+     "level": "topic-level",
+     "covers": [
+      "JK as the repaired SR: hold, reset, set, toggle",
+      "characteristic equations: SR, D, T and JK, and the four-mode table",
+      "race-around: a level-triggered JK toggles floor(width/delay) times"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/sequential-circuits/index.html"
+    },
+    "mapped_at": "2026-10-30"
+   },
    "subject": "digital-logic",
    "topic": "sequential-circuits",
    "path": "subjects/digital-logic/sequential-circuits/d-and-jk-flip-flop-characteristic-equations.json"
@@ -30249,6 +30641,49 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "The T characteristic equation Q+ = T XOR Q and the D = T XOR Q and J = K = T conversions: IIT Bombay CS 226 Lecture 7 (English, read in full). The combined characteristic and excitation table for D, T, SR and JK: the Hindi Wikipedia article on flip-flops (translated). The excitation-table design flow for a counter: Auburn ELEC 2200 Lecture 7 (English, read in full). The verified question is GATE CSE 2017 Set 2 Q.42.",
+   "links": {
+    "mock": {
+     "subject": "digital-logic",
+     "unit_slug": "sequential-flipflops",
+     "unit_name": "Sequential Circuits: Flip-Flops & Registers",
+     "unit_number": 3,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Latches vs flip-flops",
+       "questions": 13
+      },
+      {
+       "label": "Characteristic equations",
+       "questions": 11
+      },
+      {
+       "label": "Shift registers",
+       "questions": 13
+      },
+      {
+       "label": "Setup &amp; hold times",
+       "questions": 6
+      },
+      {
+       "label": "Setup and hold times",
+       "questions": 7
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/digital-logic/sequential-flipflops/gate_dl_mock_3_2026-10-28.html"
+    },
+    "visual": {
+     "slug": "sequential-circuits",
+     "title": "Sequential Circuits: Latches, Flip-Flops, Counters and Machines",
+     "level": "topic-level",
+     "covers": [
+      "T flip-flop as a JK with the inputs tied: Q next = Q XOR T",
+      "excitation tables for D, T and JK, and the free input in every JK transition"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/sequential-circuits/index.html"
+    },
+    "mapped_at": "2026-10-30"
+   },
    "subject": "digital-logic",
    "topic": "sequential-circuits",
    "path": "subjects/digital-logic/sequential-circuits/t-flip-flop-and-excitation-tables.json"
@@ -30327,6 +30762,48 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "The register with load or enable, the four shift-register kinds, the universal shift register's four control functions and the bit-serial adder: KFUPM COE 202 Lecture 16 (English, read in full). The register as n flip-flops sharing a clock: IIT Bombay CS 226 Lecture 7 (English, read in full). No verified GATE CSE question of this topic is decided by a shift register alone, which is why this card carries none.",
+   "links": {
+    "mock": {
+     "subject": "digital-logic",
+     "unit_slug": "sequential-flipflops",
+     "unit_name": "Sequential Circuits: Flip-Flops & Registers",
+     "unit_number": 3,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Latches vs flip-flops",
+       "questions": 13
+      },
+      {
+       "label": "Characteristic equations",
+       "questions": 11
+      },
+      {
+       "label": "Shift registers",
+       "questions": 13
+      },
+      {
+       "label": "Setup &amp; hold times",
+       "questions": 6
+      },
+      {
+       "label": "Setup and hold times",
+       "questions": 7
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/digital-logic/sequential-flipflops/gate_dl_mock_3_2026-10-28.html"
+    },
+    "visual": {
+     "slug": "sequential-circuits",
+     "title": "Sequential Circuits: Latches, Flip-Flops, Counters and Machines",
+     "level": "topic-level",
+     "covers": [
+      "shift register as storage and movement, not a counter"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/sequential-circuits/index.html"
+    },
+    "mapped_at": "2026-10-30"
+   },
    "subject": "digital-logic",
    "topic": "sequential-circuits",
    "path": "subjects/digital-logic/sequential-circuits/registers-and-shift-registers.json"
@@ -30418,6 +30895,46 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "The ring and Johnson definitions, mod-n and mod-2n, the frequency and settling remarks: the English Wikipedia article on digital counters (read in part). The shift register as the parent circuit and the BCD and modulo remarks: KFUPM COE 202 Lecture 16 (English, read in full). The state count and the Gray-code property: Auburn ELEC 2200 Lecture 7 (English, read in full). Both verified questions are on their GATE Overflow pages: 2015 Set 1 Q.20 and 2025 Set 1 Q.50. The lesson animates the same 4-bit cycle.",
+   "links": {
+    "mock": {
+     "subject": "digital-logic",
+     "unit_slug": "sequential-fsm-counters",
+     "unit_name": "Sequential Circuits: Counters & State Machines",
+     "unit_number": 4,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Synchronous & asynchronous counters",
+       "questions": 13
+      },
+      {
+       "label": "FSM: Mealy & Moore machines",
+       "questions": 12
+      },
+      {
+       "label": "State reduction & assignment",
+       "questions": 12
+      },
+      {
+       "label": "Timing analysis",
+       "questions": 13
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/digital-logic/sequential-fsm-counters/gate_dl_mock_4_2026-10-30.html"
+    },
+    "visual": {
+     "slug": "sequential-circuits",
+     "title": "Sequential Circuits: Latches, Flip-Flops, Counters and Machines",
+     "level": "topic-level",
+     "covers": [
+      "ring counter: n states, and all zeros as a locked state",
+      "Johnson counter: 2n states from n flip-flops (GATE CSE 2015 Set 1 Q11)",
+      "ring versus Johnson, latch versus flip-flop, setup versus hold, ripple versus synchronous"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/sequential-circuits/index.html"
+    },
+    "mapped_at": "2026-10-30"
+   },
    "subject": "digital-logic",
    "topic": "sequential-circuits",
    "path": "subjects/digital-logic/sequential-circuits/ring-and-johnson-counters.json"
@@ -30498,6 +31015,46 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "The ripple counter, the per-stage delay model, the frequency-division table from F/2 to F/16 and the modulo-N definition: KFUPM COE 202 Lecture 16 (English, read in full). The asynchronous counter's settling time and the divide-by-2^n statement: the English Wikipedia article on digital counters (read in part). The verified question is GATE CSE 2025 Set 2 Q.24.",
+   "links": {
+    "mock": {
+     "subject": "digital-logic",
+     "unit_slug": "sequential-fsm-counters",
+     "unit_name": "Sequential Circuits: Counters & State Machines",
+     "unit_number": 4,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Synchronous & asynchronous counters",
+       "questions": 13
+      },
+      {
+       "label": "FSM: Mealy & Moore machines",
+       "questions": 12
+      },
+      {
+       "label": "State reduction & assignment",
+       "questions": 12
+      },
+      {
+       "label": "Timing analysis",
+       "questions": 13
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/digital-logic/sequential-fsm-counters/gate_dl_mock_4_2026-10-30.html"
+    },
+    "visual": {
+     "slug": "sequential-circuits",
+     "title": "Sequential Circuits: Latches, Flip-Flops, Counters and Machines",
+     "level": "topic-level",
+     "covers": [
+      "ripple counter: 2^n frequency division and last-stage period 2^n * T clk",
+      "64 us at the last of four stages = 250 kHz (GATE CSE 2025 Set 2 Q34)",
+      "ripple settling time n * t pd and f max = 1/(n * t pd)"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/sequential-circuits/index.html"
+    },
+    "mapped_at": "2026-10-30"
+   },
    "subject": "digital-logic",
    "topic": "sequential-circuits",
    "path": "subjects/digital-logic/sequential-circuits/ripple-counter-and-frequency-division.json"
@@ -30591,6 +31148,45 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "The modulo-N definition, the synchronous counter and the reset-based BCD counter: KFUPM COE 202 Lecture 16 (English, read in full). The Nff = ceil(log2 Ns) count and the state-counting argument: Auburn ELEC 2200 Lecture 7 (English, read in full). The mod-2^n ceiling and the synchronous and asynchronous difference: the English Wikipedia article on digital counters (read in part). The three verified questions are GATE CSE 2011 Q.15, 2015 Set 2 Q.7 and 2016 Set 1 Q.8.",
+   "links": {
+    "mock": {
+     "subject": "digital-logic",
+     "unit_slug": "sequential-fsm-counters",
+     "unit_name": "Sequential Circuits: Counters & State Machines",
+     "unit_number": 4,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Synchronous & asynchronous counters",
+       "questions": 13
+      },
+      {
+       "label": "FSM: Mealy & Moore machines",
+       "questions": 12
+      },
+      {
+       "label": "State reduction & assignment",
+       "questions": 12
+      },
+      {
+       "label": "Timing analysis",
+       "questions": 13
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/digital-logic/sequential-fsm-counters/gate_dl_mock_4_2026-10-30.html"
+    },
+    "visual": {
+     "slug": "sequential-circuits",
+     "title": "Sequential Circuits: Latches, Flip-Flops, Counters and Machines",
+     "level": "topic-level",
+     "covers": [
+      "synchronous counter toggle rule T k = Q0 Q1 ... Q(k-1)",
+      "mod-N counter: ceil(log2 N) flip-flops, nine for mod 258 (GATE CSE 2011 Q15)"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/sequential-circuits/index.html"
+    },
+    "mapped_at": "2026-10-30"
+   },
    "subject": "digital-logic",
    "topic": "sequential-circuits",
    "path": "subjects/digital-logic/sequential-circuits/synchronous-counter-and-mod-n-design.json"
@@ -30674,6 +31270,45 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "The state equations, the state table and the state diagram with a worked two-flip-flop example, and the device-by-device characteristic equations: IIT Bombay CS 226 Lecture 7 (English, read in full). The Huffman model that this analysis walks through: Auburn ELEC 2200 Lecture 7 (English, read in full). The three verified questions are GATE CSE 2014 Set 3 Q.45, 2018 Q.22 and 2005 Q.62.",
+   "links": {
+    "mock": {
+     "subject": "digital-logic",
+     "unit_slug": "sequential-fsm-counters",
+     "unit_name": "Sequential Circuits: Counters & State Machines",
+     "unit_number": 4,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Synchronous & asynchronous counters",
+       "questions": 13
+      },
+      {
+       "label": "FSM: Mealy & Moore machines",
+       "questions": 12
+      },
+      {
+       "label": "State reduction & assignment",
+       "questions": 12
+      },
+      {
+       "label": "Timing analysis",
+       "questions": 13
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/digital-logic/sequential-fsm-counters/gate_dl_mock_4_2026-10-30.html"
+    },
+    "visual": {
+     "slug": "sequential-circuits",
+     "title": "Sequential Circuits: Latches, Flip-Flops, Counters and Machines",
+     "level": "topic-level",
+     "covers": [
+      "analysis: one next-state equation per flip-flop, then tabulate and walk",
+      "the 2017 Set 1 Q33 walk 11 01 10 11 and the clock-zero convention"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/sequential-circuits/index.html"
+    },
+    "mapped_at": "2026-10-30"
+   },
    "subject": "digital-logic",
    "topic": "sequential-circuits",
    "path": "subjects/digital-logic/sequential-circuits/sequential-circuit-analysis-state-equations.json"
@@ -30764,6 +31399,44 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "The Mealy and Moore definitions, the state diagrams under binary, Gray and one-hot assignment, and the conversion remark: Auburn ELEC 2200 Lecture 7 (English, read in full). The Moore and Mealy definitions and the statement that the Moore output changes only at a clock edge: the Hindi Wikipedia article on sequential logic (translated). The synthesis order in which the model is chosen: IIT Bombay CS 226 Lecture 7 (English, read in full). The verified question is GATE CSE 2003 Q.44.",
+   "links": {
+    "mock": {
+     "subject": "digital-logic",
+     "unit_slug": "sequential-fsm-counters",
+     "unit_name": "Sequential Circuits: Counters & State Machines",
+     "unit_number": 4,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Synchronous & asynchronous counters",
+       "questions": 13
+      },
+      {
+       "label": "FSM: Mealy & Moore machines",
+       "questions": 12
+      },
+      {
+       "label": "State reduction & assignment",
+       "questions": 12
+      },
+      {
+       "label": "Timing analysis",
+       "questions": 13
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/digital-logic/sequential-fsm-counters/gate_dl_mock_4_2026-10-30.html"
+    },
+    "visual": {
+     "slug": "sequential-circuits",
+     "title": "Sequential Circuits: Latches, Flip-Flops, Counters and Machines",
+     "level": "topic-level",
+     "covers": [
+      "Moore against Mealy: output from the state alone, or from state and input"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/sequential-circuits/index.html"
+    },
+    "mapped_at": "2026-10-30"
+   },
    "subject": "digital-logic",
    "topic": "sequential-circuits",
    "path": "subjects/digital-logic/sequential-circuits/mealy-and-moore-machines.json"
@@ -30842,6 +31515,45 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "The equivalent-state definition, the implication table, the nine-to-four worked reduction and the flip-flop count: Auburn ELEC 2200 Lecture 7 (English, read in full). The state-reduction step in the synthesis procedure and the remark that it is easy to tell when two states are not equivalent but hard to tell when they are: IIT Bombay CS 226 Lecture 7 (English, read in full). No verified GATE CSE question of this topic is decided by a reduction alone, which is why this card carries none.",
+   "links": {
+    "mock": {
+     "subject": "digital-logic",
+     "unit_slug": "sequential-fsm-counters",
+     "unit_name": "Sequential Circuits: Counters & State Machines",
+     "unit_number": 4,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Synchronous & asynchronous counters",
+       "questions": 13
+      },
+      {
+       "label": "FSM: Mealy & Moore machines",
+       "questions": 12
+      },
+      {
+       "label": "State reduction & assignment",
+       "questions": 12
+      },
+      {
+       "label": "Timing analysis",
+       "questions": 13
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/digital-logic/sequential-fsm-counters/gate_dl_mock_4_2026-10-30.html"
+    },
+    "visual": {
+     "slug": "sequential-circuits",
+     "title": "Sequential Circuits: Latches, Flip-Flops, Counters and Machines",
+     "level": "topic-level",
+     "covers": [
+      "the FSM design flow: diagram, table, assignment, excitation, minimisation",
+      "unused encodings, don't-cares and the lock-out check; self-starting machines"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/sequential-circuits/index.html"
+    },
+    "mapped_at": "2026-10-30"
+   },
    "subject": "digital-logic",
    "topic": "sequential-circuits",
    "path": "subjects/digital-logic/sequential-circuits/state-minimisation-partition-refinement.json"
@@ -30920,6 +31632,46 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "The two adjacency rules, the binary, Gray and one-hot table, the literal-cost comparison of the optimal and arbitrary assignments and the count of possible assignments: Auburn ELEC 2200 Lecture 7 (English, read in full). The ceil(log2 n) statement and the three-assignment table: IIT Bombay CS 226 Lecture 7 (English, read in full). No verified GATE CSE question of this topic is decided by an assignment choice alone, which is why this card carries none.",
+   "links": {
+    "mock": {
+     "subject": "digital-logic",
+     "unit_slug": "sequential-fsm-counters",
+     "unit_name": "Sequential Circuits: Counters & State Machines",
+     "unit_number": 4,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Synchronous & asynchronous counters",
+       "questions": 13
+      },
+      {
+       "label": "FSM: Mealy & Moore machines",
+       "questions": 12
+      },
+      {
+       "label": "State reduction & assignment",
+       "questions": 12
+      },
+      {
+       "label": "Timing analysis",
+       "questions": 13
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/digital-logic/sequential-fsm-counters/gate_dl_mock_4_2026-10-30.html"
+    },
+    "visual": {
+     "slug": "sequential-circuits",
+     "title": "Sequential Circuits: Latches, Flip-Flops, Counters and Machines",
+     "level": "topic-level",
+     "covers": [
+      "state assignment as a free choice that changes only the size",
+      "unused encodings, don't-cares and the lock-out check; self-starting machines",
+      "n flip-flops give 2^n encodings; N states need ceil(log2 N) flip-flops"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/sequential-circuits/index.html"
+    },
+    "mapped_at": "2026-10-30"
+   },
    "subject": "digital-logic",
    "topic": "sequential-circuits",
    "path": "subjects/digital-logic/sequential-circuits/state-assignment-encoding.json"
@@ -31001,6 +31753,45 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "The word-description-to-state-diagram step and the equivalent-state reasoning behind the state count: Auburn ELEC 2200 Lecture 7 (English, read in full). The synthesis procedure that starts from a word description and reduces the states before assigning codes: IIT Bombay CS 226 Lecture 7 (English, read in full). The verified question is GATE CSE 2003 Q.44, whose five states come from a running difference rather than a pattern.",
+   "links": {
+    "mock": {
+     "subject": "digital-logic",
+     "unit_slug": "sequential-fsm-counters",
+     "unit_name": "Sequential Circuits: Counters & State Machines",
+     "unit_number": 4,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Synchronous & asynchronous counters",
+       "questions": 13
+      },
+      {
+       "label": "FSM: Mealy & Moore machines",
+       "questions": 12
+      },
+      {
+       "label": "State reduction & assignment",
+       "questions": 12
+      },
+      {
+       "label": "Timing analysis",
+       "questions": 13
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/digital-logic/sequential-fsm-counters/gate_dl_mock_4_2026-10-30.html"
+    },
+    "visual": {
+     "slug": "sequential-circuits",
+     "title": "Sequential Circuits: Latches, Flip-Flops, Counters and Machines",
+     "level": "topic-level",
+     "covers": [
+      "the FSM design flow: diagram, table, assignment, excitation, minimisation",
+      "unused encodings, don't-cares and the lock-out check; self-starting machines"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/sequential-circuits/index.html"
+    },
+    "mapped_at": "2026-10-30"
+   },
    "subject": "digital-logic",
    "topic": "sequential-circuits",
    "path": "subjects/digital-logic/sequential-circuits/sequence-detector-minimum-states.json"

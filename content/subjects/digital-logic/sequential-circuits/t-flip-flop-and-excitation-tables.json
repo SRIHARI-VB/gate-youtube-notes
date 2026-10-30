@@ -83,5 +83,48 @@
       "note": "The complete slide text was served and read: the SR latch characteristic equation Q* = S + R'Q, the Huffman model of an FSM, the Nff = ceil(log2 Ns) flip-flop count, equivalent states and the A-to-I minimisation example that reduces nine states to four, the two state-assignment adjacency rules, the literal-cost comparison of the optimal and arbitrary assignments, and the Mealy and Moore diagrams under binary, Gray and one-hot encoding."
     }
   ],
-  "sourceLine": "The T characteristic equation Q+ = T XOR Q and the D = T XOR Q and J = K = T conversions: IIT Bombay CS 226 Lecture 7 (English, read in full). The combined characteristic and excitation table for D, T, SR and JK: the Hindi Wikipedia article on flip-flops (translated). The excitation-table design flow for a counter: Auburn ELEC 2200 Lecture 7 (English, read in full). The verified question is GATE CSE 2017 Set 2 Q.42."
+  "sourceLine": "The T characteristic equation Q+ = T XOR Q and the D = T XOR Q and J = K = T conversions: IIT Bombay CS 226 Lecture 7 (English, read in full). The combined characteristic and excitation table for D, T, SR and JK: the Hindi Wikipedia article on flip-flops (translated). The excitation-table design flow for a counter: Auburn ELEC 2200 Lecture 7 (English, read in full). The verified question is GATE CSE 2017 Set 2 Q.42.",
+  "links": {
+    "mock": {
+      "subject": "digital-logic",
+      "unit_slug": "sequential-flipflops",
+      "unit_name": "Sequential Circuits: Flip-Flops & Registers",
+      "unit_number": 3,
+      "question_count": 50,
+      "subtopics": [
+        {
+          "label": "Latches vs flip-flops",
+          "questions": 13
+        },
+        {
+          "label": "Characteristic equations",
+          "questions": 11
+        },
+        {
+          "label": "Shift registers",
+          "questions": 13
+        },
+        {
+          "label": "Setup &amp; hold times",
+          "questions": 6
+        },
+        {
+          "label": "Setup and hold times",
+          "questions": 7
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/digital-logic/sequential-flipflops/gate_dl_mock_3_2026-10-28.html"
+    },
+    "visual": {
+      "slug": "sequential-circuits",
+      "title": "Sequential Circuits: Latches, Flip-Flops, Counters and Machines",
+      "level": "topic-level",
+      "covers": [
+        "T flip-flop as a JK with the inputs tied: Q next = Q XOR T",
+        "excitation tables for D, T and JK, and the free input in every JK transition"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/sequential-circuits/index.html"
+    },
+    "mapped_at": "2026-10-30"
+  }
 }

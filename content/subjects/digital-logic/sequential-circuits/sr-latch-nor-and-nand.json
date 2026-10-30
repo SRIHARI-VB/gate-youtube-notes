@@ -71,5 +71,50 @@
       "note": "The article was read in full and translated into English here. It gives the two stable output states, the latch name, the four kinds (SR, D, T, JK), the T characteristic equation Q_next = T XOR Q, and the combined characteristic and excitation table for D, T, SR and JK. The excitation table is the one place where a Hindi source supplied a table this repository publishes, and the table is recomputed in scripts/validate.py rather than trusted."
     }
   ],
-  "sourceLine": "Both latch tables, the active-high and active-low reading, the gated version and the forbidden row: IIT Bombay CS 226 Lecture 7 (English, read in full). The characteristic equation Q* = S + R'Q: Auburn ELEC 2200 Lecture 7 (English, read in full). The latch as a two-state memory element: the Hindi Wikipedia article on flip-flops (translated). No verified GATE CSE question of this topic is decided by a bare latch table, which is why this card carries none."
+  "sourceLine": "Both latch tables, the active-high and active-low reading, the gated version and the forbidden row: IIT Bombay CS 226 Lecture 7 (English, read in full). The characteristic equation Q* = S + R'Q: Auburn ELEC 2200 Lecture 7 (English, read in full). The latch as a two-state memory element: the Hindi Wikipedia article on flip-flops (translated). No verified GATE CSE question of this topic is decided by a bare latch table, which is why this card carries none.",
+  "links": {
+    "mock": {
+      "subject": "digital-logic",
+      "unit_slug": "sequential-flipflops",
+      "unit_name": "Sequential Circuits: Flip-Flops & Registers",
+      "unit_number": 3,
+      "question_count": 50,
+      "subtopics": [
+        {
+          "label": "Latches vs flip-flops",
+          "questions": 13
+        },
+        {
+          "label": "Characteristic equations",
+          "questions": 11
+        },
+        {
+          "label": "Shift registers",
+          "questions": 13
+        },
+        {
+          "label": "Setup &amp; hold times",
+          "questions": 6
+        },
+        {
+          "label": "Setup and hold times",
+          "questions": 7
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/digital-logic/sequential-flipflops/gate_dl_mock_3_2026-10-28.html"
+    },
+    "visual": {
+      "slug": "sequential-circuits",
+      "title": "Sequential Circuits: Latches, Flip-Flops, Counters and Machines",
+      "level": "topic-level",
+      "covers": [
+        "the NOR SR latch solved by iterating its two gate equations",
+        "two stable states, and holding as a fixed point rather than an absence of behaviour",
+        "S = R = 1 collapses to (0,0): the pair is no longer complementary",
+        "the release from S = R = 1 oscillates with period 2: the next state is undefined"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/sequential-circuits/index.html"
+    },
+    "mapped_at": "2026-10-30"
+  }
 }

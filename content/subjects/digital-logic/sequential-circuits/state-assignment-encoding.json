@@ -71,5 +71,45 @@
       "note": "The complete slide text was served and read: the sequential definition, the synchronous and asynchronous classification, the NOR and NAND SR latch tables, the gated SR latch, the D latch, the problem with latches, the edge-triggered D flip-flop and setup and hold, the JK and T flip-flops with their characteristic equations, the analysis example, the seven-step synthesis procedure, state reduction and the binary, Gray and one-hot assignment table."
     }
   ],
-  "sourceLine": "The two adjacency rules, the binary, Gray and one-hot table, the literal-cost comparison of the optimal and arbitrary assignments and the count of possible assignments: Auburn ELEC 2200 Lecture 7 (English, read in full). The ceil(log2 n) statement and the three-assignment table: IIT Bombay CS 226 Lecture 7 (English, read in full). No verified GATE CSE question of this topic is decided by an assignment choice alone, which is why this card carries none."
+  "sourceLine": "The two adjacency rules, the binary, Gray and one-hot table, the literal-cost comparison of the optimal and arbitrary assignments and the count of possible assignments: Auburn ELEC 2200 Lecture 7 (English, read in full). The ceil(log2 n) statement and the three-assignment table: IIT Bombay CS 226 Lecture 7 (English, read in full). No verified GATE CSE question of this topic is decided by an assignment choice alone, which is why this card carries none.",
+  "links": {
+    "mock": {
+      "subject": "digital-logic",
+      "unit_slug": "sequential-fsm-counters",
+      "unit_name": "Sequential Circuits: Counters & State Machines",
+      "unit_number": 4,
+      "question_count": 50,
+      "subtopics": [
+        {
+          "label": "Synchronous & asynchronous counters",
+          "questions": 13
+        },
+        {
+          "label": "FSM: Mealy & Moore machines",
+          "questions": 12
+        },
+        {
+          "label": "State reduction & assignment",
+          "questions": 12
+        },
+        {
+          "label": "Timing analysis",
+          "questions": 13
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/digital-logic/sequential-fsm-counters/gate_dl_mock_4_2026-10-30.html"
+    },
+    "visual": {
+      "slug": "sequential-circuits",
+      "title": "Sequential Circuits: Latches, Flip-Flops, Counters and Machines",
+      "level": "topic-level",
+      "covers": [
+        "state assignment as a free choice that changes only the size",
+        "unused encodings, don't-cares and the lock-out check; self-starting machines",
+        "n flip-flops give 2^n encodings; N states need ceil(log2 N) flip-flops"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/sequential-circuits/index.html"
+    },
+    "mapped_at": "2026-10-30"
+  }
 }

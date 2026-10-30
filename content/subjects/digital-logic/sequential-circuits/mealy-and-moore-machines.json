@@ -83,5 +83,43 @@
       "note": "The complete slide text was served and read: the sequential definition, the synchronous and asynchronous classification, the NOR and NAND SR latch tables, the gated SR latch, the D latch, the problem with latches, the edge-triggered D flip-flop and setup and hold, the JK and T flip-flops with their characteristic equations, the analysis example, the seven-step synthesis procedure, state reduction and the binary, Gray and one-hot assignment table."
     }
   ],
-  "sourceLine": "The Mealy and Moore definitions, the state diagrams under binary, Gray and one-hot assignment, and the conversion remark: Auburn ELEC 2200 Lecture 7 (English, read in full). The Moore and Mealy definitions and the statement that the Moore output changes only at a clock edge: the Hindi Wikipedia article on sequential logic (translated). The synthesis order in which the model is chosen: IIT Bombay CS 226 Lecture 7 (English, read in full). The verified question is GATE CSE 2003 Q.44."
+  "sourceLine": "The Mealy and Moore definitions, the state diagrams under binary, Gray and one-hot assignment, and the conversion remark: Auburn ELEC 2200 Lecture 7 (English, read in full). The Moore and Mealy definitions and the statement that the Moore output changes only at a clock edge: the Hindi Wikipedia article on sequential logic (translated). The synthesis order in which the model is chosen: IIT Bombay CS 226 Lecture 7 (English, read in full). The verified question is GATE CSE 2003 Q.44.",
+  "links": {
+    "mock": {
+      "subject": "digital-logic",
+      "unit_slug": "sequential-fsm-counters",
+      "unit_name": "Sequential Circuits: Counters & State Machines",
+      "unit_number": 4,
+      "question_count": 50,
+      "subtopics": [
+        {
+          "label": "Synchronous & asynchronous counters",
+          "questions": 13
+        },
+        {
+          "label": "FSM: Mealy & Moore machines",
+          "questions": 12
+        },
+        {
+          "label": "State reduction & assignment",
+          "questions": 12
+        },
+        {
+          "label": "Timing analysis",
+          "questions": 13
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/digital-logic/sequential-fsm-counters/gate_dl_mock_4_2026-10-30.html"
+    },
+    "visual": {
+      "slug": "sequential-circuits",
+      "title": "Sequential Circuits: Latches, Flip-Flops, Counters and Machines",
+      "level": "topic-level",
+      "covers": [
+        "Moore against Mealy: output from the state alone, or from state and input"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/sequential-circuits/index.html"
+    },
+    "mapped_at": "2026-10-30"
+  }
 }

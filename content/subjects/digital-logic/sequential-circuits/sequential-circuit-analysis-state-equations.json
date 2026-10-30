@@ -76,5 +76,44 @@
       "note": "The complete slide text was served and read: the SR latch characteristic equation Q* = S + R'Q, the Huffman model of an FSM, the Nff = ceil(log2 Ns) flip-flop count, equivalent states and the A-to-I minimisation example that reduces nine states to four, the two state-assignment adjacency rules, the literal-cost comparison of the optimal and arbitrary assignments, and the Mealy and Moore diagrams under binary, Gray and one-hot encoding."
     }
   ],
-  "sourceLine": "The state equations, the state table and the state diagram with a worked two-flip-flop example, and the device-by-device characteristic equations: IIT Bombay CS 226 Lecture 7 (English, read in full). The Huffman model that this analysis walks through: Auburn ELEC 2200 Lecture 7 (English, read in full). The three verified questions are GATE CSE 2014 Set 3 Q.45, 2018 Q.22 and 2005 Q.62."
+  "sourceLine": "The state equations, the state table and the state diagram with a worked two-flip-flop example, and the device-by-device characteristic equations: IIT Bombay CS 226 Lecture 7 (English, read in full). The Huffman model that this analysis walks through: Auburn ELEC 2200 Lecture 7 (English, read in full). The three verified questions are GATE CSE 2014 Set 3 Q.45, 2018 Q.22 and 2005 Q.62.",
+  "links": {
+    "mock": {
+      "subject": "digital-logic",
+      "unit_slug": "sequential-fsm-counters",
+      "unit_name": "Sequential Circuits: Counters & State Machines",
+      "unit_number": 4,
+      "question_count": 50,
+      "subtopics": [
+        {
+          "label": "Synchronous & asynchronous counters",
+          "questions": 13
+        },
+        {
+          "label": "FSM: Mealy & Moore machines",
+          "questions": 12
+        },
+        {
+          "label": "State reduction & assignment",
+          "questions": 12
+        },
+        {
+          "label": "Timing analysis",
+          "questions": 13
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/digital-logic/sequential-fsm-counters/gate_dl_mock_4_2026-10-30.html"
+    },
+    "visual": {
+      "slug": "sequential-circuits",
+      "title": "Sequential Circuits: Latches, Flip-Flops, Counters and Machines",
+      "level": "topic-level",
+      "covers": [
+        "analysis: one next-state equation per flip-flop, then tabulate and walk",
+        "the 2017 Set 1 Q33 walk 11 01 10 11 and the clock-zero convention"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/sequential-circuits/index.html"
+    },
+    "mapped_at": "2026-10-30"
+  }
 }

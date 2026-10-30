@@ -71,5 +71,47 @@
       "note": "The complete slide text was served and read: the sequential definition, the synchronous and asynchronous classification, the NOR and NAND SR latch tables, the gated SR latch, the D latch, the problem with latches, the edge-triggered D flip-flop and setup and hold, the JK and T flip-flops with their characteristic equations, the analysis example, the seven-step synthesis procedure, state reduction and the binary, Gray and one-hot assignment table."
     }
   ],
-  "sourceLine": "The register with load or enable, the four shift-register kinds, the universal shift register's four control functions and the bit-serial adder: KFUPM COE 202 Lecture 16 (English, read in full). The register as n flip-flops sharing a clock: IIT Bombay CS 226 Lecture 7 (English, read in full). No verified GATE CSE question of this topic is decided by a shift register alone, which is why this card carries none."
+  "sourceLine": "The register with load or enable, the four shift-register kinds, the universal shift register's four control functions and the bit-serial adder: KFUPM COE 202 Lecture 16 (English, read in full). The register as n flip-flops sharing a clock: IIT Bombay CS 226 Lecture 7 (English, read in full). No verified GATE CSE question of this topic is decided by a shift register alone, which is why this card carries none.",
+  "links": {
+    "mock": {
+      "subject": "digital-logic",
+      "unit_slug": "sequential-flipflops",
+      "unit_name": "Sequential Circuits: Flip-Flops & Registers",
+      "unit_number": 3,
+      "question_count": 50,
+      "subtopics": [
+        {
+          "label": "Latches vs flip-flops",
+          "questions": 13
+        },
+        {
+          "label": "Characteristic equations",
+          "questions": 11
+        },
+        {
+          "label": "Shift registers",
+          "questions": 13
+        },
+        {
+          "label": "Setup &amp; hold times",
+          "questions": 6
+        },
+        {
+          "label": "Setup and hold times",
+          "questions": 7
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/digital-logic/sequential-flipflops/gate_dl_mock_3_2026-10-28.html"
+    },
+    "visual": {
+      "slug": "sequential-circuits",
+      "title": "Sequential Circuits: Latches, Flip-Flops, Counters and Machines",
+      "level": "topic-level",
+      "covers": [
+        "shift register as storage and movement, not a counter"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/sequential-circuits/index.html"
+    },
+    "mapped_at": "2026-10-30"
+  }
 }
