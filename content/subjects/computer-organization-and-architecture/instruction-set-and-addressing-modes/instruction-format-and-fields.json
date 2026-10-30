@@ -1,0 +1,81 @@
+{
+  "id": "instruction-format-and-fields",
+  "title": "The Instruction Format: Opcode, Operand Fields and Length",
+  "priority": "P1",
+  "order": 480,
+  "unit": "Instruction Set and Addressing Modes",
+  "quickIdea": "A machine instruction is an opcode plus the fields that locate its operands. The format decides how many bits each field gets, and that is the whole of what a 'format' means.",
+  "remember": [
+    "Two parts, always: the opcode says what to do, the operand field says where the data is. The addressing mode is the rule for reading that operand field.",
+    "A destination operand can be a register or a memory location. An immediate value can only ever be a source, never a destination.",
+    "Fixed-length instructions (a 32-bit RISC word) are decoded in one step; variable-length instructions (x86, 1 to 15 bytes) must be decoded byte by byte.",
+    "An address field of n bits can name only 2^n locations, which is why direct addressing caps the address space at the width of that field.",
+    "Byte-aligned storage: an instruction of b bits occupies ceil(b/8) bytes, and the rounding up is part of the answer to a program-size question.",
+    "The register fields are sized by the register file, not by the opcode: 32 registers cost 5 bits per register field, 64 cost 6."
+  ],
+  "example": {
+    "prompt": "A 32-bit instruction has a 6-bit opcode, two register fields for a 16-register file, and an immediate field. How wide is the immediate field, and what unsigned range does it hold?",
+    "work": "Each register field is log2(16) = 4 bits, so the two of them take 8. The immediate field is 32 - 6 - 8 = 18 bits. An 18-bit unsigned field holds 0 to 2^18 - 1 = 262143.",
+    "answer": "18 bits, holding 0 to 262143."
+  },
+  "gateAngle": "GATE tests the format as an arithmetic budget far more often than as a diagram: the immediate width of a fixed word (GATE CSE 2016 Set 2 Q.10), the widest immediate an ADD can carry (GATE CSE 2025 Set 1 Q.27), and the opcode count once an addressing-mode field is carved out (GATE CSE 2024 Set 2 Q.47). All three are the same subtraction, done from a different starting point.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "A 16-bit instruction has a 4-bit opcode, one 4-bit register field and one address field. How much memory can the address field name, and what happens to that reach if the machine is byte addressable rather than word addressable?",
+      "answer": "The address field is 16 - 4 - 4 = 8 bits, so it names 2^8 = 256 locations. Byte addressable that is 256 bytes; word addressable with 2-byte words it is 512 bytes.",
+      "why": "The field width fixes the number of addressable units, and the unit size then fixes the number of bytes. GATE asks the two halves separately; the mistake is to answer 256 bytes without asking what a location is."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Why does a fixed-length instruction set decode faster than a variable-length one?",
+      "answer": "Because the opcode always sits in the same bit positions, so the decoder can read it before it knows how long the instruction is; with variable length the opcode's position depends on the bytes already consumed.",
+      "why": "This is the design reason RISC fixes the length, and it is the sentence behind the RISC-against-CISC comparison rather than a separate fact."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "A machine has 12 instructions, 8 registers and a two-address format in a 12-bit word, with a 4-bit mode field. What is the largest immediate the remaining bits can carry?",
+      "answer": "4 bits of opcode (12 instructions needs 4), 3 + 3 bits of registers, 4 bits of mode: 12 - 4 - 6 - 4 = -2, so no bits are left. The format does not fit and one field must shrink.",
+      "why": "The budget can go negative. GATE has asked for a maximum, but the negative case is the one that exposes whether you are adding the fields or guessing."
+    }
+  ],
+  "trap": {
+    "what": "Reading the operand field as if it were always an address.",
+    "why": "The field is bits; the mode tells you what those bits mean. In immediate mode they are the value, in register mode they are a register number, in direct mode they are a memory address.",
+    "counterexample": "In ADD R1, #25 the second field holds the number 25. Nothing is fetched from memory location 25, and the instruction is one word long, not two."
+  },
+  "check": {
+    "question": "An instruction set has 41-bit instructions that must be byte aligned. How many bytes does a 100-instruction program occupy?",
+    "answer": "600 bytes.",
+    "explanation": "41 bits rounds up to ceil(41/8) = 6 bytes per instruction, so 100 x 6 = 600. The 7 wasted bits per instruction are the price of byte alignment."
+  },
+  "pyqIds": [],
+  "prereqs": [
+    "unsigned-fixed-width-range",
+    "base-conversion-integer-and-fraction"
+  ],
+  "sources": [
+    {
+      "kind": "lecture-transcript",
+      "title": "Lecture 07 - Instruction Format and Addressing Modes",
+      "channel": "NPTEL, Computer Organization and Architecture (Prof. Kamalika Datta, NIT Meghalaya)",
+      "url": "http://www.digimat.in/nptel/courses/video/106105163/lec7.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read from the opening through the list of addressing modes: the opcode and operand parts of an instruction, the rule that a destination operand must be a register or a memory location while an immediate can only be a source, the zero- to three-address formats, the 32-bit field example with 32 registers costing 5 bits each, and the statement that load-store architectures support very few addressing modes. The returned extract stopped before the mode-by-mode teaching, so nothing is attributed to that part"
+    },
+    {
+      "kind": "lecture-transcript",
+      "title": "Lecture 12 - Addressing Modes",
+      "channel": "NPTEL, Computer Organization and Architecture - A Pedagogical Aspect (Prof. Jatindra Kr. Deka, Dr. Santosh Biswas, Dr. Arnab Sarkar, IIT Guwahati)",
+      "url": "http://www.digimat.in/nptel/courses/video/106103180/lec12.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read from the opening through the definition of displacement addressing: the reason a large operand is moved out of the instruction into memory, the immediate / direct / indirect / register / register-indirect ladder with the size-and-speed trade-off of each, and the two-part address of displacement addressing. The returned extract stopped inside the displacement discussion, so nothing is attributed to the indexed, relative, autoincrement or stack material of the same lecture"
+    }
+  ],
+  "sourceLine": "The opcode-and-operand split, the rule that a destination must be a register or a memory location while an immediate is only a source, the zero- to three-address formats and the 32-bit field example with 5 bits per register: Datta, Lecture 07 (English, read in part). The statement that a high-precision operand forces a long instruction and is therefore moved into memory, which is the format-versus-mode trade: Deka et al., Lecture 12 (English, read in part). Every number here is recomputed in scripts/validate.py.",
+  "videoRefs": []
+}
