@@ -3,7 +3,7 @@
  "updated_at": "2026-10-30",
  "cycle": {
   "last_subject": "digital-logic",
-  "last_topic": "combinational-circuits",
+  "last_topic": "sequential-circuits",
   "updated_at": "2026-10-30"
  },
  "subjects": [
@@ -681,10 +681,37 @@
     {
      "slug": "sequential-circuits",
      "name": "Sequential Circuits",
-     "status": "not_started",
-     "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
-     "runs": [],
-     "gaps": []
+     "status": "partial",
+     "coverage_note": "17 subtopics, 15 cards (the sequential definition and the clock, the SR latch in both polarities, the gated SR and D latch, the edge-triggered flip-flop and its timing rules, the D and JK flip-flops, the T flip-flop and the excitation tables, registers and shift registers, ring and Johnson counters, ripple counters and frequency division, synchronous counters and mod-N design, analysis by state equations, Mealy and Moore machines, state minimisation, state assignment, and sequence detectors with the minimum-state argument), 12 verified PYQs from 2003 to 2025 and 1 p5.js lesson. Partial because six gaps remain, named below - above all that no video transcript was readable and that the NPTEL transcript PDFs which supplied the previous topic answered HTTP 403 this run.",
+     "runs": [
+      {
+       "date": "2026-10-30",
+       "sources": [
+        "iitb-cs226-lecture07-synchronous-sequential-logic",
+        "auburn-elec2200-lecture7-sequential-circuits-fsm",
+        "kfupm-coe202-registers-and-counters",
+        "en-wikipedia-counter-digital",
+        "hi-wikipedia-sequential-logic",
+        "hi-wikipedia-flip-flop",
+        "nptel-noc25-cs67-switching-circuits-outline"
+       ],
+       "cards": 15,
+       "pyqs": 12,
+       "lesson": "digital-logic/sequential-circuits/johnson-counter-cycle",
+       "note": "Sources chosen on merit across two languages, with three English lecture decks read complete: IIT Bombay CS 226 Lecture 7 (the sequential definition, both latch tables, the edge-triggered construction, all four characteristic equations, the seven-step synthesis procedure and the three-way assignment table) for the latch, flip-flop and analysis cards; Auburn ELEC 2200 Lecture 7 (the latch equation derived from its table, the Huffman model, the nine-to-four state reduction, the two adjacency rules and the literal-cost comparison) for the minimisation, assignment and Mealy-and-Moore cards; KFUPM COE 202 Lecture 16 (registers, the four shift-register kinds, the universal register control table, the ripple delay and the F/2 to F/16 frequency table) for the register and counter cards; the English Wikipedia counter article for the mod-2^n, mod-n and mod-2n statements; and two Hindi Wikipedia articles, both read in full and translated, for the sequential definition, the Moore and Mealy vocabulary and the excitation table. Rejected with reasons in sources.json: the NPTEL Digital Electronic Circuits transcripts at digimat.in that supplied the previous topic (HTTP 403 all run), the NPTEL noc25_cs67 lectures (outline only), the Gate Smashers Hindi sequential playlist and the GO Classes sequential PYQ playlist (no caption tracks), the Knowledge Gate sequential MCQ blog and the GeeksforGeeks quiz pages (indexes only, and one year attribution wrong), GATE IT 2005 Q.11 and the GATE EC sequential questions (different papers), the Testbook and Unacademy Hindi banks, three US university FSM decks that add no subtopic, and an Indonesian shift-register handout superseded by the KFUPM deck."
+      }
+     ],
+     "gaps": [
+      "no video transcript was readable this run: no YouTube watch page carried a caption track, so videoRefs is empty on all fifteen cards and no card quotes or timestamps a lecture",
+      "the NPTEL Digital Electronic Circuits transcripts at digimat.in, which supplied four lectures in full to the previous topic in this subject, answered HTTP 403 from the sandbox on every route tried; the sequential lectures of that course (the latch, flip-flop, register and counter classes) therefore contributed nothing and a later run should retry them",
+      "the NPTEL Switching Circuits and Logic Design course (noc25_cs67) has exactly the right week-by-week scope for this topic - week 7 latches and flip-flops, week 8 synchronous synthesis with Mealy and Moore and state minimisation, week 9 registers and counters - but only its course layout page was readable, so it is recorded as structure only",
+      "no verified GATE CSE previous-year question exists in this topic for a bare latch table, for a shift register, for a state-minimisation reduction or for a state-assignment choice, so five cards carry no PYQ of their own and say so rather than borrowing a question that does not test them",
+      "every PYQ in the topic is SOURCED against a GATE Overflow accepted answer rather than key-verified against an official answer key, and no marks field comes from an official key, because neither the official papers nor the keys were fetched this run",
+      "two verified questions are decided by a figure no readable source reproduced - GATE CSE 2018 Q.22 and GATE CSE 2025 Set 1 Q.50 - and are in the set only because their accepted solutions state the wiring in words, which each record says; any question of this topic whose wiring no readable solution states is excluded",
+      "GATE CSE 2016 Set 1 Q.8 accepted both 3 and 4 and GATE CSE 2025 Set 1 Q.50 accepted both 7 and 8, so those two records report a disagreement rather than a single answer, and GATE CSE 2011 Q.15 is recorded by value because two pages print its options in different orders",
+      "asynchronous sequential circuit design - fundamental mode, races, critical races and the flow table - is outside the six words of the syllabus line and is not carded at all; the asynchronous material here is the ripple counter only",
+      "the setup-and-hold timing rules are stated from the IIT Bombay deck and the clock-period argument, but no verified CSE question of this topic turns on a setup or hold violation, so the timing half of that card rests on the reference rather than on a question"
+     ]
     },
     {
      "slug": "computer-arithmetic",

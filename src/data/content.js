@@ -279,7 +279,7 @@ window.GATE_DATA = {
      {
       "slug": "sequential-circuits",
       "name": "Sequential Circuits",
-      "material": "planned"
+      "material": "cards"
      },
      {
       "slug": "computer-arithmetic",
@@ -29767,6 +29767,1243 @@ window.GATE_DATA = {
    "subject": "digital-logic",
    "topic": "combinational-circuits",
    "path": "subjects/digital-logic/combinational-circuits/hazards-in-combinational-circuits.json"
+  },
+  {
+   "id": "sequential-circuit-definition-and-clock",
+   "title": "What Makes a Circuit Sequential",
+   "priority": "P1",
+   "order": 447,
+   "unit": "Sequential Circuits",
+   "quickIdea": "A combinational circuit's output is fixed by its present inputs. A sequential circuit also holds state in memory elements, so the same inputs can produce different outputs at different times.",
+   "remember": [
+    "Output = function of the present inputs and the present state. The state is whatever the memory elements hold, nothing more.",
+    "n flip-flops hold n bits, so the circuit has at most 2^n states. Three flip-flops give eight states at most, never nine.",
+    "The Huffman model: a block of combinational logic computes the next state and the outputs, and a block of flip-flops holds the state. Every GATE sequential question is this picture with different wiring.",
+    "Synchronous means the state changes only at clock edges, so all flip-flops update together. Asynchronous means the state can change whenever an input changes, and a ripple counter is the common example.",
+    "In a synchronous circuit the clock period must be at least the longest combinational delay plus the flip-flop setup time; that is what fixes the maximum clock frequency.",
+    "A counter is a degenerate finite state machine with no input and no output other than the state itself."
+   ],
+   "example": {
+    "prompt": "A synchronous sequential circuit is built from four D flip-flops and some combinational logic. How many states can it have, and how many does it actually have?",
+    "work": "Four flip-flops hold four bits, so the state space is 2^4 = 16 binary patterns. The number of states the circuit actually visits depends on the wiring: a plain binary counter visits all 16, a 4-bit ring counter visits 4, and a 4-bit Johnson counter visits 8.",
+    "answer": "At most 16 states; the reachable count is a property of the wiring, not of the flip-flop count. This is the idea behind GATE CSE 2025 Set 1 Q.50, where four D flip-flops wired as a Johnson counter reach 8 distinct states."
+   },
+   "gateAngle": "GATE rarely asks for the definition. It asks you to read a circuit and decide what it does, so the useful part of this card is the model: find the flip-flops, write what drives each one, and you have the next-state function.",
+   "variations": [
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "A circuit has three inputs and two flip-flops. Its output is a function of the three inputs only, and the flip-flops drive nothing. Is it sequential?",
+     "answer": "No. If the output does not depend on the state, the circuit is combinational whatever hardware it contains; the flip-flops are decoration.",
+     "why": "The label is decided by the output function, not by the parts list. GATE has used circuits that contain flip-flops whose outputs never reach an output."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "A synchronous circuit has a longest combinational delay of 8 ns and flip-flops with a 1 ns setup time and a 0.5 ns clock-to-output delay. What is the highest clock frequency it can run at?",
+     "answer": "The period must cover the clock-to-output delay, the combinational delay and the setup time: 0.5 + 8 + 1 = 9.5 ns, so about 105 MHz.",
+     "why": "Every timing question is this one sum. Leaving out the clock-to-output delay is the usual slip."
+    }
+   ],
+   "trap": {
+    "what": "Assuming the number of states equals 2 to the number of flip-flops.",
+    "why": "2^n is only the ceiling. A ring counter with n flip-flops has n states and a Johnson counter has 2n, because the feedback wiring restricts the reachable set.",
+    "counterexample": "Four D flip-flops wired as a Johnson counter visit 8 of the 16 patterns; four wired as a ring counter visit 4. GATE CSE 2015 Set 1 Q.20 and 2025 Set 1 Q.50 both turn on this difference."
+   },
+   "check": {
+    "question": "A state diagram has 6 states. What is the smallest number of flip-flops that can hold them, and how many patterns are then unused?",
+    "answer": "Three flip-flops, because 2^2 = 4 is too few and 2^3 = 8 is enough. Two patterns are unused.",
+    "explanation": "ceil(log2 6) = 3. The unused patterns still exist in hardware, so a design must say what happens if the circuit ever lands in one; that is the self-starting requirement on the counter card."
+   },
+   "pyqIds": [],
+   "videoRefs": [],
+   "prereqs": [
+    "combinational-circuit-definition-and-design"
+   ],
+   "visual": null,
+   "sources": [
+    {
+     "kind": "lecture-slides",
+     "title": "Lecture 7 - Synchronous Sequential Logic",
+     "channel": "IIT Bombay, CS 226 Digital Logic Design (Ashutosh Trivedi)",
+     "url": "https://www.cse.iitb.ac.in/~trivedi/courses/cs226/lecture07.pdf",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "The complete slide text was served and read: the sequential definition, the synchronous and asynchronous classification, the NOR and NAND SR latch tables, the gated SR latch, the D latch, the problem with latches, the edge-triggered D flip-flop and setup and hold, the JK and T flip-flops with their characteristic equations, the analysis example, the seven-step synthesis procedure, state reduction and the binary, Gray and one-hot assignment table."
+    },
+    {
+     "kind": "text",
+     "title": "अनुक्रमिक लॉजिक (Sequential logic)",
+     "channel": "Wikipedia (Hindi)",
+     "url": "https://hi.wikipedia.org/wiki/%E0%A4%85%E0%A4%A8%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%B0%E0%A4%AE%E0%A4%BF%E0%A4%95_%E0%A4%B2%E0%A5%89%E0%A4%9C%E0%A4%BF%E0%A4%95",
+     "language": "hi",
+     "transcript": "FULL",
+     "translated": true,
+     "note": "The article was read in full and translated into English here. It states that sequential logic has an output that depends on past inputs and not only on the present ones, that this is memory, that combinational logic has no such dependence, and it defines the Moore and Mealy machines and the synchronous and asynchronous split. Contributes terminology only; no number in this topic comes from it."
+    }
+   ],
+   "sourceLine": "The sequential definition, the state as the contents of the memory elements, the synchronous and asynchronous split and the clock-period argument: IIT Bombay CS 226 Lecture 7 (English, read in full). The memory reading of sequential logic and the Moore and Mealy definitions: the Hindi Wikipedia article on sequential logic (translated). No card of this topic rests on a YouTube transcript, because no caption track was readable this run.",
+   "subject": "digital-logic",
+   "topic": "sequential-circuits",
+   "path": "subjects/digital-logic/sequential-circuits/sequential-circuit-definition-and-clock.json"
+  },
+  {
+   "id": "sr-latch-nor-and-nand",
+   "title": "The SR Latch: Two Gates That Remember",
+   "priority": "P1",
+   "order": 448,
+   "unit": "Sequential Circuits",
+   "quickIdea": "Two cross-coupled NOR gates (or two cross-coupled NAND gates) store one bit with no clock. One input sets it, the other resets it, and the combination that asserts both is forbidden.",
+   "remember": [
+    "NOR latch, active-high inputs: S = 1, R = 0 sets Q to 1; S = 0, R = 1 resets Q to 0; S = R = 0 holds; S = R = 1 is forbidden.",
+    "NAND latch, active-low inputs: S' = 0 sets; R' = 0 resets; both 1 holds; both 0 is forbidden. The table is the mirror image of the NOR one, so check which gate the question draws.",
+    "Characteristic equation of the NOR latch: Q+ = S + R'Q, valid only while S and R are not both 1. With S = R = 1 the equation would say Q+ = 1, which contradicts the hardware.",
+    "Why the forbidden input is forbidden: on the NOR latch it forces Q = Q' = 0, so the two outputs stop being complements; on the NAND latch it forces Q = Q' = 1.",
+    "The forbidden input is not just an error state, it is a timing hazard. Releasing both inputs at once makes the stored value depend on which gate is faster, so the next state is unpredictable.",
+    "The latch is level-sensitive and clockless. That is what separates it from a flip-flop."
+   ],
+   "example": {
+    "prompt": "A NOR SR latch starts with Q = 0. The inputs go (S, R) = (1, 0), then (0, 0), then (0, 1), then (0, 0). What is Q after each step?",
+    "work": "(1, 0) sets: Q = 1. (0, 0) holds: Q stays 1. (0, 1) resets: Q = 0. (0, 0) holds again: Q stays 0. Each (0, 0) step copies the previous value, which is the memory.",
+    "answer": "Q = 1, 1, 0, 0. Every (0, 0) row of the table is the whole point of the circuit."
+   },
+   "gateAngle": "GATE hands you a drawn latch and asks for the outputs, or asks whether a given input sequence is legal. The marks are in knowing which polarity the drawn gates use and what the forbidden row does to the outputs.",
+   "variations": [
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "A NAND SR latch has inputs S' = 1 and R' = 1. What is Q, and why can it not be read off the gates alone?",
+     "answer": "Q keeps whatever it held. Both NAND gates see a 1 on their control input, so each output equals the complement of the other output, and the pair settles in whichever of the two stable states it was already in.",
+     "why": "This is bistability: two consistent solutions exist for the same inputs, and the circuit remembers which one it is in. That is exactly what a memory element is."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "Both inputs of a NOR SR latch are pulsed to 1 and released to 0 at exactly the same instant. What can be said about Q?",
+     "answer": "Nothing definite. The two gates race, and Q settles to whichever gate wins; the value may also be metastable for a short time.",
+     "why": "This is the reason the row is called forbidden rather than merely illegal. GATE has asked which input combination leaves the output indeterminate."
+    }
+   ],
+   "trap": {
+    "what": "Using the NOR truth table for a NAND latch, or reading a NAND latch's inputs as active-high.",
+    "why": "The two circuits are duals. The NAND latch is set by a 0 on S' and its forbidden combination is both inputs 0, so every row flips.",
+    "counterexample": "On a NAND latch with S' = 0 and R' = 1 the output is set to 1, whereas the same numbers on a NOR latch (S = 0, R = 1) reset it to 0."
+   },
+   "check": {
+    "question": "Write the next-state value of a NOR SR latch for all four input combinations, assuming Q = 0 before the inputs are applied.",
+    "answer": "S, R = 0, 0 gives Q+ = 0 (hold); 0, 1 gives 0 (reset); 1, 0 gives 1 (set); 1, 1 gives Q = Q' = 0, which is forbidden.",
+    "explanation": "From Q+ = S + R'Q with Q = 0 the term R'Q vanishes, so Q+ = S for the three legal rows. The forbidden row is the one the equation cannot describe."
+   },
+   "pyqIds": [],
+   "videoRefs": [],
+   "prereqs": [
+    "sequential-circuit-definition-and-clock"
+   ],
+   "visual": null,
+   "sources": [
+    {
+     "kind": "lecture-slides",
+     "title": "Lecture 7 - Synchronous Sequential Logic",
+     "channel": "IIT Bombay, CS 226 Digital Logic Design (Ashutosh Trivedi)",
+     "url": "https://www.cse.iitb.ac.in/~trivedi/courses/cs226/lecture07.pdf",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "The complete slide text was served and read: the sequential definition, the synchronous and asynchronous classification, the NOR and NAND SR latch tables, the gated SR latch, the D latch, the problem with latches, the edge-triggered D flip-flop and setup and hold, the JK and T flip-flops with their characteristic equations, the analysis example, the seven-step synthesis procedure, state reduction and the binary, Gray and one-hot assignment table."
+    },
+    {
+     "kind": "text",
+     "title": "फ्लिप-फ्लॉप (Flip-flop)",
+     "channel": "Wikipedia (Hindi)",
+     "url": "https://hi.wikipedia.org/wiki/%E0%A4%AB%E0%A5%8D%E0%A4%B2%E0%A4%BF%E0%A4%AA-%E0%A4%AB%E0%A5%8D%E0%A4%B2%E0%A5%89%E0%A4%AA",
+     "language": "hi",
+     "transcript": "FULL",
+     "translated": true,
+     "note": "The article was read in full and translated into English here. It gives the two stable output states, the latch name, the four kinds (SR, D, T, JK), the T characteristic equation Q_next = T XOR Q, and the combined characteristic and excitation table for D, T, SR and JK. The excitation table is the one place where a Hindi source supplied a table this repository publishes, and the table is recomputed in scripts/validate.py rather than trusted."
+    }
+   ],
+   "sourceLine": "Both latch tables, the active-high and active-low reading, the gated version and the forbidden row: IIT Bombay CS 226 Lecture 7 (English, read in full). The characteristic equation Q* = S + R'Q: Auburn ELEC 2200 Lecture 7 (English, read in full). The latch as a two-state memory element: the Hindi Wikipedia article on flip-flops (translated). No verified GATE CSE question of this topic is decided by a bare latch table, which is why this card carries none.",
+   "subject": "digital-logic",
+   "topic": "sequential-circuits",
+   "path": "subjects/digital-logic/sequential-circuits/sr-latch-nor-and-nand.json"
+  },
+  {
+   "id": "gated-sr-latch-and-d-latch",
+   "title": "The Gated SR Latch and the D Latch",
+   "priority": "P2",
+   "order": 449,
+   "unit": "Sequential Circuits",
+   "quickIdea": "Add an enable input and the latch only listens while the enable is high. Drive S and R from one data input through an inverter and the forbidden row disappears: that is the D latch.",
+   "remember": [
+    "Gated SR latch: while En = 0 the inputs are ignored and Q holds. While En = 1 the latch behaves exactly like a bare SR latch, forbidden row included.",
+    "D latch: S = D and R = D'. The forbidden combination can no longer occur, so Q+ = D while En = 1, and Q+ = Q while En = 0.",
+    "The D latch is level-sensitive, not edge-sensitive. It is transparent: while the enable is high the output follows the input, delay aside.",
+    "Transparency is the problem. A D latch feeding combinational logic that feeds back to its own D input can race through several states inside one clock pulse, so the final state depends on the gate delays.",
+    "That is why real designs use edge-triggered flip-flops: they sample once per clock edge and cannot be transparent.",
+    "The enable input is the ancestor of the register load signal and of the clock itself; a latch with an enable is a one-bit register."
+   ],
+   "example": {
+    "prompt": "A D latch has En = 1 and D changes 0, 1, 0, 1 while En stays high, then En drops to 0 and D changes again. What is Q?",
+    "work": "While En = 1 the latch is transparent, so Q follows D through the same sequence 0, 1, 0, 1. When En falls to 0 the latch closes and holds the last value, which is 1, and the later changes on D do nothing.",
+    "answer": "Q tracks D while enabled and holds 1 after the enable falls. A D flip-flop would instead have stored only the value present at the clock edge."
+   },
+   "gateAngle": "The exam angle is the distinction, not the table: a latch is level-sensitive, a flip-flop is edge-sensitive, and the answer to 'what is Q' differs between them. GATE tests this by drawing a latch, labelling it as a flip-flop, and asking for the sequence.",
+   "variations": [
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why does a D latch need only one data input where an SR latch needs two, and what did that cost?",
+     "answer": "The inverter forces R to be the complement of S, so the forbidden combination cannot arise and one input is enough. The cost is that the latch can no longer hold while enabled: a D latch with En = 1 must follow D.",
+     "why": "Two independent inputs can express hold, set, reset and the forbidden state. Tying them together removes one state from the table as well as one input from the chip."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "A D latch and a positive-edge-triggered D flip-flop both receive D = 1, 0, 1 with the clock high throughout the first two values and a rising edge only at the third. What does each store?",
+     "answer": "The latch ends holding 1, having followed D all along. The flip-flop stores 1 only if the edge coincides with D = 1, and otherwise keeps its old value.",
+     "why": "Same input, different answer, because one device is transparent and the other samples. This is the single most examinable difference in the topic."
+    }
+   ],
+   "trap": {
+    "what": "Treating a drawn D latch as an edge-triggered flip-flop.",
+    "why": "A latch has an enable drawn as a plain input; a flip-flop has a clock input drawn with a triangle at the pin. If the drawing shows no triangle, the device is level-sensitive and the output follows the input while the enable is high.",
+    "counterexample": "Two D latches in series with a common enable are not a master-slave flip-flop and do not sample on an edge; they are transparent together, and the value passes straight through."
+   },
+   "check": {
+    "question": "How many of the five rows of a gated SR latch table leave Q unchanged, and what are they?",
+    "answer": "Two: En = 0 with any S and R, and En = 1 with S = R = 0.",
+    "explanation": "The gate blocks the inputs when En = 0, which gives one row covering three input combinations, and the 0, 0 row holds while enabled. The remaining rows set, reset, or are forbidden."
+   },
+   "pyqIds": [],
+   "videoRefs": [],
+   "prereqs": [
+    "sr-latch-nor-and-nand"
+   ],
+   "visual": null,
+   "sources": [
+    {
+     "kind": "lecture-slides",
+     "title": "Lecture 7 - Synchronous Sequential Logic",
+     "channel": "IIT Bombay, CS 226 Digital Logic Design (Ashutosh Trivedi)",
+     "url": "https://www.cse.iitb.ac.in/~trivedi/courses/cs226/lecture07.pdf",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "The complete slide text was served and read: the sequential definition, the synchronous and asynchronous classification, the NOR and NAND SR latch tables, the gated SR latch, the D latch, the problem with latches, the edge-triggered D flip-flop and setup and hold, the JK and T flip-flops with their characteristic equations, the analysis example, the seven-step synthesis procedure, state reduction and the binary, Gray and one-hot assignment table."
+    },
+    {
+     "kind": "text",
+     "title": "फ्लिप-फ्लॉप (Flip-flop)",
+     "channel": "Wikipedia (Hindi)",
+     "url": "https://hi.wikipedia.org/wiki/%E0%A4%AB%E0%A5%8D%E0%A4%B2%E0%A4%BF%E0%A4%AA-%E0%A4%AB%E0%A5%8D%E0%A4%B2%E0%A5%89%E0%A4%AA",
+     "language": "hi",
+     "transcript": "FULL",
+     "translated": true,
+     "note": "The article was read in full and translated into English here. It gives the two stable output states, the latch name, the four kinds (SR, D, T, JK), the T characteristic equation Q_next = T XOR Q, and the combined characteristic and excitation table for D, T, SR and JK. The excitation table is the one place where a Hindi source supplied a table this repository publishes, and the table is recomputed in scripts/validate.py rather than trusted."
+    }
+   ],
+   "sourceLine": "The gated SR latch table, the D latch table, the transparency argument and the three-case analysis of a positive-edge-triggered D flip-flop: IIT Bombay CS 226 Lecture 7 (English, read in full). The latch and flip-flop naming: the Hindi Wikipedia article on flip-flops (translated). No verified GATE CSE question of this topic is decided by a latch table alone.",
+   "subject": "digital-logic",
+   "topic": "sequential-circuits",
+   "path": "subjects/digital-logic/sequential-circuits/gated-sr-latch-and-d-latch.json"
+  },
+  {
+   "id": "edge-triggered-flip-flop-and-timing",
+   "title": "Edge-Triggered Flip-Flops and the Timing Rules",
+   "priority": "P1",
+   "order": 450,
+   "unit": "Sequential Circuits",
+   "quickIdea": "A flip-flop changes state only at a clock edge, never while the clock sits high. That single restriction removes the transparency race and gives the whole circuit one well-defined next state per cycle.",
+   "remember": [
+    "A positive-edge-triggered D flip-flop can be built from three SR latches: two form a master-slave pair gated by the clock, and the third is the output latch that holds the value between edges.",
+    "Master-slave behaviour: while the clock is high the master listens and the slave holds; when the clock falls the master's value passes to the slave. An edge-triggered device goes one step further and samples only the value present in the instant around the edge.",
+    "Setup time is how long the data must be stable before the active edge; hold time is how long it must stay stable after it. Violating either can leave the output metastable.",
+    "Propagation delay is the clock-to-output time. In a synchronous circuit the next state is computed from the old outputs, because every flip-flop samples before any new value arrives; that is why the simultaneous-update assumption is safe.",
+    "The clock period must cover clock-to-output delay plus the longest combinational path plus setup time. Hold-time violations are about the shortest path, not the longest.",
+    "Setup and hold are why a drawn circuit with 'non-zero propagation delays' behaves the same as one without: both flip-flops read the old values at the shared edge."
+   ],
+   "example": {
+    "prompt": "Two edge-triggered flip-flops are cross-coupled: the D input of the first is the output of the second, and the J and K inputs of the second are both the output of the first. Both are positive-edge-triggered. Starting from first = 1 and second = 0, what does the second output do?",
+    "work": "At each rising edge both flip-flops read the other's old output. The first flip-flop copies the second's old value; the second toggles when the first's old value is 1 and holds when it is 0. From (1, 0) the states run (0, 1), (1, 1), (0, 0), and back to (1, 0).",
+    "answer": "The second output reads 0, 1, 1, 0, 1, 1, 0, a repeating three-value cycle. This is GATE CSE 2015 Set 1 Q.37, accepted answer 0110110..."
+   },
+   "gateAngle": "Two patterns cover almost every year. First, a cross-coupled pair where you must write the next-state equations and step the clock. Second, a timing sum for the maximum clock frequency or the propagation delay through a chain.",
+   "variations": [
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why does the phrase 'both flip-flops have non-zero propagation delays' in a cross-coupled question not change the answer?",
+     "answer": "Because both devices are edge-triggered and share the clock. At the active edge each one samples its input before its own output moves, so each sees the other's previous value. Non-zero delay only makes that sampling order physical rather than assumed.",
+     "why": "With level-sensitive latches the same sentence would change everything, since a fast latch could feed a slow one inside the same clock pulse."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "A shift register of four positive-edge-triggered D flip-flops is clocked at 100 MHz. What is the longest combinational path, and how long does a bit take to travel from input to output?",
+     "answer": "The combinational path is the wire from one flip-flop output to the next input, essentially zero, so the period is set by delay plus setup time alone. A bit needs four clock edges, 40 ns, to reach the output.",
+     "why": "A shift register has no combinational logic in the path, which is why it is the fastest sequential circuit in the syllabus."
+    }
+   ],
+   "trap": {
+    "what": "Computing the maximum clock frequency from the combinational delay alone.",
+    "why": "The period must also cover the clock-to-output delay of the launching flip-flop and the setup time of the capturing one. Dropping either term makes the answer too fast.",
+    "counterexample": "A path with 8 ns of combinational delay, 1 ns setup and 0.5 ns clock-to-output needs a 9.5 ns period; using 8 ns gives a frequency about 19 per cent too high."
+   },
+   "check": {
+    "question": "A positive-edge-triggered D flip-flop has D = 0 held steady, and D jumps to 1 a moment after a rising edge. When does Q become 1?",
+    "answer": "At the next rising edge, not before. The jump missed the edge it followed.",
+    "explanation": "The device samples only at the active edge. A latch would have followed D immediately, which is the difference the exam draws."
+   },
+   "pyqIds": [
+    "gate-2015-1-37-d-jk-cross-coupled-sequence",
+    "gate-2005-62-dff-output-sequence"
+   ],
+   "videoRefs": [],
+   "prereqs": [
+    "gated-sr-latch-and-d-latch"
+   ],
+   "visual": null,
+   "sources": [
+    {
+     "kind": "lecture-slides",
+     "title": "Lecture 7 - Synchronous Sequential Logic",
+     "channel": "IIT Bombay, CS 226 Digital Logic Design (Ashutosh Trivedi)",
+     "url": "https://www.cse.iitb.ac.in/~trivedi/courses/cs226/lecture07.pdf",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "The complete slide text was served and read: the sequential definition, the synchronous and asynchronous classification, the NOR and NAND SR latch tables, the gated SR latch, the D latch, the problem with latches, the edge-triggered D flip-flop and setup and hold, the JK and T flip-flops with their characteristic equations, the analysis example, the seven-step synthesis procedure, state reduction and the binary, Gray and one-hot assignment table."
+    },
+    {
+     "kind": "lecture-slides",
+     "title": "Registers and Counters",
+     "channel": "King Fahd University of Petroleum and Minerals, COE 202 Digital Logic Design (Muhamed Mudawar)",
+     "url": "https://faculty.kfupm.edu.sa/coe/mudawar/coe202/lectures/16-Register&Counters.pdf",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "The complete slide text was served and read: the register and its load or enable input, the four shift-register kinds, the universal shift register with its four control functions, the modulo-N definition, the ripple counter and its per-stage delay, the synchronous counter, the frequency-division table F/2 to F/16, and the BCD counter reset."
+    }
+   ],
+   "sourceLine": "The three-latch edge-triggered D flip-flop, setup and hold, and the sampling-at-the-edge argument: IIT Bombay CS 226 Lecture 7 (English, read in full). The synchronous-counter timing argument and the per-stage delay model: KFUPM COE 202 Lecture 16 (English, read in full). The two verified questions are GATE CSE 2015 Set 1 Q.37 and GATE CSE 2005 Q.62, both on their GATE Overflow pages.",
+   "subject": "digital-logic",
+   "topic": "sequential-circuits",
+   "path": "subjects/digital-logic/sequential-circuits/edge-triggered-flip-flop-and-timing.json"
+  },
+  {
+   "id": "d-and-jk-flip-flop-characteristic-equations",
+   "title": "The D and JK Flip-Flops",
+   "priority": "P1",
+   "order": 451,
+   "unit": "Sequential Circuits",
+   "quickIdea": "The D flip-flop is a wire with memory: Q+ = D. The JK flip-flop has four modes - hold, reset, set and toggle - and its equation is Q+ = JQ' + K'Q.",
+   "remember": [
+    "D flip-flop characteristic equation: Q+ = D. Characteristic table: one row, D = 0 gives 0 and D = 1 gives 1, whatever Q was.",
+    "JK flip-flop modes: J = 0, K = 0 holds; J = 0, K = 1 resets; J = 1, K = 0 sets; J = 1, K = 1 toggles. Only the last one is new against an SR latch.",
+    "JK characteristic equation: Q+ = JQ' + K'Q. Check the toggle row: J = K = 1 gives Q' + Q, which is 1 when Q = 0 and 0 when Q = 1, that is Q'.",
+    "The JK flip-flop is an SR latch with the forbidden row used as toggle, implemented by feeding Q and Q' back to gate J and K.",
+    "Race-around: on a level-triggered JK flip-flop with J = K = 1, the output can toggle many times during one long clock pulse. A master-slave or edge-triggered construction is what makes J = K = 1 usable.",
+    "Every JK question reduces to one of three jobs: read the four modes, apply the equation, or convert the device into a D or T flip-flop."
+   ],
+   "example": {
+    "prompt": "A JK flip-flop has Q = 0 and receives J = 1, K = 1 for one clock, then J = 1, K = 0 for one clock, then J = 0, K = 1 for one clock. What is Q after each clock?",
+    "work": "J = K = 1 toggles 0 to 1. J = 1, K = 0 sets, and it is already 1, so it stays 1. J = 0, K = 1 resets to 0.",
+    "answer": "Q = 1, 1, 0. Reading the mode rather than the equation is faster and less error-prone, and the equation confirms it."
+   },
+   "gateAngle": "JK flip-flops appear in two ways: wired into a counter where you must derive the next state, and as the answer to a 'which flip-flop do I choose' question where the toggle mode saves gates.",
+   "variations": [
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Build a T flip-flop from a JK flip-flop and then from a D flip-flop. What are the two connections?",
+     "answer": "For JK, tie J and K together to the T input: T = 1 gives the toggle mode and T = 0 gives hold. For D, feed D = T XOR Q.",
+     "why": "Both are one-line consequences of the characteristic equations: J = K = T gives Q+ = TQ' + T'Q, and D = T XOR Q gives Q+ = T XOR Q."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "A circuit uses two JK flip-flops with J1 = Q0, K1 = Q0, J0 = 1 and K0 = 1, both clocked together. Starting from Q1Q0 = 00, list the next four states.",
+     "answer": "01, 10, 11, 00 - a plain two-bit binary up counter.",
+     "why": "Q0 toggles every clock because J = K = 1. Q1 toggles exactly when Q0 was 1, which is the carry. This is the standard synchronous binary counter built from JK devices."
+    }
+   ],
+   "trap": {
+    "what": "Writing the JK equation as Q+ = JQ + K'Q', or forgetting the toggle row entirely.",
+    "why": "The J term multiplies Q', not Q: J sets the flip-flop, and setting means forcing the next value to 1 whatever Q was. Getting the complements the wrong way round turns the toggle row into the hold row.",
+    "counterexample": "With J = K = 1 and Q = 0, the correct equation gives Q+ = 1 x 1 + 0 x 0 = 1, a toggle. The wrong form gives 1 x 0 + 0 x 1 = 0, a hold, which contradicts the table."
+   },
+   "check": {
+    "question": "A JK flip-flop has J = Q' and K = Q. What is the next state?",
+    "answer": "Q+ = Q', so the flip-flop always toggles.",
+    "explanation": "Substituting gives Q+ = Q'Q' + (Q)'Q = Q' + Q'Q = Q'. The wiring has built a T flip-flop with T tied high."
+   },
+   "pyqIds": [
+    "gate-2014-3-45-jk-state-sequence"
+   ],
+   "videoRefs": [],
+   "prereqs": [
+    "edge-triggered-flip-flop-and-timing"
+   ],
+   "visual": null,
+   "sources": [
+    {
+     "kind": "lecture-slides",
+     "title": "Lecture 7 - Synchronous Sequential Logic",
+     "channel": "IIT Bombay, CS 226 Digital Logic Design (Ashutosh Trivedi)",
+     "url": "https://www.cse.iitb.ac.in/~trivedi/courses/cs226/lecture07.pdf",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "The complete slide text was served and read: the sequential definition, the synchronous and asynchronous classification, the NOR and NAND SR latch tables, the gated SR latch, the D latch, the problem with latches, the edge-triggered D flip-flop and setup and hold, the JK and T flip-flops with their characteristic equations, the analysis example, the seven-step synthesis procedure, state reduction and the binary, Gray and one-hot assignment table."
+    },
+    {
+     "kind": "lecture-slides",
+     "title": "Lecture 7 - Sequential Circuits, Finite State Machines",
+     "channel": "Auburn University, ELEC 2200 Digital Logic Circuits (Vishwani D. Agrawal)",
+     "url": "https://eng.auburn.edu/~agrawdv/COURSE/E2200_Fall15/LECTURES/lec7_SeqCkt.pdf",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "The complete slide text was served and read: the SR latch characteristic equation Q* = S + R'Q, the Huffman model of an FSM, the Nff = ceil(log2 Ns) flip-flop count, equivalent states and the A-to-I minimisation example that reduces nine states to four, the two state-assignment adjacency rules, the literal-cost comparison of the optimal and arbitrary assignments, and the Mealy and Moore diagrams under binary, Gray and one-hot encoding."
+    }
+   ],
+   "sourceLine": "The JK characteristic table and equation, the D = JQ' + K'Q construction, the four modes and the race-around warning: IIT Bombay CS 226 Lecture 7 (English, read in full). The gated-latch-plus-feedback construction of the JK flip-flop: Auburn ELEC 2200 Lecture 7 (English, read in full). The verified question is GATE CSE 2014 Set 3 Q.45.",
+   "subject": "digital-logic",
+   "topic": "sequential-circuits",
+   "path": "subjects/digital-logic/sequential-circuits/d-and-jk-flip-flop-characteristic-equations.json"
+  },
+  {
+   "id": "t-flip-flop-and-excitation-tables",
+   "title": "The T Flip-Flop and the Excitation Tables",
+   "priority": "P1",
+   "order": 452,
+   "unit": "Sequential Circuits",
+   "quickIdea": "The T flip-flop toggles when T is 1 and holds when T is 0, so Q+ = T XOR Q. The excitation table runs the characteristic table backwards: given the present and next state, it says what input each flip-flop needs.",
+   "remember": [
+    "T flip-flop: Q+ = T XOR Q. T = 0 holds, T = 1 toggles.",
+    "Excitation table, D: D = Q+ for both rows. Nothing to remember.",
+    "Excitation table, T: T = Q XOR Q+. A change of state means T = 1; no change means T = 0.",
+    "Excitation table, JK: 0 to 0 needs J = 0, K = X; 0 to 1 needs J = 1, K = X; 1 to 0 needs J = X, K = 1; 1 to 1 needs J = X, K = 0. Read it as: set only to go up, reset only to go down, and X elsewhere.",
+    "Excitation table, SR: 0 to 0 needs 0X; 0 to 1 needs 10; 1 to 0 needs 01; 1 to 1 needs X0. The 1-to-1 row is the one that is not the mirror of the 0-to-0 row, because S = R = 1 is forbidden.",
+    "The design flow is always the same: present state and next state give the flip-flop inputs column by column, then minimise each input over the present-state variables."
+   ],
+   "example": {
+    "prompt": "A two-bit saturating up-counter has the next-state table 00 to 01, 01 to 10, 10 to 11, 11 to 11. It is built from T flip-flops. What are T1 and T0?",
+    "work": "Take T = Q XOR Q+ per bit. For Q1 the next value differs only in the row 01, so T1 = Q1'Q0. For Q0 the next value differs in every row except 11, so T0 = Q1'Q0' + Q1'Q0 + Q1Q0' = Q1' + Q0'.",
+    "answer": "T1 = Q1'Q0 and T0 = Q1' + Q0'. This is GATE CSE 2017 Set 2 Q.42, accepted answer option (B)."
+   },
+   "gateAngle": "Excitation is the bridge between a state table and gates, so it is the step most GATE counter-design questions stop at. Two shapes recur: give the table and ask for the input expressions, or give the expressions and ask for the sequence.",
+   "variations": [
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why does the JK excitation table contain X entries where the D and T tables contain numbers?",
+     "answer": "Because J and K are two inputs describing one transition. When the state must go from 0 to 1 only J matters and K may be anything; when it must stay at 1 only K matters and J may be anything. The free entry is a don't care, and it is what makes a JK design smaller than a D design.",
+     "why": "A don't care in the excitation table becomes a don't care in the K-map, which is where the saved gates come from."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "A three-bit counter must visit 000, 011, 101, 110 and repeat. How many T flip-flops are needed and what is T2 in the first row?",
+     "answer": "Three flip-flops, since there are four states and two would give only four patterns but the sequence uses specific three-bit codes. In the row 000 to 011 the high bit does not change, so T2 = 0.",
+     "why": "The flip-flop count comes from the number of states, ceil(log2 4) = 2, but a code that must be read as the count forces three bits. GATE separates these two ideas deliberately."
+    }
+   ],
+   "trap": {
+    "what": "Filling the excitation table from the characteristic table without reversing the roles of the columns.",
+    "why": "The characteristic table answers 'given the input, what is the next state'. The excitation table answers 'given the two states, what input do I need'. Same four rows, opposite direction, and the answers differ.",
+    "counterexample": "For a T flip-flop going from 1 to 1 the excitation entry is 0, while the characteristic table entry for T = 0 and Q = 1 is also 1 to 1; but for T = 1 and Q = 1 the characteristic table also says 1 to 0, which the excitation table assigns to the row 0 to 1. Confusing the two produces an inverted design."
+   },
+   "check": {
+    "question": "A D flip-flop must go from 0 to 0. What is its excitation input, and what would a JK flip-flop need for the same transition?",
+    "answer": "D = 0. JK needs J = 0 and K = X.",
+    "explanation": "D = Q+ = 0 directly. For JK, a 0 that stays 0 must not be set, so J = 0, and resetting is irrelevant because it is already 0, so K is a don't care."
+   },
+   "pyqIds": [
+    "gate-2017-2-42-saturating-counter-t-flip-flops"
+   ],
+   "videoRefs": [],
+   "prereqs": [
+    "d-and-jk-flip-flop-characteristic-equations"
+   ],
+   "visual": null,
+   "sources": [
+    {
+     "kind": "lecture-slides",
+     "title": "Lecture 7 - Synchronous Sequential Logic",
+     "channel": "IIT Bombay, CS 226 Digital Logic Design (Ashutosh Trivedi)",
+     "url": "https://www.cse.iitb.ac.in/~trivedi/courses/cs226/lecture07.pdf",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "The complete slide text was served and read: the sequential definition, the synchronous and asynchronous classification, the NOR and NAND SR latch tables, the gated SR latch, the D latch, the problem with latches, the edge-triggered D flip-flop and setup and hold, the JK and T flip-flops with their characteristic equations, the analysis example, the seven-step synthesis procedure, state reduction and the binary, Gray and one-hot assignment table."
+    },
+    {
+     "kind": "text",
+     "title": "फ्लिप-फ्लॉप (Flip-flop)",
+     "channel": "Wikipedia (Hindi)",
+     "url": "https://hi.wikipedia.org/wiki/%E0%A4%AB%E0%A5%8D%E0%A4%B2%E0%A4%BF%E0%A4%AA-%E0%A4%AB%E0%A5%8D%E0%A4%B2%E0%A5%89%E0%A4%AA",
+     "language": "hi",
+     "transcript": "FULL",
+     "translated": true,
+     "note": "The article was read in full and translated into English here. It gives the two stable output states, the latch name, the four kinds (SR, D, T, JK), the T characteristic equation Q_next = T XOR Q, and the combined characteristic and excitation table for D, T, SR and JK. The excitation table is the one place where a Hindi source supplied a table this repository publishes, and the table is recomputed in scripts/validate.py rather than trusted."
+    },
+    {
+     "kind": "lecture-slides",
+     "title": "Lecture 7 - Sequential Circuits, Finite State Machines",
+     "channel": "Auburn University, ELEC 2200 Digital Logic Circuits (Vishwani D. Agrawal)",
+     "url": "https://eng.auburn.edu/~agrawdv/COURSE/E2200_Fall15/LECTURES/lec7_SeqCkt.pdf",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "The complete slide text was served and read: the SR latch characteristic equation Q* = S + R'Q, the Huffman model of an FSM, the Nff = ceil(log2 Ns) flip-flop count, equivalent states and the A-to-I minimisation example that reduces nine states to four, the two state-assignment adjacency rules, the literal-cost comparison of the optimal and arbitrary assignments, and the Mealy and Moore diagrams under binary, Gray and one-hot encoding."
+    }
+   ],
+   "sourceLine": "The T characteristic equation Q+ = T XOR Q and the D = T XOR Q and J = K = T conversions: IIT Bombay CS 226 Lecture 7 (English, read in full). The combined characteristic and excitation table for D, T, SR and JK: the Hindi Wikipedia article on flip-flops (translated). The excitation-table design flow for a counter: Auburn ELEC 2200 Lecture 7 (English, read in full). The verified question is GATE CSE 2017 Set 2 Q.42.",
+   "subject": "digital-logic",
+   "topic": "sequential-circuits",
+   "path": "subjects/digital-logic/sequential-circuits/t-flip-flop-and-excitation-tables.json"
+  },
+  {
+   "id": "registers-and-shift-registers",
+   "title": "Registers and Shift Registers",
+   "priority": "P2",
+   "order": 453,
+   "unit": "Sequential Circuits",
+   "quickIdea": "A register is n flip-flops sharing a clock, so they load together. A shift register connects each flip-flop's output to the next one's input, so on every clock the whole word moves one place.",
+   "remember": [
+    "An n-bit register is n flip-flops with a common clock and a common reset; n bits need n flip-flops, no compression.",
+    "A load or enable input is one AND gate per flip-flop feeding the D input, or a multiplexer per stage: when the enable is 0 the flip-flop reloads its own value, which is the hold.",
+    "The four shift-register kinds are named by where the data goes in and out: serial in serial out, serial in parallel out, parallel in serial out, parallel in parallel out.",
+    "A serial in parallel out register converts a serial stream to a word; a parallel in serial out register does the reverse. A shift register is a delay line: a bit entering now reaches the output n clocks later.",
+    "A universal shift register has two control lines, so four modes: 00 hold, 01 shift right, 10 shift left, 11 parallel load. Every stage carries a four-to-one multiplexer in front of its flip-flop.",
+    "A bit-serial adder is a full adder plus one flip-flop for the carry plus a shift register for the sum, which is why serial arithmetic needs one clock per bit."
+   ],
+   "example": {
+    "prompt": "A four-bit serial-in parallel-out shift register is cleared, then the bits 1, 0, 1, 1 are fed in on four successive clocks. What does the register hold after each clock, and after four clocks?",
+    "work": "Clock 1 shifts 1 in: 1000 as Q3Q2Q1Q0 if Q3 is the input end. Clock 2 shifts 0: 0100. Clock 3 shifts 1: 1010. Clock 4 shifts 1: 1101.",
+    "answer": "After four clocks the parallel output reads 1101, with the last bit fed in at the input end and the first bit furthest along. Four clocks are needed for four bits; a fifth clock would begin pushing the first bit out."
+   },
+   "gateAngle": "Registers are rarely asked alone; they appear as the state-holding block of a bigger circuit, or as the answer to 'how many clocks to move n bits'. The universal shift register's four control codes are the examinable table.",
+   "variations": [
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "How many clocks does a four-bit parallel-in serial-out shift register need to output a four-bit word, and how many would a four-bit serial-in serial-out register need to both load and unload it?",
+     "answer": "Four clocks for the parallel-in serial-out register, one bit per clock. The serial-in serial-out register needs eight: four to fill and four to empty.",
+     "why": "The count is the number of bits that must cross a serial boundary. A parallel interface crosses all of them in one clock, a serial one crosses one per clock."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "A universal shift register has control lines S1S0 = 11 and the parallel data inputs are 0110 while it currently holds 1001. What does it hold after the next clock?",
+     "answer": "0110. The code 11 is parallel load, so the data inputs overwrite all four stages at once.",
+     "why": "The four codes are hold, shift right, shift left and parallel load. Reading the code before the data is the whole method."
+    }
+   ],
+   "trap": {
+    "what": "Assuming a shift register needs fewer flip-flops than bits, or that a register can hold more bits than it has flip-flops.",
+    "why": "Each flip-flop stores exactly one bit, and nothing in a shift register compresses. An n-bit register is n flip-flops, whatever its input and output arrangement.",
+    "counterexample": "A four-bit serial-in parallel-out register has four flip-flops, holds four bits, and takes four clocks to fill; there is no arrangement of four flip-flops that holds five bits."
+   },
+   "check": {
+    "question": "A six-bit shift register is clocked at 1 MHz and receives one bit per clock. How long does a bit take to pass from input to output?",
+    "answer": "Six clock periods, 6 microseconds.",
+    "explanation": "Each clock moves the bit one stage, so the delay equals the number of stages times the period. That is why a shift register is called a digital delay line."
+   },
+   "pyqIds": [],
+   "videoRefs": [],
+   "prereqs": [
+    "edge-triggered-flip-flop-and-timing"
+   ],
+   "visual": null,
+   "sources": [
+    {
+     "kind": "lecture-slides",
+     "title": "Registers and Counters",
+     "channel": "King Fahd University of Petroleum and Minerals, COE 202 Digital Logic Design (Muhamed Mudawar)",
+     "url": "https://faculty.kfupm.edu.sa/coe/mudawar/coe202/lectures/16-Register&Counters.pdf",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "The complete slide text was served and read: the register and its load or enable input, the four shift-register kinds, the universal shift register with its four control functions, the modulo-N definition, the ripple counter and its per-stage delay, the synchronous counter, the frequency-division table F/2 to F/16, and the BCD counter reset."
+    },
+    {
+     "kind": "lecture-slides",
+     "title": "Lecture 7 - Synchronous Sequential Logic",
+     "channel": "IIT Bombay, CS 226 Digital Logic Design (Ashutosh Trivedi)",
+     "url": "https://www.cse.iitb.ac.in/~trivedi/courses/cs226/lecture07.pdf",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "The complete slide text was served and read: the sequential definition, the synchronous and asynchronous classification, the NOR and NAND SR latch tables, the gated SR latch, the D latch, the problem with latches, the edge-triggered D flip-flop and setup and hold, the JK and T flip-flops with their characteristic equations, the analysis example, the seven-step synthesis procedure, state reduction and the binary, Gray and one-hot assignment table."
+    }
+   ],
+   "sourceLine": "The register with load or enable, the four shift-register kinds, the universal shift register's four control functions and the bit-serial adder: KFUPM COE 202 Lecture 16 (English, read in full). The register as n flip-flops sharing a clock: IIT Bombay CS 226 Lecture 7 (English, read in full). No verified GATE CSE question of this topic is decided by a shift register alone, which is why this card carries none.",
+   "subject": "digital-logic",
+   "topic": "sequential-circuits",
+   "path": "subjects/digital-logic/sequential-circuits/registers-and-shift-registers.json"
+  },
+  {
+   "id": "ring-and-johnson-counters",
+   "title": "Ring and Johnson Counters",
+   "priority": "P1",
+   "order": 454,
+   "unit": "Sequential Circuits",
+   "quickIdea": "Feed a shift register's last output back to its first input and it becomes a ring counter with n states. Feed back the complement and it becomes a Johnson counter with 2n states.",
+   "remember": [
+    "Ring counter: the last flip-flop's output goes straight back to the first. With one 1 preset and the rest 0, the 1 walks round the register, so n flip-flops give exactly n states.",
+    "Johnson counter, also called a twisted-ring or switch-tail counter: the complement of the last output goes back to the first input. Each clock shifts one place and inserts the complement.",
+    "A 4-bit Johnson counter started at 0000 visits 0000, 1000, 1100, 1110, 1111, 0111, 0011, 0001 and returns: 8 states, that is 2n.",
+    "Written as decimal with the leftmost bit as the most significant, that cycle is 0, 8, 12, 14, 15, 7, 3, 1 and back to 0.",
+    "Unused states: a ring counter leaves 2^n - n of them and a Johnson counter leaves 2^n - 2n. The other 8 states of a 4-bit Johnson counter form a second cycle of length 8, so it is not self-starting unless the reset is used.",
+    "Consecutive Johnson states differ in one bit, so the sequence is a Gray code. That is why it is preferred where decoding glitches matter."
+   ],
+   "example": {
+    "prompt": "A 4-bit Johnson counter holds 0000 and is clocked. Write the eight states and identify the first repeat.",
+    "work": "The first stage takes the complement of the last. From 0000 the last bit is 0, so a 1 shifts in: 1000. Then 1100, 1110, 1111, and now the last bit is 1 so a 0 shifts in: 0111, 0011, 0001, 0000.",
+    "answer": "0000, 1000, 1100, 1110, 1111, 0111, 0011, 0001, then back to 0000. Eight states, and the decimal reading is 0, 8, 12, 14, 15, 7, 3, 1 - GATE CSE 2015 Set 1 Q.20, accepted answer option (D)."
+   },
+   "gateAngle": "The two questions GATE asks are 'which sequence' and 'how many states'. Both are answered by the feedback rule alone: straight wire gives n states, inverted wire gives 2n, and the sequence is the shift pattern.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "A 4-bit Johnson counter is started at 0010 instead of 0000. How many distinct states does it visit before repeating, and does it ever reach 0000?",
+     "answer": "Eight distinct states, and it never reaches 0000: the cycle is 0010, 1001, 0100, 1010, 1101, 0110, 1011, 0101, and back to 0010.",
+     "why": "The 16 patterns split into two cycles of length 8. Starting anywhere gives 8 states, but which cycle you get depends on the start, which is why a Johnson counter needs a reset."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why does a ring counter need a preset that puts exactly one 1 in the register, while a Johnson counter does not?",
+     "answer": "A ring counter's cycle is the rotation of a single 1, so all zeros is a fixed point from which it can never leave. A Johnson counter has no such fixed point, because the inverted feedback forces a 1 in from all zeros.",
+     "why": "All zeros is a self-loop for any shift register with straight feedback, which is why the reset must load a 1 somewhere."
+    }
+   ],
+   "trap": {
+    "what": "Reporting n states for a Johnson counter, or 2n for a ring counter.",
+    "why": "The count follows the feedback: a straight wire preserves the single 1 and gives n states, an inverted wire doubles the cycle to 2n. Mixing the two rules is the most common slip in this subtopic.",
+    "counterexample": "A 4-bit ring counter visits 4 states (1000, 0100, 0010, 0001) while a 4-bit Johnson counter visits 8. GATE CSE 2025 Set 1 Q.50 is a 4-bit Johnson circuit whose answer is 8 distinct states, or 7 if the initial state is excluded."
+   },
+   "check": {
+    "question": "How many flip-flops does a Johnson counter need to divide by 10, and how many states would it leave unused?",
+    "answer": "Five flip-flops give 2 x 5 = 10 states, leaving 32 - 10 = 22 unused.",
+    "explanation": "A Johnson counter of n stages has modulus 2n, so dividing by 10 needs n = 5. A ring counter would need 10 flip-flops for the same modulus, which is the trade the two designs make."
+   },
+   "pyqIds": [
+    "gate-2015-1-20-johnson-counter-sequence",
+    "gate-2025-1-50-johnson-distinct-states"
+   ],
+   "videoRefs": [],
+   "prereqs": [
+    "registers-and-shift-registers"
+   ],
+   "visual": "digital-logic/sequential-circuits/johnson-counter-cycle",
+   "sources": [
+    {
+     "kind": "text",
+     "title": "Counter (digital)",
+     "channel": "Wikipedia (English)",
+     "url": "https://en.wikipedia.org/wiki/Counter_(digital)",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "Read the characteristics, the synchronous and asynchronous sections, the binary counter, the ring counter and the Johnson counter sections. Used for the mod-2^n, mod-n and mod-2n statements and for the frequency-halving and settling-time statements, never for a GATE claim."
+    },
+    {
+     "kind": "lecture-slides",
+     "title": "Registers and Counters",
+     "channel": "King Fahd University of Petroleum and Minerals, COE 202 Digital Logic Design (Muhamed Mudawar)",
+     "url": "https://faculty.kfupm.edu.sa/coe/mudawar/coe202/lectures/16-Register&Counters.pdf",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "The complete slide text was served and read: the register and its load or enable input, the four shift-register kinds, the universal shift register with its four control functions, the modulo-N definition, the ripple counter and its per-stage delay, the synchronous counter, the frequency-division table F/2 to F/16, and the BCD counter reset."
+    },
+    {
+     "kind": "lecture-slides",
+     "title": "Lecture 7 - Sequential Circuits, Finite State Machines",
+     "channel": "Auburn University, ELEC 2200 Digital Logic Circuits (Vishwani D. Agrawal)",
+     "url": "https://eng.auburn.edu/~agrawdv/COURSE/E2200_Fall15/LECTURES/lec7_SeqCkt.pdf",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "The complete slide text was served and read: the SR latch characteristic equation Q* = S + R'Q, the Huffman model of an FSM, the Nff = ceil(log2 Ns) flip-flop count, equivalent states and the A-to-I minimisation example that reduces nine states to four, the two state-assignment adjacency rules, the literal-cost comparison of the optimal and arbitrary assignments, and the Mealy and Moore diagrams under binary, Gray and one-hot encoding."
+    }
+   ],
+   "sourceLine": "The ring and Johnson definitions, mod-n and mod-2n, the frequency and settling remarks: the English Wikipedia article on digital counters (read in part). The shift register as the parent circuit and the BCD and modulo remarks: KFUPM COE 202 Lecture 16 (English, read in full). The state count and the Gray-code property: Auburn ELEC 2200 Lecture 7 (English, read in full). Both verified questions are on their GATE Overflow pages: 2015 Set 1 Q.20 and 2025 Set 1 Q.50. The lesson animates the same 4-bit cycle.",
+   "subject": "digital-logic",
+   "topic": "sequential-circuits",
+   "path": "subjects/digital-logic/sequential-circuits/ring-and-johnson-counters.json"
+  },
+  {
+   "id": "ripple-counter-and-frequency-division",
+   "title": "Ripple Counters and Frequency Division",
+   "priority": "P1",
+   "order": 455,
+   "unit": "Sequential Circuits",
+   "quickIdea": "Chain flip-flops so each one is clocked by the previous one's output. Every stage halves the frequency, so n stages divide by 2^n, but the stages change one after another rather than together.",
+   "remember": [
+    "A ripple counter is asynchronous: only the first flip-flop sees the external clock, and each later one is clocked by its predecessor's output.",
+    "Each flip-flop with J = K = 1 (or D tied to Q') toggles once per input clock, so its output frequency is half its clock's. After n stages the output frequency is f / 2^n and the period is 2^n times the input period.",
+    "So an n-stage ripple counter is a modulo-2^n counter, and it is also a divide-by-2^n circuit. Four stages divide by 16.",
+    "The ripple delay: stage i settles about i times the flip-flop delay after the clock edge, so the counter is briefly wrong while it settles. Decoding the count during that window produces spurious pulses.",
+    "The worst case is the rollover from all ones to all zeros, when every stage changes; the settling time is then n times the per-stage delay.",
+    "The frequency division is exact and does not depend on the delay; only the settling time does. That is why ripple counters survive as clock dividers even though they are poor counters."
+   ],
+   "example": {
+    "prompt": "In a 4-bit ripple counter the waveform at the last flip-flop has a period of 64 microseconds. What is the input clock frequency?",
+    "work": "The last stage divides by 2^4 = 16, so its frequency is the input frequency divided by 16. Its period of 64 microseconds means a frequency of 1 / (64 x 10^-6) = 15625 Hz. Multiply by 16 to undo the division: 15625 x 16 = 250000 Hz.",
+    "answer": "250 kHz. This is GATE CSE 2025 Set 2 Q.24, whose accepted answer is 250."
+   },
+   "gateAngle": "The reliable pattern is arithmetic: divide or multiply by 2^n. The trap is direction - a longer period at the output means a higher input frequency, not a lower one.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "A 5-stage ripple counter is clocked at 3.2 MHz. What are the frequency and period at the last stage, and how many distinct output states does the counter have?",
+     "answer": "3.2 MHz / 32 = 100 kHz, so a period of 10 microseconds. The counter has 32 states.",
+     "why": "Five stages divide by 2^5 = 32 and count modulo 32. Both facts come from the same 2^n."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "A ripple counter and a synchronous counter both have four stages and the same clock. Which one can be decoded safely at the clock edge, and why?",
+     "answer": "The synchronous one. All its flip-flops change together, so after one flip-flop delay the count is valid. In the ripple counter the stages settle one after another, so the decoded output is briefly wrong.",
+     "why": "The difference is not the sequence, which is identical, but the timing of the transitions. GATE asks about the glitch, not about the count."
+    }
+   ],
+   "trap": {
+    "what": "Multiplying when you should divide, or counting the stages as 2^n instead of n.",
+    "why": "The output of the last stage is the slowest signal, so going from output to input means multiplying the frequency by 2^n. And the division factor is 2 to the number of stages, not the number of stages.",
+    "counterexample": "Four stages with a 64 microsecond output period: dividing 15625 Hz by 16 gives about 977 Hz, which is wrong by a factor of 256; the input is 250 kHz."
+   },
+   "check": {
+    "question": "How many stages does a ripple counter need to divide a 1 MHz clock down to 1 kHz?",
+    "answer": "Ten stages, because 2^10 = 1024 and 1 MHz / 1024 is about 977 Hz, the nearest achievable value.",
+    "explanation": "A ripple counter can only divide by a power of two. To divide by exactly 1000 you need a synchronous decade counter or a reset scheme, not a plain ripple chain."
+   },
+   "pyqIds": [
+    "gate-2025-2-24-ripple-counter-frequency"
+   ],
+   "videoRefs": [],
+   "prereqs": [
+    "t-flip-flop-and-excitation-tables"
+   ],
+   "visual": null,
+   "sources": [
+    {
+     "kind": "lecture-slides",
+     "title": "Registers and Counters",
+     "channel": "King Fahd University of Petroleum and Minerals, COE 202 Digital Logic Design (Muhamed Mudawar)",
+     "url": "https://faculty.kfupm.edu.sa/coe/mudawar/coe202/lectures/16-Register&Counters.pdf",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "The complete slide text was served and read: the register and its load or enable input, the four shift-register kinds, the universal shift register with its four control functions, the modulo-N definition, the ripple counter and its per-stage delay, the synchronous counter, the frequency-division table F/2 to F/16, and the BCD counter reset."
+    },
+    {
+     "kind": "text",
+     "title": "Counter (digital)",
+     "channel": "Wikipedia (English)",
+     "url": "https://en.wikipedia.org/wiki/Counter_(digital)",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "Read the characteristics, the synchronous and asynchronous sections, the binary counter, the ring counter and the Johnson counter sections. Used for the mod-2^n, mod-n and mod-2n statements and for the frequency-halving and settling-time statements, never for a GATE claim."
+    }
+   ],
+   "sourceLine": "The ripple counter, the per-stage delay model, the frequency-division table from F/2 to F/16 and the modulo-N definition: KFUPM COE 202 Lecture 16 (English, read in full). The asynchronous counter's settling time and the divide-by-2^n statement: the English Wikipedia article on digital counters (read in part). The verified question is GATE CSE 2025 Set 2 Q.24.",
+   "subject": "digital-logic",
+   "topic": "sequential-circuits",
+   "path": "subjects/digital-logic/sequential-circuits/ripple-counter-and-frequency-division.json"
+  },
+  {
+   "id": "synchronous-counter-and-mod-n-design",
+   "title": "Synchronous Counters and Mod-N Design",
+   "priority": "P1",
+   "order": 456,
+   "unit": "Sequential Circuits",
+   "quickIdea": "A synchronous counter clocks every flip-flop together and uses combinational logic to force the wanted sequence. For N states you need the smallest n with 2^n at least N, and the leftover patterns need a decision.",
+   "remember": [
+    "The flip-flop count for N states is ceil(log2 N): 258 states need 9 flip-flops, 75 need 7, and 5 need 3.",
+    "A modulo-2^n counter uses every pattern; a mod-N counter with N not a power of two has 2^n - N unused patterns that still exist in hardware.",
+    "Two ways to shorten the count: decode the terminal state and clear the counter, or design the next-state function so the unused patterns lead back into the cycle. Only the second is self-starting.",
+    "Decoding the count and clearing works, but the clear may be asynchronous and briefly pass through the forbidden value, so the decoded state must be chosen with care.",
+    "A synchronous counter has a constant output delay per stage; a ripple counter's delay grows with the stage index. That is the whole performance difference.",
+    "When a question gives a repeated count such as 0, 0, 1, 1, 2, 2, 3, 3 the answer is not simply ceil(log2 4): the repeated values need distinct codes, so you count distinct machine states, not distinct displayed numbers."
+   ],
+   "example": {
+    "prompt": "A synchronous counter must display 0, 0, 1, 1, 2, 2, 3, 3 and repeat. What is the minimum number of JK flip-flops?",
+    "work": "There are eight machine states, not four, because each displayed value appears twice and the counter must know which copy it is in. Eight distinct codes need three flip-flops, and the displayed value is the low two bits with the extra bit alternating.",
+    "answer": "Three. This is GATE CSE 2015 Set 2 Q.7, whose accepted answer is 3, against the tempting 2."
+   },
+   "gateAngle": "Two arithmetic questions and one modelling question. Arithmetic: ceil(log2 N) for a modulus, and 2^n - N for the unused states. Modelling: whether two identical displayed values are one state or two.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "Design a mod-6 synchronous up-counter with D flip-flops and a synchronous clear, starting from a 3-bit binary counter. Which count must the clear decode, and what happens to the two unused states?",
+     "answer": "Decode 110 and clear on it, so the counter runs 000 to 101 and returns to 000. The states 110 and 111 lead back to 000 on the next clock, so the counter is self-starting.",
+     "why": "Clearing on the count that must not appear gives six states; because the clear is synchronous, 110 exists for one clock and then leaves, which is exactly the self-starting behaviour."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why does a mod-6 counter built from three flip-flops have a reset problem that a mod-8 counter does not?",
+     "answer": "The mod-8 counter uses all eight patterns, so there is nothing to escape. The mod-6 counter leaves 110 and 111 unused, and at power-up the flip-flops may land in one of them, so the design must route those patterns back into the cycle.",
+     "why": "Unused states are a hardware fact, not an abstraction. Every shortened counter needs either a reset or a designed escape path."
+    }
+   ],
+   "trap": {
+    "what": "Answering ceil(log2 N) when the question is about a repeated display sequence.",
+    "why": "ceil(log2 N) counts distinct patterns in the state register. If the same displayed number occurs several times in the sequence, each occurrence needs its own pattern, so the state count is larger than the number of distinct values.",
+    "counterexample": "GATE CSE 2016 Set 1 Q.8 counts 0, 1, 0, 2, 0, 3: six states with three separate zeros. Both 3 and 4 were accepted, and the disagreement is recorded on the PYQ page, so the exam itself is not settled here."
+   },
+   "check": {
+    "question": "How many flip-flops does a mod-100 counter need, and how many patterns are unused?",
+    "answer": "Seven flip-flops, since 2^6 = 64 is too few and 2^7 = 128 is enough; 28 patterns are unused.",
+    "explanation": "ceil(log2 100) = 7 and 128 - 100 = 28. Those 28 patterns must be routed into the cycle for the counter to be self-starting."
+   },
+   "pyqIds": [
+    "gate-2011-15-mod-258-flip-flops",
+    "gate-2015-2-7-min-jk-flip-flops-repeated-count",
+    "gate-2016-1-8-counter-0-1-0-2-0-3-flip-flops"
+   ],
+   "videoRefs": [],
+   "prereqs": [
+    "t-flip-flop-and-excitation-tables",
+    "ripple-counter-and-frequency-division"
+   ],
+   "visual": null,
+   "sources": [
+    {
+     "kind": "lecture-slides",
+     "title": "Registers and Counters",
+     "channel": "King Fahd University of Petroleum and Minerals, COE 202 Digital Logic Design (Muhamed Mudawar)",
+     "url": "https://faculty.kfupm.edu.sa/coe/mudawar/coe202/lectures/16-Register&Counters.pdf",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "The complete slide text was served and read: the register and its load or enable input, the four shift-register kinds, the universal shift register with its four control functions, the modulo-N definition, the ripple counter and its per-stage delay, the synchronous counter, the frequency-division table F/2 to F/16, and the BCD counter reset."
+    },
+    {
+     "kind": "lecture-slides",
+     "title": "Lecture 7 - Sequential Circuits, Finite State Machines",
+     "channel": "Auburn University, ELEC 2200 Digital Logic Circuits (Vishwani D. Agrawal)",
+     "url": "https://eng.auburn.edu/~agrawdv/COURSE/E2200_Fall15/LECTURES/lec7_SeqCkt.pdf",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "The complete slide text was served and read: the SR latch characteristic equation Q* = S + R'Q, the Huffman model of an FSM, the Nff = ceil(log2 Ns) flip-flop count, equivalent states and the A-to-I minimisation example that reduces nine states to four, the two state-assignment adjacency rules, the literal-cost comparison of the optimal and arbitrary assignments, and the Mealy and Moore diagrams under binary, Gray and one-hot encoding."
+    },
+    {
+     "kind": "text",
+     "title": "Counter (digital)",
+     "channel": "Wikipedia (English)",
+     "url": "https://en.wikipedia.org/wiki/Counter_(digital)",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "Read the characteristics, the synchronous and asynchronous sections, the binary counter, the ring counter and the Johnson counter sections. Used for the mod-2^n, mod-n and mod-2n statements and for the frequency-halving and settling-time statements, never for a GATE claim."
+    }
+   ],
+   "sourceLine": "The modulo-N definition, the synchronous counter and the reset-based BCD counter: KFUPM COE 202 Lecture 16 (English, read in full). The Nff = ceil(log2 Ns) count and the state-counting argument: Auburn ELEC 2200 Lecture 7 (English, read in full). The mod-2^n ceiling and the synchronous and asynchronous difference: the English Wikipedia article on digital counters (read in part). The three verified questions are GATE CSE 2011 Q.15, 2015 Set 2 Q.7 and 2016 Set 1 Q.8.",
+   "subject": "digital-logic",
+   "topic": "sequential-circuits",
+   "path": "subjects/digital-logic/sequential-circuits/synchronous-counter-and-mod-n-design.json"
+  },
+  {
+   "id": "sequential-circuit-analysis-state-equations",
+   "title": "Analysing a Clocked Sequential Circuit",
+   "priority": "P1",
+   "order": 457,
+   "unit": "Sequential Circuits",
+   "quickIdea": "Write what drives each flip-flop, substitute each device's characteristic equation, and you have the next-state equations. Tabulate them over the present states and inputs, then draw the diagram.",
+   "remember": [
+    "Four steps, always in this order: name the flip-flop inputs, write the next-state equations using each device's characteristic equation, build the state table over all present states and inputs, then draw the state diagram.",
+    "D flip-flop: the next state is literally the expression at D. JK: Q+ = JQ' + K'Q. T: Q+ = T XOR Q. A question that names the device is telling you which line to use.",
+    "A self-loop in the state diagram is a row where the next state equals the present state for some input. Counting them is a common NAT answer.",
+    "A shift-register-shaped circuit has next-state equations of the form Q1+ = in and Q0+ = Q1, so its diagram is a chain and the self-loops are exactly the all-zeros and all-ones states.",
+    "For a counter with no input, the state table has one row per state and the diagram has out-degree one everywhere, so the states form disjoint cycles.",
+    "Read the question's clock polarity and edge before tabulating: a negative-edge circuit with flip-flops clocked from each other's outputs is an asynchronous chain and cannot be analysed with a single simultaneous next-state table."
+   ],
+   "example": {
+    "prompt": "A synchronous circuit uses three JK flip-flops with J2 = Q1', K2 = Q0, J1 = Q2, K1 = Q2', J0 = Q1, K0 = Q0'. Starting from 000, what are the next three states?",
+    "work": "From 000: J2K2 = 1,0 sets Q2; J1K1 = 0,1 resets Q1, already 0; J0K0 = 0,1 resets Q0, already 0. Next state 100. From 100: J2K2 = 1,0 sets; J1K1 = 1,0 sets; J0K0 = 0,1 resets. Next 110. From 110: J2K2 = 0,0 holds; J1K1 = 1,0 holds at 1; J0K0 = 1,1 toggles. Next 111.",
+    "answer": "100, 110, 111. This is GATE CSE 2014 Set 3 Q.45, accepted answer option (C). The question is drawn as a figure, and the six equations above are taken from the accepted solutions; carrying the same equations one step further gives 011 and then 001, not an immediate return to 000, so this repository verifies the three states asked for and does not claim the circuit's modulus."
+   },
+   "gateAngle": "This is the highest-yield card in the topic: nearly every GATE sequential question is this procedure on a drawn circuit. Write the equations first, then step the clock; tracing the drawing by eye is how answers get lost.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "Two positive-edge-triggered D flip-flops are wired as Q1+ = in and Q0+ = Q1, with the output taken at Q0. How many self-loops does the state diagram have?",
+     "answer": "Two, at 00 with in = 0 and at 11 with in = 1.",
+     "why": "Q1+ = in and Q0+ = Q1, so the next state equals the present state only when in = Q1 and Q1 = Q0, which forces 00 and 11. This is GATE CSE 2018 Q.22, accepted answer 2."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "A counter built from three flip-flops visits only five states. How many rows does its state table have, and how many states appear in the diagram?",
+     "answer": "Eight rows, because the table must cover every present state the hardware can hold; only five of them lie on the cycle.",
+     "why": "The state table is a property of the hardware, the cycle is a property of the wiring. GATE questions that ask for the modulus want the cycle length, and those that ask for unused states want the difference."
+    }
+   ],
+   "trap": {
+    "what": "Tracing the circuit by eye instead of writing the next-state equations.",
+    "why": "With three flip-flops and shared inputs, the eye follows one gate at a time and loses the simultaneous update. The equations force you to compute all bits from the old values at once.",
+    "counterexample": "On GATE CSE 2014 Set 3 Q.45 an asynchronous reading of the same drawing gives a different sequence from the synchronous one; only writing the equations and updating simultaneously gives the accepted option (C)."
+   },
+   "check": {
+    "question": "A single D flip-flop has D = Q XOR x, and x is an input. How many states does the diagram have and what does the circuit do when x = 1?",
+    "answer": "Two states, 0 and 1. With x = 1 the next state is Q', so the circuit toggles every clock.",
+    "explanation": "The next-state equation is the whole analysis. Two states because one flip-flop holds one bit, and the toggle because Q XOR 1 = Q'."
+   },
+   "pyqIds": [
+    "gate-2014-3-45-jk-state-sequence",
+    "gate-2018-22-self-loop-states",
+    "gate-2005-62-dff-output-sequence"
+   ],
+   "videoRefs": [],
+   "prereqs": [
+    "d-and-jk-flip-flop-characteristic-equations",
+    "t-flip-flop-and-excitation-tables"
+   ],
+   "visual": null,
+   "sources": [
+    {
+     "kind": "lecture-slides",
+     "title": "Lecture 7 - Synchronous Sequential Logic",
+     "channel": "IIT Bombay, CS 226 Digital Logic Design (Ashutosh Trivedi)",
+     "url": "https://www.cse.iitb.ac.in/~trivedi/courses/cs226/lecture07.pdf",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "The complete slide text was served and read: the sequential definition, the synchronous and asynchronous classification, the NOR and NAND SR latch tables, the gated SR latch, the D latch, the problem with latches, the edge-triggered D flip-flop and setup and hold, the JK and T flip-flops with their characteristic equations, the analysis example, the seven-step synthesis procedure, state reduction and the binary, Gray and one-hot assignment table."
+    },
+    {
+     "kind": "lecture-slides",
+     "title": "Lecture 7 - Sequential Circuits, Finite State Machines",
+     "channel": "Auburn University, ELEC 2200 Digital Logic Circuits (Vishwani D. Agrawal)",
+     "url": "https://eng.auburn.edu/~agrawdv/COURSE/E2200_Fall15/LECTURES/lec7_SeqCkt.pdf",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "The complete slide text was served and read: the SR latch characteristic equation Q* = S + R'Q, the Huffman model of an FSM, the Nff = ceil(log2 Ns) flip-flop count, equivalent states and the A-to-I minimisation example that reduces nine states to four, the two state-assignment adjacency rules, the literal-cost comparison of the optimal and arbitrary assignments, and the Mealy and Moore diagrams under binary, Gray and one-hot encoding."
+    }
+   ],
+   "sourceLine": "The state equations, the state table and the state diagram with a worked two-flip-flop example, and the device-by-device characteristic equations: IIT Bombay CS 226 Lecture 7 (English, read in full). The Huffman model that this analysis walks through: Auburn ELEC 2200 Lecture 7 (English, read in full). The three verified questions are GATE CSE 2014 Set 3 Q.45, 2018 Q.22 and 2005 Q.62.",
+   "subject": "digital-logic",
+   "topic": "sequential-circuits",
+   "path": "subjects/digital-logic/sequential-circuits/sequential-circuit-analysis-state-equations.json"
+  },
+  {
+   "id": "mealy-and-moore-machines",
+   "title": "Mealy and Moore Machines",
+   "priority": "P2",
+   "order": 458,
+   "unit": "Sequential Circuits",
+   "quickIdea": "In a Moore machine the output depends on the state alone, so it is written inside the state circle. In a Mealy machine the output also depends on the input, so it is written on the transition arrow.",
+   "remember": [
+    "Moore: output = function of the state. Mealy: output = function of the state and the input.",
+    "Moore output changes only at clock edges, so it is glitch-free and always one cycle later than the input that caused it. Mealy output can change as soon as the input changes, within the same cycle.",
+    "For the same behaviour a Moore machine often needs one more state than a Mealy machine, because the output must be attached to a state rather than to a transition.",
+    "In a state diagram, a Moore machine's arrows are labelled with inputs only and a Mealy machine's with input and output.",
+    "Converting Mealy to Moore can multiply the states by the number of distinct outputs, since a state whose outgoing transitions carry different outputs must be split.",
+    "The same physical circuit can be described either way; the model is a choice of notation about where the output is attached, not a different circuit."
+   ],
+   "example": {
+    "prompt": "A circuit outputs 00 until the number of zeros in the input exceeds the number of ones by 2, then outputs 10 for ever; symmetrically it outputs 01 once the ones exceed the zeros by 2. What is the minimum number of states?",
+    "work": "The only memory the circuit needs is the running difference d between zeros and ones, and before a decision d can only be -1, 0 or +1. Those are three states, all emitting 00. Reaching d = +2 or d = -2 gives two absorbing states, emitting 10 and 01.",
+    "answer": "Five states. This is GATE CSE 2003 Q.44, accepted answer 5."
+   },
+   "gateAngle": "Two patterns: label a diagram as Moore or Mealy and read the output sequence, and count the minimum states for a specification. The count comes from identifying the essential memory, not from the length of the input.",
+   "variations": [
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why can a Mealy machine produce an output in the very cycle the deciding input arrives while a Moore machine cannot?",
+     "answer": "The Mealy output is computed by combinational logic from the present state and the present input, so it appears as soon as the input settles. A Moore output depends only on the state, and the state only changes at the clock edge.",
+     "why": "That one-cycle difference is why a Moore version of a detector usually needs an extra state to remember that the deciding symbol has arrived."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "A Moore machine has four states and two output symbols. A Mealy machine implementing the same behaviour has three. What is the largest number of states the equivalent Moore machine could need?",
+     "answer": "Six, since the conversion can split each state by the number of distinct outputs on its outgoing transitions, and the count is bounded by states times outputs.",
+     "why": "The general bound is states times output symbols. It is not always attained, but it explains why Moore designs are usually bigger."
+    }
+   ],
+   "trap": {
+    "what": "Reading a Mealy arrow label as if the output belonged to the destination state.",
+    "why": "In a Mealy diagram the output on an arrow is produced during the transition, that is, in the cycle the input arrives. Attaching it to the destination state shifts the whole output sequence one clock later.",
+    "counterexample": "For an input that triggers the output immediately, the Mealy reading gives the 1 in the same cycle and the mistaken reading gives it one cycle later, so a five-value answer becomes a four-value answer shifted by one."
+   },
+   "check": {
+    "question": "A state diagram has outputs written inside the circles and inputs on the arrows. Which model is it, and when does the output change?",
+    "answer": "Moore, and the output changes only when the state changes, which is at a clock edge.",
+    "explanation": "The placement of the output is the model. Inside the circle means state-dependent, on the arrow means input-dependent as well."
+   },
+   "pyqIds": [
+    "gate-2003-44-min-states-two-output-circuit"
+   ],
+   "videoRefs": [],
+   "prereqs": [
+    "sequential-circuit-analysis-state-equations"
+   ],
+   "visual": null,
+   "sources": [
+    {
+     "kind": "lecture-slides",
+     "title": "Lecture 7 - Sequential Circuits, Finite State Machines",
+     "channel": "Auburn University, ELEC 2200 Digital Logic Circuits (Vishwani D. Agrawal)",
+     "url": "https://eng.auburn.edu/~agrawdv/COURSE/E2200_Fall15/LECTURES/lec7_SeqCkt.pdf",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "The complete slide text was served and read: the SR latch characteristic equation Q* = S + R'Q, the Huffman model of an FSM, the Nff = ceil(log2 Ns) flip-flop count, equivalent states and the A-to-I minimisation example that reduces nine states to four, the two state-assignment adjacency rules, the literal-cost comparison of the optimal and arbitrary assignments, and the Mealy and Moore diagrams under binary, Gray and one-hot encoding."
+    },
+    {
+     "kind": "text",
+     "title": "अनुक्रमिक लॉजिक (Sequential logic)",
+     "channel": "Wikipedia (Hindi)",
+     "url": "https://hi.wikipedia.org/wiki/%E0%A4%85%E0%A4%A8%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%B0%E0%A4%AE%E0%A4%BF%E0%A4%95_%E0%A4%B2%E0%A5%89%E0%A4%9C%E0%A4%BF%E0%A4%95",
+     "language": "hi",
+     "transcript": "FULL",
+     "translated": true,
+     "note": "The article was read in full and translated into English here. It states that sequential logic has an output that depends on past inputs and not only on the present ones, that this is memory, that combinational logic has no such dependence, and it defines the Moore and Mealy machines and the synchronous and asynchronous split. Contributes terminology only; no number in this topic comes from it."
+    },
+    {
+     "kind": "lecture-slides",
+     "title": "Lecture 7 - Synchronous Sequential Logic",
+     "channel": "IIT Bombay, CS 226 Digital Logic Design (Ashutosh Trivedi)",
+     "url": "https://www.cse.iitb.ac.in/~trivedi/courses/cs226/lecture07.pdf",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "The complete slide text was served and read: the sequential definition, the synchronous and asynchronous classification, the NOR and NAND SR latch tables, the gated SR latch, the D latch, the problem with latches, the edge-triggered D flip-flop and setup and hold, the JK and T flip-flops with their characteristic equations, the analysis example, the seven-step synthesis procedure, state reduction and the binary, Gray and one-hot assignment table."
+    }
+   ],
+   "sourceLine": "The Mealy and Moore definitions, the state diagrams under binary, Gray and one-hot assignment, and the conversion remark: Auburn ELEC 2200 Lecture 7 (English, read in full). The Moore and Mealy definitions and the statement that the Moore output changes only at a clock edge: the Hindi Wikipedia article on sequential logic (translated). The synthesis order in which the model is chosen: IIT Bombay CS 226 Lecture 7 (English, read in full). The verified question is GATE CSE 2003 Q.44.",
+   "subject": "digital-logic",
+   "topic": "sequential-circuits",
+   "path": "subjects/digital-logic/sequential-circuits/mealy-and-moore-machines.json"
+  },
+  {
+   "id": "state-minimisation-partition-refinement",
+   "title": "State Minimisation",
+   "priority": "P1",
+   "order": 459,
+   "unit": "Sequential Circuits",
+   "quickIdea": "Two states are equivalent when no input sequence can tell them apart. Merge them and the state count falls, which usually falls below a power of two and so removes a flip-flop.",
+   "remember": [
+    "Equivalent states: for every input they give the same output, and their next states are the same or themselves equivalent. The definition is recursive, which is why the algorithm is iterative.",
+    "Partition refinement: start by grouping states by their output. Then split any group whose members go to different groups on some input. Repeat until nothing splits. Each surviving group is one state.",
+    "The implication table does the same job by hand: cross out a pair whose outputs differ, then cross out a pair that implies a crossed-out pair, and repeat.",
+    "Minimisation is worth doing because the flip-flop count is ceil(log2 number of states): going from 5 states to 4 saves a flip-flop, going from 9 to 8 saves one, and going from 8 to 4 saves one more.",
+    "Incompletely specified machines break the transitivity of equivalence, so the partition method does not apply unchanged and the problem becomes finding a maximum compatible set.",
+    "Row matching, which merges only states with identical next-state and output rows, is a first pass and not a substitute for refinement."
+   ],
+   "example": {
+    "prompt": "Nine states A to I are reduced to four by the standard example: A, D and G merge, B, C and F merge, E and H merge, and I stands alone. How many flip-flops does each version need?",
+    "work": "Nine states need ceil(log2 9) = 4 flip-flops. Four states need ceil(log2 4) = 2. The reduction therefore saves two flip-flops, and it also shrinks the combinational logic that decodes the states.",
+    "answer": "Four flip-flops before, two after. The nine-to-four reduction is the worked example in Auburn ELEC 2200 Lecture 7."
+   },
+   "gateAngle": "GATE asks two things: the minimum number of states for a specification, and the number of flip-flops after reduction. The first needs the essential-memory argument, the second needs the partition.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "A four-state machine has outputs 0, 0, 1, 1 for states A, B, C, D. A and B both go to C on input 0 and to D on input 1; C and D both go to A on 0 and to B on 1. What is the minimum number of states?",
+     "answer": "Two. A and B are equivalent, and so are C and D, because each pair agrees on outputs and their next states fall in the same pair.",
+     "why": "The first partition is {A, B} and {C, D}. The refinement test passes because A and B both go to the {C, D} group on either input, so nothing splits."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why is the equivalence relation on states not transitive when the machine has don't-care outputs?",
+     "answer": "Two states can be compatible through a third without being compatible with each other, because a don't care matches anything. Compatibility is therefore not an equivalence relation, and the clean partition argument fails.",
+     "why": "This is why the incompletely specified case needs maximum compatible sets, which is a harder problem. GATE's questions are fully specified for exactly this reason."
+    }
+   ],
+   "trap": {
+    "what": "Merging two states that have the same output but different next states.",
+    "why": "Equivalence needs both conditions. Matching outputs is only the first partition; the next-state condition is what the refinement steps test, and skipping it merges states that a later input can distinguish.",
+    "counterexample": "Two states both outputting 0 but going to different states on input 0 look mergeable in the first partition. If those destinations differ in output, the second partition splits them, and merging them would change the machine's behaviour."
+   },
+   "check": {
+    "question": "A machine has 6 states. After minimisation it has 4. How many flip-flops are saved?",
+    "answer": "One: ceil(log2 6) = 3 and ceil(log2 4) = 2.",
+    "explanation": "The saving is not proportional to the states removed; it is the difference of two logarithms. Going from 8 to 5 states saves nothing, because both need three flip-flops."
+   },
+   "pyqIds": [],
+   "videoRefs": [],
+   "prereqs": [
+    "mealy-and-moore-machines"
+   ],
+   "visual": null,
+   "sources": [
+    {
+     "kind": "lecture-slides",
+     "title": "Lecture 7 - Sequential Circuits, Finite State Machines",
+     "channel": "Auburn University, ELEC 2200 Digital Logic Circuits (Vishwani D. Agrawal)",
+     "url": "https://eng.auburn.edu/~agrawdv/COURSE/E2200_Fall15/LECTURES/lec7_SeqCkt.pdf",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "The complete slide text was served and read: the SR latch characteristic equation Q* = S + R'Q, the Huffman model of an FSM, the Nff = ceil(log2 Ns) flip-flop count, equivalent states and the A-to-I minimisation example that reduces nine states to four, the two state-assignment adjacency rules, the literal-cost comparison of the optimal and arbitrary assignments, and the Mealy and Moore diagrams under binary, Gray and one-hot encoding."
+    },
+    {
+     "kind": "lecture-slides",
+     "title": "Lecture 7 - Synchronous Sequential Logic",
+     "channel": "IIT Bombay, CS 226 Digital Logic Design (Ashutosh Trivedi)",
+     "url": "https://www.cse.iitb.ac.in/~trivedi/courses/cs226/lecture07.pdf",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "The complete slide text was served and read: the sequential definition, the synchronous and asynchronous classification, the NOR and NAND SR latch tables, the gated SR latch, the D latch, the problem with latches, the edge-triggered D flip-flop and setup and hold, the JK and T flip-flops with their characteristic equations, the analysis example, the seven-step synthesis procedure, state reduction and the binary, Gray and one-hot assignment table."
+    }
+   ],
+   "sourceLine": "The equivalent-state definition, the implication table, the nine-to-four worked reduction and the flip-flop count: Auburn ELEC 2200 Lecture 7 (English, read in full). The state-reduction step in the synthesis procedure and the remark that it is easy to tell when two states are not equivalent but hard to tell when they are: IIT Bombay CS 226 Lecture 7 (English, read in full). No verified GATE CSE question of this topic is decided by a reduction alone, which is why this card carries none.",
+   "subject": "digital-logic",
+   "topic": "sequential-circuits",
+   "path": "subjects/digital-logic/sequential-circuits/state-minimisation-partition-refinement.json"
+  },
+  {
+   "id": "state-assignment-encoding",
+   "title": "State Assignment",
+   "priority": "P2",
+   "order": 460,
+   "unit": "Sequential Circuits",
+   "quickIdea": "A symbolic state diagram has to become binary codes. The number of bits is at least log2 of the state count, but which code goes to which state changes the size of the combinational logic.",
+   "remember": [
+    "Minimum bits: ceil(log2 n) for n states. Two states need 1 bit, four need 2, five need 3, sixteen need 4.",
+    "The number of ways to assign codes grows explosively: four states with two bits allow 4! = 24 distinct assignments, so trying them all is only possible for small machines.",
+    "Binary, Gray and one-hot are the three encodings GATE names. One-hot uses n bits for n states, so it uses the most flip-flops and the simplest next-state logic.",
+    "Adjacency rule 1: states that have the same next state for some fixed input should get adjacent codes. Adjacency rule 2: states that are the next states of the same state under adjacent inputs should get adjacent codes.",
+    "Adjacent means differing in one bit, because a one-bit difference lets a K-map group the two cells and drop a literal.",
+    "The cost is counted in literals and product terms. In the standard example the optimal assignment gives 5 products and 10 literals where an arbitrary one gives 6 and 14."
+   ],
+   "example": {
+    "prompt": "A machine has five states. What is the minimum number of state bits, how many patterns are unused, and what does one-hot encoding cost instead?",
+    "work": "ceil(log2 5) = 3 bits, giving 8 patterns of which 3 are unused. One-hot uses one flip-flop per state, so 5 bits, and only 5 of the 32 patterns are legal.",
+    "answer": "Three bits with binary or Gray encoding, five with one-hot. One-hot trades flip-flops for much simpler next-state logic, which is why it is common in FPGA designs."
+   },
+   "gateAngle": "GATE asks for the bit count, the number of possible assignments, or which assignment gives fewer literals. The bit count is the one that appears most often and is the easiest mark in the topic.",
+   "variations": [
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why can Gray-code assignment reduce glitches but not necessarily reduce gate count?",
+     "answer": "A Gray code makes consecutive states differ in one bit, so a transition cannot produce a transient wrong code. Gate count depends on how the codes fall into K-map groups, which a Gray code helps with only when the diagram's adjacencies match the code's.",
+     "why": "Two different objectives - timing safety and logic size - pull the assignment in different directions, which is why the problem has no single optimal answer."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "How many distinct two-bit assignments exist for four states, and how many for five states with three bits?",
+     "answer": "24 for four states with two bits, since 4! orderings of four codes. For five states with three bits it is the number of injective maps from 5 states into 8 codes, which is 8 x 7 x 6 x 5 x 4 = 6720.",
+     "why": "The count is the number of ways to choose and order distinct codes, which is why exhaustive search is only feasible for very small machines."
+    }
+   ],
+   "trap": {
+    "what": "Using one-hot encoding when the question asks for the minimum number of flip-flops.",
+    "why": "One-hot uses one flip-flop per state, which is the maximum, not the minimum. The minimum is ceil(log2 n) with a binary or Gray code.",
+    "counterexample": "For six states one-hot needs 6 flip-flops while binary needs 3. A question asking for the minimum always wants 3."
+   },
+   "check": {
+    "question": "A machine has 9 states. How many bits does the minimum encoding need, and how many does one-hot need?",
+    "answer": "Four bits for the minimum, since 2^3 = 8 is too few; nine for one-hot.",
+    "explanation": "ceil(log2 9) = 4, leaving 16 - 9 = 7 unused patterns. One-hot uses one flip-flop per state, so 9."
+   },
+   "pyqIds": [],
+   "videoRefs": [],
+   "prereqs": [
+    "state-minimisation-partition-refinement"
+   ],
+   "visual": null,
+   "sources": [
+    {
+     "kind": "lecture-slides",
+     "title": "Lecture 7 - Sequential Circuits, Finite State Machines",
+     "channel": "Auburn University, ELEC 2200 Digital Logic Circuits (Vishwani D. Agrawal)",
+     "url": "https://eng.auburn.edu/~agrawdv/COURSE/E2200_Fall15/LECTURES/lec7_SeqCkt.pdf",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "The complete slide text was served and read: the SR latch characteristic equation Q* = S + R'Q, the Huffman model of an FSM, the Nff = ceil(log2 Ns) flip-flop count, equivalent states and the A-to-I minimisation example that reduces nine states to four, the two state-assignment adjacency rules, the literal-cost comparison of the optimal and arbitrary assignments, and the Mealy and Moore diagrams under binary, Gray and one-hot encoding."
+    },
+    {
+     "kind": "lecture-slides",
+     "title": "Lecture 7 - Synchronous Sequential Logic",
+     "channel": "IIT Bombay, CS 226 Digital Logic Design (Ashutosh Trivedi)",
+     "url": "https://www.cse.iitb.ac.in/~trivedi/courses/cs226/lecture07.pdf",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "The complete slide text was served and read: the sequential definition, the synchronous and asynchronous classification, the NOR and NAND SR latch tables, the gated SR latch, the D latch, the problem with latches, the edge-triggered D flip-flop and setup and hold, the JK and T flip-flops with their characteristic equations, the analysis example, the seven-step synthesis procedure, state reduction and the binary, Gray and one-hot assignment table."
+    }
+   ],
+   "sourceLine": "The two adjacency rules, the binary, Gray and one-hot table, the literal-cost comparison of the optimal and arbitrary assignments and the count of possible assignments: Auburn ELEC 2200 Lecture 7 (English, read in full). The ceil(log2 n) statement and the three-assignment table: IIT Bombay CS 226 Lecture 7 (English, read in full). No verified GATE CSE question of this topic is decided by an assignment choice alone, which is why this card carries none.",
+   "subject": "digital-logic",
+   "topic": "sequential-circuits",
+   "path": "subjects/digital-logic/sequential-circuits/state-assignment-encoding.json"
+  },
+  {
+   "id": "sequence-detector-minimum-states",
+   "title": "Sequence Detectors and the Minimum-State Argument",
+   "priority": "P2",
+   "order": 461,
+   "unit": "Sequential Circuits",
+   "quickIdea": "The minimum number of states is the number of distinct things the circuit must remember. For a pattern detector that is the set of prefixes of the pattern matched so far, so a k-bit pattern needs k states in a Mealy machine.",
+   "remember": [
+    "A sequence detector's state records how much of the target pattern has been matched. Nothing else about the input history matters, so the states are the matched prefixes.",
+    "For a k-bit pattern with overlapping allowed, a Mealy machine needs k states: the prefixes of lengths 0 to k-1. A Moore machine needs k+1, because the output must sit on a state.",
+    "Without overlap, the machine returns to the start after a detection, which removes the suffix-sharing states and can lower the count for patterns with no proper prefix-suffix match.",
+    "The minimality argument is distinguishability: two prefixes are different states exactly when some suffix completes the pattern from one and not from the other.",
+    "Overlapping means a suffix of a detection can begin the next one; for 0101 the string 010101 contains two overlapping detections.",
+    "When the specification is about a running count rather than a pattern, the states are the possible values of that count, which is how a five-state answer arises for a 'difference of two' specification."
+   ],
+   "example": {
+    "prompt": "A detector must output 1 whenever the last four input bits are 0101, with overlaps allowed. How many states does a Mealy machine need, and what are they?",
+    "work": "The states record the longest suffix of the input seen so far that is a prefix of 0101. The possible values are the empty match, '0', '01' and '010' - four states. From '010' an input of 1 detects and leaves the machine in the state matching '01', because the last two bits '01' begin a new match.",
+    "answer": "Four states, and the detection transition returns to the '01' state rather than to the start, which is what makes the overlap work."
+   },
+   "gateAngle": "Two shapes. Give a specification and ask for the minimum states - the answer comes from naming the essential memory. Give a pattern and ask for states or for the output sequence - the answer comes from the prefix set.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "The same detector for 0101 must not allow overlaps. How many states does a Mealy machine need now?",
+     "answer": "Four states are still enough, but the detection transition now returns to the empty-match state instead of to '01'.",
+     "why": "Non-overlap changes the transitions, not the prefix set: after a detection the machine forgets everything, so the same four prefixes suffice. For some patterns, such as 1111, the saving in transitions is the point."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why is the number of states not simply the length of the input sequence or the number of input symbols?",
+     "answer": "Because a state is a class of histories that behave identically from now on. Infinitely many input histories collapse into finitely many states, and the count is the number of distinct future behaviours.",
+     "why": "This is the whole idea of minimisation, and it is why GATE's specification questions have small answers such as 5 rather than a length."
+    }
+   ],
+   "trap": {
+    "what": "Counting one state per input symbol read, or forgetting the start state.",
+    "why": "States are matched prefixes, not history length. And the empty match is a state: the machine must have somewhere to be before any bit arrives.",
+    "counterexample": "For a four-bit pattern, counting only the three non-empty proper prefixes gives 3 and loses the start state; the correct count for a Mealy machine is 4, and for a Moore machine 5."
+   },
+   "check": {
+    "question": "How many states does a Moore machine need to detect 101 with overlaps allowed?",
+    "answer": "Four: the prefixes of length 0, 1, 2 and the full match, the last carrying the output 1.",
+    "explanation": "A Mealy machine needs three, the prefixes 0 to 2, because the output can sit on the final transition. The Moore version must add a state to hold the output."
+   },
+   "pyqIds": [
+    "gate-2003-44-min-states-two-output-circuit"
+   ],
+   "videoRefs": [],
+   "prereqs": [
+    "mealy-and-moore-machines",
+    "state-minimisation-partition-refinement"
+   ],
+   "visual": null,
+   "sources": [
+    {
+     "kind": "lecture-slides",
+     "title": "Lecture 7 - Sequential Circuits, Finite State Machines",
+     "channel": "Auburn University, ELEC 2200 Digital Logic Circuits (Vishwani D. Agrawal)",
+     "url": "https://eng.auburn.edu/~agrawdv/COURSE/E2200_Fall15/LECTURES/lec7_SeqCkt.pdf",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "The complete slide text was served and read: the SR latch characteristic equation Q* = S + R'Q, the Huffman model of an FSM, the Nff = ceil(log2 Ns) flip-flop count, equivalent states and the A-to-I minimisation example that reduces nine states to four, the two state-assignment adjacency rules, the literal-cost comparison of the optimal and arbitrary assignments, and the Mealy and Moore diagrams under binary, Gray and one-hot encoding."
+    },
+    {
+     "kind": "lecture-slides",
+     "title": "Lecture 7 - Synchronous Sequential Logic",
+     "channel": "IIT Bombay, CS 226 Digital Logic Design (Ashutosh Trivedi)",
+     "url": "https://www.cse.iitb.ac.in/~trivedi/courses/cs226/lecture07.pdf",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "The complete slide text was served and read: the sequential definition, the synchronous and asynchronous classification, the NOR and NAND SR latch tables, the gated SR latch, the D latch, the problem with latches, the edge-triggered D flip-flop and setup and hold, the JK and T flip-flops with their characteristic equations, the analysis example, the seven-step synthesis procedure, state reduction and the binary, Gray and one-hot assignment table."
+    }
+   ],
+   "sourceLine": "The word-description-to-state-diagram step and the equivalent-state reasoning behind the state count: Auburn ELEC 2200 Lecture 7 (English, read in full). The synthesis procedure that starts from a word description and reduces the states before assigning codes: IIT Bombay CS 226 Lecture 7 (English, read in full). The verified question is GATE CSE 2003 Q.44, whose five states come from a running difference rather than a pattern.",
+   "subject": "digital-logic",
+   "topic": "sequential-circuits",
+   "path": "subjects/digital-logic/sequential-circuits/sequence-detector-minimum-states.json"
   }
  ],
  "pyqs": [
@@ -30386,6 +31623,26 @@ window.GATE_DATA = {
    "answer_evidence": "Accepted answer: 'for only 1 value of alpha, this system has infinitely many solutions. So, option (B) is correct', with the reduction giving alpha = 1/5. Note that the IIT Delhi worked solution for the same paper reaches alpha = -4/3 through an arithmetic slip; the reduction here and the direct span computation both give 1/5, and the count of values is 1 either way."
   },
   {
+   "id": "gate-2003-44-min-states-two-output-circuit",
+   "year": "2003",
+   "paper": "GATE CS 2003",
+   "question_ref": "Q.44",
+   "type": "MCQ",
+   "topic": "sequence-detector-minimum-states",
+   "text": "A 1-input, 2-output synchronous sequential circuit behaves as follows. Let z_k and n_k denote the number of 0s and 1s respectively in the initial k bits of the input, with z_k + n_k = k. The circuit outputs 00 until one of two conditions holds: z_k - n_k = 2, in which case the output at the k-th and all subsequent clock ticks is 10, or n_k - z_k = 2, in which case it is 01. What is the minimum number of states required in the state transition graph of the circuit?",
+   "options": [
+    "5",
+    "6",
+    "7",
+    "8"
+   ],
+   "answer": "5",
+   "solution": "The only thing the circuit must remember is the running difference d = z_k - n_k, and before either threshold is reached d can only be -1, 0 or +1. Those are three states, all emitting 00. Reaching d = +2 gives an absorbing state emitting 10, and reaching d = -2 gives an absorbing state emitting 01. Three plus two is five. A smaller machine cannot distinguish d = +1 from d = -1, because one more 0 from +1 triggers and from -1 does not.",
+   "source_url": "https://gateoverflow.in/935/gate-cse-2003-question-44",
+   "source_label": "GATE Overflow discussion of GATE CS 2003 Q.44 (accepted answer 5, option A)",
+   "verification": "SOURCED"
+  },
+  {
    "id": "gate-2003-resolution-rule-false-statement",
    "year": "2003",
    "paper": "GATE CS 2003",
@@ -30598,6 +31855,26 @@ window.GATE_DATA = {
    "answer_evidence": "Accepted answer: 'Determinant of matrix = 14 which is non zero ... so option B', and a second accepted route through rank[A] = rank[A|b] = 3."
   },
   {
+   "id": "gate-2005-62-dff-output-sequence",
+   "year": "2005",
+   "paper": "GATE CS 2005",
+   "question_ref": "Q.62",
+   "type": "MCQ",
+   "topic": "sequential-circuit-analysis-state-equations",
+   "text": "Consider a circuit involving a positive edge triggered D flip-flop whose D input is D = A X + X' Q', where Q is the flip-flop output and the output Y is taken from Q. With A_i the logic level on line A in the i-th clock period and A' its complement, the correct output sequence on Y over clock periods 1 through 5 is:",
+   "options": [
+    "A_0 A_1 A_1' A_3 A_4",
+    "A_0 A_1 A_2' A_3 A_4",
+    "A_1 A_2 A_2' A_3 A_4",
+    "A_1 A_2' A_3 A_4 A_5'"
+   ],
+   "answer": "A_0 A_1 A_1' A_3 A_4",
+   "solution": "Y = Q = D at each rising edge, so the whole question is which value of X and Q the flip-flop sees just before that edge. In periods 1, 2, 4 and 5 the control X is 1, so D = A and Y copies the A level of that period. In period 3 the control X is 0, so D = Q', and Q at that moment is the value stored in period 2, which is A_1; hence Y = A_1'. Note the remark that matters: X is not connected to D directly, so the flip-flop reads the value of X present at the edge, not a value that changed after it.",
+   "source_url": "https://gateoverflow.in/264/gate-cse-2005-question-62",
+   "source_label": "GATE Overflow discussion of GATE CS 2005 Q.62 (accepted answer option A)",
+   "verification": "SOURCED"
+  },
+  {
    "id": "gate-2006-21-exactly-n-of-2n-chosen",
    "year": "2006",
    "paper": "GATE CS 2006",
@@ -30764,6 +32041,26 @@ window.GATE_DATA = {
    "source_label": "GATE Overflow question page - GATE CSE 2009 Q.25 with the accepted answer (option D)",
    "verification": "SOURCED",
    "answer_evidence": "The accepted answer substitutes t = cos x + sin x and states 'Correct Answer: D'; the GATE Forum 2009 CS paper PDF shows the same four options with (D) printed as (1/2) ln 2. Recomputed here numerically."
+  },
+  {
+   "id": "gate-2011-15-mod-258-flip-flops",
+   "year": "2011",
+   "paper": "GATE CS 2011",
+   "question_ref": "Q.15",
+   "type": "MCQ",
+   "topic": "synchronous-counter-and-mod-n-design",
+   "text": "The minimum number of D flip-flops needed to design a mod-258 counter is:",
+   "options": [
+    "258",
+    "512",
+    "8",
+    "9"
+   ],
+   "answer": "9",
+   "solution": "A mod-258 counter has 258 distinct states, and n flip-flops hold at most 2^n of them. 2^8 = 256 is too few and 2^9 = 512 is enough, so the answer is 9. The option letter is not recorded here because the answer pages render the options in different orders; the value 9 is what the accepted solutions give. The 254 patterns left over must be routed back into the cycle for the counter to be self-starting.",
+   "source_url": "https://gateoverflow.in/2117/gate-cse-2011-question-15",
+   "source_label": "GATE Overflow discussion of GATE CS 2011 Q.15 (accepted answer 9)",
+   "verification": "SOURCED"
   },
   {
    "id": "gate-2011-33-mean-median-mode-invariance-and-sd-scaling",
@@ -30989,6 +32286,26 @@ window.GATE_DATA = {
    "source_url": "https://gateforumonline.com/wp-content/uploads/2021/09/CS-Gate-2014-Set-1.pdf",
    "source_label": "GATE 2014 CS Set 1 paper with answer key (answer printed as 89); discussion at gateoverflow.in/1929",
    "verification": "OFFICIAL_KEY"
+  },
+  {
+   "id": "gate-2014-3-45-jk-state-sequence",
+   "year": "2014",
+   "paper": "GATE CS 2014 Set 3",
+   "question_ref": "Q.45",
+   "type": "MCQ",
+   "topic": "sequential-circuit-analysis-state-equations",
+   "text": "A synchronous sequential circuit built using JK flip-flops is initialized with Q2 Q1 Q0 = 000, with J2 = Q1', K2 = Q0, J1 = Q2, K1 = Q2', J0 = Q1 and K0 = Q0'. The state sequence for this circuit for the next 3 clock cycles is:",
+   "options": [
+    "001, 010, 011",
+    "111, 110, 101",
+    "100, 110, 111",
+    "100, 011, 001"
+   ],
+   "answer": "100, 110, 111",
+   "solution": "Write Q+ = JQ' + K'Q for each stage and update all three from the old values. From 000: J2K2 = 10 sets Q2; J1K1 = 01 keeps Q1 at 0; J0K0 = 01 keeps Q0 at 0, giving 100. From 100: J2K2 = 10 sets; J1K1 = 10 sets; J0K0 = 01 keeps 0, giving 110. From 110: J2K2 = 00 holds; J1K1 = 10 holds 1; J0K0 = 11 toggles 0 to 1, giving 111. The question itself is a figure; these six equations are the ones its accepted solutions state, and the three states above are recomputed from them in scripts/validate.py. Carrying the same equations a fourth step gives 011 and a fifth gives 001, so the 'mod-5 counter' remark that appears in some solutions does not follow from the equations as transcribed and is not relied on here.",
+   "source_url": "https://gateoverflow.in/2079/gate-cse-2014-set-3-question-45",
+   "source_label": "GATE Overflow discussion of GATE CS 2014 Set 3 Q.45 (accepted answer option C)",
+   "verification": "SOURCED"
   },
   {
    "id": "gate-2014-set-1-45-mux-minimal-sop",
@@ -31237,6 +32554,62 @@ window.GATE_DATA = {
    "source_label": "GATE Overflow question page - GATE CSE 2014 Set 3 Q.7 with the accepted answer (option B)",
    "verification": "SOURCED",
    "answer_evidence": "The single answer on the page works the map with the swapped Gray-order columns and gives option B. Recomputed here: with the four don't cares the minimal SOP is Q'S' + QS (2 terms, 4 literals); option A is the opposite polarity and options C and D are non-minimal forms."
+  },
+  {
+   "id": "gate-2015-1-20-johnson-counter-sequence",
+   "year": "2015",
+   "paper": "GATE CS 2015 Set 1",
+   "question_ref": "Q.20",
+   "type": "MCQ",
+   "topic": "ring-and-johnson-counters",
+   "text": "Consider a 4-bit Johnson counter with an initial value of 0000. The counting sequence of this counter is:",
+   "options": [
+    "0, 1, 3, 7, 15, 14, 12, 8, 0",
+    "0, 1, 3, 5, 7, 9, 11, 13, 15, 0",
+    "0, 2, 4, 6, 8, 10, 12, 14, 0",
+    "0, 8, 12, 14, 15, 7, 3, 1, 0"
+   ],
+   "answer": "0, 8, 12, 14, 15, 7, 3, 1, 0",
+   "solution": "A Johnson counter feeds the complement of the last stage back to the first. From 0000 the last bit is 0 so a 1 shifts in, giving 1000, then 1100, 1110, 1111; now the last bit is 1 so a 0 shifts in, giving 0111, 0011, 0001 and back to 0000. Reading each four-bit state with the leftmost bit as the most significant gives 0, 8, 12, 14, 15, 7, 3, 1 and 0. The cycle length is 2n = 8.",
+   "source_url": "https://gateoverflow.in/8219/gate-cse-2015-set-1-question-20",
+   "source_label": "GATE Overflow discussion of GATE CS 2015 Set 1 Q.20 (accepted answer option D)",
+   "verification": "SOURCED"
+  },
+  {
+   "id": "gate-2015-1-37-d-jk-cross-coupled-sequence",
+   "year": "2015",
+   "paper": "GATE CS 2015 Set 1",
+   "question_ref": "Q.37",
+   "type": "MCQ",
+   "topic": "edge-triggered-flip-flop-and-timing",
+   "text": "A positive edge-triggered D flip-flop is connected to a positive edge-triggered JK flip-flop as follows: the Q output of the D flip-flop drives both J and K of the JK flip-flop, and the Q output of the JK flip-flop drives the D input. Initially the D flip-flop output is 1 and the JK flip-flop output is 0. Which bit sequence, including the initial state, appears at the Q output of the JK flip-flop with a free-running common clock, where J = K = 1 is toggle and J = K = 0 is hold and both flip-flops have non-zero propagation delays?",
+   "options": [
+    "0110110...",
+    "0100100...",
+    "011101110...",
+    "011001100..."
+   ],
+   "answer": "0110110...",
+   "solution": "Both devices are edge-triggered and share the clock, so at each rising edge each reads the other's previous output. Let D_old and J_old be the two outputs before an edge; then the new D output is J_old and the new JK output is J_old XOR D_old, because J = K = D_old means toggle when D_old = 1 and hold when D_old = 0. From (D, JK) = (1, 0) the pairs run (0, 1), (1, 1), (0, 0), (1, 0), so the JK output reads 0, 1, 1, 0, 1, 1, 0 and repeats with period three. The non-zero propagation delay is what makes the simultaneous sampling physical rather than assumed.",
+   "source_url": "https://gateoverflow.in/8287/gate-cse-2015-set-1-question-37",
+   "source_label": "GATE Overflow discussion of GATE CS 2015 Set 1 Q.37 (accepted answer option A)",
+   "verification": "SOURCED"
+  },
+  {
+   "id": "gate-2015-2-7-min-jk-flip-flops-repeated-count",
+   "year": "2015",
+   "paper": "GATE CS 2015 Set 2",
+   "question_ref": "Q.7",
+   "type": "NAT",
+   "marks": "1",
+   "topic": "synchronous-counter-and-mod-n-design",
+   "text": "The minimum number of JK flip-flops required to construct a synchronous counter with the count sequence (0, 0, 1, 1, 2, 2, 3, 3, 0, 0, ...) is ______.",
+   "options": [],
+   "answer": "3",
+   "solution": "Two flip-flops give only the four patterns 00, 01, 10, 11, which cannot express eight positions in a sequence where every value appears twice. Eight distinct positions need three flip-flops: 000, 100, 001, 101, 010, 110, 011, 111, whose low two bits read 0, 0, 1, 1, 2, 2, 3, 3. The extra bit distinguishes the two copies of each value and is simply not shown on the display. The accepted answer is 3.",
+   "source_url": "https://gateoverflow.in/8054/gate-cse-2015-set-2-question-7",
+   "source_label": "GATE Overflow discussion of GATE CS 2015 Set 2 Q.7 (accepted answer 3)",
+   "verification": "SOURCED"
   },
   {
    "id": "gate-2015-3-5",
@@ -31630,6 +33003,22 @@ window.GATE_DATA = {
    "verification": "OFFICIAL_KEY"
   },
   {
+   "id": "gate-2016-1-8-counter-0-1-0-2-0-3-flip-flops",
+   "year": "2016",
+   "paper": "GATE CS 2016 Set 1",
+   "question_ref": "Q.8",
+   "type": "NAT",
+   "marks": "1",
+   "topic": "synchronous-counter-and-mod-n-design",
+   "text": "We want to design a synchronous counter that counts the sequence 0-1-0-2-0-3 and then repeats. The minimum number of J-K flip-flops required to implement this counter is ______.",
+   "options": [],
+   "answer": "4 (3 was also accepted)",
+   "solution": "There are six positions in the sequence, not four, because 0 appears three times and the counter must know which copy it is in. Distinguishing 0, 1, 2 and 3 needs two bits and distinguishing the three zeros needs two more, so the tight answer is four flip-flops, for example 0000, 0001, 0100, 0010, 1000, 0011. The competing reading treats the six positions as six states and answers ceil(log2 6) = 3, using external logic to decode the display. GATE's key accepted both 3 and 4, and this record keeps the disagreement rather than resolving it.",
+   "source_url": "https://gateoverflow.in/39670/gate-cse-2016-set-1-question-8",
+   "source_label": "GATE Overflow discussion of GATE CS 2016 Set 1 Q.8 (answers 3 and 4 both accepted)",
+   "verification": "SOURCED"
+  },
+  {
    "id": "gate-2016-set1-05-determinant-from-eigenvalues",
    "year": "2016",
    "paper": "GATE CS 2016 Set 1",
@@ -31814,6 +33203,26 @@ window.GATE_DATA = {
    "verification": "OFFICIAL_KEY"
   },
   {
+   "id": "gate-2017-2-42-saturating-counter-t-flip-flops",
+   "year": "2017",
+   "paper": "GATE CS 2017 Set 2",
+   "question_ref": "Q.42",
+   "type": "MCQ",
+   "topic": "t-flip-flop-and-excitation-tables",
+   "text": "The next state table of a 2-bit saturating up-counter is: Q1 Q0 = 0 0 gives Q1+ Q0+ = 0 1; 0 1 gives 1 0; 1 0 gives 1 1; 1 1 gives 1 1. The counter is built as a synchronous sequential circuit using T flip-flops. The expressions for T1 and T0 are:",
+   "options": [
+    "T1 = Q1 Q0, T0 = Q1' Q0'",
+    "T1 = Q1' Q0, T0 = Q1' + Q0'",
+    "T1 = Q1 + Q0, T0 = Q1' Q0'",
+    "T1 = Q1' Q0, T0 = Q1 + Q0"
+   ],
+   "answer": "T1 = Q1' Q0, T0 = Q1' + Q0'",
+   "solution": "For a T flip-flop the excitation is T = Q XOR Q+. Reading the table row by row: Q1 toggles only in the row 0 1, so T1 = Q1' Q0. Q0 toggles in the rows 0 0, 0 1 and 1 0 and holds only in 1 1, so T0 = Q1'Q0' + Q1'Q0 + Q1Q0' = Q1' + Q0'. The last simplification uses Q1' + Q1Q0' = Q1' + Q0'.",
+   "source_url": "https://gateoverflow.in/118557/gate-cse-2017-set-2-question-42",
+   "source_label": "GATE Overflow discussion of GATE CS 2017 Set 2 Q.42 (accepted answer option B)",
+   "verification": "SOURCED"
+  },
+  {
    "id": "gate-2017-set1-19-median-of-max-x-zero",
    "year": "2017",
    "paper": "GATE CS 2017 Set 1",
@@ -31979,6 +33388,22 @@ window.GATE_DATA = {
    "source_label": "GATE Overflow question page - GATE CSE 2018 Q.19 with the accepted solution (42)",
    "verification": "SOURCED",
    "answer_evidence": "Accepted answer: 'Proper Subgroup of Group having order 84 would have one of the order (proper factors of 84) ... So the largest order would be 42.'"
+  },
+  {
+   "id": "gate-2018-22-self-loop-states",
+   "year": "2018",
+   "paper": "GATE CS 2018",
+   "question_ref": "Q.22",
+   "type": "NAT",
+   "marks": "1",
+   "topic": "sequential-circuit-analysis-state-equations",
+   "text": "Consider a sequential circuit, shown in the paper as a figure, where both flip-flops used are positive edge-triggered D flip-flops. The number of states in the state transition diagram of this circuit that have a transition back to the same state on some value of 'in' is ______.",
+   "options": [],
+   "answer": "2",
+   "solution": "The circuit is a two-stage shift register: the next state of the left flip-flop is the input and the next state of the right flip-flop is the present left output, so Q1+ = in and Q0+ = Q1. A self-loop needs Q1+ = Q1 and Q0+ = Q0, that is in = Q1 and Q1 = Q0. That forces the state 00 with in = 0 and the state 11 with in = 1, so exactly two states have a self-loop. The wiring is stated here from the accepted solutions because the question itself is a figure; the count of 2 is recomputed from those equations.",
+   "source_url": "https://gateoverflow.in/204096/gate-cse-2018-question-22",
+   "source_label": "GATE Overflow discussion of GATE CS 2018 Q.22 (accepted answer 2)",
+   "verification": "SOURCED"
   },
   {
    "id": "gate-2018-26-single-eigenvector-direction",
@@ -33025,6 +34450,38 @@ window.GATE_DATA = {
    "source_url": "https://www.trygateai.com/pyq/engineering-mathematics/combinatorics/gate-cse-2025-set-1-q30",
    "source_label": "GATE CSE 2025 Set 1 Q.30 solution stating official answer 195 (also iaeacademy.in, citing the IIT Roorkee key)",
    "verification": "OFFICIAL_KEY"
+  },
+  {
+   "id": "gate-2025-1-50-johnson-distinct-states",
+   "year": "2025",
+   "paper": "GATE CS 2025 Set 1",
+   "question_ref": "Q.50",
+   "type": "NAT",
+   "marks": "2",
+   "topic": "ring-and-johnson-counters",
+   "text": "Consider a sequential circuit, shown in the paper as a figure, designed using D flip-flops and initialized with some value. The number of distinct states the circuit will go through before returning back to the initial state is ______. (Answer in integer)",
+   "options": [],
+   "answer": "8 (7 was also accepted)",
+   "solution": "The figure is four D flip-flops in a chain with the complement of the last output fed back to the first input, that is a 4-bit Johnson counter, whose cycle length is 2n = 8. Tracing from 0000 gives 0000, 1000, 1100, 1110, 1111, 0111, 0011, 0001 and back, eight distinct states including the initial one, or seven excluding it. Both 7 and 8 were accepted. Starting anywhere else, for example 0010, gives a second cycle of length 8, so the count does not depend on the start.",
+   "source_url": "https://gateoverflow.in/460030/gate-cse-2025-set-1-question-50",
+   "source_label": "GATE Overflow discussion of GATE CS 2025 Set 1 Q.50 (both 7 and 8 accepted)",
+   "verification": "SOURCED"
+  },
+  {
+   "id": "gate-2025-2-24-ripple-counter-frequency",
+   "year": "2025",
+   "paper": "GATE CS 2025 Set 2",
+   "question_ref": "Q.24",
+   "type": "NAT",
+   "marks": "2",
+   "topic": "ripple-counter-and-frequency-division",
+   "text": "In a 4-bit ripple counter, if the period of the waveform at the last flip-flop is 64 microseconds, then the frequency of the ripple counter in kHz is ______. (Answer in integer)",
+   "options": [],
+   "answer": "250",
+   "solution": "Each stage of a ripple counter halves the frequency, so the last of four stages carries the input frequency divided by 2^4 = 16. The period at that stage is 64 microseconds, so its frequency is 1 / (64 x 10^-6) = 15625 Hz. Multiplying back by 16 gives 250000 Hz, that is 250 kHz. Dividing instead of multiplying gives about 977 Hz, which is the wrong direction.",
+   "source_url": "https://gateoverflow.in/460811/gate-cse-2025-set-2-question-24",
+   "source_label": "GATE Overflow discussion of GATE CS 2025 Set 2 Q.24 (accepted answer 250)",
+   "verification": "SOURCED"
   },
   {
    "id": "gate-2025-set1-13-k-system",

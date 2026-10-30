@@ -29,8 +29,8 @@
   ],
   "counts": {
     "subjects": 5,
-    "topics": 254,
-    "pyqs": 199,
+    "topics": 269,
+    "pyqs": 211,
     "videos": 39,
     "playlists": 3
   },
@@ -3845,6 +3845,225 @@
       "pyqs": [],
       "visual": null,
       "variations": 3
+    },
+    {
+      "topic": "sequential-circuit-definition-and-clock",
+      "title": "What Makes a Circuit Sequential",
+      "subject": "digital-logic",
+      "group": "sequential-circuits",
+      "unit": "Sequential Circuits",
+      "priority": "P1",
+      "path": "subjects/digital-logic/sequential-circuits/sequential-circuit-definition-and-clock.json",
+      "videos": [],
+      "pyqs": [],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "sr-latch-nor-and-nand",
+      "title": "The SR Latch: Two Gates That Remember",
+      "subject": "digital-logic",
+      "group": "sequential-circuits",
+      "unit": "Sequential Circuits",
+      "priority": "P1",
+      "path": "subjects/digital-logic/sequential-circuits/sr-latch-nor-and-nand.json",
+      "videos": [],
+      "pyqs": [],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "gated-sr-latch-and-d-latch",
+      "title": "The Gated SR Latch and the D Latch",
+      "subject": "digital-logic",
+      "group": "sequential-circuits",
+      "unit": "Sequential Circuits",
+      "priority": "P2",
+      "path": "subjects/digital-logic/sequential-circuits/gated-sr-latch-and-d-latch.json",
+      "videos": [],
+      "pyqs": [],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "edge-triggered-flip-flop-and-timing",
+      "title": "Edge-Triggered Flip-Flops and the Timing Rules",
+      "subject": "digital-logic",
+      "group": "sequential-circuits",
+      "unit": "Sequential Circuits",
+      "priority": "P1",
+      "path": "subjects/digital-logic/sequential-circuits/edge-triggered-flip-flop-and-timing.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2015-1-37-d-jk-cross-coupled-sequence",
+        "gate-2005-62-dff-output-sequence"
+      ],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "d-and-jk-flip-flop-characteristic-equations",
+      "title": "The D and JK Flip-Flops",
+      "subject": "digital-logic",
+      "group": "sequential-circuits",
+      "unit": "Sequential Circuits",
+      "priority": "P1",
+      "path": "subjects/digital-logic/sequential-circuits/d-and-jk-flip-flop-characteristic-equations.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2014-3-45-jk-state-sequence"
+      ],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "t-flip-flop-and-excitation-tables",
+      "title": "The T Flip-Flop and the Excitation Tables",
+      "subject": "digital-logic",
+      "group": "sequential-circuits",
+      "unit": "Sequential Circuits",
+      "priority": "P1",
+      "path": "subjects/digital-logic/sequential-circuits/t-flip-flop-and-excitation-tables.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2017-2-42-saturating-counter-t-flip-flops"
+      ],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "registers-and-shift-registers",
+      "title": "Registers and Shift Registers",
+      "subject": "digital-logic",
+      "group": "sequential-circuits",
+      "unit": "Sequential Circuits",
+      "priority": "P2",
+      "path": "subjects/digital-logic/sequential-circuits/registers-and-shift-registers.json",
+      "videos": [],
+      "pyqs": [],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "ring-and-johnson-counters",
+      "title": "Ring and Johnson Counters",
+      "subject": "digital-logic",
+      "group": "sequential-circuits",
+      "unit": "Sequential Circuits",
+      "priority": "P1",
+      "path": "subjects/digital-logic/sequential-circuits/ring-and-johnson-counters.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2015-1-20-johnson-counter-sequence",
+        "gate-2025-1-50-johnson-distinct-states"
+      ],
+      "visual": "digital-logic/sequential-circuits/johnson-counter-cycle",
+      "variations": 2
+    },
+    {
+      "topic": "ripple-counter-and-frequency-division",
+      "title": "Ripple Counters and Frequency Division",
+      "subject": "digital-logic",
+      "group": "sequential-circuits",
+      "unit": "Sequential Circuits",
+      "priority": "P1",
+      "path": "subjects/digital-logic/sequential-circuits/ripple-counter-and-frequency-division.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2025-2-24-ripple-counter-frequency"
+      ],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "synchronous-counter-and-mod-n-design",
+      "title": "Synchronous Counters and Mod-N Design",
+      "subject": "digital-logic",
+      "group": "sequential-circuits",
+      "unit": "Sequential Circuits",
+      "priority": "P1",
+      "path": "subjects/digital-logic/sequential-circuits/synchronous-counter-and-mod-n-design.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2011-15-mod-258-flip-flops",
+        "gate-2015-2-7-min-jk-flip-flops-repeated-count",
+        "gate-2016-1-8-counter-0-1-0-2-0-3-flip-flops"
+      ],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "sequential-circuit-analysis-state-equations",
+      "title": "Analysing a Clocked Sequential Circuit",
+      "subject": "digital-logic",
+      "group": "sequential-circuits",
+      "unit": "Sequential Circuits",
+      "priority": "P1",
+      "path": "subjects/digital-logic/sequential-circuits/sequential-circuit-analysis-state-equations.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2014-3-45-jk-state-sequence",
+        "gate-2018-22-self-loop-states",
+        "gate-2005-62-dff-output-sequence"
+      ],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "mealy-and-moore-machines",
+      "title": "Mealy and Moore Machines",
+      "subject": "digital-logic",
+      "group": "sequential-circuits",
+      "unit": "Sequential Circuits",
+      "priority": "P2",
+      "path": "subjects/digital-logic/sequential-circuits/mealy-and-moore-machines.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2003-44-min-states-two-output-circuit"
+      ],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "state-minimisation-partition-refinement",
+      "title": "State Minimisation",
+      "subject": "digital-logic",
+      "group": "sequential-circuits",
+      "unit": "Sequential Circuits",
+      "priority": "P1",
+      "path": "subjects/digital-logic/sequential-circuits/state-minimisation-partition-refinement.json",
+      "videos": [],
+      "pyqs": [],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "state-assignment-encoding",
+      "title": "State Assignment",
+      "subject": "digital-logic",
+      "group": "sequential-circuits",
+      "unit": "Sequential Circuits",
+      "priority": "P2",
+      "path": "subjects/digital-logic/sequential-circuits/state-assignment-encoding.json",
+      "videos": [],
+      "pyqs": [],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "sequence-detector-minimum-states",
+      "title": "Sequence Detectors and the Minimum-State Argument",
+      "subject": "digital-logic",
+      "group": "sequential-circuits",
+      "unit": "Sequential Circuits",
+      "priority": "P2",
+      "path": "subjects/digital-logic/sequential-circuits/sequence-detector-minimum-states.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2003-44-min-states-two-output-circuit"
+      ],
+      "visual": null,
+      "variations": 2
     }
   ]
 }
