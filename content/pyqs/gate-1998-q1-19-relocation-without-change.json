@@ -1,0 +1,21 @@
+{
+  "id": "gate-1998-q1-19-relocation-without-change",
+  "year": "1998",
+  "paper": "GATE CS 1998",
+  "question_ref": "Q.1.19",
+  "type": "MCQ",
+  "topic": "relocation-and-position-independent-code",
+  "text": "Which of the following addressing modes permits relocation without any change whatsoever in the code?",
+  "options": [
+    "Indirect addressing",
+    "Indexed addressing",
+    "Base register addressing",
+    "PC relative addressing"
+  ],
+  "answer": "Option (D) - PC relative addressing",
+  "solution": "A PC-relative address is computed as the program counter plus a constant offset. Move the whole program and the PC and its target move by the same amount, so the offset - which is the only thing stored in the instruction - is still correct. Base-register addressing also survives relocation, but the base register has to be loaded with the new base, and that is a change made at run time even though the instruction bits are untouched; the question's phrase 'without any change whatsoever' is what excludes it.",
+  "source_url": "https://gateoverflow.in/1656/gate-cse-1998-question-1-19",
+  "source_label": "GATE Overflow question page - GATE CSE 1998 Q.1.19 with the accepted answer (option D)",
+  "verification": "SOURCED",
+  "answer_evidence": "The top-voted answer on the page states 'PC relative addressing is the best option. For base register addressing, we have to change the address in the base register while in PC relative there is absolutely no change in code needed.' Several answers on the same page argue for base register addressing instead, and one quotes Mano on the base register's role in relocation; the disagreement is recorded rather than hidden. Recomputed here: with a 4-byte instruction at X branching to X-12, a PC-relative offset of -16 is unchanged by any load address, while a base-register displacement needs the base reloaded."
+}
