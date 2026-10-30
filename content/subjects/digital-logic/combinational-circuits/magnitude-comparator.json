@@ -1,0 +1,70 @@
+{
+  "id": "magnitude-comparator",
+  "title": "Magnitude Comparator",
+  "priority": "P3",
+  "order": 443,
+  "unit": "Combinational Circuits",
+  "quickIdea": "A comparator answers three questions - equal, greater, less - by scanning the two words from the most significant end and stopping at the first position where they differ.",
+  "remember": [
+    "Bit equality is XNOR: (Ai = Bi) = (Ai XOR Bi)'.",
+    "Word equality is the AND of all n bit equalities: (A = B) = product over i of (Ai XOR Bi)'.",
+    "A > B is decided by the most significant position where the words differ: A > B = sum over i of ( Ai AND NOT Bi ) AND (all higher positions equal).",
+    "A < B follows from symmetry, and the three outputs are not independent: exactly one of equal, greater, less is true.",
+    "A 4-bit comparator block carries A > B, A < B and A = B as inputs so blocks cascade; a lower block's verdict is used only when the higher block reports equality.",
+    "A comparator is a subtractor with three flags: the zero flag gives equality and the sign of A - B gives greater or less."
+  ],
+  "example": {
+    "prompt": "Compare A = 1011 with B = 1001 using the most-significant-first rule.",
+    "work": "Bit 3: 1 against 1, equal, continue. Bit 2: 0 against 0, equal, continue. Bit 1: 1 against 0, different, and A has the 1, so A > B. Bit 0 is never examined.",
+    "answer": "A > B, decided at bit 1. The bit-0 values 1 and 1 could have been anything without changing the verdict."
+  },
+  "gateAngle": "The comparator is a P3 card: the GATE CSE line names combinational design, not comparators, and no verified CSE question in this topic turns on a comparator alone. It is kept because it is the standard companion block to the adder and because the 'most significant difference decides' rule is the same reasoning that makes the carry chain and the multiplexer select order work.",
+  "variations": [
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "How many XNOR gates and how many AND gates does an 8-bit equality comparator need if only two-input gates are available?",
+      "answer": "Eight XNOR gates and seven two-input AND gates.",
+      "why": "One XNOR per bit pair, then a tree of seven AND gates to combine eight equality signals into one."
+    },
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "A = 0110 and B = 0101 are compared by a 4-bit comparator. Which relation holds and which bit decides it?",
+      "answer": "A > B, decided at bit 1: A1 = 1 and B1 = 0 while bit 3 and bit 2 are equal.",
+      "why": "Bit 3 is 0 against 0 and bit 2 is 1 against 1, so the scan continues to bit 1, where A holds the 1. Bit 0 (0 against 1) is irrelevant because a less significant position cannot overturn a more significant difference."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "Two 4-bit comparator blocks are cascaded to compare 8-bit words. The high block reports A = B. Whose verdict is the answer?",
+      "answer": "The low block's - gated by the high block's equality signal.",
+      "why": "Equality in the high nibble makes the comparison depend entirely on the low nibble. If the high block reports A > B or A < B, the low block's verdict must be ignored, which is what the cascade inputs are for."
+    }
+  ],
+  "trap": {
+    "what": "Comparing from the least significant bit, or ORing the bit verdicts instead of taking the first difference.",
+    "why": "A difference at a higher position outweighs any number of differences below it, so the comparison is lexicographic from the top, not a count of differing bits.",
+    "counterexample": "A = 0111 and B = 1000: three bits of A are 1 against B's 0 at positions 2, 1, 0, yet B is larger because bit 3 decides it. Counting 1s would give the wrong answer."
+  },
+  "check": {
+    "question": "A = 1000 and B = 0111. Which bit decides the comparison, and what is the verdict?",
+    "answer": "Bit 3, and A > B.",
+    "explanation": "The words differ at the most significant bit: A3 = 1 and B3 = 0, so A is larger whatever the other three bits are. This is why the rule must be applied from the top down."
+  },
+  "pyqIds": [],
+  "videoRefs": [],
+  "prereqs": [
+    "adder-subtractor"
+  ],
+  "sources": [
+    {
+      "kind": "text",
+      "title": "Digital Logic subject notes, the combinational-circuit sections",
+      "channel": "GATE Overflow, subject page for Digital Logic",
+      "url": "https://gateoverflow.in/subject/digital-logic?tab=exams",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "Read the combinational circuit, adder, carry look-ahead, decoder and multiplexer sections, plus the paper-by-paper mark distribution used to check which years asked this topic."
+    }
+  ],
+  "sourceLine": "The three verdicts and the most-significant-first rule are stated from the standard treatment of combinational blocks (Mano, Digital Design, chapter 4) and from the GATE Overflow Digital Logic notes (English). No readable lecture transcript on the comparator was obtained this run - NPTEL Lecture 26 exists but was not fetched - so nothing is quoted or timestamped, and no PYQ rests on this card."
+}

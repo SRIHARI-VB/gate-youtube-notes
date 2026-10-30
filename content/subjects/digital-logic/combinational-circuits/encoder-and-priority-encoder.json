@@ -1,0 +1,70 @@
+{
+  "id": "encoder-and-priority-encoder",
+  "title": "Encoder and Priority Encoder",
+  "priority": "P2",
+  "order": 442,
+  "unit": "Combinational Circuits",
+  "quickIdea": "An encoder is the inverse of a decoder: it turns one active input line into its n-bit code. A priority encoder does the same when several inputs are active at once, by encoding the most important one.",
+  "remember": [
+    "2^n inputs to n outputs. A plain encoder assumes exactly one input is active; with two active the output is meaningless.",
+    "Priority encoder: the highest-priority active input decides the output and the lower ones are ignored, so every input combination has a defined answer.",
+    "A valid (group-select) output says whether any input is active at all - without it the all-zero input code is indistinguishable from 'nothing active'.",
+    "IC 74148 is an 8-to-3 priority encoder with enable-in, enable-out and group-select. Feeding enable-out into the next chip's enable-in cascades two of them into a 16-to-4 encoder.",
+    "The plain 4-to-2 encoder's truth table has four rows, one per active input; the priority version has sixteen rows, one per input combination.",
+    "You cannot build an encoder by reversing a decoder's wires: the decoder's one-hot assumption is exactly what fails when two inputs are active."
+  ],
+  "example": {
+    "prompt": "A 4-to-2 priority encoder has inputs I3, I2, I1, I0 with I3 the highest priority. What is the output for I3I2I1I0 = 0110, and for 0001?",
+    "work": "In 0110 the active inputs are I2 and I1. I2 has the higher priority, so it wins and the code is 2. In 0001 only I0 is active, so the code is 0.",
+    "answer": "10 for 0110, and 00 for 0001 - which is why a valid output is needed to tell 'I0 active' from 'nothing active'."
+  },
+  "gateAngle": "The encoder itself is asked rarely and the priority encoder is asked as a property question: what happens when two inputs are active, and how blocks cascade. The distinction to hold on to is that a plain encoder has undefined behaviour on multi-active inputs while a priority encoder is total.",
+  "variations": [
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "An 8-to-3 encoder receives I3 = 1 and I5 = 1 with everything else 0. Why is its output not well defined, and what does a priority encoder give?",
+      "answer": "The plain encoder's truth table only has the one-hot rows, so a two-hot input is an unused combination and the OR-gate realisation returns 101 - the bitwise OR of the codes for 3 and 5. A priority encoder returns the code of whichever of I3, I5 has the higher priority, i.e. 5 if higher indices win.",
+      "why": "The plain encoder is a set of OR gates, one per output bit, each collecting the inputs whose code has that bit set. Two active inputs light up the union of their bits instead of either code."
+    },
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "How many 8-to-3 priority encoders with enable-in, enable-out and group-select are needed to build a 32-to-5 priority encoder?",
+      "answer": "Five: four for the 32 data inputs and one to encode the four group-select lines into the top two bits.",
+      "why": "Each block handles eight inputs and gives three code bits, and the group-select of the enabled block identifies which eight were addressed. Chaining enable-out to enable-in keeps at most one block active, which is what makes the result a priority order."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "In an 8-to-3 priority encoder the priority order is reversed so that I0 is the most important. Which part of the design changes?",
+      "answer": "Only the truth table and therefore the OR gates that realise each output bit; the block structure and the pin count do not change.",
+      "why": "Priority is a property of the specification, not of the hardware. Reversing it re-assigns which input combinations set which output bits, so each output's sum of products is a different set of minterms."
+    }
+  ],
+  "trap": {
+    "what": "Assuming a decoder can be run backwards as an encoder.",
+    "why": "A decoder maps a code to a one-hot line, and that map is injective, so it can be reversed when exactly one line is active. An encoder must also answer when several lines are active, and the reversed decoder has no answer there.",
+    "counterexample": "Feeding a 3-to-8 decoder's outputs into an 8-to-3 encoder's inputs and calling it an encoder fails as soon as two decoder lines are high, because the encoder's one-hot assumption is violated."
+  },
+  "check": {
+    "question": "An 8-to-3 priority encoder gives I7 the highest priority. What is the output for I7..I0 = 1010 1000?",
+    "answer": "111 - the code for 7, because I7 is active and has the highest priority.",
+    "explanation": "1010 1000 has I7 = 1, I5 = 1 and I3 = 1. Priority takes the highest index, which is 7, and 7 in three bits is 111. Everything below I7 is irrelevant."
+  },
+  "pyqIds": [],
+  "videoRefs": [],
+  "prereqs": [
+    "decoder-and-minterm-generation"
+  ],
+  "sources": [
+    {
+      "kind": "lecture-transcript",
+      "title": "Lecture 19 - Decoder with BCD Input and Encoder",
+      "channel": "NPTEL, Digital Electronic Circuits (Prof. Goutam Saha, IIT Kharagpur)",
+      "url": "http://digimat.in/nptel/courses/video/108105132/lec19.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "Read from the opening through the BCD-to-decimal decoder and again at the closing summary: the encoder is the inverse of the decoder, a priority encoder settles the case of more than one active input, and IC 74148 cascades an 8-to-3 into a 16-to-4 encoder through its enable and group-select pins."
+    }
+  ],
+  "sourceLine": "The encoder as the inverse of the decoder, the priority rule when more than one input is active, and the 74148 cascade from 8-to-3 to 16-to-4 through enable and group-select: NPTEL IIT Kharagpur Digital Electronic Circuits Lecture 19 (English, read from its opening to its closing summary). No verified GATE CSE question in this topic is decided by the encoder alone, so the card carries no PYQ of its own."
+}

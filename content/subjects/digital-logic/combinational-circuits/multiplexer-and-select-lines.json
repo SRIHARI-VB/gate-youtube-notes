@@ -1,0 +1,90 @@
+{
+  "id": "multiplexer-and-select-lines",
+  "title": "Multiplexer: Steering 2^n Inputs with n Select Lines",
+  "priority": "P1",
+  "order": 438,
+  "unit": "Combinational Circuits",
+  "quickIdea": "A multiplexer is a data selector: n select lines pick one of 2^n data inputs and steer it to the single output. Written as an equation it is a sum of minterms of the select variables, each weighted by its data input.",
+  "remember": [
+    "2^n data inputs, n select lines, 1 output. 'A multiplexer with a 4-bit data select input' therefore has 16 data inputs.",
+    "2-to-1: Y = S'I0 + SI1. 4-to-1: Y = S1'S0'I0 + S1'S0I1 + S1S0'I2 + S1S0I3.",
+    "The select code of an input is its index in binary: on an 8-to-1 multiplexer, input I6 is selected by S2S1S0 = 110.",
+    "A multiplexer is Shannon's expansion in hardware: F = x'F(x=0) + xF(x=1) is exactly a 2-to-1 multiplexer with x on the select line and the two cofactors on the data inputs.",
+    "Because the data inputs can be constants, variables or complements, a multiplexer is a universal logic block - any function can be built on one (next card).",
+    "A demultiplexer is the inverse: one input steered to one of 2^n outputs by n select lines, and it is the same circuit as a decoder with the data line acting as the enable."
+  ],
+  "example": {
+    "prompt": "Write the output of a 4-to-1 multiplexer whose select lines are S1 = P and S0 = Q and whose data inputs are I0 = 0, I1 = 1, I2 = R and I3 = NOT R.",
+    "work": "Substitute into Y = S1'S0'I0 + S1'S0I1 + S1S0'I2 + S1S0I3: the first product vanishes because I0 = 0, the second is P'Q, the third is PQ'R and the fourth is PQR'.",
+    "answer": "F = P'Q + PQ'R + PQR'. This is the expression GATE CSE 2014 Set 1 Q.45 asks you to minimise, and its minimal form is P'Q + QR' + PQ'R."
+  },
+  "gateAngle": "Multiplexer questions in the papers are of two kinds: sizing (how many select lines, how many blocks) and function realisation (which data inputs implement the function). Both start from the sum-of-minterms equation, so writing that equation first is the method that never fails.",
+  "variations": [
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "How many select lines does a 32-to-1 multiplexer need, and how many data inputs does a multiplexer with 6 select lines have?",
+      "answer": "Five select lines, since 2^5 = 32; and 2^6 = 64 data inputs.",
+      "why": "The select count is the base-2 logarithm of the data count. The relation is exact only for a power of two, which is why multiplexer sizes are always 2^n."
+    },
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "Write the output equation of an 8-to-1 multiplexer with select lines S2S1S0 = A B C and data inputs I0 to I7.",
+      "answer": "Y = A'B'C'I0 + A'B'CI1 + A'BC'I2 + A'BCI3 + AB'C'I4 + AB'CI5 + ABC'I6 + ABCI7.",
+      "why": "Each select code selects exactly one input, so the output is the sum of the eight select minterms each multiplied by its data input. Setting all eight data inputs to 1 gives Y = 1; setting them to the function's minterm values gives the function."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "A 2-to-1 multiplexer has its output fed back into input I0, and I1 is a data line. What does the circuit do?",
+      "answer": "It holds its previous output while S = 0 and takes the new data when S = 1 - it is a latch, not a combinational circuit.",
+      "why": "The feedback path makes the output depend on its own earlier value, which is the definition of stored state. The same gates without the feedback wire are combinational."
+    }
+  ],
+  "trap": {
+    "what": "Confusing the number of data inputs with the number of select lines, or reversing the select order so that I0 and I3 swap.",
+    "why": "The phrase 'n-bit select' gives n select lines and 2^n data inputs; the phrase 'n-to-1' gives n data inputs and log2(n) select lines. And S1 is the more significant select bit, so it multiplies the upper half of the data inputs, not the lower.",
+    "counterexample": "On a 4-to-1 multiplexer with select 10, the selected input is I2, not I1: S1 = 1 selects the bottom half and S0 = 0 takes the first entry of that half."
+  },
+  "check": {
+    "question": "A 4-to-1 multiplexer has S1S0 = 10 and I2 = 0. What is the output, whatever the other data inputs are?",
+    "answer": "0, because the select code 10 selects I2 and only I2.",
+    "explanation": "The four product terms of the output equation are mutually exclusive - exactly one select code is true at a time - so only the term carrying I2 can be 1. With I2 = 0 the output is 0."
+  },
+  "pyqIds": [],
+  "videoRefs": [],
+  "prereqs": [
+    "combinational-circuit-definition-and-design"
+  ],
+  "sources": [
+    {
+      "kind": "lecture-transcript",
+      "title": "Lecture 16 - Multiplexer: Part I",
+      "channel": "NPTEL, Digital Electronic Circuits (Prof. Goutam Saha, IIT Kharagpur)",
+      "url": "http://digimat.in/nptel/courses/video/108105132/lec16.pdf",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "Read from the opening to the closing summary: the 2-to-1 multiplexer built from a truth table, the steering definition of a multiplexer, the construction of a 4-to-1 from three 2-to-1 multiplexers, and Shannon's expansion as the if-then-else reading of a multiplexer."
+    },
+    {
+      "kind": "text",
+      "title": "बहुसंकेतक (Multiplexer)",
+      "channel": "Hindi Wikipedia",
+      "url": "https://hi.wikipedia.org/wiki/%E0%A4%AC%E0%A4%B9%E0%A5%81%E0%A4%B8%E0%A4%82%E0%A4%95%E0%A5%87%E0%A4%A4%E0%A4%95",
+      "language": "hi",
+      "transcript": "PARTIAL",
+      "translated": true,
+      "note": "The one non-English source read this run. Translated from Hindi: a multiplexer selects one of several inputs and steers it to the output, n select lines address 2^n inputs, it is called a data selector, and a demultiplexer is its inverse. Contributes terminology only, no numbers."
+    },
+    {
+      "kind": "text",
+      "title": "Digital Logic subject notes, the combinational-circuit sections",
+      "channel": "GATE Overflow, subject page for Digital Logic",
+      "url": "https://gateoverflow.in/subject/digital-logic?tab=exams",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "Read the combinational circuit, adder, ripple carry, carry look-ahead, decoder and multiplexer sections, plus the paper-by-paper mark distribution used to check which years asked this topic. Used as the GATE-oriented statement of the rules, never as a source of questions."
+    }
+  ],
+  "sourceLine": "The steering definition, the 2-to-1 equation, the 4-to-1 built from three 2-to-1 blocks and the Shannon-expansion reading: NPTEL IIT Kharagpur Digital Electronic Circuits Lecture 16 (English, read from its opening to its closing summary). The select-line count and the data-selector name also come from the Hindi Wikipedia article on the multiplexer (Hindi, translated, marked as translated on this card's source list). The demultiplexer-as-decoder remark is from the GATE Overflow Digital Logic notes (English)."
+}

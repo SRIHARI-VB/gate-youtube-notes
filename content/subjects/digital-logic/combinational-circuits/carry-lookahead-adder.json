@@ -1,0 +1,75 @@
+{
+  "id": "carry-lookahead-adder",
+  "title": "Carry Look-Ahead Adder: Generate, Propagate, Two-Level Carry",
+  "priority": "P2",
+  "order": 436,
+  "unit": "Combinational Circuits",
+  "quickIdea": "Stop waiting for carries to ripple: define a generate bit that makes a carry and a propagate bit that passes one on, then compute every carry directly from the inputs in two levels of logic.",
+  "remember": [
+    "Generate Gi = Ai AND Bi - a carry is created at this position whatever the carry-in is.",
+    "Propagate Pi = Ai XOR Bi - a carry arriving here is passed to the next position.",
+    "Ci+1 = Gi + Pi Ci. Expanded: C1 = G0 + P0C0; C2 = G1 + P1G0 + P1P0C0; C3 = G2 + P2G1 + P2P1G0 + P2P1P0C0; C4 = G3 + P3G2 + P3P2G1 + P3P2P1G0 + P3P2P1P0C0.",
+    "Sum is unchanged: Si = Pi XOR Ci, so a look-ahead adder computes the same function as a ripple adder, only sooner.",
+    "Two-level AND-OR carry network with unlimited fan-in: the product terms for C1 to C4 number 1 + 2 + 3 + 4 = 10, and each carry needs one OR, so 10 AND gates and 4 OR gates for 4 bits. In general n(n+1)/2 AND and n OR gates.",
+    "Delay with unit gate delay: 2 for P and G, 2 for the carry network, 2 for the sum XOR - six time units for a 4-bit adder, independent of n only while fan-in is unlimited.",
+    "With fan-in limited to 2 the two-level expansion must become a tree, so the delay becomes Theta(log n) rather than Theta(1) and the gate count roughly doubles.",
+    "Pi is also written Ai + Bi in some texts; the two differ only when Ai = Bi = 1, where the carry is generated anyway, so the carry equations are the same."
+  ],
+  "example": {
+    "prompt": "GATE CSE 2007 Q.35. All Pi and Gi are available and the AND and OR gates may have any number of inputs. How many AND gates and how many OR gates does a two-level look-ahead carry generator for a 4-bit adder need?",
+    "work": "Count the product terms in each carry: C1 has 1, C2 has 2, C3 has 3 and C4 has 4. One AND gate per product term gives 1 + 2 + 3 + 4 = 10. Each carry is the OR of its own product terms, so four OR gates.",
+    "answer": "10 AND gates and 4 OR gates - option (B)."
+  },
+  "gateAngle": "This topic carries two recurring GATE patterns: the gate count of the carry generator (2007 Q.35, where the answer is n(n+1)/2 AND and n OR) and its delay (2004 Q.62, six time units for 4 bits with a two-level network). Both are counting arguments on the expanded carry equations, so writing C1 to C4 out is the whole method.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "How many AND gates and OR gates does a two-level look-ahead carry generator for an 8-bit adder need, with unlimited fan-in and all Pi, Gi available?",
+      "answer": "36 AND gates and 8 OR gates.",
+      "why": "The product terms are 1 + 2 + ... + 8 = 36, one AND each, and each of the eight carries needs one OR. The formula n(n+1)/2 with n = 8 gives 36."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "For A = 1011, B = 0110 and C0 = 0, list Pi and Gi for each bit and compute C4 through the carry equations.",
+      "answer": "P3P2P1P0 = 1101 and G3G2G1G0 = 0010, so G is 1 only at bit 1, and C4 = 1.",
+      "why": "Bit 0: A = 1, B = 0 gives P0 = 1, G0 = 0. Bit 1: 1 and 1 gives P1 = 0, G1 = 1. Bit 2: 0 and 1 gives P2 = 1, G2 = 0. Bit 3: 1 and 0 gives P3 = 1, G3 = 0. Then C1 = 0, C2 = G1 = 1, C3 = G2 + P2C2 = 1, C4 = G3 + P3C3 = 1. The sum 1011 + 0110 = 1 0001 confirms the carry out."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "Same 4-bit generator, but every gate may have at most two inputs. What happens to the gate counts?",
+      "answer": "20 AND gates and 10 OR gates instead of 10 and 4.",
+      "why": "A product term of k literals needs k-1 two-input ANDs, and a sum of m terms needs m-1 two-input ORs. Summing k-1 over the terms of C1 to C4 gives 1 + 3 + 6 + 10 = 20, and (2-1) + (3-1) + (4-1) + (5-1) = 10 ORs."
+    }
+  ],
+  "trap": {
+    "what": "Counting one AND gate per product term but forgetting that each carry also needs its own OR gate, or vice versa.",
+    "why": "The generator is two levels: a plane of AND gates forming product terms and a plane of OR gates summing them per carry. Counting only one plane gives 10 or 4, and the options for 2007 Q.35 include 6, 3 and 6, 4 precisely to catch that.",
+    "counterexample": "For 4 bits the correct pair is 10 AND and 4 OR. Answering 10 AND and 5 OR confuses the number of carries (4, one per output C1 to C4) with the number of terms in the largest carry (5)."
+  },
+  "check": {
+    "question": "With Pi = Ai XOR Bi and Gi = Ai AND Bi, what are P and G when Ai = Bi = 1, and what does that mean for the carry?",
+    "answer": "P = 0 and G = 1: the carry is generated here and is not propagated from below.",
+    "explanation": "1 XOR 1 = 0 and 1 AND 1 = 1. Because G = 1 the carry-out is 1 whatever C arrives, so there is nothing left for a lower carry to propagate through this position."
+  },
+  "pyqIds": [
+    "gate-2004-62-carry-lookahead-delay",
+    "gate-2007-35-lookahead-carry-gate-count"
+  ],
+  "videoRefs": [],
+  "prereqs": [
+    "ripple-carry-adder-and-delay"
+  ],
+  "sources": [
+    {
+      "kind": "text",
+      "title": "Digital Logic subject notes, the combinational-circuit sections",
+      "channel": "GATE Overflow, subject page for Digital Logic",
+      "url": "https://gateoverflow.in/subject/digital-logic?tab=exams",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "Read the combinational circuit, adder, ripple carry, carry look-ahead, decoder and multiplexer sections, plus the paper-by-paper mark distribution used to check which years asked this topic. Used as the GATE-oriented statement of the rules, never as a source of questions."
+    }
+  ],
+  "sourceLine": "The generate and propagate definitions, the expanded carries and the two-level structure: the GATE Overflow Digital Logic subject notes (English), read in part, which states the C1 to C4 expansions and the n(n+1)/2 and n counts. No readable lecture transcript on this topic was available this run, so both cards rest on the written reference plus recomputation; every count and every delay total is checked in scripts/validate.py."
+}

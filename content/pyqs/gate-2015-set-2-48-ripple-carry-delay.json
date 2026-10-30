@@ -1,0 +1,15 @@
+{
+  "id": "gate-2015-set-2-48-ripple-carry-delay",
+  "year": "2015",
+  "paper": "GATE CSE 2015 Set 2",
+  "question_ref": "Q.48",
+  "type": "NAT",
+  "topic": "ripple-carry-adder-and-delay",
+  "text": "A half adder is implemented with XOR and AND gates. A full adder is implemented with two half adders and one OR gate. The propagation delay of an XOR gate is twice that of an AND/OR gate. The propagation delay of an AND/OR gate is 1.2 microseconds. A 4-bit ripple-carry binary adder is implemented by using four full adders. The total propagation time of this 4-bit binary adder in microseconds is ______.",
+  "answer": "19.2 microseconds (accepted answer; the carry-only analysis gives 12)",
+  "solution": "XOR = 2.4 and AND = OR = 1.2 microseconds. In the first full adder the carry-out must pass through one XOR, one AND and one OR: 2.4 + 1.2 + 1.2 = 4.8. The accepted answer charges the same 4.8 to each of the four stages and reports 4 x 4.8 = 19.2. The carry-only critical-path analysis charges 4.8 to the first stage and only 1.2 + 1.2 = 2.4 to each later stage, because A XOR B there is computed in parallel with the arriving carry, giving 4.8 + 3 x 2.4 = 12. Both figures are stated because the paper's key and the standard model disagree.",
+  "source_url": "https://gateoverflow.in/8250/gate-cse-2015-set-2-question-48",
+  "source_label": "GATE Overflow question page - GATE CSE 2015 Set 2 Q.48 with the accepted answer 19.2",
+  "verification": "SOURCED",
+  "answer_evidence": "One answer on the page states that the ripple-carry reading makes the total 4 x 4.8 = 19.2 and that this is the key given by GATE; a second widely upvoted answer argues for 12 on the carry-only model. A third site records the same question with the answer 19.2. The record reports the accepted answer and names the disagreement instead of choosing silently."
+}

@@ -1,5 +1,148 @@
 # Run report
 
+## Run 7 - Combinational Circuits
+
+### The topic, and why it was next
+
+**Digital Logic > Combinational Circuits** (`combinational-circuits`), the third topic of the GATE 2027
+Digital Logic line: *"Boolean algebra and minimization - algebraic technique, Karnaugh map, tabular
+method. Design of combinational and sequential circuits. Number representation and arithmetic (fixed and
+floating point)."*
+
+The cycle pointer was left by the previous run on `digital-logic/boolean-algebra-and-minimization`, and
+the first topic strictly after it in the enumerated syllabus order whose status is not `covered` is this
+one, which was `not_started`. Nothing was skipped: no topic sits between the pointer and this one, no topic
+is `blocked`, and the fourteen `partial` topics earlier in the cycle were left alone because the cycle takes
+its second pass over `partial` topics only after a full pass finds no `not_started` topic left. The
+sequential half of the syllabus line belongs to `digital-logic/sequential-circuits`, which is the next
+topic and was deliberately not touched.
+
+### Subtopics enumerated before any source was chosen
+
+Seventeen, from the standard treatment (Mano chapter 4), the NPTEL lecture order (15, 16, 18, 19, 23, 26)
+and the GATE question record, because the syllabus names the topic in five words: the combinational
+definition with no memory and no feedback; the four-step design procedure and the don't-care status of
+unused input codes; the half adder; the full adder and the two-half-adders-plus-OR construction; the
+ripple-carry adder and the count of its blocks; the carry chain as the critical path; the carry look-ahead
+adder with generate, propagate, the expanded carries, the gate count and the delay; the adder-subtractor
+with the conditional inverter, the borrow flag and the overflow flag; the multiplexer and its output
+equation; implementing a function on a multiplexer with the 0/1/X/X' table and the minimum size with one
+inverter; multiplexer trees and the level order of the select bits; the decoder as a minterm generator;
+the encoder and priority encoder; the magnitude comparator; the ROM and PLA as look-up tables; the parity
+generator and checker; and hazards with their covering terms.
+
+### Sources chosen, on merit
+
+Two lectures were readable end to end this run, which is unusual for this repository:
+
+- **NPTEL IIT Kharagpur, Digital Electronic Circuits, Lecture 16 - Multiplexer: Part I** (English, read
+  from opening to closing summary). The 2-to-1 multiplexer derived from a truth table, the steering
+  definition, a 4-to-1 built from three 2-to-1 blocks, and Shannon's expansion as the if-then-else reading.
+  Carries the multiplexer and multiplexer-tree cards.
+- **Lecture 15 - Static 0 Hazard and Dynamic Hazard** (English, read in full). The A.A' mechanism, the
+  cover by an added sum term, and the three-level condition for a dynamic hazard. Carries the hazards card
+  alone.
+- **Lecture 23 - Arithmetic Building Blocks I** (English, read from its opening to its closing summary).
+  Why a half adder is half, the full adder equations, the two-half-adder construction, and the
+  adder-subtractor with a NOT bank and a carry-in of 1. Carries the two adder cards and the subtractor card.
+- **Lecture 19 - Decoder with BCD Input and Encoder** (English, read in part). Active-low decoder outputs,
+  the six unused BCD codes as don't cares, the encoder as the inverse of the decoder, the priority rule,
+  and the 74148 cascade from 8-to-3 to 16-to-4.
+- **GATE Overflow Digital Logic subject notes** (English, read in part) for the GATE phrasing of the
+  rules, the carry look-ahead expansions with the n(n+1)/2 and n gate counts, and the paper-by-paper mark
+  table.
+- **Hindi Wikipedia, बहुसंकेतक (Multiplexer)** (Hindi, translated) as the one non-English source. It
+  contributes the select-line rule, the name "data selector" and the demultiplexer as the inverse, and
+  nothing numeric. Every sentence taken from it is translated and the card marks it as translated.
+
+Rejected with reasons in `sources.json`: the GO Classes combinational-PYQ playlist and the Gate Smashers
+Hindi playlist (no caption track retrievable, and the second is a channel the repository already carries);
+the NPTEL Digital Circuits sequence by Chattopadhyay (the same syllabus line lecture for lecture, so it
+would have added no subtopic); NPTEL Lectures 18 and 26 (not fetched this run); the Knowledge Gate AI
+combinational MCQ blog (it is where several questions were first spotted, but it is a question dump, not a
+reference of record); the Testbook Hindi MCQ bank (practice from other examinations, not GATE CSE PYQs);
+the CareerCraftLabs Hindi chapter (served garbled); the Unacademy Hindi lessons (paywalled); the figure-only
+questions whose wiring no readable solution states; GATE IT and GATE DA papers; and the answer aggregators,
+which corroborate but disagree on numbering.
+
+### Content
+
+Fourteen cards under `content/subjects/digital-logic/combinational-circuits/`: the combinational
+definition and design loop, half and full adder, ripple-carry adder and its critical path, carry look-ahead
+adder, adder-subtractor, multiplexer basics, implementing a function on a multiplexer, multiplexer trees,
+decoder and minterm generation, encoder and priority encoder, magnitude comparator, ROM and PLA, parity
+generator and checker, and hazards. Thirteen PYQ records were added under `content/pyqs/`, from GATE CSE
+1996 to 2026, each with its year, question reference and source URL. Every card carries variations labelled
+`VERIFIED PYQ`, `ORIGINAL PYQ-STYLE QUESTION`, `CONCEPTUAL PRACTICE QUESTION` or `PREDICTED VARIATION`, a
+trap with a counterexample, and a quick check with its answer.
+
+### Visual lesson
+
+`visuals/digital-logic/combinational-circuits/mux-to-minimal-sop` - seven steps on GATE CSE 2014 Set 1
+Q.45: read the select codes, substitute the data inputs, expand to minterms 2, 3, 5 and 6, place them on a
+three-variable map, group them as P'Q, QR' and PQ'R, and compare three terms and seven literals against
+four terms and twelve. It reuses the frozen harness (`visuals/lesson.css`, `visuals/lesson.js`), supports
+play, pause, previous, next, restart, speed and a step counter, and carries a static explanation, a
+misconception and a quick check outside the canvas.
+
+### Mathematics
+
+`scripts/validate.py` gained `check_combinational_circuits()`. It recomputes both adder truth tables on
+every row, the two-half-adder construction, the 1 + (n-1) count, both models of the 2015 ripple delay
+(19.2 and 12 microseconds, and the 8-bit figures), the carry look-ahead sum and carry against plain
+addition for all 256 pairs of 4-bit operands, the generate and propagate bits of the worked example, the
+two-level and two-input gate counts, the 2004 Q.58 function with and without its don't cares, the
+multiple-of-three cover and its thirteen literals, the 2^(2^k) function counts behind 2007 Q.34, the
+2014 Set 1 Q.45 multiplexer minterms and the minimal-against-canonical literal counts, the 2021 Set 2 Q.5
+implementation, the XOR variation, the 2^n - 1 tree counts, 2024 Set 1 Q.54's count of 4, 2023 Q.34's
+minterm set and data vector, the decoder one-hot property and the 256-function count, 2026 Set 2 Q.49's
+count of 6, the priority encoder on the worked word, every comparator verdict, all five ROM sizes, the
+parity values including the single-flip and double-flip cases, the consensus terms of three hazard
+examples, and every number in the lesson.
+
+### Validation performed
+
+`python3 scripts/build-index.py` then `python3 scripts/validate.py`: **32 checks passed, 8 warnings,
+0 failures.** The warnings are the pre-existing ones (seven `OFFICIAL_KEY` records with no answer
+evidence, two videos referenced by no card). `node tests/visual-lessons.js` passed on all 26 lessons,
+including the new one at 7 steps. No frozen UI file was touched: `src/styles/design-tokens.css`, the shell
+layout, `src/app/routes.js`, the navigation labels, the shared component classes and the lesson harness are
+unchanged, and the new lesson reuses them.
+
+### Gaps (the topic stays `partial`)
+
+1. No video transcript was readable: every YouTube route returned no caption track, so `videoRefs` is empty
+   on all fourteen cards and the four NPTEL lectures are used through their published transcript PDFs
+   rather than through captions.
+2. The decoder card rests on a partially read lecture and the written notes, because NPTEL Lecture 18 - the
+   lecture that builds the decoder from scratch - was not fetched this run.
+3. The magnitude comparator has no readable source at all: NPTEL Lecture 26 exists but was not fetched, so
+   the card states its facts from Mano chapter 4 and the GATE Overflow notes and claims no lecture.
+4. The parity card likewise rests on the standard reference and the notes; NPTEL Lecture 20 was not fetched.
+5. Five cards carry no verified GATE CSE question of their own - the adder-subtractor, the encoder, the
+   comparator, the parity generator and the hazards - because no verified CSE question in this topic is
+   decided by them alone. Each card says so instead of borrowing a question that does not test it.
+6. Every PYQ is `SOURCED` against a GATE Overflow accepted answer rather than key-verified, and no marks
+   field is recorded, because neither the official papers nor the keys were fetched. Question references
+   follow the GATE Overflow numbering; the 2024 Set 1 three-multiplexer question is Q.54 there, Q64 on
+   GateAI and 32 on one year-wise listing.
+7. GATE CSE 2026 Set 2 Q.49 is a figure question: the wiring used to recompute its count of 6 is taken
+   from the accepted solution, not from the paper, and the record says so.
+8. Two records state a disagreement instead of resolving it: 2004 Q.62 (accepted 6 time units, with 4
+   argued on its page) and 2015 Set 2 Q.48 (accepted 19.2 microseconds, against 12 on the carry-only
+   critical path). The ripple-carry card teaches both models.
+9. Only one non-English source was readable (the Hindi Wikipedia multiplexer article, translated,
+   contributing terminology and no number). No Hindi, Tamil, Telugu or Bengali lecture transcript on this
+   topic could be read.
+10. `content/coverage-map.json` was not updated: it is produced by a separate mapping tool
+    (`gate-content-mapper`) and is not read by the site, so the fourteen new cards are absent from it until
+    that tool is run again. This is the same limitation the earlier runs recorded.
+
+### Next
+
+The cycle pointer now sits on `digital-logic/combinational-circuits`. The next topic in syllabus order is
+`digital-logic/sequential-circuits`, which is `not_started`.
+
 ## Run 6 - Eigenvalues and Eigenvectors
 
 ### The topic, and why it was next

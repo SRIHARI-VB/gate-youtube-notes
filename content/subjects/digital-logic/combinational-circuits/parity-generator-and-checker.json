@@ -1,0 +1,71 @@
+{
+  "id": "parity-generator-and-checker",
+  "title": "Parity Generator and Checker",
+  "priority": "P3",
+  "order": 445,
+  "unit": "Combinational Circuits",
+  "quickIdea": "Parity is the XOR of the data bits. A generator appends one bit so that the total count of 1s is even (or odd); a checker recomputes the XOR and flags a mismatch.",
+  "remember": [
+    "Even parity bit P = D1 XOR D2 XOR ... XOR Dn; the odd parity bit is the complement of that.",
+    "A chain of two-input XOR gates computes parity for any width; a balanced tree does it in log2(n) levels instead of n-1.",
+    "Checker: XOR all the received data bits together with the received parity bit. Under even parity a 0 means no single-bit error and a 1 flags one.",
+    "Parity detects any odd number of flipped bits and can never detect an even number.",
+    "One parity bit cannot locate the error; it only says one exists. A Hamming code adds several check bits so the position can be identified.",
+    "The parity bit itself is a function of the data, so a parity generator is an ordinary combinational circuit - a tree of XOR gates."
+  ],
+  "example": {
+    "prompt": "Compute the even and odd parity bits for the data 1011.",
+    "work": "XOR the bits: 1 XOR 0 = 1, 1 XOR 1 = 0, 0 XOR 1 = 1. The XOR of the data is 1, which is also the even parity bit, because appending a 1 makes the count of 1s even (four).",
+    "answer": "Even parity bit 1, odd parity bit 0."
+  },
+  "gateAngle": "Parity is a P3 card: the GATE CSE line does not name it, and no verified CSE question in this topic is decided by parity alone. It is kept because the parity generator is the smallest complete example of a combinational design - one output, one XOR tree - and because it is the entry point to the error-detecting codes that the number-systems topic touches.",
+  "variations": [
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "How many two-input XOR gates compute the even parity of 8 data bits?",
+      "answer": "Seven.",
+      "why": "XOR is associative, so the parity of n bits is n-1 two-input XOR operations - a chain of seven for eight bits, or a tree of the same seven gates in three levels."
+    },
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "The data word 1100 0110 needs an even parity bit. What is it, and what does the checker output if the third bit from the left flips in transmission?",
+      "answer": "The even parity bit is 0 (four 1s already, so XOR = 0). After a single flip the checker's XOR becomes 1 and the error is flagged.",
+      "why": "Four 1s is already an even count, so the parity bit must be 0. One flip changes the count of 1s to three or five, both odd, so the recomputed XOR is 1."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "Two bits flip in a 12-bit even-parity word. What does the checker report, and what follows about parity's power?",
+      "answer": "Nothing - the checker's XOR is still 0, so the error passes undetected.",
+      "why": "Two flips change the count of 1s by 0 or 2, so its parity is unchanged. Parity detects odd numbers of errors only, which is why it is a single-error detector and not a corrector."
+    }
+  ],
+  "trap": {
+    "what": "Confusing the parity bit with the parity of the data, so the even and odd bits are swapped.",
+    "why": "Under even parity the parity bit equals the XOR of the data (it makes the total even); under odd parity it is the complement. Computing the XOR and calling it 'the parity' without saying which convention is in force is where the sign error comes from.",
+    "counterexample": "For 1011 the XOR is 1, so the even parity bit is 1 and the odd parity bit is 0. Answering 0 for even parity is the classic slip."
+  },
+  "check": {
+    "question": "What is the odd parity bit for the data 1010?",
+    "answer": "1.",
+    "explanation": "The XOR of 1, 0, 1, 0 is 0, so appending 0 would leave an even count of 1s. Odd parity needs the complement, which is 1, making the total count of 1s three."
+  },
+  "pyqIds": [],
+  "videoRefs": [],
+  "prereqs": [
+    "combinational-circuit-definition-and-design",
+    "xor-and-xnor-algebra"
+  ],
+  "sources": [
+    {
+      "kind": "text",
+      "title": "Digital Logic subject notes, the combinational-circuit sections",
+      "channel": "GATE Overflow, subject page for Digital Logic",
+      "url": "https://gateoverflow.in/subject/digital-logic?tab=exams",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "Read the combinational circuit, adder, carry look-ahead, decoder and multiplexer sections, plus the paper-by-paper mark distribution used to check which years asked this topic."
+    }
+  ],
+  "sourceLine": "The parity definition and the checker rule are stated from the standard treatment (Mano, Digital Design, chapter 4) and the GATE Overflow Digital Logic notes (English). NPTEL Lecture 20 of the same course covers the parity generator and checker but was not fetched this run, so nothing is attributed to it and the card carries no PYQ."
+}

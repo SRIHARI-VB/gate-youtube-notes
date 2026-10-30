@@ -1,0 +1,21 @@
+{
+  "id": "gate-2021-set-2-5-mux-implements-function",
+  "year": "2021",
+  "paper": "GATE CSE 2021 Set 2",
+  "question_ref": "Q.5",
+  "type": "MCQ",
+  "topic": "mux-implementing-a-boolean-function",
+  "text": "Which one of the following circuits implements the Boolean function f(x,y,z) = m0 + m1 + m3 + m4 + m5 + m6, where mi is the i-th minterm? Each option is a 4-to-1 multiplexer with select lines y and z and a drawn set of data inputs.",
+  "options": [
+    "(A) - the multiplexer whose data inputs are I0 = I1 = 1, I2 = x, I3 = x'",
+    "(B) - a drawn multiplexer; its data inputs were not recorded from the readable source",
+    "(C) - a drawn multiplexer; its data inputs were not recorded from the readable source",
+    "(D) - a drawn multiplexer; its data inputs were not recorded from the readable source"
+  ],
+  "answer": "Option (A) - I0 = I1 = 1, I2 = x, I3 = x'",
+  "solution": "With y and z on the select lines, each data input covers the pair of minterms that differ in x. yz = 00 covers m0 = 1 and m4 = 1, so I0 = 1. yz = 01 covers m1 = 1 and m5 = 1, so I1 = 1. yz = 10 covers m2 = 0 and m6 = 1, so I2 = x. yz = 11 covers m3 = 1 and m7 = 0, so I3 = x'. So the correct circuit has I0 = I1 = 1, I2 = x, I3 = x', which is option (A).",
+  "source_url": "https://gateoverflow.in/357535/gate-cse-2021-set-2-question-5",
+  "source_label": "GATE Overflow question page - GATE CSE 2021 Set 2 Q.5 with the accepted answer (option A)",
+  "verification": "SOURCED",
+  "answer_evidence": "The accepted answer builds the table of minterms against the four select codes and reads I0 = 1, I1 = 1, I2 = x, I3 = x', concluding option A; several other answers agree. Recomputed here by enumeration over all eight assignments: the multiplexer with those data inputs is 1 exactly at minterms 0, 1, 3, 4, 5 and 6."
+}

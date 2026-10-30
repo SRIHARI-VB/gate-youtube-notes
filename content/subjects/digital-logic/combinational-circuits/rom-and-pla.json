@@ -1,0 +1,72 @@
+{
+  "id": "rom-and-pla",
+  "title": "ROM and PLA: Storing a Truth Table",
+  "priority": "P2",
+  "order": 444,
+  "unit": "Combinational Circuits",
+  "quickIdea": "A ROM is a truth table in silicon: n address lines are the inputs, m data lines are the outputs, and any n-input m-output combinational function fits in 2^n words of m bits.",
+  "remember": [
+    "ROM size = 2^(address bits) words x (bits per word). Two 8-bit operands make a 16-bit address, so 2^16 = 64K words; their product needs 16 bits, so 64K x 16.",
+    "A ROM is a decoder plus an OR plane: the decoder generates all 2^n minterms and the OR plane decides which of them are stored as 1.",
+    "A PLA has a programmable AND plane and a programmable OR plane, so it stores a minimal sum of products directly instead of a full truth table.",
+    "A PAL has a programmable AND plane and a fixed OR plane, so it can only realise sums of products with a bounded number of terms.",
+    "The ROM does not care whether the function is minimal - it stores every row - which is why it is the fastest and the most wasteful option.",
+    "Any function of the address bits can be implemented, including several independent ones: each output bit is one function."
+  ],
+  "example": {
+    "prompt": "GATE CSE 1996 Q.1.21. A ROM stores the table for multiplication of two 8-bit unsigned integers. What size of ROM is required?",
+    "work": "The two operands together form the address, so 8 + 8 = 16 address bits and 2^16 = 65536 = 64K locations. The largest product of two 8-bit numbers is 255 x 255 = 65025, which needs 16 bits, so each word is 16 bits wide.",
+    "answer": "64K x 16 - option (D)."
+  },
+  "gateAngle": "The ROM question in the papers is always a sizing question, and the two decisions are the address width (one bit per input) and the word width (enough bits for the largest output). GATE CSE 1996 Q.1.21 asks it for a multiplier; the same arithmetic answers a ROM implementing an adder or a set of Boolean functions.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "How much ROM is needed to implement a 4-bit multiplier?",
+      "answer": "2^8 x 8 = 2048 bits, that is 2 Kbits.",
+      "why": "Two 4-bit operands give 8 address bits and so 256 locations; the largest product is 15 x 15 = 225, which needs 8 bits. 256 x 8 = 2048 bits."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "A 3-input function has exactly one minterm. Why does a ROM implementation still need eight words?",
+      "answer": "Because the address space is fixed by the number of inputs: three address lines can address eight locations whether or not the function uses them.",
+      "why": "A ROM is a full look-up table, so its depth depends on the input count alone. A PLA would instead spend only one product term on the same function, which is the trade the two devices make."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "A 1K x 8 ROM is used to implement four functions of three variables. Is it large enough, and how are the four functions separated?",
+      "answer": "Yes, only 8 of the 1024 words are used; each of the four functions is one of the eight output bits.",
+      "why": "Three address lines select one of eight rows, and the eight data lines of each row carry the four function values (plus four unused bits). The ROM's width is what makes it multi-output."
+    }
+  ],
+  "trap": {
+    "what": "Sizing the ROM by the number of distinct results instead of by the address space, and forgetting the output width.",
+    "why": "The depth is 2^(total input bits), not the number of pairs that can occur, and the width is the bits needed for the largest output, not the input width.",
+    "counterexample": "For the 8-bit multiplier, answering 256 x 16 counts only the pairs where one operand is fixed, and answering 64K x 8 forgets that the product of two 8-bit numbers needs 16 bits. Both wrong options appear in GATE CSE 1996 Q.1.21 as (A) and (B)."
+  },
+  "check": {
+    "question": "What size of ROM stores the sum of two 4-bit numbers, including the carry out?",
+    "answer": "2^8 words x 5 bits = 1280 bits.",
+    "explanation": "Eight address bits from the two operands give 256 locations, and the largest sum is 15 + 15 = 30, which needs five bits (11110). So 256 x 5 = 1280 bits."
+  },
+  "pyqIds": [
+    "gate-1996-1-21-rom-multiplier-table"
+  ],
+  "videoRefs": [],
+  "prereqs": [
+    "decoder-and-minterm-generation"
+  ],
+  "sources": [
+    {
+      "kind": "text",
+      "title": "Digital Logic subject notes, the combinational-circuit sections",
+      "channel": "GATE Overflow, subject page for Digital Logic",
+      "url": "https://gateoverflow.in/subject/digital-logic?tab=exams",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "Read the combinational circuit, adder, carry look-ahead, decoder and multiplexer sections, plus the paper-by-paper mark distribution used to check which years asked this topic."
+    }
+  ],
+  "sourceLine": "The ROM-as-decoder-plus-OR-plane picture, the PLA and PAL distinction and the sizing rule are from the standard treatment of programmable logic (Mano, Digital Design, chapter 4) and the GATE Overflow Digital Logic notes (English). The example is GATE CSE 1996 Q.1.21, accepted answer option (D), and every size on this card is recomputed in scripts/validate.py."
+}

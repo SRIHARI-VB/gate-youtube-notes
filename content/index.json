@@ -29,8 +29,8 @@
   ],
   "counts": {
     "subjects": 5,
-    "topics": 240,
-    "pyqs": 186,
+    "topics": 254,
+    "pyqs": 199,
     "videos": 39,
     "playlists": 3
   },
@@ -3640,6 +3640,209 @@
       "pyqs": [
         "gate-2021-set2-q52-literals-in-minimal-sop"
       ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "combinational-circuit-definition-and-design",
+      "title": "Combinational Circuits and the Four-Step Design Procedure",
+      "subject": "digital-logic",
+      "group": "combinational-circuits",
+      "unit": "Combinational Circuits",
+      "priority": "P1",
+      "path": "subjects/digital-logic/combinational-circuits/combinational-circuit-definition-and-design.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2004-58-digit-at-least-five-gates"
+      ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "half-adder-and-full-adder",
+      "title": "Half Adder and Full Adder",
+      "subject": "digital-logic",
+      "group": "combinational-circuits",
+      "unit": "Combinational Circuits",
+      "priority": "P1",
+      "path": "subjects/digital-logic/combinational-circuits/half-adder-and-full-adder.json",
+      "videos": [],
+      "pyqs": [
+        "gate-1999-2-16-half-full-adders-16-bit"
+      ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "ripple-carry-adder-and-delay",
+      "title": "Ripple-Carry Adder and Its Critical Path",
+      "subject": "digital-logic",
+      "group": "combinational-circuits",
+      "unit": "Combinational Circuits",
+      "priority": "P1",
+      "path": "subjects/digital-logic/combinational-circuits/ripple-carry-adder-and-delay.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2015-set-2-48-ripple-carry-delay"
+      ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "carry-lookahead-adder",
+      "title": "Carry Look-Ahead Adder: Generate, Propagate, Two-Level Carry",
+      "subject": "digital-logic",
+      "group": "combinational-circuits",
+      "unit": "Combinational Circuits",
+      "priority": "P2",
+      "path": "subjects/digital-logic/combinational-circuits/carry-lookahead-adder.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2004-62-carry-lookahead-delay",
+        "gate-2007-35-lookahead-carry-gate-count"
+      ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "adder-subtractor",
+      "title": "Adder-Subtractor: One Circuit, Two Operations",
+      "subject": "digital-logic",
+      "group": "combinational-circuits",
+      "unit": "Combinational Circuits",
+      "priority": "P2",
+      "path": "subjects/digital-logic/combinational-circuits/adder-subtractor.json",
+      "videos": [],
+      "pyqs": [],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "multiplexer-and-select-lines",
+      "title": "Multiplexer: Steering 2^n Inputs with n Select Lines",
+      "subject": "digital-logic",
+      "group": "combinational-circuits",
+      "unit": "Combinational Circuits",
+      "priority": "P1",
+      "path": "subjects/digital-logic/combinational-circuits/multiplexer-and-select-lines.json",
+      "videos": [],
+      "pyqs": [],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "mux-implementing-a-boolean-function",
+      "title": "Implementing a Boolean Function on a Multiplexer",
+      "subject": "digital-logic",
+      "group": "combinational-circuits",
+      "unit": "Combinational Circuits",
+      "priority": "P1",
+      "path": "subjects/digital-logic/combinational-circuits/mux-implementing-a-boolean-function.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2007-34-mux-minimum-size",
+        "gate-2014-set-1-45-mux-minimal-sop",
+        "gate-2021-set-2-5-mux-implements-function"
+      ],
+      "visual": "digital-logic/combinational-circuits/mux-to-minimal-sop",
+      "variations": 3
+    },
+    {
+      "topic": "mux-trees-and-cascading",
+      "title": "Multiplexer Trees: Building a Big MUX from Small Ones",
+      "subject": "digital-logic",
+      "group": "combinational-circuits",
+      "unit": "Combinational Circuits",
+      "priority": "P2",
+      "path": "subjects/digital-logic/combinational-circuits/mux-trees-and-cascading.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2023-34-mux-tree-function",
+        "gate-2024-set-1-54-three-mux-count"
+      ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "decoder-and-minterm-generation",
+      "title": "Decoder: One-Hot Outputs and Function Implementation",
+      "subject": "digital-logic",
+      "group": "combinational-circuits",
+      "unit": "Combinational Circuits",
+      "priority": "P1",
+      "path": "subjects/digital-logic/combinational-circuits/decoder-and-minterm-generation.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2014-set-2-7-counter-and-decoder",
+        "gate-2026-set-2-49-decoder-and-mux-count"
+      ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "encoder-and-priority-encoder",
+      "title": "Encoder and Priority Encoder",
+      "subject": "digital-logic",
+      "group": "combinational-circuits",
+      "unit": "Combinational Circuits",
+      "priority": "P2",
+      "path": "subjects/digital-logic/combinational-circuits/encoder-and-priority-encoder.json",
+      "videos": [],
+      "pyqs": [],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "magnitude-comparator",
+      "title": "Magnitude Comparator",
+      "subject": "digital-logic",
+      "group": "combinational-circuits",
+      "unit": "Combinational Circuits",
+      "priority": "P3",
+      "path": "subjects/digital-logic/combinational-circuits/magnitude-comparator.json",
+      "videos": [],
+      "pyqs": [],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "rom-and-pla",
+      "title": "ROM and PLA: Storing a Truth Table",
+      "subject": "digital-logic",
+      "group": "combinational-circuits",
+      "unit": "Combinational Circuits",
+      "priority": "P2",
+      "path": "subjects/digital-logic/combinational-circuits/rom-and-pla.json",
+      "videos": [],
+      "pyqs": [
+        "gate-1996-1-21-rom-multiplier-table"
+      ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "parity-generator-and-checker",
+      "title": "Parity Generator and Checker",
+      "subject": "digital-logic",
+      "group": "combinational-circuits",
+      "unit": "Combinational Circuits",
+      "priority": "P3",
+      "path": "subjects/digital-logic/combinational-circuits/parity-generator-and-checker.json",
+      "videos": [],
+      "pyqs": [],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "hazards-in-combinational-circuits",
+      "title": "Hazards and Glitches: When a Correct Truth Table Gives a Wrong Pulse",
+      "subject": "digital-logic",
+      "group": "combinational-circuits",
+      "unit": "Combinational Circuits",
+      "priority": "P2",
+      "path": "subjects/digital-logic/combinational-circuits/hazards-in-combinational-circuits.json",
+      "videos": [],
+      "pyqs": [],
       "visual": null,
       "variations": 3
     }

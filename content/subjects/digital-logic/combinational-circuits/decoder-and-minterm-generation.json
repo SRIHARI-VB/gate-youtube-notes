@@ -1,0 +1,85 @@
+{
+  "id": "decoder-and-minterm-generation",
+  "title": "Decoder: One-Hot Outputs and Function Implementation",
+  "priority": "P1",
+  "order": 441,
+  "unit": "Combinational Circuits",
+  "quickIdea": "An n-to-2^n decoder turns an n-bit code into exactly one active output line, so its outputs are the 2^n minterms of the inputs. OR the outputs for the 1s and you have built the function.",
+  "remember": [
+    "n inputs, 2^n outputs, exactly one output active for each input code. Output k is active when the input code is k.",
+    "Active-high decoder: Y_k = minterm k. Active-low decoder: Y_k = (minterm k)' = maxterm k.",
+    "Function implementation: OR the minterm outputs that the function needs. With an active-low decoder the same function is a NAND of the selected outputs, because each output is already complemented.",
+    "An enable input makes every output inactive when it is off; that is how decoders are cascaded - a small decoder on the top address bits enables one of several bigger ones.",
+    "A decoder followed by a set of OR gates is a look-up table: n inputs, 2^n minterms, m OR gates give m functions of the same n variables.",
+    "A counter feeding a decoder produces a one-hot sequence, which is a ring counter - GATE CSE 2014 Set 2 Q.7 turns on exactly that observation.",
+    "A demultiplexer is a decoder whose enable has become the data input; that is why the two are the same circuit."
+  ],
+  "example": {
+    "prompt": "Implement f(A,B) = m1 + m2 with a 2-to-4 decoder and one OR gate.",
+    "work": "A 2-to-4 active-high decoder gives Y0 = A'B', Y1 = A'B, Y2 = AB' and Y3 = AB. The function needs m1 and m2, so OR Y1 and Y2.",
+    "answer": "f = Y1 + Y2 = A'B + AB' = A XOR B. One decoder and one two-input OR gate."
+  },
+  "gateAngle": "GATE CSE 2026 Set 2 Q.49 wires a 2-to-4 decoder's outputs into a 4-to-1 multiplexer and asks how many of the 16 input combinations give Y = 1 - a decoder question and a multiplexer question at once, answerable only by writing the decoder outputs as minterms first. GATE CSE 2014 Set 2 Q.7 asks what a counter plus a decoder is, which is the one-hot property.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "A 3-to-8 active-high decoder and a single 4-input OR gate are to implement f = m0 + m3 + m5 + m6. What is the gate count, and what changes if the decoder's outputs are active-low?",
+      "answer": "One decoder and one 4-input OR gate for active-high outputs; for active-low outputs the OR becomes a 4-input NAND.",
+      "why": "Each decoder output is one minterm, so the function is the OR of four of them. With active-low outputs each line is the complement of its minterm, and De Morgan turns the OR of complements into the NAND of the lines."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "How many 3-to-8 decoders with enable are needed to build a 5-to-32 decoder, and what drives their enables?",
+      "answer": "Five: four to produce the 32 outputs and one to decode the two top address bits into the four enables.",
+      "why": "32 outputs need 32 / 8 = 4 blocks, and those blocks must be enabled one at a time by the two remaining address bits, which a small decoder does. The bottom three address bits go to all four blocks in parallel."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "Which outputs of a 3-to-8 decoder must be ORed to realise f = A XOR B XOR C?",
+      "answer": "Y1, Y2, Y4 and Y7 - the minterms 001, 010, 100 and 111, which are exactly the codes with an odd number of 1s.",
+      "why": "The three-input XOR is 1 for an odd count of ones, so its minterms are 1, 2, 4 and 7. The decoder supplies each of them on one line, and the OR collects them."
+    }
+  ],
+  "trap": {
+    "what": "Forgetting the polarity of the decoder outputs and ORing active-low lines as if they were minterms.",
+    "why": "An active-low decoder asserts 0 on the selected line, so the selected line is the complement of the minterm. ORing them gives the complement of what you want, and the circuit is wrong for every input.",
+    "counterexample": "With an active-low 2-to-4 decoder, ORing the lines for m1 and m2 gives (A'B)' + (AB')' = A + B' + A' + B = 1, a constant 1 instead of A XOR B. The correct gate is a NAND of those two lines."
+  },
+  "check": {
+    "question": "A 3-to-8 decoder is used with one 8-input OR gate. How many distinct functions of three variables can that arrangement realise?",
+    "answer": "256 - every function of three variables.",
+    "explanation": "There are 2^3 = 8 decoder lines, one per minterm, and a function is fixed by choosing which of them to OR. That is 2^8 = 256 choices, which is exactly the number of Boolean functions of three variables."
+  },
+  "pyqIds": [
+    "gate-2014-set-2-7-counter-and-decoder",
+    "gate-2026-set-2-49-decoder-and-mux-count"
+  ],
+  "videoRefs": [],
+  "prereqs": [
+    "combinational-circuit-definition-and-design",
+    "canonical-forms-minterms-and-maxterms"
+  ],
+  "sources": [
+    {
+      "kind": "lecture-transcript",
+      "title": "Lecture 19 - Decoder with BCD Input and Encoder",
+      "channel": "NPTEL, Digital Electronic Circuits (Prof. Goutam Saha, IIT Kharagpur)",
+      "url": "http://digimat.in/nptel/courses/video/108105132/lec19.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "Read from the opening through the BCD-to-decimal decoder and again at the closing summary: the encoder is the inverse of the decoder, a priority encoder settles the case of more than one active input, and IC 74148 cascades an 8-to-3 into a 16-to-4 encoder through its enable and group-select pins."
+    },
+    {
+      "kind": "text",
+      "title": "Digital Logic subject notes, the combinational-circuit sections",
+      "channel": "GATE Overflow, subject page for Digital Logic",
+      "url": "https://gateoverflow.in/subject/digital-logic?tab=exams",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "Read the combinational circuit, adder, carry look-ahead, decoder and multiplexer sections, plus the paper-by-paper mark distribution used to check which years asked this topic."
+    }
+  ],
+  "sourceLine": "The decoding operation, the active-low output convention and the don't-care status of the six unused BCD codes: NPTEL IIT Kharagpur Digital Electronic Circuits Lecture 19 (English). The minterm-generation and function-implementation rules are from the GATE Overflow Digital Logic notes (English) and are recomputed in scripts/validate.py against GATE CSE 2014 Set 2 Q.7 (option C) and 2026 Set 2 Q.49 (answer 6)."
+}

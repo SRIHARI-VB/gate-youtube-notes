@@ -1,0 +1,21 @@
+{
+  "id": "gate-2004-62-carry-lookahead-delay",
+  "year": "2004",
+  "paper": "GATE CS 2004",
+  "question_ref": "Q.62",
+  "type": "MCQ",
+  "topic": "carry-lookahead-adder",
+  "text": "A 4-bit carry look ahead adder, which adds two 4-bit numbers, is designed using AND, OR, NOT, NAND, NOR gates only. Assuming that all the inputs are available in both complemented and uncomplemented forms and the delay of each gate is one time unit, what is the overall propagation delay of the adder? Assume that the carry network has been implemented using two-level AND-OR logic.",
+  "options": [
+    "4 time units",
+    "6 time units",
+    "10 time units",
+    "12 time units"
+  ],
+  "answer": "Option (B) - 6 time units (accepted answer; see the disagreement below)",
+  "solution": "With unit gate delay: computing Pi = Ai XOR Bi and Gi = Ai AND Bi takes 2 time units (the XOR being two levels). The two-level AND-OR carry network adds 2 more, because all four carries C1 to C4 are formed in parallel from the Pi and Gi. The sum Si = Pi XOR Ci adds a final 2. Total 2 + 2 + 2 = 6 time units.",
+  "source_url": "https://gateoverflow.in/1057/gate-cse-2004-question-62",
+  "source_label": "GATE Overflow question page - GATE CSE 2004 Q.62 with the accepted answer (option B)",
+  "verification": "SOURCED",
+  "answer_evidence": "The accepted answer on the page gives 6 time units as 2 + 2 + 2 and is option (B). The page records a genuine disagreement: some answers argue for 4 time units by substituting the carries directly instead of forming Pi and Gi first, since the question does not require the Pi and Gi signals to be materialised. The accepted answer is recorded here; the disagreement is stated rather than resolved."
+}

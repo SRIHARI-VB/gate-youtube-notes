@@ -1,0 +1,21 @@
+{
+  "id": "gate-2007-34-mux-minimum-size",
+  "year": "2007",
+  "paper": "GATE CS 2007",
+  "question_ref": "Q.34",
+  "type": "MCQ",
+  "topic": "mux-implementing-a-boolean-function",
+  "text": "Suppose only one multiplexer and one inverter are allowed to be used to implement any Boolean function of n variables. What is the minimum size of the multiplexer needed?",
+  "options": [
+    "2^n line to 1 line",
+    "2^(n+1) line to 1 line",
+    "2^(n-1) line to 1 line",
+    "2^(n-2) line to 1 line"
+  ],
+  "answer": "Option (C) - a 2^(n-1)-to-1 multiplexer",
+  "solution": "Put n-1 of the variables on the select lines. Each of the 2^(n-1) data inputs is then a function of the single remaining variable, and a one-variable function has only four possibilities: 0, 1, the variable, or its complement. One inverter supplies the complement, so 2^(n-1) data inputs suffice. A 2^(n-2)-to-1 multiplexer leaves two variables per data input, i.e. sixteen possible functions, which one inverter cannot produce: for example implementing A + B + C needs B + C on a data input, and that is an OR gate, not an inverter.",
+  "source_url": "https://gateoverflow.in/1232/gate-cse-2007-question-34",
+  "source_label": "GATE Overflow question page - GATE CSE 2007 Q.34 with the accepted answer (option C)",
+  "verification": "SOURCED",
+  "answer_evidence": "The accepted answer on the page gives 2^(n-1) to 1, option C, and one answer works the counterexample for option D through A + B + C, where a 2-to-1 multiplexer would need B + C on a data input. Recomputed here: the number of functions of one variable is 2^(2^1) = 4, matching the four reachable data-input values."
+}

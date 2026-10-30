@@ -3,7 +3,7 @@
  "updated_at": "2026-10-30",
  "cycle": {
   "last_subject": "digital-logic",
-  "last_topic": "boolean-algebra-and-minimization",
+  "last_topic": "combinational-circuits",
   "updated_at": "2026-10-30"
  },
  "subjects": [
@@ -646,10 +646,37 @@
     {
      "slug": "combinational-circuits",
      "name": "Combinational Circuits",
-     "status": "not_started",
-     "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
-     "runs": [],
-     "gaps": []
+     "status": "partial",
+     "coverage_note": "17 subtopics, 14 cards (the combinational definition and design loop, half and full adder, ripple-carry adder and its critical path, carry look-ahead adder, adder-subtractor, multiplexer basics, implementing a function on a multiplexer, multiplexer trees, decoder and minterm generation, encoder and priority encoder, magnitude comparator, ROM and PLA, parity generator and checker, hazards), 13 verified PYQs and 1 p5.js lesson. Partial because six gaps remain, named below.",
+     "runs": [
+      {
+       "date": "2026-10-30",
+       "sources": [
+        "nptel-dec-108105132-lec16-multiplexer",
+        "nptel-dec-108105132-lec19-decoder-encoder",
+        "nptel-dec-108105132-lec23-arithmetic-building-blocks",
+        "nptel-dec-108105132-lec15-hazards",
+        "gateoverflow-digital-logic-subject-notes",
+        "hi-wikipedia-multiplexer"
+       ],
+       "cards": 14,
+       "pyqs": 13,
+       "lesson": "digital-logic/combinational-circuits/mux-to-minimal-sop",
+       "note": "Sources chosen on merit across two languages, with two lectures readable end to end: NPTEL IIT Kharagpur Digital Electronic Circuits Lecture 16 (English, full transcript) for the multiplexer, its output equation, the 4-to-1 from three 2-to-1 blocks and Shannon's expansion; Lecture 23 (English, read from its opening to its closing summary) for the half adder, the full adder and the two-half-adder construction; Lecture 19 (English, read in part) for the decoder's active-low outputs and the priority encoder with the 74148 cascade; Lecture 15 (English, full transcript) for static-0 and dynamic hazards; the GATE Overflow Digital Logic notes (English) for the carry look-ahead expansions, the gate counts and the GATE phrasing; and the Hindi Wikipedia article on the multiplexer (Hindi, translated) as the one non-English source, contributing terminology only. Rejected with reasons in sources.json: the GO Classes combinational-PYQ playlist and the Gate Smashers Hindi playlist (no caption track retrievable), the NPTEL Digital Circuits sequence by Chattopadhyay (would add no subtopic), NPTEL Lectures 18 and 26 (not fetched this run), the Knowledge Gate AI combinational MCQ blog and the Testbook Hindi MCQ bank (question dumps, not references of record), the CareerCraftLabs Hindi chapter (served garbled), the Unacademy Hindi lessons (paywalled) and the answer aggregators (corroboration only, and they disagree on numbering). Two PYQ records state a disagreement instead of resolving it: 2004 Q.62 (6 against 4 time units) and 2015 Set 2 Q.48 (19.2 against 12 microseconds)."
+      }
+     ],
+     "gaps": [
+      "no video transcript was readable: every YouTube route returned no caption track, so videoRefs is empty on all fourteen cards and the four NPTEL lectures are used through their published transcript PDFs rather than captions",
+      "the decoder card rests on a partially read lecture (Lecture 19) and the GATE Overflow notes, because NPTEL Lecture 18, the lecture that builds the decoder from scratch, was not fetched this run; a later run should read it",
+      "the magnitude comparator card has no readable source at all: NPTEL Lecture 26 exists but was not fetched, so the card states its facts from Mano chapter 4 and the GATE Overflow notes and claims no lecture",
+      "the parity card likewise rests on the standard reference and the GATE Overflow notes; NPTEL Lecture 20 on the parity generator and checker was not fetched",
+      "five cards carry no verified GATE CSE question of their own - the adder-subtractor, the encoder and priority encoder, the magnitude comparator, the parity generator and checker, and the hazards - because no verified CSE question in this topic is decided by them alone; each card says so rather than borrowing a question that does not test it",
+      "every PYQ in the topic is SOURCED against a GATE Overflow accepted answer rather than key-verified against an official answer key, and no marks field is recorded on any of the thirteen, because neither the official papers nor the keys were fetched; question references follow the GATE Overflow numbering, and GATE CSE 2024 Set 1's three-multiplexer question is Q.54 there, Q64 on GateAI and 32 on one year-wise listing",
+      "GATE CSE 2026 Set 2 Q.49 is a figure question: the wiring used to recompute its count of 6 is taken from the accepted solution, not from the paper, and the record says so",
+      "GATE CSE 2015 Set 2 Q.48 is recorded with the accepted answer 19.2 microseconds and the carry-only analysis of 12 microseconds, and GATE CSE 2004 Q.62 with the accepted 6 time units against the 4 argued on its page; both disagreements are named rather than smoothed over",
+      "only one non-English source was readable (the Hindi Wikipedia multiplexer article, translated, contributing terminology and no number); no Hindi, Tamil, Telugu or Bengali lecture transcript on this topic could be read this run",
+      "the sequential half of the syllabus line 'design of combinational and sequential circuits' belongs to the next topic and is not carded here; the one combinational card that borders it, the multiplexer-as-latch variation, is a variation and not a coverage claim"
+     ]
     },
     {
      "slug": "sequential-circuits",

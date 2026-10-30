@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>From a 4-to-1 multiplexer to a minimal sum of products - Combinational Circuits visual lesson</title>
+<link rel="stylesheet" href="../../../lesson.css">
+<script src="https://cdn.jsdelivr.net/npm/p5@1.9.4/lib/p5.min.js"></script>
+</head>
+<body>
+<div class="wrap">
+  <p class="small"><a href="../../../../index.html">&larr; back to the revision site</a></p>
+  <h1>From a 4-to-1 Multiplexer to a Minimal Sum of Products</h1>
+  <div class="objective"><strong>Objective.</strong> Take one four-to-one multiplexer - select lines S1 = P and S0 = Q, data inputs 0, 1, R and R' - and follow it all the way: read the select codes, substitute the data inputs, expand to the four minterms 2, 3, 5 and 6, place them on a three-variable map, group them, and read off the minimal sum of products. The order of the steps is the lesson.</div>
+
+  <div class="canvas-wrap"><div id="canvas-holder"></div></div>
+  <div class="caption" id="caption" aria-live="polite"></div>
+
+  <div class="controls">
+    <button id="play" class="primary">Play</button>
+    <button id="prev">&larr; Prev</button>
+    <button id="next">Next &rarr;</button>
+    <button id="restart">Restart</button>
+    <span class="speed"><label for="speed">Speed</label>
+      <input id="speed" type="range" min="0.25" max="2" step="0.25" value="1">
+      <span id="speedLabel">1.00x</span></span>
+    <span class="counter" id="counter"></span>
+  </div>
+
+  <h2>Static explanation</h2>
+  <p>A four-to-one multiplexer has two select lines, so it has 2^2 = 4 data inputs and one output. The output is the sum of four products, one per select code, each product being the select code's minterm multiplied by the data input that the code owns: Y = S1'S0'I0 + S1'S0I1 + S1S0'I2 + S1S0I3. Because exactly one select code is true at any moment, only one term can be non-zero, and the circuit is simply a switch.</p>
+  <p>This question fixes S1 = P and S0 = Q and gives the data inputs 0, 1, R and R'. Substituting: the code 00 multiplies I0 = 0, so that term vanishes; 01 gives P'Q; 10 gives PQ'R; 11 gives PQR'. Expanding P'Q over the third variable gives minterms 2 and 3, so the function is 1 at exactly the four rows 2, 3, 5 and 6 of the eight-row truth table.</p>
+  <p>On a three-variable map with rows P and columns Q R in Gray order, minterm 3 is the third cell of the top row and minterm 2 is the fourth. Minterms 2 and 3 are neighbours and give P'Q; minterms 2 and 6 are neighbours vertically and give QR'; minterm 5 has no neighbour left and stays as PQ'R. The minimal sum of products is therefore P'Q + QR' + PQ'R, three terms and seven literals, against four terms and twelve literals for the canonical form. That is option (A) of the paper.</p>
+
+  <div class="card warn"><div class="label">Common misconception</div><p>Three mistakes dominate this question. Numbering the map cells by position instead of by their Gray-code labels, which puts minterm 2 and minterm 3 the wrong way round and turns P'Q into a group that does not exist. Grouping only along the drawn edges and missing the vertical pair 2 and 6, which loses QR' and leaves a larger answer. And reading the select codes in the wrong order, taking Q as the more significant select bit - then the data inputs line up with a different set of minterms and every term is wrong.</p></div>
+  <div class="card ok"><div class="label">Quick check</div><p>Which group on the map produces the term QR', which minterms does it cover, and how many literals does it save compared with writing those minterms out?</p><details><summary>Answer</summary><p><strong>Minterms 2 and 6, the last column of both rows.</strong> In those two cells Q = 1 and R = 0 while P takes both values, so the term keeps Q and R' only. The two canonical minterms P'QR' and PQR' carry three literals each - six in all - and the group carries two, so the pair saves four literals.</p></details></div>
+  <p class="small">Topic: Combinational Circuits (Digital Logic), subtopics the multiplexer output equation, implementing a function on a multiplexer, and reading a minimal sum of products off a group. The multiplexer definition, the output equation and the Shannon-expansion reading: NPTEL IIT Kharagpur Digital Electronic Circuits Lecture 16 (English). The function, its four minterms and the accepted option (A) are GATE CSE 2014 Set 1 Q.45. The Gray-code layout and the grouping rules belong to the Boolean Algebra and Minimization topic. Every cell, minterm, term and literal count shown here is recomputed in scripts/validate.py.</p>
+</div>
+<script src="../../../lesson.js"></script>
+<script src="sketch.js"></script>
+<script>
+/* p5.js is loaded from a CDN. If it is unreachable, say so plainly instead of showing an empty box. */
+window.addEventListener('load', function () {
+  if (window.p5) { return; }
+  var holder = document.getElementById('canvas-holder');
+  if (holder) {
+    holder.innerHTML = '<div style="padding:22px 18px;font-size:14.5px;color:#4a5260">' +
+      'The animation needs p5.js, which this page loads from a CDN, and the request failed (offline, or the CDN is blocked). ' +
+      'Everything below still works: the static explanation, the misconception and the quick check.</div>';
+  }
+  var cap = document.getElementById('caption');
+  if (cap && window.LESSON && window.LESSON.steps && window.LESSON.steps[0]) {
+    cap.innerHTML = window.LESSON.steps[0].caption;
+  }
+  ['play', 'prev', 'next', 'restart', 'speed'].forEach(function (id) {
+    var el = document.getElementById(id);
+    if (el) { el.disabled = true; }
+  });
+});
+</script>
+</body>
+</html>

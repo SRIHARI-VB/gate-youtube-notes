@@ -1,0 +1,229 @@
+{
+  "subject": "digital-logic",
+  "topic": "combinational-circuits",
+  "exam": "GATE CSE 2027",
+  "retrieved_at": "2026-10-30",
+  "subtopics": [
+    "the combinational definition: output is a function of the present inputs only, no memory and no feedback",
+    "the design procedure: specification, truth table, minimisation, gate realisation and costing",
+    "the half adder: sum XOR, carry AND, and why it cannot take a carry-in",
+    "the full adder: sum as three-input XOR, carry as the majority, and the two-half-adders-plus-OR construction",
+    "the ripple-carry adder: cascading full adders and counting them for an n-bit word",
+    "the carry chain as the critical path, with the per-stage carry delay and the total delay model",
+    "the carry look-ahead adder: generate and propagate, the expanded carries, the gate count and the delay",
+    "the adder-subtractor: the conditional inverter, the control line on the carry-in, and the borrow and overflow flags",
+    "the multiplexer: 2^n inputs and n select lines, the output equation, and the Shannon-expansion reading",
+    "implementing a Boolean function on a multiplexer: the two-row table, 0/1/X/X', and the minimum size with one inverter",
+    "multiplexer trees: 2^n - 1 two-to-one blocks, the level order of the select bits, and reading a tree back to a function",
+    "the decoder: one-hot outputs as minterms, the enable input, and implementing functions with OR gates",
+    "the encoder and the priority encoder, including multi-active inputs and cascading through enable and group-select",
+    "the magnitude comparator: bit equality by XNOR, word equality, and the most-significant-difference rule",
+    "the ROM as a look-up table and its size, and the PLA and PAL as programmable sum-of-products planes",
+    "the parity generator and checker: the XOR tree, even against odd parity, and what parity cannot detect",
+    "hazards: static-1 and static-0 glitches, the consensus term that covers them, and dynamic hazards"
+  ],
+  "chosen": [
+    {
+      "id": "nptel-dec-108105132-lec16-multiplexer",
+      "kind": "lecture-transcript",
+      "title": "Lecture 16 - Multiplexer: Part I",
+      "channel": "NPTEL, Digital Electronic Circuits (Prof. Goutam Saha, IIT Kharagpur)",
+      "url": "http://digimat.in/nptel/courses/video/108105132/lec16.pdf",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "covers": [
+        "the 2-to-1 multiplexer derived from a truth table",
+        "the steering definition: one of many inputs to one output under a control input",
+        "a 4-to-1 multiplexer built from three 2-to-1 multiplexers",
+        "Shannon's expansion and its if-then-else reading of the multiplexer",
+        "the closing summary: n control inputs select up to 2^n data inputs, and higher-order multiplexers come from lower-order ones by cascading"
+      ],
+      "why": "Read from its opening to its closing summary, which is rare in this repository's source history, and it is the only source this run that derives the multiplexer from a truth table and then names Shannon's expansion as the reason a multiplexer can compute a function. Both of the multiplexer cards - the basics and the tree - rest on it, and its closing summary states the 2^n data-input rule and the cascading rule in the lecturer's own words."
+    },
+    {
+      "id": "nptel-dec-108105132-lec19-decoder-encoder",
+      "kind": "lecture-transcript",
+      "title": "Lecture 19 - Decoder with BCD Input and Encoder",
+      "channel": "NPTEL, Digital Electronic Circuits (Prof. Goutam Saha, IIT Kharagpur)",
+      "url": "http://digimat.in/nptel/courses/video/108105132/lec19.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "covers": [
+        "the BCD-to-decimal decoder and its active-low outputs",
+        "the six unused BCD codes as don't cares",
+        "the encoder as the inverse of the decoder",
+        "the priority encoder when more than one input is active",
+        "IC 74148 and the cascade of an 8-to-3 into a 16-to-4 encoder through enable and group-select"
+      ],
+      "why": "The only readable source this run that treats the encoder at all, and the only one that states the priority rule and the 74148 cascade. It also supplies the active-low decoder convention that the decoder card's trap turns on. Read from its opening through the BCD decoder and again at its closing summary; the LED-driver middle section is not quoted."
+    },
+    {
+      "id": "nptel-dec-108105132-lec23-arithmetic-building-blocks",
+      "kind": "lecture-transcript",
+      "title": "Lecture 23 - Arithmetic Building Blocks I",
+      "channel": "NPTEL, Digital Electronic Circuits (Prof. Goutam Saha, IIT Kharagpur)",
+      "url": "http://digimat.in/nptel/courses/video/108105132/lec23.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "covers": [
+        "why a half adder is 'half': it has no carry-in",
+        "the half adder truth table and the equations S = A XOR B and C = AB",
+        "the full adder truth table and Cout = AB + ACin + BCin, with the sum as a three-input XOR",
+        "the full adder from two half adders and one OR gate",
+        "the closing summary: ripple-carry connection, and subtraction by the two's complement with a NOT bank and a carry-in of 1, or a full adder plus an XOR bank for both operations"
+      ],
+      "why": "The clearest readable derivation of the two adder blocks in the lecturer's own order, and its closing summary states both the ripple-carry connection and the adder-subtractor construction, which is what the adder, ripple-carry and adder-subtractor cards need. The served transcript stops before the worked ripple and subtractor examples, so those numbers are recomputed here instead of quoted."
+    },
+    {
+      "id": "nptel-dec-108105132-lec15-hazards",
+      "kind": "lecture-transcript",
+      "title": "Lecture 15 - Static 0 Hazard and Dynamic Hazard",
+      "channel": "NPTEL, Digital Electronic Circuits (Prof. Goutam Saha, IIT Kharagpur)",
+      "url": "http://digimat.in/nptel/courses/video/108105132/lec15.pdf",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "covers": [
+        "static-1 hazard recalled as the A + A' reduction",
+        "static-0 hazard as the A.A' reduction in a POS realisation",
+        "detection on the map or in the expression",
+        "covering by an added sum term",
+        "the dynamic hazard as more than one transition, needing three or more levels"
+      ],
+      "why": "Read in full, and it is the only source this run that distinguishes the two static hazards by their reduced expressions and states the three-level condition for a dynamic hazard. The hazards card rests on it alone, which is why that card claims no more than the lecture states."
+    },
+    {
+      "id": "gateoverflow-digital-logic-subject-notes",
+      "kind": "text",
+      "title": "Digital Logic subject notes, the combinational-circuit sections",
+      "channel": "GATE Overflow, subject page for Digital Logic",
+      "url": "https://gateoverflow.in/subject/digital-logic?tab=exams",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "covers": [
+        "the combinational definition and the four design steps",
+        "half adder, full adder, ripple carry and the carry look-ahead expansions with the n(n+1)/2 and n gate counts",
+        "the decoder as a minterm generator and its use for implementing functions",
+        "the multiplexer equation and the sizing rules",
+        "the paper-by-paper mark distribution, used to check which years asked this topic"
+      ],
+      "why": "The GATE-oriented statement of the rules, used to phrase the cards the way the exam phrases the question and to confirm the subtopic enumeration against the questions actually asked. It is a revision text, so nothing is attributed to it beyond definitions, rules and the mark table."
+    },
+    {
+      "id": "hi-wikipedia-multiplexer",
+      "kind": "text",
+      "title": "बहुसंकेतक (Multiplexer)",
+      "channel": "Hindi Wikipedia",
+      "url": "https://hi.wikipedia.org/wiki/%E0%A4%AC%E0%A4%B9%E0%A5%81%E0%A4%B8%E0%A4%82%E0%A4%95%E0%A5%87%E0%A4%A4%E0%A4%95",
+      "language": "hi",
+      "transcript": "PARTIAL",
+      "translated": true,
+      "covers": [
+        "a multiplexer selects one of several inputs and steers it to the output",
+        "n select lines address 2^n inputs",
+        "the name 'data selector'",
+        "a demultiplexer as the inverse operation"
+      ],
+      "why": "Chosen deliberately so the topic is not built from English alone, and the only readable non-English source found this run. It is a Hindi-medium statement of the same select-line rule, and it gives the terminology a large part of the GATE audience meets first. It contributes terminology only, no number, and every sentence taken from it is translated into English and marked as translated on the multiplexer card."
+    }
+  ],
+  "rejected": [
+    {
+      "id": "gate-smashers-digital-logic-combinational-playlist",
+      "kind": "playlist",
+      "channel": "Gate Smashers, Digital Logic playlist, the multiplexer, decoder, encoder and adder lectures (Hindi/Hinglish)",
+      "why": "The closest video match found in Hindi - consecutive lectures on exactly these blocks - and the repository's previous digital-logic run had already found the same playlist's K-map lectures unreadable. Not used here for the same reason: the watch pages carry no retrievable caption track, so nothing could be quoted or timestamped. The Hindi contribution reaches the topic instead through the Hindi Wikipedia multiplexer article, translated."
+    },
+    {
+      "id": "go-classes-digital-logic-combinational-pqs",
+      "kind": "playlist",
+      "channel": "GO Classes for GATE CS, 'Digital Logic - Combinational Circuits GATE PYQs | Multiplexer, Decoder, Encoder, Adder, Demux'",
+      "url": "https://www.youtube.com/playlist?list=PLIPZ2_p3RNHi3Cuu3QHKKLmqcgQ9zNJNP",
+      "why": "The single best-matched playlist for this topic by title, and the first result a search returns for 'GATE combinational circuits PYQ'. Rejected for two reasons: no caption track could be retrieved, and the repository's own rule forbids defaulting to a channel it already carries three playlists from. The verified PYQs on this topic were taken from their GATE Overflow pages instead, so no claim rests on this playlist."
+    },
+    {
+      "id": "nptel-digital-circuits-chattopadhyay",
+      "kind": "lecture-sequence",
+      "channel": "NPTEL, Digital Circuits (Prof. Santanu Chattopadhyay, IIT Kharagpur)",
+      "why": "The obvious second NPTEL sequence, and the one an earlier run used for number systems. Not fetched this run: the Digital Electronic Circuits sequence (Lectures 15, 16, 19, 23) covers the same syllabus line lecture for lecture - hazards, multiplexer, decoder and encoder, arithmetic blocks - and was readable, so a second sequence would have added no subtopic. A later run wanting a second voice should read these rather than re-reading the first."
+    },
+    {
+      "id": "nptel-dec-108105132-lec18-demux-decoder",
+      "kind": "lecture-transcript",
+      "title": "Lecture 18 - Demultiplexer / Decoder",
+      "channel": "NPTEL, Digital Electronic Circuits (IIT Kharagpur)",
+      "why": "The lecture that builds the decoder from scratch, and the one that would have given the decoder card a full-text source rather than a partial one. Not fetched this run: the fetches were budgeted to four lectures, and Lecture 19 covers the BCD decoder and the encoder while the GATE Overflow notes state the minterm rule. A later run should read this one to strengthen the decoder card."
+    },
+    {
+      "id": "nptel-dec-108105132-lec26-magnitude-comparator",
+      "kind": "lecture-transcript",
+      "title": "Lecture 26 - Magnitude Comparator",
+      "channel": "NPTEL, Digital Electronic Circuits (IIT Kharagpur)",
+      "why": "The lecture that would have carried the comparator card in the lecturer's voice. Not fetched this run, so the comparator card states its facts from the standard reference and claims no lecture. Named here so a later run can fill that gap rather than guess it."
+    },
+    {
+      "id": "knowledgegate-combinational-mcqs-blog",
+      "kind": "practice-bank",
+      "channel": "Knowledge Gate AI, 'Combinational Circuits MCQs: 12 solved GATE questions'",
+      "url": "https://www.knowledgegate.ai/blog/digital-electronics-combinational-circuits-mcqs",
+      "why": "A useful index of which years asked what - it is where the 1996 ROM, 1999 adder-count, 2007 multiplexer-size and 2004 carry-lookahead questions were first spotted - but rejected as a reference of record: it restates questions in its own wording, gives answers without the paper's numbering, and is a question dump rather than a source. Every question it pointed at was verified on its own GATE Overflow page instead."
+    },
+    {
+      "id": "testbook-hindi-combinational-mcq-bank",
+      "kind": "practice-bank",
+      "channel": "Testbook, Combinational Circuits MCQ bank (Hindi)",
+      "why": "Readable, in Hindi, and on the right topic, with worked solutions on multiplexer sizing and decoder expansion. Rejected because it is a bank of practice questions drawn from many examinations rather than GATE CSE previous-year questions, and this repository keeps practice questions and previous-year questions visibly apart. Using it would have meant presenting non-GATE questions as GATE-style practice with a misleading pedigree."
+    },
+    {
+      "id": "careercraftlabs-hindi-digital-chapter",
+      "kind": "text",
+      "channel": "CareerCraftLabs, Hindi GATE digital electronics chapter (combinational logic section)",
+      "url": "https://careercraftlabs.org/hi/read/gate-in-digital-ch01",
+      "why": "GATE-oriented and in Hindi, which is exactly the combination this run wanted, and its opening paragraph states the combinational definition and the multiplexer-as-function-implementer idea cleanly. Rejected because the page served to the extraction service was partly garbled - long stretches of broken characters between the readable paragraphs - so no sentence could be relied on. The Hindi Wikipedia multiplexer article was used instead as the non-English source."
+    },
+    {
+      "id": "unacademy-hindi-combinational-lessons",
+      "kind": "lesson-series",
+      "channel": "Unacademy, Hindi lessons on multiplexers, decoders and adders",
+      "why": "Lesson lists match this topic closely. Both series are behind a subscription with no readable transcript, so nothing could be read."
+    },
+    {
+      "id": "gate-cse-figure-only-combinational-questions",
+      "kind": "pyq",
+      "channel": "GATE CSE questions of this topic whose content is a figure only",
+      "why": "Several genuine questions of this topic are decided by a drawing that no readable source reproduced - among them the multiplexer-circuit options of 2021 Set 2 Q.5 (whose correct option is described here because its three distractors are diagrams) and the multiplexer tree of 2023 Q.34 and the three-multiplexer circuit of 2024 Set 1 Q.54 (both recorded because the accepted solutions state the wiring). Questions whose wiring no readable solution states are not in this topic's PYQ set at all, and are left for a run with access to the papers."
+    },
+    {
+      "id": "gate-it-and-gate-da-combinational-papers",
+      "kind": "pyq",
+      "channel": "GATE IT papers and GATE DA / DS&AI papers on combinational circuits",
+      "why": "Those papers are not CSE, and this repository does not mix papers. Excluded."
+    },
+    {
+      "id": "answer-aggregators-combinational",
+      "kind": "pyq-index",
+      "channel": "ExamSIDE, GateAI, freeatzeal, PYQLabs, EduRev and GateQA pages for these questions",
+      "why": "Used to find question numbers, marks and types and to corroborate answers, never as the reference of record. They disagree on numbering: the three-multiplexer question of GATE CSE 2024 Set 1 is Q.54 on GATE Overflow, Q64 on GateAI and 32 on a year-wise listing; the 2023 multiplexer-tree question is Q.34 on GATE Overflow but Question 6 on an EduRev compilation. Each disagreement is recorded in the PYQ record it affects."
+    }
+  ],
+  "standard_refs": [
+    "M. Morris Mano and Michael D. Ciletti, Digital Design, chapter 4 (combinational logic: analysis and design procedure, half and full adders, subtractors, the magnitude comparator, decoders, encoders, multiplexers, parity, ROM and PLA) - the reference the NPTEL Digital Electronic Circuits course itself follows",
+    "Thomas L. Floyd, Digital Fundamentals, the combinational logic chapters",
+    "GATE 2027 CS syllabus, Digital Logic line 'design of combinational and sequential circuits'",
+    "Official GATE CSE papers and answer keys for the years of the recorded PYQs - not fetched this run, which is why every PYQ here is SOURCED rather than key-verified"
+  ],
+  "notes": [
+    "The syllabus names this topic in five words, 'design of combinational and sequential circuits', so the seventeen subtopics above are this run's enumeration from the standard treatment (Mano chapter 4), the NPTEL lecture order (15, 16, 18, 19, 23, 26) and the GATE question record - not a quotation from the syllabus. The sequential half of the line belongs to the next topic and is not carded here.",
+    "Thirteen GATE CSE previous-year questions were verified, from 1996 to 2026, and every one is SOURCED against an accepted answer rather than key-verified against an official paper, so no marks field is recorded and every question reference follows the GATE Overflow numbering.",
+    "Two records state a disagreement rather than resolving it: GATE CSE 2004 Q.62, where the accepted answer is 6 time units and some solutions argue 4, and GATE CSE 2015 Set 2 Q.48, where the accepted answer is 19.2 microseconds and the carry-only critical path gives 12. In both cases the accepted answer is reported and the alternative is named.",
+    "GATE CSE 2026 Set 2 Q.49 is recorded with the wiring taken from its accepted solution, because the question itself is a figure. The count of 6 is recomputed from the function that solution states, and the record says so instead of implying the figure was read.",
+    "Five cards carry no PYQ of their own because no verified CSE question in this topic is decided by them alone: the adder-subtractor, the encoder, the comparator, the ROM and PLA sizing rule beyond 1996, and the hazards. Each card says this in its source line rather than borrowing a question that does not test it.",
+    "Only one non-English source was readable this run: the Hindi Wikipedia article on the multiplexer, translated, contributing terminology and no number. No Hindi, Tamil, Telugu or Bengali lecture transcript on this topic could be read.",
+    "No video transcript was readable: every YouTube route returned no caption track, so videoRefs is empty on all fourteen cards and the four NPTEL lectures are used through their published transcript PDFs, which are text and not captions. That is a gap, not a claim.",
+    "The visual lesson animates GATE CSE 2014 Set 1 Q.45: the multiplexer's data inputs, the four select terms, the four minterms and the minimal sum of products. Its cells, minterms and literal counts are recomputed in scripts/validate.py."
+  ]
+}

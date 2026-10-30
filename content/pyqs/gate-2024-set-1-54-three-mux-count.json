@@ -1,0 +1,15 @@
+{
+  "id": "gate-2024-set-1-54-three-mux-count",
+  "year": "2024",
+  "paper": "GATE CSE 2024 Set 1",
+  "question_ref": "Q.54 (GATE Overflow numbering; see the note)",
+  "type": "NAT",
+  "topic": "mux-trees-and-cascading",
+  "text": "Consider a digital logic circuit consisting of three 2-to-1 multiplexers M1, M2 and M3 as shown below. X1 and X2 are inputs of M1, X3 and X4 are inputs of M2, and A, B and C are the select lines of M1, M2 and M3 respectively. For an instance of inputs X1 = 1, X2 = 1, X3 = 0 and X4 = 0, the number of combinations of A, B, C that give the output Y = 1 is ______.",
+  "answer": "4",
+  "solution": "M1's output is A'X1 + AX2 = A' + A = 1 for either value of A. M2's output is B'X3 + BX4 = 0 for either value of B. M3 selects between them: Y = C' x 1 + C x 0 = C'. So Y = 1 exactly when C = 0, and A and B are free: 2 x 2 x 1 = 4 combinations of (A, B, C).",
+  "source_url": "https://gateoverflow.in/422788/gate-cse-2024-set-1-question-54",
+  "source_label": "GATE Overflow question page - GATE CSE 2024 Set 1 Q.54 with the accepted answer 4",
+  "verification": "SOURCED",
+  "answer_evidence": "The accepted answer reduces M1 to 1 and M2 to 0 and concludes Y = C', giving 4 of the 8 combinations; another site records the same question with the answer 4. The question number is disputed: GATE Overflow numbers it Q.54, GateAI numbers the same question Q64 of the paper and one year-wise listing places it at 32. Recomputed here by enumerating all 8 combinations of (A, B, C)."
+}

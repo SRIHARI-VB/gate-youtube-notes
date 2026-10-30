@@ -1,0 +1,21 @@
+{
+  "id": "gate-2014-set-2-7-counter-and-decoder",
+  "year": "2014",
+  "paper": "GATE CSE 2014 Set 2",
+  "question_ref": "Q.7",
+  "type": "MCQ",
+  "topic": "decoder-and-minterm-generation",
+  "text": "Let k = 2^n. A circuit is built by giving the output of an n-bit binary counter as input to an n-to-2^n bit decoder. This circuit is equivalent to a",
+  "options": [
+    "k-bit binary up counter",
+    "k-bit binary down counter",
+    "k-bit ring counter",
+    "k-bit Johnson counter"
+  ],
+  "answer": "Option (C) - a k-bit ring counter",
+  "solution": "The n-bit counter steps through the 2^n = k codes in order, and the decoder asserts exactly one of its k output lines for each code - the line whose index equals the counter value. So the k decoder outputs are one-hot and advance one position per clock: that is a k-bit ring counter. A binary counter has log2(k) = n outputs, not k, and a Johnson counter has 2k states, so neither matches.",
+  "source_url": "https://gateoverflow.in/1959/gate-cse-2014-set-2-question-7",
+  "source_label": "GATE Overflow question page - GATE CSE 2014 Set 2 Q.7 with the accepted answer (option C)",
+  "verification": "SOURCED",
+  "answer_evidence": "The accepted answer states that one of the 2^n decoder lines is activated for each counter value, so the arrangement behaves as a 2^n-bit ring counter, option C. Recomputed here: the decoder has k outputs and exactly one is high at any time, which is the definition of a one-hot k-state sequence."
+}

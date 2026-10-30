@@ -1,0 +1,83 @@
+{
+  "id": "half-adder-and-full-adder",
+  "title": "Half Adder and Full Adder",
+  "priority": "P1",
+  "order": 434,
+  "unit": "Combinational Circuits",
+  "quickIdea": "A half adder adds two bits and reports sum and carry; a full adder adds three bits, the third being the carry arriving from the previous position. Sum is XOR, carry is majority.",
+  "remember": [
+    "Half adder: S = A XOR B, C = A AND B. Two inputs, two outputs, four truth-table rows.",
+    "Full adder: S = A XOR B XOR Cin, Cout = AB + BCin + ACin. Three inputs, two outputs, eight rows.",
+    "The carry is the majority of the three inputs; the sum is 1 exactly when an odd number of the three inputs is 1.",
+    "Full adder from two half adders and one OR gate: the first half adder gives A XOR B and AB, the second adds Cin to that XOR, and the two carries AB and (A XOR B)Cin are ORed. This is the lecturer's construction in NPTEL Lecture 23.",
+    "Adding two n-bit numbers needs one half adder at the least significant position and n-1 full adders, because only the LSB has no carry-in.",
+    "The alternative carry form Cout = AB + (A XOR B)Cin matters for timing: A XOR B is ready before Cin arrives, so the carry costs only one AND and one OR after Cin."
+  ],
+  "example": {
+    "prompt": "How many full adders and how many half adders are needed to add two 16-bit numbers?",
+    "work": "Position 0 adds two bits and no carry, so a half adder is enough there. Positions 1 to 15 each add two operand bits plus the carry from the position to their right, which is three bits - a full adder. That is 15 full adders.",
+    "answer": "One half adder and fifteen full adders. This is GATE CSE 1999 Q.2.16, accepted answer option (B)."
+  },
+  "gateAngle": "Every adder question in the papers starts from these two blocks: the count of them for an n-bit word (1999 Q.2.16), and their delay when one is built from the other (2015 Set 2 Q.48). The counting is a one-line argument; the delay needs the carry path written out.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "How many full adders and half adders are needed to add two 8-bit numbers, and what changes if the least significant position is also a full adder with its carry-in tied to 0?",
+      "answer": "One half adder and seven full adders. With a full adder at position 0 and Cin = 0 the circuit is still correct - it degenerates to S = A XOR B and Cout = AB - but it wastes the gates that add the tied-off carry.",
+      "why": "The 1 + (n-1) split is about the carry-in, not about a special block. A full adder whose third input is a constant is a half adder with extra hardware."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "A full adder receives A = 1, B = 1, Cin = 1. What are S and Cout, and which of the three carry terms of Cout is responsible for the carry out?",
+      "answer": "S = 1 and Cout = 1. All three terms AB, BCin and ACin are 1, so the carry is over-determined rather than caused by one term.",
+      "why": "Sum is 1 for an odd count of ones (three ones is odd) and the carry is the majority (three of three). The question is a check that sum and carry are independent functions, not complements."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "Two 4-bit numbers 1011 and 0110 are added by a 4-bit ripple-carry adder. What are the four sum bits and the carry out?",
+      "answer": "Sum bits S3 S2 S1 S0 = 0001 and carry out = 1, i.e. the five-bit result 1 0001 = 17.",
+      "why": "11 + 6 = 17 = 10001 in binary. Bit by bit: position 0 gives 1 + 0 = 1, position 1 gives 1 + 1 = 0 carry 1, position 2 gives 0 + 1 + 1 = 0 carry 1, position 3 gives 1 + 0 + 1 = 0 carry 1."
+    }
+  ],
+  "trap": {
+    "what": "Using n full adders for two n-bit numbers and calling the least significant one a full adder without saying why.",
+    "why": "A full adder at position 0 has an unused carry-in. It works, but it is not the minimum, and the paper asks for the minimum. The 1 + (n-1) count follows from the carry-in existing only from position 1 upward.",
+    "counterexample": "For 16-bit operands, 16 full adders is a correct circuit but not the answer to 1999 Q.2.16: the accepted answer is 1 half adder and 15 full adders, option (B)."
+  },
+  "check": {
+    "question": "Using the two-half-adder construction, how many gates does a full adder need if a half adder is one XOR and one AND?",
+    "answer": "Two XOR gates, two AND gates and one OR gate - five gates.",
+    "explanation": "Half adder 1 gives A XOR B and AB. Half adder 2 takes that XOR with Cin and gives the final sum and (A XOR B)Cin. The OR gate combines AB and (A XOR B)Cin into Cout. So 2 XOR + 2 AND + 1 OR = 5 gates."
+  },
+  "pyqIds": [
+    "gate-1999-2-16-half-full-adders-16-bit"
+  ],
+  "videoRefs": [],
+  "prereqs": [
+    "combinational-circuit-definition-and-design",
+    "xor-and-xnor-algebra"
+  ],
+  "sources": [
+    {
+      "kind": "lecture-transcript",
+      "title": "Lecture 23 - Arithmetic Building Blocks I",
+      "channel": "NPTEL, Digital Electronic Circuits (Prof. Goutam Saha, IIT Kharagpur)",
+      "url": "http://digimat.in/nptel/courses/video/108105132/lec23.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "Read from the opening through the full-adder derivation and the construction of a full adder from two half adders, plus the lecturer's closing summary of the whole class. The served transcript stops before the ripple-carry and adder-subtractor worked examples, so those two are recomputed here rather than quoted."
+    },
+    {
+      "kind": "text",
+      "title": "Digital Logic subject notes, the combinational-circuit sections",
+      "channel": "GATE Overflow, subject page for Digital Logic",
+      "url": "https://gateoverflow.in/subject/digital-logic?tab=exams",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "Read the combinational circuit, adder, ripple carry, carry look-ahead, decoder and multiplexer sections, plus the paper-by-paper mark distribution used to check which years asked this topic. Used as the GATE-oriented statement of the rules, never as a source of questions."
+    }
+  ],
+  "sourceLine": "The definitions, the truth tables and the two-half-adder construction: NPTEL IIT Kharagpur Digital Electronic Circuits Lecture 23 (English, read from the opening to its closing summary). The gate counts and the n-bit counting rule: the GATE Overflow Digital Logic notes (English) with the count recomputed here. The example is GATE CSE 1999 Q.2.16, accepted answer option (B)."
+}

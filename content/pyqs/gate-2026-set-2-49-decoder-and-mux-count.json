@@ -1,0 +1,15 @@
+{
+  "id": "gate-2026-set-2-49-decoder-and-mux-count",
+  "year": "2026",
+  "paper": "GATE CSE 2026 Set 2",
+  "question_ref": "Q.49",
+  "type": "NAT",
+  "topic": "decoder-and-minterm-generation",
+  "text": "Consider the digital circuit shown below with two input lines A and B, two select lines S0 and S1, and an output line Y. The blocks Q and M represent an active-high 2:4 decoder and a 4-to-1 multiplexer, respectively. Out of 16 possible input combinations, the number of combinations that produce Y = 1 is ______. One input combination is an instance of [A B S1 S0].",
+  "answer": "6",
+  "solution": "From the accepted solution the decoder's first output is D0 = A'B' and its last is D3 = AB, and the multiplexer is wired so that Y = A'B'S1'S0' + 1.S1S0' + ABS1S0. The middle product is 1 whenever S1 = 1 and S0 = 0, whatever A and B are - four combinations. The first term adds the single combination A = B = 0, S1 = 0, S0 = 0 and the third adds the single combination A = B = 1, S1 = 1, S0 = 1. The three sets are disjoint, so the total is 4 + 1 + 1 = 6.",
+  "source_url": "https://gateoverflow.in/523097/gate-cse-2026-set-2-question-49",
+  "source_label": "GATE Overflow question page - GATE CSE 2026 Set 2 Q.49 with the accepted answer 6",
+  "verification": "SOURCED",
+  "answer_evidence": "The accepted answer derives D0 = A'B' and D3 = AB, writes Y as the three-term expression above and concludes 6. The wiring of the figure is taken from that solution, not from the paper, so the function being counted is the one the accepted solution states; the count itself is recomputed here by enumerating all 16 combinations of (A, B, S1, S0) against that function."
+}

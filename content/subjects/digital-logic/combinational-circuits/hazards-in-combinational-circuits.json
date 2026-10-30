@@ -1,0 +1,81 @@
+{
+  "id": "hazards-in-combinational-circuits",
+  "title": "Hazards and Glitches: When a Correct Truth Table Gives a Wrong Pulse",
+  "priority": "P2",
+  "order": 446,
+  "unit": "Combinational Circuits",
+  "quickIdea": "A hazard is a short wrong output caused by two paths of unequal delay that reconverge. The logic is right; the timing is not. One redundant term removes a static-1 hazard.",
+  "remember": [
+    "Static-1 hazard: the output should stay at 1 and glitches to 0. It happens when the expression reduces to X + X' for the transition in question, with the inverter delaying one arm.",
+    "Static-0 hazard: the output should stay at 0 and glitches to 1. It is the POS counterpart, where the expression reduces to X . X'.",
+    "Dynamic hazard: the output changes several times where one transition is required. It needs three or more levels of logic between input and output.",
+    "Detect a static-1 hazard on the map: two adjacent 1-cells covered by two different groups, with no single group covering both. In the expression: look for a variable that appears complemented in one term and uncomplemented in another, with all other literals fixed.",
+    "Cover it by adding the consensus term of the two - the term formed from the other literals of the pair. The redundant term changes no output value and removes the glitch.",
+    "A hazard is a timing defect, not a logic defect: the truth table is correct, and the circuit is still wrong for a few gate delays."
+  ],
+  "example": {
+    "prompt": "F = A'B + AC. Show that a static-1 hazard exists on the A input when B = 1 and C = 1, and remove it.",
+    "work": "With B = 1 and C = 1 the expression collapses to F = A' + A, which is 1 for every value of A. When A goes from 0 to 1, the term A'B falls as soon as the inverter output drops, while AC has not yet risen - for one gate delay both terms are 0 and F glitches to 0. Adding the consensus term BC gives F = A'B + AC + BC, and with B = C = 1 the added term is 1 throughout the transition.",
+    "answer": "F = A'B + AC + BC is hazard-free for this transition, at the cost of one AND gate."
+  },
+  "gateAngle": "The hazard material is taught in the same week as minimisation in the NPTEL sequence and it is the counterweight to the minimisation topic: the minimum expression is not always the safest circuit. GATE has not asked a hazard question of CSE in the years checked here, which is why this card carries no PYQ, but the reasoning - two paths, unequal delay, one covering term - is the same reasoning that explains the ripple carry delay.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "F = X'Y' + XZ. For which input change is there a static-1 hazard, and which term covers it?",
+      "answer": "With Y = 0 and Z = 1, F collapses to X' + X, so the hazard is on X. The covering term is Y'Z.",
+      "why": "The two terms disagree in X and agree on the rest only when Y' = 1 and Z = 1. Their consensus is the product of the agreeing literals, Y'Z, which is 1 throughout that transition."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Why does adding the consensus term BC to A'B + AC not change the function?",
+      "answer": "Because BC is already implied by the other two terms: whenever B = C = 1 the expression is already 1, so the added term covers only cells that were covered.",
+      "why": "The consensus term is redundant by definition - it is the intersection of the two groups. Redundant in logic, useful in timing: it holds the output at 1 while the two original paths change over."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "A three-level circuit has a dynamic hazard. Can a single added term remove it?",
+      "answer": "No. A dynamic hazard comes from multiple reconvergent paths across three or more levels, so it must be removed by restructuring the circuit, not by adding one term.",
+      "why": "Static hazards are a property of two-level realisations and are fixed by covering adjacent cells. Once a third level exists, several paths can change in different orders and no single product or sum term covers them all."
+    }
+  ],
+  "trap": {
+    "what": "Assuming the minimal expression is always the best circuit, and reporting a hazard-free answer as 'not minimal'.",
+    "why": "Minimisation optimises the number of literals and gates for the steady-state function. It can leave two adjacent 1s covered by different groups, which is exactly the condition for a static-1 hazard.",
+    "counterexample": "F = A'B + AC is minimal - three literals, two terms - and glitches when A changes with B = C = 1. The hazard-free F = A'B + AC + BC has four literals and is not minimal, yet it is the correct circuit for that timing."
+  },
+  "check": {
+    "question": "F = AB' + BC. Which single input change creates a static-1 hazard?",
+    "answer": "A change of B with A = 1 and C = 1, where F collapses to B' + B.",
+    "explanation": "The two terms disagree in B and agree on the others only when A = 1 and C = 1. Adding the consensus term AC makes F = AB' + BC + AC, which stays 1 through the transition."
+  },
+  "pyqIds": [],
+  "videoRefs": [],
+  "prereqs": [
+    "combinational-circuit-definition-and-design",
+    "karnaugh-grouping-and-reading-a-term"
+  ],
+  "sources": [
+    {
+      "kind": "lecture-transcript",
+      "title": "Lecture 15 - Static 0 Hazard and Dynamic Hazard",
+      "channel": "NPTEL, Digital Electronic Circuits (Prof. Goutam Saha, IIT Kharagpur)",
+      "url": "http://digimat.in/nptel/courses/video/108105132/lec15.pdf",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "Read from the opening to the closing summary: static-0 hazard as the POS counterpart of static-1, the A.A' reduction and its glitch, detection on the map or in the expression, covering by an added sum term, and the dynamic hazard as more than one transition where one is required, needing three or more levels of logic."
+    },
+    {
+      "kind": "text",
+      "title": "Digital Logic subject notes, the combinational-circuit sections",
+      "channel": "GATE Overflow, subject page for Digital Logic",
+      "url": "https://gateoverflow.in/subject/digital-logic?tab=exams",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "Read the combinational circuit, adder, carry look-ahead, decoder and multiplexer sections, plus the paper-by-paper mark distribution used to check which years asked this topic."
+    }
+  ],
+  "sourceLine": "The definitions, the A.A' and A + A' mechanisms, detection on the map or in the expression, covering by an added term, and the three-level condition for dynamic hazards: NPTEL IIT Kharagpur Digital Electronic Circuits Lecture 15 (English, read from its opening to its closing summary). No verified GATE CSE question in this topic is decided by a hazard, so the card carries no PYQ."
+}

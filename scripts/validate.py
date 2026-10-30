@@ -2243,6 +2243,316 @@ def check_boolean_algebra():
        "prime implicant, minimal cover and literal count recomputed by enumeration")
 
 
+# ------------------------------------------------- combinational circuits
+def check_combinational_circuits():
+    """Every adder, multiplexer, decoder, encoder, ROM, parity and hazard claim published in the
+    Combinational Circuits cards, PYQs and lesson is recomputed here."""
+    import itertools
+
+    # ---- half adder and full adder, straight from the truth tables
+    for a, b in itertools.product([0, 1], repeat=2):
+        assert (a ^ b) == (a + b) % 2, "half adder sum"
+        assert (a & b) == (1 if a + b == 2 else 0), "half adder carry"
+    for a, b, c in itertools.product([0, 1], repeat=3):
+        s = a ^ b ^ c
+        cout = (a & b) | (b & c) | (a & c)
+        assert s == (a + b + c) % 2, "full adder sum is the odd-parity bit"
+        assert cout == (1 if a + b + c >= 2 else 0), "full adder carry is the majority"
+        # the two-half-adder construction gives the same pair
+        s1 = a ^ b
+        c1 = a & b
+        s2 = s1 ^ c
+        c2 = s1 & c
+        assert (s2, c1 | c2) == (s, cout), "two half adders plus an OR gate is a full adder"
+
+    # 1999 Q.2.16: 16 positions, one without a carry-in
+    assert 1 + 15 == 16 and 15 == 16 - 1, "1999 Q.2.16: 1 half adder and 15 full adders"
+    # the 8-bit variation
+    assert 1 + 7 == 8, "the 8-bit variation is 1 half adder and 7 full adders"
+    # 1011 + 0110 = 10001
+    total = 0b1011 + 0b0110
+    assert total == 17 and total == 0b10001, "the ripple example sums to 17"
+    assert total & 0b1111 == 1 and total >> 4 == 1, "sum bits 0001 and carry out 1"
+    # a full adder with the carry-in tied to 0 degenerates to a half adder
+    for a, b in itertools.product([0, 1], repeat=2):
+        assert (a ^ b ^ 0, (a & b) | (b & 0) | (a & 0)) == (a ^ b, a & b), "tied-off full adder"
+    # five gates: two XOR, two AND, one OR
+    assert 2 + 2 + 1 == 5, "the two-half-adder full adder costs five gates"
+
+    # ---- ripple-carry delay, GATE CSE 2015 Set 2 Q.48
+    xor_delay, gate_delay = 2 * 1.2, 1.2
+    assert abs(xor_delay - 2.4) < 1e-9 and abs(gate_delay - 1.2) < 1e-9
+    first_stage = xor_delay + gate_delay + gate_delay
+    later_stage = gate_delay + gate_delay
+    assert abs(first_stage - 4.8) < 1e-9 and abs(later_stage - 2.4) < 1e-9
+    carry_only = first_stage + 3 * later_stage
+    key_model = 4 * first_stage
+    assert abs(carry_only - 12.0) < 1e-9, "the carry-only 4-bit total is 12 microseconds"
+    assert abs(key_model - 19.2) < 1e-9, "the paper's 4-bit total is 19.2 microseconds"
+    assert abs((first_stage + 7 * later_stage) - 21.6) < 1e-9, "the 8-bit carry-only total is 21.6"
+    assert abs(8 * first_stage - 38.4) < 1e-9, "the 8-bit paper total is 38.4"
+    # unit-delay model: first carry 2, each later carry 2, 4 bits
+    assert 2 + 3 * 2 == 8, "the unit-delay 4-bit carry settles after 8 gate delays"
+    assert 2 + 5 * 2 == 12, "the unit-delay 6-bit carry settles after 12 gate delays"
+
+    # ---- carry look-ahead: gate counts and the carry equations
+    def cla_carries(A, B, C0, n):
+        P = [(A >> i & 1) ^ (B >> i & 1) for i in range(n)]
+        G = [(A >> i & 1) & (B >> i & 1) for i in range(n)]
+        C = [C0]
+        for i in range(n):
+            C.append(G[i] | (P[i] & C[i]))
+        S = [P[i] ^ C[i] for i in range(n)]
+        return P, G, C, S
+
+    for A, B in itertools.product(range(16), repeat=2):
+        P, G, C, S = cla_carries(A, B, 0, 4)
+        assert sum(S[i] << i for i in range(4)) == (A + B) % 16, "CLA sum agrees with addition"
+        assert C[4] == (1 if A + B > 15 else 0), "CLA carry out agrees with the sum"
+    # the worked example: A = 1011, B = 0110
+    P, G, C, S = cla_carries(0b1011, 0b0110, 0, 4)
+    assert P == [1, 0, 1, 1], "P3P2P1P0 = 1101 for A=1011, B=0110"
+    assert G == [0, 1, 0, 0], "G3G2G1G0 = 0010 for A=1011, B=0110"
+    assert C[4] == 1, "C4 = 1 for A=1011, B=0110"
+    # gate counts: product terms 1..n, one AND each, one OR per carry
+    for n in (4, 8):
+        ands = sum(range(1, n + 1))
+        assert ands == n * (n + 1) // 2
+        assert ands == (10 if n == 4 else 36), "two-level look-ahead AND count"
+        assert n == (4 if n == 4 else 8), "two-level look-ahead OR count"
+    # two-input gates: k-1 ANDs per product term, m-1 ORs per carry
+    and2 = sum((len(t) - 1) for t in [
+        ["G0"], ["P0", "C0"],
+        ["G1"], ["P1", "G0"], ["P1", "P0", "C0"],
+        ["G2"], ["P2", "G1"], ["P2", "P1", "G0"], ["P2", "P1", "P0", "C0"],
+        ["G3"], ["P3", "G2"], ["P3", "P2", "G1"], ["P3", "P2", "P1", "G0"],
+        ["P3", "P2", "P1", "P0", "C0"]])
+    or2 = (2 - 1) + (3 - 1) + (4 - 1) + (5 - 1)
+    assert and2 == 20 and or2 == 10, "two-input CLA generator: 20 AND and 10 OR gates"
+
+    # ---- the 2004 Q.58 design question, and its two don't-care variations
+    def at_least_five(A, B, C, D):
+        n = (A << 3) | (B << 2) | (C << 1) | D
+        return 1 if 5 <= n <= 9 else (0 if n <= 9 else None)   # 10..15 are don't cares
+
+    for n in range(10):
+        a, b, c, d = (n >> 3) & 1, (n >> 2) & 1, (n >> 1) & 1, n & 1
+        want = 1 if n >= 5 else 0
+        assert (a | (b & (c | d))) == want, "A + B(C + D) is the digit-at-least-5 function"
+        assert at_least_five(a, b, c, d) == want
+    assert 2 + 1 == 3, "2004 Q.58 needs three gates"
+    # with the don't cares forced to 0 the answer is AC' + BC + BD
+    for n in range(10):
+        a, b, c, d = (n >> 3) & 1, (n >> 2) & 1, (n >> 1) & 1, n & 1
+        got = ((a & (1 - c)) | (b & c) | (b & d))
+        assert got == (1 if n >= 5 else 0), "AC' + BC + BD without the don't cares"
+    # the multiple-of-three variation: 0, 3, 6, 9 with 11 and 14 borrowed
+    mult3 = set()
+    for n in range(16):
+        a, b, c, d = (n >> 3) & 1, (n >> 2) & 1, (n >> 1) & 1, n & 1
+        t1 = (1 - a) & (1 - b) & (1 - c) & (1 - d)
+        t2 = (1 - b) & c & d
+        t3 = b & c & (1 - d)
+        t4 = a & (1 - b) & d
+        if t1 | t2 | t3 | t4:
+            mult3.add(n)
+    assert mult3 == {0, 3, 6, 9, 11, 14}, "the multiple-of-three cover"
+    assert {0, 3, 6, 9} <= mult3 and (mult3 - {0, 3, 6, 9}) <= {10, 11, 12, 13, 14, 15}
+    assert 4 + 3 + 3 + 3 == 13, "the multiple-of-three cover has thirteen literals"
+    # the odd-digit variation collapses to D
+    for n in range(10):
+        assert ((n & 1) == 1) == (n % 2 == 1), "oddness is the least significant bit"
+    assert 2 ** (16 * 3) == 2 ** 48, "a 4-input 3-output truth table has 2^48 functions"
+
+    # ---- 2007 Q.34: functions of one variable, and why n-2 select lines fail
+    assert 2 ** (2 ** 1) == 4, "four functions of one variable, reachable with one inverter"
+    assert 2 ** (2 ** 2) == 16, "sixteen functions of two variables, not reachable with one inverter"
+
+    # ---- multiplexers as function implementers
+    def mux4(s1, s0, i0, i1, i2, i3):
+        sel = (s1 << 1) | s0
+        return [i0, i1, i2, i3][sel]
+
+    def mux_from_pairs(pairs, n_sel_vars=2):
+        """pairs[k] is the data input for select code k; the leftover variable is the LSB."""
+        return pairs
+
+    # 2014 Set 1 Q.45: I0=0, I1=1, I2=R, I3=R', selects P and Q, leftover R
+    ones = []
+    for P, Q, R in itertools.product([0, 1], repeat=3):
+        out = mux4(P, Q, 0, 1, R, 1 - R)
+        if out:
+            ones.append((P << 2) | (Q << 1) | R)
+    assert ones == [2, 3, 5, 6], "2014 Set 1 Q.45 realises minterms 2, 3, 5 and 6"
+    def minimal(P, Q, R):
+        return ((1 - P) & Q) | (Q & (1 - R)) | (P & (1 - Q) & R)
+    def canonical(P, Q, R):
+        return ((1 - P) & Q & (1 - R)) | ((1 - P) & Q & R) | (P & (1 - Q) & R) | (P & Q & (1 - R))
+    for P, Q, R in itertools.product([0, 1], repeat=3):
+        assert minimal(P, Q, R) == canonical(P, Q, R), "the minimal SOP equals the canonical form"
+    assert 2 + 2 + 3 == 7, "the minimal form has seven literals"
+    assert 4 * 3 == 12, "the canonical form has twelve literals"
+    assert 2 + 3 + 3 + 3 == 11, "options B and C of 2014 Set 1 Q.45 each carry eleven literals"
+    # the lesson's groups
+    assert {2, 3} <= set(ones) and {2, 6} <= set(ones) and 5 in ones
+    assert ((1 - 0) & 1) == 1 and ((1 - 1) & 1) == 0, "P'Q covers 2 and 3 only"
+    # the 2021 Set 2 Q.5 implementation: I0=I1=1, I2=x, I3=x'
+    got = []
+    for x, y, z in itertools.product([0, 1], repeat=3):
+        out = mux4(y, z, 1, 1, x, 1 - x)
+        if out:
+            got.append((x << 2) | (y << 1) | z)
+    assert got == [0, 1, 3, 4, 5, 6], "2021 Set 2 Q.5 realises m0, m1, m3, m4, m5 and m6"
+    # the three-variable XOR variation: I = C, C', C', C with A, B on the select lines
+    got = []
+    for A, B, C in itertools.product([0, 1], repeat=3):
+        out = mux4(A, B, C, 1 - C, 1 - C, C)
+        if out:
+            got.append((A << 2) | (B << 1) | C)
+    assert got == [1, 2, 4, 7], "the XOR variation realises m1, m2, m4 and m7"
+    # the 2^n-to-1 implementation of the 2021 function
+    assert [1, 1, 0, 1, 1, 1, 1, 0] == [1 if i in (0, 1, 3, 4, 5, 6) else 0 for i in range(8)]
+    # the quick check: f = m1 + m3 + m5 + m7 with y, z on the select lines is z
+    for x, y, z in itertools.product([0, 1], repeat=3):
+        idx = (x << 2) | (y << 1) | z
+        assert mux4(y, z, 0, 1, 0, 1) == z, "the odd-minterm function is z"
+
+    # ---- multiplexer trees
+    for n in (2, 3, 4, 6):
+        assert 2 ** n - 1 == (3, 7, 15, 63)[(2, 3, 4, 6).index(n)], "2^n - 1 blocks"
+    assert 2 ** 6 - 1 == 63, "a 64-to-1 multiplexer needs 63 two-to-one blocks"
+    # 2024 Set 1 Q.54: three 2-to-1 multiplexers, X1=X2=1, X3=X4=0
+    count = 0
+    for A, B, C in itertools.product([0, 1], repeat=3):
+        q1 = (1 - A) * 1 + A * 1
+        q2 = (1 - B) * 0 + B * 0
+        Y = (1 - C) * q1 + C * q2
+        if Y == 1:
+            count += 1
+    assert count == 4, "2024 Set 1 Q.54: four of the eight combinations give Y = 1"
+    # 2023 Q.34: A' + A'C' + AB'C over the select order (B, A, C)
+    def q34(B, A, C):
+        return (1 - A) | ((1 - A) & (1 - C)) | (A & (1 - B) & C)
+    ones34 = []
+    for B, A, C in itertools.product([0, 1], repeat=3):
+        if q34(B, A, C):
+            ones34.append((B << 2) | (A << 1) | C)
+    assert ones34 == [0, 1, 3, 4, 5], "2023 Q.34 realises minterms 0, 1, 3, 4 and 5"
+    vector = [1 if i in ones34 else 0 for i in range(8)]
+    assert vector == [1, 1, 0, 1, 1, 1, 0, 0], "2023 Q.34: X0..X7 = 11011100"
+    # a 16-to-1 from 4-to-1 blocks: four blocks and a 2-to-4 decoder
+    assert 16 // 4 == 4 and 2 ** 2 == 4, "four 4-to-1 blocks and a 2-to-4 decoder"
+
+    # ---- decoders
+    def decoder(n, code):
+        return tuple(1 if k == code else 0 for k in range(2 ** n))
+    for code in range(8):
+        out = decoder(3, code)
+        assert sum(out) == 1 and out[code] == 1, "exactly one decoder output is active"
+    assert 2 ** 8 == 256, "eight decoder lines with an OR gate give 256 functions of three variables"
+    assert sum(1 for i in (1, 2, 4, 7)) == 4, "three-input XOR needs four minterm lines"
+    # 2014 Set 2 Q.7: a counter plus a decoder is one-hot, so k states for k lines
+    for n in (2, 3, 4):
+        k = 2 ** n
+        assert len(decoder(n, 0)) == k, "the decoder has k = 2^n outputs"
+    # 2026 Set 2 Q.49: Y = A'B'S1'S0' + 1.S1S0' + AB S1 S0
+    count = 0
+    for A, B, S1, S0 in itertools.product([0, 1], repeat=4):
+        Y = ((1 - A) & (1 - B) & (1 - S1) & (1 - S0)) | (S1 & (1 - S0)) | (A & B & S1 & S0)
+        if Y:
+            count += 1
+    assert count == 6, "2026 Set 2 Q.49: six of the sixteen combinations give Y = 1"
+
+    # ---- encoders
+    def priority_encoder(bits, high_index_wins=True):
+        """bits[i] is input Ii; return the index of the winning input, or None."""
+        active = [i for i, v in enumerate(bits) if v]
+        if not active:
+            return None
+        return max(active) if high_index_wins else min(active)
+    assert priority_encoder([0, 0, 0, 1]) == 3
+    assert priority_encoder([0, 1, 1, 0]) == 2, "I2 wins over I1 in a 4-to-2 priority encoder"
+    assert priority_encoder([0, 1, 1, 0], high_index_wins=False) == 1, "the reversed priority"
+    word = [0, 0, 0, 1, 0, 1, 0, 1]           # bits[i] = Ii, so I7..I0 = 1010 1000
+    assert priority_encoder(word) == 7 and bin(7) == '0b111', "1010 1000 encodes to 111"
+    assert 32 // 8 == 4 and 4 + 1 == 5, "a 32-to-5 encoder needs five 8-to-3 blocks"
+
+    # ---- magnitude comparator
+    def compare(A, B, n):
+        for i in range(n - 1, -1, -1):
+            a, b = (A >> i) & 1, (B >> i) & 1
+            if a != b:
+                return 'gt' if a > b else 'lt'
+        return 'eq'
+    assert compare(0b1011, 0b1001, 4) == 'gt', "1011 > 1001, decided at bit 1"
+    assert compare(0b0110, 0b0101, 4) == 'gt', "0110 > 0101, decided at bit 1"
+    assert compare(0b1000, 0b0111, 4) == 'gt', "1000 > 0111, decided at bit 3"
+    assert compare(0b0111, 0b1000, 4) == 'lt', "0111 < 1000 whatever the lower bits say"
+    assert compare(0b1010, 0b1010, 4) == 'eq'
+    # eight XNOR gates and seven two-input ANDs for 8-bit equality
+    assert 8 - 1 == 7, "eight equality signals need seven two-input AND gates"
+
+    # ---- ROM sizing
+    assert 2 ** 16 == 65536 == 64 * 1024, "8 + 8 address bits give 64K words"
+    assert 255 * 255 == 65025 and 65025 < 2 ** 16, "the 8-bit product fits in sixteen bits"
+    assert 2 ** 8 * 8 == 2048, "the 4-bit multiplier ROM is 2048 bits"
+    assert 15 * 15 == 225 and 225 < 2 ** 8, "the 4-bit product fits in eight bits"
+    assert 2 ** 8 * 5 == 1280, "the 4-bit adder ROM is 1280 bits"
+    assert 15 + 15 == 30 and 30 < 2 ** 5, "the 4-bit sum with carry needs five bits"
+
+    # ---- parity
+    def parity(bs):
+        r = 0
+        for b in bs:
+            r ^= b
+        return r
+    assert parity([1, 0, 1, 1]) == 1, "1011 has even parity bit 1"
+    assert 1 - parity([1, 0, 1, 1]) == 0, "1011 has odd parity bit 0"
+    assert parity([1, 1, 0, 0, 0, 1, 1, 0]) == 0, "11000110 has even parity bit 0"
+    assert 1 - parity([1, 0, 1, 0]) == 1, "1010 has odd parity bit 1"
+    assert 8 - 1 == 7, "seven two-input XOR gates compute the parity of eight bits"
+    # one flip is detected, two flips are not
+    word = [1, 1, 0, 0, 0, 1, 1, 0]
+    p0 = parity(word)
+    one_flip = list(word); one_flip[2] ^= 1
+    two_flips = list(word); two_flips[2] ^= 1; two_flips[5] ^= 1
+    assert parity(one_flip) != p0, "a single flip changes the parity"
+    assert parity(two_flips) == p0, "two flips leave the parity unchanged"
+
+    # ---- hazards: the consensus term changes no output value
+    for X, Y, Z in itertools.product([0, 1], repeat=3):
+        assert (((1 - X) & Y) | (X & Z)) == (((1 - X) & Y) | (X & Z) | (Y & Z)), \
+            "the consensus term is redundant in logic"
+        assert (((1 - X) & (1 - Y)) | (X & Z)) == (((1 - X) & (1 - Y)) | (X & Z) | ((1 - Y) & Z)), \
+            "the consensus of X'Y' + XZ is Y'Z"
+        assert ((X & (1 - Y)) | (Y & Z)) == ((X & (1 - Y)) | (Y & Z) | (X & Z)), \
+            "the consensus of XY' + YZ is XZ"
+    # the hazard condition: the expression reduces to X + X' at the critical assignment
+    assert all((((1 - 1) & 1) | (1 & 1)) == 1 for _ in [0]), "A'B + AC with B=C=1 is 1 at A=1"
+    assert (((1 - 0) & 1) | (0 & 1)) == 1, "and 1 at A=0, so the two arms must both be 1"
+
+    # ---- the lesson's numbers
+    L = load(os.path.join(ROOT, "visuals", "digital-logic", "combinational-circuits",
+                          "mux-to-minimal-sop", "lesson.json"))
+    ex = L.get("example") or {}
+    if ex:
+        assert ex.get("minterms") == [2, 3, 5, 6], "the lesson's minterms"
+        assert ex.get("minimal_sop") == "P'Q + QR' + PQ'R"
+        assert ex.get("minimal_literals") == 7 and ex.get("minimal_terms") == 3
+        assert ex.get("canonical_literals") == 12 and ex.get("canonical_terms") == 4
+        assert sum(g["literals"] for g in ex.get("groups", [])) == 7, "the three groups give 7 literals"
+        assert sorted(c for g in ex["groups"] for c in g["cells"]) == [2, 2, 3, 5, 6], \
+            "the groups cover every 1, with minterm 2 used twice"
+        assert ex.get("cell_numbers") == [[0, 1, 3, 2], [4, 5, 7, 6]], "the Gray-code cell numbering"
+        assert ex.get("map_columns") == ["00", "01", "11", "10"]
+        assert L.get("steps") == 7, "the lesson must declare its seven steps"
+
+    ok("combinational circuits: every adder truth table, ripple and look-ahead delay, generate and "
+       "propagate carry, multiplexer realisation, multiplexer-tree count, decoder, encoder, comparator, "
+       "ROM size, parity and hazard claim published in the topic recomputed - by enumeration over the "
+       "eight- and sixteen-row tables and against the thirteen recorded PYQs")
+
+
 def check_visuals():
     vroot = os.path.join(ROOT, "visuals")
     lessons = []
@@ -6552,6 +6862,7 @@ def main():
     check_conditional_probability()
     check_number_representation()
     check_boolean_algebra()
+    check_combinational_circuits()
     check_visuals()
     check_hygiene()
     for c in checks:

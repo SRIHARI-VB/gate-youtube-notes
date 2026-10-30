@@ -1,0 +1,83 @@
+{
+  "id": "mux-trees-and-cascading",
+  "title": "Multiplexer Trees: Building a Big MUX from Small Ones",
+  "priority": "P2",
+  "order": 440,
+  "unit": "Combinational Circuits",
+  "quickIdea": "A 2^n-to-1 multiplexer is 2^n - 1 two-to-one multiplexers in a tree, and the select line of the last stage is the most significant select bit.",
+  "remember": [
+    "2^n-to-1 from 2-to-1 blocks: 2^n - 1 blocks. 4-to-1 uses 3, 8-to-1 uses 7, 16-to-1 uses 15, 64-to-1 uses 63.",
+    "Each level of the tree splits on one variable, so a binary tree of depth n has n levels and its delay is proportional to n.",
+    "The last stage decides between the two halves, so its select line is the most significant bit of the select code; the first-stage selects are the least significant bits.",
+    "Reading a tree: write each first-level output as a 2-to-1 expression, then substitute into the final stage - the result is one 8-to-1 or 16-to-1 equation with the select order that the wiring implies.",
+    "To build a 2^n-to-1 from 2^m-to-1 blocks, use 2^(n-m) blocks in the last level plus a decoder on the top (n-m) select bits to enable exactly one block; the bottom m select bits go to every block.",
+    "The tree form is why multiplexers scale: a 16-to-1 built from 4-to-1 blocks needs 4 blocks and a 2-to-4 decoder, not 15 two-to-one blocks."
+  ],
+  "example": {
+    "prompt": "GATE CSE 2024 Set 1 Q.54. Three 2-to-1 multiplexers: M1 has inputs X1, X2 and select A; M2 has X3, X4 and select B; M3 selects between the outputs of M1 and M2 with select C. With X1 = X2 = 1 and X3 = X4 = 0, how many of the eight (A, B, C) combinations give Y = 1?",
+    "work": "M1's output is A'X1 + AX2 = A' + A = 1 for either value of A. M2's output is B'X3 + BX4 = 0 + 0 = 0 for either value of B. So Y = C' x 1 + C x 0 = C'. Y = 1 needs C = 0, and A and B are free: 2 x 2 x 1 = 4.",
+    "answer": "4 combinations."
+  },
+  "gateAngle": "Two patterns recur. One is the counting question - how many select combinations give a stated output, which is solved by collapsing each sub-multiplexer to a constant or a variable (2024 Set 1 Q.54). The other is the reverse-engineering question - given the tree and a function, find the data inputs (2023 Q.34), where the tree's select order must be read off the wiring before anything else.",
+  "variations": [
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "How many 2-to-1 multiplexers does a 64-to-1 multiplexer need, and how many levels does the tree have?",
+      "answer": "63 blocks and 6 levels.",
+      "why": "The count is 2^n - 1 with n = 6, and a binary tree that halves 64 inputs down to 1 has log2(64) = 6 levels."
+    },
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "A 16-to-1 multiplexer is built from 4-to-1 blocks. How many blocks are needed and how are the four select bits used?",
+      "answer": "Four 4-to-1 blocks plus a 2-to-4 decoder on the top two select bits; the bottom two select bits drive all four blocks.",
+      "why": "Each block handles 4 of the 16 inputs, so 16 / 4 = 4 blocks, and the decoder turns the top two bits into the one-hot enables. The blocks' outputs are then ORed - or selected by a fifth stage - to give the single output."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "In the GATE CSE 2023 Q.34 tree, what happens to the answer if the select lines of the final multiplexer M3 and of the first-level multiplexers were interchanged?",
+      "answer": "The realised function changes, because the select order changes: the same data inputs would now index a different set of minterms.",
+      "why": "The tree realises an 8-to-1 multiplexer whose select code is ordered by level, final stage first. Swapping which variable sits on the final stage's select re-orders the minterms, so the data-input vector that worked no longer does."
+    }
+  ],
+  "trap": {
+    "what": "Assigning the most significant select bit to the first level instead of the last.",
+    "why": "The last stage chooses between the two halves of the input set, so its select line separates inputs that differ in the most significant bit. Getting this backwards reverses the roles of the two halves of the data vector.",
+    "counterexample": "In the 2023 Q.34 tree the final stage's select is B, so B is the most significant select bit and the select order is B, A, C - not A, B, C. With the wrong order the minterms no longer line up with X0 to X7, and the correct answer 11011100 is replaced by a permutation of it."
+  },
+  "check": {
+    "question": "How many 2-to-1 multiplexers build an 8-to-1 multiplexer, and which single select bit reaches the last stage?",
+    "answer": "Seven blocks; the last stage's select is the most significant select bit.",
+    "explanation": "Eight inputs halve to four, then two, then one: 4 + 2 + 1 = 7 blocks in three levels. The last level decides between the four-input halves, so its select is the top bit of the three-bit select code."
+  },
+  "pyqIds": [
+    "gate-2023-34-mux-tree-function",
+    "gate-2024-set-1-54-three-mux-count"
+  ],
+  "videoRefs": [],
+  "prereqs": [
+    "mux-implementing-a-boolean-function"
+  ],
+  "sources": [
+    {
+      "kind": "lecture-transcript",
+      "title": "Lecture 16 - Multiplexer: Part I",
+      "channel": "NPTEL, Digital Electronic Circuits (Prof. Goutam Saha, IIT Kharagpur)",
+      "url": "http://digimat.in/nptel/courses/video/108105132/lec16.pdf",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "Read from the opening to the closing summary: the 2-to-1 multiplexer built from a truth table, the steering definition of a multiplexer, the construction of a 4-to-1 from three 2-to-1 multiplexers, and Shannon's expansion as the if-then-else reading of a multiplexer."
+    },
+    {
+      "kind": "text",
+      "title": "Digital Logic subject notes, the combinational-circuit sections",
+      "channel": "GATE Overflow, subject page for Digital Logic",
+      "url": "https://gateoverflow.in/subject/digital-logic?tab=exams",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "Read the combinational circuit, adder, ripple carry, carry look-ahead, decoder and multiplexer sections, plus the paper-by-paper mark distribution used to check which years asked this topic. Used as the GATE-oriented statement of the rules, never as a source of questions."
+    }
+  ],
+  "sourceLine": "The cascading construction - a 4-to-1 from three 2-to-1 blocks, and the general 'higher order from lower order' recipe - is NPTEL IIT Kharagpur Lecture 16 (English). The 2^n - 1 block count and the decoder-per-block structure are recomputed here and checked in scripts/validate.py against GATE CSE 2023 Q.34 (option C) and 2024 Set 1 Q.54 (answer 4)."
+}

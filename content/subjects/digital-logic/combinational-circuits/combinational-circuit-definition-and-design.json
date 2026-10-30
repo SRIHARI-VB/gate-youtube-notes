@@ -1,0 +1,83 @@
+{
+  "id": "combinational-circuit-definition-and-design",
+  "title": "Combinational Circuits and the Four-Step Design Procedure",
+  "priority": "P1",
+  "order": 433,
+  "unit": "Combinational Circuits",
+  "quickIdea": "A combinational circuit has no memory: every output is a Boolean function of the present inputs alone. Designing one is a fixed loop - specify, tabulate, minimise, draw - and the truth table is the hinge of the whole loop.",
+  "remember": [
+    "Combinational: output = f(present inputs) only. Sequential: the output also depends on stored state, so the same inputs may give a different output at a different time.",
+    "No feedback path and no memory element. A wire from an output back to an input makes the circuit sequential by definition, whatever gates sit on it.",
+    "The design loop: (1) name the inputs and outputs and fix their codes, (2) write the truth table, (3) minimise to SOP or POS with a Karnaugh map or the tabular method, (4) draw the gates and cost them.",
+    "Every input code that the specification excludes is a don't care. A BCD input never takes 1010 to 1111, so those six rows may be taken as 0 or 1 to enlarge a group.",
+    "Cost is literals, terms and fan-in - not the gate count alone. A three-input OR gate and three two-input OR gates are the same function at different cost.",
+    "Half adders, full adders, subtractors, comparators, decoders, encoders and multiplexers are all combinational; counters and registers are not."
+  ],
+  "example": {
+    "prompt": "A circuit takes a 4-bit BCD digit A B C D (0000 to 1001) and outputs 1 when the digit is 5 or more. Using only AND, OR and NOT gates, how few gates will do it?",
+    "work": "Tabulate the ten used rows and mark 1010 to 1111 as don't cares. On the four-variable map the eight cells 1000 to 1111 become one octet that reduces to A; the cells 0110, 0111, 1110, 1111 give BC; the cells 0101, 0111, 1101, 1111 give BD. So f = A + BC + BD = A + B(C + D).",
+    "answer": "Three gates: two OR gates for C + D and for the final sum, and one AND gate for B(C + D). That is GATE CSE 2004 Q.58, whose accepted answer is 3."
+  },
+  "gateAngle": "The syllabus line says 'design of combinational circuits', and the papers ask for the design, not the definition: GATE CSE 2004 Q.58 hands you a specification and asks for the minimum gate count. The two skills being tested are spotting the don't cares in the unused codes and reading a group off the map without expanding to canonical form first.",
+  "variations": [
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "A circuit has inputs A and B and outputs S = A XOR B and C = A AND B. Is it combinational? What changes if the carry output C is wired back into input A?",
+      "answer": "It is combinational as drawn. Wiring C back to A introduces feedback, so the output now depends on the previous output and the circuit becomes a latch - sequential.",
+      "why": "The test for combinational is the absence of state and of a feedback path, not the kind of gates used. The same two gates are combinational in one wiring and sequential in another."
+    },
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "A 4-bit BCD input must produce 1 when the digit is a multiple of 3 (0, 3, 6, 9) and 0 otherwise, with 1010 to 1111 as don't cares. Using AND, OR and NOT only, what is the minimal sum of products?",
+      "answer": "A'B'C'D' + B'CD + BCD' + AB'D, four terms and thirteen literals.",
+      "why": "Minterm 0 (0000) has no 1-neighbour among the used codes and cannot borrow a don't care, so it survives as a full four-literal term. Minterms 3, 6 and 9 each pair with one don't care - 11, 14 and 11 respectively - giving B'CD, BCD' and AB'D. Minterm 9 can equally be covered by AC'D, so the minimal cover is not unique here."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "Same circuit, same don't cares, but the output must be 1 when the digit is odd instead. What is the minimal sum of products and how many gates does it need?",
+      "answer": "f = D. No gates at all: the output is the least significant input bit.",
+      "why": "A digit is odd exactly when D = 1, and the don't cares let the six unused rows be taken as 1, so the whole block 0001, 0011, ..., 1111 collapses to the single literal D. This is the point of the don't cares: they can shrink a function to nothing."
+    }
+  ],
+  "trap": {
+    "what": "Treating the six unused BCD codes as zeros instead of don't cares, and then reporting a larger answer.",
+    "why": "The specification says the input is a BCD digit, so 1010 to 1111 never arrive. A row that cannot occur constrains nothing, and taking it as 0 forbids exactly the groupings that make the circuit small.",
+    "counterexample": "With 1010 to 1111 forced to 0, only the five cells 0101 to 1001 are 1, and they group as BD, BC and AC', giving f = AC' + BC + BD - three terms and seven literals, and no longer reducible to A + B(C + D). The three-gate answer is lost."
+  },
+  "check": {
+    "question": "A combinational circuit has 4 inputs and 3 outputs. How many rows does its truth table have, and how many Boolean functions does that table represent?",
+    "answer": "16 rows, and 2^48 = 281474976710656 different functions.",
+    "explanation": "The table has 2^4 = 16 rows and each row carries 3 output bits, so there are 16 x 3 = 48 independent output values; each of the 2^48 assignments is a distinct circuit specification."
+  },
+  "pyqIds": [
+    "gate-2004-58-digit-at-least-five-gates"
+  ],
+  "videoRefs": [],
+  "prereqs": [
+    "karnaugh-grouping-and-reading-a-term",
+    "dont-care-conditions"
+  ],
+  "sources": [
+    {
+      "kind": "text",
+      "title": "Digital Logic subject notes, the combinational-circuit sections",
+      "channel": "GATE Overflow, subject page for Digital Logic",
+      "url": "https://gateoverflow.in/subject/digital-logic?tab=exams",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "Read the combinational circuit, adder, ripple carry, carry look-ahead, decoder and multiplexer sections, plus the paper-by-paper mark distribution used to check which years asked this topic. Used as the GATE-oriented statement of the rules, never as a source of questions."
+    },
+    {
+      "kind": "lecture-transcript",
+      "title": "Lecture 23 - Arithmetic Building Blocks I",
+      "channel": "NPTEL, Digital Electronic Circuits (Prof. Goutam Saha, IIT Kharagpur)",
+      "url": "http://digimat.in/nptel/courses/video/108105132/lec23.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "Read from the opening through the full-adder derivation and the construction of a full adder from two half adders, plus the lecturer's closing summary of the whole class. The served transcript stops before the ripple-carry and adder-subtractor worked examples, so those two are recomputed here rather than quoted."
+    }
+  ],
+  "sourceLine": "The definition, the design loop and the don't-care rule: the GATE Overflow Digital Logic subject notes (English), read in part. The tabulation-and-minimise half of the loop is the previous topic's material. The example is GATE CSE 2004 Q.58, accepted answer option (B), and its three-gate realisation is recomputed in scripts/validate.py."
+}

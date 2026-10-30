@@ -1,0 +1,82 @@
+{
+  "id": "ripple-carry-adder-and-delay",
+  "title": "Ripple-Carry Adder and Its Critical Path",
+  "priority": "P1",
+  "order": 435,
+  "unit": "Combinational Circuits",
+  "quickIdea": "Chain n full adders so each carry-out feeds the next carry-in: the sum bits arrive together but the last carry has to travel the whole chain, so the delay grows with n.",
+  "remember": [
+    "An n-bit ripple-carry adder is n full adders in a row; the carry-out of stage i is the carry-in of stage i+1 and the final carry-out is the (n+1)-th bit of the result.",
+    "The critical path is the carry chain, not the sum outputs: every sum bit Si = Pi XOR Ci needs only its own carry, but C_n needs all n stages.",
+    "Carry through one stage: with Cout = AB + (A XOR B)Cin, the terms AB and A XOR B are ready before Cin arrives, so one stage adds one AND delay plus one OR delay after Cin.",
+    "So the total delay is (the delay of the first carry-out) plus (n-1) times (the per-stage carry delay). In the usual unit-gate model that is 2 + 2(n-1) = 2n gate delays.",
+    "Cost is Theta(n) gates and Theta(n) delay: linear in the word length, which is exactly what a carry look-ahead adder is built to beat.",
+    "The sum output of the last stage is one XOR after the last carry, so the answer is never earlier than the carry chain."
+  ],
+  "example": {
+    "prompt": "GATE CSE 2015 Set 2 Q.48. A half adder is XOR plus AND; a full adder is two half adders plus one OR gate. XOR delay is twice the AND/OR delay, and an AND/OR gate takes 1.2 microseconds. What is the total propagation time of a 4-bit ripple-carry adder?",
+    "work": "XOR = 2.4 and AND = OR = 1.2. In the first stage the carry must pass through an XOR, an AND and an OR: 2.4 + 1.2 + 1.2 = 4.8. From the second stage on, A XOR B is already available, so each further carry costs only an AND and an OR: 1.2 + 1.2 = 2.4. The carry-only chain therefore gives 4.8 + 3 x 2.4 = 12.",
+    "answer": "The accepted answer is 19.2 microseconds, which charges every one of the four stages the full 4.8. The carry-chain model gives 12. Both numbers are recorded; see the trap and the PYQ record, which state the disagreement rather than hiding it."
+  },
+  "gateAngle": "Delay questions on adders are decided by one thing: which path you are timing and what you assume is already computed. GATE CSE 2015 Set 2 Q.48 is the classic, and its accepted key (19.2) and the carry-only analysis (12) differ - so the paper's convention, not the physics, is what the mark depends on.",
+  "variations": [
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "In the gate-delay model of GATE CSE 2015 Set 2 Q.48, what is the delay of an 8-bit ripple-carry adder under the paper's convention, and under the carry-only analysis?",
+      "answer": "38.4 microseconds under the paper's convention (8 x 4.8), and 4.8 + 7 x 2.4 = 21.6 microseconds under the carry-only analysis.",
+      "why": "The two models differ by exactly 3 x 2.4 = 7.2 at 4 bits and by 7 x 2.4 = 16.8 at 8 bits, because the disagreement is one XOR delay charged to every stage after the first."
+    },
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "A ripple-carry adder is built from full adders whose carry-out is AB + (A XOR B)Cin, with unit delay per gate. What is the delay from the inputs to the final carry-out of a 6-bit adder?",
+      "answer": "2 + 2 x 5 = 12 gate delays.",
+      "why": "The first carry needs an XOR, an AND and an OR in the worst case only if A XOR B is not precomputed; with the (A XOR B) term available in parallel the first carry costs 2 and each of the remaining 5 stages costs 2, giving 12."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "A ripple-carry adder adds two n-bit numbers and the result is read only from the n sum bits, ignoring the final carry-out. Does the delay get shorter?",
+      "answer": "Only by one XOR delay: the last sum bit still waits for the carry out of stage n-1, so the critical path is unchanged in order and remains Theta(n).",
+      "why": "Ignoring C_n removes the final OR gate from the path, not the carry chain. The n-th carry is still the last thing to settle before S_{n-1} can be read."
+    }
+  ],
+  "trap": {
+    "what": "Charging every stage the delay of the first stage, or charging the XOR delay twice per stage.",
+    "why": "In a ripple-carry adder the operand XORs of every stage run in parallel with the arriving carry, so only the first stage pays for them on the critical path. Whether the paper's key agrees is a separate question - GATE CSE 2015 Set 2 Q.48's key charges the full stage delay to all four stages and gives 19.2, while the carry-only analysis gives 12.",
+    "counterexample": "Under the carry-only model a 4-bit adder with 4.8 for the first stage and 2.4 thereafter finishes in 12 microseconds; under the key's model it finishes in 19.2. Neither is arithmetic error - the difference is the modelling assumption, so state which one you used."
+  },
+  "check": {
+    "question": "In a 4-bit ripple-carry adder with unit gate delays and precomputed propagate terms, how long after the inputs does the final carry-out C4 settle?",
+    "answer": "8 gate delays: 2 for the first carry-out and 2 for each of the three following stages.",
+    "explanation": "C1 needs one AND and one OR once P0 = A0 XOR B0 is ready (2 delays). Each of C2, C3, C4 then needs one AND and one OR after the previous carry, adding 3 x 2 = 6. Total 2 + 6 = 8."
+  },
+  "pyqIds": [
+    "gate-2015-set-2-48-ripple-carry-delay"
+  ],
+  "videoRefs": [],
+  "prereqs": [
+    "half-adder-and-full-adder"
+  ],
+  "sources": [
+    {
+      "kind": "lecture-transcript",
+      "title": "Lecture 23 - Arithmetic Building Blocks I",
+      "channel": "NPTEL, Digital Electronic Circuits (Prof. Goutam Saha, IIT Kharagpur)",
+      "url": "http://digimat.in/nptel/courses/video/108105132/lec23.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "Read from the opening through the full-adder derivation and the construction of a full adder from two half adders, plus the lecturer's closing summary of the whole class. The served transcript stops before the ripple-carry and adder-subtractor worked examples, so those two are recomputed here rather than quoted."
+    },
+    {
+      "kind": "text",
+      "title": "Digital Logic subject notes, the combinational-circuit sections",
+      "channel": "GATE Overflow, subject page for Digital Logic",
+      "url": "https://gateoverflow.in/subject/digital-logic?tab=exams",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "Read the combinational circuit, adder, ripple carry, carry look-ahead, decoder and multiplexer sections, plus the paper-by-paper mark distribution used to check which years asked this topic. Used as the GATE-oriented statement of the rules, never as a source of questions."
+    }
+  ],
+  "sourceLine": "The cascade and the carry path: NPTEL IIT Kharagpur Lecture 23 (English, its closing summary states the ripple connection explicitly) and the GATE Overflow Digital Logic notes (English). The numbers are GATE CSE 2015 Set 2 Q.48's own gate delays; both candidate totals are recomputed in scripts/validate.py and the disagreement is recorded in that PYQ record."
+}

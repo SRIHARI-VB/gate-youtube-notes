@@ -1,0 +1,100 @@
+{
+  "id": "mux-implementing-a-boolean-function",
+  "title": "Implementing a Boolean Function on a Multiplexer",
+  "priority": "P1",
+  "order": 439,
+  "unit": "Combinational Circuits",
+  "quickIdea": "Put n-1 variables on the select lines and the leftover variable on the data inputs: each data input becomes 0, 1, the variable, or its complement, read off a two-row table.",
+  "remember": [
+    "An n-variable function needs a 2^(n-1)-to-1 multiplexer plus one inverter, because each data input is a function of the one remaining variable and only four cases arise: 0, 1, X, X'.",
+    "Reading rule for the pair of rows that share a select code, where the leftover variable X = 0 is the upper row: both 0 gives I = 0; both 1 gives I = 1; 0 then 1 gives I = X; 1 then 0 gives I = X'.",
+    "With a full 2^n-to-1 multiplexer and all n variables on the select lines no extra hardware is needed at all: tie I_k to the function's value at minterm k.",
+    "Sizing consequence: 2^(n-1)-to-1 plus one inverter always suffices (GATE CSE 2007 Q.34); 2^(n-2)-to-1 does not, because each data input would then be a function of two leftover variables and one inverter cannot produce all sixteen of them.",
+    "Order matters: the variable on S_{n-2} is the more significant of the select bits, so the minterm indices run in that variable's order - get it backwards and every data input is wrong.",
+    "The same method works in reverse: given the data inputs, expand the multiplexer equation and minimise to read the function (GATE CSE 2014 Set 1 Q.45)."
+  ],
+  "example": {
+    "prompt": "GATE CSE 2021 Set 2 Q.5. Implement f(x,y,z) = m0 + m1 + m3 + m4 + m5 + m6 on a 4-to-1 multiplexer whose select lines are y and z, leaving x as the data variable.",
+    "work": "Index by x y z, so the select code yz fixes the pair of minterms that differ in x. yz = 00 gives m0 and m4, both of which are 1, so I0 = 1. yz = 01 gives m1 and m5, both 1, so I1 = 1. yz = 10 gives m2 = 0 and m6 = 1, so I2 = x. yz = 11 gives m3 = 1 and m7 = 0, so I3 = x'.",
+    "answer": "I0 = I1 = 1, I2 = x, I3 = x' - the circuit of option (A)."
+  },
+  "gateAngle": "This is the most-repeated multiplexer pattern in the papers: 2007 Q.34 asks for the smallest multiplexer that still works with one inverter, 2021 Set 2 Q.5 gives the function and asks for the data inputs, and 2014 Set 1 Q.45 gives the data inputs and asks for the minimal sum of products. All three are the same two-row table read in different directions.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "Implement f(A,B,C) = m1 + m2 + m4 + m7 on a 4-to-1 multiplexer with A and B on the select lines.",
+      "answer": "I0 = C, I1 = C', I2 = C', I3 = C, and the function is A XOR B XOR C.",
+      "why": "A = 0, B = 0 gives m0 = 0 and m1 = 1, so the input is C. A = 0, B = 1 gives m2 = 1 and m3 = 0, so C'. A = 1, B = 0 gives m4 = 1 and m5 = 0, so C'. A = 1, B = 1 gives m6 = 0 and m7 = 1, so C. Two of the four inputs are complements of C, which is why one inverter suffices."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Why is a 2^(n-1)-to-1 multiplexer with one inverter enough for any n-variable function, while 2^(n-2)-to-1 is not?",
+      "answer": "With n-1 select lines each data input is a function of one variable, and a single variable has only four possible functions - 0, 1, X, X' - all reachable with one inverter. With n-2 select lines each data input is a function of two variables, and there are sixteen of those, so real gates are needed.",
+      "why": "The count of functions of k variables is 2^(2^k): four for k = 1 and sixteen for k = 2. One inverter covers the four; it cannot cover the sixteen."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "The same function f(x,y,z) = m0 + m1 + m3 + m4 + m5 + m6 is implemented on a full 8-to-1 multiplexer with x, y, z on the select lines. What are the eight data inputs?",
+      "answer": "I0 = I1 = I3 = I4 = I5 = I6 = 1 and I2 = I7 = 0.",
+      "why": "Each data input is simply the value of the function at that minterm, with no leftover variable to fold in. This is the sanity check for the 4-to-1 answer: folding the pairs 0/4, 1/5, 2/6, 3/7 of 1,1,0,1,1,1,1,0 gives 1, 1, X, X' as required."
+    }
+  ],
+  "trap": {
+    "what": "Reading the pair of rows in the wrong order, which swaps X and X' on every data input.",
+    "why": "The leftover variable must be the most significant index bit for the rule 'upper row is X = 0' to hold. If x is treated as the least significant bit instead, the pairs become (0,1), (2,3), (4,5), (6,7) and the answers change.",
+    "counterexample": "For f = m0 + m1 + m3 + m4 + m5 + m6 read with yz as the low bits, the pairs are (0,1), (2,3), (4,5), (6,7) giving 1, X', 1, X - a different and wrong set of data inputs for this question, whose accepted answer is I0 = I1 = 1, I2 = x, I3 = x'."
+  },
+  "check": {
+    "question": "For f = m1 + m3 + m5 + m7 of three variables, with y and z on the select lines and x left over, what are the four data inputs?",
+    "answer": "I0 = 0, I1 = 1, I2 = 0, I3 = 1 - that is, I = z, because the function is simply z.",
+    "explanation": "yz = 00 gives m0 = 0 and m4 = 0, so 0. yz = 01 gives m1 = 1 and m5 = 1, so 1. yz = 10 gives m2 = 0 and m6 = 0, so 0. yz = 11 gives m3 = 1 and m7 = 1, so 1. The odd minterms of three variables are exactly those with z = 1."
+  },
+  "pyqIds": [
+    "gate-2007-34-mux-minimum-size",
+    "gate-2014-set-1-45-mux-minimal-sop",
+    "gate-2021-set-2-5-mux-implements-function"
+  ],
+  "videoRefs": [],
+  "prereqs": [
+    "multiplexer-and-select-lines",
+    "canonical-forms-minterms-and-maxterms"
+  ],
+  "sources": [
+    {
+      "kind": "lecture-transcript",
+      "title": "Lecture 16 - Multiplexer: Part I",
+      "channel": "NPTEL, Digital Electronic Circuits (Prof. Goutam Saha, IIT Kharagpur)",
+      "url": "http://digimat.in/nptel/courses/video/108105132/lec16.pdf",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "Read from the opening to the closing summary: the 2-to-1 multiplexer built from a truth table, the steering definition of a multiplexer, the construction of a 4-to-1 from three 2-to-1 multiplexers, and Shannon's expansion as the if-then-else reading of a multiplexer."
+    },
+    {
+      "kind": "text",
+      "title": "Digital Logic subject notes, the combinational-circuit sections",
+      "channel": "GATE Overflow, subject page for Digital Logic",
+      "url": "https://gateoverflow.in/subject/digital-logic?tab=exams",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "Read the combinational circuit, adder, ripple carry, carry look-ahead, decoder and multiplexer sections, plus the paper-by-paper mark distribution used to check which years asked this topic. Used as the GATE-oriented statement of the rules, never as a source of questions."
+    }
+  ],
+  "sourceLine": "The Shannon-expansion reading and the construction of a bigger multiplexer from smaller ones: NPTEL IIT Kharagpur Lecture 16 (English). The data-input reading rule and the sizing rule are recomputed here and checked in scripts/validate.py against the three PYQs on this card: GATE CSE 2007 Q.34 (option C), 2014 Set 1 Q.45 (option A) and 2021 Set 2 Q.5 (option A). The visual lesson on this card animates the 2014 Set 1 Q.45 multiplexer end to end.",
+  "visual": "digital-logic/combinational-circuits/mux-to-minimal-sop",
+  "links": {
+    "visual": {
+      "slug": "mux-to-minimal-sop",
+      "title": "From a 4-to-1 Multiplexer to a Minimal Sum of Products",
+      "level": "subtopic-level",
+      "covers": [
+        "the multiplexer output equation",
+        "implementing a function on a multiplexer",
+        "reading a minimal sum of products off a group"
+      ],
+      "url": "visuals/digital-logic/combinational-circuits/mux-to-minimal-sop/index.html"
+    },
+    "mapped_at": "2026-10-30"
+  }
+}

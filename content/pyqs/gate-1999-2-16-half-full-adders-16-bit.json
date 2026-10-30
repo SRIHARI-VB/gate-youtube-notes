@@ -1,0 +1,21 @@
+{
+  "id": "gate-1999-2-16-half-full-adders-16-bit",
+  "year": "1999",
+  "paper": "GATE CS 1999",
+  "question_ref": "Q.2.16",
+  "type": "MCQ",
+  "topic": "half-adder-and-full-adder",
+  "text": "The number of full and half-adders required to add 16-bit numbers is",
+  "options": [
+    "8 half-adders, 8 full-adders",
+    "1 half-adder, 15 full-adders",
+    "16 half-adders, 0 full-adders",
+    "4 half-adders, 12 full-adders"
+  ],
+  "answer": "Option (B) - 1 half-adder and 15 full-adders",
+  "solution": "Position 0 adds only the two operand bits, because no carry enters it, so a half adder suffices. Each of positions 1 to 15 adds two operand bits plus the carry from the position below, which is three bits, so each needs a full adder. Total: 1 half adder and 15 full adders. Sixteen half adders cannot work because a half adder has no carry input, and any split with more than one half adder leaves a position that must add three bits.",
+  "source_url": "https://gateoverflow.in/1494/gate-cse-1999-question-2-16",
+  "source_label": "GATE Overflow question page - GATE CSE 1999 Q.2.16 with the accepted answer (option B)",
+  "verification": "SOURCED",
+  "answer_evidence": "The accepted answer states that the LSB addition needs no full adder and that the subsequent positions do, giving 15 full adders and 1 half adder, option B. Recomputed here: 1 + 15 = 16 positions, and 15 positions have a carry-in."
+}

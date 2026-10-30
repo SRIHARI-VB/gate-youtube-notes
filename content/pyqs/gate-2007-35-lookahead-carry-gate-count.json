@@ -1,0 +1,21 @@
+{
+  "id": "gate-2007-35-lookahead-carry-gate-count",
+  "year": "2007",
+  "paper": "GATE CS 2007",
+  "question_ref": "Q.35",
+  "type": "MCQ",
+  "topic": "carry-lookahead-adder",
+  "text": "In a look-ahead carry generator, the carry generate function Gi and the carry propagate function Pi for inputs Ai and Bi are Pi = Ai XOR Bi and Gi = Ai AND Bi. The sum bit is Si = Pi XOR Ci and the carry bit is Ci+1 = Gi + Pi Ci, where C0 is the input carry. Consider a two-level logic implementation of the look-ahead carry generator, with all Pi and Gi available and with AND and OR gates of any number of inputs. The number of AND gates and OR gates needed to implement the look-ahead carry generator for a 4-bit adder with S3, S2, S1, S0 and C4 as its outputs are respectively",
+  "options": [
+    "6, 3",
+    "10, 4",
+    "6, 4",
+    "10, 5"
+  ],
+  "answer": "Option (B) - 10 AND gates and 4 OR gates",
+  "solution": "Expand the carries in two-level sum-of-products form: C1 = G0 + P0C0 (1 product term), C2 = G1 + P1G0 + P1P0C0 (2), C3 = G2 + P2G1 + P2P1G0 + P2P1P0C0 (3), C4 = G3 + P3G2 + P3P2G1 + P3P2P1G0 + P3P2P1P0C0 (4). One AND gate per product term gives 1 + 2 + 3 + 4 = 10; one OR gate per carry gives 4. In general an n-bit generator needs n(n+1)/2 AND gates and n OR gates.",
+  "source_url": "https://gateoverflow.in/1233/gate-cse-2007-question-35",
+  "source_label": "GATE Overflow question page - GATE CSE 2007 Q.35 with the accepted answer (option B)",
+  "verification": "SOURCED",
+  "answer_evidence": "The accepted answer lists the four expanded carries with 1, 2, 3 and 4 product terms and concludes 10 AND and 4 OR gates, option B. Recomputed here: 1+2+3+4 = 10 and 4 carries = 4 OR gates; with two-input gates instead the same page's variant gives 20 AND and 10 OR, which is also recomputed."
+}
