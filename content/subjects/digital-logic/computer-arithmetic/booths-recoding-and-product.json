@@ -84,5 +84,18 @@
     }
   ],
   "sourceLine": "The pair table, the run-of-ones identity 2^(k+1) - 2^m and the 01011 x 01110 worked trace: GATE Overflow GATE CSE Book, section 2.2.10 (English, read in part). The register set M, Q, AC, q(-1) and the sequence counter, the three pair cases and the result in AC and QR: eHindiStudy, 'Booth Algorithm kya hai?' (Hindi, read in full, translated here - the only translated material in this topic). Mano's statement that a string of ones from weight 2^k down to 2^m is treated as 2^(k+1) - 2^m: Bhalodia, Unit 7 (English, read in part). The Hindi article says q(-1) is 'Qn incremented by 1' and stops after 'n-1 bits'; both readings are wrong against the standard treatment and are not used - q(-1) is the bit shifted out of Q, and the loop runs n cycles.",
-  "videoRefs": []
+  "videoRefs": [],
+  "links": {
+    "visual": {
+      "slug": "arithmetic-algorithms-booth-division-cla",
+      "title": "Arithmetic Algorithms: Booth's Multiplication, Restoring and Non-Restoring Division, and the Carry-Lookahead Adder",
+      "level": "topic-level",
+      "covers": [
+        "Booth pair table 00, 01, 10, 11 against nothing, add, subtract, nothing",
+        "recoding reconstructs the signed value of the multiplier, not its unsigned value"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/arithmetic-algorithms-booth-division-cla/index.html"
+    },
+    "mapped_at": "2026-10-31"
+  }
 }

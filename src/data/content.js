@@ -28602,6 +28602,18 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "The reflection map, the 32 cells and the adjacency of a cell with the cell 16 places away: NPTEL IIT Kharagpur Digital Electronic Circuits Lecture 11 (English, read from the recap to the reflection construction). The overlay alternative and the five-variable layout: the same lecture and the Aditya Engineering College switching-functions notes (English, read in part). Adjacency is recomputed cell by cell in scripts/validate.py. No verified GATE question is decided by this card alone.",
+   "links": {
+    "visual": {
+     "slug": "boolean-algebra-and-minimisation",
+     "title": "Boolean Algebra and Minimisation",
+     "level": "topic-level",
+     "covers": [
+      "five-variable map as two four-variable maps, mirror cells adjacent"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/boolean-algebra-and-minimisation/index.html"
+    },
+    "mapped_at": "2026-10-31"
+   },
    "subject": "digital-logic",
    "topic": "boolean-algebra-and-minimization",
    "path": "subjects/digital-logic/boolean-algebra-and-minimization/five-variable-karnaugh-map.json"
@@ -28903,6 +28915,48 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "The definition, the design loop and the don't-care rule: the GATE Overflow Digital Logic subject notes (English), read in part. The tabulation-and-minimise half of the loop is the previous topic's material. The example is GATE CSE 2004 Q.58, accepted answer option (B), and its three-gate realisation is recomputed in scripts/validate.py.",
+   "links": {
+    "mock": {
+     "subject": "digital-logic",
+     "unit_slug": "combinational-circuits",
+     "unit_name": "Combinational Circuit Design",
+     "unit_number": 2,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Adders & subtractors",
+       "questions": 10
+      },
+      {
+       "label": "Code converters",
+       "questions": 10
+      },
+      {
+       "label": "Decoders & encoders",
+       "questions": 10
+      },
+      {
+       "label": "Hazards & glitches",
+       "questions": 10
+      },
+      {
+       "label": "Multiplexers & demultiplexers",
+       "questions": 10
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/digital-logic/combinational-circuits/gate_dl_mock_2_2026-10-27.html"
+    },
+    "visual": {
+     "slug": "combinational-circuits",
+     "title": "Combinational Circuits: Adders, Multiplexers and Decoders",
+     "level": "topic-level",
+     "covers": [
+      "a combinational circuit is its truth table: no state, so 2^n rows are complete"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/combinational-circuits/index.html"
+    },
+    "mapped_at": "2026-10-31"
+   },
    "subject": "digital-logic",
    "topic": "combinational-circuits",
    "path": "subjects/digital-logic/combinational-circuits/combinational-circuit-definition-and-design.json"
@@ -28989,6 +29043,49 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "The definitions, the truth tables and the two-half-adder construction: NPTEL IIT Kharagpur Digital Electronic Circuits Lecture 23 (English, read from the opening to its closing summary). The gate counts and the n-bit counting rule: the GATE Overflow Digital Logic notes (English) with the count recomputed here. The example is GATE CSE 1999 Q.2.16, accepted answer option (B).",
+   "links": {
+    "mock": {
+     "subject": "digital-logic",
+     "unit_slug": "combinational-circuits",
+     "unit_name": "Combinational Circuit Design",
+     "unit_number": 2,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Adders & subtractors",
+       "questions": 10
+      },
+      {
+       "label": "Code converters",
+       "questions": 10
+      },
+      {
+       "label": "Decoders & encoders",
+       "questions": 10
+      },
+      {
+       "label": "Hazards & glitches",
+       "questions": 10
+      },
+      {
+       "label": "Multiplexers & demultiplexers",
+       "questions": 10
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/digital-logic/combinational-circuits/gate_dl_mock_2_2026-10-27.html"
+    },
+    "visual": {
+     "slug": "combinational-circuits",
+     "title": "Combinational Circuits: Adders, Multiplexers and Decoders",
+     "level": "topic-level",
+     "covers": [
+      "half adder: S = A xor B, C = A and B, no carry input",
+      "full adder: sum is odd parity, carry out is at least two ones"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/combinational-circuits/index.html"
+    },
+    "mapped_at": "2026-10-31"
+   },
    "subject": "digital-logic",
    "topic": "combinational-circuits",
    "path": "subjects/digital-logic/combinational-circuits/half-adder-and-full-adder.json"
@@ -29074,6 +29171,49 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "The cascade and the carry path: NPTEL IIT Kharagpur Lecture 23 (English, its closing summary states the ripple connection explicitly) and the GATE Overflow Digital Logic notes (English). The numbers are GATE CSE 2015 Set 2 Q.48's own gate delays; both candidate totals are recomputed in scripts/validate.py and the disagreement is recorded in that PYQ record.",
+   "links": {
+    "mock": {
+     "subject": "digital-logic",
+     "unit_slug": "combinational-circuits",
+     "unit_name": "Combinational Circuit Design",
+     "unit_number": 2,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Adders & subtractors",
+       "questions": 10
+      },
+      {
+       "label": "Code converters",
+       "questions": 10
+      },
+      {
+       "label": "Decoders & encoders",
+       "questions": 10
+      },
+      {
+       "label": "Hazards & glitches",
+       "questions": 10
+      },
+      {
+       "label": "Multiplexers & demultiplexers",
+       "questions": 10
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/digital-logic/combinational-circuits/gate_dl_mock_2_2026-10-27.html"
+    },
+    "visual": {
+     "slug": "combinational-circuits",
+     "title": "Combinational Circuits: Adders, Multiplexers and Decoders",
+     "level": "topic-level",
+     "covers": [
+      "ripple carry: the carry out of a column is the carry in of the next",
+      "the gate-delay model: two levels per column carry, one for the sum exclusive-OR"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/combinational-circuits/index.html"
+    },
+    "mapped_at": "2026-10-31"
+   },
    "subject": "digital-logic",
    "topic": "combinational-circuits",
    "path": "subjects/digital-logic/combinational-circuits/ripple-carry-adder-and-delay.json"
@@ -29152,6 +29292,49 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "The generate and propagate definitions, the expanded carries and the two-level structure: the GATE Overflow Digital Logic subject notes (English), read in part, which states the C1 to C4 expansions and the n(n+1)/2 and n counts. No readable lecture transcript on this topic was available this run, so both cards rest on the written reference plus recomputation; every count and every delay total is checked in scripts/validate.py.",
+   "links": {
+    "mock": {
+     "subject": "digital-logic",
+     "unit_slug": "combinational-circuits",
+     "unit_name": "Combinational Circuit Design",
+     "unit_number": 2,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Adders & subtractors",
+       "questions": 10
+      },
+      {
+       "label": "Code converters",
+       "questions": 10
+      },
+      {
+       "label": "Decoders & encoders",
+       "questions": 10
+      },
+      {
+       "label": "Hazards & glitches",
+       "questions": 10
+      },
+      {
+       "label": "Multiplexers & demultiplexers",
+       "questions": 10
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/digital-logic/combinational-circuits/gate_dl_mock_2_2026-10-27.html"
+    },
+    "visual": {
+     "slug": "combinational-circuits",
+     "title": "Combinational Circuits: Adders, Multiplexers and Decoders",
+     "level": "topic-level",
+     "covers": [
+      "generate g = a and b, propagate p = a xor b, and the two definitions of p in the literature",
+      "constant depth with unbounded fan-in against ceil(log2(n+1)) with fan-in two"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/combinational-circuits/index.html"
+    },
+    "mapped_at": "2026-10-31"
+   },
    "subject": "digital-logic",
    "topic": "combinational-circuits",
    "path": "subjects/digital-logic/combinational-circuits/carry-lookahead-adder.json"
@@ -29226,6 +29409,49 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "The construction and the reason for it: NPTEL IIT Kharagpur Digital Electronic Circuits Lecture 23 (English), whose closing summary states that subtraction is done by the full adder on the two's complement, with the complement produced by a bank of NOT gates and the carry-in set to 1, and that a full adder plus a bank of XOR gates does both operations. The 2's complement arithmetic itself is the number-systems topic's card. No verified GATE CSE question in this topic is decided by the adder-subtractor alone, so the card carries no PYQ of its own.",
+   "links": {
+    "mock": {
+     "subject": "digital-logic",
+     "unit_slug": "combinational-circuits",
+     "unit_name": "Combinational Circuit Design",
+     "unit_number": 2,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Adders & subtractors",
+       "questions": 10
+      },
+      {
+       "label": "Code converters",
+       "questions": 10
+      },
+      {
+       "label": "Decoders & encoders",
+       "questions": 10
+      },
+      {
+       "label": "Hazards & glitches",
+       "questions": 10
+      },
+      {
+       "label": "Multiplexers & demultiplexers",
+       "questions": 10
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/digital-logic/combinational-circuits/gate_dl_mock_2_2026-10-27.html"
+    },
+    "visual": {
+     "slug": "combinational-circuits",
+     "title": "Combinational Circuits: Adders, Multiplexers and Decoders",
+     "level": "topic-level",
+     "covers": [
+      "the adder-subtractor: B xor M on every bit and M into the carry in",
+      "overflow is carry-in xor carry-out of the sign column, never the carry out"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/combinational-circuits/index.html"
+    },
+    "mapped_at": "2026-10-31"
+   },
    "subject": "digital-logic",
    "topic": "combinational-circuits",
    "path": "subjects/digital-logic/combinational-circuits/adder-subtractor.json"
@@ -29319,6 +29545,49 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "The steering definition, the 2-to-1 equation, the 4-to-1 built from three 2-to-1 blocks and the Shannon-expansion reading: NPTEL IIT Kharagpur Digital Electronic Circuits Lecture 16 (English, read from its opening to its closing summary). The select-line count and the data-selector name also come from the Hindi Wikipedia article on the multiplexer (Hindi, translated, marked as translated on this card's source list). The demultiplexer-as-decoder remark is from the GATE Overflow Digital Logic notes (English).",
+   "links": {
+    "mock": {
+     "subject": "digital-logic",
+     "unit_slug": "combinational-circuits",
+     "unit_name": "Combinational Circuit Design",
+     "unit_number": 2,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Adders & subtractors",
+       "questions": 10
+      },
+      {
+       "label": "Code converters",
+       "questions": 10
+      },
+      {
+       "label": "Decoders & encoders",
+       "questions": 10
+      },
+      {
+       "label": "Hazards & glitches",
+       "questions": 10
+      },
+      {
+       "label": "Multiplexers & demultiplexers",
+       "questions": 10
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/digital-logic/combinational-circuits/gate_dl_mock_2_2026-10-27.html"
+    },
+    "visual": {
+     "slug": "combinational-circuits",
+     "title": "Combinational Circuits: Adders, Multiplexers and Decoders",
+     "level": "topic-level",
+     "covers": [
+      "2^n data inputs and n select lines, and the 4-to-1 equation as one term per select pattern",
+      "a multiplexer is a lookup table, universal for functions of its select lines"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/combinational-circuits/index.html"
+    },
+    "mapped_at": "2026-10-31"
+   },
    "subject": "digital-logic",
    "topic": "combinational-circuits",
    "path": "subjects/digital-logic/combinational-circuits/multiplexer-and-select-lines.json"
@@ -29420,7 +29689,37 @@ window.GATE_DATA = {
      ],
      "url": "visuals/digital-logic/combinational-circuits/mux-to-minimal-sop/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-10-31",
+    "mock": {
+     "subject": "digital-logic",
+     "unit_slug": "combinational-circuits",
+     "unit_name": "Combinational Circuit Design",
+     "unit_number": 2,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Adders & subtractors",
+       "questions": 10
+      },
+      {
+       "label": "Code converters",
+       "questions": 10
+      },
+      {
+       "label": "Decoders & encoders",
+       "questions": 10
+      },
+      {
+       "label": "Hazards & glitches",
+       "questions": 10
+      },
+      {
+       "label": "Multiplexers & demultiplexers",
+       "questions": 10
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/digital-logic/combinational-circuits/gate_dl_mock_2_2026-10-27.html"
+    }
    },
    "subject": "digital-logic",
    "topic": "combinational-circuits",
@@ -29508,6 +29807,49 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "The cascading construction - a 4-to-1 from three 2-to-1 blocks, and the general 'higher order from lower order' recipe - is NPTEL IIT Kharagpur Lecture 16 (English). The 2^n - 1 block count and the decoder-per-block structure are recomputed here and checked in scripts/validate.py against GATE CSE 2023 Q.34 (option C) and 2024 Set 1 Q.54 (answer 4).",
+   "links": {
+    "mock": {
+     "subject": "digital-logic",
+     "unit_slug": "combinational-circuits",
+     "unit_name": "Combinational Circuit Design",
+     "unit_number": 2,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Adders & subtractors",
+       "questions": 10
+      },
+      {
+       "label": "Code converters",
+       "questions": 10
+      },
+      {
+       "label": "Decoders & encoders",
+       "questions": 10
+      },
+      {
+       "label": "Hazards & glitches",
+       "questions": 10
+      },
+      {
+       "label": "Multiplexers & demultiplexers",
+       "questions": 10
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/digital-logic/combinational-circuits/gate_dl_mock_2_2026-10-27.html"
+    },
+    "visual": {
+     "slug": "combinational-circuits",
+     "title": "Combinational Circuits: Adders, Multiplexers and Decoders",
+     "level": "topic-level",
+     "covers": [
+      "three 2-to-1 switches build a 4-to-1; 2^n - 1 switches build a 2^n-to-1",
+      "a tree of multiplexers adds select lines, and the top switch is the MSB"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/combinational-circuits/index.html"
+    },
+    "mapped_at": "2026-10-31"
+   },
    "subject": "digital-logic",
    "topic": "combinational-circuits",
    "path": "subjects/digital-logic/combinational-circuits/mux-trees-and-cascading.json"
@@ -29596,6 +29938,49 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "The decoding operation, the active-low output convention and the don't-care status of the six unused BCD codes: NPTEL IIT Kharagpur Digital Electronic Circuits Lecture 19 (English). The minterm-generation and function-implementation rules are from the GATE Overflow Digital Logic notes (English) and are recomputed in scripts/validate.py against GATE CSE 2014 Set 2 Q.7 (option C) and 2026 Set 2 Q.49 (answer 6).",
+   "links": {
+    "mock": {
+     "subject": "digital-logic",
+     "unit_slug": "combinational-circuits",
+     "unit_name": "Combinational Circuit Design",
+     "unit_number": 2,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Adders & subtractors",
+       "questions": 10
+      },
+      {
+       "label": "Code converters",
+       "questions": 10
+      },
+      {
+       "label": "Decoders & encoders",
+       "questions": 10
+      },
+      {
+       "label": "Hazards & glitches",
+       "questions": 10
+      },
+      {
+       "label": "Multiplexers & demultiplexers",
+       "questions": 10
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/digital-logic/combinational-circuits/gate_dl_mock_2_2026-10-27.html"
+    },
+    "visual": {
+     "slug": "combinational-circuits",
+     "title": "Combinational Circuits: Adders, Multiplexers and Decoders",
+     "level": "topic-level",
+     "covers": [
+      "n-to-2^n decoder: exactly one output high, so the outputs are the minterms",
+      "decoder plus OR is any sum of products with no minimisation"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/combinational-circuits/index.html"
+    },
+    "mapped_at": "2026-10-31"
+   },
    "subject": "digital-logic",
    "topic": "combinational-circuits",
    "path": "subjects/digital-logic/combinational-circuits/decoder-and-minterm-generation.json"
@@ -29669,6 +30054,48 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "The encoder as the inverse of the decoder, the priority rule when more than one input is active, and the 74148 cascade from 8-to-3 to 16-to-4 through enable and group-select: NPTEL IIT Kharagpur Digital Electronic Circuits Lecture 19 (English, read from its opening to its closing summary). No verified GATE CSE question in this topic is decided by the encoder alone, so the card carries no PYQ of its own.",
+   "links": {
+    "mock": {
+     "subject": "digital-logic",
+     "unit_slug": "combinational-circuits",
+     "unit_name": "Combinational Circuit Design",
+     "unit_number": 2,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Adders & subtractors",
+       "questions": 10
+      },
+      {
+       "label": "Code converters",
+       "questions": 10
+      },
+      {
+       "label": "Decoders & encoders",
+       "questions": 10
+      },
+      {
+       "label": "Hazards & glitches",
+       "questions": 10
+      },
+      {
+       "label": "Multiplexers & demultiplexers",
+       "questions": 10
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/digital-logic/combinational-circuits/gate_dl_mock_2_2026-10-27.html"
+    },
+    "visual": {
+     "slug": "combinational-circuits",
+     "title": "Combinational Circuits: Adders, Multiplexers and Decoders",
+     "level": "topic-level",
+     "covers": [
+      "priority encoder and the collision that forces a valid flag"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/combinational-circuits/index.html"
+    },
+    "mapped_at": "2026-10-31"
+   },
    "subject": "digital-logic",
    "topic": "combinational-circuits",
    "path": "subjects/digital-logic/combinational-circuits/encoder-and-priority-encoder.json"
@@ -29742,6 +30169,39 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "The three verdicts and the most-significant-first rule are stated from the standard treatment of combinational blocks (Mano, Digital Design, chapter 4) and from the GATE Overflow Digital Logic notes (English). No readable lecture transcript on the comparator was obtained this run - NPTEL Lecture 26 exists but was not fetched - so nothing is quoted or timestamped, and no PYQ rests on this card.",
+   "links": {
+    "mock": {
+     "subject": "digital-logic",
+     "unit_slug": "combinational-circuits",
+     "unit_name": "Combinational Circuit Design",
+     "unit_number": 2,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Adders & subtractors",
+       "questions": 10
+      },
+      {
+       "label": "Code converters",
+       "questions": 10
+      },
+      {
+       "label": "Decoders & encoders",
+       "questions": 10
+      },
+      {
+       "label": "Hazards & glitches",
+       "questions": 10
+      },
+      {
+       "label": "Multiplexers & demultiplexers",
+       "questions": 10
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/digital-logic/combinational-circuits/gate_dl_mock_2_2026-10-27.html"
+    },
+    "mapped_at": "2026-10-31"
+   },
    "subject": "digital-logic",
    "topic": "combinational-circuits",
    "path": "subjects/digital-logic/combinational-circuits/magnitude-comparator.json"
@@ -29817,6 +30277,39 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "The ROM-as-decoder-plus-OR-plane picture, the PLA and PAL distinction and the sizing rule are from the standard treatment of programmable logic (Mano, Digital Design, chapter 4) and the GATE Overflow Digital Logic notes (English). The example is GATE CSE 1996 Q.1.21, accepted answer option (D), and every size on this card is recomputed in scripts/validate.py.",
+   "links": {
+    "mock": {
+     "subject": "digital-logic",
+     "unit_slug": "combinational-circuits",
+     "unit_name": "Combinational Circuit Design",
+     "unit_number": 2,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Adders & subtractors",
+       "questions": 10
+      },
+      {
+       "label": "Code converters",
+       "questions": 10
+      },
+      {
+       "label": "Decoders & encoders",
+       "questions": 10
+      },
+      {
+       "label": "Hazards & glitches",
+       "questions": 10
+      },
+      {
+       "label": "Multiplexers & demultiplexers",
+       "questions": 10
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/digital-logic/combinational-circuits/gate_dl_mock_2_2026-10-27.html"
+    },
+    "mapped_at": "2026-10-31"
+   },
    "subject": "digital-logic",
    "topic": "combinational-circuits",
    "path": "subjects/digital-logic/combinational-circuits/rom-and-pla.json"
@@ -29891,6 +30384,39 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "The parity definition and the checker rule are stated from the standard treatment (Mano, Digital Design, chapter 4) and the GATE Overflow Digital Logic notes (English). NPTEL Lecture 20 of the same course covers the parity generator and checker but was not fetched this run, so nothing is attributed to it and the card carries no PYQ.",
+   "links": {
+    "mock": {
+     "subject": "digital-logic",
+     "unit_slug": "combinational-circuits",
+     "unit_name": "Combinational Circuit Design",
+     "unit_number": 2,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Adders & subtractors",
+       "questions": 10
+      },
+      {
+       "label": "Code converters",
+       "questions": 10
+      },
+      {
+       "label": "Decoders & encoders",
+       "questions": 10
+      },
+      {
+       "label": "Hazards & glitches",
+       "questions": 10
+      },
+      {
+       "label": "Multiplexers & demultiplexers",
+       "questions": 10
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/digital-logic/combinational-circuits/gate_dl_mock_2_2026-10-27.html"
+    },
+    "mapped_at": "2026-10-31"
+   },
    "subject": "digital-logic",
    "topic": "combinational-circuits",
    "path": "subjects/digital-logic/combinational-circuits/parity-generator-and-checker.json"
@@ -29975,6 +30501,49 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "The definitions, the A.A' and A + A' mechanisms, detection on the map or in the expression, covering by an added term, and the three-level condition for dynamic hazards: NPTEL IIT Kharagpur Digital Electronic Circuits Lecture 15 (English, read from its opening to its closing summary). No verified GATE CSE question in this topic is decided by a hazard, so the card carries no PYQ.",
+   "links": {
+    "mock": {
+     "subject": "digital-logic",
+     "unit_slug": "combinational-circuits",
+     "unit_name": "Combinational Circuit Design",
+     "unit_number": 2,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Adders & subtractors",
+       "questions": 10
+      },
+      {
+       "label": "Code converters",
+       "questions": 10
+      },
+      {
+       "label": "Decoders & encoders",
+       "questions": 10
+      },
+      {
+       "label": "Hazards & glitches",
+       "questions": 10
+      },
+      {
+       "label": "Multiplexers & demultiplexers",
+       "questions": 10
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/digital-logic/combinational-circuits/gate_dl_mock_2_2026-10-27.html"
+    },
+    "visual": {
+     "slug": "combinational-circuits",
+     "title": "Combinational Circuits: Adders, Multiplexers and Decoders",
+     "level": "topic-level",
+     "covers": [
+      "static-1 hazard: adjacent ones covered by different terms",
+      "the consensus term BC as the repair, and why it changes no row"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/combinational-circuits/index.html"
+    },
+    "mapped_at": "2026-10-31"
+   },
    "subject": "digital-logic",
    "topic": "combinational-circuits",
    "path": "subjects/digital-logic/combinational-circuits/hazards-in-combinational-circuits.json"
@@ -31919,6 +32488,45 @@ window.GATE_DATA = {
    ],
    "sourceLine": "The carry-versus-overflow distinction and the condition Cout XOR Cn-1: GATE Overflow GATE CSE Book, Digital Logic section 2.2.8 (English, read in part). The signed-magnitude overflow flip-flop, and the statement that integer arithmetic is done in signed two's complement while floating-point mantissas use sign-magnitude: Bhalodia, Unit 7 (English, read in part). The three question texts and accepted answers: their GATE Overflow pages.",
    "videoRefs": [],
+   "links": {
+    "mock": {
+     "subject": "digital-logic",
+     "unit_slug": "number-systems",
+     "unit_name": "Number Systems & Representation",
+     "unit_number": 1,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Base conversions",
+       "questions": 15
+      },
+      {
+       "label": "Floating point & IEEE 754",
+       "questions": 11
+      },
+      {
+       "label": "One's & two's complement",
+       "questions": 13
+      },
+      {
+       "label": "Range & overflow",
+       "questions": 11
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-10-27.html"
+    },
+    "visual": {
+     "slug": "number-representation-and-arithmetic",
+     "title": "Number Representation and Arithmetic",
+     "level": "topic-level",
+     "covers": [
+      "overflow as carry-in xor carry-out of the sign column",
+      "one adder for addition and subtraction; the discarded carry"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/number-representation-and-arithmetic/index.html"
+    },
+    "mapped_at": "2026-10-31"
+   },
    "subject": "digital-logic",
    "topic": "computer-arithmetic",
    "path": "subjects/digital-logic/computer-arithmetic/fixed-point-add-subtract-overflow.json"
@@ -32003,6 +32611,19 @@ window.GATE_DATA = {
    ],
    "sourceLine": "The partial products and the array multiplier's structure and delay: GATE Overflow GATE CSE Book, Digital Logic sections 2.2.2 and 2.2.8 (English, read in part), whose own worked multiplication is 01011 x 01110. The row-of-adders picture and the integer-division preamble on N = DQ + R: Sarangi, chapter 8 slides (English, read in part). The 1996 ROM-width question is carded under Combinational Circuits, not repeated here.",
    "videoRefs": [],
+   "links": {
+    "visual": {
+     "slug": "arithmetic-algorithms-booth-division-cla",
+     "title": "Arithmetic Algorithms: Booth's Multiplication, Restoring and Non-Restoring Division, and the Carry-Lookahead Adder",
+     "level": "topic-level",
+     "covers": [
+      "shift-and-add: add when Q0 = 1, then shift (A,Q) right",
+      "additions equal the number of 1s in the multiplier"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/arithmetic-algorithms-booth-division-cla/index.html"
+    },
+    "mapped_at": "2026-10-31"
+   },
    "subject": "digital-logic",
    "topic": "computer-arithmetic",
    "path": "subjects/digital-logic/computer-arithmetic/shift-and-add-multiplication.json"
@@ -32094,6 +32715,19 @@ window.GATE_DATA = {
    ],
    "sourceLine": "The pair table, the run-of-ones identity 2^(k+1) - 2^m and the 01011 x 01110 worked trace: GATE Overflow GATE CSE Book, section 2.2.10 (English, read in part). The register set M, Q, AC, q(-1) and the sequence counter, the three pair cases and the result in AC and QR: eHindiStudy, 'Booth Algorithm kya hai?' (Hindi, read in full, translated here - the only translated material in this topic). Mano's statement that a string of ones from weight 2^k down to 2^m is treated as 2^(k+1) - 2^m: Bhalodia, Unit 7 (English, read in part). The Hindi article says q(-1) is 'Qn incremented by 1' and stops after 'n-1 bits'; both readings are wrong against the standard treatment and are not used - q(-1) is the bit shifted out of Q, and the loop runs n cycles.",
    "videoRefs": [],
+   "links": {
+    "visual": {
+     "slug": "arithmetic-algorithms-booth-division-cla",
+     "title": "Arithmetic Algorithms: Booth's Multiplication, Restoring and Non-Restoring Division, and the Carry-Lookahead Adder",
+     "level": "topic-level",
+     "covers": [
+      "Booth pair table 00, 01, 10, 11 against nothing, add, subtract, nothing",
+      "recoding reconstructs the signed value of the multiplier, not its unsigned value"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/arithmetic-algorithms-booth-division-cla/index.html"
+    },
+    "mapped_at": "2026-10-31"
+   },
    "subject": "digital-logic",
    "topic": "computer-arithmetic",
    "path": "subjects/digital-logic/computer-arithmetic/booths-recoding-and-product.json"
@@ -32178,6 +32812,19 @@ window.GATE_DATA = {
    ],
    "sourceLine": "The worst case as b/2 additions and b/2 subtractions and the note that the alternating pattern is the worst: GATE Overflow GATE CSE Book, section 2.2.10 (English, read in part). The three pair cases that make 00 and 11 shift-only: eHindiStudy (Hindi, read in full, translated). The two question texts and accepted answers: their GATE Overflow pages. Every count in this card is recomputed in scripts/validate.py rather than taken from any source.",
    "videoRefs": [],
+   "links": {
+    "visual": {
+     "slug": "arithmetic-algorithms-booth-division-cla",
+     "title": "Arithmetic Algorithms: Booth's Multiplication, Restoring and Non-Restoring Division, and the Carry-Lookahead Adder",
+     "level": "topic-level",
+     "covers": [
+      "operation count equals the transition count of the multiplier",
+      "operations against iterations as two different questions"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/arithmetic-algorithms-booth-division-cla/index.html"
+    },
+    "mapped_at": "2026-10-31"
+   },
    "subject": "digital-logic",
    "topic": "computer-arithmetic",
    "path": "subjects/digital-logic/computer-arithmetic/booths-operation-count.json"
@@ -32259,6 +32906,18 @@ window.GATE_DATA = {
    ],
    "sourceLine": "The restoring algorithm, its proof, the 00111 / 0011 worked trace and the n log n time: Sarangi, chapter 8 slides (English, read in part). The four-step register formulation - shift, subtract, test the sign, restore - and the N = DQ + R framing: Bhalodia, Unit 7 (English, read in part). Every trace in this card is recomputed in scripts/validate.py.",
    "videoRefs": [],
+   "links": {
+    "visual": {
+     "slug": "arithmetic-algorithms-booth-division-cla",
+     "title": "Arithmetic Algorithms: Booth's Multiplication, Restoring and Non-Restoring Division, and the Carry-Lookahead Adder",
+     "level": "topic-level",
+     "covers": [
+      "restoring division: shift, trial subtract, restore when negative"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/arithmetic-algorithms-booth-division-cla/index.html"
+    },
+    "mapped_at": "2026-10-31"
+   },
    "subject": "digital-logic",
    "topic": "computer-arithmetic",
    "path": "subjects/digital-logic/computer-arithmetic/restoring-division.json"
@@ -32339,6 +32998,19 @@ window.GATE_DATA = {
    ],
    "sourceLine": "The non-restoring algorithm, its divergence proof from the restoring form, and the 00111 / 0011 trace ending in U = 11110 with the closing U = U + D: Sarangi, chapter 8 slides (English, read in part). The quotient-digit set and the negative-remainder correction: Wikipedia's Division algorithm article, used only to confirm the two slides, plus Bhalodia's Unit 7 (English, read in part). Every trace is recomputed in scripts/validate.py.",
    "videoRefs": [],
+   "links": {
+    "visual": {
+     "slug": "arithmetic-algorithms-booth-division-cla",
+     "title": "Arithmetic Algorithms: Booth's Multiplication, Restoring and Non-Restoring Division, and the Carry-Lookahead Adder",
+     "level": "topic-level",
+     "covers": [
+      "non-restoring division: the sign before the shift chooses +M or -M",
+      "the single correction after the loop, and when it is not needed"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/arithmetic-algorithms-booth-division-cla/index.html"
+    },
+    "mapped_at": "2026-10-31"
+   },
    "subject": "digital-logic",
    "topic": "computer-arithmetic",
    "path": "subjects/digital-logic/computer-arithmetic/non-restoring-division.json"
@@ -32514,6 +33186,19 @@ window.GATE_DATA = {
    ],
    "sourceLine": "The four-step procedure, the hardware that implements it, the 270.75 + 2.375 and 224 - 270.75 examples (the second needing a three-place left shift after the subtraction), and the rounding step: NPTEL IIT Kharagpur Lecture 39 (English, read in part - the served transcript stops in the middle of the rounding discussion and resumes at the MIPS material). The 25-bit working register, the renormalisation rule and the opposite-sign path: Sarangi, chapter 8 slides (English, read in part). No comparison of exponents or alignment is needed for multiplication: Bhalodia, Unit 7 (English, read in part). The two question texts and accepted answers: their GATE Overflow pages.",
    "videoRefs": [],
+   "links": {
+    "visual": {
+     "slug": "number-representation-and-arithmetic",
+     "title": "Number Representation and Arithmetic",
+     "level": "topic-level",
+     "covers": [
+      "alignment loss: 2^24 + 1 = 2^24",
+      "the five-step procedure and the four traps"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/number-representation-and-arithmetic/index.html"
+    },
+    "mapped_at": "2026-10-31"
+   },
    "subject": "digital-logic",
    "topic": "computer-arithmetic",
    "path": "subjects/digital-logic/computer-arithmetic/floating-point-addition-alignment.json"
@@ -32698,6 +33383,19 @@ window.GATE_DATA = {
    ],
    "sourceLine": "The four IEEE rounding modes, the guard, round and sticky bits, the increment rule and the renormalisation after rounding: Sarangi, chapter 8 slides (English, read in part), whose 2.34 x 10^2 + 0.0256 x 10^2 example this card reproduces. The two measures of rounding error, ulps and relative error, machine epsilon and Theorem 1 on the error of a subtraction without a guard digit: Goldberg, sections 1.1 to 1.5 (English, read in part). The four modes as truncation, ceiling, floor and round, and the MIPS instructions that select them: NPTEL IIT Kharagpur Lecture 39 (English, read in part). Every number is recomputed in scripts/validate.py.",
    "videoRefs": [],
+   "links": {
+    "visual": {
+     "slug": "number-representation-and-arithmetic",
+     "title": "Number Representation and Arithmetic",
+     "level": "topic-level",
+     "covers": [
+      "rounding to nearest, ties to even",
+      "precision 24 bits against range: the gap at 1 is 2^-23"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/number-representation-and-arithmetic/index.html"
+    },
+    "mapped_at": "2026-10-31"
+   },
    "subject": "digital-logic",
    "topic": "computer-arithmetic",
    "path": "subjects/digital-logic/computer-arithmetic/ieee-rounding-guard-round-sticky.json"
@@ -32792,6 +33490,19 @@ window.GATE_DATA = {
    ],
    "sourceLine": "Benign against catastrophic cancellation, the relative error of a subtraction, and the statement that a floating-point calculation is exact unless rounding is required: Goldberg, sections 1.3 and 1.4 (English, read in part). The alignment step that loses the small operand, and the rounding that follows it: NPTEL IIT Kharagpur Lecture 39 (English, read in part). The rounding modes that decide each tie: Sarangi, chapter 8 slides (English, read in part). The two question texts and accepted answers: their GATE Overflow pages. The 1 + 2^-24 and 1 + 2^-25 claims are recomputed in single precision in scripts/validate.py.",
    "videoRefs": [],
+   "links": {
+    "visual": {
+     "slug": "number-representation-and-arithmetic",
+     "title": "Number Representation and Arithmetic",
+     "level": "topic-level",
+     "covers": [
+      "alignment loss: 2^24 + 1 = 2^24",
+      "inexact decimals: 0.1 as 13421773/2^27"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/number-representation-and-arithmetic/index.html"
+    },
+    "mapped_at": "2026-10-31"
+   },
    "subject": "digital-logic",
    "topic": "computer-arithmetic",
    "path": "subjects/digital-logic/computer-arithmetic/floating-point-precision-loss.json"
@@ -32884,6 +33595,45 @@ window.GATE_DATA = {
    ],
    "sourceLine": "The fixed-point against floating-point split as two data types, and the statement that fixed-point integers are what integer arithmetic uses while floating point carries a mantissa and an exponent: Bhalodia, Unit 7 (English, read in part). The ulp, machine epsilon and the wobble of the relative error against a fixed ulp error: Goldberg, sections 1.1 and 1.2 (English, read in part). The 32-bit normal and denormal forms with 1 <= P < 2: Sarangi, chapter 8 slides (English, read in part). Every spacing and value here is recomputed in scripts/validate.py.",
    "videoRefs": [],
+   "links": {
+    "mock": {
+     "subject": "digital-logic",
+     "unit_slug": "number-systems",
+     "unit_name": "Number Systems & Representation",
+     "unit_number": 1,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Base conversions",
+       "questions": 15
+      },
+      {
+       "label": "Floating point & IEEE 754",
+       "questions": 11
+      },
+      {
+       "label": "One's & two's complement",
+       "questions": 13
+      },
+      {
+       "label": "Range & overflow",
+       "questions": 11
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-10-27.html"
+    },
+    "visual": {
+     "slug": "number-representation-and-arithmetic",
+     "title": "Number Representation and Arithmetic",
+     "level": "topic-level",
+     "covers": [
+      "precision 24 bits against range: the gap at 1 is 2^-23",
+      "resolution against range at fixed width"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/number-representation-and-arithmetic/index.html"
+    },
+    "mapped_at": "2026-10-31"
+   },
    "subject": "digital-logic",
    "topic": "computer-arithmetic",
    "path": "subjects/digital-logic/computer-arithmetic/fixed-versus-floating-point.json"

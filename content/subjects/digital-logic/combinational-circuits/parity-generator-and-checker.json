@@ -67,5 +67,38 @@
       "note": "Read the combinational circuit, adder, carry look-ahead, decoder and multiplexer sections, plus the paper-by-paper mark distribution used to check which years asked this topic."
     }
   ],
-  "sourceLine": "The parity definition and the checker rule are stated from the standard treatment (Mano, Digital Design, chapter 4) and the GATE Overflow Digital Logic notes (English). NPTEL Lecture 20 of the same course covers the parity generator and checker but was not fetched this run, so nothing is attributed to it and the card carries no PYQ."
+  "sourceLine": "The parity definition and the checker rule are stated from the standard treatment (Mano, Digital Design, chapter 4) and the GATE Overflow Digital Logic notes (English). NPTEL Lecture 20 of the same course covers the parity generator and checker but was not fetched this run, so nothing is attributed to it and the card carries no PYQ.",
+  "links": {
+    "mock": {
+      "subject": "digital-logic",
+      "unit_slug": "combinational-circuits",
+      "unit_name": "Combinational Circuit Design",
+      "unit_number": 2,
+      "question_count": 50,
+      "subtopics": [
+        {
+          "label": "Adders & subtractors",
+          "questions": 10
+        },
+        {
+          "label": "Code converters",
+          "questions": 10
+        },
+        {
+          "label": "Decoders & encoders",
+          "questions": 10
+        },
+        {
+          "label": "Hazards & glitches",
+          "questions": 10
+        },
+        {
+          "label": "Multiplexers & demultiplexers",
+          "questions": 10
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/digital-logic/combinational-circuits/gate_dl_mock_2_2026-10-27.html"
+    },
+    "mapped_at": "2026-10-31"
+  }
 }

@@ -95,6 +95,36 @@
       ],
       "url": "visuals/digital-logic/combinational-circuits/mux-to-minimal-sop/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-10-31",
+    "mock": {
+      "subject": "digital-logic",
+      "unit_slug": "combinational-circuits",
+      "unit_name": "Combinational Circuit Design",
+      "unit_number": 2,
+      "question_count": 50,
+      "subtopics": [
+        {
+          "label": "Adders & subtractors",
+          "questions": 10
+        },
+        {
+          "label": "Code converters",
+          "questions": 10
+        },
+        {
+          "label": "Decoders & encoders",
+          "questions": 10
+        },
+        {
+          "label": "Hazards & glitches",
+          "questions": 10
+        },
+        {
+          "label": "Multiplexers & demultiplexers",
+          "questions": 10
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/digital-logic/combinational-circuits/gate_dl_mock_2_2026-10-27.html"
+    }
   }
 }

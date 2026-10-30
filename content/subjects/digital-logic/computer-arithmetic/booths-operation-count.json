@@ -77,5 +77,18 @@
     }
   ],
   "sourceLine": "The worst case as b/2 additions and b/2 subtractions and the note that the alternating pattern is the worst: GATE Overflow GATE CSE Book, section 2.2.10 (English, read in part). The three pair cases that make 00 and 11 shift-only: eHindiStudy (Hindi, read in full, translated). The two question texts and accepted answers: their GATE Overflow pages. Every count in this card is recomputed in scripts/validate.py rather than taken from any source.",
-  "videoRefs": []
+  "videoRefs": [],
+  "links": {
+    "visual": {
+      "slug": "arithmetic-algorithms-booth-division-cla",
+      "title": "Arithmetic Algorithms: Booth's Multiplication, Restoring and Non-Restoring Division, and the Carry-Lookahead Adder",
+      "level": "topic-level",
+      "covers": [
+        "operation count equals the transition count of the multiplier",
+        "operations against iterations as two different questions"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/arithmetic-algorithms-booth-division-cla/index.html"
+    },
+    "mapped_at": "2026-10-31"
+  }
 }

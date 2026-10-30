@@ -74,5 +74,17 @@
     }
   ],
   "sourceLine": "The restoring algorithm, its proof, the 00111 / 0011 worked trace and the n log n time: Sarangi, chapter 8 slides (English, read in part). The four-step register formulation - shift, subtract, test the sign, restore - and the N = DQ + R framing: Bhalodia, Unit 7 (English, read in part). Every trace in this card is recomputed in scripts/validate.py.",
-  "videoRefs": []
+  "videoRefs": [],
+  "links": {
+    "visual": {
+      "slug": "arithmetic-algorithms-booth-division-cla",
+      "title": "Arithmetic Algorithms: Booth's Multiplication, Restoring and Non-Restoring Division, and the Carry-Lookahead Adder",
+      "level": "topic-level",
+      "covers": [
+        "restoring division: shift, trial subtract, restore when negative"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/arithmetic-algorithms-booth-division-cla/index.html"
+    },
+    "mapped_at": "2026-10-31"
+  }
 }

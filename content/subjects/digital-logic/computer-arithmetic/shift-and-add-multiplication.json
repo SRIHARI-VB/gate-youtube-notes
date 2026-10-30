@@ -77,5 +77,18 @@
     }
   ],
   "sourceLine": "The partial products and the array multiplier's structure and delay: GATE Overflow GATE CSE Book, Digital Logic sections 2.2.2 and 2.2.8 (English, read in part), whose own worked multiplication is 01011 x 01110. The row-of-adders picture and the integer-division preamble on N = DQ + R: Sarangi, chapter 8 slides (English, read in part). The 1996 ROM-width question is carded under Combinational Circuits, not repeated here.",
-  "videoRefs": []
+  "videoRefs": [],
+  "links": {
+    "visual": {
+      "slug": "arithmetic-algorithms-booth-division-cla",
+      "title": "Arithmetic Algorithms: Booth's Multiplication, Restoring and Non-Restoring Division, and the Carry-Lookahead Adder",
+      "level": "topic-level",
+      "covers": [
+        "shift-and-add: add when Q0 = 1, then shift (A,Q) right",
+        "additions equal the number of 1s in the multiplier"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/arithmetic-algorithms-booth-division-cla/index.html"
+    },
+    "mapped_at": "2026-10-31"
+  }
 }

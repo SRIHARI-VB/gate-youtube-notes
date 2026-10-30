@@ -66,5 +66,47 @@
       "note": "Read from the opening through the BCD-to-decimal decoder and again at the closing summary: the encoder is the inverse of the decoder, a priority encoder settles the case of more than one active input, and IC 74148 cascades an 8-to-3 into a 16-to-4 encoder through its enable and group-select pins."
     }
   ],
-  "sourceLine": "The encoder as the inverse of the decoder, the priority rule when more than one input is active, and the 74148 cascade from 8-to-3 to 16-to-4 through enable and group-select: NPTEL IIT Kharagpur Digital Electronic Circuits Lecture 19 (English, read from its opening to its closing summary). No verified GATE CSE question in this topic is decided by the encoder alone, so the card carries no PYQ of its own."
+  "sourceLine": "The encoder as the inverse of the decoder, the priority rule when more than one input is active, and the 74148 cascade from 8-to-3 to 16-to-4 through enable and group-select: NPTEL IIT Kharagpur Digital Electronic Circuits Lecture 19 (English, read from its opening to its closing summary). No verified GATE CSE question in this topic is decided by the encoder alone, so the card carries no PYQ of its own.",
+  "links": {
+    "mock": {
+      "subject": "digital-logic",
+      "unit_slug": "combinational-circuits",
+      "unit_name": "Combinational Circuit Design",
+      "unit_number": 2,
+      "question_count": 50,
+      "subtopics": [
+        {
+          "label": "Adders & subtractors",
+          "questions": 10
+        },
+        {
+          "label": "Code converters",
+          "questions": 10
+        },
+        {
+          "label": "Decoders & encoders",
+          "questions": 10
+        },
+        {
+          "label": "Hazards & glitches",
+          "questions": 10
+        },
+        {
+          "label": "Multiplexers & demultiplexers",
+          "questions": 10
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/digital-logic/combinational-circuits/gate_dl_mock_2_2026-10-27.html"
+    },
+    "visual": {
+      "slug": "combinational-circuits",
+      "title": "Combinational Circuits: Adders, Multiplexers and Decoders",
+      "level": "topic-level",
+      "covers": [
+        "priority encoder and the collision that forces a valid flag"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/combinational-circuits/index.html"
+    },
+    "mapped_at": "2026-10-31"
+  }
 }

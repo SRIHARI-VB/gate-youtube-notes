@@ -71,5 +71,48 @@
       "note": "Read the combinational circuit, adder, ripple carry, carry look-ahead, decoder and multiplexer sections, plus the paper-by-paper mark distribution used to check which years asked this topic. Used as the GATE-oriented statement of the rules, never as a source of questions."
     }
   ],
-  "sourceLine": "The generate and propagate definitions, the expanded carries and the two-level structure: the GATE Overflow Digital Logic subject notes (English), read in part, which states the C1 to C4 expansions and the n(n+1)/2 and n counts. No readable lecture transcript on this topic was available this run, so both cards rest on the written reference plus recomputation; every count and every delay total is checked in scripts/validate.py."
+  "sourceLine": "The generate and propagate definitions, the expanded carries and the two-level structure: the GATE Overflow Digital Logic subject notes (English), read in part, which states the C1 to C4 expansions and the n(n+1)/2 and n counts. No readable lecture transcript on this topic was available this run, so both cards rest on the written reference plus recomputation; every count and every delay total is checked in scripts/validate.py.",
+  "links": {
+    "mock": {
+      "subject": "digital-logic",
+      "unit_slug": "combinational-circuits",
+      "unit_name": "Combinational Circuit Design",
+      "unit_number": 2,
+      "question_count": 50,
+      "subtopics": [
+        {
+          "label": "Adders & subtractors",
+          "questions": 10
+        },
+        {
+          "label": "Code converters",
+          "questions": 10
+        },
+        {
+          "label": "Decoders & encoders",
+          "questions": 10
+        },
+        {
+          "label": "Hazards & glitches",
+          "questions": 10
+        },
+        {
+          "label": "Multiplexers & demultiplexers",
+          "questions": 10
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/digital-logic/combinational-circuits/gate_dl_mock_2_2026-10-27.html"
+    },
+    "visual": {
+      "slug": "combinational-circuits",
+      "title": "Combinational Circuits: Adders, Multiplexers and Decoders",
+      "level": "topic-level",
+      "covers": [
+        "generate g = a and b, propagate p = a xor b, and the two definitions of p in the literature",
+        "constant depth with unbounded fan-in against ceil(log2(n+1)) with fan-in two"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/combinational-circuits/index.html"
+    },
+    "mapped_at": "2026-10-31"
+  }
 }

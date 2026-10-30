@@ -86,5 +86,18 @@
     }
   ],
   "sourceLine": "The four-step procedure, the hardware that implements it, the 270.75 + 2.375 and 224 - 270.75 examples (the second needing a three-place left shift after the subtraction), and the rounding step: NPTEL IIT Kharagpur Lecture 39 (English, read in part - the served transcript stops in the middle of the rounding discussion and resumes at the MIPS material). The 25-bit working register, the renormalisation rule and the opposite-sign path: Sarangi, chapter 8 slides (English, read in part). No comparison of exponents or alignment is needed for multiplication: Bhalodia, Unit 7 (English, read in part). The two question texts and accepted answers: their GATE Overflow pages.",
-  "videoRefs": []
+  "videoRefs": [],
+  "links": {
+    "visual": {
+      "slug": "number-representation-and-arithmetic",
+      "title": "Number Representation and Arithmetic",
+      "level": "topic-level",
+      "covers": [
+        "alignment loss: 2^24 + 1 = 2^24",
+        "the five-step procedure and the four traps"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/number-representation-and-arithmetic/index.html"
+    },
+    "mapped_at": "2026-10-31"
+  }
 }

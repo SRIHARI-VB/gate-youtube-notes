@@ -67,5 +67,48 @@
       "note": "Read from the opening through the full-adder derivation and the construction of a full adder from two half adders, plus the lecturer's closing summary of the whole class. The served transcript stops before the ripple-carry and adder-subtractor worked examples, so those two are recomputed here rather than quoted."
     }
   ],
-  "sourceLine": "The construction and the reason for it: NPTEL IIT Kharagpur Digital Electronic Circuits Lecture 23 (English), whose closing summary states that subtraction is done by the full adder on the two's complement, with the complement produced by a bank of NOT gates and the carry-in set to 1, and that a full adder plus a bank of XOR gates does both operations. The 2's complement arithmetic itself is the number-systems topic's card. No verified GATE CSE question in this topic is decided by the adder-subtractor alone, so the card carries no PYQ of its own."
+  "sourceLine": "The construction and the reason for it: NPTEL IIT Kharagpur Digital Electronic Circuits Lecture 23 (English), whose closing summary states that subtraction is done by the full adder on the two's complement, with the complement produced by a bank of NOT gates and the carry-in set to 1, and that a full adder plus a bank of XOR gates does both operations. The 2's complement arithmetic itself is the number-systems topic's card. No verified GATE CSE question in this topic is decided by the adder-subtractor alone, so the card carries no PYQ of its own.",
+  "links": {
+    "mock": {
+      "subject": "digital-logic",
+      "unit_slug": "combinational-circuits",
+      "unit_name": "Combinational Circuit Design",
+      "unit_number": 2,
+      "question_count": 50,
+      "subtopics": [
+        {
+          "label": "Adders & subtractors",
+          "questions": 10
+        },
+        {
+          "label": "Code converters",
+          "questions": 10
+        },
+        {
+          "label": "Decoders & encoders",
+          "questions": 10
+        },
+        {
+          "label": "Hazards & glitches",
+          "questions": 10
+        },
+        {
+          "label": "Multiplexers & demultiplexers",
+          "questions": 10
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/digital-logic/combinational-circuits/gate_dl_mock_2_2026-10-27.html"
+    },
+    "visual": {
+      "slug": "combinational-circuits",
+      "title": "Combinational Circuits: Adders, Multiplexers and Decoders",
+      "level": "topic-level",
+      "covers": [
+        "the adder-subtractor: B xor M on every bit and M into the carry in",
+        "overflow is carry-in xor carry-out of the sign column, never the carry out"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/combinational-circuits/index.html"
+    },
+    "mapped_at": "2026-10-31"
+  }
 }

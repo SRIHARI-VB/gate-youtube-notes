@@ -79,5 +79,47 @@
       "note": "Read from the opening through the full-adder derivation and the construction of a full adder from two half adders, plus the lecturer's closing summary of the whole class. The served transcript stops before the ripple-carry and adder-subtractor worked examples, so those two are recomputed here rather than quoted."
     }
   ],
-  "sourceLine": "The definition, the design loop and the don't-care rule: the GATE Overflow Digital Logic subject notes (English), read in part. The tabulation-and-minimise half of the loop is the previous topic's material. The example is GATE CSE 2004 Q.58, accepted answer option (B), and its three-gate realisation is recomputed in scripts/validate.py."
+  "sourceLine": "The definition, the design loop and the don't-care rule: the GATE Overflow Digital Logic subject notes (English), read in part. The tabulation-and-minimise half of the loop is the previous topic's material. The example is GATE CSE 2004 Q.58, accepted answer option (B), and its three-gate realisation is recomputed in scripts/validate.py.",
+  "links": {
+    "mock": {
+      "subject": "digital-logic",
+      "unit_slug": "combinational-circuits",
+      "unit_name": "Combinational Circuit Design",
+      "unit_number": 2,
+      "question_count": 50,
+      "subtopics": [
+        {
+          "label": "Adders & subtractors",
+          "questions": 10
+        },
+        {
+          "label": "Code converters",
+          "questions": 10
+        },
+        {
+          "label": "Decoders & encoders",
+          "questions": 10
+        },
+        {
+          "label": "Hazards & glitches",
+          "questions": 10
+        },
+        {
+          "label": "Multiplexers & demultiplexers",
+          "questions": 10
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/digital-logic/combinational-circuits/gate_dl_mock_2_2026-10-27.html"
+    },
+    "visual": {
+      "slug": "combinational-circuits",
+      "title": "Combinational Circuits: Adders, Multiplexers and Decoders",
+      "level": "topic-level",
+      "covers": [
+        "a combinational circuit is its truth table: no state, so 2^n rows are complete"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/combinational-circuits/index.html"
+    },
+    "mapped_at": "2026-10-31"
+  }
 }

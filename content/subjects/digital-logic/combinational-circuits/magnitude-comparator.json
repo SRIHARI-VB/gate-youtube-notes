@@ -66,5 +66,38 @@
       "note": "Read the combinational circuit, adder, carry look-ahead, decoder and multiplexer sections, plus the paper-by-paper mark distribution used to check which years asked this topic."
     }
   ],
-  "sourceLine": "The three verdicts and the most-significant-first rule are stated from the standard treatment of combinational blocks (Mano, Digital Design, chapter 4) and from the GATE Overflow Digital Logic notes (English). No readable lecture transcript on the comparator was obtained this run - NPTEL Lecture 26 exists but was not fetched - so nothing is quoted or timestamped, and no PYQ rests on this card."
+  "sourceLine": "The three verdicts and the most-significant-first rule are stated from the standard treatment of combinational blocks (Mano, Digital Design, chapter 4) and from the GATE Overflow Digital Logic notes (English). No readable lecture transcript on the comparator was obtained this run - NPTEL Lecture 26 exists but was not fetched - so nothing is quoted or timestamped, and no PYQ rests on this card.",
+  "links": {
+    "mock": {
+      "subject": "digital-logic",
+      "unit_slug": "combinational-circuits",
+      "unit_name": "Combinational Circuit Design",
+      "unit_number": 2,
+      "question_count": 50,
+      "subtopics": [
+        {
+          "label": "Adders & subtractors",
+          "questions": 10
+        },
+        {
+          "label": "Code converters",
+          "questions": 10
+        },
+        {
+          "label": "Decoders & encoders",
+          "questions": 10
+        },
+        {
+          "label": "Hazards & glitches",
+          "questions": 10
+        },
+        {
+          "label": "Multiplexers & demultiplexers",
+          "questions": 10
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/digital-logic/combinational-circuits/gate_dl_mock_2_2026-10-27.html"
+    },
+    "mapped_at": "2026-10-31"
+  }
 }

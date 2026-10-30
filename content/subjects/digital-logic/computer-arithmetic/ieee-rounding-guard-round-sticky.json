@@ -83,5 +83,18 @@
     }
   ],
   "sourceLine": "The four IEEE rounding modes, the guard, round and sticky bits, the increment rule and the renormalisation after rounding: Sarangi, chapter 8 slides (English, read in part), whose 2.34 x 10^2 + 0.0256 x 10^2 example this card reproduces. The two measures of rounding error, ulps and relative error, machine epsilon and Theorem 1 on the error of a subtraction without a guard digit: Goldberg, sections 1.1 to 1.5 (English, read in part). The four modes as truncation, ceiling, floor and round, and the MIPS instructions that select them: NPTEL IIT Kharagpur Lecture 39 (English, read in part). Every number is recomputed in scripts/validate.py.",
-  "videoRefs": []
+  "videoRefs": [],
+  "links": {
+    "visual": {
+      "slug": "number-representation-and-arithmetic",
+      "title": "Number Representation and Arithmetic",
+      "level": "topic-level",
+      "covers": [
+        "rounding to nearest, ties to even",
+        "precision 24 bits against range: the gap at 1 is 2^-23"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/number-representation-and-arithmetic/index.html"
+    },
+    "mapped_at": "2026-10-31"
+  }
 }

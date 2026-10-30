@@ -77,5 +77,48 @@
       "note": "Read the combinational circuit, adder, carry look-ahead, decoder and multiplexer sections, plus the paper-by-paper mark distribution used to check which years asked this topic."
     }
   ],
-  "sourceLine": "The definitions, the A.A' and A + A' mechanisms, detection on the map or in the expression, covering by an added term, and the three-level condition for dynamic hazards: NPTEL IIT Kharagpur Digital Electronic Circuits Lecture 15 (English, read from its opening to its closing summary). No verified GATE CSE question in this topic is decided by a hazard, so the card carries no PYQ."
+  "sourceLine": "The definitions, the A.A' and A + A' mechanisms, detection on the map or in the expression, covering by an added term, and the three-level condition for dynamic hazards: NPTEL IIT Kharagpur Digital Electronic Circuits Lecture 15 (English, read from its opening to its closing summary). No verified GATE CSE question in this topic is decided by a hazard, so the card carries no PYQ.",
+  "links": {
+    "mock": {
+      "subject": "digital-logic",
+      "unit_slug": "combinational-circuits",
+      "unit_name": "Combinational Circuit Design",
+      "unit_number": 2,
+      "question_count": 50,
+      "subtopics": [
+        {
+          "label": "Adders & subtractors",
+          "questions": 10
+        },
+        {
+          "label": "Code converters",
+          "questions": 10
+        },
+        {
+          "label": "Decoders & encoders",
+          "questions": 10
+        },
+        {
+          "label": "Hazards & glitches",
+          "questions": 10
+        },
+        {
+          "label": "Multiplexers & demultiplexers",
+          "questions": 10
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/digital-logic/combinational-circuits/gate_dl_mock_2_2026-10-27.html"
+    },
+    "visual": {
+      "slug": "combinational-circuits",
+      "title": "Combinational Circuits: Adders, Multiplexers and Decoders",
+      "level": "topic-level",
+      "covers": [
+        "static-1 hazard: adjacent ones covered by different terms",
+        "the consensus term BC as the repair, and why it changes no row"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/combinational-circuits/index.html"
+    },
+    "mapped_at": "2026-10-31"
+  }
 }

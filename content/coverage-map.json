@@ -1,6 +1,6 @@
 {
   "generated_by": "gate-content-mapper",
-  "generated_at": "2026-10-30",
+  "generated_at": "2026-10-31",
   "playlists": [
     {
       "playlist_id": "PLIPZ2_p3RNHidhFvyKH4U_VE1rFAyvG8U",
@@ -2329,6 +2329,20 @@
     {
       "subject": "digital-logic",
       "group": "boolean-algebra-and-minimization",
+      "topic": "xor-and-xnor-algebra",
+      "title": "XOR and XNOR: The Identities GATE Reuses",
+      "priority": "P2",
+      "path": "subjects/digital-logic/boolean-algebra-and-minimization/xor-and-xnor-algebra.json",
+      "transcript_status": "not stated",
+      "evidence": [
+        "notes content/index.json map[].path = subjects/digital-logic/boolean-algebra-and-minimization/xor-and-xnor-algebra.json",
+        "visual evidence: the lesson's transcript and page carry XOR only inside one PYQ answer, not as an algebra; no XOR/XNOR algebra section"
+      ],
+      "row_verdict": "NEITHER"
+    },
+    {
+      "subject": "digital-logic",
+      "group": "boolean-algebra-and-minimization",
       "topic": "canonical-forms-minterms-and-maxterms",
       "title": "Canonical Forms: Minterms, Maxterms, Sigma-m and Pi-M",
       "priority": "P1",
@@ -2483,6 +2497,28 @@
     {
       "subject": "digital-logic",
       "group": "boolean-algebra-and-minimization",
+      "topic": "five-variable-karnaugh-map",
+      "title": "The Five-Variable Map: Two Four-Variable Maps and the Reflection Axis",
+      "priority": "P3",
+      "path": "subjects/digital-logic/boolean-algebra-and-minimization/five-variable-karnaugh-map.json",
+      "transcript_status": "not stated",
+      "visual": {
+        "slug": "boolean-algebra-and-minimisation",
+        "title": "Boolean Algebra and Minimisation",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json map[].path = subjects/digital-logic/boolean-algebra-and-minimization/five-variable-karnaugh-map.json",
+        "visual: topics.json slug=boolean-algebra-and-minimisation; syllabus-coverage.json subtopics/microtopics checked against topics/boolean-algebra-and-minimisation/transcript.md and index.html",
+        "visual url: topics/boolean-algebra-and-minimisation/index.html"
+      ],
+      "row_verdict": "VISUAL_ONLY"
+    },
+    {
+      "subject": "digital-logic",
+      "group": "boolean-algebra-and-minimization",
       "topic": "quine-mccluskey-tabular-method",
       "title": "The Tabular Method: Quine-McCluskey, the Chart and the Essential Rows",
       "priority": "P2",
@@ -2523,6 +2559,816 @@
         "visual url: topics/boolean-algebra-and-minimisation/index.html"
       ],
       "row_verdict": "VISUAL_ONLY"
+    },
+    {
+      "subject": "digital-logic",
+      "group": "combinational-circuits",
+      "topic": "combinational-circuit-definition-and-design",
+      "title": "Combinational Circuits and the Four-Step Design Procedure",
+      "priority": "P1",
+      "path": "subjects/digital-logic/combinational-circuits/combinational-circuit-definition-and-design.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "digital-logic",
+        "unit_slug": "combinational-circuits",
+        "unit_name": "Combinational Circuit Design",
+        "unit_number": 2,
+        "question_count": 50,
+        "subtopic_labels": [
+          "Adders & subtractors",
+          "Code converters",
+          "Decoders & encoders",
+          "Hazards & glitches",
+          "Multiplexers & demultiplexers"
+        ],
+        "verdict": "MOCK_READY"
+      },
+      "visual": {
+        "slug": "combinational-circuits",
+        "title": "Combinational Circuits: Adders, Multiplexers and Decoders",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json map[].path = subjects/digital-logic/combinational-circuits/combinational-circuit-definition-and-design.json",
+        "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=combinational-circuits (50 records)",
+        "mock url: runs[] last entry for combinational-circuits -> https://gate-cse-mocks.vercel.app/digital-logic/combinational-circuits/gate_dl_mock_2_2026-10-27.html",
+        "mock evidence: unit is the combinational-design unit; no subtopic group is the design procedure itself",
+        "visual: topics.json slug=combinational-circuits; syllabus-coverage.json subtopics/microtopics checked against topics/combinational-circuits/transcript.md and index.html",
+        "visual url: topics/combinational-circuits/index.html"
+      ],
+      "row_verdict": "BOTH"
+    },
+    {
+      "subject": "digital-logic",
+      "group": "combinational-circuits",
+      "topic": "half-adder-and-full-adder",
+      "title": "Half Adder and Full Adder",
+      "priority": "P1",
+      "path": "subjects/digital-logic/combinational-circuits/half-adder-and-full-adder.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "digital-logic",
+        "unit_slug": "combinational-circuits",
+        "unit_name": "Combinational Circuit Design",
+        "unit_number": 2,
+        "question_count": 50,
+        "subtopic_labels": [
+          "Adders & subtractors",
+          "Code converters",
+          "Decoders & encoders",
+          "Hazards & glitches",
+          "Multiplexers & demultiplexers"
+        ],
+        "verdict": "MOCK_READY"
+      },
+      "visual": {
+        "slug": "combinational-circuits",
+        "title": "Combinational Circuits: Adders, Multiplexers and Decoders",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json map[].path = subjects/digital-logic/combinational-circuits/half-adder-and-full-adder.json",
+        "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=combinational-circuits (50 records)",
+        "mock url: runs[] last entry for combinational-circuits -> https://gate-cse-mocks.vercel.app/digital-logic/combinational-circuits/gate_dl_mock_2_2026-10-27.html",
+        "mock evidence: mock group adders-subtractors",
+        "visual: topics.json slug=combinational-circuits; syllabus-coverage.json subtopics/microtopics checked against topics/combinational-circuits/transcript.md and index.html",
+        "visual url: topics/combinational-circuits/index.html"
+      ],
+      "row_verdict": "BOTH"
+    },
+    {
+      "subject": "digital-logic",
+      "group": "combinational-circuits",
+      "topic": "ripple-carry-adder-and-delay",
+      "title": "Ripple-Carry Adder and Its Critical Path",
+      "priority": "P1",
+      "path": "subjects/digital-logic/combinational-circuits/ripple-carry-adder-and-delay.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "digital-logic",
+        "unit_slug": "combinational-circuits",
+        "unit_name": "Combinational Circuit Design",
+        "unit_number": 2,
+        "question_count": 50,
+        "subtopic_labels": [
+          "Adders & subtractors",
+          "Code converters",
+          "Decoders & encoders",
+          "Hazards & glitches",
+          "Multiplexers & demultiplexers"
+        ],
+        "verdict": "MOCK_READY"
+      },
+      "visual": {
+        "slug": "combinational-circuits",
+        "title": "Combinational Circuits: Adders, Multiplexers and Decoders",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json map[].path = subjects/digital-logic/combinational-circuits/ripple-carry-adder-and-delay.json",
+        "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=combinational-circuits (50 records)",
+        "mock url: runs[] last entry for combinational-circuits -> https://gate-cse-mocks.vercel.app/digital-logic/combinational-circuits/gate_dl_mock_2_2026-10-27.html",
+        "mock evidence: mock group adders-subtractors",
+        "visual: topics.json slug=combinational-circuits; syllabus-coverage.json subtopics/microtopics checked against topics/combinational-circuits/transcript.md and index.html",
+        "visual url: topics/combinational-circuits/index.html"
+      ],
+      "row_verdict": "BOTH"
+    },
+    {
+      "subject": "digital-logic",
+      "group": "combinational-circuits",
+      "topic": "carry-lookahead-adder",
+      "title": "Carry Look-Ahead Adder: Generate, Propagate, Two-Level Carry",
+      "priority": "P2",
+      "path": "subjects/digital-logic/combinational-circuits/carry-lookahead-adder.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "digital-logic",
+        "unit_slug": "combinational-circuits",
+        "unit_name": "Combinational Circuit Design",
+        "unit_number": 2,
+        "question_count": 50,
+        "subtopic_labels": [
+          "Adders & subtractors",
+          "Code converters",
+          "Decoders & encoders",
+          "Hazards & glitches",
+          "Multiplexers & demultiplexers"
+        ],
+        "verdict": "MOCK_READY"
+      },
+      "visual": {
+        "slug": "combinational-circuits",
+        "title": "Combinational Circuits: Adders, Multiplexers and Decoders",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json map[].path = subjects/digital-logic/combinational-circuits/carry-lookahead-adder.json",
+        "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=combinational-circuits (50 records)",
+        "mock url: runs[] last entry for combinational-circuits -> https://gate-cse-mocks.vercel.app/digital-logic/combinational-circuits/gate_dl_mock_2_2026-10-27.html",
+        "mock evidence: mock group adders-subtractors",
+        "visual: topics.json slug=combinational-circuits; syllabus-coverage.json subtopics/microtopics checked against topics/combinational-circuits/transcript.md and index.html",
+        "visual url: topics/combinational-circuits/index.html"
+      ],
+      "row_verdict": "BOTH"
+    },
+    {
+      "subject": "digital-logic",
+      "group": "combinational-circuits",
+      "topic": "adder-subtractor",
+      "title": "Adder-Subtractor: One Circuit, Two Operations",
+      "priority": "P2",
+      "path": "subjects/digital-logic/combinational-circuits/adder-subtractor.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "digital-logic",
+        "unit_slug": "combinational-circuits",
+        "unit_name": "Combinational Circuit Design",
+        "unit_number": 2,
+        "question_count": 50,
+        "subtopic_labels": [
+          "Adders & subtractors",
+          "Code converters",
+          "Decoders & encoders",
+          "Hazards & glitches",
+          "Multiplexers & demultiplexers"
+        ],
+        "verdict": "MOCK_READY"
+      },
+      "visual": {
+        "slug": "combinational-circuits",
+        "title": "Combinational Circuits: Adders, Multiplexers and Decoders",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json map[].path = subjects/digital-logic/combinational-circuits/adder-subtractor.json",
+        "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=combinational-circuits (50 records)",
+        "mock url: runs[] last entry for combinational-circuits -> https://gate-cse-mocks.vercel.app/digital-logic/combinational-circuits/gate_dl_mock_2_2026-10-27.html",
+        "mock evidence: mock group adders-subtractors",
+        "visual: topics.json slug=combinational-circuits; syllabus-coverage.json subtopics/microtopics checked against topics/combinational-circuits/transcript.md and index.html",
+        "visual url: topics/combinational-circuits/index.html"
+      ],
+      "row_verdict": "BOTH"
+    },
+    {
+      "subject": "digital-logic",
+      "group": "combinational-circuits",
+      "topic": "multiplexer-and-select-lines",
+      "title": "Multiplexer: Steering 2^n Inputs with n Select Lines",
+      "priority": "P1",
+      "path": "subjects/digital-logic/combinational-circuits/multiplexer-and-select-lines.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "digital-logic",
+        "unit_slug": "combinational-circuits",
+        "unit_name": "Combinational Circuit Design",
+        "unit_number": 2,
+        "question_count": 50,
+        "subtopic_labels": [
+          "Adders & subtractors",
+          "Code converters",
+          "Decoders & encoders",
+          "Hazards & glitches",
+          "Multiplexers & demultiplexers"
+        ],
+        "verdict": "MOCK_READY"
+      },
+      "visual": {
+        "slug": "combinational-circuits",
+        "title": "Combinational Circuits: Adders, Multiplexers and Decoders",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json map[].path = subjects/digital-logic/combinational-circuits/multiplexer-and-select-lines.json",
+        "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=combinational-circuits (50 records)",
+        "mock url: runs[] last entry for combinational-circuits -> https://gate-cse-mocks.vercel.app/digital-logic/combinational-circuits/gate_dl_mock_2_2026-10-27.html",
+        "mock evidence: mock group multiplexers-demultiplexers",
+        "visual: topics.json slug=combinational-circuits; syllabus-coverage.json subtopics/microtopics checked against topics/combinational-circuits/transcript.md and index.html",
+        "visual url: topics/combinational-circuits/index.html"
+      ],
+      "row_verdict": "BOTH"
+    },
+    {
+      "subject": "digital-logic",
+      "group": "combinational-circuits",
+      "topic": "mux-implementing-a-boolean-function",
+      "title": "Implementing a Boolean Function on a Multiplexer",
+      "priority": "P1",
+      "path": "subjects/digital-logic/combinational-circuits/mux-implementing-a-boolean-function.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "digital-logic",
+        "unit_slug": "combinational-circuits",
+        "unit_name": "Combinational Circuit Design",
+        "unit_number": 2,
+        "question_count": 50,
+        "subtopic_labels": [
+          "Adders & subtractors",
+          "Code converters",
+          "Decoders & encoders",
+          "Hazards & glitches",
+          "Multiplexers & demultiplexers"
+        ],
+        "verdict": "MOCK_READY"
+      },
+      "evidence": [
+        "notes content/index.json map[].path = subjects/digital-logic/combinational-circuits/mux-implementing-a-boolean-function.json",
+        "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=combinational-circuits (50 records)",
+        "mock url: runs[] last entry for combinational-circuits -> https://gate-cse-mocks.vercel.app/digital-logic/combinational-circuits/gate_dl_mock_2_2026-10-27.html",
+        "mock evidence: mock group multiplexers-demultiplexers; the card already carries a subtopic-level notes visual, kept",
+        "visual evidence: mock group multiplexers-demultiplexers; the card already carries a subtopic-level notes visual, kept"
+      ],
+      "row_verdict": "MOCK_ONLY"
+    },
+    {
+      "subject": "digital-logic",
+      "group": "combinational-circuits",
+      "topic": "mux-trees-and-cascading",
+      "title": "Multiplexer Trees: Building a Big MUX from Small Ones",
+      "priority": "P2",
+      "path": "subjects/digital-logic/combinational-circuits/mux-trees-and-cascading.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "digital-logic",
+        "unit_slug": "combinational-circuits",
+        "unit_name": "Combinational Circuit Design",
+        "unit_number": 2,
+        "question_count": 50,
+        "subtopic_labels": [
+          "Adders & subtractors",
+          "Code converters",
+          "Decoders & encoders",
+          "Hazards & glitches",
+          "Multiplexers & demultiplexers"
+        ],
+        "verdict": "MOCK_READY"
+      },
+      "visual": {
+        "slug": "combinational-circuits",
+        "title": "Combinational Circuits: Adders, Multiplexers and Decoders",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json map[].path = subjects/digital-logic/combinational-circuits/mux-trees-and-cascading.json",
+        "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=combinational-circuits (50 records)",
+        "mock url: runs[] last entry for combinational-circuits -> https://gate-cse-mocks.vercel.app/digital-logic/combinational-circuits/gate_dl_mock_2_2026-10-27.html",
+        "mock evidence: mock group multiplexers-demultiplexers",
+        "visual: topics.json slug=combinational-circuits; syllabus-coverage.json subtopics/microtopics checked against topics/combinational-circuits/transcript.md and index.html",
+        "visual url: topics/combinational-circuits/index.html"
+      ],
+      "row_verdict": "BOTH"
+    },
+    {
+      "subject": "digital-logic",
+      "group": "combinational-circuits",
+      "topic": "decoder-and-minterm-generation",
+      "title": "Decoder: One-Hot Outputs and Function Implementation",
+      "priority": "P1",
+      "path": "subjects/digital-logic/combinational-circuits/decoder-and-minterm-generation.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "digital-logic",
+        "unit_slug": "combinational-circuits",
+        "unit_name": "Combinational Circuit Design",
+        "unit_number": 2,
+        "question_count": 50,
+        "subtopic_labels": [
+          "Adders & subtractors",
+          "Code converters",
+          "Decoders & encoders",
+          "Hazards & glitches",
+          "Multiplexers & demultiplexers"
+        ],
+        "verdict": "MOCK_READY"
+      },
+      "visual": {
+        "slug": "combinational-circuits",
+        "title": "Combinational Circuits: Adders, Multiplexers and Decoders",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json map[].path = subjects/digital-logic/combinational-circuits/decoder-and-minterm-generation.json",
+        "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=combinational-circuits (50 records)",
+        "mock url: runs[] last entry for combinational-circuits -> https://gate-cse-mocks.vercel.app/digital-logic/combinational-circuits/gate_dl_mock_2_2026-10-27.html",
+        "mock evidence: mock group decoders-encoders",
+        "visual: topics.json slug=combinational-circuits; syllabus-coverage.json subtopics/microtopics checked against topics/combinational-circuits/transcript.md and index.html",
+        "visual url: topics/combinational-circuits/index.html"
+      ],
+      "row_verdict": "BOTH"
+    },
+    {
+      "subject": "digital-logic",
+      "group": "combinational-circuits",
+      "topic": "encoder-and-priority-encoder",
+      "title": "Encoder and Priority Encoder",
+      "priority": "P2",
+      "path": "subjects/digital-logic/combinational-circuits/encoder-and-priority-encoder.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "digital-logic",
+        "unit_slug": "combinational-circuits",
+        "unit_name": "Combinational Circuit Design",
+        "unit_number": 2,
+        "question_count": 50,
+        "subtopic_labels": [
+          "Adders & subtractors",
+          "Code converters",
+          "Decoders & encoders",
+          "Hazards & glitches",
+          "Multiplexers & demultiplexers"
+        ],
+        "verdict": "MOCK_READY"
+      },
+      "visual": {
+        "slug": "combinational-circuits",
+        "title": "Combinational Circuits: Adders, Multiplexers and Decoders",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json map[].path = subjects/digital-logic/combinational-circuits/encoder-and-priority-encoder.json",
+        "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=combinational-circuits (50 records)",
+        "mock url: runs[] last entry for combinational-circuits -> https://gate-cse-mocks.vercel.app/digital-logic/combinational-circuits/gate_dl_mock_2_2026-10-27.html",
+        "mock evidence: mock group decoders-encoders",
+        "visual: topics.json slug=combinational-circuits; syllabus-coverage.json subtopics/microtopics checked against topics/combinational-circuits/transcript.md and index.html",
+        "visual url: topics/combinational-circuits/index.html"
+      ],
+      "row_verdict": "BOTH"
+    },
+    {
+      "subject": "digital-logic",
+      "group": "combinational-circuits",
+      "topic": "magnitude-comparator",
+      "title": "Magnitude Comparator",
+      "priority": "P3",
+      "path": "subjects/digital-logic/combinational-circuits/magnitude-comparator.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "digital-logic",
+        "unit_slug": "combinational-circuits",
+        "unit_name": "Combinational Circuit Design",
+        "unit_number": 2,
+        "question_count": 50,
+        "subtopic_labels": [
+          "Adders & subtractors",
+          "Code converters",
+          "Decoders & encoders",
+          "Hazards & glitches",
+          "Multiplexers & demultiplexers"
+        ],
+        "verdict": "MOCK_READY"
+      },
+      "evidence": [
+        "notes content/index.json map[].path = subjects/digital-logic/combinational-circuits/magnitude-comparator.json",
+        "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=combinational-circuits (50 records)",
+        "mock url: runs[] last entry for combinational-circuits -> https://gate-cse-mocks.vercel.app/digital-logic/combinational-circuits/gate_dl_mock_2_2026-10-27.html",
+        "mock evidence: unit is the combinational-design unit but no group is a comparator; the lesson never mentions one",
+        "visual evidence: unit is the combinational-design unit but no group is a comparator; the lesson never mentions one"
+      ],
+      "row_verdict": "MOCK_ONLY"
+    },
+    {
+      "subject": "digital-logic",
+      "group": "combinational-circuits",
+      "topic": "rom-and-pla",
+      "title": "ROM and PLA: Storing a Truth Table",
+      "priority": "P2",
+      "path": "subjects/digital-logic/combinational-circuits/rom-and-pla.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "digital-logic",
+        "unit_slug": "combinational-circuits",
+        "unit_name": "Combinational Circuit Design",
+        "unit_number": 2,
+        "question_count": 50,
+        "subtopic_labels": [
+          "Adders & subtractors",
+          "Code converters",
+          "Decoders & encoders",
+          "Hazards & glitches",
+          "Multiplexers & demultiplexers"
+        ],
+        "verdict": "MOCK_READY"
+      },
+      "evidence": [
+        "notes content/index.json map[].path = subjects/digital-logic/combinational-circuits/rom-and-pla.json",
+        "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=combinational-circuits (50 records)",
+        "mock url: runs[] last entry for combinational-circuits -> https://gate-cse-mocks.vercel.app/digital-logic/combinational-circuits/gate_dl_mock_2_2026-10-27.html",
+        "mock evidence: unit is the combinational-design unit but no group is ROM/PLA; the lesson never mentions them",
+        "visual evidence: unit is the combinational-design unit but no group is ROM/PLA; the lesson never mentions them"
+      ],
+      "row_verdict": "MOCK_ONLY"
+    },
+    {
+      "subject": "digital-logic",
+      "group": "combinational-circuits",
+      "topic": "parity-generator-and-checker",
+      "title": "Parity Generator and Checker",
+      "priority": "P3",
+      "path": "subjects/digital-logic/combinational-circuits/parity-generator-and-checker.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "digital-logic",
+        "unit_slug": "combinational-circuits",
+        "unit_name": "Combinational Circuit Design",
+        "unit_number": 2,
+        "question_count": 50,
+        "subtopic_labels": [
+          "Adders & subtractors",
+          "Code converters",
+          "Decoders & encoders",
+          "Hazards & glitches",
+          "Multiplexers & demultiplexers"
+        ],
+        "verdict": "MOCK_READY"
+      },
+      "evidence": [
+        "notes content/index.json map[].path = subjects/digital-logic/combinational-circuits/parity-generator-and-checker.json",
+        "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=combinational-circuits (50 records)",
+        "mock url: runs[] last entry for combinational-circuits -> https://gate-cse-mocks.vercel.app/digital-logic/combinational-circuits/gate_dl_mock_2_2026-10-27.html",
+        "mock evidence: unit is the combinational-design unit but no group is parity circuitry; the lesson has only full-adder parity",
+        "visual evidence: unit is the combinational-design unit but no group is parity circuitry; the lesson has only full-adder parity"
+      ],
+      "row_verdict": "MOCK_ONLY"
+    },
+    {
+      "subject": "digital-logic",
+      "group": "combinational-circuits",
+      "topic": "hazards-in-combinational-circuits",
+      "title": "Hazards and Glitches: When a Correct Truth Table Gives a Wrong Pulse",
+      "priority": "P2",
+      "path": "subjects/digital-logic/combinational-circuits/hazards-in-combinational-circuits.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "digital-logic",
+        "unit_slug": "combinational-circuits",
+        "unit_name": "Combinational Circuit Design",
+        "unit_number": 2,
+        "question_count": 50,
+        "subtopic_labels": [
+          "Adders & subtractors",
+          "Code converters",
+          "Decoders & encoders",
+          "Hazards & glitches",
+          "Multiplexers & demultiplexers"
+        ],
+        "verdict": "MOCK_READY"
+      },
+      "visual": {
+        "slug": "combinational-circuits",
+        "title": "Combinational Circuits: Adders, Multiplexers and Decoders",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json map[].path = subjects/digital-logic/combinational-circuits/hazards-in-combinational-circuits.json",
+        "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=combinational-circuits (50 records)",
+        "mock url: runs[] last entry for combinational-circuits -> https://gate-cse-mocks.vercel.app/digital-logic/combinational-circuits/gate_dl_mock_2_2026-10-27.html",
+        "mock evidence: mock group hazard-and-glitches",
+        "visual: topics.json slug=combinational-circuits; syllabus-coverage.json subtopics/microtopics checked against topics/combinational-circuits/transcript.md and index.html",
+        "visual url: topics/combinational-circuits/index.html"
+      ],
+      "row_verdict": "BOTH"
+    },
+    {
+      "subject": "digital-logic",
+      "group": "computer-arithmetic",
+      "topic": "fixed-point-add-subtract-overflow",
+      "title": "Fixed-Point Addition and Subtraction: Overflow Is Not the Carry",
+      "priority": "P1",
+      "path": "subjects/digital-logic/computer-arithmetic/fixed-point-add-subtract-overflow.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "digital-logic",
+        "unit_slug": "number-systems",
+        "unit_name": "Number Systems & Representation",
+        "unit_number": 1,
+        "question_count": 50,
+        "subtopic_labels": [
+          "Base conversions",
+          "Floating point & IEEE 754",
+          "One's & two's complement",
+          "Range & overflow"
+        ],
+        "verdict": "MOCK_READY"
+      },
+      "visual": {
+        "slug": "number-representation-and-arithmetic",
+        "title": "Number Representation and Arithmetic",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json map[].path = subjects/digital-logic/computer-arithmetic/fixed-point-add-subtract-overflow.json",
+        "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=number-systems (50 records)",
+        "mock url: runs[] last entry for number-systems -> https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-10-27.html",
+        "mock evidence: mock group range-and-overflow (DL-U1-Q24 signed-overflow MSQ)",
+        "visual: topics.json slug=number-representation-and-arithmetic; syllabus-coverage.json subtopics/microtopics checked against topics/number-representation-and-arithmetic/transcript.md and index.html",
+        "visual url: topics/number-representation-and-arithmetic/index.html"
+      ],
+      "row_verdict": "BOTH"
+    },
+    {
+      "subject": "digital-logic",
+      "group": "computer-arithmetic",
+      "topic": "shift-and-add-multiplication",
+      "title": "Unsigned Multiplication: Shift and Add, and the 2n-Bit Product",
+      "priority": "P1",
+      "path": "subjects/digital-logic/computer-arithmetic/shift-and-add-multiplication.json",
+      "transcript_status": "not stated",
+      "visual": {
+        "slug": "arithmetic-algorithms-booth-division-cla",
+        "title": "Arithmetic Algorithms: Booth's Multiplication, Restoring and Non-Restoring Division, and the Carry-Lookahead Adder",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json map[].path = subjects/digital-logic/computer-arithmetic/shift-and-add-multiplication.json",
+        "visual: topics.json slug=arithmetic-algorithms-booth-division-cla; syllabus-coverage.json subtopics/microtopics checked against topics/arithmetic-algorithms-booth-division-cla/transcript.md and index.html",
+        "visual url: topics/arithmetic-algorithms-booth-division-cla/index.html"
+      ],
+      "row_verdict": "VISUAL_ONLY"
+    },
+    {
+      "subject": "digital-logic",
+      "group": "computer-arithmetic",
+      "topic": "booths-recoding-and-product",
+      "title": "Booth Recoding: A Run of Ones Costs Two Operations",
+      "priority": "P1",
+      "path": "subjects/digital-logic/computer-arithmetic/booths-recoding-and-product.json",
+      "transcript_status": "not stated",
+      "visual": {
+        "slug": "arithmetic-algorithms-booth-division-cla",
+        "title": "Arithmetic Algorithms: Booth's Multiplication, Restoring and Non-Restoring Division, and the Carry-Lookahead Adder",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json map[].path = subjects/digital-logic/computer-arithmetic/booths-recoding-and-product.json",
+        "visual: topics.json slug=arithmetic-algorithms-booth-division-cla; syllabus-coverage.json subtopics/microtopics checked against topics/arithmetic-algorithms-booth-division-cla/transcript.md and index.html",
+        "visual url: topics/arithmetic-algorithms-booth-division-cla/index.html"
+      ],
+      "row_verdict": "VISUAL_ONLY"
+    },
+    {
+      "subject": "digital-logic",
+      "group": "computer-arithmetic",
+      "topic": "booths-operation-count",
+      "title": "Counting Booth's Additions and Subtractions",
+      "priority": "P1",
+      "path": "subjects/digital-logic/computer-arithmetic/booths-operation-count.json",
+      "transcript_status": "not stated",
+      "visual": {
+        "slug": "arithmetic-algorithms-booth-division-cla",
+        "title": "Arithmetic Algorithms: Booth's Multiplication, Restoring and Non-Restoring Division, and the Carry-Lookahead Adder",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json map[].path = subjects/digital-logic/computer-arithmetic/booths-operation-count.json",
+        "visual: topics.json slug=arithmetic-algorithms-booth-division-cla; syllabus-coverage.json subtopics/microtopics checked against topics/arithmetic-algorithms-booth-division-cla/transcript.md and index.html",
+        "visual url: topics/arithmetic-algorithms-booth-division-cla/index.html"
+      ],
+      "row_verdict": "VISUAL_ONLY"
+    },
+    {
+      "subject": "digital-logic",
+      "group": "computer-arithmetic",
+      "topic": "restoring-division",
+      "title": "Restoring Division: Trial Subtraction with an Undo",
+      "priority": "P1",
+      "path": "subjects/digital-logic/computer-arithmetic/restoring-division.json",
+      "transcript_status": "not stated",
+      "visual": {
+        "slug": "arithmetic-algorithms-booth-division-cla",
+        "title": "Arithmetic Algorithms: Booth's Multiplication, Restoring and Non-Restoring Division, and the Carry-Lookahead Adder",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json map[].path = subjects/digital-logic/computer-arithmetic/restoring-division.json",
+        "visual: topics.json slug=arithmetic-algorithms-booth-division-cla; syllabus-coverage.json subtopics/microtopics checked against topics/arithmetic-algorithms-booth-division-cla/transcript.md and index.html",
+        "visual url: topics/arithmetic-algorithms-booth-division-cla/index.html"
+      ],
+      "row_verdict": "VISUAL_ONLY"
+    },
+    {
+      "subject": "digital-logic",
+      "group": "computer-arithmetic",
+      "topic": "non-restoring-division",
+      "title": "Non-Restoring Division: Let the Remainder Go Negative",
+      "priority": "P2",
+      "path": "subjects/digital-logic/computer-arithmetic/non-restoring-division.json",
+      "transcript_status": "not stated",
+      "visual": {
+        "slug": "arithmetic-algorithms-booth-division-cla",
+        "title": "Arithmetic Algorithms: Booth's Multiplication, Restoring and Non-Restoring Division, and the Carry-Lookahead Adder",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json map[].path = subjects/digital-logic/computer-arithmetic/non-restoring-division.json",
+        "visual: topics.json slug=arithmetic-algorithms-booth-division-cla; syllabus-coverage.json subtopics/microtopics checked against topics/arithmetic-algorithms-booth-division-cla/transcript.md and index.html",
+        "visual url: topics/arithmetic-algorithms-booth-division-cla/index.html"
+      ],
+      "row_verdict": "VISUAL_ONLY"
+    },
+    {
+      "subject": "digital-logic",
+      "group": "computer-arithmetic",
+      "topic": "fixed-point-fraction-multiplication",
+      "title": "Fixed-Point Fractions: Multiplying in Q Format",
+      "priority": "P2",
+      "path": "subjects/digital-logic/computer-arithmetic/fixed-point-fraction-multiplication.json",
+      "transcript_status": "not stated",
+      "evidence": [
+        "notes content/index.json map[].path = subjects/digital-logic/computer-arithmetic/fixed-point-fraction-multiplication.json",
+        "visual evidence: no unit and no lesson covers Q-format multiplication"
+      ],
+      "row_verdict": "NEITHER"
+    },
+    {
+      "subject": "digital-logic",
+      "group": "computer-arithmetic",
+      "topic": "floating-point-addition-alignment",
+      "title": "Floating-Point Addition: Align, Add, Normalise, Round",
+      "priority": "P1",
+      "path": "subjects/digital-logic/computer-arithmetic/floating-point-addition-alignment.json",
+      "transcript_status": "not stated",
+      "visual": {
+        "slug": "number-representation-and-arithmetic",
+        "title": "Number Representation and Arithmetic",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json map[].path = subjects/digital-logic/computer-arithmetic/floating-point-addition-alignment.json",
+        "visual: topics.json slug=number-representation-and-arithmetic; syllabus-coverage.json subtopics/microtopics checked against topics/number-representation-and-arithmetic/transcript.md and index.html",
+        "visual url: topics/number-representation-and-arithmetic/index.html"
+      ],
+      "row_verdict": "VISUAL_ONLY"
+    },
+    {
+      "subject": "digital-logic",
+      "group": "computer-arithmetic",
+      "topic": "floating-point-multiplication-and-division",
+      "title": "Floating-Point Multiplication and Division: Add the Exponents, Subtract the Bias",
+      "priority": "P1",
+      "path": "subjects/digital-logic/computer-arithmetic/floating-point-multiplication-and-division.json",
+      "transcript_status": "not stated",
+      "evidence": [
+        "notes content/index.json map[].path = subjects/digital-logic/computer-arithmetic/floating-point-multiplication-and-division.json",
+        "visual evidence: neither lesson adds exponents or multiplies significands"
+      ],
+      "row_verdict": "NEITHER"
+    },
+    {
+      "subject": "digital-logic",
+      "group": "computer-arithmetic",
+      "topic": "ieee-rounding-guard-round-sticky",
+      "title": "Rounding: Guard, Round and Sticky Bits and the Ulp",
+      "priority": "P1",
+      "path": "subjects/digital-logic/computer-arithmetic/ieee-rounding-guard-round-sticky.json",
+      "transcript_status": "not stated",
+      "visual": {
+        "slug": "number-representation-and-arithmetic",
+        "title": "Number Representation and Arithmetic",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json map[].path = subjects/digital-logic/computer-arithmetic/ieee-rounding-guard-round-sticky.json",
+        "visual: topics.json slug=number-representation-and-arithmetic; syllabus-coverage.json subtopics/microtopics checked against topics/number-representation-and-arithmetic/transcript.md and index.html",
+        "visual url: topics/number-representation-and-arithmetic/index.html"
+      ],
+      "row_verdict": "VISUAL_ONLY"
+    },
+    {
+      "subject": "digital-logic",
+      "group": "computer-arithmetic",
+      "topic": "floating-point-precision-loss",
+      "title": "Precision Loss: Absorption, Cancellation and Non-Associativity",
+      "priority": "P1",
+      "path": "subjects/digital-logic/computer-arithmetic/floating-point-precision-loss.json",
+      "transcript_status": "not stated",
+      "visual": {
+        "slug": "number-representation-and-arithmetic",
+        "title": "Number Representation and Arithmetic",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json map[].path = subjects/digital-logic/computer-arithmetic/floating-point-precision-loss.json",
+        "visual: topics.json slug=number-representation-and-arithmetic; syllabus-coverage.json subtopics/microtopics checked against topics/number-representation-and-arithmetic/transcript.md and index.html",
+        "visual url: topics/number-representation-and-arithmetic/index.html"
+      ],
+      "row_verdict": "VISUAL_ONLY"
+    },
+    {
+      "subject": "digital-logic",
+      "group": "computer-arithmetic",
+      "topic": "fixed-versus-floating-point",
+      "title": "Fixed Point Against Floating Point: Range and Spacing",
+      "priority": "P2",
+      "path": "subjects/digital-logic/computer-arithmetic/fixed-versus-floating-point.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "digital-logic",
+        "unit_slug": "number-systems",
+        "unit_name": "Number Systems & Representation",
+        "unit_number": 1,
+        "question_count": 50,
+        "subtopic_labels": [
+          "Base conversions",
+          "Floating point & IEEE 754",
+          "One's & two's complement",
+          "Range & overflow"
+        ],
+        "verdict": "MOCK_READY"
+      },
+      "visual": {
+        "slug": "number-representation-and-arithmetic",
+        "title": "Number Representation and Arithmetic",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json map[].path = subjects/digital-logic/computer-arithmetic/fixed-versus-floating-point.json",
+        "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=number-systems (50 records)",
+        "mock url: runs[] last entry for number-systems -> https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-10-27.html",
+        "mock evidence: mock groups range-and-overflow and floating-point-ieee-754",
+        "visual: topics.json slug=number-representation-and-arithmetic; syllabus-coverage.json subtopics/microtopics checked against topics/number-representation-and-arithmetic/transcript.md and index.html",
+        "visual url: topics/number-representation-and-arithmetic/index.html"
+      ],
+      "row_verdict": "BOTH"
     },
     {
       "subject": "digital-logic",
@@ -9323,7 +10169,7 @@
     {
       "kind": "notes",
       "placement": "operating-systems › virtual-memory",
-      "detail": "mock unit \"Virtual Memory & Page Replacement\" (unit_number 5, 50 questions) serves no notes card; subtopic groups: beladys-anomaly 11, demand-paging-page-fault-rate 15, fifo-optimal-lru-replacement 12, thrashing-working-set-model 12"
+      "detail": "mock unit \"Virtual Memory & Page Replacement\" (unit_number 5, 75 questions) serves no notes card; subtopic groups: Belady's anomaly 16, Demand paging & page-fault rate 21, FIFO, OPT & LRU replacement 19, Thrashing & the working-set model 19"
     },
     {
       "kind": "notes",
@@ -9734,6 +10580,11 @@
       "kind": "mock",
       "placement": "computer-organization-and-architecture › instruction-set-and-addressing-modes",
       "detail": "the 13 notes cards of this topic have no mock unit: computer-architecture/question-bank/master_bank.json holds units 2, 3 and 4 only. Unit 1 is the missing unit, per the syllabus order in content/syllabus.json"
+    },
+    {
+      "kind": "notes",
+      "placement": "compiler-design › runtime-environments",
+      "detail": "visual lesson \"runtime-environments-and-activation-records\" (PUBLISHED 2026-10-31) serves no notes card; it covers activation-record fields, control vs access link, displays and the four parameter modes, which the compiler-design unit \"Runtime Environments & Code Optimization\" (unit_number 5, 50 questions, group activation-records-call-stack 12) also exercises"
     }
   ]
 }

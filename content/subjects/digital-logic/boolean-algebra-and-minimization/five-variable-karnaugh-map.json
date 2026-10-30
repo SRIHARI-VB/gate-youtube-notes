@@ -70,5 +70,17 @@
       "note": "read through the search service's extract: logical adjacency defined as differing in one literal, the six grouping rules, the implicant, prime implicant and essential prime implicant definitions, the three-step minimal-SOP algorithm, the five-variable map layout with rows ABC and columns DE in Gray order, and the tabulation method's two phases with the cover table, distinguished columns, row and column dominance and the cyclic cover table. Read as a reference for the rules, not as a source of questions."
     }
   ],
-  "sourceLine": "The reflection map, the 32 cells and the adjacency of a cell with the cell 16 places away: NPTEL IIT Kharagpur Digital Electronic Circuits Lecture 11 (English, read from the recap to the reflection construction). The overlay alternative and the five-variable layout: the same lecture and the Aditya Engineering College switching-functions notes (English, read in part). Adjacency is recomputed cell by cell in scripts/validate.py. No verified GATE question is decided by this card alone."
+  "sourceLine": "The reflection map, the 32 cells and the adjacency of a cell with the cell 16 places away: NPTEL IIT Kharagpur Digital Electronic Circuits Lecture 11 (English, read from the recap to the reflection construction). The overlay alternative and the five-variable layout: the same lecture and the Aditya Engineering College switching-functions notes (English, read in part). Adjacency is recomputed cell by cell in scripts/validate.py. No verified GATE question is decided by this card alone.",
+  "links": {
+    "visual": {
+      "slug": "boolean-algebra-and-minimisation",
+      "title": "Boolean Algebra and Minimisation",
+      "level": "topic-level",
+      "covers": [
+        "five-variable map as two four-variable maps, mirror cells adjacent"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/boolean-algebra-and-minimisation/index.html"
+    },
+    "mapped_at": "2026-10-31"
+  }
 }

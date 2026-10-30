@@ -79,5 +79,48 @@
       "note": "Read the combinational circuit, adder, ripple carry, carry look-ahead, decoder and multiplexer sections, plus the paper-by-paper mark distribution used to check which years asked this topic. Used as the GATE-oriented statement of the rules, never as a source of questions."
     }
   ],
-  "sourceLine": "The cascading construction - a 4-to-1 from three 2-to-1 blocks, and the general 'higher order from lower order' recipe - is NPTEL IIT Kharagpur Lecture 16 (English). The 2^n - 1 block count and the decoder-per-block structure are recomputed here and checked in scripts/validate.py against GATE CSE 2023 Q.34 (option C) and 2024 Set 1 Q.54 (answer 4)."
+  "sourceLine": "The cascading construction - a 4-to-1 from three 2-to-1 blocks, and the general 'higher order from lower order' recipe - is NPTEL IIT Kharagpur Lecture 16 (English). The 2^n - 1 block count and the decoder-per-block structure are recomputed here and checked in scripts/validate.py against GATE CSE 2023 Q.34 (option C) and 2024 Set 1 Q.54 (answer 4).",
+  "links": {
+    "mock": {
+      "subject": "digital-logic",
+      "unit_slug": "combinational-circuits",
+      "unit_name": "Combinational Circuit Design",
+      "unit_number": 2,
+      "question_count": 50,
+      "subtopics": [
+        {
+          "label": "Adders & subtractors",
+          "questions": 10
+        },
+        {
+          "label": "Code converters",
+          "questions": 10
+        },
+        {
+          "label": "Decoders & encoders",
+          "questions": 10
+        },
+        {
+          "label": "Hazards & glitches",
+          "questions": 10
+        },
+        {
+          "label": "Multiplexers & demultiplexers",
+          "questions": 10
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/digital-logic/combinational-circuits/gate_dl_mock_2_2026-10-27.html"
+    },
+    "visual": {
+      "slug": "combinational-circuits",
+      "title": "Combinational Circuits: Adders, Multiplexers and Decoders",
+      "level": "topic-level",
+      "covers": [
+        "three 2-to-1 switches build a 4-to-1; 2^n - 1 switches build a 2^n-to-1",
+        "a tree of multiplexers adds select lines, and the top switch is the MSB"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/combinational-circuits/index.html"
+    },
+    "mapped_at": "2026-10-31"
+  }
 }

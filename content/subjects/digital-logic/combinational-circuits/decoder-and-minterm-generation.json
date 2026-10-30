@@ -81,5 +81,48 @@
       "note": "Read the combinational circuit, adder, carry look-ahead, decoder and multiplexer sections, plus the paper-by-paper mark distribution used to check which years asked this topic."
     }
   ],
-  "sourceLine": "The decoding operation, the active-low output convention and the don't-care status of the six unused BCD codes: NPTEL IIT Kharagpur Digital Electronic Circuits Lecture 19 (English). The minterm-generation and function-implementation rules are from the GATE Overflow Digital Logic notes (English) and are recomputed in scripts/validate.py against GATE CSE 2014 Set 2 Q.7 (option C) and 2026 Set 2 Q.49 (answer 6)."
+  "sourceLine": "The decoding operation, the active-low output convention and the don't-care status of the six unused BCD codes: NPTEL IIT Kharagpur Digital Electronic Circuits Lecture 19 (English). The minterm-generation and function-implementation rules are from the GATE Overflow Digital Logic notes (English) and are recomputed in scripts/validate.py against GATE CSE 2014 Set 2 Q.7 (option C) and 2026 Set 2 Q.49 (answer 6).",
+  "links": {
+    "mock": {
+      "subject": "digital-logic",
+      "unit_slug": "combinational-circuits",
+      "unit_name": "Combinational Circuit Design",
+      "unit_number": 2,
+      "question_count": 50,
+      "subtopics": [
+        {
+          "label": "Adders & subtractors",
+          "questions": 10
+        },
+        {
+          "label": "Code converters",
+          "questions": 10
+        },
+        {
+          "label": "Decoders & encoders",
+          "questions": 10
+        },
+        {
+          "label": "Hazards & glitches",
+          "questions": 10
+        },
+        {
+          "label": "Multiplexers & demultiplexers",
+          "questions": 10
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/digital-logic/combinational-circuits/gate_dl_mock_2_2026-10-27.html"
+    },
+    "visual": {
+      "slug": "combinational-circuits",
+      "title": "Combinational Circuits: Adders, Multiplexers and Decoders",
+      "level": "topic-level",
+      "covers": [
+        "n-to-2^n decoder: exactly one output high, so the outputs are the minterms",
+        "decoder plus OR is any sum of products with no minimisation"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/combinational-circuits/index.html"
+    },
+    "mapped_at": "2026-10-31"
+  }
 }

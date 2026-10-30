@@ -87,5 +87,18 @@
     }
   ],
   "sourceLine": "Benign against catastrophic cancellation, the relative error of a subtraction, and the statement that a floating-point calculation is exact unless rounding is required: Goldberg, sections 1.3 and 1.4 (English, read in part). The alignment step that loses the small operand, and the rounding that follows it: NPTEL IIT Kharagpur Lecture 39 (English, read in part). The rounding modes that decide each tie: Sarangi, chapter 8 slides (English, read in part). The two question texts and accepted answers: their GATE Overflow pages. The 1 + 2^-24 and 1 + 2^-25 claims are recomputed in single precision in scripts/validate.py.",
-  "videoRefs": []
+  "videoRefs": [],
+  "links": {
+    "visual": {
+      "slug": "number-representation-and-arithmetic",
+      "title": "Number Representation and Arithmetic",
+      "level": "topic-level",
+      "covers": [
+        "alignment loss: 2^24 + 1 = 2^24",
+        "inexact decimals: 0.1 as 13421773/2^27"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/number-representation-and-arithmetic/index.html"
+    },
+    "mapped_at": "2026-10-31"
+  }
 }

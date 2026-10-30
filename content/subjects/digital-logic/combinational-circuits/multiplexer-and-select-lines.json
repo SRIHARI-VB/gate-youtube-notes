@@ -86,5 +86,48 @@
       "note": "Read the combinational circuit, adder, ripple carry, carry look-ahead, decoder and multiplexer sections, plus the paper-by-paper mark distribution used to check which years asked this topic. Used as the GATE-oriented statement of the rules, never as a source of questions."
     }
   ],
-  "sourceLine": "The steering definition, the 2-to-1 equation, the 4-to-1 built from three 2-to-1 blocks and the Shannon-expansion reading: NPTEL IIT Kharagpur Digital Electronic Circuits Lecture 16 (English, read from its opening to its closing summary). The select-line count and the data-selector name also come from the Hindi Wikipedia article on the multiplexer (Hindi, translated, marked as translated on this card's source list). The demultiplexer-as-decoder remark is from the GATE Overflow Digital Logic notes (English)."
+  "sourceLine": "The steering definition, the 2-to-1 equation, the 4-to-1 built from three 2-to-1 blocks and the Shannon-expansion reading: NPTEL IIT Kharagpur Digital Electronic Circuits Lecture 16 (English, read from its opening to its closing summary). The select-line count and the data-selector name also come from the Hindi Wikipedia article on the multiplexer (Hindi, translated, marked as translated on this card's source list). The demultiplexer-as-decoder remark is from the GATE Overflow Digital Logic notes (English).",
+  "links": {
+    "mock": {
+      "subject": "digital-logic",
+      "unit_slug": "combinational-circuits",
+      "unit_name": "Combinational Circuit Design",
+      "unit_number": 2,
+      "question_count": 50,
+      "subtopics": [
+        {
+          "label": "Adders & subtractors",
+          "questions": 10
+        },
+        {
+          "label": "Code converters",
+          "questions": 10
+        },
+        {
+          "label": "Decoders & encoders",
+          "questions": 10
+        },
+        {
+          "label": "Hazards & glitches",
+          "questions": 10
+        },
+        {
+          "label": "Multiplexers & demultiplexers",
+          "questions": 10
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/digital-logic/combinational-circuits/gate_dl_mock_2_2026-10-27.html"
+    },
+    "visual": {
+      "slug": "combinational-circuits",
+      "title": "Combinational Circuits: Adders, Multiplexers and Decoders",
+      "level": "topic-level",
+      "covers": [
+        "2^n data inputs and n select lines, and the 4-to-1 equation as one term per select pattern",
+        "a multiplexer is a lookup table, universal for functions of its select lines"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/combinational-circuits/index.html"
+    },
+    "mapped_at": "2026-10-31"
+  }
 }

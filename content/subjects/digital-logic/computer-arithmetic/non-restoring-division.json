@@ -73,5 +73,18 @@
     }
   ],
   "sourceLine": "The non-restoring algorithm, its divergence proof from the restoring form, and the 00111 / 0011 trace ending in U = 11110 with the closing U = U + D: Sarangi, chapter 8 slides (English, read in part). The quotient-digit set and the negative-remainder correction: Wikipedia's Division algorithm article, used only to confirm the two slides, plus Bhalodia's Unit 7 (English, read in part). Every trace is recomputed in scripts/validate.py.",
-  "videoRefs": []
+  "videoRefs": [],
+  "links": {
+    "visual": {
+      "slug": "arithmetic-algorithms-booth-division-cla",
+      "title": "Arithmetic Algorithms: Booth's Multiplication, Restoring and Non-Restoring Division, and the Carry-Lookahead Adder",
+      "level": "topic-level",
+      "covers": [
+        "non-restoring division: the sign before the shift chooses +M or -M",
+        "the single correction after the loop, and when it is not needed"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/arithmetic-algorithms-booth-division-cla/index.html"
+    },
+    "mapped_at": "2026-10-31"
+  }
 }

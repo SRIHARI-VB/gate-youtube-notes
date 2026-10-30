@@ -68,5 +68,38 @@
       "note": "Read the combinational circuit, adder, carry look-ahead, decoder and multiplexer sections, plus the paper-by-paper mark distribution used to check which years asked this topic."
     }
   ],
-  "sourceLine": "The ROM-as-decoder-plus-OR-plane picture, the PLA and PAL distinction and the sizing rule are from the standard treatment of programmable logic (Mano, Digital Design, chapter 4) and the GATE Overflow Digital Logic notes (English). The example is GATE CSE 1996 Q.1.21, accepted answer option (D), and every size on this card is recomputed in scripts/validate.py."
+  "sourceLine": "The ROM-as-decoder-plus-OR-plane picture, the PLA and PAL distinction and the sizing rule are from the standard treatment of programmable logic (Mano, Digital Design, chapter 4) and the GATE Overflow Digital Logic notes (English). The example is GATE CSE 1996 Q.1.21, accepted answer option (D), and every size on this card is recomputed in scripts/validate.py.",
+  "links": {
+    "mock": {
+      "subject": "digital-logic",
+      "unit_slug": "combinational-circuits",
+      "unit_name": "Combinational Circuit Design",
+      "unit_number": 2,
+      "question_count": 50,
+      "subtopics": [
+        {
+          "label": "Adders & subtractors",
+          "questions": 10
+        },
+        {
+          "label": "Code converters",
+          "questions": 10
+        },
+        {
+          "label": "Decoders & encoders",
+          "questions": 10
+        },
+        {
+          "label": "Hazards & glitches",
+          "questions": 10
+        },
+        {
+          "label": "Multiplexers & demultiplexers",
+          "questions": 10
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/digital-logic/combinational-circuits/gate_dl_mock_2_2026-10-27.html"
+    },
+    "mapped_at": "2026-10-31"
+  }
 }

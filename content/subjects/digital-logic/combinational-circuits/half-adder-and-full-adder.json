@@ -79,5 +79,48 @@
       "note": "Read the combinational circuit, adder, ripple carry, carry look-ahead, decoder and multiplexer sections, plus the paper-by-paper mark distribution used to check which years asked this topic. Used as the GATE-oriented statement of the rules, never as a source of questions."
     }
   ],
-  "sourceLine": "The definitions, the truth tables and the two-half-adder construction: NPTEL IIT Kharagpur Digital Electronic Circuits Lecture 23 (English, read from the opening to its closing summary). The gate counts and the n-bit counting rule: the GATE Overflow Digital Logic notes (English) with the count recomputed here. The example is GATE CSE 1999 Q.2.16, accepted answer option (B)."
+  "sourceLine": "The definitions, the truth tables and the two-half-adder construction: NPTEL IIT Kharagpur Digital Electronic Circuits Lecture 23 (English, read from the opening to its closing summary). The gate counts and the n-bit counting rule: the GATE Overflow Digital Logic notes (English) with the count recomputed here. The example is GATE CSE 1999 Q.2.16, accepted answer option (B).",
+  "links": {
+    "mock": {
+      "subject": "digital-logic",
+      "unit_slug": "combinational-circuits",
+      "unit_name": "Combinational Circuit Design",
+      "unit_number": 2,
+      "question_count": 50,
+      "subtopics": [
+        {
+          "label": "Adders & subtractors",
+          "questions": 10
+        },
+        {
+          "label": "Code converters",
+          "questions": 10
+        },
+        {
+          "label": "Decoders & encoders",
+          "questions": 10
+        },
+        {
+          "label": "Hazards & glitches",
+          "questions": 10
+        },
+        {
+          "label": "Multiplexers & demultiplexers",
+          "questions": 10
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/digital-logic/combinational-circuits/gate_dl_mock_2_2026-10-27.html"
+    },
+    "visual": {
+      "slug": "combinational-circuits",
+      "title": "Combinational Circuits: Adders, Multiplexers and Decoders",
+      "level": "topic-level",
+      "covers": [
+        "half adder: S = A xor B, C = A and B, no carry input",
+        "full adder: sum is odd parity, carry out is at least two ones"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/combinational-circuits/index.html"
+    },
+    "mapped_at": "2026-10-31"
+  }
 }
