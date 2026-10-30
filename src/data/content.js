@@ -274,7 +274,7 @@ window.GATE_DATA = {
      {
       "slug": "combinational-circuits",
       "name": "Combinational Circuits",
-      "material": "planned"
+      "material": "cards"
      },
      {
       "slug": "sequential-circuits",
@@ -28609,6 +28609,1164 @@ window.GATE_DATA = {
    "subject": "digital-logic",
    "topic": "boolean-algebra-and-minimization",
    "path": "subjects/digital-logic/boolean-algebra-and-minimization/literal-and-gate-cost.json"
+  },
+  {
+   "id": "combinational-circuit-definition-and-design",
+   "title": "Combinational Circuits and the Four-Step Design Procedure",
+   "priority": "P1",
+   "order": 433,
+   "unit": "Combinational Circuits",
+   "quickIdea": "A combinational circuit has no memory: every output is a Boolean function of the present inputs alone. Designing one is a fixed loop - specify, tabulate, minimise, draw - and the truth table is the hinge of the whole loop.",
+   "remember": [
+    "Combinational: output = f(present inputs) only. Sequential: the output also depends on stored state, so the same inputs may give a different output at a different time.",
+    "No feedback path and no memory element. A wire from an output back to an input makes the circuit sequential by definition, whatever gates sit on it.",
+    "The design loop: (1) name the inputs and outputs and fix their codes, (2) write the truth table, (3) minimise to SOP or POS with a Karnaugh map or the tabular method, (4) draw the gates and cost them.",
+    "Every input code that the specification excludes is a don't care. A BCD input never takes 1010 to 1111, so those six rows may be taken as 0 or 1 to enlarge a group.",
+    "Cost is literals, terms and fan-in - not the gate count alone. A three-input OR gate and three two-input OR gates are the same function at different cost.",
+    "Half adders, full adders, subtractors, comparators, decoders, encoders and multiplexers are all combinational; counters and registers are not."
+   ],
+   "example": {
+    "prompt": "A circuit takes a 4-bit BCD digit A B C D (0000 to 1001) and outputs 1 when the digit is 5 or more. Using only AND, OR and NOT gates, how few gates will do it?",
+    "work": "Tabulate the ten used rows and mark 1010 to 1111 as don't cares. On the four-variable map the eight cells 1000 to 1111 become one octet that reduces to A; the cells 0110, 0111, 1110, 1111 give BC; the cells 0101, 0111, 1101, 1111 give BD. So f = A + BC + BD = A + B(C + D).",
+    "answer": "Three gates: two OR gates for C + D and for the final sum, and one AND gate for B(C + D). That is GATE CSE 2004 Q.58, whose accepted answer is 3."
+   },
+   "gateAngle": "The syllabus line says 'design of combinational circuits', and the papers ask for the design, not the definition: GATE CSE 2004 Q.58 hands you a specification and asks for the minimum gate count. The two skills being tested are spotting the don't cares in the unused codes and reading a group off the map without expanding to canonical form first.",
+   "variations": [
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "A circuit has inputs A and B and outputs S = A XOR B and C = A AND B. Is it combinational? What changes if the carry output C is wired back into input A?",
+     "answer": "It is combinational as drawn. Wiring C back to A introduces feedback, so the output now depends on the previous output and the circuit becomes a latch - sequential.",
+     "why": "The test for combinational is the absence of state and of a feedback path, not the kind of gates used. The same two gates are combinational in one wiring and sequential in another."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "A 4-bit BCD input must produce 1 when the digit is a multiple of 3 (0, 3, 6, 9) and 0 otherwise, with 1010 to 1111 as don't cares. Using AND, OR and NOT only, what is the minimal sum of products?",
+     "answer": "A'B'C'D' + B'CD + BCD' + AB'D, four terms and thirteen literals.",
+     "why": "Minterm 0 (0000) has no 1-neighbour among the used codes and cannot borrow a don't care, so it survives as a full four-literal term. Minterms 3, 6 and 9 each pair with one don't care - 11, 14 and 11 respectively - giving B'CD, BCD' and AB'D. Minterm 9 can equally be covered by AC'D, so the minimal cover is not unique here."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "Same circuit, same don't cares, but the output must be 1 when the digit is odd instead. What is the minimal sum of products and how many gates does it need?",
+     "answer": "f = D. No gates at all: the output is the least significant input bit.",
+     "why": "A digit is odd exactly when D = 1, and the don't cares let the six unused rows be taken as 1, so the whole block 0001, 0011, ..., 1111 collapses to the single literal D. This is the point of the don't cares: they can shrink a function to nothing."
+    }
+   ],
+   "trap": {
+    "what": "Treating the six unused BCD codes as zeros instead of don't cares, and then reporting a larger answer.",
+    "why": "The specification says the input is a BCD digit, so 1010 to 1111 never arrive. A row that cannot occur constrains nothing, and taking it as 0 forbids exactly the groupings that make the circuit small.",
+    "counterexample": "With 1010 to 1111 forced to 0, only the five cells 0101 to 1001 are 1, and they group as BD, BC and AC', giving f = AC' + BC + BD - three terms and seven literals, and no longer reducible to A + B(C + D). The three-gate answer is lost."
+   },
+   "check": {
+    "question": "A combinational circuit has 4 inputs and 3 outputs. How many rows does its truth table have, and how many Boolean functions does that table represent?",
+    "answer": "16 rows, and 2^48 = 281474976710656 different functions.",
+    "explanation": "The table has 2^4 = 16 rows and each row carries 3 output bits, so there are 16 x 3 = 48 independent output values; each of the 2^48 assignments is a distinct circuit specification."
+   },
+   "pyqIds": [
+    "gate-2004-58-digit-at-least-five-gates"
+   ],
+   "videoRefs": [],
+   "prereqs": [
+    "karnaugh-grouping-and-reading-a-term",
+    "dont-care-conditions"
+   ],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "Digital Logic subject notes, the combinational-circuit sections",
+     "channel": "GATE Overflow, subject page for Digital Logic",
+     "url": "https://gateoverflow.in/subject/digital-logic?tab=exams",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "Read the combinational circuit, adder, ripple carry, carry look-ahead, decoder and multiplexer sections, plus the paper-by-paper mark distribution used to check which years asked this topic. Used as the GATE-oriented statement of the rules, never as a source of questions."
+    },
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 23 - Arithmetic Building Blocks I",
+     "channel": "NPTEL, Digital Electronic Circuits (Prof. Goutam Saha, IIT Kharagpur)",
+     "url": "http://digimat.in/nptel/courses/video/108105132/lec23.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "Read from the opening through the full-adder derivation and the construction of a full adder from two half adders, plus the lecturer's closing summary of the whole class. The served transcript stops before the ripple-carry and adder-subtractor worked examples, so those two are recomputed here rather than quoted."
+    }
+   ],
+   "sourceLine": "The definition, the design loop and the don't-care rule: the GATE Overflow Digital Logic subject notes (English), read in part. The tabulation-and-minimise half of the loop is the previous topic's material. The example is GATE CSE 2004 Q.58, accepted answer option (B), and its three-gate realisation is recomputed in scripts/validate.py.",
+   "subject": "digital-logic",
+   "topic": "combinational-circuits",
+   "path": "subjects/digital-logic/combinational-circuits/combinational-circuit-definition-and-design.json"
+  },
+  {
+   "id": "half-adder-and-full-adder",
+   "title": "Half Adder and Full Adder",
+   "priority": "P1",
+   "order": 434,
+   "unit": "Combinational Circuits",
+   "quickIdea": "A half adder adds two bits and reports sum and carry; a full adder adds three bits, the third being the carry arriving from the previous position. Sum is XOR, carry is majority.",
+   "remember": [
+    "Half adder: S = A XOR B, C = A AND B. Two inputs, two outputs, four truth-table rows.",
+    "Full adder: S = A XOR B XOR Cin, Cout = AB + BCin + ACin. Three inputs, two outputs, eight rows.",
+    "The carry is the majority of the three inputs; the sum is 1 exactly when an odd number of the three inputs is 1.",
+    "Full adder from two half adders and one OR gate: the first half adder gives A XOR B and AB, the second adds Cin to that XOR, and the two carries AB and (A XOR B)Cin are ORed. This is the lecturer's construction in NPTEL Lecture 23.",
+    "Adding two n-bit numbers needs one half adder at the least significant position and n-1 full adders, because only the LSB has no carry-in.",
+    "The alternative carry form Cout = AB + (A XOR B)Cin matters for timing: A XOR B is ready before Cin arrives, so the carry costs only one AND and one OR after Cin."
+   ],
+   "example": {
+    "prompt": "How many full adders and how many half adders are needed to add two 16-bit numbers?",
+    "work": "Position 0 adds two bits and no carry, so a half adder is enough there. Positions 1 to 15 each add two operand bits plus the carry from the position to their right, which is three bits - a full adder. That is 15 full adders.",
+    "answer": "One half adder and fifteen full adders. This is GATE CSE 1999 Q.2.16, accepted answer option (B)."
+   },
+   "gateAngle": "Every adder question in the papers starts from these two blocks: the count of them for an n-bit word (1999 Q.2.16), and their delay when one is built from the other (2015 Set 2 Q.48). The counting is a one-line argument; the delay needs the carry path written out.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "How many full adders and half adders are needed to add two 8-bit numbers, and what changes if the least significant position is also a full adder with its carry-in tied to 0?",
+     "answer": "One half adder and seven full adders. With a full adder at position 0 and Cin = 0 the circuit is still correct - it degenerates to S = A XOR B and Cout = AB - but it wastes the gates that add the tied-off carry.",
+     "why": "The 1 + (n-1) split is about the carry-in, not about a special block. A full adder whose third input is a constant is a half adder with extra hardware."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "A full adder receives A = 1, B = 1, Cin = 1. What are S and Cout, and which of the three carry terms of Cout is responsible for the carry out?",
+     "answer": "S = 1 and Cout = 1. All three terms AB, BCin and ACin are 1, so the carry is over-determined rather than caused by one term.",
+     "why": "Sum is 1 for an odd count of ones (three ones is odd) and the carry is the majority (three of three). The question is a check that sum and carry are independent functions, not complements."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "Two 4-bit numbers 1011 and 0110 are added by a 4-bit ripple-carry adder. What are the four sum bits and the carry out?",
+     "answer": "Sum bits S3 S2 S1 S0 = 0001 and carry out = 1, i.e. the five-bit result 1 0001 = 17.",
+     "why": "11 + 6 = 17 = 10001 in binary. Bit by bit: position 0 gives 1 + 0 = 1, position 1 gives 1 + 1 = 0 carry 1, position 2 gives 0 + 1 + 1 = 0 carry 1, position 3 gives 1 + 0 + 1 = 0 carry 1."
+    }
+   ],
+   "trap": {
+    "what": "Using n full adders for two n-bit numbers and calling the least significant one a full adder without saying why.",
+    "why": "A full adder at position 0 has an unused carry-in. It works, but it is not the minimum, and the paper asks for the minimum. The 1 + (n-1) count follows from the carry-in existing only from position 1 upward.",
+    "counterexample": "For 16-bit operands, 16 full adders is a correct circuit but not the answer to 1999 Q.2.16: the accepted answer is 1 half adder and 15 full adders, option (B)."
+   },
+   "check": {
+    "question": "Using the two-half-adder construction, how many gates does a full adder need if a half adder is one XOR and one AND?",
+    "answer": "Two XOR gates, two AND gates and one OR gate - five gates.",
+    "explanation": "Half adder 1 gives A XOR B and AB. Half adder 2 takes that XOR with Cin and gives the final sum and (A XOR B)Cin. The OR gate combines AB and (A XOR B)Cin into Cout. So 2 XOR + 2 AND + 1 OR = 5 gates."
+   },
+   "pyqIds": [
+    "gate-1999-2-16-half-full-adders-16-bit"
+   ],
+   "videoRefs": [],
+   "prereqs": [
+    "combinational-circuit-definition-and-design",
+    "xor-and-xnor-algebra"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 23 - Arithmetic Building Blocks I",
+     "channel": "NPTEL, Digital Electronic Circuits (Prof. Goutam Saha, IIT Kharagpur)",
+     "url": "http://digimat.in/nptel/courses/video/108105132/lec23.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "Read from the opening through the full-adder derivation and the construction of a full adder from two half adders, plus the lecturer's closing summary of the whole class. The served transcript stops before the ripple-carry and adder-subtractor worked examples, so those two are recomputed here rather than quoted."
+    },
+    {
+     "kind": "text",
+     "title": "Digital Logic subject notes, the combinational-circuit sections",
+     "channel": "GATE Overflow, subject page for Digital Logic",
+     "url": "https://gateoverflow.in/subject/digital-logic?tab=exams",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "Read the combinational circuit, adder, ripple carry, carry look-ahead, decoder and multiplexer sections, plus the paper-by-paper mark distribution used to check which years asked this topic. Used as the GATE-oriented statement of the rules, never as a source of questions."
+    }
+   ],
+   "sourceLine": "The definitions, the truth tables and the two-half-adder construction: NPTEL IIT Kharagpur Digital Electronic Circuits Lecture 23 (English, read from the opening to its closing summary). The gate counts and the n-bit counting rule: the GATE Overflow Digital Logic notes (English) with the count recomputed here. The example is GATE CSE 1999 Q.2.16, accepted answer option (B).",
+   "subject": "digital-logic",
+   "topic": "combinational-circuits",
+   "path": "subjects/digital-logic/combinational-circuits/half-adder-and-full-adder.json"
+  },
+  {
+   "id": "ripple-carry-adder-and-delay",
+   "title": "Ripple-Carry Adder and Its Critical Path",
+   "priority": "P1",
+   "order": 435,
+   "unit": "Combinational Circuits",
+   "quickIdea": "Chain n full adders so each carry-out feeds the next carry-in: the sum bits arrive together but the last carry has to travel the whole chain, so the delay grows with n.",
+   "remember": [
+    "An n-bit ripple-carry adder is n full adders in a row; the carry-out of stage i is the carry-in of stage i+1 and the final carry-out is the (n+1)-th bit of the result.",
+    "The critical path is the carry chain, not the sum outputs: every sum bit Si = Pi XOR Ci needs only its own carry, but C_n needs all n stages.",
+    "Carry through one stage: with Cout = AB + (A XOR B)Cin, the terms AB and A XOR B are ready before Cin arrives, so one stage adds one AND delay plus one OR delay after Cin.",
+    "So the total delay is (the delay of the first carry-out) plus (n-1) times (the per-stage carry delay). In the usual unit-gate model that is 2 + 2(n-1) = 2n gate delays.",
+    "Cost is Theta(n) gates and Theta(n) delay: linear in the word length, which is exactly what a carry look-ahead adder is built to beat.",
+    "The sum output of the last stage is one XOR after the last carry, so the answer is never earlier than the carry chain."
+   ],
+   "example": {
+    "prompt": "GATE CSE 2015 Set 2 Q.48. A half adder is XOR plus AND; a full adder is two half adders plus one OR gate. XOR delay is twice the AND/OR delay, and an AND/OR gate takes 1.2 microseconds. What is the total propagation time of a 4-bit ripple-carry adder?",
+    "work": "XOR = 2.4 and AND = OR = 1.2. In the first stage the carry must pass through an XOR, an AND and an OR: 2.4 + 1.2 + 1.2 = 4.8. From the second stage on, A XOR B is already available, so each further carry costs only an AND and an OR: 1.2 + 1.2 = 2.4. The carry-only chain therefore gives 4.8 + 3 x 2.4 = 12.",
+    "answer": "The accepted answer is 19.2 microseconds, which charges every one of the four stages the full 4.8. The carry-chain model gives 12. Both numbers are recorded; see the trap and the PYQ record, which state the disagreement rather than hiding it."
+   },
+   "gateAngle": "Delay questions on adders are decided by one thing: which path you are timing and what you assume is already computed. GATE CSE 2015 Set 2 Q.48 is the classic, and its accepted key (19.2) and the carry-only analysis (12) differ - so the paper's convention, not the physics, is what the mark depends on.",
+   "variations": [
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "In the gate-delay model of GATE CSE 2015 Set 2 Q.48, what is the delay of an 8-bit ripple-carry adder under the paper's convention, and under the carry-only analysis?",
+     "answer": "38.4 microseconds under the paper's convention (8 x 4.8), and 4.8 + 7 x 2.4 = 21.6 microseconds under the carry-only analysis.",
+     "why": "The two models differ by exactly 3 x 2.4 = 7.2 at 4 bits and by 7 x 2.4 = 16.8 at 8 bits, because the disagreement is one XOR delay charged to every stage after the first."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "A ripple-carry adder is built from full adders whose carry-out is AB + (A XOR B)Cin, with unit delay per gate. What is the delay from the inputs to the final carry-out of a 6-bit adder?",
+     "answer": "2 + 2 x 5 = 12 gate delays.",
+     "why": "The first carry needs an XOR, an AND and an OR in the worst case only if A XOR B is not precomputed; with the (A XOR B) term available in parallel the first carry costs 2 and each of the remaining 5 stages costs 2, giving 12."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "A ripple-carry adder adds two n-bit numbers and the result is read only from the n sum bits, ignoring the final carry-out. Does the delay get shorter?",
+     "answer": "Only by one XOR delay: the last sum bit still waits for the carry out of stage n-1, so the critical path is unchanged in order and remains Theta(n).",
+     "why": "Ignoring C_n removes the final OR gate from the path, not the carry chain. The n-th carry is still the last thing to settle before S_{n-1} can be read."
+    }
+   ],
+   "trap": {
+    "what": "Charging every stage the delay of the first stage, or charging the XOR delay twice per stage.",
+    "why": "In a ripple-carry adder the operand XORs of every stage run in parallel with the arriving carry, so only the first stage pays for them on the critical path. Whether the paper's key agrees is a separate question - GATE CSE 2015 Set 2 Q.48's key charges the full stage delay to all four stages and gives 19.2, while the carry-only analysis gives 12.",
+    "counterexample": "Under the carry-only model a 4-bit adder with 4.8 for the first stage and 2.4 thereafter finishes in 12 microseconds; under the key's model it finishes in 19.2. Neither is arithmetic error - the difference is the modelling assumption, so state which one you used."
+   },
+   "check": {
+    "question": "In a 4-bit ripple-carry adder with unit gate delays and precomputed propagate terms, how long after the inputs does the final carry-out C4 settle?",
+    "answer": "8 gate delays: 2 for the first carry-out and 2 for each of the three following stages.",
+    "explanation": "C1 needs one AND and one OR once P0 = A0 XOR B0 is ready (2 delays). Each of C2, C3, C4 then needs one AND and one OR after the previous carry, adding 3 x 2 = 6. Total 2 + 6 = 8."
+   },
+   "pyqIds": [
+    "gate-2015-set-2-48-ripple-carry-delay"
+   ],
+   "videoRefs": [],
+   "prereqs": [
+    "half-adder-and-full-adder"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 23 - Arithmetic Building Blocks I",
+     "channel": "NPTEL, Digital Electronic Circuits (Prof. Goutam Saha, IIT Kharagpur)",
+     "url": "http://digimat.in/nptel/courses/video/108105132/lec23.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "Read from the opening through the full-adder derivation and the construction of a full adder from two half adders, plus the lecturer's closing summary of the whole class. The served transcript stops before the ripple-carry and adder-subtractor worked examples, so those two are recomputed here rather than quoted."
+    },
+    {
+     "kind": "text",
+     "title": "Digital Logic subject notes, the combinational-circuit sections",
+     "channel": "GATE Overflow, subject page for Digital Logic",
+     "url": "https://gateoverflow.in/subject/digital-logic?tab=exams",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "Read the combinational circuit, adder, ripple carry, carry look-ahead, decoder and multiplexer sections, plus the paper-by-paper mark distribution used to check which years asked this topic. Used as the GATE-oriented statement of the rules, never as a source of questions."
+    }
+   ],
+   "sourceLine": "The cascade and the carry path: NPTEL IIT Kharagpur Lecture 23 (English, its closing summary states the ripple connection explicitly) and the GATE Overflow Digital Logic notes (English). The numbers are GATE CSE 2015 Set 2 Q.48's own gate delays; both candidate totals are recomputed in scripts/validate.py and the disagreement is recorded in that PYQ record.",
+   "subject": "digital-logic",
+   "topic": "combinational-circuits",
+   "path": "subjects/digital-logic/combinational-circuits/ripple-carry-adder-and-delay.json"
+  },
+  {
+   "id": "carry-lookahead-adder",
+   "title": "Carry Look-Ahead Adder: Generate, Propagate, Two-Level Carry",
+   "priority": "P2",
+   "order": 436,
+   "unit": "Combinational Circuits",
+   "quickIdea": "Stop waiting for carries to ripple: define a generate bit that makes a carry and a propagate bit that passes one on, then compute every carry directly from the inputs in two levels of logic.",
+   "remember": [
+    "Generate Gi = Ai AND Bi - a carry is created at this position whatever the carry-in is.",
+    "Propagate Pi = Ai XOR Bi - a carry arriving here is passed to the next position.",
+    "Ci+1 = Gi + Pi Ci. Expanded: C1 = G0 + P0C0; C2 = G1 + P1G0 + P1P0C0; C3 = G2 + P2G1 + P2P1G0 + P2P1P0C0; C4 = G3 + P3G2 + P3P2G1 + P3P2P1G0 + P3P2P1P0C0.",
+    "Sum is unchanged: Si = Pi XOR Ci, so a look-ahead adder computes the same function as a ripple adder, only sooner.",
+    "Two-level AND-OR carry network with unlimited fan-in: the product terms for C1 to C4 number 1 + 2 + 3 + 4 = 10, and each carry needs one OR, so 10 AND gates and 4 OR gates for 4 bits. In general n(n+1)/2 AND and n OR gates.",
+    "Delay with unit gate delay: 2 for P and G, 2 for the carry network, 2 for the sum XOR - six time units for a 4-bit adder, independent of n only while fan-in is unlimited.",
+    "With fan-in limited to 2 the two-level expansion must become a tree, so the delay becomes Theta(log n) rather than Theta(1) and the gate count roughly doubles.",
+    "Pi is also written Ai + Bi in some texts; the two differ only when Ai = Bi = 1, where the carry is generated anyway, so the carry equations are the same."
+   ],
+   "example": {
+    "prompt": "GATE CSE 2007 Q.35. All Pi and Gi are available and the AND and OR gates may have any number of inputs. How many AND gates and how many OR gates does a two-level look-ahead carry generator for a 4-bit adder need?",
+    "work": "Count the product terms in each carry: C1 has 1, C2 has 2, C3 has 3 and C4 has 4. One AND gate per product term gives 1 + 2 + 3 + 4 = 10. Each carry is the OR of its own product terms, so four OR gates.",
+    "answer": "10 AND gates and 4 OR gates - option (B)."
+   },
+   "gateAngle": "This topic carries two recurring GATE patterns: the gate count of the carry generator (2007 Q.35, where the answer is n(n+1)/2 AND and n OR) and its delay (2004 Q.62, six time units for 4 bits with a two-level network). Both are counting arguments on the expanded carry equations, so writing C1 to C4 out is the whole method.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "How many AND gates and OR gates does a two-level look-ahead carry generator for an 8-bit adder need, with unlimited fan-in and all Pi, Gi available?",
+     "answer": "36 AND gates and 8 OR gates.",
+     "why": "The product terms are 1 + 2 + ... + 8 = 36, one AND each, and each of the eight carries needs one OR. The formula n(n+1)/2 with n = 8 gives 36."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "For A = 1011, B = 0110 and C0 = 0, list Pi and Gi for each bit and compute C4 through the carry equations.",
+     "answer": "P3P2P1P0 = 1101 and G3G2G1G0 = 0010, so G is 1 only at bit 1, and C4 = 1.",
+     "why": "Bit 0: A = 1, B = 0 gives P0 = 1, G0 = 0. Bit 1: 1 and 1 gives P1 = 0, G1 = 1. Bit 2: 0 and 1 gives P2 = 1, G2 = 0. Bit 3: 1 and 0 gives P3 = 1, G3 = 0. Then C1 = 0, C2 = G1 = 1, C3 = G2 + P2C2 = 1, C4 = G3 + P3C3 = 1. The sum 1011 + 0110 = 1 0001 confirms the carry out."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "Same 4-bit generator, but every gate may have at most two inputs. What happens to the gate counts?",
+     "answer": "20 AND gates and 10 OR gates instead of 10 and 4.",
+     "why": "A product term of k literals needs k-1 two-input ANDs, and a sum of m terms needs m-1 two-input ORs. Summing k-1 over the terms of C1 to C4 gives 1 + 3 + 6 + 10 = 20, and (2-1) + (3-1) + (4-1) + (5-1) = 10 ORs."
+    }
+   ],
+   "trap": {
+    "what": "Counting one AND gate per product term but forgetting that each carry also needs its own OR gate, or vice versa.",
+    "why": "The generator is two levels: a plane of AND gates forming product terms and a plane of OR gates summing them per carry. Counting only one plane gives 10 or 4, and the options for 2007 Q.35 include 6, 3 and 6, 4 precisely to catch that.",
+    "counterexample": "For 4 bits the correct pair is 10 AND and 4 OR. Answering 10 AND and 5 OR confuses the number of carries (4, one per output C1 to C4) with the number of terms in the largest carry (5)."
+   },
+   "check": {
+    "question": "With Pi = Ai XOR Bi and Gi = Ai AND Bi, what are P and G when Ai = Bi = 1, and what does that mean for the carry?",
+    "answer": "P = 0 and G = 1: the carry is generated here and is not propagated from below.",
+    "explanation": "1 XOR 1 = 0 and 1 AND 1 = 1. Because G = 1 the carry-out is 1 whatever C arrives, so there is nothing left for a lower carry to propagate through this position."
+   },
+   "pyqIds": [
+    "gate-2004-62-carry-lookahead-delay",
+    "gate-2007-35-lookahead-carry-gate-count"
+   ],
+   "videoRefs": [],
+   "prereqs": [
+    "ripple-carry-adder-and-delay"
+   ],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "Digital Logic subject notes, the combinational-circuit sections",
+     "channel": "GATE Overflow, subject page for Digital Logic",
+     "url": "https://gateoverflow.in/subject/digital-logic?tab=exams",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "Read the combinational circuit, adder, ripple carry, carry look-ahead, decoder and multiplexer sections, plus the paper-by-paper mark distribution used to check which years asked this topic. Used as the GATE-oriented statement of the rules, never as a source of questions."
+    }
+   ],
+   "sourceLine": "The generate and propagate definitions, the expanded carries and the two-level structure: the GATE Overflow Digital Logic subject notes (English), read in part, which states the C1 to C4 expansions and the n(n+1)/2 and n counts. No readable lecture transcript on this topic was available this run, so both cards rest on the written reference plus recomputation; every count and every delay total is checked in scripts/validate.py.",
+   "subject": "digital-logic",
+   "topic": "combinational-circuits",
+   "path": "subjects/digital-logic/combinational-circuits/carry-lookahead-adder.json"
+  },
+  {
+   "id": "adder-subtractor",
+   "title": "Adder-Subtractor: One Circuit, Two Operations",
+   "priority": "P2",
+   "order": 437,
+   "unit": "Combinational Circuits",
+   "quickIdea": "Subtraction is addition of the two's complement, and the two's complement is the bitwise complement plus one - so an XOR bank on one operand and one control line on the carry-in turn an adder into an adder-subtractor.",
+   "remember": [
+    "A - B = A + (2's complement of B) = A + (NOT B) + 1 over n bits.",
+    "Control line M: M = 0 passes B unchanged and sets Cin = 0 (addition); M = 1 inverts every bit of B through an XOR and sets Cin = 1 (subtraction).",
+    "The XOR bank is a conditional inverter: Bi XOR M is Bi when M = 0 and NOT Bi when M = 1. It is not a NOT gate, because the control decides.",
+    "The carry-out in subtraction is the no-borrow flag: 1 means A >= B, 0 means a borrow was needed.",
+    "Signed overflow is Cn XOR Cn-1 - the carry into the sign position differs from the carry out of it. The final carry alone does not indicate overflow.",
+    "No separate subtractor is needed in a datapath; an ALU reuses the one adder for both operations."
+   ],
+   "example": {
+    "prompt": "A 4-bit adder-subtractor computes 0110 minus 0011 with M = 1. Show the addition the circuit actually performs and the result.",
+    "work": "M = 1 inverts B = 0011 into 1100 and sets Cin = 1. The circuit computes 0110 + 1100 + 1 = 1 0011. The four sum bits are 0011 and the carry out is 1, which in subtraction means no borrow.",
+    "answer": "0011 = 3, with no borrow. Check: 6 - 3 = 3."
+   },
+   "gateAngle": "The papers test this as a statement question more often than as a computation: which control value inverts the operand, what the final carry means in subtraction, and when overflow occurs. The distinguishing trap is signed overflow, which needs the two top carries, not the last one.",
+   "variations": [
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why must the carry-in be 1 in subtraction, and what goes wrong if it is left at 0?",
+     "answer": "Because the two's complement of B is NOT B plus 1; the 1 comes from the carry-in. With Cin = 0 the circuit computes A - B - 1, which is off by one.",
+     "why": "NOT B = -B - 1, so NOT B + 1 = -B. Dropping the +1 leaves A + NOT B = A - B - 1."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "An 8-bit adder-subtractor receives A = 0000 1010 and B = 0000 0111 with M = 1. What are the eight sum bits and the final carry, and what do they mean?",
+     "answer": "0000 0011 with final carry 1: the result is 3 and there is no borrow.",
+     "why": "NOT B = 1111 1000, and 0000 1010 + 1111 1000 + 1 = 1 0000 0011. Ten minus seven is three, and a carry out of 1 in subtraction is the no-borrow flag."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "In a 4-bit signed adder, 0100 and 0100 are added. What is the carry into the sign bit, the carry out, and the overflow flag?",
+     "answer": "C3 = 1, C4 = 0, overflow = C4 XOR C3 = 1. The four sum bits are 1000, which reads as -8.",
+     "why": "4 + 4 = 8 is outside the 4-bit signed range -8 to +7, so the answer 1000 is wrong as a signed value even though the unsigned sum is right. The two top carries differ, which is exactly the overflow condition."
+    }
+   ],
+   "trap": {
+    "what": "Reading the final carry-out as the overflow flag for signed arithmetic.",
+    "why": "The final carry tells you whether an unsigned addition wrapped; a signed overflow is decided by the carry into the sign bit against the carry out of it. The two coincide only sometimes.",
+    "counterexample": "In 4-bit signed, -3 + -3: 1101 + 1101 = 1 1010, so C4 = 1 but the answer 1010 = -6 is correct and there is no overflow, because C3 is also 1 and C4 XOR C3 = 0."
+   },
+   "check": {
+    "question": "The 4-bit adder-subtractor has A = 1001, B = 0011 and M = 1. What does it compute, bit for bit?",
+    "answer": "1001 + 1100 + 1 = 1 0110, so the sum bits are 0110 = 6 and the carry out is 1 (no borrow).",
+    "explanation": "NOT 0011 is 1100, and the +1 comes from Cin = M = 1. As unsigned, 9 - 3 = 6; as signed, 1001 is -7 and 0011 is 3, and -7 - 3 = -10 does not fit in four bits, so the signed reading overflows even though the unsigned subtraction is exact."
+   },
+   "pyqIds": [],
+   "videoRefs": [],
+   "prereqs": [
+    "half-adder-and-full-adder",
+    "twos-complement-negation-and-subtraction"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 23 - Arithmetic Building Blocks I",
+     "channel": "NPTEL, Digital Electronic Circuits (Prof. Goutam Saha, IIT Kharagpur)",
+     "url": "http://digimat.in/nptel/courses/video/108105132/lec23.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "Read from the opening through the full-adder derivation and the construction of a full adder from two half adders, plus the lecturer's closing summary of the whole class. The served transcript stops before the ripple-carry and adder-subtractor worked examples, so those two are recomputed here rather than quoted."
+    }
+   ],
+   "sourceLine": "The construction and the reason for it: NPTEL IIT Kharagpur Digital Electronic Circuits Lecture 23 (English), whose closing summary states that subtraction is done by the full adder on the two's complement, with the complement produced by a bank of NOT gates and the carry-in set to 1, and that a full adder plus a bank of XOR gates does both operations. The 2's complement arithmetic itself is the number-systems topic's card. No verified GATE CSE question in this topic is decided by the adder-subtractor alone, so the card carries no PYQ of its own.",
+   "subject": "digital-logic",
+   "topic": "combinational-circuits",
+   "path": "subjects/digital-logic/combinational-circuits/adder-subtractor.json"
+  },
+  {
+   "id": "multiplexer-and-select-lines",
+   "title": "Multiplexer: Steering 2^n Inputs with n Select Lines",
+   "priority": "P1",
+   "order": 438,
+   "unit": "Combinational Circuits",
+   "quickIdea": "A multiplexer is a data selector: n select lines pick one of 2^n data inputs and steer it to the single output. Written as an equation it is a sum of minterms of the select variables, each weighted by its data input.",
+   "remember": [
+    "2^n data inputs, n select lines, 1 output. 'A multiplexer with a 4-bit data select input' therefore has 16 data inputs.",
+    "2-to-1: Y = S'I0 + SI1. 4-to-1: Y = S1'S0'I0 + S1'S0I1 + S1S0'I2 + S1S0I3.",
+    "The select code of an input is its index in binary: on an 8-to-1 multiplexer, input I6 is selected by S2S1S0 = 110.",
+    "A multiplexer is Shannon's expansion in hardware: F = x'F(x=0) + xF(x=1) is exactly a 2-to-1 multiplexer with x on the select line and the two cofactors on the data inputs.",
+    "Because the data inputs can be constants, variables or complements, a multiplexer is a universal logic block - any function can be built on one (next card).",
+    "A demultiplexer is the inverse: one input steered to one of 2^n outputs by n select lines, and it is the same circuit as a decoder with the data line acting as the enable."
+   ],
+   "example": {
+    "prompt": "Write the output of a 4-to-1 multiplexer whose select lines are S1 = P and S0 = Q and whose data inputs are I0 = 0, I1 = 1, I2 = R and I3 = NOT R.",
+    "work": "Substitute into Y = S1'S0'I0 + S1'S0I1 + S1S0'I2 + S1S0I3: the first product vanishes because I0 = 0, the second is P'Q, the third is PQ'R and the fourth is PQR'.",
+    "answer": "F = P'Q + PQ'R + PQR'. This is the expression GATE CSE 2014 Set 1 Q.45 asks you to minimise, and its minimal form is P'Q + QR' + PQ'R."
+   },
+   "gateAngle": "Multiplexer questions in the papers are of two kinds: sizing (how many select lines, how many blocks) and function realisation (which data inputs implement the function). Both start from the sum-of-minterms equation, so writing that equation first is the method that never fails.",
+   "variations": [
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "How many select lines does a 32-to-1 multiplexer need, and how many data inputs does a multiplexer with 6 select lines have?",
+     "answer": "Five select lines, since 2^5 = 32; and 2^6 = 64 data inputs.",
+     "why": "The select count is the base-2 logarithm of the data count. The relation is exact only for a power of two, which is why multiplexer sizes are always 2^n."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "Write the output equation of an 8-to-1 multiplexer with select lines S2S1S0 = A B C and data inputs I0 to I7.",
+     "answer": "Y = A'B'C'I0 + A'B'CI1 + A'BC'I2 + A'BCI3 + AB'C'I4 + AB'CI5 + ABC'I6 + ABCI7.",
+     "why": "Each select code selects exactly one input, so the output is the sum of the eight select minterms each multiplied by its data input. Setting all eight data inputs to 1 gives Y = 1; setting them to the function's minterm values gives the function."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "A 2-to-1 multiplexer has its output fed back into input I0, and I1 is a data line. What does the circuit do?",
+     "answer": "It holds its previous output while S = 0 and takes the new data when S = 1 - it is a latch, not a combinational circuit.",
+     "why": "The feedback path makes the output depend on its own earlier value, which is the definition of stored state. The same gates without the feedback wire are combinational."
+    }
+   ],
+   "trap": {
+    "what": "Confusing the number of data inputs with the number of select lines, or reversing the select order so that I0 and I3 swap.",
+    "why": "The phrase 'n-bit select' gives n select lines and 2^n data inputs; the phrase 'n-to-1' gives n data inputs and log2(n) select lines. And S1 is the more significant select bit, so it multiplies the upper half of the data inputs, not the lower.",
+    "counterexample": "On a 4-to-1 multiplexer with select 10, the selected input is I2, not I1: S1 = 1 selects the bottom half and S0 = 0 takes the first entry of that half."
+   },
+   "check": {
+    "question": "A 4-to-1 multiplexer has S1S0 = 10 and I2 = 0. What is the output, whatever the other data inputs are?",
+    "answer": "0, because the select code 10 selects I2 and only I2.",
+    "explanation": "The four product terms of the output equation are mutually exclusive - exactly one select code is true at a time - so only the term carrying I2 can be 1. With I2 = 0 the output is 0."
+   },
+   "pyqIds": [],
+   "videoRefs": [],
+   "prereqs": [
+    "combinational-circuit-definition-and-design"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 16 - Multiplexer: Part I",
+     "channel": "NPTEL, Digital Electronic Circuits (Prof. Goutam Saha, IIT Kharagpur)",
+     "url": "http://digimat.in/nptel/courses/video/108105132/lec16.pdf",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "Read from the opening to the closing summary: the 2-to-1 multiplexer built from a truth table, the steering definition of a multiplexer, the construction of a 4-to-1 from three 2-to-1 multiplexers, and Shannon's expansion as the if-then-else reading of a multiplexer."
+    },
+    {
+     "kind": "text",
+     "title": "बहुसंकेतक (Multiplexer)",
+     "channel": "Hindi Wikipedia",
+     "url": "https://hi.wikipedia.org/wiki/%E0%A4%AC%E0%A4%B9%E0%A5%81%E0%A4%B8%E0%A4%82%E0%A4%95%E0%A5%87%E0%A4%A4%E0%A4%95",
+     "language": "hi",
+     "transcript": "PARTIAL",
+     "translated": true,
+     "note": "The one non-English source read this run. Translated from Hindi: a multiplexer selects one of several inputs and steers it to the output, n select lines address 2^n inputs, it is called a data selector, and a demultiplexer is its inverse. Contributes terminology only, no numbers."
+    },
+    {
+     "kind": "text",
+     "title": "Digital Logic subject notes, the combinational-circuit sections",
+     "channel": "GATE Overflow, subject page for Digital Logic",
+     "url": "https://gateoverflow.in/subject/digital-logic?tab=exams",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "Read the combinational circuit, adder, ripple carry, carry look-ahead, decoder and multiplexer sections, plus the paper-by-paper mark distribution used to check which years asked this topic. Used as the GATE-oriented statement of the rules, never as a source of questions."
+    }
+   ],
+   "sourceLine": "The steering definition, the 2-to-1 equation, the 4-to-1 built from three 2-to-1 blocks and the Shannon-expansion reading: NPTEL IIT Kharagpur Digital Electronic Circuits Lecture 16 (English, read from its opening to its closing summary). The select-line count and the data-selector name also come from the Hindi Wikipedia article on the multiplexer (Hindi, translated, marked as translated on this card's source list). The demultiplexer-as-decoder remark is from the GATE Overflow Digital Logic notes (English).",
+   "subject": "digital-logic",
+   "topic": "combinational-circuits",
+   "path": "subjects/digital-logic/combinational-circuits/multiplexer-and-select-lines.json"
+  },
+  {
+   "id": "mux-implementing-a-boolean-function",
+   "title": "Implementing a Boolean Function on a Multiplexer",
+   "priority": "P1",
+   "order": 439,
+   "unit": "Combinational Circuits",
+   "quickIdea": "Put n-1 variables on the select lines and the leftover variable on the data inputs: each data input becomes 0, 1, the variable, or its complement, read off a two-row table.",
+   "remember": [
+    "An n-variable function needs a 2^(n-1)-to-1 multiplexer plus one inverter, because each data input is a function of the one remaining variable and only four cases arise: 0, 1, X, X'.",
+    "Reading rule for the pair of rows that share a select code, where the leftover variable X = 0 is the upper row: both 0 gives I = 0; both 1 gives I = 1; 0 then 1 gives I = X; 1 then 0 gives I = X'.",
+    "With a full 2^n-to-1 multiplexer and all n variables on the select lines no extra hardware is needed at all: tie I_k to the function's value at minterm k.",
+    "Sizing consequence: 2^(n-1)-to-1 plus one inverter always suffices (GATE CSE 2007 Q.34); 2^(n-2)-to-1 does not, because each data input would then be a function of two leftover variables and one inverter cannot produce all sixteen of them.",
+    "Order matters: the variable on S_{n-2} is the more significant of the select bits, so the minterm indices run in that variable's order - get it backwards and every data input is wrong.",
+    "The same method works in reverse: given the data inputs, expand the multiplexer equation and minimise to read the function (GATE CSE 2014 Set 1 Q.45)."
+   ],
+   "example": {
+    "prompt": "GATE CSE 2021 Set 2 Q.5. Implement f(x,y,z) = m0 + m1 + m3 + m4 + m5 + m6 on a 4-to-1 multiplexer whose select lines are y and z, leaving x as the data variable.",
+    "work": "Index by x y z, so the select code yz fixes the pair of minterms that differ in x. yz = 00 gives m0 and m4, both of which are 1, so I0 = 1. yz = 01 gives m1 and m5, both 1, so I1 = 1. yz = 10 gives m2 = 0 and m6 = 1, so I2 = x. yz = 11 gives m3 = 1 and m7 = 0, so I3 = x'.",
+    "answer": "I0 = I1 = 1, I2 = x, I3 = x' - the circuit of option (A)."
+   },
+   "gateAngle": "This is the most-repeated multiplexer pattern in the papers: 2007 Q.34 asks for the smallest multiplexer that still works with one inverter, 2021 Set 2 Q.5 gives the function and asks for the data inputs, and 2014 Set 1 Q.45 gives the data inputs and asks for the minimal sum of products. All three are the same two-row table read in different directions.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "Implement f(A,B,C) = m1 + m2 + m4 + m7 on a 4-to-1 multiplexer with A and B on the select lines.",
+     "answer": "I0 = C, I1 = C', I2 = C', I3 = C, and the function is A XOR B XOR C.",
+     "why": "A = 0, B = 0 gives m0 = 0 and m1 = 1, so the input is C. A = 0, B = 1 gives m2 = 1 and m3 = 0, so C'. A = 1, B = 0 gives m4 = 1 and m5 = 0, so C'. A = 1, B = 1 gives m6 = 0 and m7 = 1, so C. Two of the four inputs are complements of C, which is why one inverter suffices."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why is a 2^(n-1)-to-1 multiplexer with one inverter enough for any n-variable function, while 2^(n-2)-to-1 is not?",
+     "answer": "With n-1 select lines each data input is a function of one variable, and a single variable has only four possible functions - 0, 1, X, X' - all reachable with one inverter. With n-2 select lines each data input is a function of two variables, and there are sixteen of those, so real gates are needed.",
+     "why": "The count of functions of k variables is 2^(2^k): four for k = 1 and sixteen for k = 2. One inverter covers the four; it cannot cover the sixteen."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "The same function f(x,y,z) = m0 + m1 + m3 + m4 + m5 + m6 is implemented on a full 8-to-1 multiplexer with x, y, z on the select lines. What are the eight data inputs?",
+     "answer": "I0 = I1 = I3 = I4 = I5 = I6 = 1 and I2 = I7 = 0.",
+     "why": "Each data input is simply the value of the function at that minterm, with no leftover variable to fold in. This is the sanity check for the 4-to-1 answer: folding the pairs 0/4, 1/5, 2/6, 3/7 of 1,1,0,1,1,1,1,0 gives 1, 1, X, X' as required."
+    }
+   ],
+   "trap": {
+    "what": "Reading the pair of rows in the wrong order, which swaps X and X' on every data input.",
+    "why": "The leftover variable must be the most significant index bit for the rule 'upper row is X = 0' to hold. If x is treated as the least significant bit instead, the pairs become (0,1), (2,3), (4,5), (6,7) and the answers change.",
+    "counterexample": "For f = m0 + m1 + m3 + m4 + m5 + m6 read with yz as the low bits, the pairs are (0,1), (2,3), (4,5), (6,7) giving 1, X', 1, X - a different and wrong set of data inputs for this question, whose accepted answer is I0 = I1 = 1, I2 = x, I3 = x'."
+   },
+   "check": {
+    "question": "For f = m1 + m3 + m5 + m7 of three variables, with y and z on the select lines and x left over, what are the four data inputs?",
+    "answer": "I0 = 0, I1 = 1, I2 = 0, I3 = 1 - that is, I = z, because the function is simply z.",
+    "explanation": "yz = 00 gives m0 = 0 and m4 = 0, so 0. yz = 01 gives m1 = 1 and m5 = 1, so 1. yz = 10 gives m2 = 0 and m6 = 0, so 0. yz = 11 gives m3 = 1 and m7 = 1, so 1. The odd minterms of three variables are exactly those with z = 1."
+   },
+   "pyqIds": [
+    "gate-2007-34-mux-minimum-size",
+    "gate-2014-set-1-45-mux-minimal-sop",
+    "gate-2021-set-2-5-mux-implements-function"
+   ],
+   "videoRefs": [],
+   "prereqs": [
+    "multiplexer-and-select-lines",
+    "canonical-forms-minterms-and-maxterms"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 16 - Multiplexer: Part I",
+     "channel": "NPTEL, Digital Electronic Circuits (Prof. Goutam Saha, IIT Kharagpur)",
+     "url": "http://digimat.in/nptel/courses/video/108105132/lec16.pdf",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "Read from the opening to the closing summary: the 2-to-1 multiplexer built from a truth table, the steering definition of a multiplexer, the construction of a 4-to-1 from three 2-to-1 multiplexers, and Shannon's expansion as the if-then-else reading of a multiplexer."
+    },
+    {
+     "kind": "text",
+     "title": "Digital Logic subject notes, the combinational-circuit sections",
+     "channel": "GATE Overflow, subject page for Digital Logic",
+     "url": "https://gateoverflow.in/subject/digital-logic?tab=exams",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "Read the combinational circuit, adder, ripple carry, carry look-ahead, decoder and multiplexer sections, plus the paper-by-paper mark distribution used to check which years asked this topic. Used as the GATE-oriented statement of the rules, never as a source of questions."
+    }
+   ],
+   "sourceLine": "The Shannon-expansion reading and the construction of a bigger multiplexer from smaller ones: NPTEL IIT Kharagpur Lecture 16 (English). The data-input reading rule and the sizing rule are recomputed here and checked in scripts/validate.py against the three PYQs on this card: GATE CSE 2007 Q.34 (option C), 2014 Set 1 Q.45 (option A) and 2021 Set 2 Q.5 (option A). The visual lesson on this card animates the 2014 Set 1 Q.45 multiplexer end to end.",
+   "visual": "digital-logic/combinational-circuits/mux-to-minimal-sop",
+   "links": {
+    "visual": {
+     "slug": "mux-to-minimal-sop",
+     "title": "From a 4-to-1 Multiplexer to a Minimal Sum of Products",
+     "level": "subtopic-level",
+     "covers": [
+      "the multiplexer output equation",
+      "implementing a function on a multiplexer",
+      "reading a minimal sum of products off a group"
+     ],
+     "url": "visuals/digital-logic/combinational-circuits/mux-to-minimal-sop/index.html"
+    },
+    "mapped_at": "2026-10-30"
+   },
+   "subject": "digital-logic",
+   "topic": "combinational-circuits",
+   "path": "subjects/digital-logic/combinational-circuits/mux-implementing-a-boolean-function.json"
+  },
+  {
+   "id": "mux-trees-and-cascading",
+   "title": "Multiplexer Trees: Building a Big MUX from Small Ones",
+   "priority": "P2",
+   "order": 440,
+   "unit": "Combinational Circuits",
+   "quickIdea": "A 2^n-to-1 multiplexer is 2^n - 1 two-to-one multiplexers in a tree, and the select line of the last stage is the most significant select bit.",
+   "remember": [
+    "2^n-to-1 from 2-to-1 blocks: 2^n - 1 blocks. 4-to-1 uses 3, 8-to-1 uses 7, 16-to-1 uses 15, 64-to-1 uses 63.",
+    "Each level of the tree splits on one variable, so a binary tree of depth n has n levels and its delay is proportional to n.",
+    "The last stage decides between the two halves, so its select line is the most significant bit of the select code; the first-stage selects are the least significant bits.",
+    "Reading a tree: write each first-level output as a 2-to-1 expression, then substitute into the final stage - the result is one 8-to-1 or 16-to-1 equation with the select order that the wiring implies.",
+    "To build a 2^n-to-1 from 2^m-to-1 blocks, use 2^(n-m) blocks in the last level plus a decoder on the top (n-m) select bits to enable exactly one block; the bottom m select bits go to every block.",
+    "The tree form is why multiplexers scale: a 16-to-1 built from 4-to-1 blocks needs 4 blocks and a 2-to-4 decoder, not 15 two-to-one blocks."
+   ],
+   "example": {
+    "prompt": "GATE CSE 2024 Set 1 Q.54. Three 2-to-1 multiplexers: M1 has inputs X1, X2 and select A; M2 has X3, X4 and select B; M3 selects between the outputs of M1 and M2 with select C. With X1 = X2 = 1 and X3 = X4 = 0, how many of the eight (A, B, C) combinations give Y = 1?",
+    "work": "M1's output is A'X1 + AX2 = A' + A = 1 for either value of A. M2's output is B'X3 + BX4 = 0 + 0 = 0 for either value of B. So Y = C' x 1 + C x 0 = C'. Y = 1 needs C = 0, and A and B are free: 2 x 2 x 1 = 4.",
+    "answer": "4 combinations."
+   },
+   "gateAngle": "Two patterns recur. One is the counting question - how many select combinations give a stated output, which is solved by collapsing each sub-multiplexer to a constant or a variable (2024 Set 1 Q.54). The other is the reverse-engineering question - given the tree and a function, find the data inputs (2023 Q.34), where the tree's select order must be read off the wiring before anything else.",
+   "variations": [
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "How many 2-to-1 multiplexers does a 64-to-1 multiplexer need, and how many levels does the tree have?",
+     "answer": "63 blocks and 6 levels.",
+     "why": "The count is 2^n - 1 with n = 6, and a binary tree that halves 64 inputs down to 1 has log2(64) = 6 levels."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "A 16-to-1 multiplexer is built from 4-to-1 blocks. How many blocks are needed and how are the four select bits used?",
+     "answer": "Four 4-to-1 blocks plus a 2-to-4 decoder on the top two select bits; the bottom two select bits drive all four blocks.",
+     "why": "Each block handles 4 of the 16 inputs, so 16 / 4 = 4 blocks, and the decoder turns the top two bits into the one-hot enables. The blocks' outputs are then ORed - or selected by a fifth stage - to give the single output."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "In the GATE CSE 2023 Q.34 tree, what happens to the answer if the select lines of the final multiplexer M3 and of the first-level multiplexers were interchanged?",
+     "answer": "The realised function changes, because the select order changes: the same data inputs would now index a different set of minterms.",
+     "why": "The tree realises an 8-to-1 multiplexer whose select code is ordered by level, final stage first. Swapping which variable sits on the final stage's select re-orders the minterms, so the data-input vector that worked no longer does."
+    }
+   ],
+   "trap": {
+    "what": "Assigning the most significant select bit to the first level instead of the last.",
+    "why": "The last stage chooses between the two halves of the input set, so its select line separates inputs that differ in the most significant bit. Getting this backwards reverses the roles of the two halves of the data vector.",
+    "counterexample": "In the 2023 Q.34 tree the final stage's select is B, so B is the most significant select bit and the select order is B, A, C - not A, B, C. With the wrong order the minterms no longer line up with X0 to X7, and the correct answer 11011100 is replaced by a permutation of it."
+   },
+   "check": {
+    "question": "How many 2-to-1 multiplexers build an 8-to-1 multiplexer, and which single select bit reaches the last stage?",
+    "answer": "Seven blocks; the last stage's select is the most significant select bit.",
+    "explanation": "Eight inputs halve to four, then two, then one: 4 + 2 + 1 = 7 blocks in three levels. The last level decides between the four-input halves, so its select is the top bit of the three-bit select code."
+   },
+   "pyqIds": [
+    "gate-2023-34-mux-tree-function",
+    "gate-2024-set-1-54-three-mux-count"
+   ],
+   "videoRefs": [],
+   "prereqs": [
+    "mux-implementing-a-boolean-function"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 16 - Multiplexer: Part I",
+     "channel": "NPTEL, Digital Electronic Circuits (Prof. Goutam Saha, IIT Kharagpur)",
+     "url": "http://digimat.in/nptel/courses/video/108105132/lec16.pdf",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "Read from the opening to the closing summary: the 2-to-1 multiplexer built from a truth table, the steering definition of a multiplexer, the construction of a 4-to-1 from three 2-to-1 multiplexers, and Shannon's expansion as the if-then-else reading of a multiplexer."
+    },
+    {
+     "kind": "text",
+     "title": "Digital Logic subject notes, the combinational-circuit sections",
+     "channel": "GATE Overflow, subject page for Digital Logic",
+     "url": "https://gateoverflow.in/subject/digital-logic?tab=exams",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "Read the combinational circuit, adder, ripple carry, carry look-ahead, decoder and multiplexer sections, plus the paper-by-paper mark distribution used to check which years asked this topic. Used as the GATE-oriented statement of the rules, never as a source of questions."
+    }
+   ],
+   "sourceLine": "The cascading construction - a 4-to-1 from three 2-to-1 blocks, and the general 'higher order from lower order' recipe - is NPTEL IIT Kharagpur Lecture 16 (English). The 2^n - 1 block count and the decoder-per-block structure are recomputed here and checked in scripts/validate.py against GATE CSE 2023 Q.34 (option C) and 2024 Set 1 Q.54 (answer 4).",
+   "subject": "digital-logic",
+   "topic": "combinational-circuits",
+   "path": "subjects/digital-logic/combinational-circuits/mux-trees-and-cascading.json"
+  },
+  {
+   "id": "decoder-and-minterm-generation",
+   "title": "Decoder: One-Hot Outputs and Function Implementation",
+   "priority": "P1",
+   "order": 441,
+   "unit": "Combinational Circuits",
+   "quickIdea": "An n-to-2^n decoder turns an n-bit code into exactly one active output line, so its outputs are the 2^n minterms of the inputs. OR the outputs for the 1s and you have built the function.",
+   "remember": [
+    "n inputs, 2^n outputs, exactly one output active for each input code. Output k is active when the input code is k.",
+    "Active-high decoder: Y_k = minterm k. Active-low decoder: Y_k = (minterm k)' = maxterm k.",
+    "Function implementation: OR the minterm outputs that the function needs. With an active-low decoder the same function is a NAND of the selected outputs, because each output is already complemented.",
+    "An enable input makes every output inactive when it is off; that is how decoders are cascaded - a small decoder on the top address bits enables one of several bigger ones.",
+    "A decoder followed by a set of OR gates is a look-up table: n inputs, 2^n minterms, m OR gates give m functions of the same n variables.",
+    "A counter feeding a decoder produces a one-hot sequence, which is a ring counter - GATE CSE 2014 Set 2 Q.7 turns on exactly that observation.",
+    "A demultiplexer is a decoder whose enable has become the data input; that is why the two are the same circuit."
+   ],
+   "example": {
+    "prompt": "Implement f(A,B) = m1 + m2 with a 2-to-4 decoder and one OR gate.",
+    "work": "A 2-to-4 active-high decoder gives Y0 = A'B', Y1 = A'B, Y2 = AB' and Y3 = AB. The function needs m1 and m2, so OR Y1 and Y2.",
+    "answer": "f = Y1 + Y2 = A'B + AB' = A XOR B. One decoder and one two-input OR gate."
+   },
+   "gateAngle": "GATE CSE 2026 Set 2 Q.49 wires a 2-to-4 decoder's outputs into a 4-to-1 multiplexer and asks how many of the 16 input combinations give Y = 1 - a decoder question and a multiplexer question at once, answerable only by writing the decoder outputs as minterms first. GATE CSE 2014 Set 2 Q.7 asks what a counter plus a decoder is, which is the one-hot property.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "A 3-to-8 active-high decoder and a single 4-input OR gate are to implement f = m0 + m3 + m5 + m6. What is the gate count, and what changes if the decoder's outputs are active-low?",
+     "answer": "One decoder and one 4-input OR gate for active-high outputs; for active-low outputs the OR becomes a 4-input NAND.",
+     "why": "Each decoder output is one minterm, so the function is the OR of four of them. With active-low outputs each line is the complement of its minterm, and De Morgan turns the OR of complements into the NAND of the lines."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "How many 3-to-8 decoders with enable are needed to build a 5-to-32 decoder, and what drives their enables?",
+     "answer": "Five: four to produce the 32 outputs and one to decode the two top address bits into the four enables.",
+     "why": "32 outputs need 32 / 8 = 4 blocks, and those blocks must be enabled one at a time by the two remaining address bits, which a small decoder does. The bottom three address bits go to all four blocks in parallel."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "Which outputs of a 3-to-8 decoder must be ORed to realise f = A XOR B XOR C?",
+     "answer": "Y1, Y2, Y4 and Y7 - the minterms 001, 010, 100 and 111, which are exactly the codes with an odd number of 1s.",
+     "why": "The three-input XOR is 1 for an odd count of ones, so its minterms are 1, 2, 4 and 7. The decoder supplies each of them on one line, and the OR collects them."
+    }
+   ],
+   "trap": {
+    "what": "Forgetting the polarity of the decoder outputs and ORing active-low lines as if they were minterms.",
+    "why": "An active-low decoder asserts 0 on the selected line, so the selected line is the complement of the minterm. ORing them gives the complement of what you want, and the circuit is wrong for every input.",
+    "counterexample": "With an active-low 2-to-4 decoder, ORing the lines for m1 and m2 gives (A'B)' + (AB')' = A + B' + A' + B = 1, a constant 1 instead of A XOR B. The correct gate is a NAND of those two lines."
+   },
+   "check": {
+    "question": "A 3-to-8 decoder is used with one 8-input OR gate. How many distinct functions of three variables can that arrangement realise?",
+    "answer": "256 - every function of three variables.",
+    "explanation": "There are 2^3 = 8 decoder lines, one per minterm, and a function is fixed by choosing which of them to OR. That is 2^8 = 256 choices, which is exactly the number of Boolean functions of three variables."
+   },
+   "pyqIds": [
+    "gate-2014-set-2-7-counter-and-decoder",
+    "gate-2026-set-2-49-decoder-and-mux-count"
+   ],
+   "videoRefs": [],
+   "prereqs": [
+    "combinational-circuit-definition-and-design",
+    "canonical-forms-minterms-and-maxterms"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 19 - Decoder with BCD Input and Encoder",
+     "channel": "NPTEL, Digital Electronic Circuits (Prof. Goutam Saha, IIT Kharagpur)",
+     "url": "http://digimat.in/nptel/courses/video/108105132/lec19.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "Read from the opening through the BCD-to-decimal decoder and again at the closing summary: the encoder is the inverse of the decoder, a priority encoder settles the case of more than one active input, and IC 74148 cascades an 8-to-3 into a 16-to-4 encoder through its enable and group-select pins."
+    },
+    {
+     "kind": "text",
+     "title": "Digital Logic subject notes, the combinational-circuit sections",
+     "channel": "GATE Overflow, subject page for Digital Logic",
+     "url": "https://gateoverflow.in/subject/digital-logic?tab=exams",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "Read the combinational circuit, adder, carry look-ahead, decoder and multiplexer sections, plus the paper-by-paper mark distribution used to check which years asked this topic."
+    }
+   ],
+   "sourceLine": "The decoding operation, the active-low output convention and the don't-care status of the six unused BCD codes: NPTEL IIT Kharagpur Digital Electronic Circuits Lecture 19 (English). The minterm-generation and function-implementation rules are from the GATE Overflow Digital Logic notes (English) and are recomputed in scripts/validate.py against GATE CSE 2014 Set 2 Q.7 (option C) and 2026 Set 2 Q.49 (answer 6).",
+   "subject": "digital-logic",
+   "topic": "combinational-circuits",
+   "path": "subjects/digital-logic/combinational-circuits/decoder-and-minterm-generation.json"
+  },
+  {
+   "id": "encoder-and-priority-encoder",
+   "title": "Encoder and Priority Encoder",
+   "priority": "P2",
+   "order": 442,
+   "unit": "Combinational Circuits",
+   "quickIdea": "An encoder is the inverse of a decoder: it turns one active input line into its n-bit code. A priority encoder does the same when several inputs are active at once, by encoding the most important one.",
+   "remember": [
+    "2^n inputs to n outputs. A plain encoder assumes exactly one input is active; with two active the output is meaningless.",
+    "Priority encoder: the highest-priority active input decides the output and the lower ones are ignored, so every input combination has a defined answer.",
+    "A valid (group-select) output says whether any input is active at all - without it the all-zero input code is indistinguishable from 'nothing active'.",
+    "IC 74148 is an 8-to-3 priority encoder with enable-in, enable-out and group-select. Feeding enable-out into the next chip's enable-in cascades two of them into a 16-to-4 encoder.",
+    "The plain 4-to-2 encoder's truth table has four rows, one per active input; the priority version has sixteen rows, one per input combination.",
+    "You cannot build an encoder by reversing a decoder's wires: the decoder's one-hot assumption is exactly what fails when two inputs are active."
+   ],
+   "example": {
+    "prompt": "A 4-to-2 priority encoder has inputs I3, I2, I1, I0 with I3 the highest priority. What is the output for I3I2I1I0 = 0110, and for 0001?",
+    "work": "In 0110 the active inputs are I2 and I1. I2 has the higher priority, so it wins and the code is 2. In 0001 only I0 is active, so the code is 0.",
+    "answer": "10 for 0110, and 00 for 0001 - which is why a valid output is needed to tell 'I0 active' from 'nothing active'."
+   },
+   "gateAngle": "The encoder itself is asked rarely and the priority encoder is asked as a property question: what happens when two inputs are active, and how blocks cascade. The distinction to hold on to is that a plain encoder has undefined behaviour on multi-active inputs while a priority encoder is total.",
+   "variations": [
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "An 8-to-3 encoder receives I3 = 1 and I5 = 1 with everything else 0. Why is its output not well defined, and what does a priority encoder give?",
+     "answer": "The plain encoder's truth table only has the one-hot rows, so a two-hot input is an unused combination and the OR-gate realisation returns 101 - the bitwise OR of the codes for 3 and 5. A priority encoder returns the code of whichever of I3, I5 has the higher priority, i.e. 5 if higher indices win.",
+     "why": "The plain encoder is a set of OR gates, one per output bit, each collecting the inputs whose code has that bit set. Two active inputs light up the union of their bits instead of either code."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "How many 8-to-3 priority encoders with enable-in, enable-out and group-select are needed to build a 32-to-5 priority encoder?",
+     "answer": "Five: four for the 32 data inputs and one to encode the four group-select lines into the top two bits.",
+     "why": "Each block handles eight inputs and gives three code bits, and the group-select of the enabled block identifies which eight were addressed. Chaining enable-out to enable-in keeps at most one block active, which is what makes the result a priority order."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "In an 8-to-3 priority encoder the priority order is reversed so that I0 is the most important. Which part of the design changes?",
+     "answer": "Only the truth table and therefore the OR gates that realise each output bit; the block structure and the pin count do not change.",
+     "why": "Priority is a property of the specification, not of the hardware. Reversing it re-assigns which input combinations set which output bits, so each output's sum of products is a different set of minterms."
+    }
+   ],
+   "trap": {
+    "what": "Assuming a decoder can be run backwards as an encoder.",
+    "why": "A decoder maps a code to a one-hot line, and that map is injective, so it can be reversed when exactly one line is active. An encoder must also answer when several lines are active, and the reversed decoder has no answer there.",
+    "counterexample": "Feeding a 3-to-8 decoder's outputs into an 8-to-3 encoder's inputs and calling it an encoder fails as soon as two decoder lines are high, because the encoder's one-hot assumption is violated."
+   },
+   "check": {
+    "question": "An 8-to-3 priority encoder gives I7 the highest priority. What is the output for I7..I0 = 1010 1000?",
+    "answer": "111 - the code for 7, because I7 is active and has the highest priority.",
+    "explanation": "1010 1000 has I7 = 1, I5 = 1 and I3 = 1. Priority takes the highest index, which is 7, and 7 in three bits is 111. Everything below I7 is irrelevant."
+   },
+   "pyqIds": [],
+   "videoRefs": [],
+   "prereqs": [
+    "decoder-and-minterm-generation"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 19 - Decoder with BCD Input and Encoder",
+     "channel": "NPTEL, Digital Electronic Circuits (Prof. Goutam Saha, IIT Kharagpur)",
+     "url": "http://digimat.in/nptel/courses/video/108105132/lec19.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "Read from the opening through the BCD-to-decimal decoder and again at the closing summary: the encoder is the inverse of the decoder, a priority encoder settles the case of more than one active input, and IC 74148 cascades an 8-to-3 into a 16-to-4 encoder through its enable and group-select pins."
+    }
+   ],
+   "sourceLine": "The encoder as the inverse of the decoder, the priority rule when more than one input is active, and the 74148 cascade from 8-to-3 to 16-to-4 through enable and group-select: NPTEL IIT Kharagpur Digital Electronic Circuits Lecture 19 (English, read from its opening to its closing summary). No verified GATE CSE question in this topic is decided by the encoder alone, so the card carries no PYQ of its own.",
+   "subject": "digital-logic",
+   "topic": "combinational-circuits",
+   "path": "subjects/digital-logic/combinational-circuits/encoder-and-priority-encoder.json"
+  },
+  {
+   "id": "magnitude-comparator",
+   "title": "Magnitude Comparator",
+   "priority": "P3",
+   "order": 443,
+   "unit": "Combinational Circuits",
+   "quickIdea": "A comparator answers three questions - equal, greater, less - by scanning the two words from the most significant end and stopping at the first position where they differ.",
+   "remember": [
+    "Bit equality is XNOR: (Ai = Bi) = (Ai XOR Bi)'.",
+    "Word equality is the AND of all n bit equalities: (A = B) = product over i of (Ai XOR Bi)'.",
+    "A > B is decided by the most significant position where the words differ: A > B = sum over i of ( Ai AND NOT Bi ) AND (all higher positions equal).",
+    "A < B follows from symmetry, and the three outputs are not independent: exactly one of equal, greater, less is true.",
+    "A 4-bit comparator block carries A > B, A < B and A = B as inputs so blocks cascade; a lower block's verdict is used only when the higher block reports equality.",
+    "A comparator is a subtractor with three flags: the zero flag gives equality and the sign of A - B gives greater or less."
+   ],
+   "example": {
+    "prompt": "Compare A = 1011 with B = 1001 using the most-significant-first rule.",
+    "work": "Bit 3: 1 against 1, equal, continue. Bit 2: 0 against 0, equal, continue. Bit 1: 1 against 0, different, and A has the 1, so A > B. Bit 0 is never examined.",
+    "answer": "A > B, decided at bit 1. The bit-0 values 1 and 1 could have been anything without changing the verdict."
+   },
+   "gateAngle": "The comparator is a P3 card: the GATE CSE line names combinational design, not comparators, and no verified CSE question in this topic turns on a comparator alone. It is kept because it is the standard companion block to the adder and because the 'most significant difference decides' rule is the same reasoning that makes the carry chain and the multiplexer select order work.",
+   "variations": [
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "How many XNOR gates and how many AND gates does an 8-bit equality comparator need if only two-input gates are available?",
+     "answer": "Eight XNOR gates and seven two-input AND gates.",
+     "why": "One XNOR per bit pair, then a tree of seven AND gates to combine eight equality signals into one."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "A = 0110 and B = 0101 are compared by a 4-bit comparator. Which relation holds and which bit decides it?",
+     "answer": "A > B, decided at bit 1: A1 = 1 and B1 = 0 while bit 3 and bit 2 are equal.",
+     "why": "Bit 3 is 0 against 0 and bit 2 is 1 against 1, so the scan continues to bit 1, where A holds the 1. Bit 0 (0 against 1) is irrelevant because a less significant position cannot overturn a more significant difference."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "Two 4-bit comparator blocks are cascaded to compare 8-bit words. The high block reports A = B. Whose verdict is the answer?",
+     "answer": "The low block's - gated by the high block's equality signal.",
+     "why": "Equality in the high nibble makes the comparison depend entirely on the low nibble. If the high block reports A > B or A < B, the low block's verdict must be ignored, which is what the cascade inputs are for."
+    }
+   ],
+   "trap": {
+    "what": "Comparing from the least significant bit, or ORing the bit verdicts instead of taking the first difference.",
+    "why": "A difference at a higher position outweighs any number of differences below it, so the comparison is lexicographic from the top, not a count of differing bits.",
+    "counterexample": "A = 0111 and B = 1000: three bits of A are 1 against B's 0 at positions 2, 1, 0, yet B is larger because bit 3 decides it. Counting 1s would give the wrong answer."
+   },
+   "check": {
+    "question": "A = 1000 and B = 0111. Which bit decides the comparison, and what is the verdict?",
+    "answer": "Bit 3, and A > B.",
+    "explanation": "The words differ at the most significant bit: A3 = 1 and B3 = 0, so A is larger whatever the other three bits are. This is why the rule must be applied from the top down."
+   },
+   "pyqIds": [],
+   "videoRefs": [],
+   "prereqs": [
+    "adder-subtractor"
+   ],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "Digital Logic subject notes, the combinational-circuit sections",
+     "channel": "GATE Overflow, subject page for Digital Logic",
+     "url": "https://gateoverflow.in/subject/digital-logic?tab=exams",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "Read the combinational circuit, adder, carry look-ahead, decoder and multiplexer sections, plus the paper-by-paper mark distribution used to check which years asked this topic."
+    }
+   ],
+   "sourceLine": "The three verdicts and the most-significant-first rule are stated from the standard treatment of combinational blocks (Mano, Digital Design, chapter 4) and from the GATE Overflow Digital Logic notes (English). No readable lecture transcript on the comparator was obtained this run - NPTEL Lecture 26 exists but was not fetched - so nothing is quoted or timestamped, and no PYQ rests on this card.",
+   "subject": "digital-logic",
+   "topic": "combinational-circuits",
+   "path": "subjects/digital-logic/combinational-circuits/magnitude-comparator.json"
+  },
+  {
+   "id": "rom-and-pla",
+   "title": "ROM and PLA: Storing a Truth Table",
+   "priority": "P2",
+   "order": 444,
+   "unit": "Combinational Circuits",
+   "quickIdea": "A ROM is a truth table in silicon: n address lines are the inputs, m data lines are the outputs, and any n-input m-output combinational function fits in 2^n words of m bits.",
+   "remember": [
+    "ROM size = 2^(address bits) words x (bits per word). Two 8-bit operands make a 16-bit address, so 2^16 = 64K words; their product needs 16 bits, so 64K x 16.",
+    "A ROM is a decoder plus an OR plane: the decoder generates all 2^n minterms and the OR plane decides which of them are stored as 1.",
+    "A PLA has a programmable AND plane and a programmable OR plane, so it stores a minimal sum of products directly instead of a full truth table.",
+    "A PAL has a programmable AND plane and a fixed OR plane, so it can only realise sums of products with a bounded number of terms.",
+    "The ROM does not care whether the function is minimal - it stores every row - which is why it is the fastest and the most wasteful option.",
+    "Any function of the address bits can be implemented, including several independent ones: each output bit is one function."
+   ],
+   "example": {
+    "prompt": "GATE CSE 1996 Q.1.21. A ROM stores the table for multiplication of two 8-bit unsigned integers. What size of ROM is required?",
+    "work": "The two operands together form the address, so 8 + 8 = 16 address bits and 2^16 = 65536 = 64K locations. The largest product of two 8-bit numbers is 255 x 255 = 65025, which needs 16 bits, so each word is 16 bits wide.",
+    "answer": "64K x 16 - option (D)."
+   },
+   "gateAngle": "The ROM question in the papers is always a sizing question, and the two decisions are the address width (one bit per input) and the word width (enough bits for the largest output). GATE CSE 1996 Q.1.21 asks it for a multiplier; the same arithmetic answers a ROM implementing an adder or a set of Boolean functions.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "How much ROM is needed to implement a 4-bit multiplier?",
+     "answer": "2^8 x 8 = 2048 bits, that is 2 Kbits.",
+     "why": "Two 4-bit operands give 8 address bits and so 256 locations; the largest product is 15 x 15 = 225, which needs 8 bits. 256 x 8 = 2048 bits."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "A 3-input function has exactly one minterm. Why does a ROM implementation still need eight words?",
+     "answer": "Because the address space is fixed by the number of inputs: three address lines can address eight locations whether or not the function uses them.",
+     "why": "A ROM is a full look-up table, so its depth depends on the input count alone. A PLA would instead spend only one product term on the same function, which is the trade the two devices make."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "A 1K x 8 ROM is used to implement four functions of three variables. Is it large enough, and how are the four functions separated?",
+     "answer": "Yes, only 8 of the 1024 words are used; each of the four functions is one of the eight output bits.",
+     "why": "Three address lines select one of eight rows, and the eight data lines of each row carry the four function values (plus four unused bits). The ROM's width is what makes it multi-output."
+    }
+   ],
+   "trap": {
+    "what": "Sizing the ROM by the number of distinct results instead of by the address space, and forgetting the output width.",
+    "why": "The depth is 2^(total input bits), not the number of pairs that can occur, and the width is the bits needed for the largest output, not the input width.",
+    "counterexample": "For the 8-bit multiplier, answering 256 x 16 counts only the pairs where one operand is fixed, and answering 64K x 8 forgets that the product of two 8-bit numbers needs 16 bits. Both wrong options appear in GATE CSE 1996 Q.1.21 as (A) and (B)."
+   },
+   "check": {
+    "question": "What size of ROM stores the sum of two 4-bit numbers, including the carry out?",
+    "answer": "2^8 words x 5 bits = 1280 bits.",
+    "explanation": "Eight address bits from the two operands give 256 locations, and the largest sum is 15 + 15 = 30, which needs five bits (11110). So 256 x 5 = 1280 bits."
+   },
+   "pyqIds": [
+    "gate-1996-1-21-rom-multiplier-table"
+   ],
+   "videoRefs": [],
+   "prereqs": [
+    "decoder-and-minterm-generation"
+   ],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "Digital Logic subject notes, the combinational-circuit sections",
+     "channel": "GATE Overflow, subject page for Digital Logic",
+     "url": "https://gateoverflow.in/subject/digital-logic?tab=exams",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "Read the combinational circuit, adder, carry look-ahead, decoder and multiplexer sections, plus the paper-by-paper mark distribution used to check which years asked this topic."
+    }
+   ],
+   "sourceLine": "The ROM-as-decoder-plus-OR-plane picture, the PLA and PAL distinction and the sizing rule are from the standard treatment of programmable logic (Mano, Digital Design, chapter 4) and the GATE Overflow Digital Logic notes (English). The example is GATE CSE 1996 Q.1.21, accepted answer option (D), and every size on this card is recomputed in scripts/validate.py.",
+   "subject": "digital-logic",
+   "topic": "combinational-circuits",
+   "path": "subjects/digital-logic/combinational-circuits/rom-and-pla.json"
+  },
+  {
+   "id": "parity-generator-and-checker",
+   "title": "Parity Generator and Checker",
+   "priority": "P3",
+   "order": 445,
+   "unit": "Combinational Circuits",
+   "quickIdea": "Parity is the XOR of the data bits. A generator appends one bit so that the total count of 1s is even (or odd); a checker recomputes the XOR and flags a mismatch.",
+   "remember": [
+    "Even parity bit P = D1 XOR D2 XOR ... XOR Dn; the odd parity bit is the complement of that.",
+    "A chain of two-input XOR gates computes parity for any width; a balanced tree does it in log2(n) levels instead of n-1.",
+    "Checker: XOR all the received data bits together with the received parity bit. Under even parity a 0 means no single-bit error and a 1 flags one.",
+    "Parity detects any odd number of flipped bits and can never detect an even number.",
+    "One parity bit cannot locate the error; it only says one exists. A Hamming code adds several check bits so the position can be identified.",
+    "The parity bit itself is a function of the data, so a parity generator is an ordinary combinational circuit - a tree of XOR gates."
+   ],
+   "example": {
+    "prompt": "Compute the even and odd parity bits for the data 1011.",
+    "work": "XOR the bits: 1 XOR 0 = 1, 1 XOR 1 = 0, 0 XOR 1 = 1. The XOR of the data is 1, which is also the even parity bit, because appending a 1 makes the count of 1s even (four).",
+    "answer": "Even parity bit 1, odd parity bit 0."
+   },
+   "gateAngle": "Parity is a P3 card: the GATE CSE line does not name it, and no verified CSE question in this topic is decided by parity alone. It is kept because the parity generator is the smallest complete example of a combinational design - one output, one XOR tree - and because it is the entry point to the error-detecting codes that the number-systems topic touches.",
+   "variations": [
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "How many two-input XOR gates compute the even parity of 8 data bits?",
+     "answer": "Seven.",
+     "why": "XOR is associative, so the parity of n bits is n-1 two-input XOR operations - a chain of seven for eight bits, or a tree of the same seven gates in three levels."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "The data word 1100 0110 needs an even parity bit. What is it, and what does the checker output if the third bit from the left flips in transmission?",
+     "answer": "The even parity bit is 0 (four 1s already, so XOR = 0). After a single flip the checker's XOR becomes 1 and the error is flagged.",
+     "why": "Four 1s is already an even count, so the parity bit must be 0. One flip changes the count of 1s to three or five, both odd, so the recomputed XOR is 1."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "Two bits flip in a 12-bit even-parity word. What does the checker report, and what follows about parity's power?",
+     "answer": "Nothing - the checker's XOR is still 0, so the error passes undetected.",
+     "why": "Two flips change the count of 1s by 0 or 2, so its parity is unchanged. Parity detects odd numbers of errors only, which is why it is a single-error detector and not a corrector."
+    }
+   ],
+   "trap": {
+    "what": "Confusing the parity bit with the parity of the data, so the even and odd bits are swapped.",
+    "why": "Under even parity the parity bit equals the XOR of the data (it makes the total even); under odd parity it is the complement. Computing the XOR and calling it 'the parity' without saying which convention is in force is where the sign error comes from.",
+    "counterexample": "For 1011 the XOR is 1, so the even parity bit is 1 and the odd parity bit is 0. Answering 0 for even parity is the classic slip."
+   },
+   "check": {
+    "question": "What is the odd parity bit for the data 1010?",
+    "answer": "1.",
+    "explanation": "The XOR of 1, 0, 1, 0 is 0, so appending 0 would leave an even count of 1s. Odd parity needs the complement, which is 1, making the total count of 1s three."
+   },
+   "pyqIds": [],
+   "videoRefs": [],
+   "prereqs": [
+    "combinational-circuit-definition-and-design",
+    "xor-and-xnor-algebra"
+   ],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "Digital Logic subject notes, the combinational-circuit sections",
+     "channel": "GATE Overflow, subject page for Digital Logic",
+     "url": "https://gateoverflow.in/subject/digital-logic?tab=exams",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "Read the combinational circuit, adder, carry look-ahead, decoder and multiplexer sections, plus the paper-by-paper mark distribution used to check which years asked this topic."
+    }
+   ],
+   "sourceLine": "The parity definition and the checker rule are stated from the standard treatment (Mano, Digital Design, chapter 4) and the GATE Overflow Digital Logic notes (English). NPTEL Lecture 20 of the same course covers the parity generator and checker but was not fetched this run, so nothing is attributed to it and the card carries no PYQ.",
+   "subject": "digital-logic",
+   "topic": "combinational-circuits",
+   "path": "subjects/digital-logic/combinational-circuits/parity-generator-and-checker.json"
+  },
+  {
+   "id": "hazards-in-combinational-circuits",
+   "title": "Hazards and Glitches: When a Correct Truth Table Gives a Wrong Pulse",
+   "priority": "P2",
+   "order": 446,
+   "unit": "Combinational Circuits",
+   "quickIdea": "A hazard is a short wrong output caused by two paths of unequal delay that reconverge. The logic is right; the timing is not. One redundant term removes a static-1 hazard.",
+   "remember": [
+    "Static-1 hazard: the output should stay at 1 and glitches to 0. It happens when the expression reduces to X + X' for the transition in question, with the inverter delaying one arm.",
+    "Static-0 hazard: the output should stay at 0 and glitches to 1. It is the POS counterpart, where the expression reduces to X . X'.",
+    "Dynamic hazard: the output changes several times where one transition is required. It needs three or more levels of logic between input and output.",
+    "Detect a static-1 hazard on the map: two adjacent 1-cells covered by two different groups, with no single group covering both. In the expression: look for a variable that appears complemented in one term and uncomplemented in another, with all other literals fixed.",
+    "Cover it by adding the consensus term of the two - the term formed from the other literals of the pair. The redundant term changes no output value and removes the glitch.",
+    "A hazard is a timing defect, not a logic defect: the truth table is correct, and the circuit is still wrong for a few gate delays."
+   ],
+   "example": {
+    "prompt": "F = A'B + AC. Show that a static-1 hazard exists on the A input when B = 1 and C = 1, and remove it.",
+    "work": "With B = 1 and C = 1 the expression collapses to F = A' + A, which is 1 for every value of A. When A goes from 0 to 1, the term A'B falls as soon as the inverter output drops, while AC has not yet risen - for one gate delay both terms are 0 and F glitches to 0. Adding the consensus term BC gives F = A'B + AC + BC, and with B = C = 1 the added term is 1 throughout the transition.",
+    "answer": "F = A'B + AC + BC is hazard-free for this transition, at the cost of one AND gate."
+   },
+   "gateAngle": "The hazard material is taught in the same week as minimisation in the NPTEL sequence and it is the counterweight to the minimisation topic: the minimum expression is not always the safest circuit. GATE has not asked a hazard question of CSE in the years checked here, which is why this card carries no PYQ, but the reasoning - two paths, unequal delay, one covering term - is the same reasoning that explains the ripple carry delay.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "F = X'Y' + XZ. For which input change is there a static-1 hazard, and which term covers it?",
+     "answer": "With Y = 0 and Z = 1, F collapses to X' + X, so the hazard is on X. The covering term is Y'Z.",
+     "why": "The two terms disagree in X and agree on the rest only when Y' = 1 and Z = 1. Their consensus is the product of the agreeing literals, Y'Z, which is 1 throughout that transition."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why does adding the consensus term BC to A'B + AC not change the function?",
+     "answer": "Because BC is already implied by the other two terms: whenever B = C = 1 the expression is already 1, so the added term covers only cells that were covered.",
+     "why": "The consensus term is redundant by definition - it is the intersection of the two groups. Redundant in logic, useful in timing: it holds the output at 1 while the two original paths change over."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "A three-level circuit has a dynamic hazard. Can a single added term remove it?",
+     "answer": "No. A dynamic hazard comes from multiple reconvergent paths across three or more levels, so it must be removed by restructuring the circuit, not by adding one term.",
+     "why": "Static hazards are a property of two-level realisations and are fixed by covering adjacent cells. Once a third level exists, several paths can change in different orders and no single product or sum term covers them all."
+    }
+   ],
+   "trap": {
+    "what": "Assuming the minimal expression is always the best circuit, and reporting a hazard-free answer as 'not minimal'.",
+    "why": "Minimisation optimises the number of literals and gates for the steady-state function. It can leave two adjacent 1s covered by different groups, which is exactly the condition for a static-1 hazard.",
+    "counterexample": "F = A'B + AC is minimal - three literals, two terms - and glitches when A changes with B = C = 1. The hazard-free F = A'B + AC + BC has four literals and is not minimal, yet it is the correct circuit for that timing."
+   },
+   "check": {
+    "question": "F = AB' + BC. Which single input change creates a static-1 hazard?",
+    "answer": "A change of B with A = 1 and C = 1, where F collapses to B' + B.",
+    "explanation": "The two terms disagree in B and agree on the others only when A = 1 and C = 1. Adding the consensus term AC makes F = AB' + BC + AC, which stays 1 through the transition."
+   },
+   "pyqIds": [],
+   "videoRefs": [],
+   "prereqs": [
+    "combinational-circuit-definition-and-design",
+    "karnaugh-grouping-and-reading-a-term"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 15 - Static 0 Hazard and Dynamic Hazard",
+     "channel": "NPTEL, Digital Electronic Circuits (Prof. Goutam Saha, IIT Kharagpur)",
+     "url": "http://digimat.in/nptel/courses/video/108105132/lec15.pdf",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "Read from the opening to the closing summary: static-0 hazard as the POS counterpart of static-1, the A.A' reduction and its glitch, detection on the map or in the expression, covering by an added sum term, and the dynamic hazard as more than one transition where one is required, needing three or more levels of logic."
+    },
+    {
+     "kind": "text",
+     "title": "Digital Logic subject notes, the combinational-circuit sections",
+     "channel": "GATE Overflow, subject page for Digital Logic",
+     "url": "https://gateoverflow.in/subject/digital-logic?tab=exams",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "Read the combinational circuit, adder, carry look-ahead, decoder and multiplexer sections, plus the paper-by-paper mark distribution used to check which years asked this topic."
+    }
+   ],
+   "sourceLine": "The definitions, the A.A' and A + A' mechanisms, detection on the map or in the expression, covering by an added term, and the three-level condition for dynamic hazards: NPTEL IIT Kharagpur Digital Electronic Circuits Lecture 15 (English, read from its opening to its closing summary). No verified GATE CSE question in this topic is decided by a hazard, so the card carries no PYQ.",
+   "subject": "digital-logic",
+   "topic": "combinational-circuits",
+   "path": "subjects/digital-logic/combinational-circuits/hazards-in-combinational-circuits.json"
   }
  ],
  "pyqs": [
@@ -28761,6 +29919,27 @@ window.GATE_DATA = {
    "source_label": "GATE Overflow question page - GATE CSE 1996 Q.1.2 with community solutions (answer recorded as option B, 4)",
    "verification": "SOURCED",
    "answer_evidence": "The accepted answer on the page records 'Answer: B' and the comment thread counts the four covering edges; the count is independently recomputed by scripts/validate.py."
+  },
+  {
+   "id": "gate-1996-1-21-rom-multiplier-table",
+   "year": "1996",
+   "paper": "GATE CS 1996",
+   "question_ref": "Q.1.21",
+   "type": "MCQ",
+   "topic": "rom-and-pla",
+   "text": "A ROM is used to store the table for multiplication of two 8-bit unsigned integers. The size of ROM required is",
+   "options": [
+    "256 x 16",
+    "64K x 8",
+    "4K x 16",
+    "64K x 16"
+   ],
+   "answer": "Option (D) - 64K x 16",
+   "solution": "The two operands together form the address, so the ROM needs 8 + 8 = 16 address bits and therefore 2^16 = 65536 = 64K words. The largest product of two 8-bit unsigned numbers is 255 x 255 = 65025, which needs 16 bits, so each word is 16 bits wide. The size is 64K x 16. Option (B) keeps the depth right and halves the width; option (C) treats the table as if only one operand were an address.",
+   "source_url": "https://gateoverflow.in/2725/gate-cse-1996-question-1-21",
+   "source_label": "GATE Overflow question page - GATE CSE 1996 Q.1.21 with the accepted answer (option D)",
+   "verification": "SOURCED",
+   "answer_evidence": "The accepted answer on the page states that the result of multiplying two 8-bit numbers can be up to 16 bits, that the number of possible results is 2^8 x 2^8 = 2^16 = 64K, and that the answer is 64K x 16, option D. Recomputed here: 255 x 255 = 65025 < 65536 = 2^16, so 16 data bits are necessary and sufficient."
   },
   {
    "id": "gate-1996-1-7-false-statement-systems",
@@ -29018,6 +30197,27 @@ window.GATE_DATA = {
    "verification": "SOURCED"
   },
   {
+   "id": "gate-1999-2-16-half-full-adders-16-bit",
+   "year": "1999",
+   "paper": "GATE CS 1999",
+   "question_ref": "Q.2.16",
+   "type": "MCQ",
+   "topic": "half-adder-and-full-adder",
+   "text": "The number of full and half-adders required to add 16-bit numbers is",
+   "options": [
+    "8 half-adders, 8 full-adders",
+    "1 half-adder, 15 full-adders",
+    "16 half-adders, 0 full-adders",
+    "4 half-adders, 12 full-adders"
+   ],
+   "answer": "Option (B) - 1 half-adder and 15 full-adders",
+   "solution": "Position 0 adds only the two operand bits, because no carry enters it, so a half adder suffices. Each of positions 1 to 15 adds two operand bits plus the carry from the position below, which is three bits, so each needs a full adder. Total: 1 half adder and 15 full adders. Sixteen half adders cannot work because a half adder has no carry input, and any split with more than one half adder leaves a position that must add three bits.",
+   "source_url": "https://gateoverflow.in/1494/gate-cse-1999-question-2-16",
+   "source_label": "GATE Overflow question page - GATE CSE 1999 Q.2.16 with the accepted answer (option B)",
+   "verification": "SOURCED",
+   "answer_evidence": "The accepted answer states that the LSB addition needs no full adder and that the subsequent positions do, giving 15 full adders and 1 half adder, option B. Recomputed here: 1 + 15 = 16 positions, and 15 positions have a carry-in."
+  },
+  {
    "id": "gate-2000-1-3-determinant-expansion",
    "year": "2000",
    "paper": "GATE CS 2000",
@@ -29228,6 +30428,48 @@ window.GATE_DATA = {
    "answer_evidence": "The accepted answer is (D), with explicit countermodels for options (A), (B) and (C)."
   },
   {
+   "id": "gate-2004-58-digit-at-least-five-gates",
+   "year": "2004",
+   "paper": "GATE CS 2004",
+   "question_ref": "Q.58",
+   "type": "MCQ",
+   "topic": "combinational-circuit-definition-and-design",
+   "text": "A circuit outputs a digit in the form of 4 bits: 0 is represented by 0000, 1 by 0001, ..., 9 by 1001. A combinational circuit is to be designed which takes these 4 bits as input and outputs 1 if the digit is at least 5, and 0 otherwise. If only AND, OR and NOT gates may be used, what is the minimum number of gates required?",
+   "options": [
+    "2",
+    "3",
+    "4",
+    "5"
+   ],
+   "answer": "Option (B) - 3 gates",
+   "solution": "Write the truth table for the ten used codes and take 1010 to 1111 as don't cares. On the map, the eight cells 1000 to 1111 form one octet and reduce to A; the cells 0110, 0111, 1110, 1111 reduce to BC; the cells 0101, 0111, 1101, 1111 reduce to BD. So f = A + BC + BD = A + B(C + D), which needs two OR gates and one AND gate: three gates.",
+   "source_url": "https://gateoverflow.in/1053/gate-cse-2004-question-58",
+   "source_label": "GATE Overflow question page - GATE CSE 2004 Q.58 with the accepted answer (option B)",
+   "verification": "SOURCED",
+   "answer_evidence": "Several answers on the page reach f = A + BC + BD = A + B(C + D) and 3 gates, option B; one of them tabulates all sixteen rows and names the octet A, the pair BC and the pair BD. Recomputed here by enumeration: A + B(C + D) equals 1 exactly for the codes 0101 to 1001 and, because of the don't cares, may also be 1 for 1010 to 1111."
+  },
+  {
+   "id": "gate-2004-62-carry-lookahead-delay",
+   "year": "2004",
+   "paper": "GATE CS 2004",
+   "question_ref": "Q.62",
+   "type": "MCQ",
+   "topic": "carry-lookahead-adder",
+   "text": "A 4-bit carry look ahead adder, which adds two 4-bit numbers, is designed using AND, OR, NOT, NAND, NOR gates only. Assuming that all the inputs are available in both complemented and uncomplemented forms and the delay of each gate is one time unit, what is the overall propagation delay of the adder? Assume that the carry network has been implemented using two-level AND-OR logic.",
+   "options": [
+    "4 time units",
+    "6 time units",
+    "10 time units",
+    "12 time units"
+   ],
+   "answer": "Option (B) - 6 time units (accepted answer; see the disagreement below)",
+   "solution": "With unit gate delay: computing Pi = Ai XOR Bi and Gi = Ai AND Bi takes 2 time units (the XOR being two levels). The two-level AND-OR carry network adds 2 more, because all four carries C1 to C4 are formed in parallel from the Pi and Gi. The sum Si = Pi XOR Ci adds a final 2. Total 2 + 2 + 2 = 6 time units.",
+   "source_url": "https://gateoverflow.in/1057/gate-cse-2004-question-62",
+   "source_label": "GATE Overflow question page - GATE CSE 2004 Q.62 with the accepted answer (option B)",
+   "verification": "SOURCED",
+   "answer_evidence": "The accepted answer on the page gives 6 time units as 2 + 2 + 2 and is option (B). The page records a genuine disagreement: some answers argue for 4 time units by substituting the carries directly instead of forming Pi and Gi first, since the question does not require the Pi and Gi signals to be materialised. The accepted answer is recorded here; the disagreement is stated rather than resolved."
+  },
+  {
    "id": "gate-2004-73-complete-lattice",
    "year": "2004",
    "paper": "GATE CS 2004",
@@ -29375,6 +30617,48 @@ window.GATE_DATA = {
    "source_label": "GATE Overflow question page - GATE CSE 2006 Q.21 with the accepted answer (option A)",
    "verification": "SOURCED",
    "answer_evidence": "Two independent answers on the question page reach option (A) by the same argument: the count of favourable sequences C(2n, n) over the 4^n equally likely sequences. Recomputed here for n = 1 to 8 against the binomial PMF."
+  },
+  {
+   "id": "gate-2007-34-mux-minimum-size",
+   "year": "2007",
+   "paper": "GATE CS 2007",
+   "question_ref": "Q.34",
+   "type": "MCQ",
+   "topic": "mux-implementing-a-boolean-function",
+   "text": "Suppose only one multiplexer and one inverter are allowed to be used to implement any Boolean function of n variables. What is the minimum size of the multiplexer needed?",
+   "options": [
+    "2^n line to 1 line",
+    "2^(n+1) line to 1 line",
+    "2^(n-1) line to 1 line",
+    "2^(n-2) line to 1 line"
+   ],
+   "answer": "Option (C) - a 2^(n-1)-to-1 multiplexer",
+   "solution": "Put n-1 of the variables on the select lines. Each of the 2^(n-1) data inputs is then a function of the single remaining variable, and a one-variable function has only four possibilities: 0, 1, the variable, or its complement. One inverter supplies the complement, so 2^(n-1) data inputs suffice. A 2^(n-2)-to-1 multiplexer leaves two variables per data input, i.e. sixteen possible functions, which one inverter cannot produce: for example implementing A + B + C needs B + C on a data input, and that is an OR gate, not an inverter.",
+   "source_url": "https://gateoverflow.in/1232/gate-cse-2007-question-34",
+   "source_label": "GATE Overflow question page - GATE CSE 2007 Q.34 with the accepted answer (option C)",
+   "verification": "SOURCED",
+   "answer_evidence": "The accepted answer on the page gives 2^(n-1) to 1, option C, and one answer works the counterexample for option D through A + B + C, where a 2-to-1 multiplexer would need B + C on a data input. Recomputed here: the number of functions of one variable is 2^(2^1) = 4, matching the four reachable data-input values."
+  },
+  {
+   "id": "gate-2007-35-lookahead-carry-gate-count",
+   "year": "2007",
+   "paper": "GATE CS 2007",
+   "question_ref": "Q.35",
+   "type": "MCQ",
+   "topic": "carry-lookahead-adder",
+   "text": "In a look-ahead carry generator, the carry generate function Gi and the carry propagate function Pi for inputs Ai and Bi are Pi = Ai XOR Bi and Gi = Ai AND Bi. The sum bit is Si = Pi XOR Ci and the carry bit is Ci+1 = Gi + Pi Ci, where C0 is the input carry. Consider a two-level logic implementation of the look-ahead carry generator, with all Pi and Gi available and with AND and OR gates of any number of inputs. The number of AND gates and OR gates needed to implement the look-ahead carry generator for a 4-bit adder with S3, S2, S1, S0 and C4 as its outputs are respectively",
+   "options": [
+    "6, 3",
+    "10, 4",
+    "6, 4",
+    "10, 5"
+   ],
+   "answer": "Option (B) - 10 AND gates and 4 OR gates",
+   "solution": "Expand the carries in two-level sum-of-products form: C1 = G0 + P0C0 (1 product term), C2 = G1 + P1G0 + P1P0C0 (2), C3 = G2 + P2G1 + P2P1G0 + P2P1P0C0 (3), C4 = G3 + P3G2 + P3P2G1 + P3P2P1G0 + P3P2P1P0C0 (4). One AND gate per product term gives 1 + 2 + 3 + 4 = 10; one OR gate per carry gives 4. In general an n-bit generator needs n(n+1)/2 AND gates and n OR gates.",
+   "source_url": "https://gateoverflow.in/1233/gate-cse-2007-question-35",
+   "source_label": "GATE Overflow question page - GATE CSE 2007 Q.35 with the accepted answer (option B)",
+   "verification": "SOURCED",
+   "answer_evidence": "The accepted answer lists the four expanded carries with 1, 2, 3 and 4 product terms and concludes 10 AND and 4 OR gates, option B. Recomputed here: 1+2+3+4 = 10 and 4 carries = 4 OR gates; with two-input gates instead the same page's variant gives 20 AND and 10 OR, which is also recomputed."
   },
   {
    "id": "gate-2007-cnf-half-clauses-true",
@@ -29707,6 +30991,48 @@ window.GATE_DATA = {
    "verification": "OFFICIAL_KEY"
   },
   {
+   "id": "gate-2014-set-1-45-mux-minimal-sop",
+   "year": "2014",
+   "paper": "GATE CSE 2014 Set 1",
+   "question_ref": "Q.45",
+   "type": "MCQ",
+   "topic": "mux-implementing-a-boolean-function",
+   "text": "Consider the 4-to-1 multiplexer with two select lines S1 and S0 given below (in the paper the select lines are P and Q and the data inputs are I0 = 0, I1 = 1, I2 = R and I3 = NOT R). The minimal sum-of-products form of the Boolean expression for the output F of the multiplexer is",
+   "options": [
+    "P'Q + QR' + PQ'R",
+    "P'Q + P'QR' + PQR' + PQ'R",
+    "P'QR + P'QR' + QR' + PQ'R",
+    "PQR'"
+   ],
+   "answer": "Option (A) - F = P'Q + QR' + PQ'R",
+   "solution": "F = S1'S0'I0 + S1'S0I1 + S1S0'I2 + S1S0I3 = P'Q' x 0 + P'Q x 1 + PQ' x R + PQ x R' = P'Q + PQ'R + PQR'. On the three-variable map the minterms are 2, 3, 5 and 6: 2 and 3 combine to P'Q, 2 and 6 combine to QR', and 5 is isolated so it stays PQ'R. The minimal form is therefore P'Q + QR' + PQ'R, three terms and seven literals.",
+   "source_url": "https://gateoverflow.in/1923/gate-cse-2014-set-1-question-45",
+   "source_label": "GATE Overflow question page - GATE CSE 2014 Set 1 Q.45 with the accepted answer (option A)",
+   "verification": "SOURCED",
+   "answer_evidence": "The accepted answer writes the four select terms, substitutes the data inputs, and minimises to P'Q + QR' + PQ'R, option A. Recomputed here by enumeration: the multiplexer output is 1 exactly at minterms 2, 3, 5 and 6, and P'Q + QR' + PQ'R is 1 exactly on that set, with 7 literals against the 11 of option (B) and the 11 of option (C)."
+  },
+  {
+   "id": "gate-2014-set-2-7-counter-and-decoder",
+   "year": "2014",
+   "paper": "GATE CSE 2014 Set 2",
+   "question_ref": "Q.7",
+   "type": "MCQ",
+   "topic": "decoder-and-minterm-generation",
+   "text": "Let k = 2^n. A circuit is built by giving the output of an n-bit binary counter as input to an n-to-2^n bit decoder. This circuit is equivalent to a",
+   "options": [
+    "k-bit binary up counter",
+    "k-bit binary down counter",
+    "k-bit ring counter",
+    "k-bit Johnson counter"
+   ],
+   "answer": "Option (C) - a k-bit ring counter",
+   "solution": "The n-bit counter steps through the 2^n = k codes in order, and the decoder asserts exactly one of its k output lines for each code - the line whose index equals the counter value. So the k decoder outputs are one-hot and advance one position per clock: that is a k-bit ring counter. A binary counter has log2(k) = n outputs, not k, and a Johnson counter has 2k states, so neither matches.",
+   "source_url": "https://gateoverflow.in/1959/gate-cse-2014-set-2-question-7",
+   "source_label": "GATE Overflow question page - GATE CSE 2014 Set 2 Q.7 with the accepted answer (option C)",
+   "verification": "SOURCED",
+   "answer_evidence": "The accepted answer states that one of the 2^n decoder lines is activated for each counter value, so the arrangement behaves as a 2^n-bit ring counter, option C. Recomputed here: the decoder has k outputs and exactly one is high at any time, which is the definition of a one-hot k-state sequence."
+  },
+  {
    "id": "gate-2014-set1-47-ivt-difference",
    "year": "2014",
    "paper": "GATE CS 2014 Set 1",
@@ -29927,6 +31253,21 @@ window.GATE_DATA = {
    "source_url": "https://gateoverflow.in/8399/gate-cse-2015-set-3-question-5",
    "source_label": "GATE Overflow discussion of GATE CS 2015 Set 3 Q.5 (answer 15)",
    "verification": "SOURCED"
+  },
+  {
+   "id": "gate-2015-set-2-48-ripple-carry-delay",
+   "year": "2015",
+   "paper": "GATE CSE 2015 Set 2",
+   "question_ref": "Q.48",
+   "type": "NAT",
+   "topic": "ripple-carry-adder-and-delay",
+   "text": "A half adder is implemented with XOR and AND gates. A full adder is implemented with two half adders and one OR gate. The propagation delay of an XOR gate is twice that of an AND/OR gate. The propagation delay of an AND/OR gate is 1.2 microseconds. A 4-bit ripple-carry binary adder is implemented by using four full adders. The total propagation time of this 4-bit binary adder in microseconds is ______.",
+   "answer": "19.2 microseconds (accepted answer; the carry-only analysis gives 12)",
+   "solution": "XOR = 2.4 and AND = OR = 1.2 microseconds. In the first full adder the carry-out must pass through one XOR, one AND and one OR: 2.4 + 1.2 + 1.2 = 4.8. The accepted answer charges the same 4.8 to each of the four stages and reports 4 x 4.8 = 19.2. The carry-only critical-path analysis charges 4.8 to the first stage and only 1.2 + 1.2 = 2.4 to each later stage, because A XOR B there is computed in parallel with the arriving carry, giving 4.8 + 3 x 2.4 = 12. Both figures are stated because the paper's key and the standard model disagree.",
+   "source_url": "https://gateoverflow.in/8250/gate-cse-2015-set-2-question-48",
+   "source_label": "GATE Overflow question page - GATE CSE 2015 Set 2 Q.48 with the accepted answer 19.2",
+   "verification": "SOURCED",
+   "answer_evidence": "One answer on the page states that the ripple-carry reading makes the total 4 x 4.8 = 19.2 and that this is the key given by GATE; a second widely upvoted answer argues for 12 on the carry-only model. A third site records the same question with the answer 19.2. The record reports the accepted answer and names the disagreement instead of choosing silently."
   },
   {
    "id": "gate-2015-set1-18-lu-l22",
@@ -30879,6 +32220,27 @@ window.GATE_DATA = {
    "verification": "OFFICIAL_KEY"
   },
   {
+   "id": "gate-2021-set-2-5-mux-implements-function",
+   "year": "2021",
+   "paper": "GATE CSE 2021 Set 2",
+   "question_ref": "Q.5",
+   "type": "MCQ",
+   "topic": "mux-implementing-a-boolean-function",
+   "text": "Which one of the following circuits implements the Boolean function f(x,y,z) = m0 + m1 + m3 + m4 + m5 + m6, where mi is the i-th minterm? Each option is a 4-to-1 multiplexer with select lines y and z and a drawn set of data inputs.",
+   "options": [
+    "(A) - the multiplexer whose data inputs are I0 = I1 = 1, I2 = x, I3 = x'",
+    "(B) - a drawn multiplexer; its data inputs were not recorded from the readable source",
+    "(C) - a drawn multiplexer; its data inputs were not recorded from the readable source",
+    "(D) - a drawn multiplexer; its data inputs were not recorded from the readable source"
+   ],
+   "answer": "Option (A) - I0 = I1 = 1, I2 = x, I3 = x'",
+   "solution": "With y and z on the select lines, each data input covers the pair of minterms that differ in x. yz = 00 covers m0 = 1 and m4 = 1, so I0 = 1. yz = 01 covers m1 = 1 and m5 = 1, so I1 = 1. yz = 10 covers m2 = 0 and m6 = 1, so I2 = x. yz = 11 covers m3 = 1 and m7 = 0, so I3 = x'. So the correct circuit has I0 = I1 = 1, I2 = x, I3 = x', which is option (A).",
+   "source_url": "https://gateoverflow.in/357535/gate-cse-2021-set-2-question-5",
+   "source_label": "GATE Overflow question page - GATE CSE 2021 Set 2 Q.5 with the accepted answer (option A)",
+   "verification": "SOURCED",
+   "answer_evidence": "The accepted answer builds the table of minterms against the four select codes and reads I0 = 1, I1 = 1, I2 = x, I3 = x', concluding option A; several other answers agree. Recomputed here by enumeration over all eight assignments: the multiplexer with those data inputs is 1 exactly at minterms 0, 1, 3, 4, 5 and 6."
+  },
+  {
    "id": "gate-2021-set1-18-exponential-exceeds-mean",
    "year": "2021",
    "paper": "GATE CS 2021 Set 1",
@@ -31251,6 +32613,27 @@ window.GATE_DATA = {
    "answer_evidence": "The accepted answers compute the integral in two ways and both give 0; the question page shows the numerical answer 0. Recomputed here layer by layer."
   },
   {
+   "id": "gate-2023-34-mux-tree-function",
+   "year": "2023",
+   "paper": "GATE CSE 2023",
+   "question_ref": "Q.34",
+   "type": "MCQ",
+   "topic": "mux-trees-and-cascading",
+   "text": "A Boolean digital circuit is composed using two 4-input multiplexers (M1 and M2) and one 2-input multiplexer (M3) as shown in the figure. X0-X7 are the inputs of the multiplexers M1 and M2 and could be connected to either 0 or 1. The select lines of the multiplexers are connected to Boolean variables A, B and C as shown: M1 and M2 are selected by A and C, and M3 by B. Which one of the following set of values of (X0, X1, X2, X3, X4, X5, X6, X7) will realise the Boolean function A' + A'C' + AB'C?",
+   "options": [
+    "(1, 1, 0, 0, 1, 1, 1, 0)",
+    "(1, 1, 0, 0, 1, 1, 0, 1)",
+    "(1, 1, 0, 1, 1, 1, 0, 0)",
+    "(0, 0, 1, 1, 0, 1, 1, 1)"
+   ],
+   "answer": "Option (C) - (1, 1, 0, 1, 1, 1, 0, 0)",
+   "solution": "The tree is an 8-to-1 multiplexer whose select order is set by the wiring: M3's select B is the most significant bit and M1's selects A (on S1) and C (on S0) are the lower bits, so the code is (B, A, C). The function simplifies: A' + A'C' + AB'C = A' + AB'C (absorption), whose minterms are 0, 1, 3, 4 and 5. So X0, X1, X3, X4 and X5 must be 1 and X2, X6, X7 must be 0, giving 11011100.",
+   "source_url": "https://gateoverflow.in/399277/gate-cse-2023-question-34",
+   "source_label": "GATE Overflow question page - GATE CSE 2023 Q.34 with the accepted answer (option C)",
+   "verification": "SOURCED",
+   "answer_evidence": "The accepted answer expands the function into minterms 0, 1, 3, 4 and 5 with the select order B, A, C and concludes 11011100, option C; several other answers agree and one notes that X3 must be 1, which eliminates options A and B. Recomputed here: A' + A'C' + AB'C = A' + AB'C and its minterms over (B,A,C) are 0, 1, 3, 4, 5."
+  },
+  {
    "id": "gate-2023-41-symmetric-difference-group",
    "year": "2023",
    "paper": "GATE CS 2023",
@@ -31333,6 +32716,21 @@ window.GATE_DATA = {
    "source_url": "https://gateoverflow.in/399268/gate-cse-2023-question-43",
    "source_label": "GATE Overflow question page, GATE CSE 2023 Question 43, accepted answer",
    "verification": "SOURCED"
+  },
+  {
+   "id": "gate-2024-set-1-54-three-mux-count",
+   "year": "2024",
+   "paper": "GATE CSE 2024 Set 1",
+   "question_ref": "Q.54 (GATE Overflow numbering; see the note)",
+   "type": "NAT",
+   "topic": "mux-trees-and-cascading",
+   "text": "Consider a digital logic circuit consisting of three 2-to-1 multiplexers M1, M2 and M3 as shown below. X1 and X2 are inputs of M1, X3 and X4 are inputs of M2, and A, B and C are the select lines of M1, M2 and M3 respectively. For an instance of inputs X1 = 1, X2 = 1, X3 = 0 and X4 = 0, the number of combinations of A, B, C that give the output Y = 1 is ______.",
+   "answer": "4",
+   "solution": "M1's output is A'X1 + AX2 = A' + A = 1 for either value of A. M2's output is B'X3 + BX4 = 0 for either value of B. M3 selects between them: Y = C' x 1 + C x 0 = C'. So Y = 1 exactly when C = 0, and A and B are free: 2 x 2 x 1 = 4 combinations of (A, B, C).",
+   "source_url": "https://gateoverflow.in/422788/gate-cse-2024-set-1-question-54",
+   "source_label": "GATE Overflow question page - GATE CSE 2024 Set 1 Q.54 with the accepted answer 4",
+   "verification": "SOURCED",
+   "answer_evidence": "The accepted answer reduces M1 to 1 and M2 to 0 and concludes Y = C', giving 4 of the 8 combinations; another site records the same question with the answer 4. The question number is disputed: GATE Overflow numbers it Q.54, GateAI numbers the same question Q64 of the paper and one year-wise listing places it at 32. Recomputed here by enumerating all 8 combinations of (A, B, C)."
   },
   {
    "id": "gate-2024-set1-1-max-x-x3",
@@ -31857,6 +33255,21 @@ window.GATE_DATA = {
    "source_label": "GATE Overflow question page - GATE CSE 2025 Set 2 Q.4 with the accepted answer (0)",
    "verification": "SOURCED",
    "answer_evidence": "Accepted answer: 'L^3 = I, so L^8 = L^2 = N, hence M - N = O and its determinant is 0', option A."
+  },
+  {
+   "id": "gate-2026-set-2-49-decoder-and-mux-count",
+   "year": "2026",
+   "paper": "GATE CSE 2026 Set 2",
+   "question_ref": "Q.49",
+   "type": "NAT",
+   "topic": "decoder-and-minterm-generation",
+   "text": "Consider the digital circuit shown below with two input lines A and B, two select lines S0 and S1, and an output line Y. The blocks Q and M represent an active-high 2:4 decoder and a 4-to-1 multiplexer, respectively. Out of 16 possible input combinations, the number of combinations that produce Y = 1 is ______. One input combination is an instance of [A B S1 S0].",
+   "answer": "6",
+   "solution": "From the accepted solution the decoder's first output is D0 = A'B' and its last is D3 = AB, and the multiplexer is wired so that Y = A'B'S1'S0' + 1.S1S0' + ABS1S0. The middle product is 1 whenever S1 = 1 and S0 = 0, whatever A and B are - four combinations. The first term adds the single combination A = B = 0, S1 = 0, S0 = 0 and the third adds the single combination A = B = 1, S1 = 1, S0 = 1. The three sets are disjoint, so the total is 4 + 1 + 1 = 6.",
+   "source_url": "https://gateoverflow.in/523097/gate-cse-2026-set-2-question-49",
+   "source_label": "GATE Overflow question page - GATE CSE 2026 Set 2 Q.49 with the accepted answer 6",
+   "verification": "SOURCED",
+   "answer_evidence": "The accepted answer derives D0 = A'B' and D3 = AB, writes Y as the three-term expression above and concludes 6. The wiring of the figure is taken from that solution, not from the paper, so the function being counted is the one the accepted solution states; the count itself is recomputed here by enumerating all 16 combinations of (A, B, S1, S0) against that function."
   },
   {
    "id": "gate-2026-set1-22-c1-plus-c2",
