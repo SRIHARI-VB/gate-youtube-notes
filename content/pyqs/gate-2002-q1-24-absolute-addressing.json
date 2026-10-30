@@ -1,0 +1,21 @@
+{
+  "id": "gate-2002-q1-24-absolute-addressing",
+  "year": "2002",
+  "paper": "GATE CS 2002",
+  "question_ref": "Q.1.24",
+  "type": "MCQ",
+  "topic": "direct-addressing",
+  "text": "In the absolute addressing mode:",
+  "options": [
+    "the operand is inside the instruction",
+    "the address of the operand is inside the instruction",
+    "the register containing the address of the operand is specified inside the instruction",
+    "the location of the operand is implicit"
+  ],
+  "answer": "Option (B) - the address of the operand is inside the instruction",
+  "solution": "Absolute and direct are the same mode: the address field holds the effective address, so the operand's address travels in the instruction and one memory read fetches the operand. The other three options are the definitions of the other modes - the operand itself inside the instruction is immediate, the register holding the address is register indirect, and an implicit location is implied or stack addressing - which is what makes the question a four-mode discrimination.",
+  "source_url": "https://gateoverflow.in/829/gate-cse-2002-question-1-24",
+  "source_label": "GATE Overflow question page - GATE CSE 2002 Q.1.24 with the accepted answer (option B)",
+  "verification": "SOURCED",
+  "answer_evidence": "The accepted answer states '(B) is the answer. Absolute addressing mode means address of operand is given in the instruction' and maps each of the other three options to the mode it actually defines. Corroborated by Solutions Adda's GATE 2002 key page for Question 24, which gives the same option."
+}
