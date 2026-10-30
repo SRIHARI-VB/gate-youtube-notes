@@ -6681,17 +6681,18 @@
         "verdict": "MOCK_UNIT_EMPTY"
       },
       "visual": {
-        "slug": "probability-and-random-variables",
-        "title": "Probability, Random Variables and Distributions",
+        "slug": "linearity-of-expectation",
+        "title": "Linearity of Expectation: Sums, Indicators and the Counts GATE Asks For",
         "coverage_status": "PUBLISHED",
-        "level": "topic-level",
+        "level": "subtopic-level",
         "verdict": "VISUAL_LESSON"
       },
       "evidence": [
         "notes content/index.json -> map[].path = subjects/probability-and-statistics/random-variables-and-distributions/expectation-and-linearity.json",
-        "mock: engineering-mathematics/question-bank/master_bank.json holds 0 records for unit 5 probability-distributions; the README unit table lists it as 'Continuous Probability & Distributions' with 0 questions, so MOCK_UNIT_EMPTY",
+        "mock: gate-cse-mocks engineering-mathematics/question-bank/master_bank.json holds 0 records for unit 5 probability-distributions; README.md Engineering Mathematics unit table lists it as 'Continuous Probability & Distributions' with 0 questions, so MOCK_UNIT_EMPTY and no mock is written on the card",
         "card map[] videos[] is empty and the card quotes no lecture, so transcript_status is not stated",
-        "visual: syllabus-coverage.json lesson_slug probability-and-random-variables (PUBLISHED); covers checked against topics/probability-and-random-variables/transcript.md, not the alias list"
+        "visual: gate-visual-explainer syllabus-coverage.json lesson_slug linearity-of-expectation (PUBLISHED 2026-10-30, subject Engineering Mathematics, unit 'Probability and Statistics', topic 'Expectation of a sum: linearity of expectation and indicator variables', 7 subtopics, 21 microtopics); coverage read from topics/linearity-of-expectation/transcript.md scenes 1-10 and not from the alias list - scene 1 the mean of a sum, scene 2 no independence needed (Y = X: sum 7, product 91/6), scene 3 indicators, scene 8 variance of a sum and E[1/X] vs 1/E[X], scene 9 the tail-sum identity",
+        "level subtopic-level because the lesson is dedicated to this card's property; scenes 4-7 (fixed points, inversions, hashing, quicksort) go beyond the card and are counted as notes gaps, not as coverage of another card"
       ],
       "row_verdict": "VISUAL_ONLY"
     },
@@ -7367,7 +7368,7 @@
     {
       "kind": "visual",
       "placement": "probability-and-statistics › random-variables-and-distributions › sums-of-independent-random-variables",
-      "detail": "The card is about sums of independent random variables - the reproductive property of the Poisson and the normal - and the lesson covers only the linearity of expectation for a sum (Scene 5, and Scene 7's note that the variance of a binomial sum needs independence). The reproductive property itself is not taught anywhere in topics/probability-and-random-variables/transcript.md, so the card is mapped at topic-level with that single covered microtopic. Recommendation: extend the same lesson with a scene on sums of independent Poissons and normals rather than starting a new slug."
+      "detail": "The card is about sums of independent random variables - the reproductive property of the Poisson and the normal - and the lesson covers only the linearity of expectation for a sum (Scene 5, and Scene 7's note that the variance of a binomial sum needs independence). The reproductive property itself is not taught anywhere in topics/probability-and-random-variables/transcript.md, so the card is mapped at topic-level with that single covered microtopic. Recommendation: extend the same lesson with a scene on sums of independent Poissons and normals rather than starting a new slug. Re-checked 2026-10-30 against the new lesson topics/linearity-of-expectation: it teaches the mean of a sum with no independence (scene 1-2) and the variance of a sum with its covariance term (scene 8), and it still does not teach the reproductive property of the Poisson and the normal, so the card keeps its topic-level mapping to probability-and-random-variables and this gap stands."
     },
     {
       "kind": "notes",
@@ -7433,6 +7434,16 @@
       "kind": "notes",
       "placement": "programming-and-data-structures › programming-in-c › strings-the-null-terminator",
       "detail": "New lesson topics/c-strings-and-the-null-terminator (commit c914654, 2026-10-30) is PUBLISHED in syllabus-coverage.json under subject 'Programming and Data Structures', unit 'Programming in C (Section 4)', with 9 subtopics and 31 microtopics; its transcript.md carries 10 scenes from 'a string is bytes up to the first zero' to the sizeof/strlen, size_t, copy-loop and array-of-strings cases. It serves no notes card: content/index.json map[] carries only calculus, discrete-mathematics, linear-algebra and probability-and-statistics, so the notes repo has no programming-and-data-structures subject at all. Placement: programming-and-data-structures › programming-in-c › strings-the-null-terminator. The mock side is not empty — programming-data-structures/question-bank/master_bank.json holds 275 records across units 1-6, including 'Arrays & multidimensional arrays' 13 in unit 3 linear-data-structures — so the missing piece is the notes card, not the lesson or the bank. Next build: write content/subjects/programming-and-data-structures/programming-in-c/strings-the-null-terminator.json."
+    },
+    {
+      "kind": "notes",
+      "placement": "digital-logic › sequential-circuits › (no card)",
+      "detail": "Digital Logic Unit 4 'Sequential Circuits: Counters & State Machines' (unit_slug sequential-fsm-counters, unit_number 4) closed Set 2 of 2 on 2026-10-30: run 8, paper digital-logic/sequential-fsm-counters/gate_dl_mock_4_2026-10-30.html, 25 questions in the set (15 MCQ / 5 MSQ / 5 NAT), Set 1 archived to digital-logic/sequential-fsm-counters/archive/gate_dl_mock_4_2026-10-29_run1.html. The bank now holds 50 records for the unit, at the 50-question cap, so MOCK_CAPPED and the rotation advances to Unit 1 number-systems. Grouped by subtopic_label the 50 records are: Synchronous & asynchronous counters 13, Timing analysis 13, FSM: Mealy & Moore machines 12, State reduction & assignment 12. The notes repo has no digital-logic subject at all (content/index.json map[] carries only discrete-mathematics, linear-algebra, calculus and probability-and-statistics), so no card serves the unit or any of its four groups: this is a notes gap, not an unmapped mock. Recommendation: write content/subjects/digital-logic/sequential-circuits/ with one card per group, starting with synchronous-asynchronous-counters."
+    },
+    {
+      "kind": "notes",
+      "placement": "algorithms › sorting-divide-conquer › (no card)",
+      "detail": "The new lesson topics/linearity-of-expectation (PUBLISHED 2026-10-30) devotes three of its ten scenes to counted algorithms: scene 5 inversions n(n-1)/4, scene 6 hashing load n/m, colliding pairs C(n,2)/m and occupied slots m(1-(1-1/m)^n), scene 7 randomised quicksort 2(n+1)H(n) - 4n against 2n ln n. The visual side already has lessons hashing and sorting-algorithms covering that material, and the mock side has unit sorting-divide-conquer, but the notes repo has no algorithms subject, so no card exists for expected comparisons or expected collisions. Recommendation: write content/subjects/algorithms/sorting-divide-conquer/expected-comparisons-quicksort.json upstream from a sorting playlist, since the notes repo cannot supply it today."
     }
   ]
 }

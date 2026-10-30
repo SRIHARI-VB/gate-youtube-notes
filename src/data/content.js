@@ -21741,17 +21741,18 @@ window.GATE_DATA = {
    "visual": "probability-and-statistics/random-variables-and-distributions/pmf-cdf-and-the-balance-point",
    "links": {
     "visual": {
-     "slug": "probability-and-random-variables",
-     "title": "Probability, Random Variables and Distributions",
-     "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/probability-and-random-variables/index.html",
+     "slug": "linearity-of-expectation",
+     "title": "Linearity of Expectation: Sums, Indicators and the Counts GATE Asks For",
+     "level": "subtopic-level",
      "covers": [
-      "expectation as a balance point",
-      "E[g(X)] and linearity of expectation",
+      "linearity of expectation for any joint distribution",
+      "indicator random variables and E[I(A)] = P(A)",
+      "the tail-sum identity for non-negative integer variables",
       "E[XY] = E[X]E[Y] only under independence"
-     ]
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/linearity-of-expectation/index.html"
     },
-    "mapped_at": "2026-10-29"
+    "mapped_at": "2026-10-30"
    },
    "subject": "probability-and-statistics",
    "topic": "random-variables-and-distributions",
