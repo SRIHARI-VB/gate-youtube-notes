@@ -1,0 +1,72 @@
+{
+  "id": "instruction-formats-zero-to-three-address",
+  "title": "Zero-, One-, Two- and Three-Address Formats",
+  "priority": "P1",
+  "order": 483,
+  "unit": "Instruction Set and Addressing Modes",
+  "quickIdea": "How many operands an instruction names decides how many instructions a statement costs. The more addresses per instruction, the fewer instructions - and the more bits per instruction.",
+  "remember": [
+    "0-address: operands are on a stack, pushed and popped. 1-address: one operand, the other is the implied accumulator. 2-address: one operand is also the destination. 3-address: two sources and a separate destination.",
+    "An address field may name a memory location or a processor register. It may not name an implied accumulator, because an implied operand is by definition not written down.",
+    "Fewer addresses means a shorter instruction but a longer program. This is a straight trade, not an improvement.",
+    "Typical counts for X = (A + B) * (C + D): 3 three-address, 6 two-address, 7 one-address, 8 zero-address.",
+    "Two-address arithmetic destroys one source operand, so a compiler must copy it first if it is needed again.",
+    "The three-address form is what makes expression evaluation short; the bit cost of three address fields is why it is not universal."
+  ],
+  "example": {
+    "prompt": "Count the instructions needed for X = (A + B) * (C + D) in one-address and two-address form.",
+    "work": "One-address (accumulator): LOAD A; ADD B; STORE T; LOAD C; ADD D; MUL T; STORE X - 7 instructions. Two-address: MOV R1, A; ADD R1, B; MOV R2, C; ADD R2, D; MUL R1, R2; MOV X, R1 - 6 instructions. Three-address would be ADD R1, A, B; ADD R2, C, D; MUL X, R1, R2 - 3.",
+    "answer": "7 in one-address form, 6 in two-address form, 3 in three-address form."
+  },
+  "gateAngle": "GATE CSE 2015 Set 1 Q.8 asks what a single address field of a three-address format may specify, and the answer is memory or register but never an implied accumulator - the question is testing whether you know that 'three-address' is about fields, not about a machine with three registers. The instruction-count comparison is the standard companion and appears in the textbook exercises rather than in a CSE paper.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "In a two-address machine, how many instructions does X = A + B + C + D take, and how many temporaries are needed?",
+      "answer": "Four instructions - MOV R1, A; ADD R1, B; ADD R1, C; ADD R1, D - and no temporaries.",
+      "why": "Two-address form can accumulate into one register when the expression is a chain of additions, so no temporary is needed. A tree-shaped expression such as (A+B)*(C+D) does need one."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Why can a zero-address machine evaluate (A+B)*(C+D) with no temporaries?",
+      "answer": "Because the stack itself holds the intermediate values: after pushing A and B and adding, the partial sum is on the stack, and the second sum goes above it.",
+      "why": "The stack is the temporary store. That is why stack machines have such short opcodes and such long programs."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "A three-address format has three 8-bit address fields and a 4-bit opcode. How wide must the word be, and what does that say about three-address designs?",
+      "answer": "28 bits. Three 8-bit fields reach only 256 locations each, so three-address designs are usually paired with a register file rather than a large memory.",
+      "why": "This is precisely why real three-address machines name registers in two fields and memory in none."
+    }
+  ],
+  "trap": {
+    "what": "Assuming a three-address instruction must name three memory addresses.",
+    "why": "The address field may hold a register number. In a load-store machine all three fields are registers and memory never appears in the instruction.",
+    "counterexample": "ADD R1, R2, R3 has three address fields and touches no memory at all. Only a load or a store instruction reaches memory."
+  },
+  "check": {
+    "question": "How many instructions does X = A * B take in zero-address form?",
+    "answer": "Four: PUSH A; PUSH B; MUL; POP X.",
+    "explanation": "Two pushes put the operands on the stack, MUL replaces the top two by their product, and POP stores the result. A one-address machine needs three: LOAD A; MUL B; STORE X."
+  },
+  "pyqIds": [
+    "gate-2015-set-1-q8-three-address-fields"
+  ],
+  "prereqs": [
+    "instruction-format-and-fields"
+  ],
+  "sources": [
+    {
+      "kind": "lecture-transcript",
+      "title": "Lecture 07 - Instruction Format and Addressing Modes",
+      "channel": "NPTEL, Computer Organization and Architecture (Prof. Kamalika Datta, NIT Meghalaya)",
+      "url": "http://www.digimat.in/nptel/courses/video/106105163/lec7.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read from the opening through the list of addressing modes: the opcode and operand parts of an instruction, the rule that a destination operand must be a register or a memory location while an immediate can only be a source, the zero- to three-address formats, the 32-bit field example with 32 registers costing 5 bits each, and the statement that load-store architectures support very few addressing modes. The returned extract stopped before the mode-by-mode teaching, so nothing is attributed to that part"
+    }
+  ],
+  "sourceLine": "The zero- to three-address enumeration, the worked formats and the statement that the number of operands varies with the instruction: Datta, Lecture 07 (English, read in part). The instruction counts in the example and the quick check are recomputed in scripts/validate.py.",
+  "videoRefs": []
+}
