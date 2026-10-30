@@ -22439,18 +22439,20 @@ window.GATE_DATA = {
    "videoRefs": [],
    "links": {
     "visual": {
-     "slug": "probability-and-random-variables",
-     "title": "Probability, Random Variables and Distributions",
-     "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/probability-and-random-variables/index.html",
+     "slug": "normal-distribution",
+     "title": "The Normal Distribution: Standardise First, Then Read the Tail",
+     "url": "https://gate-visual-explainer.vercel.app/topics/normal-distribution/index.html",
+     "level": "subtopic-level",
      "covers": [
-      "normal density fixed by its mean and variance",
-      "standardise with z = (x - mu)/sigma",
-      "68.27, 95.45 and 99.73 percent bands",
-      "reading mean and variance off a normal density"
+      "the density integrates to 1.0000000000 at three parameter pairs",
+      "GATE CSE 2026 Set 2: 1/(3 root 2 pi) exp(-x^2/18) is N(0,9), so sigma is 3 and the variance 9",
+      "z = (x - mu)/sigma, and P(X <= x) = Phi(z) exactly, with no approximation",
+      "Phi(z) + Phi(-z) = 1 to 1e-12 at six values of z",
+      "within 1 sigma 0.682689, within 2 sigma 0.954500, within 3 sigma 0.997300, within 4 sigma 0.999937",
+      "GATE CSE 2008 Q29: 1 - Phi(3/sigma) matches only at sigma 3 (key 3)"
      ]
     },
-    "mapped_at": "2026-10-29"
+    "mapped_at": "2026-10-30"
    },
    "subject": "probability-and-statistics",
    "topic": "random-variables-and-distributions",
@@ -22659,15 +22661,17 @@ window.GATE_DATA = {
    "videoRefs": [],
    "links": {
     "visual": {
-     "slug": "probability-and-random-variables",
-     "title": "Probability, Random Variables and Distributions",
+     "slug": "normal-distribution",
+     "title": "The Normal Distribution: Standardise First, Then Read the Tail",
+     "url": "https://gate-visual-explainer.vercel.app/topics/normal-distribution/index.html",
      "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/probability-and-random-variables/index.html",
      "covers": [
-      "the expectation of a sum is the sum of the expectations, always"
+      "independent normals add in mean and in variance: N(1,4) + N(2,9) = N(3,13), sigma root 13 = 3.6056, not 5",
+      "the convolution of the two densities agrees with Phi(3/root 13) at 0, 4 and 6",
+      "the central limit theorem needs a finite mean and a finite variance"
      ]
     },
-    "mapped_at": "2026-10-29"
+    "mapped_at": "2026-10-30"
    },
    "subject": "probability-and-statistics",
    "topic": "random-variables-and-distributions",
@@ -25171,6 +25175,35 @@ window.GATE_DATA = {
    ],
    "sourceLine": "Place value, the digit rule and the weighted sum: NPTEL IIT Kharagpur Digital Electronic Circuits Lecture 21 (English, read in full, every numeral re-derived here).",
    "videoRefs": [],
+   "links": {
+    "mock": {
+     "subject": "digital-logic",
+     "unit_slug": "number-systems",
+     "unit_name": "Number Systems & Representation",
+     "unit_number": 1,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Base conversions",
+       "questions": 15
+      },
+      {
+       "label": "One's & two's complement",
+       "questions": 13
+      },
+      {
+       "label": "Range & overflow",
+       "questions": 11
+      },
+      {
+       "label": "Floating point & IEEE 754",
+       "questions": 11
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-10-27.html"
+    },
+    "mapped_at": "2026-10-30"
+   },
    "subject": "digital-logic",
    "topic": "number-systems-and-representation",
    "path": "subjects/digital-logic/number-systems-and-representation/positional-number-systems.json"
@@ -25246,6 +25279,35 @@ window.GATE_DATA = {
    ],
    "sourceLine": "Successive division for the integer and successive multiplication for the fraction, with the 0.625 worked case: NPTEL IIT Kharagpur Lecture 21 (English, read in full). The question text and accepted answer of 2021 Set 1 Q.6: its GATE Overflow page.",
    "videoRefs": [],
+   "links": {
+    "mock": {
+     "subject": "digital-logic",
+     "unit_slug": "number-systems",
+     "unit_name": "Number Systems & Representation",
+     "unit_number": 1,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Base conversions",
+       "questions": 15
+      },
+      {
+       "label": "One's & two's complement",
+       "questions": 13
+      },
+      {
+       "label": "Range & overflow",
+       "questions": 11
+      },
+      {
+       "label": "Floating point & IEEE 754",
+       "questions": 11
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-10-27.html"
+    },
+    "mapped_at": "2026-10-30"
+   },
    "subject": "digital-logic",
    "topic": "number-systems-and-representation",
    "path": "subjects/digital-logic/number-systems-and-representation/base-conversion-integer-and-fraction.json"
@@ -25313,6 +25375,35 @@ window.GATE_DATA = {
    ],
    "sourceLine": "The 3-bit and 4-bit grouping rule, with the octal and hexadecimal examples: NPTEL IIT Kharagpur Lecture 21 (English, read in full). The base-5 counterexample is this run's own, from the shape of GATE CSE 2024 Set 2 Q.49.",
    "videoRefs": [],
+   "links": {
+    "mock": {
+     "subject": "digital-logic",
+     "unit_slug": "number-systems",
+     "unit_name": "Number Systems & Representation",
+     "unit_number": 1,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Base conversions",
+       "questions": 15
+      },
+      {
+       "label": "One's & two's complement",
+       "questions": 13
+      },
+      {
+       "label": "Range & overflow",
+       "questions": 11
+      },
+      {
+       "label": "Floating point & IEEE 754",
+       "questions": 11
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-10-27.html"
+    },
+    "mapped_at": "2026-10-30"
+   },
    "subject": "digital-logic",
    "topic": "number-systems-and-representation",
    "path": "subjects/digital-logic/number-systems-and-representation/octal-and-hexadecimal-by-bit-grouping.json"
@@ -25380,6 +25471,46 @@ window.GATE_DATA = {
    ],
    "sourceLine": "The power-of-two values and the odometer argument for wrap-around: NPTEL IIT Kharagpur Lecture 21 (English, read in full). The counts are recomputed in scripts/validate.py.",
    "videoRefs": [],
+   "links": {
+    "mock": {
+     "subject": "digital-logic",
+     "unit_slug": "number-systems",
+     "unit_name": "Number Systems & Representation",
+     "unit_number": 1,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Base conversions",
+       "questions": 15
+      },
+      {
+       "label": "One's & two's complement",
+       "questions": 13
+      },
+      {
+       "label": "Range & overflow",
+       "questions": 11
+      },
+      {
+       "label": "Floating point & IEEE 754",
+       "questions": 11
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-10-27.html"
+    },
+    "visual": {
+     "slug": "number-representation-and-arithmetic",
+     "title": "Number Representation and Arithmetic",
+     "level": "topic-level",
+     "url": "https://gate-visual-explainer.vercel.app/topics/number-representation-and-arithmetic/index.html",
+     "covers": [
+      "fixed point range 0 to 2^i - 2^-f and step 2^-f",
+      "resolution against range at fixed width",
+      "carry out as the fifth bit of an unsigned sum"
+     ]
+    },
+    "mapped_at": "2026-10-30"
+   },
    "subject": "digital-logic",
    "topic": "number-systems-and-representation",
    "path": "subjects/digital-logic/number-systems-and-representation/unsigned-fixed-width-range.json"
@@ -25447,6 +25578,45 @@ window.GATE_DATA = {
    ],
    "sourceLine": "Sign-magnitude with the +1 / -1 and +22 / -22 examples, the range -127 to +127 and the doubled zero: NPTEL IIT Kharagpur Digital Electronic Circuits Lecture 22 (English, read in part).",
    "videoRefs": [],
+   "links": {
+    "mock": {
+     "subject": "digital-logic",
+     "unit_slug": "number-systems",
+     "unit_name": "Number Systems & Representation",
+     "unit_number": 1,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Base conversions",
+       "questions": 15
+      },
+      {
+       "label": "One's & two's complement",
+       "questions": 13
+      },
+      {
+       "label": "Range & overflow",
+       "questions": 11
+      },
+      {
+       "label": "Floating point & IEEE 754",
+       "questions": 11
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-10-27.html"
+    },
+    "visual": {
+     "slug": "number-representation-and-arithmetic",
+     "title": "Number Representation and Arithmetic",
+     "level": "topic-level",
+     "url": "https://gate-visual-explainer.vercel.app/topics/number-representation-and-arithmetic/index.html",
+     "covers": [
+      "sign-magnitude, ones' complement, two's complement encodings",
+      "two zeros in sign-magnitude and ones' complement, one in two's complement"
+     ]
+    },
+    "mapped_at": "2026-10-30"
+   },
    "subject": "digital-logic",
    "topic": "number-systems-and-representation",
    "path": "subjects/digital-logic/number-systems-and-representation/sign-magnitude-representation.json"
@@ -25514,6 +25684,45 @@ window.GATE_DATA = {
    ],
    "sourceLine": "One's complement as inversion, its range and its doubled zero: NPTEL IIT Kharagpur Lecture 22 (English, read in part). The end-around-carry example is this run's own and is recomputed in scripts/validate.py.",
    "videoRefs": [],
+   "links": {
+    "mock": {
+     "subject": "digital-logic",
+     "unit_slug": "number-systems",
+     "unit_name": "Number Systems & Representation",
+     "unit_number": 1,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Base conversions",
+       "questions": 15
+      },
+      {
+       "label": "One's & two's complement",
+       "questions": 13
+      },
+      {
+       "label": "Range & overflow",
+       "questions": 11
+      },
+      {
+       "label": "Floating point & IEEE 754",
+       "questions": 11
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-10-27.html"
+    },
+    "visual": {
+     "slug": "number-representation-and-arithmetic",
+     "title": "Number Representation and Arithmetic",
+     "level": "topic-level",
+     "url": "https://gate-visual-explainer.vercel.app/topics/number-representation-and-arithmetic/index.html",
+     "covers": [
+      "sign-magnitude, ones' complement, two's complement encodings",
+      "two zeros in sign-magnitude and ones' complement, one in two's complement"
+     ]
+    },
+    "mapped_at": "2026-10-30"
+   },
    "subject": "digital-logic",
    "topic": "number-systems-and-representation",
    "path": "subjects/digital-logic/number-systems-and-representation/ones-complement-representation.json"
@@ -25590,6 +25799,46 @@ window.GATE_DATA = {
    ],
    "sourceLine": "Two's complement as one's complement plus one, and the range -128 to +127: NPTEL IIT Kharagpur Lecture 22 (English, read in part). The question text and accepted answer of 2013 Q.4: its GATE Overflow page.",
    "videoRefs": [],
+   "links": {
+    "mock": {
+     "subject": "digital-logic",
+     "unit_slug": "number-systems",
+     "unit_name": "Number Systems & Representation",
+     "unit_number": 1,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Base conversions",
+       "questions": 15
+      },
+      {
+       "label": "One's & two's complement",
+       "questions": 13
+      },
+      {
+       "label": "Range & overflow",
+       "questions": 11
+      },
+      {
+       "label": "Floating point & IEEE 754",
+       "questions": 11
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-10-27.html"
+    },
+    "visual": {
+     "slug": "number-representation-and-arithmetic",
+     "title": "Number Representation and Arithmetic",
+     "level": "topic-level",
+     "url": "https://gate-visual-explainer.vercel.app/topics/number-representation-and-arithmetic/index.html",
+     "covers": [
+      "two's complement decode as unsigned minus 2^n, or a negative top weight",
+      "range -2^(n-1) to 2^(n-1)-1 and the smallest integer (GATE 2013 Q4)",
+      "the pattern wheel and arithmetic modulo 2^n"
+     ]
+    },
+    "mapped_at": "2026-10-30"
+   },
    "subject": "digital-logic",
    "topic": "number-systems-and-representation",
    "path": "subjects/digital-logic/number-systems-and-representation/twos-complement-definition-and-range.json"
@@ -25665,6 +25914,46 @@ window.GATE_DATA = {
    ],
    "sourceLine": "Subtraction as addition of the negated subtrahend, and the closing summary on two's complement arithmetic: NPTEL IIT Kharagpur Lecture 22 (English, read in part). The question text and accepted answer of 2016 Set 1 Q.7: its GATE Overflow page.",
    "videoRefs": [],
+   "links": {
+    "mock": {
+     "subject": "digital-logic",
+     "unit_slug": "number-systems",
+     "unit_name": "Number Systems & Representation",
+     "unit_number": 1,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Base conversions",
+       "questions": 15
+      },
+      {
+       "label": "One's & two's complement",
+       "questions": 13
+      },
+      {
+       "label": "Range & overflow",
+       "questions": 11
+      },
+      {
+       "label": "Floating point & IEEE 754",
+       "questions": 11
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-10-27.html"
+    },
+    "visual": {
+     "slug": "number-representation-and-arithmetic",
+     "title": "Number Representation and Arithmetic",
+     "level": "topic-level",
+     "url": "https://gate-visual-explainer.vercel.app/topics/number-representation-and-arithmetic/index.html",
+     "covers": [
+      "negation as invert-and-add-one, and its single fixed point",
+      "the one-pass negation shortcut",
+      "one adder for addition and subtraction; the discarded carry"
+     ]
+    },
+    "mapped_at": "2026-10-30"
+   },
    "subject": "digital-logic",
    "topic": "number-systems-and-representation",
    "path": "subjects/digital-logic/number-systems-and-representation/twos-complement-negation-and-subtraction.json"
@@ -25735,6 +26024,45 @@ window.GATE_DATA = {
    ],
    "sourceLine": "The doubled zero in sign-magnitude and one's complement, and its disappearance in two's complement: NPTEL IIT Kharagpur Lecture 22 (English, read in part). The question text and answer of 2016 Set 2 Q.9: the question page read this run, with both counts recomputed here.",
    "videoRefs": [],
+   "links": {
+    "mock": {
+     "subject": "digital-logic",
+     "unit_slug": "number-systems",
+     "unit_name": "Number Systems & Representation",
+     "unit_number": 1,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Base conversions",
+       "questions": 15
+      },
+      {
+       "label": "One's & two's complement",
+       "questions": 13
+      },
+      {
+       "label": "Range & overflow",
+       "questions": 11
+      },
+      {
+       "label": "Floating point & IEEE 754",
+       "questions": 11
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-10-27.html"
+    },
+    "visual": {
+     "slug": "number-representation-and-arithmetic",
+     "title": "Number Representation and Arithmetic",
+     "level": "topic-level",
+     "url": "https://gate-visual-explainer.vercel.app/topics/number-representation-and-arithmetic/index.html",
+     "covers": [
+      "distinct values 2^n against 2^n - 1 (GATE 2016 Set 2 Q9)",
+      "two zeros in sign-magnitude and ones' complement, one in two's complement"
+     ]
+    },
+    "mapped_at": "2026-10-30"
+   },
    "subject": "digital-logic",
    "topic": "number-systems-and-representation",
    "path": "subjects/digital-logic/number-systems-and-representation/distinct-values-and-duplicate-zero.json"
@@ -25811,6 +26139,46 @@ window.GATE_DATA = {
    ],
    "sourceLine": "The 8.3 / 8.4 / 8.2 readings of 10011110, the range formula and the point-shifting argument: NPTEL IIT Kharagpur Lecture 21 (English, read in full, figures re-derived here). The question text and accepted answer of 2017 Set 1 Q.7: its GATE Overflow page.",
    "videoRefs": [],
+   "links": {
+    "mock": {
+     "subject": "digital-logic",
+     "unit_slug": "number-systems",
+     "unit_name": "Number Systems & Representation",
+     "unit_number": 1,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Base conversions",
+       "questions": 15
+      },
+      {
+       "label": "One's & two's complement",
+       "questions": 13
+      },
+      {
+       "label": "Range & overflow",
+       "questions": 11
+      },
+      {
+       "label": "Floating point & IEEE 754",
+       "questions": 11
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-10-27.html"
+    },
+    "visual": {
+     "slug": "number-representation-and-arithmetic",
+     "title": "Number Representation and Arithmetic",
+     "level": "topic-level",
+     "url": "https://gate-visual-explainer.vercel.app/topics/number-representation-and-arithmetic/index.html",
+     "covers": [
+      "fixed point: weights 2^k from k = -f to i-1, i = n - f",
+      "fixed point range 0 to 2^i - 2^-f and step 2^-f",
+      "resolution against range at fixed width"
+     ]
+    },
+    "mapped_at": "2026-10-30"
+   },
    "subject": "digital-logic",
    "topic": "number-systems-and-representation",
    "path": "subjects/digital-logic/number-systems-and-representation/fixed-point-representation.json"
@@ -25899,6 +26267,45 @@ window.GATE_DATA = {
    ],
    "sourceLine": "Normalisation with the 1101.01 example and the first statement of floating point: NPTEL IIT Kharagpur Lecture 21 (English, read in full). Excess-127, the hidden bit and the term significand: University College Cork CS1101 Lecture 31 (English, read in full). The bias argument from the reciprocal of the smallest normal number: Virginia Tech CS3414 notes (English, read in part).",
    "videoRefs": [],
+   "links": {
+    "mock": {
+     "subject": "digital-logic",
+     "unit_slug": "number-systems",
+     "unit_name": "Number Systems & Representation",
+     "unit_number": 1,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Base conversions",
+       "questions": 15
+      },
+      {
+       "label": "One's & two's complement",
+       "questions": 13
+      },
+      {
+       "label": "Range & overflow",
+       "questions": 11
+      },
+      {
+       "label": "Floating point & IEEE 754",
+       "questions": 11
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-10-27.html"
+    },
+    "visual": {
+     "slug": "number-representation-and-arithmetic",
+     "title": "Number Representation and Arithmetic",
+     "level": "topic-level",
+     "url": "https://gate-visual-explainer.vercel.app/topics/number-representation-and-arithmetic/index.html",
+     "covers": [
+      "normalised binary scientific notation and the implied leading one",
+      "exponent bias 127 and 1023, and why a bias rather than a sign bit"
+     ]
+    },
+    "mapped_at": "2026-10-30"
+   },
    "subject": "digital-logic",
    "topic": "number-systems-and-representation",
    "path": "subjects/digital-logic/number-systems-and-representation/floating-point-normalisation-and-bias.json"
@@ -25996,6 +26403,46 @@ window.GATE_DATA = {
    ],
    "sourceLine": "The 1 / 8 / 23 layout, the bias and the implied leading 1: University College Cork CS1101 Lecture 31 (English, read in full) and the Intel single-precision field table (English, read in part). The p = 24 digit count and the extremal encodings: Zimmermann's IEEE 754 module (English, read in part). The three question texts and accepted answers: their GATE Overflow pages.",
    "videoRefs": [],
+   "links": {
+    "mock": {
+     "subject": "digital-logic",
+     "unit_slug": "number-systems",
+     "unit_name": "Number Systems & Representation",
+     "unit_number": 1,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Base conversions",
+       "questions": 15
+      },
+      {
+       "label": "One's & two's complement",
+       "questions": 13
+      },
+      {
+       "label": "Range & overflow",
+       "questions": 11
+      },
+      {
+       "label": "Floating point & IEEE 754",
+       "questions": 11
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-10-27.html"
+    },
+    "visual": {
+     "slug": "number-representation-and-arithmetic",
+     "title": "Number Representation and Arithmetic",
+     "level": "topic-level",
+     "url": "https://gate-visual-explainer.vercel.app/topics/number-representation-and-arithmetic/index.html",
+     "covers": [
+      "IEEE 754 single 1/8/23 and double 1/11/52 field layout",
+      "decoding a field triple, a bit string or a hex constant",
+      "encoding a decimal value and checking by decoding (GATE 2014 Set 2 Q45)"
+     ]
+    },
+    "mapped_at": "2026-10-30"
+   },
    "subject": "digital-logic",
    "topic": "number-systems-and-representation",
    "path": "subjects/digital-logic/number-systems-and-representation/ieee-754-single-precision-layout.json"
@@ -26103,6 +26550,47 @@ window.GATE_DATA = {
    ],
    "sourceLine": "Denormals, the two zeros, infinity and NaN: University College Cork CS1101 Lecture 31 (English, read in full) and Stanford CS107 Lecture 09 (English, read in part). The special-value table and the normal exponent range 1 to 0xfe: Intel's IEEE 754 field documentation (English, read in part). The extremal values 2^-126, 2^-149 and 0x7f7fffff: Zimmermann's IEEE 754 module (English, read in part). The question text and answer of 2024 Set 2 Q.14: its GATE Overflow page.",
    "videoRefs": [],
+   "links": {
+    "mock": {
+     "subject": "digital-logic",
+     "unit_slug": "number-systems",
+     "unit_name": "Number Systems & Representation",
+     "unit_number": 1,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Base conversions",
+       "questions": 15
+      },
+      {
+       "label": "One's & two's complement",
+       "questions": 13
+      },
+      {
+       "label": "Range & overflow",
+       "questions": 11
+      },
+      {
+       "label": "Floating point & IEEE 754",
+       "questions": 11
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-10-27.html"
+    },
+    "visual": {
+     "slug": "number-representation-and-arithmetic",
+     "title": "Number Representation and Arithmetic",
+     "level": "topic-level",
+     "url": "https://gate-visual-explainer.vercel.app/topics/number-representation-and-arithmetic/index.html",
+     "covers": [
+      "four exponent regimes: zero, denormal, normal, infinity and NaN",
+      "denormals: hidden bit 0, exponent pinned at -126, spacing 2^-149",
+      "largest finite single (2 - 2^-23) x 2^127",
+      "signed zero and NaN not equal to itself"
+     ]
+    },
+    "mapped_at": "2026-10-30"
+   },
    "subject": "digital-logic",
    "topic": "number-systems-and-representation",
    "path": "subjects/digital-logic/number-systems-and-representation/ieee-754-special-values-and-extremes.json"

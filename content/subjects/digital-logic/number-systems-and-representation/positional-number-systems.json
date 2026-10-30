@@ -58,5 +58,34 @@
     }
   ],
   "sourceLine": "Place value, the digit rule and the weighted sum: NPTEL IIT Kharagpur Digital Electronic Circuits Lecture 21 (English, read in full, every numeral re-derived here).",
-  "videoRefs": []
+  "videoRefs": [],
+  "links": {
+    "mock": {
+      "subject": "digital-logic",
+      "unit_slug": "number-systems",
+      "unit_name": "Number Systems & Representation",
+      "unit_number": 1,
+      "question_count": 50,
+      "subtopics": [
+        {
+          "label": "Base conversions",
+          "questions": 15
+        },
+        {
+          "label": "One's & two's complement",
+          "questions": 13
+        },
+        {
+          "label": "Range & overflow",
+          "questions": 11
+        },
+        {
+          "label": "Floating point & IEEE 754",
+          "questions": 11
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-10-27.html"
+    },
+    "mapped_at": "2026-10-30"
+  }
 }

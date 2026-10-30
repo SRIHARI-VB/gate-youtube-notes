@@ -82,14 +82,16 @@
   "videoRefs": [],
   "links": {
     "visual": {
-      "slug": "probability-and-random-variables",
-      "title": "Probability, Random Variables and Distributions",
+      "slug": "normal-distribution",
+      "title": "The Normal Distribution: Standardise First, Then Read the Tail",
+      "url": "https://gate-visual-explainer.vercel.app/topics/normal-distribution/index.html",
       "level": "topic-level",
-      "url": "https://gate-visual-explainer.vercel.app/topics/probability-and-random-variables/index.html",
       "covers": [
-        "the expectation of a sum is the sum of the expectations, always"
+        "independent normals add in mean and in variance: N(1,4) + N(2,9) = N(3,13), sigma root 13 = 3.6056, not 5",
+        "the convolution of the two densities agrees with Phi(3/root 13) at 0, 4 and 6",
+        "the central limit theorem needs a finite mean and a finite variance"
       ]
     },
-    "mapped_at": "2026-10-29"
+    "mapped_at": "2026-10-30"
   }
 }

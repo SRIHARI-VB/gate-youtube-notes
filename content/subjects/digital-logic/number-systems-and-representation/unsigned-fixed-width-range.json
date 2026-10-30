@@ -60,5 +60,45 @@
     }
   ],
   "sourceLine": "The power-of-two values and the odometer argument for wrap-around: NPTEL IIT Kharagpur Lecture 21 (English, read in full). The counts are recomputed in scripts/validate.py.",
-  "videoRefs": []
+  "videoRefs": [],
+  "links": {
+    "mock": {
+      "subject": "digital-logic",
+      "unit_slug": "number-systems",
+      "unit_name": "Number Systems & Representation",
+      "unit_number": 1,
+      "question_count": 50,
+      "subtopics": [
+        {
+          "label": "Base conversions",
+          "questions": 15
+        },
+        {
+          "label": "One's & two's complement",
+          "questions": 13
+        },
+        {
+          "label": "Range & overflow",
+          "questions": 11
+        },
+        {
+          "label": "Floating point & IEEE 754",
+          "questions": 11
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-10-27.html"
+    },
+    "visual": {
+      "slug": "number-representation-and-arithmetic",
+      "title": "Number Representation and Arithmetic",
+      "level": "topic-level",
+      "url": "https://gate-visual-explainer.vercel.app/topics/number-representation-and-arithmetic/index.html",
+      "covers": [
+        "fixed point range 0 to 2^i - 2^-f and step 2^-f",
+        "resolution against range at fixed width",
+        "carry out as the fifth bit of an unsigned sum"
+      ]
+    },
+    "mapped_at": "2026-10-30"
+  }
 }

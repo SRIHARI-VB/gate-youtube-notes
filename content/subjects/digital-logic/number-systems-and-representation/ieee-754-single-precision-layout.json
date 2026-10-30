@@ -90,5 +90,45 @@
     }
   ],
   "sourceLine": "The 1 / 8 / 23 layout, the bias and the implied leading 1: University College Cork CS1101 Lecture 31 (English, read in full) and the Intel single-precision field table (English, read in part). The p = 24 digit count and the extremal encodings: Zimmermann's IEEE 754 module (English, read in part). The three question texts and accepted answers: their GATE Overflow pages.",
-  "videoRefs": []
+  "videoRefs": [],
+  "links": {
+    "mock": {
+      "subject": "digital-logic",
+      "unit_slug": "number-systems",
+      "unit_name": "Number Systems & Representation",
+      "unit_number": 1,
+      "question_count": 50,
+      "subtopics": [
+        {
+          "label": "Base conversions",
+          "questions": 15
+        },
+        {
+          "label": "One's & two's complement",
+          "questions": 13
+        },
+        {
+          "label": "Range & overflow",
+          "questions": 11
+        },
+        {
+          "label": "Floating point & IEEE 754",
+          "questions": 11
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-10-27.html"
+    },
+    "visual": {
+      "slug": "number-representation-and-arithmetic",
+      "title": "Number Representation and Arithmetic",
+      "level": "topic-level",
+      "url": "https://gate-visual-explainer.vercel.app/topics/number-representation-and-arithmetic/index.html",
+      "covers": [
+        "IEEE 754 single 1/8/23 and double 1/11/52 field layout",
+        "decoding a field triple, a bit string or a hex constant",
+        "encoding a decimal value and checking by decoding (GATE 2014 Set 2 Q45)"
+      ]
+    },
+    "mapped_at": "2026-10-30"
+  }
 }

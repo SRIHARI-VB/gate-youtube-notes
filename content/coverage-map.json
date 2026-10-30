@@ -1793,6 +1793,456 @@
       "row_verdict": "BOTH"
     },
     {
+      "subject": "digital-logic",
+      "group": "number-systems-and-representation",
+      "topic": "positional-number-systems",
+      "title": "Positional Number Systems and Place Value",
+      "priority": "P1",
+      "path": "subjects/digital-logic/number-systems-and-representation/positional-number-systems.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "digital-logic",
+        "unit_slug": "number-systems",
+        "unit_name": "Number Systems & Representation",
+        "unit_number": 1,
+        "question_count": 50,
+        "subtopic_labels": [
+          "Base conversions",
+          "One's & two's complement",
+          "Range & overflow",
+          "Floating point & IEEE 754"
+        ],
+        "verdict": "MOCK_CAPPED"
+      },
+      "visual": null,
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/digital-logic/number-systems-and-representation/positional-number-systems.json (added in notes commit a9e4dcd8, 2026-10-30)",
+        "mock: digital-logic/question-bank/master_bank.json unit 1 number-systems holds 50 records grouped by subtopic_label (Base conversions 15, One's & two's complement 13, Range & overflow 11, Floating point & IEEE 754 11); paper from the unit's last runs[] entry file digital-logic/number-systems/gate_dl_mock_1_2026-10-27.html",
+        "visual: no lesson covers this subtopic; topics/number-representation-and-arithmetic/transcript.md has no scene on the radix, place value or base conversion (10 scenes, all fixed point and beyond)"
+      ],
+      "row_verdict": "MOCK_ONLY"
+    },
+    {
+      "subject": "digital-logic",
+      "group": "number-systems-and-representation",
+      "topic": "base-conversion-integer-and-fraction",
+      "title": "Base Conversion: Repeated Division and Repeated Multiplication",
+      "priority": "P1",
+      "path": "subjects/digital-logic/number-systems-and-representation/base-conversion-integer-and-fraction.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "digital-logic",
+        "unit_slug": "number-systems",
+        "unit_name": "Number Systems & Representation",
+        "unit_number": 1,
+        "question_count": 50,
+        "subtopic_labels": [
+          "Base conversions",
+          "One's & two's complement",
+          "Range & overflow",
+          "Floating point & IEEE 754"
+        ],
+        "verdict": "MOCK_CAPPED"
+      },
+      "visual": null,
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/digital-logic/number-systems-and-representation/base-conversion-integer-and-fraction.json (added in notes commit a9e4dcd8, 2026-10-30)",
+        "mock: digital-logic/question-bank/master_bank.json unit 1 number-systems holds 50 records grouped by subtopic_label (Base conversions 15, One's & two's complement 13, Range & overflow 11, Floating point & IEEE 754 11); paper from the unit's last runs[] entry file digital-logic/number-systems/gate_dl_mock_1_2026-10-27.html",
+        "visual: no lesson covers this subtopic; topics/number-representation-and-arithmetic/transcript.md has no scene on the radix, place value or base conversion (10 scenes, all fixed point and beyond)"
+      ],
+      "row_verdict": "MOCK_ONLY"
+    },
+    {
+      "subject": "digital-logic",
+      "group": "number-systems-and-representation",
+      "topic": "octal-and-hexadecimal-by-bit-grouping",
+      "title": "Octal and Hexadecimal by Bit Grouping",
+      "priority": "P2",
+      "path": "subjects/digital-logic/number-systems-and-representation/octal-and-hexadecimal-by-bit-grouping.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "digital-logic",
+        "unit_slug": "number-systems",
+        "unit_name": "Number Systems & Representation",
+        "unit_number": 1,
+        "question_count": 50,
+        "subtopic_labels": [
+          "Base conversions",
+          "One's & two's complement",
+          "Range & overflow",
+          "Floating point & IEEE 754"
+        ],
+        "verdict": "MOCK_CAPPED"
+      },
+      "visual": null,
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/digital-logic/number-systems-and-representation/octal-and-hexadecimal-by-bit-grouping.json (added in notes commit a9e4dcd8, 2026-10-30)",
+        "mock: digital-logic/question-bank/master_bank.json unit 1 number-systems holds 50 records grouped by subtopic_label (Base conversions 15, One's & two's complement 13, Range & overflow 11, Floating point & IEEE 754 11); paper from the unit's last runs[] entry file digital-logic/number-systems/gate_dl_mock_1_2026-10-27.html",
+        "visual: no lesson covers this subtopic; topics/number-representation-and-arithmetic/transcript.md has no scene on the radix, place value or base conversion (10 scenes, all fixed point and beyond)"
+      ],
+      "row_verdict": "MOCK_ONLY"
+    },
+    {
+      "subject": "digital-logic",
+      "group": "number-systems-and-representation",
+      "topic": "unsigned-fixed-width-range",
+      "title": "Unsigned Fixed-Width Integers: Patterns, Range and Wrap-Around",
+      "priority": "P2",
+      "path": "subjects/digital-logic/number-systems-and-representation/unsigned-fixed-width-range.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "digital-logic",
+        "unit_slug": "number-systems",
+        "unit_name": "Number Systems & Representation",
+        "unit_number": 1,
+        "question_count": 50,
+        "subtopic_labels": [
+          "Base conversions",
+          "One's & two's complement",
+          "Range & overflow",
+          "Floating point & IEEE 754"
+        ],
+        "verdict": "MOCK_CAPPED"
+      },
+      "visual": {
+        "slug": "number-representation-and-arithmetic",
+        "title": "Number Representation and Arithmetic",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/digital-logic/number-systems-and-representation/unsigned-fixed-width-range.json (added in notes commit a9e4dcd8, 2026-10-30)",
+        "mock: digital-logic/question-bank/master_bank.json unit 1 number-systems holds 50 records grouped by subtopic_label (Base conversions 15, One's & two's complement 13, Range & overflow 11, Floating point & IEEE 754 11); paper from the unit's last runs[] entry file digital-logic/number-systems/gate_dl_mock_1_2026-10-27.html",
+        "visual: gate-visual-explainer syllabus-coverage.json lesson_slug number-representation-and-arithmetic (subject Digital Logic, coverage_status PUBLISHED); covers[] checked scene by scene against topics/number-representation-and-arithmetic/transcript.md"
+      ],
+      "row_verdict": "BOTH"
+    },
+    {
+      "subject": "digital-logic",
+      "group": "number-systems-and-representation",
+      "topic": "sign-magnitude-representation",
+      "title": "Sign-Magnitude Representation",
+      "priority": "P1",
+      "path": "subjects/digital-logic/number-systems-and-representation/sign-magnitude-representation.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "digital-logic",
+        "unit_slug": "number-systems",
+        "unit_name": "Number Systems & Representation",
+        "unit_number": 1,
+        "question_count": 50,
+        "subtopic_labels": [
+          "Base conversions",
+          "One's & two's complement",
+          "Range & overflow",
+          "Floating point & IEEE 754"
+        ],
+        "verdict": "MOCK_CAPPED"
+      },
+      "visual": {
+        "slug": "number-representation-and-arithmetic",
+        "title": "Number Representation and Arithmetic",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/digital-logic/number-systems-and-representation/sign-magnitude-representation.json (added in notes commit a9e4dcd8, 2026-10-30)",
+        "mock: digital-logic/question-bank/master_bank.json unit 1 number-systems holds 50 records grouped by subtopic_label (Base conversions 15, One's & two's complement 13, Range & overflow 11, Floating point & IEEE 754 11); paper from the unit's last runs[] entry file digital-logic/number-systems/gate_dl_mock_1_2026-10-27.html",
+        "visual: gate-visual-explainer syllabus-coverage.json lesson_slug number-representation-and-arithmetic (subject Digital Logic, coverage_status PUBLISHED); covers[] checked scene by scene against topics/number-representation-and-arithmetic/transcript.md"
+      ],
+      "row_verdict": "BOTH"
+    },
+    {
+      "subject": "digital-logic",
+      "group": "number-systems-and-representation",
+      "topic": "ones-complement-representation",
+      "title": "One's Complement Representation",
+      "priority": "P2",
+      "path": "subjects/digital-logic/number-systems-and-representation/ones-complement-representation.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "digital-logic",
+        "unit_slug": "number-systems",
+        "unit_name": "Number Systems & Representation",
+        "unit_number": 1,
+        "question_count": 50,
+        "subtopic_labels": [
+          "Base conversions",
+          "One's & two's complement",
+          "Range & overflow",
+          "Floating point & IEEE 754"
+        ],
+        "verdict": "MOCK_CAPPED"
+      },
+      "visual": {
+        "slug": "number-representation-and-arithmetic",
+        "title": "Number Representation and Arithmetic",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/digital-logic/number-systems-and-representation/ones-complement-representation.json (added in notes commit a9e4dcd8, 2026-10-30)",
+        "mock: digital-logic/question-bank/master_bank.json unit 1 number-systems holds 50 records grouped by subtopic_label (Base conversions 15, One's & two's complement 13, Range & overflow 11, Floating point & IEEE 754 11); paper from the unit's last runs[] entry file digital-logic/number-systems/gate_dl_mock_1_2026-10-27.html",
+        "visual: gate-visual-explainer syllabus-coverage.json lesson_slug number-representation-and-arithmetic (subject Digital Logic, coverage_status PUBLISHED); covers[] checked scene by scene against topics/number-representation-and-arithmetic/transcript.md"
+      ],
+      "row_verdict": "BOTH"
+    },
+    {
+      "subject": "digital-logic",
+      "group": "number-systems-and-representation",
+      "topic": "twos-complement-definition-and-range",
+      "title": "Two's Complement: Definition, Range and Why It Is Asymmetric",
+      "priority": "P1",
+      "path": "subjects/digital-logic/number-systems-and-representation/twos-complement-definition-and-range.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "digital-logic",
+        "unit_slug": "number-systems",
+        "unit_name": "Number Systems & Representation",
+        "unit_number": 1,
+        "question_count": 50,
+        "subtopic_labels": [
+          "Base conversions",
+          "One's & two's complement",
+          "Range & overflow",
+          "Floating point & IEEE 754"
+        ],
+        "verdict": "MOCK_CAPPED"
+      },
+      "visual": {
+        "slug": "number-representation-and-arithmetic",
+        "title": "Number Representation and Arithmetic",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/digital-logic/number-systems-and-representation/twos-complement-definition-and-range.json (added in notes commit a9e4dcd8, 2026-10-30)",
+        "mock: digital-logic/question-bank/master_bank.json unit 1 number-systems holds 50 records grouped by subtopic_label (Base conversions 15, One's & two's complement 13, Range & overflow 11, Floating point & IEEE 754 11); paper from the unit's last runs[] entry file digital-logic/number-systems/gate_dl_mock_1_2026-10-27.html",
+        "visual: gate-visual-explainer syllabus-coverage.json lesson_slug number-representation-and-arithmetic (subject Digital Logic, coverage_status PUBLISHED); covers[] checked scene by scene against topics/number-representation-and-arithmetic/transcript.md"
+      ],
+      "row_verdict": "BOTH"
+    },
+    {
+      "subject": "digital-logic",
+      "group": "number-systems-and-representation",
+      "topic": "twos-complement-negation-and-subtraction",
+      "title": "Two's Complement Arithmetic: Subtraction, the Discarded Carry and Sign Extension",
+      "priority": "P1",
+      "path": "subjects/digital-logic/number-systems-and-representation/twos-complement-negation-and-subtraction.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "digital-logic",
+        "unit_slug": "number-systems",
+        "unit_name": "Number Systems & Representation",
+        "unit_number": 1,
+        "question_count": 50,
+        "subtopic_labels": [
+          "Base conversions",
+          "One's & two's complement",
+          "Range & overflow",
+          "Floating point & IEEE 754"
+        ],
+        "verdict": "MOCK_CAPPED"
+      },
+      "visual": {
+        "slug": "number-representation-and-arithmetic",
+        "title": "Number Representation and Arithmetic",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/digital-logic/number-systems-and-representation/twos-complement-negation-and-subtraction.json (added in notes commit a9e4dcd8, 2026-10-30)",
+        "mock: digital-logic/question-bank/master_bank.json unit 1 number-systems holds 50 records grouped by subtopic_label (Base conversions 15, One's & two's complement 13, Range & overflow 11, Floating point & IEEE 754 11); paper from the unit's last runs[] entry file digital-logic/number-systems/gate_dl_mock_1_2026-10-27.html",
+        "visual: gate-visual-explainer syllabus-coverage.json lesson_slug number-representation-and-arithmetic (subject Digital Logic, coverage_status PUBLISHED); covers[] checked scene by scene against topics/number-representation-and-arithmetic/transcript.md"
+      ],
+      "row_verdict": "BOTH"
+    },
+    {
+      "subject": "digital-logic",
+      "group": "number-systems-and-representation",
+      "topic": "distinct-values-and-duplicate-zero",
+      "title": "Counting Distinct Values: The Pattern Count Against the Value Count",
+      "priority": "P2",
+      "path": "subjects/digital-logic/number-systems-and-representation/distinct-values-and-duplicate-zero.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "digital-logic",
+        "unit_slug": "number-systems",
+        "unit_name": "Number Systems & Representation",
+        "unit_number": 1,
+        "question_count": 50,
+        "subtopic_labels": [
+          "Base conversions",
+          "One's & two's complement",
+          "Range & overflow",
+          "Floating point & IEEE 754"
+        ],
+        "verdict": "MOCK_CAPPED"
+      },
+      "visual": {
+        "slug": "number-representation-and-arithmetic",
+        "title": "Number Representation and Arithmetic",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/digital-logic/number-systems-and-representation/distinct-values-and-duplicate-zero.json (added in notes commit a9e4dcd8, 2026-10-30)",
+        "mock: digital-logic/question-bank/master_bank.json unit 1 number-systems holds 50 records grouped by subtopic_label (Base conversions 15, One's & two's complement 13, Range & overflow 11, Floating point & IEEE 754 11); paper from the unit's last runs[] entry file digital-logic/number-systems/gate_dl_mock_1_2026-10-27.html",
+        "visual: gate-visual-explainer syllabus-coverage.json lesson_slug number-representation-and-arithmetic (subject Digital Logic, coverage_status PUBLISHED); covers[] checked scene by scene against topics/number-representation-and-arithmetic/transcript.md"
+      ],
+      "row_verdict": "BOTH"
+    },
+    {
+      "subject": "digital-logic",
+      "group": "number-systems-and-representation",
+      "topic": "fixed-point-representation",
+      "title": "Fixed-Point Representation: Range, Resolution and the Position of the Point",
+      "priority": "P1",
+      "path": "subjects/digital-logic/number-systems-and-representation/fixed-point-representation.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "digital-logic",
+        "unit_slug": "number-systems",
+        "unit_name": "Number Systems & Representation",
+        "unit_number": 1,
+        "question_count": 50,
+        "subtopic_labels": [
+          "Base conversions",
+          "One's & two's complement",
+          "Range & overflow",
+          "Floating point & IEEE 754"
+        ],
+        "verdict": "MOCK_CAPPED"
+      },
+      "visual": {
+        "slug": "number-representation-and-arithmetic",
+        "title": "Number Representation and Arithmetic",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/digital-logic/number-systems-and-representation/fixed-point-representation.json (added in notes commit a9e4dcd8, 2026-10-30)",
+        "mock: digital-logic/question-bank/master_bank.json unit 1 number-systems holds 50 records grouped by subtopic_label (Base conversions 15, One's & two's complement 13, Range & overflow 11, Floating point & IEEE 754 11); paper from the unit's last runs[] entry file digital-logic/number-systems/gate_dl_mock_1_2026-10-27.html",
+        "visual: gate-visual-explainer syllabus-coverage.json lesson_slug number-representation-and-arithmetic (subject Digital Logic, coverage_status PUBLISHED); covers[] checked scene by scene against topics/number-representation-and-arithmetic/transcript.md"
+      ],
+      "row_verdict": "BOTH"
+    },
+    {
+      "subject": "digital-logic",
+      "group": "number-systems-and-representation",
+      "topic": "floating-point-normalisation-and-bias",
+      "title": "Floating Point: Normalisation and the Biased Exponent",
+      "priority": "P1",
+      "path": "subjects/digital-logic/number-systems-and-representation/floating-point-normalisation-and-bias.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "digital-logic",
+        "unit_slug": "number-systems",
+        "unit_name": "Number Systems & Representation",
+        "unit_number": 1,
+        "question_count": 50,
+        "subtopic_labels": [
+          "Base conversions",
+          "One's & two's complement",
+          "Range & overflow",
+          "Floating point & IEEE 754"
+        ],
+        "verdict": "MOCK_CAPPED"
+      },
+      "visual": {
+        "slug": "number-representation-and-arithmetic",
+        "title": "Number Representation and Arithmetic",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/digital-logic/number-systems-and-representation/floating-point-normalisation-and-bias.json (added in notes commit a9e4dcd8, 2026-10-30)",
+        "mock: digital-logic/question-bank/master_bank.json unit 1 number-systems holds 50 records grouped by subtopic_label (Base conversions 15, One's & two's complement 13, Range & overflow 11, Floating point & IEEE 754 11); paper from the unit's last runs[] entry file digital-logic/number-systems/gate_dl_mock_1_2026-10-27.html",
+        "visual: gate-visual-explainer syllabus-coverage.json lesson_slug number-representation-and-arithmetic (subject Digital Logic, coverage_status PUBLISHED); covers[] checked scene by scene against topics/number-representation-and-arithmetic/transcript.md"
+      ],
+      "row_verdict": "BOTH"
+    },
+    {
+      "subject": "digital-logic",
+      "group": "number-systems-and-representation",
+      "topic": "ieee-754-single-precision-layout",
+      "title": "IEEE 754 Single Precision: The 1 + 8 + 23 Layout and Decoding",
+      "priority": "P1",
+      "path": "subjects/digital-logic/number-systems-and-representation/ieee-754-single-precision-layout.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "digital-logic",
+        "unit_slug": "number-systems",
+        "unit_name": "Number Systems & Representation",
+        "unit_number": 1,
+        "question_count": 50,
+        "subtopic_labels": [
+          "Base conversions",
+          "One's & two's complement",
+          "Range & overflow",
+          "Floating point & IEEE 754"
+        ],
+        "verdict": "MOCK_CAPPED"
+      },
+      "visual": {
+        "slug": "number-representation-and-arithmetic",
+        "title": "Number Representation and Arithmetic",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/digital-logic/number-systems-and-representation/ieee-754-single-precision-layout.json (added in notes commit a9e4dcd8, 2026-10-30)",
+        "mock: digital-logic/question-bank/master_bank.json unit 1 number-systems holds 50 records grouped by subtopic_label (Base conversions 15, One's & two's complement 13, Range & overflow 11, Floating point & IEEE 754 11); paper from the unit's last runs[] entry file digital-logic/number-systems/gate_dl_mock_1_2026-10-27.html",
+        "visual: gate-visual-explainer syllabus-coverage.json lesson_slug number-representation-and-arithmetic (subject Digital Logic, coverage_status PUBLISHED); covers[] checked scene by scene against topics/number-representation-and-arithmetic/transcript.md"
+      ],
+      "row_verdict": "BOTH"
+    },
+    {
+      "subject": "digital-logic",
+      "group": "number-systems-and-representation",
+      "topic": "ieee-754-special-values-and-extremes",
+      "title": "IEEE 754 Special Values, Subnormals and the Extremes of the Format",
+      "priority": "P1",
+      "path": "subjects/digital-logic/number-systems-and-representation/ieee-754-special-values-and-extremes.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "digital-logic",
+        "unit_slug": "number-systems",
+        "unit_name": "Number Systems & Representation",
+        "unit_number": 1,
+        "question_count": 50,
+        "subtopic_labels": [
+          "Base conversions",
+          "One's & two's complement",
+          "Range & overflow",
+          "Floating point & IEEE 754"
+        ],
+        "verdict": "MOCK_CAPPED"
+      },
+      "visual": {
+        "slug": "number-representation-and-arithmetic",
+        "title": "Number Representation and Arithmetic",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json -> map[].path = subjects/digital-logic/number-systems-and-representation/ieee-754-special-values-and-extremes.json (added in notes commit a9e4dcd8, 2026-10-30)",
+        "mock: digital-logic/question-bank/master_bank.json unit 1 number-systems holds 50 records grouped by subtopic_label (Base conversions 15, One's & two's complement 13, Range & overflow 11, Floating point & IEEE 754 11); paper from the unit's last runs[] entry file digital-logic/number-systems/gate_dl_mock_1_2026-10-27.html",
+        "visual: gate-visual-explainer syllabus-coverage.json lesson_slug number-representation-and-arithmetic (subject Digital Logic, coverage_status PUBLISHED); covers[] checked scene by scene against topics/number-representation-and-arithmetic/transcript.md"
+      ],
+      "row_verdict": "BOTH"
+    },
+    {
       "subject": "discrete-mathematics",
       "group": "combinatorics",
       "topic": "basic-counting-rules",
@@ -6875,17 +7325,17 @@
         "verdict": "MOCK_UNIT_EMPTY"
       },
       "visual": {
-        "slug": "probability-and-random-variables",
-        "title": "Probability, Random Variables and Distributions",
+        "slug": "normal-distribution",
+        "title": "The Normal Distribution: Standardise First, Then Read the Tail",
         "coverage_status": "PUBLISHED",
-        "level": "topic-level",
+        "level": "subtopic-level",
         "verdict": "VISUAL_LESSON"
       },
       "evidence": [
         "notes content/index.json -> map[].path = subjects/probability-and-statistics/random-variables-and-distributions/normal-distribution-and-standardisation.json",
         "mock: engineering-mathematics/question-bank/master_bank.json holds 0 records for unit 5 probability-distributions; the README unit table lists it as 'Continuous Probability & Distributions' with 0 questions, so MOCK_UNIT_EMPTY",
         "card map[] videos[] is empty and the card quotes no lecture, so transcript_status is not stated",
-        "visual: syllabus-coverage.json lesson_slug probability-and-random-variables (PUBLISHED); covers checked against topics/probability-and-random-variables/transcript.md, not the alias list"
+        "visual: gate-visual-explainer topics.json slug normal-distribution (created 2026-10-30) and syllabus-coverage.json lesson_slug normal-distribution (coverage_status PUBLISHED); covers[] checked against topics/normal-distribution/transcript.md, not against aliases[]"
       ],
       "row_verdict": "VISUAL_ONLY"
     },
@@ -6939,8 +7389,8 @@
         "verdict": "MOCK_UNIT_EMPTY"
       },
       "visual": {
-        "slug": "probability-and-random-variables",
-        "title": "Probability, Random Variables and Distributions",
+        "slug": "normal-distribution",
+        "title": "The Normal Distribution: Standardise First, Then Read the Tail",
         "coverage_status": "PUBLISHED",
         "level": "topic-level",
         "verdict": "VISUAL_LESSON"
@@ -6949,12 +7399,22 @@
         "notes content/index.json -> map[].path = subjects/probability-and-statistics/random-variables-and-distributions/sums-of-independent-random-variables.json",
         "mock: engineering-mathematics/question-bank/master_bank.json holds 0 records for unit 5 probability-distributions; the README unit table lists it as 'Continuous Probability & Distributions' with 0 questions, so MOCK_UNIT_EMPTY",
         "card map[] videos[] is empty and the card quotes no lecture, so transcript_status is not stated",
-        "visual: syllabus-coverage.json lesson_slug probability-and-random-variables (PUBLISHED); covers checked against topics/probability-and-random-variables/transcript.md, not the alias list"
+        "visual: gate-visual-explainer topics.json slug normal-distribution (created 2026-10-30) and syllabus-coverage.json lesson_slug normal-distribution (coverage_status PUBLISHED); covers[] checked against topics/normal-distribution/transcript.md, not against aliases[]"
       ],
       "row_verdict": "VISUAL_ONLY"
     }
   ],
   "gaps": [
+    {
+      "kind": "notes",
+      "placement": "algorithms › dynamic-programming › (no card)",
+      "detail": "Mock set, Algorithms Unit 4 'Dynamic Programming' (unit_slug dynamic-programming, unit_number 4) opened Set 1 of 2 on 2026-10-30: run 7, paper algorithms/dynamic-programming/gate_algo_mock_4_2026-10-30.html, 25 new items ALG-U4-Q01..Q25. subtopic_label is absent on every record, so the groups are counted from the subtopic field: matrix-chain-multiplication 7, longest-common-subsequence 6, 0-1-knapsack 6, all-pairs-shortest-paths-floyd-warshall 6. The unit sits at 25 of the 50-question cap, so the next Algorithms run re-selects Unit 4 as Set 2 of 2 before advancing to Unit 5, Graph Algorithms: Traversals & Spanning Trees. The notes repo has no algorithms subject (content/index.json map[] carries calculus, digital-logic, discrete-mathematics, linear-algebra and probability-and-statistics), so no card serves any of the four groups. The visual side exists: syllabus-coverage.json lesson_slug dynamic-programming (PUBLISHED, subject Algorithms, unit 'Design techniques') carries microtopics for all four - matrix chain as interval DP, LCS match/mismatch, the 0/1 knapsack row-above rule and Floyd-Warshall with k outermost - so VISUAL_LESSON at topic-level. Recommendation: write content/subjects/algorithms/dynamic-programming/matrix-chain-multiplication.json as the first card, the largest group on the paper and the one the lesson opens on."
+    },
+    {
+      "kind": "visual",
+      "placement": "digital-logic › number-systems-and-representation › positional-number-systems, base-conversion-integer-and-fraction, octal-and-hexadecimal-by-bit-grouping",
+      "detail": "topics/number-representation-and-arithmetic (syllabus-coverage.json coverage_status PUBLISHED, 10 scenes) covers fixed point, the three signed encodings, distinct values, one adder for add and subtract, carry against overflow, normalisation and bias, the 1/8/23 layout, the special values and 24-bit precision. Its transcript.md has no scene on the radix, place value, repeated division or repeated multiplication, or on 3-bit and 4-bit grouping, so three of the twelve new cards have no visual: positional-number-systems, base-conversion-integer-and-fraction and octal-and-hexadecimal-by-bit-grouping, whose mock side is MOCK_READY inside the 'Base conversions' group (15 questions). Recommendation: extend topics/number-representation-and-arithmetic with one scene on base conversion and bit grouping rather than start a new slug, then regenerate captions with node tools/gen-captions.mjs number-representation-and-arithmetic."
+    },
     {
       "kind": "notes",
       "placement": "algorithms › greedy-algorithms › (no card)",
@@ -7368,7 +7828,7 @@
     {
       "kind": "visual",
       "placement": "probability-and-statistics › random-variables-and-distributions › sums-of-independent-random-variables",
-      "detail": "The card is about sums of independent random variables - the reproductive property of the Poisson and the normal - and the lesson covers only the linearity of expectation for a sum (Scene 5, and Scene 7's note that the variance of a binomial sum needs independence). The reproductive property itself is not taught anywhere in topics/probability-and-random-variables/transcript.md, so the card is mapped at topic-level with that single covered microtopic. Recommendation: extend the same lesson with a scene on sums of independent Poissons and normals rather than starting a new slug. Re-checked 2026-10-30 against the new lesson topics/linearity-of-expectation: it teaches the mean of a sum with no independence (scene 1-2) and the variance of a sum with its covariance term (scene 8), and it still does not teach the reproductive property of the Poisson and the normal, so the card keeps its topic-level mapping to probability-and-random-variables and this gap stands."
+      "detail": "Re-checked 2026-10-30 against the new lesson topics/normal-distribution (topics.json created 2026-10-30, syllabus-coverage.json coverage_status PUBLISHED, 10 scenes). Its microtopics now teach the normal half of this card: independent normals add in mean and in variance, N(1,4) + N(2,9) = N(3,13) with sigma root 13 = 3.6056 rather than 5, checked by convolving the two densities against Phi(3/root 13), and the central limit theorem with its gap from Phi measured against the gamma CDF. The card's visual link therefore moves from probability-and-random-variables (which covered only the mean of a sum) to normal-distribution at topic-level. Still untaught anywhere in gate-visual-explainer: the Poisson reproductive property and the binomial closure rule with the same p, so two of the card's six bullets have no lesson. Recommendation: extend topics/probability-and-random-variables with one scene on sums of independent Poissons and on B(n1,p) + B(n2,p), the only remaining hole on this card."
     },
     {
       "kind": "notes",

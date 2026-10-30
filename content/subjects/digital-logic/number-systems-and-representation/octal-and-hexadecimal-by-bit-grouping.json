@@ -60,5 +60,34 @@
     }
   ],
   "sourceLine": "The 3-bit and 4-bit grouping rule, with the octal and hexadecimal examples: NPTEL IIT Kharagpur Lecture 21 (English, read in full). The base-5 counterexample is this run's own, from the shape of GATE CSE 2024 Set 2 Q.49.",
-  "videoRefs": []
+  "videoRefs": [],
+  "links": {
+    "mock": {
+      "subject": "digital-logic",
+      "unit_slug": "number-systems",
+      "unit_name": "Number Systems & Representation",
+      "unit_number": 1,
+      "question_count": 50,
+      "subtopics": [
+        {
+          "label": "Base conversions",
+          "questions": 15
+        },
+        {
+          "label": "One's & two's complement",
+          "questions": 13
+        },
+        {
+          "label": "Range & overflow",
+          "questions": 11
+        },
+        {
+          "label": "Floating point & IEEE 754",
+          "questions": 11
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-10-27.html"
+    },
+    "mapped_at": "2026-10-30"
+  }
 }

@@ -63,5 +63,44 @@
     }
   ],
   "sourceLine": "The doubled zero in sign-magnitude and one's complement, and its disappearance in two's complement: NPTEL IIT Kharagpur Lecture 22 (English, read in part). The question text and answer of 2016 Set 2 Q.9: the question page read this run, with both counts recomputed here.",
-  "videoRefs": []
+  "videoRefs": [],
+  "links": {
+    "mock": {
+      "subject": "digital-logic",
+      "unit_slug": "number-systems",
+      "unit_name": "Number Systems & Representation",
+      "unit_number": 1,
+      "question_count": 50,
+      "subtopics": [
+        {
+          "label": "Base conversions",
+          "questions": 15
+        },
+        {
+          "label": "One's & two's complement",
+          "questions": 13
+        },
+        {
+          "label": "Range & overflow",
+          "questions": 11
+        },
+        {
+          "label": "Floating point & IEEE 754",
+          "questions": 11
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-10-27.html"
+    },
+    "visual": {
+      "slug": "number-representation-and-arithmetic",
+      "title": "Number Representation and Arithmetic",
+      "level": "topic-level",
+      "url": "https://gate-visual-explainer.vercel.app/topics/number-representation-and-arithmetic/index.html",
+      "covers": [
+        "distinct values 2^n against 2^n - 1 (GATE 2016 Set 2 Q9)",
+        "two zeros in sign-magnitude and ones' complement, one in two's complement"
+      ]
+    },
+    "mapped_at": "2026-10-30"
+  }
 }
