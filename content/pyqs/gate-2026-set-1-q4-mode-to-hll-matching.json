@@ -1,0 +1,21 @@
+{
+  "id": "gate-2026-set-1-q4-mode-to-hll-matching",
+  "year": "2026",
+  "paper": "GATE CSE 2026 Set 1",
+  "question_ref": "Q.4",
+  "type": "MCQ",
+  "topic": "displacement-addressing-base-and-index",
+  "text": "Match each addressing mode in List I with a data element or an element of a data structure (in a high-level language) in List II. List I: P. Immediate, Q. Indirect, R. Base with index, S. Base with offset/displacement. List II: 1. Element of an array, 2. Pointer, 3. Element of a record, 4. Constant.",
+  "options": [
+    "P-4, Q-3, R-1, S-2",
+    "P-4, Q-2, R-1, S-3",
+    "P-1, Q-4, R-3, S-2",
+    "P-2, Q-3, R-1, S-4"
+  ],
+  "answer": "Option (B) - P-4, Q-2, R-1, S-3",
+  "solution": "Immediate mode carries the value itself, which is a constant. Indirect mode reads an address from a location, which is what a pointer is. Base with index adds a run-time index to a base, which is how an array element is addressed. Base with offset adds a compile-time displacement to a base, which is how a record field is addressed. The other three options misplace at least one of the four.",
+  "source_url": "https://gateoverflow.in/523076/gate-cse-2026-set-1-question-4",
+  "source_label": "GATE Overflow question page - GATE CSE 2026 Set 1 Q.4 with the accepted answer (option B)",
+  "verification": "SOURCED",
+  "answer_evidence": "The accepted answer states 'Answer is option B. P-4, Q-2, R-1, S-3' and gives the four justifications, linking the same distinction to GATE CSE 2017 Set 1 Q.11. Corroborated by the ExamSIDE 2026 Set 1 paper page, whose solution matches base-with-index to an array element and base-with-displacement to a record element, and by EduRev's PYQ page, which records Answer: B."
+}
