@@ -301,7 +301,7 @@ window.GATE_DATA = {
      {
       "slug": "alu-design",
       "name": "Design of the Arithmetic and Logic Unit",
-      "material": "planned"
+      "material": "cards"
      },
      {
       "slug": "control-unit-design",
@@ -29679,15 +29679,15 @@ window.GATE_DATA = {
    "visual": "digital-logic/combinational-circuits/mux-to-minimal-sop",
    "links": {
     "visual": {
-     "slug": "combinational-circuits",
-     "title": "Combinational Circuits: Adders, Multiplexers and Decoders",
-     "level": "topic-level",
+     "slug": "mux-to-minimal-sop",
+     "title": "From a 4-to-1 Multiplexer to a Minimal Sum of Products",
+     "level": "subtopic-level",
      "covers": [
-      "a multiplexer is a lookup table, universal for functions of its select lines",
-      "the 8-to-1 table method: data input k is row k of the table",
-      "the 4-to-1 variable method: each data input is 0, 1, the variable, or its complement"
+      "the multiplexer output equation",
+      "implementing a function on a multiplexer",
+      "reading a minimal sum of products off a group"
      ],
-     "url": "https://gate-visual-explainer.vercel.app/topics/combinational-circuits/index.html"
+     "url": "visuals/digital-logic/combinational-circuits/mux-to-minimal-sop/index.html"
     },
     "mapped_at": "2026-10-31",
     "mock": {
@@ -34943,6 +34943,1188 @@ window.GATE_DATA = {
    "subject": "computer-organization-and-architecture",
    "topic": "instruction-set-and-addressing-modes",
    "path": "subjects/computer-organization-and-architecture/instruction-set-and-addressing-modes/relocation-and-position-independent-code.json"
+  },
+  {
+   "id": "alu-block-contract",
+   "title": "The ALU as a Block: Two Operands, One Result, Control In, Status Out",
+   "priority": "P1",
+   "order": 493,
+   "unit": "Design of the Arithmetic and Logic Unit",
+   "quickIdea": "The ALU is a single combinational block: two n-bit operands go in, one n-bit result comes out, a few control lines say which function to perform, and a few status lines report what the result was like.",
+   "remember": [
+    "Both operands and the result are the same width n, usually the machine word, so a 32-bit machine has a 32-bit ALU.",
+    "The operation is not stored inside the ALU: it arrives as control signals decoded from the instruction, which is why the same hardware performs ADD for one instruction and AND for the next.",
+    "The ALU is combinational, not clocked. It holds no state; the register file, not the ALU, is what remembers the result.",
+    "Its outputs are the result plus the status bits - zero, sign, carry and overflow - which the control unit latches into a flag register and later reads to decide a branch.",
+    "An ALU does not fetch operands. Multiplexers in front of its two inputs decide whether each operand comes from a register, from the immediate field or from another unit."
+   ],
+   "example": {
+    "prompt": "A 32-bit machine executes ADD R1, R2, R3 and then AND R4, R1, R5. What changes between the two cycles inside the ALU?",
+    "work": "The operands are two 32-bit values in both cases and the result path is the same 32 bits. The only thing that differs is the ALU's control code: the first instruction asks for the adder's output, the second for the bitwise AND output. Both results are ready in the same clock cycle.",
+    "answer": "Only the function-select code changes. The datapath, the widths and the output lines are identical, which is why one ALU serves the whole instruction set."
+   },
+   "gateAngle": "The block contract is what GATE CSE 2025 Set 1 Q.27 tests from the outside: with a multiplexer on each ALU input, the ALU can be fed register-register, register-immediate or immediate-immediate, so all three of those statements are true and only the claim of exclusivity is false. Read the question as 'what can reach the two inputs', not as 'what does the ALU compute'.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "An ALU is described as combinational. Which of these statements must then be false? (i) the ALU stores the last result until the next instruction (ii) the ALU needs a clock to select its function (iii) the ALU output is valid only while its inputs and control are stable",
+     "answer": "(i) and (ii) are false; (iii) is true.",
+     "why": "A combinational block has no memory and no clock. Anything that remembers the result is a register outside the ALU."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why does the ALU not need to know which instruction is executing?",
+     "answer": "Because the decode has already happened: the control unit converts the opcode into a function-select code, and the ALU only ever sees that code.",
+     "why": "This separation is what lets one ALU serve every instruction, and it is the reason the ALU-control decoder is a separate block."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "An ALU has 4 function-select bits. What is the largest number of distinct operations it can be given, and what limits it in practice?",
+     "answer": "At most 16 operations, because 4 bits name 16 codes. In practice the limit is what the designer built: unused codes usually decode to a do-nothing or a pass-through.",
+     "why": "The code space is a ceiling, not a promise. The same arithmetic gives the 2-select-line ALU in the lesson its four functions."
+    }
+   ],
+   "trap": {
+    "what": "Assuming the ALU holds the result, so the next instruction can read it from the ALU.",
+    "why": "The result exists only as a voltage pattern on the output lines while the inputs and control are stable. Something clocked must capture it.",
+    "counterexample": "Two back-to-back ADDs that both write R1 would otherwise leave the first result nowhere: the register file writes on the clock edge, and the ALU has already moved on to the second operation."
+   },
+   "check": {
+    "question": "Name the four kinds of signal at the boundary of an ALU.",
+    "answer": "Two operand inputs, a function-select control input, a result output, and status outputs (zero, sign, carry, overflow).",
+    "explanation": "Everything else - operand fetch, result storage, branch decision - happens outside the block. Confusing the ALU with the datapath around it is the usual source of wrong answers."
+   },
+   "pyqIds": [],
+   "prereqs": [
+    "instruction-format-and-fields",
+    "isa-instruction-types-and-risc-cisc"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 11 - Binary Arithmetic, ALU Design",
+     "channel": "NPTEL, Computer Architecture (Prof. Anshul Kumar, IIT Delhi)",
+     "url": "http://www.digimat.in/nptel/courses/video/106102062/lec11.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read from the opening through the statement of what the ALU is for: the move from instruction set architecture to micro-architecture, and the ALU as a unit that takes two 32-bit operands and produces a result under control signals determined by the instruction. The returned extract stopped inside the discussion of binary representation, so nothing is attributed to its treatment of signed numbers"
+    },
+    {
+     "kind": "text",
+     "title": "ALU in computer system and its main functions in Hindi",
+     "channel": "notesinhindi.com (Hindi study article on the arithmetic logic unit)",
+     "url": "https://www.notesinhindi.com/blog/alu-in-computer-system-and-its-main-functions-in-hindi",
+     "language": "hi",
+     "transcript": "PARTIAL",
+     "translated": true,
+     "note": "read through the sections that describe the ALU as two sections, arithmetic and logic, that it takes its data from registers and returns the result to a register, and that the control unit drives it with control lines while the status flags feed later decisions. Translated into English here; its worked decimal and binary examples are not used"
+    }
+   ],
+   "sourceLine": "The framing of the ALU as the block that turns an instruction's control signals into one operation on two word-wide operands: Anshul Kumar, Lecture 11 (English, read in part). The statement, translated from Hindi, that the unit is split into an arithmetic section and a logic section, that data arrives from registers and the result returns to a register, and that the control unit drives it while the flags it sets are read later: notesinhindi.com (Hindi, translated, read in part).",
+   "videoRefs": [],
+   "links": {
+    "visual": {
+     "slug": "alu-design",
+     "title": "One Bit Slice, Four Functions: the ALU and Its Flags",
+     "level": "topic-level",
+     "covers": [
+      "one bit of an ALU: an adder, an AND gate, an OR gate and an output multiplexer",
+      "the function-select code chooses among at most 2^k operations for k select bits",
+      "the result and the four status flags for each selected function"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/alu-design/index.html"
+    },
+    "mapped_at": "2026-10-31"
+   },
+   "subject": "computer-organization-and-architecture",
+   "topic": "alu-design",
+   "path": "subjects/computer-organization-and-architecture/alu-design/alu-block-contract.json"
+  },
+  {
+   "id": "one-bit-slice-and-output-mux",
+   "title": "One Bit of the ALU: Adder, AND, OR and an Output Multiplexer",
+   "priority": "P1",
+   "order": 494,
+   "unit": "Design of the Arithmetic and Logic Unit",
+   "quickIdea": "An n-bit ALU is n copies of one bit slice. Each slice holds a full adder, an AND gate and an OR gate, and a multiplexer picks which of those three outputs leaves the slice; the carry is chained from slice to slice.",
+   "remember": [
+    "One slice per bit position: bit i of A, bit i of B, the carry in from slice i-1, and bit i of the result.",
+    "Inside a slice sit a 1-bit adder, an AND gate and an OR gate, all fed by the same two operand bits.",
+    "A multiplexer selects between the adder's sum and the logic gate outputs, so the arithmetic and the logic share the same output pin.",
+    "Choosing among three sources needs 2 select bits, and the add-or-subtract choice needs one more control bit, so four functions cost three control signals.",
+    "The carry chain is the only signal that crosses slices, which is why the adder's carry path, not the logic gates, decides the ALU's speed."
+   ],
+   "example": {
+    "prompt": "Build the bit-0 slice of a 4-bit ALU with functions AND, OR, add and subtract. How many control signals does the whole ALU need?",
+    "work": "The slice has an AND gate, an OR gate and a full adder; a 3-to-1 multiplexer (2 select bits) chooses among them. Subtraction is not a fourth source: it is the adder with B inverted and the first carry-in set to 1, so one extra mode bit drives the inverter bank and the carry-in. Total: 2 + 1 = 3 control signals for all four functions.",
+    "answer": "Three control signals: two for the output multiplexer, one for the add/subtract mode."
+   },
+   "gateAngle": "GATE CSE 2003 Q.46 is this slice seen from the control side: with only the two control lines K and C0 available, the slice can add, subtract, and also produce A+B+1 and A-B-1, but it cannot produce A+1, because that would need the whole B input forced to zero. The question is decided by enumerating the four settings of K and C0.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "A bit slice offers AND, OR and ADD. How many select lines does its output multiplexer need, and how many codes are wasted?",
+     "answer": "Two select lines, since ceil(log2 3) = 2; one of the four codes is unused.",
+     "why": "The wasted code is usually given to a fourth function rather than left dangling, which is how XOR and NOT appear in real ALUs."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why does the ALU need an output multiplexer at all, instead of wiring the adder and the logic gates together?",
+     "answer": "Because all the candidate results exist at once and only one may drive the output; wired together, an adder output of 1 and an AND output of 0 would fight.",
+     "why": "The multiplexer is also what makes the function-select code meaningful: the code is the multiplexer's select input."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "A 16-bit ALU is built from 16 identical slices. How many full adders, AND gates and output multiplexers does it contain?",
+     "answer": "16 of each: 16 full adders, 16 two-input AND gates and 16 output multiplexers.",
+     "why": "The design is regular by construction; the only irregular slice is bit 0, whose carry-in is the mode signal rather than a carry from below."
+    }
+   ],
+   "trap": {
+    "what": "Believing subtraction needs a second adder or a separate subtractor block.",
+    "why": "Subtraction is addition of the two's complement, so the same adder does it once B is inverted and 1 is added at the low end.",
+    "counterexample": "In a 4-bit ALU, 5 - 3 is computed as 0101 + 1100 + 1 = 1 0010, keeping 0010 = 2. Only the inverter bank and the carry-in changed; the adder is untouched."
+   },
+   "check": {
+    "question": "Which signal inside a bit slice reaches every other slice, and why does that matter?",
+    "answer": "The carry. It is the only cross-slice signal, so the time for a carry to walk the chain is the ALU's worst-case delay for addition.",
+    "explanation": "The logic functions are one gate deep per bit and finish almost immediately; the adder is what makes the ALU slow, which is why the next topic's carry look-ahead exists."
+   },
+   "pyqIds": [
+    "gate-2003-46-alu-control-k-c0"
+   ],
+   "prereqs": [
+    "half-adder-and-full-adder",
+    "multiplexer-and-select-lines",
+    "adder-subtractor"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 12 - ALU Design, Overflow",
+     "channel": "NPTEL, Computer Architecture (Prof. Anshul Kumar, IIT Delhi)",
+     "url": "http://www.digimat.in/nptel/courses/video/106102062/lec12.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read through the description of the slice: a 1-bit adder, an inverter and a small multiplexer so that the same adder adds or subtracts, an AND gate and an OR gate for the logic functions, and an output multiplexer that selects between the AND, the OR and the adder. Also read: two bits select among the three sources and one more signal chooses addition or subtraction, and thirty-two such blocks are chained by the carry to form a 32-bit ALU"
+    },
+    {
+     "kind": "web-course-page",
+     "title": "Virtual Lab for Computer Organisation and Architecture - Design of ALU",
+     "channel": "IIT Kharagpur, Department of Computer Science and Engineering (virtual lab experiment page)",
+     "url": "https://cse.iitkgp.ac.in/~chitta/coldvl/alu.html",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read the design section: a 4-bit ALU is four 1-bit ALU blocks, the 1-bit block is built from AND, OR and XOR gates, a full adder and a 4-to-1 multiplexer, and its two select lines S1 S0 give AND, OR, XOR and ADD. Its 74181-style function table is read but not reproduced"
+    }
+   ],
+   "sourceLine": "The slice structure - a 1-bit adder with an inverter and a multiplexer for add against subtract, AND and OR gates, and an output multiplexer over the three sources, needing two select bits plus one mode bit, chained across 32 blocks: Anshul Kumar, Lecture 12 (English, read in part). The statement that a 4-bit ALU is four 1-bit blocks built from AND, OR, XOR, a full adder and a 4-to-1 multiplexer, with two select lines giving four functions: the IIT Kharagpur virtual-lab page (English, read in part). The 2003 question's four settings of K and C0 are recomputed in scripts/validate.py.",
+   "videoRefs": [],
+   "links": {
+    "visual": {
+     "slug": "alu-design",
+     "title": "One Bit Slice, Four Functions: the ALU and Its Flags",
+     "level": "topic-level",
+     "covers": [
+      "one bit of an ALU: an adder, an AND gate, an OR gate and an output multiplexer",
+      "the function-select code chooses among at most 2^k operations for k select bits",
+      "the result and the four status flags for each selected function"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/alu-design/index.html"
+    },
+    "mapped_at": "2026-10-31"
+   },
+   "subject": "computer-organization-and-architecture",
+   "topic": "alu-design",
+   "path": "subjects/computer-organization-and-architecture/alu-design/one-bit-slice-and-output-mux.json"
+  },
+  {
+   "id": "function-select-encoding",
+   "title": "Function Selection: k Select Bits Buy at Most 2^k Operations",
+   "priority": "P1",
+   "order": 495,
+   "unit": "Design of the Arithmetic and Logic Unit",
+   "quickIdea": "The ALU's function is a code, not a wire per operation: k select bits name at most 2^k functions, a decoder turns the code into the internal selects, and one code is usually reserved for doing nothing so that the ALU can leave a shared bus alone.",
+   "remember": [
+    "k select bits address at most 2^k operations; 2 bits give 4, 3 bits give 8, 4 bits give 16.",
+    "Two encodings are possible: one wire per operation (a control signal that is simply asserted) or a binary code plus a decoder. The code is cheaper in bits, the one-hot form needs no decoder.",
+    "Asserting two operation wires at once is a fault, not a combination: the outputs fight. A decoder makes that impossible by construction.",
+    "A do-nothing code is a real function, not padding: when several units drive one bus, the ALU must be able to assert nothing.",
+    "The number of functions the instruction set needs sets the width, not the other way round: 6 operations need 3 select bits, with 2 codes spare."
+   ],
+   "example": {
+    "prompt": "An ALU must perform AND, OR, XOR, ADD, SUB and SLT. How many function-select bits does it need, and what does the decoder do with the spare codes?",
+    "work": "Six operations need ceil(log2 6) = 3 bits, which give 8 codes. Two codes are spare; a designer typically maps them to a pass-through or a do-nothing so that a corrupt code cannot assert two results at once.",
+    "answer": "Three select bits; two of the eight codes are unused and are usually decoded to do nothing."
+   },
+   "gateAngle": "GATE CSE 2003 Q.46 is the purest form of this card. The circuit offers exactly two control lines, K and C0, so there are four settings, and the four settings produce A+B, A+B+1, A-B-1 and A-B. A+1 is not among them, because producing it would require the B input to be zero, which no setting of K and C0 can arrange. The accepted answer is option (A): A+B and A-B, but not A+1.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "An ALU has 3 select lines and its designer wants 9 operations. What is wrong, and what are the two honest options?",
+     "answer": "3 select lines give only 8 codes, so 9 operations do not fit. The options are a fourth select line, or a second-level control that reuses a code with an extra qualifier.",
+     "why": "This is exactly the arithmetic GATE uses for opcode and field widths: the code space is a ceiling, and the count must fit under it."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why is a one-hot control scheme sometimes preferred to a binary code with a decoder, even though it uses more bits?",
+     "answer": "Because the decoder's delay is removed from the critical path, and because horizontal control words are easier to microprogram.",
+     "why": "This is the horizontal-versus-vertical microinstruction trade-off in miniature: bits against decoding time."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "With the do-nothing code removed, an ALU with 2 select bits loses one of its four codes. What operation would a designer most likely give up?",
+     "answer": "One that can be built from the others at no cost, such as XOR from AND/OR/NOT, rather than one that needs the adder.",
+     "why": "Giving up an adder-based operation would cost hardware; giving up a logic operation costs a gate at most."
+    }
+   ],
+   "trap": {
+    "what": "Counting operations instead of codes, and answering 'one control line per operation'.",
+    "why": "A control line per operation is one valid design, but the question usually asks for the minimum number of bits, which is logarithmic.",
+    "counterexample": "Six operations: six wires in the one-hot design, three bits in the coded design. Both are correct hardware; only one is the minimum-bit answer."
+   },
+   "check": {
+    "question": "A function code of 00 is decoded to do nothing. Why would an ALU want such a code?",
+    "answer": "So that it can stop driving a shared output bus while another unit drives it.",
+    "explanation": "With several sources on one bus, exactly one may drive at a time. A do-nothing code is how the ALU takes its turn off the bus."
+   },
+   "pyqIds": [
+    "gate-2003-46-alu-control-k-c0"
+   ],
+   "prereqs": [
+    "one-bit-slice-and-output-mux",
+    "multiplexer-and-select-lines",
+    "decoder-and-minterm-generation"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-slides",
+     "title": "Design of the ALU Adder, Logic, and the Control Unit",
+     "channel": "Edward Bosworth, CPSC 2105 Computer Organization, chapter 5 slides",
+     "url": "http://www.edwardbosworth.com/CPSC2105/Lectures/Slides_06/Chapter_05/ALU_Design.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read the control section: a three-function ALU (AND, OR, XOR) driven by one asserted control signal per function, the warning that asserting two at once makes the circuit malfunction, the move to a binary function code with a decoder (00 do nothing, 01 XOR, 10 AND, 11 OR), and the explanation that the unused do-nothing code exists because the ALU shares a bus with other devices. Also read: the shift unit as part of the ALU, with logical, arithmetic and circular shifts"
+    },
+    {
+     "kind": "web-course-page",
+     "title": "Virtual Lab for Computer Organisation and Architecture - Design of ALU",
+     "channel": "IIT Kharagpur, Department of Computer Science and Engineering (virtual lab experiment page)",
+     "url": "https://cse.iitkgp.ac.in/~chitta/coldvl/alu.html",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read the design-issues table: with control signals S1 and S0 the 1-bit block gives AND for 00, OR for 01, XOR for 10 and ADD for 11, which is the two-bit four-function encoding used in the card's example"
+    }
+   ],
+   "sourceLine": "One control signal per function, the fault of asserting two at once, the binary function code with a decoder and the reason for a do-nothing code on a shared bus: Edward Bosworth's chapter 5 slides (English, read in part). The two-select-line encoding AND/OR/XOR/ADD: the IIT Kharagpur virtual-lab page (English, read in part). The 2003 question's answer is recomputed by enumerating its four control settings in scripts/validate.py.",
+   "videoRefs": [],
+   "links": {
+    "visual": {
+     "slug": "alu-design",
+     "title": "One Bit Slice, Four Functions: the ALU and Its Flags",
+     "level": "topic-level",
+     "covers": [
+      "one bit of an ALU: an adder, an AND gate, an OR gate and an output multiplexer",
+      "the function-select code chooses among at most 2^k operations for k select bits",
+      "the result and the four status flags for each selected function"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/alu-design/index.html"
+    },
+    "mapped_at": "2026-10-31"
+   },
+   "subject": "computer-organization-and-architecture",
+   "topic": "alu-design",
+   "path": "subjects/computer-organization-and-architecture/alu-design/function-select-encoding.json"
+  },
+  {
+   "id": "alu-input-multiplexers-and-operand-sources",
+   "title": "Multiplexers in Front of the ALU: What Can Reach Each Input",
+   "priority": "P1",
+   "order": 496,
+   "unit": "Design of the Arithmetic and Logic Unit",
+   "quickIdea": "The ALU does not care where its operands come from. A multiplexer on each input decides that, and because the two select lines are independent, the datapath can be fed register-register, register-immediate or immediate-immediate.",
+   "remember": [
+    "One multiplexer per ALU input, each with its own select line, unless the design deliberately ties them together.",
+    "Two independent 2:1 multiplexers give 2 x 2 = 4 operand-source combinations, not 2.",
+    "The ALU's function code and the input multiplexers' select lines are separate control fields; one says what to compute, the other says what to compute it on.",
+    "The register file is read first, so a register operand and an immediate operand can both be available in the same cycle - that is what makes a single-cycle datapath possible.",
+    "An immediate field is extended to the word width before it reaches the multiplexer, so the ALU always sees two n-bit values."
+   ],
+   "example": {
+    "prompt": "A datapath has Mux_A choosing between register RA and a 32-bit immediate, and Mux_B choosing between register RB and a 32-bit immediate. Which operand combinations can the ALU be given?",
+    "work": "Each multiplexer has two settings and they are controlled independently, so the pairs are (RA, RB), (RA, imm), (imm, RB) and (imm, imm). All four are electrically possible; whether a compiler would ever emit the last one is a different question.",
+    "answer": "All four combinations, which is 2 x 2 = 4, including two immediates at once."
+   },
+   "gateAngle": "This is GATE CSE 2025 Set 1 Q.27, an MSQ whose answer is A, B and C: two registers, one register with one immediate, and two immediates are all implementable. Option D fails only because of the word 'only'. The question rewards reading the two select lines as independent, and the common error is to assume a hardware design must be useful as well as possible.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "The two input multiplexers share one select line instead of having one each. How many operand combinations remain?",
+     "answer": "Two: (register, register) and (immediate, immediate).",
+     "why": "One select line makes the choices correlated, which is exactly the case the 2025 question does not describe."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why does an immediate need sign- or zero-extension before the ALU sees it?",
+     "answer": "Because the ALU is n bits wide and the immediate field is narrower; an unextended field would leave the upper bits undefined.",
+     "why": "This is the same width rule as the block contract, applied at the input instead of the output."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "Each ALU input multiplexer is 4:1 rather than 2:1. How many select bits does each need, and how many operand-source combinations exist?",
+     "answer": "Two select bits each, and 4 x 4 = 16 combinations.",
+     "why": "The count of combinations multiplies; the select bits add, 2 + 2 = 4 in all."
+    }
+   ],
+   "trap": {
+    "what": "Reading 'can implement' as 'is designed to be used for'.",
+    "why": "A datapath question asks what the wiring makes possible, not what a compiler would generate.",
+    "counterexample": "Two immediates added together is a pointless instruction, yet the hardware performs it happily - and that is why option C of the 2025 question is correct."
+   },
+   "check": {
+    "question": "Two independent 2:1 multiplexers feed the ALU. If each select line is one bit, how many distinct control settings exist for the pair?",
+    "answer": "Four: 2^2 = 4.",
+    "explanation": "One bit per multiplexer, so the pair is a two-bit control field. The trap is answering two, one per multiplexer."
+   },
+   "pyqIds": [
+    "gate-2025-set1-27-datapath-operand-sources"
+   ],
+   "prereqs": [
+    "alu-block-contract",
+    "multiplexer-and-select-lines",
+    "instruction-field-bit-budget"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-slides",
+     "title": "Chapter 3 - ALU Design (slides following Patterson and Hennessy)",
+     "channel": "Curt Nelson, Walla Walla University, CPTR 380 Computer Organization",
+     "url": "https://gab.wallawalla.edu/~curt.nelson/cptr380/lecture/chapter3%20-%20alu%20design.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read the datapath overview: the CPU needs the register file, the ALU and the control logic, the program counter fetches the instruction, and the register values are read before the ALU is used, with the multiplexers not drawn in the big picture. The ALU-control table and the one-bit ALU design were also read and are used on the neighbouring cards"
+    },
+    {
+     "kind": "text",
+     "title": "ALU in computer system and its main functions in Hindi",
+     "channel": "notesinhindi.com (Hindi study article on the arithmetic logic unit)",
+     "url": "https://www.notesinhindi.com/blog/alu-in-computer-system-and-its-main-functions-in-hindi",
+     "language": "hi",
+     "transcript": "PARTIAL",
+     "translated": true,
+     "note": "read the sections stating that the ALU receives its data from the registers and returns the result to a register or memory, and that the control unit decides which operation the ALU performs. Translated into English here"
+    }
+   ],
+   "sourceLine": "The datapath framing, with the register file read before the ALU and the operand steering done by multiplexers that the block diagram leaves out: Curt Nelson's chapter 3 slides (English, read in part). The statement, translated from Hindi, that data reaches the ALU from registers and its result returns to a register: notesinhindi.com (Hindi, translated, read in part). The 2025 answer is recomputed by counting the multiplexer settings in scripts/validate.py.",
+   "videoRefs": [],
+   "links": {
+    "visual": {
+     "slug": "alu-design",
+     "title": "One Bit Slice, Four Functions: the ALU and Its Flags",
+     "level": "topic-level",
+     "covers": [
+      "one bit of an ALU: an adder, an AND gate, an OR gate and an output multiplexer",
+      "the function-select code chooses among at most 2^k operations for k select bits",
+      "the result and the four status flags for each selected function"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/alu-design/index.html"
+    },
+    "mapped_at": "2026-10-31"
+   },
+   "subject": "computer-organization-and-architecture",
+   "topic": "alu-design",
+   "path": "subjects/computer-organization-and-architecture/alu-design/alu-input-multiplexers-and-operand-sources.json"
+  },
+  {
+   "id": "comparison-and-slt",
+   "title": "Comparison Inside the ALU: SLT, the Sign Bit and the Overflow Correction",
+   "priority": "P2",
+   "order": 497,
+   "unit": "Design of the Arithmetic and Logic Unit",
+   "quickIdea": "An ALU compares by subtracting and looking at the result. The sign bit of A - B says whether A < B, but only when the subtraction did not overflow - so the honest signal is sign XOR overflow.",
+   "remember": [
+    "Comparison is not a separate arithmetic: it is subtraction plus a look at the result's sign or at the carry out.",
+    "For signed operands, the sign bit of A - B gives A < B only if no overflow occurred; the standard fix is Less = sign(A - B) XOR overflow.",
+    "For unsigned operands, the carry out of A - B tells you the answer instead: carry 1 means no borrow, so A >= B.",
+    "A real ALU exposes a single Less line to bit 0 only: the top slice computes it, and every other slice is told zero.",
+    "A direct comparator built from a recursive greater-than definition exists, but most designs reuse the subtractor because it is already there."
+   ],
+   "example": {
+    "prompt": "In 4-bit two's complement, compute A < B for A = -8 and B = 1 by subtracting, and explain what goes wrong with the plain sign bit.",
+    "work": "-8 - 1 = -9, which is below the 4-bit range -8 to 7. The subtraction is 1000 + 1110 + 1 = 1 0111, and keeping 0111 gives +7 with carry out 1. The sign bit is now 0, which would claim -8 < 1 is false. The carries into and out of the sign column differ, so overflow is 1; sign XOR overflow is 0 XOR 1 = 1, correctly saying A < B.",
+    "answer": "The sign bit alone says false; sign XOR overflow says true, which is correct."
+   },
+   "gateAngle": "Comparison questions rarely ask for the comparison itself; they ask which flag a branch reads, or whether a given ALU can produce a comparison at all. GATE CSE 2003 Q.46 is the negative case: with only K and C0, the circuit cannot produce A+1, and the same reasoning tells you whether it could produce a comparison - only if a Less signal is exposed.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "A 4-bit ALU produces only sign and overflow. For which of these pairs is sign XOR overflow the right answer to A < B: (5, 3), (-8, 1), (3, 5)?",
+     "answer": "All three, and it is right for all three; the point is that it is right for (-8, 1) where the plain sign bit fails.",
+     "why": "The corrected signal agrees with the sign bit whenever no overflow occurs, and fixes exactly the overflow cases."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why does the ALU need a separate unsigned comparison path rather than reusing Less?",
+     "answer": "Because Less is built from the sign bit, which only means anything for signed values; for unsigned values the carry out is the meaningful signal.",
+     "why": "This is the same split as the two overflow flags: one bit cannot answer both questions."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "How many gate delays does an equality comparison add on top of a subtraction, and how many does a less-than add?",
+     "answer": "Equality adds the zero-detect tree over the result bits; less-than adds nothing beyond the sign and overflow bits already produced.",
+     "why": "This is why a branch-on-equal costs the same ALU cycle as a subtract, while the comparison result for less-than is available as a by-product."
+    }
+   ],
+   "trap": {
+    "what": "Using the sign bit of A - B as the answer to A < B.",
+    "why": "When the subtraction overflows, the truncated result has the wrong sign, so the comparison flips.",
+    "counterexample": "4-bit: A = -8, B = 1. A - B = -9 wraps to +7 with sign 0, yet A really is less than B. Only sign XOR overflow recovers the truth."
+   },
+   "check": {
+    "question": "In 4-bit two's complement, take A = 7 and B = -8. What are the sign bit and the overflow bit of A - B, and is A < B?",
+    "answer": "Sign 1, overflow 1, sign XOR overflow = 0, so A < B is reported false, which is correct because 7 > -8.",
+    "explanation": "7 - (-8) = 15, which is outside -8 to 7, so the kept result is 1111 = -1: the sign bit is 1 and the carries into and out of the sign column differ, so overflow is 1. The XOR cancels the misleading sign and gives the true answer. Always recompute the carries rather than guessing the flag."
+   },
+   "pyqIds": [],
+   "prereqs": [
+    "status-flags-z-n-c-v",
+    "fixed-point-add-subtract-overflow"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-slides",
+     "title": "Chapter 3 - ALU Design (slides following Patterson and Hennessy)",
+     "channel": "Curt Nelson, Walla Walla University, CPTR 380 Computer Organization",
+     "url": "https://gab.wallawalla.edu/~curt.nelson/cptr380/lecture/chapter3%20-%20alu%20design.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read the SLT section: perform a - b and check the sign, a new Less signal that is zero for ALU boxes 1 to 31, the 31st box detecting overflow and sign with the sign bit serving as the Less signal for the 0th box, and the note that BEQ is performed as a - b with an all-zero check. Also read the control-line table listing AND, OR, Add, Sub, SLT and NOR against the Ai, Bn and Op settings"
+    },
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 12 - ALU Design, Overflow",
+     "channel": "NPTEL, Computer Architecture (Prof. Anshul Kumar, IIT Delhi)",
+     "url": "http://www.digimat.in/nptel/courses/video/106102062/lec12.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read the comparison discussion: the two approaches, comparison by subtraction and then testing positive, negative or zero, against a direct comparator built from a recursive greater-than definition, with the note that the sign is meaningful only for signed numbers"
+    }
+   ],
+   "sourceLine": "Comparison by subtraction, the Less signal routed from the top slice to bit 0, and the note that the top slice detects both sign and overflow: Curt Nelson's chapter 3 slides (English, read in part). The two ways of comparing - subtract and test, or build a direct comparator from a recursive greater-than - and the warning that the sign is meaningful only for signed numbers: Anshul Kumar, Lecture 12 (English, read in part). The overflow correction is recomputed by enumeration over all 4-bit pairs in scripts/validate.py.",
+   "videoRefs": [],
+   "links": {
+    "visual": {
+     "slug": "alu-design",
+     "title": "One Bit Slice, Four Functions: the ALU and Its Flags",
+     "level": "topic-level",
+     "covers": [
+      "one bit of an ALU: an adder, an AND gate, an OR gate and an output multiplexer",
+      "the function-select code chooses among at most 2^k operations for k select bits",
+      "the result and the four status flags for each selected function"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/alu-design/index.html"
+    },
+    "mapped_at": "2026-10-31"
+   },
+   "subject": "computer-organization-and-architecture",
+   "topic": "alu-design",
+   "path": "subjects/computer-organization-and-architecture/alu-design/comparison-and-slt.json"
+  },
+  {
+   "id": "zero-detect-and-equality",
+   "title": "Zero Detect: One NOR Tree, and the Branch That Reads It",
+   "priority": "P2",
+   "order": 498,
+   "unit": "Design of the Arithmetic and Logic Unit",
+   "quickIdea": "The zero flag is simply the NOR of every result bit. Equality is subtraction plus that flag, which is why a compare-and-branch instruction costs no extra hardware beyond the ALU and one status bit.",
+   "remember": [
+    "Z = 1 exactly when every result bit is 0, so Z = NOT (R[n-1] OR ... OR R[0]).",
+    "A - B = 0 exactly when A = B, so equality is a subtraction whose zero flag is read instead of whose result is written.",
+    "The zero detect tree adds gate delays proportional to log n if built as a balanced tree, or n if built as a chain.",
+    "The flag is sticky: it reports the last operation that was allowed to write flags, so a load that does not touch the flags leaves the old Z in place.",
+    "A branch such as BEQ reads Z and nothing else; the subtract's result is thrown away."
+   ],
+   "example": {
+    "prompt": "An ALU computes 0110 - 0110 in 4 bits. What are the result and the zero flag, and what does the branch do?",
+    "work": "0110 + 1001 + 1 = 1 0000, and the kept result is 0000 with carry out 1. All four bits are zero, so Z = 1. The BEQ instruction tests Z and takes the branch; the 0000 on the result lines is not written anywhere.",
+    "answer": "Result 0000, Z = 1, and the branch is taken."
+   },
+   "gateAngle": "Equality questions usually hide inside a datapath question: which flag does the branch read, and in which cycle is it valid. GATE CSE 2020 Q.4 is the sequencing version - the write-back step must follow the step that produces the value, and the same dependency logic tells you when Z is trustworthy.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "A 32-bit ALU compares with a 32-input NOR chain and then with a balanced NOR tree. Which is faster and by how much in gate delays?",
+     "answer": "The tree, by roughly a factor of 32/5 in depth: about 31 delays for the chain against about 5 levels for the tree.",
+     "why": "The same fan-in argument that makes carry look-ahead worth its gates makes a balanced zero-detect tree worth its gates."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why can a processor compare two registers without any comparator hardware at all?",
+     "answer": "Because subtraction already produces a zero result exactly when the operands are equal, and the zero flag reads that for free.",
+     "why": "Hardware reuse: the ALU is already there, and the zero flag is a few gates on its output."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "A load instruction does not modify the flags. After ADD sets Z = 1, a load runs, then BEQ executes. Which Z does the branch read?",
+     "answer": "The Z left by the ADD, which is 1, because the load did not write the flag register.",
+     "why": "This stale-flag behaviour is real and is why architectures document which instructions affect the flags."
+    }
+   ],
+   "trap": {
+    "what": "Assuming the zero flag is recomputed continuously from the ALU output.",
+    "why": "The ALU output changes with every operand change; the flag is captured into a register at the end of the cycle, and only for instructions that are allowed to write it.",
+    "counterexample": "A branch immediately after a load that left the flags alone reads the flag from an earlier arithmetic instruction, not from the loaded value."
+   },
+   "check": {
+    "question": "How many of the 16 four-bit pairs (A, B) give Z = 1 after A - B?",
+    "answer": "16, one for each value of A, since B must equal A.",
+    "explanation": "Z = 1 means A = B, and for each A there is exactly one such B, so 16 of the 256 ordered pairs."
+   },
+   "pyqIds": [],
+   "prereqs": [
+    "comparison-and-slt",
+    "status-flags-z-n-c-v"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-slides",
+     "title": "Chapter 3 - ALU Design (slides following Patterson and Hennessy)",
+     "channel": "Curt Nelson, Walla Walla University, CPTR 380 Computer Organization",
+     "url": "https://gab.wallawalla.edu/~curt.nelson/cptr380/lecture/chapter3%20-%20alu%20design.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read the BEQ section: perform a - b and confirm that the result is all zeros, and the zero-detect note listing slt, slti, sltiu, sltu, beq and bne as the instructions that need it"
+    },
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 13 - Flags and Conditional Instructions",
+     "channel": "NPTEL, Computer Organization and Architecture - A Pedagogical Aspect (IIT Guwahati)",
+     "url": "http://www.digimat.in/nptel/courses/video/106103180/lec13.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read the opening of the lecture: a condition such as x greater than y is checked in hardware by flag bits that are set or reset depending on the operation, and the conditional instruction tests those flags and decides whether to branch or fall through; conditional and unconditional branches are distinguished, and the program counter changes only when the condition holds"
+    }
+   ],
+   "sourceLine": "Equality as a subtraction whose result is checked for all zeros, and the list of instructions that need the zero detect: Curt Nelson's chapter 3 slides (English, read in part). The framing that a condition in a high-level language becomes a flag bit that a conditional instruction tests, with the program counter changing only when the condition holds: IIT Guwahati, Lecture 13 (English, read in part).",
+   "videoRefs": [],
+   "links": {
+    "visual": {
+     "slug": "alu-design",
+     "title": "One Bit Slice, Four Functions: the ALU and Its Flags",
+     "level": "topic-level",
+     "covers": [
+      "one bit of an ALU: an adder, an AND gate, an OR gate and an output multiplexer",
+      "the function-select code chooses among at most 2^k operations for k select bits",
+      "the result and the four status flags for each selected function"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/alu-design/index.html"
+    },
+    "mapped_at": "2026-10-31"
+   },
+   "subject": "computer-organization-and-architecture",
+   "topic": "alu-design",
+   "path": "subjects/computer-organization-and-architecture/alu-design/zero-detect-and-equality.json"
+  },
+  {
+   "id": "status-flags-z-n-c-v",
+   "title": "The Four Status Flags: Zero, Sign, Carry and Overflow",
+   "priority": "P1",
+   "order": 499,
+   "unit": "Design of the Arithmetic and Logic Unit",
+   "quickIdea": "Every ALU operation leaves four status bits behind: Z says the result was zero, N repeats the result's top bit, C reports the carry out, and V reports that a signed result did not fit. C and V answer different questions and are never interchangeable.",
+   "remember": [
+    "Z = 1 when every result bit is 0; N = the result's most significant bit, which is the sign only for signed values.",
+    "C is the carry out of the top bit: for an addition it means the unsigned result needed n+1 bits, and for A - B it means there was no borrow, so A >= B.",
+    "V = the exclusive-or of the carry into the sign column and the carry out of it; it means a signed result fell outside the n-bit two's complement range.",
+    "C and V can differ: adding 1111 and 0001 in 4 bits gives carry out 1 with no overflow, because -1 + 1 = 0 fits.",
+    "The flags are captured into a status register at the end of the cycle and are read by later conditional instructions; an instruction that does not write them leaves the old values in place.",
+    "In 4-bit addition, 64 of the 256 ordered operand pairs set V, and 64 of the 256 ordered subtraction pairs give the wrong answer from the raw sign bit."
+   ],
+   "example": {
+    "prompt": "A 4-bit ALU adds 0111 and 0001. Give the result and all four flags, and say which instruction would be misled by each.",
+    "work": "0111 + 0001 = 1000, with carry out 0. The result is 1000, whose top bit is 1, so N = 1 and Z = 0. The carry into the sign column was 1 (from adding 1+1 in bit 2) and the carry out was 0, so V = 1: signed, 7 + 1 = 8 does not fit in -8..7. C = 0, so an unsigned reading would think the sum fits, which it does - 7 + 1 = 8 fits in 0..15.",
+    "answer": "Result 1000, Z = 0, N = 1, C = 0, V = 1: no unsigned carry, but a signed overflow."
+   },
+   "gateAngle": "Flag questions are decided by recomputing the two carries into and out of the top column. GATE CSE 2022 Q.8 (in the fixed-point card of the Digital Logic subject) asks exactly this for four candidate operand pairs; the same two-carry test also tells you when a comparison flag is trustworthy, which is the SLT card's correction.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "In 4-bit two's complement, subtract 0001 from 1000. Give Z, N, C and V and say what each means.",
+     "answer": "Z = 0, N = 0, C = 1, V = 0: unsigned, -8 seen as 8 is >= 1; signed, -8 - 1 = -9 does not fit, and the C = 1 answer is nonsense for signed values - which is why V exists.",
+     "why": "1000 - 0001 = 1000 + 1110 + 1 = 1 0111. Kept result 0111: Z = 0, N = 0. Carry out 1, so C = 1 and, for a subtraction, there was no borrow, meaning -8 >= 1 is claimed. The carries into and out of the sign column are 1 and 1, so V = 0."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why does the carry flag not report signed overflow?",
+     "answer": "Because the carry out of the top bit only says the unsigned value needed an extra bit; a signed result can overflow with no carry out at all.",
+     "why": "The two questions have different answers on the same addition, so two bits are needed."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "Which flags does a logic operation such as AND normally affect, and which does it leave alone?",
+     "answer": "It sets Z and N from the result and leaves C and V alone, since a bitwise operation has no carry and no range.",
+     "why": "The flags a design chooses to write are part of the instruction set contract, and questions about stale flags depend on it."
+    }
+   ],
+   "trap": {
+    "what": "Treating C and V as the same bit under two names.",
+    "why": "C reports the unsigned range, V the signed range, and one addition can set one without the other.",
+    "counterexample": "4-bit: 1111 + 0001 = 1 0000. Carry out 1, so C = 1; carries into and out of the sign column are both 1, so V = 0. Nothing overflowed in signed terms, because -1 + 1 = 0."
+   },
+   "check": {
+    "question": "For 4-bit two's complement addition, how many of the 256 ordered operand pairs set V, and why is the count not symmetric?",
+    "answer": "64: 28 pairs of two non-negative operands whose sum reaches 8 or more, and 36 pairs of two negative operands whose sum falls below -8.",
+    "explanation": "The asymmetry comes from -8 having no positive counterpart, so the negative side has eight values that can overflow downwards but only seven that cannot. Recomputed by enumerating all 256 ordered pairs in scripts/validate.py."
+   },
+   "pyqIds": [],
+   "prereqs": [
+    "fixed-point-add-subtract-overflow",
+    "one-bit-slice-and-output-mux"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 13 - Flags and Conditional Instructions",
+     "channel": "NPTEL, Computer Organization and Architecture - A Pedagogical Aspect (IIT Guwahati)",
+     "url": "http://www.digimat.in/nptel/courses/video/106103180/lec13.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read the opening of the lecture: flags are bits that are set or reset depending on the operation, a conditional instruction tests them to decide whether to branch or fall through, and conditional and unconditional branches are distinguished by whether a condition is tested. The lecture's later per-flag detail was not in the returned extract, so the four flag definitions rest on the standard references and on recomputation"
+    },
+    {
+     "kind": "text",
+     "title": "ALU in computer system and its main functions in Hindi",
+     "channel": "notesinhindi.com (Hindi study article on the arithmetic logic unit)",
+     "url": "https://www.notesinhindi.com/blog/alu-in-computer-system-and-its-main-functions-in-hindi",
+     "language": "hi",
+     "transcript": "PARTIAL",
+     "translated": true,
+     "note": "read the section listing the flags an ALU sets after every operation - Zero, Carry, Overflow and Sign - and the statement that later decisions such as branches and loops are taken from them in the status register. Translated into English here"
+    }
+   ],
+   "sourceLine": "The framing that a condition becomes a flag bit tested by a conditional instruction: IIT Guwahati, Lecture 13 (English, read in part). The list of the four flags, translated from Hindi, as the set the ALU leaves behind for later decisions: notesinhindi.com (Hindi, translated, read in part). The definitions themselves and every number in the examples are recomputed over all 4-bit operand pairs in scripts/validate.py, because the lecture's per-flag material was not readable this run.",
+   "videoRefs": [],
+   "links": {
+    "visual": {
+     "slug": "alu-design",
+     "title": "One Bit Slice, Four Functions: the ALU and Its Flags",
+     "level": "topic-level",
+     "covers": [
+      "one bit of an ALU: an adder, an AND gate, an OR gate and an output multiplexer",
+      "the function-select code chooses among at most 2^k operations for k select bits",
+      "the result and the four status flags for each selected function"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/alu-design/index.html"
+    },
+    "mapped_at": "2026-10-31"
+   },
+   "subject": "computer-organization-and-architecture",
+   "topic": "alu-design",
+   "path": "subjects/computer-organization-and-architecture/alu-design/status-flags-z-n-c-v.json"
+  },
+  {
+   "id": "shifter-and-barrel-shift",
+   "title": "The Shifter Beside the ALU: Logical, Arithmetic and the Barrel",
+   "priority": "P2",
+   "order": 500,
+   "unit": "Design of the Arithmetic and Logic Unit",
+   "quickIdea": "Shifting is a datapath operation, not an arithmetic one. A shift by a fixed amount is just wiring; a shift by a variable amount is a barrel shifter, a stack of multiplexers log2 n deep that shifts by 1, 2, 4, 8, 16 in whichever stages the amount selects.",
+   "remember": [
+    "Logical left and right shift fill the vacated bits with 0; arithmetic right shift fills with a copy of the sign bit; rotate wraps the bits that fall off back in.",
+    "A left shift by k multiplies by 2^k modulo 2^n, and a logical right shift by k divides by 2^k, discarding the remainder.",
+    "An arithmetic right shift of a negative number rounds towards minus infinity, not towards zero: -3 shifted right by 1 gives -2.",
+    "A barrel shifter for n bits and any shift amount needs log2 n stages, each a 2:1 multiplexer per bit: 32 bits need 5 stages and 32 x 5 = 160 multiplexers.",
+    "The shifter is usually a separate unit beside the ALU, because putting it inside the adder's path would slow the add."
+   ],
+   "example": {
+    "prompt": "Shift 0011 0100 left by 2 in 8 bits, then right arithmetically by 1 from 1111 0100. Give both answers and the arithmetic meaning.",
+    "work": "0011 0100 is 52. Left by 2 gives 1101 0000, which is 208 = 52 x 4, with the top two bits falling off. From 1111 0100 (-12), an arithmetic right shift by 1 keeps the sign: 1111 1010, which is -6, and the bit shifted out was 0.",
+    "answer": "1101 0000 = 208, and 1111 1010 = -6."
+   },
+   "gateAngle": "Shift questions appear as datapath questions - does this ALU need a shifter, how many stages, how many multiplexers - or as arithmetic ones, where the answer depends on which fill rule is meant. When a question says 'arithmetic shift', the sign fill is the whole point; when it says 'logical', the zero fill is.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "A 16-bit barrel shifter must support every shift amount from 0 to 15. How many stages and how many 2:1 multiplexers does it need?",
+     "answer": "4 stages, since log2 16 = 4, and 16 x 4 = 64 multiplexers.",
+     "why": "Each stage doubles the range of amounts reachable, so the depth is logarithmic in the word size."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why is a shift by a constant free, while a shift by a variable costs a barrel?",
+     "answer": "A constant shift is a fixed rewiring, so the bits simply arrive at different places; a variable shift needs a multiplexer at each bit to choose between the shifted and unshifted value.",
+     "why": "This is the same distinction as direct against register-indirect addressing: the value being fixed in the instruction removes a selection stage."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "A processor implements multiplication by a power of two with a shift. What goes wrong at the top of the range?",
+     "answer": "The bits shifted out are lost, so the result is the product modulo 2^n and is silently wrong when it does not fit.",
+     "why": "That is exactly the unsigned overflow the carry flag would report for an addition; a shift reports nothing at all unless the design checks the discarded bits."
+    }
+   ],
+   "trap": {
+    "what": "Assuming an arithmetic right shift rounds a negative number towards zero.",
+    "why": "Arithmetic right shift replicates the sign bit, which is a floor operation on two's complement values.",
+    "counterexample": "In 4 bits, -3 is 1101. An arithmetic right shift by 1 gives 1110 = -2, not -1, because -1.5 floors to -2."
+   },
+   "check": {
+    "question": "How many stages does a barrel shifter for 64-bit words need, and how many 2:1 multiplexers?",
+    "answer": "6 stages, since log2 64 = 6, and 64 x 6 = 384 multiplexers.",
+    "explanation": "Each stage handles one bit of the shift amount, so the count is the word width times the number of bits in the amount."
+   },
+   "pyqIds": [],
+   "prereqs": [
+    "multiplexer-and-select-lines",
+    "registers-and-shift-registers",
+    "twos-complement-negation-and-subtraction"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-slides",
+     "title": "Design of the ALU Adder, Logic, and the Control Unit",
+     "channel": "Edward Bosworth, CPSC 2105 Computer Organization, chapter 5 slides",
+     "url": "http://www.edwardbosworth.com/CPSC2105/Lectures/Slides_06/Chapter_05/ALU_Design.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read the shift-unit section: the shift unit is part of the ALU, there are three kinds of shift (logical, arithmetic, circular), arithmetic shifts differ from logical only in preserving the sign bit, and the shifts move bits within a register without corresponding to a logical or arithmetic operator as such"
+    },
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 12 - ALU Design, Overflow",
+     "channel": "NPTEL, Computer Architecture (Prof. Anshul Kumar, IIT Delhi)",
+     "url": "http://www.digimat.in/nptel/courses/video/106102062/lec12.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read the closing part of the lecture plan and the summary sentence: the last operation discussed is not an arithmetic operation but one that manipulates the pattern of bits in a register, called the shift operation, and shift operations were covered before the lecture closed"
+    }
+   ],
+   "sourceLine": "The shift unit as part of the ALU, the three kinds of shift and the sign-preserving rule of the arithmetic shift: Edward Bosworth's chapter 5 slides (English, read in part). The framing of a shift as a bit-pattern operation rather than an arithmetic one: Anshul Kumar, Lecture 12 (English, read in part). The barrel-shifter stage and multiplexer counts and the shift examples are recomputed in scripts/validate.py.",
+   "videoRefs": [],
+   "links": {
+    "visual": {
+     "slug": "alu-design",
+     "title": "One Bit Slice, Four Functions: the ALU and Its Flags",
+     "level": "topic-level",
+     "covers": [
+      "one bit of an ALU: an adder, an AND gate, an OR gate and an output multiplexer",
+      "the function-select code chooses among at most 2^k operations for k select bits",
+      "the result and the four status flags for each selected function"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/alu-design/index.html"
+    },
+    "mapped_at": "2026-10-31"
+   },
+   "subject": "computer-organization-and-architecture",
+   "topic": "alu-design",
+   "path": "subjects/computer-organization-and-architecture/alu-design/shifter-and-barrel-shift.json"
+  },
+  {
+   "id": "alu-control-from-opcode",
+   "title": "ALU Control: From Opcode to the Function-Select Code",
+   "priority": "P1",
+   "order": 501,
+   "unit": "Design of the Arithmetic and Logic Unit",
+   "quickIdea": "The ALU never sees an opcode. A first decoder turns the opcode into a coarse ALUOp, and a second, smaller decoder turns ALUOp plus the funct field into the ALU's function code - which is why one 4-bit code can mean 'add' for a load and 'subtract' for a branch.",
+   "remember": [
+    "Two levels: the main control decodes the opcode into ALUOp, and the ALU control decodes ALUOp (plus the funct field for register-type instructions) into the ALU's select code.",
+    "A load or store uses the ALU to compute an address, so its ALUOp means 'add' even though the instruction is not arithmetic.",
+    "A branch uses the ALU to subtract, because the branch tests equality or ordering; the difference is discarded and only the flags matter.",
+    "The same ALU code can therefore serve several instructions: 'add' is the address computation for a load and the sum for an ADD.",
+    "The ALU control is a small combinational block - a truth table or a PLA - and it is the natural place for the next topic, the control unit, to take over."
+   ],
+   "example": {
+    "prompt": "A MIPS-like machine has ALUOp = 00 for load and store, 01 for beq, and 10 for register-type instructions. What does the ALU do for each, and what does the funct field add?",
+    "work": "ALUOp 00 forces the function code for add, because the ALU is computing a memory address. ALUOp 01 forces subtract, because beq needs to know whether the two registers are equal. ALUOp 10 leaves the choice to the funct field: 100000 selects add, 100010 subtract, 100100 AND, 100101 OR, 101010 set-on-less-than.",
+    "answer": "Add for load and store, subtract for the branch, and the funct field decides among add, subtract, AND, OR and SLT for register-type instructions."
+   },
+   "gateAngle": "This card has no previous-year question of its own in the CSE papers read this run, and that is recorded as a gap rather than papered over with a borrowed question. The related PYQ is GATE CSE 2003 Q.46, which fixes the ALU's control lines and asks what they can produce - the same table read backwards.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "An instruction set has 8 register-type operations plus loads, stores and one branch. How many bits does the ALU control need, and how many does ALUOp need if it has four coarse classes?",
+     "answer": "The ALU control needs 3 bits for the operations it must name (8 of them, if that is the count), and ALUOp needs 2 bits for four classes.",
+     "why": "Both are code-space questions: the widths follow the counts by ceil(log2), not from the opcode width."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why does a branch instruction need the ALU at all?",
+     "answer": "Because the branch condition is a property of a subtraction: equal means the difference is zero, and less-than means its sign (corrected for overflow).",
+     "why": "The ALU is the cheapest comparator available, and the control already has to select a function for it."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "The funct field is 6 bits but the ALU control is 3. What happens to the unused funct codes?",
+     "answer": "They are decoded to an illegal-instruction or a do-nothing code; the width of the field does not force the ALU to have 64 functions.",
+     "why": "Field width and function count are separate: the field is what the encoding allows, the ALU control is what the hardware provides."
+    }
+   ],
+   "trap": {
+    "what": "Assuming the ALU's function follows the instruction's category.",
+    "why": "A load performs an addition; a branch performs a subtraction. The ALU's job is set by the datapath's needs, not by the instruction's name.",
+    "counterexample": "lw R1, 100(R2) computes R2 + 100 in the ALU - an ADD - even though nothing is being added in the programmer's sense."
+   },
+   "check": {
+    "question": "Which block converts an opcode into the ALU's function code, and what else does it need for register-type instructions?",
+    "answer": "The ALU control block, which needs ALUOp from the main control plus the funct field for register-type instructions.",
+    "explanation": "Without the second input, every register-type instruction would get the same ALU function, and ADD and SUB would be indistinguishable."
+   },
+   "pyqIds": [],
+   "prereqs": [
+    "alu-block-contract",
+    "function-select-encoding",
+    "isa-instruction-types-and-risc-cisc"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-slides",
+     "title": "Chapter 3 - ALU Design (slides following Patterson and Hennessy)",
+     "channel": "Curt Nelson, Walla Walla University, CPTR 380 Computer Organization",
+     "url": "https://gab.wallawalla.edu/~curt.nelson/cptr380/lecture/chapter3%20-%20alu%20design.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read the control-lines section: the values of the control lines and the operations they correspond to, tabulated as Ai, Bn and Op against AND, OR, Add, Sub, SLT and NOR, and the note that the 1-bit ALUs are wired in series with the carry out of one box into the carry in of the next"
+    },
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 12 - ALU Design, Overflow",
+     "channel": "NPTEL, Computer Architecture (Prof. Anshul Kumar, IIT Delhi)",
+     "url": "http://www.digimat.in/nptel/courses/video/106102062/lec12.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read the statement that the operation is chosen by the control inputs and that the number of control signals depends on how many different operations the unit can perform"
+    }
+   ],
+   "sourceLine": "The control-line table that maps a small control code to AND, OR, Add, Sub, SLT and NOR, and the serial carry wiring of the 1-bit boxes: Curt Nelson's chapter 3 slides (English, read in part). The statement that the operation is chosen by the control inputs and that their number follows the number of operations: Anshul Kumar, Lecture 12 (English, read in part). The two-level ALUOp plus funct arrangement follows the standard reference and is stated as such, because no readable source this run walked it through.",
+   "videoRefs": [],
+   "links": {
+    "visual": {
+     "slug": "alu-design",
+     "title": "One Bit Slice, Four Functions: the ALU and Its Flags",
+     "level": "topic-level",
+     "covers": [
+      "one bit of an ALU: an adder, an AND gate, an OR gate and an output multiplexer",
+      "the function-select code chooses among at most 2^k operations for k select bits",
+      "the result and the four status flags for each selected function"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/alu-design/index.html"
+    },
+    "mapped_at": "2026-10-31"
+   },
+   "subject": "computer-organization-and-architecture",
+   "topic": "alu-design",
+   "path": "subjects/computer-organization-and-architecture/alu-design/alu-control-from-opcode.json"
+  },
+  {
+   "id": "single-bus-datapath-and-temporaries",
+   "title": "The Single-Bus Datapath and Its Temporary Registers",
+   "priority": "P1",
+   "order": 502,
+   "unit": "Design of the Arithmetic and Logic Unit",
+   "quickIdea": "On a single-bus datapath only one register can drive the bus in a cycle, so an operation with two register operands must first park one of them in a temporary register - and the result needs a second temporary before it can reach its destination.",
+   "remember": [
+    "One driver per cycle: the bus carries one value, though any number of registers may load from it in the same cycle.",
+    "A + B with both operands in the register file needs A latched into a temporary, because the bus cannot carry both operands at once.",
+    "The ALU result also needs a temporary (or the destination may be written in the same cycle the operands leave), which is why designs carry two temporaries next to the ALU.",
+    "A three-bus datapath removes the temporaries entirely: two buses feed the two ALU inputs directly, so fewer control steps and fewer registers are needed.",
+    "The temporaries are invisible in the instruction set; they exist because of the bus, and the same instruction takes more cycles on a single-bus machine."
+   ],
+   "example": {
+    "prompt": "On a single-bus datapath with one temporary on each ALU input, list the micro-operations for R0 <- R1 + R2.",
+    "work": "The bus can carry one value per cycle. First R1 is put on the bus and latched into TEMP1. Then R2 is put on the bus while TEMP1 feeds the ALU's other input, and the sum is latched into TEMP2. Finally TEMP2 drives the bus and R0 loads it. The fetch (PC to MAR, memory read, MDR to IR) has already happened.",
+    "answer": "R1 -> TEMP1; TEMP1 + R2 -> TEMP2; TEMP2 -> R0, in three cycles after the fetch."
+   },
+   "gateAngle": "This is GATE CSE 2020 Q.4, where five candidate steps must be ordered: fetch first (PC to MAR with a memory read, then MDR to IR), then R1 into TEMP1, then the addition into TEMP2, then TEMP2 into R0. The accepted answer is the order 3, 5, 2, 1, 4. The dependency that decides it is that the ALU step reads TEMP1, so the step writing TEMP1 must come first.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "The same datapath must compute R0 <- R1 + R2 where R1 and R2 are both in memory. How many extra cycles does the memory access add, if each memory read takes two cycles?",
+     "answer": "Four extra cycles, seven in all for the execute phase, before the fetch is counted.",
+     "why": "Each operand must be fetched into a register before it can be used: 2 cycles for R1, 2 for R2, then the three register cycles of the register-register case."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why does a three-bus datapath need fewer temporary registers?",
+     "answer": "Because two buses can carry the two operands to the ALU at once, so nothing has to be parked while the other operand travels.",
+     "why": "The bus count sets the number of simultaneous transfers, and the temporaries exist only to resolve that conflict."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "A datapath has two buses but the ALU's two inputs are both fed from the same one. Does that remove the temporary?",
+     "answer": "No: the conflict is at the ALU's inputs, not at the bus count, so one operand still has to be held.",
+     "why": "This is the trap of counting buses instead of counting simultaneous operand paths."
+    }
+   ],
+   "trap": {
+    "what": "Thinking a two-operand instruction needs one bus cycle because the ALU takes both operands at once.",
+    "why": "The ALU is combinational, but the bus is not: the operands must arrive one at a time unless there are separate paths.",
+    "counterexample": "R0 <- R1 + R2 on a single bus: putting R1 and R2 on the bus in the same cycle is impossible, so one of them must be latched first."
+   },
+   "check": {
+    "question": "On a single-bus datapath, how many registers may drive the bus in one cycle, and how many may load from it?",
+    "answer": "Exactly one may drive; any number may load.",
+    "explanation": "Two drivers would short their outputs together. This single sentence decides most single-bus cycle-counting questions."
+   },
+   "pyqIds": [
+    "gate-2020-4-alu-microop-order"
+   ],
+   "prereqs": [
+    "alu-block-contract",
+    "alu-input-multiplexers-and-operand-sources",
+    "registers-and-shift-registers"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 23 - Different Internal CPU Bus Organization",
+     "channel": "NPTEL, Computer Organization and Architecture - A Pedagogical Aspect (IIT Guwahati)",
+     "url": "http://www.digimat.in/nptel/courses/video/106103180/lec23.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read the comparison of bus organisations: on a single-bus CPU, adding two values needs one of them stored in a temporary register, the second operand fed through the bus, and the result stored in another temporary because the bus is carrying the second operand; a three-bus organisation needs fewer control steps and fewer temporaries, at the cost of more hardware and harder control"
+    },
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 16 - Instruction Cycle and Micro-operations",
+     "channel": "NPTEL, Computer Organization and Architecture - A Pedagogical Aspect (IIT Guwahati)",
+     "url": "http://www.digimat.in/nptel/courses/video/106103180/lec15.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read the module framing: an instruction is broken into micro-operations, the units are interconnected by a single bus, two buses or three buses, and the number of buses changes the number of control signals and the speed of execution"
+    }
+   ],
+   "sourceLine": "The statement that a single-bus CPU must park one operand in a temporary and the result in another, and that a three-bus organisation needs fewer control steps and fewer temporaries: IIT Guwahati, Lecture 23 (English, read in part). The framing of an instruction as a sequence of micro-operations whose control signals depend on the bus organisation: IIT Guwahati, Lecture 16 (English, read in part). The 2020 ordering is re-derived from its own dependency list in scripts/validate.py.",
+   "videoRefs": [],
+   "links": {
+    "visual": {
+     "slug": "alu-design",
+     "title": "One Bit Slice, Four Functions: the ALU and Its Flags",
+     "level": "topic-level",
+     "covers": [
+      "one bit of an ALU: an adder, an AND gate, an OR gate and an output multiplexer",
+      "the function-select code chooses among at most 2^k operations for k select bits",
+      "the result and the four status flags for each selected function"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/alu-design/index.html"
+    },
+    "mapped_at": "2026-10-31"
+   },
+   "subject": "computer-organization-and-architecture",
+   "topic": "alu-design",
+   "path": "subjects/computer-organization-and-architecture/alu-design/single-bus-datapath-and-temporaries.json"
+  },
+  {
+   "id": "cycles-for-one-alu-operation",
+   "title": "Counting Cycles for One ALU Operation: One Bus Source per Cycle",
+   "priority": "P1",
+   "order": 503,
+   "unit": "Design of the Arithmetic and Logic Unit",
+   "quickIdea": "To count cycles on a bus-based datapath, count the distinct sources that must drive the bus, one per cycle, and remember that the question may be asking for the execute phase only, with the fetch excluded.",
+   "remember": [
+    "One cycle per distinct bus source; two sources can share a cycle only if the hardware gives them separate paths.",
+    "A memory access is not one cycle unless the question says so: many papers give two cycles for a read, one to load MAR and one to load MDR.",
+    "The fetch phase is separate from the execute phase, and a question that says 'execution cycle' is excluding the fetch.",
+    "A local operation such as decrementing a stack pointer may be free if the hardware does it without the bus.",
+    "Always write the micro-operation list first and then count: the count is a consequence of the list, not a guess."
+   ],
+   "example": {
+    "prompt": "An instruction 'add R0, R1' means R0 <- R0 + R1 on a single-bus CPU with two temporaries, where every operation including increments goes through the ALU. How many cycles does the execution phase need?",
+    "work": "Three transfers are unavoidable: R0 into the first temporary, R1 into the second, then the ALU sum into R0. Each needs the bus for one source, so three cycles. The fetch is two more cycles (MAR <- PC, then MDR <- memory), which is why the instruction-cycle answer is five.",
+    "answer": "Three execution cycles, five including the fetch."
+   },
+   "gateAngle": "This is GATE CSE 2005 Q.79 on GATE Overflow, printed as Q.12 in the paper listing, whose accepted answer is three: the question asks for the execution cycle, and the two-cycle fetch is deliberately excluded. The distractors include five, which is the instruction-cycle answer - the single most common wrong answer in this family.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "The same datapath must execute 'sub R0, R1' with the result written back to R1 instead of R0. Does the count change?",
+     "answer": "No: still three cycles, since the two operand loads and one write-back are the same shape.",
+     "why": "The count depends on how many values must cross the bus, not on which register is the destination."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why does a two-cycle memory read double the cost of an indirect operand?",
+     "answer": "Because an indirect operand needs two reads in sequence, and each read is itself two bus cycles on this datapath.",
+     "why": "Cycle counting composes: the addressing-mode cost multiplies by the per-access cost of the memory interface."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "A machine has two buses, one feeding each ALU input, and a memory read still takes two cycles. How many execution cycles does 'add R0, R1' need?",
+     "answer": "One, if both operands can reach the ALU in the same cycle and the result is written in that cycle; otherwise two.",
+     "why": "The bus count, not the instruction, sets the floor; this is why the same question has different answers on different datapaths."
+    }
+   ],
+   "trap": {
+    "what": "Adding the fetch cycles when the question asked for the execution cycle.",
+    "why": "The two phases are named separately in the paper, and the phrase 'execution cycle' excludes the fetch by definition.",
+    "counterexample": "2005 Q.79: three is correct for the execution cycle, five is correct for the whole instruction - and five is offered as a distractor."
+   },
+   "check": {
+    "question": "On a single-bus datapath, how many cycles does R0 <- R1 + R2 take in the execute phase if the ALU result is written straight to R0 in the same cycle the operands leave?",
+    "answer": "Two: one to latch an operand, one to add and write back.",
+    "explanation": "The write-back needs no separate cycle when the destination loads from the ALU output while the bus carries the second operand."
+   },
+   "pyqIds": [
+    "gate-2005-79-add-execution-cycles"
+   ],
+   "prereqs": [
+    "single-bus-datapath-and-temporaries",
+    "effective-address-and-memory-cycles"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 23 - Different Internal CPU Bus Organization",
+     "channel": "NPTEL, Computer Organization and Architecture - A Pedagogical Aspect (IIT Guwahati)",
+     "url": "http://www.digimat.in/nptel/courses/video/106103180/lec23.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read the argument that a single bus forces sequential operand transfers while multiple buses allow parallel ones, which is the rule used here to count one cycle per source"
+    },
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 16 - Instruction Cycle and Micro-operations",
+     "channel": "NPTEL, Computer Organization and Architecture - A Pedagogical Aspect (IIT Guwahati)",
+     "url": "http://www.digimat.in/nptel/courses/video/106103180/lec15.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read the statement that an instruction divides into micro-operations and that the control signals sequence them, which is the basis for counting micro-operations as cycles"
+    }
+   ],
+   "sourceLine": "One bus source per cycle, and the reduction in control steps when buses are added: IIT Guwahati, Lecture 23 (English, read in part). The division of an instruction into micro-operations sequenced by control signals: IIT Guwahati, Lecture 16 (English, read in part). The three-cycle and five-cycle counts of GATE CSE 2005 Q.79 are recomputed in scripts/validate.py.",
+   "videoRefs": [],
+   "links": {
+    "visual": {
+     "slug": "alu-design",
+     "title": "One Bit Slice, Four Functions: the ALU and Its Flags",
+     "level": "topic-level",
+     "covers": [
+      "one bit of an ALU: an adder, an AND gate, an OR gate and an output multiplexer",
+      "the function-select code chooses among at most 2^k operations for k select bits",
+      "the result and the four status flags for each selected function"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/alu-design/index.html"
+    },
+    "mapped_at": "2026-10-31"
+   },
+   "subject": "computer-organization-and-architecture",
+   "topic": "alu-design",
+   "path": "subjects/computer-organization-and-architecture/alu-design/cycles-for-one-alu-operation.json"
+  },
+  {
+   "id": "alu-critical-path-and-delay",
+   "title": "What Makes the ALU Slow: the Carry Chain, Not the Gates",
+   "priority": "P2",
+   "order": 504,
+   "unit": "Design of the Arithmetic and Logic Unit",
+   "quickIdea": "The ALU is as fast as its slowest function, and that is always addition. The AND and OR outputs are one gate deep, but the sum waits for the carry to walk the chain, so the adder sets the clock.",
+   "remember": [
+    "A ripple-carry adder produces the top sum bit after 2n+1 gate delays for n bits: 9 delays for 4 bits, 65 for 32.",
+    "Carry look-ahead replaces the ripple with generate and propagate terms, so every carry is ready two gate delays after G and P, at the cost of wide AND gates.",
+    "The output multiplexer adds one gate delay to whichever function is selected, including the adder's sum.",
+    "The logic functions are one gate deep per bit, so they finish long before the carry arrives; the ALU's worst case is the add.",
+    "Because the ALU's delay sits inside the clock period, the carry chain is the usual reason a simple processor cannot be clocked faster."
+   ],
+   "example": {
+    "prompt": "A 32-bit ALU uses a ripple-carry adder with a 1-gate output multiplexer. How many gate delays for an ADD, and how many for an AND?",
+    "work": "The top sum bit of a 32-bit ripple adder is valid after 2 x 32 + 1 = 65 gate delays, and the multiplexer adds one, so 66. The AND output is one gate deep, plus the multiplexer, so two.",
+    "answer": "66 gate delays for an ADD against 2 for an AND, so the ALU's cycle time is set by the add."
+   },
+   "gateAngle": "Delay questions in this topic ask which function sets the critical path and how the adder's depth scales. The verified CLA delay and gate-count questions (GATE CSE 2004 Q.62 and 2007 Q.35) belong to the carry look-ahead card of the Digital Logic subject, and are deliberately not duplicated here; what this card adds is why the ALU, not the adder alone, is as slow as it is.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "An 8-bit ALU uses a ripple adder and a 2-gate output multiplexer. What is its worst-case delay, and what would a carry look-ahead adder with unlimited fan-in make it?",
+     "answer": "About 19 gate delays with the ripple adder against roughly 7 with look-ahead.",
+     "why": "Ripple: 2 x 8 + 1 = 17 gate delays for the sum, plus 2 for the multiplexer, so 19. With look-ahead, every carry is ready 2 delays after the generate and propagate signals, and the sum one XOR later, so roughly 5 delays plus the multiplexer."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why can the ALU not simply be clocked as fast as its AND gate?",
+     "answer": "Because the clock must be long enough for the slowest function the ALU can be asked to perform, which is the add.",
+     "why": "A single clock serves every function, so the worst case sets the period unless the design adds a faster path for the common cases."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "A design needs the ALU's compare result earlier than its add result. What could it do?",
+     "answer": "Compute the comparison in parallel from the sign and overflow signals as they become available, rather than waiting for the full sum.",
+     "why": "This is the same idea as look-ahead: do not wait for a later stage when the answer is already determined."
+    }
+   ],
+   "trap": {
+    "what": "Assuming all ALU operations take the same time because they share one block.",
+    "why": "They share the block but not the depth: a logic function is one gate deep, an addition is a carry chain deep.",
+    "counterexample": "32-bit: the AND result is stable after one gate delay while the sum needs 65, yet both are 'one ALU cycle' because the clock is set by the slower one."
+   },
+   "check": {
+    "question": "How many gate delays does the top sum bit of a 16-bit ripple-carry adder need, using 2n+1?",
+    "answer": "33.",
+    "explanation": "2 x 16 + 1 = 33, which is one carry delay per stage plus the three delays of the last full adder's sum path."
+   },
+   "pyqIds": [],
+   "prereqs": [
+    "ripple-carry-adder-and-delay",
+    "carry-lookahead-adder",
+    "one-bit-slice-and-output-mux"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-slides",
+     "title": "Design of the ALU Adder, Logic, and the Control Unit",
+     "channel": "Edward Bosworth, CPSC 2105 Computer Organization, chapter 5 slides",
+     "url": "http://www.edwardbosworth.com/CPSC2105/Lectures/Slides_06/Chapter_05/ALU_Design.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read the timing analysis: the full adder's carry out is valid two gate delays after its inputs and the sum three, a four-bit ripple adder's sum is valid after nine gate delays, a 16-bit adder built from four-bit blocks is timed, and in general an n-bit ripple-carry adder produces a valid sum after 2n+1 gate delays, with a 32-bit sum needing 65. Also read: the carry look-ahead carries each ready two gate delays after the generate and propagate terms"
+    },
+    {
+     "kind": "lecture-slides",
+     "title": "Chapter 3 - ALU Design (slides following Patterson and Hennessy)",
+     "channel": "Curt Nelson, Walla Walla University, CPTR 380 Computer Organization",
+     "url": "https://gab.wallawalla.edu/~curt.nelson/cptr380/lecture/chapter3%20-%20alu%20design.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read the speed-of-ripple-carry section: the carry propagates through every one-bit box, so the total delay is the time through 64 gates for a 32-bit adder, and the compromise of grouping bits into blocks of four so that each gate has few inputs"
+    }
+   ],
+   "sourceLine": "The gate-delay arithmetic of the ripple adder (carry in two delays, sum in three, a valid n-bit sum after 2n+1), the four-bit figure of nine, and the look-ahead carries ready two delays after generate and propagate: Edward Bosworth's chapter 5 slides (English, read in part). The critical-path framing and the four-bit grouping compromise: Curt Nelson's chapter 3 slides (English, read in part). Every delay figure quoted here is recomputed in scripts/validate.py.",
+   "videoRefs": [],
+   "links": {
+    "visual": {
+     "slug": "alu-design",
+     "title": "One Bit Slice, Four Functions: the ALU and Its Flags",
+     "level": "topic-level",
+     "covers": [
+      "one bit of an ALU: an adder, an AND gate, an OR gate and an output multiplexer",
+      "the function-select code chooses among at most 2^k operations for k select bits",
+      "the result and the four status flags for each selected function"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/alu-design/index.html"
+    },
+    "mapped_at": "2026-10-31"
+   },
+   "subject": "computer-organization-and-architecture",
+   "topic": "alu-design",
+   "path": "subjects/computer-organization-and-architecture/alu-design/alu-critical-path-and-delay.json"
   }
  ],
  "pyqs": [
@@ -35708,6 +36890,28 @@ window.GATE_DATA = {
    "verification": "SOURCED"
   },
   {
+   "id": "gate-2003-46-alu-control-k-c0",
+   "year": "2003",
+   "paper": "GATE CSE 2003",
+   "question_ref": "Q.46 (filed by GATE Overflow under Digital Logic)",
+   "type": "MCQ",
+   "marks": "2",
+   "topic": "function-select-encoding",
+   "text": "Consider the ALU shown below: an n-bit parallel adder in which every bit of B passes through an XOR gate controlled by the line K before entering the adder, and the line C0 supplies the carry into the least significant bit. If the operands are in 2's complement representation, which of the following operations can be performed by suitably setting the control lines K and C0 only (+ and - denote addition and subtraction respectively)?",
+   "options": [
+    "A + B, and A - B, but not A + 1",
+    "A + B, and A + 1, but not A - B",
+    "A + B, but not A - B or A + 1",
+    "A + B, and A - B, and A + 1"
+   ],
+   "answer": "Option (A) - A + B and A - B, but not A + 1",
+   "solution": "Two control lines give four settings. K = 0, C0 = 0 gives A + B. K = 0, C0 = 1 gives A + B + 1. K = 1, C0 = 0 gives A - B - 1. K = 1, C0 = 1 gives A - B. So A + B and A - B are both available, but A + 1 is not: producing it would need every bit of B forced to 0 with C0 = 1, and no setting of K and C0 can zero the operand B. Recomputed here by enumerating all four settings over 4-bit operands and testing the identity A + 1.",
+   "source_url": "https://gateoverflow.in/937/gate-cse-2003-question-46",
+   "source_label": "GATE Overflow question page - GATE CSE 2003 Q.46 with the accepted answer (option A)",
+   "verification": "SOURCED",
+   "answer_evidence": "Several answers on the page build the same four-row table of (K, C0) against the operation performed and all conclude option (A), with the reason that A + 1 cannot be obtained without manipulating B. Recomputed here by enumeration over all 4-bit pairs: K = 0, C0 = 0 reproduces A + B, K = 1, C0 = 1 reproduces A - B, and no setting reproduces A + 1 for every A. GATE Overflow files this question under Digital Logic; it is placed here because its subject is the ALU's control lines."
+  },
+  {
    "id": "gate-2003-resolution-rule-false-statement",
    "year": "2003",
    "paper": "GATE CS 2003",
@@ -35980,6 +37184,28 @@ window.GATE_DATA = {
    "source_url": "https://gateoverflow.in/264/gate-cse-2005-question-62",
    "source_label": "GATE Overflow discussion of GATE CS 2005 Q.62 (accepted answer option A)",
    "verification": "SOURCED"
+  },
+  {
+   "id": "gate-2005-79-add-execution-cycles",
+   "year": "2005",
+   "paper": "GATE CSE 2005",
+   "question_ref": "Q.79 on GATE Overflow; Q.12 on the paper listing and on ExamSIDE",
+   "type": "MCQ",
+   "marks": "2",
+   "topic": "cycles-for-one-alu-operation",
+   "text": "Consider the following data path of a CPU. The ALU, the bus and all the registers in the data path are of identical size. All operations including incrementation of the PC and the GPRs are to be carried out in the ALU. Two clock cycles are needed for a memory read operation - the first one for loading the address in the MAR and the next one for loading data from the memory bus into the MDR. The instruction 'add R0, R1' has the register transfer interpretation R0 <- R0 + R1. The minimum number of clock cycles needed for the execution cycle of this instruction is:",
+   "options": [
+    "5",
+    "4",
+    "3",
+    "2"
+   ],
+   "answer": "3 clock cycles - option (B) on the GATE Overflow page",
+   "solution": "The execution cycle needs one cycle to place R0 in the first temporary, one to place R1 in the second temporary (the single bus carries one source per cycle), and one to add the two temporaries and write the result to R0. That is three cycles. The two-cycle fetch is excluded because the question asks for the execution cycle; counting it gives five, which is the most common wrong answer and is offered as a distractor. Recomputed here as 2 operand loads plus 1 write-back.",
+   "source_url": "https://gateoverflow.in/1402/gate-cse-2005-question-79",
+   "source_label": "GATE Overflow question page - GATE CSE 2005 Question 79 with the accepted answer of 3 cycles",
+   "verification": "SOURCED",
+   "answer_evidence": "The accepted answer on the GATE Overflow page lists the three execution micro-operations and gives 3, noting explicitly that 5 would be the answer for the instruction cycle rather than the execution cycle. The option letters are not stable: the GATE Overflow page prints the options as 5, 4, 3, 2 with 3 in position (B), while one listing prints them as 2, 3, 4, 5 with 3 in position (B) again but a different order, so the record gives the number of cycles and the letter together."
   },
   {
    "id": "gate-2005-q65-memory-cycles-indexed-indirect",
@@ -37836,6 +39062,28 @@ window.GATE_DATA = {
    "answer_evidence": "Accepted answer: 'Statements II and III are correct', option C."
   },
   {
+   "id": "gate-2020-4-alu-microop-order",
+   "year": "2020",
+   "paper": "GATE CSE 2020",
+   "question_ref": "Q.4 on GATE Overflow; Q.14 on the paper listing and on two other sites",
+   "type": "MCQ",
+   "marks": "1",
+   "topic": "single-bus-datapath-and-temporaries",
+   "text": "Consider the following data path diagram: a single bus connects MAR, MDR, IR, PC, a register file holding R0 to R7, TEMP2 and an ALU, with TEMP1 feeding one ALU input and TEMP2 the other. Consider the instruction R0 <- R1 + R2. The following steps are used to execute it over the given data path, with subscripts r and w meaning read and write. 1. R2_r, TEMP1_r, ALU_add, TEMP2_w  2. R1_r, TEMP1_w  3. PC_r, MAR_w, MEM_r  4. TEMP2_r, R0_w  5. MDR_r, IR_w. Which one of the following is the correct order of execution of the above steps?",
+   "options": [
+    "2, 1, 4, 5, 3",
+    "1, 2, 4, 3, 5",
+    "3, 5, 2, 1, 4",
+    "3, 5, 1, 2, 4"
+   ],
+   "answer": "Option (C) - 3, 5, 2, 1, 4",
+   "solution": "The fetch must come first: step 3 sends PC to MAR and starts the read, and step 5 moves the fetched word from MDR to IR, so 3 precedes 5. In the execute phase, step 1 reads TEMP1 as one of its ALU inputs, so the step that writes TEMP1, which is step 2, must come before it; that rules out option (D). Step 4 writes the ALU result into R0, so it must come after step 1 has loaded TEMP2. The order is therefore 3, 5, 2, 1, 4. Recomputed here by checking the four dependencies (5 after 3, 1 after 2, 4 after 1, and the fetch before both execute steps).",
+   "source_url": "https://gateoverflow.in/333227/gate-cse-2020-question-4",
+   "source_label": "GATE Overflow question page - GATE CSE 2020 Q.4 with the accepted answer (option C, order 3, 5, 2, 1, 4)",
+   "verification": "SOURCED",
+   "answer_evidence": "The GATE Overflow accepted answer derives 3, 5, 2, 1, 4 from the fetch pair followed by the execute steps. Two secondary sites attribute option (C) to the official key: iaeacademy records 'Official answer: C, Source: Official answer key, GATE 2020 CS (IIT Delhi)' and gateiit records 'Answer: C (official GATE 2020 final answer key)'. The key document was not opened this run, so the record stays SOURCED. The numbering differs across sites: GATE Overflow calls it Question 4, the paper listings call it Q.14."
+  },
+  {
    "id": "gate-2020-42",
    "year": "2020",
    "paper": "GATE CS 2020",
@@ -38940,6 +40188,28 @@ window.GATE_DATA = {
    "source_label": "GATE Overflow question page, GATE CSE 2025 Set 1 Q.21, with the accepted answer -2",
    "verification": "SOURCED",
    "answer_evidence": "Three answers on the page agree: all derive a + b = 3 from continuity and a = 5 from matching the derivatives, then b = -2. A GO Classes test-series question on the same function (GATE Overflow 468307) repeats the accepted range -2.1 to -1.9. Recomputed in scripts/validate.py. The official key was not fetched and no marks field is recorded."
+  },
+  {
+   "id": "gate-2025-set1-27-datapath-operand-sources",
+   "year": "2025",
+   "paper": "GATE CSE 2025 Set 1",
+   "question_ref": "Q.17 on GATE Overflow; Q.27 on the paper listing, on ExamSIDE and on GateAI; listed as question 1 of the ExamSIDE topic page",
+   "type": "MSQ",
+   "marks": "1",
+   "topic": "alu-input-multiplexers-and-operand-sources",
+   "text": "A partial data path of a processor is given in the figure, where RA, RB and RZ are 32-bit registers. Mux_A selects between RA and a 32-bit immediate value, Mux_B selects between RB and a 32-bit immediate value, and the outputs of Mux_A and Mux_B feed the ALU, whose output goes to RZ. Which option(s) is/are CORRECT related to arithmetic operations using the data path as shown?",
+   "options": [
+    "The data path can implement arithmetic operations involving two registers.",
+    "The data path can implement arithmetic operations involving one register and one immediate value.",
+    "The data path can implement arithmetic operations involving two immediate values.",
+    "The data path can only implement arithmetic operations involving one register and one immediate value."
+   ],
+   "answer": "Options (A), (B) and (C)",
+   "solution": "Each ALU input has its own 2:1 multiplexer with its own select line, so the two operand sources are chosen independently: (RA, RB), (RA, immediate), (immediate, RB) and (immediate, immediate). Two registers, one register with one immediate and two immediates are therefore all implementable. Option (D) is false because it claims the datapath is limited to one register and one immediate, which the independent select lines do not impose. Recomputed here as 2 x 2 = 4 operand combinations.",
+   "source_url": "https://gateoverflow.in/460063/gate-cse-2025-set-1-question-17",
+   "source_label": "GATE Overflow question page - GATE CSE 2025 Set 1 Question 17 with three accepted answers agreeing on A, B and C",
+   "verification": "SOURCED",
+   "answer_evidence": "The GATE Overflow page records three answers, all giving (A), (B) and (C) from the independence of the two multiplexer select lines. Two secondary sites state that the official GATE 2025 final answer key gives A, B and C: gateiit.in records 'Answer: A, B, C (official GATE 2025 final answer key)' and trygateai records the same options as the official answer. The key document itself was not opened this run, so the record stays SOURCED rather than OFFICIAL_KEY. The numbering is genuinely unstable: GATE Overflow files this question as Question 17 of the set while the paper listings and three other sites call it Q.27."
   },
   {
    "id": "gate-2025-set1-31-eigenvalues-of-a13",
