@@ -2159,3 +2159,122 @@ pre-existing (seven `OFFICIAL_KEY` records with no answer evidence, two videos r
 
 The cycle pointer now sits on `digital-logic/boolean-algebra-and-minimization`. The next topic in syllabus
 order is `digital-logic/combinational-circuits`, which is `not_started`.
+
+---
+
+## Run 13 - Sequential Circuits (Digital Logic)
+
+The cycle pointer sat on `digital-logic/combinational-circuits`, so the next topic in syllabus order was
+`digital-logic/sequential-circuits`, which was `not_started`. Nothing was skipped: the only topic before it
+that is still open is the second pass over `partial` topics, and that pass starts only when no
+`not_started` topic is left.
+
+### Topic and enumeration
+
+The syllabus line is "design of combinational and sequential circuits", six words that name no subtopic,
+so the seventeen subtopics were enumerated from the standard treatment (Mano chapters 5 and 6), the
+NPTEL *Switching Circuits and Logic Design* week 7 to week 9 layout and the GATE question record:
+the sequential definition and the 2^n state ceiling; synchronous against asynchronous; the SR latch in
+both polarities; the gated SR and D latches; the edge-triggered flip-flop with setup, hold and
+propagation delay; the D and JK flip-flops; the T flip-flop and the four excitation tables; registers and
+the four shift-register kinds; ring and Johnson counters; ripple counters and frequency division;
+synchronous counters and mod-N design; analysis by state equations; Mealy and Moore machines; state
+minimisation; state assignment; sequence detectors and the minimum-state argument.
+
+### Sources chosen on merit
+
+Three English lecture decks were served complete and read from opening to closing slide, which is rare in
+this repository's history and is why the topic does not rest on a single voice:
+
+- **IIT Bombay CS 226, Lecture 7** (Ashutosh Trivedi) - the sequential definition, both latch tables, the
+  three-latch edge-triggered construction, all four characteristic equations, the seven-step synthesis
+  procedure and the binary/Gray/one-hot assignment table.
+- **Auburn ELEC 2200, Lecture 7** (Vishwani D. Agrawal) - the latch equation derived rather than stated,
+  the Huffman model, `Nff = ceil(log2 Ns)`, the nine-to-four state reduction, the two adjacency rules and
+  the literal-cost comparison of 5 products and 10 literals against 6 and 14.
+- **KFUPM COE 202, Lecture 16** (Muhamed Mudawar) - registers with load, the four shift-register kinds,
+  the universal register's four control codes, the ripple delay and the `F/2` to `F/16` table.
+
+Plus the English Wikipedia counter article for the mod-2^n, mod-n and mod-2n statements, and two Hindi
+Wikipedia articles (sequential logic, flip-flops) read in full and **translated**, the second of which
+supplied the excitation table. The NPTEL course layout is recorded as structure only.
+
+Rejected, with reasons in `content/subjects/digital-logic/sequential-circuits/sources.json`: the NPTEL
+Digital Electronic Circuits transcripts at digimat.in that supplied four lectures in full to the previous
+topic in this subject (**HTTP 403 all run**); the NPTEL noc25_cs67 lecture videos (outline only); the Gate
+Smashers Hindi sequential playlist and the GO Classes sequential PYQ playlist (no caption tracks, and the
+second would also have been a default to a channel the repository already holds three playlists from);
+the Knowledge Gate sequential MCQ blog and the GeeksforGeeks quiz pages (indexes only, and the first
+attributes GATE IT 2005 Q.11 to CSE); GATE IT 2005 Q.11 and the GATE EC sequential questions (different
+papers); the Testbook and Unacademy Hindi banks; three US university FSM decks that add no subtopic; and
+an Indonesian shift-register handout superseded by the KFUPM deck.
+
+### What was built
+
+Fifteen cards at `content/subjects/digital-logic/sequential-circuits/`, orders 447 to 461, one per
+subtopic. Twelve verified GATE CSE PYQs from 2003 to 2025, every one `SOURCED` against a GATE Overflow
+accepted answer with its own source URL: 2003 Q.44, 2005 Q.62, 2011 Q.15, 2014 Set 3 Q.45, 2015 Set 1
+Q.20, 2015 Set 1 Q.37, 2015 Set 2 Q.7, 2016 Set 1 Q.8, 2017 Set 2 Q.42, 2018 Q.22, 2025 Set 1 Q.50 and
+2025 Set 2 Q.24. Every card carries two labelled variations, a trap and a quick check; verified PYQs,
+original PYQ-style questions, conceptual practice and predicted variations stay visibly apart.
+
+The lesson, `visuals/digital-logic/sequential-circuits/johnson-counter-cycle`, is a p5.js walk of the
+4-bit Johnson counter in eight steps - the feedback wire, the block of ones growing and shrinking, the
+cycle closing at 2n = 8 states, the second cycle the other eight patterns form, and the two accepted
+readings of the question. It was chosen because it is the one circuit in this topic that two verified PYQs
+share (2015 Set 1 Q.20 asks for the sequence, 2025 Set 1 Q.50 for the count).
+
+`check_sequential_circuits()` was added to `scripts/validate.py`. It recomputes, rather than trusting the
+cards: both latch tables by iterating the gate equations to their fixed point; the gated and D latch
+tables; all four characteristic and excitation tables including the don't-care entries; every
+`ceil(log2 N)` count and unused-pattern count quoted; the 4-bit ring and Johnson cycles, the second Johnson
+cycle, the disjointness of the two and the single-bit-change property; the ripple-counter frequency
+arithmetic in both directions; the 2014 Set 3, 2015 Set 1, 2017 Set 2, 2018, 2015 Set 2 and 2016 Set 1
+circuits stepped clock by clock; the 2003 five-state answer proved minimal by partition refinement and by
+pairwise distinguishability; the 2005 output sequence for every choice of the input levels; the four-state
+overlapping 0101 detector checked against every binary string up to length 10 and its four prefixes proved
+pairwise distinguishable; the state-assignment counts; the minimisation arithmetic and one worked
+reduction; the universal shift register's four modes; the clock-period sums; and the lesson's own states.
+
+### Validation
+
+`python3 scripts/build-index.py` indexed 3 playlists, 39 videos, 269 topics and 211 PYQs.
+`python3 scripts/validate.py` reported 33 checks passed, 8 warnings, 0 failures; all eight warnings are
+pre-existing. `node tests/visual-lessons.js` passed on all 27 lessons, including the new one at 8 steps.
+
+### Gaps (the topic stays `partial`)
+
+1. No video transcript was readable this run. No YouTube watch page carried a caption track, so
+   `videoRefs` is empty on all fifteen cards and no card quotes or timestamps a lecture.
+2. The NPTEL Digital Electronic Circuits transcripts at digimat.in, which supplied four lectures in full
+   to the combinational-circuits run, answered HTTP 403 from the sandbox on every route tried, on both
+   schemes and with a browser user agent. The sequential lectures of that course therefore contributed
+   nothing. This is the largest gap and a later run should retry it.
+3. The NPTEL *Switching Circuits and Logic Design* course has exactly the right week-by-week scope but
+   only its layout page was readable, so it is structure only.
+4. Five cards carry no PYQ of their own because no verified CSE question in this topic is decided by them
+   alone: the SR latch, the gated and D latch, registers, state minimisation and state assignment. Each
+   says so in its source line.
+5. Every PYQ is `SOURCED` against a GATE Overflow accepted answer, not key-verified, and no marks field
+   comes from an official key.
+6. Two verified questions are decided by a figure - 2018 Q.22 and 2025 Set 1 Q.50 - and are in the set
+   only because their accepted solutions state the wiring in words, which each record says.
+7. Two records report a disagreement rather than an answer: 2016 Set 1 Q.8 accepted both 3 and 4, and
+   2025 Set 1 Q.50 accepted both 7 and 8. 2011 Q.15 is recorded by value because two pages print its
+   options in different orders.
+8. GATE CSE 2014 Set 3 Q.45 is a figure, and the six equations its accepted solutions state do not close
+   a five-state cycle when carried further - a fourth step gives 011 and a fifth gives 001. The record
+   therefore verifies the three states the question asks for and explicitly does not claim the "mod-5
+   counter" remark some solutions make.
+9. Asynchronous sequential circuit design - fundamental mode, races, critical races, flow tables - is
+   outside the syllabus line and is not carded. The only asynchronous material here is the ripple counter.
+10. The setup-and-hold rules are stated from the IIT Bombay deck and the clock-period argument, but no
+    verified CSE question of this topic turns on a setup or hold violation.
+11. Only two non-English sources were readable, both Hindi Wikipedia articles. No Hindi, Tamil, Telugu or
+    Bengali lecture transcript on this topic could be read.
+
+### Next
+
+The cycle pointer now sits on `digital-logic/sequential-circuits`. The next topic in syllabus order is
+`digital-logic/computer-arithmetic`, which is `not_started`; it is the last topic in Digital Logic before
+Computer Organization and Architecture.

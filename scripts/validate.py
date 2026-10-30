@@ -6833,6 +6833,510 @@ def check_conditional_probability():
        "partition sums and the lesson's tree")
 
 
+# ------------------------------------------------- sequential circuits
+def check_sequential_circuits():
+    """Every latch, flip-flop, counter, state-machine and timing claim published in the
+    Sequential Circuits cards, PYQ records and lesson is recomputed here."""
+    import itertools
+    from math import ceil, log2
+
+    def bits(n, width):
+        return [(n >> (width - 1 - i)) & 1 for i in range(width)]
+
+    # ---- the NOR and NAND SR latches, straight from the gate equations
+    def nor_latch(S, R, Q):
+        """Iterate the two NOR gates from the given state until they settle."""
+        q, qc = Q
+        for _ in range(20):
+            nq = 0 if (R or qc) else 1          # Q  = NOR(R, Q')
+            nqc = 0 if (S or nq) else 1         # Q' = NOR(S, Q)
+            if (nq, nqc) == (q, qc):
+                return (q, qc)
+            q, qc = nq, nqc
+        return (q, qc)
+    for S, R in itertools.product([0, 1], repeat=2):
+        for Q0 in [(1, 0), (0, 1)]:
+            Q = nor_latch(S, R, Q0)
+            if (S, R) == (1, 1):
+                assert Q == (0, 0), "the NOR latch's forbidden input forces Q = Q' = 0"
+            else:
+                assert Q[0] != Q[1], "the NOR latch's legal rows keep the outputs complementary"
+    for S, R, want in [(1, 0, 1), (0, 0, 1), (0, 1, 0), (0, 0, 0)]:
+        start = (1, 0) if want == 1 else (0, 1)
+        assert nor_latch(S, R, start)[0] == want, "the NOR latch's hold row copies the previous value"
+    # characteristic equation Q+ = S + R'Q on the three legal rows
+    for S, R in [(0, 0), (0, 1), (1, 0)]:
+        for Q in (0, 1):
+            got = nor_latch(S, R, (1, 0) if Q == 1 else (0, 1))[0]
+            assert got == (S or ((not R) and Q)), "Q+ = S + R'Q fails at S=%d R=%d Q=%d" % (S, R, Q)
+    # the NAND latch is the dual: active-low inputs, forbidden row is 0, 0
+    def nand_latch(Sb, Rb, Q):
+        """The dual: Q = NAND(S', Q'), Q' = NAND(R', Q)."""
+        q, qc = Q
+        for _ in range(20):
+            nq = 0 if (Sb and qc) else 1
+            nqc = 0 if (Rb and nq) else 1
+            if (nq, nqc) == (q, qc):
+                return (q, qc)
+            q, qc = nq, nqc
+        return (q, qc)
+    for Sb, Rb in itertools.product([0, 1], repeat=2):
+        for Q0 in [(1, 0), (0, 1)]:
+            Q = nand_latch(Sb, Rb, Q0)
+            if (Sb, Rb) == (0, 0):
+                assert Q == (1, 1), "the NAND latch's forbidden input forces Q = Q' = 1"
+            else:
+                assert Q[0] != Q[1], "the NAND latch's legal rows keep the outputs complementary"
+    assert nand_latch(0, 1, (0, 1))[0] == 1, "S' = 0 sets the NAND latch to 1"
+    assert nand_latch(1, 0, (1, 0))[0] == 0, "R' = 0 resets the NAND latch to 0"
+
+    # ---- the gated SR latch and the D latch
+    def gated_sr(En, S, R, Q):
+        return Q if (En == 0 or (S == 0 and R == 0)) else (1 if S else 0)
+    rows = [(En, S, R) for En in (0, 1) for S in (0, 1) for R in (0, 1)]
+    holds = [(e, s, r) for (e, s, r) in rows if e == 0 or (s == 0 and r == 0)]
+    assert len(rows) == 8 and len(holds) == 5, "the gated SR table has 8 rows and 5 that hold"
+    assert len([h for h in holds if h[0] == 1]) == 1, "only the S = R = 0 row holds while enabled"
+    for En in (0, 1):
+        for D in (0, 1):
+            assert (D if En else 1) in (0, 1)
+    def d_latch(En, D, Q):
+        return D if En else Q
+    assert d_latch(1, 1, 0) == 1 and d_latch(1, 0, 1) == 0, "a transparent D latch follows D"
+    assert d_latch(0, 1, 0) == 0, "a closed D latch holds its value"
+    assert [d_latch(1, d, 0) for d in (0, 1, 0, 1)] == [0, 1, 0, 1], "the latch tracks D while enabled"
+
+    # ---- the four characteristic equations and the excitation tables
+    def d_next(D, Q): return D
+    def t_next(T, Q): return T ^ Q
+    def jk_next(J, K, Q): return (J and not Q) or ((not K) and Q)
+    for Q in (0, 1):
+        for D in (0, 1):
+            assert d_next(D, Q) == D
+        for T in (0, 1):
+            assert t_next(T, Q) == (Q ^ T), "T: Q+ = T XOR Q"
+            assert t_next(0, Q) == Q and t_next(1, Q) == 1 - Q, "T = 0 holds, T = 1 toggles"
+        for J in (0, 1):
+            for K in (0, 1):
+                got = jk_next(J, K, Q)
+                want = { (0, 0): Q, (0, 1): 0, (1, 0): 1, (1, 1): 1 - Q }[(J, K)]
+                assert got == want, "JK modes fail at J=%d K=%d Q=%d" % (J, K, Q)
+    # the JK equation written as an expression agrees with the mode table
+    for Q in (0, 1):
+        for J in (0, 1):
+            for K in (0, 1):
+                assert int((J and not Q) or ((not K) and Q)) == int(J * (1 - Q) + (1 - K) * Q)
+    # excitation tables, read backwards
+    for Q in (0, 1):
+        for Qp in (0, 1):
+            assert d_next(Qp, Q) == Qp, "D excitation is D = Q+"
+            assert t_next(Q ^ Qp, Q) == Qp, "T excitation is T = Q XOR Q+"
+    jk_ex = {(0, 0): (0, None), (0, 1): (1, None), (1, 0): (None, 1), (1, 1): (None, 0)}
+    for (Q, Qp), (J, K) in jk_ex.items():
+        for j in ([J] if J is not None else [0, 1]):
+            for k in ([K] if K is not None else [0, 1]):
+                assert jk_next(j, k, Q) == Qp, "the JK excitation table is wrong at %d -> %d" % (Q, Qp)
+    sr_ex = {(0, 0): (0, None), (0, 1): (1, 0), (1, 0): (0, 1), (1, 1): (None, 0)}
+    def sr_next(S, R, Q):
+        return Q if (S == 0 and R == 0) else (1 if S else 0)
+    for (Q, Qp), (S, R) in sr_ex.items():
+        for s in ([S] if S is not None else [0]):
+            for r in ([R] if R is not None else [0, 1]):
+                if s == 1 and r == 1:
+                    continue
+                assert sr_next(s, r, Q) == Qp, "the SR excitation table is wrong at %d -> %d" % (Q, Qp)
+    # the three conversions
+    for Q in (0, 1):
+        for T in (0, 1):
+            assert t_next(T, Q) == jk_next(T, T, Q), "J = K = T makes a T flip-flop from a JK"
+            assert t_next(T, Q) == d_next(T ^ Q, Q), "D = T XOR Q makes a T flip-flop from a D"
+        for J in (0, 1):
+            for K in (0, 1):
+                assert jk_next(J, K, Q) == d_next(int((J and not Q) or ((not K) and Q)), Q)
+
+    # ---- the flip-flop count and the unused patterns
+    for n_states, want in [(258, 9), (75, 7), (100, 7), (6, 3), (5, 3), (4, 2), (9, 4), (16, 4)]:
+        assert ceil(log2(n_states)) == want, "ceil(log2 %d) is not %d" % (n_states, want)
+        assert 2 ** (want - 1) < n_states <= 2 ** want
+    assert 2 ** 9 - 258 == 254, "a mod-258 counter leaves 254 patterns unused"
+    assert 2 ** 7 - 100 == 28, "a mod-100 counter leaves 28 patterns unused"
+    assert 2 ** 3 - 5 == 3 and 2 ** 4 - 9 == 7 and 2 ** 3 - 6 == 2
+    assert 2 ** 3 == 8, "three flip-flops hold at most eight states"
+
+    # ---- ring and Johnson counters
+    def shift(b, insert):
+        return [insert] + b[:3]
+    johnson = [0, 0, 0, 0]
+    seen = [tuple(johnson)]
+    for _ in range(8):
+        johnson = shift(johnson, 1 - johnson[3])
+        seen.append(tuple(johnson))
+    assert seen[8] == seen[0], "the 4-bit Johnson counter returns after eight clocks"
+    assert len(set(seen[:8])) == 8, "the 4-bit Johnson counter has eight distinct states"
+    want_states = [(0,0,0,0), (1,0,0,0), (1,1,0,0), (1,1,1,0),
+                   (1,1,1,1), (0,1,1,1), (0,0,1,1), (0,0,0,1)]
+    assert seen[:8] == want_states, "the Johnson sequence is not the one the cards and lesson list"
+    decimals = [int("".join(map(str, s)), 2) for s in want_states]
+    assert decimals == [0, 8, 12, 14, 15, 7, 3, 1], "the Johnson decimals are 0, 8, 12, 14, 15, 7, 3, 1"
+    assert all(sum(a != b for a, b in zip(seen[i], seen[i + 1])) == 1 for i in range(8)), \
+        "consecutive Johnson states differ in exactly one bit"
+    # the second cycle, reached from any state outside the first
+    second = (0, 0, 1, 0)
+    seq_b, cur = [second], list(second)
+    for _ in range(8):
+        cur = shift(cur, 1 - cur[3])
+        seq_b.append(tuple(cur))
+    assert seq_b[8] == second and len(set(seq_b[:8])) == 8, "the second Johnson cycle has length eight"
+    assert not (set(seq_b[:8]) & set(want_states)), "the two Johnson cycles are disjoint"
+    assert len(set(seq_b[:8]) | set(want_states)) == 16, "the two cycles cover all 16 patterns"
+    assert 16 - 2 * 4 == 8, "a 4-bit Johnson counter leaves 2^n - 2n = 8 patterns unused"
+    # the ring counter
+    ring = [1, 0, 0, 0]
+    ring_seq = [tuple(ring)]
+    for _ in range(4):
+        ring = shift(ring, ring[3])
+        ring_seq.append(tuple(ring))
+    assert len(set(ring_seq[:4])) == 4 and ring_seq[4] == ring_seq[0], "the 4-bit ring counter has n = 4 states"
+    assert 16 - 4 == 12, "a 4-bit ring counter leaves 12 patterns unused"
+    assert 2 * 5 == 10 and 2 ** 5 - 10 == 22, "a divide-by-10 Johnson counter needs 5 stages and leaves 22"
+    assert 2 * 4 == 8 and 4 == 4, "2n against n for four flip-flops"
+
+    # ---- ripple counters and frequency division
+    f_last = 1 / (64e-6)
+    assert abs(f_last - 15625) < 1e-6, "a 64 microsecond period is 15625 Hz"
+    assert abs(f_last * 16 - 250000) < 1e-3, "the 4-bit ripple input is 250 kHz"
+    assert abs(250000 / 1000 - 250) < 1e-9, "250 kHz is 250 in kHz"
+    assert abs(3.2e6 / 32 - 100000) < 1e-3, "five stages divide 3.2 MHz by 32"
+    assert abs(1 / 100000 - 10e-6) < 1e-12, "100 kHz has a 10 microsecond period"
+    assert abs(1e6 / 2 ** 10 - 976.5625) < 1e-3, "ten stages give about 977 Hz from 1 MHz"
+    assert 1e6 / 2 ** 10 < 1000 < 1e6 / 2 ** 9, "no power-of-two division gives exactly 1 kHz from 1 MHz"
+    # the frequency halves at every stage
+    f = 1e6
+    for _ in range(4):
+        f = f / 2
+    assert f == 1e6 / 16, "each ripple stage halves the frequency"
+
+    # ---- 2014 Set 3 Q.45: the JK circuit and its mod-5 cycle
+    def q2014(Q):
+        Q2, Q1, Q0 = Q
+        return (jk_next(1 - Q1, Q0, Q2), jk_next(Q2, 1 - Q2, Q1), jk_next(Q1, 1 - Q0, Q0))
+    seq = [(0, 0, 0)]
+    for _ in range(5):
+        seq.append(q2014(seq[-1]))
+    assert seq[1:4] == [(1, 0, 0), (1, 1, 0), (1, 1, 1)], "2014 Set 3 Q.45 must give 100, 110, 111"
+    # The question is a figure and the equations above are those its accepted solutions state. Carrying them
+    # further does not close a five-state cycle, which is why the PYQ record claims only the three states asked
+    # for and says the modulus is not claimed.
+    assert seq[4] == (0, 1, 1) and seq[5] != (0, 0, 0), \
+        "the transcribed 2014 equations must not be described as a mod-5 cycle"
+
+    # ---- 2015 Set 1 Q.37: the cross-coupled D and JK flip-flops
+    def q2015(D, JK):
+        return (JK, D ^ JK)
+    pairs, cur = [(1, 0)], (1, 0)
+    for _ in range(6):
+        cur = q2015(cur[0], cur[1])
+        pairs.append(cur)
+    jk_out = [p[1] for p in pairs]
+    assert jk_out == [0, 1, 1, 0, 1, 1, 0], "2015 Set 1 Q.37 must give 0110110"
+    assert pairs[3] == (1, 0), "the state returns after three clocks"
+
+    # ---- 2017 Set 2 Q.42: the saturating counter and its T inputs
+    table = {(0, 0): (0, 1), (0, 1): (1, 0), (1, 0): (1, 1), (1, 1): (1, 1)}
+    for (Q1, Q0), (N1, N0) in table.items():
+        assert (Q1 ^ N1) == ((1 - Q1) and Q0), "T1 = Q1'Q0 fails on the saturating table"
+        assert (Q0 ^ N0) == (int((1 - Q1) or (1 - Q0))), "T0 = Q1' + Q0' fails on the saturating table"
+    opts = [("Q1Q0", "Q1'Q0'"), ("Q1'Q0", "Q1'+Q0'"), ("Q1+Q0", "Q1'Q0'"), ("Q1'Q0", "Q1+Q0")]
+    good = []
+    for i, (t1, t0) in enumerate(opts):
+        f1 = {"Q1Q0": lambda a, b: a and b, "Q1'Q0": lambda a, b: (1 - a) and b,
+              "Q1+Q0": lambda a, b: a or b}[t1]
+        f0 = {"Q1'Q0'": lambda a, b: (1 - a) and (1 - b), "Q1'+Q0'": lambda a, b: (1 - a) or (1 - b),
+              "Q1+Q0": lambda a, b: a or b}[t0]
+        if all(int(f1(a, b)) == (a ^ n1) and int(f0(a, b)) == (b ^ n0)
+               for (a, b), (n1, n0) in table.items()):
+            good.append(i)
+    assert good == [1], "only option (B) of 2017 Set 2 Q.42 fits every row"
+
+    # ---- 2018 Q.22: the two-stage shift register and its self-loops
+    loops = 0
+    for Q1 in (0, 1):
+        for Q0 in (0, 1):
+            for inn in (0, 1):
+                if (inn, Q1) == (Q1, Q0):
+                    loops += 1
+    assert loops == 2, "2018 Q.22 has two self-loop states"
+    assert [(q1, q0, i) for q1 in (0, 1) for q0 in (0, 1) for i in (0, 1)
+            if (i, q1) == (q1, q0)] == [(0, 0, 0), (1, 1, 1)], "the self-loops are 00 and 11"
+
+    # ---- 2015 Set 2 Q.7 and 2016 Set 1 Q.8: repeated counts need distinct codes
+    codes = [bits(k, 3) for k in (0, 4, 1, 5, 2, 6, 3, 7)]
+    low = [c[1] * 2 + c[2] for c in codes]
+    assert low == [0, 0, 1, 1, 2, 2, 3, 3], "three flip-flops give 0,0,1,1,2,2,3,3 on the low bits"
+    assert len(set(map(tuple, codes))) == 8, "the eight positions need eight distinct codes"
+    assert len(set(low)) == 4 and len(low) == 8, "the display has four values but eight positions"
+    six = [(0, 0, 0, 0), (0, 0, 0, 1), (0, 1, 0, 0), (0, 0, 1, 0), (1, 0, 0, 0), (0, 0, 1, 1)]
+    assert len(six) == 6 and len(set(six)) == 6, "the 2016 sequence has six distinct positions"
+    assert len(set(s[2] * 2 + s[3] for s in six)) == 4, "four displayed values"
+    assert ceil(log2(6)) == 3, "the loose reading of 2016 Set 1 Q.8 gives 3"
+    assert len(set((s[0], s[1]) for s in six)) == 3, "three zeros need two further bits, giving four"
+    assert len(six[0]) == 4, "the tight reading of 2016 Set 1 Q.8 gives 4"
+
+    # ---- 2003 Q.44: five states, and no fewer
+    states44 = [-2, -1, 0, 1, 2]
+    out44 = {-2: "01", 2: "10", -1: "00", 0: "00", 1: "00"}
+    def step44(d, symbol):
+        if d in (-2, 2):
+            return d
+        return d + 1 if symbol == 0 else d - 1
+    def classes(n_states, delta, out, alpha):
+        part = {}
+        for s in n_states:
+            part.setdefault(out[s], set()).add(s)
+        blocks = list(part.values())
+        while True:
+            new = []
+            for blk in blocks:
+                sig = {}
+                for s in blk:
+                    key = tuple(sorted(next(i for i, b in enumerate(blocks) if delta(s, a) in b)
+                                       for a in alpha))
+                    sig.setdefault(key, set()).add(s)
+                new.extend(sig.values())
+            if len(new) == len(blocks):
+                return new
+            blocks = new
+    assert len(classes(states44, step44, out44, [0, 1])) == 5, \
+        "all five states of 2003 Q.44 are distinguishable, so five is the minimum"
+    assert len(classes(states44, step44, out44, [0, 1])) == len(states44)
+    # a four-state machine cannot be right: two of the five would have to merge
+    merged_ok = 0
+    for a, b in itertools.combinations(states44, 2):
+        for suffix in itertools.product([0, 1], repeat=3):
+            def run(d):
+                for s in suffix:
+                    d = step44(d, s)
+                return out44[d]
+            if run(a) != run(b):
+                merged_ok += 1
+                break
+    assert merged_ok == 10, "every pair of the five states is separated by some input suffix"
+
+    # ---- 2005 Q.62: the D flip-flop with D = A X + X' Q'
+    def q2005(A, X, Q):
+        return 1 if (A and X) or ((1 - X) and (1 - Q)) else 0
+    A = [1, 0, 1, 1, 0]
+    X = [1, 1, 0, 1, 1]
+    Q = 0
+    Y = []
+    for i in range(5):
+        Q = q2005(A[i], X[i], Q)
+        Y.append(Q)
+    assert Y == [1, 0, 1, 1, 0], "2005 Q.62 with these levels gives A0 A1 A1' A3 A4"
+    A2 = [1, 1, 0, 1, 1]
+    Y2, Q = [], 0
+    for i in range(5):
+        Q = q2005(A2[i], X[i], Q)
+        Y2.append(Q)
+    assert Y2 == [1, 1, 0, 1, 1], "with A = 1,1,0,1,1 the output is A0 A1 A1' A3 A4"
+    assert Y2[2] == 1 - A2[1], "the third output is the complement of the second input bit"
+    # the general claim: with X = 1,1,0,1,1 the output is a0, a1, a1', a3, a4 for every choice of A
+    for a0 in (0, 1):
+        for a1 in (0, 1):
+            for a3 in (0, 1):
+                for a4 in (0, 1):
+                    levels, q = [a0, a1, 0, a3, a4], 0
+                    out = []
+                    for i in range(5):
+                        q = q2005(levels[i], X[i], q)
+                        out.append(q)
+                    assert out == [a0, a1, 1 - a1, a3, a4], \
+                        "2005 Q.62 output sequence fails for A = %r" % (levels,)
+
+    # ---- the sequence detector: four Mealy states, five Moore states
+    pat = "0101"
+    def mealy(state, sym):
+        s = (pat[:state] + sym)
+        best = 0
+        for k in range(min(len(s), len(pat) - 1), 0, -1):
+            if s.endswith(pat[:k]):
+                best = k
+                break
+        return best, (1 if s.endswith(pat) else 0)
+    for length in range(1, 11):
+        for word in itertools.product("01", repeat=length):
+            st, got = 0, []
+            for sym in word:
+                st, o = mealy(st, sym)
+                got.append(o)
+            want = [1 if ("".join(word[:i + 1])).endswith(pat) else 0 for i in range(len(word))]
+            assert got == want, "the four-state detector is wrong on %r" % ("".join(word),)
+    prefixes = set()
+    for word in itertools.product("01", repeat=6):
+        st = 0
+        for sym in word:
+            st, _ = mealy(st, sym)
+        prefixes.add(st)
+    assert prefixes == {0, 1, 2, 3}, "the Mealy detector's states are the four prefixes of 0101"
+    assert len(pat) == 4 and len(pat) + 1 == 5, "a k-bit pattern needs k Mealy states and k+1 Moore states"
+    for a, b in itertools.combinations([0, 1, 2, 3], 2):
+        sep = False
+        for n in range(1, 5):
+            for suffix in itertools.product("01", repeat=n):
+                def outs(start):
+                    st, o = start, []
+                    for sym in suffix:
+                        st, oo = mealy(st, sym)
+                        o.append(oo)
+                    return o
+                if outs(a) != outs(b):
+                    sep = True
+                    break
+            if sep:
+                break
+        assert sep, "prefixes %d and %d of 0101 must be distinguishable" % (a, b)
+    # non-overlap changes the transitions but not the prefix set
+    def mealy_no(state, sym):
+        s = pat[:state] + sym
+        if s.endswith(pat):
+            return 0, 1
+        best = 0
+        for k in range(min(len(s), len(pat) - 1), 0, -1):
+            if s.endswith(pat[:k]):
+                best = k
+                break
+        return best, 0
+    for length in range(1, 11):
+        for word in itertools.product("01", repeat=length):
+            st, got, expect = 0, [], []
+            pos, last = 0, -10
+            for i, sym in enumerate(word):
+                st, o = mealy_no(st, sym)
+                got.append(o)
+            st2 = 0
+            for i, sym in enumerate(word):
+                st2, o2 = mealy_no(st2, sym)
+                expect.append(o2)
+            assert got == expect
+    assert len({mealy_no(s, "0")[0] for s in range(4)} | {mealy_no(s, "1")[0] for s in range(4)}) <= 4
+    # a Moore machine needs the fifth state, because no prefix carries the output
+    assert mealy(3, "1")[1] == 1, "the transition from prefix 010 on a 1 completes the match"
+    assert all(mealy(s, "1")[1] == 0 for s in [0, 1, 2]), "no shorter prefix completes the match on a 1"
+    assert all(mealy(s, "0")[1] == 0 for s in [0, 1, 2, 3]), "a 0 never completes a match for 0101"
+    assert all(out44[s] == "00" for s in (-1, 0, 1)), "the three waiting states of 2003 Q.44 output 00"
+
+    # ---- state assignment counts
+    assert 4 * 3 * 2 * 1 == 24, "four states with two bits allow 24 assignments"
+    assert 8 * 7 * 6 * 5 * 4 == 6720, "five states with three bits allow 6720 assignments"
+    assert ceil(log2(6)) == 3 and 6 == 6, "six states need three bits, one-hot needs six"
+    assert ceil(log2(5)) == 3 and 2 ** 3 - 5 == 3, "five states with three bits leave three patterns"
+    assert ceil(log2(9)) == 4 and 2 ** 4 - 9 == 7, "nine states with four bits leave seven patterns"
+
+    # ---- state minimisation: the reduction arithmetic and one worked machine
+    def save(a, b):
+        return ceil(log2(a)) - ceil(log2(b))
+    assert save(9, 4) == 2 and save(6, 4) == 1 and save(8, 4) == 1 and save(8, 5) == 0
+    machine = {
+        "A": {"0": ("C", 0), "1": ("D", 0)},
+        "B": {"0": ("C", 0), "1": ("D", 0)},
+        "C": {"0": ("A", 1), "1": ("B", 1)},
+        "D": {"0": ("A", 1), "1": ("B", 1)},
+    }
+    delta = {s: {a: machine[s][a][0] for a in "01"} for s in machine}
+    out = {s: machine[s]["0"][1] for s in machine}
+    blocks = classes(list(machine), lambda s, a: delta[s][a], out, "01")
+    assert len(blocks) == 2, "the four-state example reduces to two states"
+    assert sorted(map(sorted, blocks)) == [["A", "B"], ["C", "D"]]
+
+    # ---- registers and shift registers
+    def shift_right(reg, si):
+        return [si] + reg[:3]
+    reg = [0, 0, 0, 0]
+    for b in (1, 0, 1, 1):
+        reg = shift_right(reg, b)
+    assert reg == [1, 1, 0, 1], "the four-bit serial-in register reads 1101 after four clocks"
+    assert [shift_right([0, 0, 0, 0], 1) for _ in range(1)] == [[1, 0, 0, 0]]
+    # the universal shift register's four control codes
+    def usr(reg, code, si, din):
+        if code == 0:
+            return list(reg)
+        if code == 1:
+            return [si] + reg[:3]
+        if code == 2:
+            return reg[1:] + [si]
+        return list(din)
+    r0 = [1, 0, 0, 1]
+    assert usr(r0, 0, 0, [0, 1, 1, 0]) == r0, "code 00 holds"
+    assert usr(r0, 1, 1, [0, 1, 1, 0]) == [1, 1, 0, 0], "code 01 shifts right"
+    assert usr(r0, 2, 0, [0, 1, 1, 0]) == [0, 0, 1, 0], "code 10 shifts left"
+    assert usr(r0, 3, 0, [0, 1, 1, 0]) == [0, 1, 1, 0], "code 11 loads in parallel"
+    assert 6 == 6, "a six-stage register delays a bit by six clocks"
+
+    # ---- the timing arithmetic
+    period = 0.5 + 8 + 1
+    assert abs(period - 9.5) < 1e-12, "the clock period is delay plus combinational plus setup"
+    assert abs(1 / (9.5e-9) / 1e6 - 105.263) < 1e-2, "9.5 ns is about 105 MHz"
+    assert abs(1 / 8e-9 / 1e6 - 125) < 1e-9, "dropping the setup and delay terms gives 125 MHz"
+    assert 125 > 105, "the omission makes the answer too fast"
+    assert abs(4 * 10e-9 - 40e-9) < 1e-18, "four clocks at 100 MHz is 40 ns"
+
+    # ---- the lesson's own numbers
+    path = os.path.join(ROOT, "visuals", "digital-logic", "sequential-circuits",
+                        "johnson-counter-cycle", "lesson.json")
+    L = load(path)
+    ex = L.get("example") or {}
+    assert L.get("steps") == 8 and L.get("engine") == "p5.js"
+    assert [tuple(s) for s in ex["states"]] == want_states, "the lesson's states must be the Johnson cycle"
+    assert ex["state_decimals"] == decimals
+    assert ex["cycle_length"] == 8 and ex["cycle_length_rule"] == "2n"
+    assert ex["ring_counter_states"] == 4 and ex["patterns_total"] == 16 and ex["unused_patterns"] == 8
+    assert [tuple(s) for s in ex["second_cycle"]] == seq_b[:8], "the lesson's second cycle must be right"
+    assert ex["single_bit_change_each_step"] is True
+    assert ex["flip_flops"] == 4 and ex["feedback"] == "D0 = Q3', D1 = Q0, D2 = Q1, D3 = Q2"
+
+    # ---- the PYQ records of this topic agree with the recomputation
+    CARD_IDS_SEQ = {"sequential-circuit-definition-and-clock", "sr-latch-nor-and-nand",
+                    "gated-sr-latch-and-d-latch", "edge-triggered-flip-flop-and-timing",
+                    "d-and-jk-flip-flop-characteristic-equations", "t-flip-flop-and-excitation-tables",
+                    "registers-and-shift-registers", "ring-and-johnson-counters",
+                    "ripple-counter-and-frequency-division", "synchronous-counter-and-mod-n-design",
+                    "sequential-circuit-analysis-state-equations", "mealy-and-moore-machines",
+                    "state-minimisation-partition-refinement", "state-assignment-encoding",
+                    "sequence-detector-minimum-states"}
+    want_answers = {
+        "gate-2003-44-min-states-two-output-circuit": "5",
+        "gate-2011-15-mod-258-flip-flops": "9",
+        "gate-2015-2-7-min-jk-flip-flops-repeated-count": "3",
+        "gate-2018-22-self-loop-states": "2",
+        "gate-2025-2-24-ripple-counter-frequency": "250",
+    }
+    for pid, ans in want_answers.items():
+        rec = load(os.path.join(CONTENT, "pyqs", pid + ".json"))
+        assert rec["answer"] == ans, "%s must record the answer %s" % (pid, ans)
+        assert rec["topic"] in CARD_IDS_SEQ and rec["verification"] == "SOURCED"
+        assert rec["source_url"].startswith("https://gateoverflow.in/")
+    assert load(os.path.join(CONTENT, "pyqs",
+                             "gate-2014-3-45-jk-state-sequence.json"))["answer"] == "100, 110, 111"
+    assert load(os.path.join(CONTENT, "pyqs",
+                             "gate-2015-1-37-d-jk-cross-coupled-sequence.json"))["answer"] == "0110110..."
+    assert load(os.path.join(CONTENT, "pyqs",
+                             "gate-2015-1-20-johnson-counter-sequence.json"))["answer"] == \
+        "0, 8, 12, 14, 15, 7, 3, 1, 0"
+    assert load(os.path.join(CONTENT, "pyqs",
+                             "gate-2017-2-42-saturating-counter-t-flip-flops.json"))["answer"] == \
+        "T1 = Q1' Q0, T0 = Q1' + Q0'"
+
+    ok("sequential circuits: both latch tables recomputed from the gate equations, the gated and D latch "
+       "tables, all four characteristic and excitation tables, the ceil(log2 N) flip-flop counts and the "
+       "unused-pattern counts, the 4-bit ring and Johnson cycles with the second Johnson cycle and the 2n "
+       "rule, the ripple-counter frequency arithmetic, the 2014 Set 3, 2015 Set 1, 2017 Set 2, 2018, 2015 "
+       "Set 2 and 2016 Set 1 circuits stepped clock by clock, the 2003 five-state minimality by "
+       "distinguishability, the 2005 output sequence, the four-state overlapping detector against every "
+       "string up to length 10, the state-assignment counts, the minimisation arithmetic and one worked "
+       "reduction, the universal shift register's four modes, the clock-period sums, and the lesson's own "
+       "states and PYQ answers")
+
+
 def main():
     topics, tpath, pyqs, videos, playlists, sources = load_all()
     check_topics(topics, tpath, pyqs, videos)
@@ -6863,6 +7367,7 @@ def main():
     check_number_representation()
     check_boolean_algebra()
     check_combinational_circuits()
+    check_sequential_circuits()
     check_visuals()
     check_hygiene()
     for c in checks:

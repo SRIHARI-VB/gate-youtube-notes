@@ -132,3 +132,26 @@ The one change from the previous topic is that both English textbook sources arr
 service returned them from the opening to the proof of the mean value theorem. Neither arrived complete, so
 the corollary subsections are not quoted anywhere. The Hindi source is again a Knowledge Gate class read
 through its published English AI summary.
+
+## Run 13 - source access for Sequential Circuits
+
+This topic used no playlist. What could be read, and what could not:
+
+| Source | Route | Result |
+| --- | --- | --- |
+| IIT Bombay CS 226, Lecture 7 (Synchronous Sequential Logic) | extraction service | FULL: every slide's text, from the objectives to the synthesis procedure, including both latch tables, the three-latch D flip-flop, all four characteristic equations, the analysis example and the binary/Gray/one-hot table |
+| Auburn ELEC 2200, Lecture 7 (Sequential Circuits, FSMs) | extraction service | FULL: the latch equation derived from its table, the Huffman model, the 9-to-4 reduction, both adjacency rules, the literal-cost comparison and the Mealy/Moore diagrams |
+| KFUPM COE 202, Lecture 16 (Registers and Counters) | extraction service | FULL: registers and load, the four shift-register kinds, the universal register's control table, the ripple delay, the F/2 to F/16 table and the BCD reset |
+| Wikipedia, Counter (digital) | extraction service | PARTIAL: characteristics, synchronous and asynchronous, binary, ring and Johnson sections |
+| Wikipedia (Hindi), अनुक्रमिक लॉजिक | extraction service | FULL, translated: the sequential definition, the memory property and the Moore and Mealy definitions |
+| Wikipedia (Hindi), फ्लिप-फ्लॉप | extraction service | FULL, translated: the four kinds, the T equation and the combined characteristic and excitation table |
+| NPTEL noc25_cs67, Switching Circuits and Logic Design | extraction service | OUTLINE_ONLY: the week 7 to week 9 layout, which is what the subtopic enumeration was checked against |
+| NPTEL Digital Electronic Circuits, digimat.in lecture PDFs | direct HTTP | 403 on every request, http and https, with and without a browser user agent - the same host that served four lectures in full to the previous run |
+| YouTube, every lecture tried | search and direct routes | no caption track on any watch page |
+| Knowledge Gate sequential MCQ blog | extraction service | readable, used as an index only; one year attribution is wrong (GATE IT 2005 Q.11 labelled as CSE) |
+| GeeksforGeeks GATE digital-logic quiz pages | extraction service | readable, used to locate question years; strips the paper numbering and the figures |
+
+The change from run 12 is that three English lecture decks arrived complete, so for the first time in
+several runs a topic's teaching rests on text that was fully in front of the run rather than on an
+opening excerpt. The cost is that no video was readable at all, and that the NPTEL transcript host which
+carried the previous topic refused every request this time.
