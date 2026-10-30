@@ -1,0 +1,91 @@
+{
+  "id": "floating-point-precision-loss",
+  "title": "Precision Loss: Absorption, Cancellation and Non-Associativity",
+  "priority": "P1",
+  "order": 472,
+  "unit": "Computer Arithmetic: Fixed and Floating Point",
+  "quickIdea": "Floating-point addition is not associative: a small number added to a large one is absorbed entirely, and subtracting two nearly equal numbers destroys the leading digits.",
+  "remember": [
+    "Absorption: if the exponent difference exceeds the significand width, the smaller operand's bits all fall off the end and the sum is the larger operand unchanged.",
+    "(a + b) + c need not equal a + (b + c), and a + b + c need not equal a + c + b. The order of a summation changes the answer.",
+    "Catastrophic cancellation: subtracting nearly equal numbers is exact, but it exposes the rounding error already in the operands, so the relative error of the difference can be enormous.",
+    "Single precision holds 24 significand bits, about 7 decimal digits; 1.0 added to 2 x 10^30 changes nothing at all.",
+    "In single precision 1 + 2^-24 rounds back to 1 (a tie, to even), while 1 + 2^-23 is representable - so half an ulp is not enough to move a number.",
+    "Never test two floating-point results for equality after different orders of summation; sort small terms first or use a compensated sum."
+  ],
+  "example": {
+    "prompt": "GATE CSE 2000 Q.2.14: with 32-bit floating point, A = 2.0 x 10^30, B = -2.0 x 10^30 and C = 1.0, evaluate X := A + B; X := X + C and Y := A + C; Y := Y + B.",
+    "work": "A + C needs A and C in the same exponent. A is about 2 x 10^30, which needs roughly 31 decimal digits to write out, while 32 bits give at most 24 binary bits - about 7 decimal digits. Adding 1.0 to A therefore leaves A unchanged, so Y = A and Y + B = A - A = 0. X is different: A + B is exactly 0 before C is added, so X + C = 1.0.",
+    "answer": "X = 1.0 and Y = 0.0."
+  },
+  "gateAngle": "Two CSE questions test this directly: GATE CSE 2000 Q.2.14 with 1.0 absorbed into 2 x 10^30, and GATE CSE 2004 Q.28 with the same three numbers in three-digit decimal arithmetic, where the two groupings differ by 0.49.",
+  "variations": [
+    {
+      "label": "VERIFIED PYQ",
+      "question": "GATE CSE 2000 Q.2.14: with A = 2.0 x 10^30, B = -2.0 x 10^30, C = 1.0 and 32-bit floating point, what are X and Y?",
+      "answer": "X = 1.0 and Y = 0.0, option (2).",
+      "why": "A + C returns A, so Y + B cancels to 0; A + B cancels first, so X + C is 1.0. The two orders differ, which is the point of the question."
+    },
+    {
+      "label": "VERIFIED PYQ",
+      "question": "GATE CSE 2004 Q.28: in three-digit floating-point arithmetic with rounding, what are (113. + -111.) + 7.51 and 113. + (-111. + 7.51)?",
+      "answer": "9.51 and 10.0 respectively, option (A).",
+      "why": "113 - 111 = 2.0 exactly, and 2.0 + 7.51 = 9.51. On the other side -111 + 7.51 = -103.49, which to three digits is -1.03 x 10^2, and 113 - 103 = 10.0 - the rounding of the inner sum destroyed 0.49."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "In single precision, is (1 + 2^-24) + 2^-24 equal to 1 + (2^-24 + 2^-24)?",
+      "answer": "No: the left side is 1.0 and the right side is 1 + 2^-23.",
+      "why": "2^-24 is exactly half an ulp at 1.0, so 1 + 2^-24 ties and rounds to 1.0, and doing it twice changes nothing. On the right, the two half-ulps combine exactly to 2^-23, which 1 + 2^-23 can hold."
+    }
+  ],
+  "trap": {
+    "what": "Assuming floating-point addition is associative, or believing a small term added to a big one is 'approximately' kept.",
+    "why": "Every result is rounded to 24 bits, so a term below half an ulp of the running total vanishes exactly, not approximately - and the order in which terms are added decides which ones vanish.",
+    "counterexample": "2.0 x 10^30 + 1.0 is 2.0 x 10^30 in single precision, so (A + C) + B = 0 while (A + B) + C = 1.0: the same three numbers, two different answers."
+  },
+  "check": {
+    "question": "In single precision, what is 1.0 + 2^-25?",
+    "answer": "1.0.",
+    "explanation": "2^-25 is a quarter of an ulp at 1.0, so the sum rounds back to 1.0. Only 2^-24 or more can move it, and 2^-24 moves it only by a tie, which goes to the even value 1.0."
+  },
+  "pyqIds": [
+    "gate-2000-2-14-float-absorption",
+    "gate-2004-28-three-digit-rounding"
+  ],
+  "prereqs": [
+    "floating-point-addition-alignment",
+    "ieee-rounding-guard-round-sticky"
+  ],
+  "sources": [
+    {
+      "kind": "text",
+      "title": "What Every Computer Scientist Should Know About Floating-Point Arithmetic",
+      "channel": "David Goldberg, ACM Computing Surveys 23(1), 1991",
+      "url": "https://itu.dk/~sestoft/bachelor/IEEE754_article.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false
+    },
+    {
+      "kind": "lecture-transcript",
+      "title": "Lecture 39 - Floating-Point Arithmetic",
+      "channel": "NPTEL, Computer Architecture and Organization (Prof. Indranil Sengupta, IIT Kharagpur)",
+      "url": "http://digimat.in/nptel/courses/video/106105163/lec39.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false
+    },
+    {
+      "kind": "lecture-slides",
+      "title": "Chapter 8: Computer Arithmetic (Part II) - division, floating-point addition, multiplication, division and rounding",
+      "channel": "Prof. Smruti Ranjan Sarangi, IIT Delhi, Basic Computer Architecture (slides read through a published slide transcript)",
+      "url": "https://www.slideorbit.com/slide/computer-arithmetic-in-basic-computer-architecture/178376",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false
+    }
+  ],
+  "sourceLine": "Benign against catastrophic cancellation, the relative error of a subtraction, and the statement that a floating-point calculation is exact unless rounding is required: Goldberg, sections 1.3 and 1.4 (English, read in part). The alignment step that loses the small operand, and the rounding that follows it: NPTEL IIT Kharagpur Lecture 39 (English, read in part). The rounding modes that decide each tie: Sarangi, chapter 8 slides (English, read in part). The two question texts and accepted answers: their GATE Overflow pages. The 1 + 2^-24 and 1 + 2^-25 claims are recomputed in single precision in scripts/validate.py.",
+  "videoRefs": []
+}

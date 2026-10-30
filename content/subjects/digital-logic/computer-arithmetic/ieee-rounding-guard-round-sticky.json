@@ -1,0 +1,87 @@
+{
+  "id": "ieee-rounding-guard-round-sticky",
+  "title": "Rounding: Guard, Round and Sticky Bits and the Ulp",
+  "priority": "P1",
+  "order": 471,
+  "unit": "Computer Arithmetic: Fixed and Floating Point",
+  "quickIdea": "IEEE rounds to nearest with ties to even by default, and the hardware keeps three extra bits - guard, round and sticky - so the decision uses information the 23-bit field cannot hold.",
+  "remember": [
+    "Four modes: toward zero (truncate), toward +infinity, toward -infinity, and to nearest with ties to even, which is the default.",
+    "Guard bit = the first bit beyond the stored significand, round bit = the second, sticky = the OR of everything after the second.",
+    "Increment the significand when the round bit is 1 and either the sticky bit is 1 or the least significant stored bit is 1. That one rule is ties-to-even.",
+    "ulp is the spacing at the exponent: 2^(e-23) for single precision. A correctly rounded result has relative error at most half an ulp, that is 2^-24.",
+    "Without guard bits, a subtraction of two nearby numbers loses the leading bits that the subtraction then cancels, so the answer is wrong in its first digits.",
+    "The IEEE standard requires +, -, x, / and square root to be correctly rounded, so two conforming machines produce identical bits."
+  ],
+  "example": {
+    "prompt": "Add 2.34 x 10^2 and 0.0256 x 10^2 in a three-significant-digit decimal format, with and without guard bits.",
+    "work": "Align: 2.3400 + 0.0256 = 2.3656. With three stored digits the significand is 2.36 and the residue is 0.0056, so the round bit is 5 and the sticky bit is 6, which is non-zero. The round bit is 1 and the sticky bit is 1, so the significand increments: 2.37 x 10^2. With only three digits and no guard region the shifted addend is cut to 0.02 and the sum is 2.36 x 10^2, one unit in the last place low.",
+    "answer": "2.37 x 10^2 with guard and round bits; 2.36 x 10^2 without them."
+  },
+  "gateAngle": "GATE CSE 2004 Q.28 runs this mechanism at three decimal digits and asks which of two mathematically equal expressions gives 9.51 and which gives 10.0 - the answer turns on the rounding rule at each step, not on the algebra.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "A format stores four significand bits. Round 1.1001 x 2^3 to it, ties to even, naming the guard, round and sticky bits.",
+      "answer": "1.100 x 2^3: guard = 1, round = 0, sticky = 0, which is a tie, and the tie keeps the even significand.",
+      "why": "1.1001 is 1.5625, exactly halfway between 1.100 (1.5) and 1.101 (1.625). The tie goes to the one whose last stored bit is 0, and 1.100 is that one."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Why is a single guard bit not enough to round a long addition correctly?",
+      "answer": "Because the shifted operand can have non-zero bits beyond the guard position, and without a sticky bit they look like zeros, so a sum just above halfway rounds down.",
+      "why": "The guard bit records one digit of the residue; the round and sticky bits record whether anything at all remains beyond it, which is exactly the information the ties rule needs."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "In single precision, what is the spacing between representable numbers just above 1.0?",
+      "answer": "2^-23, about 1.19e-7.",
+      "why": "The ulp is 2^(e-23) and e = 0 there, so every number in [1,2) is a multiple of 2^-23 and the relative spacing is at most 2^-23."
+    }
+  ],
+  "trap": {
+    "what": "Treating truncation as IEEE rounding, or rounding every tie away from zero.",
+    "why": "The default mode is to nearest with ties to even; truncation is one of the four modes but not the default, and the tie rule exists so that a long sum does not drift steadily upward.",
+    "counterexample": "Rounding 2.5 to a whole number: truncation gives 2, toward +infinity gives 3, toward -infinity gives 2, and to nearest gives 2 because 2 is even. Rounding 3.5 to nearest gives 4 for the same reason - the tie is not a rule about direction."
+  },
+  "check": {
+    "question": "Round 1.1011 x 2^0 to three fraction bits, ties to even.",
+    "answer": "1.110 x 2^0.",
+    "explanation": "1.1011 is exactly halfway between 1.101 and 1.110. The tie goes to the even significand, which is 1.110 because its last bit is 0; truncating would give 1.101."
+  },
+  "pyqIds": [],
+  "prereqs": [
+    "ieee-754-single-precision-layout"
+  ],
+  "sources": [
+    {
+      "kind": "lecture-slides",
+      "title": "Chapter 8: Computer Arithmetic (Part II) - division, floating-point addition, multiplication, division and rounding",
+      "channel": "Prof. Smruti Ranjan Sarangi, IIT Delhi, Basic Computer Architecture (slides read through a published slide transcript)",
+      "url": "https://www.slideorbit.com/slide/computer-arithmetic-in-basic-computer-architecture/178376",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false
+    },
+    {
+      "kind": "text",
+      "title": "What Every Computer Scientist Should Know About Floating-Point Arithmetic",
+      "channel": "David Goldberg, ACM Computing Surveys 23(1), 1991",
+      "url": "https://itu.dk/~sestoft/bachelor/IEEE754_article.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false
+    },
+    {
+      "kind": "lecture-transcript",
+      "title": "Lecture 39 - Floating-Point Arithmetic",
+      "channel": "NPTEL, Computer Architecture and Organization (Prof. Indranil Sengupta, IIT Kharagpur)",
+      "url": "http://digimat.in/nptel/courses/video/106105163/lec39.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false
+    }
+  ],
+  "sourceLine": "The four IEEE rounding modes, the guard, round and sticky bits, the increment rule and the renormalisation after rounding: Sarangi, chapter 8 slides (English, read in part), whose 2.34 x 10^2 + 0.0256 x 10^2 example this card reproduces. The two measures of rounding error, ulps and relative error, machine epsilon and Theorem 1 on the error of a subtraction without a guard digit: Goldberg, sections 1.1 to 1.5 (English, read in part). The four modes as truncation, ceiling, floor and round, and the MIPS instructions that select them: NPTEL IIT Kharagpur Lecture 39 (English, read in part). Every number is recomputed in scripts/validate.py.",
+  "videoRefs": []
+}

@@ -29,8 +29,8 @@
   ],
   "counts": {
     "subjects": 5,
-    "topics": 269,
-    "pyqs": 211,
+    "topics": 281,
+    "pyqs": 223,
     "videos": 39,
     "playlists": 3
   },
@@ -4064,6 +4064,180 @@
       ],
       "visual": null,
       "variations": 2
+    },
+    {
+      "topic": "fixed-point-add-subtract-overflow",
+      "title": "Fixed-Point Addition and Subtraction: Overflow Is Not the Carry",
+      "subject": "digital-logic",
+      "group": "computer-arithmetic",
+      "unit": "Computer Arithmetic: Fixed and Floating Point",
+      "priority": "P1",
+      "path": "subjects/digital-logic/computer-arithmetic/fixed-point-add-subtract-overflow.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2017-1-9-overflow-condition",
+        "gate-2022-8-4bit-overflow",
+        "gate-2024-1-3-5bit-overflow"
+      ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "shift-and-add-multiplication",
+      "title": "Unsigned Multiplication: Shift and Add, and the 2n-Bit Product",
+      "subject": "digital-logic",
+      "group": "computer-arithmetic",
+      "unit": "Computer Arithmetic: Fixed and Floating Point",
+      "priority": "P1",
+      "path": "subjects/digital-logic/computer-arithmetic/shift-and-add-multiplication.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2003-11-array-multiplier-delay"
+      ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "booths-recoding-and-product",
+      "title": "Booth Recoding: A Run of Ones Costs Two Operations",
+      "subject": "digital-logic",
+      "group": "computer-arithmetic",
+      "unit": "Computer Arithmetic: Fixed and Floating Point",
+      "priority": "P1",
+      "path": "subjects/digital-logic/computer-arithmetic/booths-recoding-and-product.json",
+      "videos": [],
+      "pyqs": [],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "booths-operation-count",
+      "title": "Counting Booth's Additions and Subtractions",
+      "subject": "digital-logic",
+      "group": "computer-arithmetic",
+      "unit": "Computer Arithmetic: Fixed and Floating Point",
+      "priority": "P1",
+      "path": "subjects/digital-logic/computer-arithmetic/booths-operation-count.json",
+      "videos": [],
+      "pyqs": [
+        "gate-1996-1-23-booth-worst-case",
+        "gate-2025-2-22-booth-add-sub-count"
+      ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "restoring-division",
+      "title": "Restoring Division: Trial Subtraction with an Undo",
+      "subject": "digital-logic",
+      "group": "computer-arithmetic",
+      "unit": "Computer Arithmetic: Fixed and Floating Point",
+      "priority": "P1",
+      "path": "subjects/digital-logic/computer-arithmetic/restoring-division.json",
+      "videos": [],
+      "pyqs": [],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "non-restoring-division",
+      "title": "Non-Restoring Division: Let the Remainder Go Negative",
+      "subject": "digital-logic",
+      "group": "computer-arithmetic",
+      "unit": "Computer Arithmetic: Fixed and Floating Point",
+      "priority": "P2",
+      "path": "subjects/digital-logic/computer-arithmetic/non-restoring-division.json",
+      "videos": [],
+      "pyqs": [],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "fixed-point-fraction-multiplication",
+      "title": "Fixed-Point Fractions: Multiplying in Q Format",
+      "subject": "digital-logic",
+      "group": "computer-arithmetic",
+      "unit": "Computer Arithmetic: Fixed and Floating Point",
+      "priority": "P2",
+      "path": "subjects/digital-logic/computer-arithmetic/fixed-point-fraction-multiplication.json",
+      "videos": [],
+      "pyqs": [],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "floating-point-addition-alignment",
+      "title": "Floating-Point Addition: Align, Add, Normalise, Round",
+      "subject": "digital-logic",
+      "group": "computer-arithmetic",
+      "unit": "Computer Arithmetic: Fixed and Floating Point",
+      "priority": "P1",
+      "path": "subjects/digital-logic/computer-arithmetic/floating-point-addition-alignment.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2026-1-26-fp-addition",
+        "gate-2022-41-fp-identity-false"
+      ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "floating-point-multiplication-and-division",
+      "title": "Floating-Point Multiplication and Division: Add the Exponents, Subtract the Bias",
+      "subject": "digital-logic",
+      "group": "computer-arithmetic",
+      "unit": "Computer Arithmetic: Fixed and Floating Point",
+      "priority": "P1",
+      "path": "subjects/digital-logic/computer-arithmetic/floating-point-multiplication-and-division.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2023-45-fp-product",
+        "gate-2025-2-49-fp-register-identities"
+      ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "ieee-rounding-guard-round-sticky",
+      "title": "Rounding: Guard, Round and Sticky Bits and the Ulp",
+      "subject": "digital-logic",
+      "group": "computer-arithmetic",
+      "unit": "Computer Arithmetic: Fixed and Floating Point",
+      "priority": "P1",
+      "path": "subjects/digital-logic/computer-arithmetic/ieee-rounding-guard-round-sticky.json",
+      "videos": [],
+      "pyqs": [],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "floating-point-precision-loss",
+      "title": "Precision Loss: Absorption, Cancellation and Non-Associativity",
+      "subject": "digital-logic",
+      "group": "computer-arithmetic",
+      "unit": "Computer Arithmetic: Fixed and Floating Point",
+      "priority": "P1",
+      "path": "subjects/digital-logic/computer-arithmetic/floating-point-precision-loss.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2000-2-14-float-absorption",
+        "gate-2004-28-three-digit-rounding"
+      ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "fixed-versus-floating-point",
+      "title": "Fixed Point Against Floating Point: Range and Spacing",
+      "subject": "digital-logic",
+      "group": "computer-arithmetic",
+      "unit": "Computer Arithmetic: Fixed and Floating Point",
+      "priority": "P2",
+      "path": "subjects/digital-logic/computer-arithmetic/fixed-versus-floating-point.json",
+      "videos": [],
+      "pyqs": [],
+      "visual": null,
+      "variations": 3
     }
   ]
 }

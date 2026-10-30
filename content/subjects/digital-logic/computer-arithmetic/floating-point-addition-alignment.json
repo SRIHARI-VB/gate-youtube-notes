@@ -1,0 +1,90 @@
+{
+  "id": "floating-point-addition-alignment",
+  "title": "Floating-Point Addition: Align, Add, Normalise, Round",
+  "priority": "P1",
+  "order": 469,
+  "unit": "Computer Arithmetic: Fixed and Floating Point",
+  "quickIdea": "Add floating-point numbers by making the exponents equal first - shift the smaller significand right - then add, normalise and round.",
+  "remember": [
+    "The order is fixed: compare the exponents, shift the smaller-exponent significand right by the difference, add or subtract the significands, normalise, round, and normalise again if the rounding carried out.",
+    "Only the smaller exponent's significand is shifted, and only to the right, because a left shift would need bits the format never stored.",
+    "A sum can leave [1,2) in either direction: a carry out needs one right shift and an exponent increment, and cancellation needs a left shift and an exponent decrement.",
+    "The result's exponent field starts as the larger of the two; the alignment step never changes it.",
+    "An addend whose exponent is more than about 24 below the other contributes nothing: after alignment its significand is shifted past the stored bits and rounds away."
+  ],
+  "example": {
+    "prompt": "GATE CSE 2026 Set 1 Q.26: X = 0x35C00000 and Y = 0x34A00000. Compute X + Y.",
+    "work": "X: sign 0, exponent field 0110 1011 = 107, so the exponent is -20; fraction 1000..., so X = 1.1 x 2^-20 = 1.5 x 2^-20. Y: sign 0, exponent field 0110 1001 = 105, so the exponent is -22; fraction 0100..., so Y = 1.01 x 2^-22 = 1.25 x 2^-22. The exponents differ by 2, so Y's significand is shifted right by 2 and its exponent raised to -20: 1.01 becomes 0.0101. Adding: 1.1000 + 0.0101 = 1.1101 with exponent -20, which is already in [1,2) and produced no carry, so no further shift is needed. The exponent field is -20 + 127 = 107 = 0110 1011, the fraction is 1101 followed by zeros, and the word is 0011 0101 1110 1000 0000 0000 0000 0000.",
+    "answer": "0x35E80000, which is 1.8125 x 2^-20 = about 1.7285e-6."
+  },
+  "gateAngle": "GATE CSE 2026 Set 1 Q.26 is exactly this computation, and GATE CSE 2022 Q.41 asks which arithmetic identity among three decoded numbers is false - both are the four-step procedure applied to hex words.",
+  "variations": [
+    {
+      "label": "VERIFIED PYQ",
+      "question": "GATE CSE 2026 Set 1 Q.26: X = 0x35C00000 and Y = 0x34A00000; which is Z = X + Y in hexadecimal?",
+      "answer": "0x35E80000, option (C).",
+      "why": "1.5 x 2^-20 + 1.25 x 2^-22 = 1.8125 x 2^-20 = 1.1101 x 2^-20, whose biased exponent is 107. The distractors keep the smaller exponent or shift the larger significand."
+    },
+    {
+      "label": "VERIFIED PYQ",
+      "question": "GATE CSE 2022 Q.41: RA = 0xC1400000, RB = 0x42100000, RC = 0x41400000. Which statement is FALSE: A + C = 0, C = A + B, B = 3C, or (B - C) > 0?",
+      "answer": "C = A + B is false, option (B).",
+      "why": "A = -12, B = 36 and C = 12, so A + C = 0, B = 3C and B - C = 24 are all true, while A + B = 24, not 12."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "In single precision, what is 1.0 x 2^0 + 1.0 x 2^-30?",
+      "answer": "1.0 exactly.",
+      "why": "The exponent difference is 30 and the significand has 24 bits, so after alignment the addend is shifted 30 places right - entirely past the stored bits and the guard region - and rounds to nothing."
+    }
+  ],
+  "trap": {
+    "what": "Aligning by shifting the larger significand, or stopping after the addition without checking the normal form.",
+    "why": "The pair must end with one exponent, and only the smaller-exponent number can be shifted right without inventing bits. And the significand sum can leave [1,2) upward or downward.",
+    "counterexample": "1.1 x 2^0 + 1.1 x 2^0 = 11.0 x 2^0, which must be written 1.10 x 2^1: without the one-place right shift and the exponent increment the answer is twice the truth."
+  },
+  "check": {
+    "question": "Add 1.1 x 2^3 and 1.1 x 2^2. What is the normalised result?",
+    "answer": "1.001 x 2^4.",
+    "explanation": "Align: 1.1 + 0.11 = 10.01 with exponent 3, which is 18. Normalising shifts right once and increments the exponent, giving 1.001 x 2^4 = 18."
+  },
+  "pyqIds": [
+    "gate-2026-1-26-fp-addition",
+    "gate-2022-41-fp-identity-false"
+  ],
+  "prereqs": [
+    "ieee-754-single-precision-layout",
+    "floating-point-normalisation-and-bias"
+  ],
+  "sources": [
+    {
+      "kind": "lecture-transcript",
+      "title": "Lecture 39 - Floating-Point Arithmetic",
+      "channel": "NPTEL, Computer Architecture and Organization (Prof. Indranil Sengupta, IIT Kharagpur)",
+      "url": "http://digimat.in/nptel/courses/video/106105163/lec39.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false
+    },
+    {
+      "kind": "lecture-slides",
+      "title": "Chapter 8: Computer Arithmetic (Part II) - division, floating-point addition, multiplication, division and rounding",
+      "channel": "Prof. Smruti Ranjan Sarangi, IIT Delhi, Basic Computer Architecture (slides read through a published slide transcript)",
+      "url": "https://www.slideorbit.com/slide/computer-arithmetic-in-basic-computer-architecture/178376",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false
+    },
+    {
+      "kind": "lecture-slides",
+      "title": "Unit 7 Computer Arithmetic (signed-magnitude addition and subtraction, Booth, division, floating-point operations)",
+      "channel": "Prof. Chirag Bhalodia, CO 2140707, following Mano's Digital Design",
+      "url": "https://csbhalodia.weebly.com/uploads/1/0/2/8/102862858/ch_7_computer_arithmetic.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false
+    }
+  ],
+  "sourceLine": "The four-step procedure, the hardware that implements it, the 270.75 + 2.375 and 224 - 270.75 examples (the second needing a three-place left shift after the subtraction), and the rounding step: NPTEL IIT Kharagpur Lecture 39 (English, read in part - the served transcript stops in the middle of the rounding discussion and resumes at the MIPS material). The 25-bit working register, the renormalisation rule and the opposite-sign path: Sarangi, chapter 8 slides (English, read in part). No comparison of exponents or alignment is needed for multiplication: Bhalodia, Unit 7 (English, read in part). The two question texts and accepted answers: their GATE Overflow pages.",
+  "videoRefs": []
+}

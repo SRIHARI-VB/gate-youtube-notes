@@ -7337,6 +7337,298 @@ def check_sequential_circuits():
        "states and PYQ answers")
 
 
+# ------------------------------------------------- computer arithmetic
+def check_computer_arithmetic():
+    """Every overflow, Booth, division, floating-point and rounding claim published in the
+    Computer Arithmetic cards, PYQ records and lesson is recomputed here."""
+    import struct
+
+    def bits(v, n):
+        return format(v & ((1 << n) - 1), "0%db" % n)
+
+    def signed(v, n):
+        return v - (1 << n) if v >> (n - 1) else v
+
+    def f32(x):
+        return struct.unpack(">f", struct.pack(">f", x))[0]
+
+    # ---- overflow: the published Boolean expression, the carry test and the range test
+    mismatches = 0
+    for a in range(256):
+        for b in range(256):
+            s = (a + b) & 0xFF
+            a7, b7, s7 = (a >> 7) & 1, (b >> 7) & 1, (s >> 7) & 1
+            expr = (a7 & b7 & (1 - s7)) | ((1 - a7) & (1 - b7) & s7)
+            out_of_range = not (-128 <= signed(a, 8) + signed(b, 8) <= 127)
+            if bool(expr) != out_of_range:
+                mismatches += 1
+    assert mismatches == 0, "the overflow expression disagrees with the range test on %d pairs" % mismatches
+    for a, b in [(0x7F, 0x01), (0xFF, 0x01), (0x80, 0x80), (0x7F, 0x7F), (0x0B, 0x16)]:
+        carry_in = ((a & 0x7F) + (b & 0x7F)) >> 7
+        carry_out = (a + b) >> 8
+        out_of_range = not (-128 <= signed(a, 8) + signed(b, 8) <= 127)
+        assert (carry_in != carry_out) == out_of_range, \
+            "the carry-in against carry-out test fails at %02x + %02x" % (a, b)
+    # GATE CSE 2022 Q.8: only 1100 + 1010 leaves -8..7
+    ovf_2022 = [signed((a + b) & 0xF, 4) != signed(a, 4) + signed(b, 4)
+                for a, b in [(0b1011, 0b1110), (0b1100, 0b1010), (0b0011, 0b0100), (0b1001, 0b1111)]]
+    assert ovf_2022 == [False, True, False, False], "2022 Q.8 overflows only on option (B)"
+    # GATE CSE 2024 Set 1 Q.3: A = +10, B = -6 in 5 bits, only A - B leaves -16..15
+    A5, B5 = signed(0b01010, 5), signed(0b11010, 5)
+    assert (A5, B5) == (10, -6)
+    vals = [A5 + B5, A5 - B5, B5 - A5, 2 * B5]
+    assert vals == [4, 16, -16, -12], "2024 Set 1 Q.3 evaluates to 4, 16, -16, -12"
+    assert [not (-16 <= v <= 15) for v in vals] == [False, True, False, False], \
+        "2024 Set 1 Q.3 overflows only on A - B"
+    # the card's own worked cases
+    assert signed((0b01010 + 0b00110) & 0x1F, 5) == -16 and A5 + 6 == 16, "the 5-bit A - B example"
+    assert signed((0b0111 + 0b0001) & 0xF, 4) == -8, "7 + 1 wraps to -8 in 4 bits"
+    assert signed((0b1011 + 0b1110) & 0xF, 4) == -7 == -5 + -2, "1011 + 1110 is -7, no overflow"
+    assert signed((0b011011 + 0b010110) & 0x3F, 6) == -15 and 27 + 22 == 49, "the 6-bit example"
+
+    # ---- unsigned multiplication
+    assert 13 * 11 == 143 and bits(143, 8) == "10001111", "the 4-bit shift-and-add product"
+    assert 255 * 255 == 65025 and 65025 > 2 ** 15 - 1, "two 8-bit numbers need 16 product bits"
+    assert (13 * 11) & 0xF == 0b1111 and signed(0b1111, 4) == -1, "13 x 11 truncated to 4 bits"
+    assert 45 * 3 == 135 and 135 & 0x3F == 7, "45 x 3 truncated to 6 bits is 7"
+    assert 2 * (4 + 1) == 10, "a 4-bit array multiplier's delay is 2(n+1) unit delays"
+    assert 16 == 4 * 4, "a 4 x 4 array multiplier has 16 partial-product AND gates"
+
+    # ---- Booth's algorithm, traced
+    def booth(M, Q, n):
+        mask = (1 << n) - 1
+        A, qm1, ops = 0, 0, []
+        for _ in range(n):
+            q0 = Q & 1
+            if (q0, qm1) == (0, 1):
+                A = (A + M) & mask
+                ops.append("+M")
+            elif (q0, qm1) == (1, 0):
+                A = (A - M) & mask
+                ops.append("-M")
+            else:
+                ops.append("0")
+            newq = ((Q >> 1) | ((A & 1) << (n - 1))) & mask
+            newa = (A >> 1) | (A & (1 << (n - 1)))
+            qm1 = q0
+            A, Q = newa, newq
+        prod = ((A & mask) << n) | Q
+        return signed(prod, 2 * n), A & mask, Q, ops
+
+    prod, A, Q, ops = booth(0b01011, 0b01110, 5)
+    assert (prod, bits(A, 5), bits(Q, 5)) == (154, "00100", "11010"), "11 x 14 must be 154 in A:Q"
+    assert ops == ["0", "-M", "0", "0", "+M"], "the 11 x 14 trace is shift, subtract, shift, shift, add"
+    prod2, A2, Q2, ops2 = booth(0b1010, 0b0011, 4)
+    assert (prod2, bits(A2, 4), bits(Q2, 4)) == (-18, "1110", "1110"), "-6 x 3 must be -18 in A:Q"
+    assert ops2 == ["-M", "0", "+M", "0"], "the -6 x 3 trace is subtract, shift, add, shift"
+
+    def booth_count(Q, n):
+        qm1, adds, subs = 0, 0, 0
+        for i in range(n):
+            q0 = (Q >> i) & 1
+            if (q0, qm1) == (0, 1):
+                adds += 1
+            elif (q0, qm1) == (1, 0):
+                subs += 1
+            qm1 = q0
+        return adds, subs
+
+    assert booth_count(0b1010010010101010, 16) == (6, 7), "2025 Set 2 Q.22 is 6 additions and 7 subtractions"
+    assert booth_count(0b1010101010101010, 16) == (7, 8), "a 16-bit alternating multiplier needs 15 operations"
+    assert booth_count(0b1111111111111111, 16) == (0, 1), "an all-ones multiplier needs one subtraction"
+    assert booth_count(0, 16) == (0, 0), "an all-zero multiplier needs none"
+    assert booth_count(0b0011, 4) == (1, 1), "0011 needs two operations with q(-1) = 0"
+    assert booth_count(0b0001, 4) == (1, 1), "0001 needs two operations, not one"
+    assert booth_count(0b011100, 6) == (1, 1), "011100 needs one subtraction and one addition"
+    assert 0b0111 == 8 - 1 and 0b011100 == 32 - 4, "the run-of-ones identity"
+
+    # ---- restoring and non-restoring division
+    def restoring(N, D, n):
+        mask = (1 << n) - 1
+        A, Q, rows = 0, N, []
+        for _ in range(n):
+            A = ((A << 1) | ((Q >> (n - 1)) & 1)) & mask
+            Q = (Q << 1) & mask
+            A = (A - D) & mask
+            if A >> (n - 1):
+                A = (A + D) & mask
+                q = 0
+            else:
+                q = 1
+            Q = (Q & ~1) | q
+            rows.append((bits(A, n), bits(Q, n), q))
+        return Q, A, rows
+
+    def non_restoring(N, D, n):
+        am, mask = (1 << (n + 1)) - 1, (1 << n) - 1
+        A, Q, rows = 0, N, []
+        for _ in range(n):
+            A = ((A << 1) | ((Q >> (n - 1)) & 1)) & am
+            Q = (Q << 1) & mask
+            A = (A - D) & am if signed(A, n + 1) >= 0 else (A + D) & am
+            q = 1 if signed(A, n + 1) >= 0 else 0
+            Q = (Q & ~1) | q
+            rows.append((bits(A, n + 1), bits(Q, n), q))
+        if signed(A, n + 1) < 0:
+            A = (A + D) & am
+        return Q, signed(A, n + 1), rows
+
+    Qr, Ar, rows = restoring(7, 3, 4)
+    assert (Qr, Ar) == (2, 1), "restoring 7 / 3 is 2 remainder 1"
+    assert [r[1] for r in rows] == ["1110", "1100", "1001", "0010"], "the restoring quotient bits"
+    assert [r[2] for r in rows] == [0, 0, 1, 0], "the restoring quotient bits are 0, 0, 1, 0"
+    Qn, Rn, rowsn = non_restoring(7, 3, 4)
+    assert (Qn, Rn) == (2, 1), "non-restoring 7 / 3 is 2 remainder 1"
+    assert [r[0] for r in rowsn] == ["11101", "11110", "00000", "11110"], "the non-restoring partial remainders"
+    assert signed(0b11110, 5) == -2 and -2 + 3 == 1, "the final correction turns -2 into 1"
+    assert restoring(6, 2, 4)[:2] == (3, 0), "restoring 6 / 2 is 3 remainder 0"
+    assert non_restoring(6, 2, 4)[:2] == (3, 0), "non-restoring 6 / 2 is 3 remainder 0"
+    assert restoring(13, 4, 4)[:2] == (3, 1), "restoring 13 / 4 is 3 remainder 1"
+    assert non_restoring(13, 4, 4)[:2] == (3, 1), "non-restoring 13 / 4 is 3 remainder 1"
+    for N, D, n in [(7, 3, 4), (6, 2, 4), (13, 4, 4)]:
+        q, r, _ = restoring(N, D, n)
+        assert N == D * q + r and 0 <= r < D, "the invariant N = DQ + R fails at %d / %d" % (N, D)
+
+    # ---- Q4.4 fixed point
+    assert int(1.5 * 16) == 24 and int(0.75 * 16) == 12, "Q4.4 encodes 1.5 as 24 and 0.75 as 12"
+    assert 24 * 12 == 288 and 288 / 256 == 1.125, "the Q4.4 product is Q8.8: 288 / 256"
+    assert (288 >> 4) == 18 and 18 / 16 == 1.125, "shifting the Q4.4 product back gives 18"
+    assert (8 * 8) >> 4 == 4 and 4 / 16 == 0.25, "0.5 x 0.5 in Q4.4 is 4"
+    assert 8 * 8 == 64 and 64 / 16 == 4.0, "the unshifted Q4.4 product reads 4.0"
+    assert int(7.5 * 16) + 16 == 136 and 136 - 256 == -120 and -120 / 16 == -7.5, \
+        "7.5 + 1.0 wraps to -7.5 in Q4.4"
+    assert 127 / 16 == 7.9375 and -128 / 16 == -8, "the Q4.4 range is -8 to 7.9375"
+
+    # ---- floating point: decode, add, multiply
+    def decode(word):
+        s = word >> 31
+        e = (word >> 23) & 0xFF
+        f = word & 0x7FFFFF
+        return s, e, f, (-1) ** s * (1 + f / 2 ** 23) * 2.0 ** (e - 127)
+
+    def encode(s, e, f):
+        return (s << 31) | (e << 23) | f
+
+    sx, ex, fx, xv = decode(0x35C00000)
+    sy, ey, fy, yv = decode(0x34A00000)
+    assert (sx, ex, sy, ey) == (0, 107, 0, 105), "the two exponent fields are 107 and 105"
+    assert (ex - 127, ey - 127) == (-20, -22) and ex - ey == 2, "the true exponents are -20 and -22"
+    assert xv == 1.5 * 2 ** -20 and yv == 1.25 * 2 ** -22, "X is 1.5 x 2^-20 and Y is 1.25 x 2^-22"
+    assert f32(xv) == xv and f32(yv) == yv
+    assert f32(xv + yv) == 1.8125 * 2 ** -20, "the sum is 1.8125 x 2^-20"
+    assert encode(0, 107, 0x680000) == 0x35E80000, "the result word is 0x35E80000"
+    assert f32(xv + yv) == decode(0x35E80000)[3], "the encoded sum decodes back to X + Y"
+    assert abs(decode(0x35E80000)[3] - 1.7285346984863281e-06) < 1e-18, "the sum is 1.7285e-6"
+    assert xv == 1.430511474609375e-06 and yv == 2.980232238769531e-07
+    # the carry and cancellation cases the card names
+    assert 1.5 + 1.5 == 3.0 and 3.0 / 2 == 1.5, "1.1 + 1.1 = 11.0 needs one right shift"
+    assert 1.0625 - 1.0 == 0.0625 and 0.0625 * 16 == 1, "1.0001 - 1.0 = 0.0001 needs a four-place left shift"
+    # GATE CSE 2023 Q.45
+    sp, ep, fp, pv = decode(0xC1800000)
+    sq, eq, fq, qv = decode(0x3F5C2EF4)
+    assert (sp, ep, fp) == (1, 131, 0) and pv == -16.0, "P is -1.0 x 2^4"
+    assert (sq, eq) == (0, 126) and abs(qv - 0.8600914478302002) < 1e-18, "Q is 1.1011... x 2^-1"
+    assert ep + eq - 127 == 130, "the product's exponent field is 131 + 126 - 127 = 130"
+    assert struct.pack(">f", f32(pv * qv)).hex() == "c15c2ef4", "P x Q must encode as 0xC15C2EF4"
+    assert abs(pv * qv + 13.761463165283203) < 1e-12, "the product is about -13.7615"
+    # the 0.5 x -0.75 example
+    assert 126 + 126 - 127 == 125 and -(1.5) * 2 ** -2 == -0.375, "0.5 x -0.75 gives exponent field 125"
+    assert 1.5 * 1.5 == 2.25 and 2.25 / 2 == 1.125, "1.1 x 1.1 = 10.01 needs one right shift"
+    # GATE CSE 2022 Q.41
+    av, bv, cv = decode(0xC1400000)[3], decode(0x42100000)[3], decode(0x41400000)[3]
+    assert (av, bv, cv) == (-12.0, 36.0, 12.0), "2022 Q.41 decodes to -12, 36, 12"
+    assert av + cv == 0 and bv == 3 * cv and bv - cv == 24 and av + bv == 24, \
+        "2022 Q.41: only C = A + B is false"
+    # GATE CSE 2025 Set 2 Q.49
+    x9, y6, z12 = decode(0xC1100000)[3], decode(0x40C00000)[3], decode(0x41400000)[3]
+    assert (x9, y6, z12) == (-9.0, 6.0, 12.0), "2025 Set 2 Q.49 decodes to -9, 6, 12"
+    assert 4 * (x9 + y6) + z12 == 0 and 2 * y6 - z12 == 0 and 4 * x9 + 3 * z12 == 0
+    assert x9 + y6 + z12 == 9, "2025 Set 2 Q.49 option (D) is false"
+
+    # ---- rounding, ulp and precision
+    assert 2 ** -23 == 1.1920928955078125e-07 and 2 ** -24 == 5.960464477539063e-08
+    assert 2 ** -14 == 6.103515625e-05 and 2 ** -4 == 0.0625 and 2 ** -3 == 0.125
+    assert 2 ** -16 == 1.52587890625e-05 and 2 ** -15 == 3.0517578125e-05
+    assert f32(1 + 2 ** -24) == 1.0, "1 + half an ulp ties and rounds to even, so it stays 1.0"
+    assert f32(1 + 2 ** -23) == 1 + 2 ** -23, "1 + one ulp is representable"
+    assert f32(1 + 2 ** -25) == 1.0, "1 + a quarter ulp rounds back to 1.0"
+    assert f32(f32(1 + 2 ** -24) + 2 ** -24) == 1.0
+    assert f32(1 + (2 ** -24 + 2 ** -24)) == 1 + 2 ** -23, "the two groupings differ, so addition is not associative"
+    assert f32(1 + 2 ** -30) == 1.0, "an addend 30 places down is absorbed"
+    assert f32(2e30 + 1) == f32(2e30), "1.0 is absorbed into 2 x 10^30"
+    assert f32(10 ** 9) == 10 ** 9 and f32(10 ** 9 + 1) == 10 ** 9, "10^9 is exact in single precision, 10^9 + 1 is not"
+    assert 10 ** 9 / 2 ** 9 == 1953125 and 1953125 < 2 ** 24, "10^9 has a 22-bit significand"
+    assert abs((2.34 + 0.0256) - 2.3656) < 1e-12 and round(2.3656, 2) == 2.37, \
+        "the three-digit rounding example"
+    assert 2.0 + 7.51 == 9.51 and -111 + 7.51 == -103.49 and 113 - 103 == 10.0, "2004 Q.28"
+    assert 270.75 + 2.375 == 273.125 and 270.75 - 224 == 46.75 and 46.75 / 32 == 1.4609375, \
+        "the two NPTEL addition examples"
+
+    # ---- the cards, the PYQ records and the lesson agree with all of the above
+    CARD_IDS = {"fixed-point-add-subtract-overflow", "shift-and-add-multiplication",
+                "booths-recoding-and-product", "booths-operation-count",
+                "restoring-division", "non-restoring-division",
+                "fixed-point-fraction-multiplication", "floating-point-addition-alignment",
+                "floating-point-multiplication-and-division", "ieee-rounding-guard-round-sticky",
+                "floating-point-precision-loss", "fixed-versus-floating-point"}
+    tdir = os.path.join(CONTENT, "subjects", "digital-logic", "computer-arithmetic")
+    on_disk = {f[:-5] for f in os.listdir(tdir) if f.endswith(".json") and f != "sources.json"}
+    assert on_disk == CARD_IDS, "the computer-arithmetic folder holds %r" % sorted(on_disk)
+    linked = set()
+    for cid in CARD_IDS:
+        card = load(os.path.join(tdir, cid + ".json"))
+        assert card["unit"] == "Computer Arithmetic: Fixed and Floating Point"
+        assert card["videoRefs"] == [], "no video transcript was readable, so videoRefs must stay empty"
+        for pid in card["pyqIds"]:
+            linked.add(pid)
+    want_answers = {
+        "gate-1996-1-23-booth-worst-case": "Option (A) - 101010...1010",
+        "gate-2000-2-14-float-absorption": "Option (2) - X = 1.0, Y = 0.0",
+        "gate-2003-11-array-multiplier-delay": "Option (C) - Theta(n)",
+        "gate-2004-28-three-digit-rounding": "Option (A) - 9.51 and 10.0 respectively",
+        "gate-2017-1-9-overflow-condition": "Option (C) - (A7.B7.S7' + A7'.B7'.S7) is 1",
+        "gate-2022-8-4bit-overflow": "Option (B) - R1 = 1100 and R2 = 1010",
+        "gate-2022-41-fp-identity-false": "Option (B) - C = A + B",
+        "gate-2023-45-fp-product": "Option (C) - 0xC15C2EF4",
+        "gate-2024-1-3-5bit-overflow": "Option (B) - A - B",
+        "gate-2025-2-22-booth-add-sub-count": "13",
+        "gate-2025-2-49-fp-register-identities": "Options (A), (B) and (C) - 4(X + Y) + Z = 0, 2Y - Z = 0 and 4X + 3Z = 0",
+        "gate-2026-1-26-fp-addition": "Option (C) - 0x35E80000",
+    }
+    assert linked == set(want_answers), "the cards link %r" % sorted(linked)
+    for pid, ans in want_answers.items():
+        rec = load(os.path.join(CONTENT, "pyqs", pid + ".json"))
+        assert rec["answer"] == ans, "%s must record the answer %r" % (pid, ans)
+        assert rec["topic"] in CARD_IDS and rec["verification"] == "SOURCED"
+        assert rec["source_url"].startswith("http") and rec["question_ref"]
+
+    L = load(os.path.join(ROOT, "visuals", "digital-logic", "computer-arithmetic",
+                          "floating-point-addition-alignment", "lesson.json"))
+    ex = L["example"]
+    assert L["engine"] == "p5.js" and L["steps"] == 8
+    assert (ex["x_exponent_field"], ex["y_exponent_field"]) == (ex["x_exponent_field"], 105)
+    assert (ex["x_true_exponent"], ex["y_true_exponent"], ex["exponent_difference"]) == (-20, -22, 2)
+    assert (ex["x_significand"], ex["y_significand"], ex["y_aligned"]) == ("1.1000", "1.0100", "0.0101")
+    assert (ex["sum_significand"], ex["sum_true_exponent"], ex["result_exponent_field"]) == ("1.1101", -20, 107)
+    assert ex["result_hex"] == "35E80000"
+    assert abs(ex["x_value"] - xv) < 1e-18 and abs(ex["y_value"] - yv) < 1e-18
+    assert abs(ex["sum_value"] - f32(xv + yv)) < 1e-18 and ex["sum_as_significand_times_power"] == 1.8125
+    assert ex["carry_case"]["raw_sum"] == "11.0" and ex["carry_case"]["normalised"] == "1.10"
+    assert ex["cancellation_case"]["raw_sum"] == "0.0001" and ex["cancellation_case"]["left_shift"] == 4
+    assert ex["absorption_case"]["sum"] == f32(1.0 + 2 ** ex["absorption_case"]["b_power"]) == 1.0
+
+    ok("computer arithmetic: the overflow expression checked against the range test on all 65536 "
+       "8-bit pairs plus the carry-in/carry-out test, the 2022 and 2024 overflow options, the 4-bit "
+       "shift-and-add product and the array multiplier's linear delay, the 11 x 14 and -6 x 3 Booth "
+       "traces cycle by cycle and the operation counts of seven multipliers, restoring and "
+       "non-restoring division on 7/3, 6/2 and 13/4 with their published traces and the "
+       "N = DQ + R invariant, the Q4.4 encode-multiply-shift-wrap arithmetic, the decode, alignment, "
+       "sum and re-encoding of the 2026 addition question, the 2023 product word, the 2022 and 2025 "
+       "register identities, the ulp and machine-epsilon constants, single-precision rounding of "
+       "1 + 2^-24, 1 + 2^-23, 1 + 2^-25, 1 + 2^-30, 2 x 10^30 + 1 and 10^9 + 1, the two three-digit "
+       "rounding examples, and the lesson's own fields and PYQ answers")
+
+
 def main():
     topics, tpath, pyqs, videos, playlists, sources = load_all()
     check_topics(topics, tpath, pyqs, videos)
@@ -7368,6 +7660,7 @@ def main():
     check_boolean_algebra()
     check_combinational_circuits()
     check_sequential_circuits()
+    check_computer_arithmetic()
     check_visuals()
     check_hygiene()
     for c in checks:

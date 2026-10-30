@@ -1,0 +1,78 @@
+{
+  "id": "restoring-division",
+  "title": "Restoring Division: Trial Subtraction with an Undo",
+  "priority": "P1",
+  "order": 466,
+  "unit": "Computer Arithmetic: Fixed and Floating Point",
+  "quickIdea": "Divide by repeated trial subtraction: shift the partial remainder left, subtract the divisor, and if the result went negative put the divisor back and record a 0.",
+  "remember": [
+    "The invariant is N = D x Q + R with 0 <= R < D, and Q is the largest integer for which it holds.",
+    "Each cycle: shift the register pair (A,Q) left by one; A = A - D; if A went negative restore A = A + D and set the quotient bit 0, otherwise set it 1.",
+    "The quotient is built one bit per cycle, most significant bit first, into the freed least significant position of Q.",
+    "n cycles produce an n-bit quotient; the remainder is left in A and the quotient in Q.",
+    "The restore is the cost: one extra addition or register move for every cycle that produced a 0 bit.",
+    "The dividend must be smaller than D x 2^n and D must be non-zero; the algorithm assumes both and checks neither."
+  ],
+  "example": {
+    "prompt": "Divide 7 by 3 with a 4-bit restoring divider.",
+    "work": "A = 0000, Q = 0111, D = 0011. Cycle 1: shift gives A = 0000, Q = 1110; A - D = 1101, negative, so restore A = 0000 and set the bit 0, Q = 1110. Cycle 2: shift gives A = 0001, Q = 1100; A - D = 1110, negative, so restore A = 0001, Q = 1100. Cycle 3: shift gives A = 0011, Q = 1000; A - D = 0000, not negative, so the bit is 1, Q = 1001. Cycle 4: shift gives A = 0001, Q = 0010; A - D = 1110, negative, so restore A = 0001, Q = 0010.",
+    "answer": "Q = 0010 (2) and A = 0001 (1), and 3 x 2 + 1 = 7."
+  },
+  "gateAngle": "No verified GATE CSE question asks for a restoring-division trace. The syllabus line is 'number representation and arithmetic (fixed and floating point)', which names the arithmetic as a whole, so the two division algorithms are carded here for completeness and this card names the absence of a PYQ rather than borrowing one that tests something else.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "Divide 13 by 4 with a 4-bit restoring divider. Give Q and R.",
+      "answer": "Q = 0011 (3), R = 0001 (1).",
+      "why": "13 = 4 x 3 + 1. Cycles 1 and 2 restore and record 0; cycles 3 and 4 subtract successfully and record 1, leaving 0011 in Q and 0001 in A."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Why is R < D guaranteed rather than checked at the end?",
+      "answer": "Because a quotient bit is 1 exactly when subtracting D leaves a non-negative remainder, so the loop stops only when no further subtraction would succeed.",
+      "why": "After n cycles the remainder is what the last n trial subtractions could not remove, which is by construction smaller than D - provided the dividend fitted, which is the assumption the algorithm does not test."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "A restoring divider is given D = 0. What does it produce?",
+      "answer": "Q = all ones and R = the dividend: subtracting 0 never goes negative, so every quotient bit is 1.",
+      "why": "The invariant N = 0 x Q + R still holds, but Q is unbounded, so the n-bit quotient saturates. Division by zero has to be trapped separately."
+    }
+  ],
+  "trap": {
+    "what": "Setting the quotient bit to 1 when the trial subtraction went negative, or skipping the restore.",
+    "why": "The quotient bit records whether the subtraction succeeded, and a negative A left in place poisons every later cycle because the next shift propagates it.",
+    "counterexample": "In 7 / 3, dropping the restore after cycle 1 leaves A = 1101; the next shift makes it 1011 and the final answer is not 2 remainder 1."
+  },
+  "check": {
+    "question": "In a 4-bit restoring divider, what are Q and A after dividing 6 by 2?",
+    "answer": "Q = 0011 and A = 0000.",
+    "explanation": "6 = 2 x 3 + 0. The first two cycles restore and record 0, the last two subtract successfully and record 1, so the quotient is 0011 and nothing is left over."
+  },
+  "pyqIds": [],
+  "prereqs": [
+    "twos-complement-negation-and-subtraction"
+  ],
+  "sources": [
+    {
+      "kind": "lecture-slides",
+      "title": "Chapter 8: Computer Arithmetic (Part II) - division, floating-point addition, multiplication, division and rounding",
+      "channel": "Prof. Smruti Ranjan Sarangi, IIT Delhi, Basic Computer Architecture (slides read through a published slide transcript)",
+      "url": "https://www.slideorbit.com/slide/computer-arithmetic-in-basic-computer-architecture/178376",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false
+    },
+    {
+      "kind": "lecture-slides",
+      "title": "Unit 7 Computer Arithmetic (signed-magnitude addition and subtraction, Booth, division, floating-point operations)",
+      "channel": "Prof. Chirag Bhalodia, CO 2140707, following Mano's Digital Design",
+      "url": "https://csbhalodia.weebly.com/uploads/1/0/2/8/102862858/ch_7_computer_arithmetic.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false
+    }
+  ],
+  "sourceLine": "The restoring algorithm, its proof, the 00111 / 0011 worked trace and the n log n time: Sarangi, chapter 8 slides (English, read in part). The four-step register formulation - shift, subtract, test the sign, restore - and the N = DQ + R framing: Bhalodia, Unit 7 (English, read in part). Every trace in this card is recomputed in scripts/validate.py.",
+  "videoRefs": []
+}

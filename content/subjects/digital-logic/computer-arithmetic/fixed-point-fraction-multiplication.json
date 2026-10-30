@@ -1,0 +1,79 @@
+{
+  "id": "fixed-point-fraction-multiplication",
+  "title": "Fixed-Point Fractions: Multiplying in Q Format",
+  "priority": "P2",
+  "order": 468,
+  "unit": "Computer Arithmetic: Fixed and Floating Point",
+  "quickIdea": "In Qm.n fixed point the stored integer means k / 2^n, so multiplying two of them doubles the scale and the product needs a right shift by n to come back to the same format.",
+  "remember": [
+    "Qm.n holds an integer k meaning k / 2^n, with one sign bit, m-1 integer bits and n fraction bits; its resolution is 2^-n everywhere.",
+    "Add and subtract: the two formats must match, then add or subtract the integers - there is no shift.",
+    "Multiply: the product of two Qm.n numbers is Q(2m).(2n), so shift right by n, with rounding, to return to Qm.n.",
+    "Divide: shift the dividend left by n first, then divide the integers.",
+    "The absolute error of one product is up to 2^-n/2, and it accumulates over a sum, which is why a long fixed-point accumulation drifts.",
+    "The intermediate integer can overflow even when the true result is small: two Q1.15 numbers need 34 bits before the shift."
+  ],
+  "example": {
+    "prompt": "In Q4.4, multiply 1.5 by 0.75.",
+    "work": "Q4.4 stores an 8-bit integer over 16, so 1.5 is 24 (0001 1000) and 0.75 is 12 (0000 1100). The integer product is 24 x 12 = 288, which is Q8.8: 288/256 = 1.125. To return to Q4.4, shift right by 4: 288 >> 4 = 18, and 18/16 = 1.125. The exact answer needs three fraction bits, so nothing was lost in this case.",
+    "answer": "1.125, stored as 18 (0001 0010) in Q4.4."
+  },
+  "gateAngle": "GATE tests fixed point through the range and resolution formula (GATE CSE 2017 Set 1 Q.7, carded under Number Systems) and through the arithmetic the format forces; the multiplication shift is the step that is lost in revision, because the addition needs none.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "In Q4.4, multiply 0.5 by 0.5. Give the stored integer before and after the shift.",
+      "answer": "64 before, 4 after; 4/16 = 0.25.",
+      "why": "0.5 is 8, and 8 x 8 = 64 is Q8.8, where 64/256 = 0.25. Shifting right by 4 gives 4, which in Q4.4 is 4/16 = 0.25."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Why can two Q4.4 numbers not be multiplied into a Q4.4 register without a shift?",
+      "answer": "The product's scale is 2^-8, not 2^-4, so the stored integer is 16 times too large.",
+      "why": "Without the shift, 0.5 x 0.5 would be read as 64/16 = 4. The shift is not a rounding nicety; it is the format's bookkeeping."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "In Q4.4, what does 7.5 + 1.0 give, and why?",
+      "answer": "-7.5: the exact 8.5 needs the integer 136, which does not fit in 8 bits.",
+      "why": "Q4.4 covers -8 to 7.9375. The sum 136 wraps to 136 - 256 = -120, and -120/16 = -7.5 - a wrap-around, not a rounding error."
+    }
+  ],
+  "trap": {
+    "what": "Forgetting the shift after a multiply, or assuming that a format that cannot represent the result will round it.",
+    "why": "The product's binary point sits twice as far from the right, so the integer must be rescaled; and an overflow in the integer part wraps silently rather than saturating.",
+    "counterexample": "In Q4.4, 0.5 x 0.5 gives 64 unshifted, which reads as 4.0 - eight times too large and out of the range that 0.25 needs. And 7.5 + 1.0 gives -7.5, not 7.9375."
+  },
+  "check": {
+    "question": "In Q4.4, what is the resolution, and what is the largest value?",
+    "answer": "1/16 = 0.0625, and the largest value is 127/16 = 7.9375.",
+    "explanation": "Eight bits give the integers -128 to 127 over a scale of 16, so the step is 2^-4 and the top of the range is 7.9375 - not 8, because the sign bit is spent."
+  },
+  "pyqIds": [],
+  "prereqs": [
+    "fixed-point-representation",
+    "twos-complement-definition-and-range"
+  ],
+  "sources": [
+    {
+      "kind": "lecture-slides",
+      "title": "Unit 7 Computer Arithmetic (signed-magnitude addition and subtraction, Booth, division, floating-point operations)",
+      "channel": "Prof. Chirag Bhalodia, CO 2140707, following Mano's Digital Design",
+      "url": "https://csbhalodia.weebly.com/uploads/1/0/2/8/102862858/ch_7_computer_arithmetic.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false
+    },
+    {
+      "kind": "gate-notes",
+      "title": "GATE CSE Book, Digital Logic chapter (computer arithmetic and Booth algorithm)",
+      "channel": "GATE Overflow",
+      "url": "https://gateoverflow.in/?qa=blob&qa_blobid=16603857986567646822",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false
+    }
+  ],
+  "sourceLine": "The fixed-point introduction, the statement that the hardware interprets the same bits as integer or fraction, and the signed-magnitude versus two's complement split: Bhalodia, Unit 7 (English, read in part). The carry and overflow distinction that the Q-format wrap-around rests on: GATE Overflow GATE CSE Book, section 2.2.8 (English, read in part). The Q4.4 arithmetic is recomputed in scripts/validate.py.",
+  "videoRefs": []
+}

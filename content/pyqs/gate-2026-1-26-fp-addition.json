@@ -1,0 +1,21 @@
+{
+  "id": "gate-2026-1-26-fp-addition",
+  "year": "2026",
+  "paper": "GATE CSE 2026 Set 1",
+  "question_ref": "Q.26",
+  "type": "MCQ",
+  "topic": "floating-point-addition-alignment",
+  "text": "Consider the real valued variables X, Y and Z represented using the IEEE 754 single-precision floating-point format. The binary representations of X and Y in hexadecimal notation are X: 35C00000 and Y: 34A00000. Let Z = X + Y. Which one of the following is the binary representation of Z, in hexadecimal notation?",
+  "options": [
+    "0x35C80000",
+    "0x35CC0000",
+    "0x35E80000",
+    "0x35EC0000"
+  ],
+  "answer": "Option (C) - 0x35E80000",
+  "solution": "X: exponent field 0110 1011 = 107, so the exponent is -20, and the fraction is 1000... so X = 1.1 x 2^-20. Y: exponent field 0110 1001 = 105, so the exponent is -22, and the fraction is 0100... so Y = 1.01 x 2^-22. Align by shifting Y's significand right two places: 0.0101 x 2^-20. Add: 1.1000 + 0.0101 = 1.1101 x 2^-20, already normal. The exponent field is 107 and the fraction is 1101..., so the word is 0011 0101 1110 1000 0000 0000 0000 0000.",
+  "source_url": "https://gateoverflow.in/523054/gate-cse-2026-set-1-question-26",
+  "source_label": "GATE Overflow question page - GATE CSE 2026 Set 1 Q.26 with the accepted answer (option C)",
+  "verification": "SOURCED",
+  "answer_evidence": "The accepted answer decodes both operands, aligns Y to exponent -20 and reaches 0x35E80000, option C. Recomputed here: 1.5 x 2^-20 + 1.25 x 2^-22 = 1.8125 x 2^-20, which encodes to 0x35e80000. Another site numbers this question Q.36."
+}

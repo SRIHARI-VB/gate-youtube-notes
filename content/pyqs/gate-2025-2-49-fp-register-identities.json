@@ -1,0 +1,21 @@
+{
+  "id": "gate-2025-2-49-fp-register-identities",
+  "year": "2025",
+  "paper": "GATE CSE 2025 Set 2",
+  "question_ref": "Q.49",
+  "type": "MSQ",
+  "topic": "floating-point-multiplication-and-division",
+  "text": "Three floating point numbers X, Y and Z are stored in three registers RX, RY and RZ, respectively, in IEEE 754 single precision format as given below in hexadecimal: RX = 0xC1100000, RY = 0x40C00000 and RZ = 0x41400000. Which of the following option(s) is/are CORRECT?",
+  "options": [
+    "4(X + Y) + Z = 0",
+    "2Y - Z = 0",
+    "4X + 3Z = 0",
+    "X + Y + Z = 0"
+  ],
+  "answer": "Options (A), (B) and (C) - 4(X + Y) + Z = 0, 2Y - Z = 0 and 4X + 3Z = 0",
+  "solution": "RX: sign 1, exponent field 130 so the exponent is 3, fraction 0010... so X = -1.001 x 2^3 = -9. RY: sign 0, exponent field 129 so the exponent is 2, fraction 1000... so Y = 1.1 x 2^2 = 6. RZ: sign 0, exponent field 130, fraction 1000... so Z = 1.1 x 2^3 = 12. Then 4(-9 + 6) + 12 = -12 + 12 = 0, 2(6) - 12 = 0, 4(-9) + 3(12) = -36 + 36 = 0, and X + Y + Z = 9, so (D) is wrong.",
+  "source_url": "https://iaeacademy.in/study/papers/cs-2025-2",
+  "source_label": "IAE Academy, GATE CSE 2025 Set 2 paper with the official answer key (Q.49: A, B, C)",
+  "verification": "SOURCED",
+  "answer_evidence": "The paper page lists Q.49 as a 2-mark MSQ with official answer A, B, C, and the GateAI PYQ page for the same question decodes the registers as -9, 6 and 12 and reaches the same three options. Recomputed here from the bit patterns. GATE Overflow and ExamSIDE number it Q.49 while one other site numbers it Q.53."
+}

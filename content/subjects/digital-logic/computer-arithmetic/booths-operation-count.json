@@ -1,0 +1,81 @@
+{
+  "id": "booths-operation-count",
+  "title": "Counting Booth's Additions and Subtractions",
+  "priority": "P1",
+  "order": 465,
+  "unit": "Computer Arithmetic: Fixed and Floating Point",
+  "quickIdea": "The number of arithmetic operations Booth performs is the number of places where the multiplier's bits change, counted with an extra 0 appended below the least significant bit.",
+  "remember": [
+    "Count pairs, not ones: every 01 pair is one addition, every 10 pair is one subtraction, 00 and 11 are shift-only.",
+    "Append q(-1) = 0 below the least significant bit before counting. Leaving it out loses the operation at the least significant end.",
+    "The count depends only on the multiplier; the multiplicand never enters it.",
+    "Worst case is the alternating pattern 1010...10: of the n pairs, all but the very bottom one differ, so a 16-bit alternating multiplier needs 15 operations - 7 additions and 8 subtractions.",
+    "An all-zero multiplier needs none; an all-ones multiplier needs exactly one subtraction, because 111...1 is 2^n - 1.",
+    "A single isolated 1 costs two operations, since 2^i = 2^(i+1) - 2^i, which is why the alternating pattern is the worst case."
+  ],
+  "example": {
+    "prompt": "GATE CSE 2025 Set 2 Q.22: Q = 1010010010101010 is the multiplier. How many addition and subtraction operations does Booth's algorithm perform?",
+    "work": "Append q(-1) = 0 and read pairs from the least significant end: (0,0), (1,0), (0,1), (1,0), (0,1), (1,0), (0,1), (0,0), (1,0), (0,1), (1,0), (0,1), (1,0), (0,1), (1,0), (1,1). That is seven 10 pairs, six 01 pairs and three pairs that do nothing.",
+    "answer": "13 operations: 6 additions and 7 subtractions."
+  },
+  "gateAngle": "Two CSE questions turn on this count and nothing else: GATE CSE 1996 Q.1.23 asks which multiplier pattern makes Booth perform worst, and GATE CSE 2025 Set 2 Q.22 asks for the number on a 16-bit multiplier. Both are answered by reading transitions, and neither needs the multiplicand.",
+  "variations": [
+    {
+      "label": "VERIFIED PYQ",
+      "question": "GATE CSE 1996 Q.1.23: Booth's algorithm for integer multiplication gives worst performance when the multiplier pattern is (A) 101010...1010, (B) 100000...0001, (C) 111111...1111, (D) 011111...1110.",
+      "answer": "Option (A), the alternating pattern.",
+      "why": "Performance is the number of additions and subtractions, and an alternating multiplier changes at almost every bit. The all-ones pattern (C) needs one subtraction; the pattern (D) is a single run of ones, which needs two operations."
+    },
+    {
+      "label": "VERIFIED PYQ",
+      "question": "GATE CSE 2025 Set 2 Q.22: with M = 1100110111101101 and Q = 1010010010101010, the total number of addition and subtraction operations Booth's algorithm performs is ___.",
+      "answer": "13.",
+      "why": "The count is the number of 01 and 10 pairs in Q with q(-1) = 0: seven 10 pairs and six 01 pairs. M is irrelevant, which is the part candidates most often get wrong by trying to run the trace."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "For the same multiplier Q = 1010010010101010, the question asks only for the number of additions. What is it?",
+      "answer": "6.",
+      "why": "Additions are the 01 pairs and subtractions the 10 pairs; the total 13 is their sum, so answering 13 to an additions-only question doubles the mark lost."
+    }
+  ],
+  "trap": {
+    "what": "Counting the ones in the multiplier, or counting pairs without the appended zero.",
+    "why": "Booth's saving is exactly that a run of k ones costs two operations instead of k, so counting ones computes the shift-and-add cost, not Booth's. And the pair at the least significant end only exists because q(-1) starts at 0.",
+    "counterexample": "Q = 0111 has three ones but needs two operations, because 0111 = 8 - 1. Q = 0011 needs two operations with q(-1) = 0 (10 then 01) and only one without it."
+  },
+  "check": {
+    "question": "Q = 0001. How many Booth operations does it need, and why is the answer not one?",
+    "answer": "Two: one subtraction at the least significant bit and one addition one place up.",
+    "explanation": "With q(-1) = 0 the pairs are 10, 01, 00, 00. The value is 2^1 - 2^0, so Booth trades the single 1 for a subtract and an add - which is why an isolated 1 is expensive and an alternating multiplier is the worst case."
+  },
+  "pyqIds": [
+    "gate-1996-1-23-booth-worst-case",
+    "gate-2025-2-22-booth-add-sub-count"
+  ],
+  "prereqs": [
+    "booths-recoding-and-product"
+  ],
+  "sources": [
+    {
+      "kind": "gate-notes",
+      "title": "GATE CSE Book, Digital Logic chapter (computer arithmetic and Booth algorithm)",
+      "channel": "GATE Overflow",
+      "url": "https://gateoverflow.in/?qa=blob&qa_blobid=16603857986567646822",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false
+    },
+    {
+      "kind": "text",
+      "title": "Booth Algorithm kya hai? (Booth algorithm in Hindi)",
+      "channel": "eHindiStudy (yugal joshi)",
+      "url": "https://ehindistudy.com/2021/06/13/booth-algorithm-hindi/",
+      "language": "hi",
+      "transcript": "FULL",
+      "translated": true
+    }
+  ],
+  "sourceLine": "The worst case as b/2 additions and b/2 subtractions and the note that the alternating pattern is the worst: GATE Overflow GATE CSE Book, section 2.2.10 (English, read in part). The three pair cases that make 00 and 11 shift-only: eHindiStudy (Hindi, read in full, translated). The two question texts and accepted answers: their GATE Overflow pages. Every count in this card is recomputed in scripts/validate.py rather than taken from any source.",
+  "videoRefs": []
+}

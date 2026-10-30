@@ -3,7 +3,7 @@
  "updated_at": "2026-10-30",
  "cycle": {
   "last_subject": "digital-logic",
-  "last_topic": "sequential-circuits",
+  "last_topic": "computer-arithmetic",
   "updated_at": "2026-10-30"
  },
  "subjects": [
@@ -716,10 +716,35 @@
     {
      "slug": "computer-arithmetic",
      "name": "Computer Arithmetic: Fixed and Floating Point",
-     "status": "not_started",
-     "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
-     "runs": [],
-     "gaps": []
+     "status": "partial",
+     "coverage_note": "12 subtopics, 12 cards (overflow in fixed-point add and subtract, unsigned shift-and-add and the array multiplier, Booth recoding, Booth's operation count, restoring division, non-restoring division, Q-format multiplication, floating-point addition alignment, floating-point multiplication and division, rounding with guard/round/sticky bits and the ulp, precision loss through absorption and cancellation, and fixed point against floating point), 12 verified PYQs and 1 p5.js lesson. Partial because six gaps remain, named below - above all that no video transcript was readable this run.",
+     "runs": [
+      {
+       "date": "2026-10-30",
+       "sources": [
+        "go-gate-cse-book-digital-logic-ch2",
+        "nptel-iitkgp-lecture-39-floating-point-arithmetic",
+        "sarangi-iitd-basiccomparch-ch8-part2",
+        "bhalodia-co2140707-unit-7-computer-arithmetic",
+        "goldberg-what-every-computer-scientist-should-know",
+        "ehindistudy-booth-algorithm-hindi"
+       ],
+       "cards": 12,
+       "pyqs": 12,
+       "lesson": "digital-logic/computer-arithmetic/floating-point-addition-alignment",
+       "note": "Sources chosen on merit across two languages and three institutions: the GATE Overflow GATE CSE Book's digital-logic chapter (English, read in part) for the carry-versus-overflow condition and the full Booth trace; NPTEL IIT Kharagpur Lecture 39 (English, read in part) for the floating-point addition, multiplication and division procedures and the rounding modes; the IIT Delhi Basic Computer Architecture chapter 8 slides (English, read in part) for both division algorithms with traces and proofs, the 25-bit working register, the four rounding modes and the guard/round/sticky rule; a Mano-based Unit 7 deck (English, read in part) for the register-level signed-magnitude framing and Booth's rules in Mano's wording; Goldberg's ACM Computing Surveys paper (English, read in part) for ulps, machine epsilon, guard digits and cancellation; and one Hindi article on Booth's algorithm (read in full, translated - the only translated material in the topic) for the register set and the three pair cases. Rejected with reasons in sources.json: every YouTube lecture in every language (no caption track on any watch page), the neighbouring NPTEL lectures 37, 38 and 40, the Stanford EE486 multiplication and division lectures, the e-PG Pathshala fixed-point module, three PYQs excluded by the schema or by paper, and the answer aggregators."
+      }
+     ],
+     "gaps": [
+      "no video transcript was readable this run: no YouTube watch page carried a caption track and no YouTube lecture is quoted or timestamped, so videoRefs is empty on all twelve cards and the teaching rests on lecture transcripts, published slide decks and texts",
+      "the neighbouring NPTEL IIT Kharagpur lectures 37, 38 and 40 - fixed-point arithmetic, multiplication and division in the same course as the Lecture 39 that was read - answered HTTP 403 from the sandbox on every request; only Lecture 39 was readable, and only through the search service's text extract, so nothing rests on the other three and a later run should retry them first",
+      "the Stanford EE486 lectures 8 and 12, the best-scoped English slide pair on add-and-shift multiplication and non-restoring division, answered 502 from the sandbox, so their digit-set conversion rule and partial-remainder diagrams are not used",
+      "no verified GATE CSE previous-year question exists in this topic for restoring division, non-restoring division, Q-format multiplication, the rounding modes or fixed point against floating point; those five cards carry no PYQ and say so, and the schema cannot hold the descriptive questions that do exist (GATE CSE 1997 Q.72 on floating-point addition with a percentage error, and GATE CSE 1990 Q.8b on Booth's block diagram)",
+      "every PYQ in the topic is SOURCED against an accepted answer rather than key-verified against an official answer key, and no marks field is recorded on any of the twelve: the official papers and keys were not fetched this run",
+      "question numbering disagrees between sites for four of the twelve questions (GATE CSE 2022 Q.41 is Question 31 on GATE Overflow, 2023 Q.45 is Question 35 there, 2025 Set 2 Q.49 is Q.53 on one site, and 2026 Set 1 Q.26 is Q.36 on one site); each record states where the number differs and uses the paper number only where two independent paper listings agree",
+      "two 2026 questions on this topic were seen only in listing pages that strip the options - GATE CSE 2026 Set 2 Q.28 on 4-bit overflow and GATE CSE 2026 Set 1 Q.22 on sign-magnitude overflow - so neither is in the PYQ set and the sign-magnitude path is covered only from the Mano-based deck",
+      "the only non-English source readable was a Hindi article on Booth's algorithm, read in full and translated; no GATE-level Hindi, Tamil, Telugu or Bengali lecture on division or floating-point arithmetic could be read this run, so those cards contain no translated material"
+     ]
     }
    ]
   },

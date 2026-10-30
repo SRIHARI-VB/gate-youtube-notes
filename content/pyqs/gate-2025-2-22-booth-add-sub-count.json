@@ -1,0 +1,15 @@
+{
+  "id": "gate-2025-2-22-booth-add-sub-count",
+  "year": "2025",
+  "paper": "GATE CSE 2025 Set 2",
+  "question_ref": "Q.22",
+  "type": "NAT",
+  "topic": "booths-operation-count",
+  "text": "The following two signed 2's complement numbers (multiplicand M and multiplier Q) are being multiplied using Booth's algorithm: M: 1100110111101101 and Q: 1010010010101010. The total number of addition and subtraction operations to be performed is ______. (Answer in integer)",
+  "answer": "13",
+  "solution": "Only the multiplier matters. Append q(-1) = 0 and read the pairs from the least significant end: 00, 10, 01, 10, 01, 10, 01, 00, 10, 01, 10, 01, 10, 01, 10, 11. That is seven 10 pairs, six 01 pairs and three pairs that only shift, so 6 + 7 = 13 arithmetic operations. M is never used in the count.",
+  "source_url": "https://gateoverflow.in/460813/gate-cse-2025-set-2-question-22",
+  "source_label": "GATE Overflow question page - GATE CSE 2025 Set 2 Q.22 with the accepted answer 13",
+  "verification": "SOURCED",
+  "answer_evidence": "The accepted answer on the page recodes Q and counts 13 non-zero recoded digits; the IAE Academy 2025 Set 2 answer key records 13 for Q.32 and the ExamSIDE page for the same question records 13. Recomputed here by counting transitions: 7 pairs reading 10 and 6 reading 01."
+}

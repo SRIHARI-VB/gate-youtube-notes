@@ -1,0 +1,83 @@
+{
+  "id": "fixed-point-add-subtract-overflow",
+  "title": "Fixed-Point Addition and Subtraction: Overflow Is Not the Carry",
+  "priority": "P1",
+  "order": 462,
+  "unit": "Computer Arithmetic: Fixed and Floating Point",
+  "quickIdea": "One adder does both operations, and signed overflow is not the carry out: it is the case where the carry into the sign column differs from the carry out of it, which is the same as two operands of one sign giving a result of the other.",
+  "remember": [
+    "Add A + B. Subtract A + (invert B) + 1, with the adder's carry-in set to 1. The same n-bit adder serves both.",
+    "Signed overflow: the carry into the sign bit differs from the carry out of the sign bit, that is Cout XOR Cn-1 = 1.",
+    "The equivalent test on the operands alone: A(n-1).B(n-1).S(n-1)' + A(n-1)'.B(n-1)'.S(n-1) = 1, which says same signs in, opposite sign out.",
+    "Operands of opposite signs can never overflow, because their sum lies between them.",
+    "The carry out of the top bit is not overflow: it is what the modulus 2^n absorbs. A carry flag belongs to unsigned arithmetic, an overflow flag to signed arithmetic, and hardware keeps both.",
+    "Subtraction overflows exactly when the operands have opposite signs and the result takes the sign of the subtrahend."
+  ],
+  "example": {
+    "prompt": "In 5 bits, A = 01010 (+10) and B = 11010 (-6). Which of A + B and A - B overflows?",
+    "work": "A - B = A + (-B), and -B is 00101 + 1 = 00110 (+6), so 01010 + 00110 = 10000. Read in 5 bits, 10000 is -16, while the true answer is +16, which is outside -16 to 15. The carry into the sign column is 1 and the carry out of it is 0, so the two disagree. A + B = 01010 + 11010 = 00100 with a carry out of 1: the carry is discarded, the pattern 00100 is +4, which is exactly 10 + (-6), and the signs differ so no overflow was possible.",
+    "answer": "A - B overflows (+16 is out of range); A + B does not, even though it produces a carry out."
+  },
+  "gateAngle": "GATE CSE 2017 Set 1 Q.9 asks for the overflow condition as a Boolean expression in the operand and sum sign bits; GATE CSE 2022 Q.8 and GATE CSE 2024 Set 1 Q.3 give two operands and ask which operation overflows. Both families are decided by the sign rule, and both are faster to answer by converting to decimal and comparing with the range than by adding bit by bit.",
+  "variations": [
+    {
+      "label": "VERIFIED PYQ",
+      "question": "GATE CSE 2017 Set 1 Q.9: two 8-bit numbers A7..A0 and B7..B0 in two's complement are added in a ripple-carry adder, giving sum bits S7..S0 and carries C7..C0. Overflow has occurred if ...",
+      "answer": "(A7.B7.S7' + A7'.B7'.S7) is 1, option (C).",
+      "why": "The two overflow cases are +plus+ giving minus and minus+minus giving plus. Writing them as products of sign bits gives the expression; the carry C7 alone is the unsigned carry and says nothing about signed overflow."
+    },
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "In 6-bit two's complement, does 011011 + 010110 overflow? Answer with both tests.",
+      "answer": "Yes: 27 + 22 = 49, outside -32 to 31, and 011011 + 010110 = 110001 reads as -15, so the sign flipped.",
+      "why": "The decimal test compares the true sum with the range; the sign test looks at the two operands and the sum. Both must agree, and here they do - same signs in, opposite sign out."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "The sign bits of A and B differ. Can A + B overflow? Justify from the formula.",
+      "answer": "No. Every term of A(n-1).B(n-1).S(n-1)' + A(n-1)'.B(n-1)'.S(n-1) needs both operand sign bits to be equal, so the expression is 0.",
+      "why": "The formula is not a shortcut that happens to work; it enumerates exactly the two cases in which the sum can leave the range, and neither exists when the operands have opposite signs."
+    }
+  ],
+  "trap": {
+    "what": "Reading the carry out of the top bit as an overflow, or assuming a subtraction cannot overflow.",
+    "why": "The carry out of an n-bit addition is exactly what the modulus 2^n absorbs, so it is discarded and carries no sign information. Overflow is a statement about the result's sign against the operands' signs, and subtraction is addition of a negated operand, so it overflows whenever the operands end up with the same sign and the result takes the other.",
+    "counterexample": "0x7F + 0x01 = 0x80 with no carry out, yet +127 + 1 = +128 is outside -128 to 127. And 0xFF + 0x01 = 0x00 with a carry out of 1, which is -1 + 1 = 0 and perfectly correct."
+  },
+  "check": {
+    "question": "In 4-bit two's complement, which of 0111 + 0001 and 1011 + 1110 overflows?",
+    "answer": "Only 0111 + 0001.",
+    "explanation": "7 + 1 = 8 is outside -8 to 7, and the sum 1000 reads as -8: same signs in, opposite sign out. 1011 + 1110 = 11001 keeps 1001, which is -7 and equals -5 + -2 exactly; the carry out is discarded and is not an overflow. The second one is the tempting answer because it is the one with a carry."
+  },
+  "pyqIds": [
+    "gate-2017-1-9-overflow-condition",
+    "gate-2022-8-4bit-overflow",
+    "gate-2024-1-3-5bit-overflow"
+  ],
+  "prereqs": [
+    "twos-complement-negation-and-subtraction",
+    "ripple-carry-adder-and-delay"
+  ],
+  "sources": [
+    {
+      "kind": "gate-notes",
+      "title": "GATE CSE Book, Digital Logic chapter (computer arithmetic and Booth algorithm)",
+      "channel": "GATE Overflow",
+      "url": "https://gateoverflow.in/?qa=blob&qa_blobid=16603857986567646822",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false
+    },
+    {
+      "kind": "lecture-slides",
+      "title": "Unit 7 Computer Arithmetic (signed-magnitude addition and subtraction, Booth, division, floating-point operations)",
+      "channel": "Prof. Chirag Bhalodia, CO 2140707, following Mano's Digital Design",
+      "url": "https://csbhalodia.weebly.com/uploads/1/0/2/8/102862858/ch_7_computer_arithmetic.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false
+    }
+  ],
+  "sourceLine": "The carry-versus-overflow distinction and the condition Cout XOR Cn-1: GATE Overflow GATE CSE Book, Digital Logic section 2.2.8 (English, read in part). The signed-magnitude overflow flip-flop, and the statement that integer arithmetic is done in signed two's complement while floating-point mantissas use sign-magnitude: Bhalodia, Unit 7 (English, read in part). The three question texts and accepted answers: their GATE Overflow pages.",
+  "videoRefs": []
+}

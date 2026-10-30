@@ -1,0 +1,21 @@
+{
+  "id": "gate-2000-2-14-float-absorption",
+  "year": "2000",
+  "paper": "GATE CS 2000",
+  "question_ref": "Q.2.14",
+  "type": "MCQ",
+  "topic": "floating-point-precision-loss",
+  "text": "Consider the values of A = 2.0 x 10^30, B = -2.0 x 10^30 and C = 1.0, and the sequence X := A + B; X := X + C; Y := A + C; Y := Y + B, executed on a computer where floating-point numbers are represented with 32 bits. The values for X and Y will be",
+  "options": [
+    "X = 1.0, Y = 1.0",
+    "X = 1.0, Y = 0.0",
+    "X = 0.0, Y = 1.0",
+    "X = 0.0, Y = 0.0"
+  ],
+  "answer": "Option (2) - X = 1.0, Y = 0.0",
+  "solution": "A 32-bit format holds at most 24 significand bits, about 7 decimal digits, while A written out needs about 31 digits. Adding 1.0 to A therefore returns A: the addend is absorbed. So Y = A and Y + B = A - A = 0. X follows the other order: A + B is exactly 0 first, and 0 + C = 1.0. The same three numbers give two different answers, which is the point.",
+  "source_url": "https://gateoverflow.in/661/gate-cse-2000-question-2-14",
+  "source_label": "GATE Overflow question page - GATE CSE 2000 Q.2.14 with the accepted answer (option 2)",
+  "verification": "SOURCED",
+  "answer_evidence": "The accepted answer argues from the 32-bit precision limit that the 31st decimal digit of A is outside the format and picks option 2. Recomputed in single precision here: 2e30 + 1 rounds back to 2e30, so Y = 0.0 and X = 1.0."
+}

@@ -1,0 +1,91 @@
+{
+  "id": "floating-point-multiplication-and-division",
+  "title": "Floating-Point Multiplication and Division: Add the Exponents, Subtract the Bias",
+  "priority": "P1",
+  "order": 470,
+  "unit": "Computer Arithmetic: Fixed and Floating Point",
+  "quickIdea": "Multiply the significands, add the two biased exponents and subtract the bias once; for division subtract the exponents and add the bias once. The sign is the XOR of the signs.",
+  "remember": [
+    "Multiplication: E_result = E1 + E2 - bias, because each stored exponent already carries the bias once.",
+    "Division: E_result = E1 - E2 + bias, because the subtraction cancels both biases and one has to be put back.",
+    "Significands: 1.F1 x 1.F2 lies in [1,4), so at most one right shift is needed; 1.F1 / 1.F2 lies in (0.5,2), so at most one left shift.",
+    "The sign is s1 XOR s2. A zero operand is special-cased before any of this.",
+    "Overflow and underflow are decided by the exponent after the correction: above the largest normal field means infinity, below the smallest means zero or a subnormal.",
+    "Multiplication cannot overflow the significand, which is why the standard notes say no overflow check is needed there - but the exponent can still overflow, and the check belongs on the exponent field."
+  ],
+  "example": {
+    "prompt": "GATE CSE 2023 Q.45: P = 0xC1800000 and Q = 0x3F5C2EF4. Find P x Q.",
+    "work": "P: sign 1, exponent field 1000 0011 = 131, so the exponent is 4; the fraction is all zeros, so P = -1.0 x 2^4 = -16. Q: sign 0, exponent field 0111 1110 = 126, so the exponent is -1; the fraction is 10111000010111011110100, so Q = 1.10111000010111011110100 x 2^-1 = about 0.8601. Product: sign 1 XOR 0 = 1; exponent field 131 + 126 - 127 = 130 = 1000 0010; significand 1.0 x 1.1011... = 1.1011..., already in [1,2). The word is 1 1000 0010 1011 1000 0101 1101 1110 100.",
+    "answer": "0xC15C2EF4, which is -1.10111000010111011110100 x 2^3 = about -13.7615."
+  },
+  "gateAngle": "GATE CSE 2023 Q.45 asks for the product of two hex words, and GATE CSE 2025 Set 2 Q.49 asks which linear combinations of three such words are zero - the first is the multiply rule directly, the second needs the values and then the scaling.",
+  "variations": [
+    {
+      "label": "VERIFIED PYQ",
+      "question": "GATE CSE 2023 Q.45: P = 0xC1800000 and Q = 0x3F5C2EF4. Which is P x Q in single precision: 0x404C2EF4, 0x405C2EF4, 0xC15C2EF4 or 0xC14C2EF4?",
+      "answer": "0xC15C2EF4, option (C).",
+      "why": "The sign is the XOR, so the product is negative; 131 + 126 - 127 = 130 gives the exponent field; and multiplying by 1.0 leaves Q's fraction untouched. Forgetting the bias correction gives 0x405C2EF4, the sign error gives 0xC14C2EF4."
+    },
+    {
+      "label": "VERIFIED PYQ",
+      "question": "GATE CSE 2025 Set 2 Q.49: RX = 0xC1100000, RY = 0x40C00000, RZ = 0x41400000. Which of 4(X + Y) + Z = 0, 2Y - Z = 0, 4X + 3Z = 0, X + Y + Z = 0 is/are correct?",
+      "answer": "The first three, options (A), (B) and (C).",
+      "why": "X = -9, Y = 6 and Z = 12, so 4(-9 + 6) + 12 = 0, 2(6) - 12 = 0 and 4(-9) + 3(12) = 0, while X + Y + Z = 9."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "What is 0.5 x (-0.75) in single precision, by the rule?",
+      "answer": "-0.375, with exponent field 125.",
+      "why": "1.000 x 2^-1 times 1.100 x 2^-1: exponent field 126 + 126 - 127 = 125, significand 1.1, sign 1. So -1.1 x 2^-2 = -0.375, and no renormalisation was needed because 1.0 x 1.1 stayed below 2."
+    }
+  ],
+  "trap": {
+    "what": "Forgetting to subtract the bias once in a product, or adding it in a quotient, and taking the sign as the product of the sign bits instead of their XOR.",
+    "why": "Each stored exponent carries the bias, so a sum carries it twice and a difference carries it zero times. The sign bit is a sign, not a magnitude, so multiplying it is only coincidence for 0 and 1.",
+    "counterexample": "In GATE CSE 2023 Q.45 the uncorrected exponent 131 + 126 = 257 does not even fit the field; correcting by the bias gives 130, which is the right answer, while option 0x405C2EF4 comes from 131 + 127."
+  },
+  "check": {
+    "question": "Multiply 1.1 x 2^3 by 1.1 x 2^2 in the same format. What are the exponent field and significand before rounding?",
+    "answer": "Significand 10.01, so after normalisation 1.001 and the exponent is 6.",
+    "explanation": "1.1 x 1.1 = 10.01, which is 2.25 and lies in [1,4): one right shift gives 1.001 and increments the exponent by one, and 1.001 x 2^6 = 72 = 12 x 6."
+  },
+  "pyqIds": [
+    "gate-2023-45-fp-product",
+    "gate-2025-2-49-fp-register-identities"
+  ],
+  "prereqs": [
+    "ieee-754-single-precision-layout",
+    "floating-point-addition-alignment"
+  ],
+  "sources": [
+    {
+      "kind": "lecture-transcript",
+      "title": "Lecture 39 - Floating-Point Arithmetic",
+      "channel": "NPTEL, Computer Architecture and Organization (Prof. Indranil Sengupta, IIT Kharagpur)",
+      "url": "http://digimat.in/nptel/courses/video/106105163/lec39.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false
+    },
+    {
+      "kind": "lecture-slides",
+      "title": "Chapter 8: Computer Arithmetic (Part II) - division, floating-point addition, multiplication, division and rounding",
+      "channel": "Prof. Smruti Ranjan Sarangi, IIT Delhi, Basic Computer Architecture (slides read through a published slide transcript)",
+      "url": "https://www.slideorbit.com/slide/computer-arithmetic-in-basic-computer-architecture/178376",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false
+    },
+    {
+      "kind": "lecture-slides",
+      "title": "Unit 7 Computer Arithmetic (signed-magnitude addition and subtraction, Booth, division, floating-point operations)",
+      "channel": "Prof. Chirag Bhalodia, CO 2140707, following Mano's Digital Design",
+      "url": "https://csbhalodia.weebly.com/uploads/1/0/2/8/102862858/ch_7_computer_arithmetic.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false
+    }
+  ],
+  "sourceLine": "The multiplication and division rules, the double-biased exponent and the one subtraction of the bias, the 24-bit multiplier and divider and the four rounding modes: NPTEL IIT Kharagpur Lecture 39 (English, read in part). The E1 + E2 - bias and E1 - E2 + bias forms with the sign as the XOR, and the normalisation after the significand product: Sarangi, chapter 8 slides (English, read in part), whose worked example is 0.5 x -0.75. The rules of the multiplication algorithm and the note that no overflow check is needed: Bhalodia, Unit 7 (English, read in part) - the card narrows that note to the significand, because the exponent can overflow. The two question texts and accepted answers: their GATE Overflow and IAE Academy paper pages.",
+  "videoRefs": []
+}

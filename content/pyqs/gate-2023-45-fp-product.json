@@ -1,0 +1,21 @@
+{
+  "id": "gate-2023-45-fp-product",
+  "year": "2023",
+  "paper": "GATE CSE 2023",
+  "question_ref": "Q.45",
+  "type": "MCQ",
+  "topic": "floating-point-multiplication-and-division",
+  "text": "Consider the IEEE-754 single precision floating point numbers P = 0xC1800000 and Q = 0x3F5C2EF4. Which one of the following corresponds to the product of these numbers (i.e., P x Q), represented in the IEEE-754 single precision format?",
+  "options": [
+    "0x404C2EF4",
+    "0x405C2EF4",
+    "0xC15C2EF4",
+    "0xC14C2EF4"
+  ],
+  "answer": "Option (C) - 0xC15C2EF4",
+  "solution": "P: sign 1, exponent field 1000 0011 = 131, so the exponent is 4, and the fraction is all zeros, so P = -1.0 x 2^4 = -16. Q: sign 0, exponent field 0111 1110 = 126, so the exponent is -1, fraction 10111000010111011110100. Product: sign 1 XOR 0 = 1; exponent field 131 + 126 - 127 = 130 = 1000 0010; significand 1.0 x 1.1011... = 1.1011..., already normal. So the word is 1 1000 0010 1011 1000 0101 1101 1110 100 = 0xC15C2EF4. The option 0x405C2EF4 omits the bias correction, and 0xC14C2EF4 comes from the wrong exponent sum.",
+  "source_url": "https://gateoverflow.in/399276/gate-cse-2023-question-35",
+  "source_label": "GATE Overflow question page - GATE CSE 2023 Q.45 (the page is titled Question: 35) with the accepted answer (option C)",
+  "verification": "SOURCED",
+  "answer_evidence": "The accepted answer decodes both operands, computes 131 + 126 - 127 = 130 and reaches 0xC15C2EF4; the IAE Academy 2023 paper page records the official option as C. Recomputed here: -16 x 0.8600914478 = -13.761463, which encodes as 0xC15C2EF4 in single precision."
+}

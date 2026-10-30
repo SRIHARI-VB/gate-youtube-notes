@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Floating-point addition alignment - Computer Arithmetic visual lesson</title>
+<link rel="stylesheet" href="../../../lesson.css">
+<script src="https://cdn.jsdelivr.net/npm/p5@1.9.4/lib/p5.min.js"></script>
+</head>
+<body>
+<div class="wrap">
+  <p class="small"><a href="../../../../index.html">&larr; back to the revision site</a></p>
+  <h1>Floating-Point Addition: Align, Add, Normalise, Encode</h1>
+  <div class="objective"><strong>Objective.</strong> Add two IEEE 754 single-precision words the way the hardware does - read the exponent fields, shift the smaller significand right by the difference, add the significands, check the normal form, then encode. The operands are X = 0x35C00000 and Y = 0x34A00000, the two words of GATE CSE 2026 Set 1 Q.26, so the animation and a verified previous-year question share one computation.</div>
+
+  <div class="canvas-wrap"><div id="canvas-holder"></div></div>
+  <div class="caption" id="caption" aria-live="polite"></div>
+
+  <div class="controls">
+    <button id="play" class="primary">Play</button>
+    <button id="prev">&larr; Prev</button>
+    <button id="next">Next &rarr;</button>
+    <button id="restart">Restart</button>
+    <span class="speed"><label for="speed">Speed</label>
+      <input id="speed" type="range" min="0.25" max="2" step="0.25" value="1">
+      <span id="speedLabel">1.00x</span></span>
+    <span class="counter" id="counter"></span>
+  </div>
+
+  <h2>Static explanation</h2>
+  <p>Single precision is one sign bit, eight exponent bits and twenty-three fraction bits, always cut from the left of the 32-bit word. X = 0x35C00000 expands to 0011 0101 1100 ..., so its sign is 0, its exponent field is 0110 1011 = 107 and its fraction begins 1000. Y = 0x34A00000 has sign 0, exponent field 0110 1001 = 105 and fraction beginning 0100.</p>
+  <p>The stored exponent carries a bias of 127, so the exponents in the values are 107 - 127 = -20 and 105 - 127 = -22. Written in normal form, X = 1.1 x 2^-20 and Y = 1.01 x 2^-22. Two numbers can only be added when their binary points line up, so Y's significand is shifted right by the exponent difference of 2 and its exponent is raised to -20: 1.01 becomes 0.0101.</p>
+  <p>Adding the aligned significands gives 1.1000 + 0.0101 = 1.1101 at exponent -20. That lies in [1, 2), so it is already normal and neither the significand nor the exponent moves. The result's sign is 0, its exponent field is -20 + 127 = 107 = 0110 1011, and its fraction is 1101 followed by zeros, so the word is 0011 0101 1110 1000 0000 0000 0000 0000, that is 0x35E80000.</p>
+  <p>Read back, 1.1101 x 2^-20 is 1.8125 x 2^-20 = 1.7285e-6, which is 1.4305e-6 + 2.9802e-7 - exactly X plus Y. The check matters: a floating-point addition is right only when the encoded result decodes to the sum of the two values.</p>
+
+  <div class="card warn"><div class="label">Common misconception</div><p>Three mistakes dominate. Shifting the larger significand instead of the smaller one, which raises the exponent that should have stayed put. Adding the significands and encoding the sum without the normal-form check, so a carry that reaches 2 is never shifted back. And believing that alignment is lossless: adding 1.0 to 2^-30 in single precision gives exactly 1.0, because the addend is shifted 30 places right, past all 24 stored bits, and rounds away entirely. That is why floating-point addition is not associative.</p></div>
+  <div class="card ok"><div class="label">Quick check</div><p>Add 1.1 x 2^3 and 1.1 x 2^2 in the same format. What is the normalised result, and what has to happen to the exponent?</p><details><summary>Answer</summary><p><strong>1.001 x 2^4.</strong> Align by shifting the smaller significand two places: 1.1 + 0.11 = 10.01 at exponent 3. That is 2.25 x 8 = 18, and it is not in [1, 2), so it shifts right once to 1.001 and the exponent increments to 4. Checking: 1.001 x 16 = 18.</p></details></div>
+  <p class="small">Topic: Computer Arithmetic: Fixed and Floating Point (Digital Logic), subtopics floating-point addition and subtraction (alignment, normalisation, rounding) and precision loss through absorption. The four-step procedure, the hardware that implements it and the rounding step: NPTEL IIT Kharagpur Lecture 39, Computer Architecture and Organization (English), read in part. The 25-bit working register and the renormalisation rule: Prof. Smruti Ranjan Sarangi, IIT Delhi, Basic Computer Architecture chapter 8 slides (English), read in part. The guarded and sticky rounding decision: the same slides, with Goldberg's ACM Computing Surveys paper for the ulp. Every number shown here is recomputed in scripts/validate.py.</p>
+</div>
+<script src="../../../lesson.js"></script>
+<script src="sketch.js"></script>
+<script>
+/* p5.js is loaded from a CDN. If it is unreachable, say so plainly instead of showing an empty box. */
+window.addEventListener('load', function () {
+  if (window.p5) { return; }
+  var holder = document.getElementById('canvas-holder');
+  if (holder) {
+    holder.innerHTML = '<div style="padding:22px 18px;font-size:14.5px;color:#4a5260">' +
+      'The animation needs p5.js, which this page loads from a CDN, and the request failed (offline, or the CDN is blocked). ' +
+      'Everything below still works: the static explanation, the misconception and the quick check.</div>';
+  }
+  var cap = document.getElementById('caption');
+  if (cap && window.LESSON && window.LESSON.steps && window.LESSON.steps[0]) {
+    cap.innerHTML = window.LESSON.steps[0].caption;
+  }
+  ['play', 'prev', 'next', 'restart', 'speed'].forEach(function (id) {
+    var el = document.getElementById(id);
+    if (el) { el.disabled = true; }
+  });
+});
+</script>
+</body>
+</html>

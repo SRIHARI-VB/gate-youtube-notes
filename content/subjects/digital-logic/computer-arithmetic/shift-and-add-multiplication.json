@@ -1,0 +1,81 @@
+{
+  "id": "shift-and-add-multiplication",
+  "title": "Unsigned Multiplication: Shift and Add, and the 2n-Bit Product",
+  "priority": "P1",
+  "order": 463,
+  "unit": "Computer Arithmetic: Fixed and Floating Point",
+  "quickIdea": "Multiplying two n-bit numbers is n shifted copies of the multiplicand added one at a time, and the answer needs 2n bits.",
+  "remember": [
+    "n bits times n bits needs 2n bits: the largest product of two n-bit unsigned numbers is (2^n - 1)^2, which is below 2^2n.",
+    "Shift and add: scan the multiplier from its least significant bit; where the bit is 1 add the multiplicand shifted by that position.",
+    "The partial product for multiplier bit i is the multiplicand AND that bit, placed i positions to the left.",
+    "The array multiplier is that sum in hardware: n rows of AND gates and a chain of adders, one row per partial product.",
+    "With unit gate delay the array multiplier's delay is Theta(n), not Theta(n^2): the carry crosses n rows of adders, and each row is one adder delay.",
+    "Keeping only the low n bits of the product is a deliberate truncation, and it is what a 32-bit int multiply of two 32-bit ints does."
+  ],
+  "example": {
+    "prompt": "Multiply 13 by 11 as two 4-bit unsigned numbers, and say how wide the exact product is.",
+    "work": "13 is 1101 and 11 is 1011. Partial products: 1101 (for the 1 in position 0), 11010 (position 1), 000000 (position 2, where the multiplier bit is 0), 1101000 (position 3). Adding them: 0001101 + 0011010 = 0100111; + 1101000 = 10001111. That is 143 = 13 x 11, and it occupies 8 bits.",
+    "answer": "1000 1111, an 8-bit product from two 4-bit operands."
+  },
+  "gateAngle": "GATE CSE 2003 Q.11 asks for the delay of an n-bit array multiplier with unit-delay gates: Theta(n). The 2n-bit width is the other half of the examinable fact, and it is what makes the product of two 8-bit numbers a 16-bit ROM word in GATE CSE 1996 Q.1.21 (carded under Combinational Circuits).",
+  "variations": [
+    {
+      "label": "VERIFIED PYQ",
+      "question": "GATE CSE 2003 Q.11: in an array multiplier for two n-bit numbers, with unit delay per gate, the total delay is Theta(1), Theta(log n), Theta(n) or Theta(n^2)?",
+      "answer": "Theta(n), option (C).",
+      "why": "The partial products are formed in parallel; what remains is a chain of n adders whose carry must cross the rows, so the delay grows linearly even though the gate count grows quadratically."
+    },
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "How many bits does the exact product of two 8-bit unsigned numbers need, and why is 15 not enough?",
+      "answer": "16 bits: 255 x 255 = 65025, which is larger than 2^15 - 1 = 32767.",
+      "why": "The bound is (2^n - 1)^2 = 2^2n - 2^(n+1) + 1, which is just below 2^2n, so 2n bits are necessary and 2n-1 are not."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "A shift-and-add multiplier is built with an 8-bit accumulator for two 8-bit operands. Which inputs break it, and how?",
+      "answer": "Any pair whose product exceeds 255, for example 16 x 16 = 256, which is stored as 0000 0000.",
+      "why": "The high half of the product is discarded, and the failure is silent - the low half is still a correct 8-bit pattern, just not the product."
+    }
+  ],
+  "trap": {
+    "what": "Assuming the product fits in n bits, or assuming an array multiplier's delay is quadratic because its gate count is.",
+    "why": "The product needs 2n bits by the bound (2^n - 1)^2 < 2^2n, and delay follows the carry path through the rows of adders, not the number of gates.",
+    "counterexample": "13 x 11 = 143 needs 8 bits; truncated to 4 it reads 1111 = -1 in two's complement. And a 4-bit array multiplier has 16 AND gates but a delay of three adder delays plus one AND delay."
+  },
+  "check": {
+    "question": "In 6 bits, what is 45 x 3, and what does a 6-bit accumulator hold?",
+    "answer": "135, which needs 8 bits; the 6-bit accumulator holds 7 (000111).",
+    "explanation": "135 = 128 + 7, and dropping the top two bits leaves 7. The truncation is 135 mod 64, which is exactly the wrap-around of the low half."
+  },
+  "pyqIds": [
+    "gate-2003-11-array-multiplier-delay"
+  ],
+  "prereqs": [
+    "half-adder-and-full-adder",
+    "unsigned-fixed-width-range"
+  ],
+  "sources": [
+    {
+      "kind": "gate-notes",
+      "title": "GATE CSE Book, Digital Logic chapter (computer arithmetic and Booth algorithm)",
+      "channel": "GATE Overflow",
+      "url": "https://gateoverflow.in/?qa=blob&qa_blobid=16603857986567646822",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false
+    },
+    {
+      "kind": "lecture-slides",
+      "title": "Chapter 8: Computer Arithmetic (Part II) - division, floating-point addition, multiplication, division and rounding",
+      "channel": "Prof. Smruti Ranjan Sarangi, IIT Delhi, Basic Computer Architecture (slides read through a published slide transcript)",
+      "url": "https://www.slideorbit.com/slide/computer-arithmetic-in-basic-computer-architecture/178376",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false
+    }
+  ],
+  "sourceLine": "The partial products and the array multiplier's structure and delay: GATE Overflow GATE CSE Book, Digital Logic sections 2.2.2 and 2.2.8 (English, read in part), whose own worked multiplication is 01011 x 01110. The row-of-adders picture and the integer-division preamble on N = DQ + R: Sarangi, chapter 8 slides (English, read in part). The 1996 ROM-width question is carded under Combinational Circuits, not repeated here.",
+  "videoRefs": []
+}

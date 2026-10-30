@@ -1,0 +1,240 @@
+{
+  "subject": "digital-logic",
+  "topic": "computer-arithmetic",
+  "exam": "GATE CSE 2027",
+  "retrieved_at": "2026-10-30",
+  "subtopics": [
+    "fixed-point addition and subtraction in hardware, and the signed overflow test (carry into the sign column against carry out of it)",
+    "unsigned shift-and-add multiplication, the 2n-bit product, and the array multiplier's delay",
+    "Booth recoding: the pair table, the run-of-ones identity, and the step-by-step algorithm",
+    "the count of additions and subtractions Booth's algorithm performs, and the worst and best multiplier patterns",
+    "restoring division and the restore step",
+    "non-restoring division, its quotient-digit set and its final correction",
+    "fixed-point fractional (Q-format) multiplication and the shift back to the input format",
+    "floating-point addition and subtraction: alignment, normalisation, rounding",
+    "floating-point multiplication and division: significands, biased exponents, sign",
+    "IEEE rounding modes, guard, round and sticky bits, and the ulp",
+    "precision loss: absorption, catastrophic cancellation and non-associativity",
+    "fixed point against floating point: range, spacing and relative error"
+  ],
+  "chosen": [
+    {
+      "id": "go-gate-cse-book-digital-logic-ch2",
+      "kind": "gate-notes",
+      "title": "GATE CSE Book, Digital Logic chapter - computer arithmetic, real-number representation and Booth algorithm",
+      "channel": "GATE Overflow (Arjun Suresh, Praneeth, Ananya Mukhopadhyay and the GATE CSE members)",
+      "url": "https://gateoverflow.in/?qa=blob&qa_blobid=16603857986567646822",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "covers": [
+        "carry against overflow, and the condition Cout XOR Cn-1 = 1 with its same-sign restatement",
+        "the IEEE 754 single-precision layout, the bias and the implied leading 1, worked on 0.75",
+        "the Booth pair table, the run-of-ones identity 2^(k+1) - 2^m, and the full 01011 x 01110 trace reaching 154",
+        "radix-4 Booth recoding with the three-bit table, and the b/2 additions and b/2 subtractions worst case",
+        "the note that the alternating pattern is the worst case for Booth",
+        "the ROM size for a multiplier table, which is carded under Combinational Circuits"
+      ],
+      "why": "The only source read this run that states the GATE-level facts in GATE's own words and then works a full Booth trace. Its overflow condition, its Booth trace and its worst-case sentence are the three claims that the overflow and Booth cards are built on, and its radix-4 table is the material behind the operation-count card's last remember line. Read in part: the whole of sections 2.2.7 to 2.2.10, which is the digital-logic half of the book, and nothing beyond."
+    },
+    {
+      "id": "nptel-iitkgp-lecture-39-floating-point-arithmetic",
+      "kind": "lecture-transcript",
+      "title": "Lecture 39 - Floating-Point Arithmetic",
+      "channel": "NPTEL, Computer Architecture and Organization (Prof. Indranil Sengupta, IIT Kharagpur)",
+      "url": "http://digimat.in/nptel/courses/video/106105163/lec39.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "covers": [
+        "floating-point addition and subtraction as one procedure: compare the exponents, shift the smaller mantissa right by the difference, add or subtract, normalise",
+        "the 270.75 + 2.375 worked example and the 224 - 270.75 example that needs a three-place left shift after the subtraction",
+        "the adder's hardware: an 8-bit exponent ALU, a comparator, a right shifter, an add/subtract unit and a normaliser",
+        "multiplication: add the two exponents and subtract the bias once, multiply the mantissas, XOR the signs, normalise",
+        "division: subtract the exponents, add the bias once, divide the mantissas, normalise",
+        "the 24-bit multiplier and divider, and the four rounding modes (truncation, ceiling, floor, round) with the MIPS instructions that select them"
+      ],
+      "why": "The only lecture transcript of this topic whose text could be read at all this run, and it is the sequence the syllabus line describes: addition, then multiplication, then division, then rounding. It supplies the two worked addition examples that make the alignment step concrete and the double-bias correction that the multiplication card turns on. Read in part: the served text runs from the opening through the addition hardware and the first half of the rounding discussion, then jumps to the MIPS material, so the middle of the lecture is missing and nothing is claimed about it."
+    },
+    {
+      "id": "sarangi-iitd-basiccomparch-ch8-part2",
+      "kind": "lecture-slides",
+      "title": "Chapter 8: Computer Arithmetic (Part II) - integer division, floating-point addition, multiplication, division and rounding",
+      "channel": "Prof. Smruti Ranjan Sarangi, IIT Delhi, Basic Computer Architecture (slides read through a published slide transcript)",
+      "url": "https://www.slideorbit.com/slide/computer-arithmetic-in-basic-computer-architecture/178376",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "covers": [
+        "the division properties R < D and Q maximal, and the reduction N = DQ + R",
+        "the restoring algorithm with the 00111 / 0011 trace reaching quotient 0010 and remainder 0001, and its proof",
+        "the non-restoring algorithm, its 11101 ... 11110 trace on the same division, the divergence proof, and the closing U = U + D correction",
+        "the 25-bit working register for addition, alignment by shifting the smaller significand, and renormalisation after a carry",
+        "the four IEEE rounding modes with the increment condition for each, guard, round and sticky bits, and renormalisation after rounding",
+        "the 2.34 x 10^2 + 0.0256 x 10^2 rounding example that differs with and without guard bits",
+        "floating-point multiplication as E1 + E2 - bias and division as E1 - E2 + bias, with the sign as the XOR",
+        "the 0.5 x -0.75 multiplication example, and the normal and denormal forms 1 <= P < 2 and 0 <= P < 1"
+      ],
+      "why": "The only source read this run that teaches both division algorithms with a complete worked trace and a proof, and the only one that gives the guard, round and sticky increment rule. Four cards rest on it: the two division cards, the rounding card and the multiplication card. Read in part: the transcript carries the division section, the addition and rounding sections and the multiplication section; the floating-point division and Goldschmidt material at the end was not needed and is not claimed."
+    },
+    {
+      "id": "bhalodia-co2140707-unit-7-computer-arithmetic",
+      "kind": "lecture-slides",
+      "title": "Unit 7 Computer Arithmetic - addition and subtraction, Booth multiplication, division, floating-point operations",
+      "channel": "Prof. Chirag Bhalodia, CO 2140707, following Mano's Digital Design",
+      "url": "https://csbhalodia.weebly.com/uploads/1/0/2/8/102862858/ch_7_computer_arithmetic.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "covers": [
+        "fixed point and floating point as the two data types, and the point as an interpretation of the same bits",
+        "signed-magnitude addition and subtraction with the E and AVF flip-flops, and the statement that integer arithmetic is done in signed two's complement",
+        "Booth's rules in Mano's wording: subtract on the first 1 of a run, add on the first 0, and the 001110 = 2^4 - 2^1 identity",
+        "the restoring division steps: shift, subtract, test the sign, restore or set the bit",
+        "the rules of floating-point multiplication (add the exponents and subtract the bias) and division (subtract the exponents), and the note that no overflow check is needed"
+      ],
+      "why": "The only source read this run that gives Mano's register-level framing - the E and AVF flip-flops, the signed-magnitude path, and the explicit statement that machines do integer arithmetic in two's complement while floating-point mantissas are sign-magnitude. That framing is what the overflow card's first two remember lines rest on, and its Booth rules confirm the GATE Overflow pair table from a second, independent text. Read in part: the outline, the addition and subtraction section, the Booth section, the division steps and the floating-point multiplication and division rules; the BCD adder and decimal arithmetic unit at the end are outside this topic."
+    },
+    {
+      "id": "goldberg-what-every-computer-scientist-should-know",
+      "kind": "text",
+      "title": "What Every Computer Scientist Should Know About Floating-Point Arithmetic",
+      "channel": "David Goldberg, ACM Computing Surveys 23(1), March 1991",
+      "url": "https://itu.dk/~sestoft/bachelor/IEEE754_article.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "covers": [
+        "why a real number is not representable: the infinite binary expansion of 0.1, and the out-of-range case",
+        "normalised form, the significand against the older word mantissa, and the need to reserve one exponent value for zero",
+        "relative error measured in ulps against machine epsilon, and the wobble of the ulp error by a factor of the base",
+        "guard digits, and Theorem 1 that a subtraction without a guard digit has relative error as large as the base minus one",
+        "Theorem 2: one guard digit bounds the relative error of a sum or difference by 2 epsilon",
+        "benign against catastrophic cancellation, and the requirement that basic operations be correctly rounded"
+      ],
+      "why": "The only source read this run that explains why the ulp is the right measure and why cancellation is catastrophic rather than merely inaccurate, and the one that states the two theorems the rounding card's error bound rests on. The precision-loss card and the fixed-versus-floating card both draw on it. Read in part: sections 1.1 to 1.5, the rounding-error chapter, and the opening of the IEEE standard chapter; the systems-aspects and details chapters were not read."
+    },
+    {
+      "id": "ehindistudy-booth-algorithm-hindi",
+      "kind": "text",
+      "title": "Booth Algorithm kya hai? - Computer Architecture (Booth algorithm in Hindi)",
+      "channel": "eHindiStudy (yugal joshi)",
+      "url": "https://ehindistudy.com/2021/06/13/booth-algorithm-hindi/",
+      "language": "hi",
+      "transcript": "FULL",
+      "translated": true,
+      "covers": [
+        "Booth as a multiplication algorithm for two signed integers held in two's complement",
+        "the run-of-ones identity, a string of 1s from weight 2^k to 2^m read as 2^(k+1) - 2^m",
+        "the register set: multiplicand in M, multiplier in Q, AC cleared, one extra bit q(-1) cleared, and a sequence counter SC",
+        "the three pair cases: 00 or 11 shift only, 01 adds the multiplicand to AC, 10 subtracts it",
+        "the result appearing in the AC and QR registers"
+      ],
+      "why": "Chosen deliberately so the topic is not built from English alone, and it is the only non-English source read this run. It is the clearest short statement in any of the six sources of the register set and of the three pair cases, which is the vocabulary a large part of the GATE audience meets first. Read in full and translated into English here; every claim it contributes is recomputed in scripts/validate.py, because a translation sits between the source and the reader. Two statements in it are wrong against the standard treatment - that q(-1) is 'Qn incremented by 1', and that the loop stops after 'n-1 bits' - so neither is used, and the disagreement is recorded on the card rather than smoothed over."
+    }
+  ],
+  "rejected": [
+    {
+      "id": "youtube-lectures-any-language",
+      "kind": "video",
+      "channel": "Every YouTube lecture tried, including the Gate Smashers and Knowledge Gate computer-arithmetic lectures (Hindi and Hinglish) and the English GATE-coaching uploads on Booth's algorithm, restoring division and floating-point arithmetic",
+      "why": "No watch page carried a caption track this run, so nothing could be quoted or timestamped and no card cites a video. This is the same wall the last three runs hit. The topic therefore rests on lecture transcripts and slide decks that exist as text, which is why the NPTEL transcript and the IIT Delhi slides carry so much of the weight."
+    },
+    {
+      "id": "nptel-iitkgp-lectures-37-38-and-40",
+      "kind": "lecture-transcript",
+      "channel": "NPTEL, Computer Architecture and Organization (Prof. Indranil Sengupta, IIT Kharagpur), the neighbouring lectures on fixed-point arithmetic, multiplication and division",
+      "why": "The obvious continuation of the one lecture that was readable - Lecture 39 sits between them in the same course, and they would have carried the fixed-point multiplication and division material in the same voice. They were not retrievable this run: the digimat.in host answers HTTP 403 to every request from the sandbox, and only Lecture 39 could be read at all, through the search service's text extract. A later run should retry these three before looking anywhere else."
+    },
+    {
+      "id": "stanford-ee486-lectures-8-and-12",
+      "kind": "lecture-slides",
+      "channel": "Stanford EE 486, lecture 8 (integer multiplication, add-and-shift and Booth) and lecture 12 (division, non-restoring and SRT)",
+      "url": "https://web.stanford.edu/class/ee486/doc/lecture8.pdf",
+      "why": "The best-scoped English slide pair on the two fixed-point algorithms, with the digit-set conversion rule for non-restoring division and the partial-remainder diagrams. Both PDFs answered 502 from the sandbox and only a fragment of lecture 8 came back through the search service, so nothing rests on them. The IIT Delhi slides cover the same two algorithms with a full trace, which is why they were chosen instead."
+    },
+    {
+      "id": "chirag-bhalodia-decimal-arithmetic-unit",
+      "kind": "lecture-slides",
+      "channel": "The BCD adder and decimal arithmetic unit sections of the same Unit 7 deck",
+      "why": "Read but deliberately not used: decimal arithmetic is outside the syllabus line's 'fixed and floating point' and the repository's Digital Logic topics do not enumerate it. Named here so a later run does not treat the omission as an oversight."
+    },
+    {
+      "id": "epgp-fixed-point-arithmetic-unit-2",
+      "kind": "text",
+      "channel": "e-PG Pathshala, Fixed Point Arithmetic Unit II (Booth's principle, bit-pair recoding, carry-save addition)",
+      "why": "Right topic and readable, and its bit-pair recoding table is the radix-4 Booth material. Rejected because the recoding it teaches beyond the two-bit table - carry-save addition, CSA trees, bit-pair multipliers - is outside the three words of this syllabus line, and the two-bit table is already covered by the GATE Overflow book, which also works a full trace. A later run that decides radix-4 Booth belongs in the syllabus should start here."
+    },
+    {
+      "id": "gate-1997-72-floating-point-addition",
+      "kind": "pyq",
+      "channel": "GATE CSE 1997 Q.72 - represent 54.75 and 9.75 in a given f/e format, show the floating-point addition, and give the percentage error",
+      "url": "https://gateoverflow.in/19702/gate-cse-1997-question-72",
+      "why": "The single best matched floating-point-addition question in the CSE record, and it is excluded only because it is descriptive - three parts, no options - and the repository's PYQ schema holds MCQ, MSQ and NAT records. The alignment card covers the same computation with 2026 Set 1 Q.26 instead. Its accepted answer is also worth knowing: it truncates B's mantissa to six bits before adding, which is exactly the loss the card warns about."
+    },
+    {
+      "id": "gate-1990-8b-booth-descriptive",
+      "kind": "pyq",
+      "channel": "GATE CSE 1990 Q.8b - state Booth's algorithm and draw the block diagram for 8-bit signed numbers",
+      "url": "https://gateoverflow.in/85671/gate-cse-1990-question-8b",
+      "why": "A genuine CSE question on this exact topic, and descriptive, so it cannot be stored in the MCQ/MSQ/NAT schema. Its accepted answer is the source of the q(-1) and arithmetic-shift wording that the Booth card uses, and the card says so."
+    },
+    {
+      "id": "gate-1987-1-vii-excess-n-exponent",
+      "kind": "pyq",
+      "channel": "GATE CSE 1987 Q.1-vii - the exponent of a floating-point number is in excess-N code so that ...",
+      "url": "https://gateoverflow.in/80201/gate-cse-1987-question-1-vii",
+      "why": "A verified CSE question, but it is about the representation of the exponent, not about arithmetic, and that material is already carded in Number Systems under the biased-exponent card. Excluded here rather than counted twice."
+    },
+    {
+      "id": "gate-it-2008-42-booth-count",
+      "kind": "pyq",
+      "channel": "GATE IT 2008 Q.42 - how many additions and subtractions Booth's algorithm needs for a given pair",
+      "url": "https://gateoverflow.in/3352/gate-it-2008-question-42",
+      "why": "A well-matched question on the operation count with the accepted answer 8, and one a careless index lists as a CSE question. Excluded because it belongs to the Information Technology paper, and this repository does not mix papers."
+    },
+    {
+      "id": "gate-2026-set2-q28-and-set1-q22-overflow-msq",
+      "kind": "pyq",
+      "channel": "GATE CSE 2026 Set 2 Q.28 (four 4-bit numbers, which operations overflow) and GATE CSE 2026 Set 1 Q.22 (two sign-magnitude 8-bit operands)",
+      "why": "Both were seen only in listing pages that render the options as stripped text, and neither question page was read this run. The overflow card already carries three verified questions, so nothing was lost by leaving these two out; a later run should read both, because the sign-magnitude one tests a representation the card mentions only in passing."
+    },
+    {
+      "id": "answer-aggregators-computer-arithmetic",
+      "kind": "pyq-index",
+      "channel": "ExamSIDE, GateAI, Quorank, PYQLabs and the ExamGOAL computer-arithmetic PDF for these questions",
+      "why": "Used to find years, question numbers, marks and to corroborate answers, never as the reference of record. They disagree on numbering: GATE CSE 2022 Q.41 is filed as Question 31 on GATE Overflow and Q.41 on the paper pages, GATE CSE 2023 Q.45 is filed as Question 35 on GATE Overflow, GATE CSE 2025 Set 2 Q.49 is Q.53 on one site, and GATE CSE 2026 Set 1 Q.26 is Q.36 on one site. Each record states where the number differs, and the paper number is used where two independent paper listings agree on it."
+    },
+    {
+      "id": "hindi-question-banks-and-subscription-lessons",
+      "kind": "practice-bank",
+      "channel": "Testbook and Unacademy Hindi question banks and lesson series on computer arithmetic, and the Knowledge Gate computer-arithmetic blog",
+      "why": "On the right topic and partly readable in Hindi, but the banks draw questions from many examinations rather than from GATE CSE papers, and the Unacademy lessons are behind a subscription with no transcript. Using either would have meant presenting non-GATE questions as GATE-style practice with a misleading pedigree."
+    },
+    {
+      "id": "wikipedia-division-algorithm",
+      "kind": "text",
+      "channel": "Wikipedia, Division algorithm",
+      "url": "https://en.wikipedia.org/wiki/Division_algorithm",
+      "why": "Read in part and used only to confirm the non-restoring digit set and the final correction, which the IIT Delhi slides already state with a worked trace. Not recorded as a chosen source because nothing in the repository rests on it that the slides do not also carry."
+    }
+  ],
+  "standard_refs": [
+    "M. Morris Mano and Michael D. Ciletti, Digital Design - the addition and subtraction, multiplication and division algorithm chapters that the Bhalodia deck follows",
+    "M. Morris Mano, Computer System Architecture - Booth's algorithm and the division algorithms, the source of the q(-1) register and the arithmetic-shift wording",
+    "David A. Patterson and John L. Hennessy, Computer Organization and Design, chapter 3 - the floating-point addition flowchart (compare exponents, shift, add, normalise, round, check for overflow) that the addition card follows",
+    "David Goldberg, 'What Every Computer Scientist Should Know About Floating-Point Arithmetic', ACM Computing Surveys 23(1), 1991",
+    "IEEE 754-2019, the standard for the rounding modes and the required correct rounding of the five basic operations",
+    "GATE 2027 CS syllabus, Digital Logic line 'number representation and arithmetic (fixed and floating point)'",
+    "Official GATE CSE papers and answer keys for the twelve recorded questions - not fetched this run, which is why every PYQ here is SOURCED rather than key-verified"
+  ],
+  "notes": [
+    "The syllabus names this topic in nine words, 'number representation and arithmetic (fixed and floating point)', so the twelve subtopics above are this run's enumeration from the standard treatment (Mano's arithmetic chapters, the IIT Delhi chapter 8 outline) and from the GATE question record - not a quotation from the syllabus. The representation half of the line was carded by an earlier run in Number Systems and is not repeated here; every card in this topic is about an operation.",
+    "Twelve GATE CSE previous-year questions were verified, from 1996 to 2026, and every one is SOURCED against an accepted answer rather than key-verified against an official paper, so no marks field comes from an official key and question references follow the paper numbering where two independent paper listings agree, with the GATE Overflow number recorded where it differs.",
+    "No video transcript was readable this run, so videoRefs is empty on all twelve cards and the six chosen sources are lecture transcripts, published slide decks and texts that were read as text. Three of the six are Indian university material (NPTEL IIT Kharagpur, IIT Delhi) and one is a Hindi article.",
+    "One non-English source was readable and it was read in full: the eHindiStudy article on Booth's algorithm in Hindi, translated here and marked as translated on the card it feeds. It supplies the register set and the three pair cases only; every number it touches is recomputed in scripts/validate.py.",
+    "Five cards carry no previous-year question because no verified CSE question is decided by them alone: the Booth recoding card (the two Booth questions test the count, and they sit on the next card), restoring division, non-restoring division, the Q-format card and the rounding card. Each says so in its source line rather than borrowing a question that does not test it.",
+    "The visual lesson animates floating-point addition on the exact operands of GATE CSE 2026 Set 1 Q.26, so the animation and a verified PYQ share one computation. Its exponent fields, the two-place alignment shift, the significand sum, the resulting word and the absorption case are all recomputed in scripts/validate.py.",
+    "One source statement is recorded rather than adopted: the Mano-based deck says floating-point multiplication needs no overflow check. That is true of the significand, which cannot exceed 4, and false of the exponent, which does overflow. The multiplication card states the narrower claim and says why."
+  ]
+}

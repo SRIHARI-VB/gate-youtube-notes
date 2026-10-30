@@ -1,488 +1,488 @@
 {
- "exam": "GATE CSE 2027",
- "section": "Section 1: Engineering Mathematics - Discrete Mathematics",
- "source": {
-  "title": "GATE 2027 Computer Science and Information Technology syllabus",
-  "organizing_institute": "IIT Madras",
-  "url": "https://gate2027.iitm.ac.in/static/doc/GATE2027_Syllabus/CS_GATE2027_Syllabus.pdf",
-  "retrieved_at": "2026-10-28",
-  "note": "The GATE 2027 syllabi were revised; this enumeration follows the GATE 2027 CS document, not the earlier GATE 2026 wording."
- },
- "line": "Propositional and first order logic. Sets, relations, functions, partial orders and lattices. Monoids, Groups. Graphs: connectivity, matching, colouring. Combinatorics: counting, recurrence relations, generating functions.",
- "subjects": [
-  {
-   "slug": "discrete-mathematics",
-   "name": "Discrete Mathematics",
-   "line": "Propositional and first order logic. Sets, relations, functions, partial orders and lattices. Monoids, Groups. Graphs: connectivity, matching, colouring. Combinatorics: counting, recurrence relations, generating functions.",
-   "topics": [
-    {
-     "slug": "propositional-logic",
-     "name": "Propositional Logic",
-     "material": "cards"
-    },
-    {
-     "slug": "first-order-logic",
-     "name": "First Order Logic",
-     "material": "cards"
-    },
-    {
-     "slug": "sets-relations-functions",
-     "name": "Sets, Relations, Functions",
-     "material": "cards"
-    },
-    {
-     "slug": "partial-orders-and-lattices",
-     "name": "Partial Orders and Lattices",
-     "material": "cards"
-    },
-    {
-     "slug": "monoids-and-groups",
-     "name": "Monoids and Groups",
-     "material": "cards"
-    },
-    {
-     "slug": "graphs",
-     "name": "Graphs: Connectivity, Matching, Colouring",
-     "material": "cards"
-    },
-    {
-     "slug": "combinatorics",
-     "name": "Combinatorics: Counting, Recurrence Relations, Generating Functions",
-     "material": "cards"
-    }
-   ]
+  "exam": "GATE CSE 2027",
+  "section": "Section 1: Engineering Mathematics - Discrete Mathematics",
+  "source": {
+    "title": "GATE 2027 Computer Science and Information Technology syllabus",
+    "organizing_institute": "IIT Madras",
+    "url": "https://gate2027.iitm.ac.in/static/doc/GATE2027_Syllabus/CS_GATE2027_Syllabus.pdf",
+    "retrieved_at": "2026-10-28",
+    "note": "The GATE 2027 syllabi were revised; this enumeration follows the GATE 2027 CS document, not the earlier GATE 2026 wording."
   },
-  {
-   "slug": "linear-algebra",
-   "name": "Linear Algebra",
-   "line": "Matrices, determinants, system of linear equations, eigenvalues and eigenvectors, LU decomposition.",
-   "topics": [
+  "line": "Propositional and first order logic. Sets, relations, functions, partial orders and lattices. Monoids, Groups. Graphs: connectivity, matching, colouring. Combinatorics: counting, recurrence relations, generating functions.",
+  "subjects": [
     {
-     "slug": "matrices-and-determinants",
-     "name": "Matrices and Determinants",
-     "material": "cards"
+      "slug": "discrete-mathematics",
+      "name": "Discrete Mathematics",
+      "line": "Propositional and first order logic. Sets, relations, functions, partial orders and lattices. Monoids, Groups. Graphs: connectivity, matching, colouring. Combinatorics: counting, recurrence relations, generating functions.",
+      "topics": [
+        {
+          "slug": "propositional-logic",
+          "name": "Propositional Logic",
+          "material": "cards"
+        },
+        {
+          "slug": "first-order-logic",
+          "name": "First Order Logic",
+          "material": "cards"
+        },
+        {
+          "slug": "sets-relations-functions",
+          "name": "Sets, Relations, Functions",
+          "material": "cards"
+        },
+        {
+          "slug": "partial-orders-and-lattices",
+          "name": "Partial Orders and Lattices",
+          "material": "cards"
+        },
+        {
+          "slug": "monoids-and-groups",
+          "name": "Monoids and Groups",
+          "material": "cards"
+        },
+        {
+          "slug": "graphs",
+          "name": "Graphs: Connectivity, Matching, Colouring",
+          "material": "cards"
+        },
+        {
+          "slug": "combinatorics",
+          "name": "Combinatorics: Counting, Recurrence Relations, Generating Functions",
+          "material": "cards"
+        }
+      ]
     },
     {
-     "slug": "system-of-linear-equations",
-     "name": "System of Linear Equations",
-     "material": "cards"
+      "slug": "linear-algebra",
+      "name": "Linear Algebra",
+      "line": "Matrices, determinants, system of linear equations, eigenvalues and eigenvectors, LU decomposition.",
+      "topics": [
+        {
+          "slug": "matrices-and-determinants",
+          "name": "Matrices and Determinants",
+          "material": "cards"
+        },
+        {
+          "slug": "system-of-linear-equations",
+          "name": "System of Linear Equations",
+          "material": "cards"
+        },
+        {
+          "slug": "eigenvalues-and-eigenvectors",
+          "name": "Eigenvalues and Eigenvectors",
+          "material": "cards"
+        },
+        {
+          "slug": "lu-decomposition",
+          "name": "LU Decomposition",
+          "material": "cards"
+        }
+      ]
     },
     {
-     "slug": "eigenvalues-and-eigenvectors",
-     "name": "Eigenvalues and Eigenvectors",
-     "material": "cards"
+      "slug": "calculus",
+      "name": "Calculus",
+      "line": "Limits, continuity and differentiability. Maxima and minima. Mean value theorem. Integration.",
+      "topics": [
+        {
+          "slug": "limits-continuity-differentiability",
+          "name": "Limits, Continuity and Differentiability",
+          "material": "cards"
+        },
+        {
+          "slug": "maxima-and-minima",
+          "name": "Maxima and Minima",
+          "material": "cards"
+        },
+        {
+          "slug": "mean-value-theorem",
+          "name": "Mean Value Theorem",
+          "material": "cards"
+        },
+        {
+          "slug": "integration",
+          "name": "Integration",
+          "material": "cards"
+        }
+      ]
     },
     {
-     "slug": "lu-decomposition",
-     "name": "LU Decomposition",
-     "material": "cards"
+      "slug": "probability-and-statistics",
+      "name": "Probability and Statistics",
+      "line": "Random variables. Uniform, normal, exponential, Poisson and binomial distributions. Mean, median, mode and standard deviation. Conditional probability and Bayes theorem.",
+      "topics": [
+        {
+          "slug": "random-variables-and-distributions",
+          "name": "Random Variables and Distributions",
+          "material": "cards"
+        },
+        {
+          "slug": "mean-median-mode-standard-deviation",
+          "name": "Mean, Median, Mode and Standard Deviation",
+          "material": "cards"
+        },
+        {
+          "slug": "conditional-probability-and-bayes",
+          "name": "Conditional Probability and Bayes Theorem",
+          "material": "cards"
+        }
+      ]
+    },
+    {
+      "slug": "digital-logic",
+      "name": "Digital Logic",
+      "line": "Boolean algebra and minimization - algebraic technique, Karnaugh map, tabular method. Design of combinational and sequential circuits. Number representation and arithmetic (fixed and floating point).",
+      "topics": [
+        {
+          "slug": "number-systems-and-representation",
+          "name": "Number Systems and Number Representation",
+          "material": "cards"
+        },
+        {
+          "slug": "boolean-algebra-and-minimization",
+          "name": "Boolean Algebra and Minimization",
+          "material": "cards"
+        },
+        {
+          "slug": "combinational-circuits",
+          "name": "Combinational Circuits",
+          "material": "cards"
+        },
+        {
+          "slug": "sequential-circuits",
+          "name": "Sequential Circuits",
+          "material": "cards"
+        },
+        {
+          "slug": "computer-arithmetic",
+          "name": "Computer Arithmetic: Fixed and Floating Point",
+          "material": "cards"
+        }
+      ]
+    },
+    {
+      "slug": "computer-organization-and-architecture",
+      "name": "Computer Organization and Architecture",
+      "line": "Instruction set and addressing modes. Design of arithmetic and logic unit (ALU). Design of control unit - hardwired and microprogrammed. Memory interfacing and hierarchy: performance, cache memory mapping. I/O interface (interrupt and DMA). Instruction pipelining, pipeline hazards.",
+      "topics": [
+        {
+          "slug": "instruction-set-and-addressing-modes",
+          "name": "Instruction Set and Addressing Modes",
+          "material": "planned"
+        },
+        {
+          "slug": "alu-design",
+          "name": "Design of the Arithmetic and Logic Unit",
+          "material": "planned"
+        },
+        {
+          "slug": "control-unit-design",
+          "name": "Design of the Control Unit",
+          "material": "planned"
+        },
+        {
+          "slug": "memory-hierarchy-and-cache",
+          "name": "Memory Interfacing, Hierarchy and Cache Mapping",
+          "material": "planned"
+        },
+        {
+          "slug": "io-interface",
+          "name": "I/O Interface: Interrupt and DMA",
+          "material": "planned"
+        },
+        {
+          "slug": "instruction-pipelining-and-hazards",
+          "name": "Instruction Pipelining and Pipeline Hazards",
+          "material": "planned"
+        }
+      ]
+    },
+    {
+      "slug": "programming-and-data-structures",
+      "name": "Programming and Data Structures",
+      "line": "Programming in C. Recursion. Arrays, stacks, queues, linked lists, trees, binary search trees, binary heaps, graphs.",
+      "topics": [
+        {
+          "slug": "programming-in-c",
+          "name": "Programming in C",
+          "material": "planned"
+        },
+        {
+          "slug": "recursion",
+          "name": "Recursion",
+          "material": "planned"
+        },
+        {
+          "slug": "arrays-stacks-queues",
+          "name": "Arrays, Stacks and Queues",
+          "material": "planned"
+        },
+        {
+          "slug": "linked-lists",
+          "name": "Linked Lists",
+          "material": "planned"
+        },
+        {
+          "slug": "trees-and-binary-search-trees",
+          "name": "Trees and Binary Search Trees",
+          "material": "planned"
+        },
+        {
+          "slug": "binary-heaps",
+          "name": "Binary Heaps",
+          "material": "planned"
+        },
+        {
+          "slug": "graphs-data-structure",
+          "name": "Graphs as a Data Structure",
+          "material": "planned"
+        }
+      ]
+    },
+    {
+      "slug": "algorithms",
+      "name": "Algorithms",
+      "line": "Searching, sorting, hashing. Asymptotic worst case time and space complexity. Algorithm design techniques: greedy, dynamic programming and divide-and-conquer. Graph traversals, minimum spanning trees, shortest paths.",
+      "topics": [
+        {
+          "slug": "searching-sorting-hashing",
+          "name": "Searching, Sorting and Hashing",
+          "material": "planned"
+        },
+        {
+          "slug": "asymptotic-complexity",
+          "name": "Asymptotic Worst Case Time and Space Complexity",
+          "material": "planned"
+        },
+        {
+          "slug": "greedy-algorithms",
+          "name": "Greedy Algorithms",
+          "material": "planned"
+        },
+        {
+          "slug": "dynamic-programming",
+          "name": "Dynamic Programming",
+          "material": "planned"
+        },
+        {
+          "slug": "divide-and-conquer",
+          "name": "Divide and Conquer",
+          "material": "planned"
+        },
+        {
+          "slug": "graph-traversals",
+          "name": "Graph Traversals",
+          "material": "planned"
+        },
+        {
+          "slug": "minimum-spanning-trees",
+          "name": "Minimum Spanning Trees",
+          "material": "planned"
+        },
+        {
+          "slug": "shortest-paths",
+          "name": "Shortest Paths",
+          "material": "planned"
+        }
+      ]
+    },
+    {
+      "slug": "theory-of-computation",
+      "name": "Theory of Computation",
+      "line": "Regular expressions and finite automata. Context-free grammars and push-down automata. Regular and context-free languages, pumping lemma. Turing machines and undecidability.",
+      "topics": [
+        {
+          "slug": "regular-expressions-and-finite-automata",
+          "name": "Regular Expressions and Finite Automata",
+          "material": "planned"
+        },
+        {
+          "slug": "context-free-grammars-and-pda",
+          "name": "Context-Free Grammars and Push-Down Automata",
+          "material": "planned"
+        },
+        {
+          "slug": "pumping-lemma",
+          "name": "Pumping Lemma",
+          "material": "planned"
+        },
+        {
+          "slug": "turing-machines-and-undecidability",
+          "name": "Turing Machines and Undecidability",
+          "material": "planned"
+        }
+      ]
+    },
+    {
+      "slug": "compiler-design",
+      "name": "Compiler Design",
+      "line": "Lexical analysis, parsing, syntax-directed translation. Runtime environments. Intermediate code generation. Local optimisation, Data flow analyses: constant propagation, liveness analysis, common subexpression elimination.",
+      "topics": [
+        {
+          "slug": "lexical-analysis",
+          "name": "Lexical Analysis",
+          "material": "planned"
+        },
+        {
+          "slug": "parsing",
+          "name": "Parsing",
+          "material": "planned"
+        },
+        {
+          "slug": "syntax-directed-translation",
+          "name": "Syntax-Directed Translation",
+          "material": "planned"
+        },
+        {
+          "slug": "runtime-environments",
+          "name": "Runtime Environments",
+          "material": "planned"
+        },
+        {
+          "slug": "intermediate-code-generation",
+          "name": "Intermediate Code Generation",
+          "material": "planned"
+        },
+        {
+          "slug": "local-optimisation",
+          "name": "Local Optimisation",
+          "material": "planned"
+        },
+        {
+          "slug": "data-flow-analysis",
+          "name": "Data Flow Analyses",
+          "material": "planned"
+        }
+      ]
+    },
+    {
+      "slug": "operating-system",
+      "name": "Operating System",
+      "line": "System calls, processes, threads, inter-process communication, concurrency and synchronization. Deadlock. CPU and I/O scheduling. Memory management and virtual memory. File systems.",
+      "topics": [
+        {
+          "slug": "processes-and-threads",
+          "name": "System Calls, Processes and Threads",
+          "material": "planned"
+        },
+        {
+          "slug": "ipc-and-synchronization",
+          "name": "Inter-Process Communication and Synchronization",
+          "material": "planned"
+        },
+        {
+          "slug": "deadlock",
+          "name": "Deadlock",
+          "material": "planned"
+        },
+        {
+          "slug": "cpu-and-io-scheduling",
+          "name": "CPU and I/O Scheduling",
+          "material": "planned"
+        },
+        {
+          "slug": "memory-management-and-virtual-memory",
+          "name": "Memory Management and Virtual Memory",
+          "material": "planned"
+        },
+        {
+          "slug": "file-systems",
+          "name": "File Systems",
+          "material": "planned"
+        }
+      ]
+    },
+    {
+      "slug": "databases",
+      "name": "Databases",
+      "line": "ER-model. Relational model: relational algebra, tuple calculus, SQL. Integrity constraints, normal forms. File organization, indexing (e.g., B and B+ trees). Transactions and concurrency control.",
+      "topics": [
+        {
+          "slug": "er-model",
+          "name": "ER Model",
+          "material": "planned"
+        },
+        {
+          "slug": "relational-algebra-and-tuple-calculus",
+          "name": "Relational Model: Algebra and Tuple Calculus",
+          "material": "planned"
+        },
+        {
+          "slug": "sql",
+          "name": "SQL",
+          "material": "planned"
+        },
+        {
+          "slug": "integrity-constraints-and-normal-forms",
+          "name": "Integrity Constraints and Normal Forms",
+          "material": "planned"
+        },
+        {
+          "slug": "file-organization-and-indexing",
+          "name": "File Organization and Indexing",
+          "material": "planned"
+        },
+        {
+          "slug": "transactions-and-concurrency-control",
+          "name": "Transactions and Concurrency Control",
+          "material": "planned"
+        }
+      ]
+    },
+    {
+      "slug": "computer-networks",
+      "name": "Computer Networks",
+      "line": "Principles of Layering; Basics of switching (circuit, packet and virtual circuit) and performance metrics; Data link layer: error detection, Medium Access Control, Ethernet; Distance vector and link state routing; IPv4 - Fragmentation, CIDR Notation, Network Address Translation; TCP - flow control and congestion control, socket API; DNS and HTTP.",
+      "topics": [
+        {
+          "slug": "principles-of-layering",
+          "name": "Principles of Layering",
+          "material": "planned"
+        },
+        {
+          "slug": "switching-and-performance-metrics",
+          "name": "Switching and Performance Metrics",
+          "material": "planned"
+        },
+        {
+          "slug": "data-link-layer",
+          "name": "Data Link Layer: Error Detection and MAC",
+          "material": "planned"
+        },
+        {
+          "slug": "routing-algorithms",
+          "name": "Distance Vector and Link State Routing",
+          "material": "planned"
+        },
+        {
+          "slug": "ipv4-addressing",
+          "name": "IPv4: Fragmentation, CIDR and NAT",
+          "material": "planned"
+        },
+        {
+          "slug": "tcp-and-congestion-control",
+          "name": "TCP: Flow Control and Congestion Control",
+          "material": "planned"
+        },
+        {
+          "slug": "application-layer-protocols",
+          "name": "Application Layer Protocols: DNS and HTTP",
+          "material": "planned"
+        }
+      ]
     }
-   ]
-  },
-  {
-   "slug": "calculus",
-   "name": "Calculus",
-   "line": "Limits, continuity and differentiability. Maxima and minima. Mean value theorem. Integration.",
-   "topics": [
-    {
-     "slug": "limits-continuity-differentiability",
-     "name": "Limits, Continuity and Differentiability",
-     "material": "cards"
-    },
-    {
-     "slug": "maxima-and-minima",
-     "name": "Maxima and Minima",
-     "material": "cards"
-    },
-    {
-     "slug": "mean-value-theorem",
-     "name": "Mean Value Theorem",
-     "material": "cards"
-    },
-    {
-     "slug": "integration",
-     "name": "Integration",
-     "material": "cards"
-    }
-   ]
-  },
-  {
-   "slug": "probability-and-statistics",
-   "name": "Probability and Statistics",
-   "line": "Random variables. Uniform, normal, exponential, Poisson and binomial distributions. Mean, median, mode and standard deviation. Conditional probability and Bayes theorem.",
-   "topics": [
-    {
-     "slug": "random-variables-and-distributions",
-     "name": "Random Variables and Distributions",
-     "material": "cards"
-    },
-    {
-     "slug": "mean-median-mode-standard-deviation",
-     "name": "Mean, Median, Mode and Standard Deviation",
-     "material": "cards"
-    },
-    {
-     "slug": "conditional-probability-and-bayes",
-     "name": "Conditional Probability and Bayes Theorem",
-     "material": "cards"
-    }
-   ]
-  },
-  {
-   "slug": "digital-logic",
-   "name": "Digital Logic",
-   "line": "Boolean algebra and minimization - algebraic technique, Karnaugh map, tabular method. Design of combinational and sequential circuits. Number representation and arithmetic (fixed and floating point).",
-   "topics": [
-    {
-     "slug": "number-systems-and-representation",
-     "name": "Number Systems and Number Representation",
-     "material": "cards"
-    },
-    {
-     "slug": "boolean-algebra-and-minimization",
-     "name": "Boolean Algebra and Minimization",
-     "material": "cards"
-    },
-    {
-     "slug": "combinational-circuits",
-     "name": "Combinational Circuits",
-     "material": "cards"
-    },
-    {
-     "slug": "sequential-circuits",
-     "name": "Sequential Circuits",
-     "material": "cards"
-    },
-    {
-     "slug": "computer-arithmetic",
-     "name": "Computer Arithmetic: Fixed and Floating Point",
-     "material": "planned"
-    }
-   ]
-  },
-  {
-   "slug": "computer-organization-and-architecture",
-   "name": "Computer Organization and Architecture",
-   "line": "Instruction set and addressing modes. Design of arithmetic and logic unit (ALU). Design of control unit - hardwired and microprogrammed. Memory interfacing and hierarchy: performance, cache memory mapping. I/O interface (interrupt and DMA). Instruction pipelining, pipeline hazards.",
-   "topics": [
-    {
-     "slug": "instruction-set-and-addressing-modes",
-     "name": "Instruction Set and Addressing Modes",
-     "material": "planned"
-    },
-    {
-     "slug": "alu-design",
-     "name": "Design of the Arithmetic and Logic Unit",
-     "material": "planned"
-    },
-    {
-     "slug": "control-unit-design",
-     "name": "Design of the Control Unit",
-     "material": "planned"
-    },
-    {
-     "slug": "memory-hierarchy-and-cache",
-     "name": "Memory Interfacing, Hierarchy and Cache Mapping",
-     "material": "planned"
-    },
-    {
-     "slug": "io-interface",
-     "name": "I/O Interface: Interrupt and DMA",
-     "material": "planned"
-    },
-    {
-     "slug": "instruction-pipelining-and-hazards",
-     "name": "Instruction Pipelining and Pipeline Hazards",
-     "material": "planned"
-    }
-   ]
-  },
-  {
-   "slug": "programming-and-data-structures",
-   "name": "Programming and Data Structures",
-   "line": "Programming in C. Recursion. Arrays, stacks, queues, linked lists, trees, binary search trees, binary heaps, graphs.",
-   "topics": [
-    {
-     "slug": "programming-in-c",
-     "name": "Programming in C",
-     "material": "planned"
-    },
-    {
-     "slug": "recursion",
-     "name": "Recursion",
-     "material": "planned"
-    },
-    {
-     "slug": "arrays-stacks-queues",
-     "name": "Arrays, Stacks and Queues",
-     "material": "planned"
-    },
-    {
-     "slug": "linked-lists",
-     "name": "Linked Lists",
-     "material": "planned"
-    },
-    {
-     "slug": "trees-and-binary-search-trees",
-     "name": "Trees and Binary Search Trees",
-     "material": "planned"
-    },
-    {
-     "slug": "binary-heaps",
-     "name": "Binary Heaps",
-     "material": "planned"
-    },
-    {
-     "slug": "graphs-data-structure",
-     "name": "Graphs as a Data Structure",
-     "material": "planned"
-    }
-   ]
-  },
-  {
-   "slug": "algorithms",
-   "name": "Algorithms",
-   "line": "Searching, sorting, hashing. Asymptotic worst case time and space complexity. Algorithm design techniques: greedy, dynamic programming and divide-and-conquer. Graph traversals, minimum spanning trees, shortest paths.",
-   "topics": [
-    {
-     "slug": "searching-sorting-hashing",
-     "name": "Searching, Sorting and Hashing",
-     "material": "planned"
-    },
-    {
-     "slug": "asymptotic-complexity",
-     "name": "Asymptotic Worst Case Time and Space Complexity",
-     "material": "planned"
-    },
-    {
-     "slug": "greedy-algorithms",
-     "name": "Greedy Algorithms",
-     "material": "planned"
-    },
-    {
-     "slug": "dynamic-programming",
-     "name": "Dynamic Programming",
-     "material": "planned"
-    },
-    {
-     "slug": "divide-and-conquer",
-     "name": "Divide and Conquer",
-     "material": "planned"
-    },
-    {
-     "slug": "graph-traversals",
-     "name": "Graph Traversals",
-     "material": "planned"
-    },
-    {
-     "slug": "minimum-spanning-trees",
-     "name": "Minimum Spanning Trees",
-     "material": "planned"
-    },
-    {
-     "slug": "shortest-paths",
-     "name": "Shortest Paths",
-     "material": "planned"
-    }
-   ]
-  },
-  {
-   "slug": "theory-of-computation",
-   "name": "Theory of Computation",
-   "line": "Regular expressions and finite automata. Context-free grammars and push-down automata. Regular and context-free languages, pumping lemma. Turing machines and undecidability.",
-   "topics": [
-    {
-     "slug": "regular-expressions-and-finite-automata",
-     "name": "Regular Expressions and Finite Automata",
-     "material": "planned"
-    },
-    {
-     "slug": "context-free-grammars-and-pda",
-     "name": "Context-Free Grammars and Push-Down Automata",
-     "material": "planned"
-    },
-    {
-     "slug": "pumping-lemma",
-     "name": "Pumping Lemma",
-     "material": "planned"
-    },
-    {
-     "slug": "turing-machines-and-undecidability",
-     "name": "Turing Machines and Undecidability",
-     "material": "planned"
-    }
-   ]
-  },
-  {
-   "slug": "compiler-design",
-   "name": "Compiler Design",
-   "line": "Lexical analysis, parsing, syntax-directed translation. Runtime environments. Intermediate code generation. Local optimisation, Data flow analyses: constant propagation, liveness analysis, common subexpression elimination.",
-   "topics": [
-    {
-     "slug": "lexical-analysis",
-     "name": "Lexical Analysis",
-     "material": "planned"
-    },
-    {
-     "slug": "parsing",
-     "name": "Parsing",
-     "material": "planned"
-    },
-    {
-     "slug": "syntax-directed-translation",
-     "name": "Syntax-Directed Translation",
-     "material": "planned"
-    },
-    {
-     "slug": "runtime-environments",
-     "name": "Runtime Environments",
-     "material": "planned"
-    },
-    {
-     "slug": "intermediate-code-generation",
-     "name": "Intermediate Code Generation",
-     "material": "planned"
-    },
-    {
-     "slug": "local-optimisation",
-     "name": "Local Optimisation",
-     "material": "planned"
-    },
-    {
-     "slug": "data-flow-analysis",
-     "name": "Data Flow Analyses",
-     "material": "planned"
-    }
-   ]
-  },
-  {
-   "slug": "operating-system",
-   "name": "Operating System",
-   "line": "System calls, processes, threads, inter-process communication, concurrency and synchronization. Deadlock. CPU and I/O scheduling. Memory management and virtual memory. File systems.",
-   "topics": [
-    {
-     "slug": "processes-and-threads",
-     "name": "System Calls, Processes and Threads",
-     "material": "planned"
-    },
-    {
-     "slug": "ipc-and-synchronization",
-     "name": "Inter-Process Communication and Synchronization",
-     "material": "planned"
-    },
-    {
-     "slug": "deadlock",
-     "name": "Deadlock",
-     "material": "planned"
-    },
-    {
-     "slug": "cpu-and-io-scheduling",
-     "name": "CPU and I/O Scheduling",
-     "material": "planned"
-    },
-    {
-     "slug": "memory-management-and-virtual-memory",
-     "name": "Memory Management and Virtual Memory",
-     "material": "planned"
-    },
-    {
-     "slug": "file-systems",
-     "name": "File Systems",
-     "material": "planned"
-    }
-   ]
-  },
-  {
-   "slug": "databases",
-   "name": "Databases",
-   "line": "ER-model. Relational model: relational algebra, tuple calculus, SQL. Integrity constraints, normal forms. File organization, indexing (e.g., B and B+ trees). Transactions and concurrency control.",
-   "topics": [
-    {
-     "slug": "er-model",
-     "name": "ER Model",
-     "material": "planned"
-    },
-    {
-     "slug": "relational-algebra-and-tuple-calculus",
-     "name": "Relational Model: Algebra and Tuple Calculus",
-     "material": "planned"
-    },
-    {
-     "slug": "sql",
-     "name": "SQL",
-     "material": "planned"
-    },
-    {
-     "slug": "integrity-constraints-and-normal-forms",
-     "name": "Integrity Constraints and Normal Forms",
-     "material": "planned"
-    },
-    {
-     "slug": "file-organization-and-indexing",
-     "name": "File Organization and Indexing",
-     "material": "planned"
-    },
-    {
-     "slug": "transactions-and-concurrency-control",
-     "name": "Transactions and Concurrency Control",
-     "material": "planned"
-    }
-   ]
-  },
-  {
-   "slug": "computer-networks",
-   "name": "Computer Networks",
-   "line": "Principles of Layering; Basics of switching (circuit, packet and virtual circuit) and performance metrics; Data link layer: error detection, Medium Access Control, Ethernet; Distance vector and link state routing; IPv4 - Fragmentation, CIDR Notation, Network Address Translation; TCP - flow control and congestion control, socket API; DNS and HTTP.",
-   "topics": [
-    {
-     "slug": "principles-of-layering",
-     "name": "Principles of Layering",
-     "material": "planned"
-    },
-    {
-     "slug": "switching-and-performance-metrics",
-     "name": "Switching and Performance Metrics",
-     "material": "planned"
-    },
-    {
-     "slug": "data-link-layer",
-     "name": "Data Link Layer: Error Detection and MAC",
-     "material": "planned"
-    },
-    {
-     "slug": "routing-algorithms",
-     "name": "Distance Vector and Link State Routing",
-     "material": "planned"
-    },
-    {
-     "slug": "ipv4-addressing",
-     "name": "IPv4: Fragmentation, CIDR and NAT",
-     "material": "planned"
-    },
-    {
-     "slug": "tcp-and-congestion-control",
-     "name": "TCP: Flow Control and Congestion Control",
-     "material": "planned"
-    },
-    {
-     "slug": "application-layer-protocols",
-     "name": "Application Layer Protocols: DNS and HTTP",
-     "material": "planned"
-    }
-   ]
-  }
- ],
- "covered_by_playlist": [
-  "Counting (Combinatorics: counting, distributions, pigeonhole, inclusion-exclusion)",
-  "Propositional Logic (connectives, equivalence, normal forms, inference, resolution, functional completeness)",
-  "First Order Logic (predicates and quantifiers, English translation, quantifier order and negation, validity, uniqueness, model size)",
-  "Sets, Relations, Functions (set basics and power sets, set identities, Cartesian product, relation properties and counting, equivalence relations and partitions, function counting, composition and inverse, countability)"
- ],
- "not_covered_by_playlist": [
-  "relation closures (reflexive, symmetric, transitive closure, Warshall) - taught here from the standard reference only",
-  "partial orders and lattices - the next topic in the cycle, deliberately not covered by this run",
-  "monoids and groups, graphs - not yet processed",
-  "every subject outside Discrete Mathematics - enumerated here, not yet processed"
- ],
- "note": "Every subject and topic of the GATE 2027 CS syllabus is enumerated in official order, cited to the GATE 2027 syllabus document of IIT Madras. A topic carries material='cards' when cards exist under content/subjects/<subject>/<topic>/ and 'planned' when the topic is enumerated but no card has been written yet; the site only ever renders topics that have cards. First order logic is enumerated immediately after propositional logic because the GATE 2027 line reads 'Propositional and first order logic'."
+  ],
+  "covered_by_playlist": [
+    "Counting (Combinatorics: counting, distributions, pigeonhole, inclusion-exclusion)",
+    "Propositional Logic (connectives, equivalence, normal forms, inference, resolution, functional completeness)",
+    "First Order Logic (predicates and quantifiers, English translation, quantifier order and negation, validity, uniqueness, model size)",
+    "Sets, Relations, Functions (set basics and power sets, set identities, Cartesian product, relation properties and counting, equivalence relations and partitions, function counting, composition and inverse, countability)"
+  ],
+  "not_covered_by_playlist": [
+    "relation closures (reflexive, symmetric, transitive closure, Warshall) - taught here from the standard reference only",
+    "partial orders and lattices - the next topic in the cycle, deliberately not covered by this run",
+    "monoids and groups, graphs - not yet processed",
+    "every subject outside Discrete Mathematics - enumerated here, not yet processed"
+  ],
+  "note": "Every subject and topic of the GATE 2027 CS syllabus is enumerated in official order, cited to the GATE 2027 syllabus document of IIT Madras. A topic carries material='cards' when cards exist under content/subjects/<subject>/<topic>/ and 'planned' when the topic is enumerated but no card has been written yet; the site only ever renders topics that have cards. First order logic is enumerated immediately after propositional logic because the GATE 2027 line reads 'Propositional and first order logic'."
 }

@@ -1,0 +1,77 @@
+{
+  "id": "non-restoring-division",
+  "title": "Non-Restoring Division: Let the Remainder Go Negative",
+  "priority": "P2",
+  "order": 467,
+  "unit": "Computer Arithmetic: Fixed and Floating Point",
+  "quickIdea": "Non-restoring division never puts the divisor back: it lets the partial remainder go negative and adds the divisor on the next cycle instead of subtracting it.",
+  "remember": [
+    "Each cycle: shift left; if the partial remainder is non-negative subtract D, otherwise add D; then the quotient bit is 1 if the new remainder is non-negative and 0 otherwise.",
+    "There is no restore step, so each cycle has one addition or subtraction instead of one plus a possible second - about half the work of the restoring form.",
+    "The running quotient digits belong to {+1, -1} rather than {0, 1}, so the final Q needs one conversion, and the remainder may need one correction: if R < 0 then Q = Q - 1 and R = R + D.",
+    "The partial remainder is kept in a register one bit wider than the divisor so that its sign survives the left shift.",
+    "Both algorithms return the same Q and R for a valid division; they diverge only in what they carry after a negative trial subtraction."
+  ],
+  "example": {
+    "prompt": "Divide 7 by 3 with a 4-bit non-restoring divider.",
+    "work": "A = 00000, Q = 0111, D = 00011. Cycle 1: shift gives A = 00000, Q = 1110; A is non-negative so A - D = 11101, negative, so the bit is 0, Q = 1110. Cycle 2: shift gives A = 11011, Q = 1100; A is negative so A + D = 11110, still negative, bit 0, Q = 1100. Cycle 3: shift gives A = 11101, Q = 1000; negative, so A + D = 00000, non-negative, bit 1, Q = 1001. Cycle 4: shift gives A = 00001, Q = 0010; non-negative, so A - D = 11110, negative, bit 0, Q = 0010.",
+    "answer": "The remainder is negative, so one correction is applied: A = 11110 + 00011 = 00001. Q = 0010 (2) and R = 0001 (1)."
+  },
+  "gateAngle": "Like restoring division, this has no verified GATE CSE question of its own; it is carded because the syllabus names fixed-point arithmetic as a whole. The examinable content is the operation count - one add or subtract per quotient bit - and the final correction.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "Divide 6 by 2 with a 4-bit non-restoring divider, and say whether the correction step fires.",
+      "answer": "Q = 0011, R = 0000, and no correction is needed.",
+      "why": "The trace ends with A = 00000, which is already non-negative, so Q and R stand as produced."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Why is the final remainder allowed to be negative at all?",
+      "answer": "Because a negative partial remainder is exactly the information the next cycle needs: it says 'add this time'. Restoring division throws that information away and then re-derives it.",
+      "why": "That is the whole trade. Keeping the negative remainder halves the work per bit; the price is one conversion of the quotient and one possible correction at the end."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "A non-restoring divider finishes with Q = 0010 and R = -2 for a divisor of 3. What are the true quotient and remainder?",
+      "answer": "Q = 0001 and R = 0001.",
+      "why": "The correction is Q = Q - 1 and R = R + D: 2 - 1 = 1 and -2 + 3 = 1, and 3 x 1 + 1 = 4 checks against the dividend."
+    }
+  ],
+  "trap": {
+    "what": "Forgetting the final correction, or testing the sign of the remainder before the add or subtract instead of after it.",
+    "why": "The quotient bit describes the remainder that has just been computed. Testing the wrong one flips every bit after the first negative trial.",
+    "counterexample": "In 7 / 3 the trace ends with A = 11110; recording Q = 0010 and R = -2 without the correction gives a remainder of -2, which breaks 0 <= R < D and reads as 2 remainder -2."
+  },
+  "check": {
+    "question": "How many additions or subtractions does a non-restoring 32-bit division perform, and how many does the restoring form perform in the worst case?",
+    "answer": "32, against up to 64 for restoring division.",
+    "explanation": "One add or subtract per quotient bit in the non-restoring form; the restoring form needs a restore after every failed trial, so a worst case of one subtract plus one add per bit."
+  },
+  "pyqIds": [],
+  "prereqs": [
+    "restoring-division"
+  ],
+  "sources": [
+    {
+      "kind": "lecture-slides",
+      "title": "Chapter 8: Computer Arithmetic (Part II) - division, floating-point addition, multiplication, division and rounding",
+      "channel": "Prof. Smruti Ranjan Sarangi, IIT Delhi, Basic Computer Architecture (slides read through a published slide transcript)",
+      "url": "https://www.slideorbit.com/slide/computer-arithmetic-in-basic-computer-architecture/178376",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false
+    },
+    {
+      "kind": "lecture-slides",
+      "title": "Unit 7 Computer Arithmetic (signed-magnitude addition and subtraction, Booth, division, floating-point operations)",
+      "channel": "Prof. Chirag Bhalodia, CO 2140707, following Mano's Digital Design",
+      "url": "https://csbhalodia.weebly.com/uploads/1/0/2/8/102862858/ch_7_computer_arithmetic.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false
+    }
+  ],
+  "sourceLine": "The non-restoring algorithm, its divergence proof from the restoring form, and the 00111 / 0011 trace ending in U = 11110 with the closing U = U + D: Sarangi, chapter 8 slides (English, read in part). The quotient-digit set and the negative-remainder correction: Wikipedia's Division algorithm article, used only to confirm the two slides, plus Bhalodia's Unit 7 (English, read in part). Every trace is recomputed in scripts/validate.py.",
+  "videoRefs": []
+}

@@ -155,3 +155,27 @@ The change from run 12 is that three English lecture decks arrived complete, so 
 several runs a topic's teaching rests on text that was fully in front of the run rather than on an
 opening excerpt. The cost is that no video was readable at all, and that the NPTEL transcript host which
 carried the previous topic refused every request this time.
+
+## Run 14 - source access for Computer Arithmetic
+
+This topic used no playlist. What could be read, and what could not:
+
+| Source | Route | Result |
+| --- | --- | --- |
+| GATE Overflow GATE CSE Book, Digital Logic ch. 2 | extraction service | PARTIAL: sections 2.2.7 to 2.2.10 in full, which is the digital-logic half of the book - the overflow condition, the IEEE layout, the Booth trace and the radix-4 table |
+| NPTEL IIT Kharagpur, Computer Architecture and Organization, Lecture 39 | extraction service | PARTIAL: the served text runs from the opening through the addition hardware and the first half of the rounding discussion, then jumps to the MIPS material, so the middle of the lecture is missing |
+| IIT Delhi, Basic Computer Architecture ch. 8 Part II (Sarangi slides) | extraction service (published slide transcript) | PARTIAL: the division section with both traces and proofs, the addition and rounding sections, and the multiplication section; the floating-point division and Goldschmidt material at the end was not needed |
+| CO 2140707 Unit 7 (Bhalodia, following Mano) | extraction service | PARTIAL: the outline, signed-magnitude addition and subtraction, Booth, the division steps and the floating-point operation rules; the BCD adder and decimal unit at the end are outside the topic |
+| Goldberg, *What Every Computer Scientist Should Know About Floating-Point Arithmetic* | extraction service | PARTIAL: sections 1.1 to 1.5 - formats, ulps and relative error, guard digits, cancellation, exactly rounded operations - and the opening of the IEEE chapter |
+| eHindiStudy, "Booth Algorithm kya hai?" (Hindi) | extraction service | FULL, translated: the register set, the run-of-ones identity and the three pair cases |
+| NPTEL IIT Kharagpur lectures 37, 38 and 40 | direct HTTP and extraction service | 403 on every request from the sandbox; only Lecture 39 was reachable, through the extraction service |
+| Stanford EE486 lectures 8 and 12 | direct HTTP and extraction service | 502 from the sandbox; only a fragment of lecture 8 came back through the search service |
+| e-PG Pathshala, Fixed Point Arithmetic Unit II | search service | readable, rejected: its carry-save and CSA material is outside the syllabus line |
+| YouTube, every lecture tried | search and direct routes | no caption track on any watch page |
+| Wikipedia, Division algorithm | extraction service | PARTIAL, used only to confirm the non-restoring digit set and correction |
+| ExamSIDE, GateAI, Quorank, PYQLabs, ExamGOAL, IAE Academy | search service | readable, used to locate years, numbers, marks and to corroborate answers; they disagree on numbering for four of the twelve questions |
+
+The change from run 13 is that no video was readable again, but three Indian university sources and one
+Hindi article were, so the topic's teaching rests on lecture transcripts, slide decks and texts rather
+than on an opening excerpt of a lecture. The cost is that the NPTEL host which served Lecture 39 refused
+its three neighbours, and that the two division algorithms rest on one slide deck rather than on a lecture.

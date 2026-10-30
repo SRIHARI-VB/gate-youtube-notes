@@ -1,0 +1,88 @@
+{
+  "id": "booths-recoding-and-product",
+  "title": "Booth Recoding: A Run of Ones Costs Two Operations",
+  "priority": "P1",
+  "order": 464,
+  "unit": "Computer Arithmetic: Fixed and Floating Point",
+  "quickIdea": "Booth reads the multiplier two bits at a time and turns a run of ones into one subtraction at its bottom and one addition at its top, so signed numbers multiply with no separate sign fix-up.",
+  "remember": [
+    "Pair table, reading (q_i, q_{i-1}): 00 and 11 do nothing, 01 adds the multiplicand, 10 subtracts it.",
+    "The identity behind it: a run of ones from weight 2^m up to 2^k is 2^(k+1) - 2^m, so 001110 (14) is 16 - 2 and 0111 (7) is 8 - 1.",
+    "The state is A (accumulator), Q (multiplier) and one extra bit q(-1) holding the bit just shifted out of Q. A and q(-1) start at 0.",
+    "Every cycle ends with an arithmetic right shift of A:Q:q(-1) - the top bit of A is copied back into A's sign position, which is what keeps the partial product's value halved rather than corrupted.",
+    "It works on the two's complement patterns directly, so negative multiplicands and negative multipliers need no correction step at the end.",
+    "An n-bit multiplier takes n cycles and leaves the 2n-bit product in A:Q."
+  ],
+  "example": {
+    "prompt": "Multiply 11 by 14 in 5 bits with Booth's algorithm.",
+    "work": "M = 01011 (11), Q = 01110 (14), A = 00000, q(-1) = 0. Cycle 1, pair (0,0): shift, so A = 00000, Q = 00111, q(-1) = 0. Cycle 2, pair (1,0): A = A - M = 10101, then shift, giving A = 11010, Q = 10011, q(-1) = 1. Cycle 3, pair (1,1): shift, giving A = 11101, Q = 01001, q(-1) = 1. Cycle 4, pair (1,1): shift, giving A = 11110, Q = 10100, q(-1) = 1. Cycle 5, pair (0,1): A = A + M = 01001, then shift, giving A = 00100, Q = 11010, q(-1) = 0.",
+    "answer": "A:Q = 00100 11010 = 154 = 11 x 14, from two arithmetic operations instead of the three the multiplier's ones would need."
+  },
+  "gateAngle": "The two Booth questions in this topic test the recoding's cost rather than a full trace - GATE CSE 1996 Q.1.23 asks which multiplier pattern is worst and GATE CSE 2025 Set 2 Q.22 asks how many operations a given multiplier needs - so the pair table and the trace are the machinery behind them, and both sit on the next card.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "Multiply -6 by 3 with Booth's algorithm in 4 bits: M = 1010, Q = 0011.",
+      "answer": "A:Q = 1110 1110 = -18.",
+      "why": "Pairs of Q with q(-1) = 0, least significant first: 10, 11, 01, 00, so subtract, shift, shift, add, shift. The trace ends with A = 1110 and Q = 1110, and 1110 1110 is -18, which is (-6) x 3."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Why does Booth's algorithm need an arithmetic right shift rather than a logical one?",
+      "answer": "Because A holds a signed partial product; a logical shift would insert 0 into the sign position and change the value whenever A is negative.",
+      "why": "The shift is a division by two of the pair A:Q, and for a negative A only sign propagation preserves the value. Copying A's top bit into its own sign position is the whole difference."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "A 16-bit Booth multiplier is given Q = 1111111111111111. How many additions or subtractions does it perform?",
+      "answer": "One subtraction.",
+      "why": "With q(-1) = 0 the only differing pair is (1,0) at the least significant end; every other pair is 11. A multiplier of all ones is 2^16 - 1, which is exactly one subtraction at weight 2^0."
+    }
+  ],
+  "trap": {
+    "what": "Reversing the pair table - adding on 10 and subtracting on 01 - or replacing the arithmetic shift with a logical one.",
+    "why": "The pair is read least significant bit first: 10 marks the bottom end of a run of ones and 01 marks the top end. Swapping them negates every recoded digit, so the trace computes -M x Q.",
+    "counterexample": "M = 01011 (11) with Q = 01110 (14) gives 154 under the correct table and -154 under the reversed one. And with a logical shift, the cycle-2 A of 10101 would become 01010 instead of 11010, and the product would not be 154."
+  },
+  "check": {
+    "question": "Recode the 6-bit multiplier 011100 with Booth. How many arithmetic operations does it need, and what are they?",
+    "answer": "Two: one subtraction at the bottom of the run and one addition at the top.",
+    "explanation": "Pairs, least significant first with q(-1) = 0: 00, 00, 10, 11, 11, 01, which recodes to 0, 0, -1, 0, 0, +1. And 011100 is 28 = 32 - 4, which is exactly that subtraction and addition."
+  },
+  "pyqIds": [],
+  "prereqs": [
+    "twos-complement-negation-and-subtraction",
+    "shift-and-add-multiplication"
+  ],
+  "sources": [
+    {
+      "kind": "gate-notes",
+      "title": "GATE CSE Book, Digital Logic chapter (computer arithmetic and Booth algorithm)",
+      "channel": "GATE Overflow",
+      "url": "https://gateoverflow.in/?qa=blob&qa_blobid=16603857986567646822",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false
+    },
+    {
+      "kind": "text",
+      "title": "Booth Algorithm kya hai? (Booth algorithm in Hindi)",
+      "channel": "eHindiStudy (yugal joshi)",
+      "url": "https://ehindistudy.com/2021/06/13/booth-algorithm-hindi/",
+      "language": "hi",
+      "transcript": "FULL",
+      "translated": true
+    },
+    {
+      "kind": "lecture-slides",
+      "title": "Unit 7 Computer Arithmetic (signed-magnitude addition and subtraction, Booth, division, floating-point operations)",
+      "channel": "Prof. Chirag Bhalodia, CO 2140707, following Mano's Digital Design",
+      "url": "https://csbhalodia.weebly.com/uploads/1/0/2/8/102862858/ch_7_computer_arithmetic.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false
+    }
+  ],
+  "sourceLine": "The pair table, the run-of-ones identity 2^(k+1) - 2^m and the 01011 x 01110 worked trace: GATE Overflow GATE CSE Book, section 2.2.10 (English, read in part). The register set M, Q, AC, q(-1) and the sequence counter, the three pair cases and the result in AC and QR: eHindiStudy, 'Booth Algorithm kya hai?' (Hindi, read in full, translated here - the only translated material in this topic). Mano's statement that a string of ones from weight 2^k down to 2^m is treated as 2^(k+1) - 2^m: Bhalodia, Unit 7 (English, read in part). The Hindi article says q(-1) is 'Qn incremented by 1' and stops after 'n-1 bits'; both readings are wrong against the standard treatment and are not used - q(-1) is the bit shifted out of Q, and the loop runs n cycles.",
+  "videoRefs": []
+}

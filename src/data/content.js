@@ -284,7 +284,7 @@ window.GATE_DATA = {
      {
       "slug": "computer-arithmetic",
       "name": "Computer Arithmetic: Fixed and Floating Point",
-      "material": "planned"
+      "material": "cards"
      }
     ]
    },
@@ -31795,6 +31795,1057 @@ window.GATE_DATA = {
    "subject": "digital-logic",
    "topic": "sequential-circuits",
    "path": "subjects/digital-logic/sequential-circuits/sequence-detector-minimum-states.json"
+  },
+  {
+   "id": "fixed-point-add-subtract-overflow",
+   "title": "Fixed-Point Addition and Subtraction: Overflow Is Not the Carry",
+   "priority": "P1",
+   "order": 462,
+   "unit": "Computer Arithmetic: Fixed and Floating Point",
+   "quickIdea": "One adder does both operations, and signed overflow is not the carry out: it is the case where the carry into the sign column differs from the carry out of it, which is the same as two operands of one sign giving a result of the other.",
+   "remember": [
+    "Add A + B. Subtract A + (invert B) + 1, with the adder's carry-in set to 1. The same n-bit adder serves both.",
+    "Signed overflow: the carry into the sign bit differs from the carry out of the sign bit, that is Cout XOR Cn-1 = 1.",
+    "The equivalent test on the operands alone: A(n-1).B(n-1).S(n-1)' + A(n-1)'.B(n-1)'.S(n-1) = 1, which says same signs in, opposite sign out.",
+    "Operands of opposite signs can never overflow, because their sum lies between them.",
+    "The carry out of the top bit is not overflow: it is what the modulus 2^n absorbs. A carry flag belongs to unsigned arithmetic, an overflow flag to signed arithmetic, and hardware keeps both.",
+    "Subtraction overflows exactly when the operands have opposite signs and the result takes the sign of the subtrahend."
+   ],
+   "example": {
+    "prompt": "In 5 bits, A = 01010 (+10) and B = 11010 (-6). Which of A + B and A - B overflows?",
+    "work": "A - B = A + (-B), and -B is 00101 + 1 = 00110 (+6), so 01010 + 00110 = 10000. Read in 5 bits, 10000 is -16, while the true answer is +16, which is outside -16 to 15. The carry into the sign column is 1 and the carry out of it is 0, so the two disagree. A + B = 01010 + 11010 = 00100 with a carry out of 1: the carry is discarded, the pattern 00100 is +4, which is exactly 10 + (-6), and the signs differ so no overflow was possible.",
+    "answer": "A - B overflows (+16 is out of range); A + B does not, even though it produces a carry out."
+   },
+   "gateAngle": "GATE CSE 2017 Set 1 Q.9 asks for the overflow condition as a Boolean expression in the operand and sum sign bits; GATE CSE 2022 Q.8 and GATE CSE 2024 Set 1 Q.3 give two operands and ask which operation overflows. Both families are decided by the sign rule, and both are faster to answer by converting to decimal and comparing with the range than by adding bit by bit.",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2017 Set 1 Q.9: two 8-bit numbers A7..A0 and B7..B0 in two's complement are added in a ripple-carry adder, giving sum bits S7..S0 and carries C7..C0. Overflow has occurred if ...",
+     "answer": "(A7.B7.S7' + A7'.B7'.S7) is 1, option (C).",
+     "why": "The two overflow cases are +plus+ giving minus and minus+minus giving plus. Writing them as products of sign bits gives the expression; the carry C7 alone is the unsigned carry and says nothing about signed overflow."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "In 6-bit two's complement, does 011011 + 010110 overflow? Answer with both tests.",
+     "answer": "Yes: 27 + 22 = 49, outside -32 to 31, and 011011 + 010110 = 110001 reads as -15, so the sign flipped.",
+     "why": "The decimal test compares the true sum with the range; the sign test looks at the two operands and the sum. Both must agree, and here they do - same signs in, opposite sign out."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "The sign bits of A and B differ. Can A + B overflow? Justify from the formula.",
+     "answer": "No. Every term of A(n-1).B(n-1).S(n-1)' + A(n-1)'.B(n-1)'.S(n-1) needs both operand sign bits to be equal, so the expression is 0.",
+     "why": "The formula is not a shortcut that happens to work; it enumerates exactly the two cases in which the sum can leave the range, and neither exists when the operands have opposite signs."
+    }
+   ],
+   "trap": {
+    "what": "Reading the carry out of the top bit as an overflow, or assuming a subtraction cannot overflow.",
+    "why": "The carry out of an n-bit addition is exactly what the modulus 2^n absorbs, so it is discarded and carries no sign information. Overflow is a statement about the result's sign against the operands' signs, and subtraction is addition of a negated operand, so it overflows whenever the operands end up with the same sign and the result takes the other.",
+    "counterexample": "0x7F + 0x01 = 0x80 with no carry out, yet +127 + 1 = +128 is outside -128 to 127. And 0xFF + 0x01 = 0x00 with a carry out of 1, which is -1 + 1 = 0 and perfectly correct."
+   },
+   "check": {
+    "question": "In 4-bit two's complement, which of 0111 + 0001 and 1011 + 1110 overflows?",
+    "answer": "Only 0111 + 0001.",
+    "explanation": "7 + 1 = 8 is outside -8 to 7, and the sum 1000 reads as -8: same signs in, opposite sign out. 1011 + 1110 = 11001 keeps 1001, which is -7 and equals -5 + -2 exactly; the carry out is discarded and is not an overflow. The second one is the tempting answer because it is the one with a carry."
+   },
+   "pyqIds": [
+    "gate-2017-1-9-overflow-condition",
+    "gate-2022-8-4bit-overflow",
+    "gate-2024-1-3-5bit-overflow"
+   ],
+   "prereqs": [
+    "twos-complement-negation-and-subtraction",
+    "ripple-carry-adder-and-delay"
+   ],
+   "sources": [
+    {
+     "kind": "gate-notes",
+     "title": "GATE CSE Book, Digital Logic chapter (computer arithmetic and Booth algorithm)",
+     "channel": "GATE Overflow",
+     "url": "https://gateoverflow.in/?qa=blob&qa_blobid=16603857986567646822",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false
+    },
+    {
+     "kind": "lecture-slides",
+     "title": "Unit 7 Computer Arithmetic (signed-magnitude addition and subtraction, Booth, division, floating-point operations)",
+     "channel": "Prof. Chirag Bhalodia, CO 2140707, following Mano's Digital Design",
+     "url": "https://csbhalodia.weebly.com/uploads/1/0/2/8/102862858/ch_7_computer_arithmetic.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false
+    }
+   ],
+   "sourceLine": "The carry-versus-overflow distinction and the condition Cout XOR Cn-1: GATE Overflow GATE CSE Book, Digital Logic section 2.2.8 (English, read in part). The signed-magnitude overflow flip-flop, and the statement that integer arithmetic is done in signed two's complement while floating-point mantissas use sign-magnitude: Bhalodia, Unit 7 (English, read in part). The three question texts and accepted answers: their GATE Overflow pages.",
+   "videoRefs": [],
+   "subject": "digital-logic",
+   "topic": "computer-arithmetic",
+   "path": "subjects/digital-logic/computer-arithmetic/fixed-point-add-subtract-overflow.json"
+  },
+  {
+   "id": "shift-and-add-multiplication",
+   "title": "Unsigned Multiplication: Shift and Add, and the 2n-Bit Product",
+   "priority": "P1",
+   "order": 463,
+   "unit": "Computer Arithmetic: Fixed and Floating Point",
+   "quickIdea": "Multiplying two n-bit numbers is n shifted copies of the multiplicand added one at a time, and the answer needs 2n bits.",
+   "remember": [
+    "n bits times n bits needs 2n bits: the largest product of two n-bit unsigned numbers is (2^n - 1)^2, which is below 2^2n.",
+    "Shift and add: scan the multiplier from its least significant bit; where the bit is 1 add the multiplicand shifted by that position.",
+    "The partial product for multiplier bit i is the multiplicand AND that bit, placed i positions to the left.",
+    "The array multiplier is that sum in hardware: n rows of AND gates and a chain of adders, one row per partial product.",
+    "With unit gate delay the array multiplier's delay is Theta(n), not Theta(n^2): the carry crosses n rows of adders, and each row is one adder delay.",
+    "Keeping only the low n bits of the product is a deliberate truncation, and it is what a 32-bit int multiply of two 32-bit ints does."
+   ],
+   "example": {
+    "prompt": "Multiply 13 by 11 as two 4-bit unsigned numbers, and say how wide the exact product is.",
+    "work": "13 is 1101 and 11 is 1011. Partial products: 1101 (for the 1 in position 0), 11010 (position 1), 000000 (position 2, where the multiplier bit is 0), 1101000 (position 3). Adding them: 0001101 + 0011010 = 0100111; + 1101000 = 10001111. That is 143 = 13 x 11, and it occupies 8 bits.",
+    "answer": "1000 1111, an 8-bit product from two 4-bit operands."
+   },
+   "gateAngle": "GATE CSE 2003 Q.11 asks for the delay of an n-bit array multiplier with unit-delay gates: Theta(n). The 2n-bit width is the other half of the examinable fact, and it is what makes the product of two 8-bit numbers a 16-bit ROM word in GATE CSE 1996 Q.1.21 (carded under Combinational Circuits).",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2003 Q.11: in an array multiplier for two n-bit numbers, with unit delay per gate, the total delay is Theta(1), Theta(log n), Theta(n) or Theta(n^2)?",
+     "answer": "Theta(n), option (C).",
+     "why": "The partial products are formed in parallel; what remains is a chain of n adders whose carry must cross the rows, so the delay grows linearly even though the gate count grows quadratically."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "How many bits does the exact product of two 8-bit unsigned numbers need, and why is 15 not enough?",
+     "answer": "16 bits: 255 x 255 = 65025, which is larger than 2^15 - 1 = 32767.",
+     "why": "The bound is (2^n - 1)^2 = 2^2n - 2^(n+1) + 1, which is just below 2^2n, so 2n bits are necessary and 2n-1 are not."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "A shift-and-add multiplier is built with an 8-bit accumulator for two 8-bit operands. Which inputs break it, and how?",
+     "answer": "Any pair whose product exceeds 255, for example 16 x 16 = 256, which is stored as 0000 0000.",
+     "why": "The high half of the product is discarded, and the failure is silent - the low half is still a correct 8-bit pattern, just not the product."
+    }
+   ],
+   "trap": {
+    "what": "Assuming the product fits in n bits, or assuming an array multiplier's delay is quadratic because its gate count is.",
+    "why": "The product needs 2n bits by the bound (2^n - 1)^2 < 2^2n, and delay follows the carry path through the rows of adders, not the number of gates.",
+    "counterexample": "13 x 11 = 143 needs 8 bits; truncated to 4 it reads 1111 = -1 in two's complement. And a 4-bit array multiplier has 16 AND gates but a delay of three adder delays plus one AND delay."
+   },
+   "check": {
+    "question": "In 6 bits, what is 45 x 3, and what does a 6-bit accumulator hold?",
+    "answer": "135, which needs 8 bits; the 6-bit accumulator holds 7 (000111).",
+    "explanation": "135 = 128 + 7, and dropping the top two bits leaves 7. The truncation is 135 mod 64, which is exactly the wrap-around of the low half."
+   },
+   "pyqIds": [
+    "gate-2003-11-array-multiplier-delay"
+   ],
+   "prereqs": [
+    "half-adder-and-full-adder",
+    "unsigned-fixed-width-range"
+   ],
+   "sources": [
+    {
+     "kind": "gate-notes",
+     "title": "GATE CSE Book, Digital Logic chapter (computer arithmetic and Booth algorithm)",
+     "channel": "GATE Overflow",
+     "url": "https://gateoverflow.in/?qa=blob&qa_blobid=16603857986567646822",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false
+    },
+    {
+     "kind": "lecture-slides",
+     "title": "Chapter 8: Computer Arithmetic (Part II) - division, floating-point addition, multiplication, division and rounding",
+     "channel": "Prof. Smruti Ranjan Sarangi, IIT Delhi, Basic Computer Architecture (slides read through a published slide transcript)",
+     "url": "https://www.slideorbit.com/slide/computer-arithmetic-in-basic-computer-architecture/178376",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false
+    }
+   ],
+   "sourceLine": "The partial products and the array multiplier's structure and delay: GATE Overflow GATE CSE Book, Digital Logic sections 2.2.2 and 2.2.8 (English, read in part), whose own worked multiplication is 01011 x 01110. The row-of-adders picture and the integer-division preamble on N = DQ + R: Sarangi, chapter 8 slides (English, read in part). The 1996 ROM-width question is carded under Combinational Circuits, not repeated here.",
+   "videoRefs": [],
+   "subject": "digital-logic",
+   "topic": "computer-arithmetic",
+   "path": "subjects/digital-logic/computer-arithmetic/shift-and-add-multiplication.json"
+  },
+  {
+   "id": "booths-recoding-and-product",
+   "title": "Booth Recoding: A Run of Ones Costs Two Operations",
+   "priority": "P1",
+   "order": 464,
+   "unit": "Computer Arithmetic: Fixed and Floating Point",
+   "quickIdea": "Booth reads the multiplier two bits at a time and turns a run of ones into one subtraction at its bottom and one addition at its top, so signed numbers multiply with no separate sign fix-up.",
+   "remember": [
+    "Pair table, reading (q_i, q_{i-1}): 00 and 11 do nothing, 01 adds the multiplicand, 10 subtracts it.",
+    "The identity behind it: a run of ones from weight 2^m up to 2^k is 2^(k+1) - 2^m, so 001110 (14) is 16 - 2 and 0111 (7) is 8 - 1.",
+    "The state is A (accumulator), Q (multiplier) and one extra bit q(-1) holding the bit just shifted out of Q. A and q(-1) start at 0.",
+    "Every cycle ends with an arithmetic right shift of A:Q:q(-1) - the top bit of A is copied back into A's sign position, which is what keeps the partial product's value halved rather than corrupted.",
+    "It works on the two's complement patterns directly, so negative multiplicands and negative multipliers need no correction step at the end.",
+    "An n-bit multiplier takes n cycles and leaves the 2n-bit product in A:Q."
+   ],
+   "example": {
+    "prompt": "Multiply 11 by 14 in 5 bits with Booth's algorithm.",
+    "work": "M = 01011 (11), Q = 01110 (14), A = 00000, q(-1) = 0. Cycle 1, pair (0,0): shift, so A = 00000, Q = 00111, q(-1) = 0. Cycle 2, pair (1,0): A = A - M = 10101, then shift, giving A = 11010, Q = 10011, q(-1) = 1. Cycle 3, pair (1,1): shift, giving A = 11101, Q = 01001, q(-1) = 1. Cycle 4, pair (1,1): shift, giving A = 11110, Q = 10100, q(-1) = 1. Cycle 5, pair (0,1): A = A + M = 01001, then shift, giving A = 00100, Q = 11010, q(-1) = 0.",
+    "answer": "A:Q = 00100 11010 = 154 = 11 x 14, from two arithmetic operations instead of the three the multiplier's ones would need."
+   },
+   "gateAngle": "The two Booth questions in this topic test the recoding's cost rather than a full trace - GATE CSE 1996 Q.1.23 asks which multiplier pattern is worst and GATE CSE 2025 Set 2 Q.22 asks how many operations a given multiplier needs - so the pair table and the trace are the machinery behind them, and both sit on the next card.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "Multiply -6 by 3 with Booth's algorithm in 4 bits: M = 1010, Q = 0011.",
+     "answer": "A:Q = 1110 1110 = -18.",
+     "why": "Pairs of Q with q(-1) = 0, least significant first: 10, 11, 01, 00, so subtract, shift, shift, add, shift. The trace ends with A = 1110 and Q = 1110, and 1110 1110 is -18, which is (-6) x 3."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why does Booth's algorithm need an arithmetic right shift rather than a logical one?",
+     "answer": "Because A holds a signed partial product; a logical shift would insert 0 into the sign position and change the value whenever A is negative.",
+     "why": "The shift is a division by two of the pair A:Q, and for a negative A only sign propagation preserves the value. Copying A's top bit into its own sign position is the whole difference."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "A 16-bit Booth multiplier is given Q = 1111111111111111. How many additions or subtractions does it perform?",
+     "answer": "One subtraction.",
+     "why": "With q(-1) = 0 the only differing pair is (1,0) at the least significant end; every other pair is 11. A multiplier of all ones is 2^16 - 1, which is exactly one subtraction at weight 2^0."
+    }
+   ],
+   "trap": {
+    "what": "Reversing the pair table - adding on 10 and subtracting on 01 - or replacing the arithmetic shift with a logical one.",
+    "why": "The pair is read least significant bit first: 10 marks the bottom end of a run of ones and 01 marks the top end. Swapping them negates every recoded digit, so the trace computes -M x Q.",
+    "counterexample": "M = 01011 (11) with Q = 01110 (14) gives 154 under the correct table and -154 under the reversed one. And with a logical shift, the cycle-2 A of 10101 would become 01010 instead of 11010, and the product would not be 154."
+   },
+   "check": {
+    "question": "Recode the 6-bit multiplier 011100 with Booth. How many arithmetic operations does it need, and what are they?",
+    "answer": "Two: one subtraction at the bottom of the run and one addition at the top.",
+    "explanation": "Pairs, least significant first with q(-1) = 0: 00, 00, 10, 11, 11, 01, which recodes to 0, 0, -1, 0, 0, +1. And 011100 is 28 = 32 - 4, which is exactly that subtraction and addition."
+   },
+   "pyqIds": [],
+   "prereqs": [
+    "twos-complement-negation-and-subtraction",
+    "shift-and-add-multiplication"
+   ],
+   "sources": [
+    {
+     "kind": "gate-notes",
+     "title": "GATE CSE Book, Digital Logic chapter (computer arithmetic and Booth algorithm)",
+     "channel": "GATE Overflow",
+     "url": "https://gateoverflow.in/?qa=blob&qa_blobid=16603857986567646822",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false
+    },
+    {
+     "kind": "text",
+     "title": "Booth Algorithm kya hai? (Booth algorithm in Hindi)",
+     "channel": "eHindiStudy (yugal joshi)",
+     "url": "https://ehindistudy.com/2021/06/13/booth-algorithm-hindi/",
+     "language": "hi",
+     "transcript": "FULL",
+     "translated": true
+    },
+    {
+     "kind": "lecture-slides",
+     "title": "Unit 7 Computer Arithmetic (signed-magnitude addition and subtraction, Booth, division, floating-point operations)",
+     "channel": "Prof. Chirag Bhalodia, CO 2140707, following Mano's Digital Design",
+     "url": "https://csbhalodia.weebly.com/uploads/1/0/2/8/102862858/ch_7_computer_arithmetic.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false
+    }
+   ],
+   "sourceLine": "The pair table, the run-of-ones identity 2^(k+1) - 2^m and the 01011 x 01110 worked trace: GATE Overflow GATE CSE Book, section 2.2.10 (English, read in part). The register set M, Q, AC, q(-1) and the sequence counter, the three pair cases and the result in AC and QR: eHindiStudy, 'Booth Algorithm kya hai?' (Hindi, read in full, translated here - the only translated material in this topic). Mano's statement that a string of ones from weight 2^k down to 2^m is treated as 2^(k+1) - 2^m: Bhalodia, Unit 7 (English, read in part). The Hindi article says q(-1) is 'Qn incremented by 1' and stops after 'n-1 bits'; both readings are wrong against the standard treatment and are not used - q(-1) is the bit shifted out of Q, and the loop runs n cycles.",
+   "videoRefs": [],
+   "subject": "digital-logic",
+   "topic": "computer-arithmetic",
+   "path": "subjects/digital-logic/computer-arithmetic/booths-recoding-and-product.json"
+  },
+  {
+   "id": "booths-operation-count",
+   "title": "Counting Booth's Additions and Subtractions",
+   "priority": "P1",
+   "order": 465,
+   "unit": "Computer Arithmetic: Fixed and Floating Point",
+   "quickIdea": "The number of arithmetic operations Booth performs is the number of places where the multiplier's bits change, counted with an extra 0 appended below the least significant bit.",
+   "remember": [
+    "Count pairs, not ones: every 01 pair is one addition, every 10 pair is one subtraction, 00 and 11 are shift-only.",
+    "Append q(-1) = 0 below the least significant bit before counting. Leaving it out loses the operation at the least significant end.",
+    "The count depends only on the multiplier; the multiplicand never enters it.",
+    "Worst case is the alternating pattern 1010...10: of the n pairs, all but the very bottom one differ, so a 16-bit alternating multiplier needs 15 operations - 7 additions and 8 subtractions.",
+    "An all-zero multiplier needs none; an all-ones multiplier needs exactly one subtraction, because 111...1 is 2^n - 1.",
+    "A single isolated 1 costs two operations, since 2^i = 2^(i+1) - 2^i, which is why the alternating pattern is the worst case."
+   ],
+   "example": {
+    "prompt": "GATE CSE 2025 Set 2 Q.22: Q = 1010010010101010 is the multiplier. How many addition and subtraction operations does Booth's algorithm perform?",
+    "work": "Append q(-1) = 0 and read pairs from the least significant end: (0,0), (1,0), (0,1), (1,0), (0,1), (1,0), (0,1), (0,0), (1,0), (0,1), (1,0), (0,1), (1,0), (0,1), (1,0), (1,1). That is seven 10 pairs, six 01 pairs and three pairs that do nothing.",
+    "answer": "13 operations: 6 additions and 7 subtractions."
+   },
+   "gateAngle": "Two CSE questions turn on this count and nothing else: GATE CSE 1996 Q.1.23 asks which multiplier pattern makes Booth perform worst, and GATE CSE 2025 Set 2 Q.22 asks for the number on a 16-bit multiplier. Both are answered by reading transitions, and neither needs the multiplicand.",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 1996 Q.1.23: Booth's algorithm for integer multiplication gives worst performance when the multiplier pattern is (A) 101010...1010, (B) 100000...0001, (C) 111111...1111, (D) 011111...1110.",
+     "answer": "Option (A), the alternating pattern.",
+     "why": "Performance is the number of additions and subtractions, and an alternating multiplier changes at almost every bit. The all-ones pattern (C) needs one subtraction; the pattern (D) is a single run of ones, which needs two operations."
+    },
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2025 Set 2 Q.22: with M = 1100110111101101 and Q = 1010010010101010, the total number of addition and subtraction operations Booth's algorithm performs is ___.",
+     "answer": "13.",
+     "why": "The count is the number of 01 and 10 pairs in Q with q(-1) = 0: seven 10 pairs and six 01 pairs. M is irrelevant, which is the part candidates most often get wrong by trying to run the trace."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "For the same multiplier Q = 1010010010101010, the question asks only for the number of additions. What is it?",
+     "answer": "6.",
+     "why": "Additions are the 01 pairs and subtractions the 10 pairs; the total 13 is their sum, so answering 13 to an additions-only question doubles the mark lost."
+    }
+   ],
+   "trap": {
+    "what": "Counting the ones in the multiplier, or counting pairs without the appended zero.",
+    "why": "Booth's saving is exactly that a run of k ones costs two operations instead of k, so counting ones computes the shift-and-add cost, not Booth's. And the pair at the least significant end only exists because q(-1) starts at 0.",
+    "counterexample": "Q = 0111 has three ones but needs two operations, because 0111 = 8 - 1. Q = 0011 needs two operations with q(-1) = 0 (10 then 01) and only one without it."
+   },
+   "check": {
+    "question": "Q = 0001. How many Booth operations does it need, and why is the answer not one?",
+    "answer": "Two: one subtraction at the least significant bit and one addition one place up.",
+    "explanation": "With q(-1) = 0 the pairs are 10, 01, 00, 00. The value is 2^1 - 2^0, so Booth trades the single 1 for a subtract and an add - which is why an isolated 1 is expensive and an alternating multiplier is the worst case."
+   },
+   "pyqIds": [
+    "gate-1996-1-23-booth-worst-case",
+    "gate-2025-2-22-booth-add-sub-count"
+   ],
+   "prereqs": [
+    "booths-recoding-and-product"
+   ],
+   "sources": [
+    {
+     "kind": "gate-notes",
+     "title": "GATE CSE Book, Digital Logic chapter (computer arithmetic and Booth algorithm)",
+     "channel": "GATE Overflow",
+     "url": "https://gateoverflow.in/?qa=blob&qa_blobid=16603857986567646822",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false
+    },
+    {
+     "kind": "text",
+     "title": "Booth Algorithm kya hai? (Booth algorithm in Hindi)",
+     "channel": "eHindiStudy (yugal joshi)",
+     "url": "https://ehindistudy.com/2021/06/13/booth-algorithm-hindi/",
+     "language": "hi",
+     "transcript": "FULL",
+     "translated": true
+    }
+   ],
+   "sourceLine": "The worst case as b/2 additions and b/2 subtractions and the note that the alternating pattern is the worst: GATE Overflow GATE CSE Book, section 2.2.10 (English, read in part). The three pair cases that make 00 and 11 shift-only: eHindiStudy (Hindi, read in full, translated). The two question texts and accepted answers: their GATE Overflow pages. Every count in this card is recomputed in scripts/validate.py rather than taken from any source.",
+   "videoRefs": [],
+   "subject": "digital-logic",
+   "topic": "computer-arithmetic",
+   "path": "subjects/digital-logic/computer-arithmetic/booths-operation-count.json"
+  },
+  {
+   "id": "restoring-division",
+   "title": "Restoring Division: Trial Subtraction with an Undo",
+   "priority": "P1",
+   "order": 466,
+   "unit": "Computer Arithmetic: Fixed and Floating Point",
+   "quickIdea": "Divide by repeated trial subtraction: shift the partial remainder left, subtract the divisor, and if the result went negative put the divisor back and record a 0.",
+   "remember": [
+    "The invariant is N = D x Q + R with 0 <= R < D, and Q is the largest integer for which it holds.",
+    "Each cycle: shift the register pair (A,Q) left by one; A = A - D; if A went negative restore A = A + D and set the quotient bit 0, otherwise set it 1.",
+    "The quotient is built one bit per cycle, most significant bit first, into the freed least significant position of Q.",
+    "n cycles produce an n-bit quotient; the remainder is left in A and the quotient in Q.",
+    "The restore is the cost: one extra addition or register move for every cycle that produced a 0 bit.",
+    "The dividend must be smaller than D x 2^n and D must be non-zero; the algorithm assumes both and checks neither."
+   ],
+   "example": {
+    "prompt": "Divide 7 by 3 with a 4-bit restoring divider.",
+    "work": "A = 0000, Q = 0111, D = 0011. Cycle 1: shift gives A = 0000, Q = 1110; A - D = 1101, negative, so restore A = 0000 and set the bit 0, Q = 1110. Cycle 2: shift gives A = 0001, Q = 1100; A - D = 1110, negative, so restore A = 0001, Q = 1100. Cycle 3: shift gives A = 0011, Q = 1000; A - D = 0000, not negative, so the bit is 1, Q = 1001. Cycle 4: shift gives A = 0001, Q = 0010; A - D = 1110, negative, so restore A = 0001, Q = 0010.",
+    "answer": "Q = 0010 (2) and A = 0001 (1), and 3 x 2 + 1 = 7."
+   },
+   "gateAngle": "No verified GATE CSE question asks for a restoring-division trace. The syllabus line is 'number representation and arithmetic (fixed and floating point)', which names the arithmetic as a whole, so the two division algorithms are carded here for completeness and this card names the absence of a PYQ rather than borrowing one that tests something else.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "Divide 13 by 4 with a 4-bit restoring divider. Give Q and R.",
+     "answer": "Q = 0011 (3), R = 0001 (1).",
+     "why": "13 = 4 x 3 + 1. Cycles 1 and 2 restore and record 0; cycles 3 and 4 subtract successfully and record 1, leaving 0011 in Q and 0001 in A."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why is R < D guaranteed rather than checked at the end?",
+     "answer": "Because a quotient bit is 1 exactly when subtracting D leaves a non-negative remainder, so the loop stops only when no further subtraction would succeed.",
+     "why": "After n cycles the remainder is what the last n trial subtractions could not remove, which is by construction smaller than D - provided the dividend fitted, which is the assumption the algorithm does not test."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "A restoring divider is given D = 0. What does it produce?",
+     "answer": "Q = all ones and R = the dividend: subtracting 0 never goes negative, so every quotient bit is 1.",
+     "why": "The invariant N = 0 x Q + R still holds, but Q is unbounded, so the n-bit quotient saturates. Division by zero has to be trapped separately."
+    }
+   ],
+   "trap": {
+    "what": "Setting the quotient bit to 1 when the trial subtraction went negative, or skipping the restore.",
+    "why": "The quotient bit records whether the subtraction succeeded, and a negative A left in place poisons every later cycle because the next shift propagates it.",
+    "counterexample": "In 7 / 3, dropping the restore after cycle 1 leaves A = 1101; the next shift makes it 1011 and the final answer is not 2 remainder 1."
+   },
+   "check": {
+    "question": "In a 4-bit restoring divider, what are Q and A after dividing 6 by 2?",
+    "answer": "Q = 0011 and A = 0000.",
+    "explanation": "6 = 2 x 3 + 0. The first two cycles restore and record 0, the last two subtract successfully and record 1, so the quotient is 0011 and nothing is left over."
+   },
+   "pyqIds": [],
+   "prereqs": [
+    "twos-complement-negation-and-subtraction"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-slides",
+     "title": "Chapter 8: Computer Arithmetic (Part II) - division, floating-point addition, multiplication, division and rounding",
+     "channel": "Prof. Smruti Ranjan Sarangi, IIT Delhi, Basic Computer Architecture (slides read through a published slide transcript)",
+     "url": "https://www.slideorbit.com/slide/computer-arithmetic-in-basic-computer-architecture/178376",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false
+    },
+    {
+     "kind": "lecture-slides",
+     "title": "Unit 7 Computer Arithmetic (signed-magnitude addition and subtraction, Booth, division, floating-point operations)",
+     "channel": "Prof. Chirag Bhalodia, CO 2140707, following Mano's Digital Design",
+     "url": "https://csbhalodia.weebly.com/uploads/1/0/2/8/102862858/ch_7_computer_arithmetic.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false
+    }
+   ],
+   "sourceLine": "The restoring algorithm, its proof, the 00111 / 0011 worked trace and the n log n time: Sarangi, chapter 8 slides (English, read in part). The four-step register formulation - shift, subtract, test the sign, restore - and the N = DQ + R framing: Bhalodia, Unit 7 (English, read in part). Every trace in this card is recomputed in scripts/validate.py.",
+   "videoRefs": [],
+   "subject": "digital-logic",
+   "topic": "computer-arithmetic",
+   "path": "subjects/digital-logic/computer-arithmetic/restoring-division.json"
+  },
+  {
+   "id": "non-restoring-division",
+   "title": "Non-Restoring Division: Let the Remainder Go Negative",
+   "priority": "P2",
+   "order": 467,
+   "unit": "Computer Arithmetic: Fixed and Floating Point",
+   "quickIdea": "Non-restoring division never puts the divisor back: it lets the partial remainder go negative and adds the divisor on the next cycle instead of subtracting it.",
+   "remember": [
+    "Each cycle: shift left; if the partial remainder is non-negative subtract D, otherwise add D; then the quotient bit is 1 if the new remainder is non-negative and 0 otherwise.",
+    "There is no restore step, so each cycle has one addition or subtraction instead of one plus a possible second - about half the work of the restoring form.",
+    "The running quotient digits belong to {+1, -1} rather than {0, 1}, so the final Q needs one conversion, and the remainder may need one correction: if R < 0 then Q = Q - 1 and R = R + D.",
+    "The partial remainder is kept in a register one bit wider than the divisor so that its sign survives the left shift.",
+    "Both algorithms return the same Q and R for a valid division; they diverge only in what they carry after a negative trial subtraction."
+   ],
+   "example": {
+    "prompt": "Divide 7 by 3 with a 4-bit non-restoring divider.",
+    "work": "A = 00000, Q = 0111, D = 00011. Cycle 1: shift gives A = 00000, Q = 1110; A is non-negative so A - D = 11101, negative, so the bit is 0, Q = 1110. Cycle 2: shift gives A = 11011, Q = 1100; A is negative so A + D = 11110, still negative, bit 0, Q = 1100. Cycle 3: shift gives A = 11101, Q = 1000; negative, so A + D = 00000, non-negative, bit 1, Q = 1001. Cycle 4: shift gives A = 00001, Q = 0010; non-negative, so A - D = 11110, negative, bit 0, Q = 0010.",
+    "answer": "The remainder is negative, so one correction is applied: A = 11110 + 00011 = 00001. Q = 0010 (2) and R = 0001 (1)."
+   },
+   "gateAngle": "Like restoring division, this has no verified GATE CSE question of its own; it is carded because the syllabus names fixed-point arithmetic as a whole. The examinable content is the operation count - one add or subtract per quotient bit - and the final correction.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "Divide 6 by 2 with a 4-bit non-restoring divider, and say whether the correction step fires.",
+     "answer": "Q = 0011, R = 0000, and no correction is needed.",
+     "why": "The trace ends with A = 00000, which is already non-negative, so Q and R stand as produced."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why is the final remainder allowed to be negative at all?",
+     "answer": "Because a negative partial remainder is exactly the information the next cycle needs: it says 'add this time'. Restoring division throws that information away and then re-derives it.",
+     "why": "That is the whole trade. Keeping the negative remainder halves the work per bit; the price is one conversion of the quotient and one possible correction at the end."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "A non-restoring divider finishes with Q = 0010 and R = -2 for a divisor of 3. What are the true quotient and remainder?",
+     "answer": "Q = 0001 and R = 0001.",
+     "why": "The correction is Q = Q - 1 and R = R + D: 2 - 1 = 1 and -2 + 3 = 1, and 3 x 1 + 1 = 4 checks against the dividend."
+    }
+   ],
+   "trap": {
+    "what": "Forgetting the final correction, or testing the sign of the remainder before the add or subtract instead of after it.",
+    "why": "The quotient bit describes the remainder that has just been computed. Testing the wrong one flips every bit after the first negative trial.",
+    "counterexample": "In 7 / 3 the trace ends with A = 11110; recording Q = 0010 and R = -2 without the correction gives a remainder of -2, which breaks 0 <= R < D and reads as 2 remainder -2."
+   },
+   "check": {
+    "question": "How many additions or subtractions does a non-restoring 32-bit division perform, and how many does the restoring form perform in the worst case?",
+    "answer": "32, against up to 64 for restoring division.",
+    "explanation": "One add or subtract per quotient bit in the non-restoring form; the restoring form needs a restore after every failed trial, so a worst case of one subtract plus one add per bit."
+   },
+   "pyqIds": [],
+   "prereqs": [
+    "restoring-division"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-slides",
+     "title": "Chapter 8: Computer Arithmetic (Part II) - division, floating-point addition, multiplication, division and rounding",
+     "channel": "Prof. Smruti Ranjan Sarangi, IIT Delhi, Basic Computer Architecture (slides read through a published slide transcript)",
+     "url": "https://www.slideorbit.com/slide/computer-arithmetic-in-basic-computer-architecture/178376",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false
+    },
+    {
+     "kind": "lecture-slides",
+     "title": "Unit 7 Computer Arithmetic (signed-magnitude addition and subtraction, Booth, division, floating-point operations)",
+     "channel": "Prof. Chirag Bhalodia, CO 2140707, following Mano's Digital Design",
+     "url": "https://csbhalodia.weebly.com/uploads/1/0/2/8/102862858/ch_7_computer_arithmetic.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false
+    }
+   ],
+   "sourceLine": "The non-restoring algorithm, its divergence proof from the restoring form, and the 00111 / 0011 trace ending in U = 11110 with the closing U = U + D: Sarangi, chapter 8 slides (English, read in part). The quotient-digit set and the negative-remainder correction: Wikipedia's Division algorithm article, used only to confirm the two slides, plus Bhalodia's Unit 7 (English, read in part). Every trace is recomputed in scripts/validate.py.",
+   "videoRefs": [],
+   "subject": "digital-logic",
+   "topic": "computer-arithmetic",
+   "path": "subjects/digital-logic/computer-arithmetic/non-restoring-division.json"
+  },
+  {
+   "id": "fixed-point-fraction-multiplication",
+   "title": "Fixed-Point Fractions: Multiplying in Q Format",
+   "priority": "P2",
+   "order": 468,
+   "unit": "Computer Arithmetic: Fixed and Floating Point",
+   "quickIdea": "In Qm.n fixed point the stored integer means k / 2^n, so multiplying two of them doubles the scale and the product needs a right shift by n to come back to the same format.",
+   "remember": [
+    "Qm.n holds an integer k meaning k / 2^n, with one sign bit, m-1 integer bits and n fraction bits; its resolution is 2^-n everywhere.",
+    "Add and subtract: the two formats must match, then add or subtract the integers - there is no shift.",
+    "Multiply: the product of two Qm.n numbers is Q(2m).(2n), so shift right by n, with rounding, to return to Qm.n.",
+    "Divide: shift the dividend left by n first, then divide the integers.",
+    "The absolute error of one product is up to 2^-n/2, and it accumulates over a sum, which is why a long fixed-point accumulation drifts.",
+    "The intermediate integer can overflow even when the true result is small: two Q1.15 numbers need 34 bits before the shift."
+   ],
+   "example": {
+    "prompt": "In Q4.4, multiply 1.5 by 0.75.",
+    "work": "Q4.4 stores an 8-bit integer over 16, so 1.5 is 24 (0001 1000) and 0.75 is 12 (0000 1100). The integer product is 24 x 12 = 288, which is Q8.8: 288/256 = 1.125. To return to Q4.4, shift right by 4: 288 >> 4 = 18, and 18/16 = 1.125. The exact answer needs three fraction bits, so nothing was lost in this case.",
+    "answer": "1.125, stored as 18 (0001 0010) in Q4.4."
+   },
+   "gateAngle": "GATE tests fixed point through the range and resolution formula (GATE CSE 2017 Set 1 Q.7, carded under Number Systems) and through the arithmetic the format forces; the multiplication shift is the step that is lost in revision, because the addition needs none.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "In Q4.4, multiply 0.5 by 0.5. Give the stored integer before and after the shift.",
+     "answer": "64 before, 4 after; 4/16 = 0.25.",
+     "why": "0.5 is 8, and 8 x 8 = 64 is Q8.8, where 64/256 = 0.25. Shifting right by 4 gives 4, which in Q4.4 is 4/16 = 0.25."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why can two Q4.4 numbers not be multiplied into a Q4.4 register without a shift?",
+     "answer": "The product's scale is 2^-8, not 2^-4, so the stored integer is 16 times too large.",
+     "why": "Without the shift, 0.5 x 0.5 would be read as 64/16 = 4. The shift is not a rounding nicety; it is the format's bookkeeping."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "In Q4.4, what does 7.5 + 1.0 give, and why?",
+     "answer": "-7.5: the exact 8.5 needs the integer 136, which does not fit in 8 bits.",
+     "why": "Q4.4 covers -8 to 7.9375. The sum 136 wraps to 136 - 256 = -120, and -120/16 = -7.5 - a wrap-around, not a rounding error."
+    }
+   ],
+   "trap": {
+    "what": "Forgetting the shift after a multiply, or assuming that a format that cannot represent the result will round it.",
+    "why": "The product's binary point sits twice as far from the right, so the integer must be rescaled; and an overflow in the integer part wraps silently rather than saturating.",
+    "counterexample": "In Q4.4, 0.5 x 0.5 gives 64 unshifted, which reads as 4.0 - eight times too large and out of the range that 0.25 needs. And 7.5 + 1.0 gives -7.5, not 7.9375."
+   },
+   "check": {
+    "question": "In Q4.4, what is the resolution, and what is the largest value?",
+    "answer": "1/16 = 0.0625, and the largest value is 127/16 = 7.9375.",
+    "explanation": "Eight bits give the integers -128 to 127 over a scale of 16, so the step is 2^-4 and the top of the range is 7.9375 - not 8, because the sign bit is spent."
+   },
+   "pyqIds": [],
+   "prereqs": [
+    "fixed-point-representation",
+    "twos-complement-definition-and-range"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-slides",
+     "title": "Unit 7 Computer Arithmetic (signed-magnitude addition and subtraction, Booth, division, floating-point operations)",
+     "channel": "Prof. Chirag Bhalodia, CO 2140707, following Mano's Digital Design",
+     "url": "https://csbhalodia.weebly.com/uploads/1/0/2/8/102862858/ch_7_computer_arithmetic.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false
+    },
+    {
+     "kind": "gate-notes",
+     "title": "GATE CSE Book, Digital Logic chapter (computer arithmetic and Booth algorithm)",
+     "channel": "GATE Overflow",
+     "url": "https://gateoverflow.in/?qa=blob&qa_blobid=16603857986567646822",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false
+    }
+   ],
+   "sourceLine": "The fixed-point introduction, the statement that the hardware interprets the same bits as integer or fraction, and the signed-magnitude versus two's complement split: Bhalodia, Unit 7 (English, read in part). The carry and overflow distinction that the Q-format wrap-around rests on: GATE Overflow GATE CSE Book, section 2.2.8 (English, read in part). The Q4.4 arithmetic is recomputed in scripts/validate.py.",
+   "videoRefs": [],
+   "subject": "digital-logic",
+   "topic": "computer-arithmetic",
+   "path": "subjects/digital-logic/computer-arithmetic/fixed-point-fraction-multiplication.json"
+  },
+  {
+   "id": "floating-point-addition-alignment",
+   "title": "Floating-Point Addition: Align, Add, Normalise, Round",
+   "priority": "P1",
+   "order": 469,
+   "unit": "Computer Arithmetic: Fixed and Floating Point",
+   "quickIdea": "Add floating-point numbers by making the exponents equal first - shift the smaller significand right - then add, normalise and round.",
+   "remember": [
+    "The order is fixed: compare the exponents, shift the smaller-exponent significand right by the difference, add or subtract the significands, normalise, round, and normalise again if the rounding carried out.",
+    "Only the smaller exponent's significand is shifted, and only to the right, because a left shift would need bits the format never stored.",
+    "A sum can leave [1,2) in either direction: a carry out needs one right shift and an exponent increment, and cancellation needs a left shift and an exponent decrement.",
+    "The result's exponent field starts as the larger of the two; the alignment step never changes it.",
+    "An addend whose exponent is more than about 24 below the other contributes nothing: after alignment its significand is shifted past the stored bits and rounds away."
+   ],
+   "example": {
+    "prompt": "GATE CSE 2026 Set 1 Q.26: X = 0x35C00000 and Y = 0x34A00000. Compute X + Y.",
+    "work": "X: sign 0, exponent field 0110 1011 = 107, so the exponent is -20; fraction 1000..., so X = 1.1 x 2^-20 = 1.5 x 2^-20. Y: sign 0, exponent field 0110 1001 = 105, so the exponent is -22; fraction 0100..., so Y = 1.01 x 2^-22 = 1.25 x 2^-22. The exponents differ by 2, so Y's significand is shifted right by 2 and its exponent raised to -20: 1.01 becomes 0.0101. Adding: 1.1000 + 0.0101 = 1.1101 with exponent -20, which is already in [1,2) and produced no carry, so no further shift is needed. The exponent field is -20 + 127 = 107 = 0110 1011, the fraction is 1101 followed by zeros, and the word is 0011 0101 1110 1000 0000 0000 0000 0000.",
+    "answer": "0x35E80000, which is 1.8125 x 2^-20 = about 1.7285e-6."
+   },
+   "gateAngle": "GATE CSE 2026 Set 1 Q.26 is exactly this computation, and GATE CSE 2022 Q.41 asks which arithmetic identity among three decoded numbers is false - both are the four-step procedure applied to hex words.",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2026 Set 1 Q.26: X = 0x35C00000 and Y = 0x34A00000; which is Z = X + Y in hexadecimal?",
+     "answer": "0x35E80000, option (C).",
+     "why": "1.5 x 2^-20 + 1.25 x 2^-22 = 1.8125 x 2^-20 = 1.1101 x 2^-20, whose biased exponent is 107. The distractors keep the smaller exponent or shift the larger significand."
+    },
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2022 Q.41: RA = 0xC1400000, RB = 0x42100000, RC = 0x41400000. Which statement is FALSE: A + C = 0, C = A + B, B = 3C, or (B - C) > 0?",
+     "answer": "C = A + B is false, option (B).",
+     "why": "A = -12, B = 36 and C = 12, so A + C = 0, B = 3C and B - C = 24 are all true, while A + B = 24, not 12."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "In single precision, what is 1.0 x 2^0 + 1.0 x 2^-30?",
+     "answer": "1.0 exactly.",
+     "why": "The exponent difference is 30 and the significand has 24 bits, so after alignment the addend is shifted 30 places right - entirely past the stored bits and the guard region - and rounds to nothing."
+    }
+   ],
+   "trap": {
+    "what": "Aligning by shifting the larger significand, or stopping after the addition without checking the normal form.",
+    "why": "The pair must end with one exponent, and only the smaller-exponent number can be shifted right without inventing bits. And the significand sum can leave [1,2) upward or downward.",
+    "counterexample": "1.1 x 2^0 + 1.1 x 2^0 = 11.0 x 2^0, which must be written 1.10 x 2^1: without the one-place right shift and the exponent increment the answer is twice the truth."
+   },
+   "check": {
+    "question": "Add 1.1 x 2^3 and 1.1 x 2^2. What is the normalised result?",
+    "answer": "1.001 x 2^4.",
+    "explanation": "Align: 1.1 + 0.11 = 10.01 with exponent 3, which is 18. Normalising shifts right once and increments the exponent, giving 1.001 x 2^4 = 18."
+   },
+   "pyqIds": [
+    "gate-2026-1-26-fp-addition",
+    "gate-2022-41-fp-identity-false"
+   ],
+   "prereqs": [
+    "ieee-754-single-precision-layout",
+    "floating-point-normalisation-and-bias"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 39 - Floating-Point Arithmetic",
+     "channel": "NPTEL, Computer Architecture and Organization (Prof. Indranil Sengupta, IIT Kharagpur)",
+     "url": "http://digimat.in/nptel/courses/video/106105163/lec39.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false
+    },
+    {
+     "kind": "lecture-slides",
+     "title": "Chapter 8: Computer Arithmetic (Part II) - division, floating-point addition, multiplication, division and rounding",
+     "channel": "Prof. Smruti Ranjan Sarangi, IIT Delhi, Basic Computer Architecture (slides read through a published slide transcript)",
+     "url": "https://www.slideorbit.com/slide/computer-arithmetic-in-basic-computer-architecture/178376",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false
+    },
+    {
+     "kind": "lecture-slides",
+     "title": "Unit 7 Computer Arithmetic (signed-magnitude addition and subtraction, Booth, division, floating-point operations)",
+     "channel": "Prof. Chirag Bhalodia, CO 2140707, following Mano's Digital Design",
+     "url": "https://csbhalodia.weebly.com/uploads/1/0/2/8/102862858/ch_7_computer_arithmetic.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false
+    }
+   ],
+   "sourceLine": "The four-step procedure, the hardware that implements it, the 270.75 + 2.375 and 224 - 270.75 examples (the second needing a three-place left shift after the subtraction), and the rounding step: NPTEL IIT Kharagpur Lecture 39 (English, read in part - the served transcript stops in the middle of the rounding discussion and resumes at the MIPS material). The 25-bit working register, the renormalisation rule and the opposite-sign path: Sarangi, chapter 8 slides (English, read in part). No comparison of exponents or alignment is needed for multiplication: Bhalodia, Unit 7 (English, read in part). The two question texts and accepted answers: their GATE Overflow pages.",
+   "videoRefs": [],
+   "subject": "digital-logic",
+   "topic": "computer-arithmetic",
+   "path": "subjects/digital-logic/computer-arithmetic/floating-point-addition-alignment.json"
+  },
+  {
+   "id": "floating-point-multiplication-and-division",
+   "title": "Floating-Point Multiplication and Division: Add the Exponents, Subtract the Bias",
+   "priority": "P1",
+   "order": 470,
+   "unit": "Computer Arithmetic: Fixed and Floating Point",
+   "quickIdea": "Multiply the significands, add the two biased exponents and subtract the bias once; for division subtract the exponents and add the bias once. The sign is the XOR of the signs.",
+   "remember": [
+    "Multiplication: E_result = E1 + E2 - bias, because each stored exponent already carries the bias once.",
+    "Division: E_result = E1 - E2 + bias, because the subtraction cancels both biases and one has to be put back.",
+    "Significands: 1.F1 x 1.F2 lies in [1,4), so at most one right shift is needed; 1.F1 / 1.F2 lies in (0.5,2), so at most one left shift.",
+    "The sign is s1 XOR s2. A zero operand is special-cased before any of this.",
+    "Overflow and underflow are decided by the exponent after the correction: above the largest normal field means infinity, below the smallest means zero or a subnormal.",
+    "Multiplication cannot overflow the significand, which is why the standard notes say no overflow check is needed there - but the exponent can still overflow, and the check belongs on the exponent field."
+   ],
+   "example": {
+    "prompt": "GATE CSE 2023 Q.45: P = 0xC1800000 and Q = 0x3F5C2EF4. Find P x Q.",
+    "work": "P: sign 1, exponent field 1000 0011 = 131, so the exponent is 4; the fraction is all zeros, so P = -1.0 x 2^4 = -16. Q: sign 0, exponent field 0111 1110 = 126, so the exponent is -1; the fraction is 10111000010111011110100, so Q = 1.10111000010111011110100 x 2^-1 = about 0.8601. Product: sign 1 XOR 0 = 1; exponent field 131 + 126 - 127 = 130 = 1000 0010; significand 1.0 x 1.1011... = 1.1011..., already in [1,2). The word is 1 1000 0010 1011 1000 0101 1101 1110 100.",
+    "answer": "0xC15C2EF4, which is -1.10111000010111011110100 x 2^3 = about -13.7615."
+   },
+   "gateAngle": "GATE CSE 2023 Q.45 asks for the product of two hex words, and GATE CSE 2025 Set 2 Q.49 asks which linear combinations of three such words are zero - the first is the multiply rule directly, the second needs the values and then the scaling.",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2023 Q.45: P = 0xC1800000 and Q = 0x3F5C2EF4. Which is P x Q in single precision: 0x404C2EF4, 0x405C2EF4, 0xC15C2EF4 or 0xC14C2EF4?",
+     "answer": "0xC15C2EF4, option (C).",
+     "why": "The sign is the XOR, so the product is negative; 131 + 126 - 127 = 130 gives the exponent field; and multiplying by 1.0 leaves Q's fraction untouched. Forgetting the bias correction gives 0x405C2EF4, the sign error gives 0xC14C2EF4."
+    },
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2025 Set 2 Q.49: RX = 0xC1100000, RY = 0x40C00000, RZ = 0x41400000. Which of 4(X + Y) + Z = 0, 2Y - Z = 0, 4X + 3Z = 0, X + Y + Z = 0 is/are correct?",
+     "answer": "The first three, options (A), (B) and (C).",
+     "why": "X = -9, Y = 6 and Z = 12, so 4(-9 + 6) + 12 = 0, 2(6) - 12 = 0 and 4(-9) + 3(12) = 0, while X + Y + Z = 9."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "What is 0.5 x (-0.75) in single precision, by the rule?",
+     "answer": "-0.375, with exponent field 125.",
+     "why": "1.000 x 2^-1 times 1.100 x 2^-1: exponent field 126 + 126 - 127 = 125, significand 1.1, sign 1. So -1.1 x 2^-2 = -0.375, and no renormalisation was needed because 1.0 x 1.1 stayed below 2."
+    }
+   ],
+   "trap": {
+    "what": "Forgetting to subtract the bias once in a product, or adding it in a quotient, and taking the sign as the product of the sign bits instead of their XOR.",
+    "why": "Each stored exponent carries the bias, so a sum carries it twice and a difference carries it zero times. The sign bit is a sign, not a magnitude, so multiplying it is only coincidence for 0 and 1.",
+    "counterexample": "In GATE CSE 2023 Q.45 the uncorrected exponent 131 + 126 = 257 does not even fit the field; correcting by the bias gives 130, which is the right answer, while option 0x405C2EF4 comes from 131 + 127."
+   },
+   "check": {
+    "question": "Multiply 1.1 x 2^3 by 1.1 x 2^2 in the same format. What are the exponent field and significand before rounding?",
+    "answer": "Significand 10.01, so after normalisation 1.001 and the exponent is 6.",
+    "explanation": "1.1 x 1.1 = 10.01, which is 2.25 and lies in [1,4): one right shift gives 1.001 and increments the exponent by one, and 1.001 x 2^6 = 72 = 12 x 6."
+   },
+   "pyqIds": [
+    "gate-2023-45-fp-product",
+    "gate-2025-2-49-fp-register-identities"
+   ],
+   "prereqs": [
+    "ieee-754-single-precision-layout",
+    "floating-point-addition-alignment"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 39 - Floating-Point Arithmetic",
+     "channel": "NPTEL, Computer Architecture and Organization (Prof. Indranil Sengupta, IIT Kharagpur)",
+     "url": "http://digimat.in/nptel/courses/video/106105163/lec39.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false
+    },
+    {
+     "kind": "lecture-slides",
+     "title": "Chapter 8: Computer Arithmetic (Part II) - division, floating-point addition, multiplication, division and rounding",
+     "channel": "Prof. Smruti Ranjan Sarangi, IIT Delhi, Basic Computer Architecture (slides read through a published slide transcript)",
+     "url": "https://www.slideorbit.com/slide/computer-arithmetic-in-basic-computer-architecture/178376",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false
+    },
+    {
+     "kind": "lecture-slides",
+     "title": "Unit 7 Computer Arithmetic (signed-magnitude addition and subtraction, Booth, division, floating-point operations)",
+     "channel": "Prof. Chirag Bhalodia, CO 2140707, following Mano's Digital Design",
+     "url": "https://csbhalodia.weebly.com/uploads/1/0/2/8/102862858/ch_7_computer_arithmetic.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false
+    }
+   ],
+   "sourceLine": "The multiplication and division rules, the double-biased exponent and the one subtraction of the bias, the 24-bit multiplier and divider and the four rounding modes: NPTEL IIT Kharagpur Lecture 39 (English, read in part). The E1 + E2 - bias and E1 - E2 + bias forms with the sign as the XOR, and the normalisation after the significand product: Sarangi, chapter 8 slides (English, read in part), whose worked example is 0.5 x -0.75. The rules of the multiplication algorithm and the note that no overflow check is needed: Bhalodia, Unit 7 (English, read in part) - the card narrows that note to the significand, because the exponent can overflow. The two question texts and accepted answers: their GATE Overflow and IAE Academy paper pages.",
+   "videoRefs": [],
+   "subject": "digital-logic",
+   "topic": "computer-arithmetic",
+   "path": "subjects/digital-logic/computer-arithmetic/floating-point-multiplication-and-division.json"
+  },
+  {
+   "id": "ieee-rounding-guard-round-sticky",
+   "title": "Rounding: Guard, Round and Sticky Bits and the Ulp",
+   "priority": "P1",
+   "order": 471,
+   "unit": "Computer Arithmetic: Fixed and Floating Point",
+   "quickIdea": "IEEE rounds to nearest with ties to even by default, and the hardware keeps three extra bits - guard, round and sticky - so the decision uses information the 23-bit field cannot hold.",
+   "remember": [
+    "Four modes: toward zero (truncate), toward +infinity, toward -infinity, and to nearest with ties to even, which is the default.",
+    "Guard bit = the first bit beyond the stored significand, round bit = the second, sticky = the OR of everything after the second.",
+    "Increment the significand when the round bit is 1 and either the sticky bit is 1 or the least significant stored bit is 1. That one rule is ties-to-even.",
+    "ulp is the spacing at the exponent: 2^(e-23) for single precision. A correctly rounded result has relative error at most half an ulp, that is 2^-24.",
+    "Without guard bits, a subtraction of two nearby numbers loses the leading bits that the subtraction then cancels, so the answer is wrong in its first digits.",
+    "The IEEE standard requires +, -, x, / and square root to be correctly rounded, so two conforming machines produce identical bits."
+   ],
+   "example": {
+    "prompt": "Add 2.34 x 10^2 and 0.0256 x 10^2 in a three-significant-digit decimal format, with and without guard bits.",
+    "work": "Align: 2.3400 + 0.0256 = 2.3656. With three stored digits the significand is 2.36 and the residue is 0.0056, so the round bit is 5 and the sticky bit is 6, which is non-zero. The round bit is 1 and the sticky bit is 1, so the significand increments: 2.37 x 10^2. With only three digits and no guard region the shifted addend is cut to 0.02 and the sum is 2.36 x 10^2, one unit in the last place low.",
+    "answer": "2.37 x 10^2 with guard and round bits; 2.36 x 10^2 without them."
+   },
+   "gateAngle": "GATE CSE 2004 Q.28 runs this mechanism at three decimal digits and asks which of two mathematically equal expressions gives 9.51 and which gives 10.0 - the answer turns on the rounding rule at each step, not on the algebra.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "A format stores four significand bits. Round 1.1001 x 2^3 to it, ties to even, naming the guard, round and sticky bits.",
+     "answer": "1.100 x 2^3: guard = 1, round = 0, sticky = 0, which is a tie, and the tie keeps the even significand.",
+     "why": "1.1001 is 1.5625, exactly halfway between 1.100 (1.5) and 1.101 (1.625). The tie goes to the one whose last stored bit is 0, and 1.100 is that one."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why is a single guard bit not enough to round a long addition correctly?",
+     "answer": "Because the shifted operand can have non-zero bits beyond the guard position, and without a sticky bit they look like zeros, so a sum just above halfway rounds down.",
+     "why": "The guard bit records one digit of the residue; the round and sticky bits record whether anything at all remains beyond it, which is exactly the information the ties rule needs."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "In single precision, what is the spacing between representable numbers just above 1.0?",
+     "answer": "2^-23, about 1.19e-7.",
+     "why": "The ulp is 2^(e-23) and e = 0 there, so every number in [1,2) is a multiple of 2^-23 and the relative spacing is at most 2^-23."
+    }
+   ],
+   "trap": {
+    "what": "Treating truncation as IEEE rounding, or rounding every tie away from zero.",
+    "why": "The default mode is to nearest with ties to even; truncation is one of the four modes but not the default, and the tie rule exists so that a long sum does not drift steadily upward.",
+    "counterexample": "Rounding 2.5 to a whole number: truncation gives 2, toward +infinity gives 3, toward -infinity gives 2, and to nearest gives 2 because 2 is even. Rounding 3.5 to nearest gives 4 for the same reason - the tie is not a rule about direction."
+   },
+   "check": {
+    "question": "Round 1.1011 x 2^0 to three fraction bits, ties to even.",
+    "answer": "1.110 x 2^0.",
+    "explanation": "1.1011 is exactly halfway between 1.101 and 1.110. The tie goes to the even significand, which is 1.110 because its last bit is 0; truncating would give 1.101."
+   },
+   "pyqIds": [],
+   "prereqs": [
+    "ieee-754-single-precision-layout"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-slides",
+     "title": "Chapter 8: Computer Arithmetic (Part II) - division, floating-point addition, multiplication, division and rounding",
+     "channel": "Prof. Smruti Ranjan Sarangi, IIT Delhi, Basic Computer Architecture (slides read through a published slide transcript)",
+     "url": "https://www.slideorbit.com/slide/computer-arithmetic-in-basic-computer-architecture/178376",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false
+    },
+    {
+     "kind": "text",
+     "title": "What Every Computer Scientist Should Know About Floating-Point Arithmetic",
+     "channel": "David Goldberg, ACM Computing Surveys 23(1), 1991",
+     "url": "https://itu.dk/~sestoft/bachelor/IEEE754_article.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false
+    },
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 39 - Floating-Point Arithmetic",
+     "channel": "NPTEL, Computer Architecture and Organization (Prof. Indranil Sengupta, IIT Kharagpur)",
+     "url": "http://digimat.in/nptel/courses/video/106105163/lec39.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false
+    }
+   ],
+   "sourceLine": "The four IEEE rounding modes, the guard, round and sticky bits, the increment rule and the renormalisation after rounding: Sarangi, chapter 8 slides (English, read in part), whose 2.34 x 10^2 + 0.0256 x 10^2 example this card reproduces. The two measures of rounding error, ulps and relative error, machine epsilon and Theorem 1 on the error of a subtraction without a guard digit: Goldberg, sections 1.1 to 1.5 (English, read in part). The four modes as truncation, ceiling, floor and round, and the MIPS instructions that select them: NPTEL IIT Kharagpur Lecture 39 (English, read in part). Every number is recomputed in scripts/validate.py.",
+   "videoRefs": [],
+   "subject": "digital-logic",
+   "topic": "computer-arithmetic",
+   "path": "subjects/digital-logic/computer-arithmetic/ieee-rounding-guard-round-sticky.json"
+  },
+  {
+   "id": "floating-point-precision-loss",
+   "title": "Precision Loss: Absorption, Cancellation and Non-Associativity",
+   "priority": "P1",
+   "order": 472,
+   "unit": "Computer Arithmetic: Fixed and Floating Point",
+   "quickIdea": "Floating-point addition is not associative: a small number added to a large one is absorbed entirely, and subtracting two nearly equal numbers destroys the leading digits.",
+   "remember": [
+    "Absorption: if the exponent difference exceeds the significand width, the smaller operand's bits all fall off the end and the sum is the larger operand unchanged.",
+    "(a + b) + c need not equal a + (b + c), and a + b + c need not equal a + c + b. The order of a summation changes the answer.",
+    "Catastrophic cancellation: subtracting nearly equal numbers is exact, but it exposes the rounding error already in the operands, so the relative error of the difference can be enormous.",
+    "Single precision holds 24 significand bits, about 7 decimal digits; 1.0 added to 2 x 10^30 changes nothing at all.",
+    "In single precision 1 + 2^-24 rounds back to 1 (a tie, to even), while 1 + 2^-23 is representable - so half an ulp is not enough to move a number.",
+    "Never test two floating-point results for equality after different orders of summation; sort small terms first or use a compensated sum."
+   ],
+   "example": {
+    "prompt": "GATE CSE 2000 Q.2.14: with 32-bit floating point, A = 2.0 x 10^30, B = -2.0 x 10^30 and C = 1.0, evaluate X := A + B; X := X + C and Y := A + C; Y := Y + B.",
+    "work": "A + C needs A and C in the same exponent. A is about 2 x 10^30, which needs roughly 31 decimal digits to write out, while 32 bits give at most 24 binary bits - about 7 decimal digits. Adding 1.0 to A therefore leaves A unchanged, so Y = A and Y + B = A - A = 0. X is different: A + B is exactly 0 before C is added, so X + C = 1.0.",
+    "answer": "X = 1.0 and Y = 0.0."
+   },
+   "gateAngle": "Two CSE questions test this directly: GATE CSE 2000 Q.2.14 with 1.0 absorbed into 2 x 10^30, and GATE CSE 2004 Q.28 with the same three numbers in three-digit decimal arithmetic, where the two groupings differ by 0.49.",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2000 Q.2.14: with A = 2.0 x 10^30, B = -2.0 x 10^30, C = 1.0 and 32-bit floating point, what are X and Y?",
+     "answer": "X = 1.0 and Y = 0.0, option (2).",
+     "why": "A + C returns A, so Y + B cancels to 0; A + B cancels first, so X + C is 1.0. The two orders differ, which is the point of the question."
+    },
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2004 Q.28: in three-digit floating-point arithmetic with rounding, what are (113. + -111.) + 7.51 and 113. + (-111. + 7.51)?",
+     "answer": "9.51 and 10.0 respectively, option (A).",
+     "why": "113 - 111 = 2.0 exactly, and 2.0 + 7.51 = 9.51. On the other side -111 + 7.51 = -103.49, which to three digits is -1.03 x 10^2, and 113 - 103 = 10.0 - the rounding of the inner sum destroyed 0.49."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "In single precision, is (1 + 2^-24) + 2^-24 equal to 1 + (2^-24 + 2^-24)?",
+     "answer": "No: the left side is 1.0 and the right side is 1 + 2^-23.",
+     "why": "2^-24 is exactly half an ulp at 1.0, so 1 + 2^-24 ties and rounds to 1.0, and doing it twice changes nothing. On the right, the two half-ulps combine exactly to 2^-23, which 1 + 2^-23 can hold."
+    }
+   ],
+   "trap": {
+    "what": "Assuming floating-point addition is associative, or believing a small term added to a big one is 'approximately' kept.",
+    "why": "Every result is rounded to 24 bits, so a term below half an ulp of the running total vanishes exactly, not approximately - and the order in which terms are added decides which ones vanish.",
+    "counterexample": "2.0 x 10^30 + 1.0 is 2.0 x 10^30 in single precision, so (A + C) + B = 0 while (A + B) + C = 1.0: the same three numbers, two different answers."
+   },
+   "check": {
+    "question": "In single precision, what is 1.0 + 2^-25?",
+    "answer": "1.0.",
+    "explanation": "2^-25 is a quarter of an ulp at 1.0, so the sum rounds back to 1.0. Only 2^-24 or more can move it, and 2^-24 moves it only by a tie, which goes to the even value 1.0."
+   },
+   "pyqIds": [
+    "gate-2000-2-14-float-absorption",
+    "gate-2004-28-three-digit-rounding"
+   ],
+   "prereqs": [
+    "floating-point-addition-alignment",
+    "ieee-rounding-guard-round-sticky"
+   ],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "What Every Computer Scientist Should Know About Floating-Point Arithmetic",
+     "channel": "David Goldberg, ACM Computing Surveys 23(1), 1991",
+     "url": "https://itu.dk/~sestoft/bachelor/IEEE754_article.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false
+    },
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 39 - Floating-Point Arithmetic",
+     "channel": "NPTEL, Computer Architecture and Organization (Prof. Indranil Sengupta, IIT Kharagpur)",
+     "url": "http://digimat.in/nptel/courses/video/106105163/lec39.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false
+    },
+    {
+     "kind": "lecture-slides",
+     "title": "Chapter 8: Computer Arithmetic (Part II) - division, floating-point addition, multiplication, division and rounding",
+     "channel": "Prof. Smruti Ranjan Sarangi, IIT Delhi, Basic Computer Architecture (slides read through a published slide transcript)",
+     "url": "https://www.slideorbit.com/slide/computer-arithmetic-in-basic-computer-architecture/178376",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false
+    }
+   ],
+   "sourceLine": "Benign against catastrophic cancellation, the relative error of a subtraction, and the statement that a floating-point calculation is exact unless rounding is required: Goldberg, sections 1.3 and 1.4 (English, read in part). The alignment step that loses the small operand, and the rounding that follows it: NPTEL IIT Kharagpur Lecture 39 (English, read in part). The rounding modes that decide each tie: Sarangi, chapter 8 slides (English, read in part). The two question texts and accepted answers: their GATE Overflow pages. The 1 + 2^-24 and 1 + 2^-25 claims are recomputed in single precision in scripts/validate.py.",
+   "videoRefs": [],
+   "subject": "digital-logic",
+   "topic": "computer-arithmetic",
+   "path": "subjects/digital-logic/computer-arithmetic/floating-point-precision-loss.json"
+  },
+  {
+   "id": "fixed-versus-floating-point",
+   "title": "Fixed Point Against Floating Point: Range and Spacing",
+   "priority": "P2",
+   "order": 473,
+   "unit": "Computer Arithmetic: Fixed and Floating Point",
+   "quickIdea": "Fixed point spends its bits on a constant absolute step; floating point spends them on a constant relative step, which buys range at the cost of a spacing that changes with the exponent.",
+   "remember": [
+    "Fixed point Qm.n: spacing 2^-n at every magnitude, range about -2^(m-1) to 2^(m-1) - 2^-n.",
+    "Single precision: spacing 2^(e-23), so the spacing doubles with every increment of the exponent while the relative spacing stays between 2^-24 and 2^-23.",
+    "Fixed-point error is absolute and uniform; floating-point error is relative and uniform. That is the whole trade.",
+    "Floating-point hardware needs alignment, normalisation and rounding; a fixed-point add is one integer add, which is why DSPs and audio pipelines use it.",
+    "Neither format has 'more precision'. At 1.0 single precision resolves 1.19e-7, which a Q1.15 word (3.05e-5) does not; at 10^30 the fixed-point word cannot represent the number at all.",
+    "Exactness in a floating-point format is a property of the significand, not of the magnitude: 10^9 is exact in single precision, 10^9 + 1 is not."
+   ],
+   "example": {
+    "prompt": "Compare the spacing of single precision and of Q16.16 at 1.0, at 1000 and at 10^6.",
+    "work": "Single precision spacing is 2^(e-23). At 1.0 (e = 0) it is 2^-23 = 1.19e-7; at 1000 (e = 9) it is 2^-14 = 6.10e-5; at 10^6 (e = 19) it is 2^-4 = 0.0625. Q16.16 stores an integer over 2^16, so its spacing is 2^-16 = 1.53e-5 at every one of those magnitudes - but its range stops at 2^15 = 32768, so 10^6 is not representable at all.",
+    "answer": "The floating-point spacing grows with the value and the fixed-point spacing does not; the fixed-point range is the price of that uniformity."
+   },
+   "gateAngle": "GATE asks the fixed-point range and resolution formula directly (GATE CSE 2017 Set 1 Q.7, carded under Number Systems) and asks candidates to compare IEEE values numerically in GATE CSE 2022 Q.41 and 2025 Set 2 Q.49 - the same range-versus-spacing reading from the other side.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "An 8-bit Q4.4 word and a single-precision word both hold 0.1. Which is more accurate, and which can hold 10^6?",
+     "answer": "Single precision is far more accurate (about 1e-8 absolute against 1/32 = 0.03125), and only single precision can hold 10^6.",
+     "why": "Q4.4 stores 0.1 as 2/16 = 0.125 or 1/16 = 0.0625, an error of up to 0.03125, while its range stops at 7.9375. Single precision resolves 0.1 to within 1.19e-7 at that magnitude."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why does a fixed-point multiply need a shift but a floating-point multiply not?",
+     "answer": "In fixed point the product's binary point ends up twice as far from the right, so it must be moved back; in floating point the point is carried by the exponent, and adding the exponents does that bookkeeping.",
+     "why": "The shift and the exponent addition are the same operation on different representations of where the point is."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "A DSP sums 10^6 samples of magnitude about 1 in a Q1.15 accumulator. What breaks first?",
+     "answer": "The range: Q1.15 holds at most 0.99997, so the running sum overflows after one sample.",
+     "why": "The accumulator's integer part is a single sign bit. A sum needs a wider integer part - Q16.15 in a 32-bit word - while keeping the same 2^-15 resolution."
+    }
+   ],
+   "trap": {
+    "what": "Saying floating point has more precision than fixed point, or assuming the floating-point spacing is constant.",
+    "why": "Precision is relative in one format and absolute in the other, so at a fixed magnitude either can win; and the floating-point spacing changes with every power of two.",
+    "counterexample": "At 1.0 single precision resolves 1.19e-7 while Q1.15 resolves 3.05e-5, so floating point is finer there; at 10^30 the fixed-point word cannot represent the number at all, which is a range failure rather than a precision one."
+   },
+   "check": {
+    "question": "Is 10^9 exactly representable in single precision? What about 10^9 + 1?",
+    "answer": "10^9 is exact; 10^9 + 1 is not, and rounds back to 10^9.",
+    "explanation": "10^9 = 1953125 x 2^9, and 1953125 is below 2^24 = 16777216, so the significand fits. 10^9 + 1 needs a 30-bit significand, which the format does not have."
+   },
+   "pyqIds": [],
+   "prereqs": [
+    "fixed-point-representation",
+    "fixed-point-fraction-multiplication",
+    "ieee-754-single-precision-layout"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-slides",
+     "title": "Unit 7 Computer Arithmetic (signed-magnitude addition and subtraction, Booth, division, floating-point operations)",
+     "channel": "Prof. Chirag Bhalodia, CO 2140707, following Mano's Digital Design",
+     "url": "https://csbhalodia.weebly.com/uploads/1/0/2/8/102862858/ch_7_computer_arithmetic.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false
+    },
+    {
+     "kind": "text",
+     "title": "What Every Computer Scientist Should Know About Floating-Point Arithmetic",
+     "channel": "David Goldberg, ACM Computing Surveys 23(1), 1991",
+     "url": "https://itu.dk/~sestoft/bachelor/IEEE754_article.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false
+    },
+    {
+     "kind": "lecture-slides",
+     "title": "Chapter 8: Computer Arithmetic (Part II) - division, floating-point addition, multiplication, division and rounding",
+     "channel": "Prof. Smruti Ranjan Sarangi, IIT Delhi, Basic Computer Architecture (slides read through a published slide transcript)",
+     "url": "https://www.slideorbit.com/slide/computer-arithmetic-in-basic-computer-architecture/178376",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false
+    }
+   ],
+   "sourceLine": "The fixed-point against floating-point split as two data types, and the statement that fixed-point integers are what integer arithmetic uses while floating point carries a mantissa and an exponent: Bhalodia, Unit 7 (English, read in part). The ulp, machine epsilon and the wobble of the relative error against a fixed ulp error: Goldberg, sections 1.1 and 1.2 (English, read in part). The 32-bit normal and denormal forms with 1 <= P < 2: Sarangi, chapter 8 slides (English, read in part). Every spacing and value here is recomputed in scripts/validate.py.",
+   "videoRefs": [],
+   "subject": "digital-logic",
+   "topic": "computer-arithmetic",
+   "path": "subjects/digital-logic/computer-arithmetic/fixed-versus-floating-point.json"
   }
  ],
  "pyqs": [
@@ -31968,6 +33019,27 @@ window.GATE_DATA = {
    "source_label": "GATE Overflow question page - GATE CSE 1996 Q.1.21 with the accepted answer (option D)",
    "verification": "SOURCED",
    "answer_evidence": "The accepted answer on the page states that the result of multiplying two 8-bit numbers can be up to 16 bits, that the number of possible results is 2^8 x 2^8 = 2^16 = 64K, and that the answer is 64K x 16, option D. Recomputed here: 255 x 255 = 65025 < 65536 = 2^16, so 16 data bits are necessary and sufficient."
+  },
+  {
+   "id": "gate-1996-1-23-booth-worst-case",
+   "year": "1996",
+   "paper": "GATE CS 1996",
+   "question_ref": "Q.1.23",
+   "type": "MCQ",
+   "topic": "booths-operation-count",
+   "text": "Booth's algorithm for integer multiplication gives worst performance when the multiplier pattern is",
+   "options": [
+    "101010...1010",
+    "100000...0001",
+    "111111...1111",
+    "011111...1110"
+   ],
+   "answer": "Option (A) - 101010...1010",
+   "solution": "Performance is the number of additions and subtractions, and each one comes from a place where the multiplier's bits differ, with an extra 0 appended below the least significant bit. The alternating pattern differs at all but one of its n pairs, so it needs n-1 operations; a 16-bit alternating multiplier needs 15, split as 7 additions and 8 subtractions. The all-ones pattern needs exactly one subtraction, because 111...1 is 2^n - 1, and 0111...10 is a single run of ones and needs two.",
+   "source_url": "https://gateoverflow.in/2727/gate-cse-1996-question-1-23",
+   "source_label": "GATE Overflow question page - GATE CSE 1996 Q.1.23 with the accepted answer (option A)",
+   "verification": "SOURCED",
+   "answer_evidence": "The accepted answer on the page states that the worst case is when pairs of 01 and 10 occur frequently and gives option A. Recomputed here: with q(-1) = 0, a 16-bit alternating multiplier has 7 pairs reading 01 and 8 reading 10, so 15 arithmetic operations, and the all-ones multiplier has 1."
   },
   {
    "id": "gate-1996-1-7-false-statement-systems",
@@ -32267,6 +33339,27 @@ window.GATE_DATA = {
    "answer_evidence": "Accepted answer: '|A| = 2 x 1 x (2 - 0) = 4', option A."
   },
   {
+   "id": "gate-2000-2-14-float-absorption",
+   "year": "2000",
+   "paper": "GATE CS 2000",
+   "question_ref": "Q.2.14",
+   "type": "MCQ",
+   "topic": "floating-point-precision-loss",
+   "text": "Consider the values of A = 2.0 x 10^30, B = -2.0 x 10^30 and C = 1.0, and the sequence X := A + B; X := X + C; Y := A + C; Y := Y + B, executed on a computer where floating-point numbers are represented with 32 bits. The values for X and Y will be",
+   "options": [
+    "X = 1.0, Y = 1.0",
+    "X = 1.0, Y = 0.0",
+    "X = 0.0, Y = 1.0",
+    "X = 0.0, Y = 0.0"
+   ],
+   "answer": "Option (2) - X = 1.0, Y = 0.0",
+   "solution": "A 32-bit format holds at most 24 significand bits, about 7 decimal digits, while A written out needs about 31 digits. Adding 1.0 to A therefore returns A: the addend is absorbed. So Y = A and Y + B = A - A = 0. X follows the other order: A + B is exactly 0 first, and 0 + C = 1.0. The same three numbers give two different answers, which is the point.",
+   "source_url": "https://gateoverflow.in/661/gate-cse-2000-question-2-14",
+   "source_label": "GATE Overflow question page - GATE CSE 2000 Q.2.14 with the accepted answer (option 2)",
+   "verification": "SOURCED",
+   "answer_evidence": "The accepted answer argues from the 32-bit precision limit that the 31st decimal digit of A is outside the format and picks option 2. Recomputed in single precision here: 2e30 + 1 rounds back to 2e30, so Y = 0.0 and X = 1.0."
+  },
+  {
    "id": "gate-2000-cards",
    "year": "2000",
    "paper": "GATE CS 2000",
@@ -32372,6 +33465,27 @@ window.GATE_DATA = {
    "answer_evidence": "Answer is a) $(X \\land \\lnot Z)\\to Y$"
   },
   {
+   "id": "gate-2003-11-array-multiplier-delay",
+   "year": "2003",
+   "paper": "GATE CS 2003",
+   "question_ref": "Q.11",
+   "type": "MCQ",
+   "topic": "shift-and-add-multiplication",
+   "text": "Consider an array multiplier for multiplying two n bit numbers. If each gate in the circuit has a unit delay, the total delay of the multiplier is",
+   "options": [
+    "Theta(1)",
+    "Theta(log n)",
+    "Theta(n)",
+    "Theta(n^2)"
+   ],
+   "answer": "Option (C) - Theta(n)",
+   "solution": "The partial products are formed in parallel by the AND gates, so they all appear after one gate delay. What remains is a chain of n adders, one per partial product row, and the carry has to cross the rows. With a ripple-carry adder per row the delay is (2(n-1)+3) + 1 = 2(n+1), which is Theta(n). The gate count is quadratic in n, but the delay follows the carry path, not the gate count.",
+   "source_url": "https://gateoverflow.in/902/gate-cse-2003-question-11",
+   "source_label": "GATE Overflow question page - GATE CSE 2003 Q.11 with the accepted answer (option C)",
+   "verification": "SOURCED",
+   "answer_evidence": "The accepted answer sums the adder delays across the rows and gives Theta(n). Recomputed here: for n = 4 the delay is 2(4+1) = 10 unit delays, and the expression 2(n+1) is linear in n while the gate count n^2 is not."
+  },
+  {
    "id": "gate-2003-34",
    "year": "2003",
    "paper": "GATE CS 2003",
@@ -32474,6 +33588,27 @@ window.GATE_DATA = {
    "source_label": "GATE Overflow question page for GATE CS 2003 Q.32 with counterexamples for every wrong option",
    "verification": "SOURCED",
    "answer_evidence": "The accepted answer is (D), with explicit countermodels for options (A), (B) and (C)."
+  },
+  {
+   "id": "gate-2004-28-three-digit-rounding",
+   "year": "2004",
+   "paper": "GATE CS 2004",
+   "question_ref": "Q.28",
+   "type": "MCQ",
+   "topic": "floating-point-precision-loss",
+   "text": "What is the result of evaluating the following two expressions using three-digit floating point arithmetic with rounding? (113. + -111.) + 7.51 and 113. + (-111. + 7.51)",
+   "options": [
+    "9.51 and 10.0 respectively",
+    "10.0 and 9.51 respectively",
+    "9.51 and 9.51 respectively",
+    "10.0 and 10.0 respectively"
+   ],
+   "answer": "Option (A) - 9.51 and 10.0 respectively",
+   "solution": "First expression: 113 - 111 = 2.0, which needs one digit, and 2.0 + 7.51 = 9.51, which fits in three digits. Second expression: the inner sum -111 + 7.51 = -103.49 must be rounded to three digits, giving -1.03 x 10^2, and 113 - 103 = 10.0. The rounding inside the bracket destroyed 0.49, so the same three numbers grouped differently differ by 0.49.",
+   "source_url": "https://gateoverflow.in/1025/gate-cse-2004-question-28",
+   "source_label": "GATE Overflow question page - GATE CSE 2004 Q.28 with the accepted answer (option A)",
+   "verification": "SOURCED",
+   "answer_evidence": "The accepted answer works both groupings at three digits and gives option A. Recomputed here: 2.0 + 7.51 = 9.51 and -103.49 rounded to three digits is -1.03e2, so 113 - 103 = 10.0."
   },
   {
    "id": "gate-2004-58-digit-at-least-five-gates",
@@ -33994,6 +35129,27 @@ window.GATE_DATA = {
    "verification": "OFFICIAL_KEY"
   },
   {
+   "id": "gate-2017-1-9-overflow-condition",
+   "year": "2017",
+   "paper": "GATE CSE 2017 Set 1",
+   "question_ref": "Q.9",
+   "type": "MCQ",
+   "topic": "fixed-point-add-subtract-overflow",
+   "text": "When two 8-bit numbers A7...A0 and B7...B0 in 2's complement representation (with A0 and B0 as the least significant bits) are added using a ripple-carry adder, the sum bits obtained are S7...S0 and the carry bits are C7...C0. An overflow is said to have occurred if",
+   "options": [
+    "the carry bit C7 is 1",
+    "all the carry bits (C7,...,C0) are 1",
+    "(A7.B7.S7' + A7'.B7'.S7) is 1",
+    "(A0.B0.S0' + A0'.B0'.S0) is 1"
+   ],
+   "answer": "Option (C) - (A7.B7.S7' + A7'.B7'.S7) is 1",
+   "solution": "Overflow happens when two operands of one sign produce a result of the other. Two positives overflowing gives A7 = B7 = 0 and S7 = 1, that is A7'.B7'.S7; two negatives overflowing gives A7 = B7 = 1 and S7 = 0, that is A7.B7.S7'. Their sum is the answer. C7 alone is the unsigned carry, and the option written with A0, B0 and S0 tests the wrong end of the word.",
+   "source_url": "https://gateoverflow.in/118289/gate-cse-2017-set-1-question-9",
+   "source_label": "GATE Overflow question page - GATE CSE 2017 Set 1 Q.9 with the accepted answer (option C)",
+   "verification": "SOURCED",
+   "answer_evidence": "The accepted answer on the page derives the two same-sign cases and selects option C; the GateAI PYQ page for the same question also records the official option as C. Recomputed here by enumerating all 65536 pairs of 8-bit operands: the expression is 1 exactly when the signed sum leaves -128..127."
+  },
+  {
    "id": "gate-2017-2-42-saturating-counter-t-flip-flops",
    "year": "2017",
    "paper": "GATE CS 2017 Set 2",
@@ -34793,6 +35949,48 @@ window.GATE_DATA = {
    "answer_evidence": "Accepted answer: 'Option A,B and C are TRUE', noting 'Hamiltonian path exists in Peterson graph but not Hamiltonian cycle' and that the largest independent set has size 4."
   },
   {
+   "id": "gate-2022-41-fp-identity-false",
+   "year": "2022",
+   "paper": "GATE CSE 2022",
+   "question_ref": "Q.41",
+   "type": "MCQ",
+   "topic": "floating-point-addition-alignment",
+   "text": "Consider three floating point numbers A, B and C stored in registers RA, RB and RC as per IEEE-754 single precision floating point format. The 32-bit contents are RA = 0xC1400000, RB = 0x42100000 and RC = 0x41400000. Which one of the following is FALSE?",
+   "options": [
+    "A + C = 0",
+    "C = A + B",
+    "B = 3C",
+    "(B - C) > 0"
+   ],
+   "answer": "Option (B) - C = A + B",
+   "solution": "Decode the three words. RA: sign 1, exponent field 130 so the exponent is 3, fraction 1000... so A = -1.1 x 2^3 = -12. RB: sign 0, exponent field 132 so the exponent is 5, fraction 0010... so B = 1.001 x 2^5 = 36. RC: sign 0, exponent field 130, fraction 1000... so C = 1.1 x 2^3 = 12. Then A + C = 0, B = 3C = 36 and B - C = 24 are all true, while A + B = 24 and C is 12.",
+   "source_url": "https://gateoverflow.in/371905/gate-cse-2022-question-31",
+   "source_label": "GATE Overflow question page - GATE CSE 2022 Q.41 (the page is titled Question: 31) with the accepted answer (option B)",
+   "verification": "SOURCED",
+   "answer_evidence": "The GateAI PYQ page for the same question records the official option as B and lists the four statements; the GATE Overflow page carries the question and its discussion. Recomputed here from the bit patterns: A = -12, B = 36, C = 12, so A + B = 24 and C = A + B is false. The paper number is Q.41; GATE Overflow files the page under Question: 31."
+  },
+  {
+   "id": "gate-2022-8-4bit-overflow",
+   "year": "2022",
+   "paper": "GATE CSE 2022",
+   "question_ref": "Q.8",
+   "type": "MCQ",
+   "topic": "fixed-point-add-subtract-overflow",
+   "text": "Let R1 and R2 be two 4-bit registers that store numbers in 2's complement form. For the operation R1 + R2, which one of the following values of R1 and R2 gives an arithmetic overflow?",
+   "options": [
+    "R1 = 1011 and R2 = 1110",
+    "R1 = 1100 and R2 = 1010",
+    "R1 = 0011 and R2 = 0100",
+    "R1 = 1001 and R2 = 1111"
+   ],
+   "answer": "Option (B) - R1 = 1100 and R2 = 1010",
+   "solution": "A 4-bit two's complement word covers -8 to 7. The options are -5 + -2 = -7, -4 + -6 = -10, 3 + 4 = 7 and -7 + -1 = -8. Only -10 is outside the range. The bit test agrees: 1100 + 1010 = 10110, and keeping 0110 gives +6 where two negatives were added, so the sign flipped. The other three keep the sign of their operands.",
+   "source_url": "https://gateoverflow.in/371928/gate-cse-2022-question-8",
+   "source_label": "GATE Overflow question page - GATE CSE 2022 Q.8 with the accepted answer (option B)",
+   "verification": "SOURCED",
+   "answer_evidence": "The accepted answer converts each option to decimal against the range -8..7 and picks B, with the same-sign rule as the cross-check. Recomputed here: 1100 + 1010 = 10110, kept as 0110 = +6, so same signs in and opposite sign out. Another site numbers this question Q.18."
+  },
+  {
    "id": "gate-2023-18-cubic-local-extrema",
    "year": "2023",
    "paper": "GATE CS 2023",
@@ -34872,6 +36070,27 @@ window.GATE_DATA = {
    "answer_evidence": "Accepted answer: 'So, every element in 2^X is its own inverse. Therefore (A), (D)'; the page's other answers reach the same pair."
   },
   {
+   "id": "gate-2023-45-fp-product",
+   "year": "2023",
+   "paper": "GATE CSE 2023",
+   "question_ref": "Q.45",
+   "type": "MCQ",
+   "topic": "floating-point-multiplication-and-division",
+   "text": "Consider the IEEE-754 single precision floating point numbers P = 0xC1800000 and Q = 0x3F5C2EF4. Which one of the following corresponds to the product of these numbers (i.e., P x Q), represented in the IEEE-754 single precision format?",
+   "options": [
+    "0x404C2EF4",
+    "0x405C2EF4",
+    "0xC15C2EF4",
+    "0xC14C2EF4"
+   ],
+   "answer": "Option (C) - 0xC15C2EF4",
+   "solution": "P: sign 1, exponent field 1000 0011 = 131, so the exponent is 4, and the fraction is all zeros, so P = -1.0 x 2^4 = -16. Q: sign 0, exponent field 0111 1110 = 126, so the exponent is -1, fraction 10111000010111011110100. Product: sign 1 XOR 0 = 1; exponent field 131 + 126 - 127 = 130 = 1000 0010; significand 1.0 x 1.1011... = 1.1011..., already normal. So the word is 1 1000 0010 1011 1000 0101 1101 1110 100 = 0xC15C2EF4. The option 0x405C2EF4 omits the bias correction, and 0xC14C2EF4 comes from the wrong exponent sum.",
+   "source_url": "https://gateoverflow.in/399276/gate-cse-2023-question-35",
+   "source_label": "GATE Overflow question page - GATE CSE 2023 Q.45 (the page is titled Question: 35) with the accepted answer (option C)",
+   "verification": "SOURCED",
+   "answer_evidence": "The accepted answer decodes both operands, computes 131 + 126 - 127 = 130 and reaches 0xC15C2EF4; the IAE Academy 2023 paper page records the official option as C. Recomputed here: -16 x 0.8600914478 = -13.761463, which encodes as 0xC15C2EF4 in single precision."
+  },
+  {
    "id": "gate-2023-8-determinant-row-interchange",
    "year": "2023",
    "paper": "GATE CS 2023",
@@ -34932,6 +36151,27 @@ window.GATE_DATA = {
    "source_url": "https://gateoverflow.in/399268/gate-cse-2023-question-43",
    "source_label": "GATE Overflow question page, GATE CSE 2023 Question 43, accepted answer",
    "verification": "SOURCED"
+  },
+  {
+   "id": "gate-2024-1-3-5bit-overflow",
+   "year": "2024",
+   "paper": "GATE CSE 2024 Set 1",
+   "question_ref": "Q.3",
+   "type": "MCQ",
+   "topic": "fixed-point-add-subtract-overflow",
+   "text": "Consider a system that uses 5 bits for representing signed integers in 2's complement format. In this system, two integers A and B are represented as A = 01010 and B = 11010. Which one of the following operations will result in either an arithmetic overflow or an arithmetic underflow?",
+   "options": [
+    "A + B",
+    "A - B",
+    "B - A",
+    "2 * B"
+   ],
+   "answer": "Option (B) - A - B",
+   "solution": "A = 01010 = +10 and B = 11010 = -6, and 5-bit two's complement covers -16 to 15. Then A + B = 4, A - B = 16, B - A = -16 and 2B = -12. Only 16 is outside the range: it needs six bits, 010000. The bit test on A - B, which is A + (-B) = 01010 + 00110 = 10000, also fails, because +10 and +6 are both positive and the pattern reads -16.",
+   "source_url": "https://gateoverflow.in/422839/gate-cse-2024-set-1-question-3",
+   "source_label": "GATE Overflow question page - GATE CSE 2024 Set 1 Q.3 with the accepted answer (option B)",
+   "verification": "SOURCED",
+   "answer_evidence": "The accepted answer converts the operands to +10 and -6, evaluates all four options against -16..15 and picks B. Recomputed here: 01010 + 00110 = 10000, carry into the sign column 1 and carry out 0, so the two disagree and the result is out of range. Another site numbers this question Q.13."
   },
   {
    "id": "gate-2024-set-1-54-three-mux-count",
@@ -35259,6 +36499,21 @@ window.GATE_DATA = {
    "verification": "SOURCED"
   },
   {
+   "id": "gate-2025-2-22-booth-add-sub-count",
+   "year": "2025",
+   "paper": "GATE CSE 2025 Set 2",
+   "question_ref": "Q.22",
+   "type": "NAT",
+   "topic": "booths-operation-count",
+   "text": "The following two signed 2's complement numbers (multiplicand M and multiplier Q) are being multiplied using Booth's algorithm: M: 1100110111101101 and Q: 1010010010101010. The total number of addition and subtraction operations to be performed is ______. (Answer in integer)",
+   "answer": "13",
+   "solution": "Only the multiplier matters. Append q(-1) = 0 and read the pairs from the least significant end: 00, 10, 01, 10, 01, 10, 01, 00, 10, 01, 10, 01, 10, 01, 10, 11. That is seven 10 pairs, six 01 pairs and three pairs that only shift, so 6 + 7 = 13 arithmetic operations. M is never used in the count.",
+   "source_url": "https://gateoverflow.in/460813/gate-cse-2025-set-2-question-22",
+   "source_label": "GATE Overflow question page - GATE CSE 2025 Set 2 Q.22 with the accepted answer 13",
+   "verification": "SOURCED",
+   "answer_evidence": "The accepted answer on the page recodes Q and counts 13 non-zero recoded digits; the IAE Academy 2025 Set 2 answer key records 13 for Q.32 and the ExamSIDE page for the same question records 13. Recomputed here by counting transitions: 7 pairs reading 10 and 6 reading 01."
+  },
+  {
    "id": "gate-2025-2-24-ripple-counter-frequency",
    "year": "2025",
    "paper": "GATE CS 2025 Set 2",
@@ -35273,6 +36528,27 @@ window.GATE_DATA = {
    "source_url": "https://gateoverflow.in/460811/gate-cse-2025-set-2-question-24",
    "source_label": "GATE Overflow discussion of GATE CS 2025 Set 2 Q.24 (accepted answer 250)",
    "verification": "SOURCED"
+  },
+  {
+   "id": "gate-2025-2-49-fp-register-identities",
+   "year": "2025",
+   "paper": "GATE CSE 2025 Set 2",
+   "question_ref": "Q.49",
+   "type": "MSQ",
+   "topic": "floating-point-multiplication-and-division",
+   "text": "Three floating point numbers X, Y and Z are stored in three registers RX, RY and RZ, respectively, in IEEE 754 single precision format as given below in hexadecimal: RX = 0xC1100000, RY = 0x40C00000 and RZ = 0x41400000. Which of the following option(s) is/are CORRECT?",
+   "options": [
+    "4(X + Y) + Z = 0",
+    "2Y - Z = 0",
+    "4X + 3Z = 0",
+    "X + Y + Z = 0"
+   ],
+   "answer": "Options (A), (B) and (C) - 4(X + Y) + Z = 0, 2Y - Z = 0 and 4X + 3Z = 0",
+   "solution": "RX: sign 1, exponent field 130 so the exponent is 3, fraction 0010... so X = -1.001 x 2^3 = -9. RY: sign 0, exponent field 129 so the exponent is 2, fraction 1000... so Y = 1.1 x 2^2 = 6. RZ: sign 0, exponent field 130, fraction 1000... so Z = 1.1 x 2^3 = 12. Then 4(-9 + 6) + 12 = -12 + 12 = 0, 2(6) - 12 = 0, 4(-9) + 3(12) = -36 + 36 = 0, and X + Y + Z = 9, so (D) is wrong.",
+   "source_url": "https://iaeacademy.in/study/papers/cs-2025-2",
+   "source_label": "IAE Academy, GATE CSE 2025 Set 2 paper with the official answer key (Q.49: A, B, C)",
+   "verification": "SOURCED",
+   "answer_evidence": "The paper page lists Q.49 as a 2-mark MSQ with official answer A, B, C, and the GateAI PYQ page for the same question decodes the registers as -9, 6 and 12 and reaches the same three options. Recomputed here from the bit patterns. GATE Overflow and ExamSIDE number it Q.49 while one other site numbers it Q.53."
   },
   {
    "id": "gate-2025-set1-13-k-system",
@@ -35503,6 +36779,27 @@ window.GATE_DATA = {
    "source_label": "GATE Overflow question page - GATE CSE 2025 Set 2 Q.4 with the accepted answer (0)",
    "verification": "SOURCED",
    "answer_evidence": "Accepted answer: 'L^3 = I, so L^8 = L^2 = N, hence M - N = O and its determinant is 0', option A."
+  },
+  {
+   "id": "gate-2026-1-26-fp-addition",
+   "year": "2026",
+   "paper": "GATE CSE 2026 Set 1",
+   "question_ref": "Q.26",
+   "type": "MCQ",
+   "topic": "floating-point-addition-alignment",
+   "text": "Consider the real valued variables X, Y and Z represented using the IEEE 754 single-precision floating-point format. The binary representations of X and Y in hexadecimal notation are X: 35C00000 and Y: 34A00000. Let Z = X + Y. Which one of the following is the binary representation of Z, in hexadecimal notation?",
+   "options": [
+    "0x35C80000",
+    "0x35CC0000",
+    "0x35E80000",
+    "0x35EC0000"
+   ],
+   "answer": "Option (C) - 0x35E80000",
+   "solution": "X: exponent field 0110 1011 = 107, so the exponent is -20, and the fraction is 1000... so X = 1.1 x 2^-20. Y: exponent field 0110 1001 = 105, so the exponent is -22, and the fraction is 0100... so Y = 1.01 x 2^-22. Align by shifting Y's significand right two places: 0.0101 x 2^-20. Add: 1.1000 + 0.0101 = 1.1101 x 2^-20, already normal. The exponent field is 107 and the fraction is 1101..., so the word is 0011 0101 1110 1000 0000 0000 0000 0000.",
+   "source_url": "https://gateoverflow.in/523054/gate-cse-2026-set-1-question-26",
+   "source_label": "GATE Overflow question page - GATE CSE 2026 Set 1 Q.26 with the accepted answer (option C)",
+   "verification": "SOURCED",
+   "answer_evidence": "The accepted answer decodes both operands, aligns Y to exponent -20 and reaches 0x35E80000, option C. Recomputed here: 1.5 x 2^-20 + 1.25 x 2^-22 = 1.8125 x 2^-20, which encodes to 0x35e80000. Another site numbers this question Q.36."
   },
   {
    "id": "gate-2026-set-2-49-decoder-and-mux-count",

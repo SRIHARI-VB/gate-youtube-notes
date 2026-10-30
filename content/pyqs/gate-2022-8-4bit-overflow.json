@@ -1,0 +1,21 @@
+{
+  "id": "gate-2022-8-4bit-overflow",
+  "year": "2022",
+  "paper": "GATE CSE 2022",
+  "question_ref": "Q.8",
+  "type": "MCQ",
+  "topic": "fixed-point-add-subtract-overflow",
+  "text": "Let R1 and R2 be two 4-bit registers that store numbers in 2's complement form. For the operation R1 + R2, which one of the following values of R1 and R2 gives an arithmetic overflow?",
+  "options": [
+    "R1 = 1011 and R2 = 1110",
+    "R1 = 1100 and R2 = 1010",
+    "R1 = 0011 and R2 = 0100",
+    "R1 = 1001 and R2 = 1111"
+  ],
+  "answer": "Option (B) - R1 = 1100 and R2 = 1010",
+  "solution": "A 4-bit two's complement word covers -8 to 7. The options are -5 + -2 = -7, -4 + -6 = -10, 3 + 4 = 7 and -7 + -1 = -8. Only -10 is outside the range. The bit test agrees: 1100 + 1010 = 10110, and keeping 0110 gives +6 where two negatives were added, so the sign flipped. The other three keep the sign of their operands.",
+  "source_url": "https://gateoverflow.in/371928/gate-cse-2022-question-8",
+  "source_label": "GATE Overflow question page - GATE CSE 2022 Q.8 with the accepted answer (option B)",
+  "verification": "SOURCED",
+  "answer_evidence": "The accepted answer converts each option to decimal against the range -8..7 and picks B, with the same-sign rule as the cross-check. Recomputed here: 1100 + 1010 = 10110, kept as 0110 = +6, so same signs in and opposite sign out. Another site numbers this question Q.18."
+}

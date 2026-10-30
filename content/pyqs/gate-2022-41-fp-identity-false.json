@@ -1,0 +1,21 @@
+{
+  "id": "gate-2022-41-fp-identity-false",
+  "year": "2022",
+  "paper": "GATE CSE 2022",
+  "question_ref": "Q.41",
+  "type": "MCQ",
+  "topic": "floating-point-addition-alignment",
+  "text": "Consider three floating point numbers A, B and C stored in registers RA, RB and RC as per IEEE-754 single precision floating point format. The 32-bit contents are RA = 0xC1400000, RB = 0x42100000 and RC = 0x41400000. Which one of the following is FALSE?",
+  "options": [
+    "A + C = 0",
+    "C = A + B",
+    "B = 3C",
+    "(B - C) > 0"
+  ],
+  "answer": "Option (B) - C = A + B",
+  "solution": "Decode the three words. RA: sign 1, exponent field 130 so the exponent is 3, fraction 1000... so A = -1.1 x 2^3 = -12. RB: sign 0, exponent field 132 so the exponent is 5, fraction 0010... so B = 1.001 x 2^5 = 36. RC: sign 0, exponent field 130, fraction 1000... so C = 1.1 x 2^3 = 12. Then A + C = 0, B = 3C = 36 and B - C = 24 are all true, while A + B = 24 and C is 12.",
+  "source_url": "https://gateoverflow.in/371905/gate-cse-2022-question-31",
+  "source_label": "GATE Overflow question page - GATE CSE 2022 Q.41 (the page is titled Question: 31) with the accepted answer (option B)",
+  "verification": "SOURCED",
+  "answer_evidence": "The GateAI PYQ page for the same question records the official option as B and lists the four statements; the GATE Overflow page carries the question and its discussion. Recomputed here from the bit patterns: A = -12, B = 36, C = 12, so A + B = 24 and C = A + B is false. The paper number is Q.41; GATE Overflow files the page under Question: 31."
+}

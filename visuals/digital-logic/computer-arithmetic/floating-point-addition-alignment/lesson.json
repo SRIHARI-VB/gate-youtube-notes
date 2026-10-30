@@ -1,0 +1,48 @@
+{
+  "slug": "floating-point-addition-alignment",
+  "topic": "computer-arithmetic",
+  "engine": "p5.js",
+  "steps": 8,
+  "subtopics": [
+    "floating-point addition and subtraction: alignment, normalisation, rounding",
+    "precision loss: absorption and the addend that disappears"
+  ],
+  "example": {
+    "x_hex": "35C00000",
+    "y_hex": "34A00000",
+    "x_exponent_field": 107,
+    "y_exponent_field": 105,
+    "x_true_exponent": -20,
+    "y_true_exponent": -22,
+    "exponent_difference": 2,
+    "x_significand": "1.1000",
+    "y_significand": "1.0100",
+    "y_aligned": "0.0101",
+    "sum_significand": "1.1101",
+    "sum_true_exponent": -20,
+    "result_exponent_field": 107,
+    "result_hex": "35E80000",
+    "x_value": 1.430511474609375e-06,
+    "y_value": 2.980232238769531e-07,
+    "sum_value": 1.7285346984863281e-06,
+    "sum_as_significand_times_power": 1.8125,
+    "carry_case": {
+      "a": "1.1",
+      "b": "1.1",
+      "raw_sum": "11.0",
+      "normalised": "1.10",
+      "exponent_increment": 1
+    },
+    "cancellation_case": {
+      "a": "1.0001",
+      "b": "1.0000",
+      "raw_sum": "0.0001",
+      "left_shift": 4
+    },
+    "absorption_case": {
+      "a": 1.0,
+      "b_power": -30,
+      "sum": 1.0
+    }
+  }
+}

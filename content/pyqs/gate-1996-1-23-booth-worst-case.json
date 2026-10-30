@@ -1,0 +1,21 @@
+{
+  "id": "gate-1996-1-23-booth-worst-case",
+  "year": "1996",
+  "paper": "GATE CS 1996",
+  "question_ref": "Q.1.23",
+  "type": "MCQ",
+  "topic": "booths-operation-count",
+  "text": "Booth's algorithm for integer multiplication gives worst performance when the multiplier pattern is",
+  "options": [
+    "101010...1010",
+    "100000...0001",
+    "111111...1111",
+    "011111...1110"
+  ],
+  "answer": "Option (A) - 101010...1010",
+  "solution": "Performance is the number of additions and subtractions, and each one comes from a place where the multiplier's bits differ, with an extra 0 appended below the least significant bit. The alternating pattern differs at all but one of its n pairs, so it needs n-1 operations; a 16-bit alternating multiplier needs 15, split as 7 additions and 8 subtractions. The all-ones pattern needs exactly one subtraction, because 111...1 is 2^n - 1, and 0111...10 is a single run of ones and needs two.",
+  "source_url": "https://gateoverflow.in/2727/gate-cse-1996-question-1-23",
+  "source_label": "GATE Overflow question page - GATE CSE 1996 Q.1.23 with the accepted answer (option A)",
+  "verification": "SOURCED",
+  "answer_evidence": "The accepted answer on the page states that the worst case is when pairs of 01 and 10 occur frequently and gives option A. Recomputed here: with q(-1) = 0, a 16-bit alternating multiplier has 7 pairs reading 01 and 8 reading 10, so 15 arithmetic operations, and the all-ones multiplier has 1."
+}

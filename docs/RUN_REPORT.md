@@ -2278,3 +2278,148 @@ pre-existing. `node tests/visual-lessons.js` passed on all 27 lessons, including
 The cycle pointer now sits on `digital-logic/sequential-circuits`. The next topic in syllabus order is
 `digital-logic/computer-arithmetic`, which is `not_started`; it is the last topic in Digital Logic before
 Computer Organization and Architecture.
+
+## Run 14 - Computer Arithmetic: Fixed and Floating Point (2026-10-30)
+
+### The topic, and why it was next
+
+**Digital Logic > Computer Arithmetic: Fixed and Floating Point** (`computer-arithmetic`), the last topic
+of the GATE 2027 Digital Logic line: *"Boolean algebra and minimization - algebraic technique, Karnaugh
+map, tabular method. Design of combinational and sequential circuits. Number representation and arithmetic
+(fixed and floating point)."*
+
+The cycle pointer was left by Run 13 on `digital-logic/sequential-circuits`, and the first topic strictly
+after it in the enumerated syllabus order whose status is not `covered` is this one, which was
+`not_started`. Nothing was skipped: no topic sits between the pointer and this one, no topic is `blocked`,
+and the nineteen `partial` topics earlier in the cycle were left alone because the cycle takes its second
+pass over `partial` topics only after a full pass finds no `not_started` topic left. This is the last
+Digital Logic topic; the cycle now moves to Computer Organization and Architecture.
+
+### Subtopics enumerated before any source was chosen
+
+Twelve, from the standard treatment (Mano's arithmetic chapters, the IIT Delhi chapter 8 outline) and from
+the GATE question record, because the syllabus names the topic in nine words and splits it in two halves:
+
+1. fixed-point addition and subtraction in hardware, and the signed overflow test (carry into the sign
+   column against carry out of it)
+2. unsigned shift-and-add multiplication, the 2n-bit product, and the array multiplier's delay
+3. Booth recoding: the pair table, the run-of-ones identity, and the step-by-step algorithm
+4. the count of additions and subtractions Booth's algorithm performs, and the worst and best patterns
+5. restoring division and the restore step
+6. non-restoring division, its quotient-digit set and its final correction
+7. fixed-point fractional (Q-format) multiplication and the shift back to the input format
+8. floating-point addition and subtraction: alignment, normalisation, rounding
+9. floating-point multiplication and division: significands, biased exponents, sign
+10. IEEE rounding modes, guard, round and sticky bits, and the ulp
+11. precision loss: absorption, catastrophic cancellation and non-associativity
+12. fixed point against floating point: range, spacing and relative error
+
+The representation half of the syllabus line was carded by Run 11 under Number Systems and is not repeated
+here; every card in this topic is about an operation. One subtopic was deliberately not enumerated:
+decimal (BCD) arithmetic, which the Mano-based deck teaches and which the syllabus line does not name.
+
+### Sources chosen, on merit
+
+Six, across two languages and three institutions, each recorded in
+`content/subjects/digital-logic/computer-arithmetic/sources.json` with what it covers and what was read.
+
+| Source | Language | Read | What it supplies |
+| --- | --- | --- | --- |
+| GATE Overflow GATE CSE Book, Digital Logic ch. 2 | English | part | carry against overflow and `Cout XOR Cn-1`; the full 01011 x 01110 Booth trace; radix-4 recoding; the worst-case sentence |
+| NPTEL IIT Kharagpur, Computer Architecture and Organization, Lecture 39 | English | part | the floating-point add/subtract procedure with two worked examples; multiplication and division with the bias correction; the four rounding modes |
+| IIT Delhi, Basic Computer Architecture ch. 8 Part II (Sarangi) | English | part | both division algorithms with traces and proofs; the 25-bit working register; the four rounding modes and the guard/round/sticky rule; `E1 + E2 - bias` |
+| CO 2140707 Unit 7 (Bhalodia, following Mano) | English | part | the register-level signed-magnitude path with E and AVF; Booth's rules in Mano's wording; the division steps; the floating-point operation rules |
+| Goldberg, *What Every Computer Scientist Should Know About Floating-Point Arithmetic* | English | part | ulps and machine epsilon; guard digits and Theorems 1 and 2; benign against catastrophic cancellation |
+| eHindiStudy, "Booth Algorithm kya hai?" | Hindi | full, translated | the register set M, Q, AC, q(-1), SC; the three pair cases |
+
+The Hindi article is the only translated material in the topic and the only non-English source that was
+readable. Every claim it contributes is recomputed in `scripts/validate.py`, and two of its statements -
+that q(-1) is "Qn incremented by 1", and that the loop stops after "n-1 bits" - are wrong against the
+standard treatment, so neither is used and the disagreement is recorded on the card.
+
+### Sources rejected, and why
+
+Recorded in full in `sources.json`. The three that mattered: **every YouTube lecture in every language**
+(no watch page carried a caption track, the same wall as the last three runs); the **neighbouring NPTEL
+lectures 37, 38 and 40** of the course that supplied Lecture 39 (HTTP 403 from the sandbox on every
+route - the largest gap, and the first thing a later run should retry); and the **Stanford EE486 lectures
+8 and 12**, the best-scoped English slide pair on the two multiplication and division algorithms (HTTP
+502, so their digit-set conversion rule is unused). Also rejected: the e-PG Pathshala fixed-point module
+(its carry-save and CSA material is outside the syllabus line), the decimal arithmetic unit of the
+Mano-based deck, GATE CSE 1997 Q.72 and 1990 Q.8b (descriptive, and the schema holds only MCQ/MSQ/NAT),
+GATE CSE 1987 Q.1-vii (representation, already carded), GATE IT 2008 Q.42 (IT paper), two 2026 questions
+seen only as stripped listings, the Hindi question banks and subscription lessons, and the answer
+aggregators, which disagree on numbering for four of the twelve questions.
+
+### What was created
+
+Twelve cards, one per subtopic, at `content/subjects/digital-logic/computer-arithmetic/`: overflow in
+fixed-point add and subtract; shift-and-add multiplication and the array multiplier; Booth recoding;
+Booth's operation count; restoring division; non-restoring division; Q-format multiplication;
+floating-point addition alignment; floating-point multiplication and division; rounding with
+guard/round/sticky bits and the ulp; precision loss; and fixed point against floating point. Each carries
+the quick idea, the remember list, a worked example, the GATE angle, two or three labelled variations
+(verified PYQ, original PYQ-style, conceptual practice, predicted variation), a trap with a
+counterexample, and a quick check with its answer and explanation.
+
+Twelve verified PYQs, 1996 to 2026: GATE CSE 1996 Q.1.23, 2000 Q.2.14, 2003 Q.11, 2004 Q.28, 2017 Set 1
+Q.9, 2022 Q.8, 2022 Q.41, 2023 Q.45, 2024 Set 1 Q.3, 2025 Set 2 Q.22, 2025 Set 2 Q.49 and 2026 Set 1
+Q.26. Every one is `SOURCED` against an accepted answer with its source URL, and the four numbering
+disagreements are recorded in the records that they affect.
+
+One p5.js lesson, `visuals/digital-logic/computer-arithmetic/floating-point-addition-alignment`: eight
+steps that add 0x35C00000 and 0x34A00000 - read the exponent fields, shift the smaller significand two
+places right, add, check the normal form, encode to 0x35E80000, decode back to check, and finish on the
+addend that disappears. The operands are the ones in GATE CSE 2026 Set 1 Q.26, so the animation and a
+verified PYQ share one computation.
+
+`check_computer_arithmetic()` was added to `scripts/validate.py`. It recomputes, rather than trusting the
+cards: the published overflow expression against the range test on all 65,536 pairs of 8-bit operands,
+and the carry-in against carry-out test on the same pairs; the 2022 and 2024 overflow options; the 4-bit
+shift-and-add product and the array multiplier's linear delay; the 11 x 14 and -6 x 3 Booth traces cycle
+by cycle and the operation counts of seven multipliers; restoring and non-restoring division on 7/3, 6/2
+and 13/4 with their published traces, the final correction and the `N = DQ + R` invariant; the Q4.4
+encode-multiply-shift and wrap-around arithmetic; the decode, alignment, sum and re-encoding of the 2026
+addition question; the 2023 product word; the 2022 and 2025 register identities; the ulp and
+machine-epsilon constants; single-precision rounding of `1 + 2^-24`, `1 + 2^-23`, `1 + 2^-25`,
+`1 + 2^-30`, `2 x 10^30 + 1` and `10^9 + 1`; the two three-digit rounding examples; and the lesson's own
+fields.
+
+### Validation
+
+`python3 scripts/build-index.py` indexed 3 playlists, 39 videos, 281 topics and 223 PYQs.
+`python3 scripts/validate.py` reported 34 checks passed, 8 warnings, 0 failures; all eight warnings are
+pre-existing. `node tests/visual-lessons.js` passed on all 28 lessons, including the new one at 8 steps.
+No frozen file was touched: no design token, no shell layout, no route, no navigation label and no shared
+component class changed.
+
+One correction was made during validation rather than after publication: the Booth card's -6 x 3 trace
+was first written with Q ending at 0010, and the recomputation in `validate.py` showed the register pair
+ends at 1110 1110. The card now says 1110 1110, which is -18.
+
+### Gaps (the topic stays `partial`)
+
+1. No video transcript was readable this run. No YouTube watch page carried a caption track, so
+   `videoRefs` is empty on all twelve cards and no card quotes or timestamps a lecture.
+2. The neighbouring NPTEL IIT Kharagpur lectures 37, 38 and 40 answered HTTP 403 from the sandbox, so
+   only Lecture 39 could be read, and only through the search service's text extract. This is the largest
+   gap.
+3. The Stanford EE486 lectures 8 and 12 answered HTTP 502, so their non-restoring digit-set conversion
+   rule and partial-remainder diagrams are unused.
+4. Five cards carry no PYQ because no verified CSE question is decided by them alone: the Booth recoding
+   card, restoring division, non-restoring division, the Q-format card and the rounding card. Each says
+   so in its source line rather than borrowing a question that does not test it. The schema cannot hold
+   the descriptive questions that do exist (1997 Q.72, 1990 Q.8b).
+5. Every PYQ is `SOURCED`, not key-verified, and no marks field comes from an official key.
+6. Four of the twelve question numbers differ between sites; each record states where.
+7. GATE CSE 2026 Set 2 Q.28 and 2026 Set 1 Q.22 were seen only as stripped listings and are not in the
+   PYQ set, so the sign-magnitude overflow path rests on the Mano-based deck alone.
+8. Only one non-English source was readable, a Hindi article on Booth's algorithm. No GATE-level Hindi,
+   Tamil, Telugu or Bengali lecture on division or floating-point arithmetic could be read.
+
+### Next
+
+The cycle pointer now sits on `digital-logic/computer-arithmetic`, the last topic of Digital Logic. The
+next topic in syllabus order is `computer-organization-and-architecture/instruction-set-and-addressing-modes`,
+which is `not_started` - the first topic of Computer Organization and Architecture, and the point at which
+the cycle leaves Digital Logic for the first time.

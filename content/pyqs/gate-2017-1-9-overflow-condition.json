@@ -1,0 +1,21 @@
+{
+  "id": "gate-2017-1-9-overflow-condition",
+  "year": "2017",
+  "paper": "GATE CSE 2017 Set 1",
+  "question_ref": "Q.9",
+  "type": "MCQ",
+  "topic": "fixed-point-add-subtract-overflow",
+  "text": "When two 8-bit numbers A7...A0 and B7...B0 in 2's complement representation (with A0 and B0 as the least significant bits) are added using a ripple-carry adder, the sum bits obtained are S7...S0 and the carry bits are C7...C0. An overflow is said to have occurred if",
+  "options": [
+    "the carry bit C7 is 1",
+    "all the carry bits (C7,...,C0) are 1",
+    "(A7.B7.S7' + A7'.B7'.S7) is 1",
+    "(A0.B0.S0' + A0'.B0'.S0) is 1"
+  ],
+  "answer": "Option (C) - (A7.B7.S7' + A7'.B7'.S7) is 1",
+  "solution": "Overflow happens when two operands of one sign produce a result of the other. Two positives overflowing gives A7 = B7 = 0 and S7 = 1, that is A7'.B7'.S7; two negatives overflowing gives A7 = B7 = 1 and S7 = 0, that is A7.B7.S7'. Their sum is the answer. C7 alone is the unsigned carry, and the option written with A0, B0 and S0 tests the wrong end of the word.",
+  "source_url": "https://gateoverflow.in/118289/gate-cse-2017-set-1-question-9",
+  "source_label": "GATE Overflow question page - GATE CSE 2017 Set 1 Q.9 with the accepted answer (option C)",
+  "verification": "SOURCED",
+  "answer_evidence": "The accepted answer on the page derives the two same-sign cases and selects option C; the GateAI PYQ page for the same question also records the official option as C. Recomputed here by enumerating all 65536 pairs of 8-bit operands: the expression is 1 exactly when the signed sum leaves -128..127."
+}
