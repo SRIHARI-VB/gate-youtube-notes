@@ -1,0 +1,16 @@
+{
+  "id": "gate-2024-set-2-q47-opcodes-per-mode",
+  "year": "2024",
+  "paper": "GATE CSE 2024 Set 2",
+  "question_ref": "Q.47 on GATE Overflow; Q.57 on the paper listings",
+  "type": "NAT",
+  "topic": "instruction-field-bit-budget",
+  "text": "A processor with 16 general purpose registers uses a 32-bit instruction format. The instruction format consists of an opcode field, an addressing mode field, two register operand fields, and a 16-bit scalar field. If 8 addressing modes are to be supported, the maximum number of unique opcodes possible for every addressing mode is ______.",
+  "options": [],
+  "answer": "32",
+  "solution": "Two register fields for 16 registers take 4 + 4 = 8 bits, the scalar field is 16 bits, and 8 addressing modes need 3 bits. That is 8 + 16 + 3 = 27 bits, so the opcode gets 32 - 27 = 5 bits and carries 2^5 = 32 unique opcodes for each mode. The answer is 32 opcodes per mode, not 8 x 32 = 256, which would be the total number of distinct instructions.",
+  "source_url": "https://gateoverflow.in/422850/gate-cse-2024-set-2-question-47",
+  "source_label": "GATE Overflow question page - GATE CSE 2024 Set 2 Question 47 with the accepted answer (32)",
+  "verification": "SOURCED",
+  "answer_evidence": "The accepted answer computes '32 - (3 + 2*4 + 16) = 5' bits and '2^5 = 32', and notes that 256 is the instruction count rather than the opcode count. Corroborated by GateAI's PYQ page, which records the official answer as 32, and by iaeacademy, which cites the official GATE 2024 CS2 key. The question is numbered Q.57 in the paper listings and Q.47 on GATE Overflow, and both numbers are recorded."
+}
