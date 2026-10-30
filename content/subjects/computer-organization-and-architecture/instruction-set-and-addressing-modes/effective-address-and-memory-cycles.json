@@ -1,0 +1,85 @@
+{
+  "id": "effective-address-and-memory-cycles",
+  "title": "Effective Address and Counting Memory Cycles",
+  "priority": "P1",
+  "order": 491,
+  "unit": "Instruction Set and Addressing Modes",
+  "visual": "computer-organization-and-architecture/instruction-set-and-addressing-modes/one-operand-five-modes",
+  "quickIdea": "Every mode is a recipe for the effective address and a count of memory reads. GATE's execution-cycle questions are that count, done carefully.",
+  "remember": [
+    "Operand memory references by mode: immediate 0, register 0, direct 1, indirect 2, register indirect 1, indexed or base 1, PC-relative 1, stack 0 for the address itself.",
+    "The extra words of a multi-word instruction are read during instruction fetch, not during the execution cycle. A question that says 'during the execution cycle' excludes them.",
+    "A read-modify-write destination costs two cycles: one read and one write.",
+    "An indirect operand costs two because the pointer must be read before the operand can be.",
+    "Address arithmetic - the addition of a base, an index or the PC - costs no memory cycle; it happens in the address unit.",
+    "The safe method is to write the mode chain as a list of memory operations and count the list, rather than to recall a table."
+  ],
+  "example": {
+    "prompt": "ADD A[R0], @B is a three-word instruction: indexed destination, indirect source. How many memory cycles does its execution cycle take?",
+    "work": "Read M[A + [R0]] for the destination operand (1). Read M[B] to get the source's address (2). Read that address for the source operand (3). Write the sum back to A + [R0] (4).",
+    "answer": "Four. The second and third words of the instruction were read in the fetch, so they are not counted here."
+  },
+  "gateAngle": "GATE CSE 2005 Q.65 is this count and the accepted answer is 4. The counting habit it rewards - one operation per line, fetch excluded - is the same habit the mode definitions in GATE CSE 2002 Q.1.24 test in words. No CSE question of this topic asks for cycles rather than references, so answer in references unless the paper says otherwise.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "Same instruction, but the destination is written to memory before the source is read. How many cycles, and does the order matter?",
+      "answer": "Still four. The order does not change the count, only the dependency chain and the latency.",
+      "why": "Counting is about how many accesses, not when. Latency questions ask something else."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Why does an immediate operand cost no memory reference while a direct one costs exactly one?",
+      "answer": "The immediate value is already inside the fetched instruction; the direct operand's value is at the address the instruction names, so it must be read.",
+      "why": "The instruction fetch delivers the field, not the memory contents. Everything else is one read per level of addressing."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "A two-level indirect source with an indexed destination and a write-back: how many cycles in the execution cycle?",
+      "answer": "Five: destination read (1), first pointer (2), second pointer (3), operand read (4), write-back (5).",
+      "why": "Each added level of indirection is exactly one more read. The pattern generalises without a new rule."
+    }
+  ],
+  "trap": {
+    "what": "Counting the extra words of a multi-word instruction as execution cycles.",
+    "why": "The question usually says 'during the execution cycle'. The operand words arrive with the instruction during fetch.",
+    "counterexample": "The 2005 question's instruction is three words long, so a naive count of six includes the two fetch reads. The accepted answer is 4, and the option 6 is printed as a distractor."
+  },
+  "check": {
+    "question": "How many operand memory references does ADD R1, (R2) need, and how many does ADD R1, @B need?",
+    "answer": "One and two.",
+    "explanation": "Register indirect reads memory once through a pointer already in a register; memory indirect must first read the pointer out of memory."
+  },
+  "pyqIds": [
+    "gate-2005-q65-memory-cycles-indexed-indirect"
+  ],
+  "prereqs": [
+    "direct-addressing",
+    "indirect-addressing-and-pointers",
+    "displacement-addressing-base-and-index"
+  ],
+  "sources": [
+    {
+      "kind": "lecture-transcript",
+      "title": "Lecture 18 - Handling Different Addressing Modes",
+      "channel": "NPTEL, Computer Organization and Architecture - A Pedagogical Aspect (IIT Guwahati)",
+      "url": "http://www.digimat.in/nptel/courses/video/106103180/lec18.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read from the opening through the direct-mode micro-operation sequence: the three fetch steps that are the same for every instruction, and the point that the control steps from step 4 onwards differ with the addressing mode, shown for direct mode as IR -> MAR, memory read, MDR -> operand. The closing summary was readable; the middle of the lecture was not, so the indirect and register-indirect micro-operation sequences are not attributed to it"
+    },
+    {
+      "kind": "text",
+      "title": "What is addressing modes in Hindi (addressing modes in hindi)",
+      "channel": "computernetworksite.in (Hindi article following Stallings' treatment of addressing modes)",
+      "url": "https://www.computernetworksite.in/2023/03/what-is-addressing-modes-in-hindi.html",
+      "language": "hi",
+      "transcript": "PARTIAL",
+      "translated": true,
+      "note": "read through the seven modes: immediate, direct, indirect, register, register indirect, displacement (relative, base register, indexing) and stack, each with its advantage and its disadvantage in memory references and address-space width. Translated into English here; the article's illustrative instruction examples are 8085-specific and are not used"
+    }
+  ],
+  "sourceLine": "The mode-by-mode control-step sequences, shown for direct mode as IR -> MAR, memory read, MDR -> operand, and the statement that the fetch steps 1 to 3 are the same for every instruction while the later steps differ by mode: Deka et al., Lecture 18 (English, read in part). The translated statement that indirect addressing needs three or more memory references for the whole instruction while direct needs one: computernetworksite.in (Hindi, translated, read in part). The full count for the 2005 instruction is recomputed in scripts/validate.py.",
+  "videoRefs": []
+}
