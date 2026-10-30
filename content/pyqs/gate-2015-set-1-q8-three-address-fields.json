@@ -1,0 +1,21 @@
+{
+  "id": "gate-2015-set-1-q8-three-address-fields",
+  "year": "2015",
+  "paper": "GATE CSE 2015 Set 1",
+  "question_ref": "Q.8",
+  "type": "MCQ",
+  "topic": "instruction-formats-zero-to-three-address",
+  "text": "For computers based on three-address instruction formats, each address field can be used to specify which of the following: (S1) A memory operand (S2) A processor register (S3) An implied accumulator register",
+  "options": [
+    "Either S1 or S2",
+    "Either S2 or S3",
+    "Only S2 and S3",
+    "All of S1, S2 and S3"
+  ],
+  "answer": "Option (A) - Either S1 or S2",
+  "solution": "An address field names something: a memory location or a processor register. An implied accumulator is by definition not named - that is what 'implied' means - so it can never occupy an address field. A three-address format therefore spends its three fields on memory operands or registers in any mixture.",
+  "source_url": "https://gateoverflow.in/8096/gate-cse-2015-set-1-question-8",
+  "source_label": "GATE Overflow question page - GATE CSE 2015 Set 1 Q.8 with the accepted answer (option A)",
+  "verification": "SOURCED",
+  "answer_evidence": "The accepted answer states 'Each address field (i.e., A, B, C) can point to' either a memory operand or a processor register and records 'Correct Answer: A', with the argument that an implied accumulator is never mentioned in an instruction. The page is filed under Compiler Design on GATE Overflow although the content is instruction-format material, which is why it was easy to miss."
+}
