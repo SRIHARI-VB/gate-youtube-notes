@@ -1,0 +1,96 @@
+{
+  "id": "displacement-addressing-base-and-index",
+  "title": "Displacement Addressing: Base, Index and the Same Arithmetic Under Three Names",
+  "priority": "P1",
+  "order": 488,
+  "unit": "Instruction Set and Addressing Modes",
+  "quickIdea": "One formula, EA = A + [R], covers indexed, base-register and PC-relative addressing. What changes is which part is fixed and what the register is being used to mean.",
+  "remember": [
+    "Effective address = address field + contents of a register. Two parts: one fixed in the instruction, one that can change.",
+    "Indexed: the register holds an offset (an index), the field holds a base address. Arrays, A[i].",
+    "Base register: the register holds the base address, the field holds a displacement. Records, structure fields, and a relocatable segment.",
+    "Base with index: two registers plus a displacement. The most general form, and the one that costs the most bits.",
+    "PC-relative is displacement addressing with the program counter as the register; the field is a signed offset in words or bytes.",
+    "One operand memory reference in every one of these forms - the address arithmetic is not a memory read.",
+    "The register is not modified by the address computation, which is what separates these modes from autoincrement and autodecrement."
+  ],
+  "example": {
+    "prompt": "A struct is at the address in R1 and its grade field is 400 bytes in. Separately, an int array A starts at 1000 and each element is 4 bytes. Give the effective addresses for A[7] and for grade, and name the mode each needs.",
+    "work": "A[7] = 1000 + 7 x 4 = 1028, which is base-plus-index with the base 1000 in the instruction and the index 7 in a register (scaled). grade = [R1] + 400, which is base-plus-displacement with 400 fixed in the instruction and the base in the register.",
+    "answer": "1028 by base-with-index; [R1] + 400 by base-with-displacement. The array's index varies at run time; the record's displacement does not."
+  },
+  "gateAngle": "GATE has asked this form three times and named it differently each time. GATE CSE 2011 Q.21 calls 20(R2) 'Base Indexed Addressing' and accepts that; GATE CSE 2017 Set 1 Q.11 calls X(R1) 'Index addressing mode' and accepts that; GATE CSE 2026 Set 1 Q.4 pairs base-with-index with an array element and base-with-displacement with a record element. The safe reading is the formula EA = A + [R] plus the question 'does the register or the constant change?' - the naming is the paper's, not a fact to memorise.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "A 16-bit two's complement displacement field is added to a base register. What range of fields can it express, and is that enough for a 1 MB structure?",
+      "answer": "-32768 to +32767 bytes, which covers the first 32 KB of the structure and nothing beyond.",
+      "why": "The 2017 Set 1 question turns on exactly this: 400 bytes fits comfortably, which is part of why the displacement form is the efficient answer there."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Why does base-with-displacement suit a record and base-with-index suit an array?",
+      "answer": "A record's field offsets are known at compile time, so they can be constants in the instruction; an array's index is known only at run time, so it must come from a register.",
+      "why": "Which operand varies decides which operand goes in the instruction. This is the single idea behind all three displacement flavours."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "The same code is loaded at a different address. Which displacement flavour still works without change?",
+      "answer": "PC-relative, because both the instruction and its target moved by the same amount, so the offset is unchanged. Base-with-displacement works too, provided the base register is reloaded.",
+      "why": "This is the bridge to the relocation card, and the reason GATE's 1998 and 2004 relocation questions give different answers to what look like the same question."
+    }
+  ],
+  "trap": {
+    "what": "Trying to decide whether a form like 20(R2) is 'indexed' or 'base' from the notation.",
+    "why": "The notation is identical. Only the intent - which operand is fixed and which varies - separates them, and different papers use the names differently.",
+    "counterexample": "GATE accepted 'Base Indexed' for 20(R2) in 2011 and 'Index addressing mode' for X(R1) in 2017. Both are EA = A + [R]. Answer the arithmetic, then answer the paper's label."
+  },
+  "check": {
+    "question": "R4 = 2000 and the instruction holds 12. What is the effective address, and how many memory reads does the operand take?",
+    "answer": "EA = 2012, and one memory read for the operand.",
+    "explanation": "The addition is done in the address unit, not in memory. Only the final fetch of M[2012] touches memory."
+  },
+  "pyqIds": [
+    "gate-2011-q21-base-indexed-mode",
+    "gate-2017-set-1-q11-struct-field-displacement",
+    "gate-2026-set-1-q4-mode-to-hll-matching"
+  ],
+  "prereqs": [
+    "instruction-format-and-fields",
+    "twos-complement-definition-and-range"
+  ],
+  "sources": [
+    {
+      "kind": "lecture-transcript",
+      "title": "Lecture 12 - Addressing Modes",
+      "channel": "NPTEL, Computer Organization and Architecture - A Pedagogical Aspect (Prof. Jatindra Kr. Deka, Dr. Santosh Biswas, Dr. Arnab Sarkar, IIT Guwahati)",
+      "url": "http://www.digimat.in/nptel/courses/video/106103180/lec12.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read from the opening through the definition of displacement addressing: the reason a large operand is moved out of the instruction into memory, the immediate / direct / indirect / register / register-indirect ladder with the size-and-speed trade-off of each, and the two-part address of displacement addressing. The returned extract stopped inside the displacement discussion, so nothing is attributed to the indexed, relative, autoincrement or stack material of the same lecture"
+    },
+    {
+      "kind": "lecture-transcript",
+      "title": "Lecture 18 - Handling Different Addressing Modes",
+      "channel": "NPTEL, Computer Organization and Architecture - A Pedagogical Aspect (IIT Guwahati)",
+      "url": "http://www.digimat.in/nptel/courses/video/106103180/lec18.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read from the opening through the direct-mode micro-operation sequence: the three fetch steps that are the same for every instruction, and the point that the control steps from step 4 onwards differ with the addressing mode, shown for direct mode as IR -> MAR, memory read, MDR -> operand. The closing summary was readable; the middle of the lecture was not, so the indirect and register-indirect micro-operation sequences are not attributed to it"
+    },
+    {
+      "kind": "text",
+      "title": "What is addressing modes in Hindi (addressing modes in hindi)",
+      "channel": "computernetworksite.in (Hindi article following Stallings' treatment of addressing modes)",
+      "url": "https://www.computernetworksite.in/2023/03/what-is-addressing-modes-in-hindi.html",
+      "language": "hi",
+      "transcript": "PARTIAL",
+      "translated": true,
+      "note": "read through the seven modes: immediate, direct, indirect, register, register indirect, displacement (relative, base register, indexing) and stack, each with its advantage and its disadvantage in memory references and address-space width. Translated into English here; the article's illustrative instruction examples are 8085-specific and are not used"
+    }
+  ],
+  "sourceLine": "The two-part address of displacement addressing - one part fixed in the instruction and one part held in a register that can change - is the last thing read from Deka et al., Lecture 12 (English, read in part). The statement that the control steps differ by mode and that address arithmetic happens in the address unit: Deka et al., Lecture 18 (English, read in part). The translated three-way split of displacement addressing into relative, base-register and indexing, with base register holding a memory address and index holding a positive displacement: computernetworksite.in (Hindi, translated, read in part). The three GATE answers are recomputed in scripts/validate.py.",
+  "videoRefs": []
+}
