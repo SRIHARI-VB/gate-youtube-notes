@@ -1,0 +1,21 @@
+{
+  "id": "gate-2008-q33-autoincrement-mode",
+  "year": "2008",
+  "paper": "GATE CS 2008",
+  "question_ref": "Q.33",
+  "type": "MCQ",
+  "topic": "autoincrement-autodecrement-and-stack",
+  "text": "Which of the following is/are true of the auto-increment addressing mode? I. It is useful in creating self-relocating code. II. If it is included in an Instruction Set Architecture, then an additional ALU is required for effective address calculation. III. The amount of increment depends on the size of the data item accessed.",
+  "options": [
+    "I only",
+    "II only",
+    "III only",
+    "II and III only"
+  ],
+  "answer": "Option (C) - III only",
+  "solution": "Statement I is false: autoincrement uses the absolute value in a register as the address, so moving the program leaves that address pointing at the old data, which is the opposite of self-relocating. Statement II is false: the increment can be done by a small dedicated incrementer in the address unit, and an extra general ALU is a convenience rather than a requirement. Statement III is true: the pointer must advance by exactly the size of the item just accessed, one byte for a byte and four for a word, or the next access lands inside the previous item.",
+  "source_url": "https://gateoverflow.in/444/gate-cse-2008-question-33-isro2009-80",
+  "source_label": "GATE Overflow question page - GATE CSE 2008 Q.33 with the accepted answer (option C)",
+  "verification": "SOURCED",
+  "answer_evidence": "The accepted answer concludes 'So, answer must be C only', with the argument that autoincrement works from an initial base address and so does not relocate, that an additional ALU is desirable but never a necessity, and that the increment matches the item size. Corroborated by the Solutions Adda GATE 2008 Question 33 page, which gives option C with the same three-way reasoning."
+}
