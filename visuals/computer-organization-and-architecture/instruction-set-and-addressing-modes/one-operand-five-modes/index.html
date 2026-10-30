@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>One operand, five addressing modes - Instruction Set visual lesson</title>
+<link rel="stylesheet" href="../../../lesson.css">
+<script src="https://cdn.jsdelivr.net/npm/p5@1.9.4/lib/p5.min.js"></script>
+</head>
+<body>
+<div class="wrap">
+  <p class="small"><a href="../../../../index.html">&larr; back to the revision site</a></p>
+  <h1>One Address Field, Six Readings: Effective Address and Memory Cycles</h1>
+  <div class="objective"><strong>Objective.</strong> Read the same address field under six addressing modes and see the effective address, the operand and the number of operand memory references change while the instruction stays put. The field holds 500, M[500] holds 1200, M[1200] holds 42, R2 holds 1200, R3 holds 700 and the PC holds 700.</div>
+
+  <div class="canvas-wrap"><div id="canvas-holder"></div></div>
+  <div class="caption" id="caption" aria-live="polite"></div>
+
+  <div class="controls">
+    <button id="play" class="primary">Play</button>
+    <button id="prev">&larr; Prev</button>
+    <button id="next">Next &rarr;</button>
+    <button id="restart">Restart</button>
+    <span class="speed"><label for="speed">Speed</label>
+      <input id="speed" type="range" min="0.25" max="2" step="0.25" value="1">
+      <span id="speedLabel">1.00x</span></span>
+    <span class="counter" id="counter"></span>
+  </div>
+
+  <h2>Static explanation</h2>
+  <p>An instruction carries an opcode and an operand field. The field is just bits: the addressing mode is the rule that says what those bits mean, and the effective address is what that rule computes. Here the field is 500 and it never changes; what changes is the rule.</p>
+  <p>Immediate mode treats the field as the value, so the operand is 500 and no memory is read. Direct mode treats the field as the address, so the effective address is 500 and one read returns M[500] = 1200. Indirect mode treats the field as the address of an address: one read gives 1200, a second read gives M[1200] = 42. Register indirect does the same with a pointer already in a register, so R2 = 1200 is the effective address and one read gives 42. Indexed mode adds a register to the field, 500 + 700 = 1200, and one read gives 42. PC-relative mode adds the program counter, 700 + 500 = 1200, and one read gives 42.</p>
+  <p>So four of the six readings reach the same operand, 42, by different routes, and the routes differ in cost: zero reads for immediate, one for direct, register indirect, indexed and PC-relative, and two for indirect. The address arithmetic - adding a register or the PC - costs no memory traffic at all; only the reads cost. This is exactly the count GATE asks for when it asks how many memory cycles an instruction needs during its execution cycle.</p>
+
+  <div class="card warn"><div class="label">Common misconception</div><p>Two mistakes dominate. The first is expecting a direct operand to be 42: direct mode stops one level up, so its operand is 1200, the value stored at 500, and reaching 42 needs indirection. The second is counting the extra words of a multi-word instruction as execution cycles - those words arrive during the instruction fetch, which is why GATE CSE 2005 Q.65 answers 4 and not 6.</p></div>
+  <div class="card ok"><div class="label">Quick check</div><p>The same field of 500 is read in indexed mode, but R3 is changed to 800. What is the operand, and how many reads does it take?</p><details><summary>Answer</summary><p><strong>Unknown from this picture, and one read.</strong> The effective address becomes 500 + 800 = 1300, which is a location this memory picture does not describe. The read count does not depend on the value of the index, only on the mode: indexed addressing always needs exactly one operand read.</p></details></div>
+  <p class="small">Topic: Instruction Set and Addressing Modes (Computer Organization and Architecture), subtopics immediate, direct, indirect, register-indirect, indexed and PC-relative addressing, and the memory-cycle count per mode. The mode ladder, the size-and-speed trade-off of each rung and the two-part displacement address: NPTEL IIT Guwahati Lecture 12, Computer Organization and Architecture - A Pedagogical Aspect (English), read in part. The mode-by-mode control sequence, with the fetch steps shared and the address computation in the address unit: the same course, Lecture 18 (English), read in part. The memory-reference count and address-space reach of each mode: computernetworksite.in's Hindi article on addressing modes (Hindi, translated, read in part). Every number shown here is recomputed in scripts/validate.py.</p>
+</div>
+<script src="../../../lesson.js"></script>
+<script src="sketch.js"></script>
+<script>
+/* p5.js is loaded from a CDN. If it is unreachable, say so plainly instead of showing an empty box. */
+window.addEventListener('load', function () {
+  if (window.p5) { return; }
+  var holder = document.getElementById('canvas-holder');
+  if (holder) {
+    holder.innerHTML = '<div style="padding:22px 18px;font-size:14.5px;color:#4a5260">' +
+      'The animation needs p5.js, which this page loads from a CDN, and the request failed (offline, or the CDN is blocked). ' +
+      'Everything below still works: the static explanation, the misconception and the quick check.</div>';
+  }
+  var cap = document.getElementById('caption');
+  if (cap && window.LESSON && window.LESSON.steps && window.LESSON.steps[0]) {
+    cap.innerHTML = window.LESSON.steps[0].caption;
+  }
+  ['play', 'prev', 'next', 'restart', 'speed'].forEach(function (id) {
+    var el = document.getElementById(id);
+    if (el) { el.disabled = true; }
+  });
+});
+</script>
+</body>
+</html>
