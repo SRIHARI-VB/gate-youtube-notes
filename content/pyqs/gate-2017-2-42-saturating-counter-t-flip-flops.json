@@ -1,0 +1,20 @@
+{
+  "id": "gate-2017-2-42-saturating-counter-t-flip-flops",
+  "year": "2017",
+  "paper": "GATE CS 2017 Set 2",
+  "question_ref": "Q.42",
+  "type": "MCQ",
+  "topic": "t-flip-flop-and-excitation-tables",
+  "text": "The next state table of a 2-bit saturating up-counter is: Q1 Q0 = 0 0 gives Q1+ Q0+ = 0 1; 0 1 gives 1 0; 1 0 gives 1 1; 1 1 gives 1 1. The counter is built as a synchronous sequential circuit using T flip-flops. The expressions for T1 and T0 are:",
+  "options": [
+    "T1 = Q1 Q0, T0 = Q1' Q0'",
+    "T1 = Q1' Q0, T0 = Q1' + Q0'",
+    "T1 = Q1 + Q0, T0 = Q1' Q0'",
+    "T1 = Q1' Q0, T0 = Q1 + Q0"
+  ],
+  "answer": "T1 = Q1' Q0, T0 = Q1' + Q0'",
+  "solution": "For a T flip-flop the excitation is T = Q XOR Q+. Reading the table row by row: Q1 toggles only in the row 0 1, so T1 = Q1' Q0. Q0 toggles in the rows 0 0, 0 1 and 1 0 and holds only in 1 1, so T0 = Q1'Q0' + Q1'Q0 + Q1Q0' = Q1' + Q0'. The last simplification uses Q1' + Q1Q0' = Q1' + Q0'.",
+  "source_url": "https://gateoverflow.in/118557/gate-cse-2017-set-2-question-42",
+  "source_label": "GATE Overflow discussion of GATE CS 2017 Set 2 Q.42 (accepted answer option B)",
+  "verification": "SOURCED"
+}

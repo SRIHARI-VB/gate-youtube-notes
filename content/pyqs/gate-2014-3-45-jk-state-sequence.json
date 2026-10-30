@@ -1,0 +1,20 @@
+{
+  "id": "gate-2014-3-45-jk-state-sequence",
+  "year": "2014",
+  "paper": "GATE CS 2014 Set 3",
+  "question_ref": "Q.45",
+  "type": "MCQ",
+  "topic": "sequential-circuit-analysis-state-equations",
+  "text": "A synchronous sequential circuit built using JK flip-flops is initialized with Q2 Q1 Q0 = 000, with J2 = Q1', K2 = Q0, J1 = Q2, K1 = Q2', J0 = Q1 and K0 = Q0'. The state sequence for this circuit for the next 3 clock cycles is:",
+  "options": [
+    "001, 010, 011",
+    "111, 110, 101",
+    "100, 110, 111",
+    "100, 011, 001"
+  ],
+  "answer": "100, 110, 111",
+  "solution": "Write Q+ = JQ' + K'Q for each stage and update all three from the old values. From 000: J2K2 = 10 sets Q2; J1K1 = 01 keeps Q1 at 0; J0K0 = 01 keeps Q0 at 0, giving 100. From 100: J2K2 = 10 sets; J1K1 = 10 sets; J0K0 = 01 keeps 0, giving 110. From 110: J2K2 = 00 holds; J1K1 = 10 holds 1; J0K0 = 11 toggles 0 to 1, giving 111. The question itself is a figure; these six equations are the ones its accepted solutions state, and the three states above are recomputed from them in scripts/validate.py. Carrying the same equations a fourth step gives 011 and a fifth gives 001, so the 'mod-5 counter' remark that appears in some solutions does not follow from the equations as transcribed and is not relied on here.",
+  "source_url": "https://gateoverflow.in/2079/gate-cse-2014-set-3-question-45",
+  "source_label": "GATE Overflow discussion of GATE CS 2014 Set 3 Q.45 (accepted answer option C)",
+  "verification": "SOURCED"
+}

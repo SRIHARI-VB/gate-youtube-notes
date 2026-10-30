@@ -1,0 +1,20 @@
+{
+  "id": "gate-2005-62-dff-output-sequence",
+  "year": "2005",
+  "paper": "GATE CS 2005",
+  "question_ref": "Q.62",
+  "type": "MCQ",
+  "topic": "sequential-circuit-analysis-state-equations",
+  "text": "Consider a circuit involving a positive edge triggered D flip-flop whose D input is D = A X + X' Q', where Q is the flip-flop output and the output Y is taken from Q. With A_i the logic level on line A in the i-th clock period and A' its complement, the correct output sequence on Y over clock periods 1 through 5 is:",
+  "options": [
+    "A_0 A_1 A_1' A_3 A_4",
+    "A_0 A_1 A_2' A_3 A_4",
+    "A_1 A_2 A_2' A_3 A_4",
+    "A_1 A_2' A_3 A_4 A_5'"
+  ],
+  "answer": "A_0 A_1 A_1' A_3 A_4",
+  "solution": "Y = Q = D at each rising edge, so the whole question is which value of X and Q the flip-flop sees just before that edge. In periods 1, 2, 4 and 5 the control X is 1, so D = A and Y copies the A level of that period. In period 3 the control X is 0, so D = Q', and Q at that moment is the value stored in period 2, which is A_1; hence Y = A_1'. Note the remark that matters: X is not connected to D directly, so the flip-flop reads the value of X present at the edge, not a value that changed after it.",
+  "source_url": "https://gateoverflow.in/264/gate-cse-2005-question-62",
+  "source_label": "GATE Overflow discussion of GATE CS 2005 Q.62 (accepted answer option A)",
+  "verification": "SOURCED"
+}

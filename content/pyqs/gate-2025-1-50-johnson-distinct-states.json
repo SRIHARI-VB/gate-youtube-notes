@@ -1,0 +1,16 @@
+{
+  "id": "gate-2025-1-50-johnson-distinct-states",
+  "year": "2025",
+  "paper": "GATE CS 2025 Set 1",
+  "question_ref": "Q.50",
+  "type": "NAT",
+  "marks": "2",
+  "topic": "ring-and-johnson-counters",
+  "text": "Consider a sequential circuit, shown in the paper as a figure, designed using D flip-flops and initialized with some value. The number of distinct states the circuit will go through before returning back to the initial state is ______. (Answer in integer)",
+  "options": [],
+  "answer": "8 (7 was also accepted)",
+  "solution": "The figure is four D flip-flops in a chain with the complement of the last output fed back to the first input, that is a 4-bit Johnson counter, whose cycle length is 2n = 8. Tracing from 0000 gives 0000, 1000, 1100, 1110, 1111, 0111, 0011, 0001 and back, eight distinct states including the initial one, or seven excluding it. Both 7 and 8 were accepted. Starting anywhere else, for example 0010, gives a second cycle of length 8, so the count does not depend on the start.",
+  "source_url": "https://gateoverflow.in/460030/gate-cse-2025-set-1-question-50",
+  "source_label": "GATE Overflow discussion of GATE CS 2025 Set 1 Q.50 (both 7 and 8 accepted)",
+  "verification": "SOURCED"
+}

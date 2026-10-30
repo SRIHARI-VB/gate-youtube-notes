@@ -1,0 +1,16 @@
+{
+  "id": "gate-2025-2-24-ripple-counter-frequency",
+  "year": "2025",
+  "paper": "GATE CS 2025 Set 2",
+  "question_ref": "Q.24",
+  "type": "NAT",
+  "marks": "2",
+  "topic": "ripple-counter-and-frequency-division",
+  "text": "In a 4-bit ripple counter, if the period of the waveform at the last flip-flop is 64 microseconds, then the frequency of the ripple counter in kHz is ______. (Answer in integer)",
+  "options": [],
+  "answer": "250",
+  "solution": "Each stage of a ripple counter halves the frequency, so the last of four stages carries the input frequency divided by 2^4 = 16. The period at that stage is 64 microseconds, so its frequency is 1 / (64 x 10^-6) = 15625 Hz. Multiplying back by 16 gives 250000 Hz, that is 250 kHz. Dividing instead of multiplying gives about 977 Hz, which is the wrong direction.",
+  "source_url": "https://gateoverflow.in/460811/gate-cse-2025-set-2-question-24",
+  "source_label": "GATE Overflow discussion of GATE CS 2025 Set 2 Q.24 (accepted answer 250)",
+  "verification": "SOURCED"
+}

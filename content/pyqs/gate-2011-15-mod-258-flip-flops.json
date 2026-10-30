@@ -1,0 +1,20 @@
+{
+  "id": "gate-2011-15-mod-258-flip-flops",
+  "year": "2011",
+  "paper": "GATE CS 2011",
+  "question_ref": "Q.15",
+  "type": "MCQ",
+  "topic": "synchronous-counter-and-mod-n-design",
+  "text": "The minimum number of D flip-flops needed to design a mod-258 counter is:",
+  "options": [
+    "258",
+    "512",
+    "8",
+    "9"
+  ],
+  "answer": "9",
+  "solution": "A mod-258 counter has 258 distinct states, and n flip-flops hold at most 2^n of them. 2^8 = 256 is too few and 2^9 = 512 is enough, so the answer is 9. The option letter is not recorded here because the answer pages render the options in different orders; the value 9 is what the accepted solutions give. The 254 patterns left over must be routed back into the cycle for the counter to be self-starting.",
+  "source_url": "https://gateoverflow.in/2117/gate-cse-2011-question-15",
+  "source_label": "GATE Overflow discussion of GATE CS 2011 Q.15 (accepted answer 9)",
+  "verification": "SOURCED"
+}

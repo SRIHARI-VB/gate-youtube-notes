@@ -1,0 +1,16 @@
+{
+  "id": "gate-2016-1-8-counter-0-1-0-2-0-3-flip-flops",
+  "year": "2016",
+  "paper": "GATE CS 2016 Set 1",
+  "question_ref": "Q.8",
+  "type": "NAT",
+  "marks": "1",
+  "topic": "synchronous-counter-and-mod-n-design",
+  "text": "We want to design a synchronous counter that counts the sequence 0-1-0-2-0-3 and then repeats. The minimum number of J-K flip-flops required to implement this counter is ______.",
+  "options": [],
+  "answer": "4 (3 was also accepted)",
+  "solution": "There are six positions in the sequence, not four, because 0 appears three times and the counter must know which copy it is in. Distinguishing 0, 1, 2 and 3 needs two bits and distinguishing the three zeros needs two more, so the tight answer is four flip-flops, for example 0000, 0001, 0100, 0010, 1000, 0011. The competing reading treats the six positions as six states and answers ceil(log2 6) = 3, using external logic to decode the display. GATE's key accepted both 3 and 4, and this record keeps the disagreement rather than resolving it.",
+  "source_url": "https://gateoverflow.in/39670/gate-cse-2016-set-1-question-8",
+  "source_label": "GATE Overflow discussion of GATE CS 2016 Set 1 Q.8 (answers 3 and 4 both accepted)",
+  "verification": "SOURCED"
+}

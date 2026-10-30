@@ -1,0 +1,16 @@
+{
+  "id": "gate-2015-2-7-min-jk-flip-flops-repeated-count",
+  "year": "2015",
+  "paper": "GATE CS 2015 Set 2",
+  "question_ref": "Q.7",
+  "type": "NAT",
+  "marks": "1",
+  "topic": "synchronous-counter-and-mod-n-design",
+  "text": "The minimum number of JK flip-flops required to construct a synchronous counter with the count sequence (0, 0, 1, 1, 2, 2, 3, 3, 0, 0, ...) is ______.",
+  "options": [],
+  "answer": "3",
+  "solution": "Two flip-flops give only the four patterns 00, 01, 10, 11, which cannot express eight positions in a sequence where every value appears twice. Eight distinct positions need three flip-flops: 000, 100, 001, 101, 010, 110, 011, 111, whose low two bits read 0, 0, 1, 1, 2, 2, 3, 3. The extra bit distinguishes the two copies of each value and is simply not shown on the display. The accepted answer is 3.",
+  "source_url": "https://gateoverflow.in/8054/gate-cse-2015-set-2-question-7",
+  "source_label": "GATE Overflow discussion of GATE CS 2015 Set 2 Q.7 (accepted answer 3)",
+  "verification": "SOURCED"
+}

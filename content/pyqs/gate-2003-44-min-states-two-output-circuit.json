@@ -1,0 +1,20 @@
+{
+  "id": "gate-2003-44-min-states-two-output-circuit",
+  "year": "2003",
+  "paper": "GATE CS 2003",
+  "question_ref": "Q.44",
+  "type": "MCQ",
+  "topic": "sequence-detector-minimum-states",
+  "text": "A 1-input, 2-output synchronous sequential circuit behaves as follows. Let z_k and n_k denote the number of 0s and 1s respectively in the initial k bits of the input, with z_k + n_k = k. The circuit outputs 00 until one of two conditions holds: z_k - n_k = 2, in which case the output at the k-th and all subsequent clock ticks is 10, or n_k - z_k = 2, in which case it is 01. What is the minimum number of states required in the state transition graph of the circuit?",
+  "options": [
+    "5",
+    "6",
+    "7",
+    "8"
+  ],
+  "answer": "5",
+  "solution": "The only thing the circuit must remember is the running difference d = z_k - n_k, and before either threshold is reached d can only be -1, 0 or +1. Those are three states, all emitting 00. Reaching d = +2 gives an absorbing state emitting 10, and reaching d = -2 gives an absorbing state emitting 01. Three plus two is five. A smaller machine cannot distinguish d = +1 from d = -1, because one more 0 from +1 triggers and from -1 does not.",
+  "source_url": "https://gateoverflow.in/935/gate-cse-2003-question-44",
+  "source_label": "GATE Overflow discussion of GATE CS 2003 Q.44 (accepted answer 5, option A)",
+  "verification": "SOURCED"
+}

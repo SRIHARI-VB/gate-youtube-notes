@@ -1,0 +1,16 @@
+{
+  "id": "gate-2018-22-self-loop-states",
+  "year": "2018",
+  "paper": "GATE CS 2018",
+  "question_ref": "Q.22",
+  "type": "NAT",
+  "marks": "1",
+  "topic": "sequential-circuit-analysis-state-equations",
+  "text": "Consider a sequential circuit, shown in the paper as a figure, where both flip-flops used are positive edge-triggered D flip-flops. The number of states in the state transition diagram of this circuit that have a transition back to the same state on some value of 'in' is ______.",
+  "options": [],
+  "answer": "2",
+  "solution": "The circuit is a two-stage shift register: the next state of the left flip-flop is the input and the next state of the right flip-flop is the present left output, so Q1+ = in and Q0+ = Q1. A self-loop needs Q1+ = Q1 and Q0+ = Q0, that is in = Q1 and Q1 = Q0. That forces the state 00 with in = 0 and the state 11 with in = 1, so exactly two states have a self-loop. The wiring is stated here from the accepted solutions because the question itself is a figure; the count of 2 is recomputed from those equations.",
+  "source_url": "https://gateoverflow.in/204096/gate-cse-2018-question-22",
+  "source_label": "GATE Overflow discussion of GATE CS 2018 Q.22 (accepted answer 2)",
+  "verification": "SOURCED"
+}

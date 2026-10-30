@@ -1,0 +1,20 @@
+{
+  "id": "gate-2015-1-37-d-jk-cross-coupled-sequence",
+  "year": "2015",
+  "paper": "GATE CS 2015 Set 1",
+  "question_ref": "Q.37",
+  "type": "MCQ",
+  "topic": "edge-triggered-flip-flop-and-timing",
+  "text": "A positive edge-triggered D flip-flop is connected to a positive edge-triggered JK flip-flop as follows: the Q output of the D flip-flop drives both J and K of the JK flip-flop, and the Q output of the JK flip-flop drives the D input. Initially the D flip-flop output is 1 and the JK flip-flop output is 0. Which bit sequence, including the initial state, appears at the Q output of the JK flip-flop with a free-running common clock, where J = K = 1 is toggle and J = K = 0 is hold and both flip-flops have non-zero propagation delays?",
+  "options": [
+    "0110110...",
+    "0100100...",
+    "011101110...",
+    "011001100..."
+  ],
+  "answer": "0110110...",
+  "solution": "Both devices are edge-triggered and share the clock, so at each rising edge each reads the other's previous output. Let D_old and J_old be the two outputs before an edge; then the new D output is J_old and the new JK output is J_old XOR D_old, because J = K = D_old means toggle when D_old = 1 and hold when D_old = 0. From (D, JK) = (1, 0) the pairs run (0, 1), (1, 1), (0, 0), (1, 0), so the JK output reads 0, 1, 1, 0, 1, 1, 0 and repeats with period three. The non-zero propagation delay is what makes the simultaneous sampling physical rather than assumed.",
+  "source_url": "https://gateoverflow.in/8287/gate-cse-2015-set-1-question-37",
+  "source_label": "GATE Overflow discussion of GATE CS 2015 Set 1 Q.37 (accepted answer option A)",
+  "verification": "SOURCED"
+}
