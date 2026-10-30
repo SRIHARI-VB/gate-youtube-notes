@@ -2423,3 +2423,84 @@ The cycle pointer now sits on `digital-logic/computer-arithmetic`, the last topi
 next topic in syllabus order is `computer-organization-and-architecture/instruction-set-and-addressing-modes`,
 which is `not_started` - the first topic of Computer Organization and Architecture, and the point at which
 the cycle leaves Digital Logic for the first time.
+
+## Run: Computer Organization and Architecture - Instruction Set and Addressing Modes (2026-10-30)
+
+### Why this topic
+
+`content/coverage.json` recorded `cycle.last` at `digital-logic/computer-arithmetic`, the last topic of
+Digital Logic. The first topic after it in syllabus order whose status was not `covered` is
+`computer-organization-and-architecture/instruction-set-and-addressing-modes`, which was `not_started`.
+Nothing was skipped: every topic before it is `partial` and will be revisited in the second pass, and no
+topic is `blocked`.
+
+### The syllabus subtopics, enumerated first
+
+The syllabus names this topic in five words, "Instruction set and addressing modes", so the thirteen
+subtopics were enumerated from the standard treatment (Hamacher chapter 2, Stallings' mode chapter, the IIT
+Guwahati module 4 outline) and from the GATE question record: instruction format and fields; the bit budget
+of a format; what an instruction set is, with RISC against CISC mode richness; zero- to three-address
+formats; immediate; direct; indirect; register and register-indirect; displacement addressing with base,
+index and base-with-index; PC-relative and the branch offset; autoincrement, autodecrement and stack;
+effective address and the memory-cycle count; relocation and position-independent code. Each has one card.
+
+### Sources
+
+Chosen on merit, across two languages, and recorded with reasons in `sources.json`:
+
+- NPTEL IIT Guwahati, Computer Organization and Architecture - A Pedagogical Aspect, **Lecture 12
+  Addressing Modes** (English, read in part) - the only source whose whole subject is this topic.
+- NPTEL NIT Meghalaya, Computer Organization and Architecture, **Lecture 07 Instruction Format and
+  Addressing Modes** (English, read in part) - the destination-against-immediate rule and the bit-budget
+  example.
+- NPTEL IIT Delhi, Computer Architecture, **Lecture 3 Instruction Set Architecture - 1** (English, read in
+  part) - the instruction set as a contract with stated design goals.
+- NPTEL IIT Guwahati, **Lecture 18 Handling Different Addressing Modes** (English, read in part) - why the
+  control sequence, and so the memory-cycle count, differs by mode.
+- IIT Guwahati NPTEL **web course, module 4 outline** (English, read in part through a published mirror) -
+  the attributes an instruction set architecture consists of.
+- **computernetworksite.in**, a Hindi article on the seven addressing modes (Hindi, **translated**, read in
+  part) - the only source giving every mode's memory-reference count and address-space reach side by side.
+
+Twelve candidates were rejected with reasons, including two YouTube lectures whose watch pages carried no
+caption track, the NPTEL ARM-based-development mode lectures, the High Performance Computer Architecture ISA
+lectures, the Gate Vidyalay and GeeksforGeeks mode lists, four GATE CSE questions seen only as titles, and
+the other-paper and test-series questions.
+
+### What was created
+
+Thirteen cards, fourteen verified PYQs (1998 to 2026), one p5.js lesson
+(`one-operand-five-modes`, eight steps), a `sources.json` ledger, and a new recomputation block
+`check_instruction_set_and_addressing_modes()` in `scripts/validate.py`. `content/syllabus.json` now marks
+the topic `cards` instead of `planned`.
+
+### Validation
+
+`python3 scripts/build-index.py` indexed 3 playlists, 39 videos, 294 topics and 237 PYQs.
+`python3 scripts/validate.py` reported 35 checks passed, 8 warnings, 0 failures; all eight warnings are
+pre-existing. `node tests/visual-lessons.js` passed on all 29 lessons. No frozen file was touched: no design
+token, no shell layout, no route, no navigation label and no shared component class changed.
+
+### Gaps (the topic stays `partial`)
+
+1. No video transcript was readable. Two YouTube watch pages were fetched this run and carried no caption
+   track, and the timedtext endpoint returned an empty body, so `videoRefs` is empty on all thirteen cards.
+2. Every PYQ is `SOURCED`, not key-verified, and no marks field comes from an official key.
+3. Four GATE CSE questions of this topic were seen only as titles and not read: 2000 Q.1.10, 2001 Q.2.9,
+   2005 Q.66 and 1996 Q.1.16.
+4. GATE CSE 2025 Set 2 Q.18 and 2026 Set 1 Q.52 test this topic directly and were seen only as stripped
+   listings, so the ISA card and the format card carry no PYQ and say so.
+5. The NPTEL NIT Meghalaya Lectures 5 and 8 (Instruction Set Architecture; CISC and RISC) were not fetched,
+   so no readable source teaches the RISC-against-CISC comparison at length.
+6. The displacement form's naming is unstable across papers; the card teaches `EA = A + [R]` and records
+   which label each paper used rather than declaring one correct.
+7. Two questions are ambiguous as printed (1999 Q.2.23 and 1998 Q.1.19) and their records say so.
+8. The 2017 Set 1 PC-relative branch question's number (Q.14) could not be confirmed against the paper.
+9. Only one non-English source was readable, a Hindi article; no Hindi, Tamil, Telugu or Bengali GATE
+   lecture on this topic could be read.
+
+### Next
+
+The cycle pointer now sits on `computer-organization-and-architecture/instruction-set-and-addressing-modes`.
+The next topic in syllabus order is `computer-organization-and-architecture/alu-design`, which is
+`not_started`.
