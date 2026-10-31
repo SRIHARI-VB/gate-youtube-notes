@@ -56,23 +56,23 @@
       "question_count": 50,
       "subtopics": [
         {
-          "label": "binomial-multinomial-coefficients",
+          "label": "Binomial & multinomial coefficients",
           "questions": 10
         },
         {
-          "label": "double-counting",
+          "label": "Double counting",
           "questions": 10
         },
         {
-          "label": "inclusion-exclusion-counting",
+          "label": "Inclusion-exclusion counting",
           "questions": 10
         },
         {
-          "label": "permutations-combinations",
+          "label": "Permutations & combinations",
           "questions": 10
         },
         {
-          "label": "stars-and-bars",
+          "label": "Stars and bars",
           "questions": 10
         }
       ],
@@ -87,6 +87,6 @@
       ],
       "url": "https://gate-visual-explainer.vercel.app/topics/counting-and-combinatorics/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
   }
 }

@@ -51,23 +51,23 @@
       "question_count": 50,
       "subtopics": [
         {
-          "label": "characteristic-equations",
+          "label": "Characteristic equations",
           "questions": 11
         },
         {
-          "label": "coefficient-extraction",
+          "label": "Coefficient extraction",
           "questions": 10
         },
         {
-          "label": "divide-and-conquer-recurrences",
+          "label": "Divide-and-conquer recurrences",
           "questions": 9
         },
         {
-          "label": "homogeneous-nonhomogeneous",
+          "label": "Homogeneous & non-homogeneous",
           "questions": 10
         },
         {
-          "label": "ordinary-generating-functions",
+          "label": "Ordinary generating functions",
           "questions": 10
         }
       ],
@@ -84,6 +84,6 @@
       ],
       "url": "https://gate-visual-explainer.vercel.app/topics/recurrence-relations/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
   }
 }

@@ -1340,23 +1340,23 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "binomial-multinomial-coefficients",
+       "label": "Binomial & multinomial coefficients",
        "questions": 10
       },
       {
-       "label": "double-counting",
+       "label": "Double counting",
        "questions": 10
       },
       {
-       "label": "inclusion-exclusion-counting",
+       "label": "Inclusion-exclusion counting",
        "questions": 10
       },
       {
-       "label": "permutations-combinations",
+       "label": "Permutations & combinations",
        "questions": 10
       },
       {
-       "label": "stars-and-bars",
+       "label": "Stars and bars",
        "questions": 10
       }
      ],
@@ -1368,7 +1368,7 @@ window.GATE_DATA = {
      "level": "topic-level",
      "url": "https://gate-visual-explainer.vercel.app/topics/counting-and-combinatorics/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
    },
    "subject": "discrete-mathematics",
    "topic": "combinatorics",
@@ -1428,23 +1428,23 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "binomial-multinomial-coefficients",
+       "label": "Binomial & multinomial coefficients",
        "questions": 10
       },
       {
-       "label": "double-counting",
+       "label": "Double counting",
        "questions": 10
       },
       {
-       "label": "inclusion-exclusion-counting",
+       "label": "Inclusion-exclusion counting",
        "questions": 10
       },
       {
-       "label": "permutations-combinations",
+       "label": "Permutations & combinations",
        "questions": 10
       },
       {
-       "label": "stars-and-bars",
+       "label": "Stars and bars",
        "questions": 10
       }
      ],
@@ -1459,7 +1459,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/counting-and-combinatorics/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
    },
    "subject": "discrete-mathematics",
    "topic": "combinatorics",
@@ -1530,23 +1530,23 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "binomial-multinomial-coefficients",
+       "label": "Binomial & multinomial coefficients",
        "questions": 10
       },
       {
-       "label": "double-counting",
+       "label": "Double counting",
        "questions": 10
       },
       {
-       "label": "inclusion-exclusion-counting",
+       "label": "Inclusion-exclusion counting",
        "questions": 10
       },
       {
-       "label": "permutations-combinations",
+       "label": "Permutations & combinations",
        "questions": 10
       },
       {
-       "label": "stars-and-bars",
+       "label": "Stars and bars",
        "questions": 10
       }
      ],
@@ -1561,7 +1561,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/counting-and-combinatorics/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
    },
    "subject": "discrete-mathematics",
    "topic": "combinatorics",
@@ -1622,23 +1622,23 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "binomial-multinomial-coefficients",
+       "label": "Binomial & multinomial coefficients",
        "questions": 10
       },
       {
-       "label": "double-counting",
+       "label": "Double counting",
        "questions": 10
       },
       {
-       "label": "inclusion-exclusion-counting",
+       "label": "Inclusion-exclusion counting",
        "questions": 10
       },
       {
-       "label": "permutations-combinations",
+       "label": "Permutations & combinations",
        "questions": 10
       },
       {
-       "label": "stars-and-bars",
+       "label": "Stars and bars",
        "questions": 10
       }
      ],
@@ -1653,7 +1653,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/counting-and-combinatorics/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
    },
    "subject": "discrete-mathematics",
    "topic": "combinatorics",
@@ -1712,23 +1712,23 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "binomial-multinomial-coefficients",
+       "label": "Binomial & multinomial coefficients",
        "questions": 10
       },
       {
-       "label": "double-counting",
+       "label": "Double counting",
        "questions": 10
       },
       {
-       "label": "inclusion-exclusion-counting",
+       "label": "Inclusion-exclusion counting",
        "questions": 10
       },
       {
-       "label": "permutations-combinations",
+       "label": "Permutations & combinations",
        "questions": 10
       },
       {
-       "label": "stars-and-bars",
+       "label": "Stars and bars",
        "questions": 10
       }
      ],
@@ -1743,7 +1743,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/counting-and-combinatorics/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
    },
    "subject": "discrete-mathematics",
    "topic": "combinatorics",
@@ -1808,23 +1808,23 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "binomial-multinomial-coefficients",
+       "label": "Binomial & multinomial coefficients",
        "questions": 10
       },
       {
-       "label": "double-counting",
+       "label": "Double counting",
        "questions": 10
       },
       {
-       "label": "inclusion-exclusion-counting",
+       "label": "Inclusion-exclusion counting",
        "questions": 10
       },
       {
-       "label": "permutations-combinations",
+       "label": "Permutations & combinations",
        "questions": 10
       },
       {
-       "label": "stars-and-bars",
+       "label": "Stars and bars",
        "questions": 10
       }
      ],
@@ -1836,7 +1836,7 @@ window.GATE_DATA = {
      "level": "topic-level",
      "url": "https://gate-visual-explainer.vercel.app/topics/counting-and-combinatorics/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
    },
    "subject": "discrete-mathematics",
    "topic": "combinatorics",
@@ -1994,23 +1994,23 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "binomial-multinomial-coefficients",
+       "label": "Binomial & multinomial coefficients",
        "questions": 10
       },
       {
-       "label": "double-counting",
+       "label": "Double counting",
        "questions": 10
       },
       {
-       "label": "inclusion-exclusion-counting",
+       "label": "Inclusion-exclusion counting",
        "questions": 10
       },
       {
-       "label": "permutations-combinations",
+       "label": "Permutations & combinations",
        "questions": 10
       },
       {
-       "label": "stars-and-bars",
+       "label": "Stars and bars",
        "questions": 10
       }
      ],
@@ -2025,7 +2025,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/counting-and-combinatorics/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
    },
    "subject": "discrete-mathematics",
    "topic": "combinatorics",
@@ -2236,23 +2236,23 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "binomial-multinomial-coefficients",
+       "label": "Binomial & multinomial coefficients",
        "questions": 10
       },
       {
-       "label": "double-counting",
+       "label": "Double counting",
        "questions": 10
       },
       {
-       "label": "inclusion-exclusion-counting",
+       "label": "Inclusion-exclusion counting",
        "questions": 10
       },
       {
-       "label": "permutations-combinations",
+       "label": "Permutations & combinations",
        "questions": 10
       },
       {
-       "label": "stars-and-bars",
+       "label": "Stars and bars",
        "questions": 10
       }
      ],
@@ -2267,7 +2267,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/counting-and-combinatorics/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
    },
    "subject": "discrete-mathematics",
    "topic": "combinatorics",
@@ -2331,23 +2331,23 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "binomial-multinomial-coefficients",
+       "label": "Binomial & multinomial coefficients",
        "questions": 10
       },
       {
-       "label": "double-counting",
+       "label": "Double counting",
        "questions": 10
       },
       {
-       "label": "inclusion-exclusion-counting",
+       "label": "Inclusion-exclusion counting",
        "questions": 10
       },
       {
-       "label": "permutations-combinations",
+       "label": "Permutations & combinations",
        "questions": 10
       },
       {
-       "label": "stars-and-bars",
+       "label": "Stars and bars",
        "questions": 10
       }
      ],
@@ -2359,7 +2359,7 @@ window.GATE_DATA = {
      "level": "topic-level",
      "url": "https://gate-visual-explainer.vercel.app/topics/counting-and-combinatorics/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
    },
    "subject": "discrete-mathematics",
    "topic": "combinatorics",
@@ -2612,23 +2612,23 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "characteristic-equations",
+       "label": "Characteristic equations",
        "questions": 11
       },
       {
-       "label": "coefficient-extraction",
+       "label": "Coefficient extraction",
        "questions": 10
       },
       {
-       "label": "divide-and-conquer-recurrences",
+       "label": "Divide-and-conquer recurrences",
        "questions": 9
       },
       {
-       "label": "homogeneous-nonhomogeneous",
+       "label": "Homogeneous & non-homogeneous",
        "questions": 10
       },
       {
-       "label": "ordinary-generating-functions",
+       "label": "Ordinary generating functions",
        "questions": 10
       }
      ],
@@ -2645,7 +2645,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/recurrence-relations/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
    },
    "subject": "discrete-mathematics",
    "topic": "combinatorics",
@@ -26202,19 +26202,19 @@ window.GATE_DATA = {
      "question_count": 75,
      "subtopics": [
       {
-       "label": "base-conversions",
+       "label": "Base conversions",
        "questions": 22
       },
       {
-       "label": "ones-twos-complement",
+       "label": "One's & two's complement",
        "questions": 19
       },
       {
-       "label": "floating-point-ieee-754",
+       "label": "Floating point & IEEE 754",
        "questions": 17
       },
       {
-       "label": "range-and-overflow",
+       "label": "Range & overflow",
        "questions": 17
       }
      ],
@@ -26226,7 +26226,7 @@ window.GATE_DATA = {
      "level": "topic-level",
      "url": "https://gate-visual-explainer.vercel.app/topics/number-representation-and-arithmetic/index.html"
     },
-    "mapped_at": "2026-10-31"
+    "mapped_at": "2026-11-01"
    },
    "subject": "digital-logic",
    "topic": "number-systems-and-representation",
@@ -26312,19 +26312,19 @@ window.GATE_DATA = {
      "question_count": 75,
      "subtopics": [
       {
-       "label": "base-conversions",
+       "label": "Base conversions",
        "questions": 22
       },
       {
-       "label": "ones-twos-complement",
+       "label": "One's & two's complement",
        "questions": 19
       },
       {
-       "label": "floating-point-ieee-754",
+       "label": "Floating point & IEEE 754",
        "questions": 17
       },
       {
-       "label": "range-and-overflow",
+       "label": "Range & overflow",
        "questions": 17
       }
      ],
@@ -26339,7 +26339,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/number-representation-and-arithmetic/index.html"
     },
-    "mapped_at": "2026-10-31"
+    "mapped_at": "2026-11-01"
    },
    "subject": "digital-logic",
    "topic": "number-systems-and-representation",
@@ -26417,19 +26417,19 @@ window.GATE_DATA = {
      "question_count": 75,
      "subtopics": [
       {
-       "label": "base-conversions",
+       "label": "Base conversions",
        "questions": 22
       },
       {
-       "label": "ones-twos-complement",
+       "label": "One's & two's complement",
        "questions": 19
       },
       {
-       "label": "floating-point-ieee-754",
+       "label": "Floating point & IEEE 754",
        "questions": 17
       },
       {
-       "label": "range-and-overflow",
+       "label": "Range & overflow",
        "questions": 17
       }
      ],
@@ -26441,7 +26441,7 @@ window.GATE_DATA = {
      "level": "topic-level",
      "url": "https://gate-visual-explainer.vercel.app/topics/number-representation-and-arithmetic/index.html"
     },
-    "mapped_at": "2026-10-31"
+    "mapped_at": "2026-11-01"
    },
    "subject": "digital-logic",
    "topic": "number-systems-and-representation",
@@ -26519,19 +26519,19 @@ window.GATE_DATA = {
      "question_count": 75,
      "subtopics": [
       {
-       "label": "base-conversions",
+       "label": "Base conversions",
        "questions": 22
       },
       {
-       "label": "ones-twos-complement",
+       "label": "One's & two's complement",
        "questions": 19
       },
       {
-       "label": "floating-point-ieee-754",
+       "label": "Floating point & IEEE 754",
        "questions": 17
       },
       {
-       "label": "range-and-overflow",
+       "label": "Range & overflow",
        "questions": 17
       }
      ],
@@ -26546,7 +26546,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/number-representation-and-arithmetic/index.html"
     },
-    "mapped_at": "2026-10-31"
+    "mapped_at": "2026-11-01"
    },
    "subject": "digital-logic",
    "topic": "number-systems-and-representation",
@@ -26624,19 +26624,19 @@ window.GATE_DATA = {
      "question_count": 75,
      "subtopics": [
       {
-       "label": "base-conversions",
+       "label": "Base conversions",
        "questions": 22
       },
       {
-       "label": "ones-twos-complement",
+       "label": "One's & two's complement",
        "questions": 19
       },
       {
-       "label": "floating-point-ieee-754",
+       "label": "Floating point & IEEE 754",
        "questions": 17
       },
       {
-       "label": "range-and-overflow",
+       "label": "Range & overflow",
        "questions": 17
       }
      ],
@@ -26651,7 +26651,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/number-representation-and-arithmetic/index.html"
     },
-    "mapped_at": "2026-10-31"
+    "mapped_at": "2026-11-01"
    },
    "subject": "digital-logic",
    "topic": "number-systems-and-representation",
@@ -26729,19 +26729,19 @@ window.GATE_DATA = {
      "question_count": 75,
      "subtopics": [
       {
-       "label": "base-conversions",
+       "label": "Base conversions",
        "questions": 22
       },
       {
-       "label": "ones-twos-complement",
+       "label": "One's & two's complement",
        "questions": 19
       },
       {
-       "label": "floating-point-ieee-754",
+       "label": "Floating point & IEEE 754",
        "questions": 17
       },
       {
-       "label": "range-and-overflow",
+       "label": "Range & overflow",
        "questions": 17
       }
      ],
@@ -26758,7 +26758,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/number-representation-and-arithmetic/index.html"
     },
-    "mapped_at": "2026-10-31"
+    "mapped_at": "2026-11-01"
    },
    "subject": "digital-logic",
    "topic": "number-systems-and-representation",
@@ -26845,19 +26845,19 @@ window.GATE_DATA = {
      "question_count": 75,
      "subtopics": [
       {
-       "label": "base-conversions",
+       "label": "Base conversions",
        "questions": 22
       },
       {
-       "label": "ones-twos-complement",
+       "label": "One's & two's complement",
        "questions": 19
       },
       {
-       "label": "floating-point-ieee-754",
+       "label": "Floating point & IEEE 754",
        "questions": 17
       },
       {
-       "label": "range-and-overflow",
+       "label": "Range & overflow",
        "questions": 17
       }
      ],
@@ -26875,7 +26875,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/number-representation-and-arithmetic/index.html"
     },
-    "mapped_at": "2026-10-31"
+    "mapped_at": "2026-11-01"
    },
    "subject": "digital-logic",
    "topic": "number-systems-and-representation",
@@ -26961,19 +26961,19 @@ window.GATE_DATA = {
      "question_count": 75,
      "subtopics": [
       {
-       "label": "base-conversions",
+       "label": "Base conversions",
        "questions": 22
       },
       {
-       "label": "ones-twos-complement",
+       "label": "One's & two's complement",
        "questions": 19
       },
       {
-       "label": "floating-point-ieee-754",
+       "label": "Floating point & IEEE 754",
        "questions": 17
       },
       {
-       "label": "range-and-overflow",
+       "label": "Range & overflow",
        "questions": 17
       }
      ],
@@ -26991,7 +26991,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/number-representation-and-arithmetic/index.html"
     },
-    "mapped_at": "2026-10-31"
+    "mapped_at": "2026-11-01"
    },
    "subject": "digital-logic",
    "topic": "number-systems-and-representation",
@@ -27072,19 +27072,19 @@ window.GATE_DATA = {
      "question_count": 75,
      "subtopics": [
       {
-       "label": "base-conversions",
+       "label": "Base conversions",
        "questions": 22
       },
       {
-       "label": "ones-twos-complement",
+       "label": "One's & two's complement",
        "questions": 19
       },
       {
-       "label": "floating-point-ieee-754",
+       "label": "Floating point & IEEE 754",
        "questions": 17
       },
       {
-       "label": "range-and-overflow",
+       "label": "Range & overflow",
        "questions": 17
       }
      ],
@@ -27102,7 +27102,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/number-representation-and-arithmetic/index.html"
     },
-    "mapped_at": "2026-10-31"
+    "mapped_at": "2026-11-01"
    },
    "subject": "digital-logic",
    "topic": "number-systems-and-representation",
@@ -27189,19 +27189,19 @@ window.GATE_DATA = {
      "question_count": 75,
      "subtopics": [
       {
-       "label": "base-conversions",
+       "label": "Base conversions",
        "questions": 22
       },
       {
-       "label": "ones-twos-complement",
+       "label": "One's & two's complement",
        "questions": 19
       },
       {
-       "label": "floating-point-ieee-754",
+       "label": "Floating point & IEEE 754",
        "questions": 17
       },
       {
-       "label": "range-and-overflow",
+       "label": "Range & overflow",
        "questions": 17
       }
      ],
@@ -27217,7 +27217,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/number-representation-and-arithmetic/index.html"
     },
-    "mapped_at": "2026-10-31"
+    "mapped_at": "2026-11-01"
    },
    "subject": "digital-logic",
    "topic": "number-systems-and-representation",
@@ -27316,19 +27316,19 @@ window.GATE_DATA = {
      "question_count": 75,
      "subtopics": [
       {
-       "label": "base-conversions",
+       "label": "Base conversions",
        "questions": 22
       },
       {
-       "label": "ones-twos-complement",
+       "label": "One's & two's complement",
        "questions": 19
       },
       {
-       "label": "floating-point-ieee-754",
+       "label": "Floating point & IEEE 754",
        "questions": 17
       },
       {
-       "label": "range-and-overflow",
+       "label": "Range & overflow",
        "questions": 17
       }
      ],
@@ -27344,7 +27344,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/number-representation-and-arithmetic/index.html"
     },
-    "mapped_at": "2026-10-31"
+    "mapped_at": "2026-11-01"
    },
    "subject": "digital-logic",
    "topic": "number-systems-and-representation",
@@ -27452,19 +27452,19 @@ window.GATE_DATA = {
      "question_count": 75,
      "subtopics": [
       {
-       "label": "base-conversions",
+       "label": "Base conversions",
        "questions": 22
       },
       {
-       "label": "ones-twos-complement",
+       "label": "One's & two's complement",
        "questions": 19
       },
       {
-       "label": "floating-point-ieee-754",
+       "label": "Floating point & IEEE 754",
        "questions": 17
       },
       {
-       "label": "range-and-overflow",
+       "label": "Range & overflow",
        "questions": 17
       }
      ],
@@ -27479,7 +27479,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/number-representation-and-arithmetic/index.html"
     },
-    "mapped_at": "2026-10-31"
+    "mapped_at": "2026-11-01"
    },
    "subject": "digital-logic",
    "topic": "number-systems-and-representation",
@@ -27597,19 +27597,19 @@ window.GATE_DATA = {
      "question_count": 75,
      "subtopics": [
       {
-       "label": "base-conversions",
+       "label": "Base conversions",
        "questions": 22
       },
       {
-       "label": "ones-twos-complement",
+       "label": "One's & two's complement",
        "questions": 19
       },
       {
-       "label": "floating-point-ieee-754",
+       "label": "Floating point & IEEE 754",
        "questions": 17
       },
       {
-       "label": "range-and-overflow",
+       "label": "Range & overflow",
        "questions": 17
       }
      ],
@@ -27624,7 +27624,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/number-representation-and-arithmetic/index.html"
     },
-    "mapped_at": "2026-10-31"
+    "mapped_at": "2026-11-01"
    },
    "subject": "digital-logic",
    "topic": "number-systems-and-representation",
@@ -36618,19 +36618,19 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "alu-datapath-timing",
+       "label": "ALU & datapath timing",
        "questions": 13
       },
       {
-       "label": "hardwired-control",
+       "label": "Hardwired control",
        "questions": 13
       },
       {
-       "label": "bus-architectures",
+       "label": "Bus architectures",
        "questions": 12
       },
       {
-       "label": "microprogrammed-control",
+       "label": "Microprogrammed control",
        "questions": 12
       }
      ],
@@ -36650,7 +36650,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/alu-and-control-unit-design/index.html"
     },
-    "mapped_at": "2026-10-31"
+    "mapped_at": "2026-11-01"
    },
    "subject": "computer-organization-and-architecture",
    "topic": "control-unit-design",
@@ -36745,19 +36745,19 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "alu-datapath-timing",
+       "label": "ALU & datapath timing",
        "questions": 13
       },
       {
-       "label": "hardwired-control",
+       "label": "Hardwired control",
        "questions": 13
       },
       {
-       "label": "bus-architectures",
+       "label": "Bus architectures",
        "questions": 12
       },
       {
-       "label": "microprogrammed-control",
+       "label": "Microprogrammed control",
        "questions": 12
       }
      ],
@@ -36777,7 +36777,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/alu-and-control-unit-design/index.html"
     },
-    "mapped_at": "2026-10-31"
+    "mapped_at": "2026-11-01"
    },
    "subject": "computer-organization-and-architecture",
    "topic": "control-unit-design",
@@ -36870,19 +36870,19 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "alu-datapath-timing",
+       "label": "ALU & datapath timing",
        "questions": 13
       },
       {
-       "label": "hardwired-control",
+       "label": "Hardwired control",
        "questions": 13
       },
       {
-       "label": "bus-architectures",
+       "label": "Bus architectures",
        "questions": 12
       },
       {
-       "label": "microprogrammed-control",
+       "label": "Microprogrammed control",
        "questions": 12
       }
      ],
@@ -36902,7 +36902,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/alu-and-control-unit-design/index.html"
     },
-    "mapped_at": "2026-10-31"
+    "mapped_at": "2026-11-01"
    },
    "subject": "computer-organization-and-architecture",
    "topic": "control-unit-design",
@@ -36995,19 +36995,19 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "alu-datapath-timing",
+       "label": "ALU & datapath timing",
        "questions": 13
       },
       {
-       "label": "hardwired-control",
+       "label": "Hardwired control",
        "questions": 13
       },
       {
-       "label": "bus-architectures",
+       "label": "Bus architectures",
        "questions": 12
       },
       {
-       "label": "microprogrammed-control",
+       "label": "Microprogrammed control",
        "questions": 12
       }
      ],
@@ -37027,7 +37027,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/alu-and-control-unit-design/index.html"
     },
-    "mapped_at": "2026-10-31"
+    "mapped_at": "2026-11-01"
    },
    "subject": "computer-organization-and-architecture",
    "topic": "control-unit-design",
@@ -37120,19 +37120,19 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "alu-datapath-timing",
+       "label": "ALU & datapath timing",
        "questions": 13
       },
       {
-       "label": "hardwired-control",
+       "label": "Hardwired control",
        "questions": 13
       },
       {
-       "label": "bus-architectures",
+       "label": "Bus architectures",
        "questions": 12
       },
       {
-       "label": "microprogrammed-control",
+       "label": "Microprogrammed control",
        "questions": 12
       }
      ],
@@ -37152,7 +37152,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/alu-and-control-unit-design/index.html"
     },
-    "mapped_at": "2026-10-31"
+    "mapped_at": "2026-11-01"
    },
    "subject": "computer-organization-and-architecture",
    "topic": "control-unit-design",
@@ -37235,19 +37235,19 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "alu-datapath-timing",
+       "label": "ALU & datapath timing",
        "questions": 13
       },
       {
-       "label": "hardwired-control",
+       "label": "Hardwired control",
        "questions": 13
       },
       {
-       "label": "bus-architectures",
+       "label": "Bus architectures",
        "questions": 12
       },
       {
-       "label": "microprogrammed-control",
+       "label": "Microprogrammed control",
        "questions": 12
       }
      ],
@@ -37267,7 +37267,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/alu-and-control-unit-design/index.html"
     },
-    "mapped_at": "2026-10-31"
+    "mapped_at": "2026-11-01"
    },
    "subject": "computer-organization-and-architecture",
    "topic": "control-unit-design",
@@ -37362,19 +37362,19 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "alu-datapath-timing",
+       "label": "ALU & datapath timing",
        "questions": 13
       },
       {
-       "label": "hardwired-control",
+       "label": "Hardwired control",
        "questions": 13
       },
       {
-       "label": "bus-architectures",
+       "label": "Bus architectures",
        "questions": 12
       },
       {
-       "label": "microprogrammed-control",
+       "label": "Microprogrammed control",
        "questions": 12
       }
      ],
@@ -37394,7 +37394,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/alu-and-control-unit-design/index.html"
     },
-    "mapped_at": "2026-10-31"
+    "mapped_at": "2026-11-01"
    },
    "subject": "computer-organization-and-architecture",
    "topic": "control-unit-design",
@@ -37491,19 +37491,19 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "alu-datapath-timing",
+       "label": "ALU & datapath timing",
        "questions": 13
       },
       {
-       "label": "hardwired-control",
+       "label": "Hardwired control",
        "questions": 13
       },
       {
-       "label": "bus-architectures",
+       "label": "Bus architectures",
        "questions": 12
       },
       {
-       "label": "microprogrammed-control",
+       "label": "Microprogrammed control",
        "questions": 12
       }
      ],
@@ -37523,7 +37523,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/alu-and-control-unit-design/index.html"
     },
-    "mapped_at": "2026-10-31"
+    "mapped_at": "2026-11-01"
    },
    "subject": "computer-organization-and-architecture",
    "topic": "control-unit-design",
@@ -37619,19 +37619,19 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "alu-datapath-timing",
+       "label": "ALU & datapath timing",
        "questions": 13
       },
       {
-       "label": "hardwired-control",
+       "label": "Hardwired control",
        "questions": 13
       },
       {
-       "label": "bus-architectures",
+       "label": "Bus architectures",
        "questions": 12
       },
       {
-       "label": "microprogrammed-control",
+       "label": "Microprogrammed control",
        "questions": 12
       }
      ],
@@ -37651,7 +37651,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/alu-and-control-unit-design/index.html"
     },
-    "mapped_at": "2026-10-31"
+    "mapped_at": "2026-11-01"
    },
    "subject": "computer-organization-and-architecture",
    "topic": "control-unit-design",
@@ -37745,19 +37745,19 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "alu-datapath-timing",
+       "label": "ALU & datapath timing",
        "questions": 13
       },
       {
-       "label": "hardwired-control",
+       "label": "Hardwired control",
        "questions": 13
       },
       {
-       "label": "bus-architectures",
+       "label": "Bus architectures",
        "questions": 12
       },
       {
-       "label": "microprogrammed-control",
+       "label": "Microprogrammed control",
        "questions": 12
       }
      ],
@@ -37777,7 +37777,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/alu-and-control-unit-design/index.html"
     },
-    "mapped_at": "2026-10-31"
+    "mapped_at": "2026-11-01"
    },
    "subject": "computer-organization-and-architecture",
    "topic": "control-unit-design",
@@ -37870,19 +37870,19 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "alu-datapath-timing",
+       "label": "ALU & datapath timing",
        "questions": 13
       },
       {
-       "label": "hardwired-control",
+       "label": "Hardwired control",
        "questions": 13
       },
       {
-       "label": "bus-architectures",
+       "label": "Bus architectures",
        "questions": 12
       },
       {
-       "label": "microprogrammed-control",
+       "label": "Microprogrammed control",
        "questions": 12
       }
      ],
@@ -37902,7 +37902,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/alu-and-control-unit-design/index.html"
     },
-    "mapped_at": "2026-10-31"
+    "mapped_at": "2026-11-01"
    },
    "subject": "computer-organization-and-architecture",
    "topic": "control-unit-design",
@@ -37999,19 +37999,19 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "alu-datapath-timing",
+       "label": "ALU & datapath timing",
        "questions": 13
       },
       {
-       "label": "hardwired-control",
+       "label": "Hardwired control",
        "questions": 13
       },
       {
-       "label": "bus-architectures",
+       "label": "Bus architectures",
        "questions": 12
       },
       {
-       "label": "microprogrammed-control",
+       "label": "Microprogrammed control",
        "questions": 12
       }
      ],
@@ -38031,7 +38031,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/alu-and-control-unit-design/index.html"
     },
-    "mapped_at": "2026-10-31"
+    "mapped_at": "2026-11-01"
    },
    "subject": "computer-organization-and-architecture",
    "topic": "control-unit-design",
@@ -38125,19 +38125,19 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "alu-datapath-timing",
+       "label": "ALU & datapath timing",
        "questions": 13
       },
       {
-       "label": "hardwired-control",
+       "label": "Hardwired control",
        "questions": 13
       },
       {
-       "label": "bus-architectures",
+       "label": "Bus architectures",
        "questions": 12
       },
       {
-       "label": "microprogrammed-control",
+       "label": "Microprogrammed control",
        "questions": 12
       }
      ],
@@ -38157,7 +38157,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/alu-and-control-unit-design/index.html"
     },
-    "mapped_at": "2026-10-31"
+    "mapped_at": "2026-11-01"
    },
    "subject": "computer-organization-and-architecture",
    "topic": "control-unit-design",

@@ -2083,10 +2083,10 @@
     "unit_number": 2,
     "question_count": 50,
     "subtopic_labels": [
-     "hardwired-control",
-     "microprogrammed-control",
-     "alu-datapath-timing",
-     "bus-architectures"
+     "Hardwired control",
+     "Microprogrammed control",
+     "ALU & datapath timing",
+     "Bus architectures"
     ],
     "verdict": "MOCK_CAPPED"
    },
@@ -2400,10 +2400,10 @@
     "unit_number": 2,
     "question_count": 50,
     "subtopic_labels": [
-     "alu-datapath-timing",
-     "hardwired-control",
-     "bus-architectures",
-     "microprogrammed-control"
+     "ALU & datapath timing",
+     "Hardwired control",
+     "Bus architectures",
+     "Microprogrammed control"
     ],
     "verdict": "MOCK_CAPPED"
    },
@@ -2438,10 +2438,10 @@
     "unit_number": 2,
     "question_count": 50,
     "subtopic_labels": [
-     "alu-datapath-timing",
-     "hardwired-control",
-     "bus-architectures",
-     "microprogrammed-control"
+     "ALU & datapath timing",
+     "Hardwired control",
+     "Bus architectures",
+     "Microprogrammed control"
     ],
     "verdict": "MOCK_CAPPED"
    },
@@ -2476,10 +2476,10 @@
     "unit_number": 2,
     "question_count": 50,
     "subtopic_labels": [
-     "alu-datapath-timing",
-     "hardwired-control",
-     "bus-architectures",
-     "microprogrammed-control"
+     "ALU & datapath timing",
+     "Hardwired control",
+     "Bus architectures",
+     "Microprogrammed control"
     ],
     "verdict": "MOCK_CAPPED"
    },
@@ -2514,10 +2514,10 @@
     "unit_number": 2,
     "question_count": 50,
     "subtopic_labels": [
-     "alu-datapath-timing",
-     "hardwired-control",
-     "bus-architectures",
-     "microprogrammed-control"
+     "ALU & datapath timing",
+     "Hardwired control",
+     "Bus architectures",
+     "Microprogrammed control"
     ],
     "verdict": "MOCK_CAPPED"
    },
@@ -2552,10 +2552,10 @@
     "unit_number": 2,
     "question_count": 50,
     "subtopic_labels": [
-     "alu-datapath-timing",
-     "hardwired-control",
-     "bus-architectures",
-     "microprogrammed-control"
+     "ALU & datapath timing",
+     "Hardwired control",
+     "Bus architectures",
+     "Microprogrammed control"
     ],
     "verdict": "MOCK_CAPPED"
    },
@@ -2590,10 +2590,10 @@
     "unit_number": 2,
     "question_count": 50,
     "subtopic_labels": [
-     "alu-datapath-timing",
-     "hardwired-control",
-     "bus-architectures",
-     "microprogrammed-control"
+     "ALU & datapath timing",
+     "Hardwired control",
+     "Bus architectures",
+     "Microprogrammed control"
     ],
     "verdict": "MOCK_CAPPED"
    },
@@ -2628,10 +2628,10 @@
     "unit_number": 2,
     "question_count": 50,
     "subtopic_labels": [
-     "alu-datapath-timing",
-     "hardwired-control",
-     "bus-architectures",
-     "microprogrammed-control"
+     "ALU & datapath timing",
+     "Hardwired control",
+     "Bus architectures",
+     "Microprogrammed control"
     ],
     "verdict": "MOCK_CAPPED"
    },
@@ -2666,10 +2666,10 @@
     "unit_number": 2,
     "question_count": 50,
     "subtopic_labels": [
-     "alu-datapath-timing",
-     "hardwired-control",
-     "bus-architectures",
-     "microprogrammed-control"
+     "ALU & datapath timing",
+     "Hardwired control",
+     "Bus architectures",
+     "Microprogrammed control"
     ],
     "verdict": "MOCK_CAPPED"
    },
@@ -2704,10 +2704,10 @@
     "unit_number": 2,
     "question_count": 50,
     "subtopic_labels": [
-     "alu-datapath-timing",
-     "hardwired-control",
-     "bus-architectures",
-     "microprogrammed-control"
+     "ALU & datapath timing",
+     "Hardwired control",
+     "Bus architectures",
+     "Microprogrammed control"
     ],
     "verdict": "MOCK_CAPPED"
    },
@@ -2742,10 +2742,10 @@
     "unit_number": 2,
     "question_count": 50,
     "subtopic_labels": [
-     "alu-datapath-timing",
-     "hardwired-control",
-     "bus-architectures",
-     "microprogrammed-control"
+     "ALU & datapath timing",
+     "Hardwired control",
+     "Bus architectures",
+     "Microprogrammed control"
     ],
     "verdict": "MOCK_CAPPED"
    },
@@ -2780,10 +2780,10 @@
     "unit_number": 2,
     "question_count": 50,
     "subtopic_labels": [
-     "alu-datapath-timing",
-     "hardwired-control",
-     "bus-architectures",
-     "microprogrammed-control"
+     "ALU & datapath timing",
+     "Hardwired control",
+     "Bus architectures",
+     "Microprogrammed control"
     ],
     "verdict": "MOCK_CAPPED"
    },
@@ -2818,10 +2818,10 @@
     "unit_number": 2,
     "question_count": 50,
     "subtopic_labels": [
-     "alu-datapath-timing",
-     "hardwired-control",
-     "bus-architectures",
-     "microprogrammed-control"
+     "ALU & datapath timing",
+     "Hardwired control",
+     "Bus architectures",
+     "Microprogrammed control"
     ],
     "verdict": "MOCK_CAPPED"
    },
@@ -2856,10 +2856,10 @@
     "unit_number": 2,
     "question_count": 50,
     "subtopic_labels": [
-     "alu-datapath-timing",
-     "hardwired-control",
-     "bus-architectures",
-     "microprogrammed-control"
+     "ALU & datapath timing",
+     "Hardwired control",
+     "Bus architectures",
+     "Microprogrammed control"
     ],
     "verdict": "MOCK_CAPPED"
    },
@@ -5615,10 +5615,10 @@
     "unit_number": 1,
     "question_count": 75,
     "subtopic_labels": [
-     "base-conversions",
-     "ones-twos-complement",
-     "floating-point-ieee-754",
-     "range-and-overflow"
+     "Base conversions",
+     "One's & two's complement",
+     "Floating point & IEEE 754",
+     "Range & overflow"
     ],
     "verdict": "MOCK_CAPPED"
    },
@@ -5653,10 +5653,10 @@
     "unit_number": 1,
     "question_count": 75,
     "subtopic_labels": [
-     "base-conversions",
-     "ones-twos-complement",
-     "floating-point-ieee-754",
-     "range-and-overflow"
+     "Base conversions",
+     "One's & two's complement",
+     "Floating point & IEEE 754",
+     "Range & overflow"
     ],
     "verdict": "MOCK_CAPPED"
    },
@@ -5691,10 +5691,10 @@
     "unit_number": 1,
     "question_count": 75,
     "subtopic_labels": [
-     "base-conversions",
-     "ones-twos-complement",
-     "floating-point-ieee-754",
-     "range-and-overflow"
+     "Base conversions",
+     "One's & two's complement",
+     "Floating point & IEEE 754",
+     "Range & overflow"
     ],
     "verdict": "MOCK_CAPPED"
    },
@@ -5729,10 +5729,10 @@
     "unit_number": 1,
     "question_count": 75,
     "subtopic_labels": [
-     "base-conversions",
-     "ones-twos-complement",
-     "floating-point-ieee-754",
-     "range-and-overflow"
+     "Base conversions",
+     "One's & two's complement",
+     "Floating point & IEEE 754",
+     "Range & overflow"
     ],
     "verdict": "MOCK_CAPPED"
    },
@@ -5767,10 +5767,10 @@
     "unit_number": 1,
     "question_count": 75,
     "subtopic_labels": [
-     "base-conversions",
-     "ones-twos-complement",
-     "floating-point-ieee-754",
-     "range-and-overflow"
+     "Base conversions",
+     "One's & two's complement",
+     "Floating point & IEEE 754",
+     "Range & overflow"
     ],
     "verdict": "MOCK_CAPPED"
    },
@@ -5805,10 +5805,10 @@
     "unit_number": 1,
     "question_count": 75,
     "subtopic_labels": [
-     "base-conversions",
-     "ones-twos-complement",
-     "floating-point-ieee-754",
-     "range-and-overflow"
+     "Base conversions",
+     "One's & two's complement",
+     "Floating point & IEEE 754",
+     "Range & overflow"
     ],
     "verdict": "MOCK_CAPPED"
    },
@@ -5843,10 +5843,10 @@
     "unit_number": 1,
     "question_count": 75,
     "subtopic_labels": [
-     "base-conversions",
-     "ones-twos-complement",
-     "floating-point-ieee-754",
-     "range-and-overflow"
+     "Base conversions",
+     "One's & two's complement",
+     "Floating point & IEEE 754",
+     "Range & overflow"
     ],
     "verdict": "MOCK_CAPPED"
    },
@@ -5881,10 +5881,10 @@
     "unit_number": 1,
     "question_count": 75,
     "subtopic_labels": [
-     "base-conversions",
-     "ones-twos-complement",
-     "floating-point-ieee-754",
-     "range-and-overflow"
+     "Base conversions",
+     "One's & two's complement",
+     "Floating point & IEEE 754",
+     "Range & overflow"
     ],
     "verdict": "MOCK_CAPPED"
    },
@@ -5919,10 +5919,10 @@
     "unit_number": 1,
     "question_count": 75,
     "subtopic_labels": [
-     "base-conversions",
-     "ones-twos-complement",
-     "floating-point-ieee-754",
-     "range-and-overflow"
+     "Base conversions",
+     "One's & two's complement",
+     "Floating point & IEEE 754",
+     "Range & overflow"
     ],
     "verdict": "MOCK_CAPPED"
    },
@@ -5957,10 +5957,10 @@
     "unit_number": 1,
     "question_count": 75,
     "subtopic_labels": [
-     "base-conversions",
-     "ones-twos-complement",
-     "floating-point-ieee-754",
-     "range-and-overflow"
+     "Base conversions",
+     "One's & two's complement",
+     "Floating point & IEEE 754",
+     "Range & overflow"
     ],
     "verdict": "MOCK_CAPPED"
    },
@@ -5995,10 +5995,10 @@
     "unit_number": 1,
     "question_count": 75,
     "subtopic_labels": [
-     "base-conversions",
-     "ones-twos-complement",
-     "floating-point-ieee-754",
-     "range-and-overflow"
+     "Base conversions",
+     "One's & two's complement",
+     "Floating point & IEEE 754",
+     "Range & overflow"
     ],
     "verdict": "MOCK_CAPPED"
    },
@@ -6033,10 +6033,10 @@
     "unit_number": 1,
     "question_count": 75,
     "subtopic_labels": [
-     "base-conversions",
-     "ones-twos-complement",
-     "floating-point-ieee-754",
-     "range-and-overflow"
+     "Base conversions",
+     "One's & two's complement",
+     "Floating point & IEEE 754",
+     "Range & overflow"
     ],
     "verdict": "MOCK_CAPPED"
    },
@@ -6071,10 +6071,10 @@
     "unit_number": 1,
     "question_count": 75,
     "subtopic_labels": [
-     "base-conversions",
-     "ones-twos-complement",
-     "floating-point-ieee-754",
-     "range-and-overflow"
+     "Base conversions",
+     "One's & two's complement",
+     "Floating point & IEEE 754",
+     "Range & overflow"
     ],
     "verdict": "MOCK_CAPPED"
    },
@@ -6656,11 +6656,11 @@
     "unit_number": 7,
     "question_count": 50,
     "subtopic_labels": [
-     "binomial-multinomial-coefficients",
-     "double-counting",
-     "inclusion-exclusion-counting",
-     "permutations-combinations",
-     "stars-and-bars"
+     "Binomial & multinomial coefficients",
+     "Double counting",
+     "Inclusion-exclusion counting",
+     "Permutations & combinations",
+     "Stars and bars"
     ],
     "verdict": "MOCK_CAPPED"
    },
@@ -6695,11 +6695,11 @@
     "unit_number": 7,
     "question_count": 50,
     "subtopic_labels": [
-     "binomial-multinomial-coefficients",
-     "double-counting",
-     "inclusion-exclusion-counting",
-     "permutations-combinations",
-     "stars-and-bars"
+     "Binomial & multinomial coefficients",
+     "Double counting",
+     "Inclusion-exclusion counting",
+     "Permutations & combinations",
+     "Stars and bars"
     ],
     "verdict": "MOCK_CAPPED"
    },
@@ -6734,11 +6734,11 @@
     "unit_number": 7,
     "question_count": 50,
     "subtopic_labels": [
-     "binomial-multinomial-coefficients",
-     "double-counting",
-     "inclusion-exclusion-counting",
-     "permutations-combinations",
-     "stars-and-bars"
+     "Binomial & multinomial coefficients",
+     "Double counting",
+     "Inclusion-exclusion counting",
+     "Permutations & combinations",
+     "Stars and bars"
     ],
     "verdict": "MOCK_CAPPED"
    },
@@ -6773,11 +6773,11 @@
     "unit_number": 7,
     "question_count": 50,
     "subtopic_labels": [
-     "binomial-multinomial-coefficients",
-     "double-counting",
-     "inclusion-exclusion-counting",
-     "permutations-combinations",
-     "stars-and-bars"
+     "Binomial & multinomial coefficients",
+     "Double counting",
+     "Inclusion-exclusion counting",
+     "Permutations & combinations",
+     "Stars and bars"
     ],
     "verdict": "MOCK_CAPPED"
    },
@@ -6812,11 +6812,11 @@
     "unit_number": 7,
     "question_count": 50,
     "subtopic_labels": [
-     "binomial-multinomial-coefficients",
-     "double-counting",
-     "inclusion-exclusion-counting",
-     "permutations-combinations",
-     "stars-and-bars"
+     "Binomial & multinomial coefficients",
+     "Double counting",
+     "Inclusion-exclusion counting",
+     "Permutations & combinations",
+     "Stars and bars"
     ],
     "verdict": "MOCK_CAPPED"
    },
@@ -6851,11 +6851,11 @@
     "unit_number": 7,
     "question_count": 50,
     "subtopic_labels": [
-     "binomial-multinomial-coefficients",
-     "double-counting",
-     "inclusion-exclusion-counting",
-     "permutations-combinations",
-     "stars-and-bars"
+     "Binomial & multinomial coefficients",
+     "Double counting",
+     "Inclusion-exclusion counting",
+     "Permutations & combinations",
+     "Stars and bars"
     ],
     "verdict": "MOCK_CAPPED"
    },
@@ -6929,11 +6929,11 @@
     "unit_number": 7,
     "question_count": 50,
     "subtopic_labels": [
-     "binomial-multinomial-coefficients",
-     "double-counting",
-     "inclusion-exclusion-counting",
-     "permutations-combinations",
-     "stars-and-bars"
+     "Binomial & multinomial coefficients",
+     "Double counting",
+     "Inclusion-exclusion counting",
+     "Permutations & combinations",
+     "Stars and bars"
     ],
     "verdict": "MOCK_CAPPED"
    },
@@ -7029,11 +7029,11 @@
     "unit_number": 7,
     "question_count": 50,
     "subtopic_labels": [
-     "binomial-multinomial-coefficients",
-     "double-counting",
-     "inclusion-exclusion-counting",
-     "permutations-combinations",
-     "stars-and-bars"
+     "Binomial & multinomial coefficients",
+     "Double counting",
+     "Inclusion-exclusion counting",
+     "Permutations & combinations",
+     "Stars and bars"
     ],
     "verdict": "MOCK_CAPPED"
    },
@@ -7068,11 +7068,11 @@
     "unit_number": 7,
     "question_count": 50,
     "subtopic_labels": [
-     "binomial-multinomial-coefficients",
-     "double-counting",
-     "inclusion-exclusion-counting",
-     "permutations-combinations",
-     "stars-and-bars"
+     "Binomial & multinomial coefficients",
+     "Double counting",
+     "Inclusion-exclusion counting",
+     "Permutations & combinations",
+     "Stars and bars"
     ],
     "verdict": "MOCK_CAPPED"
    },
@@ -7185,11 +7185,11 @@
     "unit_number": 8,
     "question_count": 50,
     "subtopic_labels": [
-     "characteristic-equations",
-     "coefficient-extraction",
-     "divide-and-conquer-recurrences",
-     "homogeneous-nonhomogeneous",
-     "ordinary-generating-functions"
+     "Characteristic equations",
+     "Coefficient extraction",
+     "Divide-and-conquer recurrences",
+     "Homogeneous & non-homogeneous",
+     "Ordinary generating functions"
     ],
     "verdict": "MOCK_CAPPED"
    },
@@ -13856,6 +13856,16 @@
    "kind": "notes",
    "placement": "discrete-mathematics › graphs › planarity-and-eulers-formula",
    "detail": "mock unit \"Graph Theory Advanced\" (unit_number 10, 50 questions) holds a Planarity & Euler's formula group of 10 questions (Euler's formula, m <= 3n-6, m <= 2n-4, K5 and K(3,3) non-planarity) and no notes card covers planarity; lesson matching-and-colouring covers planarity basics at topic level, so the notes card is the missing piece"
+  },
+  {
+   "kind": "notes",
+   "placement": "algorithms › shortest-paths",
+   "detail": "mock unit \"Graph Algorithms: Shortest Paths\" (unit_number 6, 25 questions, Set 1 of 2) serves no notes card: content/index.json holds no algorithms subject at all; subtopic groups: Dijkstra's algorithm 7, Bellman–Ford algorithm 6, Shortest paths in a DAG 6, Transitive closure & Floyd–Warshall 6. The lesson graph-traversals-mst-shortest-paths already covers Dijkstra, Bellman-Ford, DAG shortest paths and Floyd-Warshall, so only the notes are missing."
+  },
+  {
+   "kind": "notes",
+   "placement": "operating-systems › concurrency › readers-writers-and-dining-philosophers",
+   "detail": "published lesson \"Readers–Writers and Dining Philosophers\" (PUBLISHED 2026-11-01, 10 scenes) serves no notes card: content/index.json holds no operating-systems subject at all. Its transcript covers the readers–writers readcount/rmutex/wsem solution, writer preference via readTry, and the dining philosophers deadlock with the asymmetric-ordering and waiter repairs."
   }
  ]
 }
