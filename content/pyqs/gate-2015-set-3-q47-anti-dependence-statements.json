@@ -1,0 +1,22 @@
+{
+  "id": "gate-2015-set-3-q47-anti-dependence-statements",
+  "year": "2015",
+  "paper": "GATE CS 2015 Set 3",
+  "question_ref": "Q.47 on GATE Overflow; Q.39 in the printed paper",
+  "type": "MCQ",
+  "marks": "2",
+  "topic": "software-fixes-scheduling-and-register-renaming",
+  "text": "For instructions of the form OP Ri, Rj, Rk (result in Ri, operands Rj and Rk), consider I1: ADD R1, R2, R3; I2: MUL R7, R1, R3; I3: SUB R4, R1, R5; I4: ADD R3, R2, R4; I5: MUL R7, R8, R9. S1: there is an anti-dependence between I2 and I5. S2: there is an anti-dependence between I2 and I4. S3: within an instruction pipeline an anti-dependence always creates one or more stalls. Which is/are correct?",
+  "options": [
+    "Only S1 is true",
+    "Only S2 is true",
+    "Only S1 and S3 are true",
+    "Only S2 and S3 are true"
+  ],
+  "answer": "Option (B) - Only S2 is true",
+  "solution": "I2 writes R7 and I5 writes R7, so the pair is write-after-write, an output dependence, and S1 is false. I2 reads R3 and I4 writes R3, which is write-after-read, an anti-dependence, so S2 is true. S3 is false twice over: in an in-order pipeline the read in ID precedes any later write in WB, so an anti-dependence need not stall at all, and renaming removes it outright.",
+  "source_url": "https://gateoverflow.in/8556/gate-cse-2015-set-3-question-47",
+  "source_label": "GATE Overflow question page - GATE CSE 2015 Set 3, listed as Question: 47, with the accepted answer only S2 is true",
+  "verification": "SOURCED",
+  "answer_evidence": "The accepted answers on the page give option B with the reasoning that anti-dependence is removed by renaming, so the word 'always' fails. The printed GATE 2015 Set 3 paper (gaterevolution copy) numbers the same question Q.39, which is recorded rather than resolved."
+}

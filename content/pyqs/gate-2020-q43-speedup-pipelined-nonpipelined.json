@@ -1,0 +1,16 @@
+{
+  "id": "gate-2020-q43-speedup-pipelined-nonpipelined",
+  "year": "2020",
+  "paper": "GATE CS 2020",
+  "question_ref": "Q.43 (numbered Q.53 on at least one question-bank index)",
+  "type": "NAT",
+  "marks": "2",
+  "topic": "cpi-with-stalls-the-performance-equation",
+  "text": "A non-pipelined processor operates at 2.5 GHz and takes 5 clock cycles to complete an instruction. It is rebuilt as a 5-stage pipeline, which because of pipelining overheads runs at 2 GHz. In a program, 30 percent of instructions are memory instructions, 60 percent are ALU instructions and the rest are branches. 5 percent of the memory instructions cause stalls of 50 cycles each due to cache misses and 50 percent of the branch instructions cause stalls of 2 cycles each; ALU instructions cause no stalls. The speed-up of the pipelined processor over the non-pipelined one (two decimal places) is ______.",
+  "answer": "2.16",
+  "solution": "Non-pipelined: 5 cycles at 2.5 GHz = 5 x 0.4 = 2 ns per instruction. Pipelined CPI = 1 + (0.30 x 0.05 x 50) + (0.10 x 0.50 x 2) = 1 + 0.75 + 0.10 = 1.85; at 2 GHz that is 1.85 x 0.5 = 0.925 ns per instruction. Speed-up = 2 / 0.925 = 2.162, that is 2.16. Recomputed in scripts/validate.py. The accepted range 2.15 to 2.18 also holds.",
+  "source_url": "https://gateoverflow.in/333188/gate-cse-2020-question-43",
+  "source_label": "GATE Overflow question page - GATE CSE 2020, listed as Question: 43, with the accepted answer 2.16",
+  "verification": "SOURCED",
+  "answer_evidence": "Five answers on the page reach 2.16 from 2 ns against 0.925 ns and the page records the accepted range 2.15 to 2.18. One question-bank index numbers the same question Q.53, which is recorded here rather than resolved."
+}

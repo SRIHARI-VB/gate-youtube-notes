@@ -29,8 +29,8 @@
   ],
   "counts": {
     "subjects": 6,
-    "topics": 347,
-    "pyqs": 275,
+    "topics": 360,
+    "pyqs": 290,
     "videos": 39,
     "playlists": 3
   },
@@ -5196,6 +5196,201 @@
       ],
       "visual": "computer-organization-and-architecture/io-interface/io-transfer-three-ways",
       "variations": 3
+    },
+    {
+      "topic": "pipeline-idea-and-the-space-time-diagram",
+      "title": "The Pipeline Idea, and Reading the Space-Time Diagram",
+      "subject": "computer-organization-and-architecture",
+      "group": "instruction-pipelining-and-hazards",
+      "unit": "Instruction Pipelining: Stages, Timing and Speed-up",
+      "priority": "P1",
+      "path": "subjects/computer-organization-and-architecture/instruction-pipelining-and-hazards/pipeline-idea-and-the-space-time-diagram.json",
+      "videos": [],
+      "pyqs": [],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "pipeline-registers-and-the-clock-period",
+      "title": "Pipeline Registers, and Why the Clock Period Is the Slowest Stage",
+      "subject": "computer-organization-and-architecture",
+      "group": "instruction-pipelining-and-hazards",
+      "unit": "Instruction Pipelining: Stages, Timing and Speed-up",
+      "priority": "P1",
+      "path": "subjects/computer-organization-and-architecture/instruction-pipelining-and-hazards/pipeline-registers-and-the-clock-period.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2025-set-2-q56-latch-delay-1000-instructions",
+        "gate-2016-set-2-q33-split-longest-stage-frequency"
+      ],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "ideal-timing-and-speedup-formula",
+      "title": "Ideal Timing and the Speed-up Formula",
+      "subject": "computer-organization-and-architecture",
+      "group": "instruction-pipelining-and-hazards",
+      "unit": "Instruction Pipelining: Stages, Timing and Speed-up",
+      "priority": "P1",
+      "path": "subjects/computer-organization-and-architecture/instruction-pipelining-and-hazards/ideal-timing-and-speedup-formula.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2021-set-1-q53-hundred-instructions-time"
+      ],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "throughput-efficiency-and-the-clock-rate-trade",
+      "title": "Throughput, Efficiency and the Clock-rate Trade",
+      "subject": "computer-organization-and-architecture",
+      "group": "instruction-pipelining-and-hazards",
+      "unit": "Instruction Pipelining: Stages, Timing and Speed-up",
+      "priority": "P2",
+      "path": "subjects/computer-organization-and-architecture/instruction-pipelining-and-hazards/throughput-efficiency-and-the-clock-rate-trade.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2016-set-1-q32-throughput-increase"
+      ],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "cpi-with-stalls-the-performance-equation",
+      "title": "CPI with Stalls: the Performance Equation GATE Actually Marks",
+      "subject": "computer-organization-and-architecture",
+      "group": "instruction-pipelining-and-hazards",
+      "unit": "Instruction Pipelining: Hazards, Stalls and Fixes",
+      "priority": "P1",
+      "path": "subjects/computer-organization-and-architecture/instruction-pipelining-and-hazards/cpi-with-stalls-the-performance-equation.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2020-q43-speedup-pipelined-nonpipelined",
+        "gate-2024-set-2-q58-speedup-with-hazard-stalls"
+      ],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "structural-hazards",
+      "title": "Structural Hazards: When Two Instructions Want One Unit",
+      "subject": "computer-organization-and-architecture",
+      "group": "instruction-pipelining-and-hazards",
+      "unit": "Instruction Pipelining: Hazards, Stalls and Fixes",
+      "priority": "P2",
+      "path": "subjects/computer-organization-and-architecture/instruction-pipelining-and-hazards/structural-hazards.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2026-set-1-q60-structural-hazard-ex-stalls"
+      ],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "data-hazard-types-raw-war-waw",
+      "title": "Data Hazards: RAW, WAR and WAW, and Which Ones Actually Stall",
+      "subject": "computer-organization-and-architecture",
+      "group": "instruction-pipelining-and-hazards",
+      "unit": "Instruction Pipelining: Hazards, Stalls and Fixes",
+      "priority": "P1",
+      "path": "subjects/computer-organization-and-architecture/instruction-pipelining-and-hazards/data-hazard-types-raw-war-waw.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2026-set-1-q16-read-after-write-hazard",
+        "gate-2024-set-2-q31-dependency-classification"
+      ],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "forwarding-and-its-limits",
+      "title": "Forwarding: What It Fixes, What It Cannot, and What It Costs",
+      "subject": "computer-organization-and-architecture",
+      "group": "instruction-pipelining-and-hazards",
+      "unit": "Instruction Pipelining: Hazards, Stalls and Fixes",
+      "priority": "P1",
+      "path": "subjects/computer-organization-and-architecture/instruction-pipelining-and-hazards/forwarding-and-its-limits.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2024-set-1-q30-forwarding-statements"
+      ],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "stalls-interlocks-and-bubbles",
+      "title": "Stalls, Interlocks and Bubbles: Counting the Cycles",
+      "subject": "computer-organization-and-architecture",
+      "group": "instruction-pipelining-and-hazards",
+      "unit": "Instruction Pipelining: Hazards, Stalls and Fixes",
+      "priority": "P1",
+      "path": "subjects/computer-organization-and-architecture/instruction-pipelining-and-hazards/stalls-interlocks-and-bubbles.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2018-q50-variable-po-stage-cycles"
+      ],
+      "visual": "computer-organization-and-architecture/instruction-pipelining-and-hazards/load-use-bubble-and-branch-penalty",
+      "variations": 2
+    },
+    {
+      "topic": "software-fixes-scheduling-and-register-renaming",
+      "title": "Software Fixes: Scheduling and Register Renaming",
+      "subject": "computer-organization-and-architecture",
+      "group": "instruction-pipelining-and-hazards",
+      "unit": "Instruction Pipelining: Hazards, Stalls and Fixes",
+      "priority": "P2",
+      "path": "subjects/computer-organization-and-architecture/instruction-pipelining-and-hazards/software-fixes-scheduling-and-register-renaming.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2012-q20-register-renaming",
+        "gate-2015-set-3-q47-anti-dependence-statements"
+      ],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "control-hazards-and-the-branch-penalty",
+      "title": "Control Hazards and the Branch Penalty",
+      "subject": "computer-organization-and-architecture",
+      "group": "instruction-pipelining-and-hazards",
+      "unit": "Instruction Pipelining: Hazards, Stalls and Fixes",
+      "priority": "P1",
+      "path": "subjects/computer-organization-and-architecture/instruction-pipelining-and-hazards/control-hazards-and-the-branch-penalty.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2013-q45-branch-penalty-taken-branch"
+      ],
+      "visual": "computer-organization-and-architecture/instruction-pipelining-and-hazards/load-use-bubble-and-branch-penalty",
+      "variations": 2
+    },
+    {
+      "topic": "branch-prediction-and-its-payoff",
+      "title": "Branch Prediction and Its Payoff",
+      "subject": "computer-organization-and-architecture",
+      "group": "instruction-pipelining-and-hazards",
+      "unit": "Instruction Pipelining: Hazards, Stalls and Fixes",
+      "priority": "P1",
+      "path": "subjects/computer-organization-and-architecture/instruction-pipelining-and-hazards/branch-prediction-and-its-payoff.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2022-q61-branch-predictor-speedup"
+      ],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "superscalar-and-ilp-beyond-one-per-cycle",
+      "title": "Superscalar Issue and ILP: Beyond One Instruction per Cycle",
+      "subject": "computer-organization-and-architecture",
+      "group": "instruction-pipelining-and-hazards",
+      "unit": "Instruction Pipelining: Hazards, Stalls and Fixes",
+      "priority": "P3",
+      "path": "subjects/computer-organization-and-architecture/instruction-pipelining-and-hazards/superscalar-and-ilp-beyond-one-per-cycle.json",
+      "videos": [],
+      "pyqs": [],
+      "visual": null,
+      "variations": 2
     }
   ]
 }

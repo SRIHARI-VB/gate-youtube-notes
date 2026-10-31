@@ -1,0 +1,16 @@
+{
+  "id": "gate-2026-set-1-q60-structural-hazard-ex-stalls",
+  "year": "2026",
+  "paper": "GATE CS 2026 Set 1",
+  "question_ref": "Q.60",
+  "type": "NAT",
+  "marks": "2",
+  "topic": "structural-hazards",
+  "text": "The EX stage of a pipelined processor performs the memory read operations for LOAD instructions and the operations for the arithmetic and logic instructions. Let t_EX be the time the EX stage takes for an instruction; for each type the values of t_EX and M (count in a 100-instruction sequence) are: LOAD 1.8 ns, 15; IMUL 1.5 ns, 10; IDIV 2.5 ns, 5; FADD 1.7 ns, 10; FSUB 1.7 ns, 5; FMUL 2.8 ns, 15; FDIV 3.2 ns, 5; all other instructions under 1.0 ns, 35. The clock cycle is 1 ns and latch time is negligible. The number of clock cycles for which the pipeline is stalled due to structural hazards in the EX stage is ______.",
+  "answer": "95",
+  "solution": "At a 1 ns clock an instruction occupies EX for ceil(t_EX) cycles and delays the instruction behind it by ceil(t_EX) - 1. LOAD, IMUL, FADD and FSUB need 2 cycles and cost 1 stall each; IDIV and FMUL need 3 and cost 2; FDIV needs 4 and costs 3; the short instructions cost nothing. Total = 15x1 + 10x1 + 5x2 + 10x1 + 5x1 + 15x2 + 5x3 + 35x0 = 15 + 10 + 10 + 10 + 5 + 30 + 15 = 95. Recomputed in scripts/validate.py.",
+  "source_url": "https://www.trygateai.com/pyq/computer-organization-and-architecture/instruction-pipelining/gate-cse-2026-set-1-q60",
+  "source_label": "GateAI PYQ page - GATE CSE 2026 Set 1 Q.60, recording the official answer 95 with the derivation",
+  "verification": "SOURCED",
+  "answer_evidence": "The page records 'Official answer: 95' for Q.60 and gives the ceiling-per-type derivation. Two other PYQ pages (gateiit.in and iaeacademy.in, both citing the official GATE 2026 final answer key) give the same 95; no GATE Overflow page for this question was located this run."
+}

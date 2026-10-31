@@ -1,0 +1,22 @@
+{
+  "id": "gate-2012-q20-register-renaming",
+  "year": "2012",
+  "paper": "GATE CS 2012",
+  "question_ref": "Q.20",
+  "type": "MCQ",
+  "marks": "1",
+  "topic": "software-fixes-scheduling-and-register-renaming",
+  "text": "Register renaming is done in pipelined processors: (A) as an alternative to register allocation at compile time (B) for efficient access to function parameters and local variables (C) to handle certain kinds of hazards (D) as part of address translation.",
+  "options": [
+    "as an alternative to register allocation at compile time",
+    "for efficient access to function parameters and local variables",
+    "to handle certain kinds of hazards",
+    "as part of address translation"
+  ],
+  "answer": "Option (C) - to handle certain kinds of hazards",
+  "solution": "Renaming maps architectural registers onto a larger set of physical registers, so two instructions that reuse a name no longer share storage. It therefore removes write-after-read and write-after-write dependences, which are exactly the hazards it is there for. It does not replace register allocation, does not speed up parameter access, and has nothing to do with address translation.",
+  "source_url": "https://gateoverflow.in/52/gate-cse-2012-question-20-isro2016-23",
+  "source_label": "GATE Overflow question page - GATE CSE 2012 Q.20 (also ISRO 2016 Q.23) with the accepted answer option C",
+  "verification": "SOURCED",
+  "answer_evidence": "Both answers on the page give option C, the first with the WAR/WAW reasoning and the second noting that in single-issue pipelines WAR and WAW do not stall but in multiple-issue pipelines they do, which is what renaming removes."
+}

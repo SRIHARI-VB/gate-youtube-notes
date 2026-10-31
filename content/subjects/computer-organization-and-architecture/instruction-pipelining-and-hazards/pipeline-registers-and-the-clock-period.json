@@ -1,0 +1,66 @@
+{
+  "videoRefs": [],
+  "prereqs": [
+    "pipeline-idea-and-the-space-time-diagram"
+  ],
+  "pyqIds": [
+    "gate-2025-set-2-q56-latch-delay-1000-instructions",
+    "gate-2016-set-2-q33-split-longest-stage-frequency"
+  ],
+  "sources": [
+    {
+      "kind": "text",
+      "title": "Chapter 10 - Principles of Pipelining (Basic Computer Architecture)",
+      "channel": "IIT Delhi, Prof. Smruti R. Sarangi (freely distributed book chapter)",
+      "url": "https://www.cse.iitd.ac.in/~srsarangi/archbook/chapters/pipelining.pdf",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "the whole 92-page chapter was read: the pipeline idea and its performance, the five stages, pipeline registers, data/control/structural hazards, software solutions, interlocks and bubbles, forwarding paths and conditions, interrupts, the performance equation, branch prediction, multiple issue and out-of-order execution"
+    }
+  ],
+  "sourceLine": "Pipeline registers as edge-triggered latches on a common clock, and the cycle time set by the slowest stage: Sarangi chapter 10, section 10.2.2 and 10.9.1 (English, read in full). The same rule stated as an exam formula: DSWallah Learn 'Instruction Pipelining', romanised Hindi, translated (read in part).",
+  "id": "pipeline-registers-and-the-clock-period",
+  "title": "Pipeline Registers, and Why the Clock Period Is the Slowest Stage",
+  "priority": "P1",
+  "order": 547,
+  "unit": "Instruction Pipelining: Stages, Timing and Speed-up",
+  "quickIdea": "A pipeline register sits between consecutive stages and hands the instruction packet on at the clock edge. The clock must be long enough for the slowest stage plus that register, so the cycle time is max(stage delay) + latch delay, whatever the other stages cost.",
+  "remember": [
+    "k stages need k - 1 inter-stage registers, all driven by the same clock; every instruction moves exactly one stage per clock.",
+    "Clock period t_p = max(stage delays) + latch delay. The latch delay is counted once per cycle, not once per stage.",
+    "Peak clock frequency = 1 / t_p. The pipeline with the smallest largest stage wins, which is what GATE CSE 2014 Set 3 Q.9 asks when it offers four pipelines and asks for the highest peak frequency.",
+    "Splitting the slowest stage raises the frequency only until some other stage becomes the new maximum.",
+    "Unequal stages waste time: the fast stages idle while the slow one finishes, so the speed-up stays below k."
+  ],
+  "example": {
+    "prompt": "A 5-stage pipeline has stage delays 180, 250, 150, 170 and 250 ns and an inter-stage latch delay of 10 ns. How long does it take to process 1000 instructions?",
+    "work": "The cycle time is the slowest stage plus one latch delay: 250 + 10 = 260 ns. With no stalls the number of cycles is k + n - 1 = 5 + 1000 - 1 = 1004. The total is 1004 x 260 = 261040 ns, that is 261.04 microseconds.",
+    "answer": "261.04 microseconds, which is the accepted answer of GATE CSE 2025 Set 2 Q.56."
+  },
+  "gateAngle": "Two patterns recur. The first gives stage delays and a latch delay and asks for the time of n instructions (2025 Set 2 Q.56: 261.04 microseconds; 2021 Set 1 Q.53: 17160 ns). The second gives the ratios between stage latencies and asks for the frequency after the longest stage is split (2016 Set 2 Q.33: 3 GHz becomes 4 GHz).",
+  "variations": [
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "The same pipeline of 180, 250, 150, 170, 250 ns with a 10 ns latch is rebuilt so that both 250 ns stages become two 130 ns stages each. What is the new clock period and the new time for 1000 instructions?",
+      "why": "It shows what happens when the fix is applied to the slowest stage twice, and that the stage count changes with it.",
+      "answer": "The stages become 180, 130, 130, 150, 170, 130, 130 ns: seven stages, the slowest now 180 ns, so t_p = 190 ns. The cycles are 7 + 1000 - 1 = 1006, so 1006 x 190 = 191140 ns = 191.14 microseconds, better than 261.04 because the bottleneck moved down to 180 ns."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Two pipelines have the same total datapath delay: one has 4 equal stages, the other 4 stages of 1, 1, 1 and 5 units. Which has the higher throughput, and why?",
+      "why": "It isolates the point that the clock follows the worst stage, not the average.",
+      "answer": "Neither gains from the imbalance. With 8 units of total delay, the balanced pipeline has a 2-unit cycle and the unbalanced one a 5-unit cycle, so the balanced pipeline is 2.5 times faster in throughput although the datapath is identical."
+    }
+  ],
+  "trap": {
+    "what": "Adding the latch delay of every stage into the cycle time.",
+    "why": "The latches all switch on the same edge and the instruction crosses exactly one boundary per cycle, so a single latch delay is charged per cycle. Adding k latch delays inflates the answer.",
+    "counterexample": "2025 Set 2 Q.56: the wrong reading 250 + 5 x 10 = 300 ns gives 1004 x 300 = 301.2 microseconds, where the accepted answer is 261.04."
+  },
+  "check": {
+    "question": "A 4-stage pipeline has stage delays 6, 4, 8 and 5 ns and each inter-stage latch costs 1 ns. What is the clock period, and what is the peak clock frequency?",
+    "answer": "9 ns, so 1/9 GHz, about 111.1 MHz.",
+    "explanation": "The slowest stage is 8 ns and one latch delay is added once: 8 + 1 = 9 ns. The frequency is the reciprocal of the period."
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "id": "gate-2025-set-2-q56-latch-delay-1000-instructions",
+  "year": "2025",
+  "paper": "GATE CS 2025 Set 2",
+  "question_ref": "Q.56 (numbered Question: 46 on GATE Overflow)",
+  "type": "NAT",
+  "marks": "2",
+  "topic": "pipeline-registers-and-the-clock-period",
+  "text": "A 5-stage instruction pipeline has stage delays of 180, 250, 150, 170 and 250 nanoseconds. The delay of an inter-stage latch is 10 nanoseconds. Assume no pipeline stalls due to branches and other hazards. The time taken to process 1000 instructions in microseconds is ______. (rounded off to two decimal places)",
+  "answer": "261.04",
+  "solution": "The cycle time is the slowest stage plus one latch delay: 250 + 10 = 260 ns. With no stalls 1000 instructions on 5 stages take 5 + 1000 - 1 = 1004 cycles, so 1004 x 260 = 261040 ns = 261.04 microseconds. Recomputed in scripts/validate.py. The accepted range 260.2 to 261.2 also admits 260.00, which comes from assuming the pipeline is already full and counting 1000 cycles; the fill-and-drain reading gives 261.04.",
+  "source_url": "https://gateoverflow.in/460847/gate-cse-2025-set-2-question-46",
+  "source_label": "GATE Overflow question page - GATE CSE 2025 Set 2, listed as Question: 46, with the accepted answer 261.04",
+  "verification": "SOURCED",
+  "answer_evidence": "Three answers on the page derive 261.04 from (5 + 1000 - 1) x 260 ns, and one comment records the alternative 260.00. The paper numbering Q.56 comes from the GATE CSE 2025 Set 2 key as reported by two independent PYQ pages; GATE Overflow numbers it Question: 46."
+}

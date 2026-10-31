@@ -1,0 +1,16 @@
+{
+  "id": "gate-2021-set-1-q53-hundred-instructions-time",
+  "year": "2021",
+  "paper": "GATE CS 2021 Set 1",
+  "question_ref": "Q.53",
+  "type": "NAT",
+  "marks": "2",
+  "topic": "ideal-timing-and-speedup-formula",
+  "text": "A five-stage pipeline has stage delays of 150, 120, 150, 160 and 140 nanoseconds. The registers used between the pipeline stages have a delay of 5 nanoseconds each. The total time to execute 100 independent instructions on this pipeline, assuming there are no pipeline stalls, is ______ nanoseconds.",
+  "answer": "17160",
+  "solution": "Cycle time = max(150, 120, 150, 160, 140) + 5 = 160 + 5 = 165 ns. Cycles = k + n - 1 = 5 + 100 - 1 = 104. Time = 104 x 165 = 17160 ns. Recomputed in scripts/validate.py. One comment on the page argues for 16580 by adding every latch delay; that reading is not the accepted one, because an instruction crosses one stage boundary per cycle.",
+  "source_url": "https://gateoverflow.in/357398/gate-cse-2021-set-1-question-53",
+  "source_label": "GATE Overflow question page - GATE CSE 2021 Set 1 Q.53 with the accepted answer 17160",
+  "verification": "SOURCED",
+  "answer_evidence": "The accepted answer on the page gives (5 + 100 - 1) x 165 = 17160 and a second answer agrees; one comment proposes 16580 and is not accepted."
+}

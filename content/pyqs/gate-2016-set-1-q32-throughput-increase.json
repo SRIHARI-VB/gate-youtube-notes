@@ -1,0 +1,16 @@
+{
+  "id": "gate-2016-set-1-q32-throughput-increase",
+  "year": "2016",
+  "paper": "GATE CS 2016 Set 1",
+  "question_ref": "Q.32",
+  "type": "NAT",
+  "marks": "2",
+  "topic": "throughput-efficiency-and-the-clock-rate-trade",
+  "text": "The stage delays in a 4-stage pipeline are 800, 500, 400 and 300 picoseconds. The first stage, with delay 800 picoseconds, is replaced by a functionally equivalent design involving two stages with delays 600 and 350 picoseconds. The throughput increase of the pipeline is ______ percent.",
+  "answer": "33.33",
+  "solution": "Before: cycle time = max(800, 500, 400, 300) = 800 ps, throughput 1/800. After: the stages are 600, 350, 500, 400 and 300 ps, so cycle time = 600 ps and throughput 1/600. Increase = (1/600 - 1/800)/(1/800) x 100 = (800/600 - 1) x 100 = 33.33 percent. Recomputed in scripts/validate.py.",
+  "source_url": "https://gateoverflow.in/39691/gate-cse-2016-set-1-question-32",
+  "source_label": "GATE Overflow question page - GATE CSE 2016 Set 1 Q.32 with the accepted answer 33.33 (accepted range 33 to 34)",
+  "verification": "SOURCED",
+  "answer_evidence": "Four answers on the page compute (1/600 - 1/800)/(1/800) x 100 = 33.33 and the page records the accepted range 33.0 to 34.0; a PYQ page citing the GATE 2016 answer key gives 33.33 with a tolerance of 0.5."
+}

@@ -3,7 +3,7 @@
  "updated_at": "2026-10-31",
  "cycle": {
   "last_subject": "computer-organization-and-architecture",
-  "last_topic": "io-interface",
+  "last_topic": "instruction-pipelining-and-hazards",
   "updated_at": "2026-10-31"
  },
  "subjects": [
@@ -930,10 +930,33 @@
     {
      "slug": "instruction-pipelining-and-hazards",
      "name": "Instruction Pipelining and Pipeline Hazards",
-     "status": "not_started",
-     "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
-     "runs": [],
-     "gaps": []
+     "status": "partial",
+     "coverage_note": "13 subtopics, 13 cards (the pipeline idea and the space-time diagram, pipeline registers and the clock period, the ideal timing and speed-up formula, throughput and the clock-rate trade, the CPI equation with stalls, structural hazards, RAW/WAR/WAW, forwarding and its limits, stalls and bubbles, scheduling and register renaming, control hazards and the branch penalty, branch prediction, superscalar and ILP), 15 verified PYQs and 1 p5.js lesson. Partial because six gaps remain, named below - above all that no video transcript was readable this run.",
+     "runs": [
+      {
+       "date": "2026-10-31",
+       "sources": [
+        "sarangi-basic-computer-architecture-ch10",
+        "dswallah-instruction-pipelining",
+        "dswallah-pipeline-hazards",
+        "nptel-iitg-106103180-module6-outline"
+       ],
+       "cards": 13,
+       "pyqs": 15,
+       "lesson": "computer-organization-and-architecture/instruction-pipelining-and-hazards/load-use-bubble-and-branch-penalty",
+       "note": "Sources chosen on merit across two languages, with one text read end to end: the IIT Delhi 'Basic Computer Architecture' chapter 10 (English, all 92 pages read) carries the pipeline idea, the registers, the three hazard classes, interlocks, forwarding, the performance equation, branch prediction and multiple issue; two DSWallah Learn lessons (romanised Hindi, translated, read in part) supply the exam formula sheet, the three stall counts and the prediction remedies; the NPTEL IIT Guwahati course outline is recorded as structure only. Rejected with reasons in sources.json: the NPTEL Guwahati module-6 lecture transcripts (403 from the sandbox, empty body from the fetch service), the NPTEL IIT Kharagpur lectures 40, 41 and 55-58 (right scope, no transcript served), every YouTube lecture (LOGIN_REQUIRED, no caption track), GeeksforGeeks and Javatpoint (502), Patterson and Hennessy (not fetched) and the PYQ aggregators (corroboration only)."
+      }
+     ],
+     "gaps": [
+      "no video transcript backs any card: every YouTube watch page tried answered LOGIN_REQUIRED with no caption track, the NPTEL Guwahati module-6 lecture PDFs answered 403 to the sandbox and an empty body to the fetch service, and the IIT Kharagpur pipelining lectures served a title page but no transcript, so videoRefs is empty on all thirteen cards",
+      "the teaching rests on one English text (the IIT Delhi chapter) plus two romanised-Hindi lessons: no second independent English teaching source was readable, so no card's claim is corroborated by a second English lecture",
+      "the superscalar and ILP card has no verified previous-year question and no GATE-oriented source: it rests on the textbook chapter alone and is marked P3, because the syllabus line names only 'instruction pipelining, pipeline hazards'",
+      "the pipeline-idea card carries no PYQ of its own: the questions that test it (2021 Set 1 Q.53, 2025 Set 2 Q.56) are attached to the timing cards instead",
+      "every PYQ answer is SOURCED, none is key-verified: no official answer-key document was opened, and GATE CSE 2026 Set 1 Q.60 has no GATE Overflow page located at all - its 95 rests on three PYQ pages that each cite the official key",
+      "question numbering disagrees between the papers and the aggregators and the disagreements are recorded rather than resolved: 2026 Set 1 Q.16 is Question: 6 on GATE Overflow, 2025 Set 2 Q.56 is Q.46, 2024 Set 1 Q.30 is Q.20, 2024 Set 2 Q.31 is Q.21 and Q.58 is Q.48, 2022 Q.61 is Q.51, 2015 Set 3 Q.47 is Q.39 in the printed paper, and GATE CSE 2020 Q.43 is Q.53 on one question-bank index",
+      "two questions are excluded from the PYQ set although they belong to the topic: GATE CSE 2015 Set 3 Q.51 (minimum average latency from a reservation table) is figure-only in the paper and was not recomputed, and GATE CSE 2014 Set 3 Q.43 (the two pipelined implementations of a 5-stage processor) was located but not verified in this run",
+      "GATE Overflow's pipelining tag lists further questions from 2000 to 2024 that were not individually read or recomputed; only the fifteen recorded PYQs were verified"
+     ]
     }
    ]
   },

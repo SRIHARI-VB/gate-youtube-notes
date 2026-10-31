@@ -1,0 +1,66 @@
+{
+  "videoRefs": [],
+  "prereqs": [
+    "forwarding-and-its-limits"
+  ],
+  "pyqIds": [
+    "gate-2018-q50-variable-po-stage-cycles"
+  ],
+  "sources": [
+    {
+      "kind": "text",
+      "title": "Chapter 10 - Principles of Pipelining (Basic Computer Architecture)",
+      "channel": "IIT Delhi, Prof. Smruti R. Sarangi (freely distributed book chapter)",
+      "url": "https://www.cse.iitd.ac.in/~srsarangi/archbook/chapters/pipelining.pdf",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "the whole 92-page chapter was read: the pipeline idea and its performance, the five stages, pipeline registers, data/control/structural hazards, software solutions, interlocks and bubbles, forwarding paths and conditions, interrupts, the performance equation, branch prediction, multiple issue and out-of-order execution"
+    }
+  ],
+  "sourceLine": "The interlock and its data-lock unit, the branch-lock unit, and bubbles inserted by clearing control signals: Sarangi chapter 10, sections 10.6.1 to 10.6.3 (English, read in full). The stall counts of 2, 0 and 1 for the three RAW situations: DSWallah Learn 'Pipeline Hazards & Stalls', romanised Hindi, translated (read in part).",
+  "id": "stalls-interlocks-and-bubbles",
+  "title": "Stalls, Interlocks and Bubbles: Counting the Cycles",
+  "priority": "P1",
+  "order": 554,
+  "unit": "Instruction Pipelining: Hazards, Stalls and Fixes",
+  "quickIdea": "When the value cannot arrive in time, the interlock freezes the front of the pipeline and inserts a bubble: the dependent instruction repeats a stage while everything behind it waits. A bubble costs one cycle of throughput and shows in the diagram as an empty column.",
+  "remember": [
+    "The data-lock unit detects a RAW pair whose distance is smaller than the available forwarding allows, and holds the PC and the front-end registers for the cycles needed.",
+    "Load-use in the 5-stage pipeline costs exactly 1 bubble; a RAW pair with no forwarding path costs 2.",
+    "A bubble is made by clearing the control signals of the stage it occupies, so it changes no architectural state.",
+    "When every stall is at the front, total cycles = (k + n - 1) + total stall cycles.",
+    "When a stage is variable-length instead, the stage never idles: total cycles = (fill) + (sum of the stage's occupancies) + (drain), which is why (k + n - 1) alone fails on GATE CSE 2018 Q.50."
+  ],
+  "example": {
+    "prompt": "A 5-stage RISC pipeline has IF, ID, OF, PO, WB, where IF, ID, OF and WB take 1 cycle each and PO takes 3 cycles for 40 instructions, 2 for 35 and 1 for the remaining 25. With no data or control hazards, how many cycles does the sequence of 100 instructions need?",
+    "work": "The PO unit is the bottleneck and never idles once it starts. Its total occupancy is 40x3 + 35x2 + 25x1 = 120 + 70 + 25 = 215 cycles. Before the first instruction reaches PO, IF, ID and OF take 3 cycles; after the last leaves PO, WB takes 1. Total = 3 + 215 + 1 = 219. Equivalently (5 + 100 - 1) + (40x2 + 35x1) = 104 + 115 = 219.",
+    "answer": "219 cycles, the accepted answer of GATE CSE 2018 Q.50."
+  },
+  "gateAngle": "There are two distinct counting questions and they must not be mixed. Stall-at-the-front questions add bubbles to (k + n - 1); variable-stage questions add the stage's extra occupancy, 115 here, to the same base. GATE CSE 2018 Q.50 is the second kind, and 2026 Set 1 Q.60 counts the same extra occupancy as 'structural hazard stalls'.",
+  "variations": [
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "In the 2018 Q.50 sequence, what changes if the 40 three-cycle instructions are made one cycle each by a pipelined PO unit?",
+      "why": "It separates the two counting methods by removing the bottleneck instead of adding stalls.",
+      "answer": "PO occupancy becomes 100, so the total is 3 + 100 + 1 = 104, exactly (k + n - 1). The 115 extra cycles were the price of the multi-cycle unit, not of any dependence in the program."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Why does inserting a bubble not change the result of the program?",
+      "why": "It answers the natural worry that a stall is a wasted instruction rather than a delayed one.",
+      "answer": "Because a bubble has its control signals cleared, so it writes no register, touches no memory and raises no exception. It occupies a stage for a cycle and then disappears; the dependent instruction executes again in the next cycle and reads the value that has by then arrived."
+    }
+  ],
+  "trap": {
+    "what": "Averaging the variable stage and then using (k + n - 1).",
+    "why": "The average occupancy hides the fact that the stage is busy continuously; the correct total is the sum of occupancies plus fill and drain, and the average-based formula gives 104 + something arbitrary.",
+    "counterexample": "2018 Q.50 with average PO 2.15 cycles: the naive route gives 6.15 + 99 x 2.15 = 219 only if done carefully, and most shortcuts give 104 or 215 instead of the accepted 219."
+  },
+  "check": {
+    "question": "A 5-stage pipeline runs 20 instructions with 3 load-use bubbles. How many cycles does it take?",
+    "answer": "5 + 20 - 1 + 3 = 27 cycles.",
+    "explanation": "The base pipeline is k + n - 1 = 24; each bubble is one more column, so the stalls are added, not multiplied."
+  },
+  "visual": "computer-organization-and-architecture/instruction-pipelining-and-hazards/load-use-bubble-and-branch-penalty"
+}

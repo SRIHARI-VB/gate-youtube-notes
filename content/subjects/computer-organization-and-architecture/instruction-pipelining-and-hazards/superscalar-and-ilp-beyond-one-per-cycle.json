@@ -1,0 +1,63 @@
+{
+  "videoRefs": [],
+  "prereqs": [
+    "pipeline-idea-and-the-space-time-diagram"
+  ],
+  "pyqIds": [],
+  "sources": [
+    {
+      "kind": "text",
+      "title": "Chapter 10 - Principles of Pipelining (Basic Computer Architecture)",
+      "channel": "IIT Delhi, Prof. Smruti R. Sarangi (freely distributed book chapter)",
+      "url": "https://www.cse.iitd.ac.in/~srsarangi/archbook/chapters/pipelining.pdf",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "the whole 92-page chapter was read: the pipeline idea and its performance, the five stages, pipeline registers, data/control/structural hazards, software solutions, interlocks and bubbles, forwarding paths and conditions, interrupts, the performance equation, branch prediction, multiple issue and out-of-order execution"
+    }
+  ],
+  "sourceLine": "Multiple-issue in-order pipelines, VLIW and EPIC, and out-of-order execution with renaming and precise exceptions: Sarangi chapter 10, sections 10.11.2 to 10.11.4 (English, read in full). The scalar-versus-superscalar contrast and the statement that pipeline depth trades frequency against penalty: DSWallah Learn 'Instruction Pipelining', romanised Hindi, translated (read in part).",
+  "id": "superscalar-and-ilp-beyond-one-per-cycle",
+  "title": "Superscalar Issue and ILP: Beyond One Instruction per Cycle",
+  "priority": "P3",
+  "order": 558,
+  "unit": "Instruction Pipelining: Hazards, Stalls and Fixes",
+  "quickIdea": "A scalar pipeline tops out at one instruction per cycle. A multiple-issue machine starts several per cycle, so CPI can fall below 1 and the ceiling on the speed-up is no longer the stage count: it is the issue width and the instruction-level parallelism the program actually contains.",
+  "remember": [
+    "Superscalar: several instructions issued per cycle from one stream, which needs duplicated functional units and dependence checking across the issuing group.",
+    "IPC above 1 means CPI below 1, so the speed-up over the unpipelined machine is bounded by issue width and by the program's ILP rather than by k.",
+    "Out-of-order execution reorders around a stall and needs register renaming, a reorder buffer and precise exception handling to stay correct.",
+    "VLIW and EPIC put the bundling in the compiler instead of in the hardware, trading scheduling work for wider instructions.",
+    "More issue width raises the chance of structural conflicts, so extra units must be added with it; the limits are dependences, not the clock."
+  ],
+  "example": {
+    "prompt": "A 2-wide superscalar processor with a 5-stage pipeline issues two independent instructions per cycle. A program of 100 independent instructions runs on it. How many cycles, and what is the CPI?",
+    "work": "The pipeline fills in 5 cycles and then completes 2 instructions per cycle: the remaining 100 - 2 = 98 instructions take 49 cycles, so 5 + 49 = 54 cycles. The CPI is 54/100 = 0.54.",
+    "answer": "54 cycles and a CPI of 0.54, below the scalar floor of 1 - which is exactly why a superscalar machine can beat the k-fold speed-up limit of a scalar pipeline."
+  },
+  "gateAngle": "GATE's COA line names only 'instruction pipelining, pipeline hazards', so this card is P3: it exists so that a question mentioning multiple issue, ILP or CPI below 1 is not a surprise, not because the syllabus asks for it. No verified CSE previous-year question in this topic tests it.",
+  "variations": [
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Why does a 4-wide superscalar machine rarely reach a CPI of 0.25?",
+      "why": "It links the card back to the rest of the topic, where dependences rather than width set the limit.",
+      "answer": "Because real programs contain long chains of dependent instructions: if every instruction depends on the one before, only one can start per cycle however many slots exist. Load-use gaps, branches and limited ILP leave slots empty, so the achieved IPC stays well below the issue width."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "A scalar pipeline of 8 stages has a 3-cycle taken-branch penalty; a 2-wide machine of the same depth issues two per cycle but has the same penalty per branch. Which wins on a program that is 20 percent branches?",
+      "why": "It compares the two designs on the same CPI model used everywhere else in the topic.",
+      "answer": "Scalar CPI = 1 + 0.2 x 3 = 1.6. Two-wide CPI = 0.5 + 0.2 x 3 = 1.1 in cycles per instruction, so the wide machine executes 1.6/1.1 = 1.45 times as many instructions per cycle - a real gain, but nowhere near 2, because the branch penalty is not halved by width."
+    }
+  ],
+  "trap": {
+    "what": "Believing that pipelining alone can take CPI below 1.",
+    "why": "A scalar pipeline issues one instruction per cycle at best, so its CPI floor is 1 and its speed-up ceiling is k. Only multiple issue breaks that floor, and only at the cost of much more hardware.",
+    "counterexample": "A 20-stage scalar pipeline has a ceiling of 20 and a floor CPI of 1; no arrangement of its stages produces two instructions per cycle."
+  },
+  "check": {
+    "question": "A 3-wide superscalar machine issues 3 instructions per cycle in the steady state. What is its CPI, and what limits it in practice?",
+    "answer": "A CPI of 1/3 in the ideal case, limited in practice by dependences, branch penalties and the number of functional units.",
+    "explanation": "CPI and IPC are reciprocals; the ideal 3 per cycle is an upper bound that real programs approach only in long independent stretches."
+  }
+}

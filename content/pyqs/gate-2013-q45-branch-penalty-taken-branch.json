@@ -1,0 +1,22 @@
+{
+  "id": "gate-2013-q45-branch-penalty-taken-branch",
+  "year": "2013",
+  "paper": "GATE CS 2013",
+  "question_ref": "Q.45",
+  "type": "MCQ",
+  "marks": "2",
+  "topic": "control-hazards-and-the-branch-penalty",
+  "text": "An instruction pipeline has five stages without any branch prediction: FI, DI, FO, EI and WO, with stage delays 5, 7, 10, 8 and 6 ns. There are intermediate storage buffers after each stage with a delay of 1 ns. A program of 12 instructions I1 to I12 runs, I4 is the only branch and its target is I9, and the branch is taken. The time in ns needed to complete the program is (A) 132 (B) 165 (C) 176 (D) 328.",
+  "options": [
+    "132",
+    "165",
+    "176",
+    "328"
+  ],
+  "answer": "Option (B) - 165",
+  "solution": "Cycle time = max(5, 7, 10, 8, 6) + 1 = 11 ns. Without prediction the fetch unit continues with I5, I6 and I7 while I4 passes through DI, FO and EI, and the branch resolves at the end of I4's EI stage in cycle 7, so those three are cancelled and I9 is fetched in cycle 8. The diagram then runs to cycle 15, so 15 x 11 = 165 ns. Recomputed in scripts/validate.py, which also checks that I6 fetched in cycle 6 finishes in cycle 10 for the four-instruction example used in the control-hazard card.",
+  "source_url": "https://gateoverflow.in/330/gate-cse-2013-question-45",
+  "source_label": "GATE Overflow question page - GATE CSE 2013 Q.45 with the accepted answer option B, 165",
+  "verification": "SOURCED",
+  "answer_evidence": "The page draws the 15-column pipeline diagram and states 'Correct Answer: B'; a PYQ page citing the official key gives 165 with the same three-cycle flush."
+}

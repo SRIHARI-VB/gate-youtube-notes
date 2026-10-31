@@ -8667,6 +8667,124 @@ def check_io_interface(topics, tpath, pyqs):
        "the agreement of the two mode orderings across 2022 and 2024")
 
 
+
+# ---------------------------------------------- instruction pipelining and hazards
+def check_instruction_pipelining_and_hazards(topics, tpath, pyqs):
+    """Every cycle count, speed-up, frequency and stall figure published in the
+    Instruction Pipelining and Pipeline Hazards topic, recomputed from its own numbers."""
+    from math import ceil
+
+    cards = {tid: t for tid, t in topics.items()
+             if tpath[tid].split("/")[3] == "instruction-pipelining-and-hazards"}
+    if len(cards) != 13:
+        fail("pipelining: expected 13 cards, found %d" % len(cards))
+
+    # --- the timing formula: (k + n - 1) x t_p
+    def tp(stages, latch=0):
+        return max(stages) + latch
+
+    # GATE CSE 2021 Set 1 Q.53: 104 cycles of 165 ns
+    assert tp([150, 120, 150, 160, 140], 5) == 165
+    assert (5 + 100 - 1) * 165 == 17160, "2021 Set 1 Q.53 must give 17160 ns"
+    # the wrong reading that adds every latch delay
+    assert 160 + 5 * 5 == 185 and 104 * 185 != 17160
+
+    # GATE CSE 2025 Set 2 Q.56: 1004 cycles of 260 ns = 261.04 us
+    assert tp([180, 250, 150, 170, 250], 10) == 260
+    assert (5 + 1000 - 1) * 260 == 261040
+    assert abs(261040 / 1000.0 - 261.04) < 1e-9
+
+    # GATE CSE 2016 Set 2 Q.33: 3 GHz, tau1 = 3 tau2/4 = 2 tau3, longest split -> 4 GHz
+    t1, t2, t3 = 6.0, 8.0, 3.0            # in units of x
+    assert abs(t1 - 3 * t2 / 4) < 1e-12 and abs(t1 - 2 * t3) < 1e-12
+    x = (1 / 3.0) / 8.0                    # cycle time 8x = 1/3 ns
+    assert abs(1 / (6 * x) - 4.0) < 1e-9, "splitting the longest stage must give 4 GHz"
+
+    # GATE CSE 2016 Set 1 Q.32: throughput rise 800 -> 600 ps
+    assert abs((1 / 600.0 - 1 / 800.0) / (1 / 800.0) * 100 - 100 / 3.0) < 1e-9
+    assert abs(100 / 3.0 - 33.3333) < 1e-3
+
+    # GATE CSE 2018 Q.50: PO occupancy 215, fill 3, drain 1
+    po = 40 * 3 + 35 * 2 + 25 * 1
+    assert po == 215 and 3 + po + 1 == 219, "2018 Q.50 must give 219 cycles"
+    assert (5 + 100 - 1) + (40 * 2 + 35 * 1) == 219, "the two routes to 219 must agree"
+
+    # GATE CSE 2026 Set 1 Q.60: structural stalls in a multi-cycle EX stage
+    table = [(1.8, 15), (1.5, 10), (2.5, 5), (1.7, 10), (1.7, 5), (2.8, 15), (3.2, 5)]
+    stalls = sum((ceil(t) - 1) * m for t, m in table)
+    assert stalls == 95, "2026 Set 1 Q.60 must give 95 stall cycles"
+    over = sum(ceil(t) * m for t, m in table)
+    long_count = sum(m for t, m in table if t > 1)
+    assert over == 160 and long_count == 65
+    assert over - stalls == long_count, "counting the occupancy overcounts by the number of multi-cycle instructions"
+
+    # GATE CSE 2020 Q.43: 2 ns against 0.925 ns
+    cpi_pipe = 1 + 0.30 * 0.05 * 50 + 0.10 * 0.50 * 2
+    assert abs(cpi_pipe - 1.85) < 1e-12
+    t_non = 5 / 2.5
+    t_pipe = cpi_pipe / 2.0
+    assert abs(t_non - 2.0) < 1e-12 and abs(t_pipe - 0.925) < 1e-12
+    assert abs(t_non / t_pipe - 2.16216) < 1e-4, "2020 Q.43 must give 2.16"
+    assert abs(5 / 1.85 - 2.7027) < 1e-3, "the CPI ratio alone gives the wrong 2.70"
+
+    # GATE CSE 2024 Set 2 Q.58: CPI 6 against 2
+    cpi58 = 1 + 0.2 * 2 + 0.2 * 3
+    assert abs(cpi58 - 2.0) < 1e-12 and abs(6 / cpi58 - 3.0) < 1e-12
+
+    # GATE CSE 2022 Q.61: 1.60 against 1.12
+    cpi_x1 = 1 + 0.30 * 2
+    cpi_x2 = 1 + 0.30 * (0.8 * 0 + 0.2 * 2)
+    assert abs(cpi_x1 - 1.60) < 1e-12 and abs(cpi_x2 - 1.12) < 1e-12
+    assert abs(cpi_x1 / cpi_x2 - 1.42857) < 1e-4, "2022 Q.61 must give 1.43"
+    # the two documented variations of the same model
+    assert abs(1 + 0.30 * 0.05 * 2 - 1.03) < 1e-12 and abs(1.60 / 1.03 - 1.5534) < 1e-3
+    assert abs(1 + 0.4 * 0.25 * 3 - 1.30) < 1e-12, "the branch-prediction quick check must give CPI 1.30"
+
+    # GATE CSE 2013 Q.45: 15 columns of 11 ns, and the four-instruction example of the card
+    assert tp([5, 7, 10, 8, 6], 1) == 11
+    assert 15 * 11 == 165, "2013 Q.45 must give 165 ns"
+    # I1 I2 I3(branch to I6) I4 I5 I6, taken: I6 fetched in cycle 6 and finishes in cycle 10
+    assert 6 + 5 - 1 == 10, "the branch example must finish in cycle 10"
+
+    # the lesson's own counts
+    assert 5 + 4 - 1 == 8          # four instructions, no hazard
+    assert 8 + 2 == 10             # the same four with two bubbles per RAW pair
+    assert 5 + 2 - 1 + 1 == 7      # the load-use pair
+    assert 5 + 3 - 1 + 1 == 8      # the quick check: one load and two consumers
+
+    # --- the card set and its PYQ links
+    linked = set()
+    for t in cards.values():
+        linked.update(t.get("pyqIds", []))
+    pip_pyqs = {pid for pid, p in pyqs.items() if p.get("topic") in set(cards)}
+    assert linked == pip_pyqs, "every pipelining PYQ is linked from a card: %s" % (pip_pyqs - linked)
+    years = {pyqs[pid]["year"] for pid in pip_pyqs}
+    assert {"2012", "2013", "2015", "2016", "2018", "2020", "2021", "2022", "2024", "2025",
+            "2026"} <= years, "the PYQ set spans 2012 to 2026"
+    for pid in pip_pyqs:
+        assert pyqs[pid]["verification"] in {"SOURCED", "OFFICIAL_KEY", "UNVERIFIED"}
+        assert pyqs[pid]["source_url"].startswith("http")
+        assert pyqs[pid]["question_ref"], "every PYQ carries a question reference"
+
+    # --- the lesson's figures must agree with the same constants
+    lpath = os.path.join(ROOT, "visuals", "computer-organization-and-architecture",
+                         "instruction-pipelining-and-hazards",
+                         "load-use-bubble-and-branch-penalty", "lesson.json")
+    lesson = load(lpath)
+    ex = lesson["example"]
+    assert ex["stages"] == 5
+    assert ex["alu_block_instructions"] == 4 and ex["alu_block_cycles"] == 8
+    assert ex["alu_block_without_forwarding_cycles"] == 10
+    assert ex["load_use_instructions"] == 2 and ex["load_use_cycles"] == 7
+    assert ex["branch_instructions_executed"] == 6 and ex["branch_cycles"] == 10
+    assert ex["flushed_instructions"] == 2
+    assert lesson["steps"] == 8
+
+    ok("instruction pipelining: the 17160 ns and 261.04 us timings, the 4 GHz split, the 33.33 percent "
+       "throughput rise, the 219-cycle variable PO stage, the 95 structural-hazard stalls with its 100-cycle "
+       "overcount, the 2.16, 3.0 and 1.43 speed-ups with the 2.70 CPI-ratio trap, the 165 ns branch penalty, "
+       "the 8, 10, 7 and 8 column counts of the lesson, and the link from every card to its PYQs")
+
 def main():
     topics, tpath, pyqs, videos, playlists, sources = load_all()
     check_topics(topics, tpath, pyqs, videos)
@@ -8704,6 +8822,7 @@ def main():
     check_control_unit_design()
     check_memory_hierarchy_and_cache()
     check_io_interface(topics, tpath, pyqs)
+    check_instruction_pipelining_and_hazards(topics, tpath, pyqs)
     check_visuals()
     check_hygiene()
     for c in checks:

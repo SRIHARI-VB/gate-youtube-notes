@@ -321,7 +321,7 @@ window.GATE_DATA = {
      {
       "slug": "instruction-pipelining-and-hazards",
       "name": "Instruction Pipelining and Pipeline Hazards",
-      "material": "planned"
+      "material": "cards"
      }
     ]
    },
@@ -41268,6 +41268,890 @@ window.GATE_DATA = {
    "subject": "computer-organization-and-architecture",
    "topic": "io-interface",
    "path": "subjects/computer-organization-and-architecture/io-interface/comparing-the-three-modes-and-dma-cache-coherence.json"
+  },
+  {
+   "videoRefs": [],
+   "prereqs": [],
+   "pyqIds": [],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "Chapter 10 - Principles of Pipelining (Basic Computer Architecture)",
+     "channel": "IIT Delhi, Prof. Smruti R. Sarangi (freely distributed book chapter)",
+     "url": "https://www.cse.iitd.ac.in/~srsarangi/archbook/chapters/pipelining.pdf",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "the whole 92-page chapter was read: the pipeline idea and its performance, the five stages, pipeline registers, data/control/structural hazards, software solutions, interlocks and bubbles, forwarding paths and conditions, interrupts, the performance equation, branch prediction, multiple issue and out-of-order execution"
+    }
+   ],
+   "sourceLine": "The stage sequence, the diagram reading rule and the (k + n - 1) timing: Sarangi, Basic Computer Architecture chapter 10, sections 10.1 to 10.3 (English, read in full). The latency-versus-throughput statement and the fill/drain wording: DSWallah Learn 'Instruction Pipelining', romanised Hindi, translated (read in part).",
+   "id": "pipeline-idea-and-the-space-time-diagram",
+   "title": "The Pipeline Idea, and Reading the Space-Time Diagram",
+   "priority": "P1",
+   "order": 546,
+   "unit": "Instruction Pipelining: Stages, Timing and Speed-up",
+   "quickIdea": "Pipelining cuts one instruction's trip through the datapath into stages and lets different instructions sit in different stages in the same cycle. A k-stage pipeline then finishes one instruction per cycle in the steady state, instead of one every k cycles.",
+   "remember": [
+    "Five classic stages: IF (fetch the instruction), OF or ID (decode and read the registers), EX (ALU work, address arithmetic, branch test), MA or MEM (data memory), RW or WB (write the register).",
+    "A pipeline diagram has one row per instruction and one column per clock cycle, and every row is shifted one column to the right of the row above it.",
+    "Latency does not improve: one instruction still occupies k cycles, plus the latch time. Throughput improves: after the fill, one instruction leaves the pipeline every cycle.",
+    "A stall is drawn as a gap in a row, or as a bubble occupying a stage; the total time is the number of columns, so count columns rather than trusting a formula.",
+    "With n instructions, k stages and no stalls the total is k + n - 1 cycles; the first k - 1 cycles are the fill and the last k - 1 the drain."
+   ],
+   "example": {
+    "prompt": "A 5-stage pipeline runs 8 instructions with no stalls. How many cycles does it take, and how many would the same 8 take on the unpipelined machine at the same clock?",
+    "work": "Pipelined: k + n - 1 = 5 + 8 - 1 = 12 cycles, because the first instruction takes 5 cycles and each of the other 7 adds one. Unpipelined, each instruction must pass through all five stages in sequence, so 8 x 5 = 40 cycles.",
+    "answer": "12 cycles against 40, a speed-up of 40/12 = 3.33. It is well short of the ideal 5 because on a program this short the fill and drain are a large part of the total."
+   },
+   "gateAngle": "Every pipeline question is a diagram question. GATE CSE 2021 Set 1 Q.53 hands you five stage delays and a latch delay and asks for the time of 100 instructions: the answer is 104 columns of 165 ns, that is 17160 ns. GATE CSE 2013 Q.45 asks for the same thing with a branch in the middle, and the answer is 15 columns of 11 ns.",
+   "variations": [
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why does pipelining raise throughput but not the latency of a single instruction?",
+     "why": "It separates the two quantities a beginner tends to merge, and it is the sentence GATE's definition questions are built on.",
+     "answer": "Because the stages of one instruction are still traversed one after another: the fifth stage of an instruction cannot start before its fourth has finished, so a lone instruction still needs k clock cycles. What changes is that the stage left idle behind it is now used by the next instruction, so k instructions are in flight at once and one finishes per cycle."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "A 6-stage pipeline with 1 ns stages runs 10 instructions with no stalls. How many cycles and what speed-up over the unpipelined machine at the same clock?",
+     "why": "It moves the same reasoning to a different k and n, which is exactly how the exam varies the 2021 question.",
+     "answer": "6 + 10 - 1 = 15 cycles; unpipelined 10 x 6 = 60 cycles; speed-up 60/15 = 4, against an ideal ceiling of 6."
+    }
+   ],
+   "trap": {
+    "what": "Saying that pipelining makes an instruction faster.",
+    "why": "An instruction still needs every stage; pipelining overlaps different instructions, not the stages of one instruction. A single instruction is not speeded up at all, and is slightly slowed by the latch delay.",
+    "counterexample": "One instruction alone on a 5-stage, 1 ns-per-stage pipeline takes 5 cycles (more, with latches), exactly as on the unpipelined machine. The gain appears only from the second instruction onward."
+   },
+   "check": {
+    "question": "A 4-stage pipeline runs 20 instructions. How many cycles does it need, and in which cycle does the first instruction finish?",
+    "answer": "4 + 20 - 1 = 23 cycles, and the first instruction finishes at the end of cycle 4.",
+    "explanation": "The fill is k - 1 = 3 cycles before the second instruction can start leaving, so the total is n + k - 1 and the first completion is at cycle k."
+   },
+   "subject": "computer-organization-and-architecture",
+   "topic": "instruction-pipelining-and-hazards",
+   "path": "subjects/computer-organization-and-architecture/instruction-pipelining-and-hazards/pipeline-idea-and-the-space-time-diagram.json"
+  },
+  {
+   "videoRefs": [],
+   "prereqs": [
+    "pipeline-idea-and-the-space-time-diagram"
+   ],
+   "pyqIds": [
+    "gate-2025-set-2-q56-latch-delay-1000-instructions",
+    "gate-2016-set-2-q33-split-longest-stage-frequency"
+   ],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "Chapter 10 - Principles of Pipelining (Basic Computer Architecture)",
+     "channel": "IIT Delhi, Prof. Smruti R. Sarangi (freely distributed book chapter)",
+     "url": "https://www.cse.iitd.ac.in/~srsarangi/archbook/chapters/pipelining.pdf",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "the whole 92-page chapter was read: the pipeline idea and its performance, the five stages, pipeline registers, data/control/structural hazards, software solutions, interlocks and bubbles, forwarding paths and conditions, interrupts, the performance equation, branch prediction, multiple issue and out-of-order execution"
+    }
+   ],
+   "sourceLine": "Pipeline registers as edge-triggered latches on a common clock, and the cycle time set by the slowest stage: Sarangi chapter 10, section 10.2.2 and 10.9.1 (English, read in full). The same rule stated as an exam formula: DSWallah Learn 'Instruction Pipelining', romanised Hindi, translated (read in part).",
+   "id": "pipeline-registers-and-the-clock-period",
+   "title": "Pipeline Registers, and Why the Clock Period Is the Slowest Stage",
+   "priority": "P1",
+   "order": 547,
+   "unit": "Instruction Pipelining: Stages, Timing and Speed-up",
+   "quickIdea": "A pipeline register sits between consecutive stages and hands the instruction packet on at the clock edge. The clock must be long enough for the slowest stage plus that register, so the cycle time is max(stage delay) + latch delay, whatever the other stages cost.",
+   "remember": [
+    "k stages need k - 1 inter-stage registers, all driven by the same clock; every instruction moves exactly one stage per clock.",
+    "Clock period t_p = max(stage delays) + latch delay. The latch delay is counted once per cycle, not once per stage.",
+    "Peak clock frequency = 1 / t_p. The pipeline with the smallest largest stage wins, which is what GATE CSE 2014 Set 3 Q.9 asks when it offers four pipelines and asks for the highest peak frequency.",
+    "Splitting the slowest stage raises the frequency only until some other stage becomes the new maximum.",
+    "Unequal stages waste time: the fast stages idle while the slow one finishes, so the speed-up stays below k."
+   ],
+   "example": {
+    "prompt": "A 5-stage pipeline has stage delays 180, 250, 150, 170 and 250 ns and an inter-stage latch delay of 10 ns. How long does it take to process 1000 instructions?",
+    "work": "The cycle time is the slowest stage plus one latch delay: 250 + 10 = 260 ns. With no stalls the number of cycles is k + n - 1 = 5 + 1000 - 1 = 1004. The total is 1004 x 260 = 261040 ns, that is 261.04 microseconds.",
+    "answer": "261.04 microseconds, which is the accepted answer of GATE CSE 2025 Set 2 Q.56."
+   },
+   "gateAngle": "Two patterns recur. The first gives stage delays and a latch delay and asks for the time of n instructions (2025 Set 2 Q.56: 261.04 microseconds; 2021 Set 1 Q.53: 17160 ns). The second gives the ratios between stage latencies and asks for the frequency after the longest stage is split (2016 Set 2 Q.33: 3 GHz becomes 4 GHz).",
+   "variations": [
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "The same pipeline of 180, 250, 150, 170, 250 ns with a 10 ns latch is rebuilt so that both 250 ns stages become two 130 ns stages each. What is the new clock period and the new time for 1000 instructions?",
+     "why": "It shows what happens when the fix is applied to the slowest stage twice, and that the stage count changes with it.",
+     "answer": "The stages become 180, 130, 130, 150, 170, 130, 130 ns: seven stages, the slowest now 180 ns, so t_p = 190 ns. The cycles are 7 + 1000 - 1 = 1006, so 1006 x 190 = 191140 ns = 191.14 microseconds, better than 261.04 because the bottleneck moved down to 180 ns."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Two pipelines have the same total datapath delay: one has 4 equal stages, the other 4 stages of 1, 1, 1 and 5 units. Which has the higher throughput, and why?",
+     "why": "It isolates the point that the clock follows the worst stage, not the average.",
+     "answer": "Neither gains from the imbalance. With 8 units of total delay, the balanced pipeline has a 2-unit cycle and the unbalanced one a 5-unit cycle, so the balanced pipeline is 2.5 times faster in throughput although the datapath is identical."
+    }
+   ],
+   "trap": {
+    "what": "Adding the latch delay of every stage into the cycle time.",
+    "why": "The latches all switch on the same edge and the instruction crosses exactly one boundary per cycle, so a single latch delay is charged per cycle. Adding k latch delays inflates the answer.",
+    "counterexample": "2025 Set 2 Q.56: the wrong reading 250 + 5 x 10 = 300 ns gives 1004 x 300 = 301.2 microseconds, where the accepted answer is 261.04."
+   },
+   "check": {
+    "question": "A 4-stage pipeline has stage delays 6, 4, 8 and 5 ns and each inter-stage latch costs 1 ns. What is the clock period, and what is the peak clock frequency?",
+    "answer": "9 ns, so 1/9 GHz, about 111.1 MHz.",
+    "explanation": "The slowest stage is 8 ns and one latch delay is added once: 8 + 1 = 9 ns. The frequency is the reciprocal of the period."
+   },
+   "subject": "computer-organization-and-architecture",
+   "topic": "instruction-pipelining-and-hazards",
+   "path": "subjects/computer-organization-and-architecture/instruction-pipelining-and-hazards/pipeline-registers-and-the-clock-period.json"
+  },
+  {
+   "videoRefs": [],
+   "prereqs": [
+    "pipeline-idea-and-the-space-time-diagram"
+   ],
+   "pyqIds": [
+    "gate-2021-set-1-q53-hundred-instructions-time"
+   ],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "Chapter 10 - Principles of Pipelining (Basic Computer Architecture)",
+     "channel": "IIT Delhi, Prof. Smruti R. Sarangi (freely distributed book chapter)",
+     "url": "https://www.cse.iitd.ac.in/~srsarangi/archbook/chapters/pipelining.pdf",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "the whole 92-page chapter was read: the pipeline idea and its performance, the five stages, pipeline registers, data/control/structural hazards, software solutions, interlocks and bubbles, forwarding paths and conditions, interrupts, the performance equation, branch prediction, multiple issue and out-of-order execution"
+    }
+   ],
+   "sourceLine": "The performance equation, the ideal pipeline and the limit on the speed-up: Sarangi chapter 10, sections 10.9.1 and 10.9.2 (English, read in full). The three formulas with their worked numerical and the maximum-speed-up warning: DSWallah Learn 'Instruction Pipelining', romanised Hindi, translated (read in part).",
+   "id": "ideal-timing-and-speedup-formula",
+   "title": "Ideal Timing and the Speed-up Formula",
+   "priority": "P1",
+   "order": 548,
+   "unit": "Instruction Pipelining: Stages, Timing and Speed-up",
+   "quickIdea": "With n instructions, k stages, one clock per stage and no stalls, the pipeline takes (k + n - 1) cycles where the unpipelined machine takes n x k, so the speed-up is nk / (k + n - 1), which climbs towards k as n grows.",
+   "remember": [
+    "Pipelined time T = (k + n - 1) t_p; unpipelined time T = n k t_p, with the same clock period in both.",
+    "Speed-up S = nk / (k + n - 1). As n tends to infinity S tends to k, so k is the ceiling and no finite program reaches it.",
+    "Efficiency = S / k = n / (k + n - 1); throughput in the steady state = 1 / t_p instructions per cycle.",
+    "The formula assumes balanced stages, no stalls and the same clock in both designs. Break any one of the three and the diagram or the CPI equation must take over.",
+    "For a short program the fill dominates: 8 instructions on 5 stages give 12 cycles, so S = 40/12 = 3.33, not 5."
+   ],
+   "example": {
+    "prompt": "A five-stage pipeline has stage delays 150, 120, 150, 160 and 140 ns and inter-stage registers of 5 ns each. What is the total time for 100 independent instructions with no stalls?",
+    "work": "t_p = max(150, 120, 150, 160, 140) + 5 = 160 + 5 = 165 ns. Cycles = k + n - 1 = 5 + 100 - 1 = 104. Time = 104 x 165 = 17160 ns. The unpipelined machine at the same clock would need 100 x 5 x 165 = 82500 ns, so the realised speed-up is 82500/17160 = 4.81 against a ceiling of 5.",
+    "answer": "17160 ns, the accepted answer of GATE CSE 2021 Set 1 Q.53, with a realised speed-up of 4.81."
+   },
+   "gateAngle": "The exam rarely asks for the formula; it asks for a number that the formula or the diagram produces. Where the program is short, or a stage is variable, the formula is the wrong tool and the diagram is the right one - GATE CSE 2018 Q.50 is the case in point, where (k + n - 1) alone gives 104 and the answer is 219.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "For the 2021 Set 1 pipeline above, how many instructions must run before the realised speed-up exceeds 4.9?",
+     "why": "It forces the formula to be solved for n instead of evaluated, which is the step candidates skip.",
+     "answer": "S = 5n/(5 + n - 1) = 5n/(n + 4) > 4.9 means 5n > 4.9n + 19.6, so 0.1n > 19.6 and n > 196. At n = 197 the speed-up is 985/201 = 4.90; the ceiling of 5 is never reached."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why is the speed-up nk/(k + n - 1) always less than k, and when does it equal k?",
+     "why": "It tests whether the student knows the formula is a limit statement rather than an identity.",
+     "answer": "Because the numerator counts n k stage-slots of work while the denominator includes the k - 1 cycles of fill that produce no completed instruction. The two are equal only in the limit n tends to infinity, so k is a supremum, not an attainable value."
+    }
+   ],
+   "trap": {
+    "what": "Using nk/(k + n - 1) when the pipelined design runs at a different clock from the unpipelined one.",
+    "why": "The formula cancels the clock period on the assumption that it is the same in both designs. When pipelining costs frequency - as it nearly always does - the clock ratio must be carried into the calculation.",
+    "counterexample": "A 5-stage pipeline at 2 GHz against a non-pipelined machine at 2.5 GHz with CPI 5: the CPI ratio 5/1 suggests 5, but the true speed-up is (5/2.5)/(1/2) = 2/0.5 = 4, because the pipelined clock is slower."
+   },
+   "check": {
+    "question": "A 10-stage pipeline runs a program of 90 instructions with no stalls. What is the speed-up over the unpipelined machine at the same clock, and what is the efficiency?",
+    "answer": "900/99 = 9.09 and efficiency 9.09/10 = 0.909.",
+    "explanation": "Cycles = 10 + 90 - 1 = 99, unpipelined work = 90 x 10 = 900 stage-slots, so S = 900/99 = 9.09; dividing by k gives the fraction of the ideal gain realised."
+   },
+   "subject": "computer-organization-and-architecture",
+   "topic": "instruction-pipelining-and-hazards",
+   "path": "subjects/computer-organization-and-architecture/instruction-pipelining-and-hazards/ideal-timing-and-speedup-formula.json"
+  },
+  {
+   "videoRefs": [],
+   "prereqs": [
+    "ideal-timing-and-speedup-formula"
+   ],
+   "pyqIds": [
+    "gate-2016-set-1-q32-throughput-increase"
+   ],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "Chapter 10 - Principles of Pipelining (Basic Computer Architecture)",
+     "channel": "IIT Delhi, Prof. Smruti R. Sarangi (freely distributed book chapter)",
+     "url": "https://www.cse.iitd.ac.in/~srsarangi/archbook/chapters/pipelining.pdf",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "the whole 92-page chapter was read: the pipeline idea and its performance, the five stages, pipeline registers, data/control/structural hazards, software solutions, interlocks and bubbles, forwarding paths and conditions, interrupts, the performance equation, branch prediction, multiple issue and out-of-order execution"
+    }
+   ],
+   "sourceLine": "Throughput as the reciprocal of the cycle time, efficiency as speed-up over k, and the penalty growing with depth: Sarangi chapter 10, sections 10.9.2, 10.9.3 and 10.11.1 (English, read in full). The throughput, efficiency and depth-trade-off statements: DSWallah Learn 'Instruction Pipelining', romanised Hindi, translated (read in part).",
+   "id": "throughput-efficiency-and-the-clock-rate-trade",
+   "title": "Throughput, Efficiency and the Clock-rate Trade",
+   "priority": "P2",
+   "order": 549,
+   "unit": "Instruction Pipelining: Stages, Timing and Speed-up",
+   "quickIdea": "Throughput is instructions completed per unit time, which in the steady state is 1 / t_p. Anything that shortens the cycle time raises throughput even when the CPI and the instruction count do not change, which is why a percentage change in throughput is a percentage change in clock frequency.",
+   "remember": [
+    "Steady-state throughput = 1 / t_p instructions per second; raising it means lowering max(stage delay) + latch delay.",
+    "For the same instruction stream, the percentage change in throughput equals the percentage change in clock frequency.",
+    "Efficiency = speed-up / k measures how much of the ideal k-fold gain a finite program realises; long programs approach 1.",
+    "Deeper pipelines lower t_p but raise the cycles lost per hazard, because the stall penalty grows with depth (Sarangi: 1 cycle for load-use and 2 for a taken branch at this depth, doubling when every stage is halved).",
+    "Splitting a stage is worth it only while that stage is the maximum; once another stage is, further splitting buys nothing."
+   ],
+   "example": {
+    "prompt": "A 4-stage pipeline has stage delays 800, 500, 400 and 300 ps. Its first stage is replaced by two stages of 600 and 350 ps. By what percentage does throughput rise?",
+    "work": "Before: t_p = max(800, 500, 400, 300) = 800 ps, throughput 1/800. After: the stages are 600, 350, 500, 400, 300 ps, so t_p = 600 ps and throughput 1/600. The ratio is (1/600)/(1/800) = 800/600 = 4/3, so the increase is 33.33 percent.",
+    "answer": "33.33 percent, the accepted answer of GATE CSE 2016 Set 1 Q.32. Note that the cycle time fell by 25 percent but throughput rose by 33.33 percent: the two percentages are reciprocals, not the same number."
+   },
+   "gateAngle": "GATE CSE 2016 Set 1 Q.32 asks for the throughput increase from splitting a stage and expects 33.33; GATE CSE 2016 Set 2 Q.33 asks the same change expressed as a new clock frequency and expects 4 GHz. Both are one calculation: the new maximum stage delay.",
+   "variations": [
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "For the 2016 Set 1 pipeline, what is the throughput increase if the 800 ps stage is split into 400 + 400 ps instead of 600 + 350 ps?",
+     "why": "It tests whether the student recomputes the maximum instead of reusing the previous answer.",
+     "answer": "The stages become 400, 400, 500, 400, 300 ps, so t_p = 500 ps and throughput rises from 1/800 to 1/500, an increase of 60 percent. Splitting further helped only because 500 ps then became the limit, and no split of the first stage alone can now help."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "A design halves every stage delay and doubles the stage count. What happens to throughput and what happens to the cost of a taken branch?",
+     "why": "It joins the two halves of the topic: the gain from frequency and the loss from penalty.",
+     "answer": "Throughput doubles, since the cycle time halves. The branch penalty doubles too, from 2 cycles to 4, because twice as many instructions are fetched before the branch resolves; a program with many taken branches therefore gains much less than 2x, which is the trade the chapter states as the reason pipeline depth is limited."
+    }
+   ],
+   "trap": {
+    "what": "Reporting the fall in cycle time as the rise in throughput.",
+    "why": "Throughput is the reciprocal of the period, so a 25 percent shorter period is a 33.33 percent higher rate. The two are not interchangeable.",
+    "counterexample": "2016 Set 1 Q.32: (800 - 600)/800 = 25 percent is the reduction in cycle time; the accepted throughput increase is 33.33 percent."
+   },
+   "check": {
+    "question": "A pipeline's cycle time falls from 5 ns to 4 ns with no change in CPI. What is the throughput increase?",
+    "answer": "25 percent: 1/4 against 1/5 is a ratio of 5/4.",
+    "explanation": "The rate rises by the ratio of the old period to the new one, 5/4, which is a 25 percent increase - not the 20 percent by which the period fell."
+   },
+   "subject": "computer-organization-and-architecture",
+   "topic": "instruction-pipelining-and-hazards",
+   "path": "subjects/computer-organization-and-architecture/instruction-pipelining-and-hazards/throughput-efficiency-and-the-clock-rate-trade.json"
+  },
+  {
+   "videoRefs": [],
+   "prereqs": [
+    "ideal-timing-and-speedup-formula"
+   ],
+   "pyqIds": [
+    "gate-2020-q43-speedup-pipelined-nonpipelined",
+    "gate-2024-set-2-q58-speedup-with-hazard-stalls"
+   ],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "Chapter 10 - Principles of Pipelining (Basic Computer Architecture)",
+     "channel": "IIT Delhi, Prof. Smruti R. Sarangi (freely distributed book chapter)",
+     "url": "https://www.cse.iitd.ac.in/~srsarangi/archbook/chapters/pipelining.pdf",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "the whole 92-page chapter was read: the pipeline idea and its performance, the five stages, pipeline registers, data/control/structural hazards, software solutions, interlocks and bubbles, forwarding paths and conditions, interrupts, the performance equation, branch prediction, multiple issue and out-of-order execution"
+    }
+   ],
+   "sourceLine": "The performance equation, the ideal CPI and the stall model: Sarangi chapter 10, sections 10.9.1 to 10.9.3, including the two worked examples that give CPI 1.5 and compare 1.4 with 1.3 (English, read in full). The stall-count line used in the quick check: DSWallah Learn 'Pipeline Hazards & Stalls', romanised Hindi, translated (read in part).",
+   "id": "cpi-with-stalls-the-performance-equation",
+   "title": "CPI with Stalls: the Performance Equation GATE Actually Marks",
+   "priority": "P1",
+   "order": 550,
+   "unit": "Instruction Pipelining: Hazards, Stalls and Fixes",
+   "quickIdea": "A real pipeline is compared with CPI = ideal CPI + (stall rate x stall penalty) summed over the hazard classes, and the speed-up is the ratio of execution times - which is the ratio of CPIs only when both designs run at the same clock.",
+   "remember": [
+    "Execution time = CPI x instruction count / frequency (Sarangi equation 10.2). Every speed-up question is a ratio of two of these.",
+    "CPI = CPI_ideal + sum over hazard classes of (fraction of instructions x stall cycles each). Ideal CPI is 1 for a scalar pipeline that issues one instruction per cycle.",
+    "Speed-up = (CPI_old x T_old) / (CPI_new x T_new). The clock ratio matters, so a 2.5 GHz to 2 GHz redesign must be computed with times, not with CPIs alone.",
+    "Stall cycles are added, never averaged: 20 percent stalling 2 and 20 percent stalling 3 is 0.2 x 2 + 0.2 x 3 = 1.0 cycle per instruction, not 2.5.",
+    "Only the fraction of instructions that actually stalls pays; a hazard that applies to all instructions needs no fraction."
+   ],
+   "example": {
+    "prompt": "A non-pipelined processor runs at 2.5 GHz and takes 5 cycles per instruction. It is rebuilt as a 5-stage pipeline that can run only at 2 GHz. In a program, 30 percent of instructions are memory references and 5 percent of those stall 50 cycles on a cache miss; 10 percent are branches and 50 percent of those stall 2 cycles. What is the speed-up?",
+    "work": "Non-pipelined: 5 cycles at 2.5 GHz, so 5 x 0.4 = 2 ns per instruction. Pipelined CPI = 1 + (0.3 x 0.05 x 50) + (0.1 x 0.5 x 2) = 1 + 0.75 + 0.1 = 1.85 cycles, at 2 GHz that is 1.85 x 0.5 = 0.925 ns per instruction. Speed-up = 2 / 0.925 = 2.162.",
+    "answer": "2.16, the accepted answer of GATE CSE 2020 Q.43. Dividing the CPIs, 5/1.85 = 2.70, would be wrong because the clocks differ."
+   },
+   "gateAngle": "This is the highest-yield card in the topic. GATE CSE 2020 Q.43 gives stalls of two kinds and two clock rates; GATE CSE 2024 Set 2 Q.58 gives stalls of two kinds at one clock rate and expects 3.0; GATE CSE 2022 Q.61 gives a predictor accuracy instead of a stall count and expects 1.43.",
+   "variations": [
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "In the 2020 Q.43 program, what would the speed-up be if the cache-miss stall were 100 cycles instead of 50, everything else unchanged?",
+     "why": "It isolates the term that dominates the answer and shows how little the branch term matters.",
+     "answer": "CPI = 1 + 0.3 x 0.05 x 100 + 0.1 = 1 + 1.5 + 0.1 = 2.6; time 2.6 x 0.5 = 1.3 ns; speed-up 2/1.3 = 1.54. Doubling the miss penalty cut the speed-up from 2.16 to 1.54, because 1.5 of the 2.6 cycles are now memory stalls."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why must the ideal CPI of 1 be added before the stall terms, and not after the speed-up is computed?",
+     "why": "It is the single most common arithmetic error in this question family.",
+     "answer": "Because the pipeline still spends one cycle on every instruction that does not stall. A program where 20 percent stall 2 and 20 percent stall 3 has CPI 1 + 0.4 + 0.6 = 2, not 1.0; using 1.0 as the pipelined CPI doubles the apparent speed-up."
+    }
+   ],
+   "trap": {
+    "what": "Taking the ratio of CPIs when the two designs run at different frequencies.",
+    "why": "Execution time is CPI divided by frequency, so the frequency enters as well. Ignoring it silently assumes the rebuild was free.",
+    "counterexample": "2020 Q.43: CPI ratio 5/1.85 = 2.70 against the true 2.16, because the pipelined machine lost 20 percent of its clock rate."
+   },
+   "check": {
+    "question": "A 5-stage pipeline has ideal CPI 1. Twenty percent of instructions stall 2 cycles for data hazards and 20 percent stall 3 cycles for control hazards, at the same clock as the non-pipelined machine whose CPI is 6. What is the speed-up?",
+    "answer": "3.0: pipelined CPI = 1 + 0.4 + 0.6 = 2, and 6/2 = 3.",
+    "explanation": "This is GATE CSE 2024 Set 2 Q.58 in words; the fractions are multiplied by the stall each class causes and added to the base cycle."
+   },
+   "subject": "computer-organization-and-architecture",
+   "topic": "instruction-pipelining-and-hazards",
+   "path": "subjects/computer-organization-and-architecture/instruction-pipelining-and-hazards/cpi-with-stalls-the-performance-equation.json"
+  },
+  {
+   "videoRefs": [],
+   "prereqs": [
+    "pipeline-idea-and-the-space-time-diagram"
+   ],
+   "pyqIds": [
+    "gate-2026-set-1-q60-structural-hazard-ex-stalls"
+   ],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "Chapter 10 - Principles of Pipelining (Basic Computer Architecture)",
+     "channel": "IIT Delhi, Prof. Smruti R. Sarangi (freely distributed book chapter)",
+     "url": "https://www.cse.iitd.ac.in/~srsarangi/archbook/chapters/pipelining.pdf",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "the whole 92-page chapter was read: the pipeline idea and its performance, the five stages, pipeline registers, data/control/structural hazards, software solutions, interlocks and bubbles, forwarding paths and conditions, interrupts, the performance equation, branch prediction, multiple issue and out-of-order execution"
+    }
+   ],
+   "sourceLine": "Definition 71 and the worked memory-port example, with the statement that the SimpleRisc pipeline has no structural hazards: Sarangi chapter 10, section 10.4.4 (English, read in full). The three hazard classes with a remedy each: DSWallah Learn 'Pipeline Hazards & Stalls', romanised Hindi, translated (read in part).",
+   "id": "structural-hazards",
+   "title": "Structural Hazards: When Two Instructions Want One Unit",
+   "priority": "P2",
+   "order": 551,
+   "unit": "Instruction Pipelining: Hazards, Stalls and Fixes",
+   "quickIdea": "A structural hazard is a resource conflict: two instructions in different stages need the same unit in the same cycle and the unit can serve only one. It is a property of the hardware, not of the program's data, and it is fixed by adding hardware or by stalling.",
+   "remember": [
+    "Sarangi's definition 71: a structural hazard is the possibility of instructions not executing because of resource constraints - several instructions wanting one functional unit in one cycle.",
+    "The two classic cases: a single memory port wanted by IF and MA in the same cycle, and a functional unit that needs several cycles for some instructions while the stage is designed for one.",
+    "Fixes: split instruction and data memories (the Harvard split), duplicate the unit, pipeline the unit internally, or stall one of the two instructions.",
+    "A variable-length stage is a structural hazard in time: if an instruction holds EX for c cycles, the instruction behind it loses c - 1 cycles. Total stalls = sum over instruction types of (ceil(t / clock) - 1) x count.",
+    "A well-built 5-stage pipeline with separate instruction and data memories and a three-port register file has no structural hazards at all, which is why GATE tests them through multi-cycle functional units instead."
+   ],
+   "example": {
+    "prompt": "In a pipelined processor the EX stage is a single unit with a 1 ns clock. Of 100 instructions, LOAD takes 1.8 ns in EX (15 of them), IMUL 1.5 ns (10), IDIV 2.5 ns (5), FADD 1.7 ns (10), FSUB 1.7 ns (5), FMUL 2.8 ns (15), FDIV 3.2 ns (5), and the remaining 35 take under 1 ns. How many cycles is the pipeline stalled because of structural hazards in EX?",
+    "work": "Each instruction occupies EX for ceil(t) cycles at a 1 ns clock and delays the next by ceil(t) - 1. LOAD, IMUL, FADD and FSUB take 2 cycles so cost 1 stall each; IDIV and FMUL take 3 so cost 2 each; FDIV takes 4 so costs 3. The total is 15 + 10 + 2x5 + 10 + 5 + 2x15 + 3x5 = 15 + 10 + 10 + 10 + 5 + 30 + 15 = 95.",
+    "answer": "95 stall cycles, the accepted answer of GATE CSE 2026 Set 1 Q.60."
+   },
+   "gateAngle": "GATE CSE 2026 Set 1 Q.60 is the pure structural-hazard question: a multi-cycle EX unit, a table of instruction types, and a request for the number of stalled cycles. GATE CSE 2018 Q.50 is the same idea with the stage occupancy given directly instead of the time, and its 115 extra cycles are the same arithmetic.",
+   "variations": [
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "In the 2026 Set 1 table, the EX stage is replaced by a pipelined unit that accepts a new instruction every cycle. What becomes of the 95 stall cycles?",
+     "why": "It shows that the hazard was a property of the unit, not of the instruction mix, and that the fix is hardware.",
+     "answer": "They fall to zero: a pipelined multiplier or divider keeps the stage busy internally and lets a new instruction enter each cycle. The latency of an FDIV is unchanged at 3.2 ns, but it no longer blocks the stage, so the 95 cycles of throughput are recovered without changing any instruction."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why does a single memory port create a structural hazard in a 5-stage pipeline, and what removes it?",
+     "why": "It is the textbook case and the one students mislabel as a data hazard.",
+     "answer": "Because IF reads an instruction every cycle while MA reads or writes data, and in the steady state both want memory in the same cycle. Separate instruction and data caches or memories remove the conflict; a single unified cache would need a stall every time an instruction fetch and a data access coincide."
+    }
+   ],
+   "trap": {
+    "what": "Counting ceil(t) cycles per instruction as the stall instead of ceil(t) - 1.",
+    "why": "The instruction occupies the stage for ceil(t) cycles, but only the cycles beyond the first are lost to the pipeline, because the first cycle is the one the stage was going to be busy with anyway.",
+    "counterexample": "2026 Set 1 Q.60: using the occupancies 2, 2, 3, 2, 2, 3 and 4 gives 15x2 + 10x2 + 5x3 + 10x2 + 5x2 + 15x3 + 5x4 = 160, against the accepted 95. The overcount is 65, exactly the number of instructions in the program that need more than one cycle in EX."
+   },
+   "check": {
+    "question": "In a 40-instruction program the EX unit takes 2 cycles for 10 instructions and 1 cycle for the rest. How many stall cycles does EX cause?",
+    "answer": "10 cycles: each of the 10 long instructions costs one extra cycle.",
+    "explanation": "ceil(2) - 1 = 1 per long instruction, and the other 30 take one cycle so cost nothing."
+   },
+   "subject": "computer-organization-and-architecture",
+   "topic": "instruction-pipelining-and-hazards",
+   "path": "subjects/computer-organization-and-architecture/instruction-pipelining-and-hazards/structural-hazards.json"
+  },
+  {
+   "videoRefs": [],
+   "prereqs": [
+    "pipeline-idea-and-the-space-time-diagram"
+   ],
+   "pyqIds": [
+    "gate-2026-set-1-q16-read-after-write-hazard",
+    "gate-2024-set-2-q31-dependency-classification"
+   ],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "Chapter 10 - Principles of Pipelining (Basic Computer Architecture)",
+     "channel": "IIT Delhi, Prof. Smruti R. Sarangi (freely distributed book chapter)",
+     "url": "https://www.cse.iitd.ac.in/~srsarangi/archbook/chapters/pipelining.pdf",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "the whole 92-page chapter was read: the pipeline idea and its performance, the five stages, pipeline registers, data/control/structural hazards, software solutions, interlocks and bubbles, forwarding paths and conditions, interrupts, the performance equation, branch prediction, multiple issue and out-of-order execution"
+    }
+   ],
+   "sourceLine": "RAW as the true dependence, WAR and WAW as name collisions that an in-order pipeline cannot trip over, and renaming as their fix: Sarangi chapter 10, section 10.4.2 and 10.11.4 (English, read in full). The RAW/WAR/WAW table with an example of each: DSWallah Learn 'Pipeline Hazards & Stalls', romanised Hindi, translated (read in part).",
+   "id": "data-hazard-types-raw-war-waw",
+   "title": "Data Hazards: RAW, WAR and WAW, and Which Ones Actually Stall",
+   "priority": "P1",
+   "order": 552,
+   "unit": "Instruction Pipelining: Hazards, Stalls and Fixes",
+   "quickIdea": "Three name collisions are possible between instructions: RAW (a later instruction reads what an earlier one writes - a true dependence), WAR (a later instruction writes what an earlier one reads - an anti-dependence) and WAW (two writes to one register - an output dependence). In an in-order pipeline only RAW can go wrong.",
+   "remember": [
+    "RAW is the true dependence: the value must exist before it is read, so the reader must wait or the value must be forwarded.",
+    "In an in-order pipeline a preceding instruction is always ahead of a succeeding one, so every read happens before any later write: WAR and WAW cannot produce a wrong value and do not stall.",
+    "WAR and WAW become real in out-of-order and multiple-issue machines, where a later instruction may pass an earlier one; register renaming removes them.",
+    "Classify a pair by the earlier access first: write then read is RAW, read then write is WAR, write then write is WAW, read then read is nothing at all.",
+    "GATE CSE 2026 Set 1 Q.16 asks which of the four dependencies can cause a data hazard: only read-after-write."
+   ],
+   "example": {
+    "prompt": "I1: DIV R3, R1, R2; I2: SUB R5, R3, R4; I3: ADD R3, R5, R6; I4: MUL R7, R3, R8. Which statements hold - RAW on R3 between I1 and I2, WAR on R3 between I1 and I3, RAW on R3 between I2 and I3, WAW on R3 between I3 and I4?",
+    "work": "Write R3 sets: I1 writes, I2 reads, I3 writes, I4 reads. I1 writes then I2 reads: RAW, true. I1 writes and I3 writes: WAW, so the WAR claim is false. I2 reads and I3 writes: that is WAR, so the RAW claim is false. I3 writes and I4 reads: RAW, so the WAW claim is false.",
+    "answer": "Only the first statement is true, the accepted answer of GATE CSE 2024 Set 2 Q.31."
+   },
+   "gateAngle": "Two shapes recur. One gives a sequence and asks which dependence of each kind exists (2024 Set 2 Q.31, 2015 Set 3 Q.47). The other asks abstractly which dependence is a hazard at all (2026 Set 1 Q.16, answer RAW). Both are answered by writing the read set and the write set of every instruction in program order.",
+   "variations": [
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "In the same sequence, add I5: ADD R3, R1, R2 at the end. What new dependences on R3 appear, and which would matter in an out-of-order machine?",
+     "why": "It separates the true dependence from the name collisions, which is the point of the classification.",
+     "answer": "I4 reads R3 and I5 writes R3: WAR. I3 writes R3 and I5 writes R3: WAW. Neither stalls an in-order pipeline. In an out-of-order machine both could reorder into a wrong result and are removed by renaming R3 for I5; the true dependences I1 to I2 and I3 to I4 remain regardless."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why is read-after-read never a hazard, however many instructions read the same register?",
+     "why": "It closes the obvious fourth case so that the student does not hesitate in the exam.",
+     "answer": "Because reading does not change the register: any number of readers can read the same value in any order and each gets the same answer. Nothing has to wait, and nothing can be wrong."
+    }
+   ],
+   "trap": {
+    "what": "Calling two writes to the same register a WAR because the pair looks reversed.",
+    "why": "WAR requires the earlier instruction to read; if both write, the dependence is WAW. Reading the earlier instruction's access first is the only reliable rule.",
+    "counterexample": "GATE CSE 2024 Set 2 Q.31 option B calls I1 (writes R3) to I3 (writes R3) a WAR; it is WAW, and that is exactly why the option is false."
+   },
+   "check": {
+    "question": "I1: ADD R1, R2, R3; I2: MUL R7, R1, R3; I3: ADD R3, R2, R4. Name every dependence on R3.",
+    "answer": "I1 writes and I2 reads R3: RAW. I2 reads and I3 writes R3: WAR. I1 writes and I3 writes: WAW.",
+    "explanation": "One register, three accesses in the order write, read, write: the first pair is RAW, the second WAR, the outer pair WAW."
+   },
+   "subject": "computer-organization-and-architecture",
+   "topic": "instruction-pipelining-and-hazards",
+   "path": "subjects/computer-organization-and-architecture/instruction-pipelining-and-hazards/data-hazard-types-raw-war-waw.json"
+  },
+  {
+   "videoRefs": [],
+   "prereqs": [
+    "data-hazard-types-raw-war-waw"
+   ],
+   "pyqIds": [
+    "gate-2024-set-1-q30-forwarding-statements"
+   ],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "Chapter 10 - Principles of Pipelining (Basic Computer Architecture)",
+     "channel": "IIT Delhi, Prof. Smruti R. Sarangi (freely distributed book chapter)",
+     "url": "https://www.cse.iitd.ac.in/~srsarangi/archbook/chapters/pipelining.pdf",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "the whole 92-page chapter was read: the pipeline idea and its performance, the five stages, pipeline registers, data/control/structural hazards, software solutions, interlocks and bubbles, forwarding paths and conditions, interrupts, the performance equation, branch prediction, multiple issue and out-of-order execution"
+    }
+   ],
+   "sourceLine": "The forwarding concept, the EX/MEM and MEM/WB paths, the forwarding conditions and the hardware they need: Sarangi chapter 10, sections 10.7.1 to 10.7.5 (English, read in full). The stall-count line - 2 without forwarding, 0 with EX forwarding, 1 for load-use - and the statement that load-use cannot be avoided: DSWallah Learn 'Pipeline Hazards & Stalls', romanised Hindi, translated (read in part).",
+   "id": "forwarding-and-its-limits",
+   "title": "Forwarding: What It Fixes, What It Cannot, and What It Costs",
+   "priority": "P1",
+   "order": 553,
+   "unit": "Instruction Pipelining: Hazards, Stalls and Fixes",
+   "quickIdea": "Forwarding wires a result from the stage that produced it straight to the stage that needs it, so a dependent instruction need not wait for write-back. It removes most RAW stalls but not all: a load's data appears only at the end of MEM, so the instruction right behind a load still waits one cycle.",
+   "remember": [
+    "The two paths in a 5-stage pipeline are EX/MEM output to EX input (an ALU result, ready at the end of EX) and MEM/WB output to EX input (a loaded word, ready at the end of MEM).",
+    "The forwarding unit compares the destination register in EX/MEM and in MEM/WB with the source registers of the instruction in EX, and drives input multiplexers on a match.",
+    "It costs hardware: bypass wires, input multiplexers and comparison logic. 'Forwarding needs no extra hardware' is false.",
+    "It cannot help a load-use pair, cannot remove a control hazard, and cannot resolve a structural conflict. 'Forwarding prevents all stalls' is false.",
+    "With full forwarding a RAW pair costs 0 extra cycles in the 5-stage pipeline; the load-use pair costs exactly 1."
+   ],
+   "example": {
+    "prompt": "Which of these statements about forwarding in a 5-stage pipeline are correct? (A) a result from a source stage of an earlier instruction is passed to the destination stage of a later one; (B) data from the output of MEM can be passed to the input of EX of the next instruction; (C) forwarding cannot prevent all pipeline stalls; (D) forwarding needs no extra hardware.",
+    "work": "A is the definition of forwarding, so true. B is the MEM-to-EX path that serves a load followed immediately by a use, so true - it is the path that turns a 2-cycle wait into a 1-cycle one. C is true because the load-use pair still needs a bubble and control and structural hazards are untouched. D is false: bypass paths, multiplexers and a forwarding control unit are added.",
+    "answer": "A, B and C are correct and D is not, the accepted answer of GATE CSE 2024 Set 1 Q.30."
+   },
+   "gateAngle": "The exam tests the boundary of forwarding rather than its definition. GATE CSE 2024 Set 1 Q.30 offers four statements and expects A, B and C; the load-use case is the reason C holds and is asked on its own in other years. Every 'how many stalls' question is really asking which of the paths is available.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "ADD R1, R2, R3; ADD R4, R1, R5; ADD R6, R1, R7; ADD R8, R1, R9. With EX-to-EX and MEM-to-EX forwarding, how many stalls does the block need in a 5-stage pipeline?",
+     "why": "It tests whether the student applies forwarding to several readers rather than to one pair.",
+     "answer": "None. I1's result is ready at the end of its EX cycle, which is the cycle in which I2 is in EX, so the EX-to-EX path feeds I2, and the same path feeds I3 and I4 from I1's EX/MEM register. Zero stalls, because the producer is an ALU operation and the distance is at least one."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why can a loaded value not be forwarded to the very next instruction without a stall, even though the path exists?",
+     "why": "It is the single fact that makes statement C of the 2024 question true.",
+     "answer": "Because the word comes out of data memory at the end of the MEM stage, while the consumer needs it at the start of its own EX stage - and that EX stage is the same cycle in which the load is in MEM. The value is not there yet at the start of the cycle, so one cycle must pass and one bubble is inserted."
+    }
+   ],
+   "trap": {
+    "what": "Saying forwarding removes all data stalls.",
+    "why": "The load-use pair needs a cycle that no wire can supply, because the data does not exist early enough. Control hazards and structural conflicts are outside forwarding's reach entirely.",
+    "counterexample": "LOAD R1, [A] then ADD R2, R1, R3: with full forwarding this still costs 1 stall, which is the number GATE CSE 2024 Set 1 Q.30 statement C asserts."
+   },
+   "check": {
+    "question": "A sequence has 5 RAW pairs of which one is a load-use pair, and the pipeline has full forwarding. How many stall cycles does the sequence need?",
+    "answer": "1 cycle, from the load-use pair alone.",
+    "explanation": "The four ALU-to-ALU pairs are covered by the EX/MEM path at zero cost; only the load-use pair pays its unavoidable single cycle."
+   },
+   "subject": "computer-organization-and-architecture",
+   "topic": "instruction-pipelining-and-hazards",
+   "path": "subjects/computer-organization-and-architecture/instruction-pipelining-and-hazards/forwarding-and-its-limits.json"
+  },
+  {
+   "videoRefs": [],
+   "prereqs": [
+    "forwarding-and-its-limits"
+   ],
+   "pyqIds": [
+    "gate-2018-q50-variable-po-stage-cycles"
+   ],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "Chapter 10 - Principles of Pipelining (Basic Computer Architecture)",
+     "channel": "IIT Delhi, Prof. Smruti R. Sarangi (freely distributed book chapter)",
+     "url": "https://www.cse.iitd.ac.in/~srsarangi/archbook/chapters/pipelining.pdf",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "the whole 92-page chapter was read: the pipeline idea and its performance, the five stages, pipeline registers, data/control/structural hazards, software solutions, interlocks and bubbles, forwarding paths and conditions, interrupts, the performance equation, branch prediction, multiple issue and out-of-order execution"
+    }
+   ],
+   "sourceLine": "The interlock and its data-lock unit, the branch-lock unit, and bubbles inserted by clearing control signals: Sarangi chapter 10, sections 10.6.1 to 10.6.3 (English, read in full). The stall counts of 2, 0 and 1 for the three RAW situations: DSWallah Learn 'Pipeline Hazards & Stalls', romanised Hindi, translated (read in part).",
+   "id": "stalls-interlocks-and-bubbles",
+   "title": "Stalls, Interlocks and Bubbles: Counting the Cycles",
+   "priority": "P1",
+   "order": 554,
+   "unit": "Instruction Pipelining: Hazards, Stalls and Fixes",
+   "quickIdea": "When the value cannot arrive in time, the interlock freezes the front of the pipeline and inserts a bubble: the dependent instruction repeats a stage while everything behind it waits. A bubble costs one cycle of throughput and shows in the diagram as an empty column.",
+   "remember": [
+    "The data-lock unit detects a RAW pair whose distance is smaller than the available forwarding allows, and holds the PC and the front-end registers for the cycles needed.",
+    "Load-use in the 5-stage pipeline costs exactly 1 bubble; a RAW pair with no forwarding path costs 2.",
+    "A bubble is made by clearing the control signals of the stage it occupies, so it changes no architectural state.",
+    "When every stall is at the front, total cycles = (k + n - 1) + total stall cycles.",
+    "When a stage is variable-length instead, the stage never idles: total cycles = (fill) + (sum of the stage's occupancies) + (drain), which is why (k + n - 1) alone fails on GATE CSE 2018 Q.50."
+   ],
+   "example": {
+    "prompt": "A 5-stage RISC pipeline has IF, ID, OF, PO, WB, where IF, ID, OF and WB take 1 cycle each and PO takes 3 cycles for 40 instructions, 2 for 35 and 1 for the remaining 25. With no data or control hazards, how many cycles does the sequence of 100 instructions need?",
+    "work": "The PO unit is the bottleneck and never idles once it starts. Its total occupancy is 40x3 + 35x2 + 25x1 = 120 + 70 + 25 = 215 cycles. Before the first instruction reaches PO, IF, ID and OF take 3 cycles; after the last leaves PO, WB takes 1. Total = 3 + 215 + 1 = 219. Equivalently (5 + 100 - 1) + (40x2 + 35x1) = 104 + 115 = 219.",
+    "answer": "219 cycles, the accepted answer of GATE CSE 2018 Q.50."
+   },
+   "gateAngle": "There are two distinct counting questions and they must not be mixed. Stall-at-the-front questions add bubbles to (k + n - 1); variable-stage questions add the stage's extra occupancy, 115 here, to the same base. GATE CSE 2018 Q.50 is the second kind, and 2026 Set 1 Q.60 counts the same extra occupancy as 'structural hazard stalls'.",
+   "variations": [
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "In the 2018 Q.50 sequence, what changes if the 40 three-cycle instructions are made one cycle each by a pipelined PO unit?",
+     "why": "It separates the two counting methods by removing the bottleneck instead of adding stalls.",
+     "answer": "PO occupancy becomes 100, so the total is 3 + 100 + 1 = 104, exactly (k + n - 1). The 115 extra cycles were the price of the multi-cycle unit, not of any dependence in the program."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why does inserting a bubble not change the result of the program?",
+     "why": "It answers the natural worry that a stall is a wasted instruction rather than a delayed one.",
+     "answer": "Because a bubble has its control signals cleared, so it writes no register, touches no memory and raises no exception. It occupies a stage for a cycle and then disappears; the dependent instruction executes again in the next cycle and reads the value that has by then arrived."
+    }
+   ],
+   "trap": {
+    "what": "Averaging the variable stage and then using (k + n - 1).",
+    "why": "The average occupancy hides the fact that the stage is busy continuously; the correct total is the sum of occupancies plus fill and drain, and the average-based formula gives 104 + something arbitrary.",
+    "counterexample": "2018 Q.50 with average PO 2.15 cycles: the naive route gives 6.15 + 99 x 2.15 = 219 only if done carefully, and most shortcuts give 104 or 215 instead of the accepted 219."
+   },
+   "check": {
+    "question": "A 5-stage pipeline runs 20 instructions with 3 load-use bubbles. How many cycles does it take?",
+    "answer": "5 + 20 - 1 + 3 = 27 cycles.",
+    "explanation": "The base pipeline is k + n - 1 = 24; each bubble is one more column, so the stalls are added, not multiplied."
+   },
+   "visual": "computer-organization-and-architecture/instruction-pipelining-and-hazards/load-use-bubble-and-branch-penalty",
+   "subject": "computer-organization-and-architecture",
+   "topic": "instruction-pipelining-and-hazards",
+   "path": "subjects/computer-organization-and-architecture/instruction-pipelining-and-hazards/stalls-interlocks-and-bubbles.json"
+  },
+  {
+   "videoRefs": [],
+   "prereqs": [
+    "data-hazard-types-raw-war-waw"
+   ],
+   "pyqIds": [
+    "gate-2012-q20-register-renaming",
+    "gate-2015-set-3-q47-anti-dependence-statements"
+   ],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "Chapter 10 - Principles of Pipelining (Basic Computer Architecture)",
+     "channel": "IIT Delhi, Prof. Smruti R. Sarangi (freely distributed book chapter)",
+     "url": "https://www.cse.iitd.ac.in/~srsarangi/archbook/chapters/pipelining.pdf",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "the whole 92-page chapter was read: the pipeline idea and its performance, the five stages, pipeline registers, data/control/structural hazards, software solutions, interlocks and bubbles, forwarding paths and conditions, interrupts, the performance equation, branch prediction, multiple issue and out-of-order execution"
+    }
+   ],
+   "sourceLine": "Software solutions to RAW and control hazards, and register renaming as the removal of WAW and WAR: Sarangi chapter 10, sections 10.5.1, 10.5.2 and 10.11.4 (English, read in full). Compiler scheduling, delay slots and renaming listed as remedies: DSWallah Learn 'Pipeline Hazards & Stalls', romanised Hindi, translated (read in part).",
+   "id": "software-fixes-scheduling-and-register-renaming",
+   "title": "Software Fixes: Scheduling and Register Renaming",
+   "priority": "P2",
+   "order": 555,
+   "unit": "Instruction Pipelining: Hazards, Stalls and Fixes",
+   "quickIdea": "The compiler can move an independent instruction into the gap a hazard would leave, and the hardware or the compiler can rename registers so that two instructions which merely reuse a name no longer collide. Both reduce stalls without changing what the program computes.",
+   "remember": [
+    "Instruction scheduling reorders independent instructions to cover latency - the load-use gap, or the branch delay slots - and needs no hardware change.",
+    "Register renaming maps the architectural registers onto a larger set of physical registers, so a later write goes to a different physical register and WAR and WAW disappear.",
+    "Renaming removes false dependences only. A true dependence, RAW, survives renaming because the value really is needed.",
+    "Renaming is the standard answer to 'what handles certain kinds of hazards' (GATE CSE 2012 Q.20, answer: to handle certain kinds of hazards).",
+    "An anti-dependence does not always stall an in-order pipeline, because the read happens in ID long before any later write reaches WB - which is why 'an anti-dependence always creates one or more stalls' is false (GATE CSE 2015 Set 3 Q.47)."
+   ],
+   "example": {
+    "prompt": "For I1: ADD R1, R2, R3; I2: MUL R7, R1, R3; I3: SUB R4, R1, R5; I4: ADD R3, R2, R4; I5: MUL R7, R8, R9, decide whether S1 (anti-dependence between I2 and I5), S2 (anti-dependence between I2 and I4) and S3 (an anti-dependence always creates one or more stalls) hold.",
+    "work": "I2 reads R1 and R3 and writes R7; I5 writes R7 and reads R8 and R9, so I2 to I5 is write-after-write, an output dependence, not anti. I2 reads R3 and I4 writes R3, so I2 to I4 is write-after-read: an anti-dependence, true. S3 fails on two counts: in an in-order pipeline the read in ID precedes any later write in WB, and renaming removes the dependence altogether.",
+    "answer": "Only S2 is true, the accepted answer of GATE CSE 2015 Set 3 Q.47."
+   },
+   "gateAngle": "GATE asks this in two ways: a definition question about what renaming is for (2012 Q.20) and a statement question where the word 'always' is the trap (2015 Set 3 Q.47). The reasoning is the same: decide whether the pair is RAW, WAR or WAW, then ask whether that kind of dependence can hurt this pipeline.",
+   "variations": [
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "A compiler cannot fill the gap after a load because no independent instruction is available. What else can it do, and what does that cost?",
+     "why": "It shows scheduling is one of a family of fixes, and that the fallback is the hardware stall.",
+     "answer": "It can rename registers or reschedule a different block, but if nothing independent exists the load-use bubble remains: the processor inserts it. The cost is one cycle of throughput per occurrence, exactly the stall the hardware would have produced without any scheduling attempt."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why does renaming not help a RAW hazard?",
+     "why": "It is the boundary between removing a name collision and removing a real dependence.",
+     "answer": "Because the second instruction needs the value the first produces. Renaming gives the writer a new physical register but the reader still has to read that same new register, so the dependence is carried along with the renaming rather than dissolved by it."
+    }
+   ],
+   "trap": {
+    "what": "Thinking renaming removes stalls caused by true dependences.",
+    "why": "Renaming acts on the names, and a true dependence is about the value. A pipeline still waits for the producer of a value it needs.",
+    "counterexample": "LOAD R1, [A]; ADD R2, R1, R3 with every register renamed: the pair still needs its one bubble, because the loaded word is not available at the start of the consumer's EX cycle."
+   },
+   "check": {
+    "question": "Two instructions write the same register in program order. Name the dependence, say whether it stalls an in-order pipeline, and say what removes it in an out-of-order one.",
+    "answer": "WAW, an output dependence; it does not stall an in-order pipeline; register renaming removes it out of order.",
+    "explanation": "In order, the first write completes before the second begins, so the final value is correct; out of order the second could finish first, and renaming gives each write its own physical register."
+   },
+   "subject": "computer-organization-and-architecture",
+   "topic": "instruction-pipelining-and-hazards",
+   "path": "subjects/computer-organization-and-architecture/instruction-pipelining-and-hazards/software-fixes-scheduling-and-register-renaming.json"
+  },
+  {
+   "videoRefs": [],
+   "prereqs": [
+    "pipeline-idea-and-the-space-time-diagram"
+   ],
+   "pyqIds": [
+    "gate-2013-q45-branch-penalty-taken-branch"
+   ],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "Chapter 10 - Principles of Pipelining (Basic Computer Architecture)",
+     "channel": "IIT Delhi, Prof. Smruti R. Sarangi (freely distributed book chapter)",
+     "url": "https://www.cse.iitd.ac.in/~srsarangi/archbook/chapters/pipelining.pdf",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "the whole 92-page chapter was read: the pipeline idea and its performance, the five stages, pipeline registers, data/control/structural hazards, software solutions, interlocks and bubbles, forwarding paths and conditions, interrupts, the performance equation, branch prediction, multiple issue and out-of-order execution"
+    }
+   ],
+   "sourceLine": "The predict-not-taken scheme, the two cancelled instructions, delay slots and the growth of the penalty with depth: Sarangi chapter 10, sections 10.4.3, 10.5.2 and 10.11.1 (English, read in full). The control-hazard penalty line and the remedy list: DSWallah Learn 'Pipeline Hazards & Stalls', romanised Hindi, translated (read in part).",
+   "id": "control-hazards-and-the-branch-penalty",
+   "title": "Control Hazards and the Branch Penalty",
+   "priority": "P1",
+   "order": 556,
+   "unit": "Instruction Pipelining: Hazards, Stalls and Fixes",
+   "quickIdea": "A branch decides the next PC late - in the classic 5-stage pipeline at the end of EX - while the fetch unit has already brought in the next two instructions. If the branch is taken those two are wrong and are flushed, which is a penalty of 2 cycles.",
+   "remember": [
+    "The branch penalty is the number of instructions fetched after the branch before the outcome is known: 2 in the 5-stage pipeline that resolves the branch in EX.",
+    "The three treatments: stall until the decision is known; predict not taken and flush the two on a taken branch; use delayed branching, where the delay slots are always executed.",
+    "With predict-not-taken the two instructions after the branch are fetched and cancelled only if the branch is taken; the loss is those two cycles, and no data-path change is needed.",
+    "A taken branch with penalty 2 turns (k + n - 1) into (k + n - 1) + 2 for a single-branch program - or, more safely, count the columns of the diagram.",
+    "The penalty grows with depth: 2 cycles at 5 stages, more than 20 at modern depths, which is why prediction is unavoidable in real processors."
+   ],
+   "example": {
+    "prompt": "A 5-stage pipeline has stages FI, DI, FO, EI and WO with delays 5, 7, 10, 8 and 6 ns and a 1 ns buffer after each stage. Twelve instructions run, I4 is the only branch and its target is I9, and the branch is taken. How long does the program take?",
+    "work": "Cycle time = max(5, 7, 10, 8, 6) + 1 = 11 ns. The branch resolves at the end of I4's EI stage, which is cycle 7, so I5, I6 and I7 have been fetched and are cancelled and I9's fetch starts in cycle 8. The diagram has I1 to I4 in cycles 1 to 8 and I9 to I12 running to cycle 15, so 15 columns. 15 x 11 = 165 ns.",
+    "answer": "165 ns, the accepted answer of GATE CSE 2013 Q.45 (option B)."
+   },
+   "gateAngle": "GATE CSE 2013 Q.45 is the canonical form: a stage table, a buffer delay, a branch in the middle and a target, and the answer is a column count. GATE CSE 2022 Q.61 replaces the single branch with a branch frequency and a predictor accuracy, which is the same penalty applied statistically.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "In the 2013 pipeline above, how many cycles would the program take if the branch were not taken?",
+     "why": "It isolates the penalty by removing the flush while keeping everything else identical.",
+     "answer": "Twelve instructions on 5 stages with no stalls is 5 + 12 - 1 = 16 columns, so 176 ns - one column more than the taken case, because the taken branch skips I5 to I8 and the program is shorter in instructions executed."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why is the penalty 2 cycles and not 1 or 3 in this pipeline?",
+     "why": "It forces the student to locate the branch resolution stage, which is what sets the number.",
+     "answer": "Because the branch condition is evaluated in EX, so two instructions (those fetched in the two cycles before the decision) have entered the pipeline and must be discarded. Move the comparator into ID and the penalty falls to 1; add a stage before EX and it rises."
+    }
+   ],
+   "trap": {
+    "what": "Treating the flushed instructions as if they had never been fetched.",
+    "why": "They occupied the pipeline for the cycles in question, and those cycles are part of the elapsed time even though no useful work came out of them.",
+    "counterexample": "2013 Q.45: the flushed I5, I6 and I7 make the program 15 columns long instead of the 12 an 'only count useful instructions' reading would suggest."
+   },
+   "check": {
+    "question": "A 5-stage pipeline resolves branches in EX. Instructions I1, I2, I3 (branch to I6), I4, I5, I6 run and the branch is taken. How many cycles does the program take?",
+    "answer": "10 cycles: I1 finishes at cycle 5, I3 at cycle 7, and I6 runs from cycle 6 to cycle 10.",
+    "explanation": "I4 and I5 are fetched in cycles 4 and 5 and cancelled when I3's EX stage in cycle 5 decides the branch; I6 is fetched in cycle 6 and its WB is cycle 10."
+   },
+   "visual": "computer-organization-and-architecture/instruction-pipelining-and-hazards/load-use-bubble-and-branch-penalty",
+   "subject": "computer-organization-and-architecture",
+   "topic": "instruction-pipelining-and-hazards",
+   "path": "subjects/computer-organization-and-architecture/instruction-pipelining-and-hazards/control-hazards-and-the-branch-penalty.json"
+  },
+  {
+   "videoRefs": [],
+   "prereqs": [
+    "control-hazards-and-the-branch-penalty"
+   ],
+   "pyqIds": [
+    "gate-2022-q61-branch-predictor-speedup"
+   ],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "Chapter 10 - Principles of Pipelining (Basic Computer Architecture)",
+     "channel": "IIT Delhi, Prof. Smruti R. Sarangi (freely distributed book chapter)",
+     "url": "https://www.cse.iitd.ac.in/~srsarangi/archbook/chapters/pipelining.pdf",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "the whole 92-page chapter was read: the pipeline idea and its performance, the five stages, pipeline registers, data/control/structural hazards, software solutions, interlocks and bubbles, forwarding paths and conditions, interrupts, the performance equation, branch prediction, multiple issue and out-of-order execution"
+    }
+   ],
+   "sourceLine": "Branch prediction, the 2-cycle penalty it hides, speculative instructions and the target buffer: Sarangi chapter 10, section 10.11.1 (English, read in full). The prediction strategies - static, 1-bit and 2-bit counters, BTB - and the penalty range: DSWallah Learn 'Pipeline Hazards & Stalls', romanised Hindi, translated (read in part).",
+   "id": "branch-prediction-and-its-payoff",
+   "title": "Branch Prediction and Its Payoff",
+   "priority": "P1",
+   "order": 557,
+   "unit": "Instruction Pipelining: Hazards, Stalls and Fixes",
+   "quickIdea": "If the fetch unit guesses the branch direction it can keep fetching without waiting: a correct guess costs nothing and a wrong one costs the flush. Prediction therefore turns a fixed 2-cycle penalty into (1 - accuracy) x penalty on average.",
+   "remember": [
+    "Static prediction: predict not taken (fetch p + 4, p + 8) or predict taken with the target computed early. Cheap, and right for loops only part of the time.",
+    "Dynamic prediction: a per-branch counter, 1-bit or 2-bit saturating, predicts the recent outcome; a branch target buffer caches the target so it is available at fetch.",
+    "Expected stall per branch = (1 - accuracy) x penalty, when a hit costs nothing and a miss costs the whole penalty.",
+    "CPI = 1 + branch fraction x expected stall per branch. The speed-up from adding a predictor is the ratio of the two CPIs when the clock is unchanged.",
+    "Prediction never removes the cost of a misprediction; it moves the cost from every branch to the fraction that is mispredicted, and speculative instructions must be discardable."
+   ],
+   "example": {
+    "prompt": "Processor X1 at 2 GHz has a 5-stage RISC pipeline with base CPI 1. In program P, 30 percent of instructions are branches and each branch stalls 2 cycles. X2 runs at the same clock and adds a branch predictor that removes the stall on a correct prediction and gives no saving and no extra penalty on a wrong one. With 80 percent accuracy, what is the speed-up of X2 over X1?",
+    "work": "X1: CPI = 1 + 0.30 x 2 = 1.60. X2: a branch stalls 0 with probability 0.8 and 2 with probability 0.2, so the expected stall per branch is 0.4, and CPI = 1 + 0.30 x 0.4 = 1.12. Same clock and same program, so the speed-up is the CPI ratio 1.60 / 1.12 = 1.4286.",
+    "answer": "1.43 to two decimal places, the accepted answer of GATE CSE 2022 Q.61 (accepted range 1.42 to 1.45)."
+   },
+   "gateAngle": "GATE CSE 2022 Q.61 is the whole card in one question. The traps are to apply the accuracy to all instructions instead of to the branch fraction, and to assume a misprediction is cheaper than the original stall - the question explicitly forbids both.",
+   "variations": [
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "For the same program, what accuracy would X2 need to reach a speed-up of 1.6?",
+     "why": "It inverts the calculation and shows the diminishing return of accuracy.",
+     "answer": "CPI(X2) must be 1.60/1.6 = 1.00, so the branch term must vanish, which needs accuracy 1.0. Even at 95 percent accuracy the CPI is 1 + 0.30 x 0.05 x 2 = 1.03 and the speed-up only 1.55, so the last few percent of accuracy buy very little."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "A 2-bit saturating counter is at state 'weakly taken' and the branch is not taken twice. What does it predict on the next two occurrences?",
+     "why": "It tests the mechanism rather than the formula, which is how a theory question could ask it.",
+     "answer": "After one not-taken it moves to 'weakly not taken' but still predicts taken; after the second it moves to 'strongly not taken' and predicts not taken. The extra state is what makes a loop with one unusual exit iterate correctly instead of mispredicting twice."
+    }
+   ],
+   "trap": {
+    "what": "Multiplying the accuracy by the stall and subtracting from every instruction's cost.",
+    "why": "The saving applies only to branches, so the branch fraction must multiply the per-branch expected stall. Applying it to all instructions overstates the gain.",
+    "counterexample": "2022 Q.61: applying 0.8 to all instructions would give a CPI near 0.68 and a speed-up above 2; the accepted speed-up is 1.43."
+   },
+   "check": {
+    "question": "Forty percent of instructions are branches, a taken branch costs 3 cycles and the predictor is 75 percent accurate. What is the CPI?",
+    "answer": "1 + 0.4 x 0.25 x 3 = 1.30.",
+    "explanation": "The expected stall per branch is (1 - 0.75) x 3 = 0.75 cycles, and 40 percent of instructions are branches, so 0.3 cycles are added to the base cycle."
+   },
+   "subject": "computer-organization-and-architecture",
+   "topic": "instruction-pipelining-and-hazards",
+   "path": "subjects/computer-organization-and-architecture/instruction-pipelining-and-hazards/branch-prediction-and-its-payoff.json"
+  },
+  {
+   "videoRefs": [],
+   "prereqs": [
+    "pipeline-idea-and-the-space-time-diagram"
+   ],
+   "pyqIds": [],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "Chapter 10 - Principles of Pipelining (Basic Computer Architecture)",
+     "channel": "IIT Delhi, Prof. Smruti R. Sarangi (freely distributed book chapter)",
+     "url": "https://www.cse.iitd.ac.in/~srsarangi/archbook/chapters/pipelining.pdf",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "the whole 92-page chapter was read: the pipeline idea and its performance, the five stages, pipeline registers, data/control/structural hazards, software solutions, interlocks and bubbles, forwarding paths and conditions, interrupts, the performance equation, branch prediction, multiple issue and out-of-order execution"
+    }
+   ],
+   "sourceLine": "Multiple-issue in-order pipelines, VLIW and EPIC, and out-of-order execution with renaming and precise exceptions: Sarangi chapter 10, sections 10.11.2 to 10.11.4 (English, read in full). The scalar-versus-superscalar contrast and the statement that pipeline depth trades frequency against penalty: DSWallah Learn 'Instruction Pipelining', romanised Hindi, translated (read in part).",
+   "id": "superscalar-and-ilp-beyond-one-per-cycle",
+   "title": "Superscalar Issue and ILP: Beyond One Instruction per Cycle",
+   "priority": "P3",
+   "order": 558,
+   "unit": "Instruction Pipelining: Hazards, Stalls and Fixes",
+   "quickIdea": "A scalar pipeline tops out at one instruction per cycle. A multiple-issue machine starts several per cycle, so CPI can fall below 1 and the ceiling on the speed-up is no longer the stage count: it is the issue width and the instruction-level parallelism the program actually contains.",
+   "remember": [
+    "Superscalar: several instructions issued per cycle from one stream, which needs duplicated functional units and dependence checking across the issuing group.",
+    "IPC above 1 means CPI below 1, so the speed-up over the unpipelined machine is bounded by issue width and by the program's ILP rather than by k.",
+    "Out-of-order execution reorders around a stall and needs register renaming, a reorder buffer and precise exception handling to stay correct.",
+    "VLIW and EPIC put the bundling in the compiler instead of in the hardware, trading scheduling work for wider instructions.",
+    "More issue width raises the chance of structural conflicts, so extra units must be added with it; the limits are dependences, not the clock."
+   ],
+   "example": {
+    "prompt": "A 2-wide superscalar processor with a 5-stage pipeline issues two independent instructions per cycle. A program of 100 independent instructions runs on it. How many cycles, and what is the CPI?",
+    "work": "The pipeline fills in 5 cycles and then completes 2 instructions per cycle: the remaining 100 - 2 = 98 instructions take 49 cycles, so 5 + 49 = 54 cycles. The CPI is 54/100 = 0.54.",
+    "answer": "54 cycles and a CPI of 0.54, below the scalar floor of 1 - which is exactly why a superscalar machine can beat the k-fold speed-up limit of a scalar pipeline."
+   },
+   "gateAngle": "GATE's COA line names only 'instruction pipelining, pipeline hazards', so this card is P3: it exists so that a question mentioning multiple issue, ILP or CPI below 1 is not a surprise, not because the syllabus asks for it. No verified CSE previous-year question in this topic tests it.",
+   "variations": [
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why does a 4-wide superscalar machine rarely reach a CPI of 0.25?",
+     "why": "It links the card back to the rest of the topic, where dependences rather than width set the limit.",
+     "answer": "Because real programs contain long chains of dependent instructions: if every instruction depends on the one before, only one can start per cycle however many slots exist. Load-use gaps, branches and limited ILP leave slots empty, so the achieved IPC stays well below the issue width."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "A scalar pipeline of 8 stages has a 3-cycle taken-branch penalty; a 2-wide machine of the same depth issues two per cycle but has the same penalty per branch. Which wins on a program that is 20 percent branches?",
+     "why": "It compares the two designs on the same CPI model used everywhere else in the topic.",
+     "answer": "Scalar CPI = 1 + 0.2 x 3 = 1.6. Two-wide CPI = 0.5 + 0.2 x 3 = 1.1 in cycles per instruction, so the wide machine executes 1.6/1.1 = 1.45 times as many instructions per cycle - a real gain, but nowhere near 2, because the branch penalty is not halved by width."
+    }
+   ],
+   "trap": {
+    "what": "Believing that pipelining alone can take CPI below 1.",
+    "why": "A scalar pipeline issues one instruction per cycle at best, so its CPI floor is 1 and its speed-up ceiling is k. Only multiple issue breaks that floor, and only at the cost of much more hardware.",
+    "counterexample": "A 20-stage scalar pipeline has a ceiling of 20 and a floor CPI of 1; no arrangement of its stages produces two instructions per cycle."
+   },
+   "check": {
+    "question": "A 3-wide superscalar machine issues 3 instructions per cycle in the steady state. What is its CPI, and what limits it in practice?",
+    "answer": "A CPI of 1/3 in the ideal case, limited in practice by dependences, branch penalties and the number of functional units.",
+    "explanation": "CPI and IPC are reciprocals; the ideal 3 per cycle is an upper bound that real programs approach only in long independent stretches."
+   },
+   "subject": "computer-organization-and-architecture",
+   "topic": "instruction-pipelining-and-hazards",
+   "path": "subjects/computer-organization-and-architecture/instruction-pipelining-and-hazards/superscalar-and-ilp-beyond-one-per-cycle.json"
   }
  ],
  "pyqs": [
@@ -42971,6 +43855,28 @@ window.GATE_DATA = {
    "answer_evidence": "The accepted answers state option (D) and justify the endpoint by noting that sin is increasing up to pi/2, so pi/4 is a local minimum. The point is definitional: under the strict interior convention the count would be one, at 3pi/2, and the card on endpoint extrema states both readings."
   },
   {
+   "id": "gate-2012-q20-register-renaming",
+   "year": "2012",
+   "paper": "GATE CS 2012",
+   "question_ref": "Q.20",
+   "type": "MCQ",
+   "marks": "1",
+   "topic": "software-fixes-scheduling-and-register-renaming",
+   "text": "Register renaming is done in pipelined processors: (A) as an alternative to register allocation at compile time (B) for efficient access to function parameters and local variables (C) to handle certain kinds of hazards (D) as part of address translation.",
+   "options": [
+    "as an alternative to register allocation at compile time",
+    "for efficient access to function parameters and local variables",
+    "to handle certain kinds of hazards",
+    "as part of address translation"
+   ],
+   "answer": "Option (C) - to handle certain kinds of hazards",
+   "solution": "Renaming maps architectural registers onto a larger set of physical registers, so two instructions that reuse a name no longer share storage. It therefore removes write-after-read and write-after-write dependences, which are exactly the hazards it is there for. It does not replace register allocation, does not speed up parameter access, and has nothing to do with address translation.",
+   "source_url": "https://gateoverflow.in/52/gate-cse-2012-question-20-isro2016-23",
+   "source_label": "GATE Overflow question page - GATE CSE 2012 Q.20 (also ISRO 2016 Q.23) with the accepted answer option C",
+   "verification": "SOURCED",
+   "answer_evidence": "Both answers on the page give option C, the first with the WAR/WAW reasoning and the second noting that in single-issue pipelines WAR and WAW do not stall but in multiple-issue pipelines they do, which is what renaming removes."
+  },
+  {
    "id": "gate-2012-q30-kmap-minimal-form",
    "year": "2012",
    "paper": "GATE CS 2012",
@@ -43117,6 +44023,28 @@ window.GATE_DATA = {
    "source_label": "GATE Overflow question page - GATE CSE 2013 Q.4 with the accepted answer (option B)",
    "verification": "SOURCED",
    "answer_evidence": "The accepted answer derives the range -2^(n-1) to 2^(n-1) - 1 and substitutes n = 8; several answers on the page agree and one lists the pattern 10000000 explicitly. Recomputed here."
+  },
+  {
+   "id": "gate-2013-q45-branch-penalty-taken-branch",
+   "year": "2013",
+   "paper": "GATE CS 2013",
+   "question_ref": "Q.45",
+   "type": "MCQ",
+   "marks": "2",
+   "topic": "control-hazards-and-the-branch-penalty",
+   "text": "An instruction pipeline has five stages without any branch prediction: FI, DI, FO, EI and WO, with stage delays 5, 7, 10, 8 and 6 ns. There are intermediate storage buffers after each stage with a delay of 1 ns. A program of 12 instructions I1 to I12 runs, I4 is the only branch and its target is I9, and the branch is taken. The time in ns needed to complete the program is (A) 132 (B) 165 (C) 176 (D) 328.",
+   "options": [
+    "132",
+    "165",
+    "176",
+    "328"
+   ],
+   "answer": "Option (B) - 165",
+   "solution": "Cycle time = max(5, 7, 10, 8, 6) + 1 = 11 ns. Without prediction the fetch unit continues with I5, I6 and I7 while I4 passes through DI, FO and EI, and the branch resolves at the end of I4's EI stage in cycle 7, so those three are cancelled and I9 is fetched in cycle 8. The diagram then runs to cycle 15, so 15 x 11 = 165 ns. Recomputed in scripts/validate.py, which also checks that I6 fetched in cycle 6 finishes in cycle 10 for the four-instruction example used in the control-hazard card.",
+   "source_url": "https://gateoverflow.in/330/gate-cse-2013-question-45",
+   "source_label": "GATE Overflow question page - GATE CSE 2013 Q.45 with the accepted answer option B, 165",
+   "verification": "SOURCED",
+   "answer_evidence": "The page draws the 15-column pipeline diagram and states 'Correct Answer: B'; a PYQ page citing the official key gives 165 with the same three-cycle flush."
   },
   {
    "id": "gate-2014-1-49",
@@ -43511,6 +44439,28 @@ window.GATE_DATA = {
    "answer_evidence": "One answer on the page states that the ripple-carry reading makes the total 4 x 4.8 = 19.2 and that this is the key given by GATE; a second widely upvoted answer argues for 12 on the carry-only model. A third site records the same question with the answer 19.2. The record reports the accepted answer and names the disagreement instead of choosing silently."
   },
   {
+   "id": "gate-2015-set-3-q47-anti-dependence-statements",
+   "year": "2015",
+   "paper": "GATE CS 2015 Set 3",
+   "question_ref": "Q.47 on GATE Overflow; Q.39 in the printed paper",
+   "type": "MCQ",
+   "marks": "2",
+   "topic": "software-fixes-scheduling-and-register-renaming",
+   "text": "For instructions of the form OP Ri, Rj, Rk (result in Ri, operands Rj and Rk), consider I1: ADD R1, R2, R3; I2: MUL R7, R1, R3; I3: SUB R4, R1, R5; I4: ADD R3, R2, R4; I5: MUL R7, R8, R9. S1: there is an anti-dependence between I2 and I5. S2: there is an anti-dependence between I2 and I4. S3: within an instruction pipeline an anti-dependence always creates one or more stalls. Which is/are correct?",
+   "options": [
+    "Only S1 is true",
+    "Only S2 is true",
+    "Only S1 and S3 are true",
+    "Only S2 and S3 are true"
+   ],
+   "answer": "Option (B) - Only S2 is true",
+   "solution": "I2 writes R7 and I5 writes R7, so the pair is write-after-write, an output dependence, and S1 is false. I2 reads R3 and I4 writes R3, which is write-after-read, an anti-dependence, so S2 is true. S3 is false twice over: in an in-order pipeline the read in ID precedes any later write in WB, so an anti-dependence need not stall at all, and renaming removes it outright.",
+   "source_url": "https://gateoverflow.in/8556/gate-cse-2015-set-3-question-47",
+   "source_label": "GATE Overflow question page - GATE CSE 2015 Set 3, listed as Question: 47, with the accepted answer only S2 is true",
+   "verification": "SOURCED",
+   "answer_evidence": "The accepted answers on the page give option B with the reasoning that anti-dependence is removed by renaming, so the word 'always' fails. The printed GATE 2015 Set 3 paper (gaterevolution copy) numbers the same question Q.39, which is recorded rather than resolved."
+  },
+  {
    "id": "gate-2015-set1-18-lu-l22",
    "year": "2015",
    "paper": "GATE CS 2015 Set 1",
@@ -43887,6 +44837,22 @@ window.GATE_DATA = {
    "verification": "SOURCED"
   },
   {
+   "id": "gate-2016-set-1-q32-throughput-increase",
+   "year": "2016",
+   "paper": "GATE CS 2016 Set 1",
+   "question_ref": "Q.32",
+   "type": "NAT",
+   "marks": "2",
+   "topic": "throughput-efficiency-and-the-clock-rate-trade",
+   "text": "The stage delays in a 4-stage pipeline are 800, 500, 400 and 300 picoseconds. The first stage, with delay 800 picoseconds, is replaced by a functionally equivalent design involving two stages with delays 600 and 350 picoseconds. The throughput increase of the pipeline is ______ percent.",
+   "answer": "33.33",
+   "solution": "Before: cycle time = max(800, 500, 400, 300) = 800 ps, throughput 1/800. After: the stages are 600, 350, 500, 400 and 300 ps, so cycle time = 600 ps and throughput 1/600. Increase = (1/600 - 1/800)/(1/800) x 100 = (800/600 - 1) x 100 = 33.33 percent. Recomputed in scripts/validate.py.",
+   "source_url": "https://gateoverflow.in/39691/gate-cse-2016-set-1-question-32",
+   "source_label": "GATE Overflow question page - GATE CSE 2016 Set 1 Q.32 with the accepted answer 33.33 (accepted range 33 to 34)",
+   "verification": "SOURCED",
+   "answer_evidence": "Four answers on the page compute (1/600 - 1/800)/(1/800) x 100 = 33.33 and the page records the accepted range 33.0 to 34.0; a PYQ page citing the GATE 2016 answer key gives 33.33 with a tolerance of 0.5."
+  },
+  {
    "id": "gate-2016-set-2-q10-immediate-field",
    "year": "2016",
    "paper": "GATE CSE 2016 Set 2",
@@ -43901,6 +44867,22 @@ window.GATE_DATA = {
    "source_label": "GATE Overflow question page - GATE CSE 2016 Set 2 Q.10 with the accepted answer (16)",
    "verification": "SOURCED",
    "answer_evidence": "The accepted answer computes '6 + 2 x 5 = 16' bits used and '32 - 16 = 16' bits available. Corroborated by the Testbook page for the GATE CS 2016 Shift 2 paper, which gives 16, and by the ExamSIDE solution, which also gives 16."
+  },
+  {
+   "id": "gate-2016-set-2-q33-split-longest-stage-frequency",
+   "year": "2016",
+   "paper": "GATE CS 2016 Set 2",
+   "question_ref": "Q.33",
+   "type": "NAT",
+   "marks": "2",
+   "topic": "pipeline-registers-and-the-clock-period",
+   "text": "A 3 GHz processor has a three-stage pipeline with stage latencies tau1, tau2 and tau3 such that tau1 = 3 tau2 / 4 = 2 tau3. If the longest pipeline stage is split into two pipeline stages of equal latency, the new frequency is ______ GHz, ignoring delays in the pipeline registers.",
+   "answer": "4",
+   "solution": "Write the latencies in one unknown: tau1 = 6x, tau2 = 8x, tau3 = 3x, so the longest is 8x and the cycle time 8x = 1/3 ns, giving x = 1/24 ns. Splitting the longest stage gives 6x, 4x, 4x and 3x, whose maximum is 6x = 1/4 ns, so the new frequency is 4 GHz. Recomputed in scripts/validate.py.",
+   "source_url": "https://gateoverflow.in/39580/gate-cse-2016-set-2-question-33",
+   "source_label": "GATE Overflow question page - GATE CSE 2016 Set 2 Q.33 with the accepted answer 4 GHz",
+   "verification": "SOURCED",
+   "answer_evidence": "Several answers on the page set tau1 = 6x and obtain 4 GHz, and one states the answer in words as 'Answer is 4 GHz'."
   },
   {
    "id": "gate-2016-set1-05-determinant-from-eigenvalues",
@@ -44495,6 +45477,22 @@ window.GATE_DATA = {
    "answer_evidence": "The accepted answer lists five prime implicants and three essential ones with the same witness minterms; an ExamSIDE solution page and a successtracker solution page independently give the same three essential prime implicants (Q'S', PQ', P'QS) and the answer 3, and an iaeacademy solution page attributes the answer 3 to the official GATE 2018 CS key. Recomputed here by enumerating all prime implicants and testing every required 1 for a unique cover: 6 prime implicants, 3 essential."
   },
   {
+   "id": "gate-2018-q50-variable-po-stage-cycles",
+   "year": "2018",
+   "paper": "GATE CS 2018",
+   "question_ref": "Q.50",
+   "type": "NAT",
+   "marks": "2",
+   "topic": "stalls-interlocks-and-bubbles",
+   "text": "The instruction pipeline of a RISC processor has stages IF, ID, OF, PO and WB. IF, ID, OF and WB take 1 clock cycle each for every instruction. For a sequence of 100 instructions, in the PO stage 40 instructions take 3 clock cycles each, 35 take 2 clock cycles each and the remaining 25 take 1 clock cycle each. Assume no data hazards and no control hazards. The number of clock cycles required to complete the sequence is ______.",
+   "answer": "219",
+   "solution": "The PO unit is the bottleneck and never idles once started: its total occupancy is 40x3 + 35x2 + 25x1 = 215 cycles. The first instruction needs IF, ID and OF before entering PO, 3 cycles, and the last needs WB after leaving it, 1 cycle. Total = 3 + 215 + 1 = 219. The same figure comes from (5 + 100 - 1) + (40x2 + 35x1) = 104 + 115 = 219. Recomputed in scripts/validate.py.",
+   "source_url": "https://gateoverflow.in/204125/gate-cse-2018-question-50",
+   "source_label": "GATE Overflow question page - GATE CSE 2018 Q.50 with the accepted answer 219",
+   "verification": "SOURCED",
+   "answer_evidence": "Several answers on the page derive 219, by the occupancy sum and by the 104 + 115 route, and the official GATE 2018 CS paper (gateexam.info copy) prints the same question text at Q.50."
+  },
+  {
    "id": "gate-2019-1-fully-associative-tag-index",
    "year": "2019",
    "paper": "GATE CSE 2019",
@@ -44751,6 +45749,22 @@ window.GATE_DATA = {
    "answer_evidence": "All five answers on the GATE Overflow page conclude III only, four of them by differentiating each function and reading the sign. ExamSIDE's calculus bank lists the same question with the same options, and the EduRev GATE CSE calculus listing prints 'A: III only'. The values 2(0) - cos(0) = -1 and 2(1) - cos(1) = 1.4597 are recomputed in scripts/validate.py. GATE Overflow numbers this Q.1 and ExamSIDE numbers it 12, which is recorded rather than hidden; the official key was not fetched and no marks field is recorded."
   },
   {
+   "id": "gate-2020-q43-speedup-pipelined-nonpipelined",
+   "year": "2020",
+   "paper": "GATE CS 2020",
+   "question_ref": "Q.43 (numbered Q.53 on at least one question-bank index)",
+   "type": "NAT",
+   "marks": "2",
+   "topic": "cpi-with-stalls-the-performance-equation",
+   "text": "A non-pipelined processor operates at 2.5 GHz and takes 5 clock cycles to complete an instruction. It is rebuilt as a 5-stage pipeline, which because of pipelining overheads runs at 2 GHz. In a program, 30 percent of instructions are memory instructions, 60 percent are ALU instructions and the rest are branches. 5 percent of the memory instructions cause stalls of 50 cycles each due to cache misses and 50 percent of the branch instructions cause stalls of 2 cycles each; ALU instructions cause no stalls. The speed-up of the pipelined processor over the non-pipelined one (two decimal places) is ______.",
+   "answer": "2.16",
+   "solution": "Non-pipelined: 5 cycles at 2.5 GHz = 5 x 0.4 = 2 ns per instruction. Pipelined CPI = 1 + (0.30 x 0.05 x 50) + (0.10 x 0.50 x 2) = 1 + 0.75 + 0.10 = 1.85; at 2 GHz that is 1.85 x 0.5 = 0.925 ns per instruction. Speed-up = 2 / 0.925 = 2.162, that is 2.16. Recomputed in scripts/validate.py. The accepted range 2.15 to 2.18 also holds.",
+   "source_url": "https://gateoverflow.in/333188/gate-cse-2020-question-43",
+   "source_label": "GATE Overflow question page - GATE CSE 2020, listed as Question: 43, with the accepted answer 2.16",
+   "verification": "SOURCED",
+   "answer_evidence": "Five answers on the page reach 2.16 from 2 ns against 0.925 ns and the page records the accepted range 2.15 to 2.18. One question-bank index numbers the same question Q.53, which is recorded here rather than resolved."
+  },
+  {
    "id": "gate-2021-2-50",
    "year": "2021",
    "paper": "GATE CS 2021 Set 2",
@@ -44765,6 +45779,22 @@ window.GATE_DATA = {
    "source_url": "https://gateforum.com/wp-content/uploads/2021/03/CS-Gate-2021-Paper-II_Formatted.pdf",
    "source_label": "GATE 2021 CS Paper II solution set with key printed as 59049",
    "verification": "OFFICIAL_KEY"
+  },
+  {
+   "id": "gate-2021-set-1-q53-hundred-instructions-time",
+   "year": "2021",
+   "paper": "GATE CS 2021 Set 1",
+   "question_ref": "Q.53",
+   "type": "NAT",
+   "marks": "2",
+   "topic": "ideal-timing-and-speedup-formula",
+   "text": "A five-stage pipeline has stage delays of 150, 120, 150, 160 and 140 nanoseconds. The registers used between the pipeline stages have a delay of 5 nanoseconds each. The total time to execute 100 independent instructions on this pipeline, assuming there are no pipeline stalls, is ______ nanoseconds.",
+   "answer": "17160",
+   "solution": "Cycle time = max(150, 120, 150, 160, 140) + 5 = 160 + 5 = 165 ns. Cycles = k + n - 1 = 5 + 100 - 1 = 104. Time = 104 x 165 = 17160 ns. Recomputed in scripts/validate.py. One comment on the page argues for 16580 by adding every latch delay; that reading is not the accepted one, because an instruction crosses one stage boundary per cycle.",
+   "source_url": "https://gateoverflow.in/357398/gate-cse-2021-set-1-question-53",
+   "source_label": "GATE Overflow question page - GATE CSE 2021 Set 1 Q.53 with the accepted answer 17160",
+   "verification": "SOURCED",
+   "answer_evidence": "The accepted answer on the page gives (5 + 100 - 1) x 165 = 17160 and a second answer agrees; one comment proposes 16580 and is not accepted."
   },
   {
    "id": "gate-2021-set-2-5-mux-implements-function",
@@ -45226,6 +46256,22 @@ window.GATE_DATA = {
    "answer_evidence": "The accepted answer converts each option to decimal against the range -8..7 and picks B, with the same-sign rule as the cross-check. Recomputed here: 1100 + 1010 = 10110, kept as 0110 = +6, so same signs in and opposite sign out. Another site numbers this question Q.18."
   },
   {
+   "id": "gate-2022-q61-branch-predictor-speedup",
+   "year": "2022",
+   "paper": "GATE CS 2022",
+   "question_ref": "Q.61 (numbered Question: 51 on GATE Overflow)",
+   "type": "NAT",
+   "marks": "2",
+   "topic": "branch-prediction-and-its-payoff",
+   "text": "Processor X1 at 2 GHz has a standard 5-stage RISC instruction pipeline with base CPI 1 without hazards. Program P has 30 percent branch instructions and control hazards incur 2 cycles of stall for every branch. X2 runs at the same clock frequency and adds a branch predictor that completely eliminates stalls for correctly predicted branches; there is neither saving nor additional stall for wrong predictions, and there are no structural or data hazards in either. If the predictor is 80 percent accurate, the speed-up of X2 over X1 is ______. (rounded off to two decimal places)",
+   "answer": "1.43",
+   "solution": "CPI(X1) = 1 + 0.30 x 2 = 1.60. For X2 the expected stall per branch is 0.8x0 + 0.2x2 = 0.4 cycles, so CPI(X2) = 1 + 0.30 x 0.4 = 1.12. The clocks and the instruction count are equal, so the speed-up is 1.60/1.12 = 1.42857, that is 1.43. Recomputed in scripts/validate.py.",
+   "source_url": "https://gateoverflow.in/371885/gate-cse-2022-question-51",
+   "source_label": "GATE Overflow question page - GATE CSE 2022, listed as Question: 51, with the accepted answers 1.42 to 1.45",
+   "verification": "SOURCED",
+   "answer_evidence": "Several answers on the page derive 1.6/1.12 = 1.4286 and the accepted range recorded there is 1.42 to 1.45; two PYQ pages cite the official GATE 2022 answer key for the same range. GATE Overflow numbers the question 51 where the paper numbers it 61."
+  },
+  {
    "id": "gate-2023-18-cubic-local-extrema",
    "year": "2023",
    "paper": "GATE CS 2023",
@@ -45478,6 +46524,50 @@ window.GATE_DATA = {
    "answer_evidence": "The accepted answer reduces M1 to 1 and M2 to 0 and concludes Y = C', giving 4 of the 8 combinations; another site records the same question with the answer 4. The question number is disputed: GATE Overflow numbers it Q.54, GateAI numbers the same question Q64 of the paper and one year-wise listing places it at 32. Recomputed here by enumerating all 8 combinations of (A, B, C)."
   },
   {
+   "id": "gate-2024-set-1-q30-forwarding-statements",
+   "year": "2024",
+   "paper": "GATE CS 2024 Set 1",
+   "question_ref": "Q.30 (numbered Question: 20 on GATE Overflow)",
+   "type": "MSQ",
+   "marks": "1",
+   "topic": "forwarding-and-its-limits",
+   "text": "Consider a 5-stage pipelined processor with IF, ID, EX, MEM and WB stages. Which of the following statements about forwarding is/are CORRECT? (A) In a pipelined execution, forwarding means the result from a source stage of an earlier instruction is passed on to the destination stage of a later instruction. (B) In forwarding, data from the output of the MEM stage can be passed on to the input of the EX stage of the next instruction. (C) Forwarding cannot prevent all pipeline stalls. (D) Forwarding does not require any extra hardware to retrieve the data from the pipeline stages.",
+   "options": [
+    "In a pipelined execution, forwarding means the result from a source stage of an earlier instruction is passed on to the destination stage of a later instruction",
+    "In forwarding, data from the output of the MEM stage can be passed on to the input of the EX stage of the next instruction",
+    "Forwarding cannot prevent all pipeline stalls",
+    "Forwarding does not require any extra hardware to retrieve the data from the pipeline stages"
+   ],
+   "answer": "Options (A), (B) and (C)",
+   "solution": "A is the definition. B is the MEM-to-EX path, the one that serves a load whose value is wanted by the instruction right behind it; the value is available at the end of MEM and can be routed to the consumer's EX input, at the price of one bubble. C is correct because the load-use pair still stalls once, and control and structural hazards are outside forwarding's reach. D is wrong: bypass wires, input multiplexers and a forwarding control unit are all added.",
+   "source_url": "https://gateoverflow.in/422822/gate-cse-2024-set-1-question-20",
+   "source_label": "GATE Overflow question page - GATE CSE 2024 Set 1, listed as Question: 20, with the accepted answer A, B and C",
+   "verification": "SOURCED",
+   "answer_evidence": "The accepted answers on the page mark statements 1, 2 and 3 correct and 4 incorrect. The official GATE 2024 CS paper (gate2024.iisc.ac.in, CS1 set) prints the same four statements at Q.30."
+  },
+  {
+   "id": "gate-2024-set-2-q31-dependency-classification",
+   "year": "2024",
+   "paper": "GATE CS 2024 Set 2",
+   "question_ref": "Q.31 (numbered Question: 21 on GATE Overflow)",
+   "type": "MSQ",
+   "marks": "1",
+   "topic": "data-hazard-types-raw-war-waw",
+   "text": "An instruction format is: Opcode destination reg, source reg-1, source reg-2. In the sequence I1: DIV R3, R1, R2; I2: SUB R5, R3, R4; I3: ADD R3, R5, R6; I4: MUL R7, R3, R8, which statements are TRUE? (A) RAW on R3 between I1 and I2. (B) WAR on R3 between I1 and I3. (C) RAW on R3 between I2 and I3. (D) WAW on R3 between I3 and I4.",
+   "options": [
+    "There is a RAW dependency on R3 between I1 and I2",
+    "There is a WAR dependency on R3 between I1 and I3",
+    "There is a RAW dependency on R3 between I2 and I3",
+    "There is a WAW dependency on R3 between I3 and I4"
+   ],
+   "answer": "Option (A) only",
+   "solution": "Accesses to R3 in program order: I1 writes, I2 reads, I3 writes, I4 reads. I1 write then I2 read is RAW, so A holds. I1 and I3 both write R3, which is WAW and not WAR, so B fails. I2 reads and I3 writes, which is WAR and not RAW, so C fails. I3 writes and I4 reads, which is RAW and not WAW, so D fails.",
+   "source_url": "https://gateoverflow.in/422876/gate-cse-2024-set-2-question-21",
+   "source_label": "GATE Overflow question page - GATE CSE 2024 Set 2, listed as Question: 21, with the accepted answer that only option A is correct",
+   "verification": "SOURCED",
+   "answer_evidence": "The page's answer states that there is a RAW dependency on R3 between I1 and I2, that there is no RAW between I2 and I3, that the I1-I3 pair is WAW, and that only option A is correct. The paper numbering Q.31 is confirmed by two PYQ pages citing the GATE 2024 CS2 answer key."
+  },
+  {
    "id": "gate-2024-set-2-q47-opcodes-per-mode",
    "year": "2024",
    "paper": "GATE CSE 2024 Set 2",
@@ -45492,6 +46582,22 @@ window.GATE_DATA = {
    "source_label": "GATE Overflow question page - GATE CSE 2024 Set 2 Question 47 with the accepted answer (32)",
    "verification": "SOURCED",
    "answer_evidence": "The accepted answer computes '32 - (3 + 2*4 + 16) = 5' bits and '2^5 = 32', and notes that 256 is the instruction count rather than the opcode count. Corroborated by GateAI's PYQ page, which records the official answer as 32, and by iaeacademy, which cites the official GATE 2024 CS2 key. The question is numbered Q.57 in the paper listings and Q.47 on GATE Overflow, and both numbers are recorded."
+  },
+  {
+   "id": "gate-2024-set-2-q58-speedup-with-hazard-stalls",
+   "year": "2024",
+   "paper": "GATE CS 2024 Set 2",
+   "question_ref": "Q.58 (numbered Question: 48 on GATE Overflow)",
+   "type": "NAT",
+   "marks": "2",
+   "topic": "cpi-with-stalls-the-performance-equation",
+   "text": "A non-pipelined instruction execution unit operating at 2 GHz takes an average of 6 cycles to execute an instruction of a program P. The unit is redesigned to operate as a 5-stage pipeline at 2 GHz with an ideal throughput of 1 instruction per cycle. In executing P, 20 percent of instructions incur an average of 2 cycles of stall due to data hazards and 20 percent incur an average of 3 cycles due to control hazards. The speed-up (rounded off to one decimal place) is ______.",
+   "answer": "3.0",
+   "solution": "The clocks are equal, so the speed-up is the ratio of CPIs. Non-pipelined CPI is 6. Pipelined CPI is 1 + 0.2x2 + 0.2x3 = 1 + 0.4 + 0.6 = 2. Speed-up = 6/2 = 3.0. Recomputed in scripts/validate.py. The accepted range 2.9 to 3.1 also covers 3.0.",
+   "source_url": "https://gateoverflow.in/422849/gate-cse-2024-set-2-question-48",
+   "source_label": "GATE Overflow question page - GATE CSE 2024 Set 2, listed as Question: 48, with the accepted answer 3.0 and the official range 2.9 to 3.1",
+   "verification": "SOURCED",
+   "answer_evidence": "The accepted answers on the page derive CPI 1 + 0.4 + 0.6 = 2 against 6 and give 3.0, and one records the official key's range 2.9 to 3.1. The paper numbering Q.58 comes from two PYQ pages citing the GATE 2024 CS2 key."
   },
   {
    "id": "gate-2024-set1-1-max-x-x3",
@@ -45943,6 +47049,22 @@ window.GATE_DATA = {
    "answer_evidence": "The accepted answer gives '(B) 20' from '32 - (6 + 6) = 20'. Corroborated by iaeacademy, which cites the official GATE 2025 CS1 key (IIT Roorkee) as option B, and by GateAI, which records the official answer as 20. The question is numbered Q.27 on GATE Overflow and Q.37 in the paper listing."
   },
   {
+   "id": "gate-2025-set-2-q56-latch-delay-1000-instructions",
+   "year": "2025",
+   "paper": "GATE CS 2025 Set 2",
+   "question_ref": "Q.56 (numbered Question: 46 on GATE Overflow)",
+   "type": "NAT",
+   "marks": "2",
+   "topic": "pipeline-registers-and-the-clock-period",
+   "text": "A 5-stage instruction pipeline has stage delays of 180, 250, 150, 170 and 250 nanoseconds. The delay of an inter-stage latch is 10 nanoseconds. Assume no pipeline stalls due to branches and other hazards. The time taken to process 1000 instructions in microseconds is ______. (rounded off to two decimal places)",
+   "answer": "261.04",
+   "solution": "The cycle time is the slowest stage plus one latch delay: 250 + 10 = 260 ns. With no stalls 1000 instructions on 5 stages take 5 + 1000 - 1 = 1004 cycles, so 1004 x 260 = 261040 ns = 261.04 microseconds. Recomputed in scripts/validate.py. The accepted range 260.2 to 261.2 also admits 260.00, which comes from assuming the pipeline is already full and counting 1000 cycles; the fill-and-drain reading gives 261.04.",
+   "source_url": "https://gateoverflow.in/460847/gate-cse-2025-set-2-question-46",
+   "source_label": "GATE Overflow question page - GATE CSE 2025 Set 2, listed as Question: 46, with the accepted answer 261.04",
+   "verification": "SOURCED",
+   "answer_evidence": "Three answers on the page derive 261.04 from (5 + 1000 - 1) x 260 ns, and one comment records the alternative 260.00. The paper numbering Q.56 comes from the GATE CSE 2025 Set 2 key as reported by two independent PYQ pages; GATE Overflow numbers it Question: 46."
+  },
+  {
    "id": "gate-2025-set1-11-interrupt-step-sequence",
    "year": "2025",
    "paper": "GATE CS 2025 Set 1",
@@ -46254,6 +47376,28 @@ window.GATE_DATA = {
    "answer_evidence": "The accepted answer decodes both operands, aligns Y to exponent -20 and reaches 0x35E80000, option C. Recomputed here: 1.5 x 2^-20 + 1.25 x 2^-22 = 1.8125 x 2^-20, which encodes to 0x35e80000. Another site numbers this question Q.36."
   },
   {
+   "id": "gate-2026-set-1-q16-read-after-write-hazard",
+   "year": "2026",
+   "paper": "GATE CS 2026 Set 1",
+   "question_ref": "Q.16 (numbered Question: 6 on GATE Overflow)",
+   "type": "MCQ",
+   "marks": "1",
+   "topic": "data-hazard-types-raw-war-waw",
+   "text": "Which one of the following dependencies among the register operands of different instructions can cause a data hazard in a pipelined processor?",
+   "options": [
+    "Read-after-read",
+    "Read-after-write",
+    "Write-after-read",
+    "Write-after-write"
+   ],
+   "answer": "Option (B) - Read-after-write",
+   "solution": "A data hazard needs a value that a later instruction reads and an earlier one has not yet produced. That is read-after-write, the true dependence. Read-after-read touches nothing. Write-after-read and write-after-write are name collisions that an in-order pipeline cannot trip over, because a preceding instruction is always ahead of a succeeding one, so the read happens before any later write and the writes retire in order. Both need register renaming only in an out-of-order or multiple-issue machine.",
+   "source_url": "https://gateoverflow.in/523074/gate-cse-2026-set-1-question-6",
+   "source_label": "GATE Overflow question page - GATE CSE 2026 Set 1, listed as Question: 6, with the accepted answer read-after-write",
+   "verification": "SOURCED",
+   "answer_evidence": "The accepted answer on the page states that read-after-write is the one that may introduce stalls and that read-after-read, write-after-read and write-after-write do not. The question text was matched against the official GATE 2026 CS1 paper (gate2026.iitg.ac.in), which numbers it Q.16 with the same four options; the numbering differs from GATE Overflow's."
+  },
+  {
    "id": "gate-2026-set-1-q4-mode-to-hll-matching",
    "year": "2026",
    "paper": "GATE CSE 2026 Set 1",
@@ -46273,6 +47417,22 @@ window.GATE_DATA = {
    "source_label": "GATE Overflow question page - GATE CSE 2026 Set 1 Q.4 with the accepted answer (option B)",
    "verification": "SOURCED",
    "answer_evidence": "The accepted answer states 'Answer is option B. P-4, Q-2, R-1, S-3' and gives the four justifications, linking the same distinction to GATE CSE 2017 Set 1 Q.11. Corroborated by the ExamSIDE 2026 Set 1 paper page, whose solution matches base-with-index to an array element and base-with-displacement to a record element, and by EduRev's PYQ page, which records Answer: B."
+  },
+  {
+   "id": "gate-2026-set-1-q60-structural-hazard-ex-stalls",
+   "year": "2026",
+   "paper": "GATE CS 2026 Set 1",
+   "question_ref": "Q.60",
+   "type": "NAT",
+   "marks": "2",
+   "topic": "structural-hazards",
+   "text": "The EX stage of a pipelined processor performs the memory read operations for LOAD instructions and the operations for the arithmetic and logic instructions. Let t_EX be the time the EX stage takes for an instruction; for each type the values of t_EX and M (count in a 100-instruction sequence) are: LOAD 1.8 ns, 15; IMUL 1.5 ns, 10; IDIV 2.5 ns, 5; FADD 1.7 ns, 10; FSUB 1.7 ns, 5; FMUL 2.8 ns, 15; FDIV 3.2 ns, 5; all other instructions under 1.0 ns, 35. The clock cycle is 1 ns and latch time is negligible. The number of clock cycles for which the pipeline is stalled due to structural hazards in the EX stage is ______.",
+   "answer": "95",
+   "solution": "At a 1 ns clock an instruction occupies EX for ceil(t_EX) cycles and delays the instruction behind it by ceil(t_EX) - 1. LOAD, IMUL, FADD and FSUB need 2 cycles and cost 1 stall each; IDIV and FMUL need 3 and cost 2; FDIV needs 4 and costs 3; the short instructions cost nothing. Total = 15x1 + 10x1 + 5x2 + 10x1 + 5x1 + 15x2 + 5x3 + 35x0 = 15 + 10 + 10 + 10 + 5 + 30 + 15 = 95. Recomputed in scripts/validate.py.",
+   "source_url": "https://www.trygateai.com/pyq/computer-organization-and-architecture/instruction-pipelining/gate-cse-2026-set-1-q60",
+   "source_label": "GateAI PYQ page - GATE CSE 2026 Set 1 Q.60, recording the official answer 95 with the derivation",
+   "verification": "SOURCED",
+   "answer_evidence": "The page records 'Official answer: 95' for Q.60 and gives the ceiling-per-type derivation. Two other PYQ pages (gateiit.in and iaeacademy.in, both citing the official GATE 2026 final answer key) give the same 95; no GATE Overflow page for this question was located this run."
   },
   {
    "id": "gate-2026-set-2-49-decoder-and-mux-count",

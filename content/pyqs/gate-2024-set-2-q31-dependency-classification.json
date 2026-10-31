@@ -1,0 +1,22 @@
+{
+  "id": "gate-2024-set-2-q31-dependency-classification",
+  "year": "2024",
+  "paper": "GATE CS 2024 Set 2",
+  "question_ref": "Q.31 (numbered Question: 21 on GATE Overflow)",
+  "type": "MSQ",
+  "marks": "1",
+  "topic": "data-hazard-types-raw-war-waw",
+  "text": "An instruction format is: Opcode destination reg, source reg-1, source reg-2. In the sequence I1: DIV R3, R1, R2; I2: SUB R5, R3, R4; I3: ADD R3, R5, R6; I4: MUL R7, R3, R8, which statements are TRUE? (A) RAW on R3 between I1 and I2. (B) WAR on R3 between I1 and I3. (C) RAW on R3 between I2 and I3. (D) WAW on R3 between I3 and I4.",
+  "options": [
+    "There is a RAW dependency on R3 between I1 and I2",
+    "There is a WAR dependency on R3 between I1 and I3",
+    "There is a RAW dependency on R3 between I2 and I3",
+    "There is a WAW dependency on R3 between I3 and I4"
+  ],
+  "answer": "Option (A) only",
+  "solution": "Accesses to R3 in program order: I1 writes, I2 reads, I3 writes, I4 reads. I1 write then I2 read is RAW, so A holds. I1 and I3 both write R3, which is WAW and not WAR, so B fails. I2 reads and I3 writes, which is WAR and not RAW, so C fails. I3 writes and I4 reads, which is RAW and not WAW, so D fails.",
+  "source_url": "https://gateoverflow.in/422876/gate-cse-2024-set-2-question-21",
+  "source_label": "GATE Overflow question page - GATE CSE 2024 Set 2, listed as Question: 21, with the accepted answer that only option A is correct",
+  "verification": "SOURCED",
+  "answer_evidence": "The page's answer states that there is a RAW dependency on R3 between I1 and I2, that there is no RAW between I2 and I3, that the I1-I3 pair is WAW, and that only option A is correct. The paper numbering Q.31 is confirmed by two PYQ pages citing the GATE 2024 CS2 answer key."
+}

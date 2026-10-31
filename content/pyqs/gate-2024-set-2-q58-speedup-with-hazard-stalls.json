@@ -1,0 +1,16 @@
+{
+  "id": "gate-2024-set-2-q58-speedup-with-hazard-stalls",
+  "year": "2024",
+  "paper": "GATE CS 2024 Set 2",
+  "question_ref": "Q.58 (numbered Question: 48 on GATE Overflow)",
+  "type": "NAT",
+  "marks": "2",
+  "topic": "cpi-with-stalls-the-performance-equation",
+  "text": "A non-pipelined instruction execution unit operating at 2 GHz takes an average of 6 cycles to execute an instruction of a program P. The unit is redesigned to operate as a 5-stage pipeline at 2 GHz with an ideal throughput of 1 instruction per cycle. In executing P, 20 percent of instructions incur an average of 2 cycles of stall due to data hazards and 20 percent incur an average of 3 cycles due to control hazards. The speed-up (rounded off to one decimal place) is ______.",
+  "answer": "3.0",
+  "solution": "The clocks are equal, so the speed-up is the ratio of CPIs. Non-pipelined CPI is 6. Pipelined CPI is 1 + 0.2x2 + 0.2x3 = 1 + 0.4 + 0.6 = 2. Speed-up = 6/2 = 3.0. Recomputed in scripts/validate.py. The accepted range 2.9 to 3.1 also covers 3.0.",
+  "source_url": "https://gateoverflow.in/422849/gate-cse-2024-set-2-question-48",
+  "source_label": "GATE Overflow question page - GATE CSE 2024 Set 2, listed as Question: 48, with the accepted answer 3.0 and the official range 2.9 to 3.1",
+  "verification": "SOURCED",
+  "answer_evidence": "The accepted answers on the page derive CPI 1 + 0.4 + 0.6 = 2 against 6 and give 3.0, and one records the official key's range 2.9 to 3.1. The paper numbering Q.58 comes from two PYQ pages citing the GATE 2024 CS2 key."
+}

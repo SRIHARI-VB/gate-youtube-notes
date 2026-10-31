@@ -1,0 +1,16 @@
+{
+  "id": "gate-2022-q61-branch-predictor-speedup",
+  "year": "2022",
+  "paper": "GATE CS 2022",
+  "question_ref": "Q.61 (numbered Question: 51 on GATE Overflow)",
+  "type": "NAT",
+  "marks": "2",
+  "topic": "branch-prediction-and-its-payoff",
+  "text": "Processor X1 at 2 GHz has a standard 5-stage RISC instruction pipeline with base CPI 1 without hazards. Program P has 30 percent branch instructions and control hazards incur 2 cycles of stall for every branch. X2 runs at the same clock frequency and adds a branch predictor that completely eliminates stalls for correctly predicted branches; there is neither saving nor additional stall for wrong predictions, and there are no structural or data hazards in either. If the predictor is 80 percent accurate, the speed-up of X2 over X1 is ______. (rounded off to two decimal places)",
+  "answer": "1.43",
+  "solution": "CPI(X1) = 1 + 0.30 x 2 = 1.60. For X2 the expected stall per branch is 0.8x0 + 0.2x2 = 0.4 cycles, so CPI(X2) = 1 + 0.30 x 0.4 = 1.12. The clocks and the instruction count are equal, so the speed-up is 1.60/1.12 = 1.42857, that is 1.43. Recomputed in scripts/validate.py.",
+  "source_url": "https://gateoverflow.in/371885/gate-cse-2022-question-51",
+  "source_label": "GATE Overflow question page - GATE CSE 2022, listed as Question: 51, with the accepted answers 1.42 to 1.45",
+  "verification": "SOURCED",
+  "answer_evidence": "Several answers on the page derive 1.6/1.12 = 1.4286 and the accepted range recorded there is 1.42 to 1.45; two PYQ pages cite the official GATE 2022 answer key for the same range. GATE Overflow numbers the question 51 where the paper numbers it 61."
+}

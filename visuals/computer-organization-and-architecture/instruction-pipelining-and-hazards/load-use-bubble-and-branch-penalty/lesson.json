@@ -1,0 +1,26 @@
+{
+  "slug": "load-use-bubble-and-branch-penalty",
+  "topic": "instruction-pipelining-and-hazards",
+  "engine": "p5.js",
+  "steps": 8,
+  "subtopics": [
+    "the space-time diagram of a 5-stage pipeline: instructions as rows, cycles as columns",
+    "a RAW pair on an ALU result, and the two bubbles it costs with no forwarding",
+    "the same pair with EX-to-EX forwarding: zero bubbles",
+    "the load-use pair, where one bubble cannot be removed by any forwarding path",
+    "a taken branch that flushes two fetched instructions: the branch penalty",
+    "counting columns rather than trusting a formula"
+  ],
+  "example": {
+    "stages": 5,
+    "alu_block_instructions": 4,
+    "alu_block_cycles": 8,
+    "alu_block_without_forwarding_cycles": 10,
+    "load_use_instructions": 2,
+    "load_use_cycles": 7,
+    "branch_instructions_executed": 6,
+    "branch_cycles": 10,
+    "flushed_instructions": 2,
+    "note": "Every number here is recomputed in scripts/validate.py (check_instruction_pipelining_and_hazards): the 4-instruction ALU block is 5 + 4 - 1 = 8 columns, the same block with a two-bubble RAW pair is 8 + 2 = 10, the load-use pair is 5 + 2 - 1 + 1 = 7, and the branch example of I1, I2, I3 (branch to I6), I4, I5, I6 with I4 and I5 flushed finishes in cycle 10."
+  }
+}

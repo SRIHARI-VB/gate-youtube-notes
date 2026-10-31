@@ -1,0 +1,65 @@
+{
+  "videoRefs": [],
+  "prereqs": [
+    "data-hazard-types-raw-war-waw"
+  ],
+  "pyqIds": [
+    "gate-2024-set-1-q30-forwarding-statements"
+  ],
+  "sources": [
+    {
+      "kind": "text",
+      "title": "Chapter 10 - Principles of Pipelining (Basic Computer Architecture)",
+      "channel": "IIT Delhi, Prof. Smruti R. Sarangi (freely distributed book chapter)",
+      "url": "https://www.cse.iitd.ac.in/~srsarangi/archbook/chapters/pipelining.pdf",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "the whole 92-page chapter was read: the pipeline idea and its performance, the five stages, pipeline registers, data/control/structural hazards, software solutions, interlocks and bubbles, forwarding paths and conditions, interrupts, the performance equation, branch prediction, multiple issue and out-of-order execution"
+    }
+  ],
+  "sourceLine": "The forwarding concept, the EX/MEM and MEM/WB paths, the forwarding conditions and the hardware they need: Sarangi chapter 10, sections 10.7.1 to 10.7.5 (English, read in full). The stall-count line - 2 without forwarding, 0 with EX forwarding, 1 for load-use - and the statement that load-use cannot be avoided: DSWallah Learn 'Pipeline Hazards & Stalls', romanised Hindi, translated (read in part).",
+  "id": "forwarding-and-its-limits",
+  "title": "Forwarding: What It Fixes, What It Cannot, and What It Costs",
+  "priority": "P1",
+  "order": 553,
+  "unit": "Instruction Pipelining: Hazards, Stalls and Fixes",
+  "quickIdea": "Forwarding wires a result from the stage that produced it straight to the stage that needs it, so a dependent instruction need not wait for write-back. It removes most RAW stalls but not all: a load's data appears only at the end of MEM, so the instruction right behind a load still waits one cycle.",
+  "remember": [
+    "The two paths in a 5-stage pipeline are EX/MEM output to EX input (an ALU result, ready at the end of EX) and MEM/WB output to EX input (a loaded word, ready at the end of MEM).",
+    "The forwarding unit compares the destination register in EX/MEM and in MEM/WB with the source registers of the instruction in EX, and drives input multiplexers on a match.",
+    "It costs hardware: bypass wires, input multiplexers and comparison logic. 'Forwarding needs no extra hardware' is false.",
+    "It cannot help a load-use pair, cannot remove a control hazard, and cannot resolve a structural conflict. 'Forwarding prevents all stalls' is false.",
+    "With full forwarding a RAW pair costs 0 extra cycles in the 5-stage pipeline; the load-use pair costs exactly 1."
+  ],
+  "example": {
+    "prompt": "Which of these statements about forwarding in a 5-stage pipeline are correct? (A) a result from a source stage of an earlier instruction is passed to the destination stage of a later one; (B) data from the output of MEM can be passed to the input of EX of the next instruction; (C) forwarding cannot prevent all pipeline stalls; (D) forwarding needs no extra hardware.",
+    "work": "A is the definition of forwarding, so true. B is the MEM-to-EX path that serves a load followed immediately by a use, so true - it is the path that turns a 2-cycle wait into a 1-cycle one. C is true because the load-use pair still needs a bubble and control and structural hazards are untouched. D is false: bypass paths, multiplexers and a forwarding control unit are added.",
+    "answer": "A, B and C are correct and D is not, the accepted answer of GATE CSE 2024 Set 1 Q.30."
+  },
+  "gateAngle": "The exam tests the boundary of forwarding rather than its definition. GATE CSE 2024 Set 1 Q.30 offers four statements and expects A, B and C; the load-use case is the reason C holds and is asked on its own in other years. Every 'how many stalls' question is really asking which of the paths is available.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "ADD R1, R2, R3; ADD R4, R1, R5; ADD R6, R1, R7; ADD R8, R1, R9. With EX-to-EX and MEM-to-EX forwarding, how many stalls does the block need in a 5-stage pipeline?",
+      "why": "It tests whether the student applies forwarding to several readers rather than to one pair.",
+      "answer": "None. I1's result is ready at the end of its EX cycle, which is the cycle in which I2 is in EX, so the EX-to-EX path feeds I2, and the same path feeds I3 and I4 from I1's EX/MEM register. Zero stalls, because the producer is an ALU operation and the distance is at least one."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Why can a loaded value not be forwarded to the very next instruction without a stall, even though the path exists?",
+      "why": "It is the single fact that makes statement C of the 2024 question true.",
+      "answer": "Because the word comes out of data memory at the end of the MEM stage, while the consumer needs it at the start of its own EX stage - and that EX stage is the same cycle in which the load is in MEM. The value is not there yet at the start of the cycle, so one cycle must pass and one bubble is inserted."
+    }
+  ],
+  "trap": {
+    "what": "Saying forwarding removes all data stalls.",
+    "why": "The load-use pair needs a cycle that no wire can supply, because the data does not exist early enough. Control hazards and structural conflicts are outside forwarding's reach entirely.",
+    "counterexample": "LOAD R1, [A] then ADD R2, R1, R3: with full forwarding this still costs 1 stall, which is the number GATE CSE 2024 Set 1 Q.30 statement C asserts."
+  },
+  "check": {
+    "question": "A sequence has 5 RAW pairs of which one is a load-use pair, and the pipeline has full forwarding. How many stall cycles does the sequence need?",
+    "answer": "1 cycle, from the load-use pair alone.",
+    "explanation": "The four ALU-to-ALU pairs are covered by the EX/MEM path at zero cost; only the load-use pair pays its unavoidable single cycle."
+  }
+}

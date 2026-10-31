@@ -1,0 +1,65 @@
+{
+  "videoRefs": [],
+  "prereqs": [
+    "ideal-timing-and-speedup-formula"
+  ],
+  "pyqIds": [
+    "gate-2016-set-1-q32-throughput-increase"
+  ],
+  "sources": [
+    {
+      "kind": "text",
+      "title": "Chapter 10 - Principles of Pipelining (Basic Computer Architecture)",
+      "channel": "IIT Delhi, Prof. Smruti R. Sarangi (freely distributed book chapter)",
+      "url": "https://www.cse.iitd.ac.in/~srsarangi/archbook/chapters/pipelining.pdf",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "the whole 92-page chapter was read: the pipeline idea and its performance, the five stages, pipeline registers, data/control/structural hazards, software solutions, interlocks and bubbles, forwarding paths and conditions, interrupts, the performance equation, branch prediction, multiple issue and out-of-order execution"
+    }
+  ],
+  "sourceLine": "Throughput as the reciprocal of the cycle time, efficiency as speed-up over k, and the penalty growing with depth: Sarangi chapter 10, sections 10.9.2, 10.9.3 and 10.11.1 (English, read in full). The throughput, efficiency and depth-trade-off statements: DSWallah Learn 'Instruction Pipelining', romanised Hindi, translated (read in part).",
+  "id": "throughput-efficiency-and-the-clock-rate-trade",
+  "title": "Throughput, Efficiency and the Clock-rate Trade",
+  "priority": "P2",
+  "order": 549,
+  "unit": "Instruction Pipelining: Stages, Timing and Speed-up",
+  "quickIdea": "Throughput is instructions completed per unit time, which in the steady state is 1 / t_p. Anything that shortens the cycle time raises throughput even when the CPI and the instruction count do not change, which is why a percentage change in throughput is a percentage change in clock frequency.",
+  "remember": [
+    "Steady-state throughput = 1 / t_p instructions per second; raising it means lowering max(stage delay) + latch delay.",
+    "For the same instruction stream, the percentage change in throughput equals the percentage change in clock frequency.",
+    "Efficiency = speed-up / k measures how much of the ideal k-fold gain a finite program realises; long programs approach 1.",
+    "Deeper pipelines lower t_p but raise the cycles lost per hazard, because the stall penalty grows with depth (Sarangi: 1 cycle for load-use and 2 for a taken branch at this depth, doubling when every stage is halved).",
+    "Splitting a stage is worth it only while that stage is the maximum; once another stage is, further splitting buys nothing."
+  ],
+  "example": {
+    "prompt": "A 4-stage pipeline has stage delays 800, 500, 400 and 300 ps. Its first stage is replaced by two stages of 600 and 350 ps. By what percentage does throughput rise?",
+    "work": "Before: t_p = max(800, 500, 400, 300) = 800 ps, throughput 1/800. After: the stages are 600, 350, 500, 400, 300 ps, so t_p = 600 ps and throughput 1/600. The ratio is (1/600)/(1/800) = 800/600 = 4/3, so the increase is 33.33 percent.",
+    "answer": "33.33 percent, the accepted answer of GATE CSE 2016 Set 1 Q.32. Note that the cycle time fell by 25 percent but throughput rose by 33.33 percent: the two percentages are reciprocals, not the same number."
+  },
+  "gateAngle": "GATE CSE 2016 Set 1 Q.32 asks for the throughput increase from splitting a stage and expects 33.33; GATE CSE 2016 Set 2 Q.33 asks the same change expressed as a new clock frequency and expects 4 GHz. Both are one calculation: the new maximum stage delay.",
+  "variations": [
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "For the 2016 Set 1 pipeline, what is the throughput increase if the 800 ps stage is split into 400 + 400 ps instead of 600 + 350 ps?",
+      "why": "It tests whether the student recomputes the maximum instead of reusing the previous answer.",
+      "answer": "The stages become 400, 400, 500, 400, 300 ps, so t_p = 500 ps and throughput rises from 1/800 to 1/500, an increase of 60 percent. Splitting further helped only because 500 ps then became the limit, and no split of the first stage alone can now help."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "A design halves every stage delay and doubles the stage count. What happens to throughput and what happens to the cost of a taken branch?",
+      "why": "It joins the two halves of the topic: the gain from frequency and the loss from penalty.",
+      "answer": "Throughput doubles, since the cycle time halves. The branch penalty doubles too, from 2 cycles to 4, because twice as many instructions are fetched before the branch resolves; a program with many taken branches therefore gains much less than 2x, which is the trade the chapter states as the reason pipeline depth is limited."
+    }
+  ],
+  "trap": {
+    "what": "Reporting the fall in cycle time as the rise in throughput.",
+    "why": "Throughput is the reciprocal of the period, so a 25 percent shorter period is a 33.33 percent higher rate. The two are not interchangeable.",
+    "counterexample": "2016 Set 1 Q.32: (800 - 600)/800 = 25 percent is the reduction in cycle time; the accepted throughput increase is 33.33 percent."
+  },
+  "check": {
+    "question": "A pipeline's cycle time falls from 5 ns to 4 ns with no change in CPI. What is the throughput increase?",
+    "answer": "25 percent: 1/4 against 1/5 is a ratio of 5/4.",
+    "explanation": "The rate rises by the ratio of the old period to the new one, 5/4, which is a 25 percent increase - not the 20 percent by which the period fell."
+  }
+}

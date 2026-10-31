@@ -1,0 +1,66 @@
+{
+  "videoRefs": [],
+  "prereqs": [
+    "pipeline-idea-and-the-space-time-diagram"
+  ],
+  "pyqIds": [
+    "gate-2013-q45-branch-penalty-taken-branch"
+  ],
+  "sources": [
+    {
+      "kind": "text",
+      "title": "Chapter 10 - Principles of Pipelining (Basic Computer Architecture)",
+      "channel": "IIT Delhi, Prof. Smruti R. Sarangi (freely distributed book chapter)",
+      "url": "https://www.cse.iitd.ac.in/~srsarangi/archbook/chapters/pipelining.pdf",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "the whole 92-page chapter was read: the pipeline idea and its performance, the five stages, pipeline registers, data/control/structural hazards, software solutions, interlocks and bubbles, forwarding paths and conditions, interrupts, the performance equation, branch prediction, multiple issue and out-of-order execution"
+    }
+  ],
+  "sourceLine": "The predict-not-taken scheme, the two cancelled instructions, delay slots and the growth of the penalty with depth: Sarangi chapter 10, sections 10.4.3, 10.5.2 and 10.11.1 (English, read in full). The control-hazard penalty line and the remedy list: DSWallah Learn 'Pipeline Hazards & Stalls', romanised Hindi, translated (read in part).",
+  "id": "control-hazards-and-the-branch-penalty",
+  "title": "Control Hazards and the Branch Penalty",
+  "priority": "P1",
+  "order": 556,
+  "unit": "Instruction Pipelining: Hazards, Stalls and Fixes",
+  "quickIdea": "A branch decides the next PC late - in the classic 5-stage pipeline at the end of EX - while the fetch unit has already brought in the next two instructions. If the branch is taken those two are wrong and are flushed, which is a penalty of 2 cycles.",
+  "remember": [
+    "The branch penalty is the number of instructions fetched after the branch before the outcome is known: 2 in the 5-stage pipeline that resolves the branch in EX.",
+    "The three treatments: stall until the decision is known; predict not taken and flush the two on a taken branch; use delayed branching, where the delay slots are always executed.",
+    "With predict-not-taken the two instructions after the branch are fetched and cancelled only if the branch is taken; the loss is those two cycles, and no data-path change is needed.",
+    "A taken branch with penalty 2 turns (k + n - 1) into (k + n - 1) + 2 for a single-branch program - or, more safely, count the columns of the diagram.",
+    "The penalty grows with depth: 2 cycles at 5 stages, more than 20 at modern depths, which is why prediction is unavoidable in real processors."
+  ],
+  "example": {
+    "prompt": "A 5-stage pipeline has stages FI, DI, FO, EI and WO with delays 5, 7, 10, 8 and 6 ns and a 1 ns buffer after each stage. Twelve instructions run, I4 is the only branch and its target is I9, and the branch is taken. How long does the program take?",
+    "work": "Cycle time = max(5, 7, 10, 8, 6) + 1 = 11 ns. The branch resolves at the end of I4's EI stage, which is cycle 7, so I5, I6 and I7 have been fetched and are cancelled and I9's fetch starts in cycle 8. The diagram has I1 to I4 in cycles 1 to 8 and I9 to I12 running to cycle 15, so 15 columns. 15 x 11 = 165 ns.",
+    "answer": "165 ns, the accepted answer of GATE CSE 2013 Q.45 (option B)."
+  },
+  "gateAngle": "GATE CSE 2013 Q.45 is the canonical form: a stage table, a buffer delay, a branch in the middle and a target, and the answer is a column count. GATE CSE 2022 Q.61 replaces the single branch with a branch frequency and a predictor accuracy, which is the same penalty applied statistically.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "In the 2013 pipeline above, how many cycles would the program take if the branch were not taken?",
+      "why": "It isolates the penalty by removing the flush while keeping everything else identical.",
+      "answer": "Twelve instructions on 5 stages with no stalls is 5 + 12 - 1 = 16 columns, so 176 ns - one column more than the taken case, because the taken branch skips I5 to I8 and the program is shorter in instructions executed."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Why is the penalty 2 cycles and not 1 or 3 in this pipeline?",
+      "why": "It forces the student to locate the branch resolution stage, which is what sets the number.",
+      "answer": "Because the branch condition is evaluated in EX, so two instructions (those fetched in the two cycles before the decision) have entered the pipeline and must be discarded. Move the comparator into ID and the penalty falls to 1; add a stage before EX and it rises."
+    }
+  ],
+  "trap": {
+    "what": "Treating the flushed instructions as if they had never been fetched.",
+    "why": "They occupied the pipeline for the cycles in question, and those cycles are part of the elapsed time even though no useful work came out of them.",
+    "counterexample": "2013 Q.45: the flushed I5, I6 and I7 make the program 15 columns long instead of the 12 an 'only count useful instructions' reading would suggest."
+  },
+  "check": {
+    "question": "A 5-stage pipeline resolves branches in EX. Instructions I1, I2, I3 (branch to I6), I4, I5, I6 run and the branch is taken. How many cycles does the program take?",
+    "answer": "10 cycles: I1 finishes at cycle 5, I3 at cycle 7, and I6 runs from cycle 6 to cycle 10.",
+    "explanation": "I4 and I5 are fetched in cycles 4 and 5 and cancelled when I3's EX stage in cycle 5 decides the branch; I6 is fetched in cycle 6 and its WB is cycle 10."
+  },
+  "visual": "computer-organization-and-architecture/instruction-pipelining-and-hazards/load-use-bubble-and-branch-penalty"
+}

@@ -1,0 +1,61 @@
+{
+  "videoRefs": [],
+  "prereqs": [],
+  "pyqIds": [],
+  "sources": [
+    {
+      "kind": "text",
+      "title": "Chapter 10 - Principles of Pipelining (Basic Computer Architecture)",
+      "channel": "IIT Delhi, Prof. Smruti R. Sarangi (freely distributed book chapter)",
+      "url": "https://www.cse.iitd.ac.in/~srsarangi/archbook/chapters/pipelining.pdf",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "the whole 92-page chapter was read: the pipeline idea and its performance, the five stages, pipeline registers, data/control/structural hazards, software solutions, interlocks and bubbles, forwarding paths and conditions, interrupts, the performance equation, branch prediction, multiple issue and out-of-order execution"
+    }
+  ],
+  "sourceLine": "The stage sequence, the diagram reading rule and the (k + n - 1) timing: Sarangi, Basic Computer Architecture chapter 10, sections 10.1 to 10.3 (English, read in full). The latency-versus-throughput statement and the fill/drain wording: DSWallah Learn 'Instruction Pipelining', romanised Hindi, translated (read in part).",
+  "id": "pipeline-idea-and-the-space-time-diagram",
+  "title": "The Pipeline Idea, and Reading the Space-Time Diagram",
+  "priority": "P1",
+  "order": 546,
+  "unit": "Instruction Pipelining: Stages, Timing and Speed-up",
+  "quickIdea": "Pipelining cuts one instruction's trip through the datapath into stages and lets different instructions sit in different stages in the same cycle. A k-stage pipeline then finishes one instruction per cycle in the steady state, instead of one every k cycles.",
+  "remember": [
+    "Five classic stages: IF (fetch the instruction), OF or ID (decode and read the registers), EX (ALU work, address arithmetic, branch test), MA or MEM (data memory), RW or WB (write the register).",
+    "A pipeline diagram has one row per instruction and one column per clock cycle, and every row is shifted one column to the right of the row above it.",
+    "Latency does not improve: one instruction still occupies k cycles, plus the latch time. Throughput improves: after the fill, one instruction leaves the pipeline every cycle.",
+    "A stall is drawn as a gap in a row, or as a bubble occupying a stage; the total time is the number of columns, so count columns rather than trusting a formula.",
+    "With n instructions, k stages and no stalls the total is k + n - 1 cycles; the first k - 1 cycles are the fill and the last k - 1 the drain."
+  ],
+  "example": {
+    "prompt": "A 5-stage pipeline runs 8 instructions with no stalls. How many cycles does it take, and how many would the same 8 take on the unpipelined machine at the same clock?",
+    "work": "Pipelined: k + n - 1 = 5 + 8 - 1 = 12 cycles, because the first instruction takes 5 cycles and each of the other 7 adds one. Unpipelined, each instruction must pass through all five stages in sequence, so 8 x 5 = 40 cycles.",
+    "answer": "12 cycles against 40, a speed-up of 40/12 = 3.33. It is well short of the ideal 5 because on a program this short the fill and drain are a large part of the total."
+  },
+  "gateAngle": "Every pipeline question is a diagram question. GATE CSE 2021 Set 1 Q.53 hands you five stage delays and a latch delay and asks for the time of 100 instructions: the answer is 104 columns of 165 ns, that is 17160 ns. GATE CSE 2013 Q.45 asks for the same thing with a branch in the middle, and the answer is 15 columns of 11 ns.",
+  "variations": [
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Why does pipelining raise throughput but not the latency of a single instruction?",
+      "why": "It separates the two quantities a beginner tends to merge, and it is the sentence GATE's definition questions are built on.",
+      "answer": "Because the stages of one instruction are still traversed one after another: the fifth stage of an instruction cannot start before its fourth has finished, so a lone instruction still needs k clock cycles. What changes is that the stage left idle behind it is now used by the next instruction, so k instructions are in flight at once and one finishes per cycle."
+    },
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "A 6-stage pipeline with 1 ns stages runs 10 instructions with no stalls. How many cycles and what speed-up over the unpipelined machine at the same clock?",
+      "why": "It moves the same reasoning to a different k and n, which is exactly how the exam varies the 2021 question.",
+      "answer": "6 + 10 - 1 = 15 cycles; unpipelined 10 x 6 = 60 cycles; speed-up 60/15 = 4, against an ideal ceiling of 6."
+    }
+  ],
+  "trap": {
+    "what": "Saying that pipelining makes an instruction faster.",
+    "why": "An instruction still needs every stage; pipelining overlaps different instructions, not the stages of one instruction. A single instruction is not speeded up at all, and is slightly slowed by the latch delay.",
+    "counterexample": "One instruction alone on a 5-stage, 1 ns-per-stage pipeline takes 5 cycles (more, with latches), exactly as on the unpipelined machine. The gain appears only from the second instruction onward."
+  },
+  "check": {
+    "question": "A 4-stage pipeline runs 20 instructions. How many cycles does it need, and in which cycle does the first instruction finish?",
+    "answer": "4 + 20 - 1 = 23 cycles, and the first instruction finishes at the end of cycle 4.",
+    "explanation": "The fill is k - 1 = 3 cycles before the second instruction can start leaving, so the total is n + k - 1 and the first completion is at cycle k."
+  }
+}

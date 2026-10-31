@@ -1,0 +1,118 @@
+{
+  "subject": "computer-organization-and-architecture",
+  "topic": "instruction-pipelining-and-hazards",
+  "retrieved_at": "2026-10-31",
+  "chosen": [
+    {
+      "id": "sarangi-basic-computer-architecture-ch10",
+      "kind": "text",
+      "title": "Chapter 10 - Principles of Pipelining, in Basic Computer Architecture",
+      "channel": "IIT Delhi, Prof. Smruti R. Sarangi (book distributed free under CC BY-ND)",
+      "url": "https://www.cse.iitd.ac.in/~srsarangi/archbook/chapters/pipelining.pdf",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "covers": [
+        "the pipeline idea, the five stages and the space-time diagram",
+        "pipeline registers and the cycle time",
+        "data, control and structural hazards",
+        "software solutions and interlocks",
+        "forwarding paths and forwarding conditions",
+        "the performance equation and the stall model",
+        "branch prediction, multiple issue and out-of-order execution"
+      ],
+      "why": "the only source read this run that carries the whole topic, from the definition to the CPI equation, in one voice and with worked numbers; every card's core claim rests on it"
+    },
+    {
+      "id": "dswallah-instruction-pipelining",
+      "kind": "text",
+      "title": "Instruction Pipelining (romanised Hindi lesson)",
+      "channel": "DSWallah Learn",
+      "url": "https://www.dswallah.com/learn/computer-architecture/pipelining/",
+      "language": "hi",
+      "transcript": "PARTIAL",
+      "translated": true,
+      "covers": [
+        "the stage list and the diagram reading rule",
+        "the (k + n - 1) timing, speed-up, throughput and efficiency formulas",
+        "the depth trade-off",
+        "the three common mistakes"
+      ],
+      "why": "the only readable non-English source, and the only one that states the speed-up, throughput and efficiency formulas together as an exam sheet with a worked numerical; its three 'common mistakes' are the basis of three trap fields"
+    },
+    {
+      "id": "dswallah-pipeline-hazards",
+      "kind": "text",
+      "title": "Pipeline Hazards & Stalls (romanised Hindi lesson)",
+      "channel": "DSWallah Learn",
+      "url": "https://www.dswallah.com/learn/computer-architecture/pipeline-hazards/",
+      "language": "hi",
+      "transcript": "PARTIAL",
+      "translated": true,
+      "covers": [
+        "the three hazard classes with a remedy each",
+        "the RAW, WAR and WAW table",
+        "the stall counts 2, 0 and 1",
+        "the control-hazard penalty and the prediction strategies"
+      ],
+      "why": "it is the only source read this run that states the three stall counts together (2 without forwarding, 0 with EX forwarding, 1 for load-use) and the only one that lists the prediction strategies by name"
+    },
+    {
+      "id": "nptel-iitg-106103180-module6-outline",
+      "kind": "course-outline",
+      "title": "NOC Computer Organization and Architecture: A Pedagogical Aspect - Module 6, Performance Enhancement of Processor",
+      "channel": "NPTEL, IIT Guwahati",
+      "url": "https://archive.nptel.ac.in/content/syllabus_pdf/106103180.pdf",
+      "language": "en",
+      "transcript": "STRUCTURE_ONLY",
+      "translated": false,
+      "covers": [
+        "the teaching order: module 5 is peripherals and I/O, module 6 is performance enhancement of the processor"
+      ],
+      "why": "read only to confirm that pipelining follows the I/O interface in the sequence the previous run finished; no sentence of any lecture rests on it and no card quotes it"
+    }
+  ],
+  "rejected": [
+    {
+      "id": "nptel-iitg-106103180-lecture-transcripts-lec39-to-lec40",
+      "kind": "lecture-transcript",
+      "why": "the digimat PDF transcripts of the Guwahati course answered HTTP 403 to every request from the sandbox, through the egress proxy, and the two module-6 lecture numbers tried (lec39, lec40) returned an empty body to the fetch service, so nothing could be read from the lecture that teaches this topic in the same course whose lectures 33 to 35 supplied the previous run"
+    },
+    {
+      "id": "nptel-iitk-106105163-lectures-40-41-55-58",
+      "kind": "lecture-series",
+      "why": "the IIT Kharagpur 'Computer Architecture and Organization' series has exactly the right lectures - 40 Basic Pipelining Concepts, 41 Pipeline Scheduling, 55 to 58 Pipeline Hazards - and its lecture index was read, but the digimat lecture page for L40 served a title and no transcript, and the transcript PDF path returned an empty body, so it is recorded as structure only and no card draws on it"
+    },
+    {
+      "id": "youtube-pipelining-lectures-any-channel",
+      "kind": "video",
+      "why": "every YouTube watch page tried answered LOGIN_REQUIRED with no caption track, so no English, Hindi, Tamil, Telugu or Bengali lecture supplied a single sentence; this includes the GO Classes and Gate Smashers pipelining lectures and the NPTEL Lec 7 'Instruction Pipeline Hazards' video"
+    },
+    {
+      "id": "geeksforgeeks-and-javatpoint-pipelining-articles",
+      "kind": "text",
+      "why": "both hosts answered 502 through the egress proxy on every attempt, so neither could be read"
+    },
+    {
+      "id": "patterson-and-hennessy-chapter-4",
+      "kind": "textbook",
+      "why": "the standard reference for this topic, but no copy was fetched this run and none of its text is reproduced; the topic rests on a freely distributed IIT Delhi chapter instead, and the disagreement that matters (the exact number of load-use stalls) is checked against computation rather than against a book I could not open"
+    },
+    {
+      "id": "gateoverflow-examside-pyqlabs-gateiq-topic-indexes",
+      "kind": "question-index",
+      "why": "used to locate questions and to corroborate answers, never as the source of a card; their year and question numbering disagree with each other and with the printed papers (2026 Set 1 Q.16 is Q.6 on GATE Overflow, 2025 Set 2 Q.56 is Q.46, 2024 Set 1 Q.30 is Q.20, 2024 Set 2 Q.31 is Q.21 and Q.58 is Q.48, 2022 Q.61 is Q.51, 2020 Q.43 is Q.53 on one index, 2015 Set 3 Q.47 is Q.39 in the paper), and every such disagreement is recorded in the PYQ record rather than resolved"
+    },
+    {
+      "id": "wikipedia-instruction-pipelining",
+      "kind": "encyclopaedia",
+      "why": "reachable and readable, but it is a general encyclopaedia entry with no GATE framing, no worked numerical and no hazard arithmetic; nothing was taken from it"
+    }
+  ],
+  "standard_refs": [
+    "Sarangi, Basic Computer Architecture, chapter 10 (IIT Delhi, free PDF), sections 10.1-10.11",
+    "Patterson and Hennessy, Computer Organization and Design, chapter 4 - cited as the standard treatment, not fetched",
+    "Official GATE question papers used to check question text and numbering: GATE 2026 CS1 (gate2026.iitg.ac.in), GATE 2024 CS1 (gate2024.iisc.ac.in), GATE 2018 CS and GATE 2015 CS3 copies"
+  ],
+  "language_note": "Two of the four chosen sources are romanised-Hindi lessons; every card drawn on them is English and names the translation in its source line. No card is a translation of a lecture, because no lecture transcript was readable."
+}

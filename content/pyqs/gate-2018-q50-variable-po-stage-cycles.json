@@ -1,0 +1,16 @@
+{
+  "id": "gate-2018-q50-variable-po-stage-cycles",
+  "year": "2018",
+  "paper": "GATE CS 2018",
+  "question_ref": "Q.50",
+  "type": "NAT",
+  "marks": "2",
+  "topic": "stalls-interlocks-and-bubbles",
+  "text": "The instruction pipeline of a RISC processor has stages IF, ID, OF, PO and WB. IF, ID, OF and WB take 1 clock cycle each for every instruction. For a sequence of 100 instructions, in the PO stage 40 instructions take 3 clock cycles each, 35 take 2 clock cycles each and the remaining 25 take 1 clock cycle each. Assume no data hazards and no control hazards. The number of clock cycles required to complete the sequence is ______.",
+  "answer": "219",
+  "solution": "The PO unit is the bottleneck and never idles once started: its total occupancy is 40x3 + 35x2 + 25x1 = 215 cycles. The first instruction needs IF, ID and OF before entering PO, 3 cycles, and the last needs WB after leaving it, 1 cycle. Total = 3 + 215 + 1 = 219. The same figure comes from (5 + 100 - 1) + (40x2 + 35x1) = 104 + 115 = 219. Recomputed in scripts/validate.py.",
+  "source_url": "https://gateoverflow.in/204125/gate-cse-2018-question-50",
+  "source_label": "GATE Overflow question page - GATE CSE 2018 Q.50 with the accepted answer 219",
+  "verification": "SOURCED",
+  "answer_evidence": "Several answers on the page derive 219, by the occupancy sum and by the 104 + 115 route, and the official GATE 2018 CS paper (gateexam.info copy) prints the same question text at Q.50."
+}

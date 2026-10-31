@@ -1,0 +1,66 @@
+{
+  "videoRefs": [],
+  "prereqs": [
+    "data-hazard-types-raw-war-waw"
+  ],
+  "pyqIds": [
+    "gate-2012-q20-register-renaming",
+    "gate-2015-set-3-q47-anti-dependence-statements"
+  ],
+  "sources": [
+    {
+      "kind": "text",
+      "title": "Chapter 10 - Principles of Pipelining (Basic Computer Architecture)",
+      "channel": "IIT Delhi, Prof. Smruti R. Sarangi (freely distributed book chapter)",
+      "url": "https://www.cse.iitd.ac.in/~srsarangi/archbook/chapters/pipelining.pdf",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "the whole 92-page chapter was read: the pipeline idea and its performance, the five stages, pipeline registers, data/control/structural hazards, software solutions, interlocks and bubbles, forwarding paths and conditions, interrupts, the performance equation, branch prediction, multiple issue and out-of-order execution"
+    }
+  ],
+  "sourceLine": "Software solutions to RAW and control hazards, and register renaming as the removal of WAW and WAR: Sarangi chapter 10, sections 10.5.1, 10.5.2 and 10.11.4 (English, read in full). Compiler scheduling, delay slots and renaming listed as remedies: DSWallah Learn 'Pipeline Hazards & Stalls', romanised Hindi, translated (read in part).",
+  "id": "software-fixes-scheduling-and-register-renaming",
+  "title": "Software Fixes: Scheduling and Register Renaming",
+  "priority": "P2",
+  "order": 555,
+  "unit": "Instruction Pipelining: Hazards, Stalls and Fixes",
+  "quickIdea": "The compiler can move an independent instruction into the gap a hazard would leave, and the hardware or the compiler can rename registers so that two instructions which merely reuse a name no longer collide. Both reduce stalls without changing what the program computes.",
+  "remember": [
+    "Instruction scheduling reorders independent instructions to cover latency - the load-use gap, or the branch delay slots - and needs no hardware change.",
+    "Register renaming maps the architectural registers onto a larger set of physical registers, so a later write goes to a different physical register and WAR and WAW disappear.",
+    "Renaming removes false dependences only. A true dependence, RAW, survives renaming because the value really is needed.",
+    "Renaming is the standard answer to 'what handles certain kinds of hazards' (GATE CSE 2012 Q.20, answer: to handle certain kinds of hazards).",
+    "An anti-dependence does not always stall an in-order pipeline, because the read happens in ID long before any later write reaches WB - which is why 'an anti-dependence always creates one or more stalls' is false (GATE CSE 2015 Set 3 Q.47)."
+  ],
+  "example": {
+    "prompt": "For I1: ADD R1, R2, R3; I2: MUL R7, R1, R3; I3: SUB R4, R1, R5; I4: ADD R3, R2, R4; I5: MUL R7, R8, R9, decide whether S1 (anti-dependence between I2 and I5), S2 (anti-dependence between I2 and I4) and S3 (an anti-dependence always creates one or more stalls) hold.",
+    "work": "I2 reads R1 and R3 and writes R7; I5 writes R7 and reads R8 and R9, so I2 to I5 is write-after-write, an output dependence, not anti. I2 reads R3 and I4 writes R3, so I2 to I4 is write-after-read: an anti-dependence, true. S3 fails on two counts: in an in-order pipeline the read in ID precedes any later write in WB, and renaming removes the dependence altogether.",
+    "answer": "Only S2 is true, the accepted answer of GATE CSE 2015 Set 3 Q.47."
+  },
+  "gateAngle": "GATE asks this in two ways: a definition question about what renaming is for (2012 Q.20) and a statement question where the word 'always' is the trap (2015 Set 3 Q.47). The reasoning is the same: decide whether the pair is RAW, WAR or WAW, then ask whether that kind of dependence can hurt this pipeline.",
+  "variations": [
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "A compiler cannot fill the gap after a load because no independent instruction is available. What else can it do, and what does that cost?",
+      "why": "It shows scheduling is one of a family of fixes, and that the fallback is the hardware stall.",
+      "answer": "It can rename registers or reschedule a different block, but if nothing independent exists the load-use bubble remains: the processor inserts it. The cost is one cycle of throughput per occurrence, exactly the stall the hardware would have produced without any scheduling attempt."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Why does renaming not help a RAW hazard?",
+      "why": "It is the boundary between removing a name collision and removing a real dependence.",
+      "answer": "Because the second instruction needs the value the first produces. Renaming gives the writer a new physical register but the reader still has to read that same new register, so the dependence is carried along with the renaming rather than dissolved by it."
+    }
+  ],
+  "trap": {
+    "what": "Thinking renaming removes stalls caused by true dependences.",
+    "why": "Renaming acts on the names, and a true dependence is about the value. A pipeline still waits for the producer of a value it needs.",
+    "counterexample": "LOAD R1, [A]; ADD R2, R1, R3 with every register renamed: the pair still needs its one bubble, because the loaded word is not available at the start of the consumer's EX cycle."
+  },
+  "check": {
+    "question": "Two instructions write the same register in program order. Name the dependence, say whether it stalls an in-order pipeline, and say what removes it in an out-of-order one.",
+    "answer": "WAW, an output dependence; it does not stall an in-order pipeline; register renaming removes it out of order.",
+    "explanation": "In order, the first write completes before the second begins, so the final value is correct; out of order the second could finish first, and renaming gives each write its own physical register."
+  }
+}

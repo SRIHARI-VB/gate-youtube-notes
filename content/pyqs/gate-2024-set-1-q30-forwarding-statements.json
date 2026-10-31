@@ -1,0 +1,22 @@
+{
+  "id": "gate-2024-set-1-q30-forwarding-statements",
+  "year": "2024",
+  "paper": "GATE CS 2024 Set 1",
+  "question_ref": "Q.30 (numbered Question: 20 on GATE Overflow)",
+  "type": "MSQ",
+  "marks": "1",
+  "topic": "forwarding-and-its-limits",
+  "text": "Consider a 5-stage pipelined processor with IF, ID, EX, MEM and WB stages. Which of the following statements about forwarding is/are CORRECT? (A) In a pipelined execution, forwarding means the result from a source stage of an earlier instruction is passed on to the destination stage of a later instruction. (B) In forwarding, data from the output of the MEM stage can be passed on to the input of the EX stage of the next instruction. (C) Forwarding cannot prevent all pipeline stalls. (D) Forwarding does not require any extra hardware to retrieve the data from the pipeline stages.",
+  "options": [
+    "In a pipelined execution, forwarding means the result from a source stage of an earlier instruction is passed on to the destination stage of a later instruction",
+    "In forwarding, data from the output of the MEM stage can be passed on to the input of the EX stage of the next instruction",
+    "Forwarding cannot prevent all pipeline stalls",
+    "Forwarding does not require any extra hardware to retrieve the data from the pipeline stages"
+  ],
+  "answer": "Options (A), (B) and (C)",
+  "solution": "A is the definition. B is the MEM-to-EX path, the one that serves a load whose value is wanted by the instruction right behind it; the value is available at the end of MEM and can be routed to the consumer's EX input, at the price of one bubble. C is correct because the load-use pair still stalls once, and control and structural hazards are outside forwarding's reach. D is wrong: bypass wires, input multiplexers and a forwarding control unit are all added.",
+  "source_url": "https://gateoverflow.in/422822/gate-cse-2024-set-1-question-20",
+  "source_label": "GATE Overflow question page - GATE CSE 2024 Set 1, listed as Question: 20, with the accepted answer A, B and C",
+  "verification": "SOURCED",
+  "answer_evidence": "The accepted answers on the page mark statements 1, 2 and 3 correct and 4 incorrect. The official GATE 2024 CS paper (gate2024.iisc.ac.in, CS1 set) prints the same four statements at Q.30."
+}

@@ -1,0 +1,65 @@
+{
+  "videoRefs": [],
+  "prereqs": [
+    "control-hazards-and-the-branch-penalty"
+  ],
+  "pyqIds": [
+    "gate-2022-q61-branch-predictor-speedup"
+  ],
+  "sources": [
+    {
+      "kind": "text",
+      "title": "Chapter 10 - Principles of Pipelining (Basic Computer Architecture)",
+      "channel": "IIT Delhi, Prof. Smruti R. Sarangi (freely distributed book chapter)",
+      "url": "https://www.cse.iitd.ac.in/~srsarangi/archbook/chapters/pipelining.pdf",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "the whole 92-page chapter was read: the pipeline idea and its performance, the five stages, pipeline registers, data/control/structural hazards, software solutions, interlocks and bubbles, forwarding paths and conditions, interrupts, the performance equation, branch prediction, multiple issue and out-of-order execution"
+    }
+  ],
+  "sourceLine": "Branch prediction, the 2-cycle penalty it hides, speculative instructions and the target buffer: Sarangi chapter 10, section 10.11.1 (English, read in full). The prediction strategies - static, 1-bit and 2-bit counters, BTB - and the penalty range: DSWallah Learn 'Pipeline Hazards & Stalls', romanised Hindi, translated (read in part).",
+  "id": "branch-prediction-and-its-payoff",
+  "title": "Branch Prediction and Its Payoff",
+  "priority": "P1",
+  "order": 557,
+  "unit": "Instruction Pipelining: Hazards, Stalls and Fixes",
+  "quickIdea": "If the fetch unit guesses the branch direction it can keep fetching without waiting: a correct guess costs nothing and a wrong one costs the flush. Prediction therefore turns a fixed 2-cycle penalty into (1 - accuracy) x penalty on average.",
+  "remember": [
+    "Static prediction: predict not taken (fetch p + 4, p + 8) or predict taken with the target computed early. Cheap, and right for loops only part of the time.",
+    "Dynamic prediction: a per-branch counter, 1-bit or 2-bit saturating, predicts the recent outcome; a branch target buffer caches the target so it is available at fetch.",
+    "Expected stall per branch = (1 - accuracy) x penalty, when a hit costs nothing and a miss costs the whole penalty.",
+    "CPI = 1 + branch fraction x expected stall per branch. The speed-up from adding a predictor is the ratio of the two CPIs when the clock is unchanged.",
+    "Prediction never removes the cost of a misprediction; it moves the cost from every branch to the fraction that is mispredicted, and speculative instructions must be discardable."
+  ],
+  "example": {
+    "prompt": "Processor X1 at 2 GHz has a 5-stage RISC pipeline with base CPI 1. In program P, 30 percent of instructions are branches and each branch stalls 2 cycles. X2 runs at the same clock and adds a branch predictor that removes the stall on a correct prediction and gives no saving and no extra penalty on a wrong one. With 80 percent accuracy, what is the speed-up of X2 over X1?",
+    "work": "X1: CPI = 1 + 0.30 x 2 = 1.60. X2: a branch stalls 0 with probability 0.8 and 2 with probability 0.2, so the expected stall per branch is 0.4, and CPI = 1 + 0.30 x 0.4 = 1.12. Same clock and same program, so the speed-up is the CPI ratio 1.60 / 1.12 = 1.4286.",
+    "answer": "1.43 to two decimal places, the accepted answer of GATE CSE 2022 Q.61 (accepted range 1.42 to 1.45)."
+  },
+  "gateAngle": "GATE CSE 2022 Q.61 is the whole card in one question. The traps are to apply the accuracy to all instructions instead of to the branch fraction, and to assume a misprediction is cheaper than the original stall - the question explicitly forbids both.",
+  "variations": [
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "For the same program, what accuracy would X2 need to reach a speed-up of 1.6?",
+      "why": "It inverts the calculation and shows the diminishing return of accuracy.",
+      "answer": "CPI(X2) must be 1.60/1.6 = 1.00, so the branch term must vanish, which needs accuracy 1.0. Even at 95 percent accuracy the CPI is 1 + 0.30 x 0.05 x 2 = 1.03 and the speed-up only 1.55, so the last few percent of accuracy buy very little."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "A 2-bit saturating counter is at state 'weakly taken' and the branch is not taken twice. What does it predict on the next two occurrences?",
+      "why": "It tests the mechanism rather than the formula, which is how a theory question could ask it.",
+      "answer": "After one not-taken it moves to 'weakly not taken' but still predicts taken; after the second it moves to 'strongly not taken' and predicts not taken. The extra state is what makes a loop with one unusual exit iterate correctly instead of mispredicting twice."
+    }
+  ],
+  "trap": {
+    "what": "Multiplying the accuracy by the stall and subtracting from every instruction's cost.",
+    "why": "The saving applies only to branches, so the branch fraction must multiply the per-branch expected stall. Applying it to all instructions overstates the gain.",
+    "counterexample": "2022 Q.61: applying 0.8 to all instructions would give a CPI near 0.68 and a speed-up above 2; the accepted speed-up is 1.43."
+  },
+  "check": {
+    "question": "Forty percent of instructions are branches, a taken branch costs 3 cycles and the predictor is 75 percent accurate. What is the CPI?",
+    "answer": "1 + 0.4 x 0.25 x 3 = 1.30.",
+    "explanation": "The expected stall per branch is (1 - 0.75) x 3 = 0.75 cycles, and 40 percent of instructions are branches, so 0.3 cycles are added to the base cycle."
+  }
+}

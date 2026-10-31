@@ -1,0 +1,65 @@
+{
+  "videoRefs": [],
+  "prereqs": [
+    "pipeline-idea-and-the-space-time-diagram"
+  ],
+  "pyqIds": [
+    "gate-2021-set-1-q53-hundred-instructions-time"
+  ],
+  "sources": [
+    {
+      "kind": "text",
+      "title": "Chapter 10 - Principles of Pipelining (Basic Computer Architecture)",
+      "channel": "IIT Delhi, Prof. Smruti R. Sarangi (freely distributed book chapter)",
+      "url": "https://www.cse.iitd.ac.in/~srsarangi/archbook/chapters/pipelining.pdf",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "the whole 92-page chapter was read: the pipeline idea and its performance, the five stages, pipeline registers, data/control/structural hazards, software solutions, interlocks and bubbles, forwarding paths and conditions, interrupts, the performance equation, branch prediction, multiple issue and out-of-order execution"
+    }
+  ],
+  "sourceLine": "The performance equation, the ideal pipeline and the limit on the speed-up: Sarangi chapter 10, sections 10.9.1 and 10.9.2 (English, read in full). The three formulas with their worked numerical and the maximum-speed-up warning: DSWallah Learn 'Instruction Pipelining', romanised Hindi, translated (read in part).",
+  "id": "ideal-timing-and-speedup-formula",
+  "title": "Ideal Timing and the Speed-up Formula",
+  "priority": "P1",
+  "order": 548,
+  "unit": "Instruction Pipelining: Stages, Timing and Speed-up",
+  "quickIdea": "With n instructions, k stages, one clock per stage and no stalls, the pipeline takes (k + n - 1) cycles where the unpipelined machine takes n x k, so the speed-up is nk / (k + n - 1), which climbs towards k as n grows.",
+  "remember": [
+    "Pipelined time T = (k + n - 1) t_p; unpipelined time T = n k t_p, with the same clock period in both.",
+    "Speed-up S = nk / (k + n - 1). As n tends to infinity S tends to k, so k is the ceiling and no finite program reaches it.",
+    "Efficiency = S / k = n / (k + n - 1); throughput in the steady state = 1 / t_p instructions per cycle.",
+    "The formula assumes balanced stages, no stalls and the same clock in both designs. Break any one of the three and the diagram or the CPI equation must take over.",
+    "For a short program the fill dominates: 8 instructions on 5 stages give 12 cycles, so S = 40/12 = 3.33, not 5."
+  ],
+  "example": {
+    "prompt": "A five-stage pipeline has stage delays 150, 120, 150, 160 and 140 ns and inter-stage registers of 5 ns each. What is the total time for 100 independent instructions with no stalls?",
+    "work": "t_p = max(150, 120, 150, 160, 140) + 5 = 160 + 5 = 165 ns. Cycles = k + n - 1 = 5 + 100 - 1 = 104. Time = 104 x 165 = 17160 ns. The unpipelined machine at the same clock would need 100 x 5 x 165 = 82500 ns, so the realised speed-up is 82500/17160 = 4.81 against a ceiling of 5.",
+    "answer": "17160 ns, the accepted answer of GATE CSE 2021 Set 1 Q.53, with a realised speed-up of 4.81."
+  },
+  "gateAngle": "The exam rarely asks for the formula; it asks for a number that the formula or the diagram produces. Where the program is short, or a stage is variable, the formula is the wrong tool and the diagram is the right one - GATE CSE 2018 Q.50 is the case in point, where (k + n - 1) alone gives 104 and the answer is 219.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "For the 2021 Set 1 pipeline above, how many instructions must run before the realised speed-up exceeds 4.9?",
+      "why": "It forces the formula to be solved for n instead of evaluated, which is the step candidates skip.",
+      "answer": "S = 5n/(5 + n - 1) = 5n/(n + 4) > 4.9 means 5n > 4.9n + 19.6, so 0.1n > 19.6 and n > 196. At n = 197 the speed-up is 985/201 = 4.90; the ceiling of 5 is never reached."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Why is the speed-up nk/(k + n - 1) always less than k, and when does it equal k?",
+      "why": "It tests whether the student knows the formula is a limit statement rather than an identity.",
+      "answer": "Because the numerator counts n k stage-slots of work while the denominator includes the k - 1 cycles of fill that produce no completed instruction. The two are equal only in the limit n tends to infinity, so k is a supremum, not an attainable value."
+    }
+  ],
+  "trap": {
+    "what": "Using nk/(k + n - 1) when the pipelined design runs at a different clock from the unpipelined one.",
+    "why": "The formula cancels the clock period on the assumption that it is the same in both designs. When pipelining costs frequency - as it nearly always does - the clock ratio must be carried into the calculation.",
+    "counterexample": "A 5-stage pipeline at 2 GHz against a non-pipelined machine at 2.5 GHz with CPI 5: the CPI ratio 5/1 suggests 5, but the true speed-up is (5/2.5)/(1/2) = 2/0.5 = 4, because the pipelined clock is slower."
+  },
+  "check": {
+    "question": "A 10-stage pipeline runs a program of 90 instructions with no stalls. What is the speed-up over the unpipelined machine at the same clock, and what is the efficiency?",
+    "answer": "900/99 = 9.09 and efficiency 9.09/10 = 0.909.",
+    "explanation": "Cycles = 10 + 90 - 1 = 99, unpipelined work = 90 x 10 = 900 stage-slots, so S = 900/99 = 9.09; dividing by k gives the fraction of the ideal gain realised."
+  }
+}

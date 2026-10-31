@@ -1,0 +1,66 @@
+{
+  "videoRefs": [],
+  "prereqs": [
+    "pipeline-idea-and-the-space-time-diagram"
+  ],
+  "pyqIds": [
+    "gate-2026-set-1-q16-read-after-write-hazard",
+    "gate-2024-set-2-q31-dependency-classification"
+  ],
+  "sources": [
+    {
+      "kind": "text",
+      "title": "Chapter 10 - Principles of Pipelining (Basic Computer Architecture)",
+      "channel": "IIT Delhi, Prof. Smruti R. Sarangi (freely distributed book chapter)",
+      "url": "https://www.cse.iitd.ac.in/~srsarangi/archbook/chapters/pipelining.pdf",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "the whole 92-page chapter was read: the pipeline idea and its performance, the five stages, pipeline registers, data/control/structural hazards, software solutions, interlocks and bubbles, forwarding paths and conditions, interrupts, the performance equation, branch prediction, multiple issue and out-of-order execution"
+    }
+  ],
+  "sourceLine": "RAW as the true dependence, WAR and WAW as name collisions that an in-order pipeline cannot trip over, and renaming as their fix: Sarangi chapter 10, section 10.4.2 and 10.11.4 (English, read in full). The RAW/WAR/WAW table with an example of each: DSWallah Learn 'Pipeline Hazards & Stalls', romanised Hindi, translated (read in part).",
+  "id": "data-hazard-types-raw-war-waw",
+  "title": "Data Hazards: RAW, WAR and WAW, and Which Ones Actually Stall",
+  "priority": "P1",
+  "order": 552,
+  "unit": "Instruction Pipelining: Hazards, Stalls and Fixes",
+  "quickIdea": "Three name collisions are possible between instructions: RAW (a later instruction reads what an earlier one writes - a true dependence), WAR (a later instruction writes what an earlier one reads - an anti-dependence) and WAW (two writes to one register - an output dependence). In an in-order pipeline only RAW can go wrong.",
+  "remember": [
+    "RAW is the true dependence: the value must exist before it is read, so the reader must wait or the value must be forwarded.",
+    "In an in-order pipeline a preceding instruction is always ahead of a succeeding one, so every read happens before any later write: WAR and WAW cannot produce a wrong value and do not stall.",
+    "WAR and WAW become real in out-of-order and multiple-issue machines, where a later instruction may pass an earlier one; register renaming removes them.",
+    "Classify a pair by the earlier access first: write then read is RAW, read then write is WAR, write then write is WAW, read then read is nothing at all.",
+    "GATE CSE 2026 Set 1 Q.16 asks which of the four dependencies can cause a data hazard: only read-after-write."
+  ],
+  "example": {
+    "prompt": "I1: DIV R3, R1, R2; I2: SUB R5, R3, R4; I3: ADD R3, R5, R6; I4: MUL R7, R3, R8. Which statements hold - RAW on R3 between I1 and I2, WAR on R3 between I1 and I3, RAW on R3 between I2 and I3, WAW on R3 between I3 and I4?",
+    "work": "Write R3 sets: I1 writes, I2 reads, I3 writes, I4 reads. I1 writes then I2 reads: RAW, true. I1 writes and I3 writes: WAW, so the WAR claim is false. I2 reads and I3 writes: that is WAR, so the RAW claim is false. I3 writes and I4 reads: RAW, so the WAW claim is false.",
+    "answer": "Only the first statement is true, the accepted answer of GATE CSE 2024 Set 2 Q.31."
+  },
+  "gateAngle": "Two shapes recur. One gives a sequence and asks which dependence of each kind exists (2024 Set 2 Q.31, 2015 Set 3 Q.47). The other asks abstractly which dependence is a hazard at all (2026 Set 1 Q.16, answer RAW). Both are answered by writing the read set and the write set of every instruction in program order.",
+  "variations": [
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "In the same sequence, add I5: ADD R3, R1, R2 at the end. What new dependences on R3 appear, and which would matter in an out-of-order machine?",
+      "why": "It separates the true dependence from the name collisions, which is the point of the classification.",
+      "answer": "I4 reads R3 and I5 writes R3: WAR. I3 writes R3 and I5 writes R3: WAW. Neither stalls an in-order pipeline. In an out-of-order machine both could reorder into a wrong result and are removed by renaming R3 for I5; the true dependences I1 to I2 and I3 to I4 remain regardless."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Why is read-after-read never a hazard, however many instructions read the same register?",
+      "why": "It closes the obvious fourth case so that the student does not hesitate in the exam.",
+      "answer": "Because reading does not change the register: any number of readers can read the same value in any order and each gets the same answer. Nothing has to wait, and nothing can be wrong."
+    }
+  ],
+  "trap": {
+    "what": "Calling two writes to the same register a WAR because the pair looks reversed.",
+    "why": "WAR requires the earlier instruction to read; if both write, the dependence is WAW. Reading the earlier instruction's access first is the only reliable rule.",
+    "counterexample": "GATE CSE 2024 Set 2 Q.31 option B calls I1 (writes R3) to I3 (writes R3) a WAR; it is WAW, and that is exactly why the option is false."
+  },
+  "check": {
+    "question": "I1: ADD R1, R2, R3; I2: MUL R7, R1, R3; I3: ADD R3, R2, R4. Name every dependence on R3.",
+    "answer": "I1 writes and I2 reads R3: RAW. I2 reads and I3 writes R3: WAR. I1 writes and I3 writes: WAW.",
+    "explanation": "One register, three accesses in the order write, read, write: the first pair is RAW, the second WAR, the outer pair WAW."
+  }
+}

@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bubbles and flushes in a five-stage pipeline - visual lesson</title>
+<link rel="stylesheet" href="../../../lesson.css">
+<script src="https://cdn.jsdelivr.net/npm/p5@1.9.4/lib/p5.min.js"></script>
+</head>
+<body>
+<div class="wrap">
+  <p class="small"><a href="../../../../index.html">&larr; back to the revision site</a></p>
+  <h1>Bubbles and Flushes: Counting Cycles in a Five-Stage Pipeline</h1>
+  <div class="objective"><strong>Objective.</strong> Draw the space-time diagram for the four situations GATE asks about and read the answer off the columns. Four instructions with nothing in their way take 8 columns. A RAW pair on an ALU result costs 2 bubbles without forwarding and 0 with it. A load followed immediately by a use costs exactly 1 bubble that no wire can remove. A taken branch throws away 2 fetched instructions, so a six-instruction program finishes in cycle 10 instead of 8. Every one of those numbers is the same arithmetic as the CPI model.</div>
+
+  <div class="canvas-wrap"><div id="canvas-holder"></div></div>
+  <div class="caption" id="caption" aria-live="polite"></div>
+
+  <div class="controls">
+    <button id="play" class="primary">Play</button>
+    <button id="prev">&larr; Prev</button>
+    <button id="next">Next &rarr;</button>
+    <button id="restart">Restart</button>
+    <span class="speed"><label for="speed">Speed</label>
+      <input id="speed" type="range" min="0.25" max="2" step="0.25" value="1">
+      <span id="speedLabel">1.00x</span></span>
+    <span class="counter" id="counter"></span>
+  </div>
+
+  <h2>Static explanation</h2>
+  <p>In a five-stage pipeline an instruction passes through IF, OF, EX, MA and RW, one stage per clock cycle. Draw each instruction as a row and each cycle as a column: the row is shifted one column right of the row above it, and the number of columns is the time the program takes. With n instructions and no hazards that is k + n - 1 columns, so four instructions need 5 + 4 - 1 = 8 cycles. The first instruction finishes at the end of cycle 5 and one more finishes every cycle after that.</p>
+  <p>A data hazard is an arrow that points backwards in time. ADD R1, R2, R3 writes R1 at the end of its RW stage, cycle 5. SUB R4, R1, R5 reads R1 in its OF stage, cycle 3. Two cycles are missing, so something must give. Without forwarding the interlock inserts two bubbles and the program grows to 10 columns. With forwarding the ALU result is taken from the EX/MEM register at the end of cycle 3 and fed into the SUB's EX input in the same cycle, so the two bubbles vanish and the program stays at 8 columns.</p>
+  <p>One pair cannot be fixed that way. LOAD R1, [A] produces its word at the end of the MA stage, cycle 4, while the ADD behind it would need the word at the start of its own EX stage in cycle 4. The value does not exist when it is wanted, so exactly one bubble is inserted, the ADD executes in cycle 5, and the pair takes 7 columns. That single stall is why the statement "forwarding cannot prevent all pipeline stalls" is true, and it is the number GATE CSE 2024 Set 1 Q.30 asks about.</p>
+  <p>Control hazards cost whole instructions rather than single cycles. If I3 is a branch to I6 and the branch resolves in the EX stage, the fetch unit has already brought in I4 and I5. Both are wrong and both are cancelled, I6 is fetched in cycle 6, and the program ends in cycle 10. The penalty is 2 cycles here; in a modern 15- or 20-stage machine the same reasoning gives more than 20, which is why branch prediction exists.</p>
+
+  <div class="card warn"><div class="label">Common misconception</div><p>The frequent error is to treat a bubble as a lost instruction. It is not: a bubble has its control signals cleared, so it writes no register and touches no memory, and the instruction behind it executes correctly one cycle later. The second error is to believe forwarding removes every data stall. It removes the ALU-to-ALU ones; the load-use pair keeps its single cycle, because the word leaves memory too late to be forwarded into the same cycle in which it is needed.</p></div>
+  <div class="card ok"><div class="label">Quick check</div><p>Two instructions follow a LOAD and both read the loaded register: LOAD R1, [A]; ADD R2, R1, R3; SUB R4, R1, R5. With full forwarding, how many bubbles does the three-instruction block need, and how many columns does it take?</p><details><summary>Answer</summary><p><strong>One bubble, and 8 columns.</strong> Only the first consumer is too close: the ADD would need R1 at the start of its EX stage in cycle 4 while the load produces it at the end of cycle 4, so one bubble is inserted and the ADD executes in cycle 5. The SUB is served by the ADD's EX/MEM result with no stall of its own. The block is 5 + 3 - 1 + 1 = 8 columns.</p></details></div>
+  <p class="small">Topic: Instruction Pipelining and Pipeline Hazards (Computer Organization and Architecture), subtopics the space-time diagram, data hazards, forwarding and its limit, interlocks and bubbles, and the branch penalty. The five stages, the diagram, the load-use limit and the predict-not-taken penalty of 2 cycles: Sarangi, Basic Computer Architecture chapter 10, sections 10.3, 10.4, 10.7 and 10.11.1 (English, read in full). The stall counts of 2, 0 and 1 and the prediction remedies: DSWallah Learn, romanised Hindi, translated (read in part). The 2021 Set 1 Q.53 and 2013 Q.45 column counts are those questions' own figures. Every number shown here is recomputed in scripts/validate.py.</p>
+</div>
+<script src="../../../lesson.js"></script>
+<script src="sketch.js"></script>
+<script>
+/* p5.js is loaded from a CDN. If it is unreachable, say so plainly instead of showing an empty box. */
+window.addEventListener('load', function () {
+  if (window.p5) { return; }
+  var holder = document.getElementById('canvas-holder');
+  if (holder) {
+    holder.innerHTML = '<div style="padding:22px 18px;font-size:14.5px;color:#4a5260">' +
+      'The animation needs p5.js, which this page loads from a CDN, and the request failed (offline, or the CDN is blocked). ' +
+      'Everything below still works: the static explanation, the misconception and the quick check.</div>';
+  }
+  var cap = document.getElementById('caption');
+  if (cap && window.LESSON && window.LESSON.steps && window.LESSON.steps[0]) {
+    cap.innerHTML = window.LESSON.steps[0].caption;
+  }
+  ['play', 'prev', 'next', 'restart', 'speed'].forEach(function (id) {
+    var el = document.getElementById(id);
+    if (el) { el.disabled = true; }
+  });
+});
+</script>
+</body>
+</html>

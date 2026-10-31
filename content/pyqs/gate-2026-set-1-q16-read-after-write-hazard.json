@@ -1,0 +1,22 @@
+{
+  "id": "gate-2026-set-1-q16-read-after-write-hazard",
+  "year": "2026",
+  "paper": "GATE CS 2026 Set 1",
+  "question_ref": "Q.16 (numbered Question: 6 on GATE Overflow)",
+  "type": "MCQ",
+  "marks": "1",
+  "topic": "data-hazard-types-raw-war-waw",
+  "text": "Which one of the following dependencies among the register operands of different instructions can cause a data hazard in a pipelined processor?",
+  "options": [
+    "Read-after-read",
+    "Read-after-write",
+    "Write-after-read",
+    "Write-after-write"
+  ],
+  "answer": "Option (B) - Read-after-write",
+  "solution": "A data hazard needs a value that a later instruction reads and an earlier one has not yet produced. That is read-after-write, the true dependence. Read-after-read touches nothing. Write-after-read and write-after-write are name collisions that an in-order pipeline cannot trip over, because a preceding instruction is always ahead of a succeeding one, so the read happens before any later write and the writes retire in order. Both need register renaming only in an out-of-order or multiple-issue machine.",
+  "source_url": "https://gateoverflow.in/523074/gate-cse-2026-set-1-question-6",
+  "source_label": "GATE Overflow question page - GATE CSE 2026 Set 1, listed as Question: 6, with the accepted answer read-after-write",
+  "verification": "SOURCED",
+  "answer_evidence": "The accepted answer on the page states that read-after-write is the one that may introduce stalls and that read-after-read, write-after-read and write-after-write do not. The question text was matched against the official GATE 2026 CS1 paper (gate2026.iitg.ac.in), which numbers it Q.16 with the same four options; the numbering differs from GATE Overflow's."
+}

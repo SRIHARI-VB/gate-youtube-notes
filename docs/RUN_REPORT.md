@@ -2962,3 +2962,122 @@ navigation label and no shared component class changed.
 The cycle pointer now sits on `computer-organization-and-architecture/io-interface`. The next topic in
 syllabus order is `computer-organization-and-architecture/instruction-pipelining-and-hazards`, which is
 `not_started`.
+
+## Run: Computer Organization and Architecture - Instruction Pipelining and Pipeline Hazards (2026-10-31)
+
+### The topic, and why it was next
+
+**Computer Organization and Architecture > Instruction Pipelining and Pipeline Hazards**
+(`instruction-pipelining-and-hazards`), the last topic of the GATE 2027 COA line: *"Instruction pipelining,
+pipeline hazards."*
+
+The cycle pointer was left by the previous run on `computer-organization-and-architecture/io-interface`. In the
+enumerated syllabus order the first topic strictly after it whose status is not `covered` is this one, which was
+`not_started`. Nothing was skipped: no topic sits between the pointer and this one, no topic anywhere in the
+ledger is `blocked`, and the eighteen `partial` topics earlier in the cycle were left alone because the cycle
+takes its second pass over `partial` topics only after a full pass finds no `not_started` topic left. This run
+completes the COA subject: every other subject still has `not_started` topics, so the next run wraps to
+`programming-and-data-structures/programming-in-c`.
+
+### Subtopics enumerated before any source was chosen
+
+Thirteen, from the two words the syllabus spends on the topic, the chapter structure of the standard treatment
+and the GATE question record: the pipeline idea and the space-time diagram; pipeline registers and why the
+clock period is the slowest stage plus a latch; the ideal timing (k + n - 1) with the speed-up nk/(k + n - 1)
+and its ceiling k; throughput, efficiency and the clock-rate trade; the CPI equation with stalls; structural
+hazards; RAW, WAR and WAW and which of them an in-order pipeline can actually trip over; forwarding and its
+limits; interlocks, stalls and bubbles; scheduling and register renaming; control hazards and the branch
+penalty; branch prediction and its payoff; and superscalar issue as the way past a CPI of 1.
+
+### Sources chosen, on merit
+
+One text was readable end to end this run, which is unusual for this repository:
+
+- **Sarangi, Basic Computer Architecture, chapter 10 - Principles of Pipelining** (IIT Delhi, English, all 92
+  pages with a text layer, read in full). It carries the pipeline idea, the five stages, the registers, the
+  three hazard classes with definitions, software solutions, interlocks, forwarding paths and forwarding
+  conditions, the performance equation with two worked CPI examples, branch prediction, multiple issue and
+  out-of-order execution. Eleven of the thirteen cards rest on it.
+- **DSWallah Learn, "Instruction Pipelining"** (romanised Hindi, translated, read in part). The only readable
+  non-English source, and the only one that states the (k + n - 1) timing, the speed-up, throughput and
+  efficiency formulas together with a worked numerical, plus three "common mistakes" that became three trap
+  fields.
+- **DSWallah Learn, "Pipeline Hazards & Stalls"** (romanised Hindi, translated, read in part). The only source
+  read this run that states the three stall counts together - 2 without forwarding, 0 with EX forwarding, 1 for
+  load-use - and the only one that lists the prediction strategies by name.
+- **NPTEL IIT Guwahati course outline (106103180), Module 6** (English, structure only). Read only to confirm
+  that pipelining follows the I/O interface in the teaching order the previous run finished. No card quotes it.
+
+Rejected, with reasons in `sources.json`: the NPTEL Guwahati module-6 lecture transcripts (HTTP 403 from the
+sandbox, empty body from the fetch service, although the same course's lectures 33-35 supplied the previous
+topic); the NPTEL IIT Kharagpur lectures 40, 41 and 55-58 (exactly the right lectures, but the lecture page
+served a title and no transcript); every YouTube lecture tried, including the GO Classes and Gate Smashers
+pipelining series and the NPTEL "Instruction Pipeline Hazards" video (the watch page answered LOGIN_REQUIRED
+with no caption track); GeeksforGeeks and Javatpoint (502 through the egress proxy); Patterson and Hennessy
+chapter 4 (not fetched, and nothing is reproduced from it); the PYQ aggregators (used for corroboration only,
+never as the source of a card); and the Wikipedia article (readable, but no GATE framing and nothing taken).
+
+### What was created
+
+Thirteen cards at `content/subjects/computer-organization-and-architecture/instruction-pipelining-and-hazards/`,
+one per subtopic, each with the quick idea, the remember list, a worked example, the GATE angle, two variations
+labelled `CONCEPTUAL PRACTICE QUESTION`, `ORIGINAL PYQ-STYLE QUESTION` or `PREDICTED VARIATION`, a trap with a
+counterexample, a quick check and a source line. Fifteen PYQ records at `content/pyqs/`, each with its year, a
+question reference, a source URL, the accepted answer and the derivation: 2026 Set 1 Q.16 and Q.60, 2025 Set 2
+Q.56, 2024 Set 1 Q.30, 2024 Set 2 Q.31 and Q.58, 2022 Q.61, 2021 Set 1 Q.53, 2020 Q.43, 2018 Q.50, 2016 Set 1
+Q.32, 2016 Set 2 Q.33, 2015 Set 3 Q.47, 2013 Q.45 and 2012 Q.20. One p5.js lesson at
+`visuals/computer-organization-and-architecture/instruction-pipelining-and-hazards/load-use-bubble-and-branch-penalty/`
+with eight steps: the plain pipeline, the RAW arrow pointing backwards in time, the two bubbles without
+forwarding, the same block with forwarding, the load-use bubble, the taken-branch flush, the counts, and the
+method. `content/syllabus.json` now marks the topic `cards` instead of `planned`, and `content/coverage.json`
+records the run, the status, the gaps and the moved cycle pointer.
+
+### Validation
+
+`python3 scripts/build-index.py` indexed 3 playlists, 39 videos, 360 topics and 290 PYQs.
+`python3 scripts/validate.py` reported 40 checks passed, 8 warnings, 0 failures; all eight warnings are
+pre-existing. `node tests/visual-lessons.js` passed on all 35 lessons. The new
+`check_instruction_pipelining_and_hazards()` block recomputes 17160 ns for 2021 Set 1 Q.53 and 261.04 us for
+2025 Set 2 Q.56, the 4 GHz of the 2016 Set 2 split, the 33.33 percent throughput rise of 2016 Set 1 Q.32, the
+219 cycles of 2018 Q.50 by both routes, the 95 structural-hazard stalls of 2026 Set 1 Q.60 with the 65-cycle
+overcount that the occupancy reading produces, the 2.16, 3.0 and 1.43 speed-ups with the 2.70 CPI-ratio trap of
+2020 Q.43, the 165 ns of 2013 Q.45 and the 10-cycle branch example, the lesson's own 8, 10, 7 and 8 column
+counts, and the link from every card to every PYQ. Two drafting errors were caught before delivery and
+corrected: the overcount trap said 195 where the occupancy sum is 160 (the overcount is the 65 multi-cycle
+instructions, not the instruction count), and the load-use pair was described as 9 columns where two
+instructions plus one bubble are 7, with the three-instruction quick check at 8. The sketch was rewritten so
+that every row is an explicit list of stages per cycle, which is what let those two errors be seen. No frozen
+file was touched: no design token, no shell layout, no route, no navigation label and no shared component class
+changed.
+
+### Gaps (the topic stays `partial`)
+
+1. No video transcript backs any card: every YouTube page answered LOGIN_REQUIRED with no caption track, the
+   NPTEL Guwahati module-6 PDFs answered 403 to the sandbox and an empty body to the fetch service, and the
+   IIT Kharagpur pipelining lectures served a title page and no transcript. `videoRefs` is empty on all
+   thirteen cards.
+2. The teaching rests on one English text plus two romanised-Hindi lessons. No second independent English
+   teaching source was readable, so no claim is corroborated by a second English lecture.
+3. The superscalar card has no verified PYQ and no GATE-oriented source: it rests on the chapter alone and is
+   P3, because the syllabus line names only pipelining and hazards.
+4. The pipeline-idea card carries no PYQ of its own; the questions that test it are attached to the timing
+   cards.
+5. Every PYQ answer is `SOURCED`, none key-verified: no official answer key document was opened, and 2026
+   Set 1 Q.60 has no GATE Overflow page at all - its 95 rests on three PYQ pages that each cite the official
+   key.
+6. Numbering disagreements are recorded rather than resolved: 2026 Set 1 Q.16 is Question: 6 on GATE
+   Overflow, 2025 Set 2 Q.56 is Q.46, 2024 Set 1 Q.30 is Q.20, 2024 Set 2 Q.31 is Q.21 and Q.58 is Q.48, 2022
+   Q.61 is Q.51, 2015 Set 3 Q.47 is Q.39 in the printed paper, and 2020 Q.43 is Q.53 on one question-bank
+   index.
+7. Two questions that belong to the topic are excluded: 2015 Set 3 Q.51 (minimum average latency from a
+   reservation table) is figure-only in the paper, and 2014 Set 3 Q.43 (two pipelined implementations of a
+   5-stage processor) was located but not verified this run.
+8. GATE Overflow's pipelining tag lists further questions from 2000 to 2024 that were not individually read or
+   recomputed; only the fifteen recorded PYQs were verified.
+
+### Next
+
+The cycle pointer now sits on `computer-organization-and-architecture/instruction-pipelining-and-hazards`, the
+last COA topic, so the COA subject is complete for a first pass (six of six topics with cards, all `partial`
+with named gaps). The cycle wraps to the first `not_started` topic in syllabus order, which is
+`programming-and-data-structures/programming-in-c`.
