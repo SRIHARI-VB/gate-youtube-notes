@@ -13400,7 +13400,7 @@
   {
    "kind": "notes",
    "placement": "theory-of-computation › turing-machines-decidability",
-   "detail": "mock unit \"Turing Machines & Decidability\" (unit_number 4, 75 questions) serves no notes card; subtopic groups: chomsky-hierarchy-summary 15, halting-problem-undecidability 15, recursive-vs-recursively-enumerable 15, rices-theorem-reductions 15, standard-turing-machine-models 15"
+   "detail": "mock unit \"Turing Machines & Decidability\" (unit_number 4, 100 questions) serves no notes card; no theory-of-computation subject exists in the notes repo. Subtopic groups: Chomsky hierarchy summary 19, Halting problem & undecidability 21, Recursive vs recursively enumerable 20, Rice’s theorem & reductions 20, Standard TM models & variants 20. The 25 questions added on 2026-11-01 lift the unit past the 50-question cap (MOCK_CAPPED); paper theory-of-computation/turing-machines-decidability/gate_toc_mock_4_2026-11-01.html"
   },
   {
    "kind": "notes",
@@ -13871,6 +13871,16 @@
    "kind": "notes",
    "placement": "operating-systems › concurrency › atomic-instructions-and-locks",
    "detail": "published lesson \"Atomic instructions and the locks built from them\" (PUBLISHED 2026-11-01, 10 scenes, topics/atomic-instructions-and-locks/) serves no notes card: content/index.json holds no operating-systems subject at all. Its transcript covers why a lock needs one indivisible read-modify-write, test-and-set and swap and compare-and-swap and fetch-and-add with their locks, the GATE 2012 fetch-and-add loop and its defect, starvation in the plain lock and the waiting array, the ticket lock, and test-and-test-and-set. The mock side already holds it: operating-systems unit 2, subtopic slug hardware-primitives-test-and-set (18 questions, grouped by subtopic)."
+  },
+  {
+   "kind": "notes",
+   "placement": "operating-systems › concurrency › counting-semaphores-and-the-bounded-buffer",
+   "detail": "published lesson \"counting semaphores and the bounded buffer\" (PUBLISHED 2026-11-01, 10 scenes, topics/counting-semaphores-and-the-bounded-buffer/) serves no notes card: content/index.json holds no operating-systems subject at all, so this is a notes gap at operating-systems › concurrency › counting-semaphores-and-the-bounded-buffer. Its transcript covers the counter's arithmetic, P and V with queued blocking, the closed forms for the final value and the blocked count, the three-counter bounded buffer with empty, full and mutex, maximum occupancy and maximum blocked processes, and the order of the waits and signals."
+  },
+  {
+   "kind": "notes",
+   "placement": "operating-systems › concurrency › monitors-and-condition-variables",
+   "detail": "published lesson \"monitors and condition variables\" (PUBLISHED 2026-11-01, 10 scenes, topics/monitors-and-condition-variables/) serves no notes card: content/index.json holds no operating-systems subject at all, so this is a notes gap at operating-systems › concurrency › monitors-and-condition-variables. Its transcript covers the four parts of a monitor, wait as three indivisible steps, signal has no memory, Hoare against Mesa, the while rule measured over every interleaving, signal against broadcast, and the monitor built from mutex, next and x_sem counters."
   }
  ]
 }
