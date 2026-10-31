@@ -85,27 +85,27 @@
       "unit_slug": "graph-theory-advanced",
       "unit_name": "Graph Theory Advanced",
       "unit_number": 10,
-      "question_count": 25,
+      "question_count": 50,
       "subtopics": [
         {
           "label": "Eulerian & Hamiltonian graphs",
-          "questions": 5
+          "questions": 10
         },
         {
           "label": "Planarity & Euler's formula",
-          "questions": 5
+          "questions": 10
         },
         {
           "label": "Colouring & chromatic number",
-          "questions": 5
+          "questions": 10
         },
         {
           "label": "Trees & spanning trees",
-          "questions": 5
+          "questions": 10
         },
         {
           "label": "Network flows",
-          "questions": 5
+          "questions": 10
         }
       ],
       "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/graph-theory-advanced/gate_dm_mock_10_2026-10-31.html"

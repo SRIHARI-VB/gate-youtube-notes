@@ -7774,7 +7774,7 @@
         "notes content/index.json map[].path = subjects/discrete-mathematics/graphs/eulerian-and-hamiltonian-graphs.json",
         "visual: topics.json slug=graphs-connectivity; syllabus-coverage.json subtopics/microtopics checked against the card text",
         "visual url: topics/graphs-connectivity/index.html",
-        "mock: gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json questions[] filtered on unit_number = 10, grouped by subtopic_label (5 groups, 25 records); paper from runs[] unit 10 -> discrete-mathematics/graph-theory-advanced/gate_dm_mock_10_2026-10-31.html"
+        "mock: gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json questions[] filtered on unit_number = 10, grouped by subtopic_label (5 groups, 50 records, 10 each); paper from runs[] unit 10 -> discrete-mathematics/graph-theory-advanced/gate_dm_mock_10_2026-10-31.html"
       ],
       "row_verdict": "BOTH",
       "mock": {
@@ -7782,7 +7782,7 @@
         "unit_slug": "graph-theory-advanced",
         "unit_name": "Graph Theory Advanced",
         "unit_number": 10,
-        "question_count": 25,
+        "question_count": 50,
         "subtopic_labels": [
           "Eulerian & Hamiltonian graphs",
           "Planarity & Euler's formula",
@@ -7917,7 +7917,7 @@
         "notes content/index.json map[].path = subjects/discrete-mathematics/graphs/chromatic-number-and-greedy-bounds.json",
         "visual: topics.json slug=matching-and-colouring; syllabus-coverage.json subtopics/microtopics checked against the card text",
         "visual url: topics/matching-and-colouring/index.html",
-        "mock: gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json questions[] filtered on unit_number = 10, grouped by subtopic_label (5 groups, 25 records); paper from runs[] unit 10 -> discrete-mathematics/graph-theory-advanced/gate_dm_mock_10_2026-10-31.html"
+        "mock: gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json questions[] filtered on unit_number = 10, grouped by subtopic_label (5 groups, 50 records, 10 each); paper from runs[] unit 10 -> discrete-mathematics/graph-theory-advanced/gate_dm_mock_10_2026-10-31.html"
       ],
       "row_verdict": "BOTH",
       "mock": {
@@ -7925,7 +7925,7 @@
         "unit_slug": "graph-theory-advanced",
         "unit_name": "Graph Theory Advanced",
         "unit_number": 10,
-        "question_count": 25,
+        "question_count": 50,
         "subtopic_labels": [
           "Eulerian & Hamiltonian graphs",
           "Planarity & Euler's formula",
@@ -7955,7 +7955,7 @@
         "notes content/index.json map[].path = subjects/discrete-mathematics/graphs/chromatic-polynomial.json",
         "visual: topics.json slug=matching-and-colouring; syllabus-coverage.json subtopics/microtopics checked against the card text",
         "visual url: topics/matching-and-colouring/index.html",
-        "mock: gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json questions[] filtered on unit_number = 10, grouped by subtopic_label (5 groups, 25 records); paper from runs[] unit 10 -> discrete-mathematics/graph-theory-advanced/gate_dm_mock_10_2026-10-31.html"
+        "mock: gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json questions[] filtered on unit_number = 10, grouped by subtopic_label (5 groups, 50 records, 10 each); paper from runs[] unit 10 -> discrete-mathematics/graph-theory-advanced/gate_dm_mock_10_2026-10-31.html"
       ],
       "row_verdict": "BOTH",
       "mock": {
@@ -7963,7 +7963,7 @@
         "unit_slug": "graph-theory-advanced",
         "unit_name": "Graph Theory Advanced",
         "unit_number": 10,
-        "question_count": 25,
+        "question_count": 50,
         "subtopic_labels": [
           "Eulerian & Hamiltonian graphs",
           "Planarity & Euler's formula",
@@ -13840,12 +13840,17 @@
     {
       "kind": "notes",
       "placement": "discrete-mathematics › graphs › trees-and-spanning-trees",
-      "detail": "mock unit \"Graph Theory Advanced\" (unit_number 10, 25 questions) holds a Trees & spanning trees group of 5 questions and no notes card covers trees; lesson graphs-connectivity covers trees and spanning trees at topic level and counting-spanning-trees is a dedicated lesson, so the notes card is the missing piece"
+      "detail": "mock unit \"Graph Theory Advanced\" (unit_number 10, 50 questions) holds a Trees & spanning trees group of 10 questions and no notes card covers trees; lesson graphs-connectivity covers trees and spanning trees at topic level and counting-spanning-trees is a dedicated lesson, so the notes card is the missing piece"
     },
     {
       "kind": "notes",
       "placement": "discrete-mathematics › graphs › network-flows",
-      "detail": "mock unit \"Graph Theory Advanced\" (unit_number 10, 25 questions) holds a Network flows group of 5 questions (max-flow min-cut, flow value computation) and no notes card covers network flows; no published visual lesson covers it either"
+      "detail": "mock unit \"Graph Theory Advanced\" (unit_number 10, 50 questions) holds a Network flows group of 10 questions (max-flow min-cut, flow value computation) and no notes card covers network flows; no published visual lesson covers it either"
+    },
+    {
+      "kind": "notes",
+      "placement": "discrete-mathematics › graphs › planarity-and-eulers-formula",
+      "detail": "mock unit \"Graph Theory Advanced\" (unit_number 10, 50 questions) holds a Planarity & Euler's formula group of 10 questions (Euler's formula, m <= 3n-6, m <= 2n-4, K5 and K(3,3) non-planarity) and no notes card covers planarity; lesson matching-and-colouring covers planarity basics at topic level, so the notes card is the missing piece"
     }
   ]
 }
