@@ -46,6 +46,7 @@ for (const dir of lessons) {
     endShape: () => calls++, lerp: (a, b, t) => a + (b - a) * t,
     millis: () => 0, loop: () => {}, noLoop: () => {}, redraw: () => {},
     CLOSE: 'close', BOLD: 'bold', NORMAL: 'normal', CENTER: 'center', ROUND: 'round',
+    LEFT: 'left', RIGHT: 'right', TOP: 'top', BOTTOM: 'bottom',
     SQUARE: 'butt', PROJECT: 'square', Math, isFinite, parseFloat, width: 800, height: 500
   };
   ctx.window = ctx;

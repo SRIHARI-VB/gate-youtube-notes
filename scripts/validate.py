@@ -2758,6 +2758,343 @@ def check_control_unit_design():
        "five asserted sets")
 
 
+def check_memory_hierarchy_and_cache():
+    """Every field width, directory size, cache simulation, chip-select decode, AMAT
+    figure and lesson number published in the Memory Hierarchy and Cache Mapping topic
+    is recomputed here from the cache and memory parameters themselves."""
+    from math import log2
+
+    def lg(n):
+        """log2 of a power of two, asserted to be exact."""
+        k = int(round(log2(n)))
+        if 2 ** k != n:
+            fail("memory: %r is not a power of two where a power of two is required" % n)
+        return k
+
+    def split(addr_bits, cache_bytes, block_bytes, ways):
+        """(tag bits, index bits, offset bits, lines, sets) for one configuration."""
+        lines = cache_bytes // block_bytes
+        sets = lines // ways
+        off = lg(block_bytes)
+        idx = lg(sets)
+        return addr_bits - idx - off, idx, off, lines, sets
+
+    def fields(addr, off, sets):
+        return (addr >> (off + lg(sets)), (addr >> off) & (sets - 1), addr & ((1 << off) - 1))
+
+    # ---- field widths of the four tag questions
+    tag, idx, off, lines, sets = split(32, 16 * 1024, 16, 1024)      # 2019 Q.1, fully associative
+    if (tag, idx, off) != (28, 0, 4):
+        fail("memory: 2019 Q.1 must give tag 28 and index 0, got %r" % ((tag, idx, off),))
+    if sets != 1:
+        fail("memory: a fully associative cache must have one set")
+
+    for block in (1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024):      # 2023 Q.54, block size not given
+        tag, idx, off, lines, sets = split(32, 64 * 1024, block, 8)
+        if tag != 19:
+            fail("memory: 2023 Q.54 must give a 19-bit tag at block size %d, got %d" % (block, tag))
+        if idx + off != 13:
+            fail("memory: 2023 Q.54 index plus offset must be 13 at block size %d" % block)
+
+    for addr_bits in (16, 20, 24, 32, 40):                            # 2017 Set 1 Q.54
+        for nwords in (64, 1024, 8192):
+            for bwords in (1, 4, 16):
+                if nwords // bwords < 16:          # 16 ways needs at least 16 lines
+                    continue
+                direct_tag = split(addr_bits, nwords * 4, bwords * 4, 1)[0]
+                assoc_tag = split(addr_bits, nwords * 4, bwords * 4, 16)[0]
+                if assoc_tag != direct_tag + 4:
+                    fail("memory: 16-way associativity must add exactly 4 tag bits (A=%d N=%d B=%d)"
+                         % (addr_bits, nwords, bwords))
+
+    for P, N, W, M, K in [(32, 16, 2, 4, 8), (24, 12, 0, 2, 4), (40, 20, 3, 5, 16)]:
+        block_bytes = (2 ** M) * (2 ** W)
+        tag, idx, off, lines, sets = split(P, 2 ** N, block_bytes, K)
+        if tag != P - N + lg(K):
+            fail("memory: 2018 Q.34 formula P-N+log2K must hold for P=%d N=%d K=%d" % (P, N, K))
+        if off != M + W or idx != N - M - W - lg(K):
+            fail("memory: 2018 Q.34 offset and set index must be M+W and N-M-W-log2K")
+
+    tag, idx, off, lines, sets = split(32, 8 * 1024, 32, 1)          # 2011 Q.43
+    if (tag, idx, off, lines) != (19, 8, 5, 256):
+        fail("memory: 2011 Q.43 must give tag 19, index 8, offset 5 and 256 lines")
+    if lines * (tag + 1 + 1) != 5376:
+        fail("memory: 2011 Q.43 directory must be 5376 bits")
+    if lines * tag != 4864:
+        fail("memory: 2011 Q.43 option A must be the answer without the two flag bits")
+
+    # ---- the 2022 Q.44 trace, simulated access by access
+    cache_bytes, block_bytes, ways = 2 * 1024, 64, 1
+    tag, idx, off, lines, sets = split(16, cache_bytes, block_bytes, ways)
+    if (tag, idx, off) != (5, 5, 6):
+        fail("memory: 2022 Q.44 must give tag 5, index 5, offset 6")
+    addr = {"P": 0xA248, "Q": 0xC28A, "R": 0xCA8A, "S": 0xA262}
+    f = {k: fields(v, off, sets) for k, v in addr.items()}
+    if f["P"] != (20, 9, 8) or f["S"] != (20, 9, 34):
+        fail("memory: 2022 Q.44 P and S must share tag 20 and index 9")
+    if f["Q"][:2] != (24, 10) or f["R"][:2] != (25, 10):
+        fail("memory: 2022 Q.44 Q and R must share index 10 with tags 24 and 25")
+    resident, misses, hits = {}, 0, 0
+    s_hits = p_present = True
+    for ch in "PQRS" * 10:
+        t, i, o = f[ch]
+        if resident.get(i) == t:
+            hits += 1
+            if ch == "S":
+                pass
+        else:
+            misses += 1
+            resident[i] = t
+            if ch == "S":
+                s_hits = False
+        if ch == "P" and resident.get(9) != 20:
+            p_present = False
+    if (misses, hits) != (21, 19):
+        fail("memory: 2022 Q.44 must be 21 misses and 19 hits, got %d and %d" % (misses, hits))
+    if not s_hits:
+        fail("memory: 2022 Q.44 - every access to S must be a hit")
+    if not p_present:
+        fail("memory: 2022 Q.44 - P must never be evicted")
+    if resident.get(10) != 25:
+        fail("memory: 2022 Q.44 - R must hold line 10 at the end")
+    if set(resident.values()) == {25}:
+        fail("memory: 2022 Q.44 - statement C must be false: P's block is still resident")
+    # a 2-way cache of the same size removes the Q-R conflict
+    tag2, idx2, off2, lines2, sets2 = split(16, cache_bytes, block_bytes, 2)
+    resident2, misses2 = {s: [] for s in range(sets2)}, 0
+    for ch in "PQRS" * 10:
+        t, i, o = fields(addr[ch], off2, sets2)
+        if t in resident2[i]:
+            resident2[i].remove(t)
+            resident2[i].append(t)
+        else:
+            misses2 += 1
+            if len(resident2[i]) == 2:
+                resident2[i].pop(0)
+            resident2[i].append(t)
+    if misses2 != 3:
+        fail("memory: 2022 Q.44 made 2-way must miss only three times (P, Q and R are three blocks), got %d" % misses2)
+
+    # ---- the 2009 Q.29 LRU trace
+    seq = [0, 255, 1, 4, 3, 8, 133, 159, 216, 129, 63, 8, 48, 32, 73, 92, 155]
+    sets_n, ways_n = 4, 4
+    st = {s: [] for s in range(sets_n)}
+    for b in seq:
+        s = b % sets_n
+        if b in st[s]:
+            st[s].remove(b)
+            st[s].append(b)
+        else:
+            if len(st[s]) == ways_n:
+                st[s].pop(0)
+            st[s].append(b)
+    present = {x for v in st.values() for x in v}
+    if 216 in present:
+        fail("memory: 2009 Q.29 - 216 must not be in the cache")
+    for b in (3, 8, 129):
+        if b not in present:
+            fail("memory: 2009 Q.29 - option %d must still be in the cache" % b)
+    if len(present) != 12:
+        fail("memory: 2009 Q.29 - 12 of the 16 lines must be occupied")
+
+    # ---- the replacement card's own trace
+    st2, m2, h2 = {s: [] for s in range(4)}, 0, 0
+    for b in (0, 4, 0, 4, 8, 0):
+        s = b % 4
+        if b in st2[s]:
+            h2 += 1
+            st2[s].remove(b)
+            st2[s].append(b)
+        else:
+            m2 += 1
+            if len(st2[s]) == 2:
+                st2[s].pop(0)
+            st2[s].append(b)
+    if (m2, h2) != (4, 2):
+        fail("memory: the replacement card's 2-way trace must be 4 misses and 2 hits")
+
+    # ---- AMAT arithmetic
+    words_per_block = 256 // 8                                       # 2020 Q.21
+    penalty = 20 + (words_per_block - 1) * 5
+    if words_per_block != 32 or penalty != 175:
+        fail("memory: 2020 Q.21 must have 32 words per block and a 175 ns penalty")
+    amat = round(0.94 * 3 + 0.06 * (3 + penalty), 1)
+    if amat != 13.5:
+        fail("memory: 2020 Q.21 must give 13.5 ns, got %r" % amat)
+    if round(0.94 * 3 + 0.06 * penalty, 1) == 13.5:
+        fail("memory: 2020 Q.21 must distinguish the form that omits the hit time")
+    if round(0.94 * 3 + 0.06 * (3 + 20 + 63 * 5), 1) != 23.1:
+        fail("memory: the 512 B variation of 2020 Q.21 must give 23.1 ns")
+    if round(1 + 0.1 * (10 + 0.2 * 100), 1) != 4.0:                  # 2025 Set 2 Q.45
+        fail("memory: 2025 Set 2 Q.45 must give 4.0 ns")
+    if round(1 + 0.1 * 10 + 0.2 * 100, 1) != 22.0:
+        fail("memory: charging memory to every access must give the wrong 22 ns")
+    if round(1 + 0.1 * (11 + 0.2 * 100), 1) != 4.1:
+        fail("memory: the access-time variation of 2025 Set 2 Q.45 must give 4.1 ns")
+    if round(1 + 0.05 * (8 + 0.1 * 80), 2) != 1.8:
+        fail("memory: the two-level quick check must give 1.8 ns")
+    if round(1 + 0.05 * 60, 2) != 4.0 or round(1 + 0.10 * 60, 2) != 7.0:
+        fail("memory: the hierarchy card's hit-ratio comparison must give 4 and 7 ns")
+    if round(2 + 0.5 * 100, 1) != 52.0 or round(2 + 0.45 * 100, 1) != 47.0:
+        fail("memory: the AMAT sensitivity example must give 52 and 47 ns")
+    if round(2 + 0.1 * 40, 1) != 6.0:
+        fail("memory: the AMAT quick check must give 6 ns")
+    if round(1 + 0.1 * (10 + 0.1 * 100), 1) != 3.0:
+        fail("memory: the three-level example must give 3 ns")
+
+    # ---- the field-width cards' own examples
+    if split(32, 16 * 1024, 32, 1)[:3] != (18, 9, 5):
+        fail("memory: the 16 KB 32 B example must give tag 18, index 9, offset 5")
+    if split(24, 32 * 1024, 64, 4)[:3] != (11, 7, 6):
+        fail("memory: the 32 KB 4-way 64 B example must give tag 11, index 7, offset 6")
+    if split(20, 8 * 1024, 32, 2)[:3] != (8, 7, 5):
+        fail("memory: the 8 KB 2-way 32 B example must give tag 8, index 7, offset 5")
+    if split(32, 2 * 1024, 64, 2)[:3] != (22, 4, 6):
+        fail("memory: the 2 KB 2-way 64 B example must give tag 22, index 4, offset 6")
+    if split(32, 2 * 1024, 64, 1)[0] != 21:
+        fail("memory: the direct-mapped twin of the 2 KB 2-way cache must have a 21-bit tag")
+    if split(40, 64 * 1024, 32, 4)[:4] != (26, 9, 5, 2048):
+        fail("memory: the 64 KB 4-way 32 B example must give tag 26, index 9, offset 5, 2048 lines")
+    if 2048 * (26 + 1 + 1 + 2) != 61440:
+        fail("memory: the 64 KB directory must be 61440 bits")
+    if split(24, 32 * 1024, 64, 2)[:4] != (10, 8, 6, 512):
+        fail("memory: the 32 KB 2-way directory example must give tag 10, index 8, 512 lines")
+    if 512 * (10 + 2) != 6144:
+        fail("memory: the 32 KB directory must be 6144 bits")
+    if split(32, 2 * 1024, 64, 32)[:3] != (26, 0, 6):
+        fail("memory: a 32-line fully associative cache with 64 B blocks must give tag 26 and index 0")
+    if split(32, 64 * 4096, 4096, 64)[0] != 20:
+        fail("memory: the 64-entry TLB example must give a 20-bit tag")
+    if split(32, 16 * 1024, 16, 1024)[0] != 28:
+        fail("memory: the 16 kB fully associative example must give a 28-bit tag")
+    if lg(1024) != 10 or 1024 * 4 != 4096:
+        fail("memory: a 1K x 4 chip must need 10 address lines and hold 4096 bits")
+    if 2 ** 14 == 0:
+        fail("memory: unreachable")
+    if (1 << 14) != 16384:
+        fail("memory: a 2^14 x 8 chip must hold 16384 bytes")
+    if lg(2048) != 11 or lg(64) != 6:
+        fail("memory: the 2 KB cache of the locality example must give 11 and 6")
+    if 2048 // 4 != 512 or 2048 != 2048:
+        fail("memory: the locality example must give 512 misses for the sequential loop")
+    if (0x1234 >> 4) & 127 != 35 or (0x1234 & 15) != 4:
+        fail("memory: byte address 0x1234 must map to line 35 with offset 4")
+
+    # ---- chip select and decoding
+    if [(k << 3) for k in range(4)] != [0, 8, 16, 24]:               # 2023 Q.32
+        fail("memory: 2023 Q.32 must give 0, 8, 16, 24")
+    if (0b11001 << 11) != 0xC800:                                    # 2019 Q.2
+        fail("memory: 2019 Q.2 must start at 0xC800")
+    if ((0b11001 << 11) | 0x7FF) != 0xCFFF:
+        fail("memory: 2019 Q.2 must end at 0xCFFF")
+    if (0b00000 << 11) | 0x7FF != 0x07FF:
+        fail("memory: the ROM quick check must be 0x0000 to 0x07FF")
+    if 2 * 4 != 8:
+        fail("memory: the 64 KB x 16 build must need 8 chips")
+    if lg(16 * 1024) != 14 or 16 - 14 != 2:
+        fail("memory: each 16 KB chip needs 14 address lines and 2 select bits")
+    if 4 * 4 != 16:
+        fail("memory: the 4K x 16 build from 1K x 4 chips must need 16 chips")
+    if 256 * 1024 * 8 // (32 * 1024) != 64:
+        fail("memory: 256 Kbytes needs 64 chips of 32K x 1")
+
+    # ---- interleaving timing
+    if 40 + 7 * 10 != 110:
+        fail("memory: the 8-word low-order interleaved fetch must take 110 ns")
+    if 8 * 40 != 320:
+        fail("memory: the 8-word high-order fetch must take 320 ns")
+    if not (4 * 10 >= 40):
+        fail("memory: the overlap condition must hold for the 4-bank example")
+    if 100 + 3 * 25 != 175:
+        fail("memory: the 4-word interleaved fetch must take 175 ns")
+    if not (4 * 25 >= 100):
+        fail("memory: the overlap condition must hold for the 100 ns bank example")
+    if (0x00000 >> 17) != (0x00004 >> 17):
+        fail("memory: high-order interleaving must put 0x00000 and 0x00004 in one bank")
+    if (0x00000 & 7) == (0x00004 & 7):
+        fail("memory: low-order interleaving must put 0x00000 and 0x00004 in different banks")
+
+    # ---- the two lessons' own numbers
+    LA = load(os.path.join(ROOT, "visuals", "computer-organization-and-architecture",
+                           "memory-hierarchy-and-cache", "address-to-cache-line", "lesson.json"))
+    ex = LA.get("example") or {}
+    if ex.get("lines") != 32 or ex.get("offset_bits") != 6:
+        fail("memory: the mapping lesson must declare 32 lines and a 6-bit offset")
+    if ex.get("block_size_bytes") != 64 or ex.get("cache_data_bytes") != 2048:
+        fail("memory: the mapping lesson's cache and block size are wrong")
+    a = ex.get("address_decimal")
+    if a != 0xA248:
+        fail("memory: the mapping lesson's address is wrong")
+    for org in ex.get("organisations") or []:
+        t, i, o, lines, sets = split(32, 2048, 64, org["ways"])
+        if (t, i, o) != (org["tag_bits"], org["index_bits"], ex.get("offset_bits")):
+            fail("memory: the mapping lesson's %s field widths are wrong" % org["name"])
+        if sets != org["sets"]:
+            fail("memory: the mapping lesson's %s set count is wrong" % org["name"])
+        got = fields(a, 6, sets)
+        if got != (org["tag"], org["index"], org["offset"]):
+            fail("memory: the mapping lesson's %s decoded values are %r" % (org["name"], got))
+    bpl = ex.get("blocks_per_line") or {}
+    if bpl.get("direct") != 2 ** 21 or bpl.get("four_way") != 2 ** 23 or bpl.get("fully_associative") != 2 ** 26:
+        fail("memory: the mapping lesson's blocks-per-line figures are wrong")
+    if LA.get("steps") != 6:
+        fail("memory: the mapping lesson must declare its six steps")
+
+    LB = load(os.path.join(ROOT, "visuals", "computer-organization-and-architecture",
+                           "memory-hierarchy-and-cache", "lru-in-a-two-way-set", "lesson.json"))
+    lex = LB.get("example") or {}
+    refs = lex.get("reference_blocks") or []
+    nsets, nways = lex.get("sets"), lex.get("ways")
+    if (nsets, nways, lex.get("lines")) != (2, 2, 4):
+        fail("memory: the LRU lesson must declare 2 sets of 2 ways and 4 lines")
+    state = {s: [] for s in range(nsets)}
+    trace, miss_c, hit_c = [], 0, 0
+    for b in refs:
+        s = b % nsets
+        ev = None
+        if b in state[s]:
+            hit_c += 1
+            state[s].remove(b)
+            state[s].append(b)
+            res = "hit"
+        else:
+            miss_c += 1
+            res = "miss"
+            if len(state[s]) == nways:
+                ev = state[s].pop(0)
+            state[s].append(b)
+        trace.append({"block": b, "set": s, "result": res, "evicted": ev,
+                      "set0": list(state[0]), "set1": list(state[1])})
+    for got, want in zip(trace, lex.get("accesses") or []):
+        for k in ("block", "set", "result", "evicted", "set0", "set1"):
+            if got[k] != want.get(k):
+                fail("memory: the LRU lesson's access %r disagrees on %s: %r against %r"
+                     % (want.get("block"), k, got[k], want.get(k)))
+                break
+    if len(trace) != len(lex.get("accesses") or []):
+        fail("memory: the LRU lesson lists %d accesses, the simulation makes %d"
+             % (len(lex.get("accesses") or []), len(trace)))
+    if (miss_c, hit_c) != (lex.get("misses"), lex.get("hits")):
+        fail("memory: the LRU lesson's miss and hit counts are wrong")
+    first_touch = set()
+    compulsory = 0
+    for b in refs:
+        if b not in first_touch:
+            first_touch.add(b)
+            compulsory += 1
+    if compulsory != lex.get("compulsory_misses"):
+        fail("memory: the LRU lesson's compulsory miss count is wrong")
+    if miss_c - compulsory != lex.get("conflict_misses"):
+        fail("memory: the LRU lesson's conflict miss count is wrong")
+    if LB.get("steps") != len(refs) + 1:
+        fail("memory: the LRU lesson must declare one step per access plus the opening")
+
+    ok("memory hierarchy and cache mapping: %d field-width configurations, two simulated traces "
+       "(2022 Q.44 and 2009 Q.29), the tag directory sizes, eight AMAT figures, two chip-select "
+       "decodes and every number in both visual lessons recomputed"
+       % (5 * 3 * 3 + 11 + 4))
+
+
 def check_visuals():
     vroot = os.path.join(ROOT, "visuals")
     lessons = []
@@ -8223,6 +8560,7 @@ def main():
     check_instruction_set_and_addressing_modes()
     check_alu_design()
     check_control_unit_design()
+    check_memory_hierarchy_and_cache()
     check_visuals()
     check_hygiene()
     for c in checks:
