@@ -1,76 +1,116 @@
 {
- "id": "memory-interleaving-high-and-low-order",
- "title": "Memory Interleaving: Which Bits Pick the Bank",
- "priority": "P2",
- "order": 532,
- "unit": "Memory Interfacing, Hierarchy and Cache Mapping",
- "quickIdea": "Interleaving splits memory into banks that can be busy at the same time. If consecutive addresses go to consecutive banks, a block fetch keeps every bank busy; if they go to the same bank, the banks are idle while one works.",
- "remember": [
-  "Low-order interleaving: the low address bits name the bank, so consecutive words sit in different banks and a block transfer overlaps.",
-  "High-order interleaving: the high address bits name the bank, so a bank holds a contiguous run of addresses and consecutive words all land in the same bank.",
-  "The number of banks is a power of two and the bank-selecting bits are log2 of that number; which end of the address those bits come from is the whole design choice.",
-  "Interleaving raises bandwidth, not the latency of a single access: one word still takes one bank's access time.",
-  "Which arrangement wins depends on the access pattern - sequential block fetches favour low-order, and it is the cache's block fill that makes low-order pay."
- ],
- "example": {
-  "prompt": "A memory has four banks, each with a 40 ns cycle, behind a bus that can take one word every 10 ns. How long does an 8-word block take with low-order interleaving, and with high-order?",
-  "work": "Low-order: the first word waits one bank cycle (40 ns) and each later word is one bus slot apart, so 40 + 7 x 10 = 110 ns, provided a bank is free again in time (4 x 10 = 40 ns, which just holds). High-order: all eight words are in one bank, so they serialise at 8 x 40 = 320 ns.",
-  "answer": "110 ns against 320 ns - a factor of about three, from the choice of which bits name the bank."
- },
- "gateAngle": "GATE asks this as the chip-select question in disguise: the 2023 question's decoder is wired to two middle bits, and the discussion of whether the select bits should be high or low is exactly the interleaving question. Compute the starting addresses from the wired bits and you have answered both.",
- "variations": [
-  {
-   "label": "ORIGINAL PYQ-STYLE QUESTION",
-   "question": "A 1 MB memory is split into 8 banks by the three most significant address bits. Words at 0x00000 and 0x00004: same bank?",
-   "answer": "Yes - both have the top three bits 000, so they are in bank 0, 1 KB apart.",
-   "why": "It shows high-order interleaving putting a contiguous run in one bank, which is what makes a block fetch slow."
+  "id": "memory-interleaving-high-and-low-order",
+  "title": "Memory Interleaving: Which Bits Pick the Bank",
+  "priority": "P2",
+  "order": 532,
+  "unit": "Memory Interfacing, Hierarchy and Cache Mapping",
+  "quickIdea": "Interleaving splits memory into banks that can be busy at the same time. If consecutive addresses go to consecutive banks, a block fetch keeps every bank busy; if they go to the same bank, the banks are idle while one works.",
+  "remember": [
+    "Low-order interleaving: the low address bits name the bank, so consecutive words sit in different banks and a block transfer overlaps.",
+    "High-order interleaving: the high address bits name the bank, so a bank holds a contiguous run of addresses and consecutive words all land in the same bank.",
+    "The number of banks is a power of two and the bank-selecting bits are log2 of that number; which end of the address those bits come from is the whole design choice.",
+    "Interleaving raises bandwidth, not the latency of a single access: one word still takes one bank's access time.",
+    "Which arrangement wins depends on the access pattern - sequential block fetches favour low-order, and it is the cache's block fill that makes low-order pay."
+  ],
+  "example": {
+    "prompt": "A memory has four banks, each with a 40 ns cycle, behind a bus that can take one word every 10 ns. How long does an 8-word block take with low-order interleaving, and with high-order?",
+    "work": "Low-order: the first word waits one bank cycle (40 ns) and each later word is one bus slot apart, so 40 + 7 x 10 = 110 ns, provided a bank is free again in time (4 x 10 = 40 ns, which just holds). High-order: all eight words are in one bank, so they serialise at 8 x 40 = 320 ns.",
+    "answer": "110 ns against 320 ns - a factor of about three, from the choice of which bits name the bank."
   },
-  {
-   "label": "PREDICTED VARIATION",
-   "question": "Same memory split by the three least significant bits instead. Words at 0x00000 and 0x00004?",
-   "answer": "Different banks (0 and 4), so the two words can be fetched at the same time.",
-   "why": "It is the same memory with the bank bits moved from the top to the bottom, which is the whole content of the low-order choice."
-  }
- ],
- "trap": {
-  "what": "Thinking interleaving reduces the latency of a single access.",
-  "why": "Each bank still takes its own access time; interleaving overlaps accesses to different banks, so it raises throughput while leaving one-word latency unchanged.",
-  "counterexample": "In the 8-word example, the first word still takes 40 ns with or without interleaving - the 110 ns total is a throughput gain over 320 ns, not a latency gain."
- },
- "check": {
-  "question": "Four banks of 100 ns cycle behind a 25 ns bus, low-order interleaved. How long for 4 consecutive words?",
-  "answer": "100 + 3 x 25 = 175 ns, and the condition holds exactly: 4 x 25 = 100 ns is enough for a bank to recover.",
-  "explanation": "The overlap only works while the banks can keep up; with three banks instead of four, the fourth word would wait for the first bank to finish."
- },
- "pyqIds": [
-  "gate-2023-32-chip-select-four-blocks"
- ],
- "prereqs": [
-  "memory-interfacing-chips-and-chip-select",
-  "memory-characteristics-sram-and-dram"
- ],
- "sources": [
-  {
-   "kind": "text",
-   "title": "Memory Interleaving",
-   "channel": "GeeksforGeeks, Computer Organization and Architecture",
-   "url": "https://www.geeksforgeeks.org/computer-organization-architecture/memory-interleaving/",
-   "language": "en",
-   "transcript": "FULL",
-   "translated": false,
-   "note": "read the whole article: addresses distributed across modules round-robin, the high-order arrangement in which the most significant bits name the module, the low-order arrangement in which the least significant bits do, and the benefit stated as bandwidth through parallel banks"
+  "gateAngle": "GATE asks this as the chip-select question in disguise: the 2023 question's decoder is wired to two middle bits, and the discussion of whether the select bits should be high or low is exactly the interleaving question. Compute the starting addresses from the wired bits and you have answered both.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "A 1 MB memory is split into 8 banks by the three most significant address bits. Words at 0x00000 and 0x00004: same bank?",
+      "answer": "Yes - both have the top three bits 000, so they are in bank 0, 1 KB apart.",
+      "why": "It shows high-order interleaving putting a contiguous run in one bank, which is what makes a block fetch slow."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "Same memory split by the three least significant bits instead. Words at 0x00000 and 0x00004?",
+      "answer": "Different banks (0 and 4), so the two words can be fetched at the same time.",
+      "why": "It is the same memory with the bank bits moved from the top to the bottom, which is the whole content of the low-order choice."
+    }
+  ],
+  "trap": {
+    "what": "Thinking interleaving reduces the latency of a single access.",
+    "why": "Each bank still takes its own access time; interleaving overlaps accesses to different banks, so it raises throughput while leaving one-word latency unchanged.",
+    "counterexample": "In the 8-word example, the first word still takes 40 ns with or without interleaving - the 110 ns total is a throughput gain over 320 ns, not a latency gain."
   },
-  {
-   "kind": "lecture-notes",
-   "title": "Memory System Design (ELEX 2117, Digital Techniques 2)",
-   "channel": "University of British Columbia, Electrical and Computer Engineering, lecture 9 notes",
-   "url": "https://people.ece.ubc.ca/edc/2117.jan2021/lec9.pdf",
-   "language": "en",
-   "transcript": "PARTIAL",
-   "translated": false,
-   "note": "read the memory-interface signals (address, data, CS, OE, WE and what each enables), the tri-state reason only one device may drive the bus, and the rule that ICs combined in parallel widen the word while banks of those rows extend the address range; the address-decoder section was read only as the served text, which stops after the timing diagrams"
+  "check": {
+    "question": "Four banks of 100 ns cycle behind a 25 ns bus, low-order interleaved. How long for 4 consecutive words?",
+    "answer": "100 + 3 x 25 = 175 ns, and the condition holds exactly: 4 x 25 = 100 ns is enough for a bank to recover.",
+    "explanation": "The overlap only works while the banks can keep up; with three banks instead of four, the fourth word would wait for the first bank to finish."
+  },
+  "pyqIds": [
+    "gate-2023-32-chip-select-four-blocks"
+  ],
+  "prereqs": [
+    "memory-interfacing-chips-and-chip-select",
+    "memory-characteristics-sram-and-dram"
+  ],
+  "sources": [
+    {
+      "kind": "text",
+      "title": "Memory Interleaving",
+      "channel": "GeeksforGeeks, Computer Organization and Architecture",
+      "url": "https://www.geeksforgeeks.org/computer-organization-architecture/memory-interleaving/",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "read the whole article: addresses distributed across modules round-robin, the high-order arrangement in which the most significant bits name the module, the low-order arrangement in which the least significant bits do, and the benefit stated as bandwidth through parallel banks"
+    },
+    {
+      "kind": "lecture-notes",
+      "title": "Memory System Design (ELEX 2117, Digital Techniques 2)",
+      "channel": "University of British Columbia, Electrical and Computer Engineering, lecture 9 notes",
+      "url": "https://people.ece.ubc.ca/edc/2117.jan2021/lec9.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read the memory-interface signals (address, data, CS, OE, WE and what each enables), the tri-state reason only one device may drive the bus, and the rule that ICs combined in parallel widen the word while banks of those rows extend the address range; the address-decoder section was read only as the served text, which stops after the timing diagrams"
+    }
+  ],
+  "sourceLine": "Addresses distributed across modules round-robin, the high-order arrangement in which the most significant bits name the module and the low-order arrangement in which the least significant bits do, with the benefit stated as bandwidth: GeeksforGeeks, Memory Interleaving (English, read in full). Banks of chips selected by decoded high-order bits: UBC ELEX 2117 lecture 9 notes (English, read in part). The timing arithmetic on this card is recomputed in scripts/validate.py.",
+  "videoRefs": [],
+  "links": {
+    "mapped_at": "2026-10-31",
+    "mock": {
+      "subject": "computer-architecture",
+      "unit_slug": "memory-management-unit",
+      "unit_name": "Main Memory & Virtual Memory Interface",
+      "unit_number": 4,
+      "question_count": 50,
+      "subtopics": [
+        {
+          "label": "DRAM & SRAM organization",
+          "questions": 13
+        },
+        {
+          "label": "Paging & TLB hit ratio",
+          "questions": 17
+        },
+        {
+          "label": "Effective access time",
+          "questions": 11
+        },
+        {
+          "label": "Segmentation",
+          "questions": 9
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/computer-architecture/memory-management-unit/gate_co_mock_4_2026-10-30.html"
+    },
+    "visual": {
+      "slug": "memory-interfacing-and-interleaving",
+      "title": "Memory Interfacing and Interleaving",
+      "level": "topic-level",
+      "covers": [
+        "low-order interleaving: bank = address mod m",
+        "high-order (block) interleaving: bank from the top bits",
+        "the overlap condition and sustained bandwidth"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/memory-interfacing-and-interleaving/index.html"
+    }
   }
- ],
- "sourceLine": "Addresses distributed across modules round-robin, the high-order arrangement in which the most significant bits name the module and the low-order arrangement in which the least significant bits do, with the benefit stated as bandwidth: GeeksforGeeks, Memory Interleaving (English, read in full). Banks of chips selected by decoded high-order bits: UBC ELEX 2117 lecture 9 notes (English, read in part). The timing arithmetic on this card is recomputed in scripts/validate.py.",
- "videoRefs": []
 }

@@ -1,82 +1,96 @@
 {
- "id": "memory-interfacing-chips-and-chip-select",
- "title": "Memory Interfacing: Chips, Decoding and Chip Select",
- "priority": "P1",
- "order": 531,
- "unit": "Memory Interfacing, Hierarchy and Cache Mapping",
- "quickIdea": "A memory of the required size is built from smaller chips in two independent dimensions - chips side by side widen the word, rows of them extend the address range - and the high address bits are decoded into the chip-select signals that pick a row.",
- "remember": [
-  "Chips per row = required word width / chip word width. Rows (banks) = required number of words / chip word count. Total chips = rows x chips per row.",
-  "Every chip in a row receives the same low-order address bits and the same control signals; only one row's chip-select is asserted at a time.",
-  "Chip-select bits = log2(number of rows). They are the high-order bits left over after the per-chip address bits, and a decoder turns them into one-hot enables.",
-  "A chip's address range follows from which high bits its select line decodes: with select bits fixed and all other bits free, the range is (fixed bits, zeros) to (fixed bits, ones).",
-  "The decoder decides where a memory sits in the address map; with no decoder only one device could be attached, which is why the decoder is the whole of interfacing."
- ],
- "example": {
-  "prompt": "GATE CSE 2023 Q.32: a 4 KB byte-addressable memory is built from four 1 KB blocks; IA4 and IA3 go to a 2-to-4 decoder driving the chip selects, and IA11..IA0 are the 12 address lines. Give the starting address of each block.",
-  "work": "Each block covers 1 KB, so the low 10 bits (IA9..IA0) address inside it and two further bits choose the block. Here those two bits are IA4:IA3 rather than the top two. With the ten inside bits at zero, the four select codes 00, 01, 10, 11 place IA4:IA3 = 00, 01, 10, 11, which as addresses are 0, 8, 16 and 24.",
-  "answer": "0, 8, 16 and 24 (option C) - not 0, 1024, 2048, 3072, which is what you get if the select bits are assumed to be the top two."
- },
- "gateAngle": "This question exists to punish the assumption that the chip-select bits are always the most significant ones. Read which address lines the decoder is wired to, then compute the starting addresses from those bits; the arithmetic is trivial and the reading is everything.",
- "variations": [
-  {
-   "label": "VERIFIED PYQ",
-   "question": "GATE CSE 2023 Q.32, as worked above.",
-   "answer": "Option (C): 0, 8, 16, 24.",
-   "why": "IA4:IA3 selects the block, so consecutive blocks start 2^3 = 8 bytes apart, not 1 KB apart."
+  "id": "memory-interfacing-chips-and-chip-select",
+  "title": "Memory Interfacing: Chips, Decoding and Chip Select",
+  "priority": "P1",
+  "order": 531,
+  "unit": "Memory Interfacing, Hierarchy and Cache Mapping",
+  "quickIdea": "A memory of the required size is built from smaller chips in two independent dimensions - chips side by side widen the word, rows of them extend the address range - and the high address bits are decoded into the chip-select signals that pick a row.",
+  "remember": [
+    "Chips per row = required word width / chip word width. Rows (banks) = required number of words / chip word count. Total chips = rows x chips per row.",
+    "Every chip in a row receives the same low-order address bits and the same control signals; only one row's chip-select is asserted at a time.",
+    "Chip-select bits = log2(number of rows). They are the high-order bits left over after the per-chip address bits, and a decoder turns them into one-hot enables.",
+    "A chip's address range follows from which high bits its select line decodes: with select bits fixed and all other bits free, the range is (fixed bits, zeros) to (fixed bits, ones).",
+    "The decoder decides where a memory sits in the address map; with no decoder only one device could be attached, which is why the decoder is the whole of interfacing."
+  ],
+  "example": {
+    "prompt": "GATE CSE 2023 Q.32: a 4 KB byte-addressable memory is built from four 1 KB blocks; IA4 and IA3 go to a 2-to-4 decoder driving the chip selects, and IA11..IA0 are the 12 address lines. Give the starting address of each block.",
+    "work": "Each block covers 1 KB, so the low 10 bits (IA9..IA0) address inside it and two further bits choose the block. Here those two bits are IA4:IA3 rather than the top two. With the ten inside bits at zero, the four select codes 00, 01, 10, 11 place IA4:IA3 = 00, 01, 10, 11, which as addresses are 0, 8, 16 and 24.",
+    "answer": "0, 8, 16 and 24 (option C) - not 0, 1024, 2048, 3072, which is what you get if the select bits are assumed to be the top two."
   },
-  {
-   "label": "VERIFIED PYQ",
-   "question": "GATE CSE 2019 Q.2: a chip-select gate decodes A15 A14 A13' A12' A11. What address range does it enable?",
-   "answer": "C800 to CFFF (option A).",
-   "why": "The five decoded bits are fixed at 11001; the other eleven are free, so the range runs from 1100 1000 0000 0000 to 1100 1111 1111 1111."
+  "gateAngle": "This question exists to punish the assumption that the chip-select bits are always the most significant ones. Read which address lines the decoder is wired to, then compute the starting addresses from those bits; the arithmetic is trivial and the reading is everything.",
+  "variations": [
+    {
+      "label": "VERIFIED PYQ",
+      "question": "GATE CSE 2023 Q.32, as worked above.",
+      "answer": "Option (C): 0, 8, 16, 24.",
+      "why": "IA4:IA3 selects the block, so consecutive blocks start 2^3 = 8 bytes apart, not 1 KB apart."
+    },
+    {
+      "label": "VERIFIED PYQ",
+      "question": "GATE CSE 2019 Q.2: a chip-select gate decodes A15 A14 A13' A12' A11. What address range does it enable?",
+      "answer": "C800 to CFFF (option A).",
+      "why": "The five decoded bits are fixed at 11001; the other eleven are free, so the range runs from 1100 1000 0000 0000 to 1100 1111 1111 1111."
+    },
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "A 64 KB x 16 memory is built from 16 KB x 8 chips with the top two address bits decoded. How many chips, how many address lines per chip, and what is the decoder?",
+      "answer": "Two chips per row for the 16-bit width and four rows for the 64 K words: 8 chips. Each chip takes 14 address lines, and the remaining 2 bits feed a 2-to-4 decoder that selects one row.",
+      "why": "It is the two-dimensional build and the decoding rule together, which is the shape the chip-count questions take."
+    }
+  ],
+  "trap": {
+    "what": "Assuming the chip-select bits are always the most significant address bits.",
+    "why": "The wiring decides, not the convention; a design may decode any bits, and the 2023 question deliberately decodes two middle bits.",
+    "counterexample": "In GATE CSE 2023 Q.32 the select bits are IA4:IA3, so the blocks are interleaved every 1 KB rather than laid out in 1 KB runs; answering 0, 1024, 2048, 3072 is the option (B) trap."
   },
-  {
-   "label": "ORIGINAL PYQ-STYLE QUESTION",
-   "question": "A 64 KB x 16 memory is built from 16 KB x 8 chips with the top two address bits decoded. How many chips, how many address lines per chip, and what is the decoder?",
-   "answer": "Two chips per row for the 16-bit width and four rows for the 64 K words: 8 chips. Each chip takes 14 address lines, and the remaining 2 bits feed a 2-to-4 decoder that selects one row.",
-   "why": "It is the two-dimensional build and the decoding rule together, which is the shape the chip-count questions take."
+  "check": {
+    "question": "A system has 16 address lines and one 2 KB ROM selected when A15..A11 = 00000. What is its address range?",
+    "answer": "0000 to 07FF in hexadecimal.",
+    "explanation": "Eleven free bits below the five fixed zeros give 2^11 = 2048 locations, from all-zeros to all-ones: 0x0000 to 0x07FF."
+  },
+  "pyqIds": [
+    "gate-2023-32-chip-select-four-blocks",
+    "gate-2019-2-chip-select-address-range"
+  ],
+  "prereqs": [
+    "memory-characteristics-sram-and-dram"
+  ],
+  "sources": [
+    {
+      "kind": "lecture-notes",
+      "title": "Memory System Design (ELEX 2117, Digital Techniques 2)",
+      "channel": "University of British Columbia, Electrical and Computer Engineering, lecture 9 notes",
+      "url": "https://people.ece.ubc.ca/edc/2117.jan2021/lec9.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read the memory-interface signals (address, data, CS, OE, WE and what each enables), the tri-state reason only one device may drive the bus, and the rule that ICs combined in parallel widen the word while banks of those rows extend the address range; the address-decoder section was read only as the served text, which stops after the timing diagrams"
+    },
+    {
+      "kind": "lecture-slides",
+      "title": "Lecture 13 - Memory Interface (EE2 Digital Electronics)",
+      "channel": "Imperial College London, Department of Electrical and Electronic Engineering, Dr Peter Cheung",
+      "url": "http://www.ee.ic.ac.uk/pcheung/teaching/ee2_digital/Lecture%2013%20-%20memory%20interface.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read the inside of a RAM chip (row decoder, column select, CE/OE/WE and the tri-state data bus), the partition of an address space into 32 KB RAM, 16 KB ROM and 4 KB of I/O with A15:12 decoded into the enable signals and A11:0 used inside the parts, and the statement that the address decoder decides where a memory sits in the map"
+    }
+  ],
+  "sourceLine": "The memory-interface signals with chip select enabling a device and the rule that ICs in parallel widen the word while banks of rows extend the address range: UBC ELEX 2117 lecture 9 notes (English, read in part). The partition of an address space into RAM, ROM and I/O with the upper bits decoded into enables and the lower bits used inside the parts, and the statement that the decoder places a memory in the map: Imperial College EE2 Lecture 13 (English, read in part). Both PYQ answers are recomputed in scripts/validate.py.",
+  "videoRefs": [],
+  "links": {
+    "mapped_at": "2026-10-31",
+    "visual": {
+      "slug": "memory-interfacing-and-interleaving",
+      "title": "Memory Interfacing and Interleaving",
+      "level": "topic-level",
+      "covers": [
+        "chip count and address bits from width and depth",
+        "chip select as a condition on address bits",
+        "the decoder's size comes from rows, not the chip count"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/memory-interfacing-and-interleaving/index.html"
+    }
   }
- ],
- "trap": {
-  "what": "Assuming the chip-select bits are always the most significant address bits.",
-  "why": "The wiring decides, not the convention; a design may decode any bits, and the 2023 question deliberately decodes two middle bits.",
-  "counterexample": "In GATE CSE 2023 Q.32 the select bits are IA4:IA3, so the blocks are interleaved every 1 KB rather than laid out in 1 KB runs; answering 0, 1024, 2048, 3072 is the option (B) trap."
- },
- "check": {
-  "question": "A system has 16 address lines and one 2 KB ROM selected when A15..A11 = 00000. What is its address range?",
-  "answer": "0000 to 07FF in hexadecimal.",
-  "explanation": "Eleven free bits below the five fixed zeros give 2^11 = 2048 locations, from all-zeros to all-ones: 0x0000 to 0x07FF."
- },
- "pyqIds": [
-  "gate-2023-32-chip-select-four-blocks",
-  "gate-2019-2-chip-select-address-range"
- ],
- "prereqs": [
-  "memory-characteristics-sram-and-dram"
- ],
- "sources": [
-  {
-   "kind": "lecture-notes",
-   "title": "Memory System Design (ELEX 2117, Digital Techniques 2)",
-   "channel": "University of British Columbia, Electrical and Computer Engineering, lecture 9 notes",
-   "url": "https://people.ece.ubc.ca/edc/2117.jan2021/lec9.pdf",
-   "language": "en",
-   "transcript": "PARTIAL",
-   "translated": false,
-   "note": "read the memory-interface signals (address, data, CS, OE, WE and what each enables), the tri-state reason only one device may drive the bus, and the rule that ICs combined in parallel widen the word while banks of those rows extend the address range; the address-decoder section was read only as the served text, which stops after the timing diagrams"
-  },
-  {
-   "kind": "lecture-slides",
-   "title": "Lecture 13 - Memory Interface (EE2 Digital Electronics)",
-   "channel": "Imperial College London, Department of Electrical and Electronic Engineering, Dr Peter Cheung",
-   "url": "http://www.ee.ic.ac.uk/pcheung/teaching/ee2_digital/Lecture%2013%20-%20memory%20interface.pdf",
-   "language": "en",
-   "transcript": "PARTIAL",
-   "translated": false,
-   "note": "read the inside of a RAM chip (row decoder, column select, CE/OE/WE and the tri-state data bus), the partition of an address space into 32 KB RAM, 16 KB ROM and 4 KB of I/O with A15:12 decoded into the enable signals and A11:0 used inside the parts, and the statement that the address decoder decides where a memory sits in the map"
-  }
- ],
- "sourceLine": "The memory-interface signals with chip select enabling a device and the rule that ICs in parallel widen the word while banks of rows extend the address range: UBC ELEX 2117 lecture 9 notes (English, read in part). The partition of an address space into RAM, ROM and I/O with the upper bits decoded into enables and the lower bits used inside the parts, and the statement that the decoder places a memory in the map: Imperial College EE2 Lecture 13 (English, read in part). Both PYQ answers are recomputed in scripts/validate.py.",
- "videoRefs": []
 }

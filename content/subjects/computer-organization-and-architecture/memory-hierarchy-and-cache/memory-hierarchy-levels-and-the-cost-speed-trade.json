@@ -1,81 +1,121 @@
 {
- "id": "memory-hierarchy-levels-and-the-cost-speed-trade",
- "title": "The Memory Hierarchy and the Cost-Speed Trade",
- "priority": "P1",
- "order": 518,
- "unit": "Memory Interfacing, Hierarchy and Cache Mapping",
- "quickIdea": "No single memory technology is both fast and cheap, so a computer stacks several: tiny fast registers, then cache, then main memory, then disk, each level slower, larger and cheaper per byte than the one above it.",
- "remember": [
-  "Going down the hierarchy: capacity rises, access time rises, cost per byte falls, and the frequency with which the level is accessed falls.",
-  "The last property - decreasing frequency of access - is not a law of hardware; it is what locality of reference makes true of real programs, and it is the reason the hierarchy works at all.",
-  "A level is worth having only if the level above it misses rarely enough that the average access time approaches the fast level's time.",
-  "Registers are addressed by the instruction set; cache and main memory are addressed by the memory address; disk is reached through the operating system, not by a load instruction.",
-  "Volatility also changes down the hierarchy: registers and SRAM/DRAM are volatile, disk and ROM are not."
- ],
- "example": {
-  "prompt": "A processor has 1 ns cache access, 60 ns main-memory access and a 0.95 hit ratio. A second design has the same cache but a 0.90 hit ratio. Compare their average access times.",
-  "work": "AMAT = hit time + miss rate x miss penalty = 1 + 0.05 x 60 = 4 ns in the first design and 1 + 0.10 x 60 = 7 ns in the second. The cache is 1.75 times more effective for a hit ratio five points higher.",
-  "answer": "4 ns against 7 ns: a five-point change in hit ratio moved the average by 3 ns, which is why the hierarchy is designed around the hit ratio and not around the fast memory's own speed."
- },
- "gateAngle": "The hierarchy is the reason cache questions exist: every cache question is really asking how far the average access time sits from the fast level's access time. GATE states the levels and their parameters and asks you to combine them, never to recite the levels.",
- "variations": [
-  {
-   "label": "CONCEPTUAL PRACTICE QUESTION",
-   "question": "Why is a level with a 0.5 hit ratio worthless at the top of a hierarchy?",
-   "answer": "Because the average time is then dominated by the slow level: with a 100 ns lower level, AMAT = 1 + 0.5 x 100 = 51 ns, about half the slow level's time.",
-   "why": "It separates the two things a level buys: capacity from the lower level and speed from the upper one. A level that misses half the time supplies almost no speed."
+  "id": "memory-hierarchy-levels-and-the-cost-speed-trade",
+  "title": "The Memory Hierarchy and the Cost-Speed Trade",
+  "priority": "P1",
+  "order": 518,
+  "unit": "Memory Interfacing, Hierarchy and Cache Mapping",
+  "quickIdea": "No single memory technology is both fast and cheap, so a computer stacks several: tiny fast registers, then cache, then main memory, then disk, each level slower, larger and cheaper per byte than the one above it.",
+  "remember": [
+    "Going down the hierarchy: capacity rises, access time rises, cost per byte falls, and the frequency with which the level is accessed falls.",
+    "The last property - decreasing frequency of access - is not a law of hardware; it is what locality of reference makes true of real programs, and it is the reason the hierarchy works at all.",
+    "A level is worth having only if the level above it misses rarely enough that the average access time approaches the fast level's time.",
+    "Registers are addressed by the instruction set; cache and main memory are addressed by the memory address; disk is reached through the operating system, not by a load instruction.",
+    "Volatility also changes down the hierarchy: registers and SRAM/DRAM are volatile, disk and ROM are not."
+  ],
+  "example": {
+    "prompt": "A processor has 1 ns cache access, 60 ns main-memory access and a 0.95 hit ratio. A second design has the same cache but a 0.90 hit ratio. Compare their average access times.",
+    "work": "AMAT = hit time + miss rate x miss penalty = 1 + 0.05 x 60 = 4 ns in the first design and 1 + 0.10 x 60 = 7 ns in the second. The cache is 1.75 times more effective for a hit ratio five points higher.",
+    "answer": "4 ns against 7 ns: a five-point change in hit ratio moved the average by 3 ns, which is why the hierarchy is designed around the hit ratio and not around the fast memory's own speed."
   },
-  {
-   "label": "PREDICTED VARIATION",
-   "question": "Two designs have the same AMAT. Design A has a 2 ns cache with a 0.99 hit ratio; design B has a 1 ns cache with a 0.98 hit ratio. Both miss to a 100 ns memory. Which is which?",
-   "answer": "A: 2 + 0.01 x 100 = 3 ns. B: 1 + 0.02 x 100 = 3 ns. They tie.",
-   "why": "It shows the trade is a product of two independent knobs - hit time and miss rate - and that GATE can give you either one and ask for the other."
+  "gateAngle": "The hierarchy is the reason cache questions exist: every cache question is really asking how far the average access time sits from the fast level's access time. GATE states the levels and their parameters and asks you to combine them, never to recite the levels.",
+  "variations": [
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Why is a level with a 0.5 hit ratio worthless at the top of a hierarchy?",
+      "answer": "Because the average time is then dominated by the slow level: with a 100 ns lower level, AMAT = 1 + 0.5 x 100 = 51 ns, about half the slow level's time.",
+      "why": "It separates the two things a level buys: capacity from the lower level and speed from the upper one. A level that misses half the time supplies almost no speed."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "Two designs have the same AMAT. Design A has a 2 ns cache with a 0.99 hit ratio; design B has a 1 ns cache with a 0.98 hit ratio. Both miss to a 100 ns memory. Which is which?",
+      "answer": "A: 2 + 0.01 x 100 = 3 ns. B: 1 + 0.02 x 100 = 3 ns. They tie.",
+      "why": "It shows the trade is a product of two independent knobs - hit time and miss rate - and that GATE can give you either one and ask for the other."
+    }
+  ],
+  "trap": {
+    "what": "Treating the hierarchy as a claim that the cache always holds what is needed next.",
+    "why": "The hierarchy is a statistical bet on locality, not a guarantee; a program with no locality gets no benefit and can even be slowed by the fill cost.",
+    "counterexample": "Walking a 1 GB array once, in a random order, touches almost every line exactly once: every access misses, and the cache adds its own hit time to every access without ever paying it back."
+  },
+  "check": {
+    "question": "In a three-level hierarchy the L1 hit time is 1 ns, L2 is 10 ns and memory is 100 ns. Which level's latency dominates a program whose L1 miss rate is 10% and whose L2 miss rate is 10%?",
+    "answer": "Memory: AMAT = 1 + 0.1 x (10 + 0.1 x 100) = 1 + 0.1 x 20 = 3 ns, of which 1 ns is memory's 0.1 x 0.1 x 100 contribution.",
+    "explanation": "The lower level contributes only through the product of the miss rates above it, so a level can be slow and still cheap in average time if the levels above it hit well."
+  },
+  "pyqIds": [],
+  "prereqs": [],
+  "sources": [
+    {
+      "kind": "lecture-transcript",
+      "title": "Lecture 25 - Direct-mapped Caches: Misses, Writes and Performance",
+      "channel": "NPTEL, Computer Organization and Architecture - A Pedagogical Aspect (IIT Guwahati)",
+      "url": "http://www.digimat.in/nptel/courses/video/106103180/lec25.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read the memory-technology comparison with its access-time and cost-per-GB figures, the statement of the design trade-off that produces the hierarchy, the definition of hit time, hit ratio and miss, and the statement of locality of reference with its two kinds"
+    },
+    {
+      "kind": "lecture-transcript",
+      "title": "Lecture 24 - Basics of Memory and Cache (Memory System, unit 1 part 1)",
+      "channel": "NPTEL, Computer Organization and Architecture - A Pedagogical Aspect (Prof. J. K. Deka, Dr. Santosh Biswas, Dr. Arnab Sarkar, IIT Guwahati)",
+      "url": "http://www.digimat.in/nptel/courses/video/106103180/lec24.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read the opening of the unit: inboard and outboard memory, capacity as locations times location size, the unit of transfer as the width of the data bus, word size, and byte against word addressing"
+    },
+    {
+      "kind": "lecture-slides",
+      "title": "Computer Organization: Memory Hierarchy and Cache Memories",
+      "channel": "Indian Institute of Science, Centre for Data Sciences, computer architecture and organization slides",
+      "url": "https://cds.iisc.ac.in/wp-content/uploads/ComputerArchitecture_and_Organization.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read the locality section, the memory-address-and-cache composition section (a cache line as valid bit, tag and data block of B bytes), the cache-lookup section (index selects the set, tags compared inside it, offset picks the word), the direct, set-associative and fully associative descriptions, and the 16 KB direct-mapped 32 B example with tag 18, index 9, offset 5"
+    }
+  ],
+  "sourceLine": "The memory-technology comparison with its access times and cost per GB, the trade-off that forces a hierarchy, and the definition of hit time and hit ratio: NPTEL IIT Guwahati Lecture 25 (English, read in part). Capacity as locations times location size and the unit of transfer as the data-bus width: the same course, Lecture 24 (English, read in part). Locality as the design principle behind the cache and the statement that main memory is about 100 times slower than the CPU: IISc CDS slides (English, read in part). Every number on this card is recomputed in scripts/validate.py.",
+  "videoRefs": [],
+  "links": {
+    "mapped_at": "2026-10-31",
+    "mock": {
+      "subject": "computer-architecture",
+      "unit_slug": "cache-memory",
+      "unit_name": "Memory Hierarchy & Cache Memory",
+      "unit_number": 3,
+      "question_count": 50,
+      "subtopics": [
+        {
+          "label": "Direct, associative & set-associative mapping",
+          "questions": 14
+        },
+        {
+          "label": "Cache hit/miss & miss penalty",
+          "questions": 14
+        },
+        {
+          "label": "Replacement algorithms",
+          "questions": 11
+        },
+        {
+          "label": "Write policies: write-through & write-back",
+          "questions": 11
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/computer-architecture/cache-memory/gate_co_mock_3_2026-10-30.html"
+    },
+    "visual": {
+      "slug": "memory-hierarchy-and-cache",
+      "title": "Memory Hierarchy and Cache",
+      "level": "topic-level",
+      "covers": [
+        "the two kinds of locality, and the hierarchy as a bet on them",
+        "each level is bigger, slower and cheaper per byte than the one above",
+        "a hit costs one level, a miss costs that level plus a trip down"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/memory-hierarchy-and-cache/index.html"
+    }
   }
- ],
- "trap": {
-  "what": "Treating the hierarchy as a claim that the cache always holds what is needed next.",
-  "why": "The hierarchy is a statistical bet on locality, not a guarantee; a program with no locality gets no benefit and can even be slowed by the fill cost.",
-  "counterexample": "Walking a 1 GB array once, in a random order, touches almost every line exactly once: every access misses, and the cache adds its own hit time to every access without ever paying it back."
- },
- "check": {
-  "question": "In a three-level hierarchy the L1 hit time is 1 ns, L2 is 10 ns and memory is 100 ns. Which level's latency dominates a program whose L1 miss rate is 10% and whose L2 miss rate is 10%?",
-  "answer": "Memory: AMAT = 1 + 0.1 x (10 + 0.1 x 100) = 1 + 0.1 x 20 = 3 ns, of which 1 ns is memory's 0.1 x 0.1 x 100 contribution.",
-  "explanation": "The lower level contributes only through the product of the miss rates above it, so a level can be slow and still cheap in average time if the levels above it hit well."
- },
- "pyqIds": [],
- "prereqs": [],
- "sources": [
-  {
-   "kind": "lecture-transcript",
-   "title": "Lecture 25 - Direct-mapped Caches: Misses, Writes and Performance",
-   "channel": "NPTEL, Computer Organization and Architecture - A Pedagogical Aspect (IIT Guwahati)",
-   "url": "http://www.digimat.in/nptel/courses/video/106103180/lec25.pdf",
-   "language": "en",
-   "transcript": "PARTIAL",
-   "translated": false,
-   "note": "read the memory-technology comparison with its access-time and cost-per-GB figures, the statement of the design trade-off that produces the hierarchy, the definition of hit time, hit ratio and miss, and the statement of locality of reference with its two kinds"
-  },
-  {
-   "kind": "lecture-transcript",
-   "title": "Lecture 24 - Basics of Memory and Cache (Memory System, unit 1 part 1)",
-   "channel": "NPTEL, Computer Organization and Architecture - A Pedagogical Aspect (Prof. J. K. Deka, Dr. Santosh Biswas, Dr. Arnab Sarkar, IIT Guwahati)",
-   "url": "http://www.digimat.in/nptel/courses/video/106103180/lec24.pdf",
-   "language": "en",
-   "transcript": "PARTIAL",
-   "translated": false,
-   "note": "read the opening of the unit: inboard and outboard memory, capacity as locations times location size, the unit of transfer as the width of the data bus, word size, and byte against word addressing"
-  },
-  {
-   "kind": "lecture-slides",
-   "title": "Computer Organization: Memory Hierarchy and Cache Memories",
-   "channel": "Indian Institute of Science, Centre for Data Sciences, computer architecture and organization slides",
-   "url": "https://cds.iisc.ac.in/wp-content/uploads/ComputerArchitecture_and_Organization.pdf",
-   "language": "en",
-   "transcript": "PARTIAL",
-   "translated": false,
-   "note": "read the locality section, the memory-address-and-cache composition section (a cache line as valid bit, tag and data block of B bytes), the cache-lookup section (index selects the set, tags compared inside it, offset picks the word), the direct, set-associative and fully associative descriptions, and the 16 KB direct-mapped 32 B example with tag 18, index 9, offset 5"
-  }
- ],
- "sourceLine": "The memory-technology comparison with its access times and cost per GB, the trade-off that forces a hierarchy, and the definition of hit time and hit ratio: NPTEL IIT Guwahati Lecture 25 (English, read in part). Capacity as locations times location size and the unit of transfer as the data-bus width: the same course, Lecture 24 (English, read in part). Locality as the design principle behind the cache and the statement that main memory is about 100 times slower than the CPU: IISc CDS slides (English, read in part). Every number on this card is recomputed in scripts/validate.py.",
- "videoRefs": []
 }

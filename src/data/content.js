@@ -38111,6 +38111,46 @@ window.GATE_DATA = {
    ],
    "sourceLine": "The memory-technology comparison with its access times and cost per GB, the trade-off that forces a hierarchy, and the definition of hit time and hit ratio: NPTEL IIT Guwahati Lecture 25 (English, read in part). Capacity as locations times location size and the unit of transfer as the data-bus width: the same course, Lecture 24 (English, read in part). Locality as the design principle behind the cache and the statement that main memory is about 100 times slower than the CPU: IISc CDS slides (English, read in part). Every number on this card is recomputed in scripts/validate.py.",
    "videoRefs": [],
+   "links": {
+    "mapped_at": "2026-10-31",
+    "mock": {
+     "subject": "computer-architecture",
+     "unit_slug": "cache-memory",
+     "unit_name": "Memory Hierarchy & Cache Memory",
+     "unit_number": 3,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Direct, associative & set-associative mapping",
+       "questions": 14
+      },
+      {
+       "label": "Cache hit/miss & miss penalty",
+       "questions": 14
+      },
+      {
+       "label": "Replacement algorithms",
+       "questions": 11
+      },
+      {
+       "label": "Write policies: write-through & write-back",
+       "questions": 11
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/cache-memory/gate_co_mock_3_2026-10-30.html"
+    },
+    "visual": {
+     "slug": "memory-hierarchy-and-cache",
+     "title": "Memory Hierarchy and Cache",
+     "level": "topic-level",
+     "covers": [
+      "the two kinds of locality, and the hierarchy as a bet on them",
+      "each level is bigger, slower and cheaper per byte than the one above",
+      "a hit costs one level, a miss costs that level plus a trip down"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/memory-hierarchy-and-cache/index.html"
+    }
+   },
    "subject": "computer-organization-and-architecture",
    "topic": "memory-hierarchy-and-cache",
    "path": "subjects/computer-organization-and-architecture/memory-hierarchy-and-cache/memory-hierarchy-levels-and-the-cost-speed-trade.json"
@@ -38197,6 +38237,46 @@ window.GATE_DATA = {
    ],
    "sourceLine": "Temporal and spatial locality stated as the two design principles behind the cache, with the block-versus-word distinction: NPTEL IIT Guwahati Lecture 25 (English, read in part). Locality as the assumption that makes a cache possible, and the warning that a larger block buys spatial locality at the price of miss penalty: DSWallah Learn, romanised Hindi, translated (read in part). Locality and the 16 KB, 32 B direct-mapped example: IISc CDS slides (English, read in part).",
    "videoRefs": [],
+   "links": {
+    "mapped_at": "2026-10-31",
+    "mock": {
+     "subject": "computer-architecture",
+     "unit_slug": "cache-memory",
+     "unit_name": "Memory Hierarchy & Cache Memory",
+     "unit_number": 3,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Direct, associative & set-associative mapping",
+       "questions": 14
+      },
+      {
+       "label": "Cache hit/miss & miss penalty",
+       "questions": 14
+      },
+      {
+       "label": "Replacement algorithms",
+       "questions": 11
+      },
+      {
+       "label": "Write policies: write-through & write-back",
+       "questions": 11
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/cache-memory/gate_co_mock_3_2026-10-30.html"
+    },
+    "visual": {
+     "slug": "memory-hierarchy-and-cache",
+     "title": "Memory Hierarchy and Cache",
+     "level": "topic-level",
+     "covers": [
+      "temporal locality: the same address is used again soon",
+      "spatial locality: its neighbours are used soon after",
+      "a cache makes the average access faster, not memory faster"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/memory-hierarchy-and-cache/index.html"
+    }
+   },
    "subject": "computer-organization-and-architecture",
    "topic": "memory-hierarchy-and-cache",
    "path": "subjects/computer-organization-and-architecture/memory-hierarchy-and-cache/locality-of-reference-temporal-and-spatial.json"
@@ -38283,6 +38363,35 @@ window.GATE_DATA = {
    ],
    "sourceLine": "Capacity, unit of transfer, word size and byte against word addressing: NPTEL IIT Guwahati Lecture 24 (English, read in part). The SRAM and DRAM comparison with its access-time and cost-per-GB figures: the same course, Lecture 25 (English, read in part). Volatile against non-volatile memory, SRAM as a latch and DRAM as a refreshed capacitor, and the meaning of kB and MB for memories: UBC ELEX 2117 lecture 9 notes (English, read in part).",
    "videoRefs": [],
+   "links": {
+    "mapped_at": "2026-10-31",
+    "mock": {
+     "subject": "computer-architecture",
+     "unit_slug": "memory-management-unit",
+     "unit_name": "Main Memory & Virtual Memory Interface",
+     "unit_number": 4,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "DRAM & SRAM organization",
+       "questions": 13
+      },
+      {
+       "label": "Paging & TLB hit ratio",
+       "questions": 17
+      },
+      {
+       "label": "Effective access time",
+       "questions": 11
+      },
+      {
+       "label": "Segmentation",
+       "questions": 9
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/memory-management-unit/gate_co_mock_4_2026-10-30.html"
+    }
+   },
    "subject": "computer-organization-and-architecture",
    "topic": "memory-hierarchy-and-cache",
    "path": "subjects/computer-organization-and-architecture/memory-hierarchy-and-cache/memory-characteristics-sram-and-dram.json"
@@ -38378,6 +38487,46 @@ window.GATE_DATA = {
    ],
    "sourceLine": "Hit time, hit ratio and miss stated as the three measures of a cache: NPTEL IIT Guwahati Lecture 25 (English, read in part). Miss penalty defined as the time to fetch a line from the next level and split into first-word latency plus transfer time: the same course, Lecture 26 (English, read in part). AMAT as hit time plus miss rate times miss penalty, with the two-level form: DSWallah Learn, romanised Hindi, translated (read in part). Every figure on this card, including the 2020 answer, is recomputed in scripts/validate.py.",
    "videoRefs": [],
+   "links": {
+    "mapped_at": "2026-10-31",
+    "mock": {
+     "subject": "computer-architecture",
+     "unit_slug": "cache-memory",
+     "unit_name": "Memory Hierarchy & Cache Memory",
+     "unit_number": 3,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Direct, associative & set-associative mapping",
+       "questions": 14
+      },
+      {
+       "label": "Cache hit/miss & miss penalty",
+       "questions": 14
+      },
+      {
+       "label": "Replacement algorithms",
+       "questions": 11
+      },
+      {
+       "label": "Write policies: write-through & write-back",
+       "questions": 11
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/cache-memory/gate_co_mock_3_2026-10-30.html"
+    },
+    "visual": {
+     "slug": "memory-hierarchy-and-cache",
+     "title": "Memory Hierarchy and Cache",
+     "level": "topic-level",
+     "covers": [
+      "hit time and miss penalty are two different quantities",
+      "average access time T = T_hit + m x P",
+      "hierarchical against simultaneous access"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/memory-hierarchy-and-cache/index.html"
+    }
+   },
    "subject": "computer-organization-and-architecture",
    "topic": "memory-hierarchy-and-cache",
    "path": "subjects/computer-organization-and-architecture/memory-hierarchy-and-cache/hit-time-miss-penalty-and-amat.json"
@@ -38462,6 +38611,45 @@ window.GATE_DATA = {
    ],
    "sourceLine": "AMAT as hit time plus miss rate times miss penalty and the two-level recursive form, with the warning that a miss in L1 must also pay the L2 time: DSWallah Learn, romanised Hindi, translated (read in part). Miss penalty defined as the time to bring a line from the next level down: NPTEL IIT Guwahati Lecture 26 (English, read in part). The 2025 answer is recomputed in scripts/validate.py.",
    "videoRefs": [],
+   "links": {
+    "mapped_at": "2026-10-31",
+    "mock": {
+     "subject": "computer-architecture",
+     "unit_slug": "cache-memory",
+     "unit_name": "Memory Hierarchy & Cache Memory",
+     "unit_number": 3,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Direct, associative & set-associative mapping",
+       "questions": 14
+      },
+      {
+       "label": "Cache hit/miss & miss penalty",
+       "questions": 14
+      },
+      {
+       "label": "Replacement algorithms",
+       "questions": 11
+      },
+      {
+       "label": "Write policies: write-through & write-back",
+       "questions": 11
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/cache-memory/gate_co_mock_3_2026-10-30.html"
+    },
+    "visual": {
+     "slug": "memory-hierarchy-and-cache",
+     "title": "Memory Hierarchy and Cache",
+     "level": "topic-level",
+     "covers": [
+      "two-level average access time with exclusive outcomes",
+      "stall cycles per instruction, and miss rate into CPI"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/memory-hierarchy-and-cache/index.html"
+    }
+   },
    "subject": "computer-organization-and-architecture",
    "topic": "memory-hierarchy-and-cache",
    "path": "subjects/computer-organization-and-architecture/memory-hierarchy-and-cache/two-level-cache-amat.json"
@@ -38541,6 +38729,45 @@ window.GATE_DATA = {
    ],
    "sourceLine": "The address cut into tag, index and offset with the index selecting the set, the tags compared inside it and the offset picking the word, and a cache line as a valid bit, a tag and a block of B bytes: IISc CDS slides (English, read in part). The same split with the line-modulo-lines and set-modulo-sets formulas and the warning that offset is log2 of the block size: DSWallah Learn, romanised Hindi, translated (read in part). Every width on this card is recomputed in scripts/validate.py.",
    "videoRefs": [],
+   "links": {
+    "mapped_at": "2026-10-31",
+    "mock": {
+     "subject": "computer-architecture",
+     "unit_slug": "cache-memory",
+     "unit_name": "Memory Hierarchy & Cache Memory",
+     "unit_number": 3,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Direct, associative & set-associative mapping",
+       "questions": 14
+      },
+      {
+       "label": "Cache hit/miss & miss penalty",
+       "questions": 14
+      },
+      {
+       "label": "Replacement algorithms",
+       "questions": 11
+      },
+      {
+       "label": "Write policies: write-through & write-back",
+       "questions": 11
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/cache-memory/gate_co_mock_3_2026-10-30.html"
+    },
+    "visual": {
+     "slug": "memory-hierarchy-and-cache",
+     "title": "Memory Hierarchy and Cache",
+     "level": "topic-level",
+     "covers": [
+      "offset, index and tag widths from block size, capacity and ways",
+      "block, line, set, associativity and number of sets"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/memory-hierarchy-and-cache/index.html"
+    }
+   },
    "subject": "computer-organization-and-architecture",
    "topic": "memory-hierarchy-and-cache",
    "path": "subjects/computer-organization-and-architecture/memory-hierarchy-and-cache/cache-line-set-and-the-address-split.json"
@@ -38631,6 +38858,45 @@ window.GATE_DATA = {
    "sourceLine": "Direct mapping as one line per set with conflict misses as its characteristic cost: IISc CDS slides (English, read in part). Line = block mod total lines, with the warning that it is modulo and not division: DSWallah Learn, romanised Hindi, translated (read in part). Direct-mapped caches treated as the base case for misses, writes and performance: NPTEL IIT Guwahati Lecture 25 (English, read in part). The 2022 sequence is simulated in scripts/validate.py.",
    "videoRefs": [],
    "visual": "computer-organization-and-architecture/memory-hierarchy-and-cache/address-to-cache-line",
+   "links": {
+    "mapped_at": "2026-10-31",
+    "mock": {
+     "subject": "computer-architecture",
+     "unit_slug": "cache-memory",
+     "unit_name": "Memory Hierarchy & Cache Memory",
+     "unit_number": 3,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Direct, associative & set-associative mapping",
+       "questions": 14
+      },
+      {
+       "label": "Cache hit/miss & miss penalty",
+       "questions": 14
+      },
+      {
+       "label": "Replacement algorithms",
+       "questions": 11
+      },
+      {
+       "label": "Write policies: write-through & write-back",
+       "questions": 11
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/cache-memory/gate_co_mock_3_2026-10-30.html"
+    },
+    "visual": {
+     "slug": "memory-hierarchy-and-cache",
+     "title": "Memory Hierarchy and Cache",
+     "level": "topic-level",
+     "covers": [
+      "block j maps to line j mod v",
+      "a direct-mapped cache never needs a replacement policy"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/memory-hierarchy-and-cache/index.html"
+    }
+   },
    "subject": "computer-organization-and-architecture",
    "topic": "memory-hierarchy-and-cache",
    "path": "subjects/computer-organization-and-architecture/memory-hierarchy-and-cache/direct-mapping-line-modulo-lines.json"
@@ -38710,6 +38976,45 @@ window.GATE_DATA = {
    ],
    "sourceLine": "Fully associative caches as the single-set case, with m-way associativity as the general one: IISc CDS slides (English, read in part). Fully associative mapping as blocks placed anywhere with the whole line set compared in parallel and the warning that it has no index field: DSWallah Learn, romanised Hindi, translated (read in part). The 2019 field widths are recomputed in scripts/validate.py.",
    "videoRefs": [],
+   "links": {
+    "mapped_at": "2026-10-31",
+    "mock": {
+     "subject": "computer-architecture",
+     "unit_slug": "cache-memory",
+     "unit_name": "Memory Hierarchy & Cache Memory",
+     "unit_number": 3,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Direct, associative & set-associative mapping",
+       "questions": 14
+      },
+      {
+       "label": "Cache hit/miss & miss penalty",
+       "questions": 14
+      },
+      {
+       "label": "Replacement algorithms",
+       "questions": 11
+      },
+      {
+       "label": "Write policies: write-through & write-back",
+       "questions": 11
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/cache-memory/gate_co_mock_3_2026-10-30.html"
+    },
+    "visual": {
+     "slug": "memory-hierarchy-and-cache",
+     "title": "Memory Hierarchy and Cache",
+     "level": "topic-level",
+     "covers": [
+      "direct, set-associative and fully associative mapping",
+      "associativity trades index bits for tag bits"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/memory-hierarchy-and-cache/index.html"
+    }
+   },
    "subject": "computer-organization-and-architecture",
    "topic": "memory-hierarchy-and-cache",
    "path": "subjects/computer-organization-and-architecture/memory-hierarchy-and-cache/fully-associative-mapping-and-comparators.json"
@@ -38798,6 +39103,45 @@ window.GATE_DATA = {
    "sourceLine": "Set-associative caches as m lines per set with direct mapping and full associativity as its two ends: IISc CDS slides (English, read in part). Set = block mod total sets, 2-way and 4-way as the common widths, and direct as 1-way: DSWallah Learn, romanised Hindi, translated (read in part). Every width on this card, including both PYQ answers, is recomputed in scripts/validate.py.",
    "videoRefs": [],
    "visual": "computer-organization-and-architecture/memory-hierarchy-and-cache/address-to-cache-line",
+   "links": {
+    "mapped_at": "2026-10-31",
+    "mock": {
+     "subject": "computer-architecture",
+     "unit_slug": "cache-memory",
+     "unit_name": "Memory Hierarchy & Cache Memory",
+     "unit_number": 3,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Direct, associative & set-associative mapping",
+       "questions": 14
+      },
+      {
+       "label": "Cache hit/miss & miss penalty",
+       "questions": 14
+      },
+      {
+       "label": "Replacement algorithms",
+       "questions": 11
+      },
+      {
+       "label": "Write policies: write-through & write-back",
+       "questions": 11
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/cache-memory/gate_co_mock_3_2026-10-30.html"
+    },
+    "visual": {
+     "slug": "memory-hierarchy-and-cache",
+     "title": "Memory Hierarchy and Cache",
+     "level": "topic-level",
+     "covers": [
+      "block j maps to a range of k lines in set j mod v",
+      "associativity exchanges log2(k) index bits for tag bits"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/memory-hierarchy-and-cache/index.html"
+    }
+   },
    "subject": "computer-organization-and-architecture",
    "topic": "memory-hierarchy-and-cache",
    "path": "subjects/computer-organization-and-architecture/memory-hierarchy-and-cache/set-associative-mapping-sets-and-ways.json"
@@ -38883,6 +39227,45 @@ window.GATE_DATA = {
    ],
    "sourceLine": "A cache line as a valid bit, a tag and a data block, with the directory drawn beside the data array: IISc CDS slides (English, read in part). The valid and modified bits as per-line state in a write-back cache: NPTEL IIT Guwahati Lecture 25 (English, read in part). The 2011 directory size is recomputed in scripts/validate.py.",
    "videoRefs": [],
+   "links": {
+    "mapped_at": "2026-10-31",
+    "mock": {
+     "subject": "computer-architecture",
+     "unit_slug": "cache-memory",
+     "unit_name": "Memory Hierarchy & Cache Memory",
+     "unit_number": 3,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Direct, associative & set-associative mapping",
+       "questions": 14
+      },
+      {
+       "label": "Cache hit/miss & miss penalty",
+       "questions": 14
+      },
+      {
+       "label": "Replacement algorithms",
+       "questions": 11
+      },
+      {
+       "label": "Write policies: write-through & write-back",
+       "questions": 11
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/cache-memory/gate_co_mock_3_2026-10-30.html"
+    },
+    "visual": {
+     "slug": "memory-hierarchy-and-cache",
+     "title": "Memory Hierarchy and Cache",
+     "level": "topic-level",
+     "covers": [
+      "total tag storage = lines x tag width",
+      "tag width is w - log2(C) + log2(k)"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/memory-hierarchy-and-cache/index.html"
+    }
+   },
    "subject": "computer-organization-and-architecture",
    "topic": "memory-hierarchy-and-cache",
    "path": "subjects/computer-organization-and-architecture/memory-hierarchy-and-cache/tag-directory-size-arithmetic.json"
@@ -38968,6 +39351,45 @@ window.GATE_DATA = {
    "sourceLine": "Replacement policies named as a consequence of having several ways per set, with LRU as the standard: IISc CDS slides (English, read in part). The three mappings and their conflict behaviour, which is what replacement policy exists to soften: DSWallah Learn, romanised Hindi, translated (read in part). The 2009 trace is simulated step by step in scripts/validate.py.",
    "videoRefs": [],
    "visual": "computer-organization-and-architecture/memory-hierarchy-and-cache/lru-in-a-two-way-set",
+   "links": {
+    "mapped_at": "2026-10-31",
+    "mock": {
+     "subject": "computer-architecture",
+     "unit_slug": "cache-memory",
+     "unit_name": "Memory Hierarchy & Cache Memory",
+     "unit_number": 3,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Direct, associative & set-associative mapping",
+       "questions": 14
+      },
+      {
+       "label": "Cache hit/miss & miss penalty",
+       "questions": 14
+      },
+      {
+       "label": "Replacement algorithms",
+       "questions": 11
+      },
+      {
+       "label": "Write policies: write-through & write-back",
+       "questions": 11
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/cache-memory/gate_co_mock_3_2026-10-30.html"
+    },
+    "visual": {
+     "slug": "memory-hierarchy-and-cache",
+     "title": "Memory Hierarchy and Cache",
+     "level": "topic-level",
+     "covers": [
+      "least-recently-used replacement on the GATE 2004 trace",
+      "a hit updates recency"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/memory-hierarchy-and-cache/index.html"
+    }
+   },
    "subject": "computer-organization-and-architecture",
    "topic": "memory-hierarchy-and-cache",
    "path": "subjects/computer-organization-and-architecture/memory-hierarchy-and-cache/replacement-policies-and-lru-trace.json"
@@ -39053,6 +39475,45 @@ window.GATE_DATA = {
    ],
    "sourceLine": "Write-through and write-back defined with the dirty bit, write-allocate and no-write-allocate, and the traffic each costs: DSWallah Learn, romanised Hindi, translated (read in part). Direct-mapped caches treated for their write behaviour and performance: NPTEL IIT Guwahati Lecture 25 (English, read in part). The four statements of the 2024 question are decided in scripts/validate.py from the same two facts stated on this card.",
    "videoRefs": [],
+   "links": {
+    "mapped_at": "2026-10-31",
+    "mock": {
+     "subject": "computer-architecture",
+     "unit_slug": "cache-memory",
+     "unit_name": "Memory Hierarchy & Cache Memory",
+     "unit_number": 3,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Direct, associative & set-associative mapping",
+       "questions": 14
+      },
+      {
+       "label": "Cache hit/miss & miss penalty",
+       "questions": 14
+      },
+      {
+       "label": "Replacement algorithms",
+       "questions": 11
+      },
+      {
+       "label": "Write policies: write-through & write-back",
+       "questions": 11
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/cache-memory/gate_co_mock_3_2026-10-30.html"
+    },
+    "visual": {
+     "slug": "memory-hierarchy-and-cache",
+     "title": "Memory Hierarchy and Cache",
+     "level": "topic-level",
+     "covers": [
+      "write-through and write-back, and the dirty bit",
+      "write-allocate and no-write-allocate"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/memory-hierarchy-and-cache/index.html"
+    }
+   },
    "subject": "computer-organization-and-architecture",
    "topic": "memory-hierarchy-and-cache",
    "path": "subjects/computer-organization-and-architecture/memory-hierarchy-and-cache/write-through-write-back-and-dirty-bits.json"
@@ -39143,6 +39604,45 @@ window.GATE_DATA = {
    ],
    "sourceLine": "Why a larger line lowers the miss rate through spatial locality and why the rate turns back up when the line becomes a large fraction of the cache, with the miss penalty as first-word latency plus transfer time: NPTEL IIT Guwahati Lecture 26 (English, read in part). Conflict misses as the characteristic cost of a single-line set: IISc CDS slides (English, read in part). Block against word as the unit of transfer and the block-size trade-off: DSWallah Learn, romanised Hindi, translated (read in part). The 2022 trace is simulated in scripts/validate.py.",
    "videoRefs": [],
+   "links": {
+    "mapped_at": "2026-10-31",
+    "mock": {
+     "subject": "computer-architecture",
+     "unit_slug": "cache-memory",
+     "unit_name": "Memory Hierarchy & Cache Memory",
+     "unit_number": 3,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Direct, associative & set-associative mapping",
+       "questions": 14
+      },
+      {
+       "label": "Cache hit/miss & miss penalty",
+       "questions": 14
+      },
+      {
+       "label": "Replacement algorithms",
+       "questions": 11
+      },
+      {
+       "label": "Write policies: write-through & write-back",
+       "questions": 11
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/cache-memory/gate_co_mock_3_2026-10-30.html"
+    },
+    "visual": {
+     "slug": "memory-hierarchy-and-cache",
+     "title": "Memory Hierarchy and Cache",
+     "level": "topic-level",
+     "covers": [
+      "compulsory, conflict and capacity misses by counterfactual",
+      "block size and its effect on the miss count"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/memory-hierarchy-and-cache/index.html"
+    }
+   },
    "subject": "computer-organization-and-architecture",
    "topic": "memory-hierarchy-and-cache",
    "path": "subjects/computer-organization-and-architecture/memory-hierarchy-and-cache/block-size-and-the-three-kinds-of-miss.json"
@@ -39228,6 +39728,20 @@ window.GATE_DATA = {
    ],
    "sourceLine": "The memory-interface signals with chip select enabling a device and the rule that ICs in parallel widen the word while banks of rows extend the address range: UBC ELEX 2117 lecture 9 notes (English, read in part). The partition of an address space into RAM, ROM and I/O with the upper bits decoded into enables and the lower bits used inside the parts, and the statement that the decoder places a memory in the map: Imperial College EE2 Lecture 13 (English, read in part). Both PYQ answers are recomputed in scripts/validate.py.",
    "videoRefs": [],
+   "links": {
+    "mapped_at": "2026-10-31",
+    "visual": {
+     "slug": "memory-interfacing-and-interleaving",
+     "title": "Memory Interfacing and Interleaving",
+     "level": "topic-level",
+     "covers": [
+      "chip count and address bits from width and depth",
+      "chip select as a condition on address bits",
+      "the decoder's size comes from rows, not the chip count"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/memory-interfacing-and-interleaving/index.html"
+    }
+   },
    "subject": "computer-organization-and-architecture",
    "topic": "memory-hierarchy-and-cache",
    "path": "subjects/computer-organization-and-architecture/memory-hierarchy-and-cache/memory-interfacing-chips-and-chip-select.json"
@@ -39307,6 +39821,46 @@ window.GATE_DATA = {
    ],
    "sourceLine": "Addresses distributed across modules round-robin, the high-order arrangement in which the most significant bits name the module and the low-order arrangement in which the least significant bits do, with the benefit stated as bandwidth: GeeksforGeeks, Memory Interleaving (English, read in full). Banks of chips selected by decoded high-order bits: UBC ELEX 2117 lecture 9 notes (English, read in part). The timing arithmetic on this card is recomputed in scripts/validate.py.",
    "videoRefs": [],
+   "links": {
+    "mapped_at": "2026-10-31",
+    "mock": {
+     "subject": "computer-architecture",
+     "unit_slug": "memory-management-unit",
+     "unit_name": "Main Memory & Virtual Memory Interface",
+     "unit_number": 4,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "DRAM & SRAM organization",
+       "questions": 13
+      },
+      {
+       "label": "Paging & TLB hit ratio",
+       "questions": 17
+      },
+      {
+       "label": "Effective access time",
+       "questions": 11
+      },
+      {
+       "label": "Segmentation",
+       "questions": 9
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/memory-management-unit/gate_co_mock_4_2026-10-30.html"
+    },
+    "visual": {
+     "slug": "memory-interfacing-and-interleaving",
+     "title": "Memory Interfacing and Interleaving",
+     "level": "topic-level",
+     "covers": [
+      "low-order interleaving: bank = address mod m",
+      "high-order (block) interleaving: bank from the top bits",
+      "the overlap condition and sustained bandwidth"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/memory-interfacing-and-interleaving/index.html"
+    }
+   },
    "subject": "computer-organization-and-architecture",
    "topic": "memory-hierarchy-and-cache",
    "path": "subjects/computer-organization-and-architecture/memory-hierarchy-and-cache/memory-interleaving-high-and-low-order.json"

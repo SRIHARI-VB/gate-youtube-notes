@@ -1,83 +1,123 @@
 {
- "id": "locality-of-reference-temporal-and-spatial",
- "title": "Locality of Reference: Temporal and Spatial",
- "priority": "P1",
- "order": 519,
- "unit": "Memory Interfacing, Hierarchy and Cache Mapping",
- "quickIdea": "Programs reuse what they have just used (temporal locality) and use things next to what they have just used (spatial locality). Cache exploits the first by keeping a line, and the second by fetching a whole block rather than a word.",
- "remember": [
-  "Temporal locality: an item accessed recently is likely to be accessed again soon - the same variable in a loop, the same instruction on the next iteration.",
-  "Spatial locality: an item near a recently accessed one is likely to be accessed soon - the next element of an array, the next instruction in sequence.",
-  "The unit of transfer is the block (line); the unit of addressing is the word or byte. That mismatch is deliberate: it is how spatial locality is bought.",
-  "Block size is the one knob that trades the two: a larger block exploits more spatial locality per miss but lowers the number of lines for a fixed cache size and raises the miss penalty.",
-  "A program with no locality - a random walk over a large array - defeats the cache; locality is a property of the program, not of the hardware."
- ],
- "example": {
-  "prompt": "A 16 KB direct-mapped cache has 32 B blocks. Loop 1 sums A[0..2047] of doubles in order; loop 2 sums the same array with a stride of 1024 elements. Which loop misses less?",
-  "work": "32 B holds 4 doubles, so loop 1 misses once per four elements: 2048/4 = 512 misses. Loop 2 steps 1024 doubles = 8192 B = 256 blocks apart, so each of its 2048 accesses touches a different block: 2048 misses.",
-  "answer": "Loop 1: 512 misses against 2048 - the sequential loop buys spatial locality from the block, the strided loop buys nothing."
- },
- "gateAngle": "GATE tests locality through a miss count over a stated access sequence, not by asking for a definition. The pattern is always: work out which block each address belongs to, then count the first touch of each block.",
- "variations": [
-  {
-   "label": "ORIGINAL PYQ-STYLE QUESTION",
-   "question": "An 8 KB direct-mapped cache has 64 B blocks and a program reads every 4th byte of a 1 MB array once. How many misses?",
-   "answer": "A 64 B block covers 64 bytes, so every 16th read of the stride-4 walk falls in a new block: 262144 reads / 16 = 16384 blocks touched, and each misses once, so 16384 misses.",
-   "why": "It tests the distinction between the number of accesses and the number of distinct blocks, which is what spatial locality turns into a saving."
+  "id": "locality-of-reference-temporal-and-spatial",
+  "title": "Locality of Reference: Temporal and Spatial",
+  "priority": "P1",
+  "order": 519,
+  "unit": "Memory Interfacing, Hierarchy and Cache Mapping",
+  "quickIdea": "Programs reuse what they have just used (temporal locality) and use things next to what they have just used (spatial locality). Cache exploits the first by keeping a line, and the second by fetching a whole block rather than a word.",
+  "remember": [
+    "Temporal locality: an item accessed recently is likely to be accessed again soon - the same variable in a loop, the same instruction on the next iteration.",
+    "Spatial locality: an item near a recently accessed one is likely to be accessed soon - the next element of an array, the next instruction in sequence.",
+    "The unit of transfer is the block (line); the unit of addressing is the word or byte. That mismatch is deliberate: it is how spatial locality is bought.",
+    "Block size is the one knob that trades the two: a larger block exploits more spatial locality per miss but lowers the number of lines for a fixed cache size and raises the miss penalty.",
+    "A program with no locality - a random walk over a large array - defeats the cache; locality is a property of the program, not of the hardware."
+  ],
+  "example": {
+    "prompt": "A 16 KB direct-mapped cache has 32 B blocks. Loop 1 sums A[0..2047] of doubles in order; loop 2 sums the same array with a stride of 1024 elements. Which loop misses less?",
+    "work": "32 B holds 4 doubles, so loop 1 misses once per four elements: 2048/4 = 512 misses. Loop 2 steps 1024 doubles = 8192 B = 256 blocks apart, so each of its 2048 accesses touches a different block: 2048 misses.",
+    "answer": "Loop 1: 512 misses against 2048 - the sequential loop buys spatial locality from the block, the strided loop buys nothing."
   },
-  {
-   "label": "CONCEPTUAL PRACTICE QUESTION",
-   "question": "Why does a larger block help instruction fetches more than data reads?",
-   "answer": "Instructions are fetched in sequence almost always, so the rest of the block is nearly certain to be used; data accesses jump, so the rest of a block may never be touched.",
-   "why": "It is the reason instruction and data caches are separate, and the reason early restart works best for instruction streams."
+  "gateAngle": "GATE tests locality through a miss count over a stated access sequence, not by asking for a definition. The pattern is always: work out which block each address belongs to, then count the first touch of each block.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "An 8 KB direct-mapped cache has 64 B blocks and a program reads every 4th byte of a 1 MB array once. How many misses?",
+      "answer": "A 64 B block covers 64 bytes, so every 16th read of the stride-4 walk falls in a new block: 262144 reads / 16 = 16384 blocks touched, and each misses once, so 16384 misses.",
+      "why": "It tests the distinction between the number of accesses and the number of distinct blocks, which is what spatial locality turns into a saving."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Why does a larger block help instruction fetches more than data reads?",
+      "answer": "Instructions are fetched in sequence almost always, so the rest of the block is nearly certain to be used; data accesses jump, so the rest of a block may never be touched.",
+      "why": "It is the reason instruction and data caches are separate, and the reason early restart works best for instruction streams."
+    }
+  ],
+  "trap": {
+    "what": "Believing a bigger block always lowers the miss rate.",
+    "why": "Beyond a point the block becomes a large fraction of the cache, so the number of lines falls, competition for lines rises, and a line is evicted before its other words are used; the miss penalty also rises because more words must be transferred.",
+    "counterexample": "In a 1 KB cache, moving from 32 B to 512 B blocks leaves two lines; any two blocks that map to the same line now evict each other on every access."
+  },
+  "check": {
+    "question": "A cache line holds 8 words and a program reads 8 consecutive words from the same line. How many misses does that cost, and how many would a 1-word line cost?",
+    "answer": "One miss against eight.",
+    "explanation": "The first word misses and brings the whole line; the other seven hit. With a 1-word line every read is a separate miss - which is exactly the cost spatial locality removes."
+  },
+  "pyqIds": [],
+  "prereqs": [
+    "memory-hierarchy-levels-and-the-cost-speed-trade"
+  ],
+  "sources": [
+    {
+      "kind": "lecture-transcript",
+      "title": "Lecture 25 - Direct-mapped Caches: Misses, Writes and Performance",
+      "channel": "NPTEL, Computer Organization and Architecture - A Pedagogical Aspect (IIT Guwahati)",
+      "url": "http://www.digimat.in/nptel/courses/video/106103180/lec25.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read the memory-technology comparison with its access-time and cost-per-GB figures, the statement of the design trade-off that produces the hierarchy, the definition of hit time, hit ratio and miss, and the statement of locality of reference with its two kinds"
+    },
+    {
+      "kind": "text",
+      "title": "Cache Memory & Mapping Hindi mein",
+      "channel": "DSWallah Learn (Hinglish study lesson on cache memory)",
+      "url": "https://www.dswallah.com/learn/computer-architecture/cache-memory/",
+      "language": "hi",
+      "transcript": "PARTIAL",
+      "translated": true,
+      "note": "read the whole lesson: locality as the assumption that makes a cache possible, the block-versus-word distinction, the three mapping techniques with the line-modulo-lines and set-modulo-sets formulas, AMAT as hit time plus miss rate times miss penalty with the two-level form, the write-through, write-back, write-allocate and no-write-allocate definitions, and its list of common mistakes"
+    },
+    {
+      "kind": "lecture-slides",
+      "title": "Computer Organization: Memory Hierarchy and Cache Memories",
+      "channel": "Indian Institute of Science, Centre for Data Sciences, computer architecture and organization slides",
+      "url": "https://cds.iisc.ac.in/wp-content/uploads/ComputerArchitecture_and_Organization.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read the locality section, the memory-address-and-cache composition section (a cache line as valid bit, tag and data block of B bytes), the cache-lookup section (index selects the set, tags compared inside it, offset picks the word), the direct, set-associative and fully associative descriptions, and the 16 KB direct-mapped 32 B example with tag 18, index 9, offset 5"
+    }
+  ],
+  "sourceLine": "Temporal and spatial locality stated as the two design principles behind the cache, with the block-versus-word distinction: NPTEL IIT Guwahati Lecture 25 (English, read in part). Locality as the assumption that makes a cache possible, and the warning that a larger block buys spatial locality at the price of miss penalty: DSWallah Learn, romanised Hindi, translated (read in part). Locality and the 16 KB, 32 B direct-mapped example: IISc CDS slides (English, read in part).",
+  "videoRefs": [],
+  "links": {
+    "mapped_at": "2026-10-31",
+    "mock": {
+      "subject": "computer-architecture",
+      "unit_slug": "cache-memory",
+      "unit_name": "Memory Hierarchy & Cache Memory",
+      "unit_number": 3,
+      "question_count": 50,
+      "subtopics": [
+        {
+          "label": "Direct, associative & set-associative mapping",
+          "questions": 14
+        },
+        {
+          "label": "Cache hit/miss & miss penalty",
+          "questions": 14
+        },
+        {
+          "label": "Replacement algorithms",
+          "questions": 11
+        },
+        {
+          "label": "Write policies: write-through & write-back",
+          "questions": 11
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/computer-architecture/cache-memory/gate_co_mock_3_2026-10-30.html"
+    },
+    "visual": {
+      "slug": "memory-hierarchy-and-cache",
+      "title": "Memory Hierarchy and Cache",
+      "level": "topic-level",
+      "covers": [
+        "temporal locality: the same address is used again soon",
+        "spatial locality: its neighbours are used soon after",
+        "a cache makes the average access faster, not memory faster"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/memory-hierarchy-and-cache/index.html"
+    }
   }
- ],
- "trap": {
-  "what": "Believing a bigger block always lowers the miss rate.",
-  "why": "Beyond a point the block becomes a large fraction of the cache, so the number of lines falls, competition for lines rises, and a line is evicted before its other words are used; the miss penalty also rises because more words must be transferred.",
-  "counterexample": "In a 1 KB cache, moving from 32 B to 512 B blocks leaves two lines; any two blocks that map to the same line now evict each other on every access."
- },
- "check": {
-  "question": "A cache line holds 8 words and a program reads 8 consecutive words from the same line. How many misses does that cost, and how many would a 1-word line cost?",
-  "answer": "One miss against eight.",
-  "explanation": "The first word misses and brings the whole line; the other seven hit. With a 1-word line every read is a separate miss - which is exactly the cost spatial locality removes."
- },
- "pyqIds": [],
- "prereqs": [
-  "memory-hierarchy-levels-and-the-cost-speed-trade"
- ],
- "sources": [
-  {
-   "kind": "lecture-transcript",
-   "title": "Lecture 25 - Direct-mapped Caches: Misses, Writes and Performance",
-   "channel": "NPTEL, Computer Organization and Architecture - A Pedagogical Aspect (IIT Guwahati)",
-   "url": "http://www.digimat.in/nptel/courses/video/106103180/lec25.pdf",
-   "language": "en",
-   "transcript": "PARTIAL",
-   "translated": false,
-   "note": "read the memory-technology comparison with its access-time and cost-per-GB figures, the statement of the design trade-off that produces the hierarchy, the definition of hit time, hit ratio and miss, and the statement of locality of reference with its two kinds"
-  },
-  {
-   "kind": "text",
-   "title": "Cache Memory & Mapping Hindi mein",
-   "channel": "DSWallah Learn (Hinglish study lesson on cache memory)",
-   "url": "https://www.dswallah.com/learn/computer-architecture/cache-memory/",
-   "language": "hi",
-   "transcript": "PARTIAL",
-   "translated": true,
-   "note": "read the whole lesson: locality as the assumption that makes a cache possible, the block-versus-word distinction, the three mapping techniques with the line-modulo-lines and set-modulo-sets formulas, AMAT as hit time plus miss rate times miss penalty with the two-level form, the write-through, write-back, write-allocate and no-write-allocate definitions, and its list of common mistakes"
-  },
-  {
-   "kind": "lecture-slides",
-   "title": "Computer Organization: Memory Hierarchy and Cache Memories",
-   "channel": "Indian Institute of Science, Centre for Data Sciences, computer architecture and organization slides",
-   "url": "https://cds.iisc.ac.in/wp-content/uploads/ComputerArchitecture_and_Organization.pdf",
-   "language": "en",
-   "transcript": "PARTIAL",
-   "translated": false,
-   "note": "read the locality section, the memory-address-and-cache composition section (a cache line as valid bit, tag and data block of B bytes), the cache-lookup section (index selects the set, tags compared inside it, offset picks the word), the direct, set-associative and fully associative descriptions, and the 16 KB direct-mapped 32 B example with tag 18, index 9, offset 5"
-  }
- ],
- "sourceLine": "Temporal and spatial locality stated as the two design principles behind the cache, with the block-versus-word distinction: NPTEL IIT Guwahati Lecture 25 (English, read in part). Locality as the assumption that makes a cache possible, and the warning that a larger block buys spatial locality at the price of miss penalty: DSWallah Learn, romanised Hindi, translated (read in part). Locality and the 16 KB, 32 B direct-mapped example: IISc CDS slides (English, read in part).",
- "videoRefs": []
 }

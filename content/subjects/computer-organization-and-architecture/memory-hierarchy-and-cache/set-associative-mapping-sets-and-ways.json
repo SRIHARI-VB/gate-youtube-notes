@@ -1,85 +1,124 @@
 {
- "id": "set-associative-mapping-sets-and-ways",
- "title": "Set-Associative Mapping: Sets, Ways and the Middle Path",
- "priority": "P1",
- "order": 526,
- "unit": "Memory Interfacing, Hierarchy and Cache Mapping",
- "quickIdea": "A k-way set-associative cache is direct mapping over sets and full associativity inside a set: set = block mod number of sets, and the k tags in that set are compared in parallel.",
- "remember": [
-  "Number of sets = lines / k. Index bits = log2(sets) = log2(lines) - log2(k).",
-  "Set number = block number mod number of sets, equivalently the index field of the address.",
-  "Hardware: k comparators per set, a k-to-1 way-select multiplexer, and a replacement policy that chooses among the k ways.",
-  "Direct mapping is k = 1; full associativity is k = lines. Both are special cases of the same address split.",
-  "Doubling the associativity at a fixed cache size and block size removes one index bit and adds it to the tag, and halves the number of sets."
- ],
- "example": {
-  "prompt": "GATE CSE 2017 Set 1 Q.54: with a direct-mapped cache of N words and block size B words the tag is 10 bits. What is the tag for the same cache built 16-way set-associative?",
-  "work": "Direct: tag = A - log2(N). 16-way: sets = lines/16, so the index loses log2 16 = 4 bits, and those 4 bits move into the tag. Tag = (A - log2 N) + 4 = 10 + 4 = 14.",
-  "answer": "14 bits."
- },
- "gateAngle": "This is the most repeated question shape in the topic: change the associativity, keep the size, and ask what happens to the tag. The answer never depends on N, B or the address width - only on log2 of the associativity change.",
- "variations": [
-  {
-   "label": "VERIFIED PYQ",
-   "question": "GATE CSE 2017 Set 1 Q.54, as worked above.",
-   "answer": "14 bits.",
-   "why": "Four index bits become tag bits, so the tag grows by exactly four."
+  "id": "set-associative-mapping-sets-and-ways",
+  "title": "Set-Associative Mapping: Sets, Ways and the Middle Path",
+  "priority": "P1",
+  "order": 526,
+  "unit": "Memory Interfacing, Hierarchy and Cache Mapping",
+  "quickIdea": "A k-way set-associative cache is direct mapping over sets and full associativity inside a set: set = block mod number of sets, and the k tags in that set are compared in parallel.",
+  "remember": [
+    "Number of sets = lines / k. Index bits = log2(sets) = log2(lines) - log2(k).",
+    "Set number = block number mod number of sets, equivalently the index field of the address.",
+    "Hardware: k comparators per set, a k-to-1 way-select multiplexer, and a replacement policy that chooses among the k ways.",
+    "Direct mapping is k = 1; full associativity is k = lines. Both are special cases of the same address split.",
+    "Doubling the associativity at a fixed cache size and block size removes one index bit and adds it to the tag, and halves the number of sets."
+  ],
+  "example": {
+    "prompt": "GATE CSE 2017 Set 1 Q.54: with a direct-mapped cache of N words and block size B words the tag is 10 bits. What is the tag for the same cache built 16-way set-associative?",
+    "work": "Direct: tag = A - log2(N). 16-way: sets = lines/16, so the index loses log2 16 = 4 bits, and those 4 bits move into the tag. Tag = (A - log2 N) + 4 = 10 + 4 = 14.",
+    "answer": "14 bits."
   },
-  {
-   "label": "VERIFIED PYQ",
-   "question": "GATE CSE 2018 Q.34: with address space 2^P bytes, word length 2^W bytes, cache 2^N bytes, block 2^M words and K-way associativity, what is the tag width?",
-   "answer": "P - N + log2 K bits (option B).",
-   "why": "The offset and the index together are N - log2 K bits, so the tag is P minus that. In word units the block offset is M and the set index is N - W - M - log2 K, and they cancel the same way."
+  "gateAngle": "This is the most repeated question shape in the topic: change the associativity, keep the size, and ask what happens to the tag. The answer never depends on N, B or the address width - only on log2 of the associativity change.",
+  "variations": [
+    {
+      "label": "VERIFIED PYQ",
+      "question": "GATE CSE 2017 Set 1 Q.54, as worked above.",
+      "answer": "14 bits.",
+      "why": "Four index bits become tag bits, so the tag grows by exactly four."
+    },
+    {
+      "label": "VERIFIED PYQ",
+      "question": "GATE CSE 2018 Q.34: with address space 2^P bytes, word length 2^W bytes, cache 2^N bytes, block 2^M words and K-way associativity, what is the tag width?",
+      "answer": "P - N + log2 K bits (option B).",
+      "why": "The offset and the index together are N - log2 K bits, so the tag is P minus that. In word units the block offset is M and the set index is N - W - M - log2 K, and they cancel the same way."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "A direct-mapped cache of 64 lines with 8-bit tags becomes 4-way set-associative. What is the tag, and how many comparators are there?",
+      "answer": "16 sets, so the index falls from 6 to 4 bits and the tag becomes 8 + 2 = 10 bits; four comparators per set, 64 in all.",
+      "why": "It ties the field change to the hardware cost, which is the other half of the same question."
+    }
+  ],
+  "trap": {
+    "what": "Using the number of lines where the number of sets belongs.",
+    "why": "The index addresses a set, not a line; using lines overstates the index by log2 k bits and understates the tag by the same amount.",
+    "counterexample": "GATE CSE 2023 Q.54: a 64 KB 8-way cache with 32-bit addresses has a 19-bit tag whatever the block size is. Using 2^16 lines as the index gives 16 bits of index and a 16-bit tag, which is the popular wrong answer."
   },
-  {
-   "label": "PREDICTED VARIATION",
-   "question": "A direct-mapped cache of 64 lines with 8-bit tags becomes 4-way set-associative. What is the tag, and how many comparators are there?",
-   "answer": "16 sets, so the index falls from 6 to 4 bits and the tag becomes 8 + 2 = 10 bits; four comparators per set, 64 in all.",
-   "why": "It ties the field change to the hardware cost, which is the other half of the same question."
+  "check": {
+    "question": "A 2 KB 2-way cache has 64 B blocks and 32-bit addresses. What is the tag width?",
+    "answer": "32 lines, 16 sets, so index 4; offset 6; tag = 32 - 4 - 6 = 22 bits.",
+    "explanation": "Compare the direct-mapped twin of the same size: 32 lines means index 5 and tag 21, so the 2-way version gained exactly one tag bit."
+  },
+  "pyqIds": [
+    "gate-2017-set1-54-tag-16-way",
+    "gate-2018-34-tag-bits-k-way-formula",
+    "gate-2023-54-eight-way-tag-bits"
+  ],
+  "prereqs": [
+    "cache-line-set-and-the-address-split",
+    "direct-mapping-line-modulo-lines"
+  ],
+  "sources": [
+    {
+      "kind": "lecture-slides",
+      "title": "Computer Organization: Memory Hierarchy and Cache Memories",
+      "channel": "Indian Institute of Science, Centre for Data Sciences, computer architecture and organization slides",
+      "url": "https://cds.iisc.ac.in/wp-content/uploads/ComputerArchitecture_and_Organization.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read the locality section, the memory-address-and-cache composition section (a cache line as valid bit, tag and data block of B bytes), the cache-lookup section (index selects the set, tags compared inside it, offset picks the word), the direct, set-associative and fully associative descriptions, and the 16 KB direct-mapped 32 B example with tag 18, index 9, offset 5"
+    },
+    {
+      "kind": "text",
+      "title": "Cache Memory & Mapping Hindi mein",
+      "channel": "DSWallah Learn (Hinglish study lesson on cache memory)",
+      "url": "https://www.dswallah.com/learn/computer-architecture/cache-memory/",
+      "language": "hi",
+      "transcript": "PARTIAL",
+      "translated": true,
+      "note": "read the whole lesson: locality as the assumption that makes a cache possible, the block-versus-word distinction, the three mapping techniques with the line-modulo-lines and set-modulo-sets formulas, AMAT as hit time plus miss rate times miss penalty with the two-level form, the write-through, write-back, write-allocate and no-write-allocate definitions, and its list of common mistakes"
+    }
+  ],
+  "sourceLine": "Set-associative caches as m lines per set with direct mapping and full associativity as its two ends: IISc CDS slides (English, read in part). Set = block mod total sets, 2-way and 4-way as the common widths, and direct as 1-way: DSWallah Learn, romanised Hindi, translated (read in part). Every width on this card, including both PYQ answers, is recomputed in scripts/validate.py.",
+  "videoRefs": [],
+  "visual": "computer-organization-and-architecture/memory-hierarchy-and-cache/address-to-cache-line",
+  "links": {
+    "mapped_at": "2026-10-31",
+    "mock": {
+      "subject": "computer-architecture",
+      "unit_slug": "cache-memory",
+      "unit_name": "Memory Hierarchy & Cache Memory",
+      "unit_number": 3,
+      "question_count": 50,
+      "subtopics": [
+        {
+          "label": "Direct, associative & set-associative mapping",
+          "questions": 14
+        },
+        {
+          "label": "Cache hit/miss & miss penalty",
+          "questions": 14
+        },
+        {
+          "label": "Replacement algorithms",
+          "questions": 11
+        },
+        {
+          "label": "Write policies: write-through & write-back",
+          "questions": 11
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/computer-architecture/cache-memory/gate_co_mock_3_2026-10-30.html"
+    },
+    "visual": {
+      "slug": "memory-hierarchy-and-cache",
+      "title": "Memory Hierarchy and Cache",
+      "level": "topic-level",
+      "covers": [
+        "block j maps to a range of k lines in set j mod v",
+        "associativity exchanges log2(k) index bits for tag bits"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/memory-hierarchy-and-cache/index.html"
+    }
   }
- ],
- "trap": {
-  "what": "Using the number of lines where the number of sets belongs.",
-  "why": "The index addresses a set, not a line; using lines overstates the index by log2 k bits and understates the tag by the same amount.",
-  "counterexample": "GATE CSE 2023 Q.54: a 64 KB 8-way cache with 32-bit addresses has a 19-bit tag whatever the block size is. Using 2^16 lines as the index gives 16 bits of index and a 16-bit tag, which is the popular wrong answer."
- },
- "check": {
-  "question": "A 2 KB 2-way cache has 64 B blocks and 32-bit addresses. What is the tag width?",
-  "answer": "32 lines, 16 sets, so index 4; offset 6; tag = 32 - 4 - 6 = 22 bits.",
-  "explanation": "Compare the direct-mapped twin of the same size: 32 lines means index 5 and tag 21, so the 2-way version gained exactly one tag bit."
- },
- "pyqIds": [
-  "gate-2017-set1-54-tag-16-way",
-  "gate-2018-34-tag-bits-k-way-formula",
-  "gate-2023-54-eight-way-tag-bits"
- ],
- "prereqs": [
-  "cache-line-set-and-the-address-split",
-  "direct-mapping-line-modulo-lines"
- ],
- "sources": [
-  {
-   "kind": "lecture-slides",
-   "title": "Computer Organization: Memory Hierarchy and Cache Memories",
-   "channel": "Indian Institute of Science, Centre for Data Sciences, computer architecture and organization slides",
-   "url": "https://cds.iisc.ac.in/wp-content/uploads/ComputerArchitecture_and_Organization.pdf",
-   "language": "en",
-   "transcript": "PARTIAL",
-   "translated": false,
-   "note": "read the locality section, the memory-address-and-cache composition section (a cache line as valid bit, tag and data block of B bytes), the cache-lookup section (index selects the set, tags compared inside it, offset picks the word), the direct, set-associative and fully associative descriptions, and the 16 KB direct-mapped 32 B example with tag 18, index 9, offset 5"
-  },
-  {
-   "kind": "text",
-   "title": "Cache Memory & Mapping Hindi mein",
-   "channel": "DSWallah Learn (Hinglish study lesson on cache memory)",
-   "url": "https://www.dswallah.com/learn/computer-architecture/cache-memory/",
-   "language": "hi",
-   "transcript": "PARTIAL",
-   "translated": true,
-   "note": "read the whole lesson: locality as the assumption that makes a cache possible, the block-versus-word distinction, the three mapping techniques with the line-modulo-lines and set-modulo-sets formulas, AMAT as hit time plus miss rate times miss penalty with the two-level form, the write-through, write-back, write-allocate and no-write-allocate definitions, and its list of common mistakes"
-  }
- ],
- "sourceLine": "Set-associative caches as m lines per set with direct mapping and full associativity as its two ends: IISc CDS slides (English, read in part). Set = block mod total sets, 2-way and 4-way as the common widths, and direct as 1-way: DSWallah Learn, romanised Hindi, translated (read in part). Every width on this card, including both PYQ answers, is recomputed in scripts/validate.py.",
- "videoRefs": [],
- "visual": "computer-organization-and-architecture/memory-hierarchy-and-cache/address-to-cache-line"
 }

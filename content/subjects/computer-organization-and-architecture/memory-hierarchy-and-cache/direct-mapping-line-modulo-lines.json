@@ -1,87 +1,126 @@
 {
- "id": "direct-mapping-line-modulo-lines",
- "title": "Direct Mapping: One Line per Block",
- "priority": "P1",
- "order": 524,
- "unit": "Memory Interfacing, Hierarchy and Cache Mapping",
- "quickIdea": "In a direct-mapped cache each memory block has exactly one home line: line = block number mod number of lines. One comparator decides the hit, and two blocks that share a home line evict each other forever.",
- "remember": [
-  "Line number = block number mod number of lines, which is the same as saying the index field of the address is the line number.",
-  "Hardware: one comparator per cache line, a tag store the width of one tag per line, and no replacement choice at all - the victim is decided by the address.",
-  "The hit time is the smallest of the three organisations: tag read, one compare, data out.",
-  "The cost is conflict misses: blocks that differ by a multiple of the number of lines cannot coexist even when most of the cache is empty.",
-  "The tag of a direct-mapped line identifies which of the (memory blocks / lines) blocks with that index is present, which is why its width is address width minus log2(lines) minus offset."
- ],
- "example": {
-  "prompt": "A 2 KB direct-mapped cache has 64 B blocks. Which line holds the byte at address 0xA248, and what is its tag?",
-  "work": "Lines = 2048/64 = 32, offset = 6, index = 5. 0xA248 = 41544. Index = (41544 >> 6) & 31 = 649 & 31 = 9. Tag = 41544 >> 11 = 20. Offset = 41544 & 63 = 8.",
-  "answer": "Line 9, tag 20, offset 8 - the split GATE CSE 2022 Q.44 uses for P and S."
- },
- "gateAngle": "GATE's direct-mapping questions come in three shapes: give the fields, give the line for an address, or give a reference sequence and ask which block survives. All three are the modulo and the tag compare.",
- "variations": [
-  {
-   "label": "CONCEPTUAL PRACTICE QUESTION",
-   "question": "GATE CSE 2019 Q.1 asks for the tag and index widths of a 16 kB fully associative cache with 16 B blocks. How does the direct-mapping formula specialise to it?",
-   "answer": "Fully associative means one set, so index = 0; offset = log2 16 = 4 and tag = 32 - 4 = 28 bits.",
-   "why": "It shows the three organisations as one formula: direct is 1 way, fully associative is all ways, and the index field is log2 of the number of sets in both."
+  "id": "direct-mapping-line-modulo-lines",
+  "title": "Direct Mapping: One Line per Block",
+  "priority": "P1",
+  "order": 524,
+  "unit": "Memory Interfacing, Hierarchy and Cache Mapping",
+  "quickIdea": "In a direct-mapped cache each memory block has exactly one home line: line = block number mod number of lines. One comparator decides the hit, and two blocks that share a home line evict each other forever.",
+  "remember": [
+    "Line number = block number mod number of lines, which is the same as saying the index field of the address is the line number.",
+    "Hardware: one comparator per cache line, a tag store the width of one tag per line, and no replacement choice at all - the victim is decided by the address.",
+    "The hit time is the smallest of the three organisations: tag read, one compare, data out.",
+    "The cost is conflict misses: blocks that differ by a multiple of the number of lines cannot coexist even when most of the cache is empty.",
+    "The tag of a direct-mapped line identifies which of the (memory blocks / lines) blocks with that index is present, which is why its width is address width minus log2(lines) minus offset."
+  ],
+  "example": {
+    "prompt": "A 2 KB direct-mapped cache has 64 B blocks. Which line holds the byte at address 0xA248, and what is its tag?",
+    "work": "Lines = 2048/64 = 32, offset = 6, index = 5. 0xA248 = 41544. Index = (41544 >> 6) & 31 = 649 & 31 = 9. Tag = 41544 >> 11 = 20. Offset = 41544 & 63 = 8.",
+    "answer": "Line 9, tag 20, offset 8 - the split GATE CSE 2022 Q.44 uses for P and S."
   },
-  {
-   "label": "ORIGINAL PYQ-STYLE QUESTION",
-   "question": "An 8-line direct-mapped cache holds blocks 0, 8, 16 and 24 in turn, then re-reads 0. How many misses in the five accesses?",
-   "answer": "Five: all four blocks map to line 0, so each evicts the previous one and the re-read of 0 misses.",
-   "why": "It is the conflict-miss pattern in its purest form, and it is the shape GATE CSE 2022 Q.44 uses with two blocks."
+  "gateAngle": "GATE's direct-mapping questions come in three shapes: give the fields, give the line for an address, or give a reference sequence and ask which block survives. All three are the modulo and the tag compare.",
+  "variations": [
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "GATE CSE 2019 Q.1 asks for the tag and index widths of a 16 kB fully associative cache with 16 B blocks. How does the direct-mapping formula specialise to it?",
+      "answer": "Fully associative means one set, so index = 0; offset = log2 16 = 4 and tag = 32 - 4 = 28 bits.",
+      "why": "It shows the three organisations as one formula: direct is 1 way, fully associative is all ways, and the index field is log2 of the number of sets in both."
+    },
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "An 8-line direct-mapped cache holds blocks 0, 8, 16 and 24 in turn, then re-reads 0. How many misses in the five accesses?",
+      "answer": "Five: all four blocks map to line 0, so each evicts the previous one and the re-read of 0 misses.",
+      "why": "It is the conflict-miss pattern in its purest form, and it is the shape GATE CSE 2022 Q.44 uses with two blocks."
+    }
+  ],
+  "trap": {
+    "what": "Thinking a direct-mapped cache wastes space only when it is full.",
+    "why": "A conflict miss happens while most lines are empty; capacity is irrelevant to it.",
+    "counterexample": "A 32-line direct-mapped cache holding only blocks 0 and 32: both map to line 0, so alternating accesses miss every time and 31 lines stay empty."
+  },
+  "check": {
+    "question": "A direct-mapped cache has 128 lines and 16 B blocks. To which line does byte address 0x1234 map, and what is the offset?",
+    "answer": "Line (0x1234 >> 4) & 127 = 0x123 & 127 = 35; offset = 0x1234 & 15 = 4.",
+    "explanation": "The low 4 bits are the offset because the block is 16 bytes; the next 7 bits are the line."
+  },
+  "pyqIds": [
+    "gate-2022-44-direct-mapped-pqrs",
+    "gate-2019-1-fully-associative-tag-index"
+  ],
+  "prereqs": [
+    "cache-line-set-and-the-address-split"
+  ],
+  "sources": [
+    {
+      "kind": "lecture-slides",
+      "title": "Computer Organization: Memory Hierarchy and Cache Memories",
+      "channel": "Indian Institute of Science, Centre for Data Sciences, computer architecture and organization slides",
+      "url": "https://cds.iisc.ac.in/wp-content/uploads/ComputerArchitecture_and_Organization.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read the locality section, the memory-address-and-cache composition section (a cache line as valid bit, tag and data block of B bytes), the cache-lookup section (index selects the set, tags compared inside it, offset picks the word), the direct, set-associative and fully associative descriptions, and the 16 KB direct-mapped 32 B example with tag 18, index 9, offset 5"
+    },
+    {
+      "kind": "text",
+      "title": "Cache Memory & Mapping Hindi mein",
+      "channel": "DSWallah Learn (Hinglish study lesson on cache memory)",
+      "url": "https://www.dswallah.com/learn/computer-architecture/cache-memory/",
+      "language": "hi",
+      "transcript": "PARTIAL",
+      "translated": true,
+      "note": "read the whole lesson: locality as the assumption that makes a cache possible, the block-versus-word distinction, the three mapping techniques with the line-modulo-lines and set-modulo-sets formulas, AMAT as hit time plus miss rate times miss penalty with the two-level form, the write-through, write-back, write-allocate and no-write-allocate definitions, and its list of common mistakes"
+    },
+    {
+      "kind": "lecture-transcript",
+      "title": "Lecture 25 - Direct-mapped Caches: Misses, Writes and Performance",
+      "channel": "NPTEL, Computer Organization and Architecture - A Pedagogical Aspect (IIT Guwahati)",
+      "url": "http://www.digimat.in/nptel/courses/video/106103180/lec25.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read the memory-technology comparison with its access-time and cost-per-GB figures, the statement of the design trade-off that produces the hierarchy, the definition of hit time, hit ratio and miss, and the statement of locality of reference with its two kinds"
+    }
+  ],
+  "sourceLine": "Direct mapping as one line per set with conflict misses as its characteristic cost: IISc CDS slides (English, read in part). Line = block mod total lines, with the warning that it is modulo and not division: DSWallah Learn, romanised Hindi, translated (read in part). Direct-mapped caches treated as the base case for misses, writes and performance: NPTEL IIT Guwahati Lecture 25 (English, read in part). The 2022 sequence is simulated in scripts/validate.py.",
+  "videoRefs": [],
+  "visual": "computer-organization-and-architecture/memory-hierarchy-and-cache/address-to-cache-line",
+  "links": {
+    "mapped_at": "2026-10-31",
+    "mock": {
+      "subject": "computer-architecture",
+      "unit_slug": "cache-memory",
+      "unit_name": "Memory Hierarchy & Cache Memory",
+      "unit_number": 3,
+      "question_count": 50,
+      "subtopics": [
+        {
+          "label": "Direct, associative & set-associative mapping",
+          "questions": 14
+        },
+        {
+          "label": "Cache hit/miss & miss penalty",
+          "questions": 14
+        },
+        {
+          "label": "Replacement algorithms",
+          "questions": 11
+        },
+        {
+          "label": "Write policies: write-through & write-back",
+          "questions": 11
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/computer-architecture/cache-memory/gate_co_mock_3_2026-10-30.html"
+    },
+    "visual": {
+      "slug": "memory-hierarchy-and-cache",
+      "title": "Memory Hierarchy and Cache",
+      "level": "topic-level",
+      "covers": [
+        "block j maps to line j mod v",
+        "a direct-mapped cache never needs a replacement policy"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/memory-hierarchy-and-cache/index.html"
+    }
   }
- ],
- "trap": {
-  "what": "Thinking a direct-mapped cache wastes space only when it is full.",
-  "why": "A conflict miss happens while most lines are empty; capacity is irrelevant to it.",
-  "counterexample": "A 32-line direct-mapped cache holding only blocks 0 and 32: both map to line 0, so alternating accesses miss every time and 31 lines stay empty."
- },
- "check": {
-  "question": "A direct-mapped cache has 128 lines and 16 B blocks. To which line does byte address 0x1234 map, and what is the offset?",
-  "answer": "Line (0x1234 >> 4) & 127 = 0x123 & 127 = 35; offset = 0x1234 & 15 = 4.",
-  "explanation": "The low 4 bits are the offset because the block is 16 bytes; the next 7 bits are the line."
- },
- "pyqIds": [
-  "gate-2022-44-direct-mapped-pqrs",
-  "gate-2019-1-fully-associative-tag-index"
- ],
- "prereqs": [
-  "cache-line-set-and-the-address-split"
- ],
- "sources": [
-  {
-   "kind": "lecture-slides",
-   "title": "Computer Organization: Memory Hierarchy and Cache Memories",
-   "channel": "Indian Institute of Science, Centre for Data Sciences, computer architecture and organization slides",
-   "url": "https://cds.iisc.ac.in/wp-content/uploads/ComputerArchitecture_and_Organization.pdf",
-   "language": "en",
-   "transcript": "PARTIAL",
-   "translated": false,
-   "note": "read the locality section, the memory-address-and-cache composition section (a cache line as valid bit, tag and data block of B bytes), the cache-lookup section (index selects the set, tags compared inside it, offset picks the word), the direct, set-associative and fully associative descriptions, and the 16 KB direct-mapped 32 B example with tag 18, index 9, offset 5"
-  },
-  {
-   "kind": "text",
-   "title": "Cache Memory & Mapping Hindi mein",
-   "channel": "DSWallah Learn (Hinglish study lesson on cache memory)",
-   "url": "https://www.dswallah.com/learn/computer-architecture/cache-memory/",
-   "language": "hi",
-   "transcript": "PARTIAL",
-   "translated": true,
-   "note": "read the whole lesson: locality as the assumption that makes a cache possible, the block-versus-word distinction, the three mapping techniques with the line-modulo-lines and set-modulo-sets formulas, AMAT as hit time plus miss rate times miss penalty with the two-level form, the write-through, write-back, write-allocate and no-write-allocate definitions, and its list of common mistakes"
-  },
-  {
-   "kind": "lecture-transcript",
-   "title": "Lecture 25 - Direct-mapped Caches: Misses, Writes and Performance",
-   "channel": "NPTEL, Computer Organization and Architecture - A Pedagogical Aspect (IIT Guwahati)",
-   "url": "http://www.digimat.in/nptel/courses/video/106103180/lec25.pdf",
-   "language": "en",
-   "transcript": "PARTIAL",
-   "translated": false,
-   "note": "read the memory-technology comparison with its access-time and cost-per-GB figures, the statement of the design trade-off that produces the hierarchy, the definition of hit time, hit ratio and miss, and the statement of locality of reference with its two kinds"
-  }
- ],
- "sourceLine": "Direct mapping as one line per set with conflict misses as its characteristic cost: IISc CDS slides (English, read in part). Line = block mod total lines, with the warning that it is modulo and not division: DSWallah Learn, romanised Hindi, translated (read in part). Direct-mapped caches treated as the base case for misses, writes and performance: NPTEL IIT Guwahati Lecture 25 (English, read in part). The 2022 sequence is simulated in scripts/validate.py.",
- "videoRefs": [],
- "visual": "computer-organization-and-architecture/memory-hierarchy-and-cache/address-to-cache-line"
 }

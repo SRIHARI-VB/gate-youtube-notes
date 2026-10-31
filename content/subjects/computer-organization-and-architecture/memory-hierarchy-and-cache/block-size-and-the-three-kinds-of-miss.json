@@ -1,87 +1,126 @@
 {
- "id": "block-size-and-the-three-kinds-of-miss",
- "title": "Block Size and the Three Kinds of Miss",
- "priority": "P2",
- "order": 530,
- "unit": "Memory Interfacing, Hierarchy and Cache Mapping",
- "quickIdea": "Every miss is compulsory (first touch), conflict (evicted by a block that shares its set) or capacity (the cache is simply too small); block size trades the first two against the miss penalty.",
- "remember": [
-  "Compulsory (cold) miss: the first access to a block, unavoidable whatever the cache size or organisation.",
-  "Conflict miss: a block that would have fit was evicted because another block mapped to the same set - direct mapping maximises these, full associativity eliminates them.",
-  "Capacity miss: the working set exceeds the cache, so a block is evicted even under full associativity.",
-  "The three are counted by running the same reference string three times: with an infinite cache (compulsory only), with full associativity of the real size (compulsory + capacity), and with the real organisation (all three).",
-  "Increasing the block size lowers compulsory misses by bringing neighbours along but raises the miss penalty and, past a point, raises conflict misses because the number of lines falls."
- ],
- "example": {
-  "prompt": "A 2 KB direct-mapped cache with 64 B blocks is given the sequence P, Q, R, S repeated, where P and S share a block and Q and R map to the same line as each other but not to P's. Classify the misses.",
-  "work": "P: compulsory. S: hits, because it is inside P's block. Q: compulsory for line 10. R: conflict, because Q's line is taken. On each repetition P hits, Q misses again as a conflict with R, R misses as a conflict with Q, and S hits.",
-  "answer": "One compulsory miss for P's block, one for Q's, and then a conflict miss on every Q and R access - 21 misses and 19 hits in the 40 accesses."
- },
- "gateAngle": "The three-way classification is GATE's favourite way to make a miss-count question conceptual, and the 2022 question is the clearest instance: two blocks thrash in one line while another line holds a block nobody else wants.",
- "variations": [
-  {
-   "label": "VERIFIED PYQ",
-   "question": "GATE CSE 2022 Q.44: with P = 0xA248, Q = 0xC28A, R = 0xCA8A, S = 0xA262 in a 2 KB direct-mapped cache with 64 B blocks, which of 'every access to S is a hit', 'P is never evicted', 'only R and S remain at the end', 'every access to R evicts Q' are true?",
-   "answer": "The first, second and fourth are true; the third is false because P's block is still resident.",
-   "why": "P and S share index 9 with tag 20, so the block is never disturbed; Q and R share index 10 with different tags, so they evict each other on every pass."
+  "id": "block-size-and-the-three-kinds-of-miss",
+  "title": "Block Size and the Three Kinds of Miss",
+  "priority": "P2",
+  "order": 530,
+  "unit": "Memory Interfacing, Hierarchy and Cache Mapping",
+  "quickIdea": "Every miss is compulsory (first touch), conflict (evicted by a block that shares its set) or capacity (the cache is simply too small); block size trades the first two against the miss penalty.",
+  "remember": [
+    "Compulsory (cold) miss: the first access to a block, unavoidable whatever the cache size or organisation.",
+    "Conflict miss: a block that would have fit was evicted because another block mapped to the same set - direct mapping maximises these, full associativity eliminates them.",
+    "Capacity miss: the working set exceeds the cache, so a block is evicted even under full associativity.",
+    "The three are counted by running the same reference string three times: with an infinite cache (compulsory only), with full associativity of the real size (compulsory + capacity), and with the real organisation (all three).",
+    "Increasing the block size lowers compulsory misses by bringing neighbours along but raises the miss penalty and, past a point, raises conflict misses because the number of lines falls."
+  ],
+  "example": {
+    "prompt": "A 2 KB direct-mapped cache with 64 B blocks is given the sequence P, Q, R, S repeated, where P and S share a block and Q and R map to the same line as each other but not to P's. Classify the misses.",
+    "work": "P: compulsory. S: hits, because it is inside P's block. Q: compulsory for line 10. R: conflict, because Q's line is taken. On each repetition P hits, Q misses again as a conflict with R, R misses as a conflict with Q, and S hits.",
+    "answer": "One compulsory miss for P's block, one for Q's, and then a conflict miss on every Q and R access - 21 misses and 19 hits in the 40 accesses."
   },
-  {
-   "label": "PREDICTED VARIATION",
-   "question": "Same sequence and cache, but the cache is made 2-way set-associative. What happens to the misses?",
-   "answer": "Q and R now sit in the two ways of their set, so both survive and neither evicts the other. The trace has three compulsory misses - P, Q and R are three distinct blocks and each is touched for the first time once - and 37 hits.",
-   "why": "It isolates the conflict misses by removing exactly the constraint that caused them: with two ways the Q-R thrashing disappears, and what is left is the compulsory misses that no organisation can remove."
+  "gateAngle": "The three-way classification is GATE's favourite way to make a miss-count question conceptual, and the 2022 question is the clearest instance: two blocks thrash in one line while another line holds a block nobody else wants.",
+  "variations": [
+    {
+      "label": "VERIFIED PYQ",
+      "question": "GATE CSE 2022 Q.44: with P = 0xA248, Q = 0xC28A, R = 0xCA8A, S = 0xA262 in a 2 KB direct-mapped cache with 64 B blocks, which of 'every access to S is a hit', 'P is never evicted', 'only R and S remain at the end', 'every access to R evicts Q' are true?",
+      "answer": "The first, second and fourth are true; the third is false because P's block is still resident.",
+      "why": "P and S share index 9 with tag 20, so the block is never disturbed; Q and R share index 10 with different tags, so they evict each other on every pass."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "Same sequence and cache, but the cache is made 2-way set-associative. What happens to the misses?",
+      "answer": "Q and R now sit in the two ways of their set, so both survive and neither evicts the other. The trace has three compulsory misses - P, Q and R are three distinct blocks and each is touched for the first time once - and 37 hits.",
+      "why": "It isolates the conflict misses by removing exactly the constraint that caused them: with two ways the Q-R thrashing disappears, and what is left is the compulsory misses that no organisation can remove."
+    }
+  ],
+  "trap": {
+    "what": "Assuming a conflict miss and a capacity miss are the same thing.",
+    "why": "A conflict miss disappears if the associativity is raised at the same cache size; a capacity miss does not, because the cache is genuinely too small.",
+    "counterexample": "The 2022 sequence on a 2 KB cache: making it fully associative removes the Q-R thrashing entirely (conflict), while a 64 B cache of any associativity still cannot hold all four blocks (capacity)."
+  },
+  "check": {
+    "question": "A program touches 300 distinct blocks in a 128-line fully associative cache, each exactly once. How many misses, and of what kind?",
+    "answer": "300 misses, all compulsory; capacity is irrelevant because no block is re-read, and there are no conflicts because the cache is fully associative.",
+    "explanation": "The miss rate is 1 here for a reason the classification makes obvious: with no reuse there is nothing for a cache to exploit."
+  },
+  "pyqIds": [
+    "gate-2022-44-direct-mapped-pqrs"
+  ],
+  "prereqs": [
+    "locality-of-reference-temporal-and-spatial",
+    "direct-mapping-line-modulo-lines",
+    "set-associative-mapping-sets-and-ways"
+  ],
+  "sources": [
+    {
+      "kind": "lecture-transcript",
+      "title": "Lecture 26 - Associative and Multi-Level Caches (line size, miss penalty, early restart)",
+      "channel": "NPTEL, Computer Organization and Architecture - A Pedagogical Aspect (IIT Guwahati)",
+      "url": "http://www.digimat.in/nptel/courses/video/106103180/lec26.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read the opening: why a larger line lowers the miss rate through spatial locality, why the miss rate turns back up once the line becomes a large fraction of the cache, the definition of miss penalty as the time to bring a line from the next level down, its split into first-word latency plus transfer time, and early restart"
+    },
+    {
+      "kind": "lecture-slides",
+      "title": "Computer Organization: Memory Hierarchy and Cache Memories",
+      "channel": "Indian Institute of Science, Centre for Data Sciences, computer architecture and organization slides",
+      "url": "https://cds.iisc.ac.in/wp-content/uploads/ComputerArchitecture_and_Organization.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read the locality section, the memory-address-and-cache composition section (a cache line as valid bit, tag and data block of B bytes), the cache-lookup section (index selects the set, tags compared inside it, offset picks the word), the direct, set-associative and fully associative descriptions, and the 16 KB direct-mapped 32 B example with tag 18, index 9, offset 5"
+    },
+    {
+      "kind": "text",
+      "title": "Cache Memory & Mapping Hindi mein",
+      "channel": "DSWallah Learn (Hinglish study lesson on cache memory)",
+      "url": "https://www.dswallah.com/learn/computer-architecture/cache-memory/",
+      "language": "hi",
+      "transcript": "PARTIAL",
+      "translated": true,
+      "note": "read the whole lesson: locality as the assumption that makes a cache possible, the block-versus-word distinction, the three mapping techniques with the line-modulo-lines and set-modulo-sets formulas, AMAT as hit time plus miss rate times miss penalty with the two-level form, the write-through, write-back, write-allocate and no-write-allocate definitions, and its list of common mistakes"
+    }
+  ],
+  "sourceLine": "Why a larger line lowers the miss rate through spatial locality and why the rate turns back up when the line becomes a large fraction of the cache, with the miss penalty as first-word latency plus transfer time: NPTEL IIT Guwahati Lecture 26 (English, read in part). Conflict misses as the characteristic cost of a single-line set: IISc CDS slides (English, read in part). Block against word as the unit of transfer and the block-size trade-off: DSWallah Learn, romanised Hindi, translated (read in part). The 2022 trace is simulated in scripts/validate.py.",
+  "videoRefs": [],
+  "links": {
+    "mapped_at": "2026-10-31",
+    "mock": {
+      "subject": "computer-architecture",
+      "unit_slug": "cache-memory",
+      "unit_name": "Memory Hierarchy & Cache Memory",
+      "unit_number": 3,
+      "question_count": 50,
+      "subtopics": [
+        {
+          "label": "Direct, associative & set-associative mapping",
+          "questions": 14
+        },
+        {
+          "label": "Cache hit/miss & miss penalty",
+          "questions": 14
+        },
+        {
+          "label": "Replacement algorithms",
+          "questions": 11
+        },
+        {
+          "label": "Write policies: write-through & write-back",
+          "questions": 11
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/computer-architecture/cache-memory/gate_co_mock_3_2026-10-30.html"
+    },
+    "visual": {
+      "slug": "memory-hierarchy-and-cache",
+      "title": "Memory Hierarchy and Cache",
+      "level": "topic-level",
+      "covers": [
+        "compulsory, conflict and capacity misses by counterfactual",
+        "block size and its effect on the miss count"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/memory-hierarchy-and-cache/index.html"
+    }
   }
- ],
- "trap": {
-  "what": "Assuming a conflict miss and a capacity miss are the same thing.",
-  "why": "A conflict miss disappears if the associativity is raised at the same cache size; a capacity miss does not, because the cache is genuinely too small.",
-  "counterexample": "The 2022 sequence on a 2 KB cache: making it fully associative removes the Q-R thrashing entirely (conflict), while a 64 B cache of any associativity still cannot hold all four blocks (capacity)."
- },
- "check": {
-  "question": "A program touches 300 distinct blocks in a 128-line fully associative cache, each exactly once. How many misses, and of what kind?",
-  "answer": "300 misses, all compulsory; capacity is irrelevant because no block is re-read, and there are no conflicts because the cache is fully associative.",
-  "explanation": "The miss rate is 1 here for a reason the classification makes obvious: with no reuse there is nothing for a cache to exploit."
- },
- "pyqIds": [
-  "gate-2022-44-direct-mapped-pqrs"
- ],
- "prereqs": [
-  "locality-of-reference-temporal-and-spatial",
-  "direct-mapping-line-modulo-lines",
-  "set-associative-mapping-sets-and-ways"
- ],
- "sources": [
-  {
-   "kind": "lecture-transcript",
-   "title": "Lecture 26 - Associative and Multi-Level Caches (line size, miss penalty, early restart)",
-   "channel": "NPTEL, Computer Organization and Architecture - A Pedagogical Aspect (IIT Guwahati)",
-   "url": "http://www.digimat.in/nptel/courses/video/106103180/lec26.pdf",
-   "language": "en",
-   "transcript": "PARTIAL",
-   "translated": false,
-   "note": "read the opening: why a larger line lowers the miss rate through spatial locality, why the miss rate turns back up once the line becomes a large fraction of the cache, the definition of miss penalty as the time to bring a line from the next level down, its split into first-word latency plus transfer time, and early restart"
-  },
-  {
-   "kind": "lecture-slides",
-   "title": "Computer Organization: Memory Hierarchy and Cache Memories",
-   "channel": "Indian Institute of Science, Centre for Data Sciences, computer architecture and organization slides",
-   "url": "https://cds.iisc.ac.in/wp-content/uploads/ComputerArchitecture_and_Organization.pdf",
-   "language": "en",
-   "transcript": "PARTIAL",
-   "translated": false,
-   "note": "read the locality section, the memory-address-and-cache composition section (a cache line as valid bit, tag and data block of B bytes), the cache-lookup section (index selects the set, tags compared inside it, offset picks the word), the direct, set-associative and fully associative descriptions, and the 16 KB direct-mapped 32 B example with tag 18, index 9, offset 5"
-  },
-  {
-   "kind": "text",
-   "title": "Cache Memory & Mapping Hindi mein",
-   "channel": "DSWallah Learn (Hinglish study lesson on cache memory)",
-   "url": "https://www.dswallah.com/learn/computer-architecture/cache-memory/",
-   "language": "hi",
-   "transcript": "PARTIAL",
-   "translated": true,
-   "note": "read the whole lesson: locality as the assumption that makes a cache possible, the block-versus-word distinction, the three mapping techniques with the line-modulo-lines and set-modulo-sets formulas, AMAT as hit time plus miss rate times miss penalty with the two-level form, the write-through, write-back, write-allocate and no-write-allocate definitions, and its list of common mistakes"
-  }
- ],
- "sourceLine": "Why a larger line lowers the miss rate through spatial locality and why the rate turns back up when the line becomes a large fraction of the cache, with the miss penalty as first-word latency plus transfer time: NPTEL IIT Guwahati Lecture 26 (English, read in part). Conflict misses as the characteristic cost of a single-line set: IISc CDS slides (English, read in part). Block against word as the unit of transfer and the block-size trade-off: DSWallah Learn, romanised Hindi, translated (read in part). The 2022 trace is simulated in scripts/validate.py.",
- "videoRefs": []
 }

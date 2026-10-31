@@ -1,76 +1,115 @@
 {
- "id": "cache-line-set-and-the-address-split",
- "title": "The Cache Line, the Set, and the Address Split",
- "priority": "P1",
- "order": 523,
- "unit": "Memory Interfacing, Hierarchy and Cache Mapping",
- "quickIdea": "A cache is a table of lines; each line holds a valid bit, a tag and one block of data. The memory address is cut into tag, index and offset, and the widths of the three cuts follow from the cache size and block size alone.",
- "remember": [
-  "Offset bits = log2(block size in addressable units). It picks the word inside the line.",
-  "Number of lines = cache data size / block size. Number of sets = lines / associativity.",
-  "Index bits = log2(number of sets). It picks the set. In a direct-mapped cache sets = lines; in a fully associative cache there is one set, so index = 0 bits.",
-  "Tag bits = address width - index bits - offset bits. The tag is what is stored in the directory and compared on a lookup.",
-  "A hit needs the valid bit set and the tag equal; the offset then selects the word. The tag does not identify a word, it identifies which memory block is currently sitting in that line."
- ],
- "example": {
-  "prompt": "A 16 KB direct-mapped cache has 32 B blocks and the processor sends 32-bit byte addresses. Give the three field widths.",
-  "work": "Offset = log2 32 = 5. Lines = 16384/32 = 512, so index = 9. Tag = 32 - 9 - 5 = 18.",
-  "answer": "Tag 18, index 9, offset 5 - the split the IISc slides use for exactly this configuration."
- },
- "gateAngle": "Every tag-width question in the last decade is this arithmetic with one twist: the associativity, the word length or the address space changed. Work out the offset first, then the index, then subtract both from the address width.",
- "variations": [
-  {
-   "label": "ORIGINAL PYQ-STYLE QUESTION",
-   "question": "A 4-way set-associative cache of 32 KB uses 64 B blocks with 24-bit addresses. Give the three widths and the number of comparators.",
-   "answer": "Offset 6; lines = 32768/64 = 512; sets = 128, so index 7; tag = 24 - 7 - 6 = 11. Four comparators of 11 bits each.",
-   "why": "It is the standard arithmetic plus the one hardware consequence: the comparator count equals the associativity."
+  "id": "cache-line-set-and-the-address-split",
+  "title": "The Cache Line, the Set, and the Address Split",
+  "priority": "P1",
+  "order": 523,
+  "unit": "Memory Interfacing, Hierarchy and Cache Mapping",
+  "quickIdea": "A cache is a table of lines; each line holds a valid bit, a tag and one block of data. The memory address is cut into tag, index and offset, and the widths of the three cuts follow from the cache size and block size alone.",
+  "remember": [
+    "Offset bits = log2(block size in addressable units). It picks the word inside the line.",
+    "Number of lines = cache data size / block size. Number of sets = lines / associativity.",
+    "Index bits = log2(number of sets). It picks the set. In a direct-mapped cache sets = lines; in a fully associative cache there is one set, so index = 0 bits.",
+    "Tag bits = address width - index bits - offset bits. The tag is what is stored in the directory and compared on a lookup.",
+    "A hit needs the valid bit set and the tag equal; the offset then selects the word. The tag does not identify a word, it identifies which memory block is currently sitting in that line."
+  ],
+  "example": {
+    "prompt": "A 16 KB direct-mapped cache has 32 B blocks and the processor sends 32-bit byte addresses. Give the three field widths.",
+    "work": "Offset = log2 32 = 5. Lines = 16384/32 = 512, so index = 9. Tag = 32 - 9 - 5 = 18.",
+    "answer": "Tag 18, index 9, offset 5 - the split the IISc slides use for exactly this configuration."
   },
-  {
-   "label": "CONCEPTUAL PRACTICE QUESTION",
-   "question": "Why does the offset never appear in the tag directory?",
-   "answer": "Because the offset selects a word inside the line, and the whole line is present or absent as a unit; the directory stores only what identifies the block.",
-   "why": "It explains why the tag is a block identifier and why the directory is much smaller than the cache."
-  }
- ],
- "trap": {
-  "what": "Counting the tag directory as if it held only the tag.",
-  "why": "Each line also carries a valid bit, often a dirty bit and sometimes replacement bits, so the directory is wider than the tag; questions that ask for directory size expect those bits to be counted.",
-  "counterexample": "A 256-line cache with 19-bit tags and one valid and one dirty bit needs 256 x 21 = 5376 bits, not 256 x 19 = 4864 - and both numbers appear among the options of the 2011 question."
- },
- "check": {
-  "question": "An 8 KB 2-way cache uses 32 B blocks and 20-bit addresses. How many sets and what are the three widths?",
-  "answer": "256 lines, 128 sets, so index 7; offset 5; tag = 20 - 7 - 5 = 8 bits.",
-  "explanation": "Halving the lines by making it 2-way removes exactly one index bit, which the tag gains - the same trade the 2017 question makes with 16 ways."
- },
- "pyqIds": [
-  "gate-2018-34-tag-bits-k-way-formula",
-  "gate-2023-54-eight-way-tag-bits"
- ],
- "prereqs": [
-  "memory-characteristics-sram-and-dram"
- ],
- "sources": [
-  {
-   "kind": "lecture-slides",
-   "title": "Computer Organization: Memory Hierarchy and Cache Memories",
-   "channel": "Indian Institute of Science, Centre for Data Sciences, computer architecture and organization slides",
-   "url": "https://cds.iisc.ac.in/wp-content/uploads/ComputerArchitecture_and_Organization.pdf",
-   "language": "en",
-   "transcript": "PARTIAL",
-   "translated": false,
-   "note": "read the locality section, the memory-address-and-cache composition section (a cache line as valid bit, tag and data block of B bytes), the cache-lookup section (index selects the set, tags compared inside it, offset picks the word), the direct, set-associative and fully associative descriptions, and the 16 KB direct-mapped 32 B example with tag 18, index 9, offset 5"
+  "gateAngle": "Every tag-width question in the last decade is this arithmetic with one twist: the associativity, the word length or the address space changed. Work out the offset first, then the index, then subtract both from the address width.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "A 4-way set-associative cache of 32 KB uses 64 B blocks with 24-bit addresses. Give the three widths and the number of comparators.",
+      "answer": "Offset 6; lines = 32768/64 = 512; sets = 128, so index 7; tag = 24 - 7 - 6 = 11. Four comparators of 11 bits each.",
+      "why": "It is the standard arithmetic plus the one hardware consequence: the comparator count equals the associativity."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Why does the offset never appear in the tag directory?",
+      "answer": "Because the offset selects a word inside the line, and the whole line is present or absent as a unit; the directory stores only what identifies the block.",
+      "why": "It explains why the tag is a block identifier and why the directory is much smaller than the cache."
+    }
+  ],
+  "trap": {
+    "what": "Counting the tag directory as if it held only the tag.",
+    "why": "Each line also carries a valid bit, often a dirty bit and sometimes replacement bits, so the directory is wider than the tag; questions that ask for directory size expect those bits to be counted.",
+    "counterexample": "A 256-line cache with 19-bit tags and one valid and one dirty bit needs 256 x 21 = 5376 bits, not 256 x 19 = 4864 - and both numbers appear among the options of the 2011 question."
   },
-  {
-   "kind": "text",
-   "title": "Cache Memory & Mapping Hindi mein",
-   "channel": "DSWallah Learn (Hinglish study lesson on cache memory)",
-   "url": "https://www.dswallah.com/learn/computer-architecture/cache-memory/",
-   "language": "hi",
-   "transcript": "PARTIAL",
-   "translated": true,
-   "note": "read the whole lesson: locality as the assumption that makes a cache possible, the block-versus-word distinction, the three mapping techniques with the line-modulo-lines and set-modulo-sets formulas, AMAT as hit time plus miss rate times miss penalty with the two-level form, the write-through, write-back, write-allocate and no-write-allocate definitions, and its list of common mistakes"
+  "check": {
+    "question": "An 8 KB 2-way cache uses 32 B blocks and 20-bit addresses. How many sets and what are the three widths?",
+    "answer": "256 lines, 128 sets, so index 7; offset 5; tag = 20 - 7 - 5 = 8 bits.",
+    "explanation": "Halving the lines by making it 2-way removes exactly one index bit, which the tag gains - the same trade the 2017 question makes with 16 ways."
+  },
+  "pyqIds": [
+    "gate-2018-34-tag-bits-k-way-formula",
+    "gate-2023-54-eight-way-tag-bits"
+  ],
+  "prereqs": [
+    "memory-characteristics-sram-and-dram"
+  ],
+  "sources": [
+    {
+      "kind": "lecture-slides",
+      "title": "Computer Organization: Memory Hierarchy and Cache Memories",
+      "channel": "Indian Institute of Science, Centre for Data Sciences, computer architecture and organization slides",
+      "url": "https://cds.iisc.ac.in/wp-content/uploads/ComputerArchitecture_and_Organization.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read the locality section, the memory-address-and-cache composition section (a cache line as valid bit, tag and data block of B bytes), the cache-lookup section (index selects the set, tags compared inside it, offset picks the word), the direct, set-associative and fully associative descriptions, and the 16 KB direct-mapped 32 B example with tag 18, index 9, offset 5"
+    },
+    {
+      "kind": "text",
+      "title": "Cache Memory & Mapping Hindi mein",
+      "channel": "DSWallah Learn (Hinglish study lesson on cache memory)",
+      "url": "https://www.dswallah.com/learn/computer-architecture/cache-memory/",
+      "language": "hi",
+      "transcript": "PARTIAL",
+      "translated": true,
+      "note": "read the whole lesson: locality as the assumption that makes a cache possible, the block-versus-word distinction, the three mapping techniques with the line-modulo-lines and set-modulo-sets formulas, AMAT as hit time plus miss rate times miss penalty with the two-level form, the write-through, write-back, write-allocate and no-write-allocate definitions, and its list of common mistakes"
+    }
+  ],
+  "sourceLine": "The address cut into tag, index and offset with the index selecting the set, the tags compared inside it and the offset picking the word, and a cache line as a valid bit, a tag and a block of B bytes: IISc CDS slides (English, read in part). The same split with the line-modulo-lines and set-modulo-sets formulas and the warning that offset is log2 of the block size: DSWallah Learn, romanised Hindi, translated (read in part). Every width on this card is recomputed in scripts/validate.py.",
+  "videoRefs": [],
+  "links": {
+    "mapped_at": "2026-10-31",
+    "mock": {
+      "subject": "computer-architecture",
+      "unit_slug": "cache-memory",
+      "unit_name": "Memory Hierarchy & Cache Memory",
+      "unit_number": 3,
+      "question_count": 50,
+      "subtopics": [
+        {
+          "label": "Direct, associative & set-associative mapping",
+          "questions": 14
+        },
+        {
+          "label": "Cache hit/miss & miss penalty",
+          "questions": 14
+        },
+        {
+          "label": "Replacement algorithms",
+          "questions": 11
+        },
+        {
+          "label": "Write policies: write-through & write-back",
+          "questions": 11
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/computer-architecture/cache-memory/gate_co_mock_3_2026-10-30.html"
+    },
+    "visual": {
+      "slug": "memory-hierarchy-and-cache",
+      "title": "Memory Hierarchy and Cache",
+      "level": "topic-level",
+      "covers": [
+        "offset, index and tag widths from block size, capacity and ways",
+        "block, line, set, associativity and number of sets"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/memory-hierarchy-and-cache/index.html"
+    }
   }
- ],
- "sourceLine": "The address cut into tag, index and offset with the index selecting the set, the tags compared inside it and the offset picking the word, and a cache line as a valid bit, a tag and a block of B bytes: IISc CDS slides (English, read in part). The same split with the line-modulo-lines and set-modulo-sets formulas and the warning that offset is log2 of the block size: DSWallah Learn, romanised Hindi, translated (read in part). Every width on this card is recomputed in scripts/validate.py.",
- "videoRefs": []
 }

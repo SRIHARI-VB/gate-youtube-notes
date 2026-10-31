@@ -1,82 +1,121 @@
 {
- "id": "replacement-policies-and-lru-trace",
- "title": "Replacement Policies and the LRU Trace",
- "priority": "P1",
- "order": 528,
- "unit": "Memory Interfacing, Hierarchy and Cache Mapping",
- "quickIdea": "When a set is full, one line must go. LRU evicts the least recently used, FIFO the earliest loaded, and random neither - and a GATE trace question is answered by keeping the recency order of each set, not the whole history.",
- "remember": [
-  "LRU: evict the line whose last reference is furthest in the past. A hit refreshes the line's position; a miss inserts the new line as most recently used.",
-  "FIFO: evict the line that was loaded earliest, ignoring hits. It is not the same as LRU - a frequently used old line is evicted under FIFO and kept under LRU.",
-  "Random: no state to maintain, and in practice close to LRU; GATE uses it only when the question says so, because it makes the answer non-deterministic unless the choices are forced.",
-  "Optimal (Belady): evict the line whose next use is furthest away. It is a lower bound, not an implementation.",
-  "LRU is a stack algorithm: the contents of a k-way set under LRU are always a subset of the contents under (k+1)-way LRU on the same reference string, so more ways never means more misses."
- ],
- "example": {
-  "prompt": "GATE CSE 2009 Q.29: a 4-way set-associative cache with 16 lines (4 sets) and 256 memory blocks is given the sequence 0, 255, 1, 4, 3, 8, 133, 159, 216, 129, 63, 8, 48, 32, 73, 92, 155. Which block is NOT in the cache at the end under LRU?",
-  "work": "Set = block mod 4. Set 0 receives 0, 4, 8, 216, 8 (hit), 48, 32, 92, 73? no - 73 mod 4 = 1. Set 0's accesses in order: 0, 4, 8, 216, 8, 48, 32, 92. With 4 ways the survivors after 92 are the four most recent distinct blocks: 8, 48, 32, 92 - so 0, 4 and 216 have gone. Set 1 keeps 73, 129, 133, 1; set 3 keeps 155, 63, 159, 3.",
-  "answer": "216 - option (D)."
- },
- "gateAngle": "This is the single most common replacement-policy question: a reference string, a set-associativity and one block that is absent at the end. The efficient method is to bucket the string by set and keep only the last four distinct blocks per set, because with LRU the survivors of a set are exactly its k most recently referenced blocks.",
- "variations": [
-  {
-   "label": "VERIFIED PYQ",
-   "question": "GATE CSE 2009 Q.29, as worked above.",
-   "answer": "Block 216, option (D).",
-   "why": "216 is the fifth distinct block to reach set 0, so it is pushed out when 48 arrives; a hit on 8 later does not bring it back."
+  "id": "replacement-policies-and-lru-trace",
+  "title": "Replacement Policies and the LRU Trace",
+  "priority": "P1",
+  "order": 528,
+  "unit": "Memory Interfacing, Hierarchy and Cache Mapping",
+  "quickIdea": "When a set is full, one line must go. LRU evicts the least recently used, FIFO the earliest loaded, and random neither - and a GATE trace question is answered by keeping the recency order of each set, not the whole history.",
+  "remember": [
+    "LRU: evict the line whose last reference is furthest in the past. A hit refreshes the line's position; a miss inserts the new line as most recently used.",
+    "FIFO: evict the line that was loaded earliest, ignoring hits. It is not the same as LRU - a frequently used old line is evicted under FIFO and kept under LRU.",
+    "Random: no state to maintain, and in practice close to LRU; GATE uses it only when the question says so, because it makes the answer non-deterministic unless the choices are forced.",
+    "Optimal (Belady): evict the line whose next use is furthest away. It is a lower bound, not an implementation.",
+    "LRU is a stack algorithm: the contents of a k-way set under LRU are always a subset of the contents under (k+1)-way LRU on the same reference string, so more ways never means more misses."
+  ],
+  "example": {
+    "prompt": "GATE CSE 2009 Q.29: a 4-way set-associative cache with 16 lines (4 sets) and 256 memory blocks is given the sequence 0, 255, 1, 4, 3, 8, 133, 159, 216, 129, 63, 8, 48, 32, 73, 92, 155. Which block is NOT in the cache at the end under LRU?",
+    "work": "Set = block mod 4. Set 0 receives 0, 4, 8, 216, 8 (hit), 48, 32, 92, 73? no - 73 mod 4 = 1. Set 0's accesses in order: 0, 4, 8, 216, 8, 48, 32, 92. With 4 ways the survivors after 92 are the four most recent distinct blocks: 8, 48, 32, 92 - so 0, 4 and 216 have gone. Set 1 keeps 73, 129, 133, 1; set 3 keeps 155, 63, 159, 3.",
+    "answer": "216 - option (D)."
   },
-  {
-   "label": "ORIGINAL PYQ-STYLE QUESTION",
-   "question": "A 2-way set-associative cache has 4 sets. Trace 0, 4, 0, 4, 8, 0 with LRU and count the misses.",
-   "answer": "Set 0 receives every access (all are multiples of 4). 0 miss, 4 miss, 0 hit, 4 hit, 8 miss evicting 0, 0 miss evicting 4: 4 misses, 2 hits.",
-   "why": "It shows the hit refreshing recency, which is the step candidates skip when they treat LRU as FIFO."
+  "gateAngle": "This is the single most common replacement-policy question: a reference string, a set-associativity and one block that is absent at the end. The efficient method is to bucket the string by set and keep only the last four distinct blocks per set, because with LRU the survivors of a set are exactly its k most recently referenced blocks.",
+  "variations": [
+    {
+      "label": "VERIFIED PYQ",
+      "question": "GATE CSE 2009 Q.29, as worked above.",
+      "answer": "Block 216, option (D).",
+      "why": "216 is the fifth distinct block to reach set 0, so it is pushed out when 48 arrives; a hit on 8 later does not bring it back."
+    },
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "A 2-way set-associative cache has 4 sets. Trace 0, 4, 0, 4, 8, 0 with LRU and count the misses.",
+      "answer": "Set 0 receives every access (all are multiples of 4). 0 miss, 4 miss, 0 hit, 4 hit, 8 miss evicting 0, 0 miss evicting 4: 4 misses, 2 hits.",
+      "why": "It shows the hit refreshing recency, which is the step candidates skip when they treat LRU as FIFO."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Why does LRU need more state as the associativity rises?",
+      "answer": "The cache must record a recency order among k ways, which needs about log2(k!) bits for an exact order, so implementations use approximations for large k.",
+      "why": "It explains why real 16-way caches use pseudo-LRU rather than exact LRU."
+    }
+  ],
+  "trap": {
+    "what": "Treating LRU as FIFO - evicting the oldest-loaded line rather than the least recently used one.",
+    "why": "A hit under LRU moves the line to the front, so an old but frequently used line survives; under FIFO it is evicted anyway.",
+    "counterexample": "Sequence 0, 4, 0 in a 2-way set: LRU keeps 0 (just used) and evicts 4 on the next miss; FIFO keeps the load order and evicts 0."
   },
-  {
-   "label": "CONCEPTUAL PRACTICE QUESTION",
-   "question": "Why does LRU need more state as the associativity rises?",
-   "answer": "The cache must record a recency order among k ways, which needs about log2(k!) bits for an exact order, so implementations use approximations for large k.",
-   "why": "It explains why real 16-way caches use pseudo-LRU rather than exact LRU."
+  "check": {
+    "question": "In a 2-way set the lines hold 5 (last used 3 accesses ago) and 9 (last used 1 access ago). A miss to 12 arrives. Which line goes, and what does the set hold after?",
+    "answer": "5 goes; the set holds 12 and 9.",
+    "explanation": "LRU compares last-use times, not insertion times, so the more recently used 9 stays even though both are older than the new block."
+  },
+  "pyqIds": [
+    "gate-2009-29-four-way-lru-block"
+  ],
+  "prereqs": [
+    "set-associative-mapping-sets-and-ways"
+  ],
+  "sources": [
+    {
+      "kind": "text",
+      "title": "Cache Memory & Mapping Hindi mein",
+      "channel": "DSWallah Learn (Hinglish study lesson on cache memory)",
+      "url": "https://www.dswallah.com/learn/computer-architecture/cache-memory/",
+      "language": "hi",
+      "transcript": "PARTIAL",
+      "translated": true,
+      "note": "read the whole lesson: locality as the assumption that makes a cache possible, the block-versus-word distinction, the three mapping techniques with the line-modulo-lines and set-modulo-sets formulas, AMAT as hit time plus miss rate times miss penalty with the two-level form, the write-through, write-back, write-allocate and no-write-allocate definitions, and its list of common mistakes"
+    },
+    {
+      "kind": "lecture-slides",
+      "title": "Computer Organization: Memory Hierarchy and Cache Memories",
+      "channel": "Indian Institute of Science, Centre for Data Sciences, computer architecture and organization slides",
+      "url": "https://cds.iisc.ac.in/wp-content/uploads/ComputerArchitecture_and_Organization.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read the locality section, the memory-address-and-cache composition section (a cache line as valid bit, tag and data block of B bytes), the cache-lookup section (index selects the set, tags compared inside it, offset picks the word), the direct, set-associative and fully associative descriptions, and the 16 KB direct-mapped 32 B example with tag 18, index 9, offset 5"
+    }
+  ],
+  "sourceLine": "Replacement policies named as a consequence of having several ways per set, with LRU as the standard: IISc CDS slides (English, read in part). The three mappings and their conflict behaviour, which is what replacement policy exists to soften: DSWallah Learn, romanised Hindi, translated (read in part). The 2009 trace is simulated step by step in scripts/validate.py.",
+  "videoRefs": [],
+  "visual": "computer-organization-and-architecture/memory-hierarchy-and-cache/lru-in-a-two-way-set",
+  "links": {
+    "mapped_at": "2026-10-31",
+    "mock": {
+      "subject": "computer-architecture",
+      "unit_slug": "cache-memory",
+      "unit_name": "Memory Hierarchy & Cache Memory",
+      "unit_number": 3,
+      "question_count": 50,
+      "subtopics": [
+        {
+          "label": "Direct, associative & set-associative mapping",
+          "questions": 14
+        },
+        {
+          "label": "Cache hit/miss & miss penalty",
+          "questions": 14
+        },
+        {
+          "label": "Replacement algorithms",
+          "questions": 11
+        },
+        {
+          "label": "Write policies: write-through & write-back",
+          "questions": 11
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/computer-architecture/cache-memory/gate_co_mock_3_2026-10-30.html"
+    },
+    "visual": {
+      "slug": "memory-hierarchy-and-cache",
+      "title": "Memory Hierarchy and Cache",
+      "level": "topic-level",
+      "covers": [
+        "least-recently-used replacement on the GATE 2004 trace",
+        "a hit updates recency"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/memory-hierarchy-and-cache/index.html"
+    }
   }
- ],
- "trap": {
-  "what": "Treating LRU as FIFO - evicting the oldest-loaded line rather than the least recently used one.",
-  "why": "A hit under LRU moves the line to the front, so an old but frequently used line survives; under FIFO it is evicted anyway.",
-  "counterexample": "Sequence 0, 4, 0 in a 2-way set: LRU keeps 0 (just used) and evicts 4 on the next miss; FIFO keeps the load order and evicts 0."
- },
- "check": {
-  "question": "In a 2-way set the lines hold 5 (last used 3 accesses ago) and 9 (last used 1 access ago). A miss to 12 arrives. Which line goes, and what does the set hold after?",
-  "answer": "5 goes; the set holds 12 and 9.",
-  "explanation": "LRU compares last-use times, not insertion times, so the more recently used 9 stays even though both are older than the new block."
- },
- "pyqIds": [
-  "gate-2009-29-four-way-lru-block"
- ],
- "prereqs": [
-  "set-associative-mapping-sets-and-ways"
- ],
- "sources": [
-  {
-   "kind": "text",
-   "title": "Cache Memory & Mapping Hindi mein",
-   "channel": "DSWallah Learn (Hinglish study lesson on cache memory)",
-   "url": "https://www.dswallah.com/learn/computer-architecture/cache-memory/",
-   "language": "hi",
-   "transcript": "PARTIAL",
-   "translated": true,
-   "note": "read the whole lesson: locality as the assumption that makes a cache possible, the block-versus-word distinction, the three mapping techniques with the line-modulo-lines and set-modulo-sets formulas, AMAT as hit time plus miss rate times miss penalty with the two-level form, the write-through, write-back, write-allocate and no-write-allocate definitions, and its list of common mistakes"
-  },
-  {
-   "kind": "lecture-slides",
-   "title": "Computer Organization: Memory Hierarchy and Cache Memories",
-   "channel": "Indian Institute of Science, Centre for Data Sciences, computer architecture and organization slides",
-   "url": "https://cds.iisc.ac.in/wp-content/uploads/ComputerArchitecture_and_Organization.pdf",
-   "language": "en",
-   "transcript": "PARTIAL",
-   "translated": false,
-   "note": "read the locality section, the memory-address-and-cache composition section (a cache line as valid bit, tag and data block of B bytes), the cache-lookup section (index selects the set, tags compared inside it, offset picks the word), the direct, set-associative and fully associative descriptions, and the 16 KB direct-mapped 32 B example with tag 18, index 9, offset 5"
-  }
- ],
- "sourceLine": "Replacement policies named as a consequence of having several ways per set, with LRU as the standard: IISc CDS slides (English, read in part). The three mappings and their conflict behaviour, which is what replacement policy exists to soften: DSWallah Learn, romanised Hindi, translated (read in part). The 2009 trace is simulated step by step in scripts/validate.py.",
- "videoRefs": [],
- "visual": "computer-organization-and-architecture/memory-hierarchy-and-cache/lru-in-a-two-way-set"
 }

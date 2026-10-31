@@ -1,76 +1,115 @@
 {
- "id": "fully-associative-mapping-and-comparators",
- "title": "Fully Associative Mapping and the Comparator Cost",
- "priority": "P2",
- "order": 525,
- "unit": "Memory Interfacing, Hierarchy and Cache Mapping",
- "quickIdea": "A fully associative cache lets any block sit in any line, so there is no index field at all: the tag is compared against every line at once, and the price is one comparator per line.",
- "remember": [
-  "Address fields: tag and offset only. Index = 0 bits, so the tag is the whole address above the offset.",
-  "Hardware: one tag comparator per line, all firing in parallel, plus a way-select multiplexer to choose the winning line's data.",
-  "No conflict misses at all: a block is evicted only when the cache is full, so every miss is compulsory or capacity.",
-  "The hit time grows with the number of comparators and with the width of the multiplexer, which is why full associativity is used only for small structures such as a TLB or a small L1.",
-  "Replacement policy matters here more than anywhere: any line is a candidate, so LRU or random must actually choose."
- ],
- "example": {
-  "prompt": "A fully associative cache of 32 lines has 64 B blocks and 32-bit addresses. Give the fields, and say how many comparators and of what width.",
-  "work": "Offset = 6. Index = 0 because there is one set. Tag = 32 - 6 = 26 bits. Comparators = 32, each 26 bits wide.",
-  "answer": "Tag 26, offset 6, no index; 32 comparators of 26 bits."
- },
- "gateAngle": "GATE likes the fully associative case because it collapses one field and because the comparator count is a computable hardware cost. It also appears as the extreme end of the associativity trade in questions that ask what is unaffected by doubling associativity.",
- "variations": [
-  {
-   "label": "VERIFIED PYQ",
-   "question": "GATE CSE 2019 Q.1: a fully associative 16 kB cache with 16 B blocks and 32-bit addresses - how many tag and index bits?",
-   "answer": "28 tag bits and 0 index bits (option D).",
-   "why": "Offset = 4, and there is no index, so tag = 32 - 4 = 28. Option B's '28 and 4' double-counts the offset as an index."
+  "id": "fully-associative-mapping-and-comparators",
+  "title": "Fully Associative Mapping and the Comparator Cost",
+  "priority": "P2",
+  "order": 525,
+  "unit": "Memory Interfacing, Hierarchy and Cache Mapping",
+  "quickIdea": "A fully associative cache lets any block sit in any line, so there is no index field at all: the tag is compared against every line at once, and the price is one comparator per line.",
+  "remember": [
+    "Address fields: tag and offset only. Index = 0 bits, so the tag is the whole address above the offset.",
+    "Hardware: one tag comparator per line, all firing in parallel, plus a way-select multiplexer to choose the winning line's data.",
+    "No conflict misses at all: a block is evicted only when the cache is full, so every miss is compulsory or capacity.",
+    "The hit time grows with the number of comparators and with the width of the multiplexer, which is why full associativity is used only for small structures such as a TLB or a small L1.",
+    "Replacement policy matters here more than anywhere: any line is a candidate, so LRU or random must actually choose."
+  ],
+  "example": {
+    "prompt": "A fully associative cache of 32 lines has 64 B blocks and 32-bit addresses. Give the fields, and say how many comparators and of what width.",
+    "work": "Offset = 6. Index = 0 because there is one set. Tag = 32 - 6 = 26 bits. Comparators = 32, each 26 bits wide.",
+    "answer": "Tag 26, offset 6, no index; 32 comparators of 26 bits."
   },
-  {
-   "label": "ORIGINAL PYQ-STYLE QUESTION",
-   "question": "A 64-entry TLB is fully associative with 4 KB pages on a 32-bit address. How many tag bits per entry, and how many comparators?",
-   "answer": "Page offset = 12 bits, so the tag is the 20-bit page number; 64 comparators of 20 bits.",
-   "why": "It is the same arithmetic in the structure where full associativity is actually used, and it shows why a TLB can afford it and a 1 MB cache cannot."
-  }
- ],
- "trap": {
-  "what": "Adding an index field to a fully associative cache.",
-  "why": "There is only one set, so a set index would be zero bits; writing 'index = log2(lines)' is the direct-mapped answer applied to the wrong organisation.",
-  "counterexample": "A 16 kB fully associative cache with 16 B blocks has 1024 lines but one set. An answer of '28 tag, 4 index' for the 2019 question treats the line number as an index and is the option B distractor."
- },
- "check": {
-  "question": "Why does a fully associative cache have no conflict misses?",
-  "answer": "Because a block can go in any line, so a block is never refused a place while another block occupies its only home; eviction happens only when every line is in use.",
-  "explanation": "That is also why its misses are exactly the compulsory misses plus the capacity misses."
- },
- "pyqIds": [
-  "gate-2019-1-fully-associative-tag-index"
- ],
- "prereqs": [
-  "cache-line-set-and-the-address-split",
-  "direct-mapping-line-modulo-lines"
- ],
- "sources": [
-  {
-   "kind": "lecture-slides",
-   "title": "Computer Organization: Memory Hierarchy and Cache Memories",
-   "channel": "Indian Institute of Science, Centre for Data Sciences, computer architecture and organization slides",
-   "url": "https://cds.iisc.ac.in/wp-content/uploads/ComputerArchitecture_and_Organization.pdf",
-   "language": "en",
-   "transcript": "PARTIAL",
-   "translated": false,
-   "note": "read the locality section, the memory-address-and-cache composition section (a cache line as valid bit, tag and data block of B bytes), the cache-lookup section (index selects the set, tags compared inside it, offset picks the word), the direct, set-associative and fully associative descriptions, and the 16 KB direct-mapped 32 B example with tag 18, index 9, offset 5"
+  "gateAngle": "GATE likes the fully associative case because it collapses one field and because the comparator count is a computable hardware cost. It also appears as the extreme end of the associativity trade in questions that ask what is unaffected by doubling associativity.",
+  "variations": [
+    {
+      "label": "VERIFIED PYQ",
+      "question": "GATE CSE 2019 Q.1: a fully associative 16 kB cache with 16 B blocks and 32-bit addresses - how many tag and index bits?",
+      "answer": "28 tag bits and 0 index bits (option D).",
+      "why": "Offset = 4, and there is no index, so tag = 32 - 4 = 28. Option B's '28 and 4' double-counts the offset as an index."
+    },
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "A 64-entry TLB is fully associative with 4 KB pages on a 32-bit address. How many tag bits per entry, and how many comparators?",
+      "answer": "Page offset = 12 bits, so the tag is the 20-bit page number; 64 comparators of 20 bits.",
+      "why": "It is the same arithmetic in the structure where full associativity is actually used, and it shows why a TLB can afford it and a 1 MB cache cannot."
+    }
+  ],
+  "trap": {
+    "what": "Adding an index field to a fully associative cache.",
+    "why": "There is only one set, so a set index would be zero bits; writing 'index = log2(lines)' is the direct-mapped answer applied to the wrong organisation.",
+    "counterexample": "A 16 kB fully associative cache with 16 B blocks has 1024 lines but one set. An answer of '28 tag, 4 index' for the 2019 question treats the line number as an index and is the option B distractor."
   },
-  {
-   "kind": "text",
-   "title": "Cache Memory & Mapping Hindi mein",
-   "channel": "DSWallah Learn (Hinglish study lesson on cache memory)",
-   "url": "https://www.dswallah.com/learn/computer-architecture/cache-memory/",
-   "language": "hi",
-   "transcript": "PARTIAL",
-   "translated": true,
-   "note": "read the whole lesson: locality as the assumption that makes a cache possible, the block-versus-word distinction, the three mapping techniques with the line-modulo-lines and set-modulo-sets formulas, AMAT as hit time plus miss rate times miss penalty with the two-level form, the write-through, write-back, write-allocate and no-write-allocate definitions, and its list of common mistakes"
+  "check": {
+    "question": "Why does a fully associative cache have no conflict misses?",
+    "answer": "Because a block can go in any line, so a block is never refused a place while another block occupies its only home; eviction happens only when every line is in use.",
+    "explanation": "That is also why its misses are exactly the compulsory misses plus the capacity misses."
+  },
+  "pyqIds": [
+    "gate-2019-1-fully-associative-tag-index"
+  ],
+  "prereqs": [
+    "cache-line-set-and-the-address-split",
+    "direct-mapping-line-modulo-lines"
+  ],
+  "sources": [
+    {
+      "kind": "lecture-slides",
+      "title": "Computer Organization: Memory Hierarchy and Cache Memories",
+      "channel": "Indian Institute of Science, Centre for Data Sciences, computer architecture and organization slides",
+      "url": "https://cds.iisc.ac.in/wp-content/uploads/ComputerArchitecture_and_Organization.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read the locality section, the memory-address-and-cache composition section (a cache line as valid bit, tag and data block of B bytes), the cache-lookup section (index selects the set, tags compared inside it, offset picks the word), the direct, set-associative and fully associative descriptions, and the 16 KB direct-mapped 32 B example with tag 18, index 9, offset 5"
+    },
+    {
+      "kind": "text",
+      "title": "Cache Memory & Mapping Hindi mein",
+      "channel": "DSWallah Learn (Hinglish study lesson on cache memory)",
+      "url": "https://www.dswallah.com/learn/computer-architecture/cache-memory/",
+      "language": "hi",
+      "transcript": "PARTIAL",
+      "translated": true,
+      "note": "read the whole lesson: locality as the assumption that makes a cache possible, the block-versus-word distinction, the three mapping techniques with the line-modulo-lines and set-modulo-sets formulas, AMAT as hit time plus miss rate times miss penalty with the two-level form, the write-through, write-back, write-allocate and no-write-allocate definitions, and its list of common mistakes"
+    }
+  ],
+  "sourceLine": "Fully associative caches as the single-set case, with m-way associativity as the general one: IISc CDS slides (English, read in part). Fully associative mapping as blocks placed anywhere with the whole line set compared in parallel and the warning that it has no index field: DSWallah Learn, romanised Hindi, translated (read in part). The 2019 field widths are recomputed in scripts/validate.py.",
+  "videoRefs": [],
+  "links": {
+    "mapped_at": "2026-10-31",
+    "mock": {
+      "subject": "computer-architecture",
+      "unit_slug": "cache-memory",
+      "unit_name": "Memory Hierarchy & Cache Memory",
+      "unit_number": 3,
+      "question_count": 50,
+      "subtopics": [
+        {
+          "label": "Direct, associative & set-associative mapping",
+          "questions": 14
+        },
+        {
+          "label": "Cache hit/miss & miss penalty",
+          "questions": 14
+        },
+        {
+          "label": "Replacement algorithms",
+          "questions": 11
+        },
+        {
+          "label": "Write policies: write-through & write-back",
+          "questions": 11
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/computer-architecture/cache-memory/gate_co_mock_3_2026-10-30.html"
+    },
+    "visual": {
+      "slug": "memory-hierarchy-and-cache",
+      "title": "Memory Hierarchy and Cache",
+      "level": "topic-level",
+      "covers": [
+        "direct, set-associative and fully associative mapping",
+        "associativity trades index bits for tag bits"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/memory-hierarchy-and-cache/index.html"
+    }
   }
- ],
- "sourceLine": "Fully associative caches as the single-set case, with m-way associativity as the general one: IISc CDS slides (English, read in part). Fully associative mapping as blocks placed anywhere with the whole line set compared in parallel and the warning that it has no index field: DSWallah Learn, romanised Hindi, translated (read in part). The 2019 field widths are recomputed in scripts/validate.py.",
- "videoRefs": []
 }

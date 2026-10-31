@@ -1,82 +1,121 @@
 {
- "id": "write-through-write-back-and-dirty-bits",
- "title": "Write-Through, Write-Back and the Dirty Bit",
- "priority": "P1",
- "order": 529,
- "unit": "Memory Interfacing, Hierarchy and Cache Mapping",
- "quickIdea": "On a write hit, write-through updates memory as well and write-back marks the line dirty; on a write miss, write-allocate loads the block first and no-write-allocate writes straight to memory.",
- "remember": [
-  "Write-through: every write goes to the cache and to memory, so memory is always current and no block is ever dirty. Cost: memory traffic on every write.",
-  "Write-back: the write updates only the cache and sets the dirty (modified) bit; memory is updated when the dirty line is evicted. Cost: a dirty bit per line and a write-back on eviction.",
-  "Write-allocate: on a write miss, fetch the block into the cache and then write it. No-write-allocate: write to memory and leave the cache alone.",
-  "The common pairing is write-back with write-allocate and write-through with no-write-allocate, but all four combinations are legal.",
-  "A write-back cache can evict a dirty block on a read miss as well as a write miss, and that eviction costs an extra memory write that the miss penalty must include."
- ],
- "example": {
-  "prompt": "GATE CSE 2024 Set 1 Q.43: WBC is write-back and WTC is write-through, both set-associative with LRU. Which statements are true - (A) a read miss in WBC never evicts a dirty block, (B) a read miss in WTC never triggers a write-back, (C) a write hit in WBC can modify the dirty bit, (D) a write miss in WTC always writes the victim block to memory before loading?",
-  "work": "A: LRU picks a victim by recency with no exemption for dirty lines, so a read miss can evict a dirty block - false. B: no WTC block is ever dirty, so eviction never needs a write-back - true. C: a write hit sets the dirty bit to 1 - true. D: the victim in WTC is already clean, so it need not be written - false.",
-  "answer": "Statements (B) and (C)."
- },
- "gateAngle": "GATE asks this as a statement-selection question, and every statement turns on one of two facts: write-through leaves nothing dirty, and LRU does not protect dirty lines. Learn those two and the four statements decide themselves.",
- "variations": [
-  {
-   "label": "VERIFIED PYQ",
-   "question": "GATE CSE 2024 Set 1 Q.43, as worked above.",
-   "answer": "(B) and (C) only.",
-   "why": "The false statements both assume a protection that does not exist: LRU does not spare dirty lines, and a clean victim never needs writing back."
+  "id": "write-through-write-back-and-dirty-bits",
+  "title": "Write-Through, Write-Back and the Dirty Bit",
+  "priority": "P1",
+  "order": 529,
+  "unit": "Memory Interfacing, Hierarchy and Cache Mapping",
+  "quickIdea": "On a write hit, write-through updates memory as well and write-back marks the line dirty; on a write miss, write-allocate loads the block first and no-write-allocate writes straight to memory.",
+  "remember": [
+    "Write-through: every write goes to the cache and to memory, so memory is always current and no block is ever dirty. Cost: memory traffic on every write.",
+    "Write-back: the write updates only the cache and sets the dirty (modified) bit; memory is updated when the dirty line is evicted. Cost: a dirty bit per line and a write-back on eviction.",
+    "Write-allocate: on a write miss, fetch the block into the cache and then write it. No-write-allocate: write to memory and leave the cache alone.",
+    "The common pairing is write-back with write-allocate and write-through with no-write-allocate, but all four combinations are legal.",
+    "A write-back cache can evict a dirty block on a read miss as well as a write miss, and that eviction costs an extra memory write that the miss penalty must include."
+  ],
+  "example": {
+    "prompt": "GATE CSE 2024 Set 1 Q.43: WBC is write-back and WTC is write-through, both set-associative with LRU. Which statements are true - (A) a read miss in WBC never evicts a dirty block, (B) a read miss in WTC never triggers a write-back, (C) a write hit in WBC can modify the dirty bit, (D) a write miss in WTC always writes the victim block to memory before loading?",
+    "work": "A: LRU picks a victim by recency with no exemption for dirty lines, so a read miss can evict a dirty block - false. B: no WTC block is ever dirty, so eviction never needs a write-back - true. C: a write hit sets the dirty bit to 1 - true. D: the victim in WTC is already clean, so it need not be written - false.",
+    "answer": "Statements (B) and (C)."
   },
-  {
-   "label": "ORIGINAL PYQ-STYLE QUESTION",
-   "question": "A write-back cache with write-allocate takes a write miss on a full set. List the memory operations the miss may cause.",
-   "answer": "A read to fetch the missed block, plus a write of the victim if it is dirty, plus the write of the new data later when that line is itself evicted.",
-   "why": "It makes the miss penalty of a write-back cache a sum rather than a single fetch, which is the arithmetic version of the same concept."
+  "gateAngle": "GATE asks this as a statement-selection question, and every statement turns on one of two facts: write-through leaves nothing dirty, and LRU does not protect dirty lines. Learn those two and the four statements decide themselves.",
+  "variations": [
+    {
+      "label": "VERIFIED PYQ",
+      "question": "GATE CSE 2024 Set 1 Q.43, as worked above.",
+      "answer": "(B) and (C) only.",
+      "why": "The false statements both assume a protection that does not exist: LRU does not spare dirty lines, and a clean victim never needs writing back."
+    },
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "A write-back cache with write-allocate takes a write miss on a full set. List the memory operations the miss may cause.",
+      "answer": "A read to fetch the missed block, plus a write of the victim if it is dirty, plus the write of the new data later when that line is itself evicted.",
+      "why": "It makes the miss penalty of a write-back cache a sum rather than a single fetch, which is the arithmetic version of the same concept."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Why is write-through usually paired with no-write-allocate?",
+      "answer": "Because a write-through cache gains nothing from holding a block it has just written - memory already has the data - so fetching the block on a write miss is pure cost.",
+      "why": "It explains the pairing as a consequence rather than a convention to memorise."
+    }
+  ],
+  "trap": {
+    "what": "Believing a write-through cache needs a dirty bit.",
+    "why": "Memory is updated on every write, so no line ever differs from memory; there is nothing for a dirty bit to record.",
+    "counterexample": "A write-through cache that sets a dirty bit would write back a block that memory already holds, doubling the traffic for no correctness gain."
   },
-  {
-   "label": "CONCEPTUAL PRACTICE QUESTION",
-   "question": "Why is write-through usually paired with no-write-allocate?",
-   "answer": "Because a write-through cache gains nothing from holding a block it has just written - memory already has the data - so fetching the block on a write miss is pure cost.",
-   "why": "It explains the pairing as a consequence rather than a convention to memorise."
+  "check": {
+    "question": "A write-back cache with 94% of its lines dirty is flushed. What must happen, and how does it compare with a write-through cache?",
+    "answer": "Every dirty line must be written to memory before eviction; a write-through cache needs no flush at all because memory is already current.",
+    "explanation": "The flush cost is the price write-back pays for its lower steady-state traffic - which is why write-back is preferred for long-running programs and write-through for simple or shared-memory designs."
+  },
+  "pyqIds": [
+    "gate-2024-set1-43-write-policies"
+  ],
+  "prereqs": [
+    "cache-line-set-and-the-address-split",
+    "tag-directory-size-arithmetic"
+  ],
+  "sources": [
+    {
+      "kind": "text",
+      "title": "Cache Memory & Mapping Hindi mein",
+      "channel": "DSWallah Learn (Hinglish study lesson on cache memory)",
+      "url": "https://www.dswallah.com/learn/computer-architecture/cache-memory/",
+      "language": "hi",
+      "transcript": "PARTIAL",
+      "translated": true,
+      "note": "read the whole lesson: locality as the assumption that makes a cache possible, the block-versus-word distinction, the three mapping techniques with the line-modulo-lines and set-modulo-sets formulas, AMAT as hit time plus miss rate times miss penalty with the two-level form, the write-through, write-back, write-allocate and no-write-allocate definitions, and its list of common mistakes"
+    },
+    {
+      "kind": "lecture-transcript",
+      "title": "Lecture 25 - Direct-mapped Caches: Misses, Writes and Performance",
+      "channel": "NPTEL, Computer Organization and Architecture - A Pedagogical Aspect (IIT Guwahati)",
+      "url": "http://www.digimat.in/nptel/courses/video/106103180/lec25.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read the memory-technology comparison with its access-time and cost-per-GB figures, the statement of the design trade-off that produces the hierarchy, the definition of hit time, hit ratio and miss, and the statement of locality of reference with its two kinds"
+    }
+  ],
+  "sourceLine": "Write-through and write-back defined with the dirty bit, write-allocate and no-write-allocate, and the traffic each costs: DSWallah Learn, romanised Hindi, translated (read in part). Direct-mapped caches treated for their write behaviour and performance: NPTEL IIT Guwahati Lecture 25 (English, read in part). The four statements of the 2024 question are decided in scripts/validate.py from the same two facts stated on this card.",
+  "videoRefs": [],
+  "links": {
+    "mapped_at": "2026-10-31",
+    "mock": {
+      "subject": "computer-architecture",
+      "unit_slug": "cache-memory",
+      "unit_name": "Memory Hierarchy & Cache Memory",
+      "unit_number": 3,
+      "question_count": 50,
+      "subtopics": [
+        {
+          "label": "Direct, associative & set-associative mapping",
+          "questions": 14
+        },
+        {
+          "label": "Cache hit/miss & miss penalty",
+          "questions": 14
+        },
+        {
+          "label": "Replacement algorithms",
+          "questions": 11
+        },
+        {
+          "label": "Write policies: write-through & write-back",
+          "questions": 11
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/computer-architecture/cache-memory/gate_co_mock_3_2026-10-30.html"
+    },
+    "visual": {
+      "slug": "memory-hierarchy-and-cache",
+      "title": "Memory Hierarchy and Cache",
+      "level": "topic-level",
+      "covers": [
+        "write-through and write-back, and the dirty bit",
+        "write-allocate and no-write-allocate"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/memory-hierarchy-and-cache/index.html"
+    }
   }
- ],
- "trap": {
-  "what": "Believing a write-through cache needs a dirty bit.",
-  "why": "Memory is updated on every write, so no line ever differs from memory; there is nothing for a dirty bit to record.",
-  "counterexample": "A write-through cache that sets a dirty bit would write back a block that memory already holds, doubling the traffic for no correctness gain."
- },
- "check": {
-  "question": "A write-back cache with 94% of its lines dirty is flushed. What must happen, and how does it compare with a write-through cache?",
-  "answer": "Every dirty line must be written to memory before eviction; a write-through cache needs no flush at all because memory is already current.",
-  "explanation": "The flush cost is the price write-back pays for its lower steady-state traffic - which is why write-back is preferred for long-running programs and write-through for simple or shared-memory designs."
- },
- "pyqIds": [
-  "gate-2024-set1-43-write-policies"
- ],
- "prereqs": [
-  "cache-line-set-and-the-address-split",
-  "tag-directory-size-arithmetic"
- ],
- "sources": [
-  {
-   "kind": "text",
-   "title": "Cache Memory & Mapping Hindi mein",
-   "channel": "DSWallah Learn (Hinglish study lesson on cache memory)",
-   "url": "https://www.dswallah.com/learn/computer-architecture/cache-memory/",
-   "language": "hi",
-   "transcript": "PARTIAL",
-   "translated": true,
-   "note": "read the whole lesson: locality as the assumption that makes a cache possible, the block-versus-word distinction, the three mapping techniques with the line-modulo-lines and set-modulo-sets formulas, AMAT as hit time plus miss rate times miss penalty with the two-level form, the write-through, write-back, write-allocate and no-write-allocate definitions, and its list of common mistakes"
-  },
-  {
-   "kind": "lecture-transcript",
-   "title": "Lecture 25 - Direct-mapped Caches: Misses, Writes and Performance",
-   "channel": "NPTEL, Computer Organization and Architecture - A Pedagogical Aspect (IIT Guwahati)",
-   "url": "http://www.digimat.in/nptel/courses/video/106103180/lec25.pdf",
-   "language": "en",
-   "transcript": "PARTIAL",
-   "translated": false,
-   "note": "read the memory-technology comparison with its access-time and cost-per-GB figures, the statement of the design trade-off that produces the hierarchy, the definition of hit time, hit ratio and miss, and the statement of locality of reference with its two kinds"
-  }
- ],
- "sourceLine": "Write-through and write-back defined with the dirty bit, write-allocate and no-write-allocate, and the traffic each costs: DSWallah Learn, romanised Hindi, translated (read in part). Direct-mapped caches treated for their write behaviour and performance: NPTEL IIT Guwahati Lecture 25 (English, read in part). The four statements of the 2024 question are decided in scripts/validate.py from the same two facts stated on this card.",
- "videoRefs": []
 }
