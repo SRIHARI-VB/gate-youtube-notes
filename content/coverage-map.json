@@ -13823,6 +13823,11 @@
       "detail": "lesson best-average-worst-and-amortised-analysis (Algorithms, Section 5 analysis, PUBLISHED) serves no notes card: content/syllabus.json lists the algorithms subject, but content/index.json map[] holds 0 algorithms cards. Write the notes topic before mapping it."
     },
     {
+      "kind": "notes",
+      "placement": "algorithms › graph-algorithms-traversals-mst",
+      "detail": "mock unit \"Graph Algorithms: Traversals & Spanning Trees\" (unit_number 5, 50 questions, at the 50-question cap) serves no notes card; content/index.json map[] holds 0 algorithms cards. Subtopic groups: bfs-dfs-edge-classification 14, kruskals-disjoint-set-union 12, prims-algorithm 12, topological-sort 12. Lesson graph-traversals-mst-shortest-paths covers edge classification, topological order and Prim/Kruskal at topic level but still has no card to sit on. Paper algorithms/graph-algorithms-traversals-mst/gate_algo_mock_5_2026-10-31.html"
+    },
+    {
       "kind": "mock",
       "placement": "programming-and-data-structures › programming-in-c › strings-nul-termination",
       "detail": "no PDS unit holds a string or NUL-termination group; nearest is linear-data-structures \"Arrays & multidimensional arrays\" (13), and all six PDS units sit at the 50-question cap, so the fix is a new unit programming-data-structures/strings-and-structs."
