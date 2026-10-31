@@ -13345,7 +13345,7 @@
   {
    "kind": "notes",
    "placement": "operating-systems › storage-file-systems",
-   "detail": "mock unit \"File Systems & Disk Scheduling\" (unit_number 6, 50 questions) serves no notes card; subtopic groups: access-control-protection 10, disk-scheduling-fcfs-sstf-scan-cscan-look 14, file-allocation-methods-indexed-linked 14, free-space-management 12"
+   "detail": "mock unit \"File Systems & Disk Scheduling\" (unit_number 6) now holds 75 questions, over the 50-question cap (MOCK_CAPPED), and serves no notes card because no operating-systems subject exists in the notes repo; the 25 questions added on 2026-11-01 group as Access control & protection 5, Disk scheduling: FCFS, SSTF, SCAN, C-SCAN, LOOK 7, File allocation: indexed & linked 7, Free-space management 6; the earlier 50 records carry no subtopic_label and group by subtopic slug as access-control-protection 11, disk-scheduling-fcfs-sstf-scan-cscan-look 13, file-allocation-methods-indexed-linked 14, free-space-management 12; latest paper operating-systems/storage-file-systems/gate_os_mock_6_2026-11-01.html (runs[] run 18); the next Operating Systems run advances one unit from storage-file-systems by the README rule (index_of(storage-file-systems) = 5 + 1) mod 6 = 0 -> unit 1, Process Management & CPU Scheduling"
   },
   {
    "kind": "notes",
@@ -13866,6 +13866,11 @@
    "kind": "notes",
    "placement": "operating-systems › concurrency › readers-writers-and-dining-philosophers",
    "detail": "published lesson \"Readers–Writers and Dining Philosophers\" (PUBLISHED 2026-11-01, 10 scenes) serves no notes card: content/index.json holds no operating-systems subject at all. Its transcript covers the readers–writers readcount/rmutex/wsem solution, writer preference via readTry, and the dining philosophers deadlock with the asymmetric-ordering and waiter repairs."
+  },
+  {
+   "kind": "notes",
+   "placement": "operating-systems › concurrency › atomic-instructions-and-locks",
+   "detail": "published lesson \"Atomic instructions and the locks built from them\" (PUBLISHED 2026-11-01, 10 scenes, topics/atomic-instructions-and-locks/) serves no notes card: content/index.json holds no operating-systems subject at all. Its transcript covers why a lock needs one indivisible read-modify-write, test-and-set and swap and compare-and-swap and fetch-and-add with their locks, the GATE 2012 fetch-and-add loop and its defect, starvation in the plain lock and the waiting array, the ticket lock, and test-and-test-and-set. The mock side already holds it: operating-systems unit 2, subtopic slug hardware-primitives-test-and-set (18 questions, grouped by subtopic)."
   }
  ]
 }
