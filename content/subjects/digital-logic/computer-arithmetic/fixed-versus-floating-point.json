@@ -92,26 +92,26 @@
       "unit_slug": "number-systems",
       "unit_name": "Number Systems & Representation",
       "unit_number": 1,
-      "question_count": 50,
+      "question_count": 75,
       "subtopics": [
         {
           "label": "Base conversions",
-          "questions": 15
-        },
-        {
-          "label": "Floating point & IEEE 754",
-          "questions": 11
+          "questions": 22
         },
         {
           "label": "One's & two's complement",
-          "questions": 13
+          "questions": 19
         },
         {
           "label": "Range & overflow",
-          "questions": 11
+          "questions": 17
+        },
+        {
+          "label": "Floating point & IEEE 754",
+          "questions": 17
         }
       ],
-      "url": "https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-10-27.html"
+      "url": "https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-10-31.html"
     },
     "visual": {
       "slug": "number-representation-and-arithmetic",

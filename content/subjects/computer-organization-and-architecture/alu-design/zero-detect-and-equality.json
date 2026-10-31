@@ -1,94 +1,118 @@
 {
- "id": "zero-detect-and-equality",
- "title": "Zero Detect: One NOR Tree, and the Branch That Reads It",
- "priority": "P2",
- "order": 498,
- "unit": "Design of the Arithmetic and Logic Unit",
- "quickIdea": "The zero flag is simply the NOR of every result bit. Equality is subtraction plus that flag, which is why a compare-and-branch instruction costs no extra hardware beyond the ALU and one status bit.",
- "remember": [
-  "Z = 1 exactly when every result bit is 0, so Z = NOT (R[n-1] OR ... OR R[0]).",
-  "A - B = 0 exactly when A = B, so equality is a subtraction whose zero flag is read instead of whose result is written.",
-  "The zero detect tree adds gate delays proportional to log n if built as a balanced tree, or n if built as a chain.",
-  "The flag is sticky: it reports the last operation that was allowed to write flags, so a load that does not touch the flags leaves the old Z in place.",
-  "A branch such as BEQ reads Z and nothing else; the subtract's result is thrown away."
- ],
- "example": {
-  "prompt": "An ALU computes 0110 - 0110 in 4 bits. What are the result and the zero flag, and what does the branch do?",
-  "work": "0110 + 1001 + 1 = 1 0000, and the kept result is 0000 with carry out 1. All four bits are zero, so Z = 1. The BEQ instruction tests Z and takes the branch; the 0000 on the result lines is not written anywhere.",
-  "answer": "Result 0000, Z = 1, and the branch is taken."
- },
- "gateAngle": "Equality questions usually hide inside a datapath question: which flag does the branch read, and in which cycle is it valid. GATE CSE 2020 Q.4 is the sequencing version - the write-back step must follow the step that produces the value, and the same dependency logic tells you when Z is trustworthy.",
- "variations": [
-  {
-   "label": "ORIGINAL PYQ-STYLE QUESTION",
-   "question": "A 32-bit ALU compares with a 32-input NOR chain and then with a balanced NOR tree. Which is faster and by how much in gate delays?",
-   "answer": "The tree, by roughly a factor of 32/5 in depth: about 31 delays for the chain against about 5 levels for the tree.",
-   "why": "The same fan-in argument that makes carry look-ahead worth its gates makes a balanced zero-detect tree worth its gates."
+  "id": "zero-detect-and-equality",
+  "title": "Zero Detect: One NOR Tree, and the Branch That Reads It",
+  "priority": "P2",
+  "order": 498,
+  "unit": "Design of the Arithmetic and Logic Unit",
+  "quickIdea": "The zero flag is simply the NOR of every result bit. Equality is subtraction plus that flag, which is why a compare-and-branch instruction costs no extra hardware beyond the ALU and one status bit.",
+  "remember": [
+    "Z = 1 exactly when every result bit is 0, so Z = NOT (R[n-1] OR ... OR R[0]).",
+    "A - B = 0 exactly when A = B, so equality is a subtraction whose zero flag is read instead of whose result is written.",
+    "The zero detect tree adds gate delays proportional to log n if built as a balanced tree, or n if built as a chain.",
+    "The flag is sticky: it reports the last operation that was allowed to write flags, so a load that does not touch the flags leaves the old Z in place.",
+    "A branch such as BEQ reads Z and nothing else; the subtract's result is thrown away."
+  ],
+  "example": {
+    "prompt": "An ALU computes 0110 - 0110 in 4 bits. What are the result and the zero flag, and what does the branch do?",
+    "work": "0110 + 1001 + 1 = 1 0000, and the kept result is 0000 with carry out 1. All four bits are zero, so Z = 1. The BEQ instruction tests Z and takes the branch; the 0000 on the result lines is not written anywhere.",
+    "answer": "Result 0000, Z = 1, and the branch is taken."
   },
-  {
-   "label": "CONCEPTUAL PRACTICE QUESTION",
-   "question": "Why can a processor compare two registers without any comparator hardware at all?",
-   "answer": "Because subtraction already produces a zero result exactly when the operands are equal, and the zero flag reads that for free.",
-   "why": "Hardware reuse: the ALU is already there, and the zero flag is a few gates on its output."
+  "gateAngle": "Equality questions usually hide inside a datapath question: which flag does the branch read, and in which cycle is it valid. GATE CSE 2020 Q.4 is the sequencing version - the write-back step must follow the step that produces the value, and the same dependency logic tells you when Z is trustworthy.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "A 32-bit ALU compares with a 32-input NOR chain and then with a balanced NOR tree. Which is faster and by how much in gate delays?",
+      "answer": "The tree, by roughly a factor of 32/5 in depth: about 31 delays for the chain against about 5 levels for the tree.",
+      "why": "The same fan-in argument that makes carry look-ahead worth its gates makes a balanced zero-detect tree worth its gates."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Why can a processor compare two registers without any comparator hardware at all?",
+      "answer": "Because subtraction already produces a zero result exactly when the operands are equal, and the zero flag reads that for free.",
+      "why": "Hardware reuse: the ALU is already there, and the zero flag is a few gates on its output."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "A load instruction does not modify the flags. After ADD sets Z = 1, a load runs, then BEQ executes. Which Z does the branch read?",
+      "answer": "The Z left by the ADD, which is 1, because the load did not write the flag register.",
+      "why": "This stale-flag behaviour is real and is why architectures document which instructions affect the flags."
+    }
+  ],
+  "trap": {
+    "what": "Assuming the zero flag is recomputed continuously from the ALU output.",
+    "why": "The ALU output changes with every operand change; the flag is captured into a register at the end of the cycle, and only for instructions that are allowed to write it.",
+    "counterexample": "A branch immediately after a load that left the flags alone reads the flag from an earlier arithmetic instruction, not from the loaded value."
   },
-  {
-   "label": "PREDICTED VARIATION",
-   "question": "A load instruction does not modify the flags. After ADD sets Z = 1, a load runs, then BEQ executes. Which Z does the branch read?",
-   "answer": "The Z left by the ADD, which is 1, because the load did not write the flag register.",
-   "why": "This stale-flag behaviour is real and is why architectures document which instructions affect the flags."
+  "check": {
+    "question": "How many of the 16 four-bit pairs (A, B) give Z = 1 after A - B?",
+    "answer": "16, one for each value of A, since B must equal A.",
+    "explanation": "Z = 1 means A = B, and for each A there is exactly one such B, so 16 of the 256 ordered pairs."
+  },
+  "pyqIds": [],
+  "prereqs": [
+    "comparison-and-slt",
+    "status-flags-z-n-c-v"
+  ],
+  "sources": [
+    {
+      "kind": "lecture-slides",
+      "title": "Chapter 3 - ALU Design (slides following Patterson and Hennessy)",
+      "channel": "Curt Nelson, Walla Walla University, CPTR 380 Computer Organization",
+      "url": "https://gab.wallawalla.edu/~curt.nelson/cptr380/lecture/chapter3%20-%20alu%20design.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read the BEQ section: perform a - b and confirm that the result is all zeros, and the zero-detect note listing slt, slti, sltiu, sltu, beq and bne as the instructions that need it"
+    },
+    {
+      "kind": "lecture-transcript",
+      "title": "Lecture 13 - Flags and Conditional Instructions",
+      "channel": "NPTEL, Computer Organization and Architecture - A Pedagogical Aspect (IIT Guwahati)",
+      "url": "http://www.digimat.in/nptel/courses/video/106103180/lec13.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read the opening of the lecture: a condition such as x greater than y is checked in hardware by flag bits that are set or reset depending on the operation, and the conditional instruction tests those flags and decides whether to branch or fall through; conditional and unconditional branches are distinguished, and the program counter changes only when the condition holds"
+    }
+  ],
+  "sourceLine": "Equality as a subtraction whose result is checked for all zeros, and the list of instructions that need the zero detect: Curt Nelson's chapter 3 slides (English, read in part). The framing that a condition in a high-level language becomes a flag bit that a conditional instruction tests, with the program counter changing only when the condition holds: IIT Guwahati, Lecture 13 (English, read in part).",
+  "videoRefs": [],
+  "links": {
+    "mock": {
+      "subject": "computer-architecture",
+      "unit_slug": "datapath-control-unit",
+      "unit_name": "CPU Control Design & Data Path",
+      "unit_number": 2,
+      "question_count": 50,
+      "subtopics": [
+        {
+          "label": "Hardwired control",
+          "questions": 13
+        },
+        {
+          "label": "Microprogrammed control",
+          "questions": 12
+        },
+        {
+          "label": "ALU & datapath timing",
+          "questions": 13
+        },
+        {
+          "label": "Bus architectures",
+          "questions": 12
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-10-28.html"
+    },
+    "visual": {
+      "slug": "alu-and-control-unit-design",
+      "title": "ALU and Control Unit Design: Datapath, Hardwired and Microprogrammed Control",
+      "level": "topic-level",
+      "covers": [
+        "flags C, Z, S and V; V = carry-in(top) XOR carry-out(top)"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/alu-and-control-unit-design/index.html"
+    },
+    "mapped_at": "2026-10-31"
   }
- ],
- "trap": {
-  "what": "Assuming the zero flag is recomputed continuously from the ALU output.",
-  "why": "The ALU output changes with every operand change; the flag is captured into a register at the end of the cycle, and only for instructions that are allowed to write it.",
-  "counterexample": "A branch immediately after a load that left the flags alone reads the flag from an earlier arithmetic instruction, not from the loaded value."
- },
- "check": {
-  "question": "How many of the 16 four-bit pairs (A, B) give Z = 1 after A - B?",
-  "answer": "16, one for each value of A, since B must equal A.",
-  "explanation": "Z = 1 means A = B, and for each A there is exactly one such B, so 16 of the 256 ordered pairs."
- },
- "pyqIds": [],
- "prereqs": [
-  "comparison-and-slt",
-  "status-flags-z-n-c-v"
- ],
- "sources": [
-  {
-   "kind": "lecture-slides",
-   "title": "Chapter 3 - ALU Design (slides following Patterson and Hennessy)",
-   "channel": "Curt Nelson, Walla Walla University, CPTR 380 Computer Organization",
-   "url": "https://gab.wallawalla.edu/~curt.nelson/cptr380/lecture/chapter3%20-%20alu%20design.pdf",
-   "language": "en",
-   "transcript": "PARTIAL",
-   "translated": false,
-   "note": "read the BEQ section: perform a - b and confirm that the result is all zeros, and the zero-detect note listing slt, slti, sltiu, sltu, beq and bne as the instructions that need it"
-  },
-  {
-   "kind": "lecture-transcript",
-   "title": "Lecture 13 - Flags and Conditional Instructions",
-   "channel": "NPTEL, Computer Organization and Architecture - A Pedagogical Aspect (IIT Guwahati)",
-   "url": "http://www.digimat.in/nptel/courses/video/106103180/lec13.pdf",
-   "language": "en",
-   "transcript": "PARTIAL",
-   "translated": false,
-   "note": "read the opening of the lecture: a condition such as x greater than y is checked in hardware by flag bits that are set or reset depending on the operation, and the conditional instruction tests those flags and decides whether to branch or fall through; conditional and unconditional branches are distinguished, and the program counter changes only when the condition holds"
-  }
- ],
- "sourceLine": "Equality as a subtraction whose result is checked for all zeros, and the list of instructions that need the zero detect: Curt Nelson's chapter 3 slides (English, read in part). The framing that a condition in a high-level language becomes a flag bit that a conditional instruction tests, with the program counter changing only when the condition holds: IIT Guwahati, Lecture 13 (English, read in part).",
- "videoRefs": [],
- "links": {
-  "visual": {
-   "slug": "alu-design",
-   "title": "One Bit Slice, Four Functions: the ALU and Its Flags",
-   "level": "topic-level",
-   "covers": [
-    "one bit of an ALU: an adder, an AND gate, an OR gate and an output multiplexer",
-    "the function-select code chooses among at most 2^k operations for k select bits",
-    "the result and the four status flags for each selected function"
-   ],
-   "url": "https://gate-visual-explainer.vercel.app/topics/alu-design/index.html"
-  },
-  "mapped_at": "2026-10-31"
- }
 }

@@ -1,97 +1,121 @@
 {
- "id": "alu-input-multiplexers-and-operand-sources",
- "title": "Multiplexers in Front of the ALU: What Can Reach Each Input",
- "priority": "P1",
- "order": 496,
- "unit": "Design of the Arithmetic and Logic Unit",
- "quickIdea": "The ALU does not care where its operands come from. A multiplexer on each input decides that, and because the two select lines are independent, the datapath can be fed register-register, register-immediate or immediate-immediate.",
- "remember": [
-  "One multiplexer per ALU input, each with its own select line, unless the design deliberately ties them together.",
-  "Two independent 2:1 multiplexers give 2 x 2 = 4 operand-source combinations, not 2.",
-  "The ALU's function code and the input multiplexers' select lines are separate control fields; one says what to compute, the other says what to compute it on.",
-  "The register file is read first, so a register operand and an immediate operand can both be available in the same cycle - that is what makes a single-cycle datapath possible.",
-  "An immediate field is extended to the word width before it reaches the multiplexer, so the ALU always sees two n-bit values."
- ],
- "example": {
-  "prompt": "A datapath has Mux_A choosing between register RA and a 32-bit immediate, and Mux_B choosing between register RB and a 32-bit immediate. Which operand combinations can the ALU be given?",
-  "work": "Each multiplexer has two settings and they are controlled independently, so the pairs are (RA, RB), (RA, imm), (imm, RB) and (imm, imm). All four are electrically possible; whether a compiler would ever emit the last one is a different question.",
-  "answer": "All four combinations, which is 2 x 2 = 4, including two immediates at once."
- },
- "gateAngle": "This is GATE CSE 2025 Set 1 Q.27, an MSQ whose answer is A, B and C: two registers, one register with one immediate, and two immediates are all implementable. Option D fails only because of the word 'only'. The question rewards reading the two select lines as independent, and the common error is to assume a hardware design must be useful as well as possible.",
- "variations": [
-  {
-   "label": "ORIGINAL PYQ-STYLE QUESTION",
-   "question": "The two input multiplexers share one select line instead of having one each. How many operand combinations remain?",
-   "answer": "Two: (register, register) and (immediate, immediate).",
-   "why": "One select line makes the choices correlated, which is exactly the case the 2025 question does not describe."
+  "id": "alu-input-multiplexers-and-operand-sources",
+  "title": "Multiplexers in Front of the ALU: What Can Reach Each Input",
+  "priority": "P1",
+  "order": 496,
+  "unit": "Design of the Arithmetic and Logic Unit",
+  "quickIdea": "The ALU does not care where its operands come from. A multiplexer on each input decides that, and because the two select lines are independent, the datapath can be fed register-register, register-immediate or immediate-immediate.",
+  "remember": [
+    "One multiplexer per ALU input, each with its own select line, unless the design deliberately ties them together.",
+    "Two independent 2:1 multiplexers give 2 x 2 = 4 operand-source combinations, not 2.",
+    "The ALU's function code and the input multiplexers' select lines are separate control fields; one says what to compute, the other says what to compute it on.",
+    "The register file is read first, so a register operand and an immediate operand can both be available in the same cycle - that is what makes a single-cycle datapath possible.",
+    "An immediate field is extended to the word width before it reaches the multiplexer, so the ALU always sees two n-bit values."
+  ],
+  "example": {
+    "prompt": "A datapath has Mux_A choosing between register RA and a 32-bit immediate, and Mux_B choosing between register RB and a 32-bit immediate. Which operand combinations can the ALU be given?",
+    "work": "Each multiplexer has two settings and they are controlled independently, so the pairs are (RA, RB), (RA, imm), (imm, RB) and (imm, imm). All four are electrically possible; whether a compiler would ever emit the last one is a different question.",
+    "answer": "All four combinations, which is 2 x 2 = 4, including two immediates at once."
   },
-  {
-   "label": "CONCEPTUAL PRACTICE QUESTION",
-   "question": "Why does an immediate need sign- or zero-extension before the ALU sees it?",
-   "answer": "Because the ALU is n bits wide and the immediate field is narrower; an unextended field would leave the upper bits undefined.",
-   "why": "This is the same width rule as the block contract, applied at the input instead of the output."
+  "gateAngle": "This is GATE CSE 2025 Set 1 Q.27, an MSQ whose answer is A, B and C: two registers, one register with one immediate, and two immediates are all implementable. Option D fails only because of the word 'only'. The question rewards reading the two select lines as independent, and the common error is to assume a hardware design must be useful as well as possible.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "The two input multiplexers share one select line instead of having one each. How many operand combinations remain?",
+      "answer": "Two: (register, register) and (immediate, immediate).",
+      "why": "One select line makes the choices correlated, which is exactly the case the 2025 question does not describe."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Why does an immediate need sign- or zero-extension before the ALU sees it?",
+      "answer": "Because the ALU is n bits wide and the immediate field is narrower; an unextended field would leave the upper bits undefined.",
+      "why": "This is the same width rule as the block contract, applied at the input instead of the output."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "Each ALU input multiplexer is 4:1 rather than 2:1. How many select bits does each need, and how many operand-source combinations exist?",
+      "answer": "Two select bits each, and 4 x 4 = 16 combinations.",
+      "why": "The count of combinations multiplies; the select bits add, 2 + 2 = 4 in all."
+    }
+  ],
+  "trap": {
+    "what": "Reading 'can implement' as 'is designed to be used for'.",
+    "why": "A datapath question asks what the wiring makes possible, not what a compiler would generate.",
+    "counterexample": "Two immediates added together is a pointless instruction, yet the hardware performs it happily - and that is why option C of the 2025 question is correct."
   },
-  {
-   "label": "PREDICTED VARIATION",
-   "question": "Each ALU input multiplexer is 4:1 rather than 2:1. How many select bits does each need, and how many operand-source combinations exist?",
-   "answer": "Two select bits each, and 4 x 4 = 16 combinations.",
-   "why": "The count of combinations multiplies; the select bits add, 2 + 2 = 4 in all."
+  "check": {
+    "question": "Two independent 2:1 multiplexers feed the ALU. If each select line is one bit, how many distinct control settings exist for the pair?",
+    "answer": "Four: 2^2 = 4.",
+    "explanation": "One bit per multiplexer, so the pair is a two-bit control field. The trap is answering two, one per multiplexer."
+  },
+  "pyqIds": [
+    "gate-2025-set1-27-datapath-operand-sources"
+  ],
+  "prereqs": [
+    "alu-block-contract",
+    "multiplexer-and-select-lines",
+    "instruction-field-bit-budget"
+  ],
+  "sources": [
+    {
+      "kind": "lecture-slides",
+      "title": "Chapter 3 - ALU Design (slides following Patterson and Hennessy)",
+      "channel": "Curt Nelson, Walla Walla University, CPTR 380 Computer Organization",
+      "url": "https://gab.wallawalla.edu/~curt.nelson/cptr380/lecture/chapter3%20-%20alu%20design.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read the datapath overview: the CPU needs the register file, the ALU and the control logic, the program counter fetches the instruction, and the register values are read before the ALU is used, with the multiplexers not drawn in the big picture. The ALU-control table and the one-bit ALU design were also read and are used on the neighbouring cards"
+    },
+    {
+      "kind": "text",
+      "title": "ALU in computer system and its main functions in Hindi",
+      "channel": "notesinhindi.com (Hindi study article on the arithmetic logic unit)",
+      "url": "https://www.notesinhindi.com/blog/alu-in-computer-system-and-its-main-functions-in-hindi",
+      "language": "hi",
+      "transcript": "PARTIAL",
+      "translated": true,
+      "note": "read the sections stating that the ALU receives its data from the registers and returns the result to a register or memory, and that the control unit decides which operation the ALU performs. Translated into English here"
+    }
+  ],
+  "sourceLine": "The datapath framing, with the register file read before the ALU and the operand steering done by multiplexers that the block diagram leaves out: Curt Nelson's chapter 3 slides (English, read in part). The statement, translated from Hindi, that data reaches the ALU from registers and its result returns to a register: notesinhindi.com (Hindi, translated, read in part). The 2025 answer is recomputed by counting the multiplexer settings in scripts/validate.py.",
+  "videoRefs": [],
+  "links": {
+    "mock": {
+      "subject": "computer-architecture",
+      "unit_slug": "datapath-control-unit",
+      "unit_name": "CPU Control Design & Data Path",
+      "unit_number": 2,
+      "question_count": 50,
+      "subtopics": [
+        {
+          "label": "Hardwired control",
+          "questions": 13
+        },
+        {
+          "label": "Microprogrammed control",
+          "questions": 12
+        },
+        {
+          "label": "ALU & datapath timing",
+          "questions": 13
+        },
+        {
+          "label": "Bus architectures",
+          "questions": 12
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-10-28.html"
+    },
+    "visual": {
+      "slug": "alu-and-control-unit-design",
+      "title": "ALU and Control Unit Design: Datapath, Hardwired and Microprogrammed Control",
+      "level": "topic-level",
+      "covers": [
+        "the one-bit slice: AND, OR, full adder, multiplexer"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/alu-and-control-unit-design/index.html"
+    },
+    "mapped_at": "2026-10-31"
   }
- ],
- "trap": {
-  "what": "Reading 'can implement' as 'is designed to be used for'.",
-  "why": "A datapath question asks what the wiring makes possible, not what a compiler would generate.",
-  "counterexample": "Two immediates added together is a pointless instruction, yet the hardware performs it happily - and that is why option C of the 2025 question is correct."
- },
- "check": {
-  "question": "Two independent 2:1 multiplexers feed the ALU. If each select line is one bit, how many distinct control settings exist for the pair?",
-  "answer": "Four: 2^2 = 4.",
-  "explanation": "One bit per multiplexer, so the pair is a two-bit control field. The trap is answering two, one per multiplexer."
- },
- "pyqIds": [
-  "gate-2025-set1-27-datapath-operand-sources"
- ],
- "prereqs": [
-  "alu-block-contract",
-  "multiplexer-and-select-lines",
-  "instruction-field-bit-budget"
- ],
- "sources": [
-  {
-   "kind": "lecture-slides",
-   "title": "Chapter 3 - ALU Design (slides following Patterson and Hennessy)",
-   "channel": "Curt Nelson, Walla Walla University, CPTR 380 Computer Organization",
-   "url": "https://gab.wallawalla.edu/~curt.nelson/cptr380/lecture/chapter3%20-%20alu%20design.pdf",
-   "language": "en",
-   "transcript": "PARTIAL",
-   "translated": false,
-   "note": "read the datapath overview: the CPU needs the register file, the ALU and the control logic, the program counter fetches the instruction, and the register values are read before the ALU is used, with the multiplexers not drawn in the big picture. The ALU-control table and the one-bit ALU design were also read and are used on the neighbouring cards"
-  },
-  {
-   "kind": "text",
-   "title": "ALU in computer system and its main functions in Hindi",
-   "channel": "notesinhindi.com (Hindi study article on the arithmetic logic unit)",
-   "url": "https://www.notesinhindi.com/blog/alu-in-computer-system-and-its-main-functions-in-hindi",
-   "language": "hi",
-   "transcript": "PARTIAL",
-   "translated": true,
-   "note": "read the sections stating that the ALU receives its data from the registers and returns the result to a register or memory, and that the control unit decides which operation the ALU performs. Translated into English here"
-  }
- ],
- "sourceLine": "The datapath framing, with the register file read before the ALU and the operand steering done by multiplexers that the block diagram leaves out: Curt Nelson's chapter 3 slides (English, read in part). The statement, translated from Hindi, that data reaches the ALU from registers and its result returns to a register: notesinhindi.com (Hindi, translated, read in part). The 2025 answer is recomputed by counting the multiplexer settings in scripts/validate.py.",
- "videoRefs": [],
- "links": {
-  "visual": {
-   "slug": "alu-design",
-   "title": "One Bit Slice, Four Functions: the ALU and Its Flags",
-   "level": "topic-level",
-   "covers": [
-    "one bit of an ALU: an adder, an AND gate, an OR gate and an output multiplexer",
-    "the function-select code chooses among at most 2^k operations for k select bits",
-    "the result and the four status flags for each selected function"
-   ],
-   "url": "https://gate-visual-explainer.vercel.app/topics/alu-design/index.html"
-  },
-  "mapped_at": "2026-10-31"
- }
 }

@@ -1,97 +1,121 @@
 {
- "id": "single-bus-datapath-and-temporaries",
- "title": "The Single-Bus Datapath and Its Temporary Registers",
- "priority": "P1",
- "order": 502,
- "unit": "Design of the Arithmetic and Logic Unit",
- "quickIdea": "On a single-bus datapath only one register can drive the bus in a cycle, so an operation with two register operands must first park one of them in a temporary register - and the result needs a second temporary before it can reach its destination.",
- "remember": [
-  "One driver per cycle: the bus carries one value, though any number of registers may load from it in the same cycle.",
-  "A + B with both operands in the register file needs A latched into a temporary, because the bus cannot carry both operands at once.",
-  "The ALU result also needs a temporary (or the destination may be written in the same cycle the operands leave), which is why designs carry two temporaries next to the ALU.",
-  "A three-bus datapath removes the temporaries entirely: two buses feed the two ALU inputs directly, so fewer control steps and fewer registers are needed.",
-  "The temporaries are invisible in the instruction set; they exist because of the bus, and the same instruction takes more cycles on a single-bus machine."
- ],
- "example": {
-  "prompt": "On a single-bus datapath with one temporary on each ALU input, list the micro-operations for R0 <- R1 + R2.",
-  "work": "The bus can carry one value per cycle. First R1 is put on the bus and latched into TEMP1. Then R2 is put on the bus while TEMP1 feeds the ALU's other input, and the sum is latched into TEMP2. Finally TEMP2 drives the bus and R0 loads it. The fetch (PC to MAR, memory read, MDR to IR) has already happened.",
-  "answer": "R1 -> TEMP1; TEMP1 + R2 -> TEMP2; TEMP2 -> R0, in three cycles after the fetch."
- },
- "gateAngle": "This is GATE CSE 2020 Q.4, where five candidate steps must be ordered: fetch first (PC to MAR with a memory read, then MDR to IR), then R1 into TEMP1, then the addition into TEMP2, then TEMP2 into R0. The accepted answer is the order 3, 5, 2, 1, 4. The dependency that decides it is that the ALU step reads TEMP1, so the step writing TEMP1 must come first.",
- "variations": [
-  {
-   "label": "ORIGINAL PYQ-STYLE QUESTION",
-   "question": "The same datapath must compute R0 <- R1 + R2 where R1 and R2 are both in memory. How many extra cycles does the memory access add, if each memory read takes two cycles?",
-   "answer": "Four extra cycles, seven in all for the execute phase, before the fetch is counted.",
-   "why": "Each operand must be fetched into a register before it can be used: 2 cycles for R1, 2 for R2, then the three register cycles of the register-register case."
+  "id": "single-bus-datapath-and-temporaries",
+  "title": "The Single-Bus Datapath and Its Temporary Registers",
+  "priority": "P1",
+  "order": 502,
+  "unit": "Design of the Arithmetic and Logic Unit",
+  "quickIdea": "On a single-bus datapath only one register can drive the bus in a cycle, so an operation with two register operands must first park one of them in a temporary register - and the result needs a second temporary before it can reach its destination.",
+  "remember": [
+    "One driver per cycle: the bus carries one value, though any number of registers may load from it in the same cycle.",
+    "A + B with both operands in the register file needs A latched into a temporary, because the bus cannot carry both operands at once.",
+    "The ALU result also needs a temporary (or the destination may be written in the same cycle the operands leave), which is why designs carry two temporaries next to the ALU.",
+    "A three-bus datapath removes the temporaries entirely: two buses feed the two ALU inputs directly, so fewer control steps and fewer registers are needed.",
+    "The temporaries are invisible in the instruction set; they exist because of the bus, and the same instruction takes more cycles on a single-bus machine."
+  ],
+  "example": {
+    "prompt": "On a single-bus datapath with one temporary on each ALU input, list the micro-operations for R0 <- R1 + R2.",
+    "work": "The bus can carry one value per cycle. First R1 is put on the bus and latched into TEMP1. Then R2 is put on the bus while TEMP1 feeds the ALU's other input, and the sum is latched into TEMP2. Finally TEMP2 drives the bus and R0 loads it. The fetch (PC to MAR, memory read, MDR to IR) has already happened.",
+    "answer": "R1 -> TEMP1; TEMP1 + R2 -> TEMP2; TEMP2 -> R0, in three cycles after the fetch."
   },
-  {
-   "label": "CONCEPTUAL PRACTICE QUESTION",
-   "question": "Why does a three-bus datapath need fewer temporary registers?",
-   "answer": "Because two buses can carry the two operands to the ALU at once, so nothing has to be parked while the other operand travels.",
-   "why": "The bus count sets the number of simultaneous transfers, and the temporaries exist only to resolve that conflict."
+  "gateAngle": "This is GATE CSE 2020 Q.4, where five candidate steps must be ordered: fetch first (PC to MAR with a memory read, then MDR to IR), then R1 into TEMP1, then the addition into TEMP2, then TEMP2 into R0. The accepted answer is the order 3, 5, 2, 1, 4. The dependency that decides it is that the ALU step reads TEMP1, so the step writing TEMP1 must come first.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "The same datapath must compute R0 <- R1 + R2 where R1 and R2 are both in memory. How many extra cycles does the memory access add, if each memory read takes two cycles?",
+      "answer": "Four extra cycles, seven in all for the execute phase, before the fetch is counted.",
+      "why": "Each operand must be fetched into a register before it can be used: 2 cycles for R1, 2 for R2, then the three register cycles of the register-register case."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Why does a three-bus datapath need fewer temporary registers?",
+      "answer": "Because two buses can carry the two operands to the ALU at once, so nothing has to be parked while the other operand travels.",
+      "why": "The bus count sets the number of simultaneous transfers, and the temporaries exist only to resolve that conflict."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "A datapath has two buses but the ALU's two inputs are both fed from the same one. Does that remove the temporary?",
+      "answer": "No: the conflict is at the ALU's inputs, not at the bus count, so one operand still has to be held.",
+      "why": "This is the trap of counting buses instead of counting simultaneous operand paths."
+    }
+  ],
+  "trap": {
+    "what": "Thinking a two-operand instruction needs one bus cycle because the ALU takes both operands at once.",
+    "why": "The ALU is combinational, but the bus is not: the operands must arrive one at a time unless there are separate paths.",
+    "counterexample": "R0 <- R1 + R2 on a single bus: putting R1 and R2 on the bus in the same cycle is impossible, so one of them must be latched first."
   },
-  {
-   "label": "PREDICTED VARIATION",
-   "question": "A datapath has two buses but the ALU's two inputs are both fed from the same one. Does that remove the temporary?",
-   "answer": "No: the conflict is at the ALU's inputs, not at the bus count, so one operand still has to be held.",
-   "why": "This is the trap of counting buses instead of counting simultaneous operand paths."
+  "check": {
+    "question": "On a single-bus datapath, how many registers may drive the bus in one cycle, and how many may load from it?",
+    "answer": "Exactly one may drive; any number may load.",
+    "explanation": "Two drivers would short their outputs together. This single sentence decides most single-bus cycle-counting questions."
+  },
+  "pyqIds": [
+    "gate-2020-4-alu-microop-order"
+  ],
+  "prereqs": [
+    "alu-block-contract",
+    "alu-input-multiplexers-and-operand-sources",
+    "registers-and-shift-registers"
+  ],
+  "sources": [
+    {
+      "kind": "lecture-transcript",
+      "title": "Lecture 23 - Different Internal CPU Bus Organization",
+      "channel": "NPTEL, Computer Organization and Architecture - A Pedagogical Aspect (IIT Guwahati)",
+      "url": "http://www.digimat.in/nptel/courses/video/106103180/lec23.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read the comparison of bus organisations: on a single-bus CPU, adding two values needs one of them stored in a temporary register, the second operand fed through the bus, and the result stored in another temporary because the bus is carrying the second operand; a three-bus organisation needs fewer control steps and fewer temporaries, at the cost of more hardware and harder control"
+    },
+    {
+      "kind": "lecture-transcript",
+      "title": "Lecture 16 - Instruction Cycle and Micro-operations",
+      "channel": "NPTEL, Computer Organization and Architecture - A Pedagogical Aspect (IIT Guwahati)",
+      "url": "http://www.digimat.in/nptel/courses/video/106103180/lec15.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read the module framing: an instruction is broken into micro-operations, the units are interconnected by a single bus, two buses or three buses, and the number of buses changes the number of control signals and the speed of execution"
+    }
+  ],
+  "sourceLine": "The statement that a single-bus CPU must park one operand in a temporary and the result in another, and that a three-bus organisation needs fewer control steps and fewer temporaries: IIT Guwahati, Lecture 23 (English, read in part). The framing of an instruction as a sequence of micro-operations whose control signals depend on the bus organisation: IIT Guwahati, Lecture 16 (English, read in part). The 2020 ordering is re-derived from its own dependency list in scripts/validate.py.",
+  "videoRefs": [],
+  "links": {
+    "mock": {
+      "subject": "computer-architecture",
+      "unit_slug": "datapath-control-unit",
+      "unit_name": "CPU Control Design & Data Path",
+      "unit_number": 2,
+      "question_count": 50,
+      "subtopics": [
+        {
+          "label": "Hardwired control",
+          "questions": 13
+        },
+        {
+          "label": "Microprogrammed control",
+          "questions": 12
+        },
+        {
+          "label": "ALU & datapath timing",
+          "questions": 13
+        },
+        {
+          "label": "Bus architectures",
+          "questions": 12
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-10-28.html"
+    },
+    "visual": {
+      "slug": "alu-and-control-unit-design",
+      "title": "ALU and Control Unit Design: Datapath, Hardwired and Microprogrammed Control",
+      "level": "topic-level",
+      "covers": [
+        "single-bus datapath: one transfer per control step"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/alu-and-control-unit-design/index.html"
+    },
+    "mapped_at": "2026-10-31"
   }
- ],
- "trap": {
-  "what": "Thinking a two-operand instruction needs one bus cycle because the ALU takes both operands at once.",
-  "why": "The ALU is combinational, but the bus is not: the operands must arrive one at a time unless there are separate paths.",
-  "counterexample": "R0 <- R1 + R2 on a single bus: putting R1 and R2 on the bus in the same cycle is impossible, so one of them must be latched first."
- },
- "check": {
-  "question": "On a single-bus datapath, how many registers may drive the bus in one cycle, and how many may load from it?",
-  "answer": "Exactly one may drive; any number may load.",
-  "explanation": "Two drivers would short their outputs together. This single sentence decides most single-bus cycle-counting questions."
- },
- "pyqIds": [
-  "gate-2020-4-alu-microop-order"
- ],
- "prereqs": [
-  "alu-block-contract",
-  "alu-input-multiplexers-and-operand-sources",
-  "registers-and-shift-registers"
- ],
- "sources": [
-  {
-   "kind": "lecture-transcript",
-   "title": "Lecture 23 - Different Internal CPU Bus Organization",
-   "channel": "NPTEL, Computer Organization and Architecture - A Pedagogical Aspect (IIT Guwahati)",
-   "url": "http://www.digimat.in/nptel/courses/video/106103180/lec23.pdf",
-   "language": "en",
-   "transcript": "PARTIAL",
-   "translated": false,
-   "note": "read the comparison of bus organisations: on a single-bus CPU, adding two values needs one of them stored in a temporary register, the second operand fed through the bus, and the result stored in another temporary because the bus is carrying the second operand; a three-bus organisation needs fewer control steps and fewer temporaries, at the cost of more hardware and harder control"
-  },
-  {
-   "kind": "lecture-transcript",
-   "title": "Lecture 16 - Instruction Cycle and Micro-operations",
-   "channel": "NPTEL, Computer Organization and Architecture - A Pedagogical Aspect (IIT Guwahati)",
-   "url": "http://www.digimat.in/nptel/courses/video/106103180/lec15.pdf",
-   "language": "en",
-   "transcript": "PARTIAL",
-   "translated": false,
-   "note": "read the module framing: an instruction is broken into micro-operations, the units are interconnected by a single bus, two buses or three buses, and the number of buses changes the number of control signals and the speed of execution"
-  }
- ],
- "sourceLine": "The statement that a single-bus CPU must park one operand in a temporary and the result in another, and that a three-bus organisation needs fewer control steps and fewer temporaries: IIT Guwahati, Lecture 23 (English, read in part). The framing of an instruction as a sequence of micro-operations whose control signals depend on the bus organisation: IIT Guwahati, Lecture 16 (English, read in part). The 2020 ordering is re-derived from its own dependency list in scripts/validate.py.",
- "videoRefs": [],
- "links": {
-  "visual": {
-   "slug": "alu-design",
-   "title": "One Bit Slice, Four Functions: the ALU and Its Flags",
-   "level": "topic-level",
-   "covers": [
-    "one bit of an ALU: an adder, an AND gate, an OR gate and an output multiplexer",
-    "the function-select code chooses among at most 2^k operations for k select bits",
-    "the result and the four status flags for each selected function"
-   ],
-   "url": "https://gate-visual-explainer.vercel.app/topics/alu-design/index.html"
-  },
-  "mapped_at": "2026-10-31"
- }
 }

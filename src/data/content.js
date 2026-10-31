@@ -32494,26 +32494,26 @@ window.GATE_DATA = {
      "unit_slug": "number-systems",
      "unit_name": "Number Systems & Representation",
      "unit_number": 1,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
        "label": "Base conversions",
-       "questions": 15
-      },
-      {
-       "label": "Floating point & IEEE 754",
-       "questions": 11
+       "questions": 22
       },
       {
        "label": "One's & two's complement",
-       "questions": 13
+       "questions": 19
       },
       {
        "label": "Range & overflow",
-       "questions": 11
+       "questions": 17
+      },
+      {
+       "label": "Floating point & IEEE 754",
+       "questions": 17
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-10-27.html"
+     "url": "https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-10-31.html"
     },
     "visual": {
      "slug": "number-representation-and-arithmetic",
@@ -33601,26 +33601,26 @@ window.GATE_DATA = {
      "unit_slug": "number-systems",
      "unit_name": "Number Systems & Representation",
      "unit_number": 1,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
        "label": "Base conversions",
-       "questions": 15
-      },
-      {
-       "label": "Floating point & IEEE 754",
-       "questions": 11
+       "questions": 22
       },
       {
        "label": "One's & two's complement",
-       "questions": 13
+       "questions": 19
       },
       {
        "label": "Range & overflow",
-       "questions": 11
+       "questions": 17
+      },
+      {
+       "label": "Floating point & IEEE 754",
+       "questions": 17
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-10-27.html"
+     "url": "https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-10-31.html"
     },
     "visual": {
      "slug": "number-representation-and-arithmetic",
@@ -35024,16 +35024,41 @@ window.GATE_DATA = {
    "sourceLine": "The framing of the ALU as the block that turns an instruction's control signals into one operation on two word-wide operands: Anshul Kumar, Lecture 11 (English, read in part). The statement, translated from Hindi, that the unit is split into an arithmetic section and a logic section, that data arrives from registers and the result returns to a register, and that the control unit drives it while the flags it sets are read later: notesinhindi.com (Hindi, translated, read in part).",
    "videoRefs": [],
    "links": {
+    "mock": {
+     "subject": "computer-architecture",
+     "unit_slug": "datapath-control-unit",
+     "unit_name": "CPU Control Design & Data Path",
+     "unit_number": 2,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Hardwired control",
+       "questions": 13
+      },
+      {
+       "label": "Microprogrammed control",
+       "questions": 12
+      },
+      {
+       "label": "ALU & datapath timing",
+       "questions": 13
+      },
+      {
+       "label": "Bus architectures",
+       "questions": 12
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-10-28.html"
+    },
     "visual": {
-     "slug": "alu-design",
-     "title": "One Bit Slice, Four Functions: the ALU and Its Flags",
+     "slug": "alu-and-control-unit-design",
+     "title": "ALU and Control Unit Design: Datapath, Hardwired and Microprogrammed Control",
      "level": "topic-level",
      "covers": [
-      "one bit of an ALU: an adder, an AND gate, an OR gate and an output multiplexer",
-      "the function-select code chooses among at most 2^k operations for k select bits",
-      "the result and the four status flags for each selected function"
+      "ALU as a combinational block with a function-select input",
+      "the one-bit slice: AND, OR, full adder, multiplexer"
      ],
-     "url": "https://gate-visual-explainer.vercel.app/topics/alu-design/index.html"
+     "url": "https://gate-visual-explainer.vercel.app/topics/alu-and-control-unit-design/index.html"
     },
     "mapped_at": "2026-10-31"
    },
@@ -35124,16 +35149,40 @@ window.GATE_DATA = {
    "sourceLine": "The slice structure - a 1-bit adder with an inverter and a multiplexer for add against subtract, AND and OR gates, and an output multiplexer over the three sources, needing two select bits plus one mode bit, chained across 32 blocks: Anshul Kumar, Lecture 12 (English, read in part). The statement that a 4-bit ALU is four 1-bit blocks built from AND, OR, XOR, a full adder and a 4-to-1 multiplexer, with two select lines giving four functions: the IIT Kharagpur virtual-lab page (English, read in part). The 2003 question's four settings of K and C0 are recomputed in scripts/validate.py.",
    "videoRefs": [],
    "links": {
+    "mock": {
+     "subject": "computer-architecture",
+     "unit_slug": "datapath-control-unit",
+     "unit_name": "CPU Control Design & Data Path",
+     "unit_number": 2,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Hardwired control",
+       "questions": 13
+      },
+      {
+       "label": "Microprogrammed control",
+       "questions": 12
+      },
+      {
+       "label": "ALU & datapath timing",
+       "questions": 13
+      },
+      {
+       "label": "Bus architectures",
+       "questions": 12
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-10-28.html"
+    },
     "visual": {
-     "slug": "alu-design",
-     "title": "One Bit Slice, Four Functions: the ALU and Its Flags",
+     "slug": "alu-and-control-unit-design",
+     "title": "ALU and Control Unit Design: Datapath, Hardwired and Microprogrammed Control",
      "level": "topic-level",
      "covers": [
-      "one bit of an ALU: an adder, an AND gate, an OR gate and an output multiplexer",
-      "the function-select code chooses among at most 2^k operations for k select bits",
-      "the result and the four status flags for each selected function"
+      "the one-bit slice: AND, OR, full adder, multiplexer"
      ],
-     "url": "https://gate-visual-explainer.vercel.app/topics/alu-design/index.html"
+     "url": "https://gate-visual-explainer.vercel.app/topics/alu-and-control-unit-design/index.html"
     },
     "mapped_at": "2026-10-31"
    },
@@ -35224,16 +35273,40 @@ window.GATE_DATA = {
    "sourceLine": "One control signal per function, the fault of asserting two at once, the binary function code with a decoder and the reason for a do-nothing code on a shared bus: Edward Bosworth's chapter 5 slides (English, read in part). The two-select-line encoding AND/OR/XOR/ADD: the IIT Kharagpur virtual-lab page (English, read in part). The 2003 question's answer is recomputed by enumerating its four control settings in scripts/validate.py.",
    "videoRefs": [],
    "links": {
+    "mock": {
+     "subject": "computer-architecture",
+     "unit_slug": "datapath-control-unit",
+     "unit_name": "CPU Control Design & Data Path",
+     "unit_number": 2,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Hardwired control",
+       "questions": 13
+      },
+      {
+       "label": "Microprogrammed control",
+       "questions": 12
+      },
+      {
+       "label": "ALU & datapath timing",
+       "questions": 13
+      },
+      {
+       "label": "Bus architectures",
+       "questions": 12
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-10-28.html"
+    },
     "visual": {
-     "slug": "alu-design",
-     "title": "One Bit Slice, Four Functions: the ALU and Its Flags",
+     "slug": "alu-and-control-unit-design",
+     "title": "ALU and Control Unit Design: Datapath, Hardwired and Microprogrammed Control",
      "level": "topic-level",
      "covers": [
-      "one bit of an ALU: an adder, an AND gate, an OR gate and an output multiplexer",
-      "the function-select code chooses among at most 2^k operations for k select bits",
-      "the result and the four status flags for each selected function"
+      "k functions need ceil(log2 k) select lines; unused codes"
      ],
-     "url": "https://gate-visual-explainer.vercel.app/topics/alu-design/index.html"
+     "url": "https://gate-visual-explainer.vercel.app/topics/alu-and-control-unit-design/index.html"
     },
     "mapped_at": "2026-10-31"
    },
@@ -35324,16 +35397,40 @@ window.GATE_DATA = {
    "sourceLine": "The datapath framing, with the register file read before the ALU and the operand steering done by multiplexers that the block diagram leaves out: Curt Nelson's chapter 3 slides (English, read in part). The statement, translated from Hindi, that data reaches the ALU from registers and its result returns to a register: notesinhindi.com (Hindi, translated, read in part). The 2025 answer is recomputed by counting the multiplexer settings in scripts/validate.py.",
    "videoRefs": [],
    "links": {
+    "mock": {
+     "subject": "computer-architecture",
+     "unit_slug": "datapath-control-unit",
+     "unit_name": "CPU Control Design & Data Path",
+     "unit_number": 2,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Hardwired control",
+       "questions": 13
+      },
+      {
+       "label": "Microprogrammed control",
+       "questions": 12
+      },
+      {
+       "label": "ALU & datapath timing",
+       "questions": 13
+      },
+      {
+       "label": "Bus architectures",
+       "questions": 12
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-10-28.html"
+    },
     "visual": {
-     "slug": "alu-design",
-     "title": "One Bit Slice, Four Functions: the ALU and Its Flags",
+     "slug": "alu-and-control-unit-design",
+     "title": "ALU and Control Unit Design: Datapath, Hardwired and Microprogrammed Control",
      "level": "topic-level",
      "covers": [
-      "one bit of an ALU: an adder, an AND gate, an OR gate and an output multiplexer",
-      "the function-select code chooses among at most 2^k operations for k select bits",
-      "the result and the four status flags for each selected function"
+      "the one-bit slice: AND, OR, full adder, multiplexer"
      ],
-     "url": "https://gate-visual-explainer.vercel.app/topics/alu-design/index.html"
+     "url": "https://gate-visual-explainer.vercel.app/topics/alu-and-control-unit-design/index.html"
     },
     "mapped_at": "2026-10-31"
    },
@@ -35421,16 +35518,31 @@ window.GATE_DATA = {
    "sourceLine": "Comparison by subtraction, the Less signal routed from the top slice to bit 0, and the note that the top slice detects both sign and overflow: Curt Nelson's chapter 3 slides (English, read in part). The two ways of comparing - subtract and test, or build a direct comparator from a recursive greater-than - and the warning that the sign is meaningful only for signed numbers: Anshul Kumar, Lecture 12 (English, read in part). The overflow correction is recomputed by enumeration over all 4-bit pairs in scripts/validate.py.",
    "videoRefs": [],
    "links": {
-    "visual": {
-     "slug": "alu-design",
-     "title": "One Bit Slice, Four Functions: the ALU and Its Flags",
-     "level": "topic-level",
-     "covers": [
-      "one bit of an ALU: an adder, an AND gate, an OR gate and an output multiplexer",
-      "the function-select code chooses among at most 2^k operations for k select bits",
-      "the result and the four status flags for each selected function"
+    "mock": {
+     "subject": "computer-architecture",
+     "unit_slug": "datapath-control-unit",
+     "unit_name": "CPU Control Design & Data Path",
+     "unit_number": 2,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Hardwired control",
+       "questions": 13
+      },
+      {
+       "label": "Microprogrammed control",
+       "questions": 12
+      },
+      {
+       "label": "ALU & datapath timing",
+       "questions": 13
+      },
+      {
+       "label": "Bus architectures",
+       "questions": 12
+      }
      ],
-     "url": "https://gate-visual-explainer.vercel.app/topics/alu-design/index.html"
+     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-10-28.html"
     },
     "mapped_at": "2026-10-31"
    },
@@ -35518,16 +35630,40 @@ window.GATE_DATA = {
    "sourceLine": "Equality as a subtraction whose result is checked for all zeros, and the list of instructions that need the zero detect: Curt Nelson's chapter 3 slides (English, read in part). The framing that a condition in a high-level language becomes a flag bit that a conditional instruction tests, with the program counter changing only when the condition holds: IIT Guwahati, Lecture 13 (English, read in part).",
    "videoRefs": [],
    "links": {
+    "mock": {
+     "subject": "computer-architecture",
+     "unit_slug": "datapath-control-unit",
+     "unit_name": "CPU Control Design & Data Path",
+     "unit_number": 2,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Hardwired control",
+       "questions": 13
+      },
+      {
+       "label": "Microprogrammed control",
+       "questions": 12
+      },
+      {
+       "label": "ALU & datapath timing",
+       "questions": 13
+      },
+      {
+       "label": "Bus architectures",
+       "questions": 12
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-10-28.html"
+    },
     "visual": {
-     "slug": "alu-design",
-     "title": "One Bit Slice, Four Functions: the ALU and Its Flags",
+     "slug": "alu-and-control-unit-design",
+     "title": "ALU and Control Unit Design: Datapath, Hardwired and Microprogrammed Control",
      "level": "topic-level",
      "covers": [
-      "one bit of an ALU: an adder, an AND gate, an OR gate and an output multiplexer",
-      "the function-select code chooses among at most 2^k operations for k select bits",
-      "the result and the four status flags for each selected function"
+      "flags C, Z, S and V; V = carry-in(top) XOR carry-out(top)"
      ],
-     "url": "https://gate-visual-explainer.vercel.app/topics/alu-design/index.html"
+     "url": "https://gate-visual-explainer.vercel.app/topics/alu-and-control-unit-design/index.html"
     },
     "mapped_at": "2026-10-31"
    },
@@ -35616,16 +35752,40 @@ window.GATE_DATA = {
    "sourceLine": "The framing that a condition becomes a flag bit tested by a conditional instruction: IIT Guwahati, Lecture 13 (English, read in part). The list of the four flags, translated from Hindi, as the set the ALU leaves behind for later decisions: notesinhindi.com (Hindi, translated, read in part). The definitions themselves and every number in the examples are recomputed over all 4-bit operand pairs in scripts/validate.py, because the lecture's per-flag material was not readable this run.",
    "videoRefs": [],
    "links": {
+    "mock": {
+     "subject": "computer-architecture",
+     "unit_slug": "datapath-control-unit",
+     "unit_name": "CPU Control Design & Data Path",
+     "unit_number": 2,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Hardwired control",
+       "questions": 13
+      },
+      {
+       "label": "Microprogrammed control",
+       "questions": 12
+      },
+      {
+       "label": "ALU & datapath timing",
+       "questions": 13
+      },
+      {
+       "label": "Bus architectures",
+       "questions": 12
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-10-28.html"
+    },
     "visual": {
-     "slug": "alu-design",
-     "title": "One Bit Slice, Four Functions: the ALU and Its Flags",
+     "slug": "alu-and-control-unit-design",
+     "title": "ALU and Control Unit Design: Datapath, Hardwired and Microprogrammed Control",
      "level": "topic-level",
      "covers": [
-      "one bit of an ALU: an adder, an AND gate, an OR gate and an output multiplexer",
-      "the function-select code chooses among at most 2^k operations for k select bits",
-      "the result and the four status flags for each selected function"
+      "flags C, Z, S and V; V = carry-in(top) XOR carry-out(top)"
      ],
-     "url": "https://gate-visual-explainer.vercel.app/topics/alu-design/index.html"
+     "url": "https://gate-visual-explainer.vercel.app/topics/alu-and-control-unit-design/index.html"
     },
     "mapped_at": "2026-10-31"
    },
@@ -35714,16 +35874,31 @@ window.GATE_DATA = {
    "sourceLine": "The shift unit as part of the ALU, the three kinds of shift and the sign-preserving rule of the arithmetic shift: Edward Bosworth's chapter 5 slides (English, read in part). The framing of a shift as a bit-pattern operation rather than an arithmetic one: Anshul Kumar, Lecture 12 (English, read in part). The barrel-shifter stage and multiplexer counts and the shift examples are recomputed in scripts/validate.py.",
    "videoRefs": [],
    "links": {
-    "visual": {
-     "slug": "alu-design",
-     "title": "One Bit Slice, Four Functions: the ALU and Its Flags",
-     "level": "topic-level",
-     "covers": [
-      "one bit of an ALU: an adder, an AND gate, an OR gate and an output multiplexer",
-      "the function-select code chooses among at most 2^k operations for k select bits",
-      "the result and the four status flags for each selected function"
+    "mock": {
+     "subject": "computer-architecture",
+     "unit_slug": "datapath-control-unit",
+     "unit_name": "CPU Control Design & Data Path",
+     "unit_number": 2,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Hardwired control",
+       "questions": 13
+      },
+      {
+       "label": "Microprogrammed control",
+       "questions": 12
+      },
+      {
+       "label": "ALU & datapath timing",
+       "questions": 13
+      },
+      {
+       "label": "Bus architectures",
+       "questions": 12
+      }
      ],
-     "url": "https://gate-visual-explainer.vercel.app/topics/alu-design/index.html"
+     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-10-28.html"
     },
     "mapped_at": "2026-10-31"
    },
@@ -35812,16 +35987,41 @@ window.GATE_DATA = {
    "sourceLine": "The control-line table that maps a small control code to AND, OR, Add, Sub, SLT and NOR, and the serial carry wiring of the 1-bit boxes: Curt Nelson's chapter 3 slides (English, read in part). The statement that the operation is chosen by the control inputs and that their number follows the number of operations: Anshul Kumar, Lecture 12 (English, read in part). The two-level ALUOp plus funct arrangement follows the standard reference and is stated as such, because no readable source this run walked it through.",
    "videoRefs": [],
    "links": {
+    "mock": {
+     "subject": "computer-architecture",
+     "unit_slug": "datapath-control-unit",
+     "unit_name": "CPU Control Design & Data Path",
+     "unit_number": 2,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Hardwired control",
+       "questions": 13
+      },
+      {
+       "label": "Microprogrammed control",
+       "questions": 12
+      },
+      {
+       "label": "ALU & datapath timing",
+       "questions": 13
+      },
+      {
+       "label": "Bus architectures",
+       "questions": 12
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-10-28.html"
+    },
     "visual": {
-     "slug": "alu-design",
-     "title": "One Bit Slice, Four Functions: the ALU and Its Flags",
+     "slug": "alu-and-control-unit-design",
+     "title": "ALU and Control Unit Design: Datapath, Hardwired and Microprogrammed Control",
      "level": "topic-level",
      "covers": [
-      "one bit of an ALU: an adder, an AND gate, an OR gate and an output multiplexer",
-      "the function-select code chooses among at most 2^k operations for k select bits",
-      "the result and the four status flags for each selected function"
+      "ALU as a combinational block with a function-select input",
+      "k functions need ceil(log2 k) select lines; unused codes"
      ],
-     "url": "https://gate-visual-explainer.vercel.app/topics/alu-design/index.html"
+     "url": "https://gate-visual-explainer.vercel.app/topics/alu-and-control-unit-design/index.html"
     },
     "mapped_at": "2026-10-31"
    },
@@ -35912,16 +36112,40 @@ window.GATE_DATA = {
    "sourceLine": "The statement that a single-bus CPU must park one operand in a temporary and the result in another, and that a three-bus organisation needs fewer control steps and fewer temporaries: IIT Guwahati, Lecture 23 (English, read in part). The framing of an instruction as a sequence of micro-operations whose control signals depend on the bus organisation: IIT Guwahati, Lecture 16 (English, read in part). The 2020 ordering is re-derived from its own dependency list in scripts/validate.py.",
    "videoRefs": [],
    "links": {
+    "mock": {
+     "subject": "computer-architecture",
+     "unit_slug": "datapath-control-unit",
+     "unit_name": "CPU Control Design & Data Path",
+     "unit_number": 2,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Hardwired control",
+       "questions": 13
+      },
+      {
+       "label": "Microprogrammed control",
+       "questions": 12
+      },
+      {
+       "label": "ALU & datapath timing",
+       "questions": 13
+      },
+      {
+       "label": "Bus architectures",
+       "questions": 12
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-10-28.html"
+    },
     "visual": {
-     "slug": "alu-design",
-     "title": "One Bit Slice, Four Functions: the ALU and Its Flags",
+     "slug": "alu-and-control-unit-design",
+     "title": "ALU and Control Unit Design: Datapath, Hardwired and Microprogrammed Control",
      "level": "topic-level",
      "covers": [
-      "one bit of an ALU: an adder, an AND gate, an OR gate and an output multiplexer",
-      "the function-select code chooses among at most 2^k operations for k select bits",
-      "the result and the four status flags for each selected function"
+      "single-bus datapath: one transfer per control step"
      ],
-     "url": "https://gate-visual-explainer.vercel.app/topics/alu-design/index.html"
+     "url": "https://gate-visual-explainer.vercel.app/topics/alu-and-control-unit-design/index.html"
     },
     "mapped_at": "2026-10-31"
    },
@@ -36011,16 +36235,40 @@ window.GATE_DATA = {
    "sourceLine": "One bus source per cycle, and the reduction in control steps when buses are added: IIT Guwahati, Lecture 23 (English, read in part). The division of an instruction into micro-operations sequenced by control signals: IIT Guwahati, Lecture 16 (English, read in part). The three-cycle and five-cycle counts of GATE CSE 2005 Q.79 are recomputed in scripts/validate.py.",
    "videoRefs": [],
    "links": {
+    "mock": {
+     "subject": "computer-architecture",
+     "unit_slug": "datapath-control-unit",
+     "unit_name": "CPU Control Design & Data Path",
+     "unit_number": 2,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Hardwired control",
+       "questions": 13
+      },
+      {
+       "label": "Microprogrammed control",
+       "questions": 12
+      },
+      {
+       "label": "ALU & datapath timing",
+       "questions": 13
+      },
+      {
+       "label": "Bus architectures",
+       "questions": 12
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-10-28.html"
+    },
     "visual": {
-     "slug": "alu-design",
-     "title": "One Bit Slice, Four Functions: the ALU and Its Flags",
+     "slug": "alu-and-control-unit-design",
+     "title": "ALU and Control Unit Design: Datapath, Hardwired and Microprogrammed Control",
      "level": "topic-level",
      "covers": [
-      "one bit of an ALU: an adder, an AND gate, an OR gate and an output multiplexer",
-      "the function-select code chooses among at most 2^k operations for k select bits",
-      "the result and the four status flags for each selected function"
+      "control steps to execution time: steps x clock period"
      ],
-     "url": "https://gate-visual-explainer.vercel.app/topics/alu-design/index.html"
+     "url": "https://gate-visual-explainer.vercel.app/topics/alu-and-control-unit-design/index.html"
     },
     "mapped_at": "2026-10-31"
    },
@@ -36109,16 +36357,40 @@ window.GATE_DATA = {
    "sourceLine": "The gate-delay arithmetic of the ripple adder (carry in two delays, sum in three, a valid n-bit sum after 2n+1), the four-bit figure of nine, and the look-ahead carries ready two delays after generate and propagate: Edward Bosworth's chapter 5 slides (English, read in part). The critical-path framing and the four-bit grouping compromise: Curt Nelson's chapter 3 slides (English, read in part). Every delay figure quoted here is recomputed in scripts/validate.py.",
    "videoRefs": [],
    "links": {
+    "mock": {
+     "subject": "computer-architecture",
+     "unit_slug": "datapath-control-unit",
+     "unit_name": "CPU Control Design & Data Path",
+     "unit_number": 2,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Hardwired control",
+       "questions": 13
+      },
+      {
+       "label": "Microprogrammed control",
+       "questions": 12
+      },
+      {
+       "label": "ALU & datapath timing",
+       "questions": 13
+      },
+      {
+       "label": "Bus architectures",
+       "questions": 12
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-10-28.html"
+    },
     "visual": {
-     "slug": "alu-design",
-     "title": "One Bit Slice, Four Functions: the ALU and Its Flags",
+     "slug": "alu-and-control-unit-design",
+     "title": "ALU and Control Unit Design: Datapath, Hardwired and Microprogrammed Control",
      "level": "topic-level",
      "covers": [
-      "one bit of an ALU: an adder, an AND gate, an OR gate and an output multiplexer",
-      "the function-select code chooses among at most 2^k operations for k select bits",
-      "the result and the four status flags for each selected function"
+      "ripple-carry delay proportional to n; carry look-ahead depth log n"
      ],
-     "url": "https://gate-visual-explainer.vercel.app/topics/alu-design/index.html"
+     "url": "https://gate-visual-explainer.vercel.app/topics/alu-and-control-unit-design/index.html"
     },
     "mapped_at": "2026-10-31"
    },
