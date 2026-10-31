@@ -1,0 +1,95 @@
+{
+ "id": "pointer-arithmetic-and-array-decay",
+ "title": "Pointer Arithmetic and Array Decay",
+ "priority": "P1",
+ "order": 567,
+ "unit": "Programming in C",
+ "quickIdea": "Pointer arithmetic is scaled by the size of the pointed-to type, and a[i] is defined as *(a + i) - so the index form and the pointer form are the same expression, and p2 - p1 counts elements, not bytes.",
+ "remember": [
+  "p + k advances k * sizeof(*p) bytes. On an int * with 4-byte ints, p + 1 adds 4; on a char * it adds 1.",
+  "a[i] means *(a + i), so a[i] and i[a] are the same object; that is why 2[p] is legal C and equals p[2].",
+  "An array name decays to &a[0] in every expression except three: as the operand of sizeof, as the operand of unary &, and as a string-literal initialiser. sizeof(a) is the whole array, sizeof(p) is the pointer.",
+  "&a and a hold the same address but have different types: a + 1 moves one element while &a + 1 moves past the whole array.",
+  "p2 - p1 has type ptrdiff_t and counts elements. Subtracting or comparing pointers is defined only within one array, or one past its end.",
+  "An array name is not assignable: a++ and a = p do not compile, while p++ on a pointer variable does.",
+  "A 2-D parameter int arr[][C] is adjusted to int (*arr)[C]; only the first dimension may be omitted."
+ ],
+ "example": {
+  "prompt": "double a[2] = {20.0, 25.0}, *p, *q; p = a; q = p + 1; printf(\"%d,%d\", (int)(q - p), (int)(*q - *p));",
+  "work": "p points at a[0] and q at a[1]. q - p counts elements between two double pointers, so it is 1 even though the addresses differ by 8 bytes. *q - *p subtracts the stored values, 25.0 - 20.0 = 5.0, and the cast to int gives 5.",
+  "answer": "1,5."
+ },
+ "gateAngle": "GATE CSE 2024 Set 2 Q.26 prints 1,5, and its distractors 8,5 and 1,8 are exactly the two mistakes: counting bytes instead of elements, and forgetting that the second value is a subtraction of the stored numbers. GATE CSE 2017 Set 2 Q.55 hides the same identity behind 2[p] - 6[p].",
+ "variations": [
+  {
+   "label": "ORIGINAL PYQ-STYLE QUESTION",
+   "question": "int a[6] = {10,20,30,40,50,60}; int *p = a + 2; what are *(p + 3) - *p and p - a?",
+   "answer": "30 and 2: *(p + 3) is a[5] = 60 and *p is a[2] = 30, so the difference is 30, and p - a counts elements and gives 2 rather than the 8 bytes.",
+   "why": "The same two rules as the 2024 question with a base offset, which is where students start adding bytes by hand."
+  },
+  {
+   "label": "CONCEPTUAL PRACTICE QUESTION",
+   "question": "Why is a[i] the same object as i[a]?",
+   "answer": "Because both expand to *(a + i), and the addition of an integer and a pointer is commutative in C. The subscript operator is defined that way, not as a special array operation.",
+   "why": "Turns a curiosity into the definition it comes from, which is what the 2017 question relies on."
+  },
+  {
+   "label": "PREDICTED VARIATION",
+   "question": "With p == c and c holding \"GATECSIT2017\", what does c + 2[p] - 6[p] - 1 point at?",
+   "answer": "c + 10, because 2[p] is 'T' (84) and 6[p] is 'I' (73), so the offset is 84 - 73 - 1 = 10; strlen from there counts the two characters '1' and '7'.",
+   "why": "The 2017 question's reasoning step, restated as a pointer question instead of a strlen question."
+  }
+ ],
+ "trap": {
+  "what": "Reading p - q as a byte distance.",
+  "why": "Subtraction of two pointers of the same type is defined in elements. The compiler divides the address difference by sizeof(*p) for you, so on doubles an adjacent pair differs by 1 while the addresses differ by 8.",
+  "counterexample": "With double a[2] at address 1000, &a[1] - &a[0] is 1, although (char *)&a[1] - (char *)&a[0] is 8."
+ },
+ "check": {
+  "question": "int a[10]; with 4-byte ints and 8-byte pointers, what do sizeof a and sizeof(a + 0) give?",
+  "answer": "40 and 8.",
+  "explanation": "sizeof a sees the array itself, one of the three no-decay contexts, and gives 10 x 4. a + 0 is already a pointer expression, so sizeof sees a pointer."
+ },
+ "pyqIds": [
+  "gate-2024-set2-26-pointer-subtraction",
+  "gate-2017-set2-55-array-index-identity"
+ ],
+ "videoRefs": [],
+ "prereqs": [
+  "pointers-address-and-indirection"
+ ],
+ "sources": [
+  {
+   "kind": "text",
+   "title": "Pointers, arrays and strings in C - GATE notes and 11 solved PYQs",
+   "channel": "IAE Academy",
+   "url": "https://iaeacademy.in/study/c-programming/pointers-arrays-strings",
+   "language": "en",
+   "transcript": "PARTIAL",
+   "translated": false,
+   "note": "the three no-decay exceptions, the address formula, the pointer-difference rule and the two-dimensional parameter adjustment"
+  },
+  {
+   "kind": "text",
+   "title": "Pointers in C for GATE: Memory Diagrams and Output Traces",
+   "channel": "Knowledge Gate AI",
+   "url": "https://www.knowledgegate.ai/blog/pointers-in-c-gate-memory-diagrams",
+   "language": "en",
+   "transcript": "FULL",
+   "translated": false,
+   "note": "the array walk and the sizeof-versus-array-length contrast"
+  },
+  {
+   "kind": "text",
+   "title": "C mein Programming - chapter notes (Devanagari)",
+   "channel": "CareerCraft Labs",
+   "url": "https://careercraftlabs.org/hi/read/net2-cs-ch06",
+   "language": "hi",
+   "transcript": "PARTIAL",
+   "translated": true,
+   "note": "the statement that arr[i] is defined as *(arr + i) (translated)"
+  }
+ ],
+ "sourceLine": "The decay exceptions, the address formula and the pointer-difference rule: IAE Academy 'Pointers, arrays and strings in C' (English, read in part). The array walk and the sizeof contrast: Knowledge Gate AI 'Pointers in C for GATE' (English, read in full). The definition of arr[i] as *(arr + i): CareerCraft Labs Hindi chapter (translated from Hindi, read in part). Every address and difference shown is recomputed in scripts/validate.py, and the lesson animates them.",
+ "visual": "programming-and-data-structures/programming-in-c/pointer-steps-and-array-indexing"
+}

@@ -1,0 +1,82 @@
+{
+ "id": "integer-promotion-and-unsigned-wrap",
+ "title": "Integer Promotion, Unsigned Conversion and Wrap",
+ "priority": "P1",
+ "order": 560,
+ "unit": "Programming in C",
+ "quickIdea": "C converts operands before it combines them. Narrow types are promoted to int, and the moment one operand is unsigned the other is converted to unsigned too, so a difference that should be negative becomes a huge positive number.",
+ "remember": [
+  "Integer promotion: char, signed char, unsigned char, short and unsigned short are converted to int (or to unsigned int when int cannot hold all their values) before any arithmetic. So 'a' + 1 is int arithmetic.",
+  "Usual arithmetic conversions: if either operand is unsigned int, the other is converted to unsigned int and the result is unsigned. A wider unsigned type wins over a narrower one.",
+  "size_t is unsigned, and strlen returns size_t. So strlen(a) - strlen(b) is computed modulo 2^32 (or 2^64) and is never negative.",
+  "Unsigned overflow wraps modulo 2^n, and that is defined behaviour. Signed overflow is undefined behaviour, so a program that overflows a signed int has no required output at all.",
+  "signed char c = 200; stores 200 - 256 = -56 in 8-bit two's complement, while unsigned char keeps 200. The bits are identical; the interpretation is not.",
+  "Integer division truncates toward zero: 7 / 2 is 3 and -7 / 2 is -3. Converting to float after the division is too late."
+ ],
+ "example": {
+  "prompt": "char *x = \"abc\", *y = \"defgh\"; unsigned int c = 0; int len = ((strlen(x) - strlen(y)) > c) ? strlen(x) : strlen(y); printf(\"%d\", len); What is printed?",
+  "work": "strlen(x) is 3 and strlen(y) is 5, both of type size_t. Their difference is computed in unsigned arithmetic, so 3 - 5 wraps to 2^32 - 2, a very large number. Comparing that with c = 0 is true, so the conditional selects strlen(x), which is 3, and len holds 3.",
+  "answer": "3. The comparison was never '3 > 0 against -2'; it was a huge unsigned value against 0."
+ },
+ "gateAngle": "GATE CSE 2017 Set 1 Q.53 is this program and the printed value is 3. The same rule decides any question that compares strlen results, subtracts two sizeof values, or tests i < strlen(s) after i has gone negative.",
+ "variations": [
+  {
+   "label": "ORIGINAL PYQ-STYLE QUESTION",
+   "question": "int i = -1; unsigned int u = 1; what does printf(\"%d\", i < u) print?",
+   "answer": "0 - i is converted to unsigned (UINT_MAX) before the comparison, so -1 < 1 is false.",
+   "why": "The same conversion as the 2017 question with the polarity reversed, which catches a student who memorised 'the difference wraps' instead of the rule."
+  },
+  {
+   "label": "CONCEPTUAL PRACTICE QUESTION",
+   "question": "Why is signed overflow undefined behaviour while unsigned overflow is merely wrap-around?",
+   "answer": "The standard specifies unsigned arithmetic as arithmetic modulo 2^n, so the result is defined; for signed types it imposes no requirement at all, so a compiler may assume overflow never happens and optimise on that assumption.",
+   "why": "Explains why an overflowing signed counter has no answer to trace, which some loop questions quietly rely on."
+  },
+  {
+   "label": "PREDICTED VARIATION",
+   "question": "int a = 7, b = 2; float r = a / b; printf(\"%f\", r); what is printed?",
+   "answer": "3.000000 - the division is integer division because both operands are int, and the conversion to float happens at the assignment.",
+   "why": "The truncate-before-convert trap from the same family of one-mark questions; (float)a / b would give 3.5."
+  }
+ ],
+ "trap": {
+  "what": "Comparing a signed difference against an unsigned zero.",
+  "why": "Once one side of the comparison is unsigned, the signed side is converted to unsigned. A difference of -2 becomes 2^n - 2, so 'is the first string shorter?' answers yes for every pair of lengths.",
+  "counterexample": "With strlen(\"abc\") - strlen(\"defgh\") the difference is -2 mathematically, but (strlen(\"abc\") - strlen(\"defgh\")) > 0 is true, because the left side is the unsigned value 4294967294 on a 32-bit int."
+ },
+ "check": {
+  "question": "What does the expression (strlen(\"ab\") - strlen(\"abc\")) > 0 evaluate to?",
+  "answer": "1, that is true.",
+  "explanation": "2 - 3 in size_t arithmetic wraps to SIZE_MAX, which is greater than 0. The mathematical answer -1 never appears."
+ },
+ "pyqIds": [
+  "gate-2017-set1-53-unsigned-strlen-compare"
+ ],
+ "videoRefs": [],
+ "prereqs": [
+  "tokens-types-and-sizeof"
+ ],
+ "sources": [
+  {
+   "kind": "text",
+   "title": "C Programming Fundamentals: Complete Guide with Worked Examples for GATE and Placements",
+   "channel": "Knowledge Gate AI",
+   "url": "https://www.knowledgegate.ai/blog/c-fundamentals-c-programming",
+   "language": "en",
+   "transcript": "PARTIAL",
+   "translated": false,
+   "note": "the signed-char conversion, the integer-division trap and the GATE size convention"
+  },
+  {
+   "kind": "text",
+   "title": "Programming in C - subject chapter (GATE Overflow for GATE CSE, Volume 2)",
+   "channel": "GATE Overflow",
+   "url": "https://gateoverflow.in/subject/programming-in-c/programming/programming-in-c",
+   "language": "en",
+   "transcript": "PARTIAL",
+   "translated": false,
+   "note": "the integer-promotion and usual-conversion summary"
+  }
+ ],
+ "sourceLine": "Integer promotion and the usual arithmetic conversions: GATE Overflow 'Programming in C' chapter (English, read in part). The signed-char wrap and the integer-division trap: Knowledge Gate AI 'C Programming Fundamentals' (English, read in part). The 3 that GATE CSE 2017 Set 1 Q.53 prints is recomputed in scripts/validate.py."
+}

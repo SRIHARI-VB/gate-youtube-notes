@@ -28,9 +28,9 @@
     }
   ],
   "counts": {
-    "subjects": 6,
-    "topics": 360,
-    "pyqs": 290,
+    "subjects": 7,
+    "topics": 373,
+    "pyqs": 303,
     "videos": 39,
     "playlists": 3
   },
@@ -5387,6 +5387,199 @@
       "unit": "Instruction Pipelining: Hazards, Stalls and Fixes",
       "priority": "P3",
       "path": "subjects/computer-organization-and-architecture/instruction-pipelining-and-hazards/superscalar-and-ilp-beyond-one-per-cycle.json",
+      "videos": [],
+      "pyqs": [],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "tokens-types-and-sizeof",
+      "title": "Tokens, Types and sizeof",
+      "subject": "programming-and-data-structures",
+      "group": "programming-in-c",
+      "unit": "Programming in C",
+      "priority": "P1",
+      "path": "subjects/programming-and-data-structures/programming-in-c/tokens-types-and-sizeof.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2000-34-struct-union-sizeof"
+      ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "integer-promotion-and-unsigned-wrap",
+      "title": "Integer Promotion, Unsigned Conversion and Wrap",
+      "subject": "programming-and-data-structures",
+      "group": "programming-in-c",
+      "unit": "Programming in C",
+      "priority": "P1",
+      "path": "subjects/programming-and-data-structures/programming-in-c/integer-promotion-and-unsigned-wrap.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2017-set1-53-unsigned-strlen-compare"
+      ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "operator-precedence-and-sequence-points",
+      "title": "Precedence, Associativity and Sequence Points",
+      "subject": "programming-and-data-structures",
+      "group": "programming-in-c",
+      "unit": "Programming in C",
+      "priority": "P1",
+      "path": "subjects/programming-and-data-structures/programming-in-c/operator-precedence-and-sequence-points.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2019-27-static-for-loop-sequence"
+      ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "control-flow-switch-fallthrough",
+      "title": "Control Flow and Switch Fall-Through",
+      "subject": "programming-and-data-structures",
+      "group": "programming-in-c",
+      "unit": "Programming in C",
+      "priority": "P2",
+      "path": "subjects/programming-and-data-structures/programming-in-c/control-flow-switch-fallthrough.json",
+      "videos": [],
+      "pyqs": [],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "call-by-value-and-the-activation-record",
+      "title": "Call by Value and the Activation Record",
+      "subject": "programming-and-data-structures",
+      "group": "programming-in-c",
+      "unit": "Programming in C",
+      "priority": "P1",
+      "path": "subjects/programming-and-data-structures/programming-in-c/call-by-value-and-the-activation-record.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2017-set2-14-printxy-call-by-value",
+        "gate-2005-32-prototype-implicit-declaration"
+      ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "scope-shadowing-and-linkage",
+      "title": "Scope, Shadowing and Linkage",
+      "subject": "programming-and-data-structures",
+      "group": "programming-in-c",
+      "unit": "Programming in C",
+      "priority": "P2",
+      "path": "subjects/programming-and-data-structures/programming-in-c/scope-shadowing-and-linkage.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2003-89-macro-and-global-shadowing"
+      ],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "storage-classes-auto-static-extern-register",
+      "title": "Storage Classes: auto, static, extern, register",
+      "subject": "programming-and-data-structures",
+      "group": "programming-in-c",
+      "unit": "Programming in C",
+      "priority": "P1",
+      "path": "subjects/programming-and-data-structures/programming-in-c/storage-classes-auto-static-extern-register.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2016-set1-35-static-local-in-recursion"
+      ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "pointers-address-and-indirection",
+      "title": "Pointers: Address, Indirection and the Double Pointer",
+      "subject": "programming-and-data-structures",
+      "group": "programming-in-c",
+      "unit": "Programming in C",
+      "priority": "P1",
+      "path": "subjects/programming-and-data-structures/programming-in-c/pointers-address-and-indirection.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2008-60-double-pointer-trace"
+      ],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "pointer-arithmetic-and-array-decay",
+      "title": "Pointer Arithmetic and Array Decay",
+      "subject": "programming-and-data-structures",
+      "group": "programming-in-c",
+      "unit": "Programming in C",
+      "priority": "P1",
+      "path": "subjects/programming-and-data-structures/programming-in-c/pointer-arithmetic-and-array-decay.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2024-set2-26-pointer-subtraction",
+        "gate-2017-set2-55-array-index-identity"
+      ],
+      "visual": "programming-and-data-structures/programming-in-c/pointer-steps-and-array-indexing",
+      "variations": 3
+    },
+    {
+      "topic": "strings-nul-termination",
+      "title": "Strings and NUL Termination",
+      "subject": "programming-and-data-structures",
+      "group": "programming-in-c",
+      "unit": "Programming in C",
+      "priority": "P1",
+      "path": "subjects/programming-and-data-structures/programming-in-c/strings-nul-termination.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2025-set2-9-overlapping-stringcopy",
+        "gate-2015-set3-7-char-array-pointer-overwrite"
+      ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "structures-unions-and-padding",
+      "title": "Structures, Unions and Padding",
+      "subject": "programming-and-data-structures",
+      "group": "programming-in-c",
+      "unit": "Programming in C",
+      "priority": "P1",
+      "path": "subjects/programming-and-data-structures/programming-in-c/structures-unions-and-padding.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2018-2-struct-char-cast",
+        "gate-2000-34-struct-union-sizeof"
+      ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "dynamic-memory-malloc-calloc-realloc-free",
+      "title": "Dynamic Memory: malloc, calloc, realloc, free",
+      "subject": "programming-and-data-structures",
+      "group": "programming-in-c",
+      "unit": "Programming in C",
+      "priority": "P2",
+      "path": "subjects/programming-and-data-structures/programming-in-c/dynamic-memory-malloc-calloc-realloc-free.json",
+      "videos": [],
+      "pyqs": [],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "preprocessor-macros",
+      "title": "Preprocessor Macros and Their Traps",
+      "subject": "programming-and-data-structures",
+      "group": "programming-in-c",
+      "unit": "Programming in C",
+      "priority": "P2",
+      "path": "subjects/programming-and-data-structures/programming-in-c/preprocessor-macros.json",
       "videos": [],
       "pyqs": [],
       "visual": null,

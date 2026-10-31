@@ -1,0 +1,74 @@
+{
+ "id": "preprocessor-macros",
+ "title": "Preprocessor Macros and Their Traps",
+ "priority": "P2",
+ "order": 571,
+ "unit": "Programming in C",
+ "quickIdea": "The preprocessor substitutes text before the compiler parses anything, so a macro has no type, no scope and no evaluation - only parentheses keep its expansion honest.",
+ "remember": [
+  "#define is textual replacement before compilation. The macro name is not a variable, has no type, and is not checked by the compiler.",
+  "A function-like macro's parameters are substituted, not evaluated: #define SQ(x) x * x with SQ(2 + 3) expands to 2 + 3 * 2 + 3 = 11, not 25. #define SQ(x) ((x) * (x)) gives 25.",
+  "Both sets of parentheses matter: the inner ones protect the argument, the outer ones protect the whole expansion inside a larger expression such as SQ(a) / 2.",
+  "A macro argument with a side effect is duplicated when the parameter appears twice: SQ(i++) increments i twice, which a function would not.",
+  "No semicolon goes at the end of a #define, because the semicolon would be substituted too.",
+  "#include, #ifdef, #ifndef, #if defined(...) and #endif are preprocessor directives; #ifndef is the usual include guard."
+ ],
+ "example": {
+  "prompt": "#define SQ(x) x * x   int main(void) { printf(\"%d %d\", SQ(2 + 3), SQ(4)); } What is printed?",
+  "work": "SQ(2 + 3) expands to 2 + 3 * 2 + 3. Multiplication binds tighter than addition, so that is 2 + 6 + 3 = 11. SQ(4) expands to 4 * 4 = 16. The preprocessor did the substitution before the compiler ever saw the expression, so no argument was ever evaluated as a unit.",
+  "answer": "11 16."
+ },
+ "gateAngle": "GATE CSE 2003 Q.89 uses #define print(x) printf(\"%d\", x) as a shorthand, and the marks there are lost on scope rather than on the macro - which is how macros usually appear. A macro that expands wrongly is the one-mark version: the marks are lost by evaluating the argument first, the way a function would.",
+ "variations": [
+  {
+   "label": "ORIGINAL PYQ-STYLE QUESTION",
+   "question": "#define MAX(a, b) a > b ? a : b   what does MAX(2, 1) * 2 give, and what does it give with the body fully parenthesised?",
+   "answer": "2 without the outer parentheses, because the expansion is 2 > 1 ? 2 : 1 * 2 and the multiplication joins the last branch; 4 with ((a) > (b) ? (a) : (b)).",
+   "why": "Shows why the outer parentheses exist, which is the part the inner ones do not fix."
+  },
+  {
+   "label": "CONCEPTUAL PRACTICE QUESTION",
+   "question": "Why does #define SQUARE(x) ((x) * (x)) still misbehave for SQUARE(i++)?",
+   "answer": "Because the parameter appears twice, so the argument text is substituted twice and i is incremented twice. A macro has no notion of evaluating an argument once.",
+   "why": "Separates the parenthesis problem from the duplication problem; parentheses fix only the first."
+  }
+ ],
+ "trap": {
+  "what": "Evaluating a macro argument before substituting it.",
+  "why": "There is no evaluation. The preprocessor copies the argument's tokens into the body, and the compiler then applies precedence to the resulting expression, which may group it differently from what the parentheses at the call site suggested.",
+  "counterexample": "#define SQ(x) x * x with SQ(2 + 3) gives 11, while int sq(int x) { return x * x; } gives 25 for the same call."
+ },
+ "check": {
+  "question": "What is wrong with #define A 2 + 3 followed by A * A?",
+  "answer": "It expands to 2 + 3 * 2 + 3 = 11, not 25, because the macro body has no parentheses, so the surrounding multiplication binds to one term only.",
+  "explanation": "The whole body needs parentheses as well as each parameter, so #define A (2 + 3) is the version that gives 25."
+ },
+ "pyqIds": [],
+ "videoRefs": [],
+ "prereqs": [
+  "scope-shadowing-and-linkage"
+ ],
+ "sources": [
+  {
+   "kind": "text",
+   "title": "C mein Programming - chapter notes (Devanagari)",
+   "channel": "CareerCraft Labs",
+   "url": "https://careercraftlabs.org/hi/read/net2-cs-ch06",
+   "language": "hi",
+   "transcript": "PARTIAL",
+   "translated": true,
+   "note": "the preprocessor section: pure textual substitution, no type checking, and the parentheses that #define SQ(x) ((x)*(x)) needs (translated)"
+  },
+  {
+   "kind": "text",
+   "title": "Functions, parameter passing, scope and storage classes - GATE notes and 7 solved PYQs",
+   "channel": "IAE Academy",
+   "url": "https://iaeacademy.in/study/c-programming/functions-scope",
+   "language": "en",
+   "transcript": "PARTIAL",
+   "translated": false,
+   "note": "the closing note on the textual-substitution pitfalls of #define"
+  }
+ ],
+ "sourceLine": "The preprocessor section, the SQ(x) parentheses trap and the include guard: CareerCraft Labs Hindi chapter (translated from Hindi, read in part). The note that macro pitfalls are textual substitution: IAE Academy 'Functions, parameter passing, scope and storage classes' (English, read in part). Every expansion shown is recomputed in scripts/validate.py."
+}

@@ -1,0 +1,22 @@
+{
+ "id": "gate-2024-set2-26-pointer-subtraction",
+ "year": "2024",
+ "paper": "GATE CSE 2024 Set 2",
+ "question_ref": "Q.26",
+ "type": "MCQ",
+ "marks": null,
+ "topic": "pointer-arithmetic-and-array-decay",
+ "text": "What is the output of the following C program? #include <stdio.h> int main() { double a[2]={20.0,25.0},* p,* q; p=a ; q=p+1 ; printf(\"%d,%d\", (int) (q-p),( int)(* q- * p)); return 0;}",
+ "options": [
+  "4,8",
+  "1,5",
+  "8,5",
+  "1,8"
+ ],
+ "answer": "1,5 (option B)",
+ "solution": "p points at a[0] and q at a[1]. Subtracting two pointers of the same type counts elements, so q - p is 1 even though the two addresses differ by sizeof(double) = 8 bytes. The second expression subtracts the stored values rather than the addresses: *q - *p is 25.0 - 20.0 = 5.0, and the cast to int gives 5. Options A and C come from counting bytes in the first value, and options A and D from treating the second as a difference of addresses.",
+ "source_url": "https://gateoverflow.in/422871/gate-cse-2024-set-2-question-26",
+ "source_label": "GATE Overflow question page - GATE CSE 2024 Set 2 Q.26 with the accepted answer 1,5",
+ "verification": "SOURCED",
+ "answer_evidence": "The GATE Overflow accepted answer is option B and the page shows the address arithmetic 8 / 8 = 1 alongside 25 - 20 = 5. The official key was not fetched, so the record stays SOURCED."
+}

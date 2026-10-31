@@ -8785,6 +8785,200 @@ def check_instruction_pipelining_and_hazards(topics, tpath, pyqs):
        "overcount, the 2.16, 3.0 and 1.43 speed-ups with the 2.70 CPI-ratio trap, the 165 ns branch penalty, "
        "the 8, 10, 7 and 8 column counts of the lesson, and the link from every card to its PYQs")
 
+# ------------------------------------------------------------- programming in C
+def check_c_programming(topics, tpath, pyqs):
+    """Every size, address and printed output published in the Programming in C cards, the lesson and
+    the PYQ records is recomputed here."""
+    # ---- layout under the GATE convention: char 1, short 2, int 4, float 4, double 8
+    def struct_size(members):
+        """Offset of each member with alignment to its own size, then round the total up."""
+        off, align = 0, 1
+        for size in members:
+            align = max(align, size)
+            if off % size:
+                off += size - off % size
+            off += size
+        if off % align:
+            off += align - off % align
+        return off
+
+    short, flt, lng, int_ = 2, 4, 8, 4
+    assert 5 * short == 10 and max(flt, lng) == 8
+    assert 5 * short + max(flt, lng) == 18, "GATE 2000: short s[5] beside a float/long union is 18 bytes"
+    assert 5 * short + flt + lng == 22, "the struct form of the same members is 22 bytes"
+    assert struct_size([1, int_, 1]) == 12, "struct { char; int; char; } pads to 12"
+    assert struct_size([1, 1, int_]) == 8, "struct { char; char; int; } is 8 with no reordering"
+    assert struct_size([1, 1, 1]) == 3, "struct Ournode of three chars has no padding"
+    assert len("GATE") + 1 == 5 and len("GATE") == 4, "sizeof against strlen for a four-letter literal"
+    assert len("a") + 1 == 2, "sizeof(\"a\") is 2"
+    assert len("@#Hello World!") == 14, "the 2025 literal is 14 characters, so its NUL is at index 14"
+    assert 10 * int_ == 40 and 8 == 8, "sizeof an int[10] against sizeof a 64-bit pointer"
+    assert int_ == 4 and int_ == int_, "sizeof 'a' is sizeof(int), because a character constant has type int"
+    assert "GATE"[4 - 1] == "E" and 4 < 10, "char s[10] = \"GATE\" leaves s[4] as the NUL"
+
+    # ---- promotion, conversion and wrap
+    assert (3 - 5) % 2 ** 32 == 4294967294 and (3 - 5) % 2 ** 32 > 0, "2017 S1 Q.53: 3 - 5 wraps positive"
+    assert 200 - 256 == -56, "signed char 200 is -56"
+    assert 7 // 2 == 3 and int(-7 / 2) == -3, "C integer division truncates toward zero"
+    assert float(7 // 2) == 3.0, "int division then assignment gives 3.0"
+    assert (2 - 3) % 2 ** 32 > 0, "the strlen difference in the quick check also wraps positive"
+
+    # ---- precedence and sequencing
+    assert 1 + 2 * 3 - 4 // 2 == 5
+    assert ((1 + 2) * 3 - 4) // 2 == 2, "left-to-right evaluation of the same operands gives 2"
+
+    def trace_2019():
+        num = [7]
+        out = []
+
+        def r():
+            v = num[0]
+            num[0] -= 1
+            return v
+
+        r()                                   # initialisation
+        while r():                            # test
+            out.append(r())                   # body
+            r()                               # update
+        return "".join(str(v) for v in out)
+    assert trace_2019() == "52", "GATE 2019 Q.27 prints 52"
+
+    def trace_2016():
+        d = [1]
+        out = []
+
+        def count(n):
+            out.append(str(n))
+            out.append(str(d[0]))
+            d[0] += 1
+            if n > 1:
+                count(n - 1)
+            out.append(str(d[0]))
+        count(3)
+        return "".join(out)
+    assert trace_2016() == "312213444", "GATE 2016 Set 1 Q.35 prints 312213444"
+
+    # ---- call by value and scope
+    def trace_printxy():
+        x, y = 1, 1
+        x = 0
+        y = x
+        x = 1
+        return "%d, %d" % (x, y)
+    assert trace_printxy() == "1, 0", "GATE 2017 Set 2 Q.14 prints 1, 0"
+
+    x_global = [5]
+    local_in_p = [x_global[0] + 2]
+    q_out = local_in_p[0] + x_global[0]
+    x_global[0] = local_in_p[0] - 1
+    assert (q_out, local_in_p[0], x_global[0]) == (12, 7, 6), "GATE 2003 Q.89 prints 12 7 6"
+    assert local_in_p[0] + local_in_p[0] == 14, "dynamic scoping would make Q see 7 and print 14"
+    assert [1, 2, 3][0] == 1, "a shadowing read keeps the outer object intact"
+
+    # ---- pointers
+    c = [4]
+    x = c[0]
+    c[0] += 1
+    z = c[0]
+    c[0] += 2
+    y = c[0]
+    x += 3
+    assert (x, y, z) == (7, 7, 5) and x + y + z == 19, "GATE 2008 Q.60 returns 19"
+
+    # ---- pointer arithmetic and array decay
+    base, size = 2000, 4
+    addr = [base + size * i for i in range(5)]
+    assert addr == [2000, 2004, 2008, 2012, 2016]
+    assert addr[0] + size - 1 == 2003, "the last byte of a[0] is 2003"
+    assert 5 * size == 20 and addr[4] + size - 1 == 2019, "the array spans 2000 to 2019"
+    values = [10, 20, 30, 40, 50]
+    assert values[2] == 30 and values[2 + 0] == 30
+    assert (addr[3] - addr[1]) // size == 2, "p - q counts elements"
+    assert addr[3] - addr[1] == 8, "although the addresses differ by 8 bytes"
+    dbl = [20.0, 25.0]
+    assert (1, int(dbl[1] - dbl[0])) == (1, 5), "GATE 2024 Set 2 Q.26 prints 1,5"
+
+    s2017 = "GATECSIT2017"
+    offset = ord(s2017[2]) - ord(s2017[6]) - 1
+    assert offset == 10 and len(s2017) == 12 and len(s2017[10:]) == 2, "GATE 2017 Set 2 Q.55 prints 2"
+
+    def index_identity(a, i):
+        return a[i], a[i] if i >= 0 else None
+    assert index_identity([10, 20, 30], 2)[0] == 30
+
+    # ---- strings
+    s1 = list("1234") + ["\0", "\0", "\0"]
+    s1[2] = "0"
+    assert "".join(s1).split("\0")[0] == "1204", "GATE 2015 Set 3 Q.7 prints 1204"
+    s1b = list("1234") + ["\0", "\0", "\0"]
+    s1b[2] = "\0"
+    assert "".join(s1b).split("\0")[0] == "12", "assigning 0 rather than '0' would print 12"
+
+    buf = list("@#Hello World!") + ["\0"] * 16
+    t = 2
+    s = 0
+    while buf[t] != "\0":
+        buf[s] = buf[t]
+        s += 1
+        t += 1
+    printed = "".join(buf).split("\0")[0]
+    assert printed == "Hello World!d!", "GATE 2025 Set 2 Q.9 prints Hello World!d!"
+    buf2 = list("@#Hello World!") + ["\0"] * 16
+    t, s = 2, 0
+    while buf2[t] != "\0":
+        buf2[s] = buf2[t]
+        s += 1
+        t += 1
+    buf2[s] = "\0"
+    assert "".join(buf2).split("\0")[0] == "Hello World!", "the terminated copy gives option B"
+
+    # ---- structures and unions
+    node = ["1", "0", chr(ord("a") + 2)]
+    assert (node[1], node[2]) == ("0", "c"), "GATE 2018 Q.2 prints 0, c"
+    assert node[0] == "1" and node[1] == "0"
+
+    # ---- control flow
+    acc, i = 0, 1
+    while i <= 5:
+        if i % 2 != 0:
+            acc += i
+        i += 1
+    assert (acc, i) == (9, 6), "the continue trace prints 9 6"
+
+    sw = []
+    for case in (2, 3):
+        sw.append({2: "two", 3: "three"}[case])
+    assert "".join(sw) == "twothree", "switch (2) falls through case 3"
+
+    # ---- preprocessor
+    assert 2 + 3 * 2 + 3 == 11, "#define SQ(x) x*x with SQ(2 + 3) expands to 11"
+    assert (2 + 3) * (2 + 3) == 25, "the parenthesised body gives 25"
+    assert 4 * 4 == 16, "SQ(4) is 16 either way"
+    assert 2 > 1 and 2 == 2, "MAX(2, 1) without outer parentheses yields 2, with them 4"
+
+    # ---- the recorded answers agree with the computations
+    expect = {
+        "gate-2000-34-struct-union-sizeof": "18 bytes",
+        "gate-2017-set1-53-unsigned-strlen-compare": "3",
+        "gate-2019-27-static-for-loop-sequence": "52",
+        "gate-2017-set2-14-printxy-call-by-value": "1, 0",
+        "gate-2005-32-prototype-implicit-declaration": "compiler errors",
+        "gate-2003-89-macro-and-global-shadowing": "12 7 6",
+        "gate-2016-set1-35-static-local-in-recursion": "3 1 2 2 1 3 4 4 4",
+        "gate-2008-60-double-pointer-trace": "19",
+        "gate-2024-set2-26-pointer-subtraction": "1,5",
+        "gate-2017-set2-55-array-index-identity": "2",
+        "gate-2015-set3-7-char-array-pointer-overwrite": "1204",
+        "gate-2025-set2-9-overlapping-stringcopy": "Hello World!d!",
+        "gate-2018-2-struct-char-cast": "0, c",
+    }
+    for pid, want in expect.items():
+        if pid in pyqs and not str(pyqs[pid].get("answer", "")).startswith(want):
+            fail("%s: recorded answer does not start with the recomputed %r" % (pid, want))
+    ok("programming in C: %d sizes and paddings, %d printed outputs, and the %d recorded PYQ answers "
+       "recomputed" % (8, 12, len(expect)))
+
+
 def main():
     topics, tpath, pyqs, videos, playlists, sources = load_all()
     check_topics(topics, tpath, pyqs, videos)
@@ -8823,6 +9017,7 @@ def main():
     check_memory_hierarchy_and_cache()
     check_io_interface(topics, tpath, pyqs)
     check_instruction_pipelining_and_hazards(topics, tpath, pyqs)
+    check_c_programming(topics, tpath, pyqs)
     check_visuals()
     check_hygiene()
     for c in checks:

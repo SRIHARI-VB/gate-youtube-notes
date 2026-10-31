@@ -1,0 +1,22 @@
+{
+ "id": "gate-2015-set3-7-char-array-pointer-overwrite",
+ "year": "2015",
+ "paper": "GATE CSE 2015 Set 3",
+ "question_ref": "Q.7",
+ "type": "MCQ",
+ "marks": null,
+ "topic": "strings-nul-termination",
+ "text": "Consider the following C program segment. # include <stdio.h> int main() { char s1[7] = \"1234\", *p; p = s1 + 2; *p = '0'; printf(\"%s\", s1); } What will be printed by the program?",
+ "options": [
+  "12",
+  "120400",
+  "1204",
+  "1034"
+ ],
+ "answer": "1204 (option C)",
+ "solution": "s1 holds '1', '2', '3', '4' and a NUL at index 4, with the last two bytes of the array zero. s1 + 2 points at the '3'. Assigning the character '0', whose value is 48, overwrites that byte, so the array reads '1', '2', '0', '4' followed by the NUL. printf prints 1204. Option A, 12, is what assigning the integer 0 rather than the character '0' would print, because that would write the terminator itself.",
+ "source_url": "https://gateoverflow.in/8401/gate-cse-2015-set-3-question-7",
+ "source_label": "GATE Overflow question page - GATE CSE 2015 Set 3 Q.7 with the accepted answer 1204",
+ "verification": "SOURCED",
+ "answer_evidence": "The GATE Overflow accepted answer is option C, and several answers on the page contrast *p = '0' with *p = 0 explicitly. The official key was not fetched, so the record stays SOURCED."
+}

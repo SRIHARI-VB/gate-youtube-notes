@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pointer Steps and Array Indexing - Programming in C visual lesson</title>
+<link rel="stylesheet" href="../../../lesson.css">
+<script src="https://cdn.jsdelivr.net/npm/p5@1.9.4/lib/p5.min.js"></script>
+</head>
+<body>
+<div class="wrap">
+  <p class="small"><a href="../../../../index.html">&larr; back to the revision site</a></p>
+  <h1>Pointer Steps and Array Indexing</h1>
+  <div class="objective"><strong>Objective.</strong> See why p + 1 moves four bytes and not one, why p2 - p1 counts elements while the addresses differ by more, and why a[i], *(a + i) and i[a] are three spellings of one object. These three facts decide most of GATE's C output questions.</div>
+
+  <div class="canvas-wrap"><div id="canvas-holder"></div></div>
+  <div class="caption" id="caption" aria-live="polite"></div>
+
+  <div class="controls">
+    <button id="play" class="primary">Play</button>
+    <button id="prev">&larr; Prev</button>
+    <button id="next">Next &rarr;</button>
+    <button id="restart">Restart</button>
+    <span class="speed"><label for="speed">Speed</label>
+      <input id="speed" type="range" min="0.25" max="2" step="0.25" value="1">
+      <span id="speedLabel">1.00x</span></span>
+    <span class="counter" id="counter"></span>
+  </div>
+
+  <h2>Static explanation</h2>
+  <p>Take int a[5] = {10, 20, 30, 40, 50} with 4-byte ints, and suppose the array begins at byte address 2000. The five elements occupy bytes 2000 to 2019, four bytes each: a[0] is at 2000, a[1] at 2004, a[2] at 2008, a[3] at 2012 and a[4] at 2016. Nothing about the array is stored except those twenty bytes.</p>
+  <p>A pointer variable holds one address. Writing p = a copies the address 2000 into p, because in an expression the array name decays to a pointer to its first element. Then p + 1 is not 2001. The compiler multiplies the offset by the size of the type p points at, so p + 1 is 2000 + 1 x 4 = 2004, and *(p + 1) is a[1] = 20. This is the whole reason pointer arithmetic works with arrays of any element size: on a double array the same p + 1 would add 8.</p>
+  <p>The subscript operator is defined through that identity: a[i] means *(a + i). Because the addition of an integer and a pointer is commutative, i[a] means the same thing, so 2[a] is a[2] = 30. And subtracting two pointers of the same type counts elements: with p at a[3] and q at a[1], p - q is 2, even though 2012 - 2004 is 8. The result has type ptrdiff_t, and the subtraction is defined only when both pointers point into the same array or one past its end.</p>
+  <p>Two exceptions matter for exams. sizeof and unary & do not decay their operand, so sizeof(a) is the whole array (20 bytes here) while sizeof(a + 0) is the size of a pointer. And a function parameter declared int a[10] is adjusted to int *a, so inside the function sizeof(a) is again the pointer's size and the array's length is simply gone.</p>
+
+  <div class="card warn"><div class="label">Common misconception</div><p>Reading p - q as a byte distance, or p + 1 as "the next byte". Both come from treating an address as a number rather than as a typed value. On this array, q - p between adjacent elements is 1 while the addresses differ by 4; on a double array it is still 1 while the addresses differ by 8. The compiler divides by sizeof(*p) for you, so the answer in elements never depends on the element size - which is exactly why GATE can ask the same question about ints and about doubles and get different-looking options.</p></div>
+
+  <div class="card ok"><div class="label">Quick check</div><p>With int a[6] = {10,20,30,40,50,60} and int *p = a + 2, what are *(p + 3) - *p and p - a?</p><details><summary>Answer</summary><p><strong>30 and 2.</strong> p points at a[2] = 30. *(p + 3) is *(a + 5) = a[5] = 60, so the difference is 60 - 30 = 30. And p - a subtracts two pointers into the same array, which counts elements: 2, not the 8 bytes between the addresses.</p></details></div>
+
+  <p class="small">Topic: Programming in C (Programming and Data Structures), subtopic pointer arithmetic and array decay. The three no-decay exceptions, the address formula and the pointer-difference rule: IAE Academy "Pointers, arrays and strings in C" (English, read in part). The array walk and the sizeof contrast: Knowledge Gate AI "Pointers in C for GATE: Memory Diagrams and Output Traces" (English, read in full). The definition of arr[i] as *(arr + i): CareerCraft Labs Hindi chapter (translated from Hindi, read in part). Every address and difference shown here is recomputed in scripts/validate.py.</p>
+</div>
+<script src="../../../lesson.js"></script>
+<script src="sketch.js"></script>
+<script>
+/* p5.js is loaded from a CDN. If it is unreachable, say so plainly instead of showing an empty box. */
+window.addEventListener('load', function () {
+  if (window.p5) { return; }
+  var holder = document.getElementById('canvas-holder');
+  if (holder) {
+    holder.innerHTML = '<div style="padding:22px 18px;font-size:14.5px;color:#4a5260">' +
+      'The animation needs p5.js, which this page loads from a CDN, and the request failed (offline, or the CDN is blocked). ' +
+      'Everything below still works: the static explanation, the misconception and the quick check.</div>';
+  }
+  var cap = document.getElementById('caption');
+  if (cap && window.LESSON && window.LESSON.steps && window.LESSON.steps[0]) {
+    cap.innerHTML = window.LESSON.steps[0].caption;
+  }
+  ['play', 'prev', 'next', 'restart', 'speed'].forEach(function (id) {
+    var el = document.getElementById(id);
+    if (el) { el.disabled = true; }
+  });
+});
+</script>
+</body>
+</html>

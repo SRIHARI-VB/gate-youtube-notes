@@ -1,0 +1,22 @@
+{
+ "id": "gate-2018-2-struct-char-cast",
+ "year": "2018",
+ "paper": "GATE CSE 2018",
+ "question_ref": "Q.2",
+ "type": "MCQ",
+ "marks": null,
+ "topic": "structures-unions-and-padding",
+ "text": "Consider the following C program: #include<stdio.h> struct Ournode{ char x, y, z; }; int main() { struct Ournode p={'1', '0', 'a'+2}; struct Ournode *q=&p; printf(\"%c, %c\", *((char*)q+1), *((char*)q+2)); return 0; } The output of this program is:",
+ "options": [
+  "0, c",
+  "0, a+2",
+  "'0', 'a+2'",
+  "'0', 'c'"
+ ],
+ "answer": "0, c (option A)",
+ "solution": "'a' + 2 is the character 'c', so p holds '1', '0' and 'c' in three consecutive bytes at offsets 0, 1 and 2. Casting q to char * changes the step size from one struct to one byte, so (char *)q + 1 addresses the second byte and (char *)q + 2 the third. Dereferencing gives '0' and 'c', and %c prints the characters themselves with no quotes, which is why options C and D are wrong.",
+ "source_url": "https://gateoverflow.in/204076/gate-cse-2018-question-2",
+ "source_label": "GATE Overflow question page - GATE CSE 2018 Q.2 with the accepted answer, option A",
+ "verification": "SOURCED",
+ "answer_evidence": "The GATE Overflow accepted answer is option A, 0, c, and the page explains both the arithmetic on 'a' + 2 and the effect of the cast on the pointer's step size. GateQA's record of the same question gives A. The official key was not fetched, so the record stays SOURCED."
+}

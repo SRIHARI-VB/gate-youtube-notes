@@ -1,0 +1,22 @@
+{
+ "id": "gate-2017-set2-14-printxy-call-by-value",
+ "year": "2017",
+ "paper": "GATE CSE 2017 Set 2",
+ "question_ref": "Q.14",
+ "type": "MCQ",
+ "marks": null,
+ "topic": "call-by-value-and-the-activation-record",
+ "text": "Consider the following function implemented in C: void printxy(int x, int y) { int *ptr; x=0; ptr=&x; y=*ptr; *ptr=1; printf(\"%d, %d\", x, y); } The output of invoking printxy(1,1) is:",
+ "options": [
+  "0, 0",
+  "0, 1",
+  "1, 0",
+  "1, 1"
+ ],
+ "answer": "1, 0 (option C)",
+ "solution": "Both arguments are copied into the parameters, so x and y start as 1. x = 0 sets the local x to 0. ptr = &x points at that local. y = *ptr copies 0 into y. *ptr = 1 writes through the pointer into x, so the local x becomes 1; y was already copied and does not change. printf prints x = 1 and y = 0. The function prints the same thing whatever is passed to it, which is the tell that the parameters are copies.",
+ "source_url": "https://gateoverflow.in/118245/gate-cse-2017-set-2-question-14",
+ "source_label": "GATE Overflow question page - GATE CSE 2017 Set 2 Q.14 with the accepted answer 1, 0",
+ "verification": "SOURCED",
+ "answer_evidence": "The GATE Overflow accepted answer is option C, 1, 0, and the reasoning on the page follows the same six assignments. GateQA's record of the same question also gives C. The official key was not fetched, so the record stays SOURCED."
+}

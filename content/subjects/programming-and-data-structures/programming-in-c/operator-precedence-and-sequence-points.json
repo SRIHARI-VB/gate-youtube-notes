@@ -1,0 +1,91 @@
+{
+ "id": "operator-precedence-and-sequence-points",
+ "title": "Precedence, Associativity and Sequence Points",
+ "priority": "P1",
+ "order": 561,
+ "unit": "Programming in C",
+ "quickIdea": "Precedence and associativity decide how the compiler groups an expression. Sequence points decide whether the side effects inside it have an order at all - and where there is none, the program's output is undefined rather than merely uncertain.",
+ "remember": [
+  "Precedence, high to low: [] and () ; postfix ++ -- ; prefix ++ -- and unary * & ! ~ and casts ; * / % ; + - ; << >> ; < <= > >= ; == != ; & ; ^ ; | ; && ; || ; ?: ; assignment, right to left ; comma.",
+  "Postfix ++ binds tighter than unary *, so *p++ is *(p++): it reads the current element and then advances the pointer. (*p)++ increments the element and leaves the pointer where it is.",
+  "&& and || short-circuit, so the right operand is not evaluated when the left decides the result. Bitwise & and | do not short-circuit and always evaluate both sides.",
+  "A sequence point is a full expression, the return from a function call, or the boundary between the three expressions of a for header. Between two sequence points an object may be modified at most once.",
+  "i++ + ++i and printf(\"%d %d\", i++, i++) have no defined answer: the same object is modified twice, or modified and read, with no sequence point between the two."
+ ],
+ "example": {
+  "prompt": "int r() { static int num = 7; return num--; } int main() { for (r(); r(); r()) printf(\"%d\", r()); } What is displayed?",
+  "work": "Each call returns the current value and then decrements the single static num. The for header runs as: initialisation r() returns 7 (num 6); the test r() returns 6 (num 5) and is true, so the body runs and its printf prints the 5 returned by that r() call (num 4); the update r() returns 4 (num 3); the test r() returns 3 (num 2) and is true, so the body prints 2 (num 1); the update r() returns 1 (num 0); the test r() returns 0 (num -1) and is false, so the loop ends.",
+  "answer": "52 - two characters, printed in the order 5 then 2."
+ },
+ "gateAngle": "GATE CSE 2019 Q.27 is this program and the answer is 52. The marks are in the order the three for expressions run in, not in the static variable: each is a separate full expression, so the sequence is init, test, body, update, test, body, and so on. The same precedence fact decides the *p++ family of questions.",
+ "variations": [
+  {
+   "label": "ORIGINAL PYQ-STYLE QUESTION",
+   "question": "int a[] = {5, 8}; int *p = a; int u = *p++; int v = (*p)++; What are u, v and the array afterwards?",
+   "answer": "u = 5, v = 8, and a becomes {5, 9}: *p++ reads a[0] and then moves p to a[1], and (*p)++ returns the old a[1] and increments the element.",
+   "why": "The same precedence rule as the 2019 trace, asked directly instead of hidden inside a loop header."
+  },
+  {
+   "label": "CONCEPTUAL PRACTICE QUESTION",
+   "question": "Is f(g(), h()) undefined because g and h may run in either order?",
+   "answer": "No. Each call is a complete function call and finishes before the other starts, so only the order is unspecified, and either order gives a defined result if g and h share no state. The undefined case is printf(\"%d %d\", i++, i++), where two unsequenced modifications of one object meet.",
+   "why": "Separates unspecified order from undefined behaviour, a distinction every evaluation-order question depends on."
+  },
+  {
+   "label": "PREDICTED VARIATION",
+   "question": "What does printf(\"%d\", 1 + 2 * 3 - 4 / 2) print, and what does strict left-to-right evaluation of the same operands give?",
+   "answer": "5 by precedence; left to right it would be ((1 + 2) * 3 - 4) / 2 = 5 / 2 = 2, which is the wrong answer.",
+   "why": "The arithmetic-precedence version of the same question, worth one mark on its own."
+  }
+ ],
+ "trap": {
+  "what": "Assuming that function arguments are evaluated left to right.",
+  "why": "The standard leaves the order of evaluation of a call's arguments unspecified, so the two conversions in printf(\"%d %d\", i++, i++) may happen in either order - and because the two modifications of i are unsequenced, the program is undefined rather than 'one of the two'. A trace built on left-to-right order is a guess, not an answer.",
+  "counterexample": "printf(\"%d %d\", i++, i++) with i = 5 has no required output at all, while printf(\"%d %d\", i, i + 1) does, because nothing is modified."
+ },
+ "check": {
+  "question": "What does *p++ do, and what does (*p)++ do?",
+  "answer": "*p++ is *(p++): it yields the element p currently points at and then advances p by one element. (*p)++ yields that element's old value and increments the element, leaving p where it is.",
+  "explanation": "Postfix ++ binds tighter than unary *, so the parentheses are exactly what changes the meaning."
+ },
+ "pyqIds": [
+  "gate-2019-27-static-for-loop-sequence"
+ ],
+ "videoRefs": [],
+ "prereqs": [
+  "storage-classes-auto-static-extern-register"
+ ],
+ "sources": [
+  {
+   "kind": "text",
+   "title": "C Programming Fundamentals: Complete Guide with Worked Examples for GATE and Placements",
+   "channel": "Knowledge Gate AI",
+   "url": "https://www.knowledgegate.ai/blog/c-fundamentals-c-programming",
+   "language": "en",
+   "transcript": "PARTIAL",
+   "translated": false,
+   "note": "the precedence statement and the warning that i++ + ++i has no trustworthy output"
+  },
+  {
+   "kind": "text",
+   "title": "Pointers, arrays and strings in C - GATE notes and 11 solved PYQs",
+   "channel": "IAE Academy",
+   "url": "https://iaeacademy.in/study/c-programming/pointers-arrays-strings",
+   "language": "en",
+   "transcript": "PARTIAL",
+   "translated": false,
+   "note": "the *p++ against (*p)++ table and the pointer-plus-increment precedence note"
+  },
+  {
+   "kind": "text",
+   "title": "Pointers in C for GATE: Memory Diagrams and Output Traces",
+   "channel": "Knowledge Gate AI",
+   "url": "https://www.knowledgegate.ai/blog/pointers-in-c-gate-memory-diagrams",
+   "language": "en",
+   "transcript": "FULL",
+   "translated": false,
+   "note": "the same precedence fact worked through an array example"
+  }
+ ],
+ "sourceLine": "The precedence list and the unsequenced-modification warning: Knowledge Gate AI 'C Programming Fundamentals' (English, read in part). The *p++ and (*p)++ rules: IAE Academy 'Pointers, arrays and strings in C' (English, read in part) and Knowledge Gate AI 'Pointers in C for GATE' (English, read in full). The 52 that GATE CSE 2019 Q.27 prints is recomputed in scripts/validate.py."
+}

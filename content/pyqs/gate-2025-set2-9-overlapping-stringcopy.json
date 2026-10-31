@@ -1,0 +1,22 @@
+{
+ "id": "gate-2025-set2-9-overlapping-stringcopy",
+ "year": "2025",
+ "paper": "GATE CSE 2025 Set 2",
+ "question_ref": "Q.9",
+ "type": "MCQ",
+ "marks": null,
+ "topic": "strings-nul-termination",
+ "text": "Consider the following C program: #include <stdio.h> void stringcopy (char *, char *); int main() { char a[30] = \"@#Hello World!\"; stringcopy(a, a+2); printf(\"%s\\n\",a); return 0; } void stringcopy(char *s, char *t) { while (*t) *s++=*t++; } Which one of the following will be the output of the program?",
+ "options": [
+  "@#Hello World!",
+  "Hello World!",
+  "ello World!",
+  "Hello World!d!"
+ ],
+ "answer": "Hello World!d! (option D)",
+ "solution": "The literal fills indices 0 to 13 with @, #, H, e, l, l, o, space, W, o, r, l, d, ! and puts the NUL at index 14. The source starts at index 2 and the destination at index 0, so the twelve characters from 'H' to '!' are copied into indices 0 to 11 and the loop stops at the NUL without copying it. Indices 12 and 13 still hold the old 'd' and '!', and the NUL at 14 is untouched, so printf prints the twelve copied characters followed by those two leftovers. The missing terminator is the whole question: option B is the answer if the loop also wrote the NUL.",
+ "source_url": "https://gateoverflow.in/460826/gate-cse-2025-set-2-question-9",
+ "source_label": "GATE Overflow question page - GATE CSE 2025 Set 2 Q.9 with the accepted answer, option D",
+ "verification": "SOURCED",
+ "answer_evidence": "The GATE Overflow accepted answer is option D, with the page noting that the loop omits the terminator and that adding *s = '\\0' would give option B instead. The official key was not fetched, so the record stays SOURCED."
+}

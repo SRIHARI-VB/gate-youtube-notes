@@ -1,0 +1,22 @@
+{
+ "id": "gate-2019-27-static-for-loop-sequence",
+ "year": "2019",
+ "paper": "GATE CSE 2019",
+ "question_ref": "Q.27",
+ "type": "MCQ",
+ "marks": null,
+ "topic": "operator-precedence-and-sequence-points",
+ "text": "Consider the following C program: #include <stdio.h> int r() { static int num=7; return num--; } int main() { for (r();r();r()) printf(\"%d\",r()); return 0; } Which one of the following values will be displayed on execution of the program?",
+ "options": [
+  "41",
+  "52",
+  "63",
+  "630"
+ ],
+ "answer": "52 (option B)",
+ "solution": "num is a single static int, initialised once to 7, and r returns its value before decrementing. The for header is evaluated in the order initialisation, test, body, update, test, body, and so on, and each of those three expressions is a separate full expression. The initialisation r() returns 7 and leaves 6. The test r() returns 6 and leaves 5, which is true, so the body runs and its printf prints the 5 returned by its own r() call, leaving 4. The update r() returns 4 and leaves 3. The test r() returns 3 and leaves 2, true, so the body prints 2 and leaves 1. The update r() returns 1 and leaves 0. The test r() returns 0 and leaves -1, which is false, so the loop ends. The characters printed are 5 then 2.",
+ "source_url": "https://gateoverflow.in/302821/gate-cse-2019-question-27",
+ "source_label": "GATE Overflow question page - GATE CSE 2019 Q.27 with the accepted answer 52",
+ "verification": "SOURCED",
+ "answer_evidence": "The GATE Overflow accepted answer traces every call and gives 52, and the same answer appears in the other answers on the page. The official paper's numbering agrees with the page. The official key was not fetched this run, so the record stays SOURCED."
+}

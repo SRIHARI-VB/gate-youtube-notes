@@ -1,0 +1,22 @@
+{
+ "id": "gate-2000-34-struct-union-sizeof",
+ "year": "2000",
+ "paper": "GATE CSE 2000",
+ "question_ref": "Q.34 of the 2000 paper (numbered Q.36 on the ExamSIDE topic page; the GATE Overflow record carries no paper number)",
+ "type": "MCQ",
+ "marks": null,
+ "topic": "structures-unions-and-padding",
+ "text": "Consider the following C declaration: struct { short s[5]; union { float y; long z; } u; } t; Assume that objects of the type short, float and long occupy 2 bytes, 4 bytes and 8 bytes, respectively. The memory requirement for variable t, ignoring alignment considerations, is",
+ "options": [
+  "22 bytes",
+  "14 bytes",
+  "18 bytes",
+  "10 bytes"
+ ],
+ "answer": "18 bytes (option C)",
+ "solution": "The struct has two members that sit side by side. s is an array of five shorts, so 5 x 2 = 10 bytes. u is a union, so it is as large as its largest member, max(4, 8) = 8 bytes, because all of its members share one starting address. The total is 10 + 8 = 18. Option A, 22, is what you get by treating the union as a struct and summing 10 + 4 + 8. Option B, 14, adds the float twice or the array wrongly, and option D, 10, forgets the union altogether.",
+ "source_url": "https://gateoverflow.in/486933/programming-gate-2000-question",
+ "source_label": "GATE Overflow record of the GATE 2000 question, with the accepted answer 18 bytes",
+ "verification": "SOURCED",
+ "answer_evidence": "The GATE Overflow answer states 10 + max(4, 8) = 18 and both the SolutionsAdda page and the ExamSIDE topic page reproduce the same option set. The official 2000 paper and key were not fetched this run, so the record stays SOURCED, and the question number is recorded with the disagreement above rather than pinned to one site."
+}

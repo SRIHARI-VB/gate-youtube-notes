@@ -1,0 +1,71 @@
+{
+ "id": "control-flow-switch-fallthrough",
+ "title": "Control Flow and Switch Fall-Through",
+ "priority": "P2",
+ "order": 562,
+ "unit": "Programming in C",
+ "quickIdea": "switch is a jump into a block of statements, not a set of exclusive branches: a case label marks an entry point and execution runs on from there until a break.",
+ "remember": [
+  "A case label must be an integer constant expression, and no two labels in one switch may have the same value. default may appear anywhere and is taken only when no label matches.",
+  "Without break, control falls through into the next case. Deliberate fall-through is legal, and a question that omits break is asking you to follow it.",
+  "while tests before the body; do-while tests after it, so a do-while body always runs at least once even when the condition is false on entry.",
+  "continue in a for loop jumps to the update expression, not past it; in a while loop it jumps back to the test. break leaves the innermost loop or switch.",
+  "A loop counter keeps the value that failed the test: after for (i = 1; i <= 5; i++) the counter is 6, not 5."
+ ],
+ "example": {
+  "prompt": "int i, s = 0; for (i = 1; i <= 5; i++) { if (i % 2 == 0) continue; s += i; } printf(\"%d %d\", s, i);",
+  "work": "i runs from 1 upward. At i = 1, 3 and 5 the body adds, so s becomes 1, then 4, then 9. At i = 2 and 4 the continue jumps to the update, so nothing is added. When i becomes 6 the test fails, the loop ends, and i keeps 6.",
+  "answer": "9 6."
+ },
+ "gateAngle": "GATE uses loops as the wrapper for a trace rather than as the question itself, so the marks sit in the sequencing and in the final value of the counter. Printing 5 where the loop ended at 6 is the most common single-mark loss in this topic.",
+ "variations": [
+  {
+   "label": "ORIGINAL PYQ-STYLE QUESTION",
+   "question": "int x = 2; switch (x) { case 1: printf(\"one\"); case 2: printf(\"two\"); case 3: printf(\"three\"); break; default: printf(\"other\"); } What is printed?",
+   "answer": "twothree - control enters at case 2 and falls through case 3 until the break.",
+   "why": "The fall-through rule stated as plainly as it can be; the distractors are 'two' and 'twothreeother'."
+  },
+  {
+   "label": "CONCEPTUAL PRACTICE QUESTION",
+   "question": "Why can a case label not be a variable, such as case n:?",
+   "answer": "Because the compiler must be able to build the jump table before the program runs, so each label has to be an integer constant expression known at compile time.",
+   "why": "Explains why switch is implemented as a jump and not as a chain of comparisons."
+  }
+ ],
+ "trap": {
+  "what": "Reading a switch as if each case were an if-else branch.",
+  "why": "case labels only choose where execution enters the block. Once inside, statements run in order and cross into the following case unless a break, a return or the end of the switch stops them.",
+  "counterexample": "switch (2) { case 1: printf(\"A\"); case 2: printf(\"B\"); case 3: printf(\"C\"); } prints BC, not B."
+ },
+ "check": {
+  "question": "How many times does the body of do { ... } while (0); run?",
+  "answer": "Once.",
+  "explanation": "The test comes after the body, so the body runs before the condition is looked at, however obviously false the condition is."
+ },
+ "pyqIds": [],
+ "videoRefs": [],
+ "prereqs": [],
+ "sources": [
+  {
+   "kind": "text",
+   "title": "C Programming Fundamentals: Complete Guide with Worked Examples for GATE and Placements",
+   "channel": "Knowledge Gate AI",
+   "url": "https://www.knowledgegate.ai/blog/c-fundamentals-c-programming",
+   "language": "en",
+   "transcript": "PARTIAL",
+   "translated": false,
+   "note": "the do-while and switch fall-through statements and the continue trace"
+  },
+  {
+   "kind": "text",
+   "title": "Programming in C - subject chapter (GATE Overflow for GATE CSE, Volume 2)",
+   "channel": "GATE Overflow",
+   "url": "https://gateoverflow.in/subject/programming-in-c/programming/programming-in-c",
+   "language": "en",
+   "transcript": "PARTIAL",
+   "translated": false,
+   "note": "the programming-constructs summary and its list of control-flow pitfalls"
+  }
+ ],
+ "sourceLine": "Switch fall-through, do-while and the continue trace: Knowledge Gate AI 'C Programming Fundamentals' (English, read in part). The construct list and the off-by-one pitfall: GATE Overflow 'Programming in C' chapter (English, read in part)."
+}

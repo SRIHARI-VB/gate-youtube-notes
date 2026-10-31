@@ -1,0 +1,17 @@
+{
+ "id": "gate-2017-set2-55-array-index-identity",
+ "year": "2017",
+ "paper": "GATE CSE 2017 Set 2",
+ "question_ref": "Q.55",
+ "type": "NAT",
+ "marks": null,
+ "topic": "pointer-arithmetic-and-array-decay",
+ "text": "Consider the following C program. #include<stdio.h> #include<string.h> int main() { char* c=\"GATECSIT2017\"; char* p=c; printf(\"%d\", (int)strlen(c+2[p]-6[p]-1)); return 0; } The output of the program is _______",
+ "options": [],
+ "answer": "2",
+ "solution": "2[p] is *(2 + p), which is p[2], the character 'T'; 6[p] is p[6], the character 'I'. In any character set the letters are consecutive, so 'T' - 'I' = 84 - 73 = 11. The argument is therefore c + 11 - 1, that is c + 10, which points at the '1' of \"2017\", ten characters into the twelve-character string. strlen counts from there to the NUL, so it counts '1' and '7' and returns 2.",
+ "source_url": "https://gateoverflow.in/118335/gate-cse-2017-set-2-question-55",
+ "source_label": "GATE Overflow question page - GATE CSE 2017 Set 2 Q.55 with the accepted answer 2",
+ "verification": "SOURCED",
+ "answer_evidence": "The GATE Overflow accepted answers give 2, and one answer on the page reaches -9 by evaluating the difference without the pointer arithmetic, which the accepted answer corrects. GateQA's record of the same question gives 2. The official key was not fetched, so the record stays SOURCED."
+}

@@ -1,0 +1,22 @@
+{
+ "id": "gate-2005-32-prototype-implicit-declaration",
+ "year": "2005",
+ "paper": "GATE CSE 2005",
+ "question_ref": "Q.32",
+ "type": "MCQ",
+ "marks": null,
+ "topic": "call-by-value-and-the-activation-record",
+ "text": "Consider the following C program: double foo (double); /* Line 1 */ int main() { double da, db; //input da db = foo(da); } double foo (double a) { return a; } The above code compiled without any error or warning. If Line 1 is deleted, the above code will show:",
+ "options": [
+  "no compile warning or error",
+  "some compiler-warnings not leading to unintended results",
+  "some compiler-warnings due to type-mismatch eventually leading to unintended results",
+  "compiler errors"
+ ],
+ "answer": "compiler errors (option D)",
+ "solution": "With Line 1 present, the compiler knows foo returns double before it sees the call. With the prototype deleted, the call is an implicit declaration: pre-C99 C assumes the function returns int and takes unspecified arguments, and the later definition returning double then conflicts with that assumption. That conflict is an error, not merely a warning, because the two types disagree. The question's option C describes a warning with unintended results, which is the answer when the assumed and actual types happen to be compatible, as they are for an int-returning function.",
+ "source_url": "https://gateoverflow.in/1368/gate-cse-2005-question-32",
+ "source_label": "GATE Overflow question page - GATE CSE 2005 Q.32 with the accepted answer, compiler errors",
+ "verification": "SOURCED",
+ "answer_evidence": "The GATE Overflow accepted answer is option D and the page records the implicit-declaration and conflicting-types diagnostics that a compiler prints. Two answers on the page argue for option C on pre-C99 compilers; the accepted answer and the C99 rule both give D, and the disagreement is noted on the card rather than smoothed over. The official key was not fetched, so the record stays SOURCED."
+}

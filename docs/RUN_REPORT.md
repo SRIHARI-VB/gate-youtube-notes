@@ -3081,3 +3081,117 @@ The cycle pointer now sits on `computer-organization-and-architecture/instructio
 last COA topic, so the COA subject is complete for a first pass (six of six topics with cards, all `partial`
 with named gaps). The cycle wraps to the first `not_started` topic in syllabus order, which is
 `programming-and-data-structures/programming-in-c`.
+
+## Run: Programming and Data Structures - Programming in C (2026-10-31)
+
+### The topic, and why it was next
+
+**Programming and Data Structures > Programming in C** (`programming-in-c`), the first topic of the GATE
+2027 line *"Programming in C. Recursion. Arrays, stacks, queues, linked lists, trees, binary search trees,
+binary heaps, graphs."*
+
+The cycle pointer was left by the previous run on
+`computer-organization-and-architecture/instruction-pipelining-and-hazards`, the last topic of the COA
+subject. The first topic strictly after it in cyclic order whose status is not `covered` is this one, which
+was `not_started`. Nothing was skipped: no topic sits between the pointer and this one, no topic is
+`blocked`, and the twenty-five `partial` topics were left alone because the cycle takes its second pass
+over `partial` topics only after a full pass finds no `not_started` topic left. `recursion`, the second
+topic of this subject, is the next topic and was deliberately not touched.
+
+### Subtopics enumerated before any source was chosen
+
+The syllabus names the topic in three words, so the enumeration came from the GATE question record, the
+NPTEL IIT Kharagpur twelve-week layout and the standard treatment (Kernighan and Ritchie, chapters 1 to 6):
+tokens, types and `sizeof`; integer promotion and unsigned conversion; operator precedence, associativity
+and sequence points; control flow with `switch` fall-through; functions, call by value and the activation
+record; scope, shadowing and linkage; the four storage classes; pointers, indirection and the double
+pointer; pointer arithmetic and array decay; strings and NUL termination; structures, unions and padding;
+dynamic memory; the preprocessor. Thirteen, one card each. Array and recursion questions were routed to
+their own syllabus topics rather than absorbed here.
+
+### Sources chosen, and why
+
+Six readable texts and one course outline, in two languages:
+
+- **GATE Overflow, "Programming in C" subject chapter** (English, read in part). The only GATE-oriented
+  chapter that walks the whole topic in one voice with a pitfall list per concept. It supplied the
+  enumeration and the trap fields of nine cards.
+- **Knowledge Gate AI, "C Programming Fundamentals"** (English, read in part). The only source with worked
+  outputs for the conversion traps, and the one that states plainly that `i++ + ++i` has no trustworthy
+  answer.
+- **Knowledge Gate AI, "Pointers in C for GATE: Memory Diagrams and Output Traces"** (English, read in
+  full). The only source that works `*p++` against `(*p)++` and the `sizeof`-of-a-pointer contrast through
+  concrete traces.
+- **IAE Academy, "Pointers, arrays and strings in C"** (English, read in part). The only source that lists
+  the three exceptions to array decay and gives `realloc`'s failure behaviour precisely.
+- **IAE Academy, "Functions, parameter passing, scope and storage classes"** (English, read in part). The
+  only complete storage-class table read this run, and the only statement that scope and lifetime are
+  separate properties.
+- **CareerCraft Labs, "C mein Programming"** (Hindi/Devanagari, read in part, translated). The only readable
+  non-English source and the only one that states the macro-parenthesis trap and the include guard at all.
+  Four cards carry a sentence from it, each naming the translation.
+- **NPTEL IIT Kharagpur course layout** (English, structure only), read solely to check the enumeration is
+  complete.
+
+Rejected, with reasons in `sources.json`: every video source (the YouTube watch page answered 302 and the
+`timedtext` endpoint returned 0 bytes, so the GATE Wallah crash course, the NPTEL IIT Kharagpur 61-video
+course and the Knowledge Gate C module supplied no sentence); the Knowledge Gate AI lecture summaries, which
+are enrolled-only lessons behind an English AI summary; the Byju's GATE pages, rejected on correctness (they
+state that a pointer is 2 bytes on a 32-bit build and that a register variable defaults to 0); the Cornell
+CS113 deck (correct but not GATE-framed); GeeksforGeeks and Tutorialspoint, left unread because six readable
+sources already covered the enumeration; the paywalled Unacademy Hindi course; two generic Hindi blogs; and
+four aggregator or MCQ-bank sites.
+
+### What was created
+
+Thirteen cards under `content/subjects/programming-and-data-structures/programming-in-c/`, one per
+subtopic, each with the five-second idea, the remember list, a worked example, the GATE angle, labelled
+variations, a trap with a counterexample, a quick check with its explanation and a source line naming what
+each source contributed and in what language. Thirteen PYQ records under `content/pyqs/`. One p5.js lesson,
+`visuals/programming-and-data-structures/programming-in-c/pointer-steps-and-array-indexing/`, six steps:
+the array laid out at 2000, `p = a`, `p + 1` as four bytes with a byte ruler, a walk reading 10 to 50,
+`a[2]` and `*(a + 2)` and `2[a]` reaching one box, and `p - q` as 2 elements against an 8-byte gap.
+
+### Verified PYQs
+
+Thirteen, every one `SOURCED` against a GATE Overflow accepted answer, each with its year, question
+reference and source URL: 2000 Q.34 (struct holding a union, 18 bytes), 2003 Q.89 (macro and shadowing,
+12 7 6), 2005 Q.32 (deleted prototype, compiler errors), 2008 Q.60 (double pointer, 19), 2015 Set 3 Q.7
+(`'0'` into a char array, 1204), 2016 Set 1 Q.35 (static local in recursion, 3 1 2 2 1 3 4 4 4), 2017 Set 1
+Q.53 (unsigned strlen difference, 3), 2017 Set 2 Q.14 (`printxy`, 1, 0), 2017 Set 2 Q.55 (`2[p] - 6[p]`,
+2), 2018 Q.2 (struct through a char cast, 0, c), 2019 Q.27 (static counter in a `for` header, 52), 2024
+Set 2 Q.26 (pointer subtraction on doubles, 1,5), 2025 Set 2 Q.9 (unterminated overlapping copy,
+`Hello World!d!`).
+
+### Validation
+
+`scripts/build-index.py` regenerated the index (373 cards, 303 PYQs, 36 lessons) and
+`scripts/validate.py` passed with 0 failures and 8 warnings, all of them pre-existing and none in this
+topic. `node tests/visual-lessons.js` passed, with the new lesson drawing all six steps at p = 0, 0.5 and 1.
+A new `check_c_programming()` recomputes every size, padding, address and printed output published here,
+including each PYQ's answer against its record: 8 layout figures, 12 printed outputs and the 13 recorded
+answers. It caught one drafting error before delivery - a PREDICTED VARIATION claimed that evaluating
+`1 + 2 * 3 - 4 / 2` strictly left to right gives 3, where `((1 + 2) * 3 - 4) / 2` is 5 / 2 = 2 - and the
+card was corrected rather than the check. No frozen file was touched: no design token, no shell layout, no
+route, no navigation label and no shared component class changed.
+
+### Gaps (the topic stays `partial`)
+
+1. No video transcript was readable: the watch page answered 302 and `timedtext` returned an empty body, so
+   `videoRefs` is empty on all thirteen cards.
+2. The control-flow and preprocessor cards have no verified PYQ of their own; the macro question found
+   (2003 Q.89) is decided by scope and sits on that card.
+3. Dynamic memory has no verified PYQ: GATE CSE 2017 Set 1 Q.13 was located but not verified.
+4. Every PYQ is `SOURCED`, not key-verified, and no marks field is recorded on any of the thirteen.
+5. The 2000 struct-and-union question carries a numbering disagreement (Q.34 on SolutionsAdda, Q.36 on
+   ExamSIDE, no number on GATE Overflow) rather than a pinned reference.
+6. Array and recursion questions belonging to neighbouring topics were routed away rather than absorbed:
+   2021 Set 2 Q.10, 2016 Set 2 Q.37, 2019 Q.24, 2017 Set 1 Q.35 and Q.36, 2020 Q.46, 1991 Q.1(x).
+7. GATE Overflow lists further questions from 1995 to 2026 that were not individually read; only the
+   thirteen recorded ones were verified.
+8. The translated material is limited to one Hindi chapter read in part.
+
+### Next
+
+The cycle pointer now sits on `programming-and-data-structures/programming-in-c`, so the next topic is
+`programming-and-data-structures/recursion`, the second `not_started` topic of the subject.

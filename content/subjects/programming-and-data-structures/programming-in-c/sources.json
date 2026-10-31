@@ -1,0 +1,184 @@
+{
+ "subject": "programming-and-data-structures",
+ "topic": "programming-in-c",
+ "retrieved_at": "2026-10-31",
+ "chosen": [
+  {
+   "id": "gateoverflow-programming-in-c-chapter",
+   "kind": "text",
+   "title": "Programming in C - subject chapter (GATE Overflow for GATE CSE, Volume 2)",
+   "channel": "GATE Overflow",
+   "url": "https://gateoverflow.in/subject/programming-in-c/programming/programming-in-c",
+   "language": "en",
+   "transcript": "PARTIAL",
+   "translated": false,
+   "covers": [
+    "sizeof as an operator over types, and the struct and union size bounds",
+    "integer promotion and the usual arithmetic conversions",
+    "storage-class binding, scope and lifetime",
+    "pointers, the double pointer, and the wild and dangling pointer pitfalls",
+    "structures, unions, member access and padding",
+    "dynamic memory signatures",
+    "programming constructs and their pitfalls"
+   ],
+   "why": "the only GATE-oriented chapter found that walks the whole topic in one voice with an explicit pitfall list per concept; it carries the enumeration and the trap fields of nine of the thirteen cards"
+  },
+  {
+   "id": "knowledgegate-c-fundamentals",
+   "kind": "text",
+   "title": "C Programming Fundamentals: Complete Guide with Worked Examples for GATE and Placements",
+   "channel": "Knowledge Gate AI",
+   "url": "https://www.knowledgegate.ai/blog/c-fundamentals-c-programming",
+   "language": "en",
+   "transcript": "PARTIAL",
+   "translated": false,
+   "covers": [
+    "the GATE size convention and the format specifiers",
+    "signed-char wrap and integer division",
+    "precedence, and the unsequenced-modification warning",
+    "do-while, switch fall-through and a continue trace",
+    "pointer arithmetic and call by value"
+   ],
+   "why": "the only source read this run that gives worked outputs for the conversion traps and states plainly that i++ + ++i has no trustworthy answer, which is the basis of the sequence-point card"
+  },
+  {
+   "id": "knowledgegate-pointers-in-c-gate",
+   "kind": "text",
+   "title": "Pointers in C for GATE: Memory Diagrams and Output Traces",
+   "channel": "Knowledge Gate AI",
+   "url": "https://www.knowledgegate.ai/blog/pointers-in-c-gate-memory-diagrams",
+   "language": "en",
+   "transcript": "FULL",
+   "translated": false,
+   "covers": [
+    "the box-and-arrow pointer model and the double-pointer trace",
+    "the array walk and the sizeof contrast",
+    "the failing swap and the working pointer swap",
+    "*p++ against (*p)++",
+    "dangling pointers and the read-only string literal"
+   ],
+   "why": "read end to end, and the only source that works the *p++ precedence rule and the sizeof-of-a-pointer-versus-array contrast through concrete traces"
+  },
+  {
+   "id": "iaeacademy-pointers-arrays-strings",
+   "kind": "text",
+   "title": "Pointers, arrays and strings in C - GATE notes and 11 solved PYQs",
+   "channel": "IAE Academy",
+   "url": "https://iaeacademy.in/study/c-programming/pointers-arrays-strings",
+   "language": "en",
+   "transcript": "PARTIAL",
+   "translated": false,
+   "covers": [
+    "the GATE size and layout conventions",
+    "the three no-decay exceptions and the sizeof rules",
+    "the address formula and the pointer-difference rule",
+    "the two-dimensional parameter adjustment",
+    "the malloc, calloc and realloc contracts"
+   ],
+   "why": "the only source that states the three exceptions to array decay as a numbered list and gives the failure behaviour of realloc, both of which the cards needed and the other sources did not state precisely"
+  },
+  {
+   "id": "iaeacademy-functions-scope",
+   "kind": "text",
+   "title": "Functions, parameter passing, scope and storage classes - GATE notes and 7 solved PYQs",
+   "channel": "IAE Academy",
+   "url": "https://iaeacademy.in/study/c-programming/functions-scope",
+   "language": "en",
+   "transcript": "PARTIAL",
+   "translated": false,
+   "covers": [
+    "call by value and the order of events in a call",
+    "the array-parameter exception and the unsequenced-argument warning",
+    "block and file scope, shadowing, static against dynamic scoping",
+    "the four storage classes with duration, default value and linkage",
+    "the constant-initialiser rule and the register address rule"
+   ],
+   "why": "the only source read this run with a complete storage-class table and an explicit statement that scope and lifetime are separate properties, which three cards depend on"
+  },
+  {
+   "id": "careercraftlabs-hindi-c-chapter",
+   "kind": "text",
+   "title": "C mein Programming - chapter notes (Devanagari)",
+   "channel": "CareerCraft Labs",
+   "url": "https://careercraftlabs.org/hi/read/net2-cs-ch06",
+   "language": "hi",
+   "transcript": "PARTIAL",
+   "translated": true,
+   "covers": [
+    "the preprocessor as pure textual substitution and the SQ(x) parentheses trap",
+    "the NUL-terminated char array as the definition of a C string",
+    "arr[i] defined as *(arr + i) and the array-parameter sizeof trap",
+    "struct padding and the union size",
+    "the three heap bugs and argc and argv"
+   ],
+   "why": "the only readable non-English source, and the only one read this run that states the macro-parenthesis trap and the include guard at all; its four translated sentences are marked as translated on the cards that use them"
+  },
+  {
+   "id": "nptel-iitkgp-problem-solving-c-outline",
+   "kind": "course-outline",
+   "title": "Problem Solving through Programming in C - 12-week course layout (IIT Kharagpur)",
+   "channel": "NPTEL",
+   "url": "https://onlinecourses.nptel.ac.in/noc26_cs53/preview",
+   "language": "en",
+   "transcript": "STRUCTURE_ONLY",
+   "translated": false,
+   "covers": [
+    "the teaching order: variables and data types, expressions and operators, branching, loops, arrays, strings, functions and parameter passing by value, structures and pointers"
+   ],
+   "why": "read only for its week list, to check that the subtopic enumeration below is complete; no sentence of any card rests on it"
+  }
+ ],
+ "rejected": [
+  {
+   "id": "youtube-c-lectures-any-channel",
+   "kind": "video",
+   "why": "no video transcript was readable this run: the YouTube watch page for the NPTEL IIT Kharagpur 'Introduction' lecture answered 302 and redirected, and the timedtext endpoint returned an empty body (0 bytes) for it, so the GATE Wallah 16-video C crash course, the NPTEL IIT Kharagpur 61-video course and the Knowledge Gate C Language module supplied no sentence; videoRefs is empty on all thirteen cards"
+  },
+  {
+   "id": "knowledgegate-ai-lecture-pages",
+   "kind": "video-summary",
+   "why": "the lecture pages publish an English AI summary and chapters with timestamps, but the lessons themselves are behind an enrolment wall; with six readable texts in hand there was no need to lean on a summary of a lecture that could not be heard, and no card quotes one"
+  },
+  {
+   "id": "byjus-gate-storage-classes-and-pointers",
+   "kind": "text",
+   "why": "read and rejected on correctness: it states that a pointer is 2 bytes in a 32-bit architecture and that a register variable's default initial value is 0, both of which are wrong; nothing was taken from it"
+  },
+  {
+   "id": "cornell-cs113-lecture4-pointers-and-storage-classes",
+   "kind": "lecture-slides",
+   "why": "readable and correct, but a 1999 university course deck with no GATE framing, no PYQ walkthrough and no treatment of structures, unions or the preprocessor; the IAE Academy notes cover the same ground with the exam framing"
+  },
+  {
+   "id": "geeksforgeeks-and-tutorialspoint-c-articles",
+   "kind": "text",
+   "why": "left unread this run because the six chosen sources already covered every subtopic with GATE framing, and the same hosts have answered 502 to this sandbox in earlier runs; no claim rests on them"
+  },
+  {
+   "id": "unacademy-hindi-c-lessons",
+   "kind": "video",
+   "why": "the Hindi C course that matched the topic lesson for lesson (storage classes, pointers and structures, unions) is behind a subscription, so no text was readable"
+  },
+  {
+   "id": "notesinhindi-and-computerguidehindi-c-pages",
+   "kind": "text",
+   "why": "readable Hindi pages on dynamic memory, but generic programming tutorials with no GATE framing, no PYQ and no pointer or structure treatment; the CareerCraft Labs chapter covers the same ground and more, so these were not used"
+  },
+  {
+   "id": "edurev-abekus-btechbrain-tutsedge-c-notes",
+   "kind": "text",
+   "why": "paywalled, a 1700-question MCQ bank rather than teaching, a generic notebook, and a beginner pointer tutorial respectively; none of them states a GATE-relevant rule the chosen sources do not state better"
+  },
+  {
+   "id": "examside-gateoverflow-gateqa-question-indexes",
+   "kind": "question-index",
+   "why": "used to locate questions and to corroborate answers, never as the source of a card; their numbering disagrees with each other and with the printed papers (the 2000 struct question is Q.34 on SolutionsAdda and Q.36 on ExamSIDE, the 2008 double-pointer question is Q.60 on GATE Overflow and Q.25 on ExamSIDE's topic page), and every such disagreement is recorded in the PYQ record rather than resolved"
+  }
+ ],
+ "standard_refs": [
+  "Kernighan and Ritchie, The C Programming Language, 2nd edition, chapters 1 to 6 - cited as the standard treatment, not fetched this run",
+  "ISO/IEC 9899 (C99, and C11 for _Thread_local) for the sequencing, promotion, storage-duration and undefined-behaviour rules - cited, not fetched",
+  "GATE Overflow question pages for the thirteen recorded PYQs, each carrying an accepted answer"
+ ],
+ "language_note": "One of the seven chosen sources is Hindi (Devanagari), read in part and translated. Every card, caption, check and label published here is English, and each card that uses a sentence from that chapter names the translation in its source line. No card is a translation of a lecture, because no lecture transcript was readable this run."
+}

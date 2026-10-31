@@ -1,0 +1,82 @@
+{
+ "id": "call-by-value-and-the-activation-record",
+ "title": "Call by Value and the Activation Record",
+ "priority": "P1",
+ "order": 563,
+ "unit": "Programming in C",
+ "quickIdea": "Every C argument is copied into its parameter. A function can change the caller's object only when the caller hands it that object's address.",
+ "remember": [
+  "C has call by value only. The value of each argument expression is computed and a copy is bound to the parameter, so an assignment to a parameter never reaches the caller's variable.",
+  "A pointer parameter is copied too. Writing p = ... inside the function changes the local copy of the address; writing *p = ... changes the caller's object.",
+  "An array argument does not break the rule: what is copied is a pointer to the first element, so element writes reach the caller, but sizeof inside the function is the pointer's size and the length is lost.",
+  "Parameters and auto locals live in the function's activation record, created on entry and destroyed on return. Returning the address of a local leaves a dangling pointer.",
+  "A call with no visible prototype is an implicit declaration: pre-C99 compilers assume the function returns int, so a double-returning function gives a conflicting-types error (GATE CSE 2005 Q.32)."
+ ],
+ "example": {
+  "prompt": "void printxy(int x, int y) { int *ptr; x = 0; ptr = &x; y = *ptr; *ptr = 1; printf(\"%d, %d\", x, y); } What does printxy(1, 1) print?",
+  "work": "The two arguments are copied into x and y, so both start as 1. x = 0 makes the copy 0. ptr = &x points at the local x. y = *ptr copies 0 into y. *ptr = 1 writes through ptr into x, so the local x becomes 1. y was already copied and does not change.",
+  "answer": "1, 0."
+ },
+ "gateAngle": "GATE CSE 2017 Set 2 Q.14 is this function and the answer is 1, 0. The same fact appears disguised as a swap: a function that swaps its pointer parameters does nothing, while one that swaps the pointees works. GATE CSE 2005 Q.32 tests the neighbouring rule that a missing prototype changes the program's meaning.",
+ "variations": [
+  {
+   "label": "ORIGINAL PYQ-STYLE QUESTION",
+   "question": "void mystery(int *a, int *b) { int *t = a; a = b; b = t; } int x = 4, y = 5; mystery(&x, &y); what are x and y afterwards?",
+   "answer": "Still 4 and 5 - only the copies of the addresses were swapped.",
+   "why": "The exact inverse of the 2017 question, and the trap GATE 2016 used inside a three-call mystery function."
+  },
+  {
+   "label": "CONCEPTUAL PRACTICE QUESTION",
+   "question": "Why does void f(int a[]) let f change the caller's array elements, if C is call by value?",
+   "answer": "Because the array name decays to a pointer to its first element, and that pointer value is what is copied. The callee reaches the caller's storage through the address it was given.",
+   "why": "Removes the apparent exception to call by value, which is where array questions and function questions meet."
+  },
+  {
+   "label": "PREDICTED VARIATION",
+   "question": "The prototype double foo(double); is deleted from the GATE CSE 2005 Q.32 program while foo is still defined after main. What does the compiler now report?",
+   "answer": "A compiler error: the call is implicitly declared as returning int, and the later definition returning double conflicts with that assumption.",
+   "why": "Shows that a prototype is not decoration; the question's distractors are 'no error' and 'a warning with unintended results'."
+  }
+ ],
+ "trap": {
+  "what": "Believing that a pointer parameter lets a function change the caller's pointer variable.",
+  "why": "The parameter is a copy of the address. Assigning to it rewrites the copy; only dereferencing it reaches the caller's object. A 'swap two pointers' function that swaps its parameters is therefore a no-op.",
+  "counterexample": "void mystery(int *a, int *b) { int *t = a; a = b; b = t; } called as mystery(&p, &q) leaves p and q unchanged, while int t = *a; *a = *b; *b = t; does swap the integers."
+ },
+ "check": {
+  "question": "What does this print? void inc(int n) { n = n + 1; } int main(void) { int x = 10; inc(x); printf(\"%d\", x); }",
+  "answer": "10.",
+  "explanation": "inc receives a copy of x, increments the copy and returns; the caller's x was never written to."
+ },
+ "pyqIds": [
+  "gate-2017-set2-14-printxy-call-by-value",
+  "gate-2005-32-prototype-implicit-declaration"
+ ],
+ "videoRefs": [],
+ "prereqs": [
+  "pointers-address-and-indirection"
+ ],
+ "sources": [
+  {
+   "kind": "text",
+   "title": "Functions, parameter passing, scope and storage classes - GATE notes and 7 solved PYQs",
+   "channel": "IAE Academy",
+   "url": "https://iaeacademy.in/study/c-programming/functions-scope",
+   "language": "en",
+   "transcript": "PARTIAL",
+   "translated": false,
+   "note": "call by value, the activation-record steps, the array-decay exam tip and the unsequenced-argument warning"
+  },
+  {
+   "kind": "text",
+   "title": "Pointers in C for GATE: Memory Diagrams and Output Traces",
+   "channel": "Knowledge Gate AI",
+   "url": "https://www.knowledgegate.ai/blog/pointers-in-c-gate-memory-diagrams",
+   "language": "en",
+   "transcript": "FULL",
+   "translated": false,
+   "note": "the failing swap and the pointer version that works"
+  }
+ ],
+ "sourceLine": "Call by value, the order of events in a call and the array-decay exception: IAE Academy 'Functions, parameter passing, scope and storage classes' (English, read in part). The broken and fixed swap: Knowledge Gate AI 'Pointers in C for GATE' (English, read in full). The 1, 0 of GATE CSE 2017 Set 2 Q.14 and the compiler-error verdict of GATE CSE 2005 Q.32 are recomputed and reasoned in scripts/validate.py."
+}

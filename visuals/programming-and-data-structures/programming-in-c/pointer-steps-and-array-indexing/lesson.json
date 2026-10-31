@@ -1,0 +1,39 @@
+{
+  "slug": "pointer-steps-and-array-indexing",
+  "topic": "pointer-arithmetic-and-array-decay",
+  "engine": "p5.js",
+  "steps": 6,
+  "example": {
+    "array": "int a[5] = {10, 20, 30, 40, 50}",
+    "sizeof_int": 4,
+    "base_address": 2000,
+    "addresses": {
+      "a[0]": 2000,
+      "a[1]": 2004,
+      "a[2]": 2008,
+      "a[3]": 2012,
+      "a[4]": 2016
+    },
+    "byte_span": "2000 to 2019",
+    "scaled_step": "p + 1 is base + 1 * sizeof(int) = base + 4",
+    "index_identity": {
+      "a[2]": 30,
+      "*(a + 2)": 30,
+      "2[a]": 30
+    },
+    "pointer_difference": {
+      "p": "a + 3 at 2012",
+      "q": "a + 1 at 2004",
+      "address_gap_bytes": 8,
+      "element_count": 2
+    },
+    "quick_check": {
+      "question": "int a[6] = {10,20,30,40,50,60}; int *p = a + 2; *(p + 3) - *p and p - a",
+      "answers": [
+        30,
+        2
+      ],
+      "note": "the first is a subtraction of two int values, the second counts elements"
+    }
+  }
+}

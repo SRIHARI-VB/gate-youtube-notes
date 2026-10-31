@@ -1,0 +1,17 @@
+{
+ "id": "gate-2017-set1-53-unsigned-strlen-compare",
+ "year": "2017",
+ "paper": "GATE CSE 2017 Set 1",
+ "question_ref": "Q.53",
+ "type": "NAT",
+ "marks": null,
+ "topic": "integer-promotion-and-unsigned-wrap",
+ "text": "Consider the following C program. #include<stdio.h> #include<string.h> void printlength(char *s, char *t) { unsigned int c=0; int len = ((strlen(s) - strlen(t)) > c) ? strlen(s) : strlen(t); printf(\"%d\\n\", len); } void main() { char *x = \"abc\"; char *y = \"defgh\"; printlength(x,y); } Recall that strlen is defined in string.h as returning a value of type size_t, which is an unsigned int. The output of the program is __________ .",
+ "options": [],
+ "answer": "3",
+ "solution": "strlen(x) is 3 and strlen(y) is 5, both of type size_t. The subtraction is done in unsigned arithmetic, so 3 - 5 does not give -2; it wraps to 2^32 - 2 on a 32-bit int. That value is greater than c = 0, so the conditional is true and selects strlen(s), which is 3. len is then 3 and printf prints 3. A trace that treats the difference as the signed -2 answers 5, which is the intended trap.",
+ "source_url": "https://gateoverflow.in/118473/gate-cse-2017-set-1-question-53",
+ "source_label": "GATE Overflow question page - GATE CSE 2017 Set 1 Q.53 with the accepted answer 3",
+ "verification": "SOURCED",
+ "answer_evidence": "The GATE Overflow accepted answers all give 3, and several of them show the wrap-around explicitly. One answer on the page reports 5 after compiling the expression as plain int, which is the wrong trace the question is designed to catch; the record keeps the accepted answer 3. The official key was not fetched, so the record stays SOURCED."
+}

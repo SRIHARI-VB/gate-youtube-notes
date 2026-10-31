@@ -2,8 +2,8 @@
  "exam": "GATE CSE 2027",
  "updated_at": "2026-10-31",
  "cycle": {
-  "last_subject": "computer-organization-and-architecture",
-  "last_topic": "instruction-pipelining-and-hazards",
+  "last_subject": "programming-and-data-structures",
+  "last_topic": "programming-in-c",
   "updated_at": "2026-10-31"
  },
  "subjects": [
@@ -967,10 +967,36 @@
     {
      "slug": "programming-in-c",
      "name": "Programming in C",
-     "status": "not_started",
-     "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
-     "runs": [],
-     "gaps": []
+     "status": "partial",
+     "coverage_note": "13 subtopics, 13 cards (tokens and sizeof, integer promotion and unsigned wrap, precedence and sequence points, control flow and switch fall-through, call by value and the activation record, scope and linkage, the four storage classes, pointers and the double pointer, pointer arithmetic and array decay, strings and NUL termination, structures/unions and padding, dynamic memory, and the preprocessor), 13 verified PYQs and 1 p5.js lesson. Partial because eight gaps remain, named below.",
+     "runs": [
+      {
+       "date": "2026-10-31",
+       "sources": [
+        "gateoverflow-programming-in-c-chapter",
+        "knowledgegate-c-fundamentals",
+        "knowledgegate-pointers-in-c-gate",
+        "iaeacademy-pointers-arrays-strings",
+        "iaeacademy-functions-scope",
+        "careercraftlabs-hindi-c-chapter",
+        "nptel-iitkgp-problem-solving-c-outline"
+       ],
+       "cards": 13,
+       "pyqs": 13,
+       "lesson": "programming-and-data-structures/programming-in-c/pointer-steps-and-array-indexing",
+       "note": "Sources chosen on merit across two languages: the GATE Overflow 'Programming in C' chapter (English, read in part) for the enumeration and the pitfall lists; two Knowledge Gate AI GATE articles (English; the pointer one read in full) for the conversion traps, the sequencing warning and the box-and-arrow pointer traces; two IAE Academy note sets (English, read in part) for the decay exceptions, the pointer-difference rule and the storage-class table; and one Hindi (Devanagari) chapter by CareerCraft Labs (read in part, translated) for the macro-parenthesis trap, the NUL-termination facts, padding and the three heap bugs. Rejected with reasons in sources.json: every video source (the YouTube watch page answered 302 and the timedtext endpoint returned an empty body), the Knowledge Gate AI lecture summaries, the Byju's GATE pages (two wrong claims), the Cornell CS113 deck, GeeksforGeeks and Tutorialspoint, the paywalled Unacademy Hindi course, two generic Hindi blogs, and four aggregator or MCQ-bank sites."
+      }
+     ],
+     "gaps": [
+      "no video transcript was readable this run: the YouTube watch page for the NPTEL IIT Kharagpur lecture answered 302 and redirected, and the timedtext endpoint returned an empty body (0 bytes), so no English, Hindi, Tamil, Telugu or Bengali lecture supplied a sentence; videoRefs is empty on all thirteen cards",
+      "the control-flow and preprocessor cards carry no verified CSE PYQ of their own: the macro question that was found (GATE CSE 2003 Q.89) is decided by scope and is attached to that card, and no verified GATE CSE previous-year question on switch fall-through was located and read",
+      "dynamic memory has no verified PYQ in the set: GATE CSE 2017 Set 1 Q.13 (malloc, a helper that writes through the pointer, then a second malloc) was located but its answer was not verified this run",
+      "every PYQ in the topic is SOURCED against a GATE Overflow accepted answer rather than key-verified against an official answer key, and no marks field is recorded on any of the thirteen: the official papers and keys were not fetched",
+      "GATE CSE 2000's struct-and-union size question is recorded with a numbering disagreement rather than a pinned number: SolutionsAdda numbers it Q.34, ExamSIDE numbers it Q.36, and the GATE Overflow record carries no paper number",
+      "array and recursion questions that belong to neighbouring syllabus topics were deliberately left out: GATE CSE 2021 Set 2 Q.10 (two-dimensional array indexing), GATE CSE 2016 Set 2 Q.37 (a recursive maximum over an array), GATE CSE 2019 Q.24 (pointer into an array) and the recursion traces of 2017 Set 1 Q.35 and Q.36, 2020 Q.46 and 1991 Q.1(x) belong to arrays-stacks-queues and recursion",
+      "GATE Overflow's Programming in C subject page lists further questions from 1995 to 2026 (for example 2026 Set 1 Q.24, 2026 Set 2 Q.7, Q.9, Q.50 and Q.51, and 2015 Set 3 Q.26) that were not individually read or recomputed this run; only the thirteen recorded PYQs were verified",
+      "the only non-English source is one Hindi (Devanagari) chapter read in part, so the translated material is limited to the four facts it states (the macro-parenthesis trap, the NUL-terminated string definition, the padding sentence and the three heap bugs); no Hindi, Tamil, Telugu or Bengali lecture on the rest of the topic could be read"
+     ]
     },
     {
      "slug": "recursion",
