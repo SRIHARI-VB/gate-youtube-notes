@@ -51,27 +51,27 @@
       "question_count": 50,
       "subtopics": [
         {
-          "label": "cardinality",
+          "label": "Cardinality",
           "questions": 10
         },
         {
-          "label": "inclusion-exclusion",
+          "label": "Inclusion-exclusion",
           "questions": 10
         },
         {
-          "label": "partitions-and-cartesian-products",
+          "label": "Partitions & Cartesian products",
           "questions": 10
         },
         {
-          "label": "set-algebra-de-morgan",
+          "label": "Set algebra & De Morgan",
           "questions": 10
         },
         {
-          "label": "subsets-and-power-sets",
+          "label": "Subsets & power sets",
           "questions": 10
         }
       ],
-      "url": "https://gate-cse-mocks.vercel.app/"
+      "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/set-theory/gate_dm_mock_3_2026-10-25.html"
     },
     "visual": {
       "slug": "counting-and-combinatorics",
@@ -79,6 +79,6 @@
       "level": "topic-level",
       "url": "https://gate-visual-explainer.vercel.app/topics/counting-and-combinatorics/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
   }
 }

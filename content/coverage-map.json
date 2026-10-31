@@ -1,6 +1,6 @@
 {
   "generated_by": "gate-content-mapper",
-  "generated_at": "2026-10-31",
+  "generated_at": "2026-11-01",
   "playlists": [
     {
       "playlist_id": "PLIPZ2_p3RNHidhFvyKH4U_VE1rFAyvG8U",
@@ -1972,10 +1972,10 @@
         "unit_number": 2,
         "question_count": 50,
         "subtopic_labels": [
-          "hardwired-control",
-          "microprogrammed-control",
-          "alu-datapath-timing",
-          "bus-architectures"
+          "Hardwired control",
+          "Microprogrammed control",
+          "ALU & datapath timing",
+          "Bus architectures"
         ],
         "verdict": "MOCK_CAPPED"
       },
@@ -2009,10 +2009,10 @@
         "unit_number": 2,
         "question_count": 50,
         "subtopic_labels": [
-          "hardwired-control",
-          "microprogrammed-control",
-          "alu-datapath-timing",
-          "bus-architectures"
+          "Hardwired control",
+          "Microprogrammed control",
+          "ALU & datapath timing",
+          "Bus architectures"
         ],
         "verdict": "MOCK_CAPPED"
       },
@@ -2046,10 +2046,10 @@
         "unit_number": 2,
         "question_count": 50,
         "subtopic_labels": [
-          "hardwired-control",
-          "microprogrammed-control",
-          "alu-datapath-timing",
-          "bus-architectures"
+          "Hardwired control",
+          "Microprogrammed control",
+          "ALU & datapath timing",
+          "Bus architectures"
         ],
         "verdict": "MOCK_CAPPED"
       },
@@ -2120,10 +2120,10 @@
         "unit_number": 2,
         "question_count": 50,
         "subtopic_labels": [
-          "hardwired-control",
-          "microprogrammed-control",
-          "alu-datapath-timing",
-          "bus-architectures"
+          "Hardwired control",
+          "Microprogrammed control",
+          "ALU & datapath timing",
+          "Bus architectures"
         ],
         "verdict": "MOCK_CAPPED"
       },
@@ -2149,10 +2149,10 @@
         "unit_number": 2,
         "question_count": 50,
         "subtopic_labels": [
-          "hardwired-control",
-          "microprogrammed-control",
-          "alu-datapath-timing",
-          "bus-architectures"
+          "Hardwired control",
+          "Microprogrammed control",
+          "ALU & datapath timing",
+          "Bus architectures"
         ],
         "verdict": "MOCK_CAPPED"
       },
@@ -2186,10 +2186,10 @@
         "unit_number": 2,
         "question_count": 50,
         "subtopic_labels": [
-          "hardwired-control",
-          "microprogrammed-control",
-          "alu-datapath-timing",
-          "bus-architectures"
+          "Hardwired control",
+          "Microprogrammed control",
+          "ALU & datapath timing",
+          "Bus architectures"
         ],
         "verdict": "MOCK_CAPPED"
       },
@@ -2223,10 +2223,10 @@
         "unit_number": 2,
         "question_count": 50,
         "subtopic_labels": [
-          "hardwired-control",
-          "microprogrammed-control",
-          "alu-datapath-timing",
-          "bus-architectures"
+          "Hardwired control",
+          "Microprogrammed control",
+          "ALU & datapath timing",
+          "Bus architectures"
         ],
         "verdict": "MOCK_CAPPED"
       },
@@ -2252,10 +2252,10 @@
         "unit_number": 2,
         "question_count": 50,
         "subtopic_labels": [
-          "hardwired-control",
-          "microprogrammed-control",
-          "alu-datapath-timing",
-          "bus-architectures"
+          "Hardwired control",
+          "Microprogrammed control",
+          "ALU & datapath timing",
+          "Bus architectures"
         ],
         "verdict": "MOCK_CAPPED"
       },
@@ -2289,10 +2289,10 @@
         "unit_number": 2,
         "question_count": 50,
         "subtopic_labels": [
-          "hardwired-control",
-          "microprogrammed-control",
-          "alu-datapath-timing",
-          "bus-architectures"
+          "Hardwired control",
+          "Microprogrammed control",
+          "ALU & datapath timing",
+          "Bus architectures"
         ],
         "verdict": "MOCK_CAPPED"
       },
@@ -2326,10 +2326,10 @@
         "unit_number": 2,
         "question_count": 50,
         "subtopic_labels": [
-          "hardwired-control",
-          "microprogrammed-control",
-          "alu-datapath-timing",
-          "bus-architectures"
+          "Hardwired control",
+          "Microprogrammed control",
+          "ALU & datapath timing",
+          "Bus architectures"
         ],
         "verdict": "MOCK_CAPPED"
       },
@@ -2363,10 +2363,10 @@
         "unit_number": 2,
         "question_count": 50,
         "subtopic_labels": [
-          "hardwired-control",
-          "microprogrammed-control",
-          "alu-datapath-timing",
-          "bus-architectures"
+          "Hardwired control",
+          "Microprogrammed control",
+          "ALU & datapath timing",
+          "Bus architectures"
         ],
         "verdict": "MOCK_CAPPED"
       },
@@ -2892,14 +2892,14 @@
         "unit_slug": "pipelining",
         "unit_name": "Instruction Pipelining",
         "unit_number": 5,
-        "question_count": 25,
+        "question_count": 50,
         "subtopic_labels": [
-          "Pipeline stages & throughput",
-          "Structural hazards",
+          "Control hazards & branch penalty",
           "Data hazards & forwarding",
-          "Control hazards & branch penalty"
+          "Pipeline stages & throughput",
+          "Structural hazards"
         ],
-        "verdict": "MOCK_READY"
+        "verdict": "MOCK_CAPPED"
       },
       "visual": {
         "slug": "pipelining-and-hazards",
@@ -2928,14 +2928,14 @@
         "unit_slug": "pipelining",
         "unit_name": "Instruction Pipelining",
         "unit_number": 5,
-        "question_count": 25,
+        "question_count": 50,
         "subtopic_labels": [
-          "Pipeline stages & throughput",
-          "Structural hazards",
+          "Control hazards & branch penalty",
           "Data hazards & forwarding",
-          "Control hazards & branch penalty"
+          "Pipeline stages & throughput",
+          "Structural hazards"
         ],
-        "verdict": "MOCK_READY"
+        "verdict": "MOCK_CAPPED"
       },
       "visual": {
         "slug": "pipelining-and-hazards",
@@ -2964,14 +2964,14 @@
         "unit_slug": "pipelining",
         "unit_name": "Instruction Pipelining",
         "unit_number": 5,
-        "question_count": 25,
+        "question_count": 50,
         "subtopic_labels": [
-          "Pipeline stages & throughput",
-          "Structural hazards",
+          "Control hazards & branch penalty",
           "Data hazards & forwarding",
-          "Control hazards & branch penalty"
+          "Pipeline stages & throughput",
+          "Structural hazards"
         ],
-        "verdict": "MOCK_READY"
+        "verdict": "MOCK_CAPPED"
       },
       "visual": {
         "slug": "pipelining-and-hazards",
@@ -3000,14 +3000,14 @@
         "unit_slug": "pipelining",
         "unit_name": "Instruction Pipelining",
         "unit_number": 5,
-        "question_count": 25,
+        "question_count": 50,
         "subtopic_labels": [
-          "Pipeline stages & throughput",
-          "Structural hazards",
+          "Control hazards & branch penalty",
           "Data hazards & forwarding",
-          "Control hazards & branch penalty"
+          "Pipeline stages & throughput",
+          "Structural hazards"
         ],
-        "verdict": "MOCK_READY"
+        "verdict": "MOCK_CAPPED"
       },
       "visual": {
         "slug": "pipelining-and-hazards",
@@ -3036,14 +3036,14 @@
         "unit_slug": "pipelining",
         "unit_name": "Instruction Pipelining",
         "unit_number": 5,
-        "question_count": 25,
+        "question_count": 50,
         "subtopic_labels": [
-          "Pipeline stages & throughput",
-          "Structural hazards",
+          "Control hazards & branch penalty",
           "Data hazards & forwarding",
-          "Control hazards & branch penalty"
+          "Pipeline stages & throughput",
+          "Structural hazards"
         ],
-        "verdict": "MOCK_READY"
+        "verdict": "MOCK_CAPPED"
       },
       "visual": {
         "slug": "pipelining-and-hazards",
@@ -3072,14 +3072,14 @@
         "unit_slug": "pipelining",
         "unit_name": "Instruction Pipelining",
         "unit_number": 5,
-        "question_count": 25,
+        "question_count": 50,
         "subtopic_labels": [
-          "Pipeline stages & throughput",
-          "Structural hazards",
+          "Control hazards & branch penalty",
           "Data hazards & forwarding",
-          "Control hazards & branch penalty"
+          "Pipeline stages & throughput",
+          "Structural hazards"
         ],
-        "verdict": "MOCK_READY"
+        "verdict": "MOCK_CAPPED"
       },
       "visual": {
         "slug": "pipelining-and-hazards",
@@ -3108,14 +3108,14 @@
         "unit_slug": "pipelining",
         "unit_name": "Instruction Pipelining",
         "unit_number": 5,
-        "question_count": 25,
+        "question_count": 50,
         "subtopic_labels": [
-          "Pipeline stages & throughput",
-          "Structural hazards",
+          "Control hazards & branch penalty",
           "Data hazards & forwarding",
-          "Control hazards & branch penalty"
+          "Pipeline stages & throughput",
+          "Structural hazards"
         ],
-        "verdict": "MOCK_READY"
+        "verdict": "MOCK_CAPPED"
       },
       "visual": {
         "slug": "pipelining-and-hazards",
@@ -3144,14 +3144,14 @@
         "unit_slug": "pipelining",
         "unit_name": "Instruction Pipelining",
         "unit_number": 5,
-        "question_count": 25,
+        "question_count": 50,
         "subtopic_labels": [
-          "Pipeline stages & throughput",
-          "Structural hazards",
+          "Control hazards & branch penalty",
           "Data hazards & forwarding",
-          "Control hazards & branch penalty"
+          "Pipeline stages & throughput",
+          "Structural hazards"
         ],
-        "verdict": "MOCK_READY"
+        "verdict": "MOCK_CAPPED"
       },
       "visual": {
         "slug": "pipelining-and-hazards",
@@ -3180,14 +3180,14 @@
         "unit_slug": "pipelining",
         "unit_name": "Instruction Pipelining",
         "unit_number": 5,
-        "question_count": 25,
+        "question_count": 50,
         "subtopic_labels": [
-          "Pipeline stages & throughput",
-          "Structural hazards",
+          "Control hazards & branch penalty",
           "Data hazards & forwarding",
-          "Control hazards & branch penalty"
+          "Pipeline stages & throughput",
+          "Structural hazards"
         ],
-        "verdict": "MOCK_READY"
+        "verdict": "MOCK_CAPPED"
       },
       "visual": {
         "slug": "pipelining-and-hazards",
@@ -3216,14 +3216,14 @@
         "unit_slug": "pipelining",
         "unit_name": "Instruction Pipelining",
         "unit_number": 5,
-        "question_count": 25,
+        "question_count": 50,
         "subtopic_labels": [
-          "Pipeline stages & throughput",
-          "Structural hazards",
+          "Control hazards & branch penalty",
           "Data hazards & forwarding",
-          "Control hazards & branch penalty"
+          "Pipeline stages & throughput",
+          "Structural hazards"
         ],
-        "verdict": "MOCK_READY"
+        "verdict": "MOCK_CAPPED"
       },
       "visual": {
         "slug": "pipelining-and-hazards",
@@ -3252,14 +3252,14 @@
         "unit_slug": "pipelining",
         "unit_name": "Instruction Pipelining",
         "unit_number": 5,
-        "question_count": 25,
+        "question_count": 50,
         "subtopic_labels": [
-          "Pipeline stages & throughput",
-          "Structural hazards",
+          "Control hazards & branch penalty",
           "Data hazards & forwarding",
-          "Control hazards & branch penalty"
+          "Pipeline stages & throughput",
+          "Structural hazards"
         ],
-        "verdict": "MOCK_READY"
+        "verdict": "MOCK_CAPPED"
       },
       "visual": {
         "slug": "pipelining-and-hazards",
@@ -3288,14 +3288,14 @@
         "unit_slug": "pipelining",
         "unit_name": "Instruction Pipelining",
         "unit_number": 5,
-        "question_count": 25,
+        "question_count": 50,
         "subtopic_labels": [
-          "Pipeline stages & throughput",
-          "Structural hazards",
+          "Control hazards & branch penalty",
           "Data hazards & forwarding",
-          "Control hazards & branch penalty"
+          "Pipeline stages & throughput",
+          "Structural hazards"
         ],
-        "verdict": "MOCK_READY"
+        "verdict": "MOCK_CAPPED"
       },
       "visual": {
         "slug": "pipelining-and-hazards",
@@ -4784,7 +4784,7 @@
           "Hazards & glitches",
           "Multiplexers & demultiplexers"
         ],
-        "verdict": "MOCK_READY"
+        "verdict": "MOCK_CAPPED"
       },
       "visual": {
         "slug": "combinational-circuits",
@@ -4824,7 +4824,7 @@
           "Hazards & glitches",
           "Multiplexers & demultiplexers"
         ],
-        "verdict": "MOCK_READY"
+        "verdict": "MOCK_CAPPED"
       },
       "visual": {
         "slug": "combinational-circuits",
@@ -4864,7 +4864,7 @@
           "Hazards & glitches",
           "Multiplexers & demultiplexers"
         ],
-        "verdict": "MOCK_READY"
+        "verdict": "MOCK_CAPPED"
       },
       "visual": {
         "slug": "combinational-circuits",
@@ -4904,7 +4904,7 @@
           "Hazards & glitches",
           "Multiplexers & demultiplexers"
         ],
-        "verdict": "MOCK_READY"
+        "verdict": "MOCK_CAPPED"
       },
       "visual": {
         "slug": "combinational-circuits",
@@ -4944,7 +4944,7 @@
           "Hazards & glitches",
           "Multiplexers & demultiplexers"
         ],
-        "verdict": "MOCK_READY"
+        "verdict": "MOCK_CAPPED"
       },
       "visual": {
         "slug": "combinational-circuits",
@@ -4984,7 +4984,7 @@
           "Hazards & glitches",
           "Multiplexers & demultiplexers"
         ],
-        "verdict": "MOCK_READY"
+        "verdict": "MOCK_CAPPED"
       },
       "visual": {
         "slug": "combinational-circuits",
@@ -5024,7 +5024,7 @@
           "Hazards & glitches",
           "Multiplexers & demultiplexers"
         ],
-        "verdict": "MOCK_READY"
+        "verdict": "MOCK_CAPPED"
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/digital-logic/combinational-circuits/mux-implementing-a-boolean-function.json",
@@ -5063,7 +5063,7 @@
           "Hazards & glitches",
           "Multiplexers & demultiplexers"
         ],
-        "verdict": "MOCK_READY"
+        "verdict": "MOCK_CAPPED"
       },
       "visual": {
         "slug": "combinational-circuits",
@@ -5103,7 +5103,7 @@
           "Hazards & glitches",
           "Multiplexers & demultiplexers"
         ],
-        "verdict": "MOCK_READY"
+        "verdict": "MOCK_CAPPED"
       },
       "visual": {
         "slug": "combinational-circuits",
@@ -5143,7 +5143,7 @@
           "Hazards & glitches",
           "Multiplexers & demultiplexers"
         ],
-        "verdict": "MOCK_READY"
+        "verdict": "MOCK_CAPPED"
       },
       "visual": {
         "slug": "combinational-circuits",
@@ -5183,7 +5183,7 @@
           "Hazards & glitches",
           "Multiplexers & demultiplexers"
         ],
-        "verdict": "MOCK_READY"
+        "verdict": "MOCK_CAPPED"
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/digital-logic/combinational-circuits/magnitude-comparator.json",
@@ -5215,7 +5215,7 @@
           "Hazards & glitches",
           "Multiplexers & demultiplexers"
         ],
-        "verdict": "MOCK_READY"
+        "verdict": "MOCK_CAPPED"
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/digital-logic/combinational-circuits/rom-and-pla.json",
@@ -5247,7 +5247,7 @@
           "Hazards & glitches",
           "Multiplexers & demultiplexers"
         ],
-        "verdict": "MOCK_READY"
+        "verdict": "MOCK_CAPPED"
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/digital-logic/combinational-circuits/parity-generator-and-checker.json",
@@ -5279,7 +5279,7 @@
           "Hazards & glitches",
           "Multiplexers & demultiplexers"
         ],
-        "verdict": "MOCK_READY"
+        "verdict": "MOCK_CAPPED"
       },
       "visual": {
         "slug": "combinational-circuits",
@@ -5313,10 +5313,10 @@
         "unit_number": 1,
         "question_count": 75,
         "subtopic_labels": [
-          "base-conversions",
-          "ones-twos-complement",
-          "range-and-overflow",
-          "floating-point-ieee-754"
+          "Base conversions",
+          "One's & two's complement",
+          "Range & overflow",
+          "Floating point & IEEE 754"
         ],
         "verdict": "MOCK_CAPPED"
       },
@@ -5578,10 +5578,10 @@
         "unit_number": 1,
         "question_count": 75,
         "subtopic_labels": [
-          "base-conversions",
-          "ones-twos-complement",
-          "range-and-overflow",
-          "floating-point-ieee-754"
+          "Base conversions",
+          "One's & two's complement",
+          "Range & overflow",
+          "Floating point & IEEE 754"
         ],
         "verdict": "MOCK_CAPPED"
       },
@@ -6890,11 +6890,11 @@
         "unit_number": 5,
         "question_count": 50,
         "subtopic_labels": [
-          "composition-and-inverses",
-          "counting-functions",
-          "floor-ceiling-recursion",
-          "pigeonhole-principle",
-          "types-injective-surjective-bijective"
+          "Composition & inverses",
+          "Counting functions",
+          "Floor, ceiling & recursion",
+          "Pigeonhole principle",
+          "Injective / surjective / bijective"
         ],
         "verdict": "MOCK_CAPPED"
       },
@@ -6908,7 +6908,7 @@
       "evidence": [
         "notes content/index.json map[].path = subjects/discrete-mathematics/combinatorics/dodb.json",
         "mock: discrete-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=functions (50 records)",
-        "mock url: runs[] last entry for functions -> https://gate-cse-mocks.vercel.app/",
+        "mock url: runs[] last entry for functions -> https://gate-cse-mocks.vercel.app/discrete-mathematics/functions/gate_dm_mock_5_2026-10-26.html",
         "visual: topics.json slug=functions-and-their-properties; syllabus-coverage.json subtopics/microtopics checked against the card text",
         "visual url: topics/functions-and-their-properties/index.html"
       ],
@@ -6968,11 +6968,11 @@
         "unit_number": 3,
         "question_count": 50,
         "subtopic_labels": [
-          "cardinality",
-          "inclusion-exclusion",
-          "partitions-and-cartesian-products",
-          "set-algebra-de-morgan",
-          "subsets-and-power-sets"
+          "Cardinality",
+          "Inclusion-exclusion",
+          "Partitions & Cartesian products",
+          "Set algebra & De Morgan",
+          "Subsets & power sets"
         ],
         "verdict": "MOCK_CAPPED"
       },
@@ -6986,7 +6986,7 @@
       "evidence": [
         "notes content/index.json map[].path = subjects/discrete-mathematics/combinatorics/doib-stirling.json",
         "mock: discrete-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=set-theory (50 records)",
-        "mock url: runs[] last entry for set-theory -> https://gate-cse-mocks.vercel.app/",
+        "mock url: runs[] last entry for set-theory -> https://gate-cse-mocks.vercel.app/discrete-mathematics/set-theory/gate_dm_mock_3_2026-10-25.html",
         "visual: topics.json slug=counting-and-combinatorics; syllabus-coverage.json subtopics/microtopics checked against the card text",
         "visual url: topics/counting-and-combinatorics/index.html"
       ],
@@ -7107,11 +7107,11 @@
         "unit_number": 5,
         "question_count": 50,
         "subtopic_labels": [
-          "composition-and-inverses",
-          "counting-functions",
-          "floor-ceiling-recursion",
-          "pigeonhole-principle",
-          "types-injective-surjective-bijective"
+          "Composition & inverses",
+          "Counting functions",
+          "Floor, ceiling & recursion",
+          "Pigeonhole principle",
+          "Injective / surjective / bijective"
         ],
         "verdict": "MOCK_CAPPED"
       },
@@ -7125,7 +7125,7 @@
       "evidence": [
         "notes content/index.json map[].path = subjects/discrete-mathematics/combinatorics/onto-functions.json",
         "mock: discrete-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=functions (50 records)",
-        "mock url: runs[] last entry for functions -> https://gate-cse-mocks.vercel.app/",
+        "mock url: runs[] last entry for functions -> https://gate-cse-mocks.vercel.app/discrete-mathematics/functions/gate_dm_mock_5_2026-10-26.html",
         "visual: topics.json slug=functions-and-their-properties; syllabus-coverage.json subtopics/microtopics checked against the card text",
         "visual url: topics/functions-and-their-properties/index.html"
       ],
@@ -7146,11 +7146,11 @@
         "unit_number": 5,
         "question_count": 50,
         "subtopic_labels": [
-          "composition-and-inverses",
-          "counting-functions",
-          "floor-ceiling-recursion",
-          "pigeonhole-principle",
-          "types-injective-surjective-bijective"
+          "Composition & inverses",
+          "Counting functions",
+          "Floor, ceiling & recursion",
+          "Pigeonhole principle",
+          "Injective / surjective / bijective"
         ],
         "verdict": "MOCK_CAPPED"
       },
@@ -7164,7 +7164,7 @@
       "evidence": [
         "notes content/index.json map[].path = subjects/discrete-mathematics/combinatorics/pigeonhole.json",
         "mock: discrete-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=functions (50 records)",
-        "mock url: runs[] last entry for functions -> https://gate-cse-mocks.vercel.app/",
+        "mock url: runs[] last entry for functions -> https://gate-cse-mocks.vercel.app/discrete-mathematics/functions/gate_dm_mock_5_2026-10-26.html",
         "visual: topics.json slug=counting-and-combinatorics; syllabus-coverage.json subtopics/microtopics checked against the card text",
         "visual url: topics/counting-and-combinatorics/index.html"
       ],
@@ -7224,11 +7224,11 @@
         "unit_number": 2,
         "question_count": 50,
         "subtopic_labels": [
-          "english-to-fol-translation",
-          "negation-nested-quantifiers",
-          "predicates-and-domain",
-          "quantifiers-universal-existential",
-          "scope-and-order"
+          "English to FOL translation",
+          "Negation of nested quantifiers",
+          "Predicates & domain",
+          "Universal & existential quantifiers",
+          "Scope & order of quantifiers"
         ],
         "verdict": "MOCK_CAPPED"
       },
@@ -7242,7 +7242,7 @@
       "evidence": [
         "notes content/index.json map[].path = subjects/discrete-mathematics/first-order-logic/fol-syntax-predicates-and-quantifiers.json",
         "mock: discrete-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=predicate-logic (50 records)",
-        "mock url: runs[] last entry for predicate-logic -> https://gate-cse-mocks.vercel.app/",
+        "mock url: runs[] last entry for predicate-logic -> https://gate-cse-mocks.vercel.app/discrete-mathematics/predicate-logic/gate_dm_mock_2_2026-10-25.html",
         "visual: topics.json slug=first-order-logic; syllabus-coverage.json subtopics/microtopics checked against the card text",
         "visual url: topics/first-order-logic/index.html"
       ],
@@ -7263,11 +7263,11 @@
         "unit_number": 2,
         "question_count": 50,
         "subtopic_labels": [
-          "english-to-fol-translation",
-          "negation-nested-quantifiers",
-          "predicates-and-domain",
-          "quantifiers-universal-existential",
-          "scope-and-order"
+          "English to FOL translation",
+          "Negation of nested quantifiers",
+          "Predicates & domain",
+          "Universal & existential quantifiers",
+          "Scope & order of quantifiers"
         ],
         "verdict": "MOCK_CAPPED"
       },
@@ -7281,7 +7281,7 @@
       "evidence": [
         "notes content/index.json map[].path = subjects/discrete-mathematics/first-order-logic/english-to-fol-translation-templates.json",
         "mock: discrete-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=predicate-logic (50 records)",
-        "mock url: runs[] last entry for predicate-logic -> https://gate-cse-mocks.vercel.app/",
+        "mock url: runs[] last entry for predicate-logic -> https://gate-cse-mocks.vercel.app/discrete-mathematics/predicate-logic/gate_dm_mock_2_2026-10-25.html",
         "visual: topics.json slug=first-order-logic; syllabus-coverage.json subtopics/microtopics checked against the card text",
         "visual url: topics/first-order-logic/index.html"
       ],
@@ -7302,11 +7302,11 @@
         "unit_number": 2,
         "question_count": 50,
         "subtopic_labels": [
-          "english-to-fol-translation",
-          "negation-nested-quantifiers",
-          "predicates-and-domain",
-          "quantifiers-universal-existential",
-          "scope-and-order"
+          "English to FOL translation",
+          "Negation of nested quantifiers",
+          "Predicates & domain",
+          "Universal & existential quantifiers",
+          "Scope & order of quantifiers"
         ],
         "verdict": "MOCK_CAPPED"
       },
@@ -7320,7 +7320,7 @@
       "evidence": [
         "notes content/index.json map[].path = subjects/discrete-mathematics/first-order-logic/quantifier-order-and-nesting.json",
         "mock: discrete-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=predicate-logic (50 records)",
-        "mock url: runs[] last entry for predicate-logic -> https://gate-cse-mocks.vercel.app/",
+        "mock url: runs[] last entry for predicate-logic -> https://gate-cse-mocks.vercel.app/discrete-mathematics/predicate-logic/gate_dm_mock_2_2026-10-25.html",
         "visual: topics.json slug=first-order-logic; syllabus-coverage.json subtopics/microtopics checked against the card text",
         "visual url: topics/first-order-logic/index.html"
       ],
@@ -7341,11 +7341,11 @@
         "unit_number": 2,
         "question_count": 50,
         "subtopic_labels": [
-          "english-to-fol-translation",
-          "negation-nested-quantifiers",
-          "predicates-and-domain",
-          "quantifiers-universal-existential",
-          "scope-and-order"
+          "English to FOL translation",
+          "Negation of nested quantifiers",
+          "Predicates & domain",
+          "Universal & existential quantifiers",
+          "Scope & order of quantifiers"
         ],
         "verdict": "MOCK_CAPPED"
       },
@@ -7359,7 +7359,7 @@
       "evidence": [
         "notes content/index.json map[].path = subjects/discrete-mathematics/first-order-logic/fol-interpretation-model-and-validity.json",
         "mock: discrete-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=predicate-logic (50 records)",
-        "mock url: runs[] last entry for predicate-logic -> https://gate-cse-mocks.vercel.app/",
+        "mock url: runs[] last entry for predicate-logic -> https://gate-cse-mocks.vercel.app/discrete-mathematics/predicate-logic/gate_dm_mock_2_2026-10-25.html",
         "visual: topics.json slug=first-order-logic; syllabus-coverage.json subtopics/microtopics checked against the card text",
         "visual url: topics/first-order-logic/index.html"
       ],
@@ -7380,11 +7380,11 @@
         "unit_number": 2,
         "question_count": 50,
         "subtopic_labels": [
-          "english-to-fol-translation",
-          "negation-nested-quantifiers",
-          "predicates-and-domain",
-          "quantifiers-universal-existential",
-          "scope-and-order"
+          "English to FOL translation",
+          "Negation of nested quantifiers",
+          "Predicates & domain",
+          "Universal & existential quantifiers",
+          "Scope & order of quantifiers"
         ],
         "verdict": "MOCK_CAPPED"
       },
@@ -7398,7 +7398,7 @@
       "evidence": [
         "notes content/index.json map[].path = subjects/discrete-mathematics/first-order-logic/quantifier-negation-and-equivalence.json",
         "mock: discrete-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=predicate-logic (50 records)",
-        "mock url: runs[] last entry for predicate-logic -> https://gate-cse-mocks.vercel.app/",
+        "mock url: runs[] last entry for predicate-logic -> https://gate-cse-mocks.vercel.app/discrete-mathematics/predicate-logic/gate_dm_mock_2_2026-10-25.html",
         "visual: topics.json slug=first-order-logic; syllabus-coverage.json subtopics/microtopics checked against the card text",
         "visual url: topics/first-order-logic/index.html"
       ],
@@ -7419,11 +7419,11 @@
         "unit_number": 2,
         "question_count": 50,
         "subtopic_labels": [
-          "english-to-fol-translation",
-          "negation-nested-quantifiers",
-          "predicates-and-domain",
-          "quantifiers-universal-existential",
-          "scope-and-order"
+          "English to FOL translation",
+          "Negation of nested quantifiers",
+          "Predicates & domain",
+          "Universal & existential quantifiers",
+          "Scope & order of quantifiers"
         ],
         "verdict": "MOCK_CAPPED"
       },
@@ -7437,7 +7437,7 @@
       "evidence": [
         "notes content/index.json map[].path = subjects/discrete-mathematics/first-order-logic/fol-validity-and-implication.json",
         "mock: discrete-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=predicate-logic (50 records)",
-        "mock url: runs[] last entry for predicate-logic -> https://gate-cse-mocks.vercel.app/",
+        "mock url: runs[] last entry for predicate-logic -> https://gate-cse-mocks.vercel.app/discrete-mathematics/predicate-logic/gate_dm_mock_2_2026-10-25.html",
         "visual: topics.json slug=first-order-logic; syllabus-coverage.json subtopics/microtopics checked against the card text",
         "visual url: topics/first-order-logic/index.html"
       ],
@@ -7458,11 +7458,11 @@
         "unit_number": 2,
         "question_count": 50,
         "subtopic_labels": [
-          "english-to-fol-translation",
-          "negation-nested-quantifiers",
-          "predicates-and-domain",
-          "quantifiers-universal-existential",
-          "scope-and-order"
+          "English to FOL translation",
+          "Negation of nested quantifiers",
+          "Predicates & domain",
+          "Universal & existential quantifiers",
+          "Scope & order of quantifiers"
         ],
         "verdict": "MOCK_CAPPED"
       },
@@ -7476,7 +7476,7 @@
       "evidence": [
         "notes content/index.json map[].path = subjects/discrete-mathematics/first-order-logic/fol-tautology-vs-validity.json",
         "mock: discrete-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=predicate-logic (50 records)",
-        "mock url: runs[] last entry for predicate-logic -> https://gate-cse-mocks.vercel.app/",
+        "mock url: runs[] last entry for predicate-logic -> https://gate-cse-mocks.vercel.app/discrete-mathematics/predicate-logic/gate_dm_mock_2_2026-10-25.html",
         "visual: topics.json slug=first-order-logic; syllabus-coverage.json subtopics/microtopics checked against the card text",
         "visual url: topics/first-order-logic/index.html"
       ],
@@ -7497,11 +7497,11 @@
         "unit_number": 2,
         "question_count": 50,
         "subtopic_labels": [
-          "english-to-fol-translation",
-          "negation-nested-quantifiers",
-          "predicates-and-domain",
-          "quantifiers-universal-existential",
-          "scope-and-order"
+          "English to FOL translation",
+          "Negation of nested quantifiers",
+          "Predicates & domain",
+          "Universal & existential quantifiers",
+          "Scope & order of quantifiers"
         ],
         "verdict": "MOCK_CAPPED"
       },
@@ -7515,7 +7515,7 @@
       "evidence": [
         "notes content/index.json map[].path = subjects/discrete-mathematics/first-order-logic/fol-exactly-one-and-uniqueness.json",
         "mock: discrete-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=predicate-logic (50 records)",
-        "mock url: runs[] last entry for predicate-logic -> https://gate-cse-mocks.vercel.app/",
+        "mock url: runs[] last entry for predicate-logic -> https://gate-cse-mocks.vercel.app/discrete-mathematics/predicate-logic/gate_dm_mock_2_2026-10-25.html",
         "visual: topics.json slug=first-order-logic; syllabus-coverage.json subtopics/microtopics checked against the card text",
         "visual url: topics/first-order-logic/index.html"
       ],
@@ -7536,11 +7536,11 @@
         "unit_number": 2,
         "question_count": 50,
         "subtopic_labels": [
-          "english-to-fol-translation",
-          "negation-nested-quantifiers",
-          "predicates-and-domain",
-          "quantifiers-universal-existential",
-          "scope-and-order"
+          "English to FOL translation",
+          "Negation of nested quantifiers",
+          "Predicates & domain",
+          "Universal & existential quantifiers",
+          "Scope & order of quantifiers"
         ],
         "verdict": "MOCK_CAPPED"
       },
@@ -7554,7 +7554,7 @@
       "evidence": [
         "notes content/index.json map[].path = subjects/discrete-mathematics/first-order-logic/fol-model-size-and-countermodels.json",
         "mock: discrete-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=predicate-logic (50 records)",
-        "mock url: runs[] last entry for predicate-logic -> https://gate-cse-mocks.vercel.app/",
+        "mock url: runs[] last entry for predicate-logic -> https://gate-cse-mocks.vercel.app/discrete-mathematics/predicate-logic/gate_dm_mock_2_2026-10-25.html",
         "visual: topics.json slug=first-order-logic; syllabus-coverage.json subtopics/microtopics checked against the card text",
         "visual url: topics/first-order-logic/index.html"
       ],
@@ -7575,11 +7575,11 @@
         "unit_number": 2,
         "question_count": 50,
         "subtopic_labels": [
-          "english-to-fol-translation",
-          "negation-nested-quantifiers",
-          "predicates-and-domain",
-          "quantifiers-universal-existential",
-          "scope-and-order"
+          "English to FOL translation",
+          "Negation of nested quantifiers",
+          "Predicates & domain",
+          "Universal & existential quantifiers",
+          "Scope & order of quantifiers"
         ],
         "verdict": "MOCK_CAPPED"
       },
@@ -7593,7 +7593,7 @@
       "evidence": [
         "notes content/index.json map[].path = subjects/discrete-mathematics/first-order-logic/fol-quantifier-inference-rules.json",
         "mock: discrete-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=predicate-logic (50 records)",
-        "mock url: runs[] last entry for predicate-logic -> https://gate-cse-mocks.vercel.app/",
+        "mock url: runs[] last entry for predicate-logic -> https://gate-cse-mocks.vercel.app/discrete-mathematics/predicate-logic/gate_dm_mock_2_2026-10-25.html",
         "visual: topics.json slug=first-order-logic; syllabus-coverage.json subtopics/microtopics checked against the card text",
         "visual url: topics/first-order-logic/index.html"
       ],
@@ -7635,7 +7635,7 @@
           "Graph connectivity",
           "Isomorphism"
         ],
-        "verdict": "MOCK_READY"
+        "verdict": "MOCK_CAPPED"
       }
     },
     {
@@ -7674,7 +7674,7 @@
           "Graph connectivity",
           "Isomorphism"
         ],
-        "verdict": "MOCK_READY"
+        "verdict": "MOCK_CAPPED"
       }
     },
     {
@@ -7713,7 +7713,7 @@
           "Graph connectivity",
           "Isomorphism"
         ],
-        "verdict": "MOCK_READY"
+        "verdict": "MOCK_CAPPED"
       }
     },
     {
@@ -7752,7 +7752,7 @@
           "Graph connectivity",
           "Isomorphism"
         ],
-        "verdict": "MOCK_READY"
+        "verdict": "MOCK_CAPPED"
       }
     },
     {
@@ -7790,7 +7790,7 @@
           "Trees & spanning trees",
           "Network flows"
         ],
-        "verdict": "MOCK_READY"
+        "verdict": "MOCK_CAPPED"
       }
     },
     {
@@ -7829,7 +7829,7 @@
           "Graph connectivity",
           "Isomorphism"
         ],
-        "verdict": "MOCK_READY"
+        "verdict": "MOCK_CAPPED"
       }
     },
     {
@@ -7933,7 +7933,7 @@
           "Trees & spanning trees",
           "Network flows"
         ],
-        "verdict": "MOCK_READY"
+        "verdict": "MOCK_CAPPED"
       }
     },
     {
@@ -7971,7 +7971,7 @@
           "Trees & spanning trees",
           "Network flows"
         ],
-        "verdict": "MOCK_READY"
+        "verdict": "MOCK_CAPPED"
       }
     },
     {
@@ -8231,12 +8231,12 @@
         "unit_number": 4,
         "question_count": 50,
         "subtopic_labels": [
-          "composition-transitive-closure",
-          "counting-relations",
-          "equivalence-relations-classes",
-          "lattices-in-posets",
-          "partial-orders-hasse-diagrams",
-          "relation-properties"
+          "Composition & transitive closure",
+          "Counting relations",
+          "Equivalence relations & classes",
+          "Lattices in posets",
+          "Partial orders & Hasse diagrams",
+          "Relation properties"
         ],
         "verdict": "MOCK_CAPPED"
       },
@@ -8250,7 +8250,7 @@
       "evidence": [
         "notes content/index.json map[].path = subjects/discrete-mathematics/partial-orders-and-lattices/poset-and-partial-order-axioms.json",
         "mock: discrete-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=relations (50 records)",
-        "mock url: runs[] last entry for relations -> https://gate-cse-mocks.vercel.app/",
+        "mock url: runs[] last entry for relations -> https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html",
         "visual: topics.json slug=partial-orders-and-lattices; syllabus-coverage.json subtopics/microtopics checked against the card text",
         "visual url: topics/partial-orders-and-lattices/index.html"
       ],
@@ -8271,12 +8271,12 @@
         "unit_number": 4,
         "question_count": 50,
         "subtopic_labels": [
-          "composition-transitive-closure",
-          "counting-relations",
-          "equivalence-relations-classes",
-          "lattices-in-posets",
-          "partial-orders-hasse-diagrams",
-          "relation-properties"
+          "Composition & transitive closure",
+          "Counting relations",
+          "Equivalence relations & classes",
+          "Lattices in posets",
+          "Partial orders & Hasse diagrams",
+          "Relation properties"
         ],
         "verdict": "MOCK_CAPPED"
       },
@@ -8290,7 +8290,7 @@
       "evidence": [
         "notes content/index.json map[].path = subjects/discrete-mathematics/partial-orders-and-lattices/hasse-diagram-and-covering.json",
         "mock: discrete-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=relations (50 records)",
-        "mock url: runs[] last entry for relations -> https://gate-cse-mocks.vercel.app/",
+        "mock url: runs[] last entry for relations -> https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html",
         "visual: topics.json slug=partial-orders-and-lattices; syllabus-coverage.json subtopics/microtopics checked against the card text",
         "visual url: topics/partial-orders-and-lattices/index.html"
       ],
@@ -8311,12 +8311,12 @@
         "unit_number": 4,
         "question_count": 50,
         "subtopic_labels": [
-          "composition-transitive-closure",
-          "counting-relations",
-          "equivalence-relations-classes",
-          "lattices-in-posets",
-          "partial-orders-hasse-diagrams",
-          "relation-properties"
+          "Composition & transitive closure",
+          "Counting relations",
+          "Equivalence relations & classes",
+          "Lattices in posets",
+          "Partial orders & Hasse diagrams",
+          "Relation properties"
         ],
         "verdict": "MOCK_CAPPED"
       },
@@ -8330,7 +8330,7 @@
       "evidence": [
         "notes content/index.json map[].path = subjects/discrete-mathematics/partial-orders-and-lattices/comparability-chains-and-antichains.json",
         "mock: discrete-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=relations (50 records)",
-        "mock url: runs[] last entry for relations -> https://gate-cse-mocks.vercel.app/",
+        "mock url: runs[] last entry for relations -> https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html",
         "visual: topics.json slug=partial-orders-and-lattices; syllabus-coverage.json subtopics/microtopics checked against the card text",
         "visual url: topics/partial-orders-and-lattices/index.html"
       ],
@@ -8351,12 +8351,12 @@
         "unit_number": 4,
         "question_count": 50,
         "subtopic_labels": [
-          "composition-transitive-closure",
-          "counting-relations",
-          "equivalence-relations-classes",
-          "lattices-in-posets",
-          "partial-orders-hasse-diagrams",
-          "relation-properties"
+          "Composition & transitive closure",
+          "Counting relations",
+          "Equivalence relations & classes",
+          "Lattices in posets",
+          "Partial orders & Hasse diagrams",
+          "Relation properties"
         ],
         "verdict": "MOCK_CAPPED"
       },
@@ -8370,7 +8370,7 @@
       "evidence": [
         "notes content/index.json map[].path = subjects/discrete-mathematics/partial-orders-and-lattices/minimal-maximal-least-greatest.json",
         "mock: discrete-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=relations (50 records)",
-        "mock url: runs[] last entry for relations -> https://gate-cse-mocks.vercel.app/",
+        "mock url: runs[] last entry for relations -> https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html",
         "visual: topics.json slug=partial-orders-and-lattices; syllabus-coverage.json subtopics/microtopics checked against the card text",
         "visual url: topics/partial-orders-and-lattices/index.html"
       ],
@@ -8391,12 +8391,12 @@
         "unit_number": 4,
         "question_count": 50,
         "subtopic_labels": [
-          "composition-transitive-closure",
-          "counting-relations",
-          "equivalence-relations-classes",
-          "lattices-in-posets",
-          "partial-orders-hasse-diagrams",
-          "relation-properties"
+          "Composition & transitive closure",
+          "Counting relations",
+          "Equivalence relations & classes",
+          "Lattices in posets",
+          "Partial orders & Hasse diagrams",
+          "Relation properties"
         ],
         "verdict": "MOCK_CAPPED"
       },
@@ -8410,7 +8410,7 @@
       "evidence": [
         "notes content/index.json map[].path = subjects/discrete-mathematics/partial-orders-and-lattices/upper-lower-bounds-lub-glb.json",
         "mock: discrete-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=relations (50 records)",
-        "mock url: runs[] last entry for relations -> https://gate-cse-mocks.vercel.app/",
+        "mock url: runs[] last entry for relations -> https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html",
         "visual: topics.json slug=partial-orders-and-lattices; syllabus-coverage.json subtopics/microtopics checked against the card text",
         "visual url: topics/partial-orders-and-lattices/index.html"
       ],
@@ -8431,12 +8431,12 @@
         "unit_number": 4,
         "question_count": 50,
         "subtopic_labels": [
-          "composition-transitive-closure",
-          "counting-relations",
-          "equivalence-relations-classes",
-          "lattices-in-posets",
-          "partial-orders-hasse-diagrams",
-          "relation-properties"
+          "Composition & transitive closure",
+          "Counting relations",
+          "Equivalence relations & classes",
+          "Lattices in posets",
+          "Partial orders & Hasse diagrams",
+          "Relation properties"
         ],
         "verdict": "MOCK_CAPPED"
       },
@@ -8450,7 +8450,7 @@
       "evidence": [
         "notes content/index.json map[].path = subjects/discrete-mathematics/partial-orders-and-lattices/lattice-definition-and-pairwise-test.json",
         "mock: discrete-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=relations (50 records)",
-        "mock url: runs[] last entry for relations -> https://gate-cse-mocks.vercel.app/",
+        "mock url: runs[] last entry for relations -> https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html",
         "visual: topics.json slug=partial-orders-and-lattices; syllabus-coverage.json subtopics/microtopics checked against the card text",
         "visual url: topics/partial-orders-and-lattices/index.html"
       ],
@@ -8471,12 +8471,12 @@
         "unit_number": 4,
         "question_count": 50,
         "subtopic_labels": [
-          "composition-transitive-closure",
-          "counting-relations",
-          "equivalence-relations-classes",
-          "lattices-in-posets",
-          "partial-orders-hasse-diagrams",
-          "relation-properties"
+          "Composition & transitive closure",
+          "Counting relations",
+          "Equivalence relations & classes",
+          "Lattices in posets",
+          "Partial orders & Hasse diagrams",
+          "Relation properties"
         ],
         "verdict": "MOCK_CAPPED"
       },
@@ -8490,7 +8490,7 @@
       "evidence": [
         "notes content/index.json map[].path = subjects/discrete-mathematics/partial-orders-and-lattices/lattice-algebraic-laws.json",
         "mock: discrete-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=relations (50 records)",
-        "mock url: runs[] last entry for relations -> https://gate-cse-mocks.vercel.app/",
+        "mock url: runs[] last entry for relations -> https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html",
         "visual: topics.json slug=partial-orders-and-lattices; syllabus-coverage.json subtopics/microtopics checked against the card text",
         "visual url: topics/partial-orders-and-lattices/index.html"
       ],
@@ -8511,12 +8511,12 @@
         "unit_number": 4,
         "question_count": 50,
         "subtopic_labels": [
-          "composition-transitive-closure",
-          "counting-relations",
-          "equivalence-relations-classes",
-          "lattices-in-posets",
-          "partial-orders-hasse-diagrams",
-          "relation-properties"
+          "Composition & transitive closure",
+          "Counting relations",
+          "Equivalence relations & classes",
+          "Lattices in posets",
+          "Partial orders & Hasse diagrams",
+          "Relation properties"
         ],
         "verdict": "MOCK_CAPPED"
       },
@@ -8530,7 +8530,7 @@
       "evidence": [
         "notes content/index.json map[].path = subjects/discrete-mathematics/partial-orders-and-lattices/sublattices.json",
         "mock: discrete-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=relations (50 records)",
-        "mock url: runs[] last entry for relations -> https://gate-cse-mocks.vercel.app/",
+        "mock url: runs[] last entry for relations -> https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html",
         "visual: topics.json slug=partial-orders-and-lattices; syllabus-coverage.json subtopics/microtopics checked against the card text",
         "visual url: topics/partial-orders-and-lattices/index.html"
       ],
@@ -8551,12 +8551,12 @@
         "unit_number": 4,
         "question_count": 50,
         "subtopic_labels": [
-          "composition-transitive-closure",
-          "counting-relations",
-          "equivalence-relations-classes",
-          "lattices-in-posets",
-          "partial-orders-hasse-diagrams",
-          "relation-properties"
+          "Composition & transitive closure",
+          "Counting relations",
+          "Equivalence relations & classes",
+          "Lattices in posets",
+          "Partial orders & Hasse diagrams",
+          "Relation properties"
         ],
         "verdict": "MOCK_CAPPED"
       },
@@ -8570,7 +8570,7 @@
       "evidence": [
         "notes content/index.json map[].path = subjects/discrete-mathematics/partial-orders-and-lattices/bounded-and-complemented-lattices.json",
         "mock: discrete-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=relations (50 records)",
-        "mock url: runs[] last entry for relations -> https://gate-cse-mocks.vercel.app/",
+        "mock url: runs[] last entry for relations -> https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html",
         "visual: topics.json slug=partial-orders-and-lattices; syllabus-coverage.json subtopics/microtopics checked against the card text",
         "visual url: topics/partial-orders-and-lattices/index.html"
       ],
@@ -8591,12 +8591,12 @@
         "unit_number": 4,
         "question_count": 50,
         "subtopic_labels": [
-          "composition-transitive-closure",
-          "counting-relations",
-          "equivalence-relations-classes",
-          "lattices-in-posets",
-          "partial-orders-hasse-diagrams",
-          "relation-properties"
+          "Composition & transitive closure",
+          "Counting relations",
+          "Equivalence relations & classes",
+          "Lattices in posets",
+          "Partial orders & Hasse diagrams",
+          "Relation properties"
         ],
         "verdict": "MOCK_CAPPED"
       },
@@ -8610,7 +8610,7 @@
       "evidence": [
         "notes content/index.json map[].path = subjects/discrete-mathematics/partial-orders-and-lattices/distributive-lattices.json",
         "mock: discrete-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=relations (50 records)",
-        "mock url: runs[] last entry for relations -> https://gate-cse-mocks.vercel.app/",
+        "mock url: runs[] last entry for relations -> https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html",
         "visual: topics.json slug=partial-orders-and-lattices; syllabus-coverage.json subtopics/microtopics checked against the card text",
         "visual url: topics/partial-orders-and-lattices/index.html"
       ],
@@ -8631,12 +8631,12 @@
         "unit_number": 4,
         "question_count": 50,
         "subtopic_labels": [
-          "composition-transitive-closure",
-          "counting-relations",
-          "equivalence-relations-classes",
-          "lattices-in-posets",
-          "partial-orders-hasse-diagrams",
-          "relation-properties"
+          "Composition & transitive closure",
+          "Counting relations",
+          "Equivalence relations & classes",
+          "Lattices in posets",
+          "Partial orders & Hasse diagrams",
+          "Relation properties"
         ],
         "verdict": "MOCK_CAPPED"
       },
@@ -8650,7 +8650,7 @@
       "evidence": [
         "notes content/index.json map[].path = subjects/discrete-mathematics/partial-orders-and-lattices/boolean-lattices-and-examples.json",
         "mock: discrete-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=relations (50 records)",
-        "mock url: runs[] last entry for relations -> https://gate-cse-mocks.vercel.app/",
+        "mock url: runs[] last entry for relations -> https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html",
         "visual: topics.json slug=partial-orders-and-lattices; syllabus-coverage.json subtopics/microtopics checked against the card text",
         "visual url: topics/partial-orders-and-lattices/index.html"
       ],
@@ -8671,12 +8671,12 @@
         "unit_number": 4,
         "question_count": 50,
         "subtopic_labels": [
-          "composition-transitive-closure",
-          "counting-relations",
-          "equivalence-relations-classes",
-          "lattices-in-posets",
-          "partial-orders-hasse-diagrams",
-          "relation-properties"
+          "Composition & transitive closure",
+          "Counting relations",
+          "Equivalence relations & classes",
+          "Lattices in posets",
+          "Partial orders & Hasse diagrams",
+          "Relation properties"
         ],
         "verdict": "MOCK_CAPPED"
       },
@@ -8690,7 +8690,7 @@
       "evidence": [
         "notes content/index.json map[].path = subjects/discrete-mathematics/partial-orders-and-lattices/complete-lattices.json",
         "mock: discrete-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=relations (50 records)",
-        "mock url: runs[] last entry for relations -> https://gate-cse-mocks.vercel.app/",
+        "mock url: runs[] last entry for relations -> https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html",
         "visual: topics.json slug=partial-orders-and-lattices; syllabus-coverage.json subtopics/microtopics checked against the card text",
         "visual url: topics/partial-orders-and-lattices/index.html"
       ],
@@ -8711,12 +8711,12 @@
         "unit_number": 1,
         "question_count": 50,
         "subtopic_labels": [
-          "cnf-dnf",
-          "implications-and-inference",
-          "logical-equivalences",
-          "propositions-and-connectives",
-          "truth-tables",
-          "validity-and-satisfiability"
+          "CNF / DNF",
+          "Implications & inference",
+          "Logical equivalences",
+          "Propositions & connectives",
+          "Truth tables",
+          "Validity & satisfiability"
         ],
         "verdict": "MOCK_CAPPED"
       },
@@ -8730,7 +8730,7 @@
       "evidence": [
         "notes content/index.json map[].path = subjects/discrete-mathematics/propositional-logic/propositions-and-connectives.json",
         "mock: discrete-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=propositional-logic (50 records)",
-        "mock url: runs[] last entry for propositional-logic -> https://gate-cse-mocks.vercel.app/",
+        "mock url: runs[] last entry for propositional-logic -> https://gate-cse-mocks.vercel.app/discrete-mathematics/propositional-logic/gate_dm_mock_1_2026-10-25.html",
         "visual: topics.json slug=propositional-logic; syllabus-coverage.json subtopics/microtopics checked against the card text",
         "visual url: topics/propositional-logic/index.html"
       ],
@@ -8751,12 +8751,12 @@
         "unit_number": 1,
         "question_count": 50,
         "subtopic_labels": [
-          "cnf-dnf",
-          "implications-and-inference",
-          "logical-equivalences",
-          "propositions-and-connectives",
-          "truth-tables",
-          "validity-and-satisfiability"
+          "CNF / DNF",
+          "Implications & inference",
+          "Logical equivalences",
+          "Propositions & connectives",
+          "Truth tables",
+          "Validity & satisfiability"
         ],
         "verdict": "MOCK_CAPPED"
       },
@@ -8770,7 +8770,7 @@
       "evidence": [
         "notes content/index.json map[].path = subjects/discrete-mathematics/propositional-logic/truth-tables-and-tautology.json",
         "mock: discrete-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=propositional-logic (50 records)",
-        "mock url: runs[] last entry for propositional-logic -> https://gate-cse-mocks.vercel.app/",
+        "mock url: runs[] last entry for propositional-logic -> https://gate-cse-mocks.vercel.app/discrete-mathematics/propositional-logic/gate_dm_mock_1_2026-10-25.html",
         "visual: topics.json slug=propositional-logic; syllabus-coverage.json subtopics/microtopics checked against the card text",
         "visual url: topics/propositional-logic/index.html"
       ],
@@ -8791,12 +8791,12 @@
         "unit_number": 1,
         "question_count": 50,
         "subtopic_labels": [
-          "cnf-dnf",
-          "implications-and-inference",
-          "logical-equivalences",
-          "propositions-and-connectives",
-          "truth-tables",
-          "validity-and-satisfiability"
+          "CNF / DNF",
+          "Implications & inference",
+          "Logical equivalences",
+          "Propositions & connectives",
+          "Truth tables",
+          "Validity & satisfiability"
         ],
         "verdict": "MOCK_CAPPED"
       },
@@ -8810,7 +8810,7 @@
       "evidence": [
         "notes content/index.json map[].path = subjects/discrete-mathematics/propositional-logic/implication-converse-contrapositive.json",
         "mock: discrete-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=propositional-logic (50 records)",
-        "mock url: runs[] last entry for propositional-logic -> https://gate-cse-mocks.vercel.app/",
+        "mock url: runs[] last entry for propositional-logic -> https://gate-cse-mocks.vercel.app/discrete-mathematics/propositional-logic/gate_dm_mock_1_2026-10-25.html",
         "visual: topics.json slug=propositional-logic; syllabus-coverage.json subtopics/microtopics checked against the card text",
         "visual url: topics/propositional-logic/index.html"
       ],
@@ -8831,12 +8831,12 @@
         "unit_number": 1,
         "question_count": 50,
         "subtopic_labels": [
-          "cnf-dnf",
-          "implications-and-inference",
-          "logical-equivalences",
-          "propositions-and-connectives",
-          "truth-tables",
-          "validity-and-satisfiability"
+          "CNF / DNF",
+          "Implications & inference",
+          "Logical equivalences",
+          "Propositions & connectives",
+          "Truth tables",
+          "Validity & satisfiability"
         ],
         "verdict": "MOCK_CAPPED"
       },
@@ -8850,7 +8850,7 @@
       "evidence": [
         "notes content/index.json map[].path = subjects/discrete-mathematics/propositional-logic/logical-equivalence-laws.json",
         "mock: discrete-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=propositional-logic (50 records)",
-        "mock url: runs[] last entry for propositional-logic -> https://gate-cse-mocks.vercel.app/",
+        "mock url: runs[] last entry for propositional-logic -> https://gate-cse-mocks.vercel.app/discrete-mathematics/propositional-logic/gate_dm_mock_1_2026-10-25.html",
         "visual: topics.json slug=propositional-logic; syllabus-coverage.json subtopics/microtopics checked against the card text",
         "visual url: topics/propositional-logic/index.html"
       ],
@@ -8871,12 +8871,12 @@
         "unit_number": 1,
         "question_count": 50,
         "subtopic_labels": [
-          "cnf-dnf",
-          "implications-and-inference",
-          "logical-equivalences",
-          "propositions-and-connectives",
-          "truth-tables",
-          "validity-and-satisfiability"
+          "CNF / DNF",
+          "Implications & inference",
+          "Logical equivalences",
+          "Propositions & connectives",
+          "Truth tables",
+          "Validity & satisfiability"
         ],
         "verdict": "MOCK_CAPPED"
       },
@@ -8890,7 +8890,7 @@
       "evidence": [
         "notes content/index.json map[].path = subjects/discrete-mathematics/propositional-logic/cnf-dnf-normal-forms.json",
         "mock: discrete-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=propositional-logic (50 records)",
-        "mock url: runs[] last entry for propositional-logic -> https://gate-cse-mocks.vercel.app/",
+        "mock url: runs[] last entry for propositional-logic -> https://gate-cse-mocks.vercel.app/discrete-mathematics/propositional-logic/gate_dm_mock_1_2026-10-25.html",
         "visual: topics.json slug=propositional-logic; syllabus-coverage.json subtopics/microtopics checked against the card text",
         "visual url: topics/propositional-logic/index.html"
       ],
@@ -8911,12 +8911,12 @@
         "unit_number": 1,
         "question_count": 50,
         "subtopic_labels": [
-          "cnf-dnf",
-          "implications-and-inference",
-          "logical-equivalences",
-          "propositions-and-connectives",
-          "truth-tables",
-          "validity-and-satisfiability"
+          "CNF / DNF",
+          "Implications & inference",
+          "Logical equivalences",
+          "Propositions & connectives",
+          "Truth tables",
+          "Validity & satisfiability"
         ],
         "verdict": "MOCK_CAPPED"
       },
@@ -8930,7 +8930,7 @@
       "evidence": [
         "notes content/index.json map[].path = subjects/discrete-mathematics/propositional-logic/satisfiability-and-validity.json",
         "mock: discrete-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=propositional-logic (50 records)",
-        "mock url: runs[] last entry for propositional-logic -> https://gate-cse-mocks.vercel.app/",
+        "mock url: runs[] last entry for propositional-logic -> https://gate-cse-mocks.vercel.app/discrete-mathematics/propositional-logic/gate_dm_mock_1_2026-10-25.html",
         "visual: topics.json slug=propositional-logic; syllabus-coverage.json subtopics/microtopics checked against the card text",
         "visual url: topics/propositional-logic/index.html"
       ],
@@ -8951,12 +8951,12 @@
         "unit_number": 1,
         "question_count": 50,
         "subtopic_labels": [
-          "cnf-dnf",
-          "implications-and-inference",
-          "logical-equivalences",
-          "propositions-and-connectives",
-          "truth-tables",
-          "validity-and-satisfiability"
+          "CNF / DNF",
+          "Implications & inference",
+          "Logical equivalences",
+          "Propositions & connectives",
+          "Truth tables",
+          "Validity & satisfiability"
         ],
         "verdict": "MOCK_CAPPED"
       },
@@ -8970,7 +8970,7 @@
       "evidence": [
         "notes content/index.json map[].path = subjects/discrete-mathematics/propositional-logic/logical-entailment-and-models.json",
         "mock: discrete-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=propositional-logic (50 records)",
-        "mock url: runs[] last entry for propositional-logic -> https://gate-cse-mocks.vercel.app/",
+        "mock url: runs[] last entry for propositional-logic -> https://gate-cse-mocks.vercel.app/discrete-mathematics/propositional-logic/gate_dm_mock_1_2026-10-25.html",
         "visual: topics.json slug=propositional-logic; syllabus-coverage.json subtopics/microtopics checked against the card text",
         "visual url: topics/propositional-logic/index.html"
       ],
@@ -8991,12 +8991,12 @@
         "unit_number": 1,
         "question_count": 50,
         "subtopic_labels": [
-          "cnf-dnf",
-          "implications-and-inference",
-          "logical-equivalences",
-          "propositions-and-connectives",
-          "truth-tables",
-          "validity-and-satisfiability"
+          "CNF / DNF",
+          "Implications & inference",
+          "Logical equivalences",
+          "Propositions & connectives",
+          "Truth tables",
+          "Validity & satisfiability"
         ],
         "verdict": "MOCK_CAPPED"
       },
@@ -9010,7 +9010,7 @@
       "evidence": [
         "notes content/index.json map[].path = subjects/discrete-mathematics/propositional-logic/rules-of-inference.json",
         "mock: discrete-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=propositional-logic (50 records)",
-        "mock url: runs[] last entry for propositional-logic -> https://gate-cse-mocks.vercel.app/",
+        "mock url: runs[] last entry for propositional-logic -> https://gate-cse-mocks.vercel.app/discrete-mathematics/propositional-logic/gate_dm_mock_1_2026-10-25.html",
         "visual: topics.json slug=propositional-logic; syllabus-coverage.json subtopics/microtopics checked against the card text",
         "visual url: topics/propositional-logic/index.html"
       ],
@@ -9031,12 +9031,12 @@
         "unit_number": 1,
         "question_count": 50,
         "subtopic_labels": [
-          "cnf-dnf",
-          "implications-and-inference",
-          "logical-equivalences",
-          "propositions-and-connectives",
-          "truth-tables",
-          "validity-and-satisfiability"
+          "CNF / DNF",
+          "Implications & inference",
+          "Logical equivalences",
+          "Propositions & connectives",
+          "Truth tables",
+          "Validity & satisfiability"
         ],
         "verdict": "MOCK_CAPPED"
       },
@@ -9050,7 +9050,7 @@
       "evidence": [
         "notes content/index.json map[].path = subjects/discrete-mathematics/propositional-logic/resolution-refutation.json",
         "mock: discrete-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=propositional-logic (50 records)",
-        "mock url: runs[] last entry for propositional-logic -> https://gate-cse-mocks.vercel.app/",
+        "mock url: runs[] last entry for propositional-logic -> https://gate-cse-mocks.vercel.app/discrete-mathematics/propositional-logic/gate_dm_mock_1_2026-10-25.html",
         "visual: topics.json slug=propositional-logic; syllabus-coverage.json subtopics/microtopics checked against the card text",
         "visual url: topics/propositional-logic/index.html"
       ],
@@ -9071,12 +9071,12 @@
         "unit_number": 1,
         "question_count": 50,
         "subtopic_labels": [
-          "cnf-dnf",
-          "implications-and-inference",
-          "logical-equivalences",
-          "propositions-and-connectives",
-          "truth-tables",
-          "validity-and-satisfiability"
+          "CNF / DNF",
+          "Implications & inference",
+          "Logical equivalences",
+          "Propositions & connectives",
+          "Truth tables",
+          "Validity & satisfiability"
         ],
         "verdict": "MOCK_CAPPED"
       },
@@ -9090,7 +9090,7 @@
       "evidence": [
         "notes content/index.json map[].path = subjects/discrete-mathematics/propositional-logic/functional-completeness.json",
         "mock: discrete-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=propositional-logic (50 records)",
-        "mock url: runs[] last entry for propositional-logic -> https://gate-cse-mocks.vercel.app/",
+        "mock url: runs[] last entry for propositional-logic -> https://gate-cse-mocks.vercel.app/discrete-mathematics/propositional-logic/gate_dm_mock_1_2026-10-25.html",
         "visual: topics.json slug=propositional-logic; syllabus-coverage.json subtopics/microtopics checked against the card text",
         "visual url: topics/propositional-logic/index.html"
       ],
@@ -9111,11 +9111,11 @@
         "unit_number": 2,
         "question_count": 50,
         "subtopic_labels": [
-          "english-to-fol-translation",
-          "negation-nested-quantifiers",
-          "predicates-and-domain",
-          "quantifiers-universal-existential",
-          "scope-and-order"
+          "English to FOL translation",
+          "Negation of nested quantifiers",
+          "Predicates & domain",
+          "Universal & existential quantifiers",
+          "Scope & order of quantifiers"
         ],
         "verdict": "MOCK_CAPPED"
       },
@@ -9129,7 +9129,7 @@
       "evidence": [
         "notes content/index.json map[].path = subjects/discrete-mathematics/propositional-logic/quantifiers-and-scope.json",
         "mock: discrete-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=predicate-logic (50 records)",
-        "mock url: runs[] last entry for predicate-logic -> https://gate-cse-mocks.vercel.app/",
+        "mock url: runs[] last entry for predicate-logic -> https://gate-cse-mocks.vercel.app/discrete-mathematics/predicate-logic/gate_dm_mock_2_2026-10-25.html",
         "visual: topics.json slug=first-order-logic; syllabus-coverage.json subtopics/microtopics checked against the card text",
         "visual url: topics/first-order-logic/index.html"
       ],
@@ -9150,12 +9150,12 @@
         "unit_number": 1,
         "question_count": 50,
         "subtopic_labels": [
-          "cnf-dnf",
-          "implications-and-inference",
-          "logical-equivalences",
-          "propositions-and-connectives",
-          "truth-tables",
-          "validity-and-satisfiability"
+          "CNF / DNF",
+          "Implications & inference",
+          "Logical equivalences",
+          "Propositions & connectives",
+          "Truth tables",
+          "Validity & satisfiability"
         ],
         "verdict": "MOCK_CAPPED"
       },
@@ -9169,7 +9169,7 @@
       "evidence": [
         "notes content/index.json map[].path = subjects/discrete-mathematics/propositional-logic/fast-methods-by-case-and-simplification.json",
         "mock: discrete-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=propositional-logic (50 records)",
-        "mock url: runs[] last entry for propositional-logic -> https://gate-cse-mocks.vercel.app/",
+        "mock url: runs[] last entry for propositional-logic -> https://gate-cse-mocks.vercel.app/discrete-mathematics/propositional-logic/gate_dm_mock_1_2026-10-25.html",
         "visual: topics.json slug=propositional-logic; syllabus-coverage.json subtopics/microtopics checked against the card text",
         "visual url: topics/propositional-logic/index.html"
       ],
@@ -9190,11 +9190,11 @@
         "unit_number": 3,
         "question_count": 50,
         "subtopic_labels": [
-          "cardinality",
-          "inclusion-exclusion",
-          "partitions-and-cartesian-products",
-          "set-algebra-de-morgan",
-          "subsets-and-power-sets"
+          "Cardinality",
+          "Inclusion-exclusion",
+          "Partitions & Cartesian products",
+          "Set algebra & De Morgan",
+          "Subsets & power sets"
         ],
         "verdict": "MOCK_CAPPED"
       },
@@ -9208,7 +9208,7 @@
       "evidence": [
         "notes content/index.json map[].path = subjects/discrete-mathematics/sets-relations-functions/sets-elements-subsets-cardinality.json",
         "mock: discrete-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=set-theory (50 records)",
-        "mock url: runs[] last entry for set-theory -> https://gate-cse-mocks.vercel.app/",
+        "mock url: runs[] last entry for set-theory -> https://gate-cse-mocks.vercel.app/discrete-mathematics/set-theory/gate_dm_mock_3_2026-10-25.html",
         "visual: topics.json slug=sets-and-set-operations; syllabus-coverage.json subtopics/microtopics checked against the card text",
         "visual url: topics/sets-and-set-operations/index.html"
       ],
@@ -9229,11 +9229,11 @@
         "unit_number": 3,
         "question_count": 50,
         "subtopic_labels": [
-          "cardinality",
-          "inclusion-exclusion",
-          "partitions-and-cartesian-products",
-          "set-algebra-de-morgan",
-          "subsets-and-power-sets"
+          "Cardinality",
+          "Inclusion-exclusion",
+          "Partitions & Cartesian products",
+          "Set algebra & De Morgan",
+          "Subsets & power sets"
         ],
         "verdict": "MOCK_CAPPED"
       },
@@ -9247,7 +9247,7 @@
       "evidence": [
         "notes content/index.json map[].path = subjects/discrete-mathematics/sets-relations-functions/power-set-and-its-size.json",
         "mock: discrete-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=set-theory (50 records)",
-        "mock url: runs[] last entry for set-theory -> https://gate-cse-mocks.vercel.app/",
+        "mock url: runs[] last entry for set-theory -> https://gate-cse-mocks.vercel.app/discrete-mathematics/set-theory/gate_dm_mock_3_2026-10-25.html",
         "visual: topics.json slug=sets-and-set-operations; syllabus-coverage.json subtopics/microtopics checked against the card text",
         "visual url: topics/sets-and-set-operations/index.html"
       ],
@@ -9268,11 +9268,11 @@
         "unit_number": 3,
         "question_count": 50,
         "subtopic_labels": [
-          "cardinality",
-          "inclusion-exclusion",
-          "partitions-and-cartesian-products",
-          "set-algebra-de-morgan",
-          "subsets-and-power-sets"
+          "Cardinality",
+          "Inclusion-exclusion",
+          "Partitions & Cartesian products",
+          "Set algebra & De Morgan",
+          "Subsets & power sets"
         ],
         "verdict": "MOCK_CAPPED"
       },
@@ -9286,7 +9286,7 @@
       "evidence": [
         "notes content/index.json map[].path = subjects/discrete-mathematics/sets-relations-functions/set-operations-and-identities.json",
         "mock: discrete-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=set-theory (50 records)",
-        "mock url: runs[] last entry for set-theory -> https://gate-cse-mocks.vercel.app/",
+        "mock url: runs[] last entry for set-theory -> https://gate-cse-mocks.vercel.app/discrete-mathematics/set-theory/gate_dm_mock_3_2026-10-25.html",
         "visual: topics.json slug=sets-and-set-operations; syllabus-coverage.json subtopics/microtopics checked against the card text",
         "visual url: topics/sets-and-set-operations/index.html"
       ],
@@ -9307,11 +9307,11 @@
         "unit_number": 3,
         "question_count": 50,
         "subtopic_labels": [
-          "cardinality",
-          "inclusion-exclusion",
-          "partitions-and-cartesian-products",
-          "set-algebra-de-morgan",
-          "subsets-and-power-sets"
+          "Cardinality",
+          "Inclusion-exclusion",
+          "Partitions & Cartesian products",
+          "Set algebra & De Morgan",
+          "Subsets & power sets"
         ],
         "verdict": "MOCK_CAPPED"
       },
@@ -9325,7 +9325,7 @@
       "evidence": [
         "notes content/index.json map[].path = subjects/discrete-mathematics/sets-relations-functions/cartesian-product.json",
         "mock: discrete-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=set-theory (50 records)",
-        "mock url: runs[] last entry for set-theory -> https://gate-cse-mocks.vercel.app/",
+        "mock url: runs[] last entry for set-theory -> https://gate-cse-mocks.vercel.app/discrete-mathematics/set-theory/gate_dm_mock_3_2026-10-25.html",
         "visual: topics.json slug=sets-and-set-operations; syllabus-coverage.json subtopics/microtopics checked against the card text",
         "visual url: topics/sets-and-set-operations/index.html"
       ],
@@ -9346,11 +9346,11 @@
         "unit_number": 3,
         "question_count": 50,
         "subtopic_labels": [
-          "cardinality",
-          "inclusion-exclusion",
-          "partitions-and-cartesian-products",
-          "set-algebra-de-morgan",
-          "subsets-and-power-sets"
+          "Cardinality",
+          "Inclusion-exclusion",
+          "Partitions & Cartesian products",
+          "Set algebra & De Morgan",
+          "Subsets & power sets"
         ],
         "verdict": "MOCK_CAPPED"
       },
@@ -9364,7 +9364,7 @@
       "evidence": [
         "notes content/index.json map[].path = subjects/discrete-mathematics/sets-relations-functions/countable-and-uncountable-sets.json",
         "mock: discrete-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=set-theory (50 records)",
-        "mock url: runs[] last entry for set-theory -> https://gate-cse-mocks.vercel.app/",
+        "mock url: runs[] last entry for set-theory -> https://gate-cse-mocks.vercel.app/discrete-mathematics/set-theory/gate_dm_mock_3_2026-10-25.html",
         "visual: topics.json slug=sets-and-set-operations; syllabus-coverage.json subtopics/microtopics checked against the card text",
         "visual url: topics/sets-and-set-operations/index.html"
       ],
@@ -9385,12 +9385,12 @@
         "unit_number": 4,
         "question_count": 50,
         "subtopic_labels": [
-          "composition-transitive-closure",
-          "counting-relations",
-          "equivalence-relations-classes",
-          "lattices-in-posets",
-          "partial-orders-hasse-diagrams",
-          "relation-properties"
+          "Composition & transitive closure",
+          "Counting relations",
+          "Equivalence relations & classes",
+          "Lattices in posets",
+          "Partial orders & Hasse diagrams",
+          "Relation properties"
         ],
         "verdict": "MOCK_CAPPED"
       },
@@ -9404,7 +9404,7 @@
       "evidence": [
         "notes content/index.json map[].path = subjects/discrete-mathematics/sets-relations-functions/relation-definition-and-counting.json",
         "mock: discrete-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=relations (50 records)",
-        "mock url: runs[] last entry for relations -> https://gate-cse-mocks.vercel.app/",
+        "mock url: runs[] last entry for relations -> https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html",
         "visual: topics.json slug=relations-and-their-properties; syllabus-coverage.json subtopics/microtopics checked against the card text",
         "visual url: topics/relations-and-their-properties/index.html"
       ],
@@ -9425,12 +9425,12 @@
         "unit_number": 4,
         "question_count": 50,
         "subtopic_labels": [
-          "composition-transitive-closure",
-          "counting-relations",
-          "equivalence-relations-classes",
-          "lattices-in-posets",
-          "partial-orders-hasse-diagrams",
-          "relation-properties"
+          "Composition & transitive closure",
+          "Counting relations",
+          "Equivalence relations & classes",
+          "Lattices in posets",
+          "Partial orders & Hasse diagrams",
+          "Relation properties"
         ],
         "verdict": "MOCK_CAPPED"
       },
@@ -9444,7 +9444,7 @@
       "evidence": [
         "notes content/index.json map[].path = subjects/discrete-mathematics/sets-relations-functions/relation-properties-reflexive-symmetric-antisymmetric.json",
         "mock: discrete-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=relations (50 records)",
-        "mock url: runs[] last entry for relations -> https://gate-cse-mocks.vercel.app/",
+        "mock url: runs[] last entry for relations -> https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html",
         "visual: topics.json slug=relations-and-their-properties; syllabus-coverage.json subtopics/microtopics checked against the card text",
         "visual url: topics/relations-and-their-properties/index.html"
       ],
@@ -9465,12 +9465,12 @@
         "unit_number": 4,
         "question_count": 50,
         "subtopic_labels": [
-          "composition-transitive-closure",
-          "counting-relations",
-          "equivalence-relations-classes",
-          "lattices-in-posets",
-          "partial-orders-hasse-diagrams",
-          "relation-properties"
+          "Composition & transitive closure",
+          "Counting relations",
+          "Equivalence relations & classes",
+          "Lattices in posets",
+          "Partial orders & Hasse diagrams",
+          "Relation properties"
         ],
         "verdict": "MOCK_CAPPED"
       },
@@ -9484,7 +9484,7 @@
       "evidence": [
         "notes content/index.json map[].path = subjects/discrete-mathematics/sets-relations-functions/transitivity-and-closure.json",
         "mock: discrete-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=relations (50 records)",
-        "mock url: runs[] last entry for relations -> https://gate-cse-mocks.vercel.app/",
+        "mock url: runs[] last entry for relations -> https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html",
         "visual: topics.json slug=relations-and-their-properties; syllabus-coverage.json subtopics/microtopics checked against the card text",
         "visual url: topics/relations-and-their-properties/index.html"
       ],
@@ -9505,12 +9505,12 @@
         "unit_number": 4,
         "question_count": 50,
         "subtopic_labels": [
-          "composition-transitive-closure",
-          "counting-relations",
-          "equivalence-relations-classes",
-          "lattices-in-posets",
-          "partial-orders-hasse-diagrams",
-          "relation-properties"
+          "Composition & transitive closure",
+          "Counting relations",
+          "Equivalence relations & classes",
+          "Lattices in posets",
+          "Partial orders & Hasse diagrams",
+          "Relation properties"
         ],
         "verdict": "MOCK_CAPPED"
       },
@@ -9524,7 +9524,7 @@
       "evidence": [
         "notes content/index.json map[].path = subjects/discrete-mathematics/sets-relations-functions/equivalence-relations-and-partitions.json",
         "mock: discrete-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=relations (50 records)",
-        "mock url: runs[] last entry for relations -> https://gate-cse-mocks.vercel.app/",
+        "mock url: runs[] last entry for relations -> https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html",
         "visual: topics.json slug=relations-and-their-properties; syllabus-coverage.json subtopics/microtopics checked against the card text",
         "visual url: topics/relations-and-their-properties/index.html"
       ],
@@ -9545,11 +9545,11 @@
         "unit_number": 5,
         "question_count": 50,
         "subtopic_labels": [
-          "composition-and-inverses",
-          "counting-functions",
-          "floor-ceiling-recursion",
-          "pigeonhole-principle",
-          "types-injective-surjective-bijective"
+          "Composition & inverses",
+          "Counting functions",
+          "Floor, ceiling & recursion",
+          "Pigeonhole principle",
+          "Injective / surjective / bijective"
         ],
         "verdict": "MOCK_CAPPED"
       },
@@ -9563,7 +9563,7 @@
       "evidence": [
         "notes content/index.json map[].path = subjects/discrete-mathematics/sets-relations-functions/functions-counting-injective-surjective.json",
         "mock: discrete-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=functions (50 records)",
-        "mock url: runs[] last entry for functions -> https://gate-cse-mocks.vercel.app/",
+        "mock url: runs[] last entry for functions -> https://gate-cse-mocks.vercel.app/discrete-mathematics/functions/gate_dm_mock_5_2026-10-26.html",
         "visual: topics.json slug=functions-and-their-properties; syllabus-coverage.json subtopics/microtopics checked against the card text",
         "visual url: topics/functions-and-their-properties/index.html"
       ],
@@ -9584,11 +9584,11 @@
         "unit_number": 5,
         "question_count": 50,
         "subtopic_labels": [
-          "composition-and-inverses",
-          "counting-functions",
-          "floor-ceiling-recursion",
-          "pigeonhole-principle",
-          "types-injective-surjective-bijective"
+          "Composition & inverses",
+          "Counting functions",
+          "Floor, ceiling & recursion",
+          "Pigeonhole principle",
+          "Injective / surjective / bijective"
         ],
         "verdict": "MOCK_CAPPED"
       },
@@ -9602,7 +9602,7 @@
       "evidence": [
         "notes content/index.json map[].path = subjects/discrete-mathematics/sets-relations-functions/composition-and-inverse-functions.json",
         "mock: discrete-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=functions (50 records)",
-        "mock url: runs[] last entry for functions -> https://gate-cse-mocks.vercel.app/",
+        "mock url: runs[] last entry for functions -> https://gate-cse-mocks.vercel.app/discrete-mathematics/functions/gate_dm_mock_5_2026-10-26.html",
         "visual: topics.json slug=functions-and-their-properties; syllabus-coverage.json subtopics/microtopics checked against the card text",
         "visual url: topics/functions-and-their-properties/index.html"
       ],
@@ -12779,7 +12779,7 @@
           "Functions & parameter passing",
           "Recursion & stack execution"
         ],
-        "verdict": "MOCK_READY"
+        "verdict": "MOCK_CAPPED"
       },
       "visual": {
         "slug": "recursion",
@@ -12817,7 +12817,7 @@
           "Functions & parameter passing",
           "Recursion & stack execution"
         ],
-        "verdict": "MOCK_READY"
+        "verdict": "MOCK_CAPPED"
       },
       "visual": {
         "slug": "recursion",
@@ -12855,7 +12855,7 @@
           "Functions & parameter passing",
           "Recursion & stack execution"
         ],
-        "verdict": "MOCK_READY"
+        "verdict": "MOCK_CAPPED"
       },
       "visual": {
         "slug": "recursion",
@@ -12893,7 +12893,7 @@
           "Functions & parameter passing",
           "Recursion & stack execution"
         ],
-        "verdict": "MOCK_READY"
+        "verdict": "MOCK_CAPPED"
       },
       "visual": {
         "slug": "recursion",
@@ -12931,7 +12931,7 @@
           "Functions & parameter passing",
           "Recursion & stack execution"
         ],
-        "verdict": "MOCK_READY"
+        "verdict": "MOCK_CAPPED"
       },
       "visual": {
         "slug": "recursion",
@@ -12969,7 +12969,7 @@
           "Functions & parameter passing",
           "Recursion & stack execution"
         ],
-        "verdict": "MOCK_READY"
+        "verdict": "MOCK_CAPPED"
       },
       "visual": {
         "slug": "recursion",
@@ -13007,7 +13007,7 @@
           "Functions & parameter passing",
           "Recursion & stack execution"
         ],
-        "verdict": "MOCK_READY"
+        "verdict": "MOCK_CAPPED"
       },
       "visual": {
         "slug": "recursion",
@@ -13045,7 +13045,7 @@
           "Functions & parameter passing",
           "Recursion & stack execution"
         ],
-        "verdict": "MOCK_READY"
+        "verdict": "MOCK_CAPPED"
       },
       "visual": {
         "slug": "recursion",
@@ -13083,7 +13083,7 @@
           "Functions & parameter passing",
           "Recursion & stack execution"
         ],
-        "verdict": "MOCK_READY"
+        "verdict": "MOCK_CAPPED"
       },
       "visual": {
         "slug": "recursion",
@@ -13121,7 +13121,7 @@
           "Functions & parameter passing",
           "Recursion & stack execution"
         ],
-        "verdict": "MOCK_READY"
+        "verdict": "MOCK_CAPPED"
       },
       "visual": {
         "slug": "recursion",
@@ -13159,7 +13159,7 @@
           "Functions & parameter passing",
           "Recursion & stack execution"
         ],
-        "verdict": "MOCK_READY"
+        "verdict": "MOCK_CAPPED"
       },
       "visual": {
         "slug": "recursion",
@@ -13197,7 +13197,7 @@
           "Functions & parameter passing",
           "Recursion & stack execution"
         ],
-        "verdict": "MOCK_READY"
+        "verdict": "MOCK_CAPPED"
       },
       "visual": {
         "slug": "recursion",

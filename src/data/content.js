@@ -1894,27 +1894,27 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "composition-and-inverses",
+       "label": "Composition & inverses",
        "questions": 10
       },
       {
-       "label": "counting-functions",
+       "label": "Counting functions",
        "questions": 10
       },
       {
-       "label": "floor-ceiling-recursion",
+       "label": "Floor, ceiling & recursion",
        "questions": 10
       },
       {
-       "label": "pigeonhole-principle",
+       "label": "Pigeonhole principle",
        "questions": 10
       },
       {
-       "label": "types-injective-surjective-bijective",
+       "label": "Injective / surjective / bijective",
        "questions": 10
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/"
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/functions/gate_dm_mock_5_2026-10-26.html"
     },
     "visual": {
      "slug": "functions-and-their-properties",
@@ -1922,7 +1922,7 @@ window.GATE_DATA = {
      "level": "topic-level",
      "url": "https://gate-visual-explainer.vercel.app/topics/functions-and-their-properties/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
    },
    "subject": "discrete-mathematics",
    "topic": "combinatorics",
@@ -2084,27 +2084,27 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "cardinality",
+       "label": "Cardinality",
        "questions": 10
       },
       {
-       "label": "inclusion-exclusion",
+       "label": "Inclusion-exclusion",
        "questions": 10
       },
       {
-       "label": "partitions-and-cartesian-products",
+       "label": "Partitions & Cartesian products",
        "questions": 10
       },
       {
-       "label": "set-algebra-de-morgan",
+       "label": "Set algebra & De Morgan",
        "questions": 10
       },
       {
-       "label": "subsets-and-power-sets",
+       "label": "Subsets & power sets",
        "questions": 10
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/"
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/set-theory/gate_dm_mock_3_2026-10-25.html"
     },
     "visual": {
      "slug": "counting-and-combinatorics",
@@ -2112,7 +2112,7 @@ window.GATE_DATA = {
      "level": "topic-level",
      "url": "https://gate-visual-explainer.vercel.app/topics/counting-and-combinatorics/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
    },
    "subject": "discrete-mathematics",
    "topic": "combinatorics",
@@ -2419,27 +2419,27 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "composition-and-inverses",
+       "label": "Composition & inverses",
        "questions": 10
       },
       {
-       "label": "counting-functions",
+       "label": "Counting functions",
        "questions": 10
       },
       {
-       "label": "floor-ceiling-recursion",
+       "label": "Floor, ceiling & recursion",
        "questions": 10
       },
       {
-       "label": "pigeonhole-principle",
+       "label": "Pigeonhole principle",
        "questions": 10
       },
       {
-       "label": "types-injective-surjective-bijective",
+       "label": "Injective / surjective / bijective",
        "questions": 10
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/"
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/functions/gate_dm_mock_5_2026-10-26.html"
     },
     "visual": {
      "slug": "functions-and-their-properties",
@@ -2453,7 +2453,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/functions-and-their-properties/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
    },
    "subject": "discrete-mathematics",
    "topic": "combinatorics",
@@ -2522,27 +2522,27 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "composition-and-inverses",
+       "label": "Composition & inverses",
        "questions": 10
       },
       {
-       "label": "counting-functions",
+       "label": "Counting functions",
        "questions": 10
       },
       {
-       "label": "floor-ceiling-recursion",
+       "label": "Floor, ceiling & recursion",
        "questions": 10
       },
       {
-       "label": "pigeonhole-principle",
+       "label": "Pigeonhole principle",
        "questions": 10
       },
       {
-       "label": "types-injective-surjective-bijective",
+       "label": "Injective / surjective / bijective",
        "questions": 10
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/"
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/functions/gate_dm_mock_5_2026-10-26.html"
     },
     "visual": {
      "slug": "counting-and-combinatorics",
@@ -2553,7 +2553,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/counting-and-combinatorics/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
    },
    "subject": "discrete-mathematics",
    "topic": "combinatorics",
@@ -2713,31 +2713,31 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "cnf-dnf",
+       "label": "CNF / DNF",
        "questions": 8
       },
       {
-       "label": "implications-and-inference",
+       "label": "Implications & inference",
        "questions": 9
       },
       {
-       "label": "logical-equivalences",
+       "label": "Logical equivalences",
        "questions": 7
       },
       {
-       "label": "propositions-and-connectives",
+       "label": "Propositions & connectives",
        "questions": 9
       },
       {
-       "label": "truth-tables",
+       "label": "Truth tables",
        "questions": 9
       },
       {
-       "label": "validity-and-satisfiability",
+       "label": "Validity & satisfiability",
        "questions": 8
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/"
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/propositional-logic/gate_dm_mock_1_2026-10-25.html"
     },
     "visual": {
      "slug": "propositional-logic",
@@ -2749,7 +2749,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/propositional-logic/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
    },
    "subject": "discrete-mathematics",
    "topic": "propositional-logic",
@@ -2821,31 +2821,31 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "cnf-dnf",
+       "label": "CNF / DNF",
        "questions": 8
       },
       {
-       "label": "implications-and-inference",
+       "label": "Implications & inference",
        "questions": 9
       },
       {
-       "label": "logical-equivalences",
+       "label": "Logical equivalences",
        "questions": 7
       },
       {
-       "label": "propositions-and-connectives",
+       "label": "Propositions & connectives",
        "questions": 9
       },
       {
-       "label": "truth-tables",
+       "label": "Truth tables",
        "questions": 9
       },
       {
-       "label": "validity-and-satisfiability",
+       "label": "Validity & satisfiability",
        "questions": 8
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/"
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/propositional-logic/gate_dm_mock_1_2026-10-25.html"
     },
     "visual": {
      "slug": "propositional-logic",
@@ -2858,7 +2858,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/propositional-logic/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
    },
    "subject": "discrete-mathematics",
    "topic": "propositional-logic",
@@ -2936,31 +2936,31 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "cnf-dnf",
+       "label": "CNF / DNF",
        "questions": 8
       },
       {
-       "label": "implications-and-inference",
+       "label": "Implications & inference",
        "questions": 9
       },
       {
-       "label": "logical-equivalences",
+       "label": "Logical equivalences",
        "questions": 7
       },
       {
-       "label": "propositions-and-connectives",
+       "label": "Propositions & connectives",
        "questions": 9
       },
       {
-       "label": "truth-tables",
+       "label": "Truth tables",
        "questions": 9
       },
       {
-       "label": "validity-and-satisfiability",
+       "label": "Validity & satisfiability",
        "questions": 8
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/"
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/propositional-logic/gate_dm_mock_1_2026-10-25.html"
     },
     "visual": {
      "slug": "propositional-logic",
@@ -2973,7 +2973,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/propositional-logic/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
    },
    "subject": "discrete-mathematics",
    "topic": "propositional-logic",
@@ -3045,31 +3045,31 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "cnf-dnf",
+       "label": "CNF / DNF",
        "questions": 8
       },
       {
-       "label": "implications-and-inference",
+       "label": "Implications & inference",
        "questions": 9
       },
       {
-       "label": "logical-equivalences",
+       "label": "Logical equivalences",
        "questions": 7
       },
       {
-       "label": "propositions-and-connectives",
+       "label": "Propositions & connectives",
        "questions": 9
       },
       {
-       "label": "truth-tables",
+       "label": "Truth tables",
        "questions": 9
       },
       {
-       "label": "validity-and-satisfiability",
+       "label": "Validity & satisfiability",
        "questions": 8
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/"
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/propositional-logic/gate_dm_mock_1_2026-10-25.html"
     },
     "visual": {
      "slug": "propositional-logic",
@@ -3080,7 +3080,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/propositional-logic/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
    },
    "subject": "discrete-mathematics",
    "topic": "propositional-logic",
@@ -3151,31 +3151,31 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "cnf-dnf",
+       "label": "CNF / DNF",
        "questions": 8
       },
       {
-       "label": "implications-and-inference",
+       "label": "Implications & inference",
        "questions": 9
       },
       {
-       "label": "logical-equivalences",
+       "label": "Logical equivalences",
        "questions": 7
       },
       {
-       "label": "propositions-and-connectives",
+       "label": "Propositions & connectives",
        "questions": 9
       },
       {
-       "label": "truth-tables",
+       "label": "Truth tables",
        "questions": 9
       },
       {
-       "label": "validity-and-satisfiability",
+       "label": "Validity & satisfiability",
        "questions": 8
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/"
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/propositional-logic/gate_dm_mock_1_2026-10-25.html"
     },
     "visual": {
      "slug": "propositional-logic",
@@ -3183,7 +3183,7 @@ window.GATE_DATA = {
      "level": "topic-level",
      "url": "https://gate-visual-explainer.vercel.app/topics/propositional-logic/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
    },
    "subject": "discrete-mathematics",
    "topic": "propositional-logic",
@@ -3254,31 +3254,31 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "cnf-dnf",
+       "label": "CNF / DNF",
        "questions": 8
       },
       {
-       "label": "implications-and-inference",
+       "label": "Implications & inference",
        "questions": 9
       },
       {
-       "label": "logical-equivalences",
+       "label": "Logical equivalences",
        "questions": 7
       },
       {
-       "label": "propositions-and-connectives",
+       "label": "Propositions & connectives",
        "questions": 9
       },
       {
-       "label": "truth-tables",
+       "label": "Truth tables",
        "questions": 9
       },
       {
-       "label": "validity-and-satisfiability",
+       "label": "Validity & satisfiability",
        "questions": 8
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/"
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/propositional-logic/gate_dm_mock_1_2026-10-25.html"
     },
     "visual": {
      "slug": "propositional-logic",
@@ -3289,7 +3289,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/propositional-logic/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
    },
    "subject": "discrete-mathematics",
    "topic": "propositional-logic",
@@ -3360,31 +3360,31 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "cnf-dnf",
+       "label": "CNF / DNF",
        "questions": 8
       },
       {
-       "label": "implications-and-inference",
+       "label": "Implications & inference",
        "questions": 9
       },
       {
-       "label": "logical-equivalences",
+       "label": "Logical equivalences",
        "questions": 7
       },
       {
-       "label": "propositions-and-connectives",
+       "label": "Propositions & connectives",
        "questions": 9
       },
       {
-       "label": "truth-tables",
+       "label": "Truth tables",
        "questions": 9
       },
       {
-       "label": "validity-and-satisfiability",
+       "label": "Validity & satisfiability",
        "questions": 8
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/"
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/propositional-logic/gate_dm_mock_1_2026-10-25.html"
     },
     "visual": {
      "slug": "propositional-logic",
@@ -3395,7 +3395,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/propositional-logic/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
    },
    "subject": "discrete-mathematics",
    "topic": "propositional-logic",
@@ -3467,31 +3467,31 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "cnf-dnf",
+       "label": "CNF / DNF",
        "questions": 8
       },
       {
-       "label": "implications-and-inference",
+       "label": "Implications & inference",
        "questions": 9
       },
       {
-       "label": "logical-equivalences",
+       "label": "Logical equivalences",
        "questions": 7
       },
       {
-       "label": "propositions-and-connectives",
+       "label": "Propositions & connectives",
        "questions": 9
       },
       {
-       "label": "truth-tables",
+       "label": "Truth tables",
        "questions": 9
       },
       {
-       "label": "validity-and-satisfiability",
+       "label": "Validity & satisfiability",
        "questions": 8
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/"
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/propositional-logic/gate_dm_mock_1_2026-10-25.html"
     },
     "visual": {
      "slug": "propositional-logic",
@@ -3499,7 +3499,7 @@ window.GATE_DATA = {
      "level": "topic-level",
      "url": "https://gate-visual-explainer.vercel.app/topics/propositional-logic/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
    },
    "subject": "discrete-mathematics",
    "topic": "propositional-logic",
@@ -3569,31 +3569,31 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "cnf-dnf",
+       "label": "CNF / DNF",
        "questions": 8
       },
       {
-       "label": "implications-and-inference",
+       "label": "Implications & inference",
        "questions": 9
       },
       {
-       "label": "logical-equivalences",
+       "label": "Logical equivalences",
        "questions": 7
       },
       {
-       "label": "propositions-and-connectives",
+       "label": "Propositions & connectives",
        "questions": 9
       },
       {
-       "label": "truth-tables",
+       "label": "Truth tables",
        "questions": 9
       },
       {
-       "label": "validity-and-satisfiability",
+       "label": "Validity & satisfiability",
        "questions": 8
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/"
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/propositional-logic/gate_dm_mock_1_2026-10-25.html"
     },
     "visual": {
      "slug": "propositional-logic",
@@ -3601,7 +3601,7 @@ window.GATE_DATA = {
      "level": "topic-level",
      "url": "https://gate-visual-explainer.vercel.app/topics/propositional-logic/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
    },
    "subject": "discrete-mathematics",
    "topic": "propositional-logic",
@@ -3671,31 +3671,31 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "cnf-dnf",
+       "label": "CNF / DNF",
        "questions": 8
       },
       {
-       "label": "implications-and-inference",
+       "label": "Implications & inference",
        "questions": 9
       },
       {
-       "label": "logical-equivalences",
+       "label": "Logical equivalences",
        "questions": 7
       },
       {
-       "label": "propositions-and-connectives",
+       "label": "Propositions & connectives",
        "questions": 9
       },
       {
-       "label": "truth-tables",
+       "label": "Truth tables",
        "questions": 9
       },
       {
-       "label": "validity-and-satisfiability",
+       "label": "Validity & satisfiability",
        "questions": 8
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/"
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/propositional-logic/gate_dm_mock_1_2026-10-25.html"
     },
     "visual": {
      "slug": "propositional-logic",
@@ -3703,7 +3703,7 @@ window.GATE_DATA = {
      "level": "topic-level",
      "url": "https://gate-visual-explainer.vercel.app/topics/propositional-logic/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
    },
    "subject": "discrete-mathematics",
    "topic": "propositional-logic",
@@ -3772,27 +3772,27 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "english-to-fol-translation",
+       "label": "English to FOL translation",
        "questions": 10
       },
       {
-       "label": "negation-nested-quantifiers",
+       "label": "Negation of nested quantifiers",
        "questions": 10
       },
       {
-       "label": "predicates-and-domain",
+       "label": "Predicates & domain",
        "questions": 10
       },
       {
-       "label": "quantifiers-universal-existential",
+       "label": "Universal & existential quantifiers",
        "questions": 10
       },
       {
-       "label": "scope-and-order",
+       "label": "Scope & order of quantifiers",
        "questions": 10
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/"
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/predicate-logic/gate_dm_mock_2_2026-10-25.html"
     },
     "visual": {
      "slug": "first-order-logic",
@@ -3805,7 +3805,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/first-order-logic/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
    },
    "subject": "discrete-mathematics",
    "topic": "propositional-logic",
@@ -3874,31 +3874,31 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "cnf-dnf",
+       "label": "CNF / DNF",
        "questions": 8
       },
       {
-       "label": "implications-and-inference",
+       "label": "Implications & inference",
        "questions": 9
       },
       {
-       "label": "logical-equivalences",
+       "label": "Logical equivalences",
        "questions": 7
       },
       {
-       "label": "propositions-and-connectives",
+       "label": "Propositions & connectives",
        "questions": 9
       },
       {
-       "label": "truth-tables",
+       "label": "Truth tables",
        "questions": 9
       },
       {
-       "label": "validity-and-satisfiability",
+       "label": "Validity & satisfiability",
        "questions": 8
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/"
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/propositional-logic/gate_dm_mock_1_2026-10-25.html"
     },
     "visual": {
      "slug": "propositional-logic",
@@ -3906,7 +3906,7 @@ window.GATE_DATA = {
      "level": "topic-level",
      "url": "https://gate-visual-explainer.vercel.app/topics/propositional-logic/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
    },
    "subject": "discrete-mathematics",
    "topic": "propositional-logic",
@@ -3974,27 +3974,27 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "english-to-fol-translation",
+       "label": "English to FOL translation",
        "questions": 10
       },
       {
-       "label": "negation-nested-quantifiers",
+       "label": "Negation of nested quantifiers",
        "questions": 10
       },
       {
-       "label": "predicates-and-domain",
+       "label": "Predicates & domain",
        "questions": 10
       },
       {
-       "label": "quantifiers-universal-existential",
+       "label": "Universal & existential quantifiers",
        "questions": 10
       },
       {
-       "label": "scope-and-order",
+       "label": "Scope & order of quantifiers",
        "questions": 10
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/"
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/predicate-logic/gate_dm_mock_2_2026-10-25.html"
     },
     "visual": {
      "slug": "first-order-logic",
@@ -4008,7 +4008,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/first-order-logic/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
    },
    "subject": "discrete-mathematics",
    "topic": "first-order-logic",
@@ -4089,27 +4089,27 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "english-to-fol-translation",
+       "label": "English to FOL translation",
        "questions": 10
       },
       {
-       "label": "negation-nested-quantifiers",
+       "label": "Negation of nested quantifiers",
        "questions": 10
       },
       {
-       "label": "predicates-and-domain",
+       "label": "Predicates & domain",
        "questions": 10
       },
       {
-       "label": "quantifiers-universal-existential",
+       "label": "Universal & existential quantifiers",
        "questions": 10
       },
       {
-       "label": "scope-and-order",
+       "label": "Scope & order of quantifiers",
        "questions": 10
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/"
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/predicate-logic/gate_dm_mock_2_2026-10-25.html"
     },
     "visual": {
      "slug": "first-order-logic",
@@ -4120,7 +4120,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/first-order-logic/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
    },
    "subject": "discrete-mathematics",
    "topic": "first-order-logic",
@@ -4189,27 +4189,27 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "english-to-fol-translation",
+       "label": "English to FOL translation",
        "questions": 10
       },
       {
-       "label": "negation-nested-quantifiers",
+       "label": "Negation of nested quantifiers",
        "questions": 10
       },
       {
-       "label": "predicates-and-domain",
+       "label": "Predicates & domain",
        "questions": 10
       },
       {
-       "label": "quantifiers-universal-existential",
+       "label": "Universal & existential quantifiers",
        "questions": 10
       },
       {
-       "label": "scope-and-order",
+       "label": "Scope & order of quantifiers",
        "questions": 10
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/"
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/predicate-logic/gate_dm_mock_2_2026-10-25.html"
     },
     "visual": {
      "slug": "first-order-logic",
@@ -4222,7 +4222,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/first-order-logic/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
    },
    "subject": "discrete-mathematics",
    "topic": "first-order-logic",
@@ -4294,27 +4294,27 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "english-to-fol-translation",
+       "label": "English to FOL translation",
        "questions": 10
       },
       {
-       "label": "negation-nested-quantifiers",
+       "label": "Negation of nested quantifiers",
        "questions": 10
       },
       {
-       "label": "predicates-and-domain",
+       "label": "Predicates & domain",
        "questions": 10
       },
       {
-       "label": "quantifiers-universal-existential",
+       "label": "Universal & existential quantifiers",
        "questions": 10
       },
       {
-       "label": "scope-and-order",
+       "label": "Scope & order of quantifiers",
        "questions": 10
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/"
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/predicate-logic/gate_dm_mock_2_2026-10-25.html"
     },
     "visual": {
      "slug": "first-order-logic",
@@ -4325,7 +4325,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/first-order-logic/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
    },
    "subject": "discrete-mathematics",
    "topic": "first-order-logic",
@@ -4395,27 +4395,27 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "english-to-fol-translation",
+       "label": "English to FOL translation",
        "questions": 10
       },
       {
-       "label": "negation-nested-quantifiers",
+       "label": "Negation of nested quantifiers",
        "questions": 10
       },
       {
-       "label": "predicates-and-domain",
+       "label": "Predicates & domain",
        "questions": 10
       },
       {
-       "label": "quantifiers-universal-existential",
+       "label": "Universal & existential quantifiers",
        "questions": 10
       },
       {
-       "label": "scope-and-order",
+       "label": "Scope & order of quantifiers",
        "questions": 10
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/"
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/predicate-logic/gate_dm_mock_2_2026-10-25.html"
     },
     "visual": {
      "slug": "first-order-logic",
@@ -4428,7 +4428,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/first-order-logic/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
    },
    "subject": "discrete-mathematics",
    "topic": "first-order-logic",
@@ -4509,27 +4509,27 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "english-to-fol-translation",
+       "label": "English to FOL translation",
        "questions": 10
       },
       {
-       "label": "negation-nested-quantifiers",
+       "label": "Negation of nested quantifiers",
        "questions": 10
       },
       {
-       "label": "predicates-and-domain",
+       "label": "Predicates & domain",
        "questions": 10
       },
       {
-       "label": "quantifiers-universal-existential",
+       "label": "Universal & existential quantifiers",
        "questions": 10
       },
       {
-       "label": "scope-and-order",
+       "label": "Scope & order of quantifiers",
        "questions": 10
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/"
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/predicate-logic/gate_dm_mock_2_2026-10-25.html"
     },
     "visual": {
      "slug": "first-order-logic",
@@ -4541,7 +4541,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/first-order-logic/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
    },
    "subject": "discrete-mathematics",
    "topic": "first-order-logic",
@@ -4612,27 +4612,27 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "english-to-fol-translation",
+       "label": "English to FOL translation",
        "questions": 10
       },
       {
-       "label": "negation-nested-quantifiers",
+       "label": "Negation of nested quantifiers",
        "questions": 10
       },
       {
-       "label": "predicates-and-domain",
+       "label": "Predicates & domain",
        "questions": 10
       },
       {
-       "label": "quantifiers-universal-existential",
+       "label": "Universal & existential quantifiers",
        "questions": 10
       },
       {
-       "label": "scope-and-order",
+       "label": "Scope & order of quantifiers",
        "questions": 10
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/"
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/predicate-logic/gate_dm_mock_2_2026-10-25.html"
     },
     "visual": {
      "slug": "first-order-logic",
@@ -4643,7 +4643,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/first-order-logic/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
    },
    "subject": "discrete-mathematics",
    "topic": "first-order-logic",
@@ -4711,27 +4711,27 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "english-to-fol-translation",
+       "label": "English to FOL translation",
        "questions": 10
       },
       {
-       "label": "negation-nested-quantifiers",
+       "label": "Negation of nested quantifiers",
        "questions": 10
       },
       {
-       "label": "predicates-and-domain",
+       "label": "Predicates & domain",
        "questions": 10
       },
       {
-       "label": "quantifiers-universal-existential",
+       "label": "Universal & existential quantifiers",
        "questions": 10
       },
       {
-       "label": "scope-and-order",
+       "label": "Scope & order of quantifiers",
        "questions": 10
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/"
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/predicate-logic/gate_dm_mock_2_2026-10-25.html"
     },
     "visual": {
      "slug": "first-order-logic",
@@ -4739,7 +4739,7 @@ window.GATE_DATA = {
      "level": "topic-level",
      "url": "https://gate-visual-explainer.vercel.app/topics/first-order-logic/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
    },
    "subject": "discrete-mathematics",
    "topic": "first-order-logic",
@@ -4806,27 +4806,27 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "english-to-fol-translation",
+       "label": "English to FOL translation",
        "questions": 10
       },
       {
-       "label": "negation-nested-quantifiers",
+       "label": "Negation of nested quantifiers",
        "questions": 10
       },
       {
-       "label": "predicates-and-domain",
+       "label": "Predicates & domain",
        "questions": 10
       },
       {
-       "label": "quantifiers-universal-existential",
+       "label": "Universal & existential quantifiers",
        "questions": 10
       },
       {
-       "label": "scope-and-order",
+       "label": "Scope & order of quantifiers",
        "questions": 10
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/"
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/predicate-logic/gate_dm_mock_2_2026-10-25.html"
     },
     "visual": {
      "slug": "first-order-logic",
@@ -4834,7 +4834,7 @@ window.GATE_DATA = {
      "level": "topic-level",
      "url": "https://gate-visual-explainer.vercel.app/topics/first-order-logic/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
    },
    "subject": "discrete-mathematics",
    "topic": "first-order-logic",
@@ -4901,27 +4901,27 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "english-to-fol-translation",
+       "label": "English to FOL translation",
        "questions": 10
       },
       {
-       "label": "negation-nested-quantifiers",
+       "label": "Negation of nested quantifiers",
        "questions": 10
       },
       {
-       "label": "predicates-and-domain",
+       "label": "Predicates & domain",
        "questions": 10
       },
       {
-       "label": "quantifiers-universal-existential",
+       "label": "Universal & existential quantifiers",
        "questions": 10
       },
       {
-       "label": "scope-and-order",
+       "label": "Scope & order of quantifiers",
        "questions": 10
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/"
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/predicate-logic/gate_dm_mock_2_2026-10-25.html"
     },
     "visual": {
      "slug": "first-order-logic",
@@ -4934,7 +4934,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/first-order-logic/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
    },
    "subject": "discrete-mathematics",
    "topic": "first-order-logic",
@@ -5027,27 +5027,27 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "cardinality",
+       "label": "Cardinality",
        "questions": 10
       },
       {
-       "label": "inclusion-exclusion",
+       "label": "Inclusion-exclusion",
        "questions": 10
       },
       {
-       "label": "partitions-and-cartesian-products",
+       "label": "Partitions & Cartesian products",
        "questions": 10
       },
       {
-       "label": "set-algebra-de-morgan",
+       "label": "Set algebra & De Morgan",
        "questions": 10
       },
       {
-       "label": "subsets-and-power-sets",
+       "label": "Subsets & power sets",
        "questions": 10
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/"
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/set-theory/gate_dm_mock_3_2026-10-25.html"
     },
     "visual": {
      "slug": "sets-and-set-operations",
@@ -5059,7 +5059,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/sets-and-set-operations/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
    },
    "subject": "discrete-mathematics",
    "topic": "sets-relations-functions",
@@ -5154,27 +5154,27 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "cardinality",
+       "label": "Cardinality",
        "questions": 10
       },
       {
-       "label": "inclusion-exclusion",
+       "label": "Inclusion-exclusion",
        "questions": 10
       },
       {
-       "label": "partitions-and-cartesian-products",
+       "label": "Partitions & Cartesian products",
        "questions": 10
       },
       {
-       "label": "set-algebra-de-morgan",
+       "label": "Set algebra & De Morgan",
        "questions": 10
       },
       {
-       "label": "subsets-and-power-sets",
+       "label": "Subsets & power sets",
        "questions": 10
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/"
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/set-theory/gate_dm_mock_3_2026-10-25.html"
     },
     "visual": {
      "slug": "sets-and-set-operations",
@@ -5185,7 +5185,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/sets-and-set-operations/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
    },
    "subject": "discrete-mathematics",
    "topic": "sets-relations-functions",
@@ -5278,27 +5278,27 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "cardinality",
+       "label": "Cardinality",
        "questions": 10
       },
       {
-       "label": "inclusion-exclusion",
+       "label": "Inclusion-exclusion",
        "questions": 10
       },
       {
-       "label": "partitions-and-cartesian-products",
+       "label": "Partitions & Cartesian products",
        "questions": 10
       },
       {
-       "label": "set-algebra-de-morgan",
+       "label": "Set algebra & De Morgan",
        "questions": 10
       },
       {
-       "label": "subsets-and-power-sets",
+       "label": "Subsets & power sets",
        "questions": 10
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/"
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/set-theory/gate_dm_mock_3_2026-10-25.html"
     },
     "visual": {
      "slug": "sets-and-set-operations",
@@ -5306,7 +5306,7 @@ window.GATE_DATA = {
      "level": "topic-level",
      "url": "https://gate-visual-explainer.vercel.app/topics/sets-and-set-operations/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
    },
    "subject": "discrete-mathematics",
    "topic": "sets-relations-functions",
@@ -5399,27 +5399,27 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "cardinality",
+       "label": "Cardinality",
        "questions": 10
       },
       {
-       "label": "inclusion-exclusion",
+       "label": "Inclusion-exclusion",
        "questions": 10
       },
       {
-       "label": "partitions-and-cartesian-products",
+       "label": "Partitions & Cartesian products",
        "questions": 10
       },
       {
-       "label": "set-algebra-de-morgan",
+       "label": "Set algebra & De Morgan",
        "questions": 10
       },
       {
-       "label": "subsets-and-power-sets",
+       "label": "Subsets & power sets",
        "questions": 10
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/"
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/set-theory/gate_dm_mock_3_2026-10-25.html"
     },
     "visual": {
      "slug": "sets-and-set-operations",
@@ -5430,7 +5430,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/sets-and-set-operations/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
    },
    "subject": "discrete-mathematics",
    "topic": "sets-relations-functions",
@@ -5519,27 +5519,27 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "cardinality",
+       "label": "Cardinality",
        "questions": 10
       },
       {
-       "label": "inclusion-exclusion",
+       "label": "Inclusion-exclusion",
        "questions": 10
       },
       {
-       "label": "partitions-and-cartesian-products",
+       "label": "Partitions & Cartesian products",
        "questions": 10
       },
       {
-       "label": "set-algebra-de-morgan",
+       "label": "Set algebra & De Morgan",
        "questions": 10
       },
       {
-       "label": "subsets-and-power-sets",
+       "label": "Subsets & power sets",
        "questions": 10
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/"
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/set-theory/gate_dm_mock_3_2026-10-25.html"
     },
     "visual": {
      "slug": "sets-and-set-operations",
@@ -5550,7 +5550,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/sets-and-set-operations/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
    },
    "subject": "discrete-mathematics",
    "topic": "sets-relations-functions",
@@ -5656,31 +5656,31 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "composition-transitive-closure",
+       "label": "Composition & transitive closure",
        "questions": 8
       },
       {
-       "label": "counting-relations",
+       "label": "Counting relations",
        "questions": 8
       },
       {
-       "label": "equivalence-relations-classes",
+       "label": "Equivalence relations & classes",
        "questions": 9
       },
       {
-       "label": "lattices-in-posets",
+       "label": "Lattices in posets",
        "questions": 8
       },
       {
-       "label": "partial-orders-hasse-diagrams",
+       "label": "Partial orders & Hasse diagrams",
        "questions": 8
       },
       {
-       "label": "relation-properties",
+       "label": "Relation properties",
        "questions": 9
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/"
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html"
     },
     "visual": {
      "slug": "relations-and-their-properties",
@@ -5694,7 +5694,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/relations-and-their-properties/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
    },
    "subject": "discrete-mathematics",
    "topic": "sets-relations-functions",
@@ -5801,31 +5801,31 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "composition-transitive-closure",
+       "label": "Composition & transitive closure",
        "questions": 8
       },
       {
-       "label": "counting-relations",
+       "label": "Counting relations",
        "questions": 8
       },
       {
-       "label": "equivalence-relations-classes",
+       "label": "Equivalence relations & classes",
        "questions": 9
       },
       {
-       "label": "lattices-in-posets",
+       "label": "Lattices in posets",
        "questions": 8
       },
       {
-       "label": "partial-orders-hasse-diagrams",
+       "label": "Partial orders & Hasse diagrams",
        "questions": 8
       },
       {
-       "label": "relation-properties",
+       "label": "Relation properties",
        "questions": 9
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/"
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html"
     },
     "visual": {
      "slug": "relations-and-their-properties",
@@ -5839,7 +5839,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/relations-and-their-properties/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
    },
    "subject": "discrete-mathematics",
    "topic": "sets-relations-functions",
@@ -5934,31 +5934,31 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "composition-transitive-closure",
+       "label": "Composition & transitive closure",
        "questions": 8
       },
       {
-       "label": "counting-relations",
+       "label": "Counting relations",
        "questions": 8
       },
       {
-       "label": "equivalence-relations-classes",
+       "label": "Equivalence relations & classes",
        "questions": 9
       },
       {
-       "label": "lattices-in-posets",
+       "label": "Lattices in posets",
        "questions": 8
       },
       {
-       "label": "partial-orders-hasse-diagrams",
+       "label": "Partial orders & Hasse diagrams",
        "questions": 8
       },
       {
-       "label": "relation-properties",
+       "label": "Relation properties",
        "questions": 9
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/"
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html"
     },
     "visual": {
      "slug": "relations-and-their-properties",
@@ -5969,7 +5969,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/relations-and-their-properties/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
    },
    "subject": "discrete-mathematics",
    "topic": "sets-relations-functions",
@@ -6064,31 +6064,31 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "composition-transitive-closure",
+       "label": "Composition & transitive closure",
        "questions": 8
       },
       {
-       "label": "counting-relations",
+       "label": "Counting relations",
        "questions": 8
       },
       {
-       "label": "equivalence-relations-classes",
+       "label": "Equivalence relations & classes",
        "questions": 9
       },
       {
-       "label": "lattices-in-posets",
+       "label": "Lattices in posets",
        "questions": 8
       },
       {
-       "label": "partial-orders-hasse-diagrams",
+       "label": "Partial orders & Hasse diagrams",
        "questions": 8
       },
       {
-       "label": "relation-properties",
+       "label": "Relation properties",
        "questions": 9
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/"
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html"
     },
     "visual": {
      "slug": "relations-and-their-properties",
@@ -6102,7 +6102,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/relations-and-their-properties/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
    },
    "subject": "discrete-mathematics",
    "topic": "sets-relations-functions",
@@ -6199,27 +6199,27 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "composition-and-inverses",
+       "label": "Composition & inverses",
        "questions": 10
       },
       {
-       "label": "counting-functions",
+       "label": "Counting functions",
        "questions": 10
       },
       {
-       "label": "floor-ceiling-recursion",
+       "label": "Floor, ceiling & recursion",
        "questions": 10
       },
       {
-       "label": "pigeonhole-principle",
+       "label": "Pigeonhole principle",
        "questions": 10
       },
       {
-       "label": "types-injective-surjective-bijective",
+       "label": "Injective / surjective / bijective",
        "questions": 10
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/"
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/functions/gate_dm_mock_5_2026-10-26.html"
     },
     "visual": {
      "slug": "functions-and-their-properties",
@@ -6233,7 +6233,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/functions-and-their-properties/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
    },
    "subject": "discrete-mathematics",
    "topic": "sets-relations-functions",
@@ -6326,27 +6326,27 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "composition-and-inverses",
+       "label": "Composition & inverses",
        "questions": 10
       },
       {
-       "label": "counting-functions",
+       "label": "Counting functions",
        "questions": 10
       },
       {
-       "label": "floor-ceiling-recursion",
+       "label": "Floor, ceiling & recursion",
        "questions": 10
       },
       {
-       "label": "pigeonhole-principle",
+       "label": "Pigeonhole principle",
        "questions": 10
       },
       {
-       "label": "types-injective-surjective-bijective",
+       "label": "Injective / surjective / bijective",
        "questions": 10
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/"
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/functions/gate_dm_mock_5_2026-10-26.html"
     },
     "visual": {
      "slug": "functions-and-their-properties",
@@ -6360,7 +6360,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/functions-and-their-properties/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
    },
    "subject": "discrete-mathematics",
    "topic": "sets-relations-functions",
@@ -6462,31 +6462,31 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "composition-transitive-closure",
+       "label": "Composition & transitive closure",
        "questions": 8
       },
       {
-       "label": "counting-relations",
+       "label": "Counting relations",
        "questions": 8
       },
       {
-       "label": "equivalence-relations-classes",
+       "label": "Equivalence relations & classes",
        "questions": 9
       },
       {
-       "label": "lattices-in-posets",
+       "label": "Lattices in posets",
        "questions": 8
       },
       {
-       "label": "partial-orders-hasse-diagrams",
+       "label": "Partial orders & Hasse diagrams",
        "questions": 8
       },
       {
-       "label": "relation-properties",
+       "label": "Relation properties",
        "questions": 9
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/"
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html"
     },
     "visual": {
      "slug": "partial-orders-and-lattices",
@@ -6497,7 +6497,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/partial-orders-and-lattices/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
    },
    "subject": "discrete-mathematics",
    "topic": "partial-orders-and-lattices",
@@ -6602,31 +6602,31 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "composition-transitive-closure",
+       "label": "Composition & transitive closure",
        "questions": 8
       },
       {
-       "label": "counting-relations",
+       "label": "Counting relations",
        "questions": 8
       },
       {
-       "label": "equivalence-relations-classes",
+       "label": "Equivalence relations & classes",
        "questions": 9
       },
       {
-       "label": "lattices-in-posets",
+       "label": "Lattices in posets",
        "questions": 8
       },
       {
-       "label": "partial-orders-hasse-diagrams",
+       "label": "Partial orders & Hasse diagrams",
        "questions": 8
       },
       {
-       "label": "relation-properties",
+       "label": "Relation properties",
        "questions": 9
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/"
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html"
     },
     "visual": {
      "slug": "partial-orders-and-lattices",
@@ -6637,7 +6637,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/partial-orders-and-lattices/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
    },
    "subject": "discrete-mathematics",
    "topic": "partial-orders-and-lattices",
@@ -6753,31 +6753,31 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "composition-transitive-closure",
+       "label": "Composition & transitive closure",
        "questions": 8
       },
       {
-       "label": "counting-relations",
+       "label": "Counting relations",
        "questions": 8
       },
       {
-       "label": "equivalence-relations-classes",
+       "label": "Equivalence relations & classes",
        "questions": 9
       },
       {
-       "label": "lattices-in-posets",
+       "label": "Lattices in posets",
        "questions": 8
       },
       {
-       "label": "partial-orders-hasse-diagrams",
+       "label": "Partial orders & Hasse diagrams",
        "questions": 8
       },
       {
-       "label": "relation-properties",
+       "label": "Relation properties",
        "questions": 9
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/"
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html"
     },
     "visual": {
      "slug": "partial-orders-and-lattices",
@@ -6788,7 +6788,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/partial-orders-and-lattices/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
    },
    "subject": "discrete-mathematics",
    "topic": "partial-orders-and-lattices",
@@ -6890,31 +6890,31 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "composition-transitive-closure",
+       "label": "Composition & transitive closure",
        "questions": 8
       },
       {
-       "label": "counting-relations",
+       "label": "Counting relations",
        "questions": 8
       },
       {
-       "label": "equivalence-relations-classes",
+       "label": "Equivalence relations & classes",
        "questions": 9
       },
       {
-       "label": "lattices-in-posets",
+       "label": "Lattices in posets",
        "questions": 8
       },
       {
-       "label": "partial-orders-hasse-diagrams",
+       "label": "Partial orders & Hasse diagrams",
        "questions": 8
       },
       {
-       "label": "relation-properties",
+       "label": "Relation properties",
        "questions": 9
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/"
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html"
     },
     "visual": {
      "slug": "partial-orders-and-lattices",
@@ -6925,7 +6925,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/partial-orders-and-lattices/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
    },
    "subject": "discrete-mathematics",
    "topic": "partial-orders-and-lattices",
@@ -7016,31 +7016,31 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "composition-transitive-closure",
+       "label": "Composition & transitive closure",
        "questions": 8
       },
       {
-       "label": "counting-relations",
+       "label": "Counting relations",
        "questions": 8
       },
       {
-       "label": "equivalence-relations-classes",
+       "label": "Equivalence relations & classes",
        "questions": 9
       },
       {
-       "label": "lattices-in-posets",
+       "label": "Lattices in posets",
        "questions": 8
       },
       {
-       "label": "partial-orders-hasse-diagrams",
+       "label": "Partial orders & Hasse diagrams",
        "questions": 8
       },
       {
-       "label": "relation-properties",
+       "label": "Relation properties",
        "questions": 9
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/"
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html"
     },
     "visual": {
      "slug": "partial-orders-and-lattices",
@@ -7051,7 +7051,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/partial-orders-and-lattices/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
    },
    "subject": "discrete-mathematics",
    "topic": "partial-orders-and-lattices",
@@ -7156,31 +7156,31 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "composition-transitive-closure",
+       "label": "Composition & transitive closure",
        "questions": 8
       },
       {
-       "label": "counting-relations",
+       "label": "Counting relations",
        "questions": 8
       },
       {
-       "label": "equivalence-relations-classes",
+       "label": "Equivalence relations & classes",
        "questions": 9
       },
       {
-       "label": "lattices-in-posets",
+       "label": "Lattices in posets",
        "questions": 8
       },
       {
-       "label": "partial-orders-hasse-diagrams",
+       "label": "Partial orders & Hasse diagrams",
        "questions": 8
       },
       {
-       "label": "relation-properties",
+       "label": "Relation properties",
        "questions": 9
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/"
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html"
     },
     "visual": {
      "slug": "partial-orders-and-lattices",
@@ -7193,7 +7193,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/partial-orders-and-lattices/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
    },
    "subject": "discrete-mathematics",
    "topic": "partial-orders-and-lattices",
@@ -7284,31 +7284,31 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "composition-transitive-closure",
+       "label": "Composition & transitive closure",
        "questions": 8
       },
       {
-       "label": "counting-relations",
+       "label": "Counting relations",
        "questions": 8
       },
       {
-       "label": "equivalence-relations-classes",
+       "label": "Equivalence relations & classes",
        "questions": 9
       },
       {
-       "label": "lattices-in-posets",
+       "label": "Lattices in posets",
        "questions": 8
       },
       {
-       "label": "partial-orders-hasse-diagrams",
+       "label": "Partial orders & Hasse diagrams",
        "questions": 8
       },
       {
-       "label": "relation-properties",
+       "label": "Relation properties",
        "questions": 9
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/"
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html"
     },
     "visual": {
      "slug": "partial-orders-and-lattices",
@@ -7320,7 +7320,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/partial-orders-and-lattices/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
    },
    "subject": "discrete-mathematics",
    "topic": "partial-orders-and-lattices",
@@ -7422,31 +7422,31 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "composition-transitive-closure",
+       "label": "Composition & transitive closure",
        "questions": 8
       },
       {
-       "label": "counting-relations",
+       "label": "Counting relations",
        "questions": 8
       },
       {
-       "label": "equivalence-relations-classes",
+       "label": "Equivalence relations & classes",
        "questions": 9
       },
       {
-       "label": "lattices-in-posets",
+       "label": "Lattices in posets",
        "questions": 8
       },
       {
-       "label": "partial-orders-hasse-diagrams",
+       "label": "Partial orders & Hasse diagrams",
        "questions": 8
       },
       {
-       "label": "relation-properties",
+       "label": "Relation properties",
        "questions": 9
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/"
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html"
     },
     "visual": {
      "slug": "partial-orders-and-lattices",
@@ -7454,7 +7454,7 @@ window.GATE_DATA = {
      "level": "topic-level",
      "url": "https://gate-visual-explainer.vercel.app/topics/partial-orders-and-lattices/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
    },
    "subject": "discrete-mathematics",
    "topic": "partial-orders-and-lattices",
@@ -7556,31 +7556,31 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "composition-transitive-closure",
+       "label": "Composition & transitive closure",
        "questions": 8
       },
       {
-       "label": "counting-relations",
+       "label": "Counting relations",
        "questions": 8
       },
       {
-       "label": "equivalence-relations-classes",
+       "label": "Equivalence relations & classes",
        "questions": 9
       },
       {
-       "label": "lattices-in-posets",
+       "label": "Lattices in posets",
        "questions": 8
       },
       {
-       "label": "partial-orders-hasse-diagrams",
+       "label": "Partial orders & Hasse diagrams",
        "questions": 8
       },
       {
-       "label": "relation-properties",
+       "label": "Relation properties",
        "questions": 9
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/"
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html"
     },
     "visual": {
      "slug": "partial-orders-and-lattices",
@@ -7592,7 +7592,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/partial-orders-and-lattices/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
    },
    "subject": "discrete-mathematics",
    "topic": "partial-orders-and-lattices",
@@ -7684,31 +7684,31 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "composition-transitive-closure",
+       "label": "Composition & transitive closure",
        "questions": 8
       },
       {
-       "label": "counting-relations",
+       "label": "Counting relations",
        "questions": 8
       },
       {
-       "label": "equivalence-relations-classes",
+       "label": "Equivalence relations & classes",
        "questions": 9
       },
       {
-       "label": "lattices-in-posets",
+       "label": "Lattices in posets",
        "questions": 8
       },
       {
-       "label": "partial-orders-hasse-diagrams",
+       "label": "Partial orders & Hasse diagrams",
        "questions": 8
       },
       {
-       "label": "relation-properties",
+       "label": "Relation properties",
        "questions": 9
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/"
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html"
     },
     "visual": {
      "slug": "partial-orders-and-lattices",
@@ -7720,7 +7720,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/partial-orders-and-lattices/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
    },
    "subject": "discrete-mathematics",
    "topic": "partial-orders-and-lattices",
@@ -7826,31 +7826,31 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "composition-transitive-closure",
+       "label": "Composition & transitive closure",
        "questions": 8
       },
       {
-       "label": "counting-relations",
+       "label": "Counting relations",
        "questions": 8
       },
       {
-       "label": "equivalence-relations-classes",
+       "label": "Equivalence relations & classes",
        "questions": 9
       },
       {
-       "label": "lattices-in-posets",
+       "label": "Lattices in posets",
        "questions": 8
       },
       {
-       "label": "partial-orders-hasse-diagrams",
+       "label": "Partial orders & Hasse diagrams",
        "questions": 8
       },
       {
-       "label": "relation-properties",
+       "label": "Relation properties",
        "questions": 9
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/"
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html"
     },
     "visual": {
      "slug": "partial-orders-and-lattices",
@@ -7862,7 +7862,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/partial-orders-and-lattices/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
    },
    "subject": "discrete-mathematics",
    "topic": "partial-orders-and-lattices",
@@ -7955,31 +7955,31 @@ window.GATE_DATA = {
      "question_count": 50,
      "subtopics": [
       {
-       "label": "composition-transitive-closure",
+       "label": "Composition & transitive closure",
        "questions": 8
       },
       {
-       "label": "counting-relations",
+       "label": "Counting relations",
        "questions": 8
       },
       {
-       "label": "equivalence-relations-classes",
+       "label": "Equivalence relations & classes",
        "questions": 9
       },
       {
-       "label": "lattices-in-posets",
+       "label": "Lattices in posets",
        "questions": 8
       },
       {
-       "label": "partial-orders-hasse-diagrams",
+       "label": "Partial orders & Hasse diagrams",
        "questions": 8
       },
       {
-       "label": "relation-properties",
+       "label": "Relation properties",
        "questions": 9
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/"
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html"
     },
     "visual": {
      "slug": "partial-orders-and-lattices",
@@ -7991,7 +7991,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/partial-orders-and-lattices/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
    },
    "subject": "discrete-mathematics",
    "topic": "partial-orders-and-lattices",
@@ -41475,28 +41475,28 @@ window.GATE_DATA = {
      "unit_slug": "pipelining",
      "unit_name": "Instruction Pipelining",
      "unit_number": 5,
-     "question_count": 25,
+     "question_count": 50,
      "subtopics": [
       {
-       "label": "Pipeline stages & throughput",
-       "questions": 7
-      },
-      {
-       "label": "Structural hazards",
-       "questions": 6
+       "label": "Control hazards & branch penalty",
+       "questions": 12
       },
       {
        "label": "Data hazards & forwarding",
-       "questions": 6
+       "questions": 12
       },
       {
-       "label": "Control hazards & branch penalty",
-       "questions": 6
+       "label": "Pipeline stages & throughput",
+       "questions": 15
+      },
+      {
+       "label": "Structural hazards",
+       "questions": 11
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/computer-architecture/pipelining/gate_co_mock_5_2026-10-31.html"
     },
-    "mapped_at": "2026-10-31"
+    "mapped_at": "2026-11-01"
    },
    "subject": "computer-organization-and-architecture",
    "topic": "instruction-pipelining-and-hazards",
@@ -41584,28 +41584,28 @@ window.GATE_DATA = {
      "unit_slug": "pipelining",
      "unit_name": "Instruction Pipelining",
      "unit_number": 5,
-     "question_count": 25,
+     "question_count": 50,
      "subtopics": [
       {
-       "label": "Pipeline stages & throughput",
-       "questions": 7
-      },
-      {
-       "label": "Structural hazards",
-       "questions": 6
+       "label": "Control hazards & branch penalty",
+       "questions": 12
       },
       {
        "label": "Data hazards & forwarding",
-       "questions": 6
+       "questions": 12
       },
       {
-       "label": "Control hazards & branch penalty",
-       "questions": 6
+       "label": "Pipeline stages & throughput",
+       "questions": 15
+      },
+      {
+       "label": "Structural hazards",
+       "questions": 11
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/computer-architecture/pipelining/gate_co_mock_5_2026-10-31.html"
     },
-    "mapped_at": "2026-10-31"
+    "mapped_at": "2026-11-01"
    },
    "subject": "computer-organization-and-architecture",
    "topic": "instruction-pipelining-and-hazards",
@@ -41691,28 +41691,28 @@ window.GATE_DATA = {
      "unit_slug": "pipelining",
      "unit_name": "Instruction Pipelining",
      "unit_number": 5,
-     "question_count": 25,
+     "question_count": 50,
      "subtopics": [
       {
-       "label": "Pipeline stages & throughput",
-       "questions": 7
-      },
-      {
-       "label": "Structural hazards",
-       "questions": 6
+       "label": "Control hazards & branch penalty",
+       "questions": 12
       },
       {
        "label": "Data hazards & forwarding",
-       "questions": 6
+       "questions": 12
       },
       {
-       "label": "Control hazards & branch penalty",
-       "questions": 6
+       "label": "Pipeline stages & throughput",
+       "questions": 15
+      },
+      {
+       "label": "Structural hazards",
+       "questions": 11
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/computer-architecture/pipelining/gate_co_mock_5_2026-10-31.html"
     },
-    "mapped_at": "2026-10-31"
+    "mapped_at": "2026-11-01"
    },
    "subject": "computer-organization-and-architecture",
    "topic": "instruction-pipelining-and-hazards",
@@ -41798,28 +41798,28 @@ window.GATE_DATA = {
      "unit_slug": "pipelining",
      "unit_name": "Instruction Pipelining",
      "unit_number": 5,
-     "question_count": 25,
+     "question_count": 50,
      "subtopics": [
       {
-       "label": "Pipeline stages & throughput",
-       "questions": 7
-      },
-      {
-       "label": "Structural hazards",
-       "questions": 6
+       "label": "Control hazards & branch penalty",
+       "questions": 12
       },
       {
        "label": "Data hazards & forwarding",
-       "questions": 6
+       "questions": 12
       },
       {
-       "label": "Control hazards & branch penalty",
-       "questions": 6
+       "label": "Pipeline stages & throughput",
+       "questions": 15
+      },
+      {
+       "label": "Structural hazards",
+       "questions": 11
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/computer-architecture/pipelining/gate_co_mock_5_2026-10-31.html"
     },
-    "mapped_at": "2026-10-31"
+    "mapped_at": "2026-11-01"
    },
    "subject": "computer-organization-and-architecture",
    "topic": "instruction-pipelining-and-hazards",
@@ -41906,28 +41906,28 @@ window.GATE_DATA = {
      "unit_slug": "pipelining",
      "unit_name": "Instruction Pipelining",
      "unit_number": 5,
-     "question_count": 25,
+     "question_count": 50,
      "subtopics": [
       {
-       "label": "Pipeline stages & throughput",
-       "questions": 7
-      },
-      {
-       "label": "Structural hazards",
-       "questions": 6
+       "label": "Control hazards & branch penalty",
+       "questions": 12
       },
       {
        "label": "Data hazards & forwarding",
-       "questions": 6
+       "questions": 12
       },
       {
-       "label": "Control hazards & branch penalty",
-       "questions": 6
+       "label": "Pipeline stages & throughput",
+       "questions": 15
+      },
+      {
+       "label": "Structural hazards",
+       "questions": 11
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/computer-architecture/pipelining/gate_co_mock_5_2026-10-31.html"
     },
-    "mapped_at": "2026-10-31"
+    "mapped_at": "2026-11-01"
    },
    "subject": "computer-organization-and-architecture",
    "topic": "instruction-pipelining-and-hazards",
@@ -42014,28 +42014,28 @@ window.GATE_DATA = {
      "unit_slug": "pipelining",
      "unit_name": "Instruction Pipelining",
      "unit_number": 5,
-     "question_count": 25,
+     "question_count": 50,
      "subtopics": [
       {
-       "label": "Pipeline stages & throughput",
-       "questions": 7
-      },
-      {
-       "label": "Structural hazards",
-       "questions": 6
+       "label": "Control hazards & branch penalty",
+       "questions": 12
       },
       {
        "label": "Data hazards & forwarding",
-       "questions": 6
+       "questions": 12
       },
       {
-       "label": "Control hazards & branch penalty",
-       "questions": 6
+       "label": "Pipeline stages & throughput",
+       "questions": 15
+      },
+      {
+       "label": "Structural hazards",
+       "questions": 11
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/computer-architecture/pipelining/gate_co_mock_5_2026-10-31.html"
     },
-    "mapped_at": "2026-10-31"
+    "mapped_at": "2026-11-01"
    },
    "subject": "computer-organization-and-architecture",
    "topic": "instruction-pipelining-and-hazards",
@@ -42124,28 +42124,28 @@ window.GATE_DATA = {
      "unit_slug": "pipelining",
      "unit_name": "Instruction Pipelining",
      "unit_number": 5,
-     "question_count": 25,
+     "question_count": 50,
      "subtopics": [
       {
-       "label": "Pipeline stages & throughput",
-       "questions": 7
-      },
-      {
-       "label": "Structural hazards",
-       "questions": 6
+       "label": "Control hazards & branch penalty",
+       "questions": 12
       },
       {
        "label": "Data hazards & forwarding",
-       "questions": 6
+       "questions": 12
       },
       {
-       "label": "Control hazards & branch penalty",
-       "questions": 6
+       "label": "Pipeline stages & throughput",
+       "questions": 15
+      },
+      {
+       "label": "Structural hazards",
+       "questions": 11
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/computer-architecture/pipelining/gate_co_mock_5_2026-10-31.html"
     },
-    "mapped_at": "2026-10-31"
+    "mapped_at": "2026-11-01"
    },
    "subject": "computer-organization-and-architecture",
    "topic": "instruction-pipelining-and-hazards",
@@ -42232,28 +42232,28 @@ window.GATE_DATA = {
      "unit_slug": "pipelining",
      "unit_name": "Instruction Pipelining",
      "unit_number": 5,
-     "question_count": 25,
+     "question_count": 50,
      "subtopics": [
       {
-       "label": "Pipeline stages & throughput",
-       "questions": 7
-      },
-      {
-       "label": "Structural hazards",
-       "questions": 6
+       "label": "Control hazards & branch penalty",
+       "questions": 12
       },
       {
        "label": "Data hazards & forwarding",
-       "questions": 6
+       "questions": 12
       },
       {
-       "label": "Control hazards & branch penalty",
-       "questions": 6
+       "label": "Pipeline stages & throughput",
+       "questions": 15
+      },
+      {
+       "label": "Structural hazards",
+       "questions": 11
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/computer-architecture/pipelining/gate_co_mock_5_2026-10-31.html"
     },
-    "mapped_at": "2026-10-31"
+    "mapped_at": "2026-11-01"
    },
    "subject": "computer-organization-and-architecture",
    "topic": "instruction-pipelining-and-hazards",
@@ -42340,28 +42340,28 @@ window.GATE_DATA = {
      "unit_slug": "pipelining",
      "unit_name": "Instruction Pipelining",
      "unit_number": 5,
-     "question_count": 25,
+     "question_count": 50,
      "subtopics": [
       {
-       "label": "Pipeline stages & throughput",
-       "questions": 7
-      },
-      {
-       "label": "Structural hazards",
-       "questions": 6
+       "label": "Control hazards & branch penalty",
+       "questions": 12
       },
       {
        "label": "Data hazards & forwarding",
-       "questions": 6
+       "questions": 12
       },
       {
-       "label": "Control hazards & branch penalty",
-       "questions": 6
+       "label": "Pipeline stages & throughput",
+       "questions": 15
+      },
+      {
+       "label": "Structural hazards",
+       "questions": 11
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/computer-architecture/pipelining/gate_co_mock_5_2026-10-31.html"
     },
-    "mapped_at": "2026-10-31"
+    "mapped_at": "2026-11-01"
    },
    "subject": "computer-organization-and-architecture",
    "topic": "instruction-pipelining-and-hazards",
@@ -42447,28 +42447,28 @@ window.GATE_DATA = {
      "unit_slug": "pipelining",
      "unit_name": "Instruction Pipelining",
      "unit_number": 5,
-     "question_count": 25,
+     "question_count": 50,
      "subtopics": [
       {
-       "label": "Pipeline stages & throughput",
-       "questions": 7
-      },
-      {
-       "label": "Structural hazards",
-       "questions": 6
+       "label": "Control hazards & branch penalty",
+       "questions": 12
       },
       {
        "label": "Data hazards & forwarding",
-       "questions": 6
+       "questions": 12
       },
       {
-       "label": "Control hazards & branch penalty",
-       "questions": 6
+       "label": "Pipeline stages & throughput",
+       "questions": 15
+      },
+      {
+       "label": "Structural hazards",
+       "questions": 11
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/computer-architecture/pipelining/gate_co_mock_5_2026-10-31.html"
     },
-    "mapped_at": "2026-10-31"
+    "mapped_at": "2026-11-01"
    },
    "subject": "computer-organization-and-architecture",
    "topic": "instruction-pipelining-and-hazards",
@@ -42555,28 +42555,28 @@ window.GATE_DATA = {
      "unit_slug": "pipelining",
      "unit_name": "Instruction Pipelining",
      "unit_number": 5,
-     "question_count": 25,
+     "question_count": 50,
      "subtopics": [
       {
-       "label": "Pipeline stages & throughput",
-       "questions": 7
-      },
-      {
-       "label": "Structural hazards",
-       "questions": 6
+       "label": "Control hazards & branch penalty",
+       "questions": 12
       },
       {
        "label": "Data hazards & forwarding",
-       "questions": 6
+       "questions": 12
       },
       {
-       "label": "Control hazards & branch penalty",
-       "questions": 6
+       "label": "Pipeline stages & throughput",
+       "questions": 15
+      },
+      {
+       "label": "Structural hazards",
+       "questions": 11
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/computer-architecture/pipelining/gate_co_mock_5_2026-10-31.html"
     },
-    "mapped_at": "2026-10-31"
+    "mapped_at": "2026-11-01"
    },
    "subject": "computer-organization-and-architecture",
    "topic": "instruction-pipelining-and-hazards",
@@ -42661,28 +42661,28 @@ window.GATE_DATA = {
      "unit_slug": "pipelining",
      "unit_name": "Instruction Pipelining",
      "unit_number": 5,
-     "question_count": 25,
+     "question_count": 50,
      "subtopics": [
       {
-       "label": "Pipeline stages & throughput",
-       "questions": 7
-      },
-      {
-       "label": "Structural hazards",
-       "questions": 6
+       "label": "Control hazards & branch penalty",
+       "questions": 12
       },
       {
        "label": "Data hazards & forwarding",
-       "questions": 6
+       "questions": 12
       },
       {
-       "label": "Control hazards & branch penalty",
-       "questions": 6
+       "label": "Pipeline stages & throughput",
+       "questions": 15
+      },
+      {
+       "label": "Structural hazards",
+       "questions": 11
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/computer-architecture/pipelining/gate_co_mock_5_2026-10-31.html"
     },
-    "mapped_at": "2026-10-31"
+    "mapped_at": "2026-11-01"
    },
    "subject": "computer-organization-and-architecture",
    "topic": "instruction-pipelining-and-hazards",

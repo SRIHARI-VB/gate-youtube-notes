@@ -65,7 +65,7 @@
       "title": "Lec 02 - Set identities, Cartesian product, relations and functions",
       "channel": "IIT lecture (NPTEL-style discrete mathematics lecture)",
       "video_id": "7djvJetFiSY",
-      "url": "https://www.youtube.com/watch?v=7djvJetFiSY",
+      "url": "https://www.youtube.com/watch",
       "language": "en",
       "transcript": "FULL",
       "translated": false
@@ -75,7 +75,7 @@
       "title": "Relations - GATE PYQs - Part 2 (counting relations)",
       "channel": "GO Classes for GATE CS",
       "video_id": "Z9khyLCt2-I",
-      "url": "https://www.youtube.com/watch?v=Z9khyLCt2-I",
+      "url": "https://www.youtube.com/watch",
       "language": "en",
       "transcript": "PARTIAL",
       "transcript_note": "readable opening only: the 2^(n^2) count and the ternary-relation variation",
@@ -98,31 +98,31 @@
       "question_count": 50,
       "subtopics": [
         {
-          "label": "composition-transitive-closure",
+          "label": "Composition & transitive closure",
           "questions": 8
         },
         {
-          "label": "counting-relations",
+          "label": "Counting relations",
           "questions": 8
         },
         {
-          "label": "equivalence-relations-classes",
+          "label": "Equivalence relations & classes",
           "questions": 9
         },
         {
-          "label": "lattices-in-posets",
+          "label": "Lattices in posets",
           "questions": 8
         },
         {
-          "label": "partial-orders-hasse-diagrams",
+          "label": "Partial orders & Hasse diagrams",
           "questions": 8
         },
         {
-          "label": "relation-properties",
+          "label": "Relation properties",
           "questions": 9
         }
       ],
-      "url": "https://gate-cse-mocks.vercel.app/"
+      "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html"
     },
     "visual": {
       "slug": "relations-and-their-properties",
@@ -136,6 +136,6 @@
       ],
       "url": "https://gate-visual-explainer.vercel.app/topics/relations-and-their-properties/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
   }
 }

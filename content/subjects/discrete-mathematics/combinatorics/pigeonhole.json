@@ -61,27 +61,27 @@
       "question_count": 50,
       "subtopics": [
         {
-          "label": "composition-and-inverses",
+          "label": "Composition & inverses",
           "questions": 10
         },
         {
-          "label": "counting-functions",
+          "label": "Counting functions",
           "questions": 10
         },
         {
-          "label": "floor-ceiling-recursion",
+          "label": "Floor, ceiling & recursion",
           "questions": 10
         },
         {
-          "label": "pigeonhole-principle",
+          "label": "Pigeonhole principle",
           "questions": 10
         },
         {
-          "label": "types-injective-surjective-bijective",
+          "label": "Injective / surjective / bijective",
           "questions": 10
         }
       ],
-      "url": "https://gate-cse-mocks.vercel.app/"
+      "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/functions/gate_dm_mock_5_2026-10-26.html"
     },
     "visual": {
       "slug": "counting-and-combinatorics",
@@ -92,6 +92,6 @@
       ],
       "url": "https://gate-visual-explainer.vercel.app/topics/counting-and-combinatorics/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
   }
 }

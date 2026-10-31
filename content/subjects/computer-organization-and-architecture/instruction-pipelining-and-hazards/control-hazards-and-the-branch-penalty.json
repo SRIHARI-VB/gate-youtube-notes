@@ -79,27 +79,27 @@
       "unit_slug": "pipelining",
       "unit_name": "Instruction Pipelining",
       "unit_number": 5,
-      "question_count": 25,
+      "question_count": 50,
       "subtopics": [
         {
-          "label": "Pipeline stages & throughput",
-          "questions": 7
-        },
-        {
-          "label": "Structural hazards",
-          "questions": 6
+          "label": "Control hazards & branch penalty",
+          "questions": 12
         },
         {
           "label": "Data hazards & forwarding",
-          "questions": 6
+          "questions": 12
         },
         {
-          "label": "Control hazards & branch penalty",
-          "questions": 6
+          "label": "Pipeline stages & throughput",
+          "questions": 15
+        },
+        {
+          "label": "Structural hazards",
+          "questions": 11
         }
       ],
       "url": "https://gate-cse-mocks.vercel.app/computer-architecture/pipelining/gate_co_mock_5_2026-10-31.html"
     },
-    "mapped_at": "2026-10-31"
+    "mapped_at": "2026-11-01"
   }
 }

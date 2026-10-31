@@ -97,31 +97,31 @@
       "question_count": 50,
       "subtopics": [
         {
-          "label": "composition-transitive-closure",
+          "label": "Composition & transitive closure",
           "questions": 8
         },
         {
-          "label": "counting-relations",
+          "label": "Counting relations",
           "questions": 8
         },
         {
-          "label": "equivalence-relations-classes",
+          "label": "Equivalence relations & classes",
           "questions": 9
         },
         {
-          "label": "lattices-in-posets",
+          "label": "Lattices in posets",
           "questions": 8
         },
         {
-          "label": "partial-orders-hasse-diagrams",
+          "label": "Partial orders & Hasse diagrams",
           "questions": 8
         },
         {
-          "label": "relation-properties",
+          "label": "Relation properties",
           "questions": 9
         }
       ],
-      "url": "https://gate-cse-mocks.vercel.app/"
+      "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html"
     },
     "visual": {
       "slug": "partial-orders-and-lattices",
@@ -134,6 +134,6 @@
       ],
       "url": "https://gate-visual-explainer.vercel.app/topics/partial-orders-and-lattices/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
   }
 }
