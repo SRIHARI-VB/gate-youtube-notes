@@ -77,6 +77,36 @@
       ],
       "url": "https://gate-visual-explainer.vercel.app/topics/matching-and-colouring/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mock": {
+      "subject": "discrete-mathematics",
+      "unit_slug": "graph-theory-advanced",
+      "unit_name": "Graph Theory Advanced",
+      "unit_number": 10,
+      "question_count": 25,
+      "subtopics": [
+        {
+          "label": "Eulerian & Hamiltonian graphs",
+          "questions": 5
+        },
+        {
+          "label": "Planarity & Euler's formula",
+          "questions": 5
+        },
+        {
+          "label": "Colouring & chromatic number",
+          "questions": 5
+        },
+        {
+          "label": "Trees & spanning trees",
+          "questions": 5
+        },
+        {
+          "label": "Network flows",
+          "questions": 5
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/graph-theory-advanced/gate_dm_mock_10_2026-10-31.html"
+    },
+    "mapped_at": "2026-10-31"
   }
 }

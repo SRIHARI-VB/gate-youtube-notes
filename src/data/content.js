@@ -9694,37 +9694,33 @@ window.GATE_DATA = {
     },
     "mock": {
      "subject": "discrete-mathematics",
-     "unit_slug": "graph-theory-fundamentals",
-     "unit_name": "Graph Theory Fundamentals",
-     "unit_number": 9,
-     "question_count": 50,
+     "unit_slug": "graph-theory-advanced",
+     "unit_name": "Graph Theory Advanced",
+     "unit_number": 10,
+     "question_count": 25,
      "subtopics": [
       {
-       "label": "Degree sum & handshaking lemma",
-       "questions": 8
+       "label": "Eulerian & Hamiltonian graphs",
+       "questions": 5
       },
       {
-       "label": "Graph representations",
-       "questions": 8
+       "label": "Planarity & Euler's formula",
+       "questions": 5
       },
       {
-       "label": "Walks, trails, paths & circuits",
-       "questions": 10
+       "label": "Colouring & chromatic number",
+       "questions": 5
       },
       {
-       "label": "Complete & bipartite graphs",
-       "questions": 7
+       "label": "Trees & spanning trees",
+       "questions": 5
       },
       {
-       "label": "Graph connectivity",
-       "questions": 8
-      },
-      {
-       "label": "Isomorphism",
-       "questions": 9
+       "label": "Network flows",
+       "questions": 5
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/graph-theory-fundamentals/gate_dm_mock_9_2026-10-31.html"
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/graph-theory-advanced/gate_dm_mock_10_2026-10-31.html"
     },
     "mapped_at": "2026-10-31"
    },
@@ -10206,7 +10202,37 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/matching-and-colouring/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mock": {
+     "subject": "discrete-mathematics",
+     "unit_slug": "graph-theory-advanced",
+     "unit_name": "Graph Theory Advanced",
+     "unit_number": 10,
+     "question_count": 25,
+     "subtopics": [
+      {
+       "label": "Eulerian & Hamiltonian graphs",
+       "questions": 5
+      },
+      {
+       "label": "Planarity & Euler's formula",
+       "questions": 5
+      },
+      {
+       "label": "Colouring & chromatic number",
+       "questions": 5
+      },
+      {
+       "label": "Trees & spanning trees",
+       "questions": 5
+      },
+      {
+       "label": "Network flows",
+       "questions": 5
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/graph-theory-advanced/gate_dm_mock_10_2026-10-31.html"
+    },
+    "mapped_at": "2026-10-31"
    },
    "subject": "discrete-mathematics",
    "topic": "graphs",
@@ -10291,7 +10317,37 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/matching-and-colouring/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mock": {
+     "subject": "discrete-mathematics",
+     "unit_slug": "graph-theory-advanced",
+     "unit_name": "Graph Theory Advanced",
+     "unit_number": 10,
+     "question_count": 25,
+     "subtopics": [
+      {
+       "label": "Eulerian & Hamiltonian graphs",
+       "questions": 5
+      },
+      {
+       "label": "Planarity & Euler's formula",
+       "questions": 5
+      },
+      {
+       "label": "Colouring & chromatic number",
+       "questions": 5
+      },
+      {
+       "label": "Trees & spanning trees",
+       "questions": 5
+      },
+      {
+       "label": "Network flows",
+       "questions": 5
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/graph-theory-advanced/gate_dm_mock_10_2026-10-31.html"
+    },
+    "mapped_at": "2026-10-31"
    },
    "subject": "discrete-mathematics",
    "topic": "graphs",

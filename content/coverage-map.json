@@ -7774,22 +7774,21 @@
         "notes content/index.json map[].path = subjects/discrete-mathematics/graphs/eulerian-and-hamiltonian-graphs.json",
         "visual: topics.json slug=graphs-connectivity; syllabus-coverage.json subtopics/microtopics checked against the card text",
         "visual url: topics/graphs-connectivity/index.html",
-        "mock: gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json questions[] filtered on unit_number = 9, grouped by subtopic_label (6 groups, 50 records); paper from runs[] run 11 -> discrete-mathematics/graph-theory-fundamentals/gate_dm_mock_9_2026-10-31.html; matching subtopic_label = Walks, trails, paths & circuits"
+        "mock: gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json questions[] filtered on unit_number = 10, grouped by subtopic_label (5 groups, 25 records); paper from runs[] unit 10 -> discrete-mathematics/graph-theory-advanced/gate_dm_mock_10_2026-10-31.html"
       ],
       "row_verdict": "BOTH",
       "mock": {
         "subject": "discrete-mathematics",
-        "unit_slug": "graph-theory-fundamentals",
-        "unit_name": "Graph Theory Fundamentals",
-        "unit_number": 9,
-        "question_count": 50,
+        "unit_slug": "graph-theory-advanced",
+        "unit_name": "Graph Theory Advanced",
+        "unit_number": 10,
+        "question_count": 25,
         "subtopic_labels": [
-          "Degree sum & handshaking lemma",
-          "Graph representations",
-          "Walks, trails, paths & circuits",
-          "Complete & bipartite graphs",
-          "Graph connectivity",
-          "Isomorphism"
+          "Eulerian & Hamiltonian graphs",
+          "Planarity & Euler's formula",
+          "Colouring & chromatic number",
+          "Trees & spanning trees",
+          "Network flows"
         ],
         "verdict": "MOCK_READY"
       }
@@ -7917,9 +7916,25 @@
       "evidence": [
         "notes content/index.json map[].path = subjects/discrete-mathematics/graphs/chromatic-number-and-greedy-bounds.json",
         "visual: topics.json slug=matching-and-colouring; syllabus-coverage.json subtopics/microtopics checked against the card text",
-        "visual url: topics/matching-and-colouring/index.html"
+        "visual url: topics/matching-and-colouring/index.html",
+        "mock: gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json questions[] filtered on unit_number = 10, grouped by subtopic_label (5 groups, 25 records); paper from runs[] unit 10 -> discrete-mathematics/graph-theory-advanced/gate_dm_mock_10_2026-10-31.html"
       ],
-      "row_verdict": "VISUAL_ONLY"
+      "row_verdict": "BOTH",
+      "mock": {
+        "subject": "discrete-mathematics",
+        "unit_slug": "graph-theory-advanced",
+        "unit_name": "Graph Theory Advanced",
+        "unit_number": 10,
+        "question_count": 25,
+        "subtopic_labels": [
+          "Eulerian & Hamiltonian graphs",
+          "Planarity & Euler's formula",
+          "Colouring & chromatic number",
+          "Trees & spanning trees",
+          "Network flows"
+        ],
+        "verdict": "MOCK_READY"
+      }
     },
     {
       "subject": "discrete-mathematics",
@@ -7939,9 +7954,25 @@
       "evidence": [
         "notes content/index.json map[].path = subjects/discrete-mathematics/graphs/chromatic-polynomial.json",
         "visual: topics.json slug=matching-and-colouring; syllabus-coverage.json subtopics/microtopics checked against the card text",
-        "visual url: topics/matching-and-colouring/index.html"
+        "visual url: topics/matching-and-colouring/index.html",
+        "mock: gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json questions[] filtered on unit_number = 10, grouped by subtopic_label (5 groups, 25 records); paper from runs[] unit 10 -> discrete-mathematics/graph-theory-advanced/gate_dm_mock_10_2026-10-31.html"
       ],
-      "row_verdict": "VISUAL_ONLY"
+      "row_verdict": "BOTH",
+      "mock": {
+        "subject": "discrete-mathematics",
+        "unit_slug": "graph-theory-advanced",
+        "unit_name": "Graph Theory Advanced",
+        "unit_number": 10,
+        "question_count": 25,
+        "subtopic_labels": [
+          "Eulerian & Hamiltonian graphs",
+          "Planarity & Euler's formula",
+          "Colouring & chromatic number",
+          "Trees & spanning trees",
+          "Network flows"
+        ],
+        "verdict": "MOCK_READY"
+      }
     },
     {
       "subject": "discrete-mathematics",
@@ -13805,6 +13836,16 @@
       "kind": "notes",
       "placement": "computer-networks › data-link-mac",
       "detail": "no computer-networks card exists in the notes repo at all; the mock unit \"Data Link Protocols & MAC\" (unit_number 2) now holds 75 questions (groups: CSMA/CD, CSMA/CA & backoff 10; Ethernet, switches & bridges 10; Go-back-N & selective repeat 10; Pure & slotted ALOHA 10; Stop-and-wait ARQ 10; csma-cd-csma-ca-backoff 5; ethernet-standards-switches-bridges 5; go-back-n-selective-repeat-efficiency 5; pure-and-slotted-aloha 5; stop-and-wait-arq 5), last paper computer-networks/data-link-mac/gate_cn_mock_2_2026-10-31.html, and the PUBLISHED lesson sliding-window-arq-protocols serves its ARQ subtopics (stop-and-wait and its efficiency, sender and receiver windows, Go-Back-N retransmission, Selective Repeat retransmission) with no notes card to link to"
+    },
+    {
+      "kind": "notes",
+      "placement": "discrete-mathematics › graphs › trees-and-spanning-trees",
+      "detail": "mock unit \"Graph Theory Advanced\" (unit_number 10, 25 questions) holds a Trees & spanning trees group of 5 questions and no notes card covers trees; lesson graphs-connectivity covers trees and spanning trees at topic level and counting-spanning-trees is a dedicated lesson, so the notes card is the missing piece"
+    },
+    {
+      "kind": "notes",
+      "placement": "discrete-mathematics › graphs › network-flows",
+      "detail": "mock unit \"Graph Theory Advanced\" (unit_number 10, 25 questions) holds a Network flows group of 5 questions (max-flow min-cut, flow value computation) and no notes card covers network flows; no published visual lesson covers it either"
     }
   ]
 }
