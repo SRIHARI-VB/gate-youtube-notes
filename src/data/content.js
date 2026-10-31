@@ -333,7 +333,7 @@ window.GATE_DATA = {
      {
       "slug": "programming-in-c",
       "name": "Programming in C",
-      "material": "planned"
+      "material": "cards"
      },
      {
       "slug": "recursion",
@@ -42661,6 +42661,1120 @@ window.GATE_DATA = {
    "subject": "computer-organization-and-architecture",
    "topic": "instruction-pipelining-and-hazards",
    "path": "subjects/computer-organization-and-architecture/instruction-pipelining-and-hazards/superscalar-and-ilp-beyond-one-per-cycle.json"
+  },
+  {
+   "id": "tokens-types-and-sizeof",
+   "title": "Tokens, Types and sizeof",
+   "priority": "P1",
+   "order": 559,
+   "unit": "Programming in C",
+   "quickIdea": "sizeof answers a question about a type, not about a value: how many bytes the object occupies. In C it is an operator, settled before the program runs, and its result has the unsigned type size_t.",
+   "remember": [
+    "GATE's convention unless a question says otherwise: char 1, short 2, int 4, float 4, double 8 bytes. A pointer is 4 bytes on a 32-bit build and 8 on a 64-bit build, and a question that needs a pointer's size states it.",
+    "sizeof is an operator, not a function: sizeof x is legal without parentheses, and the operand is not evaluated, so sizeof(i++) does not increment i.",
+    "sizeof(char) is 1 by definition, so sizeof of a char array equals its element count. sizeof(\"GATE\") is 5, because a string literal carries its terminating NUL byte.",
+    "sizeof an array is (number of elements) x (element size). sizeof a pointer is the pointer's own size, whatever it points at.",
+    "sizeof a struct is at least the sum of its members and usually more, because of padding; sizeof a union is the size of its largest member, rounded up to the union's alignment.",
+    "'a' is a character constant of type int, so sizeof 'a' is 4. \"a\" is a string literal of type char[2], so sizeof \"a\" is 2. The two are not interchangeable."
+   ],
+   "example": {
+    "prompt": "On a machine where short is 2, float 4 and long 8 bytes, what is sizeof t for struct { short s[5]; union { float y; long z; } u; } t, ignoring alignment?",
+    "work": "The member s is an array of 5 shorts, so 5 x 2 = 10 bytes. The member u is a union, so it is as large as its largest member, max(4, 8) = 8 bytes, and both of its members start at the same byte. The struct holds both members side by side, so its size is 10 + 8 = 18 bytes.",
+    "answer": "18 bytes. Swapping the union for a struct would give 10 + 4 + 8 = 22."
+   },
+   "gateAngle": "GATE CSE 2000 asked exactly this struct-holding-a-union shape and the answer is 18. The exam's usual twist is the one-word change union to struct, which turns 18 into 22, or the sentence 'ignoring alignment' being dropped, which makes the answer depend on the compiler's alignment rules.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "What are sizeof(\"GATE\") and sizeof s for char s[] = \"GATE\";?",
+     "answer": "5 and 5.",
+     "why": "The literal is a five-byte array including its NUL, and the initialised array copies all five bytes. It tests the terminator that makes the 2000 question's arithmetic work."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "On a 64-bit build with 4-byte ints and 8-byte pointers, what does this print? void f(int a[10]) { printf(\"%zu\", sizeof a); }",
+     "answer": "8 - inside f the parameter is a pointer, not an array. The same sizeof at the caller, on int v[10], gives 40.",
+     "why": "The array-decay sizeof trap, which GATE has used inside larger questions rather than as a question of its own."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why can sizeof(char) never be anything other than 1?",
+     "answer": "Because the C standard defines the unit in which sizeof counts as the size of a char, so 1 is true by definition and every other size is expressed in those units.",
+     "why": "Stops the habit of asking 'how big is a char on this machine' when the answer cannot vary."
+    }
+   ],
+   "trap": {
+    "what": "Reading sizeof of an array parameter as the array's size.",
+    "why": "A parameter declared int a[10] is adjusted by the compiler to int *a, so inside the function the name is a pointer and sizeof reports the pointer's size. The array's length is simply not available unless it is passed separately.",
+    "counterexample": "void f(int a[10]) { printf(\"%zu\", sizeof a); } called on int v[10] prints 8 on a 64-bit build and 4 on a 32-bit one, never 40."
+   },
+   "check": {
+    "question": "On the GATE convention (char 1, int 4), what does printf(\"%zu %zu\", sizeof 'a', sizeof \"a\") print?",
+    "answer": "4 and 2.",
+    "explanation": "'a' is a character constant whose type is int, so it is 4 bytes. \"a\" is a two-element char array holding 'a' and the NUL, so it is 2 bytes."
+   },
+   "pyqIds": [
+    "gate-2000-34-struct-union-sizeof"
+   ],
+   "videoRefs": [],
+   "prereqs": [],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "Pointers, arrays and strings in C - GATE notes and 11 solved PYQs",
+     "channel": "IAE Academy",
+     "url": "https://iaeacademy.in/study/c-programming/pointers-arrays-strings",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "the size conventions GATE assumes and the sizeof-versus-decay rules"
+    },
+    {
+     "kind": "text",
+     "title": "Programming in C - subject chapter (GATE Overflow for GATE CSE, Volume 2)",
+     "channel": "GATE Overflow",
+     "url": "https://gateoverflow.in/subject/programming-in-c/programming/programming-in-c",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "sizeof as an operator over types, and the struct/union size bounds"
+    },
+    {
+     "kind": "text",
+     "title": "C mein Programming - chapter notes (Devanagari)",
+     "channel": "CareerCraft Labs",
+     "url": "https://careercraftlabs.org/hi/read/net2-cs-ch06",
+     "language": "hi",
+     "transcript": "PARTIAL",
+     "translated": true,
+     "note": "the sentence that a struct's total size is at least the sum of its members and usually more because of padding (translated)"
+    }
+   ],
+   "sourceLine": "The GATE size conventions, sizeof as an operator and the sizeof-versus-decay rules: IAE Academy 'Pointers, arrays and strings in C' (English, read in part). The struct and union size bounds: GATE Overflow 'Programming in C' chapter (English, read in part). The padding sentence: CareerCraft Labs Hindi chapter (translated from Hindi, read in part). The 18-byte result is recomputed in scripts/validate.py.",
+   "subject": "programming-and-data-structures",
+   "topic": "programming-in-c",
+   "path": "subjects/programming-and-data-structures/programming-in-c/tokens-types-and-sizeof.json"
+  },
+  {
+   "id": "integer-promotion-and-unsigned-wrap",
+   "title": "Integer Promotion, Unsigned Conversion and Wrap",
+   "priority": "P1",
+   "order": 560,
+   "unit": "Programming in C",
+   "quickIdea": "C converts operands before it combines them. Narrow types are promoted to int, and the moment one operand is unsigned the other is converted to unsigned too, so a difference that should be negative becomes a huge positive number.",
+   "remember": [
+    "Integer promotion: char, signed char, unsigned char, short and unsigned short are converted to int (or to unsigned int when int cannot hold all their values) before any arithmetic. So 'a' + 1 is int arithmetic.",
+    "Usual arithmetic conversions: if either operand is unsigned int, the other is converted to unsigned int and the result is unsigned. A wider unsigned type wins over a narrower one.",
+    "size_t is unsigned, and strlen returns size_t. So strlen(a) - strlen(b) is computed modulo 2^32 (or 2^64) and is never negative.",
+    "Unsigned overflow wraps modulo 2^n, and that is defined behaviour. Signed overflow is undefined behaviour, so a program that overflows a signed int has no required output at all.",
+    "signed char c = 200; stores 200 - 256 = -56 in 8-bit two's complement, while unsigned char keeps 200. The bits are identical; the interpretation is not.",
+    "Integer division truncates toward zero: 7 / 2 is 3 and -7 / 2 is -3. Converting to float after the division is too late."
+   ],
+   "example": {
+    "prompt": "char *x = \"abc\", *y = \"defgh\"; unsigned int c = 0; int len = ((strlen(x) - strlen(y)) > c) ? strlen(x) : strlen(y); printf(\"%d\", len); What is printed?",
+    "work": "strlen(x) is 3 and strlen(y) is 5, both of type size_t. Their difference is computed in unsigned arithmetic, so 3 - 5 wraps to 2^32 - 2, a very large number. Comparing that with c = 0 is true, so the conditional selects strlen(x), which is 3, and len holds 3.",
+    "answer": "3. The comparison was never '3 > 0 against -2'; it was a huge unsigned value against 0."
+   },
+   "gateAngle": "GATE CSE 2017 Set 1 Q.53 is this program and the printed value is 3. The same rule decides any question that compares strlen results, subtracts two sizeof values, or tests i < strlen(s) after i has gone negative.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "int i = -1; unsigned int u = 1; what does printf(\"%d\", i < u) print?",
+     "answer": "0 - i is converted to unsigned (UINT_MAX) before the comparison, so -1 < 1 is false.",
+     "why": "The same conversion as the 2017 question with the polarity reversed, which catches a student who memorised 'the difference wraps' instead of the rule."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why is signed overflow undefined behaviour while unsigned overflow is merely wrap-around?",
+     "answer": "The standard specifies unsigned arithmetic as arithmetic modulo 2^n, so the result is defined; for signed types it imposes no requirement at all, so a compiler may assume overflow never happens and optimise on that assumption.",
+     "why": "Explains why an overflowing signed counter has no answer to trace, which some loop questions quietly rely on."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "int a = 7, b = 2; float r = a / b; printf(\"%f\", r); what is printed?",
+     "answer": "3.000000 - the division is integer division because both operands are int, and the conversion to float happens at the assignment.",
+     "why": "The truncate-before-convert trap from the same family of one-mark questions; (float)a / b would give 3.5."
+    }
+   ],
+   "trap": {
+    "what": "Comparing a signed difference against an unsigned zero.",
+    "why": "Once one side of the comparison is unsigned, the signed side is converted to unsigned. A difference of -2 becomes 2^n - 2, so 'is the first string shorter?' answers yes for every pair of lengths.",
+    "counterexample": "With strlen(\"abc\") - strlen(\"defgh\") the difference is -2 mathematically, but (strlen(\"abc\") - strlen(\"defgh\")) > 0 is true, because the left side is the unsigned value 4294967294 on a 32-bit int."
+   },
+   "check": {
+    "question": "What does the expression (strlen(\"ab\") - strlen(\"abc\")) > 0 evaluate to?",
+    "answer": "1, that is true.",
+    "explanation": "2 - 3 in size_t arithmetic wraps to SIZE_MAX, which is greater than 0. The mathematical answer -1 never appears."
+   },
+   "pyqIds": [
+    "gate-2017-set1-53-unsigned-strlen-compare"
+   ],
+   "videoRefs": [],
+   "prereqs": [
+    "tokens-types-and-sizeof"
+   ],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "C Programming Fundamentals: Complete Guide with Worked Examples for GATE and Placements",
+     "channel": "Knowledge Gate AI",
+     "url": "https://www.knowledgegate.ai/blog/c-fundamentals-c-programming",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "the signed-char conversion, the integer-division trap and the GATE size convention"
+    },
+    {
+     "kind": "text",
+     "title": "Programming in C - subject chapter (GATE Overflow for GATE CSE, Volume 2)",
+     "channel": "GATE Overflow",
+     "url": "https://gateoverflow.in/subject/programming-in-c/programming/programming-in-c",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "the integer-promotion and usual-conversion summary"
+    }
+   ],
+   "sourceLine": "Integer promotion and the usual arithmetic conversions: GATE Overflow 'Programming in C' chapter (English, read in part). The signed-char wrap and the integer-division trap: Knowledge Gate AI 'C Programming Fundamentals' (English, read in part). The 3 that GATE CSE 2017 Set 1 Q.53 prints is recomputed in scripts/validate.py.",
+   "subject": "programming-and-data-structures",
+   "topic": "programming-in-c",
+   "path": "subjects/programming-and-data-structures/programming-in-c/integer-promotion-and-unsigned-wrap.json"
+  },
+  {
+   "id": "operator-precedence-and-sequence-points",
+   "title": "Precedence, Associativity and Sequence Points",
+   "priority": "P1",
+   "order": 561,
+   "unit": "Programming in C",
+   "quickIdea": "Precedence and associativity decide how the compiler groups an expression. Sequence points decide whether the side effects inside it have an order at all - and where there is none, the program's output is undefined rather than merely uncertain.",
+   "remember": [
+    "Precedence, high to low: [] and () ; postfix ++ -- ; prefix ++ -- and unary * & ! ~ and casts ; * / % ; + - ; << >> ; < <= > >= ; == != ; & ; ^ ; | ; && ; || ; ?: ; assignment, right to left ; comma.",
+    "Postfix ++ binds tighter than unary *, so *p++ is *(p++): it reads the current element and then advances the pointer. (*p)++ increments the element and leaves the pointer where it is.",
+    "&& and || short-circuit, so the right operand is not evaluated when the left decides the result. Bitwise & and | do not short-circuit and always evaluate both sides.",
+    "A sequence point is a full expression, the return from a function call, or the boundary between the three expressions of a for header. Between two sequence points an object may be modified at most once.",
+    "i++ + ++i and printf(\"%d %d\", i++, i++) have no defined answer: the same object is modified twice, or modified and read, with no sequence point between the two."
+   ],
+   "example": {
+    "prompt": "int r() { static int num = 7; return num--; } int main() { for (r(); r(); r()) printf(\"%d\", r()); } What is displayed?",
+    "work": "Each call returns the current value and then decrements the single static num. The for header runs as: initialisation r() returns 7 (num 6); the test r() returns 6 (num 5) and is true, so the body runs and its printf prints the 5 returned by that r() call (num 4); the update r() returns 4 (num 3); the test r() returns 3 (num 2) and is true, so the body prints 2 (num 1); the update r() returns 1 (num 0); the test r() returns 0 (num -1) and is false, so the loop ends.",
+    "answer": "52 - two characters, printed in the order 5 then 2."
+   },
+   "gateAngle": "GATE CSE 2019 Q.27 is this program and the answer is 52. The marks are in the order the three for expressions run in, not in the static variable: each is a separate full expression, so the sequence is init, test, body, update, test, body, and so on. The same precedence fact decides the *p++ family of questions.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "int a[] = {5, 8}; int *p = a; int u = *p++; int v = (*p)++; What are u, v and the array afterwards?",
+     "answer": "u = 5, v = 8, and a becomes {5, 9}: *p++ reads a[0] and then moves p to a[1], and (*p)++ returns the old a[1] and increments the element.",
+     "why": "The same precedence rule as the 2019 trace, asked directly instead of hidden inside a loop header."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Is f(g(), h()) undefined because g and h may run in either order?",
+     "answer": "No. Each call is a complete function call and finishes before the other starts, so only the order is unspecified, and either order gives a defined result if g and h share no state. The undefined case is printf(\"%d %d\", i++, i++), where two unsequenced modifications of one object meet.",
+     "why": "Separates unspecified order from undefined behaviour, a distinction every evaluation-order question depends on."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "What does printf(\"%d\", 1 + 2 * 3 - 4 / 2) print, and what does strict left-to-right evaluation of the same operands give?",
+     "answer": "5 by precedence; left to right it would be ((1 + 2) * 3 - 4) / 2 = 5 / 2 = 2, which is the wrong answer.",
+     "why": "The arithmetic-precedence version of the same question, worth one mark on its own."
+    }
+   ],
+   "trap": {
+    "what": "Assuming that function arguments are evaluated left to right.",
+    "why": "The standard leaves the order of evaluation of a call's arguments unspecified, so the two conversions in printf(\"%d %d\", i++, i++) may happen in either order - and because the two modifications of i are unsequenced, the program is undefined rather than 'one of the two'. A trace built on left-to-right order is a guess, not an answer.",
+    "counterexample": "printf(\"%d %d\", i++, i++) with i = 5 has no required output at all, while printf(\"%d %d\", i, i + 1) does, because nothing is modified."
+   },
+   "check": {
+    "question": "What does *p++ do, and what does (*p)++ do?",
+    "answer": "*p++ is *(p++): it yields the element p currently points at and then advances p by one element. (*p)++ yields that element's old value and increments the element, leaving p where it is.",
+    "explanation": "Postfix ++ binds tighter than unary *, so the parentheses are exactly what changes the meaning."
+   },
+   "pyqIds": [
+    "gate-2019-27-static-for-loop-sequence"
+   ],
+   "videoRefs": [],
+   "prereqs": [
+    "storage-classes-auto-static-extern-register"
+   ],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "C Programming Fundamentals: Complete Guide with Worked Examples for GATE and Placements",
+     "channel": "Knowledge Gate AI",
+     "url": "https://www.knowledgegate.ai/blog/c-fundamentals-c-programming",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "the precedence statement and the warning that i++ + ++i has no trustworthy output"
+    },
+    {
+     "kind": "text",
+     "title": "Pointers, arrays and strings in C - GATE notes and 11 solved PYQs",
+     "channel": "IAE Academy",
+     "url": "https://iaeacademy.in/study/c-programming/pointers-arrays-strings",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "the *p++ against (*p)++ table and the pointer-plus-increment precedence note"
+    },
+    {
+     "kind": "text",
+     "title": "Pointers in C for GATE: Memory Diagrams and Output Traces",
+     "channel": "Knowledge Gate AI",
+     "url": "https://www.knowledgegate.ai/blog/pointers-in-c-gate-memory-diagrams",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "the same precedence fact worked through an array example"
+    }
+   ],
+   "sourceLine": "The precedence list and the unsequenced-modification warning: Knowledge Gate AI 'C Programming Fundamentals' (English, read in part). The *p++ and (*p)++ rules: IAE Academy 'Pointers, arrays and strings in C' (English, read in part) and Knowledge Gate AI 'Pointers in C for GATE' (English, read in full). The 52 that GATE CSE 2019 Q.27 prints is recomputed in scripts/validate.py.",
+   "subject": "programming-and-data-structures",
+   "topic": "programming-in-c",
+   "path": "subjects/programming-and-data-structures/programming-in-c/operator-precedence-and-sequence-points.json"
+  },
+  {
+   "id": "control-flow-switch-fallthrough",
+   "title": "Control Flow and Switch Fall-Through",
+   "priority": "P2",
+   "order": 562,
+   "unit": "Programming in C",
+   "quickIdea": "switch is a jump into a block of statements, not a set of exclusive branches: a case label marks an entry point and execution runs on from there until a break.",
+   "remember": [
+    "A case label must be an integer constant expression, and no two labels in one switch may have the same value. default may appear anywhere and is taken only when no label matches.",
+    "Without break, control falls through into the next case. Deliberate fall-through is legal, and a question that omits break is asking you to follow it.",
+    "while tests before the body; do-while tests after it, so a do-while body always runs at least once even when the condition is false on entry.",
+    "continue in a for loop jumps to the update expression, not past it; in a while loop it jumps back to the test. break leaves the innermost loop or switch.",
+    "A loop counter keeps the value that failed the test: after for (i = 1; i <= 5; i++) the counter is 6, not 5."
+   ],
+   "example": {
+    "prompt": "int i, s = 0; for (i = 1; i <= 5; i++) { if (i % 2 == 0) continue; s += i; } printf(\"%d %d\", s, i);",
+    "work": "i runs from 1 upward. At i = 1, 3 and 5 the body adds, so s becomes 1, then 4, then 9. At i = 2 and 4 the continue jumps to the update, so nothing is added. When i becomes 6 the test fails, the loop ends, and i keeps 6.",
+    "answer": "9 6."
+   },
+   "gateAngle": "GATE uses loops as the wrapper for a trace rather than as the question itself, so the marks sit in the sequencing and in the final value of the counter. Printing 5 where the loop ended at 6 is the most common single-mark loss in this topic.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "int x = 2; switch (x) { case 1: printf(\"one\"); case 2: printf(\"two\"); case 3: printf(\"three\"); break; default: printf(\"other\"); } What is printed?",
+     "answer": "twothree - control enters at case 2 and falls through case 3 until the break.",
+     "why": "The fall-through rule stated as plainly as it can be; the distractors are 'two' and 'twothreeother'."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why can a case label not be a variable, such as case n:?",
+     "answer": "Because the compiler must be able to build the jump table before the program runs, so each label has to be an integer constant expression known at compile time.",
+     "why": "Explains why switch is implemented as a jump and not as a chain of comparisons."
+    }
+   ],
+   "trap": {
+    "what": "Reading a switch as if each case were an if-else branch.",
+    "why": "case labels only choose where execution enters the block. Once inside, statements run in order and cross into the following case unless a break, a return or the end of the switch stops them.",
+    "counterexample": "switch (2) { case 1: printf(\"A\"); case 2: printf(\"B\"); case 3: printf(\"C\"); } prints BC, not B."
+   },
+   "check": {
+    "question": "How many times does the body of do { ... } while (0); run?",
+    "answer": "Once.",
+    "explanation": "The test comes after the body, so the body runs before the condition is looked at, however obviously false the condition is."
+   },
+   "pyqIds": [],
+   "videoRefs": [],
+   "prereqs": [],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "C Programming Fundamentals: Complete Guide with Worked Examples for GATE and Placements",
+     "channel": "Knowledge Gate AI",
+     "url": "https://www.knowledgegate.ai/blog/c-fundamentals-c-programming",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "the do-while and switch fall-through statements and the continue trace"
+    },
+    {
+     "kind": "text",
+     "title": "Programming in C - subject chapter (GATE Overflow for GATE CSE, Volume 2)",
+     "channel": "GATE Overflow",
+     "url": "https://gateoverflow.in/subject/programming-in-c/programming/programming-in-c",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "the programming-constructs summary and its list of control-flow pitfalls"
+    }
+   ],
+   "sourceLine": "Switch fall-through, do-while and the continue trace: Knowledge Gate AI 'C Programming Fundamentals' (English, read in part). The construct list and the off-by-one pitfall: GATE Overflow 'Programming in C' chapter (English, read in part).",
+   "subject": "programming-and-data-structures",
+   "topic": "programming-in-c",
+   "path": "subjects/programming-and-data-structures/programming-in-c/control-flow-switch-fallthrough.json"
+  },
+  {
+   "id": "call-by-value-and-the-activation-record",
+   "title": "Call by Value and the Activation Record",
+   "priority": "P1",
+   "order": 563,
+   "unit": "Programming in C",
+   "quickIdea": "Every C argument is copied into its parameter. A function can change the caller's object only when the caller hands it that object's address.",
+   "remember": [
+    "C has call by value only. The value of each argument expression is computed and a copy is bound to the parameter, so an assignment to a parameter never reaches the caller's variable.",
+    "A pointer parameter is copied too. Writing p = ... inside the function changes the local copy of the address; writing *p = ... changes the caller's object.",
+    "An array argument does not break the rule: what is copied is a pointer to the first element, so element writes reach the caller, but sizeof inside the function is the pointer's size and the length is lost.",
+    "Parameters and auto locals live in the function's activation record, created on entry and destroyed on return. Returning the address of a local leaves a dangling pointer.",
+    "A call with no visible prototype is an implicit declaration: pre-C99 compilers assume the function returns int, so a double-returning function gives a conflicting-types error (GATE CSE 2005 Q.32)."
+   ],
+   "example": {
+    "prompt": "void printxy(int x, int y) { int *ptr; x = 0; ptr = &x; y = *ptr; *ptr = 1; printf(\"%d, %d\", x, y); } What does printxy(1, 1) print?",
+    "work": "The two arguments are copied into x and y, so both start as 1. x = 0 makes the copy 0. ptr = &x points at the local x. y = *ptr copies 0 into y. *ptr = 1 writes through ptr into x, so the local x becomes 1. y was already copied and does not change.",
+    "answer": "1, 0."
+   },
+   "gateAngle": "GATE CSE 2017 Set 2 Q.14 is this function and the answer is 1, 0. The same fact appears disguised as a swap: a function that swaps its pointer parameters does nothing, while one that swaps the pointees works. GATE CSE 2005 Q.32 tests the neighbouring rule that a missing prototype changes the program's meaning.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "void mystery(int *a, int *b) { int *t = a; a = b; b = t; } int x = 4, y = 5; mystery(&x, &y); what are x and y afterwards?",
+     "answer": "Still 4 and 5 - only the copies of the addresses were swapped.",
+     "why": "The exact inverse of the 2017 question, and the trap GATE 2016 used inside a three-call mystery function."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why does void f(int a[]) let f change the caller's array elements, if C is call by value?",
+     "answer": "Because the array name decays to a pointer to its first element, and that pointer value is what is copied. The callee reaches the caller's storage through the address it was given.",
+     "why": "Removes the apparent exception to call by value, which is where array questions and function questions meet."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "The prototype double foo(double); is deleted from the GATE CSE 2005 Q.32 program while foo is still defined after main. What does the compiler now report?",
+     "answer": "A compiler error: the call is implicitly declared as returning int, and the later definition returning double conflicts with that assumption.",
+     "why": "Shows that a prototype is not decoration; the question's distractors are 'no error' and 'a warning with unintended results'."
+    }
+   ],
+   "trap": {
+    "what": "Believing that a pointer parameter lets a function change the caller's pointer variable.",
+    "why": "The parameter is a copy of the address. Assigning to it rewrites the copy; only dereferencing it reaches the caller's object. A 'swap two pointers' function that swaps its parameters is therefore a no-op.",
+    "counterexample": "void mystery(int *a, int *b) { int *t = a; a = b; b = t; } called as mystery(&p, &q) leaves p and q unchanged, while int t = *a; *a = *b; *b = t; does swap the integers."
+   },
+   "check": {
+    "question": "What does this print? void inc(int n) { n = n + 1; } int main(void) { int x = 10; inc(x); printf(\"%d\", x); }",
+    "answer": "10.",
+    "explanation": "inc receives a copy of x, increments the copy and returns; the caller's x was never written to."
+   },
+   "pyqIds": [
+    "gate-2017-set2-14-printxy-call-by-value",
+    "gate-2005-32-prototype-implicit-declaration"
+   ],
+   "videoRefs": [],
+   "prereqs": [
+    "pointers-address-and-indirection"
+   ],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "Functions, parameter passing, scope and storage classes - GATE notes and 7 solved PYQs",
+     "channel": "IAE Academy",
+     "url": "https://iaeacademy.in/study/c-programming/functions-scope",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "call by value, the activation-record steps, the array-decay exam tip and the unsequenced-argument warning"
+    },
+    {
+     "kind": "text",
+     "title": "Pointers in C for GATE: Memory Diagrams and Output Traces",
+     "channel": "Knowledge Gate AI",
+     "url": "https://www.knowledgegate.ai/blog/pointers-in-c-gate-memory-diagrams",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "the failing swap and the pointer version that works"
+    }
+   ],
+   "sourceLine": "Call by value, the order of events in a call and the array-decay exception: IAE Academy 'Functions, parameter passing, scope and storage classes' (English, read in part). The broken and fixed swap: Knowledge Gate AI 'Pointers in C for GATE' (English, read in full). The 1, 0 of GATE CSE 2017 Set 2 Q.14 and the compiler-error verdict of GATE CSE 2005 Q.32 are recomputed and reasoned in scripts/validate.py.",
+   "subject": "programming-and-data-structures",
+   "topic": "programming-in-c",
+   "path": "subjects/programming-and-data-structures/programming-in-c/call-by-value-and-the-activation-record.json"
+  },
+  {
+   "id": "scope-shadowing-and-linkage",
+   "title": "Scope, Shadowing and Linkage",
+   "priority": "P2",
+   "order": 564,
+   "unit": "Programming in C",
+   "quickIdea": "Scope is a property of the program text: it decides which declaration a name refers to, and the nearest enclosing declaration wins. It has nothing to do with which function called which.",
+   "remember": [
+    "Block scope runs from a declaration to the closing brace of its block, nested blocks included. File scope runs from the declaration to the end of the source file.",
+    "An inner declaration hides an outer one of the same name for the rest of the inner block; the outer object is neither destroyed nor changed, and it is visible again afterwards.",
+    "Function parameters have block scope that ends with the body. Redeclaring a parameter's name in the body's outermost block is a redefinition error.",
+    "C is statically, that is lexically, scoped: a name not declared locally is resolved by the enclosing text, never by the caller's frame. The latter is dynamic scoping, which C does not use.",
+    "Linkage is a separate question from scope: a file-scope name has external linkage unless declared static, and extern names an object defined elsewhere."
+   ],
+   "example": {
+    "prompt": "int x; void Q(int z) { z += x; printf(\"%d\", z); } void P(int *y) { int x = *y + 2; Q(x); *y = x - 1; printf(\"%d\", x); } main(void) { x = 5; P(&x); printf(\"%d\", x); }",
+    "work": "The global x is set to 5. Inside P a local x shadows it: x = *y + 2 = 5 + 2 = 7. Q is called with 7, and Q has no local x, so the name resolves to the global, still 5, making z = 7 + 5 = 12, which is printed. Back in P, *y = x - 1 writes 6 into the global through the pointer, then printf prints the local x = 7. Finally main prints the global x, now 6.",
+    "answer": "12 7 6."
+   },
+   "gateAngle": "GATE CSE 2003 Q.89 prints 12 7 6 and the marks turn entirely on which x each statement means. The same mechanism decides why a static file-scope name is invisible to other files, and why a question that says 'assume dynamic scoping' changes the answer.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "What would the same program print if C used dynamic scoping?",
+     "answer": "14 7 6: Q would see P's x = 7, so z becomes 7 + 7 = 14.",
+     "why": "The classic paired question; it isolates scoping from everything else in the trace."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "A function declares int x inside a nested block while a global x exists. Is the global reachable inside that block?",
+     "answer": "Not by that name - the inner declaration hides it for the rest of the block. A function without a local x still sees the global.",
+     "why": "Separates hiding from replacement, the distinction the 2003 question is built on."
+    }
+   ],
+   "trap": {
+    "what": "Assuming that a same-named local and global are one object.",
+    "why": "They are different objects in different storage. The local hides the global for the rest of its block, so a write to the local leaves the global untouched, and a read of the name inside that block gets the local.",
+    "counterexample": "int g = 1; void f(void) { int g = 2; g++; } leaves the global g equal to 1 after f returns."
+   },
+   "check": {
+    "question": "What does this print? int x = 1; int main(void) { int x = 2; { int x = 3; printf(\"%d\", x); } printf(\"%d\", x); }",
+    "answer": "32.",
+    "explanation": "The innermost x is 3 inside its block; once the block ends the middle x is visible again and prints 2. The global is never printed."
+   },
+   "pyqIds": [
+    "gate-2003-89-macro-and-global-shadowing"
+   ],
+   "videoRefs": [],
+   "prereqs": [],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "Functions, parameter passing, scope and storage classes - GATE notes and 7 solved PYQs",
+     "channel": "IAE Academy",
+     "url": "https://iaeacademy.in/study/c-programming/functions-scope",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "the block-scope and file-scope rules, shadowing, and static against dynamic scoping"
+    },
+    {
+     "kind": "text",
+     "title": "C mein Programming - chapter notes (Devanagari)",
+     "channel": "CareerCraft Labs",
+     "url": "https://careercraftlabs.org/hi/read/net2-cs-ch06",
+     "language": "hi",
+     "transcript": "PARTIAL",
+     "translated": true,
+     "note": "the statement that scope and storage class are independent properties (translated)"
+    }
+   ],
+   "sourceLine": "Block and file scope, shadowing and the static-versus-dynamic scoping table: IAE Academy 'Functions, parameter passing, scope and storage classes' (English, read in part). The independence of scope from storage class: CareerCraft Labs Hindi chapter (translated from Hindi, read in part). The 12 7 6 of GATE CSE 2003 Q.89 is recomputed in scripts/validate.py.",
+   "subject": "programming-and-data-structures",
+   "topic": "programming-in-c",
+   "path": "subjects/programming-and-data-structures/programming-in-c/scope-shadowing-and-linkage.json"
+  },
+  {
+   "id": "storage-classes-auto-static-extern-register",
+   "title": "Storage Classes: auto, static, extern, register",
+   "priority": "P1",
+   "order": 565,
+   "unit": "Programming in C",
+   "quickIdea": "A storage class answers four questions at once: where the object lives, how long it lives, what it holds before you assign to it, and whether other files can see its name.",
+   "remember": [
+    "auto is the default for a block-scope variable: stack storage, lifetime of the block, indeterminate value, no linkage. register is the same but asks for a CPU register and forbids taking its address.",
+    "static on a local changes lifetime, not scope: the object lives in the static data area for the whole program, is initialised once to zero when no initialiser is given, and keeps its value between calls.",
+    "static on a file-scope name gives internal linkage: other files cannot reach it even with extern.",
+    "extern is a declaration, not a definition: it allocates nothing and refers to the single definition elsewhere. extern int x = 5; at file scope is a definition.",
+    "A static object's initialiser must be a constant expression, so static int s = y; where y is a variable does not compile.",
+    "A static local is not part of the activation record, which is why it survives across calls and is shared by every recursion level of the same function."
+   ],
+   "example": {
+    "prompt": "void count(int n) { static int d = 1; printf(\"%d\", n); printf(\"%d\", d); d++; if (n > 1) count(n - 1); printf(\"%d\", d); } count(3);",
+    "work": "d is initialised once, before the first call. count(3) prints 3 and 1, d becomes 2, then calls count(2). That prints 2 and 2, d becomes 3, then calls count(1). count(1) prints 1 and 3, d becomes 4, and n > 1 is false, so it prints 4 and returns. Each return prints the current d, which is 4 by then, so count(2) prints 4 and count(3) prints 4.",
+    "answer": "3 1 2 2 1 3 4 4 4."
+   },
+   "gateAngle": "GATE CSE 2016 Set 1 Q.35 is this program and the answer is the nine digits above. The exam's favourite version of the same fact is a counter that should print 1 2 3 but prints 1 1 1 because the local was not declared static.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "void f(void) { int c = 0; c++; printf(\"%d \", c); } called three times - what is printed, and what changes if c is static?",
+     "answer": "1 1 1 without static; 1 2 3 with it.",
+     "why": "The shortest statement of what static does to a local, and the reason the 2016 trace ends in three 4s."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Can the address of a register variable be taken?",
+     "answer": "No - & on a register object is a constraint violation, because the object may not have a memory address at all.",
+     "why": "The one examinable consequence of register being a request rather than a command."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "A function declares static int s; with no initialiser and is called twice. What does s hold on the first call, and on the second?",
+     "answer": "0 on the first call, and whatever the first call left on the second - the zeroing happens once, before the program starts.",
+     "why": "Tests that 'static means zero' is about initialisation, not about resetting on every call."
+    }
+   ],
+   "trap": {
+    "what": "Expecting each recursive call to get its own copy of a static local.",
+    "why": "A static local is one object for the whole program. Every activation of the function writes the same storage, so the value at the end of the recursion is what all the returns see.",
+    "counterexample": "In GATE CSE 2016 Set 1 Q.35 the three returns print 4, 4 and 4 rather than 2, 3 and 4, although the values printed on the way down were 1, 2 and 3."
+   },
+   "check": {
+    "question": "How many times is static int d = 1; executed in a function called five times?",
+    "answer": "Once.",
+    "explanation": "The initialisation of a static object happens before the program starts, not on each entry to the block."
+   },
+   "pyqIds": [
+    "gate-2016-set1-35-static-local-in-recursion"
+   ],
+   "videoRefs": [],
+   "prereqs": [
+    "scope-shadowing-and-linkage"
+   ],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "Functions, parameter passing, scope and storage classes - GATE notes and 7 solved PYQs",
+     "channel": "IAE Academy",
+     "url": "https://iaeacademy.in/study/c-programming/functions-scope",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "the four-class table with storage duration, default value, scope and linkage, and the constant-initialiser rule"
+    },
+    {
+     "kind": "text",
+     "title": "Programming in C - subject chapter (GATE Overflow for GATE CSE, Volume 2)",
+     "channel": "GATE Overflow",
+     "url": "https://gateoverflow.in/subject/programming-in-c/programming/programming-in-c",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "the storage-class binding summary and the scope-versus-lifetime pitfall"
+    },
+    {
+     "kind": "text",
+     "title": "C mein Programming - chapter notes (Devanagari)",
+     "channel": "CareerCraft Labs",
+     "url": "https://careercraftlabs.org/hi/read/net2-cs-ch06",
+     "language": "hi",
+     "transcript": "PARTIAL",
+     "translated": true,
+     "note": "the statement that a static local extends lifetime while leaving scope local (translated)"
+    }
+   ],
+   "sourceLine": "The storage-class table and its rules: IAE Academy 'Functions, parameter passing, scope and storage classes' (English, read in part). The binding summary and the scope-versus-lifetime pitfall: GATE Overflow 'Programming in C' chapter (English, read in part). The lifetime-without-scope sentence: CareerCraft Labs Hindi chapter (translated from Hindi, read in part). The nine digits of GATE CSE 2016 Set 1 Q.35 are recomputed in scripts/validate.py.",
+   "subject": "programming-and-data-structures",
+   "topic": "programming-in-c",
+   "path": "subjects/programming-and-data-structures/programming-in-c/storage-classes-auto-static-extern-register.json"
+  },
+  {
+   "id": "pointers-address-and-indirection",
+   "title": "Pointers: Address, Indirection and the Double Pointer",
+   "priority": "P1",
+   "order": 566,
+   "unit": "Programming in C",
+   "quickIdea": "A pointer is a typed box that holds an address. & produces an address, * follows one, and each extra star follows one more level.",
+   "remember": [
+    "int x = 12; int *p = &x; int **q = &p; then p holds &x, *p is 12, *q is p, and **q is 12. Count the stars to count the levels.",
+    "A pointer has a type: p + 1 on an int * moves sizeof(int) bytes, and a pointer of one type must be cast before it is dereferenced as another.",
+    "A pointer parameter is a copied address. It can change the pointee but not the caller's pointer variable; passing int ** is how a function reassigns the caller's pointer.",
+    "An uninitialised pointer is a wild pointer and dereferencing it is undefined behaviour; a pointer to a released or returned object is dangling and equally undefined. NULL is the only value you may test before dereferencing.",
+    "char *s = \"GATE\"; may point at a read-only literal, so s[0] = 'L' is undefined behaviour; char s[] = \"GATE\"; makes a writable copy."
+   ],
+   "example": {
+    "prompt": "int f(int x, int *py, int **ppz) { int y, z; **ppz += 1; z = **ppz; *py += 2; y = *py; x += 3; return x + y + z; } with c = 4, b = &c, a = &b and the call f(c, b, a).",
+    "work": "Both *py and **ppz reach c, and x is only a copy. **ppz += 1 makes c = 5, and z = 5. *py += 2 makes c = 7, and y = 7. x is still the copy 4, so x += 3 makes x = 7. The return value is 7 + 7 + 5 = 19.",
+    "answer": "19."
+   },
+   "gateAngle": "GATE CSE 2008 Q.60 is this function, printed as 19. The whole question is the difference between the copy x and the two pointers that alias c. GATE CSE 2024 Set 2 Q.23 asks the neighbouring question of what a function returning b - a means when b has walked to the NUL.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "int x = 12; int *p = &x; int **q = &p; **q = 20; what is x?",
+     "answer": "20 - **q names the object that q reaches through p, so the write lands on x.",
+     "why": "The same alias chain as the 2008 question with the arithmetic removed, so only the level counting is tested."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why does a function that allocates and hands back memory take a char ** parameter?",
+     "answer": "Because it has to change the caller's pointer variable. The parameter is a copy of an address, so only by passing the address of the pointer itself can the function write a new address into the caller's variable.",
+     "why": "Explains the double pointer from the side of design rather than of tracing, which is how questions about malloc wrappers are phrased."
+    }
+   ],
+   "trap": {
+    "what": "Expecting a variable to track another because a pointer to it exists.",
+    "why": "Aliasing is one-way. A write through the pointer changes the object, but a copy taken before the write keeps the old value, and a plain parameter is exactly such a copy.",
+    "counterexample": "In GATE CSE 2008 Q.60, x was initialised from c = 4 and stays a separate object, so x += 3 gives 7 from the copy 4, not 10 from the c that has already become 7."
+   },
+   "check": {
+    "question": "int a = 5; int *p = &a; int **q = &p; what do *q and **q evaluate to?",
+    "answer": "*q is the address of a, that is the value of p, and **q is 5.",
+    "explanation": "Each * follows one stored address: q holds &p, so the first star reaches p and the second reaches a."
+   },
+   "pyqIds": [
+    "gate-2008-60-double-pointer-trace"
+   ],
+   "videoRefs": [],
+   "prereqs": [
+    "tokens-types-and-sizeof"
+   ],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "Pointers in C for GATE: Memory Diagrams and Output Traces",
+     "channel": "Knowledge Gate AI",
+     "url": "https://www.knowledgegate.ai/blog/pointers-in-c-gate-memory-diagrams",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "the box-and-arrow model, the double-pointer trace, dangling pointers and the read-only literal"
+    },
+    {
+     "kind": "text",
+     "title": "Programming in C - subject chapter (GATE Overflow for GATE CSE, Volume 2)",
+     "channel": "GATE Overflow",
+     "url": "https://gateoverflow.in/subject/programming-in-c/programming/programming-in-c",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "the pointer summary with its dangling, wild and void-pointer pitfall list"
+    }
+   ],
+   "sourceLine": "The pointer model, the double-pointer trace and the read-only string literal: Knowledge Gate AI 'Pointers in C for GATE' (English, read in full). The pitfall list for wild, dangling and void pointers: GATE Overflow 'Programming in C' chapter (English, read in part). The 19 of GATE CSE 2008 Q.60 is recomputed in scripts/validate.py.",
+   "subject": "programming-and-data-structures",
+   "topic": "programming-in-c",
+   "path": "subjects/programming-and-data-structures/programming-in-c/pointers-address-and-indirection.json"
+  },
+  {
+   "id": "pointer-arithmetic-and-array-decay",
+   "title": "Pointer Arithmetic and Array Decay",
+   "priority": "P1",
+   "order": 567,
+   "unit": "Programming in C",
+   "quickIdea": "Pointer arithmetic is scaled by the size of the pointed-to type, and a[i] is defined as *(a + i) - so the index form and the pointer form are the same expression, and p2 - p1 counts elements, not bytes.",
+   "remember": [
+    "p + k advances k * sizeof(*p) bytes. On an int * with 4-byte ints, p + 1 adds 4; on a char * it adds 1.",
+    "a[i] means *(a + i), so a[i] and i[a] are the same object; that is why 2[p] is legal C and equals p[2].",
+    "An array name decays to &a[0] in every expression except three: as the operand of sizeof, as the operand of unary &, and as a string-literal initialiser. sizeof(a) is the whole array, sizeof(p) is the pointer.",
+    "&a and a hold the same address but have different types: a + 1 moves one element while &a + 1 moves past the whole array.",
+    "p2 - p1 has type ptrdiff_t and counts elements. Subtracting or comparing pointers is defined only within one array, or one past its end.",
+    "An array name is not assignable: a++ and a = p do not compile, while p++ on a pointer variable does.",
+    "A 2-D parameter int arr[][C] is adjusted to int (*arr)[C]; only the first dimension may be omitted."
+   ],
+   "example": {
+    "prompt": "double a[2] = {20.0, 25.0}, *p, *q; p = a; q = p + 1; printf(\"%d,%d\", (int)(q - p), (int)(*q - *p));",
+    "work": "p points at a[0] and q at a[1]. q - p counts elements between two double pointers, so it is 1 even though the addresses differ by 8 bytes. *q - *p subtracts the stored values, 25.0 - 20.0 = 5.0, and the cast to int gives 5.",
+    "answer": "1,5."
+   },
+   "gateAngle": "GATE CSE 2024 Set 2 Q.26 prints 1,5, and its distractors 8,5 and 1,8 are exactly the two mistakes: counting bytes instead of elements, and forgetting that the second value is a subtraction of the stored numbers. GATE CSE 2017 Set 2 Q.55 hides the same identity behind 2[p] - 6[p].",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "int a[6] = {10,20,30,40,50,60}; int *p = a + 2; what are *(p + 3) - *p and p - a?",
+     "answer": "30 and 2: *(p + 3) is a[5] = 60 and *p is a[2] = 30, so the difference is 30, and p - a counts elements and gives 2 rather than the 8 bytes.",
+     "why": "The same two rules as the 2024 question with a base offset, which is where students start adding bytes by hand."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why is a[i] the same object as i[a]?",
+     "answer": "Because both expand to *(a + i), and the addition of an integer and a pointer is commutative in C. The subscript operator is defined that way, not as a special array operation.",
+     "why": "Turns a curiosity into the definition it comes from, which is what the 2017 question relies on."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "With p == c and c holding \"GATECSIT2017\", what does c + 2[p] - 6[p] - 1 point at?",
+     "answer": "c + 10, because 2[p] is 'T' (84) and 6[p] is 'I' (73), so the offset is 84 - 73 - 1 = 10; strlen from there counts the two characters '1' and '7'.",
+     "why": "The 2017 question's reasoning step, restated as a pointer question instead of a strlen question."
+    }
+   ],
+   "trap": {
+    "what": "Reading p - q as a byte distance.",
+    "why": "Subtraction of two pointers of the same type is defined in elements. The compiler divides the address difference by sizeof(*p) for you, so on doubles an adjacent pair differs by 1 while the addresses differ by 8.",
+    "counterexample": "With double a[2] at address 1000, &a[1] - &a[0] is 1, although (char *)&a[1] - (char *)&a[0] is 8."
+   },
+   "check": {
+    "question": "int a[10]; with 4-byte ints and 8-byte pointers, what do sizeof a and sizeof(a + 0) give?",
+    "answer": "40 and 8.",
+    "explanation": "sizeof a sees the array itself, one of the three no-decay contexts, and gives 10 x 4. a + 0 is already a pointer expression, so sizeof sees a pointer."
+   },
+   "pyqIds": [
+    "gate-2024-set2-26-pointer-subtraction",
+    "gate-2017-set2-55-array-index-identity"
+   ],
+   "videoRefs": [],
+   "prereqs": [
+    "pointers-address-and-indirection"
+   ],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "Pointers, arrays and strings in C - GATE notes and 11 solved PYQs",
+     "channel": "IAE Academy",
+     "url": "https://iaeacademy.in/study/c-programming/pointers-arrays-strings",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "the three no-decay exceptions, the address formula, the pointer-difference rule and the two-dimensional parameter adjustment"
+    },
+    {
+     "kind": "text",
+     "title": "Pointers in C for GATE: Memory Diagrams and Output Traces",
+     "channel": "Knowledge Gate AI",
+     "url": "https://www.knowledgegate.ai/blog/pointers-in-c-gate-memory-diagrams",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "the array walk and the sizeof-versus-array-length contrast"
+    },
+    {
+     "kind": "text",
+     "title": "C mein Programming - chapter notes (Devanagari)",
+     "channel": "CareerCraft Labs",
+     "url": "https://careercraftlabs.org/hi/read/net2-cs-ch06",
+     "language": "hi",
+     "transcript": "PARTIAL",
+     "translated": true,
+     "note": "the statement that arr[i] is defined as *(arr + i) (translated)"
+    }
+   ],
+   "sourceLine": "The decay exceptions, the address formula and the pointer-difference rule: IAE Academy 'Pointers, arrays and strings in C' (English, read in part). The array walk and the sizeof contrast: Knowledge Gate AI 'Pointers in C for GATE' (English, read in full). The definition of arr[i] as *(arr + i): CareerCraft Labs Hindi chapter (translated from Hindi, read in part). Every address and difference shown is recomputed in scripts/validate.py, and the lesson animates them.",
+   "visual": "programming-and-data-structures/programming-in-c/pointer-steps-and-array-indexing",
+   "subject": "programming-and-data-structures",
+   "topic": "programming-in-c",
+   "path": "subjects/programming-and-data-structures/programming-in-c/pointer-arithmetic-and-array-decay.json"
+  },
+  {
+   "id": "strings-nul-termination",
+   "title": "Strings and NUL Termination",
+   "priority": "P1",
+   "order": 568,
+   "unit": "Programming in C",
+   "quickIdea": "A C string is not a type: it is a char array whose last useful byte is followed by '\\0', and every string function walks until it meets that byte.",
+   "remember": [
+    "\"GATE\" occupies 5 bytes: G, A, T, E and the terminating NUL. sizeof(\"GATE\") is 5 while strlen(\"GATE\") is 4.",
+    "char s[] = \"GATE\"; copies the bytes into a writable array. char *s = \"GATE\"; points at a literal that must not be written.",
+    "'0' is the character zero (ASCII 48), '\\0' is the NUL byte (value 0) and ' ' is a space (32). Only '\\0' ends a string.",
+    "strlen counts up to but not including the NUL; strcpy copies the NUL as well; strcmp returns a negative value, zero or a positive value, not a boolean.",
+    "A hand-written copy loop such as while (*t) *s++ = *t++; stops before the NUL, so the destination is not terminated unless the loop adds the terminator afterwards.",
+    "Copying inside one array is safe only when the destination is not ahead of the source: copying forward with s behind t is defined, while the same bytes copied with s ahead of t would overwrite data before it is read."
+   ],
+   "example": {
+    "prompt": "char a[30] = \"@#Hello World!\"; stringcopy(a, a + 2); with void stringcopy(char *s, char *t) { while (*t) *s++ = *t++; } - what does printf(\"%s\", a) print?",
+    "work": "The literal has 14 characters, at indices 0 to 13, with the NUL at index 14. The source starts at index 2, the 'H', and the destination at index 0. The loop copies H e l l o, space, W o r l d ! into indices 0 to 11 and stops when *t reaches the NUL at index 14, without copying it. Indices 12 and 13 still hold the old 'd' and '!', and the NUL at 14 is still there, so printing runs through all fourteen bytes.",
+    "answer": "Hello World!d! - the twelve copied characters followed by the two old ones that survived."
+   },
+   "gateAngle": "GATE CSE 2025 Set 2 Q.9 is this program and the answer is Hello World!d!. GATE CSE 2015 Set 3 Q.7 is the one-character version: writing '0' into s1[2] gives 1204, because '0' is 48 and not the terminator.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "In the same program, what would be printed if the loop ended with *s = '\\0'; after the while?",
+     "answer": "Hello World! - the copied characters followed immediately by the terminator, so the old 'd' and '!' are no longer reachable.",
+     "why": "Isolates the missing terminator as the reason the 2025 answer has extra characters."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "char s1[7] = \"1234\", *p = s1 + 2; *p = 0; printf(\"%s\", s1); what is printed?",
+     "answer": "12 - assigning the integer 0 writes the NUL byte, so printing stops after '2'.",
+     "why": "The 2015 question with the quotes removed, which is exactly the distinction between '0' and '\\0'."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why does strlen not take the array's declared length as an argument?",
+     "answer": "Because the length is not part of a char array's type once it has decayed to a pointer; the only in-band marker of the end is the NUL byte, which is why every string function has to scan.",
+     "why": "Explains why the terminator is not optional, which is what makes both PYQs come out as they do."
+    }
+   ],
+   "trap": {
+    "what": "Treating '0' and '\\0' as the same byte.",
+    "why": "'0' is a printable character with value 48, so writing it into a string changes one digit. '\\0' has value 0 and is what terminates. A question that writes '0' keeps the rest of the string alive; one that writes 0 cuts it.",
+    "counterexample": "In GATE CSE 2015 Set 3 Q.7, *p = '0' turns \"1234\" into \"1204\", while *p = '\\0' would have turned it into \"12\"."
+   },
+   "check": {
+    "question": "char s[10] = \"GATE\"; what are sizeof s, strlen(s) and the integer value of s[4]?",
+    "answer": "10, 4 and 0.",
+    "explanation": "sizeof is the declared array size 10; strlen stops before the NUL; s[4] is the NUL byte itself, whose integer value is 0."
+   },
+   "pyqIds": [
+    "gate-2025-set2-9-overlapping-stringcopy",
+    "gate-2015-set3-7-char-array-pointer-overwrite"
+   ],
+   "videoRefs": [],
+   "prereqs": [
+    "pointer-arithmetic-and-array-decay"
+   ],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "C mein Programming - chapter notes (Devanagari)",
+     "channel": "CareerCraft Labs",
+     "url": "https://careercraftlabs.org/hi/read/net2-cs-ch06",
+     "language": "hi",
+     "transcript": "PARTIAL",
+     "translated": true,
+     "note": "the NUL-terminated char array as the definition of a C string, and the terminator as the standard buffer-overflow source (translated)"
+    },
+    {
+     "kind": "text",
+     "title": "C Programming Fundamentals: Complete Guide with Worked Examples for GATE and Placements",
+     "channel": "Knowledge Gate AI",
+     "url": "https://www.knowledgegate.ai/blog/c-fundamentals-c-programming",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "the sizeof of an initialised char array against strlen"
+    }
+   ],
+   "sourceLine": "The NUL-terminated char array as the definition of a C string, and the terminator as the usual source of a buffer overflow: CareerCraft Labs Hindi chapter (translated from Hindi, read in part). sizeof against strlen for an initialised char array: Knowledge Gate AI 'C Programming Fundamentals' (English, read in part). Both PYQ outputs are recomputed byte by byte in scripts/validate.py.",
+   "subject": "programming-and-data-structures",
+   "topic": "programming-in-c",
+   "path": "subjects/programming-and-data-structures/programming-in-c/strings-nul-termination.json"
+  },
+  {
+   "id": "structures-unions-and-padding",
+   "title": "Structures, Unions and Padding",
+   "priority": "P1",
+   "order": 569,
+   "unit": "Programming in C",
+   "quickIdea": "A struct places its members one after another in declaration order, inserting padding so each lands on a suitable boundary; a union places them all at offset zero, so only the last one written is readable.",
+   "remember": [
+    "sizeof(struct) is at least the sum of the member sizes and usually more. Each member is aligned to its own requirement, commonly its own size; the struct's alignment is its largest member's, and the total is rounded up to a multiple of it.",
+    "Reordering members can change the size: char, int, char needs padding after the first char, while char, char, int needs none.",
+    "sizeof(union) is the size of its largest member, rounded up to the union's alignment. All members start at the same address, so writing one overwrites the bytes of the others.",
+    "Member access is . on a struct and -> on a pointer to one; (*q).x and q->x are the same object.",
+    "A struct is assignable and is copied when passed by value, padding included. An array inside a struct is copied element by element; a pointer inside one is copied as an address, not followed.",
+    "Casting a struct pointer to char * changes the arithmetic, not the object: (char *)q + 1 moves one byte inside the struct, while q + 1 would move a whole struct."
+   ],
+   "example": {
+    "prompt": "struct Ournode { char x, y, z; }; struct Ournode p = {'1', '0', 'a' + 2}; struct Ournode *q = &p; printf(\"%c, %c\", *((char *)q + 1), *((char *)q + 2));",
+    "work": "'a' + 2 is the character 'c'. The three chars sit in consecutive bytes at offsets 0, 1 and 2. (char *)q makes the pointer step one byte at a time, so (char *)q + 1 addresses the second byte and (char *)q + 2 the third. Dereferencing them gives '0' and 'c', and %c prints characters without quotes.",
+    "answer": "0, c."
+   },
+   "gateAngle": "GATE CSE 2018 Q.2 is this program and the answer is 0, c. GATE CSE 2000's struct-inside-a-union question is the size version of the same layout idea. The distractors in both are the ones you get by forgetting the cast, which would step a whole struct, or by counting a union as the sum of its members.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "What is sizeof for struct { char c; int i; char d; } with 4-byte ints and the usual alignment?",
+     "answer": "12: c at 0, three padding bytes, i at 4, d at 8, and three bytes of tail padding to round the total up to the struct's alignment of 4.",
+     "why": "The padding half of the same layout question; the 2018 question tests offsets and the 2000 one tests sizes."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why can a union not hold two members' values at the same time?",
+     "answer": "Because all its members share one storage region starting at the same address, so writing one member overwrites the bytes the previous member occupied.",
+     "why": "The property that makes a union's size the maximum and not the sum."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "union U { float y; long z; } with float 4 and long 8 bytes - what is sizeof(union U), and what is sizeof(struct { float y; long z; }) ignoring alignment?",
+     "answer": "8 for the union and 12 for the struct.",
+     "why": "The one-word difference that changes the answer, which is the whole point of the 2000 question."
+    }
+   ],
+   "trap": {
+    "what": "Assuming that casting a struct pointer to char * lets you walk to the next struct.",
+    "why": "The cast changes the pointer's type, and with it the step size. (char *)q + 1 addresses the second byte of the same object, while q + 1 addresses the next struct, sizeof(struct) bytes away, which usually does not exist.",
+    "counterexample": "In GATE CSE 2018 Q.2, *(q + 1) would read outside p entirely, while *((char *)q + 1) reads p's second byte, which is '0'."
+   },
+   "check": {
+    "question": "struct S { char a; char b; int c; }; with 4-byte ints and no reordering, what is sizeof(struct S)?",
+    "answer": "8.",
+    "explanation": "a at 0, b at 1, two padding bytes so that c starts on a multiple of 4, then c at 4 to 7. The total 8 is already a multiple of the struct's alignment, 4."
+   },
+   "pyqIds": [
+    "gate-2018-2-struct-char-cast",
+    "gate-2000-34-struct-union-sizeof"
+   ],
+   "videoRefs": [],
+   "prereqs": [
+    "tokens-types-and-sizeof"
+   ],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "Programming in C - subject chapter (GATE Overflow for GATE CSE, Volume 2)",
+     "channel": "GATE Overflow",
+     "url": "https://gateoverflow.in/subject/programming-in-c/programming/programming-in-c",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "the struct and union summaries with the sizeof bounds and the dot-versus-arrow pitfall"
+    },
+    {
+     "kind": "text",
+     "title": "C mein Programming - chapter notes (Devanagari)",
+     "channel": "CareerCraft Labs",
+     "url": "https://careercraftlabs.org/hi/read/net2-cs-ch06",
+     "language": "hi",
+     "transcript": "PARTIAL",
+     "translated": true,
+     "note": "the statement that a struct's total size is at least the sum of its members because of alignment padding (translated)"
+    }
+   ],
+   "sourceLine": "The struct and union summaries and the sizeof bounds: GATE Overflow 'Programming in C' chapter (English, read in part). The alignment-padding sentence: CareerCraft Labs Hindi chapter (translated from Hindi, read in part). The 18 bytes of GATE CSE 2000, the 12-byte padded struct and the 0, c of GATE CSE 2018 Q.2 are recomputed in scripts/validate.py.",
+   "subject": "programming-and-data-structures",
+   "topic": "programming-in-c",
+   "path": "subjects/programming-and-data-structures/programming-in-c/structures-unions-and-padding.json"
+  },
+  {
+   "id": "dynamic-memory-malloc-calloc-realloc-free",
+   "title": "Dynamic Memory: malloc, calloc, realloc, free",
+   "priority": "P2",
+   "order": 570,
+   "unit": "Programming in C",
+   "quickIdea": "The heap is the region whose lifetime you control: malloc hands out uninitialised bytes, calloc hands out zeroed ones, realloc resizes a block, and free ends it - and the block outlives the function that allocated it.",
+   "remember": [
+    "void *malloc(size_t n) reserves n bytes and returns a pointer to them, or NULL on failure. The contents are indeterminate, so reading before writing is undefined behaviour.",
+    "void *calloc(size_t count, size_t size) reserves count * size bytes and sets every byte to zero.",
+    "void *realloc(void *p, size_t n) resizes the block and may move it, returning the new address. On failure it returns NULL and the original block is still valid, so assigning the result straight back to p loses the block.",
+    "free(p) ends the block's life; set p = NULL afterwards. Using it again is a dangling-pointer bug, and freeing it twice is undefined behaviour.",
+    "sizeof takes a type, so use sizeof(*p) or sizeof(int), never sizeof(p), which is the pointer's own size.",
+    "The block survives the return of the function that allocated it, which is why a function can return a heap pointer but not the address of its own local."
+   ],
+   "example": {
+    "prompt": "int *p = malloc(5 * sizeof(int)); for (int i = 0; i < 5; i++) printf(\"%d \", p[i]); free(p); p = NULL; On the GATE convention with 4-byte ints, how many bytes were requested and what does the loop print?",
+    "work": "5 * sizeof(int) is 5 * 4 = 20 bytes, so the call reserves 20 bytes. malloc does not initialise them, so the five ints hold whatever was in the heap and the printed values are not defined. Replacing malloc with calloc(5, sizeof(int)) zeroes the block, and the loop then prints 0 0 0 0 0.",
+    "answer": "20 bytes; with malloc the five values are indeterminate, with calloc they are all 0."
+   },
+   "gateAngle": "GATE reaches the heap through code traces rather than allocator arithmetic: the recurring pattern is a pointer that is reassigned and the original block leaked, or a function that returns a heap pointer where a local's address would dangle. GATE CSE 2017 Set 1 Q.13, with malloc, a helper that writes through the pointer, then a second malloc, is the canonical example; this run did not verify its answer, so it is not in the PYQ set.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "p = malloc(sizeof(int)); p = malloc(sizeof(int)); free(p); what has gone wrong?",
+     "answer": "The first block was never freed and its address was overwritten, so it is leaked and can no longer be released; the second block is freed correctly.",
+     "why": "The leak pattern of the code-trace questions, in the shortest form."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why is p = realloc(p, n) risky?",
+     "answer": "Because if realloc fails it returns NULL, and the original block's address has already been overwritten, so the block can neither be used nor freed. The safe form keeps a temporary: t = realloc(p, n); if (t) p = t;",
+     "why": "The one realloc rule that is examinable without a machine."
+    }
+   ],
+   "trap": {
+    "what": "Writing sizeof(p) when you meant the size of what p points at.",
+    "why": "sizeof answers a question about the operand's type. For an int * it is the size of an address, not of an int, so malloc(sizeof(p)) under-allocates on every machine where the two differ, and the writes past the end are undefined behaviour.",
+    "counterexample": "On a 64-bit build, malloc(sizeof(p)) with int *p reserves 8 bytes, which holds two ints; storing five is a heap overflow."
+   },
+   "check": {
+    "question": "What is the difference between malloc(10) and calloc(10, 1) in the bytes they return?",
+    "answer": "Both reserve 10 bytes; calloc sets all ten to zero, while malloc leaves them indeterminate.",
+    "explanation": "calloc multiplies its two arguments and then zeroes the block; the amount of memory is the same."
+   },
+   "pyqIds": [],
+   "videoRefs": [],
+   "prereqs": [
+    "pointers-address-and-indirection"
+   ],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "Pointers, arrays and strings in C - GATE notes and 11 solved PYQs",
+     "channel": "IAE Academy",
+     "url": "https://iaeacademy.in/study/c-programming/pointers-arrays-strings",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "the malloc, calloc and realloc contracts including the failure behaviour"
+    },
+    {
+     "kind": "text",
+     "title": "Programming in C - subject chapter (GATE Overflow for GATE CSE, Volume 2)",
+     "channel": "GATE Overflow",
+     "url": "https://gateoverflow.in/subject/programming-in-c/programming/programming-in-c",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "the dynamic-memory summary with the malloc, calloc, realloc and free signatures"
+    },
+    {
+     "kind": "text",
+     "title": "C mein Programming - chapter notes (Devanagari)",
+     "channel": "CareerCraft Labs",
+     "url": "https://careercraftlabs.org/hi/read/net2-cs-ch06",
+     "language": "hi",
+     "transcript": "PARTIAL",
+     "translated": true,
+     "note": "the three standard heap bugs - leak, dangling pointer and double free (translated)"
+    }
+   ],
+   "sourceLine": "The malloc, calloc and realloc contracts: IAE Academy 'Pointers, arrays and strings in C' (English, read in part). The dynamic-memory summary: GATE Overflow 'Programming in C' chapter (English, read in part). The three heap bugs: CareerCraft Labs Hindi chapter (translated from Hindi, read in part).",
+   "subject": "programming-and-data-structures",
+   "topic": "programming-in-c",
+   "path": "subjects/programming-and-data-structures/programming-in-c/dynamic-memory-malloc-calloc-realloc-free.json"
+  },
+  {
+   "id": "preprocessor-macros",
+   "title": "Preprocessor Macros and Their Traps",
+   "priority": "P2",
+   "order": 571,
+   "unit": "Programming in C",
+   "quickIdea": "The preprocessor substitutes text before the compiler parses anything, so a macro has no type, no scope and no evaluation - only parentheses keep its expansion honest.",
+   "remember": [
+    "#define is textual replacement before compilation. The macro name is not a variable, has no type, and is not checked by the compiler.",
+    "A function-like macro's parameters are substituted, not evaluated: #define SQ(x) x * x with SQ(2 + 3) expands to 2 + 3 * 2 + 3 = 11, not 25. #define SQ(x) ((x) * (x)) gives 25.",
+    "Both sets of parentheses matter: the inner ones protect the argument, the outer ones protect the whole expansion inside a larger expression such as SQ(a) / 2.",
+    "A macro argument with a side effect is duplicated when the parameter appears twice: SQ(i++) increments i twice, which a function would not.",
+    "No semicolon goes at the end of a #define, because the semicolon would be substituted too.",
+    "#include, #ifdef, #ifndef, #if defined(...) and #endif are preprocessor directives; #ifndef is the usual include guard."
+   ],
+   "example": {
+    "prompt": "#define SQ(x) x * x   int main(void) { printf(\"%d %d\", SQ(2 + 3), SQ(4)); } What is printed?",
+    "work": "SQ(2 + 3) expands to 2 + 3 * 2 + 3. Multiplication binds tighter than addition, so that is 2 + 6 + 3 = 11. SQ(4) expands to 4 * 4 = 16. The preprocessor did the substitution before the compiler ever saw the expression, so no argument was ever evaluated as a unit.",
+    "answer": "11 16."
+   },
+   "gateAngle": "GATE CSE 2003 Q.89 uses #define print(x) printf(\"%d\", x) as a shorthand, and the marks there are lost on scope rather than on the macro - which is how macros usually appear. A macro that expands wrongly is the one-mark version: the marks are lost by evaluating the argument first, the way a function would.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "#define MAX(a, b) a > b ? a : b   what does MAX(2, 1) * 2 give, and what does it give with the body fully parenthesised?",
+     "answer": "2 without the outer parentheses, because the expansion is 2 > 1 ? 2 : 1 * 2 and the multiplication joins the last branch; 4 with ((a) > (b) ? (a) : (b)).",
+     "why": "Shows why the outer parentheses exist, which is the part the inner ones do not fix."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why does #define SQUARE(x) ((x) * (x)) still misbehave for SQUARE(i++)?",
+     "answer": "Because the parameter appears twice, so the argument text is substituted twice and i is incremented twice. A macro has no notion of evaluating an argument once.",
+     "why": "Separates the parenthesis problem from the duplication problem; parentheses fix only the first."
+    }
+   ],
+   "trap": {
+    "what": "Evaluating a macro argument before substituting it.",
+    "why": "There is no evaluation. The preprocessor copies the argument's tokens into the body, and the compiler then applies precedence to the resulting expression, which may group it differently from what the parentheses at the call site suggested.",
+    "counterexample": "#define SQ(x) x * x with SQ(2 + 3) gives 11, while int sq(int x) { return x * x; } gives 25 for the same call."
+   },
+   "check": {
+    "question": "What is wrong with #define A 2 + 3 followed by A * A?",
+    "answer": "It expands to 2 + 3 * 2 + 3 = 11, not 25, because the macro body has no parentheses, so the surrounding multiplication binds to one term only.",
+    "explanation": "The whole body needs parentheses as well as each parameter, so #define A (2 + 3) is the version that gives 25."
+   },
+   "pyqIds": [],
+   "videoRefs": [],
+   "prereqs": [
+    "scope-shadowing-and-linkage"
+   ],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "C mein Programming - chapter notes (Devanagari)",
+     "channel": "CareerCraft Labs",
+     "url": "https://careercraftlabs.org/hi/read/net2-cs-ch06",
+     "language": "hi",
+     "transcript": "PARTIAL",
+     "translated": true,
+     "note": "the preprocessor section: pure textual substitution, no type checking, and the parentheses that #define SQ(x) ((x)*(x)) needs (translated)"
+    },
+    {
+     "kind": "text",
+     "title": "Functions, parameter passing, scope and storage classes - GATE notes and 7 solved PYQs",
+     "channel": "IAE Academy",
+     "url": "https://iaeacademy.in/study/c-programming/functions-scope",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "the closing note on the textual-substitution pitfalls of #define"
+    }
+   ],
+   "sourceLine": "The preprocessor section, the SQ(x) parentheses trap and the include guard: CareerCraft Labs Hindi chapter (translated from Hindi, read in part). The note that macro pitfalls are textual substitution: IAE Academy 'Functions, parameter passing, scope and storage classes' (English, read in part). Every expansion shown is recomputed in scripts/validate.py.",
+   "subject": "programming-and-data-structures",
+   "topic": "programming-in-c",
+   "path": "subjects/programming-and-data-structures/programming-in-c/preprocessor-macros.json"
   }
  ],
  "pyqs": [
@@ -43327,6 +44441,28 @@ window.GATE_DATA = {
    "answer_evidence": "The accepted answer argues from the 32-bit precision limit that the 31st decimal digit of A is outside the format and picks option 2. Recomputed in single precision here: 2e30 + 1 rounds back to 2e30, so Y = 0.0 and X = 1.0."
   },
   {
+   "id": "gate-2000-34-struct-union-sizeof",
+   "year": "2000",
+   "paper": "GATE CSE 2000",
+   "question_ref": "Q.34 of the 2000 paper (numbered Q.36 on the ExamSIDE topic page; the GATE Overflow record carries no paper number)",
+   "type": "MCQ",
+   "marks": null,
+   "topic": "structures-unions-and-padding",
+   "text": "Consider the following C declaration: struct { short s[5]; union { float y; long z; } u; } t; Assume that objects of the type short, float and long occupy 2 bytes, 4 bytes and 8 bytes, respectively. The memory requirement for variable t, ignoring alignment considerations, is",
+   "options": [
+    "22 bytes",
+    "14 bytes",
+    "18 bytes",
+    "10 bytes"
+   ],
+   "answer": "18 bytes (option C)",
+   "solution": "The struct has two members that sit side by side. s is an array of five shorts, so 5 x 2 = 10 bytes. u is a union, so it is as large as its largest member, max(4, 8) = 8 bytes, because all of its members share one starting address. The total is 10 + 8 = 18. Option A, 22, is what you get by treating the union as a struct and summing 10 + 4 + 8. Option B, 14, adds the float twice or the array wrongly, and option D, 10, forgets the union altogether.",
+   "source_url": "https://gateoverflow.in/486933/programming-gate-2000-question",
+   "source_label": "GATE Overflow record of the GATE 2000 question, with the accepted answer 18 bytes",
+   "verification": "SOURCED",
+   "answer_evidence": "The GATE Overflow answer states 10 + max(4, 8) = 18 and both the SolutionsAdda page and the ExamSIDE topic page reproduce the same option set. The official 2000 paper and key were not fetched this run, so the record stays SOURCED, and the question number is recorded with the disagreement above rather than pinned to one site."
+  },
+  {
    "id": "gate-2000-cards",
    "year": "2000",
    "paper": "GATE CS 2000",
@@ -43578,6 +44714,28 @@ window.GATE_DATA = {
    "source_label": "GATE Overflow question page - GATE CSE 2003 Q.46 with the accepted answer (option A)",
    "verification": "SOURCED",
    "answer_evidence": "Several answers on the page build the same four-row table of (K, C0) against the operation performed and all conclude option (A), with the reason that A + 1 cannot be obtained without manipulating B. Recomputed here by enumeration over all 4-bit pairs: K = 0, C0 = 0 reproduces A + B, K = 1, C0 = 1 reproduces A - B, and no setting reproduces A + 1 for every A. GATE Overflow files this question under Digital Logic; it is placed here because its subject is the ALU's control lines."
+  },
+  {
+   "id": "gate-2003-89-macro-and-global-shadowing",
+   "year": "2003",
+   "paper": "GATE CSE 2003",
+   "question_ref": "Q.89",
+   "type": "MCQ",
+   "marks": null,
+   "topic": "scope-shadowing-and-linkage",
+   "text": "Consider the C program shown below: #include<stdio.h> #define print(x) printf(\"%d\", x) int x; void Q(int z) { z+=x; print(z); } void P(int *y) { int x = *y + 2; Q(x); *y = x - 1; print(x); } main(void) { x = 5; P(&x); print(x); } The output of this program is:",
+   "options": [
+    "12 7 6",
+    "22 12 11",
+    "14 6 6",
+    "7 6 6"
+   ],
+   "answer": "12 7 6 (option A)",
+   "solution": "The global x is set to 5. In P, a local x shadows the global and is 5 + 2 = 7. Q is called with 7, and Q has no local x, so its x is the global, still 5: z becomes 12, which is printed. Back in P, *y = x - 1 writes the local 7 minus 1 into the global through the pointer, so the global becomes 6, and the next print shows the local x, 7. main then prints the global x, now 6. The three values are 12, 7 and 6. Option C, 14 6 6, is what dynamic scoping would give, and option B, 22 12 11, is what you get by letting the pointer write propagate into the local.",
+   "source_url": "https://gateoverflow.in/972/gate-cse-2003-question-89",
+   "source_label": "GATE Overflow question page - GATE CSE 2003 Q.89 with the accepted answer 12 7 6",
+   "verification": "SOURCED",
+   "answer_evidence": "The GATE Overflow accepted answer is option A and the page works through all three prints, with one answer explicitly noting that dynamic scoping would give 14 7 6. The official key was not fetched, so the record stays SOURCED."
   },
   {
    "id": "gate-2003-resolution-rule-false-statement",
@@ -43857,6 +45015,28 @@ window.GATE_DATA = {
    "answer_evidence": "The best answer on the page (56 votes) states option (A): 'user applications are not allowed to perform I/O in user mode - all I/O requests are handled through system calls that must be performed in kernel mode'. One answer argues for option (B) on the grounds that a hardware trap is raised for a device address range; the page's accepted answer and the reasoning above prefer (A), and the dissent is recorded rather than suppressed."
   },
   {
+   "id": "gate-2005-32-prototype-implicit-declaration",
+   "year": "2005",
+   "paper": "GATE CSE 2005",
+   "question_ref": "Q.32",
+   "type": "MCQ",
+   "marks": null,
+   "topic": "call-by-value-and-the-activation-record",
+   "text": "Consider the following C program: double foo (double); /* Line 1 */ int main() { double da, db; //input da db = foo(da); } double foo (double a) { return a; } The above code compiled without any error or warning. If Line 1 is deleted, the above code will show:",
+   "options": [
+    "no compile warning or error",
+    "some compiler-warnings not leading to unintended results",
+    "some compiler-warnings due to type-mismatch eventually leading to unintended results",
+    "compiler errors"
+   ],
+   "answer": "compiler errors (option D)",
+   "solution": "With Line 1 present, the compiler knows foo returns double before it sees the call. With the prototype deleted, the call is an implicit declaration: pre-C99 C assumes the function returns int and takes unspecified arguments, and the later definition returning double then conflicts with that assumption. That conflict is an error, not merely a warning, because the two types disagree. The question's option C describes a warning with unintended results, which is the answer when the assumed and actual types happen to be compatible, as they are for an int-returning function.",
+   "source_url": "https://gateoverflow.in/1368/gate-cse-2005-question-32",
+   "source_label": "GATE Overflow question page - GATE CSE 2005 Q.32 with the accepted answer, compiler errors",
+   "verification": "SOURCED",
+   "answer_evidence": "The GATE Overflow accepted answer is option D and the page records the implicit-declaration and conflicting-types diagnostics that a compiler prints. Two answers on the page argue for option C on pre-C99 compilers; the accepted answer and the C99 rule both give D, and the disagreement is noted on the card rather than smoothed over. The official key was not fetched, so the record stays SOURCED."
+  },
+  {
    "id": "gate-2005-46-upper-triangular-group",
    "year": "2005",
    "paper": "GATE CS 2005",
@@ -44108,6 +45288,28 @@ window.GATE_DATA = {
    "source_label": "GATE Overflow question page - GATE CSE 2008 Q.3, with the row reduction and the note that no printed option is correct",
    "verification": "SOURCED",
    "answer_evidence": "Accepted answer: 'if alpha = 5 then there'll be a free variable ... So alpha != 5 will always give a unique solution', and the IIT Delhi solution for GATE 2008 Q.3 concludes 'alpha can be any real number except 5. So none of the options is correct'."
+  },
+  {
+   "id": "gate-2008-60-double-pointer-trace",
+   "year": "2008",
+   "paper": "GATE CSE 2008",
+   "question_ref": "Q.60 (numbered Q.25 on the ExamSIDE topic page)",
+   "type": "MCQ",
+   "marks": null,
+   "topic": "pointers-address-and-indirection",
+   "text": "What is printed by the following C program? int f(int x, int *py, int **ppz) { int y, z; **ppz += 1; z = **ppz; *py += 2; y = *py; x += 3; return x+y+z; } void main() { int c, *b, **a; c = 4; b = &c; a = &b; printf(\"%d\", f(c,b,a)); }",
+   "options": [
+    "18",
+    "19",
+    "21",
+    "22"
+   ],
+   "answer": "19 (option B)",
+   "solution": "The call passes a copy of c as x, and the addresses b and a. Both *py and **ppz reach c. **ppz += 1 makes c = 5 and z = 5. *py += 2 makes c = 7 and y = 7. x is a separate copy, still 4, so x += 3 makes x = 7. The return value is 7 + 7 + 5 = 19. Option C, 21, is what you get by letting x see the update to c; option D, 22, by adding the two updates twice.",
+   "source_url": "https://gateoverflow.in/483/gate-cse-2008-question-60",
+   "source_label": "GATE Overflow question page - GATE CSE 2008 Q.60 with the accepted answer 19",
+   "verification": "SOURCED",
+   "answer_evidence": "The GATE Overflow accepted answer is option B, 19, and the page notes that the printed code's z = *ppz is a misprint for z = **ppz, which the options assume. GeeksforGeeks reproduces the question as Q.60 of GATE CS 2008 with the same answer. The official key was not fetched, so the record stays SOURCED."
   },
   {
    "id": "gate-2008-q33-autoincrement-mode",
@@ -45243,6 +46445,28 @@ window.GATE_DATA = {
    "answer_evidence": "The accepted answer performs the same elimination and states 'Answer: A'. Recomputed here for a = 2, b = 1 by numerical quadrature of the explicit f."
   },
   {
+   "id": "gate-2015-set3-7-char-array-pointer-overwrite",
+   "year": "2015",
+   "paper": "GATE CSE 2015 Set 3",
+   "question_ref": "Q.7",
+   "type": "MCQ",
+   "marks": null,
+   "topic": "strings-nul-termination",
+   "text": "Consider the following C program segment. # include <stdio.h> int main() { char s1[7] = \"1234\", *p; p = s1 + 2; *p = '0'; printf(\"%s\", s1); } What will be printed by the program?",
+   "options": [
+    "12",
+    "120400",
+    "1204",
+    "1034"
+   ],
+   "answer": "1204 (option C)",
+   "solution": "s1 holds '1', '2', '3', '4' and a NUL at index 4, with the last two bytes of the array zero. s1 + 2 points at the '3'. Assigning the character '0', whose value is 48, overwrites that byte, so the array reads '1', '2', '0', '4' followed by the NUL. printf prints 1204. Option A, 12, is what assigning the integer 0 rather than the character '0' would print, because that would write the terminator itself.",
+   "source_url": "https://gateoverflow.in/8401/gate-cse-2015-set-3-question-7",
+   "source_label": "GATE Overflow question page - GATE CSE 2015 Set 3 Q.7 with the accepted answer 1204",
+   "verification": "SOURCED",
+   "answer_evidence": "The GATE Overflow accepted answer is option C, and several answers on the page contrast *p = '0' with *p = 0 explicitly. The official key was not fetched, so the record stays SOURCED."
+  },
+  {
    "id": "gate-2015-set3-q37-conditional-xor",
    "year": "2015",
    "paper": "GATE CSE 2015 Set 3",
@@ -45438,6 +46662,28 @@ window.GATE_DATA = {
    "source_label": "ExamSIDE GATE CSE Computer Organization - I/O Interface question bank, GATE CSE 2016 Set 1 Q.31 (2 marks, numerical answer)",
    "verification": "SOURCED",
    "answer_evidence": "The question text and the numerical answer 456 are published on the ExamSIDE I/O Interface question page; an independent solution page for GATE 2016 CS Set 1 works the same division and states 456 as the answer. Recomputed here: 2^16 = 65536 bytes = 64 KB, ceil(29154 / 64) = ceil(455.53) = 456."
+  },
+  {
+   "id": "gate-2016-set1-35-static-local-in-recursion",
+   "year": "2016",
+   "paper": "GATE CSE 2016 Set 1",
+   "question_ref": "Q.35",
+   "type": "MCQ",
+   "marks": null,
+   "topic": "storage-classes-auto-static-extern-register",
+   "text": "What will be the output of the following C program? void count (int n) { static int d=1; printf (\"%d\",n); printf (\"%d\",d); d++; if (n>1) count (n-1); printf (\"%d\",d); } void main(){ count (3); }",
+   "options": [
+    "3 1 2 2 1 3 4 4 4",
+    "3 1 2 1 1 1 2 2 2",
+    "3 1 2 2 1 3 4",
+    "3 1 2 1 1 1 2"
+   ],
+   "answer": "3 1 2 2 1 3 4 4 4 (option A)",
+   "solution": "d is a static local, initialised once before the first call, so all activations share it. count(3) prints 3 and 1, then d becomes 2 and count(2) is called. count(2) prints 2 and 2, d becomes 3, and count(1) is called. count(1) prints 1 and 3, d becomes 4, and n > 1 is false, so it prints 4 and returns. Each of the two returns then prints the current d, which is 4, so the last three digits are 4 4 4. The three unconditional prints guarantee a multiple of three digits, which eliminates options C and D at sight.",
+   "source_url": "https://gateoverflow.in/39730/gate-cse-2016-set-1-question-35",
+   "source_label": "GATE Overflow question page - GATE CSE 2016 Set 1 Q.35 with the accepted answer, option A",
+   "verification": "SOURCED",
+   "answer_evidence": "The GATE Overflow accepted answer is option A, and the page's other answers trace the same nine digits. GateQA's record of the same question also gives A. The official key was not fetched, so the record stays SOURCED."
   },
   {
    "id": "gate-2016-set1-q7-16bit-pattern",
@@ -45750,6 +46996,23 @@ window.GATE_DATA = {
    "answer_evidence": "Accepted answer: option B, I only, with the 2 x 2 counterexample [[5,0],[0,5]] refuting statement II."
   },
   {
+   "id": "gate-2017-set1-53-unsigned-strlen-compare",
+   "year": "2017",
+   "paper": "GATE CSE 2017 Set 1",
+   "question_ref": "Q.53",
+   "type": "NAT",
+   "marks": null,
+   "topic": "integer-promotion-and-unsigned-wrap",
+   "text": "Consider the following C program. #include<stdio.h> #include<string.h> void printlength(char *s, char *t) { unsigned int c=0; int len = ((strlen(s) - strlen(t)) > c) ? strlen(s) : strlen(t); printf(\"%d\\n\", len); } void main() { char *x = \"abc\"; char *y = \"defgh\"; printlength(x,y); } Recall that strlen is defined in string.h as returning a value of type size_t, which is an unsigned int. The output of the program is __________ .",
+   "options": [],
+   "answer": "3",
+   "solution": "strlen(x) is 3 and strlen(y) is 5, both of type size_t. The subtraction is done in unsigned arithmetic, so 3 - 5 does not give -2; it wraps to 2^32 - 2 on a 32-bit int. That value is greater than c = 0, so the conditional is true and selects strlen(s), which is 3. len is then 3 and printf prints 3. A trace that treats the difference as the signed -2 answers 5, which is the intended trap.",
+   "source_url": "https://gateoverflow.in/118473/gate-cse-2017-set-1-question-53",
+   "source_label": "GATE Overflow question page - GATE CSE 2017 Set 1 Q.53 with the accepted answer 3",
+   "verification": "SOURCED",
+   "answer_evidence": "The GATE Overflow accepted answers all give 3, and several of them show the wrap-around explicitly. One answer on the page reports 5 after compiling the expression as plain int, which is the wrong trace the question is designed to catch; the record keeps the accepted answer 3. The official key was not fetched, so the record stays SOURCED."
+  },
+  {
    "id": "gate-2017-set1-54-tag-16-way",
    "year": "2017",
    "paper": "GATE CSE 2017 Set 1",
@@ -45787,6 +47050,28 @@ window.GATE_DATA = {
    "answer_evidence": "The accepted answers sum the integer and fraction maxima as a geometric series, reaching 2^i - 2^(-f), and eliminate the options that put the minimum at 2^(-f). Recomputed here for i = 8, f = 4 as 15.9375."
   },
   {
+   "id": "gate-2017-set2-14-printxy-call-by-value",
+   "year": "2017",
+   "paper": "GATE CSE 2017 Set 2",
+   "question_ref": "Q.14",
+   "type": "MCQ",
+   "marks": null,
+   "topic": "call-by-value-and-the-activation-record",
+   "text": "Consider the following function implemented in C: void printxy(int x, int y) { int *ptr; x=0; ptr=&x; y=*ptr; *ptr=1; printf(\"%d, %d\", x, y); } The output of invoking printxy(1,1) is:",
+   "options": [
+    "0, 0",
+    "0, 1",
+    "1, 0",
+    "1, 1"
+   ],
+   "answer": "1, 0 (option C)",
+   "solution": "Both arguments are copied into the parameters, so x and y start as 1. x = 0 sets the local x to 0. ptr = &x points at that local. y = *ptr copies 0 into y. *ptr = 1 writes through the pointer into x, so the local x becomes 1; y was already copied and does not change. printf prints x = 1 and y = 0. The function prints the same thing whatever is passed to it, which is the tell that the parameters are copies.",
+   "source_url": "https://gateoverflow.in/118245/gate-cse-2017-set-2-question-14",
+   "source_label": "GATE Overflow question page - GATE CSE 2017 Set 2 Q.14 with the accepted answer 1, 0",
+   "verification": "SOURCED",
+   "answer_evidence": "The GATE Overflow accepted answer is option C, 1, 0, and the reasoning on the page follows the same six assignments. GateQA's record of the same question also gives C. The official key was not fetched, so the record stays SOURCED."
+  },
+  {
    "id": "gate-2017-set2-21-lattice-pairs-to-add",
    "year": "2017",
    "paper": "GATE CS 2017, Set 2",
@@ -45816,6 +47101,23 @@ window.GATE_DATA = {
    "source_label": "GATE Overflow question page - GATE CSE 2017 Set 2 Q.48 with the accepted answer (54)",
    "verification": "SOURCED",
    "answer_evidence": "The accepted answer computes E[X^2] = 30 from Var = mean = 5 and then 30 + 20 + 4 = 54; a second route on the same page uses E[X+2] = 7 and Var(X+2) = 5 to get 5 + 49 = 54. Recomputed here."
+  },
+  {
+   "id": "gate-2017-set2-55-array-index-identity",
+   "year": "2017",
+   "paper": "GATE CSE 2017 Set 2",
+   "question_ref": "Q.55",
+   "type": "NAT",
+   "marks": null,
+   "topic": "pointer-arithmetic-and-array-decay",
+   "text": "Consider the following C program. #include<stdio.h> #include<string.h> int main() { char* c=\"GATECSIT2017\"; char* p=c; printf(\"%d\", (int)strlen(c+2[p]-6[p]-1)); return 0; } The output of the program is _______",
+   "options": [],
+   "answer": "2",
+   "solution": "2[p] is *(2 + p), which is p[2], the character 'T'; 6[p] is p[6], the character 'I'. In any character set the letters are consecutive, so 'T' - 'I' = 84 - 73 = 11. The argument is therefore c + 11 - 1, that is c + 10, which points at the '1' of \"2017\", ten characters into the twelve-character string. strlen counts from there to the NUL, so it counts '1' and '7' and returns 2.",
+   "source_url": "https://gateoverflow.in/118335/gate-cse-2017-set-2-question-55",
+   "source_label": "GATE Overflow question page - GATE CSE 2017 Set 2 Q.55 with the accepted answer 2",
+   "verification": "SOURCED",
+   "answer_evidence": "The GATE Overflow accepted answers give 2, and one answer on the page reaches -9 by evaluating the difference without the pointer arithmetic, which the accepted answer corrects. GateQA's record of the same question gives 2. The official key was not fetched, so the record stays SOURCED."
   },
   {
    "id": "gate-2017-set2-q28-minimum-pos-with-dont-cares",
@@ -45853,6 +47155,28 @@ window.GATE_DATA = {
    "source_label": "GATE Overflow question page - GATE CSE 2018 Q.19 with the accepted solution (42)",
    "verification": "SOURCED",
    "answer_evidence": "Accepted answer: 'Proper Subgroup of Group having order 84 would have one of the order (proper factors of 84) ... So the largest order would be 42.'"
+  },
+  {
+   "id": "gate-2018-2-struct-char-cast",
+   "year": "2018",
+   "paper": "GATE CSE 2018",
+   "question_ref": "Q.2",
+   "type": "MCQ",
+   "marks": null,
+   "topic": "structures-unions-and-padding",
+   "text": "Consider the following C program: #include<stdio.h> struct Ournode{ char x, y, z; }; int main() { struct Ournode p={'1', '0', 'a'+2}; struct Ournode *q=&p; printf(\"%c, %c\", *((char*)q+1), *((char*)q+2)); return 0; } The output of this program is:",
+   "options": [
+    "0, c",
+    "0, a+2",
+    "'0', 'a+2'",
+    "'0', 'c'"
+   ],
+   "answer": "0, c (option A)",
+   "solution": "'a' + 2 is the character 'c', so p holds '1', '0' and 'c' in three consecutive bytes at offsets 0, 1 and 2. Casting q to char * changes the step size from one struct to one byte, so (char *)q + 1 addresses the second byte and (char *)q + 2 the third. Dereferencing gives '0' and 'c', and %c prints the characters themselves with no quotes, which is why options C and D are wrong.",
+   "source_url": "https://gateoverflow.in/204076/gate-cse-2018-question-2",
+   "source_label": "GATE Overflow question page - GATE CSE 2018 Q.2 with the accepted answer, option A",
+   "verification": "SOURCED",
+   "answer_evidence": "The GATE Overflow accepted answer is option A, 0, c, and the page explains both the arithmetic on 'a' + 2 and the effect of the cast on the pointer's step size. GateQA's record of the same question gives A. The official key was not fetched, so the record stays SOURCED."
   },
   {
    "id": "gate-2018-22-self-loop-states",
@@ -46065,6 +47389,28 @@ window.GATE_DATA = {
    "source_label": "GATE Overflow question page - GATE CSE 2019 Q.2 with the accepted answer (option A)",
    "verification": "SOURCED",
    "answer_evidence": "The GATE Overflow accepted answer expands the five decoded bits and fills the other eleven with zeros and ones, and the GATE Forum 2019 paper PDF prints answer (A) beside the question. The official key document was not opened this run. Recomputed in scripts/validate.py."
+  },
+  {
+   "id": "gate-2019-27-static-for-loop-sequence",
+   "year": "2019",
+   "paper": "GATE CSE 2019",
+   "question_ref": "Q.27",
+   "type": "MCQ",
+   "marks": null,
+   "topic": "operator-precedence-and-sequence-points",
+   "text": "Consider the following C program: #include <stdio.h> int r() { static int num=7; return num--; } int main() { for (r();r();r()) printf(\"%d\",r()); return 0; } Which one of the following values will be displayed on execution of the program?",
+   "options": [
+    "41",
+    "52",
+    "63",
+    "630"
+   ],
+   "answer": "52 (option B)",
+   "solution": "num is a single static int, initialised once to 7, and r returns its value before decrementing. The for header is evaluated in the order initialisation, test, body, update, test, body, and so on, and each of those three expressions is a separate full expression. The initialisation r() returns 7 and leaves 6. The test r() returns 6 and leaves 5, which is true, so the body runs and its printf prints the 5 returned by its own r() call, leaving 4. The update r() returns 4 and leaves 3. The test r() returns 3 and leaves 2, true, so the body prints 2 and leaves 1. The update r() returns 1 and leaves 0. The test r() returns 0 and leaves -1, which is false, so the loop ends. The characters printed are 5 then 2.",
+   "source_url": "https://gateoverflow.in/302821/gate-cse-2019-question-27",
+   "source_label": "GATE Overflow question page - GATE CSE 2019 Q.27 with the accepted answer 52",
+   "verification": "SOURCED",
+   "answer_evidence": "The GATE Overflow accepted answer traces every call and gives 52, and the same answer appears in the other answers on the page. The official paper's numbering agrees with the page. The official key was not fetched this run, so the record stays SOURCED."
   },
   {
    "id": "gate-2019-47-uniform-real-roots-probability",
@@ -47331,6 +48677,28 @@ window.GATE_DATA = {
    "answer_evidence": "The accepted answer lists the five total orders and concludes 'the number of total order on {1,2,3,4} that contain P is 5'; recomputed by enumeration in scripts/validate.py."
   },
   {
+   "id": "gate-2024-set2-26-pointer-subtraction",
+   "year": "2024",
+   "paper": "GATE CSE 2024 Set 2",
+   "question_ref": "Q.26",
+   "type": "MCQ",
+   "marks": null,
+   "topic": "pointer-arithmetic-and-array-decay",
+   "text": "What is the output of the following C program? #include <stdio.h> int main() { double a[2]={20.0,25.0},* p,* q; p=a ; q=p+1 ; printf(\"%d,%d\", (int) (q-p),( int)(* q- * p)); return 0;}",
+   "options": [
+    "4,8",
+    "1,5",
+    "8,5",
+    "1,8"
+   ],
+   "answer": "1,5 (option B)",
+   "solution": "p points at a[0] and q at a[1]. Subtracting two pointers of the same type counts elements, so q - p is 1 even though the two addresses differ by sizeof(double) = 8 bytes. The second expression subtracts the stored values rather than the addresses: *q - *p is 25.0 - 20.0 = 5.0, and the cast to int gives 5. Options A and C come from counting bytes in the first value, and options A and D from treating the second as a difference of addresses.",
+   "source_url": "https://gateoverflow.in/422871/gate-cse-2024-set-2-question-26",
+   "source_label": "GATE Overflow question page - GATE CSE 2024 Set 2 Q.26 with the accepted answer 1,5",
+   "verification": "SOURCED",
+   "answer_evidence": "The GATE Overflow accepted answer is option B and the page shows the address arithmetic 8 / 8 = 1 alongside 25 - 20 = 5. The official key was not fetched, so the record stays SOURCED."
+  },
+  {
    "id": "gate-2024-set2-37-row-swap-statements",
    "year": "2024",
    "paper": "GATE CS 2024 Set 2",
@@ -47862,6 +49230,28 @@ window.GATE_DATA = {
    "source_label": "GATE Overflow question page - GATE CSE 2025 Set 2 Q.45 with the accepted answer 4",
    "verification": "SOURCED",
    "answer_evidence": "The GATE Overflow answers all reach 4 ns, several of them by writing AMAT = 1 + 0.1(10 + 0.2 x 100) explicitly, and the page records the disagreement about whether to add the L1 access time inside the bracket, which changes the answer to 4.1. The official key was not opened this run. Recomputed in scripts/validate.py."
+  },
+  {
+   "id": "gate-2025-set2-9-overlapping-stringcopy",
+   "year": "2025",
+   "paper": "GATE CSE 2025 Set 2",
+   "question_ref": "Q.9",
+   "type": "MCQ",
+   "marks": null,
+   "topic": "strings-nul-termination",
+   "text": "Consider the following C program: #include <stdio.h> void stringcopy (char *, char *); int main() { char a[30] = \"@#Hello World!\"; stringcopy(a, a+2); printf(\"%s\\n\",a); return 0; } void stringcopy(char *s, char *t) { while (*t) *s++=*t++; } Which one of the following will be the output of the program?",
+   "options": [
+    "@#Hello World!",
+    "Hello World!",
+    "ello World!",
+    "Hello World!d!"
+   ],
+   "answer": "Hello World!d! (option D)",
+   "solution": "The literal fills indices 0 to 13 with @, #, H, e, l, l, o, space, W, o, r, l, d, ! and puts the NUL at index 14. The source starts at index 2 and the destination at index 0, so the twelve characters from 'H' to '!' are copied into indices 0 to 11 and the loop stops at the NUL without copying it. Indices 12 and 13 still hold the old 'd' and '!', and the NUL at 14 is untouched, so printf prints the twelve copied characters followed by those two leftovers. The missing terminator is the whole question: option B is the answer if the loop also wrote the NUL.",
+   "source_url": "https://gateoverflow.in/460826/gate-cse-2025-set-2-question-9",
+   "source_label": "GATE Overflow question page - GATE CSE 2025 Set 2 Q.9 with the accepted answer, option D",
+   "verification": "SOURCED",
+   "answer_evidence": "The GATE Overflow accepted answer is option D, with the page noting that the loop omits the terminator and that adding *s = '\\0' would give option B instead. The official key was not fetched, so the record stays SOURCED."
   },
   {
    "id": "gate-2026-1-26-fp-addition",
