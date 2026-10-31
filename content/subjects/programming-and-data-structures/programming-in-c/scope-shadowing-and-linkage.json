@@ -1,73 +1,114 @@
 {
- "id": "scope-shadowing-and-linkage",
- "title": "Scope, Shadowing and Linkage",
- "priority": "P2",
- "order": 564,
- "unit": "Programming in C",
- "quickIdea": "Scope is a property of the program text: it decides which declaration a name refers to, and the nearest enclosing declaration wins. It has nothing to do with which function called which.",
- "remember": [
-  "Block scope runs from a declaration to the closing brace of its block, nested blocks included. File scope runs from the declaration to the end of the source file.",
-  "An inner declaration hides an outer one of the same name for the rest of the inner block; the outer object is neither destroyed nor changed, and it is visible again afterwards.",
-  "Function parameters have block scope that ends with the body. Redeclaring a parameter's name in the body's outermost block is a redefinition error.",
-  "C is statically, that is lexically, scoped: a name not declared locally is resolved by the enclosing text, never by the caller's frame. The latter is dynamic scoping, which C does not use.",
-  "Linkage is a separate question from scope: a file-scope name has external linkage unless declared static, and extern names an object defined elsewhere."
- ],
- "example": {
-  "prompt": "int x; void Q(int z) { z += x; printf(\"%d\", z); } void P(int *y) { int x = *y + 2; Q(x); *y = x - 1; printf(\"%d\", x); } main(void) { x = 5; P(&x); printf(\"%d\", x); }",
-  "work": "The global x is set to 5. Inside P a local x shadows it: x = *y + 2 = 5 + 2 = 7. Q is called with 7, and Q has no local x, so the name resolves to the global, still 5, making z = 7 + 5 = 12, which is printed. Back in P, *y = x - 1 writes 6 into the global through the pointer, then printf prints the local x = 7. Finally main prints the global x, now 6.",
-  "answer": "12 7 6."
- },
- "gateAngle": "GATE CSE 2003 Q.89 prints 12 7 6 and the marks turn entirely on which x each statement means. The same mechanism decides why a static file-scope name is invisible to other files, and why a question that says 'assume dynamic scoping' changes the answer.",
- "variations": [
-  {
-   "label": "ORIGINAL PYQ-STYLE QUESTION",
-   "question": "What would the same program print if C used dynamic scoping?",
-   "answer": "14 7 6: Q would see P's x = 7, so z becomes 7 + 7 = 14.",
-   "why": "The classic paired question; it isolates scoping from everything else in the trace."
+  "id": "scope-shadowing-and-linkage",
+  "title": "Scope, Shadowing and Linkage",
+  "priority": "P2",
+  "order": 564,
+  "unit": "Programming in C",
+  "quickIdea": "Scope is a property of the program text: it decides which declaration a name refers to, and the nearest enclosing declaration wins. It has nothing to do with which function called which.",
+  "remember": [
+    "Block scope runs from a declaration to the closing brace of its block, nested blocks included. File scope runs from the declaration to the end of the source file.",
+    "An inner declaration hides an outer one of the same name for the rest of the inner block; the outer object is neither destroyed nor changed, and it is visible again afterwards.",
+    "Function parameters have block scope that ends with the body. Redeclaring a parameter's name in the body's outermost block is a redefinition error.",
+    "C is statically, that is lexically, scoped: a name not declared locally is resolved by the enclosing text, never by the caller's frame. The latter is dynamic scoping, which C does not use.",
+    "Linkage is a separate question from scope: a file-scope name has external linkage unless declared static, and extern names an object defined elsewhere."
+  ],
+  "example": {
+    "prompt": "int x; void Q(int z) { z += x; printf(\"%d\", z); } void P(int *y) { int x = *y + 2; Q(x); *y = x - 1; printf(\"%d\", x); } main(void) { x = 5; P(&x); printf(\"%d\", x); }",
+    "work": "The global x is set to 5. Inside P a local x shadows it: x = *y + 2 = 5 + 2 = 7. Q is called with 7, and Q has no local x, so the name resolves to the global, still 5, making z = 7 + 5 = 12, which is printed. Back in P, *y = x - 1 writes 6 into the global through the pointer, then printf prints the local x = 7. Finally main prints the global x, now 6.",
+    "answer": "12 7 6."
   },
-  {
-   "label": "CONCEPTUAL PRACTICE QUESTION",
-   "question": "A function declares int x inside a nested block while a global x exists. Is the global reachable inside that block?",
-   "answer": "Not by that name - the inner declaration hides it for the rest of the block. A function without a local x still sees the global.",
-   "why": "Separates hiding from replacement, the distinction the 2003 question is built on."
-  }
- ],
- "trap": {
-  "what": "Assuming that a same-named local and global are one object.",
-  "why": "They are different objects in different storage. The local hides the global for the rest of its block, so a write to the local leaves the global untouched, and a read of the name inside that block gets the local.",
-  "counterexample": "int g = 1; void f(void) { int g = 2; g++; } leaves the global g equal to 1 after f returns."
- },
- "check": {
-  "question": "What does this print? int x = 1; int main(void) { int x = 2; { int x = 3; printf(\"%d\", x); } printf(\"%d\", x); }",
-  "answer": "32.",
-  "explanation": "The innermost x is 3 inside its block; once the block ends the middle x is visible again and prints 2. The global is never printed."
- },
- "pyqIds": [
-  "gate-2003-89-macro-and-global-shadowing"
- ],
- "videoRefs": [],
- "prereqs": [],
- "sources": [
-  {
-   "kind": "text",
-   "title": "Functions, parameter passing, scope and storage classes - GATE notes and 7 solved PYQs",
-   "channel": "IAE Academy",
-   "url": "https://iaeacademy.in/study/c-programming/functions-scope",
-   "language": "en",
-   "transcript": "PARTIAL",
-   "translated": false,
-   "note": "the block-scope and file-scope rules, shadowing, and static against dynamic scoping"
+  "gateAngle": "GATE CSE 2003 Q.89 prints 12 7 6 and the marks turn entirely on which x each statement means. The same mechanism decides why a static file-scope name is invisible to other files, and why a question that says 'assume dynamic scoping' changes the answer.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "What would the same program print if C used dynamic scoping?",
+      "answer": "14 7 6: Q would see P's x = 7, so z becomes 7 + 7 = 14.",
+      "why": "The classic paired question; it isolates scoping from everything else in the trace."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "A function declares int x inside a nested block while a global x exists. Is the global reachable inside that block?",
+      "answer": "Not by that name - the inner declaration hides it for the rest of the block. A function without a local x still sees the global.",
+      "why": "Separates hiding from replacement, the distinction the 2003 question is built on."
+    }
+  ],
+  "trap": {
+    "what": "Assuming that a same-named local and global are one object.",
+    "why": "They are different objects in different storage. The local hides the global for the rest of its block, so a write to the local leaves the global untouched, and a read of the name inside that block gets the local.",
+    "counterexample": "int g = 1; void f(void) { int g = 2; g++; } leaves the global g equal to 1 after f returns."
   },
-  {
-   "kind": "text",
-   "title": "C mein Programming - chapter notes (Devanagari)",
-   "channel": "CareerCraft Labs",
-   "url": "https://careercraftlabs.org/hi/read/net2-cs-ch06",
-   "language": "hi",
-   "transcript": "PARTIAL",
-   "translated": true,
-   "note": "the statement that scope and storage class are independent properties (translated)"
+  "check": {
+    "question": "What does this print? int x = 1; int main(void) { int x = 2; { int x = 3; printf(\"%d\", x); } printf(\"%d\", x); }",
+    "answer": "32.",
+    "explanation": "The innermost x is 3 inside its block; once the block ends the middle x is visible again and prints 2. The global is never printed."
+  },
+  "pyqIds": [
+    "gate-2003-89-macro-and-global-shadowing"
+  ],
+  "videoRefs": [],
+  "prereqs": [],
+  "sources": [
+    {
+      "kind": "text",
+      "title": "Functions, parameter passing, scope and storage classes - GATE notes and 7 solved PYQs",
+      "channel": "IAE Academy",
+      "url": "https://iaeacademy.in/study/c-programming/functions-scope",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "the block-scope and file-scope rules, shadowing, and static against dynamic scoping"
+    },
+    {
+      "kind": "text",
+      "title": "C mein Programming - chapter notes (Devanagari)",
+      "channel": "CareerCraft Labs",
+      "url": "https://careercraftlabs.org/hi/read/net2-cs-ch06",
+      "language": "hi",
+      "transcript": "PARTIAL",
+      "translated": true,
+      "note": "the statement that scope and storage class are independent properties (translated)"
+    }
+  ],
+  "sourceLine": "Block and file scope, shadowing and the static-versus-dynamic scoping table: IAE Academy 'Functions, parameter passing, scope and storage classes' (English, read in part). The independence of scope from storage class: CareerCraft Labs Hindi chapter (translated from Hindi, read in part). The 12 7 6 of GATE CSE 2003 Q.89 is recomputed in scripts/validate.py.",
+  "links": {
+    "mock": {
+      "subject": "programming-data-structures",
+      "unit_slug": "pointers-memory",
+      "unit_name": "Pointers, Memory & Preprocessors",
+      "unit_number": 2,
+      "question_count": 50,
+      "subtopics": [
+        {
+          "label": "Pointer arithmetic",
+          "questions": 14
+        },
+        {
+          "label": "Pointers to functions",
+          "questions": 12
+        },
+        {
+          "label": "Dynamic memory allocation",
+          "questions": 12
+        },
+        {
+          "label": "Macro expansion, scope & lifetime",
+          "questions": 12
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/programming-data-structures/pointers-memory/gate_ds_mock_2_2026-10-27.html"
+    },
+    "visual": {
+      "slug": "functions-scope-and-preprocessor",
+      "title": "Functions, Scope, Lifetime and the Preprocessor",
+      "level": "topic-level",
+      "covers": [
+        "shadowing: two objects, one spelling, no diagnostic",
+        "static at file scope gives internal linkage",
+        "extern declares without defining; a plain file-scope int defines",
+        "declaration against definition, and one external definition per name"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/functions-scope-and-preprocessor/index.html"
+    },
+    "mapped_at": "2026-10-31"
   }
- ],
- "sourceLine": "Block and file scope, shadowing and the static-versus-dynamic scoping table: IAE Academy 'Functions, parameter passing, scope and storage classes' (English, read in part). The independence of scope from storage class: CareerCraft Labs Hindi chapter (translated from Hindi, read in part). The 12 7 6 of GATE CSE 2003 Q.89 is recomputed in scripts/validate.py."
 }

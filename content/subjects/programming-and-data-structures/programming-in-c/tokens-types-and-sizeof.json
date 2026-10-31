@@ -1,90 +1,131 @@
 {
- "id": "tokens-types-and-sizeof",
- "title": "Tokens, Types and sizeof",
- "priority": "P1",
- "order": 559,
- "unit": "Programming in C",
- "quickIdea": "sizeof answers a question about a type, not about a value: how many bytes the object occupies. In C it is an operator, settled before the program runs, and its result has the unsigned type size_t.",
- "remember": [
-  "GATE's convention unless a question says otherwise: char 1, short 2, int 4, float 4, double 8 bytes. A pointer is 4 bytes on a 32-bit build and 8 on a 64-bit build, and a question that needs a pointer's size states it.",
-  "sizeof is an operator, not a function: sizeof x is legal without parentheses, and the operand is not evaluated, so sizeof(i++) does not increment i.",
-  "sizeof(char) is 1 by definition, so sizeof of a char array equals its element count. sizeof(\"GATE\") is 5, because a string literal carries its terminating NUL byte.",
-  "sizeof an array is (number of elements) x (element size). sizeof a pointer is the pointer's own size, whatever it points at.",
-  "sizeof a struct is at least the sum of its members and usually more, because of padding; sizeof a union is the size of its largest member, rounded up to the union's alignment.",
-  "'a' is a character constant of type int, so sizeof 'a' is 4. \"a\" is a string literal of type char[2], so sizeof \"a\" is 2. The two are not interchangeable."
- ],
- "example": {
-  "prompt": "On a machine where short is 2, float 4 and long 8 bytes, what is sizeof t for struct { short s[5]; union { float y; long z; } u; } t, ignoring alignment?",
-  "work": "The member s is an array of 5 shorts, so 5 x 2 = 10 bytes. The member u is a union, so it is as large as its largest member, max(4, 8) = 8 bytes, and both of its members start at the same byte. The struct holds both members side by side, so its size is 10 + 8 = 18 bytes.",
-  "answer": "18 bytes. Swapping the union for a struct would give 10 + 4 + 8 = 22."
- },
- "gateAngle": "GATE CSE 2000 asked exactly this struct-holding-a-union shape and the answer is 18. The exam's usual twist is the one-word change union to struct, which turns 18 into 22, or the sentence 'ignoring alignment' being dropped, which makes the answer depend on the compiler's alignment rules.",
- "variations": [
-  {
-   "label": "ORIGINAL PYQ-STYLE QUESTION",
-   "question": "What are sizeof(\"GATE\") and sizeof s for char s[] = \"GATE\";?",
-   "answer": "5 and 5.",
-   "why": "The literal is a five-byte array including its NUL, and the initialised array copies all five bytes. It tests the terminator that makes the 2000 question's arithmetic work."
+  "id": "tokens-types-and-sizeof",
+  "title": "Tokens, Types and sizeof",
+  "priority": "P1",
+  "order": 559,
+  "unit": "Programming in C",
+  "quickIdea": "sizeof answers a question about a type, not about a value: how many bytes the object occupies. In C it is an operator, settled before the program runs, and its result has the unsigned type size_t.",
+  "remember": [
+    "GATE's convention unless a question says otherwise: char 1, short 2, int 4, float 4, double 8 bytes. A pointer is 4 bytes on a 32-bit build and 8 on a 64-bit build, and a question that needs a pointer's size states it.",
+    "sizeof is an operator, not a function: sizeof x is legal without parentheses, and the operand is not evaluated, so sizeof(i++) does not increment i.",
+    "sizeof(char) is 1 by definition, so sizeof of a char array equals its element count. sizeof(\"GATE\") is 5, because a string literal carries its terminating NUL byte.",
+    "sizeof an array is (number of elements) x (element size). sizeof a pointer is the pointer's own size, whatever it points at.",
+    "sizeof a struct is at least the sum of its members and usually more, because of padding; sizeof a union is the size of its largest member, rounded up to the union's alignment.",
+    "'a' is a character constant of type int, so sizeof 'a' is 4. \"a\" is a string literal of type char[2], so sizeof \"a\" is 2. The two are not interchangeable."
+  ],
+  "example": {
+    "prompt": "On a machine where short is 2, float 4 and long 8 bytes, what is sizeof t for struct { short s[5]; union { float y; long z; } u; } t, ignoring alignment?",
+    "work": "The member s is an array of 5 shorts, so 5 x 2 = 10 bytes. The member u is a union, so it is as large as its largest member, max(4, 8) = 8 bytes, and both of its members start at the same byte. The struct holds both members side by side, so its size is 10 + 8 = 18 bytes.",
+    "answer": "18 bytes. Swapping the union for a struct would give 10 + 4 + 8 = 22."
   },
-  {
-   "label": "PREDICTED VARIATION",
-   "question": "On a 64-bit build with 4-byte ints and 8-byte pointers, what does this print? void f(int a[10]) { printf(\"%zu\", sizeof a); }",
-   "answer": "8 - inside f the parameter is a pointer, not an array. The same sizeof at the caller, on int v[10], gives 40.",
-   "why": "The array-decay sizeof trap, which GATE has used inside larger questions rather than as a question of its own."
+  "gateAngle": "GATE CSE 2000 asked exactly this struct-holding-a-union shape and the answer is 18. The exam's usual twist is the one-word change union to struct, which turns 18 into 22, or the sentence 'ignoring alignment' being dropped, which makes the answer depend on the compiler's alignment rules.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "What are sizeof(\"GATE\") and sizeof s for char s[] = \"GATE\";?",
+      "answer": "5 and 5.",
+      "why": "The literal is a five-byte array including its NUL, and the initialised array copies all five bytes. It tests the terminator that makes the 2000 question's arithmetic work."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "On a 64-bit build with 4-byte ints and 8-byte pointers, what does this print? void f(int a[10]) { printf(\"%zu\", sizeof a); }",
+      "answer": "8 - inside f the parameter is a pointer, not an array. The same sizeof at the caller, on int v[10], gives 40.",
+      "why": "The array-decay sizeof trap, which GATE has used inside larger questions rather than as a question of its own."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Why can sizeof(char) never be anything other than 1?",
+      "answer": "Because the C standard defines the unit in which sizeof counts as the size of a char, so 1 is true by definition and every other size is expressed in those units.",
+      "why": "Stops the habit of asking 'how big is a char on this machine' when the answer cannot vary."
+    }
+  ],
+  "trap": {
+    "what": "Reading sizeof of an array parameter as the array's size.",
+    "why": "A parameter declared int a[10] is adjusted by the compiler to int *a, so inside the function the name is a pointer and sizeof reports the pointer's size. The array's length is simply not available unless it is passed separately.",
+    "counterexample": "void f(int a[10]) { printf(\"%zu\", sizeof a); } called on int v[10] prints 8 on a 64-bit build and 4 on a 32-bit one, never 40."
   },
-  {
-   "label": "CONCEPTUAL PRACTICE QUESTION",
-   "question": "Why can sizeof(char) never be anything other than 1?",
-   "answer": "Because the C standard defines the unit in which sizeof counts as the size of a char, so 1 is true by definition and every other size is expressed in those units.",
-   "why": "Stops the habit of asking 'how big is a char on this machine' when the answer cannot vary."
+  "check": {
+    "question": "On the GATE convention (char 1, int 4), what does printf(\"%zu %zu\", sizeof 'a', sizeof \"a\") print?",
+    "answer": "4 and 2.",
+    "explanation": "'a' is a character constant whose type is int, so it is 4 bytes. \"a\" is a two-element char array holding 'a' and the NUL, so it is 2 bytes."
+  },
+  "pyqIds": [
+    "gate-2000-34-struct-union-sizeof"
+  ],
+  "videoRefs": [],
+  "prereqs": [],
+  "sources": [
+    {
+      "kind": "text",
+      "title": "Pointers, arrays and strings in C - GATE notes and 11 solved PYQs",
+      "channel": "IAE Academy",
+      "url": "https://iaeacademy.in/study/c-programming/pointers-arrays-strings",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "the size conventions GATE assumes and the sizeof-versus-decay rules"
+    },
+    {
+      "kind": "text",
+      "title": "Programming in C - subject chapter (GATE Overflow for GATE CSE, Volume 2)",
+      "channel": "GATE Overflow",
+      "url": "https://gateoverflow.in/subject/programming-in-c/programming/programming-in-c",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "sizeof as an operator over types, and the struct/union size bounds"
+    },
+    {
+      "kind": "text",
+      "title": "C mein Programming - chapter notes (Devanagari)",
+      "channel": "CareerCraft Labs",
+      "url": "https://careercraftlabs.org/hi/read/net2-cs-ch06",
+      "language": "hi",
+      "transcript": "PARTIAL",
+      "translated": true,
+      "note": "the sentence that a struct's total size is at least the sum of its members and usually more because of padding (translated)"
+    }
+  ],
+  "sourceLine": "The GATE size conventions, sizeof as an operator and the sizeof-versus-decay rules: IAE Academy 'Pointers, arrays and strings in C' (English, read in part). The struct and union size bounds: GATE Overflow 'Programming in C' chapter (English, read in part). The padding sentence: CareerCraft Labs Hindi chapter (translated from Hindi, read in part). The 18-byte result is recomputed in scripts/validate.py.",
+  "links": {
+    "mock": {
+      "subject": "programming-data-structures",
+      "unit_slug": "c-programming-core",
+      "unit_name": "C Programming Foundations",
+      "unit_number": 1,
+      "question_count": 50,
+      "subtopics": [
+        {
+          "label": "Data types & operators",
+          "questions": 14
+        },
+        {
+          "label": "Control structures",
+          "questions": 12
+        },
+        {
+          "label": "Functions & parameter passing",
+          "questions": 12
+        },
+        {
+          "label": "Recursion & stack execution",
+          "questions": 12
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/programming-data-structures/c-programming-core/gate_ds_mock_1_2026-10-26.html"
+    },
+    "visual": {
+      "slug": "c-fundamentals",
+      "title": "C Fundamentals: Types, Operators and Control Flow",
+      "level": "topic-level",
+      "covers": [
+        "a type is a width plus a signedness, not a byte count",
+        "only sizeof(char) is fixed at 1; every other size is a platform fact",
+        "a character constant has type int in C, so sizeof('a') is sizeof(int)",
+        "a string literal is char[n+1] including the terminating zero"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/c-fundamentals/index.html"
+    },
+    "mapped_at": "2026-10-31"
   }
- ],
- "trap": {
-  "what": "Reading sizeof of an array parameter as the array's size.",
-  "why": "A parameter declared int a[10] is adjusted by the compiler to int *a, so inside the function the name is a pointer and sizeof reports the pointer's size. The array's length is simply not available unless it is passed separately.",
-  "counterexample": "void f(int a[10]) { printf(\"%zu\", sizeof a); } called on int v[10] prints 8 on a 64-bit build and 4 on a 32-bit one, never 40."
- },
- "check": {
-  "question": "On the GATE convention (char 1, int 4), what does printf(\"%zu %zu\", sizeof 'a', sizeof \"a\") print?",
-  "answer": "4 and 2.",
-  "explanation": "'a' is a character constant whose type is int, so it is 4 bytes. \"a\" is a two-element char array holding 'a' and the NUL, so it is 2 bytes."
- },
- "pyqIds": [
-  "gate-2000-34-struct-union-sizeof"
- ],
- "videoRefs": [],
- "prereqs": [],
- "sources": [
-  {
-   "kind": "text",
-   "title": "Pointers, arrays and strings in C - GATE notes and 11 solved PYQs",
-   "channel": "IAE Academy",
-   "url": "https://iaeacademy.in/study/c-programming/pointers-arrays-strings",
-   "language": "en",
-   "transcript": "PARTIAL",
-   "translated": false,
-   "note": "the size conventions GATE assumes and the sizeof-versus-decay rules"
-  },
-  {
-   "kind": "text",
-   "title": "Programming in C - subject chapter (GATE Overflow for GATE CSE, Volume 2)",
-   "channel": "GATE Overflow",
-   "url": "https://gateoverflow.in/subject/programming-in-c/programming/programming-in-c",
-   "language": "en",
-   "transcript": "PARTIAL",
-   "translated": false,
-   "note": "sizeof as an operator over types, and the struct/union size bounds"
-  },
-  {
-   "kind": "text",
-   "title": "C mein Programming - chapter notes (Devanagari)",
-   "channel": "CareerCraft Labs",
-   "url": "https://careercraftlabs.org/hi/read/net2-cs-ch06",
-   "language": "hi",
-   "transcript": "PARTIAL",
-   "translated": true,
-   "note": "the sentence that a struct's total size is at least the sum of its members and usually more because of padding (translated)"
-  }
- ],
- "sourceLine": "The GATE size conventions, sizeof as an operator and the sizeof-versus-decay rules: IAE Academy 'Pointers, arrays and strings in C' (English, read in part). The struct and union size bounds: GATE Overflow 'Programming in C' chapter (English, read in part). The padding sentence: CareerCraft Labs Hindi chapter (translated from Hindi, read in part). The 18-byte result is recomputed in scripts/validate.py."
 }

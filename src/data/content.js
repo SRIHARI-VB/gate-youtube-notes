@@ -33327,6 +33327,45 @@ window.GATE_DATA = {
    ],
    "sourceLine": "The multiplication and division rules, the double-biased exponent and the one subtraction of the bias, the 24-bit multiplier and divider and the four rounding modes: NPTEL IIT Kharagpur Lecture 39 (English, read in part). The E1 + E2 - bias and E1 - E2 + bias forms with the sign as the XOR, and the normalisation after the significand product: Sarangi, chapter 8 slides (English, read in part), whose worked example is 0.5 x -0.75. The rules of the multiplication algorithm and the note that no overflow check is needed: Bhalodia, Unit 7 (English, read in part) - the card narrows that note to the significand, because the exponent can overflow. The two question texts and accepted answers: their GATE Overflow and IAE Academy paper pages.",
    "videoRefs": [],
+   "links": {
+    "mock": {
+     "subject": "digital-logic",
+     "unit_slug": "number-systems",
+     "unit_name": "Number Systems & Representation",
+     "unit_number": 1,
+     "question_count": 75,
+     "subtopics": [
+      {
+       "label": "Base conversions",
+       "questions": 22
+      },
+      {
+       "label": "One's & two's complement",
+       "questions": 19
+      },
+      {
+       "label": "Range & overflow",
+       "questions": 17
+      },
+      {
+       "label": "Floating point & IEEE 754",
+       "questions": 17
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-10-31.html"
+    },
+    "visual": {
+     "slug": "floating-point-arithmetic",
+     "title": "Floating-point arithmetic: alignment, rounding, and why the order changes the answer",
+     "level": "topic-level",
+     "covers": [
+      "the four steps of every floating-point operation",
+      "multiply: add exponent fields and subtract the bias once"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/floating-point-arithmetic/index.html"
+    },
+    "mapped_at": "2026-10-31"
+   },
    "subject": "digital-logic",
    "topic": "computer-arithmetic",
    "path": "subjects/digital-logic/computer-arithmetic/floating-point-multiplication-and-division.json"
@@ -42751,6 +42790,47 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "The GATE size conventions, sizeof as an operator and the sizeof-versus-decay rules: IAE Academy 'Pointers, arrays and strings in C' (English, read in part). The struct and union size bounds: GATE Overflow 'Programming in C' chapter (English, read in part). The padding sentence: CareerCraft Labs Hindi chapter (translated from Hindi, read in part). The 18-byte result is recomputed in scripts/validate.py.",
+   "links": {
+    "mock": {
+     "subject": "programming-data-structures",
+     "unit_slug": "c-programming-core",
+     "unit_name": "C Programming Foundations",
+     "unit_number": 1,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Data types & operators",
+       "questions": 14
+      },
+      {
+       "label": "Control structures",
+       "questions": 12
+      },
+      {
+       "label": "Functions & parameter passing",
+       "questions": 12
+      },
+      {
+       "label": "Recursion & stack execution",
+       "questions": 12
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/programming-data-structures/c-programming-core/gate_ds_mock_1_2026-10-26.html"
+    },
+    "visual": {
+     "slug": "c-fundamentals",
+     "title": "C Fundamentals: Types, Operators and Control Flow",
+     "level": "topic-level",
+     "covers": [
+      "a type is a width plus a signedness, not a byte count",
+      "only sizeof(char) is fixed at 1; every other size is a platform fact",
+      "a character constant has type int in C, so sizeof('a') is sizeof(int)",
+      "a string literal is char[n+1] including the terminating zero"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/c-fundamentals/index.html"
+    },
+    "mapped_at": "2026-10-31"
+   },
    "subject": "programming-and-data-structures",
    "topic": "programming-in-c",
    "path": "subjects/programming-and-data-structures/programming-in-c/tokens-types-and-sizeof.json"
@@ -42836,6 +42916,47 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "Integer promotion and the usual arithmetic conversions: GATE Overflow 'Programming in C' chapter (English, read in part). The signed-char wrap and the integer-division trap: Knowledge Gate AI 'C Programming Fundamentals' (English, read in part). The 3 that GATE CSE 2017 Set 1 Q.53 prints is recomputed in scripts/validate.py.",
+   "links": {
+    "mock": {
+     "subject": "programming-data-structures",
+     "unit_slug": "c-programming-core",
+     "unit_name": "C Programming Foundations",
+     "unit_number": 1,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Data types & operators",
+       "questions": 14
+      },
+      {
+       "label": "Control structures",
+       "questions": 12
+      },
+      {
+       "label": "Functions & parameter passing",
+       "questions": 12
+      },
+      {
+       "label": "Recursion & stack execution",
+       "questions": 12
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/programming-data-structures/c-programming-core/gate_ds_mock_1_2026-10-26.html"
+    },
+    "visual": {
+     "slug": "c-fundamentals",
+     "title": "C Fundamentals: Types, Operators and Control Flow",
+     "level": "topic-level",
+     "covers": [
+      "integer promotion of any rank below int, by sign or zero extension",
+      "char c = 200 stores -56 and c + 1 is the int -55",
+      "at equal rank, unsigned beats signed; -1 < 1u is false",
+      "unsigned arithmetic is modulo 2^n and is fully defined"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/c-fundamentals/index.html"
+    },
+    "mapped_at": "2026-10-31"
+   },
    "subject": "programming-and-data-structures",
    "topic": "programming-in-c",
    "path": "subjects/programming-and-data-structures/programming-in-c/integer-promotion-and-unsigned-wrap.json"
@@ -42930,6 +43051,47 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "The precedence list and the unsequenced-modification warning: Knowledge Gate AI 'C Programming Fundamentals' (English, read in part). The *p++ and (*p)++ rules: IAE Academy 'Pointers, arrays and strings in C' (English, read in part) and Knowledge Gate AI 'Pointers in C for GATE' (English, read in full). The 52 that GATE CSE 2019 Q.27 prints is recomputed in scripts/validate.py.",
+   "links": {
+    "mock": {
+     "subject": "programming-data-structures",
+     "unit_slug": "c-programming-core",
+     "unit_name": "C Programming Foundations",
+     "unit_number": 1,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Data types & operators",
+       "questions": 14
+      },
+      {
+       "label": "Control structures",
+       "questions": 12
+      },
+      {
+       "label": "Functions & parameter passing",
+       "questions": 12
+      },
+      {
+       "label": "Recursion & stack execution",
+       "questions": 12
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/programming-data-structures/c-programming-core/gate_ds_mock_1_2026-10-26.html"
+    },
+    "visual": {
+     "slug": "c-fundamentals",
+     "title": "C Fundamentals: Types, Operators and Control Flow",
+     "level": "topic-level",
+     "covers": [
+      "the precedence ladder from postfix down to the comma operator",
+      "bitwise &, ^, | sit below equality, so a & b == c is a & (b == c)",
+      "&& and || sequence their operands and short circuit",
+      "two unsequenced modifications of one object are undefined"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/c-fundamentals/index.html"
+    },
+    "mapped_at": "2026-10-31"
+   },
    "subject": "programming-and-data-structures",
    "topic": "programming-in-c",
    "path": "subjects/programming-and-data-structures/programming-in-c/operator-precedence-and-sequence-points.json"
@@ -43004,6 +43166,47 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "Switch fall-through, do-while and the continue trace: Knowledge Gate AI 'C Programming Fundamentals' (English, read in part). The construct list and the off-by-one pitfall: GATE Overflow 'Programming in C' chapter (English, read in part).",
+   "links": {
+    "mock": {
+     "subject": "programming-data-structures",
+     "unit_slug": "c-programming-core",
+     "unit_name": "C Programming Foundations",
+     "unit_number": 1,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Data types & operators",
+       "questions": 14
+      },
+      {
+       "label": "Control structures",
+       "questions": 12
+      },
+      {
+       "label": "Functions & parameter passing",
+       "questions": 12
+      },
+      {
+       "label": "Recursion & stack execution",
+       "questions": 12
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/programming-data-structures/c-programming-core/gate_ds_mock_1_2026-10-26.html"
+    },
+    "visual": {
+     "slug": "c-fundamentals",
+     "title": "C Fundamentals: Types, Operators and Control Flow",
+     "level": "topic-level",
+     "covers": [
+      "switch jumps to the matching label and then falls through",
+      "a missing break is silent and changes the output",
+      "default in the middle still falls through like any label",
+      "break leaves the loop or switch; continue skips to the next test"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/c-fundamentals/index.html"
+    },
+    "mapped_at": "2026-10-31"
+   },
    "subject": "programming-and-data-structures",
    "topic": "programming-in-c",
    "path": "subjects/programming-and-data-structures/programming-in-c/control-flow-switch-fallthrough.json"
@@ -43089,6 +43292,46 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "Call by value, the order of events in a call and the array-decay exception: IAE Academy 'Functions, parameter passing, scope and storage classes' (English, read in part). The broken and fixed swap: Knowledge Gate AI 'Pointers in C for GATE' (English, read in full). The 1, 0 of GATE CSE 2017 Set 2 Q.14 and the compiler-error verdict of GATE CSE 2005 Q.32 are recomputed and reasoned in scripts/validate.py.",
+   "links": {
+    "mock": {
+     "subject": "programming-data-structures",
+     "unit_slug": "c-programming-core",
+     "unit_name": "C Programming Foundations",
+     "unit_number": 1,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Data types & operators",
+       "questions": 14
+      },
+      {
+       "label": "Control structures",
+       "questions": 12
+      },
+      {
+       "label": "Functions & parameter passing",
+       "questions": 12
+      },
+      {
+       "label": "Recursion & stack execution",
+       "questions": 12
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/programming-data-structures/c-programming-core/gate_ds_mock_1_2026-10-26.html"
+    },
+    "visual": {
+     "slug": "functions-scope-and-preprocessor",
+     "title": "Functions, Scope, Lifetime and the Preprocessor",
+     "level": "topic-level",
+     "covers": [
+      "arguments are copies; a parameter is a new object each call",
+      "arrays and functions: a parameter of array type is adjusted to a pointer",
+      "why a swap needs pointers, and why returning a pointer to a local is wrong"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/functions-scope-and-preprocessor/index.html"
+    },
+    "mapped_at": "2026-10-31"
+   },
    "subject": "programming-and-data-structures",
    "topic": "programming-in-c",
    "path": "subjects/programming-and-data-structures/programming-in-c/call-by-value-and-the-activation-record.json"
@@ -43165,6 +43408,47 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "Block and file scope, shadowing and the static-versus-dynamic scoping table: IAE Academy 'Functions, parameter passing, scope and storage classes' (English, read in part). The independence of scope from storage class: CareerCraft Labs Hindi chapter (translated from Hindi, read in part). The 12 7 6 of GATE CSE 2003 Q.89 is recomputed in scripts/validate.py.",
+   "links": {
+    "mock": {
+     "subject": "programming-data-structures",
+     "unit_slug": "pointers-memory",
+     "unit_name": "Pointers, Memory & Preprocessors",
+     "unit_number": 2,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Pointer arithmetic",
+       "questions": 14
+      },
+      {
+       "label": "Pointers to functions",
+       "questions": 12
+      },
+      {
+       "label": "Dynamic memory allocation",
+       "questions": 12
+      },
+      {
+       "label": "Macro expansion, scope & lifetime",
+       "questions": 12
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/programming-data-structures/pointers-memory/gate_ds_mock_2_2026-10-27.html"
+    },
+    "visual": {
+     "slug": "functions-scope-and-preprocessor",
+     "title": "Functions, Scope, Lifetime and the Preprocessor",
+     "level": "topic-level",
+     "covers": [
+      "shadowing: two objects, one spelling, no diagnostic",
+      "static at file scope gives internal linkage",
+      "extern declares without defining; a plain file-scope int defines",
+      "declaration against definition, and one external definition per name"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/functions-scope-and-preprocessor/index.html"
+    },
+    "mapped_at": "2026-10-31"
+   },
    "subject": "programming-and-data-structures",
    "topic": "programming-in-c",
    "path": "subjects/programming-and-data-structures/programming-in-c/scope-shadowing-and-linkage.json"
@@ -43260,6 +43544,46 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "The storage-class table and its rules: IAE Academy 'Functions, parameter passing, scope and storage classes' (English, read in part). The binding summary and the scope-versus-lifetime pitfall: GATE Overflow 'Programming in C' chapter (English, read in part). The lifetime-without-scope sentence: CareerCraft Labs Hindi chapter (translated from Hindi, read in part). The nine digits of GATE CSE 2016 Set 1 Q.35 are recomputed in scripts/validate.py.",
+   "links": {
+    "mock": {
+     "subject": "programming-data-structures",
+     "unit_slug": "pointers-memory",
+     "unit_name": "Pointers, Memory & Preprocessors",
+     "unit_number": 2,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Pointer arithmetic",
+       "questions": 14
+      },
+      {
+       "label": "Pointers to functions",
+       "questions": 12
+      },
+      {
+       "label": "Dynamic memory allocation",
+       "questions": 12
+      },
+      {
+       "label": "Macro expansion, scope & lifetime",
+       "questions": 12
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/programming-data-structures/pointers-memory/gate_ds_mock_2_2026-10-27.html"
+    },
+    "visual": {
+     "slug": "functions-scope-and-preprocessor",
+     "title": "Functions, Scope, Lifetime and the Preprocessor",
+     "level": "topic-level",
+     "covers": [
+      "the four storage classes and their default initial values",
+      "static local keeps its value across calls and is initialised once",
+      "scope against storage duration: four combinations, all real"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/functions-scope-and-preprocessor/index.html"
+    },
+    "mapped_at": "2026-10-31"
+   },
    "subject": "programming-and-data-structures",
    "topic": "programming-in-c",
    "path": "subjects/programming-and-data-structures/programming-in-c/storage-classes-auto-static-extern-register.json"
@@ -43338,6 +43662,46 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "The pointer model, the double-pointer trace and the read-only string literal: Knowledge Gate AI 'Pointers in C for GATE' (English, read in full). The pitfall list for wild, dangling and void pointers: GATE Overflow 'Programming in C' chapter (English, read in part). The 19 of GATE CSE 2008 Q.60 is recomputed in scripts/validate.py.",
+   "links": {
+    "mock": {
+     "subject": "programming-data-structures",
+     "unit_slug": "pointers-memory",
+     "unit_name": "Pointers, Memory & Preprocessors",
+     "unit_number": 2,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Pointer arithmetic",
+       "questions": 14
+      },
+      {
+       "label": "Pointers to functions",
+       "questions": 12
+      },
+      {
+       "label": "Dynamic memory allocation",
+       "questions": 12
+      },
+      {
+       "label": "Macro expansion, scope & lifetime",
+       "questions": 12
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/programming-data-structures/pointers-memory/gate_ds_mock_2_2026-10-27.html"
+    },
+    "visual": {
+     "slug": "pointers-in-c",
+     "title": "Pointers in C",
+     "level": "topic-level",
+     "covers": [
+      "& gives the address of an object; * follows an address to the object",
+      "a pointer to a pointer, and why a swap needs one",
+      "a pointer holds an address, so its value is a number and not the object"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/pointers-in-c/index.html"
+    },
+    "mapped_at": "2026-10-31"
+   },
    "subject": "programming-and-data-structures",
    "topic": "programming-in-c",
    "path": "subjects/programming-and-data-structures/programming-in-c/pointers-address-and-indirection.json"
@@ -43436,6 +43800,47 @@ window.GATE_DATA = {
    ],
    "sourceLine": "The decay exceptions, the address formula and the pointer-difference rule: IAE Academy 'Pointers, arrays and strings in C' (English, read in part). The array walk and the sizeof contrast: Knowledge Gate AI 'Pointers in C for GATE' (English, read in full). The definition of arr[i] as *(arr + i): CareerCraft Labs Hindi chapter (translated from Hindi, read in part). Every address and difference shown is recomputed in scripts/validate.py, and the lesson animates them.",
    "visual": "programming-and-data-structures/programming-in-c/pointer-steps-and-array-indexing",
+   "links": {
+    "mock": {
+     "subject": "programming-data-structures",
+     "unit_slug": "pointers-memory",
+     "unit_name": "Pointers, Memory & Preprocessors",
+     "unit_number": 2,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Pointer arithmetic",
+       "questions": 14
+      },
+      {
+       "label": "Pointers to functions",
+       "questions": 12
+      },
+      {
+       "label": "Dynamic memory allocation",
+       "questions": 12
+      },
+      {
+       "label": "Macro expansion, scope & lifetime",
+       "questions": 12
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/programming-data-structures/pointers-memory/gate_ds_mock_2_2026-10-27.html"
+    },
+    "visual": {
+     "slug": "pointers-in-c",
+     "title": "Pointers in C",
+     "level": "topic-level",
+     "covers": [
+      "pointer arithmetic is scaled by the size of the pointed-to type",
+      "an array name decays to a pointer to its first element in most contexts",
+      "sizeof an array is the array's size; sizeof a pointer is the pointer's size",
+      "pointer subtraction needs both pointers inside one array"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/pointers-in-c/index.html"
+    },
+    "mapped_at": "2026-10-31"
+   },
    "subject": "programming-and-data-structures",
    "topic": "programming-in-c",
    "path": "subjects/programming-and-data-structures/programming-in-c/pointer-arithmetic-and-array-decay.json"
@@ -43522,6 +43927,21 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "The NUL-terminated char array as the definition of a C string, and the terminator as the usual source of a buffer overflow: CareerCraft Labs Hindi chapter (translated from Hindi, read in part). sizeof against strlen for an initialised char array: Knowledge Gate AI 'C Programming Fundamentals' (English, read in part). Both PYQ outputs are recomputed byte by byte in scripts/validate.py.",
+   "links": {
+    "visual": {
+     "slug": "c-strings-and-the-null-terminator",
+     "title": "C Strings: the Null Terminator, Literals, and strlen against sizeof",
+     "level": "topic-level",
+     "covers": [
+      "sizeof counts the terminator; strlen does not; %s stops at it",
+      "the null character is a stored byte of value zero, written '\\0', not the digit zero",
+      "char c[4] = \"GATE\" drops the terminator, so the object is not a string",
+      "an embedded zero truncates the string but not the array: \"GA\\0TE\" is sizeof 6, strlen 2"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/c-strings-and-the-null-terminator/index.html"
+    },
+    "mapped_at": "2026-10-31"
+   },
    "subject": "programming-and-data-structures",
    "topic": "programming-in-c",
    "path": "subjects/programming-and-data-structures/programming-in-c/strings-nul-termination.json"
@@ -43608,6 +44028,21 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "The struct and union summaries and the sizeof bounds: GATE Overflow 'Programming in C' chapter (English, read in part). The alignment-padding sentence: CareerCraft Labs Hindi chapter (translated from Hindi, read in part). The 18 bytes of GATE CSE 2000, the 12-byte padded struct and the 0, c of GATE CSE 2018 Q.2 are recomputed in scripts/validate.py.",
+   "links": {
+    "visual": {
+     "slug": "structures-unions-and-enums",
+     "title": "Structures, Unions and Enumerations: layout, padding and type punning",
+     "level": "topic-level",
+     "covers": [
+      "offset = ceil(running / align) * align, then running = offset + size",
+      "sizeof = ceil(end / largest align) * largest align",
+      "a union's size is its largest member rounded up to its largest alignment",
+      "padding bytes have unspecified values, so memcmp on a struct compares them"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/structures-unions-and-enums/index.html"
+    },
+    "mapped_at": "2026-10-31"
+   },
    "subject": "programming-and-data-structures",
    "topic": "programming-in-c",
    "path": "subjects/programming-and-data-structures/programming-in-c/structures-unions-and-padding.json"
@@ -43695,6 +44130,47 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "The malloc, calloc and realloc contracts: IAE Academy 'Pointers, arrays and strings in C' (English, read in part). The dynamic-memory summary: GATE Overflow 'Programming in C' chapter (English, read in part). The three heap bugs: CareerCraft Labs Hindi chapter (translated from Hindi, read in part).",
+   "links": {
+    "mock": {
+     "subject": "programming-data-structures",
+     "unit_slug": "pointers-memory",
+     "unit_name": "Pointers, Memory & Preprocessors",
+     "unit_number": 2,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Pointer arithmetic",
+       "questions": 14
+      },
+      {
+       "label": "Pointers to functions",
+       "questions": 12
+      },
+      {
+       "label": "Dynamic memory allocation",
+       "questions": 12
+      },
+      {
+       "label": "Macro expansion, scope & lifetime",
+       "questions": 12
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/programming-data-structures/pointers-memory/gate_ds_mock_2_2026-10-27.html"
+    },
+    "visual": {
+     "slug": "dynamic-memory-and-program-layout",
+     "title": "Dynamic Memory and Program Layout: malloc, calloc, realloc, free and Where the Bytes Live",
+     "level": "topic-level",
+     "covers": [
+      "malloc returns uninitialised storage",
+      "calloc zeroes every byte, and its two arguments let the multiplication be checked",
+      "realloc grows in place, or moves and copies min(old, new), or fails",
+      "free returns the chunk to a bin and writes nothing into the bytes"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/dynamic-memory-and-program-layout/index.html"
+    },
+    "mapped_at": "2026-10-31"
+   },
    "subject": "programming-and-data-structures",
    "topic": "programming-in-c",
    "path": "subjects/programming-and-data-structures/programming-in-c/dynamic-memory-malloc-calloc-realloc-free.json"
@@ -43772,6 +44248,47 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "The preprocessor section, the SQ(x) parentheses trap and the include guard: CareerCraft Labs Hindi chapter (translated from Hindi, read in part). The note that macro pitfalls are textual substitution: IAE Academy 'Functions, parameter passing, scope and storage classes' (English, read in part). Every expansion shown is recomputed in scripts/validate.py.",
+   "links": {
+    "mock": {
+     "subject": "programming-data-structures",
+     "unit_slug": "pointers-memory",
+     "unit_name": "Pointers, Memory & Preprocessors",
+     "unit_number": 2,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Pointer arithmetic",
+       "questions": 14
+      },
+      {
+       "label": "Pointers to functions",
+       "questions": 12
+      },
+      {
+       "label": "Dynamic memory allocation",
+       "questions": 12
+      },
+      {
+       "label": "Macro expansion, scope & lifetime",
+       "questions": 12
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/programming-data-structures/pointers-memory/gate_ds_mock_2_2026-10-27.html"
+    },
+    "visual": {
+     "slug": "functions-scope-and-preprocessor",
+     "title": "Functions, Scope, Lifetime and the Preprocessor",
+     "level": "topic-level",
+     "covers": [
+      "object macros against function macros and the missing-parentheses trap",
+      "macro side effects: the argument is substituted once per use",
+      "parentheses fix precedence, never duplication",
+      "#include is textual inclusion and needs include guards"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/functions-scope-and-preprocessor/index.html"
+    },
+    "mapped_at": "2026-10-31"
+   },
    "subject": "programming-and-data-structures",
    "topic": "programming-in-c",
    "path": "subjects/programming-and-data-structures/programming-in-c/preprocessor-macros.json"

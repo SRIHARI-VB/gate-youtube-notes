@@ -1,84 +1,125 @@
 {
- "id": "dynamic-memory-malloc-calloc-realloc-free",
- "title": "Dynamic Memory: malloc, calloc, realloc, free",
- "priority": "P2",
- "order": 570,
- "unit": "Programming in C",
- "quickIdea": "The heap is the region whose lifetime you control: malloc hands out uninitialised bytes, calloc hands out zeroed ones, realloc resizes a block, and free ends it - and the block outlives the function that allocated it.",
- "remember": [
-  "void *malloc(size_t n) reserves n bytes and returns a pointer to them, or NULL on failure. The contents are indeterminate, so reading before writing is undefined behaviour.",
-  "void *calloc(size_t count, size_t size) reserves count * size bytes and sets every byte to zero.",
-  "void *realloc(void *p, size_t n) resizes the block and may move it, returning the new address. On failure it returns NULL and the original block is still valid, so assigning the result straight back to p loses the block.",
-  "free(p) ends the block's life; set p = NULL afterwards. Using it again is a dangling-pointer bug, and freeing it twice is undefined behaviour.",
-  "sizeof takes a type, so use sizeof(*p) or sizeof(int), never sizeof(p), which is the pointer's own size.",
-  "The block survives the return of the function that allocated it, which is why a function can return a heap pointer but not the address of its own local."
- ],
- "example": {
-  "prompt": "int *p = malloc(5 * sizeof(int)); for (int i = 0; i < 5; i++) printf(\"%d \", p[i]); free(p); p = NULL; On the GATE convention with 4-byte ints, how many bytes were requested and what does the loop print?",
-  "work": "5 * sizeof(int) is 5 * 4 = 20 bytes, so the call reserves 20 bytes. malloc does not initialise them, so the five ints hold whatever was in the heap and the printed values are not defined. Replacing malloc with calloc(5, sizeof(int)) zeroes the block, and the loop then prints 0 0 0 0 0.",
-  "answer": "20 bytes; with malloc the five values are indeterminate, with calloc they are all 0."
- },
- "gateAngle": "GATE reaches the heap through code traces rather than allocator arithmetic: the recurring pattern is a pointer that is reassigned and the original block leaked, or a function that returns a heap pointer where a local's address would dangle. GATE CSE 2017 Set 1 Q.13, with malloc, a helper that writes through the pointer, then a second malloc, is the canonical example; this run did not verify its answer, so it is not in the PYQ set.",
- "variations": [
-  {
-   "label": "ORIGINAL PYQ-STYLE QUESTION",
-   "question": "p = malloc(sizeof(int)); p = malloc(sizeof(int)); free(p); what has gone wrong?",
-   "answer": "The first block was never freed and its address was overwritten, so it is leaked and can no longer be released; the second block is freed correctly.",
-   "why": "The leak pattern of the code-trace questions, in the shortest form."
+  "id": "dynamic-memory-malloc-calloc-realloc-free",
+  "title": "Dynamic Memory: malloc, calloc, realloc, free",
+  "priority": "P2",
+  "order": 570,
+  "unit": "Programming in C",
+  "quickIdea": "The heap is the region whose lifetime you control: malloc hands out uninitialised bytes, calloc hands out zeroed ones, realloc resizes a block, and free ends it - and the block outlives the function that allocated it.",
+  "remember": [
+    "void *malloc(size_t n) reserves n bytes and returns a pointer to them, or NULL on failure. The contents are indeterminate, so reading before writing is undefined behaviour.",
+    "void *calloc(size_t count, size_t size) reserves count * size bytes and sets every byte to zero.",
+    "void *realloc(void *p, size_t n) resizes the block and may move it, returning the new address. On failure it returns NULL and the original block is still valid, so assigning the result straight back to p loses the block.",
+    "free(p) ends the block's life; set p = NULL afterwards. Using it again is a dangling-pointer bug, and freeing it twice is undefined behaviour.",
+    "sizeof takes a type, so use sizeof(*p) or sizeof(int), never sizeof(p), which is the pointer's own size.",
+    "The block survives the return of the function that allocated it, which is why a function can return a heap pointer but not the address of its own local."
+  ],
+  "example": {
+    "prompt": "int *p = malloc(5 * sizeof(int)); for (int i = 0; i < 5; i++) printf(\"%d \", p[i]); free(p); p = NULL; On the GATE convention with 4-byte ints, how many bytes were requested and what does the loop print?",
+    "work": "5 * sizeof(int) is 5 * 4 = 20 bytes, so the call reserves 20 bytes. malloc does not initialise them, so the five ints hold whatever was in the heap and the printed values are not defined. Replacing malloc with calloc(5, sizeof(int)) zeroes the block, and the loop then prints 0 0 0 0 0.",
+    "answer": "20 bytes; with malloc the five values are indeterminate, with calloc they are all 0."
   },
-  {
-   "label": "CONCEPTUAL PRACTICE QUESTION",
-   "question": "Why is p = realloc(p, n) risky?",
-   "answer": "Because if realloc fails it returns NULL, and the original block's address has already been overwritten, so the block can neither be used nor freed. The safe form keeps a temporary: t = realloc(p, n); if (t) p = t;",
-   "why": "The one realloc rule that is examinable without a machine."
+  "gateAngle": "GATE reaches the heap through code traces rather than allocator arithmetic: the recurring pattern is a pointer that is reassigned and the original block leaked, or a function that returns a heap pointer where a local's address would dangle. GATE CSE 2017 Set 1 Q.13, with malloc, a helper that writes through the pointer, then a second malloc, is the canonical example; this run did not verify its answer, so it is not in the PYQ set.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "p = malloc(sizeof(int)); p = malloc(sizeof(int)); free(p); what has gone wrong?",
+      "answer": "The first block was never freed and its address was overwritten, so it is leaked and can no longer be released; the second block is freed correctly.",
+      "why": "The leak pattern of the code-trace questions, in the shortest form."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Why is p = realloc(p, n) risky?",
+      "answer": "Because if realloc fails it returns NULL, and the original block's address has already been overwritten, so the block can neither be used nor freed. The safe form keeps a temporary: t = realloc(p, n); if (t) p = t;",
+      "why": "The one realloc rule that is examinable without a machine."
+    }
+  ],
+  "trap": {
+    "what": "Writing sizeof(p) when you meant the size of what p points at.",
+    "why": "sizeof answers a question about the operand's type. For an int * it is the size of an address, not of an int, so malloc(sizeof(p)) under-allocates on every machine where the two differ, and the writes past the end are undefined behaviour.",
+    "counterexample": "On a 64-bit build, malloc(sizeof(p)) with int *p reserves 8 bytes, which holds two ints; storing five is a heap overflow."
+  },
+  "check": {
+    "question": "What is the difference between malloc(10) and calloc(10, 1) in the bytes they return?",
+    "answer": "Both reserve 10 bytes; calloc sets all ten to zero, while malloc leaves them indeterminate.",
+    "explanation": "calloc multiplies its two arguments and then zeroes the block; the amount of memory is the same."
+  },
+  "pyqIds": [],
+  "videoRefs": [],
+  "prereqs": [
+    "pointers-address-and-indirection"
+  ],
+  "sources": [
+    {
+      "kind": "text",
+      "title": "Pointers, arrays and strings in C - GATE notes and 11 solved PYQs",
+      "channel": "IAE Academy",
+      "url": "https://iaeacademy.in/study/c-programming/pointers-arrays-strings",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "the malloc, calloc and realloc contracts including the failure behaviour"
+    },
+    {
+      "kind": "text",
+      "title": "Programming in C - subject chapter (GATE Overflow for GATE CSE, Volume 2)",
+      "channel": "GATE Overflow",
+      "url": "https://gateoverflow.in/subject/programming-in-c/programming/programming-in-c",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "the dynamic-memory summary with the malloc, calloc, realloc and free signatures"
+    },
+    {
+      "kind": "text",
+      "title": "C mein Programming - chapter notes (Devanagari)",
+      "channel": "CareerCraft Labs",
+      "url": "https://careercraftlabs.org/hi/read/net2-cs-ch06",
+      "language": "hi",
+      "transcript": "PARTIAL",
+      "translated": true,
+      "note": "the three standard heap bugs - leak, dangling pointer and double free (translated)"
+    }
+  ],
+  "sourceLine": "The malloc, calloc and realloc contracts: IAE Academy 'Pointers, arrays and strings in C' (English, read in part). The dynamic-memory summary: GATE Overflow 'Programming in C' chapter (English, read in part). The three heap bugs: CareerCraft Labs Hindi chapter (translated from Hindi, read in part).",
+  "links": {
+    "mock": {
+      "subject": "programming-data-structures",
+      "unit_slug": "pointers-memory",
+      "unit_name": "Pointers, Memory & Preprocessors",
+      "unit_number": 2,
+      "question_count": 50,
+      "subtopics": [
+        {
+          "label": "Pointer arithmetic",
+          "questions": 14
+        },
+        {
+          "label": "Pointers to functions",
+          "questions": 12
+        },
+        {
+          "label": "Dynamic memory allocation",
+          "questions": 12
+        },
+        {
+          "label": "Macro expansion, scope & lifetime",
+          "questions": 12
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/programming-data-structures/pointers-memory/gate_ds_mock_2_2026-10-27.html"
+    },
+    "visual": {
+      "slug": "dynamic-memory-and-program-layout",
+      "title": "Dynamic Memory and Program Layout: malloc, calloc, realloc, free and Where the Bytes Live",
+      "level": "topic-level",
+      "covers": [
+        "malloc returns uninitialised storage",
+        "calloc zeroes every byte, and its two arguments let the multiplication be checked",
+        "realloc grows in place, or moves and copies min(old, new), or fails",
+        "free returns the chunk to a bin and writes nothing into the bytes"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/dynamic-memory-and-program-layout/index.html"
+    },
+    "mapped_at": "2026-10-31"
   }
- ],
- "trap": {
-  "what": "Writing sizeof(p) when you meant the size of what p points at.",
-  "why": "sizeof answers a question about the operand's type. For an int * it is the size of an address, not of an int, so malloc(sizeof(p)) under-allocates on every machine where the two differ, and the writes past the end are undefined behaviour.",
-  "counterexample": "On a 64-bit build, malloc(sizeof(p)) with int *p reserves 8 bytes, which holds two ints; storing five is a heap overflow."
- },
- "check": {
-  "question": "What is the difference between malloc(10) and calloc(10, 1) in the bytes they return?",
-  "answer": "Both reserve 10 bytes; calloc sets all ten to zero, while malloc leaves them indeterminate.",
-  "explanation": "calloc multiplies its two arguments and then zeroes the block; the amount of memory is the same."
- },
- "pyqIds": [],
- "videoRefs": [],
- "prereqs": [
-  "pointers-address-and-indirection"
- ],
- "sources": [
-  {
-   "kind": "text",
-   "title": "Pointers, arrays and strings in C - GATE notes and 11 solved PYQs",
-   "channel": "IAE Academy",
-   "url": "https://iaeacademy.in/study/c-programming/pointers-arrays-strings",
-   "language": "en",
-   "transcript": "PARTIAL",
-   "translated": false,
-   "note": "the malloc, calloc and realloc contracts including the failure behaviour"
-  },
-  {
-   "kind": "text",
-   "title": "Programming in C - subject chapter (GATE Overflow for GATE CSE, Volume 2)",
-   "channel": "GATE Overflow",
-   "url": "https://gateoverflow.in/subject/programming-in-c/programming/programming-in-c",
-   "language": "en",
-   "transcript": "PARTIAL",
-   "translated": false,
-   "note": "the dynamic-memory summary with the malloc, calloc, realloc and free signatures"
-  },
-  {
-   "kind": "text",
-   "title": "C mein Programming - chapter notes (Devanagari)",
-   "channel": "CareerCraft Labs",
-   "url": "https://careercraftlabs.org/hi/read/net2-cs-ch06",
-   "language": "hi",
-   "transcript": "PARTIAL",
-   "translated": true,
-   "note": "the three standard heap bugs - leak, dangling pointer and double free (translated)"
-  }
- ],
- "sourceLine": "The malloc, calloc and realloc contracts: IAE Academy 'Pointers, arrays and strings in C' (English, read in part). The dynamic-memory summary: GATE Overflow 'Programming in C' chapter (English, read in part). The three heap bugs: CareerCraft Labs Hindi chapter (translated from Hindi, read in part)."
 }

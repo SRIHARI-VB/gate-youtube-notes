@@ -1,75 +1,115 @@
 {
- "id": "pointers-address-and-indirection",
- "title": "Pointers: Address, Indirection and the Double Pointer",
- "priority": "P1",
- "order": 566,
- "unit": "Programming in C",
- "quickIdea": "A pointer is a typed box that holds an address. & produces an address, * follows one, and each extra star follows one more level.",
- "remember": [
-  "int x = 12; int *p = &x; int **q = &p; then p holds &x, *p is 12, *q is p, and **q is 12. Count the stars to count the levels.",
-  "A pointer has a type: p + 1 on an int * moves sizeof(int) bytes, and a pointer of one type must be cast before it is dereferenced as another.",
-  "A pointer parameter is a copied address. It can change the pointee but not the caller's pointer variable; passing int ** is how a function reassigns the caller's pointer.",
-  "An uninitialised pointer is a wild pointer and dereferencing it is undefined behaviour; a pointer to a released or returned object is dangling and equally undefined. NULL is the only value you may test before dereferencing.",
-  "char *s = \"GATE\"; may point at a read-only literal, so s[0] = 'L' is undefined behaviour; char s[] = \"GATE\"; makes a writable copy."
- ],
- "example": {
-  "prompt": "int f(int x, int *py, int **ppz) { int y, z; **ppz += 1; z = **ppz; *py += 2; y = *py; x += 3; return x + y + z; } with c = 4, b = &c, a = &b and the call f(c, b, a).",
-  "work": "Both *py and **ppz reach c, and x is only a copy. **ppz += 1 makes c = 5, and z = 5. *py += 2 makes c = 7, and y = 7. x is still the copy 4, so x += 3 makes x = 7. The return value is 7 + 7 + 5 = 19.",
-  "answer": "19."
- },
- "gateAngle": "GATE CSE 2008 Q.60 is this function, printed as 19. The whole question is the difference between the copy x and the two pointers that alias c. GATE CSE 2024 Set 2 Q.23 asks the neighbouring question of what a function returning b - a means when b has walked to the NUL.",
- "variations": [
-  {
-   "label": "ORIGINAL PYQ-STYLE QUESTION",
-   "question": "int x = 12; int *p = &x; int **q = &p; **q = 20; what is x?",
-   "answer": "20 - **q names the object that q reaches through p, so the write lands on x.",
-   "why": "The same alias chain as the 2008 question with the arithmetic removed, so only the level counting is tested."
+  "id": "pointers-address-and-indirection",
+  "title": "Pointers: Address, Indirection and the Double Pointer",
+  "priority": "P1",
+  "order": 566,
+  "unit": "Programming in C",
+  "quickIdea": "A pointer is a typed box that holds an address. & produces an address, * follows one, and each extra star follows one more level.",
+  "remember": [
+    "int x = 12; int *p = &x; int **q = &p; then p holds &x, *p is 12, *q is p, and **q is 12. Count the stars to count the levels.",
+    "A pointer has a type: p + 1 on an int * moves sizeof(int) bytes, and a pointer of one type must be cast before it is dereferenced as another.",
+    "A pointer parameter is a copied address. It can change the pointee but not the caller's pointer variable; passing int ** is how a function reassigns the caller's pointer.",
+    "An uninitialised pointer is a wild pointer and dereferencing it is undefined behaviour; a pointer to a released or returned object is dangling and equally undefined. NULL is the only value you may test before dereferencing.",
+    "char *s = \"GATE\"; may point at a read-only literal, so s[0] = 'L' is undefined behaviour; char s[] = \"GATE\"; makes a writable copy."
+  ],
+  "example": {
+    "prompt": "int f(int x, int *py, int **ppz) { int y, z; **ppz += 1; z = **ppz; *py += 2; y = *py; x += 3; return x + y + z; } with c = 4, b = &c, a = &b and the call f(c, b, a).",
+    "work": "Both *py and **ppz reach c, and x is only a copy. **ppz += 1 makes c = 5, and z = 5. *py += 2 makes c = 7, and y = 7. x is still the copy 4, so x += 3 makes x = 7. The return value is 7 + 7 + 5 = 19.",
+    "answer": "19."
   },
-  {
-   "label": "CONCEPTUAL PRACTICE QUESTION",
-   "question": "Why does a function that allocates and hands back memory take a char ** parameter?",
-   "answer": "Because it has to change the caller's pointer variable. The parameter is a copy of an address, so only by passing the address of the pointer itself can the function write a new address into the caller's variable.",
-   "why": "Explains the double pointer from the side of design rather than of tracing, which is how questions about malloc wrappers are phrased."
-  }
- ],
- "trap": {
-  "what": "Expecting a variable to track another because a pointer to it exists.",
-  "why": "Aliasing is one-way. A write through the pointer changes the object, but a copy taken before the write keeps the old value, and a plain parameter is exactly such a copy.",
-  "counterexample": "In GATE CSE 2008 Q.60, x was initialised from c = 4 and stays a separate object, so x += 3 gives 7 from the copy 4, not 10 from the c that has already become 7."
- },
- "check": {
-  "question": "int a = 5; int *p = &a; int **q = &p; what do *q and **q evaluate to?",
-  "answer": "*q is the address of a, that is the value of p, and **q is 5.",
-  "explanation": "Each * follows one stored address: q holds &p, so the first star reaches p and the second reaches a."
- },
- "pyqIds": [
-  "gate-2008-60-double-pointer-trace"
- ],
- "videoRefs": [],
- "prereqs": [
-  "tokens-types-and-sizeof"
- ],
- "sources": [
-  {
-   "kind": "text",
-   "title": "Pointers in C for GATE: Memory Diagrams and Output Traces",
-   "channel": "Knowledge Gate AI",
-   "url": "https://www.knowledgegate.ai/blog/pointers-in-c-gate-memory-diagrams",
-   "language": "en",
-   "transcript": "FULL",
-   "translated": false,
-   "note": "the box-and-arrow model, the double-pointer trace, dangling pointers and the read-only literal"
+  "gateAngle": "GATE CSE 2008 Q.60 is this function, printed as 19. The whole question is the difference between the copy x and the two pointers that alias c. GATE CSE 2024 Set 2 Q.23 asks the neighbouring question of what a function returning b - a means when b has walked to the NUL.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "int x = 12; int *p = &x; int **q = &p; **q = 20; what is x?",
+      "answer": "20 - **q names the object that q reaches through p, so the write lands on x.",
+      "why": "The same alias chain as the 2008 question with the arithmetic removed, so only the level counting is tested."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Why does a function that allocates and hands back memory take a char ** parameter?",
+      "answer": "Because it has to change the caller's pointer variable. The parameter is a copy of an address, so only by passing the address of the pointer itself can the function write a new address into the caller's variable.",
+      "why": "Explains the double pointer from the side of design rather than of tracing, which is how questions about malloc wrappers are phrased."
+    }
+  ],
+  "trap": {
+    "what": "Expecting a variable to track another because a pointer to it exists.",
+    "why": "Aliasing is one-way. A write through the pointer changes the object, but a copy taken before the write keeps the old value, and a plain parameter is exactly such a copy.",
+    "counterexample": "In GATE CSE 2008 Q.60, x was initialised from c = 4 and stays a separate object, so x += 3 gives 7 from the copy 4, not 10 from the c that has already become 7."
   },
-  {
-   "kind": "text",
-   "title": "Programming in C - subject chapter (GATE Overflow for GATE CSE, Volume 2)",
-   "channel": "GATE Overflow",
-   "url": "https://gateoverflow.in/subject/programming-in-c/programming/programming-in-c",
-   "language": "en",
-   "transcript": "PARTIAL",
-   "translated": false,
-   "note": "the pointer summary with its dangling, wild and void-pointer pitfall list"
+  "check": {
+    "question": "int a = 5; int *p = &a; int **q = &p; what do *q and **q evaluate to?",
+    "answer": "*q is the address of a, that is the value of p, and **q is 5.",
+    "explanation": "Each * follows one stored address: q holds &p, so the first star reaches p and the second reaches a."
+  },
+  "pyqIds": [
+    "gate-2008-60-double-pointer-trace"
+  ],
+  "videoRefs": [],
+  "prereqs": [
+    "tokens-types-and-sizeof"
+  ],
+  "sources": [
+    {
+      "kind": "text",
+      "title": "Pointers in C for GATE: Memory Diagrams and Output Traces",
+      "channel": "Knowledge Gate AI",
+      "url": "https://www.knowledgegate.ai/blog/pointers-in-c-gate-memory-diagrams",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "the box-and-arrow model, the double-pointer trace, dangling pointers and the read-only literal"
+    },
+    {
+      "kind": "text",
+      "title": "Programming in C - subject chapter (GATE Overflow for GATE CSE, Volume 2)",
+      "channel": "GATE Overflow",
+      "url": "https://gateoverflow.in/subject/programming-in-c/programming/programming-in-c",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "the pointer summary with its dangling, wild and void-pointer pitfall list"
+    }
+  ],
+  "sourceLine": "The pointer model, the double-pointer trace and the read-only string literal: Knowledge Gate AI 'Pointers in C for GATE' (English, read in full). The pitfall list for wild, dangling and void pointers: GATE Overflow 'Programming in C' chapter (English, read in part). The 19 of GATE CSE 2008 Q.60 is recomputed in scripts/validate.py.",
+  "links": {
+    "mock": {
+      "subject": "programming-data-structures",
+      "unit_slug": "pointers-memory",
+      "unit_name": "Pointers, Memory & Preprocessors",
+      "unit_number": 2,
+      "question_count": 50,
+      "subtopics": [
+        {
+          "label": "Pointer arithmetic",
+          "questions": 14
+        },
+        {
+          "label": "Pointers to functions",
+          "questions": 12
+        },
+        {
+          "label": "Dynamic memory allocation",
+          "questions": 12
+        },
+        {
+          "label": "Macro expansion, scope & lifetime",
+          "questions": 12
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/programming-data-structures/pointers-memory/gate_ds_mock_2_2026-10-27.html"
+    },
+    "visual": {
+      "slug": "pointers-in-c",
+      "title": "Pointers in C",
+      "level": "topic-level",
+      "covers": [
+        "& gives the address of an object; * follows an address to the object",
+        "a pointer to a pointer, and why a swap needs one",
+        "a pointer holds an address, so its value is a number and not the object"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/pointers-in-c/index.html"
+    },
+    "mapped_at": "2026-10-31"
   }
- ],
- "sourceLine": "The pointer model, the double-pointer trace and the read-only string literal: Knowledge Gate AI 'Pointers in C for GATE' (English, read in full). The pitfall list for wild, dangling and void pointers: GATE Overflow 'Programming in C' chapter (English, read in part). The 19 of GATE CSE 2008 Q.60 is recomputed in scripts/validate.py."
 }

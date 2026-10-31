@@ -1,83 +1,98 @@
 {
- "id": "structures-unions-and-padding",
- "title": "Structures, Unions and Padding",
- "priority": "P1",
- "order": 569,
- "unit": "Programming in C",
- "quickIdea": "A struct places its members one after another in declaration order, inserting padding so each lands on a suitable boundary; a union places them all at offset zero, so only the last one written is readable.",
- "remember": [
-  "sizeof(struct) is at least the sum of the member sizes and usually more. Each member is aligned to its own requirement, commonly its own size; the struct's alignment is its largest member's, and the total is rounded up to a multiple of it.",
-  "Reordering members can change the size: char, int, char needs padding after the first char, while char, char, int needs none.",
-  "sizeof(union) is the size of its largest member, rounded up to the union's alignment. All members start at the same address, so writing one overwrites the bytes of the others.",
-  "Member access is . on a struct and -> on a pointer to one; (*q).x and q->x are the same object.",
-  "A struct is assignable and is copied when passed by value, padding included. An array inside a struct is copied element by element; a pointer inside one is copied as an address, not followed.",
-  "Casting a struct pointer to char * changes the arithmetic, not the object: (char *)q + 1 moves one byte inside the struct, while q + 1 would move a whole struct."
- ],
- "example": {
-  "prompt": "struct Ournode { char x, y, z; }; struct Ournode p = {'1', '0', 'a' + 2}; struct Ournode *q = &p; printf(\"%c, %c\", *((char *)q + 1), *((char *)q + 2));",
-  "work": "'a' + 2 is the character 'c'. The three chars sit in consecutive bytes at offsets 0, 1 and 2. (char *)q makes the pointer step one byte at a time, so (char *)q + 1 addresses the second byte and (char *)q + 2 the third. Dereferencing them gives '0' and 'c', and %c prints characters without quotes.",
-  "answer": "0, c."
- },
- "gateAngle": "GATE CSE 2018 Q.2 is this program and the answer is 0, c. GATE CSE 2000's struct-inside-a-union question is the size version of the same layout idea. The distractors in both are the ones you get by forgetting the cast, which would step a whole struct, or by counting a union as the sum of its members.",
- "variations": [
-  {
-   "label": "ORIGINAL PYQ-STYLE QUESTION",
-   "question": "What is sizeof for struct { char c; int i; char d; } with 4-byte ints and the usual alignment?",
-   "answer": "12: c at 0, three padding bytes, i at 4, d at 8, and three bytes of tail padding to round the total up to the struct's alignment of 4.",
-   "why": "The padding half of the same layout question; the 2018 question tests offsets and the 2000 one tests sizes."
+  "id": "structures-unions-and-padding",
+  "title": "Structures, Unions and Padding",
+  "priority": "P1",
+  "order": 569,
+  "unit": "Programming in C",
+  "quickIdea": "A struct places its members one after another in declaration order, inserting padding so each lands on a suitable boundary; a union places them all at offset zero, so only the last one written is readable.",
+  "remember": [
+    "sizeof(struct) is at least the sum of the member sizes and usually more. Each member is aligned to its own requirement, commonly its own size; the struct's alignment is its largest member's, and the total is rounded up to a multiple of it.",
+    "Reordering members can change the size: char, int, char needs padding after the first char, while char, char, int needs none.",
+    "sizeof(union) is the size of its largest member, rounded up to the union's alignment. All members start at the same address, so writing one overwrites the bytes of the others.",
+    "Member access is . on a struct and -> on a pointer to one; (*q).x and q->x are the same object.",
+    "A struct is assignable and is copied when passed by value, padding included. An array inside a struct is copied element by element; a pointer inside one is copied as an address, not followed.",
+    "Casting a struct pointer to char * changes the arithmetic, not the object: (char *)q + 1 moves one byte inside the struct, while q + 1 would move a whole struct."
+  ],
+  "example": {
+    "prompt": "struct Ournode { char x, y, z; }; struct Ournode p = {'1', '0', 'a' + 2}; struct Ournode *q = &p; printf(\"%c, %c\", *((char *)q + 1), *((char *)q + 2));",
+    "work": "'a' + 2 is the character 'c'. The three chars sit in consecutive bytes at offsets 0, 1 and 2. (char *)q makes the pointer step one byte at a time, so (char *)q + 1 addresses the second byte and (char *)q + 2 the third. Dereferencing them gives '0' and 'c', and %c prints characters without quotes.",
+    "answer": "0, c."
   },
-  {
-   "label": "CONCEPTUAL PRACTICE QUESTION",
-   "question": "Why can a union not hold two members' values at the same time?",
-   "answer": "Because all its members share one storage region starting at the same address, so writing one member overwrites the bytes the previous member occupied.",
-   "why": "The property that makes a union's size the maximum and not the sum."
+  "gateAngle": "GATE CSE 2018 Q.2 is this program and the answer is 0, c. GATE CSE 2000's struct-inside-a-union question is the size version of the same layout idea. The distractors in both are the ones you get by forgetting the cast, which would step a whole struct, or by counting a union as the sum of its members.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "What is sizeof for struct { char c; int i; char d; } with 4-byte ints and the usual alignment?",
+      "answer": "12: c at 0, three padding bytes, i at 4, d at 8, and three bytes of tail padding to round the total up to the struct's alignment of 4.",
+      "why": "The padding half of the same layout question; the 2018 question tests offsets and the 2000 one tests sizes."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Why can a union not hold two members' values at the same time?",
+      "answer": "Because all its members share one storage region starting at the same address, so writing one member overwrites the bytes the previous member occupied.",
+      "why": "The property that makes a union's size the maximum and not the sum."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "union U { float y; long z; } with float 4 and long 8 bytes - what is sizeof(union U), and what is sizeof(struct { float y; long z; }) ignoring alignment?",
+      "answer": "8 for the union and 12 for the struct.",
+      "why": "The one-word difference that changes the answer, which is the whole point of the 2000 question."
+    }
+  ],
+  "trap": {
+    "what": "Assuming that casting a struct pointer to char * lets you walk to the next struct.",
+    "why": "The cast changes the pointer's type, and with it the step size. (char *)q + 1 addresses the second byte of the same object, while q + 1 addresses the next struct, sizeof(struct) bytes away, which usually does not exist.",
+    "counterexample": "In GATE CSE 2018 Q.2, *(q + 1) would read outside p entirely, while *((char *)q + 1) reads p's second byte, which is '0'."
   },
-  {
-   "label": "PREDICTED VARIATION",
-   "question": "union U { float y; long z; } with float 4 and long 8 bytes - what is sizeof(union U), and what is sizeof(struct { float y; long z; }) ignoring alignment?",
-   "answer": "8 for the union and 12 for the struct.",
-   "why": "The one-word difference that changes the answer, which is the whole point of the 2000 question."
+  "check": {
+    "question": "struct S { char a; char b; int c; }; with 4-byte ints and no reordering, what is sizeof(struct S)?",
+    "answer": "8.",
+    "explanation": "a at 0, b at 1, two padding bytes so that c starts on a multiple of 4, then c at 4 to 7. The total 8 is already a multiple of the struct's alignment, 4."
+  },
+  "pyqIds": [
+    "gate-2018-2-struct-char-cast",
+    "gate-2000-34-struct-union-sizeof"
+  ],
+  "videoRefs": [],
+  "prereqs": [
+    "tokens-types-and-sizeof"
+  ],
+  "sources": [
+    {
+      "kind": "text",
+      "title": "Programming in C - subject chapter (GATE Overflow for GATE CSE, Volume 2)",
+      "channel": "GATE Overflow",
+      "url": "https://gateoverflow.in/subject/programming-in-c/programming/programming-in-c",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "the struct and union summaries with the sizeof bounds and the dot-versus-arrow pitfall"
+    },
+    {
+      "kind": "text",
+      "title": "C mein Programming - chapter notes (Devanagari)",
+      "channel": "CareerCraft Labs",
+      "url": "https://careercraftlabs.org/hi/read/net2-cs-ch06",
+      "language": "hi",
+      "transcript": "PARTIAL",
+      "translated": true,
+      "note": "the statement that a struct's total size is at least the sum of its members because of alignment padding (translated)"
+    }
+  ],
+  "sourceLine": "The struct and union summaries and the sizeof bounds: GATE Overflow 'Programming in C' chapter (English, read in part). The alignment-padding sentence: CareerCraft Labs Hindi chapter (translated from Hindi, read in part). The 18 bytes of GATE CSE 2000, the 12-byte padded struct and the 0, c of GATE CSE 2018 Q.2 are recomputed in scripts/validate.py.",
+  "links": {
+    "visual": {
+      "slug": "structures-unions-and-enums",
+      "title": "Structures, Unions and Enumerations: layout, padding and type punning",
+      "level": "topic-level",
+      "covers": [
+        "offset = ceil(running / align) * align, then running = offset + size",
+        "sizeof = ceil(end / largest align) * largest align",
+        "a union's size is its largest member rounded up to its largest alignment",
+        "padding bytes have unspecified values, so memcmp on a struct compares them"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/structures-unions-and-enums/index.html"
+    },
+    "mapped_at": "2026-10-31"
   }
- ],
- "trap": {
-  "what": "Assuming that casting a struct pointer to char * lets you walk to the next struct.",
-  "why": "The cast changes the pointer's type, and with it the step size. (char *)q + 1 addresses the second byte of the same object, while q + 1 addresses the next struct, sizeof(struct) bytes away, which usually does not exist.",
-  "counterexample": "In GATE CSE 2018 Q.2, *(q + 1) would read outside p entirely, while *((char *)q + 1) reads p's second byte, which is '0'."
- },
- "check": {
-  "question": "struct S { char a; char b; int c; }; with 4-byte ints and no reordering, what is sizeof(struct S)?",
-  "answer": "8.",
-  "explanation": "a at 0, b at 1, two padding bytes so that c starts on a multiple of 4, then c at 4 to 7. The total 8 is already a multiple of the struct's alignment, 4."
- },
- "pyqIds": [
-  "gate-2018-2-struct-char-cast",
-  "gate-2000-34-struct-union-sizeof"
- ],
- "videoRefs": [],
- "prereqs": [
-  "tokens-types-and-sizeof"
- ],
- "sources": [
-  {
-   "kind": "text",
-   "title": "Programming in C - subject chapter (GATE Overflow for GATE CSE, Volume 2)",
-   "channel": "GATE Overflow",
-   "url": "https://gateoverflow.in/subject/programming-in-c/programming/programming-in-c",
-   "language": "en",
-   "transcript": "PARTIAL",
-   "translated": false,
-   "note": "the struct and union summaries with the sizeof bounds and the dot-versus-arrow pitfall"
-  },
-  {
-   "kind": "text",
-   "title": "C mein Programming - chapter notes (Devanagari)",
-   "channel": "CareerCraft Labs",
-   "url": "https://careercraftlabs.org/hi/read/net2-cs-ch06",
-   "language": "hi",
-   "transcript": "PARTIAL",
-   "translated": true,
-   "note": "the statement that a struct's total size is at least the sum of its members because of alignment padding (translated)"
-  }
- ],
- "sourceLine": "The struct and union summaries and the sizeof bounds: GATE Overflow 'Programming in C' chapter (English, read in part). The alignment-padding sentence: CareerCraft Labs Hindi chapter (translated from Hindi, read in part). The 18 bytes of GATE CSE 2000, the 12-byte padded struct and the 0, c of GATE CSE 2018 Q.2 are recomputed in scripts/validate.py."
 }

@@ -87,5 +87,44 @@
     }
   ],
   "sourceLine": "The multiplication and division rules, the double-biased exponent and the one subtraction of the bias, the 24-bit multiplier and divider and the four rounding modes: NPTEL IIT Kharagpur Lecture 39 (English, read in part). The E1 + E2 - bias and E1 - E2 + bias forms with the sign as the XOR, and the normalisation after the significand product: Sarangi, chapter 8 slides (English, read in part), whose worked example is 0.5 x -0.75. The rules of the multiplication algorithm and the note that no overflow check is needed: Bhalodia, Unit 7 (English, read in part) - the card narrows that note to the significand, because the exponent can overflow. The two question texts and accepted answers: their GATE Overflow and IAE Academy paper pages.",
-  "videoRefs": []
+  "videoRefs": [],
+  "links": {
+    "mock": {
+      "subject": "digital-logic",
+      "unit_slug": "number-systems",
+      "unit_name": "Number Systems & Representation",
+      "unit_number": 1,
+      "question_count": 75,
+      "subtopics": [
+        {
+          "label": "Base conversions",
+          "questions": 22
+        },
+        {
+          "label": "One's & two's complement",
+          "questions": 19
+        },
+        {
+          "label": "Range & overflow",
+          "questions": 17
+        },
+        {
+          "label": "Floating point & IEEE 754",
+          "questions": 17
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-10-31.html"
+    },
+    "visual": {
+      "slug": "floating-point-arithmetic",
+      "title": "Floating-point arithmetic: alignment, rounding, and why the order changes the answer",
+      "level": "topic-level",
+      "covers": [
+        "the four steps of every floating-point operation",
+        "multiply: add exponent fields and subtract the bias once"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/floating-point-arithmetic/index.html"
+    },
+    "mapped_at": "2026-10-31"
+  }
 }

@@ -1,83 +1,98 @@
 {
- "id": "strings-nul-termination",
- "title": "Strings and NUL Termination",
- "priority": "P1",
- "order": 568,
- "unit": "Programming in C",
- "quickIdea": "A C string is not a type: it is a char array whose last useful byte is followed by '\\0', and every string function walks until it meets that byte.",
- "remember": [
-  "\"GATE\" occupies 5 bytes: G, A, T, E and the terminating NUL. sizeof(\"GATE\") is 5 while strlen(\"GATE\") is 4.",
-  "char s[] = \"GATE\"; copies the bytes into a writable array. char *s = \"GATE\"; points at a literal that must not be written.",
-  "'0' is the character zero (ASCII 48), '\\0' is the NUL byte (value 0) and ' ' is a space (32). Only '\\0' ends a string.",
-  "strlen counts up to but not including the NUL; strcpy copies the NUL as well; strcmp returns a negative value, zero or a positive value, not a boolean.",
-  "A hand-written copy loop such as while (*t) *s++ = *t++; stops before the NUL, so the destination is not terminated unless the loop adds the terminator afterwards.",
-  "Copying inside one array is safe only when the destination is not ahead of the source: copying forward with s behind t is defined, while the same bytes copied with s ahead of t would overwrite data before it is read."
- ],
- "example": {
-  "prompt": "char a[30] = \"@#Hello World!\"; stringcopy(a, a + 2); with void stringcopy(char *s, char *t) { while (*t) *s++ = *t++; } - what does printf(\"%s\", a) print?",
-  "work": "The literal has 14 characters, at indices 0 to 13, with the NUL at index 14. The source starts at index 2, the 'H', and the destination at index 0. The loop copies H e l l o, space, W o r l d ! into indices 0 to 11 and stops when *t reaches the NUL at index 14, without copying it. Indices 12 and 13 still hold the old 'd' and '!', and the NUL at 14 is still there, so printing runs through all fourteen bytes.",
-  "answer": "Hello World!d! - the twelve copied characters followed by the two old ones that survived."
- },
- "gateAngle": "GATE CSE 2025 Set 2 Q.9 is this program and the answer is Hello World!d!. GATE CSE 2015 Set 3 Q.7 is the one-character version: writing '0' into s1[2] gives 1204, because '0' is 48 and not the terminator.",
- "variations": [
-  {
-   "label": "ORIGINAL PYQ-STYLE QUESTION",
-   "question": "In the same program, what would be printed if the loop ended with *s = '\\0'; after the while?",
-   "answer": "Hello World! - the copied characters followed immediately by the terminator, so the old 'd' and '!' are no longer reachable.",
-   "why": "Isolates the missing terminator as the reason the 2025 answer has extra characters."
+  "id": "strings-nul-termination",
+  "title": "Strings and NUL Termination",
+  "priority": "P1",
+  "order": 568,
+  "unit": "Programming in C",
+  "quickIdea": "A C string is not a type: it is a char array whose last useful byte is followed by '\\0', and every string function walks until it meets that byte.",
+  "remember": [
+    "\"GATE\" occupies 5 bytes: G, A, T, E and the terminating NUL. sizeof(\"GATE\") is 5 while strlen(\"GATE\") is 4.",
+    "char s[] = \"GATE\"; copies the bytes into a writable array. char *s = \"GATE\"; points at a literal that must not be written.",
+    "'0' is the character zero (ASCII 48), '\\0' is the NUL byte (value 0) and ' ' is a space (32). Only '\\0' ends a string.",
+    "strlen counts up to but not including the NUL; strcpy copies the NUL as well; strcmp returns a negative value, zero or a positive value, not a boolean.",
+    "A hand-written copy loop such as while (*t) *s++ = *t++; stops before the NUL, so the destination is not terminated unless the loop adds the terminator afterwards.",
+    "Copying inside one array is safe only when the destination is not ahead of the source: copying forward with s behind t is defined, while the same bytes copied with s ahead of t would overwrite data before it is read."
+  ],
+  "example": {
+    "prompt": "char a[30] = \"@#Hello World!\"; stringcopy(a, a + 2); with void stringcopy(char *s, char *t) { while (*t) *s++ = *t++; } - what does printf(\"%s\", a) print?",
+    "work": "The literal has 14 characters, at indices 0 to 13, with the NUL at index 14. The source starts at index 2, the 'H', and the destination at index 0. The loop copies H e l l o, space, W o r l d ! into indices 0 to 11 and stops when *t reaches the NUL at index 14, without copying it. Indices 12 and 13 still hold the old 'd' and '!', and the NUL at 14 is still there, so printing runs through all fourteen bytes.",
+    "answer": "Hello World!d! - the twelve copied characters followed by the two old ones that survived."
   },
-  {
-   "label": "PREDICTED VARIATION",
-   "question": "char s1[7] = \"1234\", *p = s1 + 2; *p = 0; printf(\"%s\", s1); what is printed?",
-   "answer": "12 - assigning the integer 0 writes the NUL byte, so printing stops after '2'.",
-   "why": "The 2015 question with the quotes removed, which is exactly the distinction between '0' and '\\0'."
+  "gateAngle": "GATE CSE 2025 Set 2 Q.9 is this program and the answer is Hello World!d!. GATE CSE 2015 Set 3 Q.7 is the one-character version: writing '0' into s1[2] gives 1204, because '0' is 48 and not the terminator.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "In the same program, what would be printed if the loop ended with *s = '\\0'; after the while?",
+      "answer": "Hello World! - the copied characters followed immediately by the terminator, so the old 'd' and '!' are no longer reachable.",
+      "why": "Isolates the missing terminator as the reason the 2025 answer has extra characters."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "char s1[7] = \"1234\", *p = s1 + 2; *p = 0; printf(\"%s\", s1); what is printed?",
+      "answer": "12 - assigning the integer 0 writes the NUL byte, so printing stops after '2'.",
+      "why": "The 2015 question with the quotes removed, which is exactly the distinction between '0' and '\\0'."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Why does strlen not take the array's declared length as an argument?",
+      "answer": "Because the length is not part of a char array's type once it has decayed to a pointer; the only in-band marker of the end is the NUL byte, which is why every string function has to scan.",
+      "why": "Explains why the terminator is not optional, which is what makes both PYQs come out as they do."
+    }
+  ],
+  "trap": {
+    "what": "Treating '0' and '\\0' as the same byte.",
+    "why": "'0' is a printable character with value 48, so writing it into a string changes one digit. '\\0' has value 0 and is what terminates. A question that writes '0' keeps the rest of the string alive; one that writes 0 cuts it.",
+    "counterexample": "In GATE CSE 2015 Set 3 Q.7, *p = '0' turns \"1234\" into \"1204\", while *p = '\\0' would have turned it into \"12\"."
   },
-  {
-   "label": "CONCEPTUAL PRACTICE QUESTION",
-   "question": "Why does strlen not take the array's declared length as an argument?",
-   "answer": "Because the length is not part of a char array's type once it has decayed to a pointer; the only in-band marker of the end is the NUL byte, which is why every string function has to scan.",
-   "why": "Explains why the terminator is not optional, which is what makes both PYQs come out as they do."
+  "check": {
+    "question": "char s[10] = \"GATE\"; what are sizeof s, strlen(s) and the integer value of s[4]?",
+    "answer": "10, 4 and 0.",
+    "explanation": "sizeof is the declared array size 10; strlen stops before the NUL; s[4] is the NUL byte itself, whose integer value is 0."
+  },
+  "pyqIds": [
+    "gate-2025-set2-9-overlapping-stringcopy",
+    "gate-2015-set3-7-char-array-pointer-overwrite"
+  ],
+  "videoRefs": [],
+  "prereqs": [
+    "pointer-arithmetic-and-array-decay"
+  ],
+  "sources": [
+    {
+      "kind": "text",
+      "title": "C mein Programming - chapter notes (Devanagari)",
+      "channel": "CareerCraft Labs",
+      "url": "https://careercraftlabs.org/hi/read/net2-cs-ch06",
+      "language": "hi",
+      "transcript": "PARTIAL",
+      "translated": true,
+      "note": "the NUL-terminated char array as the definition of a C string, and the terminator as the standard buffer-overflow source (translated)"
+    },
+    {
+      "kind": "text",
+      "title": "C Programming Fundamentals: Complete Guide with Worked Examples for GATE and Placements",
+      "channel": "Knowledge Gate AI",
+      "url": "https://www.knowledgegate.ai/blog/c-fundamentals-c-programming",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "the sizeof of an initialised char array against strlen"
+    }
+  ],
+  "sourceLine": "The NUL-terminated char array as the definition of a C string, and the terminator as the usual source of a buffer overflow: CareerCraft Labs Hindi chapter (translated from Hindi, read in part). sizeof against strlen for an initialised char array: Knowledge Gate AI 'C Programming Fundamentals' (English, read in part). Both PYQ outputs are recomputed byte by byte in scripts/validate.py.",
+  "links": {
+    "visual": {
+      "slug": "c-strings-and-the-null-terminator",
+      "title": "C Strings: the Null Terminator, Literals, and strlen against sizeof",
+      "level": "topic-level",
+      "covers": [
+        "sizeof counts the terminator; strlen does not; %s stops at it",
+        "the null character is a stored byte of value zero, written '\\0', not the digit zero",
+        "char c[4] = \"GATE\" drops the terminator, so the object is not a string",
+        "an embedded zero truncates the string but not the array: \"GA\\0TE\" is sizeof 6, strlen 2"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/c-strings-and-the-null-terminator/index.html"
+    },
+    "mapped_at": "2026-10-31"
   }
- ],
- "trap": {
-  "what": "Treating '0' and '\\0' as the same byte.",
-  "why": "'0' is a printable character with value 48, so writing it into a string changes one digit. '\\0' has value 0 and is what terminates. A question that writes '0' keeps the rest of the string alive; one that writes 0 cuts it.",
-  "counterexample": "In GATE CSE 2015 Set 3 Q.7, *p = '0' turns \"1234\" into \"1204\", while *p = '\\0' would have turned it into \"12\"."
- },
- "check": {
-  "question": "char s[10] = \"GATE\"; what are sizeof s, strlen(s) and the integer value of s[4]?",
-  "answer": "10, 4 and 0.",
-  "explanation": "sizeof is the declared array size 10; strlen stops before the NUL; s[4] is the NUL byte itself, whose integer value is 0."
- },
- "pyqIds": [
-  "gate-2025-set2-9-overlapping-stringcopy",
-  "gate-2015-set3-7-char-array-pointer-overwrite"
- ],
- "videoRefs": [],
- "prereqs": [
-  "pointer-arithmetic-and-array-decay"
- ],
- "sources": [
-  {
-   "kind": "text",
-   "title": "C mein Programming - chapter notes (Devanagari)",
-   "channel": "CareerCraft Labs",
-   "url": "https://careercraftlabs.org/hi/read/net2-cs-ch06",
-   "language": "hi",
-   "transcript": "PARTIAL",
-   "translated": true,
-   "note": "the NUL-terminated char array as the definition of a C string, and the terminator as the standard buffer-overflow source (translated)"
-  },
-  {
-   "kind": "text",
-   "title": "C Programming Fundamentals: Complete Guide with Worked Examples for GATE and Placements",
-   "channel": "Knowledge Gate AI",
-   "url": "https://www.knowledgegate.ai/blog/c-fundamentals-c-programming",
-   "language": "en",
-   "transcript": "PARTIAL",
-   "translated": false,
-   "note": "the sizeof of an initialised char array against strlen"
-  }
- ],
- "sourceLine": "The NUL-terminated char array as the definition of a C string, and the terminator as the usual source of a buffer overflow: CareerCraft Labs Hindi chapter (translated from Hindi, read in part). sizeof against strlen for an initialised char array: Knowledge Gate AI 'C Programming Fundamentals' (English, read in part). Both PYQ outputs are recomputed byte by byte in scripts/validate.py."
 }
