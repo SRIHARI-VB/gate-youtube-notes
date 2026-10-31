@@ -44375,30 +44375,47 @@ window.GATE_DATA = {
    "links": {
     "mock": {
      "subject": "programming-data-structures",
-     "unit_slug": "recursion-and-call-stack",
-     "unit_name": "Recursion and the Call Stack",
-     "unit_number": 2,
-     "question_count": 40,
+     "unit_slug": "c-programming-core",
+     "unit_name": "C Programming Foundations",
+     "unit_number": 1,
+     "question_count": 50,
      "subtopics": [
       {
-       "label": "Base case and termination",
-       "questions": 10
+       "label": "Control structures",
+       "questions": 12
       },
       {
-       "label": "Call stack and depth",
-       "questions": 10
+       "label": "Data types & operators",
+       "questions": 14
       },
       {
-       "label": "Order of output",
-       "questions": 10
+       "label": "Functions & parameter passing",
+       "questions": 12
       },
       {
-       "label": "Counting calls",
-       "questions": 10
+       "label": "Recursion & stack execution",
+       "questions": 12
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/programming-data-structures/recursion-and-call-stack/gate_ds_mock_2_2026-10-31.html"
-    }
+     "url": "https://gate-cse-mocks.vercel.app/programming-data-structures/c-programming-core/gate_ds_mock_1_2026-10-26.html"
+    },
+    "visual": {
+     "slug": "recursion",
+     "title": "Recursion",
+     "level": "topic-level",
+     "covers": [
+      "a recursive definition: smaller copy plus a base case",
+      "one frame per call: own parameters, own locals, own return address",
+      "nothing is computed on the way down; values combine on the way up",
+      "fact(n) and sumTo(n): calls = depth = n+1",
+      "the C standard does not require tail call optimisation",
+      "static local inside a recursion is one object shared by all frames",
+      "GATE 2011 foo(n, r) is the base-r digit sum; foo(513,2) = 2",
+      "T(n) = T(n-1) + 1 gives n+1 calls; T(n) = 2T(n/2) + n gives n log2 n + n"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/recursion/index.html"
+    },
+    "mapped_at": "2026-10-31"
    },
    "subject": "programming-and-data-structures",
    "topic": "recursion",
@@ -44494,30 +44511,47 @@ window.GATE_DATA = {
    "links": {
     "mock": {
      "subject": "programming-data-structures",
-     "unit_slug": "recursion-and-call-stack",
-     "unit_name": "Recursion and the Call Stack",
-     "unit_number": 2,
-     "question_count": 40,
+     "unit_slug": "c-programming-core",
+     "unit_name": "C Programming Foundations",
+     "unit_number": 1,
+     "question_count": 50,
      "subtopics": [
       {
-       "label": "Base case and termination",
-       "questions": 10
+       "label": "Control structures",
+       "questions": 12
       },
       {
-       "label": "Call stack and depth",
-       "questions": 10
+       "label": "Data types & operators",
+       "questions": 14
       },
       {
-       "label": "Order of output",
-       "questions": 10
+       "label": "Functions & parameter passing",
+       "questions": 12
       },
       {
-       "label": "Counting calls",
-       "questions": 10
+       "label": "Recursion & stack execution",
+       "questions": 12
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/programming-data-structures/recursion-and-call-stack/gate_ds_mock_2_2026-10-31.html"
-    }
+     "url": "https://gate-cse-mocks.vercel.app/programming-data-structures/c-programming-core/gate_ds_mock_1_2026-10-26.html"
+    },
+    "visual": {
+     "slug": "recursion",
+     "title": "Recursion",
+     "level": "topic-level",
+     "covers": [
+      "a recursive definition: smaller copy plus a base case",
+      "one frame per call: own parameters, own locals, own return address",
+      "nothing is computed on the way down; values combine on the way up",
+      "fact(n) and sumTo(n): calls = depth = n+1",
+      "the C standard does not require tail call optimisation",
+      "static local inside a recursion is one object shared by all frames",
+      "GATE 2011 foo(n, r) is the base-r digit sum; foo(513,2) = 2",
+      "T(n) = T(n-1) + 1 gives n+1 calls; T(n) = 2T(n/2) + n gives n log2 n + n"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/recursion/index.html"
+    },
+    "mapped_at": "2026-10-31"
    },
    "subject": "programming-and-data-structures",
    "topic": "recursion",
@@ -44624,30 +44658,47 @@ window.GATE_DATA = {
    "links": {
     "mock": {
      "subject": "programming-data-structures",
-     "unit_slug": "recursion-and-call-stack",
-     "unit_name": "Recursion and the Call Stack",
-     "unit_number": 2,
-     "question_count": 40,
+     "unit_slug": "c-programming-core",
+     "unit_name": "C Programming Foundations",
+     "unit_number": 1,
+     "question_count": 50,
      "subtopics": [
       {
-       "label": "Base case and termination",
-       "questions": 10
+       "label": "Control structures",
+       "questions": 12
       },
       {
-       "label": "Call stack and depth",
-       "questions": 10
+       "label": "Data types & operators",
+       "questions": 14
       },
       {
-       "label": "Order of output",
-       "questions": 10
+       "label": "Functions & parameter passing",
+       "questions": 12
       },
       {
-       "label": "Counting calls",
-       "questions": 10
+       "label": "Recursion & stack execution",
+       "questions": 12
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/programming-data-structures/recursion-and-call-stack/gate_ds_mock_2_2026-10-31.html"
-    }
+     "url": "https://gate-cse-mocks.vercel.app/programming-data-structures/c-programming-core/gate_ds_mock_1_2026-10-26.html"
+    },
+    "visual": {
+     "slug": "recursion",
+     "title": "Recursion",
+     "level": "topic-level",
+     "covers": [
+      "a recursive definition: smaller copy plus a base case",
+      "one frame per call: own parameters, own locals, own return address",
+      "nothing is computed on the way down; values combine on the way up",
+      "fact(n) and sumTo(n): calls = depth = n+1",
+      "the C standard does not require tail call optimisation",
+      "static local inside a recursion is one object shared by all frames",
+      "GATE 2011 foo(n, r) is the base-r digit sum; foo(513,2) = 2",
+      "T(n) = T(n-1) + 1 gives n+1 calls; T(n) = 2T(n/2) + n gives n log2 n + n"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/recursion/index.html"
+    },
+    "mapped_at": "2026-10-31"
    },
    "subject": "programming-and-data-structures",
    "topic": "recursion",
@@ -44746,30 +44797,47 @@ window.GATE_DATA = {
    "links": {
     "mock": {
      "subject": "programming-data-structures",
-     "unit_slug": "recursion-and-call-stack",
-     "unit_name": "Recursion and the Call Stack",
-     "unit_number": 2,
-     "question_count": 40,
+     "unit_slug": "c-programming-core",
+     "unit_name": "C Programming Foundations",
+     "unit_number": 1,
+     "question_count": 50,
      "subtopics": [
       {
-       "label": "Base case and termination",
-       "questions": 10
+       "label": "Control structures",
+       "questions": 12
       },
       {
-       "label": "Call stack and depth",
-       "questions": 10
+       "label": "Data types & operators",
+       "questions": 14
       },
       {
-       "label": "Order of output",
-       "questions": 10
+       "label": "Functions & parameter passing",
+       "questions": 12
       },
       {
-       "label": "Counting calls",
-       "questions": 10
+       "label": "Recursion & stack execution",
+       "questions": 12
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/programming-data-structures/recursion-and-call-stack/gate_ds_mock_2_2026-10-31.html"
-    }
+     "url": "https://gate-cse-mocks.vercel.app/programming-data-structures/c-programming-core/gate_ds_mock_1_2026-10-26.html"
+    },
+    "visual": {
+     "slug": "recursion",
+     "title": "Recursion",
+     "level": "topic-level",
+     "covers": [
+      "a recursive definition: smaller copy plus a base case",
+      "one frame per call: own parameters, own locals, own return address",
+      "nothing is computed on the way down; values combine on the way up",
+      "fact(n) and sumTo(n): calls = depth = n+1",
+      "the C standard does not require tail call optimisation",
+      "static local inside a recursion is one object shared by all frames",
+      "GATE 2011 foo(n, r) is the base-r digit sum; foo(513,2) = 2",
+      "T(n) = T(n-1) + 1 gives n+1 calls; T(n) = 2T(n/2) + n gives n log2 n + n"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/recursion/index.html"
+    },
+    "mapped_at": "2026-10-31"
    },
    "subject": "programming-and-data-structures",
    "topic": "recursion",
@@ -44877,30 +44945,47 @@ window.GATE_DATA = {
    "links": {
     "mock": {
      "subject": "programming-data-structures",
-     "unit_slug": "recursion-and-call-stack",
-     "unit_name": "Recursion and the Call Stack",
-     "unit_number": 2,
-     "question_count": 40,
+     "unit_slug": "c-programming-core",
+     "unit_name": "C Programming Foundations",
+     "unit_number": 1,
+     "question_count": 50,
      "subtopics": [
       {
-       "label": "Base case and termination",
-       "questions": 10
+       "label": "Control structures",
+       "questions": 12
       },
       {
-       "label": "Call stack and depth",
-       "questions": 10
+       "label": "Data types & operators",
+       "questions": 14
       },
       {
-       "label": "Order of output",
-       "questions": 10
+       "label": "Functions & parameter passing",
+       "questions": 12
       },
       {
-       "label": "Counting calls",
-       "questions": 10
+       "label": "Recursion & stack execution",
+       "questions": 12
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/programming-data-structures/recursion-and-call-stack/gate_ds_mock_2_2026-10-31.html"
-    }
+     "url": "https://gate-cse-mocks.vercel.app/programming-data-structures/c-programming-core/gate_ds_mock_1_2026-10-26.html"
+    },
+    "visual": {
+     "slug": "recursion",
+     "title": "Recursion",
+     "level": "topic-level",
+     "covers": [
+      "a recursive definition: smaller copy plus a base case",
+      "one frame per call: own parameters, own locals, own return address",
+      "nothing is computed on the way down; values combine on the way up",
+      "fact(n) and sumTo(n): calls = depth = n+1",
+      "the C standard does not require tail call optimisation",
+      "static local inside a recursion is one object shared by all frames",
+      "GATE 2011 foo(n, r) is the base-r digit sum; foo(513,2) = 2",
+      "T(n) = T(n-1) + 1 gives n+1 calls; T(n) = 2T(n/2) + n gives n log2 n + n"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/recursion/index.html"
+    },
+    "mapped_at": "2026-10-31"
    },
    "subject": "programming-and-data-structures",
    "topic": "recursion",
@@ -44997,30 +45082,47 @@ window.GATE_DATA = {
    "links": {
     "mock": {
      "subject": "programming-data-structures",
-     "unit_slug": "recursion-and-call-stack",
-     "unit_name": "Recursion and the Call Stack",
-     "unit_number": 2,
-     "question_count": 40,
+     "unit_slug": "c-programming-core",
+     "unit_name": "C Programming Foundations",
+     "unit_number": 1,
+     "question_count": 50,
      "subtopics": [
       {
-       "label": "Base case and termination",
-       "questions": 10
+       "label": "Control structures",
+       "questions": 12
       },
       {
-       "label": "Call stack and depth",
-       "questions": 10
+       "label": "Data types & operators",
+       "questions": 14
       },
       {
-       "label": "Order of output",
-       "questions": 10
+       "label": "Functions & parameter passing",
+       "questions": 12
       },
       {
-       "label": "Counting calls",
-       "questions": 10
+       "label": "Recursion & stack execution",
+       "questions": 12
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/programming-data-structures/recursion-and-call-stack/gate_ds_mock_2_2026-10-31.html"
-    }
+     "url": "https://gate-cse-mocks.vercel.app/programming-data-structures/c-programming-core/gate_ds_mock_1_2026-10-26.html"
+    },
+    "visual": {
+     "slug": "recursion",
+     "title": "Recursion",
+     "level": "topic-level",
+     "covers": [
+      "a recursive definition: smaller copy plus a base case",
+      "one frame per call: own parameters, own locals, own return address",
+      "nothing is computed on the way down; values combine on the way up",
+      "fact(n) and sumTo(n): calls = depth = n+1",
+      "the C standard does not require tail call optimisation",
+      "static local inside a recursion is one object shared by all frames",
+      "GATE 2011 foo(n, r) is the base-r digit sum; foo(513,2) = 2",
+      "T(n) = T(n-1) + 1 gives n+1 calls; T(n) = 2T(n/2) + n gives n log2 n + n"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/recursion/index.html"
+    },
+    "mapped_at": "2026-10-31"
    },
    "subject": "programming-and-data-structures",
    "topic": "recursion",
@@ -45118,30 +45220,47 @@ window.GATE_DATA = {
    "links": {
     "mock": {
      "subject": "programming-data-structures",
-     "unit_slug": "recursion-and-call-stack",
-     "unit_name": "Recursion and the Call Stack",
-     "unit_number": 2,
-     "question_count": 40,
+     "unit_slug": "c-programming-core",
+     "unit_name": "C Programming Foundations",
+     "unit_number": 1,
+     "question_count": 50,
      "subtopics": [
       {
-       "label": "Base case and termination",
-       "questions": 10
+       "label": "Control structures",
+       "questions": 12
       },
       {
-       "label": "Call stack and depth",
-       "questions": 10
+       "label": "Data types & operators",
+       "questions": 14
       },
       {
-       "label": "Order of output",
-       "questions": 10
+       "label": "Functions & parameter passing",
+       "questions": 12
       },
       {
-       "label": "Counting calls",
-       "questions": 10
+       "label": "Recursion & stack execution",
+       "questions": 12
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/programming-data-structures/recursion-and-call-stack/gate_ds_mock_2_2026-10-31.html"
-    }
+     "url": "https://gate-cse-mocks.vercel.app/programming-data-structures/c-programming-core/gate_ds_mock_1_2026-10-26.html"
+    },
+    "visual": {
+     "slug": "recursion",
+     "title": "Recursion",
+     "level": "topic-level",
+     "covers": [
+      "a recursive definition: smaller copy plus a base case",
+      "one frame per call: own parameters, own locals, own return address",
+      "nothing is computed on the way down; values combine on the way up",
+      "fact(n) and sumTo(n): calls = depth = n+1",
+      "the C standard does not require tail call optimisation",
+      "static local inside a recursion is one object shared by all frames",
+      "GATE 2011 foo(n, r) is the base-r digit sum; foo(513,2) = 2",
+      "T(n) = T(n-1) + 1 gives n+1 calls; T(n) = 2T(n/2) + n gives n log2 n + n"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/recursion/index.html"
+    },
+    "mapped_at": "2026-10-31"
    },
    "subject": "programming-and-data-structures",
    "topic": "recursion",
@@ -45230,30 +45349,47 @@ window.GATE_DATA = {
    "links": {
     "mock": {
      "subject": "programming-data-structures",
-     "unit_slug": "recursion-and-call-stack",
-     "unit_name": "Recursion and the Call Stack",
-     "unit_number": 2,
-     "question_count": 40,
+     "unit_slug": "c-programming-core",
+     "unit_name": "C Programming Foundations",
+     "unit_number": 1,
+     "question_count": 50,
      "subtopics": [
       {
-       "label": "Base case and termination",
-       "questions": 10
+       "label": "Control structures",
+       "questions": 12
       },
       {
-       "label": "Call stack and depth",
-       "questions": 10
+       "label": "Data types & operators",
+       "questions": 14
       },
       {
-       "label": "Order of output",
-       "questions": 10
+       "label": "Functions & parameter passing",
+       "questions": 12
       },
       {
-       "label": "Counting calls",
-       "questions": 10
+       "label": "Recursion & stack execution",
+       "questions": 12
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/programming-data-structures/recursion-and-call-stack/gate_ds_mock_2_2026-10-31.html"
-    }
+     "url": "https://gate-cse-mocks.vercel.app/programming-data-structures/c-programming-core/gate_ds_mock_1_2026-10-26.html"
+    },
+    "visual": {
+     "slug": "recursion",
+     "title": "Recursion",
+     "level": "topic-level",
+     "covers": [
+      "a recursive definition: smaller copy plus a base case",
+      "one frame per call: own parameters, own locals, own return address",
+      "nothing is computed on the way down; values combine on the way up",
+      "fact(n) and sumTo(n): calls = depth = n+1",
+      "the C standard does not require tail call optimisation",
+      "static local inside a recursion is one object shared by all frames",
+      "GATE 2011 foo(n, r) is the base-r digit sum; foo(513,2) = 2",
+      "T(n) = T(n-1) + 1 gives n+1 calls; T(n) = 2T(n/2) + n gives n log2 n + n"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/recursion/index.html"
+    },
+    "mapped_at": "2026-10-31"
    },
    "subject": "programming-and-data-structures",
    "topic": "recursion",
@@ -45350,30 +45486,47 @@ window.GATE_DATA = {
    "links": {
     "mock": {
      "subject": "programming-data-structures",
-     "unit_slug": "recursion-and-call-stack",
-     "unit_name": "Recursion and the Call Stack",
-     "unit_number": 2,
-     "question_count": 40,
+     "unit_slug": "c-programming-core",
+     "unit_name": "C Programming Foundations",
+     "unit_number": 1,
+     "question_count": 50,
      "subtopics": [
       {
-       "label": "Base case and termination",
-       "questions": 10
+       "label": "Control structures",
+       "questions": 12
       },
       {
-       "label": "Call stack and depth",
-       "questions": 10
+       "label": "Data types & operators",
+       "questions": 14
       },
       {
-       "label": "Order of output",
-       "questions": 10
+       "label": "Functions & parameter passing",
+       "questions": 12
       },
       {
-       "label": "Counting calls",
-       "questions": 10
+       "label": "Recursion & stack execution",
+       "questions": 12
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/programming-data-structures/recursion-and-call-stack/gate_ds_mock_2_2026-10-31.html"
-    }
+     "url": "https://gate-cse-mocks.vercel.app/programming-data-structures/c-programming-core/gate_ds_mock_1_2026-10-26.html"
+    },
+    "visual": {
+     "slug": "recursion",
+     "title": "Recursion",
+     "level": "topic-level",
+     "covers": [
+      "a recursive definition: smaller copy plus a base case",
+      "one frame per call: own parameters, own locals, own return address",
+      "nothing is computed on the way down; values combine on the way up",
+      "fact(n) and sumTo(n): calls = depth = n+1",
+      "the C standard does not require tail call optimisation",
+      "static local inside a recursion is one object shared by all frames",
+      "GATE 2011 foo(n, r) is the base-r digit sum; foo(513,2) = 2",
+      "T(n) = T(n-1) + 1 gives n+1 calls; T(n) = 2T(n/2) + n gives n log2 n + n"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/recursion/index.html"
+    },
+    "mapped_at": "2026-10-31"
    },
    "subject": "programming-and-data-structures",
    "topic": "recursion",
@@ -45462,30 +45615,47 @@ window.GATE_DATA = {
    "links": {
     "mock": {
      "subject": "programming-data-structures",
-     "unit_slug": "recursion-and-call-stack",
-     "unit_name": "Recursion and the Call Stack",
-     "unit_number": 2,
-     "question_count": 40,
+     "unit_slug": "c-programming-core",
+     "unit_name": "C Programming Foundations",
+     "unit_number": 1,
+     "question_count": 50,
      "subtopics": [
       {
-       "label": "Base case and termination",
-       "questions": 10
+       "label": "Control structures",
+       "questions": 12
       },
       {
-       "label": "Call stack and depth",
-       "questions": 10
+       "label": "Data types & operators",
+       "questions": 14
       },
       {
-       "label": "Order of output",
-       "questions": 10
+       "label": "Functions & parameter passing",
+       "questions": 12
       },
       {
-       "label": "Counting calls",
-       "questions": 10
+       "label": "Recursion & stack execution",
+       "questions": 12
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/programming-data-structures/recursion-and-call-stack/gate_ds_mock_2_2026-10-31.html"
-    }
+     "url": "https://gate-cse-mocks.vercel.app/programming-data-structures/c-programming-core/gate_ds_mock_1_2026-10-26.html"
+    },
+    "visual": {
+     "slug": "recursion",
+     "title": "Recursion",
+     "level": "topic-level",
+     "covers": [
+      "a recursive definition: smaller copy plus a base case",
+      "one frame per call: own parameters, own locals, own return address",
+      "nothing is computed on the way down; values combine on the way up",
+      "fact(n) and sumTo(n): calls = depth = n+1",
+      "the C standard does not require tail call optimisation",
+      "static local inside a recursion is one object shared by all frames",
+      "GATE 2011 foo(n, r) is the base-r digit sum; foo(513,2) = 2",
+      "T(n) = T(n-1) + 1 gives n+1 calls; T(n) = 2T(n/2) + n gives n log2 n + n"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/recursion/index.html"
+    },
+    "mapped_at": "2026-10-31"
    },
    "subject": "programming-and-data-structures",
    "topic": "recursion",
@@ -45583,30 +45753,47 @@ window.GATE_DATA = {
    "links": {
     "mock": {
      "subject": "programming-data-structures",
-     "unit_slug": "recursion-and-call-stack",
-     "unit_name": "Recursion and the Call Stack",
-     "unit_number": 2,
-     "question_count": 40,
+     "unit_slug": "c-programming-core",
+     "unit_name": "C Programming Foundations",
+     "unit_number": 1,
+     "question_count": 50,
      "subtopics": [
       {
-       "label": "Base case and termination",
-       "questions": 10
+       "label": "Control structures",
+       "questions": 12
       },
       {
-       "label": "Call stack and depth",
-       "questions": 10
+       "label": "Data types & operators",
+       "questions": 14
       },
       {
-       "label": "Order of output",
-       "questions": 10
+       "label": "Functions & parameter passing",
+       "questions": 12
       },
       {
-       "label": "Counting calls",
-       "questions": 10
+       "label": "Recursion & stack execution",
+       "questions": 12
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/programming-data-structures/recursion-and-call-stack/gate_ds_mock_2_2026-10-31.html"
-    }
+     "url": "https://gate-cse-mocks.vercel.app/programming-data-structures/c-programming-core/gate_ds_mock_1_2026-10-26.html"
+    },
+    "visual": {
+     "slug": "recursion",
+     "title": "Recursion",
+     "level": "topic-level",
+     "covers": [
+      "a recursive definition: smaller copy plus a base case",
+      "one frame per call: own parameters, own locals, own return address",
+      "nothing is computed on the way down; values combine on the way up",
+      "fact(n) and sumTo(n): calls = depth = n+1",
+      "the C standard does not require tail call optimisation",
+      "static local inside a recursion is one object shared by all frames",
+      "GATE 2011 foo(n, r) is the base-r digit sum; foo(513,2) = 2",
+      "T(n) = T(n-1) + 1 gives n+1 calls; T(n) = 2T(n/2) + n gives n log2 n + n"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/recursion/index.html"
+    },
+    "mapped_at": "2026-10-31"
    },
    "subject": "programming-and-data-structures",
    "topic": "recursion",
@@ -45703,30 +45890,47 @@ window.GATE_DATA = {
    "links": {
     "mock": {
      "subject": "programming-data-structures",
-     "unit_slug": "recursion-and-call-stack",
-     "unit_name": "Recursion and the Call Stack",
-     "unit_number": 2,
-     "question_count": 40,
+     "unit_slug": "c-programming-core",
+     "unit_name": "C Programming Foundations",
+     "unit_number": 1,
+     "question_count": 50,
      "subtopics": [
       {
-       "label": "Base case and termination",
-       "questions": 10
+       "label": "Control structures",
+       "questions": 12
       },
       {
-       "label": "Call stack and depth",
-       "questions": 10
+       "label": "Data types & operators",
+       "questions": 14
       },
       {
-       "label": "Order of output",
-       "questions": 10
+       "label": "Functions & parameter passing",
+       "questions": 12
       },
       {
-       "label": "Counting calls",
-       "questions": 10
+       "label": "Recursion & stack execution",
+       "questions": 12
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/programming-data-structures/recursion-and-call-stack/gate_ds_mock_2_2026-10-31.html"
-    }
+     "url": "https://gate-cse-mocks.vercel.app/programming-data-structures/c-programming-core/gate_ds_mock_1_2026-10-26.html"
+    },
+    "visual": {
+     "slug": "recursion",
+     "title": "Recursion",
+     "level": "topic-level",
+     "covers": [
+      "a recursive definition: smaller copy plus a base case",
+      "one frame per call: own parameters, own locals, own return address",
+      "nothing is computed on the way down; values combine on the way up",
+      "fact(n) and sumTo(n): calls = depth = n+1",
+      "the C standard does not require tail call optimisation",
+      "static local inside a recursion is one object shared by all frames",
+      "GATE 2011 foo(n, r) is the base-r digit sum; foo(513,2) = 2",
+      "T(n) = T(n-1) + 1 gives n+1 calls; T(n) = 2T(n/2) + n gives n log2 n + n"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/recursion/index.html"
+    },
+    "mapped_at": "2026-10-31"
    },
    "subject": "programming-and-data-structures",
    "topic": "recursion",

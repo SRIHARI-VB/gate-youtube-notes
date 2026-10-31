@@ -12727,6 +12727,462 @@
         "visual url: topics/functions-scope-and-preprocessor/index.html"
       ],
       "row_verdict": "BOTH"
+    },
+    {
+      "subject": "programming-and-data-structures",
+      "group": "recursion",
+      "topic": "recursion-anatomy-base-and-recursive-case",
+      "title": "Recursion: the Base Case and the Recursive Case",
+      "priority": "P1",
+      "path": "subjects/programming-and-data-structures/recursion/recursion-anatomy-base-and-recursive-case.json",
+      "transcript_status": "not stated (card carries no videoRefs; built from text sources)",
+      "mock": {
+        "subject": "programming-data-structures",
+        "unit_slug": "c-programming-core",
+        "unit_name": "C Programming Foundations",
+        "unit_number": 1,
+        "question_count": 50,
+        "subtopic_labels": [
+          "Control structures",
+          "Data types & operators",
+          "Functions & parameter passing",
+          "Recursion & stack execution"
+        ],
+        "verdict": "MOCK_READY"
+      },
+      "visual": {
+        "slug": "recursion",
+        "title": "Recursion",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json map[].path = subjects/programming-and-data-structures/recursion/recursion-anatomy-base-and-recursive-case.json",
+        "mock: programming-data-structures/question-bank/master_bank.json questions[] grouped by subtopic_label for unit_slug=c-programming-core (50 records); matching label \"Recursion & stack execution\" 12 questions",
+        "mock url: runs[] last entry for c-programming-core -> https://gate-cse-mocks.vercel.app/programming-data-structures/c-programming-core/gate_ds_mock_1_2026-10-26.html",
+        "visual: topics.json slug=recursion (updated 2026-10-26); syllabus-coverage.json lesson_slug=recursion coverage_status=PUBLISHED; covers[] checked against transcript.md scene list",
+        "visual url: topics/recursion/index.html"
+      ],
+      "row_verdict": "BOTH"
+    },
+    {
+      "subject": "programming-and-data-structures",
+      "group": "recursion",
+      "topic": "termination-and-missing-base-cases",
+      "title": "Termination and the Missing Base Case",
+      "priority": "P1",
+      "path": "subjects/programming-and-data-structures/recursion/termination-and-missing-base-cases.json",
+      "transcript_status": "not stated (card carries no videoRefs; built from text sources)",
+      "mock": {
+        "subject": "programming-data-structures",
+        "unit_slug": "c-programming-core",
+        "unit_name": "C Programming Foundations",
+        "unit_number": 1,
+        "question_count": 50,
+        "subtopic_labels": [
+          "Control structures",
+          "Data types & operators",
+          "Functions & parameter passing",
+          "Recursion & stack execution"
+        ],
+        "verdict": "MOCK_READY"
+      },
+      "visual": {
+        "slug": "recursion",
+        "title": "Recursion",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json map[].path = subjects/programming-and-data-structures/recursion/termination-and-missing-base-cases.json",
+        "mock: programming-data-structures/question-bank/master_bank.json questions[] grouped by subtopic_label for unit_slug=c-programming-core (50 records); matching label \"Recursion & stack execution\" 12 questions",
+        "mock url: runs[] last entry for c-programming-core -> https://gate-cse-mocks.vercel.app/programming-data-structures/c-programming-core/gate_ds_mock_1_2026-10-26.html",
+        "visual: topics.json slug=recursion (updated 2026-10-26); syllabus-coverage.json lesson_slug=recursion coverage_status=PUBLISHED; covers[] checked against transcript.md scene list",
+        "visual url: topics/recursion/index.html"
+      ],
+      "row_verdict": "BOTH"
+    },
+    {
+      "subject": "programming-and-data-structures",
+      "group": "recursion",
+      "topic": "call-stack-activation-records-and-depth",
+      "title": "The Call Stack, Activation Records and Depth",
+      "priority": "P1",
+      "path": "subjects/programming-and-data-structures/recursion/call-stack-activation-records-and-depth.json",
+      "transcript_status": "not stated (card carries no videoRefs; built from text sources)",
+      "mock": {
+        "subject": "programming-data-structures",
+        "unit_slug": "c-programming-core",
+        "unit_name": "C Programming Foundations",
+        "unit_number": 1,
+        "question_count": 50,
+        "subtopic_labels": [
+          "Control structures",
+          "Data types & operators",
+          "Functions & parameter passing",
+          "Recursion & stack execution"
+        ],
+        "verdict": "MOCK_READY"
+      },
+      "visual": {
+        "slug": "recursion",
+        "title": "Recursion",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json map[].path = subjects/programming-and-data-structures/recursion/call-stack-activation-records-and-depth.json",
+        "mock: programming-data-structures/question-bank/master_bank.json questions[] grouped by subtopic_label for unit_slug=c-programming-core (50 records); matching label \"Recursion & stack execution\" 12 questions",
+        "mock url: runs[] last entry for c-programming-core -> https://gate-cse-mocks.vercel.app/programming-data-structures/c-programming-core/gate_ds_mock_1_2026-10-26.html",
+        "visual: topics.json slug=recursion (updated 2026-10-26); syllabus-coverage.json lesson_slug=recursion coverage_status=PUBLISHED; covers[] checked against transcript.md scene list",
+        "visual url: topics/recursion/index.html"
+      ],
+      "row_verdict": "BOTH"
+    },
+    {
+      "subject": "programming-and-data-structures",
+      "group": "recursion",
+      "topic": "descent-and-unwinding-order",
+      "title": "Descent and Unwinding: What the Print Order Depends On",
+      "priority": "P1",
+      "path": "subjects/programming-and-data-structures/recursion/descent-and-unwinding-order.json",
+      "transcript_status": "not stated (card carries no videoRefs; built from text sources)",
+      "mock": {
+        "subject": "programming-data-structures",
+        "unit_slug": "c-programming-core",
+        "unit_name": "C Programming Foundations",
+        "unit_number": 1,
+        "question_count": 50,
+        "subtopic_labels": [
+          "Control structures",
+          "Data types & operators",
+          "Functions & parameter passing",
+          "Recursion & stack execution"
+        ],
+        "verdict": "MOCK_READY"
+      },
+      "visual": {
+        "slug": "recursion",
+        "title": "Recursion",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json map[].path = subjects/programming-and-data-structures/recursion/descent-and-unwinding-order.json",
+        "mock: programming-data-structures/question-bank/master_bank.json questions[] grouped by subtopic_label for unit_slug=c-programming-core (50 records); matching label \"Recursion & stack execution\" 12 questions",
+        "mock url: runs[] last entry for c-programming-core -> https://gate-cse-mocks.vercel.app/programming-data-structures/c-programming-core/gate_ds_mock_1_2026-10-26.html",
+        "visual: topics.json slug=recursion (updated 2026-10-26); syllabus-coverage.json lesson_slug=recursion coverage_status=PUBLISHED; covers[] checked against transcript.md scene list",
+        "visual url: topics/recursion/index.html"
+      ],
+      "row_verdict": "BOTH"
+    },
+    {
+      "subject": "programming-and-data-structures",
+      "group": "recursion",
+      "topic": "counting-invocations-in-a-call-tree",
+      "title": "Counting Invocations in a Call Tree",
+      "priority": "P1",
+      "path": "subjects/programming-and-data-structures/recursion/counting-invocations-in-a-call-tree.json",
+      "transcript_status": "not stated (card carries no videoRefs; built from text sources)",
+      "mock": {
+        "subject": "programming-data-structures",
+        "unit_slug": "c-programming-core",
+        "unit_name": "C Programming Foundations",
+        "unit_number": 1,
+        "question_count": 50,
+        "subtopic_labels": [
+          "Control structures",
+          "Data types & operators",
+          "Functions & parameter passing",
+          "Recursion & stack execution"
+        ],
+        "verdict": "MOCK_READY"
+      },
+      "visual": {
+        "slug": "recursion",
+        "title": "Recursion",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json map[].path = subjects/programming-and-data-structures/recursion/counting-invocations-in-a-call-tree.json",
+        "mock: programming-data-structures/question-bank/master_bank.json questions[] grouped by subtopic_label for unit_slug=c-programming-core (50 records); matching label \"Recursion & stack execution\" 12 questions",
+        "mock url: runs[] last entry for c-programming-core -> https://gate-cse-mocks.vercel.app/programming-data-structures/c-programming-core/gate_ds_mock_1_2026-10-26.html",
+        "visual: topics.json slug=recursion (updated 2026-10-26); syllabus-coverage.json lesson_slug=recursion coverage_status=PUBLISHED; covers[] checked against transcript.md scene list",
+        "visual url: topics/recursion/index.html"
+      ],
+      "row_verdict": "BOTH"
+    },
+    {
+      "subject": "programming-and-data-structures",
+      "group": "recursion",
+      "topic": "linear-tree-and-nested-recursion",
+      "title": "Linear, Tree and Nested Recursion",
+      "priority": "P1",
+      "path": "subjects/programming-and-data-structures/recursion/linear-tree-and-nested-recursion.json",
+      "transcript_status": "not stated (card carries no videoRefs; built from text sources)",
+      "mock": {
+        "subject": "programming-data-structures",
+        "unit_slug": "c-programming-core",
+        "unit_name": "C Programming Foundations",
+        "unit_number": 1,
+        "question_count": 50,
+        "subtopic_labels": [
+          "Control structures",
+          "Data types & operators",
+          "Functions & parameter passing",
+          "Recursion & stack execution"
+        ],
+        "verdict": "MOCK_READY"
+      },
+      "visual": {
+        "slug": "recursion",
+        "title": "Recursion",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json map[].path = subjects/programming-and-data-structures/recursion/linear-tree-and-nested-recursion.json",
+        "mock: programming-data-structures/question-bank/master_bank.json questions[] grouped by subtopic_label for unit_slug=c-programming-core (50 records); matching label \"Recursion & stack execution\" 12 questions",
+        "mock url: runs[] last entry for c-programming-core -> https://gate-cse-mocks.vercel.app/programming-data-structures/c-programming-core/gate_ds_mock_1_2026-10-26.html",
+        "visual: topics.json slug=recursion (updated 2026-10-26); syllabus-coverage.json lesson_slug=recursion coverage_status=PUBLISHED; covers[] checked against transcript.md scene list",
+        "visual url: topics/recursion/index.html"
+      ],
+      "row_verdict": "BOTH"
+    },
+    {
+      "subject": "programming-and-data-structures",
+      "group": "recursion",
+      "topic": "recursion-depth-and-logarithmic-recursion",
+      "title": "Halving Recursions and the Logarithm",
+      "priority": "P2",
+      "path": "subjects/programming-and-data-structures/recursion/recursion-depth-and-logarithmic-recursion.json",
+      "transcript_status": "not stated (card carries no videoRefs; built from text sources)",
+      "mock": {
+        "subject": "programming-data-structures",
+        "unit_slug": "c-programming-core",
+        "unit_name": "C Programming Foundations",
+        "unit_number": 1,
+        "question_count": 50,
+        "subtopic_labels": [
+          "Control structures",
+          "Data types & operators",
+          "Functions & parameter passing",
+          "Recursion & stack execution"
+        ],
+        "verdict": "MOCK_READY"
+      },
+      "visual": {
+        "slug": "recursion",
+        "title": "Recursion",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json map[].path = subjects/programming-and-data-structures/recursion/recursion-depth-and-logarithmic-recursion.json",
+        "mock: programming-data-structures/question-bank/master_bank.json questions[] grouped by subtopic_label for unit_slug=c-programming-core (50 records); matching label \"Recursion & stack execution\" 12 questions",
+        "mock url: runs[] last entry for c-programming-core -> https://gate-cse-mocks.vercel.app/programming-data-structures/c-programming-core/gate_ds_mock_1_2026-10-26.html",
+        "visual: topics.json slug=recursion (updated 2026-10-26); syllabus-coverage.json lesson_slug=recursion coverage_status=PUBLISHED; covers[] checked against transcript.md scene list",
+        "visual url: topics/recursion/index.html"
+      ],
+      "row_verdict": "BOTH"
+    },
+    {
+      "subject": "programming-and-data-structures",
+      "group": "recursion",
+      "topic": "tail-head-and-indirect-recursion",
+      "title": "Tail, Head and Indirect Recursion",
+      "priority": "P2",
+      "path": "subjects/programming-and-data-structures/recursion/tail-head-and-indirect-recursion.json",
+      "transcript_status": "not stated (card carries no videoRefs; built from text sources)",
+      "mock": {
+        "subject": "programming-data-structures",
+        "unit_slug": "c-programming-core",
+        "unit_name": "C Programming Foundations",
+        "unit_number": 1,
+        "question_count": 50,
+        "subtopic_labels": [
+          "Control structures",
+          "Data types & operators",
+          "Functions & parameter passing",
+          "Recursion & stack execution"
+        ],
+        "verdict": "MOCK_READY"
+      },
+      "visual": {
+        "slug": "recursion",
+        "title": "Recursion",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json map[].path = subjects/programming-and-data-structures/recursion/tail-head-and-indirect-recursion.json",
+        "mock: programming-data-structures/question-bank/master_bank.json questions[] grouped by subtopic_label for unit_slug=c-programming-core (50 records); matching label \"Recursion & stack execution\" 12 questions",
+        "mock url: runs[] last entry for c-programming-core -> https://gate-cse-mocks.vercel.app/programming-data-structures/c-programming-core/gate_ds_mock_1_2026-10-26.html",
+        "visual: topics.json slug=recursion (updated 2026-10-26); syllabus-coverage.json lesson_slug=recursion coverage_status=PUBLISHED; covers[] checked against transcript.md scene list",
+        "visual url: topics/recursion/index.html"
+      ],
+      "row_verdict": "BOTH"
+    },
+    {
+      "subject": "programming-and-data-structures",
+      "group": "recursion",
+      "topic": "static-and-global-state-across-calls",
+      "title": "Static and Global State Across Calls",
+      "priority": "P2",
+      "path": "subjects/programming-and-data-structures/recursion/static-and-global-state-across-calls.json",
+      "transcript_status": "not stated (card carries no videoRefs; built from text sources)",
+      "mock": {
+        "subject": "programming-data-structures",
+        "unit_slug": "c-programming-core",
+        "unit_name": "C Programming Foundations",
+        "unit_number": 1,
+        "question_count": 50,
+        "subtopic_labels": [
+          "Control structures",
+          "Data types & operators",
+          "Functions & parameter passing",
+          "Recursion & stack execution"
+        ],
+        "verdict": "MOCK_READY"
+      },
+      "visual": {
+        "slug": "recursion",
+        "title": "Recursion",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json map[].path = subjects/programming-and-data-structures/recursion/static-and-global-state-across-calls.json",
+        "mock: programming-data-structures/question-bank/master_bank.json questions[] grouped by subtopic_label for unit_slug=c-programming-core (50 records); matching label \"Recursion & stack execution\" 12 questions",
+        "mock url: runs[] last entry for c-programming-core -> https://gate-cse-mocks.vercel.app/programming-data-structures/c-programming-core/gate_ds_mock_1_2026-10-26.html",
+        "visual: topics.json slug=recursion (updated 2026-10-26); syllabus-coverage.json lesson_slug=recursion coverage_status=PUBLISHED; covers[] checked against transcript.md scene list",
+        "visual url: topics/recursion/index.html"
+      ],
+      "row_verdict": "BOTH"
+    },
+    {
+      "subject": "programming-and-data-structures",
+      "group": "recursion",
+      "topic": "tail-call-elimination-and-iteration",
+      "title": "Tail-Call Elimination and Rewriting Recursion as a Loop",
+      "priority": "P2",
+      "path": "subjects/programming-and-data-structures/recursion/tail-call-elimination-and-iteration.json",
+      "transcript_status": "not stated (card carries no videoRefs; built from text sources)",
+      "mock": {
+        "subject": "programming-data-structures",
+        "unit_slug": "c-programming-core",
+        "unit_name": "C Programming Foundations",
+        "unit_number": 1,
+        "question_count": 50,
+        "subtopic_labels": [
+          "Control structures",
+          "Data types & operators",
+          "Functions & parameter passing",
+          "Recursion & stack execution"
+        ],
+        "verdict": "MOCK_READY"
+      },
+      "visual": {
+        "slug": "recursion",
+        "title": "Recursion",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json map[].path = subjects/programming-and-data-structures/recursion/tail-call-elimination-and-iteration.json",
+        "mock: programming-data-structures/question-bank/master_bank.json questions[] grouped by subtopic_label for unit_slug=c-programming-core (50 records); matching label \"Recursion & stack execution\" 12 questions",
+        "mock url: runs[] last entry for c-programming-core -> https://gate-cse-mocks.vercel.app/programming-data-structures/c-programming-core/gate_ds_mock_1_2026-10-26.html",
+        "visual: topics.json slug=recursion (updated 2026-10-26); syllabus-coverage.json lesson_slug=recursion coverage_status=PUBLISHED; covers[] checked against transcript.md scene list",
+        "visual url: topics/recursion/index.html"
+      ],
+      "row_verdict": "BOTH"
+    },
+    {
+      "subject": "programming-and-data-structures",
+      "group": "recursion",
+      "topic": "recursion-on-arrays-strings-and-digits",
+      "title": "Recursion over Arrays, Strings and Digits",
+      "priority": "P2",
+      "path": "subjects/programming-and-data-structures/recursion/recursion-on-arrays-strings-and-digits.json",
+      "transcript_status": "not stated (card carries no videoRefs; built from text sources)",
+      "mock": {
+        "subject": "programming-data-structures",
+        "unit_slug": "c-programming-core",
+        "unit_name": "C Programming Foundations",
+        "unit_number": 1,
+        "question_count": 50,
+        "subtopic_labels": [
+          "Control structures",
+          "Data types & operators",
+          "Functions & parameter passing",
+          "Recursion & stack execution"
+        ],
+        "verdict": "MOCK_READY"
+      },
+      "visual": {
+        "slug": "recursion",
+        "title": "Recursion",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json map[].path = subjects/programming-and-data-structures/recursion/recursion-on-arrays-strings-and-digits.json",
+        "mock: programming-data-structures/question-bank/master_bank.json questions[] grouped by subtopic_label for unit_slug=c-programming-core (50 records); matching label \"Recursion & stack execution\" 12 questions",
+        "mock url: runs[] last entry for c-programming-core -> https://gate-cse-mocks.vercel.app/programming-data-structures/c-programming-core/gate_ds_mock_1_2026-10-26.html",
+        "visual: topics.json slug=recursion (updated 2026-10-26); syllabus-coverage.json lesson_slug=recursion coverage_status=PUBLISHED; covers[] checked against transcript.md scene list",
+        "visual url: topics/recursion/index.html"
+      ],
+      "row_verdict": "BOTH"
+    },
+    {
+      "subject": "programming-and-data-structures",
+      "group": "recursion",
+      "topic": "deriving-a-recurrence-from-code",
+      "title": "Deriving a Recurrence from the Code",
+      "priority": "P2",
+      "path": "subjects/programming-and-data-structures/recursion/deriving-a-recurrence-from-code.json",
+      "transcript_status": "not stated (card carries no videoRefs; built from text sources)",
+      "mock": {
+        "subject": "programming-data-structures",
+        "unit_slug": "c-programming-core",
+        "unit_name": "C Programming Foundations",
+        "unit_number": 1,
+        "question_count": 50,
+        "subtopic_labels": [
+          "Control structures",
+          "Data types & operators",
+          "Functions & parameter passing",
+          "Recursion & stack execution"
+        ],
+        "verdict": "MOCK_READY"
+      },
+      "visual": {
+        "slug": "recursion",
+        "title": "Recursion",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json map[].path = subjects/programming-and-data-structures/recursion/deriving-a-recurrence-from-code.json",
+        "mock: programming-data-structures/question-bank/master_bank.json questions[] grouped by subtopic_label for unit_slug=c-programming-core (50 records); matching label \"Recursion & stack execution\" 12 questions",
+        "mock url: runs[] last entry for c-programming-core -> https://gate-cse-mocks.vercel.app/programming-data-structures/c-programming-core/gate_ds_mock_1_2026-10-26.html",
+        "visual: topics.json slug=recursion (updated 2026-10-26); syllabus-coverage.json lesson_slug=recursion coverage_status=PUBLISHED; covers[] checked against transcript.md scene list",
+        "visual url: topics/recursion/index.html"
+      ],
+      "row_verdict": "BOTH"
     }
   ],
   "gaps": [
@@ -12784,11 +13240,6 @@
       "kind": "notes",
       "placement": "computer-architecture › memory-management-unit",
       "detail": "mock unit \"Main Memory & Virtual Memory Interface\" (unit_number 4, 50 questions) serves no notes card; subtopic groups: dram-sram-organization 13, effective-access-time 11, paging-tlb-hit-ratio 17, segmentation 9"
-    },
-    {
-      "kind": "notes",
-      "placement": "computer-networks › data-link-mac",
-      "detail": "mock unit \"Data Link Protocols & MAC\" (unit_number 2, 50 questions) serves no notes card; subtopic groups: csma-cd-csma-ca-backoff 10, ethernet-standards-switches-bridges 10, go-back-n-selective-repeat-efficiency 10, pure-and-slotted-aloha 10, stop-and-wait-arq 10"
     },
     {
       "kind": "notes",
@@ -12874,11 +13325,6 @@
       "kind": "notes",
       "placement": "operating-systems › virtual-memory",
       "detail": "mock unit \"Virtual Memory & Page Replacement\" (unit_number 5, 75 questions) serves no notes card; subtopic groups: Belady's anomaly 16, Demand paging & page-fault rate 21, FIFO, OPT & LRU replacement 19, Thrashing & the working-set model 19"
-    },
-    {
-      "kind": "notes",
-      "placement": "programming-data-structures › c-programming-core",
-      "detail": "mock unit \"C Programming Foundations\" (unit_number 1, 50 questions) serves no notes card; subtopic groups: control-structures 12, data-types-operators 14, functions-and-parameter-passing 12, recursion-stack-execution 12"
     },
     {
       "kind": "notes",
@@ -13354,6 +13800,11 @@
       "kind": "mock",
       "placement": "programming-and-data-structures › programming-in-c › structures-unions-and-padding",
       "detail": "no PDS unit holds a struct layout, padding or union group; structs appear only inside pointers-memory pointer-arithmetic stems (sizeof(struct ...)). All six PDS units are at the 50-question cap; the fix is the same new unit programming-data-structures/strings-and-structs."
+    },
+    {
+      "kind": "notes",
+      "placement": "computer-networks › data-link-mac",
+      "detail": "no computer-networks card exists in the notes repo at all; the mock unit \"Data Link Protocols & MAC\" (unit_number 2) now holds 75 questions (groups: CSMA/CD, CSMA/CA & backoff 10; Ethernet, switches & bridges 10; Go-back-N & selective repeat 10; Pure & slotted ALOHA 10; Stop-and-wait ARQ 10; csma-cd-csma-ca-backoff 5; ethernet-standards-switches-bridges 5; go-back-n-selective-repeat-efficiency 5; pure-and-slotted-aloha 5; stop-and-wait-arq 5), last paper computer-networks/data-link-mac/gate_cn_mock_2_2026-10-31.html, and the PUBLISHED lesson sliding-window-arq-protocols serves its ARQ subtopics (stop-and-wait and its efficiency, sender and receiver windows, Go-Back-N retransmission, Selective Repeat retransmission) with no notes card to link to"
     }
   ]
 }
