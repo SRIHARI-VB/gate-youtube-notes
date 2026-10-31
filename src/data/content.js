@@ -311,7 +311,7 @@ window.GATE_DATA = {
      {
       "slug": "memory-hierarchy-and-cache",
       "name": "Memory Interfacing, Hierarchy and Cache Mapping",
-      "material": "planned"
+      "material": "cards"
      },
      {
       "slug": "io-interface",
@@ -38030,6 +38030,1286 @@ window.GATE_DATA = {
    "subject": "computer-organization-and-architecture",
    "topic": "control-unit-design",
    "path": "subjects/computer-organization-and-architecture/control-unit-design/control-unit-of-a-real-machine-the-basic-computer.json"
+  },
+  {
+   "id": "memory-hierarchy-levels-and-the-cost-speed-trade",
+   "title": "The Memory Hierarchy and the Cost-Speed Trade",
+   "priority": "P1",
+   "order": 518,
+   "unit": "Memory Interfacing, Hierarchy and Cache Mapping",
+   "quickIdea": "No single memory technology is both fast and cheap, so a computer stacks several: tiny fast registers, then cache, then main memory, then disk, each level slower, larger and cheaper per byte than the one above it.",
+   "remember": [
+    "Going down the hierarchy: capacity rises, access time rises, cost per byte falls, and the frequency with which the level is accessed falls.",
+    "The last property - decreasing frequency of access - is not a law of hardware; it is what locality of reference makes true of real programs, and it is the reason the hierarchy works at all.",
+    "A level is worth having only if the level above it misses rarely enough that the average access time approaches the fast level's time.",
+    "Registers are addressed by the instruction set; cache and main memory are addressed by the memory address; disk is reached through the operating system, not by a load instruction.",
+    "Volatility also changes down the hierarchy: registers and SRAM/DRAM are volatile, disk and ROM are not."
+   ],
+   "example": {
+    "prompt": "A processor has 1 ns cache access, 60 ns main-memory access and a 0.95 hit ratio. A second design has the same cache but a 0.90 hit ratio. Compare their average access times.",
+    "work": "AMAT = hit time + miss rate x miss penalty = 1 + 0.05 x 60 = 4 ns in the first design and 1 + 0.10 x 60 = 7 ns in the second. The cache is 1.75 times more effective for a hit ratio five points higher.",
+    "answer": "4 ns against 7 ns: a five-point change in hit ratio moved the average by 3 ns, which is why the hierarchy is designed around the hit ratio and not around the fast memory's own speed."
+   },
+   "gateAngle": "The hierarchy is the reason cache questions exist: every cache question is really asking how far the average access time sits from the fast level's access time. GATE states the levels and their parameters and asks you to combine them, never to recite the levels.",
+   "variations": [
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why is a level with a 0.5 hit ratio worthless at the top of a hierarchy?",
+     "answer": "Because the average time is then dominated by the slow level: with a 100 ns lower level, AMAT = 1 + 0.5 x 100 = 51 ns, about half the slow level's time.",
+     "why": "It separates the two things a level buys: capacity from the lower level and speed from the upper one. A level that misses half the time supplies almost no speed."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "Two designs have the same AMAT. Design A has a 2 ns cache with a 0.99 hit ratio; design B has a 1 ns cache with a 0.98 hit ratio. Both miss to a 100 ns memory. Which is which?",
+     "answer": "A: 2 + 0.01 x 100 = 3 ns. B: 1 + 0.02 x 100 = 3 ns. They tie.",
+     "why": "It shows the trade is a product of two independent knobs - hit time and miss rate - and that GATE can give you either one and ask for the other."
+    }
+   ],
+   "trap": {
+    "what": "Treating the hierarchy as a claim that the cache always holds what is needed next.",
+    "why": "The hierarchy is a statistical bet on locality, not a guarantee; a program with no locality gets no benefit and can even be slowed by the fill cost.",
+    "counterexample": "Walking a 1 GB array once, in a random order, touches almost every line exactly once: every access misses, and the cache adds its own hit time to every access without ever paying it back."
+   },
+   "check": {
+    "question": "In a three-level hierarchy the L1 hit time is 1 ns, L2 is 10 ns and memory is 100 ns. Which level's latency dominates a program whose L1 miss rate is 10% and whose L2 miss rate is 10%?",
+    "answer": "Memory: AMAT = 1 + 0.1 x (10 + 0.1 x 100) = 1 + 0.1 x 20 = 3 ns, of which 1 ns is memory's 0.1 x 0.1 x 100 contribution.",
+    "explanation": "The lower level contributes only through the product of the miss rates above it, so a level can be slow and still cheap in average time if the levels above it hit well."
+   },
+   "pyqIds": [],
+   "prereqs": [],
+   "sources": [
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 25 - Direct-mapped Caches: Misses, Writes and Performance",
+     "channel": "NPTEL, Computer Organization and Architecture - A Pedagogical Aspect (IIT Guwahati)",
+     "url": "http://www.digimat.in/nptel/courses/video/106103180/lec25.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read the memory-technology comparison with its access-time and cost-per-GB figures, the statement of the design trade-off that produces the hierarchy, the definition of hit time, hit ratio and miss, and the statement of locality of reference with its two kinds"
+    },
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 24 - Basics of Memory and Cache (Memory System, unit 1 part 1)",
+     "channel": "NPTEL, Computer Organization and Architecture - A Pedagogical Aspect (Prof. J. K. Deka, Dr. Santosh Biswas, Dr. Arnab Sarkar, IIT Guwahati)",
+     "url": "http://www.digimat.in/nptel/courses/video/106103180/lec24.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read the opening of the unit: inboard and outboard memory, capacity as locations times location size, the unit of transfer as the width of the data bus, word size, and byte against word addressing"
+    },
+    {
+     "kind": "lecture-slides",
+     "title": "Computer Organization: Memory Hierarchy and Cache Memories",
+     "channel": "Indian Institute of Science, Centre for Data Sciences, computer architecture and organization slides",
+     "url": "https://cds.iisc.ac.in/wp-content/uploads/ComputerArchitecture_and_Organization.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read the locality section, the memory-address-and-cache composition section (a cache line as valid bit, tag and data block of B bytes), the cache-lookup section (index selects the set, tags compared inside it, offset picks the word), the direct, set-associative and fully associative descriptions, and the 16 KB direct-mapped 32 B example with tag 18, index 9, offset 5"
+    }
+   ],
+   "sourceLine": "The memory-technology comparison with its access times and cost per GB, the trade-off that forces a hierarchy, and the definition of hit time and hit ratio: NPTEL IIT Guwahati Lecture 25 (English, read in part). Capacity as locations times location size and the unit of transfer as the data-bus width: the same course, Lecture 24 (English, read in part). Locality as the design principle behind the cache and the statement that main memory is about 100 times slower than the CPU: IISc CDS slides (English, read in part). Every number on this card is recomputed in scripts/validate.py.",
+   "videoRefs": [],
+   "subject": "computer-organization-and-architecture",
+   "topic": "memory-hierarchy-and-cache",
+   "path": "subjects/computer-organization-and-architecture/memory-hierarchy-and-cache/memory-hierarchy-levels-and-the-cost-speed-trade.json"
+  },
+  {
+   "id": "locality-of-reference-temporal-and-spatial",
+   "title": "Locality of Reference: Temporal and Spatial",
+   "priority": "P1",
+   "order": 519,
+   "unit": "Memory Interfacing, Hierarchy and Cache Mapping",
+   "quickIdea": "Programs reuse what they have just used (temporal locality) and use things next to what they have just used (spatial locality). Cache exploits the first by keeping a line, and the second by fetching a whole block rather than a word.",
+   "remember": [
+    "Temporal locality: an item accessed recently is likely to be accessed again soon - the same variable in a loop, the same instruction on the next iteration.",
+    "Spatial locality: an item near a recently accessed one is likely to be accessed soon - the next element of an array, the next instruction in sequence.",
+    "The unit of transfer is the block (line); the unit of addressing is the word or byte. That mismatch is deliberate: it is how spatial locality is bought.",
+    "Block size is the one knob that trades the two: a larger block exploits more spatial locality per miss but lowers the number of lines for a fixed cache size and raises the miss penalty.",
+    "A program with no locality - a random walk over a large array - defeats the cache; locality is a property of the program, not of the hardware."
+   ],
+   "example": {
+    "prompt": "A 16 KB direct-mapped cache has 32 B blocks. Loop 1 sums A[0..2047] of doubles in order; loop 2 sums the same array with a stride of 1024 elements. Which loop misses less?",
+    "work": "32 B holds 4 doubles, so loop 1 misses once per four elements: 2048/4 = 512 misses. Loop 2 steps 1024 doubles = 8192 B = 256 blocks apart, so each of its 2048 accesses touches a different block: 2048 misses.",
+    "answer": "Loop 1: 512 misses against 2048 - the sequential loop buys spatial locality from the block, the strided loop buys nothing."
+   },
+   "gateAngle": "GATE tests locality through a miss count over a stated access sequence, not by asking for a definition. The pattern is always: work out which block each address belongs to, then count the first touch of each block.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "An 8 KB direct-mapped cache has 64 B blocks and a program reads every 4th byte of a 1 MB array once. How many misses?",
+     "answer": "A 64 B block covers 64 bytes, so every 16th read of the stride-4 walk falls in a new block: 262144 reads / 16 = 16384 blocks touched, and each misses once, so 16384 misses.",
+     "why": "It tests the distinction between the number of accesses and the number of distinct blocks, which is what spatial locality turns into a saving."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why does a larger block help instruction fetches more than data reads?",
+     "answer": "Instructions are fetched in sequence almost always, so the rest of the block is nearly certain to be used; data accesses jump, so the rest of a block may never be touched.",
+     "why": "It is the reason instruction and data caches are separate, and the reason early restart works best for instruction streams."
+    }
+   ],
+   "trap": {
+    "what": "Believing a bigger block always lowers the miss rate.",
+    "why": "Beyond a point the block becomes a large fraction of the cache, so the number of lines falls, competition for lines rises, and a line is evicted before its other words are used; the miss penalty also rises because more words must be transferred.",
+    "counterexample": "In a 1 KB cache, moving from 32 B to 512 B blocks leaves two lines; any two blocks that map to the same line now evict each other on every access."
+   },
+   "check": {
+    "question": "A cache line holds 8 words and a program reads 8 consecutive words from the same line. How many misses does that cost, and how many would a 1-word line cost?",
+    "answer": "One miss against eight.",
+    "explanation": "The first word misses and brings the whole line; the other seven hit. With a 1-word line every read is a separate miss - which is exactly the cost spatial locality removes."
+   },
+   "pyqIds": [],
+   "prereqs": [
+    "memory-hierarchy-levels-and-the-cost-speed-trade"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 25 - Direct-mapped Caches: Misses, Writes and Performance",
+     "channel": "NPTEL, Computer Organization and Architecture - A Pedagogical Aspect (IIT Guwahati)",
+     "url": "http://www.digimat.in/nptel/courses/video/106103180/lec25.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read the memory-technology comparison with its access-time and cost-per-GB figures, the statement of the design trade-off that produces the hierarchy, the definition of hit time, hit ratio and miss, and the statement of locality of reference with its two kinds"
+    },
+    {
+     "kind": "text",
+     "title": "Cache Memory & Mapping Hindi mein",
+     "channel": "DSWallah Learn (Hinglish study lesson on cache memory)",
+     "url": "https://www.dswallah.com/learn/computer-architecture/cache-memory/",
+     "language": "hi",
+     "transcript": "PARTIAL",
+     "translated": true,
+     "note": "read the whole lesson: locality as the assumption that makes a cache possible, the block-versus-word distinction, the three mapping techniques with the line-modulo-lines and set-modulo-sets formulas, AMAT as hit time plus miss rate times miss penalty with the two-level form, the write-through, write-back, write-allocate and no-write-allocate definitions, and its list of common mistakes"
+    },
+    {
+     "kind": "lecture-slides",
+     "title": "Computer Organization: Memory Hierarchy and Cache Memories",
+     "channel": "Indian Institute of Science, Centre for Data Sciences, computer architecture and organization slides",
+     "url": "https://cds.iisc.ac.in/wp-content/uploads/ComputerArchitecture_and_Organization.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read the locality section, the memory-address-and-cache composition section (a cache line as valid bit, tag and data block of B bytes), the cache-lookup section (index selects the set, tags compared inside it, offset picks the word), the direct, set-associative and fully associative descriptions, and the 16 KB direct-mapped 32 B example with tag 18, index 9, offset 5"
+    }
+   ],
+   "sourceLine": "Temporal and spatial locality stated as the two design principles behind the cache, with the block-versus-word distinction: NPTEL IIT Guwahati Lecture 25 (English, read in part). Locality as the assumption that makes a cache possible, and the warning that a larger block buys spatial locality at the price of miss penalty: DSWallah Learn, romanised Hindi, translated (read in part). Locality and the 16 KB, 32 B direct-mapped example: IISc CDS slides (English, read in part).",
+   "videoRefs": [],
+   "subject": "computer-organization-and-architecture",
+   "topic": "memory-hierarchy-and-cache",
+   "path": "subjects/computer-organization-and-architecture/memory-hierarchy-and-cache/locality-of-reference-temporal-and-spatial.json"
+  },
+  {
+   "id": "memory-characteristics-sram-and-dram",
+   "title": "Memory Characteristics and the SRAM-DRAM Split",
+   "priority": "P2",
+   "order": 520,
+   "unit": "Memory Interfacing, Hierarchy and Cache Mapping",
+   "quickIdea": "Every memory is described by the same five numbers - capacity, unit of transfer, access time, cost per bit and volatility - and the two RAM technologies differ sharply on the last three, which is why cache is SRAM and main memory is DRAM.",
+   "remember": [
+    "Capacity = number of addressable locations x size of a location. A 4K x 16 memory holds 4096 locations of 2 bytes.",
+    "Unit of transfer = the number of bits moved at one time, set by the data-bus width, not by the address width.",
+    "Access time is the delay from presenting the address to having the data; cycle time is the minimum interval between two accesses to the same memory and is the larger of the two for DRAM, which must recover.",
+    "SRAM stores a bit in a latch, needs no refresh, and is fast and expensive; DRAM stores a bit as charge on a capacitor, must be refreshed, and is slower and far cheaper per bit.",
+    "Volatile means the contents are lost when power is removed; SRAM and DRAM are volatile, ROM, flash and disk are not."
+   ],
+   "example": {
+    "prompt": "A memory chip is described as 1K x 4. How many address lines and data lines does it need, and how many bits does it hold?",
+    "work": "1K = 1024 locations, so 10 address lines. Each location is 4 bits, so 4 data lines. Capacity = 1024 x 4 = 4096 bits.",
+    "answer": "10 address lines, 4 data lines, 4096 bits."
+   },
+   "gateAngle": "GATE uses these definitions as the input to chip-count and decoder questions: the number of address lines a chip needs is log2 of its word count, and the number of data lines is its word width. Reading a chip's description wrongly makes every later step wrong.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "A 4K x 16 memory is built from 1K x 4 chips. How many address lines does each chip take, and how many chips are needed?",
+     "answer": "10 address lines per chip (1K words); 4 chips side by side for the 16-bit width and 4 rows for the 4K depth, so 16 chips.",
+     "why": "It joins the chip description to the two-dimensional build, which is the arithmetic GATE actually asks for."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why does DRAM need refresh while SRAM does not?",
+     "answer": "DRAM holds a bit as charge on a capacitor, which leaks; the cell must be read and rewritten periodically. SRAM holds the bit in a latch that keeps its state as long as power is on.",
+     "why": "The refresh requirement is why DRAM has a cycle time longer than its access time and why a refresh interval can be part of a performance question."
+    }
+   ],
+   "trap": {
+    "what": "Confusing access time with cycle time.",
+    "why": "Access time is the latency of one read; cycle time is the minimum spacing between the starts of two accesses and includes recovery or refresh, so it is never smaller.",
+    "counterexample": "A DRAM with a 50 ns access time may need 70 ns between two accesses to the same bank: a sequence of dependent reads runs at cycle time, while independent reads to different banks can overlap at access time."
+   },
+   "check": {
+    "question": "A chip holds 2^14 locations of 8 bits. What are its address and data widths, and how many bytes does it hold?",
+    "answer": "14 address lines, 8 data lines, 16384 bytes.",
+    "explanation": "The address width is log2 of the location count; the data width is the location size; the capacity in bytes is the product divided by 8 bits per byte."
+   },
+   "pyqIds": [],
+   "prereqs": [
+    "memory-hierarchy-levels-and-the-cost-speed-trade"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 24 - Basics of Memory and Cache (Memory System, unit 1 part 1)",
+     "channel": "NPTEL, Computer Organization and Architecture - A Pedagogical Aspect (Prof. J. K. Deka, Dr. Santosh Biswas, Dr. Arnab Sarkar, IIT Guwahati)",
+     "url": "http://www.digimat.in/nptel/courses/video/106103180/lec24.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read the opening of the unit: inboard and outboard memory, capacity as locations times location size, the unit of transfer as the width of the data bus, word size, and byte against word addressing"
+    },
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 25 - Direct-mapped Caches: Misses, Writes and Performance",
+     "channel": "NPTEL, Computer Organization and Architecture - A Pedagogical Aspect (IIT Guwahati)",
+     "url": "http://www.digimat.in/nptel/courses/video/106103180/lec25.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read the memory-technology comparison with its access-time and cost-per-GB figures, the statement of the design trade-off that produces the hierarchy, the definition of hit time, hit ratio and miss, and the statement of locality of reference with its two kinds"
+    },
+    {
+     "kind": "lecture-notes",
+     "title": "Memory System Design (ELEX 2117, Digital Techniques 2)",
+     "channel": "University of British Columbia, Electrical and Computer Engineering, lecture 9 notes",
+     "url": "https://people.ece.ubc.ca/edc/2117.jan2021/lec9.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read the memory-interface signals (address, data, CS, OE, WE and what each enables), the tri-state reason only one device may drive the bus, and the rule that ICs combined in parallel widen the word while banks of those rows extend the address range; the address-decoder section was read only as the served text, which stops after the timing diagrams"
+    }
+   ],
+   "sourceLine": "Capacity, unit of transfer, word size and byte against word addressing: NPTEL IIT Guwahati Lecture 24 (English, read in part). The SRAM and DRAM comparison with its access-time and cost-per-GB figures: the same course, Lecture 25 (English, read in part). Volatile against non-volatile memory, SRAM as a latch and DRAM as a refreshed capacitor, and the meaning of kB and MB for memories: UBC ELEX 2117 lecture 9 notes (English, read in part).",
+   "videoRefs": [],
+   "subject": "computer-organization-and-architecture",
+   "topic": "memory-hierarchy-and-cache",
+   "path": "subjects/computer-organization-and-architecture/memory-hierarchy-and-cache/memory-characteristics-sram-and-dram.json"
+  },
+  {
+   "id": "hit-time-miss-penalty-and-amat",
+   "title": "Hit Time, Miss Penalty and the Average Access Time",
+   "priority": "P1",
+   "order": 521,
+   "unit": "Memory Interfacing, Hierarchy and Cache Mapping",
+   "quickIdea": "AMAT = hit time + miss rate x miss penalty. Every performance question in this topic is that one line, with the three quantities read off the question and the miss penalty sometimes itself a sum.",
+   "remember": [
+    "Hit time is the time to deliver a word when it is in the cache - the tag compare plus the data read, and it is paid on every access, hits included.",
+    "Miss penalty is the extra time to bring the line from the next level down and load it; it is paid only on a miss.",
+    "Miss rate = 1 - hit ratio, and AMAT = hit time + (1 - hit ratio) x miss penalty.",
+    "A miss costs hit time + miss penalty on a hierarchical system, because the hit time was already spent before the miss was discovered.",
+    "Miss penalty is often itself a sum: the latency of the first word plus the transfer time for the rest of the block, which is why block size appears in performance questions."
+   ],
+   "example": {
+    "prompt": "GATE CSE 2020 Q.21: a 1 MB direct-mapped cache, 256 B blocks, 3 ns access time, 94% hit rate. On a miss the first word takes 20 ns and each further word 5 ns; the word is 64 bits. Find the AMAT.",
+    "work": "A 256 B block holds 256/8 = 32 words of 64 bits. The miss penalty is 20 + 31 x 5 = 175 ns. AMAT = 0.94 x 3 + 0.06 x (3 + 175) = 2.82 + 10.68 = 13.5 ns.",
+    "answer": "13.5 ns."
+   },
+   "gateAngle": "The whole topic collapses into this formula, and GATE varies which of the three quantities is given. The two recurring traps are forgetting that a miss pays the hit time as well, and forgetting that the miss penalty covers the whole block rather than one word.",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2020 Q.21, as worked above.",
+     "answer": "13.5 ns.",
+     "why": "The block is 32 words, so the transfer is 31 further words after the first: 20 + 31 x 5 = 175 ns, and the miss also pays the 3 ns hit time."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "Same cache and memory, but the block size is doubled to 512 B. What is the AMAT?",
+     "answer": "64 words per block, so the penalty is 20 + 63 x 5 = 335 ns and AMAT = 0.94 x 3 + 0.06 x 338 = 23.1 ns, if the hit rate does not change.",
+     "why": "It shows why block size cannot be raised without limit: the transfer time grows linearly with the block while the hit-rate gain saturates."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "A cache with a 2 ns hit time and a 0.5 hit ratio misses to memory taking 100 ns. By how much does a 1 ns faster hit time change the AMAT, and by how much does a 5-point better hit ratio?",
+     "answer": "AMAT is 2 + 0.5 x 100 = 52 ns. A 1 ns faster hit time gives 51 ns; a 0.55 hit ratio gives 2 + 0.45 x 100 = 47 ns.",
+     "why": "It shows which knob matters: when the miss rate is high, the miss term dominates and improving the hit time is nearly pointless."
+    }
+   ],
+   "trap": {
+    "what": "Computing AMAT as hit ratio x hit time + miss rate x miss penalty, which charges a miss only the penalty.",
+    "why": "On a hierarchical system the hit time is spent on a miss too, before the miss is detected; only a simultaneous-access system, which GATE must state explicitly, avoids it.",
+    "counterexample": "Hit time 3 ns, penalty 175 ns, 94% hits. The wrong form gives 0.94 x 3 + 0.06 x 175 = 13.32 ns; the right form gives 13.5 ns - and the two differ by exactly the miss rate times the hit time."
+   },
+   "check": {
+    "question": "Hit time 2 ns, hit ratio 0.9, miss penalty 40 ns. What is the AMAT, and what would it be with a perfect cache?",
+    "answer": "AMAT = 2 + 0.1 x 40 = 6 ns; with a perfect cache it is 2 ns, so the cache misses cost three times the hit time.",
+    "explanation": "The perfect-cache figure is the hit time alone, which is the floor any AMAT can reach."
+   },
+   "pyqIds": [
+    "gate-2020-21-amat-block-fetch"
+   ],
+   "prereqs": [
+    "memory-hierarchy-levels-and-the-cost-speed-trade",
+    "locality-of-reference-temporal-and-spatial"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 25 - Direct-mapped Caches: Misses, Writes and Performance",
+     "channel": "NPTEL, Computer Organization and Architecture - A Pedagogical Aspect (IIT Guwahati)",
+     "url": "http://www.digimat.in/nptel/courses/video/106103180/lec25.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read the memory-technology comparison with its access-time and cost-per-GB figures, the statement of the design trade-off that produces the hierarchy, the definition of hit time, hit ratio and miss, and the statement of locality of reference with its two kinds"
+    },
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 26 - Associative and Multi-Level Caches (line size, miss penalty, early restart)",
+     "channel": "NPTEL, Computer Organization and Architecture - A Pedagogical Aspect (IIT Guwahati)",
+     "url": "http://www.digimat.in/nptel/courses/video/106103180/lec26.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read the opening: why a larger line lowers the miss rate through spatial locality, why the miss rate turns back up once the line becomes a large fraction of the cache, the definition of miss penalty as the time to bring a line from the next level down, its split into first-word latency plus transfer time, and early restart"
+    },
+    {
+     "kind": "text",
+     "title": "Cache Memory & Mapping Hindi mein",
+     "channel": "DSWallah Learn (Hinglish study lesson on cache memory)",
+     "url": "https://www.dswallah.com/learn/computer-architecture/cache-memory/",
+     "language": "hi",
+     "transcript": "PARTIAL",
+     "translated": true,
+     "note": "read the whole lesson: locality as the assumption that makes a cache possible, the block-versus-word distinction, the three mapping techniques with the line-modulo-lines and set-modulo-sets formulas, AMAT as hit time plus miss rate times miss penalty with the two-level form, the write-through, write-back, write-allocate and no-write-allocate definitions, and its list of common mistakes"
+    }
+   ],
+   "sourceLine": "Hit time, hit ratio and miss stated as the three measures of a cache: NPTEL IIT Guwahati Lecture 25 (English, read in part). Miss penalty defined as the time to fetch a line from the next level and split into first-word latency plus transfer time: the same course, Lecture 26 (English, read in part). AMAT as hit time plus miss rate times miss penalty, with the two-level form: DSWallah Learn, romanised Hindi, translated (read in part). Every figure on this card, including the 2020 answer, is recomputed in scripts/validate.py.",
+   "videoRefs": [],
+   "subject": "computer-organization-and-architecture",
+   "topic": "memory-hierarchy-and-cache",
+   "path": "subjects/computer-organization-and-architecture/memory-hierarchy-and-cache/hit-time-miss-penalty-and-amat.json"
+  },
+  {
+   "id": "two-level-cache-amat",
+   "title": "AMAT with Two Levels of Cache",
+   "priority": "P1",
+   "order": 522,
+   "unit": "Memory Interfacing, Hierarchy and Cache Mapping",
+   "quickIdea": "Each level's miss penalty is the next level's own access time plus its miss rate times its penalty: AMAT = T1 + m1 x (T2 + m2 x T3), and the multiplication is what makes a slow last level cheap.",
+   "remember": [
+    "Write the recursion once and it answers every multi-level question: AMAT = T1 + m1 x (T2 + m2 x (T3 + ...)).",
+    "m1 is the L1 miss rate, m2 the L2 miss rate counted among L1 misses - not among all accesses.",
+    "The fraction of accesses that reach main memory is m1 x m2, so a level deep in the hierarchy contributes only through the product of the miss rates above it.",
+    "When a question gives a miss penalty in nanoseconds instead of an access time, that penalty is already the extra time on top of the level above, so it goes in the bracket without adding the upper level's time again.",
+    "An inclusive hierarchy writes back into the upper level, so a miss in L2 also costs the transfer to L1; an exclusive one does not."
+   ],
+   "example": {
+    "prompt": "GATE CSE 2025 Set 2 Q.45: L1 access 1 ns with a 90% hit rate; L2 hit rate 80% with a 10 ns miss penalty from L2 to L1; 100 ns miss penalty from memory to L2. Find the AMAT.",
+    "work": "AMAT = 1 + 0.1 x (10 + 0.2 x 100) = 1 + 0.1 x (10 + 20) = 1 + 3 = 4 ns.",
+    "answer": "4 ns."
+   },
+   "gateAngle": "GATE has asked this twice recently, once with access times and once with penalties, and the difference between the two forms is exactly the trap. The other trap is applying m2 to all accesses instead of to L1 misses.",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2025 Set 2 Q.45, as worked above.",
+     "answer": "4 ns.",
+     "why": "0.2 x 100 is the memory term inside the bracket; the bracket is the L1 miss penalty, and 0.1 of it is added to the 1 ns hit time."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "Same system, but the question instead states the L2 access time as 11 ns (not a 10 ns penalty) and the memory access time as 100 ns. What changes?",
+     "answer": "Nothing numerically: 1 + 0.1 x (11 + 0.2 x 100) = 1 + 0.1 x 31 = 4.1 ns. The bracket is now built from access times, so the L2 term is 11 rather than 1 + 10.",
+     "why": "It is the same arithmetic with the hit time folded in. Reading whether a number is an access time or a penalty is the whole skill."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why does making L2 larger and slower sometimes leave AMAT unchanged?",
+     "answer": "Because its contribution is m1 x m2 x T3-weighted: if m1 is 0.05, an extra 10 ns at L2 adds only 0.5 ns.",
+     "why": "It explains why real designs put a large slow L3 below a small fast L2 rather than making L2 large."
+    }
+   ],
+   "trap": {
+    "what": "Applying the L2 miss rate to every access rather than to L1 misses.",
+    "why": "L2 is only consulted when L1 misses, so the memory term must be multiplied by m1 as well as m2.",
+    "counterexample": "In the 2025 question, charging memory to all accesses gives 1 + 0.1 x 10 + 0.2 x 100 = 22 ns instead of 4 ns - a five-fold error from one missing multiplication."
+   },
+   "check": {
+    "question": "L1: 1 ns, 95% hit. L2: 8 ns, 90% hit. Memory: 80 ns. What is the AMAT?",
+    "answer": "1 + 0.05 x (8 + 0.1 x 80) = 1 + 0.05 x 16 = 1.8 ns.",
+    "explanation": "Only 0.5% of accesses reach memory (0.05 x 0.1), so the 80 ns level contributes 0.4 ns on average."
+   },
+   "pyqIds": [
+    "gate-2025-set2-45-two-level-amat"
+   ],
+   "prereqs": [
+    "hit-time-miss-penalty-and-amat"
+   ],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "Cache Memory & Mapping Hindi mein",
+     "channel": "DSWallah Learn (Hinglish study lesson on cache memory)",
+     "url": "https://www.dswallah.com/learn/computer-architecture/cache-memory/",
+     "language": "hi",
+     "transcript": "PARTIAL",
+     "translated": true,
+     "note": "read the whole lesson: locality as the assumption that makes a cache possible, the block-versus-word distinction, the three mapping techniques with the line-modulo-lines and set-modulo-sets formulas, AMAT as hit time plus miss rate times miss penalty with the two-level form, the write-through, write-back, write-allocate and no-write-allocate definitions, and its list of common mistakes"
+    },
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 26 - Associative and Multi-Level Caches (line size, miss penalty, early restart)",
+     "channel": "NPTEL, Computer Organization and Architecture - A Pedagogical Aspect (IIT Guwahati)",
+     "url": "http://www.digimat.in/nptel/courses/video/106103180/lec26.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read the opening: why a larger line lowers the miss rate through spatial locality, why the miss rate turns back up once the line becomes a large fraction of the cache, the definition of miss penalty as the time to bring a line from the next level down, its split into first-word latency plus transfer time, and early restart"
+    }
+   ],
+   "sourceLine": "AMAT as hit time plus miss rate times miss penalty and the two-level recursive form, with the warning that a miss in L1 must also pay the L2 time: DSWallah Learn, romanised Hindi, translated (read in part). Miss penalty defined as the time to bring a line from the next level down: NPTEL IIT Guwahati Lecture 26 (English, read in part). The 2025 answer is recomputed in scripts/validate.py.",
+   "videoRefs": [],
+   "subject": "computer-organization-and-architecture",
+   "topic": "memory-hierarchy-and-cache",
+   "path": "subjects/computer-organization-and-architecture/memory-hierarchy-and-cache/two-level-cache-amat.json"
+  },
+  {
+   "id": "cache-line-set-and-the-address-split",
+   "title": "The Cache Line, the Set, and the Address Split",
+   "priority": "P1",
+   "order": 523,
+   "unit": "Memory Interfacing, Hierarchy and Cache Mapping",
+   "quickIdea": "A cache is a table of lines; each line holds a valid bit, a tag and one block of data. The memory address is cut into tag, index and offset, and the widths of the three cuts follow from the cache size and block size alone.",
+   "remember": [
+    "Offset bits = log2(block size in addressable units). It picks the word inside the line.",
+    "Number of lines = cache data size / block size. Number of sets = lines / associativity.",
+    "Index bits = log2(number of sets). It picks the set. In a direct-mapped cache sets = lines; in a fully associative cache there is one set, so index = 0 bits.",
+    "Tag bits = address width - index bits - offset bits. The tag is what is stored in the directory and compared on a lookup.",
+    "A hit needs the valid bit set and the tag equal; the offset then selects the word. The tag does not identify a word, it identifies which memory block is currently sitting in that line."
+   ],
+   "example": {
+    "prompt": "A 16 KB direct-mapped cache has 32 B blocks and the processor sends 32-bit byte addresses. Give the three field widths.",
+    "work": "Offset = log2 32 = 5. Lines = 16384/32 = 512, so index = 9. Tag = 32 - 9 - 5 = 18.",
+    "answer": "Tag 18, index 9, offset 5 - the split the IISc slides use for exactly this configuration."
+   },
+   "gateAngle": "Every tag-width question in the last decade is this arithmetic with one twist: the associativity, the word length or the address space changed. Work out the offset first, then the index, then subtract both from the address width.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "A 4-way set-associative cache of 32 KB uses 64 B blocks with 24-bit addresses. Give the three widths and the number of comparators.",
+     "answer": "Offset 6; lines = 32768/64 = 512; sets = 128, so index 7; tag = 24 - 7 - 6 = 11. Four comparators of 11 bits each.",
+     "why": "It is the standard arithmetic plus the one hardware consequence: the comparator count equals the associativity."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why does the offset never appear in the tag directory?",
+     "answer": "Because the offset selects a word inside the line, and the whole line is present or absent as a unit; the directory stores only what identifies the block.",
+     "why": "It explains why the tag is a block identifier and why the directory is much smaller than the cache."
+    }
+   ],
+   "trap": {
+    "what": "Counting the tag directory as if it held only the tag.",
+    "why": "Each line also carries a valid bit, often a dirty bit and sometimes replacement bits, so the directory is wider than the tag; questions that ask for directory size expect those bits to be counted.",
+    "counterexample": "A 256-line cache with 19-bit tags and one valid and one dirty bit needs 256 x 21 = 5376 bits, not 256 x 19 = 4864 - and both numbers appear among the options of the 2011 question."
+   },
+   "check": {
+    "question": "An 8 KB 2-way cache uses 32 B blocks and 20-bit addresses. How many sets and what are the three widths?",
+    "answer": "256 lines, 128 sets, so index 7; offset 5; tag = 20 - 7 - 5 = 8 bits.",
+    "explanation": "Halving the lines by making it 2-way removes exactly one index bit, which the tag gains - the same trade the 2017 question makes with 16 ways."
+   },
+   "pyqIds": [
+    "gate-2018-34-tag-bits-k-way-formula",
+    "gate-2023-54-eight-way-tag-bits"
+   ],
+   "prereqs": [
+    "memory-characteristics-sram-and-dram"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-slides",
+     "title": "Computer Organization: Memory Hierarchy and Cache Memories",
+     "channel": "Indian Institute of Science, Centre for Data Sciences, computer architecture and organization slides",
+     "url": "https://cds.iisc.ac.in/wp-content/uploads/ComputerArchitecture_and_Organization.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read the locality section, the memory-address-and-cache composition section (a cache line as valid bit, tag and data block of B bytes), the cache-lookup section (index selects the set, tags compared inside it, offset picks the word), the direct, set-associative and fully associative descriptions, and the 16 KB direct-mapped 32 B example with tag 18, index 9, offset 5"
+    },
+    {
+     "kind": "text",
+     "title": "Cache Memory & Mapping Hindi mein",
+     "channel": "DSWallah Learn (Hinglish study lesson on cache memory)",
+     "url": "https://www.dswallah.com/learn/computer-architecture/cache-memory/",
+     "language": "hi",
+     "transcript": "PARTIAL",
+     "translated": true,
+     "note": "read the whole lesson: locality as the assumption that makes a cache possible, the block-versus-word distinction, the three mapping techniques with the line-modulo-lines and set-modulo-sets formulas, AMAT as hit time plus miss rate times miss penalty with the two-level form, the write-through, write-back, write-allocate and no-write-allocate definitions, and its list of common mistakes"
+    }
+   ],
+   "sourceLine": "The address cut into tag, index and offset with the index selecting the set, the tags compared inside it and the offset picking the word, and a cache line as a valid bit, a tag and a block of B bytes: IISc CDS slides (English, read in part). The same split with the line-modulo-lines and set-modulo-sets formulas and the warning that offset is log2 of the block size: DSWallah Learn, romanised Hindi, translated (read in part). Every width on this card is recomputed in scripts/validate.py.",
+   "videoRefs": [],
+   "subject": "computer-organization-and-architecture",
+   "topic": "memory-hierarchy-and-cache",
+   "path": "subjects/computer-organization-and-architecture/memory-hierarchy-and-cache/cache-line-set-and-the-address-split.json"
+  },
+  {
+   "id": "direct-mapping-line-modulo-lines",
+   "title": "Direct Mapping: One Line per Block",
+   "priority": "P1",
+   "order": 524,
+   "unit": "Memory Interfacing, Hierarchy and Cache Mapping",
+   "quickIdea": "In a direct-mapped cache each memory block has exactly one home line: line = block number mod number of lines. One comparator decides the hit, and two blocks that share a home line evict each other forever.",
+   "remember": [
+    "Line number = block number mod number of lines, which is the same as saying the index field of the address is the line number.",
+    "Hardware: one comparator per cache line, a tag store the width of one tag per line, and no replacement choice at all - the victim is decided by the address.",
+    "The hit time is the smallest of the three organisations: tag read, one compare, data out.",
+    "The cost is conflict misses: blocks that differ by a multiple of the number of lines cannot coexist even when most of the cache is empty.",
+    "The tag of a direct-mapped line identifies which of the (memory blocks / lines) blocks with that index is present, which is why its width is address width minus log2(lines) minus offset."
+   ],
+   "example": {
+    "prompt": "A 2 KB direct-mapped cache has 64 B blocks. Which line holds the byte at address 0xA248, and what is its tag?",
+    "work": "Lines = 2048/64 = 32, offset = 6, index = 5. 0xA248 = 41544. Index = (41544 >> 6) & 31 = 649 & 31 = 9. Tag = 41544 >> 11 = 20. Offset = 41544 & 63 = 8.",
+    "answer": "Line 9, tag 20, offset 8 - the split GATE CSE 2022 Q.44 uses for P and S."
+   },
+   "gateAngle": "GATE's direct-mapping questions come in three shapes: give the fields, give the line for an address, or give a reference sequence and ask which block survives. All three are the modulo and the tag compare.",
+   "variations": [
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "GATE CSE 2019 Q.1 asks for the tag and index widths of a 16 kB fully associative cache with 16 B blocks. How does the direct-mapping formula specialise to it?",
+     "answer": "Fully associative means one set, so index = 0; offset = log2 16 = 4 and tag = 32 - 4 = 28 bits.",
+     "why": "It shows the three organisations as one formula: direct is 1 way, fully associative is all ways, and the index field is log2 of the number of sets in both."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "An 8-line direct-mapped cache holds blocks 0, 8, 16 and 24 in turn, then re-reads 0. How many misses in the five accesses?",
+     "answer": "Five: all four blocks map to line 0, so each evicts the previous one and the re-read of 0 misses.",
+     "why": "It is the conflict-miss pattern in its purest form, and it is the shape GATE CSE 2022 Q.44 uses with two blocks."
+    }
+   ],
+   "trap": {
+    "what": "Thinking a direct-mapped cache wastes space only when it is full.",
+    "why": "A conflict miss happens while most lines are empty; capacity is irrelevant to it.",
+    "counterexample": "A 32-line direct-mapped cache holding only blocks 0 and 32: both map to line 0, so alternating accesses miss every time and 31 lines stay empty."
+   },
+   "check": {
+    "question": "A direct-mapped cache has 128 lines and 16 B blocks. To which line does byte address 0x1234 map, and what is the offset?",
+    "answer": "Line (0x1234 >> 4) & 127 = 0x123 & 127 = 35; offset = 0x1234 & 15 = 4.",
+    "explanation": "The low 4 bits are the offset because the block is 16 bytes; the next 7 bits are the line."
+   },
+   "pyqIds": [
+    "gate-2022-44-direct-mapped-pqrs",
+    "gate-2019-1-fully-associative-tag-index"
+   ],
+   "prereqs": [
+    "cache-line-set-and-the-address-split"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-slides",
+     "title": "Computer Organization: Memory Hierarchy and Cache Memories",
+     "channel": "Indian Institute of Science, Centre for Data Sciences, computer architecture and organization slides",
+     "url": "https://cds.iisc.ac.in/wp-content/uploads/ComputerArchitecture_and_Organization.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read the locality section, the memory-address-and-cache composition section (a cache line as valid bit, tag and data block of B bytes), the cache-lookup section (index selects the set, tags compared inside it, offset picks the word), the direct, set-associative and fully associative descriptions, and the 16 KB direct-mapped 32 B example with tag 18, index 9, offset 5"
+    },
+    {
+     "kind": "text",
+     "title": "Cache Memory & Mapping Hindi mein",
+     "channel": "DSWallah Learn (Hinglish study lesson on cache memory)",
+     "url": "https://www.dswallah.com/learn/computer-architecture/cache-memory/",
+     "language": "hi",
+     "transcript": "PARTIAL",
+     "translated": true,
+     "note": "read the whole lesson: locality as the assumption that makes a cache possible, the block-versus-word distinction, the three mapping techniques with the line-modulo-lines and set-modulo-sets formulas, AMAT as hit time plus miss rate times miss penalty with the two-level form, the write-through, write-back, write-allocate and no-write-allocate definitions, and its list of common mistakes"
+    },
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 25 - Direct-mapped Caches: Misses, Writes and Performance",
+     "channel": "NPTEL, Computer Organization and Architecture - A Pedagogical Aspect (IIT Guwahati)",
+     "url": "http://www.digimat.in/nptel/courses/video/106103180/lec25.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read the memory-technology comparison with its access-time and cost-per-GB figures, the statement of the design trade-off that produces the hierarchy, the definition of hit time, hit ratio and miss, and the statement of locality of reference with its two kinds"
+    }
+   ],
+   "sourceLine": "Direct mapping as one line per set with conflict misses as its characteristic cost: IISc CDS slides (English, read in part). Line = block mod total lines, with the warning that it is modulo and not division: DSWallah Learn, romanised Hindi, translated (read in part). Direct-mapped caches treated as the base case for misses, writes and performance: NPTEL IIT Guwahati Lecture 25 (English, read in part). The 2022 sequence is simulated in scripts/validate.py.",
+   "videoRefs": [],
+   "visual": "computer-organization-and-architecture/memory-hierarchy-and-cache/address-to-cache-line",
+   "subject": "computer-organization-and-architecture",
+   "topic": "memory-hierarchy-and-cache",
+   "path": "subjects/computer-organization-and-architecture/memory-hierarchy-and-cache/direct-mapping-line-modulo-lines.json"
+  },
+  {
+   "id": "fully-associative-mapping-and-comparators",
+   "title": "Fully Associative Mapping and the Comparator Cost",
+   "priority": "P2",
+   "order": 525,
+   "unit": "Memory Interfacing, Hierarchy and Cache Mapping",
+   "quickIdea": "A fully associative cache lets any block sit in any line, so there is no index field at all: the tag is compared against every line at once, and the price is one comparator per line.",
+   "remember": [
+    "Address fields: tag and offset only. Index = 0 bits, so the tag is the whole address above the offset.",
+    "Hardware: one tag comparator per line, all firing in parallel, plus a way-select multiplexer to choose the winning line's data.",
+    "No conflict misses at all: a block is evicted only when the cache is full, so every miss is compulsory or capacity.",
+    "The hit time grows with the number of comparators and with the width of the multiplexer, which is why full associativity is used only for small structures such as a TLB or a small L1.",
+    "Replacement policy matters here more than anywhere: any line is a candidate, so LRU or random must actually choose."
+   ],
+   "example": {
+    "prompt": "A fully associative cache of 32 lines has 64 B blocks and 32-bit addresses. Give the fields, and say how many comparators and of what width.",
+    "work": "Offset = 6. Index = 0 because there is one set. Tag = 32 - 6 = 26 bits. Comparators = 32, each 26 bits wide.",
+    "answer": "Tag 26, offset 6, no index; 32 comparators of 26 bits."
+   },
+   "gateAngle": "GATE likes the fully associative case because it collapses one field and because the comparator count is a computable hardware cost. It also appears as the extreme end of the associativity trade in questions that ask what is unaffected by doubling associativity.",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2019 Q.1: a fully associative 16 kB cache with 16 B blocks and 32-bit addresses - how many tag and index bits?",
+     "answer": "28 tag bits and 0 index bits (option D).",
+     "why": "Offset = 4, and there is no index, so tag = 32 - 4 = 28. Option B's '28 and 4' double-counts the offset as an index."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "A 64-entry TLB is fully associative with 4 KB pages on a 32-bit address. How many tag bits per entry, and how many comparators?",
+     "answer": "Page offset = 12 bits, so the tag is the 20-bit page number; 64 comparators of 20 bits.",
+     "why": "It is the same arithmetic in the structure where full associativity is actually used, and it shows why a TLB can afford it and a 1 MB cache cannot."
+    }
+   ],
+   "trap": {
+    "what": "Adding an index field to a fully associative cache.",
+    "why": "There is only one set, so a set index would be zero bits; writing 'index = log2(lines)' is the direct-mapped answer applied to the wrong organisation.",
+    "counterexample": "A 16 kB fully associative cache with 16 B blocks has 1024 lines but one set. An answer of '28 tag, 4 index' for the 2019 question treats the line number as an index and is the option B distractor."
+   },
+   "check": {
+    "question": "Why does a fully associative cache have no conflict misses?",
+    "answer": "Because a block can go in any line, so a block is never refused a place while another block occupies its only home; eviction happens only when every line is in use.",
+    "explanation": "That is also why its misses are exactly the compulsory misses plus the capacity misses."
+   },
+   "pyqIds": [
+    "gate-2019-1-fully-associative-tag-index"
+   ],
+   "prereqs": [
+    "cache-line-set-and-the-address-split",
+    "direct-mapping-line-modulo-lines"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-slides",
+     "title": "Computer Organization: Memory Hierarchy and Cache Memories",
+     "channel": "Indian Institute of Science, Centre for Data Sciences, computer architecture and organization slides",
+     "url": "https://cds.iisc.ac.in/wp-content/uploads/ComputerArchitecture_and_Organization.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read the locality section, the memory-address-and-cache composition section (a cache line as valid bit, tag and data block of B bytes), the cache-lookup section (index selects the set, tags compared inside it, offset picks the word), the direct, set-associative and fully associative descriptions, and the 16 KB direct-mapped 32 B example with tag 18, index 9, offset 5"
+    },
+    {
+     "kind": "text",
+     "title": "Cache Memory & Mapping Hindi mein",
+     "channel": "DSWallah Learn (Hinglish study lesson on cache memory)",
+     "url": "https://www.dswallah.com/learn/computer-architecture/cache-memory/",
+     "language": "hi",
+     "transcript": "PARTIAL",
+     "translated": true,
+     "note": "read the whole lesson: locality as the assumption that makes a cache possible, the block-versus-word distinction, the three mapping techniques with the line-modulo-lines and set-modulo-sets formulas, AMAT as hit time plus miss rate times miss penalty with the two-level form, the write-through, write-back, write-allocate and no-write-allocate definitions, and its list of common mistakes"
+    }
+   ],
+   "sourceLine": "Fully associative caches as the single-set case, with m-way associativity as the general one: IISc CDS slides (English, read in part). Fully associative mapping as blocks placed anywhere with the whole line set compared in parallel and the warning that it has no index field: DSWallah Learn, romanised Hindi, translated (read in part). The 2019 field widths are recomputed in scripts/validate.py.",
+   "videoRefs": [],
+   "subject": "computer-organization-and-architecture",
+   "topic": "memory-hierarchy-and-cache",
+   "path": "subjects/computer-organization-and-architecture/memory-hierarchy-and-cache/fully-associative-mapping-and-comparators.json"
+  },
+  {
+   "id": "set-associative-mapping-sets-and-ways",
+   "title": "Set-Associative Mapping: Sets, Ways and the Middle Path",
+   "priority": "P1",
+   "order": 526,
+   "unit": "Memory Interfacing, Hierarchy and Cache Mapping",
+   "quickIdea": "A k-way set-associative cache is direct mapping over sets and full associativity inside a set: set = block mod number of sets, and the k tags in that set are compared in parallel.",
+   "remember": [
+    "Number of sets = lines / k. Index bits = log2(sets) = log2(lines) - log2(k).",
+    "Set number = block number mod number of sets, equivalently the index field of the address.",
+    "Hardware: k comparators per set, a k-to-1 way-select multiplexer, and a replacement policy that chooses among the k ways.",
+    "Direct mapping is k = 1; full associativity is k = lines. Both are special cases of the same address split.",
+    "Doubling the associativity at a fixed cache size and block size removes one index bit and adds it to the tag, and halves the number of sets."
+   ],
+   "example": {
+    "prompt": "GATE CSE 2017 Set 1 Q.54: with a direct-mapped cache of N words and block size B words the tag is 10 bits. What is the tag for the same cache built 16-way set-associative?",
+    "work": "Direct: tag = A - log2(N). 16-way: sets = lines/16, so the index loses log2 16 = 4 bits, and those 4 bits move into the tag. Tag = (A - log2 N) + 4 = 10 + 4 = 14.",
+    "answer": "14 bits."
+   },
+   "gateAngle": "This is the most repeated question shape in the topic: change the associativity, keep the size, and ask what happens to the tag. The answer never depends on N, B or the address width - only on log2 of the associativity change.",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2017 Set 1 Q.54, as worked above.",
+     "answer": "14 bits.",
+     "why": "Four index bits become tag bits, so the tag grows by exactly four."
+    },
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2018 Q.34: with address space 2^P bytes, word length 2^W bytes, cache 2^N bytes, block 2^M words and K-way associativity, what is the tag width?",
+     "answer": "P - N + log2 K bits (option B).",
+     "why": "The offset and the index together are N - log2 K bits, so the tag is P minus that. In word units the block offset is M and the set index is N - W - M - log2 K, and they cancel the same way."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "A direct-mapped cache of 64 lines with 8-bit tags becomes 4-way set-associative. What is the tag, and how many comparators are there?",
+     "answer": "16 sets, so the index falls from 6 to 4 bits and the tag becomes 8 + 2 = 10 bits; four comparators per set, 64 in all.",
+     "why": "It ties the field change to the hardware cost, which is the other half of the same question."
+    }
+   ],
+   "trap": {
+    "what": "Using the number of lines where the number of sets belongs.",
+    "why": "The index addresses a set, not a line; using lines overstates the index by log2 k bits and understates the tag by the same amount.",
+    "counterexample": "GATE CSE 2023 Q.54: a 64 KB 8-way cache with 32-bit addresses has a 19-bit tag whatever the block size is. Using 2^16 lines as the index gives 16 bits of index and a 16-bit tag, which is the popular wrong answer."
+   },
+   "check": {
+    "question": "A 2 KB 2-way cache has 64 B blocks and 32-bit addresses. What is the tag width?",
+    "answer": "32 lines, 16 sets, so index 4; offset 6; tag = 32 - 4 - 6 = 22 bits.",
+    "explanation": "Compare the direct-mapped twin of the same size: 32 lines means index 5 and tag 21, so the 2-way version gained exactly one tag bit."
+   },
+   "pyqIds": [
+    "gate-2017-set1-54-tag-16-way",
+    "gate-2018-34-tag-bits-k-way-formula",
+    "gate-2023-54-eight-way-tag-bits"
+   ],
+   "prereqs": [
+    "cache-line-set-and-the-address-split",
+    "direct-mapping-line-modulo-lines"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-slides",
+     "title": "Computer Organization: Memory Hierarchy and Cache Memories",
+     "channel": "Indian Institute of Science, Centre for Data Sciences, computer architecture and organization slides",
+     "url": "https://cds.iisc.ac.in/wp-content/uploads/ComputerArchitecture_and_Organization.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read the locality section, the memory-address-and-cache composition section (a cache line as valid bit, tag and data block of B bytes), the cache-lookup section (index selects the set, tags compared inside it, offset picks the word), the direct, set-associative and fully associative descriptions, and the 16 KB direct-mapped 32 B example with tag 18, index 9, offset 5"
+    },
+    {
+     "kind": "text",
+     "title": "Cache Memory & Mapping Hindi mein",
+     "channel": "DSWallah Learn (Hinglish study lesson on cache memory)",
+     "url": "https://www.dswallah.com/learn/computer-architecture/cache-memory/",
+     "language": "hi",
+     "transcript": "PARTIAL",
+     "translated": true,
+     "note": "read the whole lesson: locality as the assumption that makes a cache possible, the block-versus-word distinction, the three mapping techniques with the line-modulo-lines and set-modulo-sets formulas, AMAT as hit time plus miss rate times miss penalty with the two-level form, the write-through, write-back, write-allocate and no-write-allocate definitions, and its list of common mistakes"
+    }
+   ],
+   "sourceLine": "Set-associative caches as m lines per set with direct mapping and full associativity as its two ends: IISc CDS slides (English, read in part). Set = block mod total sets, 2-way and 4-way as the common widths, and direct as 1-way: DSWallah Learn, romanised Hindi, translated (read in part). Every width on this card, including both PYQ answers, is recomputed in scripts/validate.py.",
+   "videoRefs": [],
+   "visual": "computer-organization-and-architecture/memory-hierarchy-and-cache/address-to-cache-line",
+   "subject": "computer-organization-and-architecture",
+   "topic": "memory-hierarchy-and-cache",
+   "path": "subjects/computer-organization-and-architecture/memory-hierarchy-and-cache/set-associative-mapping-sets-and-ways.json"
+  },
+  {
+   "id": "tag-directory-size-arithmetic",
+   "title": "Tag Directory Size: What One Line Really Costs",
+   "priority": "P2",
+   "order": 527,
+   "unit": "Memory Interfacing, Hierarchy and Cache Mapping",
+   "quickIdea": "The directory costs (tag + valid + dirty + replacement bits) x number of lines, and GATE asks for it with the tag width left for you to derive.",
+   "remember": [
+    "Entries = number of lines = cache data size / block size. There is one entry per line, not per set.",
+    "Bits per entry = tag width + 1 valid bit + (1 dirty bit if write-back) + any replacement bits the question names.",
+    "Total directory = entries x bits per entry. Give it in bits or in Kbits as asked; the options usually differ by a factor of 8 or by one bit per entry.",
+    "The tag width comes from the address split: address width - log2(lines) - log2(block size) for a direct-mapped cache.",
+    "The directory does not include the data array. A question that asks for 'total cache size including tags' wants data + directory, which is a different sum."
+   ],
+   "example": {
+    "prompt": "GATE CSE 2011 Q.43: an 8 KB direct-mapped write-back cache with 32 B blocks, 32-bit addresses, one valid bit and one modified bit per line. Total metadata size?",
+    "work": "Lines = 8192/32 = 256, so index 8; offset 5; tag = 32 - 8 - 5 = 19. Per entry 19 + 1 + 1 = 21 bits. Total = 256 x 21 = 5376 bits.",
+    "answer": "5376 bits (option D)."
+   },
+   "gateAngle": "The trap is arithmetic, not concept: one forgotten bit per entry moves the answer by 256 bits, and the options are built around exactly that. Compute bits per entry first, multiply last.",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2011 Q.43, as worked above.",
+     "answer": "5376 bits.",
+     "why": "19 tag bits plus valid and modified bits, times 256 lines. Dropping the two flag bits gives 4864 bits, which is option A."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "A 64 KB 4-way cache has 32 B blocks, 40-bit addresses, and each entry carries a valid bit, a dirty bit and 2 replacement bits. What is the directory size?",
+     "answer": "2048 lines, 512 sets, index 9; offset 5; tag = 40 - 9 - 5 = 26. Per entry 26 + 4 = 30 bits. Total = 2048 x 30 = 61440 bits = 60 Kbits.",
+     "why": "It adds replacement bits and a 40-bit address, which is where candidates lose a bit or mis-set the index."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why is the directory much smaller than the data array?",
+     "answer": "Because it stores one tag per line, not one tag per word: a 64 B line with a 19-bit tag needs 21 metadata bits for 512 data bits.",
+     "why": "It explains why tags are cheap in area but still matter in every width question."
+    }
+   ],
+   "trap": {
+    "what": "Multiplying by the number of sets instead of the number of lines.",
+    "why": "Each line has its own tag and flags, so the entry count is the line count; the number of sets only tells you how many comparators there are.",
+    "counterexample": "A 4-way cache with 512 lines and 128 sets: 512 entries of 21 bits is 10752 bits; using 128 gives 2688 bits, a quarter of the right answer."
+   },
+   "check": {
+    "question": "A 32 KB 2-way cache with 64 B blocks and 24-bit addresses needs a valid bit and a dirty bit per entry. Directory size?",
+    "answer": "512 lines, 256 sets, index 8; offset 6; tag = 24 - 8 - 6 = 10; per entry 12 bits; total 6144 bits.",
+    "explanation": "512 x 12 = 6144 bits, which is 768 bytes - small next to the 32 KB of data, which is the point."
+   },
+   "pyqIds": [
+    "gate-2011-43-tag-directory-size"
+   ],
+   "prereqs": [
+    "cache-line-set-and-the-address-split",
+    "set-associative-mapping-sets-and-ways"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-slides",
+     "title": "Computer Organization: Memory Hierarchy and Cache Memories",
+     "channel": "Indian Institute of Science, Centre for Data Sciences, computer architecture and organization slides",
+     "url": "https://cds.iisc.ac.in/wp-content/uploads/ComputerArchitecture_and_Organization.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read the locality section, the memory-address-and-cache composition section (a cache line as valid bit, tag and data block of B bytes), the cache-lookup section (index selects the set, tags compared inside it, offset picks the word), the direct, set-associative and fully associative descriptions, and the 16 KB direct-mapped 32 B example with tag 18, index 9, offset 5"
+    },
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 25 - Direct-mapped Caches: Misses, Writes and Performance",
+     "channel": "NPTEL, Computer Organization and Architecture - A Pedagogical Aspect (IIT Guwahati)",
+     "url": "http://www.digimat.in/nptel/courses/video/106103180/lec25.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read the memory-technology comparison with its access-time and cost-per-GB figures, the statement of the design trade-off that produces the hierarchy, the definition of hit time, hit ratio and miss, and the statement of locality of reference with its two kinds"
+    }
+   ],
+   "sourceLine": "A cache line as a valid bit, a tag and a data block, with the directory drawn beside the data array: IISc CDS slides (English, read in part). The valid and modified bits as per-line state in a write-back cache: NPTEL IIT Guwahati Lecture 25 (English, read in part). The 2011 directory size is recomputed in scripts/validate.py.",
+   "videoRefs": [],
+   "subject": "computer-organization-and-architecture",
+   "topic": "memory-hierarchy-and-cache",
+   "path": "subjects/computer-organization-and-architecture/memory-hierarchy-and-cache/tag-directory-size-arithmetic.json"
+  },
+  {
+   "id": "replacement-policies-and-lru-trace",
+   "title": "Replacement Policies and the LRU Trace",
+   "priority": "P1",
+   "order": 528,
+   "unit": "Memory Interfacing, Hierarchy and Cache Mapping",
+   "quickIdea": "When a set is full, one line must go. LRU evicts the least recently used, FIFO the earliest loaded, and random neither - and a GATE trace question is answered by keeping the recency order of each set, not the whole history.",
+   "remember": [
+    "LRU: evict the line whose last reference is furthest in the past. A hit refreshes the line's position; a miss inserts the new line as most recently used.",
+    "FIFO: evict the line that was loaded earliest, ignoring hits. It is not the same as LRU - a frequently used old line is evicted under FIFO and kept under LRU.",
+    "Random: no state to maintain, and in practice close to LRU; GATE uses it only when the question says so, because it makes the answer non-deterministic unless the choices are forced.",
+    "Optimal (Belady): evict the line whose next use is furthest away. It is a lower bound, not an implementation.",
+    "LRU is a stack algorithm: the contents of a k-way set under LRU are always a subset of the contents under (k+1)-way LRU on the same reference string, so more ways never means more misses."
+   ],
+   "example": {
+    "prompt": "GATE CSE 2009 Q.29: a 4-way set-associative cache with 16 lines (4 sets) and 256 memory blocks is given the sequence 0, 255, 1, 4, 3, 8, 133, 159, 216, 129, 63, 8, 48, 32, 73, 92, 155. Which block is NOT in the cache at the end under LRU?",
+    "work": "Set = block mod 4. Set 0 receives 0, 4, 8, 216, 8 (hit), 48, 32, 92, 73? no - 73 mod 4 = 1. Set 0's accesses in order: 0, 4, 8, 216, 8, 48, 32, 92. With 4 ways the survivors after 92 are the four most recent distinct blocks: 8, 48, 32, 92 - so 0, 4 and 216 have gone. Set 1 keeps 73, 129, 133, 1; set 3 keeps 155, 63, 159, 3.",
+    "answer": "216 - option (D)."
+   },
+   "gateAngle": "This is the single most common replacement-policy question: a reference string, a set-associativity and one block that is absent at the end. The efficient method is to bucket the string by set and keep only the last four distinct blocks per set, because with LRU the survivors of a set are exactly its k most recently referenced blocks.",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2009 Q.29, as worked above.",
+     "answer": "Block 216, option (D).",
+     "why": "216 is the fifth distinct block to reach set 0, so it is pushed out when 48 arrives; a hit on 8 later does not bring it back."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "A 2-way set-associative cache has 4 sets. Trace 0, 4, 0, 4, 8, 0 with LRU and count the misses.",
+     "answer": "Set 0 receives every access (all are multiples of 4). 0 miss, 4 miss, 0 hit, 4 hit, 8 miss evicting 0, 0 miss evicting 4: 4 misses, 2 hits.",
+     "why": "It shows the hit refreshing recency, which is the step candidates skip when they treat LRU as FIFO."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why does LRU need more state as the associativity rises?",
+     "answer": "The cache must record a recency order among k ways, which needs about log2(k!) bits for an exact order, so implementations use approximations for large k.",
+     "why": "It explains why real 16-way caches use pseudo-LRU rather than exact LRU."
+    }
+   ],
+   "trap": {
+    "what": "Treating LRU as FIFO - evicting the oldest-loaded line rather than the least recently used one.",
+    "why": "A hit under LRU moves the line to the front, so an old but frequently used line survives; under FIFO it is evicted anyway.",
+    "counterexample": "Sequence 0, 4, 0 in a 2-way set: LRU keeps 0 (just used) and evicts 4 on the next miss; FIFO keeps the load order and evicts 0."
+   },
+   "check": {
+    "question": "In a 2-way set the lines hold 5 (last used 3 accesses ago) and 9 (last used 1 access ago). A miss to 12 arrives. Which line goes, and what does the set hold after?",
+    "answer": "5 goes; the set holds 12 and 9.",
+    "explanation": "LRU compares last-use times, not insertion times, so the more recently used 9 stays even though both are older than the new block."
+   },
+   "pyqIds": [
+    "gate-2009-29-four-way-lru-block"
+   ],
+   "prereqs": [
+    "set-associative-mapping-sets-and-ways"
+   ],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "Cache Memory & Mapping Hindi mein",
+     "channel": "DSWallah Learn (Hinglish study lesson on cache memory)",
+     "url": "https://www.dswallah.com/learn/computer-architecture/cache-memory/",
+     "language": "hi",
+     "transcript": "PARTIAL",
+     "translated": true,
+     "note": "read the whole lesson: locality as the assumption that makes a cache possible, the block-versus-word distinction, the three mapping techniques with the line-modulo-lines and set-modulo-sets formulas, AMAT as hit time plus miss rate times miss penalty with the two-level form, the write-through, write-back, write-allocate and no-write-allocate definitions, and its list of common mistakes"
+    },
+    {
+     "kind": "lecture-slides",
+     "title": "Computer Organization: Memory Hierarchy and Cache Memories",
+     "channel": "Indian Institute of Science, Centre for Data Sciences, computer architecture and organization slides",
+     "url": "https://cds.iisc.ac.in/wp-content/uploads/ComputerArchitecture_and_Organization.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read the locality section, the memory-address-and-cache composition section (a cache line as valid bit, tag and data block of B bytes), the cache-lookup section (index selects the set, tags compared inside it, offset picks the word), the direct, set-associative and fully associative descriptions, and the 16 KB direct-mapped 32 B example with tag 18, index 9, offset 5"
+    }
+   ],
+   "sourceLine": "Replacement policies named as a consequence of having several ways per set, with LRU as the standard: IISc CDS slides (English, read in part). The three mappings and their conflict behaviour, which is what replacement policy exists to soften: DSWallah Learn, romanised Hindi, translated (read in part). The 2009 trace is simulated step by step in scripts/validate.py.",
+   "videoRefs": [],
+   "visual": "computer-organization-and-architecture/memory-hierarchy-and-cache/lru-in-a-two-way-set",
+   "subject": "computer-organization-and-architecture",
+   "topic": "memory-hierarchy-and-cache",
+   "path": "subjects/computer-organization-and-architecture/memory-hierarchy-and-cache/replacement-policies-and-lru-trace.json"
+  },
+  {
+   "id": "write-through-write-back-and-dirty-bits",
+   "title": "Write-Through, Write-Back and the Dirty Bit",
+   "priority": "P1",
+   "order": 529,
+   "unit": "Memory Interfacing, Hierarchy and Cache Mapping",
+   "quickIdea": "On a write hit, write-through updates memory as well and write-back marks the line dirty; on a write miss, write-allocate loads the block first and no-write-allocate writes straight to memory.",
+   "remember": [
+    "Write-through: every write goes to the cache and to memory, so memory is always current and no block is ever dirty. Cost: memory traffic on every write.",
+    "Write-back: the write updates only the cache and sets the dirty (modified) bit; memory is updated when the dirty line is evicted. Cost: a dirty bit per line and a write-back on eviction.",
+    "Write-allocate: on a write miss, fetch the block into the cache and then write it. No-write-allocate: write to memory and leave the cache alone.",
+    "The common pairing is write-back with write-allocate and write-through with no-write-allocate, but all four combinations are legal.",
+    "A write-back cache can evict a dirty block on a read miss as well as a write miss, and that eviction costs an extra memory write that the miss penalty must include."
+   ],
+   "example": {
+    "prompt": "GATE CSE 2024 Set 1 Q.43: WBC is write-back and WTC is write-through, both set-associative with LRU. Which statements are true - (A) a read miss in WBC never evicts a dirty block, (B) a read miss in WTC never triggers a write-back, (C) a write hit in WBC can modify the dirty bit, (D) a write miss in WTC always writes the victim block to memory before loading?",
+    "work": "A: LRU picks a victim by recency with no exemption for dirty lines, so a read miss can evict a dirty block - false. B: no WTC block is ever dirty, so eviction never needs a write-back - true. C: a write hit sets the dirty bit to 1 - true. D: the victim in WTC is already clean, so it need not be written - false.",
+    "answer": "Statements (B) and (C)."
+   },
+   "gateAngle": "GATE asks this as a statement-selection question, and every statement turns on one of two facts: write-through leaves nothing dirty, and LRU does not protect dirty lines. Learn those two and the four statements decide themselves.",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2024 Set 1 Q.43, as worked above.",
+     "answer": "(B) and (C) only.",
+     "why": "The false statements both assume a protection that does not exist: LRU does not spare dirty lines, and a clean victim never needs writing back."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "A write-back cache with write-allocate takes a write miss on a full set. List the memory operations the miss may cause.",
+     "answer": "A read to fetch the missed block, plus a write of the victim if it is dirty, plus the write of the new data later when that line is itself evicted.",
+     "why": "It makes the miss penalty of a write-back cache a sum rather than a single fetch, which is the arithmetic version of the same concept."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why is write-through usually paired with no-write-allocate?",
+     "answer": "Because a write-through cache gains nothing from holding a block it has just written - memory already has the data - so fetching the block on a write miss is pure cost.",
+     "why": "It explains the pairing as a consequence rather than a convention to memorise."
+    }
+   ],
+   "trap": {
+    "what": "Believing a write-through cache needs a dirty bit.",
+    "why": "Memory is updated on every write, so no line ever differs from memory; there is nothing for a dirty bit to record.",
+    "counterexample": "A write-through cache that sets a dirty bit would write back a block that memory already holds, doubling the traffic for no correctness gain."
+   },
+   "check": {
+    "question": "A write-back cache with 94% of its lines dirty is flushed. What must happen, and how does it compare with a write-through cache?",
+    "answer": "Every dirty line must be written to memory before eviction; a write-through cache needs no flush at all because memory is already current.",
+    "explanation": "The flush cost is the price write-back pays for its lower steady-state traffic - which is why write-back is preferred for long-running programs and write-through for simple or shared-memory designs."
+   },
+   "pyqIds": [
+    "gate-2024-set1-43-write-policies"
+   ],
+   "prereqs": [
+    "cache-line-set-and-the-address-split",
+    "tag-directory-size-arithmetic"
+   ],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "Cache Memory & Mapping Hindi mein",
+     "channel": "DSWallah Learn (Hinglish study lesson on cache memory)",
+     "url": "https://www.dswallah.com/learn/computer-architecture/cache-memory/",
+     "language": "hi",
+     "transcript": "PARTIAL",
+     "translated": true,
+     "note": "read the whole lesson: locality as the assumption that makes a cache possible, the block-versus-word distinction, the three mapping techniques with the line-modulo-lines and set-modulo-sets formulas, AMAT as hit time plus miss rate times miss penalty with the two-level form, the write-through, write-back, write-allocate and no-write-allocate definitions, and its list of common mistakes"
+    },
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 25 - Direct-mapped Caches: Misses, Writes and Performance",
+     "channel": "NPTEL, Computer Organization and Architecture - A Pedagogical Aspect (IIT Guwahati)",
+     "url": "http://www.digimat.in/nptel/courses/video/106103180/lec25.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read the memory-technology comparison with its access-time and cost-per-GB figures, the statement of the design trade-off that produces the hierarchy, the definition of hit time, hit ratio and miss, and the statement of locality of reference with its two kinds"
+    }
+   ],
+   "sourceLine": "Write-through and write-back defined with the dirty bit, write-allocate and no-write-allocate, and the traffic each costs: DSWallah Learn, romanised Hindi, translated (read in part). Direct-mapped caches treated for their write behaviour and performance: NPTEL IIT Guwahati Lecture 25 (English, read in part). The four statements of the 2024 question are decided in scripts/validate.py from the same two facts stated on this card.",
+   "videoRefs": [],
+   "subject": "computer-organization-and-architecture",
+   "topic": "memory-hierarchy-and-cache",
+   "path": "subjects/computer-organization-and-architecture/memory-hierarchy-and-cache/write-through-write-back-and-dirty-bits.json"
+  },
+  {
+   "id": "block-size-and-the-three-kinds-of-miss",
+   "title": "Block Size and the Three Kinds of Miss",
+   "priority": "P2",
+   "order": 530,
+   "unit": "Memory Interfacing, Hierarchy and Cache Mapping",
+   "quickIdea": "Every miss is compulsory (first touch), conflict (evicted by a block that shares its set) or capacity (the cache is simply too small); block size trades the first two against the miss penalty.",
+   "remember": [
+    "Compulsory (cold) miss: the first access to a block, unavoidable whatever the cache size or organisation.",
+    "Conflict miss: a block that would have fit was evicted because another block mapped to the same set - direct mapping maximises these, full associativity eliminates them.",
+    "Capacity miss: the working set exceeds the cache, so a block is evicted even under full associativity.",
+    "The three are counted by running the same reference string three times: with an infinite cache (compulsory only), with full associativity of the real size (compulsory + capacity), and with the real organisation (all three).",
+    "Increasing the block size lowers compulsory misses by bringing neighbours along but raises the miss penalty and, past a point, raises conflict misses because the number of lines falls."
+   ],
+   "example": {
+    "prompt": "A 2 KB direct-mapped cache with 64 B blocks is given the sequence P, Q, R, S repeated, where P and S share a block and Q and R map to the same line as each other but not to P's. Classify the misses.",
+    "work": "P: compulsory. S: hits, because it is inside P's block. Q: compulsory for line 10. R: conflict, because Q's line is taken. On each repetition P hits, Q misses again as a conflict with R, R misses as a conflict with Q, and S hits.",
+    "answer": "One compulsory miss for P's block, one for Q's, and then a conflict miss on every Q and R access - 21 misses and 19 hits in the 40 accesses."
+   },
+   "gateAngle": "The three-way classification is GATE's favourite way to make a miss-count question conceptual, and the 2022 question is the clearest instance: two blocks thrash in one line while another line holds a block nobody else wants.",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2022 Q.44: with P = 0xA248, Q = 0xC28A, R = 0xCA8A, S = 0xA262 in a 2 KB direct-mapped cache with 64 B blocks, which of 'every access to S is a hit', 'P is never evicted', 'only R and S remain at the end', 'every access to R evicts Q' are true?",
+     "answer": "The first, second and fourth are true; the third is false because P's block is still resident.",
+     "why": "P and S share index 9 with tag 20, so the block is never disturbed; Q and R share index 10 with different tags, so they evict each other on every pass."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "Same sequence and cache, but the cache is made 2-way set-associative. What happens to the misses?",
+     "answer": "Q and R now sit in the two ways of their set, so both survive and neither evicts the other. The trace has three compulsory misses - P, Q and R are three distinct blocks and each is touched for the first time once - and 37 hits.",
+     "why": "It isolates the conflict misses by removing exactly the constraint that caused them: with two ways the Q-R thrashing disappears, and what is left is the compulsory misses that no organisation can remove."
+    }
+   ],
+   "trap": {
+    "what": "Assuming a conflict miss and a capacity miss are the same thing.",
+    "why": "A conflict miss disappears if the associativity is raised at the same cache size; a capacity miss does not, because the cache is genuinely too small.",
+    "counterexample": "The 2022 sequence on a 2 KB cache: making it fully associative removes the Q-R thrashing entirely (conflict), while a 64 B cache of any associativity still cannot hold all four blocks (capacity)."
+   },
+   "check": {
+    "question": "A program touches 300 distinct blocks in a 128-line fully associative cache, each exactly once. How many misses, and of what kind?",
+    "answer": "300 misses, all compulsory; capacity is irrelevant because no block is re-read, and there are no conflicts because the cache is fully associative.",
+    "explanation": "The miss rate is 1 here for a reason the classification makes obvious: with no reuse there is nothing for a cache to exploit."
+   },
+   "pyqIds": [
+    "gate-2022-44-direct-mapped-pqrs"
+   ],
+   "prereqs": [
+    "locality-of-reference-temporal-and-spatial",
+    "direct-mapping-line-modulo-lines",
+    "set-associative-mapping-sets-and-ways"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 26 - Associative and Multi-Level Caches (line size, miss penalty, early restart)",
+     "channel": "NPTEL, Computer Organization and Architecture - A Pedagogical Aspect (IIT Guwahati)",
+     "url": "http://www.digimat.in/nptel/courses/video/106103180/lec26.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read the opening: why a larger line lowers the miss rate through spatial locality, why the miss rate turns back up once the line becomes a large fraction of the cache, the definition of miss penalty as the time to bring a line from the next level down, its split into first-word latency plus transfer time, and early restart"
+    },
+    {
+     "kind": "lecture-slides",
+     "title": "Computer Organization: Memory Hierarchy and Cache Memories",
+     "channel": "Indian Institute of Science, Centre for Data Sciences, computer architecture and organization slides",
+     "url": "https://cds.iisc.ac.in/wp-content/uploads/ComputerArchitecture_and_Organization.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read the locality section, the memory-address-and-cache composition section (a cache line as valid bit, tag and data block of B bytes), the cache-lookup section (index selects the set, tags compared inside it, offset picks the word), the direct, set-associative and fully associative descriptions, and the 16 KB direct-mapped 32 B example with tag 18, index 9, offset 5"
+    },
+    {
+     "kind": "text",
+     "title": "Cache Memory & Mapping Hindi mein",
+     "channel": "DSWallah Learn (Hinglish study lesson on cache memory)",
+     "url": "https://www.dswallah.com/learn/computer-architecture/cache-memory/",
+     "language": "hi",
+     "transcript": "PARTIAL",
+     "translated": true,
+     "note": "read the whole lesson: locality as the assumption that makes a cache possible, the block-versus-word distinction, the three mapping techniques with the line-modulo-lines and set-modulo-sets formulas, AMAT as hit time plus miss rate times miss penalty with the two-level form, the write-through, write-back, write-allocate and no-write-allocate definitions, and its list of common mistakes"
+    }
+   ],
+   "sourceLine": "Why a larger line lowers the miss rate through spatial locality and why the rate turns back up when the line becomes a large fraction of the cache, with the miss penalty as first-word latency plus transfer time: NPTEL IIT Guwahati Lecture 26 (English, read in part). Conflict misses as the characteristic cost of a single-line set: IISc CDS slides (English, read in part). Block against word as the unit of transfer and the block-size trade-off: DSWallah Learn, romanised Hindi, translated (read in part). The 2022 trace is simulated in scripts/validate.py.",
+   "videoRefs": [],
+   "subject": "computer-organization-and-architecture",
+   "topic": "memory-hierarchy-and-cache",
+   "path": "subjects/computer-organization-and-architecture/memory-hierarchy-and-cache/block-size-and-the-three-kinds-of-miss.json"
+  },
+  {
+   "id": "memory-interfacing-chips-and-chip-select",
+   "title": "Memory Interfacing: Chips, Decoding and Chip Select",
+   "priority": "P1",
+   "order": 531,
+   "unit": "Memory Interfacing, Hierarchy and Cache Mapping",
+   "quickIdea": "A memory of the required size is built from smaller chips in two independent dimensions - chips side by side widen the word, rows of them extend the address range - and the high address bits are decoded into the chip-select signals that pick a row.",
+   "remember": [
+    "Chips per row = required word width / chip word width. Rows (banks) = required number of words / chip word count. Total chips = rows x chips per row.",
+    "Every chip in a row receives the same low-order address bits and the same control signals; only one row's chip-select is asserted at a time.",
+    "Chip-select bits = log2(number of rows). They are the high-order bits left over after the per-chip address bits, and a decoder turns them into one-hot enables.",
+    "A chip's address range follows from which high bits its select line decodes: with select bits fixed and all other bits free, the range is (fixed bits, zeros) to (fixed bits, ones).",
+    "The decoder decides where a memory sits in the address map; with no decoder only one device could be attached, which is why the decoder is the whole of interfacing."
+   ],
+   "example": {
+    "prompt": "GATE CSE 2023 Q.32: a 4 KB byte-addressable memory is built from four 1 KB blocks; IA4 and IA3 go to a 2-to-4 decoder driving the chip selects, and IA11..IA0 are the 12 address lines. Give the starting address of each block.",
+    "work": "Each block covers 1 KB, so the low 10 bits (IA9..IA0) address inside it and two further bits choose the block. Here those two bits are IA4:IA3 rather than the top two. With the ten inside bits at zero, the four select codes 00, 01, 10, 11 place IA4:IA3 = 00, 01, 10, 11, which as addresses are 0, 8, 16 and 24.",
+    "answer": "0, 8, 16 and 24 (option C) - not 0, 1024, 2048, 3072, which is what you get if the select bits are assumed to be the top two."
+   },
+   "gateAngle": "This question exists to punish the assumption that the chip-select bits are always the most significant ones. Read which address lines the decoder is wired to, then compute the starting addresses from those bits; the arithmetic is trivial and the reading is everything.",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2023 Q.32, as worked above.",
+     "answer": "Option (C): 0, 8, 16, 24.",
+     "why": "IA4:IA3 selects the block, so consecutive blocks start 2^3 = 8 bytes apart, not 1 KB apart."
+    },
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2019 Q.2: a chip-select gate decodes A15 A14 A13' A12' A11. What address range does it enable?",
+     "answer": "C800 to CFFF (option A).",
+     "why": "The five decoded bits are fixed at 11001; the other eleven are free, so the range runs from 1100 1000 0000 0000 to 1100 1111 1111 1111."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "A 64 KB x 16 memory is built from 16 KB x 8 chips with the top two address bits decoded. How many chips, how many address lines per chip, and what is the decoder?",
+     "answer": "Two chips per row for the 16-bit width and four rows for the 64 K words: 8 chips. Each chip takes 14 address lines, and the remaining 2 bits feed a 2-to-4 decoder that selects one row.",
+     "why": "It is the two-dimensional build and the decoding rule together, which is the shape the chip-count questions take."
+    }
+   ],
+   "trap": {
+    "what": "Assuming the chip-select bits are always the most significant address bits.",
+    "why": "The wiring decides, not the convention; a design may decode any bits, and the 2023 question deliberately decodes two middle bits.",
+    "counterexample": "In GATE CSE 2023 Q.32 the select bits are IA4:IA3, so the blocks are interleaved every 1 KB rather than laid out in 1 KB runs; answering 0, 1024, 2048, 3072 is the option (B) trap."
+   },
+   "check": {
+    "question": "A system has 16 address lines and one 2 KB ROM selected when A15..A11 = 00000. What is its address range?",
+    "answer": "0000 to 07FF in hexadecimal.",
+    "explanation": "Eleven free bits below the five fixed zeros give 2^11 = 2048 locations, from all-zeros to all-ones: 0x0000 to 0x07FF."
+   },
+   "pyqIds": [
+    "gate-2023-32-chip-select-four-blocks",
+    "gate-2019-2-chip-select-address-range"
+   ],
+   "prereqs": [
+    "memory-characteristics-sram-and-dram"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-notes",
+     "title": "Memory System Design (ELEX 2117, Digital Techniques 2)",
+     "channel": "University of British Columbia, Electrical and Computer Engineering, lecture 9 notes",
+     "url": "https://people.ece.ubc.ca/edc/2117.jan2021/lec9.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read the memory-interface signals (address, data, CS, OE, WE and what each enables), the tri-state reason only one device may drive the bus, and the rule that ICs combined in parallel widen the word while banks of those rows extend the address range; the address-decoder section was read only as the served text, which stops after the timing diagrams"
+    },
+    {
+     "kind": "lecture-slides",
+     "title": "Lecture 13 - Memory Interface (EE2 Digital Electronics)",
+     "channel": "Imperial College London, Department of Electrical and Electronic Engineering, Dr Peter Cheung",
+     "url": "http://www.ee.ic.ac.uk/pcheung/teaching/ee2_digital/Lecture%2013%20-%20memory%20interface.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read the inside of a RAM chip (row decoder, column select, CE/OE/WE and the tri-state data bus), the partition of an address space into 32 KB RAM, 16 KB ROM and 4 KB of I/O with A15:12 decoded into the enable signals and A11:0 used inside the parts, and the statement that the address decoder decides where a memory sits in the map"
+    }
+   ],
+   "sourceLine": "The memory-interface signals with chip select enabling a device and the rule that ICs in parallel widen the word while banks of rows extend the address range: UBC ELEX 2117 lecture 9 notes (English, read in part). The partition of an address space into RAM, ROM and I/O with the upper bits decoded into enables and the lower bits used inside the parts, and the statement that the decoder places a memory in the map: Imperial College EE2 Lecture 13 (English, read in part). Both PYQ answers are recomputed in scripts/validate.py.",
+   "videoRefs": [],
+   "subject": "computer-organization-and-architecture",
+   "topic": "memory-hierarchy-and-cache",
+   "path": "subjects/computer-organization-and-architecture/memory-hierarchy-and-cache/memory-interfacing-chips-and-chip-select.json"
+  },
+  {
+   "id": "memory-interleaving-high-and-low-order",
+   "title": "Memory Interleaving: Which Bits Pick the Bank",
+   "priority": "P2",
+   "order": 532,
+   "unit": "Memory Interfacing, Hierarchy and Cache Mapping",
+   "quickIdea": "Interleaving splits memory into banks that can be busy at the same time. If consecutive addresses go to consecutive banks, a block fetch keeps every bank busy; if they go to the same bank, the banks are idle while one works.",
+   "remember": [
+    "Low-order interleaving: the low address bits name the bank, so consecutive words sit in different banks and a block transfer overlaps.",
+    "High-order interleaving: the high address bits name the bank, so a bank holds a contiguous run of addresses and consecutive words all land in the same bank.",
+    "The number of banks is a power of two and the bank-selecting bits are log2 of that number; which end of the address those bits come from is the whole design choice.",
+    "Interleaving raises bandwidth, not the latency of a single access: one word still takes one bank's access time.",
+    "Which arrangement wins depends on the access pattern - sequential block fetches favour low-order, and it is the cache's block fill that makes low-order pay."
+   ],
+   "example": {
+    "prompt": "A memory has four banks, each with a 40 ns cycle, behind a bus that can take one word every 10 ns. How long does an 8-word block take with low-order interleaving, and with high-order?",
+    "work": "Low-order: the first word waits one bank cycle (40 ns) and each later word is one bus slot apart, so 40 + 7 x 10 = 110 ns, provided a bank is free again in time (4 x 10 = 40 ns, which just holds). High-order: all eight words are in one bank, so they serialise at 8 x 40 = 320 ns.",
+    "answer": "110 ns against 320 ns - a factor of about three, from the choice of which bits name the bank."
+   },
+   "gateAngle": "GATE asks this as the chip-select question in disguise: the 2023 question's decoder is wired to two middle bits, and the discussion of whether the select bits should be high or low is exactly the interleaving question. Compute the starting addresses from the wired bits and you have answered both.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "A 1 MB memory is split into 8 banks by the three most significant address bits. Words at 0x00000 and 0x00004: same bank?",
+     "answer": "Yes - both have the top three bits 000, so they are in bank 0, 1 KB apart.",
+     "why": "It shows high-order interleaving putting a contiguous run in one bank, which is what makes a block fetch slow."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "Same memory split by the three least significant bits instead. Words at 0x00000 and 0x00004?",
+     "answer": "Different banks (0 and 4), so the two words can be fetched at the same time.",
+     "why": "It is the same memory with the bank bits moved from the top to the bottom, which is the whole content of the low-order choice."
+    }
+   ],
+   "trap": {
+    "what": "Thinking interleaving reduces the latency of a single access.",
+    "why": "Each bank still takes its own access time; interleaving overlaps accesses to different banks, so it raises throughput while leaving one-word latency unchanged.",
+    "counterexample": "In the 8-word example, the first word still takes 40 ns with or without interleaving - the 110 ns total is a throughput gain over 320 ns, not a latency gain."
+   },
+   "check": {
+    "question": "Four banks of 100 ns cycle behind a 25 ns bus, low-order interleaved. How long for 4 consecutive words?",
+    "answer": "100 + 3 x 25 = 175 ns, and the condition holds exactly: 4 x 25 = 100 ns is enough for a bank to recover.",
+    "explanation": "The overlap only works while the banks can keep up; with three banks instead of four, the fourth word would wait for the first bank to finish."
+   },
+   "pyqIds": [
+    "gate-2023-32-chip-select-four-blocks"
+   ],
+   "prereqs": [
+    "memory-interfacing-chips-and-chip-select",
+    "memory-characteristics-sram-and-dram"
+   ],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "Memory Interleaving",
+     "channel": "GeeksforGeeks, Computer Organization and Architecture",
+     "url": "https://www.geeksforgeeks.org/computer-organization-architecture/memory-interleaving/",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "read the whole article: addresses distributed across modules round-robin, the high-order arrangement in which the most significant bits name the module, the low-order arrangement in which the least significant bits do, and the benefit stated as bandwidth through parallel banks"
+    },
+    {
+     "kind": "lecture-notes",
+     "title": "Memory System Design (ELEX 2117, Digital Techniques 2)",
+     "channel": "University of British Columbia, Electrical and Computer Engineering, lecture 9 notes",
+     "url": "https://people.ece.ubc.ca/edc/2117.jan2021/lec9.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read the memory-interface signals (address, data, CS, OE, WE and what each enables), the tri-state reason only one device may drive the bus, and the rule that ICs combined in parallel widen the word while banks of those rows extend the address range; the address-decoder section was read only as the served text, which stops after the timing diagrams"
+    }
+   ],
+   "sourceLine": "Addresses distributed across modules round-robin, the high-order arrangement in which the most significant bits name the module and the low-order arrangement in which the least significant bits do, with the benefit stated as bandwidth: GeeksforGeeks, Memory Interleaving (English, read in full). Banks of chips selected by decoded high-order bits: UBC ELEX 2117 lecture 9 notes (English, read in part). The timing arithmetic on this card is recomputed in scripts/validate.py.",
+   "videoRefs": [],
+   "subject": "computer-organization-and-architecture",
+   "topic": "memory-hierarchy-and-cache",
+   "path": "subjects/computer-organization-and-architecture/memory-hierarchy-and-cache/memory-interleaving-high-and-low-order.json"
   }
  ],
  "pyqs": [
@@ -39455,6 +40735,28 @@ window.GATE_DATA = {
    "answer_evidence": "The accepted answer substitutes t = cos x + sin x and states 'Correct Answer: D'; the GATE Forum 2009 CS paper PDF shows the same four options with (D) printed as (1/2) ln 2. Recomputed here numerically."
   },
   {
+   "id": "gate-2009-29-four-way-lru-block",
+   "year": "2009",
+   "paper": "GATE CSE 2009",
+   "question_ref": "Q.29 on GATE Overflow; numbered Q.51 in the EduRev cache-memory listing and on the pyqbox page",
+   "type": "MCQ",
+   "marks": null,
+   "topic": "replacement-policies-and-lru-trace",
+   "text": "Consider a 4-way set associative cache (initially empty) with total 16 cache blocks. The main memory consists of 256 blocks and the request for memory blocks are in the following order: 0, 255, 1, 4, 3, 8, 133, 159, 216, 129, 63, 8, 48, 32, 73, 92, 155. Which one of the following memory block will NOT be in cache if LRU replacement policy is used?",
+   "options": [
+    "3",
+    "8",
+    "129",
+    "216"
+   ],
+   "answer": "Option (D) - 216",
+   "solution": "16 blocks in 4 ways gives 4 sets, and block b goes to set b mod 4. Set 0 receives 0, 4, 8, 216, 8 (a hit), 48, 32, 92; the four most recently used distinct blocks are 8, 48, 32 and 92, so 0, 4 and 216 have been evicted. Set 1 holds 73, 129, 133, 1; set 3 holds 155, 63, 159, 3. Only 216 of the options is absent.",
+   "source_url": "https://gateoverflow.in/1315/gate-cse-2009-question-29",
+   "source_label": "GATE Overflow question page - GATE CSE 2009 Q.29 with the accepted answer (option D)",
+   "verification": "SOURCED",
+   "answer_evidence": "The GATE Overflow accepted answer reduces each set to its last four distinct accesses and concludes 216; a second answer traces the set table line by line with the same result. The official key was not opened this run. The full sequence is simulated in scripts/validate.py."
+  },
+  {
    "id": "gate-2011-15-mod-258-flip-flops",
    "year": "2011",
    "paper": "GATE CS 2011",
@@ -39494,6 +40796,28 @@ window.GATE_DATA = {
    "source_label": "GATE Overflow question page - GATE CSE 2011 Q.33, with community solutions and an accepted answer",
    "verification": "SOURCED",
    "answer_evidence": "The accepted answer on the page states 'Answer - D' and explains that mean, median and mode are linear functions of the values while the standard deviation is not, concluding sigma_y = a*sigma_x. The same question appears in GATE Overflow Volume 1, chapter 7 under Random Variable, numbered Q.33 of GATE CSE 2011."
+  },
+  {
+   "id": "gate-2011-43-tag-directory-size",
+   "year": "2011",
+   "paper": "GATE CSE 2011",
+   "question_ref": "Q.43 on GATE Overflow; numbered Q.48 on the pyqbox cache-memory listing",
+   "type": "MCQ",
+   "marks": null,
+   "topic": "tag-directory-size-arithmetic",
+   "text": "An 8 KB direct-mapped write-back cache is organized as multiple blocks, each of size 32 bytes. The processor generates 32-bit addresses. The cache controller contains the tag information for each cache block comprising of 1 valid bit, 1 modified bit, and as many bits as the minimum needed to identify the memory block mapped in the cache. What is the total size of memory needed at the cache controller to store metadata (tags) for the cache?",
+   "options": [
+    "4864 bits",
+    "6144 bits",
+    "6656 bits",
+    "5376 bits"
+   ],
+   "answer": "Option (D) - 5376 bits",
+   "solution": "Lines = 8192/32 = 256, so the index is 8 bits and the offset 5 bits; tag = 32 - 8 - 5 = 19 bits. Per entry 19 + 1 + 1 = 21 bits, and 256 x 21 = 5376 bits. Option A is the answer without the two flag bits (256 x 19 = 4864).",
+   "source_url": "https://gateoverflow.in/2145/gate-cse-2011-question-43",
+   "source_label": "GATE Overflow question page - GATE CSE 2011 Q.43 with the accepted answer (option D)",
+   "verification": "SOURCED",
+   "answer_evidence": "The GATE Overflow accepted answer gives 21 bits per entry times 256 entries, and a second answer derives the tag as 19 bits by counting main-memory blocks per cache line. The official key was not opened this run. Recomputed in scripts/validate.py."
   },
   {
    "id": "gate-2011-q21-base-indexed-mode",
@@ -40851,6 +42175,22 @@ window.GATE_DATA = {
    "answer_evidence": "Accepted answer: option B, I only, with the 2 x 2 counterexample [[5,0],[0,5]] refuting statement II."
   },
   {
+   "id": "gate-2017-set1-54-tag-16-way",
+   "year": "2017",
+   "paper": "GATE CSE 2017 Set 1",
+   "question_ref": "Q.54 on GATE Overflow; numbered Q.29 on ExamSIDE, Q.30 on pyqbox and Q.54 on the trygateai page, which also records the official answer",
+   "type": "NAT",
+   "marks": null,
+   "topic": "set-associative-mapping-sets-and-ways",
+   "text": "A cache memory unit with capacity of N words and block size of B words is to be designed. If it is designed as a direct mapped cache, the length of the TAG field is 10 bits. If the cache unit is now designed as a 16-way set-associative cache, the length of the TAG field is ______ bits.",
+   "answer": "14",
+   "solution": "Direct: tag = A - log2(N), where A is the address width, because the index plus offset together cover log2 N bits. Sixteen-way: the sets are 16 times fewer, so the index loses 4 bits and the tag gains them: 10 + 4 = 14.",
+   "source_url": "https://gateoverflow.in/118748/gate-cse-2017-set-1-question-54",
+   "source_label": "GATE Overflow question page - GATE CSE 2017 Set 1 Q.54 with the accepted answer 14",
+   "verification": "SOURCED",
+   "answer_evidence": "The GATE Overflow answers give 14 through the same index-to-tag shift, and the trygateai page for this question states the official answer as 14 with zero tolerance. The official key document itself was not opened this run. Recomputed in scripts/validate.py."
+  },
+  {
    "id": "gate-2017-set1-q7-fixed-point-range",
    "year": "2017",
    "paper": "GATE CS 2017 Set 1",
@@ -40977,6 +42317,28 @@ window.GATE_DATA = {
    "answer_evidence": "Accepted answer: only II and III are necessarily true, because diagonalisability needs n independent eigenvectors and the single-direction condition forces a repeated eigenvalue. Corroborated by the ExamSIDE 2018 paper page, which lists the question as Q.31 of that paper."
   },
   {
+   "id": "gate-2018-34-tag-bits-k-way-formula",
+   "year": "2018",
+   "paper": "GATE CSE 2018",
+   "question_ref": "Q.34 on GATE Overflow; the same question is numbered Q.2 on one GATE PYQ mirror and appears under the cache-memory heading on the ExamSIDE topic page",
+   "type": "MCQ",
+   "marks": null,
+   "topic": "set-associative-mapping-sets-and-ways",
+   "text": "The size of the physical address space of a processor is 2^P bytes. The word length is 2^W bytes. The capacity of cache memory is 2^N bytes. The size of each cache block is 2^M words. For a K-way set-associative cache memory, the length (in number of bits) of the tag field is",
+   "options": [
+    "P - N - log2 K",
+    "P - N + log2 K",
+    "P - N - M - W - log2 K",
+    "P - N - M - W + log2 K"
+   ],
+   "answer": "Option (B) - P - N + log2 K",
+   "solution": "Work in bytes. The block is 2^(M+W) bytes, so the offset is M+W bits and the number of lines is 2^N / 2^(M+W) = 2^(N-M-W). With K ways the number of sets is 2^(N-M-W-log2 K), so the index is N-M-W-log2 K bits. Tag = P - (M+W) - (N-M-W-log2 K) = P - N + log2 K. In word units the offset is M and the set index is N-W-M-log2 K, and the two cancel identically.",
+   "source_url": "https://gateoverflow.in/204108/gate-cse-2018-question-34",
+   "source_label": "GATE Overflow question page - GATE CSE 2018 Q.34 with the accepted answer (option B)",
+   "verification": "SOURCED",
+   "answer_evidence": "The GATE Overflow accepted answer derives P - N + log2 K; several answers on the same page show that writing the block offset as W instead of M produces option D and is the intended trap. The official key was not opened this run, so the record stays SOURCED. The identity is recomputed symbolically and numerically in scripts/validate.py."
+  },
+  {
    "id": "gate-2018-model-size-upper-bound",
    "year": "2018",
    "paper": "GATE CS 2018",
@@ -41027,6 +42389,28 @@ window.GATE_DATA = {
    "answer_evidence": "The accepted answer lists five prime implicants and three essential ones with the same witness minterms; an ExamSIDE solution page and a successtracker solution page independently give the same three essential prime implicants (Q'S', PQ', P'QS) and the answer 3, and an iaeacademy solution page attributes the answer 3 to the official GATE 2018 CS key. Recomputed here by enumerating all prime implicants and testing every required 1 for a unique cover: 6 prime implicants, 3 essential."
   },
   {
+   "id": "gate-2019-1-fully-associative-tag-index",
+   "year": "2019",
+   "paper": "GATE CSE 2019",
+   "question_ref": "Q.1 on GATE Overflow; listed as the first cache-memory question of the 2019 paper on the ExamSIDE topic page",
+   "type": "MCQ",
+   "marks": null,
+   "topic": "fully-associative-mapping-and-comparators",
+   "text": "A certain processor uses a fully associative cache of size 16 kB. The cache block size is 16 bytes. Assume that the main memory is byte addressable and uses a 32-bit address. How many bits are required for the Tag and the Index fields respectively in the addresses generated by the processor?",
+   "options": [
+    "24 bits and 0 bits",
+    "28 bits and 4 bits",
+    "24 bits and 4 bits",
+    "28 bits and 0 bits"
+   ],
+   "answer": "Option (D) - 28 bits and 0 bits",
+   "solution": "The block is 16 bytes, so the block offset is 4 bits. A fully associative cache is a single set, so the index field is 0 bits. Tag = 32 - 4 - 0 = 28 bits. Option B is the trap: it counts the offset twice by calling it an index.",
+   "source_url": "https://gateoverflow.in/302847/gate-cse-2019-question-1",
+   "source_label": "GATE Overflow question page - GATE CSE 2019 Q.1 with the accepted answer (option D)",
+   "verification": "SOURCED",
+   "answer_evidence": "The GATE Overflow accepted answer and the other answers on the page all give 28 tag bits and 0 index bits, on the ground that a fully associative cache has one set and therefore no index. The official key was not opened this run. Recomputed in scripts/validate.py."
+  },
+  {
    "id": "gate-2019-13-x4-minus-81",
    "year": "2019",
    "paper": "GATE CS 2019",
@@ -41046,6 +42430,28 @@ window.GATE_DATA = {
    "source_label": "GATE Overflow question page, GATE CSE 2019 Q.13, with the accepted answer C",
    "verification": "SOURCED",
    "answer_evidence": "The accepted answer and every other answer on the page reach 108/7, by factoring in one case and by L'Hopital in another, and a comment warns that the denominator must be factorised as (2x + 1)(x - 3). Both routes were re-derived and the value is recomputed in scripts/validate.py. The official key was not fetched and no marks field is recorded."
+  },
+  {
+   "id": "gate-2019-2-chip-select-address-range",
+   "year": "2019",
+   "paper": "GATE CSE 2019",
+   "question_ref": "Q.2 on GATE Overflow; question 8 of the 2019 paper in the GATE Forum paper PDF, which also records answer (A)",
+   "type": "MCQ",
+   "marks": null,
+   "topic": "memory-interfacing-chips-and-chip-select",
+   "text": "The chip select logic for a certain DRAM chip in a memory system design is shown below. Assume that the memory system has 16 address lines denoted by A15 to A0. What is the range of address (in hexadecimal) of the memory system that can get enabled by the chip select (CS) signal?",
+   "options": [
+    "C800 to CFFF",
+    "CA00 to CAFF",
+    "C800 to C8FF",
+    "DA00 to DFFF"
+   ],
+   "answer": "Option (A) - C800 to CFFF",
+   "solution": "The select logic is the AND of A15, A14, A13', A12' and A11, so a chip is enabled only when A15..A11 = 11001. The remaining eleven bits are free, so the range runs from 1100 1000 0000 0000 = 0xC800 to 1100 1111 1111 1111 = 0xCFFF.",
+   "source_url": "https://gateoverflow.in/302846/gate-cse-2019-question-2",
+   "source_label": "GATE Overflow question page - GATE CSE 2019 Q.2 with the accepted answer (option A)",
+   "verification": "SOURCED",
+   "answer_evidence": "The GATE Overflow accepted answer expands the five decoded bits and fills the other eleven with zeros and ones, and the GATE Forum 2019 paper PDF prints answer (A) beside the question. The official key document was not opened this run. Recomputed in scripts/validate.py."
   },
   {
    "id": "gate-2019-47-uniform-real-roots-probability",
@@ -41098,6 +42504,22 @@ window.GATE_DATA = {
    "source_label": "GATE Overflow question page - GATE CSE 2020 Q.18 with the accepted solution (7)",
    "verification": "SOURCED",
    "answer_evidence": "Accepted answer: 'Order of the largest possible proper subgroup = 7.'"
+  },
+  {
+   "id": "gate-2020-21-amat-block-fetch",
+   "year": "2020",
+   "paper": "GATE CSE 2020",
+   "question_ref": "Q.21 on GATE Overflow; numbered Q.31 on the GeeksforGeeks cache-memory page and Q.4 on the ExamSIDE memory-interfacing page",
+   "type": "NAT",
+   "marks": null,
+   "topic": "hit-time-miss-penalty-and-amat",
+   "text": "A direct mapped cache memory of 1 MB has a block size of 256 bytes. The cache has an access time of 3 ns and a hit rate of 94%. During a cache miss, it takes 20 ns to bring the first word of a block from the main memory, while each subsequent word takes 5 ns. The word size is 64 bits. The average memory access time in ns (round off to 1 decimal place) is ______.",
+   "answer": "13.5",
+   "solution": "A 256 B block holds 256/8 = 32 words of 64 bits. The miss penalty is 20 + 31 x 5 = 175 ns. AMAT = 0.94 x 3 + 0.06 x (3 + 175) = 2.82 + 10.68 = 13.5 ns. The 3 ns hit time is paid on a miss as well, because the miss is discovered only after the cache has been looked at.",
+   "source_url": "https://gateoverflow.in/333210/gate-cse-2020-question-21",
+   "source_label": "GATE Overflow question page - GATE CSE 2020 Q.21 with the accepted answer 13.5",
+   "verification": "SOURCED",
+   "answer_evidence": "The GATE Overflow answers give 13.5 by adding the hit time to the miss penalty, and the page records that the official key accepted both 13.3 and 13.5 because the source textbook example (Hamacher, example 8.1) states the extra cache delay explicitly and this question does not. 13.5 is recorded as the answer and the dissent is preserved. Recomputed in scripts/validate.py."
   },
   {
    "id": "gate-2020-27-rank-det-statements",
@@ -41595,6 +43017,28 @@ window.GATE_DATA = {
    "answer_evidence": "The GateAI PYQ page for the same question records the official option as B and lists the four statements; the GATE Overflow page carries the question and its discussion. Recomputed here from the bit patterns: A = -12, B = 36, C = 12, so A + B = 24 and C = A + B is false. The paper number is Q.41; GATE Overflow files the page under Question: 31."
   },
   {
+   "id": "gate-2022-44-direct-mapped-pqrs",
+   "year": "2022",
+   "paper": "GATE CSE 2022",
+   "question_ref": "Q.44 on GATE Overflow; also listed as a memory-addressing PYQ on the PYQLabs concept page and as Q.11 of the EduRev cache-memory set",
+   "type": "MSQ",
+   "marks": null,
+   "topic": "block-size-and-the-three-kinds-of-miss",
+   "text": "Consider a system with 2 KB direct mapped data cache with a block size of 64 bytes. The system has a physical address space of 64 KB and a word length of 16 bits. During the execution of a program, four data words P, Q, R and S are accessed in that order 10 times (i.e. PQRSPQRS...). Hence there are 40 accesses to the data cache altogether. Assume that the data cache is initially empty and no other data words are accessed by the program. The addresses of the first bytes of P, Q, R and S are 0xA248, 0xC28A, 0xCA8A and 0xA262 respectively. Which of the following statements is/are TRUE with respect to the data cache?",
+   "options": [
+    "Every access to S is a hit",
+    "Once P is brought to the cache it is never evicted",
+    "At the end of the execution only R and S reside in the cache",
+    "Every access to R evicts Q from the cache"
+   ],
+   "answer": "Options (A), (B) and (D) - the first, second and fourth statements",
+   "solution": "Cache 2 KB with 64 B blocks gives 32 lines, so the index is 5 bits and the offset 6; the address is 16 bits, so the tag is 5 bits. P and S both have index 9 and tag 20, so they are in the same 64 B block: loading P brings S, and nothing else ever maps to index 9 with a different tag, so S always hits and P is never evicted. Q (index 10, tag 24) and R (index 10, tag 25) share line 10 and evict each other, so every R access evicts Q. Statement C is false because P's block is still resident at the end.",
+   "source_url": "https://gateoverflow.in/371892/gate-cse-2022-question-44",
+   "source_label": "GATE Overflow question page - GATE CSE 2022 Q.44 with the accepted answer (options 1, 2 and 4)",
+   "verification": "SOURCED",
+   "answer_evidence": "The GATE Overflow accepted answer and two other answers give A, B and D, and the Testbook page for the same question records the same three options. The official key was not opened this run. The whole 40-access sequence is simulated in scripts/validate.py, including the claim that 19 accesses miss."
+  },
+  {
    "id": "gate-2022-8-4bit-overflow",
    "year": "2022",
    "paper": "GATE CSE 2022",
@@ -41650,6 +43094,28 @@ window.GATE_DATA = {
    "source_label": "GATE Overflow question page - GATE CSE 2023 Q.21 with the accepted answer (0)",
    "verification": "SOURCED",
    "answer_evidence": "The accepted answers compute the integral in two ways and both give 0; the question page shows the numerical answer 0. Recomputed here layer by layer."
+  },
+  {
+   "id": "gate-2023-32-chip-select-four-blocks",
+   "year": "2023",
+   "paper": "GATE CSE 2023",
+   "question_ref": "Q.32 on GATE Overflow; the first memory-chip-design question of the 2023 paper in the EduRev listing",
+   "type": "MCQ",
+   "marks": null,
+   "topic": "memory-interfacing-chips-and-chip-select",
+   "text": "A 4 kilobyte (KB) byte-addressable memory is realized using four 1 KB memory blocks. Two input address lines (IA4 and IA3) are connected to the chip select (CS) port of these memory blocks through a decoder. The remaining ten input address lines from IA11-IA0 are connected to the address port of these blocks. The chip select (CS) is active high. The input memory addresses (IA11-IA0), in decimal, for the starting locations (Addr = 0) of each block (indicated as X1, X2, X3, X4 in the figure) are among the options given below. Which one of the following options is CORRECT?",
+   "options": [
+    "(0, 1, 2, 3)",
+    "(0, 1024, 2048, 3072)",
+    "(0, 8, 16, 24)",
+    "(0, 0, 0, 0)"
+   ],
+   "answer": "Option (C) - (0, 8, 16, 24)",
+   "solution": "Each 1 KB block is addressed by ten bits, so the low ten lines IA9..IA0 must be zero at a block's starting location. The block is chosen by IA4:IA3, which take the four codes 00, 01, 10 and 11, so the starting addresses are 0, 2^3 = 8, 2^4 = 16 and 8 + 16 = 24. Option B assumes the select bits are the top two, which the figure does not show.",
+   "source_url": "https://gateoverflow.in/399279/gate-cse-2023-question-32",
+   "source_label": "GATE Overflow question page - GATE CSE 2023 Q.32 with the accepted answer (option C)",
+   "verification": "SOURCED",
+   "answer_evidence": "The GATE Overflow accepted answer tabulates the four IA4:IA3 codes against the twelve address bits and obtains 0, 8, 16 and 24, and a second answer notes explicitly that option B is the trap for candidates who assume high-order interleaving. The official key was not opened this run. Recomputed in scripts/validate.py."
   },
   {
    "id": "gate-2023-34-mux-tree-function",
@@ -41714,6 +43180,22 @@ window.GATE_DATA = {
    "source_label": "GATE Overflow question page - GATE CSE 2023 Q.45 (the page is titled Question: 35) with the accepted answer (option C)",
    "verification": "SOURCED",
    "answer_evidence": "The accepted answer decodes both operands, computes 131 + 126 - 127 = 130 and reaches 0xC15C2EF4; the IAE Academy 2023 paper page records the official option as C. Recomputed here: -16 x 0.8600914478 = -13.761463, which encodes as 0xC15C2EF4 in single precision."
+  },
+  {
+   "id": "gate-2023-54-eight-way-tag-bits",
+   "year": "2023",
+   "paper": "GATE CSE 2023",
+   "question_ref": "Q.54 on GATE Overflow; a NAT question of the 2023 paper",
+   "type": "NAT",
+   "marks": null,
+   "topic": "set-associative-mapping-sets-and-ways",
+   "text": "An 8-way set associative cache of size 64 KB (1 KB = 1024 bytes) is used in a system with 32-bit address. The address is sub-divided into TAG, INDEX and BLOCK OFFSET. The number of bits in the TAG is ______.",
+   "answer": "19",
+   "solution": "Let the block offset be z bits. The number of lines is 2^16 / 2^z and the number of sets is 2^(16-z-3), so the index is 13-z bits. Tag = 32 - (13-z) - z = 32 - 13 = 19 bits, whatever the block size is. The block size cancels because it appears in both the index and the offset.",
+   "source_url": "https://gateoverflow.in/399257/gate-cse-2023-question-54",
+   "source_label": "GATE Overflow question page - GATE CSE 2023 Q.54 with the accepted answer 19",
+   "verification": "SOURCED",
+   "answer_evidence": "Every answer on the GATE Overflow page gives 19, and one of them states the general rule that in a k-way set-associative cache log2 k bits move from the index to the tag. The official key was not opened this run. Recomputed for block sizes 1 to 2^10 in scripts/validate.py."
   },
   {
    "id": "gate-2023-8-determinant-row-interchange",
@@ -41934,6 +43416,28 @@ window.GATE_DATA = {
    "source_label": "GATE Overflow question page - GATE CSE 2024 Set 1 Q.42 with the accepted solution (options 2 and 4)",
    "verification": "SOURCED",
    "answer_evidence": "Accepted answer: 'So, Option B and Option D are the Correct Answers.'"
+  },
+  {
+   "id": "gate-2024-set1-43-write-policies",
+   "year": "2024",
+   "paper": "GATE CSE 2024 Set 1",
+   "question_ref": "Q.43 on GATE Overflow; numbered Q.53 on the IAE Academy page for the same paper, which states the official answer",
+   "type": "MSQ",
+   "marks": null,
+   "topic": "write-through-write-back-and-dirty-bits",
+   "text": "Consider two set-associative cache memory architectures: WBC, which uses the write back policy, and WTC, which uses the write through policy. Both of them use the LRU (Least Recently Used) block replacement policy. The cache memory is connected to the main memory. Which of the following statements is/are TRUE?",
+   "options": [
+    "A read miss in WBC never evicts a dirty block",
+    "A read miss in WTC never triggers a write back operation of a cache block to main memory",
+    "A write hit in WBC can modify the value of the dirty bit of a cache block",
+    "A write miss in WTC always writes the victim cache block to main memory before loading the missed block to the cache"
+   ],
+   "answer": "Options (B) and (C) - the second and third statements",
+   "solution": "LRU chooses a victim purely by recency and gives a dirty block no protection, so a read miss in a write-back cache can evict a dirty block and must then write it back - statement A is false. No block in a write-through cache is ever dirty, so eviction never needs a write-back and statement B is true. A write hit in a write-back cache sets the dirty bit, so statement C is true. In a write-through cache the victim is already clean, so statement D is false.",
+   "source_url": "https://gateoverflow.in/422799/gate-cse-2024-set-1-question-43",
+   "source_label": "GATE Overflow question page - GATE CSE 2024 Set 1 Q.43 with the accepted answer (options 2 and 3)",
+   "verification": "SOURCED",
+   "answer_evidence": "The GATE Overflow answers give B and C, and the IAE Academy page for this question states the official answer as B, C from the GATE 2024 CS1 key. The key document itself was not opened this run, so the record stays SOURCED. The four statements are decided from the two definitions in scripts/validate.py."
   },
   {
    "id": "gate-2024-set1-q17-independence-set-algebra",
@@ -42463,6 +43967,22 @@ window.GATE_DATA = {
    "source_label": "GATE Overflow question page - GATE CSE 2025 Set 2 Q.4 with the accepted answer (0)",
    "verification": "SOURCED",
    "answer_evidence": "Accepted answer: 'L^3 = I, so L^8 = L^2 = N, hence M - N = O and its determinant is 0', option A."
+  },
+  {
+   "id": "gate-2025-set2-45-two-level-amat",
+   "year": "2025",
+   "paper": "GATE CSE 2025 Set 2",
+   "question_ref": "Q.45 on GATE Overflow; the fifth cache question of the Set 2 paper in the EduRev listing",
+   "type": "NAT",
+   "marks": null,
+   "topic": "two-level-cache-amat",
+   "text": "Given a computing system with two levels of cache (L1 and L2) and a main memory. The first level (L1) cache access time is 1 nanosecond (ns) and the hit rate for L1 cache is 90% while the processor is accessing the data from L1 cache. Whereas, for the second level (L2) cache, the hit rate is 80% and the miss penalty for transferring data from L2 cache to L1 cache is 10 ns. The miss penalty for the data to be transferred from main memory to L2 cache is 100 ns. Then the average memory access time in this system in nanoseconds is ______. (rounded off to one decimal place)",
+   "answer": "4.0",
+   "solution": "AMAT = 1 + 0.1 x (10 + 0.2 x 100) = 1 + 0.1 x 30 = 4 ns. The L1 miss penalty is the L2 penalty plus the L2 miss rate times the memory penalty; the memory term is weighted by both miss rates because only 2% of accesses reach it.",
+   "source_url": "https://gateoverflow.in/460848/gate-cse-2025-set-2-question-45",
+   "source_label": "GATE Overflow question page - GATE CSE 2025 Set 2 Q.45 with the accepted answer 4",
+   "verification": "SOURCED",
+   "answer_evidence": "The GATE Overflow answers all reach 4 ns, several of them by writing AMAT = 1 + 0.1(10 + 0.2 x 100) explicitly, and the page records the disagreement about whether to add the L1 access time inside the bracket, which changes the answer to 4.1. The official key was not opened this run. Recomputed in scripts/validate.py."
   },
   {
    "id": "gate-2026-1-26-fp-addition",

@@ -29,8 +29,8 @@
   ],
   "counts": {
     "subjects": 6,
-    "topics": 319,
-    "pyqs": 248,
+    "topics": 334,
+    "pyqs": 260,
     "videos": 39,
     "playlists": 3
   },
@@ -4776,6 +4776,230 @@
       "pyqs": [],
       "visual": null,
       "variations": 3
+    },
+    {
+      "topic": "memory-hierarchy-levels-and-the-cost-speed-trade",
+      "title": "The Memory Hierarchy and the Cost-Speed Trade",
+      "subject": "computer-organization-and-architecture",
+      "group": "memory-hierarchy-and-cache",
+      "unit": "Memory Interfacing, Hierarchy and Cache Mapping",
+      "priority": "P1",
+      "path": "subjects/computer-organization-and-architecture/memory-hierarchy-and-cache/memory-hierarchy-levels-and-the-cost-speed-trade.json",
+      "videos": [],
+      "pyqs": [],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "locality-of-reference-temporal-and-spatial",
+      "title": "Locality of Reference: Temporal and Spatial",
+      "subject": "computer-organization-and-architecture",
+      "group": "memory-hierarchy-and-cache",
+      "unit": "Memory Interfacing, Hierarchy and Cache Mapping",
+      "priority": "P1",
+      "path": "subjects/computer-organization-and-architecture/memory-hierarchy-and-cache/locality-of-reference-temporal-and-spatial.json",
+      "videos": [],
+      "pyqs": [],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "memory-characteristics-sram-and-dram",
+      "title": "Memory Characteristics and the SRAM-DRAM Split",
+      "subject": "computer-organization-and-architecture",
+      "group": "memory-hierarchy-and-cache",
+      "unit": "Memory Interfacing, Hierarchy and Cache Mapping",
+      "priority": "P2",
+      "path": "subjects/computer-organization-and-architecture/memory-hierarchy-and-cache/memory-characteristics-sram-and-dram.json",
+      "videos": [],
+      "pyqs": [],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "hit-time-miss-penalty-and-amat",
+      "title": "Hit Time, Miss Penalty and the Average Access Time",
+      "subject": "computer-organization-and-architecture",
+      "group": "memory-hierarchy-and-cache",
+      "unit": "Memory Interfacing, Hierarchy and Cache Mapping",
+      "priority": "P1",
+      "path": "subjects/computer-organization-and-architecture/memory-hierarchy-and-cache/hit-time-miss-penalty-and-amat.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2020-21-amat-block-fetch"
+      ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "two-level-cache-amat",
+      "title": "AMAT with Two Levels of Cache",
+      "subject": "computer-organization-and-architecture",
+      "group": "memory-hierarchy-and-cache",
+      "unit": "Memory Interfacing, Hierarchy and Cache Mapping",
+      "priority": "P1",
+      "path": "subjects/computer-organization-and-architecture/memory-hierarchy-and-cache/two-level-cache-amat.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2025-set2-45-two-level-amat"
+      ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "cache-line-set-and-the-address-split",
+      "title": "The Cache Line, the Set, and the Address Split",
+      "subject": "computer-organization-and-architecture",
+      "group": "memory-hierarchy-and-cache",
+      "unit": "Memory Interfacing, Hierarchy and Cache Mapping",
+      "priority": "P1",
+      "path": "subjects/computer-organization-and-architecture/memory-hierarchy-and-cache/cache-line-set-and-the-address-split.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2018-34-tag-bits-k-way-formula",
+        "gate-2023-54-eight-way-tag-bits"
+      ],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "direct-mapping-line-modulo-lines",
+      "title": "Direct Mapping: One Line per Block",
+      "subject": "computer-organization-and-architecture",
+      "group": "memory-hierarchy-and-cache",
+      "unit": "Memory Interfacing, Hierarchy and Cache Mapping",
+      "priority": "P1",
+      "path": "subjects/computer-organization-and-architecture/memory-hierarchy-and-cache/direct-mapping-line-modulo-lines.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2022-44-direct-mapped-pqrs",
+        "gate-2019-1-fully-associative-tag-index"
+      ],
+      "visual": "computer-organization-and-architecture/memory-hierarchy-and-cache/address-to-cache-line",
+      "variations": 2
+    },
+    {
+      "topic": "fully-associative-mapping-and-comparators",
+      "title": "Fully Associative Mapping and the Comparator Cost",
+      "subject": "computer-organization-and-architecture",
+      "group": "memory-hierarchy-and-cache",
+      "unit": "Memory Interfacing, Hierarchy and Cache Mapping",
+      "priority": "P2",
+      "path": "subjects/computer-organization-and-architecture/memory-hierarchy-and-cache/fully-associative-mapping-and-comparators.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2019-1-fully-associative-tag-index"
+      ],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "set-associative-mapping-sets-and-ways",
+      "title": "Set-Associative Mapping: Sets, Ways and the Middle Path",
+      "subject": "computer-organization-and-architecture",
+      "group": "memory-hierarchy-and-cache",
+      "unit": "Memory Interfacing, Hierarchy and Cache Mapping",
+      "priority": "P1",
+      "path": "subjects/computer-organization-and-architecture/memory-hierarchy-and-cache/set-associative-mapping-sets-and-ways.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2017-set1-54-tag-16-way",
+        "gate-2018-34-tag-bits-k-way-formula",
+        "gate-2023-54-eight-way-tag-bits"
+      ],
+      "visual": "computer-organization-and-architecture/memory-hierarchy-and-cache/address-to-cache-line",
+      "variations": 3
+    },
+    {
+      "topic": "tag-directory-size-arithmetic",
+      "title": "Tag Directory Size: What One Line Really Costs",
+      "subject": "computer-organization-and-architecture",
+      "group": "memory-hierarchy-and-cache",
+      "unit": "Memory Interfacing, Hierarchy and Cache Mapping",
+      "priority": "P2",
+      "path": "subjects/computer-organization-and-architecture/memory-hierarchy-and-cache/tag-directory-size-arithmetic.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2011-43-tag-directory-size"
+      ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "replacement-policies-and-lru-trace",
+      "title": "Replacement Policies and the LRU Trace",
+      "subject": "computer-organization-and-architecture",
+      "group": "memory-hierarchy-and-cache",
+      "unit": "Memory Interfacing, Hierarchy and Cache Mapping",
+      "priority": "P1",
+      "path": "subjects/computer-organization-and-architecture/memory-hierarchy-and-cache/replacement-policies-and-lru-trace.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2009-29-four-way-lru-block"
+      ],
+      "visual": "computer-organization-and-architecture/memory-hierarchy-and-cache/lru-in-a-two-way-set",
+      "variations": 3
+    },
+    {
+      "topic": "write-through-write-back-and-dirty-bits",
+      "title": "Write-Through, Write-Back and the Dirty Bit",
+      "subject": "computer-organization-and-architecture",
+      "group": "memory-hierarchy-and-cache",
+      "unit": "Memory Interfacing, Hierarchy and Cache Mapping",
+      "priority": "P1",
+      "path": "subjects/computer-organization-and-architecture/memory-hierarchy-and-cache/write-through-write-back-and-dirty-bits.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2024-set1-43-write-policies"
+      ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "block-size-and-the-three-kinds-of-miss",
+      "title": "Block Size and the Three Kinds of Miss",
+      "subject": "computer-organization-and-architecture",
+      "group": "memory-hierarchy-and-cache",
+      "unit": "Memory Interfacing, Hierarchy and Cache Mapping",
+      "priority": "P2",
+      "path": "subjects/computer-organization-and-architecture/memory-hierarchy-and-cache/block-size-and-the-three-kinds-of-miss.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2022-44-direct-mapped-pqrs"
+      ],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "memory-interfacing-chips-and-chip-select",
+      "title": "Memory Interfacing: Chips, Decoding and Chip Select",
+      "subject": "computer-organization-and-architecture",
+      "group": "memory-hierarchy-and-cache",
+      "unit": "Memory Interfacing, Hierarchy and Cache Mapping",
+      "priority": "P1",
+      "path": "subjects/computer-organization-and-architecture/memory-hierarchy-and-cache/memory-interfacing-chips-and-chip-select.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2023-32-chip-select-four-blocks",
+        "gate-2019-2-chip-select-address-range"
+      ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "memory-interleaving-high-and-low-order",
+      "title": "Memory Interleaving: Which Bits Pick the Bank",
+      "subject": "computer-organization-and-architecture",
+      "group": "memory-hierarchy-and-cache",
+      "unit": "Memory Interfacing, Hierarchy and Cache Mapping",
+      "priority": "P2",
+      "path": "subjects/computer-organization-and-architecture/memory-hierarchy-and-cache/memory-interleaving-high-and-low-order.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2023-32-chip-select-four-blocks"
+      ],
+      "visual": null,
+      "variations": 2
     }
   ]
 }

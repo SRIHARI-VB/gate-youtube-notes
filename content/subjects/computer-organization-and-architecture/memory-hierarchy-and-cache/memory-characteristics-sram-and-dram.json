@@ -1,0 +1,83 @@
+{
+ "id": "memory-characteristics-sram-and-dram",
+ "title": "Memory Characteristics and the SRAM-DRAM Split",
+ "priority": "P2",
+ "order": 520,
+ "unit": "Memory Interfacing, Hierarchy and Cache Mapping",
+ "quickIdea": "Every memory is described by the same five numbers - capacity, unit of transfer, access time, cost per bit and volatility - and the two RAM technologies differ sharply on the last three, which is why cache is SRAM and main memory is DRAM.",
+ "remember": [
+  "Capacity = number of addressable locations x size of a location. A 4K x 16 memory holds 4096 locations of 2 bytes.",
+  "Unit of transfer = the number of bits moved at one time, set by the data-bus width, not by the address width.",
+  "Access time is the delay from presenting the address to having the data; cycle time is the minimum interval between two accesses to the same memory and is the larger of the two for DRAM, which must recover.",
+  "SRAM stores a bit in a latch, needs no refresh, and is fast and expensive; DRAM stores a bit as charge on a capacitor, must be refreshed, and is slower and far cheaper per bit.",
+  "Volatile means the contents are lost when power is removed; SRAM and DRAM are volatile, ROM, flash and disk are not."
+ ],
+ "example": {
+  "prompt": "A memory chip is described as 1K x 4. How many address lines and data lines does it need, and how many bits does it hold?",
+  "work": "1K = 1024 locations, so 10 address lines. Each location is 4 bits, so 4 data lines. Capacity = 1024 x 4 = 4096 bits.",
+  "answer": "10 address lines, 4 data lines, 4096 bits."
+ },
+ "gateAngle": "GATE uses these definitions as the input to chip-count and decoder questions: the number of address lines a chip needs is log2 of its word count, and the number of data lines is its word width. Reading a chip's description wrongly makes every later step wrong.",
+ "variations": [
+  {
+   "label": "ORIGINAL PYQ-STYLE QUESTION",
+   "question": "A 4K x 16 memory is built from 1K x 4 chips. How many address lines does each chip take, and how many chips are needed?",
+   "answer": "10 address lines per chip (1K words); 4 chips side by side for the 16-bit width and 4 rows for the 4K depth, so 16 chips.",
+   "why": "It joins the chip description to the two-dimensional build, which is the arithmetic GATE actually asks for."
+  },
+  {
+   "label": "CONCEPTUAL PRACTICE QUESTION",
+   "question": "Why does DRAM need refresh while SRAM does not?",
+   "answer": "DRAM holds a bit as charge on a capacitor, which leaks; the cell must be read and rewritten periodically. SRAM holds the bit in a latch that keeps its state as long as power is on.",
+   "why": "The refresh requirement is why DRAM has a cycle time longer than its access time and why a refresh interval can be part of a performance question."
+  }
+ ],
+ "trap": {
+  "what": "Confusing access time with cycle time.",
+  "why": "Access time is the latency of one read; cycle time is the minimum spacing between the starts of two accesses and includes recovery or refresh, so it is never smaller.",
+  "counterexample": "A DRAM with a 50 ns access time may need 70 ns between two accesses to the same bank: a sequence of dependent reads runs at cycle time, while independent reads to different banks can overlap at access time."
+ },
+ "check": {
+  "question": "A chip holds 2^14 locations of 8 bits. What are its address and data widths, and how many bytes does it hold?",
+  "answer": "14 address lines, 8 data lines, 16384 bytes.",
+  "explanation": "The address width is log2 of the location count; the data width is the location size; the capacity in bytes is the product divided by 8 bits per byte."
+ },
+ "pyqIds": [],
+ "prereqs": [
+  "memory-hierarchy-levels-and-the-cost-speed-trade"
+ ],
+ "sources": [
+  {
+   "kind": "lecture-transcript",
+   "title": "Lecture 24 - Basics of Memory and Cache (Memory System, unit 1 part 1)",
+   "channel": "NPTEL, Computer Organization and Architecture - A Pedagogical Aspect (Prof. J. K. Deka, Dr. Santosh Biswas, Dr. Arnab Sarkar, IIT Guwahati)",
+   "url": "http://www.digimat.in/nptel/courses/video/106103180/lec24.pdf",
+   "language": "en",
+   "transcript": "PARTIAL",
+   "translated": false,
+   "note": "read the opening of the unit: inboard and outboard memory, capacity as locations times location size, the unit of transfer as the width of the data bus, word size, and byte against word addressing"
+  },
+  {
+   "kind": "lecture-transcript",
+   "title": "Lecture 25 - Direct-mapped Caches: Misses, Writes and Performance",
+   "channel": "NPTEL, Computer Organization and Architecture - A Pedagogical Aspect (IIT Guwahati)",
+   "url": "http://www.digimat.in/nptel/courses/video/106103180/lec25.pdf",
+   "language": "en",
+   "transcript": "PARTIAL",
+   "translated": false,
+   "note": "read the memory-technology comparison with its access-time and cost-per-GB figures, the statement of the design trade-off that produces the hierarchy, the definition of hit time, hit ratio and miss, and the statement of locality of reference with its two kinds"
+  },
+  {
+   "kind": "lecture-notes",
+   "title": "Memory System Design (ELEX 2117, Digital Techniques 2)",
+   "channel": "University of British Columbia, Electrical and Computer Engineering, lecture 9 notes",
+   "url": "https://people.ece.ubc.ca/edc/2117.jan2021/lec9.pdf",
+   "language": "en",
+   "transcript": "PARTIAL",
+   "translated": false,
+   "note": "read the memory-interface signals (address, data, CS, OE, WE and what each enables), the tri-state reason only one device may drive the bus, and the rule that ICs combined in parallel widen the word while banks of those rows extend the address range; the address-decoder section was read only as the served text, which stops after the timing diagrams"
+  }
+ ],
+ "sourceLine": "Capacity, unit of transfer, word size and byte against word addressing: NPTEL IIT Guwahati Lecture 24 (English, read in part). The SRAM and DRAM comparison with its access-time and cost-per-GB figures: the same course, Lecture 25 (English, read in part). Volatile against non-volatile memory, SRAM as a latch and DRAM as a refreshed capacitor, and the meaning of kB and MB for memories: UBC ELEX 2117 lecture 9 notes (English, read in part).",
+ "videoRefs": []
+}

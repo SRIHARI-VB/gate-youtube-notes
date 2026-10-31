@@ -1,0 +1,58 @@
+{
+  "slug": "address-to-cache-line",
+  "topic": "memory-hierarchy-and-cache",
+  "engine": "p5.js",
+  "steps": 6,
+  "subtopics": [
+    "the cache line, the set and the address split into tag, index and offset",
+    "direct mapping: line = block mod lines, one comparator, and conflict misses",
+    "set-associative mapping: sets and ways, and the index-to-tag shift when associativity changes",
+    "fully associative mapping: no index field and one comparator per line"
+  ],
+  "example": {
+    "address_hex": "0xA248",
+    "address_decimal": 41544,
+    "address_bits": 32,
+    "block_size_bytes": 64,
+    "offset_bits": 6,
+    "cache_data_bytes": 2048,
+    "lines": 32,
+    "organisations": [
+      {
+        "name": "direct mapped",
+        "ways": 1,
+        "sets": 32,
+        "index_bits": 5,
+        "tag_bits": 21,
+        "tag": 20,
+        "index": 9,
+        "offset": 8
+      },
+      {
+        "name": "4-way set associative",
+        "ways": 4,
+        "sets": 8,
+        "index_bits": 3,
+        "tag_bits": 23,
+        "tag": 81,
+        "index": 1,
+        "offset": 8
+      },
+      {
+        "name": "fully associative",
+        "ways": 32,
+        "sets": 1,
+        "index_bits": 0,
+        "tag_bits": 26,
+        "tag": 649,
+        "index": 0,
+        "offset": 8
+      }
+    ],
+    "blocks_per_line": {
+      "direct": 2097152,
+      "four_way": 8388608,
+      "fully_associative": 67108864
+    }
+  }
+}

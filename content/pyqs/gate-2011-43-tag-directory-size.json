@@ -1,0 +1,22 @@
+{
+ "id": "gate-2011-43-tag-directory-size",
+ "year": "2011",
+ "paper": "GATE CSE 2011",
+ "question_ref": "Q.43 on GATE Overflow; numbered Q.48 on the pyqbox cache-memory listing",
+ "type": "MCQ",
+ "marks": null,
+ "topic": "tag-directory-size-arithmetic",
+ "text": "An 8 KB direct-mapped write-back cache is organized as multiple blocks, each of size 32 bytes. The processor generates 32-bit addresses. The cache controller contains the tag information for each cache block comprising of 1 valid bit, 1 modified bit, and as many bits as the minimum needed to identify the memory block mapped in the cache. What is the total size of memory needed at the cache controller to store metadata (tags) for the cache?",
+ "options": [
+  "4864 bits",
+  "6144 bits",
+  "6656 bits",
+  "5376 bits"
+ ],
+ "answer": "Option (D) - 5376 bits",
+ "solution": "Lines = 8192/32 = 256, so the index is 8 bits and the offset 5 bits; tag = 32 - 8 - 5 = 19 bits. Per entry 19 + 1 + 1 = 21 bits, and 256 x 21 = 5376 bits. Option A is the answer without the two flag bits (256 x 19 = 4864).",
+ "source_url": "https://gateoverflow.in/2145/gate-cse-2011-question-43",
+ "source_label": "GATE Overflow question page - GATE CSE 2011 Q.43 with the accepted answer (option D)",
+ "verification": "SOURCED",
+ "answer_evidence": "The GATE Overflow accepted answer gives 21 bits per entry times 256 entries, and a second answer derives the tag as 19 bits by counting main-memory blocks per cache line. The official key was not opened this run. Recomputed in scripts/validate.py."
+}

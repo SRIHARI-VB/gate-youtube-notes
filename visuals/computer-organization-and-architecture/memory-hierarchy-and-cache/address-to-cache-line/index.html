@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>One address, three caches - Memory Hierarchy visual lesson</title>
+<link rel="stylesheet" href="../../../lesson.css">
+<script src="https://cdn.jsdelivr.net/npm/p5@1.9.4/lib/p5.min.js"></script>
+</head>
+<body>
+<div class="wrap">
+  <p class="small"><a href="../../../../index.html">&larr; back to the revision site</a></p>
+  <h1>One Address, Three Caches: Where Tag, Index and Offset Come From</h1>
+  <div class="objective"><strong>Objective.</strong> Watch one 32-bit address, 0xA248, being taken apart by the same 2 KB cache built three ways - direct mapped, 4-way set associative and fully associative. The offset never moves, the index shrinks as the associativity rises, and every bit the index loses the tag gains. That is the whole of the mapping arithmetic, and it is why associativity changes both the tag width and the number of comparators.</div>
+
+  <div class="canvas-wrap"><div id="canvas-holder"></div></div>
+  <div class="caption" id="caption" aria-live="polite"></div>
+
+  <div class="controls">
+    <button id="play" class="primary">Play</button>
+    <button id="prev">&larr; Prev</button>
+    <button id="next">Next &rarr;</button>
+    <button id="restart">Restart</button>
+    <span class="speed"><label for="speed">Speed</label>
+      <input id="speed" type="range" min="0.25" max="2" step="0.25" value="1">
+      <span id="speedLabel">1.00x</span></span>
+    <span class="counter" id="counter"></span>
+  </div>
+
+  <h2>Static explanation</h2>
+  <p>A cache of 2 KB of data with 64-byte blocks holds 32 lines. The block offset is log2 64 = 6 bits in every organisation, because it addresses a byte inside a 64-byte block. What changes is how the 32 lines are grouped. Grouped one line per set, there are 32 sets, so the index needs 5 bits and the tag keeps the other 21. Grouped four lines per set, there are 8 sets, the index needs 3 bits, and the tag grows to 23. Grouped as one set of 32 lines, there is no index at all and the tag is 26.</p>
+  <p>For the address 0xA248 = 1010 0010 0100 1000 in 16 bits, or 0000 0000 0000 0000 1010 0010 0100 1000 in the full 32, the low six bits are 001000, which is offset 8 in all three cases. In the direct-mapped cache the next five bits are 01001, so the block lands in line 9 with tag 20. In the 4-way cache the next three bits are 001, so it lands in set 1 with tag 81. Fully associative, the index is empty and the tag is 649.</p>
+  <p>The tag is not decoration: its width says how many memory blocks compete for one line. A 21-bit tag means 2^21 blocks share each direct-mapped line, so any two of them that differ by a multiple of 32 lines evict each other no matter how empty the rest of the cache is. Moving to 4-way cuts the competition by four and adds two bits of tag; going fully associative removes conflict misses altogether and costs 32 comparators.</p>
+
+  <div class="card warn"><div class="label">Common misconception</div><p>The usual error is to keep the index at log2(lines) whatever the associativity, which gives a 5-bit index and a 21-bit tag for all three rows. In a set-associative cache the index names a set, not a line, so it is log2(sets) = log2(lines) - log2(ways). The second error is the mirror image: writing an index of log2(lines) for a fully associative cache, which has one set and therefore no index field at all - that is exactly the distractor in GATE CSE 2019 Q.1.</p></div>
+  <div class="card ok"><div class="label">Quick check</div><p>The same 2 KB cache and the same 64 B blocks, but now 2-way set associative with a 32-bit address. What are the three field widths, and how wide is each comparator?</p><details><summary>Answer</summary><p><strong>Tag 22, index 4, offset 6; comparators 22 bits wide, two of them per set.</strong> 32 lines in 2-way groups is 16 sets, so the index is 4 bits and the tag takes the two bits the index gave up: 21 + 1 = 22. The offset is still 6. Two ways means two comparators per set, and each must compare the full 22-bit tag.</p></details></div>
+  <p class="small">Topic: Memory Interfacing, Hierarchy and Cache Mapping (Computer Organization and Architecture), subtopics the address split into tag, index and offset, direct mapping, set-associative mapping and fully associative mapping. The line as a valid bit, a tag and a block of B bytes, the lookup sequence, and the three mapping organisations: IISc CDS, Computer Organization - Memory Hierarchy and Cache Memories (English, read in part). Line = block mod total lines, set = block mod total sets and the warning that full associativity has no index: DSWallah Learn, romanised Hindi, translated (read in part). Direct-mapped caches as the base case for misses, writes and performance: NPTEL IIT Guwahati Lecture 25 (English, read in part). Every width, tag value and index shown here is recomputed in scripts/validate.py.</p>
+</div>
+<script src="../../../lesson.js"></script>
+<script src="sketch.js"></script>
+<script>
+/* p5.js is loaded from a CDN. If it is unreachable, say so plainly instead of showing an empty box. */
+window.addEventListener('load', function () {
+  if (window.p5) { return; }
+  var holder = document.getElementById('canvas-holder');
+  if (holder) {
+    holder.innerHTML = '<div style="padding:22px 18px;font-size:14.5px;color:#4a5260">' +
+      'The animation needs p5.js, which this page loads from a CDN, and the request failed (offline, or the CDN is blocked). ' +
+      'Everything below still works: the static explanation, the misconception and the quick check.</div>';
+  }
+  var cap = document.getElementById('caption');
+  if (cap && window.LESSON && window.LESSON.steps && window.LESSON.steps[0]) {
+    cap.innerHTML = window.LESSON.steps[0].caption;
+  }
+  ['play', 'prev', 'next', 'restart', 'speed'].forEach(function (id) {
+    var el = document.getElementById(id);
+    if (el) { el.disabled = true; }
+  });
+});
+</script>
+</body>
+</html>

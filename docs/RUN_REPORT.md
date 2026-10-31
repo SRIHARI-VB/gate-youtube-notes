@@ -2725,3 +2725,122 @@ and no shared component class changed.
 The cycle pointer now sits on `computer-organization-and-architecture/control-unit-design`. The next topic
 in syllabus order is `computer-organization-and-architecture/memory-hierarchy-and-cache`, which is
 `not_started`.
+
+## Run: Computer Organization and Architecture - Memory Interfacing, Hierarchy and Cache Mapping (2026-10-31)
+
+### The topic, and why it was next
+
+**Computer Organization and Architecture > Memory Interfacing, Hierarchy and Cache Mapping**
+(`memory-hierarchy-and-cache`), from the syllabus line *"Memory interfacing and hierarchy: performance,
+cache memory mapping."*
+
+The cycle pointer was left by the previous run on `computer-organization-and-architecture/control-unit-design`,
+and the first topic strictly after it in the enumerated syllabus order whose status is not `covered` is this
+one, which was `not_started`. Nothing was skipped: no topic sits between the pointer and this one, no topic
+is `blocked`, and the thirteen `partial` topics earlier in the cycle were left alone because the cycle takes
+its second pass over `partial` topics only after a full pass finds no `not_started` topic left. The two COA
+topics after this one - `io-interface` and `instruction-pipelining-and-hazards` - are still `not_started` and
+were deliberately not touched.
+
+### Subtopics enumerated before any source was chosen
+
+The syllabus gives the topic in one line, so the fifteen subtopics were enumerated from the standard treatment
+(Patterson-Hennessy, Hamacher chapter 8, Mano chapter 12, Stallings), from the IIT Guwahati memory module's own
+lecture structure and from the GATE question record, before any source was searched for:
+
+1. the memory hierarchy: levels from registers to disk, and the cost, speed and capacity trade at each level
+2. locality of reference: temporal and spatial, and why the unit of transfer is a block rather than a word
+3. memory characteristics: capacity, unit of transfer, access time against cycle time, volatility, SRAM against DRAM
+4. performance: hit time, miss penalty, hit ratio, and AMAT for a single level
+5. AMAT for two levels, with each level's miss rate applied only to the accesses that reach it
+6. the cache line, the set, and the address split into tag, index and offset
+7. direct mapping: line = block mod lines, one comparator, conflict misses
+8. fully associative mapping: no index field, one comparator per line, no conflict misses
+9. set-associative mapping: sets and ways, and the index-to-tag shift when associativity changes
+10. tag directory arithmetic: tag, valid, dirty and replacement bits per line, times the number of lines
+11. replacement policies: LRU, FIFO, random, optimal, and an LRU trace
+12. write policies: write-through and write-back, write-allocate and no-write-allocate, the dirty bit
+13. block size and the three kinds of miss: compulsory, conflict and capacity
+14. memory interfacing: chip count in two dimensions, address decoding, chip select, a chip's address range
+15. memory interleaving: high-order and low-order, which bits name the bank, and the bandwidth it buys
+
+Virtual memory, the TLB and cache coherence are not on this list because they belong to the operating-system
+topic and to later COA material, not to this syllabus line.
+
+### Sources chosen, on merit
+
+Eight sources, from four institutions and two languages, none of them a playlist:
+
+- **NPTEL IIT Guwahati, Computer Organization and Architecture - A Pedagogical Aspect** (English, read in
+  part): Lectures 24, 25 and 26 as their transcript PDFs on the NPTEL mirror. Lecture 25 supplied the
+  technology comparison with its access times and cost per GB, the trade-off that forces a hierarchy, and the
+  definitions of hit time and hit ratio; Lecture 26 supplied the block-size trade-off as a mechanism on both
+  sides and the miss penalty as first-word latency plus transfer time; Lecture 24 supplied capacity and unit
+  of transfer as measurements. The same course served the previous topic, and it was chosen again because its
+  memory module is five lectures long and GATE-oriented - but three other institutions were read as well
+  precisely so the topic would not rest on one course.
+- **IISc CDS, Computer Organization: Memory Hierarchy and Cache Memories** (English, read in part): the only
+  readable source that gives a cache line as a valid bit, a tag and a block of B bytes, the full lookup
+  sequence, and a complete three-field split for a named configuration (16 KB, 32 B blocks, tag 18, index 9,
+  offset 5).
+- **UBC ELEX 2117, Memory System Design** (English, read in part): the memory-interface signals, tri-state
+  buses, and the two-dimensional chip count with each bank needing its own chip select.
+- **Imperial College EE2, Lecture 13 - Memory Interface** (English, read in part): the inside of a RAM chip,
+  an address space partitioned into RAM, ROM and I/O with the upper bits decoded into enables, and the
+  statement that the decoder is what places a memory in the map.
+- **DSWallah Learn, "Cache Memory & Mapping Hindi mein"** (romanised Hindi, **translated**, read in part):
+  the only non-English source readable this run, and the only one that states AMAT, the two-level form, the
+  write-policy vocabulary and the three mapping formulas as one consistent set. Marked as translated on the
+  six cards it feeds.
+- **GeeksforGeeks, "Memory Interleaving"** (English, read in full): the only readable source that sets the
+  high-order and low-order arrangements side by side with the bit that names the module in each.
+
+Thirteen candidates were rejected with reasons in `sources.json`: the Telecom Paris/EURECOM cache deck (the
+best-matched deck found, 502 on every route), the IIT Delhi memory lectures (403; a later run should retry),
+Hamacher chapter 8 (502; kept only as a standard reference), the IIT Kanpur CS698Y cache lecture
+(research-level: RRIP, DIP, prefetching), a commercial quiz page on memory interfacing, the GATE Overflow
+COA revision digest, six PYQ index sites whose numbering disagrees, GATE CSE 2009 Q.7 (chip count, no
+accepted-answer page opened), GATE CSE 1990 Q.4(iv) (descriptive), several ISRO and NIELIT cache questions
+(not CSE papers), the Hindi YouTube mapping lectures (no caption track), the IIT Madras cache lectures
+(index only) and a Hindi MCQ bank.
+
+### What was created
+
+Fifteen cards, one per enumerated subtopic; twelve verified PYQs (2009, 2011, 2017, 2018, 2019 twice, 2020,
+2022, 2023 twice, 2024, 2025); two p5.js lessons (`address-to-cache-line`, six steps, one address through
+direct, 4-way and fully associative mapping; and `lru-in-a-two-way-set`, eight steps, an LRU trace with the
+miss classification); a `sources.json` ledger; a new recomputation block
+`check_memory_hierarchy_and_cache()` in `scripts/validate.py`; and the four alignment constants the p5 test
+harness was missing. `content/syllabus.json` now marks the topic `cards` instead of `planned`, and
+`content/coverage.json` records the run, the status and the gaps.
+
+### Validation
+
+`python3 scripts/build-index.py` indexed 3 playlists, 39 videos, 334 cards and 260 PYQs.
+`python3 scripts/validate.py` reported 38 checks passed, 8 warnings, 0 failures; all eight warnings are
+pre-existing. `node tests/visual-lessons.js` passed on all 33 lessons. The validator caught three real errors
+in the first draft, all corrected rather than worked around: the 2022 Q.44 miss count was written as 19 when
+the simulation gives 21; the same trace made 2-way was said to leave two misses when three blocks are still
+compulsory; and the LRU lesson classified block 4's miss as a conflict miss when block 4 is a first touch and
+every miss in that trace is compulsory - the eviction of block 2 is not itself a miss, which is now the
+lesson's explicit point. No frozen file was touched: no design token, no shell layout, no route, no
+navigation label and no shared component class changed.
+
+### Gaps (the topic stays `partial`)
+
+1. No video transcript was readable: every YouTube watch page tried served a description and no caption
+   track, so `videoRefs` is empty on all fifteen cards.
+2. Three of the best-matched sources could not be read at all (Telecom Paris 502, IIT Delhi 403, Hamacher
+   chapter 8 502), so write policy and replacement rest on fewer independent sources than they deserve.
+3. The interleaving timing formula is this repository's own: the only readable interleaving source derives no
+   timing, so the formula is recomputed rather than quoted, and the card says so.
+4. The chip-count rules rest on one lecture-notes deck read in part; the Imperial deck supports only the
+   decoding half of the interfacing subtopic.
+5. No GATE CSE question on chip count or on interleaving was verified with an accepted-answer page.
+6. Every PYQ is `SOURCED`, not key-verified, and no marks field comes from an official paper.
+7. Only one non-English source was readable, and it is a written lesson rather than a lecture.
+
+### Next
+
+The cycle pointer now sits on `computer-organization-and-architecture/memory-hierarchy-and-cache`. The next
+topic in syllabus order is `computer-organization-and-architecture/io-interface`, which is `not_started`.

@@ -1,0 +1,22 @@
+{
+ "id": "gate-2024-set1-43-write-policies",
+ "year": "2024",
+ "paper": "GATE CSE 2024 Set 1",
+ "question_ref": "Q.43 on GATE Overflow; numbered Q.53 on the IAE Academy page for the same paper, which states the official answer",
+ "type": "MSQ",
+ "marks": null,
+ "topic": "write-through-write-back-and-dirty-bits",
+ "text": "Consider two set-associative cache memory architectures: WBC, which uses the write back policy, and WTC, which uses the write through policy. Both of them use the LRU (Least Recently Used) block replacement policy. The cache memory is connected to the main memory. Which of the following statements is/are TRUE?",
+ "options": [
+  "A read miss in WBC never evicts a dirty block",
+  "A read miss in WTC never triggers a write back operation of a cache block to main memory",
+  "A write hit in WBC can modify the value of the dirty bit of a cache block",
+  "A write miss in WTC always writes the victim cache block to main memory before loading the missed block to the cache"
+ ],
+ "answer": "Options (B) and (C) - the second and third statements",
+ "solution": "LRU chooses a victim purely by recency and gives a dirty block no protection, so a read miss in a write-back cache can evict a dirty block and must then write it back - statement A is false. No block in a write-through cache is ever dirty, so eviction never needs a write-back and statement B is true. A write hit in a write-back cache sets the dirty bit, so statement C is true. In a write-through cache the victim is already clean, so statement D is false.",
+ "source_url": "https://gateoverflow.in/422799/gate-cse-2024-set-1-question-43",
+ "source_label": "GATE Overflow question page - GATE CSE 2024 Set 1 Q.43 with the accepted answer (options 2 and 3)",
+ "verification": "SOURCED",
+ "answer_evidence": "The GATE Overflow answers give B and C, and the IAE Academy page for this question states the official answer as B, C from the GATE 2024 CS1 key. The key document itself was not opened this run, so the record stays SOURCED. The four statements are decided from the two definitions in scripts/validate.py."
+}

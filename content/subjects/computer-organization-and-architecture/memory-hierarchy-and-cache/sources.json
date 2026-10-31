@@ -1,0 +1,264 @@
+{
+ "subject": "computer-organization-and-architecture",
+ "topic": "memory-hierarchy-and-cache",
+ "exam": "GATE CSE 2027",
+ "retrieved_at": "2026-10-31",
+ "subtopics": [
+  "the memory hierarchy: levels from registers to disk, and the cost, speed and capacity trade at each level",
+  "locality of reference: temporal and spatial, and why the unit of transfer is a block rather than a word",
+  "memory characteristics: capacity, unit of transfer, access time against cycle time, volatility, and the SRAM-DRAM split",
+  "performance: hit time, miss penalty, hit ratio, and AMAT for a single level",
+  "AMAT for two levels of cache, with the miss rate of each level applied only to the accesses that reach it",
+  "the cache line, the set and the address split into tag, index and offset, with the width of each from the cache and block size",
+  "direct mapping: line = block mod lines, one comparator, and conflict misses",
+  "fully associative mapping: no index field, one comparator per line, and no conflict misses",
+  "set-associative mapping: sets and ways, set = block mod sets, and the index-to-tag shift when associativity changes",
+  "tag directory arithmetic: tag, valid, dirty and replacement bits per line, times the number of lines",
+  "replacement policies: LRU, FIFO, random and optimal, and an LRU trace over a reference string",
+  "write policies: write-through and write-back, write-allocate and no-write-allocate, and what the dirty bit implies",
+  "block size and the three kinds of miss: compulsory, conflict and capacity",
+  "memory interfacing: chip count in two dimensions, address decoding, chip select and a chip's address range",
+  "memory interleaving: high-order and low-order, which address bits name the bank, and the bandwidth it buys"
+ ],
+ "chosen": [
+  {
+   "id": "nptel-iitg-106103180-lecture-24-memory-basics",
+   "kind": "lecture-transcript",
+   "title": "Lecture 24 - Basics of Memory and Cache (Memory System, unit 1 part 1)",
+   "channel": "NPTEL, Computer Organization and Architecture - A Pedagogical Aspect (Prof. J. K. Deka, Dr. Santosh Biswas, Dr. Arnab Sarkar, IIT Guwahati)",
+   "url": "http://www.digimat.in/nptel/courses/video/106103180/lec24.pdf",
+   "language": "en",
+   "transcript": "PARTIAL",
+   "translated": false,
+   "covers": [
+    "memory split into inboard (registers, cache, main memory), outboard (disks, optical) and offline bulk storage",
+    "capacity defined as the number of distinctly addressable locations times the size of a location",
+    "unit of transfer as the number of bits moved at one time, determined by the data bus, with word size equal to it in this course",
+    "byte addressing against word addressing, and the statement that the higher-order bits of a 32-bit address name a word while the low two name a byte inside it"
+   ],
+   "why": "The only readable source this run that defines capacity and unit of transfer as measurements rather than as slogans, which is what the memory-characteristics card needs. Read in part: the served extract runs from the unit's objectives through memory addressing and stops before the direct-mapped cache design it promises, so nothing is attributed to that later section."
+  },
+  {
+   "id": "nptel-iitg-106103180-lecture-25-direct-mapped-misses-writes",
+   "kind": "lecture-transcript",
+   "title": "Lecture 25 - Direct-mapped Caches: Misses, Writes and Performance",
+   "channel": "NPTEL, Computer Organization and Architecture - A Pedagogical Aspect (IIT Guwahati)",
+   "url": "http://www.digimat.in/nptel/courses/video/106103180/lec25.pdf",
+   "language": "en",
+   "transcript": "PARTIAL",
+   "translated": false,
+   "covers": [
+    "the memory-technology comparison in access time and cost per GB: SRAM about 0.5 to 2.5 ns and 2000 to 5000 dollars per GB, DRAM 50 to 70 ns and 20 to 75 dollars per GB, disks 5 to 20 ms and 0.2 to 2 dollars per GB",
+    "the design trade-off that forces a hierarchy, and the statement that as one goes down it cost per GB falls, capacity rises and access time rises",
+    "locality of reference with temporal locality (loop instructions) and spatial locality (sequential array access) as two distinct principles",
+    "hit time, hit ratio and miss defined on a read, with the cache described as SRAM between the CPU and main memory"
+   ],
+   "why": "The clearest statement read this run of why a hierarchy exists at all, with the numbers that make it concrete, and of hit time and hit ratio as definitions rather than formulas. Read in part: the extract ends inside the locality discussion, so the lecture's treatment of write policy and its own performance examples are not used."
+  },
+  {
+   "id": "nptel-iitg-106103180-lecture-26-associative-and-multi-level",
+   "kind": "lecture-transcript",
+   "title": "Lecture 26 - Associative and Multi-Level Caches (line size, miss penalty, early restart)",
+   "channel": "NPTEL, Computer Organization and Architecture - A Pedagogical Aspect (IIT Guwahati)",
+   "url": "http://www.digimat.in/nptel/courses/video/106103180/lec26.pdf",
+   "language": "en",
+   "transcript": "PARTIAL",
+   "translated": false,
+   "covers": [
+    "why a larger line lowers the miss rate through spatial locality, and why the miss rate rises again once the line becomes a significant fraction of the cache because the number of lines falls",
+    "miss penalty defined as the time to fetch a line from the next lower level of the hierarchy and load it into the cache",
+    "miss penalty split into the latency of the first word and the transfer time for the rest of the block, and why a larger line therefore costs more per miss",
+    "early restart as resuming execution when the requested word arrives instead of waiting for the whole block, and why it works best for instruction fetches"
+   ],
+   "why": "The only readable source that states the block-size trade-off as a mechanism on both sides - spatial locality gained, lines and transfer time lost - and that defines miss penalty as a sum of two parts, which the AMAT card depends on. Read in part: the served text stops inside the early-restart discussion, so the lecture's own multi-level treatment is not attributed to it."
+  },
+  {
+   "id": "iisc-cds-memory-hierarchy-and-cache",
+   "kind": "lecture-slides",
+   "title": "Computer Organization: Memory Hierarchy and Cache Memories",
+   "channel": "Indian Institute of Science, Centre for Data Sciences, computer architecture and organization slides",
+   "url": "https://cds.iisc.ac.in/wp-content/uploads/ComputerArchitecture_and_Organization.pdf",
+   "language": "en",
+   "transcript": "PARTIAL",
+   "translated": false,
+   "covers": [
+    "main memory as about 100 times slower than the CPU, with the cache as the solution and locality of reference as the design principle",
+    "a cache decomposed into sets of lines, each line holding a valid bit, a tag and a data block of B bytes",
+    "the address divided into tag, index and offset, with the index selecting the set, the tags compared inside it, the offset picking the word, and a hit requiring valid and a tag match",
+    "direct-mapped caches as one line per set with conflict misses as their disadvantage, m-way associativity as m lines per set, and fully associative as one set holding all lines",
+    "a worked 16 KB direct-mapped cache with 32 B blocks given as tag 18, index 9, offset 5"
+   ],
+   "why": "The source of the line-as-valid-bit-tag-and-block description and of the lookup sequence, and the only readable source that gives a complete three-field split for a named configuration. Read in part: the extraction returned the locality, address-composition, lookup and mapping sections plus the worked 16 KB example; the later cache-and-programming examples were read only as far as the vector-sum miss counts."
+  },
+  {
+   "id": "ubc-elex2117-lec9-memory-system-design",
+   "kind": "lecture-notes",
+   "title": "Memory System Design (ELEX 2117, Digital Techniques 2)",
+   "channel": "University of British Columbia, Electrical and Computer Engineering, lecture 9 notes",
+   "url": "https://people.ece.ubc.ca/edc/2117.jan2021/lec9.pdf",
+   "language": "en",
+   "transcript": "PARTIAL",
+   "translated": false,
+   "covers": [
+    "the memory-interface signals and what each one does: address, data, CS to enable a read or write, OE to turn the data bus into an output, WE to write",
+    "tri-state outputs as the reason only one device may drive the shared data bus at a time",
+    "memory ICs combined in parallel to widen the word, all of them sharing the control signals, with the number of ICs in a bank being word size divided by IC word size",
+    "banks of those rows extending the address range, the number of banks being total words divided by words per IC, each bank needing its own chip select",
+    "address decoding as the circuit that decides where a bank sits in the memory map, with memories placed at multiples of their size to simplify it"
+   ],
+   "why": "The only readable source that states the two dimensions of chip count as rules and ties them to chip select and decoding, which is the whole of the interfacing card. Read in part: the extraction returned the terminology, interface signals and timing sections in full and the memory-array and decoding rules; the host refused both a direct request and a plain fetch from this sandbox, so the text came through the extraction service."
+  },
+  {
+   "id": "imperial-ee2-lecture13-memory-interface",
+   "kind": "lecture-slides",
+   "title": "Lecture 13 - Memory Interface (EE2 Digital Electronics)",
+   "channel": "Imperial College London, Department of Electrical and Electronic Engineering, Dr Peter Cheung",
+   "url": "http://www.ee.ic.ac.uk/pcheung/teaching/ee2_digital/Lecture%2013%20-%20memory%20interface.pdf",
+   "language": "en",
+   "transcript": "PARTIAL",
+   "translated": false,
+   "covers": [
+    "the inside of a RAM chip: a row decoder producing one-hot row selects, a column multiplexer driven by the less significant address bits, and CE, OE and WE with the tri-state data bus",
+    "an address space partitioned into 32 KB of RAM, 16 KB of ROM and 4 KB of input/output, with only A15:12 decoded into enable signals and A11:0 used inside the parts",
+    "the statement that selecting which memory sub-system, and therefore which chip, to enable is the job of the address decoder, and that without a decoder only one device could be attached",
+    "a worked ROM enable condition over a range of the top four address bits"
+   ],
+   "why": "The only readable source that shows a decoder choosing between several parts of unequal size and states the split between the bits that select a part and the bits used inside it, which is what the chip-select card teaches. Read in part: the extraction returned the chip-internals and address-decoding sections and stopped inside the timing discussion; the host refuses direct requests from this sandbox."
+  },
+  {
+   "id": "dswallah-cache-memory-hindi",
+   "kind": "text",
+   "title": "Cache Memory & Mapping Hindi mein",
+   "channel": "DSWallah Learn (Hinglish study lesson on cache memory)",
+   "url": "https://www.dswallah.com/learn/computer-architecture/cache-memory/",
+   "language": "hi",
+   "transcript": "PARTIAL",
+   "translated": true,
+   "covers": [
+    "locality of reference as the assumption that makes a cache possible at all, with temporal and spatial locality named and the block rather than the word as the unit of transfer",
+    "the three mapping techniques with their formulas: line = block mod total lines, set = block mod total sets, and full associativity with no index field",
+    "AMAT as hit time plus miss rate times miss penalty, and the two-level form that adds the L2 time on an L1 miss",
+    "write-through, write-back, write-allocate and no-write-allocate defined, with the dirty bit as the record of a modified block",
+    "its list of common mistakes, including saying line = block divided by total lines instead of modulo, and dropping the hit time from AMAT"
+   ],
+   "why": "The only non-English source readable this run, and the only one that states AMAT and the two-level form together with the write-policy vocabulary as a single consistent set. Written in romanised Hindi and translated into English here, and marked as translated on the six cards it feeds. Its parking analogy, its exercise questions and its advice about which topics other examinations ask are not used; its claim that write-back is the default in most modern CPUs is not repeated, because no source read this run supports it."
+  },
+  {
+   "id": "geeksforgeeks-memory-interleaving",
+   "kind": "text",
+   "title": "Memory Interleaving",
+   "channel": "GeeksforGeeks, Computer Organization and Architecture",
+   "url": "https://www.geeksforgeeks.org/computer-organization-architecture/memory-interleaving/",
+   "language": "en",
+   "transcript": "FULL",
+   "translated": false,
+   "covers": [
+    "interleaving as distributing addresses across modules round-robin so that a module is busy while another is accessed",
+    "the high-order arrangement, in which the most significant bits name the module and a module holds a consecutive run of addresses",
+    "the low-order arrangement, in which the least significant bits name the module so that consecutive words sit in different modules",
+    "the benefit stated as bandwidth from parallel banks rather than as a shorter single access"
+   ],
+   "why": "Read in full, and the only readable source that sets the two arrangements side by side with the bit that names the module in each. It is a revision digest and derives nothing, so the timing arithmetic on the interleaving card is this repository's own and is recomputed rather than quoted."
+  }
+ ],
+ "rejected": [
+  {
+   "id": "pacalet-telecom-paris-caches",
+   "kind": "lecture-slides",
+   "channel": "R. Pacalet, Telecom Paris / EURECOM, Computer Architecture - Caches",
+   "why": "The most complete cache deck found - direct-mapped, set-associative, replacement, write policies, write buffers, coherence, and a worked 32-bit example - and it could not be read: the host returned 502 to a direct request and to the extraction service, and only search extracts were readable. Nothing in this topic rests on it. A later run should retry it, because its write-policy section is the best-matched material seen for that subtopic."
+  },
+  {
+   "id": "nptel-iitd-106102062-lectures-28-30",
+   "kind": "lecture-video",
+   "channel": "NPTEL, Computer Architecture (Prof. Anshul Kumar, IIT Delhi) - Lectures 28 to 30, Memory Hierarchy: Basic Idea and Cache Organization",
+   "why": "The natural second teaching source and the course whose ALU lectures served an earlier topic. Its digimat transcript PDFs returned 403 to this sandbox and were not reached through the extraction service, because the budget went to the Guwahati course's four memory lectures. Retry in a later run; the two courses' memory modules overlap but the IIT Delhi treatment of AMAT is not identical."
+  },
+  {
+   "id": "hamacher-ch8-memory-system",
+   "kind": "text",
+   "channel": "Carl Hamacher, Zvonko Vranesic, Safwat Zaky, Computer Organization, chapter 8 (The Memory System), a course copy hosted by ETH Zurich",
+   "why": "Fetched twice and returned 502 both times. Used only as a standard reference for the interface signals, chip select, the memory controller and the refresh overhead; nothing on a card is quoted from it, and no claim rests on it alone."
+  },
+  {
+   "id": "iitk-cs698y-lecture-8-caches",
+   "kind": "lecture-slides",
+   "channel": "Biswabandan Panda, IIT Kanpur CS698Y Modern Memory Systems, Lecture 8 (Caches)",
+   "why": "Read as a search extract and rejected on scope: RRIP, DIP, set dueling, bimodal insertion and prefetching are research material, not GATE CSE 2027 syllabus. Its LRU-thrashing observation informed nothing that the 2009 trace does not already show."
+  },
+  {
+   "id": "mindspaneducation-memory-interfacing",
+   "kind": "text",
+   "channel": "Mindspan Education, 'Memory Interfacing and Chip Count' practice page",
+   "why": "Read as a search extract and rejected as a reference of record: it is a commercial quiz page, and its chip-count and decoder rules are the same rules the UBC notes state. It was used only to cross-check that the two-dimensional chip count and the row-select width agree, and its interleaving timing formula was not adopted because it is stated without derivation and the card derives the same figure from the bank and bus cycles."
+  },
+  {
+   "id": "gateoverflow-coa-revision-digest",
+   "kind": "text",
+   "channel": "GATE Overflow's Computer Organization and Architecture revision notes (cache-memory section)",
+   "why": "Read as a search extract and rejected as a teaching source: it is a revision digest, gives the tag-width formula and the three mapping names, and derives nothing. It was used only to confirm which question families exist in this topic."
+  },
+  {
+   "id": "edurev-pyqbox-examside-gateiq-listings",
+   "kind": "pyq-index",
+   "channel": "EduRev's cache-memory and memory-chip-design PYQ sets, pyqbox's per-question pages, ExamSIDE's cache-memory and memory-interfacing topic pages, GateIQ's COA archive, PYQLabs concept pages, trygateai, Testbook and IAE Academy pages",
+   "why": "Used to locate years, question numbers and marks, and to corroborate accepted answers, never as the reference of record. Their numbering disagrees systematically: the 2009 LRU question is Q.29 on GATE Overflow and Q.51 on EduRev and pyqbox; the 2017 Set 1 tag question is Q.54 on GATE Overflow, Q.29 on ExamSIDE and Q.30 on pyqbox; the 2024 Set 1 write-policy question is Q.43 on GATE Overflow and Q.53 on IAE Academy; the 2020 AMAT question is Q.21 on GATE Overflow, Q.31 on GeeksforGeeks and Q.4 on ExamSIDE. Each PYQ record states which number it uses and where the others come from."
+  },
+  {
+   "id": "gate-2009-7-chip-count",
+   "kind": "pyq",
+   "channel": "GATE CSE 2009 Q.7 - how many 32K x 1 RAM chips are needed for 256 Kbytes (answer 64)",
+   "why": "A genuine and useful chip-count question, and excluded from this run's PYQ set because no question page carrying an accepted answer was opened: the only pages read were the GATE Forum paper PDF, which prints no answer beside this item, and two listing pages. The arithmetic is used in the chip-count card's own example instead of being recorded as a previous-year question."
+  },
+  {
+   "id": "gate-1990-4-iv-interleaving",
+   "kind": "pyq",
+   "channel": "GATE CSE 1990 Q.4(iv) - true or false: transferring data in blocks from main memory to cache lets an interleaved memory operate at maximum speed",
+   "why": "The closest previous-year question to the interleaving subtopic and excluded because it is a descriptive true-or-false item with a reason asked for, which the repository's MCQ/MSQ/NAT schema cannot store. Its content is served by the interleaving card's own timing example."
+  },
+  {
+   "id": "isro-nielit-cache-questions",
+   "kind": "pyq",
+   "channel": "ISRO CSE 2011 Q.16 (direct-mapped block number for byte address 1206), ISRO CSE 2020 Q.47 (total bits of a direct-mapped cache), NIELIT and GATE IT 2007/2008 cache questions",
+   "why": "Correct in subject and frequently cited on GATE Overflow, but not GATE CSE papers, so none can be recorded as a previous-year question of this examination. Several of them would have duplicated the arithmetic the 2022 and 2023 CSE questions already carry."
+  },
+  {
+   "id": "hindi-youtube-mapping-lectures",
+   "kind": "video",
+   "channel": "YouTube Hindi lectures on cache mapping, including 'L-3.10 Set Associative Mapping with Examples in Hindi' and the related Gate Smashers mapping series",
+   "why": "The best-matched non-English video material, and rejected because no caption track was readable this run: the watch pages served a description and, in one case, a transcript of a different question. No card quotes or timestamps a video, and videoRefs is empty on all fifteen cards. The romanised-Hindi written lesson was readable and is the non-English source this topic does use."
+  },
+  {
+   "id": "nptel-iitm-106106166-cache-lectures",
+   "kind": "lecture-video",
+   "channel": "NPTEL, Computer Organization (Prof. V. Kamakoti, IIT Madras) - Lectures 39 to 47 on cache organisation",
+   "why": "The course index was readable and lists an unusually detailed cache sequence, including virtually indexed and physically tagged caches and cache coherence. Rejected because only the index was readable: the lectures are video and no transcript was served, so nothing could be read from them."
+  },
+  {
+   "id": "testbook-hindi-set-associative-mcq",
+   "kind": "text",
+   "channel": "Testbook's Hindi objective-question bank on set-associative mapping",
+   "why": "Read as a search extract and rejected as a teaching source: it is a question bank with answers, and its useful content - that set associativity trades conflict misses against hardware and latency - is already on the mapping card from two other sources. It was used only to confirm that the conflict-miss framing is the one examiners use."
+  }
+ ],
+ "standard_refs": [
+  "David A. Patterson and John L. Hennessy, Computer Organization and Design - the memory hierarchy, locality, cache organisation, AMAT, write policies and the three Cs of cache misses",
+  "Carl Hamacher, Zvonko Vranesic and Safwat Zaky, Computer Organization - chapter 8 for the memory interface signals, chip select, memory expansion, the memory controller and refresh; chapter 8 example 8.1 is the source of the 2020 AMAT question",
+  "M. Morris Mano, Computer System Architecture - chapter 12 for the memory hierarchy, cache mapping, associative memory and interleaved memory",
+  "William Stallings, Computer Organization and Architecture - cache memory organisation, replacement algorithms, write policies and multilevel caches",
+  "John L. Hennessy and David A. Patterson, Computer Architecture: A Quantitative Approach - the three Cs and the miss-classification experiment",
+  "GATE 2027 CS syllabus, Computer Organization and Architecture line 'Memory interfacing and hierarchy: performance, cache memory mapping'",
+  "Official GATE CSE papers and answer keys for the twelve recorded questions - not fetched this run, which is why every PYQ here is SOURCED rather than key-verified"
+ ],
+ "notes": [
+  "The syllabus names this topic in one line, 'Memory interfacing and hierarchy: performance, cache memory mapping', so the fifteen subtopics above are this run's enumeration from the standard treatment (Patterson-Hennessy, Hamacher chapter 8, Mano chapter 12, Stallings), from the IIT Guwahati memory module's own five-lecture structure and from the GATE question record - not a quotation from the syllabus. Every one of the fifteen has a card, which is why the status is partial rather than lower; the gaps below are what keep it from being covered.",
+  "Twelve GATE CSE previous-year questions were verified, from 2009 to 2025, and every one is SOURCED against an accepted answer rather than key-verified, so no marks field comes from an official key. Two of them (2024 Set 1 Q.43 and 2017 Set 1 Q.54) are additionally reported by a third-party page as carrying the same official answer, and that is recorded in their answer_evidence rather than used to upgrade the label.",
+  "No video transcript was readable this run. Every YouTube watch page tried served a description and no usable caption track, so videoRefs is empty on all fifteen cards and no card quotes or timestamps a lecture. The teaching rests on four NPTEL lecture transcripts published as PDFs, three university lecture decks and two written lessons.",
+  "One non-English source was readable, a romanised-Hindi written lesson, and it is marked translated on the six cards it feeds. It supplies the AMAT formulation, the two-level form, the write-policy vocabulary and the three mapping formulas in one consistent set. No Hindi, Tamil, Telugu or Bengali lecture transcript could be read.",
+  "Two of the eight chosen sources were reachable only through the extraction service, because their hosts refused direct requests from this sandbox; three others (the Telecom Paris cache deck, the IIT Delhi memory lectures and Hamacher chapter 8) returned 502 or 403 on every route and are recorded as rejected or as standard references only.",
+  "Every numeric claim published in this topic is recomputed in scripts/validate.py: the tag, index and offset widths of six configurations, the directory sizes, the twelve PYQ answers including two full cache simulations and two chip-select decodes, the AMAT arithmetic, the interleaving timing, and every number shown in the two visual lessons.",
+  "The interleaving timing arithmetic (bank cycle plus bus cycle times the remaining words, and the condition under which the overlap holds) is this repository's own. The readable interleaving source states the two arrangements and the bandwidth benefit and derives no timing, so the formula is recomputed rather than quoted, and the card says so in its source line.",
+  "GATE CSE 2020 Q.21 is recorded with the answer 13.5 and with the recorded dissent that the official key also accepted 13.3, because the source textbook example adds the cache delay explicitly and the question does not.",
+  "The 2017 Set 1 tag question is recorded as Q.54 on GATE Overflow with the three other numbering conventions named, because four sites disagree about its number."
+ ]
+}

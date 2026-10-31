@@ -1,0 +1,22 @@
+{
+ "id": "gate-2018-34-tag-bits-k-way-formula",
+ "year": "2018",
+ "paper": "GATE CSE 2018",
+ "question_ref": "Q.34 on GATE Overflow; the same question is numbered Q.2 on one GATE PYQ mirror and appears under the cache-memory heading on the ExamSIDE topic page",
+ "type": "MCQ",
+ "marks": null,
+ "topic": "set-associative-mapping-sets-and-ways",
+ "text": "The size of the physical address space of a processor is 2^P bytes. The word length is 2^W bytes. The capacity of cache memory is 2^N bytes. The size of each cache block is 2^M words. For a K-way set-associative cache memory, the length (in number of bits) of the tag field is",
+ "options": [
+  "P - N - log2 K",
+  "P - N + log2 K",
+  "P - N - M - W - log2 K",
+  "P - N - M - W + log2 K"
+ ],
+ "answer": "Option (B) - P - N + log2 K",
+ "solution": "Work in bytes. The block is 2^(M+W) bytes, so the offset is M+W bits and the number of lines is 2^N / 2^(M+W) = 2^(N-M-W). With K ways the number of sets is 2^(N-M-W-log2 K), so the index is N-M-W-log2 K bits. Tag = P - (M+W) - (N-M-W-log2 K) = P - N + log2 K. In word units the offset is M and the set index is N-W-M-log2 K, and the two cancel identically.",
+ "source_url": "https://gateoverflow.in/204108/gate-cse-2018-question-34",
+ "source_label": "GATE Overflow question page - GATE CSE 2018 Q.34 with the accepted answer (option B)",
+ "verification": "SOURCED",
+ "answer_evidence": "The GATE Overflow accepted answer derives P - N + log2 K; several answers on the same page show that writing the block offset as W instead of M produces option D and is the intended trap. The official key was not opened this run, so the record stays SOURCED. The identity is recomputed symbolically and numerically in scripts/validate.py."
+}

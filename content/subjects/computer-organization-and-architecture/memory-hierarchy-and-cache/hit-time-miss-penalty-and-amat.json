@@ -1,0 +1,92 @@
+{
+ "id": "hit-time-miss-penalty-and-amat",
+ "title": "Hit Time, Miss Penalty and the Average Access Time",
+ "priority": "P1",
+ "order": 521,
+ "unit": "Memory Interfacing, Hierarchy and Cache Mapping",
+ "quickIdea": "AMAT = hit time + miss rate x miss penalty. Every performance question in this topic is that one line, with the three quantities read off the question and the miss penalty sometimes itself a sum.",
+ "remember": [
+  "Hit time is the time to deliver a word when it is in the cache - the tag compare plus the data read, and it is paid on every access, hits included.",
+  "Miss penalty is the extra time to bring the line from the next level down and load it; it is paid only on a miss.",
+  "Miss rate = 1 - hit ratio, and AMAT = hit time + (1 - hit ratio) x miss penalty.",
+  "A miss costs hit time + miss penalty on a hierarchical system, because the hit time was already spent before the miss was discovered.",
+  "Miss penalty is often itself a sum: the latency of the first word plus the transfer time for the rest of the block, which is why block size appears in performance questions."
+ ],
+ "example": {
+  "prompt": "GATE CSE 2020 Q.21: a 1 MB direct-mapped cache, 256 B blocks, 3 ns access time, 94% hit rate. On a miss the first word takes 20 ns and each further word 5 ns; the word is 64 bits. Find the AMAT.",
+  "work": "A 256 B block holds 256/8 = 32 words of 64 bits. The miss penalty is 20 + 31 x 5 = 175 ns. AMAT = 0.94 x 3 + 0.06 x (3 + 175) = 2.82 + 10.68 = 13.5 ns.",
+  "answer": "13.5 ns."
+ },
+ "gateAngle": "The whole topic collapses into this formula, and GATE varies which of the three quantities is given. The two recurring traps are forgetting that a miss pays the hit time as well, and forgetting that the miss penalty covers the whole block rather than one word.",
+ "variations": [
+  {
+   "label": "VERIFIED PYQ",
+   "question": "GATE CSE 2020 Q.21, as worked above.",
+   "answer": "13.5 ns.",
+   "why": "The block is 32 words, so the transfer is 31 further words after the first: 20 + 31 x 5 = 175 ns, and the miss also pays the 3 ns hit time."
+  },
+  {
+   "label": "PREDICTED VARIATION",
+   "question": "Same cache and memory, but the block size is doubled to 512 B. What is the AMAT?",
+   "answer": "64 words per block, so the penalty is 20 + 63 x 5 = 335 ns and AMAT = 0.94 x 3 + 0.06 x 338 = 23.1 ns, if the hit rate does not change.",
+   "why": "It shows why block size cannot be raised without limit: the transfer time grows linearly with the block while the hit-rate gain saturates."
+  },
+  {
+   "label": "CONCEPTUAL PRACTICE QUESTION",
+   "question": "A cache with a 2 ns hit time and a 0.5 hit ratio misses to memory taking 100 ns. By how much does a 1 ns faster hit time change the AMAT, and by how much does a 5-point better hit ratio?",
+   "answer": "AMAT is 2 + 0.5 x 100 = 52 ns. A 1 ns faster hit time gives 51 ns; a 0.55 hit ratio gives 2 + 0.45 x 100 = 47 ns.",
+   "why": "It shows which knob matters: when the miss rate is high, the miss term dominates and improving the hit time is nearly pointless."
+  }
+ ],
+ "trap": {
+  "what": "Computing AMAT as hit ratio x hit time + miss rate x miss penalty, which charges a miss only the penalty.",
+  "why": "On a hierarchical system the hit time is spent on a miss too, before the miss is detected; only a simultaneous-access system, which GATE must state explicitly, avoids it.",
+  "counterexample": "Hit time 3 ns, penalty 175 ns, 94% hits. The wrong form gives 0.94 x 3 + 0.06 x 175 = 13.32 ns; the right form gives 13.5 ns - and the two differ by exactly the miss rate times the hit time."
+ },
+ "check": {
+  "question": "Hit time 2 ns, hit ratio 0.9, miss penalty 40 ns. What is the AMAT, and what would it be with a perfect cache?",
+  "answer": "AMAT = 2 + 0.1 x 40 = 6 ns; with a perfect cache it is 2 ns, so the cache misses cost three times the hit time.",
+  "explanation": "The perfect-cache figure is the hit time alone, which is the floor any AMAT can reach."
+ },
+ "pyqIds": [
+  "gate-2020-21-amat-block-fetch"
+ ],
+ "prereqs": [
+  "memory-hierarchy-levels-and-the-cost-speed-trade",
+  "locality-of-reference-temporal-and-spatial"
+ ],
+ "sources": [
+  {
+   "kind": "lecture-transcript",
+   "title": "Lecture 25 - Direct-mapped Caches: Misses, Writes and Performance",
+   "channel": "NPTEL, Computer Organization and Architecture - A Pedagogical Aspect (IIT Guwahati)",
+   "url": "http://www.digimat.in/nptel/courses/video/106103180/lec25.pdf",
+   "language": "en",
+   "transcript": "PARTIAL",
+   "translated": false,
+   "note": "read the memory-technology comparison with its access-time and cost-per-GB figures, the statement of the design trade-off that produces the hierarchy, the definition of hit time, hit ratio and miss, and the statement of locality of reference with its two kinds"
+  },
+  {
+   "kind": "lecture-transcript",
+   "title": "Lecture 26 - Associative and Multi-Level Caches (line size, miss penalty, early restart)",
+   "channel": "NPTEL, Computer Organization and Architecture - A Pedagogical Aspect (IIT Guwahati)",
+   "url": "http://www.digimat.in/nptel/courses/video/106103180/lec26.pdf",
+   "language": "en",
+   "transcript": "PARTIAL",
+   "translated": false,
+   "note": "read the opening: why a larger line lowers the miss rate through spatial locality, why the miss rate turns back up once the line becomes a large fraction of the cache, the definition of miss penalty as the time to bring a line from the next level down, its split into first-word latency plus transfer time, and early restart"
+  },
+  {
+   "kind": "text",
+   "title": "Cache Memory & Mapping Hindi mein",
+   "channel": "DSWallah Learn (Hinglish study lesson on cache memory)",
+   "url": "https://www.dswallah.com/learn/computer-architecture/cache-memory/",
+   "language": "hi",
+   "transcript": "PARTIAL",
+   "translated": true,
+   "note": "read the whole lesson: locality as the assumption that makes a cache possible, the block-versus-word distinction, the three mapping techniques with the line-modulo-lines and set-modulo-sets formulas, AMAT as hit time plus miss rate times miss penalty with the two-level form, the write-through, write-back, write-allocate and no-write-allocate definitions, and its list of common mistakes"
+  }
+ ],
+ "sourceLine": "Hit time, hit ratio and miss stated as the three measures of a cache: NPTEL IIT Guwahati Lecture 25 (English, read in part). Miss penalty defined as the time to fetch a line from the next level and split into first-word latency plus transfer time: the same course, Lecture 26 (English, read in part). AMAT as hit time plus miss rate times miss penalty, with the two-level form: DSWallah Learn, romanised Hindi, translated (read in part). Every figure on this card, including the 2020 answer, is recomputed in scripts/validate.py.",
+ "videoRefs": []
+}

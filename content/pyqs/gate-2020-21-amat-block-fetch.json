@@ -1,0 +1,16 @@
+{
+ "id": "gate-2020-21-amat-block-fetch",
+ "year": "2020",
+ "paper": "GATE CSE 2020",
+ "question_ref": "Q.21 on GATE Overflow; numbered Q.31 on the GeeksforGeeks cache-memory page and Q.4 on the ExamSIDE memory-interfacing page",
+ "type": "NAT",
+ "marks": null,
+ "topic": "hit-time-miss-penalty-and-amat",
+ "text": "A direct mapped cache memory of 1 MB has a block size of 256 bytes. The cache has an access time of 3 ns and a hit rate of 94%. During a cache miss, it takes 20 ns to bring the first word of a block from the main memory, while each subsequent word takes 5 ns. The word size is 64 bits. The average memory access time in ns (round off to 1 decimal place) is ______.",
+ "answer": "13.5",
+ "solution": "A 256 B block holds 256/8 = 32 words of 64 bits. The miss penalty is 20 + 31 x 5 = 175 ns. AMAT = 0.94 x 3 + 0.06 x (3 + 175) = 2.82 + 10.68 = 13.5 ns. The 3 ns hit time is paid on a miss as well, because the miss is discovered only after the cache has been looked at.",
+ "source_url": "https://gateoverflow.in/333210/gate-cse-2020-question-21",
+ "source_label": "GATE Overflow question page - GATE CSE 2020 Q.21 with the accepted answer 13.5",
+ "verification": "SOURCED",
+ "answer_evidence": "The GATE Overflow answers give 13.5 by adding the hit time to the miss penalty, and the page records that the official key accepted both 13.3 and 13.5 because the source textbook example (Hamacher, example 8.1) states the extra cache delay explicitly and this question does not. 13.5 is recorded as the answer and the dissent is preserved. Recomputed in scripts/validate.py."
+}

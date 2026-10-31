@@ -3,7 +3,7 @@
  "updated_at": "2026-10-31",
  "cycle": {
   "last_subject": "computer-organization-and-architecture",
-  "last_topic": "control-unit-design",
+  "last_topic": "memory-hierarchy-and-cache",
   "updated_at": "2026-10-31"
  },
  "subjects": [
@@ -866,10 +866,34 @@
     {
      "slug": "memory-hierarchy-and-cache",
      "name": "Memory Interfacing, Hierarchy and Cache Mapping",
-     "status": "not_started",
-     "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
-     "runs": [],
-     "gaps": []
+     "status": "partial",
+     "coverage_note": "15 subtopics, 15 cards (the memory hierarchy and the cost-speed trade, locality of reference, memory characteristics and the SRAM-DRAM split, hit time and miss penalty and AMAT, two-level AMAT, the cache line and the address split, direct mapping, fully associative mapping, set-associative mapping, tag directory arithmetic, replacement policies and an LRU trace, write policies and the dirty bit, block size and the three kinds of miss, memory interfacing with chip select, memory interleaving). Built in run 15 from eight sources across four institutions and two languages, not from a playlist: four NPTEL IIT Guwahati lecture transcripts read in part, three university lecture decks, one romanised-Hindi written lesson marked translated and one article on interleaving read in full. Twelve GATE CSE questions verified, 2009 to 2025, all SOURCED. Virtual memory, TLB and cache coherence are outside this topic - they belong to the operating-system topic and to later COA material - and are not counted as gaps here.",
+     "runs": [
+      {
+       "date": "2026-10-31",
+       "sources": [
+        "nptel-iitg-106103180-lecture-24-memory-basics",
+        "nptel-iitg-106103180-lecture-25-direct-mapped-misses-writes",
+        "nptel-iitg-106103180-lecture-26-associative-and-multi-level",
+        "iisc-cds-memory-hierarchy-and-cache",
+        "ubc-elex2117-lec9-memory-system-design",
+        "imperial-ee2-lecture13-memory-interface",
+        "dswallah-cache-memory-hindi",
+        "geeksforgeeks-memory-interleaving"
+       ],
+       "cards": 15,
+       "pyqs": 12
+      }
+     ],
+     "gaps": [
+      "No video transcript was readable: every YouTube watch page tried served a description and no usable caption track, so videoRefs is empty on all fifteen cards and the teaching rests on NPTEL transcript PDFs, three university decks and two written lessons.",
+      "Three of the best-matched sources could not be read at all - the Telecom Paris/EURECOM cache deck and Hamacher chapter 8 returned 502 on every route, and the IIT Delhi memory lectures returned 403 - so write policy and replacement rest on fewer independent sources than they deserve.",
+      "The interleaving timing arithmetic (bank cycle plus bus cycle times the remaining words, and the condition under which the overlap holds) is this repository's own: the only readable interleaving source states the two arrangements and derives no timing, so the formula is recomputed rather than sourced.",
+      "The chip-count rules rest on one lecture-notes deck read in part, with the Imperial deck supporting only the decoding half of the interfacing subtopic.",
+      "No GATE CSE question on chip count or on memory interleaving was verified with an accepted-answer page: GATE CSE 2009 Q.7 was deferred for want of one and GATE CSE 1990 Q.4(iv) is a descriptive true-or-false item the schema cannot store.",
+      "Every PYQ is SOURCED, not key-verified, and no marks field comes from an official paper.",
+      "Only one non-English source was readable and it is a written romanised-Hindi lesson rather than a lecture; no Hindi, Tamil, Telugu or Bengali transcript could be read."
+     ]
     },
     {
      "slug": "io-interface",

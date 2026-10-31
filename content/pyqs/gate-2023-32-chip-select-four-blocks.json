@@ -1,0 +1,22 @@
+{
+ "id": "gate-2023-32-chip-select-four-blocks",
+ "year": "2023",
+ "paper": "GATE CSE 2023",
+ "question_ref": "Q.32 on GATE Overflow; the first memory-chip-design question of the 2023 paper in the EduRev listing",
+ "type": "MCQ",
+ "marks": null,
+ "topic": "memory-interfacing-chips-and-chip-select",
+ "text": "A 4 kilobyte (KB) byte-addressable memory is realized using four 1 KB memory blocks. Two input address lines (IA4 and IA3) are connected to the chip select (CS) port of these memory blocks through a decoder. The remaining ten input address lines from IA11-IA0 are connected to the address port of these blocks. The chip select (CS) is active high. The input memory addresses (IA11-IA0), in decimal, for the starting locations (Addr = 0) of each block (indicated as X1, X2, X3, X4 in the figure) are among the options given below. Which one of the following options is CORRECT?",
+ "options": [
+  "(0, 1, 2, 3)",
+  "(0, 1024, 2048, 3072)",
+  "(0, 8, 16, 24)",
+  "(0, 0, 0, 0)"
+ ],
+ "answer": "Option (C) - (0, 8, 16, 24)",
+ "solution": "Each 1 KB block is addressed by ten bits, so the low ten lines IA9..IA0 must be zero at a block's starting location. The block is chosen by IA4:IA3, which take the four codes 00, 01, 10 and 11, so the starting addresses are 0, 2^3 = 8, 2^4 = 16 and 8 + 16 = 24. Option B assumes the select bits are the top two, which the figure does not show.",
+ "source_url": "https://gateoverflow.in/399279/gate-cse-2023-question-32",
+ "source_label": "GATE Overflow question page - GATE CSE 2023 Q.32 with the accepted answer (option C)",
+ "verification": "SOURCED",
+ "answer_evidence": "The GATE Overflow accepted answer tabulates the four IA4:IA3 codes against the twelve address bits and obtains 0, 8, 16 and 24, and a second answer notes explicitly that option B is the trap for candidates who assume high-order interleaving. The official key was not opened this run. Recomputed in scripts/validate.py."
+}

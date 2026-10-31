@@ -1,0 +1,16 @@
+{
+ "id": "gate-2023-54-eight-way-tag-bits",
+ "year": "2023",
+ "paper": "GATE CSE 2023",
+ "question_ref": "Q.54 on GATE Overflow; a NAT question of the 2023 paper",
+ "type": "NAT",
+ "marks": null,
+ "topic": "set-associative-mapping-sets-and-ways",
+ "text": "An 8-way set associative cache of size 64 KB (1 KB = 1024 bytes) is used in a system with 32-bit address. The address is sub-divided into TAG, INDEX and BLOCK OFFSET. The number of bits in the TAG is ______.",
+ "answer": "19",
+ "solution": "Let the block offset be z bits. The number of lines is 2^16 / 2^z and the number of sets is 2^(16-z-3), so the index is 13-z bits. Tag = 32 - (13-z) - z = 32 - 13 = 19 bits, whatever the block size is. The block size cancels because it appears in both the index and the offset.",
+ "source_url": "https://gateoverflow.in/399257/gate-cse-2023-question-54",
+ "source_label": "GATE Overflow question page - GATE CSE 2023 Q.54 with the accepted answer 19",
+ "verification": "SOURCED",
+ "answer_evidence": "Every answer on the GATE Overflow page gives 19, and one of them states the general rule that in a k-way set-associative cache log2 k bits move from the index to the tag. The official key was not opened this run. Recomputed for block sizes 1 to 2^10 in scripts/validate.py."
+}

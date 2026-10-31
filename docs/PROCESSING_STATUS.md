@@ -179,3 +179,28 @@ The change from run 13 is that no video was readable again, but three Indian uni
 Hindi article were, so the topic's teaching rests on lecture transcripts, slide decks and texts rather
 than on an opening excerpt of a lecture. The cost is that the NPTEL host which served Lecture 39 refused
 its three neighbours, and that the two division algorithms rest on one slide deck rather than on a lecture.
+
+## Run 15 - source access for Memory Interfacing, Hierarchy and Cache Mapping
+
+This topic used no playlist. What could be read, and what could not:
+
+| Source | Route | Result |
+| --- | --- | --- |
+| NPTEL IIT Guwahati, Computer Organization and Architecture, Lectures 24, 25 and 26 | extraction service (published transcript PDFs on the NPTEL mirror) | PARTIAL: each served extract runs from the opening through one section and stops - Lecture 24 through memory addressing, Lecture 25 through locality, Lecture 26 through early restart |
+| IISc CDS, Memory Hierarchy and Cache Memories | direct HTTP | PARTIAL: locality, address composition, cache lookup, the three mapping organisations and the worked 16 KB example |
+| UBC ELEX 2117, Memory System Design, lecture 9 | extraction service | PARTIAL: terminology, interface signals and timing in full, then the bank and decoder rules; the host returned 502 to a direct request |
+| Imperial College EE2, Lecture 13 - Memory Interface | extraction service | PARTIAL: chip internals and address decoding; the host refuses direct requests from this sandbox (403) |
+| DSWallah Learn, Cache Memory & Mapping (Hindi) | extraction service | PARTIAL, translated: the whole lesson - locality, three mappings, AMAT and the two-level form, write policies, common mistakes |
+| GeeksforGeeks, Memory Interleaving | extraction service | FULL: the two arrangements and the bandwidth claim |
+| Telecom Paris / EURECOM, Computer Architecture - Caches | direct HTTP and extraction service | 502 on both; only search extracts were readable, so nothing rests on it |
+| Hamacher chapter 8 (ETH Zurich course copy) | direct HTTP and extraction service | 502 on both; kept as a standard reference only |
+| NPTEL IIT Delhi, Computer Architecture, Lectures 28 to 30 | direct HTTP | 403; not reached through the extraction service this run |
+| IIT Kanpur CS698Y, Lecture 8 | search service | readable, rejected: research-level cache replacement |
+| YouTube, every lecture tried | search and direct routes | no caption track on any watch page |
+| ExamSIDE, EduRev, pyqbox, GateIQ, PYQLabs, trygateai, Testbook, IAE Academy | search service | readable, used to locate years and numbers and to corroborate answers; they disagree on numbering for four of the twelve questions |
+
+The change from run 14 is that no video was readable again, but a university notes deck and an article were
+read in full and two more university decks were reached through the extraction service, so the topic's
+teaching rests on four institutions rather than on one course's transcripts. The cost is that the three
+best-matched cache sources - a full cache deck, the IIT Delhi lectures and the Hamacher chapter - were all
+unreachable, which is why write policy rests on one Hindi written lesson and one NPTEL extract.

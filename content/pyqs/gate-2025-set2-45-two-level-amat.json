@@ -1,0 +1,16 @@
+{
+ "id": "gate-2025-set2-45-two-level-amat",
+ "year": "2025",
+ "paper": "GATE CSE 2025 Set 2",
+ "question_ref": "Q.45 on GATE Overflow; the fifth cache question of the Set 2 paper in the EduRev listing",
+ "type": "NAT",
+ "marks": null,
+ "topic": "two-level-cache-amat",
+ "text": "Given a computing system with two levels of cache (L1 and L2) and a main memory. The first level (L1) cache access time is 1 nanosecond (ns) and the hit rate for L1 cache is 90% while the processor is accessing the data from L1 cache. Whereas, for the second level (L2) cache, the hit rate is 80% and the miss penalty for transferring data from L2 cache to L1 cache is 10 ns. The miss penalty for the data to be transferred from main memory to L2 cache is 100 ns. Then the average memory access time in this system in nanoseconds is ______. (rounded off to one decimal place)",
+ "answer": "4.0",
+ "solution": "AMAT = 1 + 0.1 x (10 + 0.2 x 100) = 1 + 0.1 x 30 = 4 ns. The L1 miss penalty is the L2 penalty plus the L2 miss rate times the memory penalty; the memory term is weighted by both miss rates because only 2% of accesses reach it.",
+ "source_url": "https://gateoverflow.in/460848/gate-cse-2025-set-2-question-45",
+ "source_label": "GATE Overflow question page - GATE CSE 2025 Set 2 Q.45 with the accepted answer 4",
+ "verification": "SOURCED",
+ "answer_evidence": "The GATE Overflow answers all reach 4 ns, several of them by writing AMAT = 1 + 0.1(10 + 0.2 x 100) explicitly, and the page records the disagreement about whether to add the L1 access time inside the bracket, which changes the answer to 4.1. The official key was not opened this run. Recomputed in scripts/validate.py."
+}

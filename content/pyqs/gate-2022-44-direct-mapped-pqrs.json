@@ -1,0 +1,22 @@
+{
+ "id": "gate-2022-44-direct-mapped-pqrs",
+ "year": "2022",
+ "paper": "GATE CSE 2022",
+ "question_ref": "Q.44 on GATE Overflow; also listed as a memory-addressing PYQ on the PYQLabs concept page and as Q.11 of the EduRev cache-memory set",
+ "type": "MSQ",
+ "marks": null,
+ "topic": "block-size-and-the-three-kinds-of-miss",
+ "text": "Consider a system with 2 KB direct mapped data cache with a block size of 64 bytes. The system has a physical address space of 64 KB and a word length of 16 bits. During the execution of a program, four data words P, Q, R and S are accessed in that order 10 times (i.e. PQRSPQRS...). Hence there are 40 accesses to the data cache altogether. Assume that the data cache is initially empty and no other data words are accessed by the program. The addresses of the first bytes of P, Q, R and S are 0xA248, 0xC28A, 0xCA8A and 0xA262 respectively. Which of the following statements is/are TRUE with respect to the data cache?",
+ "options": [
+  "Every access to S is a hit",
+  "Once P is brought to the cache it is never evicted",
+  "At the end of the execution only R and S reside in the cache",
+  "Every access to R evicts Q from the cache"
+ ],
+ "answer": "Options (A), (B) and (D) - the first, second and fourth statements",
+ "solution": "Cache 2 KB with 64 B blocks gives 32 lines, so the index is 5 bits and the offset 6; the address is 16 bits, so the tag is 5 bits. P and S both have index 9 and tag 20, so they are in the same 64 B block: loading P brings S, and nothing else ever maps to index 9 with a different tag, so S always hits and P is never evicted. Q (index 10, tag 24) and R (index 10, tag 25) share line 10 and evict each other, so every R access evicts Q. Statement C is false because P's block is still resident at the end.",
+ "source_url": "https://gateoverflow.in/371892/gate-cse-2022-question-44",
+ "source_label": "GATE Overflow question page - GATE CSE 2022 Q.44 with the accepted answer (options 1, 2 and 4)",
+ "verification": "SOURCED",
+ "answer_evidence": "The GATE Overflow accepted answer and two other answers give A, B and D, and the Testbook page for the same question records the same three options. The official key was not opened this run. The whole 40-access sequence is simulated in scripts/validate.py, including the claim that 19 accesses miss."
+}

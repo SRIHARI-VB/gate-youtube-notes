@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LRU inside a 2-way set - Memory Hierarchy visual lesson</title>
+<link rel="stylesheet" href="../../../lesson.css">
+<script src="https://cdn.jsdelivr.net/npm/p5@1.9.4/lib/p5.min.js"></script>
+</head>
+<body>
+<div class="wrap">
+  <p class="small"><a href="../../../../index.html">&larr; back to the revision site</a></p>
+  <h1>LRU Inside a 2-Way Set: Seven Accesses, One Eviction</h1>
+  <div class="objective"><strong>Objective.</strong> Follow a reference string of seven block accesses through a cache of two sets with two ways each, under least-recently-used replacement. The point is to see two things at once: a hit reorders the set rather than leaving it alone, and the eviction at the end is a conflict miss caused by the set being full, not by the cache being small.</div>
+
+  <div class="canvas-wrap"><div id="canvas-holder"></div></div>
+  <div class="caption" id="caption" aria-live="polite"></div>
+
+  <div class="controls">
+    <button id="play" class="primary">Play</button>
+    <button id="prev">&larr; Prev</button>
+    <button id="next">Next &rarr;</button>
+    <button id="restart">Restart</button>
+    <span class="speed"><label for="speed">Speed</label>
+      <input id="speed" type="range" min="0.25" max="2" step="0.25" value="1">
+      <span id="speedLabel">1.00x</span></span>
+    <span class="counter" id="counter"></span>
+  </div>
+
+  <h2>Static explanation</h2>
+  <p>Block b always maps to set b mod (number of sets), so with two sets the even blocks share set 0 and the odd blocks share set 1. Each set has two ways, so each set holds at most two blocks. Within a set, LRU keeps the ways ordered by last use and always evicts the way whose last use is furthest back.</p>
+  <p>The trace is 0, 1, 2, 3, 0, 4, 0. Blocks 0, 1, 2 and 3 each arrive in a set that still has a free way, so all four are compulsory misses and nothing is evicted. Block 0 then hits, and the hit moves block 0 to the most-recently-used end of set 0, leaving block 2 at the least-recently-used end. Block 4 then maps to set 0, which is full, so block 2 is evicted; block 4 arrives and set 0 holds [0, 4]. The final access to block 0 hits, because block 0 was the more recently used of the two. The total is five misses and two hits.</p>
+  <p>Classify the five misses and the trace teaches something the numbers alone do not. All five are compulsory: blocks 0, 1, 2, 3 and 4 are each touched for the first time exactly once, and no cache of any size or organisation could have avoided any of them. The eviction of block 2 is not a miss - it is the price of the set being full - and a reader who counts the eviction as a conflict miss has confused the two events. Had the trace returned to block 2 later, that access would have been the conflict miss, and raising the associativity would then have removed it.</p>
+
+  <div class="card warn"><div class="label">Common misconception</div><p>The usual error is to treat LRU as first-in-first-out and evict the block that was loaded earliest. After the hit on block 0 at access 5 the two blocks in set 0 were loaded at almost the same moment, but block 0 was used most recently and block 2 not since access 3 - so LRU evicts block 2. Under FIFO, block 0 would go instead, and the final access to block 0 would then miss. A hit under LRU is not a no-op: it changes the order.</p></div>
+  <div class="card ok"><div class="label">Quick check</div><p>Same cache, and the same first four accesses 0, 1, 2, 3. Now the fifth access is block 6 instead of block 0, and the sixth access is block 0. What happens, and how many of the six accesses miss?</p><details><summary>Answer</summary><p><strong>Block 6 maps to set 0, which is full, so it evicts block 0 - the least recently used of the pair - and all five accesses so far have missed. The sixth access, to block 0, then misses too, because block 0 is no longer resident: that sixth miss is a conflict miss.</strong> Set 0 held [0, 2] after access 3 with nothing used since, so block 0 was LRU. Six accesses, six misses: five compulsory and one conflict - which is exactly the miss the original trace avoided by touching block 0 before block 4.</p></details></div>
+  <p class="small">Topic: Memory Interfacing, Hierarchy and Cache Mapping (Computer Organization and Architecture), subtopics replacement policies, set-associative mapping and the three kinds of cache miss. Set = block mod total sets with the ways inside a set: DSWallah Learn, romanised Hindi, translated (read in part). Sets of lines with m-way associativity and conflict misses as the cost of a small set: IISc CDS, Computer Organization - Memory Hierarchy and Cache Memories (English, read in part). The reference string, every set state, the eviction and the miss classification are recomputed in scripts/validate.py.</p>
+</div>
+<script src="../../../lesson.js"></script>
+<script src="sketch.js"></script>
+<script>
+/* p5.js is loaded from a CDN. If it is unreachable, say so plainly instead of showing an empty box. */
+window.addEventListener('load', function () {
+  if (window.p5) { return; }
+  var holder = document.getElementById('canvas-holder');
+  if (holder) {
+    holder.innerHTML = '<div style="padding:22px 18px;font-size:14.5px;color:#4a5260">' +
+      'The animation needs p5.js, which this page loads from a CDN, and the request failed (offline, or the CDN is blocked). ' +
+      'Everything below still works: the static explanation, the misconception and the quick check.</div>';
+  }
+  var cap = document.getElementById('caption');
+  if (cap && window.LESSON && window.LESSON.steps && window.LESSON.steps[0]) {
+    cap.innerHTML = window.LESSON.steps[0].caption;
+  }
+  ['play', 'prev', 'next', 'restart', 'speed'].forEach(function (id) {
+    var el = document.getElementById(id);
+    if (el) { el.disabled = true; }
+  });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+{
+ "id": "tag-directory-size-arithmetic",
+ "title": "Tag Directory Size: What One Line Really Costs",
+ "priority": "P2",
+ "order": 527,
+ "unit": "Memory Interfacing, Hierarchy and Cache Mapping",
+ "quickIdea": "The directory costs (tag + valid + dirty + replacement bits) x number of lines, and GATE asks for it with the tag width left for you to derive.",
+ "remember": [
+  "Entries = number of lines = cache data size / block size. There is one entry per line, not per set.",
+  "Bits per entry = tag width + 1 valid bit + (1 dirty bit if write-back) + any replacement bits the question names.",
+  "Total directory = entries x bits per entry. Give it in bits or in Kbits as asked; the options usually differ by a factor of 8 or by one bit per entry.",
+  "The tag width comes from the address split: address width - log2(lines) - log2(block size) for a direct-mapped cache.",
+  "The directory does not include the data array. A question that asks for 'total cache size including tags' wants data + directory, which is a different sum."
+ ],
+ "example": {
+  "prompt": "GATE CSE 2011 Q.43: an 8 KB direct-mapped write-back cache with 32 B blocks, 32-bit addresses, one valid bit and one modified bit per line. Total metadata size?",
+  "work": "Lines = 8192/32 = 256, so index 8; offset 5; tag = 32 - 8 - 5 = 19. Per entry 19 + 1 + 1 = 21 bits. Total = 256 x 21 = 5376 bits.",
+  "answer": "5376 bits (option D)."
+ },
+ "gateAngle": "The trap is arithmetic, not concept: one forgotten bit per entry moves the answer by 256 bits, and the options are built around exactly that. Compute bits per entry first, multiply last.",
+ "variations": [
+  {
+   "label": "VERIFIED PYQ",
+   "question": "GATE CSE 2011 Q.43, as worked above.",
+   "answer": "5376 bits.",
+   "why": "19 tag bits plus valid and modified bits, times 256 lines. Dropping the two flag bits gives 4864 bits, which is option A."
+  },
+  {
+   "label": "ORIGINAL PYQ-STYLE QUESTION",
+   "question": "A 64 KB 4-way cache has 32 B blocks, 40-bit addresses, and each entry carries a valid bit, a dirty bit and 2 replacement bits. What is the directory size?",
+   "answer": "2048 lines, 512 sets, index 9; offset 5; tag = 40 - 9 - 5 = 26. Per entry 26 + 4 = 30 bits. Total = 2048 x 30 = 61440 bits = 60 Kbits.",
+   "why": "It adds replacement bits and a 40-bit address, which is where candidates lose a bit or mis-set the index."
+  },
+  {
+   "label": "CONCEPTUAL PRACTICE QUESTION",
+   "question": "Why is the directory much smaller than the data array?",
+   "answer": "Because it stores one tag per line, not one tag per word: a 64 B line with a 19-bit tag needs 21 metadata bits for 512 data bits.",
+   "why": "It explains why tags are cheap in area but still matter in every width question."
+  }
+ ],
+ "trap": {
+  "what": "Multiplying by the number of sets instead of the number of lines.",
+  "why": "Each line has its own tag and flags, so the entry count is the line count; the number of sets only tells you how many comparators there are.",
+  "counterexample": "A 4-way cache with 512 lines and 128 sets: 512 entries of 21 bits is 10752 bits; using 128 gives 2688 bits, a quarter of the right answer."
+ },
+ "check": {
+  "question": "A 32 KB 2-way cache with 64 B blocks and 24-bit addresses needs a valid bit and a dirty bit per entry. Directory size?",
+  "answer": "512 lines, 256 sets, index 8; offset 6; tag = 24 - 8 - 6 = 10; per entry 12 bits; total 6144 bits.",
+  "explanation": "512 x 12 = 6144 bits, which is 768 bytes - small next to the 32 KB of data, which is the point."
+ },
+ "pyqIds": [
+  "gate-2011-43-tag-directory-size"
+ ],
+ "prereqs": [
+  "cache-line-set-and-the-address-split",
+  "set-associative-mapping-sets-and-ways"
+ ],
+ "sources": [
+  {
+   "kind": "lecture-slides",
+   "title": "Computer Organization: Memory Hierarchy and Cache Memories",
+   "channel": "Indian Institute of Science, Centre for Data Sciences, computer architecture and organization slides",
+   "url": "https://cds.iisc.ac.in/wp-content/uploads/ComputerArchitecture_and_Organization.pdf",
+   "language": "en",
+   "transcript": "PARTIAL",
+   "translated": false,
+   "note": "read the locality section, the memory-address-and-cache composition section (a cache line as valid bit, tag and data block of B bytes), the cache-lookup section (index selects the set, tags compared inside it, offset picks the word), the direct, set-associative and fully associative descriptions, and the 16 KB direct-mapped 32 B example with tag 18, index 9, offset 5"
+  },
+  {
+   "kind": "lecture-transcript",
+   "title": "Lecture 25 - Direct-mapped Caches: Misses, Writes and Performance",
+   "channel": "NPTEL, Computer Organization and Architecture - A Pedagogical Aspect (IIT Guwahati)",
+   "url": "http://www.digimat.in/nptel/courses/video/106103180/lec25.pdf",
+   "language": "en",
+   "transcript": "PARTIAL",
+   "translated": false,
+   "note": "read the memory-technology comparison with its access-time and cost-per-GB figures, the statement of the design trade-off that produces the hierarchy, the definition of hit time, hit ratio and miss, and the statement of locality of reference with its two kinds"
+  }
+ ],
+ "sourceLine": "A cache line as a valid bit, a tag and a data block, with the directory drawn beside the data array: IISc CDS slides (English, read in part). The valid and modified bits as per-line state in a write-back cache: NPTEL IIT Guwahati Lecture 25 (English, read in part). The 2011 directory size is recomputed in scripts/validate.py.",
+ "videoRefs": []
+}

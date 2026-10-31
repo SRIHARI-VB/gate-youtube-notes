@@ -1,0 +1,22 @@
+{
+ "id": "gate-2009-29-four-way-lru-block",
+ "year": "2009",
+ "paper": "GATE CSE 2009",
+ "question_ref": "Q.29 on GATE Overflow; numbered Q.51 in the EduRev cache-memory listing and on the pyqbox page",
+ "type": "MCQ",
+ "marks": null,
+ "topic": "replacement-policies-and-lru-trace",
+ "text": "Consider a 4-way set associative cache (initially empty) with total 16 cache blocks. The main memory consists of 256 blocks and the request for memory blocks are in the following order: 0, 255, 1, 4, 3, 8, 133, 159, 216, 129, 63, 8, 48, 32, 73, 92, 155. Which one of the following memory block will NOT be in cache if LRU replacement policy is used?",
+ "options": [
+  "3",
+  "8",
+  "129",
+  "216"
+ ],
+ "answer": "Option (D) - 216",
+ "solution": "16 blocks in 4 ways gives 4 sets, and block b goes to set b mod 4. Set 0 receives 0, 4, 8, 216, 8 (a hit), 48, 32, 92; the four most recently used distinct blocks are 8, 48, 32 and 92, so 0, 4 and 216 have been evicted. Set 1 holds 73, 129, 133, 1; set 3 holds 155, 63, 159, 3. Only 216 of the options is absent.",
+ "source_url": "https://gateoverflow.in/1315/gate-cse-2009-question-29",
+ "source_label": "GATE Overflow question page - GATE CSE 2009 Q.29 with the accepted answer (option D)",
+ "verification": "SOURCED",
+ "answer_evidence": "The GATE Overflow accepted answer reduces each set to its last four distinct accesses and concludes 216; a second answer traces the set table line by line with the same result. The official key was not opened this run. The full sequence is simulated in scripts/validate.py."
+}
