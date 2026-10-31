@@ -10355,26 +10355,26 @@ window.GATE_DATA = {
      "unit_slug": "linear-algebra-matrices",
      "unit_name": "Linear Algebra: Matrices & Systems",
      "unit_number": 1,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
        "label": "gauss-elimination",
-       "questions": 9
-      },
-      {
-       "label": "matrix-operations",
-       "questions": 15
-      },
-      {
-       "label": "rank-nullity",
        "questions": 14
       },
       {
+       "label": "matrix-operations",
+       "questions": 22
+      },
+      {
+       "label": "rank-nullity",
+       "questions": 21
+      },
+      {
        "label": "systems-of-linear-equations",
-       "questions": 12
+       "questions": 18
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-31.html"
     },
     "visual": {
      "slug": "matrices-systems-and-eigenvalues",
@@ -10385,7 +10385,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-10-31"
    },
    "subject": "linear-algebra",
    "topic": "matrices-and-determinants",
@@ -10475,26 +10475,26 @@ window.GATE_DATA = {
      "unit_slug": "linear-algebra-matrices",
      "unit_name": "Linear Algebra: Matrices & Systems",
      "unit_number": 1,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
        "label": "gauss-elimination",
-       "questions": 9
-      },
-      {
-       "label": "matrix-operations",
-       "questions": 15
-      },
-      {
-       "label": "rank-nullity",
        "questions": 14
       },
       {
+       "label": "matrix-operations",
+       "questions": 22
+      },
+      {
+       "label": "rank-nullity",
+       "questions": 21
+      },
+      {
        "label": "systems-of-linear-equations",
-       "questions": 12
+       "questions": 18
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-31.html"
     },
     "visual": {
      "slug": "matrices-systems-and-eigenvalues",
@@ -10505,7 +10505,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-10-31"
    },
    "subject": "linear-algebra",
    "topic": "matrices-and-determinants",
@@ -10607,26 +10607,26 @@ window.GATE_DATA = {
      "unit_slug": "linear-algebra-matrices",
      "unit_name": "Linear Algebra: Matrices & Systems",
      "unit_number": 1,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
        "label": "gauss-elimination",
-       "questions": 9
-      },
-      {
-       "label": "matrix-operations",
-       "questions": 15
-      },
-      {
-       "label": "rank-nullity",
        "questions": 14
       },
       {
+       "label": "matrix-operations",
+       "questions": 22
+      },
+      {
+       "label": "rank-nullity",
+       "questions": 21
+      },
+      {
        "label": "systems-of-linear-equations",
-       "questions": 12
+       "questions": 18
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-31.html"
     },
     "visual": {
      "slug": "matrices-systems-and-eigenvalues",
@@ -10637,7 +10637,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-10-31"
    },
    "subject": "linear-algebra",
    "topic": "matrices-and-determinants",
@@ -10738,26 +10738,26 @@ window.GATE_DATA = {
      "unit_slug": "linear-algebra-matrices",
      "unit_name": "Linear Algebra: Matrices & Systems",
      "unit_number": 1,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
        "label": "gauss-elimination",
-       "questions": 9
-      },
-      {
-       "label": "matrix-operations",
-       "questions": 15
-      },
-      {
-       "label": "rank-nullity",
        "questions": 14
       },
       {
+       "label": "matrix-operations",
+       "questions": 22
+      },
+      {
+       "label": "rank-nullity",
+       "questions": 21
+      },
+      {
        "label": "systems-of-linear-equations",
-       "questions": 12
+       "questions": 18
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-31.html"
     },
     "visual": {
      "slug": "matrices-systems-and-eigenvalues",
@@ -10768,7 +10768,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-10-31"
    },
    "subject": "linear-algebra",
    "topic": "matrices-and-determinants",
@@ -10872,26 +10872,26 @@ window.GATE_DATA = {
      "unit_slug": "linear-algebra-matrices",
      "unit_name": "Linear Algebra: Matrices & Systems",
      "unit_number": 1,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
        "label": "gauss-elimination",
-       "questions": 9
-      },
-      {
-       "label": "matrix-operations",
-       "questions": 15
-      },
-      {
-       "label": "rank-nullity",
        "questions": 14
       },
       {
+       "label": "matrix-operations",
+       "questions": 22
+      },
+      {
+       "label": "rank-nullity",
+       "questions": 21
+      },
+      {
        "label": "systems-of-linear-equations",
-       "questions": 12
+       "questions": 18
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-31.html"
     },
     "visual": {
      "slug": "matrices-systems-and-eigenvalues",
@@ -10902,7 +10902,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-10-31"
    },
    "subject": "linear-algebra",
    "topic": "matrices-and-determinants",
@@ -11004,26 +11004,26 @@ window.GATE_DATA = {
      "unit_slug": "linear-algebra-matrices",
      "unit_name": "Linear Algebra: Matrices & Systems",
      "unit_number": 1,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
        "label": "gauss-elimination",
-       "questions": 9
-      },
-      {
-       "label": "matrix-operations",
-       "questions": 15
-      },
-      {
-       "label": "rank-nullity",
        "questions": 14
       },
       {
+       "label": "matrix-operations",
+       "questions": 22
+      },
+      {
+       "label": "rank-nullity",
+       "questions": 21
+      },
+      {
        "label": "systems-of-linear-equations",
-       "questions": 12
+       "questions": 18
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-31.html"
     },
     "visual": {
      "slug": "matrices-systems-and-eigenvalues",
@@ -11034,7 +11034,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-10-31"
    },
    "subject": "linear-algebra",
    "topic": "matrices-and-determinants",
@@ -11136,26 +11136,26 @@ window.GATE_DATA = {
      "unit_slug": "linear-algebra-matrices",
      "unit_name": "Linear Algebra: Matrices & Systems",
      "unit_number": 1,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
        "label": "gauss-elimination",
-       "questions": 9
-      },
-      {
-       "label": "matrix-operations",
-       "questions": 15
-      },
-      {
-       "label": "rank-nullity",
        "questions": 14
       },
       {
+       "label": "matrix-operations",
+       "questions": 22
+      },
+      {
+       "label": "rank-nullity",
+       "questions": 21
+      },
+      {
        "label": "systems-of-linear-equations",
-       "questions": 12
+       "questions": 18
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-31.html"
     },
     "visual": {
      "slug": "matrices-systems-and-eigenvalues",
@@ -11166,7 +11166,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-10-31"
    },
    "subject": "linear-algebra",
    "topic": "matrices-and-determinants",
@@ -11273,26 +11273,26 @@ window.GATE_DATA = {
      "unit_slug": "linear-algebra-matrices",
      "unit_name": "Linear Algebra: Matrices & Systems",
      "unit_number": 1,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
        "label": "gauss-elimination",
-       "questions": 9
-      },
-      {
-       "label": "matrix-operations",
-       "questions": 15
-      },
-      {
-       "label": "rank-nullity",
        "questions": 14
       },
       {
+       "label": "matrix-operations",
+       "questions": 22
+      },
+      {
+       "label": "rank-nullity",
+       "questions": 21
+      },
+      {
        "label": "systems-of-linear-equations",
-       "questions": 12
+       "questions": 18
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-31.html"
     },
     "visual": {
      "slug": "matrices-systems-and-eigenvalues",
@@ -11304,7 +11304,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-10-31"
    },
    "subject": "linear-algebra",
    "topic": "matrices-and-determinants",
@@ -11406,26 +11406,26 @@ window.GATE_DATA = {
      "unit_slug": "linear-algebra-matrices",
      "unit_name": "Linear Algebra: Matrices & Systems",
      "unit_number": 1,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
        "label": "gauss-elimination",
-       "questions": 9
-      },
-      {
-       "label": "matrix-operations",
-       "questions": 15
-      },
-      {
-       "label": "rank-nullity",
        "questions": 14
       },
       {
+       "label": "matrix-operations",
+       "questions": 22
+      },
+      {
+       "label": "rank-nullity",
+       "questions": 21
+      },
+      {
        "label": "systems-of-linear-equations",
-       "questions": 12
+       "questions": 18
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-31.html"
     },
     "visual": {
      "slug": "matrices-systems-and-eigenvalues",
@@ -11436,7 +11436,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-10-31"
    },
    "subject": "linear-algebra",
    "topic": "matrices-and-determinants",
@@ -11543,26 +11543,26 @@ window.GATE_DATA = {
      "unit_slug": "linear-algebra-matrices",
      "unit_name": "Linear Algebra: Matrices & Systems",
      "unit_number": 1,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
        "label": "gauss-elimination",
-       "questions": 9
-      },
-      {
-       "label": "matrix-operations",
-       "questions": 15
-      },
-      {
-       "label": "rank-nullity",
        "questions": 14
       },
       {
+       "label": "matrix-operations",
+       "questions": 22
+      },
+      {
+       "label": "rank-nullity",
+       "questions": 21
+      },
+      {
        "label": "systems-of-linear-equations",
-       "questions": 12
+       "questions": 18
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-31.html"
     },
     "visual": {
      "slug": "matrices-systems-and-eigenvalues",
@@ -11573,7 +11573,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-10-31"
    },
    "subject": "linear-algebra",
    "topic": "matrices-and-determinants",
@@ -11676,26 +11676,26 @@ window.GATE_DATA = {
      "unit_slug": "linear-algebra-matrices",
      "unit_name": "Linear Algebra: Matrices & Systems",
      "unit_number": 1,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
        "label": "gauss-elimination",
-       "questions": 9
-      },
-      {
-       "label": "matrix-operations",
-       "questions": 15
-      },
-      {
-       "label": "rank-nullity",
        "questions": 14
       },
       {
+       "label": "matrix-operations",
+       "questions": 22
+      },
+      {
+       "label": "rank-nullity",
+       "questions": 21
+      },
+      {
        "label": "systems-of-linear-equations",
-       "questions": 12
+       "questions": 18
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-31.html"
     },
     "visual": {
      "slug": "matrices-systems-and-eigenvalues",
@@ -11703,7 +11703,7 @@ window.GATE_DATA = {
      "level": "topic-level",
      "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-10-31"
    },
    "subject": "linear-algebra",
    "topic": "matrices-and-determinants",
@@ -11791,26 +11791,26 @@ window.GATE_DATA = {
      "unit_slug": "linear-algebra-matrices",
      "unit_name": "Linear Algebra: Matrices & Systems",
      "unit_number": 1,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
        "label": "gauss-elimination",
-       "questions": 9
-      },
-      {
-       "label": "matrix-operations",
-       "questions": 15
-      },
-      {
-       "label": "rank-nullity",
        "questions": 14
       },
       {
+       "label": "matrix-operations",
+       "questions": 22
+      },
+      {
+       "label": "rank-nullity",
+       "questions": 21
+      },
+      {
        "label": "systems-of-linear-equations",
-       "questions": 12
+       "questions": 18
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-31.html"
     },
     "visual": {
      "slug": "matrices-systems-and-eigenvalues",
@@ -11821,7 +11821,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-10-31"
    },
    "subject": "linear-algebra",
    "topic": "system-of-linear-equations",
@@ -11920,26 +11920,26 @@ window.GATE_DATA = {
      "unit_slug": "linear-algebra-matrices",
      "unit_name": "Linear Algebra: Matrices & Systems",
      "unit_number": 1,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
        "label": "gauss-elimination",
-       "questions": 9
-      },
-      {
-       "label": "matrix-operations",
-       "questions": 15
-      },
-      {
-       "label": "rank-nullity",
        "questions": 14
       },
       {
+       "label": "matrix-operations",
+       "questions": 22
+      },
+      {
+       "label": "rank-nullity",
+       "questions": 21
+      },
+      {
        "label": "systems-of-linear-equations",
-       "questions": 12
+       "questions": 18
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-31.html"
     },
     "visual": {
      "slug": "matrices-systems-and-eigenvalues",
@@ -11951,7 +11951,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-10-31"
    },
    "subject": "linear-algebra",
    "topic": "system-of-linear-equations",
@@ -12040,26 +12040,26 @@ window.GATE_DATA = {
      "unit_slug": "linear-algebra-matrices",
      "unit_name": "Linear Algebra: Matrices & Systems",
      "unit_number": 1,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
        "label": "gauss-elimination",
-       "questions": 9
-      },
-      {
-       "label": "matrix-operations",
-       "questions": 15
-      },
-      {
-       "label": "rank-nullity",
        "questions": 14
       },
       {
+       "label": "matrix-operations",
+       "questions": 22
+      },
+      {
+       "label": "rank-nullity",
+       "questions": 21
+      },
+      {
        "label": "systems-of-linear-equations",
-       "questions": 12
+       "questions": 18
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-31.html"
     },
     "visual": {
      "slug": "matrices-systems-and-eigenvalues",
@@ -12070,7 +12070,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-10-31"
    },
    "subject": "linear-algebra",
    "topic": "system-of-linear-equations",
@@ -12158,26 +12158,26 @@ window.GATE_DATA = {
      "unit_slug": "linear-algebra-matrices",
      "unit_name": "Linear Algebra: Matrices & Systems",
      "unit_number": 1,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
        "label": "gauss-elimination",
-       "questions": 9
-      },
-      {
-       "label": "matrix-operations",
-       "questions": 15
-      },
-      {
-       "label": "rank-nullity",
        "questions": 14
       },
       {
+       "label": "matrix-operations",
+       "questions": 22
+      },
+      {
+       "label": "rank-nullity",
+       "questions": 21
+      },
+      {
        "label": "systems-of-linear-equations",
-       "questions": 12
+       "questions": 18
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-31.html"
     },
     "visual": {
      "slug": "matrices-systems-and-eigenvalues",
@@ -12188,7 +12188,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-10-31"
    },
    "subject": "linear-algebra",
    "topic": "system-of-linear-equations",
@@ -12286,26 +12286,26 @@ window.GATE_DATA = {
      "unit_slug": "linear-algebra-matrices",
      "unit_name": "Linear Algebra: Matrices & Systems",
      "unit_number": 1,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
        "label": "gauss-elimination",
-       "questions": 9
-      },
-      {
-       "label": "matrix-operations",
-       "questions": 15
-      },
-      {
-       "label": "rank-nullity",
        "questions": 14
       },
       {
+       "label": "matrix-operations",
+       "questions": 22
+      },
+      {
+       "label": "rank-nullity",
+       "questions": 21
+      },
+      {
        "label": "systems-of-linear-equations",
-       "questions": 12
+       "questions": 18
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-31.html"
     },
     "visual": {
      "slug": "matrices-systems-and-eigenvalues",
@@ -12316,7 +12316,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-10-31"
    },
    "subject": "linear-algebra",
    "topic": "system-of-linear-equations",
@@ -12405,26 +12405,26 @@ window.GATE_DATA = {
      "unit_slug": "linear-algebra-matrices",
      "unit_name": "Linear Algebra: Matrices & Systems",
      "unit_number": 1,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
        "label": "gauss-elimination",
-       "questions": 9
-      },
-      {
-       "label": "matrix-operations",
-       "questions": 15
-      },
-      {
-       "label": "rank-nullity",
        "questions": 14
       },
       {
+       "label": "matrix-operations",
+       "questions": 22
+      },
+      {
+       "label": "rank-nullity",
+       "questions": 21
+      },
+      {
        "label": "systems-of-linear-equations",
-       "questions": 12
+       "questions": 18
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-31.html"
     },
     "visual": {
      "slug": "matrices-systems-and-eigenvalues",
@@ -12436,7 +12436,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-10-31"
    },
    "subject": "linear-algebra",
    "topic": "system-of-linear-equations",
@@ -12526,26 +12526,26 @@ window.GATE_DATA = {
      "unit_slug": "linear-algebra-matrices",
      "unit_name": "Linear Algebra: Matrices & Systems",
      "unit_number": 1,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
        "label": "gauss-elimination",
-       "questions": 9
-      },
-      {
-       "label": "matrix-operations",
-       "questions": 15
-      },
-      {
-       "label": "rank-nullity",
        "questions": 14
       },
       {
+       "label": "matrix-operations",
+       "questions": 22
+      },
+      {
+       "label": "rank-nullity",
+       "questions": 21
+      },
+      {
        "label": "systems-of-linear-equations",
-       "questions": 12
+       "questions": 18
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-31.html"
     },
     "visual": {
      "slug": "matrices-systems-and-eigenvalues",
@@ -12553,7 +12553,7 @@ window.GATE_DATA = {
      "level": "topic-level",
      "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-10-31"
    },
    "subject": "linear-algebra",
    "topic": "system-of-linear-equations",
@@ -12642,26 +12642,26 @@ window.GATE_DATA = {
      "unit_slug": "linear-algebra-matrices",
      "unit_name": "Linear Algebra: Matrices & Systems",
      "unit_number": 1,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
        "label": "gauss-elimination",
-       "questions": 9
-      },
-      {
-       "label": "matrix-operations",
-       "questions": 15
-      },
-      {
-       "label": "rank-nullity",
        "questions": 14
       },
       {
+       "label": "matrix-operations",
+       "questions": 22
+      },
+      {
+       "label": "rank-nullity",
+       "questions": 21
+      },
+      {
        "label": "systems-of-linear-equations",
-       "questions": 12
+       "questions": 18
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-31.html"
     },
     "visual": {
      "slug": "matrices-systems-and-eigenvalues",
@@ -12669,7 +12669,7 @@ window.GATE_DATA = {
      "level": "topic-level",
      "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-10-31"
    },
    "subject": "linear-algebra",
    "topic": "system-of-linear-equations",
@@ -12757,26 +12757,26 @@ window.GATE_DATA = {
      "unit_slug": "linear-algebra-matrices",
      "unit_name": "Linear Algebra: Matrices & Systems",
      "unit_number": 1,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
        "label": "gauss-elimination",
-       "questions": 9
-      },
-      {
-       "label": "matrix-operations",
-       "questions": 15
-      },
-      {
-       "label": "rank-nullity",
        "questions": 14
       },
       {
+       "label": "matrix-operations",
+       "questions": 22
+      },
+      {
+       "label": "rank-nullity",
+       "questions": 21
+      },
+      {
        "label": "systems-of-linear-equations",
-       "questions": 12
+       "questions": 18
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-31.html"
     },
     "visual": {
      "slug": "matrices-systems-and-eigenvalues",
@@ -12788,7 +12788,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-10-31"
    },
    "subject": "linear-algebra",
    "topic": "system-of-linear-equations",
@@ -12877,26 +12877,26 @@ window.GATE_DATA = {
      "unit_slug": "linear-algebra-matrices",
      "unit_name": "Linear Algebra: Matrices & Systems",
      "unit_number": 1,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
        "label": "gauss-elimination",
-       "questions": 9
-      },
-      {
-       "label": "matrix-operations",
-       "questions": 15
-      },
-      {
-       "label": "rank-nullity",
        "questions": 14
       },
       {
+       "label": "matrix-operations",
+       "questions": 22
+      },
+      {
+       "label": "rank-nullity",
+       "questions": 21
+      },
+      {
        "label": "systems-of-linear-equations",
-       "questions": 12
+       "questions": 18
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-31.html"
     },
     "visual": {
      "slug": "matrices-systems-and-eigenvalues",
@@ -12904,7 +12904,7 @@ window.GATE_DATA = {
      "level": "topic-level",
      "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-10-31"
    },
    "subject": "linear-algebra",
    "topic": "system-of-linear-equations",
@@ -13004,26 +13004,26 @@ window.GATE_DATA = {
      "unit_slug": "linear-algebra-matrices",
      "unit_name": "Linear Algebra: Matrices & Systems",
      "unit_number": 1,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
        "label": "gauss-elimination",
-       "questions": 9
-      },
-      {
-       "label": "matrix-operations",
-       "questions": 15
-      },
-      {
-       "label": "rank-nullity",
        "questions": 14
       },
       {
+       "label": "matrix-operations",
+       "questions": 22
+      },
+      {
+       "label": "rank-nullity",
+       "questions": 21
+      },
+      {
        "label": "systems-of-linear-equations",
-       "questions": 12
+       "questions": 18
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-31.html"
     },
     "visual": {
      "slug": "matrices-systems-and-eigenvalues",
@@ -13031,7 +13031,7 @@ window.GATE_DATA = {
      "level": "topic-level",
      "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-10-31"
    },
    "subject": "linear-algebra",
    "topic": "system-of-linear-equations",
@@ -14484,26 +14484,26 @@ window.GATE_DATA = {
      "unit_slug": "linear-algebra-matrices",
      "unit_name": "Linear Algebra: Matrices & Systems",
      "unit_number": 1,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
        "label": "gauss-elimination",
-       "questions": 9
-      },
-      {
-       "label": "matrix-operations",
-       "questions": 15
-      },
-      {
-       "label": "rank-nullity",
        "questions": 14
       },
       {
+       "label": "matrix-operations",
+       "questions": 22
+      },
+      {
+       "label": "rank-nullity",
+       "questions": 21
+      },
+      {
        "label": "systems-of-linear-equations",
-       "questions": 12
+       "questions": 18
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-31.html"
     },
     "visual": {
      "slug": "matrices-systems-and-eigenvalues",
@@ -14511,7 +14511,7 @@ window.GATE_DATA = {
      "level": "topic-level",
      "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-10-31"
    },
    "subject": "linear-algebra",
    "topic": "lu-decomposition",
@@ -14604,26 +14604,26 @@ window.GATE_DATA = {
      "unit_slug": "linear-algebra-matrices",
      "unit_name": "Linear Algebra: Matrices & Systems",
      "unit_number": 1,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
        "label": "gauss-elimination",
-       "questions": 9
-      },
-      {
-       "label": "matrix-operations",
-       "questions": 15
-      },
-      {
-       "label": "rank-nullity",
        "questions": 14
       },
       {
+       "label": "matrix-operations",
+       "questions": 22
+      },
+      {
+       "label": "rank-nullity",
+       "questions": 21
+      },
+      {
        "label": "systems-of-linear-equations",
-       "questions": 12
+       "questions": 18
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-31.html"
     },
     "visual": {
      "slug": "matrices-systems-and-eigenvalues",
@@ -14635,7 +14635,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-10-31"
    },
    "subject": "linear-algebra",
    "topic": "lu-decomposition",
@@ -14738,26 +14738,26 @@ window.GATE_DATA = {
      "unit_slug": "linear-algebra-matrices",
      "unit_name": "Linear Algebra: Matrices & Systems",
      "unit_number": 1,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
        "label": "gauss-elimination",
-       "questions": 9
-      },
-      {
-       "label": "matrix-operations",
-       "questions": 15
-      },
-      {
-       "label": "rank-nullity",
        "questions": 14
       },
       {
+       "label": "matrix-operations",
+       "questions": 22
+      },
+      {
+       "label": "rank-nullity",
+       "questions": 21
+      },
+      {
        "label": "systems-of-linear-equations",
-       "questions": 12
+       "questions": 18
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-31.html"
     },
     "visual": {
      "slug": "matrices-systems-and-eigenvalues",
@@ -14765,7 +14765,7 @@ window.GATE_DATA = {
      "level": "topic-level",
      "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-10-31"
    },
    "subject": "linear-algebra",
    "topic": "lu-decomposition",
@@ -14858,26 +14858,26 @@ window.GATE_DATA = {
      "unit_slug": "linear-algebra-matrices",
      "unit_name": "Linear Algebra: Matrices & Systems",
      "unit_number": 1,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
        "label": "gauss-elimination",
-       "questions": 9
-      },
-      {
-       "label": "matrix-operations",
-       "questions": 15
-      },
-      {
-       "label": "rank-nullity",
        "questions": 14
       },
       {
+       "label": "matrix-operations",
+       "questions": 22
+      },
+      {
+       "label": "rank-nullity",
+       "questions": 21
+      },
+      {
        "label": "systems-of-linear-equations",
-       "questions": 12
+       "questions": 18
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-31.html"
     },
     "visual": {
      "slug": "matrices-systems-and-eigenvalues",
@@ -14888,7 +14888,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-10-31"
    },
    "subject": "linear-algebra",
    "topic": "lu-decomposition",
@@ -14968,26 +14968,26 @@ window.GATE_DATA = {
      "unit_slug": "linear-algebra-matrices",
      "unit_name": "Linear Algebra: Matrices & Systems",
      "unit_number": 1,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
        "label": "gauss-elimination",
-       "questions": 9
-      },
-      {
-       "label": "matrix-operations",
-       "questions": 15
-      },
-      {
-       "label": "rank-nullity",
        "questions": 14
       },
       {
+       "label": "matrix-operations",
+       "questions": 22
+      },
+      {
+       "label": "rank-nullity",
+       "questions": 21
+      },
+      {
        "label": "systems-of-linear-equations",
-       "questions": 12
+       "questions": 18
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-31.html"
     },
     "visual": {
      "slug": "matrices-systems-and-eigenvalues",
@@ -14995,7 +14995,7 @@ window.GATE_DATA = {
      "level": "topic-level",
      "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-10-31"
    },
    "subject": "linear-algebra",
    "topic": "lu-decomposition",
@@ -15089,26 +15089,26 @@ window.GATE_DATA = {
      "unit_slug": "linear-algebra-matrices",
      "unit_name": "Linear Algebra: Matrices & Systems",
      "unit_number": 1,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
        "label": "gauss-elimination",
-       "questions": 9
-      },
-      {
-       "label": "matrix-operations",
-       "questions": 15
-      },
-      {
-       "label": "rank-nullity",
        "questions": 14
       },
       {
+       "label": "matrix-operations",
+       "questions": 22
+      },
+      {
+       "label": "rank-nullity",
+       "questions": 21
+      },
+      {
        "label": "systems-of-linear-equations",
-       "questions": 12
+       "questions": 18
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-31.html"
     },
     "visual": {
      "slug": "matrices-systems-and-eigenvalues",
@@ -15119,7 +15119,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-10-31"
    },
    "subject": "linear-algebra",
    "topic": "lu-decomposition",
@@ -15202,26 +15202,26 @@ window.GATE_DATA = {
      "unit_slug": "linear-algebra-matrices",
      "unit_name": "Linear Algebra: Matrices & Systems",
      "unit_number": 1,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
        "label": "gauss-elimination",
-       "questions": 9
-      },
-      {
-       "label": "matrix-operations",
-       "questions": 15
-      },
-      {
-       "label": "rank-nullity",
        "questions": 14
       },
       {
+       "label": "matrix-operations",
+       "questions": 22
+      },
+      {
+       "label": "rank-nullity",
+       "questions": 21
+      },
+      {
        "label": "systems-of-linear-equations",
-       "questions": 12
+       "questions": 18
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-31.html"
     },
     "visual": {
      "slug": "matrices-systems-and-eigenvalues",
@@ -15232,7 +15232,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-10-31"
    },
    "subject": "linear-algebra",
    "topic": "lu-decomposition",
@@ -15315,26 +15315,26 @@ window.GATE_DATA = {
      "unit_slug": "linear-algebra-matrices",
      "unit_name": "Linear Algebra: Matrices & Systems",
      "unit_number": 1,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
        "label": "gauss-elimination",
-       "questions": 9
-      },
-      {
-       "label": "matrix-operations",
-       "questions": 15
-      },
-      {
-       "label": "rank-nullity",
        "questions": 14
       },
       {
+       "label": "matrix-operations",
+       "questions": 22
+      },
+      {
+       "label": "rank-nullity",
+       "questions": 21
+      },
+      {
        "label": "systems-of-linear-equations",
-       "questions": 12
+       "questions": 18
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-31.html"
     },
     "visual": {
      "slug": "matrices-systems-and-eigenvalues",
@@ -15345,7 +15345,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-10-31"
    },
    "subject": "linear-algebra",
    "topic": "lu-decomposition",
@@ -15425,26 +15425,26 @@ window.GATE_DATA = {
      "unit_slug": "linear-algebra-matrices",
      "unit_name": "Linear Algebra: Matrices & Systems",
      "unit_number": 1,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
        "label": "gauss-elimination",
-       "questions": 9
-      },
-      {
-       "label": "matrix-operations",
-       "questions": 15
-      },
-      {
-       "label": "rank-nullity",
        "questions": 14
       },
       {
+       "label": "matrix-operations",
+       "questions": 22
+      },
+      {
+       "label": "rank-nullity",
+       "questions": 21
+      },
+      {
        "label": "systems-of-linear-equations",
-       "questions": 12
+       "questions": 18
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-31.html"
     },
     "visual": {
      "slug": "matrices-systems-and-eigenvalues",
@@ -15452,7 +15452,7 @@ window.GATE_DATA = {
      "level": "topic-level",
      "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-10-31"
    },
    "subject": "linear-algebra",
    "topic": "lu-decomposition",
@@ -15533,26 +15533,26 @@ window.GATE_DATA = {
      "unit_slug": "linear-algebra-matrices",
      "unit_name": "Linear Algebra: Matrices & Systems",
      "unit_number": 1,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
        "label": "gauss-elimination",
-       "questions": 9
-      },
-      {
-       "label": "matrix-operations",
-       "questions": 15
-      },
-      {
-       "label": "rank-nullity",
        "questions": 14
       },
       {
+       "label": "matrix-operations",
+       "questions": 22
+      },
+      {
+       "label": "rank-nullity",
+       "questions": 21
+      },
+      {
        "label": "systems-of-linear-equations",
-       "questions": 12
+       "questions": 18
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-31.html"
     },
     "visual": {
      "slug": "matrices-systems-and-eigenvalues",
@@ -15563,7 +15563,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-10-31"
    },
    "subject": "linear-algebra",
    "topic": "lu-decomposition",
@@ -15646,26 +15646,26 @@ window.GATE_DATA = {
      "unit_slug": "linear-algebra-matrices",
      "unit_name": "Linear Algebra: Matrices & Systems",
      "unit_number": 1,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
        "label": "gauss-elimination",
-       "questions": 9
-      },
-      {
-       "label": "matrix-operations",
-       "questions": 15
-      },
-      {
-       "label": "rank-nullity",
        "questions": 14
       },
       {
+       "label": "matrix-operations",
+       "questions": 22
+      },
+      {
+       "label": "rank-nullity",
+       "questions": 21
+      },
+      {
        "label": "systems-of-linear-equations",
-       "questions": 12
+       "questions": 18
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-31.html"
     },
     "visual": {
      "slug": "matrices-systems-and-eigenvalues",
@@ -15673,7 +15673,7 @@ window.GATE_DATA = {
      "level": "topic-level",
      "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-10-31"
    },
    "subject": "linear-algebra",
    "topic": "lu-decomposition",
@@ -15767,26 +15767,26 @@ window.GATE_DATA = {
      "unit_slug": "linear-algebra-matrices",
      "unit_name": "Linear Algebra: Matrices & Systems",
      "unit_number": 1,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
        "label": "gauss-elimination",
-       "questions": 9
-      },
-      {
-       "label": "matrix-operations",
-       "questions": 15
-      },
-      {
-       "label": "rank-nullity",
        "questions": 14
       },
       {
+       "label": "matrix-operations",
+       "questions": 22
+      },
+      {
+       "label": "rank-nullity",
+       "questions": 21
+      },
+      {
        "label": "systems-of-linear-equations",
-       "questions": 12
+       "questions": 18
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-26.html"
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-31.html"
     },
     "visual": {
      "slug": "matrices-systems-and-eigenvalues",
@@ -15798,7 +15798,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-10-31"
    },
    "subject": "linear-algebra",
    "topic": "lu-decomposition",
