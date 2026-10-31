@@ -338,7 +338,7 @@ window.GATE_DATA = {
      {
       "slug": "recursion",
       "name": "Recursion",
-      "material": "planned"
+      "material": "cards"
      },
      {
       "slug": "arrays-stacks-queues",
@@ -44292,6 +44292,1445 @@ window.GATE_DATA = {
    "subject": "programming-and-data-structures",
    "topic": "programming-in-c",
    "path": "subjects/programming-and-data-structures/programming-in-c/preprocessor-macros.json"
+  },
+  {
+   "id": "recursion-anatomy-base-and-recursive-case",
+   "title": "Recursion: the Base Case and the Recursive Case",
+   "priority": "P1",
+   "order": 572,
+   "unit": "Recursion",
+   "quickIdea": "A recursive function is two parts: a case that returns without calling itself, and a case that calls itself on a smaller input. A function with only the second part is not a recursion, it is a loop that never ends.",
+   "remember": [
+    "The base case returns a value without any further call. The recursive case calls the same function on input that is strictly closer to the base case.",
+    "Two obligations, both examinable: at least one base case must be reachable from every legal input, and every recursive call must make measurable progress towards it (a smaller n, a shorter string, a halved range).",
+    "The structure is induction: the base case is the basis and the recursive case is the inductive step. A proof that a recursion is correct is an induction on the size of the input.",
+    "C needs no special syntax. Inside its own body a function's name is already declared, so it may call itself; a forward declaration is only needed when two functions call each other.",
+    "Direct recursion is a function calling itself; indirect recursion is a cycle through other functions (f calls g, g calls f). Both are legal C and both terminate only if the argument decreases across the whole cycle.",
+    "GATE almost never asks for a definition. It gives ten lines and asks for the output, the number of calls or the return value, so the working skill is the trace, not the vocabulary."
+   ],
+   "example": {
+    "prompt": "int sum(int n) { if (n == 0) return 0; return n + sum(n - 1); } What does sum(3) return, and how deep does the recursion go?",
+    "work": "sum(3) = 3 + sum(2); sum(2) = 2 + sum(1); sum(1) = 1 + sum(0); sum(0) returns 0 without a call. The chain is four activations deep, and the additions happen on the way back up: 1, then 3, then 6.",
+    "answer": "sum(3) = 6, with four activations on the stack at the deepest point."
+   },
+   "gateAngle": "The base case decides whether an answer exists at all: GATE CSE 2019 Q.26 is a program whose base case can never be reached, and the correct option is that nothing is printed and the function never terminates. Every other recursion question assumes the base case works and asks about the trace.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "int fact(int n) { if (n == 1) return 1; return n * fact(n - 1); } What happens when fact(0) is called?",
+     "answer": "It never reaches a base case: the argument walks 0, -1, -2, ... and the recursion runs until the stack is exhausted.",
+     "why": "The base case handles the smallest input the author had in mind, not every input the program can be given - the exact failure mode of GATE CSE 2019 Q.26."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Is a base case alone enough to guarantee that a recursion terminates?",
+     "answer": "No. The recursive argument must move towards the base case. int f(int n) { if (n == 0) return 0; return f(n + 1); } has a base case and still never terminates for a positive input.",
+     "why": "Separates the two obligations, which are tested separately: a missing base case in 2019 Q.26, a base case the argument cannot reach in the same question."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "Rewrite the sum function so that its base case is n == 1 and it is still correct for n = 0.",
+     "answer": "Either keep an explicit test for n == 0 returning 0, or start the recursive case at n <= 1 returning n. A single base case at n == 1 is not enough, because sum(0) would then call sum(-1).",
+     "why": "The distractor in a base-case question is always a base case that is one input short."
+    }
+   ],
+   "trap": {
+    "what": "Assuming that a base case written for the intended inputs protects the function from every input it can actually receive.",
+    "why": "The recursive case generates the arguments, not the caller. If the generated arguments can step past the base case (into negatives, or to a fixed point that is not the base case), the function loops even though a base case is present.",
+    "counterexample": "convert(n) in GATE CSE 2019 Q.26 tests n < 0 but recurses on n / 2; from 0 the argument stays 0, so the test is never true and the recursion never ends."
+   },
+   "check": {
+    "question": "int f(int n) { if (n == 0) return 0; return n + f(n - 1); } What does f(-3) do?",
+    "answer": "It recurses for ever (until the stack overflows).",
+    "explanation": "The base case tests n == 0, and the argument only ever decreases, so starting from -3 it never equals 0. A base case must cover every value the recursive case can produce, which is why the safer form is n <= 0."
+   },
+   "pyqIds": [],
+   "videoRefs": [],
+   "prereqs": [
+    "call-by-value-and-the-activation-record"
+   ],
+   "sources": [
+    {
+     "kind": "encyclopaedia",
+     "title": "Recursion (computer science)",
+     "channel": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Recursion_(computer_science)",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "base case and recursive case, and the induction analogy that fixes both obligations"
+    },
+    {
+     "kind": "text",
+     "title": "Recursion Notes for GATE Exam",
+     "channel": "GeeksforGeeks",
+     "url": "https://www.geeksforgeeks.org/dsa/recursion-notes-for-gate-exam/",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "the direct/indirect split and the requirement that the recursive step approach the base case"
+    }
+   ],
+   "sourceLine": "The base case and recursive case as a definition, and the induction analogy: Wikipedia 'Recursion (computer science)' (English, read in part). Direct against indirect recursion: GeeksforGeeks 'Recursion Notes for GATE Exam' (English, read in part). The 2019 Q.26 verdict is reasoned in scripts/validate.py.",
+   "links": {
+    "mock": {
+     "subject": "programming-data-structures",
+     "unit_slug": "recursion-and-call-stack",
+     "unit_name": "Recursion and the Call Stack",
+     "unit_number": 2,
+     "question_count": 40,
+     "subtopics": [
+      {
+       "label": "Base case and termination",
+       "questions": 10
+      },
+      {
+       "label": "Call stack and depth",
+       "questions": 10
+      },
+      {
+       "label": "Order of output",
+       "questions": 10
+      },
+      {
+       "label": "Counting calls",
+       "questions": 10
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/programming-data-structures/recursion-and-call-stack/gate_ds_mock_2_2026-10-31.html"
+    }
+   },
+   "subject": "programming-and-data-structures",
+   "topic": "recursion",
+   "path": "subjects/programming-and-data-structures/recursion/recursion-anatomy-base-and-recursive-case.json"
+  },
+  {
+   "id": "termination-and-missing-base-cases",
+   "title": "Termination and the Missing Base Case",
+   "priority": "P1",
+   "order": 573,
+   "unit": "Recursion",
+   "quickIdea": "A recursion terminates only when its base case is reachable. Integer division can stall at a fixed point, and a fixed point that is not the base case is an infinite recursion.",
+   "remember": [
+    "GATE CSE 2019 Q.26: void convert(int n) { if (n < 0) printf(\"%d\", n); else { convert(n/2); printf(\"%d\", n%2); } } called with a positive n prints nothing and never terminates, because 0/2 is 0 and the argument sticks at 0 while the test asks for n < 0.",
+    "Change one character - n < 0 to n <= 0 - and the recursion does terminate: it prints 0101 for 5, the binary digits with a leading 0 because the base case prints the 0 itself. That one character is the whole question.",
+    "Because the printf sits after the recursive call, no digit is printed before the recursion is abandoned. An option that says 'prints the binary representation but does not terminate' is therefore wrong.",
+    "The C standard sets no limit on recursion depth, so the honest answer to 'what happens' is about the abstract program: it never returns. On a real machine the stack is exhausted first, which is a runtime failure, not a compile-time error.",
+    "The termination argument to write in an exam is a decreasing measure: exhibit a non-negative quantity that strictly falls on every call. For n/2 from n >= 0 the measure is n, but it stops falling at 0, which is exactly the failure.",
+    "Two independent reasons for non-termination: no base case at all, and a base case the arguments cannot reach. GATE has used both."
+   ],
+   "example": {
+    "prompt": "Trace convert(5) with the 2019 code and say what is printed.",
+    "work": "convert(5) calls convert(2), which calls convert(1), which calls convert(0), which calls convert(0) again. Every call is inside the else branch, so every printf is still waiting behind its recursive call and none has run.",
+    "answer": "Nothing is printed, and the call chain never returns."
+   },
+   "gateAngle": "This is the topic's cleanest conceptual question and it comes from a real paper. The distractors are all about what would have been printed if the base case worked, so the marks go to the reader who checks the condition before tracing the digits.",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2019 Q.26: with the condition n < 0 and a positive argument, what does convert do?",
+     "answer": "It prints nothing and does not terminate.",
+     "why": "The argument reaches 0 and stays there; the base case asks for a negative value."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "If the first line of the same function were if (n <= 0) printf(\"%d\", n); what would convert(5) print?",
+     "answer": "0101 - the binary digits with a leading zero, because the base case itself prints the 0.",
+     "why": "With n <= 0 the base case is reached at n = 0 and prints 0, and the three frames above it then print the remainders 1, 0 and 1 on the unwinding. The digits are right but the extra 0 is printed, which is why the option 'prints the binary representation' in the paper is not an exact description of either version."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Give a measure that proves the halving recursion terminates, and say why it fails for convert.",
+     "answer": "For a function that recurses on n/2 with base case n == 1 and n >= 1, the measure is floor(log2 n), which falls by at least 1 each call and is 0 at the base. For convert the base case is n < 0, but n/2 never leaves the non-negative integers, so the measure never reaches the required condition.",
+     "why": "Termination arguments are asked as 'why' questions, and the answer is always a decreasing quantity plus a reachable floor."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "A function recurses on n-2 with base case n == 0. Which inputs terminate?",
+     "answer": "The even ones. An odd n walks 1, -1, -3, ... and never meets 0.",
+     "why": "The same shape as the 2019 question with subtraction instead of division: the step and the base case must agree on parity."
+    }
+   ],
+   "trap": {
+    "what": "Believing that halving an integer always reaches zero, or that a negative test will eventually fire.",
+    "why": "Integer division by 2 is a floor operation with a fixed point at 0. From 0 the argument cannot change, so a base case expressed as a strict inequality against 0 is never satisfied.",
+    "counterexample": "0/2 == 0 in C, so convert(0) calls convert(0). The condition n < 0 is false for every value the argument ever takes."
+   },
+   "check": {
+    "question": "void down(int n) { if (n == 1) return; down(n - 1); } Does down(0) terminate?",
+    "answer": "No - it recurses through 0, -1, -2, ... and never meets 1.",
+    "explanation": "The base case is reachable only from above. Passing an input smaller than the base case turns a terminating function into an infinite one, which is the same lesson as the 2019 paper question in the opposite direction."
+   },
+   "pyqIds": [
+    "gate-2019-26-convert-missing-base-case"
+   ],
+   "videoRefs": [],
+   "prereqs": [
+    "recursion-anatomy-base-and-recursive-case"
+   ],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "Basic Recursion MCQs: 12 Solved C Questions with Step-by-Step Explanations",
+     "channel": "Knowledge Gate AI",
+     "url": "https://www.knowledgegate.ai/blog/basic-recursion-mcqs-solved-questions-with-explanations",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "the base case that is never reached, worked on the 2019 convert question"
+    },
+    {
+     "kind": "text",
+     "title": "Recursion Notes for GATE Exam",
+     "channel": "GeeksforGeeks",
+     "url": "https://www.geeksforgeeks.org/dsa/recursion-notes-for-gate-exam/",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "the requirement that the recursive step approach the base case"
+    }
+   ],
+   "sourceLine": "The never-reached base case and its trace: Knowledge Gate AI 'Basic Recursion MCQs' (English, read in part). The requirement that every recursive step approach the base case: GeeksforGeeks 'Recursion Notes for GATE Exam' (English, read in part). The 2019 Q.26 answer and the n <= 0 contrast are recomputed in scripts/validate.py.",
+   "links": {
+    "mock": {
+     "subject": "programming-data-structures",
+     "unit_slug": "recursion-and-call-stack",
+     "unit_name": "Recursion and the Call Stack",
+     "unit_number": 2,
+     "question_count": 40,
+     "subtopics": [
+      {
+       "label": "Base case and termination",
+       "questions": 10
+      },
+      {
+       "label": "Call stack and depth",
+       "questions": 10
+      },
+      {
+       "label": "Order of output",
+       "questions": 10
+      },
+      {
+       "label": "Counting calls",
+       "questions": 10
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/programming-data-structures/recursion-and-call-stack/gate_ds_mock_2_2026-10-31.html"
+    }
+   },
+   "subject": "programming-and-data-structures",
+   "topic": "recursion",
+   "path": "subjects/programming-and-data-structures/recursion/termination-and-missing-base-cases.json"
+  },
+  {
+   "id": "call-stack-activation-records-and-depth",
+   "title": "The Call Stack, Activation Records and Depth",
+   "priority": "P1",
+   "order": 574,
+   "unit": "Recursion",
+   "quickIdea": "Every live call owns one frame. The stack is as deep as the recursion tree is tall, not as busy as it is: a function that makes a million calls one level deep uses a constant number of frames.",
+   "remember": [
+    "Each call pushes an activation record holding its parameters, its locals, the return address and saved registers; the record is popped when that call returns.",
+    "The space a recursion uses is the maximum number of frames alive at once, times the frame size. For a linear recursion that is O(n); for naive Fibonacci, which makes exponentially many calls, it is still O(n), because the two branches run one after the other.",
+    "GATE CSE 2005 Q.81(a) is exactly this question. In foo(n) the loop calls foo(i) for i = 0..n-1, one after another, so the deepest chain is foo(n), foo(n-1), ..., foo(0): n+1 frames, answer O(n).",
+    "The number of calls and the depth are different numbers. get(6) in GATE CSE 2015 Set 3 Q.39 is invoked 25 times, but no more than 7 frames are ever alive, because each branch finishes before its sibling starts.",
+    "A frame's locals keep their values while the frame is alive, which is what makes the reversed output of GATE CSE 2024 Set 1 Q.19 possible: each frame still holds its own character.",
+    "The stack region is fixed at run time. Deep or unbounded recursion exhausts it and the program aborts; that is a runtime event, not a compile-time error, and the C standard says nothing about when it happens."
+   ],
+   "example": {
+    "prompt": "double foo(int n) { int i; double sum; if (n == 0) return 1.0; sum = 0.0; for (i = 0; i < n; i++) sum += foo(i); return sum; } What is the space complexity of foo?",
+    "work": "foo(n) calls foo(n-1) first; that call returns before foo(n-2) begins, so siblings are never alive together. The deepest chain is n+1 frames. Each frame holds one int, one double and the return address, a constant number of objects.",
+    "answer": "O(n) space, although the number of calls is exponential in n."
+   },
+   "gateAngle": "Space questions are phrased as 'the space complexity of the above code'. Answer with the depth, not the call count, and say so explicitly: 2005 Q.81(a) offers O(1), O(n), O(n!) and n^n, and only O(n) follows from the maximum depth.",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2005 Q.81(a): the space complexity of the recursive foo above.",
+     "answer": "O(n).",
+     "why": "Sequential sibling calls give a depth of n+1 frames whatever the number of calls."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "What is the space complexity of the naive recursive Fibonacci int fib(int n) { return n < 2 ? n : fib(n-1) + fib(n-2); }?",
+     "answer": "O(n): the two calls are sequential, so the stack holds at most n frames even though 2F(n+1)-1 calls are made.",
+     "why": "The same separation as 2005 Q.81(a), with the count and the depth differing by an exponential factor."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why does a recursion with two calls per level not need twice the stack of a recursion with one?",
+     "answer": "Because the calls are made one after the other. The first returns and its frame is popped before the second is pushed, so the peak is the depth of a single path, not the width of the tree.",
+     "why": "The intuition that a wider tree costs more stack is the most common wrong answer on space questions."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "A function recurses on n/2 with a base case at n <= 1. How many frames are alive at the deepest point?",
+     "answer": "floor(log2 n) + 1, which is O(log n).",
+     "why": "Halving gives logarithmic depth, and depth is what the stack measures."
+    }
+   ],
+   "trap": {
+    "what": "Reading the number of recursive calls as the stack depth.",
+    "why": "The stack holds the frames on one root-to-leaf path at a time. Branches that run sequentially share the same frames, so a call tree with millions of nodes can be only a few dozen levels tall.",
+    "counterexample": "fib(30) makes 2 692 537 calls with the formula 2F(31)-1, and its stack is never deeper than 30 frames."
+   },
+   "check": {
+    "question": "void get(int n) { if (n < 1) return; get(n-1); get(n-3); } How many frames are alive at most during get(6)?",
+    "answer": "Seven - the chain get(6), get(5), get(4), get(3), get(2), get(1), get(0).",
+    "explanation": "The first recursive call always drives straight down to a base case before any second call is made, so the deepest path is the decreasing chain, and its length is n+1."
+   },
+   "pyqIds": [
+    "gate-2005-81a-recursive-space-complexity"
+   ],
+   "videoRefs": [],
+   "prereqs": [
+    "call-by-value-and-the-activation-record",
+    "recursion-anatomy-base-and-recursive-case"
+   ],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "C Recursion",
+     "channel": "GeeksforGeeks",
+     "url": "https://www.geeksforgeeks.org/c/c-recursion/",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "frames pushed and popped, the fixed stack region and stack overflow"
+    },
+    {
+     "kind": "text",
+     "title": "C mein Programming, tatha Punaraavartan - chapter notes (Devanagari)",
+     "channel": "CareerCraft Labs",
+     "url": "https://careercraftlabs.org/hi/read/gate-pds-ch01",
+     "language": "hi",
+     "transcript": "PARTIAL",
+     "translated": true,
+     "note": "the statement that stack depth is the height of the recursion tree, not the number of calls - translated from Hindi"
+    },
+    {
+     "kind": "encyclopaedia",
+     "title": "Tail call",
+     "channel": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Tail_call",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "that a frame can be replaced rather than stacked when the call is the last action"
+    }
+   ],
+   "sourceLine": "Frames, the fixed stack region and stack overflow: GeeksforGeeks 'C Recursion' (English, read in part). The rule that depth is the height of the recursion tree and not the number of calls: CareerCraft Labs 'C mein Programming, tatha Punaraavartan' (translated from Hindi, read in part). Frame reuse for tail calls: Wikipedia 'Tail call' (English, read in part). The 2005 Q.81(a) verdict, the 25 calls of get(6) and the 2 692 537 calls of fib(30) are recomputed in scripts/validate.py.",
+   "links": {
+    "mock": {
+     "subject": "programming-data-structures",
+     "unit_slug": "recursion-and-call-stack",
+     "unit_name": "Recursion and the Call Stack",
+     "unit_number": 2,
+     "question_count": 40,
+     "subtopics": [
+      {
+       "label": "Base case and termination",
+       "questions": 10
+      },
+      {
+       "label": "Call stack and depth",
+       "questions": 10
+      },
+      {
+       "label": "Order of output",
+       "questions": 10
+      },
+      {
+       "label": "Counting calls",
+       "questions": 10
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/programming-data-structures/recursion-and-call-stack/gate_ds_mock_2_2026-10-31.html"
+    }
+   },
+   "subject": "programming-and-data-structures",
+   "topic": "recursion",
+   "path": "subjects/programming-and-data-structures/recursion/call-stack-activation-records-and-depth.json"
+  },
+  {
+   "id": "descent-and-unwinding-order",
+   "title": "Descent and Unwinding: What the Print Order Depends On",
+   "priority": "P1",
+   "order": 575,
+   "unit": "Recursion",
+   "quickIdea": "A statement before the recursive call runs on the way down; a statement after it runs on the way back up. Move the print across the call and the output reverses.",
+   "remember": [
+    "Work done before the recursive call happens in call order, outermost first. Work done after it happens in the reverse order, deepest frame first, because the deepest call is the first to return.",
+    "GATE CSE 2024 Set 1 Q.19: fX reads one character into a local, recurses, then calls putchar. Input 1234 followed by a newline gives 4321 - the frame that read '1' returns last and prints last.",
+    "The character survives because each frame has its own a. If a were a single shared object, every frame would print the last character read.",
+    "GATE CSE 2005 Q.31: foo(2048) prints 2, 0, 4, 8 - the digits of 2048 in reverse, because the printf follows the recursive call - and then main prints sum, which is still 0 because the additions happened in copies of the parameter.",
+    "Reading the same program with the print before the call gives the forward order: 8, 4, 0, 2 for 2048 and 1234 for the 2024 question. Both orders appear as options, so the position of one line is the question.",
+    "The same binary-printing function appears in GATE IT 2008 Q.82 and Q.83 with input 173, giving 10101101; those are GATE IT papers, not GATE CSE, and are not recorded as CSE previous-year questions here."
+   ],
+   "example": {
+    "prompt": "void fX(void) { char a; if ((a = getchar()) != '\\n') fX(); if (a != '\\n') putchar(a); } with input 1234 followed by newline. What is printed?",
+    "work": "Five calls: the first four read '1', '2', '3', '4' and each makes another call before printing; the fifth reads the newline, fails both tests and returns. Then '4' prints, then '3', then '2', then '1'.",
+    "answer": "4321, and the program terminates normally."
+   },
+   "gateAngle": "Output-order questions are the most common recursion question in GATE CSE. The reliable method is to draw the frames in a column and mark, in each frame, which statements have run: the descent column fills top to bottom, the unwinding column bottom to top.",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2024 Set 1 Q.19: what does the fX program print for the input 1234?",
+     "answer": "4321.",
+     "why": "putchar runs after the recursive call, so the deepest frame that still holds a character prints first."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "In the same program, move the putchar before the recursive call. What is printed for 1234?",
+     "answer": "1234.",
+     "why": "Printing on the descent gives the input order, which is exactly the option GATE offers as a distractor in the 2024 question."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why does the 2005 program print 2, 0, 4, 8 and then 0, rather than 8, 4, 0, 2 and 14?",
+     "answer": "The digits are printed after the recursive call, so they come out in reverse; and sum is passed by value, so the caller's sum is never updated and main prints 0.",
+     "why": "The question tests two independent facts at once, and both wrong answers come from getting one of them right."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "int g(int n) { if (n == 0) return 0; printf(\"%d\", n); return g(n - 1); } What does g(3) print?",
+     "answer": "321.",
+     "why": "Here the print is before the call, so it runs on the descent: 3, then 2, then 1, then the base case returns without printing."
+    }
+   ],
+   "trap": {
+    "what": "Expecting a value computed in a callee to be visible in the caller after the call.",
+    "why": "C passes arguments by value, so a callee that assigns to its parameter is writing to a copy. The caller's variable is untouched, however deep the recursion went.",
+    "counterexample": "In GATE CSE 2005 Q.31, foo(a, sum) accumulates 8 + 4 + 0 + 2 in its own copies of sum, and main still prints 0."
+   },
+   "check": {
+    "question": "void h(int n) { if (n == 0) return; h(n - 1); printf(\"%d\", n); } What does h(3) print?",
+    "answer": "123.",
+    "explanation": "The printf follows the recursive call, so it runs on the unwinding: the frame with n = 1 returns first and prints 1, then 2, then 3."
+   },
+   "pyqIds": [
+    "gate-2024-set1-19-fx-getchar-reverse",
+    "gate-2005-31-foo-2048-print-order"
+   ],
+   "videoRefs": [],
+   "prereqs": [
+    "recursion-anatomy-base-and-recursive-case",
+    "call-by-value-and-the-activation-record"
+   ],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "Basic Recursion MCQs: 12 Solved C Questions with Step-by-Step Explanations",
+     "channel": "Knowledge Gate AI",
+     "url": "https://www.knowledgegate.ai/blog/basic-recursion-mcqs-solved-questions-with-explanations",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "descent against unwinding, and the two 2008-style variants of the same binary printer"
+    },
+    {
+     "kind": "text",
+     "title": "C Recursion",
+     "channel": "GeeksforGeeks",
+     "url": "https://www.geeksforgeeks.org/c/c-recursion/",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "the frame-by-frame return path that makes the reversed order possible"
+    }
+   ],
+   "sourceLine": "The descent-and-unwinding rule and the worked traces: Knowledge Gate AI 'Basic Recursion MCQs' (English, read in part). The return path of the stack: GeeksforGeeks 'C Recursion' (English, read in part). Both PYQ outputs, 4321 and 2, 0, 4, 8, 0, are recomputed in scripts/validate.py.",
+   "visual": "programming-and-data-structures/recursion/call-stack-descent-and-unwinding",
+   "links": {
+    "mock": {
+     "subject": "programming-data-structures",
+     "unit_slug": "recursion-and-call-stack",
+     "unit_name": "Recursion and the Call Stack",
+     "unit_number": 2,
+     "question_count": 40,
+     "subtopics": [
+      {
+       "label": "Base case and termination",
+       "questions": 10
+      },
+      {
+       "label": "Call stack and depth",
+       "questions": 10
+      },
+      {
+       "label": "Order of output",
+       "questions": 10
+      },
+      {
+       "label": "Counting calls",
+       "questions": 10
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/programming-data-structures/recursion-and-call-stack/gate_ds_mock_2_2026-10-31.html"
+    }
+   },
+   "subject": "programming-and-data-structures",
+   "topic": "recursion",
+   "path": "subjects/programming-and-data-structures/recursion/descent-and-unwinding-order.json"
+  },
+  {
+   "id": "counting-invocations-in-a-call-tree",
+   "title": "Counting Invocations in a Call Tree",
+   "priority": "P1",
+   "order": 576,
+   "unit": "Recursion",
+   "quickIdea": "Write the recurrence the code implies, then tabulate from the base cases upward. Counting calls by expanding the tree by hand is how marks are lost.",
+   "remember": [
+    "If a function makes two recursive calls on n-1 and n-3, the number of activations satisfies T(n) = 1 + T(n-1) + T(n-3) for n >= 1, with T(n) = 1 for every n below the threshold, because a call that returns immediately is still an invocation.",
+    "GATE CSE 2015 Set 3 Q.39: the table is T(0..6) = 1, 3, 5, 7, 11, 17, 25, so get(6) is invoked 25 times. Only 12 of those activations reach the printf, because the 13 calls with n < 1 return at the first line.",
+    "'How many times is the function invoked' includes the call from main; 'how many recursive calls are made' is one less. GATE's options are usually one apart for exactly this reason.",
+    "GATE CSE 2018 Q.45: Count(1024,1024) halves x ten times for each of the 1023 values of y, so the print runs 10 x 1023 = 10230 times. Two parameters moving at different rates give a product, not a sequence.",
+    "A call-count recurrence and a time-complexity recurrence are not the same object: the count keeps a +1 for every activation, the complexity keeps the work done in one activation.",
+    "Tabulate bottom-up whenever the arguments only decrease. Each entry needs only entries already computed, and the exam arithmetic stays small."
+   ],
+   "example": {
+    "prompt": "void get(int n) { if (n < 1) return; get(n-1); get(n-3); printf(\"%d\", n); } How many times is get invoked by get(6), and how many digits are printed?",
+    "work": "T(n) = 1 + T(n-1) + T(n-3) for n >= 1 and T(n) = 1 below it: T(0)=1, T(1)=3, T(2)=5, T(3)=7, T(4)=11, T(5)=17, T(6)=25. Of the 25 activations, the 13 with n < 1 print nothing, so 25 - 13 = 12 digits are printed.",
+    "answer": "25 invocations and 12 printed digits."
+   },
+   "gateAngle": "Both counting questions of this decade are tabulation questions: 2015 Set 3 Q.39 is a one-dimensional table and 2018 Q.45 is a product of two rates. Neither needs the tree drawn.",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2015 Set 3 Q.39: how many times is get invoked by get(6)?",
+     "answer": "25.",
+     "why": "The recurrence counts the base calls too, and adds one for the call from main."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "For the same get function, how many invocations does get(5) make, and how many digits does it print?",
+     "answer": "17 invocations and 8 printed digits.",
+     "why": "T(5) = 17 by the same table; the calls with n < 1 among those 17 are 9, leaving 8 prints."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why is a call with n = 0 counted as an invocation in the 2015 question?",
+     "answer": "Because the function is entered: the return happens inside the function, after the frame is created. The question asks how many times get is invoked, not how many times it prints.",
+     "why": "This is the distinction between the 25 of 2015 Q.39 and the 12 prints of the same program."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "Count(x, y) halves x and decrements y as in GATE CSE 2018 Q.45. If the initial call were Count(1024, 512), how many stars are printed?",
+     "answer": "5110: ten stars for each y from 512 down to 2, that is 511 values.",
+     "why": "The same product of a logarithmic rate and a linear rate, with one of the numbers changed."
+    }
+   ],
+   "trap": {
+    "what": "Counting only the leaf calls, or only the calls that print, when the question asks for invocations.",
+    "why": "A recursion's activation count includes every frame created, and the base-case frames are created too. The number that prints is smaller by exactly the number of base calls.",
+    "counterexample": "In get(6) the invocation count is 25 but the printf runs 12 times; an answer of 12 or of 13 comes from counting one class of frame only."
+   },
+   "check": {
+    "question": "void f(int n) { if (n == 0) return; f(n-1); f(n-1); } How many invocations does f(3) make?",
+    "answer": "15.",
+    "explanation": "T(n) = 1 + 2T(n-1) with T(0) = 1, so T(3) = 1 + 2(1 + 2(1 + 2 x 1)) = 15. The call tree is a complete binary tree of depth 3: 8 leaves and 7 internal nodes."
+   },
+   "pyqIds": [
+    "gate-2015-set3-39-get-invocations",
+    "gate-2018-45-count-print-stars"
+   ],
+   "videoRefs": [],
+   "prereqs": [
+    "recursion-anatomy-base-and-recursive-case",
+    "call-stack-activation-records-and-depth"
+   ],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "C mein Programming, tatha Punaraavartan - chapter notes (Devanagari)",
+     "channel": "CareerCraft Labs",
+     "url": "https://careercraftlabs.org/hi/read/gate-pds-ch01",
+     "language": "hi",
+     "transcript": "PARTIAL",
+     "translated": true,
+     "note": "the call count of the naive Fibonacci as 2F(n+1)-1, the pattern that makes counting-by-table natural - translated from Hindi"
+    },
+    {
+     "kind": "text",
+     "title": "Basic Recursion MCQs: 12 Solved C Questions with Step-by-Step Explanations",
+     "channel": "Knowledge Gate AI",
+     "url": "https://www.knowledgegate.ai/blog/basic-recursion-mcqs-solved-questions-with-explanations",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "counting every recursive invocation, and the warning against counting one of two calls"
+    },
+    {
+     "kind": "text",
+     "title": "Recursion Notes for GATE Exam",
+     "channel": "GeeksforGeeks",
+     "url": "https://www.geeksforgeeks.org/dsa/recursion-notes-for-gate-exam/",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "the tree-recursion cost that these counts measure"
+    }
+   ],
+   "sourceLine": "Counting calls from the recurrence, with the Fibonacci count 2F(n+1)-1: CareerCraft Labs 'C mein Programming, tatha Punaraavartan' (translated from Hindi, read in part). The invocation-counting method: Knowledge Gate AI 'Basic Recursion MCQs' (English, read in part). Tree recursion costs: GeeksforGeeks 'Recursion Notes for GATE Exam' (English, read in part). Every count in this card, including 25, 12, 10230 and 15, is recomputed in scripts/validate.py.",
+   "links": {
+    "mock": {
+     "subject": "programming-data-structures",
+     "unit_slug": "recursion-and-call-stack",
+     "unit_name": "Recursion and the Call Stack",
+     "unit_number": 2,
+     "question_count": 40,
+     "subtopics": [
+      {
+       "label": "Base case and termination",
+       "questions": 10
+      },
+      {
+       "label": "Call stack and depth",
+       "questions": 10
+      },
+      {
+       "label": "Order of output",
+       "questions": 10
+      },
+      {
+       "label": "Counting calls",
+       "questions": 10
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/programming-data-structures/recursion-and-call-stack/gate_ds_mock_2_2026-10-31.html"
+    }
+   },
+   "subject": "programming-and-data-structures",
+   "topic": "recursion",
+   "path": "subjects/programming-and-data-structures/recursion/counting-invocations-in-a-call-tree.json"
+  },
+  {
+   "id": "linear-tree-and-nested-recursion",
+   "title": "Linear, Tree and Nested Recursion",
+   "priority": "P1",
+   "order": 577,
+   "unit": "Recursion",
+   "quickIdea": "One call per level is linear recursion; two or more is tree recursion, whose cost grows exponentially while its depth stays small.",
+   "remember": [
+    "Linear (single) recursion makes at most one recursive call per activation: factorial, sum, digit printing. Time O(n), space O(n).",
+    "Tree (multiple) recursion makes two or more calls per activation: naive Fibonacci, and the get(n-1)/get(n-3) pair of GATE CSE 2015 Set 3 Q.39. The call tree has exponentially many nodes but its depth is still linear.",
+    "Naive fib(n) makes 2F(n+1) - 1 calls: 15 for n = 5, 25 for n = 6, 2 692 537 for n = 30. Inside fib(6) the value fib(3) is recomputed three separate times; memoisation removes that repetition and makes the work linear.",
+    "Nested recursion passes a recursive call as an argument, as in Ackermann's function; its depth is not bounded by the input in any simple way, and GATE uses it only as a reading exercise.",
+    "GATE CSE 2015 Set 2 Q.11 is tree recursion with a loop: fun(n) = 1 + sum over k of fun(k) x fun(n-k), with fun(1) = 1. The values are 1, 2, 5, 15, 51 for n = 1 to 5 - and fun(6) is 188.",
+    "Towers of Hanoi is tree recursion with the recurrence T(n) = 2T(n-1) + 1, that is 2^n - 1 moves: 7 for three discs and 1023 for ten."
+   ],
+   "example": {
+    "prompt": "int fun(int n) { int x = 1, k; if (n == 1) return x; for (k = 1; k < n; ++k) x = x + fun(k) * fun(n-k); return x; } What is fun(5)?",
+    "work": "fun(n) = 1 + sum of fun(k)fun(n-k) for k = 1..n-1. Bottom-up: fun(1) = 1; fun(2) = 1 + 1 = 2; fun(3) = 1 + 1x2 + 2x1 = 5; fun(4) = 1 + 1x5 + 2x2 + 5x1 = 15; fun(5) = 1 + 1x15 + 2x5 + 5x2 + 15x1 = 51.",
+    "answer": "51."
+   },
+   "gateAngle": "GATE's tree-recursion questions are answered by tabulation, not by drawing the tree. When the recursion has a loop inside it, the recurrence has a sum inside it, and the sum is over values already computed.",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2015 Set 2 Q.11: the return value of fun(5).",
+     "answer": "51.",
+     "why": "A tree recursion whose children are all smaller arguments, evaluated bottom-up."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "With the same fun, what is fun(6)?",
+     "answer": "188: 1 + 1x51 + 2x15 + 5x5 + 15x2 + 51x1 = 188.",
+     "why": "The same table extended by one row, which is what a variation of this question would ask."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why is naive Fibonacci exponential in time but linear in space?",
+     "answer": "Because it recomputes the same subproblems in different branches (exponential number of calls), but the two calls of one activation are made one after the other, so the stack only ever holds one root-to-leaf path.",
+     "why": "The separation of time and space is the point GATE tests when it asks for one and not the other."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "How many moves does the Tower of Hanoi take for six discs, and how many frames deep is the recursion?",
+     "answer": "2^6 - 1 = 63 moves, and 7 frames deep.",
+     "why": "The move count is exponential while the depth is linear, the same pair of facts as Fibonacci."
+    }
+   ],
+   "trap": {
+    "what": "Assuming that a recursion with a small depth is therefore cheap.",
+    "why": "Depth controls space; the branching factor controls time. Two calls per level gives 2^n nodes at depth n, so a recursion only thirty frames deep can make millions of calls.",
+    "counterexample": "fib(30) is 30 frames deep and makes 2 692 537 calls; fib(40) is 40 frames deep and makes over 300 million."
+   },
+   "check": {
+    "question": "void t(int n) { if (n == 0) return; t(n-1); t(n-1); printf(\"%d\", n); } How many digits does t(4) print?",
+    "answer": "15.",
+    "explanation": "There are 15 activations with n >= 1 (the internal nodes of a complete binary tree of depth 4), and each prints once; the 16 calls with n = 0 return without printing."
+   },
+   "pyqIds": [
+    "gate-2015-set2-11-fun-return-value"
+   ],
+   "videoRefs": [],
+   "prereqs": [
+    "counting-invocations-in-a-call-tree",
+    "recursion-anatomy-base-and-recursive-case"
+   ],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "Recursion Notes for GATE Exam",
+     "channel": "GeeksforGeeks",
+     "url": "https://www.geeksforgeeks.org/dsa/recursion-notes-for-gate-exam/",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "the tail, head, tree and nested shapes with their stated time and space costs"
+    },
+    {
+     "kind": "text",
+     "title": "C mein Programming, tatha Punaraavartan - chapter notes (Devanagari)",
+     "channel": "CareerCraft Labs",
+     "url": "https://careercraftlabs.org/hi/read/gate-pds-ch01",
+     "language": "hi",
+     "transcript": "PARTIAL",
+     "translated": true,
+     "note": "the Fibonacci call count and the Hanoi move count, and the warning that the naive version is exponential - translated from Hindi"
+    }
+   ],
+   "sourceLine": "The taxonomy of recursion shapes with their costs: GeeksforGeeks 'Recursion Notes for GATE Exam' (English, read in part). The 2F(n+1)-1 call count, the 2^n-1 Hanoi moves and the memoisation argument: CareerCraft Labs 'C mein Programming, tatha Punaraavartan' (translated from Hindi, read in part). fun(5) = 51, fun(6) = 188, the Fibonacci counts and the Hanoi counts are recomputed in scripts/validate.py.",
+   "links": {
+    "mock": {
+     "subject": "programming-data-structures",
+     "unit_slug": "recursion-and-call-stack",
+     "unit_name": "Recursion and the Call Stack",
+     "unit_number": 2,
+     "question_count": 40,
+     "subtopics": [
+      {
+       "label": "Base case and termination",
+       "questions": 10
+      },
+      {
+       "label": "Call stack and depth",
+       "questions": 10
+      },
+      {
+       "label": "Order of output",
+       "questions": 10
+      },
+      {
+       "label": "Counting calls",
+       "questions": 10
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/programming-data-structures/recursion-and-call-stack/gate_ds_mock_2_2026-10-31.html"
+    }
+   },
+   "subject": "programming-and-data-structures",
+   "topic": "recursion",
+   "path": "subjects/programming-and-data-structures/recursion/linear-tree-and-nested-recursion.json"
+  },
+  {
+   "id": "recursion-depth-and-logarithmic-recursion",
+   "title": "Halving Recursions and the Logarithm",
+   "priority": "P2",
+   "order": 578,
+   "unit": "Recursion",
+   "quickIdea": "Halve the argument and the depth is the number of bits; the value such a recursion returns is a logarithm.",
+   "remember": [
+    "bar(n) = 0 at n = 1, else 1 + bar(n/2), returns floor(log2 n): the number of halvings needed to reach 1. bar(2) = 1, bar(4) = 2, bar(16) = 4, bar(65536) = 16.",
+    "Composing it - foo(n) = 1 + foo(bar(n)) with foo(1) = 1 - iterates the logarithm, so foo(n) counts how many times log2 can be applied before the value is 1.",
+    "GATE CSE 2026 Set 1 Q.51 asks for the smallest n with foo(n) = 5. The chain is 65536, 16, 4, 2, 1: five activations, so the answer is 2^16 = 65536. foo(256) = 4 shows that nothing smaller works.",
+    "Halving recursions have depth Theta(log n), which is why binary search, exponentiation by squaring and Euclid's algorithm by division use a logarithmic number of frames.",
+    "The linear-depth twin is subtraction instead of division. GATE CSE 2021 Set 2 Q.23: SomeFunction(15, 255) subtracts until the arguments are equal and returns 15, using sixteen calls where division would use two.",
+    "Watch the floor: floor(log2 n) is the exponent of the largest power of two not exceeding n, so bar(3) = 1 and bar(7) = 2, not 2 and 3."
+   ],
+   "example": {
+    "prompt": "int bar(int n) { if (n == 1) return 0; return 1 + bar(n/2); } What is bar(65536), and what is the smallest n with bar(n) = 5?",
+    "work": "65536 -> 32768 -> ... -> 1 takes sixteen halvings, so bar(65536) = 16 = log2(65536). For bar(n) = 5 the smallest n is the smallest with floor(log2 n) = 5, that is 2^5 = 32.",
+    "answer": "bar(65536) = 16, and the smallest n with bar(n) = 5 is 32."
+   },
+   "gateAngle": "2026 Set 1 Q.51 is this card plus one composition: recognise floor(log2 n), then count how many applications are needed. Recognising the logarithm turns a search into one line of arithmetic.",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2026 Set 1 Q.51: the smallest n with foo(n) = 5.",
+     "answer": "65536.",
+     "why": "Four applications of floor(log2 .) are needed on top of foo(1) = 1, and 2^16 is the smallest n with bar applied four times equal to 1."
+    },
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2021 Set 2 Q.23: SomeFunction(15, 255).",
+     "answer": "15.",
+     "why": "Repeated subtraction is Euclid's algorithm with linear depth; the answer is gcd(15, 255)."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "For the same bar, what is the smallest n with bar(n) = 5, and how deep is the recursion for n = 1024?",
+     "answer": "n = 32; and 1024 gives bar(1024) = 10, so eleven frames are alive at the deepest point.",
+     "why": "The inverse direction of the 2026 question: from a value of the logarithm to the smallest argument."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why does a halving recursion cost O(log n) frames while a subtraction recursion for the same problem costs O(n)?",
+     "answer": "Because the argument shrinks geometrically in the first case and only linearly in the second. Depth is the number of steps to the base case, so it is the number of halvings against the number of subtractions.",
+     "why": "Explains why 2021 Q.23 needs sixteen calls and division-based gcd would need two."
+    }
+   ],
+   "trap": {
+    "what": "Assuming a halving recursion always reaches its base case.",
+    "why": "Halving has a fixed point at 0. A base case written as n == 1 is safe only for n >= 1; for n = 0 the argument never changes and the recursion never ends.",
+    "counterexample": "With bar as defined above, bar(0) calls bar(0) for ever, because 0 == 1 is false and 0/2 is 0."
+   },
+   "check": {
+    "question": "int g(int n) { if (n <= 1) return 0; return 1 + g(n/2); } What is g(100)?",
+    "answer": "6.",
+    "explanation": "100 -> 50 -> 25 -> 12 -> 6 -> 3 -> 1 takes six halvings, and floor(log2 100) = 6."
+   },
+   "pyqIds": [
+    "gate-2026-set1-51-iterated-log-bar-foo",
+    "gate-2021-set2-23-somefunction-gcd-subtraction"
+   ],
+   "videoRefs": [],
+   "prereqs": [
+    "recursion-anatomy-base-and-recursive-case",
+    "linear-tree-and-nested-recursion"
+   ],
+   "sources": [
+    {
+     "kind": "encyclopaedia",
+     "title": "Recursion (computer science)",
+     "channel": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Recursion_(computer_science)",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "binary search and the halving structure that produces logarithmic depth"
+    },
+    {
+     "kind": "text",
+     "title": "C mein Programming, tatha Punaraavartan - chapter notes (Devanagari)",
+     "channel": "CareerCraft Labs",
+     "url": "https://careercraftlabs.org/hi/read/gate-pds-ch01",
+     "language": "hi",
+     "transcript": "PARTIAL",
+     "translated": true,
+     "note": "the separation of depth from call count that makes the halving chain easy to count - translated from Hindi"
+    }
+   ],
+   "sourceLine": "Halving recursion and its logarithmic depth, with binary search as the standard example: Wikipedia 'Recursion (computer science)' (English, read in part). Depth as the height of the recursion tree: CareerCraft Labs 'C mein Programming, tatha Punaraavartan' (translated from Hindi, read in part). bar and foo are tabulated, and 65536 is confirmed as the smallest solution by exhaustive search, in scripts/validate.py.",
+   "links": {
+    "mock": {
+     "subject": "programming-data-structures",
+     "unit_slug": "recursion-and-call-stack",
+     "unit_name": "Recursion and the Call Stack",
+     "unit_number": 2,
+     "question_count": 40,
+     "subtopics": [
+      {
+       "label": "Base case and termination",
+       "questions": 10
+      },
+      {
+       "label": "Call stack and depth",
+       "questions": 10
+      },
+      {
+       "label": "Order of output",
+       "questions": 10
+      },
+      {
+       "label": "Counting calls",
+       "questions": 10
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/programming-data-structures/recursion-and-call-stack/gate_ds_mock_2_2026-10-31.html"
+    }
+   },
+   "subject": "programming-and-data-structures",
+   "topic": "recursion",
+   "path": "subjects/programming-and-data-structures/recursion/recursion-depth-and-logarithmic-recursion.json"
+  },
+  {
+   "id": "tail-head-and-indirect-recursion",
+   "title": "Tail, Head and Indirect Recursion",
+   "priority": "P2",
+   "order": 579,
+   "unit": "Recursion",
+   "quickIdea": "Name the shape before you answer: tail (the call is the last action), head (the call comes first), tree (several calls), nested (a call inside an argument), indirect (a cycle of functions).",
+   "remember": [
+    "Tail recursion: the recursive call is the last operation and its result is returned unchanged, so nothing remains to be done when it returns.",
+    "Head recursion: the call comes first and the work happens on the unwinding - the digit and character printers of the previous cards are head recursions, which is exactly why they reverse the output.",
+    "Tree recursion: more than one call per activation. Nested recursion: a recursive call appears as an argument of another call, as in Ackermann's function.",
+    "Indirect (mutual) recursion: f calls g and g calls f. Termination then needs an argument that decreases across the whole cycle, not inside one function, and a compiler cannot as easily turn the cycle into a loop.",
+    "The costs the standard treatment states: tail and head recursion are O(n) time and O(n) space; tree recursion is O(2^n) time with O(n) space.",
+    "The shape decides both what GATE can ask - the order of the output, the count of the calls - and what an optimiser can do with the code."
+   ],
+   "example": {
+    "prompt": "Classify each of these: (a) int f(int n) { return n == 0 ? 1 : n * f(n-1); } (b) int g(int n, int acc) { return n == 0 ? acc : g(n-1, acc*n); } (c) void h(int n) { if (n == 0) return; h(n-1); printf(\"%d\", n); }",
+    "work": "(a) has the multiplication after the call, so work remains on the return: head-style linear recursion, not a tail call. (b) returns the result of the call unchanged and carries the accumulator in a parameter: a tail call. (c) prints after the call, so the work happens on the unwinding: head recursion.",
+    "answer": "(a) linear recursion with work on the unwind, (b) tail recursion, (c) head recursion."
+   },
+   "gateAngle": "No GATE CSE question of the last decade asks 'what kind of recursion is this'; the shape is tested through its consequences, as an output order (2024 Set 1 Q.19) or a call count (2015 Set 3 Q.39). Learn the names because they make those consequences predictable, not because they are asked directly.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "In fun(k) * fun(n-k) from GATE CSE 2015 Set 2 Q.11, which shape is the recursion, and what does that predict about its cost?",
+     "answer": "Tree recursion with a branching factor that grows with n; the call count is exponential in n, which is why the question is answered by tabulation rather than by expansion.",
+     "why": "Connects the taxonomy to the cost, which is what the paper actually tests."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why can a head recursion not be rewritten as a loop by simply moving the statement?",
+     "answer": "Because the work depends on the frame that is still alive: the print of frame k must happen after the whole subtree below it. A loop would have to carry that pending work in an explicit stack.",
+     "why": "This is the reason tail-call elimination works only for tail calls, and the reason recursion is worth having at all."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "Two functions f and g call each other, with f(n) = g(n-1) and g(n) = f(n-1), base f(0) = 0. Does f(5) terminate?",
+     "answer": "Yes: the argument decreases by 1 on every call of either function, so the cycle reaches the base case after five steps.",
+     "why": "Mutual recursion terminates on a measure that falls across the cycle, not necessarily inside one function."
+    }
+   ],
+   "trap": {
+    "what": "Calling any recursion with a statement after the call 'tail recursion'.",
+    "why": "Tail position means nothing is left to do with the result. A printf after the call, or a multiplication by the returned value, leaves work in the frame, so the frame cannot be discarded.",
+    "counterexample": "int f(int n) { if (n == 0) return 1; printf(\"%d\", n); return n * f(n-1); } looks like it ends with a call but the multiplication follows it, so it is not a tail call."
+   },
+   "check": {
+    "question": "Which of these is a tail call? int a(int n) { return n == 0 ? 0 : 1 + a(n-1); } or int b(int n, int s) { return n == 0 ? s : b(n-1, s+n); }",
+    "answer": "Only b.",
+    "explanation": "In a the returned value is 1 plus the result of the call, so the addition happens after the call returns; in b the result of the call is returned unchanged."
+   },
+   "pyqIds": [],
+   "videoRefs": [],
+   "prereqs": [
+    "recursion-anatomy-base-and-recursive-case",
+    "descent-and-unwinding-order"
+   ],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "Recursion Notes for GATE Exam",
+     "channel": "GeeksforGeeks",
+     "url": "https://www.geeksforgeeks.org/dsa/recursion-notes-for-gate-exam/",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "the tail, head, tree and nested definitions with their stated complexities"
+    },
+    {
+     "kind": "encyclopaedia",
+     "title": "Tail call",
+     "channel": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Tail_call",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "the definition of tail position, which is what separates a tail call from a call at the end of the text"
+    }
+   ],
+   "sourceLine": "The five recursion shapes and their costs: GeeksforGeeks 'Recursion Notes for GATE Exam' (English, read in part). Tail position and the fact that a call need not be the last statement to be a tail call: Wikipedia 'Tail call' (English, read in part).",
+   "links": {
+    "mock": {
+     "subject": "programming-data-structures",
+     "unit_slug": "recursion-and-call-stack",
+     "unit_name": "Recursion and the Call Stack",
+     "unit_number": 2,
+     "question_count": 40,
+     "subtopics": [
+      {
+       "label": "Base case and termination",
+       "questions": 10
+      },
+      {
+       "label": "Call stack and depth",
+       "questions": 10
+      },
+      {
+       "label": "Order of output",
+       "questions": 10
+      },
+      {
+       "label": "Counting calls",
+       "questions": 10
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/programming-data-structures/recursion-and-call-stack/gate_ds_mock_2_2026-10-31.html"
+    }
+   },
+   "subject": "programming-and-data-structures",
+   "topic": "recursion",
+   "path": "subjects/programming-and-data-structures/recursion/tail-head-and-indirect-recursion.json"
+  },
+  {
+   "id": "static-and-global-state-across-calls",
+   "title": "Static and Global State Across Calls",
+   "priority": "P2",
+   "order": 580,
+   "unit": "Recursion",
+   "quickIdea": "A static local is one object shared by every call of the function, so a recursive function can see the writes of its own earlier calls - and on the way back up it sees the final value, not the value it started with.",
+   "remember": [
+    "A static local is initialised once, before the first call, and keeps its value between calls and across the recursion. An auto local is a fresh object in every frame.",
+    "GATE CSE 2016 Set 1 Q.35: count(3) with static int d = 1 prints 3 1 2 2 1 3 4 4 4. The descent prints n and d for n = 3, 2, 1, and the three 4s come from the unwinding, where every frame reads the same final d.",
+    "A global variable behaves the same way for this purpose: one object, visible to every frame, so a global counter counts all the calls rather than the calls of one frame.",
+    "Because the shared object is written on the descent, a read on the unwinding sees the last value written, not the value at the time that frame was created.",
+    "Make d an auto local and the same program prints 3 1 2 1 1 1 2 2 2 - the value each frame would have had if it owned its own copy, which is one of the paper's options.",
+    "The alternative design is to pass the accumulator as a parameter or to return it; then every frame is independent and the output order becomes the only thing that differs."
+   ],
+   "example": {
+    "prompt": "void count(int n) { static int d = 1; printf(\"%d\", n); printf(\"%d\", d); d++; if (n > 1) count(n-1); printf(\"%d\", d); } What does count(3) print?",
+    "work": "count(3) prints 3 and 1, then d becomes 2, then calls count(2), which prints 2 and 2 and raises d to 3, then count(1) prints 1 and 3 and raises d to 4 and returns after printing 4. The two outer frames then each print the same d, now 4.",
+    "answer": "3 1 2 2 1 3 4 4 4."
+   },
+   "gateAngle": "This is the standard way GATE combines recursion with storage duration: the recursion supplies the order, the static variable supplies the shared value. Both wrong answers in 2016 Set 1 Q.35 come from treating d as an auto local.",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2016 Set 1 Q.35: what does count(3) print?",
+     "answer": "3 1 2 2 1 3 4 4 4.",
+     "why": "The static d is one object; the unwinding reads its final value three times."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "What would the same program print if d were declared auto instead of static?",
+     "answer": "3 1 2 1 1 1 2 2 2.",
+     "why": "Each frame now has its own d, which is 1 on entry and 2 after the increment, so every unwinding print is 2."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why does count(4) end with four 5s rather than one?",
+     "answer": "Because d is incremented on every activation: four activations raise it from 1 to 5, and each of the four frames prints the same shared object after its call returns. The full output is 4 1 3 2 2 3 1 4 5 5 5 5.",
+     "why": "The number of trailing repeats equals the number of activations that reach the print after the call, which is the depth of the recursion."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "A global counter is incremented at the top of a recursive function. What does it hold when the call returns?",
+     "answer": "The total number of activations, including the base-case ones, because every frame increments the same object.",
+     "why": "This is the cheapest way to answer 'how many calls' in practice, and it is why the recurrence and the counter agree."
+    }
+   ],
+   "trap": {
+    "what": "Assuming each frame owns a copy of a static local.",
+    "why": "static changes the storage duration, not the scope. The name is still local to the function, but the object is created once and shared by every call, so a write in one frame is visible in all the others.",
+    "counterexample": "In count(3) the three trailing 4s are impossible if each frame had its own d: they are the same object read three times."
+   },
+   "check": {
+    "question": "void f(int n) { static int c = 0; c++; if (n > 1) f(n-1); printf(\"%d\", c); } What does f(3) print?",
+    "answer": "333.",
+    "explanation": "Three activations raise the shared c to 3 before any of them prints; all three then print the same object, which holds 3."
+   },
+   "pyqIds": [
+    "gate-2016-set1-35-static-local-in-recursion"
+   ],
+   "videoRefs": [],
+   "prereqs": [
+    "storage-classes-auto-static-extern-register",
+    "descent-and-unwinding-order"
+   ],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "Basic Recursion MCQs: 12 Solved C Questions with Step-by-Step Explanations",
+     "channel": "Knowledge Gate AI",
+     "url": "https://www.knowledgegate.ai/blog/basic-recursion-mcqs-solved-questions-with-explanations",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "the static variable followed across recursive calls, and the trace that shows it is one object"
+    },
+    {
+     "kind": "text",
+     "title": "C Recursion",
+     "channel": "GeeksforGeeks",
+     "url": "https://www.geeksforgeeks.org/c/c-recursion/",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "the frame-local lifetime of ordinary locals, which is what static is being contrasted with"
+    }
+   ],
+   "sourceLine": "Following a static variable across recursive calls: Knowledge Gate AI 'Basic Recursion MCQs' (English, read in part). Frame-local storage for auto variables: GeeksforGeeks 'C Recursion' (English, read in part). The GATE CSE 2016 Set 1 Q.35 output, the auto-local variant and the count(4) trace are recomputed in scripts/validate.py. The 2016 question record itself lives with the Programming in C topic, where it was first verified, and is linked from here rather than duplicated.",
+   "links": {
+    "mock": {
+     "subject": "programming-data-structures",
+     "unit_slug": "recursion-and-call-stack",
+     "unit_name": "Recursion and the Call Stack",
+     "unit_number": 2,
+     "question_count": 40,
+     "subtopics": [
+      {
+       "label": "Base case and termination",
+       "questions": 10
+      },
+      {
+       "label": "Call stack and depth",
+       "questions": 10
+      },
+      {
+       "label": "Order of output",
+       "questions": 10
+      },
+      {
+       "label": "Counting calls",
+       "questions": 10
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/programming-data-structures/recursion-and-call-stack/gate_ds_mock_2_2026-10-31.html"
+    }
+   },
+   "subject": "programming-and-data-structures",
+   "topic": "recursion",
+   "path": "subjects/programming-and-data-structures/recursion/static-and-global-state-across-calls.json"
+  },
+  {
+   "id": "tail-call-elimination-and-iteration",
+   "title": "Tail-Call Elimination and Rewriting Recursion as a Loop",
+   "priority": "P2",
+   "order": 581,
+   "unit": "Recursion",
+   "quickIdea": "A tail call needs no frame of its own, so a tail-recursive function can be rewritten as a loop with constant stack - but in C that is a compiler's choice, not a language guarantee.",
+   "remember": [
+    "In a tail call the caller has nothing left to do, so the callee can return straight to the caller's caller and the frame can be replaced instead of stacked.",
+    "Tail-call elimination reduces stack space from O(n) to O(1) for a linear recursion: the same work with a constant number of frames.",
+    "In C it is an optimisation, not a promise. A compiler may do it at one optimisation level and not at another, and the standard requires nothing; a GATE answer that assumes constant stack for a tail-recursive C function is an assumption about the compiler.",
+    "The mechanical rewrite: parameters become loop variables, the base case becomes the loop condition, the recursive call becomes a back edge. factorial(n, acc) becomes a for loop over acc.",
+    "Recursion and iteration are equally powerful: any recursion can be simulated with an explicit stack, and any loop can be written as a recursion. The differences are constant factors, stack space and readability.",
+    "Choose recursion when the structure is a tree or a divide-and-conquer split; choose iteration when the structure is a sequence and the stack would only be carrying a counter."
+   ],
+   "example": {
+    "prompt": "Rewrite int fact(int n) { return n <= 1 ? 1 : n * fact(n-1); } as a tail-recursive function and then as a loop.",
+    "work": "Carry the product in a parameter: int fact2(int n, int acc) { return n <= 1 ? acc : fact2(n-1, acc*n); }. The call is now the last action, so the frame can be reused. The loop is int acc = 1; for (int i = 2; i <= n; i++) acc *= i; - the parameter became the accumulator and the base case became the loop bound.",
+    "answer": "fact2(n, 1) with the accumulator, and a single for loop; both use O(1) stack, while the original uses O(n)."
+   },
+   "gateAngle": "GATE asks for space complexity, not for compiler behaviour, so the safe answer for a recursion whose frames still hold work is O(n) - as in GATE CSE 2005 Q.81(a), where every frame adds to sum after the call returns. Only a genuine tail call can honestly be called O(1), and only with a note that it depends on the compiler.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "The recursive foo of GATE CSE 2005 Q.81(a) adds to sum after each call. Why is its space not O(1) even though the calls look like a loop?",
+     "answer": "Because each frame is still holding a partial sum and a return address when the next call is made; the additions happen on the unwinding, so the frames cannot be reused.",
+     "why": "The distinction between a loop-shaped recursion and a tail call, tested through the space complexity."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why is return n * fact(n-1) not a tail call?",
+     "answer": "Because the multiplication happens after the call returns: the frame must stay alive to perform it. A tail call returns the callee's result unchanged.",
+     "why": "The single most common misreading of 'the call is the last thing in the function'."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "A tail-recursive function is compiled without optimisation. What is its space complexity?",
+     "answer": "O(n) in practice, because the frames are stacked; the O(1) figure requires tail-call elimination.",
+     "why": "GATE has never required the compiler-dependent answer, and this variation is exactly why."
+    }
+   ],
+   "trap": {
+    "what": "Assuming the C compiler always eliminates tail calls, and answering O(1) stack for any recursive function.",
+    "why": "C has no such guarantee. Optimisation level, calling convention and whether the call is really in tail position all change the outcome, and a paper that wanted O(1) would have to say so.",
+    "counterexample": "gcc compiles fact2 without elimination at -O0, so fact2(100000) overflows the stack even though the call is in tail position."
+   },
+   "check": {
+    "question": "int s(int n, int acc) { return n == 0 ? acc : s(n-1, acc+n); } How many frames are alive at the deepest point, and how many would be if the addition were written after the call?",
+    "answer": "One frame if the compiler eliminates the tail call, otherwise n+1; and n+1 in both cases for the version that adds after the call.",
+    "explanation": "Only a call in tail position can reuse its frame, and only when the compiler chooses to do so."
+   },
+   "pyqIds": [],
+   "videoRefs": [],
+   "prereqs": [
+    "tail-head-and-indirect-recursion",
+    "call-stack-activation-records-and-depth"
+   ],
+   "sources": [
+    {
+     "kind": "encyclopaedia",
+     "title": "Tail call",
+     "channel": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Tail_call",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "tail position, frame replacement, the O(n) to O(1) reduction and the fact that languages differ on whether it is required"
+    },
+    {
+     "kind": "text",
+     "title": "Recursion Notes for GATE Exam",
+     "channel": "GeeksforGeeks",
+     "url": "https://www.geeksforgeeks.org/dsa/recursion-notes-for-gate-exam/",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "the stated O(n) space of tail recursion as taught for the exam, and the recursion-versus-iteration comparison"
+    }
+   ],
+   "sourceLine": "Tail position, frame reuse and the O(n) to O(1) reduction, with the note that not every language requires it: Wikipedia 'Tail call' (English, read in part). The exam-facing costs of tail recursion and the recursion-versus-iteration comparison: GeeksforGeeks 'Recursion Notes for GATE Exam' (English, read in part).",
+   "links": {
+    "mock": {
+     "subject": "programming-data-structures",
+     "unit_slug": "recursion-and-call-stack",
+     "unit_name": "Recursion and the Call Stack",
+     "unit_number": 2,
+     "question_count": 40,
+     "subtopics": [
+      {
+       "label": "Base case and termination",
+       "questions": 10
+      },
+      {
+       "label": "Call stack and depth",
+       "questions": 10
+      },
+      {
+       "label": "Order of output",
+       "questions": 10
+      },
+      {
+       "label": "Counting calls",
+       "questions": 10
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/programming-data-structures/recursion-and-call-stack/gate_ds_mock_2_2026-10-31.html"
+    }
+   },
+   "subject": "programming-and-data-structures",
+   "topic": "recursion",
+   "path": "subjects/programming-and-data-structures/recursion/tail-call-elimination-and-iteration.json"
+  },
+  {
+   "id": "recursion-on-arrays-strings-and-digits",
+   "title": "Recursion over Arrays, Strings and Digits",
+   "priority": "P2",
+   "order": 582,
+   "unit": "Recursion",
+   "quickIdea": "Recursion over a sequence shrinks the sequence: one element per level, and the base case is the empty or one-element remainder.",
+   "remember": [
+    "On an array, pass the index (or the pointer) and advance it in the recursive call; the base case is index == length, or a pointer past the last element.",
+    "On a string, the NUL terminator is the natural base case. A recursion that reads a character and prints it after the call reverses the string, which is the mechanism of GATE CSE 2024 Set 1 Q.19.",
+    "On an integer, n/10 and n%10 peel one decimal digit per level. GATE CSE 2011 Q.48 adds the digits: foo(345, 10) = 5 + 4 + 3 + 0 = 12. GATE CSE 2005 Q.31 prints them in reverse with the printf after the call.",
+    "An array parameter decays to a pointer, so sizeof inside the function gives the pointer's size, not the array's. The length must be passed as a second parameter or the array must be NUL-terminated.",
+    "The depth equals the number of elements, so recursion over a long string or a large array is a stack risk; when only the order of the output matters, a loop is the safer form.",
+    "Recursion over a sequence is linear recursion: one call per element, so time and space are both O(n)."
+   ],
+   "example": {
+    "prompt": "unsigned int foo(unsigned int n, unsigned int r) { if (n > 0) return (n % r) + foo(n / r, r); else return 0; } What is foo(345, 10)?",
+    "work": "Each level adds the last digit and recurses on the number without it: 5 + foo(34,10) = 5 + 4 + foo(3,10) = 5 + 4 + 3 + foo(0,10) = 5 + 4 + 3 + 0.",
+    "answer": "12, the sum of the decimal digits of 345."
+   },
+   "gateAngle": "Sequence recursions are where the position of the print statement and the pass-by-value rule meet: 2005 Q.31 asks for both at once, and 2024 Set 1 Q.19 asks for the order alone. Both are answered by drawing the frames and marking which statement has run.",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2011 Q.48: the value of foo(345, 10).",
+     "answer": "12.",
+     "why": "One digit per level, added on the way back up."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "Write a recursive strlen for a NUL-terminated string and say what the base case is.",
+     "answer": "int len(const char *s) { return *s == '\\0' ? 0 : 1 + len(s + 1); } - the base case is the NUL character, and the depth equals the length of the string.",
+     "why": "The array and string form of the same linear recursion, with the length never needing to be passed."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why can a recursive function not find an array's length with sizeof?",
+     "answer": "Because a parameter declared int a[] is adjusted to int *a, so sizeof(a) inside the function is the size of a pointer. The array's size is known only where the array itself is in scope.",
+     "why": "The trap behind every 'recursion over an array' question that hands the callee an array and no length."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "In GATE CSE 2005 Q.31, what would be printed if the printf came before the recursive call?",
+     "answer": "8, 4, 0, 2 followed by 0 from main.",
+     "why": "The digits would come out on the descent, in the order they are peeled off, and main's sum would still be 0."
+    }
+   ],
+   "trap": {
+    "what": "Using sizeof inside a recursive function to bound the recursion over an array.",
+    "why": "The array parameter is a pointer, so sizeof gives 8 (on a 64-bit machine) or 4, not the number of elements. The recursion then walks off the end of the array or stops early, and the bound depends on the pointer size rather than the data.",
+    "counterexample": "void show(int a[]) { for (int i = 0; i < sizeof(a)/sizeof(a[0]); i++) printf(\"%d\", a[i]); } prints two elements on a 64-bit machine whatever the caller's array holds."
+   },
+   "check": {
+    "question": "int digits(int n) { return n < 10 ? 1 : 1 + digits(n / 10); } What is digits(2048), and how deep does it recurse?",
+    "answer": "4, with four activations.",
+    "explanation": "2048 -> 204 -> 20 -> 2 -> base case: four calls, one per decimal digit, and the count of digits is the depth."
+   },
+   "pyqIds": [
+    "gate-2011-48-digit-sum-recursion"
+   ],
+   "videoRefs": [],
+   "prereqs": [
+    "pointer-arithmetic-and-array-decay",
+    "strings-nul-termination",
+    "descent-and-unwinding-order"
+   ],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "Basic Recursion MCQs: 12 Solved C Questions with Step-by-Step Explanations",
+     "channel": "Knowledge Gate AI",
+     "url": "https://www.knowledgegate.ai/blog/basic-recursion-mcqs-solved-questions-with-explanations",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "the digit-sum recursion and the print-after-call order on a sequence"
+    },
+    {
+     "kind": "text",
+     "title": "C Recursion",
+     "channel": "GeeksforGeeks",
+     "url": "https://www.geeksforgeeks.org/c/c-recursion/",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "the frame-per-element structure of a recursion over a sequence, and its stack cost"
+    }
+   ],
+   "sourceLine": "The digit-sum recursion and the descent/unwinding order over a sequence: Knowledge Gate AI 'Basic Recursion MCQs' (English, read in part). Frame-per-element recursion and its stack cost: GeeksforGeeks 'C Recursion' (English, read in part). foo(345,10) = 12 and the digit counts are recomputed in scripts/validate.py.",
+   "links": {
+    "mock": {
+     "subject": "programming-data-structures",
+     "unit_slug": "recursion-and-call-stack",
+     "unit_name": "Recursion and the Call Stack",
+     "unit_number": 2,
+     "question_count": 40,
+     "subtopics": [
+      {
+       "label": "Base case and termination",
+       "questions": 10
+      },
+      {
+       "label": "Call stack and depth",
+       "questions": 10
+      },
+      {
+       "label": "Order of output",
+       "questions": 10
+      },
+      {
+       "label": "Counting calls",
+       "questions": 10
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/programming-data-structures/recursion-and-call-stack/gate_ds_mock_2_2026-10-31.html"
+    }
+   },
+   "subject": "programming-and-data-structures",
+   "topic": "recursion",
+   "path": "subjects/programming-and-data-structures/recursion/recursion-on-arrays-strings-and-digits.json"
+  },
+  {
+   "id": "deriving-a-recurrence-from-code",
+   "title": "Deriving a Recurrence from the Code",
+   "priority": "P2",
+   "order": 583,
+   "unit": "Recursion",
+   "quickIdea": "Write what one activation costs and how many smaller activations it starts. That equation answers both the count question and the complexity question.",
+   "remember": [
+    "Read the code as an equation: each branch of an if-chain is one line of the recurrence, and the base branch gives the boundary value.",
+    "GATE CSE 2026 Set 2 Q.51: func(start, end) sets length = end+1-start and then maps length mod 3 to 0 -> length-1, 1 -> length-1 plus one, 2 -> length-2. The returned value is 1 exactly when the starting length is 1 mod 3 and 0 otherwise, so the maximum over all legal arguments is 1.",
+    "A recurrence for a call count keeps a +1 for every activation; a recurrence for time keeps the work done in one activation, which may be O(1) or O(n). Writing one and solving the other is the classic error.",
+    "When two parameters move at different rates the recurrence is two-dimensional. In GATE CSE 2018 Q.45 x halves (ten levels) while y decrements (1023 values), and the answer is the product 10 x 1023.",
+    "Once the recurrence is right, either tabulate it - small arguments, exam-friendly arithmetic - or solve it with substitution or a recursion tree. The Master theorem applies only to the divide-and-conquer shape T(n) = aT(n/b) + f(n).",
+    "Every GATE recursion question of the last five years is answered by one of three moves: trace the order, count the activations, or evaluate the recurrence bottom-up."
+   ],
+   "example": {
+    "prompt": "int func(int start, int end) { int length = end+1-start; if ((length<1) || (start<0) || (end<0)) return 0; if (length%3==0) return func(start+1, end); else if (length%3==1) return 1 + func(start, end-1); else return func(start+2, end); } What is the largest value func can return?",
+    "work": "Write F(L) for the value when the length is L: F(0) = 0, F(1) = 1, F(2) = F(0) = 0, F(3) = F(2) = 0, F(4) = 1 + F(3) = 1, F(5) = F(3) = 0, F(6) = F(5) = 0, F(7) = 1 + F(6) = 1. After a 1 is collected the length moves to a value that is 0 or 2 mod 3, so a second 1 is never collected.",
+    "answer": "1, for example from func(0, 3)."
+   },
+   "gateAngle": "2026 Set 2 Q.51 is a recurrence question disguised as a trace: the three branches are three lines of a one-variable recurrence, and the answer follows from the table. Recognising that the length, not start or end, is the state is the whole difficulty.",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2026 Set 2 Q.51: the maximum value returned by func.",
+     "answer": "1.",
+     "why": "The single increment can be collected only once, because the branch after it changes the length mod 3 to 0 or 2."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "For the same func, what does func(0, 0) return, and why?",
+     "answer": "1: the length is 1, so the middle branch runs and returns 1 + func(0, -1), and that call returns 0 because end < 0.",
+     "why": "Shows that the base case can fire through the start < 0 or end < 0 test as well as through the length test."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why does the call-count recurrence for GATE CSE 2015 Set 3 Q.39 add 1 per activation while its time complexity is exponential?",
+     "answer": "Because the count and the cost measure different things. The count is the number of nodes in the call tree, which is 25 for n = 6; the cost is that same count multiplied by the constant work per activation, so both grow at the same rate here - exponential in n for large n.",
+     "why": "The two recurrences coincide for this function, which is why it is easy to confuse them; they diverge when one activation does O(n) work."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "A function recurses on n-1 and n-2 and prints once per activation. Write its recurrence and give the value for n = 5.",
+     "answer": "T(n) = 1 + T(n-1) + T(n-2) with T(0) = T(1) = 1, so T(2) = 3, T(3) = 5, T(4) = 9 and T(5) = 15.",
+     "why": "The same tabulation on the Fibonacci-shaped recurrence, which is the most likely twist on the 2015 question."
+    }
+   ],
+   "trap": {
+    "what": "Deriving the recurrence from the arguments as written rather than from the quantity the code actually recurses on.",
+    "why": "In 2026 Set 2 Q.51 the code passes start+1, end-1 or start+2, but the state that drives the recursion is the length end+1-start. A recurrence written in start and end is two-dimensional and hides the one-line pattern.",
+    "counterexample": "Writing F(start, end) for the 2026 Set 2 question gives three coupled branches; writing F(length) gives F(0)=0, F(1)=1, F(2)=F(0), which solves it in four lines."
+   },
+   "check": {
+    "question": "void p(int n) { if (n == 0) return; p(n-1); p(n-1); } Write the number of activations T(n) and give T(4).",
+    "answer": "T(0) = 1 and T(n) = 1 + 2T(n-1), so T(4) = 31.",
+    "explanation": "Each level doubles the calls below it and adds itself: T(1) = 3, T(2) = 7, T(3) = 15, T(4) = 31, which is 2^(n+1) - 1."
+   },
+   "pyqIds": [
+    "gate-2026-set2-51-length-mod-3-recursion"
+   ],
+   "videoRefs": [],
+   "prereqs": [
+    "counting-invocations-in-a-call-tree",
+    "recursion-depth-and-logarithmic-recursion"
+   ],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "C mein Programming, tatha Punaraavartan - chapter notes (Devanagari)",
+     "channel": "CareerCraft Labs",
+     "url": "https://careercraftlabs.org/hi/read/gate-pds-ch01",
+     "language": "hi",
+     "transcript": "PARTIAL",
+     "translated": true,
+     "note": "the instruction to build the call tree and read the redundancy from it, which is the counting method in the card - translated from Hindi"
+    },
+    {
+     "kind": "encyclopaedia",
+     "title": "Recursion (computer science)",
+     "channel": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Recursion_(computer_science)",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "the divide-and-conquer recurrence shape and the memoisation that turns it linear"
+    }
+   ],
+   "sourceLine": "Building the recursion tree and reading the cost from it: CareerCraft Labs 'C mein Programming, tatha Punaraavartan' (translated from Hindi, read in part). The divide-and-conquer shape and memoisation: Wikipedia 'Recursion (computer science)' (English, read in part). The func table, the maximum of 1 and the T(5) = 15 variation are recomputed in scripts/validate.py.",
+   "links": {
+    "mock": {
+     "subject": "programming-data-structures",
+     "unit_slug": "recursion-and-call-stack",
+     "unit_name": "Recursion and the Call Stack",
+     "unit_number": 2,
+     "question_count": 40,
+     "subtopics": [
+      {
+       "label": "Base case and termination",
+       "questions": 10
+      },
+      {
+       "label": "Call stack and depth",
+       "questions": 10
+      },
+      {
+       "label": "Order of output",
+       "questions": 10
+      },
+      {
+       "label": "Counting calls",
+       "questions": 10
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/programming-data-structures/recursion-and-call-stack/gate_ds_mock_2_2026-10-31.html"
+    }
+   },
+   "subject": "programming-and-data-structures",
+   "topic": "recursion",
+   "path": "subjects/programming-and-data-structures/recursion/deriving-a-recurrence-from-code.json"
   }
  ],
  "pyqs": [
@@ -45532,6 +46971,27 @@ window.GATE_DATA = {
    "answer_evidence": "The best answer on the page (56 votes) states option (A): 'user applications are not allowed to perform I/O in user mode - all I/O requests are handled through system calls that must be performed in kernel mode'. One answer argues for option (B) on the grounds that a hardware trap is raised for a device address range; the page's accepted answer and the reasoning above prefer (A), and the dissent is recorded rather than suppressed."
   },
   {
+   "id": "gate-2005-31-foo-2048-print-order",
+   "year": "2005",
+   "paper": "GATE CSE 2005",
+   "question_ref": "Q.31 of the GATE CSE 2005 paper (Q.31 on GATE Overflow)",
+   "type": "MCQ",
+   "topic": "descent-and-unwinding-order",
+   "text": "Consider the following C-program: void foo (int n, int sum) { int k = 0, j = 0; if (n == 0) return; k = n % 10; j = n/10; sum = sum + k; foo (j, sum); printf (\"%d,\",k); } int main() { int a = 2048, sum = 0; foo(a, sum); printf(\"%d\\n\", sum); } What does the above program print?",
+   "options": [
+    "8, 4, 0, 2, 14",
+    "8, 4, 0, 2, 0",
+    "2, 0, 4, 8, 14",
+    "2, 0, 4, 8, 0"
+   ],
+   "answer": "Option 4 - 2, 0, 4, 8, 0",
+   "solution": "The printf is after the recursive call, so the digits come out on the unwinding: the deepest call that prints is the one that held k = 2, then 0, then 4, then 8. That gives 2, 0, 4, 8, and then main prints its own sum. The additions happened in copies of the parameter, because C passes everything by value, so main's sum is still 0. The first two options print the digits in the wrong order and the third assumes the callee's sum reaches main.",
+   "source_url": "https://gateoverflow.in/1367/gate-cse-2005-question-31",
+   "source_label": "GATE Overflow question page - GATE CSE 2005 Q.31 with the accepted answer (option 4)",
+   "verification": "SOURCED",
+   "answer_evidence": "The GATE Overflow answers give option D and explain both halves: the post-call printf reverses the digits, and pass by value keeps main's sum at 0. The official key was not fetched, so the record stays SOURCED. The trace is reproduced in scripts/validate.py."
+  },
+  {
    "id": "gate-2005-32-prototype-implicit-declaration",
    "year": "2005",
    "paper": "GATE CSE 2005",
@@ -45637,6 +47097,27 @@ window.GATE_DATA = {
    "source_label": "GATE Overflow question page - GATE CSE 2005 Question 79 with the accepted answer of 3 cycles",
    "verification": "SOURCED",
    "answer_evidence": "The accepted answer on the GATE Overflow page lists the three execution micro-operations and gives 3, noting explicitly that 5 would be the answer for the instruction cycle rather than the execution cycle. The option letters are not stable: the GATE Overflow page prints the options as 5, 4, 3, 2 with 3 in position (B), while one listing prints them as 2, 3, 4, 5 with 3 in position (B) again but a different order, so the record gives the number of cycles and the letter together."
+  },
+  {
+   "id": "gate-2005-81a-recursive-space-complexity",
+   "year": "2005",
+   "paper": "GATE CSE 2005",
+   "question_ref": "Q.81(a) of the GATE CSE 2005 paper (filed as Q.81a on GATE Overflow, the first part of the two-part question 81)",
+   "type": "MCQ",
+   "topic": "call-stack-activation-records-and-depth",
+   "text": "double foo(int n) { int i; double sum; if(n == 0) { return 1.0; } else { sum = 0.0; for(i = 0; i < n; i++) { sum += foo(i); } return sum; } } The space complexity of the above code is?",
+   "options": [
+    "O(1)",
+    "O(n)",
+    "O(n!)",
+    "n^n"
+   ],
+   "answer": "Option 2 - O(n)",
+   "solution": "The calls in the loop are made one after another, not together: foo(n) calls foo(n-1), which returns before foo(n-2) starts. So the stack is never wider than the deepest chain, which is foo(n) -> foo(n-1) -> ... -> foo(0), that is n+1 frames. Each frame holds a fixed number of objects, so the space is O(n). The number of calls is exponential, but the space depends on the depth, not on the count.",
+   "source_url": "https://gateoverflow.in/1403/gate-cse-2005-question-81a",
+   "source_label": "GATE Overflow question page - GATE CSE 2005 Q.81(a) with the accepted answer (O(n))",
+   "verification": "SOURCED",
+   "answer_evidence": "The GATE Overflow answers choose O(n) and justify it by the maximum depth of the call chain, noting that the sibling calls are sequential. The official key was not fetched, so the record stays SOURCED. One answer also gives the time complexity as exponential, which is consistent: this question separates the two."
   },
   {
    "id": "gate-2005-q65-memory-cycles-indexed-indirect",
@@ -45998,6 +47479,27 @@ window.GATE_DATA = {
    "source_label": "GATE Overflow question page - GATE CSE 2011 Q.43 with the accepted answer (option D)",
    "verification": "SOURCED",
    "answer_evidence": "The GATE Overflow accepted answer gives 21 bits per entry times 256 entries, and a second answer derives the tag as 19 bits by counting main-memory blocks per cache line. The official key was not opened this run. Recomputed in scripts/validate.py."
+  },
+  {
+   "id": "gate-2011-48-digit-sum-recursion",
+   "year": "2011",
+   "paper": "GATE CSE 2011",
+   "question_ref": "Q.48 of the GATE CSE 2011 paper (Q.48 on GATE Overflow)",
+   "type": "MCQ",
+   "topic": "recursion-on-arrays-strings-and-digits",
+   "text": "Consider the following recursive C function that takes two arguments. unsigned int foo(unsigned int n, unsigned int r) { if (n>0) return ((n%r) + foo(n/r, r)); else return 0; } What is the return value of the function foo when it is called as foo(345, 10)?",
+   "options": [
+    "345",
+    "12",
+    "5",
+    "3"
+   ],
+   "answer": "Option 2 - 12",
+   "solution": "The call adds n%r and then recurses on n/r, so with r = 10 it adds the last decimal digit and drops it, one digit per level: foo(345,10) = 5 + foo(34,10) = 5 + 4 + foo(3,10) = 5 + 4 + 3 + foo(0,10) = 12. The base case at n = 0 returns 0, so the sum is the digit sum 3 + 4 + 5 = 12. The parameter r is not the radix of a conversion but the divisor, which is why the answer is a sum and not the number itself.",
+   "source_url": "https://gateoverflow.in/2154/gate-cse-2011-question-48",
+   "source_label": "GATE Overflow question page - GATE CSE 2011 Q.48 with the accepted answer (12)",
+   "verification": "SOURCED",
+   "answer_evidence": "The GATE Overflow answers give 12 and identify the function as the sum of the decimal digits of 345. The official key was not fetched, so the record stays SOURCED. The value is recomputed in scripts/validate.py."
   },
   {
    "id": "gate-2011-q21-base-indexed-mode",
@@ -46783,6 +48285,21 @@ window.GATE_DATA = {
    "answer_evidence": "So, answer C is not equivanet to $p \\iff q$ and is the answer."
   },
   {
+   "id": "gate-2015-set2-11-fun-return-value",
+   "year": "2015",
+   "paper": "GATE CSE 2015 Set 2",
+   "question_ref": "Q.11 on GATE Overflow (numbered 45 in ExamSIDE's 2015 Set 2 year page; both indexes were read and the disagreement is recorded rather than resolved)",
+   "type": "NAT",
+   "topic": "linear-tree-and-nested-recursion",
+   "text": "Consider the following C function. int fun(int n) { int x=1, k; if (n==1) return x; for (k=1; k<n; ++k) x = x + fun(k) * fun (n-k); return x; } The return value of fun(5) is _______.",
+   "answer": "51",
+   "solution": "Each activation loops k from 1 to n-1 and adds fun(k)*fun(n-k), so fun(n) = 1 + sum over k of fun(k)fun(n-k), with fun(1) = 1. Evaluate bottom-up because only smaller arguments are needed: fun(1) = 1; fun(2) = 1 + 1 = 2; fun(3) = 1 + 1x2 + 2x1 = 5; fun(4) = 1 + 1x5 + 2x2 + 5x1 = 15; fun(5) = 1 + 1x15 + 2x5 + 5x2 + 15x1 = 51. Expanding the call tree by hand is unnecessary and error-prone: every value is a function of the ones already computed.",
+   "source_url": "https://gateoverflow.in/8060/gate-cse-2015-set-2-question-11",
+   "source_label": "GATE Overflow question page - GATE CSE 2015 Set 2 Q.11 with several answers giving 51; gateqa and trygateai corroborate",
+   "verification": "SOURCED",
+   "answer_evidence": "The GATE Overflow answers tabulate fun(1)..fun(5) = 1, 2, 5, 15, 51 and one gives the closed recurrence with the summation; gateqa records the answer as 51. The official key was not fetched, so the record stays SOURCED. ExamSIDE's year page numbers this question 45 while GATE Overflow numbers it 11, and both numbers are recorded."
+  },
+  {
    "id": "gate-2015-set2-26-improper-integral-unbounded",
    "year": "2015",
    "paper": "GATE CS 2015 Set 2",
@@ -46939,6 +48456,27 @@ window.GATE_DATA = {
    "source_label": "GATE Overflow question page - GATE CSE 2015 Set 3 Q.33 with the accepted answer (C)",
    "verification": "SOURCED",
    "answer_evidence": "Accepted answer: 'for non-trivial solution |A| = 0 ... the only option where each individual condition can make |A| zero is C.'"
+  },
+  {
+   "id": "gate-2015-set3-39-get-invocations",
+   "year": "2015",
+   "paper": "GATE CSE 2015 Set 3",
+   "question_ref": "Q.39 of the GATE CSE 2015 Set 3 paper (Q.39 on GATE Overflow)",
+   "type": "MCQ",
+   "topic": "counting-invocations-in-a-call-tree",
+   "text": "Consider the following recursive C function. void get(int n) { if (n<1) return; get (n-1); get (n-3); printf(\"%d\", n); } If get(6) function is being called in main() then how many times will the get() function be invoked before returning to the main()?",
+   "options": [
+    "15",
+    "25",
+    "35",
+    "45"
+   ],
+   "answer": "Option 2 - 25",
+   "solution": "Count every activation, including the ones that return immediately: T(n) = 1 + T(n-1) + T(n-3) for n >= 1 and T(n) = 1 for n < 1, because a call with n < 1 is still an invocation. Then T(0) = 1, T(1) = 1 + 1 + 1 = 3, T(2) = 1 + 3 + 1 = 5, T(3) = 1 + 5 + 1 = 7, T(4) = 1 + 7 + 3 = 11, T(5) = 1 + 11 + 5 = 17, T(6) = 1 + 17 + 7 = 25. The 25 counts the call made from main; only 12 of those activations reach the printf, because the 13 calls with n < 1 return at the first line.",
+   "source_url": "https://gateoverflow.in/8498/gate-cse-2015-set-3-question-39",
+   "source_label": "GATE Overflow question page - GATE CSE 2015 Set 3 Q.39 with the accepted answer (option 2, 25)",
+   "verification": "SOURCED",
+   "answer_evidence": "The accepted answer builds the table T(0)..T(6) = 1, 3, 5, 7, 11, 17, 25 and notes that the call from main is included; another answer reaches 25 with T(n) = 1 + T(n-1) + T(n-3) directly. The official key was not fetched, so the record stays SOURCED. The count and the 12 prints were both reproduced here by executing the function."
   },
   {
    "id": "gate-2015-set3-45-functional-equation-then-integrate",
@@ -47755,6 +49293,21 @@ window.GATE_DATA = {
    "answer_evidence": "The GATE Overflow accepted answer derives P - N + log2 K; several answers on the same page show that writing the block offset as W instead of M produces option D and is the intended trap. The official key was not opened this run, so the record stays SOURCED. The identity is recomputed symbolically and numerically in scripts/validate.py."
   },
   {
+   "id": "gate-2018-45-count-print-stars",
+   "year": "2018",
+   "paper": "GATE CSE 2018",
+   "question_ref": "Q.45 of the GATE CSE 2018 paper (Q.45 on GATE Overflow)",
+   "type": "NAT",
+   "topic": "counting-invocations-in-a-call-tree",
+   "text": "Consider the following program written in pseudo-code. Assume that x and y are integers. Count (x, y) { if (y != 1 ) { if (x != 1) { print(\"*\"); Count (x/2, y); } else { y = y-1; Count (1024, y); } } } The number of times that the print statement is executed by the call Count(1024, 1024) is _____",
+   "answer": "10230",
+   "solution": "For a fixed y the first branch keeps halving x: 1024, 512, 256, 128, 64, 32, 16, 8, 4, 2 and then 1, and the star is printed on each of the ten calls that still have x != 1. When x reaches 1 the second branch decrements y and restarts from 1024. So each value of y from 1024 down to 2 contributes exactly ten stars, and there are 1023 such values: 10 x 1023 = 10230. The recursion also terminates, because y is 1 on the last level and the outer test fails.",
+   "source_url": "https://gateoverflow.in/204120/gate-cse-2018-question-45",
+   "source_label": "GATE Overflow question page - GATE CSE 2018 Q.45 with ten answers agreeing on 10230; Testbook's copy states it was asked in the GATE CS 2018 official paper",
+   "verification": "SOURCED",
+   "answer_evidence": "The accepted answers compute 10 stars per value of y times 1023 values; one gives the closed form log2(1024) x (1024 - 1) = 10230. The official key was not fetched, so the record stays SOURCED. The count was reproduced here by an explicit stack simulation, which also confirms that the recursion terminates."
+  },
+  {
    "id": "gate-2018-9-interrupt-event-order",
    "year": "2018",
    "paper": "GATE CS 2018",
@@ -47906,6 +49459,27 @@ window.GATE_DATA = {
    "source_label": "GATE Overflow question page - GATE CSE 2019 Q.2 with the accepted answer (option A)",
    "verification": "SOURCED",
    "answer_evidence": "The GATE Overflow accepted answer expands the five decoded bits and fills the other eleven with zeros and ones, and the GATE Forum 2019 paper PDF prints answer (A) beside the question. The official key document was not opened this run. Recomputed in scripts/validate.py."
+  },
+  {
+   "id": "gate-2019-26-convert-missing-base-case",
+   "year": "2019",
+   "paper": "GATE CSE 2019",
+   "question_ref": "Q.26 of the GATE CSE 2019 paper (Q.26 on GATE Overflow, and Q.26 in the paper itself)",
+   "type": "MCQ",
+   "topic": "termination-and-missing-base-cases",
+   "text": "Consider the following C function. void convert (int n ) { if (n<0) printf(\"%d\", n); else { convert(n/2); printf(\"%d\", n%2); } } Which one of the following will happen when the function convert is called with any positive integer n as argument?",
+   "options": [
+    "It will print the binary representation of n and terminate",
+    "It will print the binary representation of n in the reverse order and terminate",
+    "It will print the binary representation of n but will not terminate",
+    "It will not print anything and will not terminate"
+   ],
+   "answer": "Option 4 - it will not print anything and will not terminate",
+   "solution": "The base case tests n < 0, but the recursive argument is n/2 with integer division, which never becomes negative. From any positive n the argument walks down to 0 and then stays at 0, because 0/2 = 0: the call convert(0) calls convert(0) for ever. Because the printf sits after the recursive call, no digit is ever printed before the recursion is abandoned, so nothing is printed and the function never returns. Changing the test to n <= 0 would print the binary representation in the correct order (101 for 5).",
+   "source_url": "https://gateoverflow.in/302822/gate-cse-2019-question-26",
+   "source_label": "GATE Overflow question page - GATE CSE 2019 Q.26 with the accepted answer (option 4); the question is also reproduced in the 2019 paper PDF and in Testbook's copy, which notes that the GATE 2019 key is D",
+   "verification": "SOURCED",
+   "answer_evidence": "The GATE Overflow answers all conclude that the base case is never reached and nothing is printed; the paper text was read from the 2019 paper PDF hosted at gateexam.info, which confirms the options and the numbering. The official key document was not fetched, so the record stays SOURCED."
   },
   {
    "id": "gate-2019-27-static-for-loop-sequence",
@@ -48378,6 +49952,21 @@ window.GATE_DATA = {
    "source_label": "GATE Overflow question page - GATE CSE 2021 Set 2 Q.22, with community solutions and an accepted answer",
    "verification": "SOURCED",
    "answer_evidence": "GATE Overflow's accepted answer computes 240 and sqrt(240) = 15.49 and records the accepted range 15.00 to 16.00. An independent worked solution page records the official answer as 15.49 with a tolerance of 0.5."
+  },
+  {
+   "id": "gate-2021-set2-23-somefunction-gcd-subtraction",
+   "year": "2021",
+   "paper": "GATE CSE 2021 Set 2",
+   "question_ref": "Q.23 on GATE Overflow (a numerical question in the 2021 Set 2 paper)",
+   "type": "NAT",
+   "topic": "recursion-depth-and-logarithmic-recursion",
+   "text": "Consider the following ANSI C function: int SomeFunction (int x, int y) { if ((x==1) || (y==1)) return 1; if (x==y) return x; if (x > y) return SomeFunction(x-y, y); if (y > x) return SomeFunction (x, y-x); } The value returned by SomeFunction(15, 255) is __________",
+   "answer": "15",
+   "solution": "The function subtracts the smaller argument from the larger until the two are equal and returns that common value, which is the greatest common divisor by repeated subtraction. Starting from (15, 255) the second argument falls by 15 at a time: (15,240), (15,225), ... , (15,15). Sixteen calls are made, the sixteenth reaches x == y and returns 15. Since 255 = 15 x 17, the subtraction never skips past 15.",
+   "source_url": "https://gateoverflow.in/357517/gate-cse-2021-set-2-question-23",
+   "source_label": "GATE Overflow question page - GATE CSE 2021 Set 2 Q.23 with six answers all giving 15",
+   "verification": "SOURCED",
+   "answer_evidence": "Every answer on the page identifies the function as Euclid's algorithm by repeated subtraction and returns gcd(15, 255) = 15; one counts the sixteen calls explicitly. The official key was not fetched, so the record stays SOURCED. This is the linear-depth twin of the halving recursion in the same card: the same gcd by division would need only a logarithmic number of calls."
   },
   {
    "id": "gate-2021-set2-24-rank-from-nullity",
@@ -49013,6 +50602,28 @@ window.GATE_DATA = {
    "source_label": "GeeksforGeeks question page - GATE CS 2024 Set 1, COA, I/O Interface (DMA/Interrupt mode), question 55",
    "verification": "SOURCED",
    "answer_evidence": "The question and its four options are published on the GeeksforGeeks page, and the GATE CSE 2024 Set 1 question set that indexes it records (C) as the answer. Recomputed here: 2022 Q.17 and the NPTEL interrupt lecture both establish that programmed I/O is the worst of the three on CPU utilisation, so (C) is the false statement."
+  },
+  {
+   "id": "gate-2024-set1-19-fx-getchar-reverse",
+   "year": "2024",
+   "paper": "GATE CSE 2024 Set 1",
+   "question_ref": "Q.19 of the GATE CSE 2024 Set 1 paper as numbered by ExamSIDE and gateiit; the same question is filed as 'Question 9' in GATE Overflow's 2024 Set 1 index",
+   "type": "MCQ",
+   "marks": "1",
+   "topic": "descent-and-unwinding-order",
+   "text": "Consider the following C program: #include <stdio.h> void fX(); int main(){ fX(); return 0; } void fX(){ char a; if ((a = getchar()) != '\\n') fX(); if (a != '\\n') putchar(a); } Assume that the input to the program from the command line is 1234 followed by a newline character. Which one of the following statements is CORRECT?",
+   "options": [
+    "The program will not terminate",
+    "The program will terminate with no output",
+    "The program will terminate with 4321 as output",
+    "The program will terminate with 1234 as output"
+   ],
+   "answer": "Option 3 - the program will terminate with 4321 as output",
+   "solution": "Each call reads one character into its own local a and then recurses, so the calls nest five deep: '1', '2', '3', '4', then the call that reads the newline. That fifth call fails both tests and returns without printing. The frame that read '4' now runs its second if and prints '4', then the frame that read '3' prints '3', and so on, so the output is 4321. The local a of each frame still holds its character, which is exactly why the order reverses.",
+   "source_url": "https://gateoverflow.in/422833/gate-cse-2024-set-1-question-9",
+   "source_label": "GATE Overflow question page - GATE CSE 2024 Set 1 (filed as Question 9) with the accepted answer 4321; ExamSIDE, gateiit and trygateai all give option C with the same trace",
+   "verification": "SOURCED",
+   "answer_evidence": "The GATE Overflow answer states that the characters are printed in reverse order as the recursion unwinds; gateiit labels the answer 'C (official GATE 2024 final answer key)'. The official key itself was not fetched this run, so the record stays SOURCED. The question number differs between indexes and both are recorded rather than one being chosen silently."
   },
   {
    "id": "gate-2024-set1-2-product-of-eigenvalues",
@@ -49995,6 +51606,22 @@ window.GATE_DATA = {
    "answer_evidence": "Two answers on the question page compute 51/12 = 4.25, one by the PMF sum and one by expanding to a twelve-point equally likely sample; a third records the accepted range 4.24 to 4.26. Recomputed here."
   },
   {
+   "id": "gate-2026-set1-51-iterated-log-bar-foo",
+   "year": "2026",
+   "paper": "GATE CSE 2026 Set 1",
+   "question_ref": "Q.51 on GATE Overflow (a two-mark numerical question in the 2026 Set 1 paper)",
+   "type": "NAT",
+   "marks": "2",
+   "topic": "recursion-depth-and-logarithmic-recursion",
+   "text": "Consider the recursive functions represented by the following code segment: int bar(int n) { if (n == 1) return 0; else return 1 + bar(n/2); } int foo(int n) { if (n == 1) return 1; else return 1 + foo(bar(n)); } The smallest positive integer n for which foo(n) returns 5 is _____. (answer in integer) Note: Ignore syntax errors (if any) in the function.",
+   "answer": "65536",
+   "solution": "bar(n) is 0 at n = 1 and otherwise adds one after halving, so bar(n) = floor(log2 n): bar(2) = 1, bar(4) = 2, bar(16) = 4, bar(65536) = 16. foo(1) = 1, and for n > 1 foo(n) = 1 + foo(bar(n)). So each application of foo spends one halving and the chain must reach 1 in exactly four steps: foo(65536) = 1 + foo(16) = 2 + foo(4) = 3 + foo(2) = 4 + foo(1) = 5. Nothing smaller works: foo(256) = 1 + foo(8) = 2 + foo(3) = 3 + foo(1) = 4, because 2^16 = 65536 is the smallest n whose fourth iterated base-2 logarithm is 1.",
+   "source_url": "https://gateoverflow.in/523029/gate-cse-2026-set-1-question-51",
+   "source_label": "GATE Overflow question page - GATE CSE 2026 Set 1 Q.51 with the accepted answer (65536); corroborated by ExamSIDE's 2026 Set 1 page and by pyqbox",
+   "verification": "SOURCED",
+   "answer_evidence": "The GATE Overflow accepted answer derives bar(n) = floor(log2 n) and concludes n = 2^16 = 65536; ExamSIDE's year page states 'Correct answer is 65536'. The official 2026 paper and key were not fetched this run, so the record stays SOURCED. The code as printed tests n == 1 in foo while one GATE Overflow answer transcribes it as n == 0; the 65536 answer is consistent with the printed version, which is what is recorded here."
+  },
+  {
    "id": "gate-2026-set1-q38-minimal-sop-msq",
    "year": "2026",
    "paper": "GATE CS 2026 Set 1",
@@ -50093,6 +51720,22 @@ window.GATE_DATA = {
    "source_label": "GATE Overflow question page - GATE CSE 2026 Set 2 Q.4 with the accepted answer (option B)",
    "verification": "SOURCED",
    "answer_evidence": "The accepted answer eliminates the exponential and uniform families by their supports and the Poisson by discreteness, and reads mu = 0, variance = 9 from the exponent; a second answer on the page does the same. Recomputed here by integrating the density numerically."
+  },
+  {
+   "id": "gate-2026-set2-51-length-mod-3-recursion",
+   "year": "2026",
+   "paper": "GATE CSE 2026 Set 2",
+   "question_ref": "Q.51 on GATE Overflow (a two-mark numerical question in the 2026 Set 2 paper)",
+   "type": "NAT",
+   "marks": "2",
+   "topic": "deriving-a-recurrence-from-code",
+   "text": "Consider the following ANSI-C function. int func(int start, int end){ int length=end+1-start; if((length<1)||(start<0)||(end<0)){ return(0); } if(length%3==0){ return(func(start+1, end)); }else if(length%3==1){ return(1+func(start, end-1)); }else { return(func(start+2, end)); } } The maximum possible value that can be returned from this function is _____. (answer in integer) Note: Ignore syntax errors (if any) in the function.",
+   "answer": "1",
+   "solution": "Only the middle branch adds anything, and it adds exactly 1. Write F(L) for the value returned when the length is L and the parameters are legal: L mod 3 = 0 returns F(L-1); L mod 3 = 1 returns 1 + F(L-1); L mod 3 = 2 returns F(L-2). So F(0) = 0, F(1) = 1, F(2) = F(0) = 0, F(3) = F(2) = 0, F(4) = 1 + F(3) = 1, F(5) = F(3) = 0, F(6) = F(5) = 0, F(7) = 1 + F(6) = 1. The value is 1 when the starting length is 1 mod 3 and 0 otherwise, and the 1 is collected only once because the branch after it always moves to a length that is 0 or 2 mod 3. Hence the maximum over every legal pair is 1, reached for example by func(0, 3), where the length is 4.",
+   "source_url": "https://gateoverflow.in/523095/gate-cse-2026-set-2-question-51",
+   "source_label": "GATE Overflow question page - GATE CSE 2026 Set 2 Q.51 with the accepted answer (1), four independent answers agreeing",
+   "verification": "SOURCED",
+   "answer_evidence": "Several GATE Overflow answers reduce the function to 'return 1 if length mod 3 == 1, else 0' and give the answer 1, one of them working func(0,3) step by step; pyqbox lists the same question. The official 2026 key was not fetched, so the record stays SOURCED. The value 1 was also confirmed here by exhaustive evaluation over all start and end in 0..40."
   },
   {
    "id": "gate-2026-set2-52-det-2a",
